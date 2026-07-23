@@ -1,10 +1,10 @@
 /*
- * XREFs of PopDiagTraceDripsHistogram @ 0x140429A14
+ * XREFs of PopDiagTraceDripsHistogram @ 0x140423A68
  * Callers:
- *     PpmSnapDripsAccountingSnapshot @ 0x140429390 (PpmSnapDripsAccountingSnapshot.c)
+ *     PpmSnapDripsAccountingSnapshot @ 0x14042391C (PpmSnapDripsAccountingSnapshot.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212E30 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212F10 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 int __fastcall PopDiagTraceDripsHistogram(__int64 a1, unsigned __int64 a2, __int64 a3, __int64 a4, _QWORD *a5)
@@ -70,7 +70,7 @@ int __fastcall PopDiagTraceDripsHistogram(__int64 a1, unsigned __int64 a2, __int
     v9 = v6;
     if ( (_BYTE)v6 )
     {
-      v11 = &unk_140FBE758;
+      v11 = &unk_140FBF758;
       v12 = 0;
       v13 = 26LL;
       do
@@ -95,10 +95,10 @@ int __fastcall PopDiagTraceDripsHistogram(__int64 a1, unsigned __int64 a2, __int
         --v15;
       }
       while ( v15 );
-      if ( (unsigned int)dword_140E07598 > 5 && (qword_140E075A8 & 0x400000000000LL) != 0 )
+      if ( (unsigned int)dword_140E07560 > 5 && (qword_140E07570 & 0x400000000000LL) != 0 )
       {
         LODWORD(v6) = 0;
-        if ( (qword_140E075B0 & 0x400000000000LL) == qword_140E075B0 )
+        if ( (qword_140E07578 & 0x400000000000LL) == qword_140E07578 )
         {
           v23 = a1;
           v35 = &v23;
@@ -122,8 +122,8 @@ int __fastcall PopDiagTraceDripsHistogram(__int64 a1, unsigned __int64 a2, __int
           v46 = 1LL;
           v48 = 1LL;
           LODWORD(v6) = tlgWriteTransfer_EtwWriteTransfer(
-                          (__int64)&dword_140E07598,
-                          (unsigned __int8 *)&word_14004C0B6,
+                          (__int64)&dword_140E07560,
+                          (unsigned __int8 *)byte_14004C4BB,
                           0LL,
                           0LL,
                           9u,

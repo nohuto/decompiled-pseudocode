@@ -1,13 +1,13 @@
 /*
- * XREFs of ViAllocateMapRegistersFromFile @ 0x140B880B8
+ * XREFs of ViAllocateMapRegistersFromFile @ 0x140B8A0B8
  * Callers:
- *     ViMapDoubleBuffer @ 0x140B89650 (ViMapDoubleBuffer.c)
+ *     ViMapDoubleBuffer @ 0x140B8B650 (ViMapDoubleBuffer.c)
  * Callees:
- *     KeReleaseSpinLock @ 0x14024DD30 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140254B20 (KeAcquireSpinLockRaiseToDpc.c)
- *     VfReportIssueWithOptions @ 0x140612434 (VfReportIssueWithOptions.c)
- *     ViHalPreprocessOptions @ 0x140B8921C (ViHalPreprocessOptions.c)
- *     ViTagBuffer @ 0x140B89F14 (ViTagBuffer.c)
+ *     KeReleaseSpinLock @ 0x14027E340 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140285130 (KeAcquireSpinLockRaiseToDpc.c)
+ *     VfReportIssueWithOptions @ 0x1406109F4 (VfReportIssueWithOptions.c)
+ *     ViHalPreprocessOptions @ 0x140B8B21C (ViHalPreprocessOptions.c)
+ *     ViTagBuffer @ 0x140B8BF14 (ViTagBuffer.c)
  */
 
 __int64 __fastcall ViAllocateMapRegistersFromFile(__int64 a1, ULONG_PTR a2, unsigned int a3, char a4, _DWORD *a5)
@@ -66,12 +66,12 @@ __int64 __fastcall ViAllocateMapRegistersFromFile(__int64 a1, ULONG_PTR a2, unsi
         if ( *v14 && v17 >= v9 && v17 < (unsigned __int64)v16 )
         {
           ViHalPreprocessOptions(
-            byte_140E0E9A0,
+            byte_140E0EA3C,
             "Driver is trying to map an address range(%p-%p) that is already mapped    at %p",
             (const void *)0x1D,
             (const void *)v9,
             v16);
-          VfReportIssueWithOptions(0xE6u, 0x1DuLL, v9, (ULONG_PTR)v16, *v14, byte_140E0E9A0);
+          VfReportIssueWithOptions(0xE6u, 0x1DuLL, v9, (ULONG_PTR)v16, *v14, byte_140E0EA3C);
         }
         v14 += 4;
       }
@@ -86,8 +86,8 @@ __int64 __fastcall ViAllocateMapRegistersFromFile(__int64 a1, ULONG_PTR a2, unsi
   {
     if ( v10 == *(_DWORD *)(v7 + 28) )
     {
-      ViHalPreprocessOptions(byte_140E0E99C, "Map registers needed: %x available: %x", 0x10000000, 2);
-      VfReportIssueWithOptions(0xE6u, 0LL, 2uLL, (unsigned int)v12, v11, byte_140E0E99C);
+      ViHalPreprocessOptions(byte_140E0EA40, "Map registers needed: %x available: %x", 0x10000000, 2);
+      VfReportIssueWithOptions(0xE6u, 0LL, 2uLL, (unsigned int)v12, v11, byte_140E0EA40);
       goto LABEL_28;
     }
     v19 = *v6;

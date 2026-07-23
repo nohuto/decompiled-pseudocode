@@ -1,11 +1,11 @@
 /*
- * XREFs of PnpTraceDeviceRemoveProcessVeto @ 0x140649040
+ * XREFs of PnpTraceDeviceRemoveProcessVeto @ 0x140649124
  * Callers:
- *     PnpLogVetoInformation @ 0x140642AE0 (PnpLogVetoInformation.c)
+ *     PnpLogVetoInformation @ 0x140642BC4 (PnpLogVetoInformation.c)
  * Callees:
- *     _TlgWrite @ 0x14000A598 (_TlgWrite.c)
- *     _TlgKeywordOn @ 0x140088D98 (_TlgKeywordOn.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
+ *     _TlgWrite @ 0x14000A118 (_TlgWrite.c)
+ *     _TlgKeywordOn @ 0x14010CF88 (_TlgKeywordOn.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
  */
 
 void PnpTraceDeviceRemoveProcessVeto()
@@ -46,7 +46,7 @@ void PnpTraceDeviceRemoveProcessVeto()
       v11[1] = 0;
       v13 = 2LL;
       v15[1] = 0;
-      TlgWrite(&stru_1402F3230, &unk_14027BE35, 0LL, 0LL, 8u, &pData);
+      TlgWrite(&stru_1402F3230, &unk_14027BF35, 0LL, 0LL, 8u, &pData);
     }
   }
 }

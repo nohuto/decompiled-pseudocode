@@ -1,11 +1,11 @@
 /*
- * XREFs of ExpPartitionCreatePool @ 0x1408494F8
+ * XREFs of ExpPartitionCreatePool @ 0x1408497F8
  * Callers:
- *     SmFirstTimeInit @ 0x1407B7D14 (SmFirstTimeInit.c)
+ *     SmFirstTimeInit @ 0x1407B7FF4 (SmFirstTimeInit.c)
  * Callees:
- *     KeSetEvent @ 0x14023C5E0 (KeSetEvent.c)
- *     KeGetCurrentNode @ 0x1403A5514 (KeGetCurrentNode.c)
- *     ExpPartitionCreatePoolInternal @ 0x1408497C0 (ExpPartitionCreatePoolInternal.c)
+ *     KeSetEvent @ 0x14023C6B0 (KeSetEvent.c)
+ *     KeGetCurrentNode @ 0x1403A56F4 (KeGetCurrentNode.c)
+ *     ExpPartitionCreatePoolInternal @ 0x140849AC0 (ExpPartitionCreatePoolInternal.c)
  */
 
 __int64 __fastcall ExpPartitionCreatePool(__int64 a1, __int64 a2, __int64 a3, unsigned int *a4)

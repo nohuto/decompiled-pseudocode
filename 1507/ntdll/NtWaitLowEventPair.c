@@ -6,11 +6,11 @@
  *     <none>
  */
 
-__int64 NtWaitLowEventPair()
+NTSTATUS __cdecl NtWaitLowEventPair(HANDLE EventPairHandle)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 440LL;
+  result = 440;
   __asm { syscall; Low latency system call }
   return result;
 }

@@ -1,25 +1,25 @@
 /*
- * XREFs of SdbpSearchDB @ 0x140484F3C
+ * XREFs of SdbpSearchDB @ 0x1405142C4
  * Callers:
- *     SdbGetDatabaseMatch @ 0x14049D418 (SdbGetDatabaseMatch.c)
+ *     SdbGetDatabaseMatch @ 0x140515544 (SdbGetDatabaseMatch.c)
  * Callees:
- *     memset @ 0x1401715C0 (memset.c)
- *     SdbpFindFirstIndexedWildCardTag @ 0x140484948 (SdbpFindFirstIndexedWildCardTag.c)
- *     SdbFindFirstStringIndexedTag @ 0x140484C74 (SdbFindFirstStringIndexedTag.c)
- *     SdbGetIndex @ 0x140485058 (SdbGetIndex.c)
- *     SdbFindFirstTag @ 0x1405049C4 (SdbFindFirstTag.c)
- *     SdbGetStringTagPtr @ 0x140573D10 (SdbGetStringTagPtr.c)
- *     SdbpCheckExe @ 0x1406C1F3C (SdbpCheckExe.c)
- *     SdbFindFirstNamedTag @ 0x1406C3D74 (SdbFindFirstNamedTag.c)
- *     SdbpFindNextNamedTag @ 0x1406C3E38 (SdbpFindNextNamedTag.c)
- *     SdbFindNextStringIndexedTag @ 0x1406C4F78 (SdbFindNextStringIndexedTag.c)
- *     SdbpFindNextIndexedWildCardTag @ 0x1406C4FB0 (SdbpFindNextIndexedWildCardTag.c)
- *     AslLogCallPrintf @ 0x1406C5804 (AslLogCallPrintf.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     SdbFindFirstTag @ 0x1404E7954 (SdbFindFirstTag.c)
+ *     SdbpFindFirstIndexedWildCardTag @ 0x140513CD0 (SdbpFindFirstIndexedWildCardTag.c)
+ *     SdbFindFirstStringIndexedTag @ 0x140513FFC (SdbFindFirstStringIndexedTag.c)
+ *     SdbGetIndex @ 0x1405143E0 (SdbGetIndex.c)
+ *     SdbGetStringTagPtr @ 0x140574250 (SdbGetStringTagPtr.c)
+ *     SdbpCheckExe @ 0x1406C2074 (SdbpCheckExe.c)
+ *     SdbFindFirstNamedTag @ 0x1406C3EAC (SdbFindFirstNamedTag.c)
+ *     SdbpFindNextNamedTag @ 0x1406C3F70 (SdbpFindNextNamedTag.c)
+ *     SdbFindNextStringIndexedTag @ 0x1406C50B0 (SdbFindNextStringIndexedTag.c)
+ *     SdbpFindNextIndexedWildCardTag @ 0x1406C50E8 (SdbpFindNextIndexedWildCardTag.c)
+ *     AslLogCallPrintf @ 0x1406C593C (AslLogCallPrintf.c)
  */
 
-__int64 __fastcall SdbpSearchDB(int a1, __int64 a2, __int64 a3, __int64 a4, unsigned int *a5, int a6)
+__int64 __fastcall SdbpSearchDB(int a1, __int64 a2, __int64 a3, __int64 a4, _DWORD *a5, int a6)
 {
-  unsigned int *v6; // r12
+  _DWORD *v6; // r12
   unsigned int v9; // edi
   WCHAR *Str1; // rsi
   __int64 v12; // r8
@@ -83,7 +83,7 @@ __int64 __fastcall SdbpSearchDB(int a1, __int64 a2, __int64 a3, __int64 a4, unsi
   else
   {
     v14 = 0;
-    FirstTag = SdbFindFirstTag(a2, 0LL, 28673LL);
+    FirstTag = SdbFindFirstTag(a2, 0, 28673);
     a6 = FirstTag;
     if ( !FirstTag )
     {
@@ -127,7 +127,7 @@ LABEL_23:
     goto LABEL_38;
   }
   v26 = 0;
-  a6 = SdbFindFirstTag(a2, 0LL, 28673LL);
+  a6 = SdbFindFirstTag(a2, 0, 28673);
   if ( a6 )
   {
     v23 = 2927;
@@ -186,7 +186,7 @@ LABEL_11:
     v19 = v13;
     do
     {
-      v33 = SdbFindFirstTag(a2, *v6, 24582LL);
+      v33 = SdbFindFirstTag(a2, *v6, 24582);
       if ( v33 )
         SdbGetStringTagPtr(a2, v33);
       v6 += 2;

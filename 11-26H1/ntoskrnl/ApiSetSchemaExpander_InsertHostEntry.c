@@ -1,11 +1,11 @@
 /*
- * XREFs of ApiSetSchemaExpander_InsertHostEntry @ 0x1406DBA5C
+ * XREFs of ApiSetSchemaExpander_InsertHostEntry @ 0x1406DFCF4
  * Callers:
- *     ApiSetCompose_ProcessV7Extension_Phase1 @ 0x1406DAAC4 (ApiSetCompose_ProcessV7Extension_Phase1.c)
- *     ApiSetCompose_V7_ProcessV6Extension_Phase1 @ 0x1406DBF60 (ApiSetCompose_V7_ProcessV6Extension_Phase1.c)
+ *     ApiSetCompose_ProcessV7Extension_Phase1 @ 0x1406DEC64 (ApiSetCompose_ProcessV7Extension_Phase1.c)
+ *     ApiSetCompose_V7_ProcessV6Extension_Phase1 @ 0x1406E01F8 (ApiSetCompose_V7_ProcessV6Extension_Phase1.c)
  * Callees:
- *     ApiSetpInsertHashEntry @ 0x1406DC4F0 (ApiSetpInsertHashEntry.c)
- *     memmove @ 0x14073D480 (memmove.c)
+ *     ApiSetpInsertHashEntry @ 0x1406E0788 (ApiSetpInsertHashEntry.c)
+ *     memmove @ 0x140742080 (memmove.c)
  */
 
 __int64 __fastcall ApiSetSchemaExpander_InsertHostEntry(__int64 a1, __int64 a2, _WORD *a3)

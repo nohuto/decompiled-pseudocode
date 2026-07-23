@@ -1,15 +1,15 @@
 /*
- * XREFs of SdbReadEntryInformation @ 0x1408822F8
+ * XREFs of SdbReadEntryInformation @ 0x1408886F8
  * Callers:
- *     PiIsDriverBlocked @ 0x140A250AC (PiIsDriverBlocked.c)
+ *     PiIsDriverBlocked @ 0x140A3814C (PiIsDriverBlocked.c)
  * Callees:
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     SdbTagRefToTagID @ 0x140885C68 (SdbTagRefToTagID.c)
- *     SdbGetDatabaseID @ 0x1409E3B6C (SdbGetDatabaseID.c)
- *     SdbReadBinaryTag @ 0x1409E3C80 (SdbReadBinaryTag.c)
- *     SdbFindFirstTag @ 0x1409E8510 (SdbFindFirstTag.c)
- *     AslLogCallPrintf @ 0x1409E8884 (AslLogCallPrintf.c)
- *     SdbGetEntryFlags @ 0x140B4AD10 (SdbGetEntryFlags.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     SdbTagRefToTagID @ 0x14088C068 (SdbTagRefToTagID.c)
+ *     SdbFindFirstTag @ 0x1409D4F20 (SdbFindFirstTag.c)
+ *     AslLogCallPrintf @ 0x1409D5294 (AslLogCallPrintf.c)
+ *     SdbGetDatabaseID @ 0x1409D6BEC (SdbGetDatabaseID.c)
+ *     SdbReadBinaryTag @ 0x1409D78C8 (SdbReadBinaryTag.c)
+ *     SdbGetEntryFlags @ 0x140B4CAA0 (SdbGetEntryFlags.c)
  */
 
 __int64 __fastcall SdbReadEntryInformation(__int64 a1, __int64 a2, __int64 a3)

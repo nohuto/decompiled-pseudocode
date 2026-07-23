@@ -13,7 +13,7 @@ __int64 __fastcall KeAbEntryFree(__int64 a1, __int64 a2, _DWORD *a3)
 
   *(_BYTE *)(a1 + 32) |= 2u;
   if ( *(__int64 *)(a1 + 32) < 0 )
-    KiAbEntryRemoveFromTree();
+    KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)a1);
   result = *(_DWORD *)(a1 + 88) & 0x1FFFF;
   v6 = *(_DWORD *)(a1 + 88) & 0xFFFE0000;
   *(_BYTE *)(a1 + 25) &= ~1u;

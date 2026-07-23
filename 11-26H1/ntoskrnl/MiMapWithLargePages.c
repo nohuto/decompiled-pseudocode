@@ -1,21 +1,21 @@
 /*
- * XREFs of MiMapWithLargePages @ 0x1402A2694
+ * XREFs of MiMapWithLargePages @ 0x1402A1BE4
  * Callers:
- *     MiMapContiguousMemoryLarge @ 0x1402A29AC (MiMapContiguousMemoryLarge.c)
- *     MiInsertInSystemSpace @ 0x1404EDA44 (MiInsertInSystemSpace.c)
+ *     MiMapContiguousMemoryLarge @ 0x1402A1EFC (MiMapContiguousMemoryLarge.c)
+ *     MiInsertInSystemSpace @ 0x1404E7024 (MiInsertInSystemSpace.c)
  * Callees:
- *     MiLockWorkingSetExclusive @ 0x14027E5A0 (MiLockWorkingSetExclusive.c)
- *     MiUnlockWorkingSetExclusive @ 0x14027E758 (MiUnlockWorkingSetExclusive.c)
- *     MiWriteLargePte @ 0x1402A10E0 (MiWriteLargePte.c)
- *     MiFinishPageTableForLargePage @ 0x1402A254C (MiFinishPageTableForLargePage.c)
- *     MiLockPageTableInternal @ 0x1402B34E0 (MiLockPageTableInternal.c)
- *     MiMakeValidPte @ 0x1402DA020 (MiMakeValidPte.c)
- *     MiUnlockWorkingSetShared @ 0x1402EB6C0 (MiUnlockWorkingSetShared.c)
- *     MiLockWorkingSetShared @ 0x1402EDD60 (MiLockWorkingSetShared.c)
- *     MiReadPteShadow @ 0x140314FF0 (MiReadPteShadow.c)
- *     MiLockWorkingSetSharedAtDpc @ 0x1403654E4 (MiLockWorkingSetSharedAtDpc.c)
- *     MiGetLargePteAddress @ 0x14043AB90 (MiGetLargePteAddress.c)
- *     MiLockWorkingSetExclusiveAtDpc @ 0x1404C31C0 (MiLockWorkingSetExclusiveAtDpc.c)
+ *     MiLockWorkingSetExclusive @ 0x14027DB10 (MiLockWorkingSetExclusive.c)
+ *     MiUnlockWorkingSetExclusive @ 0x14027DCC8 (MiUnlockWorkingSetExclusive.c)
+ *     MiWriteLargePte @ 0x1402A0630 (MiWriteLargePte.c)
+ *     MiFinishPageTableForLargePage @ 0x1402A1A9C (MiFinishPageTableForLargePage.c)
+ *     MiMakeValidPte @ 0x1402BBDE0 (MiMakeValidPte.c)
+ *     MiUnlockWorkingSetShared @ 0x1402CD700 (MiUnlockWorkingSetShared.c)
+ *     MiLockWorkingSetShared @ 0x1402CFDE0 (MiLockWorkingSetShared.c)
+ *     MiLockPageTableInternal @ 0x1402FE1B0 (MiLockPageTableInternal.c)
+ *     MiReadPteShadow @ 0x140317020 (MiReadPteShadow.c)
+ *     MiLockWorkingSetSharedAtDpc @ 0x140367284 (MiLockWorkingSetSharedAtDpc.c)
+ *     MiGetLargePteAddress @ 0x14042D440 (MiGetLargePteAddress.c)
+ *     MiLockWorkingSetExclusiveAtDpc @ 0x1404BCA10 (MiLockWorkingSetExclusiveAtDpc.c)
  */
 
 void __fastcall MiMapWithLargePages(
@@ -64,7 +64,7 @@ void __fastcall MiMapWithLargePages(
   v13 = a4 >> v10 << v10;
   v37 = MiPageSizes[a5];
   v14 = ((a2 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
-  if ( a3 <= qword_140E2D7A0 && ((*(_QWORD *)(48 * a3 - 0x21FFFFFFFFD8LL) >> 54) & 1) != 0 )
+  if ( a3 <= qword_140E2D920 && ((*(_QWORD *)(48 * a3 - 0x21FFFFFFFFD8LL) >> 54) & 1) != 0 )
   {
     if ( (*(_DWORD *)(48 * a3 - 0x21FFFFFFFFE0LL) & 0xC00000) == 0 )
     {

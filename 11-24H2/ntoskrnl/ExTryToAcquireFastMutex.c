@@ -1,18 +1,18 @@
 /*
- * XREFs of ExTryToAcquireFastMutex @ 0x140445730
+ * XREFs of ExTryToAcquireFastMutex @ 0x14043D8E0
  * Callers:
- *     FsRtlTryToAcquireHeaderMutex @ 0x1404456D0 (FsRtlTryToAcquireHeaderMutex.c)
- *     KeTryToAcquireGuardedMutex @ 0x140445710 (KeTryToAcquireGuardedMutex.c)
- *     DifExTryToAcquireFastMutexWrapper @ 0x140621240 (DifExTryToAcquireFastMutexWrapper.c)
- *     DifKeTryToAcquireGuardedMutexWrapper @ 0x140630F30 (DifKeTryToAcquireGuardedMutexWrapper.c)
- *     RawScanDeletedList @ 0x1409A4080 (RawScanDeletedList.c)
- *     PopFlushVolumeBlameResolverCallback @ 0x140B5F330 (PopFlushVolumeBlameResolverCallback.c)
- *     CreateMiniNtBootKey @ 0x140C0A220 (CreateMiniNtBootKey.c)
+ *     FsRtlTryToAcquireHeaderMutex @ 0x14043D880 (FsRtlTryToAcquireHeaderMutex.c)
+ *     KeTryToAcquireGuardedMutex @ 0x14043D8C0 (KeTryToAcquireGuardedMutex.c)
+ *     DifExTryToAcquireFastMutexWrapper @ 0x14061F800 (DifExTryToAcquireFastMutexWrapper.c)
+ *     DifKeTryToAcquireGuardedMutexWrapper @ 0x14062F4F0 (DifKeTryToAcquireGuardedMutexWrapper.c)
+ *     RawScanDeletedList @ 0x1408ACE04 (RawScanDeletedList.c)
+ *     PopFlushVolumeBlameResolverCallback @ 0x140B613B0 (PopFlushVolumeBlameResolverCallback.c)
+ *     CreateMiniNtBootKey @ 0x140C0C220 (CreateMiniNtBootKey.c)
  * Callees:
- *     KeAbPostReleaseEx @ 0x14025CCE0 (KeAbPostReleaseEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KeAbPostReleaseEx @ 0x14028D2F0 (KeAbPostReleaseEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 BOOLEAN __stdcall ExTryToAcquireFastMutex(PFAST_MUTEX FastMutex)

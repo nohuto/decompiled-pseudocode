@@ -1,17 +1,17 @@
 /*
- * XREFs of IoGetDeviceInterfaces @ 0x140908920
+ * XREFs of IoGetDeviceInterfaces @ 0x140A30A80
  * Callers:
- *     PnprIsMemoryDevice @ 0x1407AF644 (PnprIsMemoryDevice.c)
- *     PnprIsProcessorDevice @ 0x1407AF6FC (PnprIsProcessorDevice.c)
- *     VhdiMountVhdFile @ 0x1408A63B0 (VhdiMountVhdFile.c)
- *     IopOpenSystemVariableDevice @ 0x1409084B8 (IopOpenSystemVariableDevice.c)
- *     IoRegisterPlugPlayNotification @ 0x140908ED0 (IoRegisterPlugPlayNotification.c)
- *     PfSnOpenVolumesForPrefetch @ 0x1409B2A78 (PfSnOpenVolumesForPrefetch.c)
- *     IopFetchConfigurationInformation @ 0x140CBD048 (IopFetchConfigurationInformation.c)
+ *     PnprIsMemoryDevice @ 0x1407B26A4 (PnprIsMemoryDevice.c)
+ *     PnprIsProcessorDevice @ 0x1407B275C (PnprIsProcessorDevice.c)
+ *     VhdiMountVhdFile @ 0x1408AC820 (VhdiMountVhdFile.c)
+ *     PfSnOpenVolumesForPrefetch @ 0x140983B38 (PfSnOpenVolumesForPrefetch.c)
+ *     IoRegisterPlugPlayNotification @ 0x1409AAA90 (IoRegisterPlugPlayNotification.c)
+ *     IopOpenSystemVariableDevice @ 0x140A30618 (IopOpenSystemVariableDevice.c)
+ *     IopFetchConfigurationInformation @ 0x140CC30C0 (IopFetchConfigurationInformation.c)
  * Callees:
- *     IoAddTriageDumpDataBlock @ 0x14044AB54 (IoAddTriageDumpDataBlock.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     IopGetDeviceInterfaces @ 0x14099F270 (IopGetDeviceInterfaces.c)
+ *     IoAddTriageDumpDataBlock @ 0x140442C84 (IoAddTriageDumpDataBlock.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     IopGetDeviceInterfaces @ 0x14095FCD0 (IopGetDeviceInterfaces.c)
  */
 
 NTSTATUS __stdcall IoGetDeviceInterfaces(
@@ -20,8 +20,8 @@ NTSTATUS __stdcall IoGetDeviceInterfaces(
         ULONG Flags,
         PZZWSTR *SymbolicLinkList)
 {
-  int v5; // edx
-  _DWORD *DeviceNode; // rdx
+  const UNICODE_STRING *v5; // rdx
+  char *DeviceNode; // rdx
   struct _DRIVER_OBJECT *DriverObject; // rcx
   UNICODE_STRING *p_DriverName; // rcx
   char *v10; // rcx
@@ -30,11 +30,11 @@ NTSTATUS __stdcall IoGetDeviceInterfaces(
   __int64 v13; // rax
   __int64 v14; // rcx
 
-  v5 = 0;
+  v5 = 0LL;
   if ( PhysicalDeviceObject )
   {
-    DeviceNode = PhysicalDeviceObject->DeviceObjectExtension->DeviceNode;
-    if ( !DeviceNode || (DeviceNode[99] & 0x20000) != 0 )
+    DeviceNode = (char *)PhysicalDeviceObject->DeviceObjectExtension->DeviceNode;
+    if ( !DeviceNode || (*((_DWORD *)DeviceNode + 99) & 0x20000) != 0 )
     {
       IoAddTriageDumpDataBlock((ULONG)PhysicalDeviceObject, (PVOID)PhysicalDeviceObject->Size);
       DriverObject = PhysicalDeviceObject->DriverObject;
@@ -78,7 +78,7 @@ NTSTATUS __stdcall IoGetDeviceInterfaces(
       }
       KeBugCheckEx(0xCAu, 2uLL, (ULONG_PTR)PhysicalDeviceObject, 0LL, 0LL);
     }
-    v5 = (_DWORD)DeviceNode + 40;
+    v5 = (const UNICODE_STRING *)(DeviceNode + 40);
   }
-  return IopGetDeviceInterfaces((_DWORD)InterfaceClassGuid, v5, Flags, 0, (__int64)SymbolicLinkList, 0LL);
+  return IopGetDeviceInterfaces((int *)InterfaceClassGuid, v5, Flags, 0, SymbolicLinkList, 0LL);
 }

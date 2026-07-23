@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlpBase64Encode @ 0x1801100A0
+ * XREFs of RtlpBase64Encode @ 0x18010B140
  * Callers:
- *     RtlInitializeCorrelationVector @ 0x180110020 (RtlInitializeCorrelationVector.c)
+ *     RtlInitializeCorrelationVector @ 0x18010B0C0 (RtlInitializeCorrelationVector.c)
  * Callees:
  *     <none>
  */

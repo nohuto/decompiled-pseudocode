@@ -6,7 +6,7 @@
  *     IoSetThreadHardErrorMode @ 0x1402A0800 (IoSetThreadHardErrorMode.c)
  *     IofCallDriver @ 0x1402AC2D0 (IofCallDriver.c)
  *     KeWaitForSingleObject @ 0x1402AF080 (KeWaitForSingleObject.c)
- *     IopBuildDeviceIoControlRequest @ 0x1403428E0 (IopBuildDeviceIoControlRequest.c)
+ *     sub_1403428E0 @ 0x1403428E0 (sub_1403428E0.c)
  *     FsRtlQueryMaximumVirtualDiskNestingLevel @ 0x1403A71E0 (FsRtlQueryMaximumVirtualDiskNestingLevel.c)
  *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
  */
@@ -49,7 +49,7 @@ NTSTATUS __stdcall FsRtlGetVirtualDiskNestingLevel(
   v16 = 1LL;
   v19 = 0;
   v18 = 0LL;
-  v11 = IopBuildDeviceIoControlRequest(2953616, (__int64)DeviceObject, &v16, 8u, &v18, 0x14u, 0, &Object, &v17);
+  v11 = sub_1403428E0(2953616, (__int64)DeviceObject, &v16, 8u, &v18, 0x14u, 0, &Object, &v17);
   if ( !v11 )
   {
     Status = -1073741670;

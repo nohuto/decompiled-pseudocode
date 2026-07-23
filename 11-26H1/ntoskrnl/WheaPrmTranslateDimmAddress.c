@@ -1,10 +1,10 @@
 /*
- * XREFs of WheaPrmTranslateDimmAddress @ 0x1406D74A0
+ * XREFs of WheaPrmTranslateDimmAddress @ 0x1406DB630
  * Callers:
  *     <none>
  * Callees:
- *     WheapPrmTranslateDimmAddressAmd @ 0x1406D7694 (WheapPrmTranslateDimmAddressAmd.c)
- *     WheapPrmTranslateDimmAddressIntel @ 0x1406D7740 (WheapPrmTranslateDimmAddressIntel.c)
+ *     WheapPrmTranslateDimmAddressAmd @ 0x1406DB824 (WheapPrmTranslateDimmAddressAmd.c)
+ *     WheapPrmTranslateDimmAddressIntel @ 0x1406DB8D0 (WheapPrmTranslateDimmAddressIntel.c)
  */
 
 __int64 __fastcall WheaPrmTranslateDimmAddress(__int64 a1)

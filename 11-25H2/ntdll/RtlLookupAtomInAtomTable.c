@@ -11,80 +11,80 @@
  *     _wcsicmp @ 0x180124750 (_wcsicmp.c)
  */
 
-__int64 __fastcall RtlLookupAtomInAtomTable(__int64 a1, unsigned __int64 a2, _WORD *a3)
+NTSTATUS __cdecl RtlLookupAtomInAtomTable(PVOID AtomTableHandle, PWSTR AtomName, PRTL_ATOM Atom)
 {
-  unsigned int v6; // esi
-  unsigned __int16 *v7; // rbx
+  NTSTATUS v6; // esi
+  PWSTR v7; // rbx
   unsigned int v8; // r9d
   __int16 v9; // r10
-  unsigned __int16 v10; // ax
+  WCHAR v10; // ax
   __int64 v11; // rbx
-  __int64 v12; // rdi
+  char *v12; // rdi
   unsigned __int64 v13; // r8
   unsigned __int64 v14; // rdx
   __int16 v15; // cx
-  _WORD *i; // rax
-  __int128 v18; // [rsp+40h] [rbp-58h] BYREF
-  const wchar_t *v19; // [rsp+50h] [rbp-48h]
-  __int64 v20; // [rsp+58h] [rbp-40h]
-  __int64 v21; // [rsp+60h] [rbp-38h]
+  PWSTR i; // rax
+  _UNICODE_STRING String; // [rsp+40h] [rbp-58h] BYREF
+  PWSTR v19; // [rsp+50h] [rbp-48h]
+  PVOID v20; // [rsp+58h] [rbp-40h]
+  char *v21; // [rsp+60h] [rbp-38h]
   __int16 v22; // [rsp+A0h] [rbp+8h]
-  int v23; // [rsp+B8h] [rbp+20h] BYREF
+  ULONG Value; // [rsp+B8h] [rbp+20h] BYREF
 
-  v20 = a1;
+  v20 = AtomTableHandle;
   v6 = 0;
-  if ( a1 && *(_DWORD *)a1 == 1836020801 )
+  if ( AtomTableHandle && *(_DWORD *)AtomTableHandle == 1836020801 )
   {
-    RtlAcquireSRWLockExclusive((volatile signed __int32 *)(a1 + 8));
-    v19 = (const wchar_t *)a2;
-    v18 = 0LL;
-    v23 = 0;
-    if ( (a2 & 0xFFFFFFFFFFFF0000uLL) != 0 )
+    RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)AtomTableHandle + 1);
+    v19 = AtomName;
+    String = 0LL;
+    Value = 0;
+    if ( ((unsigned __int64)AtomName & 0xFFFFFFFFFFFF0000uLL) != 0 )
     {
-      if ( *(_WORD *)a2 == 35 )
+      if ( *AtomName == 35 )
       {
-        v15 = a2 + 2;
-        v19 = (const wchar_t *)(a2 + 2);
-        for ( i = (_WORD *)(a2 + 2); *i; ++i )
+        v15 = (_WORD)AtomName + 2;
+        v19 = AtomName + 1;
+        for ( i = AtomName + 1; *i; ++i )
         {
           if ( (unsigned __int16)(*i - 48) > 9u )
             goto LABEL_5;
         }
-        v23 = 0;
-        *((_QWORD *)&v18 + 1) = a2 + 2;
-        LOWORD(v18) = (_WORD)i - v15;
-        WORD1(v18) = (_WORD)i - v15;
-        if ( (int)RtlUnicodeStringToInteger(&v18, 10LL, &v23) >= 0 )
+        Value = 0;
+        String.Buffer = AtomName + 1;
+        String.Length = (_WORD)i - v15;
+        String.MaximumLength = (_WORD)i - v15;
+        if ( RtlUnicodeStringToInteger(&String, 0xAu, &Value) >= 0 )
         {
-          if ( (unsigned int)(v23 - 1) > 0xBFFF )
+          if ( Value - 1 > 0xBFFF )
             v22 = -16384;
           else
-            v22 = v23;
-          LOWORD(a2) = v22;
+            v22 = Value;
+          LOWORD(AtomName) = v22;
 LABEL_37:
-          if ( (unsigned __int16)a2 >= 0xC000u )
+          if ( (unsigned __int16)AtomName >= 0xC000u )
           {
-            LOWORD(a2) = 0;
+            LOWORD(AtomName) = 0;
             v6 = -1073741811;
           }
-          if ( a3 )
-            *a3 = a2;
+          if ( Atom )
+            *Atom = (unsigned __int16)AtomName;
           goto LABEL_56;
         }
       }
     }
-    else if ( (unsigned __int16)a2 < 0xC000u )
+    else if ( (unsigned __int16)AtomName < 0xC000u )
     {
-      if ( !(_WORD)a2 )
-        LOWORD(a2) = -16384;
+      if ( !(_WORD)AtomName )
+        LOWORD(AtomName) = -16384;
       goto LABEL_37;
     }
 LABEL_5:
-    if ( *(_WORD *)a2 )
+    if ( *AtomName )
     {
-      if ( (a2 & 0xFFFFFFFFFFFF0000uLL) != 0 )
+      if ( ((unsigned __int64)AtomName & 0xFFFFFFFFFFFF0000uLL) != 0 )
       {
-        v7 = (unsigned __int16 *)a2;
+        v7 = AtomName;
         v8 = 0;
         v9 = -32;
         while ( 1 )
@@ -102,51 +102,48 @@ LABEL_5:
           }
           v8 += v10 + (v10 >> 1) + 2 * v10;
         }
-        v11 = (__int64)((__int64)v7 - a2) >> 1;
+        v11 = v7 - AtomName;
         if ( (unsigned int)v11 > 0xFF )
         {
           v12 = 0LL;
         }
         else
         {
-          v12 = a1 + 8 * (v8 % *(_DWORD *)(a1 + 64) + 9LL);
+          v12 = (char *)AtomTableHandle + 8 * (v8 % *((_DWORD *)AtomTableHandle + 16)) + 72;
           while ( 1 )
           {
-            v12 = *(_QWORD *)v12;
+            v12 = *(char **)v12;
             if ( !v12 )
               break;
-            if ( *(unsigned __int8 *)(v12 + 16) == (_DWORD)v11
-              && !wcsicmp((const wchar_t *)(v12 + 18), (const wchar_t *)a2) )
-            {
+            if ( (unsigned __int8)v12[16] == (_DWORD)v11 && !wcsicmp((const wchar_t *)v12 + 9, AtomName) )
               goto LABEL_19;
-            }
           }
         }
         goto LABEL_22;
       }
       v12 = 0LL;
-      if ( (unsigned __int16)a2 >= 0xC000u )
-        v12 = RtlpAtomMapAtomToHandleEntry(a1, a2 & 0x3FFF);
+      if ( (unsigned __int16)AtomName >= 0xC000u )
+        v12 = (char *)RtlpAtomMapAtomToHandleEntry(AtomTableHandle, (unsigned __int16)AtomName & 0x3FFF);
 LABEL_19:
       if ( !v12 )
         goto LABEL_22;
-      if ( v12 != -12 )
+      if ( v12 != (char *)-12LL )
       {
         v21 = v12 + 12;
 LABEL_22:
         if ( v12 )
         {
-          v13 = *(_QWORD *)(a1 + 40);
-          v14 = v13 + (unsigned int)*(unsigned __int16 *)(v12 + 8) * *(_DWORD *)(a1 + 20);
+          v13 = *((_QWORD *)AtomTableHandle + 5);
+          v14 = v13 + (unsigned int)*((unsigned __int16 *)v12 + 4) * *((_DWORD *)AtomTableHandle + 5);
           if ( v14
             && v14 >= v13
-            && v14 < *(_QWORD *)(a1 + 48)
-            && ((*(_DWORD *)(a1 + 20) - 1) & (unsigned int)v14) == 0
+            && v14 < *((_QWORD *)AtomTableHandle + 6)
+            && ((*((_DWORD *)AtomTableHandle + 5) - 1) & (unsigned int)v14) == 0
             && (*(_BYTE *)v14 & 1) != 0
             && *(_QWORD *)(v14 + 8) )
           {
-            if ( a3 )
-              *a3 = *(_WORD *)(v12 + 10);
+            if ( Atom )
+              *Atom = *((_WORD *)v12 + 5);
           }
           else
           {
@@ -166,8 +163,8 @@ LABEL_22:
       v6 = -1073741773;
     }
 LABEL_56:
-    RtlReleaseSRWLockExclusive((volatile signed __int64 *)(a1 + 8));
+    RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)AtomTableHandle + 1);
     return v6;
   }
-  return 3221225485LL;
+  return -1073741811;
 }

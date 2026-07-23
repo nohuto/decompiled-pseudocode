@@ -3,11 +3,11 @@
  * Callers:
  *     Phase1InitializationIoReady @ 0x140B4DC38 (Phase1InitializationIoReady.c)
  * Callees:
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     MmLockRegistryRecoverySections @ 0x14061A888 (MmLockRegistryRecoverySections.c)
- *     CmpMachineHiveListInitialize @ 0x14080E378 (CmpMachineHiveListInitialize.c)
- *     CmpRegisterTraceLoggingProvider @ 0x14080FDE8 (CmpRegisterTraceLoggingProvider.c)
- *     IoCreateDriver @ 0x140810200 (IoCreateDriver.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
+ *     MmLockRegistryRecoverySections @ 0x14061ADD8 (MmLockRegistryRecoverySections.c)
+ *     CmpMachineHiveListInitialize @ 0x14080E648 (CmpMachineHiveListInitialize.c)
+ *     CmpRegisterTraceLoggingProvider @ 0x1408100B8 (CmpRegisterTraceLoggingProvider.c)
+ *     IoCreateDriver @ 0x1408104D0 (IoCreateDriver.c)
  *     CmFcInitSystem3 @ 0x140B4F04C (CmFcInitSystem3.c)
  */
 

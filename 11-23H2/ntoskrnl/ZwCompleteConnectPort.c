@@ -1,14 +1,14 @@
 /*
- * XREFs of ZwCompleteConnectPort @ 0x14041C160
+ * XREFs of ZwCompleteConnectPort @ 0x14041C4F0
  * Callers:
- *     SepRmLsaConnectRequest @ 0x14082B9DC (SepRmLsaConnectRequest.c)
+ *     SepRmLsaConnectRequest @ 0x14082BCDC (SepRmLsaConnectRequest.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwCompleteConnectPort(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwCompleteConnectPort(HANDLE PortHandle)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(PortHandle);
 }

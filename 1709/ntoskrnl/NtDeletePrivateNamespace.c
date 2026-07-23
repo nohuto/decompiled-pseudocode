@@ -9,16 +9,16 @@
  *     ObpRemoveNamespaceFromTable @ 0x14058135C (ObpRemoveNamespaceFromTable.c)
  */
 
-NTSTATUS __fastcall NtDeletePrivateNamespace(void *a1)
+NTSTATUS __cdecl NtDeletePrivateNamespace(HANDLE NamespaceHandle)
 {
   NTSTATUS result; // eax
   volatile signed __int32 *v2; // rbx
-  int v3; // edi
+  NTSTATUS v3; // edi
   PVOID Object; // [rsp+48h] [rbp+10h] BYREF
   struct _OBJECT_HANDLE_INFORMATION v5; // [rsp+50h] [rbp+18h] BYREF
 
   result = ObReferenceObjectByHandle(
-             a1,
+             NamespaceHandle,
              0x10000u,
              ObpDirectoryObjectType,
              KeGetCurrentThread()->PreviousMode,

@@ -16,27 +16,26 @@
  *     RtlReportException @ 0x1800DCCF0 (RtlReportException.c)
  */
 
-char __fastcall LdrpCallTlsInitializers(unsigned int a1, __int64 a2)
+void __fastcall LdrpCallTlsInitializers(unsigned int a1, __int64 a2)
 {
   __int64 TlsEntry; // rbx
-  char result; // al
-  __int64 (__fastcall **v6)(__int64, _QWORD, __int64); // rbx
-  __int64 (__fastcall *v7)(__int64, _QWORD, __int64); // rdi
+  __int64 (__fastcall **v5)(__int64, _QWORD, __int64); // rbx
+  __int64 (__fastcall *v6)(__int64, _QWORD, __int64); // rdi
 
   RtlAcquireSRWLockShared(&LdrpTlsLock);
   TlsEntry = LdrpFindTlsEntry(a2);
-  result = RtlReleaseSRWLockShared(&LdrpTlsLock);
+  RtlReleaseSRWLockShared(&LdrpTlsLock);
   if ( TlsEntry )
   {
-    v6 = *(__int64 (__fastcall ***)(__int64, _QWORD, __int64))(TlsEntry + 40);
-    if ( v6 )
+    v5 = *(__int64 (__fastcall ***)(__int64, _QWORD, __int64))(TlsEntry + 40);
+    if ( v5 )
     {
       while ( 1 )
       {
-        v7 = *v6;
-        if ( !*v6 )
+        v6 = *v5;
+        if ( !*v5 )
           break;
-        ++v6;
+        ++v5;
         if ( (LdrpDebugFlags & 5) != 0 )
           LdrpLogDbgPrint(
             (unsigned int)"minkernel\\ntdll\\ldrtls.c",
@@ -44,12 +43,11 @@ char __fastcall LdrpCallTlsInitializers(unsigned int a1, __int64 a2)
             (unsigned int)"LdrpCallTlsInitializers",
             2,
             (__int64)"Calling TLS callback %p for DLL \"%wZ\" at %p\n",
-            v7,
+            v6,
             a2 + 72,
             *(_QWORD *)(a2 + 48));
-        result = LdrpCallInitRoutine(v7, *(_QWORD *)(a2 + 48), a1, 0LL);
+        LdrpCallInitRoutine(v6, *(_QWORD *)(a2 + 48), a1, 0LL);
       }
     }
   }
-  return result;
 }

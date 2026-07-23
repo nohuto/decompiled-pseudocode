@@ -1,12 +1,12 @@
 /*
- * XREFs of MiIdentifyPatchImageDataPages @ 0x140870540
+ * XREFs of MiIdentifyPatchImageDataPages @ 0x1408768A0
  * Callers:
- *     MiApplyDriverHotPatch @ 0x14086DAC4 (MiApplyDriverHotPatch.c)
+ *     MiApplyDriverHotPatch @ 0x140873E94 (MiApplyDriverHotPatch.c)
  * Callees:
- *     RtlSetBitsEx @ 0x14036F510 (RtlSetBitsEx.c)
- *     ExAllocatePoolMm @ 0x1403985B0 (ExAllocatePoolMm.c)
- *     MmGetCurrentProcessorColor @ 0x14044ADC0 (MmGetCurrentProcessorColor.c)
- *     RtlClearAllBitsEx @ 0x140483500 (RtlClearAllBitsEx.c)
+ *     RtlSetBitsEx @ 0x1403712C0 (RtlSetBitsEx.c)
+ *     ExAllocatePoolMm @ 0x14039A310 (ExAllocatePoolMm.c)
+ *     MmGetCurrentProcessorColor @ 0x140442EF0 (MmGetCurrentProcessorColor.c)
+ *     RtlClearAllBitsEx @ 0x14047CE30 (RtlClearAllBitsEx.c)
  */
 
 __int64 __fastcall MiIdentifyPatchImageDataPages(__int64 a1)
@@ -17,10 +17,10 @@ __int64 __fastcall MiIdentifyPatchImageDataPages(__int64 a1)
   unsigned int v5; // r12d
   int CurrentProcessorColor; // eax
   __int64 PoolMm; // rax
-  __int64 v8; // rbp
+  unsigned __int64 v8; // rbp
   unsigned int v9; // esi
   __int64 v10; // rbx
-  __int64 v11; // rbx
+  _RTL_BITMAP_EX *v11; // rbx
   int v12; // eax
   __int64 v13; // rax
 
@@ -48,13 +48,13 @@ __int64 __fastcall MiIdentifyPatchImageDataPages(__int64 a1)
     }
     while ( v10 );
   }
-  v11 = *(_QWORD *)(a1 + 8);
+  v11 = *(_RTL_BITMAP_EX **)(a1 + 8);
   v12 = MmGetCurrentProcessorColor();
   v13 = ExAllocatePoolMm(256LL, v5, 1296188496, v12 | 0x80000000);
   if ( !v13 )
     return 3221225626LL;
-  *(_QWORD *)(v11 + 64) = v8;
-  *(_QWORD *)(v11 + 72) = v13;
-  RtlClearAllBitsEx(v11 + 64);
+  v11[4].SizeOfBitMap = v8;
+  v11[4].Buffer = (unsigned __int64 *)v13;
+  RtlClearAllBitsEx(v11 + 4);
   return 0LL;
 }

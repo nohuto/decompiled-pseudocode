@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlRemoveDynamicEnforcedAddressRange @ 0x1407876DC
+ * XREFs of RtlRemoveDynamicEnforcedAddressRange @ 0x14078760C
  * Callers:
- *     PspProcessDynamicEnforcedAddressRanges @ 0x140774FD4 (PspProcessDynamicEnforcedAddressRanges.c)
+ *     PspProcessDynamicEnforcedAddressRanges @ 0x1407751F4 (PspProcessDynamicEnforcedAddressRanges.c)
  * Callees:
- *     RtlAvlRemoveNode @ 0x140260BC0 (RtlAvlRemoveNode.c)
- *     RtlpDynamicEnforcedAddressRangesTreeCompare @ 0x140787788 (RtlpDynamicEnforcedAddressRangesTreeCompare.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     RtlAvlRemoveNode @ 0x1402911D0 (RtlAvlRemoveNode.c)
+ *     RtlpDynamicEnforcedAddressRangesTreeCompare @ 0x1407876B8 (RtlpDynamicEnforcedAddressRangesTreeCompare.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall RtlRemoveDynamicEnforcedAddressRange(unsigned __int64 *a1, __int64 a2, __int64 a3)

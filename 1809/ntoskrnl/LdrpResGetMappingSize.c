@@ -1,13 +1,13 @@
 /*
- * XREFs of LdrpResGetMappingSize @ 0x14068B06C
+ * XREFs of LdrpResGetMappingSize @ 0x14068C22C
  * Callers:
- *     LdrpResSearchResourceMappedFile @ 0x1400FDA0C (LdrpResSearchResourceMappedFile.c)
- *     LdrResSearchResource @ 0x14068AD30 (LdrResSearchResource.c)
- *     LdrResGetRCConfig @ 0x14071B184 (LdrResGetRCConfig.c)
+ *     LdrpResSearchResourceMappedFile @ 0x1400FDA8C (LdrpResSearchResourceMappedFile.c)
+ *     LdrResSearchResource @ 0x14068BEF0 (LdrResSearchResource.c)
+ *     LdrResGetRCConfig @ 0x14071C424 (LdrResGetRCConfig.c)
  * Callees:
- *     RtlImageNtHeaderEx @ 0x14009D860 (RtlImageNtHeaderEx.c)
- *     LdrpKrnGetDataTableEntry @ 0x1400F3850 (LdrpKrnGetDataTableEntry.c)
- *     ZwQueryVirtualMemory @ 0x1401B85F0 (ZwQueryVirtualMemory.c)
+ *     RtlImageNtHeaderEx @ 0x14009D7A0 (RtlImageNtHeaderEx.c)
+ *     LdrpKrnGetDataTableEntry @ 0x1400F38D0 (LdrpKrnGetDataTableEntry.c)
+ *     ZwQueryVirtualMemory @ 0x1401B8750 (ZwQueryVirtualMemory.c)
  */
 
 NTSTATUS __fastcall LdrpResGetMappingSize(unsigned __int64 a1, unsigned __int64 *a2, int a3)
@@ -72,7 +72,7 @@ LABEL_28:
           result = ZwQueryVirtualMemory(
                      (HANDLE)0xFFFFFFFFFFFFFFFFLL,
                      (PVOID)(a1 & 0xFFFFFFFFFFFFFFFCuLL),
-                     MemoryBasicVlmInformation,
+                     MemoryRegionInformation,
                      MemoryInformation,
                      0x20uLL,
                      0LL);

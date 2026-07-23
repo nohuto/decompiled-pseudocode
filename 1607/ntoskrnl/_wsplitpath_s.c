@@ -1,10 +1,10 @@
 /*
- * XREFs of _wsplitpath_s @ 0x140152734
+ * XREFs of _wsplitpath_s @ 0x140152CF4
  * Callers:
  *     <none>
  * Callees:
- *     xHalFreeMessageTarget @ 0x140130D64 (xHalFreeMessageTarget.c)
- *     wcsncpy_s @ 0x140153224 (wcsncpy_s.c)
+ *     xHalFreeMessageTarget @ 0x1401312D4 (xHalFreeMessageTarget.c)
+ *     wcsncpy_s @ 0x1401537E4 (wcsncpy_s.c)
  */
 
 errno_t __cdecl wsplitpath_s(

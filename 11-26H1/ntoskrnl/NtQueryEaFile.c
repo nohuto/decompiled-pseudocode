@@ -1,57 +1,56 @@
 /*
- * XREFs of NtQueryEaFile @ 0x1409B0520
+ * XREFs of NtQueryEaFile @ 0x1409815E0
  * Callers:
- *     DifNtQueryEaFileWrapper @ 0x140682070 (DifNtQueryEaFileWrapper.c)
+ *     DifNtQueryEaFileWrapper @ 0x140685C50 (DifNtQueryEaFileWrapper.c)
  * Callees:
- *     IopReferenceFileObject @ 0x140264F80 (IopReferenceFileObject.c)
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     IopReleaseFileObjectLock @ 0x140269EC0 (IopReleaseFileObjectLock.c)
- *     IopAllocateIrpExReturn @ 0x14026C640 (IopAllocateIrpExReturn.c)
- *     IoGetRelatedDeviceObject @ 0x14026CA30 (IoGetRelatedDeviceObject.c)
- *     PsReferenceSiloContext @ 0x140277800 (PsReferenceSiloContext.c)
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     IoAllocateMdl @ 0x14040BA40 (IoAllocateMdl.c)
- *     IopResetEvent @ 0x140455C40 (IopResetEvent.c)
- *     KeInitializeEvent @ 0x140466F30 (KeInitializeEvent.c)
- *     IopProbeAndLockPages_2 @ 0x1404E0418 (IopProbeAndLockPages_2.c)
- *     RtlCopyFromUser @ 0x140533E38 (RtlCopyFromUser.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     RtlCopyToUser @ 0x14077F284 (RtlCopyToUser.c)
- *     RtlReadULongFromUser @ 0x14077F590 (RtlReadULongFromUser.c)
- *     RtlWriteULongToUser @ 0x14077F7A0 (RtlWriteULongToUser.c)
- *     ProbeForRead @ 0x1408EF880 (ProbeForRead.c)
- *     ProbeForWrite @ 0x1408F5D00 (ProbeForWrite.c)
- *     IopSynchronousApiServiceTail @ 0x1409B18E4 (IopSynchronousApiServiceTail.c)
- *     IopSynchronousServiceTail @ 0x1409B2704 (IopSynchronousServiceTail.c)
- *     IopExceptionCleanupEx @ 0x1409B6D64 (IopExceptionCleanupEx.c)
- *     IopWaitAndAcquireFileObjectLock @ 0x1409B6E40 (IopWaitAndAcquireFileObjectLock.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     IopReferenceFileObject @ 0x1402644F0 (IopReferenceFileObject.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     IopReleaseFileObjectLock @ 0x140269430 (IopReleaseFileObjectLock.c)
+ *     IopAllocateIrpExReturn @ 0x14026BBB0 (IopAllocateIrpExReturn.c)
+ *     IoGetRelatedDeviceObject @ 0x14026BFA0 (IoGetRelatedDeviceObject.c)
+ *     PsReferenceSiloContext @ 0x140276D70 (PsReferenceSiloContext.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     IoAllocateMdl @ 0x1404046D0 (IoAllocateMdl.c)
+ *     IopResetEvent @ 0x14044DD70 (IopResetEvent.c)
+ *     KeInitializeEvent @ 0x140460680 (KeInitializeEvent.c)
+ *     IopProbeAndLockPages_2 @ 0x1404D9AF8 (IopProbeAndLockPages_2.c)
+ *     RtlCopyFromUser @ 0x1405362B8 (RtlCopyFromUser.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     RtlCopyToUser @ 0x140781D84 (RtlCopyToUser.c)
+ *     RtlReadULongFromUser @ 0x140782090 (RtlReadULongFromUser.c)
+ *     RtlWriteULongToUser @ 0x1407822A0 (RtlWriteULongToUser.c)
+ *     ProbeForRead @ 0x1408F5E40 (ProbeForRead.c)
+ *     IopExceptionCleanupEx @ 0x140924ADC (IopExceptionCleanupEx.c)
+ *     ProbeForWrite @ 0x140925C90 (ProbeForWrite.c)
+ *     IopSynchronousApiServiceTail @ 0x1409829A4 (IopSynchronousApiServiceTail.c)
+ *     IopSynchronousServiceTail @ 0x1409837C4 (IopSynchronousServiceTail.c)
+ *     IopWaitAndAcquireFileObjectLock @ 0x140987E24 (IopWaitAndAcquireFileObjectLock.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall NtQueryEaFile(
-        void *a1,
-        unsigned int *a2,
-        volatile void *Address,
-        SIZE_T Length,
-        char a5,
-        volatile void *Addressa,
-        SIZE_T Lengtha,
-        unsigned int *a8,
-        char a9)
+NTSTATUS __cdecl NtQueryEaFile(
+        HANDLE FileHandle,
+        PIO_STATUS_BLOCK IoStatusBlock,
+        PVOID Buffer,
+        ULONG Length,
+        BOOLEAN ReturnSingleEntry,
+        PVOID EaList,
+        ULONG EaListLength,
+        PULONG EaIndex,
+        BOOLEAN RestartScan)
 {
-  unsigned int v9; // edi
   UNICODE_STRING *v13; // rbx
   char v14; // r13
   KPROCESSOR_MODE PreviousMode; // r14
   int ULongFromUser; // eax
   UNICODE_STRING *v17; // rax
   UNICODE_STRING *v18; // rdi
-  int v19; // ecx
+  signed int v19; // ecx
   unsigned int v20; // eax
   __int64 v21; // rdx
-  int v22; // edi
+  NTSTATUS v22; // edi
   struct _KLOCK_ENTRIES *v23; // r9
   PFILE_OBJECT v24; // rdi
   bool v25; // si
@@ -61,7 +60,7 @@ __int64 __fastcall NtQueryEaFile(
   __int64 v29; // r8
   char v30; // r12
   __int64 v31; // rdx
-  int v32; // r14d
+  NTSTATUS v32; // r14d
   char v33; // r12
   PVOID v34; // r14
   __int64 v35; // rdx
@@ -71,14 +70,14 @@ __int64 __fastcall NtQueryEaFile(
   IRP *Irp; // rsi
   char v40; // dl
   _DWORD *v41; // r14
-  unsigned int *p_Src; // rax
+  PIO_STATUS_BLOCK p_Src; // rax
   struct _KEVENT *v43; // rcx
   struct _IO_STACK_LOCATION *CurrentStackLocation; // r15
   struct _DEVICE_OBJECT *v45; // r13
   int v46; // eax
   ULONG v47; // eax
   char v48; // al
-  __int64 result; // rax
+  NTSTATUS result; // eax
   __int64 v50; // r9
   bool v51; // zf
   struct _KEVENT *v52; // rax
@@ -88,16 +87,13 @@ __int64 __fastcall NtQueryEaFile(
   char v56; // [rsp+40h] [rbp-A8h]
   char v57[7]; // [rsp+41h] [rbp-A7h] BYREF
   __int128 Src; // [rsp+48h] [rbp-A0h] BYREF
-  unsigned int v59; // [rsp+58h] [rbp-90h]
+  ULONG v59; // [rsp+58h] [rbp-90h]
   PVOID v60; // [rsp+60h] [rbp-88h]
   PVOID P; // [rsp+88h] [rbp-60h]
   PFILE_OBJECT FileObject; // [rsp+90h] [rbp-58h] BYREF
-  unsigned int v63; // [rsp+98h] [rbp-50h]
+  ULONG v63; // [rsp+98h] [rbp-50h]
   struct _KTHREAD *CurrentThread; // [rsp+A0h] [rbp-48h]
-  ULONG v67; // [rsp+108h] [rbp+20h]
 
-  v67 = Length;
-  v9 = Length;
   FileObject = 0LL;
   v60 = 0LL;
   v13 = 0LL;
@@ -109,24 +105,24 @@ __int64 __fastcall NtQueryEaFile(
   v56 = PreviousMode;
   if ( !PreviousMode )
   {
-    if ( Addressa && (_DWORD)Lengtha )
+    if ( EaList && EaListLength )
     {
       v14 = 1;
       Pool2 = (UNICODE_STRING *)ExAllocatePool2(0x41uLL);
       v13 = Pool2;
       if ( !Pool2 )
-        return 3221225626LL;
-      memmove(Pool2, (const void *)Addressa, (unsigned int)Lengtha);
+        return -1073741670;
+      memmove(Pool2, EaList, EaListLength);
     }
-    if ( a8 )
-      v59 = *a8;
+    if ( EaIndex )
+      v59 = *EaIndex;
 LABEL_16:
-    v22 = IopReferenceFileObject(a1, 8u, PreviousMode, (ULONG_PTR *)&FileObject, 0LL);
+    v22 = IopReferenceFileObject(FileHandle, 8u, PreviousMode, (ULONG_PTR *)&FileObject, 0LL);
     if ( v22 < 0 )
     {
       if ( v14 )
         ExFreePoolWithTag(v13, 0);
-      return (unsigned int)v22;
+      return v22;
     }
     v24 = FileObject;
     if ( (FileObject->Flags & 2) != 0 )
@@ -189,17 +185,17 @@ LABEL_25:
           v41 = (_DWORD *)(v36 + 16);
           if ( v33 )
           {
-            p_Src = a2;
+            p_Src = IoStatusBlock;
             v43 = 0LL;
           }
           else
           {
             *v41 = 4;
-            p_Src = (unsigned int *)&Src;
+            p_Src = (PIO_STATUS_BLOCK)&Src;
             v43 = (struct _KEVENT *)v60;
           }
           Irp->UserEvent = v43;
-          Irp->UserIosb = (PIO_STATUS_BLOCK)p_Src;
+          Irp->UserIosb = p_Src;
           Irp->Overlay.AllocationSize.QuadPart = 0LL;
           CurrentStackLocation = Irp->Tail.Overlay.CurrentStackLocation;
           CurrentStackLocation[-1].MajorFunction = 7;
@@ -208,7 +204,7 @@ LABEL_25:
           {
             Irp->Tail.Overlay.AuxiliaryBuffer = (PCHAR)v13;
             CurrentStackLocation[-1].Parameters.QueryDirectory.FileName = v13;
-            CurrentStackLocation[-1].Parameters.Read.ByteOffset.LowPart = Lengtha;
+            CurrentStackLocation[-1].Parameters.Read.ByteOffset.LowPart = EaListLength;
           }
           v45 = (struct _DEVICE_OBJECT *)P;
           v46 = *((_DWORD *)P + 12);
@@ -216,38 +212,38 @@ LABEL_25:
           {
             if ( (v46 & 0x10) == 0 )
             {
-              Irp->UserBuffer = (PVOID)Address;
+              Irp->UserBuffer = Buffer;
 LABEL_33:
-              v47 = v67;
+              v47 = Length;
 LABEL_34:
               CurrentStackLocation[-1].Parameters.Read.Length = v47;
               CurrentStackLocation[-1].Parameters.Create.EaLength = v59;
               CurrentStackLocation[-1].Flags = 0;
               v48 = 0;
-              if ( a9 )
+              if ( RestartScan )
               {
                 CurrentStackLocation[-1].Flags = 1;
                 v48 = 1;
               }
-              if ( a5 )
+              if ( ReturnSingleEntry )
               {
                 v48 |= 2u;
                 CurrentStackLocation[-1].Flags = v48;
               }
-              if ( a8 )
+              if ( EaIndex )
                 CurrentStackLocation[-1].Flags = v48 | 4;
               result = IopSynchronousServiceTail(v45, Irp, (ULONG_PTR)v24, v40, v33, 2);
               if ( !v33 )
               {
                 LOBYTE(v50) = v56;
-                return IopSynchronousApiServiceTail((unsigned int)result, v60, Irp, v50, &Src, a2);
+                return IopSynchronousApiServiceTail((unsigned int)result, v60, Irp, v50, &Src, IoStatusBlock);
               }
               return result;
             }
-            v47 = v67;
-            if ( !v67 )
+            v47 = Length;
+            if ( !Length )
               goto LABEL_34;
-            Mdl = IoAllocateMdl((PVOID)Address, v67, 0, 1u, Irp);
+            Mdl = IoAllocateMdl(Buffer, Length, 0, 1u, Irp);
             if ( !Mdl )
             {
               v32 = -1073741670;
@@ -260,14 +256,14 @@ LABEL_85:
               IopExceptionCleanupEx((ULONG_PTR)v24, Irp, 0LL, v60, (v24->Flags & 2) != 0);
               if ( v13 )
                 ExFreePoolWithTag(v13, 0);
-              return (unsigned int)v32;
+              return v32;
             }
 LABEL_87:
             v40 = v56;
             goto LABEL_33;
           }
-          v47 = v67;
-          if ( !v67 )
+          v47 = Length;
+          if ( !Length )
           {
             Irp->AssociatedIrp.MasterIrp = 0LL;
             *v41 |= 0x50u;
@@ -277,7 +273,7 @@ LABEL_87:
           Irp->AssociatedIrp.MasterIrp = (struct _IRP *)v54;
           if ( v54 )
           {
-            Irp->UserBuffer = (PVOID)Address;
+            Irp->UserBuffer = Buffer;
             *v41 |= 0x70u;
             goto LABEL_87;
           }
@@ -295,35 +291,35 @@ LABEL_87:
         }
         if ( !v51 )
           ExFreePoolWithTag(v13, 0);
-        return 3221225626LL;
+        return -1073741670;
       }
       if ( v14 )
         ExFreePoolWithTag(v13, 0);
       v32 = -1073741670;
     }
     ObfDereferenceObject(v24);
-    return (unsigned int)v32;
+    return v32;
   }
-  ULongFromUser = RtlReadULongFromUser(a2);
-  RtlWriteULongToUser(a2, ULongFromUser);
-  ProbeForWrite(Address, v9, 4u);
-  if ( a8 )
+  ULongFromUser = RtlReadULongFromUser((unsigned int *)IoStatusBlock);
+  RtlWriteULongToUser(IoStatusBlock, ULongFromUser);
+  ProbeForWrite(Buffer, Length, 4u);
+  if ( EaIndex )
   {
-    v59 = RtlReadULongFromUser(a8);
+    v59 = RtlReadULongFromUser(EaIndex);
     v63 = v59;
   }
-  if ( !Addressa || !(_DWORD)Lengtha )
+  if ( !EaList || !EaListLength )
     goto LABEL_16;
   v14 = 1;
-  ProbeForRead(Addressa, (unsigned int)Lengtha, 4u);
+  ProbeForRead(EaList, EaListLength, 4u);
   v17 = (UNICODE_STRING *)ExAllocatePool2(0x41uLL);
   v13 = v17;
   P = v17;
   if ( !v17 )
-    return 3221225626LL;
-  RtlCopyFromUser(v17, (void *)Addressa, (unsigned int)Lengtha);
+    return -1073741670;
+  RtlCopyFromUser(v17, EaList, EaListLength);
   v18 = v13;
-  v19 = Lengtha;
+  v19 = EaListLength;
   while ( 1 )
   {
     if ( v19 < 5 )
@@ -331,8 +327,8 @@ LABEL_87:
       ExFreePoolWithTag(v13, 0);
       LODWORD(Src) = -2147483628;
       *((_QWORD *)&Src + 1) = 0LL;
-      RtlCopyToUser(a2, &Src, 0x10uLL);
-      return 2147483668LL;
+      RtlCopyToUser(IoStatusBlock, &Src, 0x10uLL);
+      return -2147483628;
     }
     v20 = *((unsigned __int8 *)&v18->MaximumLength + 2) + 6;
     if ( v19 < v20 )
@@ -356,6 +352,6 @@ LABEL_87:
   ExFreePoolWithTag(v13, 0);
   LODWORD(Src) = -2147483628;
   *((_QWORD *)&Src + 1) = (int)v18 - (int)v13;
-  RtlCopyToUser(a2, &Src, 0x10uLL);
-  return 2147483668LL;
+  RtlCopyToUser(IoStatusBlock, &Src, 0x10uLL);
+  return -2147483628;
 }

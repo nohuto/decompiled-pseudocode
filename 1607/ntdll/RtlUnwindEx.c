@@ -1,23 +1,23 @@
 /*
- * XREFs of RtlUnwindEx @ 0x180035340
+ * XREFs of RtlUnwindEx @ 0x180035330
  * Callers:
- *     __C_specific_handler @ 0x180096EA0 (__C_specific_handler.c)
- *     _local_unwind @ 0x180097810 (_local_unwind.c)
+ *     __C_specific_handler @ 0x180096E90 (__C_specific_handler.c)
+ *     _local_unwind @ 0x180097800 (_local_unwind.c)
  *     KiUserCallbackDispatcherHandler @ 0x1800A9F20 (KiUserCallbackDispatcherHandler.c)
  *     __longjmp_internal @ 0x1800AC820 (__longjmp_internal.c)
  *     RtlUnwind @ 0x1800F2F70 (RtlUnwind.c)
  * Callees:
- *     RtlpGetStackLimits @ 0x180032690 (RtlpGetStackLimits.c)
- *     RtlpCopyContext @ 0x180035DE4 (RtlpCopyContext.c)
- *     RtlLookupFunctionEntry @ 0x180035FA0 (RtlLookupFunctionEntry.c)
- *     RtlGuardIsValidStackPointer @ 0x180036734 (RtlGuardIsValidStackPointer.c)
- *     RtlVirtualUnwind @ 0x180036EF0 (RtlVirtualUnwind.c)
- *     RtlGuardCheckLongJumpTarget @ 0x180039AF0 (RtlGuardCheckLongJumpTarget.c)
- *     RtlpSameFunction @ 0x180078BE4 (RtlpSameFunction.c)
- *     RtlpUnwindOpSlots @ 0x180088E64 (RtlpUnwindOpSlots.c)
- *     LdrpValidateUserCallTarget @ 0x180096800 (LdrpValidateUserCallTarget.c)
- *     __security_check_cookie @ 0x180096C40 (__security_check_cookie.c)
- *     RtlpUnwindEpilogue @ 0x1800A5BE0 (RtlpUnwindEpilogue.c)
+ *     RtlpGetStackLimits @ 0x180032680 (RtlpGetStackLimits.c)
+ *     RtlpCopyContext @ 0x180035DD4 (RtlpCopyContext.c)
+ *     RtlLookupFunctionEntry @ 0x180035F90 (RtlLookupFunctionEntry.c)
+ *     RtlGuardIsValidStackPointer @ 0x180036724 (RtlGuardIsValidStackPointer.c)
+ *     RtlVirtualUnwind @ 0x180036EE0 (RtlVirtualUnwind.c)
+ *     RtlGuardCheckLongJumpTarget @ 0x180039AE0 (RtlGuardCheckLongJumpTarget.c)
+ *     RtlpSameFunction @ 0x180078BD4 (RtlpSameFunction.c)
+ *     RtlpUnwindOpSlots @ 0x180088E54 (RtlpUnwindOpSlots.c)
+ *     LdrpValidateUserCallTarget @ 0x1800967F0 (LdrpValidateUserCallTarget.c)
+ *     __security_check_cookie @ 0x180096C30 (__security_check_cookie.c)
+ *     RtlpUnwindEpilogue @ 0x1800A5BD4 (RtlpUnwindEpilogue.c)
  *     RtlRaiseStatus @ 0x1800A5DE0 (RtlRaiseStatus.c)
  *     ZwRaiseException @ 0x1800A8E70 (ZwRaiseException.c)
  *     RtlCaptureContext @ 0x1800AA150 (RtlCaptureContext.c)
@@ -158,7 +158,7 @@ void __stdcall RtlUnwindEx(
   v103 = ReturnValue;
   ExceptionRecorda = ExceptionRecord;
   if ( !RtlpGetStackLimits(&v101, (void **)&v102) )
-    RtlRaiseStatus(3221225512LL);
+    RtlRaiseStatus(-1073741784);
   v94 = ContextRecord;
   v9 = ContextRecord;
   v10 = &v121;
@@ -497,7 +497,7 @@ LABEL_121:
                       v10->Rsp = *v81;
                       break;
                     default:
-                      RtlRaiseStatus(3221225727LL);
+                      RtlRaiseStatus(-1073741569);
                   }
                 }
               }
@@ -522,7 +522,7 @@ LABEL_121:
         v95 = ++v27;
         p_BeginAddress = &v29[2 * v77 + 4];
         if ( v27 > 0x20 )
-          RtlRaiseStatus(3221225727LL);
+          RtlRaiseStatus(-1073741569);
       }
       if ( !v31 )
       {
@@ -557,7 +557,7 @@ LABEL_79:
     v39 = v93;
 LABEL_42:
     if ( (v11 & 7) != 0 || v11 < v101 || v11 >= v102 || (v6 = v105) != 0LL && (unsigned __int64)v105 < v11 )
-      RtlRaiseStatus(3221225512LL);
+      RtlRaiseStatus(-1073741784);
     if ( v39 )
     {
       v40 = 0;
@@ -587,7 +587,7 @@ LABEL_42:
         if ( v46 )
         {
           if ( v46 != 2 )
-            RtlRaiseStatus(3221225510LL);
+            RtlRaiseStatus(-1073741786);
           v12 = ControlPc;
           v38 = FunctionEntry;
           ImageBase = v108;
@@ -647,14 +647,17 @@ LABEL_61:
     if ( v48->ExceptionCode == -2147483610 )
     {
       v74 = v48->ExceptionInformation[0];
-      if ( qword_180163310 && !(unsigned int)RtlGuardIsValidStackPointer(*(_QWORD *)(v74 + 16)) )
+      if ( LdrSystemDllInitBlock.Wow64SharedInformation[9]
+        && !(unsigned int)RtlGuardIsValidStackPointer(*(_QWORD *)(v74 + 16)) )
+      {
         __fastfail(0xDu);
-      RtlGuardCheckLongJumpTarget(*(_QWORD *)(v74 + 80), 0LL, 0LL);
+      }
+      RtlGuardCheckLongJumpTarget(*(PVOID *)(v74 + 80), 0, 0LL);
       goto LABEL_67;
     }
     if ( v48->ExceptionCode == -2147483607 && v48->NumberParameters )
     {
-      if ( !qword_180163310 )
+      if ( !LdrSystemDllInitBlock.Wow64SharedInformation[9] )
       {
 LABEL_67:
         RtlRestoreContext(v9, v48);
@@ -662,7 +665,7 @@ LABEL_67:
       }
       LdrpValidateUserCallTarget(v48->ExceptionInformation[0]);
     }
-    if ( qword_180163310 )
+    if ( LdrSystemDllInitBlock.Wow64SharedInformation[9] )
     {
       if ( !(unsigned int)RtlGuardIsValidStackPointer(v9->Rsp) )
         __fastfail(0xDu);
@@ -670,6 +673,6 @@ LABEL_67:
     goto LABEL_67;
   }
   if ( v12 == v9->Rip )
-    RtlRaiseStatus(3221225727LL);
-  ZwRaiseException(ExceptionRecorda, v9, 0LL);
+    RtlRaiseStatus(-1073741569);
+  ZwRaiseException(ExceptionRecorda, v9, 0);
 }

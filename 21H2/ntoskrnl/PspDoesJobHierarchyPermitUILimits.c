@@ -1,10 +1,10 @@
 /*
- * XREFs of PspDoesJobHierarchyPermitUILimits @ 0x1406C2A7C
+ * XREFs of PspDoesJobHierarchyPermitUILimits @ 0x14062177C
  * Callers:
- *     NtSetInformationJobObject @ 0x140614200 (NtSetInformationJobObject.c)
- *     PspAssignProcessToJob @ 0x14071F430 (PspAssignProcessToJob.c)
+ *     NtSetInformationJobObject @ 0x14067DE60 (NtSetInformationJobObject.c)
+ *     PspAssignProcessToJob @ 0x1406F5FF0 (PspAssignProcessToJob.c)
  * Callees:
- *     PspEnumJobsAndProcessesInJobHierarchy @ 0x140617FF0 (PspEnumJobsAndProcessesInJobHierarchy.c)
+ *     PspEnumJobsAndProcessesInJobHierarchy @ 0x140681C50 (PspEnumJobsAndProcessesInJobHierarchy.c)
  */
 
 bool __fastcall PspDoesJobHierarchyPermitUILimits(_QWORD *a1, char a2)
@@ -20,12 +20,5 @@ bool __fastcall PspDoesJobHierarchyPermitUILimits(_QWORD *a1, char a2)
       return v3;
     v2 = *(_QWORD *)(v2 + 1072);
   }
-  return (a2 & 1) != 0
-      || (int)PspEnumJobsAndProcessesInJobHierarchy(
-                a1,
-                (int)PspDoesJobHierarchyPermitUILimitsCallback,
-                0,
-                0,
-                (__int64)a1,
-                1) >= 0;
+  return (a2 & 1) != 0 || (int)PspEnumJobsAndProcessesInJobHierarchy(a1, (__int64)a1, 1) >= 0;
 }

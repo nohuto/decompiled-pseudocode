@@ -1,15 +1,15 @@
 /*
- * XREFs of MmEnumerateSystemImages @ 0x1404E5150
+ * XREFs of MmEnumerateSystemImages @ 0x1404DE6F0
  * Callers:
- *     Phase1Initialization @ 0x14077FEA0 (Phase1Initialization.c)
- *     IopInitializeBootLogging @ 0x140794CC0 (IopInitializeBootLogging.c)
- *     PipKsrDeferredHardwareInit @ 0x1407B2E04 (PipKsrDeferredHardwareInit.c)
- *     EtwpCoverageSamplerStart @ 0x1408314FC (EtwpCoverageSamplerStart.c)
- *     MmLockRegistryRecoverySections @ 0x1408646F8 (MmLockRegistryRecoverySections.c)
- *     EtwpSysModuleRunDown @ 0x14096F07C (EtwpSysModuleRunDown.c)
- *     PopIdleWakeGenerateInterruptDescriptionString @ 0x140B22D10 (PopIdleWakeGenerateInterruptDescriptionString.c)
+ *     Phase1Initialization @ 0x1407829A0 (Phase1Initialization.c)
+ *     IopInitializeBootLogging @ 0x1407977F0 (IopInitializeBootLogging.c)
+ *     PipKsrDeferredHardwareInit @ 0x1407B5E64 (PipKsrDeferredHardwareInit.c)
+ *     EtwpCoverageSamplerStart @ 0x14083773C (EtwpCoverageSamplerStart.c)
+ *     MmLockRegistryRecoverySections @ 0x14086AAD8 (MmLockRegistryRecoverySections.c)
+ *     EtwpSysModuleRunDown @ 0x1409BC6CC (EtwpSysModuleRunDown.c)
+ *     PopIdleWakeGenerateInterruptDescriptionString @ 0x140B25110 (PopIdleWakeGenerateInterruptDescriptionString.c)
  * Callees:
- *     MiEnumerateSystemImages @ 0x1404E5184 (MiEnumerateSystemImages.c)
+ *     MiEnumerateSystemImages @ 0x1404DE724 (MiEnumerateSystemImages.c)
  */
 
 __int64 __fastcall MmEnumerateSystemImages(__int64 a1, __int64 a2)

@@ -1,5 +1,5 @@
 /*
- * XREFs of KiBoundFaultShadow @ 0x140BBB3C0
+ * XREFs of KiBoundFaultShadow @ 0x140BBD3C0
  * Callers:
  *     <none>
  * Callees:

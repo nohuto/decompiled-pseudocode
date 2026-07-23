@@ -7,11 +7,11 @@
  *     <none>
  */
 
-__int64 NtQueryDefaultLocale()
+NTSTATUS __cdecl NtQueryDefaultLocale(BOOLEAN UserProfile, PLCID DefaultLocaleId)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 21LL;
+  result = 21;
   __asm { syscall; Low latency system call }
   return result;
 }

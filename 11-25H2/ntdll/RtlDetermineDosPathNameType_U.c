@@ -9,57 +9,57 @@
  *     <none>
  */
 
-__int64 __fastcall RtlDetermineDosPathNameType_U(__int16 *a1)
+RTL_PATH_TYPE __cdecl RtlDetermineDosPathNameType_U(PCWSTR DosFileName)
 {
-  __int16 v1; // ax
-  __int16 v2; // ax
-  __int16 v3; // ax
-  __int16 v4; // dx
-  __int64 result; // rax
-  __int16 v6; // ax
+  WCHAR v1; // ax
+  WCHAR v2; // ax
+  WCHAR v3; // ax
+  WCHAR v4; // dx
+  RTL_PATH_TYPE result; // eax
+  WCHAR v6; // ax
 
-  v1 = *a1;
-  if ( *a1 == 92 || v1 == 47 )
+  v1 = *DosFileName;
+  if ( *DosFileName == 92 || v1 == 47 )
   {
-    v2 = a1[1];
+    v2 = DosFileName[1];
     if ( v2 == 92 || v2 == 47 )
     {
-      v3 = a1[2];
+      v3 = DosFileName[2];
       if ( v3 == 63 || v3 == 46 )
       {
-        v4 = a1[3];
+        v4 = DosFileName[3];
         if ( v4 == 92 || v4 == 47 )
         {
-          return 6LL;
+          return 6;
         }
         else
         {
-          result = 1LL;
+          result = RtlPathTypeUncAbsolute;
           if ( !v4 )
-            return 7LL;
+            return 7;
         }
       }
       else
       {
-        return 1LL;
+        return 1;
       }
     }
     else
     {
-      return 4LL;
+      return 4;
     }
   }
-  else if ( v1 && a1[1] == 58 )
+  else if ( v1 && DosFileName[1] == 58 )
   {
-    v6 = a1[2];
+    v6 = DosFileName[2];
     if ( v6 == 92 || v6 == 47 )
-      return 2LL;
+      return 2;
     else
-      return 3LL;
+      return 3;
   }
   else
   {
-    return 5LL;
+    return 5;
   }
   return result;
 }

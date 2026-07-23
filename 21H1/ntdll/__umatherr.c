@@ -26,7 +26,7 @@ LABEL_6:
   if ( v8 )
   {
     _ctrlfp(a8, 0xFFFF);
-    if ( !RtlGetReturnAddressHijackTarget() )
+    if ( !(unsigned int)RtlGetReturnAddressHijackTarget() )
       _set_errno_from_matherr(a1);
     return a7;
   }

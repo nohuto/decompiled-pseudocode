@@ -1,5 +1,5 @@
 /*
- * XREFs of IopGetEnvironmentVariableHal @ 0x140628978
+ * XREFs of IopGetEnvironmentVariableHal @ 0x140628A2C
  * Callers:
  *     <none>
  * Callees:

@@ -1,15 +1,15 @@
 /*
- * XREFs of PopWriteHiberImage @ 0x140993C74
+ * XREFs of PopWriteHiberImage @ 0x140994C74
  * Callers:
- *     PopSaveHiberContext @ 0x1409937A0 (PopSaveHiberContext.c)
+ *     PopSaveHiberContext @ 0x1409947A0 (PopSaveHiberContext.c)
  * Callees:
- *     PopGetNextTable @ 0x140383660 (PopGetNextTable.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     memset @ 0x140414200 (memset.c)
- *     PopRequestWrite @ 0x140993DB4 (PopRequestWrite.c)
- *     PopAddPagesToCompressedPageSet @ 0x1409943F4 (PopAddPagesToCompressedPageSet.c)
- *     PopCountDataAsProduced @ 0x14099451C (PopCountDataAsProduced.c)
- *     PopHiberCheckForDebugBreak @ 0x14099481C (PopHiberCheckForDebugBreak.c)
+ *     PopGetNextTable @ 0x140383810 (PopGetNextTable.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     PopRequestWrite @ 0x140994DB4 (PopRequestWrite.c)
+ *     PopAddPagesToCompressedPageSet @ 0x1409953F4 (PopAddPagesToCompressedPageSet.c)
+ *     PopCountDataAsProduced @ 0x14099551C (PopCountDataAsProduced.c)
+ *     PopHiberCheckForDebugBreak @ 0x14099581C (PopHiberCheckForDebugBreak.c)
  */
 
 __int64 __fastcall PopWriteHiberImage(ULONG_PTR BugCheckParameter3, char a2)

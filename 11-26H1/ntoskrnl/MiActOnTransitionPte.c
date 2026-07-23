@@ -1,21 +1,21 @@
 /*
- * XREFs of MiActOnTransitionPte @ 0x14033C8B0
+ * XREFs of MiActOnTransitionPte @ 0x14033E930
  * Callers:
- *     MiActOnPte @ 0x1402D4420 (MiActOnPte.c)
+ *     MiActOnPte @ 0x1402B61E0 (MiActOnPte.c)
  * Callees:
- *     MiGetSubsectionFromPte @ 0x1402836C0 (MiGetSubsectionFromPte.c)
- *     MiUpdatePageFileHighInPte @ 0x14028C010 (MiUpdatePageFileHighInPte.c)
- *     MiLockLeafPage @ 0x140298E10 (MiLockLeafPage.c)
- *     MiUpdatePfnPriority @ 0x1402992A0 (MiUpdatePfnPriority.c)
- *     MiInsertPageInList @ 0x1402DDC40 (MiInsertPageInList.c)
- *     MiUnlinkPageFromListEx @ 0x1402F7250 (MiUnlinkPageFromListEx.c)
- *     MiReadPteShadow @ 0x140314FF0 (MiReadPteShadow.c)
- *     MiLockTransitionLeafPageEx @ 0x14033E050 (MiLockTransitionLeafPageEx.c)
- *     MI_IS_RESET_PTE @ 0x140367DF0 (MI_IS_RESET_PTE.c)
- *     MiDiscardTransitionPfnEx @ 0x140369FE0 (MiDiscardTransitionPfnEx.c)
- *     MiCanPfnOriginalPteBeLost @ 0x140408680 (MiCanPfnOriginalPteBeLost.c)
- *     MiSetSubsectionModified @ 0x14045CF48 (MiSetSubsectionModified.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
+ *     MiGetSubsectionFromPte @ 0x140282C30 (MiGetSubsectionFromPte.c)
+ *     MiUpdatePageFileHighInPte @ 0x14028B570 (MiUpdatePageFileHighInPte.c)
+ *     MiLockLeafPage @ 0x140298370 (MiLockLeafPage.c)
+ *     MiUpdatePfnPriority @ 0x140298800 (MiUpdatePfnPriority.c)
+ *     MiInsertPageInList @ 0x1402BFA00 (MiInsertPageInList.c)
+ *     MiUnlinkPageFromListEx @ 0x1402D92D0 (MiUnlinkPageFromListEx.c)
+ *     MiReadPteShadow @ 0x140317020 (MiReadPteShadow.c)
+ *     MiLockTransitionLeafPageEx @ 0x1403400D0 (MiLockTransitionLeafPageEx.c)
+ *     MI_IS_RESET_PTE @ 0x140369B90 (MI_IS_RESET_PTE.c)
+ *     MiDiscardTransitionPfnEx @ 0x14036BD80 (MiDiscardTransitionPfnEx.c)
+ *     MiCanPfnOriginalPteBeLost @ 0x140401770 (MiCanPfnOriginalPteBeLost.c)
+ *     MiSetSubsectionModified @ 0x140456AF0 (MiSetSubsectionModified.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall MiActOnTransitionPte(__int64 a1)
@@ -90,7 +90,7 @@ __int64 __fastcall MiActOnTransitionPte(__int64 a1)
           }
           *(_QWORD *)(a1 + 16) = v11;
           if ( v11 )
-            *(_QWORD *)(a1 + 8) = *(_QWORD *)(stru_140E2EB88.ThreadLock + 8 * ((*(_QWORD *)(v7 + 40) >> 43) & 0x3FFLL));
+            *(_QWORD *)(a1 + 8) = *(_QWORD *)(stru_140E2ED08.ThreadLock + 8 * ((*(_QWORD *)(v7 + 40) >> 43) & 0x3FFLL));
           updated = MiUpdatePageFileHighInPte(*(_QWORD *)(v7 + 16), 1u);
           v28[0] = updated;
           if ( (unsigned __int64)v28 >= 0xFFFFF6FB7DBED000uLL && (unsigned __int64)v28 <= 0xFFFFF6FB7DBED7F8uLL )
@@ -184,7 +184,7 @@ LABEL_40:
         }
         *(_QWORD *)(a1 + 16) = v16;
         if ( v16 )
-          *(_QWORD *)(a1 + 8) = *(_QWORD *)(stru_140E2EB88.ThreadLock + 8 * ((*(_QWORD *)(v7 + 40) >> 43) & 0x3FFLL));
+          *(_QWORD *)(a1 + 8) = *(_QWORD *)(stru_140E2ED08.ThreadLock + 8 * ((*(_QWORD *)(v7 + 40) >> 43) & 0x3FFLL));
         PteShadow = MiUpdatePageFileHighInPte(*(_QWORD *)(v7 + 16), 1u);
         v28[0] = PteShadow;
         if ( (unsigned __int64)v28 >= 0xFFFFF6FB7DBED000uLL && (unsigned __int64)v28 <= 0xFFFFF6FB7DBED7F8uLL )

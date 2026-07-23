@@ -1,17 +1,17 @@
 /*
- * XREFs of MiPreUnlockWorkingSetShared @ 0x14036C210
+ * XREFs of MiPreUnlockWorkingSetShared @ 0x14036C3C0
  * Callers:
- *     MiTrimOrAgeWorkingSet @ 0x140208250 (MiTrimOrAgeWorkingSet.c)
- *     MiUnlockWorkingSetShared @ 0x14020F790 (MiUnlockWorkingSetShared.c)
- *     MiMoveDirtyBitsToPfns @ 0x140317490 (MiMoveDirtyBitsToPfns.c)
- *     MiDeletePagablePteRange @ 0x140337360 (MiDeletePagablePteRange.c)
+ *     MiTrimOrAgeWorkingSet @ 0x1402ACB50 (MiTrimOrAgeWorkingSet.c)
+ *     MiUnlockWorkingSetShared @ 0x1402B4090 (MiUnlockWorkingSetShared.c)
+ *     MiMoveDirtyBitsToPfns @ 0x1403221E0 (MiMoveDirtyBitsToPfns.c)
+ *     MiDeletePagablePteRange @ 0x1403420B0 (MiDeletePagablePteRange.c)
  * Callees:
- *     MiGetSharedVm @ 0x14021AF50 (MiGetSharedVm.c)
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     KxAcquireQueuedSpinLock @ 0x140350970 (KxAcquireQueuedSpinLock.c)
- *     MiReduceWs @ 0x14036C38C (MiReduceWs.c)
- *     MiForcedTrim @ 0x14036C520 (MiForcedTrim.c)
- *     MiForceAgeWorkingSet @ 0x14053B3C0 (MiForceAgeWorkingSet.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402042B0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     MiGetSharedVm @ 0x1402BF850 (MiGetSharedVm.c)
+ *     KxAcquireQueuedSpinLock @ 0x14035B6C0 (KxAcquireQueuedSpinLock.c)
+ *     MiReduceWs @ 0x14036C53C (MiReduceWs.c)
+ *     MiForcedTrim @ 0x14036C6D0 (MiForcedTrim.c)
+ *     MiForceAgeWorkingSet @ 0x14053B600 (MiForceAgeWorkingSet.c)
  */
 
 char __fastcall MiPreUnlockWorkingSetShared(__int64 a1, char a2)

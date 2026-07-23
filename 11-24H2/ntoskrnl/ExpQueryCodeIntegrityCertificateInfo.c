@@ -1,17 +1,17 @@
 /*
- * XREFs of ExpQueryCodeIntegrityCertificateInfo @ 0x140A6E09C
+ * XREFs of ExpQueryCodeIntegrityCertificateInfo @ 0x140A6759C
  * Callers:
- *     ExpQuerySystemInformation @ 0x140ADC240 (ExpQuerySystemInformation.c)
+ *     ExpQuerySystemInformation @ 0x140ADDAE0 (ExpQuerySystemInformation.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140325680 (ObfDereferenceObject.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     ZwMapViewOfSection @ 0x1406A6910 (ZwMapViewOfSection.c)
- *     ZwUnmapViewOfSection @ 0x1406A6950 (ZwUnmapViewOfSection.c)
- *     ZwCreateSection @ 0x1406A6D50 (ZwCreateSection.c)
- *     SeValidateFileAsImageType @ 0x14078E40C (SeValidateFileAsImageType.c)
- *     ObReferenceObjectByHandle @ 0x14084AF40 (ObReferenceObjectByHandle.c)
- *     FsRtlGetFileSize @ 0x140942760 (FsRtlGetFileSize.c)
- *     IoConvertFileHandleToKernelHandle @ 0x140A6E1F0 (IoConvertFileHandleToKernelHandle.c)
+ *     ObfDereferenceObject @ 0x1402CE210 (ObfDereferenceObject.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     ZwMapViewOfSection @ 0x1406A78B0 (ZwMapViewOfSection.c)
+ *     ZwUnmapViewOfSection @ 0x1406A78F0 (ZwUnmapViewOfSection.c)
+ *     ZwCreateSection @ 0x1406A7CF0 (ZwCreateSection.c)
+ *     SeValidateFileAsImageType @ 0x14078E33C (SeValidateFileAsImageType.c)
+ *     ObReferenceObjectByHandle @ 0x140847200 (ObReferenceObjectByHandle.c)
+ *     FsRtlGetFileSize @ 0x14098C9D0 (FsRtlGetFileSize.c)
+ *     IoConvertFileHandleToKernelHandle @ 0x140A676F0 (IoConvertFileHandleToKernelHandle.c)
  */
 
 __int64 __fastcall ExpQueryCodeIntegrityCertificateInfo(__int64 a1, __int64 a2)
@@ -20,8 +20,6 @@ __int64 __fastcall ExpQueryCodeIntegrityCertificateInfo(__int64 a1, __int64 a2)
   unsigned int v3; // r12d
   int v4; // edi
   NTSTATUS v5; // eax
-  __int64 QuadPart; // rbx
-  __int64 v8; // r9
   PVOID Object; // [rsp+58h] [rbp-11h] BYREF
   LARGE_INTEGER FileSize; // [rsp+60h] [rbp-9h] BYREF
   ULONG_PTR ViewSize; // [rsp+68h] [rbp-1h] BYREF
@@ -84,7 +82,6 @@ __int64 __fastcall ExpQueryCodeIntegrityCertificateInfo(__int64 a1, __int64 a2)
         v4 = ZwCreateSection(&SectionHandle, 4u, &ObjectAttributes, 0LL, 2u, 0x8000000u, 0LL);
         if ( v4 >= 0 )
         {
-          QuadPart = FileSize.QuadPart;
           ViewSize = FileSize.QuadPart;
           v4 = ZwMapViewOfSection(
                  SectionHandle,
@@ -102,7 +99,7 @@ __int64 __fastcall ExpQueryCodeIntegrityCertificateInfo(__int64 a1, __int64 a2)
             BaseAddress = 0LL;
             goto LABEL_10;
           }
-          v4 = SeValidateFileAsImageType(v3, (__int64)BaseAddress, QuadPart, v8);
+          v4 = SeValidateFileAsImageType(v3, (__int64)BaseAddress);
         }
         else
         {

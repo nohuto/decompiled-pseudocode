@@ -1,18 +1,18 @@
 /*
- * XREFs of MiInitializeDynamicPfns @ 0x1401E1CF0
+ * XREFs of MiInitializeDynamicPfns @ 0x1401E1B1C
  * Callers:
- *     MiMapNewPfns @ 0x140658128 (MiMapNewPfns.c)
- *     MiRemovePhysicalMemory @ 0x1406581C0 (MiRemovePhysicalMemory.c)
+ *     MiMapNewPfns @ 0x14065820C (MiMapNewPfns.c)
+ *     MiRemovePhysicalMemory @ 0x1406582A4 (MiRemovePhysicalMemory.c)
  * Callees:
- *     MiAbortCombineScan @ 0x14001D810 (MiAbortCombineScan.c)
- *     MiUpdateLargePageBitMap @ 0x140022BE0 (MiUpdateLargePageBitMap.c)
- *     MiLockPageInline @ 0x140022E70 (MiLockPageInline.c)
- *     ExReleaseSpinLockExclusive @ 0x14002E9A0 (ExReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x14002EB90 (ExAcquireSpinLockExclusive.c)
- *     KeGenericCallDpc @ 0x1400A04BC (KeGenericCallDpc.c)
- *     MiRestrictRangeToNode @ 0x14013B608 (MiRestrictRangeToNode.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     MiAbortCombineScan @ 0x14001D390 (MiAbortCombineScan.c)
+ *     MiUpdateLargePageBitMap @ 0x140022760 (MiUpdateLargePageBitMap.c)
+ *     MiLockPageInline @ 0x1400229F0 (MiLockPageInline.c)
+ *     ExReleaseSpinLockExclusive @ 0x14002E520 (ExReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14002E710 (ExAcquireSpinLockExclusive.c)
+ *     KeGenericCallDpc @ 0x14009EDE4 (KeGenericCallDpc.c)
+ *     MiRestrictRangeToNode @ 0x14013BB78 (MiRestrictRangeToNode.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     memset @ 0x140171AC0 (memset.c)
  */
 
 char __fastcall MiInitializeDynamicPfns(unsigned __int64 a1, unsigned __int64 a2, __int16 a3, int a4)
@@ -51,9 +51,9 @@ char __fastcall MiInitializeDynamicPfns(unsigned __int64 a1, unsigned __int64 a2
   if ( (a4 & 4) != 0 )
   {
     v8 = 6;
-    v10 = ExAcquireSpinLockExclusive(&dword_140323628);
-    qword_140324DD0 += a2;
-    ExReleaseSpinLockExclusive(&dword_140323628, v10);
+    v10 = ExAcquireSpinLockExclusive(&dword_140323668);
+    qword_140324E10 += a2;
+    ExReleaseSpinLockExclusive(&dword_140323668, v10);
   }
   if ( (v7 & 1) != 0 )
   {

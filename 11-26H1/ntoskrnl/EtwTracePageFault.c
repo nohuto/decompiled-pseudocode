@@ -1,17 +1,17 @@
 /*
- * XREFs of EtwTracePageFault @ 0x140215FC0
+ * XREFs of EtwTracePageFault @ 0x1402162F0
  * Callers:
- *     MiConvertFaultStatus @ 0x1403A2F50 (MiConvertFaultStatus.c)
+ *     MiConvertFaultStatus @ 0x1403A4CB0 (MiConvertFaultStatus.c)
  * Callees:
- *     PsGetThreadServerSilo @ 0x1402167A0 (PsGetThreadServerSilo.c)
- *     PsGetEffectiveServerSilo @ 0x140216800 (PsGetEffectiveServerSilo.c)
- *     PsGetServerSiloGlobals @ 0x140216B70 (PsGetServerSiloGlobals.c)
- *     KeLeaveGuardedRegion @ 0x14027DB10 (KeLeaveGuardedRegion.c)
- *     KiCheckForKernelApcDelivery @ 0x14027DB80 (KiCheckForKernelApcDelivery.c)
- *     ExSaDecodeHandle @ 0x1402C15D0 (ExSaDecodeHandle.c)
- *     EtwpLogKernelEvent @ 0x14032CDC0 (EtwpLogKernelEvent.c)
- *     EtwpCovSampCaptureSample @ 0x1406C8944 (EtwpCovSampCaptureSample.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     PsGetThreadServerSilo @ 0x140216AD0 (PsGetThreadServerSilo.c)
+ *     PsGetEffectiveServerSilo @ 0x140216B30 (PsGetEffectiveServerSilo.c)
+ *     PsGetServerSiloGlobals @ 0x140216EA0 (PsGetServerSiloGlobals.c)
+ *     KeLeaveGuardedRegion @ 0x14027D080 (KeLeaveGuardedRegion.c)
+ *     KiCheckForKernelApcDelivery @ 0x14027D0F0 (KiCheckForKernelApcDelivery.c)
+ *     ExSaDecodeHandle @ 0x14030C290 (ExSaDecodeHandle.c)
+ *     EtwpLogKernelEvent @ 0x14032EDF0 (EtwpLogKernelEvent.c)
+ *     EtwpCovSampCaptureSample @ 0x1406CC924 (EtwpCovSampCaptureSample.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 void __fastcall EtwTracePageFault(int a1, __int64 a2, __int64 a3, __int64 a4)
@@ -27,7 +27,7 @@ void __fastcall EtwTracePageFault(int a1, __int64 a2, __int64 a3, __int64 a4)
   __int64 v12; // rcx
   _DWORD *v13; // rax
   __int64 v14; // rbx
-  unsigned __int64 v15; // rcx
+  struct _LIST_ENTRY *Blink; // rcx
   __int64 v16; // r14
   unsigned int v17; // edi
   _DWORD *v18; // rax
@@ -163,19 +163,19 @@ void __fastcall EtwTracePageFault(int a1, __int64 a2, __int64 a3, __int64 a4)
     }
     LODWORD(CurrentThread[1].Queue) &= ~0x10u;
     i = CurrentThread->SpecialApcDisable++ == -1;
-    if ( i && ($7A85BAF4F1FA08634C1C4A3E45B775B3 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
+    if ( i && ($241382875694CED3D471BC5892DE3337 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
       KiCheckForKernelApcDelivery(v12, a2, a3, a4, v37, v38);
     if ( EtwpHostSiloState != -4844 && (*(_DWORD *)(EtwpHostSiloState + 4844) & 0x1000) != 0 )
     {
       v14 = v40;
-      v15 = ExpSysDbgLock.TracingPrivate[0];
+      Blink = ExpSysDbgLock.GlobalUpdateVpThreadPriorityListEntry.Blink;
       if ( v4 )
       {
         if ( (unsigned __int64)(v40 - 1) <= 0xFFFF7FFFFFFFFFFEuLL && v39 < 0xFFFF800000000000uLL )
         {
           v27 = KeGetCurrentThread();
           --v27->SpecialApcDisable;
-          v28 = ExSaDecodeHandle(*(_QWORD *)(v15 + 8));
+          v28 = ExSaDecodeHandle(Blink->Blink);
           v29 = (v28 + 15) & 0xFFFFFFFFFFFFFFF0uLL;
           v30 = *(_DWORD *)(v29 + 0x108);
           if ( !v30 )

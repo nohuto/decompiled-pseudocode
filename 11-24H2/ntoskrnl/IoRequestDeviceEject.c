@@ -1,10 +1,10 @@
 /*
- * XREFs of IoRequestDeviceEject @ 0x1405A49B0
+ * XREFs of IoRequestDeviceEject @ 0x1405A18F0
  * Callers:
- *     PipProcessRestartPhase2 @ 0x140736668 (PipProcessRestartPhase2.c)
- *     PipProcessStartPhase2 @ 0x1408B23C8 (PipProcessStartPhase2.c)
+ *     PipProcessRestartPhase2 @ 0x140734598 (PipProcessRestartPhase2.c)
+ *     PipProcessStartPhase2 @ 0x1408AFCBC (PipProcessStartPhase2.c)
  * Callees:
- *     IoRequestDeviceEjectEx @ 0x1405A49D0 (IoRequestDeviceEjectEx.c)
+ *     IoRequestDeviceEjectEx @ 0x1405A1910 (IoRequestDeviceEjectEx.c)
  */
 
 void __stdcall IoRequestDeviceEject(PDEVICE_OBJECT PhysicalDeviceObject)

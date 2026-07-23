@@ -1,10 +1,10 @@
 /*
- * XREFs of PpmPerfResetHistoryAll @ 0x140A9EDC8
+ * XREFs of PpmPerfResetHistoryAll @ 0x140AEBEE4
  * Callers:
- *     PpmCheckReInit @ 0x140A9D410 (PpmCheckReInit.c)
+ *     PpmCheckReInit @ 0x140AEBB2C (PpmCheckReInit.c)
  * Callees:
- *     PpmPerfResetHistory @ 0x1402126DC (PpmPerfResetHistory.c)
- *     KeGetPrcb @ 0x1402916D0 (KeGetPrcb.c)
+ *     PpmPerfResetHistory @ 0x1402127BC (PpmPerfResetHistory.c)
+ *     KeGetPrcb @ 0x140290C30 (KeGetPrcb.c)
  */
 
 void PpmPerfResetHistoryAll()
@@ -18,7 +18,7 @@ void PpmPerfResetHistoryAll()
   __int64 v6; // rcx
   __int64 v7; // rax
 
-  v0 = qword_140E0B638[0];
+  v0 = PpmCheckRegistered.Bitmap[0];
   LOWORD(v1) = 0;
   while ( 1 )
   {
@@ -26,15 +26,15 @@ void PpmPerfResetHistoryAll()
     {
       _BitScanForward64(&v2, v0);
       v0 &= ~(1LL << v2);
-      Prcb = KeGetPrcb(*((_DWORD *)&KiSupervisorXStateFeaturesLock.WaitBlock[2].Thread->Header.Lock
-                       + 64 * (unsigned __int16)v1
+      Prcb = KeGetPrcb(*((_DWORD *)&KiSupervisorXStateFeaturesLock.SchedulerApc.ApcListEntry.Flink[16
+                                                                                                 * (unsigned __int16)v1].Flink
                        + (unsigned int)(unsigned __int8)v2));
       PpmPerfResetHistory(Prcb + 35264);
     }
     v1 = (unsigned __int16)(v1 + 1);
-    if ( (unsigned int)v1 >= LOWORD(PpmCheckRegistered[0]) )
+    if ( (unsigned int)v1 >= PpmCheckRegistered.Count )
       break;
-    v0 = qword_140E0B638[v1];
+    v0 = PpmCheckRegistered.Bitmap[v1];
   }
   for ( i = *(PBOOLEAN *)((char *)&Mm64BitPhysicalAddress + 2);
         i != (PBOOLEAN)((char *)&Mm64BitPhysicalAddress + 2);

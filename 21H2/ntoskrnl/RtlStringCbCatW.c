@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlStringCbCatW @ 0x140265118
+ * XREFs of RtlStringCbCatW @ 0x1402531A8
  * Callers:
- *     SeSetLearningModeObjectInformation @ 0x14027C980 (SeSetLearningModeObjectInformation.c)
- *     WmipInsertStaticNames @ 0x140638E70 (WmipInsertStaticNames.c)
- *     PnpConcatPWSTR @ 0x1406A9C64 (PnpConcatPWSTR.c)
- *     PerfDiagpStartPerfDiagLogger @ 0x14079B214 (PerfDiagpStartPerfDiagLogger.c)
- *     RtlpGetDynamicTimeZoneInfoHandle @ 0x1407AA5E0 (RtlpGetDynamicTimeZoneInfoHandle.c)
- *     WmipIncludeStaticNames @ 0x1409327DC (WmipIncludeStaticNames.c)
- *     VhdInitialize @ 0x140A73778 (VhdInitialize.c)
+ *     SeSetLearningModeObjectInformation @ 0x14026A920 (SeSetLearningModeObjectInformation.c)
+ *     PnpConcatPWSTR @ 0x140607BE4 (PnpConcatPWSTR.c)
+ *     WmipInsertStaticNames @ 0x14062DC80 (WmipInsertStaticNames.c)
+ *     PerfDiagpStartPerfDiagLogger @ 0x14079B414 (PerfDiagpStartPerfDiagLogger.c)
+ *     RtlpGetDynamicTimeZoneInfoHandle @ 0x1407AA7E0 (RtlpGetDynamicTimeZoneInfoHandle.c)
+ *     WmipIncludeStaticNames @ 0x14093293C (WmipIncludeStaticNames.c)
+ *     VhdInitialize @ 0x140A74778 (VhdInitialize.c)
  * Callees:
  *     <none>
  */

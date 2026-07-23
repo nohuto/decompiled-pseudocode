@@ -36,37 +36,28 @@ __int64 __fastcall LdrpLoadDllInternal(
         int a2,
         unsigned int a3,
         int a4,
-        __int64 a5,
-        __int64 a6,
-        __int64 *a7,
+        _DWORD *a5,
+        _DWORD *a6,
+        PVOID *a7,
         int *a8,
         unsigned __int64 a9)
 {
   unsigned int v10; // edi
   int v11; // esi
-  unsigned __int64 v13; // r9
-  __int64 *v14; // r13
-  int v15; // eax
-  unsigned __int64 v16; // r8
-  unsigned __int64 v17; // rdx
-  int *v18; // rbx
-  char v20; // r15
+  PVOID *v13; // r13
+  int v14; // eax
+  int *v15; // rbx
+  char v17; // r15
+  int v18; // eax
+  __int64 v19; // rdx
+  PVOID v20; // rax
   int v21; // eax
-  __int64 v22; // rdx
-  __int64 v23; // rax
-  int v24; // eax
-  int v25; // eax
-  unsigned __int64 v26; // rdx
-  unsigned __int64 v27; // r8
-  unsigned __int64 v28; // r9
-  unsigned __int64 v29; // rdx
-  unsigned __int64 v30; // r8
-  unsigned __int64 v31; // r9
-  int v32; // eax
+  int v22; // eax
+  int v23; // eax
   int LoadedDllByHandle; // esi
-  __int64 v34; // rdi
-  __int64 v35; // [rsp+40h] [rbp-58h] BYREF
-  __int128 v36[4]; // [rsp+50h] [rbp-48h] BYREF
+  _DWORD *v25; // rdi
+  PVOID BaseAddress[2]; // [rsp+40h] [rbp-58h] BYREF
+  __int128 v27[4]; // [rsp+50h] [rbp-48h] BYREF
 
   v10 = a3;
   v11 = a2;
@@ -77,55 +68,54 @@ __int64 __fastcall LdrpLoadDllInternal(
     3,
     "DLL name: %wZ\n",
     a1);
-  v14 = a7;
+  v13 = a7;
   *a7 = 0LL;
-  v35 = 0LL;
+  BaseAddress[0] = 0LL;
   if ( a4 != 9 )
   {
-    v15 = LdrpFastpthReloadedDll(a1, v10, a6, v14);
-    v17 = 0x80000000LL;
-    if ( (int)(v15 + 0x80000000) < 0 || v15 == -1073740608 )
+    v14 = LdrpFastpthReloadedDll(a1, v10, a6, v13);
+    if ( (int)(v14 + 0x80000000) < 0 || v14 == -1073740608 )
     {
-      v18 = a8;
-      *a8 = v15;
+      v15 = a8;
+      *a8 = v14;
       goto LABEL_4;
     }
   }
   if ( (NtCurrentTeb()->SameTebFlags & 0x1000) != 0 )
   {
-    v20 = 1;
+    v17 = 1;
   }
   else
   {
-    v20 = 0;
+    v17 = 0;
     LdrpDrainWorkQueue(0LL);
   }
   if ( a4 != 9 )
     goto LABEL_10;
-  LoadedDllByHandle = LdrpFindLoadedDllByHandle(a9, &a5, 0LL, v13);
+  LoadedDllByHandle = LdrpFindLoadedDllByHandle(a9, (__int64 *)&a5, 0LL);
   if ( LoadedDllByHandle < 0 )
   {
 LABEL_51:
     if ( *(_QWORD *)(a1 + 8) )
       LdrpFreeUnicodeString(a1);
-    v18 = a8;
+    v15 = a8;
     *a8 = LoadedDllByHandle;
     goto LABEL_45;
   }
-  if ( *(_DWORD *)(a5 + 304) == 4 )
+  if ( a5[76] == 4 )
   {
     LoadedDllByHandle = -1073740628;
     goto LABEL_51;
   }
-  v34 = a5;
+  v25 = a5;
   a6 = a5;
-  LoadedDllByHandle = LdrpQueryCurrentPatch(*(unsigned int *)(a5 + 288), *(unsigned int *)(a5 + 128), a1);
+  LoadedDllByHandle = LdrpQueryCurrentPatch((unsigned int)a5[72], (unsigned int)a5[32], a1);
   if ( LoadedDllByHandle < 0 )
     goto LABEL_51;
   if ( !*(_WORD *)a1 )
   {
-    if ( *(_QWORD *)(v34 + 296) )
-      LoadedDllByHandle = LdrpUndoPatchImage(v34);
+    if ( *((_QWORD *)v25 + 37) )
+      LoadedDllByHandle = LdrpUndoPatchImage(v25);
     goto LABEL_51;
   }
   LdrpLogInternal(
@@ -139,100 +129,100 @@ LABEL_51:
   v11 = a2;
 LABEL_10:
   LdrpThreadTokenSetMainThreadToken();
-  if ( !a6 || v20 || *(_DWORD *)(*(_QWORD *)(a6 + 152) + 24LL) )
+  if ( !a6 || v17 || *(_DWORD *)(*((_QWORD *)a6 + 19) + 24LL) )
   {
     LdrpDetectDetour();
-    v18 = a8;
-    v21 = LdrpFindOrPrepareLoadingModule(a1, v11, v10, a4, a5, (__int64)&v35, (__int64)a8);
-    if ( v21 == -1073741515 )
+    v15 = a8;
+    v18 = LdrpFindOrPrepareLoadingModule(a1, v11, v10, a4, (__int64)a5, (__int64)BaseAddress, (__int64)a8);
+    if ( v18 == -1073741515 )
     {
-      LOBYTE(v22) = 1;
-      LdrpProcessWork(*(_QWORD *)(v35 + 176), v22);
+      LOBYTE(v19) = 1;
+      LdrpProcessWork(*((_QWORD *)BaseAddress[0] + 22), v19);
     }
-    else if ( v21 != -1073741267 && v21 < 0 )
+    else if ( v18 != -1073741267 && v18 < 0 )
     {
-      *v18 = v21;
+      *v15 = v18;
     }
   }
   else
   {
-    v18 = a8;
+    v15 = a8;
     *a8 = -1073741515;
   }
   LdrpDrainWorkQueue(1LL);
   if ( LdrpMainThreadToken )
     LdrpThreadTokenUnsetMainThreadToken();
-  if ( v35 )
+  if ( BaseAddress[0] )
   {
-    v23 = LdrpHandleReplacedModule();
-    *v14 = v23;
-    if ( v35 != v23 )
+    v20 = (PVOID)LdrpHandleReplacedModule();
+    *v13 = v20;
+    if ( BaseAddress[0] != v20 )
     {
-      LdrpFreeReplacedModule(v35);
-      v35 = *v14;
-      if ( *(_DWORD *)(v35 + 268) == 9 && a4 != 9 )
-        *v18 = -1073740608;
+      LdrpFreeReplacedModule(BaseAddress[0]);
+      BaseAddress[0] = *v13;
+      if ( *((_DWORD *)BaseAddress[0] + 67) == 9 && a4 != 9 )
+        *v15 = -1073740608;
     }
-    if ( *(_QWORD *)(v35 + 176) )
-      LdrpCondenseGraph(*(_QWORD *)(v35 + 152));
-    if ( *v18 >= 0 )
+    if ( *((_QWORD *)BaseAddress[0] + 22) )
+      LdrpCondenseGraph(*((_QWORD *)BaseAddress[0] + 19));
+    if ( *v15 >= 0 )
     {
-      v24 = LdrpPrepareModuleForExecution(v35, v18);
-      *v18 = v24;
-      if ( v24 >= 0 )
+      v21 = LdrpPrepareModuleForExecution(BaseAddress[0], v15);
+      *v15 = v21;
+      if ( v21 >= 0 )
       {
-        v25 = LdrpBuildForwarderLink(a6, v35);
-        *v18 = v25;
-        if ( v25 >= 0 && !LdrInitState )
-          LdrpPinModule(v35, v26, v27, v28);
+        v22 = LdrpBuildForwarderLink(a6, BaseAddress[0]);
+        *v15 = v22;
+        if ( v22 >= 0 && !LdrInitState )
+          LdrpPinModule((__int64)BaseAddress[0]);
       }
-      if ( a4 == 9 && *(_QWORD *)(a5 + 296) != *(_QWORD *)(v35 + 48) )
+      if ( a4 == 9 && *((_QWORD *)a5 + 37) != *((_QWORD *)BaseAddress[0] + 6) )
       {
-        if ( *(_DWORD *)(v35 + 304) == 4 )
+        if ( *((_DWORD *)BaseAddress[0] + 76) == 4 )
         {
-          *v18 = -1073741502;
+          *v15 = -1073741502;
         }
         else
         {
-          v32 = LdrpApplyPatchImage(v35);
-          *v18 = v32;
-          if ( v32 < 0 )
+          v23 = LdrpApplyPatchImage(BaseAddress[0]);
+          *v15 = v23;
+          if ( v23 < 0 )
           {
-            v36[0] = *(_OWORD *)(v35 + 72);
+            v27[0] = *(_OWORD *)((char *)BaseAddress[0] + 72);
             LdrpLogInternal(
               (unsigned int)"minkernel\\ntdll\\ldrapi.c",
               1199,
               (unsigned int)"LdrpLoadDllInternal",
               0,
               "Applying patch \"%wZ\" failed\n",
-              v36);
+              v27);
           }
         }
       }
     }
-    LdrpFreeLoadContextOfNode(*(_QWORD *)(v35 + 152), v18);
-    if ( *v18 < 0 && (a4 != 9 || *(_DWORD *)(v35 + 304) != 2) )
+    LdrpFreeLoadContextOfNode(*((_QWORD *)BaseAddress[0] + 19), v15);
+    if ( *v15 < 0 && (a4 != 9 || *((_DWORD *)BaseAddress[0] + 76) != 2) )
     {
-      *v14 = 0LL;
-      LdrpDecrementModuleLoadCountEx(v35, 0LL);
-      LdrpDereferenceModule(v35, v29, v30, v31);
+      *v13 = 0LL;
+      LdrpDecrementModuleLoadCountEx(BaseAddress[0], 0LL);
+      LdrpDereferenceModule((char *)BaseAddress[0]);
     }
   }
   else
   {
-    *v18 = -1073741801;
+    *v15 = -1073741801;
   }
 LABEL_45:
-  if ( !v20 )
+  if ( !v17 )
     LdrpDropLastInProgressCount();
 LABEL_4:
   if ( a4 == 9 && a5 )
-    LdrpDereferenceModule(a5, v17, v16, v13);
+    LdrpDereferenceModule((char *)a5);
   return LdrpLogInternal(
            (unsigned int)"minkernel\\ntdll\\ldrapi.c",
            1326,
            (unsigned int)"LdrpLoadDllInternal",
            4,
            "Status: 0x%08lx\n",
-           *v18);
+           *v15);
 }

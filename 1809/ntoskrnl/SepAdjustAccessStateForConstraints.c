@@ -1,13 +1,13 @@
 /*
- * XREFs of SepAdjustAccessStateForConstraints @ 0x1407056BC
+ * XREFs of SepAdjustAccessStateForConstraints @ 0x14070695C
  * Callers:
- *     CmpSetAccessStateForBackupRestore @ 0x1407055F0 (CmpSetAccessStateForBackupRestore.c)
- *     SeAdjustAccessStateForTrustLabel @ 0x14089C0C0 (SeAdjustAccessStateForTrustLabel.c)
+ *     CmpSetAccessStateForBackupRestore @ 0x140706890 (CmpSetAccessStateForBackupRestore.c)
+ *     SeAdjustAccessStateForTrustLabel @ 0x14089D320 (SeAdjustAccessStateForTrustLabel.c)
  * Callees:
  *     SepFilterCheck @ 0x140052760 (SepFilterCheck.c)
- *     SepLocateTokenTrustLevel @ 0x1400A9004 (SepLocateTokenTrustLevel.c)
- *     SeGetTrustLabelAce @ 0x1400AA950 (SeGetTrustLabelAce.c)
- *     RtlSidDominatesForTrust @ 0x1400AD1A0 (RtlSidDominatesForTrust.c)
+ *     SepLocateTokenTrustLevel @ 0x1400A8F44 (SepLocateTokenTrustLevel.c)
+ *     SeGetTrustLabelAce @ 0x1400AA890 (SeGetTrustLabelAce.c)
+ *     RtlSidDominatesForTrust @ 0x1400AD0E0 (RtlSidDominatesForTrust.c)
  */
 
 __int64 __fastcall SepAdjustAccessStateForConstraints(__int64 a1, __int64 a2, char a3, __int64 a4)
@@ -24,13 +24,13 @@ __int64 __fastcall SepAdjustAccessStateForConstraints(__int64 a1, __int64 a2, ch
   int v16; // eax
   int v17; // edi
   int v18; // ebx
-  __int64 v19; // r15
-  __int64 TokenTrustLevel; // rax
+  void *v19; // r15
+  void *TokenTrustLevel; // rax
   int v21; // ecx
   __int64 v22; // [rsp+30h] [rbp-38h] BYREF
-  char v23; // [rsp+88h] [rbp+20h] BYREF
+  BOOLEAN DominatesTrust; // [rsp+88h] [rbp+20h] BYREF
 
-  v23 = 0;
+  DominatesTrust = 0;
   v22 = 0LL;
   v7 = -1;
   v8 = -1;
@@ -63,11 +63,11 @@ __int64 __fastcall SepAdjustAccessStateForConstraints(__int64 a1, __int64 a2, ch
     v15 = TrustLabelAce;
     if ( TrustLabelAce )
     {
-      v19 = TrustLabelAce + 8;
+      v19 = (void *)(TrustLabelAce + 8);
       if ( TrustLabelAce == -8
-        || (TokenTrustLevel = SepLocateTokenTrustLevel((__int64 *)(a4 + 32)),
-            RtlSidDominatesForTrust(TokenTrustLevel, v19, &v23),
-            !v23) )
+        || (TokenTrustLevel = (void *)SepLocateTokenTrustLevel((__int64 *)(a4 + 32)),
+            RtlSidDominatesForTrust(TokenTrustLevel, v19, &DominatesTrust),
+            !DominatesTrust) )
       {
         v8 = *(_DWORD *)(v15 + 4);
       }

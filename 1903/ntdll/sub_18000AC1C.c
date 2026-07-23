@@ -9,65 +9,63 @@
  *     sub_18006C4F8 @ 0x18006C4F8 (sub_18006C4F8.c)
  */
 
-__int64 __fastcall sub_18000AC1C(__int64 a1)
+void __fastcall sub_18000AC1C(PRTL_BALANCED_NODE Node)
 {
-  __int64 v2; // r8
-  unsigned __int64 v3; // rdi
-  char v4; // bl
-  int v5; // esi
-  unsigned __int64 v6; // rax
-  __int64 v8; // [rsp+20h] [rbp-18h] BYREF
-  __int16 v9; // [rsp+28h] [rbp-10h]
+  unsigned __int64 Root; // rdi
+  BOOLEAN v3; // bl
+  int v4; // esi
+  unsigned __int64 v5; // rax
+  _RTL_BALANCED_NODE **v6; // [rsp+20h] [rbp-18h] BYREF
+  __int16 v7; // [rsp+28h] [rbp-10h]
 
-  v8 = a1 + 32;
-  v9 = *(_WORD *)(a1 + 96);
-  RtlAcquireSRWLockExclusive(&unk_180166440);
-  v3 = qword_180166430;
-  v4 = 0;
-  if ( (qword_180166438 & 1) != 0 )
+  v6 = &Node[1].Children[1];
+  v7 = (__int16)Node[4].Children[0];
+  RtlAcquireSRWLockExclusive(&stru_180166440);
+  Root = (unsigned __int64)Tree.Root;
+  v3 = 0;
+  if ( ((__int64)Tree.Min & 1) != 0 )
   {
-    if ( qword_180166430 )
-      v3 = (unsigned __int64)&qword_180166430 ^ qword_180166430;
+    if ( Tree.Root )
+      Root = (unsigned __int64)&Tree ^ (unsigned __int64)Tree.Root;
     else
-      v3 = 0LL;
+      Root = 0LL;
   }
-  v5 = qword_180166438 & 1;
-  if ( v3 )
+  v4 = (__int64)Tree.Min & 1;
+  if ( Root )
   {
     while ( 1 )
     {
-      if ( (int)sub_18006C4F8(&v8, v3) < 0 )
+      if ( (int)sub_18006C4F8(&v6, Root) < 0 )
       {
-        v6 = *(_QWORD *)v3;
-        if ( v5 )
+        v5 = *(_QWORD *)Root;
+        if ( v4 )
         {
-          if ( !v6 )
+          if ( !v5 )
             break;
-          v6 ^= v3;
+          v5 ^= Root;
         }
-        if ( !v6 )
+        if ( !v5 )
           break;
       }
       else
       {
-        v6 = *(_QWORD *)(v3 + 8);
-        if ( v5 )
+        v5 = *(_QWORD *)(Root + 8);
+        if ( v4 )
         {
-          if ( !v6 )
+          if ( !v5 )
             goto LABEL_17;
-          v6 ^= v3;
+          v5 ^= Root;
         }
-        if ( !v6 )
+        if ( !v5 )
         {
 LABEL_17:
-          v4 = 1;
+          v3 = 1;
           break;
         }
       }
-      v3 = v6;
+      Root = v5;
     }
   }
-  LOBYTE(v2) = v4;
-  RtlRbInsertNodeEx(&qword_180166430, v3, v2, a1);
-  return RtlReleaseSRWLockExclusive(&unk_180166440);
+  RtlRbInsertNodeEx(&Tree, (PRTL_BALANCED_NODE)Root, v3, Node);
+  RtlReleaseSRWLockExclusive(&stru_180166440);
 }

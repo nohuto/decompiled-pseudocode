@@ -9,13 +9,13 @@
  *     ZwRaiseException @ 0x180166090 (ZwRaiseException.c)
  */
 
-void __fastcall WerpBreakIntoDebuggerIfPresent(unsigned int *a1, __int64 a2, char a3)
+void __fastcall WerpBreakIntoDebuggerIfPresent(PEXCEPTION_RECORD ExceptionRecord, PCONTEXT ContextRecord, char a3)
 {
   if ( (a3 & 4) == 0 && (unsigned int)WerpIsDebugPortPresent() )
   {
     do
-      ZwRaiseException(a1, a2, 0LL);
+      ZwRaiseException(ExceptionRecord, ContextRecord, 0);
     while ( (unsigned int)WerpIsDebugPortPresent() );
-    ZwTerminateProcess(-1LL, *a1);
+    ZwTerminateProcess((HANDLE)0xFFFFFFFFFFFFFFFFLL, ExceptionRecord->ExceptionCode);
   }
 }

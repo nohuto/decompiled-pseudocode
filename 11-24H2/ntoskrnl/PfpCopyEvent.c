@@ -1,14 +1,14 @@
 /*
- * XREFs of PfpCopyEvent @ 0x14094F68C
+ * XREFs of PfpCopyEvent @ 0x140971B9C
  * Callers:
- *     PfpFlushEventBuffers @ 0x14094F57C (PfpFlushEventBuffers.c)
- *     PfpFlushBuffers @ 0x14094F8D0 (PfpFlushBuffers.c)
+ *     PfpFlushEventBuffers @ 0x140971A8C (PfpFlushEventBuffers.c)
+ *     PfpFlushBuffers @ 0x140971DE0 (PfpFlushBuffers.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x1403254A0 (ObfDereferenceObjectWithTag.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     PsLookupProcessByProcessId @ 0x14094DC80 (PsLookupProcessByProcessId.c)
- *     PfpLogPageAccess @ 0x14094FC80 (PfpLogPageAccess.c)
- *     PfTReplaceCurrentBuffer @ 0x140950344 (PfTReplaceCurrentBuffer.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CE030 (ObfDereferenceObjectWithTag.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     PsLookupProcessByProcessId @ 0x1408F21F0 (PsLookupProcessByProcessId.c)
+ *     PfpLogPageAccess @ 0x140972190 (PfpLogPageAccess.c)
+ *     PfTReplaceCurrentBuffer @ 0x140972854 (PfTReplaceCurrentBuffer.c)
  */
 
 __int64 __fastcall PfpCopyEvent(__int64 a1, unsigned __int64 *a2)

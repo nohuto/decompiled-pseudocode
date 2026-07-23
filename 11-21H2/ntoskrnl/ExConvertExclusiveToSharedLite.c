@@ -1,15 +1,15 @@
 /*
  * XREFs of ExConvertExclusiveToSharedLite @ 0x140239790
  * Callers:
- *     FsRtlAcquireFileForModWriteEx @ 0x14028B12C (FsRtlAcquireFileForModWriteEx.c)
- *     DifExConvertExclusiveToSharedLiteWrapper @ 0x140607A20 (DifExConvertExclusiveToSharedLiteWrapper.c)
- *     PspAllocateAndQueryNotificationChannel @ 0x140678C4C (PspAllocateAndQueryNotificationChannel.c)
- *     PpDevNodeUnlockTree @ 0x140775698 (PpDevNodeUnlockTree.c)
- *     CmpReplicateKeyToVirtual @ 0x1409174A4 (CmpReplicateKeyToVirtual.c)
- *     NtMapCMFModule @ 0x140A05860 (NtMapCMFModule.c)
+ *     sub_14028B12C @ 0x14028B12C (sub_14028B12C.c)
+ *     sub_140607A20 @ 0x140607A20 (sub_140607A20.c)
+ *     sub_140678C4C @ 0x140678C4C (sub_140678C4C.c)
+ *     sub_140775698 @ 0x140775698 (sub_140775698.c)
+ *     sub_1409174A4 @ 0x1409174A4 (sub_1409174A4.c)
+ *     sub_140A05860 @ 0x140A05860 (sub_140A05860.c)
  * Callees:
- *     ExpConvertExclusiveToSharedLite @ 0x140239810 (ExpConvertExclusiveToSharedLite.c)
- *     ExpFastResourceLegacyConvertExclusiveToShared @ 0x14039C830 (ExpFastResourceLegacyConvertExclusiveToShared.c)
+ *     sub_140239810 @ 0x140239810 (sub_140239810.c)
+ *     sub_14039C830 @ 0x14039C830 (sub_14039C830.c)
  *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
  */
 
@@ -28,12 +28,12 @@ void __stdcall ExConvertExclusiveToSharedLite(PERESOURCE Resource)
     CurrentThread = KeGetCurrentThread();
     if ( CurrentIrql > 1u )
       KeBugCheckEx(0x1C6u, 0LL, CurrentIrql, 1uLL, 0LL);
-    if ( !CurrentIrql && (CurrentThread->MiscFlags & 0x400) == 0 && !CurrentThread->WaitBlock[3].SpareLong )
+    if ( !CurrentIrql && (*((_DWORD *)CurrentThread + 29) & 0x400) == 0 && !*((_DWORD *)CurrentThread + 121) )
       KeBugCheckEx(0x1C6u, 7uLL, 0LL, 0LL, 0LL);
-    ExpFastResourceLegacyConvertExclusiveToShared((ULONG_PTR)Resource);
+    sub_14039C830((ULONG_PTR)Resource);
   }
   else
   {
-    ExpConvertExclusiveToSharedLite();
+    sub_140239810();
   }
 }

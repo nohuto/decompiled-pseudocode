@@ -1,19 +1,19 @@
 /*
- * XREFs of ExpRaiseHardError @ 0x1406B634C
+ * XREFs of ExpRaiseHardError @ 0x1406B6484
  * Callers:
- *     ExRaiseHardError @ 0x1406B6068 (ExRaiseHardError.c)
- *     NtRaiseHardError @ 0x1406B66AC (NtRaiseHardError.c)
+ *     ExRaiseHardError @ 0x1406B61A0 (ExRaiseHardError.c)
+ *     NtRaiseHardError @ 0x1406B67E4 (NtRaiseHardError.c)
  * Callees:
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
- *     PsGetCurrentServerSiloGlobals @ 0x14008C610 (PsGetCurrentServerSiloGlobals.c)
- *     PsIsCurrentThreadInServerSilo @ 0x1400C3CF0 (PsIsCurrentThreadInServerSilo.c)
- *     KeIsAttachedProcess @ 0x1400E7E80 (KeIsAttachedProcess.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     ExpSystemErrorHandler @ 0x140168330 (ExpSystemErrorHandler.c)
- *     memmove @ 0x140171280 (memmove.c)
- *     SeSinglePrivilegeCheck @ 0x140413F70 (SeSinglePrivilegeCheck.c)
- *     LpcRequestWaitReplyPortEx @ 0x1404B1FD4 (LpcRequestWaitReplyPortEx.c)
- *     PsCaptureExceptionPort @ 0x140509690 (PsCaptureExceptionPort.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x14008BD70 (PsGetCurrentServerSiloGlobals.c)
+ *     PsIsCurrentThreadInServerSilo @ 0x1400C1B90 (PsIsCurrentThreadInServerSilo.c)
+ *     KeIsAttachedProcess @ 0x1400E5D20 (KeIsAttachedProcess.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     ExpSystemErrorHandler @ 0x1401688A0 (ExpSystemErrorHandler.c)
+ *     memmove @ 0x140171780 (memmove.c)
+ *     SeSinglePrivilegeCheck @ 0x140412E30 (SeSinglePrivilegeCheck.c)
+ *     LpcRequestWaitReplyPortEx @ 0x14049C3B4 (LpcRequestWaitReplyPortEx.c)
+ *     PsCaptureExceptionPort @ 0x1404EC620 (PsCaptureExceptionPort.c)
  */
 
 __int64 __fastcall ExpRaiseHardError(

@@ -1,26 +1,26 @@
 /*
- * XREFs of DifNtLoadKeyExWrapper @ 0x14067A980
+ * XREFs of DifNtLoadKeyExWrapper @ 0x14067E560
  * Callers:
  *     <none>
  * Callees:
- *     DifGetReturnAddressForWrappers @ 0x140260EA4 (DifGetReturnAddressForWrappers.c)
- *     ExReleaseRundownProtection_0 @ 0x140266240 (ExReleaseRundownProtection_0.c)
- *     ExAcquireRundownProtection_0 @ 0x1402F0590 (ExAcquireRundownProtection_0.c)
- *     DifGetAPIThunkContextById @ 0x1404C17A4 (DifGetAPIThunkContextById.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     NtLoadKeyEx @ 0x14097B380 (NtLoadKeyEx.c)
+ *     DifGetReturnAddressForWrappers @ 0x14026040C (DifGetReturnAddressForWrappers.c)
+ *     ExReleaseRundownProtection_0 @ 0x1402657B0 (ExReleaseRundownProtection_0.c)
+ *     ExAcquireRundownProtection_0 @ 0x1402D2610 (ExAcquireRundownProtection_0.c)
+ *     DifGetAPIThunkContextById @ 0x1404BAFF4 (DifGetAPIThunkContextById.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     NtLoadKeyEx @ 0x14093D390 (NtLoadKeyEx.c)
  */
 
 __int64 __fastcall DifNtLoadKeyExWrapper(
-        __int64 a1,
-        __int64 a2,
-        int a3,
-        __int64 a4,
-        __int64 a5,
-        ACCESS_MASK a6,
-        __int64 a7,
-        __int64 a8)
+        OBJECT_ATTRIBUTES *a1,
+        OBJECT_ATTRIBUTES *a2,
+        ULONG a3,
+        void *a4,
+        HANDLE Event,
+        ACCESS_MASK DesiredAccess,
+        HANDLE *RootHandle,
+        PVOID Reserved)
 {
   __int128 *APIThunkContextById; // rax
   __int64 v12; // rdx
@@ -34,11 +34,11 @@ __int64 __fastcall DifNtLoadKeyExWrapper(
   __int128 *j; // rbx
   _QWORD v22[3]; // [rsp+48h] [rbp-39h] BYREF
   ACCESS_MASK v23; // [rsp+60h] [rbp-21h]
-  __int64 v24; // [rsp+68h] [rbp-19h]
-  __int64 v25; // [rsp+70h] [rbp-11h]
-  int v26; // [rsp+78h] [rbp-9h]
-  __int64 v27; // [rsp+80h] [rbp-1h]
-  __int64 v28; // [rsp+88h] [rbp+7h]
+  HANDLE v24; // [rsp+68h] [rbp-19h]
+  void *v25; // [rsp+70h] [rbp-11h]
+  ULONG v26; // [rsp+78h] [rbp-9h]
+  OBJECT_ATTRIBUTES *v27; // [rsp+80h] [rbp-1h]
+  OBJECT_ATTRIBUTES *v28; // [rsp+88h] [rbp+7h]
   unsigned int Key; // [rsp+90h] [rbp+Fh]
   void *retaddr; // [rsp+C0h] [rbp+3Fh]
 
@@ -62,10 +62,10 @@ __int64 __fastcall DifNtLoadKeyExWrapper(
 LABEL_7:
   v16 = 0;
   v28 = a1;
-  v24 = a5;
-  v23 = a6;
-  v22[2] = a7;
-  v22[1] = a8;
+  v24 = Event;
+  v23 = DesiredAccess;
+  v22[2] = RootHandle;
+  v22[1] = Reserved;
   v27 = a2;
   v26 = a3;
   v25 = a4;
@@ -81,7 +81,7 @@ LABEL_7:
       ExReleaseRundownProtection_0(&DifRebootlessRundown);
   }
 LABEL_17:
-  Key = NtLoadKeyEx(a1, a2, a3, a4, a5, a6, a7, a8);
+  Key = NtLoadKeyEx(a1, a2, a3, a4, Event, DesiredAccess, RootHandle, Reserved);
   if ( v13 )
   {
     if ( (v19 = 0, !VfDifRunningWithoutReboot) && (VfOptionFlags & 0x800) == 0

@@ -1,7 +1,7 @@
 /*
- * XREFs of AuthzBasepGetOperandTypeForEvaluation @ 0x1403466BC
+ * XREFs of AuthzBasepGetOperandTypeForEvaluation @ 0x140325130
  * Callers:
- *     AuthzBasepEvaluateExpression @ 0x14034646C (AuthzBasepEvaluateExpression.c)
+ *     AuthzBasepEvaluateExpression @ 0x140324EE0 (AuthzBasepEvaluateExpression.c)
  * Callees:
  *     <none>
  */

@@ -1,11 +1,11 @@
 /*
- * XREFs of AslDoesDirectoryExistNtPath @ 0x1408880AC
+ * XREFs of AslDoesDirectoryExistNtPath @ 0x14088E4A8
  * Callers:
- *     SdbpCheckMatchingDir @ 0x140882780 (SdbpCheckMatchingDir.c)
+ *     SdbpCheckMatchingDir @ 0x140888B80 (SdbpCheckMatchingDir.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     ZwOpenFile @ 0x140723A50 (ZwOpenFile.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     ZwOpenFile @ 0x140728620 (ZwOpenFile.c)
  */
 
 __int64 __fastcall AslDoesDirectoryExistNtPath(PCWSTR SourceString)

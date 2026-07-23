@@ -1,41 +1,36 @@
 /*
- * XREFs of RtlGetSessionProperties @ 0x180139040
+ * XREFs of RtlGetSessionProperties @ 0x180137270
  * Callers:
  *     <none>
  * Callees:
- *     RtlGetCurrentServiceSessionId @ 0x180055A20 (RtlGetCurrentServiceSessionId.c)
- *     NtQueryInformationJobObject @ 0x180164740 (NtQueryInformationJobObject.c)
- *     __security_check_cookie @ 0x1801659C0 (__security_check_cookie.c)
- *     memset$thunk$772440563353939046 @ 0x180172030 (memset$thunk$772440563353939046.c)
+ *     RtlGetCurrentServiceSessionId @ 0x18006B600 (RtlGetCurrentServiceSessionId.c)
+ *     NtQueryInformationJobObject @ 0x180162B00 (NtQueryInformationJobObject.c)
+ *     __security_check_cookie @ 0x180163D80 (__security_check_cookie.c)
+ *     memset$thunk$772440563353939046 @ 0x180171030 (memset$thunk$772440563353939046.c)
  */
 
-__int64 __fastcall RtlGetSessionProperties(int a1, _DWORD *a2)
+NTSTATUS __cdecl RtlGetSessionProperties(ULONG SessionId, PULONG SharedUserSessionId)
 {
-  unsigned int v4; // ebx
+  NTSTATUS v4; // ebx
   _BYTE *SharedData; // rcx
-  _BYTE v7[624]; // [rsp+30h] [rbp-288h] BYREF
+  _BYTE JobObjectInformation[624]; // [rsp+30h] [rbp-288h] BYREF
 
-  memset_thunk_772440563353939046(v7, 0, 0x270uLL);
-  if ( a1 == -1 )
-    return (unsigned int)-1073741811;
+  memset_thunk_772440563353939046(JobObjectInformation, 0, 0x270uLL);
+  if ( SessionId == -1 )
+    return -1073741811;
   v4 = 0;
-  if ( !a2 )
+  if ( !SharedUserSessionId )
+    return -1073741811;
+  *SharedUserSessionId = 0;
+  if ( RtlGetCurrentServiceSessionId() )
   {
-    return (unsigned int)-1073741811;
+    SharedData = NtCurrentPeb()->SharedData;
   }
   else
   {
-    *a2 = 0;
-    if ( (unsigned int)RtlGetCurrentServiceSessionId() )
-    {
-      SharedData = NtCurrentPeb()->SharedData;
-    }
-    else
-    {
-      NtQueryInformationJobObject(0LL, 39LL, v7);
-      SharedData = v7;
-    }
-    *a2 = *((_DWORD *)SharedData + 6) == a1;
+    NtQueryInformationJobObject(0LL, JobObjectServerSiloUserSharedData, JobObjectInformation, 0x270u, 0LL);
+    SharedData = JobObjectInformation;
   }
+  *SharedUserSessionId = *((_DWORD *)SharedData + 6) == SessionId;
   return v4;
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of FopReadNameRecord @ 0x1409FB278
+ * XREFs of FopReadNameRecord @ 0x1409FC278
  * Callers:
- *     FopReadNamingTable @ 0x1409FB154 (FopReadNamingTable.c)
+ *     FopReadNamingTable @ 0x1409FC154 (FopReadNamingTable.c)
  * Callees:
- *     FioFwReadBytesAtOffset @ 0x14017BC48 (FioFwReadBytesAtOffset.c)
+ *     FioFwReadBytesAtOffset @ 0x14017BD48 (FioFwReadBytesAtOffset.c)
  */
 
 __int64 __fastcall FopReadNameRecord(__int64 a1, unsigned int a2, _WORD *a3)

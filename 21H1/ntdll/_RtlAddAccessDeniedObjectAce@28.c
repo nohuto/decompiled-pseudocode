@@ -7,10 +7,17 @@
  *     _RtlpAddKnownObjectAce@32 @ 0x4B34B856 (_RtlpAddKnownObjectAce@32.c)
  */
 
-int __stdcall RtlAddAccessDeniedObjectAce(int a1, unsigned int a2, int a3, int a4, int a5, int a6, void *Src)
+NTSTATUS __cdecl RtlAddAccessDeniedObjectAce(
+        PACL Acl,
+        ULONG AceRevision,
+        ULONG AceFlags,
+        ACCESS_MASK AccessMask,
+        PGUID ObjectTypeGuid,
+        PGUID InheritedObjectTypeGuid,
+        PSID Sid)
 {
-  if ( a5 || a6 )
-    return RtlpAddKnownObjectAce(a3, a4, a5, a6, Src, 6);
+  if ( ObjectTypeGuid || InheritedObjectTypeGuid )
+    return RtlpAddKnownObjectAce(Acl, AceFlags, AccessMask, (int)ObjectTypeGuid, (int)InheritedObjectTypeGuid, Sid, 6);
   else
-    return RtlpAddKnownAce(a1, a2, a3, a4, (unsigned __int8 *)Src, 1);
+    return RtlpAddKnownAce(Acl, AceRevision, AceFlags, AccessMask, (unsigned __int8 *)Sid, 1);
 }

@@ -1,17 +1,17 @@
 /*
- * XREFs of KiAbApplyWakeupBoost @ 0x1402F197C
+ * XREFs of KiAbApplyWakeupBoost @ 0x1402FC6CC
  * Callers:
- *     ExpWakePushLock @ 0x1402F15A0 (ExpWakePushLock.c)
- *     KeAbPreWakeupThread @ 0x1402F1940 (KeAbPreWakeupThread.c)
+ *     ExpWakePushLock @ 0x1402FC2F0 (ExpWakePushLock.c)
+ *     KeAbPreWakeupThread @ 0x1402FC690 (KeAbPreWakeupThread.c)
  * Callees:
- *     KiSetPriorityThread @ 0x1402302A0 (KiSetPriorityThread.c)
- *     KiProcessDeferredReadyList @ 0x140230BD0 (KiProcessDeferredReadyList.c)
- *     KiReadyDeferredReadyList @ 0x140230D60 (KiReadyDeferredReadyList.c)
- *     KeYieldProcessorEx @ 0x14024B280 (KeYieldProcessorEx.c)
- *     KiReleaseThreadLockSafe @ 0x14029A860 (KiReleaseThreadLockSafe.c)
+ *     KiReleaseThreadLockSafe @ 0x1402121F0 (KiReleaseThreadLockSafe.c)
+ *     KiSetPriorityThread @ 0x1402D4AF0 (KiSetPriorityThread.c)
+ *     KiProcessDeferredReadyList @ 0x1402D5420 (KiProcessDeferredReadyList.c)
+ *     KiReadyDeferredReadyList @ 0x1402D55B0 (KiReadyDeferredReadyList.c)
+ *     KeYieldProcessorEx @ 0x1402EFAD0 (KeYieldProcessorEx.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
- *     EtwTraceAutoBoostSetFloor @ 0x1405A74EC (EtwTraceAutoBoostSetFloor.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
+ *     EtwTraceAutoBoostSetFloor @ 0x1405A771C (EtwTraceAutoBoostSetFloor.c)
  */
 
 void __fastcall KiAbApplyWakeupBoost(char a1, __int64 a2, __int64 a3, _DWORD *SchedulerAssist)

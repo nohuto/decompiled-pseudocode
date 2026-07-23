@@ -1,31 +1,31 @@
 /*
- * XREFs of CcSetDirtyInMask @ 0x14039D5F0
+ * XREFs of CcSetDirtyInMask @ 0x14039F350
  * Callers:
- *     CcMapAndCopyInToCache @ 0x14026D270 (CcMapAndCopyInToCache.c)
- *     CcSetDirtyPinnedData @ 0x14039D2A0 (CcSetDirtyPinnedData.c)
- *     CcMdlWriteComplete2 @ 0x14040F680 (CcMdlWriteComplete2.c)
- *     CcReleaseByteRangeFromWrite @ 0x14046D170 (CcReleaseByteRangeFromWrite.c)
- *     CcPurgeAndClearCacheSection @ 0x1404B3978 (CcPurgeAndClearCacheSection.c)
- *     CcPrepareMdlWrite @ 0x1404CDA40 (CcPrepareMdlWrite.c)
+ *     CcMapAndCopyInToCache @ 0x14026C7E0 (CcMapAndCopyInToCache.c)
+ *     CcSetDirtyPinnedData @ 0x14039F000 (CcSetDirtyPinnedData.c)
+ *     CcMdlWriteComplete2 @ 0x14040EDA0 (CcMdlWriteComplete2.c)
+ *     CcReleaseByteRangeFromWrite @ 0x1404668F0 (CcReleaseByteRangeFromWrite.c)
+ *     CcPurgeAndClearCacheSection @ 0x1404ACF44 (CcPurgeAndClearCacheSection.c)
+ *     CcPrepareMdlWrite @ 0x1404C7470 (CcPrepareMdlWrite.c)
  * Callees:
- *     ExAcquireFastMutex @ 0x140278070 (ExAcquireFastMutex.c)
- *     KeReleaseGuardedMutex @ 0x140278D40 (KeReleaseGuardedMutex.c)
- *     KxWaitForLockOwnerShip @ 0x1402B29C0 (KxWaitForLockOwnerShip.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x1402B4730 (KeAcquireInStackQueuedSpinLock.c)
- *     KiAcquireQueuedSpinLockInstrumented @ 0x1402B4830 (KiAcquireQueuedSpinLockInstrumented.c)
- *     KeReleaseInStackQueuedSpinLock @ 0x1402B98C0 (KeReleaseInStackQueuedSpinLock.c)
- *     CcInsertIntoDirtySharedCacheMapList @ 0x14039D068 (CcInsertIntoDirtySharedCacheMapList.c)
- *     CcFindBitmapRangeToDirty @ 0x14039DD20 (CcFindBitmapRangeToDirty.c)
- *     CcChargeDirtyPages @ 0x14039DE50 (CcChargeDirtyPages.c)
- *     CcAllocateBitmap @ 0x14039E050 (CcAllocateBitmap.c)
- *     CcAllocateInitializeMbcb @ 0x14039EB78 (CcAllocateInitializeMbcb.c)
- *     KiSetTimerEx @ 0x1403ABF20 (KiSetTimerEx.c)
- *     CcScheduleLazyWriteScan @ 0x1403E0640 (CcScheduleLazyWriteScan.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     RtlpInterlockedPushEntrySList @ 0x140730CD0 (RtlpInterlockedPushEntrySList.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     ExAcquireFastMutex @ 0x1402775E0 (ExAcquireFastMutex.c)
+ *     KeReleaseGuardedMutex @ 0x1402782B0 (KeReleaseGuardedMutex.c)
+ *     KxWaitForLockOwnerShip @ 0x1402FD690 (KxWaitForLockOwnerShip.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402FF400 (KeAcquireInStackQueuedSpinLock.c)
+ *     KiAcquireQueuedSpinLockInstrumented @ 0x1402FF500 (KiAcquireQueuedSpinLockInstrumented.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x140304580 (KeReleaseInStackQueuedSpinLock.c)
+ *     CcInsertIntoDirtySharedCacheMapList @ 0x14039EDC8 (CcInsertIntoDirtySharedCacheMapList.c)
+ *     CcFindBitmapRangeToDirty @ 0x14039FA80 (CcFindBitmapRangeToDirty.c)
+ *     CcChargeDirtyPages @ 0x14039FBB0 (CcChargeDirtyPages.c)
+ *     CcAllocateBitmap @ 0x14039FDB0 (CcAllocateBitmap.c)
+ *     CcAllocateInitializeMbcb @ 0x1403A08D8 (CcAllocateInitializeMbcb.c)
+ *     KiSetTimerEx @ 0x1403B5C30 (KiSetTimerEx.c)
+ *     CcScheduleLazyWriteScan @ 0x1403E3830 (CcScheduleLazyWriteScan.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1407358A0 (RtlpInterlockedPushEntrySList.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 void __fastcall CcSetDirtyInMask(__int64 a1, __int64 *a2, unsigned int a3, struct _KTHREAD *a4)
@@ -121,10 +121,10 @@ LABEL_78:
 LABEL_46:
               if ( v6 )
               {
-                ++dword_140E1105C;
-                if ( LOWORD(CcBitmapLookasideList.Alignment) >= (unsigned __int16)word_140E11050 )
+                ++dword_140E1101C;
+                if ( LOWORD(CcBitmapLookasideList.Alignment) >= (unsigned __int16)word_140E11010 )
                 {
-                  ++dword_140E11060;
+                  ++dword_140E11020;
                   guard_dispatch_icall_no_overrides(v6, v15, v16);
                 }
                 else
@@ -178,7 +178,7 @@ LABEL_45:
             KiRaiseIrqlProcessIrqlFlags(CurrentIrql, v18);
           }
           LockHandle.OldIrql = CurrentIrql;
-          if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+          if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || PopHibernateInProgress )
           {
             v22 = _InterlockedExchange64((volatile __int64 *)v20, (__int64)&LockHandle);
             if ( v22 )

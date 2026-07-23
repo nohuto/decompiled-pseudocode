@@ -1,9 +1,9 @@
 /*
- * XREFs of FsRtlDedupChangeLogOverwriteOrFree @ 0x14070CA00
+ * XREFs of FsRtlDedupChangeLogOverwriteOrFree @ 0x14070A5A0
  * Callers:
  *     <none>
  * Callees:
- *     McTemplateK0xxq_EtwWriteTransfer @ 0x140581B34 (McTemplateK0xxq_EtwWriteTransfer.c)
+ *     McTemplateK0xxq_EtwWriteTransfer @ 0x14057EEB4 (McTemplateK0xxq_EtwWriteTransfer.c)
  */
 
 NTSTATUS __fastcall FsRtlDedupChangeLogOverwriteOrFree(int *a1, __int64 a2, __int64 a3, const GUID *a4)

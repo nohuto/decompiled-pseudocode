@@ -17,7 +17,7 @@ __int64 PopBootStatRestoreDefaults()
 {
   KPROCESSOR_MODE PreviousMode; // bp
   struct _KTHREAD *CurrentThread; // rax
-  int v2; // esi
+  NTSTATUS v2; // esi
   HANDLE FileHandle; // [rsp+30h] [rbp+8h] BYREF
 
   FileHandle = 0LL;

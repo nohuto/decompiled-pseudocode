@@ -1,10 +1,10 @@
 /*
- * XREFs of MiSimpleAging @ 0x1404872E0
+ * XREFs of MiSimpleAging @ 0x140482350
  * Callers:
- *     MiReduceWs @ 0x1402E17C0 (MiReduceWs.c)
+ *     MiReduceWs @ 0x1402430A0 (MiReduceWs.c)
  * Callees:
- *     MiWalkPageTables @ 0x140235640 (MiWalkPageTables.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     MiWalkPageTables @ 0x14020F7D0 (MiWalkPageTables.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 __int64 __fastcall MiSimpleAging(__int64 a1, char a2)
@@ -22,12 +22,12 @@ __int64 __fastcall MiSimpleAging(__int64 a1, char a2)
   _BYTE v15[48]; // [rsp+28h] [rbp-E0h] BYREF
   unsigned __int64 v16; // [rsp+58h] [rbp-B0h]
   __int64 v17; // [rsp+70h] [rbp-98h]
-  _DWORD v18[2]; // [rsp+78h] [rbp-90h] BYREF
+  int v18[2]; // [rsp+78h] [rbp-90h] BYREF
   char v19; // [rsp+81h] [rbp-87h]
   __int64 v20; // [rsp+98h] [rbp-70h]
   __int64 v21; // [rsp+A8h] [rbp-60h]
   __int64 v22; // [rsp+B8h] [rbp-50h]
-  __int64 (__fastcall *v23)(__int64, unsigned __int64, int); // [rsp+120h] [rbp+18h]
+  __int64 (__fastcall *v23)(); // [rsp+120h] [rbp+18h]
   __int64 (__fastcall *v24)(__int64); // [rsp+128h] [rbp+20h]
   _BYTE *v25; // [rsp+130h] [rbp+28h]
 
@@ -65,7 +65,7 @@ LABEL_15:
             v23 = MiSimpleAgePte;
             v24 = MiAgeWorkingSetTail;
             v18[0] = 6;
-            *(_QWORD *)&v4 = MiWalkPageTables((__int64)v18);
+            *(_QWORD *)&v4 = MiWalkPageTables(v18);
             return v4;
           }
           v11 = (*(_DWORD *)(a1 + 184) >> 11) & 1;

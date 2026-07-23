@@ -1,12 +1,12 @@
 /*
- * XREFs of PsRootSiloInformation @ 0x14067E078
+ * XREFs of PsRootSiloInformation @ 0x14067E15C
  * Callers:
- *     ExpQuerySystemInformation @ 0x140415620 (ExpQuerySystemInformation.c)
+ *     ExpQuerySystemInformation @ 0x1404144E0 (ExpQuerySystemInformation.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14006ACD0 (ObfDereferenceObjectWithTag.c)
- *     PsGetCurrentSilo @ 0x140406380 (PsGetCurrentSilo.c)
- *     PspGetNextSilo @ 0x14055F95C (PspGetNextSilo.c)
- *     PspIsSiloInSilo @ 0x14067E9B8 (PspIsSiloInSilo.c)
+ *     ObfDereferenceObjectWithTag @ 0x14006A850 (ObfDereferenceObjectWithTag.c)
+ *     PsGetCurrentSilo @ 0x140405240 (PsGetCurrentSilo.c)
+ *     PspGetNextSilo @ 0x14055FE9C (PspGetNextSilo.c)
+ *     PspIsSiloInSilo @ 0x14067EA9C (PspIsSiloInSilo.c)
  */
 
 __int64 __fastcall PsRootSiloInformation(_DWORD *a1, unsigned int a2, unsigned int *a3)

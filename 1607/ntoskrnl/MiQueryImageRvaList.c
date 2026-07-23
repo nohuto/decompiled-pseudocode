@@ -1,8 +1,8 @@
 /*
- * XREFs of MiQueryImageRvaList @ 0x1404D7874
+ * XREFs of MiQueryImageRvaList @ 0x1404BAE78
  * Callers:
- *     MiCopyToCfgBitMap @ 0x14042F1E0 (MiCopyToCfgBitMap.c)
- *     MiUpdateCfgSystemWideBitmapWorker @ 0x14042F650 (MiUpdateCfgSystemWideBitmapWorker.c)
+ *     MiCopyToCfgBitMap @ 0x14042E0B0 (MiCopyToCfgBitMap.c)
+ *     MiUpdateCfgSystemWideBitmapWorker @ 0x14042E520 (MiUpdateCfgSystemWideBitmapWorker.c)
  * Callees:
  *     <none>
  */

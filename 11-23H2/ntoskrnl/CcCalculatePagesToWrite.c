@@ -1,9 +1,9 @@
 /*
- * XREFs of CcCalculatePagesToWrite @ 0x140299AD8
+ * XREFs of CcCalculatePagesToWrite @ 0x140299D68
  * Callers:
- *     CcScanLogHandleList @ 0x140299BAC (CcScanLogHandleList.c)
- *     CcNotifyExternalCachesInternal @ 0x1403D31F8 (CcNotifyExternalCachesInternal.c)
- *     CcLazyWriteScan @ 0x140535F6C (CcLazyWriteScan.c)
+ *     CcScanLogHandleList @ 0x140299E3C (CcScanLogHandleList.c)
+ *     CcNotifyExternalCachesInternal @ 0x1403D33D8 (CcNotifyExternalCachesInternal.c)
+ *     CcLazyWriteScan @ 0x1405364BC (CcLazyWriteScan.c)
  * Callees:
  *     <none>
  */

@@ -1,11 +1,11 @@
 /*
- * XREFs of PnpTraceRequestDeviceRemovalForReset @ 0x140839F34
+ * XREFs of PnpTraceRequestDeviceRemovalForReset @ 0x14083B194
  * Callers:
- *     IoRequestDeviceRemovalForReset @ 0x1408267B0 (IoRequestDeviceRemovalForReset.c)
+ *     IoRequestDeviceRemovalForReset @ 0x1408279B0 (IoRequestDeviceRemovalForReset.c)
  * Callees:
  *     _TlgKeywordOn @ 0x140012A04 (_TlgKeywordOn.c)
  *     _TlgWrite @ 0x140012EE4 (_TlgWrite.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
  */
 
 void __fastcall PnpTraceRequestDeviceRemovalForReset(__int64 a1, int a2, int a3)
@@ -37,9 +37,9 @@ void __fastcall PnpTraceRequestDeviceRemovalForReset(__int64 a1, int a2, int a3)
   int v29; // [rsp+C8h] [rbp+3Fh]
   int v30; // [rsp+CCh] [rbp+43h]
 
-  if ( stru_1403FFBC8.LevelPlus1 > 5 )
+  if ( stru_140400BC8.LevelPlus1 > 5 )
   {
-    if ( TlgKeywordOn(&stru_1403FFBC8, 0x400000000000uLL) )
+    if ( TlgKeywordOn(&stru_140400BC8, 0x400000000000uLL) )
     {
       v14 = 0;
       v16[1] = 0;
@@ -65,7 +65,7 @@ void __fastcall PnpTraceRequestDeviceRemovalForReset(__int64 a1, int a2, int a3)
       v23 = 4;
       v26 = 4;
       v29 = 4;
-      TlgWrite(&stru_1403FFBC8, &unk_14036D5CA, 0LL, 0LL, 9u, &pData);
+      TlgWrite(&stru_140400BC8, &unk_14036E470, 0LL, 0LL, 9u, &pData);
     }
   }
 }

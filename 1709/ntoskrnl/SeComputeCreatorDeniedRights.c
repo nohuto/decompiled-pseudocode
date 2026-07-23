@@ -23,7 +23,7 @@ __int64 __fastcall SeComputeCreatorDeniedRights(
   __int64 v11; // rax
   __int64 v12; // rdx
   __int64 v13; // rax
-  __int64 v14; // rcx
+  ACL *v14; // rcx
   PACCESS_TOKEN ClientToken; // rcx
   void *ScopedPolicySid; // rax
   int Cap; // eax
@@ -71,12 +71,12 @@ __int64 __fastcall SeComputeCreatorDeniedRights(
     {
       if ( v10 >= 0 )
       {
-        v14 = *(_QWORD *)(a4 + 24);
+        v14 = *(ACL **)(a4 + 24);
       }
       else
       {
         v13 = *(unsigned int *)(a4 + 12);
-        v14 = (_DWORD)v13 ? a4 + v13 : 0LL;
+        v14 = (_DWORD)v13 ? (ACL *)(a4 + v13) : 0LL;
       }
     }
     else
@@ -101,7 +101,7 @@ __int64 __fastcall SeComputeCreatorDeniedRights(
   ClientToken = SubjectSecurityContext->ClientToken;
   if ( !SubjectSecurityContext->ClientToken )
     ClientToken = SubjectSecurityContext->PrimaryToken;
-  if ( !(unsigned __int8)SepTokenIsOwner((__int64)ClientToken, a4) )
+  if ( !(unsigned __int8)SepTokenIsOwner((__int64)ClientToken) )
     return 0LL;
   if ( (a3 & 0x40000) != 0
     && !SeAccessCheck(

@@ -1,15 +1,15 @@
 /*
- * XREFs of WheaExecuteRowFailureCheck @ 0x140A0891C
+ * XREFs of WheaExecuteRowFailureCheck @ 0x140A08BCC
  * Callers:
- *     HalpMemoryErrorDeferredHandler @ 0x140519840 (HalpMemoryErrorDeferredHandler.c)
- *     KiAltContextProcessMcheckAltReturn @ 0x140580140 (KiAltContextProcessMcheckAltReturn.c)
- *     KiMcheckAlternateReturn @ 0x140580390 (KiMcheckAlternateReturn.c)
+ *     HalpMemoryErrorDeferredHandler @ 0x140519D90 (HalpMemoryErrorDeferredHandler.c)
+ *     KiAltContextProcessMcheckAltReturn @ 0x140580630 (KiAltContextProcessMcheckAltReturn.c)
+ *     KiMcheckAlternateReturn @ 0x140580880 (KiMcheckAlternateReturn.c)
  * Callees:
- *     KeAbPreAcquire @ 0x140230EE0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1402BD960 (ExfTryToWakePushLock.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1402FCE10 (ExfAcquirePushLockExclusiveEx.c)
- *     WheapExecuteRowFailureCheck @ 0x140A089C0 (WheapExecuteRowFailureCheck.c)
+ *     KeAbPreAcquire @ 0x140230FD0 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     ExfTryToWakePushLock @ 0x1402BDBF0 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402FD0A0 (ExfAcquirePushLockExclusiveEx.c)
+ *     WheapExecuteRowFailureCheck @ 0x140A08C70 (WheapExecuteRowFailureCheck.c)
  */
 
 char __fastcall WheaExecuteRowFailureCheck(__int64 a1, __int64 a2, __int64 a3, char a4)

@@ -1,8 +1,8 @@
 /*
- * XREFs of PopAdaptiveStandbyCheckRefreshableBudgetActionV2 @ 0x140760CD8
+ * XREFs of PopAdaptiveStandbyCheckRefreshableBudgetActionV2 @ 0x14075FE84
  * Callers:
- *     PopAdaptiveStandbyCheckHibernateBudgetAction @ 0x1407604EC (PopAdaptiveStandbyCheckHibernateBudgetAction.c)
- *     PopAdaptiveStandbyCheckRestrictedStandbyBudgetAction @ 0x140760D48 (PopAdaptiveStandbyCheckRestrictedStandbyBudgetAction.c)
+ *     PopAdaptiveStandbyCheckHibernateBudgetAction @ 0x14075F4EC (PopAdaptiveStandbyCheckHibernateBudgetAction.c)
+ *     PopAdaptiveStandbyCheckRestrictedStandbyBudgetAction @ 0x14075FEF4 (PopAdaptiveStandbyCheckRestrictedStandbyBudgetAction.c)
  * Callees:
  *     <none>
  */

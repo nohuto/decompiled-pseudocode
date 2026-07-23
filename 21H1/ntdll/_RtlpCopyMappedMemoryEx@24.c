@@ -8,8 +8,11 @@
  *     _RtlpCopyMappedMemoryEx_ExceptionFilter@32 @ 0x4B35C648 (_RtlpCopyMappedMemoryEx_ExceptionFilter@32.c)
  */
 
-int __fastcall RtlpCopyMappedMemoryEx(int a1, void *a2, void *Src, size_t Size, int a5, int a6)
+int __fastcall RtlpCopyMappedMemoryEx(int a1, void *a2, void *Src, size_t Size, int a5)
 {
-  memcpy(a2, Src, Size);
+  size_t v6; // [esp-4h] [ebp-34h]
+
+  LODWORD(v6) = Size;
+  memcpy(a2, Src, v6);
   return 0;
 }

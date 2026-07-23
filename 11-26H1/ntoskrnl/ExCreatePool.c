@@ -1,10 +1,10 @@
 /*
- * XREFs of ExCreatePool @ 0x1406CBA60
+ * XREFs of ExCreatePool @ 0x1406CFA90
  * Callers:
  *     <none>
  * Callees:
- *     ExpLogSecurePoolCreate @ 0x1406CC7F0 (ExpLogSecurePoolCreate.c)
- *     ExpSecurePoolCreate @ 0x1406D103C (ExpSecurePoolCreate.c)
+ *     ExpLogSecurePoolCreate @ 0x1406D0820 (ExpLogSecurePoolCreate.c)
+ *     ExpSecurePoolCreate @ 0x1406D506C (ExpSecurePoolCreate.c)
  */
 
 __int64 __fastcall ExCreatePool(int a1, __int64 a2, __int64 a3, unsigned __int64 *a4)
@@ -56,7 +56,7 @@ __int64 __fastcall ExCreatePool(int a1, __int64 a2, __int64 a3, unsigned __int64
     {
       result = ExpSecurePoolCreate(v12, a2);
       if ( (int)result >= 0 )
-        *a4 = qword_140E6BCA8 ^ (unsigned __int64)&dword_140E6BC60;
+        *a4 = qword_140E6BFA8 ^ (unsigned __int64)&dword_140E6BF60;
     }
   }
   return result;

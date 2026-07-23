@@ -114,25 +114,15 @@
  *     memset @ 0x14040A280 (memset.c)
  */
 
-void __fastcall __noreturn RtlRaiseStatus(unsigned int a1)
+void __cdecl __noreturn RtlRaiseStatus(NTSTATUS Status)
 {
-  __int64 v2; // r8
-  char v3; // bl
-  unsigned int v4; // eax
-  _QWORD v5[20]; // [rsp+20h] [rbp-578h] BYREF
-  _BYTE v6[1240]; // [rsp+C0h] [rbp-4D8h] BYREF
+  EXCEPTION_RECORD ExceptionRecord; // [rsp+20h] [rbp-578h] BYREF
+  _CONTEXT ContextRecord; // [rsp+C0h] [rbp-4D8h] BYREF
 
-  memset(v5, 0, 0x98uLL);
-  v5[1] = 0LL;
-  LODWORD(v5[3]) = 0;
-  v5[0] = a1 | 0x100000000LL;
-  v3 = 1;
-  do
-  {
-    LOBYTE(v2) = v3;
-    v4 = RtlRaiseNoncontinuableException(v5, v6, v2);
-    --v3;
-  }
-  while ( !v3 );
-  RtlRaiseStatus(v4);
+  memset(&ExceptionRecord, 0, sizeof(ExceptionRecord));
+  ExceptionRecord.ExceptionRecord = 0LL;
+  ExceptionRecord.NumberParameters = 0;
+  ExceptionRecord.ExceptionCode = Status;
+  ExceptionRecord.ExceptionFlags = 1;
+  RtlRaiseNoncontinuableException(&ExceptionRecord, &ContextRecord);
 }

@@ -1,14 +1,14 @@
 /*
- * XREFs of MiCleanEmbryonicProcess @ 0x14045F008
+ * XREFs of MiCleanEmbryonicProcess @ 0x14045DED8
  * Callers:
- *     MmCleanProcessAddressSpace @ 0x14045EDFC (MmCleanProcessAddressSpace.c)
+ *     MmCleanProcessAddressSpace @ 0x14045DCCC (MmCleanProcessAddressSpace.c)
  * Callees:
- *     MiGetProcessPartition @ 0x14002BAF0 (MiGetProcessPartition.c)
- *     MiReturnResidentAvailable @ 0x14004F1E0 (MiReturnResidentAvailable.c)
- *     PsReturnProcessQuota @ 0x1400750A4 (PsReturnProcessQuota.c)
- *     MiChargeWsles @ 0x1400E1B20 (MiChargeWsles.c)
- *     MiReturnPartitionResidentAvailable @ 0x1401718E8 (MiReturnPartitionResidentAvailable.c)
- *     MiDereferenceSession @ 0x14045F498 (MiDereferenceSession.c)
+ *     MiGetProcessPartition @ 0x14002B670 (MiGetProcessPartition.c)
+ *     MiReturnResidentAvailable @ 0x14004ED60 (MiReturnResidentAvailable.c)
+ *     PsReturnProcessQuota @ 0x140075124 (PsReturnProcessQuota.c)
+ *     MiChargeWsles @ 0x1400DF9C0 (MiChargeWsles.c)
+ *     MiReturnPartitionResidentAvailable @ 0x140171DE4 (MiReturnPartitionResidentAvailable.c)
+ *     MiDereferenceSession @ 0x14045E368 (MiDereferenceSession.c)
  */
 
 __int64 __fastcall MiCleanEmbryonicProcess(ULONG_PTR a1, __int64 a2, __int64 a3)

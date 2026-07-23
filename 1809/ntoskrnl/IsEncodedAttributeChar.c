@@ -1,10 +1,10 @@
 /*
- * XREFs of IsEncodedAttributeChar @ 0x1408A8B24
+ * XREFs of IsEncodedAttributeChar @ 0x1408A9D84
  * Callers:
- *     DecodeAttributeName @ 0x1408A6F90 (DecodeAttributeName.c)
- *     EncodeAttributeName @ 0x1408A720C (EncodeAttributeName.c)
+ *     DecodeAttributeName @ 0x1408A81F0 (DecodeAttributeName.c)
+ *     EncodeAttributeName @ 0x1408A846C (EncodeAttributeName.c)
  * Callees:
- *     iswalnum @ 0x140196030 (iswalnum.c)
+ *     iswalnum @ 0x140196170 (iswalnum.c)
  */
 
 char __fastcall IsEncodedAttributeChar(wint_t a1)

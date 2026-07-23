@@ -1,17 +1,17 @@
 /*
- * XREFs of _CmSetInstallerClassRegPropWorker @ 0x1406D9788
+ * XREFs of _CmSetInstallerClassRegPropWorker @ 0x1406D98C0
  * Callers:
- *     _CmSetInstallerClassRegProp @ 0x1406D9630 (_CmSetInstallerClassRegProp.c)
+ *     _CmSetInstallerClassRegProp @ 0x1406D9768 (_CmSetInstallerClassRegProp.c)
  * Callees:
- *     _MapCmClassPropertyToRegValue @ 0x1400C45C8 (_MapCmClassPropertyToRegValue.c)
- *     ZwClose @ 0x140159E60 (ZwClose.c)
- *     RtlValidRelativeSecurityDescriptor @ 0x1403F7044 (RtlValidRelativeSecurityDescriptor.c)
- *     RtlLengthSecurityDescriptor @ 0x14041FFE0 (RtlLengthSecurityDescriptor.c)
- *     _PnpCtxRegSetValue @ 0x1404870E4 (_PnpCtxRegSetValue.c)
- *     _PnpCtxRegDeleteValue @ 0x1404F0DB4 (_PnpCtxRegDeleteValue.c)
- *     _CmOpenInstallerClassRegKey @ 0x1404F7A60 (_CmOpenInstallerClassRegKey.c)
- *     _PnpOpenPropertiesKey @ 0x1404FAC30 (_PnpOpenPropertiesKey.c)
- *     _CmRaisePropertyChangeEvent @ 0x140571678 (_CmRaisePropertyChangeEvent.c)
+ *     _MapCmClassPropertyToRegValue @ 0x1400C2468 (_MapCmClassPropertyToRegValue.c)
+ *     ZwClose @ 0x14015A3D0 (ZwClose.c)
+ *     RtlValidRelativeSecurityDescriptor @ 0x1403F5F04 (RtlValidRelativeSecurityDescriptor.c)
+ *     RtlLengthSecurityDescriptor @ 0x14041EEA0 (RtlLengthSecurityDescriptor.c)
+ *     _PnpCtxRegDeleteValue @ 0x1404D2EA8 (_PnpCtxRegDeleteValue.c)
+ *     _CmOpenInstallerClassRegKey @ 0x1404DA9EC (_CmOpenInstallerClassRegKey.c)
+ *     _PnpOpenPropertiesKey @ 0x1404DDBBC (_PnpOpenPropertiesKey.c)
+ *     _PnpCtxRegSetValue @ 0x140512E00 (_PnpCtxRegSetValue.c)
+ *     _CmRaisePropertyChangeEvent @ 0x140571BB8 (_CmRaisePropertyChangeEvent.c)
  */
 
 __int64 __fastcall CmSetInstallerClassRegPropWorker(
@@ -19,7 +19,7 @@ __int64 __fastcall CmSetInstallerClassRegPropWorker(
         __int64 a2,
         __int64 a3,
         __int64 a4,
-        unsigned int a5,
+        ULONG a5,
         void *a6,
         ULONG SecurityDescriptorLength,
         __int16 a8)
@@ -28,7 +28,7 @@ __int64 __fastcall CmSetInstallerClassRegPropWorker(
   int v9; // edi
   void *v13; // rbp
   int v14; // eax
-  __int64 v15; // rdx
+  int v15; // edx
   __int64 v16; // rcx
   const wchar_t *v17; // rax
   void *v18; // rcx
@@ -114,10 +114,10 @@ LABEL_29:
     }
     else
     {
-      v15 = (__int64)v24;
+      v15 = (int)v24;
       if ( a3 )
         v15 = a3;
-      v8 = PnpOpenPropertiesKey(a1, v15, 0LL, 2u, 1, v23, &Handle);
+      v8 = PnpOpenPropertiesKey(a1, v15, 0LL, 2, 1, v23, &Handle);
       if ( v8 < 0 )
         goto LABEL_52;
       v16 = (__int64)Handle;
@@ -127,7 +127,7 @@ LABEL_29:
     {
       if ( SecurityDescriptorLength )
       {
-        v20 = PnpCtxRegSetValue((__int64)v18, v18, (__int64)v17, a5, (__int64)v13, SecurityDescriptorLength);
+        v20 = PnpCtxRegSetValue((__int64)v18, v18, v17, a5, v13, SecurityDescriptorLength);
         if ( v20 == -1073741444 )
         {
           v8 = -1073741772;

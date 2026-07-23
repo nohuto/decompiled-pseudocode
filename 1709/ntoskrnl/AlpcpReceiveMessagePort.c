@@ -30,7 +30,7 @@ __int64 __fastcall AlpcpReceiveMessagePort(_QWORD *a1, unsigned __int8 a2, __int
   int v10; // eax
   volatile signed __int64 *v11; // r14
   ULONG_PTR HeadLargeQueue; // rdi
-  unsigned __int64 v13; // rax
+  PRTL_BALANCED_NODE v13; // rax
   signed __int64 BugCheckParameter4; // rax
   int v15; // eax
   __int64 result; // rax
@@ -86,7 +86,7 @@ LABEL_2:
         if ( !_interlockedbittestandset64((volatile signed __int32 *)(HeadLargeQueue - 16), 0LL) )
         {
           if ( v13 )
-            *(_BYTE *)(v13 + 26) |= 1u;
+            BYTE2(v13[1].Left) |= 1u;
           *(_BYTE *)(HeadLargeQueue - 32) |= 1u;
           BugCheckParameter4 = _InterlockedExchangeAdd64((volatile signed __int64 *)(HeadLargeQueue - 24), 0x10000uLL)
                              + 0x10000;
@@ -147,7 +147,7 @@ LABEL_15:
           goto LABEL_24;
         }
         if ( v13 )
-          KeAbPostReleaseEx(HeadLargeQueue - 16, v13);
+          KeAbPostReleaseEx(HeadLargeQueue - 16, (unsigned __int64)v13);
         if ( !*(_QWORD *)(HeadLargeQueue + 96) )
         {
           AlpcpReferenceBlob(HeadLargeQueue);

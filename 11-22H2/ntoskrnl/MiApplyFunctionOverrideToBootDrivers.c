@@ -15,7 +15,7 @@ __int64 __fastcall MiApplyFunctionOverrideToBootDrivers(__int64 a1)
 {
   __int64 v1; // rsi
   ULONG_PTR v2; // rbx
-  unsigned __int64 v3; // rdi
+  PVOID v3; // rdi
   unsigned int v4; // ebp
   int v5; // eax
   _QWORD v7[14]; // [rsp+30h] [rbp-98h] BYREF
@@ -26,7 +26,7 @@ __int64 __fastcall MiApplyFunctionOverrideToBootDrivers(__int64 a1)
   {
     do
     {
-      v3 = *(_QWORD *)(v2 + 48);
+      v3 = *(PVOID *)(v2 + 48);
       v4 = *(_DWORD *)(v2 + 64);
       if ( v3 != PsNtosImageBase && v3 != PsHalImageBase && !(unsigned int)MI_IS_PHYSICAL_ADDRESS(*(_QWORD *)(v2 + 48)) )
       {

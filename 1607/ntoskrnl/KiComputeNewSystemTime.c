@@ -1,9 +1,9 @@
 /*
- * XREFs of KiComputeNewSystemTime @ 0x1400DD2E0
+ * XREFs of KiComputeNewSystemTime @ 0x1400DB180
  * Callers:
- *     KiUpdateTimeAssist @ 0x140083350 (KiUpdateTimeAssist.c)
- *     KeClockInterruptNotify @ 0x1400D9870 (KeClockInterruptNotify.c)
- *     KiUpdateSystemTime @ 0x14013281C (KiUpdateSystemTime.c)
+ *     KiUpdateTimeAssist @ 0x140083FD0 (KiUpdateTimeAssist.c)
+ *     KeClockInterruptNotify @ 0x1400D7710 (KeClockInterruptNotify.c)
+ *     KiUpdateSystemTime @ 0x140132D8C (KiUpdateSystemTime.c)
  * Callees:
  *     <none>
  */

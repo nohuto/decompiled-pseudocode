@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlpQueueWaitBlockToSRWLock @ 0x1800630C4
+ * XREFs of RtlpQueueWaitBlockToSRWLock @ 0x1800630B4
  * Callers:
- *     RtlpWakeConditionVariable @ 0x180062F64 (RtlpWakeConditionVariable.c)
+ *     RtlpWakeConditionVariable @ 0x180062F54 (RtlpWakeConditionVariable.c)
  * Callees:
- *     RtlBackoff @ 0x180063170 (RtlBackoff.c)
- *     RtlpOptimizeSRWLockList @ 0x180076174 (RtlpOptimizeSRWLockList.c)
+ *     RtlBackoff @ 0x180063160 (RtlBackoff.c)
+ *     RtlpOptimizeSRWLockList @ 0x180076164 (RtlpOptimizeSRWLockList.c)
  */
 
 char __fastcall RtlpQueueWaitBlockToSRWLock(__int64 a1, unsigned __int64 *a2)

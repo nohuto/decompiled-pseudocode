@@ -3,11 +3,11 @@
  * Callers:
  *     FsRtlProcessFileLock @ 0x14021D0B0 (FsRtlProcessFileLock.c)
  *     FsRtlCheckLockForWriteAccess @ 0x14021D1E0 (FsRtlCheckLockForWriteAccess.c)
- *     FsRtlPrivateFastUnlockAll @ 0x14021D404 (FsRtlPrivateFastUnlockAll.c)
+ *     sub_14021D404 @ 0x14021D404 (sub_14021D404.c)
  *     FsRtlCheckLockForReadAccess @ 0x14021DA60 (FsRtlCheckLockForReadAccess.c)
- *     FsRtlPrivateCheckWaitingLocks @ 0x14021F280 (FsRtlPrivateCheckWaitingLocks.c)
- *     IopDoesCompletionNeedsApc @ 0x140417964 (IopDoesCompletionNeedsApc.c)
- *     IopIoRingCompleteIrp @ 0x140559FA8 (IopIoRingCompleteIrp.c)
+ *     sub_14021F280 @ 0x14021F280 (sub_14021F280.c)
+ *     sub_140417964 @ 0x140417964 (sub_140417964.c)
+ *     sub_140559FA8 @ 0x140559FA8 (sub_140559FA8.c)
  * Callees:
  *     <none>
  */
@@ -24,9 +24,9 @@ PEPROCESS __stdcall IoGetRequestorProcess(PIRP Irp)
     return 0LL;
   ApcEnvironment = Irp->ApcEnvironment;
   if ( !ApcEnvironment )
-    return Thread->Process;
+    return (PEPROCESS)*((_QWORD *)Thread + 68);
   if ( ApcEnvironment == 1 )
-    return Thread->ApcState.Process;
+    return (PEPROCESS)*((_QWORD *)Thread + 23);
   else
     return 0LL;
 }

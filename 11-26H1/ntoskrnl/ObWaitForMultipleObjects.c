@@ -1,26 +1,26 @@
 /*
- * XREFs of ObWaitForMultipleObjects @ 0x140A230B0
+ * XREFs of ObWaitForMultipleObjects @ 0x140A2C6D0
  * Callers:
- *     NtWaitForMultipleObjects32 @ 0x140A22E30 (NtWaitForMultipleObjects32.c)
- *     NtWaitForMultipleObjects @ 0x140A22F80 (NtWaitForMultipleObjects.c)
+ *     NtWaitForMultipleObjects32 @ 0x140A2C450 (NtWaitForMultipleObjects32.c)
+ *     NtWaitForMultipleObjects @ 0x140A2C5A0 (NtWaitForMultipleObjects.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     ObpPushStackInfo @ 0x1402659F0 (ObpPushStackInfo.c)
- *     ExReleaseRundownProtection_0 @ 0x140266240 (ExReleaseRundownProtection_0.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402BA1B0 (KiLeaveCriticalRegionUnsafe.c)
- *     ExAllocateFromNPagedLookasideList @ 0x1402C1770 (ExAllocateFromNPagedLookasideList.c)
- *     KeWaitForMultipleObjects @ 0x140396440 (KeWaitForMultipleObjects.c)
- *     ExFreeToNPagedLookasideList @ 0x1403B5A60 (ExFreeToNPagedLookasideList.c)
- *     ObpIsKernelHandle @ 0x1404444A0 (ObpIsKernelHandle.c)
- *     KeSetKernelStackSwapEnable @ 0x14047EA50 (KeSetKernelStackSwapEnable.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     _alloca_probe @ 0x140731080 (_alloca_probe.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     ObpReferenceObjectByHandle @ 0x1408FA460 (ObpReferenceObjectByHandle.c)
- *     ObReferenceProcessHandleTable @ 0x1409717D0 (ObReferenceProcessHandleTable.c)
- *     ObpHandlesToObjectAreRevoked @ 0x140A23560 (ObpHandlesToObjectAreRevoked.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     ObpPushStackInfo @ 0x140264F60 (ObpPushStackInfo.c)
+ *     ExReleaseRundownProtection_0 @ 0x1402657B0 (ExReleaseRundownProtection_0.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140304E70 (KiLeaveCriticalRegionUnsafe.c)
+ *     ExAllocateFromNPagedLookasideList @ 0x14030C430 (ExAllocateFromNPagedLookasideList.c)
+ *     KeWaitForMultipleObjects @ 0x1403981C0 (KeWaitForMultipleObjects.c)
+ *     ExFreeToNPagedLookasideList @ 0x1403BF960 (ExFreeToNPagedLookasideList.c)
+ *     ObpIsKernelHandle @ 0x14043CFB0 (ObpIsKernelHandle.c)
+ *     KeSetKernelStackSwapEnable @ 0x1404783C0 (KeSetKernelStackSwapEnable.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     _alloca_probe @ 0x140735C50 (_alloca_probe.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     ObpReferenceObjectByHandle @ 0x14092A3F0 (ObpReferenceObjectByHandle.c)
+ *     ObReferenceProcessHandleTable @ 0x1409BB940 (ObReferenceProcessHandleTable.c)
+ *     ObpHandlesToObjectAreRevoked @ 0x140A2CB80 (ObpHandlesToObjectAreRevoked.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall ObWaitForMultipleObjects(
@@ -201,7 +201,7 @@ LABEL_34:
     v22 = (struct _OBJECT_TYPE *)ObTypeIndexTable[WaitObjectFlagMask];
     if ( WaitType != WaitAny && v22 == IoCompletionObjectType )
       goto LABEL_34;
-    if ( v22 == (struct _OBJECT_TYPE *)WheapConfigTableLock.WaitBlock[1].WaitListEntry.Blink )
+    if ( v22 == *(struct _OBJECT_TYPE **)&WheapConfigTableLock.WaitBlockFill11[64] )
     {
       v25 = -1073741788;
       goto LABEL_25;

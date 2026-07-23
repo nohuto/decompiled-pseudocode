@@ -1,9 +1,9 @@
 /*
- * XREFs of ObCloseHandleTableEntry @ 0x1405E6360
+ * XREFs of ObCloseHandleTableEntry @ 0x1405E7360
  * Callers:
- *     NtClose @ 0x1405E89E0 (NtClose.c)
- *     ObpCloseHandle @ 0x1405F573C (ObpCloseHandle.c)
- *     ExSweepHandleTable @ 0x140697A90 (ExSweepHandleTable.c)
+ *     NtClose @ 0x1405E99E0 (NtClose.c)
+ *     ObpCloseHandle @ 0x1405F673C (ObpCloseHandle.c)
+ *     ExSweepHandleTable @ 0x140698C50 (ExSweepHandleTable.c)
  * Callees:
  *     PsDetachSiloFromCurrentThread @ 0x14000FBB0 (PsDetachSiloFromCurrentThread.c)
  *     PsAttachSiloToCurrentThread @ 0x14000FBD0 (PsAttachSiloToCurrentThread.c)
@@ -17,22 +17,22 @@
  *     KeLeaveCriticalRegion @ 0x14004F410 (KeLeaveCriticalRegion.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
- *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     ObpLockDirectoryExclusive @ 0x140109FD0 (ObpLockDirectoryExclusive.c)
- *     PsDereferenceSiloContext @ 0x14012C0A0 (PsDereferenceSiloContext.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     ExfUnblockPushLock @ 0x1401B7450 (ExfUnblockPushLock.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     KeRaiseUserException @ 0x1402906A0 (KeRaiseUserException.c)
- *     ObpLookupDirectoryEntryEx @ 0x140624DC0 (ObpLookupDirectoryEntryEx.c)
- *     ObpMarkDirectoryTreeTemporary @ 0x14068DA60 (ObpMarkDirectoryTreeTemporary.c)
- *     ObpDeleteSymbolicLinkName @ 0x14068E194 (ObpDeleteSymbolicLinkName.c)
- *     ObpDeleteDirectoryEntry @ 0x1406A6C9C (ObpDeleteDirectoryEntry.c)
- *     SeCloseObjectAuditAlarm @ 0x1408A0570 (SeCloseObjectAuditAlarm.c)
- *     EtwpTraceHandle @ 0x1408B8C10 (EtwpTraceHandle.c)
- *     ExpGetHandleExtraInfo @ 0x1408CE110 (ExpGetHandleExtraInfo.c)
- *     ExpUpdateDebugInfo @ 0x1408CE3E8 (ExpUpdateDebugInfo.c)
+ *     ExfTryToWakePushLock @ 0x140091500 (ExfTryToWakePushLock.c)
+ *     ObpLockDirectoryExclusive @ 0x14010A050 (ObpLockDirectoryExclusive.c)
+ *     PsDereferenceSiloContext @ 0x14012C170 (PsDereferenceSiloContext.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     ExfUnblockPushLock @ 0x1401B75B0 (ExfUnblockPushLock.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     KeRaiseUserException @ 0x140290890 (KeRaiseUserException.c)
+ *     ObpLookupDirectoryEntryEx @ 0x140625DE0 (ObpLookupDirectoryEntryEx.c)
+ *     ObpMarkDirectoryTreeTemporary @ 0x14068EC20 (ObpMarkDirectoryTreeTemporary.c)
+ *     ObpDeleteSymbolicLinkName @ 0x14068F354 (ObpDeleteSymbolicLinkName.c)
+ *     ObpDeleteDirectoryEntry @ 0x1406A7F3C (ObpDeleteDirectoryEntry.c)
+ *     SeCloseObjectAuditAlarm @ 0x1408A17D0 (SeCloseObjectAuditAlarm.c)
+ *     EtwpTraceHandle @ 0x1408B9ED0 (EtwpTraceHandle.c)
+ *     ExpGetHandleExtraInfo @ 0x1408CF3D0 (ExpGetHandleExtraInfo.c)
+ *     ExpUpdateDebugInfo @ 0x1408CF6A8 (ExpUpdateDebugInfo.c)
  */
 
 __int64 __fastcall ObCloseHandleTableEntry(
@@ -129,7 +129,7 @@ __int64 __fastcall ObCloseHandleTableEntry(
   LODWORD(v51) = v16;
   if ( (v16 & 1) == 0 || a6 )
   {
-    if ( (xmmword_140541350 & 0x40) != 0 )
+    if ( (xmmword_140542350 & 0x40) != 0 )
     {
       v17 = a4;
       if ( v8 == PsInitialSystemProcess )

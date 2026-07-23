@@ -1,13 +1,13 @@
 /*
- * XREFs of PpmEventParkNodeRestriction @ 0x140421920
+ * XREFs of PpmEventParkNodeRestriction @ 0x140419160
  * Callers:
- *     PpmParkEvaluateRestriction @ 0x14025B2D8 (PpmParkEvaluateRestriction.c)
- *     PpmEventTraceControlCallback @ 0x1407DCAD0 (PpmEventTraceControlCallback.c)
+ *     PpmParkEvaluateRestriction @ 0x14025CAB4 (PpmParkEvaluateRestriction.c)
+ *     PpmEventTraceControlCallback @ 0x1407E0E70 (PpmEventTraceControlCallback.c)
  * Callees:
- *     EtwEventEnabled @ 0x140212D90 (EtwEventEnabled.c)
- *     EtwWriteEx @ 0x140212F70 (EtwWriteEx.c)
- *     PpmEventAddAffinityMaskAsSubset @ 0x140420DB0 (PpmEventAddAffinityMaskAsSubset.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x140212E70 (EtwEventEnabled.c)
+ *     EtwWriteEx @ 0x140213050 (EtwWriteEx.c)
+ *     PpmEventAddAffinityMaskAsSubset @ 0x1404185F0 (PpmEventAddAffinityMaskAsSubset.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 char __fastcall PpmEventParkNodeRestriction(char a1, __int64 a2)
@@ -43,7 +43,7 @@ char __fastcall PpmEventParkNodeRestriction(char a1, __int64 a2)
       v5 = &PPM_ETW_RESTRICTION_UPDATE;
     if ( PpmEtwRegistered )
     {
-      LOBYTE(v2) = EtwEventEnabled((REGHANDLE)PopModernStandbyStateNotify.ApcState.ApcListHead[1].Blink, v5);
+      LOBYTE(v2) = EtwEventEnabled(PpmEtwHandle, v5);
       if ( (_BYTE)v2 )
       {
         PpmEventAddAffinityMaskAsSubset(
@@ -72,15 +72,7 @@ char __fastcall PpmEventParkNodeRestriction(char a1, __int64 a2)
         UserData[v10].Ptr = *(_QWORD *)(a2 + 1216);
         UserData[v10].Size = v11;
         UserData[v10].Reserved = 0;
-        LOBYTE(v2) = EtwWriteEx(
-                       (REGHANDLE)PopModernStandbyStateNotify.ApcState.ApcListHead[1].Blink,
-                       v5,
-                       0LL,
-                       0,
-                       0LL,
-                       0LL,
-                       v6 + 4,
-                       UserData);
+        LOBYTE(v2) = EtwWriteEx(PpmEtwHandle, v5, 0LL, 0, 0LL, 0LL, v6 + 4, UserData);
       }
     }
   }

@@ -1,15 +1,15 @@
 /*
- * XREFs of PpmIdleTransitionStall @ 0x140566F98
+ * XREFs of PpmIdleTransitionStall @ 0x1405671D8
  * Callers:
- *     PpmIdleExecuteTransition @ 0x1402224B0 (PpmIdleExecuteTransition.c)
- *     PoInitiateProcessorWake @ 0x140565510 (PoInitiateProcessorWake.c)
- *     PpmExitCoordinatedIdleState @ 0x140565C08 (PpmExitCoordinatedIdleState.c)
- *     PpmIdleCheckCoordinatedDependency @ 0x140566140 (PpmIdleCheckCoordinatedDependency.c)
- *     PpmIdleWaitForDependentTransitions @ 0x140567184 (PpmIdleWaitForDependentTransitions.c)
- *     PpmTestAndLockProcessor @ 0x140567A2C (PpmTestAndLockProcessor.c)
+ *     PpmIdleExecuteTransition @ 0x1402C6DB0 (PpmIdleExecuteTransition.c)
+ *     PoInitiateProcessorWake @ 0x140565750 (PoInitiateProcessorWake.c)
+ *     PpmExitCoordinatedIdleState @ 0x140565E48 (PpmExitCoordinatedIdleState.c)
+ *     PpmIdleCheckCoordinatedDependency @ 0x140566380 (PpmIdleCheckCoordinatedDependency.c)
+ *     PpmIdleWaitForDependentTransitions @ 0x1405673C4 (PpmIdleWaitForDependentTransitions.c)
+ *     PpmTestAndLockProcessor @ 0x140567C6C (PpmTestAndLockProcessor.c)
  * Callees:
- *     KeQueryPerformanceCounter @ 0x14022C340 (KeQueryPerformanceCounter.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
+ *     KeQueryPerformanceCounter @ 0x1402D0BC0 (KeQueryPerformanceCounter.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
  */
 
 void __fastcall PpmIdleTransitionStall(__int64 a1)

@@ -1,16 +1,21 @@
 /*
- * XREFs of ZwQueryMutant @ 0x1801648C0
+ * XREFs of ZwQueryMutant @ 0x180162C80
  * Callers:
- *     PsspDumpObject_Mutant @ 0x180109DB0 (PsspDumpObject_Mutant.c)
+ *     PsspDumpObject_Mutant @ 0x180104CE0 (PsspDumpObject_Mutant.c)
  * Callees:
  *     <none>
  */
 
-__int64 ZwQueryMutant()
+NTSTATUS __cdecl ZwQueryMutant(
+        HANDLE MutantHandle,
+        MUTANT_INFORMATION_CLASS MutantInformationClass,
+        PVOID MutantInformation,
+        ULONG MutantInformationLength,
+        PULONG ReturnLength)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 354LL;
+  result = 354;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

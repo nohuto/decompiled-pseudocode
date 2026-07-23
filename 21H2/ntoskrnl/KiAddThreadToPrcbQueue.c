@@ -1,27 +1,26 @@
 /*
- * XREFs of KiAddThreadToPrcbQueue @ 0x14029C210
+ * XREFs of KiAddThreadToPrcbQueue @ 0x140214370
  * Callers:
- *     KiGroupSchedulingQuantumEnd @ 0x1402587E0 (KiGroupSchedulingQuantumEnd.c)
- *     KiGroupSchedulingGenerationEnd @ 0x1402599DC (KiGroupSchedulingGenerationEnd.c)
- *     KiTransitionSchedulingGroupGeneration @ 0x140259CF0 (KiTransitionSchedulingGroupGeneration.c)
- *     KiDeferGroupSchedulingPreemption @ 0x14025A110 (KiDeferGroupSchedulingPreemption.c)
- *     KiRemoveThreadFromSchedulingGroup @ 0x1402EC1B8 (KiRemoveThreadFromSchedulingGroup.c)
- *     KiDeferredReadySingleThread @ 0x140343EC0 (KiDeferredReadySingleThread.c)
- *     KiMoveScbThreadsToNewReadylist @ 0x14037E04C (KiMoveScbThreadsToNewReadylist.c)
- *     KiAddThreadToReadyQueue @ 0x14051EEF4 (KiAddThreadToReadyQueue.c)
+ *     KiGroupSchedulingQuantumEnd @ 0x140279D50 (KiGroupSchedulingQuantumEnd.c)
+ *     KiGroupSchedulingGenerationEnd @ 0x14027AF4C (KiGroupSchedulingGenerationEnd.c)
+ *     KiTransitionSchedulingGroupGeneration @ 0x14027B260 (KiTransitionSchedulingGroupGeneration.c)
+ *     KiDeferGroupSchedulingPreemption @ 0x14027B680 (KiDeferGroupSchedulingPreemption.c)
+ *     KiRemoveThreadFromSchedulingGroup @ 0x14029D508 (KiRemoveThreadFromSchedulingGroup.c)
+ *     KiDeferredReadySingleThread @ 0x14034EC10 (KiDeferredReadySingleThread.c)
+ *     KiMoveScbThreadsToNewReadylist @ 0x14037DB9C (KiMoveScbThreadsToNewReadylist.c)
+ *     KiAddThreadToReadyQueue @ 0x14051F134 (KiAddThreadToReadyQueue.c)
  * Callees:
- *     KeInsertQueueDpc @ 0x14021FD40 (KeInsertQueueDpc.c)
- *     KxAcquireSpinLock @ 0x1402295B0 (KxAcquireSpinLock.c)
- *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
- *     KeYieldProcessorEx @ 0x14024B280 (KeYieldProcessorEx.c)
+ *     KxReleaseSpinLock @ 0x140212140 (KxReleaseSpinLock.c)
+ *     KeInsertQueueDpc @ 0x1402C4640 (KeInsertQueueDpc.c)
+ *     KxAcquireSpinLock @ 0x1402CDEB0 (KxAcquireSpinLock.c)
+ *     KeYieldProcessorEx @ 0x1402EFAD0 (KeYieldProcessorEx.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     KiReadGuestSchedulerAssistPriority @ 0x14051FC48 (KiReadGuestSchedulerAssistPriority.c)
+ *     KiReadGuestSchedulerAssistPriority @ 0x14051FE88 (KiReadGuestSchedulerAssistPriority.c)
  */
 
-__int64 __fastcall KiAddThreadToPrcbQueue(__int64 a1, __int64 a2, __int64 a3, __int64 a4, char a5)
+__int64 __fastcall KiAddThreadToPrcbQueue(__int64 a1, __int64 a2, int a3, int a4, char a5)
 {
   int v5; // eax
-  int v6; // r15d
   __int64 v7; // rbp
   __int64 v10; // rcx
   __int64 v11; // r14
@@ -51,8 +50,7 @@ __int64 __fastcall KiAddThreadToPrcbQueue(__int64 a1, __int64 a2, __int64 a3, __
   int v35; // [rsp+58h] [rbp+10h] BYREF
 
   v5 = *(_DWORD *)(a2 + 120);
-  v6 = a4;
-  v7 = (int)a3;
+  v7 = a3;
   if ( (v5 & 0x400000) != 0 )
   {
     _InterlockedOr(*(volatile signed __int32 **)(a2 + 968), 0x40000u);
@@ -70,14 +68,14 @@ __int64 __fastcall KiAddThreadToPrcbQueue(__int64 a1, __int64 a2, __int64 a3, __
       v30 = (_QWORD *)(a2 + 1008);
       if ( *(_QWORD *)(a2 + 1008) == 1LL )
       {
-        v31 = (_QWORD *)qword_140C32008;
+        v31 = (_QWORD *)qword_140C31DC8;
         v28 = KiUpdateVpThreadPriorityListHead == (_QWORD)&KiUpdateVpThreadPriorityListHead;
-        if ( *(__int64 **)qword_140C32008 != &KiUpdateVpThreadPriorityListHead )
+        if ( *(__int64 **)qword_140C31DC8 != &KiUpdateVpThreadPriorityListHead )
           goto LABEL_47;
         *v30 = &KiUpdateVpThreadPriorityListHead;
         *(_QWORD *)(a2 + 1016) = v31;
         *v31 = v30;
-        qword_140C32008 = a2 + 1008;
+        qword_140C31DC8 = a2 + 1008;
       }
       KxReleaseSpinLock(&KiUpdateVpThreadPriorityLock);
       if ( v28 )
@@ -89,7 +87,7 @@ __int64 __fastcall KiAddThreadToPrcbQueue(__int64 a1, __int64 a2, __int64 a3, __
   {
     v20 = (_QWORD *)(a2 + 216);
     v21 = (_QWORD *)(a1 + 16 * (v7 + 1992));
-    if ( v6 )
+    if ( a4 )
     {
       v27 = *v21;
       if ( *(_QWORD **)(*v21 + 8LL) != v21 )
@@ -148,7 +146,7 @@ LABEL_37:
       }
     }
     do
-      KeYieldProcessorEx(&v35, a2, a3, a4);
+      KeYieldProcessorEx(&v35);
     while ( *(_QWORD *)v11 );
     v26 = CurrentPrcb->SchedulerAssist;
     if ( v26 )
@@ -163,7 +161,7 @@ LABEL_37:
     }
   }
   v15 = (_QWORD *)(a2 + 216);
-  if ( v6 )
+  if ( a4 )
   {
     v24 = *v12;
     if ( *(_QWORD **)(*v12 + 8LL) == v12 )

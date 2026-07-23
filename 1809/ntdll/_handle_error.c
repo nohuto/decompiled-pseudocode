@@ -1,23 +1,23 @@
 /*
- * XREFs of _handle_error @ 0x180097E14
+ * XREFs of _handle_error @ 0x180097E24
  * Callers:
- *     atan @ 0x180091F80 (atan.c)
- *     atan2 @ 0x1800921E0 (atan2.c)
- *     ceil @ 0x180092B40 (ceil.c)
- *     cos @ 0x180092C60 (cos.c)
- *     sin @ 0x180093080 (sin.c)
- *     floor @ 0x180093660 (floor.c)
- *     log @ 0x180093890 (log.c)
- *     sqrt @ 0x180094590 (sqrt.c)
- *     tan @ 0x180095440 (tan.c)
- *     _pow_special @ 0x180098F60 (_pow_special.c)
+ *     atan @ 0x180091F90 (atan.c)
+ *     atan2 @ 0x1800921F0 (atan2.c)
+ *     ceil @ 0x180092B50 (ceil.c)
+ *     cos @ 0x180092C70 (cos.c)
+ *     sin @ 0x180093090 (sin.c)
+ *     floor @ 0x180093670 (floor.c)
+ *     log @ 0x1800938A0 (log.c)
+ *     sqrt @ 0x1800945A0 (sqrt.c)
+ *     tan @ 0x180095450 (tan.c)
+ *     _pow_special @ 0x180098F70 (_pow_special.c)
  * Callees:
- *     __security_check_cookie @ 0x18008FEC0 (__security_check_cookie.c)
- *     _call_matherr @ 0x180097CE8 (_call_matherr.c)
- *     _exception_enabled @ 0x180097D54 (_exception_enabled.c)
- *     _raise_exc @ 0x1800988C0 (_raise_exc.c)
- *     _set_errno_from_matherr @ 0x180098B70 (_set_errno_from_matherr.c)
- *     _ctrlfp @ 0x180098E60 (_ctrlfp.c)
+ *     __security_check_cookie @ 0x18008FED0 (__security_check_cookie.c)
+ *     _call_matherr @ 0x180097CF8 (_call_matherr.c)
+ *     _exception_enabled @ 0x180097D64 (_exception_enabled.c)
+ *     _raise_exc @ 0x1800988D0 (_raise_exc.c)
+ *     _set_errno_from_matherr @ 0x180098B80 (_set_errno_from_matherr.c)
+ *     _ctrlfp @ 0x180098E70 (_ctrlfp.c)
  */
 
 double __fastcall handle_error(

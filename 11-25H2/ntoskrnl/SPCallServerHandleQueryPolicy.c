@@ -431,7 +431,7 @@ LABEL_71:
       if ( v61 )
       {
         g_bWNFEventFired = 1;
-        ZwUpdateWnfStateData((__int64)&WNF_OLIC_OS_LICENSE_NON_GENUINE, 0LL);
+        ZwUpdateWnfStateData(&WNF_OLIC_OS_LICENSE_NON_GENUINE, 0LL, 0, 0LL, 0LL, 0, 0);
       }
     }
     v51 = Size[0] + 48;

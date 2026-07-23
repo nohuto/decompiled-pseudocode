@@ -1,16 +1,16 @@
 /*
- * XREFs of PpmMediaBufferingWorker @ 0x14010D7EC
+ * XREFs of PpmMediaBufferingWorker @ 0x14010DD50
  * Callers:
  *     <none>
  * Callees:
- *     PpmAcquireLock @ 0x14000A528 (PpmAcquireLock.c)
- *     EtwWrite @ 0x140013320 (EtwWrite.c)
- *     PpmReleaseLock @ 0x1400D46D4 (PpmReleaseLock.c)
- *     EtwEventEnabled @ 0x1400D54D0 (EtwEventEnabled.c)
- *     KeReleaseSpinLock @ 0x1400E9A70 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x1400EFE30 (KeAcquireSpinLockRaiseToDpc.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     PpmPdcNotifyMediaBufferingUpdate @ 0x140675C00 (PpmPdcNotifyMediaBufferingUpdate.c)
+ *     PpmAcquireLock @ 0x14000A0A8 (PpmAcquireLock.c)
+ *     EtwWrite @ 0x140012EA0 (EtwWrite.c)
+ *     PpmReleaseLock @ 0x1400D2574 (PpmReleaseLock.c)
+ *     EtwEventEnabled @ 0x1400D3370 (EtwEventEnabled.c)
+ *     KeReleaseSpinLock @ 0x1400EB600 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1400EDCB0 (KeAcquireSpinLockRaiseToDpc.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     PpmPdcNotifyMediaBufferingUpdate @ 0x140675CE4 (PpmPdcNotifyMediaBufferingUpdate.c)
  */
 
 void PpmMediaBufferingWorker()
@@ -27,10 +27,10 @@ void PpmMediaBufferingWorker()
   {
     v0 = 1;
     v1 = KeAcquireSpinLockRaiseToDpc(&PpmMediaBufferingWork);
-    v2 = byte_1403044E9;
-    if ( byte_1403044E9 == byte_140303E4C )
+    v2 = byte_140304509;
+    if ( byte_140304509 == byte_140303D8C )
       break;
-    byte_140303E4C = byte_1403044E9;
+    byte_140303D8C = byte_140304509;
     KeReleaseSpinLock(&PpmMediaBufferingWork, v1);
     if ( PpmEtwRegistered )
     {
@@ -60,6 +60,6 @@ void PpmMediaBufferingWorker()
       PpmPdcNotifyMediaBufferingUpdate(v4);
     }
   }
-  byte_1403044E8 = 0;
+  byte_140304508 = 0;
   KeReleaseSpinLock(&PpmMediaBufferingWork, v1);
 }

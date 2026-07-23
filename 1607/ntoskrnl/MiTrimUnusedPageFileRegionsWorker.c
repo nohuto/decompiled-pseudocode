@@ -1,27 +1,27 @@
 /*
- * XREFs of MiTrimUnusedPageFileRegionsWorker @ 0x14010D37C
+ * XREFs of MiTrimUnusedPageFileRegionsWorker @ 0x14010D8E0
  * Callers:
  *     <none>
  * Callees:
- *     KiLeaveGuardedRegionUnsafe @ 0x140013B70 (KiLeaveGuardedRegionUnsafe.c)
- *     MiReleasePageFileInfo @ 0x14001A280 (MiReleasePageFileInfo.c)
- *     KeResetEvent @ 0x14002E630 (KeResetEvent.c)
- *     KeWaitForSingleObject @ 0x14005C880 (KeWaitForSingleObject.c)
- *     MiLockWsSwapExclusive @ 0x1400B4084 (MiLockWsSwapExclusive.c)
- *     MiUnlockWsSwapExclusive @ 0x1400B48D8 (MiUnlockWsSwapExclusive.c)
- *     MiPageFileLargestBitmapsRun @ 0x1400B6548 (MiPageFileLargestBitmapsRun.c)
- *     ExAcquireRundownProtection @ 0x1400D3ED0 (ExAcquireRundownProtection.c)
- *     ExReleaseRundownProtection @ 0x1400D3F00 (ExReleaseRundownProtection.c)
- *     KiQueryUnbiasedInterruptTime @ 0x1400F02D4 (KiQueryUnbiasedInterruptTime.c)
- *     MiQueueSyncModifiedWriterApc @ 0x14010D64C (MiQueueSyncModifiedWriterApc.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     ZwFsControlFile @ 0x14015A3A0 (ZwFsControlFile.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     MiGetPteTimeStamp @ 0x1401F269C (MiGetPteTimeStamp.c)
- *     MiMakePageFilePte @ 0x1401F274C (MiMakePageFilePte.c)
- *     MiUpdatePageFileHighInPte @ 0x1401F2958 (MiUpdatePageFileHighInPte.c)
- *     MiTransferSoftwarePte @ 0x1401F299C (MiTransferSoftwarePte.c)
- *     MiContractWsSwapPageFile @ 0x1404F1C0C (MiContractWsSwapPageFile.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x1400136F0 (KiLeaveGuardedRegionUnsafe.c)
+ *     MiReleasePageFileInfo @ 0x140019E00 (MiReleasePageFileInfo.c)
+ *     KeResetEvent @ 0x14002E1B0 (KeResetEvent.c)
+ *     KeWaitForSingleObject @ 0x14005C400 (KeWaitForSingleObject.c)
+ *     MiLockWsSwapExclusive @ 0x1400B1F04 (MiLockWsSwapExclusive.c)
+ *     MiUnlockWsSwapExclusive @ 0x1400B2758 (MiUnlockWsSwapExclusive.c)
+ *     MiPageFileLargestBitmapsRun @ 0x1400B4370 (MiPageFileLargestBitmapsRun.c)
+ *     ExAcquireRundownProtection @ 0x1400D1D70 (ExAcquireRundownProtection.c)
+ *     ExReleaseRundownProtection @ 0x1400D1DA0 (ExReleaseRundownProtection.c)
+ *     KiQueryUnbiasedInterruptTime @ 0x1400EE154 (KiQueryUnbiasedInterruptTime.c)
+ *     MiQueueSyncModifiedWriterApc @ 0x14010DBB0 (MiQueueSyncModifiedWriterApc.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     ZwFsControlFile @ 0x14015A910 (ZwFsControlFile.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     MiGetPteTimeStamp @ 0x1401F24C8 (MiGetPteTimeStamp.c)
+ *     MiMakePageFilePte @ 0x1401F2578 (MiMakePageFilePte.c)
+ *     MiTransferSoftwarePte @ 0x1401F27A4 (MiTransferSoftwarePte.c)
+ *     MiUpdatePageFileHighInPte @ 0x1401F2840 (MiUpdatePageFileHighInPte.c)
+ *     MiContractWsSwapPageFile @ 0x1404D43A0 (MiContractWsSwapPageFile.c)
  */
 
 char __fastcall MiTrimUnusedPageFileRegionsWorker(__int64 a1)

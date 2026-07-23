@@ -1,14 +1,14 @@
 /*
- * XREFs of HalGetProcessorIdByNtNumber @ 0x140425B40
+ * XREFs of HalGetProcessorIdByNtNumber @ 0x140432C50
  * Callers:
- *     HalpInterruptGenerateMessage @ 0x14057BB4C (HalpInterruptGenerateMessage.c)
- *     PnprIsProcessorDevice @ 0x1407AF6FC (PnprIsProcessorDevice.c)
- *     KeRegisterProcessorChangeCallback @ 0x1407BA2D0 (KeRegisterProcessorChangeCallback.c)
- *     HalpInterruptReinitialize @ 0x140BEA368 (HalpInterruptReinitialize.c)
- *     HalpDpStartProcessor @ 0x140BEE634 (HalpDpStartProcessor.c)
- *     PnprQuiesceProcessorDpc @ 0x140BF2260 (PnprQuiesceProcessorDpc.c)
+ *     HalpInterruptGenerateMessage @ 0x14057E07C (HalpInterruptGenerateMessage.c)
+ *     PnprIsProcessorDevice @ 0x1407B275C (PnprIsProcessorDevice.c)
+ *     KeRegisterProcessorChangeCallback @ 0x1407BD330 (KeRegisterProcessorChangeCallback.c)
+ *     HalpInterruptReinitialize @ 0x140BF0368 (HalpInterruptReinitialize.c)
+ *     HalpDpStartProcessor @ 0x140BF4634 (HalpDpStartProcessor.c)
+ *     PnprQuiesceProcessorDpc @ 0x140BF8260 (PnprQuiesceProcessorDpc.c)
  * Callees:
- *     HalpGetProcessorStateByNtIndex @ 0x140425B78 (HalpGetProcessorStateByNtIndex.c)
+ *     HalpGetProcessorStateByNtIndex @ 0x140432C88 (HalpGetProcessorStateByNtIndex.c)
  */
 
 __int64 __fastcall HalGetProcessorIdByNtNumber(__int64 a1, __int64 a2, __int64 a3, __int64 a4)

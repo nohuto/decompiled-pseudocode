@@ -1,11 +1,11 @@
 /*
- * XREFs of PiDmLookupObject @ 0x140506200
+ * XREFs of PiDmLookupObject @ 0x1404E9190
  * Callers:
- *     PiDmRemoveCacheReferenceForObject @ 0x140506180 (PiDmRemoveCacheReferenceForObject.c)
+ *     PiDmRemoveCacheReferenceForObject @ 0x1404E9110 (PiDmRemoveCacheReferenceForObject.c)
  * Callees:
- *     RtlLookupElementGenericTableAvl @ 0x1400C3B20 (RtlLookupElementGenericTableAvl.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     PiDmInitializeComparisonObject @ 0x1404FF138 (PiDmInitializeComparisonObject.c)
+ *     RtlLookupElementGenericTableAvl @ 0x1400C19B0 (RtlLookupElementGenericTableAvl.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     PiDmInitializeComparisonObject @ 0x1404E20C8 (PiDmInitializeComparisonObject.c)
  */
 
 __int64 __fastcall PiDmLookupObject(__int64 a1, wchar_t *a2)

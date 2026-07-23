@@ -1,44 +1,45 @@
 /*
- * XREFs of PopIdleWakeNotifyWakeSource @ 0x140610904
+ * XREFs of PopIdleWakeNotifyWakeSource @ 0x140613B64
  * Callers:
- *     PpmExitCoordinatedIdle @ 0x1403EC374 (PpmExitCoordinatedIdle.c)
+ *     PpmExitCoordinatedIdle @ 0x1402F93B8 (PpmExitCoordinatedIdle.c)
  * Callees:
- *     RtlStringCbCopyW @ 0x140430A90 (RtlStringCbCopyW.c)
- *     KeGetCurrentProcessorNumberEx @ 0x1404481A0 (KeGetCurrentProcessorNumberEx.c)
- *     PopIdleWakeStopActiveIntervalAccounting @ 0x1404EA3F0 (PopIdleWakeStopActiveIntervalAccounting.c)
- *     PopIdleWakeFindOrAllocateWakeSource @ 0x1406107E8 (PopIdleWakeFindOrAllocateWakeSource.c)
+ *     RtlStringCbCopyW @ 0x14041DAC0 (RtlStringCbCopyW.c)
+ *     KeGetCurrentProcessorNumberEx @ 0x140440C90 (KeGetCurrentProcessorNumberEx.c)
+ *     PopIdleWakeStopActiveIntervalAccounting @ 0x1404E37A0 (PopIdleWakeStopActiveIntervalAccounting.c)
+ *     PopIdleWakeFindOrAllocateWakeSource @ 0x140613A48 (PopIdleWakeFindOrAllocateWakeSource.c)
  */
 
 int *__fastcall PopIdleWakeNotifyWakeSource(int a1, int a2, __int64 a3, __int64 a4, __int64 a5, int *a6)
 {
-  __int64 v6; // rbx
+  unsigned int *v6; // rbx
   const wchar_t *v10; // r8
   ULONG CurrentProcessorNumber; // eax
   int v12; // ecx
   int *result; // rax
 
-  v6 = *(_QWORD *)&PopAdaptiveStandbyLock.SchedulerAssistPriorityFloor;
-  if ( *(_QWORD *)&PopAdaptiveStandbyLock.SchedulerAssistPriorityFloor && a1 == PpmDripsStateIndex && a2 >= 0 )
+  v6 = (unsigned int *)PopIdleWakeContext;
+  if ( PopIdleWakeContext && a1 == PpmDripsStateIndex && a2 >= 0 )
   {
     if ( a2 == 129 && *(_BYTE *)a3 == 3 )
     {
-      if ( !unk_140F12A00
-        || MEMORY[0xFFFFF78000000014] < unk_140F12A00
-        || (v10 = &unk_140F12A20, (unsigned __int64)(unk_140F12A00 + 20000000LL) < MEMORY[0xFFFFF78000000014]) )
+      if ( !PopTimeBrokerExpirationDueTime
+        || MEMORY[0xFFFFF78000000014] < (unsigned __int64)PopTimeBrokerExpirationDueTime
+        || (v10 = &PopTimeBrokerExpirationReason,
+            (unsigned __int64)(PopTimeBrokerExpirationDueTime + 20000000) < MEMORY[0xFFFFF78000000014]) )
       {
         v10 = L"Unknown";
       }
       RtlStringCbCopyW((NTSTRSAFE_PWSTR)(a3 + 2), 0x80uLL, v10);
     }
-    PopIdleWakeStopActiveIntervalAccounting((unsigned int *)v6, a4);
-    *(_QWORD *)(v6 + 40) = PopIdleWakeFindOrAllocateWakeSource(v6, a2, a3);
-    *(_QWORD *)(v6 + 48) = a5;
-    *(_QWORD *)(v6 + 8) = a5;
-    *(_QWORD *)(v6 + 56) = a5 - a4;
+    PopIdleWakeStopActiveIntervalAccounting(v6, a4);
+    *((_QWORD *)v6 + 5) = PopIdleWakeFindOrAllocateWakeSource((__int64)v6, a2, a3);
+    *((_QWORD *)v6 + 6) = a5;
+    *((_QWORD *)v6 + 1) = a5;
+    *((_QWORD *)v6 + 7) = a5 - a4;
     CurrentProcessorNumber = KeGetCurrentProcessorNumberEx(0LL);
-    *(_DWORD *)v6 |= 0x10u;
-    *(_DWORD *)(v6 + 64) = CurrentProcessorNumber;
-    v12 = *(_DWORD *)(*(_QWORD *)(v6 + 40) + 408LL);
+    *v6 |= 0x10u;
+    v6[16] = CurrentProcessorNumber;
+    v12 = *(_DWORD *)(*((_QWORD *)v6 + 5) + 408LL);
   }
   else
   {

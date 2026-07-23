@@ -6,7 +6,7 @@
  *     <none>
  */
 
-__int64 RtlFlushHeaps()
+void RtlFlushHeaps(void)
 {
-  return RtlpEnumProcessHeaps((__int64 (__fastcall *)(void *, __int64))RtlpFlushHeapsCallback, 0LL, 0);
+  RtlpEnumProcessHeaps((PRTL_DYNAMIC_HASH_TABLE)RtlpFlushHeapsCallback, 0LL, 0);
 }

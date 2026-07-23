@@ -1,9 +1,9 @@
 /*
- * XREFs of CcScheduleReadAhead @ 0x140269D60
+ * XREFs of CcScheduleReadAhead @ 0x140269F50
  * Callers:
  *     <none>
  * Callees:
- *     CcScheduleReadAheadEx @ 0x14008DFD0 (CcScheduleReadAheadEx.c)
+ *     CcScheduleReadAheadEx @ 0x14008DEF0 (CcScheduleReadAheadEx.c)
  */
 
 void __stdcall CcScheduleReadAhead(PFILE_OBJECT FileObject, PLARGE_INTEGER FileOffset, ULONG Length)

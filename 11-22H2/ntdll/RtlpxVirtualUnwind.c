@@ -147,7 +147,7 @@ __int64 __fastcall RtlpxVirtualUnwind(
           if ( (v63 & 1) != 0 )
             v63 = (unsigned int)(v63 + 1);
           if ( (unsigned int)++v20 > 0x20 )
-            RtlRaiseStatus(3221225727LL);
+            RtlRaiseStatus(-1073741569);
           v19 = (_BYTE *)(v13 + *(unsigned int *)&v19[2 * v63 + 12]);
         }
         while ( !v19[2] );

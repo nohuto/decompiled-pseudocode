@@ -1,19 +1,19 @@
 /*
  * XREFs of CmpTransInitializeTransaction @ 0x14069846C
  * Callers:
- *     CmpTransSearchAddTrans @ 0x14076853C (CmpTransSearchAddTrans.c)
+ *     CmpTransSearchAddTrans @ 0x14076872C (CmpTransSearchAddTrans.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     ExReleaseFastMutexUnsafe @ 0x1403025F0 (ExReleaseFastMutexUnsafe.c)
- *     ExAcquireFastMutexUnsafe @ 0x140302660 (ExAcquireFastMutexUnsafe.c)
- *     ExfUnblockPushLock @ 0x140412160 (ExfUnblockPushLock.c)
+ *     KeLeaveCriticalRegion @ 0x140231550 (KeLeaveCriticalRegion.c)
+ *     ExReleaseFastMutexUnsafe @ 0x140302880 (ExReleaseFastMutexUnsafe.c)
+ *     ExAcquireFastMutexUnsafe @ 0x1403028F0 (ExAcquireFastMutexUnsafe.c)
+ *     ExfUnblockPushLock @ 0x1404124A0 (ExfUnblockPushLock.c)
  *     CmTmCreateEnlistment @ 0x1406985E4 (CmTmCreateEnlistment.c)
  *     CmpAccountForLogReservation @ 0x140698664 (CmpAccountForLogReservation.c)
  *     CmpStartRMLogs @ 0x14069870C (CmpStartRMLogs.c)
  *     CmpTransSearchAddTransFromRm @ 0x140698CB4 (CmpTransSearchAddTransFromRm.c)
- *     ObReferenceObjectByHandle @ 0x1406E62C0 (ObReferenceObjectByHandle.c)
- *     CmpTransReferenceTransaction @ 0x1407689D0 (CmpTransReferenceTransaction.c)
- *     CmpTransDereferenceTransaction @ 0x140768A28 (CmpTransDereferenceTransaction.c)
+ *     ObReferenceObjectByHandle @ 0x1406E62F0 (ObReferenceObjectByHandle.c)
+ *     CmpTransReferenceTransaction @ 0x140768BC0 (CmpTransReferenceTransaction.c)
+ *     CmpTransDereferenceTransaction @ 0x140768C18 (CmpTransDereferenceTransaction.c)
  */
 
 __int64 __fastcall CmpTransInitializeTransaction(__int64 a1)

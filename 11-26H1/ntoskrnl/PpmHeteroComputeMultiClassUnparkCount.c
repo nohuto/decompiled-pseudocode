@@ -1,16 +1,16 @@
 /*
- * XREFs of PpmHeteroComputeMultiClassUnparkCount @ 0x14060C314
+ * XREFs of PpmHeteroComputeMultiClassUnparkCount @ 0x14060F474
  * Callers:
- *     PpmCheckComputeMultiClassHeteroResponse @ 0x14041DF08 (PpmCheckComputeMultiClassHeteroResponse.c)
+ *     PpmCheckComputeMultiClassHeteroResponse @ 0x14041574C (PpmCheckComputeMultiClassHeteroResponse.c)
  * Callees:
- *     RtlOrAffinityEx @ 0x14025A978 (RtlOrAffinityEx.c)
- *     RtlSubtractAffinityEx @ 0x14025B408 (RtlSubtractAffinityEx.c)
- *     PpmEventTraceMultiClassHeteroResponse @ 0x14041DAE0 (PpmEventTraceMultiClassHeteroResponse.c)
- *     PpmHeteroComputeUnparkCount @ 0x14041DCE8 (PpmHeteroComputeUnparkCount.c)
- *     PpmHeteroComputeCoreParkingUtilities @ 0x14041E368 (PpmHeteroComputeCoreParkingUtilities.c)
- *     PpmEventTraceMultiClassHeteroResponseUpdate @ 0x1404FF7CC (PpmEventTraceMultiClassHeteroResponseUpdate.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     RtlOrAffinityEx @ 0x14025C158 (RtlOrAffinityEx.c)
+ *     RtlSubtractAffinityEx @ 0x14025CBE8 (RtlSubtractAffinityEx.c)
+ *     PpmEventTraceMultiClassHeteroResponse @ 0x140415324 (PpmEventTraceMultiClassHeteroResponse.c)
+ *     PpmHeteroComputeUnparkCount @ 0x14041552C (PpmHeteroComputeUnparkCount.c)
+ *     PpmHeteroComputeCoreParkingUtilities @ 0x140415BAC (PpmHeteroComputeCoreParkingUtilities.c)
+ *     PpmEventTraceMultiClassHeteroResponseUpdate @ 0x1404F8FBC (PpmEventTraceMultiClassHeteroResponseUpdate.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 char __fastcall PpmHeteroComputeMultiClassUnparkCount(

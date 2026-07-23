@@ -1,8 +1,8 @@
 /*
  * XREFs of KdpDeleteBreakpoint @ 0x1406F3704
  * Callers:
- *     KdpDeleteBreakpointRange @ 0x1406F2A48 (KdpDeleteBreakpointRange.c)
- *     KdpSendWaitContinue @ 0x1406F2AAC (KdpSendWaitContinue.c)
+ *     KdpDeleteBreakpointRange @ 0x1406F26E0 (KdpDeleteBreakpointRange.c)
+ *     KdpSendWaitContinue @ 0x1406F2744 (KdpSendWaitContinue.c)
  *     KdpRestoreBreakPointEx @ 0x1406F558C (KdpRestoreBreakPointEx.c)
  *     KdpWriteBreakPointEx @ 0x1406F5BD0 (KdpWriteBreakPointEx.c)
  * Callees:

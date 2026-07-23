@@ -1,7 +1,7 @@
 /*
- * XREFs of MiSortFaultClusterDescriptors @ 0x140494C40
+ * XREFs of MiSortFaultClusterDescriptors @ 0x14048E790
  * Callers:
- *     MiDetermineThreadFaultCluster @ 0x1402D60A8 (MiDetermineThreadFaultCluster.c)
+ *     MiDetermineThreadFaultCluster @ 0x1402B7E68 (MiDetermineThreadFaultCluster.c)
  * Callees:
  *     <none>
  */

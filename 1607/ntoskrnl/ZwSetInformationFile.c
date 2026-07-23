@@ -1,26 +1,26 @@
 /*
- * XREFs of ZwSetInformationFile @ 0x14015A160
+ * XREFs of ZwSetInformationFile @ 0x14015A6D0
  * Callers:
- *     CmpOpenHiveFile @ 0x1403F9400 (CmpOpenHiveFile.c)
- *     CmpDoFileSetSizeEx @ 0x14047E8FC (CmpDoFileSetSizeEx.c)
- *     EtwpFinalizeHeader @ 0x140492C74 (EtwpFinalizeHeader.c)
- *     EtwpCreateLogFile @ 0x140494518 (EtwpCreateLogFile.c)
- *     EtwpUpdateFileHeader @ 0x1404947D4 (EtwpUpdateFileHeader.c)
- *     CmpCmdHiveClose @ 0x14049FCA0 (CmpCmdHiveClose.c)
- *     CmpOpenFileWithExtremePrejudice @ 0x1404EF4C0 (CmpOpenFileWithExtremePrejudice.c)
- *     EtwpRealtimeSaveState @ 0x1404F1370 (EtwpRealtimeSaveState.c)
- *     EtwpRealtimeZeroTruncateLogfile @ 0x14052DEC0 (EtwpRealtimeZeroTruncateLogfile.c)
- *     PopResizeHiberFile @ 0x14052EEAC (PopResizeHiberFile.c)
- *     MiCreatePagingFile @ 0x140568224 (MiCreatePagingFile.c)
- *     PopCreateHiberFile @ 0x14056CF34 (PopCreateHiberFile.c)
- *     CmpCmdRenameHive @ 0x140603554 (CmpCmdRenameHive.c)
- *     CmpFlushBackupHive @ 0x1406044B0 (CmpFlushBackupHive.c)
- *     CmpWriteOffsetArrayToFile @ 0x140604EA8 (CmpWriteOffsetArrayToFile.c)
- *     PpLastGoodDeleteFilesCallback @ 0x14062D1B4 (PpLastGoodDeleteFilesCallback.c)
- *     IopFileUtilClearAttributes @ 0x14064BF88 (IopFileUtilClearAttributes.c)
- *     SmKmStoreFileCreate @ 0x140698AE8 (SmKmStoreFileCreate.c)
- *     SmKmStoreFileDelete @ 0x1406991DC (SmKmStoreFileDelete.c)
- *     EtwpSavePersistedLogger @ 0x1406AA264 (EtwpSavePersistedLogger.c)
+ *     CmpOpenHiveFile @ 0x1403F82C0 (CmpOpenHiveFile.c)
+ *     CmpDoFileSetSizeEx @ 0x14047D650 (CmpDoFileSetSizeEx.c)
+ *     EtwpFinalizeHeader @ 0x140493704 (EtwpFinalizeHeader.c)
+ *     EtwpCreateLogFile @ 0x140494FA8 (EtwpCreateLogFile.c)
+ *     EtwpUpdateFileHeader @ 0x140495264 (EtwpUpdateFileHeader.c)
+ *     CmpOpenFileWithExtremePrejudice @ 0x1404D1584 (CmpOpenFileWithExtremePrejudice.c)
+ *     EtwpRealtimeSaveState @ 0x1404D3464 (EtwpRealtimeSaveState.c)
+ *     CmpCmdHiveClose @ 0x1405180AC (CmpCmdHiveClose.c)
+ *     EtwpRealtimeZeroTruncateLogfile @ 0x14052E400 (EtwpRealtimeZeroTruncateLogfile.c)
+ *     PopResizeHiberFile @ 0x14052F3EC (PopResizeHiberFile.c)
+ *     MiCreatePagingFile @ 0x140568764 (MiCreatePagingFile.c)
+ *     PopCreateHiberFile @ 0x14056D474 (PopCreateHiberFile.c)
+ *     CmpCmdRenameHive @ 0x140603608 (CmpCmdRenameHive.c)
+ *     CmpFlushBackupHive @ 0x140604564 (CmpFlushBackupHive.c)
+ *     CmpWriteOffsetArrayToFile @ 0x140604F5C (CmpWriteOffsetArrayToFile.c)
+ *     PpLastGoodDeleteFilesCallback @ 0x14062D268 (PpLastGoodDeleteFilesCallback.c)
+ *     IopFileUtilClearAttributes @ 0x14064C06C (IopFileUtilClearAttributes.c)
+ *     SmKmStoreFileCreate @ 0x140698BCC (SmKmStoreFileCreate.c)
+ *     SmKmStoreFileDelete @ 0x1406992C0 (SmKmStoreFileDelete.c)
+ *     EtwpSavePersistedLogger @ 0x1406AA39C (EtwpSavePersistedLogger.c)
  *     IopFileUtilRename @ 0x1407B9164 (IopFileUtilRename.c)
  * Callees:
  *     <none>
@@ -35,5 +35,5 @@ NTSTATUS __stdcall ZwSetInformationFile(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(FileHandle, IoStatusBlock, FileInformation);
+  return KiServiceInternal(FileHandle);
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of MiZeroCfgSystemWideBitmap @ 0x140348110
+ * XREFs of MiZeroCfgSystemWideBitmap @ 0x1403483A0
  * Callers:
- *     MiReturnImageBase @ 0x140721CA0 (MiReturnImageBase.c)
+ *     MiReturnImageBase @ 0x140721EA0 (MiReturnImageBase.c)
  * Callees:
- *     MiZeroCfgSystemWideBitmapWorker @ 0x140348168 (MiZeroCfgSystemWideBitmapWorker.c)
+ *     MiZeroCfgSystemWideBitmapWorker @ 0x1403483F8 (MiZeroCfgSystemWideBitmapWorker.c)
  */
 
 __int64 __fastcall MiZeroCfgSystemWideBitmap(__int64 a1, unsigned __int64 a2)

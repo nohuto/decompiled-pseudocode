@@ -1,12 +1,12 @@
 /*
- * XREFs of IvtInvalidateContextEntry @ 0x14052D384
+ * XREFs of IvtInvalidateContextEntry @ 0x14052D8D4
  * Callers:
- *     IvtUpdateContextEntry @ 0x14052D984 (IvtUpdateContextEntry.c)
- *     IvtUpdateScalableModeContextEntry @ 0x14052DC64 (IvtUpdateScalableModeContextEntry.c)
+ *     IvtUpdateContextEntry @ 0x14052DED4 (IvtUpdateContextEntry.c)
+ *     IvtUpdateScalableModeContextEntry @ 0x14052E1B4 (IvtUpdateScalableModeContextEntry.c)
  * Callees:
- *     IvtIommuWaitCommand @ 0x1403602B4 (IvtIommuWaitCommand.c)
- *     IvtIommuSendCommand @ 0x1403603E4 (IvtIommuSendCommand.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     IvtIommuWaitCommand @ 0x140360454 (IvtIommuWaitCommand.c)
+ *     IvtIommuSendCommand @ 0x140360584 (IvtIommuSendCommand.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall IvtInvalidateContextEntry(__int64 a1, int *a2, unsigned __int16 a3, __int64 a4, char a5)

@@ -3,10 +3,10 @@
  * Callers:
  *     KiInitializeBootStructures @ 0x1403D4E7C (KiInitializeBootStructures.c)
  * Callees:
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     KeBugCheck @ 0x14015D4F0 (KeBugCheck.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
- *     KiApplyProcessorErrata @ 0x1401D74D8 (KiApplyProcessorErrata.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     KeBugCheck @ 0x14015DA60 (KeBugCheck.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
+ *     KiApplyProcessorErrata @ 0x1401D7304 (KiApplyProcessorErrata.c)
  *     KiDetectAccessBitErrata @ 0x1403D6140 (KiDetectAccessBitErrata.c)
  *     KiDetectCacheErrata @ 0x1403D61B8 (KiDetectCacheErrata.c)
  *     KiGetCpuVendor @ 0x1403D622C (KiGetCpuVendor.c)

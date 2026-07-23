@@ -16,7 +16,7 @@
  *     NtWaitForAlertByThreadId @ 0x180166E70 (NtWaitForAlertByThreadId.c)
  */
 
-char __fastcall TppCancelTimer(__int64 a1, volatile signed __int32 *a2, char a3)
+char __fastcall TppCancelTimer(__int64 a1, _RTL_SRWLOCK *a2, char a3)
 {
   char v3; // al
   char v7; // di
@@ -51,13 +51,13 @@ char __fastcall TppCancelTimer(__int64 a1, volatile signed __int32 *a2, char a3)
   {
     *(_QWORD *)(a1 + 328) = 0LL;
     if ( !a3 )
-      RtlReleaseSRWLockExclusive((volatile signed __int64 *)(a1 + 240));
+      RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(a1 + 240));
     return 0;
   }
   v9 = NtCurrentPeb();
-  v10 = 2LL;
+  v10 = 1LL;
   if ( !v7 )
-    v10 = 32LL;
+    v10 = 16LL;
   SharedData = v9->SharedData;
   v12 = (unsigned __int64)&a2[v10];
   if ( SharedData && *SharedData )
@@ -131,17 +131,17 @@ LABEL_16:
     TppPHExtractMin(v23);
     TppUpdateSubQueueTimer(v12, v7);
     *(_BYTE *)(a1 + 352) = 0;
-    RtlReleaseSRWLockExclusive((volatile signed __int64 *)a2);
+    RtlReleaseSRWLockExclusive(a2);
     *(_DWORD *)(a1 + 348) = 0;
     *(_QWORD *)(a1 + 328) = 0LL;
     *(_BYTE *)(a1 + 354) = 0;
     if ( !a3 )
-      RtlReleaseSRWLockExclusive((volatile signed __int64 *)(a1 + 240));
+      RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(a1 + 240));
     return 1;
   }
   else
   {
-    RtlReleaseSRWLockExclusive((volatile signed __int64 *)a2);
+    RtlReleaseSRWLockExclusive(a2);
     *(_BYTE *)(a1 + 354) |= 4u;
     v32[1] = NtCurrentTeb()->ClientId.UniqueThread;
     _m_prefetchw((const void *)(a1 + 336));
@@ -153,10 +153,10 @@ LABEL_16:
       v30 = _InterlockedCompareExchange64((volatile signed __int64 *)(a1 + 336), (signed __int64)v32, v30);
     }
     while ( v30 != v31 );
-    RtlReleaseSRWLockExclusive((volatile signed __int64 *)(a1 + 240));
-    NtWaitForAlertByThreadId(a1 + 336, 0LL);
+    RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(a1 + 240));
+    NtWaitForAlertByThreadId((PVOID)(a1 + 336), 0LL);
     if ( a3 )
-      RtlAcquireSRWLockExclusive((volatile signed __int32 *)(a1 + 240));
+      RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)(a1 + 240));
     return 0;
   }
 }

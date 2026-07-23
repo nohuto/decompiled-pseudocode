@@ -1,10 +1,10 @@
 /*
- * XREFs of sscanf_s @ 0x18009B240
+ * XREFs of sscanf_s @ 0x18009B250
  * Callers:
- *     RtlIncrementCorrelationVector @ 0x180087DF0 (RtlIncrementCorrelationVector.c)
+ *     RtlIncrementCorrelationVector @ 0x180087E00 (RtlIncrementCorrelationVector.c)
  * Callees:
- *     _invalid_parameter @ 0x18008FDE8 (_invalid_parameter.c)
- *     _sinput_s @ 0x18009D4DC (_sinput_s.c)
+ *     _invalid_parameter @ 0x18008FDF8 (_invalid_parameter.c)
+ *     _sinput_s @ 0x18009D4EC (_sinput_s.c)
  */
 
 int sscanf_s(const char *const Buffer, const char *const Format, ...)

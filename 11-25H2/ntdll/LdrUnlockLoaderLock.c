@@ -10,28 +10,29 @@
  *     LdrpGenericExceptionFilter @ 0x18011B640 (LdrpGenericExceptionFilter.c)
  */
 
-__int64 __fastcall LdrUnlockLoaderLock(int a1, unsigned __int64 a2)
+NTSTATUS __cdecl LdrUnlockLoaderLock(ULONG Flags, PVOID Cookie)
 {
-  unsigned int v2; // ebx
+  NTSTATUS v2; // ebx
   __int64 v3; // rcx
 
-  if ( (a1 & 0xFFFFFFFE) != 0 )
+  if ( (Flags & 0xFFFFFFFE) != 0 )
   {
-    if ( (a1 & 1) != 0 )
-      RtlRaiseStatus(3221225711LL);
-    return (unsigned int)-1073741585;
+    if ( (Flags & 1) != 0 )
+      RtlRaiseStatus(-1073741585);
+    return -1073741585;
   }
   else
   {
     v2 = 0;
-    if ( a2 )
+    if ( Cookie )
     {
-      v3 = a1 & 1;
-      if ( a2 >= 0x1000000000000000LL || ((LODWORD(NtCurrentTeb()->ClientId.UniqueThread) ^ HIWORD(a2)) & 0xFFF) != 0 )
+      v3 = Flags & 1;
+      if ( (unsigned __int64)Cookie >= 0x1000000000000000LL
+        || ((LODWORD(NtCurrentTeb()->ClientId.UniqueThread) ^ ((unsigned __int64)Cookie >> 48)) & 0xFFF) != 0 )
       {
         if ( (_DWORD)v3 )
-          RtlRaiseStatus(3221225712LL);
-        return (unsigned int)-1073741584;
+          RtlRaiseStatus(-1073741584);
+        return -1073741584;
       }
       else if ( (_DWORD)v3 )
       {

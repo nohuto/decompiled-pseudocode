@@ -20,7 +20,7 @@ __int64 ObpInitStackAndObjectTables()
   _WORD *v3; // rbx
   PVOID v4; // rax
   int v5; // ebx
-  struct _SLIST_ENTRY *v6; // rax
+  _SLIST_ENTRY *v6; // rax
   PSLIST_ENTRY v8; // rbx
   PSLIST_ENTRY v9; // rcx
   void *v10; // rcx
@@ -52,12 +52,12 @@ LABEL_14:
       }
       memset(v4, 0, 0xC88uLL);
       if ( ((unsigned __int8)&ObpWorkItemFreeList & 0xF) != 0 )
-        RtlRaiseStatus(0x80000002);
+        RtlRaiseStatus(-2147483646);
       v5 = 0;
       ObpWorkItemFreeList = 0LL;
       while ( 1 )
       {
-        v6 = (struct _SLIST_ENTRY *)ExAllocatePoolWithTag(NonPagedPoolNx, 0xB0uLL, 0x7452624Fu);
+        v6 = (_SLIST_ENTRY *)ExAllocatePoolWithTag(NonPagedPoolNx, 0xB0uLL, 0x7452624Fu);
         if ( !v6 )
           break;
         RtlpInterlockedPushEntrySList(&ObpWorkItemFreeList, v6);

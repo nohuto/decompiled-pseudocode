@@ -3,20 +3,20 @@
  * Callers:
  *     Phase1InitializationDiscard @ 0x140794438 (Phase1InitializationDiscard.c)
  * Callees:
- *     ExGenRandom @ 0x1400F0494 (ExGenRandom.c)
- *     ExInitializeNPagedLookasideList @ 0x140110BFC (ExInitializeNPagedLookasideList.c)
- *     CcInitializeAsyncRead @ 0x140146138 (CcInitializeAsyncRead.c)
- *     ZwClose @ 0x140159E60 (ZwClose.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     ExGenRandom @ 0x1400EE314 (ExGenRandom.c)
+ *     ExInitializeNPagedLookasideList @ 0x140111160 (ExInitializeNPagedLookasideList.c)
+ *     CcInitializeAsyncRead @ 0x1401466A8 (CcInitializeAsyncRead.c)
+ *     ZwClose @ 0x14015A3D0 (ZwClose.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
+ *     memset @ 0x140171AC0 (memset.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
  *     ExInitializeSystemLookasideList @ 0x1403D5368 (ExInitializeSystemLookasideList.c)
- *     PsCreateSystemThread @ 0x1403E4710 (PsCreateSystemThread.c)
- *     MmGetNumberOfPhysicalPages @ 0x1404145C8 (MmGetNumberOfPhysicalPages.c)
- *     FsRtlIsMobileOS @ 0x14052E070 (FsRtlIsMobileOS.c)
- *     CcInitializeProcessor @ 0x140552880 (CcInitializeProcessor.c)
- *     PoRegisterCoalescingCallback @ 0x14056F390 (PoRegisterCoalescingCallback.c)
+ *     PsCreateSystemThread @ 0x1403E5D3C (PsCreateSystemThread.c)
+ *     MmGetNumberOfPhysicalPages @ 0x140413488 (MmGetNumberOfPhysicalPages.c)
+ *     FsRtlIsMobileOS @ 0x14052E5B0 (FsRtlIsMobileOS.c)
+ *     CcInitializeProcessor @ 0x140552DC0 (CcInitializeProcessor.c)
+ *     PoRegisterCoalescingCallback @ 0x14056F8D0 (PoRegisterCoalescingCallback.c)
  *     CcInitializeBcbProfiler @ 0x140777304 (CcInitializeBcbProfiler.c)
  *     CcInitializeVacbs @ 0x1407B499C (CcInitializeVacbs.c)
  */
@@ -56,24 +56,24 @@ char CcInitializeCacheManager()
   CcBcbTrimNotificationListLock.Contention = 0;
   CcBcbTrimNotificationListLock.Event.Header.SignalState = 0;
   CcIdleDelayTick = 0x989680 / KeMaximumIncrement;
-  qword_140322F98 = (__int64)&CcCleanSharedCacheMapWithLogHandleList;
+  qword_140322FB8 = (__int64)&CcCleanSharedCacheMapWithLogHandleList;
   CcCleanSharedCacheMapWithLogHandleList = (__int64)&CcCleanSharedCacheMapWithLogHandleList;
-  qword_140322FA8 = (__int64)&CcCleanSharedCacheMapList;
+  qword_140322FC8 = (__int64)&CcCleanSharedCacheMapList;
   CcCleanSharedCacheMapList = (__int64)&CcCleanSharedCacheMapList;
-  qword_140322FB8 = (__int64)&CcDirtySharedCacheMapWithLogHandleList;
+  qword_140322FD8 = (__int64)&CcDirtySharedCacheMapWithLogHandleList;
   CcDirtySharedCacheMapWithLogHandleList = (__int64)&CcDirtySharedCacheMapWithLogHandleList;
   CcLazyWriterCursor = (__int64)&CcDirtySharedCacheMapList;
-  qword_140322FE8 = (__int64)&CcDirtySharedCacheMapList;
+  qword_140323008 = (__int64)&CcDirtySharedCacheMapList;
   CcDirtySharedCacheMapList = (__int64)&CcLazyWriterCursor;
-  qword_140322FC8 = (__int64)&CcLazyWriterCursor;
-  qword_140323008 = (__int64)&CcVolumeCacheMapList;
+  qword_140322FE8 = (__int64)&CcLazyWriterCursor;
+  qword_140323028 = (__int64)&CcVolumeCacheMapList;
   CcVolumeCacheMapList = (__int64)&CcVolumeCacheMapList;
   CcBcbTrimNotificationListLock.Event.Header.WaitListHead.Blink = &CcBcbTrimNotificationListLock.Event.Header.WaitListHead;
   CcBcbTrimNotificationListLock.Event.Header.WaitListHead.Flink = &CcBcbTrimNotificationListLock.Event.Header.WaitListHead;
-  qword_140323068 = (__int64)&CcBcbTrimNotificationList;
+  qword_140323088 = (__int64)&CcBcbTrimNotificationList;
   CcBcbTrimNotificationList = (__int64)&CcBcbTrimNotificationList;
-  dword_140322FD0 = 2048;
   dword_140322FF0 = 2048;
+  dword_140323010 = 2048;
   CcBcbTrimNotificationListLock.Count = 1;
   LOWORD(CcBcbTrimNotificationListLock.Event.Header.Lock) = 1;
   CcMaxAsyncReadWorkerThreads = 100;
@@ -84,21 +84,21 @@ char CcInitializeCacheManager()
     if ( FsRtlIsMobileOS() )
       CcMaxAsyncReadWorkerThreads = 10;
   }
-  qword_140323088 = (__int64)&CcFastTeardownWorkQueue;
+  qword_1403230A8 = (__int64)&CcFastTeardownWorkQueue;
   CcFastTeardownWorkQueue = (__int64)&CcFastTeardownWorkQueue;
-  qword_140323078 = (__int64)&CcIdleWorkerThreadList;
-  qword_140323098 = (__int64)&CcExpressWorkQueue;
+  qword_140323098 = (__int64)&CcIdleWorkerThreadList;
+  qword_1403230B8 = (__int64)&CcExpressWorkQueue;
   CcExpressWorkQueue = (__int64)&CcExpressWorkQueue;
-  qword_1403230A8 = (__int64)&CcRegularWorkQueue;
+  qword_1403230C8 = (__int64)&CcRegularWorkQueue;
   CcRegularWorkQueue = (__int64)&CcRegularWorkQueue;
-  qword_1403230B8 = (__int64)&CcPostTickWorkQueue;
+  qword_1403230D8 = (__int64)&CcPostTickWorkQueue;
   CcPostTickWorkQueue = (__int64)&CcPostTickWorkQueue;
   CcIdleWorkerThreadList = (PWORK_QUEUE_ITEM)&CcIdleWorkerThreadList;
-  qword_1403232D8 = (__int64)&CcIdleExtraWriteBehindThreadList;
+  qword_1403232F8 = (__int64)&CcIdleExtraWriteBehindThreadList;
   CcIdleExtraWriteBehindThreadList = (PWORK_QUEUE_ITEM)&CcIdleExtraWriteBehindThreadList;
   CcGlobalDirtyPageStatistics = 0LL;
-  qword_140322F68 = 0LL;
-  qword_140322F70 = 0LL;
+  qword_140322F88 = 0LL;
+  qword_140322F90 = 0LL;
   memset(&CcGlobalDirtyPageThresholds, 0, 0x38uLL);
   v1 = CcNumberWorkerThreads;
   CcLowPriWorkerThread = 0LL;
@@ -112,8 +112,8 @@ char CcInitializeCacheManager()
     NumberOfPhysicalPages = MmGetNumberOfPhysicalPages();
     if ( v0 )
     {
-      qword_1403230C8 = NumberOfPhysicalPages >> 1;
-      qword_1403230D0 = (unsigned __int64)MmGetNumberOfPhysicalPages() >> 3;
+      qword_1403230E8 = NumberOfPhysicalPages >> 1;
+      qword_1403230F0 = (unsigned __int64)MmGetNumberOfPhysicalPages() >> 3;
       CcMaxLazyWritePages = 0x2000;
       CcMaxExtraWriteBehindThreads = v2 - 1;
       CcExtraWBThreadDelay = 5000000;
@@ -121,25 +121,25 @@ char CcInitializeCacheManager()
     else
     {
       v4 = NumberOfPhysicalPages >> 3;
-      qword_1403230D0 = NumberOfPhysicalPages >> 3;
-      qword_1403230C8 = NumberOfPhysicalPages >> 3;
+      qword_1403230F0 = NumberOfPhysicalPages >> 3;
+      qword_1403230E8 = NumberOfPhysicalPages >> 3;
       CcMaxLazyWritePages = 256;
       CcMaxExtraWriteBehindThreads = 1;
       CcExtraWBThreadDelay = 10000000;
     }
     CcGlobalDirtyPageThresholds = v4;
-    dword_1403230F0 = 10;
-    qword_1403230E8 = 0LL;
+    dword_140323110 = 10;
+    qword_140323108 = 0LL;
     v5 = MmGetNumberOfPhysicalPages();
     CcAggressiveZeroThreshold = 4;
     v7 = 5 * v5;
     v9 = (v8 >> 1) + (v8 >> 2);
-    qword_1403230E0 = 2 * v7;
+    qword_140323100 = 2 * v7;
     v1 = v2 - 1;
     CcNumberWorkerThreads = v2 - 1;
     if ( v9 > v6 )
       LODWORD(v9) = v6;
-    dword_1403230D8 = v9;
+    dword_1403230F8 = v9;
   }
   CcAggressiveZeroCount = 0;
   v10 = 0;
@@ -154,14 +154,14 @@ char CcInitializeCacheManager()
       PoolWithTag[2] = CcWorkerThread;
       *PoolWithTag = 0LL;
       *((_DWORD *)PoolWithTag + 8) = 1;
-      v12 = (_QWORD *)qword_140323078;
-      if ( *(PWORK_QUEUE_ITEM **)qword_140323078 != &CcIdleWorkerThreadList )
+      v12 = (_QWORD *)qword_140323098;
+      if ( *(PWORK_QUEUE_ITEM **)qword_140323098 != &CcIdleWorkerThreadList )
         __fastfail(3u);
       *PoolWithTag = &CcIdleWorkerThreadList;
       v13 = ++v10 < (unsigned int)CcNumberWorkerThreads;
       PoolWithTag[1] = v12;
       *v12 = PoolWithTag;
-      qword_140323078 = (__int64)PoolWithTag;
+      qword_140323098 = (__int64)PoolWithTag;
     }
     while ( v13 );
   }
@@ -178,14 +178,14 @@ char CcInitializeCacheManager()
       *v15 = 0LL;
       *((_DWORD *)v15 + 8) = 2;
       *((_DWORD *)v15 + 10) = v14;
-      v16 = (_QWORD *)qword_1403232D8;
-      if ( *(PWORK_QUEUE_ITEM **)qword_1403232D8 != &CcIdleExtraWriteBehindThreadList )
+      v16 = (_QWORD *)qword_1403232F8;
+      if ( *(PWORK_QUEUE_ITEM **)qword_1403232F8 != &CcIdleExtraWriteBehindThreadList )
         __fastfail(3u);
       *v15 = &CcIdleExtraWriteBehindThreadList;
       v13 = ++v14 < (unsigned int)CcMaxExtraWriteBehindThreads;
       v15[1] = v16;
       *v16 = v15;
-      qword_1403232D8 = (__int64)v15;
+      qword_1403232F8 = (__int64)v15;
     }
     while ( v13 );
   }
@@ -281,7 +281,7 @@ char CcInitializeCacheManager()
   CcDeferredWriteSpinLock = 0LL;
   CcDeferredWrites.Blink = &CcDeferredWrites;
   CcDeferredWrites.Flink = &CcDeferredWrites;
-  qword_1403232B8 = (__int64)&CcExternalCacheList;
+  qword_1403232D8 = (__int64)&CcExternalCacheList;
   CcExternalCacheList = (__int64)&CcExternalCacheList;
   CcExternalCacheListLock = 0LL;
   CcInitializeVacbs();
@@ -306,8 +306,8 @@ char CcInitializeCacheManager()
       CcRemoteFileDPInlineFlushThreshold = 1310720;
   }
   CcTestControlData = 0LL;
-  qword_140322EC8 = 0LL;
-  qword_140322ED0 = 0LL;
+  qword_140322EE8 = 0LL;
+  qword_140322EF0 = 0LL;
   if ( (int)PoRegisterCoalescingCallback(
               (unsigned __int64)CcCoalescingCallBack,
               1,

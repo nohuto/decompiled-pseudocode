@@ -1,9 +1,9 @@
 /*
- * XREFs of Feature_Servicing_HibernateRelaxVBSPolicy__private_IsEnabledNoReportingNoInline @ 0x1406070F8
+ * XREFs of Feature_Servicing_HibernateRelaxVBSPolicy__private_IsEnabledNoReportingNoInline @ 0x140609C54
  * Callers:
- *     PopBuildMemoryImageHeader @ 0x140BF9C6C (PopBuildMemoryImageHeader.c)
+ *     PopBuildMemoryImageHeader @ 0x140BFFC6C (PopBuildMemoryImageHeader.c)
  * Callees:
- *     Feature_Servicing_HibernateRelaxVBSPolicy__private_IsEnabledFallback @ 0x1406070D8 (Feature_Servicing_HibernateRelaxVBSPolicy__private_IsEnabledFallback.c)
+ *     Feature_Servicing_HibernateRelaxVBSPolicy__private_IsEnabledFallback @ 0x140609C34 (Feature_Servicing_HibernateRelaxVBSPolicy__private_IsEnabledFallback.c)
  */
 
 __int64 Feature_Servicing_HibernateRelaxVBSPolicy__private_IsEnabledNoReportingNoInline()

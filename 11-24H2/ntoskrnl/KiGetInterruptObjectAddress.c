@@ -1,5 +1,5 @@
 /*
- * XREFs of KiGetInterruptObjectAddress @ 0x140479B50
+ * XREFs of KiGetInterruptObjectAddress @ 0x1404753E0
  * Callers:
  *     <none>
  * Callees:

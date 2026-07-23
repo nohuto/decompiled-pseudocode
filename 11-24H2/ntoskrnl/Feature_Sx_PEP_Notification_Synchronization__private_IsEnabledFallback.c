@@ -1,20 +1,15 @@
 /*
- * XREFs of Feature_Sx_PEP_Notification_Synchronization__private_IsEnabledFallback @ 0x1405CD8AC
+ * XREFs of Feature_Sx_PEP_Notification_Synchronization__private_IsEnabledFallback @ 0x1405CB01C
  * Callers:
- *     Feature_Sx_PEP_Notification_Synchronization__private_IsEnabledNoReportingNoInline @ 0x1405CD8C8 (Feature_Sx_PEP_Notification_Synchronization__private_IsEnabledNoReportingNoInline.c)
+ *     Feature_Sx_PEP_Notification_Synchronization__private_IsEnabledNoReportingNoInline @ 0x1405CB038 (Feature_Sx_PEP_Notification_Synchronization__private_IsEnabledNoReportingNoInline.c)
  * Callees:
- *     wil_details_IsEnabledFallback @ 0x1404D17E0 (wil_details_IsEnabledFallback.c)
+ *     wil_details_IsEnabledFallback @ 0x1404CA820 (wil_details_IsEnabledFallback.c)
  */
 
-__int64 __fastcall Feature_Sx_PEP_Notification_Synchronization__private_IsEnabledFallback(
-        __int64 a1,
-        unsigned int a2,
-        __int64 a3,
-        __int64 a4)
+__int64 __fastcall Feature_Sx_PEP_Notification_Synchronization__private_IsEnabledFallback(__int64 a1, unsigned int a2)
 {
   return wil_details_IsEnabledFallback(
            a1,
            a2,
-           (volatile signed __int32 **)&Feature_Sx_PEP_Notification_Synchronization__private_descriptor,
-           a4);
+           (volatile signed __int32 **)&Feature_Sx_PEP_Notification_Synchronization__private_descriptor);
 }

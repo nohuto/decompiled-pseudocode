@@ -1,9 +1,9 @@
 /*
- * XREFs of __longjmp_internal @ 0x1401B7EB0
+ * XREFs of __longjmp_internal @ 0x1401B8010
  * Callers:
- *     longjmp @ 0x140194220 (longjmp.c)
+ *     longjmp @ 0x140194360 (longjmp.c)
  * Callees:
- *     RtlUnwindEx @ 0x14009DF30 (RtlUnwindEx.c)
+ *     RtlUnwindEx @ 0x14009DE70 (RtlUnwindEx.c)
  */
 
 __int64 __fastcall _longjmp_internal(unsigned __int64 a1, __int64 a2)

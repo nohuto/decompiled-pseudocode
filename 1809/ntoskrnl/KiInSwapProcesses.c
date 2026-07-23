@@ -1,28 +1,28 @@
 /*
- * XREFs of KiInSwapProcesses @ 0x14010B340
+ * XREFs of KiInSwapProcesses @ 0x14010B3C0
  * Callers:
- *     KeSwapProcessOrStack @ 0x14017FDA0 (KeSwapProcessOrStack.c)
+ *     KeSwapProcessOrStack @ 0x14017FEE0 (KeSwapProcessOrStack.c)
  * Callees:
  *     MiLockPageInline @ 0x14002CE40 (MiLockPageInline.c)
  *     MiUnmapPageInHyperSpaceWorker @ 0x14003AB00 (MiUnmapPageInHyperSpaceWorker.c)
  *     MiPteInShadowRange @ 0x14003D740 (MiPteInShadowRange.c)
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14007DE90 (KeAcquireInStackQueuedSpinLock.c)
- *     MiMapPageInHyperSpaceWorker @ 0x140082780 (MiMapPageInHyperSpaceWorker.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
- *     MiReturnWsToExpansionList @ 0x1400F3384 (MiReturnWsToExpansionList.c)
- *     KiAcquireKobjectLockSafe @ 0x1400FBE10 (KiAcquireKobjectLockSafe.c)
- *     KiReadyOutSwappedThreads @ 0x14010B680 (KiReadyOutSwappedThreads.c)
- *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
- *     KeMakeKernelDirectoryTableBase @ 0x14013CCBC (KeMakeKernelDirectoryTableBase.c)
- *     MiMarkPfnTradable @ 0x14013D944 (MiMarkPfnTradable.c)
- *     MiSetPageTablePfnBuddy @ 0x14013D9A8 (MiSetPageTablePfnBuddy.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     MiMakeOutswappedPageResident @ 0x1402A4368 (MiMakeOutswappedPageResident.c)
- *     MiReAcquireOutSwappedProcessCommit @ 0x1402A4BD4 (MiReAcquireOutSwappedProcessCommit.c)
- *     MiUpdateSystemPdes @ 0x1402A5250 (MiUpdateSystemPdes.c)
- *     EtwTraceInswapProcess @ 0x14030FE88 (EtwTraceInswapProcess.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14007DE80 (KeAcquireInStackQueuedSpinLock.c)
+ *     MiMapPageInHyperSpaceWorker @ 0x140082770 (MiMapPageInHyperSpaceWorker.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC6A0 (KxReleaseQueuedSpinLock.c)
+ *     MiReturnWsToExpansionList @ 0x1400F3404 (MiReturnWsToExpansionList.c)
+ *     KiAcquireKobjectLockSafe @ 0x1400FBE90 (KiAcquireKobjectLockSafe.c)
+ *     KiReadyOutSwappedThreads @ 0x14010B700 (KiReadyOutSwappedThreads.c)
+ *     MiWritePteShadow @ 0x140120F40 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120FA0 (MiPteHasShadow.c)
+ *     KeMakeKernelDirectoryTableBase @ 0x14013CDBC (KeMakeKernelDirectoryTableBase.c)
+ *     MiMarkPfnTradable @ 0x14013DA44 (MiMarkPfnTradable.c)
+ *     MiSetPageTablePfnBuddy @ 0x14013DAA8 (MiSetPageTablePfnBuddy.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiMakeOutswappedPageResident @ 0x1402A4558 (MiMakeOutswappedPageResident.c)
+ *     MiReAcquireOutSwappedProcessCommit @ 0x1402A4DC4 (MiReAcquireOutSwappedProcessCommit.c)
+ *     MiUpdateSystemPdes @ 0x1402A5440 (MiUpdateSystemPdes.c)
+ *     EtwTraceInswapProcess @ 0x140310078 (EtwTraceInswapProcess.c)
  */
 
 __int64 __fastcall KiInSwapProcesses(_QWORD *a1, __int64 a2, _QWORD *a3, int a4)
@@ -73,7 +73,7 @@ __int64 __fastcall KiInSwapProcesses(_QWORD *a1, __int64 a2, _QWORD *a3, int a4)
     {
       if ( (unsigned int)MiPteHasShadow(v14, v13) )
       {
-        if ( !HIBYTE(word_14043A1AC) && (v10 & 1) != 0 )
+        if ( !HIBYTE(word_14043B26C) && (v10 & 1) != 0 )
           v10 |= 0x8000000000000000uLL;
         *v15 = v10;
         MiWritePteShadow(v15);
@@ -109,7 +109,7 @@ LABEL_25:
     v5[177] = 1LL;
     v5[178] = 1LL;
     v5[5] = KeMakeKernelDirectoryTableBase(v11 << 12);
-    KeAcquireInStackQueuedSpinLock(&qword_14043AE80, &LockHandle);
+    KeAcquireInStackQueuedSpinLock(&qword_14043BF40, &LockHandle);
     if ( (*((_DWORD *)v5 + 193) & 0x800000) != 0 )
     {
       _InterlockedAnd((volatile signed __int32 *)v5 + 193, 0xFF7FFFFF);

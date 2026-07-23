@@ -41,44 +41,44 @@
  *     _LdrpUnmapModule@4 @ 0x4B2E67DF (_LdrpUnmapModule@4.c)
  */
 
-_DWORD *__thiscall LdrpDereferenceModule(int this)
+int *__thiscall LdrpDereferenceModule(char *BaseAddress)
 {
-  _DWORD *result; // eax
-  int v3; // edx
-  _DWORD *v4; // ecx
+  int *result; // eax
+  char **v3; // edx
+  PVOID *v4; // ecx
   _DWORD *v5; // edi
   _DWORD *v6; // ebx
   int v7; // eax
 
-  result = *(_DWORD **)(this + 80);
+  result = (int *)*((_DWORD *)BaseAddress + 20);
   if ( result[3] != -1 )
   {
-    result = (_DWORD *)*result;
+    result = (int *)*result;
     if ( (*(_BYTE *)(result - 8) & 0x20) == 0 )
     {
-      result = (_DWORD *)_InterlockedExchangeAdd((volatile signed __int32 *)(this + 156), 0xFFFFFFFF);
+      result = (int *)_InterlockedExchangeAdd((volatile signed __int32 *)BaseAddress + 39, 0xFFFFFFFF);
       if ( !result )
       {
         RtlAcquireSRWLockExclusive(&LdrpModuleDatatableLock);
-        v3 = *(_DWORD *)(this + 84);
-        if ( *(_DWORD *)(v3 + 4) != this + 84 || (v4 = *(_DWORD **)(this + 88), *v4 != this + 84) )
+        v3 = (char **)*((_DWORD *)BaseAddress + 21);
+        if ( v3[1] != BaseAddress + 84 || (v4 = (PVOID *)*((_DWORD *)BaseAddress + 22), *v4 != BaseAddress + 84) )
           __fastfail(3u);
         *v4 = v3;
-        *(_DWORD *)(v3 + 4) = v4;
-        v5 = *(_DWORD **)(this + 80);
+        v3[1] = (char *)v4;
+        v5 = (_DWORD *)*((_DWORD *)BaseAddress + 20);
         v6 = (_DWORD *)*v5;
         RtlReleaseSRWLockExclusive(&LdrpModuleDatatableLock);
-        if ( *(_WORD *)(this + 58) )
-          LdrpReleaseTlsEntry(this, 0);
-        LdrpUnmapModule(this);
-        v7 = *(_DWORD *)(this + 72);
+        if ( *((_WORD *)BaseAddress + 29) )
+          LdrpReleaseTlsEntry((int)BaseAddress, 0);
+        LdrpUnmapModule(BaseAddress);
+        v7 = *((_DWORD *)BaseAddress + 18);
         if ( v7 && v7 != -1 )
-          RtlReleaseActivationContext(*(volatile signed __int32 **)(this + 72));
-        if ( *(_DWORD *)(this + 40) )
-          LdrpFreeUnicodeString(this + 36);
-        result = (_DWORD *)RtlFreeHeap(LdrpHeap, 0, this);
+          RtlReleaseActivationContext(*((PACTIVATION_CONTEXT *)BaseAddress + 18));
+        if ( *((_DWORD *)BaseAddress + 10) )
+          LdrpFreeUnicodeString(BaseAddress + 36);
+        result = (int *)RtlFreeHeap(LdrpHeap, 0, BaseAddress);
         if ( v6 == v5 )
-          return (_DWORD *)LdrpDestroyNode(v5);
+          return (int *)LdrpDestroyNode(v5);
       }
     }
   }

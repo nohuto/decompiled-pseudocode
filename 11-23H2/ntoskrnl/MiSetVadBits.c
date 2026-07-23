@@ -1,10 +1,10 @@
 /*
- * XREFs of MiSetVadBits @ 0x1406FAA20
+ * XREFs of MiSetVadBits @ 0x1406FAC30
  * Callers:
- *     MiUpdateVadBits @ 0x1406B2E28 (MiUpdateVadBits.c)
- *     MiInsertVadCharges @ 0x1406FA8B0 (MiInsertVadCharges.c)
+ *     MiUpdateVadBits @ 0x1406B2E58 (MiUpdateVadBits.c)
+ *     MiInsertVadCharges @ 0x1406FAAC0 (MiInsertVadCharges.c)
  * Callees:
- *     RtlSetBitsEx @ 0x14028B3C0 (RtlSetBitsEx.c)
+ *     RtlSetBitsEx @ 0x14028B650 (RtlSetBitsEx.c)
  */
 
 void __fastcall MiSetVadBits(__int64 a1)

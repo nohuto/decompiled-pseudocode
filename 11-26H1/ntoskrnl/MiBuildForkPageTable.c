@@ -1,38 +1,38 @@
 /*
- * XREFs of MiBuildForkPageTable @ 0x14030DC5C
+ * XREFs of MiBuildForkPageTable @ 0x1402EFCDC
  * Callers:
- *     MiUpdateForkMaps @ 0x140AF443C (MiUpdateForkMaps.c)
+ *     MiUpdateForkMaps @ 0x140AF6AB0 (MiUpdateForkMaps.c)
  * Callees:
- *     KiUnstackDetachProcess @ 0x1402307C0 (KiUnstackDetachProcess.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiStackAttachProcess @ 0x140247880 (KiStackAttachProcess.c)
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     MiGetSubsectionFromPte @ 0x1402836C0 (MiGetSubsectionFromPte.c)
- *     MiMakeDemandZeroPte @ 0x14028B2D0 (MiMakeDemandZeroPte.c)
- *     MiLockPageTableInternal @ 0x1402B34E0 (MiLockPageTableInternal.c)
- *     MiUnlockPageTableInternal @ 0x1402D13E0 (MiUnlockPageTableInternal.c)
- *     MiAllocateWsle @ 0x1402D7F18 (MiAllocateWsle.c)
- *     MiChangePageAttribute @ 0x1402D8660 (MiChangePageAttribute.c)
- *     MiMakeValidPte @ 0x1402DA020 (MiMakeValidPte.c)
- *     MiUnlockWorkingSetShared @ 0x1402EB6C0 (MiUnlockWorkingSetShared.c)
- *     MiLockWorkingSetShared @ 0x1402EDD60 (MiLockWorkingSetShared.c)
- *     MiAddLockedPageCharge @ 0x1402F5D30 (MiAddLockedPageCharge.c)
- *     MiMakeSystemAddressValid @ 0x1403028C0 (MiMakeSystemAddressValid.c)
- *     MiIncreaseUsedPtesInPfn @ 0x14030B600 (MiIncreaseUsedPtesInPfn.c)
- *     MiMakeTransitionPte @ 0x14030DC00 (MiMakeTransitionPte.c)
- *     MiSetPfnContainingFrame @ 0x14033BC10 (MiSetPfnContainingFrame.c)
- *     MiCanPfnOriginalPteBeLost @ 0x140408680 (MiCanPfnOriginalPteBeLost.c)
- *     MiSetSubsectionModified @ 0x14045CF48 (MiSetSubsectionModified.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     KiUnstackDetachProcess @ 0x140232120 (KiUnstackDetachProcess.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiStackAttachProcess @ 0x1402491E0 (KiStackAttachProcess.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     MiGetSubsectionFromPte @ 0x140282C30 (MiGetSubsectionFromPte.c)
+ *     MiMakeDemandZeroPte @ 0x14028A830 (MiMakeDemandZeroPte.c)
+ *     MiUnlockPageTableInternal @ 0x1402B31A0 (MiUnlockPageTableInternal.c)
+ *     MiAllocateWsle @ 0x1402B9CD8 (MiAllocateWsle.c)
+ *     MiChangePageAttribute @ 0x1402BA420 (MiChangePageAttribute.c)
+ *     MiMakeValidPte @ 0x1402BBDE0 (MiMakeValidPte.c)
+ *     MiUnlockWorkingSetShared @ 0x1402CD700 (MiUnlockWorkingSetShared.c)
+ *     MiLockWorkingSetShared @ 0x1402CFDE0 (MiLockWorkingSetShared.c)
+ *     MiAddLockedPageCharge @ 0x1402D7DB0 (MiAddLockedPageCharge.c)
+ *     MiMakeSystemAddressValid @ 0x1402E4940 (MiMakeSystemAddressValid.c)
+ *     MiIncreaseUsedPtesInPfn @ 0x1402ED680 (MiIncreaseUsedPtesInPfn.c)
+ *     MiMakeTransitionPte @ 0x1402EFC80 (MiMakeTransitionPte.c)
+ *     MiLockPageTableInternal @ 0x1402FE1B0 (MiLockPageTableInternal.c)
+ *     MiSetPfnContainingFrame @ 0x14033DC90 (MiSetPfnContainingFrame.c)
+ *     MiCanPfnOriginalPteBeLost @ 0x140401770 (MiCanPfnOriginalPteBeLost.c)
+ *     MiSetSubsectionModified @ 0x140456AF0 (MiSetSubsectionModified.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
-$7A85BAF4F1FA08634C1C4A3E45B775B3 *__fastcall MiBuildForkPageTable(
+$241382875694CED3D471BC5892DE3337 *__fastcall MiBuildForkPageTable(
         ULONG_PTR a1,
         __int64 a2,
         ULONG_PTR a3,
-        $7A85BAF4F1FA08634C1C4A3E45B775B3 *a4,
+        $241382875694CED3D471BC5892DE3337 *a4,
         __int64 a5,
         int a6)
 {
@@ -53,7 +53,7 @@ $7A85BAF4F1FA08634C1C4A3E45B775B3 *__fastcall MiBuildForkPageTable(
   _QWORD *v21; // rax
   unsigned __int64 TransitionPte; // rbx
   __int64 v23; // rdx
-  $7A85BAF4F1FA08634C1C4A3E45B775B3 *result; // rax
+  $241382875694CED3D471BC5892DE3337 *result; // rax
   __int64 v25; // rbp
   unsigned __int64 v26; // rdi
   __int64 v27; // rdx
@@ -67,7 +67,7 @@ $7A85BAF4F1FA08634C1C4A3E45B775B3 *__fastcall MiBuildForkPageTable(
   __int64 v35; // [rsp+50h] [rbp-98h]
   unsigned __int64 v36; // [rsp+58h] [rbp-90h]
   struct _LIST_ENTRY **p_Blink; // [rsp+60h] [rbp-88h]
-  $7A85BAF4F1FA08634C1C4A3E45B775B3 *v38; // [rsp+68h] [rbp-80h]
+  $241382875694CED3D471BC5892DE3337 *v38; // [rsp+68h] [rbp-80h]
   ULONG_PTR BugCheckParameter1; // [rsp+70h] [rbp-78h]
   _OWORD v40[3]; // [rsp+78h] [rbp-70h] BYREF
 
@@ -160,7 +160,7 @@ $7A85BAF4F1FA08634C1C4A3E45B775B3 *__fastcall MiBuildForkPageTable(
     if ( a6 == 3 && (MiFlags & 0x1800000) != 0 && *(_BYTE *)(BugCheckParameter1 + 352) != 1 )
     {
       *(_QWORD *)((v34 & 0xFFF) + *(_QWORD *)(BugCheckParameter1 + 1288)) = TransitionPte;
-      if ( !BYTE5(stru_140E2D930.Header.WaitListHead.Blink) )
+      if ( !BYTE5(stru_140E2DAB0.Header.WaitListHead.Blink) )
         TransitionPte |= 0x8000000000000000uLL;
     }
   }
@@ -192,7 +192,7 @@ $7A85BAF4F1FA08634C1C4A3E45B775B3 *__fastcall MiBuildForkPageTable(
   KiStackAttachProcess((_KPROCESS *)BugCheckParameter1, 0, (__int64)v40);
   v26 = ((v34 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
   v29 = MiLockWorkingSetShared(v25, v27, v28);
-  MiLockPageTableInternal(v25, v26, 0);
+  MiLockPageTableInternal(v25, v26, 0LL);
   MiAllocateWsle(v25, (signed __int64 *)v34, (_QWORD *)v7, 0, TransitionPte, 0, 0LL);
   MiUnlockPageTableInternal(v25, v26);
   LOBYTE(v30) = v29;

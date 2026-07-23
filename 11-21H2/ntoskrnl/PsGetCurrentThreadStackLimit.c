@@ -6,7 +6,7 @@
  *     <none>
  */
 
-void *PsGetCurrentThreadStackLimit()
+__int64 PsGetCurrentThreadStackLimit()
 {
-  return KeGetCurrentThread()->StackLimit;
+  return *((_QWORD *)KeGetCurrentThread() + 6);
 }

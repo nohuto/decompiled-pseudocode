@@ -1,16 +1,16 @@
 /*
- * XREFs of VfInitVerifierComponents @ 0x140AC2E70
+ * XREFs of VfInitVerifierComponents @ 0x140AC2E60
  * Callers:
- *     VfInitSystemNoRebootNeeded @ 0x140AC2D18 (VfInitSystemNoRebootNeeded.c)
+ *     VfInitSystemNoRebootNeeded @ 0x140AC2D08 (VfInitSystemNoRebootNeeded.c)
  *     VfInitBootDriversLoaded @ 0x140B577A4 (VfInitBootDriversLoaded.c)
  * Callees:
- *     VfIovPluginEntry @ 0x1405D1C30 (VfIovPluginEntry.c)
- *     ExSetPoolFlags @ 0x140607A98 (ExSetPoolFlags.c)
+ *     VfIovPluginEntry @ 0x1405D21A0 (VfIovPluginEntry.c)
+ *     ExSetPoolFlags @ 0x140607FE8 (ExSetPoolFlags.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
- *     VfPendingCheckForChanges @ 0x140AD17F0 (VfPendingCheckForChanges.c)
- *     VfKeCheckForChanges @ 0x140AD5BF0 (VfKeCheckForChanges.c)
- *     VfFaultsInitPhase0 @ 0x140AD5E48 (VfFaultsInitPhase0.c)
- *     ViSettingsIoCheckForChanges @ 0x140ADAF48 (ViSettingsIoCheckForChanges.c)
+ *     VfPendingCheckForChanges @ 0x140AD17E0 (VfPendingCheckForChanges.c)
+ *     VfKeCheckForChanges @ 0x140AD5BE0 (VfKeCheckForChanges.c)
+ *     VfFaultsInitPhase0 @ 0x140AD5E38 (VfFaultsInitPhase0.c)
+ *     ViSettingsIoCheckForChanges @ 0x140ADAF38 (ViSettingsIoCheckForChanges.c)
  */
 
 __int64 __fastcall VfInitVerifierComponents(unsigned int a1, __int64 a2, __int64 a3, char a4)

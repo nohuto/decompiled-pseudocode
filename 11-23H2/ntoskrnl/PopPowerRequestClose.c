@@ -1,9 +1,9 @@
 /*
- * XREFs of PopPowerRequestClose @ 0x1407EAE30
+ * XREFs of PopPowerRequestClose @ 0x1407EB100
  * Callers:
  *     <none>
  * Callees:
- *     PopPowerRequestHandleClose @ 0x14032B784 (PopPowerRequestHandleClose.c)
+ *     PopPowerRequestHandleClose @ 0x14032BA14 (PopPowerRequestHandleClose.c)
  */
 
 __int64 __fastcall PopPowerRequestClose(__int64 a1, _BYTE *a2, __int64 a3, __int64 a4)

@@ -3,9 +3,9 @@
  * Callers:
  *     CmGetSystemDriverList @ 0x140B3E4A0 (CmGetSystemDriverList.c)
  * Callees:
- *     CmpFindSubKeyByNumber @ 0x1406DAF00 (CmpFindSubKeyByNumber.c)
- *     HvpReleaseCellPaged @ 0x1406E0260 (HvpReleaseCellPaged.c)
- *     HvpReleaseCellFlat @ 0x1407D9470 (HvpReleaseCellFlat.c)
+ *     CmpFindSubKeyByNumber @ 0x1406DAF30 (CmpFindSubKeyByNumber.c)
+ *     HvpReleaseCellPaged @ 0x1406E0290 (HvpReleaseCellPaged.c)
+ *     HvpReleaseCellFlat @ 0x1407D9740 (HvpReleaseCellFlat.c)
  *     CmpLoadServicesNode @ 0x140B59174 (CmpLoadServicesNode.c)
  *     CmpFindGroupOrderList @ 0x140B59450 (CmpFindGroupOrderList.c)
  *     CmpAddDriverToList @ 0x140B5A278 (CmpAddDriverToList.c)

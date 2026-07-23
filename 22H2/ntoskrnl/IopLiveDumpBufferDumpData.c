@@ -17,87 +17,85 @@ void __fastcall IopLiveDumpBufferDumpData(__int64 *a1, unsigned int *a2)
   _QWORD *v5; // rbx
   __int64 *v6; // r14
   __int64 v7; // rsi
-  int v8; // edi
-  unsigned int v9; // r15d
-  unsigned int v10; // edi
-  unsigned int v11; // ebp
-  _QWORD *v12; // r12
+  unsigned int v8; // r15d
+  unsigned int v9; // edi
+  unsigned int v10; // ebp
+  _QWORD *v11; // r12
+  __int64 v12; // rcx
   __int64 v13; // rcx
-  __int64 v14; // rcx
-  __int64 v15; // rbx
-  _DWORD *v16; // rsi
-  _DWORD *v17; // rdx
-  unsigned __int64 v18; // rcx
-  _DWORD *v19; // rdi
-  __int64 v20; // [rsp+30h] [rbp-68h]
-  __int64 v21; // [rsp+38h] [rbp-60h]
-  _QWORD *v22; // [rsp+40h] [rbp-58h]
-  unsigned int v23; // [rsp+A0h] [rbp+8h] BYREF
-  __int64 v24; // [rsp+A8h] [rbp+10h] BYREF
-  _DWORD *v25; // [rsp+B0h] [rbp+18h]
-  __int64 v26; // [rsp+B8h] [rbp+20h]
+  __int64 v14; // rbx
+  _DWORD *v15; // rsi
+  _DWORD *v16; // rdx
+  unsigned __int64 v17; // rcx
+  _DWORD *v18; // rdi
+  __int64 v19; // [rsp+30h] [rbp-68h]
+  __int64 v20; // [rsp+38h] [rbp-60h]
+  _QWORD *v21; // [rsp+40h] [rbp-58h]
+  __int64 v22; // [rsp+A0h] [rbp+8h] BYREF
+  __int64 v23; // [rsp+A8h] [rbp+10h] BYREF
+  _DWORD *v24; // [rsp+B0h] [rbp+18h]
+  PRTL_BITMAP_EX BitMapHeader; // [rsp+B8h] [rbp+20h]
 
   v2 = *a1;
-  v24 = 0LL;
-  v23 = 0;
+  v23 = 0LL;
+  LODWORD(v22) = 0;
   v3 = *a2;
   v4 = v2 + 680;
-  v21 = v2 + 680;
+  v20 = v2 + 680;
   if ( *a2 < *(_DWORD *)(v2 + 784) && v3 < *(_DWORD *)(v2 + 1008) )
   {
     v5 = *(_QWORD **)(*(_QWORD *)(v2 + 1016) + 8LL * v3);
     v6 = (__int64 *)(*(_QWORD *)(v2 + 792) + 16LL * v3);
-    v22 = v5;
-    v26 = v2 + 544;
+    v21 = v5;
+    BitMapHeader = (PRTL_BITMAP_EX)(v2 + 544);
     v7 = v6[1] + 48;
-    v20 = v7;
+    v19 = v7;
     while ( 1 )
     {
-      v8 = BufferChunkSizeInPages;
       KxAcquireSpinLock((PKSPIN_LOCK)(v4 + 32));
-      IopLiveDumpGetCapturePagesNoLock(v26, v4, (_DWORD)v5, v8, (__int64)&v23, (__int64)&v24);
+      IopLiveDumpGetCapturePagesNoLock(BitMapHeader, (__int64)&v22, (__int64)&v23);
       KxReleaseSpinLock((PKSPIN_LOCK)(v4 + 32));
-      v9 = v23;
-      if ( !v23 )
+      v8 = v22;
+      if ( !(_DWORD)v22 )
         break;
+      v9 = 0;
       v10 = 0;
-      v11 = 0;
-      v25 = *(_DWORD **)(*(_QWORD *)(v4 + 72) + 8 * v24);
-      v12 = v5;
+      v24 = *(_DWORD **)(*(_QWORD *)(v4 + 72) + 8 * v23);
+      v11 = v5;
       do
       {
-        v13 = v10++;
-        *(_QWORD *)(v7 + 8 * v13) = *v12;
-        if ( v10 == 16 || v10 && v11 == v9 - 1 )
+        v12 = v9++;
+        *(_QWORD *)(v7 + 8 * v12) = *v11;
+        if ( v9 == 16 || v9 && v10 == v8 - 1 )
         {
-          v14 = v6[1];
-          *(_DWORD *)(v14 + 40) = v10 << 12;
-          *(_QWORD *)v14 = 0LL;
-          *(_WORD *)(v14 + 10) = 0;
-          *(_QWORD *)(v14 + 32) = 0LL;
-          *(_DWORD *)(v14 + 44) = 0;
-          *(_WORD *)(v14 + 8) = 8 * (((unsigned __int64)(v10 << 12) >> 12) + 6);
-          v15 = v10 << 12;
-          MmMapMemoryDumpMdlEx(*v6, v10, v6[1], 0);
-          v16 = *(_DWORD **)(v6[1] + 24);
-          v17 = v25;
-          v18 = (unsigned __int64)(unsigned int)v15 >> 2;
-          v19 = v25;
-          while ( v18 )
+          v13 = v6[1];
+          *(_DWORD *)(v13 + 40) = v9 << 12;
+          *(_QWORD *)v13 = 0LL;
+          *(_WORD *)(v13 + 10) = 0;
+          *(_QWORD *)(v13 + 32) = 0LL;
+          *(_DWORD *)(v13 + 44) = 0;
+          *(_WORD *)(v13 + 8) = 8 * (((unsigned __int64)(v9 << 12) >> 12) + 6);
+          v14 = v9 << 12;
+          MmMapMemoryDumpMdlEx(*v6, v9, v6[1], 0);
+          v15 = *(_DWORD **)(v6[1] + 24);
+          v16 = v24;
+          v17 = (unsigned __int64)(unsigned int)v14 >> 2;
+          v18 = v24;
+          while ( v17 )
           {
-            *v19++ = *v16++;
-            --v18;
+            *v18++ = *v15++;
+            --v17;
           }
-          v7 = v20;
-          v25 = (_DWORD *)((char *)v17 + v15);
-          v10 = 0;
+          v7 = v19;
+          v24 = (_DWORD *)((char *)v16 + v14);
+          v9 = 0;
         }
+        ++v10;
         ++v11;
-        ++v12;
       }
-      while ( v11 < v9 );
-      v4 = v21;
-      v5 = v22;
+      while ( v10 < v8 );
+      v4 = v20;
+      v5 = v21;
     }
   }
 }

@@ -14,7 +14,7 @@
 _QWORD *__fastcall MmDiscardDriverSection(unsigned __int64 a1)
 {
   _QWORD *v2; // rdi
-  unsigned __int64 v3; // rbx
+  PVOID v3; // rbx
   _QWORD *result; // rax
   unsigned __int64 v5; // rsi
   struct _KTHREAD *Lock; // rbx
@@ -24,8 +24,8 @@ _QWORD *__fastcall MmDiscardDriverSection(unsigned __int64 a1)
   v8 = 0LL;
   v7 = 0LL;
   v2 = MiLookupDataTableEntry(a1, 1);
-  v3 = v2[6];
-  result = (_QWORD *)MI_IS_PHYSICAL_ADDRESS(v3);
+  v3 = (PVOID)v2[6];
+  result = (_QWORD *)MI_IS_PHYSICAL_ADDRESS((unsigned __int64)v3);
   if ( !(_DWORD)result || v3 == PsNtosImageBase || v3 == PsHalImageBase )
   {
     result = (_QWORD *)MiSnapDriverRange((__int64)v2, 0, 0, a1, &v7, (unsigned __int64 *)&v8);
@@ -33,7 +33,7 @@ _QWORD *__fastcall MmDiscardDriverSection(unsigned __int64 a1)
     if ( v7 )
     {
       Lock = MmAcquireLoadLock();
-      MiFreeInitializationCode((unsigned __int64)v2, v5, v8, 0);
+      MiFreeInitializationCode(v2, v5, v8, 0);
       return MmReleaseLoadLock((__int64)Lock);
     }
   }

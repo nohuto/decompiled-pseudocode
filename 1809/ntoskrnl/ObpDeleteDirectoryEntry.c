@@ -1,12 +1,12 @@
 /*
- * XREFs of ObpDeleteDirectoryEntry @ 0x1406A6C9C
+ * XREFs of ObpDeleteDirectoryEntry @ 0x1406A7F3C
  * Callers:
- *     ObpDeleteNameCheck @ 0x1405A9740 (ObpDeleteNameCheck.c)
- *     ObpInsertOrLocateNamedObject @ 0x1405C85A8 (ObpInsertOrLocateNamedObject.c)
- *     ObCloseHandleTableEntry @ 0x1405E6360 (ObCloseHandleTableEntry.c)
+ *     ObpDeleteNameCheck @ 0x1405AA740 (ObpDeleteNameCheck.c)
+ *     ObpInsertOrLocateNamedObject @ 0x1405C95A8 (ObpInsertOrLocateNamedObject.c)
+ *     ObCloseHandleTableEntry @ 0x1405E7360 (ObCloseHandleTableEntry.c)
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
  */
 
 char __fastcall ObpDeleteDirectoryEntry(__int64 a1)

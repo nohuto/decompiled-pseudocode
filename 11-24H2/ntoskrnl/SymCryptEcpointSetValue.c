@@ -1,19 +1,19 @@
 /*
- * XREFs of SymCryptEcpointSetValue @ 0x14052ABC0
+ * XREFs of SymCryptEcpointSetValue @ 0x1405283D0
  * Callers:
- *     SymCryptEcurveInitialize @ 0x140522450 (SymCryptEcurveInitialize.c)
- *     SymCryptEckeySetValue @ 0x140522F10 (SymCryptEckeySetValue.c)
+ *     SymCryptEcurveInitialize @ 0x14051FD94 (SymCryptEcurveInitialize.c)
+ *     SymCryptEckeySetValue @ 0x140520824 (SymCryptEckeySetValue.c)
  * Callees:
- *     SymCryptFdefSizeofModElementFromModulus @ 0x1405223FC (SymCryptFdefSizeofModElementFromModulus.c)
- *     SymCryptEcurveSizeofFieldElement @ 0x140522AD8 (SymCryptEcurveSizeofFieldElement.c)
- *     SymCryptIntCreate @ 0x140523844 (SymCryptIntCreate.c)
- *     SymCryptIntFromModulus @ 0x1405238E0 (SymCryptIntFromModulus.c)
- *     SymCryptIntIsLessThan @ 0x1405239A0 (SymCryptIntIsLessThan.c)
- *     SymCryptIntSetValue @ 0x140523A08 (SymCryptIntSetValue.c)
- *     SymCryptModElementSetValue @ 0x140523C6C (SymCryptModElementSetValue.c)
- *     SymCryptSizeofIntFromDigits @ 0x140523FFC (SymCryptSizeofIntFromDigits.c)
- *     SymCryptEcpointCreateEx @ 0x14052A9A0 (SymCryptEcpointCreateEx.c)
- *     SymCryptEcpointTransform @ 0x14052ADC8 (SymCryptEcpointTransform.c)
+ *     SymCryptFdefSizeofModElementFromModulus @ 0x14051FD40 (SymCryptFdefSizeofModElementFromModulus.c)
+ *     SymCryptEcurveSizeofFieldElement @ 0x1405203EC (SymCryptEcurveSizeofFieldElement.c)
+ *     SymCryptIntCreate @ 0x14052115C (SymCryptIntCreate.c)
+ *     SymCryptIntFromModulus @ 0x1405211F8 (SymCryptIntFromModulus.c)
+ *     SymCryptIntIsLessThan @ 0x1405212B8 (SymCryptIntIsLessThan.c)
+ *     SymCryptIntSetValue @ 0x140521320 (SymCryptIntSetValue.c)
+ *     SymCryptModElementSetValue @ 0x140521584 (SymCryptModElementSetValue.c)
+ *     SymCryptSizeofIntFromDigits @ 0x140521914 (SymCryptSizeofIntFromDigits.c)
+ *     SymCryptEcpointCreateEx @ 0x1405281B0 (SymCryptEcpointCreateEx.c)
+ *     SymCryptEcpointTransform @ 0x1405285D8 (SymCryptEcpointTransform.c)
  */
 
 __int64 __fastcall SymCryptEcpointSetValue(

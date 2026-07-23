@@ -1,19 +1,19 @@
 /*
- * XREFs of PpmRegisterProfiles @ 0x1407E1B0C
+ * XREFs of PpmRegisterProfiles @ 0x1407E6B9C
  * Callers:
- *     PdcPoPpmRegisterProfiles @ 0x1407DB6A0 (PdcPoPpmRegisterProfiles.c)
+ *     PdcPoPpmRegisterProfiles @ 0x1407DF6B0 (PdcPoPpmRegisterProfiles.c)
  * Callees:
- *     PpmReleaseLock @ 0x14037AFBC (PpmReleaseLock.c)
- *     PpmAcquireLock @ 0x140394F80 (PpmAcquireLock.c)
- *     PopReleaseRwLock @ 0x14043630C (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x140436378 (PopAcquireRwLockExclusive.c)
- *     RtlStringCchLengthW @ 0x140459140 (RtlStringCchLengthW.c)
- *     RtlULongLongMult @ 0x1404655A0 (RtlULongLongMult.c)
- *     RtlStringCchCopyW @ 0x14046AD84 (RtlStringCchCopyW.c)
- *     RtlStringCbLengthW @ 0x14047EE24 (RtlStringCbLengthW.c)
- *     PpmResetProfileSettings @ 0x1404EB680 (PpmResetProfileSettings.c)
- *     PpmEventTraceProfiles @ 0x1409459FC (PpmEventTraceProfiles.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
+ *     PopReleaseRwLock @ 0x14021B1A8 (PopReleaseRwLock.c)
+ *     PpmReleaseLock @ 0x14037CD6C (PpmReleaseLock.c)
+ *     PpmAcquireLock @ 0x140396D00 (PpmAcquireLock.c)
+ *     PopAcquireRwLockExclusive @ 0x140425310 (PopAcquireRwLockExclusive.c)
+ *     RtlStringCchLengthW @ 0x1404509C0 (RtlStringCchLengthW.c)
+ *     RtlULongLongMult @ 0x14045E560 (RtlULongLongMult.c)
+ *     RtlStringCchCopyW @ 0x140464504 (RtlStringCchCopyW.c)
+ *     RtlStringCbLengthW @ 0x140478794 (RtlStringCbLengthW.c)
+ *     PpmResetProfileSettings @ 0x1404E4C60 (PpmResetProfileSettings.c)
+ *     PpmEventTraceProfiles @ 0x1409C136C (PpmEventTraceProfiles.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall PpmRegisterProfiles(unsigned __int8 a1, __int64 a2)
@@ -90,8 +90,8 @@ __int64 __fastcall PpmRegisterProfiles(unsigned __int8 a1, __int64 a2)
           while ( v15 < (unsigned __int8)v2 );
           v5 = v2;
         }
-        PpmAcquireLock((struct _KTHREAD **)&stru_140F10070.SchedulerAssistLastYieldBoostTime, v11, v12);
-        PopAcquireRwLockExclusive((unsigned __int64 *)&stru_140F10070.1136, v20, v21, v22);
+        PpmAcquireLock((struct _KTHREAD **)&PpmIdlePolicyLock.ThreadLock, v11, v12);
+        PopAcquireRwLockExclusive((unsigned __int64 *)&PpmIdlePolicyLock, v20, v21, v22);
         PpmProfiles = v13;
         PpmProfileCount = v2;
         if ( (_BYTE)v2 )
@@ -105,9 +105,9 @@ __int64 __fastcall PpmRegisterProfiles(unsigned __int8 a1, __int64 a2)
           while ( v5 );
         }
         PpmEventTraceProfiles(0LL);
-        PopReleaseRwLock((struct _KTHREAD *)&stru_140F10070.1136);
-        PpmReleaseLock(&stru_140F10070.SchedulerAssistLastYieldBoostTime);
-        PpmProfileStatus |= 1u;
+        PopReleaseRwLock(&PpmIdlePolicyLock);
+        PpmReleaseLock((__int64 *)&PpmIdlePolicyLock.ThreadLock);
+        LODWORD(PopDirectedDripsDiagLock.TracingPrivate[0]) |= 1u;
       }
       else
       {

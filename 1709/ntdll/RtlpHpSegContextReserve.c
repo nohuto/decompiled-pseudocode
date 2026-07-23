@@ -16,10 +16,10 @@ __int64 __fastcall RtlpHpSegContextReserve(__int64 a1, __int64 a2, __int64 a3)
   unsigned int v5; // ebx
   unsigned int i; // r15d
   unsigned int v8; // ebp
-  unsigned __int64 v9; // rax
+  char *v9; // rax
   unsigned __int64 v10; // r14
-  _DWORD *v11; // r13
-  __int64 v12; // r8
+  char *v11; // r13
+  BOOLEAN v12; // r8
   __int64 v13; // rdx
   __int64 v14; // rax
   unsigned __int64 v15; // [rsp+50h] [rbp+8h]
@@ -39,20 +39,20 @@ __int64 __fastcall RtlpHpSegContextReserve(__int64 a1, __int64 a2, __int64 a3)
       v8 = v3;
       v3 = 0LL;
     }
-    v9 = RtlpHpSegSegmentAllocate((int *)a1, v8);
-    v10 = v9;
+    v9 = (char *)RtlpHpSegSegmentAllocate((int *)a1, v8);
+    v10 = (unsigned __int64)v9;
     if ( !v9 )
       return (unsigned int)-1073741670;
-    v11 = (_DWORD *)(v9 + 32LL * *(unsigned __int8 *)(a1 + 10));
-    *v11 = -857879331;
-    RtlpHpSegSegmentInitialize(a1, v9, v8);
-    LOBYTE(v12) = 0;
+    v11 = &v9[32 * *(unsigned __int8 *)(a1 + 10)];
+    *(_DWORD *)v11 = -857879331;
+    RtlpHpSegSegmentInitialize(a1, (__int64)v9, v8);
+    v12 = 0;
     v13 = *(_QWORD *)(a1 + 56);
     if ( !v13 )
       goto LABEL_7;
     while ( 1 )
     {
-      if ( v11[7] >= *(_DWORD *)(v13 + 28) )
+      if ( *((_DWORD *)v11 + 7) >= *(_DWORD *)(v13 + 28) )
       {
         v14 = *(_QWORD *)(v13 + 8);
         if ( (*(_BYTE *)(a1 + 64) & 1) != 0 )
@@ -60,7 +60,7 @@ __int64 __fastcall RtlpHpSegContextReserve(__int64 a1, __int64 a2, __int64 a3)
           if ( !v14 )
           {
 LABEL_15:
-            LOBYTE(v12) = 1;
+            v12 = 1;
             goto LABEL_7;
           }
           v14 ^= v13;
@@ -81,12 +81,12 @@ LABEL_15:
 LABEL_16:
       v13 = v14;
     }
-    LOBYTE(v12) = 0;
+    v12 = 0;
 LABEL_7:
-    RtlRbInsertNodeEx(a1 + 56, v13, v12, v11);
+    RtlRbInsertNodeEx((PRTL_RB_TREE)(a1 + 56), (PRTL_BALANCED_NODE)v13, v12, (PRTL_BALANCED_NODE)v11);
     _InterlockedExchangeAdd64(
       (volatile signed __int64 *)(*(_QWORD *)(a1 + 72) + 16LL),
-      (unsigned __int16)~(v11[7] >> 8));
+      (unsigned __int16)~(*((_DWORD *)v11 + 7) >> 8));
     if ( (RtlpHpHeapFeatures & 8) != 0 )
       RtlpHpTlLogMemStats(*(_QWORD *)(a1 + 96), *(_QWORD *)(a1 + 72));
     RtlpHpSegHeapAddSegment(a1, v10);

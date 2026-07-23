@@ -1,19 +1,38 @@
 /*
- * XREFs of RtlWow64ChangeProcessState @ 0x1801385A0
+ * XREFs of RtlWow64ChangeProcessState @ 0x180138310
  * Callers:
  *     <none>
  * Callees:
- *     NtChangeProcessState @ 0x180160230 (NtChangeProcessState.c)
+ *     NtChangeProcessState @ 0x180160130 (NtChangeProcessState.c)
  */
 
-__int64 __fastcall RtlWow64ChangeProcessState(__int64 a1, __int64 a2, __int64 a3, __int64 a4, int a5, int a6)
+NTSTATUS __fastcall RtlWow64ChangeProcessState(
+        HANDLE ProcessStateChangeHandle,
+        HANDLE ProcessHandle,
+        PROCESS_STATE_CHANGE_TYPE a3,
+        void *a4,
+        SIZE_T a5,
+        ULONG64 a6)
 {
-  if ( (_DWORD)a3 )
-    return NtChangeProcessState(a1, a2);
-  if ( a5 )
-    return 3221225476LL;
-  if ( a4 || a6 )
-    return 3221225485LL;
-  LOBYTE(a3) = 2;
-  return RtlpWow64SuspendProcess(a2, a1, a3);
+  SIZE_T ExtendedInformationLength; // [rsp+20h] [rbp-18h]
+  ULONG64 Reserved; // [rsp+28h] [rbp-10h]
+
+  if ( a3 )
+  {
+    LODWORD(Reserved) = a6;
+    LODWORD(ExtendedInformationLength) = a5;
+    return NtChangeProcessState(ProcessStateChangeHandle, ProcessHandle, a3, a4, ExtendedInformationLength, Reserved);
+  }
+  else if ( (_DWORD)a5 )
+  {
+    return -1073741820;
+  }
+  else if ( a4 || (_DWORD)a6 )
+  {
+    return -1073741811;
+  }
+  else
+  {
+    return RtlpWow64SuspendProcess(ProcessHandle, ProcessStateChangeHandle);
+  }
 }

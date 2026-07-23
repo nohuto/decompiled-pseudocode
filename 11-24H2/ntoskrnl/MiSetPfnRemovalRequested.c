@@ -1,21 +1,21 @@
 /*
- * XREFs of MiSetPfnRemovalRequested @ 0x1406745D0
+ * XREFs of MiSetPfnRemovalRequested @ 0x1406757A0
  * Callers:
- *     MiInsertPageInList @ 0x14022CB10 (MiInsertPageInList.c)
- *     MiMakePageBad @ 0x14047C9DC (MiMakePageBad.c)
- *     MiInitializeDynamicPfns @ 0x14066D8BC (MiInitializeDynamicPfns.c)
- *     MiHotRemoveHugeRange @ 0x140670540 (MiHotRemoveHugeRange.c)
- *     MiRemoveBadPages @ 0x14067406C (MiRemoveBadPages.c)
- *     MiUnlinkBadPages @ 0x1406747FC (MiUnlinkBadPages.c)
- *     MmMarkPhysicalMemoryAsBad @ 0x140674B50 (MmMarkPhysicalMemoryAsBad.c)
- *     MiMarkFileOnlyPfnBad @ 0x14067B474 (MiMarkFileOnlyPfnBad.c)
+ *     MiInsertPageInList @ 0x140300420 (MiInsertPageInList.c)
+ *     MiMakePageBad @ 0x140477B64 (MiMakePageBad.c)
+ *     MiInitializeDynamicPfns @ 0x14066EA90 (MiInitializeDynamicPfns.c)
+ *     MiHotRemoveHugeRange @ 0x140671710 (MiHotRemoveHugeRange.c)
+ *     MiRemoveBadPages @ 0x14067523C (MiRemoveBadPages.c)
+ *     MiUnlinkBadPages @ 0x1406759CC (MiUnlinkBadPages.c)
+ *     MmMarkPhysicalMemoryAsBad @ 0x140675D20 (MmMarkPhysicalMemoryAsBad.c)
+ *     MiMarkFileOnlyPfnBad @ 0x14067C654 (MiMarkFileOnlyPfnBad.c)
  * Callees:
- *     MI_NODE_FROM_PFN @ 0x1402245F0 (MI_NODE_FROM_PFN.c)
- *     MiGetPfnPageSizeIndex @ 0x1403070C0 (MiGetPfnPageSizeIndex.c)
- *     MiGetBaseResidentPage @ 0x140307100 (MiGetBaseResidentPage.c)
- *     MiAnyPagesRemovalPending @ 0x140470CA0 (MiAnyPagesRemovalPending.c)
- *     MiAddPendingBadPageNode @ 0x1406734B4 (MiAddPendingBadPageNode.c)
- *     MiRemovePendingBadPageNode @ 0x1406741DC (MiRemovePendingBadPageNode.c)
+ *     MI_NODE_FROM_PFN @ 0x140251340 (MI_NODE_FROM_PFN.c)
+ *     MiGetPfnPageSizeIndex @ 0x140310FA0 (MiGetPfnPageSizeIndex.c)
+ *     MiGetBaseResidentPage @ 0x140310FE0 (MiGetBaseResidentPage.c)
+ *     MiAnyPagesRemovalPending @ 0x14046B54C (MiAnyPagesRemovalPending.c)
+ *     MiAddPendingBadPageNode @ 0x140674684 (MiAddPendingBadPageNode.c)
+ *     MiRemovePendingBadPageNode @ 0x1406753AC (MiRemovePendingBadPageNode.c)
  */
 
 void __fastcall MiSetPfnRemovalRequested(unsigned __int64 a1, int a2, int a3, _QWORD *a4)
@@ -36,7 +36,7 @@ void __fastcall MiSetPfnRemovalRequested(unsigned __int64 a1, int a2, int a3, _Q
   PfnPageSizeIndex = 3;
   if ( (*(_QWORD *)(a1 + 40) & 0x20000000000000LL) == 0 )
   {
-    v12 = *(_QWORD *)(*((_QWORD *)qword_140E2FF88 + ((*(_QWORD *)(a1 + 40) >> 43) & 0x3FFLL)) + 16LL)
+    v12 = *(_QWORD *)(*((_QWORD *)qword_140E300C8 + ((*(_QWORD *)(a1 + 40) >> 43) & 0x3FFLL)) + 16LL)
         + 57216LL * (unsigned int)MI_NODE_FROM_PFN(a1);
     if ( a2 )
       _InterlockedIncrement64((volatile signed __int64 *)(v12 + 15256));

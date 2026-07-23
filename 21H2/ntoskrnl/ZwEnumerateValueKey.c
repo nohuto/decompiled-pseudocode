@@ -1,29 +1,28 @@
 /*
- * XREFs of ZwEnumerateValueKey @ 0x1403FA600
+ * XREFs of ZwEnumerateValueKey @ 0x1403FA7E0
  * Callers:
- *     RtlpQueryRegistryValues @ 0x140640A68 (RtlpQueryRegistryValues.c)
- *     _RegRtlEnumValue @ 0x1406B18A4 (_RegRtlEnumValue.c)
- *     PiDevCfgCopyDeviceKey @ 0x140769E0C (PiDevCfgCopyDeviceKey.c)
- *     ExpSetPendingUILanguage @ 0x14078C070 (ExpSetPendingUILanguage.c)
- *     RtlpPopulateLanguageConfigList @ 0x1407941DC (RtlpPopulateLanguageConfigList.c)
- *     PiDcInitUpdateProperties @ 0x1407A3C28 (PiDcInitUpdateProperties.c)
- *     PipApplyFunctionToServiceInstances @ 0x1407C0F30 (PipApplyFunctionToServiceInstances.c)
- *     SepLoadNgenLocations @ 0x1407C9334 (SepLoadNgenLocations.c)
- *     PiDevCfgFindDeviceMigrationNode @ 0x1408A5E04 (PiDevCfgFindDeviceMigrationNode.c)
- *     PiDevCfgQueryPolicyStringList @ 0x1408A7B44 (PiDevCfgQueryPolicyStringList.c)
- *     KsepRegistryEnumValue @ 0x1408C140C (KsepRegistryEnumValue.c)
- *     _RtlpMuiRegInitLIPLanguage @ 0x14098209C (_RtlpMuiRegInitLIPLanguage.c)
- *     _RtlpMuiRegPopulateBaseLanguages @ 0x14098233C (_RtlpMuiRegPopulateBaseLanguages.c)
- *     EmInitSystem @ 0x140A4528C (EmInitSystem.c)
- *     HalpInitChipHacks @ 0x140A629BC (HalpInitChipHacks.c)
- *     PiLastGoodCopyKeyContents @ 0x140A6F008 (PiLastGoodCopyKeyContents.c)
- *     IopLoadBootHotPatches @ 0x140A73B20 (IopLoadBootHotPatches.c)
- *     PiLastGoodRevertLastKnownDirectory @ 0x140A908F0 (PiLastGoodRevertLastKnownDirectory.c)
+ *     _RegRtlEnumValue @ 0x1406108EC (_RegRtlEnumValue.c)
+ *     RtlpQueryRegistryValues @ 0x140635878 (RtlpQueryRegistryValues.c)
+ *     PiDevCfgCopyDeviceKey @ 0x140769FCC (PiDevCfgCopyDeviceKey.c)
+ *     ExpSetPendingUILanguage @ 0x14078C230 (ExpSetPendingUILanguage.c)
+ *     RtlpPopulateLanguageConfigList @ 0x14078FF7C (RtlpPopulateLanguageConfigList.c)
+ *     PiDcInitUpdateProperties @ 0x1407A3E28 (PiDcInitUpdateProperties.c)
+ *     PipApplyFunctionToServiceInstances @ 0x1407C1450 (PipApplyFunctionToServiceInstances.c)
+ *     SepLoadNgenLocations @ 0x1407C9654 (SepLoadNgenLocations.c)
+ *     PiDevCfgFindDeviceMigrationNode @ 0x1408A5F64 (PiDevCfgFindDeviceMigrationNode.c)
+ *     PiDevCfgQueryPolicyStringList @ 0x1408A7CA4 (PiDevCfgQueryPolicyStringList.c)
+ *     KsepRegistryEnumValue @ 0x1408C156C (KsepRegistryEnumValue.c)
+ *     _RtlpMuiRegInitLIPLanguage @ 0x14098227C (_RtlpMuiRegInitLIPLanguage.c)
+ *     _RtlpMuiRegPopulateBaseLanguages @ 0x14098251C (_RtlpMuiRegPopulateBaseLanguages.c)
+ *     EmInitSystem @ 0x140A4628C (EmInitSystem.c)
+ *     HalpInitChipHacks @ 0x140A639BC (HalpInitChipHacks.c)
+ *     PiLastGoodCopyKeyContents @ 0x140A70008 (PiLastGoodCopyKeyContents.c)
+ *     IopLoadBootHotPatches @ 0x140A74B20 (IopLoadBootHotPatches.c)
+ *     PiLastGoodRevertLastKnownDirectory @ 0x140A918F0 (PiLastGoodRevertLastKnownDirectory.c)
  * Callees:
  *     <none>
  */
 
-// local variable allocation has failed, the output may be wrong!
 NTSTATUS __stdcall ZwEnumerateValueKey(
         HANDLE KeyHandle,
         ULONG Index,
@@ -34,5 +33,5 @@ NTSTATUS __stdcall ZwEnumerateValueKey(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(KeyHandle, *(_QWORD *)&Index);
+  return KiServiceInternal(KeyHandle);
 }

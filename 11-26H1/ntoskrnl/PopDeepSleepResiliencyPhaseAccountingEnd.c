@@ -1,12 +1,12 @@
 /*
- * XREFs of PopDeepSleepResiliencyPhaseAccountingEnd @ 0x1403B63C4
+ * XREFs of PopDeepSleepResiliencyPhaseAccountingEnd @ 0x1403C02C4
  * Callers:
- *     PopDeepSleepResiliencyPhaseAccountingUpdate @ 0x1403B43BC (PopDeepSleepResiliencyPhaseAccountingUpdate.c)
- *     PdcPoCurrentPdcPhase @ 0x14060D4E0 (PdcPoCurrentPdcPhase.c)
+ *     PopDeepSleepResiliencyPhaseAccountingUpdate @ 0x1403BE2C8 (PopDeepSleepResiliencyPhaseAccountingUpdate.c)
+ *     PdcPoCurrentPdcPhase @ 0x1406105F0 (PdcPoCurrentPdcPhase.c)
  * Callees:
- *     KeQueryPerformanceCounter @ 0x14021C3F0 (KeQueryPerformanceCounter.c)
- *     KeReleaseSpinLock @ 0x1402BE860 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14032F300 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KeQueryPerformanceCounter @ 0x14021DD80 (KeQueryPerformanceCounter.c)
+ *     KeReleaseSpinLock @ 0x140309520 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140331330 (KeAcquireSpinLockRaiseToDpc.c)
  */
 
 void __fastcall PopDeepSleepResiliencyPhaseAccountingEnd(unsigned int a1, char a2)
@@ -22,25 +22,25 @@ void __fastcall PopDeepSleepResiliencyPhaseAccountingEnd(unsigned int a1, char a
   v3 = 0;
   if ( !a2 )
   {
-    v2 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)&PopWeakChargerLock.SchedulerApc.Thread);
-    v3 = KeAcquireSpinLockRaiseToDpc(&stru_140F10070.Spare35[1]);
+    v2 = KeAcquireSpinLockRaiseToDpc(&PopDeepSleepDisengageReasonLock);
+    v3 = KeAcquireSpinLockRaiseToDpc(&PopCsResiliencyStatsLock);
   }
   PerformanceCounter = KeQueryPerformanceCounter(0LL);
-  dword_140F10CFC &= ~a1;
+  dword_140F1011C &= ~a1;
   for ( i = !_BitScanForward(&v8, a1); !i; i = !_BitScanForward(&v8, a1) )
   {
-    v9 = *(_DWORD *)&PopWeakChargerLock.SchedulerApcFill5[72];
+    v9 = PopDeepSleepDisengageReasonMask;
     a1 &= a1 - 1;
     if ( _bittest(&v9, v8) )
     {
-      *((_QWORD *)&stru_140F10828 + (int)v8 + 166) += PerformanceCounter.QuadPart
-                                                    - *((_QWORD *)&stru_140F10828 + (int)v8 + 155);
-      *((_QWORD *)&stru_140F10828 + (int)v8 + 155) = 0LL;
+      *(_QWORD *)&PopCsResiliencyStats[8 * v8 + 248] += PerformanceCounter.QuadPart
+                                                      - *(_QWORD *)&PopCsResiliencyStats[8 * v8 + 160];
+      *(_QWORD *)&PopCsResiliencyStats[8 * v8 + 160] = 0LL;
     }
   }
   if ( !a2 )
   {
-    KeReleaseSpinLock(&stru_140F10070.Spare35[1], v3);
-    KeReleaseSpinLock((PKSPIN_LOCK)&PopWeakChargerLock.SchedulerApc.Thread, v2);
+    KeReleaseSpinLock(&PopCsResiliencyStatsLock, v3);
+    KeReleaseSpinLock(&PopDeepSleepDisengageReasonLock, v2);
   }
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of KseDsHookPoRequestPowerIrp @ 0x1401DD4C8
+ * XREFs of KseDsHookPoRequestPowerIrp @ 0x1401DD2F4
  * Callers:
  *     <none>
  * Callees:
- *     KsepDsEventRequestPowerIrp @ 0x1401DE01C (KsepDsEventRequestPowerIrp.c)
+ *     KsepDsEventRequestPowerIrp @ 0x1401DDE48 (KsepDsEventRequestPowerIrp.c)
  */
 
 __int64 __fastcall KseDsHookPoRequestPowerIrp(__int64 a1, __int64 a2, char a3, __int64 a4, __int64 a5, _QWORD *a6)

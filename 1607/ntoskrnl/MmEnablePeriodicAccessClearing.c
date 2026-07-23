@@ -4,7 +4,7 @@
  *     PfTAccessTracingCleanup @ 0x1403C82C0 (PfTAccessTracingCleanup.c)
  *     PfTAccessTracingStart @ 0x1403C83DC (PfTAccessTracingStart.c)
  * Callees:
- *     MiGetNextPartition @ 0x140001C94 (MiGetNextPartition.c)
+ *     MiGetNextPartition @ 0x140001E08 (MiGetNextPartition.c)
  */
 
 __int64 *__fastcall MmEnablePeriodicAccessClearing(char a1)

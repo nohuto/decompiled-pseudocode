@@ -1,8 +1,8 @@
 /*
- * XREFs of ComputeUnicodeNameLength @ 0x140693B28
+ * XREFs of ComputeUnicodeNameLength @ 0x1405F3088
  * Callers:
- *     RtlInsertUnicodePrefix @ 0x140693770 (RtlInsertUnicodePrefix.c)
- *     RtlFindUnicodePrefix @ 0x1406938D0 (RtlFindUnicodePrefix.c)
+ *     RtlInsertUnicodePrefix @ 0x1405F2CD0 (RtlInsertUnicodePrefix.c)
+ *     RtlFindUnicodePrefix @ 0x1405F2E30 (RtlFindUnicodePrefix.c)
  * Callees:
  *     <none>
  */

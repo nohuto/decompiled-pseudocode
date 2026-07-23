@@ -1,11 +1,11 @@
 /*
- * XREFs of PipDmgIsDmaVerifierEnabled @ 0x140727624
+ * XREFs of PipDmgIsDmaVerifierEnabled @ 0x1407251B4
  * Callers:
- *     PipDmgGetDeviceDmarPolicy @ 0x140727300 (PipDmgGetDeviceDmarPolicy.c)
- *     PipDmgGetDriverDmarCompatLevel @ 0x140A88AFC (PipDmgGetDriverDmarCompatLevel.c)
+ *     PipDmgGetDeviceDmarPolicy @ 0x140724E90 (PipDmgGetDeviceDmarPolicy.c)
+ *     PipDmgGetDriverDmarCompatLevel @ 0x140A84EFC (PipDmgGetDriverDmarCompatLevel.c)
  * Callees:
- *     VfIsVerifierEnabled @ 0x1404BC290 (VfIsVerifierEnabled.c)
- *     VfTargetDriversIsEnabled @ 0x140BA7F30 (VfTargetDriversIsEnabled.c)
+ *     VfIsVerifierEnabled @ 0x1404B71A0 (VfIsVerifierEnabled.c)
+ *     VfTargetDriversIsEnabled @ 0x140BA9F30 (VfTargetDriversIsEnabled.c)
  */
 
 bool __fastcall PipDmgIsDmaVerifierEnabled(__int64 a1)

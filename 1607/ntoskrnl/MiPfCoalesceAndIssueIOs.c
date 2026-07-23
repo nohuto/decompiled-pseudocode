@@ -1,11 +1,11 @@
 /*
- * XREFs of MiPfCoalesceAndIssueIOs @ 0x1400AA7D4
+ * XREFs of MiPfCoalesceAndIssueIOs @ 0x1400A8D54
  * Callers:
- *     MiPfCompletePrefetchIos @ 0x140023914 (MiPfCompletePrefetchIos.c)
- *     MiPrefetchVirtualMemory @ 0x1400BFCA0 (MiPrefetchVirtualMemory.c)
+ *     MiPfCompletePrefetchIos @ 0x140023494 (MiPfCompletePrefetchIos.c)
+ *     MiPrefetchVirtualMemory @ 0x1400BDB30 (MiPrefetchVirtualMemory.c)
  * Callees:
- *     MiIssueHardFaultIo @ 0x1400237A4 (MiIssueHardFaultIo.c)
- *     MiPfIssueCoalesceCandidates @ 0x1401251C4 (MiPfIssueCoalesceCandidates.c)
+ *     MiIssueHardFaultIo @ 0x140023324 (MiIssueHardFaultIo.c)
+ *     MiPfIssueCoalesceCandidates @ 0x140125734 (MiPfIssueCoalesceCandidates.c)
  */
 
 __int64 __fastcall MiPfCoalesceAndIssueIOs(__int64 *a1, __int64 a2, _QWORD *a3)

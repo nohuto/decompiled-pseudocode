@@ -1,7 +1,7 @@
 /*
- * XREFs of SymCryptFdefIntAddUint32 @ 0x14052EC74
+ * XREFs of SymCryptFdefIntAddUint32 @ 0x14052911C
  * Callers:
- *     SymCryptIntAddUint32 @ 0x140523784 (SymCryptIntAddUint32.c)
+ *     SymCryptIntAddUint32 @ 0x14052109C (SymCryptIntAddUint32.c)
  * Callees:
  *     <none>
  */

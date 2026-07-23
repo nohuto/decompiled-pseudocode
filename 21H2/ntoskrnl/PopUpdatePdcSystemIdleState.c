@@ -1,14 +1,14 @@
 /*
- * XREFs of PopUpdatePdcSystemIdleState @ 0x1408F1218
+ * XREFs of PopUpdatePdcSystemIdleState @ 0x1408F1378
  * Callers:
- *     PopExecuteSystemIdleAction @ 0x1408F0DF4 (PopExecuteSystemIdleAction.c)
+ *     PopExecuteSystemIdleAction @ 0x1408F0F54 (PopExecuteSystemIdleAction.c)
  * Callees:
- *     KeCancelTimer @ 0x140260240 (KeCancelTimer.c)
- *     PopReleaseRwLock @ 0x14027C284 (PopReleaseRwLock.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     PopAcquirePowerRequestPushLock @ 0x14067B148 (PopAcquirePowerRequestPushLock.c)
- *     PopHandleExecutionRequiredEnablementUpdate @ 0x140772464 (PopHandleExecutionRequiredEnablementUpdate.c)
- *     PopSetExecutionRequiredTimer @ 0x1407D377C (PopSetExecutionRequiredTimer.c)
+ *     PopReleaseRwLock @ 0x14026A224 (PopReleaseRwLock.c)
+ *     KeCancelTimer @ 0x1402819B0 (KeCancelTimer.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     PopAcquirePowerRequestPushLock @ 0x14066E888 (PopAcquirePowerRequestPushLock.c)
+ *     PopHandleExecutionRequiredEnablementUpdate @ 0x140772624 (PopHandleExecutionRequiredEnablementUpdate.c)
+ *     PopSetExecutionRequiredTimer @ 0x1407D38EC (PopSetExecutionRequiredTimer.c)
  */
 
 __int64 __fastcall PopUpdatePdcSystemIdleState(char a1)
@@ -35,10 +35,10 @@ __int64 __fastcall PopUpdatePdcSystemIdleState(char a1)
   }
   PopReleaseRwLock((ULONG_PTR)&PopPowerRequestLock);
   result = 3221225474LL;
-  if ( qword_140C543F0 )
+  if ( qword_140C54430 )
   {
     LOBYTE(v3) = a1;
-    return ((__int64 (__fastcall *)(__int64))qword_140C543F0)(v3);
+    return ((__int64 (__fastcall *)(__int64))qword_140C54430)(v3);
   }
   return result;
 }

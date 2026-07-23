@@ -1,16 +1,16 @@
 /*
- * XREFs of NtAlpcCancelMessage @ 0x18009E530
+ * XREFs of NtAlpcCancelMessage @ 0x18009E4F0
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 NtAlpcCancelMessage()
+NTSTATUS __cdecl NtAlpcCancelMessage(HANDLE PortHandle, ULONG Flags, PALPC_CONTEXT_ATTR MessageContext)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 120LL;
+  result = 120;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

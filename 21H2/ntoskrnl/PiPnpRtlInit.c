@@ -1,18 +1,18 @@
 /*
- * XREFs of PiPnpRtlInit @ 0x1407A3350
+ * XREFs of PiPnpRtlInit @ 0x1407A3550
  * Callers:
- *     PnpBootPhaseComplete @ 0x1407A31F4 (PnpBootPhaseComplete.c)
- *     IopInitializePlugPlayServices @ 0x140A52280 (IopInitializePlugPlayServices.c)
+ *     PnpBootPhaseComplete @ 0x1407A33F4 (PnpBootPhaseComplete.c)
+ *     IopInitializePlugPlayServices @ 0x140A53280 (IopInitializePlugPlayServices.c)
  * Callees:
- *     ExInitializeResourceLite @ 0x14021CC50 (ExInitializeResourceLite.c)
- *     CmIsStateSeparationEnabled @ 0x1402C9DF8 (CmIsStateSeparationEnabled.c)
- *     _PnpCtxRegCloseKey @ 0x14063B8A4 (_PnpCtxRegCloseKey.c)
- *     _PnpCtxRegOpenKey @ 0x14064081C (_PnpCtxRegOpenKey.c)
- *     _PnpCtxSetNtPlugPlayRoutine @ 0x1407A34DC (_PnpCtxSetNtPlugPlayRoutine.c)
- *     PiDrvDbInit @ 0x1407A350C (PiDrvDbInit.c)
- *     PiDrvDbEnumDriverStoreNodes @ 0x1407A43FC (PiDrvDbEnumDriverStoreNodes.c)
- *     _PnpCtxOpenMachine @ 0x1407A455C (_PnpCtxOpenMachine.c)
- *     _PnpCtxRegisterMachineNode @ 0x140974978 (_PnpCtxRegisterMachineNode.c)
+ *     CmIsStateSeparationEnabled @ 0x1402486E8 (CmIsStateSeparationEnabled.c)
+ *     ExInitializeResourceLite @ 0x1402C1550 (ExInitializeResourceLite.c)
+ *     _PnpCtxRegCloseKey @ 0x1406306B4 (_PnpCtxRegCloseKey.c)
+ *     _PnpCtxRegOpenKey @ 0x14063562C (_PnpCtxRegOpenKey.c)
+ *     _PnpCtxSetNtPlugPlayRoutine @ 0x1407A36DC (_PnpCtxSetNtPlugPlayRoutine.c)
+ *     PiDrvDbInit @ 0x1407A370C (PiDrvDbInit.c)
+ *     PiDrvDbEnumDriverStoreNodes @ 0x1407A45FC (PiDrvDbEnumDriverStoreNodes.c)
+ *     _PnpCtxOpenMachine @ 0x1407A475C (_PnpCtxOpenMachine.c)
+ *     _PnpCtxRegisterMachineNode @ 0x140974B58 (_PnpCtxRegisterMachineNode.c)
  */
 
 __int64 __fastcall PiPnpRtlInit(unsigned int a1)
@@ -35,7 +35,7 @@ __int64 __fastcall PiPnpRtlInit(unsigned int a1)
   v15 = 0LL;
   if ( a1 )
     return (unsigned int)PiDrvDbInit(a1);
-  qword_140C44238 = (__int64)&PiPnpRtlActiveOperations;
+  qword_140C44278 = (__int64)&PiPnpRtlActiveOperations;
   PiPnpRtlActiveOperations = (__int64)&PiPnpRtlActiveOperations;
   v2 = ExInitializeResourceLite(&PiPnpRtlRemoveOperationDispatchLock);
   if ( v2 >= 0 )

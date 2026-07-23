@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlpQueryMemoryUsageHeap @ 0x180074AB4
+ * XREFs of RtlpQueryMemoryUsageHeap @ 0x1800929D0
  * Callers:
- *     RtlpQueryExtendedInformationHeap @ 0x180072680 (RtlpQueryExtendedInformationHeap.c)
- *     RtlpHeapQueryTotalReserveSize @ 0x180074C00 (RtlpHeapQueryTotalReserveSize.c)
+ *     RtlpHeapQueryTotalReserveSize @ 0x180092950 (RtlpHeapQueryTotalReserveSize.c)
+ *     RtlpQueryExtendedInformationHeap @ 0x180092C70 (RtlpQueryExtendedInformationHeap.c)
  * Callees:
- *     RtlpGetLowFragHeapMetadataSize @ 0x180074BB0 (RtlpGetLowFragHeapMetadataSize.c)
+ *     RtlpGetLowFragHeapMetadataSize @ 0x180092ACC (RtlpGetLowFragHeapMetadataSize.c)
  */
 
 __int64 __fastcall RtlpQueryMemoryUsageHeap(__int64 a1, _QWORD *a2, _QWORD *a3)

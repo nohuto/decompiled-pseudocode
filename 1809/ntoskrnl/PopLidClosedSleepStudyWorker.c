@@ -1,13 +1,13 @@
 /*
- * XREFs of PopLidClosedSleepStudyWorker @ 0x140874F70
+ * XREFs of PopLidClosedSleepStudyWorker @ 0x1408761D0
  * Callers:
  *     <none>
  * Callees:
  *     _TlgKeywordOn @ 0x140012A04 (_TlgKeywordOn.c)
  *     _TlgWrite @ 0x140012EE4 (_TlgWrite.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     PopDiagStopCsSleepStudySession @ 0x14087057C (PopDiagStopCsSleepStudySession.c)
- *     PopIdleCsStateChanged @ 0x140877704 (PopIdleCsStateChanged.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     PopDiagStopCsSleepStudySession @ 0x1408717DC (PopDiagStopCsSleepStudySession.c)
+ *     PopIdleCsStateChanged @ 0x140878964 (PopIdleCsStateChanged.c)
  */
 
 __int64 PopLidClosedSleepStudyWorker()
@@ -28,7 +28,7 @@ __int64 PopLidClosedSleepStudyWorker()
     v2 = PopLidOpened;
     v4 = &v2;
     v5 = 1;
-    TlgWrite(&pCallbackContext, &unk_14036FEE8, 0LL, 0LL, 3u, &pData);
+    TlgWrite(&pCallbackContext, &unk_140370F35, 0LL, 0LL, 3u, &pData);
   }
   PopIdleCsStateChanged(0LL);
   LOBYTE(v0) = 1;

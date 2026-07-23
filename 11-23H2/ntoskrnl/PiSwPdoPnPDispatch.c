@@ -1,21 +1,21 @@
 /*
- * XREFs of PiSwPdoPnPDispatch @ 0x140818AD0
+ * XREFs of PiSwPdoPnPDispatch @ 0x140818DA0
  * Callers:
  *     <none>
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     ObfReferenceObject @ 0x140233C40 (ObfReferenceObject.c)
- *     ExAcquireResourceExclusiveLite @ 0x1402390E0 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x14023D410 (ExReleaseResourceLite.c)
- *     IofCompleteRequest @ 0x1402C9980 (IofCompleteRequest.c)
- *     PnpAllocatePWSTR @ 0x1406CCC3C (PnpAllocatePWSTR.c)
- *     _PnpStringFromGuid @ 0x140787E54 (_PnpStringFromGuid.c)
- *     PiSwDeviceMakeCompatibleIds @ 0x140818EC8 (PiSwDeviceMakeCompatibleIds.c)
- *     PnpAllocateMultiSZ @ 0x14081968C (PnpAllocateMultiSZ.c)
- *     PiSwCompleteCreate @ 0x1408197E4 (PiSwCompleteCreate.c)
- *     PiSwDeviceInterfacesUpdateState @ 0x14081A110 (PiSwDeviceInterfacesUpdateState.c)
- *     PiSwDestroyDeviceObject @ 0x1409671AC (PiSwDestroyDeviceObject.c)
- *     PiSwProcessRemove @ 0x1409676D0 (PiSwProcessRemove.c)
+ *     KeLeaveCriticalRegion @ 0x140231550 (KeLeaveCriticalRegion.c)
+ *     ObfReferenceObject @ 0x140233D10 (ObfReferenceObject.c)
+ *     ExAcquireResourceExclusiveLite @ 0x1402391B0 (ExAcquireResourceExclusiveLite.c)
+ *     ExReleaseResourceLite @ 0x14023D4E0 (ExReleaseResourceLite.c)
+ *     IofCompleteRequest @ 0x1402C9C10 (IofCompleteRequest.c)
+ *     PnpAllocatePWSTR @ 0x1406CCC6C (PnpAllocatePWSTR.c)
+ *     _PnpStringFromGuid @ 0x140788044 (_PnpStringFromGuid.c)
+ *     PiSwDeviceMakeCompatibleIds @ 0x140819198 (PiSwDeviceMakeCompatibleIds.c)
+ *     PnpAllocateMultiSZ @ 0x14081995C (PnpAllocateMultiSZ.c)
+ *     PiSwCompleteCreate @ 0x140819AB4 (PiSwCompleteCreate.c)
+ *     PiSwDeviceInterfacesUpdateState @ 0x14081A3E0 (PiSwDeviceInterfacesUpdateState.c)
+ *     PiSwDestroyDeviceObject @ 0x1409673AC (PiSwDestroyDeviceObject.c)
+ *     PiSwProcessRemove @ 0x1409678D0 (PiSwProcessRemove.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
 

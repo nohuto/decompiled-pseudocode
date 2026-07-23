@@ -1,22 +1,22 @@
 /*
- * XREFs of MiAllocateEnclaveVad @ 0x14065E4C4
+ * XREFs of MiAllocateEnclaveVad @ 0x14065E5A8
  * Callers:
- *     MiCreateEnclave @ 0x14065EF30 (MiCreateEnclave.c)
+ *     MiCreateEnclave @ 0x14065F014 (MiCreateEnclave.c)
  * Callees:
- *     MiCheckForConflictingVadExistence @ 0x140014318 (MiCheckForConflictingVadExistence.c)
- *     UNLOCK_ADDRESS_SPACE_UNORDERED @ 0x140014624 (UNLOCK_ADDRESS_SPACE_UNORDERED.c)
- *     MiLockVad @ 0x14002BFB0 (MiLockVad.c)
- *     MiReferenceVad @ 0x14002C37C (MiReferenceVad.c)
- *     LOCK_ADDRESS_SPACE @ 0x14002C390 (LOCK_ADDRESS_SPACE.c)
- *     UNLOCK_ADDRESS_SPACE @ 0x14002CFD0 (UNLOCK_ADDRESS_SPACE.c)
- *     MiReleasePtes @ 0x1400516D0 (MiReleasePtes.c)
- *     MiInsertPrivateVad @ 0x1400965F0 (MiInsertPrivateVad.c)
- *     MiReservePtes @ 0x1400DDB50 (MiReservePtes.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     MiCheckForConflictingVadExistence @ 0x140013E98 (MiCheckForConflictingVadExistence.c)
+ *     UNLOCK_ADDRESS_SPACE_UNORDERED @ 0x1400141A4 (UNLOCK_ADDRESS_SPACE_UNORDERED.c)
+ *     MiLockVad @ 0x14002BB30 (MiLockVad.c)
+ *     MiReferenceVad @ 0x14002BEFC (MiReferenceVad.c)
+ *     LOCK_ADDRESS_SPACE @ 0x14002BF10 (LOCK_ADDRESS_SPACE.c)
+ *     UNLOCK_ADDRESS_SPACE @ 0x14002CB50 (UNLOCK_ADDRESS_SPACE.c)
+ *     MiReleasePtes @ 0x140051250 (MiReleasePtes.c)
+ *     MiInsertPrivateVad @ 0x140095DF0 (MiInsertPrivateVad.c)
+ *     MiReservePtes @ 0x1400DB9F0 (MiReservePtes.c)
+ *     memset @ 0x140171AC0 (memset.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     MiInsertVadCharges @ 0x14042FE40 (MiInsertVadCharges.c)
- *     MiSelectUserAddress @ 0x1404BAA90 (MiSelectUserAddress.c)
+ *     MiInsertVadCharges @ 0x14042ED10 (MiInsertVadCharges.c)
+ *     MiSelectUserAddress @ 0x1404A67C0 (MiSelectUserAddress.c)
  */
 
 __int64 __fastcall MiAllocateEnclaveVad(unsigned __int64 a1, unsigned __int64 a2, __int64 a3, unsigned __int64 *a4)
@@ -57,7 +57,7 @@ __int64 __fastcall MiAllocateEnclaveVad(unsigned __int64 a1, unsigned __int64 a2
   if ( !PoolWithTag )
     return 3221225626LL;
   memset(PoolWithTag, 0, 0x60uLL);
-  v15 = MiReservePtes((__int64)&qword_140327870, 1uLL, v14);
+  v15 = MiReservePtes((__int64)&qword_1403278B0, 1uLL, v14);
   *(_QWORD *)(v13 + 64) = v15;
   if ( !v15 )
   {
@@ -76,7 +76,7 @@ __int64 __fastcall MiAllocateEnclaveVad(unsigned __int64 a1, unsigned __int64 a2
       inserted = -1073741800;
 LABEL_20:
       UNLOCK_ADDRESS_SPACE((__int64)CurrentThread, (__int64)Process);
-      MiReleasePtes((__int64)&qword_140327870, *(_QWORD *)(v13 + 64), 1u);
+      MiReleasePtes((__int64)&qword_1403278B0, *(_QWORD *)(v13 + 64), 1u);
       ExFreePoolWithTag((PVOID)v13, 0);
       return (unsigned int)inserted;
     }

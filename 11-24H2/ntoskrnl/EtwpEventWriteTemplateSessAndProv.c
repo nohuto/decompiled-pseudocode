@@ -1,13 +1,13 @@
 /*
- * XREFs of EtwpEventWriteTemplateSessAndProv @ 0x140841CCC
+ * XREFs of EtwpEventWriteTemplateSessAndProv @ 0x14083DF8C
  * Callers:
- *     EtwpEnableGuid @ 0x14083B040 (EtwpEnableGuid.c)
- *     ObpDecrementHandleCount @ 0x1408410A0 (ObpDecrementHandleCount.c)
- *     ObCloseHandleTableEntry @ 0x14084BFA0 (ObCloseHandleTableEntry.c)
- *     ObpCreateHandle @ 0x14084DAA0 (ObpCreateHandle.c)
+ *     ObpDecrementHandleCount @ 0x14083D360 (ObpDecrementHandleCount.c)
+ *     ObCloseHandleTableEntry @ 0x140848260 (ObCloseHandleTableEntry.c)
+ *     ObpCreateHandle @ 0x140849D60 (ObpCreateHandle.c)
+ *     EtwpEnableGuid @ 0x140A3EA20 (EtwpEnableGuid.c)
  * Callees:
- *     EtwWrite @ 0x14041C1B0 (EtwWrite.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     EtwWrite @ 0x14040FFB0 (EtwWrite.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall EtwpEventWriteTemplateSessAndProv(
@@ -20,16 +20,16 @@ NTSTATUS __fastcall EtwpEventWriteTemplateSessAndProv(
 {
   ULONG v6; // r8d
   struct _EVENT_DATA_DESCRIPTOR UserData; // [rsp+30h] [rbp-40h] BYREF
-  __int64 *v9; // [rsp+40h] [rbp-30h]
+  int *v9; // [rsp+40h] [rbp-30h]
   __int64 v10; // [rsp+48h] [rbp-28h]
-  __int64 *v11; // [rsp+50h] [rbp-20h]
+  int *v11; // [rsp+50h] [rbp-20h]
   __int64 v12; // [rsp+58h] [rbp-18h]
 
   v6 = 2;
   if ( a4 == 2 )
   {
     UserData.Ptr = a6;
-    v9 = (__int64 *)*((_QWORD *)a5 + 1);
+    v9 = (int *)*((_QWORD *)a5 + 1);
     v10 = *a5;
     v12 = 2LL;
     v6 = 3;

@@ -1,21 +1,22 @@
 /*
  * XREFs of RtlUIntAdd @ 0x140001568
  * Callers:
- *     NtPowerInformation @ 0x14058C170 (NtPowerInformation.c)
- *     EtwpSetProviderTraitsCommon @ 0x1405C4A10 (EtwpSetProviderTraitsCommon.c)
- *     CmpIncrementCachedSecurityRefcount @ 0x1405DBC90 (CmpIncrementCachedSecurityRefcount.c)
- *     sub_1406244D4 @ 0x1406244D4 (sub_1406244D4.c)
- *     SepDuplicateToken @ 0x140649480 (SepDuplicateToken.c)
- *     SepFilterToken @ 0x140657CCC (SepFilterToken.c)
- *     sub_140685840 @ 0x140685840 (sub_140685840.c)
- *     sub_1406917AC @ 0x1406917AC (sub_1406917AC.c)
- *     FsRtlNotifyFilterReportChange @ 0x1406A0200 (FsRtlNotifyFilterReportChange.c)
- *     FsRtlNotifyFilterReportChangeLiteEx @ 0x1406A0E60 (FsRtlNotifyFilterReportChangeLiteEx.c)
- *     WmipProbeWnodeWorker @ 0x1406AA1AC (WmipProbeWnodeWorker.c)
- *     VrpUpdateKeyInformation @ 0x14080CF74 (VrpUpdateKeyInformation.c)
- *     MiCaptureRetpolineRelocationTables @ 0x1408538D4 (MiCaptureRetpolineRelocationTables.c)
- *     EtwpGetTraceGroupInfo @ 0x1408B5B64 (EtwpGetTraceGroupInfo.c)
- *     EtwpGetTraceGuidInfo @ 0x1408B5E78 (EtwpGetTraceGuidInfo.c)
+ *     NtPowerInformation @ 0x14058D170 (NtPowerInformation.c)
+ *     EtwpSetProviderTraitsCommon @ 0x1405C5A10 (EtwpSetProviderTraitsCommon.c)
+ *     CmpIncrementCachedSecurityRefcount @ 0x1405DCC90 (CmpIncrementCachedSecurityRefcount.c)
+ *     sub_1406254F4 @ 0x1406254F4 (sub_1406254F4.c)
+ *     SepDuplicateToken @ 0x14064A640 (SepDuplicateToken.c)
+ *     SepFilterToken @ 0x140658E8C (SepFilterToken.c)
+ *     sub_140686A00 @ 0x140686A00 (sub_140686A00.c)
+ *     sub_14069296C @ 0x14069296C (sub_14069296C.c)
+ *     SeValidSecurityDescriptor @ 0x14069E910 (SeValidSecurityDescriptor.c)
+ *     FsRtlNotifyFilterReportChange @ 0x1406A14A0 (FsRtlNotifyFilterReportChange.c)
+ *     FsRtlNotifyFilterReportChangeLiteEx @ 0x1406A2100 (FsRtlNotifyFilterReportChangeLiteEx.c)
+ *     WmipProbeWnodeWorker @ 0x1406AB44C (WmipProbeWnodeWorker.c)
+ *     VrpUpdateKeyInformation @ 0x14080E174 (VrpUpdateKeyInformation.c)
+ *     MiCaptureRetpolineRelocationTables @ 0x140854B34 (MiCaptureRetpolineRelocationTables.c)
+ *     EtwpGetTraceGroupInfo @ 0x1408B6E24 (EtwpGetTraceGroupInfo.c)
+ *     EtwpGetTraceGuidInfo @ 0x1408B7138 (EtwpGetTraceGuidInfo.c)
  * Callees:
  *     <none>
  */

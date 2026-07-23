@@ -1,20 +1,20 @@
 /*
- * XREFs of CmpCreateHwProfileFriendlyName @ 0x140877940
+ * XREFs of CmpCreateHwProfileFriendlyName @ 0x140877AA0
  * Callers:
- *     CmpCloneHwProfile @ 0x140877184 (CmpCloneHwProfile.c)
+ *     CmpCloneHwProfile @ 0x1408772E4 (CmpCloneHwProfile.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     swprintf_s @ 0x1403D68F0 (swprintf_s.c)
- *     wcscpy_s @ 0x1403D8270 (wcscpy_s.c)
- *     ZwClose @ 0x1403FA580 (ZwClose.c)
- *     ZwOpenKey @ 0x1403FA5E0 (ZwOpenKey.c)
- *     ZwQueryValueKey @ 0x1403FA680 (ZwQueryValueKey.c)
- *     ZwSetValueKey @ 0x1403FAFA0 (ZwSetValueKey.c)
- *     KeGetBugMessageText @ 0x140517AC4 (KeGetBugMessageText.c)
- *     RtlFreeAnsiString @ 0x140602CB0 (RtlFreeAnsiString.c)
- *     RtlAnsiStringToUnicodeString @ 0x14062C640 (RtlAnsiStringToUnicodeString.c)
- *     RtlCreateUnicodeString @ 0x1406748C0 (RtlCreateUnicodeString.c)
+ *     RtlInitUnicodeString @ 0x14026A4C0 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     swprintf_s @ 0x1403D6A60 (swprintf_s.c)
+ *     wcscpy_s @ 0x1403D83E0 (wcscpy_s.c)
+ *     ZwClose @ 0x1403FA760 (ZwClose.c)
+ *     ZwOpenKey @ 0x1403FA7C0 (ZwOpenKey.c)
+ *     ZwQueryValueKey @ 0x1403FA860 (ZwQueryValueKey.c)
+ *     ZwSetValueKey @ 0x1403FB180 (ZwSetValueKey.c)
+ *     KeGetBugMessageText @ 0x140517D04 (KeGetBugMessageText.c)
+ *     RtlFreeAnsiString @ 0x14063DA40 (RtlFreeAnsiString.c)
+ *     RtlAnsiStringToUnicodeString @ 0x1406637D0 (RtlAnsiStringToUnicodeString.c)
+ *     RtlCreateUnicodeString @ 0x140669AF0 (RtlCreateUnicodeString.c)
  */
 
 __int64 __fastcall CmpCreateHwProfileFriendlyName(void *a1, char a2, unsigned int a3, UNICODE_STRING *a4)
@@ -31,7 +31,7 @@ __int64 __fastcall CmpCreateHwProfileFriendlyName(void *a1, char a2, unsigned in
   ULONG ResultLength; // [rsp+40h] [rbp-C0h] BYREF
   UNICODE_STRING DestinationString; // [rsp+48h] [rbp-B8h] BYREF
   UNICODE_STRING UnicodeString; // [rsp+58h] [rbp-A8h] BYREF
-  STRING SourceString; // [rsp+68h] [rbp-98h] BYREF
+  ANSI_STRING SourceString; // [rsp+68h] [rbp-98h] BYREF
   UNICODE_STRING v21; // [rsp+78h] [rbp-88h] BYREF
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+88h] [rbp-78h] BYREF
   wchar_t Dst[80]; // [rsp+C0h] [rbp-40h] BYREF

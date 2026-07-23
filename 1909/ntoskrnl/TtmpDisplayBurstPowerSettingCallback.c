@@ -18,7 +18,7 @@ __int64 __fastcall TtmpDisplayBurstPowerSettingCallback(
         PVOID Context)
 {
   int v4; // ebx
-  int ActiveConsoleId; // eax
+  ULONG ActiveConsoleId; // eax
   _QWORD v7[3]; // [rsp+30h] [rbp-18h] BYREF
 
   v4 = (int)Context;

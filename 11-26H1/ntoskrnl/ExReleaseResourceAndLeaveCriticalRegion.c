@@ -1,24 +1,24 @@
 /*
- * XREFs of ExReleaseResourceAndLeaveCriticalRegion @ 0x1402B8340
+ * XREFs of ExReleaseResourceAndLeaveCriticalRegion @ 0x140303000
  * Callers:
- *     DifExReleaseResourceAndLeaveCriticalRegionWrapper @ 0x140654550 (DifExReleaseResourceAndLeaveCriticalRegionWrapper.c)
- *     AccelpReleaseLockExclusive @ 0x14084AE10 (AccelpReleaseLockExclusive.c)
+ *     DifExReleaseResourceAndLeaveCriticalRegionWrapper @ 0x140658130 (DifExReleaseResourceAndLeaveCriticalRegionWrapper.c)
+ *     AccelpReleaseLockExclusive @ 0x140851120 (AccelpReleaseLockExclusive.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     ExpCommitWakeResourceShared @ 0x140273EB0 (ExpCommitWakeResourceShared.c)
- *     ExReleaseFastResource @ 0x14027B310 (ExReleaseFastResource.c)
- *     KxWaitForLockOwnerShip @ 0x1402B29C0 (KxWaitForLockOwnerShip.c)
- *     KiAcquireQueuedSpinLockInstrumented @ 0x1402B4830 (KiAcquireQueuedSpinLockInstrumented.c)
- *     ExpResourceEnforcesOwnershipTransfer @ 0x1402B6320 (ExpResourceEnforcesOwnershipTransfer.c)
- *     KeLeaveCriticalRegionThread @ 0x1402B8A60 (KeLeaveCriticalRegionThread.c)
- *     KeReleaseInStackQueuedSpinLock @ 0x1402B98C0 (KeReleaseInStackQueuedSpinLock.c)
- *     PerfLogExecutiveResourceRelease @ 0x1402B9AE0 (PerfLogExecutiveResourceRelease.c)
- *     ExpFreeOwnerEntry @ 0x1402B9E50 (ExpFreeOwnerEntry.c)
- *     RtlRemoveEntryCircularList @ 0x140447A90 (RtlRemoveEntryCircularList.c)
- *     RtlInsertHeadCircularList @ 0x140447AE0 (RtlInsertHeadCircularList.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     ExpCommitWakeResourceShared @ 0x140273420 (ExpCommitWakeResourceShared.c)
+ *     ExReleaseFastResource @ 0x14027A880 (ExReleaseFastResource.c)
+ *     KxWaitForLockOwnerShip @ 0x1402FD690 (KxWaitForLockOwnerShip.c)
+ *     KiAcquireQueuedSpinLockInstrumented @ 0x1402FF500 (KiAcquireQueuedSpinLockInstrumented.c)
+ *     ExpResourceEnforcesOwnershipTransfer @ 0x140300FE0 (ExpResourceEnforcesOwnershipTransfer.c)
+ *     KeLeaveCriticalRegionThread @ 0x140303720 (KeLeaveCriticalRegionThread.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x140304580 (KeReleaseInStackQueuedSpinLock.c)
+ *     PerfLogExecutiveResourceRelease @ 0x1403047A0 (PerfLogExecutiveResourceRelease.c)
+ *     ExpFreeOwnerEntry @ 0x140304B10 (ExpFreeOwnerEntry.c)
+ *     RtlRemoveEntryCircularList @ 0x140440580 (RtlRemoveEntryCircularList.c)
+ *     RtlInsertHeadCircularList @ 0x1404405D0 (RtlInsertHeadCircularList.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __stdcall ExReleaseResourceAndLeaveCriticalRegion(PERESOURCE Resource)
@@ -95,7 +95,7 @@ void __stdcall ExReleaseResourceAndLeaveCriticalRegion(PERESOURCE Resource)
     if ( KiIrqlFlags )
       KiRaiseIrqlProcessIrqlFlags(v5, 2LL);
     LockHandle.OldIrql = v5;
-    if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+    if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || PopHibernateInProgress )
     {
       v6 = _InterlockedExchange64((volatile __int64 *)&Resource->SpinLock, (__int64)&LockHandle);
       if ( v6 )
@@ -106,7 +106,7 @@ void __stdcall ExReleaseResourceAndLeaveCriticalRegion(PERESOURCE Resource)
       KiAcquireQueuedSpinLockInstrumented((__int64)&LockHandle, (volatile __int64 *)&Resource->SpinLock);
     }
     v7 = KeGetCurrentThread();
-    if ( ((Resource->ReservedLowFlags & 1) != 0 || LODWORD(ExSaPageGroupDescriptorArrayLock.Spare35[1]))
+    if ( ((Resource->ReservedLowFlags & 1) != 0 || LODWORD(ExSaPageGroupDescriptorArrayLock.AutoBoostThreadState))
       && (v4 & 3) != 3
       && (struct _KTHREAD *)v4 != v7 )
     {

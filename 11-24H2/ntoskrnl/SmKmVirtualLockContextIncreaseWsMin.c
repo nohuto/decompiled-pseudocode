@@ -1,15 +1,15 @@
 /*
- * XREFs of SmKmVirtualLockContextIncreaseWsMin @ 0x14060DE84
+ * XREFs of SmKmVirtualLockContextIncreaseWsMin @ 0x14060C444
  * Callers:
- *     SmKmVirtualLockCtxLockMemory @ 0x14060DFFC (SmKmVirtualLockCtxLockMemory.c)
+ *     SmKmVirtualLockCtxLockMemory @ 0x14060C5BC (SmKmVirtualLockCtxLockMemory.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     ExfTryToWakePushLock @ 0x14025F9A0 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     MmQueryWorkingSetInformation @ 0x1402E1DB0 (MmQueryWorkingSetInformation.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     MmAdjustWorkingSetSizeEx @ 0x1403CD164 (MmAdjustWorkingSetSizeEx.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     ExfTryToWakePushLock @ 0x14028FFB0 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     MmQueryWorkingSetInformation @ 0x1404103B0 (MmQueryWorkingSetInformation.c)
+ *     MmAdjustWorkingSetSizeEx @ 0x14046C954 (MmAdjustWorkingSetSizeEx.c)
  */
 
 __int64 __fastcall SmKmVirtualLockContextIncreaseWsMin(
@@ -18,8 +18,8 @@ __int64 __fastcall SmKmVirtualLockContextIncreaseWsMin(
         unsigned __int64 a3)
 {
   struct _KTHREAD *CurrentThread; // rax
-  _QWORD *v7; // rax
-  _QWORD *v8; // rsi
+  char *v7; // rax
+  char *v8; // rsi
   int v9; // esi
   unsigned __int64 v10; // r14
   unsigned __int64 v11; // rcx
@@ -38,12 +38,12 @@ __int64 __fastcall SmKmVirtualLockContextIncreaseWsMin(
   v16 = 0LL;
   v17 = 0LL;
   --CurrentThread->KernelApcDisable;
-  v7 = KeAbPreAcquire((__int64)BugCheckParameter2, 0LL);
+  v7 = (char *)KeAbPreAcquire((__int64)BugCheckParameter2, 0LL);
   v8 = v7;
   if ( _interlockedbittestandset64((volatile signed __int32 *)BugCheckParameter2, 0LL) )
-    ExfAcquirePushLockExclusiveEx(BugCheckParameter2, (__int64)v7, (__int64)BugCheckParameter2);
+    ExfAcquirePushLockExclusiveEx(BugCheckParameter2, v7, (__int64)BugCheckParameter2);
   if ( v8 )
-    *((_BYTE *)v8 + 10) = 1;
+    v8[10] = 1;
   if ( a3 >= BugCheckParameter2[2] )
   {
     do

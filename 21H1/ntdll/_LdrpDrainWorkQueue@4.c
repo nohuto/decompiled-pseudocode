@@ -27,7 +27,7 @@
 
 struct _TEB *__thiscall LdrpDrainWorkQueue(void *this)
 {
-  int v1; // eax
+  HANDLE v1; // eax
   char v3; // bl
   char v4; // bh
   int *v5; // esi
@@ -35,18 +35,18 @@ struct _TEB *__thiscall LdrpDrainWorkQueue(void *this)
   struct _TEB *result; // eax
   int v8; // eax
   int v9; // eax
-  int v10; // [esp+Ch] [ebp-4h]
+  HANDLE Handle; // [esp+Ch] [ebp-4h]
 
   v1 = LdrpLoadCompleteEvent;
   v3 = 0;
   if ( this )
     v1 = LdrpWorkCompleteEvent;
-  v10 = v1;
+  Handle = v1;
   while ( 1 )
   {
     while ( 1 )
     {
-      RtlEnterCriticalSection((int)&LdrpWorkQueueLock);
+      RtlEnterCriticalSection(&LdrpWorkQueueLock);
       v4 = LdrpDetourExist;
       if ( !LdrpDetourExist || this == (void *)1 )
       {
@@ -82,28 +82,28 @@ struct _TEB *__thiscall LdrpDrainWorkQueue(void *this)
         }
         v5 = &LdrpWorkQueue;
       }
-      RtlLeaveCriticalSection((int)&LdrpWorkQueueLock);
+      RtlLeaveCriticalSection(&LdrpWorkQueueLock);
       if ( v3 )
         break;
       if ( v5 == &LdrpWorkQueue )
-        ZwWaitForSingleObject(v10, 0, 0);
+        ZwWaitForSingleObject(Handle, 0, 0);
       else
         LdrpProcessWork((int)(v5 - 9), v4);
     }
     if ( !this || (int *)LdrpRetryQueue == &LdrpRetryQueue )
       break;
-    RtlEnterCriticalSection((int)&LdrpWorkQueueLock);
+    RtlEnterCriticalSection(&LdrpWorkQueueLock);
     v8 = LdrpRetryQueue;
     *(_DWORD *)(LdrpRetryQueue + 4) = &LdrpWorkQueue;
     LdrpWorkQueue = v8;
     v9 = dword_4B3A5CC4;
     *(_DWORD *)dword_4B3A5CC4 = &LdrpWorkQueue;
-    LdrpRetryingModuleIndex = 0;
-    dword_4B3A6708 = 0;
+    LdrpRetryingModuleIndex.Root = 0;
+    LdrpRetryingModuleIndex.Min = 0;
     dword_4B3A5D04 = v9;
     dword_4B3A5CC4 = (int)&LdrpRetryQueue;
     LdrpRetryQueue = (int)&LdrpRetryQueue;
-    RtlLeaveCriticalSection((int)&LdrpWorkQueueLock);
+    RtlLeaveCriticalSection(&LdrpWorkQueueLock);
     v3 = 0;
   }
   result = NtCurrentTeb();

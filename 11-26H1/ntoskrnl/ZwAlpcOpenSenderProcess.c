@@ -1,15 +1,21 @@
 /*
- * XREFs of ZwAlpcOpenSenderProcess @ 0x140724510
+ * XREFs of ZwAlpcOpenSenderProcess @ 0x1407290E0
  * Callers:
- *     DifZwAlpcOpenSenderProcessWrapper @ 0x14069B470 (DifZwAlpcOpenSenderProcessWrapper.c)
- *     PopUmpoProcessMessage @ 0x140AAA1C8 (PopUmpoProcessMessage.c)
+ *     DifZwAlpcOpenSenderProcessWrapper @ 0x14069F050 (DifZwAlpcOpenSenderProcessWrapper.c)
+ *     PopUmpoProcessMessage @ 0x140AA77A8 (PopUmpoProcessMessage.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwAlpcOpenSenderProcess(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwAlpcOpenSenderProcess(
+        PHANDLE ProcessHandle,
+        HANDLE PortHandle,
+        PPORT_MESSAGE PortMessage,
+        ULONG Flags,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(ProcessHandle);
 }

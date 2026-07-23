@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpQueryIdPdo @ 0x1408288CC
+ * XREFs of HalpQueryIdPdo @ 0x140828BCC
  * Callers:
- *     HalpDispatchPnp @ 0x140828220 (HalpDispatchPnp.c)
+ *     HalpDispatchPnp @ 0x140828520 (HalpDispatchPnp.c)
  * Callees:
- *     memmove @ 0x140435700 (memmove.c)
+ *     memmove @ 0x140435B00 (memmove.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
 

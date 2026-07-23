@@ -1,18 +1,18 @@
 /*
- * XREFs of KiEnableXSave @ 0x140B4B020
+ * XREFs of KiEnableXSave @ 0x140B4D11C
  * Callers:
- *     KiRestoreXSaveSupport @ 0x140B4B008 (KiRestoreXSaveSupport.c)
- *     KiConfigureDynamicProcessor @ 0x140B58068 (KiConfigureDynamicProcessor.c)
- *     KiInitializeKernel @ 0x140B588B0 (KiInitializeKernel.c)
+ *     KiRestoreXSaveSupport @ 0x140B4D104 (KiRestoreXSaveSupport.c)
+ *     KiConfigureDynamicProcessor @ 0x140B5A0E8 (KiConfigureDynamicProcessor.c)
+ *     KiInitializeKernel @ 0x140B5A930 (KiInitializeKernel.c)
  * Callees:
- *     <none>
+ *     Feature_Servicing_KiSaveProcessorState_ExtendedState_Fix__private_IsEnabledNoReportingNoInline @ 0x1405B5D3C (Feature_Servicing_KiSaveProcessorState_ExtendedState_Fix__private_IsEnabledNoReportingNoInline.c)
  */
 
 void __fastcall KiEnableXSave(unsigned __int64 *a1)
 {
   unsigned __int64 v1; // rdx
   unsigned __int64 v2; // rdx
-  struct _KPRCB *CurrentPrcb; // rcx
+  struct _KPRCB *CurrentPrcb; // rbx
   int v4; // eax
 
   v1 = __readcr4();
@@ -45,6 +45,11 @@ void __fastcall KiEnableXSave(unsigned __int64 *a1)
       CurrentPrcb->ContextFlagsInit = v4;
       if ( (_BYTE)KiKernelCetEnabled )
         CurrentPrcb->ContextFlagsInit = v4 | 0x100080;
+      if ( (unsigned int)Feature_Servicing_KiSaveProcessorState_ExtendedState_Fix__private_IsEnabledNoReportingNoInline() )
+      {
+        if ( (MEMORY[0xFFFFF780000003EC] & 2) != 0 )
+          CurrentPrcb->CompactionMaskInit = (KeEnabledSupervisorXStateFeatures | MEMORY[0xFFFFF780000003D8]) & 0xFFFFFFFFFFFFFFFCuLL;
+      }
     }
   }
 }

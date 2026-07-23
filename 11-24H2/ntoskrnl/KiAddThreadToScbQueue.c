@@ -1,14 +1,14 @@
 /*
- * XREFs of KiAddThreadToScbQueue @ 0x14030EA24
+ * XREFs of KiAddThreadToScbQueue @ 0x1402D847C
  * Callers:
- *     KiQueueReadyThread @ 0x140295020 (KiQueueReadyThread.c)
- *     KiSearchForNewThreadsForRescheduleContext @ 0x1402986C0 (KiSearchForNewThreadsForRescheduleContext.c)
- *     KiDeferGroupSchedulingPreemption @ 0x14030F980 (KiDeferGroupSchedulingPreemption.c)
- *     KiAttemptToScheduleThreadToBusyIsolationUnit @ 0x1403E1850 (KiAttemptToScheduleThreadToBusyIsolationUnit.c)
- *     KiAddThreadToReadyQueue @ 0x1403F4AB0 (KiAddThreadToReadyQueue.c)
+ *     KiQueueReadyThread @ 0x1402A4C20 (KiQueueReadyThread.c)
+ *     KiSearchForNewThreadsForRescheduleContext @ 0x1402A71B0 (KiSearchForNewThreadsForRescheduleContext.c)
+ *     KiDeferGroupSchedulingPreemption @ 0x1402D7384 (KiDeferGroupSchedulingPreemption.c)
+ *     KiAttemptToScheduleThreadToBusyIsolationUnit @ 0x1403C9EC0 (KiAttemptToScheduleThreadToBusyIsolationUnit.c)
+ *     KiAddThreadToReadyQueue @ 0x1403E7AA0 (KiAddThreadToReadyQueue.c)
  * Callees:
- *     ?KiInsertNonMaxOverQuotaScb@@YAXPEAU_KSCB@@PEAU_KPRCB@@E@Z @ 0x14030E7C4 (-KiInsertNonMaxOverQuotaScb@@YAXPEAU_KSCB@@PEAU_KPRCB@@E@Z.c)
- *     KiUpdateVpBackingThreadPriorityOnReadyQueueInsertion @ 0x14030EB30 (KiUpdateVpBackingThreadPriorityOnReadyQueueInsertion.c)
+ *     KiUpdateVpBackingThreadPriorityOnReadyQueueInsertion @ 0x1402D8590 (KiUpdateVpBackingThreadPriorityOnReadyQueueInsertion.c)
+ *     ?KiInsertNonMaxOverQuotaScb@@YAXPEAU_KSCB@@PEAU_KPRCB@@E@Z @ 0x1402D8810 (-KiInsertNonMaxOverQuotaScb@@YAXPEAU_KSCB@@PEAU_KPRCB@@E@Z.c)
  */
 
 void __fastcall KiAddThreadToScbQueue(struct _KPRCB *a1, struct _KSCB *a2, __int64 a3, int a4)

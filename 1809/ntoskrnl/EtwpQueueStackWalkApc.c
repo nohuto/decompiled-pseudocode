@@ -1,24 +1,24 @@
 /*
- * XREFs of EtwpQueueStackWalkApc @ 0x14030F260
+ * XREFs of EtwpQueueStackWalkApc @ 0x14030F450
  * Callers:
- *     EtwpStackTraceDispatcher @ 0x14030F51C (EtwpStackTraceDispatcher.c)
- *     EtwpStackWalkDpc @ 0x14030F6F0 (EtwpStackWalkDpc.c)
+ *     EtwpStackTraceDispatcher @ 0x14030F70C (EtwpStackTraceDispatcher.c)
+ *     EtwpStackWalkDpc @ 0x14030F8E0 (EtwpStackWalkDpc.c)
  * Callees:
- *     KeInitializeApc @ 0x14008A360 (KeInitializeApc.c)
- *     ExAcquireRundownProtectionCacheAwareEx @ 0x1400D7870 (ExAcquireRundownProtectionCacheAwareEx.c)
- *     KeInsertQueueApc @ 0x1400F1480 (KeInsertQueueApc.c)
- *     ExReleaseRundownProtectionCacheAwareEx @ 0x1400F9810 (ExReleaseRundownProtectionCacheAwareEx.c)
- *     KeRemoveQueueApc @ 0x14012F358 (KeRemoveQueueApc.c)
- *     RtlpInterlockedPopEntrySList @ 0x1401C53D0 (RtlpInterlockedPopEntrySList.c)
- *     RtlpInterlockedPushEntrySList @ 0x1401C5410 (RtlpInterlockedPushEntrySList.c)
- *     KeTryToInsertQueueApc @ 0x140294C20 (KeTryToInsertQueueApc.c)
- *     EtwpQueueStackWalkDpc @ 0x14030F43C (EtwpQueueStackWalkDpc.c)
+ *     KeInitializeApc @ 0x14008A350 (KeInitializeApc.c)
+ *     ExAcquireRundownProtectionCacheAwareEx @ 0x1400D78F0 (ExAcquireRundownProtectionCacheAwareEx.c)
+ *     KeInsertQueueApc @ 0x1400F1500 (KeInsertQueueApc.c)
+ *     ExReleaseRundownProtectionCacheAwareEx @ 0x1400F9890 (ExReleaseRundownProtectionCacheAwareEx.c)
+ *     KeRemoveQueueApc @ 0x14012F428 (KeRemoveQueueApc.c)
+ *     RtlpInterlockedPopEntrySList @ 0x1401C5530 (RtlpInterlockedPopEntrySList.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1401C5570 (RtlpInterlockedPushEntrySList.c)
+ *     KeTryToInsertQueueApc @ 0x140294E10 (KeTryToInsertQueueApc.c)
+ *     EtwpQueueStackWalkDpc @ 0x14030F62C (EtwpQueueStackWalkDpc.c)
  */
 
 void __fastcall EtwpQueueStackWalkApc(__int64 a1, unsigned __int8 a2, unsigned int *a3, unsigned int *a4)
 {
   char v4; // r12
-  struct _SLIST_ENTRY *v5; // rsi
+  _SLIST_ENTRY *v5; // rsi
   unsigned int v10; // ebp
   __int64 v11; // r8
   __int64 v12; // rdx

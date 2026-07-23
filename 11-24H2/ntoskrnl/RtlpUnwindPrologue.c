@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlpUnwindPrologue @ 0x140280090
+ * XREFs of RtlpUnwindPrologue @ 0x140235620
  * Callers:
- *     RtlpxVirtualUnwind @ 0x14027F030 (RtlpxVirtualUnwind.c)
+ *     RtlpxVirtualUnwind @ 0x1402345C0 (RtlpxVirtualUnwind.c)
  * Callees:
- *     RtlRaiseStatus @ 0x140280B30 (RtlRaiseStatus.c)
- *     RtlLocateExtendedFeature @ 0x140281BD0 (RtlLocateExtendedFeature.c)
- *     RtlpIsNoShadowStackUnwindMachineFrameEntry @ 0x140475E88 (RtlpIsNoShadowStackUnwindMachineFrameEntry.c)
- *     ExRaiseDatatypeMisalignment @ 0x14089B1F0 (ExRaiseDatatypeMisalignment.c)
+ *     RtlRaiseStatus @ 0x1402360C0 (RtlRaiseStatus.c)
+ *     RtlLocateExtendedFeature @ 0x140237160 (RtlLocateExtendedFeature.c)
+ *     RtlpIsNoShadowStackUnwindMachineFrameEntry @ 0x140471F28 (RtlpIsNoShadowStackUnwindMachineFrameEntry.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408A3890 (ExRaiseDatatypeMisalignment.c)
  */
 
 __int64 __fastcall RtlpUnwindPrologue(
@@ -40,7 +40,7 @@ __int64 __fastcall RtlpUnwindPrologue(
   __int64 v28; // r8
   _QWORD *v29; // rdx
   __int64 v30; // rax
-  __int64 ExtendedFeature; // rax
+  _QWORD *ExtendedFeature; // rax
   __int64 v32; // rcx
   unsigned __int64 v33; // r8
   __int64 v34; // rdx
@@ -126,11 +126,11 @@ LABEL_25:
                 *v17 = v19 + 1;
                 if ( (*(_DWORD *)(a5 + 48) & 0x100040) == 0x100040 )
                 {
-                  ExtendedFeature = RtlLocateExtendedFeature(a5 + 1232, 11LL);
+                  ExtendedFeature = RtlLocateExtendedFeature((PCONTEXT_EX)(a5 + 1232), 0xBu, 0LL);
                   if ( ExtendedFeature )
                   {
                     if ( (*(_BYTE *)ExtendedFeature & 1) != 0 )
-                      *(_QWORD *)(ExtendedFeature + 8) += 8LL;
+                      ExtendedFeature[1] += 8LL;
                   }
                 }
                 v20 = a6;
@@ -148,7 +148,7 @@ LABEL_25:
               goto LABEL_4;
             if ( (unsigned int)++v43 > 0x20 )
 LABEL_48:
-              RtlRaiseStatus(3221225727LL);
+              RtlRaiseStatus(-1073741569);
             goto LABEL_2;
           }
           v13 = *(_BYTE *)(v11 + 2LL * (unsigned int)v10 + 5) & 0xF;

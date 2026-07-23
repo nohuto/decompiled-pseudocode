@@ -1,5 +1,5 @@
 /*
- * XREFs of RtlpFcCompareUpdates @ 0x140A86160
+ * XREFs of RtlpFcCompareUpdates @ 0x140A80CA0
  * Callers:
  *     <none>
  * Callees:

@@ -1,25 +1,25 @@
 /*
- * XREFs of IopLiveDumpGetMillisecondCounter @ 0x1404E48C0
+ * XREFs of IopLiveDumpGetMillisecondCounter @ 0x1404DDE60
  * Callers:
- *     IopLiveDumpAllocateDumpBuffers @ 0x1404E439C (IopLiveDumpAllocateDumpBuffers.c)
- *     IoCaptureLiveDump @ 0x14051255C (IoCaptureLiveDump.c)
- *     IoWriteDeferredLiveDumpData @ 0x1405CC298 (IoWriteDeferredLiveDumpData.c)
- *     IopLiveDumpAllocAndInitResources @ 0x1405CC998 (IopLiveDumpAllocAndInitResources.c)
- *     IopLiveDumpAllocateExtraBuffers @ 0x1405CD084 (IopLiveDumpAllocateExtraBuffers.c)
- *     IopLiveDumpCaptureMemoryPages @ 0x1405CE6D0 (IopLiveDumpCaptureMemoryPages.c)
- *     IopLiveDumpCollectPages @ 0x1405CE958 (IopLiveDumpCollectPages.c)
- *     IopLiveDumpCorralProcessors @ 0x1405CED50 (IopLiveDumpCorralProcessors.c)
- *     IopLiveDumpEnterCorralledState @ 0x1405CF050 (IopLiveDumpEnterCorralledState.c)
- *     IopLiveDumpEstimateMemoryPages @ 0x1405CF098 (IopLiveDumpEstimateMemoryPages.c)
- *     IopLiveDumpGenerateIptSecondaryData @ 0x1405CF6F8 (IopLiveDumpGenerateIptSecondaryData.c)
- *     IopLiveDumpInitiateCorralStateChange @ 0x1405D010C (IopLiveDumpInitiateCorralStateChange.c)
- *     IopLiveDumpMarkImportantDumpData @ 0x1405D035C (IopLiveDumpMarkImportantDumpData.c)
- *     IopLiveDumpMarkRequiredDumpData @ 0x1405D0778 (IopLiveDumpMarkRequiredDumpData.c)
- *     IopLiveDumpMirrorPhysicalMemoryCallback @ 0x1405D0970 (IopLiveDumpMirrorPhysicalMemoryCallback.c)
- *     IopLiveDumpPopulateBitmapForDump @ 0x1405D10C0 (IopLiveDumpPopulateBitmapForDump.c)
- *     IopLiveDumpRemoveSystemCacheFromDump @ 0x1405D18B0 (IopLiveDumpRemoveSystemCacheFromDump.c)
+ *     IopLiveDumpAllocateDumpBuffers @ 0x1404DD93C (IopLiveDumpAllocateDumpBuffers.c)
+ *     IoCaptureLiveDump @ 0x14050BFCC (IoCaptureLiveDump.c)
+ *     IoWriteDeferredLiveDumpData @ 0x1405CEAAC (IoWriteDeferredLiveDumpData.c)
+ *     IopLiveDumpAllocAndInitResources @ 0x1405CF1A8 (IopLiveDumpAllocAndInitResources.c)
+ *     IopLiveDumpAllocateExtraBuffers @ 0x1405CF894 (IopLiveDumpAllocateExtraBuffers.c)
+ *     IopLiveDumpCaptureMemoryPages @ 0x1405D0EE0 (IopLiveDumpCaptureMemoryPages.c)
+ *     IopLiveDumpCollectPages @ 0x1405D1168 (IopLiveDumpCollectPages.c)
+ *     IopLiveDumpCorralProcessors @ 0x1405D1560 (IopLiveDumpCorralProcessors.c)
+ *     IopLiveDumpEnterCorralledState @ 0x1405D1860 (IopLiveDumpEnterCorralledState.c)
+ *     IopLiveDumpEstimateMemoryPages @ 0x1405D18A8 (IopLiveDumpEstimateMemoryPages.c)
+ *     IopLiveDumpGenerateIptSecondaryData @ 0x1405D1F08 (IopLiveDumpGenerateIptSecondaryData.c)
+ *     IopLiveDumpInitiateCorralStateChange @ 0x1405D291C (IopLiveDumpInitiateCorralStateChange.c)
+ *     IopLiveDumpMarkImportantDumpData @ 0x1405D2B6C (IopLiveDumpMarkImportantDumpData.c)
+ *     IopLiveDumpMarkRequiredDumpData @ 0x1405D2F88 (IopLiveDumpMarkRequiredDumpData.c)
+ *     IopLiveDumpMirrorPhysicalMemoryCallback @ 0x1405D3180 (IopLiveDumpMirrorPhysicalMemoryCallback.c)
+ *     IopLiveDumpPopulateBitmapForDump @ 0x1405D38C0 (IopLiveDumpPopulateBitmapForDump.c)
+ *     IopLiveDumpRemoveSystemCacheFromDump @ 0x1405D4098 (IopLiveDumpRemoveSystemCacheFromDump.c)
  * Callees:
- *     KeQueryPerformanceCounter @ 0x14021C3F0 (KeQueryPerformanceCounter.c)
+ *     KeQueryPerformanceCounter @ 0x14021DD80 (KeQueryPerformanceCounter.c)
  */
 
 __int64 __fastcall IopLiveDumpGetMillisecondCounter(char a1)
@@ -30,8 +30,8 @@ __int64 __fastcall IopLiveDumpGetMillisecondCounter(char a1)
   v2 = 1000LL * *(_QWORD *)&KeQueryPerformanceCounter(0LL) / PerformanceFrequency.QuadPart;
   result = 0LL;
   if ( !a1 )
-    result = v2 + qword_140E65FB8 - qword_140E65FB0;
-  qword_140E65FB8 = result;
-  qword_140E65FB0 = v2;
+    result = v2 + qword_140E66250 - qword_140E66258;
+  qword_140E66250 = result;
+  qword_140E66258 = v2;
   return result;
 }

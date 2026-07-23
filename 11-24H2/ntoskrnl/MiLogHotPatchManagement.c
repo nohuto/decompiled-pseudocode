@@ -1,12 +1,12 @@
 /*
- * XREFs of MiLogHotPatchManagement @ 0x140AE6CB4
+ * XREFs of MiLogHotPatchManagement @ 0x140AE987C
  * Callers:
- *     NtManageHotPatch @ 0x140AE7000 (NtManageHotPatch.c)
+ *     NtManageHotPatch @ 0x140AE9BD0 (NtManageHotPatch.c)
  * Callees:
- *     _tlgKeywordOn @ 0x140426AF0 (_tlgKeywordOn.c)
- *     PsGetProcessId @ 0x140434960 (PsGetProcessId.c)
- *     _tlgWriteEx_EtwWriteEx @ 0x1404A083C (_tlgWriteEx_EtwWriteEx.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     _tlgKeywordOn @ 0x14041A970 (_tlgKeywordOn.c)
+ *     PsGetProcessId @ 0x140427BE0 (PsGetProcessId.c)
+ *     _tlgWriteEx_EtwWriteEx @ 0x14049AEBC (_tlgWriteEx_EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 char __fastcall MiLogHotPatchManagement(int a1, __int64 a2, unsigned __int16 *a3, int a4)
@@ -46,7 +46,7 @@ char __fastcall MiLogHotPatchManagement(int a1, __int64 a2, unsigned __int16 *a3
   _UNKNOWN *retaddr; // [rsp+130h] [rbp+28h] BYREF
 
   CurrentThread = (struct _KTHREAD *)&retaddr;
-  if ( *(_QWORD *)&qword_140E37518 )
+  if ( *(_QWORD *)&qword_140E37658 )
   {
     CurrentThread = KeGetCurrentThread();
     Process = CurrentThread->ApcState.Process;
@@ -54,14 +54,14 @@ char __fastcall MiLogHotPatchManagement(int a1, __int64 a2, unsigned __int16 *a3
     {
       if ( a1 == 3 )
       {
-        v9 = *(_QWORD *)&qword_140E37518;
-        if ( **(_DWORD **)&qword_140E37518 > 5u )
+        v9 = *(_QWORD *)&qword_140E37658;
+        if ( **(_DWORD **)&qword_140E37658 > 5u )
         {
-          LOBYTE(CurrentThread) = tlgKeywordOn(*(__int64 *)&qword_140E37518, 32LL);
+          LOBYTE(CurrentThread) = tlgKeywordOn(*(__int64 *)&qword_140E37658, 32LL);
           if ( (_BYTE)CurrentThread )
           {
             ProcessId = (unsigned int)PsGetProcessId(Process);
-            v11 = &byte_140056FDF;
+            v11 = &byte_1400576F7;
             v25 = 4LL;
             p_ProcessId = &ProcessId;
             v26 = &v19;
@@ -91,14 +91,14 @@ LABEL_15:
       }
       else if ( a1 == 7 )
       {
-        v9 = *(_QWORD *)&qword_140E37518;
-        if ( **(_DWORD **)&qword_140E37518 > 5u )
+        v9 = *(_QWORD *)&qword_140E37658;
+        if ( **(_DWORD **)&qword_140E37658 > 5u )
         {
-          LOBYTE(CurrentThread) = tlgKeywordOn(*(__int64 *)&qword_140E37518, 32LL);
+          LOBYTE(CurrentThread) = tlgKeywordOn(*(__int64 *)&qword_140E37658, 32LL);
           if ( (_BYTE)CurrentThread )
           {
             ProcessId = (unsigned int)PsGetProcessId(Process);
-            v11 = (char *)&byte_14005762D;
+            v11 = (char *)&byte_140057C83;
             v19 = a4;
             v31 = 8LL;
             p_ProcessId = &ProcessId;
@@ -121,14 +121,14 @@ LABEL_15:
     }
     else
     {
-      v9 = *(_QWORD *)&qword_140E37518;
-      if ( **(_DWORD **)&qword_140E37518 > 5u )
+      v9 = *(_QWORD *)&qword_140E37658;
+      if ( **(_DWORD **)&qword_140E37658 > 5u )
       {
-        LOBYTE(CurrentThread) = tlgKeywordOn(*(__int64 *)&qword_140E37518, 32LL);
+        LOBYTE(CurrentThread) = tlgKeywordOn(*(__int64 *)&qword_140E37658, 32LL);
         if ( (_BYTE)CurrentThread )
         {
           LODWORD(v21) = (unsigned int)PsGetProcessId(Process);
-          v11 = &byte_140056F6F;
+          v11 = &byte_140057777;
           v18 = a4;
           p_ProcessId = (unsigned int *)&v21;
           v26 = &v18;

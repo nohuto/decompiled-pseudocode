@@ -1,11 +1,11 @@
 /*
- * XREFs of PnpQueryDeviceText @ 0x1407983A8
+ * XREFs of PnpQueryDeviceText @ 0x140798598
  * Callers:
- *     PiProcessNewDeviceNode @ 0x140795748 (PiProcessNewDeviceNode.c)
+ *     PiProcessNewDeviceNode @ 0x140795938 (PiProcessNewDeviceNode.c)
  * Callees:
- *     memset @ 0x140435A00 (memset.c)
- *     IopSynchronousCall @ 0x1407683A4 (IopSynchronousCall.c)
- *     PiNormalizeDeviceText @ 0x140870EB8 (PiNormalizeDeviceText.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     IopSynchronousCall @ 0x140768594 (IopSynchronousCall.c)
+ *     PiNormalizeDeviceText @ 0x1408710F8 (PiNormalizeDeviceText.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

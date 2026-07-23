@@ -1,15 +1,15 @@
 /*
- * XREFs of MiUnmapLegacyAwePage @ 0x1406830EC
+ * XREFs of MiUnmapLegacyAwePage @ 0x1406842DC
  * Callers:
- *     MiBuildPhysicalPageFreeChain @ 0x140681434 (MiBuildPhysicalPageFreeChain.c)
+ *     MiBuildPhysicalPageFreeChain @ 0x140682624 (MiBuildPhysicalPageFreeChain.c)
  * Callees:
- *     MiInsertTbFlushEntry @ 0x1402432E0 (MiInsertTbFlushEntry.c)
- *     MiLockNestedPageTable @ 0x140285190 (MiLockNestedPageTable.c)
- *     MiUnlockWorkingSetShared @ 0x1402E0410 (MiUnlockWorkingSetShared.c)
- *     MiLockWorkingSetSharedAtDpc @ 0x1402E3A1C (MiLockWorkingSetSharedAtDpc.c)
- *     MiUnlockPageTableInternal @ 0x140321070 (MiUnlockPageTableInternal.c)
- *     MiUpdateAwePageTable @ 0x140474584 (MiUpdateAwePageTable.c)
- *     MiDecrementAweMapCount @ 0x14068190C (MiDecrementAweMapCount.c)
+ *     MiLockNestedPageTable @ 0x140201F50 (MiLockNestedPageTable.c)
+ *     MiLockWorkingSetSharedAtDpc @ 0x14020BF58 (MiLockWorkingSetSharedAtDpc.c)
+ *     MiInsertTbFlushEntry @ 0x1402137F0 (MiInsertTbFlushEntry.c)
+ *     MiUnlockWorkingSetShared @ 0x140241CF0 (MiUnlockWorkingSetShared.c)
+ *     MiUnlockPageTableInternal @ 0x1402C9C00 (MiUnlockPageTableInternal.c)
+ *     MiUpdateAwePageTable @ 0x14046E1F0 (MiUpdateAwePageTable.c)
+ *     MiDecrementAweMapCount @ 0x140682AFC (MiDecrementAweMapCount.c)
  */
 
 __int64 __fastcall MiUnmapLegacyAwePage(__int64 a1, unsigned __int64 a2, __int64 a3, __int64 a4)

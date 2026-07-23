@@ -1,49 +1,48 @@
 /*
- * XREFs of RtlSetLastWin32Error @ 0x180056610
+ * XREFs of RtlSetLastWin32Error @ 0x180040B90
  * Callers:
- *     RtlpWnfWalkUserSubscriptionList @ 0x18004FFD4 (RtlpWnfWalkUserSubscriptionList.c)
- *     EtwEventActivityIdControl @ 0x1800564E0 (EtwEventActivityIdControl.c)
- *     EtwNotificationRegister @ 0x1800571C0 (EtwNotificationRegister.c)
- *     EtwpSetProviderTraits @ 0x1800577F0 (EtwpSetProviderTraits.c)
- *     EtwEventRegister @ 0x180057A10 (EtwEventRegister.c)
- *     EtwRegisterTraceGuidsW @ 0x180058E60 (EtwRegisterTraceGuidsW.c)
- *     SbSelectProcedure @ 0x1800631F0 (SbSelectProcedure.c)
- *     SbObtainTraceHandle @ 0x1800647E0 (SbObtainTraceHandle.c)
- *     TppSetTimer @ 0x180069440 (TppSetTimer.c)
- *     EtwNotificationUnregister @ 0x18006D0E0 (EtwNotificationUnregister.c)
- *     MicrosoftTelemetryAssertTriggeredWorker @ 0x18006D830 (MicrosoftTelemetryAssertTriggeredWorker.c)
- *     EtwUnregisterTraceGuids @ 0x18006DF00 (EtwUnregisterTraceGuids.c)
- *     EtwGetTraceLoggerHandle @ 0x1800E4DF0 (EtwGetTraceLoggerHandle.c)
- *     EtwGetTraceEnableLevel @ 0x1800E4E60 (EtwGetTraceEnableLevel.c)
- *     EtwGetTraceEnableFlags @ 0x1800E4EB0 (EtwGetTraceEnableFlags.c)
- *     EvtIntReportEventWorker @ 0x1800E7270 (EvtIntReportEventWorker.c)
- *     RtlSetLastWin32ErrorAndNtStatusFromNtStatus @ 0x1800FDD90 (RtlSetLastWin32ErrorAndNtStatusFromNtStatus.c)
- *     EtwpTrackProviderBinary @ 0x180117EAC (EtwpTrackProviderBinary.c)
- *     EtwRegisterSecurityProvider @ 0x180158CB0 (EtwRegisterSecurityProvider.c)
- *     EtwpUseDescriptorType @ 0x180158D0C (EtwpUseDescriptorType.c)
- *     EtwCreateTraceInstanceId @ 0x180158E60 (EtwCreateTraceInstanceId.c)
+ *     RtlpWnfWalkUserSubscriptionList @ 0x18003A554 (RtlpWnfWalkUserSubscriptionList.c)
+ *     EtwEventActivityIdControl @ 0x180040A60 (EtwEventActivityIdControl.c)
+ *     EtwNotificationRegister @ 0x180041740 (EtwNotificationRegister.c)
+ *     EtwpSetProviderTraits @ 0x180041D70 (EtwpSetProviderTraits.c)
+ *     EtwEventRegister @ 0x180041F90 (EtwEventRegister.c)
+ *     EtwRegisterTraceGuidsW @ 0x1800433E0 (EtwRegisterTraceGuidsW.c)
+ *     SbSelectProcedure @ 0x180083640 (SbSelectProcedure.c)
+ *     SbObtainTraceHandle @ 0x180084C30 (SbObtainTraceHandle.c)
+ *     TppSetTimer @ 0x180089890 (TppSetTimer.c)
+ *     EtwNotificationUnregister @ 0x18008D530 (EtwNotificationUnregister.c)
+ *     MicrosoftTelemetryAssertTriggeredWorker @ 0x18008DC80 (MicrosoftTelemetryAssertTriggeredWorker.c)
+ *     EtwUnregisterTraceGuids @ 0x18008E350 (EtwUnregisterTraceGuids.c)
+ *     EtwGetTraceLoggerHandle @ 0x1800E2CA0 (EtwGetTraceLoggerHandle.c)
+ *     EtwGetTraceEnableLevel @ 0x1800E2D10 (EtwGetTraceEnableLevel.c)
+ *     EtwGetTraceEnableFlags @ 0x1800E2D60 (EtwGetTraceEnableFlags.c)
+ *     EvtIntReportEventWorker @ 0x1800E5CD0 (EvtIntReportEventWorker.c)
+ *     RtlSetLastWin32ErrorAndNtStatusFromNtStatus @ 0x1800FD4E0 (RtlSetLastWin32ErrorAndNtStatusFromNtStatus.c)
+ *     EtwpTrackProviderBinary @ 0x180117C5C (EtwpTrackProviderBinary.c)
+ *     EtwRegisterSecurityProvider @ 0x180158B80 (EtwRegisterSecurityProvider.c)
+ *     EtwpUseDescriptorType @ 0x180158BDC (EtwpUseDescriptorType.c)
+ *     EtwCreateTraceInstanceId @ 0x180158D30 (EtwCreateTraceInstanceId.c)
  * Callees:
  *     <none>
  */
 
-struct _TEB *__fastcall RtlSetLastWin32Error(unsigned int a1)
+void __cdecl RtlSetLastWin32Error(LONG Win32Error)
 {
-  struct _TEB *result; // rax
+  struct _TEB *v1; // rax
 
-  result = NtCurrentTeb();
-  if ( g_dwLastErrorToBreakOn && a1 == g_dwLastErrorToBreakOn )
+  v1 = NtCurrentTeb();
+  if ( g_dwLastErrorToBreakOn && Win32Error == g_dwLastErrorToBreakOn )
     __debugbreak();
-  if ( result->LastErrorValue != a1 )
+  if ( v1->LastErrorValue != Win32Error )
   {
-    result->LastErrorValue = a1;
-    if ( a1 )
+    v1->LastErrorValue = Win32Error;
+    if ( Win32Error )
     {
       if ( g_isErrorOriginProviderEnabled )
       {
-        if ( a1 != 997 )
-          return (struct _TEB *)RtlpLogSetLastWin32ErrorEvent();
+        if ( Win32Error != 997 )
+          RtlpLogSetLastWin32ErrorEvent();
       }
     }
   }
-  return result;
 }

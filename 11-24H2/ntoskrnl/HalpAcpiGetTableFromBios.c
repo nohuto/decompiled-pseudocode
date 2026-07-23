@@ -1,19 +1,20 @@
 /*
- * XREFs of HalpAcpiGetTableFromBios @ 0x1404787D0
+ * XREFs of HalpAcpiGetTableFromBios @ 0x14045FC60
  * Callers:
- *     HalpAcpiGetTableWork @ 0x14047856C (HalpAcpiGetTableWork.c)
- *     HalpAcpiIsCachedTableCompromised @ 0x140478708 (HalpAcpiIsCachedTableCompromised.c)
+ *     HalpAcpiGetTableWork @ 0x14045F9FC (HalpAcpiGetTableWork.c)
+ *     HalpAcpiIsCachedTableCompromised @ 0x14045FB98 (HalpAcpiIsCachedTableCompromised.c)
  * Callees:
- *     HalpAcpiCheckAndMapTable @ 0x140264C3C (HalpAcpiCheckAndMapTable.c)
- *     HalpAcpiGetTableWork @ 0x14047856C (HalpAcpiGetTableWork.c)
- *     HalpAcpiGetRsdt @ 0x1404789A4 (HalpAcpiGetRsdt.c)
+ *     HalpAcpiGetTableWork @ 0x14045F9FC (HalpAcpiGetTableWork.c)
+ *     HalpAcpiCheckAndMapTable @ 0x14045FE34 (HalpAcpiCheckAndMapTable.c)
+ *     HalpAcpiGetRsdt @ 0x14046014C (HalpAcpiGetRsdt.c)
  */
 
-_DWORD *__fastcall HalpAcpiGetTableFromBios(__int64 a1, int a2, char *Str1, char *a4, _DWORD *a5, __int64 *a6)
+_DWORD *__fastcall HalpAcpiGetTableFromBios(__int64 a1, int a2, char *Str1, char *a4, _DWORD *a5, _QWORD *a6)
 {
   _DWORD *v6; // r14
-  unsigned __int64 v7; // rbp
+  __int64 v7; // rbp
   __int64 v8; // rbx
+  int v12; // edi
   _DWORD *result; // rax
   _DWORD *v14; // rsi
   __int64 v15; // rax
@@ -25,16 +26,19 @@ _DWORD *__fastcall HalpAcpiGetTableFromBios(__int64 a1, int a2, char *Str1, char
   unsigned __int64 TableWork; // rax
   __int64 v22; // rax
   __int64 v23; // rcx
+  int v24; // [rsp+90h] [rbp+8h]
   __int64 v25; // [rsp+98h] [rbp+10h] BYREF
   char *v26; // [rsp+A0h] [rbp+18h]
   char *v27; // [rsp+A8h] [rbp+20h]
 
   v27 = a4;
   v26 = Str1;
+  v24 = a1;
   LODWORD(v25) = 0;
   v6 = 0LL;
   v7 = 0LL;
   v8 = 0LL;
+  v12 = a1;
   if ( a2 == 1413763922 || a2 == 1413763928 )
     return (_DWORD *)v7;
   if ( a2 == 1413763908 )
@@ -44,7 +48,7 @@ _DWORD *__fastcall HalpAcpiGetTableFromBios(__int64 a1, int a2, char *Str1, char
       return (_DWORD *)v7;
     if ( *(_BYTE *)(TableWork + 8) < 3u || (v8 = *(_QWORD *)(TableWork + 140)) == 0 )
       v8 = *(unsigned int *)(TableWork + 40);
-    v7 = HalpAcpiCheckAndMapTable(a1, v8, 0x24u, 1413763908, Str1, a4, 1, &v25);
+    v7 = HalpAcpiCheckAndMapTable(v12, v8, 36, 1413763908, Str1, a4, 1, (__int64)&v25);
 LABEL_15:
     *a5 = v25;
     if ( v7 )
@@ -84,7 +88,7 @@ LABEL_15:
           v8 = *v20;
         else
           v8 = *v19;
-        v7 = HalpAcpiCheckAndMapTable(a1, v8, 0x24u, a2, v26, v27, 1, &v25);
+        v7 = HalpAcpiCheckAndMapTable(v24, v8, 36, a2, v26, v27, 1, (__int64)&v25);
         if ( v7 )
           break;
         ++v18;

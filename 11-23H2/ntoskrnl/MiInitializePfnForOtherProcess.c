@@ -1,20 +1,20 @@
 /*
- * XREFs of MiInitializePfnForOtherProcess @ 0x1402E3F60
+ * XREFs of MiInitializePfnForOtherProcess @ 0x1402E41F0
  * Callers:
- *     MiInitializeSystemPageTable @ 0x1402E45A8 (MiInitializeSystemPageTable.c)
- *     MiDemoteValidLargePageOneLevel @ 0x14038F6A4 (MiDemoteValidLargePageOneLevel.c)
- *     MiMakeOutswappedPageResident @ 0x14061856C (MiMakeOutswappedPageResident.c)
- *     MiDuplicateCloneLeaf @ 0x140664088 (MiDuplicateCloneLeaf.c)
- *     MiMapPageFileHash @ 0x1406662EC (MiMapPageFileHash.c)
- *     MiAllocateTopLevelPage @ 0x140706194 (MiAllocateTopLevelPage.c)
- *     MiInitializeShadowPageTable @ 0x14081DF00 (MiInitializeShadowPageTable.c)
+ *     MiInitializeSystemPageTable @ 0x1402E4838 (MiInitializeSystemPageTable.c)
+ *     MiDemoteValidLargePageOneLevel @ 0x14038F884 (MiDemoteValidLargePageOneLevel.c)
+ *     MiMakeOutswappedPageResident @ 0x140618ABC (MiMakeOutswappedPageResident.c)
+ *     MiDuplicateCloneLeaf @ 0x1406645D8 (MiDuplicateCloneLeaf.c)
+ *     MiMapPageFileHash @ 0x14066683C (MiMapPageFileHash.c)
+ *     MiAllocateTopLevelPage @ 0x1407063A4 (MiAllocateTopLevelPage.c)
+ *     MiInitializeShadowPageTable @ 0x14081E1D0 (MiInitializeShadowPageTable.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x140242E40 (KeYieldProcessorEx.c)
- *     MiSwizzleInvalidPte @ 0x1402857A0 (MiSwizzleInvalidPte.c)
- *     MiSetPfnPteFrame @ 0x1402E15A0 (MiSetPfnPteFrame.c)
- *     MiLockAndIncrementShareCount @ 0x1402E3DA8 (MiLockAndIncrementShareCount.c)
- *     MiLockPageInline @ 0x1402EF680 (MiLockPageInline.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeYieldProcessorEx @ 0x140242F10 (KeYieldProcessorEx.c)
+ *     MiSwizzleInvalidPte @ 0x140285A30 (MiSwizzleInvalidPte.c)
+ *     MiSetPfnPteFrame @ 0x1402E1830 (MiSetPfnPteFrame.c)
+ *     MiLockAndIncrementShareCount @ 0x1402E4038 (MiLockAndIncrementShareCount.c)
+ *     MiLockPageInline @ 0x1402EF910 (MiLockPageInline.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiInitializePfnForOtherProcess(__int64 a1, __int64 a2, __int64 a3, __int16 a4)
@@ -75,10 +75,10 @@ __int64 __fastcall MiInitializePfnForOtherProcess(__int64 a1, __int64 a2, __int6
   _InterlockedAnd64((volatile signed __int64 *)(v8 + 24), 0x7FFFFFFFFFFFFFFFuLL);
   if ( v9 != 17 )
   {
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v9 <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v9 <= 0xFu && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;

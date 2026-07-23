@@ -88,7 +88,7 @@ void __fastcall ObpPushStackInfo(__int64 a1, char a2, unsigned __int16 a3, int a
           if ( CanThreadFault )
             ObpPushRefDerefInfo(a1, v12, a3, v11, BackTrace, a4);
           else
-            ObpDeferPushRefDerefInfo(a1, a2, a3, v11, (struct _SLIST_ENTRY *)BackTrace, a4);
+            ObpDeferPushRefDerefInfo(a1, a2, a3, v11, (_SLIST_ENTRY *)BackTrace, a4);
         }
       }
     }

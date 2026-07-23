@@ -1,163 +1,165 @@
 /*
- * XREFs of NtDeleteWnfStateName @ 0x14060D3C0
+ * XREFs of NtDeleteWnfStateName @ 0x14069CE70
  * Callers:
  *     <none>
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
- *     ExReleaseRundownProtection_0 @ 0x14027C4F0 (ExReleaseRundownProtection_0.c)
- *     ExpCaptureWnfStateName @ 0x14060F344 (ExpCaptureWnfStateName.c)
- *     ExpWnfLookupNameInstance @ 0x14060F3B4 (ExpWnfLookupNameInstance.c)
- *     ExpWnfResolveScopeInstance @ 0x14060F4B4 (ExpWnfResolveScopeInstance.c)
- *     ExpWnfCheckCallerAccess @ 0x14060FAA0 (ExpWnfCheckCallerAccess.c)
- *     ExpWnfNotifyNameSubscribers @ 0x14061088C (ExpWnfNotifyNameSubscribers.c)
- *     ExpWnfDeleteNameInstance @ 0x140610DD0 (ExpWnfDeleteNameInstance.c)
- *     ExpWnfLookupPermanentName @ 0x14062C1A8 (ExpWnfLookupPermanentName.c)
- *     ExpWnfEnumerateScopeInstances @ 0x1406C0B18 (ExpWnfEnumerateScopeInstances.c)
- *     ExpWnfDeletePermanentName @ 0x1406C3388 (ExpWnfDeletePermanentName.c)
- *     ExpWnfDeletePermanentStateData @ 0x14095CB14 (ExpWnfDeletePermanentStateData.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExReleaseRundownProtection @ 0x14026A490 (ExReleaseRundownProtection.c)
+ *     KeLeaveCriticalRegionThread @ 0x1402AB8C0 (KeLeaveCriticalRegionThread.c)
+ *     ExpWnfEnumerateScopeInstances @ 0x14061FA28 (ExpWnfEnumerateScopeInstances.c)
+ *     ExpWnfDeletePermanentName @ 0x140621F90 (ExpWnfDeletePermanentName.c)
+ *     ExpWnfLookupPermanentName @ 0x140663338 (ExpWnfLookupPermanentName.c)
+ *     ExpCaptureWnfStateName @ 0x14069EDF4 (ExpCaptureWnfStateName.c)
+ *     ExpWnfLookupNameInstance @ 0x14069EE64 (ExpWnfLookupNameInstance.c)
+ *     ExpWnfResolveScopeInstance @ 0x14069EF64 (ExpWnfResolveScopeInstance.c)
+ *     ExpWnfCheckCallerAccess @ 0x14069F550 (ExpWnfCheckCallerAccess.c)
+ *     ExpWnfNotifyNameSubscribers @ 0x1406A033C (ExpWnfNotifyNameSubscribers.c)
+ *     ExpWnfDeleteNameInstance @ 0x1406A0880 (ExpWnfDeleteNameInstance.c)
+ *     ExpWnfDeletePermanentStateData @ 0x14095CCD4 (ExpWnfDeletePermanentStateData.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall NtDeleteWnfStateName(__int64 a1)
+NTSTATUS __cdecl NtDeleteWnfStateName(PCWNF_STATE_NAME StateName)
 {
   struct _KTHREAD *CurrentThread; // rax
   struct _EX_RUNDOWN_REF *v2; // r14
-  int v3; // esi
-  char v4; // r8
-  unsigned __int64 v5; // rbx
-  unsigned __int64 v6; // r13
-  __int64 v7; // rcx
-  __int64 v8; // r15
-  BOOL v9; // r12d
+  __int64 v3; // rdx
+  NTSTATUS v4; // esi
+  __int64 v5; // r8
+  __int64 v6; // r9
+  unsigned __int64 v7; // rbx
+  unsigned __int64 v8; // r13
+  unsigned __int64 v9; // rcx
+  unsigned __int64 v10; // r15
+  _BOOL8 v11; // r12
   _KPROCESS *Process; // rax
-  int v11; // r13d
-  __int64 v12; // r8
-  struct _EX_RUNDOWN_REF *v14; // [rsp+38h] [rbp-70h] BYREF
-  int v15[2]; // [rsp+40h] [rbp-68h] BYREF
-  unsigned __int64 v16; // [rsp+48h] [rbp-60h] BYREF
+  int v13; // r13d
+  __int64 v14; // r8
+  struct _EX_RUNDOWN_REF *v16; // [rsp+38h] [rbp-70h] BYREF
+  int v17[2]; // [rsp+40h] [rbp-68h] BYREF
+  unsigned __int64 v18; // [rsp+48h] [rbp-60h] BYREF
   PVOID P; // [rsp+50h] [rbp-58h] BYREF
-  __int64 v18; // [rsp+58h] [rbp-50h]
+  unsigned __int64 v20; // [rsp+58h] [rbp-50h]
   char PreviousMode; // [rsp+B8h] [rbp+10h]
-  int v20; // [rsp+C0h] [rbp+18h]
-  _KPROCESS *v21; // [rsp+C8h] [rbp+20h]
+  int v22; // [rsp+C0h] [rbp+18h]
+  _KPROCESS *v23; // [rsp+C8h] [rbp+20h]
 
-  v16 = 0LL;
+  v18 = 0LL;
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
-  v20 = 0;
+  v22 = 0;
   P = 0LL;
   v2 = 0LL;
-  *(_QWORD *)v15 = 0LL;
-  v14 = 0LL;
-  v3 = ExpCaptureWnfStateName(a1, &v16);
-  if ( v3 >= 0 )
+  *(_QWORD *)v17 = 0LL;
+  v16 = 0LL;
+  v4 = ExpCaptureWnfStateName(StateName, &v18, PreviousMode);
+  if ( v4 >= 0 )
   {
-    v5 = v16;
-    v6 = v16 >> 4;
-    v7 = (v16 >> 6) & 0xF;
-    v18 = v7;
-    v8 = (v16 >> 4) & 3;
-    if ( ((v16 >> 4) & 3) == 0 )
+    v7 = v18;
+    v8 = v18 >> 4;
+    v9 = (v18 >> 6) & 0xF;
+    v20 = v9;
+    v10 = (v18 >> 4) & 3;
+    if ( ((v18 >> 4) & 3) == 0 )
     {
-      v3 = -1073741811;
+      v4 = -1073741811;
       goto LABEL_19;
     }
-    v9 = v4 == 0;
-    if ( (_DWORD)v8 != 3 )
+    v11 = (_BYTE)v5 == 0;
+    if ( (_DWORD)v10 != 3 )
     {
-      if ( v4 )
+      if ( (_BYTE)v5 )
       {
-        v3 = ExpWnfLookupPermanentName(v16, &P);
-        if ( v3 < 0 )
+        v4 = ExpWnfLookupPermanentName(v18, (PSECURITY_DESCRIPTOR **)&P);
+        if ( v4 < 0 )
           goto LABEL_19;
-        v3 = ExpWnfCheckCallerAccess(*((PSECURITY_DESCRIPTOR *)P + 2), 0x10000u);
-        if ( v3 < 0 )
+        v4 = ExpWnfCheckCallerAccess(*((PSECURITY_DESCRIPTOR *)P + 2), 0x10000u);
+        if ( v4 < 0 )
           goto LABEL_19;
-        v9 = 1;
+        LODWORD(v11) = 1;
       }
-      v3 = ExpWnfDeletePermanentName(v5);
-      if ( v3 < 0 )
+      v4 = ExpWnfDeletePermanentName(v7);
+      if ( v4 < 0 )
         goto LABEL_19;
-      v20 = 1;
-      v7 = v18;
-      v4 = PreviousMode;
+      v22 = 1;
+      v9 = v20;
+      LOBYTE(v5) = PreviousMode;
     }
-    if ( v4 )
+    if ( (_BYTE)v5 )
     {
       Process = KeGetCurrentThread()->ApcState.Process;
-      v5 = v16;
+      v7 = v18;
     }
     else
     {
       Process = PsInitialSystemProcess;
     }
-    v21 = Process;
-    if ( (_DWORD)v8 == 3 )
+    v23 = Process;
+    if ( (_DWORD)v10 == 3 )
     {
-      v3 = ExpWnfResolveScopeInstance((int)v15, (int)Process, 0, v7, 0LL);
-      v2 = *(struct _EX_RUNDOWN_REF **)v15;
-      if ( v3 < 0 )
+      v4 = ExpWnfResolveScopeInstance((int)v17, (int)Process, 0, v9, 0LL);
+      v2 = *(struct _EX_RUNDOWN_REF **)v17;
+      if ( v4 < 0 )
         goto LABEL_19;
     }
     else
     {
-      v3 = 0;
-      v2 = (struct _EX_RUNDOWN_REF *)ExpWnfEnumerateScopeInstances(v7, 0LL);
+      v4 = 0;
+      v2 = ExpWnfEnumerateScopeInstances(v9, 0LL);
     }
     if ( v2 )
     {
-      v11 = v6 & 3;
+      v13 = v8 & 3;
       while ( 1 )
       {
-        v3 = ExpWnfLookupNameInstance(v2, v5, &v14);
-        if ( v3 >= 0 )
+        v4 = ExpWnfLookupNameInstance(v2, v7, &v16);
+        if ( v4 >= 0 )
         {
-          if ( !v9 )
+          if ( !v11 )
           {
-            v3 = ExpWnfCheckCallerAccess(v14[9].Ptr, 0x10000u);
-            if ( v3 < 0 )
+            v4 = ExpWnfCheckCallerAccess(v16[9].Ptr, 0x10000u);
+            if ( v4 < 0 )
               goto LABEL_19;
-            v9 = 1;
+            LODWORD(v11) = 1;
           }
-          if ( v11 == 3LL && (_KPROCESS *)v14[19].Count != v21 )
+          if ( v13 == 3LL && (_KPROCESS *)v16[19].Count != v23 )
           {
-            v3 = -1073741790;
+            v4 = -1073741790;
             goto LABEL_19;
           }
-          ExpWnfNotifyNameSubscribers(v14, 16LL, 1LL, PreviousMode != 0);
-          LOBYTE(v12) = 1;
-          if ( (unsigned int)ExpWnfDeleteNameInstance(v2, v14, v12) )
-            v14 = 0LL;
+          ExpWnfNotifyNameSubscribers(v16, 16LL, 1LL, PreviousMode != 0);
+          LOBYTE(v14) = 1;
+          if ( (unsigned int)ExpWnfDeleteNameInstance(v2, v16, v14) )
+            v16 = 0LL;
           else
-            v3 = -1073741772;
+            v4 = -1073741772;
         }
-        if ( v11 != 3LL )
+        if ( v13 != 3LL )
         {
-          if ( v14 )
+          if ( v16 )
           {
-            ExReleaseRundownProtection_0(v14 + 1);
-            v14 = 0LL;
+            ExReleaseRundownProtection(v16 + 1);
+            v16 = 0LL;
           }
-          v2 = (struct _EX_RUNDOWN_REF *)ExpWnfEnumerateScopeInstances((unsigned int)v18, v2);
+          v2 = ExpWnfEnumerateScopeInstances((unsigned int)v20, v2);
           if ( v2 )
             continue;
         }
         break;
       }
     }
-    if ( (v5 & 0x400) != 0 )
-      ExpWnfDeletePermanentStateData(0LL, v5);
+    if ( (v7 & 0x400) != 0 )
+      ExpWnfDeletePermanentStateData(0LL, v7);
   }
 LABEL_19:
-  if ( v20 )
-    v3 = 0;
-  if ( v14 )
-    ExReleaseRundownProtection_0(v14 + 1);
+  if ( v22 )
+    v4 = 0;
+  if ( v16 )
+    ExReleaseRundownProtection(v16 + 1);
   if ( v2 )
-    ExReleaseRundownProtection_0(v2 + 1);
+    ExReleaseRundownProtection(v2 + 1);
   if ( P )
     ExFreePoolWithTag(P, 0x20666E57u);
-  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
-  return (unsigned int)v3;
+  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v3, v5, v6);
+  return v4;
 }

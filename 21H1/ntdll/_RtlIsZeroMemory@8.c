@@ -6,28 +6,29 @@
  *     <none>
  */
 
-char __stdcall RtlIsZeroMemory(_BYTE *a1, unsigned int a2)
+BOOLEAN __cdecl RtlIsZeroMemory(PVOID Buffer, SIZE_T Length)
 {
-  while ( ((unsigned __int8)a1 & 3) != 0 && a2 )
+  unsigned int i; // ecx
+
+  for ( i = Length; ((unsigned __int8)Buffer & 3) != 0 && i; --i )
   {
-    if ( *a1 )
+    if ( *(_BYTE *)Buffer )
       return 0;
-    ++a1;
-    --a2;
+    Buffer = (char *)Buffer + 1;
   }
-  while ( a2 >= 4 )
+  while ( i >= 4 )
   {
-    if ( *(_DWORD *)a1 )
+    if ( *(_DWORD *)Buffer )
       return 0;
-    a1 += 4;
-    a2 -= 4;
+    Buffer = (char *)Buffer + 4;
+    i -= 4;
   }
-  if ( !a2 )
+  if ( !i )
     return 1;
-  while ( !*a1 )
+  while ( !*(_BYTE *)Buffer )
   {
-    ++a1;
-    if ( !--a2 )
+    Buffer = (char *)Buffer + 1;
+    if ( !--i )
       return 1;
   }
   return 0;

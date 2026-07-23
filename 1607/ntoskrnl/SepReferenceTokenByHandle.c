@@ -1,16 +1,16 @@
 /*
- * XREFs of SepReferenceTokenByHandle @ 0x14000E870
+ * XREFs of SepReferenceTokenByHandle @ 0x14000E3F0
  * Callers:
- *     NtQuerySecurityAttributesToken @ 0x14040F420 (NtQuerySecurityAttributesToken.c)
- *     NtQueryInformationToken @ 0x14040F810 (NtQueryInformationToken.c)
+ *     NtQuerySecurityAttributesToken @ 0x14040E2E0 (NtQuerySecurityAttributesToken.c)
+ *     NtQueryInformationToken @ 0x14040E6D0 (NtQueryInformationToken.c)
  * Callees:
- *     SepSidFromProcessProtection @ 0x14000EA20 (SepSidFromProcessProtection.c)
- *     ObfDereferenceObjectWithTag @ 0x14006ACD0 (ObfDereferenceObjectWithTag.c)
- *     RtlIsValidProcessTrustLabelSid @ 0x1400D3D9C (RtlIsValidProcessTrustLabelSid.c)
- *     PsReferenceImpersonationTokenEx @ 0x140412120 (PsReferenceImpersonationTokenEx.c)
- *     PsReferenceEffectiveToken @ 0x1404124C0 (PsReferenceEffectiveToken.c)
- *     PsReferencePrimaryToken @ 0x140418C20 (PsReferencePrimaryToken.c)
- *     ObReferenceObjectByHandle @ 0x140450D40 (ObReferenceObjectByHandle.c)
+ *     SepSidFromProcessProtection @ 0x14000E5A0 (SepSidFromProcessProtection.c)
+ *     ObfDereferenceObjectWithTag @ 0x14006A850 (ObfDereferenceObjectWithTag.c)
+ *     RtlIsValidProcessTrustLabelSid @ 0x1400D1C3C (RtlIsValidProcessTrustLabelSid.c)
+ *     PsReferenceImpersonationTokenEx @ 0x140410FE0 (PsReferenceImpersonationTokenEx.c)
+ *     PsReferenceEffectiveToken @ 0x140411380 (PsReferenceEffectiveToken.c)
+ *     PsReferencePrimaryToken @ 0x140417AE0 (PsReferencePrimaryToken.c)
+ *     ObReferenceObjectByHandle @ 0x14044FC10 (ObReferenceObjectByHandle.c)
  */
 
 __int64 __fastcall SepReferenceTokenByHandle(
@@ -27,9 +27,9 @@ __int64 __fastcall SepReferenceTokenByHandle(
   bool v11; // zf
   unsigned int CurrentThread; // ecx
   void *v13; // rax
-  __int64 v14; // rax
+  void *v14; // rax
   void *v15; // r9
-  __int64 v16; // r10
+  void *v16; // r10
   __int64 v17; // r11
   __int64 v18; // r10
   int v19; // [rsp+30h] [rbp-18h] BYREF
@@ -76,12 +76,12 @@ __int64 __fastcall SepReferenceTokenByHandle(
 LABEL_9:
       *v6 = 0;
       *v7 = 0LL;
-      v14 = SepSidFromProcessProtection(&a5);
-      if ( v14 && !(unsigned __int8)RtlIsValidProcessTrustLabelSid(v14) )
+      v14 = (void *)SepSidFromProcessProtection(&a5);
+      if ( v14 && !RtlIsValidProcessTrustLabelSid(v14) )
         goto LABEL_25;
       if ( v16 )
       {
-        if ( !(unsigned __int8)RtlIsValidProcessTrustLabelSid(v16) )
+        if ( !RtlIsValidProcessTrustLabelSid(v16) )
           goto LABEL_25;
         if ( v17 )
         {

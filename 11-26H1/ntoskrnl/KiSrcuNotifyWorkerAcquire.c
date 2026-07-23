@@ -1,10 +1,10 @@
 /*
- * XREFs of KiSrcuNotifyWorkerAcquire @ 0x1405F5694
+ * XREFs of KiSrcuNotifyWorkerAcquire @ 0x1405F8054
  * Callers:
- *     KiSrcuNotifyGracePeriodStarted @ 0x1405290A4 (KiSrcuNotifyGracePeriodStarted.c)
- *     KeSrcuFree @ 0x1405F4FC0 (KeSrcuFree.c)
+ *     KiSrcuNotifyGracePeriodStarted @ 0x14052B694 (KiSrcuNotifyGracePeriodStarted.c)
+ *     KeSrcuFree @ 0x1405F7980 (KeSrcuFree.c)
  * Callees:
- *     KeRemoveQueueDpcEx @ 0x140423370 (KeRemoveQueueDpcEx.c)
+ *     KeRemoveQueueDpcEx @ 0x140430460 (KeRemoveQueueDpcEx.c)
  */
 
 _BOOL8 __fastcall KiSrcuNotifyWorkerAcquire(__int64 a1, int a2, unsigned __int32 a3)

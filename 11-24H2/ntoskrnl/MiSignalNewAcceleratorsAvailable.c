@@ -1,16 +1,16 @@
 /*
- * XREFs of MiSignalNewAcceleratorsAvailable @ 0x140690CD4
+ * XREFs of MiSignalNewAcceleratorsAvailable @ 0x140691DA4
  * Callers:
- *     MiAcceptNewAccelerators @ 0x140800064 (MiAcceptNewAccelerators.c)
+ *     MiAcceptNewAccelerators @ 0x1408007A4 (MiAcceptNewAccelerators.c)
  * Callees:
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14020FA40 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140210170 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     KeSetEvent @ 0x1402725A0 (KeSetEvent.c)
- *     MiReleaseSpinLockExclusive @ 0x14028EE30 (MiReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x14028F370 (ExAcquireSpinLockExclusive.c)
- *     PsGetNextPartition @ 0x1403D42FC (PsGetNextPartition.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     KeSetEvent @ 0x140227B30 (KeSetEvent.c)
+ *     PsGetNextPartition @ 0x14026227C (PsGetNextPartition.c)
+ *     MiReleaseSpinLockExclusive @ 0x14029EA30 (MiReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14029EF70 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140338DA0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1403394D0 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __fastcall MiSignalNewAcceleratorsAvailable(__int64 *a1)
@@ -50,14 +50,14 @@ void __fastcall MiSignalNewAcceleratorsAvailable(__int64 *a1)
   v30 = 0LL;
   v31 = 0;
   v2 = 0;
-  v3 = ExAcquireSpinLockExclusive(&dword_140E37468);
+  v3 = ExAcquireSpinLockExclusive(&dword_140E375A8);
   v29 = v3;
-  if ( !byte_140E37454 )
+  if ( !byte_140E37594 )
   {
     while ( 1 )
     {
       v4 = *a1;
-      if ( (__int64 *)*a1 == a1 || word_140E2DAEA == -1 )
+      if ( (__int64 *)*a1 == a1 || word_140E2DC2A == -1 )
         break;
       if ( *(__int64 **)(v4 + 8) != a1 )
         goto LABEL_17;
@@ -67,7 +67,7 @@ void __fastcall MiSignalNewAcceleratorsAvailable(__int64 *a1)
       *a1 = v5;
       *(_QWORD *)(v5 + 8) = a1;
       v6 = *(unsigned int *)(v4 + 24);
-      v7 = *(_QWORD *)(384 * v6 + qword_140E2DAF8 + 376);
+      v7 = *(_QWORD *)(384 * v6 + qword_140E2DC38 + 376);
       ExAcquireSpinLockExclusiveAtDpcLevel((PEX_SPIN_LOCK)(v7 + 64));
       if ( *(_WORD *)(v7 + 18) == 0xFFFF )
       {
@@ -83,24 +83,24 @@ LABEL_17:
         break;
       }
       *((_BYTE *)&v30 + (v6 >> 3)) |= 1 << (v6 & 7);
-      v8 = (__int64 *)qword_140E37448;
-      if ( *(__int64 **)qword_140E37448 != &qword_140E37440 )
+      v8 = (__int64 *)qword_140E37588;
+      if ( *(__int64 **)qword_140E37588 != &qword_140E37580 )
         goto LABEL_17;
-      *(_QWORD *)(v4 + 8) = qword_140E37448;
-      *(_QWORD *)v4 = &qword_140E37440;
+      *(_QWORD *)(v4 + 8) = qword_140E37588;
+      *(_QWORD *)v4 = &qword_140E37580;
       *v8 = v4;
-      qword_140E37448 = v4;
-      ++dword_140E37450;
+      qword_140E37588 = v4;
+      ++dword_140E37590;
       ++*(_WORD *)(v7 + 18);
       ++*(_WORD *)(v7 + 24);
-      ++word_140E2DAEA;
-      ++word_140E2DAF0;
+      ++word_140E2DC2A;
+      ++word_140E2DC30;
       ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(v7 + 64));
       v2 = 1;
     }
     v3 = v29;
   }
-  MiReleaseSpinLockExclusive(&dword_140E37468, v3);
+  MiReleaseSpinLockExclusive(&dword_140E375A8, v3);
   while ( 1 )
   {
     v10 = (__int64 *)*a1;

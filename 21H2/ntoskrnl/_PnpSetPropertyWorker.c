@@ -1,17 +1,17 @@
 /*
- * XREFs of _PnpSetPropertyWorker @ 0x1407467E0
+ * XREFs of _PnpSetPropertyWorker @ 0x1407469A0
  * Callers:
- *     _PnpSetGenericStoreProperty @ 0x140746798 (_PnpSetGenericStoreProperty.c)
+ *     _PnpSetGenericStoreProperty @ 0x140746958 (_PnpSetGenericStoreProperty.c)
  * Callees:
- *     RtlUnalignedStringCchLengthW @ 0x1402659E4 (RtlUnalignedStringCchLengthW.c)
- *     RtlStringCchPrintfExW @ 0x140265B34 (RtlStringCchPrintfExW.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     swprintf_s @ 0x1403D68F0 (swprintf_s.c)
- *     ZwClose @ 0x1403FA580 (ZwClose.c)
- *     _PnpCtxRegCreateKey @ 0x14063B560 (_PnpCtxRegCreateKey.c)
- *     _PnpOpenPropertiesKey @ 0x1406454C4 (_PnpOpenPropertiesKey.c)
- *     _RegRtlDeleteTreeInternal @ 0x140766974 (_RegRtlDeleteTreeInternal.c)
- *     _RegRtlSetValue @ 0x140768AF4 (_RegRtlSetValue.c)
+ *     RtlUnalignedStringCchLengthW @ 0x140253984 (RtlUnalignedStringCchLengthW.c)
+ *     RtlStringCchPrintfExW @ 0x140253AD4 (RtlStringCchPrintfExW.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     swprintf_s @ 0x1403D6A60 (swprintf_s.c)
+ *     ZwClose @ 0x1403FA760 (ZwClose.c)
+ *     _PnpCtxRegCreateKey @ 0x140630370 (_PnpCtxRegCreateKey.c)
+ *     _PnpOpenPropertiesKey @ 0x14063A2D4 (_PnpOpenPropertiesKey.c)
+ *     _RegRtlDeleteTreeInternal @ 0x140766B34 (_RegRtlDeleteTreeInternal.c)
+ *     _RegRtlSetValue @ 0x140768CB4 (_RegRtlSetValue.c)
  */
 
 __int64 __fastcall PnpSetPropertyWorker(

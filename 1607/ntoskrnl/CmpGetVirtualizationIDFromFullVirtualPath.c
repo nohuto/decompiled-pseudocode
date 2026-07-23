@@ -2,7 +2,7 @@
  * XREFs of CmpGetVirtualizationIDFromFullVirtualPath @ 0x1403E18A0
  * Callers:
  *     CmpGetCmHiveFromVirtualPath @ 0x1403E176C (CmpGetCmHiveFromVirtualPath.c)
- *     CmKeyBodyReplicateToVirtual @ 0x140600020 (CmKeyBodyReplicateToVirtual.c)
+ *     CmKeyBodyReplicateToVirtual @ 0x1406000D4 (CmKeyBodyReplicateToVirtual.c)
  * Callees:
  *     <none>
  */

@@ -1,21 +1,21 @@
 /*
- * XREFs of RtlValidSecurityDescriptor @ 0x1404BCD44
+ * XREFs of RtlValidSecurityDescriptor @ 0x1404A8A74
  * Callers:
- *     ObOpenObjectByNameEx @ 0x140419070 (ObOpenObjectByNameEx.c)
- *     ObInsertObjectEx @ 0x14041EF00 (ObInsertObjectEx.c)
- *     ObpAdjustAccessMask @ 0x14049A0D4 (ObpAdjustAccessMask.c)
- *     _PnpOpenPropertiesKey @ 0x1404FAC30 (_PnpOpenPropertiesKey.c)
- *     _CmGetDeviceRegKeySecurityDescriptor @ 0x140570E50 (_CmGetDeviceRegKeySecurityDescriptor.c)
- *     _PnpGetEnumSecurityDescriptor @ 0x14057B14C (_PnpGetEnumSecurityDescriptor.c)
- *     ObpSetObjectAuditInfo @ 0x14066637C (ObpSetObjectAuditInfo.c)
- *     CMFCreateSecurityDescriptor @ 0x1406B889C (CMFCreateSecurityDescriptor.c)
- *     _PnpGetPropertiesSecurityDescriptor @ 0x1406DFC6C (_PnpGetPropertiesSecurityDescriptor.c)
- *     DrvDbGetSecurityDescriptor @ 0x1406E3658 (DrvDbGetSecurityDescriptor.c)
+ *     ObpAdjustAccessMask @ 0x1403E4704 (ObpAdjustAccessMask.c)
+ *     ObOpenObjectByNameEx @ 0x140417F30 (ObOpenObjectByNameEx.c)
+ *     ObInsertObjectEx @ 0x14041DDC0 (ObInsertObjectEx.c)
+ *     _PnpOpenPropertiesKey @ 0x1404DDBBC (_PnpOpenPropertiesKey.c)
+ *     _CmGetDeviceRegKeySecurityDescriptor @ 0x140571390 (_CmGetDeviceRegKeySecurityDescriptor.c)
+ *     _PnpGetEnumSecurityDescriptor @ 0x14057B5F8 (_PnpGetEnumSecurityDescriptor.c)
+ *     ObpSetObjectAuditInfo @ 0x140666460 (ObpSetObjectAuditInfo.c)
+ *     CMFCreateSecurityDescriptor @ 0x1406B89D4 (CMFCreateSecurityDescriptor.c)
+ *     _PnpGetPropertiesSecurityDescriptor @ 0x1406DFDA4 (_PnpGetPropertiesSecurityDescriptor.c)
+ *     DrvDbGetSecurityDescriptor @ 0x1406E3790 (DrvDbGetSecurityDescriptor.c)
  *     PiAuCreateLocalSystemSecurityObject @ 0x1407B33F4 (PiAuCreateLocalSystemSecurityObject.c)
  *     PiAuCreateStandardSecurityObject @ 0x1407B375C (PiAuCreateStandardSecurityObject.c)
  * Callees:
- *     RtlValidSid @ 0x1404217D0 (RtlValidSid.c)
- *     RtlValidAcl @ 0x140421940 (RtlValidAcl.c)
+ *     RtlValidSid @ 0x140420690 (RtlValidSid.c)
+ *     RtlValidAcl @ 0x140420800 (RtlValidAcl.c)
  */
 
 BOOLEAN __stdcall RtlValidSecurityDescriptor(PSECURITY_DESCRIPTOR SecurityDescriptor)

@@ -1,12 +1,12 @@
 /*
- * XREFs of MiWalkAllFreeZeroLists @ 0x14042F800
+ * XREFs of MiWalkAllFreeZeroLists @ 0x14041C710
  * Callers:
- *     MiMirrorPurgePartitionPages @ 0x1406EFE60 (MiMirrorPurgePartitionPages.c)
- *     MiLockMemoryLists @ 0x140703960 (MiLockMemoryLists.c)
- *     MiMirrorNodeFreeZeroPages @ 0x140BE94D4 (MiMirrorNodeFreeZeroPages.c)
+ *     MiMirrorPurgePartitionPages @ 0x1406F4AD0 (MiMirrorPurgePartitionPages.c)
+ *     MiLockMemoryLists @ 0x140708630 (MiLockMemoryLists.c)
+ *     MiMirrorNodeFreeZeroPages @ 0x140BEF4D4 (MiMirrorNodeFreeZeroPages.c)
  * Callees:
- *     MiGetColorHeadBase @ 0x14042F950 (MiGetColorHeadBase.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     MiGetColorHeadBase @ 0x14041C860 (MiGetColorHeadBase.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall MiWalkAllFreeZeroLists(__int64 a1, __int64 a2, __int64 a3)
@@ -21,10 +21,10 @@ __int64 __fastcall MiWalkAllFreeZeroLists(__int64 a1, __int64 a2, __int64 a3)
   int k; // ebp
   char v12; // [rsp+80h] [rbp+8h]
 
-  v3 = byte_140E2D718;
+  v3 = byte_140E2D898;
   v4 = 0;
   v5 = *(_QWORD *)(a1 + 16);
-  v12 = byte_140E2D718;
+  v12 = byte_140E2D898;
 LABEL_2:
   if ( v4 >= (unsigned __int16)KeNumberNodes )
     return 1LL;

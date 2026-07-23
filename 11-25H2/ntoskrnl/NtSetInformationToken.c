@@ -156,7 +156,7 @@ NTSTATUS __stdcall NtSetInformationToken(
   KPROCESSOR_MODE v102; // [rsp+5Dh] [rbp-BBh]
   unsigned int v103; // [rsp+60h] [rbp-B8h] BYREF
   __int64 v105; // [rsp+68h] [rbp-B0h] BYREF
-  int v106; // [rsp+70h] [rbp-A8h] BYREF
+  _RTL_ELEVATION_FLAGS Flags; // [rsp+70h] [rbp-A8h] BYREF
   __int64 v107; // [rsp+78h] [rbp-A0h] BYREF
   PSID Sid1; // [rsp+80h] [rbp-98h] BYREF
   PVOID P; // [rsp+88h] [rbp-90h] BYREF
@@ -192,8 +192,8 @@ NTSTATUS __stdcall NtSetInformationToken(
   {
     if ( !(unsigned int)Feature_ShadowAdmin__private_IsEnabledDeviceUsageNoInline() )
       return -1073741821;
-    v106 = 0;
-    if ( (int)RtlQueryElevationFlags(&v106) < 0 || (v106 & 0x18) != 0x10 || TokenInformationClass != -2 )
+    Flags.Flags = 0;
+    if ( RtlQueryElevationFlags(&Flags) < 0 || (Flags.Flags & 0x18) != 0x10 || TokenInformationClass != -2 )
       return -1073741821;
   }
   v11 = 128;

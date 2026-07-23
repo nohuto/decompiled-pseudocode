@@ -1,5 +1,5 @@
 /*
- * XREFs of KiDebugServiceTrapShadow @ 0x140BBBE40
+ * XREFs of KiDebugServiceTrapShadow @ 0x140BBDE40
  * Callers:
  *     <none>
  * Callees:

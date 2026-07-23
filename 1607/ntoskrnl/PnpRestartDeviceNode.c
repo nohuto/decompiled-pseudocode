@@ -1,21 +1,21 @@
 /*
- * XREFs of PnpRestartDeviceNode @ 0x14062DC88
+ * XREFs of PnpRestartDeviceNode @ 0x14062DD3C
  * Callers:
- *     PnpProcessQueryRemoveAndEject @ 0x1404C41D8 (PnpProcessQueryRemoveAndEject.c)
- *     PiEventRestartRemovalRelations @ 0x140580604 (PiEventRestartRemovalRelations.c)
- *     PiProfileUpdateDeviceTreeCallback @ 0x140641FDC (PiProfileUpdateDeviceTreeCallback.c)
- *     PiProcessClearDeviceProblem @ 0x14064973C (PiProcessClearDeviceProblem.c)
- *     PiRestartDevice @ 0x140649B48 (PiRestartDevice.c)
- *     PiEventQueryRemoveNoFdo @ 0x14064D150 (PiEventQueryRemoveNoFdo.c)
+ *     PnpProcessQueryRemoveAndEject @ 0x140484DD0 (PnpProcessQueryRemoveAndEject.c)
+ *     PiEventRestartRemovalRelations @ 0x140580AB0 (PiEventRestartRemovalRelations.c)
+ *     PiProfileUpdateDeviceTreeCallback @ 0x1406420C0 (PiProfileUpdateDeviceTreeCallback.c)
+ *     PiProcessClearDeviceProblem @ 0x140649820 (PiProcessClearDeviceProblem.c)
+ *     PiRestartDevice @ 0x140649C2C (PiRestartDevice.c)
+ *     PiEventQueryRemoveNoFdo @ 0x14064D234 (PiEventQueryRemoveNoFdo.c)
  * Callees:
- *     PipSetDevNodeState @ 0x14000962C (PipSetDevNodeState.c)
- *     KeReleaseGuardedMutex @ 0x14000CA40 (KeReleaseGuardedMutex.c)
- *     ExAcquireFastMutex @ 0x14002D0A0 (ExAcquireFastMutex.c)
+ *     PipSetDevNodeState @ 0x1400091A0 (PipSetDevNodeState.c)
+ *     KeReleaseGuardedMutex @ 0x14000C5C0 (KeReleaseGuardedMutex.c)
+ *     ExAcquireFastMutex @ 0x14002CC20 (ExAcquireFastMutex.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
- *     PipClearDevNodeUserFlags @ 0x1403F14F4 (PipClearDevNodeUserFlags.c)
- *     PipClearDevNodeFlags @ 0x1403F3414 (PipClearDevNodeFlags.c)
- *     PpDevNodeUnlockTree @ 0x1403F49E0 (PpDevNodeUnlockTree.c)
- *     PpDevNodeLockTree @ 0x1403F4AB8 (PpDevNodeLockTree.c)
+ *     PipClearDevNodeUserFlags @ 0x1403F03B8 (PipClearDevNodeUserFlags.c)
+ *     PipClearDevNodeFlags @ 0x1403F22D8 (PipClearDevNodeFlags.c)
+ *     PpDevNodeUnlockTree @ 0x1403F38A4 (PpDevNodeUnlockTree.c)
+ *     PpDevNodeLockTree @ 0x1403F397C (PpDevNodeLockTree.c)
  */
 
 __int64 __fastcall PnpRestartDeviceNode(__int64 a1)

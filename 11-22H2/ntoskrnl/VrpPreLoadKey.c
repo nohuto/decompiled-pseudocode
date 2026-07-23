@@ -69,7 +69,7 @@ __int64 __fastcall VrpPreLoadKey(__int64 *a1, __int64 a2)
   PVOID v36; // [rsp+88h] [rbp-250h] BYREF
   PVOID P[2]; // [rsp+90h] [rbp-248h] BYREF
   __int64 v38; // [rsp+A0h] [rbp-238h] BYREF
-  UNICODE_STRING Source; // [rsp+A8h] [rbp-230h] BYREF
+  UNICODE_STRING GuidString; // [rsp+A8h] [rbp-230h] BYREF
   int v40; // [rsp+B8h] [rbp-220h]
   __int64 v41; // [rsp+C0h] [rbp-218h] BYREF
   UNICODE_STRING *v42; // [rsp+C8h] [rbp-210h]
@@ -80,7 +80,7 @@ __int64 __fastcall VrpPreLoadKey(__int64 *a1, __int64 a2)
   HANDLE v47; // [rsp+F0h] [rbp-1E8h] BYREF
   HANDLE Handle; // [rsp+F8h] [rbp-1E0h] BYREF
   UNICODE_STRING String1; // [rsp+100h] [rbp-1D8h] BYREF
-  UNICODE_STRING v50; // [rsp+110h] [rbp-1C8h] BYREF
+  UNICODE_STRING Source; // [rsp+110h] [rbp-1C8h] BYREF
   HANDLE v51; // [rsp+120h] [rbp-1B8h] BYREF
   PVOID Object; // [rsp+128h] [rbp-1B0h]
   int v53[4]; // [rsp+130h] [rbp-1A8h] BYREF
@@ -111,7 +111,7 @@ __int64 __fastcall VrpPreLoadKey(__int64 *a1, __int64 a2)
   v36 = a1;
   v41 = a2;
   *(_OWORD *)P = 0LL;
-  *(_QWORD *)&Source.Length = 5111808LL;
+  *(_QWORD *)&GuidString.Length = 5111808LL;
   *(_OWORD *)v53 = 0LL;
   v54 = 0LL;
   v55 = 0LL;
@@ -119,12 +119,12 @@ __int64 __fastcall VrpPreLoadKey(__int64 *a1, __int64 a2)
   *(_OWORD *)v56 = 0LL;
   v57 = 0LL;
   v58 = 0LL;
-  v50 = 0LL;
+  Source = 0LL;
   String1 = 0LL;
   v59 = 0LL;
   EtwActivityIdControl(3u, &v59);
   v4 = *a1;
-  Source.Buffer = (wchar_t *)&v76;
+  GuidString.Buffer = (wchar_t *)&v76;
   v32 = 0;
   v34 = 0;
   v5 = *(const UNICODE_STRING **)(v4 + 72);
@@ -195,26 +195,26 @@ LABEL_40:
     if ( !RtlEqualUnicodeString(&String1, &VrpUserString, 1u) )
       goto LABEL_40;
   }
-  v50.Buffer = (wchar_t *)((char *)P[1] + 2 * v38);
-  v50.Length = LOWORD(P[0]) - 2 * v38;
-  v50.MaximumLength = v50.Length;
-  VrpStripTrailingCharacters(&v50.Length);
+  Source.Buffer = (wchar_t *)((char *)P[1] + 2 * v38);
+  Source.Length = LOWORD(P[0]) - 2 * v38;
+  Source.MaximumLength = Source.Length;
+  VrpStripTrailingCharacters(&Source.Length);
   v13 = 0;
-  Length = v50.Length;
-  if ( v50.Length )
+  Length = Source.Length;
+  if ( Source.Length )
   {
-    Buffer = v50.Buffer;
+    Buffer = Source.Buffer;
     while ( *Buffer != 92 )
     {
       ++v13;
       ++Buffer;
-      if ( 2LL * v13 >= (unsigned __int64)v50.Length )
+      if ( 2LL * v13 >= (unsigned __int64)Source.Length )
         goto LABEL_53;
     }
     goto LABEL_40;
   }
 LABEL_53:
-  NamespaceNodePlaceholderKey = RtlStringFromGUIDEx((unsigned int *)a2, (__int64)&Source, 0);
+  NamespaceNodePlaceholderKey = RtlStringFromGUIDEx((PGUID)a2, &GuidString, 0);
   if ( NamespaceNodePlaceholderKey < 0 )
   {
 LABEL_7:
@@ -225,20 +225,20 @@ LABEL_7:
     }
     goto LABEL_42;
   }
-  ++Source.Buffer;
-  Source.Length -= 4;
-  Source.MaximumLength -= 4;
-  Destination.MaximumLength = Source.Length + 40 + v12->Length + Length;
+  ++GuidString.Buffer;
+  GuidString.Length -= 4;
+  GuidString.MaximumLength -= 4;
+  Destination.MaximumLength = GuidString.Length + 40 + v12->Length + Length;
   Destination.Buffer = (wchar_t *)ExAllocatePool2(256LL, Destination.MaximumLength, 1734693462LL);
   if ( Destination.Buffer )
   {
     RtlAppendUnicodeStringToString(&Destination, &VrpRootHivePath);
     RtlAppendUnicodeToString(&Destination, L"\\Silo_");
-    RtlAppendUnicodeStringToString(&Destination, &Source);
+    RtlAppendUnicodeStringToString(&Destination, &GuidString);
     RtlAppendUnicodeToString(&Destination, L"_");
     RtlAppendUnicodeStringToString(&Destination, v12);
     RtlAppendUnicodeToString(&Destination, L"_");
-    RtlAppendUnicodeStringToString(&Destination, &v50);
+    RtlAppendUnicodeStringToString(&Destination, &Source);
     CurrentThread = KeGetCurrentThread();
     --CurrentThread->KernelApcDisable;
     v17 = KeAbPreAcquire(a2 + 16, 0LL);

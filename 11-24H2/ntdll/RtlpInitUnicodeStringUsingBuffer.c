@@ -1,18 +1,18 @@
 /*
- * XREFs of RtlpInitUnicodeStringUsingBuffer @ 0x1800D30B0
+ * XREFs of RtlpInitUnicodeStringUsingBuffer @ 0x18009A010
  * Callers:
- *     RtlLCIDToCultureName @ 0x1800360C0 (RtlLCIDToCultureName.c)
- *     RtlLcidToLocaleName @ 0x1800D26D0 (RtlLcidToLocaleName.c)
- *     RtlpGetCustomCultureDataFromFile @ 0x180146640 (RtlpGetCustomCultureDataFromFile.c)
+ *     RtlLCIDToCultureName @ 0x180016340 (RtlLCIDToCultureName.c)
+ *     RtlLcidToLocaleName @ 0x180099060 (RtlLcidToLocaleName.c)
+ *     RtlpGetCustomCultureDataFromFile @ 0x1801449F0 (RtlpGetCustomCultureDataFromFile.c)
  * Callees:
- *     RtlCreateUnicodeString @ 0x180028050 (RtlCreateUnicodeString.c)
- *     memmove @ 0x180167400 (memmove.c)
+ *     RtlCreateUnicodeString @ 0x180054A50 (RtlCreateUnicodeString.c)
+ *     memmove @ 0x1801657C0 (memmove.c)
  */
 
-__int64 __fastcall RtlpInitUnicodeStringUsingBuffer(char a1, const wchar_t *a2, unsigned int a3, __int64 a4)
+__int64 __fastcall RtlpInitUnicodeStringUsingBuffer(char a1, const WCHAR *a2, unsigned int a3, _UNICODE_STRING *a4)
 {
   unsigned __int64 v5; // rdi
-  __int16 v6; // bx
+  unsigned __int16 v6; // bx
 
   if ( a1 )
   {
@@ -25,12 +25,12 @@ __int64 __fastcall RtlpInitUnicodeStringUsingBuffer(char a1, const wchar_t *a2, 
     if ( a3 < 0x55 )
     {
       v5 = 2LL * a3;
-      if ( *(unsigned __int16 *)(a4 + 2) > v5 )
+      if ( a4->MaximumLength > v5 )
       {
         v6 = 2 * a3;
-        memmove(*(void **)(a4 + 8), a2, (unsigned __int16)(2 * a3));
-        *(_WORD *)(v5 + *(_QWORD *)(a4 + 8)) = 0;
-        *(_WORD *)a4 = v6;
+        memmove(a4->Buffer, a2, (unsigned __int16)(2 * a3));
+        a4->Buffer[v5 / 2] = 0;
+        a4->Length = v6;
         return 0LL;
       }
     }

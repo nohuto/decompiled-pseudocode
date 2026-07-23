@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlpInitCurrentDir @ 0x180077FA8
+ * XREFs of RtlpInitCurrentDir @ 0x180094888
  * Callers:
- *     LdrpInitializeProcess @ 0x180066D74 (LdrpInitializeProcess.c)
+ *     LdrpInitializeProcess @ 0x1800AEF54 (LdrpInitializeProcess.c)
  * Callees:
- *     RtlDetermineDosPathNameType_Ustr @ 0x180077BE0 (RtlDetermineDosPathNameType_Ustr.c)
- *     RtlpCreateNewDirectoryReference @ 0x180078610 (RtlpCreateNewDirectoryReference.c)
+ *     RtlDetermineDosPathNameType_Ustr @ 0x1800944C0 (RtlDetermineDosPathNameType_Ustr.c)
+ *     RtlpCreateNewDirectoryReference @ 0x180094EF0 (RtlpCreateNewDirectoryReference.c)
  */
 
 __int64 __fastcall RtlpInitCurrentDir(unsigned __int16 *a1)
@@ -13,12 +13,12 @@ __int64 __fastcall RtlpInitCurrentDir(unsigned __int16 *a1)
   int v2; // eax
   __int64 v3; // r9
   __int64 result; // rax
-  __int64 v5; // rcx
+  _QWORD *v5; // rcx
   int v6; // eax
   int v7; // eax
   int v8; // eax
   int v9; // eax
-  __int64 v10; // [rsp+38h] [rbp+10h] BYREF
+  _QWORD *v10; // [rsp+38h] [rbp+10h] BYREF
 
   v10 = 0LL;
   ProcessParameters = NtCurrentPeb()->ProcessParameters;
@@ -44,9 +44,9 @@ __int64 __fastcall RtlpInitCurrentDir(unsigned __int16 *a1)
   {
     v5 = v10;
     RtlpCurDirRef = v10;
-    ProcessParameters->CurrentDirectory.Handle = *(void **)(v10 + 8);
-    ProcessParameters->CurrentDirectory.DosPath.Buffer = *(wchar_t **)(v5 + 32);
-    ProcessParameters->CurrentDirectory.DosPath.Length = *(_WORD *)(v5 + 24);
+    ProcessParameters->CurrentDirectory.Handle = (void *)v10[1];
+    ProcessParameters->CurrentDirectory.DosPath.Buffer = (wchar_t *)v5[4];
+    ProcessParameters->CurrentDirectory.DosPath.Length = *((_WORD *)v5 + 12);
     return 0LL;
   }
   return result;

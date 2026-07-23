@@ -1,16 +1,16 @@
 /*
- * XREFs of SeAssignPrimaryToken @ 0x140A2C3D0
+ * XREFs of SeAssignPrimaryToken @ 0x140A7BF34
  * Callers:
- *     PspInitializeProcessSecurity @ 0x140A2B070 (PspInitializeProcessSecurity.c)
+ *     PspInitializeProcessSecurity @ 0x140B80FF8 (PspInitializeProcessSecurity.c)
  * Callees:
- *     PsReferenceSiloContext @ 0x140277800 (PsReferenceSiloContext.c)
- *     SepAuditingForSubCategory @ 0x1404C210C (SepAuditingForSubCategory.c)
- *     SepAuditAssignPrimaryToken @ 0x140813228 (SepAuditAssignPrimaryToken.c)
- *     SepAdtIncorporatePerUserPolicy @ 0x140813628 (SepAdtIncorporatePerUserPolicy.c)
- *     SeReleaseSubjectContext @ 0x1408CB2E0 (SeReleaseSubjectContext.c)
- *     SeCaptureSubjectContext @ 0x140933620 (SeCaptureSubjectContext.c)
- *     ObInitializeFastReference @ 0x140A2BC10 (ObInitializeFastReference.c)
- *     SeDeassignPrimaryToken @ 0x140A2DF94 (SeDeassignPrimaryToken.c)
+ *     PsReferenceSiloContext @ 0x140276D70 (PsReferenceSiloContext.c)
+ *     SepAuditingForSubCategory @ 0x1404BB95C (SepAuditingForSubCategory.c)
+ *     SepAuditAssignPrimaryToken @ 0x140819088 (SepAuditAssignPrimaryToken.c)
+ *     SepAdtIncorporatePerUserPolicy @ 0x140819488 (SepAdtIncorporatePerUserPolicy.c)
+ *     SeReleaseSubjectContext @ 0x1408D1890 (SeReleaseSubjectContext.c)
+ *     SeCaptureSubjectContext @ 0x14090F1D0 (SeCaptureSubjectContext.c)
+ *     ObInitializeFastReference @ 0x140A7BD9C (ObInitializeFastReference.c)
+ *     SeDeassignPrimaryToken @ 0x140A7C400 (SeDeassignPrimaryToken.c)
  */
 
 __int64 __fastcall SeAssignPrimaryToken(__int64 a1, _BYTE *a2)
@@ -22,7 +22,7 @@ __int64 __fastcall SeAssignPrimaryToken(__int64 a1, _BYTE *a2)
 
   v4 = SepAuditingForSubCategory(134, 1);
   v8 = v4;
-  if ( *(_DWORD *)&SepRmCapTableLock.WaitBlockFill11[64] )
+  if ( *(_DWORD *)&SepRmCapTableLock.WaitBlockFill11[96] )
   {
     memset(&SubjectContext, 0, sizeof(SubjectContext));
     SeCaptureSubjectContext(&SubjectContext);

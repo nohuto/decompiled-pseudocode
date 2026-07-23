@@ -1,10 +1,10 @@
 /*
- * XREFs of ?SmpFlushStorePages@@YAXPEAX@Z @ 0x14035A530
+ * XREFs of ?SmpFlushStorePages@@YAXPEAX@Z @ 0x14029F2D0
  * Callers:
  *     <none>
  * Callees:
- *     KeSetEvent @ 0x1403435A0 (KeSetEvent.c)
- *     MmStoreFlushAllHintedPages @ 0x14070F124 (MmStoreFlushAllHintedPages.c)
+ *     KeSetEvent @ 0x14034E2F0 (KeSetEvent.c)
+ *     MmStoreFlushAllHintedPages @ 0x1406BD774 (MmStoreFlushAllHintedPages.c)
  */
 
 void __fastcall SmpFlushStorePages(PRKEVENT Event)

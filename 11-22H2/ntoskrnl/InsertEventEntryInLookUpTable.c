@@ -236,10 +236,10 @@ LABEL_24:
     ExReleaseSpinLockSharedFromDpcLevel(v35);
     if ( v36 < 2u )
     {
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v37 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && (unsigned __int8)(v37 - 2) <= 0xDu )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && (unsigned __int8)(v37 - 2) <= 0xDu )
         {
           v38 = KeGetCurrentPrcb();
           v39 = v38->SchedulerAssist;

@@ -17,7 +17,7 @@
  *     ExAllocatePoolWithTag @ 0x1409B1030 (ExAllocatePoolWithTag.c)
  */
 
-NTSTATUS __fastcall ExpTranslateNtPath(__int64 a1, int a2, char *a3, unsigned int *a4)
+int __fastcall ExpTranslateNtPath(__int64 a1, int a2, char *a3, unsigned int *a4)
 {
   int v5; // esi
   const WCHAR *v8; // rbx
@@ -26,15 +26,15 @@ NTSTATUS __fastcall ExpTranslateNtPath(__int64 a1, int a2, char *a3, unsigned in
   unsigned __int64 v11; // rdx
   __int64 v12; // rax
   wchar_t *v13; // r14
-  NTSTATUS result; // eax
+  int result; // eax
   wchar_t *Buffer; // rbx
   int OutputARC; // esi
   NTSTATUS v17; // ebx
   ULONG OutputBufferLength; // esi
-  int *i; // rax
+  _DWORD *i; // rax
   NTSTATUS v20; // r15d
-  int *v21; // rbx
-  int *v22; // r8
+  _DWORD *v21; // rbx
+  __int64 *v22; // r8
   HANDLE FileHandle; // [rsp+50h] [rbp-B0h] BYREF
   __int128 v24; // [rsp+58h] [rbp-A8h] BYREF
   UNICODE_STRING DestinationString; // [rsp+68h] [rbp-98h] BYREF
@@ -90,9 +90,9 @@ LABEL_22:
     else
     {
       OutputBufferLength = 2352;
-      for ( i = (int *)ExAllocatePoolWithTag(NonPagedPoolNx, 0x930uLL, 0x72766E45u);
+      for ( i = ExAllocatePoolWithTag(NonPagedPoolNx, 0x930uLL, 0x72766E45u);
             ;
-            i = (int *)ExAllocatePoolWithTag(NonPagedPoolNx, OutputBufferLength, 0x72766E45u) )
+            i = ExAllocatePoolWithTag(NonPagedPoolNx, OutputBufferLength, 0x72766E45u) )
       {
         v21 = i;
         if ( !i )
@@ -118,11 +118,11 @@ LABEL_22:
     ZwClose(FileHandle);
     if ( LODWORD(OutputBuffer[0]) == 1 )
     {
-      v22 = (int *)&OutputBuffer[6];
+      v22 = &OutputBuffer[6];
     }
     else
     {
-      v22 = &v29;
+      v22 = (__int64 *)&v29;
       v9 = 0;
     }
     if ( v5 == 4 )
@@ -131,7 +131,7 @@ LABEL_22:
       return ExpCreateOutputSIGNATURE(
                (__int64)a3,
                a4,
-               (unsigned int *)v22,
+               (GUID *)v22,
                (unsigned int *)&OutputBuffer[3],
                &OutputBuffer[1],
                &OutputBuffer[2],

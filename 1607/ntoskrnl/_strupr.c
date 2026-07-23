@@ -1,7 +1,7 @@
 /*
- * XREFs of _strupr @ 0x14014CC70
+ * XREFs of _strupr @ 0x14014D1E0
  * Callers:
- *     InbvDetermineFunction @ 0x1401411B0 (InbvDetermineFunction.c)
+ *     InbvDetermineFunction @ 0x140141720 (InbvDetermineFunction.c)
  *     KdInitSystem @ 0x1406F3740 (KdInitSystem.c)
  *     InitBootProcessor @ 0x1407937C4 (InitBootProcessor.c)
  *     Phase1InitializationDiscard @ 0x140794438 (Phase1InitializationDiscard.c)
@@ -9,7 +9,7 @@
  *     BvgaDriverInitialize @ 0x1407B1FA8 (BvgaDriverInitialize.c)
  *     RamdiskStart @ 0x1407D3390 (RamdiskStart.c)
  * Callees:
- *     xHalFreeMessageTarget @ 0x140130D64 (xHalFreeMessageTarget.c)
+ *     xHalFreeMessageTarget @ 0x1401312D4 (xHalFreeMessageTarget.c)
  */
 
 char *__cdecl strupr(char *String)

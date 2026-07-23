@@ -1,14 +1,14 @@
 /*
- * XREFs of SleepstudyHelperSetBlockerVerboseDescription @ 0x140A25414
+ * XREFs of SleepstudyHelperSetBlockerVerboseDescription @ 0x140A19404
  * Callers:
- *     PopPowerRequestStatsCreateSleepstudyBlocker @ 0x140A24E10 (PopPowerRequestStatsCreateSleepstudyBlocker.c)
+ *     PopPowerRequestStatsCreateSleepstudyBlocker @ 0x140A18E00 (PopPowerRequestStatsCreateSleepstudyBlocker.c)
  * Callees:
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall SleepstudyHelperSetBlockerVerboseDescription(
-        __int64 a1,
+        _QWORD *a1,
         __int16 a2,
         unsigned __int16 *a3,
         unsigned int a4,
@@ -35,7 +35,7 @@ __int64 __fastcall SleepstudyHelperSetBlockerVerboseDescription(
   v5 = a4;
   if ( a1 && a3 && *((_QWORD *)a3 + 1) && ((v9 = a5, !a4) || a5) )
   {
-    if ( *(_QWORD *)(a1 + 64) )
+    if ( a1[8] )
     {
       return (unsigned int)-1073741791;
     }
@@ -73,7 +73,7 @@ __int64 __fastcall SleepstudyHelperSetBlockerVerboseDescription(
                 return (unsigned int)-1073741675;
               v15 += a5[8 * i];
             }
-            Pool2 = ExAllocatePool2(0x100uLL);
+            Pool2 = ExAllocatePool2(0x100uLL, v15, *(_DWORD *)(*a1 + 24LL));
             v18 = Pool2;
             if ( Pool2 )
             {
@@ -101,7 +101,7 @@ __int64 __fastcall SleepstudyHelperSetBlockerVerboseDescription(
                 }
                 while ( v12 );
               }
-              *(_QWORD *)(a1 + 64) = v18;
+              a1[8] = v18;
               return 0;
             }
             else

@@ -1,19 +1,19 @@
 /*
- * XREFs of ExReturnPoolQuota @ 0x140264B30
+ * XREFs of ExReturnPoolQuota @ 0x1402640A0
  * Callers:
- *     IopFreeIrp @ 0x140268590 (IopFreeIrp.c)
- *     IoFreeIrp @ 0x140268860 (IoFreeIrp.c)
- *     IopFreeMiniCompletionPacket @ 0x140A7A600 (IopFreeMiniCompletionPacket.c)
+ *     IopFreeIrp @ 0x140267B00 (IopFreeIrp.c)
+ *     IoFreeIrp @ 0x140267DD0 (IoFreeIrp.c)
+ *     IopFreeMiniCompletionPacket @ 0x140A82540 (IopFreeMiniCompletionPacket.c)
  * Callees:
- *     MiGetSystemRegionType @ 0x140264F40 (MiGetSystemRegionType.c)
- *     ObpPushStackInfo @ 0x1402659F0 (ObpPushStackInfo.c)
- *     ExpStampBigPoolEntry @ 0x14029BD80 (ExpStampBigPoolEntry.c)
- *     PspUnlockQuotaExpansion @ 0x1403BDC0C (PspUnlockQuotaExpansion.c)
- *     PspLockQuotaExpansion @ 0x1403BDC84 (PspLockQuotaExpansion.c)
- *     ObpDeferObjectDeletion @ 0x1403DD9F0 (ObpDeferObjectDeletion.c)
- *     ExIsSpecialPoolAddress @ 0x140485074 (ExIsSpecialPoolAddress.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     MiGetSystemRegionType @ 0x1402644B0 (MiGetSystemRegionType.c)
+ *     ObpPushStackInfo @ 0x140264F60 (ObpPushStackInfo.c)
+ *     ExpStampBigPoolEntry @ 0x14029B2E0 (ExpStampBigPoolEntry.c)
+ *     PspUnlockQuotaExpansion @ 0x1403C7A7C (PspUnlockQuotaExpansion.c)
+ *     PspLockQuotaExpansion @ 0x1403C7AF4 (PspLockQuotaExpansion.c)
+ *     ObpDeferObjectDeletion @ 0x1403E0BE0 (ObpDeferObjectDeletion.c)
+ *     ExIsSpecialPoolAddress @ 0x14047E9E4 (ExIsSpecialPoolAddress.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 char __fastcall ExReturnPoolQuota(ULONG_PTR BugCheckParameter2)
@@ -34,7 +34,7 @@ char __fastcall ExReturnPoolQuota(ULONG_PTR BugCheckParameter2)
   __int64 v15; // r8
   unsigned __int64 v16; // rdx
   unsigned __int64 v17; // rtt
-  unsigned __int8 *v18; // rbx
+  char *v18; // rbx
   __int64 v19; // r8
   __int64 *v20; // r9
   ULONG_PTR v21; // rdx
@@ -53,7 +53,7 @@ char __fastcall ExReturnPoolQuota(ULONG_PTR BugCheckParameter2)
   v1 = 0;
   v32 = 0LL;
   LODWORD(v31) = 0;
-  if ( !ExpSpecialAllocations || (LODWORD(v9) = ExIsSpecialPoolAddress(BugCheckParameter2), !(_DWORD)v9) )
+  if ( !LODWORD(stru_140EFF2C0.InitialStack) || (LODWORD(v9) = ExIsSpecialPoolAddress(BugCheckParameter2), !(_DWORD)v9) )
   {
     if ( (unsigned int)MiGetSystemRegionType(BugCheckParameter2) == 5 )
       v3 = 256LL;
@@ -70,8 +70,8 @@ char __fastcall ExReturnPoolQuota(ULONG_PTR BugCheckParameter2)
       v7 = 16LL * (unsigned __int8)v5;
       if ( (v5 & 0x800) != 0 )
       {
-        BugCheckParameter4 = v4 ^ (__int64)stru_140FC01F0.WaitBlock[1].WaitListEntry.Blink ^ *(_QWORD *)(v4 + 8);
-        *(_QWORD *)(v4 + 8) = (ULONG_PTR)stru_140FC01F0.WaitBlock[1].WaitListEntry.Blink ^ v4;
+        BugCheckParameter4 = v4 ^ (__int64)stru_140FC11F0.WaitBlock[1].WaitListEntry.Blink ^ *(_QWORD *)(v4 + 8);
+        *(_QWORD *)(v4 + 8) = (ULONG_PTR)stru_140FC11F0.WaitBlock[1].WaitListEntry.Blink ^ v4;
       }
       else
       {
@@ -101,7 +101,7 @@ char __fastcall ExReturnPoolQuota(ULONG_PTR BugCheckParameter2)
         v30 = *(__int64 **)(BugCheckParameter4 + 760);
         v11 = v10 != 0;
         BugCheckParameter2a = v11;
-        LOBYTE(v32) = stru_140FC01F0.SchedulerApcFill3[8 * v11 + 48];
+        LOBYTE(v32) = stru_140FC11F0.SchedulerApcFill3[8 * v11 + 40];
         v29 = v11 << 7;
         v12 = (unsigned __int64 *)&v30[16 * v11];
         _m_prefetchw(v12);
@@ -112,21 +112,21 @@ char __fastcall ExReturnPoolQuota(ULONG_PTR BugCheckParameter2)
           v15 = 56 * v11;
           if ( v14 > v13 )
           {
-            v16 = *(unsigned __int64 *)((char *)&PsAltSystemCallRegistrationLock.ApcState.ApcListHead[1].Blink + v15);
+            v16 = *(_QWORD *)((char *)&PsAltSystemCallRegistrationLock.Timer.Processor + v15);
             if ( v14 - v13 > v16 )
             {
               if ( v16 > v7 )
                 v16 = v7;
               v17 = v12[8];
               if ( v17 == _InterlockedCompareExchange64((volatile signed __int64 *)v12 + 8, v14 - v16, v14)
-                && (struct _LIST_ENTRY *)(v16 + _InterlockedExchangeAdd64((volatile signed __int64 *)v12 + 9, v16)) > *(struct _LIST_ENTRY **)((char *)&PsAltSystemCallRegistrationLock.ApcState.ApcListHead[1].Blink + v15) )
+                && v16 + _InterlockedExchangeAdd64((volatile signed __int64 *)v12 + 9, v16) > *(_QWORD *)((char *)&PsAltSystemCallRegistrationLock.Timer.Processor + v15) )
               {
                 v28 = _InterlockedExchange64((volatile __int64 *)v12 + 9, 0LL);
                 if ( v28 )
                 {
                   LOBYTE(v31) = 0;
-                  v18 = &PsAltSystemCallRegistrationLock.ApcStateFill[v15 + 16];
-                  PspLockQuotaExpansion(&PsAltSystemCallRegistrationLock.ApcStateFill[v15 + 16], &v31);
+                  v18 = (char *)&PsAltSystemCallRegistrationLock.Timer.Dpc + v15;
+                  PspLockQuotaExpansion((char *)&PsAltSystemCallRegistrationLock.Timer.Dpc + v15, &v31);
                   guard_dispatch_icall_no_overrides((unsigned int)BugCheckParameter2a, v28, v19);
                   PspUnlockQuotaExpansion(v18, (unsigned __int8)v31);
                 }

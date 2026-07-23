@@ -1,11 +1,11 @@
 /*
- * XREFs of PiDmaGuardInitialize @ 0x1403B7328
+ * XREFs of PiDmaGuardInitialize @ 0x1403B7498
  * Callers:
- *     PnpBootPhaseComplete @ 0x1407A31F4 (PnpBootPhaseComplete.c)
- *     IopInitializePlugPlayServices @ 0x140A52280 (IopInitializePlugPlayServices.c)
+ *     PnpBootPhaseComplete @ 0x1407A33F4 (PnpBootPhaseComplete.c)
+ *     IopInitializePlugPlayServices @ 0x140A53280 (IopInitializePlugPlayServices.c)
  * Callees:
- *     PipDmgInitPhaseTwo @ 0x1407A3FC4 (PipDmgInitPhaseTwo.c)
- *     PipDmgInitPhaseZero @ 0x140A53178 (PipDmgInitPhaseZero.c)
+ *     PipDmgInitPhaseTwo @ 0x1407A41C4 (PipDmgInitPhaseTwo.c)
+ *     PipDmgInitPhaseZero @ 0x140A54178 (PipDmgInitPhaseZero.c)
  */
 
 __int64 __fastcall PiDmaGuardInitialize(int a1)

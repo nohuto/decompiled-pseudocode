@@ -1,24 +1,24 @@
 /*
- * XREFs of _CmGetDeviceContainerIdFromBase @ 0x140486454
+ * XREFs of _CmGetDeviceContainerIdFromBase @ 0x140513264
  * Callers:
- *     PiDcHandleCustomDeviceEvent @ 0x1403F0DB0 (PiDcHandleCustomDeviceEvent.c)
- *     PiDcUpdateDeviceContainerMembership @ 0x140485DB8 (PiDcUpdateDeviceContainerMembership.c)
- *     _CmGetDeviceMappedPropertyFromComposite @ 0x1404CE780 (_CmGetDeviceMappedPropertyFromComposite.c)
- *     _CmDeleteDeviceWorker @ 0x1406D8934 (_CmDeleteDeviceWorker.c)
+ *     PiDcHandleCustomDeviceEvent @ 0x140489514 (PiDcHandleCustomDeviceEvent.c)
+ *     _CmGetDeviceMappedPropertyFromComposite @ 0x14050B84C (_CmGetDeviceMappedPropertyFromComposite.c)
+ *     PiDcUpdateDeviceContainerMembership @ 0x14050FABC (PiDcUpdateDeviceContainerMembership.c)
+ *     _CmDeleteDeviceWorker @ 0x1406D8A6C (_CmDeleteDeviceWorker.c)
  * Callees:
- *     RtlStringCchCopyW @ 0x140084F38 (RtlStringCchCopyW.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     wcscmp @ 0x14014EF64 (wcscmp.c)
- *     _CmIsDeviceInContainer @ 0x140486528 (_CmIsDeviceInContainer.c)
- *     _CmValidateDeviceContainerName @ 0x140486A2C (_CmValidateDeviceContainerName.c)
- *     _PnpCtxGetCachedContextBaseKey @ 0x1404FDCC4 (_PnpCtxGetCachedContextBaseKey.c)
- *     _PnpCtxRegEnumKey @ 0x1406D70F0 (_PnpCtxRegEnumKey.c)
+ *     RtlStringCchCopyW @ 0x14010B1EC (RtlStringCchCopyW.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     wcscmp @ 0x14014F524 (wcscmp.c)
+ *     _PnpCtxGetCachedContextBaseKey @ 0x1404E0C54 (_PnpCtxGetCachedContextBaseKey.c)
+ *     _CmIsDeviceInContainer @ 0x140513338 (_CmIsDeviceInContainer.c)
+ *     _CmValidateDeviceContainerName @ 0x14051383C (_CmValidateDeviceContainerName.c)
+ *     _PnpCtxRegEnumKey @ 0x1406D7228 (_PnpCtxRegEnumKey.c)
  */
 
-__int64 __fastcall CmGetDeviceContainerIdFromBase(__int64 a1, __int64 a2, const wchar_t *a3, wchar_t *a4)
+__int64 __fastcall CmGetDeviceContainerIdFromBase(__int64 *a1, __int64 a2, const wchar_t *a3, wchar_t *a4)
 {
   unsigned int v4; // edi
-  NTSTATUS CachedContextBaseKey; // ebx
+  int CachedContextBaseKey; // ebx
   __int64 v10; // rcx
   int v12; // eax
   __int64 v13; // r8
@@ -38,10 +38,17 @@ __int64 __fastcall CmGetDeviceContainerIdFromBase(__int64 a1, __int64 a2, const 
   {
     if ( wcscmp(L"{00000000-0000-0000-0000-000000000000}", a3) )
     {
-      CachedContextBaseKey = PnpCtxGetCachedContextBaseKey(a1, 9LL, &v17);
+      CachedContextBaseKey = PnpCtxGetCachedContextBaseKey(a1, 9, &v17);
       if ( CachedContextBaseKey >= 0 )
       {
-        CachedContextBaseKey = CmIsDeviceInContainer(a1, v17, (_DWORD)a3, (_DWORD)a3, a2, (__int64)v16, (__int64)&v15);
+        CachedContextBaseKey = CmIsDeviceInContainer(
+                                 (_DWORD)a1,
+                                 v17,
+                                 (_DWORD)a3,
+                                 (_DWORD)a3,
+                                 a2,
+                                 (__int64)v16,
+                                 (__int64)&v15);
         if ( CachedContextBaseKey >= 0 && !v15 )
         {
           while ( 1 )
@@ -62,7 +69,7 @@ __int64 __fastcall CmGetDeviceContainerIdFromBase(__int64 a1, __int64 a2, const 
                 if ( v14 < 0 )
                   return (unsigned int)CachedContextBaseKey;
                 CachedContextBaseKey = CmIsDeviceInContainer(
-                                         a1,
+                                         (_DWORD)a1,
                                          v17,
                                          (unsigned int)pszSrc,
                                          (_DWORD)a3,

@@ -1,14 +1,14 @@
 /*
- * XREFs of PpmEventTraceMultiClassHeteroResponseEx @ 0x1405DEFC0
+ * XREFs of PpmEventTraceMultiClassHeteroResponseEx @ 0x1405DC0EC
  * Callers:
- *     PpmCheckComputeMultiClassHeteroResponseEx @ 0x1405DFBD4 (PpmCheckComputeMultiClassHeteroResponseEx.c)
- *     PpmHeteroComputeMultiClassUnparkCountEx @ 0x1405E0230 (PpmHeteroComputeMultiClassUnparkCountEx.c)
+ *     PpmCheckComputeMultiClassHeteroResponseEx @ 0x1405DD1F4 (PpmCheckComputeMultiClassHeteroResponseEx.c)
+ *     PpmHeteroComputeMultiClassUnparkCountEx @ 0x1405DD850 (PpmHeteroComputeMultiClassUnparkCountEx.c)
  * Callees:
- *     EtwWriteEx @ 0x140259680 (EtwWriteEx.c)
- *     EtwEventEnabled @ 0x1402A1BD0 (EtwEventEnabled.c)
- *     KeCountSetBitsAffinityEx @ 0x1403AFC80 (KeCountSetBitsAffinityEx.c)
- *     PpmEventAddAffinityMaskAsSubset @ 0x1405DD440 (PpmEventAddAffinityMaskAsSubset.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     EtwWriteEx @ 0x140289C90 (EtwWriteEx.c)
+ *     EtwEventEnabled @ 0x1402D1300 (EtwEventEnabled.c)
+ *     KeCountSetBitsAffinityEx @ 0x14039E490 (KeCountSetBitsAffinityEx.c)
+ *     PpmEventAddAffinityMaskAsSubset @ 0x1405DA2C0 (PpmEventAddAffinityMaskAsSubset.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 void __fastcall PpmEventTraceMultiClassHeteroResponseEx(

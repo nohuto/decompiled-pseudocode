@@ -16,156 +16,164 @@
 
 BOOLEAN __cdecl RtlAddFunctionTable(PRUNTIME_FUNCTION FunctionTable, ULONG EntryCount, ULONG64 BaseAddress)
 {
-  int v6; // ebx
-  void *ProcessHeap; // rcx
-  __int64 Heap; // rax
-  __int64 v9; // rbx
+  int v6; // eax
+  int v7; // ebx
+  int v8; // eax
+  PVOID ProcessHeap; // rcx
+  LARGE_INTEGER *Heap; // rax
+  __int64 v11; // rbx
   unsigned __int64 BeginAddress; // rax
-  PRUNTIME_FUNCTION v11; // rdx
-  ULONG v12; // r9d
+  PRUNTIME_FUNCTION v13; // rdx
+  ULONG v14; // r9d
   unsigned __int64 EndAddress; // rcx
-  _QWORD *v14; // rdx
-  __int64 v15; // r8
-  _QWORD *v16; // rax
-  __int64 *v17; // rax
-  int v18; // r8d
-  unsigned __int64 v20; // r10
-  unsigned __int64 v21; // r8
-  int v22; // r11d
-  int v23; // ecx
+  _QWORD *v16; // rdx
+  __int64 v17; // r8
+  _QWORD *v18; // rax
+  __int64 *v19; // rax
+  int v20; // eax
+  int v21; // r8d
+  unsigned __int64 v23; // r10
+  unsigned __int64 v24; // r8
+  int v25; // r11d
+  int v26; // eax
+  int v27; // ecx
 
   if ( (int)sub_18007C0A8() >= 0 )
   {
-    if ( (unsigned int)LdrControlFlowGuardEnforced() )
+    LOBYTE(v6) = LdrControlFlowGuardEnforced();
+    if ( v6 )
     {
-      RtlAcquireSRWLockExclusive(&qword_180165010);
-      v6 = *(_DWORD *)qword_18017A288;
+      RtlAcquireSRWLockExclusive(&stru_180165010);
+      v7 = *(_DWORD *)qword_18017A288;
       if ( !*(_DWORD *)qword_18017A288 )
-        RtlProtectHeap((_DWORD *)qword_18017A278, 0);
-      if ( v6 == -1 )
+        RtlProtectHeap(qword_18017A278, 0);
+      if ( v7 == -1 )
         goto LABEL_45;
-      *(_DWORD *)qword_18017A288 = v6 + 1;
-      RtlReleaseSRWLockExclusive(&qword_180165010);
+      *(_DWORD *)qword_18017A288 = v7 + 1;
+      RtlReleaseSRWLockExclusive(&stru_180165010);
     }
-    if ( (unsigned int)LdrControlFlowGuardEnforced() )
-      ProcessHeap = (void *)qword_18017A278;
+    LOBYTE(v8) = LdrControlFlowGuardEnforced();
+    if ( v8 )
+      ProcessHeap = qword_18017A278;
     else
       ProcessHeap = NtCurrentPeb()->ProcessHeap;
-    Heap = RtlAllocateHeap((__int64)ProcessHeap, 0, 112LL);
-    v9 = Heap;
+    Heap = (LARGE_INTEGER *)RtlAllocateHeap(ProcessHeap, 0, 0x70uLL);
+    v11 = (__int64)Heap;
     if ( Heap )
     {
-      *(_QWORD *)(Heap + 16) = FunctionTable;
-      *(_DWORD *)(Heap + 84) = EntryCount;
-      ZwQuerySystemTime(Heap + 24);
+      Heap[2].QuadPart = (LONGLONG)FunctionTable;
+      Heap[10].HighPart = EntryCount;
+      ZwQuerySystemTime(Heap + 3);
       BeginAddress = FunctionTable->BeginAddress;
-      v11 = FunctionTable + 1;
-      *(_QWORD *)(v9 + 32) = BeginAddress;
-      v12 = 1;
+      v13 = FunctionTable + 1;
+      *(_QWORD *)(v11 + 32) = BeginAddress;
+      v14 = 1;
       EndAddress = FunctionTable->EndAddress;
-      *(_DWORD *)(v9 + 80) = 0;
-      *(_QWORD *)(v9 + 40) = EndAddress;
-      *(_QWORD *)(v9 + 48) = BaseAddress;
+      *(_DWORD *)(v11 + 80) = 0;
+      *(_QWORD *)(v11 + 40) = EndAddress;
+      *(_QWORD *)(v11 + 48) = BaseAddress;
       if ( EntryCount > 1 )
       {
-        v20 = EndAddress;
-        v21 = BeginAddress;
-        v22 = 0;
+        v23 = EndAddress;
+        v24 = BeginAddress;
+        v25 = 0;
         do
         {
-          if ( !v22 && v11->BeginAddress < FunctionTable[v12 - 1].BeginAddress )
+          if ( !v25 && v13->BeginAddress < FunctionTable[v14 - 1].BeginAddress )
           {
-            v22 = 1;
-            *(_DWORD *)(v9 + 80) = 1;
+            v25 = 1;
+            *(_DWORD *)(v11 + 80) = 1;
           }
-          BeginAddress = v11->BeginAddress;
-          if ( BeginAddress >= v21 )
+          BeginAddress = v13->BeginAddress;
+          if ( BeginAddress >= v24 )
           {
-            BeginAddress = v21;
+            BeginAddress = v24;
           }
           else
           {
-            v21 = (unsigned int)BeginAddress;
-            *(_QWORD *)(v9 + 32) = BeginAddress;
+            v24 = (unsigned int)BeginAddress;
+            *(_QWORD *)(v11 + 32) = BeginAddress;
           }
-          EndAddress = v11->EndAddress;
-          if ( EndAddress <= v20 )
-            EndAddress = *(_QWORD *)(v9 + 40);
+          EndAddress = v13->EndAddress;
+          if ( EndAddress <= v23 )
+            EndAddress = *(_QWORD *)(v11 + 40);
           else
-            *(_QWORD *)(v9 + 40) = EndAddress;
-          ++v11;
-          ++v12;
-          v20 = EndAddress;
+            *(_QWORD *)(v11 + 40) = EndAddress;
+          ++v13;
+          ++v14;
+          v23 = EndAddress;
         }
-        while ( v12 < EntryCount );
+        while ( v14 < EntryCount );
       }
-      *(_QWORD *)(v9 + 32) = BaseAddress + BeginAddress;
-      *(_QWORD *)(v9 + 40) = EndAddress + BaseAddress;
+      *(_QWORD *)(v11 + 32) = BaseAddress + BeginAddress;
+      *(_QWORD *)(v11 + 40) = EndAddress + BaseAddress;
       sub_180035F18(0);
-      RtlAcquireSRWLockExclusive(&qword_180164350);
-      v14 = (_QWORD *)qword_18017A2A8;
-      LOBYTE(v15) = 0;
+      RtlAcquireSRWLockExclusive(&stru_180164350);
+      v16 = (_QWORD *)qword_18017A2A8;
+      LOBYTE(v17) = 0;
       if ( qword_18017A2A8 )
       {
         while ( 1 )
         {
-          if ( *(_QWORD *)(v9 + 32) < *(v14 - 7) )
+          if ( *(_QWORD *)(v11 + 32) < *(v16 - 7) )
           {
-            v16 = (_QWORD *)*v14;
-            if ( !*v14 )
+            v18 = (_QWORD *)*v16;
+            if ( !*v16 )
             {
-              LOBYTE(v15) = 0;
+              LOBYTE(v17) = 0;
               break;
             }
           }
           else
           {
-            v16 = (_QWORD *)v14[1];
-            if ( !v16 )
+            v18 = (_QWORD *)v16[1];
+            if ( !v18 )
             {
-              LOBYTE(v15) = 1;
+              LOBYTE(v17) = 1;
               break;
             }
           }
-          v14 = v16;
+          v16 = v18;
         }
       }
-      RtlAvlInsertNodeEx(&qword_18017A2A8, v14, v15, v9 + 88);
-      v17 = (__int64 *)qword_18017A2B8;
+      RtlAvlInsertNodeEx(&qword_18017A2A8, v16, v17, v11 + 88);
+      v19 = (__int64 *)qword_18017A2B8;
       if ( *(__int64 **)qword_18017A2B8 != &qword_18017A2B0 )
         __fastfail(3u);
-      *(_QWORD *)v9 = &qword_18017A2B0;
-      *(_QWORD *)(v9 + 8) = v17;
-      *v17 = v9;
-      qword_18017A2B8 = v9;
-      RtlReleaseSRWLockExclusive(&qword_180164350);
+      *(_QWORD *)v11 = &qword_18017A2B0;
+      *(_QWORD *)(v11 + 8) = v19;
+      *v19 = v11;
+      qword_18017A2B8 = v11;
+      RtlReleaseSRWLockExclusive(&stru_180164350);
       sub_180035F18(1);
-      if ( !(unsigned int)LdrControlFlowGuardEnforced() )
+      LOBYTE(v20) = LdrControlFlowGuardEnforced();
+      if ( !v20 )
         return 1;
-      RtlAcquireSRWLockExclusive(&qword_180165010);
-      v18 = *(_DWORD *)qword_18017A288;
+      RtlAcquireSRWLockExclusive(&stru_180165010);
+      v21 = *(_DWORD *)qword_18017A288;
       if ( *(_DWORD *)qword_18017A288 )
       {
-        *(_DWORD *)qword_18017A288 = v18 - 1;
-        if ( v18 == 1 )
-          RtlProtectHeap((_DWORD *)qword_18017A278, 1);
-        RtlReleaseSRWLockExclusive(&qword_180165010);
+        *(_DWORD *)qword_18017A288 = v21 - 1;
+        if ( v21 == 1 )
+          RtlProtectHeap(qword_18017A278, 1u);
+        RtlReleaseSRWLockExclusive(&stru_180165010);
         return 1;
       }
 LABEL_45:
-      RtlReleaseSRWLockExclusive(&qword_180165010);
+      RtlReleaseSRWLockExclusive(&stru_180165010);
       __fastfail(0xEu);
     }
-    if ( (unsigned int)LdrControlFlowGuardEnforced() )
+    LOBYTE(v26) = LdrControlFlowGuardEnforced();
+    if ( v26 )
     {
-      RtlAcquireSRWLockExclusive(&qword_180165010);
-      v23 = *(_DWORD *)qword_18017A288;
+      RtlAcquireSRWLockExclusive(&stru_180165010);
+      v27 = *(_DWORD *)qword_18017A288;
       if ( !*(_DWORD *)qword_18017A288 )
         goto LABEL_45;
-      *(_DWORD *)qword_18017A288 = v23 - 1;
-      if ( v23 == 1 )
-        RtlProtectHeap((_DWORD *)qword_18017A278, 1);
-      RtlReleaseSRWLockExclusive(&qword_180165010);
+      *(_DWORD *)qword_18017A288 = v27 - 1;
+      if ( v27 == 1 )
+        RtlProtectHeap(qword_18017A278, 1u);
+      RtlReleaseSRWLockExclusive(&stru_180165010);
     }
   }
   return 0;

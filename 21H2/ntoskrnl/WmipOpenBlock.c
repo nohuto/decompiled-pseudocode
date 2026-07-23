@@ -1,17 +1,17 @@
 /*
- * XREFs of WmipOpenBlock @ 0x14063F2B8
+ * XREFs of WmipOpenBlock @ 0x1406340C8
  * Callers:
- *     WmipIoControl @ 0x1406A8220 (WmipIoControl.c)
- *     IoWMIOpenBlock @ 0x14075AC90 (IoWMIOpenBlock.c)
+ *     WmipIoControl @ 0x1406061A0 (WmipIoControl.c)
+ *     IoWMIOpenBlock @ 0x14075AE50 (IoWMIOpenBlock.c)
  * Callees:
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     KeReleaseMutex @ 0x1402EE5A0 (KeReleaseMutex.c)
- *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
- *     WmipIsQuerySetGuid @ 0x14063EA18 (WmipIsQuerySetGuid.c)
- *     WmipEnableCollectOrEvent @ 0x14063EA80 (WmipEnableCollectOrEvent.c)
- *     WmipFindGEByGuid @ 0x14063F1D0 (WmipFindGEByGuid.c)
- *     WmipOpenGuidObject @ 0x14063F6E0 (WmipOpenGuidObject.c)
- *     WmipAllocGuidEntry @ 0x140758028 (WmipAllocGuidEntry.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     KeReleaseMutex @ 0x1402F92F0 (KeReleaseMutex.c)
+ *     KeWaitForSingleObject @ 0x1403504C0 (KeWaitForSingleObject.c)
+ *     WmipIsQuerySetGuid @ 0x140633828 (WmipIsQuerySetGuid.c)
+ *     WmipEnableCollectOrEvent @ 0x140633890 (WmipEnableCollectOrEvent.c)
+ *     WmipFindGEByGuid @ 0x140633FE0 (WmipFindGEByGuid.c)
+ *     WmipOpenGuidObject @ 0x1406344F0 (WmipOpenGuidObject.c)
+ *     WmipAllocGuidEntry @ 0x1407581E8 (WmipAllocGuidEntry.c)
  */
 
 __int64 __fastcall WmipOpenBlock(int a1, __int64 a2, __int64 a3, unsigned int a4, PADAPTER_OBJECT *a5)

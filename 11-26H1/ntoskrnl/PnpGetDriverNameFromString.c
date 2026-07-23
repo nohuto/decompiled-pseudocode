@@ -1,13 +1,13 @@
 /*
- * XREFs of PnpGetDriverNameFromString @ 0x1405DA100
+ * XREFs of PnpGetDriverNameFromString @ 0x1405DC900
  * Callers:
- *     PnpDeviceCompletionRoutine @ 0x1404937E0 (PnpDeviceCompletionRoutine.c)
+ *     PnpDeviceCompletionRoutine @ 0x14048D330 (PnpDeviceCompletionRoutine.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     RtlUnicodeStringToAnsiString @ 0x14096C2C0 (RtlUnicodeStringToAnsiString.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     RtlUnicodeStringToAnsiString @ 0x14097CC00 (RtlUnicodeStringToAnsiString.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PnpGetDriverNameFromString(unsigned __int16 *a1, char **a2, _DWORD *a3)
@@ -18,7 +18,7 @@ __int64 __fastcall PnpGetDriverNameFromString(unsigned __int16 *a1, char **a2, _
   unsigned int v10; // eax
   char *v11; // rdx
   NTSTATUS v12; // edi
-  STRING v13; // [rsp+20h] [rbp-38h] BYREF
+  _STRING v13; // [rsp+20h] [rbp-38h] BYREF
   UNICODE_STRING DestinationString; // [rsp+30h] [rbp-28h] BYREF
 
   Length = 0;

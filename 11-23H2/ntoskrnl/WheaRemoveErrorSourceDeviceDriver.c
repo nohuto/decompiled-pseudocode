@@ -1,14 +1,14 @@
 /*
- * XREFs of WheaRemoveErrorSourceDeviceDriver @ 0x140A07AA0
+ * XREFs of WheaRemoveErrorSourceDeviceDriver @ 0x140A07D50
  * Callers:
  *     <none>
  * Callees:
- *     WheaLogInternalEvent @ 0x140380A50 (WheaLogInternalEvent.c)
- *     RtlStringCchCopyA @ 0x1403C342C (RtlStringCchCopyA.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     WheaGetErrorSource @ 0x140610590 (WheaGetErrorSource.c)
- *     WheapErrDescIsDeviceDriver @ 0x1406117C0 (WheapErrDescIsDeviceDriver.c)
- *     WheaRemoveErrorSource @ 0x140A078C0 (WheaRemoveErrorSource.c)
+ *     WheaLogInternalEvent @ 0x140380BF0 (WheaLogInternalEvent.c)
+ *     RtlStringCchCopyA @ 0x1403C360C (RtlStringCchCopyA.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     WheaGetErrorSource @ 0x140610AE0 (WheaGetErrorSource.c)
+ *     WheapErrDescIsDeviceDriver @ 0x140611D10 (WheapErrDescIsDeviceDriver.c)
+ *     WheaRemoveErrorSource @ 0x140A07B50 (WheaRemoveErrorSource.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

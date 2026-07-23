@@ -1,20 +1,20 @@
 /*
- * XREFs of LdrpResSetFilePointer @ 0x1800D2330
+ * XREFs of LdrpResSetFilePointer @ 0x180098520
  * Callers:
- *     LdrpResSearchResourceHandle @ 0x1800D1ACC (LdrpResSearchResourceHandle.c)
- *     LdrpResReadFile @ 0x1800D2270 (LdrpResReadFile.c)
+ *     LdrpResReadFile @ 0x180098460 (LdrpResReadFile.c)
+ *     LdrpResSearchResourceHandle @ 0x18009856C (LdrpResSearchResourceHandle.c)
  * Callees:
- *     ZwSetInformationFile @ 0x180162170 (ZwSetInformationFile.c)
+ *     ZwSetInformationFile @ 0x180160530 (ZwSetInformationFile.c)
  */
 
-__int64 __fastcall LdrpResSetFilePointer(__int64 a1, __int64 a2)
+NTSTATUS __fastcall LdrpResSetFilePointer(char *a1, __int64 a2)
 {
-  __int128 v3; // [rsp+30h] [rbp-18h] BYREF
-  __int64 v4; // [rsp+50h] [rbp+8h] BYREF
+  _IO_STATUS_BLOCK IoStatusBlock; // [rsp+30h] [rbp-18h] BYREF
+  __int64 FileInformation; // [rsp+50h] [rbp+8h] BYREF
 
-  v3 = 0LL;
+  IoStatusBlock = 0LL;
   if ( (unsigned __int64)(a1 - 1) > 0xFFFFFFFFFFFFFFFDuLL )
-    return 3221225480LL;
-  v4 = a2;
-  return ZwSetInformationFile(a1, &v3, &v4, 8LL, 14);
+    return -1073741816;
+  FileInformation = a2;
+  return ZwSetInformationFile(a1, &IoStatusBlock, &FileInformation, 8u, FilePositionInformation);
 }

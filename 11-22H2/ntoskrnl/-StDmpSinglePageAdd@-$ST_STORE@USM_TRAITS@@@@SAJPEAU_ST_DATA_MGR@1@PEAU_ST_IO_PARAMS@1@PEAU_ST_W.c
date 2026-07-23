@@ -50,11 +50,11 @@ __int64 __fastcall ST_STORE<SM_TRAITS>::StDmpSinglePageAdd(__int64 a1, __int64 a
   __int64 v30; // rax
   __int64 v31; // r9
   __int64 v32; // rcx
-  int v34; // eax
-  ULONG FinalCompressedSize; // [rsp+40h] [rbp-29h] BYREF
+  ULONG32 v34; // eax
+  ULONG Length; // [rsp+40h] [rbp-29h] BYREF
   int v36; // [rsp+44h] [rbp-25h] BYREF
   unsigned __int8 v37[8]; // [rsp+48h] [rbp-21h] BYREF
-  _DWORD *v38; // [rsp+50h] [rbp-19h]
+  ULONG32 *v38; // [rsp+50h] [rbp-19h]
   unsigned int *v39; // [rsp+58h] [rbp-11h]
   __int64 v40; // [rsp+60h] [rbp-9h]
   __int64 v41; // [rsp+68h] [rbp-1h] BYREF
@@ -91,7 +91,7 @@ __int64 __fastcall ST_STORE<SM_TRAITS>::StDmpSinglePageAdd(__int64 a1, __int64 a
     v14 = *(_DWORD *)a2;
     v15 = (unsigned __int8 *)(*(_QWORD *)v37 + *(unsigned int *)(a1 + 824));
     v16 = *(void **)(a2 + 8);
-    v38 = *(_DWORD **)v37;
+    v38 = *(ULONG32 **)v37;
     if ( v14 >= 0 )
     {
       v18 = *(_DWORD *)(a1 + 776);
@@ -116,7 +116,7 @@ __int64 __fastcall ST_STORE<SM_TRAITS>::StDmpSinglePageAdd(__int64 a1, __int64 a
     }
     v19 = v36;
     v20 = *(_DWORD *)(a1 + 816) - (v36 & *(_DWORD *)(a1 + 808));
-    FinalCompressedSize = v17;
+    Length = v17;
     if ( v14 < 0 )
     {
       v21 = v17;
@@ -136,15 +136,15 @@ __int64 __fastcall ST_STORE<SM_TRAITS>::StDmpSinglePageAdd(__int64 a1, __int64 a
              v23,
              0x1000u,
              0x1000u,
-             &FinalCompressedSize,
+             &Length,
              *(PVOID *)(a1 + 896)) >= 0 )
       {
-        v17 = FinalCompressedSize;
+        v17 = Length;
       }
       else
       {
         v17 = 4096;
-        FinalCompressedSize = 4096;
+        Length = 4096;
       }
     }
     if ( v23 != v15 )
@@ -168,7 +168,7 @@ LABEL_38:
       }
       v17 = 4096;
       v23 = (UCHAR *)v16;
-      FinalCompressedSize = 4096;
+      Length = 4096;
     }
     if ( v23 == v15 )
     {
@@ -187,11 +187,11 @@ LABEL_36:
       ST_STORE<SM_TRAITS>::StDmPageRecordUnprotect(a1, v25);
       *(_QWORD *)(v26 + 4) = 0LL;
       *(_DWORD *)v26 = v19;
-      v28 = FinalCompressedSize;
-      if ( FinalCompressedSize < 0x1000 )
+      v28 = Length;
+      if ( Length < 0x1000 )
       {
-        *(_DWORD *)(v26 + 4) ^= (*(_DWORD *)(v26 + 4) ^ FinalCompressedSize) & 0xFFF;
-        v28 = FinalCompressedSize;
+        *(_DWORD *)(v26 + 4) ^= (*(_DWORD *)(v26 + 4) ^ Length) & 0xFFF;
+        v28 = Length;
       }
       if ( *(int *)a2 >= 0 )
       {
@@ -207,11 +207,11 @@ LABEL_36:
       v30 = *(_QWORD *)(a1 + 1016);
       if ( *(_DWORD *)(v30 + 24) )
       {
-        v31 = -*(_DWORD *)(v30 + 8) & (*(_DWORD *)(v30 + 8) + FinalCompressedSize - 1);
+        v31 = -*(_DWORD *)(v30 + 8) & (*(_DWORD *)(v30 + 8) + Length - 1);
         ++*(_QWORD *)(a1 + 1024);
         *(_DWORD *)(v26 + 12) = *(_DWORD *)(a1 + 1024);
         *(_WORD *)(v26 + 6) = *(_WORD *)(a1 + 1028);
-        LODWORD(v41) = FinalCompressedSize;
+        LODWORD(v41) = Length;
         HIDWORD(v41) = *(_DWORD *)(v26 + 12);
         v32 = *(_QWORD *)(a1 + 1016);
         v42 = *(unsigned __int16 *)(v26 + 6);
@@ -225,7 +225,7 @@ LABEL_49:
       }
       else if ( *(_BYTE *)(a1 + 776) )
       {
-        v34 = RtlComputeCrc32(0, (char *)v15, FinalCompressedSize);
+        v34 = RtlComputeCrc32(0, v15, Length);
         *v38 = v34;
       }
       Space = ST_STORE<SM_TRAITS>::StDmpSinglePageInsert(a1, a2, v26);

@@ -19,14 +19,14 @@ __int64 __fastcall MmUpdateSlabRangeType(ULONG_PTR BugCheckParameter2, ULONG_PTR
   ULONG_PTR BugCheckParameter4; // r12
   unsigned int v7; // eax
   __int64 v8; // rbx
-  unsigned __int64 v9; // r15
+  __int64 v9; // r15
   ULONG_PTR v10; // r9
-  unsigned __int64 v11; // r14
+  __int64 v11; // r14
   __int64 v12; // r13
   unsigned int v13; // eax
   KIRQL v14; // bl
   ULONG_PTR v15; // [rsp+30h] [rbp-38h] BYREF
-  unsigned __int64 v16; // [rsp+38h] [rbp-30h]
+  __int64 v16; // [rsp+38h] [rbp-30h]
   __int64 v17; // [rsp+88h] [rbp+20h]
 
   result = (unsigned int)dword_140E389C4;

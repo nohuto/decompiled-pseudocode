@@ -11,42 +11,36 @@
  *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x180174020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
  */
 
-__int64 __fastcall TppStopWaitCallbackGeneration(__int64 a1, int a2)
+void __fastcall TppStopWaitCallbackGeneration(__int64 a1, int a2)
 {
   __int64 v2; // rdi
-  volatile signed __int64 *v3; // rsi
-  __int64 result; // rax
-  unsigned int v7; // ecx
-  __int64 (__fastcall *v8)(__int64); // rax
-  signed int v9; // [rsp+38h] [rbp+10h] BYREF
+  _RTL_SRWLOCK *v3; // rsi
+  signed int v6; // ecx
+  void (__fastcall *v7)(__int64); // rax
+  signed int v8; // [rsp+38h] [rbp+10h] BYREF
 
   v2 = *(_QWORD *)(a1 + 144);
-  v3 = (volatile signed __int64 *)(a1 + 240);
-  v9 = 0;
-  RtlAcquireSRWLockExclusive((volatile signed __int32 *)(a1 + 240));
-  TppCancelWait(a1, v2 + 112, a2 != 0 ? 2 : 0, &v9);
+  v3 = (_RTL_SRWLOCK *)(a1 + 240);
+  v8 = 0;
+  RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)(a1 + 240));
+  TppCancelWait(a1, v2 + 112, a2 != 0 ? 2 : 0, &v8);
   ++*(_BYTE *)(a1 + 355);
-  result = RtlReleaseSRWLockExclusive(v3);
-  if ( v9 < 0 )
+  RtlReleaseSRWLockExclusive(v3);
+  v6 = v8;
+  if ( v8 < 0 && _InterlockedExchangeAdd((volatile signed __int32 *)a1, v8) == -v6 )
   {
-    v7 = -v9;
-    result = (unsigned int)_InterlockedExchangeAdd((volatile signed __int32 *)a1, v9);
-    if ( (_DWORD)result == v7 )
+    v7 = **(void (__fastcall ***)(__int64))(a1 + 8);
+    if ( (char *)v7 == (char *)TppFreeWait )
     {
-      v8 = **(__int64 (__fastcall ***)(__int64))(a1 + 8);
-      if ( v8 == TppFreeWait )
-      {
-        return TppFreeWait(a1);
-      }
-      else if ( v8 == TppTimerpFree )
-      {
-        return TppTimerpFree(a1);
-      }
-      else
-      {
-        return v8(a1);
-      }
+      TppFreeWait(a1);
+    }
+    else if ( (char *)v7 == (char *)TppTimerpFree )
+    {
+      TppTimerpFree((void *)a1);
+    }
+    else
+    {
+      v7(a1);
     }
   }
-  return result;
 }

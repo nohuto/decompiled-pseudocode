@@ -3,8 +3,8 @@
  * Callers:
  *     MiFindLargestLoaderDescriptor @ 0x140B42A54 (MiFindLargestLoaderDescriptor.c)
  * Callees:
- *     MiSearchNumaNodeTable @ 0x14026EAD0 (MiSearchNumaNodeTable.c)
- *     MiRestrictRangeToNode @ 0x140375714 (MiRestrictRangeToNode.c)
+ *     MiSearchNumaNodeTable @ 0x14026ED60 (MiSearchNumaNodeTable.c)
+ *     MiRestrictRangeToNode @ 0x1403758B4 (MiRestrictRangeToNode.c)
  *     MxPageAlwaysHot @ 0x140B4365C (MxPageAlwaysHot.c)
  *     MiInitializeBootMemoryDescriptor @ 0x140B43680 (MiInitializeBootMemoryDescriptor.c)
  */

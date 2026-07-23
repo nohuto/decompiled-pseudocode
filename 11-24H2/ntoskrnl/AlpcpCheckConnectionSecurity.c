@@ -1,20 +1,20 @@
 /*
- * XREFs of AlpcpCheckConnectionSecurity @ 0x140A167F4
+ * XREFs of AlpcpCheckConnectionSecurity @ 0x140A0F9D4
  * Callers:
- *     AlpcpCreateClientPort @ 0x1408649C0 (AlpcpCreateClientPort.c)
+ *     AlpcpCreateClientPort @ 0x140868FD0 (AlpcpCreateClientPort.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     ExReleaseResourceLite @ 0x14025A450 (ExReleaseResourceLite.c)
- *     PsReferencePrimaryTokenWithTag @ 0x14033FFF0 (PsReferencePrimaryTokenWithTag.c)
- *     ExAcquireResourceSharedLite @ 0x140341E80 (ExAcquireResourceSharedLite.c)
- *     ObFastDereferenceObject @ 0x140356880 (ObFastDereferenceObject.c)
- *     SeAccessCheck @ 0x14035A5B0 (SeAccessCheck.c)
- *     RtlEqualSid @ 0x140364150 (RtlEqualSid.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     SeReleaseSubjectContext @ 0x14084D7E0 (SeReleaseSubjectContext.c)
- *     SeQueryInformationToken @ 0x14090D870 (SeQueryInformationToken.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     ExReleaseResourceLite @ 0x14028AA60 (ExReleaseResourceLite.c)
+ *     PsReferencePrimaryTokenWithTag @ 0x14031F4D0 (PsReferencePrimaryTokenWithTag.c)
+ *     ExAcquireResourceSharedLite @ 0x140321360 (ExAcquireResourceSharedLite.c)
+ *     ObFastDereferenceObject @ 0x140324D60 (ObFastDereferenceObject.c)
+ *     SeAccessCheck @ 0x1403B6900 (SeAccessCheck.c)
+ *     RtlEqualSid @ 0x1403EB6C0 (RtlEqualSid.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     SeReleaseSubjectContext @ 0x140849AA0 (SeReleaseSubjectContext.c)
+ *     SeQueryInformationToken @ 0x1408E4F90 (SeQueryInformationToken.c)
  */
 
 __int64 __fastcall AlpcpCheckConnectionSecurity(__int64 a1, KPROCESSOR_MODE a2, void *a3, void *a4)

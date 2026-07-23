@@ -1,25 +1,25 @@
 /*
- * XREFs of KiSearchForNewThread @ 0x140296D10
+ * XREFs of KiSearchForNewThread @ 0x1402A59F0
  * Callers:
- *     KiIdleSchedule @ 0x140296C40 (KiIdleSchedule.c)
- *     KiSwapThread @ 0x1402A6990 (KiSwapThread.c)
+ *     KiIdleSchedule @ 0x1402A5920 (KiIdleSchedule.c)
+ *     KiSwapThread @ 0x1402D60C0 (KiSwapThread.c)
  * Callees:
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140210170 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     KiStartRescheduleContext @ 0x140254D50 (KiStartRescheduleContext.c)
- *     KiAcquirePrcbLocksForIsolationUnit @ 0x140293190 (KiAcquirePrcbLocksForIsolationUnit.c)
- *     ?KiCompleteRescheduleContextEntry@@YAXPEAU_KI_RESCHEDULE_CONTEXT_ENTRY@@PEAU_KPRCB@@PEAU_KTHREAD@@PEAU_KTHREAD_SCHEDULE_REASON_DATA@@@Z @ 0x1402979F0 (-KiCompleteRescheduleContextEntry@@YAXPEAU_KI_RESCHEDULE_CONTEXT_ENTRY@@PEAU_KPRCB@@PEAU_KTHREAD.c)
- *     KiSearchForNewThreadsForRescheduleContext @ 0x1402986C0 (KiSearchForNewThreadsForRescheduleContext.c)
- *     KiReadyDeferredReadyList @ 0x140299320 (KiReadyDeferredReadyList.c)
- *     KiCommitRescheduleContext @ 0x140299450 (KiCommitRescheduleContext.c)
- *     KiFlushSoftwareInterruptBatch @ 0x14031FCD0 (KiFlushSoftwareInterruptBatch.c)
- *     KiReleasePrcbLocksForIsolationUnit @ 0x140339330 (KiReleasePrcbLocksForIsolationUnit.c)
- *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x140379F24 (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
- *     KiParkCurrentProcessor @ 0x1403E9898 (KiParkCurrentProcessor.c)
- *     KiDowngradeIsolationUnitLockHandle @ 0x1403E9C10 (KiDowngradeIsolationUnitLockHandle.c)
- *     KiSearchForNewThreadsWithinL0SearchContext @ 0x1404E9D30 (KiSearchForNewThreadsWithinL0SearchContext.c)
- *     KiSearchForNewThreadsWithinL1SearchContext @ 0x1404E9D54 (KiSearchForNewThreadsWithinL1SearchContext.c)
- *     KiDisarmForceParkDutyCyclingIfNecessary @ 0x1404F9554 (KiDisarmForceParkDutyCyclingIfNecessary.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     KiStartRescheduleContext @ 0x140285360 (KiStartRescheduleContext.c)
+ *     KiAcquirePrcbLocksForIsolationUnit @ 0x1402A2D90 (KiAcquirePrcbLocksForIsolationUnit.c)
+ *     KiSearchForNewThreadsForRescheduleContext @ 0x1402A71B0 (KiSearchForNewThreadsForRescheduleContext.c)
+ *     KiReadyDeferredReadyList @ 0x1402A7E10 (KiReadyDeferredReadyList.c)
+ *     KiCommitRescheduleContext @ 0x1402A7F40 (KiCommitRescheduleContext.c)
+ *     KiFlushSoftwareInterruptBatch @ 0x1402C8860 (KiFlushSoftwareInterruptBatch.c)
+ *     ?KiCompleteRescheduleContextEntry@@YAXPEAU_KI_RESCHEDULE_CONTEXT_ENTRY@@PEAU_KPRCB@@PEAU_KTHREAD@@PEAU_KTHREAD_SCHEDULE_REASON_DATA@@@Z @ 0x1402E1220 (-KiCompleteRescheduleContextEntry@@YAXPEAU_KI_RESCHEDULE_CONTEXT_ENTRY@@PEAU_KPRCB@@PEAU_KTHREAD.c)
+ *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x1402E6E94 (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
+ *     KiReleasePrcbLocksForIsolationUnit @ 0x140318810 (KiReleasePrcbLocksForIsolationUnit.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1403394D0 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     KiParkCurrentProcessor @ 0x1403D7544 (KiParkCurrentProcessor.c)
+ *     KiDowngradeIsolationUnitLockHandle @ 0x1403D78B0 (KiDowngradeIsolationUnitLockHandle.c)
+ *     KiSearchForNewThreadsWithinL0SearchContext @ 0x1404E0CE0 (KiSearchForNewThreadsWithinL0SearchContext.c)
+ *     KiSearchForNewThreadsWithinL1SearchContext @ 0x1404E0D04 (KiSearchForNewThreadsWithinL1SearchContext.c)
+ *     KiDisarmForceParkDutyCyclingIfNecessary @ 0x1404F6E34 (KiDisarmForceParkDutyCyclingIfNecessary.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 _KTHREAD *__fastcall KiSearchForNewThread(struct _KPRCB *a1, char a2, unsigned __int64 *a3)
@@ -131,7 +131,7 @@ LABEL_20:
       }
       if ( v25 )
         KiReadyDeferredReadyList(a1, &v41);
-      KiAcquirePrcbLocksForIsolationUnit((__int64)a1, 0, a3);
+      KiAcquirePrcbLocksForIsolationUnit((__int64)a1, 0LL, a3);
     }
     else
     {
@@ -201,7 +201,7 @@ LABEL_20:
             && (GroupSetMember & SchedulerSubNode->SoftParkRequestSet) != 0 )
           {
             ExAcquireSpinLockExclusiveAtDpcLevel(&SchedulerSubNode->ParkLock);
-            KiAcquirePrcbLocksForIsolationUnit((__int64)a1, 1, a3);
+            KiAcquirePrcbLocksForIsolationUnit((__int64)a1, 1LL, a3);
             NextThread = a1->NextThread;
             if ( NextThread && NextThread != a1->IdleThread )
             {
@@ -217,7 +217,7 @@ LABEL_20:
           NextThread = 0LL;
           if ( !a2 )
           {
-            KiAcquirePrcbLocksForIsolationUnit((__int64)a1, 0, a3);
+            KiAcquirePrcbLocksForIsolationUnit((__int64)a1, 0LL, a3);
             return a1->NextThread;
           }
         }

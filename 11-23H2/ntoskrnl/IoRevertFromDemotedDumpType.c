@@ -1,10 +1,10 @@
 /*
- * XREFs of IoRevertFromDemotedDumpType @ 0x1405509B4
+ * XREFs of IoRevertFromDemotedDumpType @ 0x140551074
  * Callers:
- *     KiAttemptBugcheckRecovery @ 0x14057A42C (KiAttemptBugcheckRecovery.c)
- *     KiBugCheckRecoveryPrepareForCrashDump @ 0x14057AB48 (KiBugCheckRecoveryPrepareForCrashDump.c)
+ *     KiAttemptBugcheckRecovery @ 0x14057A91C (KiAttemptBugcheckRecovery.c)
+ *     KiBugCheckRecoveryPrepareForCrashDump @ 0x14057B038 (KiBugCheckRecoveryPrepareForCrashDump.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
  */
 
 __int64 (__fastcall *IoRevertFromDemotedDumpType())(_QWORD, _QWORD)

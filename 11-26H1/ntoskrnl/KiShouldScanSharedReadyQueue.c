@@ -1,9 +1,9 @@
 /*
- * XREFs of KiShouldScanSharedReadyQueue @ 0x1403BF9C8
+ * XREFs of KiShouldScanSharedReadyQueue @ 0x1403C98C8
  * Callers:
- *     KiUpdateRunTime @ 0x14021F420 (KiUpdateRunTime.c)
- *     KiQuantumEnd @ 0x140331070 (KiQuantumEnd.c)
- *     KiNormalPriorityReadyScan @ 0x1403BF1A4 (KiNormalPriorityReadyScan.c)
+ *     KiUpdateRunTime @ 0x140220DB0 (KiUpdateRunTime.c)
+ *     KiQuantumEnd @ 0x1403330A0 (KiQuantumEnd.c)
+ *     KiNormalPriorityReadyScan @ 0x1403C90A4 (KiNormalPriorityReadyScan.c)
  * Callees:
  *     <none>
  */

@@ -1,14 +1,14 @@
 /*
- * XREFs of PpmEventTraceProcessorIdleAccounting @ 0x14032C460
+ * XREFs of PpmEventTraceProcessorIdleAccounting @ 0x140436770
  * Callers:
  *     <none>
  * Callees:
- *     EtwWriteEx @ 0x140259680 (EtwWriteEx.c)
- *     EtwEventEnabled @ 0x1402A1BD0 (EtwEventEnabled.c)
- *     PpmTranslateIdleAccounting @ 0x14032C6E0 (PpmTranslateIdleAccounting.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     EtwWriteEx @ 0x140289C90 (EtwWriteEx.c)
+ *     EtwEventEnabled @ 0x1402D1300 (EtwEventEnabled.c)
+ *     PpmTranslateIdleAccounting @ 0x1404369F0 (PpmTranslateIdleAccounting.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PpmEventTraceProcessorIdleAccounting(__int64 a1)
@@ -53,7 +53,7 @@ __int64 __fastcall PpmEventTraceProcessorIdleAccounting(__int64 a1)
         if ( v2 )
         {
           v3 = *v2;
-          Pool2 = ExAllocatePool2(0x40uLL);
+          Pool2 = ExAllocatePool2(0x40uLL, (unsigned int)(80 * v3), 0x654D5050u);
           v5 = (void *)Pool2;
           if ( Pool2 )
           {
@@ -81,7 +81,7 @@ __int64 __fastcall PpmEventTraceProcessorIdleAccounting(__int64 a1)
               }
               while ( v8 );
             }
-            v11 = ExAllocatePool2(0x40uLL);
+            v11 = ExAllocatePool2(0x40uLL, (unsigned int)(416 * v3 + 24), 0x654D5050u);
             v12 = (void *)v11;
             if ( v11 )
             {

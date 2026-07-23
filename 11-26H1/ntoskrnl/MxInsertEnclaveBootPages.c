@@ -1,17 +1,17 @@
 /*
- * XREFs of MxInsertEnclaveBootPages @ 0x140CFD18C
+ * XREFs of MxInsertEnclaveBootPages @ 0x140D0350C
  * Callers:
- *     MxCreateDescriptorPfns @ 0x140CF5814 (MxCreateDescriptorPfns.c)
+ *     MxCreateDescriptorPfns @ 0x140CFBB94 (MxCreateDescriptorPfns.c)
  * Callees:
- *     MiPageToNode @ 0x140289710 (MiPageToNode.c)
- *     MiMakeDemandZeroPte @ 0x14028B2D0 (MiMakeDemandZeroPte.c)
- *     MiUpdatePageFileHighInPte @ 0x14028C010 (MiUpdatePageFileHighInPte.c)
- *     MiSetPageTablePfnBuddy @ 0x1402A4AE0 (MiSetPageTablePfnBuddy.c)
- *     MiSetPfnContainingFrame @ 0x14033BC10 (MiSetPfnContainingFrame.c)
- *     MiSetPfnIdentity @ 0x140369440 (MiSetPfnIdentity.c)
- *     MiDetermineNewPfnHeatState @ 0x140497664 (MiDetermineNewPfnHeatState.c)
- *     MiGetEnclavePageList @ 0x1404DE364 (MiGetEnclavePageList.c)
- *     MiCreateInitialPfns @ 0x1406E70A0 (MiCreateInitialPfns.c)
+ *     MiPageToNode @ 0x140288C70 (MiPageToNode.c)
+ *     MiMakeDemandZeroPte @ 0x14028A830 (MiMakeDemandZeroPte.c)
+ *     MiUpdatePageFileHighInPte @ 0x14028B570 (MiUpdatePageFileHighInPte.c)
+ *     MiSetPageTablePfnBuddy @ 0x1402A4030 (MiSetPageTablePfnBuddy.c)
+ *     MiSetPfnContainingFrame @ 0x14033DC90 (MiSetPfnContainingFrame.c)
+ *     MiSetPfnIdentity @ 0x14036B1E0 (MiSetPfnIdentity.c)
+ *     MiDetermineNewPfnHeatState @ 0x1404911B4 (MiDetermineNewPfnHeatState.c)
+ *     MiGetEnclavePageList @ 0x1404D7A44 (MiGetEnclavePageList.c)
+ *     MiCreateInitialPfns @ 0x1406EBD50 (MiCreateInitialPfns.c)
  */
 
 unsigned __int64 __fastcall MxInsertEnclaveBootPages(ULONG_PTR BugCheckParameter2, unsigned __int64 a2, int a3)
@@ -42,7 +42,7 @@ unsigned __int64 __fastcall MxInsertEnclaveBootPages(ULONG_PTR BugCheckParameter
   v22 = 0x400000LL;
   v23 = 0x40000000000000LL;
   v6 = MiPageToNode(BugCheckParameter2);
-  v7 = MiDetermineNewPfnHeatState(0, 3u, qword_140E37CD0 + 56320LL * v6);
+  v7 = MiDetermineNewPfnHeatState(0, 3u, qword_140E37E50 + 56320LL * v6);
   MiUpdatePageFileHighInPte(0LL, v7 != 0 ? 0xFFFFFFFD : 0);
   *(_QWORD *)&v21 = MiMakeDemandZeroPte(4);
   MiSetPfnContainingFrame((__int64)&v20, 0x3FFFFFFFFELL);
@@ -63,7 +63,7 @@ unsigned __int64 __fastcall MxInsertEnclaveBootPages(ULONG_PTR BugCheckParameter
     LODWORD(v22) = v22 & 0xFFFF0000 | 2;
     LODWORD(v22) = v22 & 0xFFF8FFFF | 0x60000;
     v20.m128i_i64[1] = 0xFFFFF68000000000uLL;
-    _InterlockedAdd64(&qword_140E3D880, a2);
+    _InterlockedAdd64(&qword_140E3DA00, a2);
   }
   v8 = (__m128i *)(48 * v3 - 0x220000000000LL);
   result = MiCreateInitialPfns(v8, a2, &v20);

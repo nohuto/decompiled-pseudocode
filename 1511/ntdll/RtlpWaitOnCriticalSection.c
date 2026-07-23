@@ -33,7 +33,7 @@ int __fastcall RtlpWaitOnCriticalSection(__int64 a1, int a2)
   char v14; // [rsp+30h] [rbp-39h]
   int v15; // [rsp+38h] [rbp-31h] BYREF
   struct _TEB *v16; // [rsp+40h] [rbp-29h]
-  _BYTE v17[6]; // [rsp+48h] [rbp-21h] BYREF
+  _BYTE Fields[6]; // [rsp+48h] [rbp-21h] BYREF
   __int16 v18; // [rsp+4Eh] [rbp-1Bh]
   int v19; // [rsp+68h] [rbp-1h]
   int v20; // [rsp+6Ch] [rbp+3h]
@@ -45,13 +45,13 @@ int __fastcall RtlpWaitOnCriticalSection(__int64 a1, int a2)
   v14 = 0;
   v16 = v2;
   v4 = 0;
-  if ( (_UNKNOWN **)a1 == &LdrpLoaderLock )
+  if ( (_RTL_CRITICAL_SECTION *)a1 == &LdrpLoaderLock )
   {
     v14 = 1;
     v2->WaitingOnLoaderLock = 1;
   }
   if ( RtlpWaitCouldDeadlock() )
-    ZwTerminateProcess(-1LL, 3221225547LL);
+    ZwTerminateProcess((HANDLE)0xFFFFFFFFFFFFFFFFLL, -1073741749);
   v5 = (LARGE_INTEGER *)&RtlpTimeout;
   if ( RtlpTimeoutDisable )
     v5 = 0LL;
@@ -73,7 +73,7 @@ int __fastcall RtlpWaitOnCriticalSection(__int64 a1, int a2)
       v20 = v8;
       v19 = *(_DWORD *)(a1 + 8);
       v21 = *(_QWORD *)(a1 + 16);
-      NtTraceEvent(MEMORY[0x7FFE0382], 132098LL, 24LL, v17);
+      NtTraceEvent((HANDLE)MEMORY[0x7FFE0382], 0x20402u, 0x18u, Fields);
     }
     if ( v7 == (void *)-1LL )
     {
@@ -97,13 +97,13 @@ LABEL_24:
       v12 = 0;
     else
       v12 = *(_DWORD *)(*(_QWORD *)a1 + 36LL);
-    if ( v4 > 2 && (_UNKNOWN **)a1 != &LdrpLoaderLock && v12 == v6 )
+    if ( v4 > 2 && (_RTL_CRITICAL_SECTION *)a1 != &LdrpLoaderLock && v12 == v6 )
       RtlpPossibleDeadlock(a1);
     v6 = v12;
-    DbgPrintEx(101LL, 0LL, "RTL: Re-Waiting\n");
+    DbgPrintEx(0x65u, 0, "RTL: Re-Waiting\n");
   }
   if ( (int)v9 < 0 )
-    RtlRaiseStatus((unsigned int)v9);
+    RtlRaiseStatus((NTSTATUS)v9);
   if ( v14 )
   {
     v16->WaitingOnLoaderLock = 0;

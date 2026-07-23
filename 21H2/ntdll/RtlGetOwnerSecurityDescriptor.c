@@ -2,28 +2,31 @@
  * XREFs of RtlGetOwnerSecurityDescriptor @ 0x1800795E0
  * Callers:
  *     RtlpSysVolCheckOwnerAndSecurity @ 0x1800886E0 (RtlpSysVolCheckOwnerAndSecurity.c)
- *     RtlAppxIsFileOwnedByTrustedInstaller @ 0x1800CBDA0 (RtlAppxIsFileOwnedByTrustedInstaller.c)
- *     RtlReplaceSidInSd @ 0x1800E6CF0 (RtlReplaceSidInSd.c)
+ *     RtlAppxIsFileOwnedByTrustedInstaller @ 0x1800CBD60 (RtlAppxIsFileOwnedByTrustedInstaller.c)
+ *     RtlReplaceSidInSd @ 0x1800E6CB0 (RtlReplaceSidInSd.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall RtlGetOwnerSecurityDescriptor(__int64 a1, _QWORD *a2, _BYTE *a3)
+NTSTATUS __cdecl RtlGetOwnerSecurityDescriptor(
+        PSECURITY_DESCRIPTOR SecurityDescriptor,
+        PSID *Owner,
+        PBOOLEAN OwnerDefaulted)
 {
-  __int64 v3; // rax
+  char *v3; // rax
 
-  if ( *(_BYTE *)a1 != 1 )
-    return 3221225560LL;
+  if ( *(_BYTE *)SecurityDescriptor != 1 )
+    return -1073741736;
   v3 = 0LL;
-  if ( *(__int16 *)(a1 + 2) >= 0 )
+  if ( *((__int16 *)SecurityDescriptor + 1) >= 0 )
   {
-    v3 = *(_QWORD *)(a1 + 8);
+    v3 = (char *)*((_QWORD *)SecurityDescriptor + 1);
   }
-  else if ( *(_DWORD *)(a1 + 4) )
+  else if ( *((_DWORD *)SecurityDescriptor + 1) )
   {
-    v3 = a1 + *(unsigned int *)(a1 + 4);
+    v3 = (char *)SecurityDescriptor + *((unsigned int *)SecurityDescriptor + 1);
   }
-  *a2 = v3;
-  *a3 = *(_BYTE *)(a1 + 2) & 1;
-  return 0LL;
+  *Owner = v3;
+  *OwnerDefaulted = *((_BYTE *)SecurityDescriptor + 2) & 1;
+  return 0;
 }

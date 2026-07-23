@@ -1,9 +1,9 @@
 /*
- * XREFs of PopSetupBluetoothChargingNotification @ 0x1407D4F68
+ * XREFs of PopSetupBluetoothChargingNotification @ 0x1407D50D8
  * Callers:
- *     PoInitSystem @ 0x140A3F948 (PoInitSystem.c)
+ *     PoInitSystem @ 0x140A40948 (PoInitSystem.c)
  * Callees:
- *     ExSubscribeWnfStateChange @ 0x1406B17B0 (ExSubscribeWnfStateChange.c)
+ *     ExSubscribeWnfStateChange @ 0x140610760 (ExSubscribeWnfStateChange.c)
  */
 
 __int64 PopSetupBluetoothChargingNotification()
@@ -11,8 +11,8 @@ __int64 PopSetupBluetoothChargingNotification()
   char v1; // [rsp+40h] [rbp+8h] BYREF
 
   return ExSubscribeWnfStateChange(
-           (__int64)&v1,
-           (__int64)&WNF_BLTH_BLUETOOTH_DEVICE_DOCK_STATUS,
+           (int)&v1,
+           (int)&WNF_BLTH_BLUETOOTH_DEVICE_DOCK_STATUS,
            1,
            0,
            (__int64)PopWnfBluetoothChargingCallback,

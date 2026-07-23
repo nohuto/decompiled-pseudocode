@@ -12,121 +12,123 @@
  *     <none>
  */
 
-void __fastcall RtlRbInsertNodeEx(unsigned __int64 *a1, unsigned __int64 a2, bool a3, unsigned __int64 a4)
+BOOLEAN __cdecl RtlRbInsertNodeEx(PRTL_RB_TREE Tree, PRTL_BALANCED_NODE Parent, BOOLEAN Right, PRTL_BALANCED_NODE Node)
 {
-  unsigned __int64 v5; // rcx
-  BOOL v6; // r11d
-  __int64 v7; // rax
-  _BOOL8 v8; // r11
-  _BOOL8 v9; // rbx
+  unsigned __int64 v4; // rax
+  _RTL_BALANCED_NODE *v6; // rcx
+  _BOOL8 v7; // r11
+  __int64 v8; // r11
+  __int64 v9; // rbx
   __int64 v10; // r11
-  unsigned __int64 v11; // rax
-  __int64 v12; // r9
-  _BOOL8 v13; // rdi
-  __int64 v14; // rsi
-  __int64 v15; // r8
-  __int64 v16; // rbx
+  _RTL_BALANCED_NODE *v11; // r9
+  _BOOL8 v12; // rdi
+  _RTL_BALANCED_NODE *v13; // rsi
+  unsigned __int64 v14; // r8
+  unsigned __int64 ParentValue; // rbx
 
-  *(_QWORD *)a4 = 0LL;
-  *(_QWORD *)(a4 + 8) = 0LL;
-  if ( a2 )
+  Node->Children[0] = 0LL;
+  Node->Children[1] = 0LL;
+  if ( Parent )
   {
-    *(_QWORD *)(a2 + 8LL * a3) = a4;
-    *(_QWORD *)(a4 + 16) = a2 | 1;
-    if ( !a3 && a2 == a1[1] )
-      a1[1] = a4;
-    while ( (*(_BYTE *)(a2 + 16) & 1) != 0 )
+    Parent->Children[Right] = Node;
+    LOBYTE(v4) = (unsigned __int8)Parent | 1;
+    Node->ParentValue = (unsigned __int64)Parent | 1;
+    if ( !Right && Parent == Tree->Min )
+      Tree->Min = Node;
+    while ( (*(_BYTE *)&Parent->0 & 1) != 0 )
     {
-      v5 = *(_QWORD *)(a2 + 16) & 0xFFFFFFFFFFFFFFFCuLL;
-      v6 = *(_QWORD *)v5 != a2;
-      v7 = *(_QWORD *)(v5 + 8LL * (*(_QWORD *)v5 == a2));
-      if ( !v7 || (*(_BYTE *)(v7 + 16) & 1) == 0 )
+      v6 = (_RTL_BALANCED_NODE *)(Parent->ParentValue & 0xFFFFFFFFFFFFFFFCuLL);
+      v7 = v6->Children[0] != Parent;
+      v4 = (unsigned __int64)v6->Children[v6->Children[0] == Parent];
+      if ( !v4 || (*(_BYTE *)(v4 + 16) & 1) == 0 )
       {
-        if ( a3 != v6 )
+        if ( Right != v7 )
         {
-          if ( (*(_QWORD *)(a4 + 16) & 0xFFFFFFFFFFFFFFFCuLL) != a2 )
+          if ( (PRTL_BALANCED_NODE)(Node->ParentValue & 0xFFFFFFFFFFFFFFFCuLL) != Parent )
             __fastfail(0x1Du);
-          v13 = *(_QWORD *)v5 == a2;
-          if ( *(_QWORD *)(a2 + 8 * v13) != a4 )
+          v12 = v6->Children[0] == Parent;
+          if ( Parent->Children[v12] != Node )
             __fastfail(0x1Du);
-          if ( *(_QWORD *)(v5 + 8LL * (*(_QWORD *)v5 != a2)) != a2 )
+          if ( v6->Children[v6->Children[0] != Parent] != Parent )
             __fastfail(0x1Du);
-          *(_QWORD *)(v5 + 8LL * (*(_QWORD *)v5 != a2)) = a4;
-          *(_QWORD *)(a4 + 16) &= 3uLL;
-          *(_QWORD *)(a4 + 16) |= v5;
-          v14 = *(_QWORD *)(a4 + 8LL * v6);
-          if ( v14 )
+          v6->Children[v6->Children[0] != Parent] = Node;
+          Node->ParentValue &= 3uLL;
+          Node->ParentValue |= (unsigned __int64)v6;
+          v13 = Node->Children[v7];
+          if ( v13 )
           {
-            v16 = *(_QWORD *)(v14 + 16);
-            if ( (v16 & 0xFFFFFFFFFFFFFFFCuLL) != a4 )
+            ParentValue = v13->ParentValue;
+            if ( (PRTL_BALANCED_NODE)(ParentValue & 0xFFFFFFFFFFFFFFFCuLL) != Node )
               __fastfail(0x1Du);
-            *(_QWORD *)(v14 + 16) = a2 | v16 & 3;
+            v13->ParentValue = (unsigned __int64)Parent | ParentValue & 3;
           }
-          *(_QWORD *)(a2 + 8 * v13) = v14;
-          *(_QWORD *)(a4 + 8LL * v6) = a2;
-          *(_QWORD *)(a2 + 16) &= 3uLL;
-          *(_QWORD *)(a2 + 16) |= a4;
-          a2 = a4;
+          Parent->Children[v12] = v13;
+          Node->Children[v7] = Parent;
+          Parent->ParentValue &= 3uLL;
+          Parent->ParentValue |= (unsigned __int64)Node;
+          Parent = Node;
         }
-        v8 = !v6;
-        if ( (*(_QWORD *)(a2 + 16) & 0xFFFFFFFFFFFFFFFCuLL) != v5 )
+        v8 = (unsigned int)v7 ^ 1;
+        if ( (_RTL_BALANCED_NODE *)(Parent->ParentValue & 0xFFFFFFFFFFFFFFFCuLL) != v6 )
           __fastfail(0x1Du);
-        v9 = v8;
-        v10 = !v8;
-        if ( *(_QWORD *)(v5 + 8 * v10) != a2 )
+        v9 = (unsigned int)v8;
+        v10 = v8 ^ 1;
+        if ( v6->Children[v10] != Parent )
           __fastfail(0x1Du);
-        v11 = *(_QWORD *)(v5 + 16) & 0xFFFFFFFFFFFFFFFCuLL;
-        if ( v11 )
+        v4 = v6->ParentValue & 0xFFFFFFFFFFFFFFFCuLL;
+        if ( v4 )
         {
-          if ( *(_QWORD *)(v11 + 8) == v5 )
+          if ( *(_RTL_BALANCED_NODE **)(v4 + 8) == v6 )
           {
-            *(_QWORD *)(v11 + 8) = a2;
+            *(_QWORD *)(v4 + 8) = Parent;
           }
           else
           {
-            if ( *(_QWORD *)v11 != v5 )
+            if ( *(_RTL_BALANCED_NODE **)v4 != v6 )
               __fastfail(0x1Du);
-            *(_QWORD *)v11 = a2;
+            *(_QWORD *)v4 = Parent;
           }
         }
         else
         {
-          if ( *a1 != v5 )
+          if ( Tree->Root != v6 )
             __fastfail(0x1Du);
-          *a1 = a2;
+          Tree->Root = Parent;
         }
-        *(_QWORD *)(a2 + 16) &= 3uLL;
-        *(_QWORD *)(a2 + 16) |= v11;
-        v12 = *(_QWORD *)(a2 + 8 * v9);
-        if ( v12 )
+        Parent->ParentValue &= 3uLL;
+        Parent->ParentValue |= v4;
+        v11 = Parent->Children[v9];
+        if ( v11 )
         {
-          v15 = *(_QWORD *)(v12 + 16);
-          if ( (v15 & 0xFFFFFFFFFFFFFFFCuLL) != a2 )
+          v14 = v11->ParentValue;
+          LOBYTE(v4) = v14 & 0xFC;
+          if ( (PRTL_BALANCED_NODE)(v14 & 0xFFFFFFFFFFFFFFFCuLL) != Parent )
             __fastfail(0x1Du);
-          *(_QWORD *)(v12 + 16) = v5 | v15 & 3;
+          v11->ParentValue = (unsigned __int64)v6 | v14 & 3;
         }
-        *(_QWORD *)(v5 + 8 * v10) = v12;
-        *(_QWORD *)(a2 + 8 * v9) = v5;
-        *(_QWORD *)(v5 + 16) &= 3uLL;
-        *(_QWORD *)(v5 + 16) |= a2;
-        *(_BYTE *)(v5 + 16) |= 1u;
-        *(_BYTE *)(a2 + 16) &= ~1u;
-        return;
+        v6->Children[v10] = v11;
+        Parent->Children[v9] = v6;
+        v6->ParentValue &= 3uLL;
+        v6->ParentValue |= (unsigned __int64)Parent;
+        *(_BYTE *)&v6->0 |= 1u;
+        *(_BYTE *)&Parent->0 &= ~1u;
+        return v4;
       }
-      *(_BYTE *)(a2 + 16) &= ~1u;
-      a4 = v5;
-      *(_BYTE *)(v7 + 16) &= ~1u;
-      a2 = *(_QWORD *)(v5 + 16) & 0xFFFFFFFFFFFFFFFCuLL;
-      if ( !a2 )
-        return;
-      *(_BYTE *)(v5 + 16) |= 1u;
-      a3 = v5 != *(_QWORD *)a2;
+      *(_BYTE *)&Parent->0 &= ~1u;
+      Node = v6;
+      *(_BYTE *)(v4 + 16) &= ~1u;
+      Parent = (PRTL_BALANCED_NODE)(v6->ParentValue & 0xFFFFFFFFFFFFFFFCuLL);
+      if ( !Parent )
+        return v4;
+      *(_BYTE *)&v6->0 |= 1u;
+      Right = v6 != Parent->Children[0];
     }
   }
   else
   {
-    *a1 = a4;
-    a1[1] = a4;
-    *(_QWORD *)(a4 + 16) = 0LL;
+    Tree->Root = Node;
+    Tree->Min = Node;
+    Node->ParentValue = 0LL;
   }
+  return v4;
 }

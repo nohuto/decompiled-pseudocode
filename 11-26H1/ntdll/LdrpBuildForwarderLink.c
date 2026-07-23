@@ -1,11 +1,11 @@
 /*
- * XREFs of LdrpBuildForwarderLink @ 0x180050D90
+ * XREFs of LdrpBuildForwarderLink @ 0x18003B310
  * Callers:
- *     LdrpLoadDllInternal @ 0x1800520B0 (LdrpLoadDllInternal.c)
+ *     LdrpLoadDllInternal @ 0x18003C630 (LdrpLoadDllInternal.c)
  * Callees:
- *     RtlpAcquireSRWLockExclusiveContended @ 0x18002B280 (RtlpAcquireSRWLockExclusiveContended.c)
- *     RtlReleaseSRWLockExclusive @ 0x18003FAA0 (RtlReleaseSRWLockExclusive.c)
- *     LdrpRecordModuleDependency @ 0x180050E60 (LdrpRecordModuleDependency.c)
+ *     RtlpAcquireSRWLockExclusiveContended @ 0x180016380 (RtlpAcquireSRWLockExclusiveContended.c)
+ *     RtlReleaseSRWLockExclusive @ 0x18002A010 (RtlReleaseSRWLockExclusive.c)
+ *     LdrpRecordModuleDependency @ 0x18003B3E0 (LdrpRecordModuleDependency.c)
  */
 
 __int64 __fastcall LdrpBuildForwarderLink(__int64 a1, char *a2)
@@ -36,7 +36,7 @@ __int64 __fastcall LdrpBuildForwarderLink(__int64 a1, char *a2)
       }
     }
     if ( _interlockedbittestandset64((volatile signed __int32 *)&LdrpModuleDatatableLock, 0LL) )
-      RtlpAcquireSRWLockExclusiveContended(&LdrpModuleDatatableLock, (__int64)a2);
+      RtlpAcquireSRWLockExclusiveContended((volatile signed __int64 *)&LdrpModuleDatatableLock, (unsigned __int64)a2);
     if ( *(_DWORD *)(*(_QWORD *)(a1 + 152) + 24LL) || (NtCurrentTeb()->SameTebFlags & 0x1000) != 0 )
     {
       LdrpRecordModuleDependency(a1, v3, 0LL, &v8);

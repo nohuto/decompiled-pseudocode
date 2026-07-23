@@ -14,24 +14,24 @@
  *     AlpcpQueryTokenModifiedIdMessage @ 0x14051A738 (AlpcpQueryTokenModifiedIdMessage.c)
  */
 
-__int64 __fastcall NtAlpcQueryInformationMessage(
-        HANDLE Handle,
-        __int64 a2,
-        int a3,
-        volatile void *a4,
-        SIZE_T Length,
-        ULONG64 a6)
+NTSTATUS __cdecl NtAlpcQueryInformationMessage(
+        HANDLE PortHandle,
+        PPORT_MESSAGE PortMessage,
+        ALPC_MESSAGE_INFORMATION_CLASS MessageInformationClass,
+        PVOID MessageInformation,
+        ULONG Length,
+        PULONG ReturnLength)
 {
   struct _KTHREAD *CurrentThread; // rax
   KPROCESSOR_MODE PreviousMode; // bl
-  __int64 v11; // rdi
+  PULONG v11; // rdi
   _DWORD *v12; // rcx
   unsigned int v13; // r14d
-  int v14; // ebx
+  NTSTATUS v14; // ebx
   PVOID v15; // r15
   ULONG_PTR v16; // r14
-  int v17; // esi
-  int TokenModifiedIdMessage; // eax
+  __int32 v17; // esi
+  NTSTATUS TokenModifiedIdMessage; // eax
   unsigned int v20; // [rsp+30h] [rbp-38h] BYREF
   int v21; // [rsp+34h] [rbp-34h] BYREF
   PVOID Object; // [rsp+38h] [rbp-30h] BYREF
@@ -40,22 +40,22 @@ __int64 __fastcall NtAlpcQueryInformationMessage(
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
-  AlpcpCaptureIdMessage(a2, &v20, &v21);
+  AlpcpCaptureIdMessage(PortMessage, &v20, &v21);
   if ( PreviousMode )
   {
-    ProbeForWrite(a4, (unsigned int)Length, 4u);
-    v11 = a6;
-    if ( a6 )
+    ProbeForWrite(MessageInformation, Length, 4u);
+    v11 = ReturnLength;
+    if ( ReturnLength )
     {
-      v12 = (_DWORD *)a6;
-      if ( a6 >= MmUserProbeAddress )
+      v12 = ReturnLength;
+      if ( (unsigned __int64)ReturnLength >= MmUserProbeAddress )
         v12 = (_DWORD *)MmUserProbeAddress;
       *v12 = *v12;
     }
   }
   else
   {
-    v11 = a6;
+    v11 = ReturnLength;
   }
   v13 = v20;
   if ( !v20 )
@@ -63,7 +63,7 @@ __int64 __fastcall NtAlpcQueryInformationMessage(
     v14 = -1073741811;
     goto LABEL_21;
   }
-  v14 = ObReferenceObjectByHandle(Handle, 0x20000u, AlpcPortObjectType, PreviousMode, &Object, 0LL);
+  v14 = ObReferenceObjectByHandle(PortHandle, 0x20000u, AlpcPortObjectType, PreviousMode, &Object, 0LL);
   if ( v14 >= 0 )
   {
     v15 = Object;
@@ -77,12 +77,12 @@ LABEL_20:
     v16 = v23[0];
     if ( *(_QWORD *)(v23[0] + 24) )
     {
-      if ( a3 )
+      if ( MessageInformationClass )
       {
-        v17 = a3 - 1;
+        v17 = MessageInformationClass - 1;
         if ( v17 )
         {
-          if ( v17 != 1 || a4 || (_DWORD)Length || v11 )
+          if ( v17 != 1 || MessageInformation || Length || v11 )
           {
             v14 = -1073741811;
           }
@@ -94,11 +94,21 @@ LABEL_20:
           }
           goto LABEL_19;
         }
-        TokenModifiedIdMessage = AlpcpQueryTokenModifiedIdMessage((_DWORD)v15, v23[0], (_DWORD)a4, Length, v11);
+        TokenModifiedIdMessage = AlpcpQueryTokenModifiedIdMessage(
+                                   (_DWORD)v15,
+                                   v23[0],
+                                   (_DWORD)MessageInformation,
+                                   Length,
+                                   (__int64)v11);
       }
       else
       {
-        TokenModifiedIdMessage = AlpcpQuerySidMessage((_DWORD)v15, v23[0], (_DWORD)a4, Length, v11);
+        TokenModifiedIdMessage = AlpcpQuerySidMessage(
+                                   (_DWORD)v15,
+                                   v23[0],
+                                   (_DWORD)MessageInformation,
+                                   Length,
+                                   (__int64)v11);
       }
       v14 = TokenModifiedIdMessage;
     }
@@ -112,5 +122,5 @@ LABEL_19:
   }
 LABEL_21:
   KeLeaveCriticalRegion();
-  return (unsigned int)v14;
+  return v14;
 }

@@ -1,18 +1,18 @@
 /*
- * XREFs of MmCreateSpecialImageSection @ 0x140AE6B20
+ * XREFs of MmCreateSpecialImageSection @ 0x140AE8400
  * Callers:
- *     PspLocateSystemDll @ 0x140771E70 (PspLocateSystemDll.c)
- *     NtCreateUserProcess @ 0x140ACBA80 (NtCreateUserProcess.c)
+ *     PspLocateSystemDll @ 0x140772090 (PspLocateSystemDll.c)
+ *     NtCreateUserProcess @ 0x140AC9930 (NtCreateUserProcess.c)
  * Callees:
- *     MiReferenceControlAreaFile @ 0x1402464D0 (MiReferenceControlAreaFile.c)
- *     MiSectionControlArea @ 0x1402D4800 (MiSectionControlArea.c)
- *     PsGetSessionIdEx @ 0x1403025D0 (PsGetSessionIdEx.c)
- *     KeDelayExecutionThread @ 0x14033BC60 (KeDelayExecutionThread.c)
- *     MiDereferenceControlAreaFile @ 0x14042C500 (MiDereferenceControlAreaFile.c)
- *     CcZeroEndOfLastPage @ 0x14044C774 (CcZeroEndOfLastPage.c)
- *     Feature_TrustedLaunchHosts__private_IsEnabledDeviceUsageNoInline @ 0x1405E56E0 (Feature_TrustedLaunchHosts__private_IsEnabledDeviceUsageNoInline.c)
- *     ObInsertObjectEx @ 0x140857620 (ObInsertObjectEx.c)
- *     MiCreateSection @ 0x140941160 (MiCreateSection.c)
+ *     PsGetSessionIdEx @ 0x14030CBE0 (PsGetSessionIdEx.c)
+ *     KeDelayExecutionThread @ 0x14031B140 (KeDelayExecutionThread.c)
+ *     MiSectionControlArea @ 0x140355A80 (MiSectionControlArea.c)
+ *     MiReferenceControlAreaFile @ 0x14041CAA0 (MiReferenceControlAreaFile.c)
+ *     MiDereferenceControlAreaFile @ 0x14041F2B0 (MiDereferenceControlAreaFile.c)
+ *     CcZeroEndOfLastPage @ 0x140443674 (CcZeroEndOfLastPage.c)
+ *     Feature_TrustedLaunchHosts__private_IsEnabledDeviceUsageNoInline @ 0x1405E2D38 (Feature_TrustedLaunchHosts__private_IsEnabledDeviceUsageNoInline.c)
+ *     ObInsertObjectEx @ 0x140853900 (ObInsertObjectEx.c)
+ *     MiCreateSection @ 0x14098B3C0 (MiCreateSection.c)
  */
 
 __int64 __fastcall MmCreateSpecialImageSection(__int64 *a1, int a2, __int64 a3, char a4, __int64 a5, char a6)

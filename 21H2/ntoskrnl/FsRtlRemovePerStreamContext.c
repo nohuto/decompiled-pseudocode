@@ -1,13 +1,13 @@
 /*
- * XREFs of FsRtlRemovePerStreamContext @ 0x1404F1500
+ * XREFs of FsRtlRemovePerStreamContext @ 0x1404F1480
  * Callers:
  *     <none>
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
- *     KeReleaseGuardedMutex @ 0x140265CD0 (KeReleaseGuardedMutex.c)
- *     ExAcquireFastMutex @ 0x14034A080 (ExAcquireFastMutex.c)
- *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
- *     ExReleasePushLockEx @ 0x14034AE90 (ExReleasePushLockEx.c)
+ *     KeReleaseGuardedMutex @ 0x140253C70 (KeReleaseGuardedMutex.c)
+ *     KeLeaveCriticalRegionThread @ 0x1402AB8C0 (KeLeaveCriticalRegionThread.c)
+ *     ExAcquireFastMutex @ 0x140354DD0 (ExAcquireFastMutex.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1403556E0 (ExAcquirePushLockExclusiveEx.c)
+ *     ExReleasePushLockEx @ 0x140355BE0 (ExReleasePushLockEx.c)
  */
 
 PFSRTL_PER_STREAM_CONTEXT __stdcall FsRtlRemovePerStreamContext(
@@ -21,6 +21,9 @@ PFSRTL_PER_STREAM_CONTEXT __stdcall FsRtlRemovePerStreamContext(
   struct _LIST_ENTRY *Flink; // rax
   struct _LIST_ENTRY *v10; // rax
   struct _LIST_ENTRY *Blink; // rcx
+  __int64 v12; // rdx
+  __int64 v13; // r8
+  __int64 v14; // r9
 
   if ( !StreamContext || (StreamContext->Flags2 & 2) == 0 )
     return 0LL;
@@ -78,7 +81,7 @@ LABEL_9:
   else
   {
     ExReleasePushLockEx((ULONG_PTR)&StreamContext->PushLock, 0LL);
-    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v12, v13, v14);
   }
   return v7;
 }

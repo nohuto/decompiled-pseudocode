@@ -6,9 +6,14 @@
  *     <none>
  */
 
-__int64 __fastcall ZwAllocateUserPhysicalPagesEx(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwAllocateUserPhysicalPagesEx(
+        HANDLE ProcessHandle,
+        PULONG_PTR NumberOfPages,
+        PULONG_PTR UserPfnArray,
+        PMEM_EXTENDED_PARAMETER ExtendedParameters,
+        ULONG ExtendedParameterCount)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(ProcessHandle);
 }

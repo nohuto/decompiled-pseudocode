@@ -1,18 +1,18 @@
 /*
- * XREFs of PspCaptureUserProcessParameters @ 0x1406068CC
+ * XREFs of PspCaptureUserProcessParameters @ 0x14069635C
  * Callers:
- *     PspCaptureProcessParameters @ 0x1406071A0 (PspCaptureProcessParameters.c)
- *     PsCaptureUserProcessParameters @ 0x1406C2AD0 (PsCaptureUserProcessParameters.c)
+ *     PsCaptureUserProcessParameters @ 0x1406217D0 (PsCaptureUserProcessParameters.c)
+ *     PspCaptureProcessParameters @ 0x140696C30 (PspCaptureProcessParameters.c)
  * Callees:
- *     PsGetServerSiloGlobals @ 0x140252E18 (PsGetServerSiloGlobals.c)
- *     ExAllocatePoolWithQuotaTag @ 0x140353020 (ExAllocatePoolWithQuotaTag.c)
- *     memmove @ 0x140413F40 (memmove.c)
- *     memset @ 0x140414200 (memset.c)
- *     PspCopyUnicodeString @ 0x140606F14 (PspCopyUnicodeString.c)
- *     PspCaptureAndValidateUnicodeString @ 0x140606F88 (PspCaptureAndValidateUnicodeString.c)
- *     PspValidateEnvironmentBlock @ 0x140607000 (PspValidateEnvironmentBlock.c)
- *     ExRaiseDatatypeMisalignment @ 0x14077BDF0 (ExRaiseDatatypeMisalignment.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     PsGetServerSiloGlobals @ 0x140285C94 (PsGetServerSiloGlobals.c)
+ *     ExAllocatePoolWithQuotaTag @ 0x14035DD70 (ExAllocatePoolWithQuotaTag.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     PspCopyUnicodeString @ 0x1406969A4 (PspCopyUnicodeString.c)
+ *     PspCaptureAndValidateUnicodeString @ 0x140696A18 (PspCaptureAndValidateUnicodeString.c)
+ *     PspValidateEnvironmentBlock @ 0x140696A90 (PspValidateEnvironmentBlock.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BFB0 (ExRaiseDatatypeMisalignment.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PspCaptureUserProcessParameters(_QWORD *a1, __int64 a2, __int64 a3, char a4, __int64 a5)

@@ -1,12 +1,12 @@
 /*
- * XREFs of AlpcpReleaseDirectAttribute @ 0x1405FFB08
+ * XREFs of AlpcpReleaseDirectAttribute @ 0x140602558
  * Callers:
- *     AlpcpSignal @ 0x1402648EC (AlpcpSignal.c)
- *     AlpcpReleaseMessageAttributesOnCancel @ 0x1407C1ED8 (AlpcpReleaseMessageAttributesOnCancel.c)
- *     AlpcpReleaseAttributes @ 0x1409BCAB0 (AlpcpReleaseAttributes.c)
- *     AlpcpCompleteDispatchMessage @ 0x1409BF938 (AlpcpCompleteDispatchMessage.c)
+ *     AlpcpSignal @ 0x140263E5C (AlpcpSignal.c)
+ *     AlpcpReleaseMessageAttributesOnCancel @ 0x1407C4F38 (AlpcpReleaseMessageAttributesOnCancel.c)
+ *     AlpcpReleaseAttributes @ 0x14098DA90 (AlpcpReleaseAttributes.c)
+ *     AlpcpCompleteDispatchMessage @ 0x140990918 (AlpcpCompleteDispatchMessage.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
  */
 
 LONG_PTR __fastcall AlpcpReleaseDirectAttribute(__int64 a1)

@@ -1,10 +1,10 @@
 /*
- * XREFs of PopDiagTraceCsConsumption @ 0x140B36164
+ * XREFs of PopDiagTraceCsConsumption @ 0x140B38374
  * Callers:
- *     PopCaptureSleepStudyStatistics @ 0x14042AB54 (PopCaptureSleepStudyStatistics.c)
+ *     PopCaptureSleepStudyStatistics @ 0x140421FC8 (PopCaptureSleepStudyStatistics.c)
  * Callees:
- *     EtwWrite @ 0x140212EF0 (EtwWrite.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwWrite @ 0x140212FD0 (EtwWrite.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall PopDiagTraceCsConsumption(int *a1)
@@ -57,10 +57,5 @@ NTSTATUS __fastcall PopDiagTraceCsConsumption(int *a1)
     --v8;
   }
   while ( v8 );
-  return EtwWrite(
-           *(REGHANDLE *)&PopSleepstudySessionLock.PriorityFloorCounts[16],
-           &POP_ETW_EVENT_CS_CONSUMPTION_PERFTRACK,
-           0LL,
-           4u,
-           &UserData);
+  return EtwWrite(PopDiagHandle, &POP_ETW_EVENT_CS_CONSUMPTION_PERFTRACK, 0LL, 4u, &UserData);
 }

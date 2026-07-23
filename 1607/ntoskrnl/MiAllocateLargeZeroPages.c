@@ -1,15 +1,15 @@
 /*
- * XREFs of MiAllocateLargeZeroPages @ 0x1406620F0
+ * XREFs of MiAllocateLargeZeroPages @ 0x1406621D4
  * Callers:
- *     MiCreatePagingFileMap @ 0x1404B8370 (MiCreatePagingFileMap.c)
- *     MiMapUserLargePages @ 0x140662B28 (MiMapUserLargePages.c)
+ *     MiCreatePagingFileMap @ 0x1404A2750 (MiCreatePagingFileMap.c)
+ *     MiMapUserLargePages @ 0x140662C0C (MiMapUserLargePages.c)
  * Callees:
- *     MiZeroInParallel @ 0x14010C2DC (MiZeroInParallel.c)
- *     MiConvertPfnsForLargePage @ 0x1401F543C (MiConvertPfnsForLargePage.c)
+ *     MiZeroInParallel @ 0x14010A05C (MiZeroInParallel.c)
+ *     MiConvertPfnsForLargePage @ 0x1401F5268 (MiConvertPfnsForLargePage.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     MiFindLargePageMemory @ 0x1406626E4 (MiFindLargePageMemory.c)
- *     MiGetFastLargePage @ 0x1406629F0 (MiGetFastLargePage.c)
+ *     MiFindLargePageMemory @ 0x1406627C8 (MiFindLargePageMemory.c)
+ *     MiGetFastLargePage @ 0x140662AD4 (MiGetFastLargePage.c)
  */
 
 void __fastcall MiAllocateLargeZeroPages(int a1, __int64 *a2, int a3, int a4, __int64 a5)
@@ -37,11 +37,11 @@ void __fastcall MiAllocateLargeZeroPages(int a1, __int64 *a2, int a3, int a4, __
       ;
     if ( *a2 )
     {
-      v9 = dword_1403269FC;
-      v10 = (unsigned int)dword_1403269FC;
-      if ( 24 * (unsigned __int64)(unsigned int)dword_1403269FC / 0x18 == dword_1403269FC )
+      v9 = dword_140326A3C;
+      v10 = (unsigned int)dword_140326A3C;
+      if ( 24 * (unsigned __int64)(unsigned int)dword_140326A3C / 0x18 == dword_140326A3C )
       {
-        PoolWithTag = (char *)ExAllocatePoolWithTag(NonPagedPoolNx, 24LL * (unsigned int)dword_1403269FC, 0x6C646D4Du);
+        PoolWithTag = (char *)ExAllocatePoolWithTag(NonPagedPoolNx, 24LL * (unsigned int)dword_140326A3C, 0x6C646D4Du);
         v12 = (__int64)PoolWithTag;
         if ( PoolWithTag )
         {

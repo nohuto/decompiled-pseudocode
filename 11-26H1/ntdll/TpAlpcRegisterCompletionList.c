@@ -1,36 +1,36 @@
 /*
- * XREFs of TpAlpcRegisterCompletionList @ 0x180067BE0
+ * XREFs of TpAlpcRegisterCompletionList @ 0x180088030
  * Callers:
  *     <none>
  * Callees:
- *     TppRaiseInvalidParameter @ 0x180067FF8 (TppRaiseInvalidParameter.c)
+ *     TppRaiseInvalidParameter @ 0x180088448 (TppRaiseInvalidParameter.c)
  */
 
-__int64 __fastcall TpAlpcRegisterCompletionList(_PEB_LDR_DATA *Ldr, __int64 a2, __int64 a3)
+__int64 __fastcall TpAlpcRegisterCompletionList(_PEB_LDR_DATA *Ldr, __int64 a2)
 {
-  __int64 v3; // rbx
+  __int64 v2; // rbx
   int EntryInProgress; // eax
-  _DWORD *v5; // rdi
+  _DWORD *v4; // rdi
 
-  v3 = (__int64)Ldr;
+  v2 = (__int64)Ldr;
   if ( !Ldr
     || (EntryInProgress = (int)Ldr[2].EntryInProgress, (EntryInProgress & 0x10000) != 0)
     || (EntryInProgress & 0x20000) != 0
     || Ldr->ShutdownThreadId != TppAlpcpCleanupGroupMemberVFuncs
     || (Ldr = NtCurrentPeb()->Ldr, Ldr->ShutdownInProgress) )
   {
-    TppRaiseInvalidParameter(Ldr, a2, a3);
-    v5 = (_DWORD *)(v3 + 288);
+    TppRaiseInvalidParameter(Ldr, a2);
+    v4 = (_DWORD *)(v2 + 288);
   }
   else
   {
-    v5 = (_DWORD *)(v3 + 288);
-    if ( (*(_BYTE *)(v3 + 288) & 1) != 0 )
+    v4 = (_DWORD *)(v2 + 288);
+    if ( (*(_BYTE *)(v2 + 288) & 1) != 0 )
       goto LABEL_8;
   }
-  TppRaiseInvalidParameter(Ldr, a2, a3);
+  TppRaiseInvalidParameter(Ldr, a2);
 LABEL_8:
-  _InterlockedExchange((volatile __int32 *)(v3 + 284), 0);
-  *v5 |= 2u;
-  return TppFastAlpcAdjustConcurrencyCount(v3);
+  _InterlockedExchange((volatile __int32 *)(v2 + 284), 0);
+  *v4 |= 2u;
+  return TppFastAlpcAdjustConcurrencyCount(v2);
 }

@@ -1,19 +1,19 @@
 /*
- * XREFs of PspReturnQuota @ 0x140010AA0
+ * XREFs of PspReturnQuota @ 0x140010620
  * Callers:
- *     PsReturnProcessPagedPoolQuota @ 0x140027B7C (PsReturnProcessPagedPoolQuota.c)
- *     PsReturnProcessNonPagedPoolQuota @ 0x1400284C0 (PsReturnProcessNonPagedPoolQuota.c)
- *     PsReturnProcessQuota @ 0x1400750A4 (PsReturnProcessQuota.c)
- *     PsReturnPoolQuota @ 0x1400F95E4 (PsReturnPoolQuota.c)
- *     ObpFreeObject @ 0x14041B800 (ObpFreeObject.c)
- *     PsReturnProcessPageFileQuota @ 0x14042E3CC (PsReturnProcessPageFileQuota.c)
- *     MiDecommitRegion @ 0x140430190 (MiDecommitRegion.c)
- *     ObpIncrementHandleCountEx @ 0x14044DC50 (ObpIncrementHandleCountEx.c)
- *     PsChargeSharedPoolQuota @ 0x1404A5550 (PsChargeSharedPoolQuota.c)
- *     PsReturnSharedPoolQuota @ 0x1404A5FD0 (PsReturnSharedPoolQuota.c)
+ *     PsReturnProcessPagedPoolQuota @ 0x1400276FC (PsReturnProcessPagedPoolQuota.c)
+ *     PsReturnProcessNonPagedPoolQuota @ 0x140028040 (PsReturnProcessNonPagedPoolQuota.c)
+ *     PsReturnProcessQuota @ 0x140075124 (PsReturnProcessQuota.c)
+ *     PsReturnPoolQuota @ 0x1400F7424 (PsReturnPoolQuota.c)
+ *     ObpFreeObject @ 0x14041A6C0 (ObpFreeObject.c)
+ *     PsReturnProcessPageFileQuota @ 0x14042D29C (PsReturnProcessPageFileQuota.c)
+ *     MiDecommitRegion @ 0x14042F060 (MiDecommitRegion.c)
+ *     ObpIncrementHandleCountEx @ 0x14044CB20 (ObpIncrementHandleCountEx.c)
+ *     PsChargeSharedPoolQuota @ 0x14051D950 (PsChargeSharedPoolQuota.c)
+ *     PsReturnSharedPoolQuota @ 0x14051E3D0 (PsReturnSharedPoolQuota.c)
  * Callees:
- *     PspReturnResourceQuota @ 0x1400C6840 (PspReturnResourceQuota.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
+ *     PspReturnResourceQuota @ 0x1400C46E0 (PspReturnResourceQuota.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
  */
 
 signed __int64 __fastcall PspReturnQuota(char *a1, ULONG_PTR a2, unsigned int a3, ULONG_PTR a4)

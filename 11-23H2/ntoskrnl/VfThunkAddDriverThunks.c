@@ -1,11 +1,11 @@
 /*
- * XREFs of VfThunkAddDriverThunks @ 0x140ADAFAC
+ * XREFs of VfThunkAddDriverThunks @ 0x140ADAF9C
  * Callers:
- *     MmAddVerifierThunks @ 0x140A2D540 (MmAddVerifierThunks.c)
+ *     MmAddVerifierThunks @ 0x140A2D7F0 (MmAddVerifierThunks.c)
  * Callees:
- *     KeReleaseMutex @ 0x1402AFF70 (KeReleaseMutex.c)
- *     VfDriverLock @ 0x140ACA76C (VfDriverLock.c)
- *     ViThunkCreateThunkTable @ 0x140ADB7B4 (ViThunkCreateThunkTable.c)
+ *     KeReleaseMutex @ 0x1402B0200 (KeReleaseMutex.c)
+ *     VfDriverLock @ 0x140ACA75C (VfDriverLock.c)
+ *     ViThunkCreateThunkTable @ 0x140ADB7A4 (ViThunkCreateThunkTable.c)
  */
 
 __int64 __fastcall VfThunkAddDriverThunks(void *a1)

@@ -7,16 +7,18 @@
  *     __wcsnicmp @ 0x4B2F7AC0 (__wcsnicmp.c)
  */
 
-int __fastcall IsSystemRootPath(wchar_t *String1, size_t *a2)
+int __fastcall IsSystemRootPath(wchar_t *String1, unsigned int *a2)
 {
   const unsigned __int16 *NtSystemRoot; // eax
-  size_t v5; // esi
+  unsigned int v5; // esi
   int result; // eax
+  size_t v7; // [esp-4h] [ebp-14h]
 
   *a2 = 0;
   NtSystemRoot = (const unsigned __int16 *)RtlGetNtSystemRoot();
   v5 = wcslen(NtSystemRoot);
-  result = _wcsnicmp(String1, NtSystemRoot, v5);
+  LODWORD(v7) = v5;
+  result = _wcsnicmp(String1, NtSystemRoot, v7);
   if ( result )
     return -1073741637;
   *a2 = v5;

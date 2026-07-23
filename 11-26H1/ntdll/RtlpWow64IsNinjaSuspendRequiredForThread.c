@@ -1,15 +1,15 @@
 /*
- * XREFs of RtlpWow64IsNinjaSuspendRequiredForThread @ 0x180138A44
+ * XREFs of RtlpWow64IsNinjaSuspendRequiredForThread @ 0x1801387B4
  * Callers:
- *     RtlWow64SuspendThread @ 0x180138860 (RtlWow64SuspendThread.c)
- *     RtlpWow64ChangeThreadStateSuspend @ 0x180138908 (RtlpWow64ChangeThreadStateSuspend.c)
+ *     RtlWow64SuspendThread @ 0x1801385D0 (RtlWow64SuspendThread.c)
+ *     RtlpWow64ChangeThreadStateSuspend @ 0x180138678 (RtlpWow64ChangeThreadStateSuspend.c)
  * Callees:
- *     RtlWow64GetSharedInfoProcess @ 0x1800E9DF0 (RtlWow64GetSharedInfoProcess.c)
+ *     RtlWow64GetSharedInfoProcess @ 0x1800E9000 (RtlWow64GetSharedInfoProcess.c)
  */
 
-NTSTATUS __fastcall RtlpWow64IsNinjaSuspendRequiredForThread(void *a1, void **a2, _DWORD *a3)
+int __fastcall RtlpWow64IsNinjaSuspendRequiredForThread(HANDLE ProcessHandle, void **a2, _DWORD *a3)
 {
-  NTSTATUS result; // eax
+  int result; // eax
   _OWORD v5[2]; // [rsp+20h] [rbp-38h] BYREF
   __int64 v6; // [rsp+40h] [rbp-18h]
   char v7; // [rsp+68h] [rbp+10h] BYREF
@@ -23,7 +23,7 @@ NTSTATUS __fastcall RtlpWow64IsNinjaSuspendRequiredForThread(void *a1, void **a2
   }
   else
   {
-    result = RtlWow64GetSharedInfoProcess(a1, &v7, (__int64)v5);
+    result = RtlWow64GetSharedInfoProcess(ProcessHandle, &v7, v5);
     if ( result < 0 )
       return result;
     *a3 = v7 && (BYTE4(v5[0]) & 2) != 0;

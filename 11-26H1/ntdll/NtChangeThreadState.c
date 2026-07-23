@@ -1,19 +1,25 @@
 /*
- * XREFs of NtChangeThreadState @ 0x180160250
+ * XREFs of NtChangeThreadState @ 0x180160150
  * Callers:
- *     RtlpHpLfhPrivateSlotListCompact @ 0x180016B50 (RtlpHpLfhPrivateSlotListCompact.c)
- *     RtlpHpEnvThreadSuspend @ 0x18010C3F0 (RtlpHpEnvThreadSuspend.c)
- *     RtlWow64ChangeThreadState @ 0x180138610 (RtlWow64ChangeThreadState.c)
- *     RtlpWow64ChangeThreadStateSuspend @ 0x180138908 (RtlpWow64ChangeThreadStateSuspend.c)
+ *     RtlpHpLfhPrivateSlotListCompact @ 0x180062280 (RtlpHpLfhPrivateSlotListCompact.c)
+ *     RtlpHpEnvThreadSuspend @ 0x18010BF40 (RtlpHpEnvThreadSuspend.c)
+ *     RtlWow64ChangeThreadState @ 0x180138380 (RtlWow64ChangeThreadState.c)
+ *     RtlpWow64ChangeThreadStateSuspend @ 0x180138678 (RtlpWow64ChangeThreadStateSuspend.c)
  * Callees:
  *     <none>
  */
 
-__int64 NtChangeThreadState()
+NTSTATUS __cdecl NtChangeThreadState(
+        HANDLE ThreadStateChangeHandle,
+        HANDLE ThreadHandle,
+        THREAD_STATE_CHANGE_TYPE StateChangeType,
+        PVOID ExtendedInformation,
+        SIZE_T ExtendedInformationLength,
+        ULONG64 Reserved)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 153LL;
+  result = 153;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

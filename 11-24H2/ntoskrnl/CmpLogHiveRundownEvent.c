@@ -1,10 +1,10 @@
 /*
- * XREFs of CmpLogHiveRundownEvent @ 0x1407D6488
+ * XREFs of CmpLogHiveRundownEvent @ 0x1407D69FC
  * Callers:
- *     CmEtwRunDown @ 0x140A6EEE8 (CmEtwRunDown.c)
+ *     CmEtwRunDown @ 0x140A6836C (CmEtwRunDown.c)
  * Callees:
- *     EtwTraceSiloDcEvent @ 0x140480320 (EtwTraceSiloDcEvent.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     EtwTraceSiloDcEvent @ 0x14047AF60 (EtwTraceSiloDcEvent.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 int __fastcall CmpLogHiveRundownEvent(__int64 a1, __int64 a2, unsigned int a3)

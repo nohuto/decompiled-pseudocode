@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlNlsInitState @ 0x140822ECC
+ * XREFs of RtlNlsInitState @ 0x1408231CC
  * Callers:
- *     PspInitializeServerSiloDeferred @ 0x1409AD0A0 (PspInitializeServerSiloDeferred.c)
+ *     PspInitializeServerSiloDeferred @ 0x1409AD2A0 (PspInitializeServerSiloDeferred.c)
  *     InitBootProcessor @ 0x140B52774 (InitBootProcessor.c)
  * Callees:
- *     memset @ 0x140435A00 (memset.c)
+ *     memset @ 0x140435E00 (memset.c)
  */
 
 void *__fastcall RtlNlsInitState(__int64 a1)

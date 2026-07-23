@@ -3,19 +3,19 @@
  * Callers:
  *     ExpInitSystemPhase1 @ 0x140B49FE4 (ExpInitSystemPhase1.c)
  * Callees:
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExQueueDebuggerWorker @ 0x14029393C (ExQueueDebuggerWorker.c)
- *     MmGetSessionIdEx @ 0x1402A1720 (MmGetSessionIdEx.c)
- *     ExfReleasePushLock @ 0x1402BD830 (ExfReleasePushLock.c)
- *     KiQueryUnbiasedInterruptTime @ 0x1402E7464 (KiQueryUnbiasedInterruptTime.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1402FCE10 (ExfAcquirePushLockExclusiveEx.c)
- *     KiCheckForKernelApcDelivery @ 0x14030F820 (KiCheckForKernelApcDelivery.c)
- *     KiAbTryReclaimOrphanedEntries @ 0x14032FA68 (KiAbTryReclaimOrphanedEntries.c)
- *     ExpLegacyWorkerInitialization @ 0x1403A55B4 (ExpLegacyWorkerInitialization.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     ExpPartitionStart @ 0x1408493C8 (ExpPartitionStart.c)
- *     ExpPartitionInitialize @ 0x140849608 (ExpPartitionInitialize.c)
- *     ExpNodeInitialize @ 0x140849954 (ExpNodeInitialize.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     ExQueueDebuggerWorker @ 0x140293BCC (ExQueueDebuggerWorker.c)
+ *     MmGetSessionIdEx @ 0x1402A19B0 (MmGetSessionIdEx.c)
+ *     ExfReleasePushLock @ 0x1402BDAC0 (ExfReleasePushLock.c)
+ *     KiQueryUnbiasedInterruptTime @ 0x1402E76F4 (KiQueryUnbiasedInterruptTime.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402FD0A0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KiCheckForKernelApcDelivery @ 0x14030FAB0 (KiCheckForKernelApcDelivery.c)
+ *     KiAbTryReclaimOrphanedEntries @ 0x14032FCF8 (KiAbTryReclaimOrphanedEntries.c)
+ *     ExpLegacyWorkerInitialization @ 0x1403A5794 (ExpLegacyWorkerInitialization.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     ExpPartitionStart @ 0x1408496C8 (ExpPartitionStart.c)
+ *     ExpPartitionInitialize @ 0x140849908 (ExpPartitionInitialize.c)
+ *     ExpNodeInitialize @ 0x140849C54 (ExpNodeInitialize.c)
  */
 
 __int64 ExpWorkerInitialization()
@@ -222,11 +222,11 @@ LABEL_36:
         }
       }
       LODWORD(ExpDebuggerDpc) = 275;
-      qword_140C2D598 = (__int64)ExpDebuggerDpcRoutine;
+      qword_140C2D538 = (__int64)ExpDebuggerDpcRoutine;
       ExpDebuggerWorkItem.WorkerRoutine = (void (__fastcall *)(void *))ExpDebuggerWorker;
-      qword_140C2D5A0 = 0LL;
-      qword_140C2D5B8 = 0LL;
-      qword_140C2D590 = 0LL;
+      qword_140C2D540 = 0LL;
+      qword_140C2D558 = 0LL;
+      qword_140C2D530 = 0LL;
       ExpDebuggerWorkItem.Parameter = 0LL;
       ExpDebuggerWorkItem.List.Flink = 0LL;
       ExpDebuggerWork = 1;

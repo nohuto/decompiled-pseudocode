@@ -1,10 +1,10 @@
 /*
- * XREFs of IopPortFindSuitableRange @ 0x1407A6CA0
+ * XREFs of IopPortFindSuitableRange @ 0x1407A9850
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     RtlFindRange @ 0x140AB0E90 (RtlFindRange.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     RtlFindRange @ 0x140AAEE80 (RtlFindRange.c)
  */
 
 char __fastcall IopPortFindSuitableRange(_QWORD *a1, _QWORD *a2)

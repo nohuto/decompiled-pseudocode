@@ -1,9 +1,9 @@
 /*
- * XREFs of EtwpIsPrivateLoggerOn @ 0x1801003A8
+ * XREFs of EtwpIsPrivateLoggerOn @ 0x1800FFAF8
  * Callers:
- *     EtwpUpdateEnableInfoAndCallback @ 0x180058090 (EtwpUpdateEnableInfoAndCallback.c)
+ *     EtwpUpdateEnableInfoAndCallback @ 0x180042610 (EtwpUpdateEnableInfoAndCallback.c)
  * Callees:
- *     EtwpDemuxUmTraceHandle @ 0x180011110 (EtwpDemuxUmTraceHandle.c)
+ *     EtwpDemuxUmTraceHandle @ 0x18005C840 (EtwpDemuxUmTraceHandle.c)
  */
 
 bool __fastcall EtwpIsPrivateLoggerOn(int a1)

@@ -1,12 +1,12 @@
 /*
- * XREFs of PsChargeProcessPagedPoolQuota @ 0x1407B0A30
+ * XREFs of PsChargeProcessPagedPoolQuota @ 0x1407B0C20
  * Callers:
- *     MiInsertVadCharges @ 0x1406FA8B0 (MiInsertVadCharges.c)
- *     AlpcpChargePagedPoolQuota @ 0x14071CB4C (AlpcpChargePagedPoolQuota.c)
- *     ExpAllocateHandleTable @ 0x1407B069C (ExpAllocateHandleTable.c)
- *     ExpAllocateTablePagedPoolNoZero @ 0x1407B09C4 (ExpAllocateTablePagedPoolNoZero.c)
+ *     MiInsertVadCharges @ 0x1406FAAC0 (MiInsertVadCharges.c)
+ *     AlpcpChargePagedPoolQuota @ 0x14071CD4C (AlpcpChargePagedPoolQuota.c)
+ *     ExpAllocateHandleTable @ 0x1407B088C (ExpAllocateHandleTable.c)
+ *     ExpAllocateTablePagedPoolNoZero @ 0x1407B0BB4 (ExpAllocateTablePagedPoolNoZero.c)
  * Callees:
- *     PspChargeQuota @ 0x14022EBF0 (PspChargeQuota.c)
+ *     PspChargeQuota @ 0x14022ED00 (PspChargeQuota.c)
  */
 
 __int64 __fastcall PsChargeProcessPagedPoolQuota(struct _KPROCESS *a1, unsigned __int64 a2)

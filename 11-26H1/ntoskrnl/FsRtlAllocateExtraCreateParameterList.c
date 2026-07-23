@@ -1,10 +1,10 @@
 /*
- * XREFs of FsRtlAllocateExtraCreateParameterList @ 0x140A59990
+ * XREFs of FsRtlAllocateExtraCreateParameterList @ 0x140A66900
  * Callers:
- *     IopCreateFile @ 0x1409B3A58 (IopCreateFile.c)
+ *     IopCreateFile @ 0x140984B18 (IopCreateFile.c)
  * Callees:
- *     ExAllocateFromNPagedLookasideList @ 0x1402C1770 (ExAllocateFromNPagedLookasideList.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
+ *     ExAllocateFromNPagedLookasideList @ 0x14030C430 (ExAllocateFromNPagedLookasideList.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
  */
 
 NTSTATUS __stdcall FsRtlAllocateExtraCreateParameterList(FSRTL_ALLOCATE_ECPLIST_FLAGS Flags, PECP_LIST *EcpList)

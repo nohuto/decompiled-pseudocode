@@ -10,39 +10,39 @@
  *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
  */
 
-__int64 __fastcall PopThermalEventTransitionEnableDeepSleep(int a1)
+void __fastcall PopThermalEventTransitionEnableDeepSleep(int a1)
 {
-  __int64 result; // rax
-  unsigned __int64 v2; // rbx
+  unsigned __int64 v1; // rbx
   unsigned __int8 CurrentIrql; // cl
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
+  int v5; // eax
   bool v6; // zf
 
-  result = (unsigned int)(a1 - 3);
-  if ( (unsigned int)result <= 3 )
+  if ( (unsigned int)(a1 - 3) <= 3 )
   {
-    v2 = KeAcquireSpinLockRaiseToDpc(&PopThermalEventTransitionContext);
+    v1 = KeAcquireSpinLockRaiseToDpc(&PopThermalEventTransitionContext);
     KeCancelTimer2((__int64)&unk_140C3C730);
     byte_140C3C7B8 = 0;
     PopDeepSleepClearDisengageReason(0xAu);
     KxReleaseSpinLock((volatile signed __int64 *)&PopThermalEventTransitionContext);
-    result = (unsigned int)KiIrqlFlags;
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v2 <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+        && CurrentIrql <= 0xFu
+        && (unsigned __int8)v1 <= 0xFu
+        && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;
-        result = ~(unsigned __int16)(-1LL << ((unsigned __int8)v2 + 1));
-        v6 = ((unsigned int)result & SchedulerAssist[5]) == 0;
-        SchedulerAssist[5] &= result;
+        v5 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v1 + 1));
+        v6 = (v5 & SchedulerAssist[5]) == 0;
+        SchedulerAssist[5] &= v5;
         if ( v6 )
-          result = KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+          KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
       }
     }
-    __writecr8(v2);
+    __writecr8(v1);
   }
-  return result;
 }

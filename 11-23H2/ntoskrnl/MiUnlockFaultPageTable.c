@@ -1,12 +1,12 @@
 /*
- * XREFs of MiUnlockFaultPageTable @ 0x1402A1748
+ * XREFs of MiUnlockFaultPageTable @ 0x1402A19D8
  * Callers:
- *     MiResolvePageTablePage @ 0x140236020 (MiResolvePageTablePage.c)
- *     MiIssueHardFault @ 0x1402A10B0 (MiIssueHardFault.c)
- *     MiReleaseFaultState @ 0x1402EF2A0 (MiReleaseFaultState.c)
+ *     MiResolvePageTablePage @ 0x1402360F0 (MiResolvePageTablePage.c)
+ *     MiIssueHardFault @ 0x1402A1340 (MiIssueHardFault.c)
+ *     MiReleaseFaultState @ 0x1402EF530 (MiReleaseFaultState.c)
  * Callees:
- *     MiUnlockPageTableInternal @ 0x1403195C0 (MiUnlockPageTableInternal.c)
- *     MiEmptyDeferredWorkingSetEntries @ 0x140339CD0 (MiEmptyDeferredWorkingSetEntries.c)
+ *     MiUnlockPageTableInternal @ 0x140319850 (MiUnlockPageTableInternal.c)
+ *     MiEmptyDeferredWorkingSetEntries @ 0x140339F60 (MiEmptyDeferredWorkingSetEntries.c)
  */
 
 __int64 __fastcall MiUnlockFaultPageTable(__int64 *a1)

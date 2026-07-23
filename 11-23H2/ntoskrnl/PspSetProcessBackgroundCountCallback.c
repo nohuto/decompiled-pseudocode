@@ -1,9 +1,9 @@
 /*
- * XREFs of PspSetProcessBackgroundCountCallback @ 0x140779F60
+ * XREFs of PspSetProcessBackgroundCountCallback @ 0x14077A150
  * Callers:
  *     <none>
  * Callees:
- *     PspSetProcessIoPriorityLimitCallback @ 0x140779F80 (PspSetProcessIoPriorityLimitCallback.c)
+ *     PspSetProcessIoPriorityLimitCallback @ 0x14077A170 (PspSetProcessIoPriorityLimitCallback.c)
  */
 
 __int64 __fastcall PspSetProcessBackgroundCountCallback(__int64 a1, __int64 a2)

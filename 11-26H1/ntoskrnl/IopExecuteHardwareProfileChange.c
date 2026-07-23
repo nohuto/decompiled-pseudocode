@@ -1,14 +1,14 @@
 /*
- * XREFs of IopExecuteHardwareProfileChange @ 0x1407B8550
+ * XREFs of IopExecuteHardwareProfileChange @ 0x1407BB5B0
  * Callers:
- *     PnpProfileUpdateHardwareProfile @ 0x1407AD07C (PnpProfileUpdateHardwareProfile.c)
+ *     PnpProfileUpdateHardwareProfile @ 0x1407B00DC (PnpProfileUpdateHardwareProfile.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     CmSetAcpiHwProfile @ 0x140851648 (CmSetAcpiHwProfile.c)
- *     RtlCompareUnicodeStrings @ 0x140981100 (RtlCompareUnicodeStrings.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     CmSetAcpiHwProfile @ 0x140857958 (CmSetAcpiHwProfile.c)
+ *     RtlCompareUnicodeStrings @ 0x140943110 (RtlCompareUnicodeStrings.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall IopExecuteHardwareProfileChange(__int64 a1, PCWSTR *a2, unsigned int a3, int a4, __int64 a5)

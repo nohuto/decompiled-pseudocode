@@ -1,9 +1,9 @@
 /*
- * XREFs of Feature_SharedReadyQueueLock__private_IsEnabledDeviceUsageNoInline @ 0x140526A30
+ * XREFs of Feature_SharedReadyQueueLock__private_IsEnabledDeviceUsageNoInline @ 0x1405290A0
  * Callers:
- *     KiInitializeVelocity @ 0x140CCA1CC (KiInitializeVelocity.c)
+ *     KiInitializeVelocity @ 0x140CD02B4 (KiInitializeVelocity.c)
  * Callees:
- *     Feature_SharedReadyQueueLock__private_IsEnabledFallback @ 0x140526A6C (Feature_SharedReadyQueueLock__private_IsEnabledFallback.c)
+ *     Feature_SharedReadyQueueLock__private_IsEnabledFallback @ 0x1405290DC (Feature_SharedReadyQueueLock__private_IsEnabledFallback.c)
  */
 
 __int64 Feature_SharedReadyQueueLock__private_IsEnabledDeviceUsageNoInline()

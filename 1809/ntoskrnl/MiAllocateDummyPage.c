@@ -1,8 +1,8 @@
 /*
- * XREFs of MiAllocateDummyPage @ 0x1409B9930
+ * XREFs of MiAllocateDummyPage @ 0x1409BA930
  * Callers:
- *     MiInitializeDummyPages @ 0x1409B96DC (MiInitializeDummyPages.c)
- *     MiInitSystem @ 0x1409BC5A8 (MiInitSystem.c)
+ *     MiInitializeDummyPages @ 0x1409BA6DC (MiInitializeDummyPages.c)
+ *     MiInitSystem @ 0x1409BD5A8 (MiInitSystem.c)
  * Callees:
  *     MiSetPfnTbFlushStamp @ 0x1400296A4 (MiSetPfnTbFlushStamp.c)
  *     MiLockPageInline @ 0x14002CE40 (MiLockPageInline.c)
@@ -10,8 +10,8 @@
  *     MiSwizzleInvalidPte @ 0x14003D7C0 (MiSwizzleInvalidPte.c)
  *     MiGetPage @ 0x140049D50 (MiGetPage.c)
  *     MiChargeCommit @ 0x14004CF20 (MiChargeCommit.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
  */
 
 __int64 MiAllocateDummyPage()
@@ -27,7 +27,7 @@ __int64 MiAllocateDummyPage()
   MiChargeCommit((__int64)&MiSystemPartition, 1uLL, 1u);
   Page = MiGetPage((__int64)&MiSystemPartition, 0, 0x208u);
   if ( Page == -1 )
-    KeBugCheckEx(0x7Du, qword_14043E510, qword_14043E500, qword_14043E508, 0x102uLL);
+    KeBugCheckEx(0x7Du, qword_14043F5D0, qword_14043F5C0, qword_14043F5C8, 0x102uLL);
   v1 = 48 * Page - 0x58000000000LL;
   MiSetPfnTbFlushStamp(v1, 0, 0);
   *(_QWORD *)(v1 + 8) = 0xFFFFF68000000000uLL;

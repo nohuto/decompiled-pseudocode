@@ -1,19 +1,19 @@
 /*
- * XREFs of MiTrimWorkingSet @ 0x1403BA50C
+ * XREFs of MiTrimWorkingSet @ 0x1403C437C
  * Callers:
- *     MiWalkAllWorkingSets @ 0x1402A9370 (MiWalkAllWorkingSets.c)
- *     MiWalkAllHardLimitWorkingSets @ 0x1402A996C (MiWalkAllHardLimitWorkingSets.c)
- *     MiForcedTrim @ 0x1403B9340 (MiForcedTrim.c)
- *     MiPeriodicTrimWorkingSet @ 0x1403B9E10 (MiPeriodicTrimWorkingSet.c)
- *     MiEmptyWorkingSetInitiate @ 0x1403BC020 (MiEmptyWorkingSetInitiate.c)
+ *     MiWalkAllWorkingSets @ 0x1402A8780 (MiWalkAllWorkingSets.c)
+ *     MiWalkAllHardLimitWorkingSets @ 0x1402A8D7C (MiWalkAllHardLimitWorkingSets.c)
+ *     MiForcedTrim @ 0x1403C3240 (MiForcedTrim.c)
+ *     MiPeriodicTrimWorkingSet @ 0x1403C3C80 (MiPeriodicTrimWorkingSet.c)
+ *     MiEmptyWorkingSetInitiate @ 0x1403C5E90 (MiEmptyWorkingSetInitiate.c)
  * Callees:
- *     MiComputeHardTrimSize @ 0x1402ED1E8 (MiComputeHardTrimSize.c)
- *     MiFastTrimWorkingSet @ 0x14031F690 (MiFastTrimWorkingSet.c)
- *     MiTrimmedEnough @ 0x1403BAA50 (MiTrimmedEnough.c)
- *     MiLogTrimWs @ 0x1403BAAAC (MiLogTrimWs.c)
- *     MiEmptyWorkingSetConverge @ 0x1403BAD38 (MiEmptyWorkingSetConverge.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     MiComputeHardTrimSize @ 0x1402CF228 (MiComputeHardTrimSize.c)
+ *     MiFastTrimWorkingSet @ 0x1403216C0 (MiFastTrimWorkingSet.c)
+ *     MiTrimmedEnough @ 0x1403C48C0 (MiTrimmedEnough.c)
+ *     MiLogTrimWs @ 0x1403C491C (MiLogTrimWs.c)
+ *     MiEmptyWorkingSetConverge @ 0x1403C4BA8 (MiEmptyWorkingSetConverge.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall MiTrimWorkingSet(
@@ -41,8 +41,8 @@ __int64 __fastcall MiTrimWorkingSet(
   char v24; // r14
   __int64 v26; // rcx
   unsigned __int64 v27; // r14
-  unsigned __int64 v28; // r12
-  int v29; // r8d
+  unsigned __int64 v28; // rax
+  unsigned __int64 v29; // r12
   int v30; // [rsp+40h] [rbp-208h] BYREF
   unsigned int v31; // [rsp+44h] [rbp-204h]
   char v32; // [rsp+49h] [rbp-1FFh]
@@ -113,14 +113,15 @@ __int64 __fastcall MiTrimWorkingSet(
   if ( (a6 & 0x80u) == 0 && (*(_DWORD *)(a1 + 184) & 0x10) != 0 )
   {
     v27 = *(_QWORD *)(a1 + 128);
-    v28 = *(_QWORD *)(a1 + 136);
-    if ( v28 > MiComputeHardTrimSize(v27, 0x5Au, 0x64u) )
-      a2 = v28 - MiComputeHardTrimSize(v27, v29 - 15, v29 - 15 + 35);
+    v28 = MiComputeHardTrimSize(v27, 0x5Au, 0x64u);
+    v29 = *(_QWORD *)(a1 + 136);
+    if ( v29 > v28 )
+      a2 = v29 - MiComputeHardTrimSize(v27, 0x55u, 0x78u);
   }
   if ( (*(_DWORD *)(a1 + 184) & 0xF) == 1 )
     v13 = &MiSystemPartition;
   else
-    v13 = *(ULONG **)(stru_140E2EB88.ThreadLock + 8LL * *(unsigned __int16 *)(a1 + 174));
+    v13 = *(ULONG **)(stru_140E2ED08.ThreadLock + 8LL * *(unsigned __int16 *)(a1 + 174));
   if ( v13[4539] )
     v39 |= 0x100u;
   v14 = *(_DWORD *)(a1 + 184);
@@ -206,11 +207,11 @@ LABEL_27:
     }
   }
   if ( (a6 & 0x20) == 0
-    && stru_140E36558.FirstArgument
-    && *(_DWORD *)stru_140E36558.FirstArgument
-    && (*((_BYTE *)stru_140E36558.FirstArgument + 16) & 1) != 0 )
+    && stru_140E366D8.FirstArgument
+    && *(_DWORD *)stru_140E366D8.FirstArgument
+    && (*((_BYTE *)stru_140E366D8.FirstArgument + 16) & 1) != 0 )
   {
-    v26 = *((_QWORD *)stru_140E36558.FirstArgument + 3);
+    v26 = *((_QWORD *)stru_140E366D8.FirstArgument + 3);
     if ( (v26 & 1) == v26 )
       MiLogTrimWs(v26, a1, v42, v43, v41, v44, a5, a6);
   }

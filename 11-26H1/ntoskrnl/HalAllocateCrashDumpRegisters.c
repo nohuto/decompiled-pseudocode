@@ -1,10 +1,10 @@
 /*
- * XREFs of HalAllocateCrashDumpRegisters @ 0x140579C90
+ * XREFs of HalAllocateCrashDumpRegisters @ 0x14057C1C0
  * Callers:
- *     DifHalAllocateCrashDumpRegistersWrapper @ 0x140655BC0 (DifHalAllocateCrashDumpRegistersWrapper.c)
+ *     DifHalAllocateCrashDumpRegistersWrapper @ 0x1406597A0 (DifHalAllocateCrashDumpRegistersWrapper.c)
  * Callees:
- *     HalpDmaExtractFromVerifierShadowAdapter @ 0x1404F0014 (HalpDmaExtractFromVerifierShadowAdapter.c)
- *     HalpDmaAllocateMapRegistersAtHighLevel @ 0x140588D7C (HalpDmaAllocateMapRegistersAtHighLevel.c)
+ *     HalpDmaExtractFromVerifierShadowAdapter @ 0x1404E95F4 (HalpDmaExtractFromVerifierShadowAdapter.c)
+ *     HalpDmaAllocateMapRegistersAtHighLevel @ 0x14058B44C (HalpDmaAllocateMapRegistersAtHighLevel.c)
  */
 
 PVOID __stdcall HalAllocateCrashDumpRegisters(PADAPTER_OBJECT AdapterObject, PULONG NumberOfMapRegisters)

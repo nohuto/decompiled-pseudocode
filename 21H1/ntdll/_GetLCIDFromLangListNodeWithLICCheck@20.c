@@ -21,8 +21,8 @@
 int __fastcall GetLCIDFromLangListNodeWithLICCheck(int a1, int a2, int a3, unsigned __int16 *a4, bool *a5)
 {
   int v6; // eax
-  int v7; // edx
-  int v8; // ecx
+  _DWORD *v7; // edx
+  LCID v8; // ecx
   unsigned __int16 *v9; // ecx
   int v10; // eax
   unsigned __int16 v11; // ax
@@ -31,32 +31,34 @@ int __fastcall GetLCIDFromLangListNodeWithLICCheck(int a1, int a2, int a3, unsig
   int InstalledLanguageIndexByName; // eax
   int v16; // ecx
   __int16 v17; // ax
-  int v18; // [esp+10h] [ebp-D0h]
-  UNICODE_STRING DestinationString; // [esp+14h] [ebp-CCh] BYREF
-  __int16 v20; // [esp+1Ch] [ebp-C4h] BYREF
-  int v21; // [esp+20h] [ebp-C0h] BYREF
-  int v22; // [esp+24h] [ebp-BCh]
-  _BYTE v23[180]; // [esp+28h] [ebp-B8h] BYREF
+  size_t v18; // [esp-4h] [ebp-E4h]
+  _DWORD *v19; // [esp+10h] [ebp-D0h]
+  _UNICODE_STRING String; // [esp+14h] [ebp-CCh] BYREF
+  __int16 v21; // [esp+1Ch] [ebp-C4h] BYREF
+  DWORD Lcid; // [esp+20h] [ebp-C0h] BYREF
+  int v23; // [esp+24h] [ebp-BCh]
+  _BYTE v24[180]; // [esp+28h] [ebp-B8h] BYREF
 
-  v20 = 0;
-  v22 = a3;
+  LODWORD(v18) = 170;
   v21 = 0;
-  memset(v23, 0, 0xAAu);
+  v23 = a3;
+  Lcid = 0;
+  memset(v24, 0, v18);
   if ( a2 )
   {
     if ( a4 )
     {
       if ( a5 )
       {
-        v6 = v22;
-        if ( (unsigned __int16)v22 < *(_WORD *)(a2 + 4) )
+        v6 = v23;
+        if ( (unsigned __int16)v23 < *(_WORD *)(a2 + 4) )
         {
-          v7 = *(_DWORD *)(a2 + 12);
-          v18 = v7;
+          v7 = *(_DWORD **)(a2 + 12);
+          v19 = v7;
           if ( !v7 )
           {
             v7 = g_RegInfo;
-            v18 = g_RegInfo;
+            v19 = g_RegInfo;
           }
           *a5 = 0;
           v8 = *a4;
@@ -67,15 +69,15 @@ int __fastcall GetLCIDFromLangListNodeWithLICCheck(int a1, int a2, int a3, unsig
             v10 = *v9;
             if ( v10 == 2 )
             {
-              v11 = *(_WORD *)(*(_DWORD *)(*(_DWORD *)(v7 + 20) + 12) + 28 * (__int16)v9[2] + 4);
+              v11 = *(_WORD *)(*(_DWORD *)(v7[5] + 12) + 28 * (__int16)v9[2] + 4);
               *a4 = v11;
               if ( v11 )
               {
 LABEL_10:
-                *a5 = (*(_QWORD *)(a2 + 24) & (1LL << v22)) == 0;
+                *a5 = (*(_QWORD *)(a2 + 24) & (1LL << v23)) == 0;
                 return 0;
               }
-              v17 = *(_WORD *)(*(_DWORD *)(*(_DWORD *)(v7 + 20) + 12) + 28 * (__int16)v9[2] + 6);
+              v17 = *(_WORD *)(*(_DWORD *)(v7[5] + 12) + 28 * (__int16)v9[2] + 6);
               if ( v17 <= 0 )
                 return -1073741595;
               v16 = v17;
@@ -95,33 +97,28 @@ LABEL_13:
               v16 = (__int16)v9[2];
             }
             RtlInitUnicodeString(
-              &DestinationString,
-              (PCWSTR)(*(_DWORD *)(*(_DWORD *)(v7 + 24) + 16)
-                     + 2 * *(__int16 *)(*(_DWORD *)(*(_DWORD *)(v7 + 24) + 12) + 2 * v16)));
-            if ( (unsigned __int8)RtlCultureNameToLCID(&DestinationString, &v21) )
+              &String,
+              (PCWSTR)(*(_DWORD *)(v7[6] + 16) + 2 * *(__int16 *)(*(_DWORD *)(v7[6] + 12) + 2 * v16)));
+            if ( RtlCultureNameToLCID(&String, &Lcid) )
             {
-              v14 = v21;
+              v14 = Lcid;
               goto LABEL_13;
             }
             return -1073741595;
           }
-          DestinationString.Buffer = (wchar_t *)v23;
-          DestinationString.MaximumLength = 170;
-          if ( !(unsigned __int8)RtlLCIDToCultureName(v8, &DestinationString) )
+          String.Buffer = (wchar_t *)v24;
+          String.MaximumLength = 170;
+          if ( !RtlLCIDToCultureName(v8, &String) )
             return -1073741823;
-          if ( *(_DWORD *)(v18 + 72) < 0x3E8u )
+          if ( v19[18] < 0x3E8u )
           {
-            InstalledLanguageIndexByName = RtlpMuiRegGetInstalledLanguageIndexByName(
-                                             v18,
-                                             DestinationString.Buffer,
-                                             1,
-                                             &v20);
+            InstalledLanguageIndexByName = RtlpMuiRegGetInstalledLanguageIndexByName(v19, String.Buffer, 1, &v21);
           }
           else
           {
-            if ( RtlpIsALicensedRegularLanguage(v18, DestinationString.Buffer) >= 0 )
+            if ( RtlpIsALicensedRegularLanguage(v19, String.Buffer) >= 0 )
               return 0;
-            InstalledLanguageIndexByName = RtlpIsALicensedLIPLanguage(v18, DestinationString.Buffer);
+            InstalledLanguageIndexByName = RtlpIsALicensedLIPLanguage(v19, String.Buffer);
           }
           if ( InstalledLanguageIndexByName < 0 )
             *a5 = 1;

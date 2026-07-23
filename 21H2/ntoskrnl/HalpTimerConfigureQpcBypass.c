@@ -1,19 +1,19 @@
 /*
- * XREFs of HalpTimerConfigureQpcBypass @ 0x1403CDDAC
+ * XREFs of HalpTimerConfigureQpcBypass @ 0x1403CDF1C
  * Callers:
- *     HalpTimerInitSystem @ 0x1403A85B0 (HalpTimerInitSystem.c)
+ *     HalpTimerInitSystem @ 0x1403A9340 (HalpTimerInitSystem.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
- *     HalpFindTimer @ 0x14039D458 (HalpFindTimer.c)
- *     HalpGetCpuInfo @ 0x1403A0F70 (HalpGetCpuInfo.c)
+ *     KxReleaseSpinLock @ 0x140212140 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140362F80 (KeAcquireSpinLockRaiseToDpc.c)
+ *     HalpFindTimer @ 0x14039D5A8 (HalpFindTimer.c)
+ *     HalpGetCpuInfo @ 0x1403A10C0 (HalpGetCpuInfo.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     NtQuerySystemInformation @ 0x140650EF0 (NtQuerySystemInformation.c)
+ *     NtQuerySystemInformation @ 0x140645D10 (NtQuerySystemInformation.c)
  */
 
 __int64 HalpTimerConfigureQpcBypass()
 {
-  int v0; // esi
+  NTSTATUS v0; // esi
   char v1; // bl
   ULONG_PTR *Timer; // rax
   unsigned __int64 v3; // rdi
@@ -28,7 +28,7 @@ __int64 HalpTimerConfigureQpcBypass()
 
   v11 = 0LL;
   v10 = 0;
-  v0 = NtQuerySystemInformation(197LL, &v11, 8LL);
+  v0 = NtQuerySystemInformation(SystemHypervisorSharedPageInformation, &v11, 8u, 0LL);
   v1 = 0;
   Timer = HalpFindTimer(5, 0, 0, 0, 1);
   if ( Timer )

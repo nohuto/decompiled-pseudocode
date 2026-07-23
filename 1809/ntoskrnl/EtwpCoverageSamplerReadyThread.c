@@ -1,9 +1,9 @@
 /*
- * XREFs of EtwpCoverageSamplerReadyThread @ 0x140317C74
+ * XREFs of EtwpCoverageSamplerReadyThread @ 0x140317E64
  * Callers:
- *     EtwTraceReadyThread @ 0x140310354 (EtwTraceReadyThread.c)
+ *     EtwTraceReadyThread @ 0x140310544 (EtwTraceReadyThread.c)
  * Callees:
- *     EtwpCovSampCaptureSample @ 0x140316EC4 (EtwpCovSampCaptureSample.c)
+ *     EtwpCovSampCaptureSample @ 0x1403170B4 (EtwpCovSampCaptureSample.c)
  */
 
 char __fastcall EtwpCoverageSamplerReadyThread(__int64 a1)
@@ -25,14 +25,14 @@ char __fastcall EtwpCoverageSamplerReadyThread(__int64 a1)
   int v15; // ecx
 
   CurrentThread = KeGetCurrentThread();
-  if ( *(struct _KTHREAD **)qword_140409DE8 != CurrentThread && *(_QWORD *)qword_140409DE8 != a1 )
+  if ( *(struct _KTHREAD **)qword_14040AE48 != CurrentThread && *(_QWORD *)qword_14040AE48 != a1 )
   {
     CurrentPrcb = KeGetCurrentPrcb();
     CurrentThread = KeGetCurrentThread();
     if ( CurrentThread != CurrentPrcb->IdleThread || CurrentPrcb->NestingLevel > 1u )
     {
-      v3 = (*(_QWORD *)(qword_140409DE8 + 8) >> 4) & 0x1FFLL;
-      v4 = ((unsigned int)*(_QWORD *)(qword_140409DE8 + 8) >> 13) & 0x3FFFF;
+      v3 = (*(_QWORD *)(qword_14040AE48 + 8) >> 4) & 0x1FFLL;
+      v4 = ((unsigned int)*(_QWORD *)(qword_14040AE48 + 8) >> 13) & 0x3FFFF;
       _BitScanReverse(&v5, v4);
       v6 = *(_QWORD *)(*((_QWORD *)KeGetCurrentPrcb()->ExSaPageArray + v5 - 2) + 8LL * (v4 ^ (1 << v5)) + 8);
       if ( !*(_DWORD *)(v6 + 8 * v3 + 224) )

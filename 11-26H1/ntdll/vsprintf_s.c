@@ -1,10 +1,10 @@
 /*
- * XREFs of vsprintf_s @ 0x180133C90
+ * XREFs of vsprintf_s @ 0x180133A00
  * Callers:
- *     sprintf_s @ 0x180133C60 (sprintf_s.c)
+ *     sprintf_s @ 0x1801339D0 (sprintf_s.c)
  * Callees:
- *     _invalid_parameter @ 0x180126898 (_invalid_parameter.c)
- *     _soutput_s @ 0x18013505C (_soutput_s.c)
+ *     _invalid_parameter @ 0x180126608 (_invalid_parameter.c)
+ *     _soutput_s @ 0x180134DCC (_soutput_s.c)
  */
 
 int __cdecl vsprintf_s(char *const Buffer, const size_t BufferCount, const char *const Format, va_list ArgList)

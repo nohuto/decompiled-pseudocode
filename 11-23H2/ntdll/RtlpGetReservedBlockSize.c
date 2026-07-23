@@ -3,7 +3,7 @@
  * Callers:
  *     RtlpFreeHeapInternal @ 0x18003BBF0 (RtlpFreeHeapInternal.c)
  *     RtlpWalkLFHBlock @ 0x1800B1334 (RtlpWalkLFHBlock.c)
- *     RtlpLowFragHeapFlushCaches @ 0x18011A754 (RtlpLowFragHeapFlushCaches.c)
+ *     RtlpLowFragHeapFlushCaches @ 0x18011A724 (RtlpLowFragHeapFlushCaches.c)
  * Callees:
  *     <none>
  */

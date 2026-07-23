@@ -6,7 +6,12 @@
  *     _Wow64SystemServiceCall@0 @ 0x4B308730 (_Wow64SystemServiceCall@0.c)
  */
 
-int __stdcall NtQueryEvent(int a1, int a2, int a3, int a4, int a5)
+NTSTATUS __cdecl NtQueryEvent(
+        HANDLE EventHandle,
+        EVENT_INFORMATION_CLASS EventInformationClass,
+        PVOID EventInformation,
+        ULONG EventInformationLength,
+        PULONG ReturnLength)
 {
   return Wow64SystemServiceCall();
 }

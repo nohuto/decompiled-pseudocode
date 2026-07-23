@@ -1,8 +1,8 @@
 /*
- * XREFs of PspUnlinkJobProcess @ 0x140AEC07C
+ * XREFs of PspUnlinkJobProcess @ 0x140AEEF88
  * Callers:
- *     PspEstablishJobHierarchy @ 0x1407F836C (PspEstablishJobHierarchy.c)
- *     PspRemoveProcessFromJobChain @ 0x140959638 (PspRemoveProcessFromJobChain.c)
+ *     PspEstablishJobHierarchy @ 0x1407FDE6C (PspEstablishJobHierarchy.c)
+ *     PspRemoveProcessFromJobChain @ 0x1409FEEF8 (PspRemoveProcessFromJobChain.c)
  * Callees:
  *     <none>
  */

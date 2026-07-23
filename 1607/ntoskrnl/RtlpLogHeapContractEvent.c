@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlpLogHeapContractEvent @ 0x140218F1C
+ * XREFs of RtlpLogHeapContractEvent @ 0x140218D48
  * Callers:
- *     RtlpDeCommitFreeBlock @ 0x140093070 (RtlpDeCommitFreeBlock.c)
- *     RtlpFreeHeap @ 0x1400936CC (RtlpFreeHeap.c)
+ *     RtlpDeCommitFreeBlock @ 0x140092870 (RtlpDeCommitFreeBlock.c)
+ *     RtlpFreeHeap @ 0x140092ECC (RtlpFreeHeap.c)
  * Callees:
- *     EtwTraceKernelEvent @ 0x140014190 (EtwTraceKernelEvent.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     GetUCBytes @ 0x14021855C (GetUCBytes.c)
+ *     EtwTraceKernelEvent @ 0x140013D10 (EtwTraceKernelEvent.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     GetUCBytes @ 0x140218388 (GetUCBytes.c)
  */
 
 __int64 __fastcall RtlpLogHeapContractEvent(_QWORD *a1, __int64 a2, __int64 a3, __int64 a4, char a5, __int64 a6)

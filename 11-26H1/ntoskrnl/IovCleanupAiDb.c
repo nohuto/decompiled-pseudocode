@@ -1,22 +1,22 @@
 /*
- * XREFs of IovCleanupAiDb @ 0x14064238C
+ * XREFs of IovCleanupAiDb @ 0x140645F6C
  * Callers:
- *     ViIovPluginUnload @ 0x1406429A0 (ViIovPluginUnload.c)
+ *     ViIovPluginUnload @ 0x140646580 (ViIovPluginUnload.c)
  * Callees:
- *     RtlEnumerateGenericTableAvl @ 0x1403B8060 (RtlEnumerateGenericTableAvl.c)
- *     RtlDeleteElementGenericTableAvl @ 0x1403B8A60 (RtlDeleteElementGenericTableAvl.c)
- *     ViPtRaiseIrqlSafe @ 0x140641D9C (ViPtRaiseIrqlSafe.c)
- *     IovAiAcquireDbLockAtDpcLevelSafe @ 0x140641E40 (IovAiAcquireDbLockAtDpcLevelSafe.c)
- *     IovAiCleanDbLockContext @ 0x140641EC0 (IovAiCleanDbLockContext.c)
- *     IovAiReleaseDbLockFromDpcLevel @ 0x140642220 (IovAiReleaseDbLockFromDpcLevel.c)
- *     RtlpInterlockedPopEntrySList @ 0x140730C90 (RtlpInterlockedPopEntrySList.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
- *     VfIsRuleClassEnabled @ 0x140C46310 (VfIsRuleClassEnabled.c)
+ *     RtlEnumerateGenericTableAvl @ 0x1403C1F60 (RtlEnumerateGenericTableAvl.c)
+ *     RtlDeleteElementGenericTableAvl @ 0x1403C2960 (RtlDeleteElementGenericTableAvl.c)
+ *     ViPtRaiseIrqlSafe @ 0x14064597C (ViPtRaiseIrqlSafe.c)
+ *     IovAiAcquireDbLockAtDpcLevelSafe @ 0x140645A20 (IovAiAcquireDbLockAtDpcLevelSafe.c)
+ *     IovAiCleanDbLockContext @ 0x140645AA0 (IovAiCleanDbLockContext.c)
+ *     IovAiReleaseDbLockFromDpcLevel @ 0x140645E00 (IovAiReleaseDbLockFromDpcLevel.c)
+ *     RtlpInterlockedPopEntrySList @ 0x140735860 (RtlpInterlockedPopEntrySList.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
+ *     VfIsRuleClassEnabled @ 0x140C4C320 (VfIsRuleClassEnabled.c)
  */
 
 void IovCleanupAiDb()
 {
-  RTL_AVL_TABLE *v0; // rbx
+  _RTL_AVL_TABLE *v0; // rbx
   PVOID v1; // rax
   PSLIST_ENTRY v2; // rax
   __int128 v3; // [rsp+20h] [rbp-18h] BYREF
@@ -40,13 +40,13 @@ void IovCleanupAiDb()
     IovAiCleanDbLockContext((__int64)&v3);
     while ( 1 )
     {
-      v2 = RtlpInterlockedPopEntrySList((PSLIST_HEADER)&stru_140E27B08.WaitBlockFill11[120]);
+      v2 = RtlpInterlockedPopEntrySList((PSLIST_HEADER)&stru_140E27C48.WaitBlockFill11[120]);
       if ( !v2 )
         break;
       ExFreePoolWithTag(v2, 0);
     }
-    *(_OWORD *)&stru_140E27B08.WaitBlockFill11[120] = 0LL;
-    *(_OWORD *)&stru_140E27B08.WaitBlockFill11[136] = 0LL;
+    *(_OWORD *)&stru_140E27C48.WaitBlockFill11[120] = 0LL;
+    *(_OWORD *)&stru_140E27C48.WaitBlockFill11[136] = 0LL;
     IovAiResourceCount = 0;
     ExFreePoolWithTag(IovAiDb, 0);
   }

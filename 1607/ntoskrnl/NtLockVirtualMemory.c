@@ -1,40 +1,40 @@
 /*
- * XREFs of NtLockVirtualMemory @ 0x1400BAEC8
+ * XREFs of NtLockVirtualMemory @ 0x1400B8D58
  * Callers:
  *     <none>
  * Callees:
- *     MiLockPageAndSetDirty @ 0x140015578 (MiLockPageAndSetDirty.c)
- *     MiMakeSystemAddressValid @ 0x140015DAC (MiMakeSystemAddressValid.c)
- *     MiLocateAddress @ 0x14001F090 (MiLocateAddress.c)
- *     MiChargeCommit @ 0x14002B650 (MiChargeCommit.c)
- *     MiVadPureReserve @ 0x14002BA90 (MiVadPureReserve.c)
- *     MiUnlockWorkingSetExclusive @ 0x14002E930 (MiUnlockWorkingSetExclusive.c)
- *     MiLockWorkingSetExclusive @ 0x14002EA00 (MiLockWorkingSetExclusive.c)
- *     MiLockPageTablePage @ 0x140030530 (MiLockPageTablePage.c)
- *     MiGetNextPageTable @ 0x1400438F0 (MiGetNextPageTable.c)
- *     MiLocateWsle @ 0x140046B50 (MiLocateWsle.c)
- *     MiSwapWslEntries @ 0x140049E70 (MiSwapWslEntries.c)
- *     MiPartitionIdToPointer @ 0x1400680A0 (MiPartitionIdToPointer.c)
- *     ObfDereferenceObjectWithTag @ 0x14006ACD0 (ObfDereferenceObjectWithTag.c)
- *     KeShouldYieldProcessor @ 0x1400956C0 (KeShouldYieldProcessor.c)
- *     MiGetPagingFileOffset @ 0x1400B9780 (MiGetPagingFileOffset.c)
- *     MiWorkingSetIsContended @ 0x1400BA9E0 (MiWorkingSetIsContended.c)
- *     MiUnlockVa @ 0x1400BAA10 (MiUnlockVa.c)
- *     MiUnlockPageTableCharges @ 0x1400BAC48 (MiUnlockPageTableCharges.c)
- *     MiUpdateWorkingSetAgeDistribution @ 0x1400BC53C (MiUpdateWorkingSetAgeDistribution.c)
- *     KiStackAttachProcess @ 0x1400CD1F0 (KiStackAttachProcess.c)
- *     KiUnstackDetachProcess @ 0x1400CE820 (KiUnstackDetachProcess.c)
- *     MiRemoveEntryWsle @ 0x1400E2580 (MiRemoveEntryWsle.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     MI_GET_PFN_FROM_PTE @ 0x1401F2594 (MI_GET_PFN_FROM_PTE.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1401F25D0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiRelockWorkingSetExclusive @ 0x1401F2AEC (MiRelockWorkingSetExclusive.c)
+ *     MiLockPageAndSetDirty @ 0x1400150F8 (MiLockPageAndSetDirty.c)
+ *     MiMakeSystemAddressValid @ 0x14001592C (MiMakeSystemAddressValid.c)
+ *     MiLocateAddress @ 0x14001EC10 (MiLocateAddress.c)
+ *     MiChargeCommit @ 0x14002B1D0 (MiChargeCommit.c)
+ *     MiVadPureReserve @ 0x14002B610 (MiVadPureReserve.c)
+ *     MiUnlockWorkingSetExclusive @ 0x14002E4B0 (MiUnlockWorkingSetExclusive.c)
+ *     MiLockWorkingSetExclusive @ 0x14002E580 (MiLockWorkingSetExclusive.c)
+ *     MiLockPageTablePage @ 0x1400300B0 (MiLockPageTablePage.c)
+ *     MiGetNextPageTable @ 0x140043470 (MiGetNextPageTable.c)
+ *     MiLocateWsle @ 0x1400466D0 (MiLocateWsle.c)
+ *     MiSwapWslEntries @ 0x1400499F0 (MiSwapWslEntries.c)
+ *     MiPartitionIdToPointer @ 0x140067C20 (MiPartitionIdToPointer.c)
+ *     ObfDereferenceObjectWithTag @ 0x14006A850 (ObfDereferenceObjectWithTag.c)
+ *     KeShouldYieldProcessor @ 0x140094EC0 (KeShouldYieldProcessor.c)
+ *     MiGetPagingFileOffset @ 0x1400B7610 (MiGetPagingFileOffset.c)
+ *     MiWorkingSetIsContended @ 0x1400B8870 (MiWorkingSetIsContended.c)
+ *     MiUnlockVa @ 0x1400B88A0 (MiUnlockVa.c)
+ *     MiUnlockPageTableCharges @ 0x1400B8AD8 (MiUnlockPageTableCharges.c)
+ *     MiUpdateWorkingSetAgeDistribution @ 0x1400BA3CC (MiUpdateWorkingSetAgeDistribution.c)
+ *     KiStackAttachProcess @ 0x1400CB090 (KiStackAttachProcess.c)
+ *     KiUnstackDetachProcess @ 0x1400CC6C0 (KiUnstackDetachProcess.c)
+ *     MiRemoveEntryWsle @ 0x1400E0420 (MiRemoveEntryWsle.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     MI_GET_PFN_FROM_PTE @ 0x1401F23C0 (MI_GET_PFN_FROM_PTE.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1401F23FC (MI_READ_PTE_LOCK_FREE.c)
+ *     MiRelockWorkingSetExclusive @ 0x1401F2918 (MiRelockWorkingSetExclusive.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     MiUnlockVadRange @ 0x1404F37E8 (MiUnlockVadRange.c)
- *     MiLockVadRange @ 0x1404F38DC (MiLockVadRange.c)
- *     MiLockUnlockCommon @ 0x1404F3B48 (MiLockUnlockCommon.c)
+ *     MiUnlockVadRange @ 0x1404D6774 (MiUnlockVadRange.c)
+ *     MiLockVadRange @ 0x1404D6868 (MiLockVadRange.c)
+ *     MiLockUnlockCommon @ 0x1404D6AD4 (MiLockUnlockCommon.c)
  */
 
 NTSTATUS __stdcall NtLockVirtualMemory(
@@ -116,7 +116,7 @@ NTSTATUS __stdcall NtLockVirtualMemory(
   v8 = v51 & 0xFFFFFFFFFFFFF000uLL;
   BugCheckParameter2 = v51 & 0xFFFFFFFFFFFFF000uLL;
   v9 = ((v47 - (v51 & 0xFFFFFFFFFFFFF000uLL)) >> 12) + 1;
-  v49 = qword_140327F90;
+  v49 = qword_140327FD0;
   v10 = 0LL;
   v46 = 0LL;
   PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, 8 * (((v9 & 0x3F) != 0) + (v9 >> 6)), 0x6B6C6D4Du);
@@ -258,7 +258,7 @@ LABEL_20:
     }
     else
     {
-      v28 = *(_QWORD *)(qword_140327F90 + 276841312) + v31 * *(unsigned int *)(v49 + 276841264);
+      v28 = *(_QWORD *)(qword_140327FD0 + 276841312) + v31 * *(unsigned int *)(v49 + 276841264);
       v60 = (_DWORD *)v28;
       if ( v31 + 6 >= *((_QWORD *)v20 + 13) )
       {

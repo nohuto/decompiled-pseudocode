@@ -1,13 +1,13 @@
 /*
- * XREFs of MiDecrementCloneBlockReference @ 0x1402F90A4
+ * XREFs of MiDecrementCloneBlockReference @ 0x140294D58
  * Callers:
- *     MiDecommitSharedPageTail @ 0x14023E140 (MiDecommitSharedPageTail.c)
- *     MiDecommitHandleProtoFormatPte @ 0x140289580 (MiDecommitHandleProtoFormatPte.c)
- *     MiCopyOnWrite @ 0x1402E47DC (MiCopyOnWrite.c)
+ *     MiDecommitSharedPageTail @ 0x140206290 (MiDecommitSharedPageTail.c)
+ *     MiDecommitHandleProtoFormatPte @ 0x140299180 (MiDecommitHandleProtoFormatPte.c)
+ *     MiCopyOnWrite @ 0x140346A74 (MiCopyOnWrite.c)
  * Callees:
- *     MiDecrementCloneBlock @ 0x1402F9160 (MiDecrementCloneBlock.c)
- *     MiDeleteCloneDescriptor @ 0x1404F8BB8 (MiDeleteCloneDescriptor.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
+ *     MiDecrementCloneBlock @ 0x140294E14 (MiDecrementCloneBlock.c)
+ *     MiDeleteCloneDescriptor @ 0x1404F6498 (MiDeleteCloneDescriptor.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall MiDecrementCloneBlockReference(

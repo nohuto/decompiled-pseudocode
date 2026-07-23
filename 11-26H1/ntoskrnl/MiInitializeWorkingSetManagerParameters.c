@@ -1,15 +1,15 @@
 /*
- * XREFs of MiInitializeWorkingSetManagerParameters @ 0x1406F7A10
+ * XREFs of MiInitializeWorkingSetManagerParameters @ 0x1406FC6DC
  * Callers:
- *     MiUpdatePartitionAgeTrimConfiguration @ 0x1404D3164 (MiUpdatePartitionAgeTrimConfiguration.c)
- *     MiInitializePartition @ 0x140869360 (MiInitializePartition.c)
- *     MiInitSystem @ 0x140CF15C4 (MiInitSystem.c)
+ *     MiUpdatePartitionAgeTrimConfiguration @ 0x1404CC9D4 (MiUpdatePartitionAgeTrimConfiguration.c)
+ *     MiInitializePartition @ 0x14086F740 (MiInitializePartition.c)
+ *     MiInitSystem @ 0x140CF7944 (MiInitSystem.c)
  * Callees:
- *     ExReleaseSpinLockExclusive @ 0x14021AA80 (ExReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x140249CD0 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KeGenericCallDpcEx @ 0x1403C2284 (KeGenericCallDpcEx.c)
- *     MiSetTrimWhileAgingState @ 0x14051768C (MiSetTrimWhileAgingState.c)
+ *     ExReleaseSpinLockExclusive @ 0x14021C410 (ExReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024B630 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KeGenericCallDpcEx @ 0x1403CC184 (KeGenericCallDpcEx.c)
+ *     MiSetTrimWhileAgingState @ 0x1405110FC (MiSetTrimWhileAgingState.c)
  */
 
 __int64 __fastcall MiInitializeWorkingSetManagerParameters(__int64 a1)
@@ -75,10 +75,10 @@ __int64 __fastcall MiInitializeWorkingSetManagerParameters(__int64 a1)
     while ( v4 );
     *(_DWORD *)(a1 + 1132) = 256;
     *(_BYTE *)(a1 + 22776) = *(_DWORD *)(a1 + 22776) & 0xF0 | 1;
-    v8 = &qword_140E37800;
+    v8 = &qword_140E37980;
     if ( (*(_DWORD *)(a1 + 22776) & 0xF) != 1 )
       v8 = (__int64 *)(a1 + 22784);
-    *v8 = (__int64)&unk_140E2E940;
+    *v8 = (__int64)&unk_140E2EAC0;
     v24 = 0LL;
     DWORD2(v24) = 3;
     MiSetTrimWhileAgingState(a1, (__int64)&v24);

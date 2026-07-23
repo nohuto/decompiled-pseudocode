@@ -1,22 +1,22 @@
 /*
- * XREFs of ExpLookupHandleTableEntry @ 0x1406E6930
+ * XREFs of ExpLookupHandleTableEntry @ 0x1406E6960
  * Callers:
- *     NtWriteFile @ 0x1406B6A20 (NtWriteFile.c)
- *     ObWaitForMultipleObjects @ 0x1406E3890 (ObWaitForMultipleObjects.c)
- *     ObpReferenceObjectByHandleWithTag @ 0x1406E6300 (ObpReferenceObjectByHandleWithTag.c)
- *     ObpCloseHandle @ 0x1406E7680 (ObpCloseHandle.c)
- *     PspReferenceCidTableEntry @ 0x1406FB1B0 (PspReferenceCidTableEntry.c)
- *     ObDuplicateObject @ 0x1406FB8F0 (ObDuplicateObject.c)
- *     AlpcpLookupMessage @ 0x1407388B0 (AlpcpLookupMessage.c)
- *     ExMapHandleToPointer @ 0x14073FC10 (ExMapHandleToPointer.c)
- *     ExSweepHandleTable @ 0x14073FC60 (ExSweepHandleTable.c)
- *     ObpReferenceObjectByHandle @ 0x140749F3C (ObpReferenceObjectByHandle.c)
- *     ExEnumHandleTable @ 0x1407ADF70 (ExEnumHandleTable.c)
- *     ExpGetNextHandleTableEntry @ 0x1407AE08C (ExpGetNextHandleTableEntry.c)
- *     ExDupHandleTable @ 0x1407B00DC (ExDupHandleTable.c)
- *     ExpGetHandleExtraInfo @ 0x1408AB4CA (ExpGetHandleExtraInfo.c)
- *     ExpSnapShotHandleTables @ 0x1408AB512 (ExpSnapShotHandleTables.c)
- *     ExpSetHandleExtraInfo @ 0x1409F91A0 (ExpSetHandleExtraInfo.c)
+ *     NtWriteFile @ 0x1406B6BD0 (NtWriteFile.c)
+ *     ObWaitForMultipleObjects @ 0x1406E38C0 (ObWaitForMultipleObjects.c)
+ *     ObpReferenceObjectByHandleWithTag @ 0x1406E6330 (ObpReferenceObjectByHandleWithTag.c)
+ *     ObpCloseHandle @ 0x1406E76B0 (ObpCloseHandle.c)
+ *     PspReferenceCidTableEntry @ 0x1406FB3C0 (PspReferenceCidTableEntry.c)
+ *     ObDuplicateObject @ 0x1406FBB00 (ObDuplicateObject.c)
+ *     AlpcpLookupMessage @ 0x140738AA0 (AlpcpLookupMessage.c)
+ *     ExMapHandleToPointer @ 0x14073FE00 (ExMapHandleToPointer.c)
+ *     ExSweepHandleTable @ 0x14073FE50 (ExSweepHandleTable.c)
+ *     ObpReferenceObjectByHandle @ 0x14074A12C (ObpReferenceObjectByHandle.c)
+ *     ExEnumHandleTable @ 0x1407AE160 (ExEnumHandleTable.c)
+ *     ExpGetNextHandleTableEntry @ 0x1407AE27C (ExpGetNextHandleTableEntry.c)
+ *     ExDupHandleTable @ 0x1407B02CC (ExDupHandleTable.c)
+ *     ExpGetHandleExtraInfo @ 0x1408AB71A (ExpGetHandleExtraInfo.c)
+ *     ExpSnapShotHandleTables @ 0x1408AB762 (ExpSnapShotHandleTables.c)
+ *     ExpSetHandleExtraInfo @ 0x1409F9430 (ExpSetHandleExtraInfo.c)
  * Callees:
  *     <none>
  */

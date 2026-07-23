@@ -1,11 +1,11 @@
 /*
- * XREFs of HalpMmGetPteAddressSafe @ 0x14057DE5C
+ * XREFs of HalpMmGetPteAddressSafe @ 0x14058037C
  * Callers:
- *     HalpMap @ 0x1403439AC (HalpMap.c)
- *     HalpMmReservePageTablePages @ 0x14057DF84 (HalpMmReservePageTablePages.c)
- *     HalpReserveHalPtes @ 0x140CAE3A8 (HalpReserveHalPtes.c)
+ *     HalpMap @ 0x140345A2C (HalpMap.c)
+ *     HalpMmReservePageTablePages @ 0x1405804A4 (HalpMmReservePageTablePages.c)
+ *     HalpReserveHalPtes @ 0x140CB43E8 (HalpReserveHalPtes.c)
  * Callees:
- *     HalpMmAllocateAndInsertPageTablePage @ 0x14057DC44 (HalpMmAllocateAndInsertPageTablePage.c)
+ *     HalpMmAllocateAndInsertPageTablePage @ 0x140580164 (HalpMmAllocateAndInsertPageTablePage.c)
  */
 
 __int64 __fastcall HalpMmGetPteAddressSafe(unsigned __int64 a1)
@@ -16,7 +16,7 @@ __int64 __fastcall HalpMmGetPteAddressSafe(unsigned __int64 a1)
   _BYTE *v5; // rcx
 
   v1 = a1 + 4096;
-  if ( (unsigned int)(HalpAllocationDescriptorArraySize - LODWORD(HalpPmuArbiter.WaitBlockList)) > 4 )
+  if ( (unsigned int)(HalpAllocationDescriptorArraySize - *(_DWORD *)&HalpPmuArbiter.ApcStateFill[40]) > 4 )
     v1 = 0LL;
   v3 = (_BYTE *)(8 * ((a1 >> 39) & 0x1FF) - 0x90482413000LL);
   if ( ((*v3 & 1) != 0 || HalpMmAllocateAndInsertPageTablePage(v3, v1))

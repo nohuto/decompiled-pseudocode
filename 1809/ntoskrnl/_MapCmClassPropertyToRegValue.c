@@ -1,8 +1,8 @@
 /*
- * XREFs of _MapCmClassPropertyToRegValue @ 0x14015B5AC
+ * XREFs of _MapCmClassPropertyToRegValue @ 0x14015B6AC
  * Callers:
- *     _CmGetInstallerClassRegPropWorker @ 0x1406F13A8 (_CmGetInstallerClassRegPropWorker.c)
- *     _CmSetInstallerClassRegPropWorker @ 0x1408F854C (_CmSetInstallerClassRegPropWorker.c)
+ *     _CmGetInstallerClassRegPropWorker @ 0x1406F2648 (_CmGetInstallerClassRegPropWorker.c)
+ *     _CmSetInstallerClassRegPropWorker @ 0x1408F980C (_CmSetInstallerClassRegPropWorker.c)
  * Callees:
  *     <none>
  */

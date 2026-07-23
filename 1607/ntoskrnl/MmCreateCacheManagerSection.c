@@ -1,12 +1,12 @@
 /*
- * XREFs of MmCreateCacheManagerSection @ 0x140471580
+ * XREFs of MmCreateCacheManagerSection @ 0x140470450
  * Callers:
- *     CcInitializeCacheMapEx @ 0x1400E8440 (CcInitializeCacheMapEx.c)
+ *     CcInitializeCacheMapEx @ 0x1400E62E0 (CcInitializeCacheMapEx.c)
  * Callees:
- *     MmGetSessionIdEx @ 0x140024FEC (MmGetSessionIdEx.c)
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
- *     PsReferencePrimaryToken @ 0x140418C20 (PsReferencePrimaryToken.c)
- *     MiCreateSection @ 0x14042CD40 (MiCreateSection.c)
+ *     MmGetSessionIdEx @ 0x140024B6C (MmGetSessionIdEx.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
+ *     PsReferencePrimaryToken @ 0x140417AE0 (PsReferencePrimaryToken.c)
+ *     MiCreateSection @ 0x14042BC10 (MiCreateSection.c)
  */
 
 __int64 __fastcall MmCreateCacheManagerSection(_QWORD *a1, __int64 *a2, char a3, struct _FILE_OBJECT *a4)

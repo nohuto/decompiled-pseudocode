@@ -16,7 +16,7 @@
  *     ResCDirectoryFree @ 0x18010C5EC (ResCDirectoryFree.c)
  */
 
-__int64 ResCKeOpenRuntimeView()
+_DWORD *ResCKeOpenRuntimeView()
 {
   wchar_t *v0; // rdi
   unsigned int SystemWindowsDirectory; // eax
@@ -29,18 +29,18 @@ __int64 ResCKeOpenRuntimeView()
   __int64 v8; // rcx
   char *v9; // r9
   wchar_t v10; // dx
-  __int64 Heap; // rax
-  int v12; // edx
-  __int64 v13; // rbx
-  __int64 v14; // rax
-  __int64 v16; // rax
+  _DWORD *Heap; // rax
+  _DWORD *v12; // rbx
+  __int64 v13; // rax
+  void *v14; // rcx
+  PVOID v16; // rax
   __int64 v17; // rax
   int v18; // eax
-  unsigned int v19; // ecx
-  int v20[4]; // [rsp+30h] [rbp-238h] BYREF
+  LONG v19; // ecx
+  __int64 v20; // [rsp+30h] [rbp-238h] BYREF
   wchar_t pszDest[264]; // [rsp+40h] [rbp-228h] BYREF
 
-  v20[0] = 0;
+  LODWORD(v20) = 0;
   memset(pszDest, 0, 520);
   v0 = 0LL;
   SystemWindowsDirectory = ResGetSystemWindowsDirectory(pszDest);
@@ -86,36 +86,37 @@ LABEL_13:
     }
   }
 LABEL_15:
-  Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8LL, 48LL);
-  v13 = Heap;
+  Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, 0x30uLL);
+  v12 = Heap;
   if ( !Heap )
   {
     if ( !NtCurrentTeb()->LastErrorValue )
-      RtlSetLastWin32Error(0xEu);
+      RtlSetLastWin32Error(14);
     return 0LL;
   }
-  *(_QWORD *)(Heap + 8) = 0LL;
-  v14 = ResCKeDirectoryOpenMapping(-1, v12, 0, 0, 0, (__int64)v20);
-  *(_QWORD *)(v13 + 16) = v14;
-  if ( !v14 )
+  *((_QWORD *)Heap + 1) = 0LL;
+  v13 = ResCKeDirectoryOpenMapping(-1, 0, (__int64)&v20);
+  *((_QWORD *)v12 + 2) = v13;
+  if ( !v13 )
   {
 LABEL_17:
-    if ( *(_QWORD *)(v13 + 16) )
-      ResCDirectoryFree();
-    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0LL, v13);
+    v14 = (void *)*((_QWORD *)v12 + 2);
+    if ( v14 )
+      ResCDirectoryFree(v14);
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v12);
     return 0LL;
   }
-  if ( !*(_DWORD *)(*(_QWORD *)(v14 + 24) + 68LL) )
+  if ( !*(_DWORD *)(*(_QWORD *)(v13 + 24) + 68LL) )
   {
     v19 = 536937730;
     goto LABEL_32;
   }
-  *(_QWORD *)(*(_QWORD *)(v13 + 16) + 64LL) = ResCKeHitsOpenMapping();
+  *(_QWORD *)(*((_QWORD *)v12 + 2) + 64LL) = ResCKeHitsOpenMapping();
   v16 = RtlAllocateHeap(
           NtCurrentPeb()->ProcessHeap,
-          8LL,
-          8LL * *(unsigned int *)(*(_QWORD *)(*(_QWORD *)(v13 + 16) + 24LL) + 52LL));
-  *(_QWORD *)(v13 + 24) = v16;
+          8u,
+          8LL * *(unsigned int *)(*(_QWORD *)(*((_QWORD *)v12 + 2) + 24LL) + 52LL));
+  *((_QWORD *)v12 + 3) = v16;
   if ( !v16 )
   {
     if ( NtCurrentTeb()->LastErrorValue )
@@ -129,10 +130,10 @@ LABEL_32:
     v17 = ResCDupString(v0);
   else
     v17 = 0LL;
-  *(_DWORD *)v13 |= 0x80u;
-  *(_QWORD *)(v13 + 32) = v17;
-  v18 = v20[0] & 7;
-  *(_QWORD *)(v13 + 40) = 0LL;
-  *(_DWORD *)(v13 + 4) |= v18;
-  return v13;
+  *v12 |= 0x80u;
+  *((_QWORD *)v12 + 4) = v17;
+  v18 = v20 & 7;
+  *((_QWORD *)v12 + 5) = 0LL;
+  v12[1] |= v18;
+  return v12;
 }

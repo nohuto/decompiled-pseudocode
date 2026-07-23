@@ -1,10 +1,10 @@
 /*
- * XREFs of CmpDoTransWriteLogRecord @ 0x1404A1CA4
+ * XREFs of CmpDoTransWriteLogRecord @ 0x14051A0B0
  * Callers:
- *     CmpTransWriteLog @ 0x1404A1ACC (CmpTransWriteLog.c)
+ *     CmpTransWriteLog @ 0x140519ED8 (CmpTransWriteLog.c)
  * Callees:
- *     memmove @ 0x140171280 (memmove.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     memmove @ 0x140171780 (memmove.c)
+ *     memset @ 0x140171AC0 (memset.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
  */

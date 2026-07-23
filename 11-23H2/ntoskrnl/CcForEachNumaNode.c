@@ -1,13 +1,13 @@
 /*
- * XREFs of CcForEachNumaNode @ 0x1403C3BBC
+ * XREFs of CcForEachNumaNode @ 0x1403C3D9C
  * Callers:
- *     CcInitializePartition @ 0x1403A0390 (CcInitializePartition.c)
- *     CcInitializePrivateVolumeCacheMap @ 0x1403C0AA8 (CcInitializePrivateVolumeCacheMap.c)
- *     CcDeletePrivateVolumeCacheMap @ 0x1403C2074 (CcDeletePrivateVolumeCacheMap.c)
- *     CcGetActiveWorkerCountInPartition @ 0x1403D3FC4 (CcGetActiveWorkerCountInPartition.c)
- *     CcDeletePartition @ 0x140538C60 (CcDeletePartition.c)
+ *     CcInitializePartition @ 0x1403A0570 (CcInitializePartition.c)
+ *     CcInitializePrivateVolumeCacheMap @ 0x1403C0C88 (CcInitializePrivateVolumeCacheMap.c)
+ *     CcDeletePrivateVolumeCacheMap @ 0x1403C2254 (CcDeletePrivateVolumeCacheMap.c)
+ *     CcGetActiveWorkerCountInPartition @ 0x1403D41A4 (CcGetActiveWorkerCountInPartition.c)
+ *     CcDeletePartition @ 0x1405391B0 (CcDeletePartition.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall CcForEachNumaNode(

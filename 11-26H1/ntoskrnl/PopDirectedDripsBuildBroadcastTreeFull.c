@@ -1,15 +1,15 @@
 /*
- * XREFs of PopDirectedDripsBuildBroadcastTreeFull @ 0x140B0BCE4
+ * XREFs of PopDirectedDripsBuildBroadcastTreeFull @ 0x140B0D6D8
  * Callers:
- *     PopDirectedDripsBuildBroadcastTreePartial @ 0x1407E2870 (PopDirectedDripsBuildBroadcastTreePartial.c)
+ *     PopDirectedDripsBuildBroadcastTreePartial @ 0x1407E7900 (PopDirectedDripsBuildBroadcastTreePartial.c)
  * Callees:
- *     PopFxIsDirectedPowerTransitionSupported @ 0x140512E90 (PopFxIsDirectedPowerTransitionSupported.c)
- *     PopDirectedDripsBuildPs4BroadcastTree @ 0x14077151C (PopDirectedDripsBuildPs4BroadcastTree.c)
- *     PopDirectedDripsFlushDeviceQueue @ 0x1407E2998 (PopDirectedDripsFlushDeviceQueue.c)
- *     PopDirectedDripsMarkDfxDevice @ 0x140B0BB98 (PopDirectedDripsMarkDfxDevice.c)
- *     PopDirectedDripsIsPnpSoftwareDeviceNode @ 0x140B0BFC4 (PopDirectedDripsIsPnpSoftwareDeviceNode.c)
- *     PopDirectedDripsDiagTraceProblemDevice @ 0x140B0C00C (PopDirectedDripsDiagTraceProblemDevice.c)
- *     PopDirectedDripsDiagTraceBroadcastVisit @ 0x140B0C18C (PopDirectedDripsDiagTraceBroadcastVisit.c)
+ *     PopFxIsDirectedPowerTransitionSupported @ 0x14050C900 (PopFxIsDirectedPowerTransitionSupported.c)
+ *     PopDirectedDripsBuildPs4BroadcastTree @ 0x14077451C (PopDirectedDripsBuildPs4BroadcastTree.c)
+ *     PopDirectedDripsFlushDeviceQueue @ 0x1407E7A28 (PopDirectedDripsFlushDeviceQueue.c)
+ *     PopDirectedDripsMarkDfxDevice @ 0x140B0D58C (PopDirectedDripsMarkDfxDevice.c)
+ *     PopDirectedDripsIsPnpSoftwareDeviceNode @ 0x140B0D9B8 (PopDirectedDripsIsPnpSoftwareDeviceNode.c)
+ *     PopDirectedDripsDiagTraceProblemDevice @ 0x140B0DA00 (PopDirectedDripsDiagTraceProblemDevice.c)
+ *     PopDirectedDripsDiagTraceBroadcastVisit @ 0x140B0DB80 (PopDirectedDripsDiagTraceBroadcastVisit.c)
  */
 
 __int64 __fastcall PopDirectedDripsBuildBroadcastTreeFull(__int64 a1, __int64 a2, char a3, _DWORD *a4)

@@ -1,12 +1,12 @@
 /*
- * XREFs of TtmGetSessionDisplayRequiredCount @ 0x14067865C
+ * XREFs of TtmGetSessionDisplayRequiredCount @ 0x140678740
  * Callers:
- *     PopGetConsoleDisplayRequestCount @ 0x140008CFC (PopGetConsoleDisplayRequestCount.c)
+ *     PopGetConsoleDisplayRequestCount @ 0x140008870 (PopGetConsoleDisplayRequestCount.c)
  * Callees:
- *     KiLeaveCriticalRegionUnsafe @ 0x140055FA0 (KiLeaveCriticalRegionUnsafe.c)
- *     ExReleaseResourceLite @ 0x140068940 (ExReleaseResourceLite.c)
- *     TtmpAcquireSessionById @ 0x140546B74 (TtmpAcquireSessionById.c)
- *     TtmiLogError @ 0x140546BCC (TtmiLogError.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140055B20 (KiLeaveCriticalRegionUnsafe.c)
+ *     ExReleaseResourceLite @ 0x1400684C0 (ExReleaseResourceLite.c)
+ *     TtmpAcquireSessionById @ 0x1405470B4 (TtmpAcquireSessionById.c)
+ *     TtmiLogError @ 0x14054710C (TtmiLogError.c)
  */
 
 __int64 __fastcall TtmGetSessionDisplayRequiredCount(int a1)

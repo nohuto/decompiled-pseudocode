@@ -3,7 +3,7 @@
  * Callers:
  *     <none>
  * Callees:
- *     RtlpQueryRegistryValues @ 0x140781F40 (RtlpQueryRegistryValues.c)
+ *     sub_140781F40 @ 0x140781F40 (sub_140781F40.c)
  */
 
 NTSTATUS __stdcall RtlQueryRegistryValues(
@@ -13,5 +13,5 @@ NTSTATUS __stdcall RtlQueryRegistryValues(
         PVOID Context,
         PVOID Environment)
 {
-  return RtlpQueryRegistryValues(RelativeTo, Path, QueryTable, Context);
+  return sub_140781F40(RelativeTo, Path, QueryTable, Context);
 }

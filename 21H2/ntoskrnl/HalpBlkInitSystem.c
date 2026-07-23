@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpBlkInitSystem @ 0x140A39550
+ * XREFs of HalpBlkInitSystem @ 0x140A3A550
  * Callers:
- *     HalpProcInitSystem @ 0x14099B4C0 (HalpProcInitSystem.c)
+ *     HalpProcInitSystem @ 0x14099C4C0 (HalpProcInitSystem.c)
  * Callees:
- *     KeSetTimer2 @ 0x14022C550 (KeSetTimer2.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
- *     HalpBlkInitializeVirtualAddressSpace @ 0x140A8DF74 (HalpBlkInitializeVirtualAddressSpace.c)
- *     HalpBlkWdInitialize @ 0x140A8E3E8 (HalpBlkWdInitialize.c)
+ *     KeSetTimer2 @ 0x1402D0DD0 (KeSetTimer2.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
+ *     HalpBlkInitializeVirtualAddressSpace @ 0x140A8EF74 (HalpBlkInitializeVirtualAddressSpace.c)
+ *     HalpBlkWdInitialize @ 0x140A8F3E8 (HalpBlkWdInitialize.c)
  */
 
 void __fastcall HalpBlkInitSystem(int a1)

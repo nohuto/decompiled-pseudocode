@@ -26,14 +26,14 @@
  *     <none>
  */
 
-__int64 LdrControlFlowGuardEnforced()
+BOOLEAN LdrControlFlowGuardEnforced(void)
 {
-  __int64 result; // rax
+  BOOLEAN result; // al
 
-  if ( !qword_18018F3A8 )
-    return 0LL;
-  result = 1LL;
-  if ( (byte_18018F38C & 1) != 0 )
-    return 0LL;
+  if ( !LdrSystemDllInitBlock.CfgBitMap )
+    return 0;
+  result = 1;
+  if ( (LdrSystemDllInitBlock.Flags & 1) != 0 )
+    return 0;
   return result;
 }

@@ -1,14 +1,14 @@
 /*
- * XREFs of MiCloneCaptureVadCommit @ 0x140643570
+ * XREFs of MiCloneCaptureVadCommit @ 0x140643AC0
  * Callers:
- *     MiAllocateChildVads @ 0x140A4837C (MiAllocateChildVads.c)
+ *     MiAllocateChildVads @ 0x140A4862C (MiAllocateChildVads.c)
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x14024D360 (ExAcquireSpinLockExclusive.c)
- *     MiGetSharedVm @ 0x140286E74 (MiGetSharedVm.c)
- *     MiUnlockWorkingSetExclusive @ 0x14028A2F0 (MiUnlockWorkingSetExclusive.c)
- *     MiAllocatePool @ 0x1402DF1A0 (MiAllocatePool.c)
- *     MiGetNextPageTable @ 0x1402E56B0 (MiGetNextPageTable.c)
- *     MiCloneDiscardVadCommit @ 0x140A3C340 (MiCloneDiscardVadCommit.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024D430 (ExAcquireSpinLockExclusive.c)
+ *     MiGetSharedVm @ 0x140287104 (MiGetSharedVm.c)
+ *     MiUnlockWorkingSetExclusive @ 0x14028A580 (MiUnlockWorkingSetExclusive.c)
+ *     MiAllocatePool @ 0x1402DF430 (MiAllocatePool.c)
+ *     MiGetNextPageTable @ 0x1402E5940 (MiGetNextPageTable.c)
+ *     MiCloneDiscardVadCommit @ 0x140A3C5F0 (MiCloneDiscardVadCommit.c)
  */
 
 __int64 __fastcall MiCloneCaptureVadCommit(__int64 a1)

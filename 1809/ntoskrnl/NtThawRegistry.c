@@ -1,20 +1,20 @@
 /*
- * XREFs of NtThawRegistry @ 0x1407EABA0
+ * XREFs of NtThawRegistry @ 0x1407EBDA0
  * Callers:
  *     <none>
  * Callees:
  *     KiUnstackDetachProcess @ 0x140017190 (KiUnstackDetachProcess.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     CmCleanupThreadInfo @ 0x1401B2F3C (CmCleanupThreadInfo.c)
- *     CmpInitializeThreadInfo @ 0x1401B2F7C (CmpInitializeThreadInfo.c)
- *     CmpAttachToRegistryProcess @ 0x1405D4048 (CmpAttachToRegistryProcess.c)
- *     SeSinglePrivilegeCheck @ 0x140612160 (SeSinglePrivilegeCheck.c)
- *     CmThawRegistry @ 0x1407F5A74 (CmThawRegistry.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     CmCleanupThreadInfo @ 0x1401B307C (CmCleanupThreadInfo.c)
+ *     CmpInitializeThreadInfo @ 0x1401B30BC (CmpInitializeThreadInfo.c)
+ *     CmpAttachToRegistryProcess @ 0x1405D5048 (CmpAttachToRegistryProcess.c)
+ *     SeSinglePrivilegeCheck @ 0x140613160 (SeSinglePrivilegeCheck.c)
+ *     CmThawRegistry @ 0x1407F6C74 (CmThawRegistry.c)
  */
 
-__int64 NtThawRegistry()
+NTSTATUS NtThawRegistry(void)
 {
-  unsigned int v0; // ebx
+  NTSTATUS v0; // ebx
   PVOID v2[2]; // [rsp+20h] [rbp-58h] BYREF
   _BYTE v3[48]; // [rsp+30h] [rbp-48h] BYREF
 

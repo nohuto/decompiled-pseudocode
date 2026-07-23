@@ -1,10 +1,10 @@
 /*
- * XREFs of KiAcquireSecondaryPassiveConnectLock @ 0x1403A3858
+ * XREFs of KiAcquireSecondaryPassiveConnectLock @ 0x1403A3A38
  * Callers:
- *     KiConnectSecondaryInterrupt @ 0x1403A2C8C (KiConnectSecondaryInterrupt.c)
- *     KiDisconnectSecondaryInterrupt @ 0x140571A38 (KiDisconnectSecondaryInterrupt.c)
+ *     KiConnectSecondaryInterrupt @ 0x1403A2E6C (KiConnectSecondaryInterrupt.c)
+ *     KiDisconnectSecondaryInterrupt @ 0x140571F78 (KiDisconnectSecondaryInterrupt.c)
  * Callees:
- *     KeWaitForSingleObject @ 0x140243CE0 (KeWaitForSingleObject.c)
+ *     KeWaitForSingleObject @ 0x140243DB0 (KeWaitForSingleObject.c)
  */
 
 NTSTATUS __fastcall KiAcquireSecondaryPassiveConnectLock(__int64 a1)

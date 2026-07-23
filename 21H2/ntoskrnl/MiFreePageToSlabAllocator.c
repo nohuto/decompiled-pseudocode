@@ -1,14 +1,14 @@
 /*
- * XREFs of MiFreePageToSlabAllocator @ 0x140375730
+ * XREFs of MiFreePageToSlabAllocator @ 0x140375280
  * Callers:
  *     <none>
  * Callees:
- *     ExAcquireSpinLockShared @ 0x14021CD80 (ExAcquireSpinLockShared.c)
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14031C800 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     MiFreePageToSlabEntry @ 0x140375880 (MiFreePageToSlabEntry.c)
- *     MiUpdateSlabPagePlaceholderState @ 0x140375928 (MiUpdateSlabPagePlaceholderState.c)
- *     MiReInitializeFreeSlabPfn @ 0x1403759EC (MiReInitializeFreeSlabPfn.c)
- *     MiCompareSlabEntry @ 0x140379C58 (MiCompareSlabEntry.c)
+ *     ExAcquireSpinLockShared @ 0x1402C1680 (ExAcquireSpinLockShared.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x140327550 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     MiFreePageToSlabEntry @ 0x1403753D0 (MiFreePageToSlabEntry.c)
+ *     MiUpdateSlabPagePlaceholderState @ 0x140375478 (MiUpdateSlabPagePlaceholderState.c)
+ *     MiReInitializeFreeSlabPfn @ 0x14037553C (MiReInitializeFreeSlabPfn.c)
+ *     MiCompareSlabEntry @ 0x1403797A8 (MiCompareSlabEntry.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 

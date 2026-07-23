@@ -1,16 +1,16 @@
 /*
- * XREFs of LdrpProcessDetachNode @ 0x18000BC04
+ * XREFs of LdrpProcessDetachNode @ 0x18000BBF4
  * Callers:
- *     LdrpUnloadNode @ 0x18000D730 (LdrpUnloadNode.c)
+ *     LdrpUnloadNode @ 0x18000D720 (LdrpUnloadNode.c)
  * Callees:
- *     RtlReportException @ 0x180006A80 (RtlReportException.c)
- *     LdrpRecordUnloadEvent @ 0x18000BD40 (LdrpRecordUnloadEvent.c)
- *     LdrpCallTlsInitializers @ 0x180012548 (LdrpCallTlsInitializers.c)
- *     RtlActivateActivationContextUnsafeFast @ 0x180016370 (RtlActivateActivationContextUnsafeFast.c)
- *     RtlDeactivateActivationContextUnsafeFast @ 0x180018750 (RtlDeactivateActivationContextUnsafeFast.c)
- *     LdrpCallInitRoutine @ 0x1800188C4 (LdrpCallInitRoutine.c)
+ *     RtlReportException @ 0x180006A70 (RtlReportException.c)
+ *     LdrpRecordUnloadEvent @ 0x18000BD30 (LdrpRecordUnloadEvent.c)
+ *     LdrpCallTlsInitializers @ 0x180012538 (LdrpCallTlsInitializers.c)
+ *     RtlActivateActivationContextUnsafeFast @ 0x180016360 (RtlActivateActivationContextUnsafeFast.c)
+ *     RtlDeactivateActivationContextUnsafeFast @ 0x180018740 (RtlDeactivateActivationContextUnsafeFast.c)
+ *     LdrpCallInitRoutine @ 0x1800188B4 (LdrpCallInitRoutine.c)
  *     memset @ 0x1800ACCC0 (memset.c)
- *     LdrpLogDbgPrint @ 0x1800D057C (LdrpLogDbgPrint.c)
+ *     LdrpLogDbgPrint @ 0x1800D063C (LdrpLogDbgPrint.c)
  */
 
 void __fastcall LdrpProcessDetachNode(_QWORD **a1)

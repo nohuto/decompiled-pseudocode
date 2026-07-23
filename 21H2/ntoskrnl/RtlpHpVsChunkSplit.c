@@ -1,35 +1,40 @@
 /*
- * XREFs of RtlpHpVsChunkSplit @ 0x14033F190
+ * XREFs of RtlpHpVsChunkSplit @ 0x140349EE0
  * Callers:
- *     RtlpHpVsContextAllocateInternal @ 0x14033EDC0 (RtlpHpVsContextAllocateInternal.c)
+ *     RtlpHpVsContextAllocateInternal @ 0x140349B10 (RtlpHpVsContextAllocateInternal.c)
  * Callees:
- *     RtlpHpVsSubsegmentCommitPages @ 0x14021BB90 (RtlpHpVsSubsegmentCommitPages.c)
- *     RtlpHpAcquireQueuedLockExclusive @ 0x14021D000 (RtlpHpAcquireQueuedLockExclusive.c)
- *     ExpAcquireSpinLockExclusive @ 0x14021D170 (ExpAcquireSpinLockExclusive.c)
- *     KiCheckForKernelApcDelivery @ 0x14024A6E0 (KiCheckForKernelApcDelivery.c)
- *     KiAbEntryRemoveFromTree @ 0x14028F490 (KiAbEntryRemoveFromTree.c)
- *     RtlpHpVsSubsegmentCleanup @ 0x1402BF508 (RtlpHpVsSubsegmentCleanup.c)
- *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
- *     RtlpHpReleaseQueuedLockExclusive @ 0x14033BA80 (RtlpHpReleaseQueuedLockExclusive.c)
- *     RtlpHpVsFreeChunkRemove @ 0x1403400D0 (RtlpHpVsFreeChunkRemove.c)
- *     RtlpHpVsFreeChunkInsert @ 0x140340240 (RtlpHpVsFreeChunkInsert.c)
- *     RtlRbInsertNodeEx @ 0x140340480 (RtlRbInsertNodeEx.c)
- *     RtlRbRemoveNode @ 0x140340AE0 (RtlRbRemoveNode.c)
- *     MiGetSystemRegionType @ 0x14034A950 (MiGetSystemRegionType.c)
- *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
- *     KiAbThreadRemoveBoosts @ 0x14034AD00 (KiAbThreadRemoveBoosts.c)
- *     KiLeaveGuardedRegionUnsafe @ 0x14034AD90 (KiLeaveGuardedRegionUnsafe.c)
- *     MmGetSessionIdEx @ 0x14034AE60 (MmGetSessionIdEx.c)
+ *     KiAbEntryRemoveFromTree @ 0x14020C630 (KiAbEntryRemoveFromTree.c)
+ *     RtlpHpVsSubsegmentCleanup @ 0x14023D958 (RtlpHpVsSubsegmentCleanup.c)
+ *     RtlpHpVsSubsegmentCommitPages @ 0x1402C0490 (RtlpHpVsSubsegmentCommitPages.c)
+ *     RtlpHpAcquireQueuedLockExclusive @ 0x1402C1900 (RtlpHpAcquireQueuedLockExclusive.c)
+ *     ExpAcquireSpinLockExclusive @ 0x1402C1A70 (ExpAcquireSpinLockExclusive.c)
+ *     KiCheckForKernelApcDelivery @ 0x1402EEF30 (KiCheckForKernelApcDelivery.c)
+ *     ExfTryToWakePushLock @ 0x1402FC2C0 (ExfTryToWakePushLock.c)
+ *     RtlpHpReleaseQueuedLockExclusive @ 0x1403467D0 (RtlpHpReleaseQueuedLockExclusive.c)
+ *     RtlpHpVsFreeChunkRemove @ 0x14034AE20 (RtlpHpVsFreeChunkRemove.c)
+ *     RtlpHpVsFreeChunkInsert @ 0x14034AF90 (RtlpHpVsFreeChunkInsert.c)
+ *     RtlRbInsertNodeEx @ 0x14034B1D0 (RtlRbInsertNodeEx.c)
+ *     RtlRbRemoveNode @ 0x14034B830 (RtlRbRemoveNode.c)
+ *     MiGetSystemRegionType @ 0x1403556A0 (MiGetSystemRegionType.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1403556E0 (ExAcquirePushLockExclusiveEx.c)
+ *     KiAbThreadRemoveBoosts @ 0x140355A50 (KiAbThreadRemoveBoosts.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x140355AE0 (KiLeaveGuardedRegionUnsafe.c)
+ *     MmGetSessionIdEx @ 0x140355BB0 (MmGetSessionIdEx.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x1405B5BA8 (ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented.c)
- *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x1405B5D8C (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x1405B5DD8 (ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented.c)
+ *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x1405B5FBC (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
  */
 
-__int64 __fastcall RtlpHpVsChunkSplit(__int64 a1, unsigned __int64 a2, __int64 a3, __int64 a4, char a5, _QWORD *a6)
+__int64 __fastcall RtlpHpVsChunkSplit(
+        __int64 a1,
+        unsigned __int64 a2,
+        __int64 a3,
+        unsigned int a4,
+        char a5,
+        _QWORD *a6)
 {
-  unsigned int v7; // esi
   unsigned int v9; // r15d
   __int64 v11; // rbx
   unsigned int v12; // r11d
@@ -72,8 +77,8 @@ __int64 __fastcall RtlpHpVsChunkSplit(__int64 a1, unsigned __int64 a2, __int64 a
   unsigned __int64 v49; // r9
   unsigned __int64 v50; // rax
   __int64 v51; // rcx
-  unsigned __int8 v52; // al
-  __int64 v53; // rax
+  BOOLEAN v52; // al
+  unsigned __int64 v53; // rax
   __int64 v55; // rax
   unsigned __int64 v56; // r15
   unsigned __int64 v57; // rdx
@@ -122,9 +127,8 @@ __int64 __fastcall RtlpHpVsChunkSplit(__int64 a1, unsigned __int64 a2, __int64 a
   unsigned int v100; // [rsp+D8h] [rbp+60h]
   unsigned __int8 v101; // [rsp+D8h] [rbp+60h]
 
-  v7 = a4;
   v9 = WORD1(RtlpHpHeapGlobals) ^ WORD1(a3) ^ *(unsigned __int16 *)(a3 + 2);
-  RtlRbRemoveNode(a1 + 16, a3 + 8, a3, a4);
+  RtlRbRemoveNode((PRTL_RB_TREE)(a1 + 16), (PRTL_BALANCED_NODE)(a3 + 8));
   v11 = 0LL;
   v12 = a3 - a2;
   v13 = (a3 - a2 + 4127) & 0xFFFFF000;
@@ -143,35 +147,35 @@ __int64 __fastcall RtlpHpVsChunkSplit(__int64 a1, unsigned __int64 a2, __int64 a
                                                            * (((unsigned int)a3 ^ (unsigned int)RtlpHpHeapGlobals ^ *(_DWORD *)a3) >> 16))
                                         + 4095) >> 12)
                         - (unsigned __int16)(a3 ^ RtlpHpHeapGlobals ^ *(_WORD *)a3);
-  v15 = v9 - v7;
+  v15 = v9 - a4;
   if ( v15 && (*(_DWORD *)(a1 + 176) & 1) != 0 )
   {
-    v16 = (((a3 + 16LL * v7 + 4095) & 0xFFFFFFFFFFFFF000uLL) - (a3 + 16LL * v7)) >> 4;
+    v16 = (((a3 + 16LL * a4 + 4095) & 0xFFFFFFFFFFFFF000uLL) - (a3 + 16LL * a4)) >> 4;
     v17 = 16 * v16;
     if ( (unsigned int)(16 * v16) < 0x20 )
     {
-      v7 += v16;
+      a4 += v16;
       v15 -= v16;
     }
     else if ( (v17 & 0xFFFFFFC0) == 0 && v17 != 32 )
     {
-      ++v7;
+      ++a4;
       --v15;
     }
   }
   if ( 16 * v15 < 0x20 )
-    v7 += v15;
+    a4 += v15;
   v18 = 0;
   if ( 16 * v15 >= 0x20 )
     v18 = v15;
   v99 = v18;
-  v19 = 16 * v7 + 32;
+  v19 = 16 * a4 + 32;
   *(_BYTE *)(a3 + 6) = BYTE6(a3) ^ BYTE6(RtlpHpHeapGlobals) ^ 1;
   SchedulerAssist = (unsigned __int8)(RtlpHpHeapGlobals ^ (v12 >> 12) ^ a3);
   *(_DWORD *)(a3 + 8) = SchedulerAssist;
   v21 = v18;
   if ( !v18 )
-    v19 = 16 * v7;
+    v19 = 16 * a4;
   v22 = 0xF0F0F0F0F0F0F0FLL;
   v23 = (0xFFFFFFFFFFFFFFFFuLL >> (63 - (unsigned __int8)((v12 - 1 + v19) >> 12))) & (-1LL << (v12 >> 12));
   v24 = (v23 ^ *(_QWORD *)(a2 + 16)) & v23;
@@ -316,7 +320,7 @@ LABEL_124:
         *(_BYTE *)(v80 + 32) |= 2u;
         if ( *(__int64 *)(v80 + 32) < 0 )
         {
-          KiAbEntryRemoveFromTree(v80);
+          KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)v80);
           v80 = v92;
           v75 = (ULONG_PTR)BugCheckParameter1a;
         }
@@ -335,26 +339,26 @@ LABEL_124:
       if ( v77
         && ($C459BD0D405E8E46662177FB3D0A143F *)BugCheckParameter1a->ApcState.ApcListHead[0].Flink != &BugCheckParameter1a->152 )
       {
-        KiCheckForKernelApcDelivery((__int64)BugCheckParameter1a);
+        KiCheckForKernelApcDelivery();
       }
       KiLeaveGuardedRegionUnsafe(KeGetCurrentThread());
     }
     v21 = v99;
     if ( v63 < 0 )
     {
-      v21 = v99 + v7;
-      v7 = 0;
+      v21 = v99 + a4;
+      a4 = 0;
     }
     if ( (a5 & 1) == 0 )
       RtlpHpAcquireQueuedLockExclusive((volatile LONG *)a1, *(_DWORD *)(a1 + 8), a6);
     *(_DWORD *)(a3 + 8) &= ~0x200u;
   }
-  *(_WORD *)(a3 + 2) = WORD1(RtlpHpHeapGlobals) ^ v7 ^ WORD1(a3);
+  *(_WORD *)(a3 + 2) = WORD1(RtlpHpHeapGlobals) ^ a4 ^ WORD1(a3);
   if ( v21 )
   {
-    v25 = 16LL * v7 + a3;
-    if ( v7 )
-      v26 = (unsigned __int16)v7;
+    v25 = 16LL * a4 + a3;
+    if ( a4 )
+      v26 = (unsigned __int16)a4;
     else
       v26 = (unsigned __int16)(WORD2(RtlpHpHeapGlobals) ^ WORD2(v25) ^ HIDWORD(*(_QWORD *)v25));
     HIDWORD(v95) = v26 & 0xFF00FFFF | 0x10000;
@@ -430,7 +434,7 @@ LABEL_124:
       if ( v30 == v36 )
       {
         RtlpHpVsSubsegmentCleanup(a1, a2);
-        return v7;
+        return a4;
       }
       if ( v30 <= i )
         break;
@@ -577,7 +581,7 @@ LABEL_50:
         v11 = v53;
       }
     }
-    RtlRbInsertNodeEx(a1 + 16, v11, v52, v25 + 8);
+    RtlRbInsertNodeEx((PRTL_RB_TREE)(a1 + 16), (PRTL_BALANCED_NODE)v11, v52, (PRTL_BALANCED_NODE)(v25 + 8));
   }
-  return v7;
+  return a4;
 }

@@ -7,21 +7,21 @@
  *     ObWaitForSingleObject @ 0x1405F7AC0 (ObWaitForSingleObject.c)
  */
 
-__int64 __fastcall NtWaitForSingleObject(void *a1, BOOLEAN a2, unsigned __int64 a3)
+NTSTATUS __cdecl NtWaitForSingleObject(HANDLE Handle, BOOLEAN Alertable, PLARGE_INTEGER Timeout)
 {
   KPROCESSOR_MODE PreviousMode; // dl
-  __int64 Timeout; // rax
+  PLARGE_INTEGER v5; // rax
   LARGE_INTEGER v7; // [rsp+58h] [rbp+20h] BYREF
 
   v7.QuadPart = 0LL;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
-  Timeout = a3;
-  if ( a3 && PreviousMode )
+  v5 = Timeout;
+  if ( Timeout && PreviousMode )
   {
-    if ( a3 >= 0x7FFFFFFF0000LL )
-      Timeout = 0x7FFFFFFF0000LL;
-    v7 = *(LARGE_INTEGER *)Timeout;
-    Timeout = (__int64)&v7;
+    if ( (unsigned __int64)Timeout >= 0x7FFFFFFF0000LL )
+      v5 = (PLARGE_INTEGER)0x7FFFFFFF0000LL;
+    v7 = *v5;
+    v5 = &v7;
   }
-  return ObWaitForSingleObject(a1, PreviousMode, PreviousMode, a2, (PLARGE_INTEGER)Timeout);
+  return ObWaitForSingleObject(Handle, PreviousMode, PreviousMode, Alertable, v5);
 }

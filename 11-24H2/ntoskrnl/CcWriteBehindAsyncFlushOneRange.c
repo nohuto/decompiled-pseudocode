@@ -1,11 +1,11 @@
 /*
- * XREFs of CcWriteBehindAsyncFlushOneRange @ 0x14057E33C
+ * XREFs of CcWriteBehindAsyncFlushOneRange @ 0x14057B7CC
  * Callers:
- *     CcAsyncLazywriteWorkerMulti @ 0x1404C768C (CcAsyncLazywriteWorkerMulti.c)
+ *     CcAsyncLazywriteWorkerMulti @ 0x1404C0AEC (CcAsyncLazywriteWorkerMulti.c)
  * Callees:
- *     CcFlushCacheOneRange @ 0x140240110 (CcFlushCacheOneRange.c)
- *     CcFlushCachePostProcessOneRange @ 0x1402AACA0 (CcFlushCachePostProcessOneRange.c)
- *     CcFlushCacheAcquireRange @ 0x1402ABBD0 (CcFlushCacheAcquireRange.c)
+ *     CcFlushCacheOneRange @ 0x140208260 (CcFlushCacheOneRange.c)
+ *     CcFlushCachePostProcessOneRange @ 0x140275FC0 (CcFlushCachePostProcessOneRange.c)
+ *     CcFlushCacheAcquireRange @ 0x140276EF0 (CcFlushCacheAcquireRange.c)
  */
 
 char __fastcall CcWriteBehindAsyncFlushOneRange(__int64 a1)
@@ -30,7 +30,7 @@ char __fastcall CcWriteBehindAsyncFlushOneRange(__int64 a1)
     CcFlushCacheOneRange((__int64 *)a1);
     if ( !*(_DWORD *)(a1 + 60) )
       return 1;
-    if ( !CcFlushCachePostProcessOneRange(a1) )
+    if ( !CcFlushCachePostProcessOneRange((__int64 *)a1) )
       return v2;
   }
   return v2;

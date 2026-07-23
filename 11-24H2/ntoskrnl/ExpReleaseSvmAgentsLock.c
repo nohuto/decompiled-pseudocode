@@ -1,14 +1,14 @@
 /*
- * XREFs of ExpReleaseSvmAgentsLock @ 0x140658FF4
+ * XREFs of ExpReleaseSvmAgentsLock @ 0x140657694
  * Callers:
- *     ExpAllocateAsid @ 0x140658A58 (ExpAllocateAsid.c)
- *     ExpFreeAsid @ 0x140658CEC (ExpFreeAsid.c)
- *     ExpSvmDereferenceAsid @ 0x1406595F0 (ExpSvmDereferenceAsid.c)
- *     ExpSvmReferenceAsid @ 0x1406598A0 (ExpSvmReferenceAsid.c)
- *     ExpSvmServicePageFault @ 0x140659970 (ExpSvmServicePageFault.c)
+ *     ExpAllocateAsid @ 0x1406570F8 (ExpAllocateAsid.c)
+ *     ExpFreeAsid @ 0x14065738C (ExpFreeAsid.c)
+ *     ExpSvmDereferenceAsid @ 0x140657C90 (ExpSvmDereferenceAsid.c)
+ *     ExpSvmReferenceAsid @ 0x140657F40 (ExpSvmReferenceAsid.c)
+ *     ExpSvmServicePageFault @ 0x140658010 (ExpSvmServicePageFault.c)
  * Callees:
- *     KxReleaseQueuedSpinLock @ 0x140321BB0 (KxReleaseQueuedSpinLock.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KxReleaseQueuedSpinLock @ 0x1402CA740 (KxReleaseQueuedSpinLock.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
  */
 
 char __fastcall ExpReleaseSvmAgentsLock(volatile signed __int64 **a1, __int64 a2)

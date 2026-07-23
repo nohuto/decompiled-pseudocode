@@ -16,7 +16,7 @@
  *     _LdrpLogDbgPrint @ 0x4B32E582 (_LdrpLogDbgPrint.c)
  */
 
-int __fastcall LdrpResolveDllName(int *a1, int *a2, int a3, _DWORD *a4, __int16 a5)
+int __fastcall LdrpResolveDllName(int *a1, int *a2, PUNICODE_STRING DestinationString, _DWORD *a4, __int16 a5)
 {
   int FullPath; // esi
   void *v7; // eax
@@ -24,11 +24,12 @@ int __fastcall LdrpResolveDllName(int *a1, int *a2, int a3, _DWORD *a4, __int16 
   int v9; // ebx
   int NtPathFromDosPath; // eax
   unsigned __int16 v11; // ax
-  char *v12; // edx
-  char *i; // eax
+  const WCHAR *v12; // edx
+  const WCHAR *i; // eax
   int v14; // ecx
-  int v16; // [esp+Ch] [ebp-10h] BYREF
-  void *v17; // [esp+10h] [ebp-Ch]
+  size_t v16; // [esp-4h] [ebp-20h]
+  int v17; // [esp+Ch] [ebp-10h] BYREF
+  void *v18; // [esp+10h] [ebp-Ch]
   void *Src; // [esp+14h] [ebp-8h]
 
   Src = a1;
@@ -40,27 +41,28 @@ int __fastcall LdrpResolveDllName(int *a1, int *a2, int a3, _DWORD *a4, __int16 
   if ( (a5 & 0x200) != 0 )
   {
     FullPath = 0;
-    v16 = *a1;
+    v17 = *a1;
     v7 = (void *)a1[1];
   }
   else
   {
     FullPath = LdrpGetFullPath(a1, a2);
     v7 = (void *)a2[1];
-    v16 = *a2;
+    v17 = *a2;
   }
-  v17 = v7;
+  v18 = v7;
   Src = v7;
   if ( FullPath >= 0 )
   {
     if ( (a5 & 0x200) != 0 || (v8 = a2 + 2, a2 + 2 == (int *)a2[1]) )
     {
-      v9 = (unsigned __int16)v16;
-      FullPath = LdrpAllocateUnicodeString((int)&v16, (unsigned __int16)v16);
+      v9 = (unsigned __int16)v17;
+      FullPath = LdrpAllocateUnicodeString((int)&v17, (unsigned __int16)v17);
       if ( FullPath >= 0 )
       {
-        memcpy(v17, Src, v9 + 2);
-        LOWORD(v16) = v9;
+        LODWORD(v16) = v9 + 2;
+        memcpy(v18, Src, v16);
+        LOWORD(v17) = v9;
       }
     }
     else
@@ -72,7 +74,7 @@ int __fastcall LdrpResolveDllName(int *a1, int *a2, int a3, _DWORD *a4, __int16 
     *(_WORD *)a2 = 0;
     if ( FullPath >= 0 )
     {
-      NtPathFromDosPath = LdrpGetNtPathFromDosPath(&v16, a2);
+      NtPathFromDosPath = LdrpGetNtPathFromDosPath(&v17, a2);
       FullPath = NtPathFromDosPath;
       if ( NtPathFromDosPath < 0 )
       {
@@ -88,24 +90,24 @@ int __fastcall LdrpResolveDllName(int *a1, int *a2, int a3, _DWORD *a4, __int16 
         {
           FullPath = -1073741515;
         }
-        LdrpFreeUnicodeString(&v16);
+        LdrpFreeUnicodeString(&v17);
       }
       else
       {
-        v11 = v16;
-        v12 = (char *)v17;
-        *a4 = v16;
+        v11 = v17;
+        v12 = (const WCHAR *)v18;
+        *a4 = v17;
         a4[1] = v12;
-        for ( i = &v12[v11 - 2]; i >= v12; i -= 2 )
+        for ( i = (const WCHAR *)((char *)v12 + v11 - 2); i >= v12; --i )
         {
           v14 = *(unsigned __int16 *)i;
           if ( v14 == 92 || v14 == 47 )
           {
-            i += 2;
+            ++i;
             break;
           }
         }
-        RtlInitUnicodeStringEx(a3, i);
+        RtlInitUnicodeStringEx(DestinationString, i);
       }
     }
   }

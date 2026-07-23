@@ -1,20 +1,20 @@
 /*
- * XREFs of WmipSendEnableDisableRequest @ 0x140A0B168
+ * XREFs of WmipSendEnableDisableRequest @ 0x140A0A3D0
  * Callers:
- *     WmipSendEnableRequest @ 0x140A0AF48 (WmipSendEnableRequest.c)
- *     WmipDoDisableRequest @ 0x140A0B0B8 (WmipDoDisableRequest.c)
- *     WmipDisableCollectionForRemovedGuid @ 0x140A0C854 (WmipDisableCollectionForRemovedGuid.c)
- *     WmipEnableCollectionForNewGuid @ 0x140A0D350 (WmipEnableCollectionForNewGuid.c)
+ *     WmipSendEnableRequest @ 0x140A0A1B0 (WmipSendEnableRequest.c)
+ *     WmipDoDisableRequest @ 0x140A0A320 (WmipDoDisableRequest.c)
+ *     WmipDisableCollectionForRemovedGuid @ 0x140A0B87C (WmipDisableCollectionForRemovedGuid.c)
+ *     WmipEnableCollectionForNewGuid @ 0x140A0CDA0 (WmipEnableCollectionForNewGuid.c)
  * Callees:
- *     KeWaitForSingleObject @ 0x140278560 (KeWaitForSingleObject.c)
- *     KeReleaseMutex @ 0x1403DD0F0 (KeReleaseMutex.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     WmipSendWmiIrp @ 0x140A0E708 (WmipSendWmiIrp.c)
- *     WmipUnreferenceEntry @ 0x140A0EF48 (WmipUnreferenceEntry.c)
- *     WmipReferenceEntry @ 0x140A0FB50 (WmipReferenceEntry.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     KeWaitForSingleObject @ 0x140277AD0 (KeWaitForSingleObject.c)
+ *     KeReleaseMutex @ 0x1403E02E0 (KeReleaseMutex.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     WmipSendWmiIrp @ 0x140A0D8E4 (WmipSendWmiIrp.c)
+ *     WmipUnreferenceEntry @ 0x140A0E124 (WmipUnreferenceEntry.c)
+ *     WmipReferenceEntry @ 0x140A0ED40 (WmipReferenceEntry.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall WmipSendEnableDisableRequest(char a1, __int64 a2, char a3)
@@ -91,7 +91,7 @@ LABEL_12:
       }
     }
   }
-  KeReleaseMutex((PRKMUTEX)&EtwpSecurityLock.IoSelfBoostsEntry, 0);
+  KeReleaseMutex(&WmipSMMutex, 0);
   if ( (_DWORD)v8 )
   {
     v19 = *(_OWORD *)(a2 + 72);
@@ -111,6 +111,6 @@ LABEL_12:
   }
   if ( Pool2 != P )
     ExFreePoolWithTag(Pool2, 0);
-  KeWaitForSingleObject(&EtwpSecurityLock.IoSelfBoostsEntry, Executive, 0, 0, 0LL);
+  KeWaitForSingleObject(&WmipSMMutex, Executive, 0, 0, 0LL);
   return 0LL;
 }

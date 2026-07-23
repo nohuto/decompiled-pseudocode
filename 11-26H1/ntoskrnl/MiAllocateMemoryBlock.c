@@ -1,11 +1,11 @@
 /*
- * XREFs of MiAllocateMemoryBlock @ 0x140865AE4
+ * XREFs of MiAllocateMemoryBlock @ 0x14086BEC4
  * Callers:
- *     MiAllocateInitialMemoryBlocks @ 0x1408659F8 (MiAllocateInitialMemoryBlocks.c)
- *     MiExtendMemoryBlocks @ 0x1408662E4 (MiExtendMemoryBlocks.c)
+ *     MiAllocateInitialMemoryBlocks @ 0x14086BDD8 (MiAllocateInitialMemoryBlocks.c)
+ *     MiExtendMemoryBlocks @ 0x14086C6C4 (MiExtendMemoryBlocks.c)
  * Callees:
- *     ExAllocatePoolMm @ 0x1403985B0 (ExAllocatePoolMm.c)
- *     MmGetCurrentProcessorColor @ 0x14044ADC0 (MmGetCurrentProcessorColor.c)
+ *     ExAllocatePoolMm @ 0x14039A310 (ExAllocatePoolMm.c)
+ *     MmGetCurrentProcessorColor @ 0x140442EF0 (MmGetCurrentProcessorColor.c)
  */
 
 __int64 __fastcall MiAllocateMemoryBlock(unsigned int *a1, unsigned int a2, int a3)

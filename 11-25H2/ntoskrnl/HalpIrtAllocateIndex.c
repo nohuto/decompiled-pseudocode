@@ -30,7 +30,7 @@ __int64 __fastcall HalpIrtAllocateIndex(
   int v11; // r12d
   unsigned int v12; // r14d
   __int64 v13; // rdx
-  RTL_BITMAP *v14; // r15
+  _RTL_BITMAP *v14; // r15
   ULONG ClearBitsAndSet; // esi
   ULONG v16; // edx
   ULONG NextForwardRunClear; // eax

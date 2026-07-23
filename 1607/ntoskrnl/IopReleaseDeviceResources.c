@@ -1,22 +1,22 @@
 /*
- * XREFs of IopReleaseDeviceResources @ 0x1404C5E64
+ * XREFs of IopReleaseDeviceResources @ 0x1404844F8
  * Callers:
- *     PnpRemoveLockedDeviceNode @ 0x14009E908 (PnpRemoveLockedDeviceNode.c)
- *     PnpSurpriseRemoveLockedDeviceNode @ 0x1404C3474 (PnpSurpriseRemoveLockedDeviceNode.c)
- *     PnpDriverLoadingFailed @ 0x14057F858 (PnpDriverLoadingFailed.c)
- *     PnpDisableDevice @ 0x14062D740 (PnpDisableDevice.c)
+ *     PnpRemoveLockedDeviceNode @ 0x140085A68 (PnpRemoveLockedDeviceNode.c)
+ *     PnpSurpriseRemoveLockedDeviceNode @ 0x1404837DC (PnpSurpriseRemoveLockedDeviceNode.c)
+ *     PnpDriverLoadingFailed @ 0x14057FD04 (PnpDriverLoadingFailed.c)
+ *     PnpDisableDevice @ 0x14062D7F4 (PnpDisableDevice.c)
  * Callees:
- *     PnpRequestDeviceAction @ 0x14000794C (PnpRequestDeviceAction.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x140055FA0 (KiLeaveCriticalRegionUnsafe.c)
- *     ExAcquireResourceSharedLite @ 0x1400685B0 (ExAcquireResourceSharedLite.c)
- *     ExReleaseResourceLite @ 0x140068940 (ExReleaseResourceLite.c)
- *     ZwClose @ 0x140159E60 (ZwClose.c)
- *     ZwSetValueKey @ 0x14015A880 (ZwSetValueKey.c)
- *     ZwDeleteValueKey @ 0x14015B5E0 (ZwDeleteValueKey.c)
- *     PipSetDevNodeFlags @ 0x1403F33A0 (PipSetDevNodeFlags.c)
- *     IopQueryDeviceResources @ 0x1404C89E8 (IopQueryDeviceResources.c)
- *     _CmOpenDeviceRegKey @ 0x1404FCD30 (_CmOpenDeviceRegKey.c)
- *     IopLegacyResourceAllocation @ 0x1405549AC (IopLegacyResourceAllocation.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140055B20 (KiLeaveCriticalRegionUnsafe.c)
+ *     ExAcquireResourceSharedLite @ 0x140068130 (ExAcquireResourceSharedLite.c)
+ *     ExReleaseResourceLite @ 0x1400684C0 (ExReleaseResourceLite.c)
+ *     PnpRequestDeviceAction @ 0x1400861B8 (PnpRequestDeviceAction.c)
+ *     ZwClose @ 0x14015A3D0 (ZwClose.c)
+ *     ZwSetValueKey @ 0x14015ADF0 (ZwSetValueKey.c)
+ *     ZwDeleteValueKey @ 0x14015BB50 (ZwDeleteValueKey.c)
+ *     PipSetDevNodeFlags @ 0x1403F2264 (PipSetDevNodeFlags.c)
+ *     _CmOpenDeviceRegKey @ 0x1404DFCC0 (_CmOpenDeviceRegKey.c)
+ *     IopQueryDeviceResources @ 0x14050EDDC (IopQueryDeviceResources.c)
+ *     IopLegacyResourceAllocation @ 0x140554EEC (IopLegacyResourceAllocation.c)
  */
 
 __int64 __fastcall IopReleaseDeviceResources(__int64 a1, int a2)

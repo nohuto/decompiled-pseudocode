@@ -1,15 +1,15 @@
 /*
- * XREFs of RtlpLoadPolicyLanguageSpec @ 0x1408A7B88
+ * XREFs of RtlpLoadPolicyLanguageSpec @ 0x1408ADFF8
  * Callers:
- *     RtlpLoadLanguageConfigList @ 0x1408A7A44 (RtlpLoadLanguageConfigList.c)
+ *     RtlpLoadLanguageConfigList @ 0x1408ADEB4 (RtlpLoadLanguageConfigList.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     RtlCultureNameToLCID @ 0x140779FB0 (RtlCultureNameToLCID.c)
- *     RtlpMuiRegGetInstalledLanguageIndex @ 0x1408A8648 (RtlpMuiRegGetInstalledLanguageIndex.c)
- *     RtlpMuiRegGetOrAddString @ 0x1408A8BCC (RtlpMuiRegGetOrAddString.c)
- *     LdrpQueryValueKey @ 0x140B3C6C8 (LdrpQueryValueKey.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     RtlCultureNameToLCID @ 0x14077CEE0 (RtlCultureNameToLCID.c)
+ *     RtlpMuiRegGetInstalledLanguageIndex @ 0x1408AEAB8 (RtlpMuiRegGetInstalledLanguageIndex.c)
+ *     RtlpMuiRegGetOrAddString @ 0x1408AF03C (RtlpMuiRegGetOrAddString.c)
+ *     LdrpQueryValueKey @ 0x140B3E948 (LdrpQueryValueKey.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall RtlpLoadPolicyLanguageSpec(HANDLE KeyHandle, __int64 a2, _BYTE *a3, __int16 *a4)
@@ -21,11 +21,11 @@ __int64 __fastcall RtlpLoadPolicyLanguageSpec(HANDLE KeyHandle, __int64 a2, _BYT
   __int64 v12; // r8
   __int16 v14[2]; // [rsp+30h] [rbp-20h] BYREF
   __int64 v15; // [rsp+34h] [rbp-1Ch] BYREF
-  unsigned int v16; // [rsp+3Ch] [rbp-14h] BYREF
+  DWORD Lcid; // [rsp+3Ch] [rbp-14h] BYREF
   UNICODE_STRING DestinationString; // [rsp+40h] [rbp-10h] BYREF
   unsigned __int16 v18; // [rsp+88h] [rbp+38h] BYREF
 
-  v16 = 0;
+  Lcid = 0;
   v18 = 0;
   v14[0] = -1;
   DestinationString = 0LL;
@@ -44,10 +44,10 @@ __int64 __fastcall RtlpLoadPolicyLanguageSpec(HANDLE KeyHandle, __int64 a2, _BYT
     if ( InstalledLanguageIndex >= 0 )
     {
       if ( HIDWORD(v15) == 1
-        && (RtlInitUnicodeString(&DestinationString, Pool2), RtlCultureNameToLCID(&DestinationString.Length, &v16)) )
+        && (RtlInitUnicodeString(&DestinationString, Pool2), RtlCultureNameToLCID(&DestinationString, &Lcid)) )
       {
-        v12 = v16;
-        if ( ((v16 - 4096) & 0xFFFFFBFF) != 0 )
+        v12 = Lcid;
+        if ( ((Lcid - 4096) & 0xFFFFFBFF) != 0 )
           goto LABEL_14;
         InstalledLanguageIndex = RtlpMuiRegGetOrAddString(a2, DestinationString.Buffer, 0LL, &v18);
         if ( InstalledLanguageIndex >= 0 )

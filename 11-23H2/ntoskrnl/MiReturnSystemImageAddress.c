@@ -3,10 +3,10 @@
  * Callers:
  *     MiGetSystemAddressForImage @ 0x140696090 (MiGetSystemAddressForImage.c)
  *     MiUnloadSystemImage @ 0x1406962FC (MiUnloadSystemImage.c)
- *     MiReturnImageBase @ 0x140721CA0 (MiReturnImageBase.c)
+ *     MiReturnImageBase @ 0x140721EA0 (MiReturnImageBase.c)
  * Callees:
- *     MiGetSystemRegionType @ 0x140284870 (MiGetSystemRegionType.c)
- *     MiGetPteAddress @ 0x1402DE00C (MiGetPteAddress.c)
+ *     MiGetSystemRegionType @ 0x140284B00 (MiGetSystemRegionType.c)
+ *     MiGetPteAddress @ 0x1402DE29C (MiGetPteAddress.c)
  *     MiReleaseDriverPtes @ 0x140697280 (MiReleaseDriverPtes.c)
  */
 

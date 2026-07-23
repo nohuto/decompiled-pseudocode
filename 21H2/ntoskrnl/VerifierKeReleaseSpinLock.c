@@ -1,12 +1,12 @@
 /*
- * XREFs of VerifierKeReleaseSpinLock @ 0x1409DB3D0
+ * XREFs of VerifierKeReleaseSpinLock @ 0x1409DC3D0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     ViKeIrqlLogCommon @ 0x1409DC0CC (ViKeIrqlLogCommon.c)
- *     ViKeReleaseSpinLockCommon @ 0x1409DC360 (ViKeReleaseSpinLockCommon.c)
- *     VfDeadlockReleaseResource @ 0x1409DE338 (VfDeadlockReleaseResource.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     ViKeIrqlLogCommon @ 0x1409DD0CC (ViKeIrqlLogCommon.c)
+ *     ViKeReleaseSpinLockCommon @ 0x1409DD360 (ViKeReleaseSpinLockCommon.c)
+ *     VfDeadlockReleaseResource @ 0x1409DF338 (VfDeadlockReleaseResource.c)
  */
 
 __int64 __fastcall VerifierKeReleaseSpinLock(ULONG_PTR a1, char a2)

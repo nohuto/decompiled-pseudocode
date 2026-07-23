@@ -1,13 +1,13 @@
 /*
- * XREFs of wcschr @ 0x1801276A0
+ * XREFs of wcschr @ 0x1801258D0
  * Callers:
- *     LdrSetDllDirectory @ 0x180026100 (LdrSetDllDirectory.c)
- *     RtlpNeedCurrentDirectoryForExePath @ 0x180082B24 (RtlpNeedCurrentDirectoryForExePath.c)
- *     RtlpGetDirPath @ 0x180083B58 (RtlpGetDirPath.c)
- *     EtwpAddLogHeaderToLogFile @ 0x1800B3D70 (EtwpAddLogHeaderToLogFile.c)
- *     wcscspn @ 0x180127760 (wcscspn.c)
- *     wcspbrk @ 0x180127BF0 (wcspbrk.c)
- *     wcsspn @ 0x180127D10 (wcsspn.c)
+ *     RtlpNeedCurrentDirectoryForExePath @ 0x1800049A4 (RtlpNeedCurrentDirectoryForExePath.c)
+ *     RtlpGetDirPath @ 0x180005A04 (RtlpGetDirPath.c)
+ *     LdrSetDllDirectory @ 0x180052B00 (LdrSetDllDirectory.c)
+ *     EtwpAddLogHeaderToLogFile @ 0x180080610 (EtwpAddLogHeaderToLogFile.c)
+ *     wcscspn @ 0x180125990 (wcscspn.c)
+ *     wcspbrk @ 0x180125E20 (wcspbrk.c)
+ *     wcsspn @ 0x180125F40 (wcsspn.c)
  * Callees:
  *     <none>
  */

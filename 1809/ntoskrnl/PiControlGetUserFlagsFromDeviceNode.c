@@ -1,11 +1,11 @@
 /*
- * XREFs of PiControlGetUserFlagsFromDeviceNode @ 0x14059C36C
+ * XREFs of PiControlGetUserFlagsFromDeviceNode @ 0x14059D36C
  * Callers:
- *     PiControlGetSetDeviceStatus @ 0x14059BD40 (PiControlGetSetDeviceStatus.c)
+ *     PiControlGetSetDeviceStatus @ 0x14059CD40 (PiControlGetSetDeviceStatus.c)
  * Callees:
  *     PipIsDevNodeDNStarted @ 0x140007294 (PipIsDevNodeDNStarted.c)
  *     PipAreDriversLoaded @ 0x1400072C0 (PipAreDriversLoaded.c)
- *     _CmIsRootEnumeratedDevice @ 0x14059C4CC (_CmIsRootEnumeratedDevice.c)
+ *     _CmIsRootEnumeratedDevice @ 0x14059D4CC (_CmIsRootEnumeratedDevice.c)
  */
 
 int __fastcall PiControlGetUserFlagsFromDeviceNode(__int64 a1, int *a2)

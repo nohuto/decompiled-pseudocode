@@ -1,5 +1,5 @@
 /*
- * XREFs of PsGetThreadProcessId @ 0x1402BB460
+ * XREFs of PsGetThreadProcessId @ 0x140239670
  * Callers:
  *     <none>
  * Callees:

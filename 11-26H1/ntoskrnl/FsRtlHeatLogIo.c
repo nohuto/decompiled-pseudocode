@@ -1,9 +1,9 @@
 /*
- * XREFs of FsRtlHeatLogIo @ 0x1407903A0
+ * XREFs of FsRtlHeatLogIo @ 0x140792ED0
  * Callers:
  *     <none>
  * Callees:
- *     McTemplateK0xxxqq_EtwWriteTransfer @ 0x1405B7B38 (McTemplateK0xxxqq_EtwWriteTransfer.c)
+ *     McTemplateK0xxxqq_EtwWriteTransfer @ 0x1405BA3A8 (McTemplateK0xxxqq_EtwWriteTransfer.c)
  */
 
 __int64 __fastcall FsRtlHeatLogIo(_DWORD *a1, __int64 a2, _QWORD *a3, __int64 a4, const GUID *a5)
@@ -16,7 +16,7 @@ __int64 __fastcall FsRtlHeatLogIo(_DWORD *a1, __int64 a2, _QWORD *a3, __int64 a4
   switch ( *(_BYTE *)v5 )
   {
     case 3:
-      if ( (VslpReservedTransferLock.PriorityFloorCounts[24] & 2) != 0 )
+      if ( (VslpReservedTransferLock.ReadOperationCount & 2) != 0 )
         McTemplateK0xxxqq_EtwWriteTransfer(
           MS_StorageTiering_Provider_Context,
           (const EVENT_DESCRIPTOR *)TieredStorage_HeatRead,
@@ -28,7 +28,7 @@ __int64 __fastcall FsRtlHeatLogIo(_DWORD *a1, __int64 a2, _QWORD *a3, __int64 a4
           *a1);
       break;
     case 4:
-      if ( (VslpReservedTransferLock.PriorityFloorCounts[24] & 4) != 0 )
+      if ( (VslpReservedTransferLock.ReadOperationCount & 4) != 0 )
         McTemplateK0xxxqq_EtwWriteTransfer(
           MS_StorageTiering_Provider_Context,
           (const EVENT_DESCRIPTOR *)TieredStorage_HeatWrite,
@@ -40,7 +40,7 @@ __int64 __fastcall FsRtlHeatLogIo(_DWORD *a1, __int64 a2, _QWORD *a3, __int64 a4
           *a1);
       break;
     case 0x12:
-      if ( (VslpReservedTransferLock.PriorityFloorCounts[24] & 8) != 0 )
+      if ( (VslpReservedTransferLock.ReadOperationCount & 8) != 0 )
         McTemplateK0xxxqq_EtwWriteTransfer(
           MS_StorageTiering_Provider_Context,
           (const EVENT_DESCRIPTOR *)TieredStorage_HeatDelete,

@@ -10,10 +10,10 @@
  *     RtlMultiByteToUnicodeSize @ 0x180083150 (RtlMultiByteToUnicodeSize.c)
  */
 
-__int64 __fastcall RtlxOemStringToUnicodeSize(unsigned __int16 *a1)
+__int64 __fastcall RtlxOemStringToUnicodeSize(PCSTR *a1)
 {
-  unsigned int v2; // [rsp+30h] [rbp+8h] BYREF
+  ULONG BytesInUnicodeString; // [rsp+30h] [rbp+8h] BYREF
 
-  RtlMultiByteToUnicodeSize(&v2, *((_QWORD *)a1 + 1), *a1);
-  return v2 + 2LL;
+  RtlMultiByteToUnicodeSize(&BytesInUnicodeString, a1[1], *(unsigned __int16 *)a1);
+  return BytesInUnicodeString + 2LL;
 }

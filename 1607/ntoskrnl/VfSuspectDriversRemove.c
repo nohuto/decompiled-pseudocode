@@ -3,7 +3,7 @@
  * Callers:
  *     VfRemoveVerifierEntry @ 0x140721048 (VfRemoveVerifierEntry.c)
  * Callees:
- *     KeReleaseMutex @ 0x140055FE0 (KeReleaseMutex.c)
+ *     KeReleaseMutex @ 0x140055B60 (KeReleaseMutex.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     VfDriverLock @ 0x1406FE42C (VfDriverLock.c)
  *     ViSuspectDriversLookupEntry @ 0x1407166C4 (ViSuspectDriversLookupEntry.c)

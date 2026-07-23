@@ -1,17 +1,17 @@
 /*
- * XREFs of HalpPowerStateCallback @ 0x1403A6EF0
+ * XREFs of HalpPowerStateCallback @ 0x1403A7040
  * Callers:
  *     <none>
  * Callees:
- *     KeQueryActiveProcessorCountEx @ 0x14027B610 (KeQueryActiveProcessorCountEx.c)
- *     MiLockPagableImageSection @ 0x14031C4F0 (MiLockPagableImageSection.c)
- *     HalpMcUpdateUnlock @ 0x1403840E0 (HalpMcUpdateUnlock.c)
- *     HalpMcUpdateLock @ 0x140387EE4 (HalpMcUpdateLock.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     MmLockPagableSectionByHandle @ 0x1406EF0C0 (MmLockPagableSectionByHandle.c)
- *     HalpMapNvsArea @ 0x140998E28 (HalpMapNvsArea.c)
- *     HalpFreeNvsBuffers @ 0x140998EB8 (HalpFreeNvsBuffers.c)
+ *     KeQueryActiveProcessorCountEx @ 0x1402695B0 (KeQueryActiveProcessorCountEx.c)
+ *     MiLockPagableImageSection @ 0x140327240 (MiLockPagableImageSection.c)
+ *     HalpMcUpdateUnlock @ 0x140384230 (HalpMcUpdateUnlock.c)
+ *     HalpMcUpdateLock @ 0x140388034 (HalpMcUpdateLock.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     MmLockPagableSectionByHandle @ 0x1407064A0 (MmLockPagableSectionByHandle.c)
+ *     HalpMapNvsArea @ 0x140999E28 (HalpMapNvsArea.c)
+ *     HalpFreeNvsBuffers @ 0x140999EB8 (HalpFreeNvsBuffers.c)
  */
 
 void __fastcall HalpPowerStateCallback(PVOID CallbackContext, PVOID Argument1, PVOID Argument2)

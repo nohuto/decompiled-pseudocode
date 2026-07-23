@@ -6,7 +6,11 @@
  *     LdrProcessRelocationBlockLongLong @ 0x1800EF98C (LdrProcessRelocationBlockLongLong.c)
  */
 
-__int64 __fastcall LdrProcessRelocationBlock(int a1, int a2, int a3, __int64 a4)
+PIMAGE_BASE_RELOCATION __cdecl LdrProcessRelocationBlock(
+        ULONG_PTR VA,
+        ULONG SizeOfBlock,
+        PUSHORT NextOffset,
+        LONG_PTR Diff)
 {
-  return LdrProcessRelocationBlockLongLong(34404, a1, a2, a3, a4);
+  return (PIMAGE_BASE_RELOCATION)LdrProcessRelocationBlockLongLong(34404, VA, SizeOfBlock, (_DWORD)NextOffset, Diff);
 }

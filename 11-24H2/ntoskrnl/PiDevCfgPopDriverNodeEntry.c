@@ -1,9 +1,9 @@
 /*
- * XREFs of PiDevCfgPopDriverNodeEntry @ 0x1404CA620
+ * XREFs of PiDevCfgPopDriverNodeEntry @ 0x1404C3B40
  * Callers:
- *     PiDevCfgQueryIncludedDriverConfigurations @ 0x140A7E6CC (PiDevCfgQueryIncludedDriverConfigurations.c)
+ *     PiDevCfgQueryIncludedDriverConfigurations @ 0x1409C7B64 (PiDevCfgQueryIncludedDriverConfigurations.c)
  * Callees:
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 bool __fastcall PiDevCfgPopDriverNodeEntry(_QWORD *a1, _QWORD *a2)

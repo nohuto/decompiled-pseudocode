@@ -1,22 +1,19 @@
 /*
- * XREFs of RtlpBreakPointHeap @ 0x180031DF0
+ * XREFs of RtlpBreakPointHeap @ 0x18000D5E4
  * Callers:
- *     RtlpFreeHeap @ 0x18002D620 (RtlpFreeHeap.c)
- *     RtlpCoalesceFreeBlocks @ 0x18002EF80 (RtlpCoalesceFreeBlocks.c)
- *     RtlpCreateSplitBlock @ 0x18002FC50 (RtlpCreateSplitBlock.c)
- *     RtlpGrowBlockInPlace @ 0x180030A60 (RtlpGrowBlockInPlace.c)
- *     RtlpCheckHeapSignature @ 0x18003F9F0 (RtlpCheckHeapSignature.c)
- *     RtlpValidateHeapEntry @ 0x18003FAA0 (RtlpValidateHeapEntry.c)
- *     RtlpCheckBusyBlockTail @ 0x18003FC6C (RtlpCheckBusyBlockTail.c)
- *     RtlUnlockHeap @ 0x18003FEF0 (RtlUnlockHeap.c)
- *     RtlpValidateHeap @ 0x180040D80 (RtlpValidateHeap.c)
- *     RtlDebugFreeHeap @ 0x18004178C (RtlDebugFreeHeap.c)
- *     RtlpDeCommitFreeBlock @ 0x180042E70 (RtlpDeCommitFreeBlock.c)
- *     RtlDebugAllocateHeap @ 0x18009CC30 (RtlDebugAllocateHeap.c)
- *     RtlpAllocateHeap @ 0x18009D360 (RtlpAllocateHeap.c)
- *     RtlpReAllocateHeap @ 0x1800A18B0 (RtlpReAllocateHeap.c)
- *     RtlDebugReAllocateHeap @ 0x1800A2A3C (RtlDebugReAllocateHeap.c)
- *     RtlDebugCreateHeap @ 0x180115F3C (RtlDebugCreateHeap.c)
+ *     RtlpGrowBlockInPlace @ 0x18000D610 (RtlpGrowBlockInPlace.c)
+ *     RtlpCreateSplitBlock @ 0x18000DD00 (RtlpCreateSplitBlock.c)
+ *     RtlpCoalesceFreeBlocks @ 0x18000EB10 (RtlpCoalesceFreeBlocks.c)
+ *     RtlDebugAllocateHeap @ 0x18001F7A4 (RtlDebugAllocateHeap.c)
+ *     RtlpCheckHeapSignature @ 0x180020320 (RtlpCheckHeapSignature.c)
+ *     RtlpValidateHeapEntry @ 0x1800203D0 (RtlpValidateHeapEntry.c)
+ *     RtlpCheckBusyBlockTail @ 0x18002059C (RtlpCheckBusyBlockTail.c)
+ *     RtlUnlockHeap @ 0x180020820 (RtlUnlockHeap.c)
+ *     RtlpValidateHeap @ 0x1800216B0 (RtlpValidateHeap.c)
+ *     RtlDebugFreeHeap @ 0x180022020 (RtlDebugFreeHeap.c)
+ *     RtlDebugCreateHeap @ 0x1800232B0 (RtlDebugCreateHeap.c)
+ *     RtlpReAllocateHeap @ 0x18005B780 (RtlpReAllocateHeap.c)
+ *     RtlDebugReAllocateHeap @ 0x18005C7E8 (RtlDebugReAllocateHeap.c)
  * Callees:
  *     <none>
  */

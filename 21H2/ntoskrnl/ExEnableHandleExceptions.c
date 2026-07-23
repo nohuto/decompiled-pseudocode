@@ -1,13 +1,13 @@
 /*
- * XREFs of ExEnableHandleExceptions @ 0x1406B959C
+ * XREFs of ExEnableHandleExceptions @ 0x140618C5C
  * Callers:
- *     PspApplyMitigationOptions @ 0x1406D8A1C (PspApplyMitigationOptions.c)
- *     NtSetInformationProcess @ 0x14070A4B0 (NtSetInformationProcess.c)
+ *     PspApplyMitigationOptions @ 0x1406AFCFC (PspApplyMitigationOptions.c)
+ *     NtSetInformationProcess @ 0x140721890 (NtSetInformationProcess.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
- *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
- *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
+ *     KeLeaveCriticalRegionThread @ 0x1402AB8C0 (KeLeaveCriticalRegionThread.c)
+ *     ExfTryToWakePushLock @ 0x1402FC2C0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x1403539D0 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1403556E0 (ExAcquirePushLockExclusiveEx.c)
  */
 
 bool __fastcall ExEnableHandleExceptions(__int64 a1, char a2)
@@ -17,7 +17,10 @@ bool __fastcall ExEnableHandleExceptions(__int64 a1, char a2)
   __int64 v6; // rcx
   char v7; // cl
   bool v8; // di
-  int v10; // eax
+  __int64 v9; // rdx
+  __int64 v10; // r8
+  __int64 v11; // r9
+  int v13; // eax
 
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
@@ -26,11 +29,11 @@ bool __fastcall ExEnableHandleExceptions(__int64 a1, char a2)
   v6 = *(_QWORD *)(a1 + 96);
   if ( v6 )
   {
-    v10 = *(_DWORD *)(v6 + 8);
-    if ( (v10 & 8) == 0 )
+    v13 = *(_DWORD *)(v6 + 8);
+    if ( (v13 & 8) == 0 )
     {
       if ( a2 )
-        *(_DWORD *)(v6 + 8) = v10 | 8;
+        *(_DWORD *)(v6 + 8) = v13 | 8;
       goto LABEL_4;
     }
   }
@@ -50,6 +53,6 @@ LABEL_5:
   if ( (_InterlockedExchangeAdd64(v5, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
     ExfTryToWakePushLock(v5);
   KeAbPostRelease((ULONG_PTR)v5);
-  KeLeaveCriticalRegionThread((__int64)CurrentThread);
+  KeLeaveCriticalRegionThread((__int64)CurrentThread, v9, v10, v11);
   return v8;
 }

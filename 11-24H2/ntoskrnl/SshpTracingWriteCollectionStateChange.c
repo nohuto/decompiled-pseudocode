@@ -1,12 +1,12 @@
 /*
- * XREFs of SshpTracingWriteCollectionStateChange @ 0x140A9561C
+ * XREFs of SshpTracingWriteCollectionStateChange @ 0x140A91E4C
  * Callers:
- *     SshpSetCollectionActive @ 0x1404794E0 (SshpSetCollectionActive.c)
+ *     SshpSetCollectionActive @ 0x140474D70 (SshpSetCollectionActive.c)
  * Callees:
- *     SSHSupportEtwEventEnabled @ 0x140477F70 (SSHSupportEtwEventEnabled.c)
- *     SSHSupportEtwWrite @ 0x1404A3E6C (SSHSupportEtwWrite.c)
- *     SSHSupportQueryInterruptTime @ 0x1404B1668 (SSHSupportQueryInterruptTime.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     SSHSupportEtwEventEnabled @ 0x140474570 (SSHSupportEtwEventEnabled.c)
+ *     SSHSupportEtwWrite @ 0x14049EA8C (SSHSupportEtwWrite.c)
+ *     SSHSupportQueryInterruptTime @ 0x1404ABEF8 (SSHSupportQueryInterruptTime.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 BOOLEAN __fastcall SshpTracingWriteCollectionStateChange(ULONGLONG a1, char a2)

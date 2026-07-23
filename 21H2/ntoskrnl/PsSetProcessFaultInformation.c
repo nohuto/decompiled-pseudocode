@@ -1,20 +1,20 @@
 /*
- * XREFs of PsSetProcessFaultInformation @ 0x140772D30
+ * XREFs of PsSetProcessFaultInformation @ 0x140772EF0
  * Callers:
- *     NtSetInformationProcess @ 0x14070A4B0 (NtSetInformationProcess.c)
- *     DbgkForwardException @ 0x1407321F0 (DbgkForwardException.c)
+ *     NtSetInformationProcess @ 0x140721890 (NtSetInformationProcess.c)
+ *     DbgkForwardException @ 0x1407323B0 (DbgkForwardException.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
- *     ExReleaseExtensionTable @ 0x14029F2DC (ExReleaseExtensionTable.c)
- *     ExGetExtensionTable @ 0x14029F2F8 (ExGetExtensionTable.c)
- *     EtwTelemetryCoverageReport @ 0x1402C84B0 (EtwTelemetryCoverageReport.c)
- *     TelemetryCoverageStringHashInternal @ 0x1402C86A8 (TelemetryCoverageStringHashInternal.c)
- *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
- *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     PsSetProcessTelemetryAppState @ 0x1406CDED4 (PsSetProcessTelemetryAppState.c)
- *     PspRecordCrashedProcessIntoBlackbox @ 0x1409084D8 (PspRecordCrashedProcessIntoBlackbox.c)
+ *     ExReleaseExtensionTable @ 0x14021C83C (ExReleaseExtensionTable.c)
+ *     ExGetExtensionTable @ 0x14021C858 (ExGetExtensionTable.c)
+ *     EtwTelemetryCoverageReport @ 0x140246D10 (EtwTelemetryCoverageReport.c)
+ *     TelemetryCoverageStringHashInternal @ 0x140246F08 (TelemetryCoverageStringHashInternal.c)
+ *     KeLeaveCriticalRegionThread @ 0x1402AB8C0 (KeLeaveCriticalRegionThread.c)
+ *     ExfTryToWakePushLock @ 0x1402FC2C0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x1403539D0 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1403556E0 (ExAcquirePushLockExclusiveEx.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     PsSetProcessTelemetryAppState @ 0x1406A51B8 (PsSetProcessTelemetryAppState.c)
+ *     PspRecordCrashedProcessIntoBlackbox @ 0x140908638 (PspRecordCrashedProcessIntoBlackbox.c)
  */
 
 __int64 __fastcall PsSetProcessFaultInformation(ULONG_PTR BugCheckParameter1, int *a2)
@@ -22,31 +22,40 @@ __int64 __fastcall PsSetProcessFaultInformation(ULONG_PTR BugCheckParameter1, in
   int v4; // eax
   volatile signed __int64 *v5; // rdi
   struct _KTHREAD *v6; // rbp
+  __int64 v7; // rdx
+  __int64 v8; // r8
+  __int64 v9; // r9
   void (__fastcall **ExtensionTable)(ULONG_PTR, struct _KTHREAD *, int *); // rax
-  signed __int32 v9; // eax
-  signed __int32 v10; // ett
+  signed __int32 v12; // eax
+  signed __int32 v13; // ett
   struct _KTHREAD *CurrentThread; // rbp
-  struct _KTHREAD *v12; // rbp
-  int v13; // [rsp+48h] [rbp+10h] BYREF
-  int v14; // [rsp+50h] [rbp+18h] BYREF
+  __int64 v15; // rdx
+  __int64 v16; // r8
+  __int64 v17; // r9
+  struct _KTHREAD *v18; // rbp
+  __int64 v19; // rdx
+  __int64 v20; // r8
+  __int64 v21; // r9
+  int v22; // [rsp+48h] [rbp+10h] BYREF
+  int v23; // [rsp+50h] [rbp+18h] BYREF
 
   if ( (*a2 & 1) != 0 )
   {
     _m_prefetchw((const void *)(BugCheckParameter1 + 2172));
-    v9 = *(_DWORD *)(BugCheckParameter1 + 2172);
+    v12 = *(_DWORD *)(BugCheckParameter1 + 2172);
     do
     {
-      v10 = v9;
-      v9 = _InterlockedCompareExchange((volatile signed __int32 *)(BugCheckParameter1 + 2172), v9 | 4, v9);
+      v13 = v12;
+      v12 = _InterlockedCompareExchange((volatile signed __int32 *)(BugCheckParameter1 + 2172), v12 | 4, v12);
     }
-    while ( v10 != v9 );
-    if ( (v9 & 4) == 0 )
+    while ( v13 != v12 );
+    if ( (v12 & 4) == 0 )
     {
-      if ( (unsigned int)dword_140C0EEF4 < MEMORY[0xFFFFF7800000037C] )
+      if ( (unsigned int)dword_140C0EF04 < MEMORY[0xFFFFF7800000037C] )
       {
-        if ( !dword_140C0EEF0 )
-          dword_140C0EEF0 = TelemetryCoverageStringHashInternal(off_140C0EEE8, &v13);
-        EtwTelemetryCoverageReport(&off_140C0EEE8);
+        if ( !dword_140C0EF00 )
+          dword_140C0EF00 = TelemetryCoverageStringHashInternal(off_140C0EEF8, &v22);
+        EtwTelemetryCoverageReport((__int64 *)&off_140C0EEF8);
       }
       PspRecordCrashedProcessIntoBlackbox(BugCheckParameter1);
       PsSetProcessTelemetryAppState((struct _EX_RUNDOWN_REF *)BugCheckParameter1, 4);
@@ -55,11 +64,11 @@ __int64 __fastcall PsSetProcessFaultInformation(ULONG_PTR BugCheckParameter1, in
   v4 = *a2;
   if ( (*a2 & 2) != 0 )
   {
-    if ( (unsigned int)dword_140C0EEDC < MEMORY[0xFFFFF7800000037C] )
+    if ( (unsigned int)dword_140C0EEEC < MEMORY[0xFFFFF7800000037C] )
     {
-      if ( !dword_140C0EED8 )
-        dword_140C0EED8 = TelemetryCoverageStringHashInternal(off_140C0EED0, &v14);
-      EtwTelemetryCoverageReport(&off_140C0EED0);
+      if ( !dword_140C0EEE8 )
+        dword_140C0EEE8 = TelemetryCoverageStringHashInternal(off_140C0EEE0, &v23);
+      EtwTelemetryCoverageReport((__int64 *)&off_140C0EEE0);
     }
     CurrentThread = KeGetCurrentThread();
     --CurrentThread->KernelApcDisable;
@@ -72,7 +81,7 @@ __int64 __fastcall PsSetProcessFaultInformation(ULONG_PTR BugCheckParameter1, in
     if ( (_InterlockedExchangeAdd64(v5, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
       ExfTryToWakePushLock(BugCheckParameter1 + 1080);
     KeAbPostRelease(BugCheckParameter1 + 1080);
-    KeLeaveCriticalRegionThread((__int64)CurrentThread);
+    KeLeaveCriticalRegionThread((__int64)CurrentThread, v15, v16, v17);
     v4 = *a2;
   }
   else
@@ -91,19 +100,19 @@ __int64 __fastcall PsSetProcessFaultInformation(ULONG_PTR BugCheckParameter1, in
     if ( (_InterlockedExchangeAdd64(v5, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
       ExfTryToWakePushLock(v5);
     KeAbPostRelease((ULONG_PTR)v5);
-    KeLeaveCriticalRegionThread((__int64)v6);
+    KeLeaveCriticalRegionThread((__int64)v6, v7, v8, v9);
     v4 = *a2;
   }
   if ( (v4 & 8) != 0 )
   {
-    v12 = KeGetCurrentThread();
-    --v12->KernelApcDisable;
+    v18 = KeGetCurrentThread();
+    --v18->KernelApcDisable;
     ExAcquirePushLockExclusiveEx((ULONG_PTR)v5, 0LL);
     *(_BYTE *)(BugCheckParameter1 + 2171) |= 0x40u;
     if ( (_InterlockedExchangeAdd64(v5, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
       ExfTryToWakePushLock(v5);
     KeAbPostRelease((ULONG_PTR)v5);
-    KeLeaveCriticalRegionThread((__int64)v12);
+    KeLeaveCriticalRegionThread((__int64)v18, v19, v20, v21);
   }
   ExtensionTable = (void (__fastcall **)(ULONG_PTR, struct _KTHREAD *, int *))ExGetExtensionTable((struct _EX_RUNDOWN_REF *)PspHwTraceExtensionHost);
   if ( ExtensionTable )

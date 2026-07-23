@@ -1,12 +1,12 @@
 /*
- * XREFs of PdcPoLidReliabilityUpdateCallback @ 0x140753FD0
+ * XREFs of PdcPoLidReliabilityUpdateCallback @ 0x1407522F0
  * Callers:
- *     PopLidReliabilityInit @ 0x1405D3AF8 (PopLidReliabilityInit.c)
+ *     PopLidReliabilityInit @ 0x1405D1218 (PopLidReliabilityInit.c)
  * Callees:
- *     PopReleaseRwLock @ 0x1403B5EC8 (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x1404283D4 (PopAcquireRwLockExclusive.c)
- *     PopBsdHandleRequest @ 0x1404A8F44 (PopBsdHandleRequest.c)
- *     PopSetPowerSettingValueAcDc @ 0x1409BC77C (PopSetPowerSettingValueAcDc.c)
+ *     PopReleaseRwLock @ 0x1402AE8FC (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x14041C564 (PopAcquireRwLockExclusive.c)
+ *     PopBsdHandleRequest @ 0x1404A3364 (PopBsdHandleRequest.c)
+ *     PopSetPowerSettingValueAcDc @ 0x1409A2DCC (PopSetPowerSettingValueAcDc.c)
  */
 
 __int64 __fastcall PdcPoLidReliabilityUpdateCallback(char a1)
@@ -19,10 +19,10 @@ __int64 __fastcall PdcPoLidReliabilityUpdateCallback(char a1)
   result = PopSetPowerSettingValueAcDc(&GUID_LIDSWITCH_STATE_RELIABILITY, 4LL, &v3);
   if ( !PopBsdSkipLogging )
   {
-    PopAcquireRwLockExclusive(&PopBsdUpdateLock);
+    PopAcquireRwLockExclusive((unsigned __int64 *)&PopBsdUpdateLock);
     BYTE1(PopBsdPowerTransitionExtension) = BYTE1(PopBsdPowerTransitionExtension) & 0xEF | (16 * (a1 & 1));
     PopBsdHandleRequest(2u);
-    return PopReleaseRwLock((signed __int64 *)&PopBsdUpdateLock);
+    return PopReleaseRwLock(&PopBsdUpdateLock);
   }
   return result;
 }

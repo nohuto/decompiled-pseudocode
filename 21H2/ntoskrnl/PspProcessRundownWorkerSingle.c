@@ -1,10 +1,10 @@
 /*
- * XREFs of PspProcessRundownWorkerSingle @ 0x14090B1E0
+ * XREFs of PspProcessRundownWorkerSingle @ 0x14090B340
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
- *     PspRundownSingleProcess @ 0x140604738 (PspRundownSingleProcess.c)
+ *     ObfDereferenceObjectWithTag @ 0x140355E90 (ObfDereferenceObjectWithTag.c)
+ *     PspRundownSingleProcess @ 0x1406F3E68 (PspRundownSingleProcess.c)
  */
 
 __int64 PspProcessRundownWorkerSingle()
@@ -20,7 +20,7 @@ __int64 PspProcessRundownWorkerSingle()
       v0 = (void *)_InterlockedExchange64(&PspRundownProcessCache, 0LL);
       if ( !v0 )
         break;
-      PspRundownSingleProcess((__int64)v0, 0);
+      PspRundownSingleProcess((ULONG_PTR)v0, 0);
       ObfDereferenceObjectWithTag(v0, 0x77537350u);
     }
     result = (unsigned int)_InterlockedCompareExchange(&PspRundownNeededCountCache, 0, 1);

@@ -1,11 +1,11 @@
 /*
- * XREFs of SmKmStoreHelperWaitForCommand @ 0x1405CBA88
+ * XREFs of SmKmStoreHelperWaitForCommand @ 0x1405CBFF8
  * Callers:
- *     SmKmStoreHelperCheckWaitCommand @ 0x14034311C (SmKmStoreHelperCheckWaitCommand.c)
- *     ?SmStHelperSendCommand@?$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@W4_SMKM_STORE_HELPER_COMMAND@@PEAU_SMKM_STORE_HELPER_PARAMS@@K@Z @ 0x1405C0C28 (-SmStHelperSendCommand@-$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@W4_SMKM_STORE_HELPER_COMMAND@@PEAU_SM.c)
+ *     SmKmStoreHelperCheckWaitCommand @ 0x1403433AC (SmKmStoreHelperCheckWaitCommand.c)
+ *     ?SmStHelperSendCommand@?$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@W4_SMKM_STORE_HELPER_COMMAND@@PEAU_SMKM_STORE_HELPER_PARAMS@@K@Z @ 0x1405C1198 (-SmStHelperSendCommand@-$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@W4_SMKM_STORE_HELPER_COMMAND@@PEAU_SM.c)
  * Callees:
- *     KeWaitForSingleObject @ 0x140243CE0 (KeWaitForSingleObject.c)
- *     KeResetEvent @ 0x1402AF940 (KeResetEvent.c)
+ *     KeWaitForSingleObject @ 0x140243DB0 (KeWaitForSingleObject.c)
+ *     KeResetEvent @ 0x1402AFE30 (KeResetEvent.c)
  */
 
 NTSTATUS __fastcall SmKmStoreHelperWaitForCommand(__int64 a1, _OWORD *a2, LARGE_INTEGER *Timeout, int a4)

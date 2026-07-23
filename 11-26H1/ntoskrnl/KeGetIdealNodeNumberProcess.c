@@ -1,9 +1,9 @@
 /*
- * XREFs of KeGetIdealNodeNumberProcess @ 0x1404F0804
+ * XREFs of KeGetIdealNodeNumberProcess @ 0x1404E9DE4
  * Callers:
- *     PspAllocateProcess @ 0x140964C24 (PspAllocateProcess.c)
- *     SmProcessCreateRequest @ 0x140967230 (SmProcessCreateRequest.c)
- *     KeInitThread @ 0x140C07424 (KeInitThread.c)
+ *     SmProcessCreateRequest @ 0x140ADC4D4 (SmProcessCreateRequest.c)
+ *     PspAllocateProcess @ 0x140B7E8A8 (PspAllocateProcess.c)
+ *     KeInitThread @ 0x140C0D634 (KeInitThread.c)
  * Callees:
  *     <none>
  */

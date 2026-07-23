@@ -12,13 +12,13 @@
 
 void __fastcall KeFreeXStateContext(__int64 a1)
 {
-  struct _SLIST_ENTRY *v1; // r8
+  _SLIST_ENTRY *v1; // r8
   struct _KPRCB *CurrentPrcb; // rdx
   _GENERAL_LOOKASIDE *P; // rcx
 
   if ( a1 )
   {
-    v1 = *(struct _SLIST_ENTRY **)(a1 + 24);
+    v1 = *(_SLIST_ENTRY **)(a1 + 24);
     if ( v1 )
     {
       if ( (*(_BYTE *)(a1 + 12) & 1) != 0 )

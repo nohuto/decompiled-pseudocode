@@ -6,11 +6,17 @@
  *     <none>
  */
 
-__int64 ZwRemoveIoCompletionEx()
+NTSTATUS __cdecl ZwRemoveIoCompletionEx(
+        HANDLE IoCompletionHandle,
+        PFILE_IO_COMPLETION_INFORMATION IoCompletionInformation,
+        ULONG Count,
+        PULONG NumEntriesRemoved,
+        PLARGE_INTEGER Timeout,
+        BOOLEAN Alertable)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 342LL;
+  result = 342;
   __asm { syscall; Low latency system call }
   return result;
 }

@@ -1,51 +1,51 @@
 /*
- * XREFs of MiDispatchFault @ 0x1400403C0
+ * XREFs of MiDispatchFault @ 0x14003FF40
  * Callers:
- *     MmAccessFault @ 0x14003E7A0 (MmAccessFault.c)
- *     MiResolvePageTablePage @ 0x14003FD10 (MiResolvePageTablePage.c)
+ *     MmAccessFault @ 0x14003E320 (MmAccessFault.c)
+ *     MiResolvePageTablePage @ 0x14003F890 (MiResolvePageTablePage.c)
  * Callees:
- *     MiCaptureDirtyBitToPfn @ 0x140015D60 (MiCaptureDirtyBitToPfn.c)
- *     MiReleasePageFileInfo @ 0x14001A280 (MiReleasePageFileInfo.c)
- *     MiLockPageInline @ 0x140022E70 (MiLockPageInline.c)
- *     MiPfnReferenceCountIsZero @ 0x14002448C (MiPfnReferenceCountIsZero.c)
- *     MiDereferenceControlAreaFile @ 0x140026640 (MiDereferenceControlAreaFile.c)
- *     MiReferenceControlAreaFile @ 0x140026690 (MiReferenceControlAreaFile.c)
- *     MiChargeCommit @ 0x14002B650 (MiChargeCommit.c)
- *     MiLockLeafPage @ 0x14002EA50 (MiLockLeafPage.c)
- *     KeYieldProcessorEx @ 0x14002ECB0 (KeYieldProcessorEx.c)
- *     MiStartingOffset @ 0x140031D40 (MiStartingOffset.c)
- *     MiMakeValidKernelPte @ 0x140034D10 (MiMakeValidKernelPte.c)
- *     MiResolveTransitionFault @ 0x140035F90 (MiResolveTransitionFault.c)
- *     MiIsAddressValid @ 0x140037540 (MiIsAddressValid.c)
- *     MiResolveDemandZeroFault @ 0x14003AA90 (MiResolveDemandZeroFault.c)
- *     MiAllocateWsle @ 0x14003C0F0 (MiAllocateWsle.c)
- *     MiResolveProtoPteFault @ 0x140041360 (MiResolveProtoPteFault.c)
- *     MiGetProtoPteAddress @ 0x140042460 (MiGetProtoPteAddress.c)
- *     MiUnlockProtoPoolPage @ 0x14004C4E0 (MiUnlockProtoPoolPage.c)
- *     MiRemoveLockedPageCharge @ 0x14004D1E0 (MiRemoveLockedPageCharge.c)
- *     MiReturnCommit @ 0x14004E500 (MiReturnCommit.c)
- *     MiLockProtoPoolPage @ 0x14004ED80 (MiLockProtoPoolPage.c)
- *     MiUnlinkPageFromList @ 0x140065A40 (MiUnlinkPageFromList.c)
- *     ExfReleaseRundownProtection @ 0x140090D30 (ExfReleaseRundownProtection.c)
- *     PfSnCheckLoggingForThread @ 0x1400EBCE0 (PfSnCheckLoggingForThread.c)
- *     PfSnLogPageFaultCommon @ 0x1400EF560 (PfSnLogPageFaultCommon.c)
- *     PfSnReferenceProcessTrace @ 0x1400F0910 (PfSnReferenceProcessTrace.c)
- *     MiWriteValidPteVolatile @ 0x1400FF0F4 (MiWriteValidPteVolatile.c)
- *     MiChargePartitionResidentAvailable @ 0x1401034A4 (MiChargePartitionResidentAvailable.c)
- *     MiResolvePageFileFault @ 0x140121360 (MiResolvePageFileFault.c)
- *     MiDiscardTransitionPte @ 0x1401238C0 (MiDiscardTransitionPte.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     HvlNotifyLongSpinWait @ 0x1401BAE68 (HvlNotifyLongSpinWait.c)
- *     MiPteInShadowRange @ 0x1401EF3B8 (MiPteInShadowRange.c)
- *     MiWritePteShadow @ 0x1401EF658 (MiWritePteShadow.c)
- *     MiGetUsedPtesHandle @ 0x1401EF7E0 (MiGetUsedPtesHandle.c)
- *     MI_GET_PAGE_FRAME_FROM_PTE @ 0x1401F2550 (MI_GET_PAGE_FRAME_FROM_PTE.c)
- *     MI_GET_PAGE_FRAME_FROM_TRANSITION_PTE @ 0x1401F2570 (MI_GET_PAGE_FRAME_FROM_TRANSITION_PTE.c)
- *     MI_GET_PFN_FROM_PTE @ 0x1401F2594 (MI_GET_PFN_FROM_PTE.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1401F25D0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiGetPrototypePteDirect @ 0x1401F26B0 (MiGetPrototypePteDirect.c)
- *     MiInvalidPteConforms @ 0x1401F26C4 (MiInvalidPteConforms.c)
- *     MiIsPrototypePteVadLookup @ 0x1401F2708 (MiIsPrototypePteVadLookup.c)
+ *     MiCaptureDirtyBitToPfn @ 0x1400158E0 (MiCaptureDirtyBitToPfn.c)
+ *     MiReleasePageFileInfo @ 0x140019E00 (MiReleasePageFileInfo.c)
+ *     MiLockPageInline @ 0x1400229F0 (MiLockPageInline.c)
+ *     MiPfnReferenceCountIsZero @ 0x14002400C (MiPfnReferenceCountIsZero.c)
+ *     MiDereferenceControlAreaFile @ 0x1400261C0 (MiDereferenceControlAreaFile.c)
+ *     MiReferenceControlAreaFile @ 0x140026210 (MiReferenceControlAreaFile.c)
+ *     MiChargeCommit @ 0x14002B1D0 (MiChargeCommit.c)
+ *     MiLockLeafPage @ 0x14002E5D0 (MiLockLeafPage.c)
+ *     KeYieldProcessorEx @ 0x14002E830 (KeYieldProcessorEx.c)
+ *     MiStartingOffset @ 0x1400318C0 (MiStartingOffset.c)
+ *     MiMakeValidKernelPte @ 0x140034890 (MiMakeValidKernelPte.c)
+ *     MiResolveTransitionFault @ 0x140035B10 (MiResolveTransitionFault.c)
+ *     MiIsAddressValid @ 0x1400370C0 (MiIsAddressValid.c)
+ *     MiResolveDemandZeroFault @ 0x14003A610 (MiResolveDemandZeroFault.c)
+ *     MiAllocateWsle @ 0x14003BC70 (MiAllocateWsle.c)
+ *     MiResolveProtoPteFault @ 0x140040EE0 (MiResolveProtoPteFault.c)
+ *     MiGetProtoPteAddress @ 0x140041FE0 (MiGetProtoPteAddress.c)
+ *     MiUnlockProtoPoolPage @ 0x14004C060 (MiUnlockProtoPoolPage.c)
+ *     MiRemoveLockedPageCharge @ 0x14004CD60 (MiRemoveLockedPageCharge.c)
+ *     MiReturnCommit @ 0x14004E080 (MiReturnCommit.c)
+ *     MiLockProtoPoolPage @ 0x14004E900 (MiLockProtoPoolPage.c)
+ *     MiUnlinkPageFromList @ 0x1400655C0 (MiUnlinkPageFromList.c)
+ *     ExfReleaseRundownProtection @ 0x140090490 (ExfReleaseRundownProtection.c)
+ *     PfSnCheckLoggingForThread @ 0x1400E9B50 (PfSnCheckLoggingForThread.c)
+ *     PfSnLogPageFaultCommon @ 0x1400ED3E0 (PfSnLogPageFaultCommon.c)
+ *     PfSnReferenceProcessTrace @ 0x1400EE760 (PfSnReferenceProcessTrace.c)
+ *     MiWriteValidPteVolatile @ 0x1400FCE74 (MiWriteValidPteVolatile.c)
+ *     MiChargePartitionResidentAvailable @ 0x140101224 (MiChargePartitionResidentAvailable.c)
+ *     MiResolvePageFileFault @ 0x1401218D0 (MiResolvePageFileFault.c)
+ *     MiDiscardTransitionPte @ 0x140123E30 (MiDiscardTransitionPte.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     HvlNotifyLongSpinWait @ 0x1401BAD4C (HvlNotifyLongSpinWait.c)
+ *     MiPteInShadowRange @ 0x1401EF1E4 (MiPteInShadowRange.c)
+ *     MiWritePteShadow @ 0x1401EF484 (MiWritePteShadow.c)
+ *     MiGetUsedPtesHandle @ 0x1401EF60C (MiGetUsedPtesHandle.c)
+ *     MI_GET_PAGE_FRAME_FROM_PTE @ 0x1401F237C (MI_GET_PAGE_FRAME_FROM_PTE.c)
+ *     MI_GET_PAGE_FRAME_FROM_TRANSITION_PTE @ 0x1401F239C (MI_GET_PAGE_FRAME_FROM_TRANSITION_PTE.c)
+ *     MI_GET_PFN_FROM_PTE @ 0x1401F23C0 (MI_GET_PFN_FROM_PTE.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1401F23FC (MI_READ_PTE_LOCK_FREE.c)
+ *     MiGetPrototypePteDirect @ 0x1401F24DC (MiGetPrototypePteDirect.c)
+ *     MiInvalidPteConforms @ 0x1401F24F0 (MiInvalidPteConforms.c)
+ *     MiIsPrototypePteVadLookup @ 0x1401F2534 (MiIsPrototypePteVadLookup.c)
  */
 
 __int64 __fastcall MiDispatchFault(
@@ -273,7 +273,7 @@ LABEL_213:
       {
         v21 = *(_QWORD *)(a8 + 72);
         v22 = *(_WORD *)(*(_QWORD *)v21 + 60LL) & 0x3FF;
-        v23 = v22 == 1023 ? MiSystemPartition : *(int **)(qword_140326FF8 + 8LL * v22);
+        v23 = v22 == 1023 ? MiSystemPartition : *(int **)(qword_140327038 + 8LL * v22);
         if ( *((_QWORD *)v23 + 808) > 0x4E20uLL
           && !v13
           && ((v18 & 1) == 0 || *(_BYTE *)(v18 & 0xFFFFFFFFFFFFFFFEuLL) != 1)
@@ -410,7 +410,7 @@ LABEL_64:
   if ( v43 == 1023 )
     v44 = MiSystemPartition;
   else
-    v44 = *(int **)(qword_140326FF8 + 8LL * v43);
+    v44 = *(int **)(qword_140327038 + 8LL * v43);
   if ( v42 && !(unsigned int)MiChargeCommit((__int64)v44, 1uLL, 4) )
     goto LABEL_84;
   if ( v44 == MiSystemPartition )
@@ -496,7 +496,7 @@ LABEL_191:
   }
   v55 = *(_WORD *)(**(_QWORD **)(v12 + 72) + 60LL) & 0x3FF;
   if ( v55 != 1023 )
-    v108 = *(struct _KEVENT **)(qword_140326FF8 + 8LL * v55);
+    v108 = *(struct _KEVENT **)(qword_140327038 + 8LL * v55);
   v56 = 0LL;
   while ( 1 )
   {
@@ -522,7 +522,7 @@ LABEL_191:
 LABEL_115:
         ;
       }
-      while ( v58 > qword_140326A90
+      while ( v58 > qword_140326AD0
            || MmPhysicalMemoryBlock && (*(_QWORD *)(48 * v58 - 0x57FFFFFFFD8LL) & 0x20000000000000LL) == 0 );
       v59 = 48 * v58 - 0x58000000000LL;
       v113 = 0;
@@ -674,11 +674,11 @@ LABEL_143:
     }
     v85 = 16 * (*v81 & 0xFFFFFFFFFLL);
     v86 = MmProtectToPteMask[v83] & 0xFFFFFFFFFFFFFF5FuLL;
-    v87 = v86 | ((v85 | HIBYTE(word_140326AA8) & 1) << 8) | 5;
+    v87 = v86 | ((v85 | HIBYTE(word_140326AE8) & 1) << 8) | 5;
     v105 = v87;
     if ( v120 && (v87 & 0x800) != 0 && (v83 & 5) != 5 )
     {
-      v87 = v86 | ((v85 | HIBYTE(word_140326AA8) & 1) << 8) | 0x47;
+      v87 = v86 | ((v85 | HIBYTE(word_140326AE8) & 1) << 8) | 0x47;
       v105 = v87;
     }
     MiAllocateWsle(v110, v78, v82, v17, v87, 0LL);

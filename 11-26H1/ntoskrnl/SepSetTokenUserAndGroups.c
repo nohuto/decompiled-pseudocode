@@ -1,19 +1,19 @@
 /*
- * XREFs of SepSetTokenUserAndGroups @ 0x140A802F4
+ * XREFs of SepSetTokenUserAndGroups @ 0x140A86164
  * Callers:
- *     SepCreateTokenEx @ 0x14025F384 (SepCreateTokenEx.c)
+ *     SepCreateTokenEx @ 0x140405564 (SepCreateTokenEx.c)
  * Callees:
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     ExfTryToWakePushLock @ 0x1403170A0 (ExfTryToWakePushLock.c)
- *     SepDuplicateSid @ 0x140A806F4 (SepDuplicateSid.c)
- *     SepDereferenceSidValuesBlock @ 0x140B0E95C (SepDereferenceSidValuesBlock.c)
- *     SepLogTokenSidManagement @ 0x140B2B4E0 (SepLogTokenSidManagement.c)
- *     SepCreateSidValuesBlock @ 0x140B4E880 (SepCreateSidValuesBlock.c)
- *     SepCompareSidValuesBlocks @ 0x140B64174 (SepCompareSidValuesBlocks.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     ExfTryToWakePushLock @ 0x1403190D0 (ExfTryToWakePushLock.c)
+ *     SepDuplicateSid @ 0x140A86564 (SepDuplicateSid.c)
+ *     SepDereferenceSidValuesBlock @ 0x140B1018C (SepDereferenceSidValuesBlock.c)
+ *     SepLogTokenSidManagement @ 0x140B2D560 (SepLogTokenSidManagement.c)
+ *     SepCreateSidValuesBlock @ 0x140B51110 (SepCreateSidValuesBlock.c)
+ *     SepCompareSidValuesBlocks @ 0x140B67214 (SepCompareSidValuesBlocks.c)
  */
 
 __int64 __fastcall SepSetTokenUserAndGroups(__int64 a1, __int64 a2, int a3, __int64 a4, int a5)
@@ -113,7 +113,7 @@ LABEL_20:
     *(_QWORD *)(a1 + 1128) = v15;
 LABEL_26:
     v25 = *(_QWORD *)(a1 + 1128);
-    *(_QWORD *)(a1 + 152) = a1 + 1168;
+    *(_QWORD *)(a1 + 152) = a1 + 1176;
     v26 = v25 + 24;
     v27 = 0;
     *(_DWORD *)(a1 + 124) = a3 + 1;

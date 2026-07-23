@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpAllocPhysicalMemory @ 0x140C80038
+ * XREFs of HalpAllocPhysicalMemory @ 0x140C86038
  * Callers:
- *     HalpAllocateScratchMemory @ 0x140C122E8 (HalpAllocateScratchMemory.c)
+ *     HalpAllocateScratchMemory @ 0x140C182E8 (HalpAllocateScratchMemory.c)
  * Callees:
- *     HalpAllocPhysicalMemoryEx @ 0x140D08980 (HalpAllocPhysicalMemoryEx.c)
+ *     HalpAllocPhysicalMemoryEx @ 0x140D0EC50 (HalpAllocPhysicalMemoryEx.c)
  */
 
 __int64 __fastcall HalpAllocPhysicalMemory(int a1, int a2, int a3, int a4)

@@ -1,11 +1,11 @@
 /*
- * XREFs of sprintf @ 0x18012C670
+ * XREFs of sprintf @ 0x18012C3E0
  * Callers:
  *     <none>
  * Callees:
- *     _invalid_parameter @ 0x180126898 (_invalid_parameter.c)
- *     _flsbuf @ 0x18012EA18 (_flsbuf.c)
- *     _output_l @ 0x18012EA30 (_output_l.c)
+ *     _invalid_parameter @ 0x180126608 (_invalid_parameter.c)
+ *     _flsbuf @ 0x18012E788 (_flsbuf.c)
+ *     _output_l @ 0x18012E7A0 (_output_l.c)
  */
 
 int sprintf(char *const Buffer, const char *const Format, ...)

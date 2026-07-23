@@ -1,8 +1,8 @@
 /*
- * XREFs of KiFindNextTimerDueTime @ 0x14051589C
+ * XREFs of KiFindNextTimerDueTime @ 0x14050F30C
  * Callers:
- *     KiGetNextTimerExpirationDueTime @ 0x1404FC8E0 (KiGetNextTimerExpirationDueTime.c)
- *     KePrepareClockTimerForIdle @ 0x1405ED338 (KePrepareClockTimerForIdle.c)
+ *     KiGetNextTimerExpirationDueTime @ 0x1404F5E20 (KiGetNextTimerExpirationDueTime.c)
+ *     KePrepareClockTimerForIdle @ 0x1405EFCA8 (KePrepareClockTimerForIdle.c)
  * Callees:
  *     <none>
  */
@@ -237,14 +237,14 @@ LABEL_70:
           LODWORD(v20) = -1;
           goto LABEL_20;
         }
-        v21 = (_QWORD *)(qword_140FC1698[0] + 8 * (k >> 6));
+        v21 = (_QWORD *)(qword_140FC2698[0] + 8 * (k >> 6));
         for ( m = ~*v21 | ((1LL << k) - 1); m == -1; m = ~*v21 )
         {
-          if ( (unsigned __int64)++v21 > qword_140FC1698[0] + 8 * (v18 >> 6) )
+          if ( (unsigned __int64)++v21 > qword_140FC2698[0] + 8 * (v18 >> 6) )
             goto LABEL_17;
         }
         _BitScanForward64((unsigned __int64 *)&m, ~m);
-        v20 = (((__int64)v21 - qword_140FC1698[0]) >> 3 << 6) + m;
+        v20 = (((__int64)v21 - qword_140FC2698[0]) >> 3 << 6) + m;
         if ( v20 > v18 )
         {
 LABEL_17:

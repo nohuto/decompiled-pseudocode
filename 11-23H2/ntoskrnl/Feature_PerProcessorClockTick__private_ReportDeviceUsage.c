@@ -1,10 +1,10 @@
 /*
- * XREFs of Feature_PerProcessorClockTick__private_ReportDeviceUsage @ 0x1404104E0
+ * XREFs of Feature_PerProcessorClockTick__private_ReportDeviceUsage @ 0x140410744
  * Callers:
  *     KeInitializeClock @ 0x140B6AB28 (KeInitializeClock.c)
  * Callees:
- *     wil_details_FeatureReporting_ReportUsageToService @ 0x14022FBC0 (wil_details_FeatureReporting_ReportUsageToService.c)
- *     wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath @ 0x14040F878 (wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath.c)
+ *     wil_details_FeatureReporting_ReportUsageToService @ 0x14022FCB0 (wil_details_FeatureReporting_ReportUsageToService.c)
+ *     wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath @ 0x14040FA58 (wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath.c)
  */
 
 void Feature_PerProcessorClockTick__private_ReportDeviceUsage()

@@ -90,8 +90,8 @@ __int64 __fastcall HvpAddBin(ULONG_PTR BugCheckParameter2, unsigned int a2, int 
   __int64 v64; // [rsp+80h] [rbp-19h]
   void *v65; // [rsp+88h] [rbp-11h] BYREF
   __int64 v66; // [rsp+90h] [rbp-9h]
-  struct _RTL_BITMAP BitMapHeader; // [rsp+98h] [rbp-1h] BYREF
-  struct _RTL_BITMAP v68; // [rsp+A8h] [rbp+Fh] BYREF
+  _RTL_BITMAP Destination; // [rsp+98h] [rbp-1h] BYREF
+  _RTL_BITMAP BitMapHeader; // [rsp+A8h] [rbp+Fh] BYREF
   char v69; // [rsp+100h] [rbp+67h]
   char v70; // [rsp+108h] [rbp+6Fh]
   unsigned int v71; // [rsp+118h] [rbp+7Fh]
@@ -217,26 +217,26 @@ LABEL_23:
             goto LABEL_70;
           }
           v37 = *(_QWORD *)(BugCheckParameter2 + 80) == 0LL;
-          BitMapHeader.Buffer = (unsigned int *)v63;
+          Destination.Buffer = (unsigned int *)v63;
+          Destination.SizeOfBitMap = v22;
           BitMapHeader.SizeOfBitMap = v22;
-          v68.SizeOfBitMap = v22;
-          v68.Buffer = (unsigned int *)v36;
+          BitMapHeader.Buffer = (unsigned int *)v36;
           if ( v37 )
           {
             memset(v63, 0, (unsigned int)Size);
           }
           else
           {
-            RtlCopyBitMap((unsigned int *)(BugCheckParameter2 + 72), (__int64)&BitMapHeader, 0);
-            RtlClearBits(&BitMapHeader, StartingIndex, v22 - StartingIndex);
+            RtlCopyBitMap((PRTL_BITMAP)(BugCheckParameter2 + 72), &Destination, 0);
+            RtlClearBits(&Destination, StartingIndex, v22 - StartingIndex);
             (*(void (__fastcall **)(_QWORD, _QWORD))(BugCheckParameter2 + 32))(
               *(_QWORD *)(BugCheckParameter2 + 80),
               *(unsigned int *)(BugCheckParameter2 + 92));
           }
           if ( *(_QWORD *)(BugCheckParameter2 + 104) )
           {
-            RtlCopyBitMap((unsigned int *)(BugCheckParameter2 + 96), (__int64)&v68, 0);
-            RtlClearBits(&v68, StartingIndex, v22 - StartingIndex);
+            RtlCopyBitMap((PRTL_BITMAP)(BugCheckParameter2 + 96), &BitMapHeader, 0);
+            RtlClearBits(&BitMapHeader, StartingIndex, v22 - StartingIndex);
             (*(void (__fastcall **)(_QWORD, _QWORD))(BugCheckParameter2 + 32))(
               *(_QWORD *)(BugCheckParameter2 + 104),
               *(unsigned int *)(BugCheckParameter2 + 92));

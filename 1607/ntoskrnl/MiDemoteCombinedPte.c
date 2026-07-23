@@ -1,34 +1,34 @@
 /*
- * XREFs of MiDemoteCombinedPte @ 0x1401F97B0
+ * XREFs of MiDemoteCombinedPte @ 0x1401F95DC
  * Callers:
- *     MiEmptyWorkingSetHelper @ 0x1400160F8 (MiEmptyWorkingSetHelper.c)
- *     MiTrimThisWsle @ 0x140016960 (MiTrimThisWsle.c)
- *     MiAgeWorkingSet @ 0x140047090 (MiAgeWorkingSet.c)
- *     NtUnlockVirtualMemory @ 0x1400BA2E0 (NtUnlockVirtualMemory.c)
- *     MiActOnPte @ 0x1400BBC88 (MiActOnPte.c)
- *     MiMoveValidWsle @ 0x1400FEECC (MiMoveValidWsle.c)
- *     MiTrimSingleWsle @ 0x1401011F4 (MiTrimSingleWsle.c)
- *     MiDeprioritizeVirtualAddresses @ 0x140110334 (MiDeprioritizeVirtualAddresses.c)
- *     MiCaptureAndResetWorkingSetAccessBits @ 0x140129C50 (MiCaptureAndResetWorkingSetAccessBits.c)
- *     MiReplaceWorkingSetEntrySmall @ 0x1401E9EEC (MiReplaceWorkingSetEntrySmall.c)
+ *     MiEmptyWorkingSetHelper @ 0x140015C78 (MiEmptyWorkingSetHelper.c)
+ *     MiTrimThisWsle @ 0x1400164E0 (MiTrimThisWsle.c)
+ *     MiAgeWorkingSet @ 0x140046C10 (MiAgeWorkingSet.c)
+ *     NtUnlockVirtualMemory @ 0x1400B8170 (NtUnlockVirtualMemory.c)
+ *     MiActOnPte @ 0x1400B9B18 (MiActOnPte.c)
+ *     MiMoveValidWsle @ 0x1400FCC4C (MiMoveValidWsle.c)
+ *     MiTrimSingleWsle @ 0x1400FEF74 (MiTrimSingleWsle.c)
+ *     MiDeprioritizeVirtualAddresses @ 0x140110898 (MiDeprioritizeVirtualAddresses.c)
+ *     MiCaptureAndResetWorkingSetAccessBits @ 0x14012A1C0 (MiCaptureAndResetWorkingSetAccessBits.c)
+ *     MiReplaceWorkingSetEntrySmall @ 0x1401E9D18 (MiReplaceWorkingSetEntrySmall.c)
  * Callees:
- *     MiIdentifyPfn @ 0x14000FC90 (MiIdentifyPfn.c)
- *     EtwTraceKernelEvent @ 0x140014190 (EtwTraceKernelEvent.c)
- *     MiLockPageInline @ 0x140022E70 (MiLockPageInline.c)
- *     MiLocateWsle @ 0x140046B50 (MiLocateWsle.c)
- *     MiGetSharedWorkingSetList @ 0x140047070 (MiGetSharedWorkingSetList.c)
- *     MiUpdateWsleHash @ 0x140048D80 (MiUpdateWsleHash.c)
- *     MiPartitionIdToPointer @ 0x1400680A0 (MiPartitionIdToPointer.c)
- *     MiLockAndDecrementShareCount @ 0x140075DFC (MiLockAndDecrementShareCount.c)
- *     MiUnlockPageTableCharges @ 0x1400BAC48 (MiUnlockPageTableCharges.c)
- *     MiUpdateWorkingSetPrivateSize @ 0x1400BDD70 (MiUpdateWorkingSetPrivateSize.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     MiPteInShadowRange @ 0x1401EF3B8 (MiPteInShadowRange.c)
- *     MiWritePteShadow @ 0x1401EF658 (MiWritePteShadow.c)
- *     MI_GET_PAGE_FRAME_FROM_PTE @ 0x1401F2550 (MI_GET_PAGE_FRAME_FROM_PTE.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1401F25D0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiFreeCombineBlock @ 0x1401F9C24 (MiFreeCombineBlock.c)
- *     MiLogCombinedPteDelete @ 0x1401F9F00 (MiLogCombinedPteDelete.c)
+ *     MiIdentifyPfn @ 0x14000F810 (MiIdentifyPfn.c)
+ *     EtwTraceKernelEvent @ 0x140013D10 (EtwTraceKernelEvent.c)
+ *     MiLockPageInline @ 0x1400229F0 (MiLockPageInline.c)
+ *     MiLocateWsle @ 0x1400466D0 (MiLocateWsle.c)
+ *     MiGetSharedWorkingSetList @ 0x140046BF0 (MiGetSharedWorkingSetList.c)
+ *     MiUpdateWsleHash @ 0x140048900 (MiUpdateWsleHash.c)
+ *     MiPartitionIdToPointer @ 0x140067C20 (MiPartitionIdToPointer.c)
+ *     MiLockAndDecrementShareCount @ 0x140075E7C (MiLockAndDecrementShareCount.c)
+ *     MiUnlockPageTableCharges @ 0x1400B8AD8 (MiUnlockPageTableCharges.c)
+ *     MiUpdateWorkingSetPrivateSize @ 0x1400BBC00 (MiUpdateWorkingSetPrivateSize.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     MiPteInShadowRange @ 0x1401EF1E4 (MiPteInShadowRange.c)
+ *     MiWritePteShadow @ 0x1401EF484 (MiWritePteShadow.c)
+ *     MI_GET_PAGE_FRAME_FROM_PTE @ 0x1401F237C (MI_GET_PAGE_FRAME_FROM_PTE.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1401F23FC (MI_READ_PTE_LOCK_FREE.c)
+ *     MiFreeCombineBlock @ 0x1401F9A50 (MiFreeCombineBlock.c)
+ *     MiLogCombinedPteDelete @ 0x1401F9D2C (MiLogCombinedPteDelete.c)
  */
 
 __int64 __fastcall MiDemoteCombinedPte(ULONG_PTR a1, unsigned __int64 a2, __int64 a3)
@@ -99,7 +99,7 @@ __int64 __fastcall MiDemoteCombinedPte(ULONG_PTR a1, unsigned __int64 a2, __int6
   if ( (v16 & 8) != 0 )
     v7[1].m128i_i64[0] = v16 & 0xFFFFFFFFFFFFFFF7uLL;
   else
-    v17 = (volatile signed __int32 *)&unk_140326E18;
+    v17 = (volatile signed __int32 *)&unk_140326E58;
   _InterlockedExchangeAdd(v17 + 96, 0xFFFFFFFF);
   v18 = v7[2].m128i_i64[1];
   v7->m128i_i64[1] = a2;

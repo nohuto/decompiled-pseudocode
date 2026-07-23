@@ -1,25 +1,25 @@
 /*
- * XREFs of PopAdaptiveStandbyHandleBatteryUpdate @ 0x140761118
+ * XREFs of PopAdaptiveStandbyHandleBatteryUpdate @ 0x140760484
  * Callers:
- *     PopAdaptiveStandbyPolicyTimerWorker @ 0x140761DE0 (PopAdaptiveStandbyPolicyTimerWorker.c)
- *     PopAdaptiveStandbySessionStart @ 0x140762088 (PopAdaptiveStandbySessionStart.c)
- *     PopAdaptiveStandbyWnfCallback @ 0x140762DD0 (PopAdaptiveStandbyWnfCallback.c)
+ *     PopAdaptiveStandbyPolicyTimerWorker @ 0x1407611B0 (PopAdaptiveStandbyPolicyTimerWorker.c)
+ *     PopAdaptiveStandbySessionStart @ 0x140761630 (PopAdaptiveStandbySessionStart.c)
+ *     PopAdaptiveStandbyWnfCallback @ 0x140762640 (PopAdaptiveStandbyWnfCallback.c)
  * Callees:
- *     ExQueueWorkItem @ 0x140325850 (ExQueueWorkItem.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140330CB0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     IoGetActivityIdThread @ 0x14043F3F0 (IoGetActivityIdThread.c)
- *     Feature_AdaptiveHibernateEnhancements__private_IsEnabledDeviceUsageNoInline @ 0x1405D787C (Feature_AdaptiveHibernateEnhancements__private_IsEnabledDeviceUsageNoInline.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     PopAdaptiveStandbyCalculateBatteryRegion @ 0x1407604C0 (PopAdaptiveStandbyCalculateBatteryRegion.c)
- *     PopAdaptiveStandbyCheckHibernateBudgetAction @ 0x1407604EC (PopAdaptiveStandbyCheckHibernateBudgetAction.c)
- *     PopAdaptiveStandbyCheckHibernateReserveAction @ 0x140760948 (PopAdaptiveStandbyCheckHibernateReserveAction.c)
- *     PopAdaptiveStandbyCheckRestrictedStandbyBudgetAction @ 0x140760D48 (PopAdaptiveStandbyCheckRestrictedStandbyBudgetAction.c)
- *     PopAdaptiveStandbySessionStart @ 0x140762088 (PopAdaptiveStandbySessionStart.c)
- *     PopAdaptiveStandbySessionStop @ 0x1407622D0 (PopAdaptiveStandbySessionStop.c)
- *     PopAdaptiveStandbyTraceBatteryUpdate @ 0x1407624E0 (PopAdaptiveStandbyTraceBatteryUpdate.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402B92F0 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     ExQueueWorkItem @ 0x1402CE3E0 (ExQueueWorkItem.c)
+ *     IoGetActivityIdThread @ 0x140435520 (IoGetActivityIdThread.c)
+ *     Feature_AdaptiveHibernateEnhancements__private_IsEnabledDeviceUsageNoInline @ 0x1405D4DFC (Feature_AdaptiveHibernateEnhancements__private_IsEnabledDeviceUsageNoInline.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     PopAdaptiveStandbyCalculateBatteryRegion @ 0x14075F4C0 (PopAdaptiveStandbyCalculateBatteryRegion.c)
+ *     PopAdaptiveStandbyCheckHibernateBudgetAction @ 0x14075F4EC (PopAdaptiveStandbyCheckHibernateBudgetAction.c)
+ *     PopAdaptiveStandbyCheckHibernateReserveAction @ 0x14075FAF4 (PopAdaptiveStandbyCheckHibernateReserveAction.c)
+ *     PopAdaptiveStandbyCheckRestrictedStandbyBudgetAction @ 0x14075FEF4 (PopAdaptiveStandbyCheckRestrictedStandbyBudgetAction.c)
+ *     PopAdaptiveStandbySessionStart @ 0x140761630 (PopAdaptiveStandbySessionStart.c)
+ *     PopAdaptiveStandbySessionStop @ 0x1407619D0 (PopAdaptiveStandbySessionStop.c)
+ *     PopAdaptiveStandbyTraceBatteryUpdate @ 0x140761CB0 (PopAdaptiveStandbyTraceBatteryUpdate.c)
  */
 
-NTSTATUS __fastcall PopAdaptiveStandbyHandleBatteryUpdate(__int64 a1, NTSTATUS *a2)
+NTSTATUS __fastcall PopAdaptiveStandbyHandleBatteryUpdate(__int64 a1, __int64 a2)
 {
   NTSTATUS *v4; // rsi
   NTSTATUS result; // eax
@@ -31,8 +31,8 @@ NTSTATUS __fastcall PopAdaptiveStandbyHandleBatteryUpdate(__int64 a1, NTSTATUS *
   int v11; // eax
   unsigned __int8 v12; // al
   int v13; // eax
-  int v14; // r9d
-  __int64 v15; // r10
+  int v14; // r8d
+  __int64 v15; // r9
   int v16; // esi
   unsigned __int8 v17; // al
   unsigned __int8 v18; // al
@@ -45,7 +45,7 @@ NTSTATUS __fastcall PopAdaptiveStandbyHandleBatteryUpdate(__int64 a1, NTSTATUS *
   int v25; // [rsp+40h] [rbp-99h] BYREF
   int v26; // [rsp+44h] [rbp-95h] BYREF
   int v27; // [rsp+48h] [rbp-91h] BYREF
-  NTSTATUS v28; // [rsp+4Ch] [rbp-8Dh] BYREF
+  int v28; // [rsp+4Ch] [rbp-8Dh] BYREF
   struct _EVENT_DATA_DESCRIPTOR v29; // [rsp+50h] [rbp-89h] BYREF
   ULONG v30; // [rsp+60h] [rbp-79h]
   signed int v31; // [rsp+64h] [rbp-75h]
@@ -58,7 +58,7 @@ NTSTATUS __fastcall PopAdaptiveStandbyHandleBatteryUpdate(__int64 a1, NTSTATUS *
   __int64 v38; // [rsp+B8h] [rbp-21h]
   int *v39; // [rsp+C0h] [rbp-19h]
   __int64 v40; // [rsp+C8h] [rbp-11h]
-  NTSTATUS *v41; // [rsp+D0h] [rbp-9h]
+  int *v41; // [rsp+D0h] [rbp-9h]
   __int64 v42; // [rsp+D8h] [rbp-1h]
   int *v43; // [rsp+E0h] [rbp+7h]
   __int64 v44; // [rsp+E8h] [rbp+Fh]
@@ -70,52 +70,52 @@ NTSTATUS __fastcall PopAdaptiveStandbyHandleBatteryUpdate(__int64 a1, NTSTATUS *
   result = Feature_AdaptiveHibernateEnhancements__private_IsEnabledDeviceUsageNoInline();
   if ( result )
   {
-    a2 = v4;
+    LODWORD(a2) = (_DWORD)v4;
   }
   else
   {
     *(_OWORD *)v4 = *(_OWORD *)a2;
-    result = a2[4];
+    result = *(_DWORD *)(a2 + 16);
     v4[4] = result;
-  }
-  if ( (unsigned int)dword_140E08258 > 5 )
-  {
-    v6 = *(_BYTE *)a2 & 1;
-    v36 = 1LL;
-    v21 = v6;
-    v35 = &v21;
-    v23 = a2[1];
-    v37 = &v23;
-    v22 = a2[2];
-    v39 = &v22;
-    v28 = a2[3];
-    v41 = &v28;
-    v26 = a2[4];
-    v43 = &v26;
-    v38 = 4LL;
-    v40 = 4LL;
-    v42 = 4LL;
-    v44 = 4LL;
-    ActivityIdThread = IoGetActivityIdThread();
-    result = tlgWriteTransfer_EtwWriteTransfer(
-               (__int64)&dword_140E08258,
-               (unsigned __int8 *)byte_14004DBAB,
-               (const GUID *)ActivityIdThread,
-               0LL,
-               7u,
-               &v34);
+    if ( (unsigned int)dword_140E08218 > 5 )
+    {
+      v6 = *(_BYTE *)a2 & 1;
+      v36 = 1LL;
+      v21 = v6;
+      v35 = &v21;
+      v23 = *(_DWORD *)(a2 + 4);
+      v37 = &v23;
+      v22 = *(_DWORD *)(a2 + 8);
+      v39 = &v22;
+      v28 = *(_DWORD *)(a2 + 12);
+      v41 = &v28;
+      v26 = *(_DWORD *)(a2 + 16);
+      v43 = &v26;
+      v38 = 4LL;
+      v40 = 4LL;
+      v42 = 4LL;
+      v44 = 4LL;
+      ActivityIdThread = IoGetActivityIdThread();
+      result = tlgWriteTransfer_EtwWriteTransfer(
+                 (__int64)&dword_140E08218,
+                 (unsigned __int8 *)&byte_14004E20F,
+                 (const GUID *)ActivityIdThread,
+                 0LL,
+                 7u,
+                 &v34);
+    }
   }
   v8 = 0;
   v22 = 0;
   v23 = 0;
-  if ( *(_QWORD *)(a1 + 184) )
+  if ( *(_QWORD *)(a1 + 200) )
   {
-    if ( ((*(_BYTE *)v4 ^ *(_BYTE *)(a1 + 156)) & 1) != 0 )
+    if ( ((*(_BYTE *)v4 ^ *(_BYTE *)(a1 + 176)) & 1) != 0 )
     {
       PopAdaptiveStandbySessionStop(a1, 2LL);
       PopAdaptiveStandbySessionStart(a1, 2LL);
     }
-    if ( *(_DWORD *)(a1 + 140) != *(_DWORD *)(a1 + 160) )
+    if ( *(_DWORD *)(a1 + 140) != *(_DWORD *)(a1 + 180) )
     {
       PopAdaptiveStandbySessionStop(a1, 3LL);
       PopAdaptiveStandbySessionStart(a1, 3LL);
@@ -127,20 +127,20 @@ NTSTATUS __fastcall PopAdaptiveStandbyHandleBatteryUpdate(__int64 a1, NTSTATUS *
       v31 = 0;
       v9 = MEMORY[0xFFFFF78000000008] / 0x989680uLL;
       v10 = MEMORY[0xFFFFF78000000008] / 0x989680uLL;
-      if ( MEMORY[0xFFFFF78000000008] / 0x989680uLL - *(_QWORD *)(a1 + 184) <= 0xFFFFFFFF )
-        LODWORD(v29.Ptr) = v9 - *(_DWORD *)(a1 + 184);
+      if ( MEMORY[0xFFFFF78000000008] / 0x989680uLL - *(_QWORD *)(a1 + 200) <= 0xFFFFFFFF )
+        LODWORD(v29.Ptr) = v9 - *(_DWORD *)(a1 + 200);
       else
         LODWORD(v29.Ptr) = -1;
       v11 = *(_DWORD *)(a1 + 152);
-      v29.Size = *(_DWORD *)(a1 + 172);
+      v29.Size = *(_DWORD *)(a1 + 192);
       v30 = v29.Size - v11;
       v29.Reserved = v11;
       if ( (unsigned int)Feature_AdaptiveHibernateEnhancements__private_IsEnabledDeviceUsageNoInline() )
       {
         PopAdaptiveStandbyCheckRestrictedStandbyBudgetAction(a1, (unsigned int *)&v29, &v25, &v22);
-        v31 = *(_DWORD *)(a1 + 216) - v29.Reserved;
-        if ( v9 - *(_QWORD *)(a1 + 208) <= 0xFFFFFFFF )
-          HIDWORD(v29.Ptr) = v10 - *(_DWORD *)(a1 + 208);
+        v31 = *(_DWORD *)(a1 + 232) - v29.Reserved;
+        if ( v9 - *(_QWORD *)(a1 + 224) <= 0xFFFFFFFF )
+          HIDWORD(v29.Ptr) = v10 - *(_DWORD *)(a1 + 224);
         else
           HIDWORD(v29.Ptr) = -1;
         v12 = PopAdaptiveStandbyCheckHibernateBudgetAction(a1, (unsigned int *)&v29, &v24, &v23);
@@ -150,9 +150,9 @@ NTSTATUS __fastcall PopAdaptiveStandbyHandleBatteryUpdate(__int64 a1, NTSTATUS *
         v13 = PopAdaptiveStandbyCalculateBatteryRegion(v29.Reserved);
         if ( v13 != (_DWORD)v15 && v31 >= *((_DWORD *)&PopAdaptiveStandbyRegions + 5 * v15 + 2) )
         {
-          *(_DWORD *)(a1 + 216) = v14;
-          *(_DWORD *)(a1 + 200) = v13;
-          *(_QWORD *)(a1 + 208) = v9;
+          *(_DWORD *)(a1 + 232) = v14;
+          *(_DWORD *)(a1 + 216) = v13;
+          *(_QWORD *)(a1 + 224) = v9;
         }
         v16 = 5;
       }
@@ -170,60 +170,60 @@ NTSTATUS __fastcall PopAdaptiveStandbyHandleBatteryUpdate(__int64 a1, NTSTATUS *
           v8 = 1;
       }
       if ( !v8 )
-        goto LABEL_44;
+        goto LABEL_43;
       if ( v8 != 1 && v8 != 2 )
       {
         if ( v8 == 3 )
-          goto LABEL_38;
+          goto LABEL_37;
         if ( v8 != 4 )
         {
           if ( v8 == 5 && (unsigned int)Feature_AdaptiveHibernateEnhancements__private_IsEnabledDeviceUsageNoInline() )
           {
-LABEL_38:
-            if ( *(_DWORD *)(a1 + 532) )
-              goto LABEL_40;
-            goto LABEL_39;
+LABEL_37:
+            if ( *(_DWORD *)(a1 + 548) )
+              goto LABEL_39;
+            goto LABEL_38;
           }
-LABEL_40:
-          if ( !*(_BYTE *)(a1 + 528) )
+LABEL_39:
+          if ( !*(_BYTE *)(a1 + 544) )
           {
-            if ( (unsigned int)dword_140E08258 > 5 )
+            if ( (unsigned int)dword_140E08218 > 5 )
             {
               v19 = IoGetActivityIdThread();
               tlgWriteTransfer_EtwWriteTransfer(
-                (__int64)&dword_140E08258,
-                (unsigned __int8 *)byte_14004DB79,
+                (__int64)&dword_140E08218,
+                (unsigned __int8 *)byte_14004DE0D,
                 (const GUID *)v19,
                 0LL,
                 2u,
                 &v29);
             }
-            *(_BYTE *)(a1 + 528) = 1;
-            ExQueueWorkItem((PWORK_QUEUE_ITEM)(a1 + 496), DelayedWorkQueue);
+            *(_BYTE *)(a1 + 544) = 1;
+            ExQueueWorkItem((PWORK_QUEUE_ITEM)(a1 + 512), DelayedWorkQueue);
           }
-LABEL_44:
-          ++*(_DWORD *)(a1 + 220);
-          result = PopAdaptiveStandbyTraceBatteryUpdate(a1, (_DWORD)a2, v25, v24, v16);
-          goto LABEL_45;
+LABEL_43:
+          ++*(_DWORD *)(a1 + 236);
+          result = PopAdaptiveStandbyTraceBatteryUpdate(a1, a2, v25, v24, v16);
+          goto LABEL_44;
         }
         if ( !(unsigned int)Feature_AdaptiveHibernateEnhancements__private_IsEnabledDeviceUsageNoInline() )
-          goto LABEL_40;
+          goto LABEL_39;
       }
-LABEL_39:
-      *(_DWORD *)(a1 + 532) = v8;
-      goto LABEL_40;
+LABEL_38:
+      *(_DWORD *)(a1 + 548) = v8;
+      goto LABEL_39;
     }
   }
-LABEL_45:
-  if ( (unsigned int)dword_140E08258 > 5 )
+LABEL_44:
+  if ( (unsigned int)dword_140E08218 > 5 )
   {
     v26 = v8;
     v32 = &v26;
     v33 = 4LL;
     v20 = IoGetActivityIdThread();
     return tlgWriteTransfer_EtwWriteTransfer(
-             (__int64)&dword_140E08258,
-             (unsigned __int8 *)byte_14004D860,
+             (__int64)&dword_140E08218,
+             (unsigned __int8 *)&dword_14004DDDC,
              (const GUID *)v20,
              0LL,
              3u,

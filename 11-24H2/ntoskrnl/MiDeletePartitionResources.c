@@ -1,28 +1,28 @@
 /*
- * XREFs of MiDeletePartitionResources @ 0x1407FBD44
+ * XREFs of MiDeletePartitionResources @ 0x1407FC4B4
  * Callers:
- *     MiDeletePartition @ 0x1407EC62C (MiDeletePartition.c)
+ *     MiDeletePartition @ 0x1407ECBFC (MiDeletePartition.c)
  * Callees:
- *     KeFlushQueuedDpcs @ 0x140204EA0 (KeFlushQueuedDpcs.c)
- *     MiReturnResident @ 0x14020F6B0 (MiReturnResident.c)
- *     MiRemoveLowestPriorityStandbyPage @ 0x140220F00 (MiRemoveLowestPriorityStandbyPage.c)
- *     MiAdjustCachedStacks @ 0x140269740 (MiAdjustCachedStacks.c)
- *     KeSetEvent @ 0x1402725A0 (KeSetEvent.c)
- *     ObfDereferenceObjectWithTag @ 0x1403254A0 (ObfDereferenceObjectWithTag.c)
- *     MiCheckAndProcessCcAccessLog @ 0x140379B9C (MiCheckAndProcessCcAccessLog.c)
- *     MiFreeClonePool @ 0x1403F7F0C (MiFreeClonePool.c)
- *     MiUnlinkWorkingSet @ 0x140416DF8 (MiUnlinkWorkingSet.c)
- *     ExFreeCacheAwareRundownProtection @ 0x140484170 (ExFreeCacheAwareRundownProtection.c)
- *     MiDeleteUnumappedSystemCacheViews @ 0x140676A90 (MiDeleteUnumappedSystemCacheViews.c)
- *     ZwWaitForSingleObject @ 0x1406A6490 (ZwWaitForSingleObject.c)
- *     PfDeletePartition @ 0x140747214 (PfDeletePartition.c)
- *     MiDeletePagingFiles @ 0x1407EF0A4 (MiDeletePagingFiles.c)
- *     MiDeletePfnBitMaps @ 0x1407FAC0C (MiDeletePfnBitMaps.c)
- *     MiDeletePartitionSlabState @ 0x1407FB560 (MiDeletePartitionSlabState.c)
- *     MiFreePartitionPhysicalPages @ 0x1407FC0FC (MiFreePartitionPhysicalPages.c)
- *     MiDeleteSpecialPurposeMemory @ 0x1407FE1FC (MiDeleteSpecialPurposeMemory.c)
- *     ObCloseHandle @ 0x1408A2B10 (ObCloseHandle.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     KeSetEvent @ 0x140227B30 (KeSetEvent.c)
+ *     MiRemoveLowestPriorityStandbyPage @ 0x14024DC50 (MiRemoveLowestPriorityStandbyPage.c)
+ *     MiUnlinkWorkingSet @ 0x140270560 (MiUnlinkWorkingSet.c)
+ *     MiAdjustCachedStacks @ 0x1402AF604 (MiAdjustCachedStacks.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CE030 (ObfDereferenceObjectWithTag.c)
+ *     KeFlushQueuedDpcs @ 0x14032C480 (KeFlushQueuedDpcs.c)
+ *     MiReturnResident @ 0x140338A10 (MiReturnResident.c)
+ *     MiFreeClonePool @ 0x1403EDE7C (MiFreeClonePool.c)
+ *     MiCheckAndProcessCcAccessLog @ 0x14044B1B4 (MiCheckAndProcessCcAccessLog.c)
+ *     ExFreeCacheAwareRundownProtection @ 0x14047F710 (ExFreeCacheAwareRundownProtection.c)
+ *     MiDeleteUnumappedSystemCacheViews @ 0x140677C60 (MiDeleteUnumappedSystemCacheViews.c)
+ *     ZwWaitForSingleObject @ 0x1406A7430 (ZwWaitForSingleObject.c)
+ *     PfDeletePartition @ 0x140745504 (PfDeletePartition.c)
+ *     MiDeletePagingFiles @ 0x1407EF674 (MiDeletePagingFiles.c)
+ *     MiDeletePfnBitMaps @ 0x1407FB37C (MiDeletePfnBitMaps.c)
+ *     MiDeletePartitionSlabState @ 0x1407FBCD0 (MiDeletePartitionSlabState.c)
+ *     MiFreePartitionPhysicalPages @ 0x1407FC86C (MiFreePartitionPhysicalPages.c)
+ *     MiDeleteSpecialPurposeMemory @ 0x1407FE96C (MiDeleteSpecialPurposeMemory.c)
+ *     ObCloseHandle @ 0x1408AB1B0 (ObCloseHandle.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __fastcall MiDeletePartitionResources(__int64 a1)
@@ -62,7 +62,7 @@ void __fastcall MiDeletePartitionResources(__int64 a1)
   while ( v3 );
   if ( *(_BYTE *)(a1 + 18524) )
     MiDeleteUnumappedSystemCacheViews(a1);
-  MiFreeClonePool((union _SLIST_HEADER *)a1);
+  MiFreeClonePool((_SLIST_HEADER *)a1);
   MiAdjustCachedStacks(a1, 3);
   MiCheckAndProcessCcAccessLog(a1, 0LL, 1);
   KeFlushQueuedDpcs();

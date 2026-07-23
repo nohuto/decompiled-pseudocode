@@ -17,42 +17,42 @@
  *     NtInitializeNlsFiles @ 0x180165310 (NtInitializeNlsFiles.c)
  */
 
-char RtlpLoadNlsData()
+char __fastcall RtlpLoadNlsData(__int64 a1, __int64 a2, __int64 a3, ULONG *a4)
 {
-  __int64 v0; // rax
-  unsigned int *v1; // rdx
-  char *v2; // rcx
-  signed __int64 v4; // [rsp+30h] [rbp+8h] BYREF
+  unsigned int *v4; // rax
+  unsigned int *v5; // rdx
+  char *v6; // rcx
+  PVOID BaseAddress; // [rsp+30h] [rbp+8h] BYREF
 
-  v4 = 0LL;
+  BaseAddress = 0LL;
   if ( pTblPtrs )
     return 1;
-  v0 = gBaseAddress;
+  v4 = (unsigned int *)gBaseAddress;
   if ( gBaseAddress )
     goto LABEL_8;
-  if ( (int)NtInitializeNlsFiles(&v4, &gSystemLocale, 0LL) >= 0 )
+  if ( NtInitializeNlsFiles(&BaseAddress, &gSystemLocale, 0LL, a4) >= 0 )
   {
-    if ( !_InterlockedCompareExchange64(&gBaseAddress, v4, 0LL) )
+    if ( !_InterlockedCompareExchange64(&gBaseAddress, (signed __int64)BaseAddress, 0LL) )
     {
-      v0 = v4;
+      v4 = (unsigned int *)BaseAddress;
 LABEL_6:
-      v1 = (unsigned int *)(v0 + *(unsigned int *)(v0 + 16));
-      v2 = (char *)v1 + *v1;
-      gLocaleTables = *((_WORD *)v2 + 12);
-      word_1801D07C4 = *((_WORD *)v2 + 11);
-      word_1801D07C2 = *((_WORD *)v2 + 16);
-      word_1801D07F0 = *((_WORD *)v2 + 13);
-      qword_1801D07C8 = (__int64)v1 + *((unsigned int *)v2 + 7);
-      qword_1801D07D0 = (__int64)v1 + *((unsigned int *)v2 + 9);
-      qword_1801D07D8 = (__int64)v1 + *((unsigned int *)v2 + 10);
-      qword_1801D07E0 = (__int64)v1 + *((unsigned int *)v2 + 14);
+      v5 = (unsigned int *)((char *)v4 + v4[4]);
+      v6 = (char *)v5 + *v5;
+      gLocaleTables = *((_WORD *)v6 + 12);
+      word_1801D07C4 = *((_WORD *)v6 + 11);
+      word_1801D07C2 = *((_WORD *)v6 + 16);
+      word_1801D07F0 = *((_WORD *)v6 + 13);
+      qword_1801D07C8 = (__int64)v5 + *((unsigned int *)v6 + 7);
+      qword_1801D07D0 = (__int64)v5 + *((unsigned int *)v6 + 9);
+      qword_1801D07D8 = (__int64)v5 + *((unsigned int *)v6 + 10);
+      qword_1801D07E0 = (__int64)v5 + *((unsigned int *)v6 + 14);
       pTblPtrs = (__int64)&gLocaleTables;
       return 1;
     }
-    NtUnmapViewOfSection(-1LL);
-    v0 = gBaseAddress;
+    NtUnmapViewOfSection((HANDLE)0xFFFFFFFFFFFFFFFFLL, BaseAddress);
+    v4 = (unsigned int *)gBaseAddress;
 LABEL_8:
-    v4 = v0;
+    BaseAddress = v4;
     goto LABEL_6;
   }
   return 0;

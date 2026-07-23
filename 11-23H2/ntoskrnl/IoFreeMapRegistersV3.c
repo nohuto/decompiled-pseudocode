@@ -1,13 +1,13 @@
 /*
- * XREFs of IoFreeMapRegistersV3 @ 0x1405102D0
+ * XREFs of IoFreeMapRegistersV3 @ 0x140510820
  * Callers:
- *     IoFreeMapRegistersThunk @ 0x1405010C4 (IoFreeMapRegistersThunk.c)
- *     HalPutScatterGatherListV3 @ 0x14050F288 (HalPutScatterGatherListV3.c)
- *     IoFreeAdapterChannelV3Internal @ 0x140510254 (IoFreeAdapterChannelV3Internal.c)
+ *     IoFreeMapRegistersThunk @ 0x140501614 (IoFreeMapRegistersThunk.c)
+ *     HalPutScatterGatherListV3 @ 0x14050F7D8 (HalPutScatterGatherListV3.c)
+ *     IoFreeAdapterChannelV3Internal @ 0x1405107A4 (IoFreeAdapterChannelV3Internal.c)
  * Callees:
- *     HalpDmaFreeMapRegisters @ 0x14045C4F6 (HalpDmaFreeMapRegisters.c)
- *     HalpDmaProcessMapRegisterQueueV3 @ 0x14050FE78 (HalpDmaProcessMapRegisterQueueV3.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     HalpDmaFreeMapRegisters @ 0x14045C8F6 (HalpDmaFreeMapRegisters.c)
+ *     HalpDmaProcessMapRegisterQueueV3 @ 0x1405103C8 (HalpDmaProcessMapRegisterQueueV3.c)
  */
 
 void __fastcall IoFreeMapRegistersV3(__int64 a1, _QWORD *a2, unsigned int a3)
@@ -32,7 +32,7 @@ void __fastcall IoFreeMapRegistersV3(__int64 a1, _QWORD *a2, unsigned int a3)
     {
       CurrentIrql = KeGetCurrentIrql();
       __writecr8(2uLL);
-      if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+      if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
       {
         SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
         v8 = 4;
@@ -47,10 +47,10 @@ void __fastcall IoFreeMapRegistersV3(__int64 a1, _QWORD *a2, unsigned int a3)
     HalpDmaProcessMapRegisterQueueV3(v3, *(_BYTE *)(a1 + 442));
     if ( v5 )
     {
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v9 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v9 <= 0xFu && CurrentIrql <= 0xFu && v9 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v9 <= 0xFu && CurrentIrql <= 0xFu && v9 >= 2u )
         {
           CurrentPrcb = KeGetCurrentPrcb();
           v11 = CurrentPrcb->SchedulerAssist;
@@ -58,7 +58,7 @@ void __fastcall IoFreeMapRegistersV3(__int64 a1, _QWORD *a2, unsigned int a3)
           v13 = (v12 & v11[5]) == 0;
           v11[5] &= v12;
           if ( v13 )
-            KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+            KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
         }
       }
       __writecr8(CurrentIrql);

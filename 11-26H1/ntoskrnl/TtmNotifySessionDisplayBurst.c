@@ -1,14 +1,14 @@
 /*
- * XREFs of TtmNotifySessionDisplayBurst @ 0x140A3A998
+ * XREFs of TtmNotifySessionDisplayBurst @ 0x1409F6598
  * Callers:
- *     PopPowerSourceChangeCallback @ 0x1404FD400 (PopPowerSourceChangeCallback.c)
- *     NtPowerInformation @ 0x1409DE3E0 (NtPowerInformation.c)
+ *     PopPowerSourceChangeCallback @ 0x1404F6940 (PopPowerSourceChangeCallback.c)
+ *     NtPowerInformation @ 0x140A1B510 (NtPowerInformation.c)
  * Callees:
- *     ExReleaseResourceLite @ 0x1402B4CF0 (ExReleaseResourceLite.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     TtmiResetTerminalTimeouts @ 0x1407EC080 (TtmiResetTerminalTimeouts.c)
- *     TtmpAcquireSessionById @ 0x140A3AA34 (TtmpAcquireSessionById.c)
- *     TtmiLogError @ 0x140A3AAD8 (TtmiLogError.c)
+ *     ExReleaseResourceLite @ 0x1402FF9C0 (ExReleaseResourceLite.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     TtmiResetTerminalTimeouts @ 0x1407F1BE4 (TtmiResetTerminalTimeouts.c)
+ *     TtmpAcquireSessionById @ 0x1409F6634 (TtmpAcquireSessionById.c)
+ *     TtmiLogError @ 0x1409F66D8 (TtmiLogError.c)
  */
 
 __int64 __fastcall TtmNotifySessionDisplayBurst(unsigned int a1, int a2)
@@ -34,7 +34,7 @@ __int64 __fastcall TtmNotifySessionDisplayBurst(unsigned int a1, int a2)
         v5 = 1111769922;
     }
     TtmiResetTerminalTimeouts(v7, *(_QWORD *)(v7 + 32), a2, v5, 1);
-    ExReleaseResourceLite((PERESOURCE)&PsAltSystemCallRegistrationLock.WriteOperationCount);
+    ExReleaseResourceLite((PERESOURCE)&PsAltSystemCallRegistrationLock.WpsFeedback);
     KeLeaveCriticalRegion();
     return 0;
   }

@@ -1,11 +1,11 @@
 /*
- * XREFs of CmpInitializeKcbCache @ 0x14097C668
+ * XREFs of CmpInitializeKcbCache @ 0x14093E678
  * Callers:
- *     CmpLinkHiveToMaster @ 0x14097C11C (CmpLinkHiveToMaster.c)
- *     CmInitSystem1 @ 0x140CE888C (CmInitSystem1.c)
+ *     CmpLinkHiveToMaster @ 0x14093E12C (CmpLinkHiveToMaster.c)
+ *     CmInitSystem1 @ 0x140CEEC2C (CmInitSystem1.c)
  * Callees:
- *     CmpDeleteKcbCache @ 0x1408C8450 (CmpDeleteKcbCache.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
+ *     CmpDeleteKcbCache @ 0x1408CEA04 (CmpDeleteKcbCache.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall CmpInitializeKcbCache(__int64 a1, unsigned int a2)

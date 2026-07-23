@@ -1,9 +1,9 @@
 /*
- * XREFs of strtok_s @ 0x180134070
+ * XREFs of strtok_s @ 0x180133DE0
  * Callers:
  *     <none>
  * Callees:
- *     _invalid_parameter @ 0x180126898 (_invalid_parameter.c)
+ *     _invalid_parameter @ 0x180126608 (_invalid_parameter.c)
  */
 
 char *__cdecl strtok_s(char *String, const char *Delimiter, char **Context)

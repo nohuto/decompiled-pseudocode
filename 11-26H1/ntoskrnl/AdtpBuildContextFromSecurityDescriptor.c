@@ -1,10 +1,10 @@
 /*
- * XREFs of AdtpBuildContextFromSecurityDescriptor @ 0x140503204
+ * XREFs of AdtpBuildContextFromSecurityDescriptor @ 0x1404FCAD4
  * Callers:
- *     AdtpBuildAccessReasonAuditString @ 0x1404322F0 (AdtpBuildAccessReasonAuditString.c)
+ *     AdtpBuildAccessReasonAuditString @ 0x14041F320 (AdtpBuildAccessReasonAuditString.c)
  * Callees:
- *     SeRmReferenceFindCapName @ 0x140503264 (SeRmReferenceFindCapName.c)
- *     AdtpGetCapID @ 0x14052E6DC (AdtpGetCapID.c)
+ *     SeRmReferenceFindCapName @ 0x1404FCB34 (SeRmReferenceFindCapName.c)
+ *     AdtpGetCapID @ 0x140530BFC (AdtpGetCapID.c)
  */
 
 __int64 __fastcall AdtpBuildContextFromSecurityDescriptor(__int64 a1, _QWORD *a2)

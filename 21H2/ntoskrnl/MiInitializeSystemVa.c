@@ -1,13 +1,13 @@
 /*
- * XREFs of MiInitializeSystemVa @ 0x140A4F300
+ * XREFs of MiInitializeSystemVa @ 0x140A50300
  * Callers:
- *     MmInitSystem @ 0x140A53D6C (MmInitSystem.c)
+ *     MmInitSystem @ 0x140A54D6C (MmInitSystem.c)
  * Callees:
- *     MiAssignSoftwareWsleRegion @ 0x1403B7160 (MiAssignSoftwareWsleRegion.c)
- *     MiRebaseDynamicRelocationRegions @ 0x140A4F400 (MiRebaseDynamicRelocationRegions.c)
- *     MiConvertAssignedRegionToVaType @ 0x140A50824 (MiConvertAssignedRegionToVaType.c)
- *     MiAssignTopLevelRanges @ 0x140A508A8 (MiAssignTopLevelRanges.c)
- *     MiInitializeTopLevelBitmap @ 0x140A50CF0 (MiInitializeTopLevelBitmap.c)
+ *     MiAssignSoftwareWsleRegion @ 0x1403B72D0 (MiAssignSoftwareWsleRegion.c)
+ *     MiRebaseDynamicRelocationRegions @ 0x140A50400 (MiRebaseDynamicRelocationRegions.c)
+ *     MiConvertAssignedRegionToVaType @ 0x140A51824 (MiConvertAssignedRegionToVaType.c)
+ *     MiAssignTopLevelRanges @ 0x140A518A8 (MiAssignTopLevelRanges.c)
+ *     MiInitializeTopLevelBitmap @ 0x140A51CF0 (MiInitializeTopLevelBitmap.c)
  */
 
 __int64 __fastcall MiInitializeSystemVa(__int64 a1)
@@ -53,7 +53,7 @@ LABEL_5:
     v5 = 0xFFFFF78000000000uLL;
   MiAssignSoftwareWsleRegion(a1, v5);
   LODWORD(v6) = 0;
-  v7 = qword_140C4FAD0;
+  v7 = qword_140C4FB10;
   do
   {
     v8 = MiConvertAssignedRegionToVaType((unsigned int)v6, (((unsigned __int64)*(v7 - 1) >> 39) & 0x1FF) - 256);

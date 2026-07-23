@@ -1,53 +1,53 @@
 /*
- * XREFs of RtlCultureNameToLCID @ 0x14073EF00
+ * XREFs of RtlCultureNameToLCID @ 0x1407400F0
  * Callers:
- *     RtlpMuiRegLoadLicInformation @ 0x140182AE0 (RtlpMuiRegLoadLicInformation.c)
- *     RtlpLoadInstallLanguageFallback @ 0x14073C9C4 (RtlpLoadInstallLanguageFallback.c)
- *     _RtlpMuiRegInitAnyLanguage @ 0x14073EBD0 (_RtlpMuiRegInitAnyLanguage.c)
- *     RtlpLoadPolicyLanguageSpec @ 0x1409066F8 (RtlpLoadPolicyLanguageSpec.c)
- *     RtlpMuiRegConfigMatchesInstalled @ 0x140906A18 (RtlpMuiRegConfigMatchesInstalled.c)
- *     RtlpMuiRegGetInstalledLanguageIndex @ 0x140906E38 (RtlpMuiRegGetInstalledLanguageIndex.c)
- *     RtlpMuiRegGetLanguageSpec @ 0x140907058 (RtlpMuiRegGetLanguageSpec.c)
- *     RtlpMuiRegLangInfoMatchesSpec @ 0x140907190 (RtlpMuiRegLangInfoMatchesSpec.c)
- *     _RtlMuiRegAddLIPParent @ 0x140907558 (_RtlMuiRegAddLIPParent.c)
+ *     RtlpMuiRegLoadLicInformation @ 0x140182C20 (RtlpMuiRegLoadLicInformation.c)
+ *     RtlpLoadInstallLanguageFallback @ 0x14073DBB4 (RtlpLoadInstallLanguageFallback.c)
+ *     _RtlpMuiRegInitAnyLanguage @ 0x14073FDC0 (_RtlpMuiRegInitAnyLanguage.c)
+ *     RtlpLoadPolicyLanguageSpec @ 0x1409079B8 (RtlpLoadPolicyLanguageSpec.c)
+ *     RtlpMuiRegConfigMatchesInstalled @ 0x140907CD8 (RtlpMuiRegConfigMatchesInstalled.c)
+ *     RtlpMuiRegGetInstalledLanguageIndex @ 0x1409080F8 (RtlpMuiRegGetInstalledLanguageIndex.c)
+ *     RtlpMuiRegGetLanguageSpec @ 0x140908318 (RtlpMuiRegGetLanguageSpec.c)
+ *     RtlpMuiRegLangInfoMatchesSpec @ 0x140908450 (RtlpMuiRegLangInfoMatchesSpec.c)
+ *     _RtlMuiRegAddLIPParent @ 0x140908818 (_RtlMuiRegAddLIPParent.c)
  * Callees:
- *     DownLevelLanguageNameToLangID @ 0x140182F00 (DownLevelLanguageNameToLangID.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     memmove @ 0x1401D1540 (memmove.c)
- *     __report_rangecheckfailure @ 0x140268DCC (__report_rangecheckfailure.c)
+ *     DownLevelLanguageNameToLangID @ 0x140183040 (DownLevelLanguageNameToLangID.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     __report_rangecheckfailure @ 0x140268FBC (__report_rangecheckfailure.c)
  */
 
-bool __fastcall RtlCultureNameToLCID(unsigned __int16 *a1, _DWORD *a2)
+BOOLEAN __cdecl RtlCultureNameToLCID(PUNICODE_STRING String, PLCID Lcid)
 {
-  char v2; // di
-  unsigned __int16 v4; // r8
-  const void *v5; // rdx
+  BOOLEAN v2; // di
+  unsigned __int16 Length; // r8
+  wchar_t *Buffer; // rdx
   unsigned __int64 v6; // rbx
   unsigned __int64 v7; // rbx
   unsigned __int16 v8; // ax
   _WORD v10[88]; // [rsp+20h] [rbp-C8h] BYREF
 
   v2 = 0;
-  if ( a1 )
+  if ( String )
   {
-    if ( a2 )
+    if ( Lcid )
     {
-      v4 = *a1;
-      if ( *a1 )
+      Length = String->Length;
+      if ( String->Length )
       {
-        v5 = (const void *)*((_QWORD *)a1 + 1);
-        if ( v5 )
+        Buffer = String->Buffer;
+        if ( Buffer )
         {
-          if ( (unsigned int)v4 + 2 <= 0x55 )
+          if ( (unsigned int)Length + 2 <= 0x55 )
           {
-            v6 = v4;
-            memmove(v10, v5, v4);
+            v6 = Length;
+            memmove(v10, Buffer, Length);
             v7 = v6 >> 1;
             if ( v7 >= 85 )
               _report_rangecheckfailure();
             v10[v7] = 0;
             v8 = DownLevelLanguageNameToLangID(v10, 2);
-            *a2 = v8;
+            *Lcid = v8;
             return v8 != 0;
           }
         }

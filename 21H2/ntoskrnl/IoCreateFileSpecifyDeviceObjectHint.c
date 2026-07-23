@@ -1,9 +1,9 @@
 /*
- * XREFs of IoCreateFileSpecifyDeviceObjectHint @ 0x1406BC730
+ * XREFs of IoCreateFileSpecifyDeviceObjectHint @ 0x14061B900
  * Callers:
  *     <none>
  * Callees:
- *     IoCreateFileEx @ 0x14060B270 (IoCreateFileEx.c)
+ *     IoCreateFileEx @ 0x14069AD20 (IoCreateFileEx.c)
  */
 
 NTSTATUS __stdcall IoCreateFileSpecifyDeviceObjectHint(

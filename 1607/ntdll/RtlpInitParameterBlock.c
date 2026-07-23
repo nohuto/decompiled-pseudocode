@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpInitParameterBlock @ 0x180080F98
+ * XREFs of RtlpInitParameterBlock @ 0x180080F88
  * Callers:
- *     LdrpInitializeProcess @ 0x180091E34 (LdrpInitializeProcess.c)
+ *     LdrpInitializeProcess @ 0x180091E24 (LdrpInitializeProcess.c)
  * Callees:
- *     RtlAllocateHeap @ 0x180022DB0 (RtlAllocateHeap.c)
+ *     RtlAllocateHeap @ 0x180022DA0 (RtlAllocateHeap.c)
  *     ZwFreeVirtualMemory @ 0x1800A67E0 (ZwFreeVirtualMemory.c)
  *     memmove @ 0x1800AC980 (memmove.c)
  */
@@ -24,12 +24,12 @@ __int64 RtlpInitParameterBlock()
   __int64 v11; // rax
   __int64 v12; // rax
   void *Src; // [rsp+30h] [rbp+8h] BYREF
-  __int64 v15; // [rsp+38h] [rbp+10h] BYREF
+  ULONG_PTR RegionSize; // [rsp+38h] [rbp+10h] BYREF
 
   v0 = NtCurrentPeb();
   Src = v0->ProcessParameters;
   v1 = *((_DWORD *)Src + 1);
-  Heap = (char *)RtlAllocateHeap((__int64)v0->ProcessHeap, 0, v1);
+  Heap = (char *)RtlAllocateHeap(v0->ProcessHeap, 0, v1);
   v3 = Heap;
   if ( !Heap )
     return 3221225626LL;
@@ -60,7 +60,7 @@ __int64 RtlpInitParameterBlock()
   if ( v12 )
     *((_QWORD *)v3 + 29) = v5 + v12;
   v0->ProcessParameters = (_RTL_USER_PROCESS_PARAMETERS *)v3;
-  v15 = 0LL;
-  ZwFreeVirtualMemory(-1LL, &Src, &v15, 0x8000LL);
+  RegionSize = 0LL;
+  ZwFreeVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &Src, &RegionSize, 0x8000u);
   return 0LL;
 }

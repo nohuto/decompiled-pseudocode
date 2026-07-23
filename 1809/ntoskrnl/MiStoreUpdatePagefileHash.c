@@ -1,12 +1,12 @@
 /*
- * XREFs of MiStoreUpdatePagefileHash @ 0x14014FB2C
+ * XREFs of MiStoreUpdatePagefileHash @ 0x14014FC2C
  * Callers:
- *     MiStoreWriteModifiedPages @ 0x14014CBA0 (MiStoreWriteModifiedPages.c)
+ *     MiStoreWriteModifiedPages @ 0x14014CCA0 (MiStoreWriteModifiedPages.c)
  * Callees:
  *     MiLockPageInline @ 0x14002CE40 (MiLockPageInline.c)
- *     MiGetPagingFileOffset @ 0x14010FA24 (MiGetPagingFileOffset.c)
- *     MiMapPageFileHash @ 0x14014FCD8 (MiMapPageFileHash.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiGetPagingFileOffset @ 0x14010FAA4 (MiGetPagingFileOffset.c)
+ *     MiMapPageFileHash @ 0x14014FDD8 (MiMapPageFileHash.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiStoreUpdatePagefileHash(__int64 a1, __int64 a2, __int64 a3, unsigned int a4)
@@ -47,7 +47,7 @@ __int64 __fastcall MiStoreUpdatePagefileHash(__int64 a1, __int64 a2, __int64 a3,
     do
     {
       result = *v6;
-      if ( *v6 == qword_14043ADC8 )
+      if ( *v6 == qword_14043BE88 )
       {
         v14 = 16;
         v18 = v8;
@@ -79,8 +79,8 @@ __int64 __fastcall MiStoreUpdatePagefileHash(__int64 a1, __int64 a2, __int64 a3,
         v11 = a3;
         if ( !v9 )
         {
-          result = qword_14043A748;
-          v9 = *(_QWORD *)(qword_14043A748 + 8 * ((*(_QWORD *)(v17 + 40) >> 40) & 0x3FFLL));
+          result = qword_14043B808;
+          v9 = *(_QWORD *)(qword_14043B808 + 8 * ((*(_QWORD *)(v17 + 40) >> 40) & 0x3FFLL));
         }
       }
       if ( v12 == v14 && v18 == v8 )

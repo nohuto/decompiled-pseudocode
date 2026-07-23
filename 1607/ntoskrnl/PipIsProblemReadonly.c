@@ -1,10 +1,10 @@
 /*
- * XREFs of PipIsProblemReadonly @ 0x14062E250
+ * XREFs of PipIsProblemReadonly @ 0x14062E304
  * Callers:
- *     PnpRemoveLockedDeviceNode @ 0x14009E908 (PnpRemoveLockedDeviceNode.c)
- *     PiProcessClearDeviceProblem @ 0x14064973C (PiProcessClearDeviceProblem.c)
- *     PiProcessSetDeviceProblem @ 0x1406499F8 (PiProcessSetDeviceProblem.c)
- *     PiEventQueryRemoveNoFdo @ 0x14064D150 (PiEventQueryRemoveNoFdo.c)
+ *     PnpRemoveLockedDeviceNode @ 0x140085A68 (PnpRemoveLockedDeviceNode.c)
+ *     PiProcessClearDeviceProblem @ 0x140649820 (PiProcessClearDeviceProblem.c)
+ *     PiProcessSetDeviceProblem @ 0x140649ADC (PiProcessSetDeviceProblem.c)
+ *     PiEventQueryRemoveNoFdo @ 0x14064D234 (PiEventQueryRemoveNoFdo.c)
  * Callees:
  *     <none>
  */

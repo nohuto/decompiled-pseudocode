@@ -1,13 +1,13 @@
 /*
- * XREFs of EtwpRegisterGuidsApiCallback @ 0x1800F1524
+ * XREFs of EtwpRegisterGuidsApiCallback @ 0x1800EC1A4
  * Callers:
- *     EtwpCheckForPrivatePreEnable @ 0x18001D9C0 (EtwpCheckForPrivatePreEnable.c)
- *     EtwpUpdateEnableInfoAndCallback @ 0x18001E990 (EtwpUpdateEnableInfoAndCallback.c)
+ *     EtwpCheckForPrivatePreEnable @ 0x18004A3C0 (EtwpCheckForPrivatePreEnable.c)
+ *     EtwpUpdateEnableInfoAndCallback @ 0x18004B390 (EtwpUpdateEnableInfoAndCallback.c)
  * Callees:
- *     RtlReleaseSRWLockExclusive @ 0x1800567B0 (RtlReleaseSRWLockExclusive.c)
- *     EtwpAcquireGuidEntryExclusive @ 0x18010AC5C (EtwpAcquireGuidEntryExclusive.c)
- *     __security_check_cookie @ 0x1801659C0 (__security_check_cookie.c)
- *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x180172020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
+ *     RtlReleaseSRWLockExclusive @ 0x18006C390 (RtlReleaseSRWLockExclusive.c)
+ *     EtwpAcquireGuidEntryExclusive @ 0x1801057CC (EtwpAcquireGuidEntryExclusive.c)
+ *     __security_check_cookie @ 0x180163D80 (__security_check_cookie.c)
+ *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x180171020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
  */
 
 __int64 __fastcall EtwpRegisterGuidsApiCallback(__int64 a1, __int64 a2, char a3)
@@ -53,7 +53,7 @@ __int64 __fastcall EtwpRegisterGuidsApiCallback(__int64 a1, __int64 a2, char a3)
     *(_QWORD *)(v4 + 152) = *(_QWORD *)(a1 + 104);
     *(_DWORD *)(v4 + 160) = v3;
     *(_DWORD *)(v4 + 48) = 0;
-    RtlReleaseSRWLockExclusive((volatile signed __int64 *)(v4 + 40));
+    RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(v4 + 40));
   }
   v9 = *(_QWORD *)(a2 + 56);
   v10 = *(_OWORD *)(a1 + 40);

@@ -1,12 +1,12 @@
 /*
- * XREFs of MiVadCommitCrossPartition @ 0x14031823C
+ * XREFs of MiVadCommitCrossPartition @ 0x140322F8C
  * Callers:
- *     MiDeleteVad @ 0x14021BFF0 (MiDeleteVad.c)
- *     MiRemoveVadCharges @ 0x1406ED1F0 (MiRemoveVadCharges.c)
- *     MiDecommitRegion @ 0x1406EE5F0 (MiDecommitRegion.c)
+ *     MiDeleteVad @ 0x1402C08F0 (MiDeleteVad.c)
+ *     MiRemoveVadCharges @ 0x1407045D0 (MiRemoveVadCharges.c)
+ *     MiDecommitRegion @ 0x1407059D0 (MiDecommitRegion.c)
  * Callees:
- *     MiLocateLockedVadEvent @ 0x1402FE3CC (MiLocateLockedVadEvent.c)
- *     MiIsVadLarge @ 0x140318264 (MiIsVadLarge.c)
+ *     MiLocateLockedVadEvent @ 0x14030911C (MiLocateLockedVadEvent.c)
+ *     MiIsVadLarge @ 0x140322FB4 (MiIsVadLarge.c)
  */
 
 __int64 __fastcall MiVadCommitCrossPartition(__int64 a1)

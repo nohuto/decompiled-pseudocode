@@ -10,7 +10,7 @@
  */
 
 __int64 __fastcall LdrpFindOrPrepareLoadingModule(
-        unsigned __int16 *a1,
+        PUNICODE_STRING a1,
         int a2,
         int a3,
         int a4,

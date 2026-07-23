@@ -1,12 +1,12 @@
 /*
- * XREFs of PpmParkReportUnparkedCores @ 0x1403546E0
+ * XREFs of PpmParkReportUnparkedCores @ 0x1402B2410
  * Callers:
  *     <none>
  * Callees:
- *     PpmPerfQueueAction @ 0x14029F0D0 (PpmPerfQueueAction.c)
- *     KeGetPrcb @ 0x140352980 (KeGetPrcb.c)
- *     ?KiSubtractAffinityEx@@YAKPEAU_KAFFINITY_EX@@00G@Z @ 0x140354CF8 (-KiSubtractAffinityEx@@YAKPEAU_KAFFINITY_EX@@00G@Z.c)
- *     KeCountSetBitsAffinityEx @ 0x1403AFC80 (KeCountSetBitsAffinityEx.c)
+ *     PpmPerfQueueAction @ 0x1402AF01C (PpmPerfQueueAction.c)
+ *     KeGetPrcb @ 0x1402B0A10 (KeGetPrcb.c)
+ *     ?KiSubtractAffinityEx@@YAKPEAU_KAFFINITY_EX@@00G@Z @ 0x1402B2A28 (-KiSubtractAffinityEx@@YAKPEAU_KAFFINITY_EX@@00G@Z.c)
+ *     KeCountSetBitsAffinityEx @ 0x14039E490 (KeCountSetBitsAffinityEx.c)
  */
 
 char PpmParkReportUnparkedCores()
@@ -36,7 +36,7 @@ char PpmParkReportUnparkedCores()
     {
       _BitScanForward64(&v4, v2);
       v2 &= ~(1LL << v4);
-      Prcb = KeGetPrcb(*((_DWORD *)qword_140F21E78 + 64 * (unsigned __int16)v3 + (unsigned __int8)v4));
+      Prcb = KeGetPrcb(*((_DWORD *)qword_140F22998 + 64 * (unsigned __int16)v3 + (unsigned __int8)v4));
       PpmPerfQueueAction(Prcb, 1);
     }
     v3 = (unsigned __int16)(v3 + 1);

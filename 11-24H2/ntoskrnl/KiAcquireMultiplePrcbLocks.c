@@ -1,13 +1,13 @@
 /*
- * XREFs of KiAcquireMultiplePrcbLocks @ 0x140298E80
+ * XREFs of KiAcquireMultiplePrcbLocks @ 0x1402A7970
  * Callers:
- *     KiExecuteAllDpcs @ 0x1402552D0 (KiExecuteAllDpcs.c)
- *     KiEnterLongDpcProcessing @ 0x140298AA4 (KiEnterLongDpcProcessing.c)
- *     KeApplyWobBamQos @ 0x1402A2218 (KeApplyWobBamQos.c)
- *     KiExitDispatcher @ 0x14031E7A0 (KiExitDispatcher.c)
+ *     KiExecuteAllDpcs @ 0x1402858E0 (KiExecuteAllDpcs.c)
+ *     KiEnterLongDpcProcessing @ 0x1402A7594 (KiEnterLongDpcProcessing.c)
+ *     KiExitDispatcher @ 0x1402C7330 (KiExitDispatcher.c)
+ *     KeApplyWobBamQos @ 0x1402D1948 (KeApplyWobBamQos.c)
  * Callees:
- *     HvlNotifyLongSpinWait @ 0x140293260 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140293290 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     HvlNotifyLongSpinWait @ 0x1402A2E60 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1402A2E90 (KiCheckVpBackingLongSpinWaitHypercall.c)
  */
 
 void __fastcall KiAcquireMultiplePrcbLocks(__int64 *a1, unsigned int a2)

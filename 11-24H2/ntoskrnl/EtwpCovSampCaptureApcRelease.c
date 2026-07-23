@@ -1,14 +1,14 @@
 /*
- * XREFs of EtwpCovSampCaptureApcRelease @ 0x14043E5C4
+ * XREFs of EtwpCovSampCaptureApcRelease @ 0x1404341E4
  * Callers:
- *     EtwpCovSampCaptureApc @ 0x14043E480 (EtwpCovSampCaptureApc.c)
- *     EtwpCovSampCaptureCancelApcs @ 0x140651964 (EtwpCovSampCaptureCancelApcs.c)
- *     EtwpCovSampCaptureQueueApc @ 0x140651B10 (EtwpCovSampCaptureQueueApc.c)
- *     EtwpCovSampCaptureApcRundown @ 0x1407B1F80 (EtwpCovSampCaptureApcRundown.c)
+ *     EtwpCovSampCaptureApc @ 0x1404340A0 (EtwpCovSampCaptureApc.c)
+ *     EtwpCovSampCaptureCancelApcs @ 0x140650064 (EtwpCovSampCaptureCancelApcs.c)
+ *     EtwpCovSampCaptureQueueApc @ 0x140650210 (EtwpCovSampCaptureQueueApc.c)
+ *     EtwpCovSampCaptureApcRundown @ 0x1407B23D0 (EtwpCovSampCaptureApcRundown.c)
  * Callees:
- *     KeInsertQueueDpc @ 0x1402542F0 (KeInsertQueueDpc.c)
- *     RtlpInterlockedPushEntrySList @ 0x1406B38D0 (RtlpInterlockedPushEntrySList.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     KeInsertQueueDpc @ 0x140284900 (KeInsertQueueDpc.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1406B4870 (RtlpInterlockedPushEntrySList.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 char __fastcall EtwpCovSampCaptureApcRelease(PSLIST_ENTRY ListEntry)
@@ -18,7 +18,7 @@ char __fastcall EtwpCovSampCaptureApcRelease(PSLIST_ENTRY ListEntry)
   _SLIST_ENTRY *v4; // rbx
   unsigned __int32 v5; // eax
 
-  v1 = qword_140EFEC88;
+  v1 = qword_140EFEFA8;
   memset_0(&ListEntry[3].Next + 1, 0, 0x58uLL);
   LODWORD(ListEntry[9].Next) = 0;
   Next = ListEntry[3].Next;

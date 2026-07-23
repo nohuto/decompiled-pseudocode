@@ -34,25 +34,23 @@ __int64 PopPowerButtonWorkCallback()
   int v6; // eax
   bool v7; // zf
   __int64 v8; // rsi
-  __int64 v9; // rdx
-  __int64 v10; // rcx
   __int64 result; // rax
-  struct _KPRCB *v12; // r9
-  _DWORD *v13; // r8
-  unsigned int ActiveConsoleId; // eax
-  __int64 v15; // rdx
+  struct _KPRCB *v10; // r9
+  _DWORD *v11; // r8
+  ULONG ActiveConsoleId; // eax
+  __int64 v13; // rdx
   _KPROCESS *SessionById; // rax
-  int v17; // [rsp+30h] [rbp-58h] BYREF
-  __int64 v18; // [rsp+38h] [rbp-50h]
-  _OWORD v19[3]; // [rsp+40h] [rbp-48h] BYREF
+  int v15; // [rsp+30h] [rbp-58h] BYREF
+  __int64 v16; // [rsp+38h] [rbp-50h]
+  _OWORD v17[3]; // [rsp+40h] [rbp-48h] BYREF
 
-  v17 = 0;
-  memset(v19, 0, sizeof(v19));
+  v15 = 0;
+  memset(v17, 0, sizeof(v17));
   LOBYTE(v0) = KeAcquireSpinLockRaiseToDpc(&PopPowerButtonHold);
   do
   {
     v1 = qword_140C208B8;
-    v18 = qword_140C208B8;
+    v16 = qword_140C208B8;
     KxReleaseSpinLock(&PopPowerButtonHold);
     if ( KiIrqlFlags )
     {
@@ -73,8 +71,8 @@ __int64 PopPowerButtonWorkCallback()
       }
     }
     __writecr8((unsigned __int8)v0);
-    v8 = HIDWORD(v18);
-    if ( (dword_140C208C0 & 1) != 0 && ((v1 & 1) == 0 || HIDWORD(v18) != dword_140C208C4) )
+    v8 = HIDWORD(v16);
+    if ( (dword_140C208C0 & 1) != 0 && ((v1 & 1) == 0 || HIDWORD(v16) != dword_140C208C4) )
     {
       PopRecordPhysicalPowerButton(0LL);
       dword_140C208C0 = 0;
@@ -90,12 +88,12 @@ __int64 PopPowerButtonWorkCallback()
         PopRecordPhysicalPowerButton(v2);
         dword_140C208C4 = v8;
         dword_140C208C8 = PopQueryPowerButtonBugcheckEnabled();
-        v17 = 65544;
+        v15 = 65544;
         KeInitializeIRTimer(
           (__int64)&unk_140C20808,
           (__int64)PopPowerButtonTimerCallback,
           v8,
-          (unsigned __int8 *)&v17,
+          (unsigned __int8 *)&v15,
           2);
         KeSetTimer2((__int64)&unk_140C20808, -10000000LL, 10000000LL, 0LL);
       }
@@ -109,9 +107,9 @@ __int64 PopPowerButtonWorkCallback()
         PopRecordPoBlackboxInformation();
         if ( dword_140C208C8 )
         {
-          ActiveConsoleId = RtlGetActiveConsoleId(v10, v9);
-          SessionById = (_KPROCESS *)MmGetSessionById(ActiveConsoleId, v15);
-          if ( SessionById && (int)MmAttachSession(SessionById, (__int64)v19) < 0 )
+          ActiveConsoleId = RtlGetActiveConsoleId();
+          SessionById = (_KPROCESS *)MmGetSessionById(ActiveConsoleId, v13);
+          if ( SessionById && (int)MmAttachSession(SessionById, (__int64)v17) < 0 )
             DbgPrintEx(0x92u, 3u, "Unable to attach to active session\n");
           KeBugCheckEx(0x1C8u, (unsigned __int64)v1 >> 1, (ULONG_PTR)&PopPowerButtonTriageBlock, 0LL, 0LL);
         }
@@ -130,13 +128,13 @@ __int64 PopPowerButtonWorkCallback()
       result = KeGetCurrentIrql();
       if ( (unsigned __int8)result <= 0xFu && (unsigned __int8)v0 <= 0xFu && (unsigned __int8)result >= 2u )
       {
-        v12 = KeGetCurrentPrcb();
+        v10 = KeGetCurrentPrcb();
         result = ~(unsigned __int16)(-1LL << ((unsigned __int8)v0 + 1));
-        v13 = v12->SchedulerAssist;
-        v7 = ((unsigned int)result & v13[5]) == 0;
-        v13[5] &= result;
+        v11 = v10->SchedulerAssist;
+        v7 = ((unsigned int)result & v11[5]) == 0;
+        v11[5] &= result;
         if ( v7 )
-          result = KiRemoveSystemWorkPriorityKick((__int64)v12);
+          result = KiRemoveSystemWorkPriorityKick((__int64)v10);
       }
     }
   }

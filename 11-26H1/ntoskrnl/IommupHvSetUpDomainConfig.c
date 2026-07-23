@@ -1,11 +1,11 @@
 /*
- * XREFs of IommupHvSetUpDomainConfig @ 0x14059E92C
+ * XREFs of IommupHvSetUpDomainConfig @ 0x1405A110C
  * Callers:
- *     IommupHvAttachPasidDevice @ 0x14059D89C (IommupHvAttachPasidDevice.c)
- *     IommupHvAttachPasidDeviceDomain @ 0x14059DC44 (IommupHvAttachPasidDeviceDomain.c)
- *     IommupHvAttachPasidSubDeviceDomain @ 0x14059DDF4 (IommupHvAttachPasidSubDeviceDomain.c)
+ *     IommupHvAttachPasidDevice @ 0x1405A001C (IommupHvAttachPasidDevice.c)
+ *     IommupHvAttachPasidDeviceDomain @ 0x1405A03C4 (IommupHvAttachPasidDeviceDomain.c)
+ *     IommupHvAttachPasidSubDeviceDomain @ 0x1405A0574 (IommupHvAttachPasidSubDeviceDomain.c)
  * Callees:
- *     HalpIommuGetDmarptRootAddress @ 0x1405A0B0C (HalpIommuGetDmarptRootAddress.c)
+ *     HalpIommuGetDmarptRootAddress @ 0x1405A331C (HalpIommuGetDmarptRootAddress.c)
  */
 
 __int64 __fastcall IommupHvSetUpDomainConfig(__int64 a1, __int64 a2)

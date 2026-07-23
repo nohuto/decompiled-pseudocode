@@ -1,14 +1,14 @@
 /*
- * XREFs of PsRegisterSiloMonitor @ 0x1407FBB20
+ * XREFs of PsRegisterSiloMonitor @ 0x140801550
  * Callers:
  *     <none>
  * Callees:
- *     RtlCopyUnicodeString @ 0x140419A90 (RtlCopyUnicodeString.c)
- *     PsGetCurrentSilo @ 0x14041BBC0 (PsGetCurrentSilo.c)
- *     PsIsHostSilo @ 0x14046E630 (PsIsHostSilo.c)
- *     PspStorageAllocSlot @ 0x1407FF9E4 (PspStorageAllocSlot.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     RtlCopyUnicodeString @ 0x14040DFC0 (RtlCopyUnicodeString.c)
+ *     PsGetCurrentSilo @ 0x140413410 (PsGetCurrentSilo.c)
+ *     PsIsHostSilo @ 0x140467DB0 (PsIsHostSilo.c)
+ *     PspStorageAllocSlot @ 0x140805414 (PspStorageAllocSlot.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PsRegisterSiloMonitor(__int64 a1, _QWORD *a2)

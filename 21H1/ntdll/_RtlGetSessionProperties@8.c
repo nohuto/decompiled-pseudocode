@@ -8,25 +8,25 @@
  *     @__security_check_cookie@4 @ 0x4B2F4B20 (@__security_check_cookie@4.c)
  */
 
-int __stdcall RtlGetSessionProperties(int a1, _DWORD *a2)
+NTSTATUS __cdecl RtlGetSessionProperties(ULONG SessionId, PULONG SharedUserSessionId)
 {
-  int v2; // esi
+  NTSTATUS v2; // esi
   _BYTE *SharedData; // ecx
-  _BYTE v5[588]; // [esp+10h] [ebp-250h] BYREF
+  _BYTE JobObjectInformation[588]; // [esp+10h] [ebp-250h] BYREF
 
-  if ( a1 == -1 || !a2 )
+  if ( SessionId == -1 || !SharedUserSessionId )
     return -1073741811;
   v2 = 0;
-  *a2 = 0;
+  *SharedUserSessionId = 0;
   if ( RtlGetCurrentServiceSessionId() )
   {
     SharedData = NtCurrentPeb()->SharedData;
   }
   else
   {
-    ZwQueryInformationJobObject(0, 39, (int)v5, 584, 0);
-    SharedData = v5;
+    ZwQueryInformationJobObject(0, JobObjectServerSiloUserSharedData, JobObjectInformation, 0x248u, 0);
+    SharedData = JobObjectInformation;
   }
-  *a2 = *((_DWORD *)SharedData + 6) == a1;
+  *SharedUserSessionId = *((_DWORD *)SharedData + 6) == SessionId;
   return v2;
 }

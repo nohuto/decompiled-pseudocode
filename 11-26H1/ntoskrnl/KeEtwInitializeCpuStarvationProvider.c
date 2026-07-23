@@ -1,12 +1,12 @@
 /*
- * XREFs of KeEtwInitializeCpuStarvationProvider @ 0x1405E8CE4
+ * XREFs of KeEtwInitializeCpuStarvationProvider @ 0x1405EB654
  * Callers:
- *     EtwpCpuStarvationProvEnableCallback @ 0x1406C3940 (EtwpCpuStarvationProvEnableCallback.c)
+ *     EtwpCpuStarvationProvEnableCallback @ 0x1406C7580 (EtwpCpuStarvationProvEnableCallback.c)
  * Callees:
- *     KeGetPrcb @ 0x1402916D0 (KeGetPrcb.c)
- *     KeEnumerateNextProcessor @ 0x14043BC70 (KeEnumerateNextProcessor.c)
- *     ExAllocatePool3 @ 0x140C10010 (ExAllocatePool3.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     KeGetPrcb @ 0x140290C30 (KeGetPrcb.c)
+ *     KeEnumerateNextProcessor @ 0x14042E520 (KeEnumerateNextProcessor.c)
+ *     ExAllocatePool3 @ 0x140C16010 (ExAllocatePool3.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 KeEtwInitializeCpuStarvationProvider()
@@ -23,9 +23,9 @@ __int64 KeEtwInitializeCpuStarvationProvider()
   __int16 v9; // [rsp+56h] [rbp-Ah]
   unsigned int v10; // [rsp+70h] [rbp+10h] BYREF
 
-  v6[1] = *(unsigned __int16 **)((char *)&stru_140FC01F0.116 + 4);
+  v6[1] = *(unsigned __int16 **)((char *)&stru_140FC11F0.116 + 4);
   v8 = 0;
-  v6[0] = (unsigned __int16 *)&stru_140FC01F0.WaitRegister.Flags;
+  v6[0] = (unsigned __int16 *)&stru_140FC11F0.WaitRegister.Flags;
   v9 = 0;
   v5 = 0LL;
   v10 = 0;

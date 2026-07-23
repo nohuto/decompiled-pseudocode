@@ -1,23 +1,23 @@
 /*
- * XREFs of EtwpCoverageSamplerStop @ 0x1409F36C4
+ * XREFs of EtwpCoverageSamplerStop @ 0x1409F3954
  * Callers:
- *     EtwpCoverageSamplerClose @ 0x1409F3020 (EtwpCoverageSamplerClose.c)
- *     EtwpSetCoverageSamplerInformation @ 0x1409F3BDC (EtwpSetCoverageSamplerInformation.c)
+ *     EtwpCoverageSamplerClose @ 0x1409F32B0 (EtwpCoverageSamplerClose.c)
+ *     EtwpSetCoverageSamplerInformation @ 0x1409F3E6C (EtwpSetCoverageSamplerInformation.c)
  * Callees:
  *     ExRundownCompleted @ 0x140208880 (ExRundownCompleted.c)
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     ExfTryToWakePushLock @ 0x1402BD960 (ExfTryToWakePushLock.c)
- *     ExWaitForRundownProtectionRelease @ 0x14030A340 (ExWaitForRundownProtectionRelease.c)
- *     KeStopProfile @ 0x14057401C (KeStopProfile.c)
- *     EtwpCovSampCaptureContextStop @ 0x140603098 (EtwpCovSampCaptureContextStop.c)
- *     PsGetNextProcess @ 0x1407441B0 (PsGetNextProcess.c)
- *     EtwUnregister @ 0x1407C0E00 (EtwUnregister.c)
- *     EtwpUpdateGlobalGroupMasks @ 0x1407D4E7C (EtwpUpdateGlobalGroupMasks.c)
- *     PsRemoveLoadImageNotifyRoutine @ 0x1409B5D00 (PsRemoveLoadImageNotifyRoutine.c)
- *     EtwpCovSampProcessCleanup @ 0x1409F2AA8 (EtwpCovSampProcessCleanup.c)
+ *     KeLeaveCriticalRegionThread @ 0x14022F7F0 (KeLeaveCriticalRegionThread.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140231120 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     ObfDereferenceObject @ 0x140231660 (ObfDereferenceObject.c)
+ *     ExfTryToWakePushLock @ 0x1402BDBF0 (ExfTryToWakePushLock.c)
+ *     ExWaitForRundownProtectionRelease @ 0x14030A5D0 (ExWaitForRundownProtectionRelease.c)
+ *     KeStopProfile @ 0x14057455C (KeStopProfile.c)
+ *     EtwpCovSampCaptureContextStop @ 0x1406035E8 (EtwpCovSampCaptureContextStop.c)
+ *     PsGetNextProcess @ 0x1407443A0 (PsGetNextProcess.c)
+ *     EtwUnregister @ 0x1407C10D0 (EtwUnregister.c)
+ *     EtwpUpdateGlobalGroupMasks @ 0x1407D514C (EtwpUpdateGlobalGroupMasks.c)
+ *     PsRemoveLoadImageNotifyRoutine @ 0x1409B5F00 (PsRemoveLoadImageNotifyRoutine.c)
+ *     EtwpCovSampProcessCleanup @ 0x1409F2D38 (EtwpCovSampProcessCleanup.c)
  */
 
 NTSTATUS __fastcall EtwpCoverageSamplerStop(__int64 a1)
@@ -42,32 +42,32 @@ NTSTATUS __fastcall EtwpCoverageSamplerStop(__int64 a1)
   v3 = 0LL;
   --CurrentThread->KernelApcDisable;
   ExAcquirePushLockExclusiveEx((ULONG_PTR)&EtwpCovSampGlobals, 0LL);
-  qword_140C31CA8 = (__int64)KeGetCurrentThread();
-  if ( qword_140C31CB8 == a1 )
+  qword_140C31C48 = (__int64)KeGetCurrentThread();
+  if ( qword_140C31C58 == a1 )
   {
     v4 = *(_DWORD *)(a1 + 1728);
     if ( (v4 & 2) == 0 )
     {
       *(_DWORD *)(a1 + 1728) = v4 | 2;
-      qword_140C31CA8 = 0LL;
+      qword_140C31C48 = 0LL;
       if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&EtwpCovSampGlobals, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
         ExfTryToWakePushLock((volatile signed __int64 *)&EtwpCovSampGlobals);
       KeAbPostRelease((ULONG_PTR)&EtwpCovSampGlobals);
       KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
-      ExWaitForRundownProtectionRelease(&stru_140C31CC0);
-      ExRundownCompleted(&stru_140C31CC0);
+      ExWaitForRundownProtectionRelease(&stru_140C31C60);
+      ExRundownCompleted(&stru_140C31C60);
       v5 = KeGetCurrentThread();
       --v5->KernelApcDisable;
       ExAcquirePushLockExclusiveEx((ULONG_PTR)&EtwpCovSampGlobals, 0LL);
       v6 = KeGetCurrentThread();
-      v3 = (void *)qword_140C31CB8;
-      qword_140C31CB8 = 0LL;
-      v7 = qword_140C31CC8;
-      qword_140C31CA8 = (__int64)v6;
+      v3 = (void *)qword_140C31C58;
+      qword_140C31C58 = 0LL;
+      v7 = qword_140C31C68;
+      qword_140C31C48 = (__int64)v6;
       v8 = *(_DWORD *)(a1 + 1660);
       if ( (v8 & 8) != 0 )
       {
-        KeStopProfile(qword_140C31CC8 + 16);
+        KeStopProfile(qword_140C31C68 + 16);
         *(_DWORD *)(a1 + 1660) &= ~8u;
         v8 = *(_DWORD *)(a1 + 1660);
       }
@@ -111,9 +111,9 @@ NTSTATUS __fastcall EtwpCoverageSamplerStop(__int64 a1)
       *(_DWORD *)(a1 + 1660) &= ~1u;
     }
   }
-  if ( (struct _KTHREAD *)qword_140C31CA8 == KeGetCurrentThread() )
+  if ( (struct _KTHREAD *)qword_140C31C48 == KeGetCurrentThread() )
   {
-    qword_140C31CA8 = 0LL;
+    qword_140C31C48 = 0LL;
     if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&EtwpCovSampGlobals, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
       ExfTryToWakePushLock((volatile signed __int64 *)&EtwpCovSampGlobals);
     KeAbPostRelease((ULONG_PTR)&EtwpCovSampGlobals);
@@ -121,8 +121,8 @@ NTSTATUS __fastcall EtwpCoverageSamplerStop(__int64 a1)
   }
   if ( v3 )
     ObfDereferenceObject(v3);
-  v16 = qword_140C06738;
-  qword_140C06738 = 0LL;
-  dword_140C06718 = 0;
+  v16 = qword_140C06730;
+  qword_140C06730 = 0LL;
+  dword_140C06710 = 0;
   return EtwUnregister(v16);
 }

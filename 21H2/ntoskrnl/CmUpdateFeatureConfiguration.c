@@ -1,15 +1,15 @@
 /*
- * XREFs of CmUpdateFeatureConfiguration @ 0x14086B330
+ * XREFs of CmUpdateFeatureConfiguration @ 0x14086B490
  * Callers:
- *     NtSetSystemInformation @ 0x1406DA380 (NtSetSystemInformation.c)
+ *     NtSetSystemInformation @ 0x1406B1660 (NtSetSystemInformation.c)
  * Callees:
- *     CmSiFreeMemory @ 0x140201A30 (CmSiFreeMemory.c)
- *     SeAccessCheck @ 0x140206760 (SeAccessCheck.c)
- *     memmove @ 0x140413F40 (memmove.c)
- *     CmpAllocatePoolWithQuotaTag @ 0x1404ECE10 (CmpAllocatePoolWithQuotaTag.c)
- *     SeCaptureSubjectContext @ 0x140655B30 (SeCaptureSubjectContext.c)
- *     SeReleaseSubjectContext @ 0x1406568F0 (SeReleaseSubjectContext.c)
- *     CmFcManagerUpdateFeatureConfigurations @ 0x14087DD04 (CmFcManagerUpdateFeatureConfigurations.c)
+ *     CmSiFreeMemory @ 0x1402253C0 (CmSiFreeMemory.c)
+ *     SeAccessCheck @ 0x1402AB090 (SeAccessCheck.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     CmpAllocatePoolWithQuotaTag @ 0x1404ED050 (CmpAllocatePoolWithQuotaTag.c)
+ *     SeCaptureSubjectContext @ 0x14064A950 (SeCaptureSubjectContext.c)
+ *     SeReleaseSubjectContext @ 0x14064B710 (SeReleaseSubjectContext.c)
+ *     CmFcManagerUpdateFeatureConfigurations @ 0x14087DE64 (CmFcManagerUpdateFeatureConfigurations.c)
  */
 
 __int64 __fastcall CmUpdateFeatureConfiguration(void *Src, size_t Size, KPROCESSOR_MODE AccessMode)

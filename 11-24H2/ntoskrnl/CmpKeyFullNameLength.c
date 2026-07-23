@@ -1,8 +1,8 @@
 /*
- * XREFs of CmpKeyFullNameLength @ 0x14087B8A0
+ * XREFs of CmpKeyFullNameLength @ 0x14087F750
  * Callers:
- *     CmpDoWritethroughReparse @ 0x14087B570 (CmpDoWritethroughReparse.c)
- *     CmpConstructNameFromKcbNameBlocks @ 0x14087C7CC (CmpConstructNameFromKcbNameBlocks.c)
+ *     CmpDoWritethroughReparse @ 0x14087F420 (CmpDoWritethroughReparse.c)
+ *     CmpConstructNameFromKcbNameBlocks @ 0x14088067C (CmpConstructNameFromKcbNameBlocks.c)
  * Callees:
  *     <none>
  */

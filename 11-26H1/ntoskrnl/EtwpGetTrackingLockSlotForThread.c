@@ -1,12 +1,12 @@
 /*
- * XREFs of EtwpGetTrackingLockSlotForThread @ 0x1404960D0
+ * XREFs of EtwpGetTrackingLockSlotForThread @ 0x14048FC20
  * Callers:
- *     PerfLogExecutiveResourceWait @ 0x140495E24 (PerfLogExecutiveResourceWait.c)
- *     PerfLogExecutiveResourceAcquire @ 0x140495FA8 (PerfLogExecutiveResourceAcquire.c)
- *     PerfLogExecutiveResourceSetOwnerPointer @ 0x1406C725C (PerfLogExecutiveResourceSetOwnerPointer.c)
+ *     PerfLogExecutiveResourceWait @ 0x14048F974 (PerfLogExecutiveResourceWait.c)
+ *     PerfLogExecutiveResourceAcquire @ 0x14048FAF8 (PerfLogExecutiveResourceAcquire.c)
+ *     PerfLogExecutiveResourceSetOwnerPointer @ 0x1406CAF5C (PerfLogExecutiveResourceSetOwnerPointer.c)
  * Callees:
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 signed __int64 __fastcall EtwpGetTrackingLockSlotForThread(__int64 a1, int a2)

@@ -4,14 +4,14 @@
  *     MiSelectImageBase @ 0x1406AAA28 (MiSelectImageBase.c)
  *     MiObtainRelocationBits @ 0x1406AAE04 (MiObtainRelocationBits.c)
  * Callees:
- *     KeAbPreAcquire @ 0x140230EE0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     RtlFindClearBitsEx @ 0x14029C460 (RtlFindClearBitsEx.c)
- *     ExfTryToWakePushLock @ 0x1402BD960 (ExfTryToWakePushLock.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1402FCE10 (ExfAcquirePushLockExclusiveEx.c)
- *     KiCheckForKernelApcDelivery @ 0x14030F820 (KiCheckForKernelApcDelivery.c)
- *     RtlCopyBitMapEx @ 0x14033E6B0 (RtlCopyBitMapEx.c)
- *     RtlMergeBitMapsEx @ 0x1403A5370 (RtlMergeBitMapsEx.c)
+ *     KeAbPreAcquire @ 0x140230FD0 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     RtlFindClearBitsEx @ 0x14029C6F0 (RtlFindClearBitsEx.c)
+ *     ExfTryToWakePushLock @ 0x1402BDBF0 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402FD0A0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KiCheckForKernelApcDelivery @ 0x14030FAB0 (KiCheckForKernelApcDelivery.c)
+ *     RtlCopyBitMapEx @ 0x14033E940 (RtlCopyBitMapEx.c)
+ *     RtlMergeBitMapsEx @ 0x1403A5550 (RtlMergeBitMapsEx.c)
  */
 
 unsigned __int64 __fastcall MiSelectRelocationStartHint(__int64 a1, unsigned __int16 a2, unsigned __int64 a3, int a4)

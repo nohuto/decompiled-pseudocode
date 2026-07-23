@@ -1,11 +1,11 @@
 /*
- * XREFs of ViThunkCreateThunkTable @ 0x1409D8F84
+ * XREFs of ViThunkCreateThunkTable @ 0x1409D9F84
  * Callers:
- *     VfThunkAddDriverThunks @ 0x1409D8830 (VfThunkAddDriverThunks.c)
- *     VfThunkAddSpecialDriverThunks @ 0x1409D88B4 (VfThunkAddSpecialDriverThunks.c)
+ *     VfThunkAddDriverThunks @ 0x1409D9830 (VfThunkAddDriverThunks.c)
+ *     VfThunkAddSpecialDriverThunks @ 0x1409D98B4 (VfThunkAddSpecialDriverThunks.c)
  * Callees:
- *     memmove @ 0x140413F40 (memmove.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 char *__fastcall ViThunkCreateThunkTable(void *Src, unsigned int a2, __int64 a3)

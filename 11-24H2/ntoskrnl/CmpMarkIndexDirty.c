@@ -1,18 +1,18 @@
 /*
- * XREFs of CmpMarkIndexDirty @ 0x14087F618
+ * XREFs of CmpMarkIndexDirty @ 0x1408834C8
  * Callers:
- *     CmpMarkKeyDirty @ 0x14087FB34 (CmpMarkKeyDirty.c)
- *     CmpMarkKeyParentDirty @ 0x140A5D138 (CmpMarkKeyParentDirty.c)
+ *     CmpMarkKeyDirty @ 0x1408839E4 (CmpMarkKeyDirty.c)
+ *     CmpMarkKeyParentDirty @ 0x140A54E68 (CmpMarkKeyParentDirty.c)
  * Callees:
- *     CmpAllocatePool @ 0x1403E1834 (CmpAllocatePool.c)
- *     CmSiFreeMemory @ 0x14046B8D0 (CmSiFreeMemory.c)
- *     HvpGetCellFlat @ 0x140874470 (HvpGetCellFlat.c)
- *     HvpGetCellPaged @ 0x1408744C0 (HvpGetCellPaged.c)
- *     HvpGetCellContextInitialize @ 0x140875730 (HvpGetCellContextInitialize.c)
- *     HvpReleaseCellPaged @ 0x140875760 (HvpReleaseCellPaged.c)
- *     CmpCopyCompressedName @ 0x14087E8A0 (CmpCopyCompressedName.c)
- *     HvpReleaseCellFlat @ 0x140884BB0 (HvpReleaseCellFlat.c)
- *     CmpMarkIndexDirtyInStorageType @ 0x140A28CFC (CmpMarkIndexDirtyInStorageType.c)
+ *     CmpAllocatePool @ 0x1403C9EA4 (CmpAllocatePool.c)
+ *     CmSiFreeMemory @ 0x140464550 (CmSiFreeMemory.c)
+ *     HvpGetCellFlat @ 0x1408787A0 (HvpGetCellFlat.c)
+ *     HvpGetCellPaged @ 0x1408787F0 (HvpGetCellPaged.c)
+ *     HvpGetCellContextInitialize @ 0x140879A60 (HvpGetCellContextInitialize.c)
+ *     HvpReleaseCellPaged @ 0x140879A90 (HvpReleaseCellPaged.c)
+ *     CmpCopyCompressedName @ 0x140882750 (CmpCopyCompressedName.c)
+ *     HvpReleaseCellFlat @ 0x140888A60 (HvpReleaseCellFlat.c)
+ *     CmpMarkIndexDirtyInStorageType @ 0x140A1D6C0 (CmpMarkIndexDirtyInStorageType.c)
  */
 
 __int64 __fastcall CmpMarkIndexDirty(ULONG_PTR BugCheckParameter3, ULONG_PTR BugCheckParameter4)
@@ -46,7 +46,7 @@ __int64 __fastcall CmpMarkIndexDirty(ULONG_PTR BugCheckParameter3, ULONG_PTR Bug
   if ( (*(_BYTE *)(CellFlat + 2) & 0x20) == 0 )
     goto LABEL_7;
   v8 = 2 * *(_WORD *)(CellFlat + 72);
-  Pool = CmpAllocatePool(0x100uLL);
+  Pool = CmpAllocatePool(0x100uLL, v8, 0x20394D43u);
   v4 = (struct _PRIVILEGE_SET *)Pool;
   if ( Pool )
   {

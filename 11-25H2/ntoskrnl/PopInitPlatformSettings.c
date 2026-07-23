@@ -18,40 +18,42 @@ __int64 PopInitPlatformSettings()
 {
   _BYTE *v0; // rdi
   bool v1; // si
-  int SystemInformation; // ebx
+  NTSTATUS v2; // ebx
   _DWORD *Pool2; // rax
   __int64 v4; // rcx
   int v5; // edx
   char v6; // al
   int v7; // eax
   __int64 v8; // rcx
-  _DWORD v10[6]; // [rsp+38h] [rbp-28h] BYREF
+  ULONG ReturnLength; // [rsp+30h] [rbp-30h] BYREF
+  _DWORD SystemInformation[6]; // [rsp+38h] [rbp-28h] BYREF
 
-  v10[4] = 0;
+  SystemInformation[4] = 0;
   PopAcquirePolicyLock();
   v0 = 0LL;
-  v10[0] = 1094930505;
-  v10[3] = 0;
+  SystemInformation[0] = 1094930505;
+  SystemInformation[3] = 0;
+  ReturnLength = 0;
   v1 = 0;
-  v10[2] = 1346584902;
-  v10[1] = 1;
-  SystemInformation = ZwQuerySystemInformation(76LL, (__int64)v10);
-  if ( SystemInformation == -1073741789 )
+  SystemInformation[2] = 1346584902;
+  SystemInformation[1] = 1;
+  v2 = ZwQuerySystemInformation(SystemFirmwareTableInformation, SystemInformation, 0x14u, &ReturnLength);
+  if ( v2 == -1073741789 )
   {
-    Pool2 = (_DWORD *)ExAllocatePool2(0x100uLL, 0LL, 0x206D654DuLL);
+    Pool2 = (_DWORD *)ExAllocatePool2(0x100uLL, ReturnLength, 0x206D654DuLL);
     v0 = Pool2;
     if ( !Pool2 )
     {
-      SystemInformation = -1073741670;
+      v2 = -1073741670;
       PopReleasePolicyLock();
       goto LABEL_4;
     }
     *Pool2 = 1094930505;
     Pool2[1] = 1;
     Pool2[2] = 1346584902;
-    Pool2[3] = -16;
-    SystemInformation = ZwQuerySystemInformation(76LL, (__int64)Pool2);
-    if ( SystemInformation >= 0 )
+    Pool2[3] = ReturnLength - 16;
+    v2 = ZwQuerySystemInformation(SystemFirmwareTableInformation, Pool2, ReturnLength, &ReturnLength);
+    if ( v2 >= 0 )
     {
       if ( v0[24] >= 3u )
         PopFirmwarePlatformRole = (unsigned __int8)v0[61];
@@ -75,7 +77,7 @@ __int64 PopInitPlatformSettings()
       v6 = PopPlatformAoAc;
       if ( PopPlatformAoAc )
       {
-        if ( !(_DWORD)InitSafeBootMode && !InitIsWinPEMode && !PopModernStandbyDisabled )
+        if ( !InitSafeBootMode && !InitIsWinPEMode && !PopModernStandbyDisabled )
           goto LABEL_26;
       }
       else
@@ -96,15 +98,15 @@ LABEL_26:
       }
       v1 = qword_140E672D0 != 0;
       PopPlatformRole = v7;
-      SystemInformation = 0;
+      v2 = 0;
       PopReleasePolicyLock();
       goto LABEL_32;
     }
   }
   PopReleasePolicyLock();
-  if ( SystemInformation < 0 )
+  if ( v2 < 0 )
 LABEL_4:
-    KeBugCheckEx(0xA0u, 0xEuLL, SystemInformation, 0LL, 0LL);
+    KeBugCheckEx(0xA0u, 0xEuLL, v2, 0LL, 0LL);
 LABEL_32:
   if ( v1 )
   {
@@ -113,5 +115,5 @@ LABEL_32:
   }
   if ( v0 )
     ExFreePoolWithTag(v0, 0x206D654Du);
-  return (unsigned int)SystemInformation;
+  return (unsigned int)v2;
 }

@@ -1,8 +1,8 @@
 /*
- * XREFs of KiIsTsaMitigationDesired @ 0x1405F23A0
+ * XREFs of KiIsTsaMitigationDesired @ 0x1405F4D60
  * Callers:
- *     KiOptimizeSpecCtrlSettingsWorker @ 0x1405F2470 (KiOptimizeSpecCtrlSettingsWorker.c)
- *     KiDetectKvaLeakage @ 0x1405F7100 (KiDetectKvaLeakage.c)
+ *     KiOptimizeSpecCtrlSettingsWorker @ 0x1405F4E30 (KiOptimizeSpecCtrlSettingsWorker.c)
+ *     KiDetectKvaLeakage @ 0x1405F9AC0 (KiDetectKvaLeakage.c)
  * Callees:
  *     <none>
  */

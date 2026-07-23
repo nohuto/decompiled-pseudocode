@@ -5,8 +5,8 @@
  *     MiIssueHardFault @ 0x14001BCD0 (MiIssueHardFault.c)
  *     MiUserFault @ 0x140044870 (MiUserFault.c)
  * Callees:
- *     MiUnlockPageTableInternal @ 0x140104A90 (MiUnlockPageTableInternal.c)
- *     MiEmptyDeferredWorkingSetEntries @ 0x140128BF8 (MiEmptyDeferredWorkingSetEntries.c)
+ *     MiUnlockPageTableInternal @ 0x140104B10 (MiUnlockPageTableInternal.c)
+ *     MiEmptyDeferredWorkingSetEntries @ 0x140128CC8 (MiEmptyDeferredWorkingSetEntries.c)
  */
 
 __int64 __fastcall MiUnlockFaultPageTable(__int64 *a1)

@@ -6,13 +6,13 @@
  * Callees:
  *     RtlpWaitOnAddressWakeEntireList @ 0x18005CA5C (RtlpWaitOnAddressWakeEntireList.c)
  *     RtlpWaitOnAddressWithTimeout @ 0x18005ED60 (RtlpWaitOnAddressWithTimeout.c)
- *     NtWaitForAlertByThreadId @ 0x1800A3BF0 (NtWaitForAlertByThreadId.c)
+ *     NtWaitForAlertByThreadId @ 0x1800A3C10 (NtWaitForAlertByThreadId.c)
  */
 
-signed __int64 __fastcall RtlpWaitOnAddressRemoveWaitBlock(__int64 a1, volatile signed __int32 *a2)
+int __fastcall RtlpWaitOnAddressRemoveWaitBlock(__int64 a1, __int64 a2)
 {
   __int64 v4; // rsi
-  signed __int64 result; // rax
+  signed __int64 v5; // rax
   signed __int64 v6; // rbx
   signed __int64 v7; // rtt
   unsigned __int64 v8; // rcx
@@ -26,23 +26,23 @@ signed __int64 __fastcall RtlpWaitOnAddressRemoveWaitBlock(__int64 a1, volatile 
   bool v16; // zf
   signed __int64 v17; // rtt
 
-  v4 = ((unsigned __int32)*a2 >> 5) & 0x7F;
-  result = *(_QWORD *)(a1 + 8 * v4);
-  while ( result )
+  v4 = (*(_DWORD *)a2 >> 5) & 0x7F;
+  v5 = *(_QWORD *)(a1 + 8 * v4);
+  while ( v5 )
   {
-    if ( (result & 2) != 0 )
+    if ( (v5 & 2) != 0 )
     {
-      v17 = result;
-      result = _InterlockedCompareExchange64((volatile signed __int64 *)(a1 + 8 * v4), result | 1, result);
-      if ( v17 == result )
+      v17 = v5;
+      v5 = _InterlockedCompareExchange64((volatile signed __int64 *)(a1 + 8 * v4), v5 | 1, v5);
+      if ( v17 == v5 )
         break;
     }
     else
     {
-      v6 = result | 2;
-      v7 = result;
-      result = _InterlockedCompareExchange64((volatile signed __int64 *)(a1 + 8 * v4), result | 2, result);
-      if ( v7 == result )
+      v6 = v5 | 2;
+      v7 = v5;
+      v5 = _InterlockedCompareExchange64((volatile signed __int64 *)(a1 + 8 * v4), v5 | 2, v5);
+      if ( v7 == v5 )
       {
         v8 = v6 & 0xFFFFFFFFFFFFFFFCuLL;
         v9 = v6 & 0xFFFFFFFFFFFFFFFCuLL;
@@ -51,7 +51,7 @@ signed __int64 __fastcall RtlpWaitOnAddressRemoveWaitBlock(__int64 a1, volatile 
         while ( 1 )
         {
           v12 = *(_QWORD *)(v8 + 16);
-          if ( (volatile signed __int32 *)v8 == a2 )
+          if ( v8 == a2 )
           {
             v10 = 1;
             if ( v8 == v9 )
@@ -59,21 +59,21 @@ signed __int64 __fastcall RtlpWaitOnAddressRemoveWaitBlock(__int64 a1, volatile 
               v13 = *(_QWORD *)(v8 + 16);
               if ( v12 )
                 v13 = v12 ^ ((unsigned __int8)v6 ^ (unsigned __int8)v12) & 3;
-              result = _InterlockedCompareExchange64((volatile signed __int64 *)(a1 + 8 * v4), v13, v6);
-              if ( v6 == result )
+              v5 = _InterlockedCompareExchange64((volatile signed __int64 *)(a1 + 8 * v4), v13, v6);
+              if ( v6 == v5 )
               {
                 if ( !v13 )
-                  return result;
+                  return v5;
                 *(_QWORD *)(v12 + 24) = 0LL;
                 v8 = v12;
                 v9 = v12;
               }
               else
               {
-                v6 = result;
-                v8 = result & 0xFFFFFFFFFFFFFFFCuLL;
-                v9 = result & 0xFFFFFFFFFFFFFFFCuLL;
-                v11 = *(_QWORD *)((result & 0xFFFFFFFFFFFFFFFCuLL) + 24);
+                v6 = v5;
+                v8 = v5 & 0xFFFFFFFFFFFFFFFCuLL;
+                v9 = v5 & 0xFFFFFFFFFFFFFFFCuLL;
+                v11 = *(_QWORD *)((v5 & 0xFFFFFFFFFFFFFFFCuLL) + 24);
               }
               goto LABEL_15;
             }
@@ -92,8 +92,8 @@ signed __int64 __fastcall RtlpWaitOnAddressRemoveWaitBlock(__int64 a1, volatile 
 LABEL_15:
           if ( !v8 )
           {
-            if ( !v10 && _InterlockedExchange(a2 + 10, 0) != 2 )
-              NtWaitForAlertByThreadId(*(_QWORD *)a2, 0LL);
+            if ( !v10 && _InterlockedExchange((volatile __int32 *)(a2 + 40), 0) != 2 )
+              NtWaitForAlertByThreadId(*(PVOID *)a2, 0LL);
             *(_QWORD *)(v9 + 32) = v11;
             do
             {
@@ -101,20 +101,20 @@ LABEL_15:
               v15 = v6 & 1;
               if ( (v6 & 1) == 0 )
                 v14 = v6 & 0xFFFFFFFFFFFFFFFCuLL;
-              result = _InterlockedCompareExchange64((volatile signed __int64 *)(a1 + 8 * v4), v14, v6);
-              v16 = v6 == result;
-              v6 = result;
+              v5 = _InterlockedCompareExchange64((volatile signed __int64 *)(a1 + 8 * v4), v14, v6);
+              v16 = v6 == v5;
+              v6 = v5;
             }
             while ( !v16 );
             if ( v15 )
-              return RtlpWaitOnAddressWakeEntireList(result);
-            return result;
+              LODWORD(v5) = RtlpWaitOnAddressWakeEntireList(v5);
+            return v5;
           }
         }
       }
     }
   }
-  if ( _InterlockedExchange(a2 + 10, 1) != 2 )
-    return RtlpWaitOnAddressWithTimeout(a1, a2, 0LL, RtlpWaitOnAddressSpinCount);
-  return result;
+  if ( _InterlockedExchange((volatile __int32 *)(a2 + 40), 1) != 2 )
+    LODWORD(v5) = RtlpWaitOnAddressWithTimeout(a1, a2, 0LL, RtlpWaitOnAddressSpinCount);
+  return v5;
 }

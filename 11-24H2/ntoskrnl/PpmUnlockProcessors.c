@@ -1,17 +1,17 @@
 /*
- * XREFs of PpmUnlockProcessors @ 0x1403B66C4
+ * XREFs of PpmUnlockProcessors @ 0x140371990
  * Callers:
- *     PpmIdleExecuteTransition @ 0x1403B4CA0 (PpmIdleExecuteTransition.c)
- *     PpmIdleSelectStates @ 0x1404EA518 (PpmIdleSelectStates.c)
+ *     PpmIdleExecuteTransition @ 0x140371030 (PpmIdleExecuteTransition.c)
+ *     PpmIdleSelectStates @ 0x1404E1498 (PpmIdleSelectStates.c)
  * Callees:
- *     KeAddProcessorAffinityEx @ 0x140257130 (KeAddProcessorAffinityEx.c)
- *     KeGetPrcb @ 0x140352980 (KeGetPrcb.c)
- *     HalRequestIpi @ 0x1403B67D0 (HalRequestIpi.c)
- *     KeRemoveProcessorAffinityEx @ 0x1403CA140 (KeRemoveProcessorAffinityEx.c)
- *     KeInterlockedClearProcessorAffinityEx @ 0x1403E9E90 (KeInterlockedClearProcessorAffinityEx.c)
- *     PpmIdleUnlockProcessor @ 0x1405CED40 (PpmIdleUnlockProcessor.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     KeAddProcessorAffinityEx @ 0x140287740 (KeAddProcessorAffinityEx.c)
+ *     KeGetPrcb @ 0x1402B0A10 (KeGetPrcb.c)
+ *     HalRequestIpi @ 0x140371AA0 (HalRequestIpi.c)
+ *     KeRemoveProcessorAffinityEx @ 0x1403A4D10 (KeRemoveProcessorAffinityEx.c)
+ *     KeInterlockedClearProcessorAffinityEx @ 0x1403D7B30 (KeInterlockedClearProcessorAffinityEx.c)
+ *     PpmIdleUnlockProcessor @ 0x1405CC460 (PpmIdleUnlockProcessor.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 __int64 __fastcall PpmUnlockProcessors(__int64 a1, unsigned __int16 *a2)
@@ -46,7 +46,7 @@ LABEL_2:
     {
       _BitScanForward64(&v10, v7);
       v7 &= ~(1LL << v10);
-      v11 = *((_DWORD *)qword_140F21E78 + 64 * (unsigned __int16)v6 + (unsigned __int8)v10);
+      v11 = *((_DWORD *)qword_140F22998 + 64 * (unsigned __int16)v6 + (unsigned __int8)v10);
       Prcb = KeGetPrcb(v11);
       v13 = *(_QWORD *)(Prcb + 34880);
       if ( (unsigned __int8)PpmIdleUnlockProcessor(Prcb + 34956) == 6 )

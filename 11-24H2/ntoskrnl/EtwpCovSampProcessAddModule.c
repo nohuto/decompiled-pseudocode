@@ -1,19 +1,19 @@
 /*
- * XREFs of EtwpCovSampProcessAddModule @ 0x140901FBC
+ * XREFs of EtwpCovSampProcessAddModule @ 0x14092489C
  * Callers:
- *     EtwpCovSampImageNotify @ 0x140900000 (EtwpCovSampImageNotify.c)
+ *     EtwpCovSampImageNotify @ 0x1409228E0 (EtwpCovSampImageNotify.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     ExfTryToWakePushLock @ 0x14025F9A0 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     PsReferenceSiloContext @ 0x14033FA90 (PsReferenceSiloContext.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     EtwpCovSampProcessRemoveModule @ 0x1408FFA68 (EtwpCovSampProcessRemoveModule.c)
- *     EtwpCovSampModuleReference @ 0x140A4C3BC (EtwpCovSampModuleReference.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     ExfTryToWakePushLock @ 0x14028FFB0 (ExfTryToWakePushLock.c)
+ *     PsReferenceSiloContext @ 0x14031EF70 (PsReferenceSiloContext.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     EtwpCovSampProcessRemoveModule @ 0x140922348 (EtwpCovSampProcessRemoveModule.c)
+ *     EtwpCovSampModuleReference @ 0x140A42F4C (EtwpCovSampModuleReference.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall EtwpCovSampProcessAddModule(__int64 a1, void **a2, __int64 a3, __int64 a4)
@@ -21,16 +21,16 @@ __int64 __fastcall EtwpCovSampProcessAddModule(__int64 a1, void **a2, __int64 a3
   struct _KTHREAD *CurrentThread; // rax
   unsigned __int64 *v5; // rsi
   void *Pool2; // rbp
-  _QWORD *v11; // rax
-  _QWORD *v12; // r14
+  char *v11; // rax
+  char *v12; // r14
   int v13; // r12d
   unsigned int v14; // eax
   unsigned int v15; // ecx
   unsigned int v16; // edx
   unsigned int v17; // r15d
   struct _KTHREAD *v18; // rax
-  _QWORD *v19; // rax
-  _QWORD *v20; // r14
+  char *v19; // rax
+  char *v20; // r14
   const void *v21; // rdx
   void *v22; // rax
   unsigned int v23; // esi
@@ -40,12 +40,12 @@ __int64 __fastcall EtwpCovSampProcessAddModule(__int64 a1, void **a2, __int64 a3
   v5 = (unsigned __int64 *)(a1 + 8);
   --CurrentThread->KernelApcDisable;
   Pool2 = 0LL;
-  v11 = KeAbPreAcquire(a1 + 8, 0LL);
+  v11 = (char *)KeAbPreAcquire(a1 + 8, 0LL);
   v12 = v11;
   if ( _interlockedbittestandset64((volatile signed __int32 *)v5, 0LL) )
-    ExfAcquirePushLockExclusiveEx(v5, (__int64)v11, (__int64)v5);
+    ExfAcquirePushLockExclusiveEx(v5, v11, (__int64)v5);
   if ( v12 )
-    *((_BYTE *)v12 + 10) = 1;
+    v12[10] = 1;
   *(_QWORD *)(a1 + 16) = KeGetCurrentThread();
   if ( !*(_QWORD *)a1 )
   {
@@ -72,7 +72,7 @@ __int64 __fastcall EtwpCovSampProcessAddModule(__int64 a1, void **a2, __int64 a3
       KeLeaveCriticalRegion();
       if ( Pool2 )
         ExFreePoolWithTag(Pool2, 0x56777445u);
-      Pool2 = (void *)ExAllocatePool2(0x100uLL);
+      Pool2 = (void *)ExAllocatePool2(0x100uLL, 16LL * v17, 0x56777445u);
       if ( !Pool2 )
       {
         v23 = -1073741670;
@@ -80,12 +80,12 @@ __int64 __fastcall EtwpCovSampProcessAddModule(__int64 a1, void **a2, __int64 a3
       }
       v18 = KeGetCurrentThread();
       --v18->KernelApcDisable;
-      v19 = KeAbPreAcquire((__int64)v5, 0LL);
+      v19 = (char *)KeAbPreAcquire((__int64)v5, 0LL);
       v20 = v19;
       if ( _interlockedbittestandset64((volatile signed __int32 *)v5, 0LL) )
-        ExfAcquirePushLockExclusiveEx(v5, (__int64)v19, (__int64)v5);
+        ExfAcquirePushLockExclusiveEx(v5, v19, (__int64)v5);
       if ( v20 )
-        *((_BYTE *)v20 + 10) = 1;
+        v20[10] = 1;
       *(_QWORD *)(a1 + 16) = KeGetCurrentThread();
       if ( v17 > *(_DWORD *)(a1 + 36) )
       {

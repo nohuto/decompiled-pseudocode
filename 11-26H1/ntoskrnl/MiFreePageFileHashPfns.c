@@ -1,18 +1,18 @@
 /*
- * XREFs of MiFreePageFileHashPfns @ 0x1404B2A90
+ * XREFs of MiFreePageFileHashPfns @ 0x1404AC10C
  * Callers:
- *     MiScanPagefiles @ 0x1402A7EDC (MiScanPagefiles.c)
- *     MiDeletePagefile @ 0x14086B6A4 (MiDeletePagefile.c)
+ *     MiScanPagefiles @ 0x1402A72EC (MiScanPagefiles.c)
+ *     MiDeletePagefile @ 0x140871A84 (MiDeletePagefile.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     MiReleaseNonPagedResources @ 0x14028C070 (MiReleaseNonPagedResources.c)
- *     MiFreePageFileHashPfn @ 0x1404B2BEC (MiFreePageFileHashPfn.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     RtlpInterlockedFlushSList @ 0x140730D10 (RtlpInterlockedFlushSList.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     MiReleaseNonPagedResources @ 0x14028B5D0 (MiReleaseNonPagedResources.c)
+ *     MiFreePageFileHashPfn @ 0x1404AC268 (MiFreePageFileHashPfn.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     RtlpInterlockedFlushSList @ 0x1407358E0 (RtlpInterlockedFlushSList.c)
  */
 
-__int64 __fastcall MiFreePageFileHashPfns(union _SLIST_HEADER *a1)
+__int64 __fastcall MiFreePageFileHashPfns(_SLIST_HEADER *a1)
 {
   __int64 Alignment; // r15
   __int64 v2; // rbx
@@ -82,7 +82,7 @@ LABEL_12:
     if ( v2 )
     {
       result = MiReleaseNonPagedResources(Alignment, v2);
-      _InterlockedAdd64(&qword_140E378A8, -v2);
+      _InterlockedAdd64(&qword_140E37A28, -v2);
     }
   }
   return result;

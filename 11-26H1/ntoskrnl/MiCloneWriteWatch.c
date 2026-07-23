@@ -1,13 +1,13 @@
 /*
- * XREFs of MiCloneWriteWatch @ 0x140703194
+ * XREFs of MiCloneWriteWatch @ 0x140707E64
  * Callers:
- *     MiCloneVad @ 0x14030A8F8 (MiCloneVad.c)
+ *     MiCloneVad @ 0x1402EC978 (MiCloneVad.c)
  * Callees:
- *     ExReleaseSpinLockShared @ 0x14026CEE0 (ExReleaseSpinLockShared.c)
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402DC6D0 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     ExAcquireSpinLockShared @ 0x1402EDF10 (ExAcquireSpinLockShared.c)
- *     MiLocateLockedVadEvent @ 0x1403BCC30 (MiLocateLockedVadEvent.c)
- *     memmove @ 0x14073D480 (memmove.c)
+ *     ExReleaseSpinLockShared @ 0x14026C450 (ExReleaseSpinLockShared.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402BE490 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     ExAcquireSpinLockShared @ 0x1402CFF90 (ExAcquireSpinLockShared.c)
+ *     MiLocateLockedVadEvent @ 0x1403C6AA0 (MiLocateLockedVadEvent.c)
+ *     memmove @ 0x140742080 (memmove.c)
  */
 
 void __fastcall MiCloneWriteWatch(__int64 a1)

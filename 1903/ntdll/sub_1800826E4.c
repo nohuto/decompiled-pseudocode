@@ -8,21 +8,21 @@
  *     ZwAlertThreadByThreadId @ 0x18009D4B0 (ZwAlertThreadByThreadId.c)
  */
 
-__int64 __fastcall sub_1800826E4(__int64 a1)
+LOGICAL __fastcall sub_1800826E4(_QWORD *a1)
 {
-  __int64 v2; // rcx
-  __int64 v3; // rcx
+  void *v2; // rcx
+  void *v3; // rcx
 
-  v2 = *(_QWORD *)(a1 + 40);
+  v2 = (void *)a1[5];
   if ( v2 )
   {
     ZwAlertThreadByThreadId(v2);
   }
   else
   {
-    v3 = *(_QWORD *)(a1 + 16);
+    v3 = (void *)a1[2];
     if ( v3 )
       ZwSetEvent(v3, 0LL);
   }
-  return RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, a1);
+  return RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, a1);
 }

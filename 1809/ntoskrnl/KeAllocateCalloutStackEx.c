@@ -1,13 +1,13 @@
 /*
- * XREFs of KeAllocateCalloutStackEx @ 0x14070CCA0
+ * XREFs of KeAllocateCalloutStackEx @ 0x14070DF40
  * Callers:
- *     KeAllocateCalloutStack @ 0x140758BB0 (KeAllocateCalloutStack.c)
+ *     KeAllocateCalloutStack @ 0x140759DA0 (KeAllocateCalloutStack.c)
  * Callees:
- *     MmCreateKernelStack @ 0x1400C9F10 (MmCreateKernelStack.c)
- *     MmDeleteKernelStack @ 0x1400CA4A0 (MmDeleteKernelStack.c)
- *     KeInitializeMutex @ 0x1400DD340 (KeInitializeMutex.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
+ *     MmCreateKernelStack @ 0x1400C9FF0 (MmCreateKernelStack.c)
+ *     MmDeleteKernelStack @ 0x1400CA580 (MmDeleteKernelStack.c)
+ *     KeInitializeMutex @ 0x1400DD3C0 (KeInitializeMutex.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall KeAllocateCalloutStackEx(int a1, unsigned __int8 a2, __int64 a3, _QWORD *a4)

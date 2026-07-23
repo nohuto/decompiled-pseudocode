@@ -1,7 +1,7 @@
 /*
- * XREFs of PopResolveWatchdogParam @ 0x140578D6C
+ * XREFs of PopResolveWatchdogParam @ 0x140578FAC
  * Callers:
- *     PopWatchdogWorker @ 0x140578E70 (PopWatchdogWorker.c)
+ *     PopWatchdogWorker @ 0x1405790B0 (PopWatchdogWorker.c)
  * Callees:
  *     <none>
  */

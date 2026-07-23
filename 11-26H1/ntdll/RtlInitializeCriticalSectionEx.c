@@ -1,85 +1,85 @@
 /*
- * XREFs of RtlInitializeCriticalSectionEx @ 0x18007BB90
+ * XREFs of RtlInitializeCriticalSectionEx @ 0x18006A3B0
  * Callers:
- *     RtlpInitMuiCriticalSection @ 0x1800080C0 (RtlpInitMuiCriticalSection.c)
- *     LdrpSetThreadPreferredLangList @ 0x180008130 (LdrpSetThreadPreferredLangList.c)
- *     RtlpCreateProcessRegistryInfo @ 0x180008370 (RtlpCreateProcessRegistryInfo.c)
- *     LdrpInitMuiCrits @ 0x180032024 (LdrpInitMuiCrits.c)
- *     EtwpInitLoggerContext @ 0x180077550 (EtwpInitLoggerContext.c)
- *     RtlInitializeResource @ 0x180079E50 (RtlInitializeResource.c)
- *     RtlpCreateHeap @ 0x18007C890 (RtlpCreateHeap.c)
- *     LdrpInitializeProcess @ 0x1800CF8B8 (LdrpInitializeProcess.c)
- *     RtlInitializeHeapManager @ 0x1800D3DD4 (RtlInitializeHeapManager.c)
- *     LdrpInitParallelLoadingSupport @ 0x1800FBB44 (LdrpInitParallelLoadingSupport.c)
- *     LdrpCreateSoftwareEnclave @ 0x18010E544 (LdrpCreateSoftwareEnclave.c)
- *     AVrfInitializeVerifier @ 0x1801163F0 (AVrfInitializeVerifier.c)
- *     RtlTraceDatabaseCreate @ 0x180149E20 (RtlTraceDatabaseCreate.c)
+ *     LdrpInitMuiCrits @ 0x18001D184 (LdrpInitMuiCrits.c)
+ *     RtlpInitMuiCriticalSection @ 0x1800537F0 (RtlpInitMuiCriticalSection.c)
+ *     LdrpSetThreadPreferredLangList @ 0x180053860 (LdrpSetThreadPreferredLangList.c)
+ *     RtlpCreateProcessRegistryInfo @ 0x180053AA0 (RtlpCreateProcessRegistryInfo.c)
+ *     EtwpInitLoggerContext @ 0x180065D70 (EtwpInitLoggerContext.c)
+ *     RtlInitializeResource @ 0x180068670 (RtlInitializeResource.c)
+ *     RtlpCreateHeap @ 0x18006B0B0 (RtlpCreateHeap.c)
+ *     LdrpInitializeProcess @ 0x1800CD028 (LdrpInitializeProcess.c)
+ *     RtlInitializeHeapManager @ 0x1800CFAEC (RtlInitializeHeapManager.c)
+ *     LdrpInitParallelLoadingSupport @ 0x1800FB294 (LdrpInitParallelLoadingSupport.c)
+ *     LdrpCreateSoftwareEnclave @ 0x18010E094 (LdrpCreateSoftwareEnclave.c)
+ *     AVrfInitializeVerifier @ 0x180115BD0 (AVrfInitializeVerifier.c)
+ *     RtlTraceDatabaseCreate @ 0x180149CD0 (RtlTraceDatabaseCreate.c)
  * Callees:
- *     RtlGetCurrentServiceSessionId @ 0x180028160 (RtlGetCurrentServiceSessionId.c)
- *     RtlpAddDebugInfoToCriticalSection @ 0x18007AED0 (RtlpAddDebugInfoToCriticalSection.c)
- *     NtTraceEvent @ 0x18015FAF0 (NtTraceEvent.c)
- *     __security_check_cookie @ 0x180162C90 (__security_check_cookie.c)
+ *     RtlGetCurrentServiceSessionId @ 0x180013230 (RtlGetCurrentServiceSessionId.c)
+ *     RtlpAddDebugInfoToCriticalSection @ 0x1800696F0 (RtlpAddDebugInfoToCriticalSection.c)
+ *     NtTraceEvent @ 0x18015F9F0 (NtTraceEvent.c)
+ *     __security_check_cookie @ 0x180162B90 (__security_check_cookie.c)
  */
 
-__int64 __fastcall RtlInitializeCriticalSectionEx(__int64 a1, int a2, int a3)
+NTSTATUS __cdecl RtlInitializeCriticalSectionEx(PRTL_CRITICAL_SECTION CriticalSection, ULONG SpinCount, ULONG Flags)
 {
-  int v4; // ecx
+  ULONG v4; // ecx
   __int64 v5; // rdx
-  __int64 *v6; // rsi
-  __int64 v7; // rax
+  unsigned __int64 *p_SpinCount; // rsi
+  unsigned __int64 v7; // rax
   __int64 v8; // rdi
   _DWORD *SharedData; // rcx
   __int64 v10; // rcx
-  __int64 v12; // rax
-  _DWORD v13[2]; // [rsp+20h] [rbp-48h] BYREF
+  unsigned __int64 v12; // rax
+  _DWORD Fields[2]; // [rsp+20h] [rbp-48h] BYREF
   __int128 v14; // [rsp+28h] [rbp-40h]
   __int64 v15; // [rsp+38h] [rbp-30h]
-  __int64 v16; // [rsp+40h] [rbp-28h]
-  __int64 v17; // [rsp+48h] [rbp-20h]
+  unsigned __int64 v16; // [rsp+40h] [rbp-28h]
+  PRTL_CRITICAL_SECTION v17; // [rsp+48h] [rbp-20h]
 
-  if ( (a3 & 0xE0000000) != 0 )
-    return 3221225713LL;
-  v4 = a3 & 0x10000000;
-  if ( (a3 & 0x1000000) != 0 )
+  if ( (Flags & 0xE0000000) != 0 )
+    return -1073741583;
+  v4 = Flags & 0x10000000;
+  if ( (Flags & 0x1000000) != 0 )
   {
     if ( v4 )
-      return 3221225713LL;
+      return -1073741583;
   }
-  if ( (a2 & 0xFF000000) != 0 )
-    return 3221225712LL;
-  if ( (a3 & 0x4000000) != 0 )
-    return 0LL;
-  *(_DWORD *)(a1 + 12) = 0;
-  *(_QWORD *)(a1 + 16) = 0LL;
-  *(_QWORD *)(a1 + 24) = 0LL;
-  *(_DWORD *)(a1 + 8) = -1;
+  if ( (SpinCount & 0xFF000000) != 0 )
+    return -1073741584;
+  if ( (Flags & 0x4000000) != 0 )
+    return 0;
+  CriticalSection->RecursionCount = 0;
+  CriticalSection->OwningThread = 0LL;
+  CriticalSection->LockSemaphore = 0LL;
+  CriticalSection->LockCount = -1;
   if ( NtCurrentPeb()->NumberOfProcessors <= 1 )
   {
-    v6 = (__int64 *)(a1 + 32);
+    p_SpinCount = &CriticalSection->SpinCount;
     v5 = 0LL;
     v7 = 0LL;
   }
   else
   {
-    if ( (a3 & 0x2000000) != 0 || !a2 )
+    if ( (Flags & 0x2000000) != 0 || !SpinCount )
       v5 = 33556432LL;
     else
-      v5 = a2 & 0xFFFFFF;
-    v6 = (__int64 *)(a1 + 32);
+      v5 = SpinCount & 0xFFFFFF;
+    p_SpinCount = &CriticalSection->SpinCount;
     v7 = v5;
   }
-  *v6 = v7;
-  *v6 = v5 | a3 & 0x9000000;
+  *p_SpinCount = v7;
+  *p_SpinCount = v5 | Flags & 0x9000000;
   if ( v4 || RtlpForceCSDebugInfoCreation )
   {
-    *(_QWORD *)a1 = -1LL;
-    RtlpAddDebugInfoToCriticalSection(a1);
-    if ( *(_QWORD *)a1 == -1LL )
-      *v6 |= 0x1000000uLL;
+    CriticalSection->DebugInfo = (_RTL_CRITICAL_SECTION_DEBUG *)-1LL;
+    RtlpAddDebugInfoToCriticalSection((__int64)CriticalSection);
+    if ( CriticalSection->DebugInfo == (_RTL_CRITICAL_SECTION_DEBUG *)-1LL )
+      *p_SpinCount |= 0x1000000uLL;
   }
   else
   {
-    *(_QWORD *)a1 = -1LL;
+    CriticalSection->DebugInfo = (_RTL_CRITICAL_SECTION_DEBUG *)-1LL;
   }
   v8 = 2147353474LL;
   SharedData = NtCurrentPeb()->SharedData;
@@ -89,16 +89,16 @@ __int64 __fastcall RtlInitializeCriticalSectionEx(__int64 a1, int a2, int a3)
     v10 = 2147353474LL;
   if ( *(_BYTE *)v10 && (NtCurrentPeb()->TracingFlags & 2) != 0 )
   {
-    v12 = *v6;
+    v12 = *p_SpinCount;
     v14 = 0LL;
     v16 = v12;
-    v13[0] = 0;
-    v13[1] = 388169728;
+    Fields[0] = 0;
+    Fields[1] = 388169728;
     v15 = 0LL;
-    v17 = a1;
-    if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+    v17 = CriticalSection;
+    if ( RtlGetCurrentServiceSessionId() )
       v8 = (__int64)NtCurrentPeb()->SharedData + 552;
-    NtTraceEvent(*(unsigned __int8 *)v8, 66562LL, 16LL, v13);
+    NtTraceEvent((HANDLE)*(unsigned __int8 *)v8, 0x10402u, 0x10u, Fields);
   }
-  return 0LL;
+  return 0;
 }

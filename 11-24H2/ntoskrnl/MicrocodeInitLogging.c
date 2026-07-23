@@ -1,8 +1,8 @@
 /*
- * XREFs of MicrocodeInitLogging @ 0x1406647A0
+ * XREFs of MicrocodeInitLogging @ 0x140663090
  * Callers:
- *     GetMicrocodePatchData @ 0x1406642C8 (GetMicrocodePatchData.c)
- *     MicrocodeUpdate @ 0x140664918 (MicrocodeUpdate.c)
+ *     GetMicrocodePatchData @ 0x140662BB8 (GetMicrocodePatchData.c)
+ *     MicrocodeUpdate @ 0x140663208 (MicrocodeUpdate.c)
  * Callees:
  *     <none>
  */
@@ -15,6 +15,6 @@ void __fastcall MicrocodeInitLogging(int a1, int a2)
   {
     DWORD2(MCUpdateRegistryData) = a1;
     DWORD1(MCUpdateRegistryData) = a2;
-    dword_140EF7848 = 2;
+    dword_140EF7B08 = 2;
   }
 }

@@ -23,7 +23,7 @@ __int64 __fastcall MiSetIdealProcessorThread(PGROUP_AFFINITY Affinity)
   _DWORD *v6; // r9
   int v7; // esi
   unsigned int v9; // [rsp+20h] [rbp-28h] BYREF
-  struct _GROUP_AFFINITY PreviousAffinity; // [rsp+28h] [rbp-20h] BYREF
+  _GROUP_AFFINITY PreviousAffinity; // [rsp+28h] [rbp-20h] BYREF
 
   v9 = 0;
   v1 = Affinity->Mask == 0;

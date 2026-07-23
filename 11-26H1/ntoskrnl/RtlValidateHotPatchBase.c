@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlValidateHotPatchBase @ 0x1408AB358
+ * XREFs of RtlValidateHotPatchBase @ 0x1408B17C8
  * Callers:
- *     MiApplyDriverHotPatch @ 0x14086DAC4 (MiApplyDriverHotPatch.c)
- *     MiCaptureHotPatchInfo @ 0x14086F52C (MiCaptureHotPatchInfo.c)
+ *     MiApplyDriverHotPatch @ 0x140873E94 (MiApplyDriverHotPatch.c)
+ *     MiCaptureHotPatchInfo @ 0x1408758FC (MiCaptureHotPatchInfo.c)
  * Callees:
- *     RtlGetHotPatchSize @ 0x140720BB0 (RtlGetHotPatchSize.c)
- *     RtlDetermineHotPatchExtent @ 0x1408AAE70 (RtlDetermineHotPatchExtent.c)
+ *     RtlGetHotPatchSize @ 0x1407257D0 (RtlGetHotPatchSize.c)
+ *     RtlDetermineHotPatchExtent @ 0x1408B12E0 (RtlDetermineHotPatchExtent.c)
  */
 
 char __fastcall RtlValidateHotPatchBase(

@@ -1,9 +1,9 @@
 /*
- * XREFs of MiMirrorReduceBlackToActiveAndPrivatePages @ 0x140627E40
+ * XREFs of MiMirrorReduceBlackToActiveAndPrivatePages @ 0x140628390
  * Callers:
- *     MiMirrorBlackPhase @ 0x140626BE4 (MiMirrorBlackPhase.c)
+ *     MiMirrorBlackPhase @ 0x140627134 (MiMirrorBlackPhase.c)
  * Callees:
- *     MiMirrorRemoveInactivePages @ 0x1406282C4 (MiMirrorRemoveInactivePages.c)
+ *     MiMirrorRemoveInactivePages @ 0x140628814 (MiMirrorRemoveInactivePages.c)
  */
 
 __int64 __fastcall MiMirrorReduceBlackToActiveAndPrivatePages(__int64 a1)

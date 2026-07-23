@@ -1,8 +1,8 @@
 /*
- * XREFs of IoClearActivityIdThread @ 0x1402643D0
+ * XREFs of IoClearActivityIdThread @ 0x140252490
  * Callers:
- *     PiDqIrpQueryCreate @ 0x14062F0BC (PiDqIrpQueryCreate.c)
- *     PiDqObjectManagerServiceActionQueue @ 0x140763120 (PiDqObjectManagerServiceActionQueue.c)
+ *     PiDqIrpQueryCreate @ 0x14062413C (PiDqIrpQueryCreate.c)
+ *     PiDqObjectManagerServiceActionQueue @ 0x1407632E0 (PiDqObjectManagerServiceActionQueue.c)
  * Callees:
  *     <none>
  */

@@ -1,12 +1,12 @@
 /*
- * XREFs of DifZwRenameKeyWrapper @ 0x1405F6020
+ * XREFs of DifZwRenameKeyWrapper @ 0x1405F6590
  * Callers:
  *     <none>
  * Callees:
- *     ZwRenameKey @ 0x14041DD40 (ZwRenameKey.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     DifGetAPIThunkContextById @ 0x1404664BE (DifGetAPIThunkContextById.c)
- *     DifGetReturnAddressForWrappers @ 0x1405F88C4 (DifGetReturnAddressForWrappers.c)
+ *     ZwRenameKey @ 0x14041E0D0 (ZwRenameKey.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     DifGetAPIThunkContextById @ 0x1404668BE (DifGetAPIThunkContextById.c)
+ *     DifGetReturnAddressForWrappers @ 0x1405F8E34 (DifGetReturnAddressForWrappers.c)
  */
 
 NTSTATUS __fastcall DifZwRenameKeyWrapper(HANDLE KeyHandle, PUNICODE_STRING NewName)

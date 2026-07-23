@@ -9,10 +9,10 @@
  *     ObReferenceObjectByHandle @ 0x14063E2E0 (ObReferenceObjectByHandle.c)
  */
 
-__int64 __fastcall NtReleaseSemaphore(void *a1, int a2, LONG *a3)
+NTSTATUS __cdecl NtReleaseSemaphore(HANDLE SemaphoreHandle, LONG ReleaseCount, PLONG PreviousCount)
 {
   KPROCESSOR_MODE PreviousMode; // r14
-  NTSTATUS v6; // edi
+  int v6; // edi
   LONG v7; // r8d
   struct _DMA_ADAPTER *v8; // rsi
   LONG v9; // r15d
@@ -20,25 +20,25 @@ __int64 __fastcall NtReleaseSemaphore(void *a1, int a2, LONG *a3)
   PVOID Object; // [rsp+38h] [rbp-20h] BYREF
 
   PreviousMode = KeGetCurrentThread()->PreviousMode;
-  if ( a3 && PreviousMode )
+  if ( PreviousCount && PreviousMode )
   {
-    v11 = (__int64)a3;
-    if ( (unsigned __int64)a3 >= 0x7FFFFFFF0000LL )
+    v11 = (__int64)PreviousCount;
+    if ( (unsigned __int64)PreviousCount >= 0x7FFFFFFF0000LL )
       v11 = 0x7FFFFFFF0000LL;
     *(_DWORD *)v11 = *(_DWORD *)v11;
   }
-  if ( a2 <= 0 )
-    return 3221225485LL;
+  if ( ReleaseCount <= 0 )
+    return -1073741811;
   Object = 0LL;
-  v6 = ObReferenceObjectByHandle(a1, 2u, (POBJECT_TYPE)ExSemaphoreObjectType, PreviousMode, &Object, 0LL);
+  v6 = ObReferenceObjectByHandle(SemaphoreHandle, 2u, (POBJECT_TYPE)ExSemaphoreObjectType, PreviousMode, &Object, 0LL);
   if ( v6 >= 0 )
   {
-    v7 = a2;
+    v7 = ReleaseCount;
     v8 = (struct _DMA_ADAPTER *)Object;
     v9 = KeReleaseSemaphore((PRKSEMAPHORE)Object, 1, v7, 0);
     HalPutDmaAdapter(v8);
-    if ( a3 )
-      *a3 = v9;
+    if ( PreviousCount )
+      *PreviousCount = v9;
   }
-  return (unsigned int)v6;
+  return v6;
 }

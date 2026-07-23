@@ -1,12 +1,12 @@
 /*
- * XREFs of MmShutdownSystem @ 0x1409B0180
+ * XREFs of MmShutdownSystem @ 0x1409B10B0
  * Callers:
- *     PoBroadcastSystemState @ 0x1409922E0 (PoBroadcastSystemState.c)
- *     PopGracefulShutdown @ 0x1409B0F60 (PopGracefulShutdown.c)
+ *     PoBroadcastSystemState @ 0x1409932E0 (PoBroadcastSystemState.c)
+ *     PopGracefulShutdown @ 0x1409B1E90 (PopGracefulShutdown.c)
  * Callees:
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     MmTrimAllSystemPagableMemory @ 0x14053C990 (MmTrimAllSystemPagableMemory.c)
- *     MiShutdownSystem @ 0x1409AFDB8 (MiShutdownSystem.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     MmTrimAllSystemPagableMemory @ 0x14053CBD0 (MmTrimAllSystemPagableMemory.c)
+ *     MiShutdownSystem @ 0x1409B0CE8 (MiShutdownSystem.c)
  */
 
 char __fastcall MmShutdownSystem(int a1)
@@ -18,15 +18,15 @@ char __fastcall MmShutdownSystem(int a1)
     return MiShutdownSystem();
   if ( a1 == 1 )
   {
-    if ( (unsigned int)dword_140C4E6C4 < 2 )
+    if ( (unsigned int)dword_140C4E704 < 2 )
     {
-      dword_140C4E6C4 = 2;
+      dword_140C4E704 = 2;
       if ( (PopShutdownCleanly & 2) != 0 )
       {
         MmTrimAllSystemPagableMemory(1);
         if ( Count )
         {
-          v2 = (char *)&unk_140C528A0;
+          v2 = (char *)&unk_140C528E0;
           v3 = Count;
           do
           {
@@ -40,9 +40,9 @@ char __fastcall MmShutdownSystem(int a1)
       }
     }
   }
-  else if ( (unsigned int)dword_140C4E6C4 < 3 )
+  else if ( (unsigned int)dword_140C4E704 < 3 )
   {
-    dword_140C4E6C4 = 3;
+    dword_140C4E704 = 3;
   }
   return 1;
 }

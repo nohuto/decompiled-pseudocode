@@ -22,12 +22,12 @@
 
 void __stdcall FsRtlFreeExtraCreateParameter(PVOID EcpContext)
 {
-  struct _SLIST_ENTRY *v1; // rbx
+  _SLIST_ENTRY *v1; // rbx
   _SLIST_ENTRY *Next; // rdi
   void (__fastcall *v3)(PVOID, _SLIST_ENTRY **); // rax
   __int64 v5; // rcx
 
-  v1 = (struct _SLIST_ENTRY *)((char *)EcpContext - 72);
+  v1 = (_SLIST_ENTRY *)((char *)EcpContext - 72);
   Next = 0LL;
   v3 = (void (__fastcall *)(PVOID, _SLIST_ENTRY **))*((_QWORD *)EcpContext - 4);
   if ( v3 )
@@ -54,7 +54,7 @@ void __stdcall FsRtlFreeExtraCreateParameter(PVOID EcpContext)
       else
       {
         ++*(_DWORD *)(v5 + 32);
-        (*(void (__fastcall **)(struct _SLIST_ENTRY *))(v5 + 56))(v1);
+        (*(void (__fastcall **)(_SLIST_ENTRY *))(v5 + 56))(v1);
       }
     }
   }

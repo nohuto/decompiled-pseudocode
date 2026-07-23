@@ -1,15 +1,15 @@
 /*
- * XREFs of PipProcessStartPhase1 @ 0x140790D68
+ * XREFs of PipProcessStartPhase1 @ 0x140790F58
  * Callers:
- *     PipProcessDevNodeTree @ 0x1406CB690 (PipProcessDevNodeTree.c)
+ *     PipProcessDevNodeTree @ 0x1406CB6C0 (PipProcessDevNodeTree.c)
  * Callees:
- *     McTemplateK0dz_EtwWriteTransfer @ 0x1405644F8 (McTemplateK0dz_EtwWriteTransfer.c)
- *     IopUncacheInterfaceInformation @ 0x1407908A0 (IopUncacheInterfaceInformation.c)
- *     PiDmaGuardProcessPreStart @ 0x140790D14 (PiDmaGuardProcessPreStart.c)
- *     PnpStartDeviceNode @ 0x1407934D0 (PnpStartDeviceNode.c)
- *     PpProfileBeginHardwareProfileTransition @ 0x140963A60 (PpProfileBeginHardwareProfileTransition.c)
- *     PpProfileIncludeInHardwareProfileTransition @ 0x140963D14 (PpProfileIncludeInHardwareProfileTransition.c)
- *     PpProfileQueryHardwareProfileChange @ 0x140963E24 (PpProfileQueryHardwareProfileChange.c)
+ *     McTemplateK0dz_EtwWriteTransfer @ 0x140564BB8 (McTemplateK0dz_EtwWriteTransfer.c)
+ *     IopUncacheInterfaceInformation @ 0x140790A90 (IopUncacheInterfaceInformation.c)
+ *     PiDmaGuardProcessPreStart @ 0x140790F04 (PiDmaGuardProcessPreStart.c)
+ *     PnpStartDeviceNode @ 0x1407936C0 (PnpStartDeviceNode.c)
+ *     PpProfileBeginHardwareProfileTransition @ 0x140963C60 (PpProfileBeginHardwareProfileTransition.c)
+ *     PpProfileIncludeInHardwareProfileTransition @ 0x140963F14 (PpProfileIncludeInHardwareProfileTransition.c)
+ *     PpProfileQueryHardwareProfileChange @ 0x140964024 (PpProfileQueryHardwareProfileChange.c)
  */
 
 __int64 __fastcall PipProcessStartPhase1(ULONG_PTR MaxDataSize, unsigned int a2, __int64 a3)

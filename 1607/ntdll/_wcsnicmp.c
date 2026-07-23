@@ -1,12 +1,12 @@
 /*
- * XREFs of _wcsnicmp @ 0x180098480
+ * XREFs of _wcsnicmp @ 0x180098470
  * Callers:
- *     RtlQueryEnvironmentVariable @ 0x1800196D0 (RtlQueryEnvironmentVariable.c)
- *     punycode_encode @ 0x180053560 (punycode_encode.c)
- *     punycode_decode @ 0x180056858 (punycode_decode.c)
- *     RtlpHpOptIntoSegmentHeap @ 0x18005DA38 (RtlpHpOptIntoSegmentHeap.c)
- *     LdrpGetModuleName @ 0x18006D714 (LdrpGetModuleName.c)
- *     ResCGetHighestCacheIndex @ 0x180104E9C (ResCGetHighestCacheIndex.c)
+ *     RtlQueryEnvironmentVariable @ 0x1800196C0 (RtlQueryEnvironmentVariable.c)
+ *     punycode_encode @ 0x180053550 (punycode_encode.c)
+ *     punycode_decode @ 0x180056848 (punycode_decode.c)
+ *     RtlpHpOptIntoSegmentHeap @ 0x18005DA28 (RtlpHpOptIntoSegmentHeap.c)
+ *     LdrpGetModuleName @ 0x18006D704 (LdrpGetModuleName.c)
+ *     ResCGetHighestCacheIndex @ 0x180104DDC (ResCGetHighestCacheIndex.c)
  * Callees:
  *     <none>
  */

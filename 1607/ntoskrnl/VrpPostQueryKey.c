@@ -1,17 +1,17 @@
 /*
- * XREFs of VrpPostQueryKey @ 0x140615828
+ * XREFs of VrpPostQueryKey @ 0x1406158DC
  * Callers:
- *     CmpCallCallBacks @ 0x140452A00 (CmpCallCallBacks.c)
- *     RegistryCallback @ 0x140464700 (RegistryCallback.c)
+ *     CmpCallCallBacks @ 0x1404518D0 (CmpCallCallBacks.c)
+ *     RegistryCallback @ 0x1404635D0 (RegistryCallback.c)
  * Callees:
- *     _TlgWrite @ 0x14000A598 (_TlgWrite.c)
- *     ExGetPreviousMode @ 0x140092A40 (ExGetPreviousMode.c)
- *     EtwActivityIdControl @ 0x1400A0BF4 (EtwActivityIdControl.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     VrpCleanupBufferParameter @ 0x140612E98 (VrpCleanupBufferParameter.c)
- *     VrpOutputBufferParameter @ 0x140612FE4 (VrpOutputBufferParameter.c)
- *     VrpProcessBufferParameter @ 0x140613010 (VrpProcessBufferParameter.c)
- *     VrpUpdateKeyInformation @ 0x140616BC4 (VrpUpdateKeyInformation.c)
+ *     _TlgWrite @ 0x14000A118 (_TlgWrite.c)
+ *     ExGetPreviousMode @ 0x140092240 (ExGetPreviousMode.c)
+ *     EtwActivityIdControl @ 0x14009F51C (EtwActivityIdControl.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     VrpCleanupBufferParameter @ 0x140612F4C (VrpCleanupBufferParameter.c)
+ *     VrpOutputBufferParameter @ 0x140613098 (VrpOutputBufferParameter.c)
+ *     VrpProcessBufferParameter @ 0x1406130C4 (VrpProcessBufferParameter.c)
+ *     VrpUpdateKeyInformation @ 0x140616C78 (VrpUpdateKeyInformation.c)
  */
 
 __int64 __fastcall VrpPostQueryKey(__int64 a1)
@@ -78,7 +78,7 @@ __int64 __fastcall VrpPostQueryKey(__int64 a1)
     v29 = (__int64 *)*((_QWORD *)v10 + 1);
     v30[0] = *v10;
     v28 = 2LL;
-    TlgWrite(&stru_1402F3520, &unk_14027B5F1, &ActivityId, 0LL, 5u, &pData);
+    TlgWrite(&stru_1402F3520, &unk_14027B6F1, &ActivityId, 0LL, 5u, &pData);
   }
   if ( (*(_DWORD *)(v2 + 32) & 1) == 0 )
   {
@@ -145,7 +145,7 @@ LABEL_22:
             v30[1] = &v20;
             v30[0] = 4LL;
             v30[2] = 4LL;
-            TlgWrite(&stru_1402F3520, &unk_14027B6E6, &ActivityId, 0LL, 6u, &pData);
+            TlgWrite(&stru_1402F3520, &unk_14027B7E6, &ActivityId, 0LL, 6u, &pData);
             goto LABEL_22;
           }
         }
@@ -164,7 +164,7 @@ LABEL_23:
     v29 = &v20;
     v26 = 2LL;
     v30[0] = 4LL;
-    TlgWrite(&stru_1402F3520, &unk_14027B56F, &ActivityId, 0LL, 5u, &pData);
+    TlgWrite(&stru_1402F3520, &unk_14027B66F, &ActivityId, 0LL, 5u, &pData);
   }
 LABEL_27:
   VrpCleanupBufferParameter(v7, &v21);

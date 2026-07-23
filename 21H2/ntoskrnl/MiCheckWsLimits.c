@@ -1,8 +1,8 @@
 /*
- * XREFs of MiCheckWsLimits @ 0x1402BE45C
+ * XREFs of MiCheckWsLimits @ 0x14023CA9C
  * Callers:
- *     MmAdjustWorkingSetSizeEx @ 0x1402BE19C (MmAdjustWorkingSetSizeEx.c)
- *     MmCreateProcessAddressSpace @ 0x1406D04E4 (MmCreateProcessAddressSpace.c)
+ *     MmAdjustWorkingSetSizeEx @ 0x14023C7DC (MmAdjustWorkingSetSizeEx.c)
+ *     MmCreateProcessAddressSpace @ 0x1406A77C4 (MmCreateProcessAddressSpace.c)
  * Callees:
  *     <none>
  */

@@ -8,18 +8,18 @@
  *     RtlFreeHeap @ 0x180016DF0 (RtlFreeHeap.c)
  */
 
-__int64 __fastcall EtwUnregisterTraceGuids(__int64 a1)
+__int64 __fastcall EtwUnregisterTraceGuids(REGHANDLE a1)
 {
-  unsigned int v1; // eax
-  unsigned int v2; // ebx
-  __int64 v4; // [rsp+38h] [rbp+10h] BYREF
+  LONG v1; // eax
+  unsigned __int32 v2; // ebx
+  PVOID Context; // [rsp+38h] [rbp+10h] BYREF
 
-  v4 = 0LL;
-  v1 = EtwNotificationUnregister(a1, &v4);
+  Context = 0LL;
+  v1 = EtwNotificationUnregister(a1, &Context);
   v2 = v1;
   if ( v1 )
     RtlSetLastWin32Error(v1);
   else
-    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0LL, v4);
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, Context);
   return v2;
 }

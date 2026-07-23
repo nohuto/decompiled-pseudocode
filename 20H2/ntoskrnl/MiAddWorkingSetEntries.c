@@ -239,7 +239,8 @@ LABEL_15:
     if ( (v21 & 7) == 4 )
     {
       if ( PsNtosImageBase
-        && (v7 >= PsNtosImageBase && v7 < PsNtosImageEnd || v7 < PsHalImageEnd && v7 >= PsHalImageBase) )
+        && (v7 >= (unsigned __int64)PsNtosImageBase && v7 < PsNtosImageEnd
+         || v7 < PsHalImageEnd && v7 >= (unsigned __int64)PsHalImageBase) )
       {
         LODWORD(xmmword_140C4CBC8) = a3 + xmmword_140C4CBC8;
       }

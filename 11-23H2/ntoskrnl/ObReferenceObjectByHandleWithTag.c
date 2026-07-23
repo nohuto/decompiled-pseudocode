@@ -1,18 +1,18 @@
 /*
- * XREFs of ObReferenceObjectByHandleWithTag @ 0x1407331A0
+ * XREFs of ObReferenceObjectByHandleWithTag @ 0x140733390
  * Callers:
- *     SepReferenceTokenByHandle @ 0x1402B02C0 (SepReferenceTokenByHandle.c)
- *     SeAccessCheckByType @ 0x1402B3AC0 (SeAccessCheckByType.c)
- *     NtGetWriteWatch @ 0x1402EA260 (NtGetWriteWatch.c)
- *     PopCreatePowerThread @ 0x140342ADC (PopCreatePowerThread.c)
- *     DbgkCaptureLiveKernelDump @ 0x14053C108 (DbgkCaptureLiveKernelDump.c)
- *     NtSignalAndWaitForSingleObject @ 0x1405827D0 (NtSignalAndWaitForSingleObject.c)
- *     PspTimerDelayProcess @ 0x1405A4AB0 (PspTimerDelayProcess.c)
- *     MiReferenceAweHandle @ 0x14064BD18 (MiReferenceAweHandle.c)
- *     NtSetInformationProcess @ 0x140774540 (NtSetInformationProcess.c)
+ *     SepReferenceTokenByHandle @ 0x1402B0550 (SepReferenceTokenByHandle.c)
+ *     SeAccessCheckByType @ 0x1402B3D50 (SeAccessCheckByType.c)
+ *     NtGetWriteWatch @ 0x1402EA4F0 (NtGetWriteWatch.c)
+ *     PopCreatePowerThread @ 0x140342D6C (PopCreatePowerThread.c)
+ *     DbgkCaptureLiveKernelDump @ 0x14053C658 (DbgkCaptureLiveKernelDump.c)
+ *     NtSignalAndWaitForSingleObject @ 0x140582CC0 (NtSignalAndWaitForSingleObject.c)
+ *     PspTimerDelayProcess @ 0x1405A5020 (PspTimerDelayProcess.c)
+ *     MiReferenceAweHandle @ 0x14064C268 (MiReferenceAweHandle.c)
+ *     NtSetInformationProcess @ 0x140774730 (NtSetInformationProcess.c)
  *     PopDirectedDripsInitializePhase3 @ 0x140B6C83C (PopDirectedDripsInitializePhase3.c)
  * Callees:
- *     ObpReferenceObjectByHandleWithTag @ 0x1406E6300 (ObpReferenceObjectByHandleWithTag.c)
+ *     ObpReferenceObjectByHandleWithTag @ 0x1406E6330 (ObpReferenceObjectByHandleWithTag.c)
  */
 
 NTSTATUS __stdcall ObReferenceObjectByHandleWithTag(

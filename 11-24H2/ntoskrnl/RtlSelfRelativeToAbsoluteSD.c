@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlSelfRelativeToAbsoluteSD @ 0x140A76D20
+ * XREFs of RtlSelfRelativeToAbsoluteSD @ 0x140A70E40
  * Callers:
  *     <none>
  * Callees:
- *     memmove @ 0x1406BFC40 (memmove.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
  */
 
 NTSTATUS __stdcall RtlSelfRelativeToAbsoluteSD(

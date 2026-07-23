@@ -1,18 +1,18 @@
 /*
- * XREFs of PspSetCreateProcessNotifyRoutine @ 0x140A90080
+ * XREFs of PspSetCreateProcessNotifyRoutine @ 0x140A8C77C
  * Callers:
- *     PsSetCreateProcessNotifyRoutine @ 0x14077A210 (PsSetCreateProcessNotifyRoutine.c)
- *     PsSetCreateProcessNotifyRoutineEx @ 0x14077A230 (PsSetCreateProcessNotifyRoutineEx.c)
- *     PsSetCreateProcessNotifyRoutineEx2 @ 0x14077A250 (PsSetCreateProcessNotifyRoutineEx2.c)
+ *     PsSetCreateProcessNotifyRoutine @ 0x14077A310 (PsSetCreateProcessNotifyRoutine.c)
+ *     PsSetCreateProcessNotifyRoutineEx @ 0x14077A330 (PsSetCreateProcessNotifyRoutineEx.c)
+ *     PsSetCreateProcessNotifyRoutineEx2 @ 0x14077A350 (PsSetCreateProcessNotifyRoutineEx2.c)
  * Callees:
- *     KiLeaveCriticalRegionUnsafe @ 0x1402595C0 (KiLeaveCriticalRegionUnsafe.c)
- *     ExReferenceCallBackBlock @ 0x140279300 (ExReferenceCallBackBlock.c)
- *     ExWaitForRundownProtectionRelease @ 0x1402C6A90 (ExWaitForRundownProtectionRelease.c)
- *     ExCompareExchangeCallBack @ 0x1402C9C50 (ExCompareExchangeCallBack.c)
- *     ExDereferenceCallBackBlock @ 0x1404459D0 (ExDereferenceCallBackBlock.c)
- *     MmVerifyCallbackFunctionCheckFlags @ 0x1404F64C4 (MmVerifyCallbackFunctionCheckFlags.c)
- *     ExAllocateCallBack @ 0x140A89920 (ExAllocateCallBack.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ExReferenceCallBackBlock @ 0x14022E890 (ExReferenceCallBackBlock.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140289BD0 (KiLeaveCriticalRegionUnsafe.c)
+ *     ExWaitForRundownProtectionRelease @ 0x1402BB610 (ExWaitForRundownProtectionRelease.c)
+ *     ExCompareExchangeCallBack @ 0x14040EA64 (ExCompareExchangeCallBack.c)
+ *     ExDereferenceCallBackBlock @ 0x14043DD80 (ExDereferenceCallBackBlock.c)
+ *     MmVerifyCallbackFunctionCheckFlags @ 0x1404F3DC4 (MmVerifyCallbackFunctionCheckFlags.c)
+ *     ExAllocateCallBack @ 0x140A85D20 (ExAllocateCallBack.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PspSetCreateProcessNotifyRoutine(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
@@ -26,9 +26,6 @@ __int64 __fastcall PspSetCreateProcessNotifyRoutine(__int64 a1, __int64 a2, __in
   int v12; // edx
   struct _EX_RUNDOWN_REF *v13; // rdi
   volatile signed __int32 *v14; // rax
-  __int64 v15; // rdx
-  __int64 v16; // r8
-  __int64 v17; // r9
   __int64 j; // rbx
 
   v4 = (unsigned int)a2;
@@ -41,10 +38,10 @@ __int64 __fastcall PspSetCreateProcessNotifyRoutine(__int64 a1, __int64 a2, __in
     {
       if ( (unsigned int)i >= 0x40 )
       {
-        KiLeaveCriticalRegionUnsafe((__int64)CurrentThread, a2, a3, a4);
+        KiLeaveCriticalRegionUnsafe((__int64)CurrentThread);
         return 3221225594LL;
       }
-      v9 = ExReferenceCallBackBlock((signed __int64 *)&PspCreateProcessNotifyRoutine.Ptr + i);
+      v9 = ExReferenceCallBackBlock((signed __int64 *)&PspCreateProcessNotifyRoutine.Ptr + i, a2, a3, a4);
       v10 = v9;
       if ( v9 )
       {
@@ -58,7 +55,7 @@ __int64 __fastcall PspSetCreateProcessNotifyRoutine(__int64 a1, __int64 a2, __in
             v14 = &PspCreateProcessNotifyRoutineExCount;
           _InterlockedDecrement(v14);
           ExDereferenceCallBackBlock((signed __int64 *)&PspCreateProcessNotifyRoutine.Ptr + i, v10);
-          KiLeaveCriticalRegionUnsafe((__int64)CurrentThread, v15, v16, v17);
+          KiLeaveCriticalRegionUnsafe((__int64)CurrentThread);
           ExWaitForRundownProtectionRelease(v10);
           ExFreePoolWithTag(v10, 0);
           return 0LL;

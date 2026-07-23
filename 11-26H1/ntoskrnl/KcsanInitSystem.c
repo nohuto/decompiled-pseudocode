@@ -1,13 +1,13 @@
 /*
- * XREFs of KcsanInitSystem @ 0x1405E3070
+ * XREFs of KcsanInitSystem @ 0x1405E59E0
  * Callers:
- *     KasanInitSystem @ 0x140CC7D20 (KasanInitSystem.c)
+ *     KasanInitSystem @ 0x140CCDE10 (KasanInitSystem.c)
  * Callees:
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     qsort @ 0x140536F00 (qsort.c)
- *     MiKcsanPopulateHierarchy @ 0x1406F55B4 (MiKcsanPopulateHierarchy.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     qsort @ 0x140539380 (qsort.c)
+ *     MiKcsanPopulateHierarchy @ 0x1406FA224 (MiKcsanPopulateHierarchy.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
  */
 
 void __fastcall KcsanInitSystem(int a1)
@@ -29,14 +29,14 @@ void __fastcall KcsanInitSystem(int a1)
     v3 = Pool2;
     if ( !Pool2 )
     {
-      qword_140FC7BF0 = 0LL;
+      qword_140FC8BE0 = 0LL;
       KeBugCheckEx(0x1F1u, 4uLL, 9uLL, 1uLL, 0LL);
     }
     *Pool2 = 9LL;
     MiKcsanPopulateHierarchy(Pool2 + 1, 0LL, 0xFFFF7FFFFFFFFFFFuLL);
-    v4 = qword_140E37C00;
-    v5 = qword_140E37C00 + qword_140E37C08 - 1;
-    v3[9] = qword_140E37C00;
+    v4 = qword_140E37D80;
+    v5 = qword_140E37D80 + qword_140E37D88 - 1;
+    v3[9] = qword_140E37D80;
     v3[10] = v5;
     MiKcsanPopulateHierarchy(v3 + 11, v4, v5);
     qsort(v3 + 1, 9uLL, 0x10uLL, (int (__cdecl *)(const void *, const void *))MiKcsanIgnoredRangeSort);
@@ -63,7 +63,7 @@ void __fastcall KcsanInitSystem(int a1)
     }
     while ( v6 < v1 );
     *v3 = v1;
-    qword_140FC7BF0 = (__int64)v3;
+    qword_140FC8BE0 = (__int64)v3;
     KcsaniValidationEnabled = 1;
   }
 }

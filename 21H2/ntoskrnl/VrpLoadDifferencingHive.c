@@ -2,10 +2,10 @@
  * XREFs of VrpLoadDifferencingHive @ 0x1405D5E44
  * Callers:
  *     VrpHandleIoctlLoadDifferencingHive @ 0x1405D29EC (VrpHandleIoctlLoadDifferencingHive.c)
- *     VrpHandleIoctlLoadDifferencingHiveForHost @ 0x140882D40 (VrpHandleIoctlLoadDifferencingHiveForHost.c)
+ *     VrpHandleIoctlLoadDifferencingHiveForHost @ 0x140882EA0 (VrpHandleIoctlLoadDifferencingHiveForHost.c)
  * Callees:
- *     ZwClose @ 0x1403FA580 (ZwClose.c)
- *     ZwOpenKey @ 0x1403FA5E0 (ZwOpenKey.c)
+ *     ZwClose @ 0x1403FA760 (ZwClose.c)
+ *     ZwOpenKey @ 0x1403FA7C0 (ZwOpenKey.c)
  *     VrpUnlockDiffHiveEntry @ 0x1405D6144 (VrpUnlockDiffHiveEntry.c)
  *     VrpLockDiffHiveEntry @ 0x1405D6184 (VrpLockDiffHiveEntry.c)
  *     VrpDereferenceDiffHiveEntry @ 0x1405D642C (VrpDereferenceDiffHiveEntry.c)
@@ -14,8 +14,8 @@
  *     VrpDecrementDiffHiveEntryHardRefCount @ 0x1405D6650 (VrpDecrementDiffHiveEntryHardRefCount.c)
  *     VrpFindOrCreateDiffHiveEntryForMountPoint @ 0x1405D6690 (VrpFindOrCreateDiffHiveEntryForMountPoint.c)
  *     VrpIncrementDiffHiveEntryHardRefCount @ 0x1405D6ABC (VrpIncrementDiffHiveEntryHardRefCount.c)
- *     CmLoadDifferencingKey @ 0x14066E58C (CmLoadDifferencingKey.c)
- *     VrpWaitForDiffHiveEntryTransitionOwnerToLeave @ 0x140884240 (VrpWaitForDiffHiveEntryTransitionOwnerToLeave.c)
+ *     CmLoadDifferencingKey @ 0x140664A6C (CmLoadDifferencingKey.c)
+ *     VrpWaitForDiffHiveEntryTransitionOwnerToLeave @ 0x1408843A0 (VrpWaitForDiffHiveEntryTransitionOwnerToLeave.c)
  */
 
 __int64 __fastcall VrpLoadDifferencingHive(

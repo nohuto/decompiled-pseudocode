@@ -1,7 +1,7 @@
 /*
- * XREFs of VfDifAllocateCallbackStorage @ 0x1405CECCC
+ * XREFs of VfDifAllocateCallbackStorage @ 0x1405CF23C
  * Callers:
- *     IovAttachDeviceToDeviceStack @ 0x140AC0FA4 (IovAttachDeviceToDeviceStack.c)
+ *     IovAttachDeviceToDeviceStack @ 0x140AC0F94 (IovAttachDeviceToDeviceStack.c)
  * Callees:
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

@@ -1,13 +1,13 @@
 /*
- * XREFs of IopInitializeTriageDumpData @ 0x140711420
+ * XREFs of IopInitializeTriageDumpData @ 0x14070EFB0
  * Callers:
- *     IoInitSystemPreDrivers @ 0x140C1AA0C (IoInitSystemPreDrivers.c)
+ *     IoInitSystemPreDrivers @ 0x140C1CA4C (IoInitSystemPreDrivers.c)
  * Callees:
- *     KeRegisterBugCheckReasonCallback @ 0x140467D20 (KeRegisterBugCheckReasonCallback.c)
- *     KeInitializeTriageDumpDataArray @ 0x1404AF8B0 (KeInitializeTriageDumpDataArray.c)
- *     KeAddTriageDumpDataBlock @ 0x1405B1660 (KeAddTriageDumpDataBlock.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     KeRegisterBugCheckReasonCallback @ 0x1404606D0 (KeRegisterBugCheckReasonCallback.c)
+ *     KeInitializeTriageDumpDataArray @ 0x1404AA2A0 (KeInitializeTriageDumpDataArray.c)
+ *     KeAddTriageDumpDataBlock @ 0x1405AE5D0 (KeAddTriageDumpDataBlock.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void IopInitializeTriageDumpData()
@@ -18,7 +18,7 @@ void IopInitializeTriageDumpData()
 
   if ( !IopTriageDumpDataArray )
   {
-    Pool2 = (struct _KTRIAGE_DUMP_DATA_ARRAY *)ExAllocatePool2(0x40uLL);
+    Pool2 = (struct _KTRIAGE_DUMP_DATA_ARRAY *)ExAllocatePool2(0x40uLL, 0x4030uLL, 0x72546F49u);
     IopTriageDumpDataArray = Pool2;
     if ( !Pool2 || KeInitializeTriageDumpDataArray(Pool2, 0x4030u) < 0 )
       goto LABEL_8;

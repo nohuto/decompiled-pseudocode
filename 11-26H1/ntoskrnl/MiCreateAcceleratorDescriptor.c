@@ -1,11 +1,11 @@
 /*
- * XREFs of MiCreateAcceleratorDescriptor @ 0x14070F408
+ * XREFs of MiCreateAcceleratorDescriptor @ 0x140714104
  * Callers:
- *     MiAllocateAcceleratorDescriptor @ 0x1405319C8 (MiAllocateAcceleratorDescriptor.c)
+ *     MiAllocateAcceleratorDescriptor @ 0x140533E70 (MiAllocateAcceleratorDescriptor.c)
  * Callees:
- *     ExAllocatePoolMm @ 0x1403985B0 (ExAllocatePoolMm.c)
- *     MiInitializeAcceleratorDescriptor @ 0x14070F72C (MiInitializeAcceleratorDescriptor.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolMm @ 0x14039A310 (ExAllocatePoolMm.c)
+ *     MiInitializeAcceleratorDescriptor @ 0x140714428 (MiInitializeAcceleratorDescriptor.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void *__fastcall MiCreateAcceleratorDescriptor(__int64 a1)

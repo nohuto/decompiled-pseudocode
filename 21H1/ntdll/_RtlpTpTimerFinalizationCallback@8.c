@@ -6,12 +6,12 @@
  *     _RtlpTpTimerRundown@4 @ 0x4B2A8D8D (_RtlpTpTimerRundown@4.c)
  */
 
-int __stdcall RtlpTpTimerFinalizationCallback(int a1, int a2)
+LOGICAL __stdcall RtlpTpTimerFinalizationCallback(int a1, volatile signed __int32 *BaseAddress)
 {
-  int result; // eax
+  LOGICAL result; // eax
 
-  result = _InterlockedOr((volatile signed __int32 *)(a2 + 24), 2u);
+  result = _InterlockedOr(BaseAddress + 6, 2u);
   if ( (result & 1) == 0 )
-    return RtlpTpTimerRundown(a2);
+    return RtlpTpTimerRundown((PVOID)BaseAddress);
   return result;
 }

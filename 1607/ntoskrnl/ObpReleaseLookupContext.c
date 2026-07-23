@@ -1,19 +1,19 @@
 /*
- * XREFs of ObpReleaseLookupContext @ 0x14000BFD0
+ * XREFs of ObpReleaseLookupContext @ 0x14000BB50
  * Callers:
- *     ObReferenceObjectByName @ 0x140405BE0 (ObReferenceObjectByName.c)
- *     ObpInsertOrLocateNamedObject @ 0x140405EE0 (ObpInsertOrLocateNamedObject.c)
- *     ObpDeleteNameCheck @ 0x140406620 (ObpDeleteNameCheck.c)
- *     ObCloseHandleTableEntry @ 0x14044E380 (ObCloseHandleTableEntry.c)
- *     ObReferenceObjectByNameEx @ 0x140499E04 (ObReferenceObjectByNameEx.c)
- *     ObpCreateSymbolicLinkName @ 0x1404B8FE8 (ObpCreateSymbolicLinkName.c)
- *     ObCreateObjectTypeEx @ 0x140552054 (ObCreateObjectTypeEx.c)
+ *     ObReferenceObjectByNameEx @ 0x1403E4434 (ObReferenceObjectByNameEx.c)
+ *     ObReferenceObjectByName @ 0x140404AA0 (ObReferenceObjectByName.c)
+ *     ObpInsertOrLocateNamedObject @ 0x140404DA0 (ObpInsertOrLocateNamedObject.c)
+ *     ObpDeleteNameCheck @ 0x1404054E0 (ObpDeleteNameCheck.c)
+ *     ObCloseHandleTableEntry @ 0x14044D250 (ObCloseHandleTableEntry.c)
+ *     ObpCreateSymbolicLinkName @ 0x1404A33C8 (ObpCreateSymbolicLinkName.c)
+ *     ObCreateObjectTypeEx @ 0x140552594 (ObCreateObjectTypeEx.c)
  *     ObInitSystem @ 0x1407A0370 (ObInitSystem.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140069D00 (KeLeaveCriticalRegion.c)
- *     ObfDereferenceObjectWithTag @ 0x14006ACD0 (ObfDereferenceObjectWithTag.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     ExfReleasePushLock @ 0x1400C8620 (ExfReleasePushLock.c)
+ *     KeLeaveCriticalRegion @ 0x140069880 (KeLeaveCriticalRegion.c)
+ *     ObfDereferenceObjectWithTag @ 0x14006A850 (ObfDereferenceObjectWithTag.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     ExfReleasePushLock @ 0x1400C64C0 (ExfReleasePushLock.c)
  */
 
 void __fastcall ObpReleaseLookupContext(__int64 a1)

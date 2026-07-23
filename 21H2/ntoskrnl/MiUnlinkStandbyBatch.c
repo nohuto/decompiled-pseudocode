@@ -1,11 +1,11 @@
 /*
- * XREFs of MiUnlinkStandbyBatch @ 0x140302BE0
+ * XREFs of MiUnlinkStandbyBatch @ 0x14030D930
  * Callers:
- *     MmCheckCachedPageStates @ 0x140321590 (MmCheckCachedPageStates.c)
+ *     MmCheckCachedPageStates @ 0x14032C2E0 (MmCheckCachedPageStates.c)
  * Callees:
- *     MiUnlinkPageFromList @ 0x1402178B0 (MiUnlinkPageFromList.c)
- *     MiReadyStandbyPageForActive @ 0x140302DE0 (MiReadyStandbyPageForActive.c)
- *     MiIsPfnFromSlabAllocation @ 0x140302EF0 (MiIsPfnFromSlabAllocation.c)
+ *     MiUnlinkPageFromList @ 0x1402BC1B0 (MiUnlinkPageFromList.c)
+ *     MiReadyStandbyPageForActive @ 0x14030DB30 (MiReadyStandbyPageForActive.c)
+ *     MiIsPfnFromSlabAllocation @ 0x14030DC40 (MiIsPfnFromSlabAllocation.c)
  */
 
 __int64 __fastcall MiUnlinkStandbyBatch(__int64 a1, unsigned __int64 a2, int a3, __int64 a4, __int64 a5, ULONG_PTR *a6)
@@ -100,11 +100,11 @@ LABEL_29:
       }
       if ( (*(_QWORD *)a2 & 0xC00LL) != 0x800 )
         return a5 - v6;
-      if ( !v10 || !qword_140C4DF40 || (qword_140C4DF40 & v10) != 0 )
+      if ( !v10 || !qword_140C4DF80 || (qword_140C4DF80 & v10) != 0 )
       {
         v11 = *(_QWORD *)a2;
-        if ( qword_140C4DF40 && (v10 & 0x10) == 0 )
-          v11 = v10 & ~qword_140C4DF40;
+        if ( qword_140C4DF80 && (v10 & 0x10) == 0 )
+          v11 = v10 & ~qword_140C4DF80;
         goto LABEL_10;
       }
     }

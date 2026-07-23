@@ -1,12 +1,12 @@
 /*
- * XREFs of FsRtlCompleteLockIrpReal @ 0x140132D70
+ * XREFs of FsRtlCompleteLockIrpReal @ 0x1401332E0
  * Callers:
- *     FsRtlPrivateFastUnlockAll @ 0x1400AB1A8 (FsRtlPrivateFastUnlockAll.c)
- *     FsRtlPrivateCheckWaitingLocks @ 0x1400AB4CC (FsRtlPrivateCheckWaitingLocks.c)
- *     FsRtlUninitializeFileLock @ 0x1400B414C (FsRtlUninitializeFileLock.c)
- *     FsRtlPrivateLock @ 0x1400C4BA8 (FsRtlPrivateLock.c)
- *     FsRtlProcessFileLock @ 0x140132C48 (FsRtlProcessFileLock.c)
- *     FsRtlPrivateCancelFileLockIrp @ 0x1401B9098 (FsRtlPrivateCancelFileLockIrp.c)
+ *     FsRtlPrivateFastUnlockAll @ 0x1400A9728 (FsRtlPrivateFastUnlockAll.c)
+ *     FsRtlPrivateCheckWaitingLocks @ 0x1400A9A4C (FsRtlPrivateCheckWaitingLocks.c)
+ *     FsRtlUninitializeFileLock @ 0x1400B1FCC (FsRtlUninitializeFileLock.c)
+ *     FsRtlPrivateLock @ 0x1400C2A48 (FsRtlPrivateLock.c)
+ *     FsRtlProcessFileLock @ 0x1401331B8 (FsRtlProcessFileLock.c)
+ *     FsRtlPrivateCancelFileLockIrp @ 0x1401B8CDC (FsRtlPrivateCancelFileLockIrp.c)
  * Callees:
  *     <none>
  */

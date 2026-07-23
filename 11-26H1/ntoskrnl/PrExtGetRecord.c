@@ -1,11 +1,11 @@
 /*
- * XREFs of PrExtGetRecord @ 0x1406DCC7C
+ * XREFs of PrExtGetRecord @ 0x1406E0F1C
  * Callers:
- *     HalpGetMicrocodePatchRecord @ 0x140593124 (HalpGetMicrocodePatchRecord.c)
- *     HalpLoadSfsUpdateEx @ 0x14059AB30 (HalpLoadSfsUpdateEx.c)
+ *     HalpGetMicrocodePatchRecord @ 0x1405958A4 (HalpGetMicrocodePatchRecord.c)
+ *     HalpLoadSfsUpdateEx @ 0x14059D2B0 (HalpLoadSfsUpdateEx.c)
  * Callees:
- *     SfsFwpGetRecord @ 0x1406DCEE4 (SfsFwpGetRecord.c)
- *     MicrocodeGetRecord @ 0x1406DD618 (MicrocodeGetRecord.c)
+ *     SfsFwpGetRecord @ 0x1406E1184 (SfsFwpGetRecord.c)
+ *     MicrocodeGetRecord @ 0x1406E18B8 (MicrocodeGetRecord.c)
  */
 
 __int64 __fastcall PrExtGetRecord(int a1, int a2, int a3, int a4, __int64 a5, __int64 a6)

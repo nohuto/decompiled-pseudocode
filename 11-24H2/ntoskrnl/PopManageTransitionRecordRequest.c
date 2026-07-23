@@ -1,19 +1,19 @@
 /*
- * XREFs of PopManageTransitionRecordRequest @ 0x14094E638
+ * XREFs of PopManageTransitionRecordRequest @ 0x140A44A04
  * Callers:
- *     PopPowerInformationInternal @ 0x140AC4A30 (PopPowerInformationInternal.c)
+ *     PopPowerInformationInternal @ 0x140AC2410 (PopPowerInformationInternal.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140325680 (ObfDereferenceObject.c)
- *     PopPushPowerStateTransitionRecordWithCallback @ 0x140428294 (PopPushPowerStateTransitionRecordWithCallback.c)
- *     PsLookupThreadByThreadId @ 0x14084A4B0 (PsLookupThreadByThreadId.c)
- *     PsLookupProcessByProcessId @ 0x14094DC80 (PsLookupProcessByProcessId.c)
- *     PoDelistPowerStateTransitionBlocker @ 0x140B6A3B4 (PoDelistPowerStateTransitionBlocker.c)
+ *     ObfDereferenceObject @ 0x1402CE210 (ObfDereferenceObject.c)
+ *     PopPushPowerStateTransitionRecordWithCallback @ 0x14041C424 (PopPushPowerStateTransitionRecordWithCallback.c)
+ *     PsLookupThreadByThreadId @ 0x140846770 (PsLookupThreadByThreadId.c)
+ *     PsLookupProcessByProcessId @ 0x1408F21F0 (PsLookupProcessByProcessId.c)
+ *     PoDelistPowerStateTransitionBlocker @ 0x140B6BAC4 (PoDelistPowerStateTransitionBlocker.c)
  */
 
 __int64 __fastcall PopManageTransitionRecordRequest(char a1, __int64 a2, __int64 a3)
 {
-  __int64 v3; // r13
-  int v4; // r9d
+  LARGE_INTEGER v3; // r13
+  ULONG v4; // r9d
   __int64 v7; // rcx
   int v8; // ebx
   _QWORD *v10; // r15
@@ -24,17 +24,17 @@ __int64 __fastcall PopManageTransitionRecordRequest(char a1, __int64 a2, __int64
   PEPROCESS v15; // rcx
   _QWORD *v16; // rax
   PETHREAD *v17; // rcx
-  int v18; // edx
+  ULONG v18; // edx
   PETHREAD Thread; // [rsp+30h] [rbp-48h] BYREF
   PEPROCESS Process; // [rsp+98h] [rbp+20h] BYREF
 
-  v3 = 0LL;
+  v3.QuadPart = 0LL;
   v4 = 0;
   if ( !a2 )
     return (unsigned int)-1073741811;
   if ( (unsigned int)a3 < 0x38 )
     return (unsigned int)-1073741789;
-  if ( (unsigned int)(dword_140F0B2B4 - 1) > 1 )
+  if ( (unsigned int)(dword_140F0BB34 - 1) > 1 )
     return (unsigned int)-1073741101;
   v7 = *(unsigned int *)(a2 + 8);
   if ( (_DWORD)v7 )
@@ -82,14 +82,19 @@ __int64 __fastcall PopManageTransitionRecordRequest(char a1, __int64 a2, __int64
       v14 = v17;
       if ( *(_QWORD *)(a2 + 48) )
       {
-        v3 = *(_QWORD *)(a2 + 48);
+        v3 = *(LARGE_INTEGER *)(a2 + 48);
         v4 = v18;
       }
     }
   }
   if ( !v13 || !CurrentThread )
     return (unsigned int)-1073741811;
-  v8 = PopPushPowerStateTransitionRecordWithCallback((__int64)v13, (__int64)CurrentThread, *(_QWORD *)(a2 + 32), v4, v3);
+  v8 = PopPushPowerStateTransitionRecordWithCallback(
+         (LARGE_INTEGER)v13,
+         (LONGLONG)CurrentThread,
+         *(LARGE_INTEGER *)(a2 + 32),
+         v4,
+         v3);
   if ( a1 == 1 && *v10 && *v14 )
   {
     ObfDereferenceObject(v13);

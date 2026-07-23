@@ -33,16 +33,16 @@ __int64 __fastcall RtlSetThreadPreferredUILanguages(int a1, _WORD *a2, int *a3)
   __int64 v17; // rax
   __int64 v18; // rax
   __int64 v19; // rax
-  _BYTE v20[8]; // [rsp+40h] [rbp-20h] BYREF
-  _WORD *v21; // [rsp+48h] [rbp-18h] BYREF
+  ULONG NumberOfLanguages; // [rsp+40h] [rbp-20h] BYREF
+  PVOID BaseAddress; // [rsp+48h] [rbp-18h] BYREF
   __int64 v22; // [rsp+50h] [rbp-10h] BYREF
   unsigned int v23; // [rsp+A0h] [rbp+40h] BYREF
-  int v24; // [rsp+B8h] [rbp+58h] BYREF
+  ULONG ReturnLength; // [rsp+B8h] [rbp+58h] BYREF
 
   v23 = 0;
-  v24 = 0;
+  ReturnLength = 0;
   v5 = a1;
-  v21 = 0LL;
+  BaseAddress = 0LL;
   v6 = 0;
   v22 = 0LL;
   if ( (a1 & 0xFFFF7CF2) != 0 )
@@ -81,18 +81,18 @@ __int64 __fastcall RtlSetThreadPreferredUILanguages(int a1, _WORD *a2, int *a3)
       return (unsigned int)-1073741811;
     if ( v23 < 2 || *a2 || a2[1] )
     {
-      if ( (int)sub_180015604(&v21, v22, 5LL) < 0 || !v21 )
+      if ( (int)sub_180015604(&BaseAddress, v22, 5LL) < 0 || !BaseAddress )
         return (unsigned int)-1073741801;
-      v8 = sub_180015FD0(qword_180166098, a2, v23, v5 | 2u, 26, 5, &v21);
+      v8 = sub_180015FD0(qword_180166098, a2, v23, v5 | 2u, 26, 5, &BaseAddress);
       if ( v8 < 0 )
       {
-        sub_180015770(v21);
+        sub_180015770(BaseAddress);
         goto LABEL_21;
       }
-      v16 = v21[2];
+      v16 = *((_WORD *)BaseAddress + 2);
       if ( !v16 )
       {
-        sub_180015770(v21);
+        sub_180015770(BaseAddress);
         return (unsigned int)-1073741823;
       }
       if ( a3 )
@@ -104,7 +104,7 @@ __int64 __fastcall RtlSetThreadPreferredUILanguages(int a1, _WORD *a2, int *a3)
     sub_180015770(NtCurrentTeb()->PreferredLanguages);
     NtCurrentTeb()->PreferredLanguages = 0LL;
   }
-  NtCurrentTeb()->PreferredLanguages = v21;
+  NtCurrentTeb()->PreferredLanguages = BaseAddress;
 LABEL_18:
   if ( NtCurrentTeb()->MergedPrefLanguages )
   {
@@ -189,6 +189,6 @@ LABEL_36:
   }
   *(_DWORD *)(v12 + 40) = v13 & 0xFFFFFFF9;
 LABEL_40:
-  RtlGetThreadPreferredUILanguages(v5 | 0x30u, v20, 0LL, &v24);
+  RtlGetThreadPreferredUILanguages(v5 | 0x30, &NumberOfLanguages, 0LL, &ReturnLength);
   return (unsigned int)v8;
 }

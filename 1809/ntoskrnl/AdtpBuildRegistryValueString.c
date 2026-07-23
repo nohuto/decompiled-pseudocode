@@ -1,15 +1,15 @@
 /*
- * XREFs of AdtpBuildRegistryValueString @ 0x1408EF194
+ * XREFs of AdtpBuildRegistryValueString @ 0x1408F0454
  * Callers:
- *     SeAdtRegistryValueChangedAuditAlarm @ 0x14089C5F4 (SeAdtRegistryValueChangedAuditAlarm.c)
+ *     SeAdtRegistryValueChangedAuditAlarm @ 0x14089D854 (SeAdtRegistryValueChangedAuditAlarm.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
- *     memmove @ 0x1401D1540 (memmove.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     AdtpBuildHexInt64String @ 0x1408EEB80 (AdtpBuildHexInt64String.c)
- *     AdtpBuildUlongString @ 0x1408EFBB4 (AdtpBuildUlongString.c)
- *     AdtpBuildReplacementString @ 0x1408F0530 (AdtpBuildReplacementString.c)
+ *     RtlInitUnicodeString @ 0x1400B99D0 (RtlInitUnicodeString.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     AdtpBuildHexInt64String @ 0x1408EFE40 (AdtpBuildHexInt64String.c)
+ *     AdtpBuildUlongString @ 0x1408F0E74 (AdtpBuildUlongString.c)
+ *     AdtpBuildReplacementString @ 0x1408F17F0 (AdtpBuildReplacementString.c)
  */
 
 __int64 __fastcall AdtpBuildRegistryValueString(

@@ -13,10 +13,10 @@ int __thiscall TppInitializeTimerQueue(_DWORD *this)
 
   *this = 0;
   this[38] = 0;
-  v2 = TppInitializeTimerSubQueue(1);
+  v2 = TppInitializeTimerSubQueue(this + 2, 1);
   if ( v2 >= 0 )
   {
-    v2 = TppInitializeTimerSubQueue(0);
+    v2 = TppInitializeTimerSubQueue(this + 20, 0);
     if ( v2 < 0 )
       TppDestroyTimerSubQueue((int)(this + 2));
   }

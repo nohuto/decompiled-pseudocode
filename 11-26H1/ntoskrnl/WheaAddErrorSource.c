@@ -1,54 +1,61 @@
 /*
- * XREFs of WheaAddErrorSource @ 0x140847770
+ * XREFs of WheaAddErrorSource @ 0x14084D9D0
  * Callers:
- *     WheaRegisterErrorSourceOverride @ 0x1406D7B90 (WheaRegisterErrorSourceOverride.c)
- *     WheaAddErrorSourceDeviceDriver @ 0x140847BD0 (WheaAddErrorSourceDeviceDriver.c)
+ *     WheaRegisterErrorSourceOverride @ 0x1406DBD20 (WheaRegisterErrorSourceOverride.c)
+ *     WheaAddErrorSourceDeviceDriver @ 0x14084DEA0 (WheaAddErrorSourceDeviceDriver.c)
  * Callees:
- *     WheaLogInternalEvent @ 0x1403DFEC0 (WheaLogInternalEvent.c)
- *     WheapAddErrorSource @ 0x1406D4BB8 (WheapAddErrorSource.c)
- *     WheapIsErrorSourceTypeAddable @ 0x1406D4D9C (WheapIsErrorSourceTypeAddable.c)
- *     WheapCallErrorSourceInitialize @ 0x1406D67EC (WheapCallErrorSourceInitialize.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     WheapInitializeErrorSource @ 0x140847684 (WheapInitializeErrorSource.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     WheaLogInternalEvent @ 0x1403E30B0 (WheaLogInternalEvent.c)
+ *     Feature_1631842619__private_IsEnabledDeviceUsageNoInline @ 0x1406D8B68 (Feature_1631842619__private_IsEnabledDeviceUsageNoInline.c)
+ *     WheapAddErrorSource @ 0x1406D8C98 (WheapAddErrorSource.c)
+ *     WheapIsErrorSourceTypeAddable @ 0x1406D8E7C (WheapIsErrorSourceTypeAddable.c)
+ *     WheapCallErrorSourceInitialize @ 0x1406DA8CC (WheapCallErrorSourceInitialize.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     WheapInitializeErrorSource @ 0x14084D8E4 (WheapInitializeErrorSource.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall WheaAddErrorSource(__int64 a1, __int64 a2)
 {
   __int64 v4; // r14
-  int v5; // esi
+  int v5; // edi
   __int64 Pool2; // rax
-  __int64 v7; // rdi
+  __int64 v7; // rbx
   __int64 v8; // rcx
   __int64 v9; // r8
   __int64 v10; // rax
   __int128 v11; // xmm1
   __int64 v12; // rcx
-  _BYTE *v13; // rcx
-  __int128 v14; // xmm0
-  __int128 v15; // xmm1
-  __int128 v16; // xmm0
-  __int128 v17; // xmm1
-  __int128 v18; // xmm0
-  __int128 v19; // xmm1
-  __int128 v20; // xmm0
-  __int128 v21; // xmm1
-  __int64 v22; // rax
-  __int128 v23; // xmm1
-  __int128 v24; // xmm0
-  __int128 v25; // xmm1
+  _BYTE *v13; // rdx
+  __int64 v14; // rcx
+  __int128 v15; // xmm0
+  __int128 v16; // xmm1
+  __int128 v17; // xmm0
+  __int128 v18; // xmm1
+  __int128 v19; // xmm0
+  __int128 v20; // xmm1
+  __int128 v21; // xmm0
+  __int128 v22; // xmm1
+  __int64 v23; // rax
+  __int128 v24; // xmm1
+  __int128 v25; // xmm0
+  __int128 v26; // xmm1
   _QWORD Src[2]; // [rsp+28h] [rbp-E0h] BYREF
-  int v28; // [rsp+38h] [rbp-D0h]
-  int v29; // [rsp+3Ch] [rbp-CCh]
-  int v30; // [rsp+40h] [rbp-C8h]
-  int v31; // [rsp+44h] [rbp-C4h]
-  _BYTE v32[972]; // [rsp+48h] [rbp-C0h] BYREF
-  int v33; // [rsp+414h] [rbp+30Ch]
-  char v34; // [rsp+418h] [rbp+310h]
+  int v29; // [rsp+38h] [rbp-D0h]
+  int v30; // [rsp+3Ch] [rbp-CCh]
+  int v31; // [rsp+40h] [rbp-C8h]
+  int v32; // [rsp+44h] [rbp-C4h]
+  _BYTE v33[72]; // [rsp+48h] [rbp-C0h] BYREF
+  __int64 v34; // [rsp+90h] [rbp-78h]
+  __int64 v35; // [rsp+98h] [rbp-70h]
+  __int64 v36; // [rsp+A0h] [rbp-68h]
+  __int64 v37; // [rsp+A8h] [rbp-60h]
+  __int64 v38; // [rsp+D8h] [rbp-30h]
+  int v39; // [rsp+414h] [rbp+30Ch]
+  char v40; // [rsp+418h] [rbp+310h]
 
-  memset_0(v32, 0, sizeof(v32));
+  memset_0(v33, 0, 0x3CCuLL);
   v4 = 7LL;
   if ( WheapIsErrorSourceTypeAddable(a1) )
   {
@@ -107,47 +114,56 @@ __int64 __fastcall WheaAddErrorSource(__int64 a1, __int64 a2)
     v5 = -1073741637;
   }
   Src[0] = 0x1674C6857LL;
-  v13 = v32;
+  v13 = v33;
+  v14 = a1;
   Src[1] = 1009LL;
-  v29 = -2147483636;
-  v28 = 1280201291;
-  v30 = 2;
-  v31 = 977;
+  v30 = -2147483636;
+  v29 = 1280201291;
+  v31 = 2;
+  v32 = 977;
   do
   {
-    v14 = *(_OWORD *)a1;
-    v15 = *(_OWORD *)(a1 + 16);
-    a1 += 128LL;
-    *(_OWORD *)v13 = v14;
-    v16 = *(_OWORD *)(a1 - 96);
-    *((_OWORD *)v13 + 1) = v15;
-    v17 = *(_OWORD *)(a1 - 80);
-    *((_OWORD *)v13 + 2) = v16;
-    v18 = *(_OWORD *)(a1 - 64);
-    *((_OWORD *)v13 + 3) = v17;
-    v19 = *(_OWORD *)(a1 - 48);
-    *((_OWORD *)v13 + 4) = v18;
-    v20 = *(_OWORD *)(a1 - 32);
-    *((_OWORD *)v13 + 5) = v19;
-    v21 = *(_OWORD *)(a1 - 16);
-    *((_OWORD *)v13 + 6) = v20;
+    v15 = *(_OWORD *)v14;
+    v16 = *(_OWORD *)(v14 + 16);
+    v14 += 128LL;
+    *(_OWORD *)v13 = v15;
+    v17 = *(_OWORD *)(v14 - 96);
+    *((_OWORD *)v13 + 1) = v16;
+    v18 = *(_OWORD *)(v14 - 80);
+    *((_OWORD *)v13 + 2) = v17;
+    v19 = *(_OWORD *)(v14 - 64);
+    *((_OWORD *)v13 + 3) = v18;
+    v20 = *(_OWORD *)(v14 - 48);
+    *((_OWORD *)v13 + 4) = v19;
+    v21 = *(_OWORD *)(v14 - 32);
+    *((_OWORD *)v13 + 5) = v20;
+    v22 = *(_OWORD *)(v14 - 16);
+    *((_OWORD *)v13 + 6) = v21;
     v13 += 128;
-    *((_OWORD *)v13 - 1) = v21;
+    *((_OWORD *)v13 - 1) = v22;
     --v4;
   }
   while ( v4 );
-  v22 = *(_QWORD *)(a1 + 64);
-  v23 = *(_OWORD *)(a1 + 16);
-  *(_OWORD *)v13 = *(_OWORD *)a1;
-  v24 = *(_OWORD *)(a1 + 32);
-  *((_OWORD *)v13 + 1) = v23;
-  v25 = *(_OWORD *)(a1 + 48);
-  *((_OWORD *)v13 + 2) = v24;
-  *((_OWORD *)v13 + 3) = v25;
-  *((_QWORD *)v13 + 8) = v22;
-  *((_DWORD *)v13 + 18) = *(_DWORD *)(a1 + 72);
-  v33 = v5;
-  v34 = 0;
+  v23 = *(_QWORD *)(v14 + 64);
+  v24 = *(_OWORD *)(v14 + 16);
+  *(_OWORD *)v13 = *(_OWORD *)v14;
+  v25 = *(_OWORD *)(v14 + 32);
+  *((_OWORD *)v13 + 1) = v24;
+  v26 = *(_OWORD *)(v14 + 48);
+  *((_OWORD *)v13 + 2) = v25;
+  *((_OWORD *)v13 + 3) = v26;
+  *((_QWORD *)v13 + 8) = v23;
+  *((_DWORD *)v13 + 18) = *(_DWORD *)(v14 + 72);
+  if ( (unsigned int)Feature_1631842619__private_IsEnabledDeviceUsageNoInline() && *(_DWORD *)(a1 + 8) == 16 )
+  {
+    v35 = 0LL;
+    v36 = 0LL;
+    v37 = 0LL;
+    v34 = 0LL;
+    v38 = 0LL;
+  }
+  v39 = v5;
+  v40 = 0;
   WheaLogInternalEvent(Src);
   return (unsigned int)v5;
 }

@@ -12,28 +12,25 @@
  *     RtlpIsAppContainer @ 0x1800E6588 (RtlpIsAppContainer.c)
  */
 
-__int64 __fastcall RtlpCapabilityCheckSystemCapability(__int64 a1, __int64 a2, _BYTE *a3)
+__int64 __fastcall RtlpCapabilityCheckSystemCapability(HANDLE TokenHandle, PCUNICODE_STRING Source, _BYTE *a3)
 {
   int PolicyValueForSystemCapability; // eax
-  int IsAppContainer; // ebx
-  __int64 v8; // r8
-  __int64 v9; // r8
-  char v10; // [rsp+20h] [rbp-40h] BYREF
-  _BYTE v11[3]; // [rsp+21h] [rbp-3Fh] BYREF
-  int v12; // [rsp+24h] [rbp-3Ch] BYREF
-  __int16 v13; // [rsp+28h] [rbp-38h]
-  UNICODE_STRING UnicodeString; // [rsp+30h] [rbp-30h] BYREF
-  _BYTE v15[8]; // [rsp+40h] [rbp-20h] BYREF
-  int v16; // [rsp+48h] [rbp-18h]
-  int v17; // [rsp+4Ch] [rbp-14h]
+  NTSTATUS IsAppContainer; // ebx
+  BOOLEAN IsMember; // [rsp+20h] [rbp-40h] BYREF
+  _BYTE v9[3]; // [rsp+21h] [rbp-3Fh] BYREF
+  _SID_IDENTIFIER_AUTHORITY IdentifierAuthority; // [rsp+24h] [rbp-3Ch] BYREF
+  _UNICODE_STRING UnicodeString; // [rsp+30h] [rbp-30h] BYREF
+  _BYTE Sid[8]; // [rsp+40h] [rbp-20h] BYREF
+  int v13; // [rsp+48h] [rbp-18h]
+  int v14; // [rsp+4Ch] [rbp-14h]
 
-  v13 = 1280;
+  *(_WORD *)&IdentifierAuthority.Value[4] = 1280;
   *(_QWORD *)&UnicodeString.Length = 0LL;
   UnicodeString.Buffer = 0LL;
-  v12 = 0;
-  v10 = 0;
-  v11[0] = 0;
-  PolicyValueForSystemCapability = RtlpGetPolicyValueForSystemCapability(a2, &UnicodeString);
+  *(_DWORD *)IdentifierAuthority.Value = 0;
+  IsMember = 0;
+  v9[0] = 0;
+  PolicyValueForSystemCapability = RtlpGetPolicyValueForSystemCapability(Source, &UnicodeString);
   IsAppContainer = PolicyValueForSystemCapability;
   if ( PolicyValueForSystemCapability == -1073741772 )
   {
@@ -44,33 +41,31 @@ __int64 __fastcall RtlpCapabilityCheckSystemCapability(__int64 a1, __int64 a2, _
     *a3 = 0;
     if ( PolicyValueForSystemCapability >= 0 )
     {
-      if ( (unsigned int)RtlCompareUnicodeString(&UnicodeString, &unk_180119568, 0LL) )
+      if ( RtlCompareUnicodeString(&UnicodeString, (PUNICODE_STRING)&stru_180119568, 0) )
       {
-        if ( (unsigned int)RtlCompareUnicodeString(&UnicodeString, &unk_180119558, 0LL) )
+        if ( RtlCompareUnicodeString(&UnicodeString, (PUNICODE_STRING)&stru_180119558, 0) )
         {
           IsAppContainer = -1073741823;
           goto LABEL_3;
         }
-        LOBYTE(v9) = 1;
-        RtlInitializeSid(v15, &v12, v9);
-        v16 = 4;
+        RtlInitializeSid(Sid, &IdentifierAuthority, 1u);
+        v13 = 4;
       }
       else
       {
-        LOBYTE(v8) = 2;
-        RtlInitializeSid(v15, &v12, v8);
-        v16 = 32;
-        v17 = 583;
+        RtlInitializeSid(Sid, &IdentifierAuthority, 2u);
+        v13 = 32;
+        v14 = 583;
       }
-      IsAppContainer = RtlCheckTokenMembershipEx(a1, v15, 2LL, &v10);
+      IsAppContainer = RtlCheckTokenMembershipEx(TokenHandle, Sid, 2u, &IsMember);
       if ( IsAppContainer >= 0 )
       {
-        if ( v10 )
+        if ( IsMember )
         {
-          IsAppContainer = RtlpIsAppContainer(a1, v11);
+          IsAppContainer = RtlpIsAppContainer(TokenHandle, v9);
           if ( IsAppContainer >= 0 )
           {
-            if ( v11[0] )
+            if ( v9[0] )
               *a3 = 1;
           }
         }

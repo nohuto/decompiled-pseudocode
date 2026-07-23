@@ -10,7 +10,7 @@
  *     RtlLocateSupervisorFeature @ 0x140312DF0 (RtlLocateSupervisorFeature.c)
  */
 
-__int64 __fastcall KiInitializeContextThread(__int64 a1, __int64 a2, __int64 a3, __int64 a4, _DWORD *a5)
+unsigned __int64 __fastcall KiInitializeContextThread(__int64 a1, __int64 a2, __int64 a3, __int64 a4, _DWORD *a5)
 {
   __int64 v5; // rbx
   unsigned __int64 v7; // rsi
@@ -34,7 +34,7 @@ __int64 __fastcall KiInitializeContextThread(__int64 a1, __int64 a2, __int64 a3,
   __int128 v25; // xmm0
   __int128 v26; // xmm1
   __int128 v27; // xmm0
-  __int64 result; // rax
+  unsigned __int64 result; // rax
   unsigned int v29; // r9d
   _DWORD *v30; // r10
   __int64 v31; // r8
@@ -181,7 +181,7 @@ __int64 __fastcall KiInitializeContextThread(__int64 a1, __int64 a2, __int64 a3,
         }
         *(_QWORD *)(v7 + 512) |= 0x800uLL;
         *(_QWORD *)(v7 + 520) = 0x8000000000000803uLL;
-        result = RtlLocateSupervisorFeature(v7 + 512, 11LL);
+        result = (unsigned __int64)RtlLocateSupervisorFeature((PXSAVE_AREA_HEADER)(v7 + 512), 0xBu, 0LL);
         *(_OWORD *)result = *(_OWORD *)v10;
       }
     }

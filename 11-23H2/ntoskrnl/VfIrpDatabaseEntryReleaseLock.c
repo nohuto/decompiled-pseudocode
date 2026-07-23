@@ -1,31 +1,31 @@
 /*
- * XREFs of VfIrpDatabaseEntryReleaseLock @ 0x140AE191C
+ * XREFs of VfIrpDatabaseEntryReleaseLock @ 0x140AE190C
  * Callers:
- *     IovCancelIrp @ 0x140AC1448 (IovCancelIrp.c)
- *     IovpLocalCompletionRoutine @ 0x140AC1B60 (IovpLocalCompletionRoutine.c)
- *     IovpCallDriver1 @ 0x140ACC1A0 (IovpCallDriver1.c)
- *     IovpCallDriver2 @ 0x140ACC6FC (IovpCallDriver2.c)
- *     IovpCheckIrpForCriticalTracking @ 0x140ACC984 (IovpCheckIrpForCriticalTracking.c)
- *     IovpCompleteRequest1 @ 0x140ACC9FC (IovpCompleteRequest1.c)
- *     IovpCompleteRequest2 @ 0x140ACCB2C (IovpCompleteRequest2.c)
- *     IovpCompleteRequest3 @ 0x140ACCE40 (IovpCompleteRequest3.c)
- *     IovpCompleteRequest4 @ 0x140ACCEC8 (IovpCompleteRequest4.c)
- *     VfIoAllocateIrp1 @ 0x140ACD718 (VfIoAllocateIrp1.c)
- *     VfIoAllocateIrp2 @ 0x140ACD790 (VfIoAllocateIrp2.c)
- *     VfIoFreeIrp @ 0x140ACD814 (VfIoFreeIrp.c)
- *     VfIoInitializeIrp @ 0x140ACD9CC (VfIoInitializeIrp.c)
- *     VfIrpWatermark @ 0x140ACDC58 (VfIrpWatermark.c)
- *     VfPendingMoreProcessingRequired @ 0x140AD19A0 (VfPendingMoreProcessingRequired.c)
- *     ViPendingCompleteAfterWait @ 0x140AD1C1C (ViPendingCompleteAfterWait.c)
- *     VfPacketReleaseLock @ 0x140ADD188 (VfPacketReleaseLock.c)
- *     VfIrpDatabaseEntryFindAndLock @ 0x140AE1798 (VfIrpDatabaseEntryFindAndLock.c)
+ *     IovCancelIrp @ 0x140AC1438 (IovCancelIrp.c)
+ *     IovpLocalCompletionRoutine @ 0x140AC1B50 (IovpLocalCompletionRoutine.c)
+ *     IovpCallDriver1 @ 0x140ACC190 (IovpCallDriver1.c)
+ *     IovpCallDriver2 @ 0x140ACC6EC (IovpCallDriver2.c)
+ *     IovpCheckIrpForCriticalTracking @ 0x140ACC974 (IovpCheckIrpForCriticalTracking.c)
+ *     IovpCompleteRequest1 @ 0x140ACC9EC (IovpCompleteRequest1.c)
+ *     IovpCompleteRequest2 @ 0x140ACCB1C (IovpCompleteRequest2.c)
+ *     IovpCompleteRequest3 @ 0x140ACCE30 (IovpCompleteRequest3.c)
+ *     IovpCompleteRequest4 @ 0x140ACCEB8 (IovpCompleteRequest4.c)
+ *     VfIoAllocateIrp1 @ 0x140ACD708 (VfIoAllocateIrp1.c)
+ *     VfIoAllocateIrp2 @ 0x140ACD780 (VfIoAllocateIrp2.c)
+ *     VfIoFreeIrp @ 0x140ACD804 (VfIoFreeIrp.c)
+ *     VfIoInitializeIrp @ 0x140ACD9BC (VfIoInitializeIrp.c)
+ *     VfIrpWatermark @ 0x140ACDC48 (VfIrpWatermark.c)
+ *     VfPendingMoreProcessingRequired @ 0x140AD1990 (VfPendingMoreProcessingRequired.c)
+ *     ViPendingCompleteAfterWait @ 0x140AD1C0C (ViPendingCompleteAfterWait.c)
+ *     VfPacketReleaseLock @ 0x140ADD178 (VfPacketReleaseLock.c)
+ *     VfIrpDatabaseEntryFindAndLock @ 0x140AE1788 (VfIrpDatabaseEntryFindAndLock.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     ViIrpDatabaseAcquireLockExclusive @ 0x1405D2554 (ViIrpDatabaseAcquireLockExclusive.c)
- *     ViIrpDatabaseReleaseLockExclusive @ 0x1405D259C (ViIrpDatabaseReleaseLockExclusive.c)
- *     VfUtilAddressRangeRemoveCheckEmpty @ 0x140AC247C (VfUtilAddressRangeRemoveCheckEmpty.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     ViIrpDatabaseAcquireLockExclusive @ 0x1405D2AC4 (ViIrpDatabaseAcquireLockExclusive.c)
+ *     ViIrpDatabaseReleaseLockExclusive @ 0x1405D2B0C (ViIrpDatabaseReleaseLockExclusive.c)
+ *     VfUtilAddressRangeRemoveCheckEmpty @ 0x140AC246C (VfUtilAddressRangeRemoveCheckEmpty.c)
  */
 
 __int64 __fastcall VfIrpDatabaseEntryReleaseLock(_QWORD *a1)
@@ -85,10 +85,10 @@ __int64 __fastcall VfIrpDatabaseEntryReleaseLock(_QWORD *a1)
   v8 = *((unsigned __int8 *)a1 + 16);
   v9 = (_QWORD *)a1[4];
   result = KxReleaseSpinLock(a1 + 1);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     result = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
       && (unsigned __int8)result <= 0xFu
       && (unsigned __int8)v8 <= 0xFu
       && (unsigned __int8)result >= 2u )

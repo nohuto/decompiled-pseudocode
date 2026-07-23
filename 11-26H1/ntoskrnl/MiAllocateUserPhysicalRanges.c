@@ -1,12 +1,12 @@
 /*
- * XREFs of MiAllocateUserPhysicalRanges @ 0x1408785D0
+ * XREFs of MiAllocateUserPhysicalRanges @ 0x14087E9B0
  * Callers:
- *     MiAllocateUserPhysicalPagesMdl @ 0x140877C6C (MiAllocateUserPhysicalPagesMdl.c)
+ *     MiAllocateUserPhysicalPagesMdl @ 0x14087E04C (MiAllocateUserPhysicalPagesMdl.c)
  * Callees:
- *     ExAllocatePoolMm @ 0x1403985B0 (ExAllocatePoolMm.c)
- *     MmGetCurrentProcessorColor @ 0x14044ADC0 (MmGetCurrentProcessorColor.c)
- *     MmAllocateMemoryRanges @ 0x140867D80 (MmAllocateMemoryRanges.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolMm @ 0x14039A310 (ExAllocatePoolMm.c)
+ *     MmGetCurrentProcessorColor @ 0x140442EF0 (MmGetCurrentProcessorColor.c)
+ *     MmAllocateMemoryRanges @ 0x14086E160 (MmAllocateMemoryRanges.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 _DWORD *__fastcall MiAllocateUserPhysicalRanges(__int64 a1, unsigned __int64 a2, int a3, _DWORD *a4)

@@ -1,66 +1,60 @@
 /*
- * XREFs of RtlpGetMUIRedirectedFilePath @ 0x180035170
+ * XREFs of RtlpGetMUIRedirectedFilePath @ 0x1800202D0
  * Callers:
- *     RtlGetFileMUIPath @ 0x180035550 (RtlGetFileMUIPath.c)
+ *     RtlGetFileMUIPath @ 0x1800206B0 (RtlGetFileMUIPath.c)
  * Callees:
- *     GetOverlayFilePathUsingChecksum @ 0x1800327F0 (GetOverlayFilePathUsingChecksum.c)
- *     RtlpGetMUIRedirectedFilePathInternal @ 0x1800335D0 (RtlpGetMUIRedirectedFilePathInternal.c)
- *     RtlFreeHeap_0 @ 0x18003FD10 (RtlFreeHeap_0.c)
- *     RtlAllocateHeap_0 @ 0x1800439E0 (RtlAllocateHeap_0.c)
- *     __security_check_cookie @ 0x180162C90 (__security_check_cookie.c)
- *     memset$thunk$772440563353939046 @ 0x180170030 (memset$thunk$772440563353939046.c)
+ *     GetOverlayFilePathUsingChecksum @ 0x18001D950 (GetOverlayFilePathUsingChecksum.c)
+ *     RtlpGetMUIRedirectedFilePathInternal @ 0x18001E730 (RtlpGetMUIRedirectedFilePathInternal.c)
+ *     RtlFreeHeap_0 @ 0x18002A280 (RtlFreeHeap_0.c)
+ *     RtlAllocateHeap_0 @ 0x18002DF50 (RtlAllocateHeap_0.c)
+ *     __security_check_cookie @ 0x180162B90 (__security_check_cookie.c)
+ *     memset$thunk$772440563353939046 @ 0x18016F030 (memset$thunk$772440563353939046.c)
  */
 
 __int64 __fastcall RtlpGetMUIRedirectedFilePath(
-        __int64 a1,
-        const wchar_t *a2,
-        const wchar_t *a3,
+        UNICODE_STRING *a1,
+        const WCHAR *a2,
+        const WCHAR *a3,
         _DWORD *a4,
         char a5,
         char a6,
         void *a7)
 {
-  int *v11; // rbx
-  int OverlayFilePathUsingChecksum; // eax
+  WCHAR *v11; // rbx
+  NTSTATUS OverlayFilePathUsingChecksum; // eax
   int MUIRedirectedFilePathInternal; // edi
   wchar_t *Heap_0; // rax
-  unsigned int v16[4]; // [rsp+30h] [rbp-D0h] BYREF
-  int v17[4]; // [rsp+40h] [rbp-C0h] BYREF
-  wchar_t v18[264]; // [rsp+50h] [rbp-B0h] BYREF
+  unsigned int Size[4]; // [rsp+30h] [rbp-D0h] BYREF
+  UNICODE_STRING Source; // [rsp+40h] [rbp-C0h] BYREF
+  wchar_t BaseAddress[264]; // [rsp+50h] [rbp-B0h] BYREF
 
-  memset_thunk_772440563353939046(v18, 0, 0x208uLL);
-  v16[0] = 520;
-  v11 = (int *)v18;
+  memset_thunk_772440563353939046(BaseAddress, 0, 0x208uLL);
+  Size[0] = 520;
+  v11 = BaseAddress;
   if ( !a6 )
     goto LABEL_5;
-  OverlayFilePathUsingChecksum = GetOverlayFilePathUsingChecksum(*(_QWORD *)(a1 + 8), a2, 0LL, 0LL, v16, v18);
+  OverlayFilePathUsingChecksum = GetOverlayFilePathUsingChecksum(a1->Buffer, a2, 0LL, 0LL, Size, BaseAddress);
   if ( OverlayFilePathUsingChecksum == -1073741789 )
   {
-    Heap_0 = (wchar_t *)RtlAllocateHeap_0(NtCurrentPeb()->ProcessHeap, 8LL, v16[0]);
-    v11 = (int *)Heap_0;
+    Heap_0 = (wchar_t *)RtlAllocateHeap_0(NtCurrentPeb()->ProcessHeap, 8u, Size[0]);
+    v11 = Heap_0;
     if ( !Heap_0 )
     {
 LABEL_5:
-      *(_OWORD *)v17 = *(_OWORD *)a1;
-      MUIRedirectedFilePathInternal = RtlpGetMUIRedirectedFilePathInternal((__int64)v17, a2, a3, a4, a5, a7);
+      Source = *a1;
+      MUIRedirectedFilePathInternal = RtlpGetMUIRedirectedFilePathInternal(&Source, a2, a3, a4, a5, a7);
       goto LABEL_6;
     }
-    OverlayFilePathUsingChecksum = GetOverlayFilePathUsingChecksum(*(_QWORD *)(a1 + 8), a2, 0LL, 0LL, v16, Heap_0);
+    OverlayFilePathUsingChecksum = GetOverlayFilePathUsingChecksum(a1->Buffer, a2, 0LL, 0LL, Size, Heap_0);
   }
   if ( OverlayFilePathUsingChecksum < 0 )
     goto LABEL_5;
-  *(_OWORD *)v17 = *(_OWORD *)a1;
-  MUIRedirectedFilePathInternal = RtlpGetMUIRedirectedFilePathInternal(
-                                    (__int64)v17,
-                                    (const wchar_t *)v11,
-                                    a3,
-                                    a4,
-                                    a5,
-                                    a7);
+  Source = *a1;
+  MUIRedirectedFilePathInternal = RtlpGetMUIRedirectedFilePathInternal(&Source, v11, a3, a4, a5, a7);
   if ( MUIRedirectedFilePathInternal < 0 )
     goto LABEL_5;
 LABEL_6:
-  if ( v11 != (int *)v18 && v11 )
-    RtlFreeHeap_0(NtCurrentPeb()->ProcessHeap, 0LL, v11);
+  if ( v11 != BaseAddress && v11 )
+    RtlFreeHeap_0(NtCurrentPeb()->ProcessHeap, 0, v11);
   return (unsigned int)MUIRedirectedFilePathInternal;
 }

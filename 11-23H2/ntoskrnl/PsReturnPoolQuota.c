@@ -4,7 +4,7 @@
  *     ExpReturnPoolQuota @ 0x140207F24 (ExpReturnPoolQuota.c)
  * Callees:
  *     PspReturnResourceQuota @ 0x140208380 (PspReturnResourceQuota.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
  */
 
 void __stdcall PsReturnPoolQuota(PEPROCESS Process, POOL_TYPE PoolType, ULONG_PTR Amount)
@@ -39,7 +39,7 @@ void __stdcall PsReturnPoolQuota(PEPROCESS Process, POOL_TYPE PoolType, ULONG_PT
     {
       if ( v11 > v10 )
       {
-        v12 = (ULONG_PTR *)&qword_140C38248[7 * v7];
+        v12 = (ULONG_PTR *)&qword_140C381E8[7 * v7];
         v13 = *v12;
         if ( v11 - v10 > *v12 )
         {

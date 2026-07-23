@@ -1,16 +1,16 @@
 /*
- * XREFs of RtlRestoreBootStatusDefaults @ 0x1409155A8
+ * XREFs of RtlRestoreBootStatusDefaults @ 0x140915708
  * Callers:
- *     PopBootStatRestoreDefaults @ 0x1408F2538 (PopBootStatRestoreDefaults.c)
+ *     PopBootStatRestoreDefaults @ 0x1408F2698 (PopBootStatRestoreDefaults.c)
  * Callees:
- *     RtlGetNtProductType @ 0x1402C2020 (RtlGetNtProductType.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     ZwWriteFile @ 0x1403FA4A0 (ZwWriteFile.c)
- *     memset @ 0x140414200 (memset.c)
- *     RtlpRecordBootStatusData @ 0x14078A554 (RtlpRecordBootStatusData.c)
+ *     RtlGetNtProductType @ 0x1402404C0 (RtlGetNtProductType.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     ZwWriteFile @ 0x1403FA680 (ZwWriteFile.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     RtlpRecordBootStatusData @ 0x14078A714 (RtlpRecordBootStatusData.c)
  */
 
-__int64 __fastcall RtlRestoreBootStatusDefaults(HANDLE FileHandle)
+NTSTATUS __cdecl RtlRestoreBootStatusDefaults(HANDLE FileHandle)
 {
   const __m128i *v2; // rax
   __m128i v3; // xmm1
@@ -19,7 +19,7 @@ __int64 __fastcall RtlRestoreBootStatusDefaults(HANDLE FileHandle)
   __m128i v6; // xmm1
   __m128i v7; // xmm1
   __m128i v8; // xmm1
-  NTSTATUS v9; // edx
+  int v9; // edx
   _OWORD *v10; // rcx
   _OWORD *v11; // rcx
   LARGE_INTEGER ByteOffset; // [rsp+50h] [rbp-B0h] BYREF
@@ -29,7 +29,7 @@ __int64 __fastcall RtlRestoreBootStatusDefaults(HANDLE FileHandle)
   IoStatusBlock = 0LL;
   memset(&Buffer[4], 0, 0xACuLL);
   *(_DWORD *)Buffer = 176;
-  RtlGetNtProductType(&Buffer[4]);
+  RtlGetNtProductType((PNT_PRODUCT_TYPE)&Buffer[4]);
   *(_DWORD *)&Buffer[168] = 0;
   v2 = (const __m128i *)Buffer;
   v3 = 0LL;
@@ -76,5 +76,5 @@ __int64 __fastcall RtlRestoreBootStatusDefaults(HANDLE FileHandle)
       }
     }
   }
-  return (unsigned int)v9;
+  return v9;
 }

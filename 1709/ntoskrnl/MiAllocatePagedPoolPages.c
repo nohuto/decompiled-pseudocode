@@ -31,7 +31,7 @@ PSLIST_ENTRY __fastcall MiAllocatePagedPoolPages(int a1, unsigned __int64 a2, __
 {
   unsigned __int64 v5; // rdi
   unsigned int v6; // ecx
-  union _SLIST_HEADER *v7; // rcx
+  _SLIST_HEADER *v7; // rcx
   PSLIST_ENTRY v8; // rax
   unsigned __int64 v10; // rbx
   unsigned __int16 *v11; // rax

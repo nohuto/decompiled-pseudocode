@@ -1,19 +1,19 @@
 /*
- * XREFs of SymCryptEcpointCreate @ 0x14056434C
+ * XREFs of SymCryptEcpointCreate @ 0x14056673C
  * Callers:
- *     SymCryptEcurveInitialize @ 0x14055ADA4 (SymCryptEcurveInitialize.c)
- *     SymCryptEckeyCreate @ 0x14055B6F8 (SymCryptEckeyCreate.c)
- *     SymCryptEckeyPerformPublicKeyValidation @ 0x14055B7B4 (SymCryptEckeyPerformPublicKeyValidation.c)
- *     SymCryptEckeySetValue @ 0x14055B8D0 (SymCryptEckeySetValue.c)
- *     SymCryptEcDsaSignEx @ 0x14055C9F0 (SymCryptEcDsaSignEx.c)
- *     SymCryptEcDsaVerify @ 0x14055D084 (SymCryptEcDsaVerify.c)
- *     SymCryptEcpointMultiScalarMulWnafWithInterleaving @ 0x140563700 (SymCryptEcpointMultiScalarMulWnafWithInterleaving.c)
- *     SymCryptEcpointScalarMulFixedWindow @ 0x140563C20 (SymCryptEcpointScalarMulFixedWindow.c)
- *     SymCryptOfflinePrecomputation @ 0x1405641FC (SymCryptOfflinePrecomputation.c)
- *     SymCryptShortWeierstrassAdd @ 0x1405664C0 (SymCryptShortWeierstrassAdd.c)
- *     SymCryptEcDhSecretAgreement @ 0x140574A80 (SymCryptEcDhSecretAgreement.c)
+ *     SymCryptEcurveInitialize @ 0x14055D2B8 (SymCryptEcurveInitialize.c)
+ *     SymCryptEckeyCreate @ 0x14055DBDC (SymCryptEckeyCreate.c)
+ *     SymCryptEckeyPerformPublicKeyValidation @ 0x14055DC98 (SymCryptEckeyPerformPublicKeyValidation.c)
+ *     SymCryptEckeySetValue @ 0x14055DDB4 (SymCryptEckeySetValue.c)
+ *     SymCryptEcDsaSignEx @ 0x14055EED8 (SymCryptEcDsaSignEx.c)
+ *     SymCryptEcDsaVerify @ 0x14055F56C (SymCryptEcDsaVerify.c)
+ *     SymCryptEcpointMultiScalarMulWnafWithInterleaving @ 0x140565AF0 (SymCryptEcpointMultiScalarMulWnafWithInterleaving.c)
+ *     SymCryptEcpointScalarMulFixedWindow @ 0x140566010 (SymCryptEcpointScalarMulFixedWindow.c)
+ *     SymCryptOfflinePrecomputation @ 0x1405665EC (SymCryptOfflinePrecomputation.c)
+ *     SymCryptEcDhSecretAgreement @ 0x140573CE4 (SymCryptEcDhSecretAgreement.c)
+ *     SymCryptShortWeierstrassAdd @ 0x140574120 (SymCryptShortWeierstrassAdd.c)
  * Callees:
- *     SymCryptEcpointCreateEx @ 0x14056436C (SymCryptEcpointCreateEx.c)
+ *     SymCryptEcpointCreateEx @ 0x14056675C (SymCryptEcpointCreateEx.c)
  */
 
 __int64 __fastcall SymCryptEcpointCreate(__int64 a1, __int64 a2, __int64 a3)

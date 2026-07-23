@@ -1,13 +1,13 @@
 /*
- * XREFs of IopLiveDumpTracePopulateBitmapForDumpDuration @ 0x14059E098
+ * XREFs of IopLiveDumpTracePopulateBitmapForDumpDuration @ 0x14059B018
  * Callers:
- *     IopLiveDumpPopulateBitmapForDump @ 0x14059C8F0 (IopLiveDumpPopulateBitmapForDump.c)
+ *     IopLiveDumpPopulateBitmapForDump @ 0x140599870 (IopLiveDumpPopulateBitmapForDump.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140330CB0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgKeywordOn @ 0x140426AF0 (_tlgKeywordOn.c)
- *     IopLiveDumpIsTracingEnabled @ 0x1404FA9A4 (IopLiveDumpIsTracingEnabled.c)
- *     IopLiveDumpTrace @ 0x1405A3070 (IopLiveDumpTrace.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402B92F0 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x14041A970 (_tlgKeywordOn.c)
+ *     IopLiveDumpIsTracingEnabled @ 0x1404F8284 (IopLiveDumpIsTracingEnabled.c)
+ *     IopLiveDumpTrace @ 0x14059FFB0 (IopLiveDumpTrace.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 char __fastcall IopLiveDumpTracePopulateBitmapForDumpDuration(__int64 a1, __int64 a2, __int64 a3)
@@ -78,7 +78,7 @@ char __fastcall IopLiveDumpTracePopulateBitmapForDumpDuration(__int64 a1, __int6
             v26 = 8;
             LOBYTE(v4) = tlgWriteTransfer_EtwWriteTransfer(
                            (__int64)&dword_140E06E80,
-                           (unsigned __int8 *)byte_140045A7D,
+                           (unsigned __int8 *)&word_140046456,
                            (const GUID *)(a1 + 968),
                            (const GUID *)(a1 + 952),
                            5u,

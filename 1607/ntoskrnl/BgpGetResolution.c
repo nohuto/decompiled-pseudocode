@@ -1,5 +1,5 @@
 /*
- * XREFs of BgpGetResolution @ 0x1400B5C34
+ * XREFs of BgpGetResolution @ 0x1400B3A5C
  * Callers:
  *     LogFwReport @ 0x1407259A0 (LogFwReport.c)
  *     GxpReadFrameBufferPixels @ 0x140725D4C (GxpReadFrameBufferPixels.c)

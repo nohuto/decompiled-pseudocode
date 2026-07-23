@@ -6,7 +6,7 @@
  *     <none>
  */
 
-__int64 __fastcall RtlRemoveVectoredExceptionHandler(__int64 a1)
+ULONG __cdecl RtlRemoveVectoredExceptionHandler(PVOID Handle)
 {
-  return RtlpRemoveVectoredHandler(a1, 0);
+  return RtlpRemoveVectoredHandler((void **)Handle, 0);
 }

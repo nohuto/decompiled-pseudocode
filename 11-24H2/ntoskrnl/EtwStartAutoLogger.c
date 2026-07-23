@@ -1,32 +1,32 @@
 /*
- * XREFs of EtwStartAutoLogger @ 0x1407ADDF8
+ * XREFs of EtwStartAutoLogger @ 0x1407AE248
  * Callers:
- *     PerfDiagpStartPerfDiagLogger @ 0x1407A0974 (PerfDiagpStartPerfDiagLogger.c)
- *     EtwpEnumerateAutologgerPath @ 0x1407AEE98 (EtwpEnumerateAutologgerPath.c)
- *     EtwpInitializeAutoLoggers @ 0x1407AF194 (EtwpInitializeAutoLoggers.c)
+ *     PerfDiagpStartPerfDiagLogger @ 0x1407A0A84 (PerfDiagpStartPerfDiagLogger.c)
+ *     EtwpEnumerateAutologgerPath @ 0x1407AF2E8 (EtwpEnumerateAutologgerPath.c)
+ *     EtwpInitializeAutoLoggers @ 0x1407AF5E4 (EtwpInitializeAutoLoggers.c)
  * Callees:
- *     PsGetCurrentServerSiloGlobals @ 0x140347D10 (PsGetCurrentServerSiloGlobals.c)
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     wcscmp @ 0x1404FFE20 (wcscmp.c)
- *     EtwpCreateKeyTreeForPath @ 0x14065057C (EtwpCreateKeyTreeForPath.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     ZwOpenKey @ 0x1406A6650 (ZwOpenKey.c)
- *     ZwCreateKey @ 0x1406A67B0 (ZwCreateKey.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     EtwpEnableKeyProviders @ 0x1407AED8C (EtwpEnableKeyProviders.c)
- *     EtwpParsePoolTagFilter @ 0x1407AF470 (EtwpParsePoolTagFilter.c)
- *     EtwpStartLogger @ 0x140831694 (EtwpStartLogger.c)
- *     RtlCreateUnicodeString @ 0x140833010 (RtlCreateUnicodeString.c)
- *     RtlNtStatusToDosError @ 0x140867430 (RtlNtStatusToDosError.c)
- *     RtlFreeAnsiString @ 0x1408A4990 (RtlFreeAnsiString.c)
- *     RtlGUIDFromString @ 0x1408CA240 (RtlGUIDFromString.c)
- *     RtlpQueryRegistryValues @ 0x1409CC350 (RtlpQueryRegistryValues.c)
- *     EtwpUpdateDisallowList @ 0x1409F5CCC (EtwpUpdateDisallowList.c)
- *     RtlWriteRegistryValue @ 0x140A54360 (RtlWriteRegistryValue.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x140326710 (PsGetCurrentServerSiloGlobals.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     wcscmp @ 0x1404FD6E0 (wcscmp.c)
+ *     EtwpCreateKeyTreeForPath @ 0x14064EB5C (EtwpCreateKeyTreeForPath.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     ZwOpenKey @ 0x1406A75F0 (ZwOpenKey.c)
+ *     ZwCreateKey @ 0x1406A7750 (ZwCreateKey.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     EtwpEnableKeyProviders @ 0x1407AF1DC (EtwpEnableKeyProviders.c)
+ *     EtwpParsePoolTagFilter @ 0x1407AF8C0 (EtwpParsePoolTagFilter.c)
+ *     EtwpUpdateDisallowList @ 0x140831B84 (EtwpUpdateDisallowList.c)
+ *     RtlNtStatusToDosError @ 0x14086B8C0 (RtlNtStatusToDosError.c)
+ *     RtlFreeAnsiString @ 0x1408B69C0 (RtlFreeAnsiString.c)
+ *     RtlGUIDFromString @ 0x1408C7C70 (RtlGUIDFromString.c)
+ *     RtlpQueryRegistryValues @ 0x1409B4DD0 (RtlpQueryRegistryValues.c)
+ *     RtlWriteRegistryValue @ 0x1409B6290 (RtlWriteRegistryValue.c)
+ *     EtwpStartLogger @ 0x1409D017C (EtwpStartLogger.c)
+ *     RtlCreateUnicodeString @ 0x1409D2A00 (RtlCreateUnicodeString.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall EtwStartAutoLogger(wchar_t *SourceString, __int64 a2, const WCHAR *a3)
@@ -294,9 +294,9 @@ __int64 __fastcall EtwStartAutoLogger(wchar_t *SourceString, __int64 a2, const W
   RegistryValues = ZwOpenKey(&KeyHandle, 0x2001Fu, &ObjectAttributes);
   if ( RegistryValues >= 0 )
   {
-    Pool2 = ExAllocatePool2(0x100uLL);
+    Pool2 = ExAllocatePool2(0x100uLL, 0x2000uLL, 0x50777445u);
     v4 = (void *)Pool2;
-    if ( !Pool2 || (v8 = ExAllocatePool2(0x100uLL), (v5 = (char *)v8) == 0LL) )
+    if ( !Pool2 || (v8 = ExAllocatePool2(0x100uLL, 0x504uLL, 0x50777445u), (v5 = (char *)v8) == 0LL) )
     {
       RegistryValues = -1073741801;
       goto LABEL_92;

@@ -1,11 +1,11 @@
 /*
- * XREFs of _vswprintf_l @ 0x14019588C
+ * XREFs of _vswprintf_l @ 0x1401959CC
  * Callers:
- *     _vswprintf @ 0x140195870 (_vswprintf.c)
+ *     _vswprintf @ 0x1401959B0 (_vswprintf.c)
  * Callees:
- *     xHalTimerWatchdogStop @ 0x140176800 (xHalTimerWatchdogStop.c)
- *     _flsbuf @ 0x140198410 (_flsbuf.c)
- *     _woutput_l @ 0x140198420 (_woutput_l.c)
+ *     xHalTimerWatchdogStop @ 0x140176900 (xHalTimerWatchdogStop.c)
+ *     _flsbuf @ 0x140198550 (_flsbuf.c)
+ *     _woutput_l @ 0x140198560 (_woutput_l.c)
  */
 
 __int64 __fastcall vswprintf_l(char *a1, __int64 a2, __int64 a3, __int64 a4)

@@ -1,9 +1,9 @@
 /*
- * XREFs of RaspClearCache @ 0x140BB5C90
+ * XREFs of RaspClearCache @ 0x140BB7C90
  * Callers:
- *     BgpTxtCacheDestroy @ 0x140BB4354 (BgpTxtCacheDestroy.c)
+ *     BgpTxtCacheDestroy @ 0x140BB6354 (BgpTxtCacheDestroy.c)
  * Callees:
- *     RaspDestroyCachedBitmap @ 0x140BB5CE8 (RaspDestroyCachedBitmap.c)
+ *     RaspDestroyCachedBitmap @ 0x140BB7CE8 (RaspDestroyCachedBitmap.c)
  */
 
 __int64 *RaspClearCache()
@@ -23,6 +23,6 @@ __int64 *RaspClearCache()
       break;
     RaspDestroyCachedBitmap(result);
   }
-  dword_140EEFF34 = 0;
+  dword_140EF0174 = 0;
   return result;
 }

@@ -1,16 +1,16 @@
 /*
- * XREFs of MxSwitchToPfns @ 0x140CF8360
+ * XREFs of MxSwitchToPfns @ 0x140CFE6E0
  * Callers:
- *     MiInitNucleus @ 0x140CF2CBC (MiInitNucleus.c)
+ *     MiInitNucleus @ 0x140CF903C (MiInitNucleus.c)
  * Callees:
- *     MiIssueFlushTbEntire @ 0x140250040 (MiIssueFlushTbEntire.c)
- *     MiSetPfnContainingFrame @ 0x14033BC10 (MiSetPfnContainingFrame.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     HvlChangeIsolatedMemoryVisibility @ 0x1405BEBB0 (HvlChangeIsolatedMemoryVisibility.c)
- *     MiCreatePfnTemplate @ 0x1406E70E8 (MiCreatePfnTemplate.c)
- *     MxCreateDescriptorPfns @ 0x140CF5814 (MxCreateDescriptorPfns.c)
- *     MxInsertFreeZeroPages @ 0x140CF7648 (MxInsertFreeZeroPages.c)
- *     MxInsertPagesInFreeList @ 0x140CF7780 (MxInsertPagesInFreeList.c)
+ *     MiIssueFlushTbEntire @ 0x1402519A0 (MiIssueFlushTbEntire.c)
+ *     MiSetPfnContainingFrame @ 0x14033DC90 (MiSetPfnContainingFrame.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     HvlChangeIsolatedMemoryVisibility @ 0x1405C1420 (HvlChangeIsolatedMemoryVisibility.c)
+ *     MiCreatePfnTemplate @ 0x1406EBD98 (MiCreatePfnTemplate.c)
+ *     MxCreateDescriptorPfns @ 0x140CFBB94 (MxCreateDescriptorPfns.c)
+ *     MxInsertFreeZeroPages @ 0x140CFD9C8 (MxInsertFreeZeroPages.c)
+ *     MxInsertPagesInFreeList @ 0x140CFDB00 (MxInsertPagesInFreeList.c)
  */
 
 __int64 __fastcall MxSwitchToPfns(__int64 a1)
@@ -37,10 +37,10 @@ __int64 __fastcall MxSwitchToPfns(__int64 a1)
   memset(v16, 0, sizeof(v16));
   MiCreatePfnTemplate((__int64)v17, 64, 0);
   MiCreatePfnTemplate((__int64)v16, 8388736, 0);
-  v2 = 48 * qword_140E3D3C0 - 0x220000000000LL;
-  if ( !qword_140E3D3C0 && !(unsigned __int16)*(_DWORD *)(v2 + 32) )
+  v2 = 48 * qword_140E3D540 - 0x220000000000LL;
+  if ( !qword_140E3D540 && !(unsigned __int16)*(_DWORD *)(v2 + 32) )
   {
-    MiSetPfnContainingFrame(48 * qword_140E3D3C0 - 0x220000000000LL, 0LL);
+    MiSetPfnContainingFrame(48 * qword_140E3D540 - 0x220000000000LL, 0LL);
     *(_QWORD *)(v2 + 8) = 0xFFFFF68000000000uLL;
     *(_QWORD *)(v2 + 24) = *(_QWORD *)(v2 + 24) & 0xC000000000000000uLL | 1;
     *(_DWORD *)(v2 + 32) = *(_DWORD *)(v2 + 32) & 0xFFF8FFFF | 0x50000;

@@ -1,16 +1,16 @@
 /*
- * XREFs of MiSetProtectionOnTransitionPte @ 0x14033CED4
+ * XREFs of MiSetProtectionOnTransitionPte @ 0x14033EF54
  * Callers:
- *     MiProtectPrivateMemory @ 0x1403116B4 (MiProtectPrivateMemory.c)
- *     MiSectionProtectTransitionPte @ 0x14033EF60 (MiSectionProtectTransitionPte.c)
- *     MiSetReadOnlyOnSectionView @ 0x14036BB54 (MiSetReadOnlyOnSectionView.c)
+ *     MiProtectPrivateMemory @ 0x1403136E8 (MiProtectPrivateMemory.c)
+ *     MiSectionProtectTransitionPte @ 0x140340FE0 (MiSectionProtectTransitionPte.c)
+ *     MiSetReadOnlyOnSectionView @ 0x14036D8F4 (MiSetReadOnlyOnSectionView.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     MiMakeValidPte @ 0x1402DA020 (MiMakeValidPte.c)
- *     MiWritePteShadow @ 0x14031C28C (MiWritePteShadow.c)
- *     MiSanitizePfnProtection @ 0x14033CE50 (MiSanitizePfnProtection.c)
- *     MiLockTransitionLeafPageEx @ 0x14033E050 (MiLockTransitionLeafPageEx.c)
- *     MiSanitizeShadowPxe @ 0x140342108 (MiSanitizeShadowPxe.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     MiMakeValidPte @ 0x1402BBDE0 (MiMakeValidPte.c)
+ *     MiWritePteShadow @ 0x14031E2BC (MiWritePteShadow.c)
+ *     MiSanitizePfnProtection @ 0x14033EED0 (MiSanitizePfnProtection.c)
+ *     MiLockTransitionLeafPageEx @ 0x1403400D0 (MiLockTransitionLeafPageEx.c)
+ *     MiSanitizeShadowPxe @ 0x140344188 (MiSanitizeShadowPxe.c)
  */
 
 __int64 __fastcall MiSetProtectionOnTransitionPte(__int64 a1, ULONG_PTR a2, unsigned int a3, int a4)
@@ -62,12 +62,12 @@ __int64 __fastcall MiSetProtectionOnTransitionPte(__int64 a1, ULONG_PTR a2, unsi
         else
         {
           v18 = *v6;
-          if ( qword_140E2D740 )
+          if ( qword_140E2D8C0 )
           {
             if ( (v18 & 0x10) != 0 )
               v18 &= ~0x10uLL;
             else
-              v18 &= qword_140E2D748;
+              v18 &= qword_140E2D8C8;
           }
           v15 = (v18 >> 12) & 0xFFFFFFFFFFLL;
           v19 = 48 * v15;

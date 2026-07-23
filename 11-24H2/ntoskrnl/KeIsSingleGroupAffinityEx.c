@@ -1,10 +1,10 @@
 /*
- * XREFs of KeIsSingleGroupAffinityEx @ 0x14046F090
+ * XREFs of KeIsSingleGroupAffinityEx @ 0x1404697A0
  * Callers:
- *     PpmEventParkNodeCapChangeEx @ 0x1405DDC00 (PpmEventParkNodeCapChangeEx.c)
- *     PpmEventParkNodeRecordedStatsEx @ 0x1405DE2A8 (PpmEventParkNodeRecordedStatsEx.c)
- *     PpmEventTraceParkNodeRundownEx @ 0x14076603C (PpmEventTraceParkNodeRundownEx.c)
- *     NtQueryInformationJobObject @ 0x140ACCBF0 (NtQueryInformationJobObject.c)
+ *     PpmEventParkNodeCapChangeEx @ 0x1405DAA80 (PpmEventParkNodeCapChangeEx.c)
+ *     PpmEventParkNodeRecordedStatsEx @ 0x1405DB128 (PpmEventParkNodeRecordedStatsEx.c)
+ *     PpmEventTraceParkNodeRundownEx @ 0x140765A0C (PpmEventTraceParkNodeRundownEx.c)
+ *     NtQueryInformationJobObject @ 0x140ACACA0 (NtQueryInformationJobObject.c)
  * Callees:
  *     <none>
  */

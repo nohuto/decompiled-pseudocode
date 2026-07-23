@@ -3,8 +3,8 @@
  * Callers:
  *     HalpProcInitSystem @ 0x140A8A680 (HalpProcInitSystem.c)
  * Callees:
- *     KeSetTimer2 @ 0x140250150 (KeSetTimer2.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
+ *     KeSetTimer2 @ 0x140250220 (KeSetTimer2.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
  *     HalpBlkInitializeVirtualAddressSpace @ 0x140B91ECC (HalpBlkInitializeVirtualAddressSpace.c)
  *     HalpBlkWdInitialize @ 0x140B92E18 (HalpBlkWdInitialize.c)
  */

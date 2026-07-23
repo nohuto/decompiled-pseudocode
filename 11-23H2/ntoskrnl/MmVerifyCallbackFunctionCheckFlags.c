@@ -1,16 +1,16 @@
 /*
- * XREFs of MmVerifyCallbackFunctionCheckFlags @ 0x14039FF1C
+ * XREFs of MmVerifyCallbackFunctionCheckFlags @ 0x1403A00FC
  * Callers:
- *     PsSetCreateThreadNotifyRoutineEx @ 0x140842C40 (PsSetCreateThreadNotifyRoutineEx.c)
- *     PspSetCreateProcessNotifyRoutine @ 0x140843108 (PspSetCreateProcessNotifyRoutine.c)
- *     ObRegisterCallbacks @ 0x140857FB0 (ObRegisterCallbacks.c)
- *     MmVerifyCallbackFunction @ 0x140A30768 (MmVerifyCallbackFunction.c)
+ *     PsSetCreateThreadNotifyRoutineEx @ 0x140842F40 (PsSetCreateThreadNotifyRoutineEx.c)
+ *     PspSetCreateProcessNotifyRoutine @ 0x140843408 (PspSetCreateProcessNotifyRoutine.c)
+ *     ObRegisterCallbacks @ 0x1408581F0 (ObRegisterCallbacks.c)
+ *     MmVerifyCallbackFunction @ 0x140A30A18 (MmVerifyCallbackFunction.c)
  * Callees:
  *     MiLookupDataTableEntry @ 0x1402136A0 (MiLookupDataTableEntry.c)
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExReleaseResourceLite @ 0x14023D410 (ExReleaseResourceLite.c)
- *     ExAcquireResourceSharedLite @ 0x14023D680 (ExAcquireResourceSharedLite.c)
- *     MiGetSystemRegionType @ 0x140284870 (MiGetSystemRegionType.c)
+ *     KeLeaveCriticalRegionThread @ 0x14022F7F0 (KeLeaveCriticalRegionThread.c)
+ *     ExReleaseResourceLite @ 0x14023D4E0 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceSharedLite @ 0x14023D750 (ExAcquireResourceSharedLite.c)
+ *     MiGetSystemRegionType @ 0x140284B00 (MiGetSystemRegionType.c)
  */
 
 __int64 __fastcall MmVerifyCallbackFunctionCheckFlags(unsigned __int64 a1, int a2)

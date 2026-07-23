@@ -47,7 +47,7 @@ void __fastcall RtlpCollectFreeBlocks(__int64 a1)
     }
     else
     {
-      RtlpDecommitBlock(a1, i - 16);
+      RtlpDecommitBlock(a1);
     }
   }
 }

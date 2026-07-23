@@ -1,20 +1,20 @@
 /*
- * XREFs of HalpInitializeTimers @ 0x140576C98
+ * XREFs of HalpInitializeTimers @ 0x1405791C8
  * Callers:
- *     HalpTimerInitSystem @ 0x1405774F0 (HalpTimerInitSystem.c)
+ *     HalpTimerInitSystem @ 0x140579A20 (HalpTimerInitSystem.c)
  * Callees:
- *     HalpTimerGetInternalData @ 0x140426EC0 (HalpTimerGetInternalData.c)
- *     HalpTimerSetProblemEx @ 0x1404FEB94 (HalpTimerSetProblemEx.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     HalpTimerSelectRoles @ 0x140577E78 (HalpTimerSelectRoles.c)
- *     HalpMmAllocateMemoryInternal @ 0x14057DCF0 (HalpMmAllocateMemoryInternal.c)
- *     HalpFindTimer @ 0x140581834 (HalpFindTimer.c)
- *     HalpTimerBuildKnownResourceIdString @ 0x14058195C (HalpTimerBuildKnownResourceIdString.c)
- *     HalpTimerCalculateMaximumAllowableDrift @ 0x1405819AC (HalpTimerCalculateMaximumAllowableDrift.c)
- *     HalpTimerRegisterBuiltinPluginsCommon @ 0x140582E04 (HalpTimerRegisterBuiltinPluginsCommon.c)
- *     RtlUdiv128 @ 0x140620130 (RtlUdiv128.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     HalpTimerGetInternalData @ 0x140433FD0 (HalpTimerGetInternalData.c)
+ *     HalpTimerSetProblemEx @ 0x1404F8144 (HalpTimerSetProblemEx.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     HalpTimerSelectRoles @ 0x14057A3A8 (HalpTimerSelectRoles.c)
+ *     HalpMmAllocateMemoryInternal @ 0x140580210 (HalpMmAllocateMemoryInternal.c)
+ *     HalpFindTimer @ 0x140583D54 (HalpFindTimer.c)
+ *     HalpTimerBuildKnownResourceIdString @ 0x140583E7C (HalpTimerBuildKnownResourceIdString.c)
+ *     HalpTimerCalculateMaximumAllowableDrift @ 0x140583ECC (HalpTimerCalculateMaximumAllowableDrift.c)
+ *     HalpTimerRegisterBuiltinPluginsCommon @ 0x140585324 (HalpTimerRegisterBuiltinPluginsCommon.c)
+ *     RtlUdiv128 @ 0x140623180 (RtlUdiv128.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall HalpInitializeTimers(__int64 a1)
@@ -96,22 +96,22 @@ LABEL_17:
     *(_DWORD *)v21 = 1416388936;
     v21[1] = RtlUdiv128(10000000LL, 0LL, *(_QWORD *)(v19 + 192), 0LL);
   }
-  qword_140FBD3D8 = (__int64)HalpTimerDpcRoutine;
+  qword_140FBD738 = (__int64)HalpTimerDpcRoutine;
   v22 = 0;
   HalpTimerPeriodicTimer = 8LL;
-  qword_140FBD330 = (__int64)&qword_140FBD328;
-  qword_140FBD328 = (__int64)&qword_140FBD328;
+  qword_140FBD6B0 = (__int64)&qword_140FBD6A8;
+  qword_140FBD6A8 = (__int64)&qword_140FBD6A8;
   off_140E00908[0] = (__int64 (__fastcall *)())HalpTimerReportIdleStateUsage;
   off_140E00900[0] = (__int64 (__fastcall *)())HalpTimerQueryWakeTime;
   HalpOriginalPerformanceCounter = v19;
   HalpTimerDpc = 275;
-  qword_140FBD3E0 = 0LL;
-  qword_140FBD3F8 = 0LL;
-  qword_140FBD3D0 = 0LL;
-  qword_140FBD338 = 0LL;
-  dword_140FBD35C = 0;
-  word_140FBD358 = 0;
-  byte_140FBD35B = 0;
+  qword_140FBD740 = 0LL;
+  qword_140FBD758 = 0LL;
+  qword_140FBD730 = 0LL;
+  qword_140FBD6B8 = 0LL;
+  dword_140FBD6DC = 0;
+  word_140FBD6D8 = 0;
+  byte_140FBD6DB = 0;
   if ( HalpAlwaysOnCounter )
     HalpTimerMaximumAllowableDrift = HalpTimerCalculateMaximumAllowableDrift(v18, v17, v7, 0LL);
   return v22;

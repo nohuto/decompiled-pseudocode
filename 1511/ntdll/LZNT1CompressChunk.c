@@ -9,8 +9,8 @@
  */
 
 __int64 __fastcall LZNT1CompressChunk(
-        __int64 (__fastcall *a1)(_QWORD, _QWORD),
-        char *a2,
+        _RTL_DYNAMIC_HASH_TABLE *HashTable,
+        char *Src,
         unsigned __int64 a3,
         _WORD *a4,
         unsigned __int64 a5,
@@ -18,17 +18,17 @@ __int64 __fastcall LZNT1CompressChunk(
         __int64 a7)
 {
   char *v7; // rax
-  char *v9; // rdx
+  unsigned __int64 v9; // rdx
   unsigned int *v10; // r10
   char v12; // r9
   unsigned __int64 v13; // rdi
   bool v14; // cf
   __int64 v15; // r8
-  __int64 (__fastcall *v16)(_QWORD, _QWORD); // r11
+  PRTL_DYNAMIC_HASH_TABLE v16; // r11
   char *v17; // rsi
-  char *v18; // r13
+  _BYTE *v18; // r13
   int v19; // ecx
-  char *v20; // rbx
+  _WORD *v20; // rbx
   int v21; // r15d
   unsigned int *v22; // rax
   _WORD *v23; // r12
@@ -40,10 +40,10 @@ __int64 __fastcall LZNT1CompressChunk(
   unsigned int *v30; // [rsp+28h] [rbp-50h]
   char v32; // [rsp+88h] [rbp+10h]
   char v33; // [rsp+90h] [rbp+18h]
-  char *v34; // [rsp+98h] [rbp+20h]
+  unsigned __int64 v34; // [rsp+98h] [rbp+20h]
 
-  v7 = a2 + 4096;
-  v9 = (char *)a5;
+  v7 = Src + 4096;
+  v9 = a5;
   v10 = (unsigned int *)&LZNT1Formats;
   v29 = (unsigned int *)&LZNT1Formats;
   v12 = 0;
@@ -51,25 +51,25 @@ __int64 __fastcall LZNT1CompressChunk(
   v14 = (unsigned __int64)v7 < a3;
   v32 = 0;
   v15 = a7;
-  v16 = a1;
+  v16 = HashTable;
   if ( v14 )
     v13 = (unsigned __int64)v7;
-  v17 = a2;
-  v18 = (char *)(a4 + 1);
-  *(_QWORD *)a7 = a2;
+  v17 = Src;
+  v18 = a4 + 1;
+  *(_QWORD *)a7 = Src;
   if ( (unsigned __int64)a4 + 4095 < a5 )
-    v9 = (char *)a4 + 4095;
+    v9 = (unsigned __int64)a4 + 4095;
   *(_QWORD *)(a7 + 8) = v13;
   LOBYTE(v19) = 0;
   v34 = v9;
   v33 = 0;
-  v20 = (char *)a4 + 3;
+  v20 = (_WORD *)((char *)a4 + 3);
   *(_DWORD *)(a7 + 16) = 4098;
   LOBYTE(v21) = 0;
-  if ( (unsigned __int64)a2 >= v13 )
+  if ( (unsigned __int64)Src >= v13 )
   {
 LABEL_18:
-    if ( v18 >= v9 )
+    if ( (unsigned __int64)v18 >= v9 )
       LODWORD(v20) = (_DWORD)v20 - 1;
     else
       *v18 = v21;
@@ -83,7 +83,7 @@ LABEL_18:
   v23 = a4 + 2;
   do
   {
-    if ( &a2[*v22] < v17 )
+    if ( &Src[*v22] < v17 )
     {
       do
       {
@@ -92,16 +92,16 @@ LABEL_18:
         *(_DWORD *)(v15 + 16) = v27;
         v30 = v10 + 3;
       }
-      while ( &a2[v10[3]] < v17 );
+      while ( &Src[v10[3]] < v17 );
       v12 = v32;
       v29 = v10;
     }
     if ( (unsigned __int64)(v17 + 3) > v13 )
       goto LABEL_13;
-    if ( v16 == LZNT1FindMatchStandard )
+    if ( v16 == (PRTL_DYNAMIC_HASH_TABLE)LZNT1FindMatchStandard )
       MatchStandard = LZNT1FindMatchStandard(v17, v15);
     else
-      MatchStandard = ((__int64 (__fastcall *)(char *, __int64, __int64))a1)(v17, a7, v15);
+      MatchStandard = ((__int64 (__fastcall *)(char *, __int64, __int64))HashTable)(v17, a7, v15);
     v9 = v34;
     if ( !MatchStandard )
     {
@@ -109,25 +109,25 @@ LABEL_18:
       v12 = v32;
       v10 = v29;
 LABEL_13:
-      if ( v20 >= v9 )
+      if ( (unsigned __int64)v20 >= v9 )
         break;
       v12 |= *v17;
-      *v20++ = *v17;
+      *(_BYTE *)v20 = *v17;
+      v20 = (_WORD *)((char *)v20 + 1);
       v32 = v12;
       v23 = (_WORD *)((char *)v23 + 1);
       v21 = (unsigned __int8)v21 & ~(1 << v19);
       ++v17;
       goto LABEL_15;
     }
-    if ( v23 >= (_WORD *)v34 )
+    if ( (unsigned __int64)v23 >= v34 )
       break;
     v10 = v29;
     ++v23;
     v12 = v32;
     v21 = (unsigned __int8)v21 | (1 << v33);
     LOBYTE(v19) = v33;
-    *(_WORD *)v20 = (MatchStandard - 3) | (((_WORD)v17 - *(_WORD *)(a7 + 24) - 1) << *((_BYTE *)v29 + 16));
-    v20 += 2;
+    *v20++ = (MatchStandard - 3) | (((_WORD)v17 - *(_WORD *)(a7 + 24) - 1) << *((_BYTE *)v29 + 16));
     v9 = v34;
     v17 += MatchStandard;
 LABEL_15:
@@ -138,21 +138,22 @@ LABEL_15:
       if ( (unsigned __int64)v17 >= v13 )
         goto LABEL_18;
       *v18 = v21;
-      v18 = v20++;
+      v18 = v20;
+      v20 = (_WORD *)((char *)v20 + 1);
       LOBYTE(v21) = 0;
       v23 = (_WORD *)((char *)v23 + 1);
     }
     v15 = a7;
     v22 = v30;
-    v16 = a1;
+    v16 = HashTable;
   }
   while ( (unsigned __int64)v17 < v13 );
   if ( (unsigned __int64)v17 >= v13 )
     goto LABEL_18;
-  v28 = v13 - (_DWORD)a2;
+  v28 = v13 - (_DWORD)Src;
   if ( (unsigned __int64)a4 + v28 + 2 > a5 )
     return 3221225507LL;
-  memmove(a4 + 1, a2, v28);
+  memmove(a4 + 1, Src, v28);
   *a6 = v28 + 2;
   *a4 = (v28 - 1) & 0xFFF | 0x3000;
   return 0LL;

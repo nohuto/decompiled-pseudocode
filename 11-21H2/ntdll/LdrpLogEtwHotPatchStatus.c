@@ -31,7 +31,7 @@ char __fastcall LdrpLogEtwHotPatchStatus(unsigned __int16 *a1, __int64 a2, unsig
   int v21; // [rsp+44h] [rbp-C4h] BYREF
   _QWORD v22[2]; // [rsp+48h] [rbp-C0h] BYREF
   __int64 v23; // [rsp+58h] [rbp-B0h] BYREF
-  char v24[32]; // [rsp+68h] [rbp-A0h] BYREF
+  _EVENT_DATA_DESCRIPTOR v24; // [rsp+68h] [rbp-A0h] BYREF
   __int64 *v25; // [rsp+88h] [rbp-80h]
   __int64 v26; // [rsp+90h] [rbp-78h]
   int *v27; // [rsp+98h] [rbp-70h]
@@ -60,11 +60,7 @@ char __fastcall LdrpLogEtwHotPatchStatus(unsigned __int16 *a1, __int64 a2, unsig
   LODWORD(v22[0]) = 1310738;
   v22[1] = L"Not found";
   v9 = 18;
-  result = RtlRunOnceExecuteOnce(
-             &LibLoaderTelemetryInitRunOnce,
-             (unsigned int (__fastcall *)(volatile signed __int64 *, __int64, __int64 *))LibLoaderTelemetryInitOnce,
-             0LL,
-             0LL);
+  result = RtlRunOnceExecuteOnce(&LibLoaderTelemetryInitRunOnce, LibLoaderTelemetryInitOnce, 0LL, 0LL);
   if ( a2 )
     v11 = (_QWORD *)(a2 + 88);
   else
@@ -123,11 +119,11 @@ char __fastcall LdrpLogEtwHotPatchStatus(unsigned __int16 *a1, __int64 a2, unsig
       v47 = v22;
       return tlgWriteTransfer_EtwEventWriteTransfer(
                (__int64)&dword_1801748C0,
-               byte_1801418D0,
+               (unsigned __int8 *)dword_1801418D0,
                v12,
                v13,
-               14,
-               (__int64)v24);
+               0xEu,
+               &v24);
     }
   }
   return result;

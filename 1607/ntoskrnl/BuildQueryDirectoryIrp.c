@@ -1,26 +1,26 @@
 /*
- * XREFs of BuildQueryDirectoryIrp @ 0x14050D480
+ * XREFs of BuildQueryDirectoryIrp @ 0x1404F0410
  * Callers:
- *     NtQueryDirectoryFile @ 0x14050D3A0 (NtQueryDirectoryFile.c)
+ *     NtQueryDirectoryFile @ 0x1404F0330 (NtQueryDirectoryFile.c)
  * Callees:
- *     IoGetRelatedDeviceObject @ 0x14002E0E0 (IoGetRelatedDeviceObject.c)
- *     KeResetEvent @ 0x14002E630 (KeResetEvent.c)
- *     IoAllocateMdl @ 0x14002EF90 (IoAllocateMdl.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x140055FA0 (KiLeaveCriticalRegionUnsafe.c)
- *     ObfReferenceObject @ 0x14006A060 (ObfReferenceObject.c)
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
- *     IopVerifierExAllocatePoolWithQuota @ 0x140079F20 (IopVerifierExAllocatePoolWithQuota.c)
- *     IopFileObjectRevoked @ 0x1400D16F0 (IopFileObjectRevoked.c)
- *     RtlRaiseStatus @ 0x1400F6738 (RtlRaiseStatus.c)
- *     memmove @ 0x140171280 (memmove.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     IopProbeAndLockPages_1 @ 0x1401CADE0 (IopProbeAndLockPages_1.c)
+ *     IoGetRelatedDeviceObject @ 0x14002DC60 (IoGetRelatedDeviceObject.c)
+ *     KeResetEvent @ 0x14002E1B0 (KeResetEvent.c)
+ *     IoAllocateMdl @ 0x14002EB10 (IoAllocateMdl.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140055B20 (KiLeaveCriticalRegionUnsafe.c)
+ *     ObfReferenceObject @ 0x140069BE0 (ObfReferenceObject.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
+ *     IopVerifierExAllocatePoolWithQuota @ 0x140079FA0 (IopVerifierExAllocatePoolWithQuota.c)
+ *     IopFileObjectRevoked @ 0x1400CF590 (IopFileObjectRevoked.c)
+ *     RtlRaiseStatus @ 0x1400F4588 (RtlRaiseStatus.c)
+ *     memmove @ 0x140171780 (memmove.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     IopProbeAndLockPages_0 @ 0x1401CAC3C (IopProbeAndLockPages_0.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
- *     IopAcquireFileObjectLock @ 0x1403ECA60 (IopAcquireFileObjectLock.c)
- *     ProbeForWrite @ 0x14044DAC0 (ProbeForWrite.c)
- *     ObReferenceObjectByHandle @ 0x140450D40 (ObReferenceObjectByHandle.c)
- *     IopAllocateIrpCleanup @ 0x140620DC0 (IopAllocateIrpCleanup.c)
- *     IopExceptionCleanup @ 0x1406213D4 (IopExceptionCleanup.c)
+ *     IopAcquireFileObjectLock @ 0x1403EE090 (IopAcquireFileObjectLock.c)
+ *     ProbeForWrite @ 0x14044C990 (ProbeForWrite.c)
+ *     ObReferenceObjectByHandle @ 0x14044FC10 (ObReferenceObjectByHandle.c)
+ *     IopAllocateIrpCleanup @ 0x140620E74 (IopAllocateIrpCleanup.c)
+ *     IopExceptionCleanup @ 0x140621488 (IopExceptionCleanup.c)
  */
 
 __int64 __fastcall BuildQueryDirectoryIrp(
@@ -266,7 +266,7 @@ LABEL_88:
         Mdl = IoAllocateMdl((PVOID)Address, Length, 0, 1u, v42);
         if ( !Mdl )
           RtlRaiseStatus(-1073741670);
-        IopProbeAndLockPages_1(
+        IopProbeAndLockPages_0(
           Mdl,
           PreviousMode,
           v48,

@@ -1,5 +1,5 @@
 /*
- * XREFs of PoGetProcessorPerformanceClass @ 0x14020A4A0
+ * XREFs of PoGetProcessorPerformanceClass @ 0x14020A2CC
  * Callers:
  *     KiConfigureHeteroProcessorsTarget @ 0x1403DD1E8 (KiConfigureHeteroProcessorsTarget.c)
  * Callees:

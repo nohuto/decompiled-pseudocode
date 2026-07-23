@@ -8,24 +8,24 @@
  *     HvpViewMapReleaseChargesAndUnlockViewPages @ 0x140A40714 (HvpViewMapReleaseChargesAndUnlockViewPages.c)
  */
 
-__int64 __fastcall HvpViewMapMakeViewRangeInvalid(__int64 a1, _QWORD *a2, __int64 a3, __int64 a4)
+__int64 __fastcall HvpViewMapMakeViewRangeInvalid(ULONG_PTR a1, _QWORD *a2, __int64 a3, __int64 a4)
 {
-  __int64 v7; // r15
+  ULONG_PTR v7; // r15
   __int64 i; // r14
-  unsigned __int64 v9; // rbp
+  ULONG_PTR v9; // rbp
   __int64 j; // rcx
   __int64 result; // rax
   __int64 v12; // rax
-  int v13; // [rsp+60h] [rbp+8h] BYREF
+  __int64 v13; // [rsp+60h] [rbp+8h] BYREF
 
-  v13 = 0;
+  LODWORD(v13) = 0;
   v7 = a1;
   for ( i = a3; i < a4; i += 4096LL )
   {
     if ( !a2[8] )
       break;
     a1 = a2[3];
-    v9 = (unsigned __int64)(i - a1) >> 12;
+    v9 = (i - a1) >> 12;
     if ( (*((_BYTE *)a2 + v9 + 72) & 0x10) != 0 )
     {
       HvpViewMapReleaseChargesAndUnlockViewPages(a1, *(_QWORD *)(v7 + 24), i + a2[7] - a1, 4096LL);
@@ -33,7 +33,7 @@ __int64 __fastcall HvpViewMapMakeViewRangeInvalid(__int64 a1, _QWORD *a2, __int6
       --a2[8];
     }
   }
-  CmSiProtectViewOfSection(a1, *(__int64 **)(v7 + 24), a3 + a2[7] - a2[3], a4 - a3, 0x80000001, (__int64)&v13);
+  CmSiProtectViewOfSection(a1, *(void ***)(v7 + 24), (void *)(a3 + a2[7] - a2[3]), a4 - a3, 0x80000001, (ULONG *)&v13);
   for ( j = a3; j < a4; *((_BYTE *)a2 + ((unsigned __int64)(v12 - a2[3]) >> 12) + 72) = 0 )
   {
     v12 = j;

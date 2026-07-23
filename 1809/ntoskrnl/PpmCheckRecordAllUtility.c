@@ -1,10 +1,10 @@
 /*
- * XREFs of PpmCheckRecordAllUtility @ 0x140102400
+ * XREFs of PpmCheckRecordAllUtility @ 0x140102480
  * Callers:
  *     <none>
  * Callees:
- *     PpmPerfRecordUtility @ 0x1401024B0 (PpmPerfRecordUtility.c)
- *     PpmParkRecordNodeStatistics @ 0x140102820 (PpmParkRecordNodeStatistics.c)
+ *     PpmPerfRecordUtility @ 0x140102530 (PpmPerfRecordUtility.c)
+ *     PpmParkRecordNodeStatistics @ 0x1401028A0 (PpmParkRecordNodeStatistics.c)
  */
 
 char PpmCheckRecordAllUtility()
@@ -15,7 +15,7 @@ char PpmCheckRecordAllUtility()
   __int64 v3; // rcx
   __int64 v4; // rcx
 
-  v0 = qword_140404158[0];
+  v0 = qword_140405158[0];
   v1 = 0;
   while ( v0 )
   {
@@ -31,7 +31,7 @@ LABEL_3:
   }
   while ( ++v1 < (unsigned int)(unsigned __int16)PpmCheckRegistered )
   {
-    v0 = qword_140404158[v1];
+    v0 = qword_140405158[v1];
     if ( v0 )
       goto LABEL_3;
   }

@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpTimeToTimeFields @ 0x1800A15C0
+ * XREFs of RtlpTimeToTimeFields @ 0x1800A06F0
  * Callers:
- *     RtlCutoverTimeToSystemTime @ 0x1800A0BA0 (RtlCutoverTimeToSystemTime.c)
+ *     RtlCutoverTimeToSystemTime @ 0x18009FCD0 (RtlCutoverTimeToSystemTime.c)
  * Callees:
- *     RtlpTimeToTimeFieldsNoLeapSeconds @ 0x1800A1980 (RtlpTimeToTimeFieldsNoLeapSeconds.c)
+ *     RtlpTimeToTimeFieldsNoLeapSeconds @ 0x1800A0AB0 (RtlpTimeToTimeFieldsNoLeapSeconds.c)
  */
 
 __int16 __fastcall RtlpTimeToTimeFields(__int64 *a1, _OWORD *a2, __int64 *a3)
@@ -41,7 +41,7 @@ __int16 __fastcall RtlpTimeToTimeFields(__int64 *a1, _OWORD *a2, __int64 *a3)
 
   LeapSecondData = NtCurrentPeb()->LeapSecondData;
   if ( !LeapSecondData || !LeapSecondData->Enabled )
-    return RtlpTimeToTimeFieldsNoLeapSeconds();
+    return RtlpTimeToTimeFieldsNoLeapSeconds(a1);
   Count = LeapSecondData->Count;
   _InterlockedOr(v32, 0);
   v6 = 0;

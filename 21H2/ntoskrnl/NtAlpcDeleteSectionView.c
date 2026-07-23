@@ -1,79 +1,81 @@
 /*
- * XREFs of NtAlpcDeleteSectionView @ 0x14069D2B0
+ * XREFs of NtAlpcDeleteSectionView @ 0x1405FC380
  * Callers:
  *     <none>
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     ExfReleasePushLockShared @ 0x1402F1470 (ExfReleasePushLockShared.c)
- *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
- *     ExAcquirePushLockSharedEx @ 0x14034AB50 (ExAcquirePushLockSharedEx.c)
- *     AlpcpDereferenceBlobEx @ 0x1405E9FC0 (AlpcpDereferenceBlobEx.c)
- *     AlpcpEnumerateResourcesPort @ 0x140662158 (AlpcpEnumerateResourcesPort.c)
- *     AlpcpDeleteView @ 0x140662558 (AlpcpDeleteView.c)
- *     ObReferenceObjectByHandle @ 0x1406F0BC0 (ObReferenceObjectByHandle.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     KeLeaveCriticalRegionThread @ 0x1402AB8C0 (KeLeaveCriticalRegionThread.c)
+ *     ExfReleasePushLockShared @ 0x1402FC1C0 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x1403539D0 (KeAbPostRelease.c)
+ *     ExAcquirePushLockSharedEx @ 0x1403558A0 (ExAcquirePushLockSharedEx.c)
+ *     AlpcpEnumerateResourcesPort @ 0x140656F78 (AlpcpEnumerateResourcesPort.c)
+ *     AlpcpDeleteView @ 0x140657378 (AlpcpDeleteView.c)
+ *     AlpcpDereferenceBlobEx @ 0x1406D9720 (AlpcpDereferenceBlobEx.c)
+ *     ObReferenceObjectByHandle @ 0x140707FA0 (ObReferenceObjectByHandle.c)
  */
 
-__int64 __fastcall NtAlpcDeleteSectionView(void *a1, int a2, ULONG_PTR a3)
+// local variable allocation has failed, the output may be wrong!
+NTSTATUS __cdecl NtAlpcDeleteSectionView(HANDLE PortHandle, ULONG Flags, PVOID ViewBase)
 {
+  __int64 v3; // r9
   struct _KTHREAD *CurrentThread; // rax
-  NTSTATUS v5; // ebx
-  PADAPTER_OBJECT v6; // rdi
-  signed __int64 *v7; // rbx
-  __int64 v8; // rdx
-  __int64 v9; // r8
-  int v10; // edi
-  ULONG_PTR v11; // rdi
+  signed int v6; // ebx
+  PADAPTER_OBJECT v7; // rdi
+  signed __int64 *v8; // rbx
+  __int64 v9; // rdx
+  __int64 v10; // r8
+  int v11; // edi
+  ULONG_PTR v12; // rdi
   ULONG_PTR BugCheckParameter2[4]; // [rsp+38h] [rbp-20h] BYREF
   PADAPTER_OBJECT DmaAdapter; // [rsp+78h] [rbp+20h] BYREF
 
   *(_OWORD *)BugCheckParameter2 = 0LL;
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
-  if ( a2 )
+  if ( Flags )
   {
-    v5 = -1073741811;
+    v6 = -1073741811;
   }
   else
   {
     DmaAdapter = 0LL;
-    v5 = ObReferenceObjectByHandle(
-           a1,
+    v6 = ObReferenceObjectByHandle(
+           PortHandle,
            1u,
            AlpcPortObjectType,
            KeGetCurrentThread()->PreviousMode,
            (PVOID *)&DmaAdapter,
            0LL);
-    if ( v5 >= 0 )
+    if ( v6 >= 0 )
     {
-      BugCheckParameter2[0] = a3;
-      v6 = DmaAdapter;
+      BugCheckParameter2[0] = (ULONG_PTR)ViewBase;
+      v7 = DmaAdapter;
       BugCheckParameter2[1] = 0LL;
-      v7 = (signed __int64 *)&DmaAdapter[22];
+      v8 = (signed __int64 *)&DmaAdapter[22];
       while ( 1 )
       {
-        ExAcquirePushLockSharedEx((ULONG_PTR)v7, 0LL);
-        v10 = AlpcpEnumerateResourcesPort((__int64)v6, v8, v9, (__int64)BugCheckParameter2);
-        if ( _InterlockedCompareExchange64(v7, 0LL, 17LL) != 17 )
-          ExfReleasePushLockShared(v7);
-        KeAbPostRelease((ULONG_PTR)v7);
-        if ( v10 != -1073741267 )
+        ExAcquirePushLockSharedEx((ULONG_PTR)v8, 0LL);
+        v11 = AlpcpEnumerateResourcesPort(v7, v9, v10, BugCheckParameter2);
+        if ( _InterlockedCompareExchange64(v8, 0LL, 17LL) != 17 )
+          ExfReleasePushLockShared(v8);
+        KeAbPostRelease((ULONG_PTR)v8);
+        if ( v11 != -1073741267 )
           break;
-        v6 = DmaAdapter;
+        v7 = DmaAdapter;
       }
-      v11 = BugCheckParameter2[1];
+      v12 = BugCheckParameter2[1];
       if ( BugCheckParameter2[1] )
       {
-        v5 = AlpcpDeleteView(BugCheckParameter2[1]) == 0 ? 0xC0000056 : 0;
-        AlpcpDereferenceBlobEx(v11, 1);
+        v6 = (unsigned __int8)AlpcpDeleteView(BugCheckParameter2[1]) == 0 ? 0xC0000056 : 0;
+        AlpcpDereferenceBlobEx(v12);
       }
       else
       {
-        v5 = -1073741503;
+        v6 = -1073741503;
       }
       HalPutDmaAdapter(DmaAdapter);
     }
   }
-  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
-  return (unsigned int)v5;
+  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), *(__int64 *)&Flags, (__int64)ViewBase, v3);
+  return v6;
 }

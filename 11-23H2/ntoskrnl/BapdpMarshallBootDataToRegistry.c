@@ -1,16 +1,16 @@
 /*
- * XREFs of BapdpMarshallBootDataToRegistry @ 0x1403ABC30
+ * XREFs of BapdpMarshallBootDataToRegistry @ 0x1403ABE10
  * Callers:
  *     BootApplicationPersistentDataProcess @ 0x140B4F454 (BootApplicationPersistentDataProcess.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1B0 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     ZwClose @ 0x14041AF40 (ZwClose.c)
- *     ZwOpenKey @ 0x14041AFA0 (ZwOpenKey.c)
- *     ZwCreateKey @ 0x14041B100 (ZwCreateKey.c)
- *     ZwSetValueKey @ 0x14041B960 (ZwSetValueKey.c)
+ *     RtlInitUnicodeString @ 0x14022E2C0 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     ZwClose @ 0x14041B2D0 (ZwClose.c)
+ *     ZwOpenKey @ 0x14041B330 (ZwOpenKey.c)
+ *     ZwCreateKey @ 0x14041B490 (ZwCreateKey.c)
+ *     ZwSetValueKey @ 0x14041BCF0 (ZwSetValueKey.c)
  *     RtlStringFromGUIDEx @ 0x1406852B0 (RtlStringFromGUIDEx.c)
- *     RtlIntegerToUnicodeString @ 0x1407CF100 (RtlIntegerToUnicodeString.c)
+ *     RtlIntegerToUnicodeString @ 0x1407CF3D0 (RtlIntegerToUnicodeString.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
@@ -39,7 +39,7 @@ void BapdpMarshallBootDataToRegistry()
   ULONG v19; // ecx
   HANDLE KeyHandle; // [rsp+48h] [rbp-C0h] BYREF
   HANDLE v21; // [rsp+50h] [rbp-B8h] BYREF
-  _QWORD v22[2]; // [rsp+58h] [rbp-B0h] BYREF
+  UNICODE_STRING GuidString; // [rsp+58h] [rbp-B0h] BYREF
   UNICODE_STRING String; // [rsp+68h] [rbp-A0h] BYREF
   HANDLE Handle; // [rsp+78h] [rbp-90h] BYREF
   __int64 v25; // [rsp+80h] [rbp-88h]
@@ -129,14 +129,14 @@ LABEL_39:
             if ( v12 )
             {
               v13 = *v12;
-              v22[0] = 5111808LL;
+              *(_QWORD *)&GuidString.Length = 5111808LL;
               DestinationString = v13;
-              v22[1] = &v28;
+              GuidString.Buffer = (wchar_t *)&v28;
               memset(&ObjectAttributes, 0, 44);
-              if ( (int)RtlStringFromGUIDEx(&DestinationString, v22, 0LL) >= 0 )
+              if ( RtlStringFromGUIDEx((PGUID)&DestinationString, &GuidString, 0) >= 0 )
               {
                 ObjectAttributes.RootDirectory = v21;
-                ObjectAttributes.ObjectName = (PUNICODE_STRING)v22;
+                ObjectAttributes.ObjectName = &GuidString;
                 ObjectAttributes.Length = 48;
                 ObjectAttributes.Attributes = 576;
                 *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;

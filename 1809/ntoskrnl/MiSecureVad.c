@@ -1,13 +1,13 @@
 /*
- * XREFs of MiSecureVad @ 0x1405F35BC
+ * XREFs of MiSecureVad @ 0x1405F45BC
  * Callers:
- *     MiMapViewOfDataSection @ 0x1405F0BB0 (MiMapViewOfDataSection.c)
- *     MiReserveUserMemory @ 0x1405F1600 (MiReserveUserMemory.c)
- *     MiMapViewOfImageSection @ 0x1405F3660 (MiMapViewOfImageSection.c)
- *     MmSecureVirtualMemoryEx @ 0x1405F5CB8 (MmSecureVirtualMemoryEx.c)
+ *     MiMapViewOfDataSection @ 0x1405F1BB0 (MiMapViewOfDataSection.c)
+ *     MiReserveUserMemory @ 0x1405F2600 (MiReserveUserMemory.c)
+ *     MiMapViewOfImageSection @ 0x1405F4660 (MiMapViewOfImageSection.c)
+ *     MmSecureVirtualMemoryEx @ 0x1405F6CB0 (MmSecureVirtualMemoryEx.c)
  * Callees:
- *     MiComparePteProtections @ 0x1400883A8 (MiComparePteProtections.c)
- *     MiAddSecureEntry @ 0x1405F3490 (MiAddSecureEntry.c)
+ *     MiComparePteProtections @ 0x140088398 (MiComparePteProtections.c)
+ *     MiAddSecureEntry @ 0x1405F4490 (MiAddSecureEntry.c)
  */
 
 __int64 __fastcall MiSecureVad(ULONG_PTR a1, __int64 a2, __int64 a3, int a4, char a5, _QWORD *a6)

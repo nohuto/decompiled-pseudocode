@@ -1,48 +1,48 @@
 /*
- * XREFs of PopSetWatchdog @ 0x1403AAE58
+ * XREFs of PopSetWatchdog @ 0x1403B4B68
  * Callers:
- *     PopPowerInformationInternal @ 0x140B6F6FC (PopPowerInformationInternal.c)
+ *     PopPowerInformationInternal @ 0x140B73EF0 (PopPowerInformationInternal.c)
  * Callees:
- *     RtlGetInterruptTimePrecise @ 0x140208110 (RtlGetInterruptTimePrecise.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     KeWaitForSingleObject @ 0x140278560 (KeWaitForSingleObject.c)
- *     KxReleaseSpinLock @ 0x1402BDEF0 (KxReleaseSpinLock.c)
- *     KeReleaseSpinLock @ 0x1402BE860 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14032F300 (KeAcquireSpinLockRaiseToDpc.c)
- *     PopUpdateWatchdogNoWorkersEvent @ 0x1403AB220 (PopUpdateWatchdogNoWorkersEvent.c)
- *     KiSetTimerEx @ 0x1403ABF20 (KiSetTimerEx.c)
- *     KeCancelTimer @ 0x1403AD790 (KeCancelTimer.c)
- *     PopCacheDisplayOnPhaseDuration @ 0x140501EB8 (PopCacheDisplayOnPhaseDuration.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     RtlGetInterruptTimePrecise @ 0x1402081F0 (RtlGetInterruptTimePrecise.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KeWaitForSingleObject @ 0x140277AD0 (KeWaitForSingleObject.c)
+ *     KxReleaseSpinLock @ 0x140308BB0 (KxReleaseSpinLock.c)
+ *     KeReleaseSpinLock @ 0x140309520 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140331330 (KeAcquireSpinLockRaiseToDpc.c)
+ *     PopUpdateWatchdogNoWorkersEvent @ 0x1403B4F30 (PopUpdateWatchdogNoWorkersEvent.c)
+ *     KiSetTimerEx @ 0x1403B5C30 (KiSetTimerEx.c)
+ *     KeCancelTimer @ 0x1403B74A0 (KeCancelTimer.c)
+ *     PopCacheDisplayOnPhaseDuration @ 0x1404FB6A8 (PopCacheDisplayOnPhaseDuration.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 char *__fastcall PopSetWatchdog(char *P, unsigned int *a2, char a3)
 {
-  __int64 InterruptTimePrecise; // r12
+  LARGE_INTEGER InterruptTimePrecise; // r12
   unsigned __int64 v7; // r14
   KIRQL v8; // bp
   __int64 v9; // rax
-  __int64 v10; // rax
+  LARGE_INTEGER v10; // rax
   bool v11; // zf
   char v12; // r12
   unsigned int v13; // r15d
-  _QWORD *v14; // rcx
+  LARGE_INTEGER v14; // rcx
   PVOID *v15; // rax
   char *result; // rax
   _QWORD *v17; // rax
   __int64 v18; // rax
   __int64 v19; // rbx
-  __int64 v20; // rax
-  unsigned __int64 v21[2]; // [rsp+30h] [rbp-38h] BYREF
-  unsigned __int64 v22; // [rsp+70h] [rbp+8h] BYREF
+  LARGE_INTEGER v20; // rax
+  LARGE_INTEGER v21; // [rsp+30h] [rbp-38h] BYREF
+  LARGE_INTEGER PerformanceCounter; // [rsp+70h] [rbp+8h] BYREF
 
-  InterruptTimePrecise = RtlGetInterruptTimePrecise(&v22);
+  InterruptTimePrecise = RtlGetInterruptTimePrecise(&PerformanceCounter);
   v7 = 0LL;
   if ( P )
   {
-    v8 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)&PopModernStandbyStateNotify.SchedulerApc.SystemArgument2);
+    v8 = KeAcquireSpinLockRaiseToDpc(&PopWatchdogLock);
   }
   else
   {
@@ -73,14 +73,14 @@ char *__fastcall PopSetWatchdog(char *P, unsigned int *a2, char a3)
     *((_QWORD *)P + 24) = PopWatchdogWorker;
     *((_QWORD *)P + 25) = P;
     *((_QWORD *)P + 22) = 0LL;
-    v8 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)&PopModernStandbyStateNotify.SchedulerApc.SystemArgument2);
-    v18 = *(_QWORD *)&PopModernStandbyStateNotify.SuspendEvent.Header.Lock;
-    if ( *(struct _KTHREAD **)(*(_QWORD *)&PopModernStandbyStateNotify.SuspendEvent.Header.Lock + 8LL) != (struct _KTHREAD *)&PopModernStandbyStateNotify.SuspendEvent )
+    v8 = KeAcquireSpinLockRaiseToDpc(&PopWatchdogLock);
+    v18 = PopWatchdogList;
+    if ( *(__int64 **)(PopWatchdogList + 8) != &PopWatchdogList )
       goto LABEL_22;
-    *(_QWORD *)P = *(_QWORD *)&PopModernStandbyStateNotify.SuspendEvent.Header.Lock;
-    *((_QWORD *)P + 1) = &PopModernStandbyStateNotify.SuspendEvent;
+    *(_QWORD *)P = PopWatchdogList;
+    *((_QWORD *)P + 1) = &PopWatchdogList;
     *(_QWORD *)(v18 + 8) = P;
-    *(_QWORD *)&PopModernStandbyStateNotify.SuspendEvent.Header.Lock = P;
+    PopWatchdogList = (__int64)P;
   }
   if ( *((_DWORD *)P + 4) != 1146572624 )
     __fastfail(5u);
@@ -93,9 +93,9 @@ char *__fastcall PopSetWatchdog(char *P, unsigned int *a2, char a3)
     *(_OWORD *)(P + 248) = *((_OWORD *)a2 + 2);
     *(_OWORD *)(P + 264) = *((_OWORD *)a2 + 3);
     *((_QWORD *)P + 35) = *((_QWORD *)a2 + 8);
-    v20 = RtlGetInterruptTimePrecise(v21);
-    *((_QWORD *)P + 37) = v20;
-    *((_QWORD *)P + 38) = v19 + v20;
+    v20 = RtlGetInterruptTimePrecise(&v21);
+    *((LARGE_INTEGER *)P + 37) = v20;
+    *((_QWORD *)P + 38) = v19 + v20.QuadPart;
     *((_QWORD *)P + 36) = KeGetCurrentThread();
     *((_WORD *)P + 104) = 1;
     if ( !(unsigned __int8)KiSetTimerEx((int)P + 48, -(int)v19, 0, 0, (__int64)(P + 112)) )
@@ -103,21 +103,21 @@ char *__fastcall PopSetWatchdog(char *P, unsigned int *a2, char a3)
       P[20] = 1;
       PopUpdateWatchdogNoWorkersEvent(P);
     }
-    *((_QWORD *)P + 39) = InterruptTimePrecise;
-    *((_QWORD *)P + 40) = RtlGetInterruptTimePrecise(v21);
+    *((LARGE_INTEGER *)P + 39) = InterruptTimePrecise;
+    *((LARGE_INTEGER *)P + 40) = RtlGetInterruptTimePrecise(&v21);
     v13 = 0;
     v12 = 0;
     goto LABEL_15;
   }
-  *((_QWORD *)P + 41) = InterruptTimePrecise;
-  v10 = RtlGetInterruptTimePrecise(v21);
+  *((LARGE_INTEGER *)P + 41) = InterruptTimePrecise;
+  v10 = RtlGetInterruptTimePrecise(&v21);
   v11 = *((_DWORD *)P + 56) == 412;
-  *((_QWORD *)P + 42) = v10;
+  *((LARGE_INTEGER *)P + 42) = v10;
   if ( v11 && *((_QWORD *)P + 29) > 0x20uLL )
   {
     v13 = *((_DWORD *)P + 58);
     v12 = 1;
-    v7 = (v10 - *((_QWORD *)P + 37)) / 0xAuLL;
+    v7 = (v10.QuadPart - *((_QWORD *)P + 37)) / 0xAuLL;
   }
   else
   {
@@ -130,28 +130,28 @@ char *__fastcall PopSetWatchdog(char *P, unsigned int *a2, char a3)
     P[20] = 0;
     PopUpdateWatchdogNoWorkersEvent(P);
   }
-  *((_QWORD *)P + 43) = RtlGetInterruptTimePrecise(&v22);
+  *((LARGE_INTEGER *)P + 43) = RtlGetInterruptTimePrecise(&PerformanceCounter);
   if ( !*((_DWORD *)P + 7) )
   {
-    KeReleaseSpinLock((PKSPIN_LOCK)&PopModernStandbyStateNotify.SchedulerApc.SystemArgument2, v8);
+    KeReleaseSpinLock(&PopWatchdogLock, v8);
     KeWaitForSingleObject(P + 24, Executive, 0, 0, 0LL);
-    v8 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)&PopModernStandbyStateNotify.SchedulerApc.SystemArgument2);
+    v8 = KeAcquireSpinLockRaiseToDpc(&PopWatchdogLock);
   }
-  RtlGetInterruptTimePrecise(&v22);
+  RtlGetInterruptTimePrecise(&PerformanceCounter);
   memset_0(P + 288, 0, 0x70uLL);
   if ( !a3 )
     goto LABEL_15;
-  v14 = *(_QWORD **)P;
+  v14 = *(LARGE_INTEGER *)P;
   if ( *(char **)(*(_QWORD *)P + 8LL) != P || (v15 = (PVOID *)*((_QWORD *)P + 1), *v15 != P) )
 LABEL_22:
     __fastfail(3u);
-  *v15 = v14;
-  v14[1] = v15;
+  *v15 = (PVOID)v14.QuadPart;
+  *(_QWORD *)(v14.QuadPart + 8) = v15;
   *((_DWORD *)P + 4) = 1330532174;
   ExFreePoolWithTag(P, 0x44574F50u);
   P = 0LL;
 LABEL_15:
-  KxReleaseSpinLock((PKSPIN_LOCK)&PopModernStandbyStateNotify.SchedulerApc.SystemArgument2);
+  KxReleaseSpinLock(&PopWatchdogLock);
   if ( KiIrqlFlags )
     KiLowerIrqlProcessIrqlFlags(KeGetCurrentIrql(), v8);
   __writecr8(v8);

@@ -1,12 +1,12 @@
 /*
- * XREFs of SepInformLsaOfDeletedLogon @ 0x140B3E8E4
+ * XREFs of SepInformLsaOfDeletedLogon @ 0x140B40914
  * Callers:
- *     SepDeReferenceLogonSession @ 0x140B7CDEC (SepDeReferenceLogonSession.c)
+ *     SepDeReferenceLogonSession @ 0x140B8585C (SepDeReferenceLogonSession.c)
  * Callees:
- *     SepQueueWorkItem @ 0x140216854 (SepQueueWorkItem.c)
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     SepQueueWorkItem @ 0x140216B84 (SepQueueWorkItem.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __fastcall SepInformLsaOfDeletedLogon(_QWORD *a1, void *a2, __int64 a3)
@@ -23,7 +23,7 @@ void __fastcall SepInformLsaOfDeletedLogon(_QWORD *a1, void *a2, __int64 a3)
     *(_DWORD *)(Pool2 + 48) = 0;
     *(_QWORD *)(Pool2 + 16) = 1LL;
     *(_QWORD *)(Pool2 + 56) = a2;
-    if ( !SepQueueWorkItem((__int64)&RtlpBootStatHandleLock.216, Pool2, 0LL) )
+    if ( !SepQueueWorkItem((__int64)&RtlpBootStatHandleLock.WaitBlockFill11[16], Pool2, 0LL) )
     {
       if ( a2 )
         ObfDereferenceObjectWithTag(a2, 0x734C6553u);

@@ -1,15 +1,15 @@
 /*
- * XREFs of RtlStringCbCopyExW @ 0x14044D8AC
+ * XREFs of RtlStringCbCopyExW @ 0x1404447AC
  * Callers:
- *     _PnpMultiSzAppend @ 0x1409B3C08 (_PnpMultiSzAppend.c)
- *     _CmGetDeviceMappedPropertyFromComposite @ 0x1409B4770 (_CmGetDeviceMappedPropertyFromComposite.c)
- *     RtlFormatMessageEx @ 0x140A6F178 (RtlFormatMessageEx.c)
- *     ConvertDevpropertyToString @ 0x140A8DA70 (ConvertDevpropertyToString.c)
- *     PiDqConvertQueryFlagsToString @ 0x140ABD19C (PiDqConvertQueryFlagsToString.c)
- *     ExpressionConvertToString @ 0x140ABEBA8 (ExpressionConvertToString.c)
+ *     _PnpMultiSzAppend @ 0x1409AAF98 (_PnpMultiSzAppend.c)
+ *     _CmGetDeviceMappedPropertyFromComposite @ 0x1409ABB00 (_CmGetDeviceMappedPropertyFromComposite.c)
+ *     RtlFormatMessageEx @ 0x140A685FC (RtlFormatMessageEx.c)
+ *     ConvertDevpropertyToString @ 0x140A8A040 (ConvertDevpropertyToString.c)
+ *     PiDqConvertQueryFlagsToString @ 0x140AB820C (PiDqConvertQueryFlagsToString.c)
+ *     ExpressionConvertToString @ 0x140AB9C18 (ExpressionConvertToString.c)
  * Callees:
- *     StringExHandleOtherFlagsW @ 0x14041DE80 (StringExHandleOtherFlagsW.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     StringExHandleOtherFlagsW @ 0x140412250 (StringExHandleOtherFlagsW.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 NTSTATUS __stdcall RtlStringCbCopyExW(

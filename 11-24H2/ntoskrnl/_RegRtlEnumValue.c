@@ -1,17 +1,17 @@
 /*
- * XREFs of _RegRtlEnumValue @ 0x1409935EC
+ * XREFs of _RegRtlEnumValue @ 0x14097E62C
  * Callers:
- *     _RegRtlCopyTreeInternal @ 0x140820BA0 (_RegRtlCopyTreeInternal.c)
- *     _PnpGetGenericStorePropertyKeys @ 0x1409920EC (_PnpGetGenericStorePropertyKeys.c)
- *     _PnpCtxRegEnumValue @ 0x14099359C (_PnpCtxRegEnumValue.c)
- *     DrvDbGetDeviceIdDriverInfMatches @ 0x140993BAC (DrvDbGetDeviceIdDriverInfMatches.c)
- *     _PnpGetGenericStorePropertyLocales @ 0x1409944D8 (_PnpGetGenericStorePropertyLocales.c)
- *     DrvDbSetDeviceIdDriverInfMatches @ 0x140995624 (DrvDbSetDeviceIdDriverInfMatches.c)
+ *     _RegRtlCopyTreeInternal @ 0x1408212E0 (_RegRtlCopyTreeInternal.c)
+ *     _PnpGetGenericStorePropertyKeys @ 0x14097D12C (_PnpGetGenericStorePropertyKeys.c)
+ *     _PnpCtxRegEnumValue @ 0x14097E5DC (_PnpCtxRegEnumValue.c)
+ *     DrvDbGetDeviceIdDriverInfMatches @ 0x14097EBEC (DrvDbGetDeviceIdDriverInfMatches.c)
+ *     _PnpGetGenericStorePropertyLocales @ 0x14097F518 (_PnpGetGenericStorePropertyLocales.c)
+ *     DrvDbSetDeviceIdDriverInfMatches @ 0x140980664 (DrvDbSetDeviceIdDriverInfMatches.c)
  * Callees:
- *     ZwEnumerateValueKey @ 0x1406A6670 (ZwEnumerateValueKey.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ZwEnumerateValueKey @ 0x1406A7610 (ZwEnumerateValueKey.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall RegRtlEnumValue(
@@ -59,7 +59,7 @@ __int64 __fastcall RegRtlEnumValue(
   if ( Length < v19 )
     return (unsigned int)-1073741675;
 LABEL_4:
-  Pool2 = (_DWORD *)ExAllocatePool2(0x100uLL);
+  Pool2 = (_DWORD *)ExAllocatePool2(0x100uLL, Length, 0x4C474552u);
   if ( Pool2 )
   {
     v15 = ZwEnumerateValueKey(KeyHandle, Index, v12, Pool2, Length, ResultLength);

@@ -13,27 +13,30 @@
  *     _NtUnlockVirtualMemory@16 @ 0x4B2F4630 (_NtUnlockVirtualMemory@16.c)
  */
 
-int __stdcall RtlUnlockModuleSection(int a1)
+NTSTATUS __cdecl RtlUnlockModuleSection(PVOID Address)
 {
-  _DWORD *ModuleSectionInLockedSectionList; // eax
-  _DWORD *v2; // esi
-  int v4; // eax
-  _DWORD *v5; // ecx
-  int v6; // edi
+  void ***ModuleSectionInLockedSectionList; // eax
+  void ***v2; // esi
+  bool v3; // zf
+  void **v4; // eax
+  void **v5; // ecx
+  NTSTATUS v6; // edi
 
   RtlAcquireSRWLockExclusive(&RtlpLockedSectionListLock);
-  ModuleSectionInLockedSectionList = (_DWORD *)RtlpLocateModuleSectionInLockedSectionList(a1);
+  ModuleSectionInLockedSectionList = (void ***)RtlpLocateModuleSectionInLockedSectionList(Address);
   v2 = ModuleSectionInLockedSectionList;
   if ( ModuleSectionInLockedSectionList )
   {
-    if ( ModuleSectionInLockedSectionList[4]-- == 1 )
+    v3 = ModuleSectionInLockedSectionList[4] == (void **)1;
+    ModuleSectionInLockedSectionList[4] = (void **)((char *)ModuleSectionInLockedSectionList[4] - 1);
+    if ( v3 )
     {
       v4 = *ModuleSectionInLockedSectionList;
-      if ( *(_DWORD **)(*v2 + 4) != v2 || (v5 = (_DWORD *)v2[1], (_DWORD *)*v5 != v2) )
+      if ( (*v2)[1] != v2 || (v5 = v2[1], *v5 != v2) )
         __fastfail(3u);
       *v5 = v4;
-      *(_DWORD *)(v4 + 4) = v5;
-      v6 = NtUnlockVirtualMemory(-1, v2 + 2, v2 + 3, 1);
+      v4[1] = v5;
+      v6 = NtUnlockVirtualMemory((HANDLE)0xFFFFFFFF, (PVOID *)v2 + 2, (PSIZE_T)(v2 + 3), 1u);
       RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v2);
     }
     else

@@ -1,18 +1,18 @@
 /*
- * XREFs of KeRemoveSchedulingGroup @ 0x1404C61B4
+ * XREFs of KeRemoveSchedulingGroup @ 0x1404BFB64
  * Callers:
- *     PspEstablishDfssHierarchy @ 0x1407F8254 (PspEstablishDfssHierarchy.c)
- *     PspEstablishJobHierarchy @ 0x1407F836C (PspEstablishJobHierarchy.c)
- *     PsSessionObjectDelete @ 0x1407FF1F0 (PsSessionObjectDelete.c)
- *     PspRemoveCpuRateControl @ 0x1409E0978 (PspRemoveCpuRateControl.c)
+ *     PspEstablishDfssHierarchy @ 0x1407FDD54 (PspEstablishDfssHierarchy.c)
+ *     PspEstablishJobHierarchy @ 0x1407FDE6C (PspEstablishJobHierarchy.c)
+ *     PsSessionObjectDelete @ 0x140804C20 (PsSessionObjectDelete.c)
+ *     PspRemoveCpuRateControl @ 0x1409B8BE8 (PspRemoveCpuRateControl.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x1402B4730 (KeAcquireInStackQueuedSpinLock.c)
- *     KeReleaseInStackQueuedSpinLock @ 0x1402B98C0 (KeReleaseInStackQueuedSpinLock.c)
- *     ?KiAssignSchedulingGroupWeights@@YAXW4_KSCHEDULING_GROUP_TYPE@@EPEAU_KSCHEDULING_GROUP@@@Z @ 0x140445568 (-KiAssignSchedulingGroupWeights@@YAXW4_KSCHEDULING_GROUP_TYPE@@EPEAU_KSCHEDULING_GROUP@@@Z.c)
- *     ?KiUpdateMinimumWeight@@YAEW4_KSCHEDULING_GROUP_TYPE@@EPEAU_KSCHEDULING_GROUP@@@Z @ 0x1404C641C (-KiUpdateMinimumWeight@@YAEW4_KSCHEDULING_GROUP_TYPE@@EPEAU_KSCHEDULING_GROUP@@@Z.c)
- *     ?KiFlushScbReferences@@YAXPEAU_KPRCB@@PEAU_KSCB@@@Z @ 0x1405F8F20 (-KiFlushScbReferences@@YAXPEAU_KPRCB@@PEAU_KSCB@@@Z.c)
- *     EtwTraceSchedulingGroup @ 0x1406C4E5C (EtwTraceSchedulingGroup.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402FF400 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x140304580 (KeReleaseInStackQueuedSpinLock.c)
+ *     ?KiAssignSchedulingGroupWeights@@YAXW4_KSCHEDULING_GROUP_TYPE@@EPEAU_KSCHEDULING_GROUP@@@Z @ 0x14043E070 (-KiAssignSchedulingGroupWeights@@YAXW4_KSCHEDULING_GROUP_TYPE@@EPEAU_KSCHEDULING_GROUP@@@Z.c)
+ *     ?KiUpdateMinimumWeight@@YAEW4_KSCHEDULING_GROUP_TYPE@@EPEAU_KSCHEDULING_GROUP@@@Z @ 0x1404BFDCC (-KiUpdateMinimumWeight@@YAEW4_KSCHEDULING_GROUP_TYPE@@EPEAU_KSCHEDULING_GROUP@@@Z.c)
+ *     ?KiFlushScbReferences@@YAXPEAU_KPRCB@@PEAU_KSCB@@@Z @ 0x1405FB940 (-KiFlushScbReferences@@YAXPEAU_KPRCB@@PEAU_KSCB@@@Z.c)
+ *     EtwTraceSchedulingGroup @ 0x1406C8A9C (EtwTraceSchedulingGroup.c)
  */
 
 __int64 __fastcall KeRemoveSchedulingGroup(unsigned __int16 *a1)
@@ -147,7 +147,7 @@ LABEL_27:
     }
     while ( v25 );
   }
-  if ( (WORD2(xmmword_140FBFC10) & 0x4000) != 0 )
+  if ( (WORD2(xmmword_140FC0C10) & 0x4000) != 0 )
     EtwTraceSchedulingGroup(a1, 1379LL);
   return v5;
 }

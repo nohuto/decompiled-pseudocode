@@ -1,11 +1,11 @@
 /*
- * XREFs of PpmPerfCalculateQosClassPolicies @ 0x140174070
+ * XREFs of PpmPerfCalculateQosClassPolicies @ 0x140174170
  * Callers:
- *     PpmPerfUpdateDomainPolicy @ 0x140719B8C (PpmPerfUpdateDomainPolicy.c)
+ *     PpmPerfUpdateDomainPolicy @ 0x14071AE2C (PpmPerfUpdateDomainPolicy.c)
  * Callees:
- *     PpmGetPerfPolicyClass @ 0x1401130C8 (PpmGetPerfPolicyClass.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     RtlCompareMemory @ 0x1401C5BD0 (RtlCompareMemory.c)
+ *     PpmGetPerfPolicyClass @ 0x140113138 (PpmGetPerfPolicyClass.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     RtlCompareMemory @ 0x1401C5D30 (RtlCompareMemory.c)
  */
 
 char __fastcall PpmPerfCalculateQosClassPolicies(__int64 a1)
@@ -66,13 +66,13 @@ char __fastcall PpmPerfCalculateQosClassPolicies(__int64 a1)
     PerfPolicyClass = 0LL;
   else
     PerfPolicyClass = (unsigned __int8)PpmGetPerfPolicyClass(*(_QWORD *)(a1 + 16));
-  v4 = dword_1404180CC;
+  v4 = dword_14041918C;
   v5 = (char)v1;
   v46 = (unsigned int)v1;
   v47 = (char)v1;
   v6 = v1;
   v48 = (char)v1;
-  v49 = dword_1404180CC;
+  v49 = dword_14041918C;
   v7 = (unsigned int)v1;
   v8 = v1;
   while ( 1 )
@@ -84,7 +84,7 @@ char __fastcall PpmPerfCalculateQosClassPolicies(__int64 a1)
     {
       case 0u:
 LABEL_16:
-        v10 = dword_1404180CC;
+        v10 = dword_14041918C;
         v11 = PpmCurrentProfile + 5;
         goto LABEL_17;
       case 1u:

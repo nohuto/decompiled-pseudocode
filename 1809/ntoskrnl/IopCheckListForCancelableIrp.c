@@ -1,9 +1,9 @@
 /*
- * XREFs of IopCheckListForCancelableIrp @ 0x140121C38
+ * XREFs of IopCheckListForCancelableIrp @ 0x140121D08
  * Callers:
- *     IopCancelIrpsInFileObjectList @ 0x140121A2C (IopCancelIrpsInFileObjectList.c)
+ *     IopCancelIrpsInFileObjectList @ 0x140121AFC (IopCancelIrpsInFileObjectList.c)
  * Callees:
- *     IopInterlockedAdd @ 0x14012F9BC (IopInterlockedAdd.c)
+ *     IopInterlockedAdd @ 0x14012FA8C (IopInterlockedAdd.c)
  */
 
 char __fastcall IopCheckListForCancelableIrp(_QWORD **a1, __int64 a2, __int64 a3, __int64 a4, _QWORD *a5, _QWORD *a6)

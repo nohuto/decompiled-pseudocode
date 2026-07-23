@@ -6,7 +6,7 @@
  *     _RtlpEnumProcessHeaps@12 @ 0x4B35791E (_RtlpEnumProcessHeaps@12.c)
  */
 
-int __stdcall RtlEnumProcessHeaps(int a1, int a2)
+NTSTATUS __cdecl RtlEnumProcessHeaps(PRTL_ENUM_HEAPS_ROUTINE EnumRoutine, PVOID Parameter)
 {
   return RtlpEnumProcessHeaps(0);
 }

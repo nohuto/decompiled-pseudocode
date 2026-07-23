@@ -1,16 +1,16 @@
 /*
- * XREFs of PiDmObjectManagerPopulate @ 0x140727138
+ * XREFs of PiDmObjectManagerPopulate @ 0x140724CC8
  * Callers:
- *     PiDmInit @ 0x140C241DC (PiDmInit.c)
+ *     PiDmInit @ 0x140C2620C (PiDmInit.c)
  * Callees:
- *     RtlEnumerateGenericTableAvl @ 0x1403EA300 (RtlEnumerateGenericTableAvl.c)
- *     RtlInsertElementGenericTableAvl @ 0x1403F03D0 (RtlInsertElementGenericTableAvl.c)
- *     RtlDeleteElementGenericTableAvl @ 0x1403F0610 (RtlDeleteElementGenericTableAvl.c)
- *     _PnpGetObjectList @ 0x1408BDE80 (_PnpGetObjectList.c)
- *     PiDmObjectRelease @ 0x1408D0A30 (PiDmObjectRelease.c)
- *     PiDmObjectCreate @ 0x140AC3894 (PiDmObjectCreate.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     RtlEnumerateGenericTableAvl @ 0x1403D9CC0 (RtlEnumerateGenericTableAvl.c)
+ *     RtlInsertElementGenericTableAvl @ 0x1403E40F0 (RtlInsertElementGenericTableAvl.c)
+ *     RtlDeleteElementGenericTableAvl @ 0x1403E4330 (RtlDeleteElementGenericTableAvl.c)
+ *     _PnpGetObjectList @ 0x1408BB7D0 (_PnpGetObjectList.c)
+ *     PiDmObjectRelease @ 0x1408CE420 (PiDmObjectRelease.c)
+ *     PiDmObjectCreate @ 0x140ABF218 (PiDmObjectCreate.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PiDmObjectManagerPopulate(__int64 a1)
@@ -25,7 +25,7 @@ __int64 __fastcall PiDmObjectManagerPopulate(__int64 a1)
   __int64 v9; // rax
   PVOID *v10; // rax
   PVOID *v11; // rdi
-  int v13; // [rsp+78h] [rbp+10h] BYREF
+  unsigned int v13; // [rsp+78h] [rbp+10h] BYREF
   _DWORD *Buffer; // [rsp+88h] [rbp+20h] BYREF
 
   v13 = 0x40000;
@@ -35,7 +35,7 @@ __int64 __fastcall PiDmObjectManagerPopulate(__int64 a1)
   {
     if ( Pool2 )
       ExFreePoolWithTag(Pool2, 0x5A706E50u);
-    Pool2 = (void *)ExAllocatePool2(0x100uLL);
+    Pool2 = (void *)ExAllocatePool2(0x100uLL, 2LL * v13, 0x5A706E50u);
     if ( !Pool2 )
     {
       v7 = -1073741670;

@@ -13,61 +13,58 @@
  *     memset @ 0x1800ABDC0 (memset.c)
  */
 
-__int64 __fastcall sub_180075EA0(__int64 a1)
+__int64 __fastcall sub_180075EA0(PVOID DllHandle)
 {
   unsigned int v2; // ebx
-  __int64 v3; // rcx
-  unsigned __int64 v4; // rdi
-  __int64 v5; // rdx
-  __int64 v7; // [rsp+28h] [rbp-79h] BYREF
-  __int128 v8; // [rsp+30h] [rbp-71h] BYREF
-  __int128 v9; // [rsp+40h] [rbp-61h] BYREF
-  __int64 v10; // [rsp+50h] [rbp-51h]
-  int v11; // [rsp+60h] [rbp-41h] BYREF
-  __int64 v12; // [rsp+68h] [rbp-39h]
-  __int128 *v13; // [rsp+70h] [rbp-31h]
-  int v14; // [rsp+78h] [rbp-29h]
-  __int128 v15; // [rsp+80h] [rbp-21h]
-  _DWORD v16[12]; // [rsp+90h] [rbp-11h] BYREF
-  _BYTE v17[32]; // [rsp+C0h] [rbp+1Fh] BYREF
-  int v18; // [rsp+E0h] [rbp+3Fh]
+  const WCHAR *Buffer; // rcx
+  PWCH v4; // rdi
+  unsigned __int64 ContainingDirectory; // rdx
+  PLDR_DATA_TABLE_ENTRY Entry; // [rsp+28h] [rbp-79h] BYREF
+  _UNICODE_STRING NtFileName; // [rsp+30h] [rbp-71h] BYREF
+  _RTL_RELATIVE_NAME_U RelativeName; // [rsp+40h] [rbp-61h] BYREF
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+60h] [rbp-41h] BYREF
+  _QWORD v11[6]; // [rsp+90h] [rbp-11h] BYREF
+  _FILE_BASIC_INFORMATION FileInformation; // [rsp+C0h] [rbp+1Fh] BYREF
 
-  v7 = 0LL;
-  memset(&v16[2], 0, 0x28uLL);
+  Entry = 0LL;
+  memset(&v11[1], 0, 0x28uLL);
   v2 = -1073741823;
-  if ( (a1 & 3) != 0 )
+  if ( ((unsigned __int8)DllHandle & 3) != 0 )
   {
-    if ( (int)sub_180076144(a1, v16) < 0 )
+    if ( (int)sub_180076144(DllHandle, v11) < 0 )
       return v2;
-    LODWORD(v3) = v16[2];
+    Buffer = (const WCHAR *)v11[1];
   }
   else
   {
-    if ( (int)LdrFindEntryForAddress(a1, &v7) < 0 )
+    if ( LdrFindEntryForAddress(DllHandle, &Entry) < 0 )
       return v2;
-    v3 = *(_QWORD *)(v7 + 80);
+    Buffer = Entry->FullDllName.Buffer;
   }
-  if ( RtlDosPathNameToRelativeNtPathName_U(v3, (int)&v8, 0LL, (__int64)&v9) )
+  if ( RtlDosPathNameToRelativeNtPathName_U(Buffer, &NtFileName, 0LL, &RelativeName) )
   {
-    v4 = *((_QWORD *)&v8 + 1);
-    if ( (_WORD)v9 )
+    v4 = NtFileName.Buffer;
+    if ( RelativeName.RelativeName.Length )
     {
-      v5 = v10;
-      v8 = v9;
+      ContainingDirectory = (unsigned __int64)RelativeName.ContainingDirectory;
+      NtFileName = RelativeName.RelativeName;
     }
     else
     {
-      v5 = 0LL;
+      ContainingDirectory = 0LL;
     }
-    v11 = 48;
-    v14 = 64;
-    v13 = &v8;
-    v12 = v5 & -(__int64)(v4 != 0);
-    v15 = 0LL;
-    if ( (int)ZwQueryAttributesFile(&v11, v17) >= 0 && (v18 & 0x400) != 0 )
+    ObjectAttributes.Length = 48;
+    ObjectAttributes.Attributes = 64;
+    ObjectAttributes.ObjectName = &NtFileName;
+    ObjectAttributes.RootDirectory = (HANDLE)(ContainingDirectory & -(__int64)(v4 != 0LL));
+    *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+    if ( ZwQueryAttributesFile(&ObjectAttributes, &FileInformation) >= 0
+      && (FileInformation.FileAttributes & 0x400) != 0 )
+    {
       v2 = 0;
+    }
     if ( v4 )
-      RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v4);
+      RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v4);
   }
   return v2;
 }

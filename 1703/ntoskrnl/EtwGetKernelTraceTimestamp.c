@@ -33,35 +33,32 @@
  *     RtlGetSystemTimePrecise @ 0x140110620 (RtlGetSystemTimePrecise.c)
  */
 
-void __fastcall EtwGetKernelTraceTimestamp(LARGE_INTEGER *a1, char *a2)
+void __fastcall EtwGetKernelTraceTimestamp(LARGE_INTEGER *a1, unsigned int a2)
 {
-  __int64 v2; // r8
+  unsigned int v2; // r8d
   LARGE_INTEGER *v3; // rdi
   bool v4; // zf
   unsigned __int64 v5; // r9
   int i; // ebx
+  char *v7; // rdx
 
-  v2 = (unsigned int)EtwpActiveSystemLoggers;
+  v2 = EtwpActiveSystemLoggers;
   v3 = a1;
   v4 = !_BitScanForward((unsigned int *)&a1, EtwpActiveSystemLoggers);
-  v5 = (unsigned int)a2;
+  v5 = a2;
   for ( i = 0; !v4; v4 = !_BitScanForward((unsigned int *)&a1, v2) )
   {
-    v2 = ((_DWORD)v2 - 1) & (unsigned int)v2;
-    a2 = (char *)&EtwpGroupMasks + 32 * (unsigned int)a1;
-    if ( a2 )
-    {
-      a2 = (char *)((unsigned int)v5 & *(_DWORD *)&a2[4 * (v5 >> 29)]);
-      if ( ((unsigned int)a2 & 0x1FFFFFFF) != 0 )
-        i |= 1 << byte_140344E01[2 * (_QWORD)a1];
-    }
+    v2 &= v2 - 1;
+    v7 = (char *)&EtwpGroupMasks + 32 * (unsigned int)a1;
+    if ( v7 && ((unsigned int)v5 & *(_DWORD *)&v7[4 * (v5 >> 29)] & 0x1FFFFFFF) != 0 )
+      i |= 1 << byte_140344E01[2 * (_QWORD)a1];
   }
   if ( (i & 2) != 0 )
     *v3 = KeQueryPerformanceCounter(0LL);
   else
     v3->QuadPart = 0LL;
   if ( (i & 4) != 0 )
-    v3[1].QuadPart = RtlGetSystemTimePrecise(a1, a2, v2, v5);
+    v3[1] = RtlGetSystemTimePrecise();
   else
     v3[1].QuadPart = 0LL;
   if ( (i & 8) != 0 )

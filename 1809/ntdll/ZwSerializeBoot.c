@@ -1,16 +1,16 @@
 /*
- * XREFs of ZwSerializeBoot @ 0x1800A32B0
+ * XREFs of ZwSerializeBoot @ 0x1800A32D0
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 ZwSerializeBoot()
+NTSTATUS ZwSerializeBoot(void)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 383LL;
+  result = 383;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

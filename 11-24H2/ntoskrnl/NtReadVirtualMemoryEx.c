@@ -1,12 +1,18 @@
 /*
- * XREFs of NtReadVirtualMemoryEx @ 0x14046C5D0
+ * XREFs of NtReadVirtualMemoryEx @ 0x140467170
  * Callers:
  *     <none>
  * Callees:
- *     MiReadWriteVirtualMemory @ 0x1409A9710 (MiReadWriteVirtualMemory.c)
+ *     MiReadWriteVirtualMemory @ 0x140992B20 (MiReadWriteVirtualMemory.c)
  */
 
-__int64 __fastcall NtReadVirtualMemoryEx(ULONG_PTR a1, __int64 a2, __int64 a3, __int64 a4, __int64 a5, int a6)
+NTSTATUS __cdecl NtReadVirtualMemoryEx(
+        HANDLE ProcessHandle,
+        PVOID BaseAddress,
+        PVOID Buffer,
+        SIZE_T BufferSize,
+        PSIZE_T NumberOfBytesRead,
+        ULONG Flags)
 {
-  return MiReadWriteVirtualMemory(a1, a5, 16, a6);
+  return MiReadWriteVirtualMemory((ULONG_PTR)ProcessHandle, (__int64)NumberOfBytesRead, 16, Flags);
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of CcUninitializeAsyncLazywriteForNodeHelper @ 0x1404BE7B0
+ * XREFs of CcUninitializeAsyncLazywriteForNodeHelper @ 0x1404B9970
  * Callers:
  *     <none>
  * Callees:
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 char __fastcall CcUninitializeAsyncLazywriteForNodeHelper(__int64 a1, __int64 a2, __int64 a3)

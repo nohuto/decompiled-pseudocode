@@ -1,7 +1,7 @@
 /*
- * XREFs of IvtEnsureNoPendingFaults @ 0x14052C474
+ * XREFs of IvtEnsureNoPendingFaults @ 0x14052C9C4
  * Callers:
- *     IvtSetPasidAddressSpace @ 0x14052D700 (IvtSetPasidAddressSpace.c)
+ *     IvtSetPasidAddressSpace @ 0x14052DC50 (IvtSetPasidAddressSpace.c)
  * Callees:
  *     <none>
  */

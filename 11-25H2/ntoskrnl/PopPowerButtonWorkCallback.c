@@ -86,7 +86,7 @@ void PopPowerButtonWorkCallback()
           v2,
           (unsigned __int16 *)&BugCheckParameter1 + 2,
           2);
-        KeSetTimer2((__int64)&unk_140F07048, -10000000LL, 10000000LL, 0LL);
+        KeSetTimer2((__int64)&unk_140F07048, (LARGE_INTEGER)-10000000LL, 10000000LL, 0LL);
         v3 = *(_DWORD *)Uuid;
       }
       dword_140F07110 = v3;

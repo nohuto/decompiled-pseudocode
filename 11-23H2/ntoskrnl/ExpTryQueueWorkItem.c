@@ -1,16 +1,16 @@
 /*
- * XREFs of ExpTryQueueWorkItem @ 0x1402B993C
+ * XREFs of ExpTryQueueWorkItem @ 0x1402B9BCC
  * Callers:
- *     ExTryQueueWorkItem @ 0x1402B9B30 (ExTryQueueWorkItem.c)
- *     IoTryQueueWorkItem @ 0x14036BDF0 (IoTryQueueWorkItem.c)
+ *     ExTryQueueWorkItem @ 0x1402B9DC0 (ExTryQueueWorkItem.c)
+ *     IoTryQueueWorkItem @ 0x14036BF90 (IoTryQueueWorkItem.c)
  * Callees:
- *     ExpIsPoolReadyForWork @ 0x1402B7BB0 (ExpIsPoolReadyForWork.c)
- *     ExpValidateWorkItem @ 0x1402B7E80 (ExpValidateWorkItem.c)
- *     KeInsertPriQueue @ 0x1402B7F20 (KeInsertPriQueue.c)
- *     ExpTypeToPriority @ 0x1402B954C (ExpTypeToPriority.c)
- *     MmGetNextNode @ 0x14034ECC0 (MmGetNextNode.c)
- *     ExpPartitionCreateThreadIfNecessary @ 0x1403619E0 (ExpPartitionCreateThreadIfNecessary.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExpIsPoolReadyForWork @ 0x1402B7E40 (ExpIsPoolReadyForWork.c)
+ *     ExpValidateWorkItem @ 0x1402B8110 (ExpValidateWorkItem.c)
+ *     KeInsertPriQueue @ 0x1402B81B0 (KeInsertPriQueue.c)
+ *     ExpTypeToPriority @ 0x1402B97DC (ExpTypeToPriority.c)
+ *     MmGetNextNode @ 0x14034EE60 (MmGetNextNode.c)
+ *     ExpPartitionCreateThreadIfNecessary @ 0x140361B80 (ExpPartitionCreateThreadIfNecessary.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 char __fastcall ExpTryQueueWorkItem(__int64 a1, __int64 *a2, unsigned int a3, int a4)
@@ -40,7 +40,7 @@ char __fastcall ExpTryQueueWorkItem(__int64 a1, __int64 *a2, unsigned int a3, in
   CurrentIrql = KeGetCurrentIrql();
   v24 = CurrentIrql;
   __writecr8(2uLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && (unsigned __int8)CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && (unsigned __int8)CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     LODWORD(v16) = 4;
@@ -77,10 +77,10 @@ LABEL_9:
         goto LABEL_9;
     }
   }
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v17 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v17 <= 0xFu && (unsigned __int8)CurrentIrql <= 0xFu && v17 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v17 <= 0xFu && (unsigned __int8)CurrentIrql <= 0xFu && v17 >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       v19 = CurrentPrcb->SchedulerAssist;

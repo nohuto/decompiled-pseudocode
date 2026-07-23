@@ -1,14 +1,14 @@
 /*
- * XREFs of CarDeleteDriverRuleViolations @ 0x14061937C
+ * XREFs of CarDeleteDriverRuleViolations @ 0x14061793C
  * Callers:
- *     VfTargetDriversRemove @ 0x1403F0E5C (VfTargetDriversRemove.c)
+ *     VfTargetDriversRemove @ 0x1403E4B7C (VfTargetDriversRemove.c)
  * Callees:
- *     RtlEnumerateGenericTableAvl @ 0x1403EA300 (RtlEnumerateGenericTableAvl.c)
- *     RtlDeleteElementGenericTableAvl @ 0x1403F0610 (RtlDeleteElementGenericTableAvl.c)
- *     ViPtRaiseIrqlSafe @ 0x14061195C (ViPtRaiseIrqlSafe.c)
- *     CarAcquireDbLockAtDpcLevelSafe @ 0x140618FFC (CarAcquireDbLockAtDpcLevelSafe.c)
- *     CarCleanDbLockContext @ 0x1406192D4 (CarCleanDbLockContext.c)
- *     CarReleaseDbLockFromDpcLevel @ 0x1406195CC (CarReleaseDbLockFromDpcLevel.c)
+ *     RtlEnumerateGenericTableAvl @ 0x1403D9CC0 (RtlEnumerateGenericTableAvl.c)
+ *     RtlDeleteElementGenericTableAvl @ 0x1403E4330 (RtlDeleteElementGenericTableAvl.c)
+ *     ViPtRaiseIrqlSafe @ 0x14060FF1C (ViPtRaiseIrqlSafe.c)
+ *     CarAcquireDbLockAtDpcLevelSafe @ 0x1406175BC (CarAcquireDbLockAtDpcLevelSafe.c)
+ *     CarCleanDbLockContext @ 0x140617894 (CarCleanDbLockContext.c)
+ *     CarReleaseDbLockFromDpcLevel @ 0x140617B8C (CarReleaseDbLockFromDpcLevel.c)
  */
 
 _UNKNOWN **__fastcall CarDeleteDriverRuleViolations(unsigned __int64 a1, __int64 a2)
@@ -16,7 +16,7 @@ _UNKNOWN **__fastcall CarDeleteDriverRuleViolations(unsigned __int64 a1, __int64
   _UNKNOWN **result; // rax
   BOOLEAN i; // dl
   unsigned __int64 v6; // rcx
-  RTL_AVL_TABLE *v7; // rbx
+  _RTL_AVL_TABLE *v7; // rbx
   _QWORD *v8; // rax
   __int128 v9; // [rsp+20h] [rbp-18h] BYREF
   _UNKNOWN *retaddr; // [rsp+38h] [rbp+0h] BYREF

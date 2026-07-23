@@ -1,12 +1,12 @@
 /*
- * XREFs of KiSetIdealNodeProcessByGroup @ 0x14007D128
+ * XREFs of KiSetIdealNodeProcessByGroup @ 0x14007D1A8
  * Callers:
- *     KeSetAffinityProcess @ 0x14014A0B8 (KeSetAffinityProcess.c)
- *     KiExtendProcessAffinity @ 0x1401DAF6C (KiExtendProcessAffinity.c)
- *     KeInitializeProcess @ 0x14046EE78 (KeInitializeProcess.c)
+ *     KeSetAffinityProcess @ 0x14014A628 (KeSetAffinityProcess.c)
+ *     KiExtendProcessAffinity @ 0x1401DAD98 (KiExtendProcessAffinity.c)
+ *     KeInitializeProcess @ 0x14046DD48 (KeInitializeProcess.c)
  * Callees:
- *     KeSelectIdealProcessor @ 0x14007D1B0 (KeSelectIdealProcessor.c)
- *     KeSelectNodeForAffinity @ 0x1400B079C (KeSelectNodeForAffinity.c)
+ *     KeSelectIdealProcessor @ 0x14007D230 (KeSelectIdealProcessor.c)
+ *     KeSelectNodeForAffinity @ 0x1400AE80C (KeSelectNodeForAffinity.c)
  */
 
 __int64 __fastcall KiSetIdealNodeProcessByGroup(__int64 a1, __int64 a2, unsigned __int16 a3)

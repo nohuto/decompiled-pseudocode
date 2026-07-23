@@ -1,7 +1,7 @@
 /*
- * XREFs of VfThunkInit @ 0x1409B7A1C
+ * XREFs of VfThunkInit @ 0x1409B8A1C
  * Callers:
- *     VfInitBootDriversLoaded @ 0x1409B7610 (VfInitBootDriversLoaded.c)
+ *     VfInitBootDriversLoaded @ 0x1409B8610 (VfInitBootDriversLoaded.c)
  * Callees:
  *     RtlSetAllBits @ 0x14002BDF0 (RtlSetAllBits.c)
  */

@@ -10,11 +10,11 @@
  *     <none>
  */
 
-__int64 ZwDeleteValueKey()
+NTSTATUS __cdecl ZwDeleteValueKey(HANDLE KeyHandle, PUNICODE_STRING ValueName)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 200LL;
+  result = 200;
   __asm { syscall; Low latency system call }
   return result;
 }

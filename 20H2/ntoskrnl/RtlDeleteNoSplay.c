@@ -16,7 +16,7 @@ void __stdcall RtlDeleteNoSplay(PRTL_SPLAY_LINKS Links, PRTL_SPLAY_LINKS *Root)
   _RTL_SPLAY_LINKS *Parent; // rax
   __int64 v7; // rdx
   __int64 v8; // rdx
-  RTL_SPLAY_LINKS *v9; // rax
+  _RTL_SPLAY_LINKS *v9; // rax
 
   if ( Links->LeftChild && Links->RightChild )
   {

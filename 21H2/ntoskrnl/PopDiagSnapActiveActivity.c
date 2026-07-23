@@ -1,8 +1,8 @@
 /*
- * XREFs of PopDiagSnapActiveActivity @ 0x14038AD44
+ * XREFs of PopDiagSnapActiveActivity @ 0x14038AE94
  * Callers:
- *     PopTraceThermalZoneActiveActivity @ 0x14038A5B4 (PopTraceThermalZoneActiveActivity.c)
- *     PopTraceThermalRequestActiveActivity @ 0x14038AA74 (PopTraceThermalRequestActiveActivity.c)
+ *     PopTraceThermalZoneActiveActivity @ 0x14038A704 (PopTraceThermalZoneActiveActivity.c)
+ *     PopTraceThermalRequestActiveActivity @ 0x14038ABC4 (PopTraceThermalRequestActiveActivity.c)
  * Callees:
  *     <none>
  */

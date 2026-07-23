@@ -1,11 +1,11 @@
 /*
  * XREFs of MiMakeEntireHugePfnGood @ 0x1403F394C
  * Callers:
- *     MiHotRemoveHugeRange @ 0x140532CF8 (MiHotRemoveHugeRange.c)
+ *     MiHotRemoveHugeRange @ 0x140532F38 (MiHotRemoveHugeRange.c)
  * Callees:
- *     RtlAvlRemoveNode @ 0x140234B20 (RtlAvlRemoveNode.c)
+ *     RtlAvlRemoveNode @ 0x1402D9370 (RtlAvlRemoveNode.c)
  *     MiHugePfnPartition @ 0x1403F38E8 (MiHugePfnPartition.c)
- *     MiUnlinkHugeRange @ 0x140533B5C (MiUnlinkHugeRange.c)
+ *     MiUnlinkHugeRange @ 0x140533D9C (MiUnlinkHugeRange.c)
  */
 
 unsigned __int64 *__fastcall MiMakeEntireHugePfnGood(int a1)
@@ -18,7 +18,7 @@ unsigned __int64 *__fastcall MiMakeEntireHugePfnGood(int a1)
   unsigned __int64 *v6; // rbx
   unsigned __int64 v7; // rcx
 
-  v1 = (_QWORD *)(qword_140C4E670 + 8 * (*(_QWORD *)&a1 & 0x3FFFFLL));
+  v1 = (_QWORD *)(qword_140C4E6B0 + 8 * (*(_QWORD *)&a1 & 0x3FFFFLL));
   v2 = MiHugePfnPartition(v1);
   v5 = (unsigned __int64 *)(v2 + 4896);
   v6 = *(unsigned __int64 **)(v2 + 4896);

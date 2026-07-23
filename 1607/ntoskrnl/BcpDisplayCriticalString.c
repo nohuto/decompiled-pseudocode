@@ -1,15 +1,15 @@
 /*
- * XREFs of BcpDisplayCriticalString @ 0x140239B00
+ * XREFs of BcpDisplayCriticalString @ 0x1402399E4
  * Callers:
- *     BcpDisplayErrorInformation @ 0x140239E44 (BcpDisplayErrorInformation.c)
- *     BcpDisplayProgress @ 0x14023A124 (BcpDisplayProgress.c)
- *     BgpFwDisplayBugCheckScreen @ 0x14023A7EC (BgpFwDisplayBugCheckScreen.c)
+ *     BcpDisplayErrorInformation @ 0x140239D28 (BcpDisplayErrorInformation.c)
+ *     BcpDisplayProgress @ 0x14023A008 (BcpDisplayProgress.c)
+ *     BgpFwDisplayBugCheckScreen @ 0x14023A6D0 (BgpFwDisplayBugCheckScreen.c)
  * Callees:
- *     BgpDisplayCharacterEx @ 0x140239538 (BgpDisplayCharacterEx.c)
- *     BgpFoGetStringAdvanceWidth @ 0x14023985C (BgpFoGetStringAdvanceWidth.c)
- *     BcpPrintSpaces @ 0x14023A4BC (BcpPrintSpaces.c)
- *     BcpSetCursorPosition @ 0x14023A618 (BcpSetCursorPosition.c)
- *     BgpRasGetGlyphAdvanceWidth @ 0x14023AA8C (BgpRasGetGlyphAdvanceWidth.c)
+ *     BgpDisplayCharacterEx @ 0x14023941C (BgpDisplayCharacterEx.c)
+ *     BgpFoGetStringAdvanceWidth @ 0x140239740 (BgpFoGetStringAdvanceWidth.c)
+ *     BcpPrintSpaces @ 0x14023A3A0 (BcpPrintSpaces.c)
+ *     BcpSetCursorPosition @ 0x14023A4FC (BcpSetCursorPosition.c)
+ *     BgpRasGetGlyphAdvanceWidth @ 0x14023A970 (BgpRasGetGlyphAdvanceWidth.c)
  */
 
 __int64 __fastcall BcpDisplayCriticalString(__int16 *a1, int a2, unsigned int a3, int a4)
@@ -59,10 +59,10 @@ __int64 __fastcall BcpDisplayCriticalString(__int16 *a1, int a2, unsigned int a3
     v7 = dword_1402F6930[18 * a4 + 4] + dword_1402F6930[18 * a4 + 6] + dword_1402F6930[18 * a4 + 8];
   v8 = dword_140358298;
   v30 = BcpCursor;
-  v9 = *(_QWORD *)(qword_1403293B0 + 24);
+  v9 = *(_QWORD *)(qword_1403293F0 + 24);
   v29 = 0;
   *(_DWORD *)(v9 + 56) = a2;
-  *(_DWORD *)(qword_1403293B0 + 8) = a2;
+  *(_DWORD *)(qword_1403293F0 + 8) = a2;
   v33 = (int *)(v9 + 40);
   v10 = v30;
   if ( (int)BgpFoGetStringAdvanceWidth((int)v9 + 40, a1, &v36) >= 0 )
@@ -113,7 +113,7 @@ __int64 __fastcall BcpDisplayCriticalString(__int16 *a1, int a2, unsigned int a3
             {
               if ( v10 < v7 )
               {
-                LODWORD(v16) = BcpPrintSpaces(qword_1403293B0, v10, v7, v13, v28, (__int64)&v36);
+                LODWORD(v16) = BcpPrintSpaces(qword_1403293F0, v10, v7, v13, v28, (__int64)&v36);
                 if ( (v16 & 0x80000000) != 0LL )
                   goto LABEL_39;
                 v15 = v36;
@@ -146,7 +146,7 @@ __int64 __fastcall BcpDisplayCriticalString(__int16 *a1, int a2, unsigned int a3
         break;
       if ( v10 < v7 )
       {
-        if ( (int)BcpPrintSpaces(qword_1403293B0, v10, v7, v13, v28, (__int64)&v36) < 0 )
+        if ( (int)BcpPrintSpaces(qword_1403293F0, v10, v7, v13, v28, (__int64)&v36) < 0 )
           goto LABEL_39;
         v15 = v36;
       }
@@ -170,7 +170,7 @@ LABEL_38:
 LABEL_35:
     if ( (int)BgpDisplayCharacterEx(
                 *(_WORD *)(*((_QWORD *)a1 + 1) + 2 * v22),
-                (__int64 *)qword_1403293B0,
+                (__int64 *)qword_1403293F0,
                 v10,
                 v13,
                 v28,

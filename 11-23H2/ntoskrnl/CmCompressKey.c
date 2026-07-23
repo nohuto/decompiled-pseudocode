@@ -1,9 +1,9 @@
 /*
- * XREFs of CmCompressKey @ 0x140A13B04
+ * XREFs of CmCompressKey @ 0x140A13DB4
  * Callers:
- *     NtCompressKey @ 0x140A0D640 (NtCompressKey.c)
+ *     NtCompressKey @ 0x140A0D8F0 (NtCompressKey.c)
  * Callees:
- *     HvMarkBaseBlockDirty @ 0x14087482C (HvMarkBaseBlockDirty.c)
+ *     HvMarkBaseBlockDirty @ 0x140874A6C (HvMarkBaseBlockDirty.c)
  */
 
 __int64 __fastcall CmCompressKey(__int64 a1, unsigned int a2)

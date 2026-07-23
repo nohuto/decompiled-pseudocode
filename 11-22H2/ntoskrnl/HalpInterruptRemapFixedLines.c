@@ -120,10 +120,10 @@ __int64 HalpInterruptRemapFixedLines()
                     v13 = HalpAcquireHighLevelLock(&HalpInterruptLock);
                     v0 = HalpInterruptSetLineStateInternal(v2, (__int64)&v26, v10);
                     KxReleaseSpinLock((volatile signed __int64 *)&HalpInterruptLock);
-                    if ( KiIrqlFlags )
+                    if ( (_DWORD)KiIrqlFlags )
                     {
                       CurrentIrql = KeGetCurrentIrql();
-                      if ( (KiIrqlFlags & 1) != 0
+                      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
                         && CurrentIrql <= 0xFu
                         && (unsigned __int8)v13 <= 0xFu
                         && CurrentIrql >= 2u )

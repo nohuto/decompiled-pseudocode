@@ -1,5 +1,5 @@
 /*
- * XREFs of MmRaisePoolQuota @ 0x1404AC5D0
+ * XREFs of MmRaisePoolQuota @ 0x1404A5C60
  * Callers:
  *     <none>
  * Callees:
@@ -21,10 +21,10 @@ char __fastcall MmRaisePoolQuota(int a1, __int64 a2, unsigned __int64 a3, _QWORD
     v7 = v4;
     if ( v4 < 0x100000 )
       v7 = 0x100000LL;
-    if ( stru_140E36558.WaitStatus - (unsigned __int64)stru_140E36558.ApcState.Process > v7 >> 12
-      && v4 + qword_140E2C610 >= qword_140E2C610 )
+    if ( stru_140E366D8.WaitStatus - (unsigned __int64)stru_140E366D8.ApcState.Process > v7 >> 12
+      && v4 + qword_140E2C790 >= qword_140E2C790 )
     {
-      qword_140E2C610 += v4;
+      qword_140E2C790 += v4;
       goto LABEL_9;
     }
   }
@@ -36,9 +36,9 @@ char __fastcall MmRaisePoolQuota(int a1, __int64 a2, unsigned __int64 a3, _QWORD
     v5 = v4;
     if ( v4 < 0x100000 )
       v5 = 0x100000LL;
-    if ( *(_QWORD *)&MiState - qword_140E2C588 > v5 >> 12 && v4 + qword_140E2C618 >= qword_140E2C618 )
+    if ( *(_QWORD *)&MiState - qword_140E2C708 > v5 >> 12 && v4 + qword_140E2C798 >= qword_140E2C798 )
     {
-      qword_140E2C618 += v4;
+      qword_140E2C798 += v4;
 LABEL_9:
       result = 1;
       *a4 = a2 + v4;

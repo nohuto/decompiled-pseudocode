@@ -1,10 +1,10 @@
 /*
- * XREFs of IaLpssSetPowerD3 @ 0x14067CB20
+ * XREFs of IaLpssSetPowerD3 @ 0x14067D070
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     IaLpssPciSetPower @ 0x14067C818 (IaLpssPciSetPower.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     IaLpssPciSetPower @ 0x14067CD68 (IaLpssPciSetPower.c)
  */
 
 __int64 __fastcall IaLpssSetPowerD3(__int64 *a1)
@@ -19,10 +19,10 @@ __int64 __fastcall IaLpssSetPowerD3(__int64 *a1)
 
   if ( a1 && (v2 = *a1) != 0 )
   {
-    v3 = ((__int64 (__fastcall *)(__int64))off_140C06B40[0])(v2 + 128);
+    v3 = ((__int64 (__fastcall *)(__int64))off_140C06B30[0])(v2 + 128);
     v4 = *a1;
     IaLpssClockParams = v3;
-    if ( (((__int64 (__fastcall *)(__int64))off_140C06B20[0])(v4 + 129) & 7) == 7 )
+    if ( (((__int64 (__fastcall *)(__int64))off_140C06B10[0])(v4 + 129) & 7) == 7 )
     {
       LOBYTE(v5) = 4;
       v7 = ((__int64 (__fastcall *)(__int64 *, __int64))a1[2])(a1, v5);
@@ -30,7 +30,7 @@ __int64 __fastcall IaLpssSetPowerD3(__int64 *a1)
       LOBYTE(v9) = v7 & 0xF7;
       ((void (__fastcall *)(__int64 *, __int64, __int64))a1[3])(a1, v8, v9);
       ((void (__fastcall *)(__int64 *, __int64))a1[3])(a1, 2LL);
-      ((void (__fastcall *)(__int64, _QWORD))off_140C06B28[0])(*a1 + 129, 0LL);
+      ((void (__fastcall *)(__int64, _QWORD))off_140C06B18[0])(*a1 + 129, 0LL);
       return (unsigned int)IaLpssPciSetPower(1);
     }
     else

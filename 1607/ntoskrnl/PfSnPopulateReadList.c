@@ -1,22 +1,22 @@
 /*
- * XREFs of PfSnPopulateReadList @ 0x14050A770
+ * XREFs of PfSnPopulateReadList @ 0x1404ED700
  * Callers:
  *     <none>
  * Callees:
- *     RtlInitUnicodeString @ 0x14002DC60 (RtlInitUnicodeString.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x140055FA0 (KiLeaveCriticalRegionUnsafe.c)
- *     KiStackAttachProcess @ 0x1400CD1F0 (KiStackAttachProcess.c)
- *     KiUnstackDetachProcess @ 0x1400CE820 (KiUnstackDetachProcess.c)
- *     ExReleaseRundownProtection @ 0x1400D3F00 (ExReleaseRundownProtection.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
+ *     RtlInitUnicodeString @ 0x14002D7E0 (RtlInitUnicodeString.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140055B20 (KiLeaveCriticalRegionUnsafe.c)
+ *     KiStackAttachProcess @ 0x1400CB090 (KiStackAttachProcess.c)
+ *     KiUnstackDetachProcess @ 0x1400CC6C0 (KiUnstackDetachProcess.c)
+ *     ExReleaseRundownProtection @ 0x1400D1DA0 (ExReleaseRundownProtection.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     NtCreateEvent @ 0x14041EDE0 (NtCreateEvent.c)
- *     PfSnCleanupPrefetchSectionInfo @ 0x14050A5E4 (PfSnCleanupPrefetchSectionInfo.c)
- *     PsSetCurrentThreadPrefetching @ 0x14050AC5C (PsSetCurrentThreadPrefetching.c)
- *     PfSnGetSectionObject @ 0x14050ACA0 (PfSnGetSectionObject.c)
- *     PfSnFindPrefetchVolumeInfoInList @ 0x14050B05C (PfSnFindPrefetchVolumeInfoInList.c)
- *     NtClose @ 0x14050B0E0 (NtClose.c)
+ *     NtCreateEvent @ 0x14041DCA0 (NtCreateEvent.c)
+ *     PfSnCleanupPrefetchSectionInfo @ 0x1404ED574 (PfSnCleanupPrefetchSectionInfo.c)
+ *     PsSetCurrentThreadPrefetching @ 0x1404EDBEC (PsSetCurrentThreadPrefetching.c)
+ *     PfSnGetSectionObject @ 0x1404EDC30 (PfSnGetSectionObject.c)
+ *     PfSnFindPrefetchVolumeInfoInList @ 0x1404EDFEC (PfSnFindPrefetchVolumeInfoInList.c)
+ *     NtClose @ 0x1404EE070 (NtClose.c)
  */
 
 void __fastcall PfSnPopulateReadList(__int64 a1)

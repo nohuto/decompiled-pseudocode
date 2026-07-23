@@ -18,7 +18,7 @@ LONG __fastcall MiZeroPageFile(_QWORD *a1)
   ULONG v3; // ebp
   int v4; // ebx
   ULONG v5; // r15d
-  struct _RTL_BITMAP *v6; // r14
+  _RTL_BITMAP *v6; // r14
   unsigned int v7; // esi
   unsigned __int64 v8; // rcx
   __int64 v9; // rcx
@@ -33,7 +33,7 @@ LONG __fastcall MiZeroPageFile(_QWORD *a1)
   v4 = 0;
   v5 = 0;
   KeAcquireInStackQueuedSpinLock(v1 + 24, &LockHandle);
-  v6 = (struct _RTL_BITMAP *)(v1[16] + 8LL);
+  v6 = (_RTL_BITMAP *)(v1[16] + 8LL);
   v7 = 1;
   if ( *v1 > 1uLL )
   {
@@ -62,7 +62,7 @@ LONG __fastcall MiZeroPageFile(_QWORD *a1)
         MmZeroPageWrite(v9, (__int64)&v13, (__int64 *)&v12, 0);
         v4 = 0;
         KeAcquireInStackQueuedSpinLock(v1 + 24, &LockHandle);
-        v6 = (struct _RTL_BITMAP *)(v1[16] + 8LL);
+        v6 = (_RTL_BITMAP *)(v1[16] + 8LL);
         RtlClearBits(v6, v5, v3);
         v3 = 0;
       }

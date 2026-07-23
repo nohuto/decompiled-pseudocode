@@ -1,15 +1,15 @@
 /*
- * XREFs of SymCryptModExpSquareAndMultiply32 @ 0x1405377AC
+ * XREFs of SymCryptModExpSquareAndMultiply32 @ 0x140531C4C
  * Callers:
- *     SymCryptModExpGeneric @ 0x140537740 (SymCryptModExpGeneric.c)
+ *     SymCryptModExpGeneric @ 0x140531BE0 (SymCryptModExpGeneric.c)
  * Callees:
- *     SymCryptIntGetValueLsbits32 @ 0x140523940 (SymCryptIntGetValueLsbits32.c)
- *     SymCryptModElementCopy @ 0x140523BC0 (SymCryptModElementCopy.c)
- *     SymCryptModElementCreate @ 0x140523BD8 (SymCryptModElementCreate.c)
- *     SymCryptModElementSetValueUint32 @ 0x140523D18 (SymCryptModElementSetValueUint32.c)
- *     SymCryptModMul @ 0x140523E80 (SymCryptModMul.c)
- *     SymCryptModSquare @ 0x140523F5C (SymCryptModSquare.c)
- *     SymCryptSizeofModElementFromModulus @ 0x140524014 (SymCryptSizeofModElementFromModulus.c)
+ *     SymCryptIntGetValueLsbits32 @ 0x140521258 (SymCryptIntGetValueLsbits32.c)
+ *     SymCryptModElementCopy @ 0x1405214D8 (SymCryptModElementCopy.c)
+ *     SymCryptModElementCreate @ 0x1405214F0 (SymCryptModElementCreate.c)
+ *     SymCryptModElementSetValueUint32 @ 0x140521630 (SymCryptModElementSetValueUint32.c)
+ *     SymCryptModMul @ 0x140521798 (SymCryptModMul.c)
+ *     SymCryptModSquare @ 0x140521874 (SymCryptModSquare.c)
+ *     SymCryptSizeofModElementFromModulus @ 0x14052192C (SymCryptSizeofModElementFromModulus.c)
  */
 
 __int64 __fastcall SymCryptModExpSquareAndMultiply32(

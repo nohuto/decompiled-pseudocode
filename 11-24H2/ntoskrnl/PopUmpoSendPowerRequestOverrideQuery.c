@@ -1,13 +1,13 @@
 /*
- * XREFs of PopUmpoSendPowerRequestOverrideQuery @ 0x140331678
+ * XREFs of PopUmpoSendPowerRequestOverrideQuery @ 0x1402BAD78
  * Callers:
- *     PopPowerRequestCreateCommon @ 0x1403313A8 (PopPowerRequestCreateCommon.c)
- *     PopPowerRequestOverrideInitialize @ 0x140749DB4 (PopPowerRequestOverrideInitialize.c)
+ *     PopPowerRequestCreateCommon @ 0x1402BAAB0 (PopPowerRequestCreateCommon.c)
+ *     PopPowerRequestOverrideInitialize @ 0x1407480E4 (PopPowerRequestOverrideInitialize.c)
  * Callees:
- *     PoStoreRequester @ 0x140331734 (PoStoreRequester.c)
- *     PopUmpoSendPowerMessage @ 0x140331990 (PopUmpoSendPowerMessage.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     PoStoreRequester @ 0x1402BAE34 (PoStoreRequester.c)
+ *     PopUmpoSendPowerMessage @ 0x1402BB090 (PopUmpoSendPowerMessage.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PopUmpoSendPowerRequestOverrideQuery(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
@@ -23,7 +23,7 @@ __int64 __fastcall PopUmpoSendPowerRequestOverrideQuery(__int64 a1, __int64 a2, 
   LOBYTE(a4) = 1;
   PoStoreRequester(*(_QWORD *)(a1 + 96), 0LL, &v11, a4);
   v5 = v11;
-  Pool2 = ExAllocatePool2(0x100uLL);
+  Pool2 = ExAllocatePool2(0x100uLL, v11 + 16, 0x6F706D55u);
   v8 = (_DWORD *)Pool2;
   if ( Pool2 )
   {

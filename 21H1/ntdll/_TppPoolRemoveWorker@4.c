@@ -9,17 +9,17 @@
  *     __SEH_prolog4 @ 0x4B307AC4 (__SEH_prolog4.c)
  */
 
-signed __int32 __thiscall TppPoolRemoveWorker(_DWORD *this)
+void __thiscall TppPoolRemoveWorker(_DWORD *this)
 {
   int v2; // edx
   _DWORD *v3; // ecx
 
-  RtlAcquireSRWLockExclusive((volatile signed __int32 *)(this[6] + 44));
+  RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)(this[6] + 44));
   v2 = this[2];
   v3 = (_DWORD *)this[3];
   if ( *(_DWORD **)(v2 + 4) != this + 2 || (_DWORD *)*v3 != this + 2 )
     __fastfail(3u);
   *v3 = v2;
   *(_DWORD *)(v2 + 4) = v3;
-  return RtlReleaseSRWLockExclusive((volatile signed __int32 *)(this[6] + 44));
+  RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(this[6] + 44));
 }

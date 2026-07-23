@@ -1,22 +1,22 @@
 /*
- * XREFs of SeAuditHandleCreation @ 0x1406B0F68
+ * XREFs of SeAuditHandleCreation @ 0x14060FF18
  * Callers:
- *     ObDuplicateObject @ 0x1405F51B0 (ObDuplicateObject.c)
+ *     ObDuplicateObject @ 0x1406E4910 (ObDuplicateObject.c)
  * Callees:
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     PsGetCurrentThreadProcessId @ 0x1402ED5E0 (PsGetCurrentThreadProcessId.c)
- *     ZwClose @ 0x1403FA580 (ZwClose.c)
- *     ZwDuplicateObject @ 0x1403FAB20 (ZwDuplicateObject.c)
- *     SepAdtPrivilegeObjectAuditAlarm @ 0x14062792C (SepAdtPrivilegeObjectAuditAlarm.c)
- *     ObReferenceObjectByHandle @ 0x1406F0BC0 (ObReferenceObjectByHandle.c)
- *     SepAdtOpenObjectAuditAlarm @ 0x14091F498 (SepAdtOpenObjectAuditAlarm.c)
- *     SepAdtStagingEvent @ 0x140920200 (SepAdtStagingEvent.c)
- *     SepAdtClassifyObjectIntoSubCategory @ 0x140920980 (SepAdtClassifyObjectIntoSubCategory.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     PsGetCurrentThreadProcessId @ 0x14029E930 (PsGetCurrentThreadProcessId.c)
+ *     ZwClose @ 0x1403FA760 (ZwClose.c)
+ *     ZwDuplicateObject @ 0x1403FAD00 (ZwDuplicateObject.c)
+ *     SepAdtPrivilegeObjectAuditAlarm @ 0x140693A3C (SepAdtPrivilegeObjectAuditAlarm.c)
+ *     ObReferenceObjectByHandle @ 0x140707FA0 (ObReferenceObjectByHandle.c)
+ *     SepAdtOpenObjectAuditAlarm @ 0x14091F5F8 (SepAdtOpenObjectAuditAlarm.c)
+ *     SepAdtStagingEvent @ 0x140920360 (SepAdtStagingEvent.c)
+ *     SepAdtClassifyObjectIntoSubCategory @ 0x140920AE0 (SepAdtClassifyObjectIntoSubCategory.c)
  */
 
-char __fastcall SeAuditHandleCreation(__int64 a1, void *a2, void *a3)
+_UNKNOWN **__fastcall SeAuditHandleCreation(__int64 a1, void *a2, void *a3)
 {
-  _UNKNOWN **v3; // rax
+  _UNKNOWN **result; // rax
   __int64 v4; // r15
   char v5; // si
   void *v6; // r14
@@ -26,14 +26,14 @@ char __fastcall SeAuditHandleCreation(__int64 a1, void *a2, void *a3)
   unsigned __int64 CurrentThreadProcessId; // rax
   unsigned __int64 v12; // rax
   __int64 v13; // rdx
-  int v15; // [rsp+48h] [rbp-90h]
+  int v14; // [rsp+48h] [rbp-90h]
   _UNKNOWN *retaddr; // [rsp+D8h] [rbp+0h] BYREF
   HANDLE TargetHandle; // [rsp+E0h] [rbp+8h] BYREF
-  void *v18; // [rsp+E8h] [rbp+10h] BYREF
+  void *v17; // [rsp+E8h] [rbp+10h] BYREF
   PVOID Object; // [rsp+F0h] [rbp+18h] BYREF
 
-  v3 = &retaddr;
-  v18 = a2;
+  result = &retaddr;
+  v17 = a2;
   v4 = *(_QWORD *)(a1 + 72);
   v5 = 0;
   TargetHandle = 0LL;
@@ -49,17 +49,17 @@ char __fastcall SeAuditHandleCreation(__int64 a1, void *a2, void *a3)
   {
     if ( *(_BYTE *)(a1 + 124) )
     {
-      LOBYTE(v3) = SepAdtPrivilegeObjectAuditAlarm(
-                     &SeSubsystemName,
-                     (unsigned __int16 *)(a1 + 144),
-                     (unsigned __int16 *)(a1 + 128),
-                     (unsigned __int64)a2,
-                     *(_QWORD *)(a1 + 32),
-                     *(_QWORD *)(a1 + 48),
-                     *(_QWORD *)(a1 + 56),
-                     *(_DWORD *)(a1 + 20),
-                     *(int **)v4,
-                     1);
+      result = (_UNKNOWN **)SepAdtPrivilegeObjectAuditAlarm(
+                              (unsigned int)&SeSubsystemName,
+                              (int)a1 + 144,
+                              (int)a1 + 128,
+                              (_DWORD)a2,
+                              *(_QWORD *)(a1 + 32),
+                              *(_QWORD *)(a1 + 48),
+                              *(_QWORD *)(a1 + 56),
+                              *(_DWORD *)(a1 + 20),
+                              *(_QWORD *)v4,
+                              1);
       goto LABEL_6;
     }
   }
@@ -86,7 +86,7 @@ char __fastcall SeAuditHandleCreation(__int64 a1, void *a2, void *a3)
   v5 = SepAdtOpenObjectAuditAlarm(
          v10,
          (int)&SeSubsystemName,
-         (int)&v18,
+         (int)&v17,
          (int)a1 + 144,
          a1 + 128,
          v6,
@@ -104,21 +104,21 @@ char __fastcall SeAuditHandleCreation(__int64 a1, void *a2, void *a3)
          v4 + 32,
          a1);
   v12 = PsGetCurrentThreadProcessId();
-  LOBYTE(v15) = 1;
-  LOBYTE(v3) = SepAdtStagingEvent(
-                 v10,
-                 v13,
-                 &v18,
-                 a1 + 144,
-                 a1 + 128,
-                 *(_QWORD *)(a1 + 32),
-                 *(_QWORD *)(a1 + 48),
-                 *(_DWORD *)(a1 + 24),
-                 *(_DWORD *)(a1 + 20),
-                 v15,
-                 v12,
-                 a1);
+  LOBYTE(v14) = 1;
+  result = (_UNKNOWN **)SepAdtStagingEvent(
+                          v10,
+                          v13,
+                          &v17,
+                          a1 + 144,
+                          a1 + 128,
+                          *(_QWORD *)(a1 + 32),
+                          *(_QWORD *)(a1 + 48),
+                          *(_DWORD *)(a1 + 24),
+                          *(_DWORD *)(a1 + 20),
+                          v14,
+                          v12,
+                          a1);
 LABEL_6:
   *(_BYTE *)(a1 + 10) = v5;
-  return (char)v3;
+  return result;
 }

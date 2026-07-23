@@ -1,15 +1,15 @@
 /*
- * XREFs of TpAllocPool @ 0x18006A620
+ * XREFs of TpAllocPool @ 0x180086D10
  * Callers:
  *     <none>
  * Callees:
- *     TppRaiseInvalidParameter @ 0x18006B7F4 (TppRaiseInvalidParameter.c)
+ *     TppRaiseInvalidParameter @ 0x1800880D4 (TppRaiseInvalidParameter.c)
  */
 
-__int64 __fastcall TpAllocPool(__int64 a1, __int64 a2)
+NTSTATUS __cdecl TpAllocPool(PTP_POOL *PoolReturn, PVOID Reserved)
 {
-  if ( a1 && !a2 && !NtCurrentPeb()->Ldr->ShutdownInProgress )
-    return TpAllocPoolInternal(a1, 0LL);
-  TppRaiseInvalidParameter(a1);
-  return 3221225485LL;
+  if ( PoolReturn && !Reserved && !NtCurrentPeb()->Ldr->ShutdownInProgress )
+    return TpAllocPoolInternal(PoolReturn, 0);
+  TppRaiseInvalidParameter(PoolReturn);
+  return -1073741811;
 }

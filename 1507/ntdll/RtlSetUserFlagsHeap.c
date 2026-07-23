@@ -6,10 +6,15 @@
  *     RtlpSetUserFlagsHeapInternal @ 0x1800DA634 (RtlpSetUserFlagsHeapInternal.c)
  */
 
-__int64 __fastcall RtlSetUserFlagsHeap(int a1, int a2, int a3, int a4, int a5)
+BOOLEAN __cdecl RtlSetUserFlagsHeap(
+        PVOID HeapHandle,
+        ULONG Flags,
+        PVOID BaseAddress,
+        ULONG UserFlagsReset,
+        ULONG UserFlagsSet)
 {
   if ( (RtlpHpHeapFeatures & 2) != 0 )
-    return RtlpHpVirtSetUserFlagsHeap();
+    return RtlpHpVirtSetUserFlagsHeap(HeapHandle);
   else
-    return RtlpSetUserFlagsHeapInternal(a1, a2, a3, a5, a4);
+    return RtlpSetUserFlagsHeapInternal(HeapHandle, UserFlagsReset);
 }

@@ -1,16 +1,16 @@
 /*
- * XREFs of RtlWriteAcquireTickLock @ 0x14046AC24
+ * XREFs of RtlWriteAcquireTickLock @ 0x1404643A4
  * Callers:
- *     KiUpdateTime @ 0x14021D690 (KiUpdateTime.c)
- *     KiUpdateTimeAssist @ 0x14021E0C8 (KiUpdateTimeAssist.c)
- *     KiUpdateSystemTime @ 0x14046AA24 (KiUpdateSystemTime.c)
- *     KiWriteAcquireCpuStateTickLock @ 0x14046AC0C (KiWriteAcquireCpuStateTickLock.c)
- *     KiUpdateProcessAvailableCpuState @ 0x1405E5BB8 (KiUpdateProcessAvailableCpuState.c)
- *     KiUpdateSystemAvailableCpuState @ 0x1405E5CF4 (KiUpdateSystemAvailableCpuState.c)
- *     KeSetTagCpuSets @ 0x1405F3F1C (KeSetTagCpuSets.c)
- *     KiModifySystemAllowedCpuSetsWithLock @ 0x1405F4548 (KiModifySystemAllowedCpuSetsWithLock.c)
- *     KiCreateCpuSetForProcessor @ 0x140BF5578 (KiCreateCpuSetForProcessor.c)
- *     KiCalibrateTimeAdjustment @ 0x140C078A0 (KiCalibrateTimeAdjustment.c)
+ *     KiUpdateTime @ 0x14021F020 (KiUpdateTime.c)
+ *     KiUpdateTimeAssist @ 0x14021FA58 (KiUpdateTimeAssist.c)
+ *     KiUpdateSystemTime @ 0x1404641A4 (KiUpdateSystemTime.c)
+ *     KiWriteAcquireCpuStateTickLock @ 0x14046438C (KiWriteAcquireCpuStateTickLock.c)
+ *     KiUpdateProcessAvailableCpuState @ 0x1405E8528 (KiUpdateProcessAvailableCpuState.c)
+ *     KiUpdateSystemAvailableCpuState @ 0x1405E8664 (KiUpdateSystemAvailableCpuState.c)
+ *     KeSetTagCpuSets @ 0x1405F68DC (KeSetTagCpuSets.c)
+ *     KiModifySystemAllowedCpuSetsWithLock @ 0x1405F6F08 (KiModifySystemAllowedCpuSetsWithLock.c)
+ *     KiCreateCpuSetForProcessor @ 0x140BFB578 (KiCreateCpuSetForProcessor.c)
+ *     KiCalibrateTimeAdjustment @ 0x140C0DAB0 (KiCalibrateTimeAdjustment.c)
  * Callees:
  *     <none>
  */

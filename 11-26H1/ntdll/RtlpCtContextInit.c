@@ -1,33 +1,31 @@
 /*
- * XREFs of RtlpCtContextInit @ 0x18014969C
+ * XREFs of RtlpCtContextInit @ 0x18014954C
  * Callers:
- *     RtlRaiseCustomSystemEventTrigger @ 0x1801493F0 (RtlRaiseCustomSystemEventTrigger.c)
+ *     RtlRaiseCustomSystemEventTrigger @ 0x1801492A0 (RtlRaiseCustomSystemEventTrigger.c)
  * Callees:
- *     RtlpAllocateAtom @ 0x180037BF0 (RtlpAllocateAtom.c)
- *     TpAllocWork @ 0x18004E830 (TpAllocWork.c)
- *     RtlpSubscribeWnfStateChangeNotificationInternal @ 0x18006E03C (RtlpSubscribeWnfStateChangeNotificationInternal.c)
- *     RtlpCtContextFree @ 0x18014964C (RtlpCtContextFree.c)
- *     ZwCreateEvent @ 0x18015F840 (ZwCreateEvent.c)
+ *     RtlpAllocateAtom @ 0x1800018C0 (RtlpAllocateAtom.c)
+ *     TpAllocWork @ 0x180038DB0 (TpAllocWork.c)
+ *     RtlpSubscribeWnfStateChangeNotificationInternal @ 0x18008E48C (RtlpSubscribeWnfStateChangeNotificationInternal.c)
+ *     RtlpCtContextFree @ 0x1801494FC (RtlpCtContextFree.c)
+ *     ZwCreateEvent @ 0x18015F740 (ZwCreateEvent.c)
  */
 
-__int64 __fastcall RtlpCtContextInit(__int64 **a1, int a2)
+__int64 __fastcall RtlpCtContextInit(_QWORD *a1, int a2)
 {
-  __int64 *Atom; // rbx
+  PVOID Atom; // rbx
   int Event; // edi
-  _PEB_LDR_DATA *v6; // rdx
-  __int64 v7; // r8
 
   *a1 = 0LL;
-  Atom = (__int64 *)RtlpAllocateAtom(24LL);
+  Atom = RtlpAllocateAtom(0x18uLL);
   if ( Atom )
   {
     *(_OWORD *)Atom = 0LL;
-    Atom[2] = 0LL;
-    Event = ZwCreateEvent(Atom + 2, 2031619LL, 0LL, 0LL, 0);
+    *((_QWORD *)Atom + 2) = 0LL;
+    Event = ZwCreateEvent((PHANDLE)Atom + 2, 0x1F0003u, 0LL, NotificationEvent, 0);
     if ( Event < 0
-      || (Event = TpAllocWork(Atom, (__int64)RtlpRtlpCtWaitForWnfQuiescentWorker, (int)Atom, 0LL), Event < 0)
+      || (Event = TpAllocWork((PTP_WORK *)Atom, RtlpRtlpCtWaitForWnfQuiescentWorker, Atom, 0LL), Event < 0)
       || (Event = RtlpSubscribeWnfStateChangeNotificationInternal(
-                    Atom + 1,
+                    (_QWORD *)Atom + 1,
                     WNF_SEB_DEV_MNF_CUSTOM_NOTIFICATION_RECEIVED,
                     a2,
                     (int)RtlpRtlpCtSelfSubscribeCallback,
@@ -38,7 +36,7 @@ __int64 __fastcall RtlpCtContextInit(__int64 **a1, int a2)
                     17),
           Event < 0) )
     {
-      RtlpCtContextFree(Atom, v6, v7);
+      RtlpCtContextFree((PTP_WORK *)Atom);
     }
     else
     {

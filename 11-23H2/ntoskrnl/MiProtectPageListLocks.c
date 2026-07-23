@@ -1,10 +1,10 @@
 /*
- * XREFs of MiProtectPageListLocks @ 0x140397CB0
+ * XREFs of MiProtectPageListLocks @ 0x140397E90
  * Callers:
- *     MiInitializePartition @ 0x1408372A0 (MiInitializePartition.c)
+ *     MiInitializePartition @ 0x1408375A0 (MiInitializePartition.c)
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x14024D360 (ExAcquireSpinLockExclusive.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024D430 (ExAcquireSpinLockExclusive.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 char __fastcall MiProtectPageListLocks(__int64 a1)
@@ -17,10 +17,10 @@ char __fastcall MiProtectPageListLocks(__int64 a1)
 
   v2 = ExAcquireSpinLockExclusive((PEX_SPIN_LOCK)(a1 + 17632));
   LOBYTE(v3) = ExAcquireSpinLockExclusive((PEX_SPIN_LOCK)(a1 + 2848));
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     LOBYTE(v3) = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
       && (unsigned __int8)v3 <= 0xFu
       && (unsigned __int8)v2 <= 0xFu
       && (unsigned __int8)v3 >= 2u )

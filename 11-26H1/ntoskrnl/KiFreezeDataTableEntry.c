@@ -1,5 +1,5 @@
 /*
- * XREFs of KiFreezeDataTableEntry @ 0x1405E5100
+ * XREFs of KiFreezeDataTableEntry @ 0x1405E7A70
  * Callers:
  *     <none>
  * Callees:

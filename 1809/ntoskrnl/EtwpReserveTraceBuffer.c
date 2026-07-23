@@ -1,23 +1,23 @@
 /*
- * XREFs of EtwpReserveTraceBuffer @ 0x1400C7600
+ * XREFs of EtwpReserveTraceBuffer @ 0x1400C7540
  * Callers:
- *     EtwpLogKernelEvent @ 0x1400C71D0 (EtwpLogKernelEvent.c)
- *     EtwpEventWriteFull @ 0x1400C84E0 (EtwpEventWriteFull.c)
- *     EtwpTraceMessageVa @ 0x140113240 (EtwpTraceMessageVa.c)
- *     EtwpLogSystemEventUnsafe @ 0x14017C6F8 (EtwpLogSystemEventUnsafe.c)
- *     EtwpLogContextSwapEvent @ 0x14017CA10 (EtwpLogContextSwapEvent.c)
- *     EtwTraceEvent @ 0x14030E7DC (EtwTraceEvent.c)
- *     EtwTraceRaw @ 0x14030EC10 (EtwTraceRaw.c)
- *     EtwpReserveWithPebsIndex @ 0x1403115D8 (EtwpReserveWithPebsIndex.c)
- *     EtwpReserveWithPmcCounters @ 0x14031166C (EtwpReserveWithPmcCounters.c)
- *     EtwpWriteUserEvent @ 0x1406473D0 (EtwpWriteUserEvent.c)
+ *     EtwpLogKernelEvent @ 0x1400C7110 (EtwpLogKernelEvent.c)
+ *     EtwpEventWriteFull @ 0x1400C8420 (EtwpEventWriteFull.c)
+ *     EtwpTraceMessageVa @ 0x1401132B0 (EtwpTraceMessageVa.c)
+ *     EtwpLogSystemEventUnsafe @ 0x14017C82C (EtwpLogSystemEventUnsafe.c)
+ *     EtwpLogContextSwapEvent @ 0x14017CB50 (EtwpLogContextSwapEvent.c)
+ *     EtwTraceEvent @ 0x14030E9CC (EtwTraceEvent.c)
+ *     EtwTraceRaw @ 0x14030EE00 (EtwTraceRaw.c)
+ *     EtwpReserveWithPebsIndex @ 0x1403117C8 (EtwpReserveWithPebsIndex.c)
+ *     EtwpReserveWithPmcCounters @ 0x14031185C (EtwpReserveWithPmcCounters.c)
+ *     EtwpWriteUserEvent @ 0x1406483F0 (EtwpWriteUserEvent.c)
  * Callees:
  *     EtwpSwitchBuffer @ 0x140014FB8 (EtwpSwitchBuffer.c)
  *     EtwpUnlockBufferList @ 0x140015480 (EtwpUnlockBufferList.c)
  *     EtwpLockBufferList @ 0x1400154CC (EtwpLockBufferList.c)
- *     EtwpUpdateEventsLostCount @ 0x1401138D4 (EtwpUpdateEventsLostCount.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     EtwpGetTimeStampAndQpcDelta @ 0x140313D9C (EtwpGetTimeStampAndQpcDelta.c)
+ *     EtwpUpdateEventsLostCount @ 0x140113944 (EtwpUpdateEventsLostCount.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     EtwpGetTimeStampAndQpcDelta @ 0x140313F8C (EtwpGetTimeStampAndQpcDelta.c)
  */
 
 unsigned __int64 __fastcall EtwpReserveTraceBuffer(

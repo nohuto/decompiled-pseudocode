@@ -10,15 +10,18 @@
  *     NtWaitForAlertByThreadId @ 0x1800A7BE0 (NtWaitForAlertByThreadId.c)
  */
 
-__int64 __fastcall RtlSleepConditionVariableCS(signed __int64 *a1, __int64 a2, __int64 a3)
+NTSTATUS __cdecl RtlSleepConditionVariableCS(
+        PRTL_CONDITION_VARIABLE ConditionVariable,
+        PRTL_CRITICAL_SECTION CriticalSection,
+        PLARGE_INTEGER Timeout)
 {
-  signed __int64 v6; // rbx
-  unsigned int v7; // edi
+  signed __int64 Ptr; // rbx
+  NTSTATUS v7; // edi
   unsigned __int64 v8; // rsi
   _QWORD *v9; // rax
   signed __int64 v10; // rax
   int i; // edx
-  unsigned int v12; // ebx
+  NTSTATUS v12; // ebx
   unsigned __int64 v15; // r8
   unsigned __int64 v16; // r9
   unsigned __int64 v17; // rcx
@@ -27,8 +30,8 @@ __int64 __fastcall RtlSleepConditionVariableCS(signed __int64 *a1, __int64 a2, _
   signed __int32 v20; // [rsp+44h] [rbp-Ch] BYREF
   __int64 v21; // [rsp+48h] [rbp-8h]
 
-  _m_prefetchw(a1);
-  v6 = *a1;
+  _m_prefetchw(ConditionVariable);
+  Ptr = (signed __int64)ConditionVariable->Ptr;
   v7 = 0;
   v19[2] = 0LL;
   v21 = 0LL;
@@ -36,22 +39,22 @@ __int64 __fastcall RtlSleepConditionVariableCS(signed __int64 *a1, __int64 a2, _
   v19[3] = NtCurrentTeb()->ClientId.UniqueThread;
   while ( 1 )
   {
-    v8 = (unsigned __int64)v19 | v6 & 0xF;
+    v8 = (unsigned __int64)v19 | Ptr & 0xF;
     v9 = v19;
-    v19[0] = v6 & 0xFFFFFFFFFFFFFFF0uLL;
-    if ( (v6 & 0xFFFFFFFFFFFFFFF0uLL) != 0 )
+    v19[0] = Ptr & 0xFFFFFFFFFFFFFFF0uLL;
+    if ( (Ptr & 0xFFFFFFFFFFFFFFF0uLL) != 0 )
       v9 = 0LL;
     v19[1] = v9;
-    if ( (v6 & 0xFFFFFFFFFFFFFFF0uLL) != 0 )
+    if ( (Ptr & 0xFFFFFFFFFFFFFFF0uLL) != 0 )
       v8 |= 8uLL;
-    v10 = _InterlockedCompareExchange64(a1, v8, v6);
-    if ( v6 == v10 )
+    v10 = _InterlockedCompareExchange64((volatile signed __int64 *)ConditionVariable, v8, Ptr);
+    if ( Ptr == v10 )
       break;
-    v6 = v10;
+    Ptr = v10;
   }
-  RtlLeaveCriticalSection(a2);
-  if ( (((unsigned __int8)v6 ^ (unsigned __int8)v8) & 8) != 0 )
-    RtlpOptimizeConditionVariableWaitList(a1, v8);
+  RtlLeaveCriticalSection(CriticalSection);
+  if ( (((unsigned __int8)Ptr ^ (unsigned __int8)v8) & 8) != 0 )
+    RtlpOptimizeConditionVariableWaitList(ConditionVariable, v8);
   if ( MEMORY[0x7FFE036A] > 1u )
   {
     if ( MEMORY[0x7FFE0297] )
@@ -86,11 +89,11 @@ LABEL_17:
       goto LABEL_18;
     goto LABEL_26;
   }
-  v12 = NtWaitForAlertByThreadId(a2, a3);
+  v12 = NtWaitForAlertByThreadId(CriticalSection, Timeout);
   if ( v12 != 258 )
     goto LABEL_17;
 LABEL_26:
-  if ( (unsigned __int8)RtlpWakeSingle(a1, v19) )
+  if ( (unsigned __int8)RtlpWakeSingle(ConditionVariable, v19) )
   {
     if ( v12 != 258 )
       v12 = 0;
@@ -99,10 +102,10 @@ LABEL_26:
   else
   {
     do
-      NtWaitForAlertByThreadId(a2, 0LL);
+      NtWaitForAlertByThreadId(CriticalSection, 0LL);
     while ( (v20 & 4) == 0 );
   }
 LABEL_18:
-  RtlEnterCriticalSection(a2);
+  RtlEnterCriticalSection(CriticalSection);
   return v7;
 }

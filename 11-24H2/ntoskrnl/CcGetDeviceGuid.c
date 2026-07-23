@@ -1,11 +1,11 @@
 /*
- * XREFs of CcGetDeviceGuid @ 0x140A9796C
+ * XREFs of CcGetDeviceGuid @ 0x140A941BC
  * Callers:
- *     CcInitializeVolumeCacheMap @ 0x1402CDF18 (CcInitializeVolumeCacheMap.c)
- *     CcGetDeviceGuidAsync @ 0x14057D5C0 (CcGetDeviceGuidAsync.c)
+ *     CcInitializeVolumeCacheMap @ 0x14040BF18 (CcInitializeVolumeCacheMap.c)
+ *     CcGetDeviceGuidAsync @ 0x14057AA50 (CcGetDeviceGuidAsync.c)
  * Callees:
- *     KeAreAllApcsDisabled @ 0x1403C3440 (KeAreAllApcsDisabled.c)
- *     IoVolumeDeviceToGuid @ 0x1409672A0 (IoVolumeDeviceToGuid.c)
+ *     KeAreAllApcsDisabled @ 0x1403B2000 (KeAreAllApcsDisabled.c)
+ *     IoVolumeDeviceToGuid @ 0x14094FD30 (IoVolumeDeviceToGuid.c)
  */
 
 __int64 __fastcall CcGetDeviceGuid(__int64 a1, GUID *a2)

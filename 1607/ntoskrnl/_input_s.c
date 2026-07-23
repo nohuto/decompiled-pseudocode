@@ -1,13 +1,13 @@
 /*
- * XREFs of _input_s @ 0x140154C74
+ * XREFs of _input_s @ 0x1401551E4
  * Callers:
- *     _sinput_s @ 0x14015554C (_sinput_s.c)
+ *     _sinput_s @ 0x140155ABC (_sinput_s.c)
  * Callees:
- *     xHalFreeMessageTarget @ 0x140130D64 (xHalFreeMessageTarget.c)
- *     ReadString @ 0x140154940 (ReadString.c)
- *     ReadStringDelimited @ 0x140154AEC (ReadStringDelimited.c)
- *     _inc @ 0x140154C4C (_inc.c)
- *     _ungetc_nolock @ 0x14015644C (_ungetc_nolock.c)
+ *     xHalFreeMessageTarget @ 0x1401312D4 (xHalFreeMessageTarget.c)
+ *     ReadString @ 0x140154EB0 (ReadString.c)
+ *     ReadStringDelimited @ 0x14015505C (ReadStringDelimited.c)
+ *     _inc @ 0x1401551BC (_inc.c)
+ *     _ungetc_nolock @ 0x1401569C4 (_ungetc_nolock.c)
  */
 
 __int64 __fastcall input_s(FILE *a1, unsigned __int8 *a2, _DWORD *a3)

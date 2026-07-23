@@ -1,13 +1,13 @@
 /*
- * XREFs of SymCryptHashCommonPaddingMd4Style @ 0x18003863C
+ * XREFs of SymCryptHashCommonPaddingMd4Style @ 0x180022BAC
  * Callers:
- *     SymCryptMd5Result @ 0x1800384C0 (SymCryptMd5Result.c)
- *     MD5Final_0 @ 0x180038520 (MD5Final_0.c)
- *     SymCryptMd4Result @ 0x18015E9D0 (SymCryptMd4Result.c)
+ *     SymCryptMd5Result @ 0x180022A30 (SymCryptMd5Result.c)
+ *     MD5Final_0 @ 0x180022A90 (MD5Final_0.c)
+ *     SymCryptMd4Result @ 0x18015E8D0 (SymCryptMd4Result.c)
  * Callees:
- *     SymCryptWipeAsm @ 0x180137990 (SymCryptWipeAsm.c)
- *     __security_check_cookie @ 0x180162C90 (__security_check_cookie.c)
- *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x180170020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
+ *     SymCryptWipeAsm @ 0x180137700 (SymCryptWipeAsm.c)
+ *     __security_check_cookie @ 0x180162B90 (__security_check_cookie.c)
+ *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x18016F020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
  */
 
 __int64 __fastcall SymCryptHashCommonPaddingMd4Style(__int64 a1, unsigned int *a2)

@@ -1,15 +1,15 @@
 /*
- * XREFs of RtlpHpVsSlotCompactChunks @ 0x1800F8860
+ * XREFs of RtlpHpVsSlotCompactChunks @ 0x1800F8030
  * Callers:
- *     RtlpHpVsContextCompact @ 0x180016560 (RtlpHpVsContextCompact.c)
+ *     RtlpHpVsContextCompact @ 0x180061C90 (RtlpHpVsContextCompact.c)
  * Callees:
- *     RtlAcquireSRWLockExclusive @ 0x18003F4D0 (RtlAcquireSRWLockExclusive.c)
- *     RtlReleaseSRWLockExclusive @ 0x18003FAA0 (RtlReleaseSRWLockExclusive.c)
- *     RtlpHpVsChunkFree @ 0x18006B040 (RtlpHpVsChunkFree.c)
- *     RtlpHpVsChunkComputeCost @ 0x18006B794 (RtlpHpVsChunkComputeCost.c)
- *     RtlpHpVsSubsegmentFree @ 0x18008ECDC (RtlpHpVsSubsegmentFree.c)
- *     RtlpHpVsFreeChunkRemove @ 0x1800ECD3C (RtlpHpVsFreeChunkRemove.c)
- *     RtlpLogHeapFailure @ 0x1801217EC (RtlpLogHeapFailure.c)
+ *     RtlAcquireSRWLockExclusive @ 0x180029A40 (RtlAcquireSRWLockExclusive.c)
+ *     RtlReleaseSRWLockExclusive @ 0x18002A010 (RtlReleaseSRWLockExclusive.c)
+ *     RtlpHpVsChunkFree @ 0x18008B490 (RtlpHpVsChunkFree.c)
+ *     RtlpHpVsChunkComputeCost @ 0x18008BBE4 (RtlpHpVsChunkComputeCost.c)
+ *     RtlpHpVsSubsegmentFree @ 0x1800E0704 (RtlpHpVsSubsegmentFree.c)
+ *     RtlpHpVsFreeChunkRemove @ 0x1800EC12C (RtlpHpVsFreeChunkRemove.c)
+ *     RtlpLogHeapFailure @ 0x180121588 (RtlpLogHeapFailure.c)
  */
 
 __int64 *__fastcall RtlpHpVsSlotCompactChunks(unsigned __int64 a1, __int64 a2)
@@ -43,20 +43,20 @@ __int64 *__fastcall RtlpHpVsSlotCompactChunks(unsigned __int64 a1, __int64 a2)
   __int64 v30; // rax
   __int64 v31; // [rsp+30h] [rbp-58h] BYREF
   __int64 *v32; // [rsp+38h] [rbp-50h]
-  __int128 v33; // [rsp+40h] [rbp-48h] BYREF
+  PRTL_SRWLOCK SRWLock[2]; // [rsp+40h] [rbp-48h] BYREF
   __int64 v34; // [rsp+50h] [rbp-38h]
   __int64 v35; // [rsp+90h] [rbp+8h] BYREF
   unsigned __int64 v36; // [rsp+98h] [rbp+10h] BYREF
 
   v15 = (*(_BYTE *)(a1 + 5) & 1) == 0;
-  v33 = 0LL;
+  *(_OWORD *)SRWLock = 0LL;
   v34 = 0LL;
   v32 = &v31;
   v31 = (__int64)&v31;
   if ( v15 )
   {
-    *((_QWORD *)&v33 + 1) = a2 + 8;
-    RtlAcquireSRWLockExclusive((volatile signed __int64 *)(a2 + 8), a2);
+    SRWLock[1] = (PRTL_SRWLOCK)(a2 + 8);
+    RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)(a2 + 8));
   }
   v4 = (unsigned __int64 *)(a2 + 16);
   v5 = 0LL;
@@ -160,11 +160,11 @@ LABEL_34:
         goto LABEL_80;
       }
       v18 = v8 ^ RtlpHpHeapGlobals ^ *(_QWORD *)v8;
-      RtlpHpVsFreeChunkRemove(a1, a2, v12, (_QWORD *)(v5 - 8));
+      RtlpHpVsFreeChunkRemove(a1, (_RTL_RB_TREE *)a2, v12, v5 - 8);
       v35 = 0x1000000000000LL;
       *(_BYTE *)(v8 + 6) = BYTE6(RtlpHpHeapGlobals) ^ BYTE6(v8) ^ 1;
       *(_DWORD *)v5 = (unsigned __int8)(RtlpHpHeapGlobals ^ v8 ^ ((unsigned int)(v8 - v12) >> 12));
-      v19 = (__int64 *)RtlpHpVsChunkFree(a1, a2, v12, v5 - 8, 1, (__int64)&v33);
+      v19 = (__int64 *)RtlpHpVsChunkFree(a1, (_RTL_RB_TREE *)a2, v12, v5 - 8, 1, (__int64)SRWLock);
       if ( v19 )
       {
         v20 = v32;
@@ -248,7 +248,7 @@ LABEL_19:
   }
 LABEL_83:
   if ( (*(_BYTE *)(a1 + 5) & 1) == 0 )
-    RtlReleaseSRWLockExclusive(*((volatile signed __int64 **)&v33 + 1));
+    RtlReleaseSRWLockExclusive(SRWLock[1]);
   while ( 1 )
   {
     v28 = v31;

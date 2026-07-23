@@ -1,13 +1,13 @@
 /*
- * XREFs of PopLogNotifyDevice @ 0x140377AB4
+ * XREFs of PopLogNotifyDevice @ 0x1403A8724
  * Callers:
- *     PopRequestPowerIrp @ 0x140377360 (PopRequestPowerIrp.c)
- *     PopNotifyDevice @ 0x140B6F748 (PopNotifyDevice.c)
+ *     PopRequestPowerIrp @ 0x1403A7FD0 (PopRequestPowerIrp.c)
+ *     PopNotifyDevice @ 0x140B717B8 (PopNotifyDevice.c)
  * Callees:
- *     EtwTraceKernelEvent @ 0x140255180 (EtwTraceKernelEvent.c)
- *     RtlStringCchCopyW @ 0x14043FE9C (RtlStringCchCopyW.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     EtwTraceKernelEvent @ 0x140285790 (EtwTraceKernelEvent.c)
+ *     RtlStringCchCopyW @ 0x14043615C (RtlStringCchCopyW.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 void *__fastcall PopLogNotifyDevice(__int64 a1, __int64 a2, __int64 a3)
@@ -31,7 +31,7 @@ void *__fastcall PopLogNotifyDevice(__int64 a1, __int64 a2, __int64 a3)
   int v22; // [rsp+13Ch] [rbp+3Ch]
 
   result = memset_0(v13, 0, 0x100uLL);
-  if ( (xmmword_140FC5B10 & 0x8000) != 0 )
+  if ( (xmmword_140FC6B50 & 0x8000) != 0 )
   {
     v7 = *(_QWORD *)(a3 + 184);
     v8 = *(_QWORD *)(a1 + 8);

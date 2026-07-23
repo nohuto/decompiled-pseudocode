@@ -1,20 +1,20 @@
 /*
- * XREFs of SymCryptInitEnvWindowsKernelmodeWin8_1nLater @ 0x14013DE18
+ * XREFs of SymCryptInitEnvWindowsKernelmodeWin8_1nLater @ 0x14013E388
  * Callers:
- *     SymCryptInit @ 0x14013DE10 (SymCryptInit.c)
+ *     SymCryptInit @ 0x14013E380 (SymCryptInit.c)
  *     KeInitSystem @ 0x140791AC4 (KeInitSystem.c)
  * Callees:
- *     SymCryptDetectCpuFeaturesByCpuid @ 0x14013DEC4 (SymCryptDetectCpuFeaturesByCpuid.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
- *     RtlGetVersion @ 0x1404DE1AC (RtlGetVersion.c)
+ *     SymCryptDetectCpuFeaturesByCpuid @ 0x14013E434 (SymCryptDetectCpuFeaturesByCpuid.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
+ *     RtlGetVersion @ 0x1404C17B0 (RtlGetVersion.c)
  */
 
 __int64 SymCryptInitEnvWindowsKernelmodeWin8_1nLater()
 {
   __int64 result; // rax
   int v1; // eax
-  struct _OSVERSIONINFOW VersionInformation; // [rsp+40h] [rbp-138h] BYREF
+  _OSVERSIONINFOW VersionInformation; // [rsp+40h] [rbp-138h] BYREF
 
   result = (unsigned int)g_SymCryptFlags;
   if ( (g_SymCryptFlags & 1) == 0 )

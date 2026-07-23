@@ -1,13 +1,13 @@
 /*
- * XREFs of KiForceIdleParkUnparkProcessor @ 0x14057CD98
+ * XREFs of KiForceIdleParkUnparkProcessor @ 0x14057D288
  * Callers:
- *     KiForceIdleParkUnparkDpcRoutine @ 0x14057CD70 (KiForceIdleParkUnparkDpcRoutine.c)
- *     KiForceIdleUpdateSchedulerParkState @ 0x14057CFC4 (KiForceIdleUpdateSchedulerParkState.c)
+ *     KiForceIdleParkUnparkDpcRoutine @ 0x14057D260 (KiForceIdleParkUnparkDpcRoutine.c)
+ *     KiForceIdleUpdateSchedulerParkState @ 0x14057D4B4 (KiForceIdleUpdateSchedulerParkState.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x140242E40 (KeYieldProcessorEx.c)
- *     KeInterlockedClearProcessorAffinityEx @ 0x1403418E0 (KeInterlockedClearProcessorAffinityEx.c)
- *     KeInterlockedSetProcessorAffinityEx @ 0x140348BA0 (KeInterlockedSetProcessorAffinityEx.c)
- *     KeTransitionProcessorParkState @ 0x14057D86C (KeTransitionProcessorParkState.c)
+ *     KeYieldProcessorEx @ 0x140242F10 (KeYieldProcessorEx.c)
+ *     KeInterlockedClearProcessorAffinityEx @ 0x140341B70 (KeInterlockedClearProcessorAffinityEx.c)
+ *     KeInterlockedSetProcessorAffinityEx @ 0x140348E30 (KeInterlockedSetProcessorAffinityEx.c)
+ *     KeTransitionProcessorParkState @ 0x14057DD5C (KeTransitionProcessorParkState.c)
  */
 
 __int64 __fastcall KiForceIdleParkUnparkProcessor(__int64 a1, char a2)

@@ -1,8 +1,8 @@
 /*
- * XREFs of PpmEndProfileAccumulation @ 0x14087A744
+ * XREFs of PpmEndProfileAccumulation @ 0x14087B9A4
  * Callers:
- *     PpmEventTraceProfiles @ 0x140756D68 (PpmEventTraceProfiles.c)
- *     PpmApplyProfile @ 0x14087A4D0 (PpmApplyProfile.c)
+ *     PpmEventTraceProfiles @ 0x140757F58 (PpmEventTraceProfiles.c)
+ *     PpmApplyProfile @ 0x14087B730 (PpmApplyProfile.c)
  * Callees:
  *     <none>
  */

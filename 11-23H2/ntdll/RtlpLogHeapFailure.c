@@ -1,5 +1,5 @@
 /*
- * XREFs of RtlpLogHeapFailure @ 0x1801229F0
+ * XREFs of RtlpLogHeapFailure @ 0x1801229C0
  * Callers:
  *     RtlpHpVsContextFree @ 0x180036AF0 (RtlpHpVsContextFree.c)
  *     RtlpHpVsContextAllocateInternal @ 0x180037370 (RtlpHpVsContextAllocateInternal.c)
@@ -45,12 +45,12 @@
  *     RtlpCoalesceHeap @ 0x1800FFB8C (RtlpCoalesceHeap.c)
  *     RtlZeroHeap @ 0x180103360 (RtlZeroHeap.c)
  *     RtlpValidateHeapSegment @ 0x1801085C0 (RtlpValidateHeapSegment.c)
- *     RtlpAnalyzeHeapFailure @ 0x1801163D4 (RtlpAnalyzeHeapFailure.c)
- *     RtlpLocalInfoAllocFromCache @ 0x180119F50 (RtlpLocalInfoAllocFromCache.c)
- *     RtlpLowFragHeapFlushCaches @ 0x18011A754 (RtlpLowFragHeapFlushCaches.c)
- *     RtlpHpVsContextFreeInternal @ 0x180124394 (RtlpHpVsContextFreeInternal.c)
+ *     RtlpAnalyzeHeapFailure @ 0x1801163A4 (RtlpAnalyzeHeapFailure.c)
+ *     RtlpLocalInfoAllocFromCache @ 0x180119F20 (RtlpLocalInfoAllocFromCache.c)
+ *     RtlpLowFragHeapFlushCaches @ 0x18011A724 (RtlpLowFragHeapFlushCaches.c)
+ *     RtlpHpVsContextFreeInternal @ 0x180124364 (RtlpHpVsContextFreeInternal.c)
  * Callees:
- *     RtlpHpHeapHandleError @ 0x1801169C0 (RtlpHpHeapHandleError.c)
+ *     RtlpHpHeapHandleError @ 0x180116990 (RtlpHpHeapHandleError.c)
  */
 
 __int64 __fastcall RtlpLogHeapFailure(int a1, __int64 a2, __int64 a3, __int64 a4, __int64 a5, __int64 a6)

@@ -1,18 +1,18 @@
 /*
- * XREFs of MiCheckVirtualAddress @ 0x14025AB00
+ * XREFs of MiCheckVirtualAddress @ 0x14025AD90
  * Callers:
- *     MiUserFault @ 0x140235890 (MiUserFault.c)
- *     MiSystemFault @ 0x1402611A0 (MiSystemFault.c)
- *     MiResolveDemandZeroFault @ 0x140269D40 (MiResolveDemandZeroFault.c)
- *     MiInPagePageTable @ 0x1402E4D70 (MiInPagePageTable.c)
- *     MiTranslatePageForCopy @ 0x1402EDE44 (MiTranslatePageForCopy.c)
- *     MiIsFaultPteIntact @ 0x1402EF3C8 (MiIsFaultPteIntact.c)
- *     MiFindActualFaultingPte @ 0x1402EF4C0 (MiFindActualFaultingPte.c)
- *     MiCheckProtoAccess @ 0x140349FB0 (MiCheckProtoAccess.c)
+ *     MiUserFault @ 0x140235960 (MiUserFault.c)
+ *     MiSystemFault @ 0x140261430 (MiSystemFault.c)
+ *     MiResolveDemandZeroFault @ 0x140269FD0 (MiResolveDemandZeroFault.c)
+ *     MiInPagePageTable @ 0x1402E5000 (MiInPagePageTable.c)
+ *     MiTranslatePageForCopy @ 0x1402EE0D4 (MiTranslatePageForCopy.c)
+ *     MiIsFaultPteIntact @ 0x1402EF658 (MiIsFaultPteIntact.c)
+ *     MiFindActualFaultingPte @ 0x1402EF750 (MiFindActualFaultingPte.c)
+ *     MiCheckProtoAccess @ 0x14034A148 (MiCheckProtoAccess.c)
  * Callees:
- *     ExAcquireSpinLockSharedAtDpcLevel @ 0x14025AD10 (ExAcquireSpinLockSharedAtDpcLevel.c)
- *     MiCheckUserVirtualAddress @ 0x14025ADB0 (MiCheckUserVirtualAddress.c)
- *     MiUnlockVadTree @ 0x140287878 (MiUnlockVadTree.c)
+ *     ExAcquireSpinLockSharedAtDpcLevel @ 0x14025AFA0 (ExAcquireSpinLockSharedAtDpcLevel.c)
+ *     MiCheckUserVirtualAddress @ 0x14025B040 (MiCheckUserVirtualAddress.c)
+ *     MiUnlockVadTree @ 0x140287B08 (MiUnlockVadTree.c)
  */
 
 __int64 __fastcall MiCheckVirtualAddress(unsigned __int64 a1, _DWORD *a2, _QWORD *a3)

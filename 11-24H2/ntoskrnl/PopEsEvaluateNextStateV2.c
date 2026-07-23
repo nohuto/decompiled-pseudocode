@@ -1,94 +1,89 @@
 /*
- * XREFs of PopEsEvaluateNextStateV2 @ 0x140AC9360
+ * XREFs of PopEsEvaluateNextStateV2 @ 0x140AC7298
  * Callers:
- *     PopEsUpdateState @ 0x1404ECC9C (PopEsUpdateState.c)
+ *     PopEsUpdateState @ 0x1404E43DC (PopEsUpdateState.c)
  * Callees:
- *     Feature_SustainabilityFixes_Q4__private_IsEnabledDeviceUsageNoInline @ 0x1405D8960 (Feature_SustainabilityFixes_Q4__private_IsEnabledDeviceUsageNoInline.c)
- *     PopEsOverrideSetByGroupPolicy @ 0x140AC94EC (PopEsOverrideSetByGroupPolicy.c)
+ *     PopEsOverrideSetByGroupPolicy @ 0x140AC740C (PopEsOverrideSetByGroupPolicy.c)
  */
 
 __int64 __fastcall PopEsEvaluateNextStateV2(__int64 a1, unsigned __int64 a2)
 {
   unsigned int v2; // ebx
-  _DWORD *v3; // rsi
+  _DWORD *v3; // rdi
   unsigned int v5; // eax
-  int IsEnabledDeviceUsageNoInline; // eax
-  int v7; // edx
-  unsigned int v8; // ecx
-  unsigned int v9; // eax
-  char v10; // bp
-  bool v11; // cc
-  char v12; // al
-  unsigned int v13; // edi
+  unsigned int v6; // r8d
+  int v7; // ecx
+  char v8; // bp
+  bool v9; // cc
+  char v10; // al
+  unsigned int v11; // esi
   __int64 result; // rax
-  int v15; // eax
-  char v16; // [rsp+40h] [rbp+8h] BYREF
+  int v13; // eax
+  char v14; // [rsp+40h] [rbp+8h] BYREF
 
   v2 = 0;
   v3 = (_DWORD *)a2;
   v5 = 0;
   *(_DWORD *)a2 = 0;
-  if ( *(_BYTE *)(a1 + 1) && *(_DWORD *)(a1 + 8) )
+  if ( *(_BYTE *)(a1 + 1) )
   {
-    IsEnabledDeviceUsageNoInline = Feature_SustainabilityFixes_Q4__private_IsEnabledDeviceUsageNoInline();
-    v7 = 100 * *(_DWORD *)(a1 + 12);
-    v8 = *(_DWORD *)(a1 + 8);
-    if ( IsEnabledDeviceUsageNoInline )
-      v9 = v7 + (v8 >> 1);
-    else
-      v9 = v8 + v7 - 1;
-    a2 = v9 % v8;
-    v5 = v9 / v8;
+    v6 = *(_DWORD *)(a1 + 8);
+    if ( v6 )
+    {
+      v7 = 100 * *(_DWORD *)(a1 + 12);
+      a2 = (v7 + (v6 >> 1)) % v6;
+      v5 = (v7 + (v6 >> 1)) / v6;
+    }
   }
-  if ( *(_BYTE *)a1 || v5 > dword_140F0BA90 )
+  if ( *(_BYTE *)a1 || v5 > dword_140F0B3D0 )
   {
-    v10 = 0;
+    v8 = 0;
     if ( *(_BYTE *)a1 )
     {
-LABEL_12:
-      v12 = 0;
-      goto LABEL_13;
+LABEL_9:
+      v10 = 0;
+      goto LABEL_10;
     }
   }
   else
   {
-    v10 = 1;
+    v8 = 1;
   }
-  v11 = v5 <= 0x14;
-  v12 = 1;
-  if ( !v11 )
-    goto LABEL_12;
-LABEL_13:
-  v16 = 0;
+  v9 = v5 <= 0x14;
+  v10 = 1;
+  if ( !v9 )
+    goto LABEL_9;
+LABEL_10:
+  v14 = 0;
   PopEsModeGp = 2;
-  v13 = v12 != 0 ? 240 : 128;
-  if ( (int)PopEsOverrideSetByGroupPolicy(&v16, a2) >= 0 && v16 )
+  v11 = v10 != 0 ? 240 : 128;
+  if ( (int)PopEsOverrideSetByGroupPolicy(&v14, a2) >= 0 && v14 )
   {
     *v3 = 32;
-    result = v13;
+    result = v11;
     PopEsModeGp = 1;
     return result;
   }
-  v15 = PopEsMode;
+  v13 = PopEsMode;
   if ( !PopEsMode )
   {
     if ( !*(_BYTE *)a1 )
-      goto LABEL_27;
-    v15 = 2;
+      goto LABEL_24;
+    v13 = 2;
     PopEsMode = 2;
   }
-  if ( v15 == 1 )
+  if ( v13 == 1 )
   {
     *v3 = 1;
-    return v13;
+    return v11;
   }
-  if ( v15 == 2 && dword_140F0BA90 && *(_BYTE *)(a1 + 1) && *(_DWORD *)(a1 + 8) && v10 )
+  if ( v13 == 2 && dword_140F0B3D0 && *(_BYTE *)(a1 + 1) && *(_DWORD *)(a1 + 8) && v8 )
   {
     *v3 = 2;
-    return v13;
+    return v11;
   }
-LABEL_27:
-  if ( byte_140F0BA94 && dword_140F0BA90 && PopEsBgActivityPolicy == 1 )
+LABEL_24:
+  if ( byte_140F0B3D4 && dword_140F0B3D0 && PopEsBgActivityPolicy == 1 )
   {
     v2 = 240;
     *v3 = 8;
@@ -96,7 +91,7 @@ LABEL_27:
   else if ( PopEsEnabledOnHost )
   {
     *v3 = 16;
-    return v13;
+    return v11;
   }
   return v2;
 }

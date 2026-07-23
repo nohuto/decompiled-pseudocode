@@ -13,10 +13,10 @@ __int64 __fastcall HvlLpWriteMultipleMsr(int a1, unsigned int a2, int *a3, __int
   int v7; // edx
   __int64 v8; // r12
   char v10; // r15
-  union _SLIST_HEADER *CurrentPrcb; // rbx
+  _SLIST_HEADER *CurrentPrcb; // rbx
   char *HypercallCachedPages; // rax
   _SLIST_ENTRY *v13; // rdi
-  struct _SLIST_ENTRY *v14; // rsi
+  _SLIST_ENTRY *v14; // rsi
   char v15; // bp
   __int16 v16; // ax
   _DWORD *v17; // rcx
@@ -27,8 +27,8 @@ __int64 __fastcall HvlLpWriteMultipleMsr(int a1, unsigned int a2, int *a3, __int
   __int64 v22; // rax
   struct _KPRCB *v23; // rcx
   __int64 v24; // [rsp+20h] [rbp-68h]
-  union _SLIST_HEADER *v25; // [rsp+30h] [rbp-58h]
-  struct _SLIST_ENTRY *v26; // [rsp+38h] [rbp-50h]
+  _SLIST_HEADER *v25; // [rsp+30h] [rbp-58h]
+  _SLIST_ENTRY *v26; // [rsp+38h] [rbp-50h]
   _SLIST_ENTRY *v27; // [rsp+40h] [rbp-48h]
   __int16 v28; // [rsp+80h] [rbp-8h]
   int *v30; // [rsp+A0h] [rbp+18h]
@@ -55,7 +55,7 @@ LABEL_8:
     HIDWORD(v25) = 1;
     goto LABEL_9;
   }
-  CurrentPrcb = (union _SLIST_HEADER *)KeGetCurrentPrcb();
+  CurrentPrcb = (_SLIST_HEADER *)KeGetCurrentPrcb();
   HypercallCachedPages = (char *)RtlpInterlockedPopEntrySList(CurrentPrcb + 1535);
   if ( !HypercallCachedPages )
   {
@@ -73,7 +73,7 @@ LABEL_8:
   v13 = (_SLIST_ENTRY *)*((_QWORD *)HypercallCachedPages + 2);
   v10 = 1;
   a3 = v30;
-  v14 = (struct _SLIST_ENTRY *)HypercallCachedPages;
+  v14 = (_SLIST_ENTRY *)HypercallCachedPages;
   v7 = a1;
   v25 = CurrentPrcb;
   v15 = BYTE4(CurrentPrcb);

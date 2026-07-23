@@ -8,14 +8,17 @@
  *     <none>
  */
 
-signed __int64 __fastcall LdrForkMrdata(int a1, unsigned __int64 a2, unsigned __int64 *a3, __int64 a4)
+void __fastcall LdrForkMrdata(int a1)
 {
-  signed __int64 result; // rax
-
-  if ( !a1 )
-    return RtlAcquireSRWLockExclusive((unsigned __int64)&LdrpMrdataLock, a2, a3, a4);
-  if ( a1 != 1 )
-    return RtlReleaseSRWLockExclusive(&LdrpMrdataLock);
-  LdrpMrdataLock = 1LL;
-  return result;
+  if ( a1 )
+  {
+    if ( a1 == 1 )
+      LdrpMrdataLock.0 = ($2F38BEDF952D5DA5F266621B11247D04)1LL;
+    else
+      RtlReleaseSRWLockExclusive(&LdrpMrdataLock);
+  }
+  else
+  {
+    RtlAcquireSRWLockExclusive(&LdrpMrdataLock);
+  }
 }

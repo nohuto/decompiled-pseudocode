@@ -1,11 +1,11 @@
 /*
- * XREFs of ExCleanupAutoExpandPushLock @ 0x140091860
+ * XREFs of ExCleanupAutoExpandPushLock @ 0x1400917A0
  * Callers:
- *     ExFreeAutoExpandPushLock @ 0x140167130 (ExFreeAutoExpandPushLock.c)
- *     MmDeleteProcessAddressSpace @ 0x140608AD0 (MmDeleteProcessAddressSpace.c)
- *     MiDeleteAweInfo @ 0x14084FCF0 (MiDeleteAweInfo.c)
+ *     ExFreeAutoExpandPushLock @ 0x140167230 (ExFreeAutoExpandPushLock.c)
+ *     MmDeleteProcessAddressSpace @ 0x140609AD0 (MmDeleteProcessAddressSpace.c)
+ *     MiDeleteAweInfo @ 0x140850F50 (MiDeleteAweInfo.c)
  * Callees:
- *     ExpFreeFannedOutPushLock @ 0x140167154 (ExpFreeFannedOutPushLock.c)
+ *     ExpFreeFannedOutPushLock @ 0x140167254 (ExpFreeFannedOutPushLock.c)
  */
 
 __int64 __fastcall ExCleanupAutoExpandPushLock(__int64 a1)

@@ -125,7 +125,7 @@ LABEL_11:
   v16 = *(void **)(a4 + 48);
   v39 = v16;
   Object = 0LL;
-  RtlImageNtHeaderEx(1, (unsigned __int64)v16, 0LL, &Object);
+  RtlImageNtHeaderEx(1u, v16, 0LL, (PIMAGE_NT_HEADERS *)&Object);
   v17 = Object;
   *((_QWORD *)v12 + 3) = v16;
   *((_DWORD *)v12 + 8) = *((_DWORD *)v17 + 20);
@@ -185,7 +185,7 @@ LABEL_26:
   inserted = IopOpenRegistryKeyEx(&v37, 0LL, v28, 0xF003Fu);
   if ( inserted >= 0 )
   {
-    inserted = PnpPrepareDriverLoading((__int64)v27, v37, (unsigned __int64)v39, a5, &v35, &v42);
+    inserted = PnpPrepareDriverLoading((__int64)v27, v37, v39, a5, &v35, &v42);
     NtClose(v37);
     if ( inserted >= 0 )
     {

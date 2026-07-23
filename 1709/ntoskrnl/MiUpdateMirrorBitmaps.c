@@ -12,7 +12,7 @@ __int64 MiUpdateMirrorBitmaps()
   unsigned int v0; // ebx
 
   v0 = 0;
-  while ( (unsigned int)MiActOnMirrorBitmap((__int64)&qword_140388B58[2 * v0], 0) )
+  while ( (unsigned int)MiActOnMirrorBitmap((__int64)(&stru_140388B58 + v0), 0) )
   {
     if ( ++v0 >= 2 )
       return 1LL;

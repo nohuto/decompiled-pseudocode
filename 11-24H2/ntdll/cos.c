@@ -1,13 +1,13 @@
 /*
- * XREFs of cos @ 0x180124070
+ * XREFs of cos @ 0x1801222A0
  * Callers:
  *     <none>
  * Callees:
- *     cos_piby4 @ 0x180124350 (cos_piby4.c)
- *     sin_piby4 @ 0x180124780 (sin_piby4.c)
- *     _controlfp @ 0x180129F10 (_controlfp.c)
- *     _handle_error @ 0x18012A070 (_handle_error.c)
- *     __remainder_piby2 @ 0x18012A1F0 (__remainder_piby2.c)
+ *     cos_piby4 @ 0x180122580 (cos_piby4.c)
+ *     sin_piby4 @ 0x1801229B0 (sin_piby4.c)
+ *     _controlfp @ 0x180128140 (_controlfp.c)
+ *     _handle_error @ 0x1801282A0 (_handle_error.c)
+ *     __remainder_piby2 @ 0x180128420 (__remainder_piby2.c)
  */
 
 double __cdecl cos(double X)

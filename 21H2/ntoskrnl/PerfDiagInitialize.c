@@ -1,19 +1,19 @@
 /*
- * XREFs of PerfDiagInitialize @ 0x140A42BBC
+ * XREFs of PerfDiagInitialize @ 0x140A43BBC
  * Callers:
- *     EtwpInitialize @ 0x140A42414 (EtwpInitialize.c)
+ *     EtwpInitialize @ 0x140A43414 (EtwpInitialize.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     EtwUnregister @ 0x1407601D0 (EtwUnregister.c)
- *     EtwRegister @ 0x140762CB0 (EtwRegister.c)
- *     EtwWriteStartScenario @ 0x140788490 (EtwWriteStartScenario.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     EtwUnregister @ 0x140760390 (EtwUnregister.c)
+ *     EtwRegister @ 0x140762E70 (EtwRegister.c)
+ *     EtwWriteStartScenario @ 0x140788650 (EtwWriteStartScenario.c)
  */
 
 int PerfDiagInitialize()
 {
   int result; // eax
   ULONGLONG RegHandle; // [rsp+30h] [rbp-20h] BYREF
-  GUID ActivityId; // [rsp+38h] [rbp-18h] BYREF
+  GUID OutputBuffer; // [rsp+38h] [rbp-18h] BYREF
 
   RegHandle = 0LL;
   qword_140C1A220 = 0LL;
@@ -41,11 +41,11 @@ int PerfDiagInitialize()
   result = EtwRegister(&MS_Kernel_BootDiagnostics_Provider, 0LL, 0LL, &RegHandle);
   if ( result >= 0 )
   {
-    ActivityId.Data1 = 1729382729;
-    *(_DWORD *)&ActivityId.Data2 = 1213813042;
-    *(_DWORD *)ActivityId.Data4 = 933705344;
-    *(_DWORD *)&ActivityId.Data4[4] = -668649292;
-    EtwWriteStartScenario((ULONG_PTR *)RegHandle, &KMBootEvt_SystemBoot_Start, &ActivityId, 0, 0LL);
+    OutputBuffer.Data1 = 1729382729;
+    *(_DWORD *)&OutputBuffer.Data2 = 1213813042;
+    *(_DWORD *)OutputBuffer.Data4 = 933705344;
+    *(_DWORD *)&OutputBuffer.Data4[4] = -668649292;
+    EtwWriteStartScenario((PVOID *)RegHandle, &KMBootEvt_SystemBoot_Start, &OutputBuffer, 0, 0LL);
     return EtwUnregister(RegHandle);
   }
   return result;

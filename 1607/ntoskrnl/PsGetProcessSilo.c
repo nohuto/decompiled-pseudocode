@@ -1,7 +1,7 @@
 /*
- * XREFs of PsGetProcessSilo @ 0x14020F120
+ * XREFs of PsGetProcessSilo @ 0x14020EF4C
  * Callers:
- *     PsIsProcessInAppSilo @ 0x14067DF9C (PsIsProcessInAppSilo.c)
+ *     PsIsProcessInAppSilo @ 0x14067E080 (PsIsProcessInAppSilo.c)
  * Callees:
  *     <none>
  */

@@ -12,21 +12,21 @@
  *     SmKmVirtualLockCtxMemoryUnlocked @ 0x140598DC0 (SmKmVirtualLockCtxMemoryUnlocked.c)
  */
 
-__int64 __fastcall SmKmVirtualLockCtxLockMemory(ULONG_PTR BugCheckParameter2, __int64 a2, __int64 a3)
+__int64 __fastcall SmKmVirtualLockCtxLockMemory(ULONG_PTR BugCheckParameter2, void *a2, ULONG_PTR a3)
 {
   int v4; // esi
   struct _KTHREAD *CurrentThread; // rax
   signed __int64 v6; // rdx
   unsigned __int64 v7; // rcx
   signed __int64 v8; // rax
-  int v9; // eax
+  NTSTATUS v9; // eax
   int v10; // edi
   unsigned __int64 v11; // rdi
-  __int64 v13; // [rsp+58h] [rbp+10h] BYREF
-  __int64 v14; // [rsp+60h] [rbp+18h]
+  PVOID BaseAddress; // [rsp+58h] [rbp+10h] BYREF
+  ULONG_PTR RegionSize; // [rsp+60h] [rbp+18h] BYREF
 
-  v14 = a3;
-  v13 = a2;
+  RegionSize = a3;
+  BaseAddress = a2;
   v4 = 0;
   while ( 1 )
   {
@@ -36,7 +36,7 @@ __int64 __fastcall SmKmVirtualLockCtxLockMemory(ULONG_PTR BugCheckParameter2, __
     if ( !v4 )
     {
       v6 = *(_QWORD *)(BugCheckParameter2 + 8);
-      v7 = v6 + v14;
+      v7 = v6 + RegionSize;
       while ( v7 <= *(_QWORD *)(BugCheckParameter2 + 16) )
       {
         v8 = _InterlockedCompareExchange64((volatile signed __int64 *)(BugCheckParameter2 + 8), v7, v6);
@@ -45,13 +45,13 @@ __int64 __fastcall SmKmVirtualLockCtxLockMemory(ULONG_PTR BugCheckParameter2, __
           v4 = 1;
           goto LABEL_9;
         }
-        v7 = v14 + v8;
+        v7 = RegionSize + v8;
         v6 = v8;
       }
       goto LABEL_11;
     }
 LABEL_9:
-    v9 = ZwLockVirtualMemory(-1LL, (__int64)&v13);
+    v9 = ZwLockVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &BaseAddress, &RegionSize, 1u);
     v10 = v9;
     if ( v9 >= 0 )
       break;
@@ -63,7 +63,7 @@ LABEL_11:
       ExfReleasePushLockShared((signed __int64 *)BugCheckParameter2);
     KeAbPostRelease(BugCheckParameter2);
     KeLeaveCriticalRegion();
-    v10 = SmKmVirtualLockContextIncreaseWsMin(BugCheckParameter2, v14, v11);
+    v10 = SmKmVirtualLockContextIncreaseWsMin(BugCheckParameter2, RegionSize, v11);
     if ( v10 < 0 )
       goto LABEL_19;
   }

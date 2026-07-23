@@ -1,13 +1,13 @@
 /*
- * XREFs of EmpInfParseGetValueFromSectionAndKeyName @ 0x140C16344
+ * XREFs of EmpInfParseGetValueFromSectionAndKeyName @ 0x140C18344
  * Callers:
- *     EmpInfParseGetGuidFromName @ 0x140C16244 (EmpInfParseGetGuidFromName.c)
- *     EmpParseRuleExpression @ 0x140C16900 (EmpParseRuleExpression.c)
- *     EmpParseTargetRuleStringIndexList @ 0x140C177EC (EmpParseTargetRuleStringIndexList.c)
+ *     EmpInfParseGetGuidFromName @ 0x140C18244 (EmpInfParseGetGuidFromName.c)
+ *     EmpParseRuleExpression @ 0x140C18900 (EmpParseRuleExpression.c)
+ *     EmpParseTargetRuleStringIndexList @ 0x140C197EC (EmpParseTargetRuleStringIndexList.c)
  * Callees:
- *     _strnicmp @ 0x1404FE160 (_strnicmp.c)
- *     CmpGetKeyName @ 0x140C1821C (CmpGetKeyName.c)
- *     CmpGetSectionLineIndex @ 0x140C18254 (CmpGetSectionLineIndex.c)
+ *     _strnicmp @ 0x1404FBA20 (_strnicmp.c)
+ *     CmpGetKeyName @ 0x140C1A21C (CmpGetKeyName.c)
+ *     CmpGetSectionLineIndex @ 0x140C1A254 (CmpGetSectionLineIndex.c)
  */
 
 __int64 __fastcall EmpInfParseGetValueFromSectionAndKeyName(

@@ -1,12 +1,12 @@
 /*
- * XREFs of PspQueryAndCheckCpuPartitionName @ 0x140776D0C
+ * XREFs of PspQueryAndCheckCpuPartitionName @ 0x140776F2C
  * Callers:
- *     NtCreateCpuPartition @ 0x1407757E0 (NtCreateCpuPartition.c)
+ *     NtCreateCpuPartition @ 0x140775A00 (NtCreateCpuPartition.c)
  * Callees:
- *     RtlPrefixUnicodeString @ 0x14086E3C0 (RtlPrefixUnicodeString.c)
- *     ObQueryNameStringMode @ 0x140969A30 (ObQueryNameStringMode.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     RtlPrefixUnicodeString @ 0x1408726F0 (RtlPrefixUnicodeString.c)
+ *     ObQueryNameStringMode @ 0x1409524C0 (ObQueryNameStringMode.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PspQueryAndCheckCpuPartitionName(int a1)
@@ -15,13 +15,13 @@ __int64 __fastcall PspQueryAndCheckCpuPartitionName(int a1)
   __int64 Pool2; // rax
   UNICODE_STRING *v4; // rdi
   unsigned int i; // edx
-  int v7; // [rsp+48h] [rbp+10h] BYREF
+  unsigned int v7; // [rsp+48h] [rbp+10h] BYREF
 
   v7 = 0;
   NameStringMode = ObQueryNameStringMode(a1, 0, 0, (unsigned int)&v7, 0);
   if ( NameStringMode == -1073741820 )
   {
-    Pool2 = ExAllocatePool2(0x100uLL);
+    Pool2 = ExAllocatePool2(0x100uLL, v7, 0x50707350u);
     v4 = (UNICODE_STRING *)Pool2;
     if ( Pool2 )
     {

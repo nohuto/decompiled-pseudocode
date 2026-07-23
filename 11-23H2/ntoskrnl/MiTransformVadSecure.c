@@ -1,7 +1,7 @@
 /*
- * XREFs of MiTransformVadSecure @ 0x140A31F54
+ * XREFs of MiTransformVadSecure @ 0x140A32204
  * Callers:
- *     MiCheckLockUnlockByVa @ 0x14061C710 (MiCheckLockUnlockByVa.c)
+ *     MiCheckLockUnlockByVa @ 0x14061CC60 (MiCheckLockUnlockByVa.c)
  * Callees:
  *     <none>
  */

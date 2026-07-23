@@ -1,10 +1,10 @@
 /*
- * XREFs of ApiSetQuerySchemaInfo2 @ 0x14065FA6C
+ * XREFs of ApiSetQuerySchemaInfo2 @ 0x14065E23C
  * Callers:
- *     RtlIsApiSetImplemented @ 0x1407853E0 (RtlIsApiSetImplemented.c)
+ *     RtlIsApiSetImplemented @ 0x140785310 (RtlIsApiSetImplemented.c)
  * Callees:
- *     ApiSetpSearchForApiSetA @ 0x1406600CC (ApiSetpSearchForApiSetA.c)
- *     ApiSetQuerySchemaInfo2_V7 @ 0x140660C3C (ApiSetQuerySchemaInfo2_V7.c)
+ *     ApiSetpSearchForApiSetA @ 0x14065E89C (ApiSetpSearchForApiSetA.c)
+ *     ApiSetQuerySchemaInfo2_V7 @ 0x14065F40C (ApiSetQuerySchemaInfo2_V7.c)
  */
 
 __int64 __fastcall ApiSetQuerySchemaInfo2(__int64 a1, _DWORD *a2, _DWORD *a3)

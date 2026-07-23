@@ -1,16 +1,16 @@
 /*
- * XREFs of _CmDeleteDeviceInterface @ 0x140A615CC
+ * XREFs of _CmDeleteDeviceInterface @ 0x140A6187C
  * Callers:
- *     _PnpDispatchDeviceInterface @ 0x1406CCE90 (_PnpDispatchDeviceInterface.c)
- *     IopRegisterDeviceInterface @ 0x1408667FC (IopRegisterDeviceInterface.c)
- *     PnpDeleteDeviceInterfaces @ 0x140956454 (PnpDeleteDeviceInterfaces.c)
- *     PiCMUnregisterDeviceInterface @ 0x14096ACD0 (PiCMUnregisterDeviceInterface.c)
- *     _CmDeleteDeviceWorker @ 0x140A623DC (_CmDeleteDeviceWorker.c)
+ *     _PnpDispatchDeviceInterface @ 0x1406CCEC0 (_PnpDispatchDeviceInterface.c)
+ *     IopRegisterDeviceInterface @ 0x140866A3C (IopRegisterDeviceInterface.c)
+ *     PnpDeleteDeviceInterfaces @ 0x140956654 (PnpDeleteDeviceInterfaces.c)
+ *     PiCMUnregisterDeviceInterface @ 0x14096AED0 (PiCMUnregisterDeviceInterface.c)
+ *     _CmDeleteDeviceWorker @ 0x140A6268C (_CmDeleteDeviceWorker.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     memset @ 0x140435A00 (memset.c)
- *     _CmDeleteDeviceInterfaceWorker @ 0x140A61B34 (_CmDeleteDeviceInterfaceWorker.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     _CmDeleteDeviceInterfaceWorker @ 0x140A61DE4 (_CmDeleteDeviceInterfaceWorker.c)
  */
 
 __int64 __fastcall CmDeleteDeviceInterface(__int64 a1, __int64 a2, int a3)

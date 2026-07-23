@@ -1,16 +1,16 @@
 /*
- * XREFs of CmpAdjustFileCFSafety @ 0x1404EAA58
+ * XREFs of CmpAdjustFileCFSafety @ 0x1404E3E08
  * Callers:
- *     CmpRecheckHiveVolumePolicy @ 0x14046EB90 (CmpRecheckHiveVolumePolicy.c)
- *     CmpCreateHive @ 0x1408B5E6C (CmpCreateHive.c)
- *     CmpCmdHiveClose @ 0x1408B81BC (CmpCmdHiveClose.c)
+ *     CmpRecheckHiveVolumePolicy @ 0x140468310 (CmpRecheckHiveVolumePolicy.c)
+ *     CmpCreateHive @ 0x1408BC440 (CmpCreateHive.c)
+ *     CmpCmdHiveClose @ 0x1408BE78C (CmpCmdHiveClose.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     RtlIsCloudFilesPlaceholder @ 0x1404CFA50 (RtlIsCloudFilesPlaceholder.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     ZwQueryInformationFile @ 0x140723610 (ZwQueryInformationFile.c)
- *     ObReferenceObjectByHandle @ 0x1408F9550 (ObReferenceObjectByHandle.c)
- *     FsRtlSetKernelEaFile @ 0x140A199F0 (FsRtlSetKernelEaFile.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     RtlIsCloudFilesPlaceholder @ 0x1404C9480 (RtlIsCloudFilesPlaceholder.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     ZwQueryInformationFile @ 0x1407281E0 (ZwQueryInformationFile.c)
+ *     ObReferenceObjectByHandle @ 0x1409294E0 (ObReferenceObjectByHandle.c)
+ *     FsRtlSetKernelEaFile @ 0x140A23020 (FsRtlSetKernelEaFile.c)
  */
 
 __int64 __fastcall CmpAdjustFileCFSafety(HANDLE FileHandle, char a2)
@@ -46,7 +46,7 @@ __int64 __fastcall CmpAdjustFileCFSafety(HANDLE FileHandle, char a2)
   v4 = ObReferenceObjectByHandle(
          FileHandle,
          0x102u,
-         **(POBJECT_TYPE **)&CmpCallbackListLock.ApcStateFill[40],
+         (POBJECT_TYPE)CmpContextListLock.ApcState.ApcListHead[1].Blink->Flink,
          0,
          &Object,
          0LL);
@@ -65,7 +65,7 @@ LABEL_11:
           FsRtlSetKernelEaFile((PFILE_OBJECT)Object);
           goto LABEL_5;
         }
-        if ( RtlIsCloudFilesPlaceholder(FileInformation, SHIDWORD(FileInformation)) )
+        if ( RtlIsCloudFilesPlaceholder(FileInformation, HIDWORD(FileInformation)) )
         {
           v4 = -1073741436;
           goto LABEL_11;

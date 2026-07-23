@@ -1,25 +1,25 @@
 /*
- * XREFs of LdrpResSearchResourceHandle @ 0x1800D1ACC
+ * XREFs of LdrpResSearchResourceHandle @ 0x18009856C
  * Callers:
- *     LdrResSearchResource @ 0x1800983B0 (LdrResSearchResource.c)
+ *     LdrResSearchResource @ 0x18002D200 (LdrResSearchResource.c)
  * Callees:
- *     RtlAllocateHeap @ 0x180011260 (RtlAllocateHeap.c)
- *     RtlFreeHeap @ 0x1800269F0 (RtlFreeHeap.c)
- *     RtlGetCurrentServiceSessionId @ 0x180055A20 (RtlGetCurrentServiceSessionId.c)
- *     LdrpResFileSize @ 0x180078EC0 (LdrpResFileSize.c)
- *     LdrpTraceLoadMUIDll @ 0x1800790FC (LdrpTraceLoadMUIDll.c)
- *     LdrpResSearchResourceInsideDirectory @ 0x18007A580 (LdrpResSearchResourceInsideDirectory.c)
- *     LdrResFallbackLangList @ 0x18007BF40 (LdrResFallbackLangList.c)
- *     LdrpResReadFile @ 0x1800D2270 (LdrpResReadFile.c)
- *     LdrpResSetFilePointer @ 0x1800D2330 (LdrpResSetFilePointer.c)
- *     RtlLcidToLocaleName @ 0x1800D26D0 (RtlLcidToLocaleName.c)
- *     __security_check_cookie @ 0x1801659C0 (__security_check_cookie.c)
- *     memmove @ 0x180167400 (memmove.c)
- *     memset$thunk$772440563353939046 @ 0x180172030 (memset$thunk$772440563353939046.c)
+ *     LdrResFallbackLangList @ 0x180011F70 (LdrResFallbackLangList.c)
+ *     RtlAllocateHeap @ 0x18003DC60 (RtlAllocateHeap.c)
+ *     RtlFreeHeap @ 0x1800533F0 (RtlFreeHeap.c)
+ *     RtlGetCurrentServiceSessionId @ 0x18006B600 (RtlGetCurrentServiceSessionId.c)
+ *     LdrpResFileSize @ 0x180095274 (LdrpResFileSize.c)
+ *     LdrpTraceLoadMUIDll @ 0x18009540C (LdrpTraceLoadMUIDll.c)
+ *     LdrpResSearchResourceInsideDirectory @ 0x1800969C0 (LdrpResSearchResourceInsideDirectory.c)
+ *     LdrpResReadFile @ 0x180098460 (LdrpResReadFile.c)
+ *     LdrpResSetFilePointer @ 0x180098520 (LdrpResSetFilePointer.c)
+ *     RtlLcidToLocaleName @ 0x180099060 (RtlLcidToLocaleName.c)
+ *     __security_check_cookie @ 0x180163D80 (__security_check_cookie.c)
+ *     memmove @ 0x1801657C0 (memmove.c)
+ *     memset$thunk$772440563353939046 @ 0x180171030 (memset$thunk$772440563353939046.c)
  */
 
-__int64 __fastcall LdrpResSearchResourceHandle(
-        char *Handle,
+int __fastcall LdrpResSearchResourceHandle(
+        char *FileHandle,
         int a2,
         __int64 *a3,
         int a4,
@@ -32,26 +32,26 @@ __int64 __fastcall LdrpResSearchResourceHandle(
   __int64 v10; // r13
   __int64 v11; // rcx
   __int64 v12; // r15
-  __int64 result; // rax
-  unsigned int v14; // ebx
+  int result; // eax
+  ULONG v14; // ebx
   unsigned int v15; // eax
   unsigned __int16 v16; // cx
   unsigned int v17; // r12d
-  unsigned int v18; // edi
-  unsigned __int64 Heap; // rax
+  ULONG v18; // edi
+  PVOID Heap; // rax
   int File; // edi
   _DWORD *v21; // rbx
   int v22; // edx
   unsigned int v23; // ecx
   unsigned __int64 v24; // r14
-  void *v25; // r12
+  char *v25; // r12
   _DWORD *v26; // r12
   __int64 v27; // r14
   __int64 v28; // rcx
   int v29; // ecx
   int v30; // [rsp+70h] [rbp-4E8h]
   unsigned __int16 v31; // [rsp+74h] [rbp-4E4h] BYREF
-  _QWORD v32[2]; // [rsp+78h] [rbp-4E0h] BYREF
+  PVOID BaseAddress[2]; // [rsp+78h] [rbp-4E0h] BYREF
   unsigned int v33; // [rsp+88h] [rbp-4D0h]
   int v34; // [rsp+8Ch] [rbp-4CCh]
   int v35; // [rsp+90h] [rbp-4C8h]
@@ -64,7 +64,7 @@ __int64 __fastcall LdrpResSearchResourceHandle(
   unsigned __int64 *v42; // [rsp+D0h] [rbp-488h]
   unsigned __int64 *v43; // [rsp+D8h] [rbp-480h]
   __int64 v44; // [rsp+E0h] [rbp-478h]
-  __int128 v45; // [rsp+E8h] [rbp-470h] BYREF
+  _UNICODE_STRING LocaleName; // [rsp+E8h] [rbp-470h] BYREF
   int v46; // [rsp+100h] [rbp-458h] BYREF
   unsigned __int16 v47; // [rsp+104h] [rbp-454h]
   unsigned __int16 v48; // [rsp+106h] [rbp-452h]
@@ -85,7 +85,7 @@ __int64 __fastcall LdrpResSearchResourceHandle(
   v38 = a3;
   v8 = a2;
   v34 = a2;
-  v41 = Handle;
+  v41 = FileHandle;
   v43 = a5;
   v42 = a6;
   v39 = a7;
@@ -94,33 +94,33 @@ __int64 __fastcall LdrpResSearchResourceHandle(
   v36 = 0LL;
   v59[1] = 0;
   memset_thunk_772440563353939046(v59, 0, 0x206uLL);
-  v32[0] = 4456514LL;
-  v32[1] = L"LdrpResSearchResourceHandle Enter";
+  BaseAddress[0] = (PVOID)4456514;
+  BaseAddress[1] = L"LdrpResSearchResourceHandle Enter";
   v40[0] = 4325440LL;
   v40[1] = L"LdrpResSearchResourceHandle Exit";
-  v45 = 0LL;
+  LocaleName = 0LL;
   memset_thunk_772440563353939046(Src, 0, 0xACuLL);
   v31 = 0;
   memset_thunk_772440563353939046(&v46, 0, 0x108uLL);
   v10 = 2147353477LL;
-  if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+  if ( RtlGetCurrentServiceSessionId() )
     v11 = (__int64)NtCurrentPeb()->SharedData + 555;
   else
     v11 = 2147353477LL;
   if ( (*(_BYTE *)v11 & 1) != 0 )
   {
     v12 = 2147353476LL;
-    if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+    if ( RtlGetCurrentServiceSessionId() )
       v28 = (__int64)NtCurrentPeb()->SharedData + 554;
     else
       v28 = 2147353476LL;
-    LdrpTraceLoadMUIDll((unsigned __int16 *)v32, *(unsigned __int8 *)v28);
+    LdrpTraceLoadMUIDll((unsigned __int16 *)BaseAddress, *(unsigned __int8 *)v28);
   }
   else
   {
     v12 = 2147353476LL;
   }
-  if ( (unsigned __int64)(Handle - 1) > 0xFFFFFFFFFFFFFFFDuLL )
+  if ( (unsigned __int64)(FileHandle - 1) > 0xFFFFFFFFFFFFFFFDuLL )
   {
     File = -1073741811;
     v30 = -1073741811;
@@ -128,11 +128,11 @@ __int64 __fastcall LdrpResSearchResourceHandle(
     goto LABEL_54;
   }
   v37 = v8 & 0x1000;
-  result = LdrpResFileSize((__int64)Handle, &v36);
-  if ( (int)result < 0 && (v8 & 0x1000) != 0 )
+  result = LdrpResFileSize(FileHandle, &v36);
+  if ( result < 0 && (v8 & 0x1000) != 0 )
     return result;
-  result = LdrpResReadFile(Handle);
-  if ( (int)result < 0 )
+  result = LdrpResReadFile(FileHandle, 0LL, v57, 0x40u);
+  if ( result < 0 )
     return result;
   if ( v57[0] != 23117 )
     goto LABEL_69;
@@ -153,8 +153,8 @@ __int64 __fastcall LdrpResSearchResourceHandle(
   {
     v14 = v36;
   }
-  result = LdrpResReadFile(Handle);
-  if ( (int)result < 0 )
+  result = LdrpResReadFile(FileHandle, v58, &v46, 0x108u);
+  if ( result < 0 )
     return result;
   if ( v46 != 17744 )
     goto LABEL_69;
@@ -199,25 +199,25 @@ LABEL_86:
   v17 = v55;
 LABEL_19:
   if ( !v17 )
-    return 3221225609LL;
+    return -1073741687;
   if ( !v48 )
     goto LABEL_69;
   v18 = 40 * v48;
   if ( v18 + v33 + v16 + 24 > v14 )
     goto LABEL_69;
-  Heap = RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v18);
-  v32[0] = Heap;
+  Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, v18);
+  BaseAddress[0] = Heap;
   if ( !Heap )
   {
     File = -1073741801;
     v30 = -1073741801;
     goto LABEL_54;
   }
-  File = LdrpResReadFile(Handle);
+  File = LdrpResReadFile(FileHandle, v49 + 24 + v33, BaseAddress[0], v18);
   v30 = File;
   if ( File >= 0 )
   {
-    v21 = (_DWORD *)v32[0];
+    v21 = BaseAddress[0];
     v22 = 0;
     if ( v48 )
     {
@@ -247,7 +247,7 @@ LABEL_19:
           }
           else
           {
-            File = LdrResFallbackLangList(0LL, 0, *((_WORD *)v38 + 8), v34, v59);
+            File = LdrResFallbackLangList(0LL, 0LL, *((_WORD *)v38 + 8), v34, v59);
             v30 = File;
             if ( File < 0 && v37 )
               goto LABEL_35;
@@ -278,9 +278,9 @@ LABEL_19:
               LODWORD(v27) = 0;
               goto LABEL_49;
             }
-            *((_QWORD *)&v45 + 1) = Src;
-            WORD1(v45) = 172;
-            File = RtlLcidToLocaleName(v31, &v45, 2LL);
+            LocaleName.Buffer = Src;
+            LocaleName.MaximumLength = 172;
+            File = RtlLcidToLocaleName(v31, &LocaleName, 2u, 0);
             v30 = File;
             if ( File >= 0 )
             {
@@ -294,14 +294,14 @@ LABEL_49:
                 memmove(v39, Src, 2LL * (unsigned int)v27);
                 *v26 = v27 + 1;
                 *((_WORD *)v39 + (unsigned int)v27) = 0;
-                Heap = v32[0];
+                Heap = BaseAddress[0];
               }
               else
               {
                 *v26 = v27 + 1;
                 File = -1073741789;
                 v30 = -1073741789;
-                Heap = v32[0];
+                Heap = BaseAddress[0];
               }
               goto LABEL_54;
             }
@@ -316,26 +316,26 @@ LABEL_49:
     }
   }
 LABEL_35:
-  Heap = v32[0];
+  Heap = BaseAddress[0];
 LABEL_54:
   if ( Heap )
   {
-    RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, Heap);
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, Heap);
     File = v30;
   }
-  if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+  if ( RtlGetCurrentServiceSessionId() )
   {
     v10 = (__int64)NtCurrentPeb()->SharedData + 555;
     File = v30;
   }
   if ( (*(_BYTE *)v10 & 1) != 0 )
   {
-    if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+    if ( RtlGetCurrentServiceSessionId() )
     {
       v12 = (__int64)NtCurrentPeb()->SharedData + 554;
       File = v30;
     }
     LdrpTraceLoadMUIDll((unsigned __int16 *)v40, *(unsigned __int8 *)v12);
   }
-  return (unsigned int)File;
+  return File;
 }

@@ -1,14 +1,14 @@
 /*
- * XREFs of HalpSetResumeTime @ 0x140386740
+ * XREFs of HalpSetResumeTime @ 0x140386890
  * Callers:
- *     HalpEfiInitializeOnResume @ 0x1404C40E4 (HalpEfiInitializeOnResume.c)
- *     HalpPostSleepMP @ 0x140995864 (HalpPostSleepMP.c)
+ *     HalpEfiInitializeOnResume @ 0x1404C4324 (HalpEfiInitializeOnResume.c)
+ *     HalpPostSleepMP @ 0x140996864 (HalpPostSleepMP.c)
  * Callees:
- *     RtlULongLongMult @ 0x14024ED98 (RtlULongLongMult.c)
- *     HalpSetVirtualRtc @ 0x1402B617C (HalpSetVirtualRtc.c)
- *     PsGetCurrentServerSiloGlobals @ 0x140362150 (PsGetCurrentServerSiloGlobals.c)
- *     HalpQueryVirtualRtc @ 0x14038402C (HalpQueryVirtualRtc.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     HalpSetVirtualRtc @ 0x14023435C (HalpSetVirtualRtc.c)
+ *     RtlULongLongMult @ 0x1402F35E8 (RtlULongLongMult.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x1402F6FB0 (PsGetCurrentServerSiloGlobals.c)
+ *     HalpQueryVirtualRtc @ 0x14038417C (HalpQueryVirtualRtc.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
  */
 
 void __fastcall HalpSetResumeTime(_QWORD *a1, __int64 a2)
@@ -53,7 +53,7 @@ void __fastcall HalpSetResumeTime(_QWORD *a1, __int64 a2)
         }
         else
         {
-          HalpSetVirtualRtc(&HalpResumeTime, v6, v7);
+          HalpSetVirtualRtc((LARGE_INTEGER *)&HalpResumeTime, v6, v7);
           HalpResumeTime = 0LL;
         }
       }

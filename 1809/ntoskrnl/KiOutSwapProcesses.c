@@ -1,28 +1,28 @@
 /*
- * XREFs of KiOutSwapProcesses @ 0x14010B450
+ * XREFs of KiOutSwapProcesses @ 0x14010B4D0
  * Callers:
- *     KeSwapProcessOrStack @ 0x14017FDA0 (KeSwapProcessOrStack.c)
+ *     KeSwapProcessOrStack @ 0x14017FEE0 (KeSwapProcessOrStack.c)
  * Callees:
  *     MiUnmapPageInHyperSpaceWorker @ 0x14003AB00 (MiUnmapPageInHyperSpaceWorker.c)
  *     MiPteInShadowRange @ 0x14003D740 (MiPteInShadowRange.c)
  *     MiSwizzleInvalidPte @ 0x14003D7C0 (MiSwizzleInvalidPte.c)
  *     KeIsEmptyAffinityEx @ 0x140062160 (KeIsEmptyAffinityEx.c)
- *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14007DE90 (KeAcquireInStackQueuedSpinLock.c)
- *     MiDecrementShareCount @ 0x140081EA0 (MiDecrementShareCount.c)
- *     MiMapPageInHyperSpaceWorker @ 0x140082780 (MiMapPageInHyperSpaceWorker.c)
- *     MiEmptyPageAccessLog @ 0x140088580 (MiEmptyPageAccessLog.c)
- *     KeFlushProcessTb @ 0x140091B94 (KeFlushProcessTb.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
- *     KeWaitForGate @ 0x1400FA304 (KeWaitForGate.c)
- *     KiAcquireKobjectLockSafe @ 0x1400FBE10 (KiAcquireKobjectLockSafe.c)
- *     KiReadyOutSwappedThreads @ 0x14010B680 (KiReadyOutSwappedThreads.c)
- *     MiLockAndDecrementShareCount @ 0x1401180A8 (MiLockAndDecrementShareCount.c)
- *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     MiReleaseCommitForResetPages @ 0x1402A4DC4 (MiReleaseCommitForResetPages.c)
- *     MiReleaseOutSwappedProcessCommit @ 0x1402A4F74 (MiReleaseOutSwappedProcessCommit.c)
+ *     KeYieldProcessorEx @ 0x14006C9E0 (KeYieldProcessorEx.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14007DE80 (KeAcquireInStackQueuedSpinLock.c)
+ *     MiDecrementShareCount @ 0x140081E90 (MiDecrementShareCount.c)
+ *     MiMapPageInHyperSpaceWorker @ 0x140082770 (MiMapPageInHyperSpaceWorker.c)
+ *     MiEmptyPageAccessLog @ 0x140088570 (MiEmptyPageAccessLog.c)
+ *     KeFlushProcessTb @ 0x140091AD4 (KeFlushProcessTb.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC6A0 (KxReleaseQueuedSpinLock.c)
+ *     KeWaitForGate @ 0x1400FA384 (KeWaitForGate.c)
+ *     KiAcquireKobjectLockSafe @ 0x1400FBE90 (KiAcquireKobjectLockSafe.c)
+ *     KiReadyOutSwappedThreads @ 0x14010B700 (KiReadyOutSwappedThreads.c)
+ *     MiLockAndDecrementShareCount @ 0x140118118 (MiLockAndDecrementShareCount.c)
+ *     MiWritePteShadow @ 0x140120F40 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120FA0 (MiPteHasShadow.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiReleaseCommitForResetPages @ 0x1402A4FB4 (MiReleaseCommitForResetPages.c)
+ *     MiReleaseOutSwappedProcessCommit @ 0x1402A5164 (MiReleaseOutSwappedProcessCommit.c)
  */
 
 __int64 __fastcall KiOutSwapProcesses(_QWORD *a1, signed __int64 *a2, __int64 a3)
@@ -124,7 +124,7 @@ LABEL_99:
     }
     __writecr8(CurrentIrql);
     if ( (v4[183] & 7) == 2 )
-      v12 = &dword_14043B700;
+      v12 = &dword_14043C7C0;
     else
       v12 = (LONG *)(v4 + 184);
     _InterlockedOr((volatile signed __int32 *)v4 + 193, 0x40u);
@@ -144,7 +144,7 @@ LABEL_99:
     v47 = 6;
     v49[0] = v49;
     v48 = 0;
-    KeAcquireInStackQueuedSpinLock(&qword_14043AE80, &LockHandle);
+    KeAcquireInStackQueuedSpinLock(&qword_14043BF40, &LockHandle);
     while ( 1 )
     {
       v20 = *((_BYTE *)v4 + 1465);
@@ -189,7 +189,7 @@ LABEL_99:
         {
           if ( (unsigned int)MiPteHasShadow(v37, v36) )
           {
-            if ( !HIBYTE(word_14043A1AC) && (v34 & 1) != 0 )
+            if ( !HIBYTE(word_14043B26C) && (v34 & 1) != 0 )
               v36 |= 0x8000000000000000uLL;
             *v38 = v36;
             MiWritePteShadow(v38);
@@ -205,7 +205,7 @@ LABEL_99:
 LABEL_77:
         MiUnmapPageInHyperSpaceWorker((unsigned __int64)v38, v50, 0x80000000LL);
         MiLockAndDecrementShareCount(v33, 0LL);
-        KeAcquireInStackQueuedSpinLock(&qword_14043AE80, &LockHandle);
+        KeAcquireInStackQueuedSpinLock(&qword_14043BF40, &LockHandle);
         v53 = 0;
         while ( _interlockedbittestandset64((volatile signed __int32 *)(v33 + 24), 0x3FuLL) )
         {
@@ -244,7 +244,7 @@ LABEL_77:
       }
       __writecr8(v30);
       KeWaitForGate((__int64)&v46, 0x12u);
-      KeAcquireInStackQueuedSpinLock(&qword_14043AE80, &LockHandle);
+      KeAcquireInStackQueuedSpinLock(&qword_14043BF40, &LockHandle);
       v4[173] = 0LL;
     }
     KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);

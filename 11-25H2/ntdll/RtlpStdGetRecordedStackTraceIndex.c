@@ -14,7 +14,7 @@ __int64 __fastcall RtlpStdGetRecordedStackTraceIndex(__int64 a1, unsigned __int1
   __int64 v5; // r8
   _DWORD *v6; // rdx
   __int64 v7; // rsi
-  unsigned __int64 v8; // rdx
+  void *v8; // rdx
   _QWORD *v9; // rax
   __int64 v10; // rbx
 

@@ -1,11 +1,11 @@
 /*
- * XREFs of KiFreezeSingleThread @ 0x1404635BC
+ * XREFs of KiFreezeSingleThread @ 0x1402DD7D8
  * Callers:
- *     KeStartThread @ 0x1403B3660 (KeStartThread.c)
- *     KeFreezeProcess @ 0x1404634A0 (KeFreezeProcess.c)
+ *     KeStartThread @ 0x1403A1E70 (KeStartThread.c)
+ *     KeFreezeProcess @ 0x14048E57C (KeFreezeProcess.c)
  * Callees:
- *     KiAcquireKobjectLockSafe @ 0x14031E740 (KiAcquireKobjectLockSafe.c)
- *     KiSuspendThread @ 0x140338B00 (KiSuspendThread.c)
+ *     KiAcquireKobjectLockSafe @ 0x1402C72D0 (KiAcquireKobjectLockSafe.c)
+ *     KiSuspendThread @ 0x1402DE060 (KiSuspendThread.c)
  */
 
 char __fastcall KiFreezeSingleThread(__int64 a1, __int64 a2, char a3)

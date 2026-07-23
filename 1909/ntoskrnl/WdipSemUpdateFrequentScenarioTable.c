@@ -9,7 +9,7 @@
  *     WdipSemFastAllocate @ 0x140718850 (WdipSemFastAllocate.c)
  */
 
-__int64 __fastcall WdipSemUpdateFrequentScenarioTable(struct _SLIST_ENTRY *a1)
+__int64 __fastcall WdipSemUpdateFrequentScenarioTable(_SLIST_ENTRY *a1)
 {
   struct _KTHREAD *CurrentThread; // rax
   unsigned int v2; // ebx

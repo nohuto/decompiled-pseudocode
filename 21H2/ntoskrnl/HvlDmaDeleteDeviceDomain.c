@@ -1,11 +1,11 @@
 /*
- * XREFs of HvlDmaDeleteDeviceDomain @ 0x1404F45F0
+ * XREFs of HvlDmaDeleteDeviceDomain @ 0x1404F4570
  * Callers:
  *     <none>
  * Callees:
- *     HvcallFastExtended @ 0x140390300 (HvcallFastExtended.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     HvlpHvToNtStatus @ 0x1404FACF4 (HvlpHvToNtStatus.c)
+ *     HvcallFastExtended @ 0x140390450 (HvcallFastExtended.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     HvlpHvToNtStatus @ 0x1404FAC74 (HvlpHvToNtStatus.c)
  */
 
 __int64 __fastcall HvlDmaDeleteDeviceDomain(int *a1)

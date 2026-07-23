@@ -1,14 +1,14 @@
 /*
- * XREFs of KsepRegistryCloseKey @ 0x1409E42F0
+ * XREFs of KsepRegistryCloseKey @ 0x1409D8784
  * Callers:
- *     KseSetDeviceFlags @ 0x1407BC6C0 (KseSetDeviceFlags.c)
- *     KsepDbQueryRegistryDeviceDataList @ 0x1407BCC58 (KsepDbQueryRegistryDeviceDataList.c)
- *     KsepRegistryQueryDriverShims @ 0x1409E4314 (KsepRegistryQueryDriverShims.c)
- *     KsepDbQueryRegistryDeviceData @ 0x1409E5B5C (KsepDbQueryRegistryDeviceData.c)
- *     KsepMatchInitBiosInfo @ 0x140CCD5F0 (KsepMatchInitBiosInfo.c)
- *     KsepEngineReadFlags @ 0x140D0821C (KsepEngineReadFlags.c)
+ *     KseSetDeviceFlags @ 0x1407BF720 (KseSetDeviceFlags.c)
+ *     KsepDbQueryRegistryDeviceDataList @ 0x1407BFCB8 (KsepDbQueryRegistryDeviceDataList.c)
+ *     KsepDbQueryRegistryDeviceData @ 0x1409D70DC (KsepDbQueryRegistryDeviceData.c)
+ *     KsepRegistryQueryDriverShims @ 0x1409D8644 (KsepRegistryQueryDriverShims.c)
+ *     KsepMatchInitBiosInfo @ 0x140CD3750 (KsepMatchInitBiosInfo.c)
+ *     KsepEngineReadFlags @ 0x140D0E4EC (KsepEngineReadFlags.c)
  * Callees:
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
  */
 
 NTSTATUS __fastcall KsepRegistryCloseKey(void *a1)
@@ -18,7 +18,7 @@ NTSTATUS __fastcall KsepRegistryCloseKey(void *a1)
   if ( a1 )
   {
     result = ZwClose(a1);
-    _InterlockedIncrement((_DWORD *)&AlpcpMessageLogLock.RelativeTimerBias + 1);
+    _InterlockedIncrement((_DWORD *)&AlpcpMessageLogLock.WaitBlockList + 1);
   }
   return result;
 }

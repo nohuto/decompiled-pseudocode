@@ -1,10 +1,10 @@
 /*
- * XREFs of PopDispatchCallback @ 0x14057DCF0
+ * XREFs of PopDispatchCallback @ 0x14057E19C
  * Callers:
  *     <none>
  * Callees:
- *     KeAreApcsDisabled @ 0x140009B90 (KeAreApcsDisabled.c)
- *     ExNotifyCallback @ 0x140009D58 (ExNotifyCallback.c)
+ *     KeAreApcsDisabled @ 0x140009710 (KeAreApcsDisabled.c)
+ *     ExNotifyCallback @ 0x1400098D8 (ExNotifyCallback.c)
  */
 
 BOOLEAN __fastcall PopDispatchCallback(PVOID Argument1)

@@ -1,21 +1,21 @@
 /*
- * XREFs of PnpQueueQueryAndRemoveEvent @ 0x14072F3E8
+ * XREFs of PnpQueueQueryAndRemoveEvent @ 0x14072F5B4
  * Callers:
- *     PiCMQueryRemove @ 0x14072ED1C (PiCMQueryRemove.c)
- *     PnpRequestDeviceEjectExWorker @ 0x1408A0510 (PnpRequestDeviceEjectExWorker.c)
- *     PiControlQueryAndRemoveDevice @ 0x1408B36F0 (PiControlQueryAndRemoveDevice.c)
+ *     PiCMQueryRemove @ 0x14072EEE8 (PiCMQueryRemove.c)
+ *     PnpRequestDeviceEjectExWorker @ 0x1408A0670 (PnpRequestDeviceEjectExWorker.c)
+ *     PiControlQueryAndRemoveDevice @ 0x1408B3850 (PiControlQueryAndRemoveDevice.c)
  * Callees:
- *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
- *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
- *     KeInitializeEvent @ 0x1403538F0 (KeInitializeEvent.c)
- *     PnpDiagnosticTraceObject @ 0x140364C6C (PnpDiagnosticTraceObject.c)
- *     PnpDiagnosticTraceDeviceOperation @ 0x14037C2F4 (PnpDiagnosticTraceDeviceOperation.c)
- *     memmove @ 0x140413F40 (memmove.c)
- *     PnpDeviceObjectFromDeviceInstanceWithTag @ 0x1406386D0 (PnpDeviceObjectFromDeviceInstanceWithTag.c)
- *     PnpSetTargetDeviceRemove @ 0x140738FD4 (PnpSetTargetDeviceRemove.c)
- *     PnpRemoveEventFromQueue @ 0x1408ABDAC (PnpRemoveEventFromQueue.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     KeWaitForSingleObject @ 0x1403504C0 (KeWaitForSingleObject.c)
+ *     ObfDereferenceObjectWithTag @ 0x140355E90 (ObfDereferenceObjectWithTag.c)
+ *     KeInitializeEvent @ 0x14035E640 (KeInitializeEvent.c)
+ *     PnpDiagnosticTraceObject @ 0x140364E1C (PnpDiagnosticTraceObject.c)
+ *     PnpDiagnosticTraceDeviceOperation @ 0x14037BE44 (PnpDiagnosticTraceDeviceOperation.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     PnpDeviceObjectFromDeviceInstanceWithTag @ 0x14062D4E0 (PnpDeviceObjectFromDeviceInstanceWithTag.c)
+ *     PnpSetTargetDeviceRemove @ 0x140739194 (PnpSetTargetDeviceRemove.c)
+ *     PnpRemoveEventFromQueue @ 0x1408ABF0C (PnpRemoveEventFromQueue.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PnpQueueQueryAndRemoveEvent(unsigned __int16 *a1, char *a2, _WORD *a3, _WORD *a4, char a5, int a6)

@@ -1,10 +1,10 @@
 /*
- * XREFs of KiDisconnectInterruptInternal @ 0x1403771F4
+ * XREFs of KiDisconnectInterruptInternal @ 0x140376D44
  * Callers:
- *     KiDisconnectInterruptCommon @ 0x1403770AC (KiDisconnectInterruptCommon.c)
- *     KiProcessPendingDisconnect @ 0x140521D44 (KiProcessPendingDisconnect.c)
+ *     KiDisconnectInterruptCommon @ 0x140376BFC (KiDisconnectInterruptCommon.c)
+ *     KiProcessPendingDisconnect @ 0x140521F84 (KiProcessPendingDisconnect.c)
  * Callees:
- *     HalDisableInterrupt @ 0x140377280 (HalDisableInterrupt.c)
+ *     HalDisableInterrupt @ 0x140376DD0 (HalDisableInterrupt.c)
  */
 
 __int64 __fastcall KiDisconnectInterruptInternal(__int64 a1, __int64 a2)

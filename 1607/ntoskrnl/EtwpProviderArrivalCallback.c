@@ -1,23 +1,23 @@
 /*
- * XREFs of EtwpProviderArrivalCallback @ 0x1404D0D5C
+ * XREFs of EtwpProviderArrivalCallback @ 0x1404B47FC
  * Callers:
- *     EtwpAddRegEntryToGroup @ 0x14040C87C (EtwpAddRegEntryToGroup.c)
- *     EtwpRegisterUMGuid @ 0x14040E5E0 (EtwpRegisterUMGuid.c)
- *     EtwpEnableGuid @ 0x14048E3D4 (EtwpEnableGuid.c)
- *     EtwpRegisterProvider @ 0x140492024 (EtwpRegisterProvider.c)
- *     EtwpTrackProviderBinary @ 0x1404EC810 (EtwpTrackProviderBinary.c)
+ *     EtwpAddRegEntryToGroup @ 0x14040B73C (EtwpAddRegEntryToGroup.c)
+ *     EtwpRegisterUMGuid @ 0x14040D4A0 (EtwpRegisterUMGuid.c)
+ *     EtwpEnableGuid @ 0x14048EE64 (EtwpEnableGuid.c)
+ *     EtwpRegisterProvider @ 0x140492AB4 (EtwpRegisterProvider.c)
+ *     EtwpTrackProviderBinary @ 0x1404CE898 (EtwpTrackProviderBinary.c)
  * Callees:
- *     RtlImageNtHeaderEx @ 0x140014260 (RtlImageNtHeaderEx.c)
- *     RtlPcToFileHeader @ 0x1400A5558 (RtlPcToFileHeader.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
+ *     RtlImageNtHeaderEx @ 0x140013DE0 (RtlImageNtHeaderEx.c)
+ *     RtlPcToFileHeader @ 0x1400A3AD0 (RtlPcToFileHeader.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
- *     EtwpAddProviderToSession @ 0x1404D0F50 (EtwpAddProviderToSession.c)
- *     EtwpFindDebugId @ 0x1404D108C (EtwpFindDebugId.c)
- *     MmGetImageBase @ 0x1404D1238 (MmGetImageBase.c)
- *     EtwpGetImageSize @ 0x1404D1340 (EtwpGetImageSize.c)
- *     MmGetFileNameForAddress @ 0x140656B10 (MmGetFileNameForAddress.c)
- *     EtwpSendDbgId @ 0x1406A5450 (EtwpSendDbgId.c)
- *     EtwpAddWinRtProviderToSession @ 0x1406A96BC (EtwpAddWinRtProviderToSession.c)
+ *     EtwpAddProviderToSession @ 0x1404B49F0 (EtwpAddProviderToSession.c)
+ *     EtwpFindDebugId @ 0x1404B4B2C (EtwpFindDebugId.c)
+ *     MmGetImageBase @ 0x1404B4CD8 (MmGetImageBase.c)
+ *     EtwpGetImageSize @ 0x1404B4DE0 (EtwpGetImageSize.c)
+ *     MmGetFileNameForAddress @ 0x140656BF4 (MmGetFileNameForAddress.c)
+ *     EtwpSendDbgId @ 0x1406A5588 (EtwpSendDbgId.c)
+ *     EtwpAddWinRtProviderToSession @ 0x1406A97F4 (EtwpAddWinRtProviderToSession.c)
  */
 
 __int64 __fastcall EtwpProviderArrivalCallback(__int64 a1, char a2, __int64 a3)

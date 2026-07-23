@@ -1,7 +1,7 @@
 /*
- * XREFs of MiDoesPageRequireRetpolineFixups @ 0x140A8214C
+ * XREFs of MiDoesPageRequireRetpolineFixups @ 0x140A87FBC
  * Callers:
- *     MiDoesPageRequireImportLinkingFixups @ 0x140480DF4 (MiDoesPageRequireImportLinkingFixups.c)
+ *     MiDoesPageRequireImportLinkingFixups @ 0x14047A764 (MiDoesPageRequireImportLinkingFixups.c)
  * Callees:
  *     <none>
  */

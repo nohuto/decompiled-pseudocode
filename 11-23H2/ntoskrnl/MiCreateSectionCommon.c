@@ -1,21 +1,21 @@
 /*
- * XREFs of MiCreateSectionCommon @ 0x140722710
+ * XREFs of MiCreateSectionCommon @ 0x140722910
  * Callers:
- *     NtCreateSection @ 0x1407226A0 (NtCreateSection.c)
- *     NtCreateSectionEx @ 0x140A2F7D0 (NtCreateSectionEx.c)
+ *     NtCreateSection @ 0x1407228A0 (NtCreateSection.c)
+ *     NtCreateSectionEx @ 0x140A2FA80 (NtCreateSectionEx.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     PsReferencePrimaryTokenWithTag @ 0x1402329C0 (PsReferencePrimaryTokenWithTag.c)
- *     KeDelayExecutionThread @ 0x140246810 (KeDelayExecutionThread.c)
- *     MiSectionControlArea @ 0x14029F880 (MiSectionControlArea.c)
- *     MmGetSessionIdEx @ 0x1402A1720 (MmGetSessionIdEx.c)
- *     CcZeroEndOfLastPage @ 0x1402A22E8 (CcZeroEndOfLastPage.c)
- *     MiReferenceControlAreaFile @ 0x1402A23D4 (MiReferenceControlAreaFile.c)
- *     MiDereferenceControlAreaFile @ 0x1402A24E0 (MiDereferenceControlAreaFile.c)
- *     MiCaptureSectionCreateExtendedParameters @ 0x140722A80 (MiCaptureSectionCreateExtendedParameters.c)
- *     MiCreateSection @ 0x140722B00 (MiCreateSection.c)
- *     ObInsertObjectEx @ 0x1407359D0 (ObInsertObjectEx.c)
- *     ExRaiseDatatypeMisalignment @ 0x140A00B60 (ExRaiseDatatypeMisalignment.c)
+ *     ObfDereferenceObject @ 0x140231660 (ObfDereferenceObject.c)
+ *     PsReferencePrimaryTokenWithTag @ 0x140232A90 (PsReferencePrimaryTokenWithTag.c)
+ *     KeDelayExecutionThread @ 0x1402468E0 (KeDelayExecutionThread.c)
+ *     MiSectionControlArea @ 0x14029FB10 (MiSectionControlArea.c)
+ *     MmGetSessionIdEx @ 0x1402A19B0 (MmGetSessionIdEx.c)
+ *     CcZeroEndOfLastPage @ 0x1402A2578 (CcZeroEndOfLastPage.c)
+ *     MiReferenceControlAreaFile @ 0x1402A2664 (MiReferenceControlAreaFile.c)
+ *     MiDereferenceControlAreaFile @ 0x1402A2770 (MiDereferenceControlAreaFile.c)
+ *     MiCaptureSectionCreateExtendedParameters @ 0x140722C80 (MiCaptureSectionCreateExtendedParameters.c)
+ *     MiCreateSection @ 0x140722D00 (MiCreateSection.c)
+ *     ObInsertObjectEx @ 0x140735BC0 (ObInsertObjectEx.c)
+ *     ExRaiseDatatypeMisalignment @ 0x140A00DF0 (ExRaiseDatatypeMisalignment.c)
  */
 
 __int64 __fastcall MiCreateSectionCommon(

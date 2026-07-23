@@ -1,22 +1,22 @@
 /*
- * XREFs of CmNotifyRunDown @ 0x1405F917C
+ * XREFs of CmNotifyRunDown @ 0x1405FA17C
  * Callers:
- *     PspExitThread @ 0x1405F75E0 (PspExitThread.c)
+ *     PspExitThread @ 0x1405F85E0 (PspExitThread.c)
  * Callees:
  *     ExReleaseFastMutexUnsafe @ 0x140018980 (ExReleaseFastMutexUnsafe.c)
  *     ExAcquireFastMutexUnsafe @ 0x1400189C0 (ExAcquireFastMutexUnsafe.c)
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
- *     KeSetEvent @ 0x1400C2B00 (KeSetEvent.c)
- *     DbgPrint @ 0x1401262D0 (DbgPrint.c)
- *     KeRemoveQueueApc @ 0x14012F358 (KeRemoveQueueApc.c)
- *     CmCleanupThreadInfo @ 0x1401B2F3C (CmCleanupThreadInfo.c)
- *     CmpInitializeThreadInfo @ 0x1401B2F7C (CmpInitializeThreadInfo.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     CmpLockRegistry @ 0x140645100 (CmpLockRegistry.c)
- *     CmpUnlockRegistry @ 0x140645150 (CmpUnlockRegistry.c)
- *     CmpFreePostBlock @ 0x14069502C (CmpFreePostBlock.c)
- *     CmpFreeSubordinatePost @ 0x140695080 (CmpFreeSubordinatePost.c)
- *     CmpCancelSubordinatePost @ 0x1406B2EDC (CmpCancelSubordinatePost.c)
+ *     KeSetEvent @ 0x1400C2A40 (KeSetEvent.c)
+ *     DbgPrint @ 0x1401263A0 (DbgPrint.c)
+ *     KeRemoveQueueApc @ 0x14012F428 (KeRemoveQueueApc.c)
+ *     CmCleanupThreadInfo @ 0x1401B307C (CmCleanupThreadInfo.c)
+ *     CmpInitializeThreadInfo @ 0x1401B30BC (CmpInitializeThreadInfo.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     CmpLockRegistry @ 0x140646120 (CmpLockRegistry.c)
+ *     CmpUnlockRegistry @ 0x140646170 (CmpUnlockRegistry.c)
+ *     CmpFreePostBlock @ 0x1406961EC (CmpFreePostBlock.c)
+ *     CmpFreeSubordinatePost @ 0x140696240 (CmpFreeSubordinatePost.c)
+ *     CmpCancelSubordinatePost @ 0x1406B417C (CmpCancelSubordinatePost.c)
  */
 
 _QWORD *__fastcall CmNotifyRunDown(__int64 a1)

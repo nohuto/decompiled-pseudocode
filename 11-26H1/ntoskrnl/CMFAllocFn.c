@@ -1,9 +1,9 @@
 /*
- * XREFs of CMFAllocFn @ 0x140842C04
+ * XREFs of CMFAllocFn @ 0x140848094
  * Callers:
- *     XpressDecodeCreate @ 0x14071F61C (XpressDecodeCreate.c)
+ *     XpressDecodeCreate @ 0x14072423C (XpressDecodeCreate.c)
  * Callees:
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
  */
 
 __int64 CMFAllocFn()

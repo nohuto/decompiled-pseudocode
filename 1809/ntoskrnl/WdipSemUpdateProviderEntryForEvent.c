@@ -1,7 +1,7 @@
 /*
- * XREFs of WdipSemUpdateProviderEntryForEvent @ 0x1407448F4
+ * XREFs of WdipSemUpdateProviderEntryForEvent @ 0x140745AE4
  * Callers:
- *     WdipSemUpdateProviderEntriesForScenario @ 0x14074489C (WdipSemUpdateProviderEntriesForScenario.c)
+ *     WdipSemUpdateProviderEntriesForScenario @ 0x140745A8C (WdipSemUpdateProviderEntriesForScenario.c)
  * Callees:
  *     <none>
  */

@@ -6,11 +6,8 @@
  *     <none>
  */
 
-__int64 __fastcall sub_180081880(__int64 a1)
+void __fastcall sub_180081880(__int64 a1)
 {
-  __int64 result; // rax
-
   if ( *(_BYTE *)(a1 + 124) )
-    return RtlReleasePath(*(_QWORD *)a1);
-  return result;
+    RtlReleasePath(*(PWSTR *)a1);
 }

@@ -1,24 +1,24 @@
 /*
- * XREFs of EtwpQueryProcessOtherInfo @ 0x14094BC44
+ * XREFs of EtwpQueryProcessOtherInfo @ 0x1408F01B4
  * Callers:
- *     EtwpPsProvProcessEnumCallback @ 0x14093A830 (EtwpPsProvProcessEnumCallback.c)
- *     EtwQueryProcessTelemetryInfo @ 0x14094B234 (EtwQueryProcessTelemetryInfo.c)
- *     EtwpBuildProcessEvent @ 0x14094B5C0 (EtwpBuildProcessEvent.c)
- *     EtwTraceAppStateChange @ 0x14094C00C (EtwTraceAppStateChange.c)
+ *     EtwQueryProcessTelemetryInfo @ 0x1408EF7A4 (EtwQueryProcessTelemetryInfo.c)
+ *     EtwpBuildProcessEvent @ 0x1408EFB30 (EtwpBuildProcessEvent.c)
+ *     EtwTraceAppStateChange @ 0x1408F057C (EtwTraceAppStateChange.c)
+ *     EtwpPsProvProcessEnumCallback @ 0x140A56950 (EtwpPsProvProcessEnumCallback.c)
  * Callees:
- *     RtlImageNtHeader @ 0x14043E310 (RtlImageNtHeader.c)
- *     PsGetProcessSectionBaseAddress @ 0x140480C00 (PsGetProcessSectionBaseAddress.c)
+ *     RtlImageNtHeader @ 0x140432E80 (RtlImageNtHeader.c)
+ *     PsGetProcessSectionBaseAddress @ 0x14047B6D0 (PsGetProcessSectionBaseAddress.c)
  */
 
-unsigned __int64 __fastcall EtwpQueryProcessOtherInfo(__int64 a1, __int64 a2)
+__int64 __fastcall EtwpQueryProcessOtherInfo(__int64 a1, __int64 a2)
 {
-  unsigned __int64 result; // rax
+  __int64 result; // rax
 
   *(_QWORD *)a2 = 0LL;
   result = PsGetProcessSectionBaseAddress(a1);
   if ( result )
   {
-    result = RtlImageNtHeader(result);
+    result = (__int64)RtlImageNtHeader((PVOID)result);
     if ( result )
     {
       *(_DWORD *)a2 = *(_DWORD *)(result + 88);

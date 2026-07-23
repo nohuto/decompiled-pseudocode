@@ -1,33 +1,27 @@
 /*
- * XREFs of RtlInsertInvertedFunctionTable @ 0x18002F770
+ * XREFs of RtlInsertInvertedFunctionTable @ 0x18002F760
  * Callers:
- *     LdrpProcessMappedModule @ 0x18002F938 (LdrpProcessMappedModule.c)
- *     LdrpInitializeExceptionTable @ 0x1800D25A4 (LdrpInitializeExceptionTable.c)
- *     AvrfMiniLoadDll @ 0x1800D7614 (AvrfMiniLoadDll.c)
+ *     LdrpProcessMappedModule @ 0x18002F928 (LdrpProcessMappedModule.c)
+ *     LdrpInitializeExceptionTable @ 0x1800D2664 (LdrpInitializeExceptionTable.c)
+ *     AvrfMiniLoadDll @ 0x1800D76D4 (AvrfMiniLoadDll.c)
  * Callees:
- *     LdrProtectMrdata @ 0x1800190A8 (LdrProtectMrdata.c)
- *     RtlAcquireSRWLockExclusive @ 0x180020BF0 (RtlAcquireSRWLockExclusive.c)
- *     RtlImageDirectoryEntryToData @ 0x180031B00 (RtlImageDirectoryEntryToData.c)
+ *     LdrProtectMrdata @ 0x180019098 (LdrProtectMrdata.c)
+ *     RtlAcquireSRWLockExclusive @ 0x180020BE0 (RtlAcquireSRWLockExclusive.c)
+ *     RtlImageDirectoryEntryToData @ 0x180031AF0 (RtlImageDirectoryEntryToData.c)
  *     memmove @ 0x1800AC980 (memmove.c)
  */
 
-signed __int64 __fastcall RtlInsertInvertedFunctionTable(unsigned __int64 a1, __int64 a2)
+void __fastcall RtlInsertInvertedFunctionTable(void *a1, int a2)
 {
-  int v2; // esi
-  __int64 v4; // rbp
-  char *v5; // rdx
-  __int64 v6; // r8
-  __int64 v7; // r9
-  unsigned int v8; // ebx
-  unsigned __int64 *v9; // rax
-  __int64 v10; // rcx
-  int v11; // eax
-  int v13; // [rsp+50h] [rbp+18h] BYREF
+  PVOID v4; // rbp
+  unsigned int v5; // ebx
+  _QWORD *v6; // rax
+  __int64 v7; // rcx
+  ULONG v8; // eax
+  ULONG Size; // [rsp+50h] [rbp+18h] BYREF
 
-  v2 = a2;
-  LOBYTE(a2) = 1;
-  v4 = RtlImageDirectoryEntryToData(a1, a2, 3LL, &v13);
-  RtlAcquireSRWLockExclusive((unsigned __int64)&LdrpInvertedFunctionTableSRWLock, v5, v6, v7);
+  v4 = RtlImageDirectoryEntryToData(a1, 1u, 3u, &Size);
+  RtlAcquireSRWLockExclusive(&LdrpInvertedFunctionTableSRWLock);
   LdrProtectMrdata(0);
   if ( LdrpInvertedFunctionTable[0] == dword_180163424 )
   {
@@ -36,36 +30,36 @@ signed __int64 __fastcall RtlInsertInvertedFunctionTable(unsigned __int64 a1, __
   else
   {
     _InterlockedIncrement(&dword_180163428);
-    v8 = 1;
+    v5 = 1;
     if ( LdrpInvertedFunctionTable[0] != 1 )
     {
       if ( LdrpInvertedFunctionTable[0] > 1u )
       {
-        v9 = (unsigned __int64 *)&unk_180163450;
+        v6 = &unk_180163450;
         do
         {
-          if ( a1 < *v9 )
+          if ( (unsigned __int64)a1 < *v6 )
             break;
-          ++v8;
-          v9 += 3;
+          ++v5;
+          v6 += 3;
         }
-        while ( v8 < LdrpInvertedFunctionTable[0] );
+        while ( v5 < LdrpInvertedFunctionTable[0] );
       }
-      if ( v8 != LdrpInvertedFunctionTable[0] )
+      if ( v5 != LdrpInvertedFunctionTable[0] )
         memmove(
-          &LdrpInvertedFunctionTable[4 * v8 + 10 + 2 * v8],
-          &LdrpInvertedFunctionTable[4 * v8 + 4 + 2 * v8],
-          24LL * (LdrpInvertedFunctionTable[0] - v8));
+          &LdrpInvertedFunctionTable[4 * v5 + 10 + 2 * v5],
+          &LdrpInvertedFunctionTable[4 * v5 + 4 + 2 * v5],
+          24LL * (LdrpInvertedFunctionTable[0] - v5));
     }
-    v10 = 3LL * v8;
-    v11 = v13;
-    *(_QWORD *)&LdrpInvertedFunctionTable[2 * v10 + 4] = v4;
-    *(_QWORD *)&LdrpInvertedFunctionTable[2 * v10 + 6] = a1;
-    LdrpInvertedFunctionTable[2 * v10 + 8] = v2;
-    LdrpInvertedFunctionTable[2 * v10 + 9] = v11;
+    v7 = 3LL * v5;
+    v8 = Size;
+    *(_QWORD *)&LdrpInvertedFunctionTable[2 * v7 + 4] = v4;
+    *(_QWORD *)&LdrpInvertedFunctionTable[2 * v7 + 6] = a1;
+    LdrpInvertedFunctionTable[2 * v7 + 8] = a2;
+    LdrpInvertedFunctionTable[2 * v7 + 9] = v8;
     ++LdrpInvertedFunctionTable[0];
     _InterlockedIncrement(&dword_180163428);
   }
   LdrProtectMrdata(1);
-  return RtlReleaseSRWLockExclusive(&LdrpInvertedFunctionTableSRWLock);
+  RtlReleaseSRWLockExclusive(&LdrpInvertedFunctionTableSRWLock);
 }

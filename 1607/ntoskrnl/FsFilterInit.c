@@ -1,5 +1,5 @@
 /*
- * XREFs of FsFilterInit @ 0x140148B44
+ * XREFs of FsFilterInit @ 0x1401490B4
  * Callers:
  *     FsRtlInitSystem @ 0x1407B6884 (FsRtlInitSystem.c)
  * Callees:
@@ -22,16 +22,16 @@ __int64 FsFilterInit()
     ExFreePoolWithTag(AcquireOpsReservePool, 0x676D5346u);
     v0 = -1073741670;
   }
-  byte_1403223C2 = 6;
+  byte_1403223E2 = 6;
   AcquireOpsEvent = 1;
-  qword_1403223D0 = (__int64)&qword_1403223C8;
-  qword_1403223C8 = (__int64)&qword_1403223C8;
   qword_1403223F0 = (__int64)&qword_1403223E8;
   qword_1403223E8 = (__int64)&qword_1403223E8;
+  qword_140322410 = (__int64)&qword_140322408;
+  qword_140322408 = (__int64)&qword_140322408;
   result = v0;
-  dword_1403223C4 = 1;
-  ReleaseOpsEvent = 1;
-  byte_1403223E2 = 6;
   dword_1403223E4 = 1;
+  ReleaseOpsEvent = 1;
+  byte_140322402 = 6;
+  dword_140322404 = 1;
   return result;
 }

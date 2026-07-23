@@ -1,16 +1,16 @@
 /*
- * XREFs of SdbpGetRegistryMatchingAttributes @ 0x1408E75FC
+ * XREFs of SdbpGetRegistryMatchingAttributes @ 0x1408E88BC
  * Callers:
- *     SdbpCheckMatchingRegistry @ 0x1408E5E50 (SdbpCheckMatchingRegistry.c)
- *     SdbpCheckMatchingWildcardRegistry @ 0x1408E6CD0 (SdbpCheckMatchingWildcardRegistry.c)
+ *     SdbpCheckMatchingRegistry @ 0x1408E7110 (SdbpCheckMatchingRegistry.c)
+ *     SdbpCheckMatchingWildcardRegistry @ 0x1408E7F90 (SdbpCheckMatchingWildcardRegistry.c)
  * Callees:
- *     SdbReadDWORDTag @ 0x14067CD98 (SdbReadDWORDTag.c)
- *     SdbFindFirstTag @ 0x14067D180 (SdbFindFirstTag.c)
- *     SdbGetTagDataSize @ 0x14067D2EC (SdbGetTagDataSize.c)
- *     AslLogCallPrintf @ 0x140680C60 (AslLogCallPrintf.c)
- *     SdbReadQWORDTag @ 0x1407210E8 (SdbReadQWORDTag.c)
- *     SdbGetStringTagPtr @ 0x140721710 (SdbGetStringTagPtr.c)
- *     SdbGetBinaryTagData @ 0x1408E7B58 (SdbGetBinaryTagData.c)
+ *     SdbReadDWORDTag @ 0x14067DF58 (SdbReadDWORDTag.c)
+ *     SdbFindFirstTag @ 0x14067E340 (SdbFindFirstTag.c)
+ *     SdbGetTagDataSize @ 0x14067E4AC (SdbGetTagDataSize.c)
+ *     AslLogCallPrintf @ 0x140681E20 (AslLogCallPrintf.c)
+ *     SdbReadQWORDTag @ 0x140722388 (SdbReadQWORDTag.c)
+ *     SdbGetStringTagPtr @ 0x1407229B0 (SdbGetStringTagPtr.c)
+ *     SdbGetBinaryTagData @ 0x1408E8E18 (SdbGetBinaryTagData.c)
  */
 
 __int64 __fastcall SdbpGetRegistryMatchingAttributes(

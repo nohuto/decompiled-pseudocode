@@ -149,10 +149,10 @@
  * 000000014072EC18: call    RtlImageNtHeader
  * 000000014072EC1D: test    rax, rax
  * 000000014072EC20: jz      loc_140731C01
- * 000000014072EC26: mov     rdx, [rbp+1910h+BaseOfImage]
+ * 000000014072EC26: mov     rdx, [rbp+1910h+BaseOfImage]; BaseOfImage
  * 000000014072EC2D: mov     r8d, ebx
- * 000000014072EC30: sub     r8d, edx
- * 000000014072EC33: mov     rcx, rax
+ * 000000014072EC30: sub     r8d, edx; VirtualAddress
+ * 000000014072EC33: mov     rcx, rax; NtHeaders
  * 000000014072EC36: call    RtlSectionTableFromVirtualAddress
  * 000000014072EC3B: test    rax, rax
  * 000000014072EC3E: jz      loc_140731C01
@@ -333,7 +333,7 @@
  * 000000014072EF01: add     [rbp+1910h+var_CDC], edx
  * 000000014072EF07: inc     esi
  * 000000014072EF09: lea     rax, [r14+rcx]
- * 000000014072EF0D: mov     dword ptr [rbp+1910h+var_1978], esi
+ * 000000014072EF0D: mov     dword ptr [rbp+1910h+NtHeaders], esi
  * 000000014072EF10: mov     r14, rax
  * 000000014072EF13: mov     ecx, edx
  * 000000014072EF15: and     r14, 0FFFFFFFFFFFFF000h
@@ -584,7 +584,7 @@
  * 000000014072F2CA: add     r14, 1000h
  * 000000014072F2D1: cmp     r14, [rsp+1A10h+var_19A0]
  * 000000014072F2D6: jb      loc_14072EF24
- * 000000014072F2DC: mov     esi, dword ptr [rbp+1910h+var_1978]
+ * 000000014072F2DC: mov     esi, dword ptr [rbp+1910h+NtHeaders]
  * 000000014072F2DF: mov     rbx, [rbp+1910h+var_B30]
  * 000000014072F2E6: mov     [rbp+1910h+var_CE0], esi
  * 000000014072F2EC: jmp     loc_14072EE8F
@@ -605,7 +605,7 @@
  * 000000014072F33E: lea     r12d, [rsi+1]
  * 000000014072F342: mov     [rsp+1A10h+var_19A0], rax
  * 000000014072F347: mov     r15, rax
- * 000000014072F34A: mov     dword ptr [rbp+1910h+var_1978], r12d
+ * 000000014072F34A: mov     dword ptr [rbp+1910h+NtHeaders], r12d
  * 000000014072F34E: xor     eax, eax
  * 000000014072F350: mov     esi, eax
  * 000000014072F352: mov     edi, eax
@@ -644,7 +644,7 @@
  * 000000014072F3BF: add     edi, r8d
  * 000000014072F3C2: cmp     edi, 4
  * 000000014072F3C5: jb      short loc_14072F357
- * 000000014072F3C7: mov     r12d, dword ptr [rbp+1910h+var_1978]
+ * 000000014072F3C7: mov     r12d, dword ptr [rbp+1910h+NtHeaders]
  * 000000014072F3CB: mov     r13d, dword ptr [rbp+1910h+var_1950]
  * 000000014072F3CF: jmp     loc_14072F6D0
  * 000000014072F3D4: dec     esi
@@ -870,7 +870,7 @@
  * 000000014072F722: mov     r13d, dword ptr [rbp+1910h+Size]
  * 000000014072F726: lea     eax, [rcx+750h]
  * 000000014072F72C: add     r13d, eax
- * 000000014072F72F: mov     dword ptr [rbp+1910h+var_1978], eax
+ * 000000014072F72F: mov     dword ptr [rbp+1910h+NtHeaders], eax
  * 000000014072F732: mov     dword ptr [rbp+1910h+var_1950], r13d
  * 000000014072F736: rdtsc
  * 000000014072F738: shl     rdx, 20h
@@ -1873,7 +1873,7 @@
  * 0000000140730622: movups  xmmword ptr [rcx+30h], xmm0
  * 0000000140730626: mov     eax, [rax+40h]
  * 0000000140730629: mov     [rcx+40h], eax
- * 000000014073062C: mov     ecx, dword ptr [rbp+1910h+var_1978]
+ * 000000014073062C: mov     ecx, dword ptr [rbp+1910h+NtHeaders]
  * 000000014073062F: mov     rax, [rsp+1A10h+var_19B8]
  * 0000000140730634: add     eax, ecx
  * 0000000140730636: mov     [r14+560h], eax
@@ -4178,7 +4178,7 @@
  * 0000000140732B36: mov     r8, rdx
  * 0000000140732B39: neg     r8
  * 0000000140732B3C: call    ExSetTimer
- * 0000000140732B41: mov     ecx, dword ptr [rbp+1910h+var_1978]
+ * 0000000140732B41: mov     ecx, dword ptr [rbp+1910h+NtHeaders]
  * 0000000140732B44: mov     r8d, dword ptr [rbp+1910h+Size]; Size
  * 0000000140732B48: add     rcx, r14; void *
  * 0000000140732B4B: mov     rdx, [rsp+1A10h+Src]; Src
@@ -4305,7 +4305,7 @@
  * 0000000140732E15: lea     rax, ExIsSafeWorkItem
  * 0000000140732E1C: mov     [rbp+1910h+var_7A0], rax
  * 0000000140732E23: xor     eax, eax
- * 0000000140732E25: mov     dword ptr [rbp+1910h+var_1978], eax
+ * 0000000140732E25: mov     dword ptr [rbp+1910h+NtHeaders], eax
  * 0000000140732E28: mov     r13d, eax
  * 0000000140732E2B: mov     dword ptr [rbp+1910h+var_1950], eax
  * 0000000140732E2E: mov     edi, eax
@@ -4569,7 +4569,7 @@
  * 0000000140733263: mov     r15, r14
  * 0000000140733266: mov     rax, [rbp+1910h+var_13A0]
  * 000000014073326D: mov     r14, rbx
- * 0000000140733270: add     dword ptr [rbp+1910h+var_1978], r15d
+ * 0000000140733270: add     dword ptr [rbp+1910h+NtHeaders], r15d
  * 0000000140733274: mov     [rax+18h], r15d
  * 0000000140733278: xor     eax, eax
  * 000000014073327A: mov     rbx, [rbp+1910h+var_AE0]
@@ -4777,7 +4777,7 @@
  * 0000000140733583: mov     [rbp+1910h+var_1380], rax
  * 000000014073358A: sub     eax, ebx
  * 000000014073358C: mov     [rbx+720h], eax
- * 0000000140733592: mov     eax, dword ptr [rbp+1910h+var_1978]
+ * 0000000140733592: mov     eax, dword ptr [rbp+1910h+NtHeaders]
  * 0000000140733595: mov     r9d, 80000000h
  * 000000014073359B: mov     r12d, dword ptr [rsp+1A10h+var_19A8]
  * 00000001407335A0: mov     [r14+550h], eax
@@ -4866,7 +4866,7 @@
  * 00000001407336E1: jnz     short loc_1407336E5
  * 00000001407336E3: jmp     short loc_1407336E3
  * 00000001407336E5: sti
- * 00000001407336E6: mov     dword ptr [rbp+1910h+var_1978], eax
+ * 00000001407336E6: mov     dword ptr [rbp+1910h+NtHeaders], eax
  * 00000001407336E9: mov     dword ptr [rbp+1910h+var_1950], 0C0000225h
  * 00000001407336F0: mov     eax, eax
  * 00000001407336F2: lea     rcx, [rax+rax*2]
@@ -8822,10 +8822,10 @@
  * 00000001407373A7: mov     ecx, eax
  * 00000001407373A9: jmp     loc_14073613D
  * 00000001407373AE: mov     r9d, 80000000h
- * 00000001407373B4: mov     eax, dword ptr [rbp+1910h+var_1978]
+ * 00000001407373B4: mov     eax, dword ptr [rbp+1910h+NtHeaders]
  * 00000001407373B7: mov     r15d, 1
  * 00000001407373BD: add     eax, r15d
- * 00000001407373C0: mov     dword ptr [rbp+1910h+var_1978], eax
+ * 00000001407373C0: mov     dword ptr [rbp+1910h+NtHeaders], eax
  * 00000001407373C3: cmp     eax, 0Eh
  * 00000001407373C6: jnb     short loc_1407373D4
  * 00000001407373C8: mov     r13d, dword ptr [rsp+1A10h+var_19A8]
@@ -9741,7 +9741,7 @@
  * 000000014073818F: sbb     ecx, ecx
  * 0000000140738191: and     ecx, 0Bh
  * 0000000140738194: mov     [rbp+1910h+var_E04], edx
- * 000000014073819A: mov     dword ptr [rbp+1910h+var_1978], ecx
+ * 000000014073819A: mov     dword ptr [rbp+1910h+NtHeaders], ecx
  * 000000014073819D: lea     eax, [r15+0C0h]
  * 00000001407381A4: cmp     eax, [r13+714h]
  * 00000001407381AB: jbe     loc_140738281
@@ -9802,7 +9802,7 @@
  * 000000014073827F: jmp     short loc_14073828B
  * 0000000140738281: mov     rbx, r13
  * 0000000140738284: mov     [r13+554h], eax
- * 000000014073828B: mov     esi, dword ptr [rbp+1910h+var_1978]
+ * 000000014073828B: mov     esi, dword ptr [rbp+1910h+NtHeaders]
  * 000000014073828E: lea     r14, [rbx+r15]
  * 0000000140738292: mov     r11d, 4
  * 0000000140738298: lea     r9, [rbp+1910h+var_E10]
@@ -9871,7 +9871,7 @@
  * 0000000140738388: add     edi, 0FFFFFFF8h
  * 000000014073838B: sub     rax, rsi
  * 000000014073838E: jnz     short loc_14073837B
- * 0000000140738390: mov     esi, dword ptr [rbp+1910h+var_1978]
+ * 0000000140738390: mov     esi, dword ptr [rbp+1910h+NtHeaders]
  * 0000000140738393: test    edi, edi
  * 0000000140738395: jz      short loc_1407383B7
  * 0000000140738397: mov     r10d, 1
@@ -10166,7 +10166,7 @@
  * 000000014073885C: lea     r11, [rdi+rcx*4]
  * 0000000140738860: xor     eax, eax
  * 0000000140738862: mov     [rbp+1910h+var_1968], r11
- * 0000000140738866: mov     [rbp+1910h+var_1978], r8
+ * 0000000140738866: mov     [rbp+1910h+NtHeaders], r8
  * 000000014073886A: mov     edi, eax
  * 000000014073886C: lea     edx, [rax+1]
  * 000000014073886F: test    r10d, r10d
@@ -10204,7 +10204,7 @@
  * 00000001407388E7: call    $$e6
  * 00000001407388EC: mov     r11, [rbp+1910h+var_1968]
  * 00000001407388F0: add     rbx, 0Ch
- * 00000001407388F4: mov     r8, [rbp+1910h+var_1978]
+ * 00000001407388F4: mov     r8, [rbp+1910h+NtHeaders]
  * 00000001407388F8: cmp     rbx, r11
  * 00000001407388FB: jnz     short loc_1407388AF
  * 00000001407388FD: mov     r10d, dword ptr [rsp+1A10h+var_19A8]
@@ -10436,7 +10436,7 @@
  * 0000000140738CF5: xor     eax, eax
  * 0000000140738CF7: cmp     rbx, rdi
  * 0000000140738CFA: jz      loc_1407392F2
- * 0000000140738D00: mov     r12, [rbp+1910h+var_1978]
+ * 0000000140738D00: mov     r12, [rbp+1910h+NtHeaders]
  * 0000000140738D04: mov     rsi, rbx
  * 0000000140738D07: mov     r10, r14
  * 0000000140738D0A: jmp     short loc_140738D12
@@ -10748,7 +10748,7 @@
  * 000000014073917C: mov     r14, r12
  * 000000014073917F: mov     rsi, [rsp+1A10h+var_19A8]
  * 0000000140739184: mov     [rbp+1910h+var_1980], r12
- * 0000000140739188: mov     r12, [rbp+1910h+var_1978]
+ * 0000000140739188: mov     r12, [rbp+1910h+NtHeaders]
  * 000000014073918C: jmp     short loc_140739192
  * 000000014073918E: mov     r14, [rbp+1910h+var_1980]
  * 0000000140739192: test    r13d, r13d
@@ -10847,7 +10847,7 @@
  * 00000001407392D2: add     rsi, 18h
  * 00000001407392D6: add     r12, 28h ; '('
  * 00000001407392DA: mov     [rsp+1A10h+var_19A8], rsi
- * 00000001407392DF: mov     [rbp+1910h+var_1978], r12
+ * 00000001407392DF: mov     [rbp+1910h+NtHeaders], r12
  * 00000001407392E3: cmp     rsi, [rbp+1910h+var_1958]
  * 00000001407392E7: jnz     loc_140738D0C
  * 00000001407392ED: mov     r12, [rsp+1A10h+var_19D0]
@@ -14059,7 +14059,7 @@
  * 000000014073C398: mov     r9d, 20h ; ' '
  * 000000014073C39E: mov     r8d, [r14+634h]
  * 000000014073C3A5: cmovz   eax, r9d
- * 000000014073C3A9: mov     dword ptr [rbp+1910h+var_1978], eax
+ * 000000014073C3A9: mov     dword ptr [rbp+1910h+NtHeaders], eax
  * 000000014073C3AC: lea     eax, [rbx+rbx*2]
  * 000000014073C3AF: shl     eax, 4
  * 000000014073C3B2: add     eax, r15d
@@ -14137,7 +14137,7 @@
  * 000000014073C4E4: jz      loc_14073C636
  * 000000014073C4EA: mov     eax, ebx
  * 000000014073C4EC: mov     rsi, r13
- * 000000014073C4EF: mov     r13d, dword ptr [rbp+1910h+var_1978]
+ * 000000014073C4EF: mov     r13d, dword ptr [rbp+1910h+NtHeaders]
  * 000000014073C4F3: mov     r11, r12
  * 000000014073C4F6: mov     [rsp+1A10h+var_19A0], rax
  * 000000014073C4FB: mov     ebx, 1
@@ -14228,7 +14228,7 @@
  * 000000014073C62D: mov     r13, [rsp+1A10h+var_19B0]
  * 000000014073C632: mov     r12, [rbp+1910h+var_1988]
  * 000000014073C636: mov     eax, 20h ; ' '
- * 000000014073C63B: cmp     dword ptr [rbp+1910h+var_1978], eax
+ * 000000014073C63B: cmp     dword ptr [rbp+1910h+NtHeaders], eax
  * 000000014073C63E: jnz     short loc_14073C664
  * 000000014073C640: test    ebx, ebx
  * 000000014073C642: jz      short loc_14073C664
@@ -14478,7 +14478,7 @@
  * 000000014073CA32: add     r12d, r13d
  * 000000014073CA35: cmp     dword ptr [rdi+5A8h], 7
  * 000000014073CA3C: mov     r13d, r11d
- * 000000014073CA3F: mov     dword ptr [rbp+1910h+var_1978], r12d
+ * 000000014073CA3F: mov     dword ptr [rbp+1910h+NtHeaders], r12d
  * 000000014073CA43: cmovz   r13d, r9d
  * 000000014073CA47: mov     [rbp+rax*8+1910h+var_BD8], rcx
  * 000000014073CA4F: mov     [rbp+rax*4+1910h+var_D60], 8
@@ -14648,7 +14648,7 @@
  * 000000014073CCCA: jnz     loc_14073CBA0
  * 000000014073CCD0: mov     rbx, [rbp+1910h+var_14F8]
  * 000000014073CCD7: xor     r11d, r11d
- * 000000014073CCDA: mov     r12d, dword ptr [rbp+1910h+var_1978]
+ * 000000014073CCDA: mov     r12d, dword ptr [rbp+1910h+NtHeaders]
  * 000000014073CCDE: mov     r13d, dword ptr [rbp+1910h+var_1950]
  * 000000014073CCE2: mov     edx, 20h ; ' '
  * 000000014073CCE7: mov     [rbp+1910h+var_14E8], rbx
@@ -19431,10 +19431,10 @@
  * 000000014074170C: mov     rcx, r13
  * 000000014074170F: call    qword ptr [r15+1C8h]
  * 0000000140741716: mov     r8d, [rdi+8]
- * 000000014074171A: mov     rdx, r13
- * 000000014074171D: sub     r8d, r13d
+ * 000000014074171A: mov     rdx, r13; BaseOfImage
+ * 000000014074171D: sub     r8d, r13d; VirtualAddress
  * 0000000140741720: mov     [rbp+1910h+var_1968], rax
- * 0000000140741724: mov     rcx, rax
+ * 0000000140741724: mov     rcx, rax; NtHeaders
  * 0000000140741727: call    RtlSectionTableFromVirtualAddress
  * 000000014074172C: test    rax, rax
  * 000000014074172F: jz      short loc_140741740
@@ -19531,7 +19531,7 @@
  * 00000001407418A8: call    qword ptr [r15+1C8h]
  * 00000001407418AF: mov     rdx, [rbp+1910h+var_1990]
  * 00000001407418B3: lea     r8, [rbp+1910h+var_1738]
- * 00000001407418BA: mov     [rbp+1910h+var_1978], rax
+ * 00000001407418BA: mov     [rbp+1910h+NtHeaders], rax
  * 00000001407418BE: mov     rcx, r15
  * 00000001407418C1: mov     eax, [rdi+28h]
  * 00000001407418C4: add     rax, rdx
@@ -19608,13 +19608,13 @@
  * 00000001407419D6: mov     r8d, [r14+rbx+38h]
  * 00000001407419DB: xor     ecx, ecx
  * 00000001407419DD: mov     r11, [rbp+1910h+var_1990]
- * 00000001407419E1: shl     r8d, 0Ch
+ * 00000001407419E1: shl     r8d, 0Ch; VirtualAddress
  * 00000001407419E5: test    r13, r13
  * 00000001407419E8: jz      short loc_1407419F1
  * 00000001407419EA: cmp     r8d, dword ptr [rsp+1A10h+Src]
  * 00000001407419EF: jb      short loc_140741A26
- * 00000001407419F1: mov     rcx, [rbp+1910h+var_1978]
- * 00000001407419F5: mov     rdx, r11
+ * 00000001407419F1: mov     rcx, [rbp+1910h+NtHeaders]; NtHeaders
+ * 00000001407419F5: mov     rdx, r11; BaseOfImage
  * 00000001407419F8: call    RtlSectionTableFromVirtualAddress
  * 00000001407419FD: mov     r10, [rbp+1910h+var_1950]
  * 0000000140741A01: mov     r13, rax
@@ -19624,7 +19624,7 @@
  * 0000000140741A0D: mov     eax, [rax+0Ch]
  * 0000000140741A10: add     eax, [r13+8]
  * 0000000140741A14: jmp     short loc_140741A22
- * 0000000140741A16: mov     rcx, [rbp+1910h+var_1978]
+ * 0000000140741A16: mov     rcx, [rbp+1910h+NtHeaders]
  * 0000000140741A1A: movzx   eax, word ptr [rcx+14h]
  * 0000000140741A1E: mov     eax, [rax+rcx+24h]
  * 0000000140741A22: mov     dword ptr [rsp+1A10h+Src], eax

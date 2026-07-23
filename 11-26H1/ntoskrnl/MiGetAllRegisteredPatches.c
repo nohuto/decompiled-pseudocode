@@ -1,22 +1,22 @@
 /*
- * XREFs of MiGetAllRegisteredPatches @ 0x14086FD1C
+ * XREFs of MiGetAllRegisteredPatches @ 0x14087607C
  * Callers:
- *     MiApplyImageHotPatchRequest @ 0x14086E8A8 (MiApplyImageHotPatchRequest.c)
+ *     MiApplyImageHotPatchRequest @ 0x140874C78 (MiApplyImageHotPatchRequest.c)
  * Callees:
- *     ExfAcquirePushLockSharedEx @ 0x140277CC0 (ExfAcquirePushLockSharedEx.c)
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     ExfReleasePushLockShared @ 0x140278BD0 (ExfReleasePushLockShared.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     KiCheckForKernelApcDelivery @ 0x14027DB80 (KiCheckForKernelApcDelivery.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     ExAllocatePoolMm @ 0x1403985B0 (ExAllocatePoolMm.c)
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     MmGetCurrentProcessorColor @ 0x14044ADC0 (MmGetCurrentProcessorColor.c)
- *     MiDuplicateUnicodeString @ 0x140867860 (MiDuplicateUnicodeString.c)
- *     MiCompareHotPatchNodes @ 0x14086F6BC (MiCompareHotPatchNodes.c)
- *     RtlFreeAnsiString @ 0x140A007C0 (RtlFreeAnsiString.c)
- *     MiFindProcessImageHotPatchRecord @ 0x140A99998 (MiFindProcessImageHotPatchRecord.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ExfAcquirePushLockSharedEx @ 0x140277230 (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     ExfReleasePushLockShared @ 0x140278140 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     KiCheckForKernelApcDelivery @ 0x14027D0F0 (KiCheckForKernelApcDelivery.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     ExAllocatePoolMm @ 0x14039A310 (ExAllocatePoolMm.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     MmGetCurrentProcessorColor @ 0x140442EF0 (MmGetCurrentProcessorColor.c)
+ *     MiDuplicateUnicodeString @ 0x14086DC40 (MiDuplicateUnicodeString.c)
+ *     MiCompareHotPatchNodes @ 0x140875A8C (MiCompareHotPatchNodes.c)
+ *     RtlFreeAnsiString @ 0x140A169F0 (RtlFreeAnsiString.c)
+ *     MiFindProcessImageHotPatchRecord @ 0x140A9DB18 (MiFindProcessImageHotPatchRecord.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall MiGetAllRegisteredPatches(int a1, unsigned int a2, unsigned int a3, char **a4)
@@ -58,9 +58,9 @@ __int64 __fastcall MiGetAllRegisteredPatches(int a1, unsigned int a2, unsigned i
   CurrentThread = KeGetCurrentThread();
   *((_QWORD *)&v30 + 1) = __PAIR64__(a3, a2);
   --CurrentThread->SpecialApcDisable;
-  v10 = (LegacyAutoBoost *)KeAbPreAcquire((__int64)&stru_140E36558, 0LL, 0LL, v8);
-  if ( _InterlockedCompareExchange64((volatile signed __int64 *)&stru_140E36558, 17LL, 0LL) )
-    ExfAcquirePushLockSharedEx((signed __int64 *)&stru_140E36558.Header.Lock, 0, v10, &stru_140E36558);
+  v10 = (LegacyAutoBoost *)KeAbPreAcquire((__int64)&stru_140E366D8, 0LL, 0LL, v8);
+  if ( _InterlockedCompareExchange64((volatile signed __int64 *)&stru_140E366D8, 17LL, 0LL) )
+    ExfAcquirePushLockSharedEx((signed __int64 *)&stru_140E366D8.Header.Lock, 0, v10, &stru_140E366D8);
   if ( v10 )
   {
     if ( (KiAbpGlobalState & 1) != 0 )
@@ -68,7 +68,7 @@ __int64 __fastcall MiGetAllRegisteredPatches(int a1, unsigned int a2, unsigned i
     else
       *((_BYTE *)v10 + 10) = 1;
   }
-  v11 = (_QWORD *)*((_QWORD *)&xmmword_140E36540 + 1);
+  v11 = (_QWORD *)*((_QWORD *)&xmmword_140E366C0 + 1);
   v12 = 0LL;
   while ( v11 )
   {
@@ -150,11 +150,11 @@ LABEL_40:
     }
   }
 LABEL_27:
-  if ( _InterlockedCompareExchange64((volatile signed __int64 *)&stru_140E36558, 0LL, 17LL) != 17 )
-    ExfReleasePushLockShared((signed __int64 *)&stru_140E36558.Header.Lock);
-  KeAbPostRelease((unsigned __int64)&stru_140E36558);
+  if ( _InterlockedCompareExchange64((volatile signed __int64 *)&stru_140E366D8, 0LL, 17LL) != 17 )
+    ExfReleasePushLockShared((signed __int64 *)&stru_140E366D8.Header.Lock);
+  KeAbPostRelease((unsigned __int64)&stru_140E366D8);
   v23 = CurrentThread->SpecialApcDisable++ == -1;
-  if ( v23 && ($7A85BAF4F1FA08634C1C4A3E45B775B3 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
+  if ( v23 && ($241382875694CED3D471BC5892DE3337 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
     KiCheckForKernelApcDelivery(v22, v21);
   if ( !v16 )
     goto LABEL_43;

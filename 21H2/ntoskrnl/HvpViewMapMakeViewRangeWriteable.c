@@ -1,29 +1,29 @@
 /*
  * XREFs of HvpViewMapMakeViewRangeWriteable @ 0x1405CCD5C
  * Callers:
- *     HvpViewMapMigrateCOWData @ 0x140732A4C (HvpViewMapMigrateCOWData.c)
+ *     HvpViewMapMigrateCOWData @ 0x140732C0C (HvpViewMapMigrateCOWData.c)
  * Callees:
- *     CmSiProtectViewOfSection @ 0x14036286C (CmSiProtectViewOfSection.c)
+ *     CmSiProtectViewOfSection @ 0x1402F7A5C (CmSiProtectViewOfSection.c)
  */
 
-__int64 __fastcall HvpViewMapMakeViewRangeWriteable(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+int __fastcall HvpViewMapMakeViewRangeWriteable(ULONG_PTR a1, __int64 a2, __int64 a3, __int64 a4)
 {
-  __int64 result; // rax
-  int v8; // [rsp+40h] [rbp+8h] BYREF
+  unsigned __int64 v7; // rax
+  ULONG v9; // [rsp+40h] [rbp+8h] BYREF
 
-  v8 = 0;
-  result = CmSiProtectViewOfSection(
-             a1,
-             *(__int64 **)(a1 + 24),
-             a3 + *(_QWORD *)(a2 + 56) - *(_QWORD *)(a2 + 24),
-             a4 - a3,
-             8u,
-             (__int64)&v8);
+  v9 = 0;
+  LODWORD(v7) = CmSiProtectViewOfSection(
+                  a1,
+                  *(void ***)(a1 + 24),
+                  (void *)(a3 + *(_QWORD *)(a2 + 56) - *(_QWORD *)(a2 + 24)),
+                  a4 - a3,
+                  8u,
+                  &v9);
   while ( a3 < a4 )
   {
-    result = (unsigned __int64)(a3 - *(_QWORD *)(a2 + 24)) >> 12;
-    *(_BYTE *)(result + a2 + 72) |= 8u;
+    v7 = (unsigned __int64)(a3 - *(_QWORD *)(a2 + 24)) >> 12;
+    *(_BYTE *)(v7 + a2 + 72) |= 8u;
     a3 += 4096LL;
   }
-  return result;
+  return v7;
 }

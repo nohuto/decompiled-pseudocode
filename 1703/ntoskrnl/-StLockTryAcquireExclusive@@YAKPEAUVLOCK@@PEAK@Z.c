@@ -15,7 +15,7 @@ __int64 __fastcall StLockTryAcquireExclusive(volatile signed __int32 *BugCheckPa
 
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->SpecialApcDisable;
-  v5 = (_KLOCK_ENTRY *)KeAbPreAcquire((ULONG_PTR)BugCheckParameter2);
+  v5 = (_KLOCK_ENTRY *)KeAbPreAcquire((ULONG_PTR)BugCheckParameter2, 0LL);
   if ( _interlockedbittestandset64(BugCheckParameter2, 0LL) )
   {
     if ( v5 )

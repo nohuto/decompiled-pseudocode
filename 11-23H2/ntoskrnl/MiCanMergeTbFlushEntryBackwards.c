@@ -1,7 +1,7 @@
 /*
- * XREFs of MiCanMergeTbFlushEntryBackwards @ 0x140348014
+ * XREFs of MiCanMergeTbFlushEntryBackwards @ 0x1403482A4
  * Callers:
- *     MiTerminateWsleCluster @ 0x1402791A0 (MiTerminateWsleCluster.c)
+ *     MiTerminateWsleCluster @ 0x140279430 (MiTerminateWsleCluster.c)
  * Callees:
  *     <none>
  */

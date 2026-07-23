@@ -1,14 +1,14 @@
 /*
- * XREFs of CmpKeyEnumStackAdvanceInternal @ 0x14060A1B8
+ * XREFs of CmpKeyEnumStackAdvanceInternal @ 0x14060A26C
  * Callers:
- *     CmpKeyEnumStackAdvance @ 0x14060A128 (CmpKeyEnumStackAdvance.c)
+ *     CmpKeyEnumStackAdvance @ 0x14060A1DC (CmpKeyEnumStackAdvance.c)
  * Callees:
- *     CmpKeyNodeStackEntryInitialize @ 0x140581850 (CmpKeyNodeStackEntryInitialize.c)
- *     CmpCompareKeysByName @ 0x1406068E0 (CmpCompareKeysByName.c)
- *     CmpKeyEnumStackEntryAdvance @ 0x14060A36C (CmpKeyEnumStackEntryAdvance.c)
- *     CmpKeyEnumStackGetEntryAtLayerHeight @ 0x14060A64C (CmpKeyEnumStackGetEntryAtLayerHeight.c)
- *     CmpKeyNodeStackEntryCleanup @ 0x14060BCC4 (CmpKeyNodeStackEntryCleanup.c)
- *     CmpKeyNodeStackGetEntryAtLayerHeight @ 0x14060BCE4 (CmpKeyNodeStackGetEntryAtLayerHeight.c)
+ *     CmpKeyNodeStackEntryInitialize @ 0x140581D00 (CmpKeyNodeStackEntryInitialize.c)
+ *     CmpCompareKeysByName @ 0x140606994 (CmpCompareKeysByName.c)
+ *     CmpKeyEnumStackEntryAdvance @ 0x14060A420 (CmpKeyEnumStackEntryAdvance.c)
+ *     CmpKeyEnumStackGetEntryAtLayerHeight @ 0x14060A700 (CmpKeyEnumStackGetEntryAtLayerHeight.c)
+ *     CmpKeyNodeStackEntryCleanup @ 0x14060BD78 (CmpKeyNodeStackEntryCleanup.c)
+ *     CmpKeyNodeStackGetEntryAtLayerHeight @ 0x14060BD98 (CmpKeyNodeStackGetEntryAtLayerHeight.c)
  */
 
 __int64 __fastcall CmpKeyEnumStackAdvanceInternal(__int64 a1, __int64 a2, __int64 a3, __int64 a4)

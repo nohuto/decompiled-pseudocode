@@ -1,11 +1,11 @@
 /*
- * XREFs of RcFrameConsolidation @ 0x140535010
+ * XREFs of RcFrameConsolidation @ 0x140537490
  * Callers:
  *     <none>
  * Callees:
- *     KeKernelShadowStackRestoreContext @ 0x140368410 (KeKernelShadowStackRestoreContext.c)
- *     KeCheckStackAndTargetAddress @ 0x140477190 (KeCheckStackAndTargetAddress.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     KeKernelShadowStackRestoreContext @ 0x14036A1B0 (KeKernelShadowStackRestoreContext.c)
+ *     KeCheckStackAndTargetAddress @ 0x140470910 (KeCheckStackAndTargetAddress.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 void __fastcall RcFrameConsolidation(
@@ -46,5 +46,5 @@ void __fastcall RcFrameConsolidation(
     _disable();
     __asm { iretq }
   }
-  JUMPOUT(0x140534E15LL);
+  JUMPOUT(0x140537295LL);
 }

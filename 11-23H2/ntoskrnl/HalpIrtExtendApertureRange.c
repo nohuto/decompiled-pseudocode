@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpIrtExtendApertureRange @ 0x1409347F0
+ * XREFs of HalpIrtExtendApertureRange @ 0x1409349F0
  * Callers:
- *     HalpIrtAllocateDeviceAperture @ 0x1409346A0 (HalpIrtAllocateDeviceAperture.c)
+ *     HalpIrtAllocateDeviceAperture @ 0x1409348A0 (HalpIrtAllocateDeviceAperture.c)
  * Callees:
- *     ExAcquireFastMutex @ 0x140230720 (ExAcquireFastMutex.c)
- *     ExReleaseFastMutex @ 0x140230860 (ExReleaseFastMutex.c)
+ *     ExAcquireFastMutex @ 0x140230810 (ExAcquireFastMutex.c)
+ *     ExReleaseFastMutex @ 0x140230950 (ExReleaseFastMutex.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

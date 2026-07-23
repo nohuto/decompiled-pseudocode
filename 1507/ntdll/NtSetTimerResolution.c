@@ -6,11 +6,11 @@
  *     <none>
  */
 
-__int64 NtSetTimerResolution()
+NTSTATUS __cdecl NtSetTimerResolution(ULONG DesiredTime, BOOLEAN SetResolution, PULONG ActualTime)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 404LL;
+  result = 404;
   __asm { syscall; Low latency system call }
   return result;
 }

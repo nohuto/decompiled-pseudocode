@@ -1,15 +1,15 @@
 /*
- * XREFs of CmpBoostActiveHiveWriter @ 0x14047D444
+ * XREFs of CmpBoostActiveHiveWriter @ 0x14047C198
  * Callers:
- *     CmpFlushHive @ 0x1403FA0CC (CmpFlushHive.c)
- *     HvpAddBin @ 0x14047DF10 (HvpAddBin.c)
- *     CmpWaitOnHiveWriteQueue @ 0x1406030E0 (CmpWaitOnHiveWriteQueue.c)
+ *     CmpFlushHive @ 0x1403F8F8C (CmpFlushHive.c)
+ *     HvpAddBin @ 0x14047CC64 (HvpAddBin.c)
+ *     CmpWaitOnHiveWriteQueue @ 0x140603194 (CmpWaitOnHiveWriteQueue.c)
  * Callees:
- *     PsBoostThreadIo @ 0x14002D430 (PsBoostThreadIo.c)
- *     IoBoostThreadIoPriority @ 0x14006E244 (IoBoostThreadIoPriority.c)
- *     KeSetPriorityBoost @ 0x1400919AC (KeSetPriorityBoost.c)
- *     PsGetIoPriorityThread @ 0x1400E7E30 (PsGetIoPriorityThread.c)
- *     CmpTraceHiveFlushBoostedActiveFlusher @ 0x1405FBD3C (CmpTraceHiveFlushBoostedActiveFlusher.c)
+ *     PsBoostThreadIo @ 0x14002CFB0 (PsBoostThreadIo.c)
+ *     IoBoostThreadIoPriority @ 0x14006DDC4 (IoBoostThreadIoPriority.c)
+ *     KeSetPriorityBoost @ 0x14009110C (KeSetPriorityBoost.c)
+ *     PsGetIoPriorityThread @ 0x1400E5CD0 (PsGetIoPriorityThread.c)
+ *     CmpTraceHiveFlushBoostedActiveFlusher @ 0x1405FBDF0 (CmpTraceHiveFlushBoostedActiveFlusher.c)
  */
 
 void __fastcall CmpBoostActiveHiveWriter(__int64 a1, __int64 a2)

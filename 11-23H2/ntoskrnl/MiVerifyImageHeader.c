@@ -4,7 +4,7 @@
  *     MiCreateImageFileMap @ 0x1406A8928 (MiCreateImageFileMap.c)
  * Callees:
  *     MiLegacyImageArchitecture @ 0x14020EC68 (MiLegacyImageArchitecture.c)
- *     MiComputeBadImageHeaderType @ 0x140A2F2E8 (MiComputeBadImageHeaderType.c)
+ *     MiComputeBadImageHeaderType @ 0x140A2F598 (MiComputeBadImageHeaderType.c)
  */
 
 __int64 __fastcall MiVerifyImageHeader(__int64 a1, __int64 a2, __int64 a3, __int64 a4)

@@ -17,8 +17,8 @@ __int64 __fastcall HalpVpptAcknowledgeInterrupt(__int64 a1)
   __int64 InternalData; // rax
   __int64 v3; // rdx
   __int64 v4; // rcx
-  unsigned __int64 InterruptTimePrecise; // rax
-  unsigned __int64 v6; // rcx
+  LARGE_INTEGER InterruptTimePrecise; // rax
+  LARGE_INTEGER v6; // rcx
   int *v7; // rdx
   int *v8; // rax
   __int64 v9; // rcx
@@ -29,7 +29,7 @@ __int64 __fastcall HalpVpptAcknowledgeInterrupt(__int64 a1)
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
   bool v16; // zf
-  LARGE_INTEGER v17; // [rsp+30h] [rbp+8h] BYREF
+  LARGE_INTEGER PerformanceCounter; // [rsp+30h] [rbp+8h] BYREF
 
   byte_140C4A598 = HalpAcquireHighLevelLock(&qword_140C4A590);
   InternalData = HalpTimerGetInternalData(*(__int64 *)&HalpVpptPhysicalTimer);
@@ -59,19 +59,19 @@ LABEL_15:
         }
         goto LABEL_20;
       }
-      v17.QuadPart = 0LL;
-      InterruptTimePrecise = RtlGetInterruptTimePrecise(&v17);
-      v6 = *(_QWORD *)(a1 + 32);
-      if ( v6 <= InterruptTimePrecise )
+      PerformanceCounter.QuadPart = 0LL;
+      InterruptTimePrecise = RtlGetInterruptTimePrecise(&PerformanceCounter);
+      v6 = *(LARGE_INTEGER *)(a1 + 32);
+      if ( v6.QuadPart <= (unsigned __int64)InterruptTimePrecise.QuadPart )
       {
         do
-          v6 += *(_QWORD *)(a1 + 40);
-        while ( v6 <= InterruptTimePrecise );
-        *(_QWORD *)(a1 + 32) = v6;
+          v6.QuadPart += *(_QWORD *)(a1 + 40);
+        while ( v6.QuadPart <= (unsigned __int64)InterruptTimePrecise.QuadPart );
+        *(LARGE_INTEGER *)(a1 + 32) = v6;
       }
       v7 = *(int **)&HalpVpptQueue;
       v8 = &HalpVpptQueue;
-      while ( v7 != &HalpVpptQueue && v6 >= *((_QWORD *)v7 + 4) )
+      while ( v7 != &HalpVpptQueue && v6.QuadPart >= *((_QWORD *)v7 + 4) )
       {
         v8 = v7;
         v7 = *(int **)v7;

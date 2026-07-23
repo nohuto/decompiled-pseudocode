@@ -1,10 +1,10 @@
 /*
- * XREFs of PopNotifySessionDisplayRequired @ 0x140773350
+ * XREFs of PopNotifySessionDisplayRequired @ 0x140773510
  * Callers:
  *     <none>
  * Callees:
- *     PopInvokeWin32Callout @ 0x14067B7C8 (PopInvokeWin32Callout.c)
- *     TtmNotifySessionDisplayRequiredChange @ 0x1408FEA88 (TtmNotifySessionDisplayRequiredChange.c)
+ *     PopInvokeWin32Callout @ 0x14066EF08 (PopInvokeWin32Callout.c)
+ *     TtmNotifySessionDisplayRequiredChange @ 0x1408FEBE8 (TtmNotifySessionDisplayRequiredChange.c)
  */
 
 __int64 __fastcall PopNotifySessionDisplayRequired(__int64 a1, __int64 a2, char a3)
@@ -44,7 +44,7 @@ __int64 __fastcall PopNotifySessionDisplayRequired(__int64 a1, __int64 a2, char 
       v6 = 2;
       v11 = &v14;
       v13 = &v4;
-      PopInvokeWin32Callout(5, (__int64)&v6, 1, &v5);
+      PopInvokeWin32Callout(5u, (__int64)&v6, 1u, &v5);
     }
   }
   return 0LL;

@@ -1,9 +1,9 @@
 /*
- * XREFs of PiDcHandleSystemFirmwareUpdate @ 0x1407276C0
+ * XREFs of PiDcHandleSystemFirmwareUpdate @ 0x140725250
  * Callers:
- *     IopInitializePlugPlayServices @ 0x140C1F07C (IopInitializePlugPlayServices.c)
+ *     IopInitializePlugPlayServices @ 0x140C210BC (IopInitializePlugPlayServices.c)
  * Callees:
- *     PiDcContainerRequiresConfiguration @ 0x140A9E6E0 (PiDcContainerRequiresConfiguration.c)
+ *     PiDcContainerRequiresConfiguration @ 0x140A99C50 (PiDcContainerRequiresConfiguration.c)
  */
 
 __int64 PiDcHandleSystemFirmwareUpdate()

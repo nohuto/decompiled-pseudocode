@@ -17,51 +17,59 @@
  *     _NtFreeVirtualMemory@16 @ 0x4B2F2B60 (_NtFreeVirtualMemory@16.c)
  */
 
-int __stdcall LdrEnsureMrdataHeapExists()
+NTSTATUS __stdcall LdrEnsureMrdataHeapExists()
 {
-  int result; // eax
-  int *Heap; // eax
-  int *v2; // esi
-  _DWORD *v3; // eax
-  int v4; // edi
-  int v5; // [esp+Ch] [ebp-8h] BYREF
-  void *v6; // [esp+10h] [ebp-4h] BYREF
+  int v0; // eax
+  NTSTATUS result; // eax
+  PVOID Heap; // eax
+  void *v3; // esi
+  _DWORD *v4; // eax
+  void *v5; // edi
+  ULONG_PTR v6; // [esp-10h] [ebp-24h]
+  SIZE_T v7; // [esp-4h] [ebp-18h]
+  ULONG v8; // [esp+0h] [ebp-14h]
+  void *v9; // [esp+0h] [ebp-14h]
+  void *v10; // [esp+4h] [ebp-10h]
+  ULONG_PTR RegionSize; // [esp+Ch] [ebp-8h] BYREF
 
-  if ( !LdrControlFlowGuardEnforced() || LdrpMrdataHeap )
+  LOBYTE(v0) = LdrControlFlowGuardEnforced();
+  if ( !v0 || LdrpMrdataHeap )
     return 0;
-  v5 = LdrpAllocationGranularity;
-  v6 = 0;
-  result = NtAllocateVirtualMemory(-1, &v6, 0, &v5, 0x2000, 4);
+  RegionSize = (unsigned int)LdrpAllocationGranularity;
+  HIDWORD(v6) = &RegionSize;
+  LODWORD(v6) = 0;
+  result = NtAllocateVirtualMemory((HANDLE)0xFFFFFFFF, (PVOID *)&RegionSize + 1, v6, (PSIZE_T)0x2000, 4u, v8);
   if ( result >= 0 )
   {
-    Heap = RtlCreateHeap(2, v6, 0, 0, 0, 0);
-    v2 = Heap;
+    Heap = RtlCreateHeap(2u, (PVOID)HIDWORD(RegionSize), 0LL, 0LL, v9, v10);
+    v3 = Heap;
     if ( Heap )
     {
-      v3 = (_DWORD *)RtlAllocateHeap((int)Heap, 0, 4);
-      v4 = (int)v3;
-      if ( v3 )
+      LODWORD(v7) = 4;
+      v4 = RtlAllocateHeap(Heap, 0, v7);
+      v5 = v4;
+      if ( v4 )
       {
-        *v3 = 0;
-        RtlProtectHeap(v2, 1);
+        *v4 = 0;
+        RtlProtectHeap(v3, 1u);
         LdrProtectMrdata(0);
         RtlAcquireSRWLockExclusive(&LdrpMrdataLock);
         if ( !LdrpMrdataHeap )
         {
-          LdrpMrdataHeapUnprotected = v4;
-          LdrpMrdataHeap = (int)v2;
+          LdrpMrdataHeapUnprotected = (int)v5;
+          LdrpMrdataHeap = v3;
           RtlReleaseSRWLockExclusive(&LdrpMrdataLock);
           LdrProtectMrdata(1);
           return 0;
         }
         RtlReleaseSRWLockExclusive(&LdrpMrdataLock);
         LdrProtectMrdata(1);
-        RtlProtectHeap(v2, 0);
-        RtlFreeHeap((int)v2, 0, v4);
+        RtlProtectHeap(v3, 0);
+        RtlFreeHeap(v3, 0, v5);
       }
-      RtlDestroyHeap((int)v2);
+      RtlDestroyHeap(v3);
     }
-    NtFreeVirtualMemory(-1, &v6, &v5, 0x8000);
+    NtFreeVirtualMemory((HANDLE)0xFFFFFFFF, (PVOID *)&RegionSize + 1, &RegionSize, 0x8000u);
     if ( !LdrpMrdataHeap )
       return -1073741801;
     return 0;

@@ -67,7 +67,7 @@ __int64 __fastcall BiOpenKey(__int64 a1, const WCHAR *a2, ACCESS_MASK a3, _QWORD
     {
       if ( (a3 & 0x60019) == a3 )
         goto LABEL_6;
-      KeySecurityDescriptor = (void *)BiCreateKeySecurityDescriptor(983103);
+      KeySecurityDescriptor = (void *)BiCreateKeySecurityDescriptor(983103LL);
       v12 = BiZwSetSecurityObject(v15, v14, KeySecurityDescriptor);
       if ( v12 >= 0 )
       {

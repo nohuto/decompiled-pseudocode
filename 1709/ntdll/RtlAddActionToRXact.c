@@ -10,7 +10,7 @@
 __int64 __fastcall RtlAddActionToRXact(int a1, int a2, int a3, int a4, void *Src, size_t a6)
 {
   size_t Size; // [rsp+38h] [rbp-20h]
-  UNICODE_STRING v12; // [rsp+40h] [rbp-18h] BYREF
+  _UNICODE_STRING v12; // [rsp+40h] [rbp-18h] BYREF
 
   RtlInitUnicodeString(&v12, 0LL);
   LODWORD(Size) = a6;

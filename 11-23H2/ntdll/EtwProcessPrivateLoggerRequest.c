@@ -10,8 +10,8 @@
  *     EtwpQueryUmLogger @ 0x18005F188 (EtwpQueryUmLogger.c)
  *     EtwpFlushUmLogger @ 0x18005F2C0 (EtwpFlushUmLogger.c)
  *     EtwpStopUmLogger @ 0x18005F5F0 (EtwpStopUmLogger.c)
- *     EtwpIncrementUmLoggerFile @ 0x1801258BC (EtwpIncrementUmLoggerFile.c)
- *     EtwpUpdateUmLogger @ 0x180125F74 (EtwpUpdateUmLogger.c)
+ *     EtwpIncrementUmLoggerFile @ 0x18012588C (EtwpIncrementUmLoggerFile.c)
+ *     EtwpUpdateUmLogger @ 0x180125F44 (EtwpUpdateUmLogger.c)
  *     memset$thunk$772440563353939046 @ 0x180132010 (memset$thunk$772440563353939046.c)
  */
 

@@ -1,8 +1,8 @@
 /*
- * XREFs of KiFindNextTimerDueTime @ 0x1400DCD50
+ * XREFs of KiFindNextTimerDueTime @ 0x1400DABF0
  * Callers:
- *     KiGetNextTimerExpirationDueTime @ 0x14009D0B8 (KiGetNextTimerExpirationDueTime.c)
- *     PpmIdlePrepare @ 0x1400DBCB0 (PpmIdlePrepare.c)
+ *     KiGetNextTimerExpirationDueTime @ 0x14009C8B8 (KiGetNextTimerExpirationDueTime.c)
+ *     PpmIdlePrepare @ 0x1400D9B50 (PpmIdlePrepare.c)
  * Callees:
  *     <none>
  */

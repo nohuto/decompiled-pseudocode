@@ -1,28 +1,28 @@
 /*
- * XREFs of KiLockExtendedServiceTable @ 0x1405405C8
+ * XREFs of KiLockExtendedServiceTable @ 0x140542A48
  * Callers:
- *     KiLockServiceTable @ 0x1407134A4 (KiLockServiceTable.c)
+ *     KiLockServiceTable @ 0x140718194 (KiLockServiceTable.c)
  * Callees:
- *     RtlCaptureImageExceptionValues @ 0x14040E248 (RtlCaptureImageExceptionValues.c)
- *     RtlSectionTableFromVirtualAddress @ 0x14040E4E0 (RtlSectionTableFromVirtualAddress.c)
- *     RtlImageNtHeader @ 0x1404696C0 (RtlImageNtHeader.c)
- *     RtlpConvertFunctionEntry @ 0x1404BD800 (RtlpConvertFunctionEntry.c)
- *     KiSwInterruptPresent @ 0x140C80394 (KiSwInterruptPresent.c)
+ *     RtlCaptureImageExceptionValues @ 0x14042B178 (RtlCaptureImageExceptionValues.c)
+ *     RtlSectionTableFromVirtualAddress @ 0x14042B410 (RtlSectionTableFromVirtualAddress.c)
+ *     RtlImageNtHeader @ 0x140462E40 (RtlImageNtHeader.c)
+ *     RtlpConvertFunctionEntry @ 0x1404B6FE0 (RtlpConvertFunctionEntry.c)
+ *     KiSwInterruptPresent @ 0x140C86394 (KiSwInterruptPresent.c)
  */
 
 void __fastcall KiLockExtendedServiceTable(__int64 a1, __int64 a2, __int64 a3, int a4)
 {
   unsigned __int64 v4; // rsi
-  _DWORD *v5; // r15
-  _DWORD *v6; // r12
-  _DWORD *v7; // rbx
-  _DWORD *v8; // rdi
+  PIMAGE_NT_HEADERS v5; // r15
+  _IMAGE_SECTION_HEADER *v6; // r12
+  _IMAGE_SECTION_HEADER *v7; // rbx
+  _IMAGE_SECTION_HEADER *v8; // rdi
   unsigned __int64 v9; // r10
   unsigned __int64 v10; // rax
   __int64 v11; // r8
   unsigned int v12; // ebx
   _QWORD *v13; // rdi
-  unsigned __int64 v14; // rax
+  PIMAGE_SECTION_HEADER v14; // rax
   char v15; // r11
   unsigned __int64 v16; // rcx
   _QWORD *v17; // r9
@@ -41,29 +41,29 @@ void __fastcall KiLockExtendedServiceTable(__int64 a1, __int64 a2, __int64 a3, i
   unsigned __int64 v30; // [rsp+48h] [rbp-38h]
   unsigned __int64 v31; // [rsp+50h] [rbp-30h]
   unsigned __int64 *v32; // [rsp+58h] [rbp-28h]
-  unsigned int v33; // [rsp+C8h] [rbp+48h] BYREF
+  ULONG v33; // [rsp+C8h] [rbp+48h] BYREF
 
   if ( !a4 )
   {
-    v4 = (unsigned __int64)&qword_140E0F340;
-    v5 = RtlImageNtHeader(0x140000000uLL);
+    v4 = (unsigned __int64)&qword_140E0F3C0;
+    v5 = RtlImageNtHeader((PVOID)0x140000000LL);
     v6 = 0LL;
-    v7 = (_DWORD *)((char *)v5 + *((unsigned __int16 *)v5 + 10) + 24);
-    v8 = &v7[10 * *((unsigned __int16 *)v5 + 3)];
+    v7 = (_IMAGE_SECTION_HEADER *)((char *)&v5->OptionalHeader + v5->FileHeader.SizeOfOptionalHeader);
+    v8 = &v7[v5->FileHeader.NumberOfSections];
     if ( (int)KiSwInterruptPresent() >= 0 )
     {
       while ( v7 != v8 )
       {
-        if ( *v7 == 1346589515 && !v7[1] )
+        if ( *(_DWORD *)v7->Name == 1346589515 && !*(_DWORD *)&v7->Name[4] )
         {
           v6 = v7;
           break;
         }
-        v7 += 10;
+        ++v7;
       }
     }
-    RtlImageNtHeader(0x140000000uLL);
-    RtlCaptureImageExceptionValues(0x140000000LL, (__int64 *)&v29, &v33);
+    RtlImageNtHeader((PVOID)0x140000000LL);
+    RtlCaptureImageExceptionValues((void *)0x140000000LL, &v29, &v33);
     v9 = v29;
     v30 = 0x140000000uLL;
     v31 = v29 + 12LL * (v33 / 0xC);
@@ -79,12 +79,12 @@ void __fastcall KiLockExtendedServiceTable(__int64 a1, __int64 a2, __int64 a3, i
       v13 = (_QWORD *)(0x140000000LL + v11);
       if ( v6 )
       {
-        v14 = RtlSectionTableFromVirtualAddress((unsigned __int64)v5, 0x140000000LL, v11);
+        v14 = RtlSectionTableFromVirtualAddress(v5, (PVOID)0x140000000LL, v11);
         v9 = v29;
-        if ( (_DWORD *)v14 == v6 )
+        if ( v14 == v6 )
           continue;
       }
-      v15 = (unsigned __int64)&qword_140E0F340 & 0x3F;
+      v15 = (unsigned __int64)&qword_140E0F3C0 & 0x3F;
       v16 = (unsigned __int64)v13 + v12;
       v17 = v13;
       v18 = (const char *)v13;
@@ -136,6 +136,6 @@ void __fastcall KiLockExtendedServiceTable(__int64 a1, __int64 a2, __int64 a3, i
       }
       v4 = v19;
     }
-    qword_140E0F340 = v4;
+    qword_140E0F3C0 = v4;
   }
 }

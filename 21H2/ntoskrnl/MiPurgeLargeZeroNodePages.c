@@ -1,11 +1,11 @@
 /*
- * XREFs of MiPurgeLargeZeroNodePages @ 0x140384AC8
+ * XREFs of MiPurgeLargeZeroNodePages @ 0x140384C18
  * Callers:
- *     MiPurgeZeroList @ 0x14038494C (MiPurgeZeroList.c)
+ *     MiPurgeZeroList @ 0x140384A9C (MiPurgeZeroList.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     KxAcquireQueuedSpinLock @ 0x140350970 (KxAcquireQueuedSpinLock.c)
- *     MiMoveLargeZeroToFree @ 0x140384E4C (MiMoveLargeZeroToFree.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402042B0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KxAcquireQueuedSpinLock @ 0x14035B6C0 (KxAcquireQueuedSpinLock.c)
+ *     MiMoveLargeZeroToFree @ 0x140384F9C (MiMoveLargeZeroToFree.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
@@ -69,9 +69,9 @@ __int64 __fastcall MiPurgeLargeZeroNodePages(__int64 a1)
       KxAcquireQueuedSpinLock((__int64)&LockHandle, (volatile __int64 *)v3);
       v6 = 0;
       v29 = v1;
-      v7 = dword_140C4DF80;
+      v7 = dword_140C4DFC0;
       v34 = 0;
-      v28 = dword_140C4DF80;
+      v28 = dword_140C4DFC0;
       v8 = v1;
       do
       {

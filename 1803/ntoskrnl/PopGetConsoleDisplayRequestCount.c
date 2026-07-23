@@ -18,7 +18,7 @@ __int64 PopGetConsoleDisplayRequestCount()
   _QWORD v4[6]; // [rsp+20h] [rbp-30h] BYREF
   unsigned int v5; // [rsp+60h] [rbp+10h] BYREF
   int v6; // [rsp+68h] [rbp+18h] BYREF
-  unsigned int ActiveConsoleId; // [rsp+70h] [rbp+20h] BYREF
+  ULONG ActiveConsoleId; // [rsp+70h] [rbp+20h] BYREF
 
   v0 = 0;
   v5 = 0;
@@ -42,7 +42,7 @@ __int64 PopGetConsoleDisplayRequestCount()
       LODWORD(v4[3]) = 4;
       v4[4] = &v5;
       LODWORD(v4[0]) = 2;
-      v1 = ((__int64 (__fastcall *)(__int64, _QWORD *, __int64, unsigned int *))PopInvokeWin32Callout)(
+      v1 = ((__int64 (__fastcall *)(__int64, _QWORD *, __int64, ULONG *))PopInvokeWin32Callout)(
              5LL,
              v4,
              1LL,

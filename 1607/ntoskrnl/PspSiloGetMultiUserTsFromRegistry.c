@@ -1,10 +1,10 @@
 /*
- * XREFs of PspSiloGetMultiUserTsFromRegistry @ 0x14067EC48
+ * XREFs of PspSiloGetMultiUserTsFromRegistry @ 0x14067ED2C
  * Callers:
- *     PspSiloInitializeSuiteMask @ 0x14067ED58 (PspSiloInitializeSuiteMask.c)
+ *     PspSiloInitializeSuiteMask @ 0x14067EE3C (PspSiloInitializeSuiteMask.c)
  * Callees:
- *     memset @ 0x1401715C0 (memset.c)
- *     RtlpQueryRegistryValues @ 0x1404F8018 (RtlpQueryRegistryValues.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     RtlpQueryRegistryValues @ 0x1404DAFA4 (RtlpQueryRegistryValues.c)
  */
 
 __int64 __fastcall PspSiloGetMultiUserTsFromRegistry(_BYTE *a1)

@@ -1,10 +1,10 @@
 /*
- * XREFs of VfPtMmAllocatePagesForMdl_Exit @ 0x140B8C420
+ * XREFs of VfPtMmAllocatePagesForMdl_Exit @ 0x140B8E420
  * Callers:
  *     <none>
  * Callees:
- *     VfPtMiscPoolNotification @ 0x140400260 (VfPtMiscPoolNotification.c)
- *     VfIsKernelVerificationOn @ 0x1404FB110 (VfIsKernelVerificationOn.c)
+ *     VfPtMiscPoolNotification @ 0x1403FA750 (VfPtMiscPoolNotification.c)
+ *     VfIsKernelVerificationOn @ 0x1404F89F0 (VfIsKernelVerificationOn.c)
  */
 
 char __fastcall VfPtMmAllocatePagesForMdl_Exit(__int64 a1)

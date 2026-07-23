@@ -1,15 +1,15 @@
 /*
- * XREFs of PoCopyDeepIdleMask @ 0x1403EDFE0
+ * XREFs of PoCopyDeepIdleMask @ 0x140452B10
  * Callers:
- *     PpmCheckContinueExecution @ 0x1402533F8 (PpmCheckContinueExecution.c)
- *     PpmIdleSelectStates @ 0x1403EA21C (PpmIdleSelectStates.c)
- *     KiForwardTick @ 0x1403ED6F0 (KiForwardTick.c)
- *     KiGetDeepIdleProcessors @ 0x1403EDF4C (KiGetDeepIdleProcessors.c)
- *     PpmPostProcessMediaBuffering @ 0x140946160 (PpmPostProcessMediaBuffering.c)
- *     RtlUpdateSwapReference @ 0x140ABFBBC (RtlUpdateSwapReference.c)
+ *     PpmCheckContinueExecution @ 0x140254D58 (PpmCheckContinueExecution.c)
+ *     PpmIdleSelectStates @ 0x1402F70FC (PpmIdleSelectStates.c)
+ *     KiForwardTick @ 0x140452220 (KiForwardTick.c)
+ *     KiGetDeepIdleProcessors @ 0x140452A7C (KiGetDeepIdleProcessors.c)
+ *     PpmPostProcessMediaBuffering @ 0x1409C1AD0 (PpmPostProcessMediaBuffering.c)
+ *     RtlUpdateSwapReference @ 0x140AC1C5C (RtlUpdateSwapReference.c)
  * Callees:
- *     KeEnumerateNextNodeInSystem @ 0x1403EE250 (KeEnumerateNextNodeInSystem.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     KeEnumerateNextNodeInSystem @ 0x140452D80 (KeEnumerateNextNodeInSystem.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 void __fastcall PoCopyDeepIdleMask(unsigned __int16 *a1)

@@ -1,13 +1,13 @@
 /*
- * XREFs of MiUnlockProbePacketWorkingSet @ 0x14009A79C
+ * XREFs of MiUnlockProbePacketWorkingSet @ 0x140099F9C
  * Callers:
- *     MiProbeLeafFrame @ 0x14002FDC0 (MiProbeLeafFrame.c)
- *     MiProbeAndLockComplete @ 0x14009A754 (MiProbeAndLockComplete.c)
- *     MmStoreProbeAndLockPages @ 0x140122370 (MmStoreProbeAndLockPages.c)
- *     MiSplitReducedCommitClonePage @ 0x1401E2F58 (MiSplitReducedCommitClonePage.c)
+ *     MiProbeLeafFrame @ 0x14002F940 (MiProbeLeafFrame.c)
+ *     MiProbeAndLockComplete @ 0x140099F54 (MiProbeAndLockComplete.c)
+ *     MmStoreProbeAndLockPages @ 0x1401228E0 (MmStoreProbeAndLockPages.c)
+ *     MiSplitReducedCommitClonePage @ 0x1401E2D84 (MiSplitReducedCommitClonePage.c)
  * Callees:
- *     MiGetSharedVm @ 0x14002EA30 (MiGetSharedVm.c)
- *     ExReleaseSpinLockShared @ 0x1400EA240 (ExReleaseSpinLockShared.c)
+ *     MiGetSharedVm @ 0x14002E5B0 (MiGetSharedVm.c)
+ *     ExReleaseSpinLockShared @ 0x1400E80B0 (ExReleaseSpinLockShared.c)
  */
 
 void __fastcall MiUnlockProbePacketWorkingSet(__int64 a1)

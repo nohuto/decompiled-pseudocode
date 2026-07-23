@@ -187,92 +187,91 @@
  *     LdrRemoveDllDirectory @ 0x18008C420 (LdrRemoveDllDirectory.c)
  *     RtlCompleteProcessCloning @ 0x18009BA70 (RtlCompleteProcessCloning.c)
  *     RtlPrepareForProcessCloning @ 0x18009BBB0 (RtlPrepareForProcessCloning.c)
- *     LdrQueryModuleServiceTags @ 0x1800CE1D0 (LdrQueryModuleServiceTags.c)
- *     LdrpCheckComponentOnDemandEtwEvent @ 0x1800CECD0 (LdrpCheckComponentOnDemandEtwEvent.c)
- *     LdrpInitializeProcess @ 0x1800D1EC0 (LdrpInitializeProcess.c)
- *     LdrpUnlockTlsDelayedReclaimTable @ 0x1800D53D4 (LdrpUnlockTlsDelayedReclaimTable.c)
- *     LdrForkMrdata @ 0x1800D5A90 (LdrForkMrdata.c)
- *     RtlCloneUserProcess @ 0x1800D64B0 (RtlCloneUserProcess.c)
- *     LdrUpdatePackageSearchPath @ 0x1800DEC90 (LdrUpdatePackageSearchPath.c)
- *     RtlpSignalSystemDirsModification @ 0x1800DF374 (RtlpSignalSystemDirsModification.c)
- *     ?RtlpFlsCloneComplete@@YAXPEAU_RTLP_FLS_CONTEXT@@K@Z @ 0x1800DF434 (-RtlpFlsCloneComplete@@YAXPEAU_RTLP_FLS_CONTEXT@@K@Z.c)
- *     ?RtlpFlsClonePrepare@@YAXPEAU_RTLP_FLS_CONTEXT@@@Z @ 0x1800DF4DC (-RtlpFlsClonePrepare@@YAXPEAU_RTLP_FLS_CONTEXT@@@Z.c)
- *     RtlGrowFunctionTable @ 0x1800E0BD0 (RtlGrowFunctionTable.c)
- *     RtlPinAtomInAtomTable @ 0x1800EB180 (RtlPinAtomInAtomTable.c)
- *     RtlResetMemoryBlockLookaside @ 0x1800EB2D0 (RtlResetMemoryBlockLookaside.c)
- *     RtlResetMemoryZone @ 0x1800EB330 (RtlResetMemoryZone.c)
- *     RtlDeleteBarrier @ 0x1800ED980 (RtlDeleteBarrier.c)
- *     RtlpUnlockHeapManagerForCloning @ 0x1800F4BC4 (RtlpUnlockHeapManagerForCloning.c)
- *     RtlDeregisterSecureMemoryCacheCallback @ 0x1800F7BB0 (RtlDeregisterSecureMemoryCacheCallback.c)
- *     RtlRegisterSecureMemoryCacheCallback @ 0x1800F7CE0 (RtlRegisterSecureMemoryCacheCallback.c)
- *     RtlpCallSecureMemoryCallbacks @ 0x1800F7D94 (RtlpCallSecureMemoryCallbacks.c)
- *     RtlpHeapTrkDereferenceStack @ 0x1800FE00C (RtlpHeapTrkDereferenceStack.c)
- *     RtlpHeapTrkDumpOutstandingAllocs @ 0x1800FE0A8 (RtlpHeapTrkDumpOutstandingAllocs.c)
- *     RtlpHeapTrkDumpStacks @ 0x1800FE218 (RtlpHeapTrkDumpStacks.c)
- *     RtlpHeapTrkFindStack @ 0x1800FE36C (RtlpHeapTrkFindStack.c)
- *     RtlpHeapTrkTrackAdd @ 0x1800FEA4C (RtlpHeapTrkTrackAdd.c)
- *     RtlpHeapTrkTrackRemove @ 0x1800FEB28 (RtlpHeapTrkTrackRemove.c)
- *     RtlpHeapTrkTrackRemoveHeap @ 0x1800FEC14 (RtlpHeapTrkTrackRemoveHeap.c)
- *     RtlpHeapTrkTrackStack @ 0x1800FED54 (RtlpHeapTrkTrackStack.c)
- *     RtlpStdLockRelease @ 0x1801019C8 (RtlpStdLockRelease.c)
- *     RtlpFcChangeRegistrationCallback @ 0x180101E30 (RtlpFcChangeRegistrationCallback.c)
- *     RtlpHpStackTraceAllocAdd @ 0x180108AE8 (RtlpHpStackTraceAllocAdd.c)
- *     RtlpHpStackTraceAllocRemove @ 0x180108E9C (RtlpHpStackTraceAllocRemove.c)
- *     RtlpHpStackTraceDisable @ 0x180109074 (RtlpHpStackTraceDisable.c)
- *     RtlpHpStackTraceEnable @ 0x1801090C8 (RtlpHpStackTraceEnable.c)
- *     RtlpIsLFHZoneAllocation @ 0x18010BAF0 (RtlpIsLFHZoneAllocation.c)
- *     RtlpHpLfhOwnerListLockUnlock @ 0x18010E290 (RtlpHpLfhOwnerListLockUnlock.c)
- *     RtlpHpLfhOwnerLockUnlock @ 0x18010E304 (RtlpHpLfhOwnerLockUnlock.c)
- *     RtlpHpUnlockHeapForCloning @ 0x18010E680 (RtlpHpUnlockHeapForCloning.c)
- *     RtlpHpLargeReAlloc @ 0x18010E97C (RtlpHpLargeReAlloc.c)
- *     RtlpHpSegMgrCommitComplete @ 0x18010F054 (RtlpHpSegMgrCommitComplete.c)
- *     RtlpHpSegMgrCommitInitiate @ 0x18010F0F4 (RtlpHpSegMgrCommitInitiate.c)
- *     RtlpHpSegMgrVaCtxFree @ 0x18010F264 (RtlpHpSegMgrVaCtxFree.c)
- *     RtlpHpSegMgrVaCtxInsert @ 0x18010F3E4 (RtlpHpSegMgrVaCtxInsert.c)
- *     RtlpHpVsChunkDecommit @ 0x18010F994 (RtlpHpVsChunkDecommit.c)
- *     RtlpHpVsContextFreeInternal @ 0x18010FC48 (RtlpHpVsContextFreeInternal.c)
- *     RtlpHpVsContextFreeList @ 0x18010FDF0 (RtlpHpVsContextFreeList.c)
- *     TpSetDefaultPoolCpuSets @ 0x180111D58 (TpSetDefaultPoolCpuSets.c)
- *     TpSetDefaultPoolMaxThreads @ 0x180111DB0 (TpSetDefaultPoolMaxThreads.c)
- *     TpSetPoolThreadCpuSets @ 0x180111F00 (TpSetPoolThreadCpuSets.c)
- *     TppDirectUnposted @ 0x180112060 (TppDirectUnposted.c)
- *     RtlSetIoCompletionCallback @ 0x180112FC0 (RtlSetIoCompletionCallback.c)
- *     RtlpTpIoDllLoaded @ 0x18011345C (RtlpTpIoDllLoaded.c)
- *     RtlpTpIoDllUnloaded @ 0x18011366C (RtlpTpIoDllUnloaded.c)
- *     RtlpTpIoLookup @ 0x180113704 (RtlpTpIoLookup.c)
- *     RtlStackDbContextSerialize @ 0x180118764 (RtlStackDbContextSerialize.c)
- *     RtlStackDbStackAdd @ 0x180118AB0 (RtlStackDbStackAdd.c)
- *     RtlStackDbStackRemove @ 0x180119088 (RtlStackDbStackRemove.c)
- *     RtlpStackDbSegmentFindOrCreate @ 0x1801194DC (RtlpStackDbSegmentFindOrCreate.c)
- *     RtlpStackDbSegmentRemoveRef @ 0x180119AE8 (RtlpStackDbSegmentRemoveRef.c)
+ *     LdrQueryModuleServiceTags @ 0x1800CE190 (LdrQueryModuleServiceTags.c)
+ *     LdrpCheckComponentOnDemandEtwEvent @ 0x1800CEC90 (LdrpCheckComponentOnDemandEtwEvent.c)
+ *     LdrpInitializeProcess @ 0x1800D1E80 (LdrpInitializeProcess.c)
+ *     LdrpUnlockTlsDelayedReclaimTable @ 0x1800D5394 (LdrpUnlockTlsDelayedReclaimTable.c)
+ *     LdrForkMrdata @ 0x1800D5A50 (LdrForkMrdata.c)
+ *     RtlCloneUserProcess @ 0x1800D6470 (RtlCloneUserProcess.c)
+ *     LdrUpdatePackageSearchPath @ 0x1800DEC50 (LdrUpdatePackageSearchPath.c)
+ *     RtlpSignalSystemDirsModification @ 0x1800DF334 (RtlpSignalSystemDirsModification.c)
+ *     ?RtlpFlsCloneComplete@@YAXPEAU_RTLP_FLS_CONTEXT@@K@Z @ 0x1800DF3F4 (-RtlpFlsCloneComplete@@YAXPEAU_RTLP_FLS_CONTEXT@@K@Z.c)
+ *     ?RtlpFlsClonePrepare@@YAXPEAU_RTLP_FLS_CONTEXT@@@Z @ 0x1800DF49C (-RtlpFlsClonePrepare@@YAXPEAU_RTLP_FLS_CONTEXT@@@Z.c)
+ *     RtlGrowFunctionTable @ 0x1800E0B90 (RtlGrowFunctionTable.c)
+ *     RtlPinAtomInAtomTable @ 0x1800EB140 (RtlPinAtomInAtomTable.c)
+ *     RtlResetMemoryBlockLookaside @ 0x1800EB290 (RtlResetMemoryBlockLookaside.c)
+ *     RtlResetMemoryZone @ 0x1800EB2F0 (RtlResetMemoryZone.c)
+ *     RtlDeleteBarrier @ 0x1800ED940 (RtlDeleteBarrier.c)
+ *     RtlpUnlockHeapManagerForCloning @ 0x1800F4B84 (RtlpUnlockHeapManagerForCloning.c)
+ *     RtlDeregisterSecureMemoryCacheCallback @ 0x1800F7B70 (RtlDeregisterSecureMemoryCacheCallback.c)
+ *     RtlRegisterSecureMemoryCacheCallback @ 0x1800F7CA0 (RtlRegisterSecureMemoryCacheCallback.c)
+ *     RtlpCallSecureMemoryCallbacks @ 0x1800F7D54 (RtlpCallSecureMemoryCallbacks.c)
+ *     RtlpHeapTrkDereferenceStack @ 0x1800FDFCC (RtlpHeapTrkDereferenceStack.c)
+ *     RtlpHeapTrkDumpOutstandingAllocs @ 0x1800FE068 (RtlpHeapTrkDumpOutstandingAllocs.c)
+ *     RtlpHeapTrkDumpStacks @ 0x1800FE1D8 (RtlpHeapTrkDumpStacks.c)
+ *     RtlpHeapTrkFindStack @ 0x1800FE32C (RtlpHeapTrkFindStack.c)
+ *     RtlpHeapTrkTrackAdd @ 0x1800FEA0C (RtlpHeapTrkTrackAdd.c)
+ *     RtlpHeapTrkTrackRemove @ 0x1800FEAE8 (RtlpHeapTrkTrackRemove.c)
+ *     RtlpHeapTrkTrackRemoveHeap @ 0x1800FEBD4 (RtlpHeapTrkTrackRemoveHeap.c)
+ *     RtlpHeapTrkTrackStack @ 0x1800FED14 (RtlpHeapTrkTrackStack.c)
+ *     RtlpStdLockRelease @ 0x180101988 (RtlpStdLockRelease.c)
+ *     RtlpFcChangeRegistrationCallback @ 0x180101DF0 (RtlpFcChangeRegistrationCallback.c)
+ *     RtlpHpStackTraceAllocAdd @ 0x180108AA8 (RtlpHpStackTraceAllocAdd.c)
+ *     RtlpHpStackTraceAllocRemove @ 0x180108E5C (RtlpHpStackTraceAllocRemove.c)
+ *     RtlpHpStackTraceDisable @ 0x180109034 (RtlpHpStackTraceDisable.c)
+ *     RtlpHpStackTraceEnable @ 0x180109088 (RtlpHpStackTraceEnable.c)
+ *     RtlpIsLFHZoneAllocation @ 0x18010BAB0 (RtlpIsLFHZoneAllocation.c)
+ *     RtlpHpLfhOwnerListLockUnlock @ 0x18010E250 (RtlpHpLfhOwnerListLockUnlock.c)
+ *     RtlpHpLfhOwnerLockUnlock @ 0x18010E2C4 (RtlpHpLfhOwnerLockUnlock.c)
+ *     RtlpHpUnlockHeapForCloning @ 0x18010E640 (RtlpHpUnlockHeapForCloning.c)
+ *     RtlpHpLargeReAlloc @ 0x18010E93C (RtlpHpLargeReAlloc.c)
+ *     RtlpHpSegMgrCommitComplete @ 0x18010F014 (RtlpHpSegMgrCommitComplete.c)
+ *     RtlpHpSegMgrCommitInitiate @ 0x18010F0B4 (RtlpHpSegMgrCommitInitiate.c)
+ *     RtlpHpSegMgrVaCtxFree @ 0x18010F224 (RtlpHpSegMgrVaCtxFree.c)
+ *     RtlpHpSegMgrVaCtxInsert @ 0x18010F3A4 (RtlpHpSegMgrVaCtxInsert.c)
+ *     RtlpHpVsChunkDecommit @ 0x18010F954 (RtlpHpVsChunkDecommit.c)
+ *     RtlpHpVsContextFreeInternal @ 0x18010FC08 (RtlpHpVsContextFreeInternal.c)
+ *     RtlpHpVsContextFreeList @ 0x18010FDB0 (RtlpHpVsContextFreeList.c)
+ *     TpSetDefaultPoolCpuSets @ 0x180111D18 (TpSetDefaultPoolCpuSets.c)
+ *     TpSetDefaultPoolMaxThreads @ 0x180111D70 (TpSetDefaultPoolMaxThreads.c)
+ *     TpSetPoolThreadCpuSets @ 0x180111EC0 (TpSetPoolThreadCpuSets.c)
+ *     TppDirectUnposted @ 0x180112020 (TppDirectUnposted.c)
+ *     RtlSetIoCompletionCallback @ 0x180112F80 (RtlSetIoCompletionCallback.c)
+ *     RtlpTpIoDllLoaded @ 0x18011341C (RtlpTpIoDllLoaded.c)
+ *     RtlpTpIoDllUnloaded @ 0x18011362C (RtlpTpIoDllUnloaded.c)
+ *     RtlpTpIoLookup @ 0x1801136C4 (RtlpTpIoLookup.c)
+ *     RtlStackDbContextSerialize @ 0x180118704 (RtlStackDbContextSerialize.c)
+ *     RtlStackDbStackAdd @ 0x180118A50 (RtlStackDbStackAdd.c)
+ *     RtlStackDbStackRemove @ 0x180119028 (RtlStackDbStackRemove.c)
+ *     RtlpStackDbSegmentFindOrCreate @ 0x18011947C (RtlpStackDbSegmentFindOrCreate.c)
+ *     RtlpStackDbSegmentRemoveRef @ 0x180119A88 (RtlpStackDbSegmentRemoveRef.c)
  * Callees:
  *     <none>
  */
 
-signed __int64 __fastcall RtlReleaseSRWLockExclusive(volatile signed __int64 *a1)
+void __cdecl RtlReleaseSRWLockExclusive(PRTL_SRWLOCK SRWLock)
 {
-  signed __int64 result; // rax
+  signed __int64 v1; // rax
   signed __int64 v2; // r8
   __int64 v3; // rdx
   signed __int64 v4; // rdx
   signed __int64 v5; // rtt
 
-  result = _InterlockedCompareExchange64(a1, 0LL, 1LL);
-  if ( result != 1 )
+  v1 = _InterlockedCompareExchange64((volatile signed __int64 *)SRWLock, 0LL, 1LL);
+  if ( v1 != 1 )
   {
     do
     {
-      v2 = result & 6;
+      v2 = v1 & 6;
       v3 = 3LL;
       if ( v2 != 2 )
         v3 = -1LL;
-      v4 = result + v3;
-      v5 = result;
-      result = _InterlockedCompareExchange64(a1, v4, result);
+      v4 = v1 + v3;
+      v5 = v1;
+      v1 = _InterlockedCompareExchange64((volatile signed __int64 *)SRWLock, v4, v1);
     }
-    while ( v5 != result );
+    while ( v5 != v1 );
     if ( v2 == 2 )
-      return RtlpWakeSRWLock(a1, v4, 0LL);
+      RtlpWakeSRWLock(SRWLock, v4, 0LL);
   }
-  return result;
 }

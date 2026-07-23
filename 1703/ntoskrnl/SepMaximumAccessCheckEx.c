@@ -120,7 +120,7 @@ __int64 __fastcall SepMaximumAccessCheckEx(
           {
             if ( a9
               && SepSidInTokenSidHash(
-                   (v15 != 0 ? 0x110 : 0) + a1 + 232,
+                   (PSID_AND_ATTRIBUTES_HASH)((v15 != 0 ? 0x110 : 0) + a1 + 232),
                    0LL,
                    &v22[8 * (v33 & 2) + (v34 != 0 ? 28LL : 12LL)],
                    0,
@@ -132,7 +132,7 @@ __int64 __fastcall SepMaximumAccessCheckEx(
             }
           }
           else if ( SepSidInTokenSidHash(
-                      a1 + (v15 != 0 ? 504LL : 232LL),
+                      (PSID_AND_ATTRIBUTES_HASH)(a1 + (v15 != 0 ? 504LL : 232LL)),
                       0LL,
                       &v22[8 * (v33 & 2) + (v34 != 0 ? 28LL : 12LL)],
                       0,
@@ -146,21 +146,29 @@ __int64 __fastcall SepMaximumAccessCheckEx(
         if ( v24 == 4 )
         {
           if ( SepSidInTokenSidHash(
-                 a1 + (v15 != 0 ? 504LL : 232LL),
+                 (PSID_AND_ATTRIBUTES_HASH)(a1 + (v15 != 0 ? 504LL : 232LL)),
                  0LL,
                  &v22[4 * (unsigned __int8)v22[13] + 20],
                  0,
                  v15,
                  a12) )
           {
-            v26 = SepSidInTokenSidHash(a2 + 232, 0LL, v22 + 12, 0, 0, a12);
+            v26 = SepSidInTokenSidHash((PSID_AND_ATTRIBUTES_HASH)(a2 + 232), 0LL, v22 + 12, 0, 0, a12);
             goto LABEL_10;
           }
         }
         else if ( v24 == 1 )
         {
-          if ( SepSidInTokenSidHash(a1 + (v15 != 0 ? 504LL : 232LL), 0LL, v22 + 8, 1, v15, a12) )
+          if ( SepSidInTokenSidHash(
+                 (PSID_AND_ATTRIBUTES_HASH)(a1 + (v15 != 0 ? 504LL : 232LL)),
+                 0LL,
+                 v22 + 8,
+                 1,
+                 v15,
+                 a12) )
+          {
             goto LABEL_37;
+          }
         }
         else
         {
@@ -215,7 +223,7 @@ LABEL_67:
                   else
 LABEL_8:
                     v25 = 232LL;
-                  v26 = SepSidInTokenSidHash(v25 + a1, 0LL, v22 + 8, 0, v15, a12);
+                  v26 = SepSidInTokenSidHash((PSID_AND_ATTRIBUTES_HASH)(v25 + a1), 0LL, v22 + 8, 0, v15, a12);
                   v21 = a11;
 LABEL_10:
                   if ( v26 )
@@ -295,7 +303,13 @@ LABEL_10:
                   v15,
                   &a6);
                 if ( ((a6 + 1) & 0xFFFFFFFD) == 0
-                  && SepSidInTokenSidHash(a1 + (v15 != 0 ? 504LL : 232LL), 0LL, v22 + 8, 1, v15, a12) )
+                  && SepSidInTokenSidHash(
+                       (PSID_AND_ATTRIBUTES_HASH)(a1 + (v15 != 0 ? 504LL : 232LL)),
+                       0LL,
+                       v22 + 8,
+                       1,
+                       v15,
+                       a12) )
                 {
                   AuthzBasepAddAccessTypeList(v17, (unsigned int)v19, 0, v21, *((_DWORD *)v22 + 1), 2);
                 }
@@ -306,7 +320,7 @@ LABEL_90:
             goto LABEL_12;
           }
           if ( SepSidInTokenSidHash(
-                 a1 + (v15 != 0 ? 504LL : 232LL),
+                 (PSID_AND_ATTRIBUTES_HASH)(a1 + (v15 != 0 ? 504LL : 232LL)),
                  0LL,
                  &v22[8 * (*((_DWORD *)v22 + 2) & 2) + ((*((_DWORD *)v22 + 2) & 1) != 0 ? 28LL : 12LL)],
                  1,

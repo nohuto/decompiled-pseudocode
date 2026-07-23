@@ -1,10 +1,10 @@
 /*
- * XREFs of EtwpProcessNotification @ 0x180054298
+ * XREFs of EtwpProcessNotification @ 0x180054288
  * Callers:
- *     EtwDeliverDataBlock @ 0x180054010 (EtwDeliverDataBlock.c)
+ *     EtwDeliverDataBlock @ 0x180054000 (EtwDeliverDataBlock.c)
  * Callees:
- *     EtwpUpdateEnableInfoAndCallback @ 0x18002A95C (EtwpUpdateEnableInfoAndCallback.c)
- *     EtwProcessPrivateLoggerRequest @ 0x180053820 (EtwProcessPrivateLoggerRequest.c)
+ *     EtwpUpdateEnableInfoAndCallback @ 0x18002A94C (EtwpUpdateEnableInfoAndCallback.c)
+ *     EtwProcessPrivateLoggerRequest @ 0x180053810 (EtwProcessPrivateLoggerRequest.c)
  *     _guard_dispatch_icall_nop @ 0x1800A9C80 (_guard_dispatch_icall_nop.c)
  */
 

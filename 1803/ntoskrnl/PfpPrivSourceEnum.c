@@ -159,7 +159,7 @@ LABEL_20:
         memset(v36, 0, sizeof(v36));
         LODWORD(v36[0]) = 0;
         RtlStringCbCopyA((NTSTRSAFE_PSTR)&v36[6] + 4, 0x10uLL, "KernelSpace");
-        v9 = ZwQuerySystemInformation(MaxSystemInfoClass|SystemFileCacheInformation, SystemInformation, 0x40u, 0LL);
+        v9 = ZwQuerySystemInformation(SystemPagedPoolInformationEx, SystemInformation, 0x40u, 0LL);
         if ( v9 < 0 )
           goto LABEL_7;
         v9 = MmQuerySystemMemoryInformation(&v45);

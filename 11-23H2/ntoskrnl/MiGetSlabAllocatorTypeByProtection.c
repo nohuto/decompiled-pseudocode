@@ -1,8 +1,8 @@
 /*
- * XREFs of MiGetSlabAllocatorTypeByProtection @ 0x14046D60E
+ * XREFs of MiGetSlabAllocatorTypeByProtection @ 0x14046DA0E
  * Callers:
- *     MiUseProtectedSlabAllocatorForDriverPage @ 0x1402923A4 (MiUseProtectedSlabAllocatorForDriverPage.c)
- *     MiUseSlabAllocator @ 0x1402DEAC0 (MiUseSlabAllocator.c)
+ *     MiUseProtectedSlabAllocatorForDriverPage @ 0x140292634 (MiUseProtectedSlabAllocatorForDriverPage.c)
+ *     MiUseSlabAllocator @ 0x1402DED50 (MiUseSlabAllocator.c)
  * Callees:
  *     <none>
  */

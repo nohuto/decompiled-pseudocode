@@ -1,11 +1,11 @@
 /*
- * XREFs of IopVerifierExAllocatePool_1 @ 0x1400DDA10
+ * XREFs of IopVerifierExAllocatePool_1 @ 0x1400DDA90
  * Callers:
- *     NtQueryVolumeInformationFile @ 0x14065E460 (NtQueryVolumeInformationFile.c)
- *     NtSetVolumeInformationFile @ 0x1406FF270 (NtSetVolumeInformationFile.c)
+ *     NtQueryVolumeInformationFile @ 0x14065F620 (NtQueryVolumeInformationFile.c)
+ *     NtSetVolumeInformationFile @ 0x140700510 (NtSetVolumeInformationFile.c)
  * Callees:
- *     ExAllocatePoolWithTagPriority @ 0x1400FD830 (ExAllocatePoolWithTagPriority.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
+ *     ExAllocatePoolWithTagPriority @ 0x1400FD8B0 (ExAllocatePoolWithTagPriority.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
  */
 
 PVOID IopVerifierExAllocatePool_1()

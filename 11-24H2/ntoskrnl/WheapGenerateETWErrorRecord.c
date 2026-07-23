@@ -1,10 +1,10 @@
 /*
- * XREFs of WheapGenerateETWErrorRecord @ 0x14047829C
+ * XREFs of WheapGenerateETWErrorRecord @ 0x14047489C
  * Callers:
- *     WheapGenerateETWEvents @ 0x1404780BC (WheapGenerateETWEvents.c)
+ *     WheapGenerateETWEvents @ 0x1404746BC (WheapGenerateETWEvents.c)
  * Callees:
- *     EtwWriteEx @ 0x140259680 (EtwWriteEx.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     EtwWriteEx @ 0x140289C90 (EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall WheapGenerateETWErrorRecord(__int64 a1)
@@ -21,5 +21,5 @@ NTSTATUS __fastcall WheapGenerateETWErrorRecord(__int64 a1)
   *(_QWORD *)&v3.Size = 4LL;
   v5 = v1;
   v6 = 0;
-  return EtwWriteEx(WheapEtwHandle, &EVENT_WHEA_ERROR, 0LL, 0, 0LL, 0LL, 2u, &v3);
+  return EtwWriteEx((REGHANDLE)WheapDispatchPtr.Dpc.DpcData, &EVENT_WHEA_ERROR, 0LL, 0, 0LL, 0LL, 2u, &v3);
 }

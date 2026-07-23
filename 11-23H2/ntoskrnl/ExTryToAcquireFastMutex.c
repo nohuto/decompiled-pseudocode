@@ -1,16 +1,16 @@
 /*
- * XREFs of ExTryToAcquireFastMutex @ 0x14033DCE0
+ * XREFs of ExTryToAcquireFastMutex @ 0x14033DF70
  * Callers:
- *     KeTryToAcquireGuardedMutex @ 0x14033DCC0 (KeTryToAcquireGuardedMutex.c)
- *     FsRtlTryToAcquireHeaderMutex @ 0x14053C850 (FsRtlTryToAcquireHeaderMutex.c)
- *     DifExTryToAcquireFastMutexWrapper @ 0x1405D9F20 (DifExTryToAcquireFastMutexWrapper.c)
- *     DifKeTryToAcquireGuardedMutexWrapper @ 0x1405E5E60 (DifKeTryToAcquireGuardedMutexWrapper.c)
- *     RawScanDeletedList @ 0x14079169C (RawScanDeletedList.c)
+ *     KeTryToAcquireGuardedMutex @ 0x14033DF50 (KeTryToAcquireGuardedMutex.c)
+ *     FsRtlTryToAcquireHeaderMutex @ 0x14053CDA0 (FsRtlTryToAcquireHeaderMutex.c)
+ *     DifExTryToAcquireFastMutexWrapper @ 0x1405DA490 (DifExTryToAcquireFastMutexWrapper.c)
+ *     DifKeTryToAcquireGuardedMutexWrapper @ 0x1405E63D0 (DifKeTryToAcquireGuardedMutexWrapper.c)
+ *     RawScanDeletedList @ 0x14079188C (RawScanDeletedList.c)
  *     CreateMiniNtBootKey @ 0x140B90794 (CreateMiniNtBootKey.c)
  * Callees:
- *     KeAbPreAcquire @ 0x140230EE0 (KeAbPreAcquire.c)
- *     KeAbPostReleaseEx @ 0x1402BD4F0 (KeAbPostReleaseEx.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeAbPreAcquire @ 0x140230FD0 (KeAbPreAcquire.c)
+ *     KeAbPostReleaseEx @ 0x1402BD780 (KeAbPostReleaseEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 BOOLEAN __stdcall ExTryToAcquireFastMutex(PFAST_MUTEX FastMutex)
@@ -39,10 +39,10 @@ BOOLEAN __stdcall ExTryToAcquireFastMutex(PFAST_MUTEX FastMutex)
   }
   else
   {
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v6 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v6 <= 0xFu && CurrentIrql <= 0xFu && v6 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v6 <= 0xFu && CurrentIrql <= 0xFu && v6 >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;

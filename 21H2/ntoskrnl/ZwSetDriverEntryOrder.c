@@ -1,14 +1,14 @@
 /*
- * XREFs of ZwSetDriverEntryOrder @ 0x1403FD5E0
+ * XREFs of ZwSetDriverEntryOrder @ 0x1403FD7C0
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwSetDriverEntryOrder(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwSetDriverEntryOrder(PULONG Ids, ULONG Count)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(Ids);
 }

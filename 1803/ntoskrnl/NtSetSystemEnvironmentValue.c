@@ -28,9 +28,9 @@ NTSTATUS __stdcall NtSetSystemEnvironmentValue(PUNICODE_STRING VariableName, PUN
   int v12; // ebx
   struct _KTHREAD *CurrentThread; // rax
   int v14; // ebx
-  STRING DestinationString; // [rsp+28h] [rbp-60h] BYREF
+  _STRING DestinationString; // [rsp+28h] [rbp-60h] BYREF
   int v16; // [rsp+38h] [rbp-50h]
-  STRING v17; // [rsp+40h] [rbp-48h] BYREF
+  _STRING v17; // [rsp+40h] [rbp-48h] BYREF
   UNICODE_STRING UnicodeString; // [rsp+50h] [rbp-38h] BYREF
   UNICODE_STRING SourceString; // [rsp+60h] [rbp-28h] BYREF
   int v20; // [rsp+70h] [rbp-18h]

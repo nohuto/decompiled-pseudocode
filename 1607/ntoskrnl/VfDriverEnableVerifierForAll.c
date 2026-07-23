@@ -1,17 +1,17 @@
 /*
- * XREFs of VfDriverEnableVerifierForAll @ 0x140704C44
+ * XREFs of VfDriverEnableVerifierForAll @ 0x140704C74
  * Callers:
  *     VfAddVerifierEntry @ 0x140720E78 (VfAddVerifierEntry.c)
  * Callees:
- *     MmIsSessionAddress @ 0x140013C40 (MmIsSessionAddress.c)
- *     RtlImageNtHeaderEx @ 0x140014260 (RtlImageNtHeaderEx.c)
- *     KeReleaseMutex @ 0x140055FE0 (KeReleaseMutex.c)
- *     ExAcquireResourceSharedLite @ 0x1400685B0 (ExAcquireResourceSharedLite.c)
- *     ExReleaseResourceLite @ 0x140068940 (ExReleaseResourceLite.c)
+ *     MmIsSessionAddress @ 0x1400137C0 (MmIsSessionAddress.c)
+ *     RtlImageNtHeaderEx @ 0x140013DE0 (RtlImageNtHeaderEx.c)
+ *     KeReleaseMutex @ 0x140055B60 (KeReleaseMutex.c)
+ *     ExAcquireResourceSharedLite @ 0x140068130 (ExAcquireResourceSharedLite.c)
+ *     ExReleaseResourceLite @ 0x1400684C0 (ExReleaseResourceLite.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     VfDriverLock @ 0x1406FE42C (VfDriverLock.c)
- *     VfUtilIsProtectedDriver @ 0x140702E74 (VfUtilIsProtectedDriver.c)
- *     VfDriverEnableVerifier @ 0x140704AC8 (VfDriverEnableVerifier.c)
+ *     VfUtilIsProtectedDriver @ 0x140702EA4 (VfUtilIsProtectedDriver.c)
+ *     VfDriverEnableVerifier @ 0x140704AF8 (VfDriverEnableVerifier.c)
  *     VfSuspectDriversAllocateEntry @ 0x140715E70 (VfSuspectDriversAllocateEntry.c)
  */
 

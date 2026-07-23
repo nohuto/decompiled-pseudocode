@@ -1,11 +1,11 @@
 /*
- * XREFs of MiCompareTbFlushTimeStamp @ 0x1400A52AC
+ * XREFs of MiCompareTbFlushTimeStamp @ 0x1400A3824
  * Callers:
- *     MmMapViewInSystemCache @ 0x140018A20 (MmMapViewInSystemCache.c)
- *     MiObtainSystemCacheView @ 0x140019B70 (MiObtainSystemCacheView.c)
- *     MiAttachSession @ 0x1400A5234 (MiAttachSession.c)
+ *     MmMapViewInSystemCache @ 0x1400185A0 (MmMapViewInSystemCache.c)
+ *     MiObtainSystemCacheView @ 0x1400196F0 (MiObtainSystemCacheView.c)
+ *     MiAttachSession @ 0x1400A37AC (MiAttachSession.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x14002ECB0 (KeYieldProcessorEx.c)
+ *     KeYieldProcessorEx @ 0x14002E830 (KeYieldProcessorEx.c)
  */
 
 char __fastcall MiCompareTbFlushTimeStamp(int a1, int a2)

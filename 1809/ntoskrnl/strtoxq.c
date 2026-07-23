@@ -1,11 +1,11 @@
 /*
- * XREFs of strtoxq @ 0x140195528
+ * XREFs of strtoxq @ 0x140195668
  * Callers:
- *     _strtoi64 @ 0x140195750 (_strtoi64.c)
- *     _strtoui64 @ 0x140195780 (_strtoui64.c)
+ *     _strtoi64 @ 0x140195890 (_strtoi64.c)
+ *     _strtoui64 @ 0x1401958C0 (_strtoui64.c)
  * Callees:
- *     xHalTimerWatchdogStop @ 0x140176800 (xHalTimerWatchdogStop.c)
- *     __pctype_func @ 0x1401997FC (__pctype_func.c)
+ *     xHalTimerWatchdogStop @ 0x140176900 (xHalTimerWatchdogStop.c)
+ *     __pctype_func @ 0x14019993C (__pctype_func.c)
  */
 
 unsigned __int64 __fastcall strtoxq(__int64 a1, unsigned __int8 *a2, unsigned __int8 **a3, int a4, int a5)

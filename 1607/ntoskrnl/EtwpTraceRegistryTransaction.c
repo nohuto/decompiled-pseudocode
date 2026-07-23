@@ -1,9 +1,9 @@
 /*
- * XREFs of EtwpTraceRegistryTransaction @ 0x1406A2E6C
+ * XREFs of EtwpTraceRegistryTransaction @ 0x1406A2FA4
  * Callers:
  *     <none>
  * Callees:
- *     EtwpLogTxREvent @ 0x1406A277C (EtwpLogTxREvent.c)
+ *     EtwpLogTxREvent @ 0x1406A28B4 (EtwpLogTxREvent.c)
  */
 
 void __fastcall EtwpTraceRegistryTransaction(unsigned __int8 a1, __int64 a2, __int128 *a3, int a4, int a5, __int64 a6)

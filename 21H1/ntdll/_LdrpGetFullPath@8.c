@@ -23,9 +23,9 @@ int __fastcall LdrpGetFullPath(unsigned __int16 *a1, int a2)
   int var1; // [esp+1Fh] [ebp-1h] BYREF
 
   v10 = a1;
-  for ( i = RtlGetFullPathName_Ustr(a1, *(unsigned __int16 *)(a2 + 2), *(_WORD **)(a2 + 4), &v11, &var1, v9);
+  for ( i = RtlGetFullPathName_Ustr(a1, *(unsigned __int16 *)(a2 + 2), *(wchar_t **)(a2 + 4), &v11, &var1, v9);
         ;
-        i = RtlGetFullPathName_Ustr(v8, *(unsigned __int16 *)(a2 + 2), *(_WORD **)(a2 + 4), &v11, &var1, v9) )
+        i = RtlGetFullPathName_Ustr(v8, *(unsigned __int16 *)(a2 + 2), *(wchar_t **)(a2 + 4), &v11, &var1, v9) )
   {
     v4 = i;
     if ( (_BYTE)var1 )
@@ -39,13 +39,13 @@ int __fastcall LdrpGetFullPath(unsigned __int16 *a1, int a2)
       *(_WORD *)a2 = i;
       return 0;
     }
-    StringRoutine = (_WORD *)NtdllpAllocateStringRoutine(i);
+    StringRoutine = NtdllpAllocateStringRoutine(i);
     if ( !StringRoutine )
       return -1073741801;
     v7 = (_WORD *)(a2 + 8);
     if ( a2 + 8 != *(_DWORD *)(a2 + 4) )
     {
-      RtlDeleteBoundaryDescriptor(*(_DWORD *)(a2 + 4));
+      RtlDeleteBoundaryDescriptor(*(POBJECT_BOUNDARY_DESCRIPTOR *)(a2 + 4));
       v7 = (_WORD *)(a2 + 8);
     }
     *v7 = 0;

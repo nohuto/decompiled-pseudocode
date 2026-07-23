@@ -1,11 +1,11 @@
 /*
- * XREFs of PipDmgInitializeIommuExtension @ 0x140731D88
+ * XREFs of PipDmgInitializeIommuExtension @ 0x14072FD98
  * Callers:
- *     PiDmaGuardProcessNewDeviceNode @ 0x1409C455C (PiDmaGuardProcessNewDeviceNode.c)
+ *     PiDmaGuardProcessNewDeviceNode @ 0x140982310 (PiDmaGuardProcessNewDeviceNode.c)
  * Callees:
- *     IoAddTriageDumpDataBlock @ 0x1403F2880 (IoAddTriageDumpDataBlock.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     PiIommuAllocateExtension @ 0x140735DB4 (PiIommuAllocateExtension.c)
+ *     IoAddTriageDumpDataBlock @ 0x1403E65A0 (IoAddTriageDumpDataBlock.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     PiIommuAllocateExtension @ 0x140733CE4 (PiIommuAllocateExtension.c)
  */
 
 __int64 __fastcall PipDmgInitializeIommuExtension(ULONG_PTR BugCheckParameter2, __int64 a2)

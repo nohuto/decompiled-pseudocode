@@ -1,21 +1,21 @@
 /*
- * XREFs of CmpFileFlushAndPurge @ 0x140AAAF1C
+ * XREFs of CmpFileFlushAndPurge @ 0x140AA84FC
  * Callers:
- *     CmpFlushHive @ 0x1408B321C (CmpFlushHive.c)
- *     HvWriteLogFile @ 0x140AAA7F4 (HvWriteLogFile.c)
- *     HvWriteHivePrimaryFile @ 0x140AAAADC (HvWriteHivePrimaryFile.c)
- *     HvValidateOrInvalidatePrimaryFileHeader @ 0x140AAADE0 (HvValidateOrInvalidatePrimaryFileHeader.c)
- *     HvExtendHivePrimaryFileValidDataLength @ 0x140B5A5FC (HvExtendHivePrimaryFileValidDataLength.c)
+ *     CmpFlushHive @ 0x1408B97F0 (CmpFlushHive.c)
+ *     HvWriteLogFile @ 0x140AA7DD4 (HvWriteLogFile.c)
+ *     HvWriteHivePrimaryFile @ 0x140AA80BC (HvWriteHivePrimaryFile.c)
+ *     HvValidateOrInvalidatePrimaryFileHeader @ 0x140AA83C0 (HvValidateOrInvalidatePrimaryFileHeader.c)
+ *     HvExtendHivePrimaryFileValidDataLength @ 0x140B5D918 (HvExtendHivePrimaryFileValidDataLength.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     IofCallDriver @ 0x1402655A0 (IofCallDriver.c)
- *     IoFreeIrp @ 0x140268860 (IoFreeIrp.c)
- *     IoAllocateIrp @ 0x14026C4D0 (IoAllocateIrp.c)
- *     IoGetRelatedDeviceObject @ 0x14026CA30 (IoGetRelatedDeviceObject.c)
- *     KeWaitForSingleObject @ 0x140278560 (KeWaitForSingleObject.c)
- *     KeInitializeEvent @ 0x140466F30 (KeInitializeEvent.c)
- *     ObReferenceObjectByHandle @ 0x1408F9550 (ObReferenceObjectByHandle.c)
- *     CmpFileFlush @ 0x140AAB9C8 (CmpFileFlush.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     IofCallDriver @ 0x140264B10 (IofCallDriver.c)
+ *     IoFreeIrp @ 0x140267DD0 (IoFreeIrp.c)
+ *     IoAllocateIrp @ 0x14026BA40 (IoAllocateIrp.c)
+ *     IoGetRelatedDeviceObject @ 0x14026BFA0 (IoGetRelatedDeviceObject.c)
+ *     KeWaitForSingleObject @ 0x140277AD0 (KeWaitForSingleObject.c)
+ *     KeInitializeEvent @ 0x140460680 (KeInitializeEvent.c)
+ *     ObReferenceObjectByHandle @ 0x1409294E0 (ObReferenceObjectByHandle.c)
+ *     CmpFileFlush @ 0x140AA8F74 (CmpFileFlush.c)
  */
 
 __int64 __fastcall CmpFileFlushAndPurge(__int64 a1, unsigned int a2)
@@ -56,7 +56,7 @@ __int64 __fastcall CmpFileFlushAndPurge(__int64 a1, unsigned int a2)
         v6 = ObReferenceObjectByHandle(
                v5,
                2u,
-               **(POBJECT_TYPE **)&CmpCallbackListLock.ApcStateFill[40],
+               (POBJECT_TYPE)CmpContextListLock.ApcState.ApcListHead[1].Blink->Flink,
                0,
                &Object,
                0LL);

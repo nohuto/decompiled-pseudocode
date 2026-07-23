@@ -1,21 +1,21 @@
 /*
- * XREFs of IopFileUtilWalkDirectoryTreeHelper @ 0x1407B46BC
+ * XREFs of IopFileUtilWalkDirectoryTreeHelper @ 0x1407B771C
  * Callers:
- *     IopFileUtilWalkDirectoryTreeBottomUp @ 0x1407B44C0 (IopFileUtilWalkDirectoryTreeBottomUp.c)
- *     IopFileUtilWalkDirectoryTreeTopDown @ 0x140CC7A6C (IopFileUtilWalkDirectoryTreeTopDown.c)
+ *     IopFileUtilWalkDirectoryTreeBottomUp @ 0x1407B7520 (IopFileUtilWalkDirectoryTreeBottomUp.c)
+ *     IopFileUtilWalkDirectoryTreeTopDown @ 0x140CCDB5C (IopFileUtilWalkDirectoryTreeTopDown.c)
  * Callees:
- *     RtlCopyUnicodeString @ 0x140419A90 (RtlCopyUnicodeString.c)
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     RtlAppendUnicodeToString @ 0x140432EB0 (RtlAppendUnicodeToString.c)
- *     RtlAppendUnicodeStringToString @ 0x140432F70 (RtlAppendUnicodeStringToString.c)
- *     _wcsicmp @ 0x140536570 (_wcsicmp.c)
- *     ZwWaitForSingleObject @ 0x140723470 (ZwWaitForSingleObject.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     ZwOpenFile @ 0x140723A50 (ZwOpenFile.c)
- *     ZwQueryDirectoryFile @ 0x140723A90 (ZwQueryDirectoryFile.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     RtlCopyUnicodeString @ 0x14040DFC0 (RtlCopyUnicodeString.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     RtlAppendUnicodeToString @ 0x14041FEE0 (RtlAppendUnicodeToString.c)
+ *     RtlAppendUnicodeStringToString @ 0x14041FFA0 (RtlAppendUnicodeStringToString.c)
+ *     _wcsicmp @ 0x1405389F0 (_wcsicmp.c)
+ *     ZwWaitForSingleObject @ 0x140728040 (ZwWaitForSingleObject.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     ZwOpenFile @ 0x140728620 (ZwOpenFile.c)
+ *     ZwQueryDirectoryFile @ 0x140728660 (ZwQueryDirectoryFile.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall IopFileUtilWalkDirectoryTreeHelper(
@@ -27,7 +27,7 @@ __int64 __fastcall IopFileUtilWalkDirectoryTreeHelper(
         __int16 a6,
         __int64 a7)
 {
-  char v7; // r15
+  char v7; // r12
   UNICODE_STRING *v8; // rsi
   char v9; // di
   int Status; // ebx
@@ -36,7 +36,7 @@ __int64 __fastcall IopFileUtilWalkDirectoryTreeHelper(
   unsigned __int64 v13; // rax
   __int64 Pool2; // rax
   _QWORD *v15; // rsi
-  UNICODE_STRING *v16; // r12
+  UNICODE_STRING *v16; // r13
   __int16 v17; // ax
   char v18; // r14
   _QWORD *v19; // rax

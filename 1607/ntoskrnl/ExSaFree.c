@@ -1,9 +1,9 @@
 /*
- * XREFs of ExSaFree @ 0x140134C58
+ * XREFs of ExSaFree @ 0x1401351C8
  * Callers:
- *     ExpCleanupAutoExpandPushLock @ 0x14009CE04 (ExpCleanupAutoExpandPushLock.c)
+ *     ExpCleanupAutoExpandPushLock @ 0x14009C604 (ExpCleanupAutoExpandPushLock.c)
  * Callees:
- *     ExpSaAllocatorFree @ 0x140134CBC (ExpSaAllocatorFree.c)
+ *     ExpSaAllocatorFree @ 0x14013522C (ExpSaAllocatorFree.c)
  */
 
 __int64 __fastcall ExSaFree(unsigned int a1)

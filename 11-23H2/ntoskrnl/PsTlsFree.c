@@ -1,10 +1,10 @@
 /*
- * XREFs of PsTlsFree @ 0x1409B6170
+ * XREFs of PsTlsFree @ 0x1409B6370
  * Callers:
- *     PspTlsAlloc @ 0x14084BF94 (PspTlsAlloc.c)
+ *     PspTlsAlloc @ 0x14084C294 (PspTlsAlloc.c)
  * Callees:
- *     KiCheckForKernelApcDelivery @ 0x14030F820 (KiCheckForKernelApcDelivery.c)
- *     RtlpFlsFree @ 0x1409C2B18 (RtlpFlsFree.c)
+ *     KiCheckForKernelApcDelivery @ 0x14030FAB0 (KiCheckForKernelApcDelivery.c)
+ *     RtlpFlsFree @ 0x1409C2D18 (RtlpFlsFree.c)
  */
 
 char __fastcall PsTlsFree(__int64 a1)

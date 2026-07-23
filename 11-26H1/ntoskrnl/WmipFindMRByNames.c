@@ -1,52 +1,50 @@
 /*
- * XREFs of WmipFindMRByNames @ 0x140B1A194
+ * XREFs of WmipFindMRByNames @ 0x140B1C5E4
  * Callers:
- *     WmipAddMofResource @ 0x140B19FC8 (WmipAddMofResource.c)
+ *     WmipAddMofResource @ 0x140B1C418 (WmipAddMofResource.c)
  * Callees:
- *     KeWaitForSingleObject @ 0x140278560 (KeWaitForSingleObject.c)
- *     KeReleaseMutex @ 0x1403DD0F0 (KeReleaseMutex.c)
- *     WmipReferenceEntry @ 0x140A0FB50 (WmipReferenceEntry.c)
+ *     KeWaitForSingleObject @ 0x140277AD0 (KeWaitForSingleObject.c)
+ *     KeReleaseMutex @ 0x1403E02E0 (KeReleaseMutex.c)
+ *     WmipReferenceEntry @ 0x140A0ED40 (WmipReferenceEntry.c)
  */
 
-struct _LIST_ENTRY *__fastcall WmipFindMRByNames(__int64 a1, __int64 a2)
+_QWORD *__fastcall WmipFindMRByNames(__int64 a1, __int64 a2)
 {
-  struct _LIST_ENTRY *i; // rbx
-  struct _LIST_ENTRY *Blink; // rax
+  _QWORD *i; // rbx
+  unsigned __int16 *v5; // rax
   __int64 v6; // rcx
   int v7; // r8d
   int v8; // edx
-  struct _LIST_ENTRY *Flink; // rax
+  unsigned __int16 *v9; // rax
   __int64 v10; // rcx
   int v11; // r8d
   int v12; // edx
 
-  KeWaitForSingleObject(&EtwpSecurityLock.IoSelfBoostsEntry, Executive, 0, 0, 0LL);
-  for ( i = EtwpSecurityLock.GlobalUpdateVpThreadPriorityListEntry.Flink->Flink;
-        i != EtwpSecurityLock.GlobalUpdateVpThreadPriorityListEntry.Flink;
-        i = i->Flink )
+  KeWaitForSingleObject(&WmipSMMutex, Executive, 0, 0, 0LL);
+  for ( i = *(_QWORD **)WmipMRHeadPtr; i != (_QWORD *)WmipMRHeadPtr; i = (_QWORD *)*i )
   {
-    Blink = i[2].Blink;
-    v6 = a1 - (_QWORD)Blink;
+    v5 = (unsigned __int16 *)i[5];
+    v6 = a1 - (_QWORD)v5;
     do
     {
-      v7 = *(unsigned __int16 *)((char *)&Blink->Flink + v6);
-      v8 = LOWORD(Blink->Flink) - v7;
+      v7 = *(unsigned __int16 *)((char *)v5 + v6);
+      v8 = *v5 - v7;
       if ( v8 )
         break;
-      Blink = (struct _LIST_ENTRY *)((char *)Blink + 2);
+      ++v5;
     }
     while ( v7 );
     if ( !v8 )
     {
-      Flink = i[3].Flink;
-      v10 = a2 - (_QWORD)Flink;
+      v9 = (unsigned __int16 *)i[6];
+      v10 = a2 - (_QWORD)v9;
       do
       {
-        v11 = *(unsigned __int16 *)((char *)&Flink->Flink + v10);
-        v12 = LOWORD(Flink->Flink) - v11;
+        v11 = *(unsigned __int16 *)((char *)v9 + v10);
+        v12 = *v9 - v11;
         if ( v12 )
           break;
-        Flink = (struct _LIST_ENTRY *)((char *)Flink + 2);
+        ++v9;
       }
       while ( v11 );
       if ( !v12 )
@@ -58,6 +56,6 @@ struct _LIST_ENTRY *__fastcall WmipFindMRByNames(__int64 a1, __int64 a2)
   }
   i = 0LL;
 LABEL_14:
-  KeReleaseMutex((PRKMUTEX)&EtwpSecurityLock.IoSelfBoostsEntry, 0);
+  KeReleaseMutex(&WmipSMMutex, 0);
   return i;
 }

@@ -6,7 +6,7 @@
  *     _RtlpRemoveVectoredHandler@8 @ 0x4B2AB233 (_RtlpRemoveVectoredHandler@8.c)
  */
 
-int __stdcall RtlRemoveVectoredContinueHandler(_DWORD *a1)
+ULONG __cdecl RtlRemoveVectoredContinueHandler(PVOID Handle)
 {
-  return RtlpRemoveVectoredHandler(a1, 1);
+  return RtlpRemoveVectoredHandler((void **)Handle, 1);
 }

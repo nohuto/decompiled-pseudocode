@@ -1,22 +1,22 @@
 /*
- * XREFs of PiDevCfgResolveVariableExpression @ 0x14063EBAC
+ * XREFs of PiDevCfgResolveVariableExpression @ 0x14063EC90
  * Callers:
  *     <none>
  * Callees:
- *     RtlStringCchPrintfW @ 0x14007F50C (RtlStringCchPrintfW.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     memcmp @ 0x14014DE90 (memcmp.c)
- *     memmove @ 0x140171280 (memmove.c)
- *     PnpMultiSzContainsString @ 0x1401CF4C4 (PnpMultiSzContainsString.c)
- *     PnpStringToDwordValue @ 0x1401CF58C (PnpStringToDwordValue.c)
- *     PnpValidateRegistryMultiSz @ 0x1401CF630 (PnpValidateRegistryMultiSz.c)
+ *     RtlStringCchPrintfW @ 0x14007F58C (RtlStringCchPrintfW.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     memcmp @ 0x14014E450 (memcmp.c)
+ *     memmove @ 0x140171780 (memmove.c)
+ *     PnpMultiSzContainsString @ 0x1401CF258 (PnpMultiSzContainsString.c)
+ *     PnpStringToDwordValue @ 0x1401CF320 (PnpStringToDwordValue.c)
+ *     PnpValidateRegistryMultiSz @ 0x1401CF3C4 (PnpValidateRegistryMultiSz.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     RtlCompareUnicodeStrings @ 0x140489820 (RtlCompareUnicodeStrings.c)
- *     IopGetRegistryValue @ 0x14049F430 (IopGetRegistryValue.c)
- *     RtlCompareUnicodeString @ 0x1404FF850 (RtlCompareUnicodeString.c)
- *     PiDevCfgCopyVariableData @ 0x140637250 (PiDevCfgCopyVariableData.c)
- *     PiDevCfgResolveVariable @ 0x14063E354 (PiDevCfgResolveVariable.c)
+ *     RtlCompareUnicodeString @ 0x1404E27E0 (RtlCompareUnicodeString.c)
+ *     RtlCompareUnicodeStrings @ 0x140511FA0 (RtlCompareUnicodeStrings.c)
+ *     IopGetRegistryValue @ 0x14051783C (IopGetRegistryValue.c)
+ *     PiDevCfgCopyVariableData @ 0x140637304 (PiDevCfgCopyVariableData.c)
+ *     PiDevCfgResolveVariable @ 0x14063E438 (PiDevCfgResolveVariable.c)
  */
 
 __int64 __fastcall PiDevCfgResolveVariableExpression(__int64 a1, void *a2, __int64 a3)
@@ -243,7 +243,7 @@ LABEL_3:
     {
       if ( !v10[1] || !v10[2] )
       {
-        v16 = &off_1406EDFF0;
+        v16 = &off_1406EE120;
         v17 = 1;
         while ( *(_DWORD *)v10 != *(_DWORD *)*v16 )
         {
@@ -252,7 +252,7 @@ LABEL_3:
           if ( v17 >= 0x1B )
             goto LABEL_19;
         }
-        v15 = &qword_1406EDFD0[3 * v17];
+        v15 = &qword_1406EE100[3 * v17];
         goto LABEL_27;
       }
 LABEL_19:
@@ -361,7 +361,7 @@ LABEL_33:
                 goto LABEL_45;
               }
 LABEL_44:
-              v25 = qword_1406E9800;
+              v25 = qword_1406E9930;
               goto LABEL_45;
             }
             v34 = *v43 == 0;
@@ -415,7 +415,7 @@ LABEL_54:
           if ( v39 != 1 )
           {
 LABEL_64:
-            v25 = qword_1406E9800;
+            v25 = qword_1406E9930;
 LABEL_65:
             v23 = v155;
             goto LABEL_45;
@@ -565,7 +565,7 @@ LABEL_334:
             goto LABEL_333;
         }
 LABEL_153:
-        v25 = qword_1406E9800;
+        v25 = qword_1406E9930;
 LABEL_135:
         LODWORD(v22) = 0;
         goto LABEL_113;
@@ -708,7 +708,7 @@ LABEL_144:
       {
         if ( *(_DWORD *)v15 != 16 )
         {
-          v25 = qword_1406E9800;
+          v25 = qword_1406E9930;
           goto LABEL_144;
         }
         if ( (_DWORD)v115 == v116 && !memcmp(*(const void **)(v170 + 40), *(const void **)(v169 + 40), v115) )
@@ -879,7 +879,7 @@ LABEL_215:
     {
 LABEL_303:
       v23 = 0;
-      v25 = qword_1406E9800;
+      v25 = qword_1406E9930;
       goto LABEL_46;
     }
     v50 = (__int64 *)v169;
@@ -923,7 +923,7 @@ LABEL_174:
             goto LABEL_143;
           }
         }
-        v25 = qword_1406E9800;
+        v25 = qword_1406E9930;
         goto LABEL_113;
       }
       v86 = *(unsigned int *)(v170 + 36);
@@ -980,7 +980,7 @@ LABEL_187:
         if ( *(_DWORD *)v15 != 9 )
         {
           LODWORD(v22) = 0;
-          v25 = qword_1406E9800;
+          v25 = qword_1406E9930;
           v24 = 0LL;
           goto LABEL_113;
         }

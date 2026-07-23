@@ -1,31 +1,31 @@
 /*
- * XREFs of ObReferenceProcessHandleTable @ 0x1405F57B4
+ * XREFs of ObReferenceProcessHandleTable @ 0x1406E4F14
  * Callers:
- *     IoRevokeHandlesForProcess @ 0x1405071D0 (IoRevokeHandlesForProcess.c)
- *     ObDuplicateObject @ 0x1405F51B0 (ObDuplicateObject.c)
- *     ObWaitForMultipleObjects @ 0x1405FCDC0 (ObWaitForMultipleObjects.c)
- *     PspRundownSingleProcess @ 0x140604738 (PspRundownSingleProcess.c)
- *     ObInitProcess @ 0x140607644 (ObInitProcess.c)
- *     ObpCloseHandle @ 0x14061ABC0 (ObpCloseHandle.c)
- *     NtQueryInformationProcess @ 0x1406212A0 (NtQueryInformationProcess.c)
- *     ObCompleteObjectDuplication @ 0x14062D640 (ObCompleteObjectDuplication.c)
- *     ObQueryObjectAuditingByHandle @ 0x140684FE0 (ObQueryObjectAuditingByHandle.c)
- *     ObCaptureObjectStateForDuplication @ 0x140685408 (ObCaptureObjectStateForDuplication.c)
- *     ObFindHandleForObject @ 0x1406859C0 (ObFindHandleForObject.c)
- *     ObSetHandleAttributes @ 0x1406918A0 (ObSetHandleAttributes.c)
- *     ObGetProcessHandleCount @ 0x1406B471C (ObGetProcessHandleCount.c)
- *     PspApplyMitigationOptions @ 0x1406D8A1C (PspApplyMitigationOptions.c)
- *     NtClose @ 0x1406F0980 (NtClose.c)
- *     ObpReferenceObjectByHandleWithTag @ 0x1406F0C00 (ObpReferenceObjectByHandleWithTag.c)
- *     ObpCreateHandle @ 0x1406F6550 (ObpCreateHandle.c)
- *     NtSetInformationProcess @ 0x14070A4B0 (NtSetInformationProcess.c)
- *     IopQueryProcessIdsUsingFile @ 0x140895A08 (IopQueryProcessIdsUsingFile.c)
- *     PnpHandleEnumerateHandlesAgainstDeviceObject @ 0x1408A134C (PnpHandleEnumerateHandlesAgainstDeviceObject.c)
- *     PsSetProcessHandleTracingInformation @ 0x140907978 (PsSetProcessHandleTracingInformation.c)
- *     EtwpObjectHandleRundown @ 0x14093E12C (EtwpObjectHandleRundown.c)
+ *     IoRevokeHandlesForProcess @ 0x140507150 (IoRevokeHandlesForProcess.c)
+ *     ObCaptureObjectStateForDuplication @ 0x1405E261C (ObCaptureObjectStateForDuplication.c)
+ *     ObQueryObjectAuditingByHandle @ 0x1405E2BC0 (ObQueryObjectAuditingByHandle.c)
+ *     ObCompleteObjectDuplication @ 0x1405E36D0 (ObCompleteObjectDuplication.c)
+ *     ObFindHandleForObject @ 0x1405E3D40 (ObFindHandleForObject.c)
+ *     ObSetHandleAttributes @ 0x1405F1710 (ObSetHandleAttributes.c)
+ *     ObGetProcessHandleCount @ 0x1406138EC (ObGetProcessHandleCount.c)
+ *     ObpCloseHandle @ 0x140684820 (ObpCloseHandle.c)
+ *     NtQueryInformationProcess @ 0x14068AF10 (NtQueryInformationProcess.c)
+ *     ObInitProcess @ 0x1406970D4 (ObInitProcess.c)
+ *     PspApplyMitigationOptions @ 0x1406AFCFC (PspApplyMitigationOptions.c)
+ *     ObDuplicateObject @ 0x1406E4910 (ObDuplicateObject.c)
+ *     ObWaitForMultipleObjects @ 0x1406EC520 (ObWaitForMultipleObjects.c)
+ *     PspRundownSingleProcess @ 0x1406F3E68 (PspRundownSingleProcess.c)
+ *     NtClose @ 0x140707D60 (NtClose.c)
+ *     ObpReferenceObjectByHandleWithTag @ 0x140707FE0 (ObpReferenceObjectByHandleWithTag.c)
+ *     ObpCreateHandle @ 0x14070D930 (ObpCreateHandle.c)
+ *     NtSetInformationProcess @ 0x140721890 (NtSetInformationProcess.c)
+ *     IopQueryProcessIdsUsingFile @ 0x140895B68 (IopQueryProcessIdsUsingFile.c)
+ *     PnpHandleEnumerateHandlesAgainstDeviceObject @ 0x1408A14AC (PnpHandleEnumerateHandlesAgainstDeviceObject.c)
+ *     PsSetProcessHandleTracingInformation @ 0x140907AD8 (PsSetProcessHandleTracingInformation.c)
+ *     EtwpObjectHandleRundown @ 0x14093E2FC (EtwpObjectHandleRundown.c)
  * Callees:
- *     ExReleaseRundownProtection_0 @ 0x14027C4F0 (ExReleaseRundownProtection_0.c)
- *     ExAcquireRundownProtection_0 @ 0x14027C9B0 (ExAcquireRundownProtection_0.c)
+ *     ExReleaseRundownProtection @ 0x14026A490 (ExReleaseRundownProtection.c)
+ *     ExAcquireRundownProtection @ 0x14026A950 (ExAcquireRundownProtection.c)
  */
 
 unsigned __int64 __fastcall ObReferenceProcessHandleTable(struct _EX_RUNDOWN_REF *a1)
@@ -35,11 +35,11 @@ unsigned __int64 __fastcall ObReferenceProcessHandleTable(struct _EX_RUNDOWN_REF
 
   v1 = a1 + 139;
   Count = 0LL;
-  if ( ExAcquireRundownProtection_0(a1 + 139) )
+  if ( ExAcquireRundownProtection(a1 + 139) )
   {
     Count = a1[174].Count;
     if ( !Count )
-      ExReleaseRundownProtection_0(v1);
+      ExReleaseRundownProtection(v1);
   }
   return Count;
 }

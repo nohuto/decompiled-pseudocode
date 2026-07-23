@@ -4,8 +4,8 @@
  *     <none>
  * Callees:
  *     PsGetEffectiveServerSilo @ 0x14020BFF0 (PsGetEffectiveServerSilo.c)
- *     EtwpLogKernelEvent @ 0x140233CA0 (EtwpLogKernelEvent.c)
- *     EtwpFileProvTrace @ 0x140467790 (EtwpFileProvTrace.c)
+ *     EtwpLogKernelEvent @ 0x140233D70 (EtwpLogKernelEvent.c)
+ *     EtwpFileProvTrace @ 0x140467B90 (EtwpFileProvTrace.c)
  */
 
 __int64 __fastcall EtwpTraceFileIo(

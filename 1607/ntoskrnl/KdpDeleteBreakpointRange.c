@@ -1,7 +1,7 @@
 /*
- * XREFs of KdpDeleteBreakpointRange @ 0x1406F2A48
+ * XREFs of KdpDeleteBreakpointRange @ 0x1406F26E0
  * Callers:
- *     KdpSetCommonState @ 0x140083548 (KdpSetCommonState.c)
+ *     KdpSetCommonState @ 0x1400841C8 (KdpSetCommonState.c)
  * Callees:
  *     KdpDeleteBreakpoint @ 0x1406F3704 (KdpDeleteBreakpoint.c)
  */

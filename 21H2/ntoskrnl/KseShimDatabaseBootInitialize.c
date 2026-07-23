@@ -1,14 +1,14 @@
 /*
- * XREFs of KseShimDatabaseBootInitialize @ 0x140A72134
+ * XREFs of KseShimDatabaseBootInitialize @ 0x140A73134
  * Callers:
- *     KseInitialize @ 0x140A3C89C (KseInitialize.c)
+ *     KseInitialize @ 0x140A3D89C (KseInitialize.c)
  * Callees:
- *     KsepLogError @ 0x140371F74 (KsepLogError.c)
- *     memset @ 0x140414200 (memset.c)
- *     KsepDebugPrint @ 0x140526EE8 (KsepDebugPrint.c)
- *     RtlAssert @ 0x140588810 (RtlAssert.c)
- *     KsepSdbBootRelease @ 0x1407BCD08 (KsepSdbBootRelease.c)
- *     KsepSdbBootInitialize @ 0x1407D1ED8 (KsepSdbBootInitialize.c)
+ *     KsepLogError @ 0x140371AC4 (KsepLogError.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     KsepDebugPrint @ 0x140527128 (KsepDebugPrint.c)
+ *     RtlAssert @ 0x140588A40 (RtlAssert.c)
+ *     KsepSdbBootRelease @ 0x1407BD498 (KsepSdbBootRelease.c)
+ *     KsepSdbBootInitialize @ 0x1407D2048 (KsepSdbBootInitialize.c)
  */
 
 __int64 __fastcall KseShimDatabaseBootInitialize(void *Src, size_t Size, void *a3, unsigned int a4)
@@ -47,7 +47,7 @@ __int64 __fastcall KseShimDatabaseBootInitialize(void *Src, size_t Size, void *a
     {
       if ( a3 && a4 )
       {
-        if ( (int)KsepSdbBootInitialize(a3, a4, (__int64)qword_140C2AEF8) < 0 )
+        if ( (int)KsepSdbBootInitialize(a3, a4, (__int64)qword_140C2AF38) < 0 )
         {
           v12 = ((unsigned __int8)_InterlockedExchangeAdd(&KsepHistoryErrorsIndex, 1u) + 1) & 0x3F;
           KsepHistoryErrors[2 * v12 + 1] = v8;
@@ -56,9 +56,9 @@ __int64 __fastcall KseShimDatabaseBootInitialize(void *Src, size_t Size, void *a
             KsepDebugPrint(1LL, "KSE: KsepSdbBootInitialize failed for patch SDB!\n");
           KsepLogError(1, "KSE: KsepSdbBootInitialize failed for patch SDB!\n");
         }
-        else if ( dword_140C2AEF0 >= (unsigned int)dword_140C2AF28 )
+        else if ( dword_140C2AF30 >= (unsigned int)dword_140C2AF68 )
         {
-          KsepSdbBootRelease(qword_140C2AEF8);
+          KsepSdbBootRelease(qword_140C2AF38);
         }
       }
       ++KsepShimDbRefCount;

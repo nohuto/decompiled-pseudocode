@@ -1,12 +1,12 @@
 /*
- * XREFs of BgLibraryDestroy @ 0x1409F65E0
+ * XREFs of BgLibraryDestroy @ 0x1409F75E0
  * Callers:
- *     BgkDestroy @ 0x1409F4B08 (BgkDestroy.c)
+ *     BgkDestroy @ 0x1409F5B08 (BgkDestroy.c)
  * Callees:
- *     KeGetCurrentIrql @ 0x14021FAD0 (KeGetCurrentIrql.c)
- *     BgpFwReleaseLock @ 0x14039C2A8 (BgpFwReleaseLock.c)
- *     BgpFwAcquireLock @ 0x14039C2F8 (BgpFwAcquireLock.c)
- *     BgpFwLibraryDestroy @ 0x1409F3F0C (BgpFwLibraryDestroy.c)
+ *     KeGetCurrentIrql @ 0x1402C43D0 (KeGetCurrentIrql.c)
+ *     BgpFwReleaseLock @ 0x14039C3F8 (BgpFwReleaseLock.c)
+ *     BgpFwAcquireLock @ 0x14039C448 (BgpFwAcquireLock.c)
+ *     BgpFwLibraryDestroy @ 0x1409F4F0C (BgpFwLibraryDestroy.c)
  */
 
 __int64 BgLibraryDestroy()

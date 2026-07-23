@@ -1,13 +1,13 @@
 /*
- * XREFs of OpenGlobalizationUserSettingsKey @ 0x140132358
+ * XREFs of OpenGlobalizationUserSettingsKey @ 0x1401328C8
  * Callers:
- *     NtSetDefaultLocale @ 0x140548C40 (NtSetDefaultLocale.c)
- *     ExpSetCurrentUserUILanguage @ 0x140548E70 (ExpSetCurrentUserUILanguage.c)
- *     ExpGetCurrentUserUILanguage @ 0x140549424 (ExpGetCurrentUserUILanguage.c)
+ *     NtSetDefaultLocale @ 0x140549180 (NtSetDefaultLocale.c)
+ *     ExpSetCurrentUserUILanguage @ 0x1405493B0 (ExpSetCurrentUserUILanguage.c)
+ *     ExpGetCurrentUserUILanguage @ 0x140549964 (ExpGetCurrentUserUILanguage.c)
  * Callees:
- *     OpenGlobalizationUserSettingsKey_ForSingleUserModel @ 0x14022FD3C (OpenGlobalizationUserSettingsKey_ForSingleUserModel.c)
- *     RtlIsMultiSessionSku @ 0x1405037BC (RtlIsMultiSessionSku.c)
- *     RtlOpenCurrentUser @ 0x14054960C (RtlOpenCurrentUser.c)
+ *     OpenGlobalizationUserSettingsKey_ForSingleUserModel @ 0x14022FB68 (OpenGlobalizationUserSettingsKey_ForSingleUserModel.c)
+ *     RtlIsMultiSessionSku @ 0x1404E674C (RtlIsMultiSessionSku.c)
+ *     RtlOpenCurrentUser @ 0x140549B4C (RtlOpenCurrentUser.c)
  */
 
 NTSTATUS __fastcall OpenGlobalizationUserSettingsKey(
@@ -18,23 +18,23 @@ NTSTATUS __fastcall OpenGlobalizationUserSettingsKey(
         PHANDLE KeyHandle)
 {
   int v6; // ecx
-  char IsMultiSessionSku; // al
+  BOOLEAN IsMultiSessionSku; // al
   __int64 v9; // rcx
 
   if ( !KeyHandle )
     return -1073741811;
-  if ( dword_140328BF8 )
+  if ( dword_140328C38 )
   {
-    v6 = dword_140341C4C;
+    v6 = dword_140341C94;
   }
   else
   {
     IsMultiSessionSku = RtlIsMultiSessionSku();
-    v6 = dword_140341C4C;
-    dword_140328BF8 = 1;
+    v6 = dword_140341C94;
+    dword_140328C38 = 1;
     if ( !IsMultiSessionSku )
       v6 = 1;
-    dword_140341C4C = v6;
+    dword_140341C94 = v6;
   }
   if ( !v6 )
     return RtlOpenCurrentUser(8u, KeyHandle);

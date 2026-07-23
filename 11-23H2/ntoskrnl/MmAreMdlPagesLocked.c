@@ -1,13 +1,13 @@
 /*
- * XREFs of MmAreMdlPagesLocked @ 0x140AE81C8
+ * XREFs of MmAreMdlPagesLocked @ 0x140AE81B8
  * Callers:
- *     VERIFY_BUFFER_LOCKED @ 0x140AC4650 (VERIFY_BUFFER_LOCKED.c)
- *     VfMiscMmBuildMdlForNonPagedPool_Exit @ 0x140AE0270 (VfMiscMmBuildMdlForNonPagedPool_Exit.c)
+ *     VERIFY_BUFFER_LOCKED @ 0x140AC4640 (VERIFY_BUFFER_LOCKED.c)
+ *     VfMiscMmBuildMdlForNonPagedPool_Exit @ 0x140AE0260 (VfMiscMmBuildMdlForNonPagedPool_Exit.c)
  * Callees:
- *     MiIsPfn @ 0x14023F0C0 (MiIsPfn.c)
- *     MiIsPfnLocked @ 0x14036B9EC (MiIsPfnLocked.c)
- *     MiLockPage @ 0x14046CD24 (MiLockPage.c)
- *     MiUnlockPage @ 0x14046CD3A (MiUnlockPage.c)
+ *     MiIsPfn @ 0x14023F190 (MiIsPfn.c)
+ *     MiIsPfnLocked @ 0x14036BB8C (MiIsPfnLocked.c)
+ *     MiLockPage @ 0x14046D124 (MiLockPage.c)
+ *     MiUnlockPage @ 0x14046D13A (MiUnlockPage.c)
  */
 
 __int64 __fastcall MmAreMdlPagesLocked(_DWORD *a1)

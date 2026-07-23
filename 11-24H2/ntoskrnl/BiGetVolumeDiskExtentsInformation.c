@@ -1,11 +1,11 @@
 /*
- * XREFs of BiGetVolumeDiskExtentsInformation @ 0x140814138
+ * XREFs of BiGetVolumeDiskExtentsInformation @ 0x140814878
  * Callers:
- *     BiGetPhysicalDriveName @ 0x140AB54BC (BiGetPhysicalDriveName.c)
+ *     BiGetPhysicalDriveName @ 0x140AAF94C (BiGetPhysicalDriveName.c)
  * Callees:
- *     ZwDeviceIoControlFile @ 0x1406A64F0 (ZwDeviceIoControlFile.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ZwDeviceIoControlFile @ 0x1406A7490 (ZwDeviceIoControlFile.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall BiGetVolumeDiskExtentsInformation(HANDLE FileHandle, _QWORD *a2)
@@ -27,7 +27,7 @@ __int64 __fastcall BiGetVolumeDiskExtentsInformation(HANDLE FileHandle, _QWORD *
     v7 = 0LL;
     if ( v5 >= 2 )
       break;
-    OutputBuffer = (_DWORD *)ExAllocatePool2(0x102uLL);
+    OutputBuffer = (_DWORD *)ExAllocatePool2(0x102uLL, OutputBufferLength, 0x4B444342u);
     v7 = OutputBuffer;
     if ( !OutputBuffer )
       return (unsigned int)-1073741670;

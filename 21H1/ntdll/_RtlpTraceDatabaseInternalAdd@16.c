@@ -20,14 +20,15 @@ char __fastcall RtlpTraceDatabaseInternalAdd(int a1, unsigned int a2, void *Src,
   unsigned int v12; // ebx
   unsigned int v13; // eax
   unsigned int v14; // ecx
-  unsigned int v15; // [esp+Ch] [ebp-4h] BYREF
+  size_t v15; // [esp-4h] [ebp-14h]
+  unsigned int v16; // [esp+Ch] [ebp-4h] BYREF
 
   if ( a2 <= 0x100 )
   {
-    if ( (unsigned __int8)RtlpTraceDatabaseInternalFind(Src, &v15) )
+    if ( (unsigned __int8)RtlpTraceDatabaseInternalFind(Src, &v16) )
     {
-      v6 = v15;
-      ++*(_DWORD *)(v15 + 4);
+      v6 = v16;
+      ++*(_DWORD *)(v16 + 4);
       if ( a4 )
         *a4 = v6;
       ++*(_DWORD *)(a1 + 68);
@@ -35,19 +36,18 @@ char __fastcall RtlpTraceDatabaseInternalAdd(int a1, unsigned int a2, void *Src,
     }
     v8 = *(_DWORD *)(a1 + 12);
     v9 = 4 * a2 + 32;
-    v15 = v9;
+    v16 = v9;
     if ( v9 > *(_DWORD *)(v8 + 20) - *(_DWORD *)(v8 + 24) )
     {
       v10 = *(_DWORD *)(a1 + 16);
-      if ( v10 && *(_DWORD *)(a1 + 20) > v10
-        || (v11 = (_DWORD *)RtlpTraceDatabaseAllocate((void *)0x10000, v8), (v8 = (int)v11) == 0) )
+      if ( v10 && *(_DWORD *)(a1 + 20) > v10 || (v11 = RtlpTraceDatabaseAllocate(0x10000u, v8), (v8 = (int)v11) == 0) )
       {
 LABEL_11:
         if ( a4 )
           *a4 = 0;
         return 0;
       }
-      v9 = v15;
+      v9 = v16;
       v11[5] = v11 + 0x4000;
       *v11 = -1412580421;
       v11[1] = a1;
@@ -68,7 +68,8 @@ LABEL_11:
       *(_DWORD *)(v12 + 28) = v12 + 32;
       *(_DWORD *)(v12 + 12) = 0;
       *(_DWORD *)(v12 + 16) = 0;
-      memmove(*(void **)(v12 + 28), Src, 4 * a2);
+      LODWORD(v15) = 4 * a2;
+      memmove(*(void **)(v12 + 28), Src, v15);
       v13 = (*(int (__thiscall **)(_DWORD, unsigned int, void *))(a1 + 60))(*(_DWORD *)(a1 + 60), a2, Src);
       v14 = *(_DWORD *)(a1 + 52);
       ++*(_DWORD *)(a1 + 4 * (v13 % v14 / (v14 >> 4)) + 72);

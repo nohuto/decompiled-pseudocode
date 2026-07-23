@@ -1,12 +1,12 @@
 /*
- * XREFs of _CmDeleteDeviceContainerRegKey @ 0x1408196FC
+ * XREFs of _CmDeleteDeviceContainerRegKey @ 0x140819E3C
  * Callers:
- *     _CmDeleteDeviceContainerWorker @ 0x140819A5C (_CmDeleteDeviceContainerWorker.c)
+ *     _CmDeleteDeviceContainerWorker @ 0x14081A19C (_CmDeleteDeviceContainerWorker.c)
  * Callees:
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     _CmDeleteDeviceContainerRegKeyWorker @ 0x14081983C (_CmDeleteDeviceContainerRegKeyWorker.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     _CmDeleteDeviceContainerRegKeyWorker @ 0x140819F7C (_CmDeleteDeviceContainerRegKeyWorker.c)
  */
 
 __int64 __fastcall CmDeleteDeviceContainerRegKey(__int64 a1, __int64 a2, unsigned int a3)
@@ -30,7 +30,7 @@ __int64 __fastcall CmDeleteDeviceContainerRegKey(__int64 a1, __int64 a2, unsigne
   v17 = 1;
   if ( v6 )
   {
-    v7 = guard_dispatch_icall_no_overrides(a1, a2, 5LL, 12LL);
+    v7 = guard_dispatch_icall_no_overrides(a1, a2);
     if ( v7 == -1073741822 )
     {
       v6 = 0LL;
@@ -48,7 +48,7 @@ __int64 __fastcall CmDeleteDeviceContainerRegKey(__int64 a1, __int64 a2, unsigne
   if ( !v6 )
     return v9;
   v14[0] = v8;
-  v10 = guard_dispatch_icall_no_overrides(a1, a2, 5LL, 12LL);
+  v10 = guard_dispatch_icall_no_overrides(a1, a2);
   v11 = v10;
   if ( v10 == -1073741822 )
     return v9;

@@ -7,17 +7,17 @@
  *     RtlGetInterruptTimePrecise @ 0x1402C42B0 (RtlGetInterruptTimePrecise.c)
  */
 
-__int64 __fastcall PpmIdleEvaluateConstraints(__int64 a1, _QWORD *a2)
+LARGE_INTEGER __fastcall PpmIdleEvaluateConstraints(__int64 a1, LARGE_INTEGER *a2)
 {
   __int64 v2; // rsi
   int v4; // eax
   char v5; // al
-  __int64 v7; // [rsp+30h] [rbp+8h] BYREF
+  LARGE_INTEGER v7; // [rsp+30h] [rbp+8h] BYREF
 
   v2 = *(_QWORD *)(a1 + 33600);
-  v7 = 0LL;
+  v7.QuadPart = 0LL;
   *a2 = RtlGetInterruptTimePrecise(&v7);
-  *(_QWORD *)(v2 + 696) = v7;
+  *(LARGE_INTEGER *)(v2 + 696) = v7;
   *(_QWORD *)(v2 + 704) = *(_QWORD *)(a1 + 33624) + *(_QWORD *)(a1 + 33808);
   *(_BYTE *)(v2 + 738) = *(_BYTE *)(a1 + 34060);
   *(_BYTE *)(v2 + 736) = *(_BYTE *)(a1 + 33664);

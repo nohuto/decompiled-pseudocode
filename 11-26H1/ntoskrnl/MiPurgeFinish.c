@@ -1,12 +1,12 @@
 /*
- * XREFs of MiPurgeFinish @ 0x140309E40
+ * XREFs of MiPurgeFinish @ 0x1402EBEC0
  * Callers:
  *     <none>
  * Callees:
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     MiUnlockAllBatchPages @ 0x140299000 (MiUnlockAllBatchPages.c)
- *     MiReduceShareCount @ 0x1402DAC20 (MiReduceShareCount.c)
- *     MiInsertPurgedPages @ 0x140309EC4 (MiInsertPurgedPages.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     MiUnlockAllBatchPages @ 0x140298560 (MiUnlockAllBatchPages.c)
+ *     MiReduceShareCount @ 0x1402BC9E0 (MiReduceShareCount.c)
+ *     MiInsertPurgedPages @ 0x1402EBF44 (MiInsertPurgedPages.c)
  */
 
 __int64 __fastcall MiPurgeFinish(__int64 a1, __int64 a2, __int64 a3)

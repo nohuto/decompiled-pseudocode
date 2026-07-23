@@ -15,35 +15,35 @@
  *     RtlpReadExtendedContext @ 0x1407703F0 (RtlpReadExtendedContext.c)
  */
 
-__int64 __fastcall KyRaiseException(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+int __fastcall KyRaiseException(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   __int64 v4; // rdi
   char PreviousMode; // r15
   __int64 v7; // rax
-  __int64 result; // rax
-  unsigned int v9; // ebx
+  int result; // eax
+  ULONG v9; // ebx
   unsigned __int64 v10; // rcx
   unsigned __int64 v11; // rcx
   void *v12; // rsp
   void *v13; // rsp
   int v14; // edx
   int v15; // ecx
-  __int64 v16; // rsi
+  CONTEXT_CHUNK *p_XState; // rsi
   struct _KTHREAD *CurrentThread; // r14
   int v18; // r12d
   unsigned __int8 CurrentIrql; // si
   int v20; // r8d
   unsigned __int64 ExtendedFeatureDisableMask; // rcx
-  unsigned int v22; // r14d
+  int v22; // r14d
   __int64 v23; // r10
   unsigned __int8 v24; // al
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
   bool v27; // zf
   __int64 v28; // [rsp+20h] [rbp-10h]
-  unsigned int v29; // [rsp+30h] [rbp+0h] BYREF
-  unsigned int v30; // [rsp+34h] [rbp+4h] BYREF
-  __int64 v31; // [rsp+38h] [rbp+8h] BYREF
+  ULONG ContextFlags; // [rsp+30h] [rbp+0h] BYREF
+  ULONG ContextLength; // [rsp+34h] [rbp+4h] BYREF
+  PCONTEXT_EX ContextEx; // [rsp+38h] [rbp+8h] BYREF
   unsigned __int64 v32; // [rsp+40h] [rbp+10h] BYREF
   __int64 v33; // [rsp+48h] [rbp+18h]
   __int64 v34; // [rsp+50h] [rbp+20h]
@@ -53,38 +53,38 @@ __int64 __fastcall KyRaiseException(__int64 a1, __int64 a2, __int64 a3, __int64 
   v33 = a4;
   v34 = a3;
   v4 = a2;
-  v31 = 0LL;
-  v29 = 0;
-  v30 = 0;
+  ContextEx = 0LL;
+  ContextFlags = 0;
+  ContextLength = 0;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   if ( !PreviousMode )
     goto LABEL_11;
   v7 = a2 + 48;
   if ( (unsigned __int64)(a2 + 48) >= 0x7FFFFFFF0000LL )
     v7 = 0x7FFFFFFF0000LL;
-  v29 = *(_DWORD *)v7;
-  result = RtlpSanitizeContextFlags(&v29, PreviousMode);
-  if ( (int)result >= 0 )
+  ContextFlags = *(_DWORD *)v7;
+  result = RtlpSanitizeContextFlags(&ContextFlags, PreviousMode);
+  if ( result >= 0 )
   {
-    v9 = v29;
-    result = RtlGetExtendedContextLength(v29, (__int64)&v30);
-    if ( (int)result >= 0 )
+    v9 = ContextFlags;
+    result = RtlGetExtendedContextLength(ContextFlags, &ContextLength);
+    if ( result >= 0 )
     {
-      v10 = v30 + 15LL;
-      if ( v10 <= v30 )
+      v10 = ContextLength + 15LL;
+      if ( v10 <= ContextLength )
         v10 = 0xFFFFFFFFFFFFFF0LL;
       v11 = v10 & 0xFFFFFFFFFFFFFFF0uLL;
       v12 = alloca(v11);
       v13 = alloca(v11);
-      result = RtlInitializeExtendedContext((__int64)&v29, v9, (__int64)&v31);
-      if ( (int)result >= 0 )
+      result = RtlInitializeExtendedContext((PCONTEXT)&ContextFlags, v9, &ContextEx);
+      if ( result >= 0 )
       {
-        v16 = v31 - 1232;
+        p_XState = &ContextEx[-39].XState;
         LOBYTE(v14) = 1;
-        result = RtlpReadExtendedContext(v15, v14, v31, v9, v4, 0LL);
-        if ( (int)result >= 0 )
+        result = RtlpReadExtendedContext(v15, v14, (_DWORD)ContextEx, v9, v4, 0LL);
+        if ( result >= 0 )
         {
-          v4 = v16;
+          v4 = (__int64)p_XState;
 LABEL_11:
           CurrentThread = KeGetCurrentThread();
           v18 = 1;
@@ -129,10 +129,10 @@ LABEL_11:
           }
           if ( !CurrentIrql )
           {
-            if ( KiIrqlFlags )
+            if ( (_DWORD)KiIrqlFlags )
             {
               v24 = KeGetCurrentIrql();
-              if ( (KiIrqlFlags & 1) != 0 && (unsigned __int8)(v24 - 2) <= 0xDu )
+              if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && (unsigned __int8)(v24 - 2) <= 0xDu )
               {
                 CurrentPrcb = KeGetCurrentPrcb();
                 SchedulerAssist = CurrentPrcb->SchedulerAssist;

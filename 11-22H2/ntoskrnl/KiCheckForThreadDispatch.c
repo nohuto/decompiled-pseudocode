@@ -54,7 +54,7 @@ char __fastcall KiCheckForThreadDispatch(__int64 a1, unsigned __int8 a2)
   _DWORD *v22; // rdx
   struct _KPRCB *v23; // r10
   _DWORD *v24; // r9
-  __int64 (__fastcall *v25)(_QWORD, _DWORD *, int *, _QWORD, struct _PROCESSOR_NUMBER *); // rax
+  __int64 (__fastcall *v25)(_QWORD, _DWORD *, int *, _QWORD, _PROCESSOR_NUMBER *); // rax
   unsigned int *v26; // rbx
   unsigned __int64 v27; // rdi
   int v28; // r15d
@@ -64,7 +64,7 @@ char __fastcall KiCheckForThreadDispatch(__int64 a1, unsigned __int8 a2)
   __int64 (__fastcall *v32)(_QWORD, _DWORD *, __int128 *, __int64, _DWORD *); // rax
   __int64 (__fastcall *v33)(_QWORD, _DWORD *, __int128 *, __int64, _DWORD *); // rax
   _DWORD v35[2]; // [rsp+40h] [rbp-328h] BYREF
-  struct _PROCESSOR_NUMBER ProcNumber; // [rsp+48h] [rbp-320h] BYREF
+  _PROCESSOR_NUMBER ProcNumber; // [rsp+48h] [rbp-320h] BYREF
   int v37; // [rsp+4Ch] [rbp-31Ch]
   __int128 v38; // [rsp+50h] [rbp-318h] BYREF
   int v39; // [rsp+60h] [rbp-308h]
@@ -163,10 +163,10 @@ char __fastcall KiCheckForThreadDispatch(__int64 a1, unsigned __int8 a2)
     }
     if ( !v19 )
     {
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         CurrentIrql = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && (unsigned __int8)(CurrentIrql - 2) <= 0xDu )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && (unsigned __int8)(CurrentIrql - 2) <= 0xDu )
         {
           v21 = KeGetCurrentPrcb();
           v22 = v21->SchedulerAssist;
@@ -180,10 +180,10 @@ char __fastcall KiCheckForThreadDispatch(__int64 a1, unsigned __int8 a2)
       *(_DWORD *)(v5 + 116) &= ~0x40u;
       LOBYTE(v2) = KiDeliverApc(0LL, 0LL, 0LL);
     }
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       LOBYTE(v2) = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 )
       {
         LOBYTE(v2) = v2 - 2;
         if ( (unsigned __int8)v2 <= 0xDu )
@@ -216,12 +216,11 @@ char __fastcall KiCheckForThreadDispatch(__int64 a1, unsigned __int8 a2)
   if ( (*(_DWORD *)(HalpInterruptController + 244) & 0x40) != 0 && !HalpInterruptNoShorthand )
   {
     v52 = 3;
-    ProcNumber = (struct _PROCESSOR_NUMBER)-1;
+    ProcNumber = (_PROCESSOR_NUMBER)-1;
     v37 = 1;
     v35[1] = *(_DWORD *)(HalpInterruptIpiLines + 20);
     v35[0] = *(_DWORD *)(HalpInterruptIpiLines + 16);
-    v25 = *(__int64 (__fastcall **)(_QWORD, _DWORD *, int *, _QWORD, struct _PROCESSOR_NUMBER *))(HalpInterruptController
-                                                                                                + 120);
+    v25 = *(__int64 (__fastcall **)(_QWORD, _DWORD *, int *, _QWORD, _PROCESSOR_NUMBER *))(HalpInterruptController + 120);
     _disable();
     LOBYTE(v2) = v25(*(_QWORD *)(HalpInterruptController + 16), v35, &v52, (unsigned int)(v37 + 46), &ProcNumber);
     if ( (v57 & 0x200) != 0 )

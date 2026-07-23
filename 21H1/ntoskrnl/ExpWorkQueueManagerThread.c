@@ -59,7 +59,7 @@ void __fastcall ExpWorkQueueManagerThread(_QWORD *a1)
   struct _KTHREAD *v35; // [rsp+50h] [rbp-21h]
   unsigned __int64 v36; // [rsp+58h] [rbp-19h]
   _QWORD v37[2]; // [rsp+60h] [rbp-11h] BYREF
-  struct _GROUP_AFFINITY Affinity; // [rsp+70h] [rbp-1h] BYREF
+  _GROUP_AFFINITY Affinity; // [rsp+70h] [rbp-1h] BYREF
   PVOID Object[3]; // [rsp+80h] [rbp+Fh] BYREF
 
   v1 = 0;
@@ -90,7 +90,7 @@ void __fastcall ExpWorkQueueManagerThread(_QWORD *a1)
     (__int64)(a1 + 16),
     -((10000000LL * (unsigned int)ExpWorkerThreadTimeoutInSeconds) >> 2),
     (10000000LL * (unsigned int)ExpWorkerThreadTimeoutInSeconds) >> 2,
-    v37);
+    (__int64)v37);
   v8 = 0;
   v9 = 10000000LL * (unsigned int)ExpWorkerThreadTimeoutInSeconds;
   Object[0] = a1 + 2;

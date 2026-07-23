@@ -1,24 +1,24 @@
 /*
- * XREFs of AlpcpDispatchReplyToWaitingThread @ 0x1405E4440
+ * XREFs of AlpcpDispatchReplyToWaitingThread @ 0x1406D3BA0
  * Callers:
- *     AlpcpDispatchMessage @ 0x1405E1004 (AlpcpDispatchMessage.c)
- *     AlpcpSendMessage @ 0x1405E4800 (AlpcpSendMessage.c)
+ *     AlpcpDispatchMessage @ 0x1406D0764 (AlpcpDispatchMessage.c)
+ *     AlpcpSendMessage @ 0x1406D3F60 (AlpcpSendMessage.c)
  * Callees:
- *     KeReleaseSemaphoreEx @ 0x1402631F0 (KeReleaseSemaphoreEx.c)
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     ExfReleasePushLockShared @ 0x1402F1470 (ExfReleasePushLockShared.c)
- *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
- *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
- *     ExAcquirePushLockSharedEx @ 0x14034AB50 (ExAcquirePushLockSharedEx.c)
- *     AlpcpSetOwnerPortMessage @ 0x1405E6040 (AlpcpSetOwnerPortMessage.c)
- *     AlpcpCaptureMessageDataSafe @ 0x1405E6080 (AlpcpCaptureMessageDataSafe.c)
- *     AlpcpUnlockBlob @ 0x1405E7880 (AlpcpUnlockBlob.c)
- *     AlpcpUnlockMessage @ 0x1405E9ECC (AlpcpUnlockMessage.c)
- *     AlpcpExposeViewAttributeInSenderContext @ 0x140661B50 (AlpcpExposeViewAttributeInSenderContext.c)
- *     AlpcpEnterStateChangeEventMessageLog @ 0x1408C2BD4 (AlpcpEnterStateChangeEventMessageLog.c)
- *     AlpcpLogSendMessage @ 0x1408C3E00 (AlpcpLogSendMessage.c)
- *     AlpcpLogWaitForReply @ 0x1408C3FD4 (AlpcpLogWaitForReply.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     KeReleaseSemaphoreEx @ 0x140284630 (KeReleaseSemaphoreEx.c)
+ *     ExfReleasePushLockShared @ 0x1402FC1C0 (ExfReleasePushLockShared.c)
+ *     ExfTryToWakePushLock @ 0x1402FC2C0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x1403539D0 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1403556E0 (ExAcquirePushLockExclusiveEx.c)
+ *     ExAcquirePushLockSharedEx @ 0x1403558A0 (ExAcquirePushLockSharedEx.c)
+ *     AlpcpExposeViewAttributeInSenderContext @ 0x140656970 (AlpcpExposeViewAttributeInSenderContext.c)
+ *     AlpcpSetOwnerPortMessage @ 0x1406D57A0 (AlpcpSetOwnerPortMessage.c)
+ *     AlpcpCaptureMessageDataSafe @ 0x1406D57E0 (AlpcpCaptureMessageDataSafe.c)
+ *     AlpcpUnlockBlob @ 0x1406D6FE0 (AlpcpUnlockBlob.c)
+ *     AlpcpUnlockMessage @ 0x1406D962C (AlpcpUnlockMessage.c)
+ *     AlpcpEnterStateChangeEventMessageLog @ 0x1408C2D34 (AlpcpEnterStateChangeEventMessageLog.c)
+ *     AlpcpLogSendMessage @ 0x1408C3F60 (AlpcpLogSendMessage.c)
+ *     AlpcpLogWaitForReply @ 0x1408C4134 (AlpcpLogWaitForReply.c)
  */
 
 __int64 __fastcall AlpcpDispatchReplyToWaitingThread(__int64 *a1)
@@ -42,7 +42,7 @@ __int64 __fastcall AlpcpDispatchReplyToWaitingThread(__int64 *a1)
   __int64 v19; // rax
   signed __int64 v20; // rax
   bool v21; // zf
-  _DWORD *v22; // r9
+  __int64 v22; // r9
   int v23; // [rsp+80h] [rbp+8h]
   __int16 v24; // [rsp+90h] [rbp+18h]
   struct _KTHREAD *v25; // [rsp+98h] [rbp+20h]
@@ -148,7 +148,7 @@ __int64 __fastcall AlpcpDispatchReplyToWaitingThread(__int64 *a1)
     }
     ExAcquirePushLockSharedEx(v5 + 352, 0LL);
     if ( *(_QWORD *)(v1 + 144) )
-      AlpcpExposeViewAttributeInSenderContext((PVOID)v5);
+      AlpcpExposeViewAttributeInSenderContext((_QWORD *)v5, v1);
     if ( _InterlockedCompareExchange64((volatile signed __int64 *)(v5 + 352), v14, 17LL) != 17 )
       ExfReleasePushLockShared((signed __int64 *)(v5 + 352));
     KeAbPostRelease(v5 + 352);
@@ -173,7 +173,7 @@ __int64 __fastcall AlpcpDispatchReplyToWaitingThread(__int64 *a1)
       if ( (v23 & 4) != 0 )
         a1[3] = v7;
       else
-        KeReleaseSemaphoreEx(v7 + 1160, 1LL, 1LL, v22, 2);
+        KeReleaseSemaphoreEx(v7 + 1160, 1, 1, v22, 2);
     }
     if ( (v24 & 0x1000) != 0 )
       HalPutDmaAdapter((PADAPTER_OBJECT)v5);

@@ -1,12 +1,12 @@
 /*
- * XREFs of KiIdleSchedule @ 0x1400D2630
+ * XREFs of KiIdleSchedule @ 0x1400D04D0
  * Callers:
- *     KiIdleLoop @ 0x140161A70 (KiIdleLoop.c)
+ *     KiIdleLoop @ 0x140161FE0 (KiIdleLoop.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x14002ECB0 (KeYieldProcessorEx.c)
- *     KiSearchForNewThread @ 0x14005B980 (KiSearchForNewThread.c)
- *     KiEndThreadCycleAccumulation @ 0x1400D26C0 (KiEndThreadCycleAccumulation.c)
- *     KiStartThreadCycleAccumulation @ 0x1400D37A0 (KiStartThreadCycleAccumulation.c)
+ *     KeYieldProcessorEx @ 0x14002E830 (KeYieldProcessorEx.c)
+ *     KiSearchForNewThread @ 0x14005B500 (KiSearchForNewThread.c)
+ *     KiEndThreadCycleAccumulation @ 0x1400D0560 (KiEndThreadCycleAccumulation.c)
+ *     KiStartThreadCycleAccumulation @ 0x1400D1640 (KiStartThreadCycleAccumulation.c)
  */
 
 __int64 __fastcall KiIdleSchedule(__int64 a1)

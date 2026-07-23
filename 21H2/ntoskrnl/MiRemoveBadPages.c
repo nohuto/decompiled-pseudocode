@@ -1,18 +1,18 @@
 /*
- * XREFs of MiRemoveBadPages @ 0x14052EBC8
+ * XREFs of MiRemoveBadPages @ 0x14052EE08
  * Callers:
- *     MmRemovePhysicalMemory @ 0x1408C6370 (MmRemovePhysicalMemory.c)
+ *     MmRemovePhysicalMemory @ 0x1408C64D0 (MmRemovePhysicalMemory.c)
  * Callees:
- *     ExfReleasePushLockShared @ 0x1402F1470 (ExfReleasePushLockShared.c)
- *     MiLockPageInline @ 0x1402FFE30 (MiLockPageInline.c)
- *     MiIsPageOnBadList @ 0x14030356C (MiIsPageOnBadList.c)
- *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
- *     ExAcquirePushLockSharedEx @ 0x14034AB50 (ExAcquirePushLockSharedEx.c)
- *     KiLeaveGuardedRegionUnsafe @ 0x14034AD90 (KiLeaveGuardedRegionUnsafe.c)
+ *     ExfReleasePushLockShared @ 0x1402FC1C0 (ExfReleasePushLockShared.c)
+ *     MiLockPageInline @ 0x14030AB80 (MiLockPageInline.c)
+ *     MiIsPageOnBadList @ 0x14030E2BC (MiIsPageOnBadList.c)
+ *     KeAbPostRelease @ 0x1403539D0 (KeAbPostRelease.c)
+ *     ExAcquirePushLockSharedEx @ 0x1403558A0 (ExAcquirePushLockSharedEx.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x140355AE0 (KiLeaveGuardedRegionUnsafe.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     MiReturnBadPagesToBadList @ 0x14052EFF8 (MiReturnBadPagesToBadList.c)
- *     MiSetPfnRemovalRequested @ 0x14054F428 (MiSetPfnRemovalRequested.c)
- *     MiUnlinkPageFromBadList @ 0x14054F540 (MiUnlinkPageFromBadList.c)
+ *     MiReturnBadPagesToBadList @ 0x14052F238 (MiReturnBadPagesToBadList.c)
+ *     MiSetPfnRemovalRequested @ 0x14054F668 (MiSetPfnRemovalRequested.c)
+ *     MiUnlinkPageFromBadList @ 0x14054F780 (MiUnlinkPageFromBadList.c)
  */
 
 __int64 __fastcall MiRemoveBadPages(__int64 a1, unsigned __int64 a2, unsigned __int64 a3)
@@ -59,7 +59,7 @@ __int64 __fastcall MiRemoveBadPages(__int64 a1, unsigned __int64 a2, unsigned __
   v9 = 6 * a2;
   v10 = 48 * a2 - 0x58000000000LL;
   --CurrentThread->SpecialApcDisable;
-  ExAcquirePushLockSharedEx((ULONG_PTR)&qword_140C50E40, 0LL);
+  ExAcquirePushLockSharedEx((ULONG_PTR)&qword_140C50E80, 0LL);
   if ( a3 )
   {
     v14 = (_QWORD *)(8 * v9 - 0x57FFFFFFFD8LL);
@@ -95,7 +95,7 @@ LABEL_43:
         v8 = -1073741585;
         goto LABEL_44;
       }
-      if ( *(ULONG_PTR **)(qword_140C4E648 + 8 * ((v16 >> 39) & 0x3FF)) != &MiSystemPartition )
+      if ( *(ULONG_PTR **)(qword_140C4E688 + 8 * ((v16 >> 39) & 0x3FF)) != &MiSystemPartition )
         break;
       if ( !MiIsPageOnBadList(v10) )
       {
@@ -178,9 +178,9 @@ LABEL_44:
 LABEL_46:
     CurrentThread = v35;
   }
-  if ( _InterlockedCompareExchange64((volatile signed __int64 *)&qword_140C50E40, 0LL, 17LL) != 17 )
-    ExfReleasePushLockShared((signed __int64 *)&qword_140C50E40);
-  KeAbPostRelease((ULONG_PTR)&qword_140C50E40);
+  if ( _InterlockedCompareExchange64((volatile signed __int64 *)&qword_140C50E80, 0LL, 17LL) != 17 )
+    ExfReleasePushLockShared((signed __int64 *)&qword_140C50E80);
+  KeAbPostRelease((ULONG_PTR)&qword_140C50E80);
   KiLeaveGuardedRegionUnsafe((__int64)CurrentThread);
   return v8;
 }

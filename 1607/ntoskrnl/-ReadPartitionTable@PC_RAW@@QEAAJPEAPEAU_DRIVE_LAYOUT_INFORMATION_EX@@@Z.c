@@ -1,11 +1,11 @@
 /*
- * XREFs of ?ReadPartitionTable@PC_RAW@@QEAAJPEAPEAU_DRIVE_LAYOUT_INFORMATION_EX@@@Z @ 0x14023BA14
+ * XREFs of ?ReadPartitionTable@PC_RAW@@QEAAJPEAPEAU_DRIVE_LAYOUT_INFORMATION_EX@@@Z @ 0x14023B8F8
  * Callers:
- *     PcReadPartitionTable @ 0x1401474EC (PcReadPartitionTable.c)
+ *     PcReadPartitionTable @ 0x140147A5C (PcReadPartitionTable.c)
  * Callees:
- *     ?CheckSum@MBR@@QEAAKXZ @ 0x140147A30 (-CheckSum@MBR@@QEAAKXZ.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     ?AllocatePool@PC_ENVIRONMENT@@SAPEAXKEK@Z @ 0x140574E38 (-AllocatePool@PC_ENVIRONMENT@@SAPEAXKEK@Z.c)
+ *     ?CheckSum@MBR@@QEAAKXZ @ 0x140147FA0 (-CheckSum@MBR@@QEAAKXZ.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     ?AllocatePool@PC_ENVIRONMENT@@SAPEAXKEK@Z @ 0x140575378 (-AllocatePool@PC_ENVIRONMENT@@SAPEAXKEK@Z.c)
  */
 
 __int64 __fastcall PC_RAW::ReadPartitionTable(PC_RAW *this, struct _DRIVE_LAYOUT_INFORMATION_EX **a2)
@@ -30,7 +30,7 @@ __int64 __fastcall PC_RAW::ReadPartitionTable(PC_RAW *this, struct _DRIVE_LAYOUT
       v7->PartitionStyle = 0;
       v7->PartitionCount = 1;
       v7->Mbr.Signature = 1;
-      *(_DWORD *)&v7->Gpt.DiskId.Data2 = MBR::CheckSum(v5);
+      v7->Mbr.CheckSum = MBR::CheckSum(v5);
       v7->PartitionEntry[0].PartitionStyle = PARTITION_STYLE_MBR;
       v7->PartitionEntry[0].StartingOffset.QuadPart = 0LL;
       v8.QuadPart = *(_QWORD *)(*(_QWORD *)this + 32LL) << *(_DWORD *)(*(_QWORD *)this + 40LL);
@@ -46,7 +46,7 @@ __int64 __fastcall PC_RAW::ReadPartitionTable(PC_RAW *this, struct _DRIVE_LAYOUT
     {
       *(_QWORD *)&v7->PartitionStyle = 0LL;
       v7->Mbr.Signature = 0;
-      *(_DWORD *)&v7->Gpt.DiskId.Data2 = MBR::CheckSum(v5);
+      v7->Mbr.CheckSum = MBR::CheckSum(v5);
     }
     *a2 = v7;
   }

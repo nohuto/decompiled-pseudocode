@@ -1,16 +1,16 @@
 /*
- * XREFs of SmCrEncStart @ 0x14079BA38
+ * XREFs of SmCrEncStart @ 0x14079BB48
  * Callers:
- *     ?StStart@?$ST_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_ST_CREATE_PARAMS@@@Z @ 0x140449D18 (-StStart@-$ST_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_ST_CREATE_PARAMS@@@Z.c)
+ *     ?StStart@?$ST_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_ST_CREATE_PARAMS@@@Z @ 0x1403767E4 (-StStart@-$ST_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_ST_CREATE_PARAMS@@@Z.c)
  * Callees:
- *     SmAllocEx @ 0x14044AB68 (SmAllocEx.c)
- *     SmCrGenRandom @ 0x14060F494 (SmCrGenRandom.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     BCryptGenerateSymmetricKey @ 0x14078F188 (BCryptGenerateSymmetricKey.c)
- *     BCryptSetProperty @ 0x14078F2B0 (BCryptSetProperty.c)
- *     BCryptGetProperty @ 0x140A45488 (BCryptGetProperty.c)
- *     BCryptOpenAlgorithmProvider @ 0x140AA6D0C (BCryptOpenAlgorithmProvider.c)
+ *     SmAllocEx @ 0x1402F5228 (SmAllocEx.c)
+ *     SmCrGenRandom @ 0x14060DA54 (SmCrGenRandom.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     BCryptGenerateSymmetricKey @ 0x14078F158 (BCryptGenerateSymmetricKey.c)
+ *     BCryptSetProperty @ 0x14078F280 (BCryptSetProperty.c)
+ *     BCryptGetProperty @ 0x140A3B034 (BCryptGetProperty.c)
+ *     BCryptOpenAlgorithmProvider @ 0x140AA1E08 (BCryptOpenAlgorithmProvider.c)
  */
 
 NTSTATUS __fastcall SmCrEncStart(__int64 a1, const void *a2, unsigned int a3)
@@ -22,7 +22,7 @@ NTSTATUS __fastcall SmCrEncStart(__int64 a1, const void *a2, unsigned int a3)
   void *v9; // rax
   __int64 v10; // r8
   ULONG v11; // r9d
-  __int64 v12; // rcx
+  ULONG_PTR v12; // rcx
   void *v13; // rax
   ULONG v14; // r9d
   void *v15; // rax
@@ -49,7 +49,7 @@ NTSTATUS __fastcall SmCrEncStart(__int64 a1, const void *a2, unsigned int a3)
       }
       else
       {
-        v9 = (void *)SmAllocEx((unsigned int)v4, 1380150643LL, -1);
+        v9 = (void *)SmAllocEx((unsigned int)v4, 0x52436D73u, -1);
         *(_QWORD *)(a1 + 16) = v9;
         if ( !v9 )
           return -1073741670;
@@ -65,7 +65,7 @@ NTSTATUS __fastcall SmCrEncStart(__int64 a1, const void *a2, unsigned int a3)
         }
         v12 = (unsigned int)*v8;
         *(_DWORD *)(a1 + 24) = v4;
-        v13 = (void *)SmAllocEx(v12, 1380150643LL, -1);
+        v13 = (void *)SmAllocEx(v12, 0x52436D73u, -1);
         *(_QWORD *)(a1 + 48) = v13;
         if ( !v13 )
           return -1073741670;
@@ -73,7 +73,7 @@ NTSTATUS __fastcall SmCrEncStart(__int64 a1, const void *a2, unsigned int a3)
         result = BCryptGetProperty(*(BCRYPT_HANDLE *)a1, L"ObjectLength", (PUCHAR)&pbOutput, v14, &dwFlags, cbSecreta);
         if ( result >= 0 )
         {
-          v15 = (void *)SmAllocEx(pbOutput, 1380150643LL, -1);
+          v15 = (void *)SmAllocEx(pbOutput, 0x52436D73u, -1);
           *(_QWORD *)(a1 + 40) = v15;
           if ( !v15 )
             return -1073741670;

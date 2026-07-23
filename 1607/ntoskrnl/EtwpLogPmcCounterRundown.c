@@ -1,12 +1,12 @@
 /*
- * XREFs of EtwpLogPmcCounterRundown @ 0x1406A6FD4
+ * XREFs of EtwpLogPmcCounterRundown @ 0x1406A710C
  * Callers:
- *     EtwpStopLoggerInstance @ 0x140493B50 (EtwpStopLoggerInstance.c)
- *     EtwpCheckLoggerAccessAndDoRundown @ 0x1406A6C80 (EtwpCheckLoggerAccessAndDoRundown.c)
+ *     EtwpStopLoggerInstance @ 0x1404945E0 (EtwpStopLoggerInstance.c)
+ *     EtwpCheckLoggerAccessAndDoRundown @ 0x1406A6DB8 (EtwpCheckLoggerAccessAndDoRundown.c)
  * Callees:
- *     EtwpLogKernelEvent @ 0x140059740 (EtwpLogKernelEvent.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     xHalSetSystemInformation @ 0x140581940 (xHalSetSystemInformation.c)
+ *     EtwpLogKernelEvent @ 0x1400592C0 (EtwpLogKernelEvent.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     xHalSetSystemInformation @ 0x140581DF0 (xHalSetSystemInformation.c)
  */
 
 void __fastcall EtwpLogPmcCounterRundown(__int64 a1, unsigned int a2)

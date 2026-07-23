@@ -1,10 +1,10 @@
 /*
- * XREFs of EtwpSendBufferToDebugger @ 0x1409EBD5C
+ * XREFs of EtwpSendBufferToDebugger @ 0x1409EBFEC
  * Callers:
- *     EtwpSendDbgId @ 0x1409EBE84 (EtwpSendDbgId.c)
+ *     EtwpSendDbgId @ 0x1409EC114 (EtwpSendDbgId.c)
  * Callees:
- *     EtwpGetNextEventOffsetType @ 0x1403A2178 (EtwpGetNextEventOffsetType.c)
- *     memset @ 0x140435A00 (memset.c)
+ *     EtwpGetNextEventOffsetType @ 0x1403A2358 (EtwpGetNextEventOffsetType.c)
+ *     memset @ 0x140435E00 (memset.c)
  *     KdSendTraceData @ 0x140AB19F8 (KdSendTraceData.c)
  */
 

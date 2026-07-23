@@ -1,18 +1,18 @@
 /*
- * XREFs of RtlpHpSegMgrCommit @ 0x14030A610
+ * XREFs of RtlpHpSegMgrCommit @ 0x140315360
  * Callers:
- *     RtlpHpSegMgrAllocate @ 0x1402A4D14 (RtlpHpSegMgrAllocate.c)
- *     RtlpHpSegPageRangeCommit @ 0x14030A2B0 (RtlpHpSegPageRangeCommit.c)
- *     RtlpHpSegMgrRelease @ 0x140389B54 (RtlpHpSegMgrRelease.c)
+ *     RtlpHpSegMgrAllocate @ 0x140222154 (RtlpHpSegMgrAllocate.c)
+ *     RtlpHpSegPageRangeCommit @ 0x140315000 (RtlpHpSegPageRangeCommit.c)
+ *     RtlpHpSegMgrRelease @ 0x140389CA4 (RtlpHpSegMgrRelease.c)
  * Callees:
- *     RtlpHpSegMgrCommitComplete @ 0x1402C7BD4 (RtlpHpSegMgrCommitComplete.c)
- *     RtlpHpFreeVA @ 0x1402FA770 (RtlpHpFreeVA.c)
- *     RtlpHpSegMgrCommitInitiate @ 0x140309268 (RtlpHpSegMgrCommitInitiate.c)
- *     RtlpHpEnvGetHeapManager @ 0x140309414 (RtlpHpEnvGetHeapManager.c)
- *     RtlpHpVaMgrCtxQuery @ 0x14030944C (RtlpHpVaMgrCtxQuery.c)
- *     RtlpHpSegHeapCheckCommitLimit @ 0x14030AB10 (RtlpHpSegHeapCheckCommitLimit.c)
- *     RtlpHpAllocVA @ 0x14030AD50 (RtlpHpAllocVA.c)
- *     memset @ 0x140414200 (memset.c)
+ *     RtlpHpSegMgrCommitComplete @ 0x140246428 (RtlpHpSegMgrCommitComplete.c)
+ *     RtlpHpFreeVA @ 0x1403054C0 (RtlpHpFreeVA.c)
+ *     RtlpHpSegMgrCommitInitiate @ 0x140313FB8 (RtlpHpSegMgrCommitInitiate.c)
+ *     RtlpHpEnvGetHeapManager @ 0x140314164 (RtlpHpEnvGetHeapManager.c)
+ *     RtlpHpVaMgrCtxQuery @ 0x14031419C (RtlpHpVaMgrCtxQuery.c)
+ *     RtlpHpSegHeapCheckCommitLimit @ 0x140315860 (RtlpHpSegHeapCheckCommitLimit.c)
+ *     RtlpHpAllocVA @ 0x140315AA0 (RtlpHpAllocVA.c)
+ *     memset @ 0x140414300 (memset.c)
  */
 
 __int64 __fastcall RtlpHpSegMgrCommit(__int64 a1, __int64 a2, unsigned int a3, int a4, int a5, int a6, int a7)

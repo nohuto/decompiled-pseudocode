@@ -1,11 +1,11 @@
 /*
- * XREFs of CmpTraceHiveSaveFileCopied @ 0x1407EC1E4
+ * XREFs of CmpTraceHiveSaveFileCopied @ 0x1407ED3E4
  * Callers:
- *     CmSaveKey @ 0x140801F30 (CmSaveKey.c)
+ *     CmSaveKey @ 0x140803130 (CmSaveKey.c)
  * Callees:
  *     EtwEventEnabled @ 0x14005B2D0 (EtwEventEnabled.c)
- *     EtwWrite @ 0x1400CAD20 (EtwWrite.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     EtwWrite @ 0x1400CAE00 (EtwWrite.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
  */
 
 BOOLEAN CmpTraceHiveSaveFileCopied()

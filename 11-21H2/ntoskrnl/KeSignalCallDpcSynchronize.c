@@ -1,10 +1,10 @@
 /*
  * XREFs of KeSignalCallDpcSynchronize @ 0x14056F9F0
  * Callers:
- *     KiInitializeDynamicProcessorDpc @ 0x140A69470 (KiInitializeDynamicProcessorDpc.c)
- *     MiApplyImageHotPatchDpc @ 0x140A6A480 (MiApplyImageHotPatchDpc.c)
+ *     sub_140A69470 @ 0x140A69470 (sub_140A69470.c)
+ *     sub_140A6A480 @ 0x140A6A480 (sub_140A6A480.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x1402F32E0 (KeYieldProcessorEx.c)
+ *     sub_1402F32E0 @ 0x1402F32E0 (sub_1402F32E0.c)
  */
 
 __int64 __fastcall KeSignalCallDpcSynchronize(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
@@ -21,7 +21,7 @@ __int64 __fastcall KeSignalCallDpcSynchronize(__int64 a1, __int64 a2, __int64 a3
     v7 = 0;
     v9 = 0;
     while ( (*(_DWORD *)a1 & 0x80000000) != v6 )
-      KeYieldProcessorEx(&v9, a2, a3, a4);
+      sub_1402F32E0(&v9, a2, a3, a4);
   }
   else
   {

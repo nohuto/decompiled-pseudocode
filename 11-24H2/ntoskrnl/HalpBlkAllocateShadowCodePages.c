@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpBlkAllocateShadowCodePages @ 0x140C12E4C
+ * XREFs of HalpBlkAllocateShadowCodePages @ 0x140C14E4C
  * Callers:
- *     HalpBlkAllocateShadowCode @ 0x140C12DC4 (HalpBlkAllocateShadowCode.c)
+ *     HalpBlkAllocateShadowCode @ 0x140C14DC4 (HalpBlkAllocateShadowCode.c)
  * Callees:
- *     HalpBlkAllocateAndShadowMemory @ 0x140C12C34 (HalpBlkAllocateAndShadowMemory.c)
+ *     HalpBlkAllocateAndShadowMemory @ 0x140C14C34 (HalpBlkAllocateAndShadowMemory.c)
  */
 
 __int64 __fastcall HalpBlkAllocateShadowCodePages(__int64 a1, __int64 a2, __int64 *a3)

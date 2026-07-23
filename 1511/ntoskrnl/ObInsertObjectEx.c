@@ -103,7 +103,7 @@ __int64 __fastcall ObInsertObjectEx(
   ACCESS_MASK v52; // [rsp+70h] [rbp-90h]
   int v53; // [rsp+74h] [rbp-8Ch]
   char *v54; // [rsp+78h] [rbp-88h]
-  __int64 v55; // [rsp+80h] [rbp-80h] BYREF
+  ULONG Index[2]; // [rsp+80h] [rbp-80h] BYREF
   __int64 v56; // [rsp+88h] [rbp-78h]
   PVOID v57; // [rsp+90h] [rbp-70h]
   PVOID *v58; // [rsp+98h] [rbp-68h]
@@ -233,8 +233,8 @@ LABEL_22:
       v48 = 16;
     v25 = (__int64)a2->SecurityDescriptor;
     SecurityDescriptor = 0LL;
-    v55 = 8LL;
-    Handle = SeComputeAutoInheritByObjectTypeEx((__int64)v13, v25, 0LL, &v49, &v55);
+    *(_QWORD *)Index = 8LL;
+    Handle = SeComputeAutoInheritByObjectTypeEx((__int64)v13, v25, 0LL, &v49, Index);
     if ( Handle >= 0 )
     {
       v49 |= v48;
@@ -245,7 +245,7 @@ LABEL_22:
                  0LL,
                  v13 == ObpDirectoryObjectType,
                  v49,
-                 &v55,
+                 Index,
                  (__int64)&a2->SubjectSecurityContext,
                  (__int64)&v13->TypeInfo.GenericMapping);
       if ( Handle >= 0 )

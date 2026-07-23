@@ -1,15 +1,15 @@
 /*
- * XREFs of PopDiagTracePerfTrackData @ 0x140AF4FB0
+ * XREFs of PopDiagTracePerfTrackData @ 0x140AF7650
  * Callers:
- *     PopIssueActionRequest @ 0x140A37878 (PopIssueActionRequest.c)
+ *     PopIssueActionRequest @ 0x1409F3438 (PopIssueActionRequest.c)
  * Callees:
- *     EtwEventEnabled @ 0x140212D90 (EtwEventEnabled.c)
- *     EtwWrite @ 0x140212EF0 (EtwWrite.c)
- *     KeGetPrcb @ 0x1402916D0 (KeGetPrcb.c)
- *     PopReadRegKeyValue @ 0x1404ECAE8 (PopReadRegKeyValue.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     PopComputeDerivedHiberStats @ 0x140AF5758 (PopComputeDerivedHiberStats.c)
- *     PopQpcTimeInMs @ 0x140C06CF0 (PopQpcTimeInMs.c)
+ *     EtwEventEnabled @ 0x140212E70 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x140212FD0 (EtwWrite.c)
+ *     KeGetPrcb @ 0x140290C30 (KeGetPrcb.c)
+ *     PopReadRegKeyValue @ 0x1404E60C8 (PopReadRegKeyValue.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     PopComputeDerivedHiberStats @ 0x140AF7DF8 (PopComputeDerivedHiberStats.c)
+ *     PopQpcTimeInMs @ 0x140C0CF00 (PopQpcTimeInMs.c)
  */
 
 char __fastcall PopDiagTracePerfTrackData(__int16 a1)
@@ -22,7 +22,7 @@ char __fastcall PopDiagTracePerfTrackData(__int16 a1)
   __int16 v7; // cx
   int v8; // r8d
   unsigned int v9; // ecx
-  unsigned __int64 v10; // rax
+  ULONGLONG v10; // rax
   int v11; // r8d
   int v12; // r8d
   unsigned __int64 v13; // rax
@@ -37,7 +37,7 @@ char __fastcall PopDiagTracePerfTrackData(__int16 a1)
   __int16 v22; // cx
   int v23; // r8d
   unsigned int v24; // ecx
-  unsigned __int64 v25; // rax
+  ULONGLONG v25; // rax
   int v26; // r8d
   int v27; // r8d
   unsigned __int64 v28; // rax
@@ -62,7 +62,7 @@ char __fastcall PopDiagTracePerfTrackData(__int16 a1)
   __int16 v48; // [rsp+80h] [rbp-41h]
   __int16 v49; // [rsp+82h] [rbp-3Fh]
   __int16 v50; // [rsp+84h] [rbp-3Dh]
-  __int16 Lock; // [rsp+86h] [rbp-3Bh]
+  __int16 v51; // [rsp+86h] [rbp-3Bh]
   int v52; // [rsp+88h] [rbp-39h]
   __int16 v53; // [rsp+8Ch] [rbp-35h]
   __int16 v54; // [rsp+8Eh] [rbp-33h]
@@ -81,26 +81,24 @@ char __fastcall PopDiagTracePerfTrackData(__int16 a1)
   v44 = 0LL;
   v39 = 0LL;
   v52 = 0;
-  if ( byte_140E67628 )
+  if ( PopDiagHandleRegistered )
   {
-    LOBYTE(v1) = EtwEventEnabled(
-                   *(REGHANDLE *)&PopSleepstudySessionLock.PriorityFloorCounts[16],
-                   &POP_ETW_EVENT_TRANSITIONTIMES);
+    LOBYTE(v1) = EtwEventEnabled(PopDiagHandle, &POP_ETW_EVENT_TRANSITIONTIMES);
     if ( (_BYTE)v1 )
     {
       v3 = 1000LL * *(unsigned int *)(KeGetPrcb(0) + 68);
-      v41 = PopQpcTimeInMs(&stru_140F10070.Timer.Dpc, &stru_140F10070.Timer.Processor);
-      v40 = PopQpcTimeInMs(&stru_140F10070.Timer.TimerListEntry, &stru_140F10070.Timer.TimerListEntry.Blink);
-      if ( stru_140F10070.Timer.DueTime.QuadPart )
+      v41 = PopQpcTimeInMs(&qword_140F10A40, &qword_140F10A48);
+      v40 = PopQpcTimeInMs(&qword_140F10A30, &qword_140F10A38);
+      if ( qword_140F10A28 )
       {
         v39 = 0LL;
-        v36 = PopQpcTimeInMs(&v39, &stru_140F10070.Timer.DueTime);
-        v19 = PopQpcTimeInMs(&stru_140F10070.RelativeTimerBias, &stru_140F10070.Timer);
+        v36 = PopQpcTimeInMs(&v39, &qword_140F10A28);
+        v19 = PopQpcTimeInMs(&qword_140F10A08, &qword_140F10A10);
         v18 = (const EVENT_DESCRIPTOR *)POP_ETW_EVENT_PERFTRACK_STANDBY;
         v34 = v36 + v19;
         v14 = 5;
         *(_QWORD *)&UserData.Size = 4LL;
-        UserData.Ptr = (ULONGLONG)&stru_140F10070.SuspendEvent;
+        UserData.Ptr = (ULONGLONG)&dword_140F10BF0;
         v56 = &v34;
         v58 = &v36;
         v60 = &v40;
@@ -110,18 +108,18 @@ char __fastcall PopDiagTracePerfTrackData(__int16 a1)
         v61 = 4LL;
         v63 = 4LL;
 LABEL_34:
-        LOBYTE(v1) = EtwWrite(*(REGHANDLE *)&PopSleepstudySessionLock.PriorityFloorCounts[16], v18, 0LL, v14, &UserData);
+        LOBYTE(v1) = EtwWrite(PopDiagHandle, v18, 0LL, v14, &UserData);
         return (char)v1;
       }
-      LOBYTE(v1) = stru_140F10070.PropagateBoostsEntry.Next;
-      if ( LODWORD(stru_140F10070.PropagateBoostsEntry.Next) )
+      LOBYTE(v1) = dword_140F10C38;
+      if ( dword_140F10C38 )
       {
-        v4 = *(_DWORD *)&stru_140F10070.WaitBlockFill11[80];
-        v37 = (4 * LODWORD(stru_140F10070.PropagateBoostsEntry.Next)) & 0x3FFFFF;
-        v43 = *(_DWORD *)&stru_140F10070.WaitBlockFill11[80];
-        v38 = (unsigned __int64)stru_140F10070.WaitBlock[0].Object / v3;
-        LOBYTE(v1) = stru_140F10070.PriorityFloorCounts[0];
-        v34 = *(_DWORD *)stru_140F10070.PriorityFloorCounts;
+        v4 = qword_140F10AA0;
+        v37 = (4 * dword_140F10C38) & 0x3FFFFF;
+        v43 = qword_140F10AA0;
+        v38 = qword_140F10A70 / v3;
+        LOBYTE(v1) = qword_140F10C48;
+        v34 = qword_140F10C48;
         if ( (a1 & 8) == 0 )
         {
           UserData.Ptr = (ULONGLONG)&v37;
@@ -130,36 +128,31 @@ LABEL_34:
           v58 = &v38;
           v57 = 4LL;
           v59 = 4LL;
-          LOBYTE(v1) = EtwWrite(
-                         *(REGHANDLE *)&PopSleepstudySessionLock.PriorityFloorCounts[16],
-                         &POP_ETW_EVENT_PERFTRACK_HIBERNATE,
-                         0LL,
-                         3u,
-                         &UserData);
-          v20 = *(_DWORD *)&stru_140F10070.WaitBlockFill11[96];
-          if ( !*(_DWORD *)&stru_140F10070.WaitBlockFill11[96] )
+          LOBYTE(v1) = EtwWrite(PopDiagHandle, &POP_ETW_EVENT_PERFTRACK_HIBERNATE, 0LL, 3u, &UserData);
+          v20 = qword_140F10AB0;
+          if ( !(_DWORD)qword_140F10AB0 )
             return (char)v1;
-          PopComputeDerivedHiberStats(&stru_140F10070.WaitBlockFill10[8], v3, &v44);
+          PopComputeDerivedHiberStats(&qword_140F10A58, v3, &v44);
           v45 = v34;
-          v21 = (unsigned __int64)stru_140F10070.MutantListHead.Blink >> 8;
-          if ( (unsigned __int64)stru_140F10070.MutantListHead.Blink >> 8 > 0x7FFF )
+          v21 = (unsigned __int64)qword_140F10C20 >> 8;
+          if ( (unsigned __int64)qword_140F10C20 >> 8 > 0x7FFF )
             LOWORD(v21) = 0x7FFF;
           v46 = v21 & 0x7FFF | ((a1 & 0xFFE0) << 10);
-          v47 = *(_WORD *)&stru_140F10070.AbOwnedEntryCount;
-          if ( *(_QWORD *)&stru_140F10070.AbWaitEntryCount >> 8 >= 0xFFFFuLL )
+          v47 = (unsigned int)qword_140F10C28 >> 8;
+          if ( (unsigned __int64)qword_140F10C28 >> 8 >= 0xFFFF )
             v47 = -1;
-          v48 = 1000LL * *(_QWORD *)&stru_140F10070.WaitBlockFill11[112] / PopQpcFrequency;
-          if ( 1000LL * *(_QWORD *)&stru_140F10070.WaitBlockFill11[112] / PopQpcFrequency >= 0xFFFF )
+          v48 = 1000 * qword_140F10AC0 / PopQpcFrequency;
+          if ( 1000 * qword_140F10AC0 / PopQpcFrequency >= 0xFFFF )
             v48 = -1;
-          v49 = (unsigned __int64)stru_140F10070.SchedulerApc.ApcListEntry.Blink / v3;
-          if ( (unsigned __int64)stru_140F10070.SchedulerApc.ApcListEntry.Blink / v3 >= 0xFFFF )
+          v49 = qword_140F10BB0 / v3;
+          if ( qword_140F10BB0 / v3 >= 0xFFFF )
             v49 = -1;
           v50 = v20;
           if ( v20 >= 0xFFFF )
             v50 = -1;
-          Lock = stru_140F10070.SuspendEvent.Header.Lock;
-          if ( stru_140F10070.SuspendEvent.Header.LockNV >= 0xFFFFu )
-            Lock = -1;
+          v51 = dword_140F10BF0;
+          if ( (unsigned int)dword_140F10BF0 >= 0xFFFF )
+            v51 = -1;
           v22 = WORD2(v44);
           v23 = HIDWORD(v44);
           if ( DWORD1(v44) > 0x3FF )
@@ -167,25 +160,22 @@ LABEL_34:
           v24 = v52 & 0xFFFFFC00 | v22 & 0x3FF;
           if ( HIDWORD(v44) > 0x1FF )
             v23 = 511;
-          v25 = 1000
-              * (*(_QWORD *)&stru_140F10070.UserAffinityPrimaryGroup
-               - (unsigned __int64)stru_140F10070.SavedApcState.ApcListHead[1].Flink)
-              / PopQpcFrequency;
+          v25 = 1000 * (qword_140F10B40 - qword_140F10B78) / PopQpcFrequency;
           v26 = v24 ^ (v24 ^ (v23 << 10)) & 0x7FC00;
           if ( v25 > 0x1FFF )
             LODWORD(v25) = 0x1FFF;
           v27 = ((_DWORD)v25 << 19) | v26 & 0x7FFFF;
-          v28 = (unsigned __int64)stru_140F10070.SuspendEvent.Header.WaitListHead.Blink >> 8;
+          v28 = (unsigned __int64)qword_140F10C00 >> 8;
           v52 = v27;
-          if ( (unsigned __int64)stru_140F10070.SuspendEvent.Header.WaitListHead.Blink >> 8 > 0x7FFF )
+          if ( (unsigned __int64)qword_140F10C00 >> 8 > 0x7FFF )
             LOWORD(v28) = 0x7FFF;
-          if ( *(_DWORD *)&stru_140F11D08.ApcStateFill[40] )
+          if ( PopEnableMinimalHiberFile )
             v29 = 0x8000;
           else
             v29 = 0;
           v53 = v29 | v28 & 0x7FFF;
-          v54 = *(_WORD *)((char *)&stru_140F10070.ThreadListEntry.Flink + 1);
-          if ( (unsigned __int64)stru_140F10070.ThreadListEntry.Flink >> 8 >= 0xFFFF )
+          v54 = (unsigned int)qword_140F10C08 >> 8;
+          if ( (unsigned __int64)qword_140F10C08 >> 8 >= 0xFFFF )
             v54 = -1;
           v14 = 6;
           p_Size = &UserData.Size;
@@ -202,9 +192,9 @@ LABEL_34:
           v18 = (const EVENT_DESCRIPTOR *)POP_ETW_EVENT_PERFTRACK_RESUME_FROM_HIBERNATE;
           goto LABEL_34;
         }
-        if ( qword_140F12AA0 )
+        if ( PopShutdownButtonPressTime )
         {
-          v35 = PopQpcTimeInMs(&qword_140F12AA0, &stru_140F10070.216) + v4;
+          v35 = PopQpcTimeInMs(&PopShutdownButtonPressTime, &qword_140F109E8) + v4;
           if ( (int)PopReadRegKeyValue(
                       L"\\Registry\\Machine\\Software\\Microsoft\\Windows NT\\CurrentVersion\\Winlogon",
                       L"LastLogOffEndTimePerfCounter",
@@ -213,7 +203,7 @@ LABEL_34:
                       &v39) < 0 )
             v5 = 0;
           else
-            v5 = PopQpcTimeInMs(&v39, &stru_140F10070.WaitBlockFill11[88]);
+            v5 = PopQpcTimeInMs(&v39, &qword_140F10AA8);
           v42 = v5;
           *(_QWORD *)&UserData.Size = 4LL;
           UserData.Ptr = (ULONGLONG)&v37;
@@ -223,33 +213,28 @@ LABEL_34:
           v58 = &v38;
           v60 = &v42;
           v61 = 4LL;
-          EtwWrite(
-            *(REGHANDLE *)&PopSleepstudySessionLock.PriorityFloorCounts[16],
-            &POP_ETW_EVENT_PERFTRACK_HYBRID_SHUTDOWN,
-            0LL,
-            4u,
-            &UserData);
-          PopComputeDerivedHiberStats(&stru_140F10070.WaitBlockFill10[8], v3, &v44);
+          EtwWrite(PopDiagHandle, &POP_ETW_EVENT_PERFTRACK_HYBRID_SHUTDOWN, 0LL, 4u, &UserData);
+          PopComputeDerivedHiberStats(&qword_140F10A58, v3, &v44);
           v45 = v34;
-          v6 = (unsigned __int64)stru_140F10070.MutantListHead.Blink >> 8;
+          v6 = (unsigned __int64)qword_140F10C20 >> 8;
           v47 = -1;
-          if ( (unsigned __int64)stru_140F10070.MutantListHead.Blink >> 8 > 0x7FFF )
+          if ( (unsigned __int64)qword_140F10C20 >> 8 > 0x7FFF )
             LOWORD(v6) = 0x7FFF;
           v46 = v6 & 0x7FFF;
-          if ( *(_QWORD *)&stru_140F10070.AbWaitEntryCount >> 8 <= 0xFFFFuLL )
-            v47 = *(_WORD *)&stru_140F10070.AbOwnedEntryCount;
+          if ( (unsigned __int64)qword_140F10C28 >> 8 <= 0xFFFF )
+            v47 = (unsigned int)qword_140F10C28 >> 8;
           v48 = -1;
-          if ( 1000LL * *(_QWORD *)&stru_140F10070.WaitBlockFill11[112] / PopQpcFrequency <= 0xFFFF )
-            v48 = 1000LL * *(_QWORD *)&stru_140F10070.WaitBlockFill11[112] / PopQpcFrequency;
+          if ( 1000 * qword_140F10AC0 / PopQpcFrequency <= 0xFFFF )
+            v48 = 1000 * qword_140F10AC0 / PopQpcFrequency;
           v49 = -1;
-          if ( (unsigned __int64)stru_140F10070.SchedulerApc.ApcListEntry.Blink / v3 <= 0xFFFF )
-            v49 = (unsigned __int64)stru_140F10070.SchedulerApc.ApcListEntry.Blink / v3;
+          if ( qword_140F10BB0 / v3 <= 0xFFFF )
+            v49 = qword_140F10BB0 / v3;
           v50 = -1;
-          if ( *(_DWORD *)&stru_140F10070.WaitBlockFill11[96] <= 0xFFFFu )
-            v50 = *(_WORD *)&stru_140F10070.WaitBlockFill11[96];
-          Lock = -1;
-          if ( stru_140F10070.SuspendEvent.Header.LockNV <= 0xFFFFu )
-            Lock = stru_140F10070.SuspendEvent.Header.Lock;
+          if ( (unsigned int)qword_140F10AB0 <= 0xFFFF )
+            v50 = qword_140F10AB0;
+          v51 = -1;
+          if ( (unsigned int)dword_140F10BF0 <= 0xFFFF )
+            v51 = dword_140F10BF0;
           v7 = WORD2(v44);
           v8 = HIDWORD(v44);
           v54 = -1;
@@ -258,21 +243,18 @@ LABEL_34:
           v9 = v52 & 0xFFFFFC00 | v7 & 0x3FF;
           if ( HIDWORD(v44) > 0x1FF )
             v8 = 511;
-          v10 = 1000
-              * (*(_QWORD *)&stru_140F10070.UserAffinityPrimaryGroup
-               - (unsigned __int64)stru_140F10070.SavedApcState.ApcListHead[1].Flink)
-              / PopQpcFrequency;
+          v10 = 1000 * (qword_140F10B40 - qword_140F10B78) / PopQpcFrequency;
           v11 = v9 ^ (v9 ^ (v8 << 10)) & 0x7FC00;
           if ( v10 > 0x1FFF )
             LODWORD(v10) = 0x1FFF;
           v12 = ((_DWORD)v10 << 19) | v11 & 0x7FFFF;
-          v13 = (unsigned __int64)stru_140F10070.SuspendEvent.Header.WaitListHead.Blink >> 8;
+          v13 = (unsigned __int64)qword_140F10C00 >> 8;
           v52 = v12;
-          if ( (unsigned __int64)stru_140F10070.SuspendEvent.Header.WaitListHead.Blink >> 8 > 0x7FFF )
+          if ( (unsigned __int64)qword_140F10C00 >> 8 > 0x7FFF )
             LOWORD(v13) = 0x7FFF;
           v53 = v13 & 0x7FFF;
-          if ( (unsigned __int64)stru_140F10070.ThreadListEntry.Flink >> 8 <= 0xFFFF )
-            v54 = *(_WORD *)((char *)&stru_140F10070.ThreadListEntry.Flink + 1);
+          if ( (unsigned __int64)qword_140F10C08 >> 8 <= 0xFFFF )
+            v54 = (unsigned int)qword_140F10C08 >> 8;
           v14 = 6;
           v15 = &UserData.Size;
           v16 = 6LL;

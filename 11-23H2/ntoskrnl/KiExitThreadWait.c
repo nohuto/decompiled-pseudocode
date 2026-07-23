@@ -1,25 +1,25 @@
 /*
- * XREFs of KiExitThreadWait @ 0x1402BBC90
+ * XREFs of KiExitThreadWait @ 0x1402BBF20
  * Callers:
- *     KiCommitThreadWait @ 0x140241F20 (KiCommitThreadWait.c)
- *     KiFastExitThreadWait @ 0x1402BBC10 (KiFastExitThreadWait.c)
- *     KiSatisfyThreadWait @ 0x14057A2AC (KiSatisfyThreadWait.c)
+ *     KiCommitThreadWait @ 0x140241FF0 (KiCommitThreadWait.c)
+ *     KiFastExitThreadWait @ 0x1402BBEA0 (KiFastExitThreadWait.c)
+ *     KiSatisfyThreadWait @ 0x14057A79C (KiSatisfyThreadWait.c)
  * Callees:
  *     KiCompleteRescheduleContext @ 0x140201EB0 (KiCompleteRescheduleContext.c)
- *     KiStartRescheduleContext @ 0x140238F20 (KiStartRescheduleContext.c)
- *     KiSearchForNewThreadsForRescheduleContext @ 0x1402425A0 (KiSearchForNewThreadsForRescheduleContext.c)
- *     KiFindRescheduleContextEntryForPrcb @ 0x140243B70 (KiFindRescheduleContextEntryForPrcb.c)
- *     KiAcquirePrcbLocksForIsolationUnit @ 0x140246770 (KiAcquirePrcbLocksForIsolationUnit.c)
- *     KiFlushSoftwareInterruptBatch @ 0x140252760 (KiFlushSoftwareInterruptBatch.c)
- *     KiProcessDeferredReadyList @ 0x1402B0E70 (KiProcessDeferredReadyList.c)
- *     KiCheckForThreadDispatch @ 0x1402BCA78 (KiCheckForThreadDispatch.c)
- *     KiReleasePrcbLocksForIsolationUnit @ 0x1403078C0 (KiReleasePrcbLocksForIsolationUnit.c)
- *     KiAdjustRescheduleContextEntryForThreadRemoval @ 0x140307F0C (KiAdjustRescheduleContextEntryForThreadRemoval.c)
- *     KiCommitRescheduleContext @ 0x140308574 (KiCommitRescheduleContext.c)
- *     KiDeliverApc @ 0x14030F890 (KiDeliverApc.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memset @ 0x140435A00 (memset.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiStartRescheduleContext @ 0x140238FF0 (KiStartRescheduleContext.c)
+ *     KiSearchForNewThreadsForRescheduleContext @ 0x140242670 (KiSearchForNewThreadsForRescheduleContext.c)
+ *     KiFindRescheduleContextEntryForPrcb @ 0x140243C40 (KiFindRescheduleContextEntryForPrcb.c)
+ *     KiAcquirePrcbLocksForIsolationUnit @ 0x140246840 (KiAcquirePrcbLocksForIsolationUnit.c)
+ *     KiFlushSoftwareInterruptBatch @ 0x140252820 (KiFlushSoftwareInterruptBatch.c)
+ *     KiProcessDeferredReadyList @ 0x1402B1100 (KiProcessDeferredReadyList.c)
+ *     KiCheckForThreadDispatch @ 0x1402BCD08 (KiCheckForThreadDispatch.c)
+ *     KiReleasePrcbLocksForIsolationUnit @ 0x140307B50 (KiReleasePrcbLocksForIsolationUnit.c)
+ *     KiAdjustRescheduleContextEntryForThreadRemoval @ 0x14030819C (KiAdjustRescheduleContextEntryForThreadRemoval.c)
+ *     KiCommitRescheduleContext @ 0x140308804 (KiCommitRescheduleContext.c)
+ *     KiDeliverApc @ 0x14030FB20 (KiDeliverApc.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     memset @ 0x140435E00 (memset.c)
  */
 
 char __fastcall KiExitThreadWait(__int64 a1, __int64 a2, __int64 a3)
@@ -103,10 +103,10 @@ char __fastcall KiExitThreadWait(__int64 a1, __int64 a2, __int64 a3)
       LOBYTE(a2) = 1;
       KiCheckForThreadDispatch(a1, a2, a3);
       LOBYTE(v6) = KiDeliverApc(0LL, 0LL, 0LL);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         LOBYTE(v6) = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 )
         {
           LOBYTE(v6) = v6 - 2;
           if ( (unsigned __int8)v6 <= 0xDu )
@@ -131,11 +131,14 @@ char __fastcall KiExitThreadWait(__int64 a1, __int64 a2, __int64 a3)
   }
   else
   {
-    LOBYTE(v6) = KiIrqlFlags;
-    if ( KiIrqlFlags )
+    LOBYTE(v6) = (_BYTE)KiIrqlFlags;
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v3 <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+        && CurrentIrql <= 0xFu
+        && (unsigned __int8)v3 <= 0xFu
+        && CurrentIrql >= 2u )
       {
         v21 = KeGetCurrentPrcb();
         v22 = v21->SchedulerAssist;

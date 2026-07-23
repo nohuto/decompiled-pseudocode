@@ -2,14 +2,14 @@
  * XREFs of PfTAccessTracingStart @ 0x1403C83DC
  * Callers:
  *     PfpPowerActionStartScenarioTracing @ 0x1403D049C (PfpPowerActionStartScenarioTracing.c)
- *     PfGetCompletedTrace @ 0x1403E6AB4 (PfGetCompletedTrace.c)
- *     PfTStart @ 0x1405724A0 (PfTStart.c)
+ *     PfGetCompletedTrace @ 0x1403E80E4 (PfGetCompletedTrace.c)
+ *     PfTStart @ 0x1405729E0 (PfTStart.c)
  * Callees:
- *     MmSetAccessLogging @ 0x140001D44 (MmSetAccessLogging.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     FsRtlAcquirePushLockExclusive @ 0x14007B188 (FsRtlAcquirePushLockExclusive.c)
- *     ExfTryToWakePushLock @ 0x1400C8738 (ExfTryToWakePushLock.c)
- *     MmGetDefaultPagePriority @ 0x1400D3D18 (MmGetDefaultPagePriority.c)
+ *     MmSetAccessLogging @ 0x140001EB8 (MmSetAccessLogging.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     FsRtlAcquirePushLockExclusive @ 0x14007B208 (FsRtlAcquirePushLockExclusive.c)
+ *     ExfTryToWakePushLock @ 0x1400C65D8 (ExfTryToWakePushLock.c)
+ *     MmGetDefaultPagePriority @ 0x1400D1BB8 (MmGetDefaultPagePriority.c)
  *     MmEnablePeriodicAccessClearing @ 0x1403C8460 (MmEnablePeriodicAccessClearing.c)
  */
 

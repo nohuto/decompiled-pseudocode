@@ -3,7 +3,7 @@
  * Callers:
  *     TpCallbackMayRunLong @ 0x1800304C0 (TpCallbackMayRunLong.c)
  * Callees:
- *     TppFastAlpcAdjustConcurrencyCount @ 0x180088A94 (TppFastAlpcAdjustConcurrencyCount.c)
+ *     TppFastAlpcAdjustConcurrencyCount @ 0x180088AA4 (TppFastAlpcAdjustConcurrencyCount.c)
  *     TppRaiseInvalidParameter @ 0x180110908 (TppRaiseInvalidParameter.c)
  */
 
@@ -25,7 +25,7 @@ __int64 __fastcall TppCallbackMayRunLongProlog(
 
   if ( !a1 || *(_DWORD *)(a1 + 72) )
   {
-    TppRaiseInvalidParameter(a1, a2, (unsigned int)a2, a4);
+    TppRaiseInvalidParameter(a1, a2, (unsigned int)a2);
     return 3221225485LL;
   }
   v8 = *(_QWORD *)(a1 + 184);

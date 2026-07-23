@@ -1,15 +1,15 @@
 /*
- * XREFs of RtlpHpLfhSubsegmentAllocateBlockShared @ 0x14034C7D0
+ * XREFs of RtlpHpLfhSubsegmentAllocateBlockShared @ 0x14034E850
  * Callers:
- *     RtlpHpAllocateHeapInternal @ 0x140520DB8 (RtlpHpAllocateHeapInternal.c)
+ *     RtlpHpAllocateHeapInternal @ 0x14052345C (RtlpHpAllocateHeapInternal.c)
  * Callees:
- *     RtlpHpAcquireLockExclusive @ 0x14027E170 (RtlpHpAcquireLockExclusive.c)
- *     RtlpHpLfhSubsegmentIncBlockCounts @ 0x14034C570 (RtlpHpLfhSubsegmentIncBlockCounts.c)
- *     RtlpHpReleaseLockExclusive @ 0x14034D300 (RtlpHpReleaseLockExclusive.c)
- *     RtlpHpLfhSubsegmentPrefetch @ 0x14034D5CC (RtlpHpLfhSubsegmentPrefetch.c)
- *     RtlpHpEnvCompactionSchedule @ 0x14034D650 (RtlpHpEnvCompactionSchedule.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     RtlHeapZero @ 0x1407322C0 (RtlHeapZero.c)
+ *     RtlpHpAcquireLockExclusive @ 0x14027D6E0 (RtlpHpAcquireLockExclusive.c)
+ *     RtlpHpLfhSubsegmentIncBlockCounts @ 0x14034E5F0 (RtlpHpLfhSubsegmentIncBlockCounts.c)
+ *     RtlpHpReleaseLockExclusive @ 0x14034F380 (RtlpHpReleaseLockExclusive.c)
+ *     RtlpHpLfhSubsegmentPrefetch @ 0x14034F64C (RtlpHpLfhSubsegmentPrefetch.c)
+ *     RtlpHpEnvCompactionSchedule @ 0x14034F6D0 (RtlpHpEnvCompactionSchedule.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     RtlHeapZero @ 0x140736E90 (RtlHeapZero.c)
  */
 
 __int64 __fastcall RtlpHpLfhSubsegmentAllocateBlockShared(__int64 a1, unsigned __int64 a2, unsigned int a3, char a4)
@@ -252,8 +252,8 @@ LABEL_17:
       {
         *(_BYTE *)(v45 + a1 + 92) = 1;
         if ( !(BYTE1(**(_QWORD **)(*(_QWORD *)a1 + 56LL)) == 1
-             ? *(_DWORD *)&ExSaPageGroupDescriptorArrayLock.Tag
-             : ExSaPageGroupDescriptorArrayLock.SystemCallNumber) )
+             ? HIDWORD(ExSaPageGroupDescriptorArrayLock.StackBase)
+             : LODWORD(ExSaPageGroupDescriptorArrayLock.ThreadLock)) )
         {
           RtlpHpEnvCompactionSchedule(*(_QWORD *)(*(_QWORD *)a1 + 56LL), v44, v30, v36);
           LOBYTE(v30) = v85;
@@ -327,8 +327,8 @@ LABEL_17:
         {
           *(_BYTE *)(v74 + a1 + 92) = 1;
           if ( !(BYTE1(**(_QWORD **)(*(_QWORD *)a1 + 56LL)) == 1
-               ? *(_DWORD *)&ExSaPageGroupDescriptorArrayLock.Tag
-               : ExSaPageGroupDescriptorArrayLock.SystemCallNumber) )
+               ? HIDWORD(ExSaPageGroupDescriptorArrayLock.StackBase)
+               : LODWORD(ExSaPageGroupDescriptorArrayLock.ThreadLock)) )
             RtlpHpEnvCompactionSchedule(*(_QWORD *)(*(_QWORD *)a1 + 56LL), (v72 >> 31) & 0xFFF, v67, v61);
         }
       }

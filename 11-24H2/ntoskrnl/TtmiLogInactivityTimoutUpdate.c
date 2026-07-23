@@ -1,12 +1,12 @@
 /*
- * XREFs of TtmiLogInactivityTimoutUpdate @ 0x14076D1DC
+ * XREFs of TtmiLogInactivityTimoutUpdate @ 0x14076D3FC
  * Callers:
- *     TtmpWnfInactivityTimeoutCallback @ 0x140770730 (TtmpWnfInactivityTimeoutCallback.c)
+ *     TtmpWnfInactivityTimeoutCallback @ 0x140770950 (TtmpWnfInactivityTimeoutCallback.c)
  * Callees:
- *     PsGetSessionIdEx @ 0x1403025D0 (PsGetSessionIdEx.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140330CB0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgKeywordOn @ 0x140426AF0 (_tlgKeywordOn.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402B92F0 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     PsGetSessionIdEx @ 0x14030CBE0 (PsGetSessionIdEx.c)
+ *     _tlgKeywordOn @ 0x14041A970 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 void __fastcall TtmiLogInactivityTimoutUpdate(int a1)
@@ -22,7 +22,7 @@ void __fastcall TtmiLogInactivityTimoutUpdate(int a1)
   int v10; // [rsp+78h] [rbp-20h]
   int v11; // [rsp+7Ch] [rbp-1Ch]
 
-  if ( (unsigned int)dword_140FD78B8 > 5 && tlgKeywordOn((__int64)&dword_140FD78B8, 1LL) )
+  if ( (unsigned int)dword_140FD88C8 > 5 && tlgKeywordOn((__int64)&dword_140FD88C8, 1LL) )
   {
     SessionId = PsGetSessionIdEx((__int64)KeGetCurrentThread()->ApcState.Process);
     v8 = 0;
@@ -33,6 +33,6 @@ void __fastcall TtmiLogInactivityTimoutUpdate(int a1)
     v10 = 4;
     v9 = &v4;
     v4 = a1;
-    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140FD78B8, (unsigned __int8 *)word_140050172, 0LL, 0LL, 4u, &v5);
+    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140FD88C8, (unsigned __int8 *)word_140050D32, 0LL, 0LL, 4u, &v5);
   }
 }

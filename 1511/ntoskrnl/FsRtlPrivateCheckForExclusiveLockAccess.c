@@ -12,7 +12,7 @@
 
 char __fastcall FsRtlPrivateCheckForExclusiveLockAccess(__int64 a1, unsigned __int64 *a2)
 {
-  struct _RTL_SPLAY_LINKS *v4; // rcx
+  _RTL_SPLAY_LINKS *v4; // rcx
   __int64 v5; // rax
   __int64 v6; // rax
   __int64 FirstOverlappingExclusiveNode; // rax

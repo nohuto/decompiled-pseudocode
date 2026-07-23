@@ -1,14 +1,14 @@
 /*
- * XREFs of KeRaiseUserException @ 0x1402906A0
+ * XREFs of KeRaiseUserException @ 0x140290890
  * Callers:
- *     ExHandleLogBadReference @ 0x140319E14 (ExHandleLogBadReference.c)
- *     ObCloseHandleTableEntry @ 0x1405E6360 (ObCloseHandleTableEntry.c)
- *     NtClose @ 0x1405E89E0 (NtClose.c)
- *     ObpCloseHandle @ 0x1405F573C (ObpCloseHandle.c)
- *     PspInsertThread @ 0x140621450 (PspInsertThread.c)
+ *     ExHandleLogBadReference @ 0x14031A004 (ExHandleLogBadReference.c)
+ *     ObCloseHandleTableEntry @ 0x1405E7360 (ObCloseHandleTableEntry.c)
+ *     NtClose @ 0x1405E99E0 (NtClose.c)
+ *     ObpCloseHandle @ 0x1405F673C (ObpCloseHandle.c)
+ *     PspInsertThread @ 0x140622450 (PspInsertThread.c)
  * Callees:
- *     KiSetupForInstrumentationReturn @ 0x14013F99C (KiSetupForInstrumentationReturn.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiSetupForInstrumentationReturn @ 0x14013FA9C (KiSetupForInstrumentationReturn.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall KeRaiseUserException(unsigned int a1)

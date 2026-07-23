@@ -1,13 +1,13 @@
 /*
- * XREFs of MiGetCrossPartitionCombineCharges @ 0x14055CF3C
+ * XREFs of MiGetCrossPartitionCombineCharges @ 0x14055D17C
  * Callers:
- *     MiConvertStandbyToProto @ 0x140366F78 (MiConvertStandbyToProto.c)
- *     MiConvertPrivateToProto @ 0x14036A050 (MiConvertPrivateToProto.c)
- *     MiIncrementCombinedPte @ 0x14055D044 (MiIncrementCombinedPte.c)
+ *     MiConvertStandbyToProto @ 0x140367128 (MiConvertStandbyToProto.c)
+ *     MiConvertPrivateToProto @ 0x14036A200 (MiConvertPrivateToProto.c)
+ *     MiIncrementCombinedPte @ 0x14055D284 (MiIncrementCombinedPte.c)
  * Callees:
- *     MiAcquireNonPagedResources @ 0x1402E5C90 (MiAcquireNonPagedResources.c)
- *     MiReturnCommit @ 0x1403182A0 (MiReturnCommit.c)
- *     MiGetCrossPartitionCharges @ 0x140562428 (MiGetCrossPartitionCharges.c)
+ *     MiAcquireNonPagedResources @ 0x140296FE0 (MiAcquireNonPagedResources.c)
+ *     MiReturnCommit @ 0x140322FF0 (MiReturnCommit.c)
+ *     MiGetCrossPartitionCharges @ 0x140562668 (MiGetCrossPartitionCharges.c)
  */
 
 __int64 __fastcall MiGetCrossPartitionCombineCharges(__int64 a1, int a2)

@@ -3,7 +3,7 @@
  * Callers:
  *     RtlEnumerateGenericTableLikeADirectory @ 0x140006880 (RtlEnumerateGenericTableLikeADirectory.c)
  *     RtlEnumerateGenericTableWithoutSplayingAvl @ 0x1400069A0 (RtlEnumerateGenericTableWithoutSplayingAvl.c)
- *     RtlGetElementGenericTableAvl @ 0x1402F3060 (RtlGetElementGenericTableAvl.c)
+ *     RtlGetElementGenericTableAvl @ 0x1402F3250 (RtlGetElementGenericTableAvl.c)
  * Callees:
  *     <none>
  */

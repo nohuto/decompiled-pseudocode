@@ -7,13 +7,15 @@
  *     _memset @ 0x4B2F8F30 (_memset.c)
  */
 
-char __stdcall RtlFreeHandle(int a1, _DWORD *a2)
+BOOLEAN __cdecl RtlFreeHandle(PRTL_HANDLE_TABLE HandleTable, PRTL_HANDLE_TABLE_ENTRY Handle)
 {
-  char result; // al
+  BOOLEAN result; // al
+  size_t v3; // [esp-4h] [ebp-Ch]
 
-  memset(a2, 0, *(_DWORD *)(a1 + 4));
-  *a2 = *(_DWORD *)(a1 + 16);
+  LODWORD(v3) = HandleTable->SizeOfHandleTableEntry;
+  memset(Handle, 0, v3);
+  Handle->Flags = (ULONG)HandleTable->FreeHandles;
   result = 1;
-  *(_DWORD *)(a1 + 16) = a2;
+  HandleTable->FreeHandles = Handle;
   return result;
 }

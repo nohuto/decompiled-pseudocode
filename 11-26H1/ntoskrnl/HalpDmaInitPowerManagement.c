@@ -1,13 +1,13 @@
 /*
- * XREFs of HalpDmaInitPowerManagement @ 0x14058B824
+ * XREFs of HalpDmaInitPowerManagement @ 0x14058DFA4
  * Callers:
- *     HalpDmaInitSystem @ 0x140BEBA70 (HalpDmaInitSystem.c)
+ *     HalpDmaInitSystem @ 0x140BF1A70 (HalpDmaInitSystem.c)
  * Callees:
- *     PoFxActivateComponent @ 0x14037AAB0 (PoFxActivateComponent.c)
- *     PoFxStartDevicePowerManagement @ 0x1404EAC40 (PoFxStartDevicePowerManagement.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     PoFxRegisterCoreDevice @ 0x1407CCFA0 (PoFxRegisterCoreDevice.c)
+ *     PoFxActivateComponent @ 0x14037C860 (PoFxActivateComponent.c)
+ *     PoFxStartDevicePowerManagement @ 0x1404E3FF0 (PoFxStartDevicePowerManagement.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     PoFxRegisterCoreDevice @ 0x1407D0040 (PoFxRegisterCoreDevice.c)
  */
 
 __int64 HalpDmaInitPowerManagement()

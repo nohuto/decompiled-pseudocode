@@ -22,10 +22,10 @@ __int64 __fastcall SepDuplicateClaimAttributes(__int64 a1, _QWORD *a2)
   _DWORD *v6; // r15
   _DWORD *v7; // rdi
   char v8; // r13
-  char *v9; // rbp
+  _SID_AND_ATTRIBUTES *v9; // rbp
   __int64 v10; // rdx
   __int64 v11; // rcx
-  _QWORD *ClaimCollectionNoLists; // rsi
+  _DWORD *ClaimCollectionNoLists; // rsi
   _QWORD *SecurityAttributesList; // rax
   _QWORD *v14; // rax
   __int64 v15; // rdx
@@ -34,7 +34,7 @@ __int64 __fastcall SepDuplicateClaimAttributes(__int64 a1, _QWORD *a2)
   char *v18; // rcx
   unsigned int v19; // ebx
   char *Pool2; // rax
-  unsigned int v21; // edx
+  ULONG v21; // edx
   int v22; // [rsp+28h] [rbp-70h]
   int v23; // [rsp+30h] [rbp-68h]
   char v24; // [rsp+A8h] [rbp+10h]
@@ -55,7 +55,7 @@ __int64 __fastcall SepDuplicateClaimAttributes(__int64 a1, _QWORD *a2)
   *a2 = 0LL;
   if ( a1 )
   {
-    ClaimCollectionNoLists = (_QWORD *)AuthzBasepAllocateClaimCollectionNoLists();
+    ClaimCollectionNoLists = (_DWORD *)AuthzBasepAllocateClaimCollectionNoLists();
     if ( !ClaimCollectionNoLists )
       return (unsigned int)-1073741670;
     if ( *(_QWORD *)(a1 + 576) )
@@ -73,7 +73,7 @@ LABEL_24:
       if ( v5 < 0 )
         goto LABEL_17;
       v24 = 1;
-      ClaimCollectionNoLists[72] = v6;
+      *((_QWORD *)ClaimCollectionNoLists + 72) = v6;
     }
     if ( *(_QWORD *)(a1 + 584) )
     {
@@ -107,7 +107,7 @@ LABEL_17:
       if ( v5 < 0 )
         goto LABEL_14;
       v8 = 1;
-      ClaimCollectionNoLists[73] = v7;
+      *((_QWORD *)ClaimCollectionNoLists + 73) = v7;
     }
     v18 = *(char **)(a1 + 8);
     if ( v18 && *(_DWORD *)a1 )
@@ -117,7 +117,7 @@ LABEL_17:
         goto LABEL_14;
       v19 = v25;
       Pool2 = (char *)ExAllocatePool2(256LL, (unsigned int)v25, 1683252563LL);
-      v9 = Pool2;
+      v9 = (_SID_AND_ATTRIBUTES *)Pool2;
       if ( !Pool2 )
         goto LABEL_13;
       v5 = SeCaptureSidAndAttributesArray(
@@ -133,9 +133,9 @@ LABEL_17:
       if ( v5 < 0 )
         goto LABEL_14;
       v21 = *(_DWORD *)a1;
-      *(_DWORD *)ClaimCollectionNoLists = *(_DWORD *)a1;
-      ClaimCollectionNoLists[1] = v9;
-      RtlSidHashInitialize((__int64 *)v9, v21, ClaimCollectionNoLists + 4);
+      *ClaimCollectionNoLists = *(_DWORD *)a1;
+      *((_QWORD *)ClaimCollectionNoLists + 1) = v9;
+      RtlSidHashInitialize(v9, v21, (PSID_AND_ATTRIBUTES_HASH)(ClaimCollectionNoLists + 8));
     }
     *a2 = ClaimCollectionNoLists;
     return (unsigned int)v5;

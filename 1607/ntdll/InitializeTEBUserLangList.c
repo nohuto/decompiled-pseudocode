@@ -1,14 +1,14 @@
 /*
- * XREFs of InitializeTEBUserLangList @ 0x180012660
+ * XREFs of InitializeTEBUserLangList @ 0x180012650
  * Callers:
- *     RtlGetThreadPreferredUILanguages @ 0x180013DA0 (RtlGetThreadPreferredUILanguages.c)
- *     RtlpQueryDefaultUILanguage @ 0x1800708D0 (RtlpQueryDefaultUILanguage.c)
- *     RtlGetUserPreferredUILanguages @ 0x180079C00 (RtlGetUserPreferredUILanguages.c)
+ *     RtlGetThreadPreferredUILanguages @ 0x180013D90 (RtlGetThreadPreferredUILanguages.c)
+ *     RtlpQueryDefaultUILanguage @ 0x1800708C0 (RtlpQueryDefaultUILanguage.c)
+ *     RtlGetUserPreferredUILanguages @ 0x180079BF0 (RtlGetUserPreferredUILanguages.c)
  * Callees:
- *     RtlpMuiRegFreeLanguageList @ 0x180045F14 (RtlpMuiRegFreeLanguageList.c)
- *     InitializeUserOrMachineLangList @ 0x180070A08 (InitializeUserOrMachineLangList.c)
- *     RtlpLoadLanguageConfigList @ 0x1800710C4 (RtlpLoadLanguageConfigList.c)
- *     RtlpUpdateTEBLanguage @ 0x180080EA4 (RtlpUpdateTEBLanguage.c)
+ *     RtlpMuiRegFreeLanguageList @ 0x180045F04 (RtlpMuiRegFreeLanguageList.c)
+ *     InitializeUserOrMachineLangList @ 0x1800709F8 (InitializeUserOrMachineLangList.c)
+ *     RtlpLoadLanguageConfigList @ 0x1800710B4 (RtlpLoadLanguageConfigList.c)
+ *     RtlpUpdateTEBLanguage @ 0x180080E94 (RtlpUpdateTEBLanguage.c)
  */
 
 __int64 __fastcall InitializeTEBUserLangList(char a1, __int64 a2)
@@ -18,7 +18,7 @@ __int64 __fastcall InitializeTEBUserLangList(char a1, __int64 a2)
   bool v5; // si
   bool v6; // r14
   bool v7; // bp
-  _QWORD *UserPrefLanguages; // rdi
+  PVOID *UserPrefLanguages; // rdi
   __int64 v9; // rax
   unsigned __int16 v10; // r8
   __int64 v11; // r10
@@ -39,7 +39,7 @@ __int64 __fastcall InitializeTEBUserLangList(char a1, __int64 a2)
   __int64 v27; // rax
   struct _TEB *v28; // rcx
   __int64 v29; // rax
-  __int64 v30; // rcx
+  _BYTE *v30; // rcx
   char v31; // di
   char v32; // al
   __int64 v33; // rcx
@@ -57,7 +57,7 @@ __int64 __fastcall InitializeTEBUserLangList(char a1, __int64 a2)
   v5 = 0;
   v6 = 0;
   v7 = 0;
-  UserPrefLanguages = NtCurrentTeb()->UserPrefLanguages;
+  UserPrefLanguages = (PVOID *)NtCurrentTeb()->UserPrefLanguages;
   if ( a2 )
   {
     v9 = *(_QWORD *)(a2 + 24);
@@ -139,7 +139,7 @@ __int64 __fastcall InitializeTEBUserLangList(char a1, __int64 a2)
             goto LABEL_43;
           if ( *UserPrefLanguages )
           {
-            v20 = *(_QWORD *)(*UserPrefLanguages + 16LL);
+            v20 = *((_QWORD *)*UserPrefLanguages + 2);
             if ( v20 )
             {
               if ( *(_DWORD *)(v20 + 12) < *(_DWORD *)(a2 + 12) )
@@ -150,11 +150,11 @@ LABEL_36:
                   v30 = *UserPrefLanguages;
                   if ( *UserPrefLanguages )
                   {
-                    v6 = (*(_BYTE *)(v30 + 40) & 2) != 0;
-                    v5 = (*(_BYTE *)(v30 + 40) & 4) != 0;
-                    if ( (*(_BYTE *)(v30 + 40) & 2) != 0 || (*(_BYTE *)(v30 + 40) & 4) != 0 )
-                      v4 = *(_DWORD *)(v30 + 40) & 0xFFFF0000;
-                    ((void (*)(void))RtlpMuiRegFreeLanguageList)();
+                    v6 = (v30[40] & 2) != 0;
+                    v5 = (v30[40] & 4) != 0;
+                    if ( (v30[40] & 2) != 0 || (v30[40] & 4) != 0 )
+                      v4 = *((_DWORD *)v30 + 10) & 0xFFFF0000;
+                    RtlpMuiRegFreeLanguageList(v30);
                     *UserPrefLanguages = 0LL;
                   }
                 }
@@ -166,7 +166,7 @@ LABEL_36:
           }
           if ( UserPrefLanguages && *UserPrefLanguages )
           {
-            v21 = *(_DWORD *)(*UserPrefLanguages + 40LL);
+            v21 = *((_DWORD *)*UserPrefLanguages + 10);
             if ( a1 )
               v22 = (v21 & 0x20) == 0;
             else

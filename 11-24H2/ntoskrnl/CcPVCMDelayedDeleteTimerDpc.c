@@ -1,9 +1,9 @@
 /*
- * XREFs of CcPVCMDelayedDeleteTimerDpc @ 0x14057C4D0
+ * XREFs of CcPVCMDelayedDeleteTimerDpc @ 0x140579960
  * Callers:
  *     <none>
  * Callees:
- *     ExQueueWorkItemToPartition @ 0x1402A7F70 (ExQueueWorkItemToPartition.c)
+ *     ExQueueWorkItemToPartition @ 0x140279D60 (ExQueueWorkItemToPartition.c)
  */
 
 __int64 __fastcall CcPVCMDelayedDeleteTimerDpc(__int64 a1, __int64 a2)

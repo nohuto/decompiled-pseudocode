@@ -7,7 +7,7 @@
  *     RtlReleaseSRWLockExclusive @ 0x180012C70 (RtlReleaseSRWLockExclusive.c)
  *     EtwpAcquireGuidEntryExclusive @ 0x180047DB4 (EtwpAcquireGuidEntryExclusive.c)
  *     __security_check_cookie @ 0x18008C940 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1800A1160 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1800A1120 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall EtwpRegisterGuidsApiCallback(__int64 a1, __int64 a2, char a3)
@@ -52,7 +52,7 @@ __int64 __fastcall EtwpRegisterGuidsApiCallback(__int64 a1, __int64 a2, char a3)
     *(_QWORD *)(v4 + 152) = *(_QWORD *)(a1 + 104);
     *(_DWORD *)(v4 + 160) = v3;
     *(_DWORD *)(v4 + 48) = 0;
-    RtlReleaseSRWLockExclusive((volatile signed __int64 *)(v4 + 40));
+    RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(v4 + 40));
   }
   v9 = *(_QWORD *)(a2 + 56);
   v10 = *(_OWORD *)(a1 + 40);

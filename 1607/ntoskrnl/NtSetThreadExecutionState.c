@@ -1,20 +1,20 @@
 /*
- * XREFs of NtSetThreadExecutionState @ 0x14052CD00
+ * XREFs of NtSetThreadExecutionState @ 0x14052D240
  * Callers:
  *     <none>
  * Callees:
- *     MmGetSessionIdEx @ 0x140024FEC (MmGetSessionIdEx.c)
- *     PoDestroyReasonContext @ 0x1400FB8C8 (PoDestroyReasonContext.c)
- *     SessionIsInteractive @ 0x1400FC060 (SessionIsInteractive.c)
- *     PoCaptureReasonContext @ 0x1400FC0BC (PoCaptureReasonContext.c)
- *     PopApplyLegacyPowerRequestFlags @ 0x14010EA38 (PopApplyLegacyPowerRequestFlags.c)
- *     PopGetLegacyPowerRequestFlags @ 0x1401111BC (PopGetLegacyPowerRequestFlags.c)
- *     PopSystemRequiredSet @ 0x140131F28 (PopSystemRequiredSet.c)
+ *     MmGetSessionIdEx @ 0x140024B6C (MmGetSessionIdEx.c)
+ *     PoDestroyReasonContext @ 0x1400F9654 (PoDestroyReasonContext.c)
+ *     SessionIsInteractive @ 0x1400F9DE0 (SessionIsInteractive.c)
+ *     PoCaptureReasonContext @ 0x1400F9E3C (PoCaptureReasonContext.c)
+ *     PopApplyLegacyPowerRequestFlags @ 0x14010EF9C (PopApplyLegacyPowerRequestFlags.c)
+ *     PopGetLegacyPowerRequestFlags @ 0x140111720 (PopGetLegacyPowerRequestFlags.c)
+ *     PopSystemRequiredSet @ 0x140132498 (PopSystemRequiredSet.c)
  *     PopAcquirePolicyLock @ 0x1403C87E0 (PopAcquirePolicyLock.c)
  *     PopReleasePolicyLock @ 0x1403C8828 (PopReleasePolicyLock.c)
- *     PopNotifyConsoleUserPresent @ 0x1404F04D8 (PopNotifyConsoleUserPresent.c)
- *     PopCreateUserPowerRequest @ 0x14051E750 (PopCreateUserPowerRequest.c)
- *     PopDiagTraceSetThreadExecutionState @ 0x14052CE94 (PopDiagTraceSetThreadExecutionState.c)
+ *     PopNotifyConsoleUserPresent @ 0x1404D25CC (PopNotifyConsoleUserPresent.c)
+ *     PopCreateUserPowerRequest @ 0x1405017B8 (PopCreateUserPowerRequest.c)
+ *     PopDiagTraceSetThreadExecutionState @ 0x14052D3D4 (PopDiagTraceSetThreadExecutionState.c)
  */
 
 NTSTATUS __stdcall NtSetThreadExecutionState(EXECUTION_STATE esFlags, EXECUTION_STATE *PreviousFlags)

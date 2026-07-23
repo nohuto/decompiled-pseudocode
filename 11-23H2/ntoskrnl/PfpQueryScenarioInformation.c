@@ -1,10 +1,10 @@
 /*
- * XREFs of PfpQueryScenarioInformation @ 0x14097EB9C
+ * XREFs of PfpQueryScenarioInformation @ 0x14097ED9C
  * Callers:
- *     PfQuerySuperfetchInformation @ 0x14075D918 (PfQuerySuperfetchInformation.c)
+ *     PfQuerySuperfetchInformation @ 0x14075DB08 (PfQuerySuperfetchInformation.c)
  * Callees:
- *     ExRaiseDatatypeMisalignment @ 0x140A00B60 (ExRaiseDatatypeMisalignment.c)
- *     PfpScenCtxQueryScenarioInformation @ 0x140AA055C (PfpScenCtxQueryScenarioInformation.c)
+ *     ExRaiseDatatypeMisalignment @ 0x140A00DF0 (ExRaiseDatatypeMisalignment.c)
+ *     PfpScenCtxQueryScenarioInformation @ 0x140AA03CC (PfpScenCtxQueryScenarioInformation.c)
  */
 
 __int64 __fastcall PfpQueryScenarioInformation(__int64 a1, char a2, _DWORD *a3)

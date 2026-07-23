@@ -1,25 +1,25 @@
 /*
- * XREFs of MiInsertChildVads @ 0x140B2090C
+ * XREFs of MiInsertChildVads @ 0x140B22D0C
  * Callers:
- *     MiAllocateChildVads @ 0x140961AD0 (MiAllocateChildVads.c)
+ *     MiAllocateChildVads @ 0x140A077C4 (MiAllocateChildVads.c)
  * Callees:
- *     KiUnstackDetachProcess @ 0x1402307C0 (KiUnstackDetachProcess.c)
- *     KiStackAttachProcess @ 0x140247880 (KiStackAttachProcess.c)
- *     ObfReferenceObjectWithTag @ 0x140278B30 (ObfReferenceObjectWithTag.c)
- *     MiInsertVad @ 0x140316000 (MiInsertVad.c)
- *     MiReadVadFlags @ 0x1404655D0 (MiReadVadFlags.c)
- *     MiUpControlAreaRefs @ 0x1404DE558 (MiUpControlAreaRefs.c)
- *     MiCommitPageTableRangesForVad @ 0x14052B41C (MiCommitPageTableRangesForVad.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     MiReferenceExtendInfo @ 0x14086AF30 (MiReferenceExtendInfo.c)
- *     MiDeletePartialCloneVads @ 0x1409619E4 (MiDeletePartialCloneVads.c)
- *     MiInsertVadCharges @ 0x1409C5DC0 (MiInsertVadCharges.c)
+ *     KiUnstackDetachProcess @ 0x140232120 (KiUnstackDetachProcess.c)
+ *     KiStackAttachProcess @ 0x1402491E0 (KiStackAttachProcess.c)
+ *     ObfReferenceObjectWithTag @ 0x1402780A0 (ObfReferenceObjectWithTag.c)
+ *     MiInsertVad @ 0x140318030 (MiInsertVad.c)
+ *     MiReadVadFlags @ 0x14045E590 (MiReadVadFlags.c)
+ *     MiUpControlAreaRefs @ 0x1404D7C38 (MiUpControlAreaRefs.c)
+ *     MiCommitPageTableRangesForVad @ 0x14052D93C (MiCommitPageTableRangesForVad.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     MiReferenceExtendInfo @ 0x140871310 (MiReferenceExtendInfo.c)
+ *     MiInsertVadCharges @ 0x140996DA0 (MiInsertVadCharges.c)
+ *     MiDeletePartialCloneVads @ 0x140A076D8 (MiDeletePartialCloneVads.c)
  */
 
-__int64 __fastcall MiInsertChildVads(_KPROCESS *a1, _QWORD *a2)
+__int64 __fastcall MiInsertChildVads(_KPROCESS *a1, __int64 *a2)
 {
   int inserted; // ebp
-  _QWORD *v5; // rsi
+  __int64 *v5; // rsi
   __int64 v6; // rdx
   __int64 v7; // rcx
   int v8; // ebx
@@ -55,13 +55,13 @@ LABEL_16:
       MiDeletePartialCloneVads(a2);
       break;
     }
-    a2 = (_QWORD *)*a2;
+    a2 = (__int64 *)*a2;
     if ( !v8 )
     {
       v14 = (void *)v5[17];
       if ( v14 )
         ObfReferenceObjectWithTag(v14, 0x63536D4Du);
-      if ( (__int64)v5[16] < 0 )
+      if ( v5[16] < 0 )
         MiReferenceExtendInfo((__int64)v5, v11, v12, v13);
     }
     v5[2] = -2LL;

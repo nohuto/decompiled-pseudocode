@@ -1,8 +1,8 @@
 /*
- * XREFs of RtlpApplyAclToObject @ 0x18005DDC0
+ * XREFs of RtlpApplyAclToObject @ 0x180048340
  * Callers:
- *     RtlpSetSecurityObject @ 0x18005BF70 (RtlpSetSecurityObject.c)
- *     RtlpNewSecurityObject @ 0x18005E6A0 (RtlpNewSecurityObject.c)
+ *     RtlpSetSecurityObject @ 0x1800464F0 (RtlpSetSecurityObject.c)
+ *     RtlpNewSecurityObject @ 0x180048C20 (RtlpNewSecurityObject.c)
  * Callees:
  *     <none>
  */

@@ -9,50 +9,50 @@
  *     LdrpFreeLoadContext @ 0x18006B304 (LdrpFreeLoadContext.c)
  */
 
-_UNKNOWN **__fastcall LdrpCleanupEnclaveLoadState(__int64 a1, int a2, unsigned __int64 a3, unsigned __int64 a4)
+int __fastcall LdrpCleanupEnclaveLoadState(__int64 a1, int a2)
 {
-  _UNKNOWN **result; // rax
-  _QWORD *v5; // r14
-  _QWORD *v7; // rbx
-  __int64 v8; // rsi
-  __int64 v9; // rdi
-  __int64 v10; // r8
-  __int64 v11; // rax
-  unsigned __int64 v12; // rdx
-  _QWORD *v13; // rcx
+  _UNKNOWN **v2; // rax
+  char *v3; // r14
+  char *v5; // rbx
+  _QWORD *v6; // rsi
+  char *v7; // rdi
+  void *v8; // r8
+  __int64 v9; // rax
+  __int64 v10; // rdx
+  char **v11; // rcx
   _UNKNOWN *retaddr; // [rsp+28h] [rbp+0h] BYREF
 
-  result = &retaddr;
-  v5 = (_QWORD *)(a1 + 96);
-  v7 = *(_QWORD **)(a1 + 96);
-  while ( v7 != v5 )
+  v2 = &retaddr;
+  v3 = (char *)(a1 + 96);
+  v5 = *(char **)(a1 + 96);
+  while ( v5 != v3 )
   {
-    v8 = v7[22];
-    v9 = (__int64)v7;
-    v7 = (_QWORD *)*v7;
-    if ( v8 )
+    v6 = (_QWORD *)*((_QWORD *)v5 + 22);
+    v7 = v5;
+    v5 = *(char **)v5;
+    if ( v6 )
     {
-      v10 = *(_QWORD *)(v8 + 88);
-      if ( v10 )
+      v8 = (void *)v6[11];
+      if ( v8 )
       {
-        RtlFreeHeap(LdrpHeap, 0, v10);
-        *(_QWORD *)(v8 + 88) = 0LL;
+        RtlFreeHeap(LdrpHeap, 0, v8);
+        v6[11] = 0LL;
       }
-      result = (_UNKNOWN **)LdrpFreeLoadContext(v8);
+      LODWORD(v2) = LdrpFreeLoadContext(v6);
     }
     if ( a2 < 0 )
     {
-      v11 = *(_QWORD *)v9;
-      v12 = *(_QWORD *)(v9 + 152);
-      if ( *(_QWORD *)(*(_QWORD *)v9 + 8LL) != v9 || (v13 = *(_QWORD **)(v9 + 8), *v13 != v9) )
+      v9 = *(_QWORD *)v7;
+      v10 = *((_QWORD *)v7 + 19);
+      if ( *(char **)(*(_QWORD *)v7 + 8LL) != v7 || (v11 = (char **)*((_QWORD *)v7 + 1), *v11 != v7) )
         __fastfail(3u);
-      *v13 = v11;
-      *(_QWORD *)(v11 + 8) = v13;
-      *(_DWORD *)(v12 + 24) = 0;
-      *(_DWORD *)(v9 + 276) = 1;
-      *(_DWORD *)(v12 + 56) = -2;
-      result = (_UNKNOWN **)LdrpDereferenceModule(v9, v12, a3, a4);
+      *v11 = (char *)v9;
+      *(_QWORD *)(v9 + 8) = v11;
+      *(_DWORD *)(v10 + 24) = 0;
+      *((_DWORD *)v7 + 69) = 1;
+      *(_DWORD *)(v10 + 56) = -2;
+      LODWORD(v2) = LdrpDereferenceModule(v7);
     }
   }
-  return result;
+  return (int)v2;
 }

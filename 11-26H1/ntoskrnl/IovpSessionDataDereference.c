@@ -1,19 +1,19 @@
 /*
- * XREFs of IovpSessionDataDereference @ 0x140C3A558
+ * XREFs of IovpSessionDataDereference @ 0x140C40568
  * Callers:
- *     IovpCallDriver2 @ 0x140C2B86C (IovpCallDriver2.c)
- *     IovpCompleteRequest2 @ 0x140C4589C (IovpCompleteRequest2.c)
- *     IovpCompleteRequest5 @ 0x140C45908 (IovpCompleteRequest5.c)
+ *     IovpCallDriver2 @ 0x140C3187C (IovpCallDriver2.c)
+ *     IovpCompleteRequest2 @ 0x140C4B8AC (IovpCompleteRequest2.c)
+ *     IovpCompleteRequest5 @ 0x140C4B918 (IovpCompleteRequest5.c)
  * Callees:
- *     ExFreeToNPagedLookasideList @ 0x1403B5A60 (ExFreeToNPagedLookasideList.c)
- *     VfUtilFreePoolDispatchLevel @ 0x1406407E0 (VfUtilFreePoolDispatchLevel.c)
+ *     ExFreeToNPagedLookasideList @ 0x1403BF960 (ExFreeToNPagedLookasideList.c)
+ *     VfUtilFreePoolDispatchLevel @ 0x1406443C0 (VfUtilFreePoolDispatchLevel.c)
  */
 
-void __fastcall IovpSessionDataDereference(struct _SLIST_ENTRY *Entry)
+void __fastcall IovpSessionDataDereference(_SLIST_ENTRY *Entry)
 {
   bool v1; // zf
   _SLIST_ENTRY *Next; // r9
-  struct _SLIST_ENTRY *v3; // rax
+  _SLIST_ENTRY *v3; // rax
   _SLIST_ENTRY *v4; // rdx
   _SLIST_ENTRY **v5; // r8
 

@@ -1,8 +1,8 @@
 /*
- * XREFs of RtlFindMessageInTable @ 0x1400FA24C
+ * XREFs of RtlFindMessageInTable @ 0x1400F7FD8
  * Callers:
- *     KeGetBugMessageResourceEntry @ 0x1401D4DE4 (KeGetBugMessageResourceEntry.c)
- *     RtlFindMessage @ 0x14051C574 (RtlFindMessage.c)
+ *     KeGetBugMessageResourceEntry @ 0x1401D4C10 (KeGetBugMessageResourceEntry.c)
+ *     RtlFindMessage @ 0x1404FF964 (RtlFindMessage.c)
  * Callees:
  *     <none>
  */

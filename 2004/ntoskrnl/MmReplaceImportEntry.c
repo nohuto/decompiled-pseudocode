@@ -32,40 +32,38 @@
 __int64 __fastcall MmReplaceImportEntry(ULONG_PTR BugCheckParameter3, ULONG_PTR BugCheckParameter4)
 {
   __int64 v4; // rax
-  int v5; // edx
-  ULONG_PTR v6; // rdi
-  unsigned __int64 v7; // rax
+  ULONG_PTR v5; // rdi
+  PVOID v6; // rax
   __int64 result; // rax
-  unsigned __int64 v9; // rbp
+  unsigned __int64 v8; // rbp
   __int64 SessionVm; // rax
-  unsigned __int64 v11; // rsi
-  __int64 v12; // rdi
-  unsigned __int8 v13; // r13
-  char v14; // r12
-  __int64 v15; // r14
-  __int64 v16; // r9
-  int v17; // r14d
-  _QWORD *v18; // rcx
-  __int64 v19; // rdx
-  __int64 v20; // r8
-  __int64 v21; // r9
-  unsigned __int64 v22; // rax
-  __int64 v23; // rcx
-  __int64 v24[9]; // [rsp+30h] [rbp-48h] BYREF
-  unsigned int v26; // [rsp+90h] [rbp+18h] BYREF
-  int v27; // [rsp+98h] [rbp+20h] BYREF
+  unsigned __int64 v10; // rsi
+  __int64 v11; // rdi
+  unsigned __int8 v12; // r13
+  char v13; // r12
+  __int64 v14; // r14
+  __int64 v15; // r9
+  int v16; // r14d
+  _QWORD *v17; // rcx
+  __int64 v18; // rdx
+  __int64 v19; // r8
+  __int64 v20; // r9
+  unsigned __int64 v21; // rax
+  __int64 v22; // rcx
+  __int64 v23[9]; // [rsp+30h] [rbp-48h] BYREF
+  ULONG Size; // [rsp+90h] [rbp+18h] BYREF
+  int v26; // [rsp+98h] [rbp+20h] BYREF
 
-  v26 = 0;
+  Size = 0;
   if ( PsLoadedModuleList )
   {
     v4 = MiLookupDataTableEntry(BugCheckParameter3, 1);
-    v6 = v4;
+    v5 = v4;
     if ( !v4 )
       KeBugCheckEx(0x1Au, 0x1014uLL, 0LL, BugCheckParameter3, BugCheckParameter4);
-    LOBYTE(v5) = 1;
-    v7 = RtlImageDirectoryEntryToData(*(_QWORD *)(v4 + 48), v5, 12, (int)&v26);
-    if ( !v7 || !v26 || BugCheckParameter3 < v7 || BugCheckParameter3 >= v7 + v26 )
-      KeBugCheckEx(0x1Au, 0x1014uLL, v6, BugCheckParameter3, BugCheckParameter4);
+    v6 = RtlImageDirectoryEntryToData(*(PVOID *)(v4 + 48), 1u, 0xCu, &Size);
+    if ( !v6 || !Size || BugCheckParameter3 < (unsigned __int64)v6 || BugCheckParameter3 >= (unsigned __int64)v6 + Size )
+      KeBugCheckEx(0x1Au, 0x1014uLL, v5, BugCheckParameter3, BugCheckParameter4);
   }
   result = MI_IS_PHYSICAL_ADDRESS(BugCheckParameter3);
   if ( (_DWORD)result )
@@ -73,72 +71,72 @@ __int64 __fastcall MmReplaceImportEntry(ULONG_PTR BugCheckParameter3, ULONG_PTR 
     *(_QWORD *)BugCheckParameter3 = BugCheckParameter4;
     return result;
   }
-  v9 = ((BugCheckParameter3 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
+  v8 = ((BugCheckParameter3 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
   if ( (unsigned int)MiGetSystemRegionType(BugCheckParameter3) == 1 )
     SessionVm = MiGetSessionVm();
   else
     SessionVm = (__int64)MiGetAnyMultiplexedVm(1);
-  v11 = 0LL;
-  v12 = SessionVm;
-  v13 = MiLockWorkingSetShared(SessionVm);
+  v10 = 0LL;
+  v11 = SessionVm;
+  v12 = MiLockWorkingSetShared(SessionVm);
   while ( 1 )
   {
     while ( 1 )
     {
-      if ( v11 )
+      if ( v10 )
       {
         if ( ((BugCheckParameter3 >> 9) & 0xFF8) != 0 )
           goto LABEL_17;
-        MiUnlockPageTableInternal(v12, v11);
+        MiUnlockPageTableInternal(v11, v10);
       }
-      v11 = ((v9 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
-      MiLockPageTableInternal(v12, v11, 0LL);
+      v10 = ((v8 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
+      MiLockPageTableInternal(v11, v10, 0LL);
 LABEL_17:
-      v24[0] = MI_READ_PTE_LOCK_FREE(v9);
-      v14 = v24[0];
-      if ( (v24[0] & 1) != 0 )
+      v23[0] = MI_READ_PTE_LOCK_FREE(v8);
+      v13 = v23[0];
+      if ( (v23[0] & 1) != 0 )
         break;
-      MiUnlockPageTableInternal(v12, v11);
-      MiUnlockWorkingSetShared(v12, v13);
-      MiLockWorkingSetShared(v12);
-      MiLockPageTableInternal(v12, v11, 0LL);
+      MiUnlockPageTableInternal(v11, v10);
+      MiUnlockWorkingSetShared(v11, v12);
+      MiLockWorkingSetShared(v11);
+      MiLockPageTableInternal(v11, v10, 0LL);
     }
-    v15 = 48 * (((unsigned __int64)MI_READ_PTE_LOCK_FREE((unsigned __int64)v24) >> 12) & 0xFFFFFFFFFLL)
+    v14 = 48 * (((unsigned __int64)MI_READ_PTE_LOCK_FREE((unsigned __int64)v23) >> 12) & 0xFFFFFFFFFLL)
         - 0x58000000000LL;
-    if ( !MI_PFN_IS_PROTO(v15) )
+    if ( !MI_PFN_IS_PROTO(v14) )
       break;
-    v17 = MiCopyOnWrite(BugCheckParameter3, (ULONG_PTR *)v9, -1LL, 0);
-    if ( v17 < 0 )
+    v16 = MiCopyOnWrite(BugCheckParameter3, (ULONG_PTR *)v8, -1LL, 0);
+    if ( v16 < 0 )
     {
-      MiUnlockPageTableInternal(v12, v11);
-      MiUnlockWorkingSetShared(v12, v13);
-      MiCopyOnWriteCheckConditions(v12, (unsigned int)v17);
-      MiLockWorkingSetShared(v12);
-      MiLockPageTableInternal(v12, v11, 0LL);
+      MiUnlockPageTableInternal(v11, v10);
+      MiUnlockWorkingSetShared(v11, v12);
+      MiCopyOnWriteCheckConditions(v11, (unsigned int)v16);
+      MiLockWorkingSetShared(v11);
+      MiLockPageTableInternal(v11, v10, 0LL);
     }
   }
-  if ( (v14 & 0x42) != 0 )
+  if ( (v13 & 0x42) != 0 )
   {
     *(_QWORD *)BugCheckParameter3 = BugCheckParameter4;
   }
   else
   {
-    v18 = (_QWORD *)((BugCheckParameter3 & 0xFFF) + MiMapPageInHyperSpaceWorker(v16, 0LL, 0x80000000, v16));
-    *v18 = BugCheckParameter4;
-    MiUnmapPageInHyperSpaceWorker((unsigned __int64)v18, 0x11u, 0x80000000);
-    v27 = 0;
-    while ( _interlockedbittestandset64((volatile signed __int32 *)(v15 + 24), 0x3FuLL) )
+    v17 = (_QWORD *)((BugCheckParameter3 & 0xFFF) + MiMapPageInHyperSpaceWorker(v15, 0LL, 0x80000000, v15));
+    *v17 = BugCheckParameter4;
+    MiUnmapPageInHyperSpaceWorker((unsigned __int64)v17, 0x11u, 0x80000000);
+    v26 = 0;
+    while ( _interlockedbittestandset64((volatile signed __int32 *)(v14 + 24), 0x3FuLL) )
     {
       do
-        KeYieldProcessorEx(&v27, v19, v20, v21);
-      while ( *(__int64 *)(v15 + 24) < 0 );
+        KeYieldProcessorEx(&v26, v18, v19, v20);
+      while ( *(__int64 *)(v14 + 24) < 0 );
     }
-    v22 = MiCaptureDirtyBitToPfn(v15);
-    v23 = *(_QWORD *)(qword_140C4E448 + 8 * ((*(_QWORD *)(v15 + 40) >> 39) & 0x3FFLL));
-    _InterlockedAnd64((volatile signed __int64 *)(v15 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-    if ( v22 )
-      MiReleasePageFileInfo(v23, v22, 1);
+    v21 = MiCaptureDirtyBitToPfn(v14);
+    v22 = *(_QWORD *)(qword_140C4E448 + 8 * ((*(_QWORD *)(v14 + 40) >> 39) & 0x3FFLL));
+    _InterlockedAnd64((volatile signed __int64 *)(v14 + 24), 0x7FFFFFFFFFFFFFFFuLL);
+    if ( v21 )
+      MiReleasePageFileInfo(v22, v21, 1);
   }
-  MiUnlockPageTableInternal(v12, v11);
-  return MiUnlockWorkingSetShared(v12, v13);
+  MiUnlockPageTableInternal(v11, v10);
+  return MiUnlockWorkingSetShared(v11, v12);
 }

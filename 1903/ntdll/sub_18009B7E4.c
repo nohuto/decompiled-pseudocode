@@ -9,9 +9,9 @@
  *     sub_18008C6D8 @ 0x18008C6D8 (sub_18008C6D8.c)
  */
 
-__int64 __fastcall sub_18009B7E4(unsigned __int16 **a1)
+ULONG __fastcall sub_18009B7E4(unsigned __int16 **a1)
 {
-  __int64 result; // rax
+  ULONG result; // eax
   bool v3; // sf
   unsigned __int16 *v4; // rcx
 
@@ -33,7 +33,7 @@ __int64 __fastcall sub_18009B7E4(unsigned __int16 **a1)
   else
   {
     sub_18008C6D8();
-    return 0xFFFFLL;
+    return 0xFFFF;
   }
   return result;
 }

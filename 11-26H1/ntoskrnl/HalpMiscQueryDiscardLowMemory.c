@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpMiscQueryDiscardLowMemory @ 0x140587640
+ * XREFs of HalpMiscQueryDiscardLowMemory @ 0x140589B60
  * Callers:
- *     HalpMmInitSystem @ 0x140BEB980 (HalpMmInitSystem.c)
+ *     HalpMmInitSystem @ 0x140BF1980 (HalpMmInitSystem.c)
  * Callees:
  *     <none>
  */
 
-unsigned __int8 HalpMiscQueryDiscardLowMemory()
+char HalpMiscQueryDiscardLowMemory()
 {
-  return HalpDeviceBlockUnblockPushLock.WaitBlockFill5[48];
+  return BYTE2(HalpDeviceBlockUnblockPushLock.Timer.DueTime.u.LowPart);
 }

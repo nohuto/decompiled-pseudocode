@@ -1,15 +1,15 @@
 /*
- * XREFs of KxFlushEntireTb @ 0x140187858
+ * XREFs of KxFlushEntireTb @ 0x140187998
  * Callers:
- *     KeFlushTb @ 0x1400755B0 (KeFlushTb.c)
- *     KeFlushEntireTb @ 0x140187820 (KeFlushEntireTb.c)
+ *     KeFlushTb @ 0x1400755A0 (KeFlushTb.c)
+ *     KeFlushEntireTb @ 0x140187960 (KeFlushEntireTb.c)
  * Callees:
- *     KiIpiSendRequestEx @ 0x1400ED160 (KiIpiSendRequestEx.c)
- *     KeRemoveProcessorAffinityEx @ 0x1400EDA70 (KeRemoveProcessorAffinityEx.c)
- *     KeCopyAffinityEx @ 0x1400EDAB0 (KeCopyAffinityEx.c)
- *     KxSetTimeStampBusy @ 0x140117C50 (KxSetTimeStampBusy.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiIpiSendRequestEx @ 0x1400ED1E0 (KiIpiSendRequestEx.c)
+ *     KeRemoveProcessorAffinityEx @ 0x1400EDAF0 (KeRemoveProcessorAffinityEx.c)
+ *     KeCopyAffinityEx @ 0x1400EDB30 (KeCopyAffinityEx.c)
+ *     KxSetTimeStampBusy @ 0x140117CC0 (KxSetTimeStampBusy.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall KxFlushEntireTb(int a1, _BOOL8 a2, __int64 a3)

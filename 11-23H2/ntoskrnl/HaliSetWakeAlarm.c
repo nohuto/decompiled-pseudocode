@@ -1,15 +1,15 @@
 /*
- * XREFs of HaliSetWakeAlarm @ 0x140A96500
+ * XREFs of HaliSetWakeAlarm @ 0x140A96370
  * Callers:
  *     <none>
  * Callees:
- *     DbgPrintEx @ 0x14032A740 (DbgPrintEx.c)
- *     HalQueryRealTimeClock @ 0x14033B130 (HalQueryRealTimeClock.c)
- *     RtlTimeFieldsToTime @ 0x14033B350 (RtlTimeFieldsToTime.c)
- *     RtlTimeToTimeFields @ 0x14033B6B0 (RtlTimeToTimeFields.c)
- *     HalpSetWakeAlarm @ 0x14050B078 (HalpSetWakeAlarm.c)
- *     HalpArmAcpiWakeAlarm @ 0x140934E40 (HalpArmAcpiWakeAlarm.c)
- *     HalpAdjustWakeSecondsDue @ 0x140A96AAC (HalpAdjustWakeSecondsDue.c)
+ *     DbgPrintEx @ 0x14032A9D0 (DbgPrintEx.c)
+ *     HalQueryRealTimeClock @ 0x14033B3C0 (HalQueryRealTimeClock.c)
+ *     RtlTimeFieldsToTime @ 0x14033B5E0 (RtlTimeFieldsToTime.c)
+ *     RtlTimeToTimeFields @ 0x14033B940 (RtlTimeToTimeFields.c)
+ *     HalpSetWakeAlarm @ 0x14050B5C8 (HalpSetWakeAlarm.c)
+ *     HalpArmAcpiWakeAlarm @ 0x140935040 (HalpArmAcpiWakeAlarm.c)
+ *     HalpAdjustWakeSecondsDue @ 0x140A9691C (HalpAdjustWakeSecondsDue.c)
  */
 
 __int64 __fastcall HaliSetWakeAlarm(__int64 a1, __int64 a2)
@@ -20,7 +20,7 @@ __int64 __fastcall HaliSetWakeAlarm(__int64 a1, __int64 a2)
   unsigned int v5; // eax
   __int64 v6; // rbx
   __int64 v7; // rcx
-  TIME_FIELDS TimeFields; // [rsp+30h] [rbp-18h] BYREF
+  _TIME_FIELDS TimeFields; // [rsp+30h] [rbp-18h] BYREF
   LARGE_INTEGER Time; // [rsp+60h] [rbp+18h] BYREF
 
   Time.QuadPart = 0LL;

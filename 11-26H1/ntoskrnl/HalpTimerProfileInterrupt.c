@@ -1,11 +1,11 @@
 /*
- * XREFs of HalpTimerProfileInterrupt @ 0x140597050
+ * XREFs of HalpTimerProfileInterrupt @ 0x1405997D0
  * Callers:
  *     <none>
  * Callees:
- *     HalpTimerGetInternalData @ 0x140426EC0 (HalpTimerGetInternalData.c)
- *     KeProfileInterruptWithSource @ 0x1404B7BF0 (KeProfileInterruptWithSource.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     HalpTimerGetInternalData @ 0x140433FD0 (HalpTimerGetInternalData.c)
+ *     KeProfileInterruptWithSource @ 0x1404B1420 (KeProfileInterruptWithSource.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 char __fastcall HalpTimerProfileInterrupt(__int64 a1)

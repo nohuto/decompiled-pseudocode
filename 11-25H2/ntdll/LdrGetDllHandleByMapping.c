@@ -12,56 +12,45 @@
  *     LdrpFatalExceptionFilter @ 0x18015F850 (LdrpFatalExceptionFilter.c)
  */
 
-__int64 __fastcall LdrGetDllHandleByMapping(unsigned __int64 a1, _QWORD *a2)
+NTSTATUS __cdecl LdrGetDllHandleByMapping(PVOID BaseAddress, PVOID *DllHandle)
 {
   int v4; // edi
-  int Count; // ebx
-  __int64 v6; // rbx
-  __int64 v7; // rdi
-  int v9; // [rsp+20h] [rbp-28h]
-  __int64 v10; // [rsp+28h] [rbp-20h] BYREF
-  __int64 v11; // [rsp+60h] [rbp+18h] BYREF
-  __int64 v12; // [rsp+68h] [rbp+20h] BYREF
+  NTSTATUS LoadedDllByMappingLockHeld; // ebx
+  void *v6; // rbx
+  PVOID v7; // rdi
+  void *Buf1; // [rsp+60h] [rbp+18h] BYREF
+  PVOID BaseAddressa; // [rsp+68h] [rbp+20h]
 
-  v12 = 0LL;
+  BaseAddressa = 0LL;
   v4 = 0;
-  v11 = 0LL;
-  Count = RtlImageNtHeaderEx(1, a1, 0LL, &v11);
-  v9 = Count;
-  if ( Count >= 0 )
+  Buf1 = 0LL;
+  LoadedDllByMappingLockHeld = RtlImageNtHeaderEx(1u, BaseAddress, 0LL, (PIMAGE_NT_HEADERS *)&Buf1);
+  if ( LoadedDllByMappingLockHeld >= 0 )
   {
-    v10 = 0LL;
-    v6 = v11;
-    LODWORD(v10) = *(_DWORD *)(v11 + 8);
-    HIDWORD(v10) = *(_DWORD *)(v11 + 80);
+    v6 = Buf1;
     RtlAcquireSRWLockShared(&LdrpModuleDatatableLock);
-    Count = ((__int64 (__fastcall *)(unsigned __int64, __int64, __int64 *, __int64 *, int))LdrpFindLoadedDllByMappingLockHeld)(
-              a1,
-              v6,
-              &v10,
-              &v12,
-              v9);
-    if ( Count >= 0 )
+    LoadedDllByMappingLockHeld = LdrpFindLoadedDllByMappingLockHeld(BaseAddress, v6);
+    if ( LoadedDllByMappingLockHeld >= 0 )
     {
-      v4 = *(_DWORD *)(*(_QWORD *)(v12 + 152) + 56LL);
-      LODWORD(v11) = v4;
+      v4 = *(_DWORD *)(*((_QWORD *)BaseAddressa + 19) + 56LL);
+      LODWORD(Buf1) = v4;
     }
     RtlReleaseSRWLockShared(&LdrpModuleDatatableLock);
-    if ( Count >= 0 )
+    if ( LoadedDllByMappingLockHeld >= 0 )
     {
       if ( v4 < 7 )
       {
-        Count = -1073741515;
+        LoadedDllByMappingLockHeld = -1073741515;
       }
       else
       {
-        v7 = v12;
-        Count = LdrpIncrementModuleLoadCount(v12);
-        if ( Count >= 0 )
-          *a2 = *(_QWORD *)(v7 + 48);
+        v7 = BaseAddressa;
+        LoadedDllByMappingLockHeld = LdrpIncrementModuleLoadCount((__int64)BaseAddressa);
+        if ( LoadedDllByMappingLockHeld >= 0 )
+          *DllHandle = (PVOID)*((_QWORD *)v7 + 6);
       }
-      LdrpDereferenceModule(v12);
+      LdrpDereferenceModule((char *)BaseAddressa);
     }
   }
-  return (unsigned int)Count;
+  return LoadedDllByMappingLockHeld;
 }

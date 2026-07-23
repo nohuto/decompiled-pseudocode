@@ -1,5 +1,5 @@
 /*
- * XREFs of RtlpAllocateHeapRaiseException @ 0x1800F6A18
+ * XREFs of RtlpAllocateHeapRaiseException @ 0x1800F69D8
  * Callers:
  *     RtlpAllocateHeapInternal @ 0x18002AA20 (RtlpAllocateHeapInternal.c)
  * Callees:

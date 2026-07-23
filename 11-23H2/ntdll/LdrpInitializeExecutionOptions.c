@@ -38,155 +38,152 @@ __int64 __fastcall LdrpInitializeExecutionOptions(
 {
   HANDLE *v6; // r13
   char v8; // r12
-  __int64 v9; // rdi
+  HANDLE v9; // rdi
   unsigned int v10; // esi
-  __int64 v11; // r14
+  void *v11; // r14
   HANDLE v12; // r15
   int v13; // eax
   int v14; // eax
-  unsigned int v15; // ecx
+  ULONG v15; // ecx
   char v16; // al
-  int v17; // eax
-  int v18; // esi
+  NTSTATUS v17; // eax
+  NTSTATUS v18; // esi
   __int64 i; // rsi
-  wchar_t *v20; // rdx
+  const WCHAR *v20; // rdx
   bool *v21; // rax
-  unsigned int v22; // ecx
+  ULONG v22; // ecx
   int v23; // r12d
   int v24; // eax
   int v25; // esi
   int ApplicationKeyOption; // eax
-  __int64 v27; // rdx
-  __int64 v28; // rcx
-  int v29; // eax
-  HANDLE *v30; // rbx
-  int v32; // [rsp+30h] [rbp-D0h]
-  int v33; // [rsp+30h] [rbp-D0h]
-  int v34; // [rsp+30h] [rbp-D0h]
-  int v35; // [rsp+30h] [rbp-D0h]
-  int v36; // [rsp+30h] [rbp-D0h]
-  int v37; // [rsp+30h] [rbp-D0h]
-  int v38; // [rsp+30h] [rbp-D0h]
-  int v39; // [rsp+30h] [rbp-D0h]
-  int v40; // [rsp+30h] [rbp-D0h]
-  int v41; // [rsp+30h] [rbp-D0h]
-  int v42; // [rsp+30h] [rbp-D0h]
-  int v43; // [rsp+30h] [rbp-D0h]
-  unsigned int v44; // [rsp+40h] [rbp-C0h] BYREF
-  char v45; // [rsp+44h] [rbp-BCh]
-  __int64 v46; // [rsp+48h] [rbp-B8h] BYREF
-  unsigned int v47; // [rsp+50h] [rbp-B0h] BYREF
-  __int64 v48; // [rsp+58h] [rbp-A8h] BYREF
+  int v27; // eax
+  __int64 v28; // rdx
+  __int64 v29; // rcx
+  int v30; // eax
+  HANDLE *v31; // rbx
+  __int64 v33; // [rsp+30h] [rbp-D0h]
+  __int64 v34; // [rsp+30h] [rbp-D0h]
+  __int64 v35; // [rsp+30h] [rbp-D0h]
+  __int64 v36; // [rsp+30h] [rbp-D0h]
+  __int64 v37; // [rsp+30h] [rbp-D0h]
+  __int64 v38; // [rsp+30h] [rbp-D0h]
+  __int64 v39; // [rsp+30h] [rbp-D0h]
+  __int64 v40; // [rsp+30h] [rbp-D0h]
+  __int64 v41; // [rsp+30h] [rbp-D0h]
+  __int64 v42; // [rsp+30h] [rbp-D0h]
+  __int64 v43; // [rsp+30h] [rbp-D0h]
+  __int64 v44; // [rsp+30h] [rbp-D0h]
+  ULONG v45; // [rsp+40h] [rbp-C0h] BYREF
+  char v46; // [rsp+44h] [rbp-BCh]
+  HANDLE KeyHandle; // [rsp+48h] [rbp-B8h] BYREF
+  unsigned int v48; // [rsp+50h] [rbp-B0h] BYREF
+  void *v49; // [rsp+58h] [rbp-A8h] BYREF
   HANDLE Handle; // [rsp+60h] [rbp-A0h] BYREF
-  unsigned __int16 *v50; // [rsp+68h] [rbp-98h]
-  __int64 v51[2]; // [rsp+70h] [rbp-90h] BYREF
-  void *v52; // [rsp+80h] [rbp-80h] BYREF
-  HANDLE *v53; // [rsp+88h] [rbp-78h]
-  HANDLE *v54; // [rsp+90h] [rbp-70h]
-  __int64 v55; // [rsp+98h] [rbp-68h]
-  UNICODE_STRING DestinationString; // [rsp+A0h] [rbp-60h] BYREF
-  int v57; // [rsp+B0h] [rbp-50h]
-  __int64 v58; // [rsp+B8h] [rbp-48h]
-  void *v59; // [rsp+C0h] [rbp-40h]
-  int v60; // [rsp+C8h] [rbp-38h]
-  __int128 v61; // [rsp+D0h] [rbp-30h]
-  char v62; // [rsp+E0h] [rbp-20h] BYREF
+  unsigned __int16 *v51; // [rsp+68h] [rbp-98h]
+  _UNICODE_STRING Value; // [rsp+70h] [rbp-90h] BYREF
+  void *v53; // [rsp+80h] [rbp-80h] BYREF
+  HANDLE *v54; // [rsp+88h] [rbp-78h]
+  HANDLE *v55; // [rsp+90h] [rbp-70h]
+  __int64 v56; // [rsp+98h] [rbp-68h]
+  _UNICODE_STRING DestinationString; // [rsp+A0h] [rbp-60h] BYREF
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+B0h] [rbp-50h] BYREF
+  char v59; // [rsp+E0h] [rbp-20h] BYREF
   WCHAR SourceString[200]; // [rsp+100h] [rbp+0h] BYREF
 
   v6 = a5;
-  v50 = a1;
-  v55 = a6;
+  v51 = a1;
+  v56 = a6;
   *a4 = 0LL;
   v8 = 0;
   *a5 = 0LL;
   v9 = 0LL;
-  v53 = a4;
+  v54 = a4;
   v10 = 0;
-  v51[0] = a3;
+  *(_QWORD *)&Value.Length = a3;
   v11 = 0LL;
-  v54 = a5;
+  v55 = a5;
   v12 = 0LL;
-  v46 = 0LL;
+  KeyHandle = 0LL;
   Handle = 0LL;
-  v47 = 0;
-  v48 = 0LL;
-  v45 = 1;
-  v52 = 0LL;
+  v48 = 0;
+  v49 = 0LL;
+  v46 = 1;
+  v53 = 0LL;
   LdrpInitializeCriticalSectionExceptionGlobalMitigation();
   if ( (*(_DWORD *)(*(_QWORD *)(a2 + 32) + 8LL) & 0x4000) == 0 )
   {
-    v13 = RtlpOpenImageFileOptionsKeyEx(v50, 9u, 0, &v46);
-    v9 = v46;
+    v13 = RtlpOpenImageFileOptionsKeyEx(v51, 9u, 0, &KeyHandle);
+    v9 = KeyHandle;
     if ( v13 >= 0 )
     {
-      *v53 = (HANDLE)v46;
-      if ( (*(_BYTE *)(a2 + 3) & 0x10) != 0 && (int)LdrpConstructModernAppKeyName(SourceString) >= 0 )
+      *v54 = KeyHandle;
+      if ( (*(_BYTE *)(a2 + 3) & 0x10) != 0 && LdrpConstructModernAppKeyName(SourceString) >= 0 )
       {
         RtlInitUnicodeString(&DestinationString, SourceString);
-        v14 = RtlOpenModernAppOptionsKey(&DestinationString, v9, &v48);
-        v11 = v48;
+        v14 = RtlOpenModernAppOptionsKey(&DestinationString, v9, &v49);
+        v11 = v49;
         if ( v14 >= 0 )
-          *a5 = (HANDLE)v48;
+          *a5 = v49;
       }
       RtlQueryApplicationKeyOption(
         v11,
         v9,
         (__int64)L"DisableHeapLookaside",
-        4u,
+        4LL,
         (__int64)&RtlpDisableHeapLookaside,
         4,
-        v32,
+        v33,
         0LL);
-      RtlQueryApplicationKeyOption(v11, v9, (__int64)L"FrontEndHeapDebugOptions", 4u, (__int64)&v47, 4, v33, 0LL);
+      RtlQueryApplicationKeyOption(v11, v9, (__int64)L"FrontEndHeapDebugOptions", 4LL, (__int64)&v48, 4, v34, 0LL);
       RtlQueryApplicationKeyOption(
         v11,
         v9,
         (__int64)L"ShutdownFlags",
-        4u,
+        4LL,
         (__int64)&RtlpShutdownProcessFlags,
         4,
-        v34,
+        v35,
         0LL);
-      v44 = 0;
-      RtlQueryApplicationKeyOption(v11, v9, (__int64)L"UnloadEventTraceDepth", 4u, (__int64)&v44, 4, v35, 0LL);
+      v45 = 0;
+      RtlQueryApplicationKeyOption(v11, v9, (__int64)L"UnloadEventTraceDepth", 4LL, (__int64)&v45, 4, v36, 0LL);
       v15 = RtlpUnloadEventTraceExNumber;
-      if ( v44 )
-        v15 = v44;
+      if ( v45 )
+        v15 = v45;
       RtlpUnloadEventTraceExNumber = v15;
-      v44 = 0;
-      RtlQueryApplicationKeyOption(v11, v9, (__int64)L"MaxLoaderThreads", 4u, (__int64)&v44, 4, v36, 0LL);
-      if ( v44 )
-        *(_DWORD *)(*(_QWORD *)(a2 + 32) + 1036LL) = v44;
-      v44 = 0;
-      RtlQueryApplicationKeyOption(v11, v9, (__int64)L"UseImpersonatedDeviceMap", 4u, (__int64)&v44, 4, v37, 0LL);
+      v45 = 0;
+      RtlQueryApplicationKeyOption(v11, v9, (__int64)L"MaxLoaderThreads", 4LL, (__int64)&v45, 4, v37, 0LL);
+      if ( v45 )
+        *(_DWORD *)(*(_QWORD *)(a2 + 32) + 1036LL) = v45;
+      v45 = 0;
+      RtlQueryApplicationKeyOption(v11, v9, (__int64)L"UseImpersonatedDeviceMap", 4LL, (__int64)&v45, 4, v38, 0LL);
       v16 = LdrpUseImpersonatedDeviceMap;
-      if ( v44 )
+      if ( v45 )
         v16 = 1;
       LdrpUseImpersonatedDeviceMap = v16;
-      v44 = 0;
-      RtlQueryApplicationKeyOption(v11, v9, (__int64)L"TracingFlags", 4u, (__int64)&v44, 4, v38, 0LL);
-      if ( v44 )
+      v45 = 0;
+      RtlQueryApplicationKeyOption(v11, v9, (__int64)L"TracingFlags", 4LL, (__int64)&v45, 4, v39, 0LL);
+      if ( v45 )
       {
-        _InterlockedOr((volatile signed __int32 *)(a2 + 888), v44);
-        v9 = v46;
-        v11 = v48;
+        _InterlockedOr((volatile signed __int32 *)(a2 + 888), v45);
+        v9 = KeyHandle;
+        v11 = v49;
       }
-      v44 = 0;
+      v45 = 0;
       if ( (int)RtlQueryApplicationKeyOption(
                   v11,
                   v9,
                   (__int64)L"RaiseExceptionOnPossibleDeadlock",
-                  4u,
-                  (__int64)&v44,
+                  4LL,
+                  (__int64)&v45,
                   4,
-                  v39,
+                  v40,
                   0LL) >= 0 )
-        RtlpRaiseExceptionOnPossibleDeadlock = v44 != 0;
-      v44 = 0;
-      if ( (int)RtlQueryApplicationKeyOption(v11, v9, (__int64)L"LegacyDosDevicePaths", 4u, (__int64)&v44, 4, v40, 0LL) >= 0 )
-        RtlpInitializeLegacyDosDevicePathState(v44);
-      v44 = 0;
-      if ( (int)RtlQueryImageFileKeyOption(v9, (__int64)L"CFGOptions", 4, &v44, 4u, 0LL) >= 0 && (v44 & 1) != 0 )
+        RtlpRaiseExceptionOnPossibleDeadlock = v45 != 0;
+      v45 = 0;
+      if ( (int)RtlQueryApplicationKeyOption(v11, v9, (__int64)L"LegacyDosDevicePaths", 4LL, (__int64)&v45, 4, v41, 0LL) >= 0 )
+        RtlpInitializeLegacyDosDevicePathState(v45);
+      v45 = 0;
+      if ( RtlQueryImageFileKeyOption(v9, L"CFGOptions", 4, &v45, 4u, 0LL) >= 0 && (v45 & 1) != 0 )
       {
         LdrProtectMrdata(0);
         RtlGuardAllowSuppressedCalls = 1;
@@ -194,12 +191,12 @@ __int64 __fastcall LdrpInitializeExecutionOptions(
       }
       if ( (*(_BYTE *)(a2 + 3) & 1) != 0 )
       {
-        v57 = 48;
-        v59 = &unk_180133DD0;
-        v58 = v9;
-        v60 = 64;
-        v61 = 0LL;
-        v17 = NtOpenKey();
+        ObjectAttributes.Length = 48;
+        ObjectAttributes.ObjectName = (PUNICODE_STRING)&unk_180133DD0;
+        ObjectAttributes.RootDirectory = v9;
+        ObjectAttributes.Attributes = 64;
+        *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+        v17 = NtOpenKey(&LdrpLargePageDllKeyHandle, 1u, &ObjectAttributes);
         v18 = v17;
         if ( v17 == -1073741772 )
         {
@@ -210,68 +207,76 @@ __int64 __fastcall LdrpInitializeExecutionOptions(
           goto LABEL_71;
         }
       }
-      RtlQueryImageFileKeyOption(v9, (__int64)L"MinimumStackCommitInBytes", 4, &v44, 4u, 0LL);
-      if ( *(_QWORD *)(a2 + 792) < (unsigned __int64)v44 )
-        *(_QWORD *)(a2 + 792) = v44;
+      RtlQueryImageFileKeyOption(v9, L"MinimumStackCommitInBytes", 4, &v45, 4u, 0LL);
+      if ( *(_QWORD *)(a2 + 792) < (unsigned __int64)v45 )
+        *(_QWORD *)(a2 + 792) = v45;
       for ( i = 0LL; i != 6; i += 2LL )
       {
         v20 = (&off_180134258)[i];
-        v44 = 0;
-        RtlQueryImageFileKeyOption(v9, (__int64)v20, 4, &v44, 4u, 0LL);
+        v45 = 0;
+        RtlQueryImageFileKeyOption(v9, v20, 4, &v45, 4u, 0LL);
         v21 = (bool *)*(&off_180134258 + i + 1);
-        *v21 = v44 != 0;
+        *v21 = v45 != 0;
       }
-      v44 = 0;
-      RtlQueryImageFileKeyOption(v9, (__int64)L"MaxDeadActivationContexts", 4, &v44, 4u, 0LL);
+      v45 = 0;
+      RtlQueryImageFileKeyOption(v9, L"MaxDeadActivationContexts", 4, &v45, 4u, 0LL);
       v22 = g_SxsMaxDeadActivationContexts;
       v23 = *(_DWORD *)(a2 + 188);
-      if ( v44 )
-        v22 = v44;
+      if ( v45 )
+        v22 = v45;
       g_SxsMaxDeadActivationContexts = v22;
       v8 = BYTE1(v23) & 1;
-      v24 = RtlQueryApplicationKeyOption(v11, v9, (__int64)L"GlobalFlag", 4u, (__int64)&v46, 4, v41, &v52);
-      v6 = v54;
+      v24 = RtlQueryApplicationKeyOption(v11, v9, (__int64)L"GlobalFlag", 4LL, (__int64)&KeyHandle, 4, v42, &v53);
+      v6 = v55;
       if ( v24 < 0 )
         goto LABEL_41;
-      v25 = v46;
-      if ( (v46 & 0x2000100) != 0 )
+      v25 = (int)KeyHandle;
+      if ( ((unsigned int)KeyHandle & 0x2000100) != 0 )
       {
         if ( !(unsigned int)LdrpIsVerifierActivationFilterMatched(a2, v11, v9) )
         {
           v25 &= 0xFDFFFEFF;
-          LODWORD(v46) = v25;
+          LODWORD(KeyHandle) = v25;
         }
         if ( (v25 & 0x2000100) != 0 )
         {
-          if ( (int)LdrpQueryAndUpdateVerifierLaunchCounter(v50, &v48) < 0 )
+          if ( (int)LdrpQueryAndUpdateVerifierLaunchCounter(v51, &v49) < 0 )
           {
 LABEL_41:
-            if ( (int)RtlQueryApplicationKeyOption(v11, v9, (__int64)L"GlobalFlag2", 4u, (__int64)&v46, 4, v42, 0LL) >= 0 )
-              *(_DWORD *)(a2 + 1988) = v46;
+            if ( (int)RtlQueryApplicationKeyOption(
+                        v11,
+                        v9,
+                        (__int64)L"GlobalFlag2",
+                        4LL,
+                        (__int64)&KeyHandle,
+                        4,
+                        v43,
+                        0LL) >= 0 )
+              *(_DWORD *)(a2 + 1988) = (_DWORD)KeyHandle;
             if ( (*(_DWORD *)(a2 + 188) & 0x2000100) != 0 )
             {
-              v45 = 0;
-              v12 = v52;
+              v46 = 0;
+              v12 = v53;
             }
-            v44 = 0;
+            v45 = 0;
             ApplicationKeyOption = RtlQueryApplicationKeyOption(
                                      v11,
                                      v9,
                                      (__int64)L"QueryProcessModuleInformationLoopDetectorCount",
-                                     4u,
-                                     (__int64)&v44,
+                                     4LL,
+                                     (__int64)&v45,
                                      4,
-                                     v43,
+                                     v44,
                                      0LL);
-            v10 = v47;
+            v10 = v48;
             if ( ApplicationKeyOption >= 0 )
-              LdrpQueryProcessModuleInformationLoopDetectorCount = v44;
+              LdrpQueryProcessModuleInformationLoopDetectorCount = v45;
             goto LABEL_47;
           }
-          if ( !(_DWORD)v48 )
+          if ( !(_DWORD)v49 )
           {
             v25 &= 0xFDFFFEFF;
-            LODWORD(v46) = v25;
+            LODWORD(KeyHandle) = v25;
           }
         }
       }
@@ -280,35 +285,36 @@ LABEL_41:
     }
   }
 LABEL_47:
-  if ( LdrControlFlowGuardEnforced() )
+  LOBYTE(v27) = LdrControlFlowGuardEnforced();
+  if ( v27 )
     v10 |= 1u;
   RtlSetLowFragHeapGlobalFlags(v10, *(_DWORD *)(*(_QWORD *)(a2 + 32) + 8LL));
   v18 = 0;
-  if ( v45 && !LdrpIsSecureProcess && (MEMORY[0x7FFE03A0] & 1) != 0 )
+  if ( v46 && !LdrpIsSecureProcess && (MEMORY[0x7FFE03A0] & 1) != 0 )
   {
-    if ( (int)AVrfOpenCurrentUserImageFileOptionsKey(v50, v27, &Handle) < 0 )
+    if ( (int)AVrfOpenCurrentUserImageFileOptionsKey(v51, v28, &Handle) < 0 )
     {
       Handle = 0LL;
     }
-    else if ( (int)RtlQueryImageFileKeyOption((__int64)Handle, (__int64)L"GlobalFlag", 4, &v46, 4u, 0LL) >= 0 )
+    else if ( RtlQueryImageFileKeyOption(Handle, L"GlobalFlag", 4, &KeyHandle, 4u, 0LL) >= 0 )
     {
       v12 = Handle;
-      *(_DWORD *)(a2 + 188) |= v46 & 0x2000100;
+      *(_DWORD *)(a2 + 188) |= (unsigned int)KeyHandle & 0x2000100;
     }
   }
   if ( (*(_DWORD *)(a2 + 188) & 0x2000100) != 0 || LdrpPayloadRestrictionMitigationsEnabled() )
   {
-    v29 = LdrpInitializeApplicationVerifierPackage(v50, a2, v8, (__int64)v12, v51[0], v55);
-    v18 = v29;
-    if ( v29 < 0 )
+    v30 = LdrpInitializeApplicationVerifierPackage(v51, a2, v8, v12, *(__int64 *)&Value.Length, v56);
+    v18 = v30;
+    if ( v30 < 0 )
     {
       LdrpLogInternal(
         (unsigned int)"minkernel\\ntdll\\ldrinit.c",
-        9425LL,
+        9425,
         (__int64)"LdrpInitializeExecutionOptions",
-        0LL,
+        0,
         "Initializing the application verifier package failed with status 0x%08lx\n",
-        v29);
+        v30);
       goto LABEL_71;
     }
   }
@@ -316,12 +322,12 @@ LABEL_47:
   {
     if ( *(_BYTE *)(a2 + 2) )
     {
-      v28 = *(_QWORD *)(a2 + 32);
-      v51[1] = (__int64)&v62;
-      LODWORD(v51[0]) = 0x200000;
-      if ( (int)RtlQueryEnvironmentVariable_U(*(_WORD **)(v28 + 128), &qword_180133DB0, (__int64)v51) < 0
-        || (v18 = RtlUnicodeStringToInteger((unsigned __int16 *)v51, 0, (int *)&v44), v18 < 0)
-        || !v44 )
+      v29 = *(_QWORD *)(a2 + 32);
+      Value.Buffer = (wchar_t *)&v59;
+      *(_DWORD *)&Value.Length = 0x200000;
+      if ( RtlQueryEnvironmentVariable_U(*(PVOID *)(v29 + 128), (PUNICODE_STRING)&stru_180133DB0, &Value) < 0
+        || (v18 = RtlUnicodeStringToInteger(&Value, 0, &v45), v18 < 0)
+        || !v45 )
       {
         *(_DWORD *)(a2 + 188) |= 0x70u;
       }
@@ -335,11 +341,11 @@ LABEL_47:
     goto LABEL_75;
   }
 LABEL_71:
-  v30 = v53;
-  if ( *v53 )
+  v31 = v54;
+  if ( *v54 )
   {
-    NtClose(*v53);
-    *v30 = 0LL;
+    NtClose(*v54);
+    *v31 = 0LL;
   }
   if ( *v6 )
   {

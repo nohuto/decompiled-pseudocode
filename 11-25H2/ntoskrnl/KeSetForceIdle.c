@@ -18,10 +18,10 @@ void KeSetForceIdle()
   signed __int32 v3; // eax
   signed __int32 v4; // ett
   int v5; // edi
-  __int64 v6; // rbx
-  unsigned __int64 v7; // [rsp+30h] [rbp+8h] BYREF
+  LARGE_INTEGER v6; // rbx
+  LARGE_INTEGER PerformanceCounter; // [rsp+30h] [rbp+8h] BYREF
 
-  v7 = 0LL;
+  PerformanceCounter.QuadPart = 0LL;
   _disable();
   v0 = 0;
   while ( _interlockedbittestandset64((volatile signed __int32 *)&KiForceIdleLock, 0LL) )
@@ -44,7 +44,8 @@ void KeSetForceIdle()
   if ( !KiForceIdleDisabled )
   {
     v5 = KiForceIdleState;
-    v6 = RtlGetInterruptTimePrecise(&v7) + 10000000LL * (unsigned int)KiForceIdleGracePeriodInSec;
+    v6.QuadPart = *(_QWORD *)&RtlGetInterruptTimePrecise(&PerformanceCounter)
+                + 10000000LL * (unsigned int)KiForceIdleGracePeriodInSec;
     if ( v5 )
     {
       if ( v5 != 3 )
@@ -54,7 +55,7 @@ void KeSetForceIdle()
     {
       KiSetForceIdleState(2LL);
     }
-    KiForceIdleStartTime = v6;
+    KiForceIdleStartTime = v6.QuadPart;
   }
 LABEL_8:
   _InterlockedAnd64(&KiForceIdleLock, 0LL);

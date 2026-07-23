@@ -1,17 +1,17 @@
 /*
- * XREFs of AslpFileGetImageNtHeader @ 0x14080DFA4
+ * XREFs of AslpFileGetImageNtHeader @ 0x14080E6E4
  * Callers:
- *     AslFileMappingGetImageTypeEx @ 0x1408094C0 (AslFileMappingGetImageTypeEx.c)
- *     AslpFileGetChecksumAttributes @ 0x14080CCA0 (AslpFileGetChecksumAttributes.c)
- *     AslpFileGetClrVersion @ 0x14080CEF8 (AslpFileGetClrVersion.c)
- *     AslpFileGetExeWrapper @ 0x14080D664 (AslpFileGetExeWrapper.c)
- *     AslpFileGetImageResourceDirectoryRoot @ 0x14080E06C (AslpFileGetImageResourceDirectoryRoot.c)
- *     AslpFileGetNtHeaderAttributes @ 0x14080E254 (AslpFileGetNtHeaderAttributes.c)
- *     AslpFileGetVersionBlockFromResourceRoot @ 0x14080EB1C (AslpFileGetVersionBlockFromResourceRoot.c)
- *     AslpFileIsArm64XBinary @ 0x14080F1D8 (AslpFileIsArm64XBinary.c)
- *     AslpFileQueryExportName @ 0x14080F898 (AslpFileQueryExportName.c)
+ *     AslFileMappingGetImageTypeEx @ 0x140809C00 (AslFileMappingGetImageTypeEx.c)
+ *     AslpFileGetChecksumAttributes @ 0x14080D3E0 (AslpFileGetChecksumAttributes.c)
+ *     AslpFileGetClrVersion @ 0x14080D638 (AslpFileGetClrVersion.c)
+ *     AslpFileGetExeWrapper @ 0x14080DDA4 (AslpFileGetExeWrapper.c)
+ *     AslpFileGetImageResourceDirectoryRoot @ 0x14080E7AC (AslpFileGetImageResourceDirectoryRoot.c)
+ *     AslpFileGetNtHeaderAttributes @ 0x14080E994 (AslpFileGetNtHeaderAttributes.c)
+ *     AslpFileGetVersionBlockFromResourceRoot @ 0x14080F25C (AslpFileGetVersionBlockFromResourceRoot.c)
+ *     AslpFileIsArm64XBinary @ 0x14080F918 (AslpFileIsArm64XBinary.c)
+ *     AslpFileQueryExportName @ 0x14080FFD8 (AslpFileQueryExportName.c)
  * Callees:
- *     AslLogCallPrintf @ 0x1409601DC (AslLogCallPrintf.c)
+ *     AslLogCallPrintf @ 0x140947C9C (AslLogCallPrintf.c)
  */
 
 __int64 __fastcall AslpFileGetImageNtHeader(_QWORD *a1, __int64 a2)

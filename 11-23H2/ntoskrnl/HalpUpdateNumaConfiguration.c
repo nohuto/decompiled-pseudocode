@@ -1,7 +1,7 @@
 /*
- * XREFs of HalpUpdateNumaConfiguration @ 0x14051B214
+ * XREFs of HalpUpdateNumaConfiguration @ 0x14051B764
  * Callers:
- *     HalStartDynamicProcessor @ 0x140504BF0 (HalStartDynamicProcessor.c)
+ *     HalStartDynamicProcessor @ 0x140505140 (HalStartDynamicProcessor.c)
  * Callees:
  *     <none>
  */

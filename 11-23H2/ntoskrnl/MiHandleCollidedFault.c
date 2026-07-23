@@ -1,15 +1,15 @@
 /*
- * XREFs of MiHandleCollidedFault @ 0x1402EED90
+ * XREFs of MiHandleCollidedFault @ 0x1402EF020
  * Callers:
- *     MiResolveTransitionFault @ 0x1402624D0 (MiResolveTransitionFault.c)
+ *     MiResolveTransitionFault @ 0x140262760 (MiResolveTransitionFault.c)
  * Callees:
- *     MiUnlockProtoPoolPage @ 0x1402DAEF0 (MiUnlockProtoPoolPage.c)
- *     MiRemoveLockedPageChargeAndDecRef @ 0x1402DAF84 (MiRemoveLockedPageChargeAndDecRef.c)
- *     MiIssueFlowThroughFault @ 0x1402EEEF0 (MiIssueFlowThroughFault.c)
- *     MiWaitForCollidedFaultComplete @ 0x1402EF008 (MiWaitForCollidedFaultComplete.c)
- *     MiObtainProtoReference @ 0x1402EF318 (MiObtainProtoReference.c)
- *     MiAddLockedPageCharge @ 0x1402EF368 (MiAddLockedPageCharge.c)
- *     MiLockNestedPageAtDpcInline @ 0x140348870 (MiLockNestedPageAtDpcInline.c)
+ *     MiUnlockProtoPoolPage @ 0x1402DB180 (MiUnlockProtoPoolPage.c)
+ *     MiRemoveLockedPageChargeAndDecRef @ 0x1402DB214 (MiRemoveLockedPageChargeAndDecRef.c)
+ *     MiIssueFlowThroughFault @ 0x1402EF180 (MiIssueFlowThroughFault.c)
+ *     MiWaitForCollidedFaultComplete @ 0x1402EF298 (MiWaitForCollidedFaultComplete.c)
+ *     MiObtainProtoReference @ 0x1402EF5A8 (MiObtainProtoReference.c)
+ *     MiAddLockedPageCharge @ 0x1402EF5F8 (MiAddLockedPageCharge.c)
+ *     MiLockNestedPageAtDpcInline @ 0x140348B00 (MiLockNestedPageAtDpcInline.c)
  */
 
 __int64 __fastcall MiHandleCollidedFault(__int64 a1, int a2, __int64 a3, __int64 a4, __int64 a5, _DWORD *a6)

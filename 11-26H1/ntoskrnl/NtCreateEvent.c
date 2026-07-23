@@ -1,38 +1,43 @@
 /*
- * XREFs of NtCreateEvent @ 0x1408EF8C0
+ * XREFs of NtCreateEvent @ 0x1408F5E80
  * Callers:
- *     DifNtCreateEventWrapper @ 0x140670AF0 (DifNtCreateEventWrapper.c)
- *     PfSnOpenVolumesForPrefetch @ 0x1409B2A78 (PfSnOpenVolumesForPrefetch.c)
- *     PfSnPopulateReadList @ 0x1409B9120 (PfSnPopulateReadList.c)
- *     PfSnPrefetchMetadata @ 0x140A501C8 (PfSnPrefetchMetadata.c)
- *     SepAdtOpenEtwReadyEvent @ 0x140B4C9F4 (SepAdtOpenEtwReadyEvent.c)
- *     FsRtlInitializeSmssEvent @ 0x140CB8CA0 (FsRtlInitializeSmssEvent.c)
- *     IoInitSystemPreDrivers @ 0x140CBACA0 (IoInitSystemPreDrivers.c)
+ *     DifNtCreateEventWrapper @ 0x1406746D0 (DifNtCreateEventWrapper.c)
+ *     PfSnOpenVolumesForPrefetch @ 0x140983B38 (PfSnOpenVolumesForPrefetch.c)
+ *     PfSnPopulateReadList @ 0x14098A100 (PfSnPopulateReadList.c)
+ *     PfSnPrefetchMetadata @ 0x140A594B8 (PfSnPrefetchMetadata.c)
+ *     SepAdtOpenEtwReadyEvent @ 0x140B4E784 (SepAdtOpenEtwReadyEvent.c)
+ *     FsRtlInitializeSmssEvent @ 0x140CBECE4 (FsRtlInitializeSmssEvent.c)
+ *     IoInitSystemPreDrivers @ 0x140CC0D18 (IoInitSystemPreDrivers.c)
  * Callees:
- *     ObpPushStackInfo @ 0x1402659F0 (ObpPushStackInfo.c)
- *     KeInitializeEvent @ 0x140466F30 (KeInitializeEvent.c)
- *     RtlpInterlockedPopEntrySList @ 0x140730C90 (RtlpInterlockedPopEntrySList.c)
- *     RtlpInterlockedPushEntrySList @ 0x140730CD0 (RtlpInterlockedPushEntrySList.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     ObpRegisterObject @ 0x140778F98 (ObpRegisterObject.c)
- *     RtlReadULong64FromUser @ 0x14077F554 (RtlReadULong64FromUser.c)
- *     RtlWriteULong64ToUser @ 0x14077F758 (RtlWriteULong64ToUser.c)
- *     ObpFreeObjectNameBuffer @ 0x1408F17F0 (ObpFreeObjectNameBuffer.c)
- *     ObpCaptureObjectCreateInformation @ 0x1408FDFD0 (ObpCaptureObjectCreateInformation.c)
- *     ObInsertObjectEx @ 0x14092B470 (ObInsertObjectEx.c)
- *     SeSinglePrivilegeCheck @ 0x140932280 (SeSinglePrivilegeCheck.c)
- *     ObpAllocateObject @ 0x1409344A0 (ObpAllocateObject.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ObpPushStackInfo @ 0x140264F60 (ObpPushStackInfo.c)
+ *     KeInitializeEvent @ 0x140460680 (KeInitializeEvent.c)
+ *     RtlpInterlockedPopEntrySList @ 0x140735860 (RtlpInterlockedPopEntrySList.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1407358A0 (RtlpInterlockedPushEntrySList.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     ObpRegisterObject @ 0x14077BE38 (ObpRegisterObject.c)
+ *     RtlReadULong64FromUser @ 0x140782054 (RtlReadULong64FromUser.c)
+ *     RtlWriteULong64ToUser @ 0x140782258 (RtlWriteULong64ToUser.c)
+ *     ObpFreeObjectNameBuffer @ 0x1408F7DB0 (ObpFreeObjectNameBuffer.c)
+ *     ObInsertObjectEx @ 0x140906FA0 (ObInsertObjectEx.c)
+ *     SeSinglePrivilegeCheck @ 0x14090DE50 (SeSinglePrivilegeCheck.c)
+ *     ObpAllocateObject @ 0x140910050 (ObpAllocateObject.c)
+ *     ObpCaptureObjectCreateInformation @ 0x14092DF60 (ObpCaptureObjectCreateInformation.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall NtCreateEvent(_QWORD *a1, unsigned int a2, __int64 a3, EVENT_TYPE a4, BOOLEAN a5)
+NTSTATUS __cdecl NtCreateEvent(
+        PHANDLE EventHandle,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        EVENT_TYPE EventType,
+        BOOLEAN InitialState)
 {
   unsigned __int8 PreviousMode; // si
   POBJECT_TYPE *v9; // r15
   struct _KPRCB *CurrentPrcb; // r14
   _GENERAL_LOOKASIDE *P; // rdi
   __int64 v12; // rbx
-  int Object; // edi
+  NTSTATUS Object; // edi
   void *v14; // rcx
   struct _KPRCB *v15; // rdx
   _GENERAL_LOOKASIDE *v16; // rcx
@@ -44,18 +49,18 @@ __int64 __fastcall NtCreateEvent(_QWORD *a1, unsigned int a2, __int64 a3, EVENT_
   __int64 v23; // rbx
   _GENERAL_LOOKASIDE *L; // rdi
   __int64 v25; // [rsp+58h] [rbp-50h] BYREF
-  __int64 v26; // [rsp+60h] [rbp-48h] BYREF
+  void *v26; // [rsp+60h] [rbp-48h] BYREF
   __int128 v27; // [rsp+68h] [rbp-40h] BYREF
 
   v26 = 0LL;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   if ( PreviousMode )
   {
-    ULong64FromUser = RtlReadULong64FromUser(a1);
-    RtlWriteULong64ToUser(a1, ULong64FromUser);
+    ULong64FromUser = RtlReadULong64FromUser(EventHandle);
+    RtlWriteULong64ToUser(EventHandle, ULong64FromUser);
   }
-  if ( (unsigned int)a4 > SynchronizationEvent )
-    return 3221225485LL;
+  if ( (unsigned int)EventType > SynchronizationEvent )
+    return -1073741811;
   v9 = ExEventObjectType;
   v27 = 0LL;
   v25 = 0LL;
@@ -78,7 +83,7 @@ __int64 __fastcall NtCreateEvent(_QWORD *a1, unsigned int a2, __int64 a3, EVENT_
   if ( v12 )
   {
     *(_DWORD *)v12 = CurrentPrcb->Number;
-    Object = ObpCaptureObjectCreateInformation(PreviousMode, PreviousMode, a3, &v27, v12, 0);
+    Object = ObpCaptureObjectCreateInformation(PreviousMode, PreviousMode, ObjectAttributes, &v27, v12, 0);
     if ( Object >= 0 )
     {
       if ( (*(_DWORD *)v12 & (_DWORD)v9[9]) != 0 )
@@ -86,7 +91,7 @@ __int64 __fastcall NtCreateEvent(_QWORD *a1, unsigned int a2, __int64 a3, EVENT_
         Object = -1073741811;
       }
       else if ( (*(_DWORD *)v12 & 0x10) == 0
-             || SeSinglePrivilegeCheck((LUID)PspSiloMonitorLock.SchedulingGroup, PreviousMode) )
+             || SeSinglePrivilegeCheck(*(LUID *)&PspSiloMonitorLock.SystemCallNumber, PreviousMode) )
       {
         v20 = *((_DWORD *)v9 + 27);
         *(_DWORD *)(v12 + 20) = *((_DWORD *)v9 + 26);
@@ -144,15 +149,15 @@ __int64 __fastcall NtCreateEvent(_QWORD *a1, unsigned int a2, __int64 a3, EVENT_
 LABEL_20:
   if ( Object >= 0 )
   {
-    KeInitializeEvent(v17, a4, a5);
-    Object = ObInsertObjectEx(v17, 0LL, a2, 0LL, 0, 0LL, &v26);
+    KeInitializeEvent(v17, EventType, InitialState);
+    Object = ObInsertObjectEx(v17, 0LL, DesiredAccess, 0LL, 0, 0LL, &v26);
     if ( Object >= 0 )
     {
       if ( PreviousMode )
-        RtlWriteULong64ToUser(a1, v26);
+        RtlWriteULong64ToUser(EventHandle, (__int64)v26);
       else
-        *a1 = v26;
+        *EventHandle = v26;
     }
   }
-  return (unsigned int)Object;
+  return Object;
 }

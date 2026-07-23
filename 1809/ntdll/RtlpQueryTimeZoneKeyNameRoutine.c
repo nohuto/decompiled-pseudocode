@@ -3,7 +3,7 @@
  * Callers:
  *     <none>
  * Callees:
- *     wcsnlen @ 0x180095C00 (wcsnlen.c)
+ *     wcsnlen @ 0x180095C10 (wcsnlen.c)
  *     memmove @ 0x1800A6DC0 (memmove.c)
  */
 

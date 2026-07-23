@@ -17,11 +17,11 @@
 bool __fastcall ExpFirmwareAccessAppContainerCheck(int a1)
 {
   int v1; // ecx
-  _BYTE v3[4]; // [rsp+30h] [rbp-D0h] BYREF
-  struct _SID_IDENTIFIER_AUTHORITY IdentifierAuthority; // [rsp+34h] [rbp-CCh] BYREF
+  BOOLEAN IsMember[4]; // [rsp+30h] [rbp-D0h] BYREF
+  _SID_IDENTIFIER_AUTHORITY IdentifierAuthority; // [rsp+34h] [rbp-CCh] BYREF
   ULONG ReturnLength; // [rsp+3Ch] [rbp-C4h] BYREF
   HANDLE TokenInformation; // [rsp+40h] [rbp-C0h] BYREF
-  UNICODE_STRING SourceString; // [rsp+48h] [rbp-B8h] BYREF
+  UNICODE_STRING CapabilityName; // [rsp+48h] [rbp-B8h] BYREF
   UNICODE_STRING v8; // [rsp+58h] [rbp-A8h] BYREF
   UNICODE_STRING v9; // [rsp+68h] [rbp-98h] BYREF
   _QWORD Sid[3]; // [rsp+78h] [rbp-88h] BYREF
@@ -53,13 +53,13 @@ bool __fastcall ExpFirmwareAccessAppContainerCheck(int a1)
   v19 = *(_DWORD *)L"y";
   v17[1] = *(_OWORD *)L"t.firmwareWrite_cw5n1h2txyewy";
   v17[2] = *(_OWORD *)L"reWrite_cw5n1h2txyewy";
-  SourceString.Buffer = (wchar_t *)v17;
+  CapabilityName.Buffer = (wchar_t *)v17;
   *(_WORD *)&IdentifierAuthority.Value[4] = 1280;
   *(_QWORD *)&v9.Length = 917516LL;
   *(_QWORD *)&v8.Length = 4849736LL;
   v17[3] = *(_OWORD *)L"cw5n1h2txyewy";
   v18 = *(_QWORD *)L"xyewy";
-  *(_QWORD *)&SourceString.Length = 4980810LL;
+  *(_QWORD *)&CapabilityName.Length = 4980810LL;
   if ( !a1 )
     return ExpCapabilityCheck(&v9);
   v1 = a1 - 1;
@@ -72,7 +72,7 @@ bool __fastcall ExpFirmwareAccessAppContainerCheck(int a1)
   if ( !ExpCapabilityCheck(&v8) )
   {
 LABEL_4:
-    if ( !ExpCapabilityCheck(&SourceString) )
+    if ( !ExpCapabilityCheck(&CapabilityName) )
       return 0;
   }
   if ( BYTE2(KeGetCurrentThread()->ApcState.Process[2].ActiveProcessors.Bitmap[4]) != 0x81 )
@@ -81,12 +81,12 @@ LABEL_4:
     if ( !ExpTestSigningEnabled )
       return 0;
   }
-  v3[0] = 0;
+  IsMember[0] = 0;
   RtlInitializeSid(Sid, &IdentifierAuthority, 2u);
   *RtlSubAuthoritySid(Sid, 0) = 32;
   *RtlSubAuthoritySid(Sid, 1u) = 544;
   return ZwQueryInformationToken((HANDLE)0xFFFFFFFFFFFFFFFALL, TokenLinkedToken, &TokenInformation, 8u, &ReturnLength) >= 0
       && ReturnLength == 8
-      && (int)RtlCheckTokenMembershipEx(TokenInformation, Sid, 1, v3) >= 0
-      && v3[0];
+      && RtlCheckTokenMembershipEx(TokenInformation, Sid, 1u, IsMember) >= 0
+      && IsMember[0];
 }

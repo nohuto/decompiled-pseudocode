@@ -1,19 +1,19 @@
 /*
- * XREFs of PopFxRegisterPluginEx @ 0x140605604
+ * XREFs of PopFxRegisterPluginEx @ 0x140608104
  * Callers:
- *     PoFxRegisterPluginEx @ 0x1406045F0 (PoFxRegisterPluginEx.c)
- *     PoFxRegisterPlugin @ 0x1407CD3A0 (PoFxRegisterPlugin.c)
+ *     PoFxRegisterPluginEx @ 0x1406070F0 (PoFxRegisterPluginEx.c)
+ *     PoFxRegisterPlugin @ 0x1407D0440 (PoFxRegisterPlugin.c)
  * Callees:
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     ExfTryToWakePushLock @ 0x1403170A0 (ExfTryToWakePushLock.c)
- *     ?KiAbpSetEntryValue@AutoBoost@@YAXPECEEK@Z @ 0x140444460 (-KiAbpSetEntryValue@AutoBoost@@YAXPECEEK@Z.c)
- *     PopFxInitializeWorkPool @ 0x1407CD590 (PopFxInitializeWorkPool.c)
- *     PopDiagTraceFxPluginRegistration @ 0x140B3BBA8 (PopDiagTraceFxPluginRegistration.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     ExfTryToWakePushLock @ 0x1403190D0 (ExfTryToWakePushLock.c)
+ *     ?KiAbpSetEntryValue@AutoBoost@@YAXPECEEK@Z @ 0x14043CF70 (-KiAbpSetEntryValue@AutoBoost@@YAXPECEEK@Z.c)
+ *     PopFxInitializeWorkPool @ 0x1407D0630 (PopFxInitializeWorkPool.c)
+ *     PopDiagTraceFxPluginRegistration @ 0x140B3DE28 (PopDiagTraceFxPluginRegistration.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PopFxRegisterPluginEx(unsigned __int16 *a1, __int64 a2, unsigned __int16 *a3)
@@ -23,13 +23,13 @@ __int64 __fastcall PopFxRegisterPluginEx(unsigned __int16 *a1, __int64 a2, unsig
   bool v8; // cf
   __int16 v10; // ax
   __int64 Pool2; // rax
-  _DWORD *v12; // r14
+  __int64 v12; // r14
   struct _KLOCK_ENTRIES *v13; // r9
   struct _KTHREAD *CurrentThread; // rax
   AutoBoost *v15; // rax
   volatile unsigned __int8 *v16; // rdx
   AutoBoost *v17; // r15
-  _QWORD *v18; // rax
+  _DISPATCHER_HEADER *volatile Queue; // rax
   __int64 v19; // rdx
 
   v3 = *a3;
@@ -66,27 +66,27 @@ LABEL_11:
     return (unsigned int)-1073741811;
   }
   Pool2 = ExAllocatePool2(0x40uLL);
-  v12 = (_DWORD *)Pool2;
+  v12 = Pool2;
   if ( Pool2 )
   {
     v7 = PopFxInitializeWorkPool(Pool2 + 120, Pool2);
     if ( v7 >= 0 )
     {
-      v12[4] = *a1;
-      *((_QWORD *)v12 + 3) = a2;
-      *((_QWORD *)v12 + 12) = *((_QWORD *)a1 + 1);
-      *((_QWORD *)v12 + 13) = *((_QWORD *)a1 + 2);
+      *(_DWORD *)(v12 + 16) = *a1;
+      *(_QWORD *)(v12 + 24) = a2;
+      *(_QWORD *)(v12 + 96) = *((_QWORD *)a1 + 1);
+      *(_QWORD *)(v12 + 104) = *((_QWORD *)a1 + 2);
       if ( *a1 >= 3u )
-        *((_QWORD *)v12 + 14) = *((_QWORD *)a1 + 3);
+        *(_QWORD *)(v12 + 112) = *((_QWORD *)a1 + 3);
       CurrentThread = KeGetCurrentThread();
       --CurrentThread->KernelApcDisable;
-      v15 = (AutoBoost *)KeAbPreAcquire((__int64)&stru_140F12420.StateSaveArea, 0LL, 0LL, v13);
+      v15 = (AutoBoost *)KeAbPreAcquire((__int64)&PopFxBlockingDeviceListLock.WaitListEntry.Blink, 0LL, 0LL, v13);
       v17 = v15;
-      if ( _interlockedbittestandset64((volatile signed __int32 *)&stru_140F12420.StateSaveArea, 0LL) )
+      if ( _interlockedbittestandset64((_DWORD *)&PopFxBlockingDeviceListLock.SwapListEntry + 2, 0LL) )
         ExfAcquirePushLockExclusiveEx(
-          (unsigned __int64 *)&stru_140F12420.StateSaveArea,
+          (unsigned __int64 *)&PopFxBlockingDeviceListLock.WaitListEntry.Blink,
           v15,
-          (__int64)&stru_140F12420.StateSaveArea);
+          (__int64)&PopFxBlockingDeviceListLock.WaitListEntry.Blink);
       if ( v17 )
       {
         if ( (KiAbpGlobalState & 1) != 0 )
@@ -99,19 +99,21 @@ LABEL_11:
           *((_BYTE *)v17 + 10) = 1;
         }
       }
-      v18 = (_QWORD *)qword_140F12400;
-      v19 = *(_QWORD *)qword_140F12400;
-      if ( *(_QWORD *)(*(_QWORD *)qword_140F12400 + 8LL) != qword_140F12400 )
+      Queue = PopFxBlockingDeviceListLock.Queue;
+      v19 = *(_QWORD *)PopFxBlockingDeviceListLock.Queue;
+      if ( *(_DISPATCHER_HEADER *volatile *)(*(_QWORD *)PopFxBlockingDeviceListLock.Queue + 8LL) != PopFxBlockingDeviceListLock.Queue )
         __fastfail(3u);
       *(_QWORD *)v12 = v19;
-      *((_QWORD *)v12 + 1) = v18;
+      *(_QWORD *)(v12 + 8) = Queue;
       *(_QWORD *)(v19 + 8) = v12;
-      *v18 = v12;
+      *(_QWORD *)&Queue->Lock = v12;
       if ( (a2 & 0x80000000) != 0 )
-        qword_140F12400 = (__int64)v12;
-      if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&stru_140F12420.StateSaveArea, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-        ExfTryToWakePushLock((volatile signed __int64 *)&stru_140F12420.StateSaveArea);
-      KeAbPostRelease((unsigned __int64)&stru_140F12420.StateSaveArea);
+        PopFxBlockingDeviceListLock.Queue = (_DISPATCHER_HEADER *volatile)v12;
+      if ( (_InterlockedExchangeAdd64(
+              (volatile signed __int64 *)&PopFxBlockingDeviceListLock.WaitListEntry.Blink,
+              0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+        ExfTryToWakePushLock((volatile signed __int64 *)&PopFxBlockingDeviceListLock.WaitListEntry.Blink);
+      KeAbPostRelease((unsigned __int64)&PopFxBlockingDeviceListLock.WaitListEntry.Blink);
       KeLeaveCriticalRegion();
       PopDiagTraceFxPluginRegistration(v12, a2, 0LL);
       v8 = *a3 < 2u;
@@ -141,7 +143,7 @@ LABEL_11:
     }
     else
     {
-      ExFreePoolWithTag(v12, 0x4D584650u);
+      ExFreePoolWithTag((PVOID)v12, 0x4D584650u);
     }
   }
   else

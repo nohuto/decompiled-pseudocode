@@ -1,17 +1,17 @@
 /*
- * XREFs of CcChangeBackingFileObject @ 0x140535168
+ * XREFs of CcChangeBackingFileObject @ 0x1405356B8
  * Callers:
- *     FsRtlChangeBackingFileObject @ 0x1403D6760 (FsRtlChangeBackingFileObject.c)
+ *     FsRtlChangeBackingFileObject @ 0x1403D6940 (FsRtlChangeBackingFileObject.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     KxReleaseQueuedSpinLock @ 0x140260360 (KxReleaseQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140260E60 (KeAcquireInStackQueuedSpinLock.c)
- *     ObFastReplaceObject @ 0x14029A578 (ObFastReplaceObject.c)
- *     ObDereferenceObjectDeferDeleteWithTag @ 0x1402A8CE0 (ObDereferenceObjectDeferDeleteWithTag.c)
- *     ObfReferenceObjectWithTag @ 0x1402B68C0 (ObfReferenceObjectWithTag.c)
- *     ExfTryToWakePushLock @ 0x1402BD960 (ExfTryToWakePushLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140231120 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     KxReleaseQueuedSpinLock @ 0x1402605F0 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402610F0 (KeAcquireInStackQueuedSpinLock.c)
+ *     ObFastReplaceObject @ 0x14029A808 (ObFastReplaceObject.c)
+ *     ObDereferenceObjectDeferDeleteWithTag @ 0x1402A8F70 (ObDereferenceObjectDeferDeleteWithTag.c)
+ *     ObfReferenceObjectWithTag @ 0x1402B6B50 (ObfReferenceObjectWithTag.c)
+ *     ExfTryToWakePushLock @ 0x1402BDBF0 (ExfTryToWakePushLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall CcChangeBackingFileObject(_QWORD *a1, _QWORD *a2)
@@ -51,10 +51,13 @@ __int64 __fastcall CcChangeBackingFileObject(_QWORD *a1, _QWORD *a2)
   {
     KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
     OldIrql = LockHandle.OldIrql;
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && LockHandle.OldIrql <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+        && CurrentIrql <= 0xFu
+        && LockHandle.OldIrql <= 0xFu
+        && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -62,7 +65,7 @@ __int64 __fastcall CcChangeBackingFileObject(_QWORD *a1, _QWORD *a2)
         v10 = (v9 & SchedulerAssist[5]) == 0;
         SchedulerAssist[5] &= v9;
         if ( v10 )
-          KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+          KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
       }
     }
     __writecr8(OldIrql);
@@ -80,10 +83,10 @@ LABEL_36:
   {
     KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
     v12 = LockHandle.OldIrql;
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v13 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v13 <= 0xFu && LockHandle.OldIrql <= 0xFu && v13 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v13 <= 0xFu && LockHandle.OldIrql <= 0xFu && v13 >= 2u )
       {
         v14 = KeGetCurrentPrcb();
         v15 = v14->SchedulerAssist;
@@ -91,7 +94,7 @@ LABEL_36:
         v10 = (v16 & v15[5]) == 0;
         v15[5] &= v16;
         if ( v10 )
-          KiRemoveSystemWorkPriorityKick(v14);
+          KiRemoveSystemWorkPriorityKick((__int64)v14);
       }
     }
     __writecr8(v12);
@@ -109,10 +112,10 @@ LABEL_36:
 LABEL_27:
       KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
       v19 = LockHandle.OldIrql;
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v20 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v20 <= 0xFu && LockHandle.OldIrql <= 0xFu && v20 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v20 <= 0xFu && LockHandle.OldIrql <= 0xFu && v20 >= 2u )
         {
           v21 = KeGetCurrentPrcb();
           v22 = v21->SchedulerAssist;
@@ -120,7 +123,7 @@ LABEL_27:
           v10 = (v23 & v22[5]) == 0;
           v22[5] &= v23;
           if ( v10 )
-            KiRemoveSystemWorkPriorityKick(v21);
+            KiRemoveSystemWorkPriorityKick((__int64)v21);
         }
       }
       __writecr8(v19);
@@ -132,10 +135,10 @@ LABEL_27:
   ObFastReplaceObject(v17, (__int64)a2);
   KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
   v25 = LockHandle.OldIrql;
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v26 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v26 <= 0xFu && LockHandle.OldIrql <= 0xFu && v26 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v26 <= 0xFu && LockHandle.OldIrql <= 0xFu && v26 >= 2u )
     {
       v27 = KeGetCurrentPrcb();
       v28 = v27->SchedulerAssist;
@@ -143,7 +146,7 @@ LABEL_27:
       v10 = (v29 & v28[5]) == 0;
       v28[5] &= v29;
       if ( v10 )
-        KiRemoveSystemWorkPriorityKick(v27);
+        KiRemoveSystemWorkPriorityKick((__int64)v27);
     }
   }
   __writecr8(v25);

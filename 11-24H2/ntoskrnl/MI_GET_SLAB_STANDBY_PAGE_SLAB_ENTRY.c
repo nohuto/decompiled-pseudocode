@@ -1,8 +1,8 @@
 /*
- * XREFs of MI_GET_SLAB_STANDBY_PAGE_SLAB_ENTRY @ 0x1403EF540
+ * XREFs of MI_GET_SLAB_STANDBY_PAGE_SLAB_ENTRY @ 0x1403E24C4
  * Callers:
- *     MiUnlinkPageFromListEx @ 0x140211CD0 (MiUnlinkPageFromListEx.c)
- *     MiGetSlabAllocatorRepurposedStandbyList @ 0x1403EF4B4 (MiGetSlabAllocatorRepurposedStandbyList.c)
+ *     MiUnlinkPageFromListEx @ 0x14033B030 (MiUnlinkPageFromListEx.c)
+ *     MiGetSlabAllocatorRepurposedStandbyList @ 0x1403E2438 (MiGetSlabAllocatorRepurposedStandbyList.c)
  * Callees:
  *     <none>
  */

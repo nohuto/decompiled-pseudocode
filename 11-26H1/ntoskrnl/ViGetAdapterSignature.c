@@ -1,9 +1,9 @@
 /*
- * XREFs of ViGetAdapterSignature @ 0x140C27090
+ * XREFs of ViGetAdapterSignature @ 0x140C2D0A0
  * Callers:
- *     ViGetAdapterInformationInternal @ 0x140C26F80 (ViGetAdapterInformationInternal.c)
- *     ViGetRealDmaAdapter @ 0x140C271E4 (ViGetRealDmaAdapter.c)
- *     ViHookDmaAdapter @ 0x140C274EC (ViHookDmaAdapter.c)
+ *     ViGetAdapterInformationInternal @ 0x140C2CF90 (ViGetAdapterInformationInternal.c)
+ *     ViGetRealDmaAdapter @ 0x140C2D1F4 (ViGetRealDmaAdapter.c)
+ *     ViHookDmaAdapter @ 0x140C2D4FC (ViHookDmaAdapter.c)
  * Callees:
  *     <none>
  */

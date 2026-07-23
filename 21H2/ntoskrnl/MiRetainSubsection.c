@@ -1,13 +1,13 @@
 /*
- * XREFs of MiRetainSubsection @ 0x1402C9564
+ * XREFs of MiRetainSubsection @ 0x140247E44
  * Callers:
- *     MmAccessFault @ 0x14020D090 (MmAccessFault.c)
- *     MiGetHardFaultPages @ 0x1402E7D84 (MiGetHardFaultPages.c)
- *     MiFaultGetFileExtents @ 0x1405483F0 (MiFaultGetFileExtents.c)
+ *     MiGetHardFaultPages @ 0x1402990D4 (MiGetHardFaultPages.c)
+ *     MmAccessFault @ 0x1402B1990 (MmAccessFault.c)
+ *     MiFaultGetFileExtents @ 0x140548630 (MiFaultGetFileExtents.c)
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x14021D060 (ExAcquireSpinLockExclusive.c)
- *     MiIncrementSubsectionViewCount @ 0x140315DE0 (MiIncrementSubsectionViewCount.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14033BD80 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusive @ 0x1402C1960 (ExAcquireSpinLockExclusive.c)
+ *     MiIncrementSubsectionViewCount @ 0x140320B30 (MiIncrementSubsectionViewCount.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140346AD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 

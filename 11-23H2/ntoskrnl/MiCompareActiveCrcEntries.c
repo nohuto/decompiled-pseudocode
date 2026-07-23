@@ -1,7 +1,7 @@
 /*
  * XREFs of MiCompareActiveCrcEntries @ 0x140215CA4
  * Callers:
- *     MiProcessCrcList @ 0x1406B02D0 (MiProcessCrcList.c)
+ *     MiProcessCrcList @ 0x1406B0300 (MiProcessCrcList.c)
  * Callees:
  *     <none>
  */

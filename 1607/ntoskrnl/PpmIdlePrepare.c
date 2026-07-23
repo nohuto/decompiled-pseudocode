@@ -1,16 +1,16 @@
 /*
- * XREFs of PpmIdlePrepare @ 0x1400DBCB0
+ * XREFs of PpmIdlePrepare @ 0x1400D9B50
  * Callers:
- *     PoIdle @ 0x1400D9F40 (PoIdle.c)
+ *     PoIdle @ 0x1400D7DE0 (PoIdle.c)
  * Callees:
- *     KiGetNextTimer2ExpirationDueTime @ 0x14009D1E8 (KiGetNextTimer2ExpirationDueTime.c)
- *     KeAddProcessorAffinityEx @ 0x1400D3F88 (KeAddProcessorAffinityEx.c)
- *     KeGetPrcb @ 0x1400D3FF8 (KeGetPrcb.c)
- *     KeEnumerateNextProcessor @ 0x1400D53B0 (KeEnumerateNextProcessor.c)
- *     KiFindNextTimerDueTime @ 0x1400DCD50 (KiFindNextTimerDueTime.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     PpmGetIdleConstrainedMask @ 0x1401FFA04 (PpmGetIdleConstrainedMask.c)
- *     ExGetNextWakeTimeForDeepSleep @ 0x14022E180 (ExGetNextWakeTimeForDeepSleep.c)
+ *     KiGetNextTimer2ExpirationDueTime @ 0x14009C9E8 (KiGetNextTimer2ExpirationDueTime.c)
+ *     KeAddProcessorAffinityEx @ 0x1400D1E28 (KeAddProcessorAffinityEx.c)
+ *     KeGetPrcb @ 0x1400D1E98 (KeGetPrcb.c)
+ *     KeEnumerateNextProcessor @ 0x1400D3250 (KeEnumerateNextProcessor.c)
+ *     KiFindNextTimerDueTime @ 0x1400DABF0 (KiFindNextTimerDueTime.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     PpmGetIdleConstrainedMask @ 0x1401FF830 (PpmGetIdleConstrainedMask.c)
+ *     ExGetNextWakeTimeForDeepSleep @ 0x14022DFAC (ExGetNextWakeTimeForDeepSleep.c)
  */
 
 __int64 __fastcall PpmIdlePrepare(
@@ -178,10 +178,10 @@ __int64 __fastcall PpmIdlePrepare(
       v89 = *(_QWORD *)(v49 + 136) & ~(1LL << (KiProcessorIndexToNumberMappingTable[*(unsigned int *)(v15.QuadPart + 36)] & 0x3F));
       if ( v51 == v89 )
       {
-        v15.QuadPart = (LONGLONG)qword_1403269A8;
+        v15.QuadPart = (LONGLONG)qword_1403269E8;
         while ( ++v48 != (unsigned __int16)KeNumberNodes )
         {
-          v59 = KeNodeBlock[*((unsigned __int16 *)qword_1403269A8
+          v59 = KeNodeBlock[*((unsigned __int16 *)qword_1403269E8
                             + v48
                             + (unsigned int)(unsigned __int16)KeNumberNodes * v50)];
           v89 = *(_QWORD *)(v59 + 136);
@@ -301,9 +301,9 @@ LABEL_73:
               v57 = 2LL;
             do
             {
-              if ( qword_14030E2F0[3 * v57] < v55 )
+              if ( qword_14030E330[3 * v57] < v55 )
               {
-                v55 = qword_14030E2F0[3 * v57];
+                v55 = qword_14030E330[3 * v57];
                 if ( v57 == 3 )
                   v56 = 1;
               }

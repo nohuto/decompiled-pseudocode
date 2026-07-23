@@ -1,12 +1,12 @@
 /*
- * XREFs of IopWriteTriageDumpToFirmware @ 0x1402825BC
+ * XREFs of IopWriteTriageDumpToFirmware @ 0x1402827AC
  * Callers:
- *     IoWriteCrashDump @ 0x1402805AC (IoWriteCrashDump.c)
- *     IopWriteCapsuleTriageDumpToFirmware @ 0x14028227C (IopWriteCapsuleTriageDumpToFirmware.c)
+ *     IoWriteCrashDump @ 0x14028079C (IoWriteCrashDump.c)
+ *     IopWriteCapsuleTriageDumpToFirmware @ 0x14028246C (IopWriteCapsuleTriageDumpToFirmware.c)
  * Callees:
- *     MmGetPhysicalAddress @ 0x1401210D0 (MmGetPhysicalAddress.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     KiScanBugCheckCallbackList @ 0x140292E8C (KiScanBugCheckCallbackList.c)
+ *     MmGetPhysicalAddress @ 0x1401211A0 (MmGetPhysicalAddress.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     KiScanBugCheckCallbackList @ 0x14029307C (KiScanBugCheckCallbackList.c)
  */
 
 __int64 __fastcall IopWriteTriageDumpToFirmware(PHYSICAL_ADDRESS *BaseAddress)
@@ -46,7 +46,7 @@ __int64 __fastcall IopWriteTriageDumpToFirmware(PHYSICAL_ADDRESS *BaseAddress)
   v4[1].QuadPart = 0LL;
   PhysicalAddress = MmGetPhysicalAddress(BaseAddress);
   KiScanBugCheckCallbackList();
-  return ((__int64 (__fastcall *)(_QWORD, _QWORD, _QWORD))off_1403FE588[0])(
+  return ((__int64 (__fastcall *)(_QWORD, _QWORD, _QWORD))off_1403FF588[0])(
            &BaseAddressa,
            1LL,
            (PHYSICAL_ADDRESS)PhysicalAddress.QuadPart);

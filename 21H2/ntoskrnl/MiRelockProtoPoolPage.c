@@ -1,15 +1,15 @@
 /*
- * XREFs of MiRelockProtoPoolPage @ 0x14031A078
+ * XREFs of MiRelockProtoPoolPage @ 0x140324DC8
  * Callers:
- *     MiFinishHardFault @ 0x140239890 (MiFinishHardFault.c)
- *     MiWaitForCollidedFaultComplete @ 0x14028C1F0 (MiWaitForCollidedFaultComplete.c)
- *     MiCopyDataPageToImagePage @ 0x1403043E8 (MiCopyDataPageToImagePage.c)
- *     MiIdealClusterPage @ 0x140555E14 (MiIdealClusterPage.c)
+ *     MiWaitForCollidedFaultComplete @ 0x140209390 (MiWaitForCollidedFaultComplete.c)
+ *     MiFinishHardFault @ 0x1402DE0E0 (MiFinishHardFault.c)
+ *     MiCopyDataPageToImagePage @ 0x14030F138 (MiCopyDataPageToImagePage.c)
+ *     MiIdealClusterPage @ 0x140556054 (MiIdealClusterPage.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x14024B280 (KeYieldProcessorEx.c)
- *     MiLockPageInline @ 0x1402FFE30 (MiLockPageInline.c)
- *     MiLockOwnedProtoPage @ 0x14031A320 (MiLockOwnedProtoPage.c)
- *     MiAddLockedPageCharge @ 0x14031A408 (MiAddLockedPageCharge.c)
+ *     KeYieldProcessorEx @ 0x1402EFAD0 (KeYieldProcessorEx.c)
+ *     MiLockPageInline @ 0x14030AB80 (MiLockPageInline.c)
+ *     MiLockOwnedProtoPage @ 0x140325070 (MiLockOwnedProtoPage.c)
+ *     MiAddLockedPageCharge @ 0x140325158 (MiAddLockedPageCharge.c)
  */
 
 __int64 __fastcall MiRelockProtoPoolPage(__int64 a1, char *a2, __int64 a3, _DWORD *a4)

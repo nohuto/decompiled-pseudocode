@@ -26,7 +26,7 @@ __int64 __fastcall HvlpSlowFlushAddressSpaceTb(__int64 a1, __int64 a2, char a3)
   PHYSICAL_ADDRESS Next; // r15
   struct _KPRCB *CurrentPrcb; // rsi
   PSLIST_ENTRY v9; // rax
-  struct _SLIST_ENTRY *v10; // r13
+  _SLIST_ENTRY *v10; // r13
   __int64 CurrentIrql; // rcx
   __int64 result; // rax
   __int64 v13; // rdx

@@ -1,18 +1,18 @@
 /*
- * XREFs of RtlAnsiStringToUnicodeString @ 0x1800182E0
+ * XREFs of RtlAnsiStringToUnicodeString @ 0x1800182D0
  * Callers:
- *     RtlIntegerToUnicodeString @ 0x180011CA0 (RtlIntegerToUnicodeString.c)
- *     LdrpAppendAnsiStringToFilenameBuffer @ 0x180013218 (LdrpAppendAnsiStringToFilenameBuffer.c)
- *     LdrpSnapKernelBaseExtensions @ 0x1800155AC (LdrpSnapKernelBaseExtensions.c)
- *     LdrpLoadDependentModule @ 0x180016680 (LdrpLoadDependentModule.c)
- *     RtlCreateUnicodeStringFromAsciiz @ 0x180073D80 (RtlCreateUnicodeStringFromAsciiz.c)
- *     LdrpReportError @ 0x18007AF88 (LdrpReportError.c)
- *     RtlInt64ToUnicodeString @ 0x1800E4FC0 (RtlInt64ToUnicodeString.c)
+ *     RtlIntegerToUnicodeString @ 0x180011C90 (RtlIntegerToUnicodeString.c)
+ *     LdrpAppendAnsiStringToFilenameBuffer @ 0x180013208 (LdrpAppendAnsiStringToFilenameBuffer.c)
+ *     LdrpSnapKernelBaseExtensions @ 0x18001559C (LdrpSnapKernelBaseExtensions.c)
+ *     LdrpLoadDependentModule @ 0x180016670 (LdrpLoadDependentModule.c)
+ *     RtlCreateUnicodeStringFromAsciiz @ 0x180073D70 (RtlCreateUnicodeStringFromAsciiz.c)
+ *     LdrpReportError @ 0x18007AF78 (LdrpReportError.c)
+ *     RtlInt64ToUnicodeString @ 0x1800E5080 (RtlInt64ToUnicodeString.c)
  * Callees:
- *     NtdllpFreeStringRoutine @ 0x1800094E0 (NtdllpFreeStringRoutine.c)
- *     RtlMultiByteToUnicodeN @ 0x180018450 (RtlMultiByteToUnicodeN.c)
- *     NtdllpAllocateStringRoutine @ 0x180018BE8 (NtdllpAllocateStringRoutine.c)
- *     RtlxOemStringToUnicodeSize @ 0x180088370 (RtlxOemStringToUnicodeSize.c)
+ *     NtdllpFreeStringRoutine @ 0x1800094D0 (NtdllpFreeStringRoutine.c)
+ *     RtlMultiByteToUnicodeN @ 0x180018440 (RtlMultiByteToUnicodeN.c)
+ *     NtdllpAllocateStringRoutine @ 0x180018BD8 (NtdllpAllocateStringRoutine.c)
+ *     RtlxOemStringToUnicodeSize @ 0x180088360 (RtlxOemStringToUnicodeSize.c)
  */
 
 NTSTATUS __stdcall RtlAnsiStringToUnicodeString(
@@ -22,9 +22,9 @@ NTSTATUS __stdcall RtlAnsiStringToUnicodeString(
 {
   unsigned int v6; // eax
   unsigned __int64 v7; // rcx
-  NTSTATUS v8; // edi
+  int v8; // edi
   wchar_t *StringRoutine; // rax
-  unsigned int v11; // [rsp+78h] [rbp+20h] BYREF
+  ULONG BytesInUnicodeString; // [rsp+78h] [rbp+20h] BYREF
 
   if ( NlsMbCodePageTag )
     v6 = RtlxOemStringToUnicodeSize(SourceString);
@@ -50,19 +50,19 @@ NTSTATUS __stdcall RtlAnsiStringToUnicodeString(
   v8 = RtlMultiByteToUnicodeN(
          DestinationString->Buffer,
          DestinationString->Length,
-         (unsigned int)&v11,
+         &BytesInUnicodeString,
          SourceString->Buffer,
          SourceString->Length);
   if ( v8 >= 0 )
   {
-    DestinationString->Buffer[(unsigned __int64)v11 >> 1] = 0;
+    DestinationString->Buffer[(unsigned __int64)BytesInUnicodeString >> 1] = 0;
     v8 = 0;
   }
   if ( v8 < 0 )
   {
     if ( AllocateDestinationString )
     {
-      NtdllpFreeStringRoutine((__int64)DestinationString->Buffer);
+      NtdllpFreeStringRoutine(DestinationString->Buffer);
       DestinationString->Buffer = 0LL;
     }
   }

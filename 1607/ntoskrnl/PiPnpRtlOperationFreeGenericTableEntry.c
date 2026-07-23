@@ -1,12 +1,12 @@
 /*
- * XREFs of PiPnpRtlOperationFreeGenericTableEntry @ 0x140501F40
+ * XREFs of PiPnpRtlOperationFreeGenericTableEntry @ 0x1404E4ED0
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-void __fastcall PiPnpRtlOperationFreeGenericTableEntry(struct _RTL_AVL_TABLE *Table, PVOID Buffer)
+void __fastcall PiPnpRtlOperationFreeGenericTableEntry(_RTL_AVL_TABLE *a1, PVOID a2)
 {
-  ExFreePoolWithTag(Buffer, 0x41706E50u);
+  ExFreePoolWithTag(a2, 0x41706E50u);
 }

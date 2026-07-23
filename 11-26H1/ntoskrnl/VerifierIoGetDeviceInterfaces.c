@@ -1,9 +1,9 @@
 /*
- * XREFs of VerifierIoGetDeviceInterfaces @ 0x140C2DBC0
+ * XREFs of VerifierIoGetDeviceInterfaces @ 0x140C33BD0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall VerifierIoGetDeviceInterfaces(__int64 a1, __int64 a2)

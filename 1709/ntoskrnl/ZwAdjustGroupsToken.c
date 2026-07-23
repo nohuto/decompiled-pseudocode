@@ -6,7 +6,6 @@
  *     <none>
  */
 
-// local variable allocation has failed, the output may be wrong!
 NTSTATUS __stdcall ZwAdjustGroupsToken(
         HANDLE TokenHandle,
         BOOLEAN ResetToDefault,
@@ -17,5 +16,5 @@ NTSTATUS __stdcall ZwAdjustGroupsToken(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(TokenHandle, ResetToDefault, NewState);
+  return KiServiceInternal(TokenHandle);
 }

@@ -1,12 +1,12 @@
 /*
- * XREFs of IopLiveDumpGenerateIptSecondaryData @ 0x1405CF6F8
+ * XREFs of IopLiveDumpGenerateIptSecondaryData @ 0x1405D1F08
  * Callers:
- *     IopLiveDumpCollectPages @ 0x1405CE958 (IopLiveDumpCollectPages.c)
+ *     IopLiveDumpCollectPages @ 0x1405D1168 (IopLiveDumpCollectPages.c)
  * Callees:
- *     IopLiveDumpGetMillisecondCounter @ 0x1404E48C0 (IopLiveDumpGetMillisecondCounter.c)
- *     IopLiveDumpTraceCaptureGenerateIptSecondaryDataDuration @ 0x1405D1C0C (IopLiveDumpTraceCaptureGenerateIptSecondaryDataDuration.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     memmove @ 0x14073D480 (memmove.c)
+ *     IopLiveDumpGetMillisecondCounter @ 0x1404DDE60 (IopLiveDumpGetMillisecondCounter.c)
+ *     IopLiveDumpTraceCaptureGenerateIptSecondaryDataDuration @ 0x1405D43FC (IopLiveDumpTraceCaptureGenerateIptSecondaryDataDuration.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     memmove @ 0x140742080 (memmove.c)
  */
 
 __int64 IopLiveDumpGenerateIptSecondaryData()

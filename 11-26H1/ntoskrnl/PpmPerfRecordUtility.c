@@ -1,11 +1,11 @@
 /*
- * XREFs of PpmPerfRecordUtility @ 0x140212000
+ * XREFs of PpmPerfRecordUtility @ 0x1402120E0
  * Callers:
- *     PpmCheckRecordAllUtility @ 0x140211EE0 (PpmCheckRecordAllUtility.c)
+ *     PpmCheckRecordAllUtility @ 0x140211FC0 (PpmCheckRecordAllUtility.c)
  * Callees:
- *     PpmPerfResetHistory @ 0x1402126DC (PpmPerfResetHistory.c)
- *     EtwWriteEx @ 0x140212F70 (EtwWriteEx.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     PpmPerfResetHistory @ 0x1402127BC (PpmPerfResetHistory.c)
+ *     EtwWriteEx @ 0x140213050 (EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall PpmPerfRecordUtility(__int64 a1)
@@ -31,7 +31,7 @@ __int64 __fastcall PpmPerfRecordUtility(__int64 a1)
   unsigned __int64 v20; // r14
   unsigned __int64 v21; // r15
   const EVENT_DESCRIPTOR *v22; // r10
-  struct _LIST_ENTRY *Flink; // rcx
+  __int64 v23; // rcx
   unsigned __int64 Keyword; // r8
   unsigned __int8 v25; // al
   _DWORD *v26; // rdx
@@ -53,7 +53,7 @@ __int64 __fastcall PpmPerfRecordUtility(__int64 a1)
   unsigned int v42; // r8d
   unsigned int v43; // r9d
   char v44; // cl
-  struct _LIST_ENTRY *Blink; // rcx
+  __int64 v45; // rcx
   unsigned __int64 v46; // r8
   unsigned __int8 v47; // al
   unsigned __int64 v48; // rax
@@ -108,7 +108,7 @@ __int64 __fastcall PpmPerfRecordUtility(__int64 a1)
 
   v1 = *(__int64 **)(a1 + 16);
   v3 = *(_DWORD **)(a1 + 8);
-  result = *(unsigned int *)&PopSleepstudySessionLock.ApcStateFill[4];
+  result = (unsigned int)PpmCheckMakeupCount;
   v5 = *(unsigned __int8 **)(a1 + 24);
   v66 = v3;
   if ( v1 )
@@ -120,9 +120,9 @@ __int64 __fastcall PpmPerfRecordUtility(__int64 a1)
     v10 = *v1;
     v11 = v1[5] - *v1;
     v12 = v1[6] - v7;
-    if ( *(_DWORD *)&PopSleepstudySessionLock.ApcStateFill[4] )
+    if ( PpmCheckMakeupCount )
     {
-      v48 = v9 / (unsigned int)(*(_DWORD *)&PopSleepstudySessionLock.ApcStateFill[4] + 1);
+      v48 = v9 / (unsigned int)(PpmCheckMakeupCount + 1);
       v3 = v66;
       v9 = v48;
       if ( v11 < v48 )
@@ -191,25 +191,19 @@ __int64 __fastcall PpmPerfRecordUtility(__int64 a1)
         v80 = 4LL;
       }
       v79 = &v60;
-      if ( PpmEtwRegistered && PopModernStandbyStateNotify.ApcState.ApcListHead[1].Blink )
+      if ( PpmEtwRegistered && PpmEtwHandle )
       {
-        if ( (Flink = PopModernStandbyStateNotify.ApcState.ApcListHead[1].Blink[2].Flink,
-              Keyword = v22->Keyword,
-              LODWORD(Flink[6].Flink))
-          && ((v25 = BYTE4(Flink[6].Flink), v22->Level <= v25) || !v25)
-          && (((__int64)Flink[6].Blink & 0x40) != 0 && !Keyword
-           || ((unsigned __int64)Flink[7].Flink & Keyword) != 0
-           && (struct _LIST_ENTRY *)(Keyword & (unsigned __int64)Flink[7].Blink) == Flink[7].Blink)
-          || HIWORD(PopModernStandbyStateNotify.ApcState.ApcListHead[1].Blink[6].Flink)
-          && (Blink = PopModernStandbyStateNotify.ApcState.ApcListHead[1].Blink[2].Blink,
-              v46 = v22->Keyword,
-              LODWORD(Blink[6].Flink))
-          && ((v47 = BYTE4(Blink[6].Flink), v22->Level <= v47) || !v47)
-          && (((__int64)Blink[6].Blink & 0x40) != 0 && !v46
-           || ((unsigned __int64)Blink[7].Flink & v46) != 0
-           && (struct _LIST_ENTRY *)(v46 & (unsigned __int64)Blink[7].Blink) == Blink[7].Blink) )
+        if ( (v23 = *(_QWORD *)(PpmEtwHandle + 32), Keyword = v22->Keyword, *(_DWORD *)(v23 + 96))
+          && ((v25 = *(_BYTE *)(v23 + 100), v22->Level <= v25) || !v25)
+          && ((*(_DWORD *)(v23 + 104) & 0x40) != 0 && !Keyword
+           || (*(_QWORD *)(v23 + 112) & Keyword) != 0 && (Keyword & *(_QWORD *)(v23 + 120)) == *(_QWORD *)(v23 + 120))
+          || *(_WORD *)(PpmEtwHandle + 102)
+          && (v45 = *(_QWORD *)(PpmEtwHandle + 40), v46 = v22->Keyword, *(_DWORD *)(v45 + 96))
+          && ((v47 = *(_BYTE *)(v45 + 100), v22->Level <= v47) || !v47)
+          && ((*(_DWORD *)(v45 + 104) & 0x40) != 0 && !v46
+           || (*(_QWORD *)(v45 + 112) & v46) != 0 && (v46 & *(_QWORD *)(v45 + 120)) == *(_QWORD *)(v45 + 120)) )
         {
-          UserData.Ptr = (ULONGLONG)&PopSleepstudySessionLock.SystemCallNumber;
+          UserData.Ptr = (ULONGLONG)&PpmCheckTime;
           *(_QWORD *)&UserData.Size = 8LL;
           v73 = &v69;
           v74 = 8LL;
@@ -233,15 +227,7 @@ __int64 __fastcall PpmPerfRecordUtility(__int64 a1)
           v92 = 8LL;
           v94 = 1LL;
           v96 = 1LL;
-          EtwWriteEx(
-            (REGHANDLE)PopModernStandbyStateNotify.ApcState.ApcListHead[1].Blink,
-            v22,
-            0LL,
-            0,
-            0LL,
-            0LL,
-            0xDu,
-            &UserData);
+          EtwWriteEx(PpmEtwHandle, v22, 0LL, 0, 0LL, 0LL, 0xDu, &UserData);
         }
       }
       v26 = *(_DWORD **)(a1 + 32);
@@ -338,7 +324,7 @@ __int64 __fastcall PpmPerfRecordUtility(__int64 a1)
       v41 = v20 * v29;
       result = 1374389535 * v41;
       v42 = v41 / 0x64;
-      if ( LODWORD(PopSleepstudySessionLock.SchedulingGroup) == 5 )
+      if ( PpmCheckCurrentPipelineId == 5 )
       {
         v43 = v40 * v29;
         LODWORD(v20) = v20 - v42;

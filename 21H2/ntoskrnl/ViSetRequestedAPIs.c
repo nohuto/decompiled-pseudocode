@@ -1,9 +1,9 @@
 /*
- * XREFs of ViSetRequestedAPIs @ 0x1409C8BDC
+ * XREFs of ViSetRequestedAPIs @ 0x1409C9BDC
  * Callers:
- *     ViXdvSetRequestedAPIsforDIF @ 0x1409C9220 (ViXdvSetRequestedAPIsforDIF.c)
+ *     ViXdvSetRequestedAPIsforDIF @ 0x1409CA220 (ViXdvSetRequestedAPIsforDIF.c)
  * Callees:
- *     _stricmp @ 0x1403D1DD0 (_stricmp.c)
+ *     _stricmp @ 0x1403D1F40 (_stricmp.c)
  */
 
 void __fastcall ViSetRequestedAPIs(__int64 a1)

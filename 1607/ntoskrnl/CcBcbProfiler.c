@@ -1,13 +1,13 @@
 /*
- * XREFs of CcBcbProfiler @ 0x1401565E0
+ * XREFs of CcBcbProfiler @ 0x140156B50
  * Callers:
  *     <none>
  * Callees:
- *     ExQueueWorkItem @ 0x14005FE5C (ExQueueWorkItem.c)
- *     ExTryAcquireSpinLockExclusiveAtDpcLevel @ 0x1400C2F60 (ExTryAcquireSpinLockExclusiveAtDpcLevel.c)
- *     KeSetCoalescableTimer @ 0x1400EFC00 (KeSetCoalescableTimer.c)
- *     ExGenRandom @ 0x1400F0494 (ExGenRandom.c)
- *     CcAdjustBcbDepth @ 0x140168EB0 (CcAdjustBcbDepth.c)
+ *     ExQueueWorkItem @ 0x14005F9DC (ExQueueWorkItem.c)
+ *     ExTryAcquireSpinLockExclusiveAtDpcLevel @ 0x1400C0DF0 (ExTryAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     KeSetCoalescableTimer @ 0x1400EDA80 (KeSetCoalescableTimer.c)
+ *     ExGenRandom @ 0x1400EE314 (ExGenRandom.c)
+ *     CcAdjustBcbDepth @ 0x140169420 (CcAdjustBcbDepth.c)
  */
 
 void __fastcall CcBcbProfiler(__int64 a1, __int64 a2)
@@ -116,7 +116,7 @@ void __fastcall CcBcbProfiler(__int64 a1, __int64 a2)
         (unsigned int)__ROR4__(-2147483583, 94),
         (__int64)KeBugCheckEx,
         (__int64)DpcStack);
-      JUMPOUT(0x14015681ELL);
+      JUMPOUT(0x140156D8ELL);
     }
   }
 }

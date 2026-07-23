@@ -1,10 +1,10 @@
 /*
- * XREFs of AslEnvVerifyGuestProcessorSupport @ 0x14096A6A0
+ * XREFs of AslEnvVerifyGuestProcessorSupport @ 0x14096A880
  * Callers:
- *     SdbGuestTargetPlatformFlagsToRuntimePlatformFlags @ 0x1409666C8 (SdbGuestTargetPlatformFlagsToRuntimePlatformFlags.c)
+ *     SdbGuestTargetPlatformFlagsToRuntimePlatformFlags @ 0x1409668A8 (SdbGuestTargetPlatformFlagsToRuntimePlatformFlags.c)
  * Callees:
- *     AslEnvGetProcessWowInfo @ 0x140754264 (AslEnvGetProcessWowInfo.c)
- *     AslLogCallPrintf @ 0x140755F64 (AslLogCallPrintf.c)
+ *     AslEnvGetProcessWowInfo @ 0x140754424 (AslEnvGetProcessWowInfo.c)
+ *     AslLogCallPrintf @ 0x140756124 (AslLogCallPrintf.c)
  */
 
 __int64 __fastcall AslEnvVerifyGuestProcessorSupport(__int16 *a1, __int16 a2)

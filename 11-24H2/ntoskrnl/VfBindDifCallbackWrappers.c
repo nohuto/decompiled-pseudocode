@@ -1,7 +1,7 @@
 /*
- * XREFs of VfBindDifCallbackWrappers @ 0x140B89F40
+ * XREFs of VfBindDifCallbackWrappers @ 0x140B8BF40
  * Callers:
- *     DifRegisterPlugin @ 0x140618BD0 (DifRegisterPlugin.c)
+ *     DifRegisterPlugin @ 0x140617190 (DifRegisterPlugin.c)
  * Callees:
  *     <none>
  */

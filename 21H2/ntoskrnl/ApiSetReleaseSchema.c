@@ -1,14 +1,14 @@
 /*
- * XREFs of ApiSetReleaseSchema @ 0x1405BE588
+ * XREFs of ApiSetReleaseSchema @ 0x1405BE7B8
  * Callers:
- *     PspSiloLoadApiSets @ 0x140906D14 (PspSiloLoadApiSets.c)
- *     ApiSetLoadSchemaWithExtensions @ 0x14095E984 (ApiSetLoadSchemaWithExtensions.c)
+ *     PspSiloLoadApiSets @ 0x140906E74 (PspSiloLoadApiSets.c)
+ *     ApiSetLoadSchemaWithExtensions @ 0x14095EB64 (ApiSetLoadSchemaWithExtensions.c)
  * Callees:
- *     ExFreeHeapPool @ 0x140341AC0 (ExFreeHeapPool.c)
+ *     ExFreeHeapPool @ 0x14034C810 (ExFreeHeapPool.c)
  */
 
-char __fastcall ApiSetReleaseSchema(ULONG_PTR a1, __int64 a2, __int64 a3, _DWORD *a4)
+char __fastcall ApiSetReleaseSchema(ULONG_PTR a1)
 {
-  ExFreeHeapPool(a1, a2, a3, a4);
+  ExFreeHeapPool(a1);
   return 1;
 }

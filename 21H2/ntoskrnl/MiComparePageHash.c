@@ -1,12 +1,12 @@
 /*
- * XREFs of MiComparePageHash @ 0x14055D340
+ * XREFs of MiComparePageHash @ 0x14055D580
  * Callers:
- *     MiValidatePagefilePageHash @ 0x14055D71C (MiValidatePagefilePageHash.c)
+ *     MiValidatePagefilePageHash @ 0x14055D95C (MiValidatePagefilePageHash.c)
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x14021D060 (ExAcquireSpinLockExclusive.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x14032DEC0 (MI_READ_PTE_LOCK_FREE.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14033BD80 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     MiPteInShadowRange @ 0x140348AF0 (MiPteInShadowRange.c)
+ *     ExAcquireSpinLockExclusive @ 0x1402C1960 (ExAcquireSpinLockExclusive.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140338C10 (MI_READ_PTE_LOCK_FREE.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140346AD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiPteInShadowRange @ 0x140353840 (MiPteInShadowRange.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
@@ -63,7 +63,7 @@ __int64 __fastcall MiComparePageHash(__int64 a1, unsigned int a2, int a3)
     }
     if ( (*(_BYTE *)(48 * ((v11 >> 12) & 0xFFFFFFFFFLL) - 0x58000000000LL + 34) & 0x10) != 0 )
     {
-      if ( !byte_140C4E880 )
+      if ( !byte_140C4E8C0 )
         v8 = -1073741761;
     }
     else

@@ -1,13 +1,13 @@
 /*
- * XREFs of LogFwpRegisterWorker @ 0x1409F37C0
+ * XREFs of LogFwpRegisterWorker @ 0x1409F47C0
  * Callers:
  *     <none>
  * Callees:
- *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
- *     ZwClose @ 0x1403FA580 (ZwClose.c)
- *     ZwOpenKey @ 0x1403FA5E0 (ZwOpenKey.c)
- *     ZwCreateKey @ 0x1403FA740 (ZwCreateKey.c)
- *     ZwSetValueKey @ 0x1403FAFA0 (ZwSetValueKey.c)
+ *     RtlInitUnicodeString @ 0x14026A4C0 (RtlInitUnicodeString.c)
+ *     ZwClose @ 0x1403FA760 (ZwClose.c)
+ *     ZwOpenKey @ 0x1403FA7C0 (ZwOpenKey.c)
+ *     ZwCreateKey @ 0x1403FA920 (ZwCreateKey.c)
+ *     ZwSetValueKey @ 0x1403FB180 (ZwSetValueKey.c)
  */
 
 int LogFwpRegisterWorker()
@@ -49,37 +49,37 @@ int LogFwpRegisterWorker()
     v2 = KeyHandle;
     if ( v1 >= 0 )
     {
-      v3 = dword_140CDB1E8;
+      v3 = dword_140CDB1D8;
       ZwClose(KeyHandle);
       RtlInitUnicodeString(&DestinationString, L"Resume");
       Data = (v3 & 0x100000) != 0;
       ZwSetValueKey(Handle, &DestinationString, 0, 4u, &Data, 4u);
       RtlInitUnicodeString(&DestinationString, L"Width");
-      Data = qword_140CDB188;
+      Data = qword_140CDB228;
       ZwSetValueKey(Handle, &DestinationString, 0, 4u, &Data, 4u);
       RtlInitUnicodeString(&DestinationString, L"Height");
-      Data = HIDWORD(qword_140CDB188);
+      Data = HIDWORD(qword_140CDB228);
       ZwSetValueKey(Handle, &DestinationString, 0, 4u, &Data, 4u);
       RtlInitUnicodeString(&DestinationString, L"BPP");
-      Data = dword_140CDB170;
+      Data = dword_140CDB208;
       ZwSetValueKey(Handle, &DestinationString, 0, 4u, &Data, 4u);
       RtlInitUnicodeString(&DestinationString, L"LogoSize");
       Data = Size;
       ZwSetValueKey(Handle, &DestinationString, 0, 4u, &Data, 4u);
       RtlInitUnicodeString(&DestinationString, L"ProgressFrames");
-      Data = dword_140CDB1F8;
+      Data = dword_140CDB1D0;
       ZwSetValueKey(Handle, &DestinationString, 0, 4u, &Data, 4u);
       RtlInitUnicodeString(&DestinationString, L"ProgressMemory");
       Data = dword_140C13510;
       ZwSetValueKey(Handle, &DestinationString, 0, 4u, &Data, 4u);
       RtlInitUnicodeString(&DestinationString, L"ProgressProlog");
-      Data = 1000000 * qword_140CDB180 / qword_140C11080;
+      Data = 1000000 * qword_140CDB218 / qword_140C11060;
       ZwSetValueKey(Handle, &DestinationString, 0, 4u, &Data, 4u);
       RtlInitUnicodeString(&DestinationString, L"ProgressLow");
-      Data = 1000000 * qword_140C11078 / qword_140C11080;
+      Data = 1000000 * qword_140C11068 / qword_140C11060;
       ZwSetValueKey(Handle, &DestinationString, 0, 4u, &Data, 4u);
       RtlInitUnicodeString(&DestinationString, L"ProgressHigh");
-      Data = 1000000 * qword_140CDB178 / qword_140C11080;
+      Data = 1000000 * qword_140CDB200 / qword_140C11060;
       ZwSetValueKey(Handle, &DestinationString, 0, 4u, &Data, 4u);
       v4 = (int *)qword_140C13520;
       if ( qword_140C13520 )
@@ -89,43 +89,43 @@ int LogFwpRegisterWorker()
         ZwSetValueKey(Handle, &DestinationString, 0, 4u, &Data, 4u);
       }
       RtlInitUnicodeString(&DestinationString, L"ProgressTotal");
-      Data = 1000000 * qword_140CDB1E0 / qword_140C11080;
+      Data = 1000000 * qword_140CDB1C8 / qword_140C11060;
       ZwSetValueKey(Handle, &DestinationString, 0, 4u, &Data, 4u);
       RtlInitUnicodeString(&DestinationString, L"ProgressManual");
-      Data = 1000000 * qword_140CDB1F0 / qword_140C11080;
+      Data = 1000000 * qword_140CDB1B8 / qword_140C11060;
       ZwSetValueKey(Handle, &DestinationString, 0, 4u, &Data, 4u);
       RtlInitUnicodeString(&DestinationString, L"FadeProlog");
-      Data = 1000000 * qword_140CDB200 / qword_140C11080;
+      Data = 1000000 * qword_140CDB220 / qword_140C11060;
       ZwSetValueKey(Handle, &DestinationString, 0, 4u, &Data, 4u);
       RtlInitUnicodeString(&DestinationString, L"FadeOverlap");
-      Data = dword_140CDB194;
+      Data = dword_140CDB240;
       ZwSetValueKey(Handle, &DestinationString, 0, 4u, &Data, 4u);
       RtlInitUnicodeString(&DestinationString, L"FadeIo");
-      Data = dword_140CDB208;
+      Data = dword_140CDB1D4;
       ZwSetValueKey(Handle, &DestinationString, 0, 4u, &Data, 4u);
       RtlInitUnicodeString(&DestinationString, L"FadeCpu");
-      Data = dword_140CDB1B4;
+      Data = dword_140CDB1F0;
       ZwSetValueKey(Handle, &DestinationString, 0, 4u, &Data, 4u);
       RtlInitUnicodeString(&DestinationString, L"FadeFrames");
-      Data = dword_140CDB1B0;
+      Data = dword_140CDB1F4;
       ZwSetValueKey(Handle, &DestinationString, 0, 4u, &Data, 4u);
       RtlInitUnicodeString(&DestinationString, L"FadeMemory");
       Data = dword_140C1350C;
       ZwSetValueKey(Handle, &DestinationString, 0, 4u, &Data, 4u);
       RtlInitUnicodeString(&DestinationString, L"FadeLow");
-      Data = 1000000 * qword_140C11088 / qword_140C11080;
+      Data = 1000000 * qword_140C11058 / qword_140C11060;
       ZwSetValueKey(Handle, &DestinationString, 0, 4u, &Data, 4u);
       RtlInitUnicodeString(&DestinationString, L"FadeHigh");
-      Data = 1000000 * qword_140CDB1C0 / qword_140C11080;
+      Data = 1000000 * qword_140CDB1E0 / qword_140C11060;
       ZwSetValueKey(Handle, &DestinationString, 0, 4u, &Data, 4u);
       RtlInitUnicodeString(&DestinationString, L"FadeTotal");
-      Data = 1000000 * qword_140CDB1D8 / qword_140C11080;
+      Data = 1000000 * qword_140CDB1B0 / qword_140C11060;
       ZwSetValueKey(Handle, &DestinationString, 0, 4u, &Data, 4u);
       RtlInitUnicodeString(&DestinationString, L"AnimationTotal");
-      Data = 1000000 * qword_140CDB1D0 / qword_140C11080;
+      Data = 1000000 * qword_140CDB1F8 / qword_140C11060;
       ZwSetValueKey(Handle, &DestinationString, 0, 4u, &Data, 4u);
       RtlInitUnicodeString(&DestinationString, L"CompressBitmaps");
-      Data = 1000000 * qword_140CF5348 / qword_140C11080;
+      Data = 1000000 * qword_140CF53A8 / qword_140C11060;
       ZwSetValueKey(Handle, &DestinationString, 0, 4u, &Data, 4u);
       v2 = Handle;
     }

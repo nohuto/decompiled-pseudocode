@@ -1,198 +1,200 @@
 /*
- * XREFs of ?SmStTrimWsStore@?$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@_K@Z @ 0x14039A348
+ * XREFs of ?SmStTrimWsStore@?$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@_K@Z @ 0x1402F7648
  * Callers:
- *     ?SmTrimWsStore@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@PEAU?$SMKM_STORE@USM_TRAITS@@@@_K@Z @ 0x1404B43DC (-SmTrimWsStore@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@PEAU-$SMKM_STORE@USM_TRAITS@@@@_K@Z.c)
+ *     ?SmTrimWsStore@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@PEAU?$SMKM_STORE@USM_TRAITS@@@@_K@Z @ 0x1404AEC1C (-SmTrimWsStore@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@PEAU-$SMKM_STORE@USM_TRAITS@@@@_K@Z.c)
  * Callees:
- *     KiStackAttachProcess @ 0x1403209E0 (KiStackAttachProcess.c)
- *     KiUnstackDetachProcess @ 0x140321EC0 (KiUnstackDetachProcess.c)
- *     ?StLockReleaseShared@@YAXPEAUVLOCK@@K@Z @ 0x140399948 (-StLockReleaseShared@@YAXPEAUVLOCK@@K@Z.c)
- *     ?SmStTrimWsStoreBatch@?$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@PEAKPEAPEAXKKPEA_K@Z @ 0x14039A0C0 (-SmStTrimWsStoreBatch@-$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@PEAKPEAPEAXKKPEA_K@Z.c)
- *     ?SmStMapVirtualRegion@?$SMKM_STORE@USM_TRAITS@@@@SAPEAXPEAU1@KKKK@Z @ 0x14039B930 (-SmStMapVirtualRegion@-$SMKM_STORE@USM_TRAITS@@@@SAPEAXPEAU1@KKKK@Z.c)
- *     ?StLockAcquireShared@@YAKPEAUVLOCK@@@Z @ 0x14039BF08 (-StLockAcquireShared@@YAKPEAUVLOCK@@@Z.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     KiStackAttachProcess @ 0x1402C9570 (KiStackAttachProcess.c)
+ *     KiUnstackDetachProcess @ 0x1402CAA50 (KiUnstackDetachProcess.c)
+ *     ?StLockReleaseShared@@YAXPEAUVLOCK@@K@Z @ 0x1402F6C50 (-StLockReleaseShared@@YAXPEAUVLOCK@@K@Z.c)
+ *     ?SmStTrimWsStoreBatch@?$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@PEAKPEAPEAXKKPEA_K@Z @ 0x1402F73C0 (-SmStTrimWsStoreBatch@-$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@PEAKPEAPEAXKKPEA_K@Z.c)
+ *     ?SmStMapVirtualRegion@?$SMKM_STORE@USM_TRAITS@@@@SAPEAXPEAU1@KKKK@Z @ 0x1402F8C30 (-SmStMapVirtualRegion@-$SMKM_STORE@USM_TRAITS@@@@SAPEAXPEAU1@KKKK@Z.c)
+ *     ?StLockAcquireShared@@YAKPEAUVLOCK@@@Z @ 0x1402F9208 (-StLockAcquireShared@@YAKPEAUVLOCK@@@Z.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 __int64 __fastcall SMKM_STORE<SM_TRAITS>::SmStTrimWsStore(__int64 a1, _QWORD *a2)
 {
   _QWORD *v2; // r13
-  _QWORD *v4; // r15
-  unsigned int v5; // edi
-  _QWORD *v6; // rbx
-  unsigned int v7; // r12d
-  unsigned int v8; // r9d
-  unsigned int v9; // esi
-  unsigned int v10; // r10d
-  __int64 v11; // r15
-  unsigned int v12; // r8d
-  unsigned __int64 v13; // r11
-  _DWORD *v14; // rdx
-  int v15; // r9d
+  __int64 v4; // r8
+  __int64 v5; // r9
+  _QWORD *v6; // r15
+  unsigned int v7; // edi
+  _QWORD *v8; // rbx
+  unsigned int v9; // r12d
+  unsigned int v10; // r9d
+  unsigned int v11; // esi
+  unsigned int v12; // r10d
+  __int64 v13; // r15
+  unsigned int v14; // r8d
+  unsigned __int64 v15; // r11
+  _DWORD *v16; // rdx
+  int v17; // r9d
   _DWORD *i; // rax
-  __int64 v17; // rcx
+  __int64 v19; // rcx
   unsigned __int64 j; // rax
-  unsigned int *v19; // rax
-  unsigned int v20; // r8d
-  unsigned int v21; // esi
-  __int64 v22; // rcx
-  __int64 v24; // rbx
-  __int64 v25; // r13
-  __int64 v26; // rcx
-  __int64 v27; // rbx
-  int v28; // [rsp+20h] [rbp-A9h]
-  unsigned int v29; // [rsp+30h] [rbp-99h]
-  _QWORD *v30; // [rsp+38h] [rbp-91h]
+  unsigned int *v21; // rax
+  unsigned int v22; // r8d
+  unsigned int v23; // esi
+  __int64 v24; // rcx
+  __int64 v26; // rbx
+  __int64 v27; // r13
+  __int64 v28; // rcx
+  __int64 v29; // rbx
+  int v30; // [rsp+20h] [rbp-A9h]
+  unsigned int v31; // [rsp+30h] [rbp-99h]
+  _QWORD *v32; // [rsp+38h] [rbp-91h]
   _QWORD *k; // [rsp+40h] [rbp-89h] BYREF
-  _QWORD *v32; // [rsp+48h] [rbp-81h]
-  _OWORD v33[3]; // [rsp+50h] [rbp-79h] BYREF
-  _DWORD v34[8]; // [rsp+80h] [rbp-49h] BYREF
-  void *v35[8]; // [rsp+A0h] [rbp-29h] BYREF
+  _QWORD *v34; // [rsp+48h] [rbp-81h]
+  _OWORD v35[3]; // [rsp+50h] [rbp-79h] BYREF
+  _DWORD v36[8]; // [rsp+80h] [rbp-49h] BYREF
+  PVOID v37[8]; // [rsp+A0h] [rbp-29h] BYREF
 
-  v32 = a2;
+  v34 = a2;
   v2 = a2;
-  memset(v33, 0, sizeof(v33));
-  memset_0(v35, 0, sizeof(v35));
-  KiStackAttachProcess(*(_KPROCESS **)(a1 + 7432), 0, (__int64)v33);
+  memset(v35, 0, sizeof(v35));
+  memset_0(v37, 0, sizeof(v37));
+  KiStackAttachProcess(*(_KPROCESS **)(a1 + 7432), 0, (__int64)v35);
   if ( (*(_BYTE *)(a1 + 6837) & 8) != 0 )
   {
-    v5 = 0;
+    v7 = 0;
   }
   else
   {
-    v4 = (_QWORD *)_InterlockedExchange64((volatile __int64 *)(a1 + 7416), -1LL);
-    k = v4;
-    if ( v4 == (_QWORD *)-1LL )
+    v6 = (_QWORD *)_InterlockedExchange64((volatile __int64 *)(a1 + 7416), -1LL);
+    k = v6;
+    if ( v6 == (_QWORD *)-1LL )
     {
-      v5 = -1073740682;
+      v7 = -1073740682;
     }
     else
     {
-      v5 = 0;
-      if ( !v4 || !*v4 || (v6 = v4 + 1, v2) )
-        v6 = 0LL;
-      v30 = v6;
       v7 = 0;
+      if ( !v6 || !*v6 || (v8 = v6 + 1, v2) )
+        v8 = 0LL;
+      v32 = v8;
+      v9 = 0;
       StLockAcquireShared((struct VLOCK *)(a1 + 6840));
-      if ( v6 )
+      if ( v8 )
       {
-        v9 = 0;
+        v11 = 0;
         while ( 1 )
         {
-          v10 = *(_DWORD *)v6;
-          if ( *(_DWORD *)v6 <= v9 )
+          v12 = *(_DWORD *)v8;
+          if ( *(_DWORD *)v8 <= v11 )
             break;
-          v11 = v6[1];
-          v12 = 0;
-          v13 = v11 + 4 * ((unsigned __int64)(v10 - 1) >> 5);
-          v14 = (_DWORD *)(v11 + 4 * ((unsigned __int64)v9 >> 5));
-          v15 = ((1 << (v9 & 0x1F)) - 1) | *v14;
-          for ( i = v14 + 1; ; ++i )
+          v13 = v8[1];
+          v14 = 0;
+          v15 = v13 + 4 * ((unsigned __int64)(v12 - 1) >> 5);
+          v16 = (_DWORD *)(v13 + 4 * ((unsigned __int64)v11 >> 5));
+          v17 = ((1 << (v11 & 0x1F)) - 1) | *v16;
+          for ( i = v16 + 1; ; ++i )
           {
-            v8 = ~v15;
-            if ( v8 )
+            v10 = ~v17;
+            if ( v10 )
               break;
-            if ( (unsigned __int64)i > v13 )
+            if ( (unsigned __int64)i > v15 )
               goto LABEL_51;
-            v15 = *++v14;
+            v17 = *++v16;
           }
-          _BitScanForward64((unsigned __int64 *)&v17, v8);
-          v9 = v17 + 32 * (((__int64)v14 - v11) >> 2);
-          if ( v9 > v10 )
+          _BitScanForward64((unsigned __int64 *)&v19, v10);
+          v11 = v19 + 32 * (((__int64)v16 - v13) >> 2);
+          if ( v11 > v12 )
           {
 LABEL_51:
-            v9 = *(_DWORD *)v6;
+            v11 = *(_DWORD *)v8;
             goto LABEL_21;
           }
-          for ( j = ~(v8 | ((1 << v17) - 1)); ; j = *v19 )
+          for ( j = ~(v10 | ((1 << v19) - 1)); ; j = *v21 )
           {
             if ( (_DWORD)j )
             {
               _BitScanForward64(&j, j);
               goto LABEL_18;
             }
-            v19 = v14 + 1;
-            if ( (unsigned __int64)(v14 + 1) > v13 )
+            v21 = v16 + 1;
+            if ( (unsigned __int64)(v16 + 1) > v15 )
               break;
-            ++v14;
+            ++v16;
           }
           LODWORD(j) = 32;
 LABEL_18:
-          v20 = j + 32 * (((__int64)v14 - v11) >> 2);
-          if ( v20 > v10 )
-            v20 = *(_DWORD *)v6;
-          v12 = v20 - v9;
+          v22 = j + 32 * (((__int64)v16 - v13) >> 2);
+          if ( v22 > v12 )
+            v22 = *(_DWORD *)v8;
+          v14 = v22 - v11;
 LABEL_21:
-          if ( !v12 )
+          if ( !v14 )
             break;
-          v29 = v12 + v9;
-          if ( v9 < v12 + v9 )
+          v31 = v14 + v11;
+          if ( v11 < v14 + v11 )
           {
-            v25 = 8LL * v9;
+            v27 = 8LL * v11;
             do
             {
-              v26 = *(_QWORD *)(*(_QWORD *)(a1 + 7024) + v25);
-              if ( (v26 & 0x7FFFFFFFFFFF0000LL) != 0 && v26 >= 0 )
+              v28 = *(_QWORD *)(*(_QWORD *)(a1 + 7024) + v27);
+              if ( (v28 & 0x7FFFFFFFFFFF0000LL) != 0 && v28 >= 0 )
               {
-                v27 = v7;
-                v34[v7++] = v9;
-                v35[v27] = (void *)SMKM_STORE<SM_TRAITS>::SmStMapVirtualRegion(a1, v9, 0, v8, 4);
-                if ( v7 == 8 )
+                v29 = v9;
+                v36[v9++] = v11;
+                v37[v29] = (PVOID)SMKM_STORE<SM_TRAITS>::SmStMapVirtualRegion(a1, v11, 0, v10, 4);
+                if ( v9 == 8 )
                 {
-                  SMKM_STORE<SM_TRAITS>::SmStTrimWsStoreBatch(a1, v34, v35, 8u, v28, 0LL);
-                  v7 = 0;
+                  SMKM_STORE<SM_TRAITS>::SmStTrimWsStoreBatch(a1, v36, v37, 8u, v30, 0LL);
+                  v9 = 0;
                 }
               }
-              ++v9;
-              v25 += 8LL;
+              ++v11;
+              v27 += 8LL;
             }
-            while ( v9 < v29 );
-            v6 = v30;
+            while ( v11 < v31 );
+            v8 = v32;
           }
         }
-        v4 = k;
-        v2 = v32;
+        v6 = k;
+        v2 = v34;
       }
-      v21 = 0;
-      for ( k = v2; v21 < *(_DWORD *)(a1 + 7020); ++v21 )
+      v23 = 0;
+      for ( k = v2; v23 < *(_DWORD *)(a1 + 7020); ++v23 )
       {
-        v22 = *(_QWORD *)(*(_QWORD *)(a1 + 7024) + 8LL * v21);
-        if ( (v22 & 0x7FFFFFFFFFFF0000LL) != 0 && v22 >= 0 && (!v6 || _bittest64((const signed __int64 *)v6[1], v21)) )
+        v24 = *(_QWORD *)(*(_QWORD *)(a1 + 7024) + 8LL * v23);
+        if ( (v24 & 0x7FFFFFFFFFFF0000LL) != 0 && v24 >= 0 && (!v8 || _bittest64((const signed __int64 *)v8[1], v23)) )
         {
-          v24 = v7;
-          v34[v7++] = v21;
-          v35[v24] = (void *)SMKM_STORE<SM_TRAITS>::SmStMapVirtualRegion(a1, v21, 0, v8, 4);
-          if ( v7 == 8 )
+          v26 = v9;
+          v36[v9++] = v23;
+          v37[v26] = (PVOID)SMKM_STORE<SM_TRAITS>::SmStMapVirtualRegion(a1, v23, 0, v10, 4);
+          if ( v9 == 8 )
           {
             SMKM_STORE<SM_TRAITS>::SmStTrimWsStoreBatch(
               a1,
-              v34,
-              v35,
+              v36,
+              v37,
               8u,
-              v28,
+              v30,
               (_QWORD *)((unsigned __int64)&k & -(__int64)(v2 != 0LL)));
-            v7 = 0;
+            v9 = 0;
             if ( v2 )
             {
               if ( !k )
                 goto LABEL_28;
             }
           }
-          v6 = v30;
+          v8 = v32;
         }
       }
-      if ( v7 )
+      if ( v9 )
         SMKM_STORE<SM_TRAITS>::SmStTrimWsStoreBatch(
           a1,
-          v34,
-          v35,
-          v7,
-          v28,
+          v36,
+          v37,
+          v9,
+          v30,
           (_QWORD *)((unsigned __int64)&k & -(__int64)(v2 != 0LL)));
 LABEL_28:
-      StLockReleaseShared((signed __int64 *)(a1 + 6840));
-      _InterlockedExchange64((volatile __int64 *)(a1 + 7416), (__int64)v4);
+      StLockReleaseShared((struct VLOCK *)(a1 + 6840));
+      _InterlockedExchange64((volatile __int64 *)(a1 + 7416), (__int64)v6);
     }
   }
-  KiUnstackDetachProcess((__int64)v33, 0);
-  return v5;
+  KiUnstackDetachProcess((__int64)v35, 0, v4, v5);
+  return v7;
 }

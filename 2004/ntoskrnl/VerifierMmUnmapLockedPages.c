@@ -51,7 +51,7 @@ LABEL_8:
       if ( (ZwQueryVirtualMemory(
               (HANDLE)0xFFFFFFFFFFFFFFFFLL,
               (PVOID)BugCheckParameter2,
-              (MEMORY_INFORMATION_CLASS)7,
+              MemoryRegionInformationEx,
               &MemoryInformation,
               0x30uLL,
               0LL) < 0

@@ -1,14 +1,23 @@
 /*
- * XREFs of ZwCreateEnclave @ 0x1406A79D0
+ * XREFs of ZwCreateEnclave @ 0x1406A8970
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwCreateEnclave(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwCreateEnclave(
+        HANDLE ProcessHandle,
+        PVOID *BaseAddress,
+        ULONG_PTR ZeroBits,
+        SIZE_T Size,
+        SIZE_T InitialCommitment,
+        ULONG EnclaveType,
+        PVOID EnclaveInformation,
+        ULONG EnclaveInformationLength,
+        PULONG EnclaveError)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(ProcessHandle);
 }

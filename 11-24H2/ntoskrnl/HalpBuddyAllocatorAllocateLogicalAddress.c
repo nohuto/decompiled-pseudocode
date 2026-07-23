@@ -1,20 +1,20 @@
 /*
- * XREFs of HalpBuddyAllocatorAllocateLogicalAddress @ 0x1403ACFA0
+ * XREFs of HalpBuddyAllocatorAllocateLogicalAddress @ 0x14039B7B0
  * Callers:
- *     IommuMapIdentityRangeEx @ 0x1403ACCD0 (IommuMapIdentityRangeEx.c)
- *     HalpIommuDomainGetLogicalAddressRange @ 0x1403ACF08 (HalpIommuDomainGetLogicalAddressRange.c)
- *     IommuMapLogicalRangeEx @ 0x1403ADCD0 (IommuMapLogicalRangeEx.c)
+ *     IommuMapIdentityRangeEx @ 0x14039B4E0 (IommuMapIdentityRangeEx.c)
+ *     HalpIommuDomainGetLogicalAddressRange @ 0x14039B718 (HalpIommuDomainGetLogicalAddressRange.c)
+ *     IommuMapLogicalRangeEx @ 0x14039C4E0 (IommuMapLogicalRangeEx.c)
  * Callees:
- *     ExReleaseSpinLockShared @ 0x140246D40 (ExReleaseSpinLockShared.c)
- *     HalpBuddyAllocatorSplitNode @ 0x14024B038 (HalpBuddyAllocatorSplitNode.c)
- *     ExAcquireSpinLockExclusive @ 0x14028F370 (ExAcquireSpinLockExclusive.c)
- *     ExAcquireSpinLockShared @ 0x14031A1A0 (ExAcquireSpinLockShared.c)
- *     ExReleaseSpinLockExclusive @ 0x140379ED0 (ExReleaseSpinLockExclusive.c)
- *     HalpBuddyAllocatorDeleteSubtree @ 0x1403AC040 (HalpBuddyAllocatorDeleteSubtree.c)
- *     HalpBuddyAllocatorBltFindAndPop @ 0x1403AC430 (HalpBuddyAllocatorBltFindAndPop.c)
- *     HalpBuddyAllocatorBltAdd @ 0x1403AC5B0 (HalpBuddyAllocatorBltAdd.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     ExReleaseSpinLockShared @ 0x1402195E0 (ExReleaseSpinLockShared.c)
+ *     ExAcquireSpinLockExclusive @ 0x14029EF70 (ExAcquireSpinLockExclusive.c)
+ *     ExAcquireSpinLockShared @ 0x1402C2D30 (ExAcquireSpinLockShared.c)
+ *     ExReleaseSpinLockExclusive @ 0x1402E6E40 (ExReleaseSpinLockExclusive.c)
+ *     HalpBuddyAllocatorDeleteSubtree @ 0x14039A750 (HalpBuddyAllocatorDeleteSubtree.c)
+ *     HalpBuddyAllocatorSplitNode @ 0x14039AA18 (HalpBuddyAllocatorSplitNode.c)
+ *     HalpBuddyAllocatorBltFindAndPop @ 0x14039AC3C (HalpBuddyAllocatorBltFindAndPop.c)
+ *     HalpBuddyAllocatorBltAdd @ 0x14039ADBC (HalpBuddyAllocatorBltAdd.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 __int64 __fastcall HalpBuddyAllocatorAllocateLogicalAddress(

@@ -6,14 +6,18 @@
  *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14030F700 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
  *     bsearch @ 0x1403E1840 (bsearch.c)
  *     qsort @ 0x1403E1E70 (qsort.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     sub_140418E4C @ 0x140418E4C (sub_140418E4C.c)
  *     memmove @ 0x140435B40 (memmove.c)
- *     RtlpAcquirePropStoreLockExclusive @ 0x1405E7AF0 (RtlpAcquirePropStoreLockExclusive.c)
+ *     sub_1405E7AF0 @ 0x1405E7AF0 (sub_1405E7AF0.c)
  *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
  */
 
-__int64 __fastcall RtlCompareExchangePropertyStore(_OWORD *Key, __int64 a2, __int64 *a3, _QWORD *a4)
+NTSTATUS __cdecl RtlCompareExchangePropertyStore(
+        ULONG_PTR Key,
+        PULONG_PTR Comperand,
+        PULONG_PTR Exchange,
+        PULONG_PTR Context)
 {
   int v4; // ebp
   void *v5; // r13
@@ -24,36 +28,31 @@ __int64 __fastcall RtlCompareExchangePropertyStore(_OWORD *Key, __int64 a2, __in
   int v11; // r14d
   unsigned int v12; // esi
   struct _KPRCB *CurrentPrcb; // r10
-  _DWORD *SchedulerAssist; // r9
+  __int64 v14; // r9
   int v15; // eax
   bool v16; // zf
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *v18; // r10
-  _DWORD *v19; // r9
+  __int64 v19; // r9
   int v20; // eax
   void *v21; // rbp
   __int64 v22; // rcx
-  __int64 v23; // rcx
-  __int64 v24; // rcx
-  unsigned int v25; // ebx
+  unsigned __int64 v23; // rcx
+  unsigned __int64 v24; // rcx
+  NTSTATUS v25; // ebx
   unsigned __int8 v26; // al
   struct _KPRCB *v27; // r9
-  _DWORD *v28; // r8
+  __int64 v28; // r8
   int v29; // eax
 
   v4 = 0;
   v5 = 0LL;
-  for ( i = Key; ; i = Key )
+  for ( i = (_OWORD *)Key; ; i = (_OWORD *)Key )
   {
-    v8 = (unsigned __int8)RtlpAcquirePropStoreLockExclusive(&RtlpPropStoreLock);
-    if ( RtlpPropStoreEntries )
+    v8 = (unsigned __int8)sub_1405E7AF0(&dword_140D04908);
+    if ( qword_140C1BC18 )
     {
-      v9 = (char *)bsearch(
-                     i,
-                     RtlpPropStoreEntries,
-                     (unsigned int)RtlpPropStoreEntriesActiveCount,
-                     0x18uLL,
-                     RtlpComparePropertyEntry);
+      v9 = (char *)bsearch(i, qword_140C1BC18, (unsigned int)dword_140C1BC20, 0x18uLL, sub_1405E7BE0);
       if ( v9 )
         break;
     }
@@ -62,32 +61,32 @@ __int64 __fastcall RtlCompareExchangePropertyStore(_OWORD *Key, __int64 a2, __in
       v25 = -1073741670;
       goto LABEL_42;
     }
-    Pool2 = (char *)RtlpPropStoreEntries;
-    if ( RtlpPropStoreEntries && (_DWORD)RtlpPropStoreEntriesActiveCount + 1 != RtlpPropStoreEntriesTotalCount )
+    Pool2 = (char *)qword_140C1BC18;
+    if ( qword_140C1BC18 && (_DWORD)dword_140C1BC20 + 1 != dword_140C1BC10 )
       goto LABEL_28;
-    v11 = RtlpPropStoreEntriesTotalCount;
-    if ( RtlpPropStoreEntriesTotalCount )
+    v11 = dword_140C1BC10;
+    if ( dword_140C1BC10 )
     {
-      v12 = 2 * RtlpPropStoreEntriesTotalCount;
-      if ( 2 * RtlpPropStoreEntriesTotalCount < (unsigned int)RtlpPropStoreEntriesTotalCount )
+      v12 = 2 * dword_140C1BC10;
+      if ( 2 * dword_140C1BC10 < (unsigned int)dword_140C1BC10 )
         goto LABEL_40;
     }
     else
     {
       v12 = 16;
     }
-    ExReleaseSpinLockExclusiveFromDpcLevel(&RtlpPropStoreLock);
-    if ( KiIrqlFlags )
+    ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140D04908);
+    if ( dword_140D06B08 )
     {
-      if ( (KiIrqlFlags & 1) != 0 && (unsigned __int8)(KeGetCurrentIrql() - 2) <= 0xDu )
+      if ( (dword_140D06B08 & 1) != 0 && (unsigned __int8)(KeGetCurrentIrql() - 2) <= 0xDu )
       {
         CurrentPrcb = KeGetCurrentPrcb();
-        SchedulerAssist = CurrentPrcb->SchedulerAssist;
+        v14 = *((_QWORD *)CurrentPrcb + 4375);
         v15 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v8 + 1));
-        v16 = (v15 & SchedulerAssist[5]) == 0;
-        SchedulerAssist[5] &= v15;
+        v16 = (v15 & *(_DWORD *)(v14 + 20)) == 0;
+        *(_DWORD *)(v14 + 20) &= v15;
         if ( v16 )
-          KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+          sub_140418E4C((__int64)CurrentPrcb);
       }
     }
     __writecr8(v8);
@@ -98,24 +97,24 @@ LABEL_40:
       v25 = -1073741801;
       goto LABEL_42;
     }
-    v8 = (unsigned __int8)RtlpAcquirePropStoreLockExclusive(&RtlpPropStoreLock);
-    if ( v11 == RtlpPropStoreEntriesTotalCount )
+    v8 = (unsigned __int8)sub_1405E7AF0(&dword_140D04908);
+    if ( v11 == dword_140C1BC10 )
     {
-      v21 = RtlpPropStoreEntries;
-      if ( RtlpPropStoreEntries )
+      v21 = qword_140C1BC18;
+      if ( qword_140C1BC18 )
       {
-        memmove(Pool2, RtlpPropStoreEntries, 24LL * (unsigned int)RtlpPropStoreEntriesActiveCount);
+        memmove(Pool2, qword_140C1BC18, 24LL * (unsigned int)dword_140C1BC20);
         v5 = v21;
       }
-      RtlpPropStoreEntriesTotalCount = v12;
-      i = Key;
-      RtlpPropStoreEntries = Pool2;
+      dword_140C1BC10 = v12;
+      i = (_OWORD *)Key;
+      qword_140C1BC18 = Pool2;
 LABEL_28:
-      v22 = 3LL * (unsigned int)RtlpPropStoreEntriesActiveCount;
-      LODWORD(RtlpPropStoreEntriesActiveCount) = RtlpPropStoreEntriesActiveCount + 1;
+      v22 = 3LL * (unsigned int)dword_140C1BC20;
+      LODWORD(dword_140C1BC20) = dword_140C1BC20 + 1;
       v9 = &Pool2[8 * v22];
-      if ( a3 )
-        v23 = *a3;
+      if ( Exchange )
+        v23 = *Exchange;
       else
         v23 = 0LL;
       *((_QWORD *)v9 + 2) = v23;
@@ -123,21 +122,21 @@ LABEL_28:
       *(_OWORD *)v9 = *i;
       break;
     }
-    ExReleaseSpinLockExclusiveFromDpcLevel(&RtlpPropStoreLock);
-    if ( KiIrqlFlags )
+    ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140D04908);
+    if ( dword_140D06B08 )
     {
-      if ( (KiIrqlFlags & 1) != 0 )
+      if ( (dword_140D06B08 & 1) != 0 )
       {
         CurrentIrql = KeGetCurrentIrql();
         if ( CurrentIrql <= 0xFu && (unsigned __int8)v8 <= 0xFu && CurrentIrql >= 2u )
         {
           v18 = KeGetCurrentPrcb();
-          v19 = v18->SchedulerAssist;
+          v19 = *((_QWORD *)v18 + 4375);
           v20 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v8 + 1));
-          v16 = (v20 & v19[5]) == 0;
-          v19[5] &= v20;
+          v16 = (v20 & *(_DWORD *)(v19 + 20)) == 0;
+          *(_DWORD *)(v19 + 20) &= v20;
           if ( v16 )
-            KiRemoveSystemWorkPriorityKick((__int64)v18);
+            sub_140418E4C((__int64)v18);
         }
       }
     }
@@ -145,13 +144,13 @@ LABEL_28:
     ExFreePoolWithTag(Pool2, 0);
   }
   v24 = *((_QWORD *)v9 + 2);
-  if ( !a3 || v24 == *a3 )
-    *((_QWORD *)v9 + 2) = a2;
-  if ( a4 )
-    *a4 = v24;
+  if ( !Exchange || v24 == *Exchange )
+    *((_QWORD *)v9 + 2) = Comperand;
+  if ( Context )
+    *Context = v24;
   if ( v4 )
   {
-    qsort(RtlpPropStoreEntries, (unsigned int)RtlpPropStoreEntriesActiveCount, 0x18uLL, RtlpComparePropertyEntry);
+    qsort(qword_140C1BC18, (unsigned int)dword_140C1BC20, 0x18uLL, sub_1405E7BE0);
     v25 = 0;
   }
   else
@@ -159,21 +158,21 @@ LABEL_28:
     v25 = 0x40000000;
   }
 LABEL_42:
-  ExReleaseSpinLockExclusiveFromDpcLevel(&RtlpPropStoreLock);
-  if ( KiIrqlFlags )
+  ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140D04908);
+  if ( dword_140D06B08 )
   {
-    if ( (KiIrqlFlags & 1) != 0 )
+    if ( (dword_140D06B08 & 1) != 0 )
     {
       v26 = KeGetCurrentIrql();
       if ( v26 <= 0xFu && (unsigned __int8)v8 <= 0xFu && v26 >= 2u )
       {
         v27 = KeGetCurrentPrcb();
-        v28 = v27->SchedulerAssist;
+        v28 = *((_QWORD *)v27 + 4375);
         v29 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v8 + 1));
-        v16 = (v29 & v28[5]) == 0;
-        v28[5] &= v29;
+        v16 = (v29 & *(_DWORD *)(v28 + 20)) == 0;
+        *(_DWORD *)(v28 + 20) &= v29;
         if ( v16 )
-          KiRemoveSystemWorkPriorityKick((__int64)v27);
+          sub_140418E4C((__int64)v27);
       }
     }
   }

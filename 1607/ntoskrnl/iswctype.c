@@ -1,17 +1,17 @@
 /*
- * XREFs of iswctype @ 0x14014FB60
+ * XREFs of iswctype @ 0x140150120
  * Callers:
- *     RtlIpv6StringToAddressExW @ 0x1400A831C (RtlIpv6StringToAddressExW.c)
- *     RtlIpv6StringToAddressW @ 0x1400A83A8 (RtlIpv6StringToAddressW.c)
- *     RtlIpv4StringToAddressExW @ 0x1400A9388 (RtlIpv4StringToAddressExW.c)
- *     RtlIpv4StringToAddressW @ 0x1400A93F0 (RtlIpv4StringToAddressW.c)
- *     iswalnum @ 0x14014DD74 (iswalnum.c)
- *     iswdigit @ 0x14014DD80 (iswdigit.c)
- *     iswspace @ 0x14014DD8C (iswspace.c)
- *     towlower @ 0x14014EE4C (towlower.c)
- *     _whiteout @ 0x140155A2C (_whiteout.c)
- *     _winput_s @ 0x140155A7C (_winput_s.c)
- *     RtlEthernetStringToAddressW @ 0x140214DB4 (RtlEthernetStringToAddressW.c)
+ *     RtlIpv6StringToAddressExW @ 0x1400A6894 (RtlIpv6StringToAddressExW.c)
+ *     RtlIpv6StringToAddressW @ 0x1400A6920 (RtlIpv6StringToAddressW.c)
+ *     RtlIpv4StringToAddressExW @ 0x1400A7908 (RtlIpv4StringToAddressExW.c)
+ *     RtlIpv4StringToAddressW @ 0x1400A7970 (RtlIpv4StringToAddressW.c)
+ *     iswalnum @ 0x14014E2E4 (iswalnum.c)
+ *     iswdigit @ 0x14014E2F0 (iswdigit.c)
+ *     iswspace @ 0x14014E2FC (iswspace.c)
+ *     towlower @ 0x14014F40C (towlower.c)
+ *     _whiteout @ 0x140155F9C (_whiteout.c)
+ *     _winput_s @ 0x140155FEC (_winput_s.c)
+ *     RtlEthernetStringToAddressW @ 0x140214BE0 (RtlEthernetStringToAddressW.c)
  * Callees:
  *     <none>
  */

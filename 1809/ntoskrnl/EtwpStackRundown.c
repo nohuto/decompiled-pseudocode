@@ -1,15 +1,15 @@
 /*
- * XREFs of EtwpStackRundown @ 0x1403159D4
+ * XREFs of EtwpStackRundown @ 0x140315BC4
  * Callers:
- *     EtwpStopLoggerInstance @ 0x1406CB854 (EtwpStopLoggerInstance.c)
- *     EtwpCheckLoggerAccessAndDoRundown @ 0x1408BE614 (EtwpCheckLoggerAccessAndDoRundown.c)
+ *     EtwpStopLoggerInstance @ 0x1406CCAF4 (EtwpStopLoggerInstance.c)
+ *     EtwpCheckLoggerAccessAndDoRundown @ 0x1408BF8D4 (EtwpCheckLoggerAccessAndDoRundown.c)
  * Callees:
  *     KxAcquireSpinLock @ 0x140062A90 (KxAcquireSpinLock.c)
- *     KxReleaseSpinLock @ 0x1400630E0 (KxReleaseSpinLock.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     EtwpDereferenceStackEntry @ 0x140315964 (EtwpDereferenceStackEntry.c)
- *     EtwpTraceCachedStack @ 0x140315B3C (EtwpTraceCachedStack.c)
+ *     KxReleaseSpinLock @ 0x1400630D0 (KxReleaseSpinLock.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     EtwpDereferenceStackEntry @ 0x140315B54 (EtwpDereferenceStackEntry.c)
+ *     EtwpTraceCachedStack @ 0x140315D2C (EtwpTraceCachedStack.c)
  */
 
 void __fastcall EtwpStackRundown(__int64 a1, __int64 a2, unsigned int a3)
@@ -20,8 +20,8 @@ void __fastcall EtwpStackRundown(__int64 a1, __int64 a2, unsigned int a3)
   unsigned __int8 CurrentIrql; // bp
   volatile signed __int32 *j; // rdx
   struct _KPRCB *CurrentPrcb; // rcx
-  struct _SLIST_ENTRY **v12; // r14
-  struct _SLIST_ENTRY *v13; // rbx
+  _SLIST_ENTRY **v12; // r14
+  _SLIST_ENTRY *v13; // rbx
   _QWORD v14[4]; // [rsp+20h] [rbp-68h] BYREF
 
   for ( i = 0LL; (unsigned int)i < *(_DWORD *)(a1 + 8); i = (unsigned int)(i + 1) )
@@ -51,7 +51,7 @@ void __fastcall EtwpStackRundown(__int64 a1, __int64 a2, unsigned int a3)
       __writecr8(CurrentIrql);
       if ( (_DWORD)v8 )
       {
-        v12 = (struct _SLIST_ENTRY **)v14;
+        v12 = (_SLIST_ENTRY **)v14;
         do
         {
           v13 = *v12;

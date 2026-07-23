@@ -1,13 +1,13 @@
 /*
- * XREFs of KdSystemDebugControl @ 0x1409720F0
+ * XREFs of KdSystemDebugControl @ 0x1409722F0
  * Callers:
  *     <none>
  * Callees:
  *     ExUnlockUserBuffer @ 0x140206EC4 (ExUnlockUserBuffer.c)
- *     KdpSysReadIoSpace @ 0x140567E54 (KdpSysReadIoSpace.c)
- *     KdpSysReadMsr @ 0x140567F18 (KdpSysReadMsr.c)
- *     KdpSysWriteIoSpace @ 0x140567F4C (KdpSysWriteIoSpace.c)
- *     KdpSysWriteMsr @ 0x14056800C (KdpSysWriteMsr.c)
+ *     KdpSysReadIoSpace @ 0x140568514 (KdpSysReadIoSpace.c)
+ *     KdpSysReadMsr @ 0x1405685D8 (KdpSysReadMsr.c)
+ *     KdpSysWriteIoSpace @ 0x14056860C (KdpSysWriteIoSpace.c)
+ *     KdpSysWriteMsr @ 0x1405686CC (KdpSysWriteMsr.c)
  *     ExLockUserBuffer @ 0x140687918 (ExLockUserBuffer.c)
  *     KdpCopyMemoryChunks @ 0x140AB02A4 (KdpCopyMemoryChunks.c)
  *     KdpSysReadControlSpace @ 0x140AB1C50 (KdpSysReadControlSpace.c)

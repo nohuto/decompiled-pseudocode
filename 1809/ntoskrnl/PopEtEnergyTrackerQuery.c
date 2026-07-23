@@ -1,20 +1,20 @@
 /*
- * XREFs of PopEtEnergyTrackerQuery @ 0x14069C1DC
+ * XREFs of PopEtEnergyTrackerQuery @ 0x14069D39C
  * Callers:
- *     NtPowerInformation @ 0x14058C170 (NtPowerInformation.c)
+ *     NtPowerInformation @ 0x14058D170 (NtPowerInformation.c)
  * Callees:
  *     PopAcquireRwLockExclusive @ 0x140003970 (PopAcquireRwLockExclusive.c)
  *     PopReleaseRwLock @ 0x140005EC4 (PopReleaseRwLock.c)
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
- *     KiQueryUnbiasedInterruptTime @ 0x14008CF10 (KiQueryUnbiasedInterruptTime.c)
- *     KeQueryTimelineBitmapTime @ 0x1400ACF90 (KeQueryTimelineBitmapTime.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     PsEnumProcesses @ 0x1405B1AFC (PsEnumProcesses.c)
- *     ObpReferenceObjectByHandleWithTag @ 0x1405E8390 (ObpReferenceObjectByHandleWithTag.c)
- *     PopEtDataSectionCopyData @ 0x14069CE9C (PopEtDataSectionCopyData.c)
- *     PopEtDataSectionReserve @ 0x14069CEE8 (PopEtDataSectionReserve.c)
- *     PopEtDataSectionStart @ 0x14069CF34 (PopEtDataSectionStart.c)
- *     PopEtEnergyTrackerCleanupAggregates @ 0x14069CF54 (PopEtEnergyTrackerCleanupAggregates.c)
+ *     KiQueryUnbiasedInterruptTime @ 0x14008CE50 (KiQueryUnbiasedInterruptTime.c)
+ *     KeQueryTimelineBitmapTime @ 0x1400ACED0 (KeQueryTimelineBitmapTime.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     PsEnumProcesses @ 0x1405B2AFC (PsEnumProcesses.c)
+ *     ObpReferenceObjectByHandleWithTag @ 0x1405E9390 (ObpReferenceObjectByHandleWithTag.c)
+ *     PopEtDataSectionCopyData @ 0x14069E05C (PopEtDataSectionCopyData.c)
+ *     PopEtDataSectionReserve @ 0x14069E0A8 (PopEtDataSectionReserve.c)
+ *     PopEtDataSectionStart @ 0x14069E0F4 (PopEtDataSectionStart.c)
+ *     PopEtEnergyTrackerCleanupAggregates @ 0x14069E114 (PopEtEnergyTrackerCleanupAggregates.c)
  */
 
 __int64 __fastcall PopEtEnergyTrackerQuery(ULONG_PTR a1, __int64 a2, unsigned int a3)

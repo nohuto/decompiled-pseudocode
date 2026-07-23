@@ -1,13 +1,13 @@
 /*
  * XREFs of MiEnumerateBasePatches @ 0x1406971E4
  * Callers:
- *     MiReapplyImportOptimizationForDriverVerifier @ 0x1406408E8 (MiReapplyImportOptimizationForDriverVerifier.c)
- *     MiMarkHotPatchesForHiberPhase @ 0x140642830 (MiMarkHotPatchesForHiberPhase.c)
+ *     MiReapplyImportOptimizationForDriverVerifier @ 0x140640E38 (MiReapplyImportOptimizationForDriverVerifier.c)
+ *     MiMarkHotPatchesForHiberPhase @ 0x140642D80 (MiMarkHotPatchesForHiberPhase.c)
  *     MiApplyRequiredSessionDriverHotPatches @ 0x140696FEC (MiApplyRequiredSessionDriverHotPatches.c)
- *     MmReplaceImportEntriesForVerifier @ 0x140A2D64C (MmReplaceImportEntriesForVerifier.c)
- *     MiApplyHotPatchToLoadedDriver @ 0x140A35068 (MiApplyHotPatchToLoadedDriver.c)
+ *     MmReplaceImportEntriesForVerifier @ 0x140A2D8FC (MmReplaceImportEntriesForVerifier.c)
+ *     MiApplyHotPatchToLoadedDriver @ 0x140A35318 (MiApplyHotPatchToLoadedDriver.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
  */
 
 void __fastcall MiEnumerateBasePatches(__int64 a1, unsigned int (__fastcall *a2)(_QWORD *, __int64), __int64 a3)

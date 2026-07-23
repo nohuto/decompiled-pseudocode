@@ -7,33 +7,34 @@
  *     _RtlCompareMemory@12 @ 0x4B307F30 (_RtlCompareMemory@12.c)
  */
 
-int __fastcall CompareNamesCaseSensitive(unsigned __int16 *a1, __int16 *a2)
+int __fastcall CompareNamesCaseSensitive(unsigned __int16 *a1, unsigned __int16 *a2)
 {
   unsigned __int16 v3; // di
   unsigned __int16 v4; // ax
-  SIZE_T v5; // esi
-  __int16 *v6; // edi
-  SIZE_T v7; // edx
+  unsigned int v5; // esi
+  unsigned __int16 *v6; // edi
+  unsigned int v7; // edx
   char v8; // ah
   char v9; // ch
   unsigned __int8 v10; // bh
   unsigned __int8 v11; // bl
   unsigned __int8 v12; // cl
   unsigned __int8 v13; // al
-  SIZE_T v14; // esi
+  unsigned int v14; // esi
   int v15; // edi
   int v16; // eax
   int v17; // edi
   int v18; // eax
-  int v21; // [esp+Ch] [ebp-1Ch]
-  unsigned __int16 v22; // [esp+10h] [ebp-18h]
-  unsigned __int16 v23; // [esp+14h] [ebp-14h]
-  int v24; // [esp+1Ch] [ebp-Ch]
+  SIZE_T v20; // [esp-4h] [ebp-2Ch]
+  int v22; // [esp+Ch] [ebp-1Ch]
+  unsigned __int16 v23; // [esp+10h] [ebp-18h]
+  unsigned __int16 v24; // [esp+14h] [ebp-14h]
+  int v25; // [esp+1Ch] [ebp-Ch]
 
   v3 = *a2;
-  v23 = *a1;
-  v21 = *a1;
-  v22 = *a2;
+  v24 = *a1;
+  v22 = *a1;
+  v23 = *a2;
   if ( *a1 != 1 || **((_BYTE **)a1 + 1) != 92 )
     goto LABEL_5;
   if ( v3 > 1u )
@@ -48,12 +49,13 @@ LABEL_5:
   v4 = *a2;
 LABEL_7:
   v5 = v4;
+  LODWORD(v20) = v4;
   v6 = a2;
-  v7 = RtlCompareMemory(*((const void **)a1 + 1), *((const void **)a2 + 1), v4);
+  v7 = RtlCompareMemory((const void *)*((_DWORD *)a1 + 1), (const void *)*((_DWORD *)a2 + 1), v20);
   if ( v7 < v5 )
   {
-    v24 = *((_DWORD *)a1 + 1);
-    v8 = *(_BYTE *)(v24 + v7);
+    v25 = *((_DWORD *)a1 + 1);
+    v8 = *(_BYTE *)(v25 + v7);
     v9 = *(_BYTE *)(*((_DWORD *)a2 + 1) + v7);
     v10 = v8 == 92 ? 0 : v8;
     v11 = v10;
@@ -66,11 +68,11 @@ LABEL_7:
       {
         if ( v7 )
         {
-          v15 = v24;
+          v15 = v25;
           do
           {
             v16 = *(unsigned __int8 *)(v15 + v14);
-            v15 = v24;
+            v15 = v25;
             v14 += (NlsLeadByteInfoTable[v16] != 0) + 1;
           }
           while ( v14 < v7 );
@@ -108,9 +110,9 @@ LABEL_7:
     if ( v11 > v13 )
       return 3;
   }
-  if ( v23 < v22 )
-    return *(_BYTE *)(v21 + *((_DWORD *)v6 + 1)) == 92;
-  if ( v23 <= v22 )
+  if ( v24 < v23 )
+    return *(_BYTE *)(v22 + *((_DWORD *)v6 + 1)) == 92;
+  if ( v24 <= v23 )
     return 2;
   else
     return 3;

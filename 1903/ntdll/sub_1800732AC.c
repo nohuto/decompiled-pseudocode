@@ -8,27 +8,27 @@
  *     ZwClose @ 0x18009C8C0 (ZwClose.c)
  */
 
-__int64 __fastcall sub_1800732AC(__int64 *a1)
+__int64 __fastcall sub_1800732AC(_QWORD *a1)
 {
-  __int64 v1; // rax
+  HANDLE v1; // rax
   __int64 result; // rax
-  signed __int64 v4; // [rsp+38h] [rbp+10h] BYREF
+  HANDLE Handle; // [rsp+38h] [rbp+10h] BYREF
 
-  v1 = qword_180166340;
-  v4 = qword_180166340;
+  v1 = (HANDLE)qword_180166340;
+  Handle = (HANDLE)qword_180166340;
   if ( qword_180166340 )
     goto LABEL_2;
-  result = sub_18007330C(&v4, 9LL, 0LL);
+  result = sub_18007330C(&Handle, 9LL, 0LL);
   if ( (int)result >= 0 )
   {
-    if ( _InterlockedCompareExchange64(&qword_180166340, v4, 0LL) )
+    if ( _InterlockedCompareExchange64(&qword_180166340, (signed __int64)Handle, 0LL) )
     {
-      ZwClose(v4);
-      v1 = qword_180166340;
+      ZwClose(Handle);
+      v1 = (HANDLE)qword_180166340;
     }
     else
     {
-      v1 = v4;
+      v1 = Handle;
     }
 LABEL_2:
     *a1 = v1;

@@ -1,14 +1,14 @@
 /*
- * XREFs of HvpIncrementalLogFileEnumeratorAdvance @ 0x140AE02F8
+ * XREFs of HvpIncrementalLogFileEnumeratorAdvance @ 0x140ADDB38
  * Callers:
- *     HvpApplyIncrementalLogFile @ 0x140AE00FC (HvpApplyIncrementalLogFile.c)
- *     HvpAnalyzeSingleLogFile @ 0x140AE0208 (HvpAnalyzeSingleLogFile.c)
+ *     HvpApplyIncrementalLogFile @ 0x140ADD93C (HvpApplyIncrementalLogFile.c)
+ *     HvpAnalyzeSingleLogFile @ 0x140ADDA48 (HvpAnalyzeSingleLogFile.c)
  * Callees:
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     HvpIsLogEntryHeaderCoherent @ 0x140AE0440 (HvpIsLogEntryHeaderCoherent.c)
- *     HvpIsMetadataArrayCoherent @ 0x140AE04B0 (HvpIsMetadataArrayCoherent.c)
- *     HvpLogEntryCheckDataChecksum @ 0x140B534E8 (HvpLogEntryCheckDataChecksum.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     HvpIsLogEntryHeaderCoherent @ 0x140ADDC80 (HvpIsLogEntryHeaderCoherent.c)
+ *     HvpIsMetadataArrayCoherent @ 0x140ADDCF0 (HvpIsMetadataArrayCoherent.c)
+ *     HvpLogEntryCheckDataChecksum @ 0x140B55D88 (HvpLogEntryCheckDataChecksum.c)
  */
 
 __int64 __fastcall HvpIncrementalLogFileEnumeratorAdvance(__int64 a1, _QWORD *a2)

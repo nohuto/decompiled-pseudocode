@@ -3,7 +3,7 @@
  * Callers:
  *     MiInitializeLoadedModuleList @ 0x1407B1234 (MiInitializeLoadedModuleList.c)
  * Callees:
- *     RtlImageNtHeader @ 0x140014238 (RtlImageNtHeader.c)
+ *     RtlImageNtHeader @ 0x140013DB8 (RtlImageNtHeader.c)
  */
 
 int __fastcall MiLocateKernelSections(__int64 a1)

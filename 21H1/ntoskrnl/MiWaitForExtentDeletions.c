@@ -13,7 +13,7 @@
 
 __int64 __fastcall MiWaitForExtentDeletions(PKLOCK_QUEUE_HANDLE LockHandle)
 {
-  unsigned __int64 v2; // rax
+  __int64 v2; // rax
   ULONG_PTR v3; // rbx
   unsigned __int64 OldIrql; // rdi
   unsigned __int8 CurrentIrql; // al
@@ -30,7 +30,7 @@ __int64 __fastcall MiWaitForExtentDeletions(PKLOCK_QUEUE_HANDLE LockHandle)
   _QWORD v16[2]; // [rsp+30h] [rbp-10h] BYREF
 
   v14 = 0;
-  v2 = KeAbPreAcquire((ULONG_PTR)&qword_140C4CA50, 0LL, 0LL);
+  v2 = KeAbPreAcquire((ULONG_PTR)&qword_140C4CA50, 0LL, 0);
   v3 = v2;
   if ( v2 )
     KeAbPreWait(v2);
@@ -64,7 +64,7 @@ __int64 __fastcall MiWaitForExtentDeletions(PKLOCK_QUEUE_HANDLE LockHandle)
   result = KeWaitForGate((__int64)&v12, 18);
   if ( v3 )
   {
-    KeAbPreAcquire((ULONG_PTR)&qword_140C4CA50, v3, 0LL);
+    KeAbPreAcquire((ULONG_PTR)&qword_140C4CA50, v3, 0);
     return KeAbPostReleaseEx((ULONG_PTR)&qword_140C4CA50, v3);
   }
   return result;

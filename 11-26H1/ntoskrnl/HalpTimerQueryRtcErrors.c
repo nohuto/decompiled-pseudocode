@@ -1,5 +1,5 @@
 /*
- * XREFs of HalpTimerQueryRtcErrors @ 0x140578430
+ * XREFs of HalpTimerQueryRtcErrors @ 0x14057A960
  * Callers:
  *     <none>
  * Callees:

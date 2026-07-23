@@ -1,18 +1,18 @@
 /*
- * XREFs of MiCreateLargePageVad @ 0x1408D9F64
+ * XREFs of MiCreateLargePageVad @ 0x1408DA0C4
  * Callers:
- *     MiMapViewOfImageSection @ 0x14061CEB0 (MiMapViewOfImageSection.c)
- *     MiReserveUserMemory @ 0x1406EA4D0 (MiReserveUserMemory.c)
- *     MiAllocateChildVads @ 0x1408D8A90 (MiAllocateChildVads.c)
+ *     MiMapViewOfImageSection @ 0x140686B20 (MiMapViewOfImageSection.c)
+ *     MiReserveUserMemory @ 0x1407018B0 (MiReserveUserMemory.c)
+ *     MiAllocateChildVads @ 0x1408D8BF0 (MiAllocateChildVads.c)
  * Callees:
- *     ObfReferenceObjectWithTag @ 0x1402056A0 (ObfReferenceObjectWithTag.c)
- *     MiAllocatePool @ 0x14025AD70 (MiAllocatePool.c)
- *     LOCK_ADDRESS_SPACE_SHARED @ 0x14025B210 (LOCK_ADDRESS_SPACE_SHARED.c)
- *     MiInsertVadEvent @ 0x14025B9BC (MiInsertVadEvent.c)
- *     UNLOCK_ADDRESS_SPACE_SHARED @ 0x140348790 (UNLOCK_ADDRESS_SPACE_SHARED.c)
- *     MiChargeFullProcessCommitment @ 0x1405F90D0 (MiChargeFullProcessCommitment.c)
- *     MiChargeProcessPhysicalPages @ 0x1408D7334 (MiChargeProcessPhysicalPages.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     MiAllocatePool @ 0x14027C2E0 (MiAllocatePool.c)
+ *     LOCK_ADDRESS_SPACE_SHARED @ 0x14027C780 (LOCK_ADDRESS_SPACE_SHARED.c)
+ *     MiInsertVadEvent @ 0x14027CF2C (MiInsertVadEvent.c)
+ *     ObfReferenceObjectWithTag @ 0x1402A9FE0 (ObfReferenceObjectWithTag.c)
+ *     UNLOCK_ADDRESS_SPACE_SHARED @ 0x1403534E0 (UNLOCK_ADDRESS_SPACE_SHARED.c)
+ *     MiChargeFullProcessCommitment @ 0x1406E8830 (MiChargeFullProcessCommitment.c)
+ *     MiChargeProcessPhysicalPages @ 0x1408D7494 (MiChargeProcessPhysicalPages.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall MiCreateLargePageVad(__int64 a1, __int64 a2, void *a3)
@@ -76,7 +76,7 @@ LABEL_24:
   if ( Pool )
   {
     *(_DWORD *)(Pool + 64) = 16;
-    MiInsertVadEvent(a2, (_QWORD *)Pool, 0);
+    MiInsertVadEvent(a2, (__int64 *)Pool, 0);
   }
   return 0LL;
 }

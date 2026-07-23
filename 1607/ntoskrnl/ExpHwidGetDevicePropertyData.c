@@ -1,29 +1,33 @@
 /*
- * XREFs of ExpHwidGetDevicePropertyData @ 0x1404F7188
+ * XREFs of ExpHwidGetDevicePropertyData @ 0x1404DA114
  * Callers:
- *     ExpHwidAuthenticateHardwareId @ 0x1404F61F0 (ExpHwidAuthenticateHardwareId.c)
- *     ExpHwidGetDeviceProperties @ 0x1404F63A4 (ExpHwidGetDeviceProperties.c)
- *     sub_1406B9E7C @ 0x1406B9E7C (sub_1406B9E7C.c)
+ *     ExpHwidAuthenticateHardwareId @ 0x1404D917C (ExpHwidAuthenticateHardwareId.c)
+ *     ExpHwidGetDeviceProperties @ 0x1404D9330 (ExpHwidGetDeviceProperties.c)
+ *     sub_1406B9FB4 @ 0x1406B9FB4 (sub_1406B9FB4.c)
  * Callees:
- *     ExpHwidEnsurePropertyBufferLength @ 0x1404EDC5C (ExpHwidEnsurePropertyBufferLength.c)
- *     sub_1404F5CD8 @ 0x1404F5CD8 (sub_1404F5CD8.c)
- *     IoGetDevicePropertyData @ 0x1404F757C (IoGetDevicePropertyData.c)
- *     PnpGetDeviceInterfacePropertyData @ 0x14062E2D4 (PnpGetDeviceInterfacePropertyData.c)
+ *     ExpHwidEnsurePropertyBufferLength @ 0x1404CFD80 (ExpHwidEnsurePropertyBufferLength.c)
+ *     sub_1404D8C64 @ 0x1404D8C64 (sub_1404D8C64.c)
+ *     IoGetDevicePropertyData @ 0x1404DA508 (IoGetDevicePropertyData.c)
+ *     PnpGetDeviceInterfacePropertyData @ 0x14062E388 (PnpGetDeviceInterfacePropertyData.c)
  */
 
-__int64 __fastcall ExpHwidGetDevicePropertyData(PDEVICE_OBJECT Pdo, int a2, const DEVPROPKEY *a3, int a4, __int64 Type)
+__int64 __fastcall ExpHwidGetDevicePropertyData(
+        PDEVICE_OBJECT Pdo,
+        __int64 a2,
+        const DEVPROPKEY *a3,
+        int a4,
+        __int64 Type)
 {
   char v5; // r14
   unsigned int v10; // edi
   __int64 v11; // rbx
-  ULONG Size; // ecx
-  int v13; // eax
-  int v14; // r8d
-  int v15; // r10d
-  ULONG v16; // edx
-  _WORD *v17; // r9
-  ULONG v19; // eax
-  ULONG v20; // edx
+  int v12; // eax
+  int v13; // r8d
+  int v14; // r10d
+  ULONG v15; // edx
+  _WORD *v16; // r9
+  ULONG v18; // eax
+  ULONG v19; // edx
   ULONG RequiredSize; // [rsp+88h] [rbp+48h] BYREF
 
   v5 = 0;
@@ -43,69 +47,68 @@ __int64 __fastcall ExpHwidGetDevicePropertyData(PDEVICE_OBJECT Pdo, int a2, cons
     goto LABEL_29;
   while ( 1 )
   {
-    Size = *(unsigned __int16 *)(v11 + 2) - v10;
-    v13 = Pdo
-        ? IoGetDevicePropertyData(Pdo, a3, 0, 0, Size, *(PVOID *)(v11 + 8), &RequiredSize, (PDEVPROPTYPE)&Type)
-        : PnpGetDeviceInterfacePropertyData(
-            a2,
-            (_DWORD)a3,
+    v12 = Pdo
+        ? IoGetDevicePropertyData(
+            Pdo,
+            a3,
             0,
-            a4,
-            Size,
-            *(_QWORD *)(v11 + 8),
-            (__int64)&RequiredSize,
-            (__int64)&Type);
-    v14 = v13;
-    if ( v13 >= 0 )
+            0,
+            *(unsigned __int16 *)(v11 + 2) - v10,
+            *(PVOID *)(v11 + 8),
+            &RequiredSize,
+            (PDEVPROPTYPE)&Type)
+        : PnpGetDeviceInterfacePropertyData(a2, a3, 0LL);
+    v13 = v12;
+    if ( v12 >= 0 )
       break;
-    if ( v13 != -1073741789 )
+    if ( v12 != -1073741789 )
       goto LABEL_14;
     if ( v5 )
       goto LABEL_29;
-    v19 = RequiredSize;
-    v20 = v10 + RequiredSize;
-    RequiredSize = v20;
-    if ( v20 < v19 )
+    v18 = RequiredSize;
+    v19 = v10 + RequiredSize;
+    RequiredSize = v19;
+    if ( v19 < v18 )
     {
-      v14 = -1073741670;
+      v13 = -1073741670;
       goto LABEL_14;
     }
-    if ( (int)ExpHwidEnsurePropertyBufferLength(v11, v20) < 0 )
+    if ( (int)ExpHwidEnsurePropertyBufferLength(v11, v19) < 0 )
       goto LABEL_29;
     v5 = 1;
   }
-  v15 = Type;
+  v14 = Type;
   if ( (_DWORD)Type != a4 )
     goto LABEL_29;
   if ( a4 == 18 || a4 == 8210 )
   {
-    v16 = RequiredSize;
+    v15 = RequiredSize;
     if ( (RequiredSize & 1) != 0 )
       goto LABEL_29;
-    v17 = (_WORD *)(*(_QWORD *)(v11 + 8) + 2 * ((unsigned __int64)RequiredSize >> 1));
-    if ( RequiredSize < 2 || *(v17 - 1) )
+    v16 = (_WORD *)(*(_QWORD *)(v11 + 8) + 2 * ((unsigned __int64)RequiredSize >> 1));
+    if ( RequiredSize < 2 || *(v16 - 1) )
     {
-      *v17++ = 0;
-      v15 = Type;
-      v16 = RequiredSize + 2;
+      *v16++ = 0;
+      v14 = Type;
+      v15 = RequiredSize + 2;
       RequiredSize += 2;
     }
-    if ( v15 == 8210 && (v16 < 4 || *(v17 - 2)) )
+    if ( v14 == 8210 && (v15 < 4 || *(v16 - 2)) )
     {
-      *v17 = 0;
-      v15 = Type;
-      LOWORD(v16) = RequiredSize + 2;
+      *v16 = 0;
+      v14 = Type;
+      LOWORD(v15) = RequiredSize + 2;
     }
   }
   else
   {
-    LOWORD(v16) = RequiredSize;
+    LOWORD(v15) = RequiredSize;
   }
-  *(_WORD *)v11 = v16;
-  *(_DWORD *)(v11 + 4) = v15;
+  *(_WORD *)v11 = v15;
+  *(_DWORD *)(v11 + 4) = v14;
 LABEL_14:
-  if ( v14 < 0 )
+  if ( v13 < 0 )
 LABEL_29:
-    sub_1404F5CD8(v11);
-  return (unsigned int)v14;
+    sub_1404D8C64(v11);
+  return (unsigned int)v13;
 }

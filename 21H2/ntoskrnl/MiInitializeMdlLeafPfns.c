@@ -1,11 +1,11 @@
 /*
- * XREFs of MiInitializeMdlLeafPfns @ 0x1402E36BC
+ * XREFs of MiInitializeMdlLeafPfns @ 0x140294A0C
  * Callers:
- *     MiInitializeMdlPages @ 0x1402E3564 (MiInitializeMdlPages.c)
- *     MiInitializeLargeMdlLeafPfns @ 0x140533FE8 (MiInitializeLargeMdlLeafPfns.c)
+ *     MiInitializeMdlPages @ 0x1402948B4 (MiInitializeMdlPages.c)
+ *     MiInitializeLargeMdlLeafPfns @ 0x140534228 (MiInitializeLargeMdlLeafPfns.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x14024B280 (KeYieldProcessorEx.c)
- *     MiInitializeMdlPfn @ 0x1402E37C4 (MiInitializeMdlPfn.c)
+ *     MiInitializeMdlPfn @ 0x140294B14 (MiInitializeMdlPfn.c)
+ *     KeYieldProcessorEx @ 0x1402EFAD0 (KeYieldProcessorEx.c)
  *     MiConvertLargePfnToSmall @ 0x1403F5FC8 (MiConvertLargePfnToSmall.c)
  */
 
@@ -28,7 +28,7 @@ void __fastcall MiInitializeMdlLeafPfns(__int64 a1, __int64 a2, unsigned __int64
       while ( _interlockedbittestandset64((volatile signed __int32 *)(v6 + 24), 0x3FuLL) )
       {
         do
-          KeYieldProcessorEx(&v11, a2, a3, a4);
+          KeYieldProcessorEx(&v11);
         while ( *(__int64 *)(v6 + 24) < 0 );
       }
       v9 = *(_QWORD *)(v6 + 40);

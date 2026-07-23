@@ -1,8 +1,8 @@
 /*
- * XREFs of MiReferenceFileObjectForMap @ 0x1405F4598
+ * XREFs of MiReferenceFileObjectForMap @ 0x1405F5598
  * Callers:
  *     MiInsertInSystemSpace @ 0x1400273C0 (MiInsertInSystemSpace.c)
- *     MiMapViewOfImageSection @ 0x1405F3660 (MiMapViewOfImageSection.c)
+ *     MiMapViewOfImageSection @ 0x1405F4660 (MiMapViewOfImageSection.c)
  * Callees:
  *     ObfReferenceObject @ 0x14004E220 (ObfReferenceObject.c)
  */

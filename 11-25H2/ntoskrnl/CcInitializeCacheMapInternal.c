@@ -52,7 +52,7 @@ void __fastcall CcInitializeCacheMapInternal(
   unsigned int v10; // ebx
   _DWORD *v11; // r14
   void *v12; // r12
-  int PrivateVolumeCacheMap; // esi
+  NTSTATUS PrivateVolumeCacheMap; // esi
   __int64 v14; // r15
   __m128i v15; // xmm1
   int v16; // ecx
@@ -159,7 +159,7 @@ void __fastcall CcInitializeCacheMapInternal(
     goto LABEL_30;
   while ( 1 )
   {
-    v11 = ExAllocateFromLookasideListEx(&CcSharedCacheMapLookasideList);
+    v11 = ExAllocateFromLookasideListEx((PLOOKASIDE_LIST_EX)&CcSharedCacheMapLookasideList);
     memset_0(v11, 0, 0x268uLL);
     v19 = v10 | 1;
     v20 = (__int64)v11;
@@ -321,7 +321,7 @@ LABEL_87:
             goto LABEL_89;
           while ( 1 )
           {
-            v70 = ExAllocateFromLookasideListEx(&CcPrivateCacheMapLookasideList);
+            v70 = ExAllocateFromLookasideListEx((PLOOKASIDE_LIST_EX)&CcPrivateCacheMapLookasideList);
             v12 = v70;
             if ( !v70 )
               break;

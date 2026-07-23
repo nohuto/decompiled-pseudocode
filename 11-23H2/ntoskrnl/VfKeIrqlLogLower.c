@@ -1,15 +1,15 @@
 /*
- * XREFs of VfKeIrqlLogLower @ 0x140AD5CB4
+ * XREFs of VfKeIrqlLogLower @ 0x140AD5CA4
  * Callers:
- *     VerifierKeLowerIrql @ 0x140AC0380 (VerifierKeLowerIrql.c)
- *     VerifierKeReleaseInStackQueuedSpinLock @ 0x140AC03F0 (VerifierKeReleaseInStackQueuedSpinLock.c)
- *     VerifierKeReleaseSpinLock @ 0x140AC0470 (VerifierKeReleaseSpinLock.c)
- *     VerifierKeReleaseQueuedSpinLock @ 0x140ACF8B0 (VerifierKeReleaseQueuedSpinLock.c)
- *     VerifierPortKeReleaseSpinLock @ 0x140AD5AF0 (VerifierPortKeReleaseSpinLock.c)
- *     VerifierPortKeReleaseSpinLockNoXdv @ 0x140AD5B40 (VerifierPortKeReleaseSpinLockNoXdv.c)
- *     VerifierExReleaseFastMutex @ 0x140ADD250 (VerifierExReleaseFastMutex.c)
+ *     VerifierKeLowerIrql @ 0x140AC0370 (VerifierKeLowerIrql.c)
+ *     VerifierKeReleaseInStackQueuedSpinLock @ 0x140AC03E0 (VerifierKeReleaseInStackQueuedSpinLock.c)
+ *     VerifierKeReleaseSpinLock @ 0x140AC0460 (VerifierKeReleaseSpinLock.c)
+ *     VerifierKeReleaseQueuedSpinLock @ 0x140ACF8A0 (VerifierKeReleaseQueuedSpinLock.c)
+ *     VerifierPortKeReleaseSpinLock @ 0x140AD5AE0 (VerifierPortKeReleaseSpinLock.c)
+ *     VerifierPortKeReleaseSpinLockNoXdv @ 0x140AD5B30 (VerifierPortKeReleaseSpinLockNoXdv.c)
+ *     VerifierExReleaseFastMutex @ 0x140ADD240 (VerifierExReleaseFastMutex.c)
  * Callees:
- *     ViKeIrqlLogCommon @ 0x140AC0682 (ViKeIrqlLogCommon.c)
+ *     ViKeIrqlLogCommon @ 0x140AC0672 (ViKeIrqlLogCommon.c)
  */
 
 void __fastcall VfKeIrqlLogLower(__int64 a1)

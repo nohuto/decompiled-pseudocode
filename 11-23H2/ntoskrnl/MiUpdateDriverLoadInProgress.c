@@ -1,11 +1,11 @@
 /*
- * XREFs of MiUpdateDriverLoadInProgress @ 0x140290BA8
+ * XREFs of MiUpdateDriverLoadInProgress @ 0x140290E38
  * Callers:
- *     MmLoadSystemImageEx @ 0x140703DC0 (MmLoadSystemImageEx.c)
+ *     MmLoadSystemImageEx @ 0x140703FD0 (MmLoadSystemImageEx.c)
  * Callees:
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402894C0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     MmLockLoadedModuleListExclusive @ 0x140290C18 (MmLockLoadedModuleListExclusive.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140289750 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MmLockLoadedModuleListExclusive @ 0x140290EA8 (MmLockLoadedModuleListExclusive.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiUpdateDriverLoadInProgress(__int64 a1, int a2)
@@ -25,7 +25,9 @@ __int64 __fastcall MiUpdateDriverLoadInProgress(__int64 a1, int a2)
     a1 = 0LL;
   qword_140C65970 = a1;
   ExReleaseSpinLockExclusiveFromDpcLevel(&PsLoadedModuleSpinLock);
-  if ( KiIrqlFlags && (CurrentIrql = KeGetCurrentIrql(), (KiIrqlFlags & 1) != 0) && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags
+    && (CurrentIrql = KeGetCurrentIrql(), ((unsigned __int8)KiIrqlFlags & 1) != 0)
+    && CurrentIrql <= 0xFu )
   {
     v4 = v11;
     if ( v11 <= 0xFu && CurrentIrql >= 2u )

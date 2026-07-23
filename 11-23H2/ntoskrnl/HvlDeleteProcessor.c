@@ -1,14 +1,14 @@
 /*
- * XREFs of HvlDeleteProcessor @ 0x1409411FC
+ * XREFs of HvlDeleteProcessor @ 0x1409413FC
  * Callers:
- *     KiStartDynamicProcessor @ 0x140973808 (KiStartDynamicProcessor.c)
+ *     KiStartDynamicProcessor @ 0x140973A08 (KiStartDynamicProcessor.c)
  *     KeStartAllProcessors @ 0x140B47590 (KeStartAllProcessors.c)
  * Callees:
- *     MmUnmapIoSpace @ 0x140335CD0 (MmUnmapIoSpace.c)
- *     HvlpGetRegister64 @ 0x140548CE0 (HvlpGetRegister64.c)
- *     HvlpSetRegister64 @ 0x140548E30 (HvlpSetRegister64.c)
- *     HvlpFreeOverlayPages @ 0x140549840 (HvlpFreeOverlayPages.c)
- *     MmFreeIndependentPages @ 0x14087FBB0 (MmFreeIndependentPages.c)
+ *     MmUnmapIoSpace @ 0x140335F60 (MmUnmapIoSpace.c)
+ *     HvlpGetRegister64 @ 0x1405493A0 (HvlpGetRegister64.c)
+ *     HvlpSetRegister64 @ 0x1405494F0 (HvlpSetRegister64.c)
+ *     HvlpFreeOverlayPages @ 0x140549F00 (HvlpFreeOverlayPages.c)
+ *     MmFreeIndependentPages @ 0x14087FDF0 (MmFreeIndependentPages.c)
  */
 
 void __fastcall HvlDeleteProcessor(struct _KPRCB *a1)
@@ -23,8 +23,8 @@ void __fastcall HvlDeleteProcessor(struct _KPRCB *a1)
   {
     if ( a1 == KeGetCurrentPrcb() )
     {
-      HvlpGetRegister64(589843LL, &v5);
-      HvlpSetRegister64(589843LL, v5 & 0xFFFFFFFFFFFFFFFEuLL);
+      HvlpGetRegister64(589843, &v5);
+      HvlpSetRegister64(589843, v5 & 0xFFFFFFFFFFFFFFFEuLL);
     }
     VirtualApicAssist = a1->VirtualApicAssist;
     if ( (HvlpFlags & 2) != 0 )

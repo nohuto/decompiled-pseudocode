@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpHvRetargetIoApicDeviceInterrupt @ 0x1404C2B18
+ * XREFs of HalpHvRetargetIoApicDeviceInterrupt @ 0x1404C2D58
  * Callers:
- *     HalpInterruptSetRemappedDestinationHv @ 0x1404BB8C0 (HalpInterruptSetRemappedDestinationHv.c)
+ *     HalpInterruptSetRemappedDestinationHv @ 0x1404BBB00 (HalpInterruptSetRemappedDestinationHv.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall HalpHvRetargetIoApicDeviceInterrupt(char a1, __int64 a2, __int64 a3, __int64 a4, _BYTE *a5)
@@ -31,7 +31,7 @@ __int64 __fastcall HalpHvRetargetIoApicDeviceInterrupt(char a1, __int64 a2, __in
   v14 = 0LL;
   LODWORD(v14) = v7;
   v13 = 0LL;
-  result = ((__int64 (__fastcall *)(unsigned __int64, _QWORD *, __int128 *))qword_140C4A1B8)(v11, v12, &v14);
+  result = ((__int64 (__fastcall *)(unsigned __int64, _QWORD *, __int128 *))qword_140C4A1F8)(v11, v12, &v14);
   if ( (int)result >= 0 && v5 )
   {
     v9 = DWORD2(v13);

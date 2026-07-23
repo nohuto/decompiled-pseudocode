@@ -17,7 +17,7 @@ __int64 __fastcall RtlpGetCachedPath(__int64 *a1, __int64 (__fastcall *a2)(__int
   __int64 v9; // rbx
   __int64 result; // rax
   __int64 v11; // rsi
-  __int64 v12; // rdi
+  void *v12; // rdi
 
   if ( a3 || a4 )
   {
@@ -55,12 +55,12 @@ __int64 __fastcall RtlpGetCachedPath(__int64 *a1, __int64 (__fastcall *a2)(__int
         if ( v9 )
         {
           if ( (*(_QWORD *)(v9 + 80))-- == 1LL )
-            v12 = v9;
+            v12 = (void *)v9;
         }
       }
       RtlReleaseSRWLockExclusive(&RtlpCachedPathLock);
       if ( v12 )
-        RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0LL, v12);
+        RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v12);
     }
     return v11;
   }

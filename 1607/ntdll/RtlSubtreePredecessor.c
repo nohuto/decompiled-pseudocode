@@ -1,21 +1,21 @@
 /*
- * XREFs of RtlSubtreePredecessor @ 0x180063A50
+ * XREFs of RtlSubtreePredecessor @ 0x180063A40
  * Callers:
- *     RtlDelete @ 0x1800637D0 (RtlDelete.c)
- *     RtlDeleteNoSplay @ 0x180063870 (RtlDeleteNoSplay.c)
+ *     RtlDelete @ 0x1800637C0 (RtlDelete.c)
+ *     RtlDeleteNoSplay @ 0x180063860 (RtlDeleteNoSplay.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall RtlSubtreePredecessor(__int64 a1)
+PRTL_SPLAY_LINKS __cdecl RtlSubtreePredecessor(PRTL_SPLAY_LINKS Links)
 {
-  __int64 result; // rax
-  __int64 i; // rcx
+  PRTL_SPLAY_LINKS result; // rax
+  _RTL_SPLAY_LINKS *i; // rcx
 
-  result = *(_QWORD *)(a1 + 8);
+  result = Links->LeftChild;
   if ( result )
   {
-    for ( i = *(_QWORD *)(result + 16); i; i = *(_QWORD *)(i + 16) )
+    for ( i = result->RightChild; i; i = i->RightChild )
       result = i;
   }
   return result;

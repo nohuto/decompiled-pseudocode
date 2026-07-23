@@ -1,5 +1,5 @@
 /*
- * XREFs of PpmIdleGuestPreselect @ 0x1405DC080
+ * XREFs of PpmIdleGuestPreselect @ 0x1405D8F50
  * Callers:
  *     <none>
  * Callees:
@@ -29,8 +29,8 @@ __int64 __fastcall PpmIdleGuestPreselect(__int64 a1, __int64 a2)
   else
   {
     StatisticsPage = CurrentPrcb->StatisticsPage;
-    v4 = StatisticsPage[(unsigned int)xmmword_140E3ECD0];
-    v5 = v4 - StatisticsPage[DWORD1(xmmword_140E3ECD0)];
+    v4 = StatisticsPage[(unsigned int)xmmword_140E3EE10];
+    v5 = v4 - StatisticsPage[DWORD1(xmmword_140E3EE10)];
   }
   HvTargetState = *(_DWORD *)(a2 + 32);
   if ( HvTargetState == -1 )

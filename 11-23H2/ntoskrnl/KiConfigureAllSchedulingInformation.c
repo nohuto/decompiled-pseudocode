@@ -3,9 +3,9 @@
  * Callers:
  *     KeStartAllProcessors @ 0x140B47590 (KeStartAllProcessors.c)
  * Callees:
- *     KeEnumerateNextSchedulerSubNodeInNode @ 0x1402C1BFC (KeEnumerateNextSchedulerSubNodeInNode.c)
- *     KiConfigureNodeSchedulingInformation @ 0x1403B1854 (KiConfigureNodeSchedulingInformation.c)
- *     KiConfigureSchedulingInformation @ 0x140A8E204 (KiConfigureSchedulingInformation.c)
+ *     KeEnumerateNextSchedulerSubNodeInNode @ 0x1402C1E8C (KeEnumerateNextSchedulerSubNodeInNode.c)
+ *     KiConfigureNodeSchedulingInformation @ 0x1403B1A34 (KiConfigureNodeSchedulingInformation.c)
+ *     KiConfigureSchedulingInformation @ 0x140A8E07C (KiConfigureSchedulingInformation.c)
  */
 
 __int64 KiConfigureAllSchedulingInformation()

@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlMultiAppendUnicodeStringBuffer @ 0x180075920
+ * XREFs of RtlMultiAppendUnicodeStringBuffer @ 0x180075930
  * Callers:
  *     RtlDosApplyFileIsolationRedirection_Ustr @ 0x18000B060 (RtlDosApplyFileIsolationRedirection_Ustr.c)
  *     RtlAppendPathElement @ 0x1800CE350 (RtlAppendPathElement.c)
  * Callees:
- *     RtlpEnsureBufferSize @ 0x180075A30 (RtlpEnsureBufferSize.c)
+ *     RtlpEnsureBufferSize @ 0x180075A40 (RtlpEnsureBufferSize.c)
  *     memmove @ 0x1800A6DC0 (memmove.c)
  */
 

@@ -1,15 +1,15 @@
 /*
- * XREFs of CmpOpenFileWithExtremePrejudice @ 0x1407F67DC
+ * XREFs of CmpOpenFileWithExtremePrejudice @ 0x1407F79DC
  * Callers:
- *     CmpOpenHiveFile @ 0x1405B4330 (CmpOpenHiveFile.c)
+ *     CmpOpenHiveFile @ 0x1405B5330 (CmpOpenHiveFile.c)
  * Callees:
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     ZwClose @ 0x1401B8370 (ZwClose.c)
- *     ZwSetInformationFile @ 0x1401B8670 (ZwSetInformationFile.c)
- *     ZwOpenFile @ 0x1401B87F0 (ZwOpenFile.c)
- *     ZwQueryAttributesFile @ 0x1401B8930 (ZwQueryAttributesFile.c)
- *     ZwCreateFile @ 0x1401B8C30 (ZwCreateFile.c)
- *     memset @ 0x1401D1880 (memset.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     ZwClose @ 0x1401B84D0 (ZwClose.c)
+ *     ZwSetInformationFile @ 0x1401B87D0 (ZwSetInformationFile.c)
+ *     ZwOpenFile @ 0x1401B8950 (ZwOpenFile.c)
+ *     ZwQueryAttributesFile @ 0x1401B8A90 (ZwQueryAttributesFile.c)
+ *     ZwCreateFile @ 0x1401B8D90 (ZwCreateFile.c)
+ *     memset @ 0x1401D1980 (memset.c)
  */
 
 int __fastcall CmpOpenFileWithExtremePrejudice(

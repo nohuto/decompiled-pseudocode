@@ -1,5 +1,5 @@
 /*
- * XREFs of VerifierIoCreateFile @ 0x14070C764
+ * XREFs of VerifierIoCreateFile @ 0x14070C794
  * Callers:
  *     <none>
  * Callees:

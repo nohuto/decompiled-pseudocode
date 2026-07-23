@@ -1,21 +1,21 @@
 /*
- * XREFs of MiActivePageClaimCandidate @ 0x1403BBBF8
+ * XREFs of MiActivePageClaimCandidate @ 0x1403BBDD8
  * Callers:
- *     MiTradePage @ 0x1403BA960 (MiTradePage.c)
- *     MiPfnsWorthTrying @ 0x1403BB694 (MiPfnsWorthTrying.c)
- *     MiCheckContiguityTradeEligible @ 0x140648E2C (MiCheckContiguityTradeEligible.c)
+ *     MiTradePage @ 0x1403BAB40 (MiTradePage.c)
+ *     MiPfnsWorthTrying @ 0x1403BB874 (MiPfnsWorthTrying.c)
+ *     MiCheckContiguityTradeEligible @ 0x14064937C (MiCheckContiguityTradeEligible.c)
  * Callees:
- *     MI_READ_PTE_LOCK_FREE @ 0x1402712F0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiGetSystemRegionType @ 0x140284870 (MiGetSystemRegionType.c)
- *     MiGetPfnPageSizeIndex @ 0x1402E88E0 (MiGetPfnPageSizeIndex.c)
- *     MiGetPfnPageSizeIndexUnsynchronized @ 0x1402E90A0 (MiGetPfnPageSizeIndexUnsynchronized.c)
- *     MiGetBaseResidentPage @ 0x1402E9180 (MiGetBaseResidentPage.c)
- *     MiLockPageInline @ 0x1402EF680 (MiLockPageInline.c)
- *     MiPfnLargeBitSet @ 0x1403BC068 (MiPfnLargeBitSet.c)
- *     MiHyperPage @ 0x1403BC0F0 (MiHyperPage.c)
- *     MiVaIsPageFileHash @ 0x1403BC380 (MiVaIsPageFileHash.c)
- *     MiRequestIoPageMdlCacheRelease @ 0x1403D6FEC (MiRequestIoPageMdlCacheRelease.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140271580 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiGetSystemRegionType @ 0x140284B00 (MiGetSystemRegionType.c)
+ *     MiGetPfnPageSizeIndex @ 0x1402E8B70 (MiGetPfnPageSizeIndex.c)
+ *     MiGetPfnPageSizeIndexUnsynchronized @ 0x1402E9330 (MiGetPfnPageSizeIndexUnsynchronized.c)
+ *     MiGetBaseResidentPage @ 0x1402E9410 (MiGetBaseResidentPage.c)
+ *     MiLockPageInline @ 0x1402EF910 (MiLockPageInline.c)
+ *     MiPfnLargeBitSet @ 0x1403BC248 (MiPfnLargeBitSet.c)
+ *     MiHyperPage @ 0x1403BC2D0 (MiHyperPage.c)
+ *     MiVaIsPageFileHash @ 0x1403BC560 (MiVaIsPageFileHash.c)
+ *     MiRequestIoPageMdlCacheRelease @ 0x1403D71CC (MiRequestIoPageMdlCacheRelease.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiActivePageClaimCandidate(__int64 a1, __int64 a2, char a3, __int64 a4, _DWORD *a5)
@@ -332,10 +332,13 @@ __int64 __fastcall MiActivePageClaimCandidate(__int64 a1, __int64 a2, char a3, _
                   if ( v11 != 17 )
                   {
                     _InterlockedAnd64((volatile signed __int64 *)(a2 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-                    if ( KiIrqlFlags )
+                    if ( (_DWORD)KiIrqlFlags )
                     {
                       CurrentIrql = KeGetCurrentIrql();
-                      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v11 <= 0xFu && CurrentIrql >= 2u )
+                      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+                        && CurrentIrql <= 0xFu
+                        && v11 <= 0xFu
+                        && CurrentIrql >= 2u )
                       {
                         CurrentPrcb = KeGetCurrentPrcb();
                         SchedulerAssist = CurrentPrcb->SchedulerAssist;

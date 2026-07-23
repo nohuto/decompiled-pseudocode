@@ -1,5 +1,5 @@
 /*
- * XREFs of KeGetCurrentIrql @ 0x1402AFB30
+ * XREFs of KeGetCurrentIrql @ 0x1402B0020
  * Callers:
  *     <none>
  * Callees:

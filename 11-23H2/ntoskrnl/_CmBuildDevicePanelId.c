@@ -1,12 +1,12 @@
 /*
- * XREFs of _CmBuildDevicePanelId @ 0x140862D28
+ * XREFs of _CmBuildDevicePanelId @ 0x140862F68
  * Callers:
- *     _CmUpdateDevicePanel @ 0x140798CFC (_CmUpdateDevicePanel.c)
- *     _CmUpdateDevicePanelInterface @ 0x140885CB0 (_CmUpdateDevicePanelInterface.c)
+ *     _CmUpdateDevicePanel @ 0x140798EEC (_CmUpdateDevicePanel.c)
+ *     _CmUpdateDevicePanelInterface @ 0x140885EF0 (_CmUpdateDevicePanelInterface.c)
  * Callees:
- *     RtlStringCchPrintfExW @ 0x14022B720 (RtlStringCchPrintfExW.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     _PnpStringFromGuid @ 0x140787E54 (_PnpStringFromGuid.c)
+ *     RtlStringCchPrintfExW @ 0x14022B830 (RtlStringCchPrintfExW.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     _PnpStringFromGuid @ 0x140788044 (_PnpStringFromGuid.c)
  */
 
 int __fastcall CmBuildDevicePanelId(int *a1, int a2, int a3, wchar_t *a4)

@@ -8,7 +8,7 @@
  *     RtlpHpSegReAlloc @ 0x1800271D0 (RtlpHpSegReAlloc.c)
  *     RtlpHpSegSetExtraPresent @ 0x18006B348 (RtlpHpSegSetExtraPresent.c)
  * Callees:
- *     RtlpHpSegGetDescriptorValidateSafe @ 0x18010EDC8 (RtlpHpSegGetDescriptorValidateSafe.c)
+ *     RtlpHpSegGetDescriptorValidateSafe @ 0x18010ED88 (RtlpHpSegGetDescriptorValidateSafe.c)
  */
 
 __int64 __fastcall RtlpHpSegDescriptorValidate(__int64 a1, unsigned __int64 a2)

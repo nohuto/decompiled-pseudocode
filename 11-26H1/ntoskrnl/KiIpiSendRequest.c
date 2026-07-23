@@ -1,31 +1,31 @@
 /*
- * XREFs of KiIpiSendRequest @ 0x140329ED0
+ * XREFs of KiIpiSendRequest @ 0x14032BF00
  * Callers:
- *     KeQueryTotalCycleTimeThread @ 0x14021AB70 (KeQueryTotalCycleTimeThread.c)
- *     KxFlushNonGlobalTb @ 0x140250FF0 (KxFlushNonGlobalTb.c)
- *     KxFlushEntireTb @ 0x14025128C (KxFlushEntireTb.c)
- *     KeFlushProcessWriteBuffers @ 0x14025167C (KeFlushProcessWriteBuffers.c)
- *     KiUpdateSpeculationControl @ 0x1402BB280 (KiUpdateSpeculationControl.c)
- *     KeUpdateThreadTag @ 0x1402C4800 (KeUpdateThreadTag.c)
- *     MiFlushTbList @ 0x140329040 (MiFlushTbList.c)
- *     KiIpiSendRequestEx @ 0x140329D60 (KiIpiSendRequestEx.c)
- *     KeChangeMemoryAttributes @ 0x1403EF1E8 (KeChangeMemoryAttributes.c)
- *     KiIpiSendPacket @ 0x140497DF4 (KiIpiSendPacket.c)
- *     KeIpiGenericCall @ 0x1404AAD60 (KeIpiGenericCall.c)
- *     KeSynchronizeAddressPolicy @ 0x1404CC778 (KeSynchronizeAddressPolicy.c)
- *     KiAdjustUserIsolationDomainThread @ 0x1404D35B4 (KiAdjustUserIsolationDomainThread.c)
- *     KeSynchronizeSecurityDomain @ 0x1404DD448 (KeSynchronizeSecurityDomain.c)
- *     KiRequestApcInterruptSynchronously @ 0x140520548 (KiRequestApcInterruptSynchronously.c)
+ *     KeQueryTotalCycleTimeThread @ 0x14021C500 (KeQueryTotalCycleTimeThread.c)
+ *     KxFlushNonGlobalTb @ 0x140252950 (KxFlushNonGlobalTb.c)
+ *     KxFlushEntireTb @ 0x140252BEC (KxFlushEntireTb.c)
+ *     KeFlushProcessWriteBuffers @ 0x140252FDC (KeFlushProcessWriteBuffers.c)
+ *     KiUpdateSpeculationControl @ 0x140305F40 (KiUpdateSpeculationControl.c)
+ *     KeUpdateThreadTag @ 0x14030F4C0 (KeUpdateThreadTag.c)
+ *     MiFlushTbList @ 0x14032B070 (MiFlushTbList.c)
+ *     KiIpiSendRequestEx @ 0x14032BD90 (KiIpiSendRequestEx.c)
+ *     KeChangeMemoryAttributes @ 0x140453D18 (KeChangeMemoryAttributes.c)
+ *     KiIpiSendPacket @ 0x140491944 (KiIpiSendPacket.c)
+ *     KeIpiGenericCall @ 0x1404A43F0 (KeIpiGenericCall.c)
+ *     KeSynchronizeAddressPolicy @ 0x1404C5F18 (KeSynchronizeAddressPolicy.c)
+ *     KiAdjustUserIsolationDomainThread @ 0x1404CCE24 (KiAdjustUserIsolationDomainThread.c)
+ *     KeSynchronizeSecurityDomain @ 0x1404D6B28 (KeSynchronizeSecurityDomain.c)
+ *     KiRequestApcInterruptSynchronously @ 0x140522BEC (KiRequestApcInterruptSynchronously.c)
  * Callees:
- *     RtlGetSystemTimePrecise @ 0x14021C830 (RtlGetSystemTimePrecise.c)
- *     RtlSubtractAffinityEx @ 0x14025B408 (RtlSubtractAffinityEx.c)
- *     EtwpGetPerfCounter @ 0x14032D3B0 (EtwpGetPerfCounter.c)
- *     HalRequestIpi @ 0x1403EC520 (HalRequestIpi.c)
- *     KiIpiEnlightenedGuestPriorityKick @ 0x140467500 (KiIpiEnlightenedGuestPriorityKick.c)
- *     EtwpGetHostPerfCounter @ 0x14046F124 (EtwpGetHostPerfCounter.c)
- *     PerfInfoLogIpiSend @ 0x1404F0820 (PerfInfoLogIpiSend.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     RtlGetSystemTimePrecise @ 0x14021E1C0 (RtlGetSystemTimePrecise.c)
+ *     RtlSubtractAffinityEx @ 0x14025CBE8 (RtlSubtractAffinityEx.c)
+ *     HalRequestIpi @ 0x1402F9560 (HalRequestIpi.c)
+ *     EtwpGetPerfCounter @ 0x14032F3E0 (EtwpGetPerfCounter.c)
+ *     KiIpiEnlightenedGuestPriorityKick @ 0x140460C50 (KiIpiEnlightenedGuestPriorityKick.c)
+ *     EtwpGetHostPerfCounter @ 0x1404688A4 (EtwpGetHostPerfCounter.c)
+ *     PerfInfoLogIpiSend @ 0x1404E9E00 (PerfInfoLogIpiSend.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall KiIpiSendRequest(__int64 a1, unsigned __int64 a2, char *a3, _OWORD *a4, __int64 a5)
@@ -101,25 +101,25 @@ __int64 __fastcall KiIpiSendRequest(__int64 a1, unsigned __int64 a2, char *a3, _
   v69 = 0LL;
   if ( (DWORD2(PerfGlobalGroupMask) & 0x400000) != 0 )
   {
-    v9 = qword_140FC8C80;
+    v9 = qword_140FC9C80;
     v10 = 1;
     v11 = 0;
-    if ( qword_140FC8C80 )
+    if ( qword_140FC9C80 )
     {
-      a2 = *(unsigned int *)(qword_140FC8C80 + 4520);
+      a2 = *(unsigned int *)(qword_140FC9C80 + 4520);
       for ( i = !_BitScanForward((unsigned int *)&a1, a2); !i; i = !_BitScanForward((unsigned int *)&a1, a2) )
       {
         a2 = ((_DWORD)a2 - 1) & (unsigned int)a2;
-        v13 = qword_140FC8C80 + 32 * a1 + 4556;
+        v13 = qword_140FC9C80 + 32 * a1 + 4556;
         if ( v13 && (*(_DWORD *)(v13 + 8) & 0x400000) != 0 )
-          v11 |= 1 << *(_BYTE *)(qword_140FC8C80 + 2 * a1 + 4505);
+          v11 |= 1 << *(_BYTE *)(qword_140FC9C80 + 2 * a1 + 4505);
       }
       if ( (v11 & 2) == 0 )
       {
         *(_QWORD *)&v68 = 0LL;
 LABEL_8:
         if ( (v11 & 4) != 0 )
-          *((_QWORD *)&v68 + 1) = RtlGetSystemTimePrecise();
+          *((LARGE_INTEGER *)&v68 + 1) = RtlGetSystemTimePrecise();
         else
           *((_QWORD *)&v68 + 1) = 0LL;
         if ( (v11 & 8) != 0 )
@@ -143,7 +143,7 @@ LABEL_8:
     {
       LOBYTE(v11) = 30;
     }
-    *(_QWORD *)&v68 = EtwpGetPerfCounter(a1, a2, qword_140FC8C80);
+    *(_QWORD *)&v68 = EtwpGetPerfCounter(a1, a2, qword_140FC9C80);
     goto LABEL_8;
   }
   v10 = 0;
@@ -159,8 +159,8 @@ LABEL_14:
   v19 = v18;
   if ( v7 )
   {
-    if ( *(_WORD *)&stru_140FC01F0.WaitRegister.Flags <= v18 )
-      v19 = *(_WORD *)&stru_140FC01F0.WaitRegister.Flags;
+    if ( *(_WORD *)&stru_140FC11F0.WaitRegister.Flags <= v18 )
+      v19 = *(_WORD *)&stru_140FC11F0.WaitRegister.Flags;
     v21 = 0LL;
     *(_WORD *)(v8 + 12234) = v18;
     v53 = 0;
@@ -168,12 +168,12 @@ LABEL_14:
     *(_DWORD *)(v8 + 12236) = 0;
     if ( v19 )
     {
-      v54 = (_QWORD *)((char *)&stru_140FC01F0.116 + 4);
+      v54 = (_QWORD *)((char *)&stru_140FC11F0.116 + 4);
       v21 = v19;
       v53 = v19;
       do
       {
-        *(_QWORD *)((char *)v54 + v15 - (char *)(&stru_140FC01F0.MiscFlags + 1) + 8) = *v54;
+        *(_QWORD *)((char *)v54 + v15 - (char *)(&stru_140FC11F0.MiscFlags + 1) + 8) = *v54;
         ++v54;
         --v21;
       }
@@ -183,15 +183,15 @@ LABEL_14:
       v55 = v53++;
     if ( v7 == 1 )
     {
-      v56 = *(_DWORD *)(*(_QWORD *)&KiSupervisorXStateFeaturesLock.WaitBlockFill11[112]
-                      + 4LL * *(unsigned int *)(v8 + 36)) >> 6;
+      v56 = (unsigned int)*(&KiSupervisorXStateFeaturesLock.SchedulerApc.Thread->Header.LockNV
+                          + *(unsigned int *)(v8 + 36)) >> 6;
       if ( *(unsigned __int16 *)v15 > (unsigned int)v56 )
       {
         v57 = &v15[8 * v56];
         v58 = *((_QWORD *)v57 + 1);
         _bittestandreset64(
           &v58,
-          *(_DWORD *)(*(_QWORD *)&KiSupervisorXStateFeaturesLock.WaitBlockFill11[112] + 4LL * *(unsigned int *)(v8 + 36)) & 0x3F);
+          *(&KiSupervisorXStateFeaturesLock.SchedulerApc.Thread->Header.LockNV + *(unsigned int *)(v8 + 36)) & 0x3F);
         *((_QWORD *)v57 + 1) = v58;
       }
     }
@@ -199,14 +199,14 @@ LABEL_14:
     if ( (a5 & 0x80000000) != 0 )
     {
       LODWORD(v26) = a5 & 0x7FFFFFFF;
-      for ( j = v21; j < LOWORD(KiDpcCorralLock.SListFaultAddress); ++j )
+      for ( j = v21; j < LOWORD(KiDpcCorralLock.Header.WaitListHead.Blink); ++j )
       {
-        if ( *(&KiDpcCorralLock.QuantumTarget + j) )
+        if ( *((_QWORD *)&KiDpcCorralLock.SListFaultAddress + j) )
         {
           v60 = v21;
           RtlSubtractAffinityEx(
             (struct _KAFFINITY_EX *)(v8 + 12232),
-            (struct _KAFFINITY_EX *)&KiDpcCorralLock.SListFaultAddress,
+            (struct _KAFFINITY_EX *)&KiDpcCorralLock.Header.WaitListHead.Blink,
             v8 + 12232);
           LODWORD(v21) = 0;
           break;
@@ -277,8 +277,8 @@ LABEL_42:
       {
         _BitScanForward64(&v41, v39);
         v39 &= ~(1LL << v41);
-        v42 = *((unsigned int *)&KiSupervisorXStateFeaturesLock.WaitBlock[2].Thread->Header.Lock
-              + 64 * (unsigned __int16)v34
+        v42 = *((unsigned int *)&KiSupervisorXStateFeaturesLock.SchedulerApc.ApcListEntry.Flink[16
+                                                                                              * (unsigned __int16)v34].Flink
               + (unsigned __int8)v41);
         v43 = KiProcessorBlock[v42];
         _m_prefetchw((const void *)(v43 + 39680));
@@ -312,7 +312,7 @@ LABEL_42:
         else
         {
           v62 = 1;
-          v47 = *(_DWORD *)(*(_QWORD *)&KiSupervisorXStateFeaturesLock.WaitBlockFill11[112] + 4 * v42);
+          v47 = *((_DWORD *)&KiSupervisorXStateFeaturesLock.SchedulerApc.Thread->Header.Lock + v42);
           v48 = v47 & 0x3F;
           v49 = v47 >> 6;
           if ( *(unsigned __int16 *)(v8 + 12496) > (unsigned int)v49 )
@@ -370,7 +370,7 @@ LABEL_33:
     {
       ++*(_DWORD *)(v8 + 36624);
       KiIpiEnlightenedGuestPriorityKick(v17, v27, v30);
-      result = HalRequestIpi(0LL, v17);
+      result = HalRequestIpi(0, v17);
     }
     v36 = v60;
   }

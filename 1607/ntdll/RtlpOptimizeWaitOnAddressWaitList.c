@@ -1,26 +1,26 @@
 /*
- * XREFs of RtlpOptimizeWaitOnAddressWaitList @ 0x180066B24
+ * XREFs of RtlpOptimizeWaitOnAddressWaitList @ 0x180066B14
  * Callers:
- *     RtlpAddWaitBlockToWaitList @ 0x1800669DC (RtlpAddWaitBlockToWaitList.c)
+ *     RtlpAddWaitBlockToWaitList @ 0x1800669CC (RtlpAddWaitBlockToWaitList.c)
  * Callees:
  *     <none>
  */
 
-signed __int64 __fastcall RtlpOptimizeWaitOnAddressWaitList(volatile signed __int64 *a1)
+int __fastcall RtlpOptimizeWaitOnAddressWaitList(volatile signed __int64 *a1)
 {
-  signed __int64 result; // rax
+  signed __int64 v1; // rax
   unsigned __int64 v3; // rdx
   _QWORD *v4; // r8
   _QWORD *v5; // rcx
   char v6; // cl
   signed __int64 v7; // rtt
 
-  result = *a1;
+  v1 = *a1;
   do
   {
-    v3 = result & 0xFFFFFFFFFFFFFFFCuLL;
-    v4 = (_QWORD *)(result & 0xFFFFFFFFFFFFFFFCuLL);
-    if ( !*(_QWORD *)((result & 0xFFFFFFFFFFFFFFFCuLL) + 32) )
+    v3 = v1 & 0xFFFFFFFFFFFFFFFCuLL;
+    v4 = (_QWORD *)(v1 & 0xFFFFFFFFFFFFFFFCuLL);
+    if ( !*(_QWORD *)((v1 & 0xFFFFFFFFFFFFFFFCuLL) + 32) )
     {
       do
       {
@@ -31,7 +31,7 @@ signed __int64 __fastcall RtlpOptimizeWaitOnAddressWaitList(volatile signed __in
       while ( !v4[4] );
     }
     *(_QWORD *)(v3 + 32) = v4[4];
-    if ( (result & 1) != 0 )
+    if ( (v1 & 1) != 0 )
     {
       v6 = 1;
       v3 = 0LL;
@@ -40,11 +40,11 @@ signed __int64 __fastcall RtlpOptimizeWaitOnAddressWaitList(volatile signed __in
     {
       v6 = 0;
     }
-    v7 = result;
-    result = _InterlockedCompareExchange64(a1, v3, result);
+    v7 = v1;
+    v1 = _InterlockedCompareExchange64(a1, v3, v1);
   }
-  while ( v7 != result );
+  while ( v7 != v1 );
   if ( v6 )
-    return RtlpWaitOnAddressWakeEntireList(result);
-  return result;
+    LODWORD(v1) = RtlpWaitOnAddressWakeEntireList(v1);
+  return v1;
 }

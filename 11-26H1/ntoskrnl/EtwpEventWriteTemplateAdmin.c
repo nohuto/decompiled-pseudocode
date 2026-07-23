@@ -1,15 +1,15 @@
 /*
- * XREFs of EtwpEventWriteTemplateAdmin @ 0x140B35598
+ * XREFs of EtwpEventWriteTemplateAdmin @ 0x140B377A8
  * Callers:
- *     EtwpUpdateSelectedGroupMasks @ 0x1404CCCE8 (EtwpUpdateSelectedGroupMasks.c)
- *     EtwpLogger @ 0x140A13B90 (EtwpLogger.c)
- *     EtwpFlushBufferToLogfile @ 0x140A15524 (EtwpFlushBufferToLogfile.c)
- *     EtwpRealtimeSaveBuffer @ 0x140A15B24 (EtwpRealtimeSaveBuffer.c)
- *     EtwpCreateLogFile @ 0x140A15DA4 (EtwpCreateLogFile.c)
- *     EtwpStartLogger @ 0x140A6E1B4 (EtwpStartLogger.c)
+ *     EtwpUpdateSelectedGroupMasks @ 0x1404C6488 (EtwpUpdateSelectedGroupMasks.c)
+ *     EtwpLogger @ 0x140A12D80 (EtwpLogger.c)
+ *     EtwpFlushBufferToLogfile @ 0x140A14718 (EtwpFlushBufferToLogfile.c)
+ *     EtwpRealtimeSaveBuffer @ 0x140A14D18 (EtwpRealtimeSaveBuffer.c)
+ *     EtwpCreateLogFile @ 0x140A16128 (EtwpCreateLogFile.c)
+ *     EtwpStartLogger @ 0x140AB0F2C (EtwpStartLogger.c)
  * Callees:
- *     EtwWrite @ 0x140212EF0 (EtwWrite.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwWrite @ 0x140212FD0 (EtwWrite.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall EtwpEventWriteTemplateAdmin(
@@ -48,5 +48,5 @@ NTSTATUS __fastcall EtwpEventWriteTemplateAdmin(
   v15 = 2LL;
   v17 = 4LL;
   v19 = 4LL;
-  return EtwWrite(EtwpEventTracingProvRegHandle, a2, 0LL, 6u, &UserData);
+  return EtwWrite((REGHANDLE)stru_140F03830.SavedApcState.ApcListHead[0].Blink, a2, 0LL, 6u, &UserData);
 }

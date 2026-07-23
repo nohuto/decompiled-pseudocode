@@ -1,19 +1,19 @@
 /*
- * XREFs of ExpHwidSendSynchronousIrpToDevice @ 0x140587074
+ * XREFs of ExpHwidSendSynchronousIrpToDevice @ 0x140588074
  * Callers:
- *     ExpHwidSysVolIfDeviceInfoProvider @ 0x140585820 (ExpHwidSysVolIfDeviceInfoProvider.c)
- *     ExpHwidNetworkIfDeviceInfoProvider @ 0x140585BC0 (ExpHwidNetworkIfDeviceInfoProvider.c)
- *     ExpHwidSysVolIfGetDiskInfo @ 0x140586E88 (ExpHwidSysVolIfGetDiskInfo.c)
- *     ExpCheckPortableOperatingSystem @ 0x1406C75AC (ExpCheckPortableOperatingSystem.c)
- *     sub_1408DB060 @ 0x1408DB060 (sub_1408DB060.c)
+ *     ExpHwidSysVolIfDeviceInfoProvider @ 0x140586820 (ExpHwidSysVolIfDeviceInfoProvider.c)
+ *     ExpHwidNetworkIfDeviceInfoProvider @ 0x140586BC0 (ExpHwidNetworkIfDeviceInfoProvider.c)
+ *     ExpHwidSysVolIfGetDiskInfo @ 0x140587E88 (ExpHwidSysVolIfGetDiskInfo.c)
+ *     ExpCheckPortableOperatingSystem @ 0x1406C884C (ExpCheckPortableOperatingSystem.c)
+ *     sub_1408DC320 @ 0x1408DC320 (sub_1408DC320.c)
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
  *     KeWaitForSingleObject @ 0x140054880 (KeWaitForSingleObject.c)
- *     IofCallDriver @ 0x1400B8DF0 (IofCallDriver.c)
- *     KeInitializeEvent @ 0x1400B8E70 (KeInitializeEvent.c)
- *     IoBuildDeviceIoControlRequest @ 0x1400DDC90 (IoBuildDeviceIoControlRequest.c)
- *     sub_1405872BC @ 0x1405872BC (sub_1405872BC.c)
- *     IoGetDeviceObjectPointer @ 0x140661E90 (IoGetDeviceObjectPointer.c)
+ *     IofCallDriver @ 0x1400B8D30 (IofCallDriver.c)
+ *     KeInitializeEvent @ 0x1400B8DB0 (KeInitializeEvent.c)
+ *     IoBuildDeviceIoControlRequest @ 0x1400DDD10 (IoBuildDeviceIoControlRequest.c)
+ *     sub_1405882BC @ 0x1405882BC (sub_1405882BC.c)
+ *     IoGetDeviceObjectPointer @ 0x140663050 (IoGetDeviceObjectPointer.c)
  */
 
 __int64 __fastcall ExpHwidSendSynchronousIrpToDevice(
@@ -71,7 +71,7 @@ __int64 __fastcall ExpHwidSendSynchronousIrpToDevice(
         if ( a7 )
           *a7 = IoStatusBlock.Information;
         if ( a8 )
-          *a8 = sub_1405872BC(v15);
+          *a8 = sub_1405882BC(v15);
       }
     }
     else

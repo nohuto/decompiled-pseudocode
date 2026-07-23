@@ -10,54 +10,71 @@
  *     NtTraceControl @ 0x1800A7A40 (NtTraceControl.c)
  */
 
-__int64 __fastcall EtwSendNotification(int *a1, int a2, char *a3, __int64 a4, __int64 a5)
+ULONG __cdecl EtwSendNotification(
+        PETW_NOTIFICATION_HEADER DataBlock,
+        ULONG ReceiveDataBlockSize,
+        PVOID ReceiveDataBlock,
+        PULONG ReplyReceived,
+        PULONG ReplySizeNeeded)
 {
-  char v5; // bp
-  int v8; // esi
+  BOOLEAN ReplyRequested; // bp
+  int v7; // r14d
+  ULONG Timeout; // esi
   NTSTATUS v11; // eax
   int v12; // r8d
   ULONG v13; // edi
-  int v15; // r9d
-  void *v16; // rbp
-  int v17; // r10d
+  ULONG ReplyCount; // r9d
+  void *Reserved2; // rbp
+  ULONG v17; // r10d
   char *v18; // rax
-  int v19; // [rsp+40h] [rbp-E8h]
-  char v20; // [rsp+58h] [rbp-D0h] BYREF
+  ETW_NOTIFICATION_TYPE OutputBuffer; // [rsp+40h] [rbp-E8h]
+  ULONG ReturnLength; // [rsp+50h] [rbp-D8h] BYREF
+  char v21; // [rsp+58h] [rbp-D0h] BYREF
 
-  v5 = *((_BYTE *)a1 + 12);
-  v8 = a1[4];
-  if ( v5 == 1 )
+  ReplyRequested = DataBlock->ReplyRequested;
+  v7 = (int)ReceiveDataBlock;
+  Timeout = DataBlock->Timeout;
+  if ( ReplyRequested == 1 )
   {
-    *((_QWORD *)a1 + 3) = 0LL;
-    if ( !v8 )
-      v8 = 60000;
+    DataBlock->Reserved2 = 0LL;
+    if ( !Timeout )
+      Timeout = 60000;
   }
-  v11 = NtTraceControl(17LL, a1, (unsigned int)a1[1]);
+  v11 = NtTraceControl(EtwSendDataBlock, DataBlock, DataBlock->NotificationSize, DataBlock, 0x48u, &ReturnLength);
   if ( v11 )
     v13 = RtlNtStatusToDosError(v11);
   else
     v13 = 0;
-  if ( v5 )
+  if ( ReplyRequested )
   {
-    v15 = a1[5];
+    ReplyCount = DataBlock->ReplyCount;
     if ( !v13 )
     {
-      v16 = (void *)*((_QWORD *)a1 + 3);
-      if ( v15 )
+      Reserved2 = (void *)DataBlock->Reserved2;
+      if ( ReplyCount )
       {
         v17 = 120;
-        v19 = *a1;
-        v18 = &v20;
-        if ( *a1 != 3 )
+        OutputBuffer = DataBlock->NotificationType;
+        v18 = &v21;
+        if ( DataBlock->NotificationType != EtwNotificationTypeEnable )
         {
-          v17 = a2;
-          v18 = a3;
+          v17 = ReceiveDataBlockSize;
+          LODWORD(v18) = v7;
         }
-        LOBYTE(v12) = v19 == 3;
-        v13 = EtwpReceiveReplyDataBlock((_DWORD)v16, v8, v12, v15, (__int64)v18, v17, a4, a5, v19);
+        LOBYTE(v12) = OutputBuffer == EtwNotificationTypeEnable;
+        v13 = EtwpReceiveReplyDataBlock(
+                (int)Reserved2,
+                Timeout,
+                v12,
+                ReplyCount,
+                (ULONG)v18,
+                v17,
+                (__int64)ReplyReceived,
+                (__int64)ReplySizeNeeded,
+                OutputBuffer);
       }
-      if ( v16 )
-        NtClose(v16);
+      if ( Reserved2 )
+        NtClose(Reserved2);
     }
   }
   return v13;

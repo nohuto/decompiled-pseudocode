@@ -16,15 +16,15 @@ __int64 __fastcall PspEnforceLimits(char a1)
   void *i; // rcx
   __int64 result; // rax
   void *v4; // rbx
-  _DWORD v5[4]; // [rsp+40h] [rbp-68h] BYREF
+  _DWORD Buffer[4]; // [rsp+40h] [rbp-68h] BYREF
   __int64 v6[8]; // [rsp+50h] [rbp-58h] BYREF
 
   memset(v6, 0, sizeof(v6));
   _InterlockedIncrement(&PspEnforcementSequenceNumber);
   if ( !a1 && PspNoWakeChargeReferencedProcess )
   {
-    v5[0] = 0;
-    ZwUpdateWnfStateData((__int64)&WNF_PS_WAKE_CHARGE_RESOURCE_POLICY, (__int64)v5);
+    Buffer[0] = 0;
+    ZwUpdateWnfStateData(&WNF_PS_WAKE_CHARGE_RESOURCE_POLICY, Buffer, 4u, 0LL, 0LL, 0, 0);
     ObfDereferenceObjectWithTag(PspNoWakeChargeReferencedProcess, 0x624A7350u);
     PspNoWakeChargeReferencedProcess = 0LL;
   }

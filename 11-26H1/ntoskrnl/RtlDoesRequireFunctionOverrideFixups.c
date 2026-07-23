@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlDoesRequireFunctionOverrideFixups @ 0x1409CF294
+ * XREFs of RtlDoesRequireFunctionOverrideFixups @ 0x1409A0274
  * Callers:
- *     RtlApplyFunctionOverrideFixupsToImage @ 0x140809D84 (RtlApplyFunctionOverrideFixupsToImage.c)
- *     MiInitializePrivateFixupBitmap @ 0x1409CE834 (MiInitializePrivateFixupBitmap.c)
- *     MiRelocateImagePfn @ 0x1409CEA4C (MiRelocateImagePfn.c)
+ *     RtlApplyFunctionOverrideFixupsToImage @ 0x14080F814 (RtlApplyFunctionOverrideFixupsToImage.c)
+ *     MiInitializePrivateFixupBitmap @ 0x14099F814 (MiInitializePrivateFixupBitmap.c)
+ *     MiRelocateImagePfn @ 0x14099FA2C (MiRelocateImagePfn.c)
  * Callees:
- *     ?terminate@details@gsl@@YAXXZ @ 0x14047FF64 (-terminate@details@gsl@@YAXXZ.c)
+ *     ?terminate@details@gsl@@YAXXZ @ 0x1404798A4 (-terminate@details@gsl@@YAXXZ.c)
  */
 
 bool __fastcall RtlDoesRequireFunctionOverrideFixups(__int64 a1, __int64 a2)

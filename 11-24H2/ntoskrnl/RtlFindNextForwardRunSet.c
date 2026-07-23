@@ -1,8 +1,8 @@
 /*
- * XREFs of RtlFindNextForwardRunSet @ 0x140438140
+ * XREFs of RtlFindNextForwardRunSet @ 0x14042AD00
  * Callers:
- *     HvpResetPageProtection @ 0x14097EE80 (HvpResetPageProtection.c)
- *     RtlpFcDrainDelayedUsageReportBuffer @ 0x140A36200 (RtlpFcDrainDelayedUsageReportBuffer.c)
+ *     HvpResetPageProtection @ 0x140967690 (HvpResetPageProtection.c)
+ *     RtlpFcDrainDelayedUsageReportBuffer @ 0x140A2B710 (RtlpFcDrainDelayedUsageReportBuffer.c)
  * Callees:
  *     <none>
  */

@@ -1,5 +1,5 @@
 /*
- * XREFs of VerifierFsRtlRemoveDotsFromPath @ 0x14070C6FC
+ * XREFs of VerifierFsRtlRemoveDotsFromPath @ 0x14070C72C
  * Callers:
  *     <none>
  * Callees:

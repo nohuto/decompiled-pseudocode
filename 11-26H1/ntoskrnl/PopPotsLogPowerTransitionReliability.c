@@ -1,14 +1,14 @@
 /*
- * XREFs of PopPotsLogPowerTransitionReliability @ 0x140B5BCF4
+ * XREFs of PopPotsLogPowerTransitionReliability @ 0x140B5F010
  * Callers:
- *     PopIssueActionRequest @ 0x140A37878 (PopIssueActionRequest.c)
+ *     PopIssueActionRequest @ 0x1409F3438 (PopIssueActionRequest.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212E30 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgCreate1Sz_wchar_t @ 0x140437A60 (_tlgCreate1Sz_wchar_t.c)
- *     _tlgKeywordOn @ 0x14044F850 (_tlgKeywordOn.c)
- *     swprintf_s @ 0x14053B0E0 (swprintf_s.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     PopQueryMostRecentWakeSourceAttributes @ 0x1407CF840 (PopQueryMostRecentWakeSourceAttributes.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212F10 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgCreate1Sz_wchar_t @ 0x1404269F0 (_tlgCreate1Sz_wchar_t.c)
+ *     _tlgKeywordOn @ 0x140447980 (_tlgKeywordOn.c)
+ *     swprintf_s @ 0x14053D560 (swprintf_s.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     PopQueryMostRecentWakeSourceAttributes @ 0x1407D28E0 (PopQueryMostRecentWakeSourceAttributes.c)
  */
 
 char __fastcall PopPotsLogPowerTransitionReliability(int a1, int a2, int a3)
@@ -55,7 +55,7 @@ char __fastcall PopPotsLogPowerTransitionReliability(int a1, int a2, int a3)
   v42 = a3;
   v17[0] = 0x20000LL;
   v12 = 0;
-  v17[1] = &word_140B814F0;
+  v17[1] = &word_140B8A320;
   v3 = (unsigned __int16 *)v17;
   v14 = (unsigned __int16 *)v17;
   v4 = (unsigned __int16 *)v17;
@@ -71,9 +71,9 @@ char __fastcall PopPotsLogPowerTransitionReliability(int a1, int a2, int a3)
     v4 = v13;
   }
   result = swprintf_s(Dst, 9uLL, L"%08X", (unsigned int)a1);
-  if ( PotsPowerTransitionsHandleRegistered && (unsigned int)dword_140E081F0 > 5 )
+  if ( PotsPowerTransitionsHandleRegistered && (unsigned int)dword_140E081E0 > 5 )
   {
-    result = tlgKeywordOn((__int64)&dword_140E081F0, 0x400000000000LL);
+    result = tlgKeywordOn((__int64)&dword_140E081E0, 0x400000000000LL);
     if ( result )
     {
       v21 = 4LL;
@@ -94,7 +94,7 @@ char __fastcall PopPotsLogPowerTransitionReliability(int a1, int a2, int a3)
       v30[1] = 0;
       v11 = *v4;
       v33 = *((_QWORD *)v4 + 1);
-      LODWORD(v13) = dword_140F105A0[0];
+      LODWORD(v13) = PpmIdlePolicyLock.Teb;
       v35 = &v13;
       v37 = &v14;
       v39 = &v18;
@@ -108,8 +108,8 @@ char __fastcall PopPotsLogPowerTransitionReliability(int a1, int a2, int a3)
       v18 = 0x1000000LL;
       v40 = 8LL;
       return tlgWriteTransfer_EtwWriteTransfer(
-               (__int64)&dword_140E081F0,
-               (unsigned __int8 *)&word_140050576,
+               (__int64)&dword_140E081E0,
+               (unsigned __int8 *)byte_140051569,
                0LL,
                0LL,
                0xDu,

@@ -1,12 +1,12 @@
 /*
- * XREFs of DifHalDmaFreeCrashDumpRegistersExWrapper @ 0x1405DAAD0
+ * XREFs of DifHalDmaFreeCrashDumpRegistersExWrapper @ 0x1405DB040
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     DifGetAPIThunkContextById @ 0x1404664BE (DifGetAPIThunkContextById.c)
- *     HalDmaFreeCrashDumpRegistersEx @ 0x140501240 (HalDmaFreeCrashDumpRegistersEx.c)
- *     DifGetReturnAddressForWrappers @ 0x1405F88C4 (DifGetReturnAddressForWrappers.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     DifGetAPIThunkContextById @ 0x1404668BE (DifGetAPIThunkContextById.c)
+ *     HalDmaFreeCrashDumpRegistersEx @ 0x140501790 (HalDmaFreeCrashDumpRegistersEx.c)
+ *     DifGetReturnAddressForWrappers @ 0x1405F8E34 (DifGetReturnAddressForWrappers.c)
  */
 
 __int64 __fastcall DifHalDmaFreeCrashDumpRegistersExWrapper(__int64 a1, int a2)

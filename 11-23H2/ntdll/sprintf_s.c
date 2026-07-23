@@ -6,8 +6,8 @@
  *     RtlIpv4AddressToStringExA @ 0x1800832D0 (RtlIpv4AddressToStringExA.c)
  *     RtlIpv4AddressToStringA @ 0x180083370 (RtlIpv4AddressToStringA.c)
  *     RtlIpv6AddressToStringExA @ 0x18008AAB0 (RtlIpv6AddressToStringExA.c)
- *     RtlGetFeatureToggleConfiguration @ 0x18009F600 (RtlGetFeatureToggleConfiguration.c)
- *     RtlEthernetAddressToStringA @ 0x1801096D0 (RtlEthernetAddressToStringA.c)
+ *     RtlGetFeatureToggleConfiguration @ 0x18009F5C0 (RtlGetFeatureToggleConfiguration.c)
+ *     RtlEthernetAddressToStringA @ 0x1801096A0 (RtlEthernetAddressToStringA.c)
  * Callees:
  *     vsprintf_s @ 0x18009AA50 (vsprintf_s.c)
  */

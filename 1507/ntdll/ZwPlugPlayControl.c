@@ -6,11 +6,14 @@
  *     <none>
  */
 
-__int64 ZwPlugPlayControl()
+NTSTATUS __cdecl ZwPlugPlayControl(
+        PLUGPLAY_CONTROL_CLASS PnPControlClass,
+        PVOID PnPControlData,
+        ULONG PnPControlDataLength)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 285LL;
+  result = 285;
   __asm { syscall; Low latency system call }
   return result;
 }

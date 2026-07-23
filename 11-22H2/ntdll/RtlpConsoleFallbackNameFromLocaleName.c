@@ -15,7 +15,7 @@ __int64 __fastcall RtlpConsoleFallbackNameFromLocaleName(
         wchar_t *String2,
         char a2,
         bool *a3,
-        UNICODE_STRING *a4,
+        _UNICODE_STRING *a4,
         __int64 a5,
         unsigned __int16 a6)
 {

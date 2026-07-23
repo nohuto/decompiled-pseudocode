@@ -1,68 +1,72 @@
 /*
- * XREFs of NtAlpcDeleteSecurityContext @ 0x1405EAC90
+ * XREFs of NtAlpcDeleteSecurityContext @ 0x1406DA3F0
  * Callers:
  *     <none>
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     AlpcpDereferenceBlobEx @ 0x1405E9FC0 (AlpcpDereferenceBlobEx.c)
- *     AlpcpDeleteBlob @ 0x1405EA09C (AlpcpDeleteBlob.c)
- *     AlpcReferenceBlobByHandle @ 0x140660940 (AlpcReferenceBlobByHandle.c)
- *     ObReferenceObjectByHandle @ 0x1406F0BC0 (ObReferenceObjectByHandle.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     KeLeaveCriticalRegionThread @ 0x1402AB8C0 (KeLeaveCriticalRegionThread.c)
+ *     AlpcReferenceBlobByHandle @ 0x140655760 (AlpcReferenceBlobByHandle.c)
+ *     AlpcpDereferenceBlobEx @ 0x1406D9720 (AlpcpDereferenceBlobEx.c)
+ *     AlpcpDeleteBlob @ 0x1406D97FC (AlpcpDeleteBlob.c)
+ *     ObReferenceObjectByHandle @ 0x140707FA0 (ObReferenceObjectByHandle.c)
  */
 
-__int64 __fastcall NtAlpcDeleteSecurityContext(void *a1, int a2, __int64 a3)
+// local variable allocation has failed, the output may be wrong!
+NTSTATUS __cdecl NtAlpcDeleteSecurityContext(HANDLE PortHandle, ULONG Flags, ALPC_HANDLE ContextHandle)
 {
+  __int64 v3; // r9
   struct _KTHREAD *CurrentThread; // rax
-  NTSTATUS v5; // ebx
-  struct _DMA_ADAPTER *v6; // rsi
-  __int64 v7; // rax
-  ULONG_PTR v8; // rdi
+  int v5; // edi
+  int v6; // ebx
+  struct _DMA_ADAPTER *v7; // rsi
+  ULONG_PTR v8; // rax
+  ULONG_PTR v9; // rdi
   PADAPTER_OBJECT DmaAdapter; // [rsp+58h] [rbp+20h] BYREF
 
   CurrentThread = KeGetCurrentThread();
+  v5 = (int)ContextHandle;
   --CurrentThread->KernelApcDisable;
-  if ( a2 )
+  if ( Flags )
   {
-    v5 = -1073741811;
+    v6 = -1073741811;
   }
   else
   {
     DmaAdapter = 0LL;
-    v5 = ObReferenceObjectByHandle(
-           a1,
+    v6 = ObReferenceObjectByHandle(
+           PortHandle,
            1u,
            AlpcPortObjectType,
            KeGetCurrentThread()->PreviousMode,
            (PVOID *)&DmaAdapter,
            0LL);
-    if ( v5 >= 0 )
+    if ( v6 >= 0 )
     {
-      v6 = DmaAdapter;
-      v7 = AlpcReferenceBlobByHandle(*(_QWORD *)&DmaAdapter[1].Version + 40LL, a3, AlpcSecurityType);
-      v8 = v7;
-      if ( v7 )
+      v7 = DmaAdapter;
+      v8 = AlpcReferenceBlobByHandle((_QWORD *)(*(_QWORD *)&DmaAdapter[1].Version + 40LL), v5, AlpcSecurityType);
+      v9 = v8;
+      if ( v8 )
       {
-        if ( v6 == *(struct _DMA_ADAPTER **)(v7 + 24) )
+        if ( v7 == *(struct _DMA_ADAPTER **)(v8 + 24) )
         {
-          if ( AlpcpDeleteBlob(v7) )
-            AlpcpDereferenceBlobEx(v8, 1);
+          if ( AlpcpDeleteBlob(v8) )
+            AlpcpDereferenceBlobEx(v9, 1);
           else
-            v5 = -1073741738;
+            v6 = -1073741738;
         }
         else
         {
-          v5 = -1073741790;
+          v6 = -1073741790;
         }
-        AlpcpDereferenceBlobEx(v8, 1);
+        AlpcpDereferenceBlobEx(v9, 1);
       }
       else
       {
-        v5 = -1073741816;
+        v6 = -1073741816;
       }
-      HalPutDmaAdapter(v6);
+      HalPutDmaAdapter(v7);
     }
   }
-  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
-  return (unsigned int)v5;
+  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), *(__int64 *)&Flags, (__int64)ContextHandle, v3);
+  return v6;
 }

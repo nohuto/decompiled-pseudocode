@@ -1,9 +1,9 @@
 /*
- * XREFs of PiPnpRtlGetDeviceInterfaceEnabled @ 0x1404FB0A8
+ * XREFs of PiPnpRtlGetDeviceInterfaceEnabled @ 0x1404DE034
  * Callers:
  *     <none>
  * Callees:
- *     ZwPlugPlayControl @ 0x14015C0E0 (ZwPlugPlayControl.c)
+ *     ZwPlugPlayControl @ 0x14015C650 (ZwPlugPlayControl.c)
  */
 
 NTSTATUS __fastcall PiPnpRtlGetDeviceInterfaceEnabled(__int64 a1, __int128 *a2, _BYTE *a3, unsigned int a4)
@@ -14,7 +14,7 @@ NTSTATUS __fastcall PiPnpRtlGetDeviceInterfaceEnabled(__int64 a1, __int128 *a2, 
 
   Buffer = *a2;
   v7 = a4;
-  result = ZwPlugPlayControl(MaxPlugPlayControl, &Buffer, 0x18u);
+  result = ZwPlugPlayControl(PlugPlayControlGetDeviceInterfaceEnabled, &Buffer, 0x18u);
   *a3 = BYTE4(v7);
   return result;
 }

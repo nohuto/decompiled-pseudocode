@@ -3,15 +3,13 @@
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
+ *     sub_14042A5E0 @ 0x14042A5E0 (sub_14042A5E0.c)
  */
 
-__int64 InbvNotifyDisplayOwnershipChange()
+__int64 __fastcall InbvNotifyDisplayOwnershipChange(__int64 a1, __int64 a2)
 {
-  __int64 (*v0)(void); // rax
-
-  if ( qword_140C54D10 && (v0 = *(__int64 (**)(void))(qword_140C54D10 + 16)) != 0LL )
-    return v0();
+  if ( qword_140C54D10 && *(_QWORD *)(qword_140C54D10 + 16) )
+    return sub_14042A5E0(a1, a2);
   else
     return 3221225474LL;
 }

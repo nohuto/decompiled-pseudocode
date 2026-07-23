@@ -1,16 +1,16 @@
 /*
- * XREFs of VsmEnclaveTelemetryInitOnce @ 0x18015DDD0
+ * XREFs of VsmEnclaveTelemetryInitOnce @ 0x18015DC90
  * Callers:
  *     <none>
  * Callees:
- *     TraceLoggingRegisterEx_EtwEventRegister_EtwEventSetInformation @ 0x18016F69C (TraceLoggingRegisterEx_EtwEventRegister_EtwEventSetInformation.c)
+ *     TraceLoggingRegisterEx_EtwEventRegister_EtwEventSetInformation @ 0x18016E69C (TraceLoggingRegisterEx_EtwEventRegister_EtwEventSetInformation.c)
  */
 
-__int64 VsmEnclaveTelemetryInitOnce()
+__int64 __fastcall VsmEnclaveTelemetryInitOnce(PRTL_RUN_ONCE a1, PVOID a2, PVOID *a3)
 {
   __int64 result; // rax
 
-  TraceLoggingRegisterEx_EtwEventRegister_EtwEventSetInformation(&dword_1801C59C8);
+  TraceLoggingRegisterEx_EtwEventRegister_EtwEventSetInformation(&dword_1801C49C8);
   result = 1LL;
   VSMEnclaveProvidersRegistered = 1;
   return result;

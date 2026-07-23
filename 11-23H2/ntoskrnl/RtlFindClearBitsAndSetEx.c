@@ -2,11 +2,11 @@
  * XREFs of RtlFindClearBitsAndSetEx @ 0x140210350
  * Callers:
  *     ExpSaPageGroupAllocateMemory @ 0x14022395C (ExpSaPageGroupAllocateMemory.c)
- *     RtlpHpFixedVsAllocate @ 0x140317790 (RtlpHpFixedVsAllocate.c)
+ *     RtlpHpFixedVsAllocate @ 0x140317A20 (RtlpHpFixedVsAllocate.c)
  *     MiObtainRelocationBits @ 0x1406AAE04 (MiObtainRelocationBits.c)
  *     MiAllocateFromSubAllocatedRegion @ 0x1406AB290 (MiAllocateFromSubAllocatedRegion.c)
  * Callees:
- *     RtlSetBitsEx @ 0x14028B3C0 (RtlSetBitsEx.c)
+ *     RtlSetBitsEx @ 0x14028B650 (RtlSetBitsEx.c)
  */
 
 unsigned __int64 __fastcall RtlFindClearBitsAndSetEx(unsigned __int64 *a1, unsigned __int64 a2, unsigned __int64 a3)

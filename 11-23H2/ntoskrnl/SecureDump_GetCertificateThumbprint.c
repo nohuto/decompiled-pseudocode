@@ -1,9 +1,9 @@
 /*
- * XREFs of SecureDump_GetCertificateThumbprint @ 0x14055DF70
+ * XREFs of SecureDump_GetCertificateThumbprint @ 0x14055E630
  * Callers:
- *     SecureDump_ValidateAmeCertChain @ 0x14055E7D0 (SecureDump_ValidateAmeCertChain.c)
+ *     SecureDump_ValidateAmeCertChain @ 0x14055EE90 (SecureDump_ValidateAmeCertChain.c)
  * Callees:
- *     MinCrypK_HashMemory @ 0x140A6F154 (MinCrypK_HashMemory.c)
+ *     MinCrypK_HashMemory @ 0x140A6F404 (MinCrypK_HashMemory.c)
  */
 
 __int64 __fastcall SecureDump_GetCertificateThumbprint(__int64 a1, __int64 a2, __int64 a3)

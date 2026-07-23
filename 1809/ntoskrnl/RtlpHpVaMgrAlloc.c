@@ -16,14 +16,14 @@
  *     KiAbThreadRemoveBoosts @ 0x14004EFD0 (KiAbThreadRemoveBoosts.c)
  *     MmGetSessionIdEx @ 0x14004F060 (MmGetSessionIdEx.c)
  *     KiLeaveGuardedRegionUnsafe @ 0x14004F090 (KiLeaveGuardedRegionUnsafe.c)
- *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     RtlpHpAcquireLockExclusive @ 0x1400BC4A0 (RtlpHpAcquireLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC660 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     RtlRbRemoveNode @ 0x1400BDDF0 (RtlRbRemoveNode.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
- *     memset @ 0x1401D1880 (memset.c)
+ *     ExfTryToWakePushLock @ 0x140091500 (ExfTryToWakePushLock.c)
+ *     RtlpHpAcquireLockExclusive @ 0x1400BC3E0 (RtlpHpAcquireLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC5A0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     RtlRbRemoveNode @ 0x1400BDD30 (RtlRbRemoveNode.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
+ *     memset @ 0x1401D1980 (memset.c)
  */
 
 __int64 __fastcall RtlpHpVaMgrAlloc(ULONG_PTR BugCheckParameter2, unsigned __int64 *a2, unsigned __int64 a3)
@@ -34,7 +34,7 @@ __int64 __fastcall RtlpHpVaMgrAlloc(ULONG_PTR BugCheckParameter2, unsigned __int
   unsigned __int64 v8; // rcx
   unsigned __int64 v9; // r14
   unsigned __int8 v10; // si
-  __int64 v11; // rax
+  _RTL_BALANCED_NODE *v11; // rax
   unsigned int SessionId; // r12d
   __int64 v13; // rdi
   struct _KTHREAD *v14; // rdi
@@ -85,12 +85,16 @@ __int64 __fastcall RtlpHpVaMgrAlloc(ULONG_PTR BugCheckParameter2, unsigned __int
   {
     v9 = v3 >> 20;
     v10 = RtlpHpAcquireLockExclusive(BugCheckParameter2, v7 & 1);
-    v11 = RtlpHpVaMgrRangeFind(BugCheckParameter2, (unsigned __int16)v9, (unsigned __int16)(v4 >> 20), &v44);
+    v11 = (_RTL_BALANCED_NODE *)RtlpHpVaMgrRangeFind(
+                                  BugCheckParameter2,
+                                  (unsigned __int16)v9,
+                                  (unsigned __int16)(v4 >> 20),
+                                  &v44);
     SessionId = -1;
-    v13 = v11;
+    v13 = (__int64)v11;
     if ( v11 )
     {
-      RtlRbRemoveNode(BugCheckParameter2 + 8, v11);
+      RtlRbRemoveNode((PRTL_RB_TREE)(BugCheckParameter2 + 8), v11);
       v37 = v44;
       if ( v44 != v13 )
       {
@@ -161,7 +165,7 @@ LABEL_27:
               {
                 v32->CrossThreadReleasableAndBusyByte |= 2u;
                 if ( (__int64)v32->LockState.LockState < 0 )
-                  KiAbEntryRemoveFromTree((__int64)&CurrentThread->LockEntries[v31], v28);
+                  KiAbEntryRemoveFromTree(&CurrentThread->LockEntries[v31].TreeNode, v28);
                 v39 = 0;
                 v39 = v32->BoostBitmap.AllFields & 0x1FFFF;
                 v32->BoostBitmap.AllFields &= 0xFFFE0000;
@@ -250,7 +254,7 @@ LABEL_61:
       {
         v22->CrossThreadReleasableAndBusyByte |= 2u;
         if ( (__int64)v22->LockState.LockState < 0 )
-          KiAbEntryRemoveFromTree((__int64)&v14->LockEntries[v21], v15);
+          KiAbEntryRemoveFromTree(&v14->LockEntries[v21].TreeNode, v15);
         v38 = 0;
         v38 = v22->BoostBitmap.AllFields & 0x1FFFF;
         v22->BoostBitmap.AllFields &= 0xFFFE0000;

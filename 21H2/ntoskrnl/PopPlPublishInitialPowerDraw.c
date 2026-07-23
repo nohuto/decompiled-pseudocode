@@ -1,13 +1,13 @@
 /*
- * XREFs of PopPlPublishInitialPowerDraw @ 0x14057E5A0
+ * XREFs of PopPlPublishInitialPowerDraw @ 0x14057E7E0
  * Callers:
  *     <none>
  * Callees:
- *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
- *     _tlgWriteEx_EtwWriteEx @ 0x1402D2F3C (_tlgWriteEx_EtwWriteEx.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     KxReleaseSpinLock @ 0x140212140 (KxReleaseSpinLock.c)
+ *     _tlgWriteEx_EtwWriteEx @ 0x1402514DC (_tlgWriteEx_EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     PopPlPublishSystemPowerChange @ 0x14057E778 (PopPlPublishSystemPowerChange.c)
+ *     PopPlPublishSystemPowerChange @ 0x14057E9B8 (PopPlPublishSystemPowerChange.c)
  */
 
 __int64 __fastcall PopPlPublishInitialPowerDraw(__int64 a1, int *a2)
@@ -95,7 +95,7 @@ __int64 __fastcall PopPlPublishInitialPowerDraw(__int64 a1, int *a2)
         v40 = &v21;
         v21 = v9;
         v41 = 4;
-        tlgWriteEx_EtwWriteEx((__int64)&dword_140C02228, (unsigned __int8 *)&byte_14002A5EF, v6, 1u, v15, v16, 9u, &v22);
+        tlgWriteEx_EtwWriteEx((__int64)&dword_140C02228, (unsigned __int8 *)&byte_14002A5D7, v6, 1u, v15, v16, 9u, &v22);
       }
     }
   }

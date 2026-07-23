@@ -1,15 +1,15 @@
 /*
- * XREFs of IoIncrementKeepAliveCount @ 0x140558120
+ * XREFs of IoIncrementKeepAliveCount @ 0x1405587E0
  * Callers:
  *     <none>
  * Callees:
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250E80 (KeAcquireSpinLockRaiseToDpc.c)
- *     ObfReferenceObjectWithTag @ 0x1402B68C0 (ObfReferenceObjectWithTag.c)
- *     ExQueueWorkItem @ 0x1402B7C30 (ExQueueWorkItem.c)
- *     IopAdjustFileObjectKeepAliveCount @ 0x14055846C (IopAdjustFileObjectKeepAliveCount.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     PspAdjustKeepAliveCountProcess @ 0x1409AE8C0 (PspAdjustKeepAliveCountProcess.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140250F40 (KeAcquireSpinLockRaiseToDpc.c)
+ *     ObfReferenceObjectWithTag @ 0x1402B6B50 (ObfReferenceObjectWithTag.c)
+ *     ExQueueWorkItem @ 0x1402B7EC0 (ExQueueWorkItem.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     IopAdjustFileObjectKeepAliveCount @ 0x140558B2C (IopAdjustFileObjectKeepAliveCount.c)
+ *     PspAdjustKeepAliveCountProcess @ 0x1409AEAC0 (PspAdjustKeepAliveCountProcess.c)
  */
 
 __int64 __fastcall IoIncrementKeepAliveCount(__int64 a1, void *a2)
@@ -56,10 +56,13 @@ __int64 __fastcall IoIncrementKeepAliveCount(__int64 a1, void *a2)
         }
       }
       KxReleaseSpinLock((volatile signed __int64 *)qword_140C5DDF0);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         CurrentIrql = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v8 <= 0xFu && CurrentIrql >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+          && CurrentIrql <= 0xFu
+          && (unsigned __int8)v8 <= 0xFu
+          && CurrentIrql >= 2u )
         {
           CurrentPrcb = KeGetCurrentPrcb();
           SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -67,7 +70,7 @@ __int64 __fastcall IoIncrementKeepAliveCount(__int64 a1, void *a2)
           v14 = (v13 & SchedulerAssist[5]) == 0;
           SchedulerAssist[5] &= v13;
           if ( v14 )
-            KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+            KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
         }
       }
       __writecr8(v8);

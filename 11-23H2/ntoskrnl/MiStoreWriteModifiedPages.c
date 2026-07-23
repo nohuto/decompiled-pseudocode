@@ -1,39 +1,39 @@
 /*
- * XREFs of MiStoreWriteModifiedPages @ 0x14046DAAA
+ * XREFs of MiStoreWriteModifiedPages @ 0x14046DEAA
  * Callers:
- *     MiGatherPagefilePages @ 0x14063A144 (MiGatherPagefilePages.c)
+ *     MiGatherPagefilePages @ 0x14063A694 (MiGatherPagefilePages.c)
  * Callees:
- *     RtlClearBits @ 0x14022DA00 (RtlClearBits.c)
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExAcquireSpinLockExclusive @ 0x14024D360 (ExAcquireSpinLockExclusive.c)
- *     MiUpdatePageFileHighInPte @ 0x14028563C (MiUpdatePageFileHighInPte.c)
- *     MiTransferSoftwarePte @ 0x1402857D0 (MiTransferSoftwarePte.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402894C0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     MiReleasePageFileInfo @ 0x1402952DC (MiReleasePageFileInfo.c)
- *     ObDereferenceObjectDeferDeleteWithTag @ 0x1402A8CE0 (ObDereferenceObjectDeferDeleteWithTag.c)
- *     ObReferenceObjectSafeWithTag @ 0x1402C3650 (ObReferenceObjectSafeWithTag.c)
- *     MiAllocatePool @ 0x1402DF1A0 (MiAllocatePool.c)
- *     MiSufficientAvailablePages @ 0x1402E35AC (MiSufficientAvailablePages.c)
- *     KiQueryUnbiasedInterruptTime @ 0x1402E7464 (KiQueryUnbiasedInterruptTime.c)
- *     MiLockPageInline @ 0x1402EF680 (MiLockPageInline.c)
- *     KiCheckForKernelApcDelivery @ 0x14030F820 (KiCheckForKernelApcDelivery.c)
- *     MiCapturePageFileInfoInline @ 0x140348CB4 (MiCapturePageFileInfoInline.c)
- *     RtlpInterlockedPopEntrySList @ 0x140428EB0 (RtlpInterlockedPopEntrySList.c)
- *     MiStoreCheckCandidatePage @ 0x14046D640 (MiStoreCheckCandidatePage.c)
- *     MiStoreLogNotCandidate @ 0x14046D892 (MiStoreLogNotCandidate.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     MiDerefPageFileSpaceBitmaps @ 0x140638EFC (MiDerefPageFileSpaceBitmaps.c)
- *     MiRefPageFileSpaceBitmaps @ 0x14063B494 (MiRefPageFileSpaceBitmaps.c)
- *     MiUpdatePagefilePeakUsage @ 0x14063BB6C (MiUpdatePagefilePeakUsage.c)
- *     MiStoreDecrementOutstandingWrites @ 0x14065C000 (MiStoreDecrementOutstandingWrites.c)
- *     MiStoreFreeWriteSupport @ 0x14065C2A4 (MiStoreFreeWriteSupport.c)
- *     MiStoreLogFullPagefile @ 0x14065C304 (MiStoreLogFullPagefile.c)
- *     MiStoreLogWriteDisabled @ 0x14065C410 (MiStoreLogWriteDisabled.c)
- *     MiStoreLogWriteIssueFailure @ 0x14065C4D0 (MiStoreLogWriteIssueFailure.c)
- *     MiStoreLogWriteIssueRetry @ 0x14065C620 (MiStoreLogWriteIssueRetry.c)
- *     MiStoreModifiedWriteDereference @ 0x14065C854 (MiStoreModifiedWriteDereference.c)
- *     MiStoreUpdatePagefileHash @ 0x14065CAE8 (MiStoreUpdatePagefileHash.c)
- *     MiStoreWriteIssue @ 0x14065CCF4 (MiStoreWriteIssue.c)
+ *     RtlClearBits @ 0x14022DB10 (RtlClearBits.c)
+ *     KeLeaveCriticalRegionThread @ 0x14022F7F0 (KeLeaveCriticalRegionThread.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024D430 (ExAcquireSpinLockExclusive.c)
+ *     MiUpdatePageFileHighInPte @ 0x1402858CC (MiUpdatePageFileHighInPte.c)
+ *     MiTransferSoftwarePte @ 0x140285A60 (MiTransferSoftwarePte.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140289750 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiReleasePageFileInfo @ 0x14029556C (MiReleasePageFileInfo.c)
+ *     ObDereferenceObjectDeferDeleteWithTag @ 0x1402A8F70 (ObDereferenceObjectDeferDeleteWithTag.c)
+ *     ObReferenceObjectSafeWithTag @ 0x1402C38E0 (ObReferenceObjectSafeWithTag.c)
+ *     MiAllocatePool @ 0x1402DF430 (MiAllocatePool.c)
+ *     MiSufficientAvailablePages @ 0x1402E383C (MiSufficientAvailablePages.c)
+ *     KiQueryUnbiasedInterruptTime @ 0x1402E76F4 (KiQueryUnbiasedInterruptTime.c)
+ *     MiLockPageInline @ 0x1402EF910 (MiLockPageInline.c)
+ *     KiCheckForKernelApcDelivery @ 0x14030FAB0 (KiCheckForKernelApcDelivery.c)
+ *     MiCapturePageFileInfoInline @ 0x140348F44 (MiCapturePageFileInfoInline.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     RtlpInterlockedPopEntrySList @ 0x140429240 (RtlpInterlockedPopEntrySList.c)
+ *     MiStoreCheckCandidatePage @ 0x14046DA40 (MiStoreCheckCandidatePage.c)
+ *     MiStoreLogNotCandidate @ 0x14046DC92 (MiStoreLogNotCandidate.c)
+ *     MiDerefPageFileSpaceBitmaps @ 0x14063944C (MiDerefPageFileSpaceBitmaps.c)
+ *     MiRefPageFileSpaceBitmaps @ 0x14063B9E4 (MiRefPageFileSpaceBitmaps.c)
+ *     MiUpdatePagefilePeakUsage @ 0x14063C0BC (MiUpdatePagefilePeakUsage.c)
+ *     MiStoreDecrementOutstandingWrites @ 0x14065C550 (MiStoreDecrementOutstandingWrites.c)
+ *     MiStoreFreeWriteSupport @ 0x14065C7F4 (MiStoreFreeWriteSupport.c)
+ *     MiStoreLogFullPagefile @ 0x14065C854 (MiStoreLogFullPagefile.c)
+ *     MiStoreLogWriteDisabled @ 0x14065C960 (MiStoreLogWriteDisabled.c)
+ *     MiStoreLogWriteIssueFailure @ 0x14065CA20 (MiStoreLogWriteIssueFailure.c)
+ *     MiStoreLogWriteIssueRetry @ 0x14065CB70 (MiStoreLogWriteIssueRetry.c)
+ *     MiStoreModifiedWriteDereference @ 0x14065CDA4 (MiStoreModifiedWriteDereference.c)
+ *     MiStoreUpdatePagefileHash @ 0x14065D038 (MiStoreUpdatePagefileHash.c)
+ *     MiStoreWriteIssue @ 0x14065D244 (MiStoreWriteIssue.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 
@@ -76,7 +76,7 @@ __int64 __fastcall MiStoreWriteModifiedPages(__int64 a1)
   struct _KPRCB *v36; // r10
   _DWORD *v37; // r9
   int v38; // eax
-  struct _SLIST_ENTRY *Pool; // rdi
+  _SLIST_ENTRY *Pool; // rdi
   unsigned int v40; // ebx
   int v41; // eax
   int v42; // edi
@@ -282,10 +282,13 @@ LABEL_42:
       if ( (_BYTE)v12 != 17 )
       {
         _InterlockedAnd64((volatile signed __int64 *)(v13 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
           CurrentIrql = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v12 <= 0xFu && CurrentIrql >= 2u )
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+            && CurrentIrql <= 0xFu
+            && (unsigned __int8)v12 <= 0xFu
+            && CurrentIrql >= 2u )
           {
             CurrentPrcb = KeGetCurrentPrcb();
             SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -293,7 +296,7 @@ LABEL_42:
             j = (v32 & SchedulerAssist[5]) == 0;
             SchedulerAssist[5] &= v32;
             if ( j )
-              KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+              KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
           }
         }
         __writecr8((unsigned __int8)v12);
@@ -319,10 +322,10 @@ LABEL_51:
       Object = (_SLIST_ENTRY *)v100;
     }
     _InterlockedAnd64((volatile signed __int64 *)(v13 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v35 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v35 <= 0xFu && (unsigned __int8)v12 <= 0xFu && v35 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v35 <= 0xFu && (unsigned __int8)v12 <= 0xFu && v35 >= 2u )
       {
         v36 = KeGetCurrentPrcb();
         v37 = v36->SchedulerAssist;
@@ -330,7 +333,7 @@ LABEL_51:
         j = (v38 & v37[5]) == 0;
         v37[5] &= v38;
         if ( j )
-          KiRemoveSystemWorkPriorityKick(v36);
+          KiRemoveSystemWorkPriorityKick((__int64)v36);
       }
     }
     __writecr8(v12);
@@ -339,7 +342,7 @@ LABEL_51:
     Pool = P;
     if ( !P )
     {
-      Pool = (struct _SLIST_ENTRY *)MiAllocatePool(64, 0x80uLL, 0x57536D4Du);
+      Pool = (_SLIST_ENTRY *)MiAllocatePool(64, 0x80uLL, 0x57536D4Du);
       P = Pool;
       if ( !Pool )
       {
@@ -381,10 +384,10 @@ LABEL_51:
       --*(_QWORD *)(v92 + 24);
       MiUpdatePagefilePeakUsage(v92);
       ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(v92 + 232));
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v46 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v46 <= 0xFu && (unsigned __int8)v44 <= 0xFu && v46 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v46 <= 0xFu && (unsigned __int8)v44 <= 0xFu && v46 >= 2u )
         {
           v47 = KeGetCurrentPrcb();
           v48 = v47->SchedulerAssist;
@@ -392,7 +395,7 @@ LABEL_51:
           j = (v49 & v48[5]) == 0;
           v48[5] &= v49;
           if ( j )
-            KiRemoveSystemWorkPriorityKick(v47);
+            KiRemoveSystemWorkPriorityKick((__int64)v47);
         }
       }
       __writecr8(v44);
@@ -402,7 +405,7 @@ LABEL_51:
       v51 = v50;
       *(_QWORD *)(v13 + 16) = MiTransferSoftwarePte(*(_QWORD *)(v13 + 16), v92, v24, 1);
       _InterlockedAnd64((volatile signed __int64 *)(v13 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v53 = KeGetCurrentIrql();
         v54 = v52;
@@ -414,7 +417,7 @@ LABEL_51:
           j = (v57 & v56[5]) == 0;
           v56[5] &= v57;
           if ( j )
-            KiRemoveSystemWorkPriorityKick(v55);
+            KiRemoveSystemWorkPriorityKick((__int64)v55);
         }
       }
       __writecr8(v12);
@@ -575,10 +578,10 @@ LABEL_135:
         v86 = (unsigned __int8)MiLockPageInline(v85);
         *(_BYTE *)(v85 + 34) |= 0x10u;
         _InterlockedAnd64((volatile signed __int64 *)(v85 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
           v87 = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && v87 <= 0xFu && (unsigned __int8)v86 <= 0xFu && v87 >= 2u )
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v87 <= 0xFu && (unsigned __int8)v86 <= 0xFu && v87 >= 2u )
           {
             v88 = KeGetCurrentPrcb();
             v89 = v88->SchedulerAssist;
@@ -586,7 +589,7 @@ LABEL_135:
             j = (v90 & v89[5]) == 0;
             v89[5] &= v90;
             if ( j )
-              KiRemoveSystemWorkPriorityKick(v88);
+              KiRemoveSystemWorkPriorityKick((__int64)v88);
           }
         }
         __writecr8(v86);

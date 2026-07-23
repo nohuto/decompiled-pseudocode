@@ -1,16 +1,16 @@
 /*
- * XREFs of ExpGetDriveGeometry @ 0x14083B8C8
+ * XREFs of ExpGetDriveGeometry @ 0x140841B08
  * Callers:
- *     ExpCreateOutputEFI @ 0x140A94368 (ExpCreateOutputEFI.c)
- *     ExpTranslateEfiPath @ 0x140A9512C (ExpTranslateEfiPath.c)
+ *     ExpCreateOutputEFI @ 0x140A2CBBC (ExpCreateOutputEFI.c)
+ *     ExpTranslateEfiPath @ 0x140A2D97C (ExpTranslateEfiPath.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     swprintf_s @ 0x14053B0E0 (swprintf_s.c)
- *     ZwDeviceIoControlFile @ 0x1407234D0 (ZwDeviceIoControlFile.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     ZwOpenFile @ 0x140723A50 (ZwOpenFile.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     swprintf_s @ 0x14053D560 (swprintf_s.c)
+ *     ZwDeviceIoControlFile @ 0x1407280A0 (ZwDeviceIoControlFile.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     ZwOpenFile @ 0x140728620 (ZwOpenFile.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall ExpGetDriveGeometry(unsigned int a1, _DWORD *a2)

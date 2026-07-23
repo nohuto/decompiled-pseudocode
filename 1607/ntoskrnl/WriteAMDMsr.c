@@ -1,7 +1,7 @@
 /*
- * XREFs of WriteAMDMsr @ 0x1401663F0
+ * XREFs of WriteAMDMsr @ 0x140166960
  * Callers:
- *     KiDisableCacheErrataSource @ 0x1401D8DBC (KiDisableCacheErrataSource.c)
+ *     KiDisableCacheErrataSource @ 0x1401D8BE8 (KiDisableCacheErrataSource.c)
  * Callees:
  *     <none>
  */

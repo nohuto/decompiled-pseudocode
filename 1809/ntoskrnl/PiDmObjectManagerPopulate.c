@@ -1,16 +1,16 @@
 /*
- * XREFs of PiDmObjectManagerPopulate @ 0x14072C8F0
+ * XREFs of PiDmObjectManagerPopulate @ 0x14072DAE0
  * Callers:
- *     PiDmInit @ 0x1409BD6F4 (PiDmInit.c)
+ *     PiDmInit @ 0x1409BE6F4 (PiDmInit.c)
  * Callees:
  *     RtlDeleteElementGenericTableAvl @ 0x140006CA0 (RtlDeleteElementGenericTableAvl.c)
  *     RtlInsertElementGenericTableAvl @ 0x140006F00 (RtlInsertElementGenericTableAvl.c)
- *     RtlEnumerateGenericTableAvl @ 0x140134230 (RtlEnumerateGenericTableAvl.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     PiDmObjectRelease @ 0x140598D30 (PiDmObjectRelease.c)
- *     _PnpGetObjectList @ 0x14059D398 (_PnpGetObjectList.c)
- *     PiDmObjectCreate @ 0x1406F1C30 (PiDmObjectCreate.c)
+ *     RtlEnumerateGenericTableAvl @ 0x140134300 (RtlEnumerateGenericTableAvl.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     PiDmObjectRelease @ 0x140599D30 (PiDmObjectRelease.c)
+ *     _PnpGetObjectList @ 0x14059E398 (_PnpGetObjectList.c)
+ *     PiDmObjectCreate @ 0x1406F2ED0 (PiDmObjectCreate.c)
  */
 
 __int64 __fastcall PiDmObjectManagerPopulate(__int64 a1)

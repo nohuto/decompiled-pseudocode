@@ -1,20 +1,20 @@
 /*
- * XREFs of PopScanIdleList @ 0x14032C910
+ * XREFs of PopScanIdleList @ 0x14032CBA0
  * Callers:
- *     PopSystemIdleWorker @ 0x1407A6DA0 (PopSystemIdleWorker.c)
+ *     PopSystemIdleWorker @ 0x1407A6F90 (PopSystemIdleWorker.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250E80 (KeAcquireSpinLockRaiseToDpc.c)
- *     PopRequestPowerIrp @ 0x14028F230 (PopRequestPowerIrp.c)
- *     PopGetPowerSettingValue @ 0x14032CC40 (PopGetPowerSettingValue.c)
- *     PopDiagTraceEventNoPayload @ 0x140367640 (PopDiagTraceEventNoPayload.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     PopCoalescingCheck @ 0x14058D884 (PopCoalescingCheck.c)
- *     PopDiagTraceDeviceIdleCheck @ 0x14059296C (PopDiagTraceDeviceIdleCheck.c)
- *     PopDiagTraceDiskIdleCheck @ 0x140592B4C (PopDiagTraceDiskIdleCheck.c)
- *     PopDiagTraceIoCoalescingDiskIdle @ 0x1405940FC (PopDiagTraceIoCoalescingDiskIdle.c)
- *     PopSetPowerSettingValue @ 0x1407829F8 (PopSetPowerSettingValue.c)
- *     PopSetPowerSettingValueAcDc @ 0x1407A7570 (PopSetPowerSettingValueAcDc.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140250F40 (KeAcquireSpinLockRaiseToDpc.c)
+ *     PopRequestPowerIrp @ 0x14028F4C0 (PopRequestPowerIrp.c)
+ *     PopGetPowerSettingValue @ 0x14032CED0 (PopGetPowerSettingValue.c)
+ *     PopDiagTraceEventNoPayload @ 0x1403677E0 (PopDiagTraceEventNoPayload.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     PopCoalescingCheck @ 0x14058DD74 (PopCoalescingCheck.c)
+ *     PopDiagTraceDeviceIdleCheck @ 0x140592E5C (PopDiagTraceDeviceIdleCheck.c)
+ *     PopDiagTraceDiskIdleCheck @ 0x14059303C (PopDiagTraceDiskIdleCheck.c)
+ *     PopDiagTraceIoCoalescingDiskIdle @ 0x1405945EC (PopDiagTraceIoCoalescingDiskIdle.c)
+ *     PopSetPowerSettingValue @ 0x140782BE8 (PopSetPowerSettingValue.c)
+ *     PopSetPowerSettingValueAcDc @ 0x1407A7760 (PopSetPowerSettingValueAcDc.c)
  */
 
 __int64 __fastcall PopScanIdleList(int a1, unsigned __int64 a2)
@@ -63,11 +63,11 @@ __int64 __fastcall PopScanIdleList(int a1, unsigned __int64 a2)
   KIRQL v46; // [rsp+C0h] [rbp+58h]
   int v47; // [rsp+C8h] [rbp+60h] BYREF
 
-  v40 = dword_140C3D888;
+  v40 = dword_140C3D988;
   v2 = a1;
   v3 = 0;
   v4 = a2;
-  v43 = dword_140C3D884;
+  v43 = dword_140C3D984;
   v5 = 0;
   v47 = 0;
   v39 = 0;
@@ -78,13 +78,16 @@ __int64 __fastcall PopScanIdleList(int a1, unsigned __int64 a2)
   v6 = KeAcquireSpinLockRaiseToDpc(&PopDopeGlobalLock);
   v7 = v6;
   v46 = v6;
-  if ( byte_140D17B4C )
+  if ( byte_140D17B2C )
   {
     KxReleaseSpinLock((volatile signed __int64 *)&PopDopeGlobalLock);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v7 <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+        && CurrentIrql <= 0xFu
+        && (unsigned __int8)v7 <= 0xFu
+        && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -166,7 +169,7 @@ __int64 __fastcall PopScanIdleList(int a1, unsigned __int64 a2)
           {
             *((_DWORD *)v18 + 3) = 0;
             v31 = *((_DWORD *)v18 + 13);
-            ++dword_140D17B48;
+            ++dword_140D17B28;
             *((_DWORD *)v18 + 14) = v31;
           }
         }
@@ -188,10 +191,10 @@ __int64 __fastcall PopScanIdleList(int a1, unsigned __int64 a2)
     }
     PopDiagTraceEventNoPayload(&POP_ETW_EVENT_DEVICE_IDLE_END);
     KxReleaseSpinLock((volatile signed __int64 *)&PopDopeGlobalLock);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v32 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v32 <= 0xFu && (unsigned __int8)v7 <= 0xFu && v32 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v32 <= 0xFu && (unsigned __int8)v7 <= 0xFu && v32 >= 2u )
       {
         v33 = KeGetCurrentPrcb();
         v34 = v33->SchedulerAssist;
@@ -222,7 +225,7 @@ __int64 __fastcall PopScanIdleList(int a1, unsigned __int64 a2)
     }
     if ( !v5 || v3 )
     {
-      if ( !v10 && !dword_140C3D86C )
+      if ( !v10 && !dword_140C3D96C )
       {
         PopGetPowerSettingValue(&GUID_IDLE_BACKGROUND_TASK, v9, 3LL, &v47, 4, &v39);
         ++v47;
@@ -230,7 +233,7 @@ __int64 __fastcall PopScanIdleList(int a1, unsigned __int64 a2)
         v9 = (PopIdleScanInterval + 59) % (unsigned int)PopIdleScanInterval;
         PopIdleBackgroundIgnoreCount = (PopIdleScanInterval + 59) / (unsigned int)PopIdleScanInterval;
       }
-      if ( !PopBackgroundTaskIgnoreCount && PopSIdle >= 50 && !dword_140C3D86C && PopBackgroundTaskAllowed )
+      if ( !PopBackgroundTaskIgnoreCount && PopSIdle >= 50 && !dword_140C3D96C && PopBackgroundTaskAllowed )
       {
         PopGetPowerSettingValue(&GUID_BACKGROUND_TASK_NOTIFICATION, v9, 0LL, &v47, 4, &v39);
         ++v47;

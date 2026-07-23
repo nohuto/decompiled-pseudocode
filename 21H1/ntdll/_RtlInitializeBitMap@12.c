@@ -6,12 +6,8 @@
  *     <none>
  */
 
-int __stdcall RtlInitializeBitMap(_DWORD *a1, int a2, int a3)
+void __cdecl RtlInitializeBitMap(PRTL_BITMAP BitMapHeader, PULONG BitMapBuffer, ULONG SizeOfBitMap)
 {
-  int result; // eax
-
-  *a1 = a3;
-  result = a2;
-  a1[1] = a2;
-  return result;
+  BitMapHeader->SizeOfBitMap = SizeOfBitMap;
+  BitMapHeader->Buffer = BitMapBuffer;
 }

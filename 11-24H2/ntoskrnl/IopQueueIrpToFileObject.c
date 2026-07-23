@@ -1,14 +1,14 @@
 /*
- * XREFs of IopQueueIrpToFileObject @ 0x1404E5980
+ * XREFs of IopQueueIrpToFileObject @ 0x1404DC180
  * Callers:
- *     IopSynchronousServiceTail @ 0x1408C3300 (IopSynchronousServiceTail.c)
- *     IopIsIosbInLockedRange @ 0x140A2151C (IopIsIosbInLockedRange.c)
+ *     IopSynchronousServiceTail @ 0x1408C0CC0 (IopSynchronousServiceTail.c)
+ *     IopIsIosbInLockedRange @ 0x140A16BB8 (IopIsIosbInLockedRange.c)
  * Callees:
- *     KiReleaseSpinLockInstrumented @ 0x14024E080 (KiReleaseSpinLockInstrumented.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140254B20 (KeAcquireSpinLockRaiseToDpc.c)
- *     ObfReferenceObjectWithTag @ 0x1403403E0 (ObfReferenceObjectWithTag.c)
- *     ObFastReferenceObject @ 0x140402C30 (ObFastReferenceObject.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiReleaseSpinLockInstrumented @ 0x14027E690 (KiReleaseSpinLockInstrumented.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140285130 (KeAcquireSpinLockRaiseToDpc.c)
+ *     ObfReferenceObjectWithTag @ 0x14031F8C0 (ObfReferenceObjectWithTag.c)
+ *     ObFastReferenceObject @ 0x1403FD230 (ObFastReferenceObject.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
  */
 
 char __fastcall IopQueueIrpToFileObject(__int64 a1, __int64 a2, char a3)

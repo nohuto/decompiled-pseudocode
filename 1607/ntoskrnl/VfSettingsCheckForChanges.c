@@ -3,7 +3,7 @@
  * Callers:
  *     VfSetVerifierInformation @ 0x140721060 (VfSetVerifierInformation.c)
  * Callees:
- *     ViHalApplySettings @ 0x1407099B8 (ViHalApplySettings.c)
+ *     ViHalApplySettings @ 0x1407099E8 (ViHalApplySettings.c)
  *     VfKeCheckForChanges @ 0x140712BB0 (VfKeCheckForChanges.c)
  *     ViDeadlockDetectionApplySettings @ 0x140715140 (ViDeadlockDetectionApplySettings.c)
  *     VfSettingsApplyMiscellaneousChecks @ 0x140716718 (VfSettingsApplyMiscellaneousChecks.c)

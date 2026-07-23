@@ -1,18 +1,18 @@
 /*
- * XREFs of SepVerifyDesktopAppxPackageName @ 0x1403D0998
+ * XREFs of SepVerifyDesktopAppxPackageName @ 0x1403AF970
  * Callers:
- *     SepVerifyDesktopAppxImage @ 0x140460C84 (SepVerifyDesktopAppxImage.c)
+ *     SepVerifyDesktopAppxImage @ 0x14051E754 (SepVerifyDesktopAppxImage.c)
  * Callees:
- *     SeSecurityAttributePresent @ 0x1402B4AC0 (SeSecurityAttributePresent.c)
- *     AuthzBasepAllocateSecurityAttributesList @ 0x1403CAE7C (AuthzBasepAllocateSecurityAttributesList.c)
- *     AuthzBasepSetSecurityAttributesToken @ 0x1403CB2B8 (AuthzBasepSetSecurityAttributesToken.c)
- *     AuthzBasepEvaluateAceCondition @ 0x1403CDD60 (AuthzBasepEvaluateAceCondition.c)
- *     AuthzBasepFreeSecurityAttributesList @ 0x1403CF030 (AuthzBasepFreeSecurityAttributesList.c)
- *     wcslen @ 0x1405380A0 (wcslen.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     SeQuerySecurityAttributesToken @ 0x140A7CEC0 (SeQuerySecurityAttributesToken.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     AuthzBasepFreeSecurityAttributesList @ 0x1402FBB30 (AuthzBasepFreeSecurityAttributesList.c)
+ *     AuthzBasepEvaluateAceCondition @ 0x1402FBC90 (AuthzBasepEvaluateAceCondition.c)
+ *     SeSecurityAttributePresent @ 0x1402FF790 (SeSecurityAttributePresent.c)
+ *     AuthzBasepSetSecurityAttributesToken @ 0x1403AFD64 (AuthzBasepSetSecurityAttributesToken.c)
+ *     AuthzBasepAllocateSecurityAttributesList @ 0x1403B2488 (AuthzBasepAllocateSecurityAttributesList.c)
+ *     wcslen @ 0x14053A520 (wcslen.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     SeQuerySecurityAttributesToken @ 0x140A82D30 (SeQuerySecurityAttributesToken.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall SepVerifyDesktopAppxPackageName(_DWORD *a1, __int64 a2, _BYTE *a3)
@@ -93,7 +93,7 @@ LABEL_30:
         ExFreePoolWithTag(Pool2, 0);
       return (unsigned int)SecurityAttributesToken;
     }
-    SecurityAttributesToken = AuthzBasepSetSecurityAttributesToken(SecurityAttributesList, &v21, (__int64)Pool2);
+    SecurityAttributesToken = AuthzBasepSetSecurityAttributesToken(SecurityAttributesList, &v21, Pool2);
     if ( SecurityAttributesToken < 0 )
     {
 LABEL_10:

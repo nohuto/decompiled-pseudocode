@@ -1,30 +1,30 @@
 /*
- * XREFs of IopCompleteUnloadOrDelete @ 0x1403F2590
+ * XREFs of IopCompleteUnloadOrDelete @ 0x1403E62B0
  * Callers:
- *     IoDetachDevice @ 0x1403F1A70 (IoDetachDevice.c)
- *     IoDeleteDevice @ 0x1403F1B00 (IoDeleteDevice.c)
- *     IopCheckVpbMounted @ 0x1403F1EF0 (IopCheckVpbMounted.c)
- *     IopDecrementDeviceObjectRef @ 0x1403F2340 (IopDecrementDeviceObjectRef.c)
+ *     IoDetachDevice @ 0x1403E5790 (IoDetachDevice.c)
+ *     IoDeleteDevice @ 0x1403E5820 (IoDeleteDevice.c)
+ *     IopCheckVpbMounted @ 0x1403E5C10 (IopCheckVpbMounted.c)
+ *     IopDecrementDeviceObjectRef @ 0x1403E6060 (IopDecrementDeviceObjectRef.c)
  * Callees:
- *     IopGetDeviceAttachmentBase @ 0x1402D4B38 (IopGetDeviceAttachmentBase.c)
- *     KeAcquireQueuedSpinLock @ 0x1402D6AF0 (KeAcquireQueuedSpinLock.c)
- *     KeReleaseQueuedSpinLock @ 0x140322C90 (KeReleaseQueuedSpinLock.c)
- *     ObfDereferenceObjectWithTag @ 0x1403254A0 (ObfDereferenceObjectWithTag.c)
- *     ExQueueWorkItem @ 0x140325850 (ExQueueWorkItem.c)
- *     KeWaitForSingleObject @ 0x14033E960 (KeWaitForSingleObject.c)
- *     IopDecrementDeviceObjectRefCount @ 0x1403F1910 (IopDecrementDeviceObjectRefCount.c)
- *     IopIncrementDeviceObjectRefCount @ 0x14041A700 (IopIncrementDeviceObjectRefCount.c)
- *     IopInsertRemoveDevice @ 0x140483320 (IopInsertRemoveDevice.c)
- *     MmIsDriverVerifying @ 0x14049E430 (MmIsDriverVerifying.c)
- *     PnpIsAnyDeviceInUse @ 0x1404AD31C (PnpIsAnyDeviceInUse.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     ObDereferenceSecurityDescriptor @ 0x140879D10 (ObDereferenceSecurityDescriptor.c)
- *     IopLoadUnloadDriver @ 0x1409C7700 (IopLoadUnloadDriver.c)
- *     ObMakeTemporaryObject @ 0x140A68350 (ObMakeTemporaryObject.c)
- *     PnpChainDereferenceComplete @ 0x140A878A4 (PnpChainDereferenceComplete.c)
- *     VfFastIoCheckState @ 0x140BA9450 (VfFastIoCheckState.c)
- *     VfFastIoSnapState @ 0x140BA97CC (VfFastIoSnapState.c)
+ *     KeReleaseQueuedSpinLock @ 0x1402CB820 (KeReleaseQueuedSpinLock.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CE030 (ObfDereferenceObjectWithTag.c)
+ *     ExQueueWorkItem @ 0x1402CE3E0 (ExQueueWorkItem.c)
+ *     KeWaitForSingleObject @ 0x14031DE40 (KeWaitForSingleObject.c)
+ *     IopGetDeviceAttachmentBase @ 0x140355DB8 (IopGetDeviceAttachmentBase.c)
+ *     KeAcquireQueuedSpinLock @ 0x140357D70 (KeAcquireQueuedSpinLock.c)
+ *     IopDecrementDeviceObjectRefCount @ 0x1403E5630 (IopDecrementDeviceObjectRefCount.c)
+ *     IopIncrementDeviceObjectRefCount @ 0x14040A700 (IopIncrementDeviceObjectRefCount.c)
+ *     IopInsertRemoveDevice @ 0x14047E864 (IopInsertRemoveDevice.c)
+ *     MmIsDriverVerifying @ 0x140499230 (MmIsDriverVerifying.c)
+ *     PnpIsAnyDeviceInUse @ 0x1404A79FC (PnpIsAnyDeviceInUse.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     ObDereferenceSecurityDescriptor @ 0x14087E040 (ObDereferenceSecurityDescriptor.c)
+ *     ObMakeTemporaryObject @ 0x1409B9330 (ObMakeTemporaryObject.c)
+ *     IopLoadUnloadDriver @ 0x140A66EE0 (IopLoadUnloadDriver.c)
+ *     PnpChainDereferenceComplete @ 0x140A83D94 (PnpChainDereferenceComplete.c)
+ *     VfFastIoCheckState @ 0x140BAB450 (VfFastIoCheckState.c)
+ *     VfFastIoSnapState @ 0x140BAB7CC (VfFastIoSnapState.c)
  */
 
 char __fastcall IopCompleteUnloadOrDelete(ULONG_PTR BugCheckParameter2, unsigned __int8 a2, KIRQL a3)
@@ -40,24 +40,22 @@ char __fastcall IopCompleteUnloadOrDelete(ULONG_PTR BugCheckParameter2, unsigned
   int IsAnyDeviceInUse; // ebx
   __int64 v15; // rax
   __int64 v16; // r13
-  __int64 v17; // r8
-  __int64 v18; // r9
-  ULONG_PTR v19; // r13
-  struct _DRIVER_OBJECT *v20; // r14
-  void *v21; // r14
-  __int64 v22; // rcx
+  ULONG_PTR v17; // r13
+  struct _DRIVER_OBJECT *v18; // r14
+  void *v19; // r14
+  __int64 v20; // rcx
   __int64 i; // rdx
-  int v24; // eax
+  int v22; // eax
   struct _KTHREAD *CurrentThread; // rax
   struct _LIST_ENTRY *Blink; // rbx
   struct _WORK_QUEUE_ITEM WorkItem; // [rsp+30h] [rbp-50h] BYREF
   _BYTE Object[4]; // [rsp+50h] [rbp-30h] BYREF
-  int v29; // [rsp+54h] [rbp-2Ch]
-  _QWORD v30[5]; // [rsp+58h] [rbp-28h] BYREF
+  int v27; // [rsp+54h] [rbp-2Ch]
+  _QWORD v28[5]; // [rsp+58h] [rbp-28h] BYREF
   __int64 DeviceAttachmentBase; // [rsp+C0h] [rbp+40h] BYREF
-  unsigned __int8 v32; // [rsp+C8h] [rbp+48h]
+  unsigned __int8 v30; // [rsp+C8h] [rbp+48h]
 
-  v32 = a2;
+  v30 = a2;
   v3 = 0;
   v4 = *(_QWORD *)(BugCheckParameter2 + 8);
   v7 = 0;
@@ -80,21 +78,21 @@ char __fastcall IopCompleteUnloadOrDelete(ULONG_PTR BugCheckParameter2, unsigned
         {
           if ( *(_DWORD *)v16 > 0x68u )
           {
-            v19 = *(_QWORD *)(v16 + 104);
-            if ( v19 )
+            v17 = *(_QWORD *)(v16 + 104);
+            if ( v17 )
             {
               if ( (MmVerifierData & 0x10) != 0
-                && (v20 = *(struct _DRIVER_OBJECT **)(BugCheckParameter2 + 8), MmIsDriverVerifying(v20)) )
+                && (v18 = *(struct _DRIVER_OBJECT **)(BugCheckParameter2 + 8), MmIsDriverVerifying(v18)) )
               {
-                v21 = (void *)VfFastIoSnapState(v20);
+                v19 = (void *)VfFastIoSnapState(v18);
               }
               else
               {
-                v21 = 0LL;
+                v19 = 0LL;
               }
-              guard_dispatch_icall_no_overrides(DeviceAttachmentBase, BugCheckParameter2, v17, v18);
-              if ( v21 )
-                VfFastIoCheckState(v21, v19);
+              guard_dispatch_icall_no_overrides(DeviceAttachmentBase, BugCheckParameter2);
+              if ( v19 )
+                VfFastIoCheckState(v19, v17);
             }
           }
         }
@@ -104,9 +102,9 @@ char __fastcall IopCompleteUnloadOrDelete(ULONG_PTR BugCheckParameter2, unsigned
           goto LABEL_26;
       }
       KeReleaseQueuedSpinLock(0xAuLL, a3);
-      v22 = *(_QWORD *)(BugCheckParameter2 + 272);
-      if ( v22 )
-        ObDereferenceSecurityDescriptor(v22, 1LL);
+      v20 = *(_QWORD *)(BugCheckParameter2 + 272);
+      if ( v20 )
+        ObDereferenceSecurityDescriptor(v20, 1LL);
       IopInsertRemoveDevice(*(_QWORD *)(BugCheckParameter2 + 8), BugCheckParameter2, 0LL);
       ObfDereferenceObjectWithTag((PVOID)BugCheckParameter2, 0x746C6644u);
       v7 = 1;
@@ -129,25 +127,25 @@ LABEL_26:
         break;
       }
     }
-    v24 = *(_DWORD *)(v4 + 16);
-    if ( (v24 & 0x80u) != 0 && *(_QWORD *)(v4 + 8) )
+    v22 = *(_DWORD *)(v4 + 16);
+    if ( (v22 & 0x80u) != 0 && *(_QWORD *)(v4 + 8) )
     {
       v8 = 0;
     }
     else if ( v8 )
     {
-      *(_DWORD *)(v4 + 16) = v24 | 1;
+      *(_DWORD *)(v4 + 16) = v22 | 1;
     }
     KeReleaseQueuedSpinLock(0xAuLL, a3);
     if ( v8 )
     {
       memset_0(&WorkItem, 0, 0x50uLL);
       Object[2] = 6;
-      v30[1] = v30;
-      v29 = 0;
-      v30[0] = v30;
-      v30[2] = v4;
-      if ( v32 )
+      v28[1] = v28;
+      v27 = 0;
+      v28[0] = v28;
+      v28[2] = v4;
+      if ( v30 )
       {
         CurrentThread = KeGetCurrentThread();
         Blink = CurrentThread[1].WaitBlock[3].WaitListEntry.Blink;
@@ -173,6 +171,6 @@ LABEL_26:
   IsAnyDeviceInUse = PnpIsAnyDeviceInUse(&DeviceAttachmentBase, v11, 0LL);
   KeReleaseQueuedSpinLock((unsigned int)(v12 + 10), a3);
   if ( IsAnyDeviceInUse != 1 )
-    PnpChainDereferenceComplete(v10, v32);
+    PnpChainDereferenceComplete(v10, v30);
   return 0;
 }

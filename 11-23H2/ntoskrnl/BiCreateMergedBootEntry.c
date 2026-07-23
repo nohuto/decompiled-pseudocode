@@ -1,14 +1,14 @@
 /*
- * XREFs of BiCreateMergedBootEntry @ 0x140A5DFCC
+ * XREFs of BiCreateMergedBootEntry @ 0x140A5E27C
  * Callers:
- *     BiUpdateBcdObject @ 0x140804304 (BiUpdateBcdObject.c)
- *     BiUpdateEfiEntry @ 0x140A5EEEC (BiUpdateEfiEntry.c)
+ *     BiUpdateBcdObject @ 0x1408045D4 (BiUpdateBcdObject.c)
+ *     BiUpdateEfiEntry @ 0x140A5F19C (BiUpdateEfiEntry.c)
  * Callees:
- *     memmove @ 0x140435700 (memmove.c)
- *     memset @ 0x140435A00 (memset.c)
- *     BiGetFilePathFromEfiPath @ 0x140805CEC (BiGetFilePathFromEfiPath.c)
- *     BiGetDeviceFromEfiPath @ 0x140805E54 (BiGetDeviceFromEfiPath.c)
- *     BiTranslateFilePath @ 0x140805FD8 (BiTranslateFilePath.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     BiGetFilePathFromEfiPath @ 0x140805FBC (BiGetFilePathFromEfiPath.c)
+ *     BiGetDeviceFromEfiPath @ 0x140806124 (BiGetDeviceFromEfiPath.c)
+ *     BiTranslateFilePath @ 0x1408062A8 (BiTranslateFilePath.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
@@ -20,7 +20,7 @@ __int64 __fastcall BiCreateMergedBootEntry(_DWORD *a1, _WORD *a2, _DWORD *a3, _W
   PVOID v8; // r13
   size_t v9; // rdi
   _WORD *v10; // r15
-  char *v11; // r14
+  _FILE_PATH *v11; // r14
   char *v13; // r12
   NTSTATUS FilePathFromEfiPath; // eax
   unsigned int v15; // ebx
@@ -31,7 +31,7 @@ __int64 __fastcall BiCreateMergedBootEntry(_DWORD *a1, _WORD *a2, _DWORD *a3, _W
   int v20; // ecx
   unsigned int v21; // eax
   unsigned int v22; // ecx
-  char *Pool2; // rax
+  _FILE_PATH *Pool2; // rax
   int v24; // eax
   unsigned int v25; // edx
   int v26; // r8d
@@ -71,7 +71,7 @@ __int64 __fastcall BiCreateMergedBootEntry(_DWORD *a1, _WORD *a2, _DWORD *a3, _W
     if ( !a4 )
       goto LABEL_23;
     v37 = (size_t)a1 + (unsigned int)a1[5];
-    DeviceFromEfiPath = BiGetDeviceFromEfiPath((char *)(v9 + 12), P, &Size);
+    DeviceFromEfiPath = BiGetDeviceFromEfiPath((char *)(v9 + 12), P, (unsigned int *)&Size);
     v8 = P[0];
     v15 = DeviceFromEfiPath;
     if ( DeviceFromEfiPath < 0 )
@@ -98,7 +98,7 @@ LABEL_13:
       goto LABEL_32;
     }
     P[0] = (PVOID)v22;
-    Pool2 = (char *)ExAllocatePool2(258LL, v22, 1262764866LL);
+    Pool2 = (_FILE_PATH *)ExAllocatePool2(258LL, v22, 1262764866LL);
     v11 = Pool2;
     if ( !Pool2 )
     {
@@ -106,12 +106,12 @@ LABEL_20:
       v15 = -1073741670;
       goto LABEL_32;
     }
-    *(_DWORD *)Pool2 = 1;
-    *((_DWORD *)Pool2 + 1) = P[0];
-    *((_DWORD *)Pool2 + 2) = 3;
-    memmove(Pool2 + 12, v13, v19);
-    memmove(&v11[v19 + 12], v10, (unsigned int)Size);
-    v24 = BiTranslateFilePath((__int64)v11, 4u, &v37);
+    Pool2->Version = 1;
+    Pool2->Length = (ULONG)P[0];
+    Pool2->Type = 3;
+    memmove(Pool2->FilePath, v13, v19);
+    memmove(&v11->FilePath[v19], v10, (unsigned int)Size);
+    v24 = BiTranslateFilePath(v11, 4u, (_FILE_PATH **)&v37);
     v9 = v37;
     v15 = v24;
     if ( v24 < 0 )

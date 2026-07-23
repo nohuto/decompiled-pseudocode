@@ -1,15 +1,15 @@
 /*
  * XREFs of SeDeleteClientSecurity @ 0x1407A8070
  * Callers:
- *     AlpcpQuerySidMessage @ 0x14066B464 (AlpcpQuerySidMessage.c)
- *     NtImpersonateThread @ 0x1406BFD10 (NtImpersonateThread.c)
- *     EtwpFreeLoggerContext @ 0x1406D1830 (EtwpFreeLoggerContext.c)
- *     EtwpUpdateTrace @ 0x1406ECE0C (EtwpUpdateTrace.c)
- *     AlpcpDeletePort @ 0x14074D800 (AlpcpDeletePort.c)
- *     AlpcSecurityDestroyProcedure @ 0x1407A7300 (AlpcSecurityDestroyProcedure.c)
- *     AlpcpExposeTokenAttribute @ 0x1407A9720 (AlpcpExposeTokenAttribute.c)
- *     AlpcpImpersonateMessage @ 0x1407B0C70 (AlpcpImpersonateMessage.c)
- *     AlpcpQueryTokenModifiedIdMessage @ 0x14080C0F4 (AlpcpQueryTokenModifiedIdMessage.c)
+ *     sub_14066B464 @ 0x14066B464 (sub_14066B464.c)
+ *     sub_1406BFD10 @ 0x1406BFD10 (sub_1406BFD10.c)
+ *     sub_1406D1830 @ 0x1406D1830 (sub_1406D1830.c)
+ *     sub_1406ECE0C @ 0x1406ECE0C (sub_1406ECE0C.c)
+ *     sub_14074D800 @ 0x14074D800 (sub_14074D800.c)
+ *     sub_1407A7300 @ 0x1407A7300 (sub_1407A7300.c)
+ *     sub_1407A9720 @ 0x1407A9720 (sub_1407A9720.c)
+ *     sub_1407B0C70 @ 0x1407B0C70 (sub_1407B0C70.c)
+ *     sub_14080C0F4 @ 0x14080C0F4 (sub_14080C0F4.c)
  * Callees:
  *     ObfDereferenceObjectWithTag @ 0x1402AC540 (ObfDereferenceObjectWithTag.c)
  */

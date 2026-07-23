@@ -1,16 +1,16 @@
 /*
- * XREFs of HalpNmiReboot @ 0x140593E10
+ * XREFs of HalpNmiReboot @ 0x140596590
  * Callers:
- *     HalpReboot @ 0x14057F954 (HalpReboot.c)
+ *     HalpReboot @ 0x140581E74 (HalpReboot.c)
  * Callees:
- *     ?RtlpCopyAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z @ 0x1402518B0 (-RtlpCopyAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z.c)
- *     KeStallExecutionProcessor @ 0x14037BEF0 (KeStallExecutionProcessor.c)
- *     KeRemoveProcessorAffinityEx @ 0x1403EF310 (KeRemoveProcessorAffinityEx.c)
- *     HalpIsHvPresent @ 0x1404B9338 (HalpIsHvPresent.c)
- *     HalSendNMI @ 0x14057EF50 (HalSendNMI.c)
- *     HalpInterruptRebootService @ 0x140594430 (HalpInterruptRebootService.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     ?RtlpCopyAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z @ 0x140253210 (-RtlpCopyAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z.c)
+ *     KeStallExecutionProcessor @ 0x14037DCA0 (KeStallExecutionProcessor.c)
+ *     KeRemoveProcessorAffinityEx @ 0x140453E40 (KeRemoveProcessorAffinityEx.c)
+ *     HalpIsHvPresent @ 0x1404B2B68 (HalpIsHvPresent.c)
+ *     HalSendNMI @ 0x140581470 (HalSendNMI.c)
+ *     HalpInterruptRebootService @ 0x140596BB0 (HalpInterruptRebootService.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 HalpNmiReboot()
@@ -29,7 +29,7 @@ __int64 HalpNmiReboot()
     *(_QWORD *)&v3.Count = 2097153LL;
     HalpInterruptNmiRebootInProgress = 1;
     memset_0(&v3.8, 0, sizeof(v3.8));
-    RtlpCopyAffinityEx(&v3, 0x20u, (struct _KAFFINITY_EX *)&stru_140FC01F0.WaitRegister);
+    RtlpCopyAffinityEx(&v3, 0x20u, (struct _KAFFINITY_EX *)&stru_140FC11F0.WaitRegister);
     KeRemoveProcessorAffinityEx(&v3.Count, CurrentPrcb->Number);
     HalSendNMI((__int64)&v3);
     KeStallExecutionProcessor(0x1F4u);

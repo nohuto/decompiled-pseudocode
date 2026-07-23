@@ -9,7 +9,7 @@
  *     RtlAllocateHeap @ 0x18002A9A0 (RtlAllocateHeap.c)
  */
 
-__int64 __fastcall SafeAllocBlob(
+PVOID __fastcall SafeAllocBlob(
         unsigned int a1,
         unsigned int a2,
         unsigned int a3,
@@ -21,7 +21,7 @@ __int64 __fastcall SafeAllocBlob(
   unsigned int v7; // edx
   unsigned __int64 v8; // rcx
   unsigned int v9; // ecx
-  __int64 result; // rax
+  PVOID result; // rax
 
   v6 = a3 * (unsigned __int64)a2;
   if ( v6 > 0xFFFFFFFF )
@@ -39,6 +39,6 @@ __int64 __fastcall SafeAllocBlob(
   if ( a6 )
     *a6 = v9;
   if ( v9 )
-    return RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 8u, v9);
+    return RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, v9);
   return result;
 }

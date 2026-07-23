@@ -7,7 +7,7 @@
  */
 
 __int64 __fastcall LdrResFindResourceDirectory(
-        void *a1,
+        const WCHAR *a1,
         __int64 a2,
         __int64 a3,
         __int64 a4,

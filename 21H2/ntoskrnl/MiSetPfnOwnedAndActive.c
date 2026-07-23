@@ -1,20 +1,19 @@
 /*
- * XREFs of MiSetPfnOwnedAndActive @ 0x14023BC40
+ * XREFs of MiSetPfnOwnedAndActive @ 0x1402E0490
  * Callers:
- *     MiAssignNonPagedPoolPte @ 0x14023B9F0 (MiAssignNonPagedPoolPte.c)
- *     MiFindContiguousPages @ 0x1403016E0 (MiFindContiguousPages.c)
- *     MiFindLargeNodePage @ 0x140394ED0 (MiFindLargeNodePage.c)
- *     MiRemoveMdlPages @ 0x1408C6A60 (MiRemoveMdlPages.c)
+ *     MiAssignNonPagedPoolPte @ 0x1402E0240 (MiAssignNonPagedPoolPte.c)
+ *     MiFindContiguousPages @ 0x14030C430 (MiFindContiguousPages.c)
+ *     MiFindLargeNodePage @ 0x140395020 (MiFindLargeNodePage.c)
+ *     MiRemoveMdlPages @ 0x1408C6BC0 (MiRemoveMdlPages.c)
  * Callees:
- *     MiLockPageInline @ 0x1402FFE30 (MiLockPageInline.c)
- *     MiChangePageAttribute @ 0x1403041E4 (MiChangePageAttribute.c)
- *     MiSwizzleInvalidPte @ 0x140329F90 (MiSwizzleInvalidPte.c)
+ *     MiLockPageInline @ 0x14030AB80 (MiLockPageInline.c)
+ *     MiChangePageAttribute @ 0x14030EF34 (MiChangePageAttribute.c)
+ *     MiSwizzleInvalidPte @ 0x140334CE0 (MiSwizzleInvalidPte.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
-__int64 __fastcall MiSetPfnOwnedAndActive(__int64 a1, __int64 a2, __int64 a3, unsigned int a4, int a5)
+__int64 __fastcall MiSetPfnOwnedAndActive(__int64 a1, char a2, __int64 a3, unsigned int a4, int a5)
 {
-  char v7; // r14
   unsigned __int8 v9; // al
   unsigned int v10; // r8d
   unsigned __int64 v11; // rdi
@@ -23,8 +22,7 @@ __int64 __fastcall MiSetPfnOwnedAndActive(__int64 a1, __int64 a2, __int64 a3, un
   _DWORD *SchedulerAssist; // r9
   bool v15; // zf
 
-  v7 = a2;
-  v9 = MiLockPageInline(a1, a2, a3);
+  v9 = MiLockPageInline(a1);
   v10 = *(unsigned __int8 *)(a1 + 34);
   *(_QWORD *)(a1 + 40) &= ~0x8000000000000000uLL;
   *(_QWORD *)a1 = 0LL;
@@ -39,7 +37,7 @@ __int64 __fastcall MiSetPfnOwnedAndActive(__int64 a1, __int64 a2, __int64 a3, un
     *(_WORD *)(a1 + 32) = a5;
   *(_QWORD *)(a1 + 8) = a3;
   *(_BYTE *)(a1 + 34) = v10 & 0xF8 | 6;
-  if ( (v7 & 1) != 0 )
+  if ( (a2 & 1) != 0 )
   {
     *(_QWORD *)(a1 + 40) = *(_QWORD *)(a1 + 40) & 0xFFFFFFF000000000uLL | 0xFFFFFFFFDLL;
     *(_QWORD *)(a1 + 16) = MiSwizzleInvalidPte(128LL);

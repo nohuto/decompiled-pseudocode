@@ -1,10 +1,10 @@
 /*
- * XREFs of KeCaptureWaitChainHeadEx @ 0x1401665FC
+ * XREFs of KeCaptureWaitChainHeadEx @ 0x1401666FC
  * Callers:
- *     ExpPrepareToWakeResourceShared @ 0x140165234 (ExpPrepareToWakeResourceShared.c)
- *     ExpPrepareToWakeResourceExclusive @ 0x140166564 (ExpPrepareToWakeResourceExclusive.c)
+ *     ExpPrepareToWakeResourceShared @ 0x140165334 (ExpPrepareToWakeResourceShared.c)
+ *     ExpPrepareToWakeResourceExclusive @ 0x140166664 (ExpPrepareToWakeResourceExclusive.c)
  * Callees:
- *     RtlInsertHeadCircularList @ 0x1401352D0 (RtlInsertHeadCircularList.c)
+ *     RtlInsertHeadCircularList @ 0x1401353A0 (RtlInsertHeadCircularList.c)
  */
 
 __int64 __fastcall KeCaptureWaitChainHeadEx(_QWORD **a1, __int64 *a2, _QWORD *a3)

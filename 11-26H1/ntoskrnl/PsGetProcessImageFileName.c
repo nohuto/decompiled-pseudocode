@@ -1,12 +1,12 @@
 /*
- * XREFs of PsGetProcessImageFileName @ 0x14047F3D0
+ * XREFs of PsGetProcessImageFileName @ 0x140478D40
  * Callers:
- *     NtCreateIoRing @ 0x140798AC0 (NtCreateIoRing.c)
- *     CmLoadAppKey @ 0x1408B2250 (CmLoadAppKey.c)
- *     ObCheckRefTraceProcess @ 0x140984928 (ObCheckRefTraceProcess.c)
- *     PopDiagTraceExecutePowerAction @ 0x140A382A0 (PopDiagTraceExecutePowerAction.c)
- *     PiUEventHandleVetoEvent @ 0x140B24524 (PiUEventHandleVetoEvent.c)
- *     PnpLogVetoInformation @ 0x140B45874 (PnpLogVetoInformation.c)
+ *     NtCreateIoRing @ 0x14079B5F0 (NtCreateIoRing.c)
+ *     CmLoadAppKey @ 0x1408B87F4 (CmLoadAppKey.c)
+ *     ObCheckRefTraceProcess @ 0x140946938 (ObCheckRefTraceProcess.c)
+ *     PopDiagTraceExecutePowerAction @ 0x1409F3E60 (PopDiagTraceExecutePowerAction.c)
+ *     PiUEventHandleVetoEvent @ 0x140B269C4 (PiUEventHandleVetoEvent.c)
+ *     PnpLogVetoInformation @ 0x140B478A4 (PnpLogVetoInformation.c)
  * Callees:
  *     <none>
  */

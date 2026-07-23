@@ -1,15 +1,15 @@
 /*
- * XREFs of PspChargeJobWakeCounter @ 0x140617E18
+ * XREFs of PspChargeJobWakeCounter @ 0x140681A78
  * Callers:
- *     PspChargeProcessWakeCounter @ 0x1405E6B10 (PspChargeProcessWakeCounter.c)
- *     PspAssignProcessToJob @ 0x14071F430 (PspAssignProcessToJob.c)
+ *     PspChargeProcessWakeCounter @ 0x1406D6270 (PspChargeProcessWakeCounter.c)
+ *     PspAssignProcessToJob @ 0x1406F5FF0 (PspAssignProcessToJob.c)
  * Callees:
- *     ExReleaseResourceLite @ 0x14034B3F0 (ExReleaseResourceLite.c)
- *     ExAcquireResourceSharedLite @ 0x14034BF60 (ExAcquireResourceSharedLite.c)
- *     PspSendWakeNotification @ 0x140616198 (PspSendWakeNotification.c)
- *     PspUnlockJob @ 0x140618730 (PspUnlockJob.c)
- *     PspLockRootJobShared @ 0x140618874 (PspLockRootJobShared.c)
- *     EtwTraceWakeCounter @ 0x1409368A8 (EtwTraceWakeCounter.c)
+ *     ExReleaseResourceLite @ 0x140356140 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceSharedLite @ 0x140356CB0 (ExAcquireResourceSharedLite.c)
+ *     PspSendWakeNotification @ 0x14067FDF8 (PspSendWakeNotification.c)
+ *     PspUnlockJob @ 0x140682390 (PspUnlockJob.c)
+ *     PspLockRootJobShared @ 0x1406824D4 (PspLockRootJobShared.c)
+ *     EtwTraceWakeCounter @ 0x140936A78 (EtwTraceWakeCounter.c)
  */
 
 void __fastcall PspChargeJobWakeCounter(

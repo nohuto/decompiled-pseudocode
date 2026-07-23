@@ -1,9 +1,9 @@
 /*
- * XREFs of HalAssignSlotResources @ 0x1408641F0
+ * XREFs of HalAssignSlotResources @ 0x140864350
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall HalAssignSlotResources(

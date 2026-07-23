@@ -1,13 +1,13 @@
 /*
- * XREFs of BgpTxtDestroyRegion @ 0x14095101C
+ * XREFs of BgpTxtDestroyRegion @ 0x14095201C
  * Callers:
- *     BgpDisplayCharacterDestroyContext @ 0x140950EF8 (BgpDisplayCharacterDestroyContext.c)
- *     BgpFwLibraryDisable @ 0x140950F24 (BgpFwLibraryDisable.c)
- *     BgpDisplayCharacterGetContext @ 0x140951948 (BgpDisplayCharacterGetContext.c)
+ *     BgpDisplayCharacterDestroyContext @ 0x140951EF8 (BgpDisplayCharacterDestroyContext.c)
+ *     BgpFwLibraryDisable @ 0x140951F24 (BgpFwLibraryDisable.c)
+ *     BgpDisplayCharacterGetContext @ 0x140952948 (BgpDisplayCharacterGetContext.c)
  * Callees:
- *     BgpFwFreeMemory @ 0x14016ECEC (BgpFwFreeMemory.c)
- *     BgpGxRectangleDestroy @ 0x14094F21C (BgpGxRectangleDestroy.c)
- *     RaspClearCache @ 0x14095054C (RaspClearCache.c)
+ *     BgpFwFreeMemory @ 0x14016EDEC (BgpFwFreeMemory.c)
+ *     BgpGxRectangleDestroy @ 0x14095021C (BgpGxRectangleDestroy.c)
+ *     RaspClearCache @ 0x14095154C (RaspClearCache.c)
  */
 
 void __fastcall BgpTxtDestroyRegion(__int64 a1)
@@ -47,7 +47,7 @@ LABEL_9:
           goto LABEL_9;
         v5 = *(_QWORD *)TxtpTextCache;
       }
-      dword_140400388 = 0;
+      dword_140401388 = 0;
       if ( RasterizerInitialized )
         RaspClearCache();
     }

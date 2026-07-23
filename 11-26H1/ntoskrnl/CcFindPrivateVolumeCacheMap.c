@@ -1,14 +1,14 @@
 /*
- * XREFs of CcFindPrivateVolumeCacheMap @ 0x1403E211C
+ * XREFs of CcFindPrivateVolumeCacheMap @ 0x1403E530C
  * Callers:
- *     CcCreatePrivateVolumeCacheMap @ 0x1403E1FBC (CcCreatePrivateVolumeCacheMap.c)
+ *     CcCreatePrivateVolumeCacheMap @ 0x1403E51AC (CcCreatePrivateVolumeCacheMap.c)
  * Callees:
- *     KxWaitForLockOwnerShip @ 0x1402B29C0 (KxWaitForLockOwnerShip.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x1402B4730 (KeAcquireInStackQueuedSpinLock.c)
- *     KiAcquireQueuedSpinLockInstrumented @ 0x1402B4830 (KiAcquireQueuedSpinLockInstrumented.c)
- *     KeReleaseInStackQueuedSpinLock @ 0x1402B98C0 (KeReleaseInStackQueuedSpinLock.c)
- *     CcInsertPrivateVolumeCacheMap @ 0x1403E3C18 (CcInsertPrivateVolumeCacheMap.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KxWaitForLockOwnerShip @ 0x1402FD690 (KxWaitForLockOwnerShip.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402FF400 (KeAcquireInStackQueuedSpinLock.c)
+ *     KiAcquireQueuedSpinLockInstrumented @ 0x1402FF500 (KiAcquireQueuedSpinLockInstrumented.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x140304580 (KeReleaseInStackQueuedSpinLock.c)
+ *     CcInsertPrivateVolumeCacheMap @ 0x1403E6E08 (CcInsertPrivateVolumeCacheMap.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 _QWORD *__fastcall CcFindPrivateVolumeCacheMap(__int64 a1, __int64 a2, __int64 a3)
@@ -52,7 +52,7 @@ _QWORD *__fastcall CcFindPrivateVolumeCacheMap(__int64 a1, __int64 a2, __int64 a
     KiRaiseIrqlProcessIrqlFlags(a1, 2LL);
   }
   LockHandle.OldIrql = CurrentIrql;
-  if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+  if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || PopHibernateInProgress )
   {
     v10 = _InterlockedExchange64(v3, (__int64)&LockHandle);
     if ( v10 )

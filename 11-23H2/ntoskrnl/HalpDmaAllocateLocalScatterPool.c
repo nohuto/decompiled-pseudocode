@@ -1,19 +1,19 @@
 /*
- * XREFs of HalpDmaAllocateLocalScatterPool @ 0x140934238
+ * XREFs of HalpDmaAllocateLocalScatterPool @ 0x140934438
  * Callers:
- *     HalpDmaAllocateChildAdapterV2 @ 0x140827D60 (HalpDmaAllocateChildAdapterV2.c)
- *     HalpDmaAllocateChildAdapterV3 @ 0x140828A90 (HalpDmaAllocateChildAdapterV3.c)
+ *     HalpDmaAllocateChildAdapterV2 @ 0x140828060 (HalpDmaAllocateChildAdapterV2.c)
+ *     HalpDmaAllocateChildAdapterV3 @ 0x140828D90 (HalpDmaAllocateChildAdapterV3.c)
  * Callees:
- *     MmUnmapLockedPages @ 0x1402CB700 (MmUnmapLockedPages.c)
- *     MmFreePagesFromMdl @ 0x1402EBFB0 (MmFreePagesFromMdl.c)
- *     HalpMmAllocCtxAlloc @ 0x14039AE20 (HalpMmAllocCtxAlloc.c)
- *     HalpMmAllocCtxFree @ 0x1403A56C0 (HalpMmAllocCtxFree.c)
- *     memset @ 0x140435A00 (memset.c)
- *     HalpDmaAllocateScatterPagesFromScatterPool @ 0x14045B3AE (HalpDmaAllocateScatterPagesFromScatterPool.c)
- *     HalpDmaPrependTranslations @ 0x14045C7B6 (HalpDmaPrependTranslations.c)
- *     HalpDmaAllocateScatterPagesFromContiguousPool @ 0x14050100C (HalpDmaAllocateScatterPagesFromContiguousPool.c)
- *     HalpDmaCommitScatterMapBuffers @ 0x140510A44 (HalpDmaCommitScatterMapBuffers.c)
- *     HalpDmaAllocateScatterMemory @ 0x140934468 (HalpDmaAllocateScatterMemory.c)
+ *     MmUnmapLockedPages @ 0x1402CB990 (MmUnmapLockedPages.c)
+ *     MmFreePagesFromMdl @ 0x1402EC240 (MmFreePagesFromMdl.c)
+ *     HalpMmAllocCtxAlloc @ 0x14039B000 (HalpMmAllocCtxAlloc.c)
+ *     HalpMmAllocCtxFree @ 0x1403A58A0 (HalpMmAllocCtxFree.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     HalpDmaAllocateScatterPagesFromScatterPool @ 0x14045B7AE (HalpDmaAllocateScatterPagesFromScatterPool.c)
+ *     HalpDmaPrependTranslations @ 0x14045CBB6 (HalpDmaPrependTranslations.c)
+ *     HalpDmaAllocateScatterPagesFromContiguousPool @ 0x14050155C (HalpDmaAllocateScatterPagesFromContiguousPool.c)
+ *     HalpDmaCommitScatterMapBuffers @ 0x140510F94 (HalpDmaCommitScatterMapBuffers.c)
+ *     HalpDmaAllocateScatterMemory @ 0x140934668 (HalpDmaAllocateScatterMemory.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

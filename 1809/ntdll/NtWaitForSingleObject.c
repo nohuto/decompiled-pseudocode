@@ -1,5 +1,5 @@
 /*
- * XREFs of NtWaitForSingleObject @ 0x1800A0360
+ * XREFs of NtWaitForSingleObject @ 0x1800A0380
  * Callers:
  *     LdrpDrainWorkQueue @ 0x180028298 (LdrpDrainWorkQueue.c)
  *     EtwpSynchronizeWithLogger @ 0x18004CFA0 (EtwpSynchronizeWithLogger.c)
@@ -10,8 +10,8 @@
  *     RtlReportSilentProcessExit @ 0x18006D060 (RtlReportSilentProcessExit.c)
  *     RtlAcquireResourceShared @ 0x18006DCC0 (RtlAcquireResourceShared.c)
  *     RtlAcquireResourceExclusive @ 0x18006DE00 (RtlAcquireResourceExclusive.c)
- *     _LdrpInitialize @ 0x18007874C (_LdrpInitialize.c)
- *     RtlQueryProcessDebugInformation @ 0x18007D750 (RtlQueryProcessDebugInformation.c)
+ *     _LdrpInitialize @ 0x18007875C (_LdrpInitialize.c)
+ *     RtlQueryProcessDebugInformation @ 0x18007D760 (RtlQueryProcessDebugInformation.c)
  *     LdrpCheckComponentOnDemandEtwEvent @ 0x1800D0C80 (LdrpCheckComponentOnDemandEtwEvent.c)
  *     RtlCreateProcessReflection @ 0x1800D7C30 (RtlCreateProcessReflection.c)
  *     RtlpProcessReflectionStartup @ 0x1800D81D0 (RtlpProcessReflectionStartup.c)

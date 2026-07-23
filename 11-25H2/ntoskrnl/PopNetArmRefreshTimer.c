@@ -10,12 +10,12 @@
 
 void __fastcall PopNetArmRefreshTimer(__int64 a1, char a2)
 {
-  __int64 v4; // rdx
+  LARGE_INTEGER v4; // rdx
   unsigned __int64 v5; // rcx
 
-  v4 = -a1;
+  v4.QuadPart = -a1;
   if ( a2 )
-    v4 = a1;
+    v4.QuadPart = a1;
   KeSetTimer2((__int64)&PopNetRefreshTimer, v4, 0LL, 0LL);
   v5 = a1;
   if ( a2 )

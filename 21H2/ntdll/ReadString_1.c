@@ -6,7 +6,7 @@
  * Callees:
  *     _fgetwc_nolock @ 0x18009B97C (_fgetwc_nolock.c)
  *     _ungetwc_nolock @ 0x18009B9C8 (_ungetwc_nolock.c)
- *     memmove @ 0x1800A44C0 (memmove.c)
+ *     memmove @ 0x1800A4480 (memmove.c)
  */
 
 __int64 __fastcall ReadString_1(

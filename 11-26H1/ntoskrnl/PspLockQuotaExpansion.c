@@ -1,20 +1,20 @@
 /*
- * XREFs of PspLockQuotaExpansion @ 0x1403BDC84
+ * XREFs of PspLockQuotaExpansion @ 0x1403C7AF4
  * Callers:
- *     ExReturnPoolQuota @ 0x140264B30 (ExReturnPoolQuota.c)
- *     ExFreeHeapPool @ 0x1403A7BB0 (ExFreeHeapPool.c)
- *     PsReturnProcessPagedPoolQuota @ 0x1403BCF90 (PsReturnProcessPagedPoolQuota.c)
- *     PsReturnProcessNonPagedPoolQuota @ 0x1403BD130 (PsReturnProcessNonPagedPoolQuota.c)
- *     PspReturnResourceQuota @ 0x1403BD4F0 (PspReturnResourceQuota.c)
- *     PsReturnPoolQuota @ 0x1403BD700 (PsReturnPoolQuota.c)
- *     PspExpandQuota @ 0x1403BD8E8 (PspExpandQuota.c)
- *     PspExpandLimit @ 0x140614CE0 (PspExpandLimit.c)
- *     PspInsertExpansionEntry @ 0x140614D5C (PspInsertExpansionEntry.c)
+ *     ExReturnPoolQuota @ 0x1402640A0 (ExReturnPoolQuota.c)
+ *     ExFreeHeapPool @ 0x1403A9910 (ExFreeHeapPool.c)
+ *     PsReturnProcessPagedPoolQuota @ 0x1403C6E00 (PsReturnProcessPagedPoolQuota.c)
+ *     PsReturnProcessNonPagedPoolQuota @ 0x1403C6FA0 (PsReturnProcessNonPagedPoolQuota.c)
+ *     PspReturnResourceQuota @ 0x1403C7360 (PspReturnResourceQuota.c)
+ *     PsReturnPoolQuota @ 0x1403C7570 (PsReturnPoolQuota.c)
+ *     PspExpandQuota @ 0x1403C7758 (PspExpandQuota.c)
+ *     PspExpandLimit @ 0x140617B20 (PspExpandLimit.c)
+ *     PspInsertExpansionEntry @ 0x140617B9C (PspInsertExpansionEntry.c)
  * Callees:
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14032F300 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140331330 (KeAcquireSpinLockRaiseToDpc.c)
  */
 
 void __fastcall PspLockQuotaExpansion(_DWORD *a1, KIRQL *a2, __int64 a3, struct _KLOCK_ENTRIES *a4)

@@ -1,10 +1,10 @@
 /*
- * XREFs of MiCaptureDynamicRelocationTableRva @ 0x14074BA4C
+ * XREFs of MiCaptureDynamicRelocationTableRva @ 0x14074CC3C
  * Callers:
- *     MiParseImageLoadConfig @ 0x1406508DC (MiParseImageLoadConfig.c)
- *     MiApplyDynamicRelocations @ 0x1409D2650 (MiApplyDynamicRelocations.c)
+ *     MiParseImageLoadConfig @ 0x140651A9C (MiParseImageLoadConfig.c)
+ *     MiApplyDynamicRelocations @ 0x1409D3650 (MiApplyDynamicRelocations.c)
  * Callees:
- *     RtlImageNtHeaderEx @ 0x14009D860 (RtlImageNtHeaderEx.c)
+ *     RtlImageNtHeaderEx @ 0x14009D7A0 (RtlImageNtHeaderEx.c)
  */
 
 __int64 __fastcall MiCaptureDynamicRelocationTableRva(

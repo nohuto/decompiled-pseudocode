@@ -1,10 +1,10 @@
 /*
- * XREFs of PopCopyFirmwareRuntimeInformationPfnList @ 0x140C0D1B4
+ * XREFs of PopCopyFirmwareRuntimeInformationPfnList @ 0x140C133C4
  * Callers:
- *     PopBuildMemoryImageHeader @ 0x140BF9C6C (PopBuildMemoryImageHeader.c)
+ *     PopBuildMemoryImageHeader @ 0x140BFFC6C (PopBuildMemoryImageHeader.c)
  * Callees:
- *     PoSetHiberRange @ 0x1404AFD60 (PoSetHiberRange.c)
- *     memmove @ 0x14073D480 (memmove.c)
+ *     PoSetHiberRange @ 0x1404A93F0 (PoSetHiberRange.c)
+ *     memmove @ 0x140742080 (memmove.c)
  */
 
 __int64 __fastcall PopCopyFirmwareRuntimeInformationPfnList(_QWORD *MemoryMap, __int64 a2)

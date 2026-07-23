@@ -1,9 +1,9 @@
 /*
- * XREFs of KiSchedulerAssistBugCheckAddPagesCallback @ 0x1405B7890
+ * XREFs of KiSchedulerAssistBugCheckAddPagesCallback @ 0x1405B4E60
  * Callers:
  *     <none>
  * Callees:
- *     MmIsAddressValidEx @ 0x140262FC0 (MmIsAddressValidEx.c)
+ *     MmIsAddressValidEx @ 0x140244560 (MmIsAddressValidEx.c)
  */
 
 void __fastcall KiSchedulerAssistBugCheckAddPagesCallback(
@@ -64,7 +64,7 @@ void __fastcall KiSchedulerAssistBugCheckAddPagesCallback(
             *((_DWORD *)ReasonSpecificData + 2) = -2147483647;
             if ( !v11 )
             {
-              dword_140F22710 = 0;
+              dword_140F229D0 = 0;
               v11 = (__int64 *)&KiSchedulerAssistAddPagesCallbackContext;
               *ReasonSpecificData = &KiSchedulerAssistAddPagesCallbackContext;
             }

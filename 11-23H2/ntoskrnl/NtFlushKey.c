@@ -1,23 +1,23 @@
 /*
- * XREFs of NtFlushKey @ 0x1407AC4C0
+ * XREFs of NtFlushKey @ 0x1407AC6B0
  * Callers:
- *     ExpWatchProductTypeWork @ 0x1407AC030 (ExpWatchProductTypeWork.c)
+ *     ExpWatchProductTypeWork @ 0x1407AC220 (ExpWatchProductTypeWork.c)
  * Callees:
- *     CmpInitializeThreadInfo @ 0x14022E640 (CmpInitializeThreadInfo.c)
- *     CmCleanupThreadInfo @ 0x14022E680 (CmCleanupThreadInfo.c)
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     CmpIsRegistryLockAcquired @ 0x14022FB70 (CmpIsRegistryLockAcquired.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     ExAcquireRundownProtection_0 @ 0x14028B360 (ExAcquireRundownProtection_0.c)
- *     ExReleaseRundownProtection_0 @ 0x14028B390 (ExReleaseRundownProtection_0.c)
- *     EtwGetKernelTraceTimestamp @ 0x1402A2F90 (EtwGetKernelTraceTimestamp.c)
- *     CmpDoFlushAll @ 0x1402F694C (CmpDoFlushAll.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
+ *     CmpInitializeThreadInfo @ 0x14022E750 (CmpInitializeThreadInfo.c)
+ *     CmCleanupThreadInfo @ 0x14022E790 (CmCleanupThreadInfo.c)
+ *     KeLeaveCriticalRegionThread @ 0x14022F7F0 (KeLeaveCriticalRegionThread.c)
+ *     CmpIsRegistryLockAcquired @ 0x14022FC60 (CmpIsRegistryLockAcquired.c)
+ *     ObfDereferenceObject @ 0x140231660 (ObfDereferenceObject.c)
+ *     ExAcquireRundownProtection_0 @ 0x14028B5F0 (ExAcquireRundownProtection_0.c)
+ *     ExReleaseRundownProtection_0 @ 0x14028B620 (ExReleaseRundownProtection_0.c)
+ *     EtwGetKernelTraceTimestamp @ 0x1402A3220 (EtwGetKernelTraceTimestamp.c)
+ *     CmpDoFlushAll @ 0x1402F6BDC (CmpDoFlushAll.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
  *     CmPostCallbackNotificationEx @ 0x140691E30 (CmPostCallbackNotificationEx.c)
- *     CmpCallCallBacksEx @ 0x1406E85F0 (CmpCallCallBacksEx.c)
- *     CmpFlushHive @ 0x140752E88 (CmpFlushHive.c)
- *     CmpLockRegistryFreezeAware @ 0x1407537E8 (CmpLockRegistryFreezeAware.c)
+ *     CmpCallCallBacksEx @ 0x1406E8620 (CmpCallCallBacksEx.c)
+ *     CmpFlushHive @ 0x140753078 (CmpFlushHive.c)
+ *     CmpLockRegistryFreezeAware @ 0x1407539D8 (CmpLockRegistryFreezeAware.c)
  *     CmpPerformKeyBodyDeletionCheck @ 0x140AF5160 (CmpPerformKeyBodyDeletionCheck.c)
  *     CmpDetachFromRegistryProcess @ 0x140AF5230 (CmpDetachFromRegistryProcess.c)
  *     CmpAttachToRegistryProcess @ 0x140AF5250 (CmpAttachToRegistryProcess.c)
@@ -29,8 +29,9 @@
  *     CmpUnlockKcb @ 0x140AF55A0 (CmpUnlockKcb.c)
  */
 
-__int64 __fastcall NtFlushKey(int a1)
+NTSTATUS __cdecl NtFlushKey(HANDLE KeyHandle)
 {
+  int v1; // ebx
   void *v2; // rdi
   char v3; // r15
   __int64 v4; // rdx
@@ -41,7 +42,7 @@ __int64 __fastcall NtFlushKey(int a1)
   int v9; // r8d
   int v10; // r9d
   char v11; // r13
-  signed int v12; // ebx
+  int v12; // ebx
   char PreviousMode; // r14
   struct _KTHREAD *CurrentThread; // rax
   __int64 v15; // rdi
@@ -69,6 +70,7 @@ __int64 __fastcall NtFlushKey(int a1)
   _OWORD v38[2]; // [rsp+C8h] [rbp+7h] BYREF
 
   v33 = 0LL;
+  v1 = (int)KeyHandle;
   v35 = 0LL;
   memset(v36, 0, sizeof(v36));
   memset(v37, 0, sizeof(v37));
@@ -89,7 +91,7 @@ __int64 __fastcall NtFlushKey(int a1)
   }
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   LOBYTE(v10) = PreviousMode;
-  v12 = CmObReferenceObjectByHandle(a1, 0, v9, v10, (__int64)&v32, (__int64)&v33);
+  v12 = CmObReferenceObjectByHandle(v1, 0, v9, v10, (__int64)&v32, (__int64)&v33);
   if ( v12 >= 0 )
   {
     CurrentThread = KeGetCurrentThread();
@@ -168,5 +170,5 @@ LABEL_26:
   if ( v11 )
     CmpReleaseShutdownRundown(v8, v7);
   CmCleanupThreadInfo((__int64 *)&v35);
-  return (unsigned int)v12;
+  return v12;
 }

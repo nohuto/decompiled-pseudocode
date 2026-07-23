@@ -1,17 +1,17 @@
 /*
- * XREFs of MiIncrementSubsectionViewCount @ 0x14002CF20
+ * XREFs of MiIncrementSubsectionViewCount @ 0x14002CAA0
  * Callers:
- *     MiReferenceSubsection @ 0x140021B6C (MiReferenceSubsection.c)
- *     MiFlushSectionInternal @ 0x140029DB0 (MiFlushSectionInternal.c)
- *     MiReferenceActiveSubsection @ 0x14002CE80 (MiReferenceActiveSubsection.c)
- *     MmPurgeSection @ 0x140072AB0 (MmPurgeSection.c)
- *     MiCreatePrototypePtes @ 0x14008FE84 (MiCreatePrototypePtes.c)
- *     MiPrepareSegmentForDeletion @ 0x140090154 (MiPrepareSegmentForDeletion.c)
- *     MiRetainSubsection @ 0x1400A4194 (MiRetainSubsection.c)
- *     MiSetSubsectionBase @ 0x1400B4BB8 (MiSetSubsectionBase.c)
- *     MiExtendSection @ 0x140521CB4 (MiExtendSection.c)
+ *     MiReferenceSubsection @ 0x1400216EC (MiReferenceSubsection.c)
+ *     MiFlushSectionInternal @ 0x140029930 (MiFlushSectionInternal.c)
+ *     MiReferenceActiveSubsection @ 0x14002CA00 (MiReferenceActiveSubsection.c)
+ *     MmPurgeSection @ 0x140072630 (MmPurgeSection.c)
+ *     MiCreatePrototypePtes @ 0x14008F5E4 (MiCreatePrototypePtes.c)
+ *     MiPrepareSegmentForDeletion @ 0x14008F8B4 (MiPrepareSegmentForDeletion.c)
+ *     MiRetainSubsection @ 0x1400A2ABC (MiRetainSubsection.c)
+ *     MiSetSubsectionBase @ 0x1400B29F0 (MiSetSubsectionBase.c)
+ *     MiExtendSection @ 0x140504D14 (MiExtendSection.c)
  * Callees:
- *     MiSubsectionUsingExtents @ 0x1400E7F14 (MiSubsectionUsingExtents.c)
+ *     MiSubsectionUsingExtents @ 0x1400E5DB4 (MiSubsectionUsingExtents.c)
  */
 
 __int64 __fastcall MiIncrementSubsectionViewCount(__int64 a1, __int64 a2)
@@ -28,7 +28,7 @@ __int64 __fastcall MiIncrementSubsectionViewCount(__int64 a1, __int64 a2)
   if ( (a2 & 1) != 0 && !(unsigned int)MiSubsectionUsingExtents(a1, a2) )
   {
     v5 = *(_WORD *)(*(_QWORD *)a1 + 60LL) & 0x3FF;
-    v6 = v5 == 1023 ? MiSystemPartition : *(int **)(qword_140326FF8 + 8LL * v5);
+    v6 = v5 == 1023 ? MiSystemPartition : *(int **)(qword_140327038 + 8LL * v5);
     if ( (v4 & 4) != 0 )
     {
       v8 = 0LL;
@@ -36,13 +36,13 @@ __int64 __fastcall MiIncrementSubsectionViewCount(__int64 a1, __int64 a2)
     else
     {
       v7 = WORD2(KeGetCurrentThread()->ApcState.Process[1].InstrumentationCallback);
-      v8 = v7 == 1023 ? MiSystemPartition : *(int **)(qword_140326FF8 + 8LL * v7);
+      v8 = v7 == 1023 ? MiSystemPartition : *(int **)(qword_140327038 + 8LL * v7);
     }
     if ( v8 != v6 )
     {
       if ( v6 != MiSystemPartition )
       {
-        ++dword_140327008;
+        ++dword_140327048;
         return 0LL;
       }
       v9 = *(_DWORD *)(a1 + 48);

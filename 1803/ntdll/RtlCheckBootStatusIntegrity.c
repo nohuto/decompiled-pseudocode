@@ -8,59 +8,61 @@
  *     ZwReadFile @ 0x18009AB80 (ZwReadFile.c)
  */
 
-__int64 __fastcall RtlCheckBootStatusIntegrity(__int64 a1, bool *a2)
+NTSTATUS __cdecl RtlCheckBootStatusIntegrity(HANDLE FileHandle, PBOOLEAN Verified)
 {
-  char v3; // bp
-  int File; // edi
-  unsigned __int64 Heap; // rsi
-  __int64 v6; // rax
-  _BYTE *v7; // rcx
-  __int64 v9; // [rsp+58h] [rbp-20h]
-  unsigned int v10; // [rsp+90h] [rbp+18h]
+  char v4; // bp
+  int v5; // edi
+  PVOID Buffer; // rsi
+  __int64 v7; // rax
+  _BYTE *v8; // rcx
+  _IO_STATUS_BLOCK IoStatusBlock; // [rsp+50h] [rbp-28h] BYREF
+  SIZE_T Size; // [rsp+90h] [rbp+18h] BYREF
+  LARGE_INTEGER ByteOffset; // [rsp+98h] [rbp+20h] BYREF
 
-  v3 = 0;
-  File = ZwReadFile();
-  if ( File >= 0 )
+  ByteOffset.QuadPart = 0LL;
+  v4 = 0;
+  v5 = ZwReadFile(FileHandle, 0LL, 0LL, 0LL, &IoStatusBlock, &Size, 4u, &ByteOffset, 0LL);
+  if ( v5 >= 0 )
   {
-    if ( v10 && v10 <= 0x800 )
+    if ( (_DWORD)Size && (unsigned int)Size <= 0x800 )
     {
-      Heap = RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v10);
-      if ( Heap )
+      Buffer = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, (unsigned int)Size);
+      if ( Buffer )
       {
-        File = ZwReadFile();
-        if ( File >= 0 )
+        v5 = ZwReadFile(FileHandle, 0LL, 0LL, 0LL, &IoStatusBlock, Buffer, Size, &ByteOffset, 0LL);
+        if ( v5 >= 0 )
         {
-          v6 = v10;
-          if ( v9 == v10 )
+          v7 = (unsigned int)Size;
+          if ( IoStatusBlock.Information == (unsigned int)Size )
           {
-            if ( v10 )
+            if ( (_DWORD)Size )
             {
-              v7 = (_BYTE *)Heap;
+              v8 = Buffer;
               do
               {
-                v3 += *v7++;
-                --v6;
+                v4 += *v8++;
+                --v7;
               }
-              while ( v6 );
+              while ( v7 );
             }
-            *a2 = v3 == 0;
+            *Verified = v4 == 0;
           }
           else
           {
-            *a2 = 0;
+            *Verified = 0;
           }
         }
-        RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, Heap);
+        RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, Buffer);
       }
       else
       {
-        return (unsigned int)-1073741801;
+        return -1073741801;
       }
     }
     else
     {
-      *a2 = 0;
+      *Verified = 0;
     }
   }
-  return (unsigned int)File;
+  return v5;
 }

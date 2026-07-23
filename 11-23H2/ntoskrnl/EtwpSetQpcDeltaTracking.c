@@ -1,7 +1,7 @@
 /*
- * XREFs of EtwpSetQpcDeltaTracking @ 0x1405FC378
+ * XREFs of EtwpSetQpcDeltaTracking @ 0x1405FC8E8
  * Callers:
- *     EtwpStartLogger @ 0x1406BBFB0 (EtwpStartLogger.c)
+ *     EtwpStartLogger @ 0x1406BBFE0 (EtwpStartLogger.c)
  * Callees:
  *     <none>
  */

@@ -1,19 +1,19 @@
 /*
- * XREFs of MiShowBadMapper @ 0x1401E14D4
+ * XREFs of MiShowBadMapper @ 0x1401E1300
  * Callers:
- *     MiMapContiguousMemory @ 0x14009B8AC (MiMapContiguousMemory.c)
- *     MmMapLockedPagesSpecifyCache @ 0x1400DE220 (MmMapLockedPagesSpecifyCache.c)
- *     MiMapLockedPagesInUserSpaceHelper @ 0x14010E214 (MiMapLockedPagesInUserSpaceHelper.c)
- *     MiInsertViewOfPhysicalSection @ 0x140146848 (MiInsertViewOfPhysicalSection.c)
- *     MiMapMdlCommon @ 0x1401E3868 (MiMapMdlCommon.c)
+ *     MiMapContiguousMemory @ 0x14009B0AC (MiMapContiguousMemory.c)
+ *     MmMapLockedPagesSpecifyCache @ 0x1400DC0C0 (MmMapLockedPagesSpecifyCache.c)
+ *     MiMapLockedPagesInUserSpaceHelper @ 0x14010E778 (MiMapLockedPagesInUserSpaceHelper.c)
+ *     MiInsertViewOfPhysicalSection @ 0x140146DB8 (MiInsertViewOfPhysicalSection.c)
+ *     MiMapMdlCommon @ 0x1401E3694 (MiMapMdlCommon.c)
  * Callees:
- *     MiLookupDataTableEntry @ 0x140014A30 (MiLookupDataTableEntry.c)
- *     RtlCaptureStackBackTrace @ 0x140084730 (RtlCaptureStackBackTrace.c)
- *     MmUnlockLoadedModuleListExclusive @ 0x140084C98 (MmUnlockLoadedModuleListExclusive.c)
- *     MmLockLoadedModuleListExclusive @ 0x140084CB8 (MmLockLoadedModuleListExclusive.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     MiLookupDataTableEntry @ 0x1400145B0 (MiLookupDataTableEntry.c)
+ *     RtlCaptureStackBackTrace @ 0x140082890 (RtlCaptureStackBackTrace.c)
+ *     MmUnlockLoadedModuleListExclusive @ 0x140082DF8 (MmUnlockLoadedModuleListExclusive.c)
+ *     MmLockLoadedModuleListExclusive @ 0x140082E18 (MmLockLoadedModuleListExclusive.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
+ *     memset @ 0x140171AC0 (memset.c)
  */
 
 void __fastcall MiShowBadMapper(ULONG_PTR BugCheckParameter2, char a2)
@@ -26,10 +26,10 @@ void __fastcall MiShowBadMapper(ULONG_PTR BugCheckParameter2, char a2)
   ULONG BackTraceHash[3]; // [rsp+34h] [rbp-64h] BYREF
   PVOID BackTrace[8]; // [rsp+40h] [rbp-58h] BYREF
 
-  v2 = byte_140327146;
-  if ( !byte_140327146 )
+  v2 = byte_140327186;
+  if ( !byte_140327186 )
   {
-    if ( (a2 & 1) != 0 && KdPitchDebugger == byte_140327146 && (_BYTE)KdDebuggerNotPresent == byte_140327146 )
+    if ( (a2 & 1) != 0 && KdPitchDebugger == byte_140327186 && (_BYTE)KdDebuggerNotPresent == byte_140327186 )
 LABEL_14:
       KeBugCheckEx(0x1Au, 0x1233uLL, BugCheckParameter2, 0LL, 0LL);
     memset(BackTrace, 0, sizeof(BackTrace));

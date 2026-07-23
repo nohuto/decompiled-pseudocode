@@ -1,43 +1,43 @@
 /*
- * XREFs of NtNotifyChangeSession @ 0x140B4CFC0
+ * XREFs of NtNotifyChangeSession @ 0x140B4ED50
  * Callers:
- *     DifNtNotifyChangeSessionWrapper @ 0x14067C820 (DifNtNotifyChangeSessionWrapper.c)
+ *     DifNtNotifyChangeSessionWrapper @ 0x140680400 (DifNtNotifyChangeSessionWrapper.c)
  * Callees:
- *     KeDelayExecutionThread @ 0x140244840 (KeDelayExecutionThread.c)
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     KeWaitForSingleObject @ 0x140278560 (KeWaitForSingleObject.c)
- *     KeSetEvent @ 0x1402DE9C0 (KeSetEvent.c)
- *     ExQueueWorkItem @ 0x140381C70 (ExQueueWorkItem.c)
- *     ExNotifyCallback @ 0x14047A7E0 (ExNotifyCallback.c)
- *     RtlCopyFromUser @ 0x140533E38 (RtlCopyFromUser.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     ObReferenceObjectByHandle @ 0x1408F9550 (ObReferenceObjectByHandle.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     KeDelayExecutionThread @ 0x1402461A0 (KeDelayExecutionThread.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     KeWaitForSingleObject @ 0x140277AD0 (KeWaitForSingleObject.c)
+ *     KeSetEvent @ 0x1402C0780 (KeSetEvent.c)
+ *     ExQueueWorkItem @ 0x140383A20 (ExQueueWorkItem.c)
+ *     ExNotifyCallback @ 0x140474150 (ExNotifyCallback.c)
+ *     RtlCopyFromUser @ 0x1405362B8 (RtlCopyFromUser.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     ObReferenceObjectByHandle @ 0x1409294E0 (ObReferenceObjectByHandle.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
-NTSTATUS __fastcall NtNotifyChangeSession(
-        HANDLE Handle,
-        unsigned int a2,
-        __int64 a3,
-        unsigned int a4,
-        unsigned int a5,
-        int a6,
-        void *Src,
-        unsigned int a8)
+NTSTATUS __cdecl NtNotifyChangeSession(
+        HANDLE SessionHandle,
+        ULONG ChangeSequenceNumber,
+        PLARGE_INTEGER ChangeTimeStamp,
+        IO_SESSION_EVENT Event,
+        IO_SESSION_STATE NewState,
+        IO_SESSION_STATE PreviousState,
+        PVOID Payload,
+        ULONG PayloadSize)
 {
   char v11; // r12
   KPROCESSOR_MODE PreviousMode; // al
   NTSTATUS result; // eax
   char *v14; // r13
   __int64 v15; // rdx
-  unsigned int v16; // ecx
+  ULONG v16; // ecx
   __int64 v17; // r8
   __int64 v18; // rax
   _BYTE *v19; // rbx
-  unsigned int v20; // edx
+  ULONG v20; // edx
   _BYTE *Pool2; // rax
   _BYTE *v22; // rax
   PVOID v23; // r15
@@ -47,7 +47,7 @@ NTSTATUS __fastcall NtNotifyChangeSession(
   unsigned __int16 Size_4; // [rsp+38h] [rbp-1B0h]
   NTSTATUS v28; // [rsp+3Ch] [rbp-1ACh]
   PVOID Object; // [rsp+48h] [rbp-1A0h] BYREF
-  unsigned int v30; // [rsp+58h] [rbp-190h]
+  IO_SESSION_EVENT v30; // [rsp+58h] [rbp-190h]
   char *v31; // [rsp+60h] [rbp-188h]
   LARGE_INTEGER Interval; // [rsp+68h] [rbp-180h] BYREF
   _OWORD Argument1[2]; // [rsp+70h] [rbp-178h] BYREF
@@ -55,17 +55,17 @@ NTSTATUS __fastcall NtNotifyChangeSession(
   __int128 v35; // [rsp+A0h] [rbp-148h]
   _BYTE v36[256]; // [rsp+B0h] [rbp-138h] BYREF
 
-  v30 = a4;
+  v30 = Event;
   v25 = 0;
   memset_0(Argument1, 0, 0x40uLL);
   Size_4 = 0;
   v11 = 0;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   v26 = PreviousMode;
-  if ( a8 > 0x100 )
+  if ( PayloadSize > 0x100 )
     return -1073741580;
   Object = 0LL;
-  result = ObReferenceObjectByHandle(Handle, 2u, MmSessionObjectType, PreviousMode, &Object, 0LL);
+  result = ObReferenceObjectByHandle(SessionHandle, 2u, MmSessionObjectType, PreviousMode, &Object, 0LL);
   v28 = result;
   if ( result < 0 )
     return result;
@@ -74,16 +74,16 @@ NTSTATUS __fastcall NtNotifyChangeSession(
   KeWaitForSingleObject((PVOID)(*((_QWORD *)Object + 3) + 136LL), Executive, 0, 0, 0LL);
   v15 = *(_QWORD *)v14;
   v16 = *(_DWORD *)(*(_QWORD *)v14 + 132LL);
-  if ( v16 == a2 )
+  if ( v16 == ChangeSequenceNumber )
   {
     *(_DWORD *)(v15 + 132) = v16 + 1;
   }
-  else if ( v16 <= a2 || v16 - a2 >= 0xFFFFFFFD )
+  else if ( v16 <= ChangeSequenceNumber || v16 - ChangeSequenceNumber >= 0xFFFFFFFD )
   {
     do
     {
       v17 = v15;
-      if ( v16 == a2 )
+      if ( v16 == ChangeSequenceNumber )
         break;
       Interval.QuadPart = -1000000LL;
       KeSetEvent((PRKEVENT)(v15 + 136), 0, 0);
@@ -95,19 +95,19 @@ NTSTATUS __fastcall NtNotifyChangeSession(
       v17 = *(_QWORD *)v14;
     }
     while ( Size_4 <= 0xAu );
-    *(_DWORD *)(v17 + 132) = a2 + 1;
+    *(_DWORD *)(v17 + 132) = ChangeSequenceNumber + 1;
   }
   v18 = *(_QWORD *)v14;
-  if ( !a4 )
+  if ( Event == IoSessionEventIgnore )
   {
     KeSetEvent((PRKEVENT)(v18 + 136), 0, 0);
     ObfDereferenceObject(Object);
     return 0;
   }
-  *(_DWORD *)(v18 + 128) = a5;
+  *(_DWORD *)(v18 + 128) = NewState;
   v19 = 0LL;
-  v20 = a8;
-  if ( a8 )
+  v20 = PayloadSize;
+  if ( PayloadSize )
   {
     if ( v26 == 1 )
     {
@@ -116,41 +116,41 @@ NTSTATUS __fastcall NtNotifyChangeSession(
       if ( Pool2 )
       {
         v25 = 1;
-        RtlCopyFromUser(Pool2, Src, a8);
+        RtlCopyFromUser(Pool2, Payload, PayloadSize);
       }
       else
       {
         v19 = v36;
-        RtlCopyFromUser(v36, Src, a8);
+        RtlCopyFromUser(v36, Payload, PayloadSize);
         v11 = 1;
       }
       v14 = v31;
-      v20 = a8;
+      v20 = PayloadSize;
       goto LABEL_26;
     }
-    if ( a4 - 1 > 1 )
+    if ( (unsigned int)(Event - 1) > 1 )
     {
       v22 = (_BYTE *)ExAllocatePool2(0x100uLL);
       v19 = v22;
       if ( v22 )
       {
         v25 = 1;
-        memmove(v22, Src, a8);
-        v20 = a8;
+        memmove(v22, Payload, PayloadSize);
+        v20 = PayloadSize;
         goto LABEL_26;
       }
       v11 = 1;
-      v20 = a8;
+      v20 = PayloadSize;
     }
-    v19 = Src;
+    v19 = Payload;
   }
 LABEL_26:
-  *(_QWORD *)&v34 = __PAIR64__(a5, a4);
-  DWORD2(v34) = v20;
+  LODWORD(v34) = Event;
+  *(_QWORD *)((char *)&v34 + 4) = __PAIR64__(v20, NewState);
   *(_QWORD *)&v35 = v19;
   v23 = Object;
   *((_QWORD *)&v35 + 1) = Object;
-  if ( !v11 && a4 - 1 > 1 )
+  if ( !v11 && (unsigned int)(Event - 1) > 1 )
   {
     v24 = ExAllocatePool2(0x40uLL);
     if ( v24 )

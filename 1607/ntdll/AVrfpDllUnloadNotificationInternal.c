@@ -1,10 +1,10 @@
 /*
- * XREFs of AVrfpDllUnloadNotificationInternal @ 0x1800D68A0
+ * XREFs of AVrfpDllUnloadNotificationInternal @ 0x1800D6960
  * Callers:
- *     AVrfDllUnloadNotification @ 0x1800D5EA4 (AVrfDllUnloadNotification.c)
+ *     AVrfDllUnloadNotification @ 0x1800D5F64 (AVrfDllUnloadNotification.c)
  * Callees:
- *     DbgPrint @ 0x18005C3E0 (DbgPrint.c)
- *     _wcsicmp @ 0x180098360 (_wcsicmp.c)
+ *     DbgPrint @ 0x18005C3D0 (DbgPrint.c)
+ *     _wcsicmp @ 0x180098350 (_wcsicmp.c)
  */
 
 __int64 __fastcall AVrfpDllUnloadNotificationInternal(__int64 a1)

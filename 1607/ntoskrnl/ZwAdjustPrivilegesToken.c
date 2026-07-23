@@ -1,14 +1,13 @@
 /*
- * XREFs of ZwAdjustPrivilegesToken @ 0x14015A4A0
+ * XREFs of ZwAdjustPrivilegesToken @ 0x14015AA10
  * Callers:
- *     RtlAcquirePrivilege @ 0x1404DBF50 (RtlAcquirePrivilege.c)
- *     RtlReleasePrivilege @ 0x1404E5400 (RtlReleasePrivilege.c)
- *     BiAdjustPrivilege @ 0x14053BDE0 (BiAdjustPrivilege.c)
+ *     RtlAcquirePrivilege @ 0x1404BF554 (RtlAcquirePrivilege.c)
+ *     RtlReleasePrivilege @ 0x1404C801C (RtlReleasePrivilege.c)
+ *     BiAdjustPrivilege @ 0x14053C320 (BiAdjustPrivilege.c)
  * Callees:
  *     <none>
  */
 
-// local variable allocation has failed, the output may be wrong!
 NTSTATUS __stdcall ZwAdjustPrivilegesToken(
         HANDLE TokenHandle,
         BOOLEAN DisableAllPrivileges,
@@ -19,5 +18,5 @@ NTSTATUS __stdcall ZwAdjustPrivilegesToken(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(TokenHandle, DisableAllPrivileges, NewState);
+  return KiServiceInternal(TokenHandle);
 }

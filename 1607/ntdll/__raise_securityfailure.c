@@ -1,13 +1,13 @@
 /*
- * XREFs of __raise_securityfailure @ 0x180096C64
+ * XREFs of __raise_securityfailure @ 0x180096C54
  * Callers:
- *     __report_securityfailure @ 0x180096DFC (__report_securityfailure.c)
+ *     __report_securityfailure @ 0x180096DEC (__report_securityfailure.c)
  * Callees:
  *     RtlUnhandledExceptionFilter @ 0x1800F1DD0 (RtlUnhandledExceptionFilter.c)
  */
 
-__int64 _raise_securityfailure()
+NTSTATUS __fastcall _raise_securityfailure(_EXCEPTION_POINTERS *a1)
 {
-  RtlUnhandledExceptionFilter();
-  return ZwTerminateProcess(-1LL, 3221226505LL);
+  RtlUnhandledExceptionFilter(a1);
+  return ZwTerminateProcess((HANDLE)0xFFFFFFFFFFFFFFFFLL, -1073740791);
 }

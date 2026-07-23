@@ -34,18 +34,18 @@ __int64 __fastcall PiDevCfgConfigureDeviceLocation(__int64 a1, __int64 a2, _DWOR
   UNICODE_STRING v20; // [rsp+30h] [rbp-79h] BYREF
   HANDLE v21; // [rsp+40h] [rbp-69h] BYREF
   HANDLE v22; // [rsp+48h] [rbp-61h] BYREF
-  HANDLE v23; // [rsp+50h] [rbp-59h] BYREF
+  HANDLE KeyHandle; // [rsp+50h] [rbp-59h] BYREF
   UNICODE_STRING UnicodeString; // [rsp+58h] [rbp-51h] BYREF
-  __int64 v25; // [rsp+68h] [rbp-41h] BYREF
+  ULONG ResultLength; // [rsp+68h] [rbp-41h] BYREF
   HANDLE Handle; // [rsp+70h] [rbp-39h] BYREF
   void *v27; // [rsp+78h] [rbp-31h] BYREF
   __int64 v28; // [rsp+80h] [rbp-29h]
-  _OWORD v29[2]; // [rsp+88h] [rbp-21h] BYREF
+  _OWORD KeyInformation[2]; // [rsp+88h] [rbp-21h] BYREF
   __int64 v30; // [rsp+A8h] [rbp-1h]
 
   v28 = a1;
   v27 = 0LL;
-  v23 = 0LL;
+  KeyHandle = 0LL;
   v22 = 0LL;
   v21 = 0LL;
   Handle = 0LL;
@@ -53,9 +53,9 @@ __int64 __fastcall PiDevCfgConfigureDeviceLocation(__int64 a1, __int64 a2, _DWOR
   *(_QWORD *)&UnicodeString.Length = 0LL;
   Buffer = 0LL;
   UnicodeString.Buffer = 0LL;
-  LODWORD(v25) = 0;
+  ResultLength = 0;
   v20 = 0LL;
-  memset(v29, 0, sizeof(v29));
+  memset(KeyInformation, 0, sizeof(KeyInformation));
   if ( a3 )
     *a3 = 0;
   if ( a4 )
@@ -67,21 +67,21 @@ __int64 __fastcall PiDevCfgConfigureDeviceLocation(__int64 a1, __int64 a2, _DWOR
   {
     v20.Buffer = L"Control\\DeviceLocations";
     *(_DWORD *)&v20.Length = 3145774;
-    v9 = IopOpenRegistryKeyEx(&v23, v27, &v20, 0x20019u);
+    v9 = IopOpenRegistryKeyEx(&KeyHandle, v27, &v20, 0x20019u);
     CachedContextBaseKey = v9;
     if ( v9 == -1073741772 )
       goto LABEL_9;
     if ( v9 < 0 )
       goto LABEL_42;
-    CachedContextBaseKey = NtQueryKey(v23, 4u, (unsigned __int64)v29, 0x28u, &v25);
+    CachedContextBaseKey = NtQueryKey(KeyHandle, KeyCachedInformation, KeyInformation, 0x28u, &ResultLength);
     if ( CachedContextBaseKey < 0 )
       goto LABEL_42;
-    if ( !HIDWORD(v29[0])
-      || (CachedContextBaseKey = PnpOpenFirstMatchingSubKey(*(PCWSTR *)(a2 + 64), (__int64)v23, v10, v11, &v22),
+    if ( !HIDWORD(KeyInformation[0])
+      || (CachedContextBaseKey = PnpOpenFirstMatchingSubKey(*(PCWSTR *)(a2 + 64), (__int64)KeyHandle, v10, v11, &v22),
           CachedContextBaseKey == -1073741772)
       && (v20.Buffer = (wchar_t *)L"*",
           *(_DWORD *)&v20.Length = 262146,
-          CachedContextBaseKey = IopOpenRegistryKeyEx(&v22, v23, &v20, 0x20019u),
+          CachedContextBaseKey = IopOpenRegistryKeyEx(&v22, KeyHandle, &v20, 0x20019u),
           CachedContextBaseKey == -1073741772) )
     {
 LABEL_9:
@@ -162,7 +162,7 @@ LABEL_42:
     ZwClose(v21);
   if ( v22 )
     ZwClose(v22);
-  if ( v23 )
-    ZwClose(v23);
+  if ( KeyHandle )
+    ZwClose(KeyHandle);
   return (unsigned int)CachedContextBaseKey;
 }

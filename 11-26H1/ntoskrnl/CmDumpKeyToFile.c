@@ -1,23 +1,23 @@
 /*
- * XREFs of CmDumpKeyToFile @ 0x14084D1E8
+ * XREFs of CmDumpKeyToFile @ 0x1408534F4
  * Callers:
- *     NtSaveKeyEx @ 0x140A754D0 (NtSaveKeyEx.c)
+ *     NtSaveKeyEx @ 0x140A7E1F0 (NtSaveKeyEx.c)
  * Callees:
- *     CmpFreeOffsetArray @ 0x14085A7E0 (CmpFreeOffsetArray.c)
- *     CmpWriteOffsetArrayToFile @ 0x14085AACC (CmpWriteOffsetArrayToFile.c)
- *     CmSaveKey @ 0x140A7626C (CmSaveKey.c)
- *     HvAllocateOffsetArraysForHiveSnapshot @ 0x140B3BD78 (HvAllocateOffsetArraysForHiveSnapshot.c)
- *     CmpIsKeyBodyEligibleForDump @ 0x140C5825C (CmpIsKeyBodyEligibleForDump.c)
- *     CmpUnlockKcb @ 0x140C582B0 (CmpUnlockKcb.c)
- *     CmpLockKcbShared @ 0x140C583F0 (CmpLockKcbShared.c)
- *     HvSnapshotHiveToOffsetArray @ 0x140C5846C (HvSnapshotHiveToOffsetArray.c)
- *     CmpLockRegistry @ 0x140C58850 (CmpLockRegistry.c)
- *     CmpUnlockRegistry @ 0x140C58970 (CmpUnlockRegistry.c)
- *     CmLockHiveSecurityShared @ 0x140C58B30 (CmLockHiveSecurityShared.c)
- *     CmUnlockHiveSecurity @ 0x140C58BA8 (CmUnlockHiveSecurity.c)
- *     HvUnlockHiveFlusherExclusive @ 0x140C58D14 (HvUnlockHiveFlusherExclusive.c)
- *     HvLockHiveFlusherExclusive @ 0x140C58D30 (HvLockHiveFlusherExclusive.c)
- *     CmpDoAccessCheckOnSubtree @ 0x140C58D4C (CmpDoAccessCheckOnSubtree.c)
+ *     CmpFreeOffsetArray @ 0x140860AD4 (CmpFreeOffsetArray.c)
+ *     CmpWriteOffsetArrayToFile @ 0x140860DC0 (CmpWriteOffsetArrayToFile.c)
+ *     CmSaveKey @ 0x140A7EF8C (CmSaveKey.c)
+ *     HvAllocateOffsetArraysForHiveSnapshot @ 0x140B3DFF8 (HvAllocateOffsetArraysForHiveSnapshot.c)
+ *     CmpIsKeyBodyEligibleForDump @ 0x140C5E25C (CmpIsKeyBodyEligibleForDump.c)
+ *     CmpUnlockKcb @ 0x140C5E2B0 (CmpUnlockKcb.c)
+ *     CmpLockKcbShared @ 0x140C5E3F0 (CmpLockKcbShared.c)
+ *     HvSnapshotHiveToOffsetArray @ 0x140C5E46C (HvSnapshotHiveToOffsetArray.c)
+ *     CmpLockRegistry @ 0x140C5E850 (CmpLockRegistry.c)
+ *     CmpUnlockRegistry @ 0x140C5E970 (CmpUnlockRegistry.c)
+ *     CmLockHiveSecurityShared @ 0x140C5EB30 (CmLockHiveSecurityShared.c)
+ *     CmUnlockHiveSecurity @ 0x140C5EBA8 (CmUnlockHiveSecurity.c)
+ *     HvUnlockHiveFlusherExclusive @ 0x140C5ED14 (HvUnlockHiveFlusherExclusive.c)
+ *     HvLockHiveFlusherExclusive @ 0x140C5ED30 (HvLockHiveFlusherExclusive.c)
+ *     CmpDoAccessCheckOnSubtree @ 0x140C5ED4C (CmpDoAccessCheckOnSubtree.c)
  */
 
 __int64 __fastcall CmDumpKeyToFile(__int64 a1, char a2, void *a3)

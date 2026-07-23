@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlPatchContainsCallTarget @ 0x140A76694
+ * XREFs of RtlPatchContainsCallTarget @ 0x140A76944
  * Callers:
- *     MiApplyDriverHotPatch @ 0x140A34878 (MiApplyDriverHotPatch.c)
+ *     MiApplyDriverHotPatch @ 0x140A34B28 (MiApplyDriverHotPatch.c)
  * Callees:
- *     RtlGetHotPatchSize @ 0x14067ACB8 (RtlGetHotPatchSize.c)
+ *     RtlGetHotPatchSize @ 0x14067B208 (RtlGetHotPatchSize.c)
  */
 
 __int64 __fastcall RtlPatchContainsCallTarget(_DWORD *a1)

@@ -1,9 +1,9 @@
 /*
- * XREFs of VerifierIoVolumeDeviceToDosName @ 0x14070D650
+ * XREFs of VerifierIoVolumeDeviceToDosName @ 0x14070D680
  * Callers:
  *     <none>
  * Callees:
- *     VerifierBugCheckIfAppropriate @ 0x14070C2E8 (VerifierBugCheckIfAppropriate.c)
+ *     VerifierBugCheckIfAppropriate @ 0x14070C318 (VerifierBugCheckIfAppropriate.c)
  */
 
 __int64 __fastcall VerifierIoVolumeDeviceToDosName(__int64 a1, __int64 a2)

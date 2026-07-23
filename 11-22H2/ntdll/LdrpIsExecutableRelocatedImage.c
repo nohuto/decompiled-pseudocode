@@ -7,16 +7,22 @@
  *     ZwQueryVirtualMemory @ 0x18009F250 (ZwQueryVirtualMemory.c)
  */
 
-_BOOL8 __fastcall LdrpIsExecutableRelocatedImage(unsigned __int64 a1)
+_BOOL8 __fastcall LdrpIsExecutableRelocatedImage(PVOID BaseAddress)
 {
-  __int64 v3; // [rsp+30h] [rbp-28h] BYREF
+  PVOID MemoryInformation[2]; // [rsp+30h] [rbp-28h] BYREF
   int v4; // [rsp+40h] [rbp-18h]
-  __int64 v5; // [rsp+68h] [rbp+10h] BYREF
+  PIMAGE_NT_HEADERS OutHeaders; // [rsp+68h] [rbp+10h] BYREF
 
-  return (int)RtlImageNtHeaderEx(3, a1, 0LL, &v5) >= 0
-      && *(_QWORD *)(v5 + 48) == a1
-      && (int)ZwQueryVirtualMemory(-1LL, a1, 6LL, &v3, 24LL, 0LL) >= 0
-      && v3 == a1
+  return RtlImageNtHeaderEx(3u, BaseAddress, 0LL, &OutHeaders) >= 0
+      && (PVOID)OutHeaders->OptionalHeader.ImageBase == BaseAddress
+      && ZwQueryVirtualMemory(
+           (HANDLE)0xFFFFFFFFFFFFFFFFLL,
+           BaseAddress,
+           MemoryImageInformation,
+           MemoryInformation,
+           0x18uLL,
+           0LL) >= 0
+      && MemoryInformation[0] == BaseAddress
       && (v4 & 2) == 0
       && (v4 & 1) == 0;
 }

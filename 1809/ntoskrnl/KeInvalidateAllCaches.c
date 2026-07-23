@@ -1,17 +1,17 @@
 /*
- * XREFs of KeInvalidateAllCaches @ 0x140177050
+ * XREFs of KeInvalidateAllCaches @ 0x140177150
  * Callers:
- *     MiChangePageAttributeBatch @ 0x1400823F0 (MiChangePageAttributeBatch.c)
- *     KeInvalidateRangeAllCachesNoIpi @ 0x140082710 (KeInvalidateRangeAllCachesNoIpi.c)
- *     KeFlushIoBuffers @ 0x14011CB40 (KeFlushIoBuffers.c)
- *     KeInvalidateRangeAllCaches @ 0x1402953D0 (KeInvalidateRangeAllCaches.c)
- *     MiFlushCacheMdl @ 0x1402C3E5C (MiFlushCacheMdl.c)
- *     MiFlushCacheRange @ 0x1402C3E7C (MiFlushCacheRange.c)
- *     MiInitializeCacheFlushing @ 0x1409BC02C (MiInitializeCacheFlushing.c)
+ *     MiChangePageAttributeBatch @ 0x1400823E0 (MiChangePageAttributeBatch.c)
+ *     KeInvalidateRangeAllCachesNoIpi @ 0x140082700 (KeInvalidateRangeAllCachesNoIpi.c)
+ *     KeFlushIoBuffers @ 0x14011CBB0 (KeFlushIoBuffers.c)
+ *     KeInvalidateRangeAllCaches @ 0x1402955C0 (KeInvalidateRangeAllCaches.c)
+ *     MiFlushCacheMdl @ 0x1402C404C (MiFlushCacheMdl.c)
+ *     MiFlushCacheRange @ 0x1402C406C (MiFlushCacheRange.c)
+ *     MiInitializeCacheFlushing @ 0x1409BD02C (MiInitializeCacheFlushing.c)
  * Callees:
- *     KiIpiSendRequestEx @ 0x1400ED160 (KiIpiSendRequestEx.c)
- *     KxSetTimeStampBusy @ 0x140117C50 (KxSetTimeStampBusy.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiIpiSendRequestEx @ 0x1400ED1E0 (KiIpiSendRequestEx.c)
+ *     KxSetTimeStampBusy @ 0x140117CC0 (KxSetTimeStampBusy.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 BOOLEAN KeInvalidateAllCaches(void)

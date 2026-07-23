@@ -1,29 +1,29 @@
 /*
- * XREFs of NtWaitForSingleObject @ 0x1406F0830
+ * XREFs of NtWaitForSingleObject @ 0x140707C10
  * Callers:
- *     SepRmCallLsa @ 0x1402C19C0 (SepRmCallLsa.c)
- *     PfSnPrefetchFileMetadata @ 0x1406C6D4C (PfSnPrefetchFileMetadata.c)
+ *     SepRmCallLsa @ 0x14023FE60 (SepRmCallLsa.c)
+ *     PfSnPrefetchFileMetadata @ 0x14067563C (PfSnPrefetchFileMetadata.c)
  * Callees:
- *     ObWaitForSingleObject @ 0x1406F08B0 (ObWaitForSingleObject.c)
+ *     ObWaitForSingleObject @ 0x140707C90 (ObWaitForSingleObject.c)
  */
 
-__int64 __fastcall NtWaitForSingleObject(int a1, unsigned __int8 a2, unsigned __int64 a3)
+NTSTATUS __cdecl NtWaitForSingleObject(HANDLE Handle, BOOLEAN Alertable, PLARGE_INTEGER Timeout)
 {
   int v3; // r9d
   int v4; // edx
-  __int64 Timeout; // rax
+  PLARGE_INTEGER v5; // rax
   LARGE_INTEGER v7; // [rsp+58h] [rbp+20h] BYREF
 
-  v3 = a2;
+  v3 = Alertable;
   v7.QuadPart = 0LL;
   v4 = (unsigned __int8)KeGetCurrentThread()->$6BEBF485330D18E60173AA6D991B35AC::gap0[10];
-  Timeout = a3;
-  if ( a3 && (_BYTE)v4 )
+  v5 = Timeout;
+  if ( Timeout && (_BYTE)v4 )
   {
-    if ( a3 >= 0x7FFFFFFF0000LL )
-      Timeout = 0x7FFFFFFF0000LL;
-    v7 = *(LARGE_INTEGER *)Timeout;
-    Timeout = (__int64)&v7;
+    if ( (unsigned __int64)Timeout >= 0x7FFFFFFF0000LL )
+      v5 = (PLARGE_INTEGER)0x7FFFFFFF0000LL;
+    v7 = *v5;
+    v5 = &v7;
   }
-  return ObWaitForSingleObject(a1, v4, (unsigned __int8)v4, v3, (PLARGE_INTEGER)Timeout);
+  return ObWaitForSingleObject((int)Handle, v4, (unsigned __int8)v4, v3, v5);
 }

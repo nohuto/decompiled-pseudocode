@@ -7,13 +7,10 @@
  *     _RtlpHpTlLogGCTimerFinished@0 @ 0x4B3709B8 (_RtlpHpTlLogGCTimerFinished@0.c)
  */
 
-int __stdcall RtlpHpGCCallback(int a1, int a2, int a3)
+void __stdcall RtlpHpGCCallback(PTP_CALLBACK_INSTANCE a1, PVOID a2, PTP_TIMER a3)
 {
-  int result; // eax
-
-  result = RtlpEnumProcessHeaps((int (__stdcall *)(void *, int))RtlpHpGCFlushCallback, 0, 0);
+  RtlpEnumProcessHeaps((int (__stdcall *)(void *, int))RtlpHpGCFlushCallback, 0, 0);
   if ( (RtlpHpHeapFeatures & 8) != 0 )
-    result = RtlpHpTlLogGCTimerFinished();
+    RtlpHpTlLogGCTimerFinished();
   RtlpHpGCTimerScheduled = 0;
-  return result;
 }

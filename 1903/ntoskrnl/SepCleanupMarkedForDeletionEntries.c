@@ -18,7 +18,7 @@
 
 void SepCleanupMarkedForDeletionEntries()
 {
-  struct _RTL_DYNAMIC_HASH_TABLE *v0; // rsi
+  _RTL_DYNAMIC_HASH_TABLE *v0; // rsi
   volatile LONG *SingletonEntryFromIndexNumber; // rax
   volatile LONG *v2; // rdi
   KIRQL v3; // al
@@ -27,9 +27,9 @@ void SepCleanupMarkedForDeletionEntries()
   PRTL_DYNAMIC_HASH_TABLE_ENTRY v6; // rax
   unsigned int *v7; // rbx
   struct _KPRCB *CurrentPrcb; // rcx
-  struct _RTL_DYNAMIC_HASH_TABLE_ENUMERATOR Enumerator; // [rsp+20h] [rbp-38h] BYREF
+  _RTL_DYNAMIC_HASH_TABLE_ENUMERATOR Enumerator; // [rsp+20h] [rbp-38h] BYREF
 
-  v0 = *(struct _RTL_DYNAMIC_HASH_TABLE **)(SeLuidToIndexMapping + 8);
+  v0 = *(_RTL_DYNAMIC_HASH_TABLE **)(SeLuidToIndexMapping + 8);
   memset(&Enumerator, 0, sizeof(Enumerator));
   RtlInitEnumerationHashTable(v0, &Enumerator);
   while ( 1 )

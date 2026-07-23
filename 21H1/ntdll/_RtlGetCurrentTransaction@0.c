@@ -6,7 +6,7 @@
  *     <none>
  */
 
-void *__stdcall RtlGetCurrentTransaction()
+HANDLE RtlGetCurrentTransaction(void)
 {
   struct _TEB *v0; // eax
   int WowTebOffset; // ecx

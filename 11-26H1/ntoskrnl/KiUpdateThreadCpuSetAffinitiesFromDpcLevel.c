@@ -1,10 +1,10 @@
 /*
- * XREFs of KiUpdateThreadCpuSetAffinitiesFromDpcLevel @ 0x14046316C
+ * XREFs of KiUpdateThreadCpuSetAffinitiesFromDpcLevel @ 0x14045C12C
  * Callers:
- *     KiUpdateThreadCpuSetAffinitiesProcess @ 0x140525C7C (KiUpdateThreadCpuSetAffinitiesProcess.c)
+ *     KiUpdateThreadCpuSetAffinitiesProcess @ 0x1405282EC (KiUpdateThreadCpuSetAffinitiesProcess.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     KiUpdateThreadCpuSets @ 0x1404631C0 (KiUpdateThreadCpuSets.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     KiUpdateThreadCpuSets @ 0x14045C180 (KiUpdateThreadCpuSets.c)
  */
 
 __int64 __fastcall KiUpdateThreadCpuSetAffinitiesFromDpcLevel(__int64 a1, __int64 a2)

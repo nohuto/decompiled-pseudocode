@@ -8,53 +8,48 @@
  *     RtlpFunctionAddressTableEntry @ 0x180080A84 (RtlpFunctionAddressTableEntry.c)
  */
 
-signed __int64 __fastcall RtlInitializeHistoryTable(
-        __int64 a1,
-        unsigned __int64 a2,
-        unsigned __int64 a3,
-        unsigned __int64 a4)
+void RtlInitializeHistoryTable()
 {
   unsigned int i; // ebx
-  void (__stdcall *v5)(PEXCEPTION_RECORD); // rax
-  unsigned __int64 v6; // rdx
-  unsigned __int64 v7; // r8
-  unsigned __int64 v8; // r9
-  char v9; // dl
-  PRUNTIME_FUNCTION v10; // rax
-  unsigned __int64 v11; // rcx
-  __int64 v12; // rdi
+  void (__stdcall *v1)(PEXCEPTION_RECORD); // rax
+  char v2; // dl
+  PRUNTIME_FUNCTION v3; // rax
+  unsigned __int64 v4; // rcx
+  __int64 v5; // rdi
   __int64 EndAddress; // r8
-  __int64 v14; // rax
-  __int64 v15; // rax
+  unsigned __int64 v7; // rdx
+  unsigned __int64 v8; // r8
+  __int64 v9; // rax
+  __int64 v10; // rax
   unsigned __int64 ImageBase; // [rsp+30h] [rbp+8h] BYREF
 
-  LdrProtectMrdata(0, a2, a3, a4);
+  LdrProtectMrdata(0);
   for ( i = 0; i < 0xC; ++i )
   {
-    v5 = (void (__stdcall *)(PEXCEPTION_RECORD))RtlpFunctionAddressTableEntry(i);
-    if ( !v5 )
+    v1 = (void (__stdcall *)(PEXCEPTION_RECORD))RtlpFunctionAddressTableEntry(i);
+    if ( !v1 )
       break;
-    v9 = byte_18018F425;
-    if ( v5 == RtlRaiseException )
-      v9 = i;
-    byte_18018F425 = v9;
-    v10 = RtlLookupFunctionEntry((ULONG64)v5, &ImageBase, 0LL);
-    v11 = ImageBase;
-    v12 = 2LL * i;
-    EndAddress = v10->EndAddress;
-    v6 = ImageBase + v10->BeginAddress;
-    *(_QWORD *)&RtlpUnwindHistoryTable[2 * v12 + 8] = v10;
-    v7 = v11 + EndAddress;
-    *(_QWORD *)&RtlpUnwindHistoryTable[2 * v12 + 6] = v11;
-    v14 = qword_18018F428;
-    if ( v6 < qword_18018F428 )
-      v14 = v6;
-    qword_18018F428 = v14;
-    v15 = qword_18018F430;
-    if ( v7 > qword_18018F430 )
-      v15 = v7;
-    qword_18018F430 = v15;
+    v2 = byte_18018F425;
+    if ( v1 == RtlRaiseException )
+      v2 = i;
+    byte_18018F425 = v2;
+    v3 = RtlLookupFunctionEntry((ULONG64)v1, &ImageBase, 0LL);
+    v4 = ImageBase;
+    v5 = 2LL * i;
+    EndAddress = v3->EndAddress;
+    v7 = ImageBase + v3->BeginAddress;
+    *(_QWORD *)&RtlpUnwindHistoryTable[2 * v5 + 8] = v3;
+    v8 = v4 + EndAddress;
+    *(_QWORD *)&RtlpUnwindHistoryTable[2 * v5 + 6] = v4;
+    v9 = qword_18018F428;
+    if ( v7 < qword_18018F428 )
+      v9 = v7;
+    qword_18018F428 = v9;
+    v10 = qword_18018F430;
+    if ( v8 > qword_18018F430 )
+      v10 = v8;
+    qword_18018F430 = v10;
   }
   RtlpUnwindHistoryTable[0] = i;
-  return LdrProtectMrdata(1, v6, v7, v8);
+  LdrProtectMrdata(1);
 }

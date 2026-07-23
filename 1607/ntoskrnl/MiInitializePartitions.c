@@ -4,8 +4,8 @@
  *     MiCreatePfnDatabase @ 0x14078F270 (MiCreatePfnDatabase.c)
  *     MiInitSystem @ 0x1407A3AAC (MiInitSystem.c)
  * Callees:
- *     memset @ 0x1401715C0 (memset.c)
- *     ObCreateObjectType @ 0x14055203C (ObCreateObjectType.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     ObCreateObjectType @ 0x14055257C (ObCreateObjectType.c)
  *     MiSystemPartitionObjectCreate @ 0x1407A13BC (MiSystemPartitionObjectCreate.c)
  */
 
@@ -21,15 +21,15 @@ _BOOL8 __fastcall MiInitializePartitions(int a1)
   if ( !a1 )
   {
     SpinLock = 0LL;
-    qword_140326FB8 = 0LL;
-    qword_140326FD8 = (PRTL_BITMAP)&dword_140326FE0;
-    dword_140326FE0 = 1;
-    qword_140326FE8 = (__int64)dword_140326FC0;
-    dword_140326FC0[0] |= 1u;
-    qword_140326FD0 = (__int64)&qword_140326FC8;
-    qword_140326FC8 = (__int64)&qword_140326FC8;
-    qword_140326FF0 = (__int64)MiSystemPartition;
-    qword_140326FF8 = (__int64)&qword_140326FF0;
+    qword_140326FF8 = 0LL;
+    qword_140327018 = (PRTL_BITMAP)&dword_140327020;
+    dword_140327020 = 1;
+    qword_140327028 = (__int64)dword_140327000;
+    dword_140327000[0] |= 1u;
+    qword_140327010 = (__int64)&qword_140327008;
+    qword_140327008 = (__int64)&qword_140327008;
+    qword_140327030 = (__int64)MiSystemPartition;
+    qword_140327038 = (__int64)&qword_140327030;
     return 1LL;
   }
   memset(v5, 0, 0x78uLL);

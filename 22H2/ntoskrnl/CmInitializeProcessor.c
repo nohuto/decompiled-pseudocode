@@ -19,9 +19,9 @@ NTSTATUS __fastcall CmInitializeProcessor(__int64 a1)
   NTSTATUS result; // eax
   unsigned int v4; // ecx
   HANDLE KeyHandle; // [rsp+48h] [rbp-9h] BYREF
-  struct _GROUP_AFFINITY Affinity; // [rsp+50h] [rbp-1h] BYREF
+  _GROUP_AFFINITY Affinity; // [rsp+50h] [rbp-1h] BYREF
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+60h] [rbp+Fh] BYREF
-  struct _GROUP_AFFINITY PreviousAffinity; // [rsp+90h] [rbp+3Fh] BYREF
+  _GROUP_AFFINITY PreviousAffinity; // [rsp+90h] [rbp+3Fh] BYREF
 
   v1 = 0;
   *(_QWORD *)&ObjectAttributes.Length = 48LL;

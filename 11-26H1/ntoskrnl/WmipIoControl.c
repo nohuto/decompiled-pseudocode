@@ -1,28 +1,28 @@
 /*
- * XREFs of WmipIoControl @ 0x140A0D940
+ * XREFs of WmipIoControl @ 0x140A0BC50
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     WmipReceiveNotifications @ 0x1403DB2FC (WmipReceiveNotifications.c)
- *     IofCompleteRequest @ 0x1403FD9D0 (IofCompleteRequest.c)
- *     IoIs32bitProcess @ 0x1404336A0 (IoIs32bitProcess.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     WmipEnumerateGuids @ 0x1408233C8 (WmipEnumerateGuids.c)
- *     WmipQuerySingleMultiple @ 0x140823554 (WmipQuerySingleMultiple.c)
- *     WmipProbeWnodeSingleItem @ 0x140823A10 (WmipProbeWnodeSingleItem.c)
- *     WmipTranslateFileHandle @ 0x140823A84 (WmipTranslateFileHandle.c)
- *     ObOpenObjectByPointer @ 0x14092AFF0 (ObOpenObjectByPointer.c)
- *     WmipProbeWnodeMethodItem @ 0x140A0C544 (WmipProbeWnodeMethodItem.c)
- *     WmipQueryGuidInfo @ 0x140A0C62C (WmipQueryGuidInfo.c)
- *     WmipProbeWnodeSingleInstance @ 0x140A0C704 (WmipProbeWnodeSingleInstance.c)
- *     WmipProbeWnodeWorker @ 0x140A0C784 (WmipProbeWnodeWorker.c)
- *     WmipProbeAndCaptureGuidObjectAttributes @ 0x140A0CA78 (WmipProbeAndCaptureGuidObjectAttributes.c)
- *     WmipOpenBlock @ 0x140A0E050 (WmipOpenBlock.c)
- *     WmipQueryAllDataMultiple @ 0x140A0E310 (WmipQueryAllDataMultiple.c)
- *     WmipQuerySetExecuteSI @ 0x140A0E7F8 (WmipQuerySetExecuteSI.c)
- *     WmipQueryAllData @ 0x140A0EAFC (WmipQueryAllData.c)
- *     WmipEnumerateMofResources @ 0x140B1A378 (WmipEnumerateMofResources.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     WmipReceiveNotifications @ 0x1403DE4EC (WmipReceiveNotifications.c)
+ *     IofCompleteRequest @ 0x1403FA1C0 (IofCompleteRequest.c)
+ *     IoIs32bitProcess @ 0x140428770 (IoIs32bitProcess.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     WmipEnumerateGuids @ 0x1408295D8 (WmipEnumerateGuids.c)
+ *     WmipQuerySingleMultiple @ 0x140829764 (WmipQuerySingleMultiple.c)
+ *     WmipProbeWnodeSingleItem @ 0x140829C5C (WmipProbeWnodeSingleItem.c)
+ *     WmipTranslateFileHandle @ 0x140829CD0 (WmipTranslateFileHandle.c)
+ *     ObOpenObjectByPointer @ 0x140906B20 (ObOpenObjectByPointer.c)
+ *     WmipEnumerateMofResources @ 0x140A0A008 (WmipEnumerateMofResources.c)
+ *     WmipProbeWnodeMethodItem @ 0x140A0B514 (WmipProbeWnodeMethodItem.c)
+ *     WmipQueryGuidInfo @ 0x140A0B5FC (WmipQueryGuidInfo.c)
+ *     WmipProbeWnodeSingleInstance @ 0x140A0B6D4 (WmipProbeWnodeSingleInstance.c)
+ *     WmipProbeWnodeWorker @ 0x140A0B754 (WmipProbeWnodeWorker.c)
+ *     WmipProbeAndCaptureGuidObjectAttributes @ 0x140A0BAA0 (WmipProbeAndCaptureGuidObjectAttributes.c)
+ *     WmipQueryAllDataMultiple @ 0x140A0C1A8 (WmipQueryAllDataMultiple.c)
+ *     WmipOpenBlock @ 0x140A0D540 (WmipOpenBlock.c)
+ *     WmipQuerySetExecuteSI @ 0x140A0D9D4 (WmipQuerySetExecuteSI.c)
+ *     WmipQueryAllData @ 0x140A0DCD8 (WmipQueryAllData.c)
  */
 
 __int64 __fastcall WmipIoControl(__int64 a1, IRP *a2)
@@ -163,7 +163,7 @@ LABEL_91:
     case 0x224158u:
       if ( Length >= 0x10 )
       {
-        SetExecuteSI = WmipEnumerateMofResources(p_Type, Length, &Handle);
+        SetExecuteSI = WmipEnumerateMofResources((int *)p_Type, Length, (int *)&Handle);
         goto LABEL_13;
       }
       goto LABEL_74;

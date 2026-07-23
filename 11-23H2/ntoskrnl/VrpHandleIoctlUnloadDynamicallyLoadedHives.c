@@ -1,21 +1,21 @@
 /*
- * XREFs of VrpHandleIoctlUnloadDynamicallyLoadedHives @ 0x14077A7E8
+ * XREFs of VrpHandleIoctlUnloadDynamicallyLoadedHives @ 0x14077A9D8
  * Callers:
- *     VrpIoctlDeviceDispatch @ 0x14077B080 (VrpIoctlDeviceDispatch.c)
+ *     VrpIoctlDeviceDispatch @ 0x14077B270 (VrpIoctlDeviceDispatch.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14022F5B0 (ObfDereferenceObjectWithTag.c)
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     KeAbPreAcquire @ 0x140230EE0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1402BD960 (ExfTryToWakePushLock.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1402FCE10 (ExfAcquirePushLockExclusiveEx.c)
- *     PsGetJobSilo @ 0x14031C7E0 (PsGetJobSilo.c)
- *     PsGetPermanentSiloContext @ 0x14031C840 (PsGetPermanentSiloContext.c)
- *     PsIsThreadInSilo @ 0x14031C898 (PsIsThreadInSilo.c)
- *     ZwUnloadKey2 @ 0x14041E860 (ZwUnloadKey2.c)
- *     ObpReferenceObjectByHandleWithTag @ 0x1406E6300 (ObpReferenceObjectByHandleWithTag.c)
- *     VrpDestroyNamespaceNode @ 0x14077B604 (VrpDestroyNamespaceNode.c)
- *     VrpCleanupNamespace @ 0x14077BDF8 (VrpCleanupNamespace.c)
+ *     ObfDereferenceObjectWithTag @ 0x14022F6C0 (ObfDereferenceObjectWithTag.c)
+ *     KeLeaveCriticalRegionThread @ 0x14022F7F0 (KeLeaveCriticalRegionThread.c)
+ *     KeAbPreAcquire @ 0x140230FD0 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     ExfTryToWakePushLock @ 0x1402BDBF0 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402FD0A0 (ExfAcquirePushLockExclusiveEx.c)
+ *     PsGetJobSilo @ 0x14031CA70 (PsGetJobSilo.c)
+ *     PsGetPermanentSiloContext @ 0x14031CAD0 (PsGetPermanentSiloContext.c)
+ *     PsIsThreadInSilo @ 0x14031CB28 (PsIsThreadInSilo.c)
+ *     ZwUnloadKey2 @ 0x14041EBF0 (ZwUnloadKey2.c)
+ *     ObpReferenceObjectByHandleWithTag @ 0x1406E6330 (ObpReferenceObjectByHandleWithTag.c)
+ *     VrpDestroyNamespaceNode @ 0x14077B7F4 (VrpDestroyNamespaceNode.c)
+ *     VrpCleanupNamespace @ 0x14077BFE8 (VrpCleanupNamespace.c)
  */
 
 __int64 __fastcall VrpHandleIoctlUnloadDynamicallyLoadedHives(
@@ -41,14 +41,11 @@ __int64 __fastcall VrpHandleIoctlUnloadDynamicallyLoadedHives(
   __int64 v18; // r15
   char v19; // bl
   unsigned __int64 v21; // rcx
-  _QWORD v22[3]; // [rsp+48h] [rbp-38h] BYREF
-  int v23; // [rsp+60h] [rbp-20h]
-  int v24; // [rsp+64h] [rbp-1Ch]
-  __int128 v25; // [rsp+68h] [rbp-18h]
-  unsigned __int64 v26; // [rsp+C8h] [rbp+48h] BYREF
+  OBJECT_ATTRIBUTES TargetKey; // [rsp+48h] [rbp-38h] BYREF
+  unsigned __int64 v23; // [rsp+C8h] [rbp+48h] BYREF
 
   Object = 0LL;
-  v26 = 0LL;
+  v23 = 0LL;
   a5 = 0LL;
   if ( a2 < 8 )
     goto LABEL_26;
@@ -64,7 +61,7 @@ LABEL_26:
     JobSilo = -1073741811;
     goto LABEL_21;
   }
-  PermanentSiloContext = PsGetPermanentSiloContext(a5, VrpSiloContextSlot, &v26);
+  PermanentSiloContext = PsGetPermanentSiloContext(a5, VrpSiloContextSlot, &v23);
   JobSilo = PermanentSiloContext;
   if ( PermanentSiloContext < 0 )
   {
@@ -75,9 +72,9 @@ LABEL_20:
   else
   {
     CurrentThread = KeGetCurrentThread();
-    v9 = (unsigned __int64 *)v26;
-    v10 = (unsigned __int64 *)(v26 + 16);
-    v11 = v26 + 16;
+    v9 = (unsigned __int64 *)v23;
+    v10 = (unsigned __int64 *)(v23 + 16);
+    v11 = v23 + 16;
     --CurrentThread->KernelApcDisable;
     v12 = KeAbPreAcquire(v11, 0LL);
     v13 = v12;
@@ -85,8 +82,8 @@ LABEL_20:
       ExfAcquirePushLockExclusiveEx(v10, v12, (__int64)v10);
     if ( v13 )
       *(_BYTE *)(v13 + 18) = 1;
-    v14 = v26;
-    if ( !*(_DWORD *)(v26 + 84) )
+    v14 = v23;
+    if ( !*(_DWORD *)(v23 + 84) )
     {
       v15 = v9[6];
       for ( i = 0LL; i < v15; v15 = v9[6] )
@@ -100,13 +97,12 @@ LABEL_20:
         v18 = *(_QWORD *)v17;
         if ( *(int *)(*(_QWORD *)v17 + 56LL) < 0 )
         {
-          v24 = 0;
-          v22[1] = 0LL;
-          v22[0] = 48LL;
-          v22[2] = v18 + 24;
-          v25 = 0LL;
-          v23 = 576;
-          ZwUnloadKey2((__int64)v22, 1LL);
+          memset(&TargetKey.Attributes + 1, 0, 20);
+          TargetKey.RootDirectory = 0LL;
+          *(_QWORD *)&TargetKey.Length = 48LL;
+          TargetKey.ObjectName = (PUNICODE_STRING)(v18 + 24);
+          TargetKey.Attributes = 576;
+          ZwUnloadKey2(&TargetKey, 1u);
           VrpDestroyNamespaceNode(v14, v18);
         }
         else
@@ -123,7 +119,7 @@ LABEL_20:
       goto LABEL_20;
     }
     JobSilo = -1073741738;
-    if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)(v26 + 16), 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+    if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)(v23 + 16), 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
       ExfTryToWakePushLock((volatile signed __int64 *)(v14 + 16));
     KeAbPostRelease(v14 + 16);
     KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());

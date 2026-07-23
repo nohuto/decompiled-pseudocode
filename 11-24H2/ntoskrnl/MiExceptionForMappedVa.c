@@ -1,41 +1,44 @@
 /*
- * XREFs of MiExceptionForMappedVa @ 0x140678298
+ * XREFs of MiExceptionForMappedVa @ 0x140679424
  * Callers:
- *     MiWaitForInPageComplete @ 0x140398598 (MiWaitForInPageComplete.c)
+ *     MiWaitForInPageComplete @ 0x140350CE8 (MiWaitForInPageComplete.c)
  * Callees:
- *     MiLockWorkingSetShared @ 0x1402DF970 (MiLockWorkingSetShared.c)
- *     MiUnlockWorkingSetShared @ 0x1402E0410 (MiUnlockWorkingSetShared.c)
- *     MiGetAnyMultiplexedVm @ 0x140442630 (MiGetAnyMultiplexedVm.c)
+ *     MiLockWorkingSetShared @ 0x140241250 (MiLockWorkingSetShared.c)
+ *     MiUnlockWorkingSetShared @ 0x140241CF0 (MiUnlockWorkingSetShared.c)
+ *     MiGetAnyMultiplexedVm @ 0x140439200 (MiGetAnyMultiplexedVm.c)
  */
 
 __int64 __fastcall MiExceptionForMappedVa(unsigned __int64 a1)
 {
   unsigned int v2; // ebx
   char *AnyMultiplexedVm; // rsi
-  unsigned __int8 v4; // al
-  _QWORD *v5; // rdx
-  unsigned __int64 v6; // r8
+  __int64 v4; // rdx
+  __int64 v5; // r8
+  __int64 v6; // r9
+  unsigned __int8 v7; // al
+  _QWORD *v8; // rdx
+  unsigned __int64 v9; // r8
 
   v2 = 0;
   AnyMultiplexedVm = MiGetAnyMultiplexedVm(2);
-  v4 = MiLockWorkingSetShared((__int64)AnyMultiplexedVm);
-  v5 = P;
-  while ( v5 )
+  v7 = MiLockWorkingSetShared((__int64)AnyMultiplexedVm, v4, v5, v6);
+  v8 = P;
+  while ( v8 )
   {
-    v6 = v5[11] & 0xFFFFFFFFFFFFF000uLL;
-    if ( a1 < v6 + v5[4] )
+    v9 = v8[11] & 0xFFFFFFFFFFFFF000uLL;
+    if ( a1 < v9 + v8[4] )
     {
-      if ( a1 >= v6 )
+      if ( a1 >= v9 )
         break;
-      v5 = (_QWORD *)*v5;
+      v8 = (_QWORD *)*v8;
     }
     else
     {
-      v5 = (_QWORD *)v5[1];
+      v8 = (_QWORD *)v8[1];
     }
   }
-  if ( v5 && (v5[7] & 2) != 0 )
+  if ( v8 && (v8[7] & 2) != 0 )
     v2 = 1;
-  MiUnlockWorkingSetShared((__int64)AnyMultiplexedVm, v4);
+  MiUnlockWorkingSetShared((__int64)AnyMultiplexedVm, v7);
   return v2;
 }

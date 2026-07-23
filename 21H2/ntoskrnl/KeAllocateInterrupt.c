@@ -1,20 +1,20 @@
 /*
- * XREFs of KeAllocateInterrupt @ 0x14037771C
+ * XREFs of KeAllocateInterrupt @ 0x14037726C
  * Callers:
- *     IopConnectInterrupt @ 0x1407621CC (IopConnectInterrupt.c)
+ *     IopConnectInterrupt @ 0x14076238C (IopConnectInterrupt.c)
  * Callees:
- *     RtlpInterlockedPopEntrySList @ 0x140407930 (RtlpInterlockedPopEntrySList.c)
- *     RtlpInterlockedPushEntrySList @ 0x140407970 (RtlpInterlockedPushEntrySList.c)
- *     MmAllocateIndependentPages @ 0x1407629F0 (MmAllocateIndependentPages.c)
+ *     RtlpInterlockedPopEntrySList @ 0x140407B10 (RtlpInterlockedPopEntrySList.c)
+ *     RtlpInterlockedPushEntrySList @ 0x140407B50 (RtlpInterlockedPushEntrySList.c)
+ *     MmAllocateIndependentPages @ 0x140762BB0 (MmAllocateIndependentPages.c)
  */
 
-PSLIST_ENTRY __fastcall KeAllocateInterrupt(union _SLIST_HEADER *a1)
+PSLIST_ENTRY __fastcall KeAllocateInterrupt(_SLIST_HEADER *a1)
 {
-  union _SLIST_HEADER *v1; // rbp
+  _SLIST_HEADER *v1; // rbp
   unsigned int v3; // ebx
   PSLIST_ENTRY result; // rax
   unsigned int v5; // r14d
-  struct _SLIST_ENTRY *v6; // rbx
+  _SLIST_ENTRY *v6; // rbx
   __int64 v7; // rsi
 
   v1 = a1 + 776;

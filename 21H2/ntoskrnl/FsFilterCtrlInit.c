@@ -1,16 +1,16 @@
 /*
- * XREFs of FsFilterCtrlInit @ 0x140357030
+ * XREFs of FsFilterCtrlInit @ 0x140361D80
  * Callers:
- *     FsRtlReleaseFileForModWrite @ 0x140254F94 (FsRtlReleaseFileForModWrite.c)
- *     FsRtlAcquireFileForModWriteEx @ 0x1402559CC (FsRtlAcquireFileForModWriteEx.c)
+ *     FsRtlReleaseFileForModWrite @ 0x140276504 (FsRtlReleaseFileForModWrite.c)
+ *     FsRtlAcquireFileForModWriteEx @ 0x140276F3C (FsRtlAcquireFileForModWriteEx.c)
  *     FsRtlQueryOpen @ 0x1405D8FB0 (FsRtlQueryOpen.c)
- *     FsRtlReleaseFileForCcFlush @ 0x140647024 (FsRtlReleaseFileForCcFlush.c)
- *     FsRtlAcquireFileForCcFlushEx @ 0x140647204 (FsRtlAcquireFileForCcFlushEx.c)
- *     FsRtlReleaseFile @ 0x140707A70 (FsRtlReleaseFile.c)
- *     FsRtlAcquireFileExclusiveCommon @ 0x140707C40 (FsRtlAcquireFileExclusiveCommon.c)
+ *     FsRtlReleaseFileForCcFlush @ 0x14063BE14 (FsRtlReleaseFileForCcFlush.c)
+ *     FsRtlAcquireFileForCcFlushEx @ 0x14063BFF4 (FsRtlAcquireFileForCcFlushEx.c)
+ *     FsRtlReleaseFile @ 0x14071EE50 (FsRtlReleaseFile.c)
+ *     FsRtlAcquireFileExclusiveCommon @ 0x14071F020 (FsRtlAcquireFileExclusiveCommon.c)
  * Callees:
- *     memset @ 0x140414200 (memset.c)
- *     FsFilterAllocateCompletionStack @ 0x1404F10BC (FsFilterAllocateCompletionStack.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     FsFilterAllocateCompletionStack @ 0x1404F103C (FsFilterAllocateCompletionStack.c)
  */
 
 __int64 __fastcall FsFilterCtrlInit(__int64 a1, char a2, __int64 a3, __int64 a4, __int64 a5, unsigned __int8 a6)

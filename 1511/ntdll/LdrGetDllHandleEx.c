@@ -13,15 +13,20 @@
  *     LdrpLogDbgPrint @ 0x1800C9198 (LdrpLogDbgPrint.c)
  */
 
-__int64 __fastcall LdrGetDllHandleEx(int a1, __int64 a2, __int64 a3, __int64 a4, _QWORD *a5)
+NTSTATUS __cdecl LdrGetDllHandleEx(
+        ULONG Flags,
+        PWSTR DllPath,
+        PULONG DllCharacteristics,
+        PUNICODE_STRING DllName,
+        PVOID *DllHandle)
 {
-  int LoadedDll; // ebx
-  __int64 v9; // rdi
-  int Count; // eax
-  __int64 v12; // [rsp+30h] [rbp-B8h] BYREF
+  NTSTATUS LoadedDll; // ebx
+  PVOID *v9; // rdi
+  NTSTATUS Count; // eax
+  PVOID BaseAddress[2]; // [rsp+30h] [rbp-B8h] BYREF
   _QWORD v13[16]; // [rsp+40h] [rbp-A8h] BYREF
 
-  v12 = 0LL;
+  BaseAddress[0] = 0LL;
   if ( (LdrpDebugFlags & 9) != 0 )
     LdrpLogDbgPrint(
       (unsigned int)"minkernel\\ntdll\\ldrapi.c",
@@ -29,30 +34,30 @@ __int64 __fastcall LdrGetDllHandleEx(int a1, __int64 a2, __int64 a3, __int64 a4,
       (unsigned int)"LdrGetDllHandleEx",
       3,
       (__int64)"DLL name: %wZ\n");
-  LdrpInitializeDllPath(*(_QWORD *)(a4 + 8), a2, v13);
-  if ( (a1 & 0xFFFFFFF8) != 0 || (a1 & 3) == 3 || !a5 && (a1 & 2) == 0 )
+  LdrpInitializeDllPath((__int64)DllName->Buffer, (__int64)DllPath, v13);
+  if ( (Flags & 0xFFFFFFF8) != 0 || (Flags & 3) == 3 || !DllHandle && (Flags & 2) == 0 )
   {
     LoadedDll = -1073741811;
     goto LABEL_18;
   }
-  LoadedDll = LdrpFindLoadedDll(a4, v13, &v12);
+  LoadedDll = LdrpFindLoadedDll(DllName, v13, BaseAddress);
   if ( LoadedDll >= 0 )
   {
-    v9 = v12;
-    if ( (a1 & 2) != 0 )
+    v9 = (PVOID *)BaseAddress[0];
+    if ( (Flags & 2) != 0 )
     {
-      Count = LdrpPinModule(v12);
+      Count = LdrpPinModule((__int64)BaseAddress[0]);
     }
     else
     {
-      if ( (a1 & 1) != 0 )
+      if ( (Flags & 1) != 0 )
         goto LABEL_14;
-      Count = LdrpIncrementModuleLoadCount(v12);
+      Count = LdrpIncrementModuleLoadCount(BaseAddress[0]);
     }
     LoadedDll = Count;
 LABEL_14:
-    if ( LoadedDll >= 0 && a5 )
-      *a5 = *(_QWORD *)(v9 + 48);
+    if ( LoadedDll >= 0 && DllHandle )
+      *DllHandle = v9[6];
     LdrpDereferenceModule(v9);
   }
 LABEL_18:
@@ -64,5 +69,5 @@ LABEL_18:
       (unsigned int)"LdrGetDllHandleEx",
       4,
       (__int64)"Status: 0x%08lx\n");
-  return (unsigned int)LoadedDll;
+  return LoadedDll;
 }

@@ -1,24 +1,24 @@
 /*
- * XREFs of HalpIvtProcessDrhdEntry @ 0x1404E740C
+ * XREFs of HalpIvtProcessDrhdEntry @ 0x1404E764C
  * Callers:
- *     HalpIvtProcessDmarTable @ 0x1404E7360 (HalpIvtProcessDmarTable.c)
+ *     HalpIvtProcessDmarTable @ 0x1404E75A0 (HalpIvtProcessDmarTable.c)
  * Callees:
- *     HalSocRequestApi @ 0x1403A209C (HalSocRequestApi.c)
- *     HalRegisterPermanentAddressUsage @ 0x1403AC030 (HalRegisterPermanentAddressUsage.c)
- *     HalMapIoSpace @ 0x1403AC2D0 (HalMapIoSpace.c)
- *     HalpUnmapVirtualAddress @ 0x1403BB890 (HalpUnmapVirtualAddress.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     memmove @ 0x140413F40 (memmove.c)
- *     memset @ 0x140414200 (memset.c)
- *     ExtEnvAllocateMemory @ 0x1404D50F0 (ExtEnvAllocateMemory.c)
- *     ExtEnvFreeMemory @ 0x1404D53BC (ExtEnvFreeMemory.c)
- *     HalpIvtAllocateReservedDomainList @ 0x1404E7C48 (HalpIvtAllocateReservedDomainList.c)
- *     DmrGetNextDrhdDeviceScope @ 0x1404E842C (DmrGetNextDrhdDeviceScope.c)
- *     DmrValidateDeviceScope @ 0x1404E8670 (DmrValidateDeviceScope.c)
- *     DmrEnumerateRmrrDomains @ 0x1404E8770 (DmrEnumerateRmrrDomains.c)
- *     DmrFreeRmrrTree @ 0x1404E88B4 (DmrFreeRmrrTree.c)
- *     ExtEnvRegisterIommu @ 0x140A8C9F0 (ExtEnvRegisterIommu.c)
+ *     HalSocRequestApi @ 0x1403A21EC (HalSocRequestApi.c)
+ *     HalRegisterPermanentAddressUsage @ 0x1403ACDC0 (HalRegisterPermanentAddressUsage.c)
+ *     HalMapIoSpace @ 0x1403AD060 (HalMapIoSpace.c)
+ *     HalpUnmapVirtualAddress @ 0x1403BBA00 (HalpUnmapVirtualAddress.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     ExtEnvAllocateMemory @ 0x1404D5330 (ExtEnvAllocateMemory.c)
+ *     ExtEnvFreeMemory @ 0x1404D55FC (ExtEnvFreeMemory.c)
+ *     HalpIvtAllocateReservedDomainList @ 0x1404E7E88 (HalpIvtAllocateReservedDomainList.c)
+ *     DmrGetNextDrhdDeviceScope @ 0x1404E866C (DmrGetNextDrhdDeviceScope.c)
+ *     DmrValidateDeviceScope @ 0x1404E88B0 (DmrValidateDeviceScope.c)
+ *     DmrEnumerateRmrrDomains @ 0x1404E89B0 (DmrEnumerateRmrrDomains.c)
+ *     DmrFreeRmrrTree @ 0x1404E8AF4 (DmrFreeRmrrTree.c)
+ *     ExtEnvRegisterIommu @ 0x140A8D9F0 (ExtEnvRegisterIommu.c)
  */
 
 __int64 __fastcall HalpIvtProcessDrhdEntry(__int64 a1, __int64 a2)

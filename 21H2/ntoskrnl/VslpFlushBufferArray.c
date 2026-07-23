@@ -1,13 +1,13 @@
 /*
- * XREFs of VslpFlushBufferArray @ 0x1404FDCF0
+ * XREFs of VslpFlushBufferArray @ 0x1404FDC70
  * Callers:
- *     VslpSkFlushBufferCallback @ 0x1404FE0A0 (VslpSkFlushBufferCallback.c)
- *     VslpSkStopProfiling @ 0x1404FE0EC (VslpSkStopProfiling.c)
+ *     VslpSkFlushBufferCallback @ 0x1404FE020 (VslpSkFlushBufferCallback.c)
+ *     VslpSkStopProfiling @ 0x1404FE06C (VslpSkStopProfiling.c)
  * Callees:
- *     ExReleaseRundownProtection_0 @ 0x14027C4F0 (ExReleaseRundownProtection_0.c)
- *     ExAcquireRundownProtection_0 @ 0x14027C9B0 (ExAcquireRundownProtection_0.c)
- *     EtwSendTraceBuffer @ 0x1405A5F30 (EtwSendTraceBuffer.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     ExReleaseRundownProtection @ 0x14026A490 (ExReleaseRundownProtection.c)
+ *     ExAcquireRundownProtection @ 0x14026A950 (ExAcquireRundownProtection.c)
+ *     EtwSendTraceBuffer @ 0x1405A6160 (EtwSendTraceBuffer.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 _QWORD *VslpFlushBufferArray()
@@ -53,7 +53,7 @@ _QWORD *VslpFlushBufferArray()
             v10 = VslpEventLog;
             *(_DWORD *)result = v8;
             result[1] = (char *)&v10[4 * v10[2] + 6] + (unsigned int)(v8 * v10[1]);
-            ExAcquireRundownProtection_0((PEX_RUNDOWN_REF)&VslpBufferFlushRundown);
+            ExAcquireRundownProtection((PEX_RUNDOWN_REF)&VslpBufferFlushRundown);
             v11 = VslpLoggerId;
             *(_WORD *)(*(_QWORD *)(v9 + 8) + 42LL) = VslpLoggerId;
             if ( (int)EtwSendTraceBuffer(
@@ -62,7 +62,7 @@ _QWORD *VslpFlushBufferArray()
                         0,
                         (unsigned int)&VslpFlushBufferArrayEntryCallback,
                         v9) < 0 )
-              ExReleaseRundownProtection_0((PEX_RUNDOWN_REF)&VslpBufferFlushRundown);
+              ExReleaseRundownProtection((PEX_RUNDOWN_REF)&VslpBufferFlushRundown);
           }
           result = (_QWORD *)*v4;
           v5 = !_BitScanForward64((unsigned __int64 *)&v6, *v4);

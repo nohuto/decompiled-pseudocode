@@ -1,12 +1,12 @@
 /*
- * XREFs of VfProbeAndCaptureUnicodeString @ 0x140C2146C
+ * XREFs of VfProbeAndCaptureUnicodeString @ 0x140C2747C
  * Callers:
- *     NtSetSystemInformation @ 0x140833840 (NtSetSystemInformation.c)
- *     VfSetVerifierInformationEx @ 0x140C39B18 (VfSetVerifierInformationEx.c)
+ *     NtSetSystemInformation @ 0x140839A80 (NtSetSystemInformation.c)
+ *     VfSetVerifierInformationEx @ 0x140C3FB28 (VfSetVerifierInformationEx.c)
  * Callees:
- *     RtlReadULong64FromUser @ 0x14077F554 (RtlReadULong64FromUser.c)
- *     RtlReadULongFromUser @ 0x14077F590 (RtlReadULongFromUser.c)
- *     VfProbeAndCaptureUnicodeStringBuffer @ 0x140C214D4 (VfProbeAndCaptureUnicodeStringBuffer.c)
+ *     RtlReadULong64FromUser @ 0x140782054 (RtlReadULong64FromUser.c)
+ *     RtlReadULongFromUser @ 0x140782090 (RtlReadULongFromUser.c)
+ *     VfProbeAndCaptureUnicodeStringBuffer @ 0x140C274E4 (VfProbeAndCaptureUnicodeStringBuffer.c)
  */
 
 __int64 __fastcall VfProbeAndCaptureUnicodeString(_OWORD *a1, unsigned int *a2, unsigned int a3)

@@ -1,14 +1,14 @@
 /*
- * XREFs of MmGetFileNameForSection @ 0x140656C18
+ * XREFs of MmGetFileNameForSection @ 0x140656CFC
  * Callers:
- *     DbgkpSectionToFileHandle @ 0x14061ACB4 (DbgkpSectionToFileHandle.c)
+ *     DbgkpSectionToFileHandle @ 0x14061AD68 (DbgkpSectionToFileHandle.c)
  * Callees:
- *     MiDereferenceControlAreaFile @ 0x140026640 (MiDereferenceControlAreaFile.c)
- *     MiReferenceControlAreaFile @ 0x140026690 (MiReferenceControlAreaFile.c)
- *     MiSectionControlArea @ 0x14002C4D0 (MiSectionControlArea.c)
+ *     MiDereferenceControlAreaFile @ 0x1400261C0 (MiDereferenceControlAreaFile.c)
+ *     MiReferenceControlAreaFile @ 0x140026210 (MiReferenceControlAreaFile.c)
+ *     MiSectionControlArea @ 0x14002C050 (MiSectionControlArea.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     ObQueryNameStringMode @ 0x140434B90 (ObQueryNameStringMode.c)
+ *     ObQueryNameStringMode @ 0x140433A60 (ObQueryNameStringMode.c)
  */
 
 __int64 __fastcall MmGetFileNameForSection(__int64 a1, __int64 *a2)

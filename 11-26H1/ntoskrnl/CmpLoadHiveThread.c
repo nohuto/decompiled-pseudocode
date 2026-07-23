@@ -1,55 +1,55 @@
 /*
- * XREFs of CmpLoadHiveThread @ 0x14084B550
+ * XREFs of CmpLoadHiveThread @ 0x140851860
  * Callers:
  *     <none>
  * Callees:
- *     KeWaitForSingleObject @ 0x140278560 (KeWaitForSingleObject.c)
- *     KeSetEvent @ 0x1402DE9C0 (KeSetEvent.c)
- *     RtlNumberOfSetBits @ 0x140356570 (RtlNumberOfSetBits.c)
- *     RtlSetBits @ 0x140358D10 (RtlSetBits.c)
- *     RtlSetAllBits @ 0x1403F4780 (RtlSetAllBits.c)
- *     CmpInitializeThreadInfo @ 0x14043CF00 (CmpInitializeThreadInfo.c)
- *     CmCleanupThreadInfo @ 0x14044C0A0 (CmCleanupThreadInfo.c)
- *     RtlAreBitsClear @ 0x140478820 (RtlAreBitsClear.c)
- *     SetFailureLocation @ 0x140494894 (SetFailureLocation.c)
- *     ExIsSoftBoot @ 0x14052A6C0 (ExIsSoftBoot.c)
- *     wil_details_FeatureReporting_ReportUsageToService @ 0x14052D25C (wil_details_FeatureReporting_ReportUsageToService.c)
- *     wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath @ 0x140532A10 (wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     CmpApplyAdminSdOnHiveFiles @ 0x1406E2028 (CmpApplyAdminSdOnHiveFiles.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     CmpMarkCurrentValueDirty @ 0x14084C198 (CmpMarkCurrentValueDirty.c)
- *     CmpDiskFullWarning @ 0x140854AE8 (CmpDiskFullWarning.c)
- *     CmpBecomeActiveFlusherAndReconciler @ 0x140856CB8 (CmpBecomeActiveFlusherAndReconciler.c)
- *     CmpFinishBeingActiveFlusherAndReconciler @ 0x140856D48 (CmpFinishBeingActiveFlusherAndReconciler.c)
- *     CmpMachineHiveCacheClaimEntry @ 0x1408578F0 (CmpMachineHiveCacheClaimEntry.c)
- *     CmpInitBackupHive @ 0x14085A834 (CmpInitBackupHive.c)
- *     CmpRecoverFlushProtocolStateFromFiles @ 0x14085C268 (CmpRecoverFlushProtocolStateFromFiles.c)
- *     CmpHiveCacheEntryCleanup @ 0x140861D7C (CmpHiveCacheEntryCleanup.c)
- *     CmpFlushHive @ 0x1408B321C (CmpFlushHive.c)
- *     CmpInitHiveFromFile @ 0x1408B48B4 (CmpInitHiveFromFile.c)
- *     CmpOpenHiveFile @ 0x1408B51B0 (CmpOpenHiveFile.c)
- *     CmpLockRegistryExclusive @ 0x1408C2148 (CmpLockRegistryExclusive.c)
- *     HvLockHiveFlusherShared @ 0x1408C3818 (HvLockHiveFlusherShared.c)
- *     HvUnlockHiveFlusherShared @ 0x1408CFFE8 (HvUnlockHiveFlusherShared.c)
- *     HvLockHiveWriter @ 0x1408DAEB0 (HvLockHiveWriter.c)
- *     HvUnlockHiveWriter @ 0x1408DAF14 (HvUnlockHiveWriter.c)
- *     PsTerminateSystemThread @ 0x140956130 (PsTerminateSystemThread.c)
- *     HvpDropPagedBins @ 0x140A87E90 (HvpDropPagedBins.c)
- *     CmpDoFileSetSizeEx @ 0x140AAA978 (CmpDoFileSetSizeEx.c)
- *     CmpGetFileSize @ 0x140ACDEC4 (CmpGetFileSize.c)
- *     CmpLogFailureToGetFileSize @ 0x140ACDF34 (CmpLogFailureToGetFileSize.c)
- *     ExRaiseHardError @ 0x140B06D30 (ExRaiseHardError.c)
- *     RtlAppendStringToString @ 0x140B20220 (RtlAppendStringToString.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
- *     CmpLockRegistry @ 0x140C58850 (CmpLockRegistry.c)
- *     CmpReleaseShutdownRundown @ 0x140C58900 (CmpReleaseShutdownRundown.c)
- *     CmpUnlockRegistry @ 0x140C58970 (CmpUnlockRegistry.c)
- *     CmpAcquireShutdownRundown @ 0x140C58AB0 (CmpAcquireShutdownRundown.c)
- *     HvUnlockHiveFlusherExclusive @ 0x140C58D14 (HvUnlockHiveFlusherExclusive.c)
- *     HvLockHiveFlusherExclusive @ 0x140C58D30 (HvLockHiveFlusherExclusive.c)
- *     CmpIsHiveLoadUnloadRundownActive @ 0x140C58FB8 (CmpIsHiveLoadUnloadRundownActive.c)
+ *     KeWaitForSingleObject @ 0x140277AD0 (KeWaitForSingleObject.c)
+ *     KeSetEvent @ 0x1402C0780 (KeSetEvent.c)
+ *     RtlNumberOfSetBits @ 0x140358310 (RtlNumberOfSetBits.c)
+ *     RtlSetBits @ 0x14035AAB0 (RtlSetBits.c)
+ *     RtlSetAllBits @ 0x1403EE130 (RtlSetAllBits.c)
+ *     CmpInitializeThreadInfo @ 0x14042F7B0 (CmpInitializeThreadInfo.c)
+ *     CmCleanupThreadInfo @ 0x1404441C0 (CmCleanupThreadInfo.c)
+ *     RtlAreBitsClear @ 0x140471FA0 (RtlAreBitsClear.c)
+ *     SetFailureLocation @ 0x14048E3E4 (SetFailureLocation.c)
+ *     ExIsSoftBoot @ 0x14052CBE0 (ExIsSoftBoot.c)
+ *     wil_details_FeatureReporting_ReportUsageToService @ 0x14052F77C (wil_details_FeatureReporting_ReportUsageToService.c)
+ *     wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath @ 0x140534EB0 (wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     CmpApplyAdminSdOnHiveFiles @ 0x1406E62A8 (CmpApplyAdminSdOnHiveFiles.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     CmpMarkCurrentValueDirty @ 0x1408524A8 (CmpMarkCurrentValueDirty.c)
+ *     CmpDiskFullWarning @ 0x14085ADF8 (CmpDiskFullWarning.c)
+ *     CmpBecomeActiveFlusherAndReconciler @ 0x14085D050 (CmpBecomeActiveFlusherAndReconciler.c)
+ *     CmpFinishBeingActiveFlusherAndReconciler @ 0x14085D0E0 (CmpFinishBeingActiveFlusherAndReconciler.c)
+ *     CmpMachineHiveCacheClaimEntry @ 0x14085DC80 (CmpMachineHiveCacheClaimEntry.c)
+ *     CmpInitBackupHive @ 0x140860B28 (CmpInitBackupHive.c)
+ *     CmpRecoverFlushProtocolStateFromFiles @ 0x140862558 (CmpRecoverFlushProtocolStateFromFiles.c)
+ *     CmpHiveCacheEntryCleanup @ 0x14086815C (CmpHiveCacheEntryCleanup.c)
+ *     CmpFlushHive @ 0x1408B97F0 (CmpFlushHive.c)
+ *     CmpInitHiveFromFile @ 0x1408BAE88 (CmpInitHiveFromFile.c)
+ *     CmpOpenHiveFile @ 0x1408BB784 (CmpOpenHiveFile.c)
+ *     CmpLockRegistryExclusive @ 0x1408C8718 (CmpLockRegistryExclusive.c)
+ *     HvLockHiveFlusherShared @ 0x1408C9DE8 (HvLockHiveFlusherShared.c)
+ *     HvUnlockHiveFlusherShared @ 0x1408D65AC (HvUnlockHiveFlusherShared.c)
+ *     HvLockHiveWriter @ 0x1408E1470 (HvLockHiveWriter.c)
+ *     HvUnlockHiveWriter @ 0x1408E14D4 (HvUnlockHiveWriter.c)
+ *     PsTerminateSystemThread @ 0x140949E90 (PsTerminateSystemThread.c)
+ *     HvpDropPagedBins @ 0x140A8EFC0 (HvpDropPagedBins.c)
+ *     CmpDoFileSetSizeEx @ 0x140AA7F58 (CmpDoFileSetSizeEx.c)
+ *     CmpGetFileSize @ 0x140AD0104 (CmpGetFileSize.c)
+ *     CmpLogFailureToGetFileSize @ 0x140AD0174 (CmpLogFailureToGetFileSize.c)
+ *     ExRaiseHardError @ 0x140B08E60 (ExRaiseHardError.c)
+ *     RtlAppendStringToString @ 0x140B22640 (RtlAppendStringToString.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
+ *     CmpLockRegistry @ 0x140C5E850 (CmpLockRegistry.c)
+ *     CmpReleaseShutdownRundown @ 0x140C5E900 (CmpReleaseShutdownRundown.c)
+ *     CmpUnlockRegistry @ 0x140C5E970 (CmpUnlockRegistry.c)
+ *     CmpAcquireShutdownRundown @ 0x140C5EAB0 (CmpAcquireShutdownRundown.c)
+ *     HvUnlockHiveFlusherExclusive @ 0x140C5ED14 (HvUnlockHiveFlusherExclusive.c)
+ *     HvLockHiveFlusherExclusive @ 0x140C5ED30 (HvLockHiveFlusherExclusive.c)
+ *     CmpIsHiveLoadUnloadRundownActive @ 0x140C5EFB8 (CmpIsHiveLoadUnloadRundownActive.c)
  */
 
 NTSTATUS __fastcall CmpLoadHiveThread(ULONG_PTR BugCheckParameter3)
@@ -132,7 +132,7 @@ NTSTATUS __fastcall CmpLoadHiveThread(ULONG_PTR BugCheckParameter3)
   KeWaitForSingleObject(&CmpMachineHiveList[v4 + 8], Executive, 0, 0, 0LL);
   if ( v2 == LODWORD(ExpPlatformBinaryLock.WaitBlockList) )
   {
-    KeWaitForSingleObject(&CmpCallbackListLock.FirstArgument, Executive, 0, 0, 0LL);
+    KeWaitForSingleObject(&CmpContextListLock.StateSaveArea, Executive, 0, 0, 0LL);
     if ( (_BYTE)KdDebuggerEnabled )
     {
       if ( !(_BYTE)KdDebuggerNotPresent )
@@ -148,7 +148,7 @@ NTSTATUS __fastcall CmpLoadHiveThread(ULONG_PTR BugCheckParameter3)
     v6 = (STRING *)CmpMachineHiveList[v4 + 3];
     if ( (v16 & 0x8001) != 0 )
     {
-      if ( BYTE6(NlsMbOemCodePageTag) || HIDWORD(WheapPfaLock.StackBase) )
+      if ( BYTE6(NlsMbOemCodePageTag) || HIDWORD(WheapPfaLock.ThreadLock) )
       {
         if ( (v16 & 2) != 0 )
         {
@@ -159,7 +159,7 @@ NTSTATUS __fastcall CmpLoadHiveThread(ULONG_PTR BugCheckParameter3)
           CmpUnlockRegistry();
         }
         LODWORD(PspSiloMonitorLock.InGlobalForegroundList) = 0x800000;
-        PspSiloMonitorLock.ReadOperationCount = (__int64)&unk_140FD7870;
+        PspSiloMonitorLock.ReadOperationCount = (__int64)&unk_140FD8880;
         RtlAppendStringToString(
           (PSTRING)&PspSiloMonitorLock.InGlobalForegroundList,
           (const STRING *)(&stru_140E098B8.QuantumTarget + 23 * v2));
@@ -208,7 +208,7 @@ LABEL_71:
         v54.StaticBitmap[3] = (unsigned __int64)v6;
         SetFailureLocation((__int64)&v54.StaticBitmap[3], 0, 22, FileSize, v1);
         v46 = v17;
-        BYTE4(NlsMbOemCodePageTag) = 1;
+        BYTE5(NlsMbOemCodePageTag) = 1;
         ExRaiseHardError(3221226008LL, 1LL, 1LL, &v46, 1, &v44);
         KeBugCheckEx(0x74u, 2uLL, 1uLL, v3, FileSize);
       }
@@ -318,11 +318,11 @@ LABEL_69:
       }
       if ( CmpCannotWriteConfiguration )
         CmpDiskFullWarning();
-      PspSiloMonitorLock.ReadOperationCount = (__int64)&unk_140FD7870;
+      PspSiloMonitorLock.ReadOperationCount = (__int64)&unk_140FD8880;
       LODWORD(PspSiloMonitorLock.InGlobalForegroundList) = 0x800000;
       RtlAppendStringToString((PSTRING)&PspSiloMonitorLock.InGlobalForegroundList, Source);
-      if ( *(_DWORD *)&WheapPfaLock.ApcStateFill[40] && (int)CmpInitBackupHive(v6, CmpMachineHiveList[23 * v3]) < 0 )
-        *(_DWORD *)&WheapPfaLock.ApcStateFill[40] = 0;
+      if ( HIDWORD(WheapPfaLock.RelativeTimerBias) && (int)CmpInitBackupHive(v6, CmpMachineHiveList[23 * v3]) < 0 )
+        HIDWORD(WheapPfaLock.RelativeTimerBias) = 0;
     }
     LODWORD(v6[257].Buffer) |= 4u;
     if ( (_DWORD)v3 == 3 )
@@ -367,7 +367,7 @@ LABEL_89:
       3,
       (__int64)&Feature_MachineHiveCache__private_descriptor);
   }
-  v11 = CmpMachineHiveCacheClaimEntry(&CmpKeyLockTracker.WaitBlockFill11[832 * v2 + 32], v9, v8, &v48);
+  v11 = CmpMachineHiveCacheClaimEntry((char *)&CmpKeyLockTracker.320 + 832 * v2, v9, v8, &v48);
   FileSize = v11;
   if ( v11 >= 0 )
   {
@@ -427,7 +427,7 @@ LABEL_89:
       && (!v6[98].Buffer || !*(_QWORD *)&v6[99].Length) )
     {
 LABEL_25:
-      BYTE4(NlsMbOemCodePageTag) = 1;
+      BYTE5(NlsMbOemCodePageTag) = 1;
       KeBugCheckEx(0x74u, 2uLL, (ULONG_PTR)&v54.StaticBitmap[3], v2, FileSize);
     }
     LODWORD(v6[257].Buffer) = HIDWORD(CmpMachineHiveList[23 * v2 + 4]) | 4;
@@ -435,7 +435,7 @@ LABEL_25:
     CmpMachineHiveList[v7 + 6] = &v6->Length;
     if ( (_BYTE)v42 )
     {
-      LOBYTE(WheapPfaLock.ThreadLock) = 1;
+      LOBYTE(WheapPfaLock.CurrentRunTime) = 1;
       v14 = &stru_140E09870;
       v15 = 7LL;
       do
@@ -447,10 +447,10 @@ LABEL_25:
       while ( v15 );
     }
     if ( (*(_DWORD *)&v6[10].Length & 0x8001) == 0
-      && *(_DWORD *)&WheapPfaLock.ApcStateFill[40]
+      && HIDWORD(WheapPfaLock.RelativeTimerBias)
       && (int)CmpInitBackupHive(v6, CmpMachineHiveList[23 * v3]) < 0 )
     {
-      *(_DWORD *)&WheapPfaLock.ApcStateFill[40] = 0;
+      HIDWORD(WheapPfaLock.RelativeTimerBias) = 0;
     }
     goto LABEL_89;
   }
@@ -459,10 +459,10 @@ LABEL_25:
 LABEL_96:
   BYTE1(CmpMachineHiveList[23 * v3 + 7]) = 1;
   KeSetEvent((PRKEVENT)&CmpMachineHiveList[23 * v3 + 11], 0, 0);
-  if ( _InterlockedIncrement((volatile signed __int32 *)&WheapPfaLock.InitialStack) == 6
+  if ( _InterlockedIncrement((_DWORD *)&WheapPfaLock.StackLimit + 1) == 6
     && LODWORD(ExpPlatformBinaryLock.WaitBlockList) < 7 )
   {
-    KeSetEvent((PRKEVENT)&CmpCallbackListLock.FirstArgument, 0, 0);
+    KeSetEvent((PRKEVENT)&CmpContextListLock.StateSaveArea, 0, 0);
   }
   v38 = CmpMachineHiveList[23 * v3 + 22];
   if ( v38 )
@@ -483,7 +483,7 @@ LABEL_96:
       3,
       (__int64)&Feature_MachineHiveCache__private_descriptor);
   }
-  CmpHiveCacheEntryCleanup(&CmpKeyLockTracker.WaitBlockFill11[832 * v3 + 32], 6LL);
+  CmpHiveCacheEntryCleanup((char *)&CmpKeyLockTracker.320 + 832 * v3, 6LL);
   CmCleanupThreadInfo((_KAFFINITY_EX **)&v54);
   return PsTerminateSystemThread(FileSize);
 }

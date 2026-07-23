@@ -1,10 +1,10 @@
 /*
- * XREFs of PnprMmFree @ 0x1407B00BC
+ * XREFs of PnprMmFree @ 0x1407B311C
  * Callers:
- *     PnpReplacePartitionUnit @ 0x1407ADDC0 (PnpReplacePartitionUnit.c)
- *     PnprMmConstruct @ 0x1407AFFB8 (PnprMmConstruct.c)
+ *     PnpReplacePartitionUnit @ 0x1407B0E20 (PnpReplacePartitionUnit.c)
+ *     PnprMmConstruct @ 0x1407B3018 (PnprMmConstruct.c)
  * Callees:
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __fastcall PnprMmFree(_QWORD **a1)

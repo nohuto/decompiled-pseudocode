@@ -1,22 +1,22 @@
 /*
- * XREFs of CcExtendVacbArray @ 0x14029B324
+ * XREFs of CcExtendVacbArray @ 0x140212CB4
  * Callers:
- *     CcSetFileSizesEx @ 0x14022E120 (CcSetFileSizesEx.c)
+ *     CcSetFileSizesEx @ 0x1402D2970 (CcSetFileSizesEx.c)
  * Callees:
- *     ExFreeToNPagedLookasideList @ 0x140252DE4 (ExFreeToNPagedLookasideList.c)
- *     CcFreeUnusedVacbLevels @ 0x14029B7B0 (CcFreeUnusedVacbLevels.c)
- *     CcAllocateVacbLevel @ 0x14029B80C (CcAllocateVacbLevel.c)
- *     CcAllocateVacbLevels @ 0x14029B8F4 (CcAllocateVacbLevels.c)
- *     VacbLevelReference @ 0x1402F575C (VacbLevelReference.c)
- *     KeReleaseQueuedSpinLock @ 0x140310BD0 (KeReleaseQueuedSpinLock.c)
- *     KeAcquireQueuedSpinLock @ 0x140310C70 (KeAcquireQueuedSpinLock.c)
- *     CcReleaseBcbLockAndVacbLock @ 0x140310D24 (CcReleaseBcbLockAndVacbLock.c)
- *     CcAcquireBcbLockAndVacbLock @ 0x140310DA4 (CcAcquireBcbLockAndVacbLock.c)
- *     CcCalculateVacbLevelLockCount @ 0x14037D820 (CcCalculateVacbLevelLockCount.c)
- *     memmove @ 0x140413F40 (memmove.c)
- *     memset @ 0x140414200 (memset.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     CcFreeUnusedVacbLevels @ 0x140213140 (CcFreeUnusedVacbLevels.c)
+ *     CcAllocateVacbLevel @ 0x14021319C (CcAllocateVacbLevel.c)
+ *     CcAllocateVacbLevels @ 0x140213284 (CcAllocateVacbLevels.c)
+ *     ExFreeToNPagedLookasideList @ 0x14021A938 (ExFreeToNPagedLookasideList.c)
+ *     VacbLevelReference @ 0x1403004AC (VacbLevelReference.c)
+ *     KeReleaseQueuedSpinLock @ 0x14031B920 (KeReleaseQueuedSpinLock.c)
+ *     KeAcquireQueuedSpinLock @ 0x14031B9C0 (KeAcquireQueuedSpinLock.c)
+ *     CcReleaseBcbLockAndVacbLock @ 0x14031BA74 (CcReleaseBcbLockAndVacbLock.c)
+ *     CcAcquireBcbLockAndVacbLock @ 0x14031BAF4 (CcAcquireBcbLockAndVacbLock.c)
+ *     CcCalculateVacbLevelLockCount @ 0x14037D370 (CcCalculateVacbLevelLockCount.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall CcExtendVacbArray(__int64 a1, __int64 a2)

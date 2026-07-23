@@ -14,17 +14,40 @@
 bool RtlpAreLegacyDosDeviceNamesEnabled()
 {
   int v1; // eax
-  int v2; // [rsp+74h] [rbp+3Bh]
-  int v3; // [rsp+78h] [rbp+3Fh]
-  unsigned int v4; // [rsp+7Ch] [rbp+43h]
+  HANDLE KeyHandle; // [rsp+30h] [rbp-9h] BYREF
+  ULONG ResultLength; // [rsp+38h] [rbp-1h] BYREF
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+40h] [rbp+7h] BYREF
+  _BYTE KeyValueInformation[4]; // [rsp+70h] [rbp+37h] BYREF
+  int v6; // [rsp+74h] [rbp+3Bh]
+  int v7; // [rsp+78h] [rbp+3Fh]
+  unsigned int v8; // [rsp+7Ch] [rbp+43h]
 
   if ( (NtCurrentPeb()->AppCompatFlags.QuadPart & 0x400000000LL) != 0 )
     return 1;
   v1 = dword_180188458;
   if ( !dword_180188458 )
   {
-    if ( (int)NtOpenKey() >= 0 && (int)NtQueryValueKey() >= 0 && v2 == 4 && v3 == 4 )
-      RtlpInitializeLegacyDosDevicePathState(v4);
+    ObjectAttributes.RootDirectory = 0LL;
+    KeyHandle = 0LL;
+    ObjectAttributes.ObjectName = (PUNICODE_STRING)L"|~";
+    ObjectAttributes.Length = 48;
+    ObjectAttributes.Attributes = 64;
+    *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+    if ( NtOpenKey(&KeyHandle, 0x20019u, &ObjectAttributes) >= 0
+      && NtQueryValueKey(
+           KeyHandle,
+           (PUNICODE_STRING)&stru_1801345D0,
+           KeyValuePartialInformation,
+           KeyValueInformation,
+           0x14u,
+           &ResultLength) >= 0
+      && v6 == 4
+      && v7 == 4 )
+    {
+      RtlpInitializeLegacyDosDevicePathState(v8);
+    }
+    if ( KeyHandle )
+      NtClose(KeyHandle);
     v1 = dword_180188458;
     if ( !dword_180188458 )
     {

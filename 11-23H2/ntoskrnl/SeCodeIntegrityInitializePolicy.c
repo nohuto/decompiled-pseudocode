@@ -3,7 +3,7 @@
  * Callers:
  *     Phase1InitializationDiscard @ 0x140B4FFBC (Phase1InitializationDiscard.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
  *     SeSecureBootRegisterPolicy @ 0x140B4D884 (SeSecureBootRegisterPolicy.c)
  *     SepInitializeDebugOptions @ 0x140B75844 (SepInitializeDebugOptions.c)
  */
@@ -28,9 +28,9 @@ __int64 __fastcall SeCodeIntegrityInitializePolicy(__int64 a1)
     || (v1 = SeSecureBootRegisterPolicy(*(unsigned int *)(v2 + 60) + v2 + 72, v4), v1 >= 0) )
   {
     SepInitializeDebugOptions();
-    if ( qword_140C37A00 )
+    if ( qword_140C379A0 )
     {
-      v1 = qword_140C37A00(v2, &v7, &v6);
+      v1 = qword_140C379A0(v2, &v7, &v6);
       if ( v1 >= 0 )
       {
         SeCiStateElements = v7;

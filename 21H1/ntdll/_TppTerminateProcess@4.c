@@ -7,7 +7,7 @@
  *     _ZwTerminateProcess@8 @ 0x4B2F2C40 (_ZwTerminateProcess@8.c)
  */
 
-int __thiscall TppTerminateProcess(int **this)
+NTSTATUS __thiscall TppTerminateProcess(NTSTATUS **this)
 {
-  return ZwTerminateProcess(-1, **this);
+  return ZwTerminateProcess((HANDLE)0xFFFFFFFF, **this);
 }

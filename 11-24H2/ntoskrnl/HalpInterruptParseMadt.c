@@ -1,14 +1,14 @@
 /*
- * XREFs of HalpInterruptParseMadt @ 0x140556A34
+ * XREFs of HalpInterruptParseMadt @ 0x140554374
  * Callers:
- *     HalpInterruptParseAcpiTables @ 0x140556994 (HalpInterruptParseAcpiTables.c)
+ *     HalpInterruptParseAcpiTables @ 0x1405542D4 (HalpInterruptParseAcpiTables.c)
  * Callees:
- *     HalpInterruptGsiToLine @ 0x1403B9678 (HalpInterruptGsiToLine.c)
- *     HalpInterruptSetProblemEx @ 0x1403BC82C (HalpInterruptSetProblemEx.c)
- *     HalpMap @ 0x140478C5C (HalpMap.c)
- *     HalpMmAllocateMemoryInternal @ 0x140542CD0 (HalpMmAllocateMemoryInternal.c)
- *     HalpInterruptBlockSmtSiblings @ 0x140556230 (HalpInterruptBlockSmtSiblings.c)
- *     HalpInterruptSortProcessorTable @ 0x140557424 (HalpInterruptSortProcessorTable.c)
+ *     HalpInterruptGsiToLine @ 0x1403733E0 (HalpInterruptGsiToLine.c)
+ *     HalpInterruptSetProblemEx @ 0x14037537C (HalpInterruptSetProblemEx.c)
+ *     HalpMap @ 0x140460358 (HalpMap.c)
+ *     HalpMmAllocateMemoryInternal @ 0x140540620 (HalpMmAllocateMemoryInternal.c)
+ *     HalpInterruptBlockSmtSiblings @ 0x140553B70 (HalpInterruptBlockSmtSiblings.c)
+ *     HalpInterruptSortProcessorTable @ 0x140554D64 (HalpInterruptSortProcessorTable.c)
  */
 
 __int64 __fastcall HalpInterruptParseMadt(__int64 a1, int a2)
@@ -371,7 +371,7 @@ LABEL_51:
       }
       else if ( v36 == 2 && v35 == 10 )
       {
-        if ( (int)HalpInterruptGsiToLine(*((unsigned int *)v34 + 1), &v91) >= 0 )
+        if ( (int)HalpInterruptGsiToLine(*((_DWORD *)v34 + 1), &v91) >= 0 )
         {
           v46 = HalpMmAllocateMemoryInternal(40, 1u);
           v47 = v46;
@@ -400,13 +400,13 @@ LABEL_51:
           v52 = *((_WORD *)v34 + 4) & 0xC;
           v53 = !v52 || v52 == 4;
           *(_DWORD *)(v47 + 32) = v53;
-          v54 = (__int64 *)qword_140F8F8B8;
-          if ( *(__int64 **)qword_140F8F8B8 != &HalpInterruptOverrides )
+          v54 = (__int64 *)qword_140F8FB48;
+          if ( *(__int64 **)qword_140F8FB48 != &HalpInterruptOverrides )
             __fastfail(3u);
           *(_QWORD *)v47 = &HalpInterruptOverrides;
           *(_QWORD *)(v47 + 8) = v54;
           *v54 = v47;
-          qword_140F8F8B8 = v47;
+          qword_140F8FB48 = v47;
         }
         v92 = 0;
       }

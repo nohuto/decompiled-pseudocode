@@ -1,18 +1,18 @@
 /*
- * XREFs of MiUpdatePfnPriority @ 0x140082AB8
+ * XREFs of MiUpdatePfnPriority @ 0x140082AA8
  * Callers:
  *     NtLockVirtualMemory @ 0x14001A570 (NtLockVirtualMemory.c)
  *     MiResolveTransitionFault @ 0x14003AC00 (MiResolveTransitionFault.c)
- *     MiPfPutPagesInTransition @ 0x140064E70 (MiPfPutPagesInTransition.c)
- *     MiConvertPrivateToProto @ 0x140082EB0 (MiConvertPrivateToProto.c)
- *     MiActOnPte @ 0x14009410C (MiActOnPte.c)
- *     MiUpdatePrefetchPriority @ 0x1400B71C0 (MiUpdatePrefetchPriority.c)
- *     MiConvertStandbyToProto @ 0x14013EA50 (MiConvertStandbyToProto.c)
- *     MiDeprioritizeVirtualAddresses @ 0x1402AB6BC (MiDeprioritizeVirtualAddresses.c)
+ *     MiPfPutPagesInTransition @ 0x140064E60 (MiPfPutPagesInTransition.c)
+ *     MiConvertPrivateToProto @ 0x140082EA0 (MiConvertPrivateToProto.c)
+ *     MiActOnPte @ 0x14009404C (MiActOnPte.c)
+ *     MiUpdatePrefetchPriority @ 0x1400B7100 (MiUpdatePrefetchPriority.c)
+ *     MiConvertStandbyToProto @ 0x14013EB50 (MiConvertStandbyToProto.c)
+ *     MiDeprioritizeVirtualAddresses @ 0x1402AB8AC (MiDeprioritizeVirtualAddresses.c)
  * Callees:
- *     MiGetPfnPriority @ 0x140082B70 (MiGetPfnPriority.c)
- *     MiRelinkStandbyPage @ 0x1400F0A38 (MiRelinkStandbyPage.c)
- *     MiIsPteInStore @ 0x140141808 (MiIsPteInStore.c)
+ *     MiGetPfnPriority @ 0x140082B60 (MiGetPfnPriority.c)
+ *     MiRelinkStandbyPage @ 0x1400F0AB8 (MiRelinkStandbyPage.c)
+ *     MiIsPteInStore @ 0x140141908 (MiIsPteInStore.c)
  */
 
 char __fastcall MiUpdatePfnPriority(__int64 a1)
@@ -37,7 +37,7 @@ char __fastcall MiUpdatePfnPriority(__int64 a1)
       if ( PfnPriority
         || (*(_DWORD *)(v4 + 16) & 0x400LL) != 0
         || (IsPteInStore = MiIsPteInStore(
-                             *(_QWORD *)(qword_14043A748 + 8 * ((*(_QWORD *)(v4 + 40) >> 40) & 0x3FFLL)),
+                             *(_QWORD *)(qword_14043B808 + 8 * ((*(_QWORD *)(v4 + 40) >> 40) & 0x3FFLL)),
                              *(_QWORD *)(v4 + 16))) == 0 )
       {
         MiRelinkStandbyPage(v4);

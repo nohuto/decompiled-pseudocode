@@ -20,26 +20,26 @@ __int64 __fastcall wil_details_FeatureReporting_ReportUsageToServiceDirect(
 {
   __int64 v11; // rax
   unsigned int v12; // ebx
-  unsigned int v14; // [rsp+30h] [rbp-68h] BYREF
-  int v15; // [rsp+34h] [rbp-64h]
-  __int64 v16; // [rsp+38h] [rbp-60h] BYREF
-  __int128 v17; // [rsp+50h] [rbp-48h] BYREF
-  __int64 v18; // [rsp+60h] [rbp-38h]
+  _RTL_FEATURE_USAGE_REPORT FeatureUsageReport; // [rsp+30h] [rbp-68h] BYREF
+  __int64 v15; // [rsp+38h] [rbp-60h] BYREF
+  __int128 v16; // [rsp+50h] [rbp-48h] BYREF
+  __int64 v17; // [rsp+60h] [rbp-38h]
 
-  v11 = wil_details_FeatureReporting_RecordUsageInCache((unsigned int)&v16, a1, a5, 0, a7);
+  v11 = wil_details_FeatureReporting_RecordUsageInCache((unsigned int)&v15, a1, a5, 0, a7);
   v12 = 0;
-  v17 = *(_OWORD *)v11;
-  v18 = *(_QWORD *)(v11 + 16);
+  v16 = *(_OWORD *)v11;
+  v17 = *(_QWORD *)(v11 + 16);
   if ( g_wil_details_recordFeatureUsage )
-    g_wil_details_recordFeatureUsage(a2, a5, a7, a1, &v17);
+    g_wil_details_recordFeatureUsage(a2, a5, a7, a1, &v16);
   if ( a3 && a5 != 254 )
   {
-    v14 = a2;
-    v15 = (unsigned __int16)a5;
+    FeatureUsageReport.ReportingOptions = 0;
+    FeatureUsageReport.FeatureId = a2;
+    FeatureUsageReport.ReportingKind = a5;
     if ( a4 )
-      HIWORD(v15) |= 1u;
-    RtlNotifyFeatureUsage(&v14);
+      FeatureUsageReport.ReportingOptions |= 1u;
+    RtlNotifyFeatureUsage(&FeatureUsageReport);
   }
-  LOBYTE(v12) = (_DWORD)v18 == 0;
+  LOBYTE(v12) = (_DWORD)v17 == 0;
   return v12;
 }

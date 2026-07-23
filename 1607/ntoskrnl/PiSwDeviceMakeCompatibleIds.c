@@ -1,10 +1,10 @@
 /*
- * XREFs of PiSwDeviceMakeCompatibleIds @ 0x1404EC670
+ * XREFs of PiSwDeviceMakeCompatibleIds @ 0x1404CE6F8
  * Callers:
- *     PiSwPdoPnPDispatch @ 0x1403F1680 (PiSwPdoPnPDispatch.c)
+ *     PiSwPdoPnPDispatch @ 0x1403F0544 (PiSwPdoPnPDispatch.c)
  * Callees:
- *     _wcsicmp @ 0x14014D79C (_wcsicmp.c)
- *     memmove @ 0x140171280 (memmove.c)
+ *     _wcsicmp @ 0x14014DD0C (_wcsicmp.c)
+ *     memmove @ 0x140171780 (memmove.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
  */
 

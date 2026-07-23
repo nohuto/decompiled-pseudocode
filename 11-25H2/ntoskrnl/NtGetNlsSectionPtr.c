@@ -21,14 +21,19 @@
  *     MiMapViewOfSection @ 0x1408FC9F0 (MiMapViewOfSection.c)
  */
 
-NTSTATUS __fastcall NtGetNlsSectionPtr(unsigned int a1, ULONG a2, PVOID *a3, ULONG_PTR *a4, unsigned __int64 *a5)
+NTSTATUS __cdecl NtGetNlsSectionPtr(
+        ULONG SectionType,
+        ULONG SectionData,
+        PVOID ContextData,
+        PVOID *SectionPointer,
+        PULONG SectionSize)
 {
   char PreviousMode; // r12
   __int64 v10; // rdx
   __int64 v11; // rcx
   __int64 v12; // rcx
   NTSTATUS result; // eax
-  int v14; // ebx
+  NTSTATUS v14; // ebx
   __int64 v15; // r9
   _KPROCESS *Process; // rbx
   unsigned __int64 v17; // rax
@@ -36,7 +41,7 @@ NTSTATUS __fastcall NtGetNlsSectionPtr(unsigned int a1, ULONG a2, PVOID *a3, ULO
   _QWORD *v19; // rbx
   unsigned __int64 v20; // rsi
   PVOID Object; // [rsp+48h] [rbp-2A0h] BYREF
-  ULONG_PTR v22; // [rsp+50h] [rbp-298h] BYREF
+  void *v22; // [rsp+50h] [rbp-298h] BYREF
   ULONG_PTR v23; // [rsp+58h] [rbp-290h] BYREF
   HANDLE SectionHandle; // [rsp+60h] [rbp-288h] BYREF
   __int64 v25; // [rsp+68h] [rbp-280h] BYREF
@@ -70,36 +75,36 @@ NTSTATUS __fastcall NtGetNlsSectionPtr(unsigned int a1, ULONG a2, PVOID *a3, ULO
   IoStatusBlock = 0LL;
   v22 = 0LL;
   v23 = 0LL;
-  if ( !a4 && !a3 )
+  if ( !SectionPointer && !ContextData )
     return -1073741811;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   if ( PreviousMode )
   {
     v10 = 0x7FFFFFFF0000LL;
-    if ( a4 )
+    if ( SectionPointer )
     {
       v11 = 0x7FFFFFFF0000LL;
-      if ( (unsigned __int64)a4 < 0x7FFFFFFF0000LL )
-        v11 = (__int64)a4;
+      if ( (unsigned __int64)SectionPointer < 0x7FFFFFFF0000LL )
+        v11 = (__int64)SectionPointer;
       *(_QWORD *)v11 = *(_QWORD *)v11;
     }
-    if ( a5 )
+    if ( SectionSize )
     {
       v12 = 0x7FFFFFFF0000LL;
-      if ( (unsigned __int64)a5 < 0x7FFFFFFF0000LL )
-        v12 = (__int64)a5;
+      if ( (unsigned __int64)SectionSize < 0x7FFFFFFF0000LL )
+        v12 = (__int64)SectionSize;
       *(_QWORD *)v12 = *(_QWORD *)v12;
     }
-    if ( a3 )
+    if ( ContextData )
     {
-      if ( (unsigned __int64)a3 < 0x7FFFFFFF0000LL )
-        v10 = (__int64)a3;
+      if ( (unsigned __int64)ContextData < 0x7FFFFFFF0000LL )
+        v10 = (__int64)ContextData;
       *(_QWORD *)v10 = *(_QWORD *)v10;
     }
-    if ( a3 )
+    if ( ContextData )
       return -1073741583;
   }
-  result = RtlpInitNlsSectionName(a1, a2, v45);
+  result = RtlpInitNlsSectionName(SectionType, SectionData, v45);
   if ( result >= 0 )
   {
     ObjectAttributes.Length = 48;
@@ -107,7 +112,7 @@ NTSTATUS __fastcall NtGetNlsSectionPtr(unsigned int a1, ULONG a2, PVOID *a3, ULO
     ObjectAttributes.Attributes = 720;
     ObjectAttributes.ObjectName = (PUNICODE_STRING)&v29;
     *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
-    if ( ((a1 - 11) & 0xFFFFFFFC) != 0 || a1 == 13 )
+    if ( ((SectionType - 11) & 0xFFFFFFFC) != 0 || SectionType == 13 )
     {
       v14 = -1073741823;
       goto LABEL_20;
@@ -123,7 +128,7 @@ LABEL_20:
       ZwClose(SectionHandle);
       if ( v14 < 0 )
         return v14;
-      if ( a4 )
+      if ( SectionPointer )
       {
         v27 = 0LL;
         if ( !PreviousMode )
@@ -142,7 +147,7 @@ LABEL_20:
           }
           else
           {
-            v22 = v23;
+            v22 = (void *)v23;
             v14 = 0;
           }
           goto LABEL_30;
@@ -170,16 +175,16 @@ LABEL_20:
         {
           v18 = v35;
 LABEL_30:
-          if ( !a3 )
+          if ( !ContextData )
             ObfDereferenceObject(Object);
           if ( v14 >= 0 )
           {
-            if ( a4 )
-              *a4 = v22;
-            if ( a5 )
-              *a5 = v18;
-            if ( a3 )
-              *a3 = Object;
+            if ( SectionPointer )
+              *SectionPointer = v22;
+            if ( SectionSize )
+              *(_QWORD *)SectionSize = v18;
+            if ( ContextData )
+              *(_QWORD *)ContextData = Object;
           }
           return v14;
         }
@@ -194,7 +199,7 @@ LABEL_30:
     *(&v31.Length + 1) = 0;
     *(&v31.Attributes + 1) = 0;
     v30 = 0LL;
-    result = RtlpInitNlsFileName(a1, a2, v46, v15, &v30);
+    result = RtlpInitNlsFileName(SectionType, SectionData, v46, v15, &v30);
     if ( result >= 0 )
     {
       v31.Length = 48;

@@ -1,19 +1,19 @@
 /*
- * XREFs of FsRtlReleaseFileForModWrite @ 0x14008F1B4
+ * XREFs of FsRtlReleaseFileForModWrite @ 0x14008E914
  * Callers:
- *     MiGatherMappedPages @ 0x1400201F0 (MiGatherMappedPages.c)
- *     MiWriteComplete @ 0x14008E9E0 (MiWriteComplete.c)
+ *     MiGatherMappedPages @ 0x14001FD70 (MiGatherMappedPages.c)
+ *     MiWriteComplete @ 0x14008E140 (MiWriteComplete.c)
  * Callees:
- *     FsFilterCtrlFree @ 0x140026254 (FsFilterCtrlFree.c)
- *     FsFilterPerformCompletionCallbacks @ 0x140026270 (FsFilterPerformCompletionCallbacks.c)
- *     FsFilterPerformCallbacks @ 0x1400262E0 (FsFilterPerformCallbacks.c)
- *     FsFilterCtrlInit @ 0x140026580 (FsFilterCtrlInit.c)
- *     IoGetBaseFileSystemDeviceObject @ 0x14002660C (IoGetBaseFileSystemDeviceObject.c)
- *     IoGetRelatedDeviceObject @ 0x14002E0E0 (IoGetRelatedDeviceObject.c)
- *     ExReleaseResourceLite @ 0x140068940 (ExReleaseResourceLite.c)
- *     ObfDereferenceObjectWithTag @ 0x14006ACD0 (ObfDereferenceObjectWithTag.c)
- *     IoGetDeviceAttachmentBaseRef @ 0x1400FB62C (IoGetDeviceAttachmentBaseRef.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
+ *     FsFilterCtrlFree @ 0x140025DD4 (FsFilterCtrlFree.c)
+ *     FsFilterPerformCompletionCallbacks @ 0x140025DF0 (FsFilterPerformCompletionCallbacks.c)
+ *     FsFilterPerformCallbacks @ 0x140025E60 (FsFilterPerformCallbacks.c)
+ *     FsFilterCtrlInit @ 0x140026100 (FsFilterCtrlInit.c)
+ *     IoGetBaseFileSystemDeviceObject @ 0x14002618C (IoGetBaseFileSystemDeviceObject.c)
+ *     IoGetRelatedDeviceObject @ 0x14002DC60 (IoGetRelatedDeviceObject.c)
+ *     ExReleaseResourceLite @ 0x1400684C0 (ExReleaseResourceLite.c)
+ *     ObfDereferenceObjectWithTag @ 0x14006A850 (ObfDereferenceObjectWithTag.c)
+ *     IoGetDeviceAttachmentBaseRef @ 0x1400F93B8 (IoGetDeviceAttachmentBaseRef.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
  */
 
 void __fastcall FsRtlReleaseFileForModWrite(PFILE_OBJECT FileObject, struct _ERESOURCE *a2)

@@ -1,9 +1,9 @@
 /*
- * XREFs of ExCancelDpcEventWait @ 0x14060BEC0
+ * XREFs of ExCancelDpcEventWait @ 0x14060C410
  * Callers:
  *     <none>
  * Callees:
- *     KiDeregisterObjectWaitBlock @ 0x14033C520 (KiDeregisterObjectWaitBlock.c)
+ *     KiDeregisterObjectWaitBlock @ 0x14033C6C0 (KiDeregisterObjectWaitBlock.c)
  */
 
 __int64 __fastcall ExCancelDpcEventWait(__int64 a1)

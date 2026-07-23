@@ -1,12 +1,12 @@
 /*
- * XREFs of VfIoInitializeIrp @ 0x140930428
+ * XREFs of VfIoInitializeIrp @ 0x140931428
  * Callers:
- *     IoReuseIrp @ 0x1400DF790 (IoReuseIrp.c)
- *     IovInitializeIrp @ 0x140924270 (IovInitializeIrp.c)
+ *     IoReuseIrp @ 0x1400DF810 (IoReuseIrp.c)
+ *     IovInitializeIrp @ 0x140925270 (IovInitializeIrp.c)
  * Callees:
- *     ViErrorReport1 @ 0x14030AF3C (ViErrorReport1.c)
- *     VfIrpDatabaseEntryFindAndLock @ 0x14093E224 (VfIrpDatabaseEntryFindAndLock.c)
- *     VfIrpDatabaseEntryReleaseLock @ 0x14093E3A4 (VfIrpDatabaseEntryReleaseLock.c)
+ *     ViErrorReport1 @ 0x14030B12C (ViErrorReport1.c)
+ *     VfIrpDatabaseEntryFindAndLock @ 0x14093F224 (VfIrpDatabaseEntryFindAndLock.c)
+ *     VfIrpDatabaseEntryReleaseLock @ 0x14093F3A4 (VfIrpDatabaseEntryReleaseLock.c)
  */
 
 __int64 __fastcall VfIoInitializeIrp(__int64 a1, const void *a2, char a3)

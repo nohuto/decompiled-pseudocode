@@ -1,15 +1,15 @@
 /*
- * XREFs of KdpPrompt @ 0x140B790AC
+ * XREFs of KdpPrompt @ 0x140B7B0AC
  * Callers:
- *     KdpTrap @ 0x140B752B8 (KdpTrap.c)
+ *     KdpTrap @ 0x140B772B8 (KdpTrap.c)
  * Callees:
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ProbeForWrite @ 0x1408C0590 (ProbeForWrite.c)
- *     KdExitDebugger @ 0x140B75008 (KdExitDebugger.c)
- *     KdpQuickMoveMemory @ 0x140B75490 (KdpQuickMoveMemory.c)
- *     KdLogDbgPrint @ 0x140B78C20 (KdLogDbgPrint.c)
- *     KdpPromptString @ 0x140B79DE0 (KdpPromptString.c)
- *     KdEnterDebugger @ 0x140B7A96C (KdEnterDebugger.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ProbeForWrite @ 0x1408BDF50 (ProbeForWrite.c)
+ *     KdExitDebugger @ 0x140B77008 (KdExitDebugger.c)
+ *     KdpQuickMoveMemory @ 0x140B77490 (KdpQuickMoveMemory.c)
+ *     KdLogDbgPrint @ 0x140B7AC20 (KdLogDbgPrint.c)
+ *     KdpPromptString @ 0x140B7BDE0 (KdpPromptString.c)
+ *     KdEnterDebugger @ 0x140B7C96C (KdEnterDebugger.c)
  */
 
 __int64 __fastcall KdpPrompt(
@@ -32,18 +32,17 @@ __int64 __fastcall KdpPrompt(
   char v16; // bl
   unsigned __int64 v17; // rdx
   __int64 v18; // rcx
-  __int64 v19; // r8
-  _BYTE v21[480]; // [rsp+0h] [rbp-400h] BYREF
-  _BYTE v22[480]; // [rsp+200h] [rbp-200h] BYREF
-  _WORD v23[2]; // [rsp+400h] [rbp+0h] BYREF
-  int v24; // [rsp+404h] [rbp+4h]
-  char *v25; // [rsp+408h] [rbp+8h]
-  __int128 v26; // [rsp+410h] [rbp+10h] BYREF
-  _BYTE *v27; // [rsp+420h] [rbp+20h]
+  _BYTE v20[480]; // [rsp+0h] [rbp-400h] BYREF
+  _BYTE v21[480]; // [rsp+200h] [rbp-200h] BYREF
+  _WORD v22[2]; // [rsp+400h] [rbp+0h] BYREF
+  int v23; // [rsp+404h] [rbp+4h]
+  char *v24; // [rsp+408h] [rbp+8h]
+  __int128 v25; // [rsp+410h] [rbp+10h] BYREF
+  _BYTE *v26; // [rsp+420h] [rbp+20h]
 
   v8 = a1;
-  v24 = 0;
-  v26 = 0LL;
+  v23 = 0;
+  v25 = 0LL;
   v9 = 512;
   if ( a2 <= 0x200u )
     v9 = a2;
@@ -59,30 +58,30 @@ __int64 __fastcall KdpPrompt(
         v8 = a1;
     }
     v12 = alloca(512LL);
-    v27 = v22;
-    KdpQuickMoveMemory((__int64)v22, v8, v9);
+    v26 = v21;
+    KdpQuickMoveMemory((__int64)v21, v8, v9);
     v8 = v13;
     ProbeForWrite(a3, v10, 1u);
     v14 = alloca(512LL);
-    v15 = v21;
-    v27 = v21;
+    v15 = v20;
+    v26 = v20;
   }
   else
   {
     v15 = (char *)a3;
   }
-  v25 = v15;
-  v23[0] = 0;
-  v23[1] = v10;
-  *((_QWORD *)&v26 + 1) = v8;
-  LOWORD(v26) = v9;
-  KdLogDbgPrint((void **)&v26);
+  v24 = v15;
+  v22[0] = 0;
+  v22[1] = v10;
+  *((_QWORD *)&v25 + 1) = v8;
+  LOWORD(v25) = v9;
+  KdLogDbgPrint((void **)&v25);
   v16 = KdEnterDebugger(a6, a7);
-  while ( (unsigned __int8)KdpPromptString(&v26, v23) == 1 )
+  while ( (unsigned __int8)KdpPromptString(&v25, v22) == 1 )
     ;
   LOBYTE(v18) = v16;
-  KdExitDebugger(v18, v17, v19);
+  KdExitDebugger(v18, v17);
   if ( a5 == 1 )
-    KdpQuickMoveMemory((__int64)a3, v25, v23[0]);
-  return v23[0];
+    KdpQuickMoveMemory((__int64)a3, v24, v22[0]);
+  return v22[0];
 }

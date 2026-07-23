@@ -1,17 +1,17 @@
 /*
- * XREFs of SeSetSecurityAttributesTokenEx @ 0x140300330
+ * XREFs of SeSetSecurityAttributesTokenEx @ 0x140300520
  * Callers:
  *     <none>
  * Callees:
  *     ExReleaseResourceLite @ 0x14004F590 (ExReleaseResourceLite.c)
  *     ExAcquireResourceSharedLite @ 0x140050860 (ExAcquireResourceSharedLite.c)
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
- *     AuthzBasepSetSecurityAttributesToken @ 0x1400D8A94 (AuthzBasepSetSecurityAttributesToken.c)
- *     SepInternalSetSecurityAttributesToken @ 0x1402FE5F4 (SepInternalSetSecurityAttributesToken.c)
- *     SepGetProcUniqueLuidAndIndexFromToken @ 0x14030054C (SepGetProcUniqueLuidAndIndexFromToken.c)
- *     SepSetSingletonEntry @ 0x140300620 (SepSetSingletonEntry.c)
- *     ObReferenceObjectByHandle @ 0x1405E8350 (ObReferenceObjectByHandle.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B78F0 (KiLeaveCriticalRegionUnsafe.c)
+ *     AuthzBasepSetSecurityAttributesToken @ 0x1400D8B14 (AuthzBasepSetSecurityAttributesToken.c)
+ *     SepInternalSetSecurityAttributesToken @ 0x1402FE7E4 (SepInternalSetSecurityAttributesToken.c)
+ *     SepGetProcUniqueLuidAndIndexFromToken @ 0x14030073C (SepGetProcUniqueLuidAndIndexFromToken.c)
+ *     SepSetSingletonEntry @ 0x140300810 (SepSetSingletonEntry.c)
+ *     ObReferenceObjectByHandle @ 0x1405E9350 (ObReferenceObjectByHandle.c)
  */
 
 __int64 __fastcall SeSetSecurityAttributesTokenEx(

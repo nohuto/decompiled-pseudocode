@@ -1,12 +1,12 @@
 /*
- * XREFs of CcUnmapAndPurge @ 0x140299F38
+ * XREFs of CcUnmapAndPurge @ 0x14029A1C8
  * Callers:
- *     CcDeleteSharedCacheMap @ 0x140299FC0 (CcDeleteSharedCacheMap.c)
+ *     CcDeleteSharedCacheMap @ 0x14029A250 (CcDeleteSharedCacheMap.c)
  * Callees:
- *     CcUnmapVacbArray @ 0x14029EDC0 (CcUnmapVacbArray.c)
- *     CcReferenceSharedCacheMapFileObject @ 0x1402A14D0 (CcReferenceSharedCacheMapFileObject.c)
- *     ObFastDereferenceObjectDeferDelete @ 0x1402A2500 (ObFastDereferenceObjectDeferDelete.c)
- *     CcPurgeCacheSection @ 0x1402F07D0 (CcPurgeCacheSection.c)
+ *     CcUnmapVacbArray @ 0x14029F050 (CcUnmapVacbArray.c)
+ *     CcReferenceSharedCacheMapFileObject @ 0x1402A1760 (CcReferenceSharedCacheMapFileObject.c)
+ *     ObFastDereferenceObjectDeferDelete @ 0x1402A2790 (ObFastDereferenceObjectDeferDelete.c)
+ *     CcPurgeCacheSection @ 0x1402F0A60 (CcPurgeCacheSection.c)
  */
 
 __int64 __fastcall CcUnmapAndPurge(__int64 a1, char a2)

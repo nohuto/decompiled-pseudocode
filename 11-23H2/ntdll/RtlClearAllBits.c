@@ -6,10 +6,10 @@
  *     <none>
  */
 
-void *__fastcall RtlClearAllBits(__int64 a1)
+void __cdecl RtlClearAllBits(PRTL_BITMAP BitMapHeader)
 {
-  return memset_thunk_772440563353939046(
-           *(void **)(a1 + 8),
-           0,
-           4 * ((*(_DWORD *)a1 >> 5) + (unsigned int)((*(_DWORD *)a1 & 0x1F) != 0)));
+  memset_thunk_772440563353939046(
+    BitMapHeader->Buffer,
+    0,
+    4 * ((BitMapHeader->SizeOfBitMap >> 5) + ((BitMapHeader->SizeOfBitMap & 0x1F) != 0)));
 }

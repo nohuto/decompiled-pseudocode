@@ -1,12 +1,12 @@
 /*
- * XREFs of MiDeleteEmptyPageTableTail @ 0x14044B6E0
+ * XREFs of MiDeleteEmptyPageTableTail @ 0x140443810
  * Callers:
  *     <none>
  * Callees:
- *     MiReleaseWalkLocks @ 0x140362F00 (MiReleaseWalkLocks.c)
- *     MiDecommitPagesTail @ 0x14044B7AC (MiDecommitPagesTail.c)
- *     MiWalkAllBitmapRanges @ 0x14044B8F0 (MiWalkAllBitmapRanges.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     MiReleaseWalkLocks @ 0x140364CA0 (MiReleaseWalkLocks.c)
+ *     MiDecommitPagesTail @ 0x1404438DC (MiDecommitPagesTail.c)
+ *     MiWalkAllBitmapRanges @ 0x140443A20 (MiWalkAllBitmapRanges.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall MiDeleteEmptyPageTableTail(__int64 a1, __int64 a2, __int64 a3, __int64 a4)

@@ -1,19 +1,19 @@
 /*
- * XREFs of TtmInitCurrentSession @ 0x1409A3FA0
+ * XREFs of TtmInitCurrentSession @ 0x1409A41A0
  * Callers:
- *     NtPowerInformation @ 0x140783F20 (NtPowerInformation.c)
+ *     NtPowerInformation @ 0x140784110 (NtPowerInformation.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     ExAcquireResourceExclusiveLite @ 0x1402390E0 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x14023D410 (ExReleaseResourceLite.c)
- *     PsGetProcessSessionIdEx @ 0x14036FA00 (PsGetProcessSessionIdEx.c)
- *     PoRegisterPowerSettingCallback @ 0x1407A7060 (PoRegisterPowerSettingCallback.c)
- *     TtmiUpdateActiveTerminalCount @ 0x1409A4DD0 (TtmiUpdateActiveTerminalCount.c)
- *     TtmiLogError @ 0x1409A8344 (TtmiLogError.c)
- *     TtmiLogInitCurrentSessionStart @ 0x1409A8750 (TtmiLogInitCurrentSessionStart.c)
- *     TtmiLogInitCurrentSessionStop @ 0x1409A87F8 (TtmiLogInitCurrentSessionStop.c)
- *     TtmiLogSessionDeviceAssignmentPolicySet @ 0x1409A9360 (TtmiLogSessionDeviceAssignmentPolicySet.c)
- *     TtmiCreateTerminal @ 0x1409AADA8 (TtmiCreateTerminal.c)
+ *     KeLeaveCriticalRegion @ 0x140231550 (KeLeaveCriticalRegion.c)
+ *     ExAcquireResourceExclusiveLite @ 0x1402391B0 (ExAcquireResourceExclusiveLite.c)
+ *     ExReleaseResourceLite @ 0x14023D4E0 (ExReleaseResourceLite.c)
+ *     PsGetProcessSessionIdEx @ 0x14036FBA0 (PsGetProcessSessionIdEx.c)
+ *     PoRegisterPowerSettingCallback @ 0x1407A7250 (PoRegisterPowerSettingCallback.c)
+ *     TtmiUpdateActiveTerminalCount @ 0x1409A4FD0 (TtmiUpdateActiveTerminalCount.c)
+ *     TtmiLogError @ 0x1409A8544 (TtmiLogError.c)
+ *     TtmiLogInitCurrentSessionStart @ 0x1409A8950 (TtmiLogInitCurrentSessionStart.c)
+ *     TtmiLogInitCurrentSessionStop @ 0x1409A89F8 (TtmiLogInitCurrentSessionStop.c)
+ *     TtmiLogSessionDeviceAssignmentPolicySet @ 0x1409A9560 (TtmiLogSessionDeviceAssignmentPolicySet.c)
+ *     TtmiCreateTerminal @ 0x1409AAFA8 (TtmiCreateTerminal.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

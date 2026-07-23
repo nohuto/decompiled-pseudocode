@@ -3,15 +3,15 @@
  * Callers:
  *     <none>
  * Callees:
- *     KeSetEvent @ 0x1400562D0 (KeSetEvent.c)
- *     KeWaitForMultipleObjects @ 0x14005A2E0 (KeWaitForMultipleObjects.c)
- *     KeWaitForSingleObject @ 0x14005C880 (KeWaitForSingleObject.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     PnprCompleteWake @ 0x1401D008C (PnprCompleteWake.c)
+ *     KeSetEvent @ 0x140055E50 (KeSetEvent.c)
+ *     KeWaitForMultipleObjects @ 0x140059E60 (KeWaitForMultipleObjects.c)
+ *     KeWaitForSingleObject @ 0x14005C400 (KeWaitForSingleObject.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     PnprCompleteWake @ 0x1401CFEB8 (PnprCompleteWake.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     PnprQuiesceDevices @ 0x1403DC3D4 (PnprQuiesceDevices.c)
  *     PnprWakeDevices @ 0x1403DCE3C (PnprWakeDevices.c)
- *     PnprLockPagesForReplace @ 0x140644D00 (PnprLockPagesForReplace.c)
+ *     PnprLockPagesForReplace @ 0x140644DE4 (PnprLockPagesForReplace.c)
  */
 
 void __fastcall PnprQuiesceWorker(PVOID P)

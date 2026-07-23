@@ -1,9 +1,9 @@
 /*
- * XREFs of MiCommitExistingVad @ 0x140071470
+ * XREFs of MiCommitExistingVad @ 0x140071460
  * Callers:
- *     MiAllocateVirtualMemory @ 0x1405ED650 (MiAllocateVirtualMemory.c)
- *     MiAllocateFromSubAllocatedRegion @ 0x1405F8BBC (MiAllocateFromSubAllocatedRegion.c)
- *     MiLoadSectionIntoVsmEnclave @ 0x14085A37C (MiLoadSectionIntoVsmEnclave.c)
+ *     MiAllocateVirtualMemory @ 0x1405EE650 (MiAllocateVirtualMemory.c)
+ *     MiAllocateFromSubAllocatedRegion @ 0x1405F9BBC (MiAllocateFromSubAllocatedRegion.c)
+ *     MiLoadSectionIntoVsmEnclave @ 0x14085B5DC (MiLoadSectionIntoVsmEnclave.c)
  * Callees:
  *     KiAbEntryRemoveFromTree @ 0x140004530 (KiAbEntryRemoveFromTree.c)
  *     KiCheckForKernelApcDelivery @ 0x140005A50 (KiCheckForKernelApcDelivery.c)
@@ -17,26 +17,26 @@
  *     KiAbThreadRemoveBoosts @ 0x14004EFD0 (KiAbThreadRemoveBoosts.c)
  *     MmGetSessionIdEx @ 0x14004F060 (MmGetSessionIdEx.c)
  *     KiLeaveGuardedRegionUnsafe @ 0x14004F090 (KiLeaveGuardedRegionUnsafe.c)
- *     MiIsAddressValid @ 0x1400685A0 (MiIsAddressValid.c)
- *     MiLockLowestValidPageTable @ 0x14006C5A0 (MiLockLowestValidPageTable.c)
- *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
- *     MiMakeProtectionMask @ 0x1400744A0 (MiMakeProtectionMask.c)
- *     MiLockWorkingSetShared @ 0x140076050 (MiLockWorkingSetShared.c)
- *     MiComputePageCommitment @ 0x140083950 (MiComputePageCommitment.c)
- *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     ExpWaitForSpinLockSharedAndAcquire @ 0x1400E77A0 (ExpWaitForSpinLockSharedAndAcquire.c)
- *     MiUnlockPageTableInternal @ 0x140104A90 (MiUnlockPageTableInternal.c)
- *     MiIncreaseUsedPtesCount @ 0x140110064 (MiIncreaseUsedPtesCount.c)
- *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
- *     MiUnlockPageTable @ 0x140192D28 (MiUnlockPageTable.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
- *     MiFlushAllFilesystemPages @ 0x1402AAFF0 (MiFlushAllFilesystemPages.c)
- *     ExpAcquireSpinLockSharedAtDpcLevelInstrumented @ 0x14031C164 (ExpAcquireSpinLockSharedAtDpcLevelInstrumented.c)
- *     MiChargeFullProcessCommitment @ 0x1405E0510 (MiChargeFullProcessCommitment.c)
- *     MiCommitPageTablesForVad @ 0x1405ECBB0 (MiCommitPageTablesForVad.c)
- *     MiReturnFullProcessCommitment @ 0x1405F2998 (MiReturnFullProcessCommitment.c)
+ *     MiIsAddressValid @ 0x140068590 (MiIsAddressValid.c)
+ *     MiLockLowestValidPageTable @ 0x14006C590 (MiLockLowestValidPageTable.c)
+ *     KeYieldProcessorEx @ 0x14006C9E0 (KeYieldProcessorEx.c)
+ *     MiMakeProtectionMask @ 0x140074490 (MiMakeProtectionMask.c)
+ *     MiLockWorkingSetShared @ 0x140076040 (MiLockWorkingSetShared.c)
+ *     MiComputePageCommitment @ 0x140083940 (MiComputePageCommitment.c)
+ *     ExfTryToWakePushLock @ 0x140091500 (ExfTryToWakePushLock.c)
+ *     ExpWaitForSpinLockSharedAndAcquire @ 0x1400E7820 (ExpWaitForSpinLockSharedAndAcquire.c)
+ *     MiUnlockPageTableInternal @ 0x140104B10 (MiUnlockPageTableInternal.c)
+ *     MiIncreaseUsedPtesCount @ 0x1401100E4 (MiIncreaseUsedPtesCount.c)
+ *     MiWritePteShadow @ 0x140120F40 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120FA0 (MiPteHasShadow.c)
+ *     MiUnlockPageTable @ 0x140192E68 (MiUnlockPageTable.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
+ *     MiFlushAllFilesystemPages @ 0x1402AB1E0 (MiFlushAllFilesystemPages.c)
+ *     ExpAcquireSpinLockSharedAtDpcLevelInstrumented @ 0x14031C354 (ExpAcquireSpinLockSharedAtDpcLevelInstrumented.c)
+ *     MiChargeFullProcessCommitment @ 0x1405E1510 (MiChargeFullProcessCommitment.c)
+ *     MiCommitPageTablesForVad @ 0x1405EDBB0 (MiCommitPageTablesForVad.c)
+ *     MiReturnFullProcessCommitment @ 0x1405F3998 (MiReturnFullProcessCommitment.c)
  */
 
 __int64 __fastcall MiCommitExistingVad(ULONG_PTR a1, unsigned __int64 a2, __int64 a3, unsigned int a4, _DWORD *a5)
@@ -223,12 +223,12 @@ LABEL_6:
     v121 = 0LL;
   v122 = 32LL * (v10 & 0x1F);
   v14 = v122;
-  if ( qword_14043A0C0 )
+  if ( qword_14043B180 )
   {
-    if ( (v122 & qword_14043A0C0) != 0 )
+    if ( (v122 & qword_14043B180) != 0 )
       v14 = v122 | 0x10;
     else
-      v14 = qword_14043A0C0 | v122;
+      v14 = qword_14043B180 | v122;
   }
   if ( (v9 & 0x80000) != 0 )
     v14 |= 0x4000000uLL;
@@ -333,7 +333,7 @@ LABEL_162:
     {
       v82->CrossThreadReleasableAndBusyByte |= 2u;
       if ( (__int64)v82->LockState.LockState < 0 )
-        KiAbEntryRemoveFromTree((__int64)&v75->LockEntries[v81], v78);
+        KiAbEntryRemoveFromTree(&v75->LockEntries[v81].TreeNode, v78);
       v105 = 0;
       v105 = v82->BoostBitmap.AllFields & 0x1FFFF;
       v82->BoostBitmap.AllFields &= 0xFFFE0000;
@@ -380,7 +380,7 @@ LABEL_19:
   else
   {
     if ( v26 == 2 )
-      v27 = &dword_14043B700;
+      v27 = &dword_14043C7C0;
     else
       v27 = (LONG *)(v102 + 192);
     v28 = KeGetCurrentIrql();
@@ -614,7 +614,7 @@ LABEL_19:
           if ( (unsigned int)MiPteHasShadow(v37, v36) )
           {
             v99 = v36;
-            if ( !HIBYTE(word_14043A1AC) && (v36 & 1) != 0 )
+            if ( !HIBYTE(word_14043B26C) && (v36 & 1) != 0 )
               v99 = v36 | 0x8000000000000000uLL;
             *(_QWORD *)BugCheckParameter4 = v99;
             MiWritePteShadow(BugCheckParameter4);
@@ -684,7 +684,7 @@ LABEL_40:
     {
       if ( (unsigned int)MiPteHasShadow(v24, v14) )
       {
-        if ( !HIBYTE(word_14043A1AC) && (v14 & 1) != 0 )
+        if ( !HIBYTE(word_14043B26C) && (v14 & 1) != 0 )
           v36 |= v34;
         *(_QWORD *)BugCheckParameter4 = v36;
         MiWritePteShadow(BugCheckParameter4);
@@ -754,7 +754,7 @@ LABEL_111:
     {
       v56->CrossThreadReleasableAndBusyByte |= 2u;
       if ( (__int64)v56->LockState.LockState < 0 )
-        KiAbEntryRemoveFromTree((__int64)&v48->LockEntries[v55], v51);
+        KiAbEntryRemoveFromTree(&v48->LockEntries[v55].TreeNode, v51);
       v106 = 0;
       v106 = v56->BoostBitmap.AllFields & 0x1FFFF;
       v56->BoostBitmap.AllFields &= 0xFFFE0000;

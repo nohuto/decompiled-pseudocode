@@ -1,16 +1,16 @@
 /*
- * XREFs of MiSelectOverflowDllBase @ 0x140B49A0C
+ * XREFs of MiSelectOverflowDllBase @ 0x140B4B79C
  * Callers:
- *     MiSelectImageBase @ 0x1409CACA8 (MiSelectImageBase.c)
+ *     MiSelectImageBase @ 0x14099BC88 (MiSelectImageBase.c)
  * Callees:
  *     ExGenRandom @ 0x140200C10 (ExGenRandom.c)
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     KiCheckForKernelApcDelivery @ 0x14027DB80 (KiCheckForKernelApcDelivery.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     ExfTryToWakePushLock @ 0x1403170A0 (ExfTryToWakePushLock.c)
- *     MiImageCanUseHighOverflowArea @ 0x140B49BF0 (MiImageCanUseHighOverflowArea.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     KiCheckForKernelApcDelivery @ 0x14027D0F0 (KiCheckForKernelApcDelivery.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     ExfTryToWakePushLock @ 0x1403190D0 (ExfTryToWakePushLock.c)
+ *     MiImageCanUseHighOverflowArea @ 0x140B4B980 (MiImageCanUseHighOverflowArea.c)
  */
 
 __int64 __fastcall MiSelectOverflowDllBase(__int64 a1, unsigned __int64 a2, __int64 a3)
@@ -33,7 +33,7 @@ __int64 __fastcall MiSelectOverflowDllBase(__int64 a1, unsigned __int64 a2, __in
   AutoBoost *v20; // rbp
   __int64 v21; // rbp
   __int64 v22; // rdx
-  $7A85BAF4F1FA08634C1C4A3E45B775B3 *v24; // rcx
+  $241382875694CED3D471BC5892DE3337 *v24; // rcx
 
   v3 = *(_DWORD *)(a1 + 8);
   CanUseHighOverflowArea = MiImageCanUseHighOverflowArea(a1, a2, a3);
@@ -56,9 +56,9 @@ __int64 __fastcall MiSelectOverflowDllBase(__int64 a1, unsigned __int64 a2, __in
     }
     return v9 + 0x10000LL;
   }
-  p_WaitStatus = (__int64 *)&stru_140E2D150.152;
+  p_WaitStatus = (__int64 *)&stru_140E2D2D0.152;
   if ( v5 == 3 )
-    p_WaitStatus = (__int64 *)&stru_140E2D150.WaitStatus;
+    p_WaitStatus = (__int64 *)&stru_140E2D2D0.WaitStatus;
   v13 = *p_WaitStatus;
   v14 = p_WaitStatus + 1;
   if ( CanUseHighOverflowArea )
@@ -70,17 +70,17 @@ __int64 __fastcall MiSelectOverflowDllBase(__int64 a1, unsigned __int64 a2, __in
   v16 = v8 + v13;
   --CurrentThread->SpecialApcDisable;
   v17 = (AutoBoost *)KeAbPreAcquire(
-                       (__int64)&stru_140E2D150.116 + 4,
+                       (__int64)&stru_140E2D2D0.116 + 4,
                        0LL,
                        0LL,
                        (struct _KLOCK_ENTRIES *)(unsigned int)-CanUseHighOverflowArea);
-  v19 = _interlockedbittestandset64((volatile signed __int32 *)&stru_140E2D150.116 + 1, 0LL);
+  v19 = _interlockedbittestandset64((volatile signed __int32 *)&stru_140E2D2D0.116 + 1, 0LL);
   v20 = v17;
   if ( v19 )
     ExfAcquirePushLockExclusiveEx(
-      (unsigned __int64 *)((char *)&stru_140E2D150.116 + 4),
+      (unsigned __int64 *)((char *)&stru_140E2D2D0.116 + 4),
       v17,
-      (__int64)&stru_140E2D150.116 + 4);
+      (__int64)&stru_140E2D2D0.116 + 4);
   if ( v20 )
   {
     if ( (KiAbpGlobalState & 1) != 0 )
@@ -94,13 +94,13 @@ __int64 __fastcall MiSelectOverflowDllBase(__int64 a1, unsigned __int64 a2, __in
   *v14 = v7 + v21;
   if ( v7 + v21 == v16 )
     *v14 = v13;
-  if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)((char *)&stru_140E2D150.116 + 4), 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-    ExfTryToWakePushLock((volatile signed __int64 *)((char *)&stru_140E2D150.116 + 4));
-  KeAbPostRelease((unsigned __int64)&stru_140E2D150.116 + 4);
+  if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)((char *)&stru_140E2D2D0.116 + 4), 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+    ExfTryToWakePushLock((volatile signed __int64 *)((char *)&stru_140E2D2D0.116 + 4));
+  KeAbPostRelease((unsigned __int64)&stru_140E2D2D0.116 + 4);
   if ( CurrentThread->SpecialApcDisable++ == -1 )
   {
     v24 = &CurrentThread->152;
-    if ( ($7A85BAF4F1FA08634C1C4A3E45B775B3 *)v24->ApcState.ApcListHead[0].Flink != v24 )
+    if ( ($241382875694CED3D471BC5892DE3337 *)v24->ApcState.ApcListHead[0].Flink != v24 )
       KiCheckForKernelApcDelivery((__int64)v24, v22);
   }
   return v21;

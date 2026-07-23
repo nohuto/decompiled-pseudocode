@@ -22,7 +22,7 @@ __int64 __fastcall SC_DISK::SetPartition(SC_DISK *this, unsigned int a2, struct 
   __int64 v10; // rcx
   int v11; // r9d
   _OWORD *v12; // rdx
-  UCHAR PartitionType; // al
+  BYTE PartitionType; // al
   struct SC_DISK_LAYOUT *v15; // [rsp+40h] [rbp+8h] BYREF
 
   v15 = 0LL;

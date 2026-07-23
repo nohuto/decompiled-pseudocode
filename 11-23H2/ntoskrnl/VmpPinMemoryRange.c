@@ -1,15 +1,15 @@
 /*
- * XREFs of VmpPinMemoryRange @ 0x1405FA330
+ * XREFs of VmpPinMemoryRange @ 0x1405FA8A0
  * Callers:
- *     VmPinMemoryRange @ 0x1409DC8E0 (VmPinMemoryRange.c)
+ *     VmPinMemoryRange @ 0x1409DCAE0 (VmPinMemoryRange.c)
  * Callees:
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402894C0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     VmpProcessContextLockExclusive @ 0x140466D1E (VmpProcessContextLockExclusive.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     VmAccessFault @ 0x1409DBFF0 (VmAccessFault.c)
- *     VmpLockMemoryForPin @ 0x1409DD208 (VmpLockMemoryForPin.c)
- *     VmpUnlockMemoryForPin @ 0x1409DD7E0 (VmpUnlockMemoryForPin.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140289750 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     VmpProcessContextLockExclusive @ 0x14046711E (VmpProcessContextLockExclusive.c)
+ *     VmAccessFault @ 0x1409DC1F0 (VmAccessFault.c)
+ *     VmpLockMemoryForPin @ 0x1409DD408 (VmpLockMemoryForPin.c)
+ *     VmpUnlockMemoryForPin @ 0x1409DD9E0 (VmpUnlockMemoryForPin.c)
  */
 
 __int64 __fastcall VmpPinMemoryRange(
@@ -86,10 +86,10 @@ __int64 __fastcall VmpPinMemoryRange(
   if ( !v14 )
     goto LABEL_47;
   ExReleaseSpinLockExclusiveFromDpcLevel(SpinLock);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v9 <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v9 <= 0xFu && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -123,10 +123,10 @@ LABEL_42:
         *((_DWORD *)v12 + 16) |= 1u;
         ++*((_QWORD *)SpinLock + 5);
         ExReleaseSpinLockExclusiveFromDpcLevel(SpinLock);
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
           v23 = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && v23 <= 0xFu && v9 <= 0xFu && v23 >= 2u )
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v23 <= 0xFu && v9 <= 0xFu && v23 >= 2u )
           {
             v24 = KeGetCurrentPrcb();
             v25 = v24->SchedulerAssist;

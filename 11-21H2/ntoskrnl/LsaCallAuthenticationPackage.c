@@ -3,29 +3,27 @@
  * Callers:
  *     <none>
  * Callees:
- *     ExReleaseExtensionTable @ 0x1403614E0 (ExReleaseExtensionTable.c)
- *     ExGetExtensionTable @ 0x1403614FC (ExGetExtensionTable.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
+ *     sub_1403614E0 @ 0x1403614E0 (sub_1403614E0.c)
+ *     sub_1403614FC @ 0x1403614FC (sub_1403614FC.c)
+ *     sub_14042A5E0 @ 0x14042A5E0 (sub_14042A5E0.c)
  */
 
-__int64 __fastcall LsaCallAuthenticationPackage(
-        __int64 a1,
-        unsigned int a2,
-        __int64 a3,
-        unsigned int a4,
-        __int64 a5,
-        __int64 a6,
-        __int64 a7)
+NTSTATUS __cdecl LsaCallAuthenticationPackage(
+        HANDLE LsaHandle,
+        ULONG AuthenticationPackage,
+        PVOID ProtocolSubmitBuffer,
+        ULONG SubmitBufferLength,
+        PVOID *ProtocolReturnBuffer,
+        PULONG ReturnBufferLength,
+        PNTSTATUS ProtocolStatus)
 {
-  unsigned int v11; // ebx
-  __int64 (__fastcall **ExtensionTable)(__int64, _QWORD, __int64, _QWORD, __int64, __int64, __int64); // rax
+  NTSTATUS v9; // ebx
 
-  v11 = -1073741822;
-  ExtensionTable = (__int64 (__fastcall **)(__int64, _QWORD, __int64, _QWORD, __int64, __int64, __int64))ExGetExtensionTable((struct _EX_RUNDOWN_REF *)SepAuthExtensionHost);
-  if ( ExtensionTable )
+  v9 = -1073741822;
+  if ( sub_1403614FC((struct _EX_RUNDOWN_REF *)qword_140C1B888) )
   {
-    v11 = (*ExtensionTable)(a1, a2, a3, a4, a5, a6, a7);
-    ExReleaseExtensionTable((struct _EX_RUNDOWN_REF *)SepAuthExtensionHost);
+    v9 = sub_14042A5E0(LsaHandle, AuthenticationPackage);
+    sub_1403614E0((struct _EX_RUNDOWN_REF *)qword_140C1B888);
   }
-  return v11;
+  return v9;
 }

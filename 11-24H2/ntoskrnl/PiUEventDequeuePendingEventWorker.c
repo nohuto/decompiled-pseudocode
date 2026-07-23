@@ -1,16 +1,16 @@
 /*
- * XREFs of PiUEventDequeuePendingEventWorker @ 0x14085B370
+ * XREFs of PiUEventDequeuePendingEventWorker @ 0x1408570E0
  * Callers:
- *     PiUEventFreeClientRegistrationContext @ 0x14085C45C (PiUEventFreeClientRegistrationContext.c)
- *     PiUEventNotifyClient @ 0x1408D2838 (PiUEventNotifyClient.c)
- *     PiUEventHandleVetoEvent @ 0x140A8B24C (PiUEventHandleVetoEvent.c)
+ *     PiUEventFreeClientRegistrationContext @ 0x1408581CC (PiUEventFreeClientRegistrationContext.c)
+ *     PiUEventNotifyClient @ 0x1408D0228 (PiUEventNotifyClient.c)
+ *     PiUEventHandleVetoEvent @ 0x140A8758C (PiUEventHandleVetoEvent.c)
  * Callees:
- *     McTemplateK0qqzqqtjqzjzttx_EtwWriteTransfer @ 0x1405A6558 (McTemplateK0qqzqqtjqzjzttx_EtwWriteTransfer.c)
- *     PiUEventGatherEventData @ 0x140724AE8 (PiUEventGatherEventData.c)
- *     PiUEventGetProcessImagePath @ 0x140724B20 (PiUEventGetProcessImagePath.c)
- *     PiUEventDereferenceEventEntry @ 0x14085BBFC (PiUEventDereferenceEventEntry.c)
- *     PiUEventFreeProcessImagePath @ 0x140ABC988 (PiUEventFreeProcessImagePath.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     McTemplateK0qqzqqtjqzjzttx_EtwWriteTransfer @ 0x1405A348C (McTemplateK0qqzqqtjqzjzttx_EtwWriteTransfer.c)
+ *     PiUEventGatherEventData @ 0x140722678 (PiUEventGatherEventData.c)
+ *     PiUEventGetProcessImagePath @ 0x1407226B0 (PiUEventGetProcessImagePath.c)
+ *     PiUEventDereferenceEventEntry @ 0x14085796C (PiUEventDereferenceEventEntry.c)
+ *     PiUEventFreeProcessImagePath @ 0x140AB79A8 (PiUEventFreeProcessImagePath.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __fastcall PiUEventDequeuePendingEventWorker(__int64 a1, _QWORD *a2, char a3, char a4)
@@ -38,7 +38,7 @@ void __fastcall PiUEventDequeuePendingEventWorker(__int64 a1, _QWORD *a2, char a
   v6[1] = v9;
   if ( !a3 )
     --*(_DWORD *)(a1 + 128);
-  if ( byte_140EEFD24 < 0 || (byte_140EEFD24 & 2) != 0 )
+  if ( byte_140EEFF64 < 0 || (byte_140EEFF64 & 2) != 0 )
   {
     v10 = (unsigned __int128)((__int64)(MEMORY[0xFFFFF78000000014] - a2[2]) * (__int128)0x346DC5D63886594BLL) >> 64;
     v11 = a2[3];
@@ -49,7 +49,7 @@ void __fastcall PiUEventDequeuePendingEventWorker(__int64 a1, _QWORD *a2, char a
         goto LABEL_10;
       PiUEventGatherEventData(v11, v17, (__int64)&v16, (__int64)&v15);
       PiUEventGetProcessImagePath(*(void **)(a1 + 48), &v18);
-      if ( (byte_140EEFD24 & 2) != 0 )
+      if ( (byte_140EEFF64 & 2) != 0 )
         McTemplateK0qqzqqtjqzjzttx_EtwWriteTransfer(
           *(unsigned __int8 *)(a2[3] + 76LL),
           (const EVENT_DESCRIPTOR *)KMPnPEvt_UEvent_DequeueOldSyncEvent,
@@ -75,7 +75,7 @@ void __fastcall PiUEventDequeuePendingEventWorker(__int64 a1, _QWORD *a2, char a
         goto LABEL_10;
       PiUEventGatherEventData(v11, v17, (__int64)&v16, (__int64)&v15);
       PiUEventGetProcessImagePath(*(void **)(a1 + 48), &v18);
-      if ( byte_140EEFD24 < 0 )
+      if ( byte_140EEFF64 < 0 )
         McTemplateK0qqzqqtjqzjzttx_EtwWriteTransfer(
           *(unsigned __int8 *)(a2[3] + 76LL),
           (const EVENT_DESCRIPTOR *)KMPnPEvt_UEvent_DequeueOldAsyncEvent,

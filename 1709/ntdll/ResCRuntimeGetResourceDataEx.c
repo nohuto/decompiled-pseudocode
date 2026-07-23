@@ -19,7 +19,7 @@ __int64 __fastcall ResCRuntimeGetResourceDataEx(
         _DWORD *a6,
         _DWORD *a7)
 {
-  __int64 v7; // rsi
+  _QWORD *v7; // rsi
   __int64 v9; // r14
   _DWORD *v10; // r14
   int v11; // eax
@@ -50,13 +50,13 @@ __int64 __fastcall ResCRuntimeGetResourceDataEx(
   v30 = a3;
   v31 = a2;
   if ( !ResRuntimeView
-    || (v9 = *(_QWORD *)(ResRuntimeView + 16)) == 0
+    || (v9 = *((_QWORD *)ResRuntimeView + 2)) == 0
     || (v10 = *(_DWORD **)(v9 + 24)) == 0LL
     || (a4 & 0xFFFFFF) != 0
     || !(_DWORD)a3 )
   {
     if ( !NtCurrentTeb()->LastErrorValue )
-      RtlSetLastWin32Error(0x57u);
+      RtlSetLastWin32Error(87);
     goto LABEL_15;
   }
   v11 = v10[12];
@@ -67,7 +67,7 @@ __int64 __fastcall ResCRuntimeGetResourceDataEx(
     while ( 1 )
     {
       _InterlockedOr(v27, 0);
-      v13 = *(_QWORD *)(v7 + 16);
+      v13 = v7[2];
       v29 = v10[4];
       if ( v13 && *(_QWORD *)(v13 + 48) )
       {
@@ -80,7 +80,7 @@ __int64 __fastcall ResCRuntimeGetResourceDataEx(
       else
       {
         if ( !NtCurrentTeb()->LastErrorValue )
-          RtlSetLastWin32Error(0x57u);
+          RtlSetLastWin32Error(87);
         v18 = 0LL;
       }
       if ( v18 )
@@ -116,7 +116,7 @@ LABEL_12:
 LABEL_22:
         if ( a4 == (*(_DWORD *)(((unsigned __int64)v33 & -(__int64)(v15 != 0)) + 0x2C) & 0xFF000000) )
         {
-          v22 = *(_QWORD *)(*(_QWORD *)(v7 + 16) + 64LL);
+          v22 = *(_QWORD *)(v7[2] + 64LL);
           if ( v22 )
             ResCHitsEntryHit(v22, v28, a3, 0LL);
           if ( (v10[12] & 0x80000) != 0 )
@@ -132,12 +132,12 @@ LABEL_22:
             if ( a7 )
               *a7 = v16[5];
             v23 = (unsigned int)v16[5];
-            if ( *(_QWORD *)(*(_QWORD *)(v7 + 24) + 8 * v23) || (a5 & 0x10) == 0 )
+            if ( *(_QWORD *)(v7[3] + 8 * v23) || (a5 & 0x10) == 0 )
             {
               result = ResCRuntimeGetSegmentDataEx(v7, v23, (unsigned int)v16[6], (unsigned int)v16[7], a5);
               if ( result )
               {
-                v24 = *(_QWORD *)(*(_QWORD *)(v7 + 16) + 64LL);
+                v24 = *(_QWORD *)(v7[2] + 64LL);
                 if ( v24 )
                 {
                   v25 = *(_QWORD *)(v24 + 24);
@@ -155,7 +155,7 @@ LABEL_22:
         }
         if ( (*(_DWORD *)(((unsigned __int64)v33 & -(__int64)(v15 != 0)) + 0x2C) & 0x4000000) != 0 )
         {
-          v26 = *(_QWORD *)(*(_QWORD *)(v7 + 16) + 64LL);
+          v26 = *(_QWORD *)(v7[2] + 64LL);
           if ( v26 )
             ResCHitsEntryHit(v26, v28, a3, 0LL);
         }

@@ -18,5 +18,5 @@ __int64 __fastcall PopUmpoSendPowerRequestAction(int a1, int a2, char a3)
   Src[2] = a1;
   Src[3] = a2;
   v8 = a3;
-  return PopUmpoSendPowerMessage(Src, 0x48uLL, 0, 0LL);
+  return PopUmpoSendPowerMessage(Src, 0x48uLL, 0);
 }

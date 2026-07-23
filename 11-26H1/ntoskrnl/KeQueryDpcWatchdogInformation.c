@@ -1,7 +1,7 @@
 /*
- * XREFs of KeQueryDpcWatchdogInformation @ 0x14043AE30
+ * XREFs of KeQueryDpcWatchdogInformation @ 0x14042D6E0
  * Callers:
- *     HalpCmcPollProcessor @ 0x140453548 (HalpCmcPollProcessor.c)
+ *     HalpCmcPollProcessor @ 0x14044B678 (HalpCmcPollProcessor.c)
  * Callees:
  *     <none>
  */

@@ -14,7 +14,7 @@
 
 __int64 ExpUuidLoadSequenceNumber()
 {
-  int PersistedStateLocation; // ebx
+  NTSTATUS PersistedStateLocation; // ebx
   ULONG ResultLength; // [rsp+40h] [rbp-C0h] BYREF
   HANDLE KeyHandle; // [rsp+48h] [rbp-B8h] BYREF
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+50h] [rbp-B0h] BYREF
@@ -34,7 +34,7 @@ __int64 ExpUuidLoadSequenceNumber()
                              L"KernelExecutive",
                              0LL,
                              L"\\Registry\\Machine\\System\\CurrentControlSet\\Control\\Session Manager\\Executive",
-                             0,
+                             LocationTypeRegistry,
                              SourceString,
                              0x1FEu,
                              0LL);

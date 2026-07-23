@@ -1,25 +1,25 @@
 /*
- * XREFs of MiCombineInitialInstance @ 0x1403093AC
+ * XREFs of MiCombineInitialInstance @ 0x1402EB42C
  * Callers:
- *     MiConvertStandbyToProto @ 0x140306E68 (MiConvertStandbyToProto.c)
- *     MiConvertPrivateToProto @ 0x140307A8C (MiConvertPrivateToProto.c)
+ *     MiConvertStandbyToProto @ 0x1402E8EE8 (MiConvertStandbyToProto.c)
+ *     MiConvertPrivateToProto @ 0x1402E9B0C (MiConvertPrivateToProto.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     MiMakeDemandZeroPte @ 0x14028B2D0 (MiMakeDemandZeroPte.c)
- *     MiChangePageAttribute @ 0x1402D8660 (MiChangePageAttribute.c)
- *     MiUnlinkPageFromListEx @ 0x1402F7250 (MiUnlinkPageFromListEx.c)
- *     MiTranslateCacheAttribute @ 0x140309CE0 (MiTranslateCacheAttribute.c)
- *     MiCombineInitialFinish @ 0x14030A2B4 (MiCombineInitialFinish.c)
- *     MiMakeTransitionPte @ 0x14030DC00 (MiMakeTransitionPte.c)
- *     MiGetCloneCharges @ 0x140369494 (MiGetCloneCharges.c)
- *     MiDiscardTransitionPfnEx @ 0x140369FE0 (MiDiscardTransitionPfnEx.c)
- *     MiDecrementCloneBlock @ 0x14036A250 (MiDecrementCloneBlock.c)
- *     MiMapSinglePage @ 0x14036A87C (MiMapSinglePage.c)
- *     MiComputeHash64 @ 0x1403DA200 (MiComputeHash64.c)
- *     MiRecheckCombineVm @ 0x14040424C (MiRecheckCombineVm.c)
- *     MiHashIsCommon @ 0x1404880D8 (MiHashIsCommon.c)
- *     MiStandbyPageStillCombineCandidate @ 0x1404C5A04 (MiStandbyPageStillCombineCandidate.c)
- *     KeCopyPageNoOverride @ 0x140730860 (KeCopyPageNoOverride.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     MiMakeDemandZeroPte @ 0x14028A830 (MiMakeDemandZeroPte.c)
+ *     MiChangePageAttribute @ 0x1402BA420 (MiChangePageAttribute.c)
+ *     MiUnlinkPageFromListEx @ 0x1402D92D0 (MiUnlinkPageFromListEx.c)
+ *     MiTranslateCacheAttribute @ 0x1402EBD60 (MiTranslateCacheAttribute.c)
+ *     MiCombineInitialFinish @ 0x1402EC334 (MiCombineInitialFinish.c)
+ *     MiMakeTransitionPte @ 0x1402EFC80 (MiMakeTransitionPte.c)
+ *     MiGetCloneCharges @ 0x14036B234 (MiGetCloneCharges.c)
+ *     MiDiscardTransitionPfnEx @ 0x14036BD80 (MiDiscardTransitionPfnEx.c)
+ *     MiDecrementCloneBlock @ 0x14036BFF0 (MiDecrementCloneBlock.c)
+ *     MiMapSinglePage @ 0x14036C61C (MiMapSinglePage.c)
+ *     MiComputeHash64 @ 0x1403DD3F0 (MiComputeHash64.c)
+ *     MiRecheckCombineVm @ 0x1403FD34C (MiRecheckCombineVm.c)
+ *     MiHashIsCommon @ 0x140481C18 (MiHashIsCommon.c)
+ *     MiStandbyPageStillCombineCandidate @ 0x1404BF3B4 (MiStandbyPageStillCombineCandidate.c)
+ *     KeCopyPageNoOverride @ 0x140735430 (KeCopyPageNoOverride.c)
  */
 
 __int64 __fastcall MiCombineInitialInstance(__int64 a1, __int64 a2, __int64 a3)
@@ -89,7 +89,7 @@ __int64 __fastcall MiCombineInitialInstance(__int64 a1, __int64 a2, __int64 a3)
   v38 = *(_DWORD *)(a1 + 140);
   v39 = *(_QWORD *)(a1 + 112);
   v49 = v39;
-  v34 = *(_QWORD *)(stru_140E2EB88.ThreadLock + 8LL * *(unsigned __int16 *)(v39 + 174));
+  v34 = *(_QWORD *)(stru_140E2ED08.ThreadLock + 8LL * *(unsigned __int16 *)(v39 + 174));
   v50 = v34;
   v5 = *(_QWORD *)(a1 + 144);
   BugCheckParameter2 = 48 * v5 - 0x220000000000LL;
@@ -169,7 +169,7 @@ __int64 __fastcall MiCombineInitialInstance(__int64 a1, __int64 a2, __int64 a3)
     v24 = MiComputeHash64(v10, 0x7FFFFFFFF8LL);
     if ( v24 == v25 )
     {
-      if ( *(_QWORD *)(a2 + 24) == qword_140E2EA50 )
+      if ( *(_QWORD *)(a2 + 24) == qword_140E2EBD0 )
       {
         IsCommon = MiHashIsCommon(a1, v25, v10);
         v22 = a3;

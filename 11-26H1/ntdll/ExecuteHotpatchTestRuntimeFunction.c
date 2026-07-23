@@ -1,8 +1,8 @@
 /*
- * XREFs of ExecuteHotpatchTestRuntimeFunction @ 0x180137A58
+ * XREFs of ExecuteHotpatchTestRuntimeFunction @ 0x1801377C8
  * Callers:
- *     LdrGetProcedureAddressForCaller @ 0x180085C00 (LdrGetProcedureAddressForCaller.c)
- *     LdrQueryProcessModuleInformationEx @ 0x1800CBEC0 (LdrQueryProcessModuleInformationEx.c)
+ *     LdrGetProcedureAddressForCaller @ 0x18007CFA0 (LdrGetProcedureAddressForCaller.c)
+ *     LdrQueryProcessModuleInformationEx @ 0x1800C9630 (LdrQueryProcessModuleInformationEx.c)
  * Callees:
  *     <none>
  */

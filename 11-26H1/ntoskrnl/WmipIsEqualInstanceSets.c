@@ -1,7 +1,7 @@
 /*
- * XREFs of WmipIsEqualInstanceSets @ 0x140823FE0
+ * XREFs of WmipIsEqualInstanceSets @ 0x14082A22C
  * Callers:
- *     WmipUpdateModifyGuid @ 0x140824160 (WmipUpdateModifyGuid.c)
+ *     WmipUpdateModifyGuid @ 0x14082A3AC (WmipUpdateModifyGuid.c)
  * Callees:
  *     <none>
  */

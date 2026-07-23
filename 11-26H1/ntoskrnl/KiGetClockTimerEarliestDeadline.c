@@ -1,8 +1,8 @@
 /*
- * XREFs of KiGetClockTimerEarliestDeadline @ 0x140419130
+ * XREFs of KiGetClockTimerEarliestDeadline @ 0x14040D660
  * Callers:
- *     KiShouldRearmClockTimer @ 0x14041902C (KiShouldRearmClockTimer.c)
- *     KeEstimateClockTickDuration @ 0x1404FC594 (KeEstimateClockTickDuration.c)
+ *     KiShouldRearmClockTimer @ 0x14040D55C (KiShouldRearmClockTimer.c)
+ *     KeEstimateClockTickDuration @ 0x1404F5AD4 (KeEstimateClockTickDuration.c)
  * Callees:
  *     <none>
  */

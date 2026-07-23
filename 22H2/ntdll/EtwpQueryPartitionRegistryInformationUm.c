@@ -10,7 +10,7 @@
  *     memset @ 0x1800A4600 (memset.c)
  */
 
-__int64 __fastcall EtwpQueryPartitionRegistryInformationUm(_OWORD *a1, _DWORD *a2, _QWORD *a3, _OWORD *a4)
+__int64 __fastcall EtwpQueryPartitionRegistryInformationUm(GUID *a1, _DWORD *a2, _QWORD *a3, GUID *a4)
 {
   __int64 result; // rax
   __int64 v9; // rdx

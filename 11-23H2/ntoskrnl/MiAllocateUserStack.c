@@ -1,9 +1,9 @@
 /*
- * XREFs of MiAllocateUserStack @ 0x1407CB164
+ * XREFs of MiAllocateUserStack @ 0x1407CB434
  * Callers:
- *     MiAllocateVirtualMemoryCommon @ 0x1406F6A20 (MiAllocateVirtualMemoryCommon.c)
+ *     MiAllocateVirtualMemoryCommon @ 0x1406F6C30 (MiAllocateVirtualMemoryCommon.c)
  * Callees:
- *     MiAllocateVirtualMemory @ 0x1406F7220 (MiAllocateVirtualMemory.c)
+ *     MiAllocateVirtualMemory @ 0x1406F7430 (MiAllocateVirtualMemory.c)
  */
 
 __int64 __fastcall MiAllocateUserStack(__int64 a1, __int64 *a2)

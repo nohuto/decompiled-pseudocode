@@ -1,17 +1,17 @@
 /*
- * XREFs of TtmiWriteEventToSingleQueue @ 0x140770BA4
+ * XREFs of TtmiWriteEventToSingleQueue @ 0x140770DC4
  * Callers:
- *     TtmpPublishDeviceEvent @ 0x1407694B8 (TtmpPublishDeviceEvent.c)
- *     TtmiWriteEnumerationEventsToQueue @ 0x14076A2B0 (TtmiWriteEnumerationEventsToQueue.c)
- *     TtmiWriteEventToAllQueues @ 0x14076A34C (TtmiWriteEventToAllQueues.c)
- *     TtmpWriteDisplayRequiredPowerRequestUpdatedEvent @ 0x14076B238 (TtmpWriteDisplayRequiredPowerRequestUpdatedEvent.c)
+ *     TtmpPublishDeviceEvent @ 0x1407696D8 (TtmpPublishDeviceEvent.c)
+ *     TtmiWriteEnumerationEventsToQueue @ 0x14076A4D0 (TtmiWriteEnumerationEventsToQueue.c)
+ *     TtmiWriteEventToAllQueues @ 0x14076A56C (TtmiWriteEventToAllQueues.c)
+ *     TtmpWriteDisplayRequiredPowerRequestUpdatedEvent @ 0x14076B458 (TtmpWriteDisplayRequiredPowerRequestUpdatedEvent.c)
  * Callees:
- *     KeSetEvent @ 0x1402725A0 (KeSetEvent.c)
- *     TtmiLogQueueEnqueueEvent @ 0x14076D90C (TtmiLogQueueEnqueueEvent.c)
- *     TtmpAcquireQueueLock @ 0x140770CE8 (TtmpAcquireQueueLock.c)
- *     TtmpReleaseQueueLock @ 0x140770E60 (TtmpReleaseQueueLock.c)
- *     TtmiLogError @ 0x140903A9C (TtmiLogError.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     KeSetEvent @ 0x140227B30 (KeSetEvent.c)
+ *     TtmiLogQueueEnqueueEvent @ 0x14076DB2C (TtmiLogQueueEnqueueEvent.c)
+ *     TtmpAcquireQueueLock @ 0x140770F08 (TtmpAcquireQueueLock.c)
+ *     TtmpReleaseQueueLock @ 0x140771080 (TtmpReleaseQueueLock.c)
+ *     TtmiLogError @ 0x14099E04C (TtmiLogError.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall TtmiWriteEventToSingleQueue(__int64 a1, _OWORD *a2)
@@ -35,7 +35,7 @@ LABEL_3:
     TtmiLogError("TtmiWriteEventToSingleQueue", v5, 0xFFFFFFFFLL, v4);
     goto LABEL_11;
   }
-  Pool2 = ExAllocatePool2(0x100uLL);
+  Pool2 = ExAllocatePool2(0x100uLL, 0x230uLL, 0x716D7454u);
   v7 = (_QWORD *)Pool2;
   if ( !Pool2 )
   {

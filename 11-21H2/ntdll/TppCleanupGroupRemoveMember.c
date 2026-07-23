@@ -7,24 +7,24 @@
  *     RtlReleaseSRWLockExclusive @ 0x18001B320 (RtlReleaseSRWLockExclusive.c)
  */
 
-void __fastcall TppCleanupGroupRemoveMember(__int64 a1, unsigned __int64 a2, unsigned __int64 a3, unsigned __int64 a4)
+void __fastcall TppCleanupGroupRemoveMember(__int64 a1)
 {
-  __int64 v4; // rdi
-  _QWORD *v5; // rbx
-  __int64 v6; // rdx
-  _QWORD *v7; // rax
+  _RTL_SRWLOCK *v1; // rdi
+  _QWORD *v2; // rbx
+  __int64 v3; // rdx
+  _QWORD *v4; // rax
 
-  v4 = *(_QWORD *)(a1 + 16);
-  v5 = (_QWORD *)(a1 + 40);
-  if ( (_QWORD *)*v5 != v5 )
+  v1 = *(_RTL_SRWLOCK **)(a1 + 16);
+  v2 = (_QWORD *)(a1 + 40);
+  if ( (_QWORD *)*v2 != v2 )
   {
-    RtlAcquireSRWLockExclusive(v4 + 8, a2, a3, a4);
-    v6 = *v5;
-    v7 = (_QWORD *)v5[1];
-    if ( *(_QWORD **)(*v5 + 8LL) != v5 || (_QWORD *)*v7 != v5 )
+    RtlAcquireSRWLockExclusive(v1 + 1);
+    v3 = *v2;
+    v4 = (_QWORD *)v2[1];
+    if ( *(_QWORD **)(*v2 + 8LL) != v2 || (_QWORD *)*v4 != v2 )
       __fastfail(3u);
-    *v7 = v6;
-    *(_QWORD *)(v6 + 8) = v7;
-    RtlReleaseSRWLockExclusive((volatile signed __int64 *)(v4 + 8));
+    *v4 = v3;
+    *(_QWORD *)(v3 + 8) = v4;
+    RtlReleaseSRWLockExclusive(v1 + 1);
   }
 }

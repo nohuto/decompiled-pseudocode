@@ -3,16 +3,16 @@
  * Callers:
  *     CmpCleanUpKCBCacheTable @ 0x140699C14 (CmpCleanUpKCBCacheTable.c)
  *     CmpDecommisssionKcb @ 0x140699D14 (CmpDecommisssionKcb.c)
- *     CmpCreateKeyControlBlock @ 0x1406D8790 (CmpCreateKeyControlBlock.c)
- *     CmpDeleteKeyObject @ 0x1406DB340 (CmpDeleteKeyObject.c)
- *     CmpDoParseKey @ 0x1406E9100 (CmpDoParseKey.c)
- *     CmpDereferenceKeyControlBlockWithLock @ 0x14073E4A8 (CmpDereferenceKeyControlBlockWithLock.c)
- *     CmpCloneToUnbackedKcb @ 0x140A16E04 (CmpCloneToUnbackedKcb.c)
- *     CmpSearchKeyControlBlockTreeEx @ 0x140A17744 (CmpSearchKeyControlBlockTreeEx.c)
+ *     CmpCreateKeyControlBlock @ 0x1406D87C0 (CmpCreateKeyControlBlock.c)
+ *     CmpDeleteKeyObject @ 0x1406DB370 (CmpDeleteKeyObject.c)
+ *     CmpDoParseKey @ 0x1406E9130 (CmpDoParseKey.c)
+ *     CmpDereferenceKeyControlBlockWithLock @ 0x14073E698 (CmpDereferenceKeyControlBlockWithLock.c)
+ *     CmpCloneToUnbackedKcb @ 0x140A170B4 (CmpCloneToUnbackedKcb.c)
+ *     CmpSearchKeyControlBlockTreeEx @ 0x140A179F4 (CmpSearchKeyControlBlockTreeEx.c)
  * Callees:
  *     ExFreeToLookasideListEx @ 0x14020B9E0 (ExFreeToLookasideListEx.c)
- *     CmpFreeTransientPoolWithTag @ 0x14022CED4 (CmpFreeTransientPoolWithTag.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
+ *     CmpFreeTransientPoolWithTag @ 0x14022CFE4 (CmpFreeTransientPoolWithTag.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 
@@ -36,6 +36,6 @@ void __fastcall CmpFreeKeyControlBlock(ULONG_PTR BugCheckParameter2)
     CmpFreeTransientPoolWithTag((void *)v3, 0x624E4D43u);
   *(_DWORD *)(BugCheckParameter2 + 8) |= 0x10000u;
   *(_QWORD *)(BugCheckParameter2 + 32) = 0LL;
-  ExFreeToLookasideListEx(&CmpKcbLookaside, (PVOID)BugCheckParameter2);
+  ExFreeToLookasideListEx((PLOOKASIDE_LIST_EX)&CmpKcbLookaside, (PVOID)BugCheckParameter2);
   _InterlockedDecrement64(qword_140D552D0);
 }

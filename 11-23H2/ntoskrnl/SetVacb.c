@@ -1,12 +1,12 @@
 /*
- * XREFs of SetVacb @ 0x1402A0B08
+ * XREFs of SetVacb @ 0x1402A0D98
  * Callers:
- *     CcGetVacbMiss @ 0x14029F110 (CcGetVacbMiss.c)
- *     CcDereferenceFileOffset @ 0x140537EE4 (CcDereferenceFileOffset.c)
- *     CcReferenceFileOffset @ 0x1405380B0 (CcReferenceFileOffset.c)
- *     CcUnmapInactiveViewsInternal @ 0x1405383E0 (CcUnmapInactiveViewsInternal.c)
+ *     CcGetVacbMiss @ 0x14029F3A0 (CcGetVacbMiss.c)
+ *     CcDereferenceFileOffset @ 0x140538434 (CcDereferenceFileOffset.c)
+ *     CcReferenceFileOffset @ 0x140538600 (CcReferenceFileOffset.c)
+ *     CcUnmapInactiveViewsInternal @ 0x140538930 (CcUnmapInactiveViewsInternal.c)
  * Callees:
- *     CcSetVacbLargeOffset @ 0x1402F2EB0 (CcSetVacbLargeOffset.c)
+ *     CcSetVacbLargeOffset @ 0x1402F3140 (CcSetVacbLargeOffset.c)
  */
 
 char __fastcall SetVacb(__int64 a1, __int64 a2, unsigned __int64 a3)

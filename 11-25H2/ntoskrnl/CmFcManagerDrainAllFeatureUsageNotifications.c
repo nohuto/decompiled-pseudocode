@@ -26,7 +26,7 @@ void CmFcManagerDrainAllFeatureUsageNotifications()
   v3 = _interlockedbittestandset64((volatile signed __int32 *)&stru_140EF6CF0, 0LL);
   v4 = v1;
   if ( v3 )
-    ExfAcquirePushLockExclusiveEx(&stru_140EF6CF0, v1, (__int64)&stru_140EF6CF0);
+    ExfAcquirePushLockExclusiveEx((unsigned __int64 *)&stru_140EF6CF0, v1, (__int64)&stru_140EF6CF0);
   if ( v4 )
     *((_BYTE *)v4 + 10) = 1;
   LOBYTE(v2) = 1;

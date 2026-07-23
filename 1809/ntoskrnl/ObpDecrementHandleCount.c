@@ -1,11 +1,11 @@
 /*
- * XREFs of ObpDecrementHandleCount @ 0x1405A9584
+ * XREFs of ObpDecrementHandleCount @ 0x1405AA584
  * Callers:
- *     AlpcHandleDataDestroyProcedure @ 0x1405A9510 (AlpcHandleDataDestroyProcedure.c)
- *     ObpInsertOrLocateNamedObject @ 0x1405C85A8 (ObpInsertOrLocateNamedObject.c)
- *     ObDuplicateObject @ 0x1405D0B70 (ObDuplicateObject.c)
- *     ObpCreateHandle @ 0x1405E12B0 (ObpCreateHandle.c)
- *     ObCompleteObjectDuplication @ 0x140612FA0 (ObCompleteObjectDuplication.c)
+ *     AlpcHandleDataDestroyProcedure @ 0x1405AA510 (AlpcHandleDataDestroyProcedure.c)
+ *     ObpInsertOrLocateNamedObject @ 0x1405C95A8 (ObpInsertOrLocateNamedObject.c)
+ *     ObDuplicateObject @ 0x1405D1B70 (ObDuplicateObject.c)
+ *     ObpCreateHandle @ 0x1405E22B0 (ObpCreateHandle.c)
+ *     ObCompleteObjectDuplication @ 0x140613FA0 (ObCompleteObjectDuplication.c)
  * Callees:
  *     PsDetachSiloFromCurrentThread @ 0x14000FBB0 (PsDetachSiloFromCurrentThread.c)
  *     PsAttachSiloToCurrentThread @ 0x14000FBD0 (PsAttachSiloToCurrentThread.c)
@@ -15,10 +15,10 @@
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     ExReleasePushLockEx @ 0x14004F160 (ExReleasePushLockEx.c)
  *     KeLeaveCriticalRegion @ 0x14004F410 (KeLeaveCriticalRegion.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     ObpDeleteNameCheck @ 0x1405A9740 (ObpDeleteNameCheck.c)
- *     ObpReleaseHandleInfo @ 0x140697BE8 (ObpReleaseHandleInfo.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     ObpDeleteNameCheck @ 0x1405AA740 (ObpDeleteNameCheck.c)
+ *     ObpReleaseHandleInfo @ 0x140698DA8 (ObpReleaseHandleInfo.c)
  */
 
 void __fastcall ObpDecrementHandleCount(_KPROCESS *BugCheckParameter1, __int64 a2)

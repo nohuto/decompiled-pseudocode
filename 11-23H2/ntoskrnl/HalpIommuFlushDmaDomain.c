@@ -1,13 +1,13 @@
 /*
- * XREFs of HalpIommuFlushDmaDomain @ 0x140517F60
+ * XREFs of HalpIommuFlushDmaDomain @ 0x1405184B0
  * Callers:
- *     HalpIommuFlushDomainTbs @ 0x140518094 (HalpIommuFlushDomainTbs.c)
+ *     HalpIommuFlushDomainTbs @ 0x1405185E4 (HalpIommuFlushDomainTbs.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250E80 (KeAcquireSpinLockRaiseToDpc.c)
- *     HalpIommuFlushDomainTB @ 0x14045D0AA (HalpIommuFlushDomainTB.c)
- *     IommuFlushTb @ 0x140522D50 (IommuFlushTb.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140250F40 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     HalpIommuFlushDomainTB @ 0x14045D4AA (HalpIommuFlushDomainTB.c)
+ *     IommuFlushTb @ 0x1405232A0 (IommuFlushTb.c)
  */
 
 void __fastcall HalpIommuFlushDmaDomain(__int64 a1, __int64 a2)
@@ -38,10 +38,10 @@ void __fastcall HalpIommuFlushDmaDomain(__int64 a1, __int64 a2)
       v6 = (volatile signed __int64 *)(a1 + 88);
 LABEL_16:
       KxReleaseSpinLock(v6);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v8 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v8 <= 0xFu && v3 <= 0xFu && v8 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v8 <= 0xFu && v3 <= 0xFu && v8 >= 2u )
         {
           CurrentPrcb = KeGetCurrentPrcb();
           SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -49,7 +49,7 @@ LABEL_16:
           v12 = (v11 & SchedulerAssist[5]) == 0;
           SchedulerAssist[5] &= v11;
           if ( v12 )
-            KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+            KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
         }
       }
       __writecr8(v3);

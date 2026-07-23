@@ -1,8 +1,8 @@
 /*
- * XREFs of ApplyRelocations @ 0x1402FB650
+ * XREFs of ApplyRelocations @ 0x1402FB8E0
  * Callers:
- *     sub_140764690 @ 0x140764690 (sub_140764690.c)
- *     sub_140A4DDC4 @ 0x140A4DDC4 (sub_140A4DDC4.c)
+ *     sub_140764880 @ 0x140764880 (sub_140764880.c)
+ *     sub_140A4E074 @ 0x140A4E074 (sub_140A4E074.c)
  * Callees:
  *     <none>
  */

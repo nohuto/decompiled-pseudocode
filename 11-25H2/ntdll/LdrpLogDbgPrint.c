@@ -24,7 +24,7 @@ struct _TEB *__fastcall LdrpLogDbgPrint(__int64 a1, __int64 a2, const char *a3, 
       (MEMORY[0x7FFE0320] * (unsigned __int64)MEMORY[0x7FFE0004]) >> 24,
       a3,
       (&off_180176098)[2 * a4]);
-    return (struct _TEB *)vDbgPrintExWithPrefixInternal((int)pszDest, 85, 0, a5, a6, 1);
+    return (struct _TEB *)vDbgPrintExWithPrefixInternal((__int64)pszDest, 0x55u, 0, a5, a6, 1);
   }
   return result;
 }

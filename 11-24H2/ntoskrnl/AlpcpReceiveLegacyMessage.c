@@ -1,21 +1,21 @@
 /*
- * XREFs of AlpcpReceiveLegacyMessage @ 0x1408952E0
+ * XREFs of AlpcpReceiveLegacyMessage @ 0x14089D780
  * Callers:
- *     NtReplyWaitReceivePortEx @ 0x1408950F0 (NtReplyWaitReceivePortEx.c)
+ *     NtReplyWaitReceivePortEx @ 0x14089D590 (NtReplyWaitReceivePortEx.c)
  * Callees:
- *     ExfReleasePushLockShared @ 0x14025DE00 (ExfReleasePushLockShared.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     ObfDereferenceObject @ 0x140325680 (ObfDereferenceObject.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     ExfAcquirePushLockSharedEx @ 0x14034050C (ExfAcquirePushLockSharedEx.c)
- *     ObReferenceObjectSafe @ 0x14041D310 (ObReferenceObjectSafe.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     AlpcpGetDataFromUserVaSafe @ 0x14088AE18 (AlpcpGetDataFromUserVaSafe.c)
- *     AlpcpCancelMessage @ 0x140894410 (AlpcpCancelMessage.c)
- *     AlpcpReceiveMessagePort @ 0x140895660 (AlpcpReceiveMessagePort.c)
- *     AlpcpAvailableBufferSize @ 0x140896380 (AlpcpAvailableBufferSize.c)
- *     AlpcpUnlockMessage @ 0x140898D70 (AlpcpUnlockMessage.c)
- *     ExRaiseDatatypeMisalignment @ 0x14089B1F0 (ExRaiseDatatypeMisalignment.c)
+ *     ExfReleasePushLockShared @ 0x14028E410 (ExfReleasePushLockShared.c)
+ *     ObfDereferenceObject @ 0x1402CE210 (ObfDereferenceObject.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     ExfAcquirePushLockSharedEx @ 0x14031F9EC (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     ObReferenceObjectSafe @ 0x140411C00 (ObReferenceObjectSafe.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     AlpcpCancelMessage @ 0x14089C73C (AlpcpCancelMessage.c)
+ *     AlpcpReceiveMessagePort @ 0x14089DB00 (AlpcpReceiveMessagePort.c)
+ *     AlpcpAvailableBufferSize @ 0x14089E820 (AlpcpAvailableBufferSize.c)
+ *     AlpcpUnlockMessage @ 0x1408A1410 (AlpcpUnlockMessage.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408A3890 (ExRaiseDatatypeMisalignment.c)
+ *     AlpcpGetDataFromUserVaSafe @ 0x1409908B4 (AlpcpGetDataFromUserVaSafe.c)
  */
 
 __int64 __fastcall AlpcpReceiveLegacyMessage(__int64 *a1, unsigned __int64 a2, __int64 *a3, _QWORD *a4)
@@ -38,7 +38,7 @@ __int64 __fastcall AlpcpReceiveLegacyMessage(__int64 *a1, unsigned __int64 a2, _
   size_t v21; // r8
   void *v22; // rcx
   void **v24; // r14
-  _QWORD *v25; // rdi
+  char *v25; // rdi
   unsigned __int8 v26; // [rsp+30h] [rbp-78h]
   __int64 v27; // [rsp+38h] [rbp-70h]
   ULONG_PTR BugCheckParameter2; // [rsp+40h] [rbp-68h] BYREF
@@ -105,11 +105,11 @@ __int64 __fastcall AlpcpReceiveLegacyMessage(__int64 *a1, unsigned __int64 a2, _
   {
     v24 = *(void ***)(v9 + 16);
     v10 = (signed __int64 *)(v24 - 2);
-    v25 = KeAbPreAcquire((__int64)(v24 - 2), 0LL);
+    v25 = (char *)KeAbPreAcquire((__int64)(v24 - 2), 0LL);
     if ( _InterlockedCompareExchange64((volatile signed __int64 *)v24 - 2, 17LL, 0LL) )
       ExfAcquirePushLockSharedEx((signed __int64 *)v24 - 2, 0, v25, (__int64)(v24 - 2));
     if ( v25 )
-      *((_BYTE *)v25 + 10) = 1;
+      v25[10] = 1;
     v14 = *v24;
     v30 = v14;
     if ( v14 && ObReferenceObjectSafe((__int64)v14) )
@@ -151,7 +151,7 @@ LABEL_17:
             *(_WORD *)(a2 + 4) = *(_WORD *)(v17 + 244) & 0xC00F;
           if ( *(_QWORD *)(v17 + 176) )
           {
-            AlpcpGetDataFromUserVaSafe(v17, (void *)(a2 + 40));
+            AlpcpGetDataFromUserVaSafe(v17, a2 + 40);
           }
           else
           {

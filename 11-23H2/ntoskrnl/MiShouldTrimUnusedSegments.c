@@ -1,9 +1,9 @@
 /*
- * XREFs of MiShouldTrimUnusedSegments @ 0x14046BB28
+ * XREFs of MiShouldTrimUnusedSegments @ 0x14046BF28
  * Callers:
- *     MiCheckControlArea @ 0x14029FBC0 (MiCheckControlArea.c)
- *     MiFreeExcessSegments @ 0x140624A1C (MiFreeExcessSegments.c)
- *     MiRemoveUnusedSegments @ 0x140625B24 (MiRemoveUnusedSegments.c)
+ *     MiCheckControlArea @ 0x14029FE50 (MiCheckControlArea.c)
+ *     MiFreeExcessSegments @ 0x140624F6C (MiFreeExcessSegments.c)
+ *     MiRemoveUnusedSegments @ 0x140626074 (MiRemoveUnusedSegments.c)
  * Callees:
  *     <none>
  */

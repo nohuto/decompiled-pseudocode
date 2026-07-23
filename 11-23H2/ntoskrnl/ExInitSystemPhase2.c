@@ -3,7 +3,7 @@
  * Callers:
  *     Phase1InitializationDiscard @ 0x140B4FFBC (Phase1InitializationDiscard.c)
  * Callees:
- *     ExpGetOriginalImageVersionRegistryValue @ 0x14084D150 (ExpGetOriginalImageVersionRegistryValue.c)
+ *     ExpGetOriginalImageVersionRegistryValue @ 0x14084D450 (ExpGetOriginalImageVersionRegistryValue.c)
  *     BootApplicationPersistentDataProcess @ 0x140B4F454 (BootApplicationPersistentDataProcess.c)
  *     ExpWatchProductTypeInitialization @ 0x140B67484 (ExpWatchProductTypeInitialization.c)
  */

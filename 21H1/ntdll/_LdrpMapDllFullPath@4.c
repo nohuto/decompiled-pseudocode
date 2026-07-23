@@ -15,29 +15,29 @@
 
 int __thiscall LdrpMapDllFullPath(int *this)
 {
-  _DWORD *v2; // ebx
+  _UNICODE_STRING *v2; // ebx
   int v3; // esi
   int v4; // eax
-  _DWORD *v6; // [esp+10h] [ebp-118h]
+  int v6; // [esp+10h] [ebp-118h]
   int v7; // [esp+14h] [ebp-114h] BYREF
   int v8; // [esp+18h] [ebp-110h] BYREF
-  _WORD *v9; // [esp+1Ch] [ebp-10Ch]
+  POBJECT_BOUNDARY_DESCRIPTOR BoundaryDescriptor; // [esp+1Ch] [ebp-10Ch]
   _WORD v10[130]; // [esp+20h] [ebp-108h] BYREF
 
   v7 = 0;
-  v9 = v10;
+  BoundaryDescriptor = (POBJECT_BOUNDARY_DESCRIPTOR)v10;
   v8 = 0x1000000;
   v10[0] = 0;
-  v6 = (_DWORD *)this[8];
-  v2 = v6 + 11;
-  v3 = LdrpResolveDllName(this, &v8, (int)(v6 + 11), v6 + 9, this[4]);
+  v6 = this[8];
+  v2 = (_UNICODE_STRING *)(v6 + 44);
+  v3 = LdrpResolveDllName(this, &v8, (PUNICODE_STRING)(v6 + 44), (_DWORD *)(v6 + 36), this[4]);
   if ( this[24] )
     goto LABEL_13;
-  v3 = LdrpAppCompatRedirect(v2, &v8, v3);
+  v3 = LdrpAppCompatRedirect(v2, (int)&v8, v3);
   if ( v3 < 0 )
     goto LABEL_7;
   v4 = LdrpHashUnicodeString(v2);
-  v6[36] = v4;
+  *(_DWORD *)(v6 + 144) = v4;
   LdrpFindExistingModule(this[4], v4, &v7);
   if ( v7 )
   {
@@ -54,7 +54,7 @@ LABEL_13:
     }
   }
 LABEL_7:
-  if ( v10 != v9 )
-    RtlDeleteBoundaryDescriptor((int)v9);
+  if ( v10 != (_WORD *)BoundaryDescriptor )
+    RtlDeleteBoundaryDescriptor(BoundaryDescriptor);
   return v3;
 }

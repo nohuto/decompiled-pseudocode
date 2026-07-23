@@ -1,8 +1,8 @@
 /*
- * XREFs of MiUpdateHugeRangeZeroFreeBitmap @ 0x140671D60
+ * XREFs of MiUpdateHugeRangeZeroFreeBitmap @ 0x140672F30
  * Callers:
- *     MiInsertHugeRangeInList @ 0x1404F0CC0 (MiInsertHugeRangeInList.c)
- *     MiUnlinkHugeRange @ 0x1404F0F98 (MiUnlinkHugeRange.c)
+ *     MiInsertHugeRangeInList @ 0x1404EE760 (MiInsertHugeRangeInList.c)
+ *     MiUnlinkHugeRange @ 0x1404EEA38 (MiUnlinkHugeRange.c)
  * Callees:
  *     <none>
  */

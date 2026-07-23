@@ -1,13 +1,13 @@
 /*
- * XREFs of MiFindLastSubsection @ 0x1400FD130
+ * XREFs of MiFindLastSubsection @ 0x1400FAEB0
  * Callers:
- *     MiComputeDataFlushRange @ 0x140021958 (MiComputeDataFlushRange.c)
- *     MiCanFileBeTruncatedInternal @ 0x1400732DC (MiCanFileBeTruncatedInternal.c)
- *     MmFlushVirtualMemory @ 0x1404D1998 (MmFlushVirtualMemory.c)
- *     MmExtendSection @ 0x1405218EC (MmExtendSection.c)
+ *     MiComputeDataFlushRange @ 0x1400214D8 (MiComputeDataFlushRange.c)
+ *     MiCanFileBeTruncatedInternal @ 0x140072E5C (MiCanFileBeTruncatedInternal.c)
+ *     MmFlushVirtualMemory @ 0x1404B5438 (MmFlushVirtualMemory.c)
+ *     MmExtendSection @ 0x14050494C (MmExtendSection.c)
  * Callees:
- *     ExReleaseSpinLockShared @ 0x1400EA240 (ExReleaseSpinLockShared.c)
- *     ExAcquireSpinLockShared @ 0x1400EB1D0 (ExAcquireSpinLockShared.c)
+ *     ExReleaseSpinLockShared @ 0x1400E80B0 (ExReleaseSpinLockShared.c)
+ *     ExAcquireSpinLockShared @ 0x1400E9040 (ExAcquireSpinLockShared.c)
  */
 
 __int64 __fastcall MiFindLastSubsection(__int64 a1, int a2)

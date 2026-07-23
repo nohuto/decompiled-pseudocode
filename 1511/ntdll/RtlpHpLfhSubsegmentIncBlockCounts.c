@@ -46,7 +46,7 @@ __int64 __fastcall RtlpHpLfhSubsegmentIncBlockCounts(__int64 a1, unsigned int a2
         if ( v6 )
           break;
         v6 = 1;
-        RtlAcquireSRWLockExclusive(a1 + 24);
+        RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)(a1 + 24));
       }
       if ( v14 == -1 )
       {
@@ -63,7 +63,7 @@ LABEL_13:
     if ( v10 == -1 )
     {
       if ( v6 )
-        RtlReleaseSRWLockExclusive((volatile signed __int64 *)(a1 + 24));
+        RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(a1 + 24));
     }
     else
     {

@@ -1,14 +1,20 @@
 /*
- * XREFs of ZwQueryMultipleValueKey @ 0x140726030
+ * XREFs of ZwQueryMultipleValueKey @ 0x14072AC00
  * Callers:
- *     DifZwQueryMultipleValueKeyWrapper @ 0x1406B2C40 (DifZwQueryMultipleValueKeyWrapper.c)
+ *     DifZwQueryMultipleValueKeyWrapper @ 0x1406B6820 (DifZwQueryMultipleValueKeyWrapper.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwQueryMultipleValueKey(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwQueryMultipleValueKey(
+        HANDLE KeyHandle,
+        PKEY_VALUE_ENTRY ValueEntries,
+        ULONG EntryCount,
+        PVOID ValueBuffer,
+        PULONG BufferLength,
+        PULONG RequiredBufferLength)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(KeyHandle);
 }

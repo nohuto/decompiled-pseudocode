@@ -9,7 +9,7 @@
  *     __security_check_cookie @ 0x140143620 (__security_check_cookie.c)
  */
 
-__int64 __fastcall PpmClearSimulatedIdle(struct _PROCESSOR_NUMBER *a1)
+__int64 __fastcall PpmClearSimulatedIdle(_PROCESSOR_NUMBER *a1)
 {
   ULONG ProcessorIndexFromNumber; // eax
   char v3; // cl

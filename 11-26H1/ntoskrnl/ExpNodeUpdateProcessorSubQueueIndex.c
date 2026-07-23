@@ -1,11 +1,11 @@
 /*
- * XREFs of ExpNodeUpdateProcessorSubQueueIndex @ 0x1406D0C64
+ * XREFs of ExpNodeUpdateProcessorSubQueueIndex @ 0x1406D4C94
  * Callers:
- *     ExpNodeHotAddProcessor @ 0x1406D0BA0 (ExpNodeHotAddProcessor.c)
- *     ExpNodeInitialize @ 0x14083F9C0 (ExpNodeInitialize.c)
+ *     ExpNodeHotAddProcessor @ 0x1406D4BD0 (ExpNodeHotAddProcessor.c)
+ *     ExpNodeInitialize @ 0x140845C00 (ExpNodeInitialize.c)
  * Callees:
- *     KeGetPrcb @ 0x1402916D0 (KeGetPrcb.c)
- *     KeEnumerateNextProcessor @ 0x14043BC70 (KeEnumerateNextProcessor.c)
+ *     KeGetPrcb @ 0x140290C30 (KeGetPrcb.c)
+ *     KeEnumerateNextProcessor @ 0x14042E520 (KeEnumerateNextProcessor.c)
  */
 
 __int64 __fastcall ExpNodeUpdateProcessorSubQueueIndex(__int64 a1, __int64 a2, unsigned int a3)

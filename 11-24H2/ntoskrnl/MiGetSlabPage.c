@@ -1,33 +1,33 @@
 /*
- * XREFs of MiGetSlabPage @ 0x1402F3934
+ * XREFs of MiGetSlabPage @ 0x14021CE24
  * Callers:
- *     MiResolveMappedFileFault @ 0x140239490 (MiResolveMappedFileFault.c)
- *     MiCopyOnWrite @ 0x1402E47DC (MiCopyOnWrite.c)
- *     MiPfPutPagesInTransition @ 0x1402E692C (MiPfPutPagesInTransition.c)
- *     MiWalkEntireImage @ 0x1402E85C0 (MiWalkEntireImage.c)
- *     MiGetUltraPage @ 0x1402F40C0 (MiGetUltraPage.c)
- *     MiReplenishCombineResources @ 0x1402FB82C (MiReplenishCombineResources.c)
- *     MiGetPageChain @ 0x1402FCDC0 (MiGetPageChain.c)
- *     MiGetPageTablePages @ 0x14039E9BC (MiGetPageTablePages.c)
- *     MiAllocateKernelStackPages @ 0x14039F96C (MiAllocateKernelStackPages.c)
- *     MiAllocateSlabPageForMdl @ 0x140413A24 (MiAllocateSlabPageForMdl.c)
- *     MiCompleteSecureProcessFault @ 0x140435C20 (MiCompleteSecureProcessFault.c)
- *     MmAllocateNonChargedSecurePages @ 0x14049D980 (MmAllocateNonChargedSecurePages.c)
- *     MiFinalizeImageHeaderPage @ 0x14049EAB8 (MiFinalizeImageHeaderPage.c)
- *     MiProtectDriverSectionPte @ 0x14066B400 (MiProtectDriverSectionPte.c)
- *     MmAllocateSecureKernelPages @ 0x140688AC4 (MmAllocateSecureKernelPages.c)
- *     MiPfPrepareReadList @ 0x1409557EC (MiPfPrepareReadList.c)
- *     MiPfPrepareSequentialReadList @ 0x140956378 (MiPfPrepareSequentialReadList.c)
- *     MiAllocateTopLevelPage @ 0x140A5A2FC (MiAllocateTopLevelPage.c)
- *     MiAllocateDriverPage @ 0x140A68CD8 (MiAllocateDriverPage.c)
- *     MmAllocateIndependentPagesEx @ 0x140A88F6C (MmAllocateIndependentPagesEx.c)
- *     MmInitializeImageViewExtensionCfg @ 0x140C5428C (MmInitializeImageViewExtensionCfg.c)
+ *     MiResolveMappedFileFault @ 0x140214824 (MiResolveMappedFileFault.c)
+ *     MiAllocateKernelStackPages @ 0x14021639C (MiAllocateKernelStackPages.c)
+ *     MiGetPageTablePages @ 0x14021CA98 (MiGetPageTablePages.c)
+ *     MiAllocateSlabPageForMdl @ 0x14021CD30 (MiAllocateSlabPageForMdl.c)
+ *     MiGetPageChain @ 0x140307540 (MiGetPageChain.c)
+ *     MiGetUltraPage @ 0x14033BE50 (MiGetUltraPage.c)
+ *     MiReplenishCombineResources @ 0x1403447DC (MiReplenishCombineResources.c)
+ *     MiCopyOnWrite @ 0x140346A74 (MiCopyOnWrite.c)
+ *     MiPfPutPagesInTransition @ 0x140347F6C (MiPfPutPagesInTransition.c)
+ *     MiWalkEntireImage @ 0x140349C00 (MiWalkEntireImage.c)
+ *     MiCompleteSecureProcessFault @ 0x1404286A0 (MiCompleteSecureProcessFault.c)
+ *     MmAllocateNonChargedSecurePages @ 0x140498780 (MmAllocateNonChargedSecurePages.c)
+ *     MiFinalizeImageHeaderPage @ 0x1404998B8 (MiFinalizeImageHeaderPage.c)
+ *     MiProtectDriverSectionPte @ 0x14066C5D0 (MiProtectDriverSectionPte.c)
+ *     MmAllocateSecureKernelPages @ 0x140689BF4 (MmAllocateSecureKernelPages.c)
+ *     MiPfPrepareReadList @ 0x14093919C (MiPfPrepareReadList.c)
+ *     MiPfPrepareSequentialReadList @ 0x140939D28 (MiPfPrepareSequentialReadList.c)
+ *     MiAllocateTopLevelPage @ 0x140A51BBC (MiAllocateTopLevelPage.c)
+ *     MiAllocateDriverPage @ 0x140A62088 (MiAllocateDriverPage.c)
+ *     MmAllocateIndependentPagesEx @ 0x140A8536C (MmAllocateIndependentPagesEx.c)
+ *     MmInitializeImageViewExtensionCfg @ 0x140C5641C (MmInitializeImageViewExtensionCfg.c)
  * Callees:
- *     MiZeroPhysicalPage @ 0x14021EC40 (MiZeroPhysicalPage.c)
- *     MiChangePageAttribute @ 0x14021F58C (MiChangePageAttribute.c)
- *     MiPfnZeroingNeeded @ 0x140268E10 (MiPfnZeroingNeeded.c)
- *     MiGetPageFromSlabAllocator @ 0x1403A2ED0 (MiGetPageFromSlabAllocator.c)
- *     MiReplenishSlabAllocator @ 0x140413B18 (MiReplenishSlabAllocator.c)
+ *     MiGetPageFromSlabAllocator @ 0x14021D5AC (MiGetPageFromSlabAllocator.c)
+ *     MiReplenishSlabAllocator @ 0x14021E544 (MiReplenishSlabAllocator.c)
+ *     MiZeroPhysicalPage @ 0x14024B990 (MiZeroPhysicalPage.c)
+ *     MiChangePageAttribute @ 0x14024C2DC (MiChangePageAttribute.c)
+ *     MiPfnZeroingNeeded @ 0x1403934B0 (MiPfnZeroingNeeded.c)
  */
 
 __int64 __fastcall MiGetSlabPage(__int64 a1, int a2, unsigned int a3, unsigned int a4, __int64 *a5, unsigned int a6)
@@ -54,7 +54,7 @@ __int64 __fastcall MiGetSlabPage(__int64 a1, int a2, unsigned int a3, unsigned i
     *a5 = 0LL;
   v10 = (a3 >> 9) & 0x3F;
 LABEL_4:
-  v11 = (unsigned int *)(qword_140E2DAD0 + 4LL * v10 * (unsigned int)(unsigned __int16)KeNumberNodes);
+  v11 = (unsigned int *)(qword_140E2DC10 + 4LL * v10 * (unsigned int)(unsigned __int16)KeNumberNodes);
   if ( (a4 & 1) != 0 )
     v12 = 1LL;
   else
@@ -70,12 +70,12 @@ LABEL_4:
       a4 &= ~2u;
       goto LABEL_4;
     }
-    if ( !byte_140E2DAC8 )
+    if ( !byte_140E2DC08 )
       break;
     if ( (a4 & 2) == 0 )
       break;
     v21 = *v11;
-    if ( v10 == (_DWORD)v21 || (*(_BYTE *)(*(_QWORD *)(384 * v21 + qword_140E2DAF8 + 376) + 32LL) & 1) == 0 )
+    if ( v10 == (_DWORD)v21 || (*(_BYTE *)(*(_QWORD *)(384 * v21 + qword_140E2DC38 + 376) + 32LL) & 1) == 0 )
       break;
 LABEL_24:
     ++v11;
@@ -110,12 +110,12 @@ LABEL_24:
   if ( (*(_QWORD *)(v17 + 40) & 0x10000000000LL) != 0 )
     v18 = *(_DWORD *)(v17 + 36) & 0x18000000;
   *(_DWORD *)(v17 + 36) = v18;
-  if ( (a4 & 8) != 0 && MiPfnZeroingNeeded(v17, 1) )
+  if ( (a4 & 8) != 0 && (unsigned int)MiPfnZeroingNeeded(v17, 1LL) )
   {
     MiZeroPhysicalPage(0LL, v13, (a4 >> 3) & 2, v20);
     *(_QWORD *)(v17 + 16) &= 0xFFFFFFFFFFFFFC1FuLL;
   }
   if ( (a4 & 4) != 0 && (HIWORD(*(_DWORD *)(v17 + 32)) & 0xC0) != 0x40 )
-    MiChangePageAttribute(v17, 1u);
+    MiChangePageAttribute(v17, 1LL, a4 & 0x10 | 8);
   return v13;
 }

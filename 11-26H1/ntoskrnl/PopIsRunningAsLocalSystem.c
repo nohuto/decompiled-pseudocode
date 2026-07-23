@@ -1,14 +1,17 @@
 /*
- * XREFs of PopIsRunningAsLocalSystem @ 0x140B104C4
+ * XREFs of PopIsRunningAsLocalSystem @ 0x140B11F04
  * Callers:
- *     NtPowerInformation @ 0x1409DE3E0 (NtPowerInformation.c)
- *     PopPowerInformationInternal @ 0x140B6F6FC (PopPowerInformationInternal.c)
+ *     NtPowerInformation @ 0x140A1B510 (NtPowerInformation.c)
+ *     PopPowerInformationInternal @ 0x140B73EF0 (PopPowerInformationInternal.c)
  * Callees:
- *     RtlCheckTokenMembership @ 0x140499FD0 (RtlCheckTokenMembership.c)
+ *     RtlCheckTokenMembership @ 0x140493B20 (RtlCheckTokenMembership.c)
  */
 
-char PopIsRunningAsLocalSystem()
+BOOLEAN PopIsRunningAsLocalSystem()
 {
-  RtlCheckTokenMembership(0LL, *(void **)&RtlpBootStatHandleLock.WaitRegister.Flags);
-  return 0;
+  BOOLEAN IsMember; // [rsp+30h] [rbp+8h] BYREF
+
+  IsMember = 0;
+  RtlCheckTokenMembership(0LL, *(PSID *)((char *)&RtlpBootStatHandleLock.116 + 4), &IsMember);
+  return IsMember;
 }

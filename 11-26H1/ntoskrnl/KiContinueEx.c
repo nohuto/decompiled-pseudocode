@@ -1,17 +1,17 @@
 /*
- * XREFs of KiContinueEx @ 0x1403D58B0
+ * XREFs of KiContinueEx @ 0x1403D8880
  * Callers:
- *     NtContinueEx @ 0x1407273F0 (NtContinueEx.c)
+ *     NtContinueEx @ 0x14072BFC0 (NtContinueEx.c)
  * Callees:
- *     KiDeliverApc @ 0x1402439F0 (KiDeliverApc.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiContinuePreviousModeUser @ 0x1403D5A70 (KiContinuePreviousModeUser.c)
- *     KeTestAlertThread @ 0x1403D7210 (KeTestAlertThread.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     KeContextToKframes @ 0x140533AE0 (KeContextToKframes.c)
- *     RtlReadULongFromUser @ 0x14077F590 (RtlReadULongFromUser.c)
- *     ProbeForRead @ 0x1408EF880 (ProbeForRead.c)
- *     ProbeForWrite @ 0x1408F5D00 (ProbeForWrite.c)
+ *     KiDeliverApc @ 0x140245350 (KiDeliverApc.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiContinuePreviousModeUser @ 0x1403D8A40 (KiContinuePreviousModeUser.c)
+ *     KeTestAlertThread @ 0x1403DA1E0 (KeTestAlertThread.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KeContextToKframes @ 0x140535F60 (KeContextToKframes.c)
+ *     RtlReadULongFromUser @ 0x140782090 (RtlReadULongFromUser.c)
+ *     ProbeForRead @ 0x1408F5E40 (ProbeForRead.c)
+ *     ProbeForWrite @ 0x140925C90 (ProbeForWrite.c)
  */
 
 __int64 __fastcall KiContinueEx(volatile void *Address, _BYTE *a2, unsigned __int64 a3, _KTRAP_FRAME *a4)

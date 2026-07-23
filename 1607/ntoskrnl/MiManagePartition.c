@@ -1,23 +1,23 @@
 /*
- * XREFs of MiManagePartition @ 0x1406609A4
+ * XREFs of MiManagePartition @ 0x140660A88
  * Callers:
- *     NtManagePartition @ 0x1406613A4 (NtManagePartition.c)
+ *     NtManagePartition @ 0x140661488 (NtManagePartition.c)
  * Callees:
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
- *     MiInitializeWorkingSetManagerParameters @ 0x14014AC3C (MiInitializeWorkingSetManagerParameters.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     memmove @ 0x140171280 (memmove.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     MiAllocatePartitionPhysicalPages @ 0x1401F0FD8 (MiAllocatePartitionPhysicalPages.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
+ *     MiInitializeWorkingSetManagerParameters @ 0x14014B1AC (MiInitializeWorkingSetManagerParameters.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     memmove @ 0x140171780 (memmove.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     MiAllocatePartitionPhysicalPages @ 0x1401F0E04 (MiAllocatePartitionPhysicalPages.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     SeSinglePrivilegeCheck @ 0x140413F70 (SeSinglePrivilegeCheck.c)
- *     ObReferenceObjectByHandle @ 0x140450D40 (ObReferenceObjectByHandle.c)
- *     MmGetChannelInformation @ 0x14054C23C (MmGetChannelInformation.c)
- *     MiCreatePagingFile @ 0x140568224 (MiCreatePagingFile.c)
- *     MiHotAddPartitionMemory @ 0x1406605D8 (MiHotAddPartitionMemory.c)
- *     MiCombineIdenticalPages @ 0x140663BA4 (MiCombineIdenticalPages.c)
- *     ExRaiseDatatypeMisalignment @ 0x1406B6058 (ExRaiseDatatypeMisalignment.c)
+ *     SeSinglePrivilegeCheck @ 0x140412E30 (SeSinglePrivilegeCheck.c)
+ *     ObReferenceObjectByHandle @ 0x14044FC10 (ObReferenceObjectByHandle.c)
+ *     MmGetChannelInformation @ 0x14054C77C (MmGetChannelInformation.c)
+ *     MiCreatePagingFile @ 0x140568764 (MiCreatePagingFile.c)
+ *     MiHotAddPartitionMemory @ 0x1406606BC (MiHotAddPartitionMemory.c)
+ *     MiCombineIdenticalPages @ 0x140663C88 (MiCombineIdenticalPages.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1406B6190 (ExRaiseDatatypeMisalignment.c)
  */
 
 __int64 __fastcall MiManagePartition(

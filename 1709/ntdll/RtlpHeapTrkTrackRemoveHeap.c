@@ -9,76 +9,79 @@
  *     RtlpHeapTrkDereferenceStack @ 0x1800F7058 (RtlpHeapTrkDereferenceStack.c)
  */
 
-_QWORD *__fastcall RtlpHeapTrkTrackRemoveHeap(__int64 a1, unsigned __int64 a2, unsigned __int64 *a3, __int64 a4)
+PVOID *__fastcall RtlpHeapTrkTrackRemoveHeap(__int64 a1)
 {
-  unsigned int v5; // edi
-  __int64 v6; // rsi
-  _QWORD *v7; // rcx
-  __int64 v8; // r9
-  bool v9; // zf
-  _QWORD *v10; // rax
-  __int64 v11; // rdx
-  _QWORD *v12; // r8
-  __int64 v13; // rdx
-  unsigned __int64 v14; // rbx
-  _QWORD *result; // rax
-  __int64 v16; // rax
-  _QWORD *v17; // rcx
-  unsigned __int64 v18; // rcx
-  _QWORD v19[3]; // [rsp+20h] [rbp-18h] BYREF
+  unsigned int v2; // edi
+  __int64 v3; // rsi
+  _QWORD *v4; // rcx
+  __int64 v5; // r9
+  bool v6; // zf
+  _QWORD *v7; // rax
+  __int64 v8; // rdx
+  _QWORD *v9; // r8
+  _QWORD *v10; // rdx
+  _QWORD *v11; // rbx
+  PVOID *result; // rax
+  _QWORD *v13; // rax
+  PVOID *v14; // rcx
+  PVOID **v15; // rcx
+  PVOID BaseAddress[3]; // [rsp+20h] [rbp-18h] BYREF
 
-  v19[1] = v19;
-  v5 = 0;
-  v19[0] = v19;
+  BaseAddress[1] = BaseAddress;
+  v2 = 0;
+  BaseAddress[0] = BaseAddress;
   do
   {
-    v6 = v5 & 0xF;
-    RtlAcquireSRWLockExclusive(*(_QWORD *)(qword_180160870 + 8 * v6), a2, a3, a4);
-    v7 = *(_QWORD **)(qword_1801607C8 + 16LL * v5);
-    v8 = qword_1801607C8 + 16LL * v5;
-    while ( v7 != (_QWORD *)v8 )
+    v3 = v2 & 0xF;
+    RtlAcquireSRWLockExclusive(*(PRTL_SRWLOCK *)(qword_180160870 + 8 * v3));
+    v4 = *(_QWORD **)(qword_1801607C8 + 16LL * v2);
+    v5 = qword_1801607C8 + 16LL * v2;
+    while ( v4 != (_QWORD *)v5 )
     {
-      v9 = v7[2] == a1;
-      v10 = v7;
-      v7 = (_QWORD *)*v7;
-      if ( v9 )
+      v6 = v4[2] == a1;
+      v7 = v4;
+      v4 = (_QWORD *)*v4;
+      if ( v6 )
       {
-        v11 = *v10;
-        if ( *(_QWORD **)(*v10 + 8LL) != v10 || (v12 = (_QWORD *)v10[1], (_QWORD *)*v12 != v10) )
+        v8 = *v7;
+        if ( *(_QWORD **)(*v7 + 8LL) != v7 || (v9 = (_QWORD *)v7[1], (_QWORD *)*v9 != v7) )
           __fastfail(3u);
-        *v12 = v11;
-        *(_QWORD *)(v11 + 8) = v12;
-        v13 = v19[0];
-        if ( *(_QWORD **)(v19[0] + 8LL) != v19 )
+        *v9 = v8;
+        *(_QWORD *)(v8 + 8) = v9;
+        v10 = BaseAddress[0];
+        if ( *((PVOID **)BaseAddress[0] + 1) != BaseAddress )
           __fastfail(3u);
-        *v10 = v19[0];
-        v10[1] = v19;
-        *(_QWORD *)(v13 + 8) = v10;
-        v19[0] = v10;
+        *v7 = BaseAddress[0];
+        v7[1] = BaseAddress;
+        v10[1] = v7;
+        BaseAddress[0] = v7;
       }
     }
-    RtlReleaseSRWLockExclusive(*(volatile signed __int64 **)(qword_180160870 + 8 * v6));
-    ++v5;
+    RtlReleaseSRWLockExclusive(*(PRTL_SRWLOCK *)(qword_180160870 + 8 * v3));
+    ++v2;
   }
-  while ( v5 < 0x1EEF );
+  while ( v2 < 0x1EEF );
   while ( 1 )
   {
-    v14 = v19[0];
-    result = v19;
-    if ( (_QWORD *)v19[0] == v19 )
+    v11 = BaseAddress[0];
+    result = BaseAddress;
+    if ( BaseAddress[0] == BaseAddress )
       break;
-    v16 = *(_QWORD *)v19[0];
-    if ( *(_QWORD *)(*(_QWORD *)v19[0] + 8LL) != v19[0] || (v17 = *(_QWORD **)(v19[0] + 8LL), *v17 != v19[0]) )
-      __fastfail(3u);
-    *v17 = v16;
-    *(_QWORD *)(v16 + 8) = v17;
-    v18 = *(_QWORD *)(v14 + 32);
-    if ( v18 )
+    v13 = *(_QWORD **)BaseAddress[0];
+    if ( *(PVOID *)(*(_QWORD *)BaseAddress[0] + 8LL) != BaseAddress[0]
+      || (v14 = (PVOID *)*((_QWORD *)BaseAddress[0] + 1), *v14 != BaseAddress[0]) )
     {
-      RtlpHeapTrkDereferenceStack(v18, a2, a3, a4);
-      *(_QWORD *)(v14 + 32) = 0LL;
+      __fastfail(3u);
     }
-    RtlFreeHeap(qword_180160890, 0, v14);
+    *v14 = v13;
+    v13[1] = v14;
+    v15 = (PVOID **)v11[4];
+    if ( v15 )
+    {
+      RtlpHeapTrkDereferenceStack(v15);
+      v11[4] = 0LL;
+    }
+    RtlFreeHeap(HeapHandle, 0, v11);
   }
   return result;
 }

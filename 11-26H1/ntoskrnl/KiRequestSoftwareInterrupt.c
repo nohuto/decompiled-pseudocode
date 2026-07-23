@@ -1,14 +1,14 @@
 /*
- * XREFs of KiRequestSoftwareInterrupt @ 0x1402C7D20
+ * XREFs of KiRequestSoftwareInterrupt @ 0x1403129C0
  * Callers:
- *     KiSignalThreadForApc @ 0x14020B1E0 (KiSignalThreadForApc.c)
- *     KiUpdateRunTime @ 0x14021F420 (KiUpdateRunTime.c)
- *     KeAccumulateTicks @ 0x14021F980 (KeAccumulateTicks.c)
- *     KeFlushQueuedDpcs @ 0x14051BE50 (KeFlushQueuedDpcs.c)
- *     ?KiRequestApcInterruptSynchronouslyWorker@@YAXPEAX000@Z @ 0x1405F6C50 (-KiRequestApcInterruptSynchronouslyWorker@@YAXPEAX000@Z.c)
+ *     KiSignalThreadForApc @ 0x14020B2C0 (KiSignalThreadForApc.c)
+ *     KiUpdateRunTime @ 0x140220DB0 (KiUpdateRunTime.c)
+ *     KeAccumulateTicks @ 0x140221310 (KeAccumulateTicks.c)
+ *     KeFlushQueuedDpcs @ 0x1405163E0 (KeFlushQueuedDpcs.c)
+ *     ?KiRequestApcInterruptSynchronouslyWorker@@YAXPEAX000@Z @ 0x1405F9610 (-KiRequestApcInterruptSynchronouslyWorker@@YAXPEAX000@Z.c)
  * Callees:
- *     HalpInterruptSendIpi @ 0x140230DF0 (HalpInterruptSendIpi.c)
- *     HalpDisableInterrupts @ 0x1402C7D00 (HalpDisableInterrupts.c)
+ *     HalpInterruptSendIpi @ 0x140232750 (HalpInterruptSendIpi.c)
+ *     HalpDisableInterrupts @ 0x1403129A0 (HalpDisableInterrupts.c)
  */
 
 void __fastcall KiRequestSoftwareInterrupt(struct _KPRCB *CurrentPrcb, char a2)

@@ -1,10 +1,10 @@
 /*
- * XREFs of SdbpCheckBackupApplicationAttributes @ 0x140A4F510
+ * XREFs of SdbpCheckBackupApplicationAttributes @ 0x140A4F7C0
  * Callers:
  *     <none>
  * Callees:
- *     Feature_Servicing_MercuryNewSdbTagsForBackup__private_IsEnabledDeviceUsage @ 0x14041A2B8 (Feature_Servicing_MercuryNewSdbTagsForBackup__private_IsEnabledDeviceUsage.c)
- *     SdbpCheckApplicationTypeAttributes @ 0x14066DDE4 (SdbpCheckApplicationTypeAttributes.c)
+ *     Feature_Servicing_MercuryNewSdbTagsForBackup__private_IsEnabledDeviceUsage @ 0x14041A648 (Feature_Servicing_MercuryNewSdbTagsForBackup__private_IsEnabledDeviceUsage.c)
+ *     SdbpCheckApplicationTypeAttributes @ 0x14066E334 (SdbpCheckApplicationTypeAttributes.c)
  */
 
 __int64 __fastcall SdbpCheckBackupApplicationAttributes(

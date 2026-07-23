@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpDmaFreeLa @ 0x1404B78F8
+ * XREFs of HalpDmaFreeLa @ 0x1404B7B38
  * Callers:
- *     HalFlushAdapterBuffersEx @ 0x1403A2D30 (HalFlushAdapterBuffersEx.c)
- *     IoFlushAdapterBuffersV3 @ 0x1404CA910 (IoFlushAdapterBuffersV3.c)
+ *     HalFlushAdapterBuffersEx @ 0x1403A2E80 (HalFlushAdapterBuffersEx.c)
+ *     IoFlushAdapterBuffersV3 @ 0x1404CAB50 (IoFlushAdapterBuffersV3.c)
  * Callees:
- *     HalpDmaReturnEmergencyLogicalAddressResources @ 0x1404B8368 (HalpDmaReturnEmergencyLogicalAddressResources.c)
- *     HalpDomainLaDelete @ 0x1404C4DF4 (HalpDomainLaDelete.c)
- *     HalpIommuDomainUnmapLogicalRange @ 0x1404C9334 (HalpIommuDomainUnmapLogicalRange.c)
+ *     HalpDmaReturnEmergencyLogicalAddressResources @ 0x1404B85A8 (HalpDmaReturnEmergencyLogicalAddressResources.c)
+ *     HalpDomainLaDelete @ 0x1404C5034 (HalpDomainLaDelete.c)
+ *     HalpIommuDomainUnmapLogicalRange @ 0x1404C9574 (HalpIommuDomainUnmapLogicalRange.c)
  */
 
 __int64 __fastcall HalpDmaFreeLa(__int64 a1, ULONG_PTR a2)

@@ -1,11 +1,11 @@
 /*
- * XREFs of PopSaveHiberContextWrapper @ 0x140428C50
+ * XREFs of PopSaveHiberContextWrapper @ 0x140428FE0
  * Callers:
  *     <none>
  * Callees:
- *     KeSaveStateForHibernate @ 0x14041FAF0 (KeSaveStateForHibernate.c)
- *     PopHiberCheckResume @ 0x140AA2EA0 (PopHiberCheckResume.c)
- *     PopSaveHiberContext @ 0x140AA4980 (PopSaveHiberContext.c)
+ *     KeSaveStateForHibernate @ 0x14041FE80 (KeSaveStateForHibernate.c)
+ *     PopHiberCheckResume @ 0x140AA2D10 (PopHiberCheckResume.c)
+ *     PopSaveHiberContext @ 0x140AA47F0 (PopSaveHiberContext.c)
  */
 
 __int64 __fastcall PopSaveHiberContextWrapper(PVOID Address)

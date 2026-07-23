@@ -4,7 +4,7 @@
  *     KiAbProcessThreadLocks @ 0x140023C40 (KiAbProcessThreadLocks.c)
  *     KiAbSetMinimumThreadPriority @ 0x1400245F0 (KiAbSetMinimumThreadPriority.c)
  *     KiAbProcessContextSwitch @ 0x140057DC0 (KiAbProcessContextSwitch.c)
- *     KiAbForceProcessLockEntry @ 0x140166180 (KiAbForceProcessLockEntry.c)
+ *     KiAbForceProcessLockEntry @ 0x140166280 (KiAbForceProcessLockEntry.c)
  * Callees:
  *     KiAbOwnerComputeCpuPriorityKey @ 0x140024F9C (KiAbOwnerComputeCpuPriorityKey.c)
  */

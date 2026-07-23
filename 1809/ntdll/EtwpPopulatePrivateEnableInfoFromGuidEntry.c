@@ -1,9 +1,9 @@
 /*
- * XREFs of EtwpPopulatePrivateEnableInfoFromGuidEntry @ 0x1800851F0
+ * XREFs of EtwpPopulatePrivateEnableInfoFromGuidEntry @ 0x180085200
  * Callers:
  *     EtwpCheckForPrivatePreEnable @ 0x180020EE0 (EtwpCheckForPrivatePreEnable.c)
  * Callees:
- *     EtwpUpdatePrivateEnableInfo @ 0x18008523C (EtwpUpdatePrivateEnableInfo.c)
+ *     EtwpUpdatePrivateEnableInfo @ 0x18008524C (EtwpUpdatePrivateEnableInfo.c)
  */
 
 __int64 __fastcall EtwpPopulatePrivateEnableInfoFromGuidEntry(__int64 a1)

@@ -1,18 +1,18 @@
 /*
- * XREFs of MiReleaseNonPagedResources @ 0x14013EB1C
+ * XREFs of MiReleaseNonPagedResources @ 0x14013F08C
  * Callers:
- *     MiPfnRangeIsZero @ 0x14013E6D4 (MiPfnRangeIsZero.c)
- *     MiMoveEccPagesToFreeList @ 0x1401E2030 (MiMoveEccPagesToFreeList.c)
- *     MmMarkPhysicalMemoryAsBad @ 0x1401E2344 (MmMarkPhysicalMemoryAsBad.c)
- *     MiDeleteProcessShadow @ 0x1401EF1E4 (MiDeleteProcessShadow.c)
- *     MiAllocatePartitionPhysicalPages @ 0x1401F0FD8 (MiAllocatePartitionPhysicalPages.c)
- *     MiFreePartitionPageRun @ 0x1401F1A20 (MiFreePartitionPageRun.c)
- *     MiIdealClusterPage @ 0x1401F6748 (MiIdealClusterPage.c)
- *     MiAddPhysicalMemory @ 0x1406575DC (MiAddPhysicalMemory.c)
- *     MiAllocateProcessShadow @ 0x14065B8D0 (MiAllocateProcessShadow.c)
+ *     MiPfnRangeIsZero @ 0x14013EC44 (MiPfnRangeIsZero.c)
+ *     MiMoveEccPagesToFreeList @ 0x1401E1E5C (MiMoveEccPagesToFreeList.c)
+ *     MmMarkPhysicalMemoryAsBad @ 0x1401E2170 (MmMarkPhysicalMemoryAsBad.c)
+ *     MiDeleteProcessShadow @ 0x1401EF010 (MiDeleteProcessShadow.c)
+ *     MiAllocatePartitionPhysicalPages @ 0x1401F0E04 (MiAllocatePartitionPhysicalPages.c)
+ *     MiFreePartitionPageRun @ 0x1401F184C (MiFreePartitionPageRun.c)
+ *     MiIdealClusterPage @ 0x1401F6574 (MiIdealClusterPage.c)
+ *     MiAddPhysicalMemory @ 0x1406576C0 (MiAddPhysicalMemory.c)
+ *     MiAllocateProcessShadow @ 0x14065B9B4 (MiAllocateProcessShadow.c)
  * Callees:
- *     MiReturnCommit @ 0x14004E500 (MiReturnCommit.c)
- *     MiReturnResidentAvailable @ 0x14004F1E0 (MiReturnResidentAvailable.c)
+ *     MiReturnCommit @ 0x14004E080 (MiReturnCommit.c)
+ *     MiReturnResidentAvailable @ 0x14004ED60 (MiReturnResidentAvailable.c)
  */
 
 void __fastcall MiReleaseNonPagedResources(__int64 a1, unsigned __int64 a2)

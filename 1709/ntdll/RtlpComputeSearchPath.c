@@ -7,11 +7,11 @@
  *     RtlpLookupCurDirSetting @ 0x18007E4E0 (RtlpLookupCurDirSetting.c)
  */
 
-unsigned __int64 RtlpComputeSearchPath()
+_WORD *RtlpComputeSearchPath()
 {
   int v0; // eax
   unsigned __int64 EnvironmentVersion; // rbx
-  unsigned __int64 result; // rax
+  _WORD *result; // rax
 
   v0 = 1;
   EnvironmentVersion = NtCurrentPeb()->ProcessParameters->EnvironmentVersion;
@@ -25,14 +25,14 @@ unsigned __int64 RtlpComputeSearchPath()
     {
       v0 = dword_180160314;
       if ( !dword_180160314 )
-        v0 = RtlpLookupCurDirSetting(L"*,", 0LL, &dword_180160314);
+        v0 = RtlpLookupCurDirSetting((PUNICODE_STRING)&stru_1801137B0);
     }
   }
   result = RtlpComputePath(&dword_180118C30[4 * v0], 4u, 0LL, 0);
   if ( result )
   {
-    *(_QWORD *)(result + 88) = EnvironmentVersion;
-    *(_BYTE *)(result + 100) = 0;
+    *((_QWORD *)result + 11) = EnvironmentVersion;
+    *((_BYTE *)result + 100) = 0;
   }
   return result;
 }

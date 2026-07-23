@@ -1,15 +1,15 @@
 /*
- * XREFs of KeQueryDpcWatchdogConfiguration @ 0x1405B4764
+ * XREFs of KeQueryDpcWatchdogConfiguration @ 0x1405B16E8
  * Callers:
- *     ExpQuerySystemInformation @ 0x140ADC240 (ExpQuerySystemInformation.c)
+ *     ExpQuerySystemInformation @ 0x140ADDAE0 (ExpQuerySystemInformation.c)
  * Callees:
- *     KiLeaveCriticalRegionUnsafe @ 0x1402595C0 (KiLeaveCriticalRegionUnsafe.c)
- *     ExfReleasePushLockShared @ 0x14025DE00 (ExfReleasePushLockShared.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     ExfAcquirePushLockSharedEx @ 0x14034050C (ExfAcquirePushLockSharedEx.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     ExSystemExceptionFilter @ 0x1407B6F80 (ExSystemExceptionFilter.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140289BD0 (KiLeaveCriticalRegionUnsafe.c)
+ *     ExfReleasePushLockShared @ 0x14028E410 (ExfReleasePushLockShared.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     ExfAcquirePushLockSharedEx @ 0x14031F9EC (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     ExSystemExceptionFilter @ 0x1407B73D0 (ExSystemExceptionFilter.c)
  */
 
 __int64 __fastcall KeQueryDpcWatchdogConfiguration(void *a1, size_t Size, int a3)
@@ -18,17 +18,14 @@ __int64 __fastcall KeQueryDpcWatchdogConfiguration(void *a1, size_t Size, int a3
   int v6; // r8d
   unsigned int v7; // ebx
   struct _KTHREAD *CurrentThread; // rax
-  _QWORD *v9; // r14
+  char *v9; // r14
   int v10; // edi
-  __int64 v11; // rdx
-  __int64 v12; // r8
-  __int64 v13; // r9
   __int128 Src; // [rsp+20h] [rbp-38h] BYREF
-  __int128 v16; // [rsp+30h] [rbp-28h]
+  __int128 v13; // [rsp+30h] [rbp-28h]
 
   v4 = (unsigned int)Size;
   Src = 0LL;
-  v16 = 0LL;
+  v13 = 0LL;
   v6 = a3 - 228;
   if ( v6 )
   {
@@ -47,7 +44,7 @@ __int64 __fastcall KeQueryDpcWatchdogConfiguration(void *a1, size_t Size, int a3
 LABEL_9:
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
-  v9 = KeAbPreAcquire((__int64)&KiDpcWatchdogConfigurationLock, 0LL);
+  v9 = (char *)KeAbPreAcquire((__int64)&KiDpcWatchdogConfigurationLock, 0LL);
   if ( _InterlockedCompareExchange64((volatile signed __int64 *)&KiDpcWatchdogConfigurationLock, 17LL, 0LL) )
     ExfAcquirePushLockSharedEx(
       (signed __int64 *)&KiDpcWatchdogConfigurationLock,
@@ -56,7 +53,7 @@ LABEL_9:
       (__int64)&KiDpcWatchdogConfigurationLock);
   v7 = 0;
   if ( v9 )
-    *((_BYTE *)v9 + 10) = 1;
+    v9[10] = 1;
   v10 = a3 - 228;
   if ( !v10 )
     goto LABEL_21;
@@ -65,17 +62,17 @@ LABEL_9:
     if ( KeDpcWatchdogProfileSingleDpcThresholdMs )
     {
       LODWORD(Src) = Src | 0x1000;
-      DWORD1(v16) = KeDpcWatchdogProfileSingleDpcThresholdMs;
+      DWORD1(v13) = KeDpcWatchdogProfileSingleDpcThresholdMs;
     }
     if ( KeDpcWatchdogProfileCumulativeDpcThresholdMs )
     {
       LODWORD(Src) = Src | 0x2000;
-      DWORD2(v16) = KeDpcWatchdogProfileCumulativeDpcThresholdMs;
+      DWORD2(v13) = KeDpcWatchdogProfileCumulativeDpcThresholdMs;
     }
     if ( KeDpcWatchdogProfileBufferSizeBytes )
     {
       LODWORD(Src) = Src | 0x4000;
-      HIDWORD(v16) = KeDpcWatchdogProfileBufferSizeBytes;
+      HIDWORD(v13) = KeDpcWatchdogProfileBufferSizeBytes;
     }
 LABEL_21:
     if ( KeDpcTimeoutMs )
@@ -96,13 +93,13 @@ LABEL_21:
     if ( KeDpcCumulativeSoftTimeoutMs )
     {
       LODWORD(Src) = Src | 0x800;
-      LODWORD(v16) = KeDpcCumulativeSoftTimeoutMs;
+      LODWORD(v13) = KeDpcCumulativeSoftTimeoutMs;
     }
   }
   if ( _InterlockedCompareExchange64((volatile signed __int64 *)&KiDpcWatchdogConfigurationLock, 0LL, 17LL) != 17 )
     ExfReleasePushLockShared((signed __int64 *)&KiDpcWatchdogConfigurationLock);
   KeAbPostRelease((ULONG_PTR)&KiDpcWatchdogConfigurationLock);
-  KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread(), v11, v12, v13);
+  KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
   memmove(a1, &Src, v4);
   return v7;
 }

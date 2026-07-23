@@ -1,5 +1,5 @@
 /*
- * XREFs of FsRtlInitializeTieringHeat @ 0x140576E18
+ * XREFs of FsRtlInitializeTieringHeat @ 0x140577358
  * Callers:
  *     FsRtlInitSystem @ 0x1407B6884 (FsRtlInitSystem.c)
  * Callees:
@@ -8,7 +8,7 @@
 
 NTSTATUS FsRtlInitializeTieringHeat()
 {
-  qword_140322348 = (__int64)&FsRtlTieringHeatData;
+  qword_140322368 = (__int64)&FsRtlTieringHeatData;
   FsRtlTieringHeatData = (__int64)&FsRtlTieringHeatData;
   return ExInitializeResourceLite(&Resource);
 }

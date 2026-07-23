@@ -1,15 +1,15 @@
 /*
- * XREFs of RtlpHpAllocVA @ 0x1402E98A8
+ * XREFs of RtlpHpAllocVA @ 0x14034AEE8
  * Callers:
- *     RtlpHpSegMgrCommit @ 0x1402C21D4 (RtlpHpSegMgrCommit.c)
- *     RtlpHpLargeAlloc @ 0x140420250 (RtlpHpLargeAlloc.c)
- *     RtlpHpHeapExtendContext @ 0x1404A803C (RtlpHpHeapExtendContext.c)
- *     RtlpHpHeapAllocate @ 0x140604AC8 (RtlpHpHeapAllocate.c)
+ *     RtlpHpSegMgrCommit @ 0x14035E694 (RtlpHpSegMgrCommit.c)
+ *     RtlpHpLargeAlloc @ 0x1404585E4 (RtlpHpLargeAlloc.c)
+ *     RtlpHpHeapExtendContext @ 0x1404A2A8C (RtlpHpHeapExtendContext.c)
+ *     RtlpHpHeapAllocate @ 0x140602108 (RtlpHpHeapAllocate.c)
  * Callees:
- *     RtlpHpEnvAllocVA @ 0x1402EAA50 (RtlpHpEnvAllocVA.c)
- *     RtlpHpVaMgrCtxAlloc @ 0x140421384 (RtlpHpVaMgrCtxAlloc.c)
- *     RtlpHpVaMgrCtxCommit @ 0x140605A74 (RtlpHpVaMgrCtxCommit.c)
- *     RtlHeapZero @ 0x1406B4F30 (RtlHeapZero.c)
+ *     RtlpHpEnvAllocVA @ 0x14034C090 (RtlpHpEnvAllocVA.c)
+ *     RtlpHpVaMgrCtxAlloc @ 0x140459658 (RtlpHpVaMgrCtxAlloc.c)
+ *     RtlpHpVaMgrCtxCommit @ 0x1406030B4 (RtlpHpVaMgrCtxCommit.c)
+ *     RtlHeapZero @ 0x1406B5ED0 (RtlHeapZero.c)
  */
 
 __int64 __fastcall RtlpHpAllocVA(__int64 *a1, __int64 *a2, __int64 a3, int a4, ULONG_PTR a5, __int64 *a6)
@@ -47,7 +47,7 @@ __int64 __fastcall RtlpHpAllocVA(__int64 *a1, __int64 *a2, __int64 a3, int a4, U
   if ( a4 == 0x2000 )
   {
     a6 = (__int64 *)(v11 - (*(_QWORD *)&v12 & 0xFFFFFLL) + 0xFFFFF);
-    v15 = RtlpHpVaMgrCtxAlloc(&unk_140E68358, &a6, a3, v20);
+    v15 = RtlpHpVaMgrCtxAlloc(&unk_140E68558, &a6, a3, v20);
     if ( !v15 )
       return 3221225626LL;
     *a2 = (__int64)a6;
@@ -65,7 +65,7 @@ __int64 __fastcall RtlpHpAllocVA(__int64 *a1, __int64 *a2, __int64 a3, int a4, U
     v13 = (__int64)a6;
     goto LABEL_9;
   }
-  result = RtlpHpVaMgrCtxCommit(&unk_140E68358, *a1, v13, (unsigned int)a5);
+  result = RtlpHpVaMgrCtxCommit(&unk_140E68558, *a1, v13, (unsigned int)a5);
   if ( (int)result >= 0 )
   {
     if ( (a4 & 0x40000000) != 0 )

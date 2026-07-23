@@ -1,9 +1,9 @@
 /*
- * XREFs of PpmPerfApplyLatencyHint @ 0x140110624
+ * XREFs of PpmPerfApplyLatencyHint @ 0x140110B88
  * Callers:
- *     PpmPerfApplyLatencyHints @ 0x1400D51B0 (PpmPerfApplyLatencyHints.c)
+ *     PpmPerfApplyLatencyHints @ 0x1400D3050 (PpmPerfApplyLatencyHints.c)
  * Callees:
- *     PpmGetHeterogeneousClass @ 0x1400D3FC8 (PpmGetHeterogeneousClass.c)
+ *     PpmGetHeterogeneousClass @ 0x1400D1E68 (PpmGetHeterogeneousClass.c)
  */
 
 __int64 __fastcall PpmPerfApplyLatencyHint(__int64 a1)

@@ -1,8 +1,8 @@
 /*
- * XREFs of _strnicmp @ 0x1801226C0
+ * XREFs of _strnicmp @ 0x1801208F0
  * Callers:
- *     LdrpSnapKernelBaseExtensions @ 0x180070920 (LdrpSnapKernelBaseExtensions.c)
- *     SbpLookup @ 0x18015CA68 (SbpLookup.c)
+ *     LdrpSnapKernelBaseExtensions @ 0x18008D200 (LdrpSnapKernelBaseExtensions.c)
+ *     SbpLookup @ 0x18015AE28 (SbpLookup.c)
  * Callees:
  *     <none>
  */

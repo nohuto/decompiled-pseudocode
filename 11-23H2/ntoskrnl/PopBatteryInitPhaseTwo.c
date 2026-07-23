@@ -3,9 +3,9 @@
  * Callers:
  *     PoInitSystem @ 0x140B50BBC (PoInitSystem.c)
  * Callees:
- *     PopReadUlongPowerKey @ 0x140384910 (PopReadUlongPowerKey.c)
- *     EtwRegister @ 0x14078D880 (EtwRegister.c)
- *     ExSubscribeWnfStateChange @ 0x1407DAD30 (ExSubscribeWnfStateChange.c)
+ *     PopReadUlongPowerKey @ 0x140384AF0 (PopReadUlongPowerKey.c)
+ *     EtwRegister @ 0x14078DA70 (EtwRegister.c)
+ *     ExSubscribeWnfStateChange @ 0x1407DB000 (ExSubscribeWnfStateChange.c)
  *     PopBatteryReadOscBits @ 0x140B756FC (PopBatteryReadOscBits.c)
  */
 

@@ -1,15 +1,15 @@
 /*
- * XREFs of CmpOKToFollowLink @ 0x1406FC010
+ * XREFs of CmpOKToFollowLink @ 0x1407133F0
  * Callers:
- *     CmpDoParseKey @ 0x1406F9170 (CmpDoParseKey.c)
+ *     CmpDoParseKey @ 0x140710550 (CmpDoParseKey.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14025FAE0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgKeywordOn @ 0x1402605BC (_tlgKeywordOn.c)
- *     ExAcquirePushLockSharedEx @ 0x14034AB50 (ExAcquirePushLockSharedEx.c)
- *     ExReleasePushLockEx @ 0x14034AE90 (ExReleasePushLockEx.c)
- *     PsIsCurrentThreadInServerSilo @ 0x140351230 (PsIsCurrentThreadInServerSilo.c)
- *     _tlgWriteAgg @ 0x140375E94 (_tlgWriteAgg.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14027E1A4 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x1402864F4 (_tlgKeywordOn.c)
+ *     ExAcquirePushLockSharedEx @ 0x1403558A0 (ExAcquirePushLockSharedEx.c)
+ *     ExReleasePushLockEx @ 0x140355BE0 (ExReleasePushLockEx.c)
+ *     PsIsCurrentThreadInServerSilo @ 0x14035BF80 (PsIsCurrentThreadInServerSilo.c)
+ *     _tlgWriteAgg @ 0x1403759E4 (_tlgWriteAgg.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  */
 
 char __fastcall CmpOKToFollowLink(__int64 a1, __int64 a2)
@@ -49,7 +49,7 @@ LABEL_7:
       v8 = 0x1000000LL;
       v10 = &v8;
       v11 = 8LL;
-      tlgWriteAgg((__int64)&dword_140C02130, (unsigned __int8 *)&word_140022AA6, v5, 3u, &v9);
+      tlgWriteAgg((__int64)&dword_140C02130, (unsigned __int8 *)&byte_140022B2F, v5, 3u, &v9);
       v6 = dword_140C02130;
     }
     if ( v6 > 5 )
@@ -57,7 +57,7 @@ LABEL_7:
       if ( tlgKeywordOn((__int64)&dword_140C02130, 0LL) )
         tlgWriteTransfer_EtwWriteTransfer(
           (__int64)&dword_140C02130,
-          (unsigned __int8 *)&byte_140022A6F,
+          (unsigned __int8 *)byte_140022B81,
           0LL,
           0LL,
           2u,

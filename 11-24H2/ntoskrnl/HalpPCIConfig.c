@@ -1,21 +1,21 @@
 /*
- * XREFs of HalpPCIConfig @ 0x140265960
+ * XREFs of HalpPCIConfig @ 0x1403AA980
  * Callers:
- *     HalpAcpiAccessSecureAddress @ 0x140263930 (HalpAcpiAccessSecureAddress.c)
- *     HaliPciInterfaceWriteConfig @ 0x140265300 (HaliPciInterfaceWriteConfig.c)
- *     HalpReadPCIConfig @ 0x14026566C (HalpReadPCIConfig.c)
- *     HalpWritePCIConfig @ 0x14048F42C (HalpWritePCIConfig.c)
+ *     HalpAcpiAccessSecureAddress @ 0x1402931A0 (HalpAcpiAccessSecureAddress.c)
+ *     HaliPciInterfaceWriteConfig @ 0x1403AA320 (HaliPciInterfaceWriteConfig.c)
+ *     HalpReadPCIConfig @ 0x1403AA68C (HalpReadPCIConfig.c)
+ *     HalpWritePCIConfig @ 0x14048963C (HalpWritePCIConfig.c)
  * Callees:
- *     VslpEnterIumSecureMode @ 0x140265D90 (VslpEnterIumSecureMode.c)
- *     HalpPCIAcquireConfigSpaceLock @ 0x140266168 (HalpPCIAcquireConfigSpaceLock.c)
- *     HalpPCIReleaseConfigSpaceLock @ 0x1402661F4 (HalpPCIReleaseConfigSpaceLock.c)
- *     HalpPciMapMmConfigPhysicalAddress @ 0x14026625C (HalpPciMapMmConfigPhysicalAddress.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     HalpPciAccessIoConfigSpace @ 0x140552508 (HalpPciAccessIoConfigSpace.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     VslpEnterIumSecureMode @ 0x1403AADB0 (VslpEnterIumSecureMode.c)
+ *     HalpPCIAcquireConfigSpaceLock @ 0x1403AB24C (HalpPCIAcquireConfigSpaceLock.c)
+ *     HalpPCIReleaseConfigSpaceLock @ 0x1403AB2D8 (HalpPCIReleaseConfigSpaceLock.c)
+ *     HalpPciMapMmConfigPhysicalAddress @ 0x1403AB340 (HalpPciMapMmConfigPhysicalAddress.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     HalpPciAccessIoConfigSpace @ 0x14054FE48 (HalpPciAccessIoConfigSpace.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 __int64 __fastcall HalpPCIConfig(
@@ -44,35 +44,34 @@ __int64 __fastcall HalpPCIConfig(
   __int64 v21; // rdx
   __int64 v22; // rcx
   __int64 v23; // rdi
-  __int64 v24; // r9
-  char *v25; // rsi
-  unsigned int v26; // eax
-  void *v27; // rsi
-  signed __int32 v38[8]; // [rsp+0h] [rbp-100h] BYREF
+  char *v24; // rsi
+  unsigned int v25; // eax
+  void *v26; // rsi
+  signed __int32 v37[8]; // [rsp+0h] [rbp-100h] BYREF
   ULONG_PTR BugCheckParameter4; // [rsp+20h] [rbp-E0h]
-  unsigned int v40; // [rsp+28h] [rbp-D8h]
-  unsigned int v41; // [rsp+30h] [rbp-D0h]
-  void *v42; // [rsp+38h] [rbp-C8h]
-  char v43[2]; // [rsp+50h] [rbp-B0h] BYREF
-  unsigned __int16 v44; // [rsp+52h] [rbp-AEh]
-  char v45; // [rsp+54h] [rbp-ACh]
-  void *v46; // [rsp+58h] [rbp-A8h]
-  __int128 v47; // [rsp+60h] [rbp-A0h] BYREF
-  unsigned int v48; // [rsp+70h] [rbp-90h]
-  int v49; // [rsp+74h] [rbp-8Ch]
-  int v50; // [rsp+78h] [rbp-88h]
-  unsigned int v51; // [rsp+7Ch] [rbp-84h]
+  unsigned int v39; // [rsp+28h] [rbp-D8h]
+  unsigned int v40; // [rsp+30h] [rbp-D0h]
+  void *v41; // [rsp+38h] [rbp-C8h]
+  char v42[2]; // [rsp+50h] [rbp-B0h] BYREF
+  unsigned __int16 v43; // [rsp+52h] [rbp-AEh]
+  char v44; // [rsp+54h] [rbp-ACh]
+  void *v45; // [rsp+58h] [rbp-A8h]
+  __int128 v46; // [rsp+60h] [rbp-A0h] BYREF
+  unsigned int v47; // [rsp+70h] [rbp-90h]
+  int v48; // [rsp+74h] [rbp-8Ch]
+  int v49; // [rsp+78h] [rbp-88h]
+  unsigned int v50; // [rsp+7Ch] [rbp-84h]
   _OWORD Src[4]; // [rsp+80h] [rbp-80h] BYREF
-  __int64 v53; // [rsp+C0h] [rbp-40h]
-  __int128 v54; // [rsp+D0h] [rbp-30h]
+  __int64 v52; // [rsp+C0h] [rbp-40h]
+  __int128 v53; // [rsp+D0h] [rbp-30h]
 
   v7 = (unsigned __int8)a2;
   v8 = (unsigned __int16)a1;
-  v45 = a2;
-  v44 = a1;
-  v46 = a4;
+  v44 = a2;
+  v43 = a1;
+  v45 = a4;
   v9 = (unsigned int)a3;
-  v43[0] = 0;
+  v42[0] = 0;
   if ( HalpIommuSkipPciConfigDisabled )
     goto LABEL_6;
   result = HalpIommuList;
@@ -102,24 +101,24 @@ __int64 __fastcall HalpPCIConfig(
 LABEL_6:
     v12 = Size;
     v13 = BugCheckParameter3;
-    if ( qword_140FC0F88 )
+    if ( qword_140FC11E8 )
     {
       a2 = v8;
       result = (unsigned __int8)v9 >> 5;
       a3 = v7;
-      if ( (__int64 (__fastcall *)(char, int, int, int, int, int, size_t, char *))qword_140FC0F88 == VslAccessPciDevice )
+      if ( (__int64 (__fastcall *)(char, int, int, int, int, int, size_t, char *))qword_140FC11E8 == VslAccessPciDevice )
       {
         v14 = 0;
-        v48 = v7;
-        v49 = v9 & 0x1F;
+        v47 = v7;
+        v48 = v9 & 0x1F;
         v15 = a4;
-        v50 = (unsigned __int8)v9 >> 5;
+        v49 = (unsigned __int8)v9 >> 5;
         v16 = Size;
-        v51 = BugCheckParameter3;
-        v53 = 0LL;
-        v47 = 0LL;
-        BYTE8(v47) = a7 == 1;
-        HIDWORD(v47) = v8;
+        v50 = BugCheckParameter3;
+        v52 = 0LL;
+        v46 = 0LL;
+        BYTE8(v46) = a7 == 1;
+        HIDWORD(v46) = v8;
         memset(Src, 0, sizeof(Src));
         if ( Size )
         {
@@ -134,7 +133,7 @@ LABEL_6:
             if ( a7 == 1 )
               memmove((char *)Src + 8, v15, v17);
             LOBYTE(a1) = 2;
-            result = VslpEnterIumSecureMode(a1, 268LL, 0LL, &v47);
+            result = VslpEnterIumSecureMode(a1, 268LL, 0LL, &v46);
             v14 = result;
             if ( (int)result >= 0 )
             {
@@ -143,21 +142,21 @@ LABEL_6:
               a1 = LODWORD(Src[0]);
               v15 += LODWORD(Src[0]);
               v16 -= LODWORD(Src[0]);
-              v51 += LODWORD(Src[0]);
+              v50 += LODWORD(Src[0]);
             }
           }
           while ( v16 );
         }
-        LOBYTE(v7) = v45;
+        LOBYTE(v7) = v44;
       }
       else
       {
-        v42 = a4;
-        v41 = Size;
-        v40 = BugCheckParameter3;
+        v41 = a4;
+        v40 = Size;
+        v39 = BugCheckParameter3;
         LODWORD(BugCheckParameter4) = (unsigned __int8)v9 >> 5;
         LOBYTE(a1) = a7 == 1;
-        result = guard_dispatch_icall_no_overrides(a1, v8, v7, v9 & 0x1F);
+        result = guard_dispatch_icall_no_overrides(a1, v8);
         v14 = result;
       }
       if ( v14 >= 0 )
@@ -166,20 +165,20 @@ LABEL_6:
         KeBugCheckEx(0xC0u, (unsigned __int8)v7, v9, BugCheckParameter3, v14);
     }
     v18 = 0;
-    HalpPCIAcquireConfigSpaceLock(v43, a2, a3);
+    HalpPCIAcquireConfigSpaceLock(v42, a2, a3);
     if ( Size + BugCheckParameter3 > 0x1000 )
     {
-      v19 = v44;
+      v19 = v43;
     }
     else
     {
-      v54 = 0LL;
+      v53 = 0LL;
       if ( HalpPciAmdK8SpecialLocationHack == -1 )
       {
         _RAX = 0LL;
         __asm { cpuid }
-        *(_QWORD *)&v54 = __PAIR64__(_RBX, _RAX);
-        *((_QWORD *)&v54 + 1) = __PAIR64__(_RDX, _RCX);
+        *(_QWORD *)&v53 = __PAIR64__(_RBX, _RAX);
+        *((_QWORD *)&v53 + 1) = __PAIR64__(_RDX, _RCX);
         if ( (_DWORD)_RBX != 1752462657 )
           goto LABEL_62;
         if ( (_DWORD)_RDX != 1769238117 )
@@ -188,9 +187,9 @@ LABEL_6:
           goto LABEL_62;
         _RAX = 1LL;
         __asm { cpuid }
-        LODWORD(v54) = _RAX;
-        *(_QWORD *)((char *)&v54 + 4) = __PAIR64__(_RCX, _RBX);
-        HIDWORD(v54) = _RDX;
+        LODWORD(v53) = _RAX;
+        *(_QWORD *)((char *)&v53 + 4) = __PAIR64__(_RCX, _RBX);
+        HIDWORD(v53) = _RDX;
         if ( (((unsigned int)_RAX >> 8) & 0xF) != 0xF || (_RAX & 0xFF00000) != 0 )
         {
 LABEL_62:
@@ -202,11 +201,11 @@ LABEL_62:
       else if ( HalpPciAmdK8SpecialLocationHack != 1 )
       {
 LABEL_26:
-        v19 = v44;
+        v19 = v43;
         goto LABEL_27;
       }
-      v19 = v44;
-      if ( v44 || (_BYTE)v7 || (v9 & 0x1F) < 0x18 )
+      v19 = v43;
+      if ( v43 || (_BYTE)v7 || (v9 & 0x1F) < 0x18 )
       {
 LABEL_27:
         while ( v18 < HalpPciMcfgTableCount )
@@ -223,37 +222,37 @@ LABEL_27:
             v23 = HalpPciMapMmConfigPhysicalAddress(v22, v21);
             if ( Size )
             {
-              v25 = (char *)v46;
+              v24 = (char *)v45;
               do
               {
-                v26 = guard_dispatch_icall_no_overrides(v23, v25, v13, v24);
-                v13 += v26;
-                v25 += v26;
-                v12 -= v26;
+                v25 = guard_dispatch_icall_no_overrides(v23, v24);
+                v13 += v25;
+                v24 += v25;
+                v12 -= v25;
               }
               while ( v12 );
             }
-            _InterlockedOr(v38, 0);
-            return HalpPCIReleaseConfigSpaceLock((unsigned __int8)v43[0]);
+            _InterlockedOr(v37, 0);
+            return HalpPCIReleaseConfigSpaceLock((unsigned __int8)v42[0]);
           }
           ++v18;
         }
       }
     }
-    v27 = v46;
+    v26 = v45;
     if ( !(unsigned __int8)HalpPciAccessIoConfigSpace(
                              v19,
                              (unsigned __int8)v7,
                              v9,
-                             (_DWORD)v46,
+                             (_DWORD)v45,
                              BugCheckParameter3,
                              Size,
                              a7)
       && !a7 )
     {
-      memset_0(v27, 255, Size);
+      memset_0(v26, 255, Size);
     }
-    return HalpPCIReleaseConfigSpaceLock((unsigned __int8)v43[0]);
+    return HalpPCIReleaseConfigSpaceLock((unsigned __int8)v42[0]);
   }
   else if ( !a7 )
   {

@@ -1,11 +1,11 @@
 /*
- * XREFs of MmGetSectionRange @ 0x140864C1C
+ * XREFs of MmGetSectionRange @ 0x14086AFFC
  * Callers:
- *     PoSetHiberRange @ 0x1404AFD60 (PoSetHiberRange.c)
+ *     PoSetHiberRange @ 0x1404A93F0 (PoSetHiberRange.c)
  * Callees:
- *     RtlImageNtHeader @ 0x1404696C0 (RtlImageNtHeader.c)
- *     MmLockLoadedDataTableEntry @ 0x1404C3C10 (MmLockLoadedDataTableEntry.c)
- *     MmUnlockLoadedDataTableEntry @ 0x14051E3A8 (MmUnlockLoadedDataTableEntry.c)
+ *     RtlImageNtHeader @ 0x140462E40 (RtlImageNtHeader.c)
+ *     MmLockLoadedDataTableEntry @ 0x1404BD460 (MmLockLoadedDataTableEntry.c)
+ *     MmUnlockLoadedDataTableEntry @ 0x1405209B8 (MmUnlockLoadedDataTableEntry.c)
  */
 
 __int64 __fastcall MmGetSectionRange(__int64 a1, unsigned __int64 *a2, _DWORD *a3)
@@ -13,9 +13,9 @@ __int64 __fastcall MmGetSectionRange(__int64 a1, unsigned __int64 *a2, _DWORD *a
   unsigned int v6; // esi
   __int64 v7; // rax
   __int64 v8; // rbx
-  unsigned __int64 v9; // rcx
+  void *v9; // rcx
   unsigned __int64 v10; // rdi
-  _DWORD *v11; // rax
+  PIMAGE_NT_HEADERS v11; // rax
   unsigned int v12; // r8d
   int *v13; // rdx
   int v14; // r9d
@@ -27,12 +27,12 @@ __int64 __fastcall MmGetSectionRange(__int64 a1, unsigned __int64 *a2, _DWORD *a
   v8 = v7;
   if ( v7 )
   {
-    v9 = *(_QWORD *)(v7 + 48);
-    v10 = a1 - v9;
+    v9 = *(void **)(v7 + 48);
+    v10 = a1 - (_QWORD)v9;
     v11 = RtlImageNtHeader(v9);
     v12 = 0;
-    v13 = (_DWORD *)((char *)v11 + *((unsigned __int16 *)v11 + 10) + 40);
-    while ( v12 < *((unsigned __int16 *)v11 + 3) )
+    v13 = (int *)((char *)&v11->OptionalHeader.AddressOfEntryPoint + v11->FileHeader.SizeOfOptionalHeader);
+    while ( v12 < v11->FileHeader.NumberOfSections )
     {
       v14 = *v13;
       v15 = (unsigned int)*(v13 - 1);

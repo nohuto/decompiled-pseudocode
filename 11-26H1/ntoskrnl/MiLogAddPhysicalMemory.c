@@ -1,12 +1,12 @@
 /*
- * XREFs of MiLogAddPhysicalMemory @ 0x1406E978C
+ * XREFs of MiLogAddPhysicalMemory @ 0x1406EE42C
  * Callers:
- *     MiAddPhysicalMemory @ 0x14086501C (MiAddPhysicalMemory.c)
- *     MiValidateAddPhysicalMemoryParameters @ 0x1408671A0 (MiValidateAddPhysicalMemoryParameters.c)
+ *     MiAddPhysicalMemory @ 0x14086B3FC (MiAddPhysicalMemory.c)
+ *     MiValidateAddPhysicalMemoryParameters @ 0x14086D580 (MiValidateAddPhysicalMemoryParameters.c)
  * Callees:
- *     _tlgKeywordOn @ 0x14044F850 (_tlgKeywordOn.c)
- *     _tlgWriteEx_EtwWriteEx @ 0x1404E33C4 (_tlgWriteEx_EtwWriteEx.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     _tlgKeywordOn @ 0x140447980 (_tlgKeywordOn.c)
+ *     _tlgWriteEx_EtwWriteEx @ 0x1404DC958 (_tlgWriteEx_EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 void __fastcall MiLogAddPhysicalMemory(__int64 a1, unsigned __int16 *a2, __int64 a3, __int64 a4, int a5, __int64 a6)
@@ -14,7 +14,7 @@ void __fastcall MiLogAddPhysicalMemory(__int64 a1, unsigned __int16 *a2, __int64
   __int64 *v7; // r8
   __int64 *v8; // r9
   __int64 v9; // r10
-  unsigned __int8 *v10; // rdx
+  int *v10; // rdx
   __int64 v11; // rcx
   __int64 *v12; // r9
   _DWORD *v13; // r10
@@ -41,9 +41,9 @@ void __fastcall MiLogAddPhysicalMemory(__int64 a1, unsigned __int16 *a2, __int64
 
   if ( a6 )
   {
-    if ( *(_DWORD *)stru_140E36558.FirstArgument > 5u && tlgKeywordOn((__int64)stru_140E36558.FirstArgument, 256LL) )
+    if ( *(_DWORD *)stru_140E366D8.FirstArgument > 5u && tlgKeywordOn((__int64)stru_140E366D8.FirstArgument, 256LL) )
     {
-      v10 = (unsigned __int8 *)&byte_140057A11;
+      v10 = (int *)&dword_140058A04;
       v19 = *a2;
       v11 = (__int64)v7;
       v33 = 4LL;
@@ -60,9 +60,9 @@ void __fastcall MiLogAddPhysicalMemory(__int64 a1, unsigned __int16 *a2, __int64
       goto LABEL_8;
     }
   }
-  else if ( *(_DWORD *)stru_140E36558.FirstArgument > 5u && tlgKeywordOn((__int64)stru_140E36558.FirstArgument, 256LL) )
+  else if ( *(_DWORD *)stru_140E366D8.FirstArgument > 5u && tlgKeywordOn((__int64)stru_140E366D8.FirstArgument, 256LL) )
   {
-    v10 = (unsigned __int8 *)byte_1400579B9;
+    v10 = &dword_1400589AC;
     v18 = *a2;
     v11 = v9;
     v24 = &v18;
@@ -78,6 +78,6 @@ LABEL_8:
     v27 = 8LL;
     v29 = 8LL;
     v31 = 4LL;
-    tlgWriteEx_EtwWriteEx(v11, v10, (__int64)v7, 1u, v15, v16, v17, &v23);
+    tlgWriteEx_EtwWriteEx(v11, (unsigned __int8 *)v10, (__int64)v7, 1u, v15, v16, v17, &v23);
   }
 }

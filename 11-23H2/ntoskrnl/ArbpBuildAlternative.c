@@ -1,12 +1,12 @@
 /*
- * XREFs of ArbpBuildAlternative @ 0x140815320
+ * XREFs of ArbpBuildAlternative @ 0x1408155F0
  * Callers:
- *     ArbpBuildAllocationStack @ 0x140815018 (ArbpBuildAllocationStack.c)
- *     ArbBootAllocation @ 0x140815190 (ArbBootAllocation.c)
- *     ArbQueryConflict @ 0x140936320 (ArbQueryConflict.c)
- *     ArbRetestAllocation @ 0x1409366C0 (ArbRetestAllocation.c)
+ *     ArbpBuildAllocationStack @ 0x1408152E8 (ArbpBuildAllocationStack.c)
+ *     ArbBootAllocation @ 0x140815460 (ArbBootAllocation.c)
+ *     ArbQueryConflict @ 0x140936520 (ArbQueryConflict.c)
+ *     ArbRetestAllocation @ 0x1409368C0 (ArbRetestAllocation.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall ArbpBuildAlternative(__int64 a1, __int64 a2, __int64 *a3)

@@ -1,12 +1,12 @@
 /*
- * XREFs of EtwpGetGuidSecurityDescriptor @ 0x140741554
+ * XREFs of EtwpGetGuidSecurityDescriptor @ 0x140741744
  * Callers:
- *     EtwpGetSecurityDescriptorByGuid @ 0x1406C0F5C (EtwpGetSecurityDescriptorByGuid.c)
+ *     EtwpGetSecurityDescriptorByGuid @ 0x1406C0F8C (EtwpGetSecurityDescriptorByGuid.c)
  *     EtwpInitializeSecurity @ 0x140B73B6C (EtwpInitializeSecurity.c)
  * Callees:
- *     memmove @ 0x140435700 (memmove.c)
- *     RtlQueryRegistryValueWithFallback @ 0x140741690 (RtlQueryRegistryValueWithFallback.c)
- *     SeValidSecurityDescriptor @ 0x1407B3F60 (SeValidSecurityDescriptor.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     RtlQueryRegistryValueWithFallback @ 0x140741880 (RtlQueryRegistryValueWithFallback.c)
+ *     SeValidSecurityDescriptor @ 0x1407B4150 (SeValidSecurityDescriptor.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

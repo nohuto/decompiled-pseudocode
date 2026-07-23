@@ -1,13 +1,13 @@
 /*
- * XREFs of PerfDiagpStartPerfDiagLogger @ 0x14079B214
+ * XREFs of PerfDiagpStartPerfDiagLogger @ 0x14079B414
  * Callers:
- *     PerfDiagpProxyWorker @ 0x14079C220 (PerfDiagpProxyWorker.c)
+ *     PerfDiagpProxyWorker @ 0x14079C420 (PerfDiagpProxyWorker.c)
  * Callees:
- *     RtlStringCbCatW @ 0x140265118 (RtlStringCbCatW.c)
- *     EtwStartAutoLogger @ 0x14079B594 (EtwStartAutoLogger.c)
- *     PerfDiagpIsTracingAllowed @ 0x14079C350 (PerfDiagpIsTracingAllowed.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     RtlStringCbCatW @ 0x1402531A8 (RtlStringCbCatW.c)
+ *     EtwStartAutoLogger @ 0x14079B794 (EtwStartAutoLogger.c)
+ *     PerfDiagpIsTracingAllowed @ 0x14079C550 (PerfDiagpIsTracingAllowed.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PerfDiagpStartPerfDiagLogger(NTSTRSAFE_PCWSTR pszSrc)

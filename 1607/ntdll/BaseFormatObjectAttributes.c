@@ -1,10 +1,10 @@
 /*
- * XREFs of BaseFormatObjectAttributes @ 0x180102E7C
+ * XREFs of BaseFormatObjectAttributes @ 0x180102DBC
  * Callers:
- *     _ResCreateFileMapping @ 0x180103D90 (_ResCreateFileMapping.c)
- *     _ResCreateMutex @ 0x180103EBC (_ResCreateMutex.c)
+ *     _ResCreateFileMapping @ 0x180103CD0 (_ResCreateFileMapping.c)
+ *     _ResCreateMutex @ 0x180103DFC (_ResCreateMutex.c)
  * Callees:
- *     BaseGetNamedObjectDirectory @ 0x180102F14 (BaseGetNamedObjectDirectory.c)
+ *     BaseGetNamedObjectDirectory @ 0x180102E54 (BaseGetNamedObjectDirectory.c)
  */
 
 __int64 __fastcall BaseFormatObjectAttributes(__int64 a1, __int64 a2, __int64 a3, _QWORD *a4)

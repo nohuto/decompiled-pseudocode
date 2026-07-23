@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlIsNameLegalDOS8Dot3 @ 0x14096BCF0
+ * XREFs of RtlIsNameLegalDOS8Dot3 @ 0x14097C630
  * Callers:
  *     <none>
  * Callees:
- *     PsGetCurrentServerSiloGlobals @ 0x1402150C0 (PsGetCurrentServerSiloGlobals.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     RtlUpcaseUnicodeStringToCountedOemString @ 0x14096BED0 (RtlUpcaseUnicodeStringToCountedOemString.c)
- *     RtlpIsUtf8Process @ 0x14096CC40 (RtlpIsUtf8Process.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x1402153F0 (PsGetCurrentServerSiloGlobals.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     RtlUpcaseUnicodeStringToCountedOemString @ 0x14097C810 (RtlUpcaseUnicodeStringToCountedOemString.c)
+ *     RtlpIsUtf8Process @ 0x14097D580 (RtlpIsUtf8Process.c)
  */
 
 BOOLEAN __stdcall RtlIsNameLegalDOS8Dot3(PCUNICODE_STRING Name, POEM_STRING OemName, PBOOLEAN NameContainsSpaces)

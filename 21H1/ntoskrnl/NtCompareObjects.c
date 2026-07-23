@@ -7,21 +7,21 @@
  *     ObReferenceObjectByHandle @ 0x14062B200 (ObReferenceObjectByHandle.c)
  */
 
-NTSTATUS __fastcall NtCompareObjects(void *a1, void *a2)
+NTSTATUS __cdecl NtCompareObjects(HANDLE FirstObjectHandle, HANDLE SecondObjectHandle)
 {
   KPROCESSOR_MODE PreviousMode; // bl
   NTSTATUS result; // eax
-  NTSTATUS v5; // ebx
+  signed int v5; // ebx
   PADAPTER_OBJECT DmaAdapter; // [rsp+50h] [rbp+18h] BYREF
   PVOID Object; // [rsp+58h] [rbp+20h] BYREF
 
   DmaAdapter = 0LL;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
-  result = ObReferenceObjectByHandle(a1, 0, 0LL, PreviousMode, (PVOID *)&DmaAdapter, 0LL);
+  result = ObReferenceObjectByHandle(FirstObjectHandle, 0, 0LL, PreviousMode, (PVOID *)&DmaAdapter, 0LL);
   if ( result >= 0 )
   {
     Object = 0LL;
-    v5 = ObReferenceObjectByHandle(a2, 0, 0LL, PreviousMode, &Object, 0LL);
+    v5 = ObReferenceObjectByHandle(SecondObjectHandle, 0, 0LL, PreviousMode, &Object, 0LL);
     if ( v5 >= 0 )
     {
       v5 = Object != DmaAdapter ? 0xC00001AC : 0;

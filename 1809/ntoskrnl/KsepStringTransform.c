@@ -1,12 +1,12 @@
 /*
- * XREFs of KsepStringTransform @ 0x140720C38
+ * XREFs of KsepStringTransform @ 0x140721ED8
  * Callers:
- *     KsepDbQueryRegistryDeviceData @ 0x140720B9C (KsepDbQueryRegistryDeviceData.c)
- *     KseSetDeviceFlags @ 0x1408475D0 (KseSetDeviceFlags.c)
- *     KsepDbQueryRegistryDeviceDataList @ 0x140847A84 (KsepDbQueryRegistryDeviceDataList.c)
+ *     KsepDbQueryRegistryDeviceData @ 0x140721E3C (KsepDbQueryRegistryDeviceData.c)
+ *     KseSetDeviceFlags @ 0x140848830 (KseSetDeviceFlags.c)
+ *     KsepDbQueryRegistryDeviceDataList @ 0x140848CE4 (KsepDbQueryRegistryDeviceDataList.c)
  * Callees:
- *     RtlAssert @ 0x1402EF860 (RtlAssert.c)
- *     KsepStringDuplicate @ 0x14070CD98 (KsepStringDuplicate.c)
+ *     RtlAssert @ 0x1402EFA50 (RtlAssert.c)
+ *     KsepStringDuplicate @ 0x14070E038 (KsepStringDuplicate.c)
  */
 
 __int64 __fastcall KsepStringTransform(__int64 a1, _WORD *a2)

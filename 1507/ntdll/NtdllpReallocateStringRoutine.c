@@ -7,7 +7,7 @@
  *     <none>
  */
 
-__int64 NtdllpReallocateStringRoutine()
+PVOID __fastcall NtdllpReallocateStringRoutine(SIZE_T Size, PVOID BaseAddress)
 {
-  return RtlReAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap);
+  return RtlReAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, BaseAddress, Size);
 }

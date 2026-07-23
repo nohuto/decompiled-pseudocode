@@ -1,17 +1,17 @@
 /*
- * XREFs of KiSendThawExecution @ 0x1404D8230
+ * XREFs of KiSendThawExecution @ 0x1404D1680
  * Callers:
- *     KeThawExecution @ 0x1404F4AF0 (KeThawExecution.c)
- *     KeBugCheck2 @ 0x1405B1780 (KeBugCheck2.c)
- *     KiBugCheckRecoveryCleanupFromCrashDump @ 0x1405C5ACC (KiBugCheckRecoveryCleanupFromCrashDump.c)
- *     KiUpdateBugcheckRecoveryProgress @ 0x1405C687C (KiUpdateBugcheckRecoveryProgress.c)
- *     ExRebootSystemForRecovery @ 0x14065396C (ExRebootSystemForRecovery.c)
+ *     KeThawExecution @ 0x1404F23F0 (KeThawExecution.c)
+ *     KeBugCheck2 @ 0x1405AE6F0 (KeBugCheck2.c)
+ *     KiBugCheckRecoveryCleanupFromCrashDump @ 0x1405C31FC (KiBugCheckRecoveryCleanupFromCrashDump.c)
+ *     KiUpdateBugcheckRecoveryProgress @ 0x1405C3FAC (KiUpdateBugcheckRecoveryProgress.c)
+ *     ExRebootSystemForRecovery @ 0x1406520CC (ExRebootSystemForRecovery.c)
  * Callees:
- *     KeAddProcessorAffinityEx @ 0x140257130 (KeAddProcessorAffinityEx.c)
- *     KeEnumerateNextProcessor @ 0x14040D4F0 (KeEnumerateNextProcessor.c)
- *     KeIsBugCheckActive @ 0x1404183C0 (KeIsBugCheckActive.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     KeAddProcessorAffinityEx @ 0x140287740 (KeAddProcessorAffinityEx.c)
+ *     KeEnumerateNextProcessor @ 0x140405740 (KeEnumerateNextProcessor.c)
+ *     KeIsBugCheckActive @ 0x140408170 (KeIsBugCheckActive.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 __int64 __fastcall KiSendThawExecution(char a1)

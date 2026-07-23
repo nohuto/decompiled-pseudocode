@@ -1,7 +1,7 @@
 /*
- * XREFs of AslFileResourceNotFound @ 0x140967C94
+ * XREFs of AslFileResourceNotFound @ 0x140967E74
  * Callers:
- *     AslFileAllocAndGetAttributes @ 0x1407B24C4 (AslFileAllocAndGetAttributes.c)
+ *     AslFileAllocAndGetAttributes @ 0x1407B2664 (AslFileAllocAndGetAttributes.c)
  * Callees:
  *     <none>
  */

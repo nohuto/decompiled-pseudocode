@@ -1,20 +1,20 @@
 /*
- * XREFs of KiHeteroChooseTargetProcessor @ 0x140461916
+ * XREFs of KiHeteroChooseTargetProcessor @ 0x140461D16
  * Callers:
- *     KiDeferredReadySingleThread @ 0x14023A2D0 (KiDeferredReadySingleThread.c)
+ *     KiDeferredReadySingleThread @ 0x14023A3A0 (KiDeferredReadySingleThread.c)
  * Callees:
- *     KiAcquirePrcbLocksForIsolationUnit @ 0x140246770 (KiAcquirePrcbLocksForIsolationUnit.c)
- *     KiReleasePrcbLocksForIsolationUnit @ 0x1403078C0 (KiReleasePrcbLocksForIsolationUnit.c)
- *     KiAcquirePrcbLocksForPreemptionAttempt @ 0x140333400 (KiAcquirePrcbLocksForPreemptionAttempt.c)
- *     KiCanSelectSoftParkedProcessor @ 0x14037279C (KiCanSelectSoftParkedProcessor.c)
- *     KiGenerateHeteroSets @ 0x1404616A0 (KiGenerateHeteroSets.c)
- *     KiHeteroAttemptPreemptionSwap @ 0x1404617A8 (KiHeteroAttemptPreemptionSwap.c)
- *     KiHeteroComputeThreadWorkloadProperties @ 0x140461C9C (KiHeteroComputeThreadWorkloadProperties.c)
- *     KiHeteroSelectIdleProcessor @ 0x140461E52 (KiHeteroSelectIdleProcessor.c)
- *     KiSelectProcessorToPreempt @ 0x140461F7C (KiSelectProcessorToPreempt.c)
- *     KiSelectCandidateProcessor @ 0x140462BB4 (KiSelectCandidateProcessor.c)
- *     KiAttemptToUnparkIdleSoftParkedProcessorOnSchedule @ 0x14057DB2C (KiAttemptToUnparkIdleSoftParkedProcessorOnSchedule.c)
- *     KiIsIsolationUnitIdleByHandle @ 0x14057E738 (KiIsIsolationUnitIdleByHandle.c)
+ *     KiAcquirePrcbLocksForIsolationUnit @ 0x140246840 (KiAcquirePrcbLocksForIsolationUnit.c)
+ *     KiReleasePrcbLocksForIsolationUnit @ 0x140307B50 (KiReleasePrcbLocksForIsolationUnit.c)
+ *     KiAcquirePrcbLocksForPreemptionAttempt @ 0x140333690 (KiAcquirePrcbLocksForPreemptionAttempt.c)
+ *     KiCanSelectSoftParkedProcessor @ 0x14037293C (KiCanSelectSoftParkedProcessor.c)
+ *     KiGenerateHeteroSets @ 0x140461AA0 (KiGenerateHeteroSets.c)
+ *     KiHeteroAttemptPreemptionSwap @ 0x140461BA8 (KiHeteroAttemptPreemptionSwap.c)
+ *     KiHeteroComputeThreadWorkloadProperties @ 0x14046209C (KiHeteroComputeThreadWorkloadProperties.c)
+ *     KiHeteroSelectIdleProcessor @ 0x140462252 (KiHeteroSelectIdleProcessor.c)
+ *     KiSelectProcessorToPreempt @ 0x14046237C (KiSelectProcessorToPreempt.c)
+ *     KiSelectCandidateProcessor @ 0x140462FB4 (KiSelectCandidateProcessor.c)
+ *     KiAttemptToUnparkIdleSoftParkedProcessorOnSchedule @ 0x14057E01C (KiAttemptToUnparkIdleSoftParkedProcessorOnSchedule.c)
+ *     KiIsIsolationUnitIdleByHandle @ 0x14057EC28 (KiIsIsolationUnitIdleByHandle.c)
  */
 
 __int64 __fastcall KiHeteroChooseTargetProcessor(__int64 a1, __int64 a2, __int64 *a3, __int64 a4)

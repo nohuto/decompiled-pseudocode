@@ -1,16 +1,16 @@
 /*
- * XREFs of KdPowerTransition @ 0x1401D1768
+ * XREFs of KdPowerTransition @ 0x1401D1594
  * Callers:
- *     PpmIdleExecuteTransition @ 0x1400DA540 (PpmIdleExecuteTransition.c)
- *     KdDisableDebuggerWithLock @ 0x1401D1558 (KdDisableDebuggerWithLock.c)
- *     KdEnableDebuggerWithLock @ 0x1401D1658 (KdEnableDebuggerWithLock.c)
- *     PopFxDebuggerPowerCriticalTransitionCallback @ 0x14020B974 (PopFxDebuggerPowerCriticalTransitionCallback.c)
+ *     PpmIdleExecuteTransition @ 0x1400D83E0 (PpmIdleExecuteTransition.c)
+ *     KdDisableDebuggerWithLock @ 0x1401D1384 (KdDisableDebuggerWithLock.c)
+ *     KdEnableDebuggerWithLock @ 0x1401D1484 (KdEnableDebuggerWithLock.c)
+ *     PopFxDebuggerPowerCriticalTransitionCallback @ 0x14020B7A0 (PopFxDebuggerPowerCriticalTransitionCallback.c)
  *     PopHandleNextState @ 0x1403CC8F0 (PopHandleNextState.c)
  *     PopSaveHiberContext @ 0x1403CCB40 (PopSaveHiberContext.c)
  * Callees:
- *     KeGetEffectiveIrql @ 0x1400516A4 (KeGetEffectiveIrql.c)
- *     xHalFreeMessageTarget @ 0x140130D64 (xHalFreeMessageTarget.c)
- *     PpmCancelExitLatencyTrace @ 0x1401FF6D4 (PpmCancelExitLatencyTrace.c)
+ *     KeGetEffectiveIrql @ 0x140051224 (KeGetEffectiveIrql.c)
+ *     xHalFreeMessageTarget @ 0x1401312D4 (xHalFreeMessageTarget.c)
+ *     PpmCancelExitLatencyTrace @ 0x1401FF500 (PpmCancelExitLatencyTrace.c)
  */
 
 __int64 __fastcall KdPowerTransition(int a1)

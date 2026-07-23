@@ -1,11 +1,11 @@
 /*
- * XREFs of PopFxComponentWork @ 0x140381740
+ * XREFs of PopFxComponentWork @ 0x140381290
  * Callers:
  *     <none>
  * Callees:
- *     PopFxIdleWorker @ 0x140260DA4 (PopFxIdleWorker.c)
- *     KeSetEvent @ 0x1403435A0 (KeSetEvent.c)
- *     memset @ 0x140414200 (memset.c)
+ *     PopFxIdleWorker @ 0x140282274 (PopFxIdleWorker.c)
+ *     KeSetEvent @ 0x14034E2F0 (KeSetEvent.c)
+ *     memset @ 0x140414300 (memset.c)
  */
 
 LONG __fastcall PopFxComponentWork(__int64 a1)

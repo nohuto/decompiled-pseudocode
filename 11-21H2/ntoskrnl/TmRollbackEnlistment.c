@@ -9,5 +9,5 @@
 // attributes: thunk
 NTSTATUS __stdcall TmRollbackEnlistment(PKENLISTMENT Enlistment, PLARGE_INTEGER TmVirtualClock)
 {
-  return __imp_TmRollbackEnlistment(Enlistment, TmVirtualClock);
+  return TmRollbackEnlistment_0(Enlistment, TmVirtualClock);
 }

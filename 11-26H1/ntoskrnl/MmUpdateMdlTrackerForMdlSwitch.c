@@ -1,19 +1,19 @@
 /*
- * XREFs of MmUpdateMdlTrackerForMdlSwitch @ 0x1406EAAC0
+ * XREFs of MmUpdateMdlTrackerForMdlSwitch @ 0x1406EF760
  * Callers:
- *     VmProbeAndLockPages @ 0x1406C08E0 (VmProbeAndLockPages.c)
- *     VmUnlockPages @ 0x1406C0980 (VmUnlockPages.c)
+ *     VmProbeAndLockPages @ 0x1406C44C0 (VmProbeAndLockPages.c)
+ *     VmUnlockPages @ 0x1406C4560 (VmUnlockPages.c)
  * Callees:
- *     ExReleaseSpinLockExclusive @ 0x14021AA80 (ExReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x140249CD0 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402DED10 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     RtlAvlRemoveNode @ 0x14030C5E0 (RtlAvlRemoveNode.c)
- *     RtlAvlInsertNodeEx @ 0x14030CA60 (RtlAvlInsertNodeEx.c)
- *     MiReadProcessNumberOfLockedPages @ 0x1404DED10 (MiReadProcessNumberOfLockedPages.c)
- *     MiValidateMdlTracker @ 0x1404EFA3C (MiValidateMdlTracker.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     ExReleaseSpinLockExclusive @ 0x14021C410 (ExReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024B630 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402C0B20 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     RtlAvlRemoveNode @ 0x1402EE660 (RtlAvlRemoveNode.c)
+ *     RtlAvlInsertNodeEx @ 0x1402EEAE0 (RtlAvlInsertNodeEx.c)
+ *     MiReadProcessNumberOfLockedPages @ 0x1404D83F0 (MiReadProcessNumberOfLockedPages.c)
+ *     MiValidateMdlTracker @ 0x1404E901C (MiValidateMdlTracker.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 void __fastcall MmUpdateMdlTrackerForMdlSwitch(ULONG_PTR BugCheckParameter2, int a2)

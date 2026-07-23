@@ -45,7 +45,7 @@
  *     <none>
  */
 
-__int64 __fastcall NtdllpFreeStringRoutine(__int64 a1)
+LOGICAL __fastcall NtdllpFreeStringRoutine(void *a1)
 {
-  return RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0LL, a1);
+  return RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, a1);
 }

@@ -117,7 +117,7 @@ char __fastcall SepCommonAccessCheckExWithAdminlessChecks(
   __int64 v85; // rcx
   __int16 v86; // dx
   __int64 v87; // rax
-  __int64 v88; // rax
+  ACL *v88; // rax
   void *ScopedPolicySid; // rax
   int Cap; // eax
   __int64 v91; // rdx
@@ -499,7 +499,7 @@ LABEL_40:
     goto LABEL_41;
   if ( v86 >= 0 )
   {
-    v88 = *(_QWORD *)(v85 + 24);
+    v88 = *(ACL **)(v85 + 24);
   }
   else
   {
@@ -511,9 +511,9 @@ LABEL_41:
       v37 = 0;
       goto LABEL_42;
     }
-    v88 = v85 + v87;
+    v88 = (ACL *)(v85 + v87);
   }
-  v213 = v88;
+  v213 = (__int64)v88;
   if ( !v88 )
     goto LABEL_41;
   ScopedPolicySid = (void *)SepGetScopedPolicySid(v88);

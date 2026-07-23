@@ -1,20 +1,20 @@
 /*
- * XREFs of EtwpEnableKernelTrace @ 0x1407981D8
+ * XREFs of EtwpEnableKernelTrace @ 0x1407983D8
  * Callers:
- *     EtwpUpdateGlobalGroupMasks @ 0x140797FD0 (EtwpUpdateGlobalGroupMasks.c)
+ *     EtwpUpdateGlobalGroupMasks @ 0x1407981D0 (EtwpUpdateGlobalGroupMasks.c)
  * Callees:
- *     KeSetTimer2 @ 0x14022C550 (KeSetTimer2.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     IoPerfInit @ 0x140507DE0 (IoPerfInit.c)
- *     KeStartProfile @ 0x14051BBCC (KeStartProfile.c)
- *     DbgSetDebugPrintCallback @ 0x1405855E0 (DbgSetDebugPrintCallback.c)
- *     KeSetIntervalProfile @ 0x140734424 (KeSetIntervalProfile.c)
- *     EtwpDisableKernelTrace @ 0x14079846C (EtwpDisableKernelTrace.c)
- *     EtwpUpdateFileInfoDriverState @ 0x1407985F8 (EtwpUpdateFileInfoDriverState.c)
- *     KeInitializeProfileCallback @ 0x1408BC144 (KeInitializeProfileCallback.c)
- *     AlpcRegisterLogRoutine @ 0x1408C399C (AlpcRegisterLogRoutine.c)
- *     ObEnableEtwReferenceTrace @ 0x1408DDF80 (ObEnableEtwReferenceTrace.c)
- *     WmiSetNetworkNotify @ 0x140933548 (WmiSetNetworkNotify.c)
+ *     KeSetTimer2 @ 0x1402D0DD0 (KeSetTimer2.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     IoPerfInit @ 0x140507D60 (IoPerfInit.c)
+ *     KeStartProfile @ 0x14051BE0C (KeStartProfile.c)
+ *     DbgSetDebugPrintCallback @ 0x140585810 (DbgSetDebugPrintCallback.c)
+ *     KeSetIntervalProfile @ 0x1407345E4 (KeSetIntervalProfile.c)
+ *     EtwpDisableKernelTrace @ 0x14079866C (EtwpDisableKernelTrace.c)
+ *     EtwpUpdateFileInfoDriverState @ 0x1407987F8 (EtwpUpdateFileInfoDriverState.c)
+ *     KeInitializeProfileCallback @ 0x1408BC2A4 (KeInitializeProfileCallback.c)
+ *     AlpcRegisterLogRoutine @ 0x1408C3AFC (AlpcRegisterLogRoutine.c)
+ *     ObEnableEtwReferenceTrace @ 0x1408DE0E0 (ObEnableEtwReferenceTrace.c)
+ *     WmiSetNetworkNotify @ 0x140933714 (WmiSetNetworkNotify.c)
  */
 
 __int64 __fastcall EtwpEnableKernelTrace(const __m128i *a1, char *a2, __int64 a3, unsigned int a4)
@@ -121,7 +121,7 @@ LABEL_57:
   if ( (v11 & 0x400) != 0 )
   {
     v12 |= 0x400u;
-    qword_140C54760 = (__int64)EtwpTraceIoInit;
+    qword_140C547A8 = (__int64)EtwpTraceIoInit;
     LODWORD(v25) = v12;
   }
   v13 = *((_DWORD *)a2 + 4);
@@ -129,14 +129,14 @@ LABEL_57:
   if ( (v13 & 1) != 0 )
   {
     v14 = v26 | 1;
-    qword_140C54768 = (__int64)EtwpTraceOpticalIo;
+    qword_140C547B0 = (__int64)EtwpTraceOpticalIo;
     v13 = *((_DWORD *)a2 + 4);
     LODWORD(v26) = v26 | 1;
   }
   if ( (v13 & 2) != 0 )
   {
     v14 |= 2u;
-    qword_140C54770 = (__int64)EtwpTraceOpticalIoInit;
+    qword_140C547B8 = (__int64)EtwpTraceOpticalIoInit;
     LODWORD(v26) = v14;
   }
   if ( (*(_DWORD *)a2 & 0x200000) != 0 )
@@ -177,20 +177,20 @@ LABEL_57:
   if ( (v15 & 0x1000000) != 0 )
   {
     v14 |= 0x1000000u;
-    qword_140C12050 = (__int64)EtwpTraceWdf;
+    qword_140C12030 = (__int64)EtwpTraceWdf;
     v15 = *((_DWORD *)a2 + 4);
     LODWORD(v26) = v14;
   }
   if ( (v15 & 0x2000000) != 0 )
   {
     v14 |= 0x2000000u;
-    qword_140C12058 = (__int64)EtwpTraceWdf;
+    qword_140C12038 = (__int64)EtwpTraceWdf;
     LODWORD(v26) = v14;
   }
   if ( (*((_DWORD *)a2 + 2) & 0x8000000) != 0 )
   {
     DWORD2(v25) |= 0x8000000u;
-    qword_140C12060 = (__int64)EtwpSystemTraceWdf;
+    qword_140C12040 = (__int64)EtwpSystemTraceWdf;
   }
   v16 = *(_DWORD *)a2;
   if ( (*(_DWORD *)a2 & 0x20000) != 0 )
@@ -241,7 +241,7 @@ LABEL_50:
     if ( (v17 & 0x400) != 0 )
     {
       for ( i = 0; i < EtwpPmcProfile; ++i )
-        KeStartProfile((ULONG_PTR)qword_140C19E88 + 248 * i);
+        KeStartProfile((ULONG_PTR)qword_140C19C78 + 248 * i);
       DWORD1(v25) = v8 | 0x400;
     }
     if ( (*((_DWORD *)a2 + 4) & 0x80u) != 0 )

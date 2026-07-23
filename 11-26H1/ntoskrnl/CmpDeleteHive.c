@@ -1,14 +1,14 @@
 /*
- * XREFs of CmpDeleteHive @ 0x1408D42C4
+ * XREFs of CmpDeleteHive @ 0x1408DA884
  * Callers:
- *     CmpFindSubkeyInHashByChildCell @ 0x1408D43A0 (CmpFindSubkeyInHashByChildCell.c)
+ *     CmpFindSubkeyInHashByChildCell @ 0x1408DA960 (CmpFindSubkeyInHashByChildCell.c)
  * Callees:
- *     CmpDeleteKcbCache @ 0x1408C8450 (CmpDeleteKcbCache.c)
- *     CmpLockHiveListExclusive @ 0x1408C84C8 (CmpLockHiveListExclusive.c)
- *     CmpReleaseGlobalQuota @ 0x1408C8530 (CmpReleaseGlobalQuota.c)
- *     HvFreeDirtyData @ 0x1408C8574 (HvFreeDirtyData.c)
- *     CmpUnlockHiveList @ 0x1408C8634 (CmpUnlockHiveList.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     CmpDeleteKcbCache @ 0x1408CEA04 (CmpDeleteKcbCache.c)
+ *     CmpLockHiveListExclusive @ 0x1408CEA7C (CmpLockHiveListExclusive.c)
+ *     CmpReleaseGlobalQuota @ 0x1408CEAE4 (CmpReleaseGlobalQuota.c)
+ *     HvFreeDirtyData @ 0x1408CEB28 (HvFreeDirtyData.c)
+ *     CmpUnlockHiveList @ 0x1408CEBE8 (CmpUnlockHiveList.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __fastcall CmpDeleteHive(_QWORD *P, __int64 a2, __int64 a3, struct _KLOCK_ENTRIES *a4)

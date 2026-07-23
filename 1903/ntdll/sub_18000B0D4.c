@@ -23,8 +23,8 @@ __int64 __fastcall sub_18000B0D4(__int64 a1, __int64 a2)
   __int64 v11; // r15
   unsigned int v12; // r14d
   unsigned __int8 *v13; // r11
-  __int64 v14; // r8
-  __int64 Heap; // rax
+  void *v14; // r8
+  _DWORD *Heap; // rax
   unsigned int Size; // [rsp+60h] [rbp-10h]
   int Size_4; // [rsp+64h] [rbp-Ch]
 
@@ -78,20 +78,20 @@ LABEL_24:
       if ( v3 )
       {
         sub_1800062DC(v3);
-        v14 = *(_QWORD *)(v3 + 168);
+        v14 = *(void **)(v3 + 168);
         if ( v14 )
-          RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0LL, v14);
-        Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8LL, Size + 16LL);
+          RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v14);
+        Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, Size + 16LL);
         *(_QWORD *)(v3 + 168) = Heap;
         if ( Heap )
         {
-          *(_DWORD *)(Heap + 8) = Size;
+          Heap[2] = Size;
           *(_DWORD *)(*(_QWORD *)(v3 + 168) + 12LL) = Size_4;
           **(_QWORD **)(v3 + 168) = *(_QWORD *)(v3 + 168) + 16LL;
           memmove(**(void ***)(v3 + 168), (const void *)v11, Size);
         }
         *(_DWORD *)(v3 + 48) = 0;
-        RtlReleaseSRWLockExclusive(v3 + 40);
+        RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(v3 + 40));
       }
     }
   }

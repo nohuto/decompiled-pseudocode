@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlCallEnclave @ 0x180163100
+ * XREFs of RtlCallEnclave @ 0x180163000
  * Callers:
- *     LdrInitializeEnclave @ 0x180070B80 (LdrInitializeEnclave.c)
- *     LdrpIssueEnclaveCall @ 0x180070CC0 (LdrpIssueEnclaveCall.c)
+ *     LdrInitializeEnclave @ 0x180090FD0 (LdrInitializeEnclave.c)
+ *     LdrpIssueEnclaveCall @ 0x180091110 (LdrpIssueEnclaveCall.c)
  * Callees:
- *     ZwCallEnclave @ 0x180160190 (ZwCallEnclave.c)
+ *     ZwCallEnclave @ 0x180160090 (ZwCallEnclave.c)
  */
 
-__int64 RtlCallEnclave()
+NTSTATUS __fastcall RtlCallEnclave(LPVOID (__cdecl *a1)(LPVOID), void *a2, ULONG a3, PVOID *a4)
 {
-  return ZwCallEnclave();
+  return ZwCallEnclave(a1, a2, a3, a4);
 }

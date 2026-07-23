@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlCheckTokenMembership @ 0x1800F0910
+ * XREFs of RtlCheckTokenMembership @ 0x1800EB590
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall RtlCheckTokenMembership(void *a1, unsigned __int8 *a2, _BYTE *a3)
+NTSTATUS __cdecl RtlCheckTokenMembership(HANDLE TokenHandle, PSID SidToCheck, PBOOLEAN IsMember)
 {
-  return RtlCheckTokenMembershipEx(a1, a2, 0, a3);
+  return RtlCheckTokenMembershipEx(TokenHandle, SidToCheck, 0, IsMember);
 }

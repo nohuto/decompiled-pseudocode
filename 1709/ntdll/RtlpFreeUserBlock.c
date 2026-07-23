@@ -18,71 +18,64 @@
  *     RtlpLogHeapSubSegmentFreeCached @ 0x180101BCC (RtlpLogHeapSubSegmentFreeCached.c)
  */
 
-PSLIST_ENTRY __fastcall RtlpFreeUserBlock(__int64 a1, __int64 *a2)
+int __fastcall RtlpFreeUserBlock(__int64 a1, unsigned __int8 *a2, __int64 a3, __int64 a4)
 {
-  __int64 v3; // rdi
-  __int64 v4; // r13
-  volatile signed __int32 *v6; // rbx
-  unsigned int v7; // ebp
-  unsigned __int64 v8; // rax
-  unsigned __int64 v9; // r8
+  __int64 v5; // rdi
+  __int64 v6; // r13
+  volatile signed __int32 *v8; // rbx
+  unsigned int v9; // ebp
+  unsigned __int64 v10; // rax
+  unsigned __int64 v11; // r8
   _DWORD *SharedData; // rax
-  __int64 v11; // rdi
-  PSLIST_ENTRY result; // rax
-  unsigned __int64 v13; // rax
-  __int64 v14; // rdx
-  __int64 v15; // rcx
+  __int64 v13; // rdi
+  PSLIST_ENTRY v14; // rax
+  unsigned __int64 v15; // rax
   __int64 v16; // rdi
   __int64 v17; // rcx
   PSLIST_ENTRY v18; // rbp
   unsigned __int64 v19; // rdx
   unsigned __int64 v20; // r14
-  __int64 v21; // rdx
-  __int64 v22; // rcx
-  unsigned __int64 v23; // [rsp+50h] [rbp+8h]
+  unsigned __int64 v22; // [rsp+50h] [rbp+8h]
 
-  v3 = *(_QWORD *)(a1 + 24);
-  v4 = *a2;
-  v6 = (volatile signed __int32 *)(a1 + 48 * (*((unsigned __int8 *)a2 + 16) - 5LL));
-  if ( *(_WORD *)(v3 + 384) && (*(_BYTE *)(v3 + 112) & 1) == 0 )
+  v5 = *(_QWORD *)(a1 + 24);
+  v6 = *(_QWORD *)a2;
+  v8 = (volatile signed __int32 *)(a1 + 48 * (a2[16] - 5LL));
+  if ( *(_WORD *)(v5 + 384) && (*(_BYTE *)(v5 + 112) & 1) == 0 )
   {
-    RtlEnterCriticalSection(*(_QWORD *)(v3 + 352));
-    RtlLeaveCriticalSection(*(_QWORD *)(v3 + 352));
+    RtlEnterCriticalSection(*(PRTL_CRITICAL_SECTION *)(v5 + 352));
+    RtlLeaveCriticalSection(*(PRTL_CRITICAL_SECTION *)(v5 + 352));
   }
-  v7 = *(unsigned __int16 *)v6;
-  if ( v7 <= *((_DWORD *)v6 + 5) || v7 <= *((_DWORD *)v6 + 4) >> *((_DWORD *)v6 + 6) )
+  v9 = *(unsigned __int16 *)v8;
+  if ( v9 <= *((_DWORD *)v8 + 5) || v9 <= *((_DWORD *)v8 + 4) >> *((_DWORD *)v8 + 6) )
   {
-    v8 = 1LL << *((_BYTE *)a2 + 16);
-    if ( v8 > 0xF0000 )
-      v8 = 983040LL;
-    v9 = v8 + *((unsigned __int16 *)a2 + 9);
-    _InterlockedExchangeAdd64((volatile signed __int64 *)(a1 + 72), v9);
+    v10 = 1LL << a2[16];
+    if ( v10 > 0xF0000 )
+      v10 = 983040LL;
+    v11 = v10 + *((unsigned __int16 *)a2 + 9);
+    _InterlockedExchangeAdd64((volatile signed __int64 *)(a1 + 72), v11);
     SharedData = NtCurrentPeb()->SharedData;
     if ( SharedData && *SharedData )
-      v11 = (__int64)NtCurrentPeb()->SharedData + 550;
+      v13 = (__int64)NtCurrentPeb()->SharedData + 550;
     else
-      v11 = 2147353472LL;
-    if ( *(_BYTE *)v11 )
-    {
-      if ( (NtCurrentPeb()->TracingFlags & 1) != 0 )
-        RtlpLogHeapSubSegmentFreeCached(*(_QWORD *)(a1 + 24), a2, v9, 16LL * *(unsigned __int16 *)(v4 + 36));
-    }
-    result = (PSLIST_ENTRY)RtlpInterlockedPushEntrySList(v6, a2);
-    ++*((_WORD *)v6 + 15);
+      v13 = 2147353472LL;
+    if ( *(_BYTE *)v13 && (NtCurrentPeb()->TracingFlags & 1) != 0 )
+      RtlpLogHeapSubSegmentFreeCached(*(_QWORD *)(a1 + 24), a2, v11, 16LL * *(unsigned __int16 *)(v6 + 36));
+    LODWORD(v14) = RtlpInterlockedPushEntrySList(v8, a2, v11, a4);
+    ++*((_WORD *)v8 + 15);
   }
   else
   {
-    v13 = 1LL << *((_BYTE *)a2 + 16);
-    if ( v13 > 0xF0000 )
-      v13 = 983040LL;
-    v23 = v13 + *((unsigned __int16 *)a2 + 9);
-    RtlpFreeUserBlockToHeap(*(_QWORD *)(a1 + 24), a2);
-    result = (PSLIST_ENTRY)RtlGetCurrentServiceSessionId(v15, v14);
+    v15 = 1LL << a2[16];
+    if ( v15 > 0xF0000 )
+      v15 = 983040LL;
+    v22 = v15 + *((unsigned __int16 *)a2 + 9);
+    RtlpFreeUserBlockToHeap(*(PVOID *)(a1 + 24), a2);
+    LODWORD(v14) = RtlGetCurrentServiceSessionId();
     v16 = 2147353472LL;
-    if ( (_DWORD)result )
+    if ( (_DWORD)v14 )
     {
-      result = (PSLIST_ENTRY)NtCurrentPeb();
-      v17 = (__int64)&result[9].Next[34].Next + 6;
+      v14 = (PSLIST_ENTRY)NtCurrentPeb();
+      v17 = (__int64)&v14[9].Next[34].Next + 6;
     }
     else
     {
@@ -90,45 +83,41 @@ PSLIST_ENTRY __fastcall RtlpFreeUserBlock(__int64 a1, __int64 *a2)
     }
     if ( *(_BYTE *)v17 )
     {
-      result = (PSLIST_ENTRY)NtCurrentPeb();
-      if ( (*(_BYTE *)(&result[55].Next + 1) & 1) != 0 )
-        result = (PSLIST_ENTRY)RtlpLogHeapSubSegmentFree(
-                                 *(_QWORD *)(a1 + 24),
-                                 a2,
-                                 v23,
-                                 16LL * *(unsigned __int16 *)(v4 + 36));
+      v14 = (PSLIST_ENTRY)NtCurrentPeb();
+      if ( (*(_BYTE *)(&v14[55].Next + 1) & 1) != 0 )
+        LODWORD(v14) = RtlpLogHeapSubSegmentFree(*(_QWORD *)(a1 + 24), a2, v22, 16LL * *(unsigned __int16 *)(v6 + 36));
     }
-    _InterlockedDecrement(v6 + 4);
-    if ( v7 )
+    _InterlockedDecrement(v8 + 4);
+    if ( v9 )
     {
-      result = RtlpInterlockedPopEntrySList((PSLIST_HEADER)v6);
-      v18 = result;
-      if ( result )
+      v14 = RtlpInterlockedPopEntrySList((PSLIST_HEADER)v8);
+      v18 = v14;
+      if ( v14 )
       {
-        v19 = 1LL << LOBYTE(result[1].Next);
+        v19 = 1LL << LOBYTE(v14[1].Next);
         if ( v19 > 0xF0000 )
           v19 = 983040LL;
-        v20 = v19 + WORD1(result[1].Next);
+        v20 = v19 + WORD1(v14[1].Next);
         _InterlockedExchangeAdd64((volatile signed __int64 *)(a1 + 72), -(__int64)v20);
-        RtlpFreeUserBlockToHeap(*(_QWORD *)(a1 + 24), result);
-        result = (PSLIST_ENTRY)RtlGetCurrentServiceSessionId(v22, v21);
-        if ( (_DWORD)result )
+        RtlpFreeUserBlockToHeap(*(PVOID *)(a1 + 24), v14);
+        LODWORD(v14) = RtlGetCurrentServiceSessionId();
+        if ( (_DWORD)v14 )
         {
-          result = (PSLIST_ENTRY)NtCurrentPeb();
-          v16 = (__int64)&result[9].Next[34].Next + 6;
+          v14 = (PSLIST_ENTRY)NtCurrentPeb();
+          v16 = (__int64)&v14[9].Next[34].Next + 6;
         }
         if ( *(_BYTE *)v16 )
         {
-          result = (PSLIST_ENTRY)NtCurrentPeb();
-          if ( (*(_BYTE *)(&result[55].Next + 1) & 1) != 0 )
+          v14 = (PSLIST_ENTRY)NtCurrentPeb();
+          if ( (*(_BYTE *)(&v14[55].Next + 1) & 1) != 0 )
           {
             RtlpLogHeapSubSegmentAllocCached(*(_QWORD *)(a1 + 24), v18, v20, 0LL);
-            result = (PSLIST_ENTRY)RtlpLogHeapSubSegmentFree(*(_QWORD *)(a1 + 24), v18, v20, 0LL);
+            LODWORD(v14) = RtlpLogHeapSubSegmentFree(*(_QWORD *)(a1 + 24), v18, v20, 0LL);
           }
         }
-        _InterlockedDecrement(v6 + 4);
+        _InterlockedDecrement(v8 + 4);
       }
     }
   }
-  return result;
+  return (int)v14;
 }

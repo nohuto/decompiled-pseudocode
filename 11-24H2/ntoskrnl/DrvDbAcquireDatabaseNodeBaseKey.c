@@ -1,19 +1,19 @@
 /*
- * XREFs of DrvDbAcquireDatabaseNodeBaseKey @ 0x140925270
+ * XREFs of DrvDbAcquireDatabaseNodeBaseKey @ 0x1409273B0
  * Callers:
- *     DrvDbDeleteObjectRegKey @ 0x140821450 (DrvDbDeleteObjectRegKey.c)
- *     DrvDbGetObjectList @ 0x14092311C (DrvDbGetObjectList.c)
- *     DrvDbOpenObjectRegKey @ 0x1409254F0 (DrvDbOpenObjectRegKey.c)
+ *     DrvDbDeleteObjectRegKey @ 0x140821B90 (DrvDbDeleteObjectRegKey.c)
+ *     DrvDbGetObjectList @ 0x140925254 (DrvDbGetObjectList.c)
+ *     DrvDbOpenObjectRegKey @ 0x140927630 (DrvDbOpenObjectRegKey.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x1402595A0 (KeLeaveCriticalRegionThread.c)
- *     ExReleaseResourceLite @ 0x14025A450 (ExReleaseResourceLite.c)
- *     ExAcquireResourceExclusiveLite @ 0x1402769C0 (ExAcquireResourceExclusiveLite.c)
- *     DrvDbGetRegistrarSecurityDescriptor @ 0x140823DEC (DrvDbGetRegistrarSecurityDescriptor.c)
- *     _PnpCtxRegOpenKey @ 0x1408C7AFC (_PnpCtxRegOpenKey.c)
- *     DrvDbLoadDatabaseNode @ 0x140925AF8 (DrvDbLoadDatabaseNode.c)
- *     _RegRtlCreateTreeTransacted @ 0x1409261A4 (_RegRtlCreateTreeTransacted.c)
- *     _PnpCtxRegCreateKey @ 0x140A51DD4 (_PnpCtxRegCreateKey.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ExAcquireResourceExclusiveLite @ 0x14022BF50 (ExAcquireResourceExclusiveLite.c)
+ *     KeLeaveCriticalRegionThread @ 0x140289BB0 (KeLeaveCriticalRegionThread.c)
+ *     ExReleaseResourceLite @ 0x14028AA60 (ExReleaseResourceLite.c)
+ *     DrvDbGetRegistrarSecurityDescriptor @ 0x14082452C (DrvDbGetRegistrarSecurityDescriptor.c)
+ *     _PnpCtxRegOpenKey @ 0x1408C552C (_PnpCtxRegOpenKey.c)
+ *     DrvDbLoadDatabaseNode @ 0x140927C38 (DrvDbLoadDatabaseNode.c)
+ *     _RegRtlCreateTreeTransacted @ 0x1409282E4 (_RegRtlCreateTreeTransacted.c)
+ *     _PnpCtxRegCreateKey @ 0x140A49664 (_PnpCtxRegCreateKey.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall DrvDbAcquireDatabaseNodeBaseKey(__int64 *a1, __int64 a2, int a3, HANDLE *a4)
@@ -65,7 +65,7 @@ LABEL_4:
         Key = PnpCtxRegCreateKey(
                 *a1,
                 *(_QWORD *)(a2 + 96),
-                qword_140002140[v4],
+                qword_140002240[v4],
                 0,
                 0x2000000,
                 (__int64)RegistrarSecurityDescriptor,
@@ -100,7 +100,7 @@ LABEL_5:
         v15 = 0LL;
       DatabaseNode = RegRtlCreateTreeTransacted(
                        *(HANDLE *)(a2 + 96),
-                       (NTSTRSAFE_PCWSTR)qword_140002140[v4],
+                       (NTSTRSAFE_PCWSTR)qword_140002240[v4],
                        0,
                        0x2000000u,
                        (__int64)RegistrarSecurityDescriptor,

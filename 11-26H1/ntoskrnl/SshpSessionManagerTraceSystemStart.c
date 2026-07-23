@@ -1,9 +1,9 @@
 /*
- * XREFs of SshpSessionManagerTraceSystemStart @ 0x1407E4364
+ * XREFs of SshpSessionManagerTraceSystemStart @ 0x1407E9E44
  * Callers:
- *     SshpSessionManagerInitialize @ 0x140CD7604 (SshpSessionManagerInitialize.c)
+ *     SshpSessionManagerInitialize @ 0x140CDD984 (SshpSessionManagerInitialize.c)
  * Callees:
- *     SshpSessionManagerSendControlEvent @ 0x140B2FF48 (SshpSessionManagerSendControlEvent.c)
+ *     SshpSessionManagerSendControlEvent @ 0x140B31D28 (SshpSessionManagerSendControlEvent.c)
  */
 
 __int64 SshpSessionManagerTraceSystemStart()

@@ -1,18 +1,18 @@
 /*
- * XREFs of ExIsSoftBoot @ 0x14052A6C0
+ * XREFs of ExIsSoftBoot @ 0x14052CBE0
  * Callers:
- *     PoInitHiberServices @ 0x1407C8370 (PoInitHiberServices.c)
- *     PoClearTransitionMarker @ 0x1407C881C (PoClearTransitionMarker.c)
- *     EtwpSavePersistedLoggers @ 0x14082EE88 (EtwpSavePersistedLoggers.c)
- *     CmpLoadHiveThread @ 0x14084B550 (CmpLoadHiveThread.c)
- *     CmpMountPreloadedHives @ 0x14084C298 (CmpMountPreloadedHives.c)
- *     CmpReorganizeHive @ 0x140AE35CC (CmpReorganizeHive.c)
- *     BapdRecordFirmwareBootStats @ 0x140C07A44 (BapdRecordFirmwareBootStats.c)
+ *     PoInitHiberServices @ 0x1407CB3D0 (PoInitHiberServices.c)
+ *     PoClearTransitionMarker @ 0x1407CB8BC (PoClearTransitionMarker.c)
+ *     EtwpSavePersistedLoggers @ 0x1408350C8 (EtwpSavePersistedLoggers.c)
+ *     CmpLoadHiveThread @ 0x140851860 (CmpLoadHiveThread.c)
+ *     CmpMountPreloadedHives @ 0x1408525A8 (CmpMountPreloadedHives.c)
+ *     CmpReorganizeHive @ 0x140AE10D4 (CmpReorganizeHive.c)
+ *     BapdRecordFirmwareBootStats @ 0x140C0DC54 (BapdRecordFirmwareBootStats.c)
  * Callees:
  *     <none>
  */
 
 bool ExIsSoftBoot()
 {
-  return (ExpSysDbgLock.SchedulerApcFill5[72] & 4) != 0;
+  return ((__int64)ExpSysDbgLock.MutantListHead.Flink & 4) != 0;
 }

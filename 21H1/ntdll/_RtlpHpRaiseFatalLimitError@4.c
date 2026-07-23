@@ -10,17 +10,19 @@
 
 void __thiscall __noreturn RtlpHpRaiseFatalLimitError(void *this)
 {
-  EXCEPTION_RECORD v2; // [esp+8h] [ebp-58h] BYREF
+  size_t v2; // [esp-4h] [ebp-64h]
+  EXCEPTION_RECORD v3; // [esp+8h] [ebp-58h] BYREF
 
-  memset(&v2, 0, sizeof(v2));
-  v2.ExceptionRecord = 0;
-  v2.ExceptionCode = dword_4B3A3974;
-  v2.ExceptionInformation[0] = dword_4B3A3968;
-  v2.ExceptionInformation[1] = dword_4B3A396C;
-  v2.ExceptionInformation[2] = dword_4B3A3978;
-  v2.ExceptionFlags = 1;
-  v2.ExceptionAddress = this;
-  v2.NumberParameters = 4;
-  v2.ExceptionInformation[3] = dword_4B3A397C;
-  RtlReportFatalFailure(&v2);
+  LODWORD(v2) = 80;
+  memset(&v3, 0, v2);
+  v3.ExceptionRecord = 0;
+  v3.ExceptionCode = dword_4B3A3974;
+  v3.ExceptionInformation[0] = dword_4B3A3968;
+  v3.ExceptionInformation[1] = dword_4B3A396C;
+  v3.ExceptionInformation[2] = dword_4B3A3978;
+  v3.ExceptionFlags = 1;
+  v3.ExceptionAddress = this;
+  v3.NumberParameters = 4;
+  v3.ExceptionInformation[3] = dword_4B3A397C;
+  RtlReportFatalFailure(&v3);
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of IommupHvRegisterDeviceId @ 0x14059E8B0
+ * XREFs of IommupHvRegisterDeviceId @ 0x1405A1090
  * Callers:
- *     HalpIommuCreateDevice @ 0x14051AC18 (HalpIommuCreateDevice.c)
+ *     HalpIommuCreateDevice @ 0x140514688 (HalpIommuCreateDevice.c)
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall IommupHvRegisterDeviceId(__int64 a1, unsigned __int64 *a2)

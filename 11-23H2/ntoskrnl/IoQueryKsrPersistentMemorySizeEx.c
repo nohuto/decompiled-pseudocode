@@ -1,12 +1,12 @@
 /*
- * XREFs of IoQueryKsrPersistentMemorySizeEx @ 0x140952770
+ * XREFs of IoQueryKsrPersistentMemorySizeEx @ 0x140952970
  * Callers:
- *     IoQueryKsrPersistentMemorySize @ 0x140952740 (IoQueryKsrPersistentMemorySize.c)
+ *     IoQueryKsrPersistentMemorySize @ 0x140952940 (IoQueryKsrPersistentMemorySize.c)
  * Callees:
- *     ExIsSoftBoot @ 0x140384150 (ExIsSoftBoot.c)
- *     IoAddTriageDumpDataBlock @ 0x1403882BC (IoAddTriageDumpDataBlock.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     PipGetPersistentMemory @ 0x140953368 (PipGetPersistentMemory.c)
+ *     ExIsSoftBoot @ 0x140384330 (ExIsSoftBoot.c)
+ *     IoAddTriageDumpDataBlock @ 0x14038849C (IoAddTriageDumpDataBlock.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
+ *     PipGetPersistentMemory @ 0x140953568 (PipGetPersistentMemory.c)
  */
 
 __int64 __fastcall IoQueryKsrPersistentMemorySizeEx(

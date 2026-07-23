@@ -1,9 +1,9 @@
 /*
- * XREFs of PsAcquireProcessExitSynchronization @ 0x1404B1F04
+ * XREFs of PsAcquireProcessExitSynchronization @ 0x14049C2E4
  * Callers:
- *     EtwQueryProcessTelemetryInfo @ 0x1404B1BB0 (EtwQueryProcessTelemetryInfo.c)
+ *     EtwQueryProcessTelemetryInfo @ 0x14049BF90 (EtwQueryProcessTelemetryInfo.c)
  * Callees:
- *     ExfAcquireRundownProtection @ 0x14008C5E0 (ExfAcquireRundownProtection.c)
+ *     ExfAcquireRundownProtection @ 0x14008BD40 (ExfAcquireRundownProtection.c)
  */
 
 __int64 __fastcall PsAcquireProcessExitSynchronization(struct _EX_RUNDOWN_REF *a1)

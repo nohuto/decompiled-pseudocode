@@ -1,9 +1,9 @@
 /*
- * XREFs of PspGetProcessInJobHierarchyCallback @ 0x1407778F0
+ * XREFs of PspGetProcessInJobHierarchyCallback @ 0x140777AB0
  * Callers:
  *     <none>
  * Callees:
- *     ObfReferenceObjectWithTag @ 0x1403403E0 (ObfReferenceObjectWithTag.c)
+ *     ObfReferenceObjectWithTag @ 0x14031F8C0 (ObfReferenceObjectWithTag.c)
  */
 
 __int64 __fastcall PspGetProcessInJobHierarchyCallback(void *a1, _QWORD *a2)

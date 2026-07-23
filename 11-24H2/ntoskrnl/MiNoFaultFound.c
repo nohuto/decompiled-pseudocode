@@ -1,27 +1,27 @@
 /*
- * XREFs of MiNoFaultFound @ 0x140233220
+ * XREFs of MiNoFaultFound @ 0x140203670
  * Callers:
- *     MiSystemFault @ 0x140229570 (MiSystemFault.c)
- *     MiRaisedIrqlFault @ 0x140245EB8 (MiRaisedIrqlFault.c)
- *     MiLargePageFault @ 0x1403F38B4 (MiLargePageFault.c)
- *     MiValidFault @ 0x1404F2C70 (MiValidFault.c)
+ *     MiRaisedIrqlFault @ 0x1402FADDC (MiRaisedIrqlFault.c)
+ *     MiSystemFault @ 0x1402FC7E0 (MiSystemFault.c)
+ *     MiLargePageFault @ 0x1404C1204 (MiLargePageFault.c)
+ *     MiValidFault @ 0x1404F0710 (MiValidFault.c)
  * Callees:
- *     MiFlushSingleTbEntry @ 0x14022A7E0 (MiFlushSingleTbEntry.c)
- *     MiCheckLinearProtectedPteAccessedBit @ 0x140232A20 (MiCheckLinearProtectedPteAccessedBit.c)
+ *     MiCheckLinearProtectedPteAccessedBit @ 0x140203550 (MiCheckLinearProtectedPteAccessedBit.c)
+ *     MiFlushSingleTbEntry @ 0x1402FDA50 (MiFlushSingleTbEntry.c)
  */
 
 __int64 __fastcall MiNoFaultFound(
         __int64 a1,
         volatile signed __int64 *a2,
-        unsigned __int64 a3,
+        __int64 a3,
         __int64 a4,
-        int a5,
+        unsigned int a5,
         signed __int64 a6)
 {
   unsigned int v6; // esi
   __int64 v7; // r10
   int v10; // ecx
-  int v11; // ebp
+  unsigned int v11; // ebp
   __int64 v12; // rbx
 
   v6 = 0;
@@ -67,7 +67,7 @@ LABEL_8:
   if ( (MiFlags & 0x2000000) != 0 )
     _mm_lfence();
   if ( _bittest64(&MiFlags, 0x24u) && (v12 & 0x21) == 1 && (unsigned __int64)a2 >= 0xFFFFF6C000000000uLL )
-    MiCheckLinearProtectedPteAccessedBit((ULONG_PTR)a2, v12, 128);
+    MiCheckLinearProtectedPteAccessedBit((ULONG_PTR)a2, v12, 128LL);
   if ( a6 != _InterlockedCompareExchange64(a2, v12, a6) )
     return 0LL;
 LABEL_15:

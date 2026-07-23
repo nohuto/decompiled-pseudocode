@@ -1,11 +1,11 @@
 /*
- * XREFs of PspFindThreadForTeb @ 0x14090A100
+ * XREFs of PspFindThreadForTeb @ 0x14090A260
  * Callers:
- *     KiSwapToUmsThread @ 0x1408BD920 (KiSwapToUmsThread.c)
- *     PspDisassociateUmsThreadFromPrimary @ 0x14090E844 (PspDisassociateUmsThreadFromPrimary.c)
+ *     KiSwapToUmsThread @ 0x1408BDA80 (KiSwapToUmsThread.c)
+ *     PspDisassociateUmsThreadFromPrimary @ 0x14090E9A4 (PspDisassociateUmsThreadFromPrimary.c)
  * Callees:
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     PsLookupThreadByThreadId @ 0x140625630 (PsLookupThreadByThreadId.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     PsLookupThreadByThreadId @ 0x14068F2A0 (PsLookupThreadByThreadId.c)
  */
 
 PETHREAD __fastcall PspFindThreadForTeb(__int64 a1)

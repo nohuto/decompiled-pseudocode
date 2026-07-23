@@ -1,9 +1,9 @@
 /*
- * XREFs of SyspartDirectGetSystemDisk @ 0x14077BE10
+ * XREFs of SyspartDirectGetSystemDisk @ 0x14077BFD0
  * Callers:
  *     <none>
  * Callees:
- *     SiGetSystemDeviceName @ 0x1406B4A08 (SiGetSystemDeviceName.c)
+ *     SiGetSystemDeviceName @ 0x140613E88 (SiGetSystemDeviceName.c)
  */
 
 __int64 __fastcall SyspartDirectGetSystemDisk(void *a1, unsigned int a2, unsigned int *a3)

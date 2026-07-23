@@ -1,13 +1,13 @@
 /*
- * XREFs of VfFaultsRemoveAllApps @ 0x140C34968
+ * XREFs of VfFaultsRemoveAllApps @ 0x140C3A978
  * Callers:
- *     VfRlrsVolatileConfigUpdate @ 0x140648604 (VfRlrsVolatileConfigUpdate.c)
- *     ViRlrsUnload @ 0x1406486D0 (ViRlrsUnload.c)
- *     VfFaultsSetParameters @ 0x140C34AA4 (VfFaultsSetParameters.c)
+ *     VfRlrsVolatileConfigUpdate @ 0x14064C1E4 (VfRlrsVolatileConfigUpdate.c)
+ *     ViRlrsUnload @ 0x14064C2B0 (ViRlrsUnload.c)
+ *     VfFaultsSetParameters @ 0x140C3AAB4 (VfFaultsSetParameters.c)
  * Callees:
- *     KeReleaseSpinLock @ 0x1402BE860 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14032F300 (KeAcquireSpinLockRaiseToDpc.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     KeReleaseSpinLock @ 0x140309520 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140331330 (KeAcquireSpinLockRaiseToDpc.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void VfFaultsRemoveAllApps()
@@ -19,7 +19,7 @@ void VfFaultsRemoveAllApps()
 
   if ( !ViFaultApplicationsList || ViFaultApplicationsList == &ViFaultApplicationsList )
   {
-    qword_140F08728 = (__int64)&ViFaultApplicationsList;
+    qword_140F08C28 = (__int64)&ViFaultApplicationsList;
     ViFaultApplicationsList = &ViFaultApplicationsList;
   }
   else
@@ -37,7 +37,7 @@ void VfFaultsRemoveAllApps()
       }
       while ( v3 != &ViFaultApplicationsList );
     }
-    qword_140F08728 = (__int64)&ViFaultApplicationsList;
+    qword_140F08C28 = (__int64)&ViFaultApplicationsList;
     ViFaultApplicationsList = &ViFaultApplicationsList;
     KeReleaseSpinLock(&ViFaultInjectionLock, v2);
   }

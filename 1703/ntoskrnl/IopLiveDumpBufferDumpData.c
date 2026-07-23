@@ -15,87 +15,86 @@ void __fastcall IopLiveDumpBufferDumpData(__int64 *a1, unsigned int *a2)
   __int64 v2; // rax
   unsigned int v3; // ecx
   __int64 v4; // r13
-  int v5; // ebx
+  _RTL_BITMAP_EX *v5; // rbx
   __int64 v6; // r14
   __int64 v7; // rsi
-  int v8; // r9d
-  unsigned int v9; // r15d
-  unsigned int v10; // ebp
-  unsigned int v11; // edx
-  _QWORD *v12; // r12
+  unsigned int v8; // r15d
+  unsigned int v9; // ebp
+  unsigned int v10; // edx
+  char *v11; // r12
+  __int64 v12; // rcx
   __int64 v13; // rcx
-  __int64 v14; // rcx
-  __int64 v15; // rdx
-  __int64 v16; // rbx
-  _DWORD *v17; // rsi
-  _DWORD *v18; // r8
-  unsigned __int64 v19; // rcx
-  _DWORD *v20; // rdi
-  unsigned int v21; // [rsp+30h] [rbp-278h] BYREF
-  _DWORD *v22; // [rsp+38h] [rbp-270h]
-  __int64 v23; // [rsp+40h] [rbp-268h] BYREF
-  __int64 v24; // [rsp+48h] [rbp-260h]
-  __int64 v25; // [rsp+50h] [rbp-258h]
-  __int64 v26; // [rsp+58h] [rbp-250h]
-  _BYTE v27[512]; // [rsp+60h] [rbp-248h] BYREF
+  __int64 v14; // rdx
+  __int64 v15; // rbx
+  _DWORD *v16; // rsi
+  _DWORD *v17; // r8
+  unsigned __int64 v18; // rcx
+  _DWORD *v19; // rdi
+  __int64 v20; // [rsp+30h] [rbp-278h] BYREF
+  _DWORD *v21; // [rsp+38h] [rbp-270h]
+  __int64 v22; // [rsp+40h] [rbp-268h] BYREF
+  __int64 v23; // [rsp+48h] [rbp-260h]
+  __int64 v24; // [rsp+50h] [rbp-258h]
+  _RTL_BITMAP_EX *v25; // [rsp+58h] [rbp-250h]
+  char v26; // [rsp+60h] [rbp-248h] BYREF
 
   v2 = *a1;
   v3 = *a2;
   v4 = v2 + 488;
-  v25 = v2 + 488;
+  v24 = v2 + 488;
   if ( v3 < *(_DWORD *)(v2 + 560) )
   {
-    v5 = v2 + 368;
+    v5 = (_RTL_BITMAP_EX *)(v2 + 368);
     v6 = *(_QWORD *)(v2 + 568) + 16LL * v3;
-    v26 = v2 + 368;
+    v25 = (_RTL_BITMAP_EX *)(v2 + 368);
     v7 = *(_QWORD *)(v6 + 8);
-    v24 = v7;
+    v23 = v7;
     while ( 1 )
     {
       KxAcquireSpinLock((PKSPIN_LOCK)(v4 + 24));
-      IopLiveDumpGetCapturePagesNoLock(v5, v4, (unsigned int)v27, v8, (__int64)&v21, (__int64)&v23);
+      IopLiveDumpGetCapturePagesNoLock(v5, (__int64)&v20, (__int64)&v22);
       KxReleaseSpinLock((PKSPIN_LOCK)(v4 + 24));
-      v9 = v21;
-      if ( !v21 )
+      v8 = v20;
+      if ( !(_DWORD)v20 )
         break;
+      v9 = 0;
+      v21 = *(_DWORD **)(*(_QWORD *)(v4 + 64) + 8 * v22);
       v10 = 0;
-      v22 = *(_DWORD **)(*(_QWORD *)(v4 + 64) + 8 * v23);
-      v11 = 0;
-      v12 = v27;
+      v11 = &v26;
       do
       {
-        v13 = v11++;
-        *(_QWORD *)(v7 + 8 * v13 + 48) = *v12;
-        if ( v11 == 16 || v11 && v10 == v9 - 1 )
+        v12 = v10++;
+        *(_QWORD *)(v7 + 8 * v12 + 48) = *(_QWORD *)v11;
+        if ( v10 == 16 || v10 && v9 == v8 - 1 )
         {
-          v14 = *(_QWORD *)(v6 + 8);
-          v15 = v11 << 12;
-          v16 = (unsigned int)v15;
-          *(_QWORD *)v14 = 0LL;
-          *(_WORD *)(v14 + 10) = 0;
-          *(_QWORD *)(v14 + 32) = 0LL;
-          *(_QWORD *)(v14 + 40) = (unsigned int)v15;
-          *(_WORD *)(v14 + 8) = 8 * (((unsigned __int64)(v15 + 4095) >> 12) + 6);
-          MmMapMemoryDumpMdlEx(*(_QWORD *)v6, v15, *(_QWORD *)(v6 + 8), 0);
-          v17 = *(_DWORD **)(*(_QWORD *)(v6 + 8) + 24LL);
-          v18 = v22;
-          v19 = (unsigned __int64)(unsigned int)v16 >> 2;
-          v20 = v22;
-          while ( v19 )
+          v13 = *(_QWORD *)(v6 + 8);
+          v14 = v10 << 12;
+          v15 = (unsigned int)v14;
+          *(_QWORD *)v13 = 0LL;
+          *(_WORD *)(v13 + 10) = 0;
+          *(_QWORD *)(v13 + 32) = 0LL;
+          *(_QWORD *)(v13 + 40) = (unsigned int)v14;
+          *(_WORD *)(v13 + 8) = 8 * (((unsigned __int64)(v14 + 4095) >> 12) + 6);
+          MmMapMemoryDumpMdlEx(*(_QWORD *)v6, v14, *(_QWORD *)(v6 + 8), 0);
+          v16 = *(_DWORD **)(*(_QWORD *)(v6 + 8) + 24LL);
+          v17 = v21;
+          v18 = (unsigned __int64)(unsigned int)v15 >> 2;
+          v19 = v21;
+          while ( v18 )
           {
-            *v20++ = *v17++;
-            --v19;
+            *v19++ = *v16++;
+            --v18;
           }
-          v7 = v24;
-          v22 = (_DWORD *)((char *)v18 + v16);
-          v11 = 0;
+          v7 = v23;
+          v21 = (_DWORD *)((char *)v17 + v15);
+          v10 = 0;
         }
-        ++v10;
-        ++v12;
+        ++v9;
+        v11 += 8;
       }
-      while ( v10 < v9 );
-      v4 = v25;
-      v5 = v26;
+      while ( v9 < v8 );
+      v4 = v24;
+      v5 = v25;
     }
   }
 }

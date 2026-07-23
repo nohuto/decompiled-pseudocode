@@ -6,11 +6,16 @@
  *     <none>
  */
 
-__int64 ZwQueryTimer()
+NTSTATUS __cdecl ZwQueryTimer(
+        HANDLE TimerHandle,
+        TIMER_INFORMATION_CLASS TimerInformationClass,
+        PVOID TimerInformation,
+        ULONG TimerInformationLength,
+        PULONG ReturnLength)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 56LL;
+  result = 56;
   __asm { syscall; Low latency system call }
   return result;
 }

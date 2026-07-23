@@ -1,12 +1,12 @@
 /*
- * XREFs of PoSetHiberRange @ 0x140112E60
+ * XREFs of PoSetHiberRange @ 0x1401133D0
  * Callers:
- *     RtlMarkHiberPhase @ 0x140112D5C (RtlMarkHiberPhase.c)
- *     IoGetDumpHiberRanges @ 0x140112DA8 (IoGetDumpHiberRanges.c)
- *     HvlDiscardPagesFromHibernation @ 0x1401BEF0C (HvlDiscardPagesFromHibernation.c)
- *     HvlDiscardSecurePagesFromHibernation @ 0x1401BEF68 (HvlDiscardSecurePagesFromHibernation.c)
- *     HvlpMarkHvlPagesForHibernation @ 0x1401BF6AC (HvlpMarkHvlPagesForHibernation.c)
- *     HvlpMarkHypervisorPagesForHibernation @ 0x1401BF740 (HvlpMarkHypervisorPagesForHibernation.c)
+ *     RtlMarkHiberPhase @ 0x1401132CC (RtlMarkHiberPhase.c)
+ *     IoGetDumpHiberRanges @ 0x140113318 (IoGetDumpHiberRanges.c)
+ *     HvlDiscardPagesFromHibernation @ 0x1401BEDF0 (HvlDiscardPagesFromHibernation.c)
+ *     HvlDiscardSecurePagesFromHibernation @ 0x1401BEE4C (HvlDiscardSecurePagesFromHibernation.c)
+ *     HvlpMarkHvlPagesForHibernation @ 0x1401BF590 (HvlpMarkHvlPagesForHibernation.c)
+ *     HvlpMarkHypervisorPagesForHibernation @ 0x1401BF624 (HvlpMarkHypervisorPagesForHibernation.c)
  *     PopBootLoaderTraceCopyPfnList @ 0x1403C973C (PopBootLoaderTraceCopyPfnList.c)
  *     MiGatherHiberRange @ 0x1403C97D4 (MiGatherHiberRange.c)
  *     BgkResumePrepare @ 0x1403CA94C (BgkResumePrepare.c)
@@ -19,18 +19,18 @@
  *     MiMarkHiberNotCachedPages @ 0x1403CB4A0 (MiMarkHiberNotCachedPages.c)
  *     MiMarkNonPagedHiberPhasePages @ 0x1403CB5A8 (MiMarkNonPagedHiberPhasePages.c)
  *     MiMarkKernelPageTablesHelper @ 0x1403CB6B0 (MiMarkKernelPageTablesHelper.c)
- *     PopHiberInitializeResources @ 0x14052F2C4 (PopHiberInitializeResources.c)
- *     MmMarkHiberRange @ 0x14052F584 (MmMarkHiberRange.c)
- *     PopAllocateHiberContext @ 0x14052F5C4 (PopAllocateHiberContext.c)
+ *     PopHiberInitializeResources @ 0x14052F804 (PopHiberInitializeResources.c)
+ *     MmMarkHiberRange @ 0x14052FAC4 (MmMarkHiberRange.c)
+ *     PopAllocateHiberContext @ 0x14052FB04 (PopAllocateHiberContext.c)
  *     BgpFwMarkHiberPhase @ 0x1407253AC (BgpFwMarkHiberPhase.c)
  * Callees:
- *     MmGetPhysicalAddress @ 0x14002500C (MmGetPhysicalAddress.c)
- *     PopSetRange @ 0x140113088 (PopSetRange.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
- *     PopInternalAddToDumpFile @ 0x1401FF078 (PopInternalAddToDumpFile.c)
+ *     MmGetPhysicalAddress @ 0x140024B8C (MmGetPhysicalAddress.c)
+ *     PopSetRange @ 0x1401135F8 (PopSetRange.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
+ *     PopInternalAddToDumpFile @ 0x1401FEEA4 (PopInternalAddToDumpFile.c)
  *     PopSetBootPhaseRange @ 0x1403CB780 (PopSetBootPhaseRange.c)
  *     PopCloneRange @ 0x1403CB7FC (PopCloneRange.c)
- *     MmGetSectionRange @ 0x14052FA70 (MmGetSectionRange.c)
+ *     MmGetSectionRange @ 0x14052FFB0 (MmGetSectionRange.c)
  */
 
 void __stdcall PoSetHiberRange(PVOID MemoryMap, ULONG Flags, PVOID Address, ULONG_PTR Length, ULONG Tag)
@@ -63,10 +63,10 @@ void __stdcall PoSetHiberRange(PVOID MemoryMap, ULONG Flags, PVOID Address, ULON
       goto LABEL_7;
     goto LABEL_29;
   }
-  v7 = (_BYTE *)qword_1403034A0;
-  if ( !qword_1403034A0 )
+  v7 = (_BYTE *)qword_1403033E0;
+  if ( !qword_1403033E0 )
     KeBugCheckEx(0xA0u, 0x10BuLL, 0xAuLL, 0LL, 0LL);
-  v8 = *(unsigned int *)(qword_1403034A0 + 184);
+  v8 = *(unsigned int *)(qword_1403033E0 + 184);
   if ( (_DWORD)v8 == 8 )
   {
     if ( (Flags & 0xFFFFBFFF) != 0x10000 )

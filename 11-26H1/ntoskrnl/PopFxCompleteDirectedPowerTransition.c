@@ -1,18 +1,18 @@
 /*
- * XREFs of PopFxCompleteDirectedPowerTransition @ 0x140604AB8
+ * XREFs of PopFxCompleteDirectedPowerTransition @ 0x1406075B8
  * Callers:
- *     PopFxHandleDirectedPowerTransition @ 0x1403B782C (PopFxHandleDirectedPowerTransition.c)
- *     PopFxDerefAndCompleteDirectedPowerTransition @ 0x1404FCBC8 (PopFxDerefAndCompleteDirectedPowerTransition.c)
+ *     PopFxHandleDirectedPowerTransition @ 0x1403C172C (PopFxHandleDirectedPowerTransition.c)
+ *     PopFxDerefAndCompleteDirectedPowerTransition @ 0x1404F6108 (PopFxDerefAndCompleteDirectedPowerTransition.c)
  * Callees:
- *     PopFxAddLogEntry @ 0x14021A640 (PopFxAddLogEntry.c)
- *     KeReleaseSpinLock @ 0x1402BE860 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14032F300 (KeAcquireSpinLockRaiseToDpc.c)
- *     PopFxDisableWorkOrderWatchdog @ 0x1403AE6F0 (PopFxDisableWorkOrderWatchdog.c)
- *     PopFxBugCheck @ 0x1403B0E54 (PopFxBugCheck.c)
- *     PopFxDereferenceDevice @ 0x1403B61F4 (PopFxDereferenceDevice.c)
- *     PopCompleteDirectedPowerTransitionCallback @ 0x1404B2140 (PopCompleteDirectedPowerTransitionCallback.c)
- *     PopDiagTraceFxDeviceDirectedCompletion @ 0x140514298 (PopDiagTraceFxDeviceDirectedCompletion.c)
- *     PopFxEnforceDirectedPowerTransition @ 0x140604EE8 (PopFxEnforceDirectedPowerTransition.c)
+ *     PopFxAddLogEntry @ 0x14021BFD0 (PopFxAddLogEntry.c)
+ *     KeReleaseSpinLock @ 0x140309520 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140331330 (KeAcquireSpinLockRaiseToDpc.c)
+ *     PopFxDisableWorkOrderWatchdog @ 0x1403B8400 (PopFxDisableWorkOrderWatchdog.c)
+ *     PopFxBugCheck @ 0x1403BAB64 (PopFxBugCheck.c)
+ *     PopFxDereferenceDevice @ 0x1403C00F4 (PopFxDereferenceDevice.c)
+ *     PopCompleteDirectedPowerTransitionCallback @ 0x1404AB64C (PopCompleteDirectedPowerTransitionCallback.c)
+ *     PopDiagTraceFxDeviceDirectedCompletion @ 0x14050DD08 (PopDiagTraceFxDeviceDirectedCompletion.c)
+ *     PopFxEnforceDirectedPowerTransition @ 0x1406079E8 (PopFxEnforceDirectedPowerTransition.c)
  */
 
 LONG __fastcall PopFxCompleteDirectedPowerTransition(ULONG_PTR BugCheckParameter3, unsigned __int8 a2)
@@ -74,7 +74,7 @@ LABEL_18:
   *(_DWORD *)(BugCheckParameter3 + 1216) = 0;
   KeReleaseSpinLock((PKSPIN_LOCK)(BugCheckParameter3 + 1192), v8);
   PopDiagTraceFxDeviceDirectedCompletion(*(_QWORD *)(BugCheckParameter3 + 48), a2);
-  if ( byte_140F12D0C )
+  if ( stru_140F12EA0.WaitBlockFill6[108] )
     goto LABEL_16;
   if ( (v12 & 2) == 0 )
   {

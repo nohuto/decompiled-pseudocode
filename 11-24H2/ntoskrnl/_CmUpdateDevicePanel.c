@@ -1,23 +1,23 @@
 /*
- * XREFs of _CmUpdateDevicePanel @ 0x14098EE00
+ * XREFs of _CmUpdateDevicePanel @ 0x140979E38
  * Callers:
- *     PiUpdateDevicePanel @ 0x1409902C0 (PiUpdateDevicePanel.c)
+ *     PiUpdateDevicePanel @ 0x14097B2F8 (PiUpdateDevicePanel.c)
  * Callees:
- *     _wcsicmp @ 0x1404FE3B0 (_wcsicmp.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     _CmAddPanelDevice @ 0x14081C4CC (_CmAddPanelDevice.c)
- *     _CmCreateDevicePanel @ 0x14081C7C0 (_CmCreateDevicePanel.c)
- *     _CmRemovePanelDevice @ 0x14081DA0C (_CmRemovePanelDevice.c)
- *     _PnpSetObjectProperty @ 0x1408B88E8 (_PnpSetObjectProperty.c)
- *     _PnpGetObjectProperty @ 0x1408CDFD0 (_PnpGetObjectProperty.c)
- *     _CmIsRootDevice @ 0x140926C14 (_CmIsRootDevice.c)
- *     _CmQueryDevicePanelPldProperty @ 0x14098F8FC (_CmQueryDevicePanelPldProperty.c)
- *     _CmGetDevicePanelGroup @ 0x140AA25E0 (_CmGetDevicePanelGroup.c)
- *     _CmBuildDevicePanelId @ 0x140AAC200 (_CmBuildDevicePanelId.c)
- *     _CmGetParentDeviceContainerId @ 0x140AB65B0 (_CmGetParentDeviceContainerId.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     _wcsicmp @ 0x1404FBC70 (_wcsicmp.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     _CmAddPanelDevice @ 0x14081CC0C (_CmAddPanelDevice.c)
+ *     _CmCreateDevicePanel @ 0x14081CF00 (_CmCreateDevicePanel.c)
+ *     _CmRemovePanelDevice @ 0x14081E14C (_CmRemovePanelDevice.c)
+ *     _PnpSetObjectProperty @ 0x1408B6258 (_PnpSetObjectProperty.c)
+ *     _PnpGetObjectProperty @ 0x1408CB9C0 (_PnpGetObjectProperty.c)
+ *     _CmIsRootDevice @ 0x140928D54 (_CmIsRootDevice.c)
+ *     _CmQueryDevicePanelPldProperty @ 0x14097A934 (_CmQueryDevicePanelPldProperty.c)
+ *     _CmBuildDevicePanelId @ 0x140981E58 (_CmBuildDevicePanelId.c)
+ *     _CmGetDevicePanelGroup @ 0x140A9D970 (_CmGetDevicePanelGroup.c)
+ *     _CmGetParentDeviceContainerId @ 0x140AB0634 (_CmGetParentDeviceContainerId.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall CmUpdateDevicePanel(__int64 a1, WCHAR *a2, void *a3)
@@ -53,7 +53,7 @@ __int64 __fastcall CmUpdateDevicePanel(__int64 a1, WCHAR *a2, void *a3)
   __int64 v34; // r8
   __int64 v35; // r8
   int v36; // eax
-  ULONG v37; // edx
+  ULONG_PTR v37; // rdx
   PVOID v38; // rax
   int v39; // eax
   int v40; // eax
@@ -160,9 +160,9 @@ LABEL_114:
   DevicePanelGroup = CmGetDevicePanelGroup(v4);
   v28 = v27;
   if ( ((*(_DWORD *)(v4 + 8) >> 3) & 7) != 7 )
-    v28 = dword_140041908[(*(_DWORD *)(v4 + 8) >> 3) & 7];
+    v28 = dword_140041D08[(*(_DWORD *)(v4 + 8) >> 3) & 7];
   v68 = v28;
-  Pool2 = ExAllocatePool2(0x100uLL);
+  Pool2 = ExAllocatePool2(0x100uLL, 0x72uLL, 0x52504E50u);
   v7 = (wchar_t *)Pool2;
   if ( !Pool2 )
   {
@@ -175,7 +175,7 @@ LABEL_114:
   for ( i = 16; ; i = v58 )
   {
     v65 = i;
-    v31 = (void *)ExAllocatePool2(0x100uLL);
+    v31 = (void *)ExAllocatePool2(0x100uLL, i, 0x52504E50u);
     v60 = v31;
     if ( !v31 )
     {
@@ -215,7 +215,7 @@ LABEL_128:
     v60 = 0LL;
   }
 LABEL_3:
-  v11 = (void *)ExAllocatePool2(0x100uLL);
+  v11 = (void *)ExAllocatePool2(0x100uLL, 0x72uLL, 0x52504E50u);
   P = v11;
   if ( !v11 )
   {
@@ -272,7 +272,7 @@ LABEL_77:
     v10 = PnpSetObjectProperty(
             (__int64)v3,
             (__int64)a2,
-            1u,
+            1,
             (__int64)a3,
             0LL,
             (__int64)&DEVPKEY_Device_PanelId,
@@ -285,7 +285,7 @@ LABEL_77:
     v10 = PnpSetObjectProperty(
             (__int64)v3,
             (__int64)a2,
-            1u,
+            1,
             (__int64)a3,
             0LL,
             (__int64)DEVPKEY_Device_PanelGroup,
@@ -298,7 +298,7 @@ LABEL_77:
     v10 = PnpSetObjectProperty(
             (__int64)v3,
             (__int64)a2,
-            1u,
+            1,
             (__int64)a3,
             0LL,
             (__int64)DEVPKEY_Device_PanelSide,
@@ -316,7 +316,7 @@ LABEL_77:
         v10 = PnpSetObjectProperty(
                 (__int64)v3,
                 (__int64)a2,
-                1u,
+                1,
                 (__int64)a3,
                 0LL,
                 (__int64)DEVPKEY_Device_PanelWidth,
@@ -330,7 +330,7 @@ LABEL_77:
         v10 = PnpSetObjectProperty(
                 (__int64)v3,
                 (__int64)a2,
-                1u,
+                1,
                 (__int64)a3,
                 0LL,
                 (__int64)DEVPKEY_Device_PanelHeight,
@@ -344,7 +344,7 @@ LABEL_77:
         v10 = PnpSetObjectProperty(
                 (__int64)v3,
                 (__int64)a2,
-                1u,
+                1,
                 (__int64)a3,
                 0LL,
                 (__int64)DEVPKEY_Device_PanelLength,
@@ -361,7 +361,7 @@ LABEL_77:
         v10 = PnpSetObjectProperty(
                 (__int64)v3,
                 (__int64)a2,
-                1u,
+                1,
                 (__int64)a3,
                 0LL,
                 (__int64)DEVPKEY_Device_PanelWidth,
@@ -375,7 +375,7 @@ LABEL_77:
         v10 = PnpSetObjectProperty(
                 (__int64)v3,
                 (__int64)a2,
-                1u,
+                1,
                 (__int64)a3,
                 0LL,
                 (__int64)DEVPKEY_Device_PanelHeight,
@@ -389,7 +389,7 @@ LABEL_77:
           PnpSetObjectProperty(
             (__int64)v3,
             (__int64)a2,
-            1u,
+            1,
             (__int64)a3,
             0LL,
             (__int64)DEVPKEY_Device_PanelLength,
@@ -408,7 +408,7 @@ LABEL_92:
         PnpSetObjectProperty(
           (__int64)v3,
           (__int64)a2,
-          1u,
+          1,
           (__int64)a3,
           0LL,
           (__int64)DEVPKEY_Device_PanelWidth,
@@ -419,7 +419,7 @@ LABEL_92:
         PnpSetObjectProperty(
           (__int64)v3,
           (__int64)a2,
-          1u,
+          1,
           (__int64)a3,
           0LL,
           (__int64)DEVPKEY_Device_PanelHeight,
@@ -430,7 +430,7 @@ LABEL_92:
         PnpSetObjectProperty(
           (__int64)v3,
           (__int64)a2,
-          1u,
+          1,
           (__int64)a3,
           0LL,
           (__int64)DEVPKEY_Device_PanelLength,
@@ -465,11 +465,11 @@ LABEL_138:
   v13 = (const wchar_t *)P;
   if ( P )
   {
-    PnpSetObjectProperty((__int64)v3, (__int64)a2, 1u, (__int64)a3, 0LL, (__int64)&DEVPKEY_Device_PanelId, 0, 0LL, 0, 0);
+    PnpSetObjectProperty((__int64)v3, (__int64)a2, 1, (__int64)a3, 0LL, (__int64)&DEVPKEY_Device_PanelId, 0, 0LL, 0, 0);
     PnpSetObjectProperty(
       (__int64)v3,
       (__int64)a2,
-      1u,
+      1,
       (__int64)a3,
       0LL,
       (__int64)DEVPKEY_Device_PanelGroup,
@@ -477,17 +477,7 @@ LABEL_138:
       0LL,
       0,
       0);
-    PnpSetObjectProperty(
-      (__int64)v3,
-      (__int64)a2,
-      1u,
-      (__int64)a3,
-      0LL,
-      (__int64)DEVPKEY_Device_PanelSide,
-      0,
-      0LL,
-      0,
-      0);
+    PnpSetObjectProperty((__int64)v3, (__int64)a2, 1, (__int64)a3, 0LL, (__int64)DEVPKEY_Device_PanelSide, 0, 0LL, 0, 0);
     goto LABEL_92;
   }
 LABEL_8:
@@ -501,7 +491,7 @@ LABEL_146:
       v10 = PnpSetObjectProperty(
               (__int64)v3,
               (__int64)a2,
-              1u,
+              1,
               (__int64)a3,
               0LL,
               (__int64)DEVPKEY_Device_PanelPositionX,
@@ -515,7 +505,7 @@ LABEL_146:
       v10 = PnpSetObjectProperty(
               (__int64)v3,
               (__int64)a2,
-              1u,
+              1,
               (__int64)a3,
               0LL,
               (__int64)DEVPKEY_Device_PanelPositionY,
@@ -529,7 +519,7 @@ LABEL_146:
       v10 = PnpSetObjectProperty(
               (__int64)v3,
               (__int64)a2,
-              1u,
+              1,
               (__int64)a3,
               0LL,
               (__int64)DEVPKEY_Device_PanelPositionZ,
@@ -547,7 +537,7 @@ LABEL_146:
       v10 = PnpSetObjectProperty(
               (__int64)v3,
               (__int64)a2,
-              1u,
+              1,
               (__int64)a3,
               0LL,
               (__int64)DEVPKEY_Device_PanelPositionX,
@@ -561,7 +551,7 @@ LABEL_146:
       v10 = PnpSetObjectProperty(
               (__int64)v3,
               (__int64)a2,
-              1u,
+              1,
               (__int64)a3,
               0LL,
               (__int64)DEVPKEY_Device_PanelPositionY,
@@ -576,7 +566,7 @@ LABEL_146:
         PnpSetObjectProperty(
           (__int64)v3,
           (__int64)a2,
-          1u,
+          1,
           (__int64)a3,
           0LL,
           (__int64)DEVPKEY_Device_PanelPositionZ,
@@ -592,7 +582,7 @@ LABEL_146:
     PnpSetObjectProperty(
       (__int64)v3,
       (__int64)a2,
-      1u,
+      1,
       (__int64)a3,
       0LL,
       (__int64)DEVPKEY_Device_PanelPositionX,
@@ -603,7 +593,7 @@ LABEL_146:
     PnpSetObjectProperty(
       (__int64)v3,
       (__int64)a2,
-      1u,
+      1,
       (__int64)a3,
       0LL,
       (__int64)DEVPKEY_Device_PanelPositionY,
@@ -614,7 +604,7 @@ LABEL_146:
     PnpSetObjectProperty(
       (__int64)v3,
       (__int64)a2,
-      1u,
+      1,
       (__int64)a3,
       0LL,
       (__int64)DEVPKEY_Device_PanelPositionZ,
@@ -633,7 +623,7 @@ LABEL_52:
       v10 = PnpSetObjectProperty(
               (__int64)v3,
               (__int64)a2,
-              1u,
+              1,
               (__int64)a3,
               0LL,
               (__int64)DEVPKEY_Device_PanelRotationX,
@@ -647,7 +637,7 @@ LABEL_52:
         v10 = PnpSetObjectProperty(
                 (__int64)v3,
                 (__int64)a2,
-                1u,
+                1,
                 (__int64)a3,
                 0LL,
                 (__int64)DEVPKEY_Device_PanelRotationY,
@@ -661,7 +651,7 @@ LABEL_52:
           v10 = PnpSetObjectProperty(
                   (__int64)v3,
                   (__int64)a2,
-                  1u,
+                  1,
                   (__int64)a3,
                   0LL,
                   (__int64)DEVPKEY_Device_PanelRotationZ,
@@ -682,7 +672,7 @@ LABEL_52:
     v10 = PnpSetObjectProperty(
             (__int64)v3,
             (__int64)a2,
-            1u,
+            1,
             (__int64)a3,
             0LL,
             (__int64)DEVPKEY_Device_PanelRotationZ,
@@ -698,7 +688,7 @@ LABEL_52:
       PnpSetObjectProperty(
         (__int64)v3,
         (__int64)a2,
-        1u,
+        1,
         (__int64)a3,
         0LL,
         (__int64)DEVPKEY_Device_PanelRotationX,
@@ -709,7 +699,7 @@ LABEL_52:
       PnpSetObjectProperty(
         (__int64)v3,
         (__int64)a2,
-        1u,
+        1,
         (__int64)a3,
         0LL,
         (__int64)DEVPKEY_Device_PanelRotationY,
@@ -726,7 +716,7 @@ LABEL_52:
       PnpSetObjectProperty(
         (__int64)v3,
         (__int64)a2,
-        1u,
+        1,
         (__int64)a3,
         0LL,
         (__int64)DEVPKEY_Device_PanelRotationX,
@@ -737,7 +727,7 @@ LABEL_52:
       PnpSetObjectProperty(
         (__int64)v3,
         (__int64)a2,
-        1u,
+        1,
         (__int64)a3,
         0LL,
         (__int64)DEVPKEY_Device_PanelRotationY,
@@ -748,7 +738,7 @@ LABEL_52:
       PnpSetObjectProperty(
         (__int64)v3,
         (__int64)a2,
-        1u,
+        1,
         (__int64)a3,
         0LL,
         (__int64)DEVPKEY_Device_PanelRotationZ,
@@ -767,7 +757,7 @@ LABEL_46:
     v10 = PnpSetObjectProperty(
             (__int64)v3,
             (__int64)a2,
-            1u,
+            1,
             (__int64)a3,
             0LL,
             (__int64)DEVPKEY_Device_PanelColor,
@@ -785,7 +775,7 @@ LABEL_14:
     PnpSetObjectProperty(
       (__int64)v3,
       (__int64)a2,
-      1u,
+      1,
       (__int64)a3,
       0LL,
       (__int64)DEVPKEY_Device_PanelColor,
@@ -800,7 +790,7 @@ LABEL_17:
       PnpSetObjectProperty(
         (__int64)v3,
         (__int64)a2,
-        1u,
+        1,
         (__int64)a3,
         0LL,
         (__int64)DEVPKEY_Device_PanelShape,
@@ -818,12 +808,12 @@ LABEL_54:
   v20 = 0;
   v21 = (*(_DWORD *)(v4 + 8) >> 10) & 0xF;
   if ( (unsigned int)v21 < 9 )
-    v20 = dword_140041940[v21];
+    v20 = dword_140041D40[v21];
   v54 = v20;
   v10 = PnpSetObjectProperty(
           (__int64)v3,
           (__int64)a2,
-          1u,
+          1,
           (__int64)a3,
           0LL,
           (__int64)DEVPKEY_Device_PanelShape,
@@ -841,7 +831,7 @@ LABEL_164:
     v10 = PnpSetObjectProperty(
             (__int64)v3,
             (__int64)a2,
-            1u,
+            1,
             (__int64)a3,
             0LL,
             (__int64)DEVPKEY_Device_PanelVisible,
@@ -862,7 +852,7 @@ LABEL_20:
     PnpSetObjectProperty(
       (__int64)v3,
       (__int64)a2,
-      1u,
+      1,
       (__int64)a3,
       0LL,
       (__int64)DEVPKEY_Device_PanelVisible,
@@ -908,7 +898,7 @@ LABEL_23:
         v23 = v64;
       }
       v65 = v23;
-      v16 = (wchar_t *)ExAllocatePool2(0x100uLL);
+      v16 = (wchar_t *)ExAllocatePool2(0x100uLL, v23, 0x52504E50u);
       if ( !v16 )
       {
 LABEL_113:
@@ -939,11 +929,11 @@ LABEL_112:
     DevicePanelGroup = v33;
     v34 = 0LL;
     if ( ((*((_DWORD *)v16 + 2) >> 3) & 7) != 7 )
-      v34 = (unsigned int)dword_140041908[(*((_DWORD *)v16 + 2) >> 3) & 7];
+      v34 = (unsigned int)dword_140041D08[(*((_DWORD *)v16 + 2) >> 3) & 7];
     v68 = v34;
     if ( !v7 )
     {
-      v7 = (wchar_t *)ExAllocatePool2(0x100uLL);
+      v7 = (wchar_t *)ExAllocatePool2(0x100uLL, 0x72uLL, 0x52504E50u);
       if ( !v7 )
         goto LABEL_113;
       v33 = DevicePanelGroup;
@@ -961,7 +951,7 @@ LABEL_112:
     v10 = PnpSetObjectProperty(
             (__int64)v3,
             (__int64)v7,
-            6u,
+            6,
             v75,
             0LL,
             (__int64)DEVPKEY_DevicePanel_Width,
@@ -975,7 +965,7 @@ LABEL_112:
     v10 = PnpSetObjectProperty(
             (__int64)v3,
             (__int64)v7,
-            6u,
+            6,
             (__int64)v8,
             0LL,
             (__int64)DEVPKEY_DevicePanel_Height,
@@ -991,7 +981,7 @@ LABEL_112:
         PnpSetObjectProperty(
           (__int64)v3,
           (__int64)v7,
-          6u,
+          6,
           (__int64)v8,
           0LL,
           (__int64)DEVPKEY_DevicePanel_Color,
@@ -1006,7 +996,7 @@ LABEL_112:
       v10 = PnpSetObjectProperty(
               (__int64)v3,
               (__int64)v7,
-              6u,
+              6,
               (__int64)v8,
               0LL,
               (__int64)DEVPKEY_DevicePanel_Color,
@@ -1019,18 +1009,18 @@ LABEL_112:
     }
     v37 = v69;
     if ( !v62 )
-      v37 = 16;
+      v37 = 16LL;
     v62 = v70;
     v69 = v37;
     v38 = v70;
     if ( !v70 )
     {
 LABEL_187:
-      v38 = (PVOID)ExAllocatePool2(0x100uLL);
+      v38 = (PVOID)ExAllocatePool2(0x100uLL, v37, 0x52504E50u);
       v62 = v38;
       if ( !v38 )
         goto LABEL_113;
-      v37 = v69;
+      LODWORD(v37) = v69;
     }
     v39 = PnpGetObjectProperty(v3, a2, 1u, a3, 0LL, (__int64)&v79, &v63, (const wchar_t *)v38, v37, (__int64)&v58, 0);
     v10 = v39;
@@ -1039,6 +1029,7 @@ LABEL_187:
       if ( v58 <= v69 )
         goto LABEL_112;
       ExFreePoolWithTag(v62, 0);
+      v37 = v58;
       v69 = v58;
       goto LABEL_187;
     }
@@ -1068,7 +1059,7 @@ LABEL_187:
       PnpSetObjectProperty(
         (__int64)v3,
         (__int64)v7,
-        6u,
+        6,
         (__int64)v8,
         0LL,
         (__int64)DEVPKEY_DevicePanel_JointType,
@@ -1079,7 +1070,7 @@ LABEL_187:
       PnpSetObjectProperty(
         (__int64)v3,
         (__int64)v7,
-        6u,
+        6,
         (__int64)v8,
         0LL,
         (__int64)DEVPKEY_DevicePanel_JointSourcePanelEdge,
@@ -1090,7 +1081,7 @@ LABEL_187:
       PnpSetObjectProperty(
         (__int64)v3,
         (__int64)v7,
-        6u,
+        6,
         (__int64)v8,
         0LL,
         (__int64)DEVPKEY_DevicePanel_JointTargetPanelId,
@@ -1101,7 +1092,7 @@ LABEL_187:
       PnpSetObjectProperty(
         (__int64)v3,
         (__int64)v7,
-        6u,
+        6,
         (__int64)v8,
         0LL,
         (__int64)DEVPKEY_DevicePanel_JointTargetPanelEdge,
@@ -1112,7 +1103,7 @@ LABEL_187:
       PnpSetObjectProperty(
         (__int64)v3,
         (__int64)v7,
-        6u,
+        6,
         (__int64)v8,
         0LL,
         (__int64)DEVPKEY_DevicePanel_JointSourcePositionX,
@@ -1123,7 +1114,7 @@ LABEL_187:
       PnpSetObjectProperty(
         (__int64)v3,
         (__int64)v7,
-        6u,
+        6,
         (__int64)v8,
         0LL,
         (__int64)DEVPKEY_DevicePanel_JointSourcePositionY,
@@ -1134,7 +1125,7 @@ LABEL_187:
       PnpSetObjectProperty(
         (__int64)v3,
         (__int64)v7,
-        6u,
+        6,
         (__int64)v8,
         0LL,
         (__int64)DEVPKEY_DevicePanel_JointSourcePositionZ,
@@ -1145,7 +1136,7 @@ LABEL_187:
       PnpSetObjectProperty(
         (__int64)v3,
         (__int64)v7,
-        6u,
+        6,
         (__int64)v8,
         0LL,
         (__int64)DEVPKEY_DevicePanel_JointTargetPositionX,
@@ -1156,7 +1147,7 @@ LABEL_187:
       PnpSetObjectProperty(
         (__int64)v3,
         (__int64)v7,
-        6u,
+        6,
         (__int64)v8,
         0LL,
         (__int64)DEVPKEY_DevicePanel_JointTargetPositionY,
@@ -1167,7 +1158,7 @@ LABEL_187:
       PnpSetObjectProperty(
         (__int64)v3,
         (__int64)v7,
-        6u,
+        6,
         (__int64)v8,
         0LL,
         (__int64)DEVPKEY_DevicePanel_JointTargetPositionZ,
@@ -1178,7 +1169,7 @@ LABEL_187:
       PnpSetObjectProperty(
         (__int64)v3,
         (__int64)v7,
-        6u,
+        6,
         (__int64)v8,
         0LL,
         (__int64)DEVPKEY_DevicePanel_JointTargetRotationX,
@@ -1189,7 +1180,7 @@ LABEL_187:
       PnpSetObjectProperty(
         (__int64)v3,
         (__int64)v7,
-        6u,
+        6,
         (__int64)v8,
         0LL,
         (__int64)DEVPKEY_DevicePanel_JointTargetRotationY,
@@ -1200,7 +1191,7 @@ LABEL_187:
       PnpSetObjectProperty(
         (__int64)v3,
         (__int64)v7,
-        6u,
+        6,
         (__int64)v8,
         0LL,
         (__int64)DEVPKEY_DevicePanel_JointTargetRotationZ,
@@ -1211,7 +1202,7 @@ LABEL_187:
       PnpSetObjectProperty(
         (__int64)v3,
         (__int64)v7,
-        6u,
+        6,
         (__int64)v8,
         0LL,
         (__int64)DEVPKEY_DevicePanel_JointMovementOrientation,
@@ -1222,7 +1213,7 @@ LABEL_187:
       PnpSetObjectProperty(
         (__int64)v3,
         (__int64)v7,
-        6u,
+        6,
         (__int64)v8,
         0LL,
         (__int64)DEVPKEY_DevicePanel_JointMovementPositionMin,
@@ -1235,12 +1226,12 @@ LABEL_187:
     v40 = 0;
     v41 = (*v15 >> 5) & 0xF;
     if ( v41 < 5 )
-      v40 = dword_1400418F0[v41];
+      v40 = dword_140041D70[v41];
     v54 = v40;
     v10 = PnpSetObjectProperty(
             (__int64)v3,
             (__int64)v7,
-            6u,
+            6,
             (__int64)v8,
             0LL,
             (__int64)DEVPKEY_DevicePanel_JointType,
@@ -1253,12 +1244,12 @@ LABEL_187:
     v42 = 0;
     v43 = (*(_DWORD *)v62 >> 9) & 7;
     if ( v43 < 5 )
-      v42 = dword_140041928[v43];
+      v42 = dword_140041D28[v43];
     v54 = v42;
     v10 = PnpSetObjectProperty(
             (__int64)v3,
             (__int64)v7,
-            6u,
+            6,
             (__int64)v8,
             0LL,
             (__int64)DEVPKEY_DevicePanel_JointSourcePanelEdge,
@@ -1271,14 +1262,14 @@ LABEL_187:
     v44 = v73;
     if ( !v73 )
     {
-      v73 = (PVOID)ExAllocatePool2(0x100uLL);
+      v73 = (PVOID)ExAllocatePool2(0x100uLL, 0x72uLL, 0x52504E50u);
       v44 = v73;
       if ( !v73 )
         goto LABEL_113;
     }
     v45 = 0LL;
     if ( ((*(_DWORD *)v62 >> 20) & 7) != 7 )
-      v45 = (unsigned int)dword_140041908[(*(_DWORD *)v62 >> 20) & 7];
+      v45 = (unsigned int)dword_140041D08[(*(_DWORD *)v62 >> 20) & 7];
     v54 = v45;
     v10 = CmBuildDevicePanelId(&v76, (unsigned __int8)(*(_DWORD *)v62 >> 12), v45, v44);
     if ( v10 < 0 )
@@ -1290,7 +1281,7 @@ LABEL_187:
     v10 = PnpSetObjectProperty(
             (__int64)v3,
             (__int64)v7,
-            6u,
+            6,
             (__int64)v8,
             0LL,
             (__int64)DEVPKEY_DevicePanel_JointTargetPanelId,
@@ -1303,12 +1294,12 @@ LABEL_187:
     v47 = 0;
     v48 = (*(_DWORD *)v62 >> 23) & 7;
     if ( v48 < 5 )
-      v47 = dword_140041928[v48];
+      v47 = dword_140041D28[v48];
     v54 = v47;
     v10 = PnpSetObjectProperty(
             (__int64)v3,
             (__int64)v7,
-            6u,
+            6,
             (__int64)v8,
             0LL,
             (__int64)DEVPKEY_DevicePanel_JointTargetPanelEdge,
@@ -1325,7 +1316,7 @@ LABEL_187:
         PnpSetObjectProperty(
           (__int64)v3,
           (__int64)v7,
-          6u,
+          6,
           (__int64)v8,
           0LL,
           (__int64)DEVPKEY_DevicePanel_JointSourcePositionX,
@@ -1336,7 +1327,7 @@ LABEL_187:
         PnpSetObjectProperty(
           (__int64)v3,
           (__int64)v7,
-          6u,
+          6,
           (__int64)v8,
           0LL,
           (__int64)DEVPKEY_DevicePanel_JointSourcePositionY,
@@ -1347,7 +1338,7 @@ LABEL_187:
         PnpSetObjectProperty(
           (__int64)v3,
           (__int64)v7,
-          6u,
+          6,
           (__int64)v8,
           0LL,
           (__int64)DEVPKEY_DevicePanel_JointSourcePositionZ,
@@ -1363,7 +1354,7 @@ LABEL_187:
       v10 = PnpSetObjectProperty(
               (__int64)v3,
               (__int64)v7,
-              6u,
+              6,
               (__int64)v8,
               0LL,
               (__int64)DEVPKEY_DevicePanel_JointSourcePositionX,
@@ -1377,7 +1368,7 @@ LABEL_187:
       v10 = PnpSetObjectProperty(
               (__int64)v3,
               (__int64)v7,
-              6u,
+              6,
               (__int64)v8,
               0LL,
               (__int64)DEVPKEY_DevicePanel_JointSourcePositionY,
@@ -1391,7 +1382,7 @@ LABEL_187:
         PnpSetObjectProperty(
           (__int64)v3,
           (__int64)v7,
-          6u,
+          6,
           (__int64)v8,
           0LL,
           (__int64)DEVPKEY_DevicePanel_JointSourcePositionZ,
@@ -1404,7 +1395,7 @@ LABEL_187:
     v10 = PnpSetObjectProperty(
             (__int64)v3,
             (__int64)v7,
-            6u,
+            6,
             (__int64)v8,
             0LL,
             (__int64)DEVPKEY_DevicePanel_JointTargetPositionX,
@@ -1418,7 +1409,7 @@ LABEL_187:
     v10 = PnpSetObjectProperty(
             (__int64)v3,
             (__int64)v7,
-            6u,
+            6,
             (__int64)v8,
             0LL,
             (__int64)DEVPKEY_DevicePanel_JointTargetPositionY,
@@ -1432,7 +1423,7 @@ LABEL_187:
     v10 = PnpSetObjectProperty(
             (__int64)v3,
             (__int64)v7,
-            6u,
+            6,
             (__int64)v8,
             0LL,
             (__int64)DEVPKEY_DevicePanel_JointTargetPositionZ,
@@ -1447,7 +1438,7 @@ LABEL_187:
     v10 = PnpSetObjectProperty(
             (__int64)v3,
             (__int64)v7,
-            6u,
+            6,
             (__int64)v8,
             0LL,
             (__int64)DEVPKEY_DevicePanel_JointTargetRotationZ,
@@ -1457,11 +1448,11 @@ LABEL_187:
             0);
     if ( v10 < 0 )
       goto LABEL_29;
-    v54 = dword_1400418E8[(unsigned __int64)*(unsigned int *)v62 >> 31];
+    v54 = dword_140041D68[(unsigned __int64)*(unsigned int *)v62 >> 31];
     v10 = PnpSetObjectProperty(
             (__int64)v3,
             (__int64)v7,
-            6u,
+            6,
             (__int64)v8,
             0LL,
             (__int64)DEVPKEY_DevicePanel_JointMovementOrientation,
@@ -1482,7 +1473,7 @@ LABEL_187:
       PnpSetObjectProperty(
         (__int64)v3,
         (__int64)v7,
-        6u,
+        6,
         (__int64)v8,
         0LL,
         (__int64)DEVPKEY_DevicePanel_JointMovementPositionMin,
@@ -1494,7 +1485,7 @@ LABEL_248:
       PnpSetObjectProperty(
         (__int64)v3,
         (__int64)v7,
-        6u,
+        6,
         (__int64)v8,
         0LL,
         (__int64)DEVPKEY_DevicePanel_JointMovementPositionMax,
@@ -1505,7 +1496,7 @@ LABEL_248:
       PnpSetObjectProperty(
         (__int64)v3,
         (__int64)v7,
-        6u,
+        6,
         (__int64)v8,
         0LL,
         (__int64)DEVPKEY_DevicePanel_JointMovementPositionStart,
@@ -1516,7 +1507,7 @@ LABEL_248:
       PnpSetObjectProperty(
         (__int64)v3,
         (__int64)v7,
-        6u,
+        6,
         (__int64)v8,
         0LL,
         (__int64)DEVPKEY_DevicePanel_JointMovementPosition,
@@ -1530,7 +1521,7 @@ LABEL_248:
     if ( (int)PnpSetObjectProperty(
                 (__int64)v3,
                 (__int64)v7,
-                6u,
+                6,
                 (__int64)v8,
                 0LL,
                 (__int64)DEVPKEY_DevicePanel_JointMovementPositionMin,
@@ -1546,7 +1537,7 @@ LABEL_248:
       if ( (int)PnpSetObjectProperty(
                   (__int64)v3,
                   (__int64)v7,
-                  6u,
+                  6,
                   (__int64)v8,
                   0LL,
                   (__int64)DEVPKEY_DevicePanel_JointMovementPositionMax,
@@ -1562,7 +1553,7 @@ LABEL_248:
         if ( (int)PnpSetObjectProperty(
                     (__int64)v3,
                     (__int64)v7,
-                    6u,
+                    6,
                     (__int64)v8,
                     0LL,
                     (__int64)DEVPKEY_DevicePanel_JointMovementPositionStart,
@@ -1589,7 +1580,7 @@ LABEL_248:
           PnpSetObjectProperty(
             (__int64)v3,
             (__int64)v7,
-            6u,
+            6,
             (__int64)v8,
             0LL,
             (__int64)DEVPKEY_DevicePanel_JointMovementPosition,

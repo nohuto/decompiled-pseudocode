@@ -1,11 +1,11 @@
 /*
- * XREFs of PopRundownPowerSettings @ 0x140A38500
+ * XREFs of PopRundownPowerSettings @ 0x140A2D5C0
  * Callers:
- *     PopDiagTraceControlCallback @ 0x140A37E50 (PopDiagTraceControlCallback.c)
+ *     PopDiagTraceControlCallback @ 0x140A2CF10 (PopDiagTraceControlCallback.c)
  * Callees:
- *     KeReleaseGuardedMutex @ 0x14031E470 (KeReleaseGuardedMutex.c)
- *     ExAcquireFastMutex @ 0x14033E850 (ExAcquireFastMutex.c)
- *     PopDiagTracePowerSetting @ 0x140A38580 (PopDiagTracePowerSetting.c)
+ *     KeReleaseGuardedMutex @ 0x1402C7000 (KeReleaseGuardedMutex.c)
+ *     ExAcquireFastMutex @ 0x14031DD30 (ExAcquireFastMutex.c)
+ *     PopDiagTracePowerSetting @ 0x140A2D640 (PopDiagTracePowerSetting.c)
  */
 
 void PopRundownPowerSettings()
@@ -19,7 +19,7 @@ void PopRundownPowerSettings()
   v1 = (PVOID *)PopPowerSettings;
   if ( PopPowerSettings != &PopPowerSettings )
   {
-    v2 = dword_140F0BA4C;
+    v2 = dword_140F0B38C;
     do
     {
       v3 = (unsigned int *)v1[v2 + 8];

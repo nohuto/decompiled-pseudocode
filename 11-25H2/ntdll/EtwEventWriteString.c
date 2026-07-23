@@ -12,21 +12,21 @@
  *     memset$thunk$772440563353939046 @ 0x180174030 (memset$thunk$772440563353939046.c)
  */
 
-__int64 __fastcall EtwEventWriteString(__int64 a1, unsigned __int8 a2, __int64 a3, __int64 a4)
+ULONG __cdecl EtwEventWriteString(REGHANDLE RegHandle, UCHAR Level, ULONGLONG Keyword, PCWSTR String)
 {
-  unsigned int v8; // r13d
+  ULONG v8; // r13d
   __int64 v9; // rcx
   __int64 v10; // rax
   __int64 v11; // rbx
-  unsigned __int8 v12; // al
+  UCHAR v12; // al
   bool v13; // r12
-  unsigned __int8 v14; // al
+  UCHAR v14; // al
   bool v15; // di
   _GUID ActivityId; // xmm0
   __int64 v18; // rax
   NTSTATUS v20; // eax
   __int128 v21; // [rsp+50h] [rbp-B0h] BYREF
-  _BYTE v22[4]; // [rsp+60h] [rbp-A0h] BYREF
+  _BYTE Fields[4]; // [rsp+60h] [rbp-A0h] BYREF
   int v23; // [rsp+64h] [rbp-9Ch]
   __int128 v24; // [rsp+88h] [rbp-78h] BYREF
   _GUID v25; // [rsp+A0h] [rbp-60h] BYREF
@@ -37,29 +37,29 @@ __int64 __fastcall EtwEventWriteString(__int64 a1, unsigned __int8 a2, __int64 a
   int v30; // [rsp+D0h] [rbp-30h]
   _BYTE v31[144]; // [rsp+E0h] [rbp-20h] BYREF
 
-  memset_thunk_772440563353939046(v22, 0, 0x78uLL);
+  memset_thunk_772440563353939046(Fields, 0, 0x78uLL);
   memset_thunk_772440563353939046(v31, 0, 0x88uLL);
   v8 = 0;
   v21 = 0LL;
-  v10 = ProviderHandleLookup(v9, a1);
+  v10 = ProviderHandleLookup(v9, RegHandle);
   v11 = v10;
-  if ( !v10 || WORD2(a1) != *(_WORD *)(v10 + 84) )
-    return 6LL;
-  if ( !a4 )
-    return 87LL;
+  if ( !v10 || WORD2(RegHandle) != *(_WORD *)(v10 + 84) )
+    return 6;
+  if ( !String )
+    return 87;
   v13 = *(_BYTE *)(v10 + 116)
-     && ((v12 = *(_BYTE *)(v10 + 117), a2 <= v12) || !v12)
-     && ((*(_BYTE *)(v11 + 112) & 0x40) != 0 && !a3
-      || (a3 & *(_QWORD *)(v11 + 104)) != 0 && (a3 & *(_QWORD *)(v11 + 96)) == *(_QWORD *)(v11 + 96));
+     && ((v12 = *(_BYTE *)(v10 + 117), Level <= v12) || !v12)
+     && ((*(_BYTE *)(v11 + 112) & 0x40) != 0 && !Keyword
+      || (Keyword & *(_QWORD *)(v11 + 104)) != 0 && (Keyword & *(_QWORD *)(v11 + 96)) == *(_QWORD *)(v11 + 96));
   v15 = *(_BYTE *)(v11 + 236)
-     && ((v14 = *(_BYTE *)(v11 + 237), a2 <= v14) || !v14)
-     && ((*(_BYTE *)(v11 + 232) & 0x40) != 0 && !a3
-      || (a3 & *(_QWORD *)(v11 + 224)) != 0 && (a3 & *(_QWORD *)(v11 + 216)) == *(_QWORD *)(v11 + 216));
+     && ((v14 = *(_BYTE *)(v11 + 237), Level <= v14) || !v14)
+     && ((*(_BYTE *)(v11 + 232) & 0x40) != 0 && !Keyword
+      || (Keyword & *(_QWORD *)(v11 + 224)) != 0 && (Keyword & *(_QWORD *)(v11 + 216)) == *(_QWORD *)(v11 + 216));
   if ( v13 || v15 )
   {
     *(_QWORD *)&v24 = 0LL;
-    BYTE4(v24) = a2;
-    *((_QWORD *)&v24 + 1) = a3;
+    BYTE4(v24) = Level;
+    *((_QWORD *)&v24 + 1) = Keyword;
     v29 = &v21;
     v23 = 4;
     v28 = 1;
@@ -69,8 +69,8 @@ __int64 __fastcall EtwEventWriteString(__int64 a1, unsigned __int8 a2, __int64 a
     v27 = 0;
     v25 = ActivityId;
     v30 = 0;
-    *(_QWORD *)&v21 = a4;
-    while ( *(_WORD *)(a4 + 2 * v18++ + 2) != 0 )
+    *(_QWORD *)&v21 = String;
+    while ( String[++v18] != 0 )
       ;
     *((_QWORD *)&v21 + 1) = (unsigned int)(2 * v18 + 2);
     if ( v15 )
@@ -81,7 +81,7 @@ __int64 __fastcall EtwEventWriteString(__int64 a1, unsigned __int8 a2, __int64 a
     }
     if ( v13 )
     {
-      v20 = NtTraceEvent(*(_QWORD *)(v11 + 88), 768LL, 120LL, v22);
+      v20 = NtTraceEvent(*(HANDLE *)(v11 + 88), 0x300u, 0x78u, Fields);
       if ( v20 )
         v8 = RtlNtStatusToDosError(v20);
       else

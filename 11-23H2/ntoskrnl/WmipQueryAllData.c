@@ -1,22 +1,22 @@
 /*
- * XREFs of WmipQueryAllData @ 0x1406C7A7C
+ * XREFs of WmipQueryAllData @ 0x1406C7AAC
  * Callers:
- *     WmipIoControl @ 0x1407D6170 (WmipIoControl.c)
- *     IoWMIQueryAllData @ 0x14085D720 (IoWMIQueryAllData.c)
- *     WmipQueryAllDataMultiple @ 0x1409E0C74 (WmipQueryAllDataMultiple.c)
+ *     WmipIoControl @ 0x1407D6440 (WmipIoControl.c)
+ *     IoWMIQueryAllData @ 0x14085D960 (IoWMIQueryAllData.c)
+ *     WmipQueryAllDataMultiple @ 0x1409E0E74 (WmipQueryAllDataMultiple.c)
  * Callees:
- *     ObReferenceObjectByPointer @ 0x14022A980 (ObReferenceObjectByPointer.c)
- *     WmipAlign @ 0x14022AE30 (WmipAlign.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memset @ 0x140435A00 (memset.c)
- *     WmipUnreferenceEntry @ 0x1406C6FE0 (WmipUnreferenceEntry.c)
- *     WmipSendWmiIrp @ 0x1406C7398 (WmipSendWmiIrp.c)
- *     WmipForwardWmiIrp @ 0x1406C7480 (WmipForwardWmiIrp.c)
- *     WmipPrepareForWnodeAD @ 0x1406C7EB0 (WmipPrepareForWnodeAD.c)
- *     WmipStaticInstanceNameSize @ 0x1406C7FC8 (WmipStaticInstanceNameSize.c)
- *     WmipInsertStaticNames @ 0x1406C8054 (WmipInsertStaticNames.c)
- *     ObReferenceObjectByHandle @ 0x1406E62C0 (ObReferenceObjectByHandle.c)
+ *     ObReferenceObjectByPointer @ 0x14022AA90 (ObReferenceObjectByPointer.c)
+ *     WmipAlign @ 0x14022AF40 (WmipAlign.c)
+ *     ObfDereferenceObject @ 0x140231660 (ObfDereferenceObject.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     WmipUnreferenceEntry @ 0x1406C7010 (WmipUnreferenceEntry.c)
+ *     WmipSendWmiIrp @ 0x1406C73C8 (WmipSendWmiIrp.c)
+ *     WmipForwardWmiIrp @ 0x1406C74B0 (WmipForwardWmiIrp.c)
+ *     WmipPrepareForWnodeAD @ 0x1406C7EE0 (WmipPrepareForWnodeAD.c)
+ *     WmipStaticInstanceNameSize @ 0x1406C7FF8 (WmipStaticInstanceNameSize.c)
+ *     WmipInsertStaticNames @ 0x1406C8084 (WmipInsertStaticNames.c)
+ *     ObReferenceObjectByHandle @ 0x1406E62F0 (ObReferenceObjectByHandle.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

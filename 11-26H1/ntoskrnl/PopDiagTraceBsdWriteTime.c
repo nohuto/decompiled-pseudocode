@@ -1,10 +1,10 @@
 /*
- * XREFs of PopDiagTraceBsdWriteTime @ 0x14043608C
+ * XREFs of PopDiagTraceBsdWriteTime @ 0x14042520C
  * Callers:
- *     PopWriteBsdPoInfo @ 0x140435F08 (PopWriteBsdPoInfo.c)
+ *     PopWriteBsdPoInfo @ 0x140425088 (PopWriteBsdPoInfo.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212E30 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212F10 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall PopDiagTraceBsdWriteTime(int a1, unsigned int a2, int a3)
@@ -24,10 +24,10 @@ NTSTATUS __fastcall PopDiagTraceBsdWriteTime(int a1, unsigned int a2, int a3)
   __int64 *v15; // [rsp+A0h] [rbp+37h]
   __int64 v16; // [rsp+A8h] [rbp+3Fh]
 
-  if ( (a3 < 0 || a2) && (unsigned int)dword_140E07598 > 5 && (qword_140E075A8 & 0x200000000000LL) != 0 )
+  if ( (a3 < 0 || a2) && (unsigned int)dword_140E07560 > 5 && (qword_140E07570 & 0x200000000000LL) != 0 )
   {
     result = 0;
-    if ( (qword_140E075B0 & 0x200000000000LL) == qword_140E075B0 )
+    if ( (qword_140E07578 & 0x200000000000LL) == qword_140E07578 )
     {
       v4 = a1;
       v9 = &v4;
@@ -42,8 +42,8 @@ NTSTATUS __fastcall PopDiagTraceBsdWriteTime(int a1, unsigned int a2, int a3)
       v7 = 0x1000000LL;
       v16 = 8LL;
       return tlgWriteTransfer_EtwWriteTransfer(
-               (__int64)&dword_140E07598,
-               (unsigned __int8 *)word_14004A012,
+               (__int64)&dword_140E07560,
+               (unsigned __int8 *)word_14004A612,
                0LL,
                0LL,
                6u,

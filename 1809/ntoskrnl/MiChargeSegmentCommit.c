@@ -1,10 +1,10 @@
 /*
- * XREFs of MiChargeSegmentCommit @ 0x14061E0D0
+ * XREFs of MiChargeSegmentCommit @ 0x14061F0D0
  * Callers:
- *     MiMapViewOfDataSection @ 0x1405F0BB0 (MiMapViewOfDataSection.c)
- *     MiUpdateCfgSystemWideBitmapWorker @ 0x1405F3130 (MiUpdateCfgSystemWideBitmapWorker.c)
- *     MiCommitPagefileBackedSection @ 0x14061DFB0 (MiCommitPagefileBackedSection.c)
- *     MmCommitSessionMappedView @ 0x14069D8C0 (MmCommitSessionMappedView.c)
+ *     MiMapViewOfDataSection @ 0x1405F1BB0 (MiMapViewOfDataSection.c)
+ *     MiUpdateCfgSystemWideBitmapWorker @ 0x1405F4130 (MiUpdateCfgSystemWideBitmapWorker.c)
+ *     MiCommitPagefileBackedSection @ 0x14061EFB0 (MiCommitPagefileBackedSection.c)
+ *     MmCommitSessionMappedView @ 0x14069EB80 (MmCommitSessionMappedView.c)
  * Callees:
  *     MiPteInShadowRange @ 0x14003D740 (MiPteInShadowRange.c)
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
@@ -12,18 +12,18 @@
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     KiLeaveGuardedRegionUnsafe @ 0x14004F090 (KiLeaveGuardedRegionUnsafe.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
- *     MiReturnCommit @ 0x140065D40 (MiReturnCommit.c)
- *     MiReadPteShadow @ 0x14006C550 (MiReadPteShadow.c)
- *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     MiGetSubsectionCrossPartitionReferences @ 0x14009388C (MiGetSubsectionCrossPartitionReferences.c)
- *     MiGetControlAreaPartition @ 0x1400938A8 (MiGetControlAreaPartition.c)
- *     MiUpdateControlAreaCommitCount @ 0x140095F94 (MiUpdateControlAreaCommitCount.c)
- *     MiMakeDemandZeroPte @ 0x140097EE0 (MiMakeDemandZeroPte.c)
- *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
- *     MiGetSubsectionCharges @ 0x1402C4A94 (MiGetSubsectionCharges.c)
- *     MiReturnCrossPartitionSectionCharges @ 0x1402C4CB4 (MiReturnCrossPartitionSectionCharges.c)
- *     MiUpdateProcessSharedCommit @ 0x14061DF18 (MiUpdateProcessSharedCommit.c)
+ *     MiReturnCommit @ 0x140065D30 (MiReturnCommit.c)
+ *     MiReadPteShadow @ 0x14006C540 (MiReadPteShadow.c)
+ *     ExfTryToWakePushLock @ 0x140091500 (ExfTryToWakePushLock.c)
+ *     MiGetSubsectionCrossPartitionReferences @ 0x1400937CC (MiGetSubsectionCrossPartitionReferences.c)
+ *     MiGetControlAreaPartition @ 0x1400937E8 (MiGetControlAreaPartition.c)
+ *     MiUpdateControlAreaCommitCount @ 0x140095ED4 (MiUpdateControlAreaCommitCount.c)
+ *     MiMakeDemandZeroPte @ 0x140097E20 (MiMakeDemandZeroPte.c)
+ *     MiWritePteShadow @ 0x140120F40 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120FA0 (MiPteHasShadow.c)
+ *     MiGetSubsectionCharges @ 0x1402C4C84 (MiGetSubsectionCharges.c)
+ *     MiReturnCrossPartitionSectionCharges @ 0x1402C4EA4 (MiReturnCrossPartitionSectionCharges.c)
+ *     MiUpdateProcessSharedCommit @ 0x14061EF18 (MiUpdateProcessSharedCommit.c)
  */
 
 __int64 __fastcall MiChargeSegmentCommit(__int64 *a1, __int64 *a2, __int64 a3)
@@ -150,7 +150,7 @@ LABEL_18:
       *a2 = v25;
       goto LABEL_19;
     }
-    if ( !HIBYTE(word_14043A1AC) && (v29 & 1) != 0 )
+    if ( !HIBYTE(word_14043B26C) && (v29 & 1) != 0 )
       v25 |= v28;
     *a2 = v25;
     MiWritePteShadow((__int64)a2, v25);

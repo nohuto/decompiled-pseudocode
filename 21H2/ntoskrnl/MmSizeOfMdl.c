@@ -1,20 +1,20 @@
 /*
- * XREFs of MmSizeOfMdl @ 0x1402986E0
+ * XREFs of MmSizeOfMdl @ 0x140219160
  * Callers:
- *     MmRotatePhysicalView @ 0x140682910 (MmRotatePhysicalView.c)
- *     ExLockUserBuffer @ 0x140683180 (ExLockUserBuffer.c)
- *     MiAllocatePerSessionProtos @ 0x1406BCA38 (MiAllocatePerSessionProtos.c)
- *     ExInitializeLeapSecondData @ 0x1407A8EAC (ExInitializeLeapSecondData.c)
- *     VslCreateSecureSection @ 0x14088F150 (VslCreateSecureSection.c)
- *     VslObtainHotPatchUndoTable @ 0x14088FFD8 (VslObtainHotPatchUndoTable.c)
- *     MiQueryMemoryPhysicalContiguity @ 0x1408D12A0 (MiQueryMemoryPhysicalContiguity.c)
- *     MiLoadDataIntoVsmEnclave @ 0x1408D31C4 (MiLoadDataIntoVsmEnclave.c)
- *     MiLoadSectionIntoVsmEnclave @ 0x1408D3570 (MiLoadSectionIntoVsmEnclave.c)
- *     NtLoadEnclaveData @ 0x1408D4450 (NtLoadEnclaveData.c)
- *     PspCreateSecureThread @ 0x140909F9C (PspCreateSecureThread.c)
- *     SmProcessStatsRequest @ 0x14092A038 (SmProcessStatsRequest.c)
- *     NtStartProfile @ 0x14095ADD0 (NtStartProfile.c)
- *     PopMarkHiberPhase @ 0x1409B15C8 (PopMarkHiberPhase.c)
+ *     ExLockUserBuffer @ 0x1405E45FC (ExLockUserBuffer.c)
+ *     MmRotatePhysicalView @ 0x1405E48E0 (MmRotatePhysicalView.c)
+ *     MiAllocatePerSessionProtos @ 0x14061BC08 (MiAllocatePerSessionProtos.c)
+ *     ExInitializeLeapSecondData @ 0x1407A90AC (ExInitializeLeapSecondData.c)
+ *     VslCreateSecureSection @ 0x14088F2B0 (VslCreateSecureSection.c)
+ *     VslObtainHotPatchUndoTable @ 0x140890138 (VslObtainHotPatchUndoTable.c)
+ *     MiQueryMemoryPhysicalContiguity @ 0x1408D1400 (MiQueryMemoryPhysicalContiguity.c)
+ *     MiLoadDataIntoVsmEnclave @ 0x1408D3324 (MiLoadDataIntoVsmEnclave.c)
+ *     MiLoadSectionIntoVsmEnclave @ 0x1408D36D0 (MiLoadSectionIntoVsmEnclave.c)
+ *     NtLoadEnclaveData @ 0x1408D45B0 (NtLoadEnclaveData.c)
+ *     PspCreateSecureThread @ 0x14090A0FC (PspCreateSecureThread.c)
+ *     SmProcessStatsRequest @ 0x14092A198 (SmProcessStatsRequest.c)
+ *     NtStartProfile @ 0x14095AFA0 (NtStartProfile.c)
+ *     PopMarkHiberPhase @ 0x1409B24F8 (PopMarkHiberPhase.c)
  * Callees:
  *     <none>
  */

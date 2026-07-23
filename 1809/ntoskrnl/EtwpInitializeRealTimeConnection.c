@@ -1,11 +1,11 @@
 /*
- * XREFs of EtwpInitializeRealTimeConnection @ 0x1409D04A0
+ * XREFs of EtwpInitializeRealTimeConnection @ 0x1409D14A0
  * Callers:
- *     EtwpInitialize @ 0x1409D0620 (EtwpInitialize.c)
+ *     EtwpInitialize @ 0x1409D1620 (EtwpInitialize.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     ObCreateObjectType @ 0x1407289C0 (ObCreateObjectType.c)
+ *     RtlInitUnicodeString @ 0x1400B99D0 (RtlInitUnicodeString.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     ObCreateObjectType @ 0x140729BB0 (ObCreateObjectType.c)
  */
 
 __int64 EtwpInitializeRealTimeConnection()

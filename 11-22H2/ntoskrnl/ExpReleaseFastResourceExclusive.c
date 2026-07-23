@@ -55,7 +55,7 @@ __int64 __fastcall ExpReleaseFastResourceExclusive(ULONG_PTR BugCheckParameter2,
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
   v5 = LockHandle.OldIrql + 1;
-  if ( KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & (unsigned __int8)v5) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & (unsigned __int8)v5) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     LODWORD(v19) = 4;
@@ -96,7 +96,7 @@ __int64 __fastcall ExpReleaseFastResourceExclusive(ULONG_PTR BugCheckParameter2,
           *(_QWORD *)(a2 + 8) = 0LL;
           *v6 = 0LL;
           *(_QWORD *)(a2 + 48) = 0LL;
-          if ( KiIrqlFlags )
+          if ( (_DWORD)KiIrqlFlags )
           {
             v27 = KeGetCurrentIrql();
             if ( ((unsigned __int8)KiIrqlFlags & (unsigned __int8)v5) != 0
@@ -143,7 +143,7 @@ LABEL_25:
   *(_QWORD *)(v20 + 8) = v21;
   *(_QWORD *)a2 = 0LL;
   *(_QWORD *)(a2 + 8) = 0LL;
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v22 = KeGetCurrentIrql();
     if ( ((unsigned __int8)KiIrqlFlags & (unsigned __int8)v5) != 0 && v22 <= 0xFu && CurrentIrql <= 0xFu && v22 >= 2u )

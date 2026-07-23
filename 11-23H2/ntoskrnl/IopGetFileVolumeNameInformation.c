@@ -1,11 +1,11 @@
 /*
- * XREFs of IopGetFileVolumeNameInformation @ 0x1403C75C0
+ * XREFs of IopGetFileVolumeNameInformation @ 0x1403C77A0
  * Callers:
- *     NtQueryInformationFile @ 0x140725070 (NtQueryInformationFile.c)
+ *     NtQueryInformationFile @ 0x140725270 (NtQueryInformationFile.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memmove @ 0x140435700 (memmove.c)
- *     ObQueryNameString @ 0x14075B370 (ObQueryNameString.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     ObQueryNameString @ 0x14075B560 (ObQueryNameString.c)
  */
 
 NTSTATUS __fastcall IopGetFileVolumeNameInformation(void *a1, __int64 a2, _DWORD *a3, int a4)
@@ -15,7 +15,7 @@ NTSTATUS __fastcall IopGetFileVolumeNameInformation(void *a1, __int64 a2, _DWORD
   unsigned int Length; // esi
   unsigned int v9; // ebx
   ULONG ReturnLength[4]; // [rsp+20h] [rbp-248h] BYREF
-  struct _OBJECT_NAME_INFORMATION ObjectNameInfo; // [rsp+30h] [rbp-238h] BYREF
+  _OBJECT_NAME_INFORMATION ObjectNameInfo; // [rsp+30h] [rbp-238h] BYREF
 
   ReturnLength[0] = 0;
   v6 = a4 - 4;

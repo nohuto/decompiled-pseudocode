@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlpCheckMuiMultiStringSafe @ 0x180008818
+ * XREFs of RtlpCheckMuiMultiStringSafe @ 0x180053F48
  * Callers:
- *     RtlSetThreadPreferredUILanguages @ 0x180006B50 (RtlSetThreadPreferredUILanguages.c)
- *     RtlSetProcessPreferredUILanguages @ 0x180007130 (RtlSetProcessPreferredUILanguages.c)
- *     RtlGetUILanguageInfo @ 0x18000A1D0 (RtlGetUILanguageInfo.c)
- *     RtlpSetPreferredUILanguages @ 0x1801431B0 (RtlpSetPreferredUILanguages.c)
+ *     RtlSetThreadPreferredUILanguages @ 0x180052280 (RtlSetThreadPreferredUILanguages.c)
+ *     RtlSetProcessPreferredUILanguages @ 0x180052860 (RtlSetProcessPreferredUILanguages.c)
+ *     RtlGetUILanguageInfo @ 0x180055900 (RtlGetUILanguageInfo.c)
+ *     RtlpSetPreferredUILanguages @ 0x1801430B0 (RtlpSetPreferredUILanguages.c)
  * Callees:
  *     <none>
  */

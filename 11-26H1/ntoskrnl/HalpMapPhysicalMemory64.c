@@ -1,11 +1,11 @@
 /*
- * XREFs of HalpMapPhysicalMemory64 @ 0x14034270C
+ * XREFs of HalpMapPhysicalMemory64 @ 0x14034478C
  * Callers:
- *     HalpCheckLowMemoryPreSleep @ 0x140BECDA8 (HalpCheckLowMemoryPreSleep.c)
- *     HalpCheckLowMemoryPostSleep @ 0x140C09D9C (HalpCheckLowMemoryPostSleep.c)
- *     HalpAllocateScratchMemory @ 0x140C122E8 (HalpAllocateScratchMemory.c)
+ *     HalpCheckLowMemoryPreSleep @ 0x140BF2DA8 (HalpCheckLowMemoryPreSleep.c)
+ *     HalpCheckLowMemoryPostSleep @ 0x140C0FFAC (HalpCheckLowMemoryPostSleep.c)
+ *     HalpAllocateScratchMemory @ 0x140C182E8 (HalpAllocateScratchMemory.c)
  * Callees:
- *     HalpMap @ 0x1403439AC (HalpMap.c)
+ *     HalpMap @ 0x140345A2C (HalpMap.c)
  */
 
 __int64 __fastcall HalpMapPhysicalMemory64(int a1, int a2, char a3, int a4)

@@ -8,7 +8,7 @@
  *     RtlpHpSegSetExtraPresent @ 0x180045B38 (RtlpHpSegSetExtraPresent.c)
  *     RtlpHpMetadataCommit @ 0x18006598C (RtlpHpMetadataCommit.c)
  * Callees:
- *     RtlpHpSegGetDescriptorValidateSafe @ 0x1801236BC (RtlpHpSegGetDescriptorValidateSafe.c)
+ *     RtlpHpSegGetDescriptorValidateSafe @ 0x18012368C (RtlpHpSegGetDescriptorValidateSafe.c)
  */
 
 __int64 __fastcall RtlpHpSegDescriptorValidate(__int64 a1, unsigned __int64 a2)

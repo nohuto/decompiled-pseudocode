@@ -1,11 +1,11 @@
 /*
- * XREFs of PopPowerAggregatorDiagTracePdcSleepTransition @ 0x140B41D24
+ * XREFs of PopPowerAggregatorDiagTracePdcSleepTransition @ 0x140B43C14
  * Callers:
- *     PopPowerAggregatorNotifyPdcSleepTransition @ 0x140B41C58 (PopPowerAggregatorNotifyPdcSleepTransition.c)
+ *     PopPowerAggregatorNotifyPdcSleepTransition @ 0x140B43B48 (PopPowerAggregatorNotifyPdcSleepTransition.c)
  * Callees:
- *     EtwEventEnabled @ 0x140212D90 (EtwEventEnabled.c)
- *     EtwWrite @ 0x140212EF0 (EtwWrite.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x140212E70 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x140212FD0 (EtwWrite.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 char __fastcall PopPowerAggregatorDiagTracePdcSleepTransition(
@@ -41,18 +41,11 @@ char __fastcall PopPowerAggregatorDiagTracePdcSleepTransition(
   v13 = a4;
   v14 = 4LL;
   v16 = 4LL;
-  if ( byte_140E67628 )
+  if ( PopDiagHandleRegistered )
   {
-    LOBYTE(v5) = EtwEventEnabled(
-                   *(REGHANDLE *)&PopSleepstudySessionLock.PriorityFloorCounts[16],
-                   &POP_ETW_EVENT_POWER_AGGREGATOR_PDC_SLEEP_TRANSITION);
+    LOBYTE(v5) = EtwEventEnabled(PopDiagHandle, &POP_ETW_EVENT_POWER_AGGREGATOR_PDC_SLEEP_TRANSITION);
     if ( (_BYTE)v5 )
-      LOBYTE(v5) = EtwWrite(
-                     *(REGHANDLE *)&PopSleepstudySessionLock.PriorityFloorCounts[16],
-                     &POP_ETW_EVENT_POWER_AGGREGATOR_PDC_SLEEP_TRANSITION,
-                     0LL,
-                     5u,
-                     &UserData);
+      LOBYTE(v5) = EtwWrite(PopDiagHandle, &POP_ETW_EVENT_POWER_AGGREGATOR_PDC_SLEEP_TRANSITION, 0LL, 5u, &UserData);
   }
   return (char)v5;
 }

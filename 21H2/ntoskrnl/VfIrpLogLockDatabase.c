@@ -1,10 +1,10 @@
 /*
- * XREFs of VfIrpLogLockDatabase @ 0x1409E37E4
+ * XREFs of VfIrpLogLockDatabase @ 0x1409E47E4
  * Callers:
- *     ViDdiDispatchWmiQueryAllData @ 0x1409C807C (ViDdiDispatchWmiQueryAllData.c)
+ *     ViDdiDispatchWmiQueryAllData @ 0x1409C907C (ViDdiDispatchWmiQueryAllData.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KxReleaseSpinLock @ 0x140212140 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140362F80 (KeAcquireSpinLockRaiseToDpc.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 

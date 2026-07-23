@@ -1,13 +1,13 @@
 /*
- * XREFs of HvlMapSparseGpaPages @ 0x14032C130
+ * XREFs of HvlMapSparseGpaPages @ 0x14032C320
  * Callers:
- *     VmpProcessUpdateSlat @ 0x14030D25C (VmpProcessUpdateSlat.c)
+ *     VmpProcessUpdateSlat @ 0x14030D44C (VmpProcessUpdateSlat.c)
  * Callees:
- *     HvcallpNoHypervisorPresent @ 0x14013E6A0 (HvcallpNoHypervisorPresent.c)
- *     memmove @ 0x1401D1540 (memmove.c)
- *     HvlpAcquireHypercallPage @ 0x140271864 (HvlpAcquireHypercallPage.c)
- *     HvlpReleaseHypercallPage @ 0x140272384 (HvlpReleaseHypercallPage.c)
- *     HvlpHvToNtStatus @ 0x140279580 (HvlpHvToNtStatus.c)
+ *     HvcallpNoHypervisorPresent @ 0x14013E7A0 (HvcallpNoHypervisorPresent.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     HvlpAcquireHypercallPage @ 0x140271A54 (HvlpAcquireHypercallPage.c)
+ *     HvlpReleaseHypercallPage @ 0x140272574 (HvlpReleaseHypercallPage.c)
+ *     HvlpHvToNtStatus @ 0x140279770 (HvlpHvToNtStatus.c)
  */
 
 __int64 __fastcall HvlMapSparseGpaPages(__int64 a1, int a2, unsigned __int64 a3, __int64 a4, __int64 *a5)

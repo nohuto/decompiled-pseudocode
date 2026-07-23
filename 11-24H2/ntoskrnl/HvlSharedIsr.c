@@ -1,11 +1,11 @@
 /*
- * XREFs of HvlSharedIsr @ 0x140444780
+ * XREFs of HvlSharedIsr @ 0x14043CA40
  * Callers:
- *     HvlEnlightenProcessor @ 0x1404D33C4 (HvlEnlightenProcessor.c)
- *     KiHvInterruptSubDispatch @ 0x1406B1230 (KiHvInterruptSubDispatch.c)
+ *     HvlEnlightenProcessor @ 0x1404CC584 (HvlEnlightenProcessor.c)
+ *     KiHvInterruptSubDispatch @ 0x1406B21D0 (KiHvInterruptSubDispatch.c)
  * Callees:
- *     KeInsertQueueDpc @ 0x1402542F0 (KeInsertQueueDpc.c)
- *     HvlpHandleIommuFaultMessage @ 0x14058AE50 (HvlpHandleIommuFaultMessage.c)
+ *     KeInsertQueueDpc @ 0x140284900 (KeInsertQueueDpc.c)
+ *     HvlpHandleIommuFaultMessage @ 0x140588140 (HvlpHandleIommuFaultMessage.c)
  */
 
 char HvlSharedIsr()
@@ -24,7 +24,7 @@ char HvlSharedIsr()
   if ( (HvlpFlags & 2) != 0 )
   {
     Number = KeGetPcr()->Prcb.Number;
-    if ( !byte_140E0A834 )
+    if ( !byte_140E0A8BC )
     {
       v4 = HvlpLogicalProcessorRegions;
       for ( i = 0; i < (unsigned int)HvlpLogicalProcessorCount; ++i )
@@ -49,7 +49,7 @@ LABEL_3:
           goto LABEL_5;
         v2 = (__int128 *)((char *)v2 + 104);
       }
-      v2 = &xmmword_140E3EC60;
+      v2 = &xmmword_140E3EDA0;
       if ( Number )
         v2 = 0LL;
     }
@@ -66,7 +66,7 @@ LABEL_5:
       }
       else
       {
-        v8 = qword_140E3ED10 + 104LL * *v7;
+        v8 = qword_140E3EE50 + 104LL * *v7;
         *(_DWORD *)(v8 + 4) = 2;
         KeInsertQueueDpc((PRKDPC)(v8 + 8), 0LL, 0LL);
       }
@@ -84,7 +84,7 @@ LABEL_5:
     v0 = *(_QWORD *)(KiEpfCompletionQueue + 8);
     if ( *(_QWORD *)KiEpfCompletionQueue != v0 )
     {
-      _InterlockedIncrement(&dword_140F0FFA8);
+      _InterlockedIncrement(&dword_140F102A8);
       LOBYTE(v0) = KeInsertQueueDpc(&KiEpfCompletionDpc, 0LL, 0LL);
     }
   }

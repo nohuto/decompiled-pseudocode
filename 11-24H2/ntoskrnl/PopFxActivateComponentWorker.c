@@ -1,43 +1,36 @@
 /*
- * XREFs of PopFxActivateComponentWorker @ 0x1403B6358
+ * XREFs of PopFxActivateComponentWorker @ 0x1402AE658
  * Callers:
- *     PopFxActivateComponent @ 0x1403B61EC (PopFxActivateComponent.c)
- *     PopFxIdleWorkerTail @ 0x1404EB37C (PopFxIdleWorkerTail.c)
+ *     PopFxActivateComponent @ 0x1402AE4EC (PopFxActivateComponent.c)
+ *     PopFxIdleWorkerTail @ 0x1404E22FC (PopFxIdleWorkerTail.c)
  * Callees:
- *     PopFxReferenceDevice @ 0x14029F788 (PopFxReferenceDevice.c)
- *     PopFxCompleteComponentActivation @ 0x140317240 (PopFxCompleteComponentActivation.c)
- *     PopFxProcessWork @ 0x1403172E0 (PopFxProcessWork.c)
- *     PopPluginComponentActive @ 0x140317CC0 (PopPluginComponentActive.c)
- *     PopFxActivateComponentDependencies @ 0x1403B5F40 (PopFxActivateComponentDependencies.c)
- *     Feature_Servicing_PofxCriticalRegionFix__private_IsEnabledDeviceUsageNoInline @ 0x1405CFD88 (Feature_Servicing_PofxCriticalRegionFix__private_IsEnabledDeviceUsageNoInline.c)
- *     PopFxDeviceCriticalRegionEnter @ 0x1405D0E60 (PopFxDeviceCriticalRegionEnter.c)
- *     PopFxDeviceCriticalRegionLeave @ 0x1405D0E90 (PopFxDeviceCriticalRegionLeave.c)
+ *     PopFxActivateComponentDependencies @ 0x1402AE240 (PopFxActivateComponentDependencies.c)
+ *     PopFxCompleteComponentActivation @ 0x1402BFDF0 (PopFxCompleteComponentActivation.c)
+ *     PopFxProcessWork @ 0x1402BFE70 (PopFxProcessWork.c)
+ *     PopPluginComponentActive @ 0x1402C0850 (PopPluginComponentActive.c)
+ *     PopFxReferenceDevice @ 0x1403AA248 (PopFxReferenceDevice.c)
+ *     PopFxDeviceCriticalRegionEnter @ 0x1405CE580 (PopFxDeviceCriticalRegionEnter.c)
+ *     PopFxDeviceCriticalRegionLeave @ 0x1405CE5B0 (PopFxDeviceCriticalRegionLeave.c)
  */
 
-__int64 __fastcall PopFxActivateComponentWorker(ULONG_PTR BugCheckParameter2, __int64 a2, char a3, unsigned int *a4)
+__int64 __fastcall PopFxActivateComponentWorker(ULONG_PTR a1, __int64 a2, unsigned __int8 a3, void *a4)
 {
-  bool v8; // al
-  __int64 v9; // r8
+  ULONG_PTR v8; // rcx
+  bool v9; // al
   __int64 v10; // r8
-  __int64 v11; // r9
-  __int64 result; // rax
 
-  if ( (unsigned int)Feature_Servicing_PofxCriticalRegionFix__private_IsEnabledDeviceUsageNoInline() )
-    PopFxDeviceCriticalRegionEnter(BugCheckParameter2);
-  PopFxReferenceDevice(BugCheckParameter2, 8);
-  v8 = PopFxActivateComponentDependencies(a2);
+  PopFxDeviceCriticalRegionEnter();
+  PopFxReferenceDevice(v8);
+  v9 = PopFxActivateComponentDependencies(a2, a3);
   if ( a3 )
   {
-    PopFxCompleteComponentActivation(BugCheckParameter2, a2, 0);
+    PopFxCompleteComponentActivation(a1);
   }
-  else if ( v8 )
+  else if ( v9 )
   {
-    LOBYTE(v9) = 1;
-    if ( (unsigned __int8)PopPluginComponentActive(BugCheckParameter2, *(_DWORD *)(a2 + 16), v9, a4) == 1 )
-      PopFxProcessWork(0LL, a4, v10, v11);
+    LOBYTE(v10) = 1;
+    if ( (unsigned __int8)PopPluginComponentActive(a1, *(unsigned int *)(a2 + 16), v10, a4) == 1 )
+      PopFxProcessWork(0LL, a4);
   }
-  result = Feature_Servicing_PofxCriticalRegionFix__private_IsEnabledDeviceUsageNoInline();
-  if ( (_DWORD)result )
-    return PopFxDeviceCriticalRegionLeave(BugCheckParameter2);
-  return result;
+  return PopFxDeviceCriticalRegionLeave(a1);
 }

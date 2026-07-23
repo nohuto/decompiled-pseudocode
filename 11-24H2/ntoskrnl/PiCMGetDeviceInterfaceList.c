@@ -1,17 +1,17 @@
 /*
- * XREFs of PiCMGetDeviceInterfaceList @ 0x1409FE7EC
+ * XREFs of PiCMGetDeviceInterfaceList @ 0x1409FF400
  * Callers:
- *     PiCMHandleIoctl @ 0x1408C3A00 (PiCMHandleIoctl.c)
+ *     PiCMHandleIoctl @ 0x1408C13C0 (PiCMHandleIoctl.c)
  * Callees:
- *     McTemplateK0jzt_EtwWriteTransfer @ 0x14032F944 (McTemplateK0jzt_EtwWriteTransfer.c)
- *     PiControlFreeUserModeCallersBuffer @ 0x140441F70 (PiControlFreeUserModeCallersBuffer.c)
- *     RtlInitUnicodeStringEx @ 0x14045AA10 (RtlInitUnicodeStringEx.c)
- *     McTemplateK0d_EtwWriteTransfer @ 0x140481B24 (McTemplateK0d_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     PiCMReturnBufferResultData @ 0x1408C5620 (PiCMReturnBufferResultData.c)
- *     IopGetDeviceInterfaces @ 0x1408C8470 (IopGetDeviceInterfaces.c)
- *     PiCMCaptureInterfaceListInputData @ 0x1409FE9F0 (PiCMCaptureInterfaceListInputData.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     McTemplateK0jzt_EtwWriteTransfer @ 0x1402B8188 (McTemplateK0jzt_EtwWriteTransfer.c)
+ *     PiControlFreeUserModeCallersBuffer @ 0x140438B40 (PiControlFreeUserModeCallersBuffer.c)
+ *     RtlInitUnicodeStringEx @ 0x14044FE60 (RtlInitUnicodeStringEx.c)
+ *     McTemplateK0d_EtwWriteTransfer @ 0x14047CDE4 (McTemplateK0d_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     PiCMReturnBufferResultData @ 0x1408C3020 (PiCMReturnBufferResultData.c)
+ *     IopGetDeviceInterfaces @ 0x1408C5EA0 (IopGetDeviceInterfaces.c)
+ *     PiCMCaptureInterfaceListInputData @ 0x1409FF604 (PiCMCaptureInterfaceListInputData.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PiCMGetDeviceInterfaceList(
@@ -56,7 +56,7 @@ __int64 __fastcall PiCMGetDeviceInterfaceList(
     goto LABEL_13;
   v14 = DWORD1(v24);
   v15 = SourceString[1];
-  if ( (byte_140EEFD23 & 4) != 0 )
+  if ( (byte_140EEFF63 & 4) != 0 )
     McTemplateK0jzt_EtwWriteTransfer(v11, v10, v13, (__int64)&v24 + 8, SourceString[1], BYTE6(v24) & 1);
   if ( !a3 || a4 < 0x14 || (v14 & 0xFFFE0000) != 0 || (_WORD)v14 )
   {
@@ -95,7 +95,7 @@ LABEL_11:
 LABEL_13:
   if ( SourceString[1] )
     PiControlFreeUserModeCallersBuffer(KeGetCurrentThread()->PreviousMode, (void *)SourceString[1]);
-  if ( (byte_140EEFD23 & 4) != 0 )
+  if ( (byte_140EEFF63 & 4) != 0 )
     McTemplateK0d_EtwWriteTransfer(v11, (const EVENT_DESCRIPTOR *)KMPnPEvt_CfgMgr_DeviceInterfaceList_Stop, v13, v12);
   return (unsigned int)v12;
 }

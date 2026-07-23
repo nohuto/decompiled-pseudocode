@@ -1,25 +1,25 @@
 /*
- * XREFs of NtSetSystemTime @ 0x1408CD2B0
+ * XREFs of NtSetSystemTime @ 0x1408CE570
  * Callers:
- *     ExpSetTimeZoneInformation @ 0x1408CC974 (ExpSetTimeZoneInformation.c)
+ *     ExpSetTimeZoneInformation @ 0x1408CDC34 (ExpSetTimeZoneInformation.c)
  * Callees:
- *     PsIsCurrentThreadInServerSilo @ 0x1400B9C20 (PsIsCurrentThreadInServerSilo.c)
- *     RtlTimeFieldsToTime @ 0x140127060 (RtlTimeFieldsToTime.c)
- *     ExSystemTimeToLocalTime @ 0x14013AFA0 (ExSystemTimeToLocalTime.c)
- *     KeSetSystemTime @ 0x1401433EC (KeSetSystemTime.c)
- *     RtlTimeToTimeFields @ 0x14015DA20 (RtlTimeToTimeFields.c)
- *     ExLocalTimeToSystemTime @ 0x140160BF0 (ExLocalTimeToSystemTime.c)
- *     PoNotifySystemTimeSet @ 0x14017834C (PoNotifySystemTimeSet.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     ExpSetSystemTime @ 0x140566AC8 (ExpSetSystemTime.c)
- *     SeSinglePrivilegeCheck @ 0x140612160 (SeSinglePrivilegeCheck.c)
- *     ExAcquireTimeRefreshLock @ 0x14066583C (ExAcquireTimeRefreshLock.c)
- *     RtlIsMultiSessionSku @ 0x1406AD9C0 (RtlIsMultiSessionSku.c)
- *     ExReleaseTimeRefreshLock @ 0x1406BEBF8 (ExReleaseTimeRefreshLock.c)
- *     ExpRefreshTimeZoneInformation @ 0x140734674 (ExpRefreshTimeZoneInformation.c)
- *     RtlCapabilityCheck @ 0x1408938C0 (RtlCapabilityCheck.c)
- *     SeAuditSystemTimeChange @ 0x14089D64C (SeAuditSystemTimeChange.c)
- *     ExRaiseDatatypeMisalignment @ 0x1408D65C0 (ExRaiseDatatypeMisalignment.c)
+ *     PsIsCurrentThreadInServerSilo @ 0x1400B9B60 (PsIsCurrentThreadInServerSilo.c)
+ *     RtlTimeFieldsToTime @ 0x140127130 (RtlTimeFieldsToTime.c)
+ *     ExSystemTimeToLocalTime @ 0x14013B0A0 (ExSystemTimeToLocalTime.c)
+ *     KeSetSystemTime @ 0x1401434EC (KeSetSystemTime.c)
+ *     RtlTimeToTimeFields @ 0x14015DB20 (RtlTimeToTimeFields.c)
+ *     ExLocalTimeToSystemTime @ 0x140160CF0 (ExLocalTimeToSystemTime.c)
+ *     PoNotifySystemTimeSet @ 0x14017844C (PoNotifySystemTimeSet.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     ExpSetSystemTime @ 0x140567AC8 (ExpSetSystemTime.c)
+ *     SeSinglePrivilegeCheck @ 0x140613160 (SeSinglePrivilegeCheck.c)
+ *     ExAcquireTimeRefreshLock @ 0x1406669FC (ExAcquireTimeRefreshLock.c)
+ *     RtlIsMultiSessionSku @ 0x1406AEC60 (RtlIsMultiSessionSku.c)
+ *     ExReleaseTimeRefreshLock @ 0x1406BFE98 (ExReleaseTimeRefreshLock.c)
+ *     ExpRefreshTimeZoneInformation @ 0x140735864 (ExpRefreshTimeZoneInformation.c)
+ *     RtlCapabilityCheck @ 0x140894B20 (RtlCapabilityCheck.c)
+ *     SeAuditSystemTimeChange @ 0x14089E8AC (SeAuditSystemTimeChange.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408D7880 (ExRaiseDatatypeMisalignment.c)
  */
 
 NTSTATUS __stdcall NtSetSystemTime(PLARGE_INTEGER SystemTime, PLARGE_INTEGER NewSystemTime)
@@ -31,20 +31,20 @@ NTSTATUS __stdcall NtSetSystemTime(PLARGE_INTEGER SystemTime, PLARGE_INTEGER New
   NTSTATUS v9; // ebx
   char v10; // di
   LARGE_INTEGER v11; // rax
-  char v12[8]; // [rsp+30h] [rbp-58h] BYREF
+  BOOLEAN HasCapability[8]; // [rsp+30h] [rbp-58h] BYREF
   LARGE_INTEGER SystemTimea; // [rsp+38h] [rbp-50h] BYREF
   LARGE_INTEGER v14; // [rsp+40h] [rbp-48h] BYREF
   LARGE_INTEGER Time; // [rsp+48h] [rbp-40h] BYREF
-  UNICODE_STRING SourceString; // [rsp+50h] [rbp-38h] BYREF
-  struct _TIME_FIELDS TimeFields; // [rsp+60h] [rbp-28h] BYREF
+  UNICODE_STRING CapabilityName; // [rsp+50h] [rbp-38h] BYREF
+  _TIME_FIELDS TimeFields; // [rsp+60h] [rbp-28h] BYREF
 
-  *(_DWORD *)&SourceString.Length = 2228256;
-  SourceString.Buffer = L"systemManagement";
+  *(_DWORD *)&CapabilityName.Length = 2228256;
+  CapabilityName.Buffer = L"systemManagement";
   if ( SystemTime )
   {
     PreviousMode = KeGetCurrentThread()->PreviousMode;
     if ( !SeSinglePrivilegeCheck(SeSystemtimePrivilege, PreviousMode)
-      && (RtlIsMultiSessionSku() || (int)RtlCapabilityCheck(0LL, &SourceString, v12) < 0 || !v12[0])
+      && (RtlIsMultiSessionSku() || RtlCapabilityCheck(0LL, &CapabilityName, HasCapability) < 0 || !HasCapability[0])
       || PsIsCurrentThreadInServerSilo() )
     {
       return -1073741727;

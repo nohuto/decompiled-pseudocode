@@ -4,12 +4,12 @@
  *     ExpInitSystemPhase1 @ 0x140B49FE4 (ExpInitSystemPhase1.c)
  * Callees:
  *     KeInitializeQueue @ 0x140220E10 (KeInitializeQueue.c)
- *     KeRegisterObjectNotification @ 0x1402509B0 (KeRegisterObjectNotification.c)
- *     RtlRaiseStatus @ 0x1403217B0 (RtlRaiseStatus.c)
- *     ZwClose @ 0x14041AF40 (ZwClose.c)
- *     memset @ 0x140435A00 (memset.c)
- *     PsCreateSystemThread @ 0x1407B8100 (PsCreateSystemThread.c)
- *     ObCreateObjectType @ 0x14081F1D0 (ObCreateObjectType.c)
+ *     KeRegisterObjectNotification @ 0x140250A70 (KeRegisterObjectNotification.c)
+ *     RtlRaiseStatus @ 0x140321A40 (RtlRaiseStatus.c)
+ *     ZwClose @ 0x14041B2D0 (ZwClose.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     PsCreateSystemThread @ 0x1407B83E0 (PsCreateSystemThread.c)
+ *     ObCreateObjectType @ 0x14081F4D0 (ObCreateObjectType.c)
  */
 
 __int64 ExpWorkerFactoryInitialization()
@@ -71,7 +71,7 @@ __int64 ExpWorkerFactoryInitialization()
   *(_OWORD *)((char *)&v3[1] + 4) = ExpWorkerFactoryMapping;
   HIDWORD(v3[3]) = 983295;
   ObjectType = ObCreateObjectType(
-                 (const UNICODE_STRING *)&qword_140B9E0B0,
+                 (const UNICODE_STRING *)&qword_140B9E0D0,
                  (__int64)v3,
                  0LL,
                  (__int64)&ExpWorkerFactoryObjectType);

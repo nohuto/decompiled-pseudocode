@@ -20,15 +20,15 @@
  *     NtWaitForAlertByThreadId @ 0x1800A8770 (NtWaitForAlertByThreadId.c)
  */
 
-__int64 __fastcall RtlpxLookupFunctionTable(unsigned __int64 a1, __int64 a2)
+__int64 __fastcall RtlpxLookupFunctionTable(PVOID BaseAddress, __int64 a2)
 {
   bool v3; // zf
   __int64 v5; // rsi
-  unsigned __int64 v6; // rbx
+  unsigned __int64 Value; // rbx
   int v7; // r10d
   int v8; // r9d
   int v9; // eax
-  char *v10; // r8
+  PS_MITIGATION_OPTIONS_MAP *v10; // r8
   unsigned __int64 v11; // rdx
   signed __int64 v12; // rax
   signed __int64 v13; // rcx
@@ -46,7 +46,7 @@ __int64 __fastcall RtlpxLookupFunctionTable(unsigned __int64 a1, __int64 a2)
   int j; // ecx
   _QWORD *v28; // rax
   __int64 i; // rdx
-  unsigned __int64 v30; // [rsp+30h] [rbp-29h] BYREF
+  unsigned __int64 MemoryInformation; // [rsp+30h] [rbp-29h] BYREF
   int v31; // [rsp+38h] [rbp-21h]
   int v32; // [rsp+40h] [rbp-19h]
   unsigned __int64 v33; // [rsp+50h] [rbp-9h] BYREF
@@ -65,20 +65,20 @@ __int64 __fastcall RtlpxLookupFunctionTable(unsigned __int64 a1, __int64 a2)
   if ( v3 )
   {
     v39 = 0;
-    v6 = _InterlockedCompareExchange64(&LdrpInvertedFunctionTableSRWLock, 17LL, 0LL);
-    if ( !v6 )
+    Value = _InterlockedCompareExchange64((volatile signed __int64 *)&LdrpInvertedFunctionTableSRWLock, 17LL, 0LL);
+    if ( !Value )
     {
 LABEL_3:
-      if ( LdrpInvertedFunctionTable[0] != 1 )
+      if ( LODWORD(LdrSystemDllInitBlock.Wow64SharedInformation[15]) != 1 )
       {
         v7 = 1;
-        v8 = LdrpInvertedFunctionTable[0] - 1;
+        v8 = LODWORD(LdrSystemDllInitBlock.Wow64SharedInformation[15]) - 1;
         while ( v8 >= v7 )
         {
           v9 = (v8 + v7) >> 1;
-          v10 = (char *)&xmmword_180155330 + 24 * v9;
-          v11 = *((_QWORD *)v10 + 1);
-          if ( a1 < v11 )
+          v10 = &LdrSystemDllInitBlock.MitigationOptionsMap + v9;
+          v11 = v10->Map[1];
+          if ( (unsigned __int64)BaseAddress < v11 )
           {
             if ( !v9 )
               break;
@@ -86,10 +86,10 @@ LABEL_3:
           }
           else
           {
-            if ( a1 < v11 + *((unsigned int *)v10 + 4) )
+            if ( (unsigned __int64)BaseAddress < v11 + LODWORD(v10->Map[2]) )
             {
-              *(_OWORD *)a2 = *(_OWORD *)v10;
-              *(_QWORD *)(a2 + 16) = *((_QWORD *)v10 + 2);
+              *(_OWORD *)a2 = *(_OWORD *)v10->Map;
+              *(_QWORD *)(a2 + 16) = v10->Map[2];
               v5 = *(_QWORD *)a2;
               break;
             }
@@ -97,12 +97,12 @@ LABEL_3:
           }
         }
       }
-      v12 = _InterlockedCompareExchange64(&LdrpInvertedFunctionTableSRWLock, 0LL, 17LL);
+      v12 = _InterlockedCompareExchange64((volatile signed __int64 *)&LdrpInvertedFunctionTableSRWLock, 0LL, 17LL);
       v13 = v12;
       if ( v12 != 17 )
       {
         if ( (v12 & 1) == 0 )
-          RtlRaiseStatus(3221226084LL);
+          RtlRaiseStatus(-1073741212);
         if ( (v12 & 2) != 0 )
         {
 LABEL_39:
@@ -123,7 +123,10 @@ LABEL_39:
           {
             v20 = (v13 & 6) == 2 ? v19 + 4 : v19;
             v21 = v20 + v13;
-            v22 = _InterlockedCompareExchange64(&LdrpInvertedFunctionTableSRWLock, v20 + v13, v13);
+            v22 = _InterlockedCompareExchange64(
+                    (volatile signed __int64 *)&LdrpInvertedFunctionTableSRWLock,
+                    v20 + v13,
+                    v13);
             if ( v13 == v22 )
               break;
             v13 = v22;
@@ -137,7 +140,7 @@ LABEL_39:
           v17 = v13 - 16;
           if ( (v13 & 0xFFFFFFFFFFFFFFF0uLL) == 0x10 )
             v17 = 0LL;
-          v18 = _InterlockedCompareExchange64(&LdrpInvertedFunctionTableSRWLock, v17, v13);
+          v18 = _InterlockedCompareExchange64((volatile signed __int64 *)&LdrpInvertedFunctionTableSRWLock, v17, v13);
           v3 = v13 == v18;
           v13 = v18;
           if ( v3 )
@@ -147,27 +150,27 @@ LABEL_39:
         }
       }
 LABEL_14:
-      if ( v5 || !byte_18015532C )
+      if ( v5 || !LOBYTE(LdrSystemDllInitBlock.Flags) )
         return v5;
       goto LABEL_16;
     }
     while ( 1 )
     {
-      if ( (v6 & 1) != 0 && (((v6 >> 1) & 1) != 0 || (v6 & 0xFFFFFFFFFFFFFFF0uLL) == 0) )
+      if ( (Value & 1) != 0 && (((Value >> 1) & 1) != 0 || (Value & 0xFFFFFFFFFFFFFFF0uLL) == 0) )
       {
         if ( RtlpWaitCouldDeadlock() )
-          ZwTerminateProcess(-1LL, 3221225547LL);
+          ZwTerminateProcess((HANDLE)0xFFFFFFFFFFFFFFFFLL, -1073741749);
         UniqueThread = NtCurrentTeb()->ClientId.UniqueThread;
         v23 = 0;
         v38[0] = 2;
         v35 = 0LL;
-        if ( ((v6 >> 1) & 1) != 0 )
+        if ( ((Value >> 1) & 1) != 0 )
         {
           v34 = 0LL;
           v37 = -1;
-          v33 = v6 & 0xFFFFFFFFFFFFFFF0uLL;
-          v24 = (char *)((unsigned __int64)&v33 | v6 & 8 | 7);
-          v23 = (v6 & 4) == 0;
+          v33 = Value & 0xFFFFFFFFFFFFFFF0uLL;
+          v24 = (char *)((unsigned __int64)&v33 | Value & 8 | 7);
+          v23 = (Value & 4) == 0;
         }
         else
         {
@@ -175,9 +178,12 @@ LABEL_14:
           v34 = &v33;
           v24 = (char *)&v33 + 3;
         }
-        v25 = _InterlockedCompareExchange64(&LdrpInvertedFunctionTableSRWLock, (signed __int64)v24, v6);
-        v3 = v6 == v25;
-        v6 = v25;
+        v25 = _InterlockedCompareExchange64(
+                (volatile signed __int64 *)&LdrpInvertedFunctionTableSRWLock,
+                (signed __int64)v24,
+                Value);
+        v3 = Value == v25;
+        Value = v25;
         if ( !v3 )
           goto LABEL_51;
         if ( v23 )
@@ -200,27 +206,36 @@ LABEL_14:
       }
       else
       {
-        v16 = v6 | 1;
-        if ( (v6 & 2) == 0 )
+        v16 = Value | 1;
+        if ( (Value & 2) == 0 )
           v16 += 16LL;
-        if ( v6 == _InterlockedCompareExchange64(&LdrpInvertedFunctionTableSRWLock, v16, v6) )
+        if ( Value == _InterlockedCompareExchange64(
+                        (volatile signed __int64 *)&LdrpInvertedFunctionTableSRWLock,
+                        v16,
+                        Value) )
           goto LABEL_3;
 LABEL_51:
         RtlBackoff(&v39);
         _m_prefetchw(&LdrpInvertedFunctionTableSRWLock);
-        v6 = LdrpInvertedFunctionTableSRWLock;
+        Value = LdrpInvertedFunctionTableSRWLock.Value;
       }
     }
   }
 LABEL_16:
-  if ( (int)ZwQueryVirtualMemory(-1LL, a1, 6LL, &v30) >= 0 )
+  if ( ZwQueryVirtualMemory(
+         (HANDLE)0xFFFFFFFFFFFFFFFFLL,
+         BaseAddress,
+         MemoryImageInformation,
+         &MemoryInformation,
+         0x18uLL,
+         0LL) >= 0 )
   {
-    v15 = v30;
-    if ( v30 )
+    v15 = MemoryInformation;
+    if ( MemoryInformation )
     {
-      if ( (v32 & 2) == 0 && (v32 & 1) == 0 && a1 >= v30 )
+      if ( (v32 & 2) == 0 && (v32 & 1) == 0 && (unsigned __int64)BaseAddress >= MemoryInformation )
       {
-        if ( (int)RtlpImageDirectoryEntryToDataEx(v30, 1, 3u, (_DWORD *)(a2 + 20), &v40) < 0 )
+        if ( RtlpImageDirectoryEntryToDataEx(MemoryInformation, 1, 3u, (unsigned int *)(a2 + 20), &v40) < 0 )
           v5 = 0LL;
         else
           v5 = v40;

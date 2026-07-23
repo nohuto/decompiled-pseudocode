@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlIpv6StringToAddressExW @ 0x1800BA9B0
+ * XREFs of RtlIpv6StringToAddressExW @ 0x1800B2770
  * Callers:
- *     RtlCanonicalizeDomainName @ 0x1800BA3D0 (RtlCanonicalizeDomainName.c)
+ *     RtlCanonicalizeDomainName @ 0x1800B2190 (RtlCanonicalizeDomainName.c)
  * Callees:
- *     RtlIpv6StringToAddressW @ 0x1800BAC80 (RtlIpv6StringToAddressW.c)
- *     iswctype @ 0x180124B20 (iswctype.c)
+ *     RtlIpv6StringToAddressW @ 0x1800B2A40 (RtlIpv6StringToAddressW.c)
+ *     iswctype @ 0x180122D50 (iswctype.c)
  */
 
 LONG __stdcall RtlIpv6StringToAddressExW(PCWSTR AddressString, struct in6_addr *Address, PULONG ScopeId, PUSHORT Port)

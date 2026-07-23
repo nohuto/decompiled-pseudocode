@@ -11,28 +11,35 @@
  *     LdrpLogVsmEnclaveLdrDeleteEnclaveTelemetry @ 0x1800DC248 (LdrpLogVsmEnclaveLdrDeleteEnclaveTelemetry.c)
  */
 
-__int64 __fastcall LdrDeleteEnclave(__int64 a1, __int64 a2)
+NTSTATUS __cdecl LdrDeleteEnclave(PVOID BaseAddress)
 {
-  __int64 locked; // rax
-  __int64 v3; // rdi
+  char v1; // dl
+  _DWORD *locked; // rax
+  _DWORD *v3; // rdi
   int v4; // ebx
   int v5; // esi
+  PVOID BaseAddressa; // [rsp+40h] [rbp+8h] BYREF
+  ULONG_PTR RegionSize; // [rsp+48h] [rbp+10h] BYREF
 
-  LOBYTE(a2) = 1;
-  locked = LdrpObtainLockedEnclave(a1, a2);
+  BaseAddressa = BaseAddress;
+  v1 = 1;
+  locked = (_DWORD *)LdrpObtainLockedEnclave(BaseAddress, v1);
   v3 = locked;
   if ( !locked )
     goto LABEL_5;
-  v4 = *(_DWORD *)(locked + 56);
+  v4 = locked[14];
   v5 = LdrpDeleteEnclave(locked);
-  RtlLeaveCriticalSection(v3 + 16);
+  RtlLeaveCriticalSection((PRTL_CRITICAL_SECTION)(v3 + 4));
   LdrpDereferenceEnclave(v3);
   if ( v4 != 16 )
     v3 = 0LL;
   if ( v5 >= 0 )
+  {
 LABEL_5:
-    v5 = ZwFreeVirtualMemory();
+    RegionSize = 0LL;
+    v5 = ZwFreeVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &BaseAddressa, &RegionSize, 0x8000u);
+  }
   if ( v3 )
     LdrpLogVsmEnclaveLdrDeleteEnclaveTelemetry((unsigned int)v5);
-  return (unsigned int)v5;
+  return v5;
 }

@@ -1,15 +1,15 @@
 /*
- * XREFs of SecureDump_SymmetricEncryptionSetup @ 0x14055E694
+ * XREFs of SecureDump_SymmetricEncryptionSetup @ 0x14055ED54
  * Callers:
- *     SecureDump_Init @ 0x1403B0CE8 (SecureDump_Init.c)
- *     SecureDump_ReInitialize @ 0x14055E4B8 (SecureDump_ReInitialize.c)
+ *     SecureDump_Init @ 0x1403B0EC8 (SecureDump_Init.c)
+ *     SecureDump_ReInitialize @ 0x14055EB78 (SecureDump_ReInitialize.c)
  * Callees:
- *     SecureDump_LogErrorEvent @ 0x14055E488 (SecureDump_LogErrorEvent.c)
- *     BCryptGenRandom @ 0x1405B77F8 (BCryptGenRandom.c)
- *     BCryptGetProperty @ 0x140761EE0 (BCryptGetProperty.c)
- *     BCryptOpenAlgorithmProvider @ 0x1408109D4 (BCryptOpenAlgorithmProvider.c)
- *     BCryptGenerateSymmetricKey @ 0x1409C8F84 (BCryptGenerateSymmetricKey.c)
- *     BCryptSetProperty @ 0x1409C90AC (BCryptSetProperty.c)
+ *     SecureDump_LogErrorEvent @ 0x14055EB48 (SecureDump_LogErrorEvent.c)
+ *     BCryptGenRandom @ 0x1405B7D68 (BCryptGenRandom.c)
+ *     BCryptGetProperty @ 0x1407620D0 (BCryptGetProperty.c)
+ *     BCryptOpenAlgorithmProvider @ 0x140810CA4 (BCryptOpenAlgorithmProvider.c)
+ *     BCryptGenerateSymmetricKey @ 0x1409C9184 (BCryptGenerateSymmetricKey.c)
+ *     BCryptSetProperty @ 0x1409C92AC (BCryptSetProperty.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

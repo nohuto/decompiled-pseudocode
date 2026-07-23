@@ -12,9 +12,16 @@
  *     <none>
  */
 
-__int64 __fastcall ZwQueryDirectoryObject(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwQueryDirectoryObject(
+        HANDLE DirectoryHandle,
+        PVOID Buffer,
+        ULONG Length,
+        BOOLEAN ReturnSingleEntry,
+        BOOLEAN RestartScan,
+        PULONG Context,
+        PULONG ReturnLength)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(DirectoryHandle);
 }

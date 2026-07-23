@@ -1,14 +1,14 @@
 /*
- * XREFs of CmpDoFileRead @ 0x140134314
+ * XREFs of CmpDoFileRead @ 0x1401343E4
  * Callers:
- *     CmpFileRead @ 0x1406C28A0 (CmpFileRead.c)
+ *     CmpFileRead @ 0x1406C3B40 (CmpFileRead.c)
  * Callees:
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
  *     KeWaitForSingleObject @ 0x140054880 (KeWaitForSingleObject.c)
- *     ZwReadFile @ 0x1401B8250 (ZwReadFile.c)
- *     ZwClose @ 0x1401B8370 (ZwClose.c)
- *     SetFailureLocation @ 0x14026BB58 (SetFailureLocation.c)
- *     CmpCreateEvent @ 0x1405B487C (CmpCreateEvent.c)
+ *     ZwReadFile @ 0x1401B83B0 (ZwReadFile.c)
+ *     ZwClose @ 0x1401B84D0 (ZwClose.c)
+ *     SetFailureLocation @ 0x14026BD48 (SetFailureLocation.c)
+ *     CmpCreateEvent @ 0x1405B587C (CmpCreateEvent.c)
  */
 
 __int64 __fastcall CmpDoFileRead(HANDLE FileHandle, __int64 a2, ULONG a3, char *a4, ULONG a5, int a6, __int64 a7)
@@ -80,9 +80,9 @@ LABEL_12:
         *(_DWORD *)(a7 + 224) = Information - Length;
       }
       CmRegistryIODebug = 1;
-      dword_14096E960 = Information - Length;
+      dword_14096F960 = Information - Length;
       result = 3221225489LL;
-      qword_14096E958 = (__int64)FileHandle;
+      qword_14096F958 = (__int64)FileHandle;
       return result;
     }
 LABEL_11:
@@ -97,8 +97,8 @@ LABEL_11:
     *(_DWORD *)(a7 + 224) = Status;
   }
   CmRegistryIODebug = 1;
-  qword_14096E958 = (__int64)FileHandle;
-  dword_14096E960 = Status;
+  qword_14096F958 = (__int64)FileHandle;
+  dword_14096F960 = Status;
 LABEL_13:
   ObfDereferenceObjectWithTag(0LL, 0x746C6644u);
   ZwClose(0LL);

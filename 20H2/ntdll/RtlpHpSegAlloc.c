@@ -24,16 +24,16 @@
  *     RtlpHpSegPageRangeComputeLargePageCost @ 0x18010F5EC (RtlpHpSegPageRangeComputeLargePageCost.c)
  */
 
-void *__fastcall RtlpHpSegAlloc(__int64 a1, size_t a2, __int64 a3, unsigned __int64 a4, int a5)
+void *__fastcall RtlpHpSegAlloc(__int64 a1, size_t a2, __int64 a3, __int64 a4, int a5)
 {
   unsigned __int64 v5; // r8
-  unsigned __int64 v7; // rdx
+  int v7; // edx
   int v8; // ebp
   unsigned int v9; // esi
   unsigned int v10; // r13d
   unsigned int v11; // edi
   __int64 v12; // rax
-  unsigned __int64 *v13; // r15
+  unsigned __int64 v13; // r15
   __int64 v14; // rbx
   __int64 v15; // rdx
   int v16; // ecx
@@ -47,10 +47,10 @@ void *__fastcall RtlpHpSegAlloc(__int64 a1, size_t a2, __int64 a3, unsigned __in
   __int16 v24; // cx
   char v25; // dl
   char v26; // al
-  unsigned __int64 v27; // rdx
+  __int64 v27; // rdx
   __int64 v28; // rax
-  bool v29; // cl
-  unsigned __int64 v30; // rcx
+  BOOLEAN v29; // cl
+  __int64 v30; // rcx
   unsigned int v31; // edi
   volatile signed __int64 *v32; // rcx
   signed __int64 v33; // rax
@@ -60,25 +60,23 @@ void *__fastcall RtlpHpSegAlloc(__int64 a1, size_t a2, __int64 a3, unsigned __in
   char *v38; // rcx
   char v39; // al
   unsigned int v40; // eax
-  __int64 v41; // rax
-  unsigned __int64 v42; // rdi
-  unsigned __int64 v43; // rdx
-  unsigned __int64 v44; // r8
-  unsigned __int64 v45; // r9
-  __int64 v46; // rdx
-  signed __int64 v47; // r8
-  signed __int64 v48; // rdx
-  signed __int64 v49; // rtt
-  int v50; // eax
-  unsigned __int64 v51; // [rsp+30h] [rbp-48h]
-  int v53; // [rsp+98h] [rbp+20h]
+  int v41; // r8d
+  __int64 v42; // rax
+  unsigned __int64 v43; // rdi
+  __int64 v44; // rdx
+  signed __int64 v45; // r8
+  signed __int64 v46; // rdx
+  signed __int64 v47; // rtt
+  int v48; // eax
+  unsigned __int64 v49; // [rsp+30h] [rbp-48h]
+  int v51; // [rsp+98h] [rbp+20h]
 
   v5 = (unsigned __int64)(a3 + 4095) >> 12;
-  v51 = (a4 + 4095) >> 12;
-  v7 = (unsigned int)(v5 + 1);
+  v49 = (unsigned __int64)(a4 + 4095) >> 12;
+  v7 = v5 + 1;
   if ( (a5 & 4) == 0 )
-    v7 = (unsigned int)v5;
-  v53 = v7;
+    v7 = v5;
+  v51 = v7;
   v8 = a5 & 0x800000;
   if ( (a5 & 0x800000) == 0 || (unsigned int)-*(_DWORD *)a1 <= 0x200000 )
   {
@@ -86,15 +84,15 @@ void *__fastcall RtlpHpSegAlloc(__int64 a1, size_t a2, __int64 a3, unsigned __in
     v10 = (unsigned int)(v7 + (1 << *(_BYTE *)(a1 + 9)) - 1) >> *(_BYTE *)(a1 + 9);
     v11 = v10 << 24;
     if ( (a5 & 1) == 0 )
-      RtlAcquireSRWLockExclusive(a1 + 64, v7, v5, a4);
+      RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)(a1 + 64));
     v12 = *(_QWORD *)(a1 + 104);
-    v13 = (unsigned __int64 *)(a1 + 96);
+    v13 = a1 + 96;
     v14 = *(_QWORD *)(a1 + 96);
     v15 = 0LL;
     if ( (v12 & 1) != 0 )
     {
       if ( v14 )
-        v14 ^= (unsigned __int64)v13;
+        v14 ^= v13;
       else
         v14 = 0LL;
     }
@@ -134,7 +132,7 @@ LABEL_13:
     }
     else
     {
-      RtlRbRemoveNode(a1 + 96, v14, v5);
+      RtlRbRemoveNode((PRTL_RB_TREE)(a1 + 96), (PRTL_BALANCED_NODE)v14);
       *(_OWORD *)v14 = 0LL;
       *(_QWORD *)(v14 + 16) = 0LL;
       v17 = ~(unsigned __int16)*(_DWORD *)(v14 + 28);
@@ -147,17 +145,20 @@ LABEL_13:
     {
 LABEL_67:
       if ( (a5 & 1) == 0 )
-        RtlReleaseSRWLockExclusive((volatile signed __int64 *)(a1 + 64));
+        RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(a1 + 64));
       v36 = 0LL;
-      v41 = RtlpHpSegSegmentAllocate(a1, 0);
-      v42 = v41;
-      if ( !v41 )
+      v41 = 0;
+      if ( v8 )
+        v41 = 2;
+      v42 = RtlpHpSegSegmentAllocate(a1, 0, v41);
+      v43 = v42;
+      if ( !v42 )
         return v36;
-      RtlpHpSegSegmentInitialize((_BYTE *)a1, v41, 0);
-      v14 = v42 + 32LL * *(unsigned __int8 *)(a1 + 10);
+      RtlpHpSegSegmentInitialize((_BYTE *)a1, v42, 0);
+      v14 = v43 + 32LL * *(unsigned __int8 *)(a1 + 10);
       if ( (a5 & 1) == 0 )
-        RtlAcquireSRWLockExclusive(a1 + 64, v43, v44, v45);
-      RtlpHpSegHeapAddSegment(a1, v42);
+        RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)(a1 + 64));
+      RtlpHpSegHeapAddSegment(a1, v43);
       if ( v8 )
         v14 = RtlpHpSegLargeRangeAllocate(a1, v14, v10, 0LL);
     }
@@ -202,11 +203,11 @@ LABEL_67:
         else
           v26 = 4;
         *(_BYTE *)(v20 + 30) = v26;
-        v27 = *v13;
+        v27 = *(_QWORD *)v13;
         if ( (*(_QWORD *)(a1 + 104) & 1) != 0 )
         {
           if ( v27 )
-            v27 ^= (unsigned __int64)v13;
+            v27 ^= v13;
           else
             v27 = 0LL;
         }
@@ -250,7 +251,7 @@ LABEL_49:
             v27 = v30;
           }
         }
-        RtlRbInsertNodeEx((unsigned __int64 *)(a1 + 96), v27, v29, v14 + 32LL * v10);
+        RtlRbInsertNodeEx((PRTL_RB_TREE)(a1 + 96), (PRTL_BALANCED_NODE)v27, v29, (PRTL_BALANCED_NODE)(v14 + 32LL * v10));
         _InterlockedExchangeAdd64(
           (volatile signed __int64 *)(*(__int16 *)(a1 + 22) + a1 + 16),
           (unsigned __int16)~*(_WORD *)(v20 + 28));
@@ -269,17 +270,17 @@ LABEL_49:
       {
         do
         {
-          v46 = 3LL;
-          v47 = v33 & 6;
-          if ( v47 != 2 )
-            v46 = -1LL;
-          v48 = v33 + v46;
-          v49 = v33;
-          v33 = _InterlockedCompareExchange64(v32, v48, v33);
+          v44 = 3LL;
+          v45 = v33 & 6;
+          if ( v45 != 2 )
+            v44 = -1LL;
+          v46 = v33 + v44;
+          v47 = v33;
+          v33 = _InterlockedCompareExchange64(v32, v46, v33);
         }
-        while ( v49 != v33 );
-        if ( v47 == 2 )
-          RtlpWakeSRWLock(v32, v48, 0);
+        while ( v47 != v33 );
+        if ( v45 == 2 )
+          RtlpWakeSRWLock(v32, v46, 0);
       }
     }
     if ( v31 > 1 )
@@ -296,19 +297,19 @@ LABEL_49:
     }
     v34 = *(unsigned __int8 *)(v14 + 31);
     v35 = (unsigned __int16)~*(_WORD *)(v14 + 28);
-    if ( (_DWORD)v51 )
+    if ( (_DWORD)v49 )
     {
       v40 = a5 & 0xFFFFFFFD;
       if ( *(_WORD *)(v14 + 28) == 0xFFFF )
         v40 = a5;
-      if ( (int)RtlpHpSegPageRangeCommit(a1, v14, 0, v51, v40, 0LL) < 0 )
+      if ( (int)RtlpHpSegPageRangeCommit(a1, v14, 0, v49, v40, 0LL) < 0 )
       {
         RtlpHpSegPageRangeShrink(a1, v14, 0, a5);
         return 0LL;
       }
     }
     if ( (a5 & 4) != 0 )
-      RtlpHpSegPageRangeCommit(a1, v14, v53 - 1, v53 - (v34 << *(_BYTE *)(a1 + 9)) - 1, 0, 0LL);
+      RtlpHpSegPageRangeCommit(a1, v14, v51 - 1, v51 - (v34 << *(_BYTE *)(a1 + 9)) - 1, 0, 0LL);
     *(_DWORD *)(v14 + 4) = (v34 << *(_BYTE *)(a1 + 8)) - a2;
     v36 = (void *)((v14 & *(_QWORD *)a1) + ((v14 - (v14 & *(_QWORD *)a1)) >> 5 << *(_BYTE *)(a1 + 8)));
     if ( (a5 & 2) != 0 )
@@ -316,7 +317,7 @@ LABEL_49:
       if ( v35
         || BYTE1(*(_QWORD *)(a1 + 40)) >= 2u
         || (*(_BYTE *)(a1 + 13) & 7) != 0
-        && (v50 = RtlpHpSegPageRangeComputeLargePageCost(a1, v36, (unsigned int)a2), v50 <= 2) )
+        && (v48 = RtlpHpSegPageRangeComputeLargePageCost(a1, v36, (unsigned int)a2), v48 <= 2) )
       {
         memset(v36, 0, a2);
       }

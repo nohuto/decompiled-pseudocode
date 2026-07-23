@@ -1,5 +1,5 @@
 /*
- * XREFs of KeAcquireInStackQueuedSpinLockRaiseToSynch @ 0x1401D38D0
+ * XREFs of KeAcquireInStackQueuedSpinLockRaiseToSynch @ 0x1401D36FC
  * Callers:
  *     VerifierKeAcquireInStackQueuedSpinLockRaiseToSynchCommon @ 0x140711D64 (VerifierKeAcquireInStackQueuedSpinLockRaiseToSynchCommon.c)
  * Callees:

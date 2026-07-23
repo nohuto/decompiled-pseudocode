@@ -14,14 +14,16 @@
  *     KeIsExecutingInArbitraryThreadContext @ 0x1403F2494 (KeIsExecutingInArbitraryThreadContext.c)
  */
 
-__int64 __fastcall RtlGetActiveConsoleId(__int64 a1, __int64 a2)
+ULONG RtlGetActiveConsoleId(void)
 {
+  __int64 v0; // rdx
+  __int64 v1; // rcx
   __int64 v2; // rdx
   __int64 v3; // rcx
   __int64 ThreadServerSilo; // rax
   _QWORD *v6; // rax
 
-  if ( !PsIsCurrentThreadInServerSilo(a1, a2) )
+  if ( !PsIsCurrentThreadInServerSilo(v1, v0) )
     return MEMORY[0xFFFFF780000002D8];
   if ( (unsigned int)KeIsExecutingInArbitraryThreadContext(v3, v2)
     || (ThreadServerSilo = PsGetThreadServerSilo((__int64)KeGetCurrentThread())) == 0 )
@@ -32,5 +34,5 @@ __int64 __fastcall RtlGetActiveConsoleId(__int64 a1, __int64 a2)
   {
     v6 = *(_QWORD **)(ThreadServerSilo + 1272);
   }
-  return *(unsigned int *)(v6[141] + 4LL);
+  return *(_DWORD *)(v6[141] + 4LL);
 }

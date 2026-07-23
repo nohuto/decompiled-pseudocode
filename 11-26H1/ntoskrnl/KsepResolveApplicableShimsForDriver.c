@@ -1,22 +1,22 @@
 /*
- * XREFs of KsepResolveApplicableShimsForDriver @ 0x1407BDDD4
+ * XREFs of KsepResolveApplicableShimsForDriver @ 0x1407C0E34
  * Callers:
- *     KsepGetShimsForDriver @ 0x140A255BC (KsepGetShimsForDriver.c)
+ *     KsepGetShimsForDriver @ 0x140A3865C (KsepGetShimsForDriver.c)
  * Callees:
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     ExfTryToWakePushLock @ 0x1403170A0 (ExfTryToWakePushLock.c)
- *     KsepLogInfo @ 0x1404CCB84 (KsepLogInfo.c)
- *     KsepLogError @ 0x1404CCBBC (KsepLogError.c)
- *     KsepPoolFreePaged @ 0x1404E2A70 (KsepPoolFreePaged.c)
- *     KsepDebugPrint @ 0x14050EC24 (KsepDebugPrint.c)
- *     KsepLoadShimProvider @ 0x1405FDFF0 (KsepLoadShimProvider.c)
- *     KsepResolveShimHooks @ 0x1407BD5E4 (KsepResolveShimHooks.c)
- *     KsepGetLoadedModulesList @ 0x1407BE654 (KsepGetLoadedModulesList.c)
- *     KsepIsShimRegistered @ 0x140B57464 (KsepIsShimRegistered.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     ExfTryToWakePushLock @ 0x1403190D0 (ExfTryToWakePushLock.c)
+ *     KsepLogInfo @ 0x1404C6324 (KsepLogInfo.c)
+ *     KsepLogError @ 0x1404C635C (KsepLogError.c)
+ *     KsepPoolFreePaged @ 0x1404DC150 (KsepPoolFreePaged.c)
+ *     KsepDebugPrint @ 0x140508694 (KsepDebugPrint.c)
+ *     KsepLoadShimProvider @ 0x140600A40 (KsepLoadShimProvider.c)
+ *     KsepResolveShimHooks @ 0x1407C0644 (KsepResolveShimHooks.c)
+ *     KsepGetLoadedModulesList @ 0x1407C16B4 (KsepGetLoadedModulesList.c)
+ *     KsepIsShimRegistered @ 0x140B5A3B8 (KsepIsShimRegistered.c)
  */
 
 __int64 __fastcall KsepResolveApplicableShimsForDriver(
@@ -70,11 +70,11 @@ __int64 __fastcall KsepResolveApplicableShimsForDriver(
   v41 = 0;
   v40 = 0LL;
   v9 = 0;
-  v10 = (AutoBoost *)KeAbPreAcquire((__int64)&stru_140E66B30, 0LL, 0LL, a4);
-  v13 = _interlockedbittestandset64(&stru_140E66B30.Header.Lock, 0LL);
+  v10 = (AutoBoost *)KeAbPreAcquire((__int64)&stru_140E66D40, 0LL, 0LL, a4);
+  v13 = _interlockedbittestandset64(&stru_140E66D40.Header.Lock, 0LL);
   v14 = v10;
   if ( v13 )
-    ExfAcquirePushLockExclusiveEx((unsigned __int64 *)&stru_140E66B30, v10, (__int64)&stru_140E66B30);
+    ExfAcquirePushLockExclusiveEx((unsigned __int64 *)&stru_140E66D40, v10, (__int64)&stru_140E66D40);
   if ( v14 )
   {
     if ( (KiAbpGlobalState & 1) != 0 )
@@ -111,9 +111,9 @@ __int64 __fastcall KsepResolveApplicableShimsForDriver(
     v8 = ShimProvider;
     ShimProvider = 0;
   }
-  if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&stru_140E66B30, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-    ExfTryToWakePushLock((volatile signed __int64 *)&stru_140E66B30.Header.Lock);
-  KeAbPostRelease((unsigned __int64)&stru_140E66B30);
+  if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&stru_140E66D40, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+    ExfTryToWakePushLock((volatile signed __int64 *)&stru_140E66D40.Header.Lock);
+  KeAbPostRelease((unsigned __int64)&stru_140E66D40);
   KeLeaveCriticalRegion();
   if ( v9 )
   {
@@ -126,12 +126,12 @@ __int64 __fastcall KsepResolveApplicableShimsForDriver(
         if ( ShimProvider < 0 )
         {
           v22 = ((unsigned __int8)_InterlockedExchangeAdd(
-                                    (volatile signed __int32 *)&AlpcpMessageLogLock.PriorityFloorCounts[8],
+                                    (volatile signed __int32 *)&AlpcpMessageLogLock.AbWaitEntryCount,
                                     1u)
                + 1) & 0x3F;
-          *(_DWORD *)&AlpcpMessageLogLock.WaitBlockFill6[8 * v22 + 4] = ShimProvider;
-          *((_DWORD *)&AlpcpMessageLogLock.WaitBlock[0].WaitListEntry.Flink + 2 * v22) = 459209;
-          if ( ((__int64)stru_140E66B30.StackBase & 2) != 0 )
+          *(&AlpcpMessageLogLock.Timer.DueTime.HighPart + 2 * v22) = ShimProvider;
+          *(&AlpcpMessageLogLock.Timer.DueTime.LowPart + 2 * v22) = 459209;
+          if ( ((__int64)stru_140E66D40.StackBase & 2) != 0 )
             KsepDebugPrint(
               6LL,
               (int)"KSE: Failed to load provider for shim [0x%08X]. Status: 0x%x\n",
@@ -148,11 +148,11 @@ __int64 __fastcall KsepResolveApplicableShimsForDriver(
     }
     v23 = KeGetCurrentThread();
     --v23->KernelApcDisable;
-    v24 = (AutoBoost *)KeAbPreAcquire((__int64)&stru_140E66B30, 0LL, 0LL, v19);
-    v13 = _interlockedbittestandset64(&stru_140E66B30.Header.Lock, 0LL);
+    v24 = (AutoBoost *)KeAbPreAcquire((__int64)&stru_140E66D40, 0LL, 0LL, v19);
+    v13 = _interlockedbittestandset64(&stru_140E66D40.Header.Lock, 0LL);
     v27 = v24;
     if ( v13 )
-      ExfAcquirePushLockExclusiveEx((unsigned __int64 *)&stru_140E66B30, v24, (__int64)&stru_140E66B30);
+      ExfAcquirePushLockExclusiveEx((unsigned __int64 *)&stru_140E66D40, v24, (__int64)&stru_140E66D40);
     if ( v27 )
     {
       if ( (KiAbpGlobalState & 1) != 0 )
@@ -165,27 +165,27 @@ __int64 __fastcall KsepResolveApplicableShimsForDriver(
       v29 = (unsigned int *)(a1 + 80 * j);
       if ( !(unsigned int)KsepIsShimRegistered(&KseEngine, v29, v26, v29 + 18) )
       {
-        if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&stru_140E66B30, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-          ExfTryToWakePushLock((volatile signed __int64 *)&stru_140E66B30.Header.Lock);
-        KeAbPostRelease((unsigned __int64)&stru_140E66B30);
+        if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&stru_140E66D40, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+          ExfTryToWakePushLock((volatile signed __int64 *)&stru_140E66D40.Header.Lock);
+        KeAbPostRelease((unsigned __int64)&stru_140E66D40);
         KeLeaveCriticalRegion();
         ShimProvider = -1073740782;
         v30 = ((unsigned __int8)_InterlockedExchangeAdd(
-                                  (volatile signed __int32 *)&AlpcpMessageLogLock.PriorityFloorCounts[8],
+                                  (volatile signed __int32 *)&AlpcpMessageLogLock.AbWaitEntryCount,
                                   1u)
              + 1) & 0x3F;
-        *(_DWORD *)&AlpcpMessageLogLock.WaitBlockFill6[8 * v30 + 4] = -1073740782;
-        *((_DWORD *)&AlpcpMessageLogLock.WaitBlock[0].WaitListEntry.Flink + 2 * v30) = 459238;
-        if ( ((__int64)stru_140E66B30.StackBase & 2) != 0 )
+        *(&AlpcpMessageLogLock.Timer.DueTime.HighPart + 2 * v30) = -1073740782;
+        *(&AlpcpMessageLogLock.Timer.DueTime.LowPart + 2 * v30) = 459238;
+        if ( ((__int64)stru_140E66D40.StackBase & 2) != 0 )
           KsepDebugPrint(6LL, (int)"KSE: The provider did not register shim [0x%08X] in time\n", *v29);
         KsepLogError(6LL, (__int64)"KSE: The provider did not register shim [0x%08X] in time\n", *v29);
         goto LABEL_42;
       }
       ++*(_DWORD *)(*((_QWORD *)v29 + 9) + 24LL);
     }
-    if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&stru_140E66B30, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-      ExfTryToWakePushLock((volatile signed __int64 *)&stru_140E66B30.Header.Lock);
-    KeAbPostRelease((unsigned __int64)&stru_140E66B30);
+    if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&stru_140E66D40, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+      ExfTryToWakePushLock((volatile signed __int64 *)&stru_140E66D40.Header.Lock);
+    KeAbPostRelease((unsigned __int64)&stru_140E66D40);
     KeLeaveCriticalRegion();
     v8 = v41;
   }
@@ -200,11 +200,11 @@ LABEL_42:
     }
     v33 = KeGetCurrentThread();
     --v33->KernelApcDisable;
-    v34 = (AutoBoost *)KeAbPreAcquire((__int64)&stru_140E66B30, 0LL, 0LL, v32);
-    v13 = _interlockedbittestandset64(&stru_140E66B30.Header.Lock, 0LL);
+    v34 = (AutoBoost *)KeAbPreAcquire((__int64)&stru_140E66D40, 0LL, 0LL, v32);
+    v13 = _interlockedbittestandset64(&stru_140E66D40.Header.Lock, 0LL);
     v36 = v34;
     if ( v13 )
-      ExfAcquirePushLockExclusiveEx((unsigned __int64 *)&stru_140E66B30, v34, (__int64)&stru_140E66B30);
+      ExfAcquirePushLockExclusiveEx((unsigned __int64 *)&stru_140E66D40, v34, (__int64)&stru_140E66D40);
     if ( v36 )
     {
       if ( (KiAbpGlobalState & 1) != 0 )
@@ -220,17 +220,17 @@ LABEL_42:
                        *(int **)(*(_QWORD *)(*(_QWORD *)(a1 + 80 * k + 72) + 16LL) + 48LL));
       if ( ShimProvider < 0 )
       {
-        if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&stru_140E66B30, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-          ExfTryToWakePushLock((volatile signed __int64 *)&stru_140E66B30.Header.Lock);
-        KeAbPostRelease((unsigned __int64)&stru_140E66B30);
+        if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&stru_140E66D40, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+          ExfTryToWakePushLock((volatile signed __int64 *)&stru_140E66D40.Header.Lock);
+        KeAbPostRelease((unsigned __int64)&stru_140E66D40);
         KeLeaveCriticalRegion();
         v38 = ((unsigned __int8)_InterlockedExchangeAdd(
-                                  (volatile signed __int32 *)&AlpcpMessageLogLock.PriorityFloorCounts[8],
+                                  (volatile signed __int32 *)&AlpcpMessageLogLock.AbWaitEntryCount,
                                   1u)
              + 1) & 0x3F;
-        *(_DWORD *)&AlpcpMessageLogLock.WaitBlockFill6[8 * v38 + 4] = ShimProvider;
-        *((_DWORD *)&AlpcpMessageLogLock.WaitBlock[0].WaitListEntry.Flink + 2 * v38) = 459286;
-        if ( ((__int64)stru_140E66B30.StackBase & 2) != 0 )
+        *(&AlpcpMessageLogLock.Timer.DueTime.HighPart + 2 * v38) = ShimProvider;
+        *(&AlpcpMessageLogLock.Timer.DueTime.LowPart + 2 * v38) = 459286;
+        if ( ((__int64)stru_140E66D40.StackBase & 2) != 0 )
           KsepDebugPrint(
             6LL,
             (int)"KSE: Failed to resolve hooks for shim [0x%08X]. Status 0x%x.\n",
@@ -244,21 +244,21 @@ LABEL_42:
         goto LABEL_70;
       }
     }
-    if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&stru_140E66B30, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-      ExfTryToWakePushLock((volatile signed __int64 *)&stru_140E66B30.Header.Lock);
-    KeAbPostRelease((unsigned __int64)&stru_140E66B30);
+    if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&stru_140E66D40, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+      ExfTryToWakePushLock((volatile signed __int64 *)&stru_140E66D40.Header.Lock);
+    KeAbPostRelease((unsigned __int64)&stru_140E66D40);
     KeLeaveCriticalRegion();
   }
   else
   {
     v31 = v40;
   }
-  *((_QWORD *)&AlpcpMessageLogLock.AbCompletedIoQoSBoostCount
-  + (((unsigned __int8)_InterlockedExchangeAdd(
-                         (volatile signed __int32 *)&AlpcpMessageLogLock.PriorityFloorCounts[12],
-                         1u)
-    + 1) & 0x3F)) = 459300LL;
-  if ( ((__int64)stru_140E66B30.StackBase & 1) != 0 )
+  *(_QWORD *)&AlpcpMessageLogLock.PriorityFloorCounts[8
+                                                    * (((unsigned __int8)_InterlockedExchangeAdd(
+                                                                           &KsepHistoryMessagesIndex,
+                                                                           1u)
+                                                      + 1) & 0x3F)] = 459300LL;
+  if ( ((__int64)stru_140E66D40.StackBase & 1) != 0 )
     KsepDebugPrint(6LL, (int)"KSE: Successfully resolved %d shim(s).\n", (unsigned int)v5);
   KsepLogInfo(6LL, (__int64)"KSE: Successfully resolved %d shim(s).\n", v5);
 LABEL_70:

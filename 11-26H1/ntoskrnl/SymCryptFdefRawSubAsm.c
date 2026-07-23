@@ -1,9 +1,9 @@
 /*
- * XREFs of SymCryptFdefRawSubAsm @ 0x140571560
+ * XREFs of SymCryptFdefRawSubAsm @ 0x140570740
  * Callers:
- *     SymCryptFdefIntSubMixedSize @ 0x140568990 (SymCryptFdefIntSubMixedSize.c)
- *     SymCryptFdefIntSubSameSize @ 0x140568A78 (SymCryptFdefIntSubSameSize.c)
- *     SymCryptFdefRawSub @ 0x140569080 (SymCryptFdefRawSub.c)
+ *     SymCryptFdefIntSubMixedSize @ 0x140567B70 (SymCryptFdefIntSubMixedSize.c)
+ *     SymCryptFdefIntSubSameSize @ 0x140567C58 (SymCryptFdefIntSubSameSize.c)
+ *     SymCryptFdefRawSub @ 0x140568260 (SymCryptFdefRawSub.c)
  * Callees:
  *     <none>
  */

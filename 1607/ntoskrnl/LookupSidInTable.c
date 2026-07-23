@@ -1,17 +1,17 @@
 /*
- * XREFs of LookupSidInTable @ 0x1404D72E0
+ * XREFs of LookupSidInTable @ 0x1404BA8E4
  * Callers:
- *     LocalGetSidForString @ 0x1404D722C (LocalGetSidForString.c)
- *     LocalConvertAclToString @ 0x1406CA388 (LocalConvertAclToString.c)
- *     LocalGetStringForSid @ 0x1406CB818 (LocalGetStringForSid.c)
+ *     LocalGetSidForString @ 0x1404BA830 (LocalGetSidForString.c)
+ *     LocalConvertAclToString @ 0x1406CA4C0 (LocalConvertAclToString.c)
+ *     LocalGetStringForSid @ 0x1406CB950 (LocalGetStringForSid.c)
  * Callees:
- *     RtlLengthSid @ 0x14000C2AC (RtlLengthSid.c)
- *     RtlSubAuthoritySid @ 0x14000D6F8 (RtlSubAuthoritySid.c)
- *     RtlEqualSid @ 0x14000F570 (RtlEqualSid.c)
- *     RtlSubAuthorityCountSid @ 0x14002D248 (RtlSubAuthorityCountSid.c)
- *     _wcsnicmp @ 0x14014D8A0 (_wcsnicmp.c)
- *     memmove @ 0x140171280 (memmove.c)
- *     SddlpAlloc @ 0x1404D7574 (SddlpAlloc.c)
+ *     RtlLengthSid @ 0x14000BE2C (RtlLengthSid.c)
+ *     RtlSubAuthoritySid @ 0x14000D278 (RtlSubAuthoritySid.c)
+ *     RtlEqualSid @ 0x14000F0F0 (RtlEqualSid.c)
+ *     RtlSubAuthorityCountSid @ 0x14002CDC8 (RtlSubAuthorityCountSid.c)
+ *     _wcsnicmp @ 0x14014DE10 (_wcsnicmp.c)
+ *     memmove @ 0x140171780 (memmove.c)
+ *     SddlpAlloc @ 0x1404BAB78 (SddlpAlloc.c)
  */
 
 __int64 __fastcall LookupSidInTable(wchar_t *Str1, PSID Sid1, __int64 a3, __int64 a4, int a5, char a6, _QWORD *a7)

@@ -1,11 +1,11 @@
 /*
- * XREFs of MiFlushDeferredRetpolineImageLoadEvents @ 0x140865494
+ * XREFs of MiFlushDeferredRetpolineImageLoadEvents @ 0x1408656D4
  * Callers:
  *     MiInitSystem @ 0x140B44518 (MiInitSystem.c)
  * Callees:
- *     MmAcquireLoadLock @ 0x1407045B0 (MmAcquireLoadLock.c)
- *     MmReleaseLoadLock @ 0x140704930 (MmReleaseLoadLock.c)
- *     MiLogNonRetpolineImageLoadEvent @ 0x140852B70 (MiLogNonRetpolineImageLoadEvent.c)
+ *     MmAcquireLoadLock @ 0x1407047C0 (MmAcquireLoadLock.c)
+ *     MmReleaseLoadLock @ 0x140704B40 (MmReleaseLoadLock.c)
+ *     MiLogNonRetpolineImageLoadEvent @ 0x140852E70 (MiLogNonRetpolineImageLoadEvent.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

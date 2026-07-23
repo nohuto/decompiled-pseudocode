@@ -1,25 +1,25 @@
 /*
- * XREFs of MiCopyToCfgBitMap @ 0x1409C8560
+ * XREFs of MiCopyToCfgBitMap @ 0x140999540
  * Callers:
- *     MiMarkSharedImageCfgBits @ 0x1409C8128 (MiMarkSharedImageCfgBits.c)
- *     MiPopulateCfgBitMap @ 0x1409C83D4 (MiPopulateCfgBitMap.c)
+ *     MiMarkSharedImageCfgBits @ 0x140999108 (MiMarkSharedImageCfgBits.c)
+ *     MiPopulateCfgBitMap @ 0x1409993B4 (MiPopulateCfgBitMap.c)
  * Callees:
- *     RtlClearBitsEx @ 0x14024EFA0 (RtlClearBitsEx.c)
- *     MiSplitPrivatePage @ 0x1403173FC (MiSplitPrivatePage.c)
- *     RtlSetBitsEx @ 0x14036F510 (RtlSetBitsEx.c)
- *     ExAllocatePoolMm @ 0x1403985B0 (ExAllocatePoolMm.c)
- *     MmGetCurrentProcessorColor @ 0x14044ADC0 (MmGetCurrentProcessorColor.c)
- *     MiReadVadFlags2 @ 0x14047A070 (MiReadVadFlags2.c)
- *     RtlClearAllBitsEx @ 0x140483500 (RtlClearAllBitsEx.c)
- *     MiCopyToUserVa @ 0x1404A2F88 (MiCopyToUserVa.c)
- *     MiModeCopyExceptionFilterEx @ 0x1404E5578 (MiModeCopyExceptionFilterEx.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     RtlCopyFromUser @ 0x140533E38 (RtlCopyFromUser.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     MiImageCfgEnumNextImageExtensionRva @ 0x14077D11C (MiImageCfgEnumNextImageExtensionRva.c)
- *     MiEliminateZeroPages @ 0x1409C9F7C (MiEliminateZeroPages.c)
- *     MiImageCfgEnumRvaListFirst @ 0x1409CA158 (MiImageCfgEnumRvaListFirst.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     RtlClearBitsEx @ 0x140250900 (RtlClearBitsEx.c)
+ *     MiSplitPrivatePage @ 0x14031942C (MiSplitPrivatePage.c)
+ *     RtlSetBitsEx @ 0x1403712C0 (RtlSetBitsEx.c)
+ *     ExAllocatePoolMm @ 0x14039A310 (ExAllocatePoolMm.c)
+ *     MmGetCurrentProcessorColor @ 0x140442EF0 (MmGetCurrentProcessorColor.c)
+ *     MiReadVadFlags2 @ 0x1404739E0 (MiReadVadFlags2.c)
+ *     RtlClearAllBitsEx @ 0x14047CE30 (RtlClearAllBitsEx.c)
+ *     MiCopyToUserVa @ 0x14049C9A8 (MiCopyToUserVa.c)
+ *     MiModeCopyExceptionFilterEx @ 0x1404DEB18 (MiModeCopyExceptionFilterEx.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     RtlCopyFromUser @ 0x1405362B8 (RtlCopyFromUser.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     MiImageCfgEnumNextImageExtensionRva @ 0x14077FC10 (MiImageCfgEnumNextImageExtensionRva.c)
+ *     MiEliminateZeroPages @ 0x14099AF5C (MiEliminateZeroPages.c)
+ *     MiImageCfgEnumRvaListFirst @ 0x14099B138 (MiImageCfgEnumRvaListFirst.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall MiCopyToCfgBitMap(
@@ -102,7 +102,7 @@ __int64 __fastcall MiCopyToCfgBitMap(
   char *v76; // [rsp+148h] [rbp+48h]
   char *v77; // [rsp+150h] [rbp+50h]
   size_t v78; // [rsp+158h] [rbp+58h]
-  __int128 v79; // [rsp+160h] [rbp+60h] BYREF
+  _RTL_BITMAP_EX BitMapHeader; // [rsp+160h] [rbp+60h] BYREF
   unsigned __int64 v80; // [rsp+170h] [rbp+70h]
   size_t v81; // [rsp+178h] [rbp+78h]
   unsigned __int64 v82; // [rsp+180h] [rbp+80h]
@@ -120,7 +120,7 @@ __int64 __fastcall MiCopyToCfgBitMap(
   v78 = Size;
   v81 = Size;
   v85 = Src;
-  v79 = 0LL;
+  BitMapHeader = 0LL;
   if ( a2 > 1 && !a4 )
   {
     if ( *a8 == -1 )
@@ -163,9 +163,9 @@ __int64 __fastcall MiCopyToCfgBitMap(
   }
   else
   {
-    PoolMm = (char *)qword_140E36020;
+    PoolMm = (char *)qword_140E361A0;
     if ( !v11 )
-      PoolMm = (char *)qword_140E36058;
+      PoolMm = (char *)qword_140E361D8;
   }
   v77 = PoolMm;
   v76 = PoolMm;
@@ -206,8 +206,8 @@ LABEL_7:
         if ( v23 >= v56 )
           LODWORD(v23) = v56;
         RtlCopyFromUser(PoolMm, v18, (unsigned int)v23);
-        *((_QWORD *)&v79 + 1) = PoolMm;
-        *(_QWORD *)&v79 = (unsigned int)(8 * v23);
+        BitMapHeader.Buffer = (unsigned __int64 *)PoolMm;
+        BitMapHeader.SizeOfBitMap = (unsigned int)(8 * v23);
         v57 = v66;
         for ( i = v75; v57 < *(_DWORD *)v75; i = v75 )
         {
@@ -224,7 +224,7 @@ LABEL_7:
           }
           else
           {
-            RtlClearBitsEx((__int64)&v79, v62, 2uLL);
+            RtlClearBitsEx((__int64)&BitMapHeader, v62, 2uLL);
           }
           v57 = v66 + 1;
           v66 = v57;
@@ -236,9 +236,9 @@ LABEL_52:
       }
       if ( !v10 )
       {
-        *((_QWORD *)&v79 + 1) = PoolMm;
-        *(_QWORD *)&v79 = (unsigned int)(8 * v22);
-        RtlClearAllBitsEx((__int64)&v79);
+        BitMapHeader.Buffer = (unsigned __int64 *)PoolMm;
+        BitMapHeader.SizeOfBitMap = (unsigned int)(8 * v22);
+        RtlClearAllBitsEx(&BitMapHeader);
         v24 = v15 + ((unsigned int)v22 >> 1 << 7);
         LODWORD(v71) = v24;
         ImageExtensionRva = *a8;
@@ -278,7 +278,7 @@ LABEL_52:
               }
               else
               {
-                RtlSetBitsEx((__int64)&v79, v38, 2uLL);
+                RtlSetBitsEx((__int64)&BitMapHeader, v38, 2uLL);
               }
             }
           }
@@ -395,9 +395,9 @@ LABEL_57:
     v72 = 1LL;
     v16 = 4096;
     v67 = 4096LL;
-    PoolMm = (char *)qword_140E36020;
-    v76 = (char *)qword_140E36020;
-    v77 = (char *)qword_140E36020;
+    PoolMm = (char *)qword_140E361A0;
+    v76 = (char *)qword_140E361A0;
+    v77 = (char *)qword_140E361A0;
 LABEL_58:
     v18 = &v70[(unsigned int)v23];
     v70 = v18;

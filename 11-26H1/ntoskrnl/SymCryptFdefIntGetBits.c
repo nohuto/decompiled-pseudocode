@@ -1,7 +1,7 @@
 /*
- * XREFs of SymCryptFdefIntGetBits @ 0x140568718
+ * XREFs of SymCryptFdefIntGetBits @ 0x1405678F8
  * Callers:
- *     SymCryptIntGetBits @ 0x14055C2BC (SymCryptIntGetBits.c)
+ *     SymCryptIntGetBits @ 0x14055E7A4 (SymCryptIntGetBits.c)
  * Callees:
  *     <none>
  */

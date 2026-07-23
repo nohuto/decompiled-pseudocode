@@ -15,9 +15,9 @@ NTSTATUS __stdcall RtlMultiByteToUnicodeN(
         const CHAR *MultiByteString,
         ULONG BytesInMultiByteString)
 {
-  struct _CPTABLEINFO *CodePageData; // rax
+  _CPTABLEINFO *CodePageData; // rax
 
-  CodePageData = (struct _CPTABLEINFO *)RtlpGetCodePageData(0LL);
+  CodePageData = (_CPTABLEINFO *)RtlpGetCodePageData(0LL);
   RtlCustomCPToUnicodeN(
     CodePageData,
     UnicodeString,

@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpPowerInitNvsRegionData @ 0x140CB335C
+ * XREFs of HalpPowerInitNvsRegionData @ 0x140CB939C
  * Callers:
- *     HalpPowerInitDiscard @ 0x140CAE400 (HalpPowerInitDiscard.c)
+ *     HalpPowerInitDiscard @ 0x140CB4440 (HalpPowerInitDiscard.c)
  * Callees:
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     HalpMmAllocateMemoryInternal @ 0x14057DCF0 (HalpMmAllocateMemoryInternal.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     HalpMmAllocateMemoryInternal @ 0x140580210 (HalpMmAllocateMemoryInternal.c)
  */
 
 __int64 HalpPowerInitNvsRegionData()

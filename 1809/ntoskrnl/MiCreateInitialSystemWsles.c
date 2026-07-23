@@ -1,15 +1,15 @@
 /*
- * XREFs of MiCreateInitialSystemWsles @ 0x1409B7B7C
+ * XREFs of MiCreateInitialSystemWsles @ 0x1409B8B7C
  * Callers:
- *     MiInitializeDriverImages @ 0x1409B6BDC (MiInitializeDriverImages.c)
+ *     MiInitializeDriverImages @ 0x1409B7BDC (MiInitializeDriverImages.c)
  * Callees:
  *     MiGetAnyMultiplexedVm @ 0x140028884 (MiGetAnyMultiplexedVm.c)
- *     MiUnlockWorkingSetExclusive @ 0x140063CE0 (MiUnlockWorkingSetExclusive.c)
- *     MiGetSharedVm @ 0x140064D30 (MiGetSharedVm.c)
- *     MiWalkPageTables @ 0x14006E940 (MiWalkPageTables.c)
- *     ExAcquireSpinLockExclusive @ 0x1400BC4E0 (ExAcquireSpinLockExclusive.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     memset @ 0x1401D1880 (memset.c)
+ *     MiUnlockWorkingSetExclusive @ 0x140063CD0 (MiUnlockWorkingSetExclusive.c)
+ *     MiGetSharedVm @ 0x140064D20 (MiGetSharedVm.c)
+ *     MiWalkPageTables @ 0x14006E930 (MiWalkPageTables.c)
+ *     ExAcquireSpinLockExclusive @ 0x1400BC420 (ExAcquireSpinLockExclusive.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     memset @ 0x1401D1980 (memset.c)
  */
 
 _BOOL8 MiCreateInitialSystemWsles()

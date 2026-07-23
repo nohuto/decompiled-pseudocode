@@ -1,14 +1,14 @@
 /*
- * XREFs of MiPurgeZeroList @ 0x140120600
+ * XREFs of MiPurgeZeroList @ 0x140120B70
  * Callers:
- *     MiFinishResume @ 0x140120570 (MiFinishResume.c)
+ *     MiFinishResume @ 0x140120AE0 (MiFinishResume.c)
  * Callees:
- *     MiFreeZeroPageSizeIndex @ 0x14001BB40 (MiFreeZeroPageSizeIndex.c)
- *     MiLockPageInline @ 0x140022E70 (MiLockPageInline.c)
- *     MiIsPfnInline @ 0x140030920 (MiIsPfnInline.c)
- *     MiUnlinkFreeOrZeroedPage @ 0x140066D00 (MiUnlinkFreeOrZeroedPage.c)
- *     MiInsertPageInFreeOrZeroedList @ 0x1400671C0 (MiInsertPageInFreeOrZeroedList.c)
- *     MiPurgeLargeZeroNodePages @ 0x140120714 (MiPurgeLargeZeroNodePages.c)
+ *     MiFreeZeroPageSizeIndex @ 0x14001B6C0 (MiFreeZeroPageSizeIndex.c)
+ *     MiLockPageInline @ 0x1400229F0 (MiLockPageInline.c)
+ *     MiIsPfnInline @ 0x1400304A0 (MiIsPfnInline.c)
+ *     MiUnlinkFreeOrZeroedPage @ 0x140066880 (MiUnlinkFreeOrZeroedPage.c)
+ *     MiInsertPageInFreeOrZeroedList @ 0x140066D40 (MiInsertPageInFreeOrZeroedList.c)
+ *     MiPurgeLargeZeroNodePages @ 0x140120C84 (MiPurgeLargeZeroNodePages.c)
  */
 
 unsigned __int64 __fastcall MiPurgeZeroList(__int64 a1)
@@ -25,9 +25,9 @@ unsigned __int64 __fastcall MiPurgeZeroList(__int64 a1)
   if ( *(_BYTE *)(a1 + 4492) )
   {
     MiPurgeLargeZeroNodePages();
-    result = (unsigned int)dword_1403269FC;
+    result = (unsigned int)dword_140326A3C;
     v3 = 0;
-    if ( dword_1403269FC )
+    if ( dword_140326A3C )
     {
       v4 = (unsigned __int64 *)(*(_QWORD *)(a1 + 1728) + 16LL);
       do
@@ -51,7 +51,7 @@ unsigned __int64 __fastcall MiPurgeZeroList(__int64 a1)
             v5 = *v4;
           }
           while ( *v4 != 0xFFFFFFFFFLL );
-          result = (unsigned int)dword_1403269FC;
+          result = (unsigned int)dword_140326A3C;
         }
         ++v3;
         v4 += 5;

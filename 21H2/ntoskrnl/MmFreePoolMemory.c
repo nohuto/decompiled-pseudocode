@@ -1,18 +1,18 @@
 /*
- * XREFs of MmFreePoolMemory @ 0x1402FA848
+ * XREFs of MmFreePoolMemory @ 0x140305598
  * Callers:
- *     RtlpHpVaMgrCtxFree @ 0x1402A3484 (RtlpHpVaMgrCtxFree.c)
- *     RtlpHpEnvFreeVA @ 0x1402FA804 (RtlpHpEnvFreeVA.c)
- *     MmAllocatePoolMemory @ 0x14030B0D8 (MmAllocatePoolMemory.c)
+ *     RtlpHpVaMgrCtxFree @ 0x1402208C4 (RtlpHpVaMgrCtxFree.c)
+ *     RtlpHpEnvFreeVA @ 0x140305554 (RtlpHpEnvFreeVA.c)
+ *     MmAllocatePoolMemory @ 0x140315E28 (MmAllocatePoolMemory.c)
  * Callees:
- *     MiClearNonPagedPtes @ 0x140296238 (MiClearNonPagedPtes.c)
- *     MiReturnSystemVa @ 0x1402FA5E8 (MiReturnSystemVa.c)
- *     MiDeterminePoolType @ 0x1402FAD9C (MiDeterminePoolType.c)
- *     MiGetAnyMultiplexedVm @ 0x1402FD0FC (MiGetAnyMultiplexedVm.c)
- *     MiDeleteSystemPagableVm @ 0x140305A80 (MiDeleteSystemPagableVm.c)
- *     MiCountSystemPool @ 0x14030B920 (MiCountSystemPool.c)
- *     MiReturnCommit @ 0x1403182A0 (MiReturnCommit.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
+ *     MiClearNonPagedPtes @ 0x14021AB20 (MiClearNonPagedPtes.c)
+ *     MiReturnSystemVa @ 0x140305338 (MiReturnSystemVa.c)
+ *     MiDeterminePoolType @ 0x140305AEC (MiDeterminePoolType.c)
+ *     MiGetAnyMultiplexedVm @ 0x140307E4C (MiGetAnyMultiplexedVm.c)
+ *     MiDeleteSystemPagableVm @ 0x1403107D0 (MiDeleteSystemPagableVm.c)
+ *     MiCountSystemPool @ 0x140316670 (MiCountSystemPool.c)
+ *     MiReturnCommit @ 0x140322FF0 (MiReturnCommit.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall MmFreePoolMemory(ULONG_PTR *a1, ULONG_PTR *a2, unsigned int a3)
@@ -27,9 +27,11 @@ __int64 __fastcall MmFreePoolMemory(ULONG_PTR *a1, ULONG_PTR *a2, unsigned int a
   unsigned __int64 AnyMultiplexedVm; // rbp
   __int64 v11; // r8
   __int64 v12; // r15
-  __int128 v14; // [rsp+30h] [rbp-48h] BYREF
-  __int128 v15; // [rsp+40h] [rbp-38h]
-  __int128 v16; // [rsp+50h] [rbp-28h]
+  __int64 v13; // r8
+  __int64 v14; // r9
+  __int128 v16; // [rsp+30h] [rbp-48h] BYREF
+  __int128 v17; // [rsp+40h] [rbp-38h]
+  __int128 v18; // [rsp+50h] [rbp-28h]
 
   v3 = *a2;
   v4 = *a1;
@@ -50,9 +52,9 @@ __int64 __fastcall MmFreePoolMemory(ULONG_PTR *a1, ULONG_PTR *a2, unsigned int a
   {
     if ( (v7 & 1) != 0 )
     {
-      v14 = 0LL;
-      v15 = 0LL;
       v16 = 0LL;
+      v17 = 0LL;
+      v18 = 0LL;
       v11 = ((v4 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
       if ( (v7 & 0x20) != 0 )
         AnyMultiplexedVm = KeGetCurrentThread()->ApcState.Process[1].AffinityPadding[5] + 256;
@@ -64,11 +66,13 @@ __int64 __fastcall MmFreePoolMemory(ULONG_PTR *a1, ULONG_PTR *a2, unsigned int a
         v11,
         v6,
         (v9 >> 30) & 1,
-        &v14);
-      v12 = *((_QWORD *)&v15 + 1);
+        &v16);
+      v12 = *((_QWORD *)&v17 + 1);
       MiReturnCommit(
-        *(_QWORD *)(qword_140C4E648 + 8LL * *(unsigned __int16 *)(AnyMultiplexedVm + 174)),
-        *((_QWORD *)&v15 + 1) - *((_QWORD *)&v14 + 1));
+        *(_QWORD *)(qword_140C4E688 + 8LL * *(unsigned __int16 *)(AnyMultiplexedVm + 174)),
+        *((_QWORD *)&v17 + 1) - *((_QWORD *)&v16 + 1),
+        v13,
+        v14);
       LOWORD(AnyMultiplexedVm) = v9;
     }
     else

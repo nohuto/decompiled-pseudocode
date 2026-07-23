@@ -1,33 +1,32 @@
 /*
- * XREFs of TppCleanupGroupRemoveMember @ 0x18004E7C0
+ * XREFs of TppCleanupGroupRemoveMember @ 0x180038D40
  * Callers:
- *     TppCleanupGroupMemberDestroy @ 0x18004D650 (TppCleanupGroupMemberDestroy.c)
+ *     TppCleanupGroupMemberDestroy @ 0x180037BD0 (TppCleanupGroupMemberDestroy.c)
  * Callees:
- *     RtlAcquireSRWLockExclusive @ 0x18003F4D0 (RtlAcquireSRWLockExclusive.c)
- *     RtlReleaseSRWLockExclusive @ 0x18003FAA0 (RtlReleaseSRWLockExclusive.c)
+ *     RtlAcquireSRWLockExclusive @ 0x180029A40 (RtlAcquireSRWLockExclusive.c)
+ *     RtlReleaseSRWLockExclusive @ 0x18002A010 (RtlReleaseSRWLockExclusive.c)
  */
 
-struct _TEB *__fastcall TppCleanupGroupRemoveMember(__int64 a1, __int64 a2)
+void __fastcall TppCleanupGroupRemoveMember(__int64 a1)
 {
-  struct _TEB *result; // rax
-  _QWORD *v3; // rbx
-  volatile signed __int64 *p_StackBase; // rdi
-  __int64 v5; // rcx
-  _QWORD *v6; // rax
+  _RTL_SRWLOCK *v1; // rax
+  _QWORD *v2; // rbx
+  _RTL_SRWLOCK *v3; // rdi
+  __int64 v4; // rcx
+  _QWORD *v5; // rax
 
-  result = *(struct _TEB **)(a1 + 16);
-  v3 = (_QWORD *)(a1 + 40);
-  if ( (_QWORD *)*v3 != v3 )
+  v1 = *(_RTL_SRWLOCK **)(a1 + 16);
+  v2 = (_QWORD *)(a1 + 40);
+  if ( (_QWORD *)*v2 != v2 )
   {
-    p_StackBase = (volatile signed __int64 *)&result->NtTib.StackBase;
-    RtlAcquireSRWLockExclusive((volatile signed __int64 *)&result->NtTib.StackBase, a2);
-    v5 = *v3;
-    v6 = (_QWORD *)v3[1];
-    if ( *(_QWORD **)(*v3 + 8LL) != v3 || (_QWORD *)*v6 != v3 )
+    v3 = v1 + 1;
+    RtlAcquireSRWLockExclusive(v1 + 1);
+    v4 = *v2;
+    v5 = (_QWORD *)v2[1];
+    if ( *(_QWORD **)(*v2 + 8LL) != v2 || (_QWORD *)*v5 != v2 )
       __fastfail(3u);
-    *v6 = v5;
-    *(_QWORD *)(v5 + 8) = v6;
-    return RtlReleaseSRWLockExclusive(p_StackBase);
+    *v5 = v4;
+    *(_QWORD *)(v4 + 8) = v5;
+    RtlReleaseSRWLockExclusive(v3);
   }
-  return result;
 }

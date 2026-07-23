@@ -1,12 +1,12 @@
 /*
- * XREFs of MiZeroSectionObjectPointer @ 0x1402D3754
+ * XREFs of MiZeroSectionObjectPointer @ 0x140251A4C
  * Callers:
- *     MiCreateImageOrDataSection @ 0x140706F10 (MiCreateImageOrDataSection.c)
+ *     MiCreateImageOrDataSection @ 0x14071E2F0 (MiCreateImageOrDataSection.c)
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x14021D060 (ExAcquireSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140314D90 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14033BD80 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
+ *     ExAcquireSpinLockExclusive @ 0x1402C1960 (ExAcquireSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x14031FAE0 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140346AD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KeAbPostRelease @ 0x1403539D0 (KeAbPostRelease.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
@@ -30,9 +30,9 @@ __int64 __fastcall MiZeroSectionObjectPointer(__int64 a1, __int64 a2, int a3)
   v6 = *(_QWORD *)(a2 + 80);
   *(_QWORD *)(a2 + 80) = 0LL;
   v7 = v5;
-  ExAcquireSpinLockExclusiveAtDpcLevel(&dword_140C4C980);
+  ExAcquireSpinLockExclusiveAtDpcLevel(&dword_140C4C9C0);
   *v3 = 0LL;
-  ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140C4C980);
+  ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140C4C9C0);
   *(_DWORD *)(a2 + 56) |= 0xC0000u;
   ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(a2 + 72));
   if ( KiIrqlFlags )

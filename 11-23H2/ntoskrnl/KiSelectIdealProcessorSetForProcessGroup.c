@@ -1,10 +1,10 @@
 /*
- * XREFs of KiSelectIdealProcessorSetForProcessGroup @ 0x1402247DC
+ * XREFs of KiSelectIdealProcessorSetForProcessGroup @ 0x1402248E4
  * Callers:
- *     KiSelectIdealProcessorSetsForProcess @ 0x1402246E0 (KiSelectIdealProcessorSetsForProcess.c)
- *     KiAdjustProcessIdealProcessorSetsForThreadCreation @ 0x1402BDFB4 (KiAdjustProcessIdealProcessorSetsForThreadCreation.c)
+ *     KiSelectIdealProcessorSetsForProcess @ 0x1402247E8 (KiSelectIdealProcessorSetsForProcess.c)
+ *     KiAdjustProcessIdealProcessorSetsForThreadCreation @ 0x1402BE244 (KiAdjustProcessIdealProcessorSetsForThreadCreation.c)
  * Callees:
- *     KiSelectIdealProcessorSetForGroup @ 0x140224840 (KiSelectIdealProcessorSetForGroup.c)
+ *     KiSelectIdealProcessorSetForGroup @ 0x140224948 (KiSelectIdealProcessorSetForGroup.c)
  */
 
 __int64 __fastcall KiSelectIdealProcessorSetForProcessGroup(

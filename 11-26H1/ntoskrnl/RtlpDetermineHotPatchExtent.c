@@ -1,8 +1,8 @@
 /*
- * XREFs of RtlpDetermineHotPatchExtent @ 0x140C025F8
+ * XREFs of RtlpDetermineHotPatchExtent @ 0x140C08808
  * Callers:
- *     RtlDetermineHotPatchExtent @ 0x1408AAE70 (RtlDetermineHotPatchExtent.c)
- *     RtlApplyHotPatch @ 0x140C0206C (RtlApplyHotPatch.c)
+ *     RtlDetermineHotPatchExtent @ 0x1408B12E0 (RtlDetermineHotPatchExtent.c)
+ *     RtlApplyHotPatch @ 0x140C0827C (RtlApplyHotPatch.c)
  * Callees:
  *     <none>
  */

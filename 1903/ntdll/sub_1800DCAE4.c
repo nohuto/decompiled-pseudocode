@@ -7,10 +7,14 @@
  *     ZwSetInformationProcess @ 0x18009CA60 (ZwSetInformationProcess.c)
  */
 
-__int64 __fastcall sub_1800DCAE4(__int64 a1)
+NTSTATUS __fastcall sub_1800DCAE4(void *a1)
 {
-  if ( a1 )
-    return ZwSetInformationProcess();
-  else
-    return 3221225711LL;
+  int ProcessInformation; // [rsp+30h] [rbp+8h] BYREF
+  int v3; // [rsp+34h] [rbp+Ch]
+
+  if ( !a1 )
+    return -1073741585;
+  v3 = 0;
+  ProcessInformation = 1;
+  return ZwSetInformationProcess(a1, ProcessFaultInformation, &ProcessInformation, 8u);
 }

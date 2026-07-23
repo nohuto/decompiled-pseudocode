@@ -1,12 +1,12 @@
 /*
- * XREFs of WheapLogPageOfflineAttemptEvent @ 0x14084944C
+ * XREFs of WheapLogPageOfflineAttemptEvent @ 0x14084F764
  * Callers:
- *     WheaAttemptRowOffline @ 0x1406D5AE0 (WheaAttemptRowOffline.c)
- *     WheapAttemptPhysicalPageOffline @ 0x1408487D0 (WheapAttemptPhysicalPageOffline.c)
+ *     WheaAttemptRowOffline @ 0x1406D9BC0 (WheaAttemptRowOffline.c)
+ *     WheapAttemptPhysicalPageOffline @ 0x14084EAA0 (WheapAttemptPhysicalPageOffline.c)
  * Callees:
- *     EtwWrite @ 0x140212EF0 (EtwWrite.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     WheapTrackPendingPage @ 0x14084A518 (WheapTrackPendingPage.c)
+ *     EtwWrite @ 0x140212FD0 (EtwWrite.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     WheapTrackPendingPage @ 0x140850828 (WheapTrackPendingPage.c)
  */
 
 NTSTATUS __fastcall WheapLogPageOfflineAttemptEvent(__int64 a1, char a2, char a3, char a4, char a5)
@@ -44,7 +44,7 @@ NTSTATUS __fastcall WheapLogPageOfflineAttemptEvent(__int64 a1, char a2, char a3
   v20 = &v12;
   v12 = a4 != 0;
   return EtwWrite(
-           *(REGHANDLE *)&CmpCallbackListLock.PriorityFloorCounts[8],
+           *(REGHANDLE *)&CmpContextListLock.SchedulerApcFill5[80],
            &EVENT_WHEA_MEMORY_OFFLINE,
            0LL,
            5u,

@@ -1,12 +1,12 @@
 /*
- * XREFs of KiConfigureSubNodeShareCounts @ 0x1405EADD8
+ * XREFs of KiConfigureSubNodeShareCounts @ 0x1405ED748
  * Callers:
- *     KiInitializeDynamicProcessorDpc @ 0x140BF5030 (KiInitializeDynamicProcessorDpc.c)
- *     KiConfigureAllSchedulingInformation @ 0x140CC99F0 (KiConfigureAllSchedulingInformation.c)
+ *     KiInitializeDynamicProcessorDpc @ 0x140BFB030 (KiInitializeDynamicProcessorDpc.c)
+ *     KiConfigureAllSchedulingInformation @ 0x140CCFA80 (KiConfigureAllSchedulingInformation.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiBuildShareCountListForSubNodeByAffinity @ 0x1404468F0 (KiBuildShareCountListForSubNodeByAffinity.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiBuildShareCountListForSubNodeByAffinity @ 0x14043F3F0 (KiBuildShareCountListForSubNodeByAffinity.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 __int64 KiConfigureSubNodeShareCounts()

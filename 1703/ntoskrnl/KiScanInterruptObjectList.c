@@ -69,7 +69,7 @@ void __fastcall KiScanInterruptObjectList()
   v13 = (WORD2(PerfGlobalGroupMask) & 0x4000) == 0;
   *(_BYTE *)(v0 + 243) = (WORD2(PerfGlobalGroupMask) & 0x4000) != 0;
   if ( !v13 )
-    EtwGetKernelTraceTimestamp(v20, (char *)0x20004000);
+    EtwGetKernelTraceTimestamp(v20, 0x20004000u);
   while ( 2 )
   {
     v14 = 0;
@@ -100,7 +100,7 @@ void __fastcall KiScanInterruptObjectList()
         v18 = v19;
         BYTE1(v18) = *(_BYTE *)(v15 + 88);
         PerfInfoLogInterrupt(v15, v18, (__int64)v20);
-        EtwGetKernelTraceTimestamp(v20, (char *)0x20004000);
+        EtwGetKernelTraceTimestamp(v20, 0x20004000u);
       }
       if ( v19 )
       {

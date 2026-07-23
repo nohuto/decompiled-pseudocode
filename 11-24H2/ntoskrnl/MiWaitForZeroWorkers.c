@@ -1,10 +1,10 @@
 /*
- * XREFs of MiWaitForZeroWorkers @ 0x14041561C
+ * XREFs of MiWaitForZeroWorkers @ 0x14027147C
  * Callers:
- *     MiZeroInParallel @ 0x1404155D0 (MiZeroInParallel.c)
+ *     MiZeroInParallel @ 0x140271430 (MiZeroInParallel.c)
  * Callees:
- *     MiDeleteAcceleratorDescriptor @ 0x140415BB8 (MiDeleteAcceleratorDescriptor.c)
- *     KeWaitForGate @ 0x140415DEC (KeWaitForGate.c)
+ *     MiDeleteAcceleratorDescriptor @ 0x140271A18 (MiDeleteAcceleratorDescriptor.c)
+ *     KeWaitForGate @ 0x140271C4C (KeWaitForGate.c)
  */
 
 __int64 __fastcall MiWaitForZeroWorkers(__int64 a1)

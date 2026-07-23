@@ -1,23 +1,23 @@
 /*
- * XREFs of SeQueryUserSidToken @ 0x1403FFC40
+ * XREFs of SeQueryUserSidToken @ 0x1403FEB00
  * Callers:
  *     CmpGetVirtualizationID @ 0x1403E1B4C (CmpGetVirtualizationID.c)
- *     AlpcpQuerySidToken @ 0x1403FEFF4 (AlpcpQuerySidToken.c)
- *     EtwpGetSidExtendedHeaderItem @ 0x1403FFB14 (EtwpGetSidExtendedHeaderItem.c)
- *     AlpcpCheckConnectionSecurity @ 0x1404007A0 (AlpcpCheckConnectionSecurity.c)
- *     NtSetInformationProcess @ 0x140425A10 (NtSetInformationProcess.c)
- *     ExpGetProcessInformation @ 0x1404513E0 (ExpGetProcessInformation.c)
- *     AlpcpPortQueryConnectedSidInfo @ 0x140476FE8 (AlpcpPortQueryConnectedSidInfo.c)
- *     EtwQueryProcessTelemetryInfo @ 0x1404B1BB0 (EtwQueryProcessTelemetryInfo.c)
- *     PspAssignProcessQuotaBlock @ 0x1404D7894 (PspAssignProcessQuotaBlock.c)
- *     ExpWnfQueryCurrentUserSID @ 0x1404E26A8 (ExpWnfQueryCurrentUserSID.c)
- *     PiDqOpenUserObjectRegKey @ 0x140631D88 (PiDqOpenUserObjectRegKey.c)
- *     PiDqSameUserHive @ 0x1406322C8 (PiDqSameUserHive.c)
+ *     AlpcpQuerySidToken @ 0x1403FDEB4 (AlpcpQuerySidToken.c)
+ *     EtwpGetSidExtendedHeaderItem @ 0x1403FE9D4 (EtwpGetSidExtendedHeaderItem.c)
+ *     AlpcpCheckConnectionSecurity @ 0x1403FF660 (AlpcpCheckConnectionSecurity.c)
+ *     NtSetInformationProcess @ 0x1404248E0 (NtSetInformationProcess.c)
+ *     ExpGetProcessInformation @ 0x1404502B0 (ExpGetProcessInformation.c)
+ *     AlpcpPortQueryConnectedSidInfo @ 0x140475EB8 (AlpcpPortQueryConnectedSidInfo.c)
+ *     EtwQueryProcessTelemetryInfo @ 0x14049BF90 (EtwQueryProcessTelemetryInfo.c)
+ *     PspAssignProcessQuotaBlock @ 0x1404BAE98 (PspAssignProcessQuotaBlock.c)
+ *     ExpWnfQueryCurrentUserSID @ 0x1404C560C (ExpWnfQueryCurrentUserSID.c)
+ *     PiDqOpenUserObjectRegKey @ 0x140631E3C (PiDqOpenUserObjectRegKey.c)
+ *     PiDqSameUserHive @ 0x14063237C (PiDqSameUserHive.c)
  * Callees:
- *     ExAcquireResourceSharedLite @ 0x1400685B0 (ExAcquireResourceSharedLite.c)
- *     ExReleaseResourceLite @ 0x140068940 (ExReleaseResourceLite.c)
- *     KeLeaveCriticalRegion @ 0x140069D00 (KeLeaveCriticalRegion.c)
- *     RtlCopySid @ 0x14041268C (RtlCopySid.c)
+ *     ExAcquireResourceSharedLite @ 0x140068130 (ExAcquireResourceSharedLite.c)
+ *     ExReleaseResourceLite @ 0x1400684C0 (ExReleaseResourceLite.c)
+ *     KeLeaveCriticalRegion @ 0x140069880 (KeLeaveCriticalRegion.c)
+ *     RtlCopySid @ 0x14041154C (RtlCopySid.c)
  */
 
 __int64 __fastcall SeQueryUserSidToken(__int64 a1, void *a2, ULONG a3, ULONG *a4)

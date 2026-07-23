@@ -1,14 +1,14 @@
 /*
- * XREFs of PsConvertToGuiThread @ 0x1407C6290
+ * XREFs of PsConvertToGuiThread @ 0x1407C6560
  * Callers:
- *     KiConvertToGuiThread @ 0x140424370 (KiConvertToGuiThread.c)
- *     PspEnsureGuiThreadAndBatchFlush @ 0x1409B4BA8 (PspEnsureGuiThreadAndBatchFlush.c)
+ *     KiConvertToGuiThread @ 0x140424700 (KiConvertToGuiThread.c)
+ *     PspEnsureGuiThreadAndBatchFlush @ 0x1409B4DA8 (PspEnsureGuiThreadAndBatchFlush.c)
  * Callees:
- *     SeCaptureAtomTableCallout @ 0x140356510 (SeCaptureAtomTableCallout.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     PsInvokeWin32Callout @ 0x1406AF850 (PsInvokeWin32Callout.c)
- *     PsQuerySectionSignatureInformation @ 0x1407C63C0 (PsQuerySectionSignatureInformation.c)
- *     EtwTimLogProhibitWin32kSystemCalls @ 0x1409EA634 (EtwTimLogProhibitWin32kSystemCalls.c)
+ *     SeCaptureAtomTableCallout @ 0x1403566B0 (SeCaptureAtomTableCallout.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     PsInvokeWin32Callout @ 0x1406AF880 (PsInvokeWin32Callout.c)
+ *     PsQuerySectionSignatureInformation @ 0x1407C6690 (PsQuerySectionSignatureInformation.c)
+ *     EtwTimLogProhibitWin32kSystemCalls @ 0x1409EA8C4 (EtwTimLogProhibitWin32kSystemCalls.c)
  */
 
 __int64 PsConvertToGuiThread()
@@ -50,12 +50,12 @@ __int64 PsConvertToGuiThread()
   v10 = 1;
   if ( (int)PsQuerySectionSignatureInformation(Process, &v15) >= 0 )
   {
-    v5 = (char)qword_140C379E0;
-    if ( qword_140C379E0 )
+    v5 = (char)qword_140C37980;
+    if ( qword_140C37980 )
     {
       LOBYTE(v4) = v15;
       LOBYTE(v3) = 12;
-      v5 = qword_140C379E0(v4, v3);
+      v5 = qword_140C37980(v4, v3);
     }
     v10 ^= ((unsigned __int8)v10 ^ (unsigned __int8)(2 * v5)) & 2;
   }

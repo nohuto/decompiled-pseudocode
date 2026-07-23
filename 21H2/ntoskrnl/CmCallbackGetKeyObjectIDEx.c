@@ -1,21 +1,21 @@
 /*
- * XREFs of CmCallbackGetKeyObjectIDEx @ 0x140665BF0
+ * XREFs of CmCallbackGetKeyObjectIDEx @ 0x14065AA10
  * Callers:
  *     <none>
  * Callees:
- *     CmSiFreeMemory @ 0x140201A30 (CmSiFreeMemory.c)
- *     KiUnstackDetachProcess @ 0x140207000 (KiUnstackDetachProcess.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     CmpConstructNameWithStatus @ 0x1405F2FF0 (CmpConstructNameWithStatus.c)
- *     CmpAttachToRegistryProcess @ 0x1405F6390 (CmpAttachToRegistryProcess.c)
- *     CmpStartKcbStackForTopLayerKcb @ 0x140665D30 (CmpStartKcbStackForTopLayerKcb.c)
- *     CmpUnlockRegistry @ 0x1406F5ED0 (CmpUnlockRegistry.c)
- *     CmpLockRegistry @ 0x1406F5F10 (CmpLockRegistry.c)
- *     CmpLockKcbStackShared @ 0x1406FB3E0 (CmpLockKcbStackShared.c)
- *     CmpUnlockKcbStack @ 0x1406FB440 (CmpUnlockKcbStack.c)
+ *     CmSiFreeMemory @ 0x1402253C0 (CmSiFreeMemory.c)
+ *     KiUnstackDetachProcess @ 0x1402AB900 (KiUnstackDetachProcess.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     CmpStartKcbStackForTopLayerKcb @ 0x14065AB50 (CmpStartKcbStackForTopLayerKcb.c)
+ *     CmpConstructNameWithStatus @ 0x1406E2750 (CmpConstructNameWithStatus.c)
+ *     CmpAttachToRegistryProcess @ 0x1406E5AF0 (CmpAttachToRegistryProcess.c)
+ *     CmpUnlockRegistry @ 0x14070D2B0 (CmpUnlockRegistry.c)
+ *     CmpLockRegistry @ 0x14070D2F0 (CmpLockRegistry.c)
+ *     CmpLockKcbStackShared @ 0x1407127C0 (CmpLockKcbStackShared.c)
+ *     CmpUnlockKcbStack @ 0x140712820 (CmpUnlockKcbStack.c)
  */
 
-__int64 __fastcall CmCallbackGetKeyObjectIDEx(__int64 a1, __int64 a2, __int64 *a3, _DWORD *a4, int a5)
+__int64 __fastcall CmCallbackGetKeyObjectIDEx(__int64 a1, __int64 a2, _QWORD *a3, _QWORD *a4, int a5)
 {
   __int64 v6; // rdi
   __int64 v7; // rdx
@@ -43,7 +43,7 @@ __int64 __fastcall CmCallbackGetKeyObjectIDEx(__int64 a1, __int64 a2, __int64 *a
   }
   if ( (v6 & 1) == 0 )
   {
-    CmpAttachToRegistryProcess((__int64)v14, a2, (__int64)a3, a4);
+    CmpAttachToRegistryProcess(v14);
     CmpLockRegistry();
     started = CmpStartKcbStackForTopLayerKcb(&v12, v6);
     if ( started >= 0 )
@@ -52,7 +52,7 @@ __int64 __fastcall CmCallbackGetKeyObjectIDEx(__int64 a1, __int64 a2, __int64 *a
       if ( *(_QWORD *)(v6 + 80) && (int)CmpConstructNameWithStatus(v6, &v11) >= 0 )
       {
         started = 0;
-        *(_QWORD *)a4 = v11;
+        *a4 = v11;
       }
       else
       {
@@ -61,7 +61,7 @@ __int64 __fastcall CmCallbackGetKeyObjectIDEx(__int64 a1, __int64 a2, __int64 *a
       CmpUnlockKcbStack(&v12);
     }
     CmpUnlockRegistry(v8, v7);
-    KiUnstackDetachProcess((__int64)v14, 0);
+    KiUnstackDetachProcess((__int64)v14, 0LL);
   }
   else
   {

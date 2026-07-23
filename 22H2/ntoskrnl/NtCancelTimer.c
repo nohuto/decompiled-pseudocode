@@ -28,10 +28,10 @@
  *     ObReferenceObjectByHandle @ 0x14063E2E0 (ObReferenceObjectByHandle.c)
  */
 
-__int64 __fastcall NtCancelTimer(HANDLE Handle, _BYTE *a2)
+NTSTATUS __cdecl NtCancelTimer(HANDLE TimerHandle, PBOOLEAN CurrentState)
 {
   KPROCESSOR_MODE PreviousMode; // r13
-  NTSTATUS v5; // r14d
+  int v5; // r14d
   struct _KTIMER *v6; // rbx
   char *v7; // r15
   struct _OBJECT_TYPE *v8; // rax
@@ -57,7 +57,7 @@ __int64 __fastcall NtCancelTimer(HANDLE Handle, _BYTE *a2)
   __int64 v30; // rdx
   _QWORD *v31; // rcx
   char v32; // r10
-  __int64 v33; // rdx
+  unsigned int v33; // edx
   ULONG_PTR v34; // r10
   __int64 v35; // r9
   unsigned int v36; // r11d
@@ -72,7 +72,7 @@ __int64 __fastcall NtCancelTimer(HANDLE Handle, _BYTE *a2)
   struct _KPRCB *v45; // r10
   _DWORD *v46; // r9
   int v47; // eax
-  unsigned __int8 AbOrphanedEntrySummary; // al
+  __int64 AbOrphanedEntrySummary; // rax
   int v49; // eax
   unsigned __int8 v50; // al
   struct _KPRCB *v51; // r11
@@ -84,7 +84,7 @@ __int64 __fastcall NtCancelTimer(HANDLE Handle, _BYTE *a2)
   struct _KTHREAD *v57; // [rsp+40h] [rbp-68h]
   int v58; // [rsp+48h] [rbp-60h]
   int v59; // [rsp+4Ch] [rbp-5Ch]
-  NTSTATUS v60; // [rsp+50h] [rbp-58h]
+  int v60; // [rsp+50h] [rbp-58h]
   struct _KTHREAD *CurrentThread; // [rsp+58h] [rbp-50h]
   void *v62; // [rsp+60h] [rbp-48h]
   unsigned __int64 v63; // [rsp+68h] [rbp-40h]
@@ -94,27 +94,27 @@ __int64 __fastcall NtCancelTimer(HANDLE Handle, _BYTE *a2)
   unsigned __int8 v67; // [rsp+B8h] [rbp+10h]
 
   PreviousMode = KeGetCurrentThread()->PreviousMode;
-  if ( a2 && PreviousMode )
+  if ( CurrentState && PreviousMode )
   {
     v40 = 0x7FFFFFFF0000LL;
-    if ( (unsigned __int64)a2 < 0x7FFFFFFF0000LL )
-      v40 = (__int64)a2;
+    if ( (unsigned __int64)CurrentState < 0x7FFFFFFF0000LL )
+      v40 = (__int64)CurrentState;
     *(_BYTE *)v40 = *(_BYTE *)v40;
   }
   Object = 0LL;
-  v5 = ObReferenceObjectByHandle(Handle, 2u, 0LL, PreviousMode, &Object, 0LL);
+  v5 = ObReferenceObjectByHandle(TimerHandle, 2u, 0LL, PreviousMode, &Object, 0LL);
   v60 = v5;
   if ( v5 < 0 )
-    return (unsigned int)v5;
+    return v5;
   v6 = (struct _KTIMER *)Object;
   v7 = (char *)Object - 48;
   v8 = (struct _OBJECT_TYPE *)ObTypeIndexTable[(unsigned __int8)ObHeaderCookie ^ (unsigned __int8)*((char *)Object - 24) ^ (unsigned __int64)(unsigned __int8)((unsigned __int16)((_WORD)Object - 48) >> 8)];
   if ( v8 == ExpIRTimerObjectType )
   {
-    if ( a2 )
+    if ( CurrentState )
     {
       ObfDereferenceObjectWithTag(Object, 0x746C6644u);
-      return 3221225485LL;
+      return -1073741811;
     }
     else
     {
@@ -320,9 +320,9 @@ LABEL_11:
           ExfTryToWakePushLock(&ExpWakeTimerLock);
         BugCheckParameter1a = KeGetCurrentThread();
         if ( (unsigned int)MiGetSystemRegionType(&ExpWakeTimerLock) == 1 )
-          v33 = (unsigned int)MmGetSessionIdEx(BugCheckParameter1a->ApcState.Process);
+          v33 = MmGetSessionIdEx(BugCheckParameter1a->ApcState.Process);
         else
-          v33 = 0xFFFFFFFFLL;
+          v33 = -1;
         v34 = (ULONG_PTR)BugCheckParameter1a;
         --BugCheckParameter1a->SpecialApcDisable;
         v67 = ++BugCheckParameter1a->AbAllocationRegionCount;
@@ -340,7 +340,7 @@ LABEL_11:
             if ( (*(_BYTE *)(v38 + 26) & 1) != 0
               && (*(_DWORD *)(v38 + 32) & 1) == 0
               && (*(_QWORD *)(v38 + 32) & 0x7FFFFFFFFFFFFFFCLL) == v63
-              && *(_DWORD *)(v38 + 40) == (_DWORD)v33 )
+              && *(_DWORD *)(v38 + 40) == v33 )
             {
               *(_BYTE *)(v38 + 26) &= ~1u;
               if ( *(_QWORD *)(v38 + 32) )
@@ -359,7 +359,7 @@ LABEL_57:
           *(_BYTE *)(v35 + 32) |= 2u;
           if ( *(__int64 *)(v35 + 32) < 0 )
           {
-            KiAbEntryRemoveFromTree(v35, v33, 0x7FFFFFFFFFFFFFFCLL);
+            KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)v35);
             v34 = (ULONG_PTR)BugCheckParameter1a;
             v35 = (__int64)v57;
           }
@@ -374,7 +374,7 @@ LABEL_57:
         }
         else if ( (*((_DWORD *)&BugCheckParameter1a->0 + 1) & 0x10000) == 0 )
         {
-          KeBugCheckEx(0x162u, (ULONG_PTR)BugCheckParameter1a, (ULONG_PTR)&ExpWakeTimerLock, (unsigned int)v33, 0LL);
+          KeBugCheckEx(0x162u, (ULONG_PTR)BugCheckParameter1a, (ULONG_PTR)&ExpWakeTimerLock, v33, 0LL);
         }
         --*(_BYTE *)(v34 + 794);
         KiAbThreadRemoveBoosts(v34);
@@ -403,13 +403,13 @@ LABEL_57:
           KeBugCheckEx(0x18u, 0LL, (ULONG_PTR)Object, 5uLL, v18);
         ObpDeferObjectDeletion(v7);
       }
-      if ( a2 )
-        *a2 = v17;
+      if ( CurrentState )
+        *CurrentState = v17;
       if ( v13 )
         PoDestroyReasonContext(v13);
-      return (unsigned int)v5;
+      return v5;
     }
     ObfDereferenceObjectWithTag(Object, 0x746C6644u);
-    return 3221225508LL;
+    return -1073741788;
   }
 }

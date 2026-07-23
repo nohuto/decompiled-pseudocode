@@ -1,13 +1,13 @@
 /*
- * XREFs of MiCallCreateSectionFilters @ 0x140942138
+ * XREFs of MiCallCreateSectionFilters @ 0x14098C3A8
  * Callers:
- *     MiCreateImageOrDataSection @ 0x140941B00 (MiCreateImageOrDataSection.c)
+ *     MiCreateImageOrDataSection @ 0x14098BD70 (MiCreateImageOrDataSection.c)
  * Callees:
- *     KeReleaseGuardedMutex @ 0x14031E470 (KeReleaseGuardedMutex.c)
- *     ExAcquireFastMutex @ 0x14033E850 (ExAcquireFastMutex.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     FsRtlAcquireFileExclusiveCommon @ 0x140942350 (FsRtlAcquireFileExclusiveCommon.c)
- *     FsRtlReleaseFile @ 0x140943180 (FsRtlReleaseFile.c)
+ *     KeReleaseGuardedMutex @ 0x1402C7000 (KeReleaseGuardedMutex.c)
+ *     ExAcquireFastMutex @ 0x14031DD30 (ExAcquireFastMutex.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     FsRtlAcquireFileExclusiveCommon @ 0x14098C5C0 (FsRtlAcquireFileExclusiveCommon.c)
+ *     FsRtlReleaseFile @ 0x14098D3F0 (FsRtlReleaseFile.c)
  */
 
 __int64 __fastcall MiCallCreateSectionFilters(int *a1)

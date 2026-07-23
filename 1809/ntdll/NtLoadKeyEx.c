@@ -1,16 +1,24 @@
 /*
- * XREFs of NtLoadKeyEx @ 0x1800A2330
+ * XREFs of NtLoadKeyEx @ 0x1800A2350
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 NtLoadKeyEx()
+NTSTATUS __cdecl NtLoadKeyEx(
+        POBJECT_ATTRIBUTES TargetKey,
+        POBJECT_ATTRIBUTES SourceFile,
+        ULONG Flags,
+        HANDLE TrustClassKey,
+        HANDLE Event,
+        ACCESS_MASK DesiredAccess,
+        PHANDLE RootHandle,
+        PVOID Reserved)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 259LL;
+  result = 259;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

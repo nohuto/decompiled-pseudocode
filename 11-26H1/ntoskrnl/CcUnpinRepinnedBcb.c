@@ -1,19 +1,19 @@
 /*
- * XREFs of CcUnpinRepinnedBcb @ 0x1404AA000
+ * XREFs of CcUnpinRepinnedBcb @ 0x1404A3690
  * Callers:
  *     <none>
  * Callees:
- *     ObFastDereferenceObjectDeferDelete @ 0x140264A20 (ObFastDereferenceObjectDeferDelete.c)
- *     ExAcquireResourceExclusiveLite @ 0x140275200 (ExAcquireResourceExclusiveLite.c)
- *     CcUnpinFileDataEx @ 0x1402DF3C0 (CcUnpinFileDataEx.c)
- *     MmSetAddressRangeModifiedEx @ 0x14039A698 (MmSetAddressRangeModifiedEx.c)
- *     MmFlushSection @ 0x14039AA40 (MmFlushSection.c)
- *     CcReferenceSharedCacheMapFileObject @ 0x14039ADF4 (CcReferenceSharedCacheMapFileObject.c)
- *     CcPostDeferredWrites @ 0x14039B61C (CcPostDeferredWrites.c)
- *     CcSetDirtyPinnedData @ 0x14039D2A0 (CcSetDirtyPinnedData.c)
- *     CcIsFatalWriteError @ 0x14046DAB0 (CcIsFatalWriteError.c)
- *     CcPerfLogFlushSection @ 0x1404AA1C8 (CcPerfLogFlushSection.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
+ *     ObFastDereferenceObjectDeferDelete @ 0x140263F90 (ObFastDereferenceObjectDeferDelete.c)
+ *     ExAcquireResourceExclusiveLite @ 0x140274770 (ExAcquireResourceExclusiveLite.c)
+ *     CcUnpinFileDataEx @ 0x1402C11D0 (CcUnpinFileDataEx.c)
+ *     MmSetAddressRangeModifiedEx @ 0x14039C3F8 (MmSetAddressRangeModifiedEx.c)
+ *     MmFlushSection @ 0x14039C7A0 (MmFlushSection.c)
+ *     CcReferenceSharedCacheMapFileObject @ 0x14039CB54 (CcReferenceSharedCacheMapFileObject.c)
+ *     CcPostDeferredWrites @ 0x14039D37C (CcPostDeferredWrites.c)
+ *     CcSetDirtyPinnedData @ 0x14039F000 (CcSetDirtyPinnedData.c)
+ *     CcIsFatalWriteError @ 0x140467230 (CcIsFatalWriteError.c)
+ *     CcPerfLogFlushSection @ 0x1404A3858 (CcPerfLogFlushSection.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
  */
 
 void __stdcall CcUnpinRepinnedBcb(PVOID Bcb, BOOLEAN WriteThrough, PIO_STATUS_BLOCK IoStatus)
@@ -44,7 +44,7 @@ void __stdcall CcUnpinRepinnedBcb(PVOID Bcb, BOOLEAN WriteThrough, PIO_STATUS_BL
       CcUnpinFileDataEx((char *)Bcb, 1, 2);
       v9 = CcReferenceSharedCacheMapFileObject(v5);
       v10 = v9;
-      if ( (xmmword_140FBFC10 & 0x20000) != 0 )
+      if ( (xmmword_140FC0C10 & 0x20000) != 0 )
       {
         CcPerfLogFlushSection(0, v5, (_DWORD)Bcb + 8, *((_DWORD *)Bcb + 1), 1);
         v9 = v10;

@@ -10,62 +10,62 @@
  *     TppCleanupGroupMemberDestroy @ 0x180043EC0 (TppCleanupGroupMemberDestroy.c)
  */
 
-__int64 __fastcall TpReleaseWork(__int64 a1, __int64 a2, __int64 a3)
+void __cdecl TpReleaseWork(PTP_WORK Work)
 {
-  int v4; // eax
-  __int64 result; // rax
-  int v6; // ett
-  __int64 (__fastcall *v7)(); // rax
+  volatile int Flags; // eax
+  volatile int v3; // eax
+  volatile int v4; // ett
+  void (__fastcall *Free)(_TPP_CLEANUP_GROUP_MEMBER *); // rax
   void *ThreadPoolData; // rax
-  _UNKNOWN *retaddr; // [rsp+28h] [rbp+0h]
+  void *retaddr; // [rsp+28h] [rbp+0h]
 
-  if ( !a1
-    || (v4 = *(_DWORD *)(a1 + 168), (v4 & 0x10000) != 0)
-    || (v4 & 0x20000) != 0
-    && ((ThreadPoolData = NtCurrentTeb()->ThreadPoolData) == 0LL || *(_QWORD *)(*(_QWORD *)ThreadPoolData + 240LL) != a1)
-    || *(__int64 (__fastcall ***)())(a1 + 8) != TppWorkpCleanupGroupMemberVFuncs
+  if ( !Work
+    || (Flags = Work->CleanupGroupMember.Flags, (Flags & 0x10000) != 0)
+    || (Flags & 0x20000) != 0
+    && ((ThreadPoolData = NtCurrentTeb()->ThreadPoolData) == 0LL
+     || *(PTP_WORK *)(*(_QWORD *)ThreadPoolData + 240LL) != Work)
+    || (__int64 (__fastcall **)())Work->CleanupGroupMember.VFuncs != TppWorkpCleanupGroupMemberVFuncs
     || NtCurrentPeb()->Ldr->ShutdownInProgress )
   {
-    result = (__int64)NtCurrentPeb();
-    if ( *(_BYTE *)(*(_QWORD *)(result + 24) + 72LL) )
-      return result;
-    return TppRaiseInvalidParameter();
+    if ( NtCurrentPeb()->Ldr->ShutdownInProgress )
+      return;
+LABEL_20:
+    TppRaiseInvalidParameter();
+    return;
   }
-  _m_prefetchw((const void *)(a1 + 168));
-  LODWORD(result) = *(_DWORD *)(a1 + 168);
+  _m_prefetchw(&Work->CleanupGroupMember.168);
+  v3 = Work->CleanupGroupMember.Flags;
   do
   {
-    v6 = result;
-    result = (unsigned int)_InterlockedCompareExchange((volatile signed __int32 *)(a1 + 168), result | 0x10000, result);
+    v4 = v3;
+    v3 = _InterlockedCompareExchange(&Work->CleanupGroupMember.Flags, v3 | 0x10000, v3);
   }
-  while ( v6 != (_DWORD)result );
-  if ( (result & 0x10000) != 0 )
-    return TppRaiseInvalidParameter();
-  if ( (result & 0x30000) == 0 )
+  while ( v4 != v3 );
+  if ( (v3 & 0x10000) != 0 )
+    goto LABEL_20;
+  if ( (v3 & 0x30000) == 0 )
   {
-    *(_QWORD *)(a1 + 184) = retaddr;
-    result = (unsigned int)_InterlockedExchangeAdd((volatile signed __int32 *)a1, 0xFFFFFFFF);
-    if ( (_DWORD)result == 1 )
+    Work->CleanupGroupMember.ReleaseCaller.ReturnAddress = retaddr;
+    if ( _InterlockedExchangeAdd(&Work->CleanupGroupMember.Refcount.Refcount, 0xFFFFFFFF) == 1 )
     {
-      v7 = **(__int64 (__fastcall ***)())(a1 + 8);
-      if ( v7 == TppSimplepFree )
+      Free = Work->CleanupGroupMember.VFuncs->Free;
+      if ( (char *)Free == (char *)TppSimplepFree )
       {
-        TppCleanupGroupMemberDestroy(a1);
-        return RtlFreeHeap(NtCurrentPeb()->ProcessHeap, (unsigned int)(TppHeapTag + 0x200000), a1);
+        TppCleanupGroupMemberDestroy(Work);
+        RtlFreeHeap(NtCurrentPeb()->ProcessHeap, TppHeapTag + 0x200000, Work);
       }
-      else if ( (char *)v7 == (char *)TppAlpcpFree )
+      else if ( (char *)Free == (char *)TppAlpcpFree )
       {
-        return TppAlpcpFree(a1, a2, a3);
+        TppAlpcpFree(Work);
       }
-      else if ( (char *)v7 == (char *)TppWorkpFree )
+      else if ( (char *)Free == (char *)TppWorkpFree )
       {
-        return TppWorkpFree(a1, a2, a3);
+        TppWorkpFree(Work);
       }
       else
       {
-        return ((__int64 (__fastcall *)(__int64))v7)(a1);
+        Free(&Work->CleanupGroupMember);
       }
     }
   }
-  return result;
 }

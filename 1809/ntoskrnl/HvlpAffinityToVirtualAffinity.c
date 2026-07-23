@@ -1,9 +1,9 @@
 /*
- * XREFs of HvlpAffinityToVirtualAffinity @ 0x1402794A0
+ * XREFs of HvlpAffinityToVirtualAffinity @ 0x140279690
  * Callers:
- *     HvlSendSyntheticClusterIpi @ 0x1402752A0 (HvlSendSyntheticClusterIpi.c)
- *     HvlParkedVirtualProcessors @ 0x140276C6C (HvlParkedVirtualProcessors.c)
- *     HvlpPrepareFlushHeader @ 0x140279CA8 (HvlpPrepareFlushHeader.c)
+ *     HvlSendSyntheticClusterIpi @ 0x140275490 (HvlSendSyntheticClusterIpi.c)
+ *     HvlParkedVirtualProcessors @ 0x140276E5C (HvlParkedVirtualProcessors.c)
+ *     HvlpPrepareFlushHeader @ 0x140279E98 (HvlpPrepareFlushHeader.c)
  * Callees:
  *     <none>
  */
@@ -18,7 +18,7 @@ unsigned __int64 __fastcall HvlpAffinityToVirtualAffinity(unsigned __int64 a1)
   v1 = 0LL;
   if ( HvlpVirtualProcessorsIdentityMapped )
     return a1;
-  for ( i = &unk_140545543; ; i += 4 )
+  for ( i = &unk_140546543; ; i += 4 )
   {
     if ( (a1 & 1) != 0 )
       v1 |= 1LL << *(i - 2);

@@ -1,39 +1,53 @@
 /*
- * XREFs of PopInitHiberPersistedRegValues @ 0x14075282C
+ * XREFs of PopInitHiberPersistedRegValues @ 0x140750B4C
  * Callers:
- *     PopInitializeHibernateGlobals @ 0x14075291C (PopInitializeHibernateGlobals.c)
+ *     PopInitializeHibernateGlobals @ 0x140750C3C (PopInitializeHibernateGlobals.c)
  * Callees:
- *     PopQueryHiberPersistedRegValue @ 0x140752CB0 (PopQueryHiberPersistedRegValue.c)
- *     RtlGetPersistedStateLocation @ 0x1409CC0E0 (RtlGetPersistedStateLocation.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     PopQueryHiberPersistedRegValue @ 0x140750FD0 (PopQueryHiberPersistedRegValue.c)
+ *     RtlGetPersistedStateLocation @ 0x1409B4B60 (RtlGetPersistedStateLocation.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 PopInitHiberPersistedRegValues()
 {
   unsigned int v0; // ebx
-  int PersistedStateLocation; // edi
-  int v2; // edi
-  void *Pool2; // rsi
+  NTSTATUS PersistedStateLocation; // edi
+  ULONG BufferLengthIn; // edi
+  WCHAR *TargetPath; // rsi
   int **v4; // rsi
-  __int64 v6; // [rsp+50h] [rbp+8h] BYREF
+  ULONG BufferLengthOut; // [rsp+50h] [rbp+8h] BYREF
 
   v0 = 0;
-  LODWORD(v6) = 0;
-  if ( (unsigned int)RtlGetPersistedStateLocation(L"Power", 0LL, 0, (__int64)&v6) == -2147483643 )
+  BufferLengthOut = 0;
+  if ( RtlGetPersistedStateLocation(
+         L"Power",
+         0LL,
+         L"\\REGISTRY\\MACHINE\\SYSTEM\\CURRENTCONTROLSET\\CONTROL\\POWER",
+         LocationTypeRegistry,
+         0LL,
+         0,
+         &BufferLengthOut) == -2147483643 )
   {
-    v2 = v6;
-    Pool2 = (void *)ExAllocatePool2(0x100uLL);
-    if ( Pool2 )
+    BufferLengthIn = BufferLengthOut;
+    TargetPath = (WCHAR *)ExAllocatePool2(0x100uLL, BufferLengthOut, 0x72626968u);
+    if ( TargetPath )
     {
-      PersistedStateLocation = RtlGetPersistedStateLocation(L"Power", Pool2, v2, (__int64)&v6);
+      PersistedStateLocation = RtlGetPersistedStateLocation(
+                                 L"Power",
+                                 0LL,
+                                 L"\\REGISTRY\\MACHINE\\SYSTEM\\CURRENTCONTROLSET\\CONTROL\\POWER",
+                                 LocationTypeRegistry,
+                                 TargetPath,
+                                 BufferLengthIn,
+                                 &BufferLengthOut);
       if ( PersistedStateLocation < 0 )
       {
-        ExFreePoolWithTag(Pool2, 0x72626968u);
+        ExFreePoolWithTag(TargetPath, 0x72626968u);
       }
       else
       {
-        PopHibernatePersistedRegLocation = (PCWSTR)Pool2;
+        PopHibernatePersistedRegLocation = TargetPath;
         v4 = &off_140E07508;
         do
         {

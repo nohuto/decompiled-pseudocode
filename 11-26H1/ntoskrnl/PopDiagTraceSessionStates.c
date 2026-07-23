@@ -1,17 +1,17 @@
 /*
- * XREFs of PopDiagTraceSessionStates @ 0x140A3BA08
+ * XREFs of PopDiagTraceSessionStates @ 0x1409F7428
  * Callers:
- *     PopSessionConnectedV2 @ 0x1407DDDF4 (PopSessionConnectedV2.c)
- *     NtPowerInformation @ 0x1409DE3E0 (NtPowerInformation.c)
- *     PopSessionWinlogonNotification @ 0x140A3B184 (PopSessionWinlogonNotification.c)
- *     PopSessionDisconnected @ 0x140A3B980 (PopSessionDisconnected.c)
- *     PopSetSessionDisplayStatus @ 0x140A3C548 (PopSetSessionDisplayStatus.c)
- *     PopSetSessionUserStatus @ 0x140A3E39C (PopSetSessionUserStatus.c)
- *     PopSessionConnected @ 0x140B72588 (PopSessionConnected.c)
+ *     PopSessionConnectedV2 @ 0x1407E2424 (PopSessionConnectedV2.c)
+ *     PopSessionDisconnected @ 0x1409F73A0 (PopSessionDisconnected.c)
+ *     PopSetSessionDisplayStatus @ 0x1409F7F68 (PopSetSessionDisplayStatus.c)
+ *     PopSetSessionUserStatus @ 0x1409F9DBC (PopSetSessionUserStatus.c)
+ *     NtPowerInformation @ 0x140A1B510 (NtPowerInformation.c)
+ *     PopSessionConnected @ 0x140B77568 (PopSessionConnected.c)
+ *     PopSessionWinlogonNotification @ 0x140B776DC (PopSessionWinlogonNotification.c)
  * Callees:
- *     EtwEventEnabled @ 0x140212D90 (EtwEventEnabled.c)
- *     EtwWrite @ 0x140212EF0 (EtwWrite.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x140212E70 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x140212FD0 (EtwWrite.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 void __fastcall PopDiagTraceSessionStates(PCEVENT_DESCRIPTOR EventDescriptor, int a2, int a3)
@@ -24,15 +24,15 @@ void __fastcall PopDiagTraceSessionStates(PCEVENT_DESCRIPTOR EventDescriptor, in
 
   v8 = a3;
   v7 = a2;
-  if ( byte_140E67628 )
+  if ( PopDiagHandleRegistered )
   {
-    if ( EtwEventEnabled(*(REGHANDLE *)&PopSleepstudySessionLock.PriorityFloorCounts[16], EventDescriptor) )
+    if ( EtwEventEnabled(PopDiagHandle, EventDescriptor) )
     {
       UserData.Ptr = (ULONGLONG)&v7;
       *(_QWORD *)&UserData.Size = 4LL;
       v5 = &v8;
       v6 = 4LL;
-      EtwWrite(*(REGHANDLE *)&PopSleepstudySessionLock.PriorityFloorCounts[16], EventDescriptor, 0LL, 2u, &UserData);
+      EtwWrite(PopDiagHandle, EventDescriptor, 0LL, 2u, &UserData);
     }
   }
 }

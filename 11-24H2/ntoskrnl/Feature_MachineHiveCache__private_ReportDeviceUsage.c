@@ -1,10 +1,10 @@
 /*
- * XREFs of Feature_MachineHiveCache__private_ReportDeviceUsage @ 0x1404F5F9C
+ * XREFs of Feature_MachineHiveCache__private_ReportDeviceUsage @ 0x1404F389C
  * Callers:
- *     CmInitSystem2 @ 0x140C5F4F8 (CmInitSystem2.c)
+ *     CmInitSystem2 @ 0x140C61648 (CmInitSystem2.c)
  * Callees:
- *     wil_details_FeatureReporting_ReportUsageToService @ 0x14053CAC4 (wil_details_FeatureReporting_ReportUsageToService.c)
- *     wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath @ 0x14053CB54 (wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath.c)
+ *     wil_details_FeatureReporting_ReportUsageToService @ 0x14053A3BC (wil_details_FeatureReporting_ReportUsageToService.c)
+ *     wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath @ 0x14053A44C (wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath.c)
  */
 
 __int64 Feature_MachineHiveCache__private_ReportDeviceUsage()

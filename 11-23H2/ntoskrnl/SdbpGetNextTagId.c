@@ -1,12 +1,12 @@
 /*
- * XREFs of SdbpGetNextTagId @ 0x140757A90
+ * XREFs of SdbpGetNextTagId @ 0x140757C80
  * Callers:
- *     SdbGetFirstChild @ 0x140757944 (SdbGetFirstChild.c)
- *     SdbGetNextChild @ 0x140757A18 (SdbGetNextChild.c)
- *     SdbpGetNextIndexedRecord @ 0x140849FD4 (SdbpGetNextIndexedRecord.c)
+ *     SdbGetFirstChild @ 0x140757B34 (SdbGetFirstChild.c)
+ *     SdbGetNextChild @ 0x140757C08 (SdbGetNextChild.c)
+ *     SdbpGetNextIndexedRecord @ 0x14084A2D4 (SdbpGetNextIndexedRecord.c)
  * Callees:
  *     AslLogCallPrintf @ 0x1406956FC (AslLogCallPrintf.c)
- *     SdbGetTagDataSize @ 0x140757B90 (SdbGetTagDataSize.c)
+ *     SdbGetTagDataSize @ 0x140757D80 (SdbGetTagDataSize.c)
  */
 
 __int64 __fastcall SdbpGetNextTagId(__int64 a1, unsigned int a2)

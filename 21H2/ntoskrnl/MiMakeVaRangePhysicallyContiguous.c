@@ -1,24 +1,24 @@
 /*
- * XREFs of MiMakeVaRangePhysicallyContiguous @ 0x140551F74
+ * XREFs of MiMakeVaRangePhysicallyContiguous @ 0x1405521B4
  * Callers:
- *     MiProcessVaContiguityInformation @ 0x1405522C0 (MiProcessVaContiguityInformation.c)
+ *     MiProcessVaContiguityInformation @ 0x140552500 (MiProcessVaContiguityInformation.c)
  * Callees:
- *     MiUnlockWorkingSetShared @ 0x14020F790 (MiUnlockWorkingSetShared.c)
- *     MiLockWorkingSetShared @ 0x140219CB0 (MiLockWorkingSetShared.c)
- *     KeYieldProcessorEx @ 0x14024B280 (KeYieldProcessorEx.c)
- *     MiReplaceTransitionPage @ 0x14026D370 (MiReplaceTransitionPage.c)
- *     MiUnlockPageTableInternal @ 0x1402855F0 (MiUnlockPageTableInternal.c)
- *     MiFreePageChain @ 0x14028BED4 (MiFreePageChain.c)
- *     KeShouldYieldProcessor @ 0x140293FD0 (KeShouldYieldProcessor.c)
- *     MiTradeActivePage @ 0x1402B65F0 (MiTradeActivePage.c)
- *     MiReturnFreeZeroPage @ 0x140303050 (MiReturnFreeZeroPage.c)
- *     MiWorkingSetIsContended @ 0x14030B7D0 (MiWorkingSetIsContended.c)
- *     MiGetNextPageTable @ 0x14030D820 (MiGetNextPageTable.c)
- *     MiSetOriginalPtePfnFromFreeList @ 0x140329F30 (MiSetOriginalPtePfnFromFreeList.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x14032DEC0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiPteInShadowRange @ 0x140348AF0 (MiPteInShadowRange.c)
- *     MiLockTransitionLeafPage @ 0x140364704 (MiLockTransitionLeafPage.c)
- *     MiCheckContiguityTradeEligible @ 0x140546BC4 (MiCheckContiguityTradeEligible.c)
+ *     MiUnlockPageTableInternal @ 0x140202790 (MiUnlockPageTableInternal.c)
+ *     MiFreePageChain @ 0x140209074 (MiFreePageChain.c)
+ *     KeShouldYieldProcessor @ 0x140211F40 (KeShouldYieldProcessor.c)
+ *     MiLockTransitionLeafPage @ 0x140224B74 (MiLockTransitionLeafPage.c)
+ *     MiTradeActivePage @ 0x1402347D0 (MiTradeActivePage.c)
+ *     MiReplaceTransitionPage @ 0x14025B310 (MiReplaceTransitionPage.c)
+ *     MiUnlockWorkingSetShared @ 0x1402B4090 (MiUnlockWorkingSetShared.c)
+ *     MiLockWorkingSetShared @ 0x1402BE5B0 (MiLockWorkingSetShared.c)
+ *     KeYieldProcessorEx @ 0x1402EFAD0 (KeYieldProcessorEx.c)
+ *     MiReturnFreeZeroPage @ 0x14030DDA0 (MiReturnFreeZeroPage.c)
+ *     MiWorkingSetIsContended @ 0x140316520 (MiWorkingSetIsContended.c)
+ *     MiGetNextPageTable @ 0x140318570 (MiGetNextPageTable.c)
+ *     MiSetOriginalPtePfnFromFreeList @ 0x140334C80 (MiSetOriginalPtePfnFromFreeList.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140338C10 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiPteInShadowRange @ 0x140353840 (MiPteInShadowRange.c)
+ *     MiCheckContiguityTradeEligible @ 0x140546E04 (MiCheckContiguityTradeEligible.c)
  */
 
 __int64 __fastcall MiMakeVaRangePhysicallyContiguous(__int64 a1, unsigned __int64 a2, __int64 a3, _DWORD *a4)
@@ -66,7 +66,7 @@ __int64 __fastcall MiMakeVaRangePhysicallyContiguous(__int64 a1, unsigned __int6
       if ( !v8 )
       {
 LABEL_45:
-        NextPageTable = MiGetNextPageTable(v6, v7, 0LL, v9, 1u, &v26);
+        NextPageTable = MiGetNextPageTable(v6, v7, 0LL, v9, 1, &v26);
         if ( !NextPageTable )
           break;
         v8 = ((NextPageTable >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;

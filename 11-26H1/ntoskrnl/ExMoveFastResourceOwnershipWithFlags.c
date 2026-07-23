@@ -1,10 +1,10 @@
 /*
- * XREFs of ExMoveFastResourceOwnershipWithFlags @ 0x140431510
+ * XREFs of ExMoveFastResourceOwnershipWithFlags @ 0x14041E540
  * Callers:
  *     <none>
  * Callees:
- *     ExpMoveSharedFastResourceOwnershipWithFlags @ 0x14043153C (ExpMoveSharedFastResourceOwnershipWithFlags.c)
- *     ExDisownFastResource @ 0x1404F88C0 (ExDisownFastResource.c)
+ *     ExpMoveSharedFastResourceOwnershipWithFlags @ 0x14041E56C (ExpMoveSharedFastResourceOwnershipWithFlags.c)
+ *     ExDisownFastResource @ 0x1404F1ED0 (ExDisownFastResource.c)
  */
 
 __int64 __fastcall ExMoveFastResourceOwnershipWithFlags(__int64 *a1, ULONG_PTR a2, ULONG_PTR a3, char a4)

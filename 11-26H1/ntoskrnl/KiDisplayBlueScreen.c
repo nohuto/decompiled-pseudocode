@@ -1,23 +1,23 @@
 /*
- * XREFs of KiDisplayBlueScreen @ 0x1405E7FF4
+ * XREFs of KiDisplayBlueScreen @ 0x1405EA964
  * Callers:
- *     KeBugCheck2 @ 0x1405E5F10 (KeBugCheck2.c)
+ *     KeBugCheck2 @ 0x1405E8880 (KeBugCheck2.c)
  * Callees:
- *     BgpFwAcquireLock @ 0x1404E7E04 (BgpFwAcquireLock.c)
- *     BgpFwReleaseLock @ 0x1404E81BC (BgpFwReleaseLock.c)
- *     RtlStringCbPrintfExA @ 0x14057669C (RtlStringCbPrintfExA.c)
- *     InbvAcquireDisplayOwnership @ 0x1405C4A70 (InbvAcquireDisplayOwnership.c)
- *     IoSaveBugCheckProgress @ 0x1405C7540 (IoSaveBugCheckProgress.c)
- *     KeGetBugMessageText @ 0x1405E70E0 (KeGetBugMessageText.c)
- *     KiBugCheckConvertParameterValueToUnicodeString @ 0x1405E73C8 (KiBugCheckConvertParameterValueToUnicodeString.c)
- *     KiDumpParameterImages @ 0x1405E838C (KiDumpParameterImages.c)
- *     KiHeadlessDisplayString @ 0x1405E857C (KiHeadlessDisplayString.c)
- *     HeadlessDispatch @ 0x1406CB870 (HeadlessDispatch.c)
- *     BgpFwDisplayBugCheckScreen @ 0x1407180B4 (BgpFwDisplayBugCheckScreen.c)
- *     BgpFwDisplayBugCheckScreenModernized @ 0x14071840C (BgpFwDisplayBugCheckScreenModernized.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memcmp @ 0x14073D750 (memcmp.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     BgpFwAcquireLock @ 0x1404E11C4 (BgpFwAcquireLock.c)
+ *     BgpFwReleaseLock @ 0x1404E157C (BgpFwReleaseLock.c)
+ *     RtlStringCbPrintfExA @ 0x140578B4C (RtlStringCbPrintfExA.c)
+ *     InbvAcquireDisplayOwnership @ 0x1405C72E0 (InbvAcquireDisplayOwnership.c)
+ *     IoSaveBugCheckProgress @ 0x1405C9E10 (IoSaveBugCheckProgress.c)
+ *     KeGetBugMessageText @ 0x1405E9A50 (KeGetBugMessageText.c)
+ *     KiBugCheckConvertParameterValueToUnicodeString @ 0x1405E9D38 (KiBugCheckConvertParameterValueToUnicodeString.c)
+ *     KiDumpParameterImages @ 0x1405EACFC (KiDumpParameterImages.c)
+ *     KiHeadlessDisplayString @ 0x1405EAEEC (KiHeadlessDisplayString.c)
+ *     HeadlessDispatch @ 0x1406CF8A0 (HeadlessDispatch.c)
+ *     BgpFwDisplayBugCheckScreen @ 0x14071CDA4 (BgpFwDisplayBugCheckScreen.c)
+ *     BgpFwDisplayBugCheckScreenModernized @ 0x14071D0FC (BgpFwDisplayBugCheckScreenModernized.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memcmp @ 0x140742350 (memcmp.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall KiDisplayBlueScreen(int a1)
@@ -38,10 +38,10 @@ __int64 __fastcall KiDisplayBlueScreen(int a1)
   unsigned __int16 *v15; // rbx
   char *v16; // rbx
   __int64 v17; // r14
-  unsigned __int64 *p_Blink; // rdi
+  unsigned __int64 *v18; // rdi
   char *v19; // rbx
   char v21; // [rsp+48h] [rbp-C0h] BYREF
-  int Flink; // [rsp+4Ch] [rbp-BCh] BYREF
+  int v22; // [rsp+4Ch] [rbp-BCh] BYREF
   NTSTRSAFE_PSTR ppszDestEnd; // [rsp+50h] [rbp-B8h] BYREF
   NTSTRSAFE_PSTR ppszDestEnd_8[2]; // [rsp+58h] [rbp-B0h] BYREF
   __int128 v25; // [rsp+68h] [rbp-A0h] BYREF
@@ -56,13 +56,13 @@ __int64 __fastcall KiDisplayBlueScreen(int a1)
 
   memset_0(&v25, 0, 0x60uLL);
   ppszDestEnd = 0LL;
-  Flink = (int)KiDpcWatchdogConfigurationLock.Header.WaitListHead.Flink;
+  v22 = KiBugCheckData;
   v21 = 1;
   *(_OWORD *)ppszDestEnd_8 = 0LL;
   HeadlessDispatch(14LL, 0LL, 0LL);
   HeadlessDispatch(1LL, &v21, 1LL);
   v2 = 4LL;
-  HeadlessDispatch(20LL, &Flink, 4LL);
+  HeadlessDispatch(20LL, &v22, 4LL);
   IoSaveBugCheckProgress(129);
   v3 = *(_QWORD *)&KiBugCheckDriver;
   if ( *(_QWORD *)&KiBugCheckDriver || (KiDumpParameterImages(0LL), (v3 = *(_QWORD *)&KiBugCheckDriver) != 0) )
@@ -84,23 +84,14 @@ __int64 __fastcall KiDisplayBlueScreen(int a1)
     --v4;
   }
   while ( v4 );
-  if ( KeGetBugMessageText(
-         (unsigned int)KiDpcWatchdogConfigurationLock.Header.WaitListHead.Flink,
-         (__int64)ppszDestEnd_8) )
+  if ( KeGetBugMessageText(KiBugCheckData, (__int64)ppszDestEnd_8) )
   {
     v8 = ppszDestEnd_8[1];
     v7 = (unsigned __int16)ppszDestEnd_8[0];
   }
   else
   {
-    RtlStringCbPrintfExA(
-      pszDest,
-      0xBuLL,
-      &ppszDestEnd,
-      0LL,
-      0,
-      "0x%08x",
-      LODWORD(KiDpcWatchdogConfigurationLock.Header.WaitListHead.Flink));
+    RtlStringCbPrintfExA(pszDest, 0xBuLL, &ppszDestEnd, 0LL, 0, "0x%08x", KiBugCheckData);
     v7 = (_WORD)ppszDestEnd - (unsigned __int16)pszDest;
     v8 = pszDest;
   }
@@ -125,25 +116,15 @@ __int64 __fastcall KiDisplayBlueScreen(int a1)
   *(_WORD *)&v28[2 * v9] = 0;
   InbvAcquireDisplayOwnership(v9, (__int64)v8);
   IoSaveBugCheckProgress(130);
-  v13 = (int)KiDpcWatchdogConfigurationLock.Header.WaitListHead.Flink;
+  v13 = KiBugCheckData;
   v25 = 0LL;
   BgpFwAcquireLock();
   if ( (gLoadedDiffHivesLock.WaitBlockFill6[80] & 2) != 0 )
   {
-    if ( BYTE1(gLoadedDiffHivesLock.Timer.Header.WaitListHead.Blink) )
-      BgpFwDisplayBugCheckScreenModernized(
-        v13,
-        (unsigned int)&KiDpcWatchdogConfigurationLock.Header.WaitListHead.Blink,
-        v3,
-        (unsigned int)&v25,
-        a1);
+    if ( LOBYTE(gLoadedDiffHivesLock.SchedulerSharedSystemSlot) )
+      BgpFwDisplayBugCheckScreenModernized(v13, (unsigned int)&qword_140F4B108, v3, (unsigned int)&v25, a1);
     else
-      BgpFwDisplayBugCheckScreen(
-        v13,
-        (unsigned int)&KiDpcWatchdogConfigurationLock.Header.WaitListHead.Blink,
-        v3,
-        (unsigned int)&v25,
-        a1);
+      BgpFwDisplayBugCheckScreen(v13, (unsigned int)&qword_140F4B108, v3, (unsigned int)&v25, a1);
   }
   BgpFwReleaseLock();
   IoSaveBugCheckProgress(128);
@@ -159,12 +140,12 @@ __int64 __fastcall KiDisplayBlueScreen(int a1)
   {
     v16 = &v29;
     v17 = 4LL;
-    p_Blink = (unsigned __int64 *)&KiDpcWatchdogConfigurationLock.Header.WaitListHead.Blink;
+    v18 = (unsigned __int64 *)&qword_140F4B108;
     do
     {
-      KiBugCheckConvertParameterValueToUnicodeString(*p_Blink, (__int64)v16);
+      KiBugCheckConvertParameterValueToUnicodeString(*v18, (__int64)v16);
       v16 += 16;
-      ++p_Blink;
+      ++v18;
       --v17;
     }
     while ( v17 );

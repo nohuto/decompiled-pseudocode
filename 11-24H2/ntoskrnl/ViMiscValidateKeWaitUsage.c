@@ -1,12 +1,12 @@
 /*
- * XREFs of ViMiscValidateKeWaitUsage @ 0x140B9F564
+ * XREFs of ViMiscValidateKeWaitUsage @ 0x140BA1564
  * Callers:
- *     VfMiscKeWaitForMultipleObjects_Entry @ 0x140B9E040 (VfMiscKeWaitForMultipleObjects_Entry.c)
- *     VfMiscKeWaitForSingleObject_Entry @ 0x140B9E070 (VfMiscKeWaitForSingleObject_Entry.c)
+ *     VfMiscKeWaitForMultipleObjects_Entry @ 0x140BA0040 (VfMiscKeWaitForMultipleObjects_Entry.c)
+ *     VfMiscKeWaitForSingleObject_Entry @ 0x140BA0070 (VfMiscKeWaitForSingleObject_Entry.c)
  * Callees:
- *     RtlpGetStackLimits @ 0x14027FEF0 (RtlpGetStackLimits.c)
- *     CarReportRuleViolationFromNt @ 0x140B8D914 (CarReportRuleViolationFromNt.c)
- *     ViMiscValidateSynchronizationObject @ 0x140B9F6A8 (ViMiscValidateSynchronizationObject.c)
+ *     RtlpGetStackLimits @ 0x140235480 (RtlpGetStackLimits.c)
+ *     CarReportRuleViolationFromNt @ 0x140B8F914 (CarReportRuleViolationFromNt.c)
+ *     ViMiscValidateSynchronizationObject @ 0x140BA16A8 (ViMiscValidateSynchronizationObject.c)
  */
 
 char __fastcall ViMiscValidateKeWaitUsage(unsigned int a1, ULONG_PTR *a2, char a3, _QWORD *a4, __int64 a5)
@@ -17,9 +17,9 @@ char __fastcall ViMiscValidateKeWaitUsage(unsigned int a1, ULONG_PTR *a2, char a
   __int64 v11; // rdx
   int v12; // esi
   __int64 v13; // rdi
-  unsigned __int64 v14; // rbx
-  char *v16; // [rsp+40h] [rbp-28h] BYREF
-  unsigned __int64 v17; // [rsp+48h] [rbp-20h] BYREF
+  ULONG_PTR v14; // rbx
+  ULONG_PTR v16; // [rsp+40h] [rbp-28h] BYREF
+  ULONG_PTR v17; // [rsp+48h] [rbp-20h] BYREF
 
   v16 = 0LL;
   v17 = 0LL;
@@ -52,7 +52,7 @@ char __fastcall ViMiscValidateKeWaitUsage(unsigned int a1, ULONG_PTR *a2, char a
 LABEL_12:
   if ( a3 == 1 && (!a4 || *a4) && (v10 = *(&CurrentThread->MiscFlags + 1), (v10 & 0x40) != 0) )
   {
-    LOBYTE(v10) = RtlpGetStackLimits(&v16, &v17);
+    LOBYTE(v10) = RtlpGetStackLimits((__int64)&v16, (__int64)&v17);
     v12 = (unsigned __int8)v10;
   }
   else
@@ -66,7 +66,7 @@ LABEL_12:
     {
       v14 = *a2;
       LOBYTE(v10) = ViMiscValidateSynchronizationObject(*a2);
-      if ( v12 && v14 >= (unsigned __int64)v16 && v14 < v17 )
+      if ( v12 && v14 >= v16 && v14 < v17 )
         LOBYTE(v10) = CarReportRuleViolationFromNt(196, 291LL, v14, 0LL, 0LL, 0xBu, a5);
       ++a2;
       --v13;

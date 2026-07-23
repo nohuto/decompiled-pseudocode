@@ -7,7 +7,7 @@
  *     RtlReleaseSRWLockExclusive @ 0x180033470 (RtlReleaseSRWLockExclusive.c)
  */
 
-__int64 __fastcall RtlpHpLfhSubsegmentIncBlockCounts(__int64 a1, char *a2, __int64 a3, _DWORD *a4)
+__int64 __fastcall RtlpHpLfhSubsegmentIncBlockCounts(__int64 a1, unsigned int a2, int a3, _DWORD *a4)
 {
   char v5; // cl
   int v6; // ebp
@@ -22,12 +22,12 @@ __int64 __fastcall RtlpHpLfhSubsegmentIncBlockCounts(__int64 a1, char *a2, __int
 
   v5 = *(_BYTE *)(a1 + 44);
   v6 = 0;
-  v7 = (unsigned int)a2 >> v5;
+  v7 = a2 >> v5;
   v9 = (signed __int16 *)(a1 + *(unsigned __int16 *)(a1 + 46) + 2 * v7);
   _m_prefetchw(v9);
   v10 = -1;
   LODWORD(v11) = 0;
-  v12 = &v9[((unsigned int)((_DWORD)a2 + a3 - 1) >> v5) - (unsigned int)v7 + 1];
+  v12 = &v9[((a2 + a3 - 1) >> v5) - (unsigned int)v7 + 1];
   if ( v9 < v12 )
   {
     v13 = 2 * v7;
@@ -46,7 +46,7 @@ __int64 __fastcall RtlpHpLfhSubsegmentIncBlockCounts(__int64 a1, char *a2, __int
         if ( v6 )
           break;
         v6 = 1;
-        RtlAcquireSRWLockExclusive((volatile signed __int64 *)(a1 + 24), a2, a3, (__int64)a4);
+        RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)(a1 + 24));
       }
       if ( v14 == -1 )
       {
@@ -63,7 +63,7 @@ LABEL_6:
     if ( v10 == -1 )
     {
       if ( v6 )
-        RtlReleaseSRWLockExclusive(a1 + 24);
+        RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(a1 + 24));
     }
     else
     {

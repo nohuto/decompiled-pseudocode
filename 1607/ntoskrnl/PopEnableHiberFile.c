@@ -1,35 +1,35 @@
 /*
- * XREFs of PopEnableHiberFile @ 0x14056C7F8
+ * XREFs of PopEnableHiberFile @ 0x14056CD38
  * Callers:
- *     NtPowerInformation @ 0x14051E834 (NtPowerInformation.c)
- *     PoInitHiberServices @ 0x14056BEA8 (PoInitHiberServices.c)
- *     PopNotifyPolicyDevice @ 0x14056C058 (PopNotifyPolicyDevice.c)
+ *     NtPowerInformation @ 0x14050189C (NtPowerInformation.c)
+ *     PoInitHiberServices @ 0x14056C3E8 (PoInitHiberServices.c)
+ *     PopNotifyPolicyDevice @ 0x14056C598 (PopNotifyPolicyDevice.c)
  * Callees:
- *     MmGetHighestPhysicalPage @ 0x14000FB8C (MmGetHighestPhysicalPage.c)
- *     RtlInitUnicodeString @ 0x14002DC60 (RtlInitUnicodeString.c)
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
- *     PopOpenPowerKey @ 0x140132520 (PopOpenPowerKey.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     ZwClose @ 0x140159E60 (ZwClose.c)
- *     ZwQueryValueKey @ 0x140159F60 (ZwQueryValueKey.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     MmGetHighestPhysicalPage @ 0x14000F70C (MmGetHighestPhysicalPage.c)
+ *     RtlInitUnicodeString @ 0x14002D7E0 (RtlInitUnicodeString.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
+ *     PopOpenPowerKey @ 0x140132A90 (PopOpenPowerKey.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     ZwClose @ 0x14015A3D0 (ZwClose.c)
+ *     ZwQueryValueKey @ 0x14015A4D0 (ZwQueryValueKey.c)
+ *     memset @ 0x140171AC0 (memset.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
  *     EmClientQueryRuleState @ 0x1403C84A8 (EmClientQueryRuleState.c)
- *     PopRemoveReasonRecordByReasonCode @ 0x1403F3E6C (PopRemoveReasonRecordByReasonCode.c)
- *     PopCheckDisabledReason @ 0x1404F1550 (PopCheckDisabledReason.c)
- *     MmReleaseDumpHibernateResources @ 0x14052E9CC (MmReleaseDumpHibernateResources.c)
- *     PopCalculateHiberFileSize @ 0x140546C54 (PopCalculateHiberFileSize.c)
- *     PopClearHiberFileSignature @ 0x1405484F4 (PopClearHiberFileSignature.c)
- *     MmAllocateDumpHibernateResources @ 0x1405487D8 (MmAllocateDumpHibernateResources.c)
- *     PopLogSleepDisabled @ 0x14054CA58 (PopLogSleepDisabled.c)
- *     PopPreallocateHibernateMemory @ 0x14056CCF8 (PopPreallocateHibernateMemory.c)
- *     PopCreateHiberFile @ 0x14056CF34 (PopCreateHiberFile.c)
- *     PopResetCurrentPolicies @ 0x14056DF0C (PopResetCurrentPolicies.c)
- *     MmZeroPageFileAtShutdown @ 0x1406574F4 (MmZeroPageFileAtShutdown.c)
- *     MmReturnChargesToLockPagedPool @ 0x14065A1EC (MmReturnChargesToLockPagedPool.c)
- *     PopSaveHibernateEnabled @ 0x14066A5B0 (PopSaveHibernateEnabled.c)
- *     PopZeroHiberFile @ 0x14066E7DC (PopZeroHiberFile.c)
+ *     PopRemoveReasonRecordByReasonCode @ 0x1403F2D30 (PopRemoveReasonRecordByReasonCode.c)
+ *     PopCheckDisabledReason @ 0x1404D3644 (PopCheckDisabledReason.c)
+ *     MmReleaseDumpHibernateResources @ 0x14052EF0C (MmReleaseDumpHibernateResources.c)
+ *     PopCalculateHiberFileSize @ 0x140547194 (PopCalculateHiberFileSize.c)
+ *     PopClearHiberFileSignature @ 0x140548A34 (PopClearHiberFileSignature.c)
+ *     MmAllocateDumpHibernateResources @ 0x140548D18 (MmAllocateDumpHibernateResources.c)
+ *     PopLogSleepDisabled @ 0x14054CF98 (PopLogSleepDisabled.c)
+ *     PopPreallocateHibernateMemory @ 0x14056D238 (PopPreallocateHibernateMemory.c)
+ *     PopCreateHiberFile @ 0x14056D474 (PopCreateHiberFile.c)
+ *     PopResetCurrentPolicies @ 0x14056E44C (PopResetCurrentPolicies.c)
+ *     MmZeroPageFileAtShutdown @ 0x1406575D8 (MmZeroPageFileAtShutdown.c)
+ *     MmReturnChargesToLockPagedPool @ 0x14065A2D0 (MmReturnChargesToLockPagedPool.c)
+ *     PopSaveHibernateEnabled @ 0x14066A694 (PopSaveHibernateEnabled.c)
+ *     PopZeroHiberFile @ 0x14066E8C0 (PopZeroHiberFile.c)
  */
 
 __int64 __fastcall PopEnableHiberFile(char a1, char a2)
@@ -82,10 +82,10 @@ __int64 __fastcall PopEnableHiberFile(char a1, char a2)
   {
     if ( FileObject )
       return v7;
-    dword_1403035C4 = v10;
-    dword_1403035A4 = 1601;
-    byte_1403035C1 = 0;
-    dword_140303648 = 0;
+    dword_140303504 = v10;
+    dword_1403034E4 = 1601;
+    byte_140303501 = 0;
+    dword_140303588 = 0;
     if ( (int)PopOpenPowerKey((__int64)&KeyHandle) >= 0 )
     {
       RtlInitUnicodeString(&DestinationString, L"MaxHuffRatio");
@@ -101,9 +101,9 @@ __int64 __fastcall PopEnableHiberFile(char a1, char a2)
              &ResultLength) >= 0
         && *(_QWORD *)((char *)&KeyValueInformation + 4) == 0x400000004LL )
       {
-        dword_1403035C4 = HIDWORD(KeyValueInformation);
+        dword_140303504 = HIDWORD(KeyValueInformation);
         if ( (unsigned int)(HIDWORD(KeyValueInformation) - 1) > 0x62 )
-          dword_1403035C4 = 1;
+          dword_140303504 = 1;
       }
       RtlInitUnicodeString(&ValueName, L"HybridBootAnimationTime");
       KeyValueInformation = 0uLL;
@@ -111,7 +111,7 @@ __int64 __fastcall PopEnableHiberFile(char a1, char a2)
       if ( ZwQueryValueKey(v18, &ValueName, KeyValuePartialInformation, &KeyValueInformation, 0x14u, &ResultLength) >= 0
         && *(_QWORD *)((char *)&KeyValueInformation + 4) == 0x400000004LL )
       {
-        dword_1403035A4 = HIDWORD(KeyValueInformation);
+        dword_1403034E4 = HIDWORD(KeyValueInformation);
       }
       RtlInitUnicodeString(&v29, L"MultiPhaseResumeDisabled");
       KeyValueInformation = 0uLL;
@@ -119,8 +119,8 @@ __int64 __fastcall PopEnableHiberFile(char a1, char a2)
       if ( ZwQueryValueKey(v18, &v29, KeyValuePartialInformation, &KeyValueInformation, 0x14u, &ResultLength) >= 0
         && *(_QWORD *)((char *)&KeyValueInformation + 4) == 0x400000004LL )
       {
-        byte_1403035C1 = HIDWORD(KeyValueInformation) == 1;
-        dword_140303648 |= 0x20u;
+        byte_140303501 = HIDWORD(KeyValueInformation) == 1;
+        dword_140303588 |= 0x20u;
       }
       ZwClose(v18);
     }
@@ -148,8 +148,8 @@ __int64 __fastcall PopEnableHiberFile(char a1, char a2)
     LODWORD(KeyHandle) = PopCreateHiberFile(KeyHandle);
     if ( (int)KeyHandle >= 0 )
     {
-      *(_QWORD *)&xmmword_1403035A8 = v13;
-      *((_QWORD *)&xmmword_1403035A8 + 1) = v20;
+      *(_QWORD *)&xmmword_1403034E8 = v13;
+      *((_QWORD *)&xmmword_1403034E8 + 1) = v20;
       v13 = 0LL;
       PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, 0x1D0uLL, 0x70616D48u);
       v22 = PoolWithTag;
@@ -169,13 +169,13 @@ LABEL_33:
       EmClientQueryRuleState(EM_RULE_DISABLE_MULTI_PHASE_RESUME, &KeyHandle);
       if ( (_DWORD)KeyHandle == 2 )
       {
-        dword_140303648 |= 0x10u;
-        byte_1403035C1 = 1;
+        dword_140303588 |= 0x10u;
+        byte_140303501 = 1;
       }
-      byte_140303F76 = v24[0];
-      byte_140303F68 = 1;
+      byte_140303EB6 = v24[0];
+      byte_140303EA8 = 1;
       if ( !InitSafeBootMode )
-        byte_140303F72 = 1;
+        byte_140303EB2 = 1;
       PopClearHiberFileSignature();
       v7 = 0;
     }
@@ -191,7 +191,7 @@ LABEL_48:
     {
       MmReturnChargesToLockPagedPool(v3, Length);
       ExFreePoolWithTag(v3, 0);
-      memset(&qword_1403035D0, 0, 0x78uLL);
+      memset(&qword_140303510, 0, 0x78uLL);
     }
     if ( v5 )
     {
@@ -211,16 +211,16 @@ LABEL_54:
       PopZeroHiberFile(PopHiberInfo);
     ObfDereferenceObject(FileObject);
     ZwClose(PopHiberInfo);
-    ExFreePoolWithTag(qword_140303598, 0x72626968u);
+    ExFreePoolWithTag(qword_1403034D8, 0x72626968u);
     memset(&PopHiberInfo, 0, 0xD8uLL);
-    v13 = xmmword_1403035A8;
-    v3 = qword_1403035D0;
+    v13 = xmmword_1403034E8;
+    v3 = qword_140303510;
     v5 = MemoryMap;
-    xmmword_1403035A8 = 0LL;
-    byte_140303F68 = 0;
-    byte_140303F76 = 0;
-    byte_140303F72 = 0;
-    qword_1403035B8 = 0LL;
+    xmmword_1403034E8 = 0LL;
+    byte_140303EA8 = 0;
+    byte_140303EB6 = 0;
+    byte_140303EB2 = 0;
+    qword_1403034F8 = 0LL;
     v7 = PopResetCurrentPolicies(v15, v14);
     goto LABEL_48;
   }

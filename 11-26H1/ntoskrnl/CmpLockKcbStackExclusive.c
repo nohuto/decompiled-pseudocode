@@ -1,11 +1,11 @@
 /*
- * XREFs of CmpLockKcbStackExclusive @ 0x1408BA310
+ * XREFs of CmpLockKcbStackExclusive @ 0x1408C08E0
  * Callers:
- *     CmDeleteLayeredKey @ 0x140446A10 (CmDeleteLayeredKey.c)
- *     CmpAssignKeySecurity @ 0x14085AB60 (CmpAssignKeySecurity.c)
+ *     CmDeleteLayeredKey @ 0x14043F510 (CmDeleteLayeredKey.c)
+ *     CmpAssignKeySecurity @ 0x140860E54 (CmpAssignKeySecurity.c)
  * Callees:
- *     CmpGetKcbAtLayerHeight @ 0x1408BACF0 (CmpGetKcbAtLayerHeight.c)
- *     CmpLockKcbExclusive @ 0x1408CEB50 (CmpLockKcbExclusive.c)
+ *     CmpGetKcbAtLayerHeight @ 0x1408C12C0 (CmpGetKcbAtLayerHeight.c)
+ *     CmpLockKcbExclusive @ 0x1408D5100 (CmpLockKcbExclusive.c)
  */
 
 void __fastcall CmpLockKcbStackExclusive(__int64 a1)

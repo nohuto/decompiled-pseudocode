@@ -1,10 +1,10 @@
 /*
- * XREFs of MiLocateCombineBlock @ 0x1402445AC
+ * XREFs of MiLocateCombineBlock @ 0x14020CD3C
  * Callers:
- *     MiProcessCrcList @ 0x1409F2910 (MiProcessCrcList.c)
+ *     MiProcessCrcList @ 0x1409E6C70 (MiProcessCrcList.c)
  * Callees:
- *     MiReleaseSpinLockShared @ 0x140244830 (MiReleaseSpinLockShared.c)
- *     ExAcquireSpinLockShared @ 0x14031A1A0 (ExAcquireSpinLockShared.c)
+ *     MiReleaseSpinLockShared @ 0x14020CFC0 (MiReleaseSpinLockShared.c)
+ *     ExAcquireSpinLockShared @ 0x1402C2D30 (ExAcquireSpinLockShared.c)
  */
 
 __int64 __fastcall MiLocateCombineBlock(__int64 a1, unsigned __int64 a2, unsigned int a3, int a4, _QWORD *a5)

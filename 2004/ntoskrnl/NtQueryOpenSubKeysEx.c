@@ -23,10 +23,14 @@
  *     CmpAcquireShutdownRundown @ 0x140695430 (CmpAcquireShutdownRundown.c)
  */
 
-__int64 __fastcall NtQueryOpenSubKeysEx(__int64 a1, unsigned int a2, _DWORD *a3, _DWORD *a4)
+NTSTATUS __cdecl NtQueryOpenSubKeysEx(
+        POBJECT_ATTRIBUTES TargetKey,
+        ULONG BufferLength,
+        PVOID Buffer,
+        PULONG RequiredSize)
 {
   SIZE_T v6; // rsi
-  int v8; // ebx
+  NTSTATUS v8; // ebx
   KPROCESSOR_MODE PreviousMode; // bl
   __int64 v10; // rdx
   __int64 v11; // rcx
@@ -47,7 +51,7 @@ __int64 __fastcall NtQueryOpenSubKeysEx(__int64 a1, unsigned int a2, _DWORD *a3,
   _OWORD v27[3]; // [rsp+88h] [rbp-1A0h] BYREF
   _OWORD v28[19]; // [rsp+C0h] [rbp-168h] BYREF
 
-  v6 = a2;
+  v6 = BufferLength;
   v26 = 0;
   memset(v27, 0, sizeof(v27));
   DmaAdapter = 0LL;
@@ -81,13 +85,20 @@ __int64 __fastcall NtQueryOpenSubKeysEx(__int64 a1, unsigned int a2, _DWORD *a3,
     goto LABEL_8;
   if ( PreviousMode == 1 )
   {
-    v11 = (__int64)a4;
-    if ( (unsigned __int64)a4 >= 0x7FFFFFFF0000LL )
+    v11 = (__int64)RequiredSize;
+    if ( (unsigned __int64)RequiredSize >= 0x7FFFFFFF0000LL )
       v11 = 0x7FFFFFFF0000LL;
     *(_DWORD *)v11 = *(_DWORD *)v11;
-    ProbeForWrite(a3, v6, 4u);
+    ProbeForWrite(Buffer, v6, 4u);
   }
-  v8 = ObReferenceObjectByNameEx(a1, v10, 0x20019u, (__int64)CmKeyObjectType, PreviousMode, (__int64)v28, &DmaAdapter);
+  v8 = ObReferenceObjectByNameEx(
+         (__int64)TargetKey,
+         v10,
+         0x20019u,
+         (__int64)CmKeyObjectType,
+         PreviousMode,
+         (__int64)v28,
+         &DmaAdapter);
   if ( v8 >= 0 )
   {
     LODWORD(Size[0]) = v6;
@@ -120,12 +131,12 @@ LABEL_8:
         v8 = DWORD1(v24);
         CmpUnlockRegistry();
         v20 = 0;
-        *a4 = v24;
+        *RequiredSize = v24;
         v16 = (char *)Size[1];
-        *a3 = *(_DWORD *)Size[1];
+        *(_DWORD *)Buffer = *(_DWORD *)Size[1];
         if ( v8 >= 0 )
         {
-          v17 = v16 - (char *)a3;
+          v17 = v16 - (_BYTE *)Buffer;
           v18 = 0;
           if ( *(_DWORD *)v16 )
           {
@@ -136,7 +147,7 @@ LABEL_8:
             }
             while ( v18 < *(_DWORD *)Size[1] );
           }
-          memmove(a3, v16, v13);
+          memmove(Buffer, v16, v13);
           v8 = 0;
         }
       }
@@ -156,5 +167,5 @@ LABEL_22:
     HalPutDmaAdapter(DmaAdapter);
   if ( Size[1] )
     CmSiFreeMemory((PPRIVILEGE_SET)Size[1]);
-  return (unsigned int)v8;
+  return v8;
 }

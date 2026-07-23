@@ -1,12 +1,12 @@
 /*
- * XREFs of MiUnlinkProtectedStandbyPfn @ 0x140285690
+ * XREFs of MiUnlinkProtectedStandbyPfn @ 0x140285920
  * Callers:
- *     MiUnlinkPageFromListEx @ 0x140266630 (MiUnlinkPageFromListEx.c)
- *     MiUnlinkStandbyPage @ 0x14046D3FA (MiUnlinkStandbyPage.c)
+ *     MiUnlinkPageFromListEx @ 0x1402668C0 (MiUnlinkPageFromListEx.c)
+ *     MiUnlinkStandbyPage @ 0x14046D7FA (MiUnlinkStandbyPage.c)
  * Callees:
- *     MiSwizzleInvalidPte @ 0x1402857A0 (MiSwizzleInvalidPte.c)
- *     MiSetPfnPteFrame @ 0x1402E15A0 (MiSetPfnPteFrame.c)
- *     MiDecayNodeNowEmpty @ 0x14034AA40 (MiDecayNodeNowEmpty.c)
+ *     MiSwizzleInvalidPte @ 0x140285A30 (MiSwizzleInvalidPte.c)
+ *     MiSetPfnPteFrame @ 0x1402E1830 (MiSetPfnPteFrame.c)
+ *     MiDecayNodeNowEmpty @ 0x14034ABE0 (MiDecayNodeNowEmpty.c)
  */
 
 __int64 __fastcall MiUnlinkProtectedStandbyPfn(_QWORD *a1)

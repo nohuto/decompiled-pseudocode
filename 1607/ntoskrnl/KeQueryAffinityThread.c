@@ -1,10 +1,10 @@
 /*
- * XREFs of KeQueryAffinityThread @ 0x140135394
+ * XREFs of KeQueryAffinityThread @ 0x140135904
  * Callers:
- *     NtQueryInformationThread @ 0x140519650 (NtQueryInformationThread.c)
- *     MiCombineAllPhysicalMemory @ 0x140663718 (MiCombineAllPhysicalMemory.c)
+ *     NtQueryInformationThread @ 0x1404FCA40 (NtQueryInformationThread.c)
+ *     MiCombineAllPhysicalMemory @ 0x1406637FC (MiCombineAllPhysicalMemory.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x14002ECB0 (KeYieldProcessorEx.c)
+ *     KeYieldProcessorEx @ 0x14002E830 (KeYieldProcessorEx.c)
  */
 
 __int64 __fastcall KeQueryAffinityThread(__int64 a1, __int64 a2)

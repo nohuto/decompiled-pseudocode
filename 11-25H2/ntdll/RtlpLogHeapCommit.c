@@ -19,25 +19,25 @@
  *     memset$thunk$772440563353939046 @ 0x180174030 (memset$thunk$772440563353939046.c)
  */
 
-__int64 __fastcall RtlpLogHeapCommit(__int64 a1, __int64 a2, __int64 a3, int a4)
+NTSTATUS __fastcall RtlpLogHeapCommit(__int64 a1, __int64 a2, __int64 a3, int a4)
 {
   __int64 v8; // rcx
-  _BYTE v10[6]; // [rsp+20h] [rbp-78h] BYREF
+  _BYTE Fields[6]; // [rsp+20h] [rbp-78h] BYREF
   __int16 v11; // [rsp+26h] [rbp-72h]
   __int64 v12; // [rsp+40h] [rbp-58h]
   __int64 v13; // [rsp+48h] [rbp-50h]
   __int64 v14; // [rsp+50h] [rbp-48h]
   int v15; // [rsp+58h] [rbp-40h]
 
-  memset_thunk_772440563353939046(v10, 0, 0x40uLL);
+  memset_thunk_772440563353939046(Fields, 0, 0x40uLL);
   v12 = a1;
   v11 = 4147;
   v13 = a2;
   v14 = a3;
   v15 = a4;
-  if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+  if ( RtlGetCurrentServiceSessionId() )
     v8 = (__int64)NtCurrentPeb()->SharedData + 558;
   else
     v8 = 2147353480LL;
-  return NtTraceEvent(*(unsigned __int8 *)v8, 132098LL, 32LL, v10);
+  return NtTraceEvent((HANDLE)*(unsigned __int8 *)v8, 0x20402u, 0x20u, Fields);
 }

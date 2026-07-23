@@ -1,5 +1,5 @@
 /*
- * XREFs of XRestoreSHelper @ 0x1800A52B0
+ * XREFs of XRestoreSHelper @ 0x1800A52D0
  * Callers:
  *     <none>
  * Callees:

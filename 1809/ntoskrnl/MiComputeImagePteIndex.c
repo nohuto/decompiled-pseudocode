@@ -2,10 +2,10 @@
  * XREFs of MiComputeImagePteIndex @ 0x14001B70C
  * Callers:
  *     MiReferenceInPageFile @ 0x14001CAC8 (MiReferenceInPageFile.c)
- *     MiMakeImagePageOk @ 0x1402C45FC (MiMakeImagePageOk.c)
+ *     MiMakeImagePageOk @ 0x1402C47EC (MiMakeImagePageOk.c)
  * Callees:
  *     MiGetSubsectionDriverProtos @ 0x14001B7BC (MiGetSubsectionDriverProtos.c)
- *     MiGetSharedProtos @ 0x140177174 (MiGetSharedProtos.c)
+ *     MiGetSharedProtos @ 0x140177274 (MiGetSharedProtos.c)
  */
 
 __int64 __fastcall MiComputeImagePteIndex(__int64 a1, __int64 a2)
@@ -23,8 +23,8 @@ __int64 __fastcall MiComputeImagePteIndex(__int64 a1, __int64 a2)
   v2 = *(_QWORD *)(a1 + 16);
   v3 = *(_QWORD *)(a1 + 8) | 0x8000000000000000uLL;
   LODWORD(v4) = 0;
-  if ( qword_14043A0C0 && (v2 & 0x10) == 0 )
-    v2 &= ~qword_14043A0C0;
+  if ( qword_14043B180 && (v2 & 0x10) == 0 )
+    v2 &= ~qword_14043B180;
   v5 = v2 >> 16;
   v6 = *(_QWORD *)v5;
   if ( (*(_BYTE *)(v5 + 34) & 2) != 0 && (*(_DWORD *)(v6 + 56) & 0x4000000) != 0 )

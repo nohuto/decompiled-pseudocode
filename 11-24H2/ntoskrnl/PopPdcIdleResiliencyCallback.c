@@ -1,13 +1,13 @@
 /*
- * XREFs of PopPdcIdleResiliencyCallback @ 0x140A27118
+ * XREFs of PopPdcIdleResiliencyCallback @ 0x140A1BB98
  * Callers:
- *     PdcPoResiliencyClient @ 0x140A270B0 (PdcPoResiliencyClient.c)
+ *     PdcPoResiliencyClient @ 0x140A1BB30 (PdcPoResiliencyClient.c)
  * Callees:
- *     PpmQueryTime @ 0x14044D624 (PpmQueryTime.c)
- *     PopAccumulateNonActivatedCpuTime @ 0x140495D14 (PopAccumulateNonActivatedCpuTime.c)
- *     PopSetPowerSettingValue @ 0x1409BC864 (PopSetPowerSettingValue.c)
- *     PopCheckResiliencyScenarios @ 0x140A27318 (PopCheckResiliencyScenarios.c)
- *     PopAcquirePolicyLock @ 0x140B67CB0 (PopAcquirePolicyLock.c)
+ *     PpmQueryTime @ 0x140444524 (PpmQueryTime.c)
+ *     PopAccumulateNonActivatedCpuTime @ 0x1404905D4 (PopAccumulateNonActivatedCpuTime.c)
+ *     PopSetPowerSettingValue @ 0x1409A2EB4 (PopSetPowerSettingValue.c)
+ *     PopCheckResiliencyScenarios @ 0x140A1BD98 (PopCheckResiliencyScenarios.c)
+ *     PopAcquirePolicyLock @ 0x140B69DF0 (PopAcquirePolicyLock.c)
  */
 
 void __fastcall __noreturn PopPdcIdleResiliencyCallback(__int64 a1, __int64 a2)
@@ -22,6 +22,6 @@ void __fastcall __noreturn PopPdcIdleResiliencyCallback(__int64 a1, __int64 a2)
   PopSetPowerSettingValue(&GUID_PDC_IDLE_RESILIENCY_ENGAGED, 0xFFFFFFFF, 0, 4u, &v3);
   PopSetPowerSettingValue(&GUID_PDC_IDLE_RESILIENCY_ENGAGED, 0xFFFFFFFF, 1, 4u, &v3);
   PopCheckResiliencyScenarios();
-  PopAccumulateNonActivatedCpuTime(v2, &qword_140E27C60, &qword_140E27C68);
+  PopAccumulateNonActivatedCpuTime(v2, &qword_140E27DA0, &qword_140E27DA8);
   PpmQueryTime();
 }

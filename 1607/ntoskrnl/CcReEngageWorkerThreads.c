@@ -1,10 +1,10 @@
 /*
- * XREFs of CcReEngageWorkerThreads @ 0x14010EE28
+ * XREFs of CcReEngageWorkerThreads @ 0x14010F38C
  * Callers:
- *     CcAdjustWriteBehindThreadPool @ 0x14006FE70 (CcAdjustWriteBehindThreadPool.c)
- *     CcWorkerThread @ 0x140071980 (CcWorkerThread.c)
+ *     CcAdjustWriteBehindThreadPool @ 0x14006F9F0 (CcAdjustWriteBehindThreadPool.c)
+ *     CcWorkerThread @ 0x140071500 (CcWorkerThread.c)
  * Callees:
- *     ExQueueWorkItem @ 0x14005FE5C (ExQueueWorkItem.c)
+ *     ExQueueWorkItem @ 0x14005F9DC (ExQueueWorkItem.c)
  */
 
 void __fastcall CcReEngageWorkerThreads(unsigned int a1, unsigned int a2)

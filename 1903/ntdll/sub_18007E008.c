@@ -10,22 +10,21 @@
 
 __int64 __fastcall sub_18007E008(__int64 a1, __int64 a2, __int64 a3)
 {
-  __int64 v3; // r9
-  int v4; // eax
-  struct _PEB_LDR_DATA *Ldr; // rcx
+  int v3; // eax
+  __int64 v4; // r9
+  PPEB_LDR_DATA Ldr; // rcx
 
-  v3 = a1;
   if ( a1 )
   {
-    LOBYTE(v4) = sub_180036544(a1 + 72, a2);
-    if ( v4 )
+    LOBYTE(v3) = sub_180036544(a1 + 72, a2);
+    if ( v3 )
     {
-      if ( *(__int64 (__fastcall ***)())(v3 + 80) == off_180118868 && !NtCurrentPeb()->Ldr->ShutdownInProgress )
+      if ( *(__int64 (__fastcall ***)())(v4 + 80) == off_180118868 && !NtCurrentPeb()->Ldr->ShutdownInProgress )
         return 1LL;
     }
   }
   Ldr = NtCurrentPeb()->Ldr;
   if ( !Ldr->ShutdownInProgress )
-    sub_18010EFC8(Ldr, a2, a3, v3);
+    sub_18010EFC8(Ldr, a2, a3);
   return 0LL;
 }

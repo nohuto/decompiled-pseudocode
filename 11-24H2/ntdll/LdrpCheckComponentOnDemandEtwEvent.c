@@ -1,17 +1,17 @@
 /*
- * XREFs of LdrpCheckComponentOnDemandEtwEvent @ 0x180111934
+ * XREFs of LdrpCheckComponentOnDemandEtwEvent @ 0x18010CD44
  * Callers:
- *     LdrpMapDllNtFileName @ 0x180071640 (LdrpMapDllNtFileName.c)
+ *     LdrpMapDllNtFileName @ 0x18008DF20 (LdrpMapDllNtFileName.c)
  * Callees:
- *     RtlAcquireSRWLockExclusive @ 0x180055AE0 (RtlAcquireSRWLockExclusive.c)
- *     RtlReleaseSRWLockExclusive @ 0x1800567B0 (RtlReleaseSRWLockExclusive.c)
- *     EtwEventWriteNoRegistration @ 0x180066310 (EtwEventWriteNoRegistration.c)
- *     CompatCachepLookupCdb @ 0x180072A0C (CompatCachepLookupCdb.c)
- *     LdrpIsCODServiceEnabled @ 0x180160260 (LdrpIsCODServiceEnabled.c)
- *     NtWaitForSingleObject @ 0x180161D10 (NtWaitForSingleObject.c)
- *     NtClose @ 0x180161E70 (NtClose.c)
- *     ZwCreateEvent @ 0x180162590 (ZwCreateEvent.c)
- *     __security_check_cookie @ 0x1801659C0 (__security_check_cookie.c)
+ *     RtlAcquireSRWLockExclusive @ 0x18006B6C0 (RtlAcquireSRWLockExclusive.c)
+ *     RtlReleaseSRWLockExclusive @ 0x18006C390 (RtlReleaseSRWLockExclusive.c)
+ *     CompatCachepLookupCdb @ 0x18008F2EC (CompatCachepLookupCdb.c)
+ *     EtwEventWriteNoRegistration @ 0x1800AE4F0 (EtwEventWriteNoRegistration.c)
+ *     LdrpIsCODServiceEnabled @ 0x18015E620 (LdrpIsCODServiceEnabled.c)
+ *     NtWaitForSingleObject @ 0x1801600D0 (NtWaitForSingleObject.c)
+ *     NtClose @ 0x180160230 (NtClose.c)
+ *     ZwCreateEvent @ 0x180160950 (ZwCreateEvent.c)
+ *     __security_check_cookie @ 0x180163D80 (__security_check_cookie.c)
  */
 
 char __fastcall LdrpCheckComponentOnDemandEtwEvent(unsigned __int16 *a1)
@@ -20,26 +20,22 @@ char __fastcall LdrpCheckComponentOnDemandEtwEvent(unsigned __int16 *a1)
   int v3; // esi
   wchar_t *v4; // rcx
   char v5; // di
-  volatile signed __int32 **v6; // rdx
-  unsigned __int64 v7; // r8
-  int v8; // eax
-  HANDLE Handle; // [rsp+30h] [rbp-50h] BYREF
+  int v6; // eax
+  HANDLE EventHandle; // [rsp+30h] [rbp-50h] BYREF
   int UniqueProcess; // [rsp+38h] [rbp-48h] BYREF
-  int v12; // [rsp+3Ch] [rbp-44h] BYREF
+  int v10; // [rsp+3Ch] [rbp-44h] BYREF
   LARGE_INTEGER Timeout; // [rsp+40h] [rbp-40h] BYREF
-  int *p_UniqueProcess; // [rsp+48h] [rbp-38h] BYREF
-  int v15; // [rsp+50h] [rbp-30h]
-  int v16; // [rsp+54h] [rbp-2Ch]
-  int *v17; // [rsp+58h] [rbp-28h]
-  int v18; // [rsp+60h] [rbp-20h]
-  int v19; // [rsp+64h] [rbp-1Ch]
-  __int64 v20; // [rsp+68h] [rbp-18h]
-  int v21; // [rsp+70h] [rbp-10h]
-  int v22; // [rsp+74h] [rbp-Ch]
+  _EVENT_DATA_DESCRIPTOR UserData; // [rsp+48h] [rbp-38h] BYREF
+  int *v13; // [rsp+58h] [rbp-28h]
+  int v14; // [rsp+60h] [rbp-20h]
+  int v15; // [rsp+64h] [rbp-1Ch]
+  __int64 v16; // [rsp+68h] [rbp-18h]
+  int v17; // [rsp+70h] [rbp-10h]
+  int v18; // [rsp+74h] [rbp-Ch]
 
-  Handle = 0LL;
+  EventHandle = 0LL;
   Timeout.QuadPart = 0LL;
-  v12 = 1;
+  v10 = 1;
   pShimData = 0LL;
   v3 = 0;
   v4 = (wchar_t *)*((_QWORD *)a1 + 1);
@@ -52,42 +48,38 @@ char __fastcall LdrpCheckComponentOnDemandEtwEvent(unsigned __int16 *a1)
     {
       if ( (unsigned __int8)LdrpIsCODServiceEnabled() )
       {
-        if ( (int)ZwCreateEvent(&Handle, 2031619LL, 0LL, 0LL, 0) >= 0 )
+        if ( ZwCreateEvent(&EventHandle, 0x1F0003u, 0LL, NotificationEvent, 0) >= 0 )
         {
-          RtlAcquireSRWLockExclusive((volatile signed __int32 *)&LdrpCODScenarioLock, v6, v7);
+          RtlAcquireSRWLockExclusive(&LdrpCODScenarioLock);
           v3 = 1;
           v5 = 1;
           if ( !LdrpCODScenarioTriggered )
           {
-            pShimData[559] = Handle;
-            v16 = 0;
-            v19 = 0;
-            v22 = 0;
-            p_UniqueProcess = &UniqueProcess;
-            v17 = &v12;
-            v20 = *((_QWORD *)a1 + 1);
-            v8 = *a1 + 2;
-            v15 = 4;
-            v18 = 4;
-            v21 = v8;
+            pShimData[559] = EventHandle;
+            UserData.Reserved = 0;
+            v15 = 0;
+            v18 = 0;
+            UserData.Ptr = (unsigned __int64)&UniqueProcess;
+            v13 = &v10;
+            v16 = *((_QWORD *)a1 + 1);
+            v6 = *a1 + 2;
+            UserData.Size = 4;
+            v14 = 4;
+            v17 = v6;
             LdrpCODScenarioTriggered = 1;
-            if ( !(unsigned int)EtwEventWriteNoRegistration(
-                                  (__int64)&UserLoaderGuid,
-                                  &ComponentOnDemand,
-                                  3,
-                                  (__int64)&p_UniqueProcess) )
+            if ( !EtwEventWriteNoRegistration(&UserLoaderGuid, &ComponentOnDemand, 3u, &UserData) )
             {
               Timeout.QuadPart = -100000000LL;
-              NtWaitForSingleObject(Handle, 0, &Timeout);
+              NtWaitForSingleObject(EventHandle, 0, &Timeout);
             }
           }
         }
       }
     }
   }
-  if ( Handle )
+  if ( EventHandle )
   {
-    NtClose(Handle);
+    NtClose(EventHandle);
     pShimData[559] = 0LL;
   }
   if ( v3 )

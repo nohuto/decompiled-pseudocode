@@ -1,17 +1,17 @@
 /*
- * XREFs of KiAllocatePrcbThread @ 0x1405B7CE0
+ * XREFs of KiAllocatePrcbThread @ 0x1405B52C0
  * Callers:
- *     KiAllocateDpcDelegateThread @ 0x1405B5908 (KiAllocateDpcDelegateThread.c)
- *     KiAllocateSmtIsolationThread @ 0x1405C2AE4 (KiAllocateSmtIsolationThread.c)
- *     KiAllocateIdleThread @ 0x140B5A72C (KiAllocateIdleThread.c)
+ *     KiAllocateDpcDelegateThread @ 0x1405B2BD0 (KiAllocateDpcDelegateThread.c)
+ *     KiAllocateSmtIsolationThread @ 0x1405C00B4 (KiAllocateSmtIsolationThread.c)
+ *     KiAllocateIdleThread @ 0x140B5C794 (KiAllocateIdleThread.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x1403254A0 (ObfDereferenceObjectWithTag.c)
- *     RtlUnicodeStringCopy @ 0x1403E4550 (RtlUnicodeStringCopy.c)
- *     PsInitializeThreadRngState @ 0x14047F35C (PsInitializeThreadRngState.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     ObCreateObject @ 0x14098A240 (ObCreateObject.c)
- *     KeInitThread @ 0x140B69230 (KeInitThread.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CE030 (ObfDereferenceObjectWithTag.c)
+ *     RtlUnicodeStringCopy @ 0x1403D20F0 (RtlUnicodeStringCopy.c)
+ *     PsInitializeThreadRngState @ 0x14047A17C (PsInitializeThreadRngState.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     ObCreateObject @ 0x140973930 (ObCreateObject.c)
+ *     KeInitThread @ 0x140B6A948 (KeInitThread.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall KiAllocatePrcbThread(
@@ -100,7 +100,7 @@ __int64 __fastcall KiAllocatePrcbThread(
     if ( inited >= 0 )
     {
       v17 = SourceString;
-      Pool2 = ExAllocatePool2(0x40uLL);
+      Pool2 = ExAllocatePool2(0x40uLL, SourceString->Length + 16LL, 0x6D4E6854u);
       *((_QWORD *)v13 + 212) = Pool2;
       v19 = Pool2;
       if ( Pool2 )

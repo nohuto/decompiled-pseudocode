@@ -1,18 +1,18 @@
 /*
- * XREFs of ObpUnlockObjectType @ 0x140A5AAA0
+ * XREFs of ObpUnlockObjectType @ 0x140A67A10
  * Callers:
- *     ObUnRegisterCallbacks @ 0x1407C4040 (ObUnRegisterCallbacks.c)
- *     ObpCallPreOperationCallbacks @ 0x1408EF644 (ObpCallPreOperationCallbacks.c)
- *     ObpIncrementHandleCountEx @ 0x14092E8D0 (ObpIncrementHandleCountEx.c)
- *     ObCreateObjectTypeEx @ 0x140A5A0C0 (ObCreateObjectTypeEx.c)
- *     ObRegisterCallbacks @ 0x140A5A730 (ObRegisterCallbacks.c)
- *     ObpInsertCallbackByAltitude @ 0x140A5A934 (ObpInsertCallbackByAltitude.c)
- *     ObpCreateTypeArray @ 0x140A5A9E4 (ObpCreateTypeArray.c)
- *     ExpWorkerInitialization @ 0x140CE6768 (ExpWorkerInitialization.c)
+ *     ObUnRegisterCallbacks @ 0x1407C70A0 (ObUnRegisterCallbacks.c)
+ *     ObpCallPreOperationCallbacks @ 0x1408F5C04 (ObpCallPreOperationCallbacks.c)
+ *     ObpIncrementHandleCountEx @ 0x14090A400 (ObpIncrementHandleCountEx.c)
+ *     ObCreateObjectTypeEx @ 0x140A67030 (ObCreateObjectTypeEx.c)
+ *     ObRegisterCallbacks @ 0x140A676A0 (ObRegisterCallbacks.c)
+ *     ObpInsertCallbackByAltitude @ 0x140A678A4 (ObpInsertCallbackByAltitude.c)
+ *     ObpCreateTypeArray @ 0x140A67954 (ObpCreateTypeArray.c)
+ *     ExpWorkerInitialization @ 0x140CECB08 (ExpWorkerInitialization.c)
  * Callees:
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     KiCheckForKernelApcDelivery @ 0x14027DB80 (KiCheckForKernelApcDelivery.c)
- *     ExfReleasePushLock @ 0x1402E3120 (ExfReleasePushLock.c)
+ *     ExfReleasePushLock @ 0x14021B220 (ExfReleasePushLock.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     KiCheckForKernelApcDelivery @ 0x14027D0F0 (KiCheckForKernelApcDelivery.c)
  */
 
 struct _KTHREAD *__fastcall ObpUnlockObjectType(__int64 a1)

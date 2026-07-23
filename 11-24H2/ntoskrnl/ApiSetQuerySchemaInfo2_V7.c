@@ -1,13 +1,14 @@
 /*
- * XREFs of ApiSetQuerySchemaInfo2_V7 @ 0x140660C3C
+ * XREFs of ApiSetQuerySchemaInfo2_V7 @ 0x14065F40C
  * Callers:
- *     ApiSetQuerySchemaInfo2 @ 0x14065FA6C (ApiSetQuerySchemaInfo2.c)
+ *     ApiSetQuerySchemaInfo2 @ 0x14065E23C (ApiSetQuerySchemaInfo2.c)
  * Callees:
- *     ApiSetpGetContractKeyInfo @ 0x140662194 (ApiSetpGetContractKeyInfo.c)
- *     ApiSetpGetExtensionNameKeyInfo @ 0x140662474 (ApiSetpGetExtensionNameKeyInfo.c)
- *     ApiSetpGetSearchKeyHash @ 0x1406625C4 (ApiSetpGetSearchKeyHash.c)
- *     ApiSetpGetSemverKeyVersions @ 0x1406626B4 (ApiSetpGetSemverKeyVersions.c)
- *     ApiSetpSearchForSectionIndex_V7 @ 0x140662838 (ApiSetpSearchForSectionIndex_V7.c)
+ *     ApiSetpIsFeatureEnabled @ 0x140660990 (ApiSetpIsFeatureEnabled.c)
+ *     ApiSetpGetContractKeyInfo @ 0x140660A78 (ApiSetpGetContractKeyInfo.c)
+ *     ApiSetpGetExtensionNameKeyInfo @ 0x140660D58 (ApiSetpGetExtensionNameKeyInfo.c)
+ *     ApiSetpGetSearchKeyHash @ 0x140660EA8 (ApiSetpGetSearchKeyHash.c)
+ *     ApiSetpGetSemverKeyVersions @ 0x140660F98 (ApiSetpGetSemverKeyVersions.c)
+ *     ApiSetpSearchForSectionIndex_V7 @ 0x14066111C (ApiSetpSearchForSectionIndex_V7.c)
  */
 
 __int64 __fastcall ApiSetQuerySchemaInfo2_V7(__int64 a1, char *a2, int *a3)
@@ -33,7 +34,7 @@ __int64 __fastcall ApiSetQuerySchemaInfo2_V7(__int64 a1, char *a2, int *a3)
   int v23; // r8d
   int v24; // r9d
   __int64 v25; // r15
-  unsigned __int64 v26; // r14
+  __int64 v26; // r14
   __int64 v27; // rcx
   __int128 v28; // [rsp+30h] [rbp-30h] BYREF
   __int128 v29; // [rsp+40h] [rbp-20h]
@@ -85,8 +86,8 @@ LABEL_19:
           goto LABEL_31;
         v25 = *(unsigned __int16 *)(v5 + 18);
         LOBYTE(v24) = (*(_BYTE *)(v5 + 2) & 0x10) != 0;
-        v26 = v5 + *(unsigned __int8 *)(v5 + 64) * (unsigned __int64)v22 - v25 + *(unsigned int *)(v5 + 56);
         LOBYTE(v23) = (*(_BYTE *)(v5 + 2) & 8) != 0;
+        v26 = v5 + *(unsigned int *)(v5 + 56) + v22 * (unsigned __int64)*(unsigned __int8 *)(v5 + 64) - v25;
         if ( *(_DWORD *)v26 == (unsigned int)ApiSetpGetSearchKeyHash(
                                                (unsigned int)&v28,
                                                0,
@@ -113,7 +114,7 @@ LABEL_19:
               *a3 = 244;
               return v6;
             }
-            if ( *(_DWORD *)(v26 + 8) )
+            if ( *(_DWORD *)(v26 + 8) && !(unsigned __int8)ApiSetpIsFeatureEnabled() )
             {
               *a3 = 245;
               return v6;

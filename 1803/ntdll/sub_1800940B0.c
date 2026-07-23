@@ -6,12 +6,12 @@
  *     RtlAnsiCharToUnicodeChar @ 0x180069B20 (RtlAnsiCharToUnicodeChar.c)
  */
 
-char *__fastcall sub_1800940B0(char *a1)
+UCHAR *__fastcall sub_1800940B0(UCHAR *a1)
 {
-  char *v3; // [rsp+30h] [rbp+8h] BYREF
+  PUCHAR SourceCharacter; // [rsp+30h] [rbp+8h] BYREF
 
-  v3 = a1;
-  while ( (unsigned __int16)RtlAnsiCharToUnicodeChar(&v3) )
+  SourceCharacter = a1;
+  while ( RtlAnsiCharToUnicodeChar(&SourceCharacter) )
     ;
-  return (char *)(v3 - a1 - 1);
+  return (UCHAR *)(SourceCharacter - a1 - 1);
 }

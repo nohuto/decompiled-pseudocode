@@ -1,9 +1,9 @@
 /*
- * XREFs of _CmGetDevicePanelMappedProperty @ 0x140A664C0
+ * XREFs of _CmGetDevicePanelMappedProperty @ 0x140A66770
  * Callers:
- *     _PnpDispatchDevicePanel @ 0x140829DB0 (_PnpDispatchDevicePanel.c)
+ *     _PnpDispatchDevicePanel @ 0x14082A0B0 (_PnpDispatchDevicePanel.c)
  * Callees:
- *     _CmSplitDevicePanelId @ 0x14082B5BC (_CmSplitDevicePanelId.c)
+ *     _CmSplitDevicePanelId @ 0x14082B8BC (_CmSplitDevicePanelId.c)
  */
 
 __int64 __fastcall CmGetDevicePanelMappedProperty(

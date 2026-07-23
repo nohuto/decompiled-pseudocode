@@ -1,17 +1,17 @@
 /*
- * XREFs of LdrpMapDllPatchImage @ 0x180111AD0
+ * XREFs of LdrpMapDllPatchImage @ 0x180111640
  * Callers:
- *     LdrpProcessWork @ 0x180087350 (LdrpProcessWork.c)
+ *     LdrpProcessWork @ 0x18007E6C0 (LdrpProcessWork.c)
  * Callees:
- *     LdrpMapDllWithSectionHandle @ 0x180084430 (LdrpMapDllWithSectionHandle.c)
- *     NtClose @ 0x18015F120 (NtClose.c)
- *     ZwManageHotPatch @ 0x180161270 (ZwManageHotPatch.c)
+ *     LdrpMapDllWithSectionHandle @ 0x18007B7D0 (LdrpMapDllWithSectionHandle.c)
+ *     NtClose @ 0x18015F020 (NtClose.c)
+ *     ZwManageHotPatch @ 0x180161170 (ZwManageHotPatch.c)
  */
 
 __int64 __fastcall LdrpMapDllPatchImage(__int64 a1)
 {
   unsigned __int64 v2; // rdx
-  int v3; // edi
+  NTSTATUS v3; // edi
   __int64 v5; // [rsp+20h] [rbp-30h] BYREF
   int v6; // [rsp+28h] [rbp-28h]
   int v7; // [rsp+2Ch] [rbp-24h]

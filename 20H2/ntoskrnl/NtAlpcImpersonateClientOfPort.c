@@ -15,7 +15,7 @@
  *     AlpcpEnterStateChangeEventMessageLog @ 0x1408C5414 (AlpcpEnterStateChangeEventMessageLog.c)
  */
 
-__int64 __fastcall NtAlpcImpersonateClientOfPort(HANDLE Handle, __int64 a2, unsigned __int64 a3)
+NTSTATUS __cdecl NtAlpcImpersonateClientOfPort(HANDLE PortHandle, PPORT_MESSAGE Message, PVOID Flags)
 {
   struct _DMA_ADAPTER *v6; // rbx
   struct _KTHREAD *CurrentThread; // rax
@@ -25,7 +25,7 @@ __int64 __fastcall NtAlpcImpersonateClientOfPort(HANDLE Handle, __int64 a2, unsi
   int v11; // r12d
   BOOL v12; // r13d
   __int64 v13; // r9
-  int v14; // r14d
+  NTSTATUS v14; // r14d
   struct _DMA_ADAPTER *v15; // rsi
   ULONG_PTR v16; // rdi
   __int64 v18; // rax
@@ -47,9 +47,9 @@ __int64 __fastcall NtAlpcImpersonateClientOfPort(HANDLE Handle, __int64 a2, unsi
   BugCheckParameter2[1] = 0LL;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   LOBYTE(v24) = PreviousMode;
-  if ( a2 )
+  if ( Message )
   {
-    AlpcpCaptureIdMessage(a2, &v25, &v20);
+    AlpcpCaptureIdMessage(Message, &v25, &v20);
     v9 = v25;
     if ( !v25 )
     {
@@ -64,13 +64,13 @@ LABEL_28:
   {
     v9 = v25;
   }
-  v10 = a3 >> 2;
-  if ( (unsigned int)(a3 >> 2) > 3 )
+  v10 = (unsigned __int64)Flags >> 2;
+  if ( (unsigned int)((unsigned __int64)Flags >> 2) > 3 )
     goto LABEL_28;
-  v11 = a3 & 1;
-  v12 = (((4 * (_DWORD)v10) | 2) & (unsigned int)a3) != 0LL;
+  v11 = (unsigned __int8)Flags & 1;
+  v12 = (((4 * (_DWORD)v10) | 2) & (unsigned int)Flags) != 0LL;
   v24 = 0LL;
-  v14 = ObReferenceObjectByHandle(Handle, 1u, AlpcPortObjectType, PreviousMode, &v24, 0LL);
+  v14 = ObReferenceObjectByHandle(PortHandle, 1u, AlpcPortObjectType, PreviousMode, &v24, 0LL);
   v15 = (struct _DMA_ADAPTER *)v24;
   if ( v14 < 0 )
     goto LABEL_11;
@@ -124,5 +124,5 @@ LABEL_11:
   if ( v15 )
     HalPutDmaAdapter(v15);
   KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
-  return (unsigned int)v14;
+  return v14;
 }

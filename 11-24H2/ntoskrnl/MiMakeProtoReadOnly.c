@@ -1,10 +1,10 @@
 /*
- * XREFs of MiMakeProtoReadOnly @ 0x1404631B4
+ * XREFs of MiMakeProtoReadOnly @ 0x140484268
  * Callers:
- *     MiMakeFaultPfnActive @ 0x140462FB4 (MiMakeFaultPfnActive.c)
+ *     MiMakeFaultPfnActive @ 0x14025A13C (MiMakeFaultPfnActive.c)
  * Callees:
- *     MI_READ_PTE_LOCK_FREE @ 0x14021A250 (MI_READ_PTE_LOCK_FREE.c)
- *     MiUpdateProtectionMask @ 0x14021BFAC (MiUpdateProtectionMask.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140246FA0 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiUpdateProtectionMask @ 0x140248CFC (MiUpdateProtectionMask.c)
  */
 
 __int64 __fastcall MiMakeProtoReadOnly(unsigned __int64 *a1, __int64 a2)

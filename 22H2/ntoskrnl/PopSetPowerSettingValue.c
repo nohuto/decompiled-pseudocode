@@ -111,15 +111,15 @@ __int64 __fastcall PopSetPowerSettingValue(LPCGUID SettingGuid, unsigned int a2,
         {
           v31 = (__int64 **)v28[1];
           if ( *v31 != v28 )
-            goto LABEL_60;
+            goto LABEL_61;
           v32 = (__int64 **)v31[1];
           if ( *v32 != (__int64 *)v31 )
-            goto LABEL_60;
+            goto LABEL_61;
           v28[1] = (__int64)v32;
           *v32 = v28;
           v33 = (__int64 *)*((_QWORD *)v11 + 3);
           if ( (__int64 *)*v33 != v26 )
-            goto LABEL_60;
+            goto LABEL_61;
           *v31 = v26;
           v31[1] = v33;
           *v33 = (__int64)v31;
@@ -131,14 +131,14 @@ __int64 __fastcall PopSetPowerSettingValue(LPCGUID SettingGuid, unsigned int a2,
     *((_DWORD *)v11 + 12) = a2;
     v34 = *(_QWORD **)(v27 + 8);
     if ( *v34 != v27 )
-LABEL_60:
+LABEL_61:
       __fastfail(3u);
     *((_QWORD *)v11 + 1) = v34;
     *(_QWORD *)v11 = v27;
     *v34 = v11;
     *(_QWORD *)(v27 + 8) = v11;
     v36 = 1;
-    if ( PopPopPowerSettingSetChangeNotification )
+    if ( PopPopPowerSettingSetChangeNotification.Data[0] || PopPopPowerSettingSetChangeNotification.Data[1] )
       v37 = 1;
   }
   v12 = *(_DWORD **)&v11[8 * a3 + 64];
@@ -238,7 +238,7 @@ LABEL_6:
   if ( (unsigned int)PopOsInitPhase >= 3 )
   {
     if ( v37 )
-      ZwUpdateWnfStateData((__int64)&PopPopPowerSettingSetChangeNotification, 0LL);
+      ZwUpdateWnfStateData(&PopPopPowerSettingSetChangeNotification, 0LL, 0, 0LL, 0LL, 0, 0);
     if ( v8 )
     {
       PopIncrementPowerSettingPendingUpdates(1);

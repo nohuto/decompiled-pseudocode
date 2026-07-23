@@ -1,15 +1,15 @@
 /*
- * XREFs of IoAcquireCancelSpinLock @ 0x140339A20
+ * XREFs of IoAcquireCancelSpinLock @ 0x140339CB0
  * Callers:
  *     <none>
  * Callees:
- *     KxWaitForLockOwnerShip @ 0x140260F20 (KxWaitForLockOwnerShip.c)
- *     KiAcquireQueuedSpinLockInstrumented @ 0x14046018E (KiAcquireQueuedSpinLockInstrumented.c)
+ *     KxWaitForLockOwnerShip @ 0x1402611B0 (KxWaitForLockOwnerShip.c)
+ *     KiAcquireQueuedSpinLockInstrumented @ 0x14046058E (KiAcquireQueuedSpinLockInstrumented.c)
  */
 
 void __stdcall IoAcquireCancelSpinLock(PKIRQL Irql)
 {
-  KIRQL CurrentIrql; // bl
+  UCHAR CurrentIrql; // bl
   void *ArbitraryUserPointer; // rcx
   volatile __int64 *v4; // r8
   __int64 v5; // rcx
@@ -19,7 +19,7 @@ void __stdcall IoAcquireCancelSpinLock(PKIRQL Irql)
 
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     if ( CurrentIrql == 2 )

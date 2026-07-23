@@ -11,11 +11,16 @@
  *     <none>
  */
 
-__int64 ZwQueryLicenseValue()
+NTSTATUS __cdecl ZwQueryLicenseValue(
+        PUNICODE_STRING ValueName,
+        PULONG Type,
+        PVOID Data,
+        ULONG DataSize,
+        PULONG ResultDataSize)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 333LL;
+  result = 333;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

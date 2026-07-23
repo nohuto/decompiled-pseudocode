@@ -1,9 +1,9 @@
 /*
- * XREFs of IoFreeErrorLogEntry @ 0x1405568A0
+ * XREFs of IoFreeErrorLogEntry @ 0x140556F60
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14022F5B0 (ObfDereferenceObjectWithTag.c)
+ *     ObfDereferenceObjectWithTag @ 0x14022F6C0 (ObfDereferenceObjectWithTag.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

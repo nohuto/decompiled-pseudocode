@@ -1,23 +1,23 @@
 /*
- * XREFs of WmipQuerySetExecuteSI @ 0x140757270
+ * XREFs of WmipQuerySetExecuteSI @ 0x140757430
  * Callers:
- *     WmipIoControl @ 0x1406A8220 (WmipIoControl.c)
- *     IoWMIQuerySingleInstance @ 0x140757140 (IoWMIQuerySingleInstance.c)
- *     IoWMIExecuteMethod @ 0x140930E80 (IoWMIExecuteMethod.c)
- *     IoWMISetSingleInstance @ 0x1409311F0 (IoWMISetSingleInstance.c)
- *     IoWMISetSingleItem @ 0x140931320 (IoWMISetSingleItem.c)
- *     WmipQuerySingleMultiple @ 0x140932E8C (WmipQuerySingleMultiple.c)
+ *     WmipIoControl @ 0x1406061A0 (WmipIoControl.c)
+ *     IoWMIQuerySingleInstance @ 0x140757300 (IoWMIQuerySingleInstance.c)
+ *     IoWMIExecuteMethod @ 0x140930FE0 (IoWMIExecuteMethod.c)
+ *     IoWMISetSingleInstance @ 0x140931350 (IoWMISetSingleInstance.c)
+ *     IoWMISetSingleItem @ 0x140931480 (IoWMISetSingleItem.c)
+ *     WmipQuerySingleMultiple @ 0x140933020 (WmipQuerySingleMultiple.c)
  * Callees:
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     ObReferenceObjectByPointer @ 0x1403600E0 (ObReferenceObjectByPointer.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     memset @ 0x140414200 (memset.c)
- *     WmipUnreferenceEntry @ 0x140639618 (WmipUnreferenceEntry.c)
- *     WmipForwardWmiIrp @ 0x1406396EC (WmipForwardWmiIrp.c)
- *     ObReferenceObjectByHandle @ 0x1406F0BC0 (ObReferenceObjectByHandle.c)
- *     WmipSendWmiIrp @ 0x14075751C (WmipSendWmiIrp.c)
- *     WmipPrepareWnodeSI @ 0x140757604 (WmipPrepareWnodeSI.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     ObReferenceObjectByPointer @ 0x1402A5010 (ObReferenceObjectByPointer.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     WmipUnreferenceEntry @ 0x14062E428 (WmipUnreferenceEntry.c)
+ *     WmipForwardWmiIrp @ 0x14062E4FC (WmipForwardWmiIrp.c)
+ *     ObReferenceObjectByHandle @ 0x140707FA0 (ObReferenceObjectByHandle.c)
+ *     WmipSendWmiIrp @ 0x1407576DC (WmipSendWmiIrp.c)
+ *     WmipPrepareWnodeSI @ 0x1407577C4 (WmipPrepareWnodeSI.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall WmipQuerySetExecuteSI(

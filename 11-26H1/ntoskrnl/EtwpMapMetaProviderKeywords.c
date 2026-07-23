@@ -1,7 +1,7 @@
 /*
- * XREFs of EtwpMapMetaProviderKeywords @ 0x14049ADCC
+ * XREFs of EtwpMapMetaProviderKeywords @ 0x14049491C
  * Callers:
- *     EtwpGetTraceGuidInfo @ 0x140935E90 (EtwpGetTraceGuidInfo.c)
+ *     EtwpGetTraceGuidInfo @ 0x140911A40 (EtwpGetTraceGuidInfo.c)
  * Callees:
  *     <none>
  */

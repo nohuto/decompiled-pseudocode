@@ -1,37 +1,39 @@
 /*
- * XREFs of PpmInitIdlePolicy @ 0x140A6C6A4
+ * XREFs of PpmInitIdlePolicy @ 0x140A6D6A4
  * Callers:
- *     PoInitSystem @ 0x140A3F948 (PoInitSystem.c)
+ *     PoInitSystem @ 0x140A40948 (PoInitSystem.c)
  * Callees:
- *     PpmConvertTime @ 0x14027C22C (PpmConvertTime.c)
- *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
- *     ZwQueryLicenseValue @ 0x1403FCE20 (ZwQueryLicenseValue.c)
+ *     PpmConvertTime @ 0x14026A1CC (PpmConvertTime.c)
+ *     RtlInitUnicodeString @ 0x14026A4C0 (RtlInitUnicodeString.c)
+ *     ZwQueryLicenseValue @ 0x1403FD000 (ZwQueryLicenseValue.c)
  */
 
-__int64 PpmInitIdlePolicy()
+NTSTATUS PpmInitIdlePolicy()
 {
   ULONGLONG v0; // rax
   ULONGLONG *v1; // rbx
   __int64 v2; // rdi
   ULONGLONG v3; // rcx
-  __int64 result; // rax
+  NTSTATUS result; // eax
   UNICODE_STRING DestinationString; // [rsp+30h] [rbp-10h] BYREF
-  int v6; // [rsp+68h] [rbp+28h] BYREF
-  int v7; // [rsp+70h] [rbp+30h]
+  ULONG ResultDataSize; // [rsp+60h] [rbp+20h] BYREF
+  ULONG Type; // [rsp+68h] [rbp+28h] BYREF
+  int Data; // [rsp+70h] [rbp+30h] BYREF
 
-  dword_140C1EF40 = 50000;
-  dword_140C1F9F0 = 50000;
+  dword_140C1EF00 = 50000;
+  dword_140C1F9B0 = 50000;
   v0 = 2 * PopQpcFrequency;
-  v7 = 0;
+  Data = 0;
   PopIdleTransitionTimeout = 2 * PopQpcFrequency;
-  v6 = 0;
+  ResultDataSize = 0;
+  Type = 0;
   DestinationString = 0LL;
-  word_140C1EF3C = 0;
-  word_140C1F9EC = 0;
-  word_140C1EF45 = 60;
-  word_140C1F9F5 = 60;
-  byte_140C1EF44 = 40;
-  byte_140C1F9F4 = 40;
+  word_140C1EEFC = 0;
+  word_140C1F9AC = 0;
+  word_140C1EF05 = 60;
+  word_140C1F9B5 = 60;
+  byte_140C1EF04 = 40;
+  byte_140C1F9B4 = 40;
   if ( !KdPitchDebugger )
     v0 = 90 * PopQpcFrequency;
   PopCoordinatedIdleExitTimeout = v0;
@@ -47,7 +49,9 @@ __int64 PpmInitIdlePolicy()
   }
   while ( v2 );
   RtlInitUnicodeString(&DestinationString, L"Power-IdleStatesMax-Enabled");
-  result = ZwQueryLicenseValue((__int64)&DestinationString, (__int64)&v6);
+  result = ZwQueryLicenseValue(&DestinationString, &Type, &Data, 4u, &ResultDataSize);
+  if ( result >= 0 && ResultDataSize == 4 && Type == 4 )
+    PpmIdleRespectIdleStateMax = Data != 0;
   if ( PpmIdleDisableStatesAtBoot == -1 )
     PpmIdleDisableStatesAtBoot = 0;
   return result;

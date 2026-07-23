@@ -1,22 +1,22 @@
 /*
- * XREFs of KiSelectReadyThread @ 0x140347900
+ * XREFs of KiSelectReadyThread @ 0x140352650
  * Callers:
- *     KiSelectReadyThreadEx @ 0x14022FEC0 (KiSelectReadyThreadEx.c)
- *     KiRemoveBoostThread @ 0x14024AED0 (KiRemoveBoostThread.c)
- *     KiSearchForNewThread @ 0x140256CB8 (KiSearchForNewThread.c)
- *     KiSelectNextThread @ 0x14025708C (KiSelectNextThread.c)
- *     KiQuantumEnd @ 0x140257CF0 (KiQuantumEnd.c)
- *     KiGroupSchedulingQuantumEnd @ 0x1402587E0 (KiGroupSchedulingQuantumEnd.c)
- *     KiGroupSchedulingGenerationEnd @ 0x1402599DC (KiGroupSchedulingGenerationEnd.c)
- *     KiChooseLowestRankedThread @ 0x1402EAFC0 (KiChooseLowestRankedThread.c)
- *     KiSwapThread @ 0x1403466D0 (KiSwapThread.c)
+ *     KiSearchForNewThread @ 0x140278228 (KiSearchForNewThread.c)
+ *     KiSelectNextThread @ 0x1402785FC (KiSelectNextThread.c)
+ *     KiQuantumEnd @ 0x140279260 (KiQuantumEnd.c)
+ *     KiGroupSchedulingQuantumEnd @ 0x140279D50 (KiGroupSchedulingQuantumEnd.c)
+ *     KiGroupSchedulingGenerationEnd @ 0x14027AF4C (KiGroupSchedulingGenerationEnd.c)
+ *     KiChooseLowestRankedThread @ 0x14029C310 (KiChooseLowestRankedThread.c)
+ *     KiSelectReadyThreadEx @ 0x1402D4710 (KiSelectReadyThreadEx.c)
+ *     KiRemoveBoostThread @ 0x1402EF720 (KiRemoveBoostThread.c)
+ *     KiSwapThread @ 0x140351420 (KiSwapThread.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x14024B280 (KeYieldProcessorEx.c)
- *     KiGetThreadEffectiveRankNonZero @ 0x14024D500 (KiGetThreadEffectiveRankNonZero.c)
- *     KiRemoveThreadFromReadyQueue @ 0x1402EA768 (KiRemoveThreadFromReadyQueue.c)
- *     KiAddThreadToScbQueue @ 0x1402EBCF4 (KiAddThreadToScbQueue.c)
+ *     KiRemoveThreadFromReadyQueue @ 0x14029BAB8 (KiRemoveThreadFromReadyQueue.c)
+ *     KiAddThreadToScbQueue @ 0x14029D044 (KiAddThreadToScbQueue.c)
+ *     KeYieldProcessorEx @ 0x1402EFAD0 (KeYieldProcessorEx.c)
+ *     KiGetThreadEffectiveRankNonZero @ 0x1402F1D50 (KiGetThreadEffectiveRankNonZero.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     KiConvertDynamicHeteroPolicy @ 0x14051F1A0 (KiConvertDynamicHeteroPolicy.c)
+ *     KiConvertDynamicHeteroPolicy @ 0x14051F3E0 (KiConvertDynamicHeteroPolicy.c)
  */
 
 __int64 __fastcall KiSelectReadyThread(int a1, __int64 a2)

@@ -1,10 +1,10 @@
 /*
- * XREFs of PnpReportTargetDeviceChangeAsyncWorker @ 0x14062BD5C
+ * XREFs of PnpReportTargetDeviceChangeAsyncWorker @ 0x14062BE10
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
- *     PnpSetCustomTargetEvent @ 0x1403EF18C (PnpSetCustomTargetEvent.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
+ *     PnpSetCustomTargetEvent @ 0x1404893D8 (PnpSetCustomTargetEvent.c)
  */
 
 void __fastcall PnpReportTargetDeviceChangeAsyncWorker(__int64 a1)

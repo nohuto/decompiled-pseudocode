@@ -1,15 +1,15 @@
 /*
- * XREFs of IopWheaSelLogCheckPointEx @ 0x1405CA070
+ * XREFs of IopWheaSelLogCheckPointEx @ 0x1405CC940
  * Callers:
- *     IoEmitCrashDmpGUID @ 0x1405C65F8 (IoEmitCrashDmpGUID.c)
- *     IoSaveBugCheckProgress @ 0x1405C7540 (IoSaveBugCheckProgress.c)
+ *     IoEmitCrashDmpGUID @ 0x1405C8EC8 (IoEmitCrashDmpGUID.c)
+ *     IoSaveBugCheckProgress @ 0x1405C9E10 (IoSaveBugCheckProgress.c)
  * Callees:
- *     WheaLogInternalEvent @ 0x1403DFEC0 (WheaLogInternalEvent.c)
- *     EnterWheaIpmiContextNoLock @ 0x1406D4318 (EnterWheaIpmiContextNoLock.c)
- *     IpmiLibAddSelCheckpointRecordEx @ 0x14071D5E0 (IpmiLibAddSelCheckpointRecordEx.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     WheaLogInternalEvent @ 0x1403E30B0 (WheaLogInternalEvent.c)
+ *     EnterWheaIpmiContextNoLock @ 0x1406D8398 (EnterWheaIpmiContextNoLock.c)
+ *     IpmiLibAddSelCheckpointRecordEx @ 0x140722270 (IpmiLibAddSelCheckpointRecordEx.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall IopWheaSelLogCheckPointEx(int a1, const void *a2, unsigned __int16 a3)
@@ -25,7 +25,7 @@ __int64 __fastcall IopWheaSelLogCheckPointEx(int a1, const void *a2, unsigned __
   v4 = 256;
   if ( a3 < 0x100u )
     v4 = a3;
-  if ( LODWORD(CmpCallbackListLock.PropagateBoostsEntry.Next) )
+  if ( *(_DWORD *)&CmpContextListLock.SchedulerApcFill5[56] )
   {
     memset_0(v11, 0, sizeof(v11));
     Src[7] = v4;

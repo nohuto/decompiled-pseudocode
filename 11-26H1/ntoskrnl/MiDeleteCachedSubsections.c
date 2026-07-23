@@ -1,21 +1,21 @@
 /*
- * XREFs of MiDeleteCachedSubsections @ 0x1404A6F5C
+ * XREFs of MiDeleteCachedSubsections @ 0x1404A05EC
  * Callers:
- *     MiPruneUnusedList @ 0x14048F610 (MiPruneUnusedList.c)
- *     MiDeleteDeleteOnCloseSubsections @ 0x1406E74F0 (MiDeleteDeleteOnCloseSubsections.c)
- *     MiProcessDeleteOnClose @ 0x1406E7900 (MiProcessDeleteOnClose.c)
+ *     MiPruneUnusedList @ 0x140488FD0 (MiPruneUnusedList.c)
+ *     MiDeleteDeleteOnCloseSubsections @ 0x1406EC1A0 (MiDeleteDeleteOnCloseSubsections.c)
+ *     MiProcessDeleteOnClose @ 0x1406EC5B0 (MiProcessDeleteOnClose.c)
  * Callees:
- *     ExReleaseSpinLockExclusive @ 0x14021AA80 (ExReleaseSpinLockExclusive.c)
- *     KeDelayExecutionThread @ 0x140244840 (KeDelayExecutionThread.c)
- *     ExAcquireSpinLockExclusive @ 0x140249CD0 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     MiRemoveListSentinel @ 0x14030C498 (MiRemoveListSentinel.c)
- *     MiFreeProtoPool @ 0x140458808 (MiFreeProtoPool.c)
- *     MiWakeCommitRequest @ 0x1404A3584 (MiWakeCommitRequest.c)
- *     MiDestroySection @ 0x1404E6B64 (MiDestroySection.c)
- *     MiDeleteCachedSubsection @ 0x1405108F0 (MiDeleteCachedSubsection.c)
- *     MiDeleteFileExtentList @ 0x1407705B4 (MiDeleteFileExtentList.c)
- *     MiSegmentDelete @ 0x140A816BC (MiSegmentDelete.c)
+ *     ExReleaseSpinLockExclusive @ 0x14021C410 (ExReleaseSpinLockExclusive.c)
+ *     KeDelayExecutionThread @ 0x1402461A0 (KeDelayExecutionThread.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024B630 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiRemoveListSentinel @ 0x1402EE518 (MiRemoveListSentinel.c)
+ *     MiFreeProtoPool @ 0x140450078 (MiFreeProtoPool.c)
+ *     MiWakeCommitRequest @ 0x14049D094 (MiWakeCommitRequest.c)
+ *     MiDestroySection @ 0x1404E0004 (MiDestroySection.c)
+ *     MiDeleteCachedSubsection @ 0x14050A360 (MiDeleteCachedSubsection.c)
+ *     MiDeleteFileExtentList @ 0x1407735B4 (MiDeleteFileExtentList.c)
+ *     MiSegmentDelete @ 0x140A8752C (MiSegmentDelete.c)
  */
 
 unsigned __int64 __fastcall MiDeleteCachedSubsections(__int64 a1, KIRQL a2)

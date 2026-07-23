@@ -1,19 +1,19 @@
 /*
- * XREFs of HvlEnlightenProcessor @ 0x140178680
+ * XREFs of HvlEnlightenProcessor @ 0x140178780
  * Callers:
- *     HvlpInitializeBootProcessor @ 0x1402720B0 (HvlpInitializeBootProcessor.c)
- *     PopHandleNextState @ 0x140569410 (PopHandleNextState.c)
- *     KiInitializeKernel @ 0x140571310 (KiInitializeKernel.c)
+ *     HvlpInitializeBootProcessor @ 0x1402722A0 (HvlpInitializeBootProcessor.c)
+ *     PopHandleNextState @ 0x14056A410 (PopHandleNextState.c)
+ *     KiInitializeKernel @ 0x140572310 (KiInitializeKernel.c)
  * Callees:
- *     MmMapIoSpaceEx @ 0x1400E5D60 (MmMapIoSpaceEx.c)
- *     MmGetPhysicalAddress @ 0x1401210D0 (MmGetPhysicalAddress.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     HvlpGetLpIndexFromProcessorIndex @ 0x140271F3C (HvlpGetLpIndexFromProcessorIndex.c)
- *     HvlpGetLpcbByLpIndex @ 0x140271FAC (HvlpGetLpcbByLpIndex.c)
- *     HvlpSetupSchedulerAssist @ 0x140272EFC (HvlpSetupSchedulerAssist.c)
- *     HvlpGetRegister64 @ 0x140278B08 (HvlpGetRegister64.c)
- *     HvlpSetRegister64 @ 0x140278BF4 (HvlpSetRegister64.c)
- *     HvlpDiscoverTopologyLocal @ 0x140817998 (HvlpDiscoverTopologyLocal.c)
+ *     MmMapIoSpaceEx @ 0x1400E5DE0 (MmMapIoSpaceEx.c)
+ *     MmGetPhysicalAddress @ 0x1401211A0 (MmGetPhysicalAddress.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     HvlpGetLpIndexFromProcessorIndex @ 0x14027212C (HvlpGetLpIndexFromProcessorIndex.c)
+ *     HvlpGetLpcbByLpIndex @ 0x14027219C (HvlpGetLpcbByLpIndex.c)
+ *     HvlpSetupSchedulerAssist @ 0x1402730EC (HvlpSetupSchedulerAssist.c)
+ *     HvlpGetRegister64 @ 0x140278CF8 (HvlpGetRegister64.c)
+ *     HvlpSetRegister64 @ 0x140278DE4 (HvlpSetRegister64.c)
+ *     HvlpDiscoverTopologyLocal @ 0x140818B98 (HvlpDiscoverTopologyLocal.c)
  */
 
 void __fastcall HvlEnlightenProcessor(char a1)
@@ -72,7 +72,7 @@ void __fastcall HvlEnlightenProcessor(char a1)
         if ( CurrentPrcb->Number )
           v7 = MmMapIoSpaceEx(v6, 4096LL, 4u);
         else
-          v7 = ((__int64 (__fastcall *)(unsigned __int64, __int64, __int64))qword_1403FE460)(v6, 1LL, 4LL);
+          v7 = ((__int64 (__fastcall *)(unsigned __int64, __int64, __int64))qword_1403FF460)(v6, 1LL, 4LL);
         CurrentPrcb->VirtualApicAssist = (void *)v7;
       }
       else
@@ -97,7 +97,7 @@ void __fastcall HvlEnlightenProcessor(char a1)
       if ( CurrentPrcb->Number )
         v14 = MmMapIoSpaceEx(v13, 4096LL, 4u);
       else
-        v14 = ((__int64 (__fastcall *)(unsigned __int64, __int64))qword_1403FE460)(v13, 1LL);
+        v14 = ((__int64 (__fastcall *)(unsigned __int64, __int64))qword_1403FF460)(v13, 1LL);
       *(_QWORD *)(LpcbByLpIndex + 40) = v14;
     }
     if ( (HvlpFlags & 0x20) != 0 )

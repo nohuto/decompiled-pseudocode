@@ -1,5 +1,5 @@
 /*
- * XREFs of _memicmp @ 0x1800978D0
+ * XREFs of _memicmp @ 0x1800978C0
  * Callers:
  *     <none>
  * Callees:

@@ -19,8 +19,8 @@ __int64 __fastcall RtlpHpLargeReAlloc(__int64 a1, unsigned int a2, __int64 a3, _
   unsigned __int64 v10; // rdi
   __int64 Metadata; // rax
   unsigned __int64 v14; // rdi
-  _QWORD v15[2]; // [rsp+30h] [rbp-38h] BYREF
-  __int64 v16; // [rsp+88h] [rbp+20h] BYREF
+  PVOID BaseAddress[2]; // [rsp+30h] [rbp-38h] BYREF
+  ULONG_PTR RegionSize; // [rsp+88h] [rbp+20h] BYREF
 
   v4 = *(_QWORD *)(a4 + 32);
   v8 = (unsigned __int64)(*(_QWORD *)(a4 + 8) + 4095LL) >> 12;
@@ -45,14 +45,14 @@ __int64 __fastcall RtlpHpLargeReAlloc(__int64 a1, unsigned int a2, __int64 a3, _
       RtlpHpExtrasMove(a3, *(_QWORD *)a4, a3, *(_QWORD *)(a4 + 24), a2);
     if ( v10 < v8 )
     {
-      v16 = (v8 - v10) << 12;
-      v15[0] = a3 + (v10 << 12) + 4096;
-      ZwFreeVirtualMemory(-1LL, v15, &v16, 0x8000LL);
+      RegionSize = (v8 - v10) << 12;
+      BaseAddress[0] = (PVOID)(a3 + (v10 << 12) + 4096);
+      ZwFreeVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, BaseAddress, &RegionSize, 0x8000u);
       if ( MEMORY[0x7FFE0388] )
-        RtlpHeapLogRangeRelease(a1, v15[0], v16);
-      v16 = 4096LL;
-      v15[0] = a3 + (v10 << 12);
-      ZwFreeVirtualMemory(-1LL, v15, &v16, 0x4000LL);
+        RtlpHeapLogRangeRelease(a1, BaseAddress[0], RegionSize);
+      RegionSize = 4096LL;
+      BaseAddress[0] = (PVOID)(a3 + (v10 << 12));
+      ZwFreeVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, BaseAddress, &RegionSize, 0x4000u);
       v14 = v10 - v8;
       _InterlockedExchangeAdd64((volatile signed __int64 *)(a1 + 80), v14);
       _InterlockedExchangeAdd64((volatile signed __int64 *)(a1 + 72), v14);

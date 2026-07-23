@@ -6,13 +6,13 @@
  *     ZwFreeVirtualMemory @ 0x1801635E0 (ZwFreeVirtualMemory.c)
  */
 
-__int64 __fastcall RtlStdDeleteStackDatabase(__int64 a1)
+NTSTATUS __fastcall RtlStdDeleteStackDatabase(_QWORD *a1)
 {
-  __int64 v2; // [rsp+30h] [rbp+8h] BYREF
-  __int64 v3; // [rsp+38h] [rbp+10h] BYREF
+  PVOID v2; // [rsp+30h] [rbp+8h] BYREF
+  ULONG_PTR v3; // [rsp+38h] [rbp+10h] BYREF
 
   v2 = a1;
   v3 = 0LL;
-  v3 = *(_QWORD *)(a1 + 184) - a1;
-  return ZwFreeVirtualMemory(-1LL, &v2, &v3, 0x8000LL);
+  v3 = a1[23] - (_QWORD)a1;
+  return ZwFreeVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &v2, &v3, 0x8000u);
 }

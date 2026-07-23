@@ -1,13 +1,13 @@
 /*
- * XREFs of ExGetSuiteMask @ 0x140575AF4
+ * XREFs of ExGetSuiteMask @ 0x140576034
  * Callers:
- *     PspSiloInitializeSuiteMask @ 0x14067ED58 (PspSiloInitializeSuiteMask.c)
+ *     PspSiloInitializeSuiteMask @ 0x14067EE3C (PspSiloInitializeSuiteMask.c)
  *     ExpInitSystemPhase0 @ 0x1407B58A0 (ExpInitSystemPhase0.c)
  * Callees:
- *     RtlGetProductInfo @ 0x1401480D0 (RtlGetProductInfo.c)
- *     ExpGetProductInfoSuiteTypeMap @ 0x140575B68 (ExpGetProductInfoSuiteTypeMap.c)
- *     ExpParseSuiteMask @ 0x140575BA8 (ExpParseSuiteMask.c)
- *     ExpGetNonMatchingSuiteMask @ 0x1406AC9CC (ExpGetNonMatchingSuiteMask.c)
+ *     RtlGetProductInfo @ 0x140148640 (RtlGetProductInfo.c)
+ *     ExpGetProductInfoSuiteTypeMap @ 0x1405760A8 (ExpGetProductInfoSuiteTypeMap.c)
+ *     ExpParseSuiteMask @ 0x1405760E8 (ExpParseSuiteMask.c)
+ *     ExpGetNonMatchingSuiteMask @ 0x1406ACB04 (ExpGetNonMatchingSuiteMask.c)
  */
 
 __int64 __fastcall ExGetSuiteMask(__int64 a1, char a2)

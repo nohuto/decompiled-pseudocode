@@ -1,10 +1,10 @@
 /*
- * XREFs of MiReturnProcessCommitment @ 0x1404561A4
+ * XREFs of MiReturnProcessCommitment @ 0x14044AEE4
  * Callers:
- *     MiAllocateUserPhysicalPages @ 0x1407F84C8 (MiAllocateUserPhysicalPages.c)
- *     NtFreeUserPhysicalPages @ 0x1407F9BD0 (NtFreeUserPhysicalPages.c)
- *     MiChargeFullProcessCommitment @ 0x1408E3010 (MiChargeFullProcessCommitment.c)
- *     MiCleanProcessPhysicalPages @ 0x140A071B8 (MiCleanProcessPhysicalPages.c)
+ *     MiAllocateUserPhysicalPages @ 0x1407F8C38 (MiAllocateUserPhysicalPages.c)
+ *     NtFreeUserPhysicalPages @ 0x1407FA340 (NtFreeUserPhysicalPages.c)
+ *     MiChargeFullProcessCommitment @ 0x140919BC0 (MiChargeFullProcessCommitment.c)
+ *     MiCleanProcessPhysicalPages @ 0x140A036E8 (MiCleanProcessPhysicalPages.c)
  * Callees:
  *     <none>
  */

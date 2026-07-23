@@ -1,33 +1,33 @@
 /*
- * XREFs of TppCleanupGroupAddMember @ 0x18001C7C0
+ * XREFs of TppCleanupGroupAddMember @ 0x1800491C0
  * Callers:
- *     TpAllocWork @ 0x18001BE50 (TpAllocWork.c)
- *     TpSimpleTryPost @ 0x18006A740 (TpSimpleTryPost.c)
- *     TpAllocTimer @ 0x18006CE10 (TpAllocTimer.c)
- *     TpAllocWait @ 0x18006E7E0 (TpAllocWait.c)
- *     TpAllocJobNotification @ 0x1800BF070 (TpAllocJobNotification.c)
- *     TppAllocAlpcCompletion @ 0x1800BF374 (TppAllocAlpcCompletion.c)
- *     TpAllocIoCompletion @ 0x1800BF6A0 (TpAllocIoCompletion.c)
+ *     TpAllocWork @ 0x180048850 (TpAllocWork.c)
+ *     TpSimpleTryPost @ 0x180086E30 (TpSimpleTryPost.c)
+ *     TpAllocTimer @ 0x1800896F0 (TpAllocTimer.c)
+ *     TpAllocWait @ 0x18008B0C0 (TpAllocWait.c)
+ *     TpAllocJobNotification @ 0x1800B6E30 (TpAllocJobNotification.c)
+ *     TppAllocAlpcCompletion @ 0x1800B7134 (TppAllocAlpcCompletion.c)
+ *     TpAllocIoCompletion @ 0x1800B7460 (TpAllocIoCompletion.c)
  * Callees:
- *     RtlAcquireSRWLockExclusive @ 0x180055AE0 (RtlAcquireSRWLockExclusive.c)
- *     RtlReleaseSRWLockExclusive @ 0x1800567B0 (RtlReleaseSRWLockExclusive.c)
+ *     RtlAcquireSRWLockExclusive @ 0x18006B6C0 (RtlAcquireSRWLockExclusive.c)
+ *     RtlReleaseSRWLockExclusive @ 0x18006C390 (RtlReleaseSRWLockExclusive.c)
  */
 
-__int64 __fastcall TppCleanupGroupAddMember(__int64 a1)
+void __fastcall TppCleanupGroupAddMember(__int64 a1)
 {
-  _QWORD *v2; // rdi
-  _QWORD *v3; // rax
-  __int64 v5; // [rsp+30h] [rbp+8h]
+  _RTL_SRWLOCK *v2; // rdi
+  _RTL_SRWLOCK **Value; // rax
+  _RTL_SRWLOCK *v4; // [rsp+30h] [rbp+8h]
 
-  v5 = *(_QWORD *)(a1 + 16);
-  RtlAcquireSRWLockExclusive(v5 + 8);
-  v2 = (_QWORD *)(a1 + 40);
-  v3 = *(_QWORD **)(v5 + 24);
-  if ( *v3 != v5 + 16 )
+  v4 = *(_RTL_SRWLOCK **)(a1 + 16);
+  RtlAcquireSRWLockExclusive(v4 + 1);
+  v2 = (_RTL_SRWLOCK *)(a1 + 40);
+  Value = (_RTL_SRWLOCK **)v4[3].Value;
+  if ( *Value != &v4[2] )
     __fastfail(3u);
-  *v2 = v5 + 16;
-  v2[1] = v3;
-  *v3 = v2;
-  *(_QWORD *)(v5 + 24) = v2;
-  return RtlReleaseSRWLockExclusive(v5 + 8);
+  v2->Value = (unsigned __int64)&v4[2];
+  v2[1].Value = (unsigned __int64)Value;
+  *Value = v2;
+  v4[3].Value = (unsigned __int64)v2;
+  RtlReleaseSRWLockExclusive(v4 + 1);
 }

@@ -1,5 +1,5 @@
 /*
- * XREFs of HvlQueryHvHwpPerfSupport @ 0x140546D40
+ * XREFs of HvlQueryHvHwpPerfSupport @ 0x140547400
  * Callers:
  *     <none>
  * Callees:

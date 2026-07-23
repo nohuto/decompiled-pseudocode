@@ -20,19 +20,23 @@
  *     AlpcpFreeCompletionList @ 0x14056C968 (AlpcpFreeCompletionList.c)
  */
 
-__int64 __fastcall NtAlpcSetInformation(HANDLE a1, int a2, unsigned __int64 a3, unsigned int a4)
+NTSTATUS __cdecl NtAlpcSetInformation(
+        HANDLE PortHandle,
+        ALPC_PORT_INFORMATION_CLASS PortInformationClass,
+        PVOID PortInformation,
+        ULONG Length)
 {
   struct _KTHREAD *CurrentThread; // rax
   int v7; // r14d
   KPROCESSOR_MODE PreviousMode; // di
   __int64 v9; // r13
   __int64 *v10; // r12
-  NTSTATUS v11; // edi
-  int v12; // esi
-  int v13; // esi
-  NTSTATUS v14; // eax
-  int v16; // esi
-  int v17; // esi
+  signed int v11; // edi
+  __int32 v12; // esi
+  __int32 v13; // esi
+  signed int v14; // eax
+  __int32 v16; // esi
+  __int32 v17; // esi
   int v18; // esi
   int v19; // esi
   _QWORD *v20; // rdi
@@ -50,50 +54,53 @@ __int64 __fastcall NtAlpcSetInformation(HANDLE a1, int a2, unsigned __int64 a3, 
   int v32; // edx
   KPROCESSOR_MODE v33; // [rsp+30h] [rbp-C8h]
   PVOID Object; // [rsp+38h] [rbp-C0h] BYREF
-  unsigned __int64 v35; // [rsp+40h] [rbp-B8h]
+  __int64 *v35; // [rsp+40h] [rbp-B8h]
   HANDLE Handle; // [rsp+48h] [rbp-B0h]
   __int64 *v37; // [rsp+50h] [rbp-A8h]
   __int64 v38; // [rsp+60h] [rbp-98h] BYREF
   __int32 v39; // [rsp+68h] [rbp-90h]
   unsigned __int64 v40; // [rsp+6Ch] [rbp-8Ch]
 
-  Handle = a1;
-  v35 = a3;
+  Handle = PortHandle;
+  v35 = (__int64 *)PortInformation;
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
   v7 = 0;
-  if ( !a1 || !v35 && a2 != 7 && a2 != 10 )
+  if ( !PortHandle
+    || !v35
+    && PortInformationClass != AlpcUnregisterCompletionListInformation
+    && PortInformationClass != AlpcCompletionListRundownInformation )
   {
     v11 = -1073741811;
     goto LABEL_16;
   }
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   v33 = PreviousMode;
-  v9 = v35;
-  v10 = (__int64 *)v35;
-  v37 = (__int64 *)v35;
-  if ( a4 && PreviousMode )
+  v9 = (__int64)v35;
+  v10 = v35;
+  v37 = v35;
+  if ( Length && PreviousMode )
   {
-    if ( a4 > 0x48 )
+    if ( Length > 0x48 )
     {
       v11 = -1073741820;
       goto LABEL_16;
     }
-    if ( v35 >= 0x7FFFFFFF0000LL )
+    if ( (unsigned __int64)v35 >= 0x7FFFFFFF0000LL )
       v9 = 0x7FFFFFFF0000LL;
-    v35 = v9;
-    memmove(&v38, (const void *)v9, a4);
+    v35 = (__int64 *)v9;
+    memmove(&v38, (const void *)v9, Length);
     v10 = &v38;
     v37 = &v38;
-    a1 = Handle;
+    PortHandle = Handle;
   }
-  v11 = ObReferenceObjectByHandle(a1, 1u, AlpcPortObjectType, PreviousMode, &Object, 0LL);
+  v11 = ObReferenceObjectByHandle(PortHandle, 1u, AlpcPortObjectType, PreviousMode, &Object, 0LL);
   if ( v11 >= 0 )
   {
-    v12 = a2 - 1;
+    v12 = PortInformationClass - 1;
     if ( !v12 )
     {
-      if ( a4 != 72 )
+      if ( Length != 72 )
         goto LABEL_66;
       v32 = *(_DWORD *)v10;
       if ( (*(_DWORD *)v10 & 0xFC00FFFF) == 0 && ((v32 ^ *((_DWORD *)Object + 64)) & 0x40000) == 0 )
@@ -106,7 +113,7 @@ __int64 __fastcall NtAlpcSetInformation(HANDLE a1, int a2, unsigned __int64 a3, 
     v13 = v12 - 1;
     if ( !v13 )
     {
-      if ( a4 == 16 )
+      if ( Length == 16 )
       {
         v14 = AlpcpAssociateIoCompletionPort(Object, v10[1], *v10);
 LABEL_14:
@@ -122,7 +129,7 @@ LABEL_66:
     v16 = v13 - 3;
     if ( !v16 )
     {
-      v11 = a4 != 16 ? 0xC000000D : 0;
+      v11 = Length != 16 ? 0xC000000D : 0;
       goto LABEL_15;
     }
     v17 = v16 - 1;
@@ -131,7 +138,7 @@ LABEL_66:
       v18 = v17 - 1;
       if ( !v18 )
       {
-        if ( a4 )
+        if ( Length )
           goto LABEL_60;
         v29 = Object;
         v30 = (volatile signed __int64 *)((char *)Object + 352);
@@ -146,7 +153,7 @@ LABEL_66:
       v19 = v18 - 1;
       if ( !v19 )
       {
-        if ( a4 == 4 && *(_DWORD *)v10 )
+        if ( Length == 4 && *(_DWORD *)v10 )
         {
           v20 = Object;
           v21 = (signed __int64 *)((char *)Object + 352);
@@ -188,7 +195,7 @@ LABEL_34:
         v11 = 0;
         goto LABEL_15;
       }
-      if ( v23 == 1 && !a4 )
+      if ( v23 == 1 && !Length )
       {
         v27 = Object;
         v28 = (volatile signed __int64 *)((char *)Object + 352);
@@ -210,9 +217,9 @@ LABEL_34:
     }
     else if ( (*((_DWORD *)Object + 104) & 6) == 2 )
     {
-      if ( a4 != 24 )
+      if ( Length != 24 )
       {
-        if ( a4 != 16 )
+        if ( Length != 16 )
           goto LABEL_60;
         v31 = *(__m128i *)v10;
         v10 = &v38;
@@ -236,5 +243,5 @@ LABEL_60:
   }
 LABEL_16:
   KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
-  return (unsigned int)v11;
+  return v11;
 }

@@ -1,14 +1,14 @@
 /*
- * XREFs of KiConfigureCpuSetSchedulingInformation @ 0x140439E44
+ * XREFs of KiConfigureCpuSetSchedulingInformation @ 0x14037342C
  * Callers:
- *     KeConfigureHeteroProcessors @ 0x140438880 (KeConfigureHeteroProcessors.c)
- *     KiConfigureSchedulingInformation @ 0x140B560D8 (KiConfigureSchedulingInformation.c)
+ *     KeConfigureHeteroProcessors @ 0x14042B440 (KeConfigureHeteroProcessors.c)
+ *     KiConfigureSchedulingInformation @ 0x140B58128 (KiConfigureSchedulingInformation.c)
  * Callees:
- *     KxAcquireSpinLock @ 0x140254AE0 (KxAcquireSpinLock.c)
- *     KxReleaseSpinLock @ 0x140279CC0 (KxReleaseSpinLock.c)
- *     KeIsEmptyAffinityEx @ 0x1403B55D0 (KeIsEmptyAffinityEx.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KxReleaseSpinLock @ 0x14022F250 (KxReleaseSpinLock.c)
+ *     KxAcquireSpinLock @ 0x1402850F0 (KxAcquireSpinLock.c)
+ *     KeIsEmptyAffinityEx @ 0x140371960 (KeIsEmptyAffinityEx.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 __int64 __fastcall KiConfigureCpuSetSchedulingInformation(__int64 a1)

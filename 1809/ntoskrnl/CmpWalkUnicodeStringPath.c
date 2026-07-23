@@ -1,12 +1,12 @@
 /*
- * XREFs of CmpWalkUnicodeStringPath @ 0x14073D6CC
+ * XREFs of CmpWalkUnicodeStringPath @ 0x14073E8BC
  * Callers:
- *     CmpWalkPath @ 0x14073D690 (CmpWalkPath.c)
- *     CmpFindHiveSubKey @ 0x1409CCDF4 (CmpFindHiveSubKey.c)
+ *     CmpWalkPath @ 0x14073E880 (CmpWalkPath.c)
+ *     CmpFindHiveSubKey @ 0x1409CDDF4 (CmpFindHiveSubKey.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     CmpFindSubKeyByNameWithStatus @ 0x14073D0FC (CmpFindSubKeyByNameWithStatus.c)
- *     CmpGetNextName @ 0x14073D76C (CmpGetNextName.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     CmpFindSubKeyByNameWithStatus @ 0x14073E2EC (CmpFindSubKeyByNameWithStatus.c)
+ *     CmpGetNextName @ 0x14073E95C (CmpGetNextName.c)
  */
 
 __int64 __fastcall CmpWalkUnicodeStringPath(__int64 a1, unsigned int a2, __int128 *a3)

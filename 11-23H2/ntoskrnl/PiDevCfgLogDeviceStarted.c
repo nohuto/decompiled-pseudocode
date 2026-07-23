@@ -1,16 +1,16 @@
 /*
- * XREFs of PiDevCfgLogDeviceStarted @ 0x1408799CC
+ * XREFs of PiDevCfgLogDeviceStarted @ 0x140879C0C
  * Callers:
- *     PpDevCfgTraceDeviceStart @ 0x1408791B0 (PpDevCfgTraceDeviceStart.c)
+ *     PpDevCfgTraceDeviceStart @ 0x1408793F0 (PpDevCfgTraceDeviceStart.c)
  * Callees:
- *     PipIsDevNodeDNStarted @ 0x14022B180 (PipIsDevNodeDNStarted.c)
- *     RtlInitUnicodeString @ 0x14022E1B0 (RtlInitUnicodeString.c)
- *     McTemplateK0zzjzzzdd_EtwWriteTransfer @ 0x1403CDEE8 (McTemplateK0zzjzzzdd_EtwWriteTransfer.c)
- *     PnpGetLogString @ 0x1403CE0A8 (PnpGetLogString.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memset @ 0x140435A00 (memset.c)
- *     RtlFreeUnicodeString @ 0x14076F3D0 (RtlFreeUnicodeString.c)
- *     PiDevCfgQueryObjectProperties @ 0x14086CC64 (PiDevCfgQueryObjectProperties.c)
+ *     PipIsDevNodeDNStarted @ 0x14022B290 (PipIsDevNodeDNStarted.c)
+ *     RtlInitUnicodeString @ 0x14022E2C0 (RtlInitUnicodeString.c)
+ *     McTemplateK0zzjzzzdd_EtwWriteTransfer @ 0x1403CE0C8 (McTemplateK0zzjzzzdd_EtwWriteTransfer.c)
+ *     PnpGetLogString @ 0x1403CE288 (PnpGetLogString.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     RtlFreeUnicodeString @ 0x14076F5C0 (RtlFreeUnicodeString.c)
+ *     PiDevCfgQueryObjectProperties @ 0x14086CEA4 (PiDevCfgQueryObjectProperties.c)
  */
 
 void __fastcall PiDevCfgLogDeviceStarted(__int64 a1)

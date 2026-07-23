@@ -1,18 +1,18 @@
 /*
- * XREFs of HvlInitializeProcessor @ 0x14054E4D8
+ * XREFs of HvlInitializeProcessor @ 0x14054E878
  * Callers:
- *     KiStartDynamicProcessor @ 0x14064F040 (KiStartDynamicProcessor.c)
+ *     KiStartDynamicProcessor @ 0x14064F124 (KiStartDynamicProcessor.c)
  *     KeStartAllProcessors @ 0x140792860 (KeStartAllProcessors.c)
  * Callees:
- *     MmGetPhysicalAddress @ 0x14002500C (MmGetPhysicalAddress.c)
- *     VslpEnterIumSecureMode @ 0x1400AA174 (VslpEnterIumSecureMode.c)
- *     HvlpFreeOverlayPages @ 0x140112194 (HvlpFreeOverlayPages.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     HvlpGetVpIndexFromApicId @ 0x1401BB9B8 (HvlpGetVpIndexFromApicId.c)
- *     HvlpSetupCachedHypercallPages @ 0x1401BC614 (HvlpSetupCachedHypercallPages.c)
- *     HvlpAllocateOverlayPages @ 0x1401BFF38 (HvlpAllocateOverlayPages.c)
- *     MmAllocateIndependentPages @ 0x1404E6034 (MmAllocateIndependentPages.c)
- *     HvlpEnableRootVirtualProcessor @ 0x14062056C (HvlpEnableRootVirtualProcessor.c)
+ *     MmGetPhysicalAddress @ 0x140024B8C (MmGetPhysicalAddress.c)
+ *     VslpEnterIumSecureMode @ 0x1400A86F4 (VslpEnterIumSecureMode.c)
+ *     HvlpFreeOverlayPages @ 0x1401126F8 (HvlpFreeOverlayPages.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     HvlpGetVpIndexFromApicId @ 0x1401BB89C (HvlpGetVpIndexFromApicId.c)
+ *     HvlpSetupCachedHypercallPages @ 0x1401BC4F8 (HvlpSetupCachedHypercallPages.c)
+ *     HvlpAllocateOverlayPages @ 0x1401BFE1C (HvlpAllocateOverlayPages.c)
+ *     MmAllocateIndependentPages @ 0x1404C8A68 (MmAllocateIndependentPages.c)
+ *     HvlpEnableRootVirtualProcessor @ 0x140620620 (HvlpEnableRootVirtualProcessor.c)
  */
 
 int __fastcall HvlInitializeProcessor(__int64 a1, int a2)
@@ -82,7 +82,7 @@ int __fastcall HvlInitializeProcessor(__int64 a1, int a2)
         --v4;
       }
       while ( v4 );
-      HvlpSetupCachedHypercallPages((union _SLIST_HEADER *)a1);
+      HvlpSetupCachedHypercallPages((_SLIST_HEADER *)a1);
       return 0;
     }
   }

@@ -1,12 +1,12 @@
 /*
- * XREFs of AccelpSiovDsaOperationHandler @ 0x1404BF8A4
+ * XREFs of AccelpSiovDsaOperationHandler @ 0x1404B90F4
  * Callers:
- *     AccelpSiovInternalOperationHandler @ 0x140511B88 (AccelpSiovInternalOperationHandler.c)
+ *     AccelpSiovInternalOperationHandler @ 0x14050B5F8 (AccelpSiovInternalOperationHandler.c)
  * Callees:
- *     DsaValidateDescriptorFlags @ 0x1404BFA38 (DsaValidateDescriptorFlags.c)
- *     IaaBuildDescriptorCommon @ 0x1404BFAB4 (IaaBuildDescriptorCommon.c)
- *     AccelBuildDescriptorNop @ 0x1406DEAA4 (AccelBuildDescriptorNop.c)
- *     AccelpSiovUpdateStatsOnWorkCompletion @ 0x1406E072C (AccelpSiovUpdateStatsOnWorkCompletion.c)
+ *     DsaValidateDescriptorFlags @ 0x1404B9288 (DsaValidateDescriptorFlags.c)
+ *     IaaBuildDescriptorCommon @ 0x1404B9304 (IaaBuildDescriptorCommon.c)
+ *     AccelBuildDescriptorNop @ 0x1406E2D44 (AccelBuildDescriptorNop.c)
+ *     AccelpSiovUpdateStatsOnWorkCompletion @ 0x1406E49AC (AccelpSiovUpdateStatsOnWorkCompletion.c)
  */
 
 __int64 __fastcall AccelpSiovDsaOperationHandler(int *a1, unsigned int *a2)

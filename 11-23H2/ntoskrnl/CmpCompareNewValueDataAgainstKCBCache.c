@@ -1,15 +1,15 @@
 /*
- * XREFs of CmpCompareNewValueDataAgainstKCBCache @ 0x1406D283C
+ * XREFs of CmpCompareNewValueDataAgainstKCBCache @ 0x1406D286C
  * Callers:
- *     CmSetValueKey @ 0x1406D3240 (CmSetValueKey.c)
+ *     CmSetValueKey @ 0x1406D3270 (CmSetValueKey.c)
  * Callees:
- *     RtlCompareMemory @ 0x140429820 (RtlCompareMemory.c)
- *     CmpFindNameInListWithStatus @ 0x1406D2774 (CmpFindNameInListWithStatus.c)
- *     CmpGetValueData @ 0x1406DC820 (CmpGetValueData.c)
- *     HvpGetCellPaged @ 0x1406E0150 (HvpGetCellPaged.c)
- *     HvpReleaseCellPaged @ 0x1406E0260 (HvpReleaseCellPaged.c)
- *     HvpReleaseCellFlat @ 0x1407D9470 (HvpReleaseCellFlat.c)
- *     HvpGetCellFlat @ 0x1407FD9F0 (HvpGetCellFlat.c)
+ *     RtlCompareMemory @ 0x140429BB0 (RtlCompareMemory.c)
+ *     CmpFindNameInListWithStatus @ 0x1406D27A4 (CmpFindNameInListWithStatus.c)
+ *     CmpGetValueData @ 0x1406DC850 (CmpGetValueData.c)
+ *     HvpGetCellPaged @ 0x1406E0180 (HvpGetCellPaged.c)
+ *     HvpReleaseCellPaged @ 0x1406E0290 (HvpReleaseCellPaged.c)
+ *     HvpReleaseCellFlat @ 0x1407D9740 (HvpReleaseCellFlat.c)
+ *     HvpGetCellFlat @ 0x1407FDCC0 (HvpGetCellFlat.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

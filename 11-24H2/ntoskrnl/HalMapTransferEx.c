@@ -1,16 +1,16 @@
 /*
- * XREFs of HalMapTransferEx @ 0x140391AE0
+ * XREFs of HalMapTransferEx @ 0x14038B410
  * Callers:
- *     HalpAllocateAdapterCallbackV3 @ 0x140392140 (HalpAllocateAdapterCallbackV3.c)
+ *     HalpAllocateAdapterCallbackV3 @ 0x14038BA70 (HalpAllocateAdapterCallbackV3.c)
  * Callees:
- *     IoFreeMdl @ 0x140267750 (IoFreeMdl.c)
- *     HalpDmaFlushBuffer @ 0x14038D450 (HalpDmaFlushBuffer.c)
- *     IoMapTransferInternal @ 0x140390384 (IoMapTransferInternal.c)
- *     HalpDmaCheckMdlAccessibility @ 0x140391F30 (HalpDmaCheckMdlAccessibility.c)
- *     HalpDmaControllerProgramChannel @ 0x140391FD8 (HalpDmaControllerProgramChannel.c)
- *     HalpDmaControllerQueryMaxFragments @ 0x1403932D4 (HalpDmaControllerQueryMaxFragments.c)
- *     HalpDmaFlushDriverMdl @ 0x14053C5C0 (HalpDmaFlushDriverMdl.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
+ *     IoFreeMdl @ 0x14025ED30 (IoFreeMdl.c)
+ *     HalpDmaFlushBuffer @ 0x140386D90 (HalpDmaFlushBuffer.c)
+ *     IoMapTransferInternal @ 0x140389CC4 (IoMapTransferInternal.c)
+ *     HalpDmaCheckMdlAccessibility @ 0x14038B860 (HalpDmaCheckMdlAccessibility.c)
+ *     HalpDmaControllerProgramChannel @ 0x14038B908 (HalpDmaControllerProgramChannel.c)
+ *     HalpDmaControllerQueryMaxFragments @ 0x14038CC04 (HalpDmaControllerQueryMaxFragments.c)
+ *     HalpDmaFlushDriverMdl @ 0x140539E4C (HalpDmaFlushDriverMdl.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall HalMapTransferEx(
@@ -45,61 +45,60 @@ __int64 __fastcall HalMapTransferEx(
   __int64 v30; // rax
   unsigned int v31; // edx
   __int16 v32; // bx
-  __int64 v33; // r9
-  __int64 v34; // rcx
-  _DWORD *v35; // rax
-  char v36; // bl
+  __int64 v33; // rcx
+  _DWORD *v34; // rax
+  char v35; // bl
   unsigned int MaxFragments; // eax
-  _DWORD *v38; // rax
-  unsigned int v39; // eax
-  PMDL v40; // rsi
-  unsigned int v41; // r13d
-  __int64 v42; // rdx
-  unsigned int v43; // r10d
-  __int64 *v44; // r11
-  unsigned int v45; // edx
-  __int64 v46; // r8
-  unsigned int v47; // eax
-  __int64 v48; // rax
+  _DWORD *v37; // rax
+  unsigned int v38; // eax
+  PMDL v39; // rsi
+  unsigned int v40; // r13d
+  __int64 v41; // rdx
+  unsigned int v42; // r10d
+  __int64 *v43; // r11
+  unsigned int v44; // edx
+  __int64 v45; // r8
+  unsigned int v46; // eax
+  __int64 v47; // rax
+  __int64 v48; // rcx
   __int64 v49; // rcx
-  __int64 v50; // rcx
-  unsigned int v51; // eax
-  unsigned int v52; // ebx
+  unsigned int v50; // eax
+  unsigned int v51; // ebx
   struct _MDL *Next; // rbx
-  int v54; // [rsp+40h] [rbp-69h]
-  unsigned int v55; // [rsp+44h] [rbp-65h] BYREF
-  unsigned int v56; // [rsp+48h] [rbp-61h]
-  unsigned int v57; // [rsp+4Ch] [rbp-5Dh]
-  unsigned __int64 v58; // [rsp+50h] [rbp-59h]
-  __int64 *v59; // [rsp+58h] [rbp-51h]
-  unsigned __int64 v60; // [rsp+60h] [rbp-49h]
-  __int64 v61; // [rsp+68h] [rbp-41h]
+  int v53; // [rsp+40h] [rbp-69h]
+  unsigned int v54; // [rsp+44h] [rbp-65h] BYREF
+  unsigned int v55; // [rsp+48h] [rbp-61h]
+  unsigned int v56; // [rsp+4Ch] [rbp-5Dh]
+  unsigned __int64 v57; // [rsp+50h] [rbp-59h]
+  __int64 *v58; // [rsp+58h] [rbp-51h]
+  unsigned __int64 v59; // [rsp+60h] [rbp-49h]
+  __int64 v60; // [rsp+68h] [rbp-41h]
   PMDL Mdl; // [rsp+70h] [rbp-39h] BYREF
-  __int128 v63; // [rsp+78h] [rbp-31h] BYREF
-  unsigned __int64 v64; // [rsp+88h] [rbp-21h]
-  __int64 v65; // [rsp+90h] [rbp-19h]
-  __int128 v66; // [rsp+98h] [rbp-11h]
-  __int64 v67; // [rsp+A8h] [rbp-1h]
-  char v68; // [rsp+F0h] [rbp+47h] BYREF
-  unsigned __int64 v69; // [rsp+100h] [rbp+57h]
+  __int128 v62; // [rsp+78h] [rbp-31h]
+  unsigned __int64 v63; // [rsp+88h] [rbp-21h]
+  __int64 v64; // [rsp+90h] [rbp-19h]
+  __int128 v65; // [rsp+98h] [rbp-11h]
+  __int64 v66; // [rsp+A8h] [rbp-1h]
+  char v67; // [rsp+F0h] [rbp+47h] BYREF
+  unsigned __int64 v68; // [rsp+100h] [rbp+57h]
 
-  v69 = a3;
+  v68 = a3;
   v11 = 0LL;
-  v68 = 0;
+  v67 = 0;
   Mdl = 0LL;
-  v67 = 0LL;
+  v66 = 0LL;
   v14 = *(_DWORD *)(a1 + 520) == 3;
   v15 = a2;
-  LODWORD(v64) = 0;
-  v66 = 0LL;
-  v59 = 0LL;
-  v63 = 0LL;
+  LODWORD(v63) = 0;
+  v65 = 0LL;
+  v58 = 0LL;
+  v62 = 0LL;
   if ( v14 && !a3 )
     return 3221225485LL;
-  v65 = *(_QWORD *)(a1 + 512);
+  v64 = *(_QWORD *)(a1 + 512);
   v16 = a6;
   *(_BYTE *)(a1 + 524) = 1;
-  v57 = 0;
+  v56 = 0;
   if ( *v16 )
   {
     if ( KeGetCurrentIrql() != 15 )
@@ -140,39 +139,39 @@ __int64 __fastcall HalMapTransferEx(
     v22 = 0;
     *(_QWORD *)(v20 + 8) = 0LL;
     v23 = ((unsigned __int64)v21 - 16) / 0x18;
-    v60 = v23;
+    v59 = v23;
     if ( !*(_BYTE *)(a1 + 441) )
     {
       MaxFragments = HalpDmaControllerQueryMaxFragments(*(_QWORD *)(a1 + 368), a1, (unsigned int)v23);
       if ( MaxFragments < (unsigned int)v23 )
         v23 = MaxFragments;
-      v60 = v23;
+      v59 = v23;
     }
     v24 = a6;
-    HalpDmaCheckMdlAccessibility(a1, v15, (unsigned int)a4, *a6, &v68, &Mdl);
+    HalpDmaCheckMdlAccessibility(a1, v15, (unsigned int)a4, *a6, &v67, &Mdl);
     v14 = *(_DWORD *)(a1 + 520) == 3;
-    v61 = 0LL;
+    v60 = 0LL;
     if ( v14 )
     {
-      v39 = *(_DWORD *)(a1 + 252);
-      if ( *v24 > v39 )
-        *v24 = v39;
-      v25 = v69;
-      v59 = *(__int64 **)(v69 + 24);
-      v11 = *v59;
-      *(_QWORD *)(v69 + 40) = 0LL;
+      v38 = *(_DWORD *)(a1 + 252);
+      if ( *v24 > v38 )
+        *v24 = v38;
+      v25 = v68;
+      v58 = *(__int64 **)(v68 + 24);
+      v11 = *v58;
+      *(_QWORD *)(v68 + 40) = 0LL;
       *(_QWORD *)(v25 + 32) = 0LL;
     }
     else
     {
-      v25 = v69;
+      v25 = v68;
     }
     v26 = *v24;
     v27 = 0;
-    v54 = 0;
+    v53 = 0;
     if ( v25 )
     {
-      LODWORD(v63) = 1;
+      LODWORD(v62) = 1;
       while ( v26 )
       {
         v28 = v26;
@@ -182,65 +181,64 @@ __int64 __fastcall HalMapTransferEx(
         v26 -= v28;
         while ( 1 )
         {
-          v56 = v28;
-          v58 = v29;
+          v55 = v28;
+          v57 = v29;
           if ( !v28 )
             break;
-          if ( v22 >= (unsigned int)v60 )
+          if ( v22 >= (unsigned int)v59 )
             goto LABEL_30;
-          v55 = v28;
-          v30 = IoMapTransferInternal(a1, v15, (_QWORD *)v25, v29, &v55, a7, v68);
-          v31 = v55;
+          v54 = v28;
+          v30 = IoMapTransferInternal(a1, v15, (_QWORD *)v25, v29, &v54, a7, v67);
+          v31 = v54;
           v32 = v30;
-          if ( !v55 )
+          if ( !v54 )
           {
-            v27 = v54;
-            v25 = v69;
+            v27 = v53;
+            v25 = v68;
 LABEL_30:
             v26 = 0;
             break;
           }
-          v33 = -4096LL;
-          *((_QWORD *)&v63 + 1) = v30 & 0xFFFFFFFFFFFFF000uLL;
+          *((_QWORD *)&v62 + 1) = v30 & 0xFFFFFFFFFFFFF000uLL;
           v14 = *(_DWORD *)(a1 + 520) == 3;
-          v64 = (v55 + 4095LL + (v30 & 0xFFF)) & 0xFFFFFFFFFFFFF000uLL;
+          v63 = (v54 + 4095LL + (v30 & 0xFFF)) & 0xFFFFFFFFFFFFF000uLL;
           if ( v14 )
           {
-            if ( (((unsigned __int16)v30 | (unsigned __int16)v11) & 0xFFF) != 0 || !v61 )
+            if ( (((unsigned __int16)v30 | (unsigned __int16)v11) & 0xFFF) != 0 || !v60 )
             {
               if ( (v11 & 0xFFF) != 0 )
                 v11 = v11 + 4096 - ((v11 + 4096) & 0xFFF);
-              v50 = v20 + 8 * (v22 + 2 * (v22 + 1LL));
-              v61 = v50;
-              *(_QWORD *)v50 = v11 + (v58 & 0xFFF);
-              *(_QWORD *)(v50 + 16) = v15;
-              *(_DWORD *)(v50 + 8) = v31;
+              v49 = v20 + 8 * (v22 + 2 * (v22 + 1LL));
+              v60 = v49;
+              *(_QWORD *)v49 = v11 + (v57 & 0xFFF);
+              *(_QWORD *)(v49 + 16) = v15;
+              *(_DWORD *)(v49 + 8) = v31;
             }
             else
             {
               --v22;
-              *(_DWORD *)(v61 + 8) += v55;
+              *(_DWORD *)(v60 + 8) += v54;
             }
-            v51 = guard_dispatch_icall_no_overrides(v59, *(_QWORD *)(v69 + 40), 3LL, &v63);
-            v52 = v55 + (v32 & 0xFFF);
-            v57 = v51;
-            *(_QWORD *)(v69 + 40) += v64;
-            v11 += v52;
+            v50 = guard_dispatch_icall_no_overrides(v58, *(_QWORD *)(v68 + 40));
+            v51 = v54 + (v32 & 0xFFF);
+            v56 = v50;
+            *(_QWORD *)(v68 + 40) += v63;
+            v11 += v51;
           }
           else
           {
-            v34 = 3LL * v22;
-            *(_QWORD *)(v20 + 8 * v34 + 32) = v15;
-            *(_DWORD *)(v20 + 8 * v34 + 24) = v31;
-            *(_QWORD *)(v20 + 8 * v34 + 16) = v30;
+            v33 = 3LL * v22;
+            *(_QWORD *)(v20 + 8 * v33 + 32) = v15;
+            *(_DWORD *)(v20 + 8 * v33 + 24) = v31;
+            *(_QWORD *)(v20 + 8 * v33 + 16) = v30;
           }
           if ( *(_DWORD *)(a1 + 520) == 1 )
-            v57 = guard_dispatch_icall_no_overrides(*(_QWORD *)(v65 + 40), 3LL, &v63, v33);
-          v27 = v55 + v54;
-          v29 = v55 + v58;
-          v28 = v56 - v55;
-          v54 += v55;
-          v25 = v69;
+            v56 = guard_dispatch_icall_no_overrides(*(_QWORD *)(v64 + 40), 3LL);
+          v27 = v54 + v53;
+          v29 = v54 + v57;
+          v28 = v55 - v54;
+          v53 += v54;
+          v25 = v68;
           ++v22;
         }
         v15 = *(_QWORD *)v15;
@@ -251,57 +249,57 @@ LABEL_30:
     }
     else
     {
-      v58 = 0LL;
+      v57 = 0LL;
       while ( v26 )
       {
-        v41 = v26;
-        v42 = *(unsigned int *)(v15 + 44);
+        v40 = v26;
+        v41 = *(unsigned int *)(v15 + 44);
         if ( *(_DWORD *)(v15 + 40) - (int)a4 <= v26 )
-          v41 = *(_DWORD *)(v15 + 40) - a4;
-        v26 -= v41;
-        v43 = ((_WORD)v42 + (_WORD)a4) & 0xFFF;
-        v56 = v43;
+          v40 = *(_DWORD *)(v15 + 40) - a4;
+        v26 -= v40;
+        v42 = ((_WORD)v41 + (_WORD)a4) & 0xFFF;
+        v55 = v42;
         v14 = *(_BYTE *)(a1 + 445) == 0;
-        v44 = (__int64 *)(v15 + 8 * (((unsigned __int64)(unsigned int)(v42 + a4) >> 12) + 6));
-        v59 = v44;
+        v43 = (__int64 *)(v15 + 8 * (((unsigned __int64)(unsigned int)(v41 + a4) >> 12) + 6));
+        v58 = v43;
         if ( v14 )
         {
-          HalpDmaFlushBuffer(v25, v15, a4 + v42 + *(_QWORD *)(v15 + 32), v41, a7, v68);
-          v27 = v54;
-          v43 = v56;
-          v25 = v58;
-          v44 = v59;
+          HalpDmaFlushBuffer(v25, v15, a4 + v41 + *(_QWORD *)(v15 + 32), v40, a7, v67);
+          v27 = v53;
+          v42 = v55;
+          v25 = v57;
+          v43 = v58;
         }
-        while ( v41 )
+        while ( v40 )
         {
-          v45 = v41;
-          v46 = v43 + (*v44 << 12);
-          v47 = 4096 - v43;
-          v43 = 0;
-          if ( v47 <= v41 )
-            v45 = v47;
-          if ( v46 == v25 + 1 && ((v46 ^ v25) & 0x100000000LL) == 0 && v22 )
+          v44 = v40;
+          v45 = v42 + (*v43 << 12);
+          v46 = 4096 - v42;
+          v42 = 0;
+          if ( v46 <= v40 )
+            v44 = v46;
+          if ( v45 == v25 + 1 && ((v45 ^ v25) & 0x100000000LL) == 0 && v22 )
           {
-            *(_DWORD *)(v20 + 24 * (v22 - 1 + 1LL)) += v45;
+            *(_DWORD *)(v20 + 24 * (v22 - 1 + 1LL)) += v44;
           }
           else
           {
-            if ( v22 >= (unsigned int)v60 )
+            if ( v22 >= (unsigned int)v59 )
             {
               v26 = 0;
               break;
             }
-            v48 = v22++;
-            v49 = 3 * v48;
-            *(_QWORD *)(v20 + 8 * v49 + 16) = v46;
-            *(_DWORD *)(v20 + 8 * v49 + 24) = v45;
+            v47 = v22++;
+            v48 = 3 * v47;
+            *(_QWORD *)(v20 + 8 * v48 + 16) = v45;
+            *(_DWORD *)(v20 + 8 * v48 + 24) = v44;
           }
-          v27 += v45;
-          v54 = v27;
-          v25 = v46 + v45 - 1LL;
-          v41 -= v45;
-          v58 = v25;
-          ++v44;
+          v27 += v44;
+          v53 = v27;
+          v25 = v45 + v44 - 1LL;
+          v40 -= v44;
+          v57 = v25;
+          ++v43;
         }
         v15 = *(_QWORD *)v15;
         a4 = 0LL;
@@ -319,40 +317,40 @@ LABEL_41:
       }
     }
 LABEL_33:
-    v35 = a6;
+    v34 = a6;
     *(_DWORD *)v20 = v22;
-    *v35 = v27;
-    if ( v69 )
-      *(_DWORD *)(v69 + 16) = v27;
-    v36 = a7;
+    *v34 = v27;
     if ( v68 )
+      *(_DWORD *)(v68 + 16) = v27;
+    v35 = a7;
+    if ( v67 )
     {
-      v40 = Mdl;
+      v39 = Mdl;
       HalpDmaFlushDriverMdl((ULONG_PTR)Mdl);
-      if ( v40 )
+      if ( v39 )
       {
         do
         {
-          Next = v40->Next;
-          IoFreeMdl(v40);
-          v40 = Next;
+          Next = v39->Next;
+          IoFreeMdl(v39);
+          v39 = Next;
         }
         while ( Next );
-        v36 = a7;
+        v35 = a7;
       }
     }
     if ( *(_BYTE *)(a1 + 441) )
-      return v57;
+      return v56;
     else
-      return HalpDmaControllerProgramChannel(*(_QWORD *)(a1 + 368), a1, a10, a11, v20, *(_QWORD *)(a1 + 456) + a5, v36);
+      return HalpDmaControllerProgramChannel(*(_QWORD *)(a1 + 368), a1, a10, a11, v20, *(_QWORD *)(a1 + 456) + a5, v35);
   }
   else
   {
-    v38 = a8;
+    v37 = a8;
     if ( a8 && a9 >= 0x10 )
     {
       *a8 = 0;
-      *((_QWORD *)v38 + 1) = 0LL;
+      *((_QWORD *)v37 + 1) = 0LL;
     }
     else if ( *(_BYTE *)(a1 + 441) )
     {

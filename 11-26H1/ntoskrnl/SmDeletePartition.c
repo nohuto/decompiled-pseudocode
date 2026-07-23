@@ -1,17 +1,17 @@
 /*
- * XREFs of SmDeletePartition @ 0x140818D10
+ * XREFs of SmDeletePartition @ 0x14081EF20
  * Callers:
- *     MiDrainCrossPartitionUsage @ 0x1406F0580 (MiDrainCrossPartitionUsage.c)
+ *     MiDrainCrossPartitionUsage @ 0x1406F51F0 (MiDrainCrossPartitionUsage.c)
  * Callees:
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     ExfTryToWakePushLock @ 0x1403170A0 (ExfTryToWakePushLock.c)
- *     ExWaitForRundownProtectionRelease @ 0x140463DA0 (ExWaitForRundownProtectionRelease.c)
- *     CmSiFreeMemory @ 0x140495010 (CmSiFreeMemory.c)
- *     SmPartitionCleanup @ 0x140818F90 (SmPartitionCleanup.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     ExfTryToWakePushLock @ 0x1403190D0 (ExfTryToWakePushLock.c)
+ *     ExWaitForRundownProtectionRelease @ 0x14045CD60 (ExWaitForRundownProtectionRelease.c)
+ *     CmSiFreeMemory @ 0x14048EB60 (CmSiFreeMemory.c)
+ *     SmPartitionCleanup @ 0x14081F1A0 (SmPartitionCleanup.c)
  */
 
 void __fastcall SmDeletePartition(__int64 a1)
@@ -32,11 +32,11 @@ void __fastcall SmDeletePartition(__int64 a1)
     ExWaitForRundownProtectionRelease((PEX_RUNDOWN_REF)(v1 + 2224));
     CurrentThread = KeGetCurrentThread();
     --CurrentThread->KernelApcDisable;
-    v5 = (AutoBoost *)KeAbPreAcquire((__int64)&stru_140E27B08, 0LL, 0LL, v4);
-    v7 = _interlockedbittestandset64(&stru_140E27B08.Header.Lock, 0LL);
+    v5 = (AutoBoost *)KeAbPreAcquire((__int64)&stru_140E27C48, 0LL, 0LL, v4);
+    v7 = _interlockedbittestandset64(&stru_140E27C48.Header.Lock, 0LL);
     v8 = v5;
     if ( v7 )
-      ExfAcquirePushLockExclusiveEx((unsigned __int64 *)&stru_140E27B08, v5, (__int64)&stru_140E27B08);
+      ExfAcquirePushLockExclusiveEx((unsigned __int64 *)&stru_140E27C48, v5, (__int64)&stru_140E27C48);
     if ( v8 )
     {
       if ( (KiAbpGlobalState & 1) != 0 )
@@ -49,9 +49,9 @@ void __fastcall SmDeletePartition(__int64 a1)
       __fastfail(3u);
     *v10 = v9;
     *(_QWORD *)(v9 + 8) = v10;
-    if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&stru_140E27B08, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-      ExfTryToWakePushLock((volatile signed __int64 *)&stru_140E27B08.Header.Lock);
-    KeAbPostRelease((unsigned __int64)&stru_140E27B08);
+    if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&stru_140E27C48, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+      ExfTryToWakePushLock((volatile signed __int64 *)&stru_140E27C48.Header.Lock);
+    KeAbPostRelease((unsigned __int64)&stru_140E27C48);
     KeLeaveCriticalRegion();
     SmPartitionCleanup(v1);
     CmSiFreeMemory((PPRIVILEGE_SET)v1);

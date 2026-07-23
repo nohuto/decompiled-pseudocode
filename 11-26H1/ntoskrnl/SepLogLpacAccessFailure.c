@@ -1,15 +1,15 @@
 /*
- * XREFs of SepLogLpacAccessFailure @ 0x1404F654C
+ * XREFs of SepLogLpacAccessFailure @ 0x1404EFB5C
  * Callers:
- *     SeAccessCheckByType @ 0x1402AAD98 (SeAccessCheckByType.c)
- *     SepCommonAccessCheckEx @ 0x1402AD130 (SepCommonAccessCheckEx.c)
- *     SeAccessCheckWithHint @ 0x1402B63B0 (SeAccessCheckWithHint.c)
- *     SepAccessCheckAndAuditAlarm @ 0x1409F55D0 (SepAccessCheckAndAuditAlarm.c)
+ *     SeAccessCheckWithHint @ 0x140301070 (SeAccessCheckWithHint.c)
+ *     SeAccessCheckByType @ 0x1403AC1E8 (SeAccessCheckByType.c)
+ *     SepCommonAccessCheckEx @ 0x1403AD570 (SepCommonAccessCheckEx.c)
+ *     SepAccessCheckAndAuditAlarm @ 0x140A5E120 (SepAccessCheckAndAuditAlarm.c)
  * Callees:
- *     SepGetStackTraceHash @ 0x140260EE8 (SepGetStackTraceHash.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     DbgkQueueUserExceptionReport @ 0x14078AA1C (DbgkQueueUserExceptionReport.c)
- *     EtwTraceLpacAccessFailure @ 0x140B21EFC (EtwTraceLpacAccessFailure.c)
+ *     SepGetStackTraceHash @ 0x140260450 (SepGetStackTraceHash.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     DbgkQueueUserExceptionReport @ 0x14078D54C (DbgkQueueUserExceptionReport.c)
+ *     EtwTraceLpacAccessFailure @ 0x140B242FC (EtwTraceLpacAccessFailure.c)
  */
 
 __int64 SepLogLpacAccessFailure()
@@ -25,14 +25,14 @@ __int64 SepLogLpacAccessFailure()
   v7 = 0;
   if ( KeGetCurrentIrql() >= 2u || (KeGetPcr()->Prcb.DpcRequestSummary & 0x10001) != 0 )
     return 3221225659LL;
-  if ( !LODWORD(RtlpBootStatHandleLock.ApcState.ApcListHead[0].Flink) )
+  if ( !LODWORD(RtlpBootStatHandleLock.FirstArgument) )
     return 3221226326LL;
   SepGetStackTraceHash(&v7);
   v1 = v7 ^ BYTE2(v7) ^ ((unsigned __int16)(v7 ^ HIWORD(v7)) >> 8);
   EtwTraceLpacAccessFailure(v7);
   if ( SeLpacEnableWatsonThrottling
     && _interlockedbittestandset(
-         (volatile signed __int32 *)&RtlpBootStatHandleLock.NpxState + ((unsigned __int64)v1 >> 5),
+         (volatile signed __int32 *)&RtlpBootStatHandleLock.SavedApcStateFill[4 * ((unsigned __int64)v1 >> 5) + 8],
          v1 & 0x1F) )
   {
     return 0LL;

@@ -61,7 +61,7 @@ __int64 __fastcall MiAllocateNewSubAllocatedRegion(int a1, unsigned __int64 a2)
   unsigned __int64 v39; // [rsp+60h] [rbp-88h]
   unsigned __int64 v40; // [rsp+60h] [rbp-88h]
   unsigned __int64 v41; // [rsp+68h] [rbp-80h] BYREF
-  struct _RTL_BITMAP *v42; // [rsp+70h] [rbp-78h] BYREF
+  _RTL_BITMAP *v42; // [rsp+70h] [rbp-78h] BYREF
   __int64 **v43; // [rsp+78h] [rbp-70h]
   unsigned __int64 v44; // [rsp+80h] [rbp-68h]
   struct _KPROCESS *v45; // [rsp+88h] [rbp-60h]

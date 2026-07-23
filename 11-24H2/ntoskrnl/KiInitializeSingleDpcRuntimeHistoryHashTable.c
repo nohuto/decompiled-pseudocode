@@ -1,12 +1,12 @@
 /*
- * XREFs of KiInitializeSingleDpcRuntimeHistoryHashTable @ 0x14073CF28
+ * XREFs of KiInitializeSingleDpcRuntimeHistoryHashTable @ 0x14073AE58
  * Callers:
- *     KiStartDynamicProcessor @ 0x14073B478 (KiStartDynamicProcessor.c)
- *     KiInitializeDpcRuntimeHistoryHashTables @ 0x140C2A1E8 (KiInitializeDpcRuntimeHistoryHashTables.c)
+ *     KiStartDynamicProcessor @ 0x1407393A8 (KiStartDynamicProcessor.c)
+ *     KiInitializeDpcRuntimeHistoryHashTables @ 0x140C2C308 (KiInitializeDpcRuntimeHistoryHashTables.c)
  * Callees:
- *     KeInitializeDpc @ 0x140455470 (KeInitializeDpc.c)
- *     CmSiFreeMemory @ 0x14046B8D0 (CmSiFreeMemory.c)
- *     KiDpcRuntimeHistoryHashTableAllocate @ 0x1404AA8E4 (KiDpcRuntimeHistoryHashTableAllocate.c)
+ *     KeInitializeDpc @ 0x14044A220 (KeInitializeDpc.c)
+ *     CmSiFreeMemory @ 0x140464550 (CmSiFreeMemory.c)
+ *     KiDpcRuntimeHistoryHashTableAllocate @ 0x1404A4AE4 (KiDpcRuntimeHistoryHashTableAllocate.c)
  */
 
 __int64 __fastcall KiInitializeSingleDpcRuntimeHistoryHashTable(__int64 a1)
@@ -25,10 +25,10 @@ __int64 __fastcall KiInitializeSingleDpcRuntimeHistoryHashTable(__int64 a1)
   struct _PRIVILEGE_SET *v13; // rcx
   __int64 v15; // [rsp+58h] [rbp+10h]
 
-  v2 = KiDpcRuntimeHistoryHashTableAllocate();
+  v2 = KiDpcRuntimeHistoryHashTableAllocate(0x10uLL);
   if ( !v2 )
     return (unsigned int)-1073741801;
-  v4 = (struct _KDPC *)KiDpcRuntimeHistoryHashTableAllocate();
+  v4 = (struct _KDPC *)KiDpcRuntimeHistoryHashTableAllocate(0x40uLL);
   v5 = v4;
   if ( v4 )
   {
@@ -38,7 +38,7 @@ __int64 __fastcall KiInitializeSingleDpcRuntimeHistoryHashTable(__int64 a1)
     *(_DWORD *)v2 = 0;
     *(_QWORD *)(v2 + 8) = 0LL;
     *(_DWORD *)(v2 + 4) = 0;
-    v6 = (char *)KiDpcRuntimeHistoryHashTableAllocate();
+    v6 = (char *)KiDpcRuntimeHistoryHashTableAllocate(0x200uLL);
     if ( v6 )
     {
       if ( (v6 + 512 >= v6 ? 0x40 : 0) != 0 )

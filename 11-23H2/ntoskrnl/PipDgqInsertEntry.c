@@ -1,11 +1,11 @@
 /*
- * XREFs of PipDgqInsertEntry @ 0x140972070
+ * XREFs of PipDgqInsertEntry @ 0x140972270
  * Callers:
- *     PiDmaGuardQueueInsertEntry @ 0x140971FBC (PiDmaGuardQueueInsertEntry.c)
+ *     PiDmaGuardQueueInsertEntry @ 0x1409721BC (PiDmaGuardQueueInsertEntry.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     ExAcquireResourceExclusiveLite @ 0x1402390E0 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x14023D410 (ExReleaseResourceLite.c)
+ *     KeLeaveCriticalRegion @ 0x140231550 (KeLeaveCriticalRegion.c)
+ *     ExAcquireResourceExclusiveLite @ 0x1402391B0 (ExAcquireResourceExclusiveLite.c)
+ *     ExReleaseResourceLite @ 0x14023D4E0 (ExReleaseResourceLite.c)
  */
 
 void __fastcall PipDgqInsertEntry(_QWORD *a1)

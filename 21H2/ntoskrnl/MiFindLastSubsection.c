@@ -1,14 +1,14 @@
 /*
- * XREFs of MiFindLastSubsection @ 0x1402A13FC
+ * XREFs of MiFindLastSubsection @ 0x14021E97C
  * Callers:
- *     MiCanFileBeTruncatedInternal @ 0x1402A10AC (MiCanFileBeTruncatedInternal.c)
- *     MiComputeDataFlushRange @ 0x1403152C0 (MiComputeDataFlushRange.c)
- *     MiGetControlAreaPtes @ 0x140315EFC (MiGetControlAreaPtes.c)
- *     MmFlushVirtualMemory @ 0x140689134 (MmFlushVirtualMemory.c)
- *     MmExtendSection @ 0x1406894BC (MmExtendSection.c)
+ *     MiCanFileBeTruncatedInternal @ 0x14021E62C (MiCanFileBeTruncatedInternal.c)
+ *     MiComputeDataFlushRange @ 0x140320010 (MiComputeDataFlushRange.c)
+ *     MiGetControlAreaPtes @ 0x140320C4C (MiGetControlAreaPtes.c)
+ *     MmFlushVirtualMemory @ 0x1405E85C4 (MmFlushVirtualMemory.c)
+ *     MmExtendSection @ 0x1405E894C (MmExtendSection.c)
  * Callees:
- *     ExAcquireSpinLockShared @ 0x14021CD80 (ExAcquireSpinLockShared.c)
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14031C800 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     ExAcquireSpinLockShared @ 0x1402C1680 (ExAcquireSpinLockShared.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x140327550 (ExReleaseSpinLockSharedFromDpcLevel.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 

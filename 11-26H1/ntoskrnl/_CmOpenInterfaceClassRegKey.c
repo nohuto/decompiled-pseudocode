@@ -1,17 +1,17 @@
 /*
- * XREFs of _CmOpenInterfaceClassRegKey @ 0x140917D00
+ * XREFs of _CmOpenInterfaceClassRegKey @ 0x140972760
  * Callers:
- *     _CmDeleteInterfaceClassMappedPropertyFromRegValue @ 0x14089B688 (_CmDeleteInterfaceClassMappedPropertyFromRegValue.c)
- *     _CmSetInterfaceClassMappedPropertyFromRegValue @ 0x14089C560 (_CmSetInterfaceClassMappedPropertyFromRegValue.c)
- *     PiCMOpenClassKey @ 0x140916DFC (PiCMOpenClassKey.c)
- *     _PnpDispatchInterfaceClass @ 0x140917770 (_PnpDispatchInterfaceClass.c)
- *     _CmGetInterfaceClassMappedPropertyFromRegValue @ 0x140917AA0 (_CmGetInterfaceClassMappedPropertyFromRegValue.c)
- *     _CmCreateInterfaceClassWorker @ 0x140AF2B74 (_CmCreateInterfaceClassWorker.c)
+ *     _CmDeleteInterfaceClassMappedPropertyFromRegValue @ 0x1408A1A88 (_CmDeleteInterfaceClassMappedPropertyFromRegValue.c)
+ *     _CmSetInterfaceClassMappedPropertyFromRegValue @ 0x1408A2960 (_CmSetInterfaceClassMappedPropertyFromRegValue.c)
+ *     PiCMOpenClassKey @ 0x140971868 (PiCMOpenClassKey.c)
+ *     _PnpDispatchInterfaceClass @ 0x1409721D0 (_PnpDispatchInterfaceClass.c)
+ *     _CmGetInterfaceClassMappedPropertyFromRegValue @ 0x140972500 (_CmGetInterfaceClassMappedPropertyFromRegValue.c)
+ *     _CmCreateInterfaceClassWorker @ 0x140AF5360 (_CmCreateInterfaceClassWorker.c)
  * Callees:
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     _CmOpenCommonClassRegKeyWorker @ 0x1409A0580 (_CmOpenCommonClassRegKeyWorker.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     _CmOpenCommonClassRegKeyWorker @ 0x140960FE0 (_CmOpenCommonClassRegKeyWorker.c)
  */
 
 __int64 __fastcall CmOpenInterfaceClassRegKey(
@@ -19,9 +19,9 @@ __int64 __fastcall CmOpenInterfaceClassRegKey(
         __int64 a2,
         __int64 a3,
         __int64 a4,
-        int a5,
+        ACCESS_MASK a5,
         char a6,
-        __int64 a7,
+        HANDLE *a7,
         _DWORD *a8)
 {
   __int64 v10; // rdi
@@ -31,9 +31,9 @@ __int64 __fastcall CmOpenInterfaceClassRegKey(
   int v15; // eax
   int v16[4]; // [rsp+40h] [rbp-59h] BYREF
   __int64 v17; // [rsp+50h] [rbp-49h]
-  int v18; // [rsp+58h] [rbp-41h]
+  ACCESS_MASK v18; // [rsp+58h] [rbp-41h]
   char v19; // [rsp+5Ch] [rbp-3Dh]
-  __int64 v20; // [rsp+60h] [rbp-39h]
+  HANDLE *v20; // [rsp+60h] [rbp-39h]
   _DWORD v21[14]; // [rsp+68h] [rbp-31h] BYREF
 
   memset_0(v16, 0, 0x58uLL);
@@ -61,7 +61,7 @@ LABEL_10:
         return (unsigned int)-1073741595;
     }
   }
-  v12 = CmOpenCommonClassRegKeyWorker(a1, a2, v17, HIDWORD(v17), v18, v19, v20, (__int64)v21);
+  v12 = CmOpenCommonClassRegKeyWorker(a1, a2, v17, HIDWORD(v17), v18, v19, v20, v21);
   v13 = v12;
   if ( v10 )
   {

@@ -1,13 +1,13 @@
 /*
- * XREFs of SmPartitionInitialize @ 0x140819034
+ * XREFs of SmPartitionInitialize @ 0x14081F244
  * Callers:
- *     SmCreatePartition @ 0x140AB0DEC (SmCreatePartition.c)
+ *     SmCreatePartition @ 0x140AAEDD0 (SmCreatePartition.c)
  * Callees:
- *     KeInitializeEvent @ 0x140466F30 (KeInitializeEvent.c)
- *     SmFpInitialize @ 0x1404E3238 (SmFpInitialize.c)
- *     ?SmInitialize@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@PEAU_SMKM_STORE_MGR_PARAMS@@@Z @ 0x14063D2A4 (-SmInitialize@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@PEAU_SMKM_STORE_MGR_PARAMS@@@Z.c)
- *     SmKmVirtualLockCtxInitialize @ 0x14063F6C4 (SmKmVirtualLockCtxInitialize.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     KeInitializeEvent @ 0x140460680 (KeInitializeEvent.c)
+ *     SmFpInitialize @ 0x1404DC7CC (SmFpInitialize.c)
+ *     ?SmInitialize@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@PEAU_SMKM_STORE_MGR_PARAMS@@@Z @ 0x140640E84 (-SmInitialize@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@PEAU_SMKM_STORE_MGR_PARAMS@@@Z.c)
+ *     SmKmVirtualLockCtxInitialize @ 0x1406432A4 (SmKmVirtualLockCtxInitialize.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 void *__fastcall SmPartitionInitialize(__int64 a1)

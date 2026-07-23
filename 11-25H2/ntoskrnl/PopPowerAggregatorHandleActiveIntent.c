@@ -40,7 +40,7 @@ LABEL_8:
         return (unsigned int)-1073700861;
 LABEL_7:
       PopDiagTraceMonitorOnWithLidClosed(*(unsigned int *)(a2 + 8), 0LL);
-      ZwUpdateWnfStateData((__int64)&WNF_PO_MODERN_STANDBY_EXIT_INITIATED, a2 + 16);
+      ZwUpdateWnfStateData(&WNF_PO_MODERN_STANDBY_EXIT_INITIATED, (const void *)(a2 + 16), 8u, 0LL, 0LL, 0, 0);
       goto LABEL_8;
     }
     if ( !SSHSupportIsPlatformAoAc() || !*(_BYTE *)(v9 + 41) )

@@ -1,14 +1,14 @@
 /*
- * XREFs of HalpDmaAllocateScatterMemory @ 0x140A8AB00
+ * XREFs of HalpDmaAllocateScatterMemory @ 0x140A86E40
  * Callers:
- *     HalpDmaAllocateLocalScatterPool @ 0x1406FFA54 (HalpDmaAllocateLocalScatterPool.c)
- *     HalpDmaGrowScatterMapBuffers @ 0x140A8AA80 (HalpDmaGrowScatterMapBuffers.c)
+ *     HalpDmaAllocateLocalScatterPool @ 0x1406FD694 (HalpDmaAllocateLocalScatterPool.c)
+ *     HalpDmaGrowScatterMapBuffers @ 0x140A86DC0 (HalpDmaGrowScatterMapBuffers.c)
  * Callees:
- *     MmMapLockedPagesSpecifyCache @ 0x14028F9F0 (MmMapLockedPagesSpecifyCache.c)
- *     MmFreePagesFromMdl @ 0x1403A37F0 (MmFreePagesFromMdl.c)
- *     MmAllocatePagesForMdl @ 0x140411EB0 (MmAllocatePagesForMdl.c)
- *     HalpDmaCvmMakeMdlDeviceShared @ 0x1406FFEB4 (HalpDmaCvmMakeMdlDeviceShared.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     MmMapLockedPagesSpecifyCache @ 0x14029F5F0 (MmMapLockedPagesSpecifyCache.c)
+ *     MmAllocatePagesForMdl @ 0x140395650 (MmAllocatePagesForMdl.c)
+ *     MmFreePagesFromMdl @ 0x14048E2C0 (MmFreePagesFromMdl.c)
+ *     HalpDmaCvmMakeMdlDeviceShared @ 0x1406FDAF4 (HalpDmaCvmMakeMdlDeviceShared.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 PMDL __fastcall HalpDmaAllocateScatterMemory(PHYSICAL_ADDRESS *a1, unsigned int a2, _QWORD *a3)

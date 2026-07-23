@@ -10,7 +10,7 @@
  *     RtlRandomEx @ 0x18007D6D0 (RtlRandomEx.c)
  *     RtlpQueryDiskSpeedPolicy @ 0x180089400 (RtlpQueryDiskSpeedPolicy.c)
  *     LdrpInitMuiCritsRtlInitOnce @ 0x18009F46C (LdrpInitMuiCritsRtlInitOnce.c)
- *     RtlpFtQueryConfiguration @ 0x18009F9D8 (RtlpFtQueryConfiguration.c)
+ *     RtlpFtQueryConfiguration @ 0x18009F998 (RtlpFtQueryConfiguration.c)
  *     LdrpCgLogFailure @ 0x1800DA860 (LdrpCgLogFailure.c)
  *     LdrpLogEtwHotPatchStatus @ 0x1800DB554 (LdrpLogEtwHotPatchStatus.c)
  *     LdrpLogImportRedirectionTelemetry @ 0x1800DB944 (LdrpLogImportRedirectionTelemetry.c)
@@ -21,76 +21,77 @@
  *     LdrpLogVsmEnclaveLdrDeleteEnclaveTelemetry @ 0x1800DC118 (LdrpLogVsmEnclaveLdrDeleteEnclaveTelemetry.c)
  *     LdrpLogVsmEnclaveLdrInitializeEnclaveTelemetry @ 0x1800DC1F8 (LdrpLogVsmEnclaveLdrInitializeEnclaveTelemetry.c)
  *     LdrpLogVsmEnclaveLdrLoadEnclaveModuleTelemetry @ 0x1800DC2D8 (LdrpLogVsmEnclaveLdrLoadEnclaveModuleTelemetry.c)
- *     RtlpHpStackTraceHeapGetContext @ 0x18011784C (RtlpHpStackTraceHeapGetContext.c)
+ *     RtlpHpStackTraceHeapGetContext @ 0x18011781C (RtlpHpStackTraceHeapGetContext.c)
  * Callees:
  *     RtlRunOnceComplete @ 0x180061210 (RtlRunOnceComplete.c)
  *     RtlpRunOnceWaitForInit @ 0x180061B7C (RtlpRunOnceWaitForInit.c)
  *     _guard_xfg_dispatch_icall_nop @ 0x1800A4B90 (_guard_xfg_dispatch_icall_nop.c)
- *     RtlReportCriticalFailure @ 0x18010D62C (RtlReportCriticalFailure.c)
+ *     RtlReportCriticalFailure @ 0x18010D5FC (RtlReportCriticalFailure.c)
  */
 
-__int64 __fastcall RtlRunOnceExecuteOnce(
-        volatile signed __int64 *a1,
-        unsigned int (__fastcall *a2)(volatile signed __int64 *, __int64, unsigned __int64 *),
-        __int64 a3,
-        unsigned __int64 *a4)
+NTSTATUS __cdecl RtlRunOnceExecuteOnce(
+        PRTL_RUN_ONCE RunOnce,
+        PRTL_RUN_ONCE_INIT_FN InitFn,
+        PVOID Parameter,
+        PVOID *Context)
 {
-  signed __int64 v4; // rax
-  unsigned int v9; // edi
-  signed __int64 v11; // rdx
-  signed __int64 v12; // rcx
-  int v13; // ebx
-  char v14[24]; // [rsp+20h] [rbp-18h] BYREF
+  unsigned __int64 Value; // rax
+  NTSTATUS v9; // edi
+  unsigned __int64 v11; // rdx
+  unsigned __int64 v12; // rcx
+  PVOID v13; // r8
+  int v14; // ebx
+  char v15[24]; // [rsp+20h] [rbp-18h] BYREF
 
-  v4 = *a1;
-  if ( (*a1 & 3) == 2 )
+  Value = RunOnce->Value;
+  if ( (RunOnce->Value & 3) == 2 )
   {
 LABEL_2:
-    if ( a4 )
-      *a4 = v4 & 0xFFFFFFFFFFFFFFFCuLL;
+    if ( Context )
+      *Context = (PVOID)(Value & 0xFFFFFFFFFFFFFFFCuLL);
     return 0;
   }
-  else
+  do
   {
     while ( 1 )
     {
-      while ( 1 )
-      {
-        v11 = v4 & 3;
-        if ( (v4 & 3) != 0 )
-          break;
-        v12 = v4;
-        v4 = _InterlockedCompareExchange64(a1, 1LL, v4);
-        if ( v4 == v12 )
-        {
-          if ( a2(a1, a3, a4) )
-          {
-            v13 = RtlRunOnceComplete(a1, 0LL);
-            if ( v13 >= 0 )
-              return 0;
-            v14[0] = 1;
-          }
-          else
-          {
-            v9 = -1073741823;
-            v13 = RtlRunOnceComplete(a1, 4LL);
-            if ( v13 >= 0 )
-              return v9;
-            v14[0] = 2;
-          }
-          goto LABEL_17;
-        }
-      }
-      if ( v11 != 1 )
+      v11 = Value & 3;
+      if ( (Value & 3) == 0 )
         break;
-      v4 = RtlpRunOnceWaitForInit(v4, a1);
+      if ( v11 != 1 )
+      {
+        if ( v11 != 3 )
+          goto LABEL_2;
+        v14 = -1073741584;
+        v15[0] = 0;
+        goto LABEL_20;
+      }
+      Value = RtlpRunOnceWaitForInit(Value, RunOnce);
     }
-    if ( v11 != 3 )
-      goto LABEL_2;
-    v13 = -1073741584;
-    v14[0] = 0;
-LABEL_17:
-    RtlReportCriticalFailure((unsigned int)v13, v14, 1LL);
-    return (unsigned int)v13;
+    v12 = Value;
+    Value = _InterlockedCompareExchange64((volatile signed __int64 *)RunOnce, 1LL, Value);
   }
+  while ( Value != v12 );
+  if ( !((unsigned int (__fastcall *)(PRTL_RUN_ONCE, PVOID, PVOID *))InitFn)(RunOnce, Parameter, Context) )
+  {
+    v9 = -1073741823;
+    v14 = RtlRunOnceComplete(RunOnce, 4u, 0LL);
+    if ( v14 >= 0 )
+      return v9;
+    v15[0] = 2;
+    goto LABEL_20;
+  }
+  if ( Context )
+    v13 = *Context;
+  else
+    v13 = 0LL;
+  v14 = RtlRunOnceComplete(RunOnce, 0, v13);
+  if ( v14 < 0 )
+  {
+    v15[0] = 1;
+LABEL_20:
+    RtlReportCriticalFailure((unsigned int)v14, v15, 1LL);
+    return v14;
+  }
+  return 0;
 }

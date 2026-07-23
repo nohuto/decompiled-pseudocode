@@ -121,37 +121,37 @@
  *     RtlpNotOwnerCriticalSection @ 0x1800E2150 (RtlpNotOwnerCriticalSection.c)
  */
 
-__int64 __fastcall RtlLeaveCriticalSection(__int64 a1)
+NTSTATUS __cdecl RtlLeaveCriticalSection(PRTL_CRITICAL_SECTION CriticalSection)
 {
   bool v1; // zf
   signed __int32 v3; // edi
-  __int64 v4; // r8
+  HANDLE LockSemaphore; // r8
   int v5; // edx
   signed __int32 v6; // eax
 
-  v1 = (*(_DWORD *)(a1 + 12))-- == 1;
+  v1 = CriticalSection->RecursionCount-- == 1;
   if ( v1 )
   {
-    *(_QWORD *)(a1 + 16) = 0LL;
-    v3 = _InterlockedCompareExchange((volatile signed __int32 *)(a1 + 8), -1, -2);
+    CriticalSection->OwningThread = 0LL;
+    v3 = _InterlockedCompareExchange(&CriticalSection->LockCount, -1, -2);
     if ( v3 != -2 )
     {
-      if ( (*(_BYTE *)(a1 + 8) & 1) != 0 )
-        RtlpNotOwnerCriticalSection(a1);
-      v4 = *(_QWORD *)(a1 + 24);
-      if ( !v4 )
-        v4 = sub_18004AE34(a1);
+      if ( (CriticalSection->LockCount & 1) != 0 )
+        RtlpNotOwnerCriticalSection(CriticalSection);
+      LockSemaphore = CriticalSection->LockSemaphore;
+      if ( !LockSemaphore )
+        LockSemaphore = (HANDLE)sub_18004AE34(CriticalSection);
       do
       {
         v5 = v3 & 2 | 1;
-        v6 = _InterlockedCompareExchange((volatile signed __int32 *)(a1 + 8), v5 + v3, v3);
+        v6 = _InterlockedCompareExchange(&CriticalSection->LockCount, v5 + v3, v3);
         v1 = v3 == v6;
         v3 = v6;
       }
       while ( !v1 );
       if ( (v5 & 2) != 0 )
-        sub_18009A320(a1, v4);
+        sub_18009A320(CriticalSection, LockSemaphore);
     }
   }
-  return 0LL;
+  return 0;
 }

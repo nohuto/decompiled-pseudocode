@@ -1,18 +1,18 @@
 /*
- * XREFs of IopDecrementVpbRefCount @ 0x1402D48F0
+ * XREFs of IopDecrementVpbRefCount @ 0x140355B70
  * Callers:
- *     IopDeleteFile @ 0x140841DB0 (IopDeleteFile.c)
- *     IoVerifyVolume @ 0x140AB7170 (IoVerifyVolume.c)
+ *     IopDeleteFile @ 0x14083E070 (IopDeleteFile.c)
+ *     IoVerifyVolume @ 0x140AB1440 (IoVerifyVolume.c)
  * Callees:
- *     KiRemoveSystemWorkPriorityKick @ 0x14025E408 (KiRemoveSystemWorkPriorityKick.c)
- *     KxWaitForLockOwnerShip @ 0x1402D6990 (KxWaitForLockOwnerShip.c)
- *     KiAcquireQueuedSpinLockInstrumented @ 0x1402D85F0 (KiAcquireQueuedSpinLockInstrumented.c)
- *     KiReleaseQueuedSpinLockInstrumented @ 0x140321C90 (KiReleaseQueuedSpinLockInstrumented.c)
- *     KxWaitForLockChainValid @ 0x140321D40 (KxWaitForLockChainValid.c)
- *     KiHaltOnAddressWakeEntireList @ 0x140321D94 (KiHaltOnAddressWakeEntireList.c)
- *     KeDisableInterrupts @ 0x140321E80 (KeDisableInterrupts.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14028EA18 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiReleaseQueuedSpinLockInstrumented @ 0x1402CA820 (KiReleaseQueuedSpinLockInstrumented.c)
+ *     KxWaitForLockChainValid @ 0x1402CA8D0 (KxWaitForLockChainValid.c)
+ *     KiHaltOnAddressWakeEntireList @ 0x1402CA924 (KiHaltOnAddressWakeEntireList.c)
+ *     KeDisableInterrupts @ 0x1402CAA10 (KeDisableInterrupts.c)
+ *     KxWaitForLockOwnerShip @ 0x140357C10 (KxWaitForLockOwnerShip.c)
+ *     KiAcquireQueuedSpinLockInstrumented @ 0x140359870 (KiAcquireQueuedSpinLockInstrumented.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 __int64 __fastcall IopDecrementVpbRefCount(__int64 a1, char a2)
@@ -28,14 +28,14 @@ __int64 __fastcall IopDecrementVpbRefCount(__int64 a1, char a2)
   __int64 v12; // rcx
   __int64 v13; // r8
   __int64 v14; // r9
-  char v15; // di
+  bool v15; // di
   __int64 v16; // rcx
   struct _KPRCB *CurrentPrcb; // rcx
   signed __int32 *SchedulerAssist; // r8
   signed __int32 v19; // eax
   signed __int32 v20; // ett
   signed __int32 v21[10]; // [rsp+0h] [rbp-28h] BYREF
-  _UNKNOWN *retaddr; // [rsp+28h] [rbp+0h]
+  __int64 retaddr; // [rsp+28h] [rbp+0h]
 
   if ( !a2 )
     return (unsigned int)--*(_DWORD *)(a1 + 28);
@@ -50,7 +50,7 @@ __int64 __fastcall IopDecrementVpbRefCount(__int64 a1, char a2)
   {
     v7 = _InterlockedExchange64(v6, v5);
     if ( v7 )
-      KxWaitForLockOwnerShip(v5);
+      KxWaitForLockOwnerShip(v5, v7);
   }
   else
   {
@@ -66,14 +66,14 @@ __int64 __fastcall IopDecrementVpbRefCount(__int64 a1, char a2)
     {
       if ( v9 == (volatile signed __int64 **)_InterlockedCompareExchange64(v9[1], 0LL, (signed __int64)v9) )
         goto LABEL_10;
-      v11 = KxWaitForLockChainValid(v9);
+      v11 = KxWaitForLockChainValid((__int64 *)v9);
     }
     *v9 = 0LL;
     v12 = (__int64)v9[1];
     if ( (((unsigned __int8)v12 ^ (unsigned __int8)_InterlockedExchange64((volatile __int64 *)(v11 + 8), v12)) & 4) != 0 )
     {
       _InterlockedOr(v21, 0);
-      v15 = KeDisableInterrupts(v12, v7, ((unsigned __int64)(v11 + 8) >> 5) & 0x7F);
+      v15 = KeDisableInterrupts();
       KiHaltOnAddressWakeEntireList(v16, _InterlockedExchange64((volatile __int64 *)(v14 + 8 * v13), 0LL));
       if ( v15 )
       {

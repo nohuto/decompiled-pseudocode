@@ -1,13 +1,13 @@
 /*
- * XREFs of MiChangePageHeatImmediate @ 0x14043F808
+ * XREFs of MiChangePageHeatImmediate @ 0x140435AC8
  * Callers:
- *     MiCoalesceFreeSmallPages @ 0x1402238B0 (MiCoalesceFreeSmallPages.c)
- *     MiFreeLargePageMemory @ 0x1403A3588 (MiFreeLargePageMemory.c)
- *     MiLargeFreePageToMdl @ 0x14041F370 (MiLargeFreePageToMdl.c)
+ *     MiFreeLargePageMemory @ 0x14021B56C (MiFreeLargePageMemory.c)
+ *     MiCoalesceFreeSmallPages @ 0x140250600 (MiCoalesceFreeSmallPages.c)
+ *     MiLargeFreePageToMdl @ 0x1402EF600 (MiLargeFreePageToMdl.c)
  * Callees:
- *     MiInitializePageHeatList @ 0x14043F8A0 (MiInitializePageHeatList.c)
- *     MiAddPageToHeatList @ 0x14043F8DC (MiAddPageToHeatList.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     MiInitializePageHeatList @ 0x140435B60 (MiInitializePageHeatList.c)
+ *     MiAddPageToHeatList @ 0x140435B9C (MiAddPageToHeatList.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 __int64 __fastcall MiChangePageHeatImmediate(__int64 a1, unsigned int a2, unsigned int a3)

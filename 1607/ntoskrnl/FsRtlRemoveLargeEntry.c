@@ -1,10 +1,10 @@
 /*
- * XREFs of FsRtlRemoveLargeEntry @ 0x14008D438
+ * XREFs of FsRtlRemoveLargeEntry @ 0x14008CB9C
  * Callers:
- *     FsRtlRemoveBaseMcbEntry @ 0x14008C81C (FsRtlRemoveBaseMcbEntry.c)
- *     FsRtlAddBaseMcbEntryEx @ 0x14008CCB0 (FsRtlAddBaseMcbEntryEx.c)
+ *     FsRtlRemoveBaseMcbEntry @ 0x14008BF7C (FsRtlRemoveBaseMcbEntry.c)
+ *     FsRtlAddBaseMcbEntryEx @ 0x14008C410 (FsRtlAddBaseMcbEntryEx.c)
  * Callees:
- *     memmove @ 0x140171280 (memmove.c)
+ *     memmove @ 0x140171780 (memmove.c)
  */
 
 void *__fastcall FsRtlRemoveLargeEntry(__int64 a1, unsigned int a2, int a3)

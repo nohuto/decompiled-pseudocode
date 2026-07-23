@@ -1,11 +1,11 @@
 /*
- * XREFs of MiMirrorReduceBlackWrites @ 0x140385C70
+ * XREFs of MiMirrorReduceBlackWrites @ 0x140385DC0
  * Callers:
  *     MiMirrorBlackPhase @ 0x1403F4064 (MiMirrorBlackPhase.c)
  * Callees:
- *     MiIsDecayPfn @ 0x1402B8C2C (MiIsDecayPfn.c)
- *     MiMirrorNodeLargePages @ 0x14038590C (MiMirrorNodeLargePages.c)
- *     MiMirrorOmitPagesFromCopy @ 0x140385E5C (MiMirrorOmitPagesFromCopy.c)
+ *     MiIsDecayPfn @ 0x140236E3C (MiIsDecayPfn.c)
+ *     MiMirrorNodeLargePages @ 0x140385A5C (MiMirrorNodeLargePages.c)
+ *     MiMirrorOmitPagesFromCopy @ 0x140385FAC (MiMirrorOmitPagesFromCopy.c)
  */
 
 unsigned __int64 __fastcall MiMirrorReduceBlackWrites(__int64 a1, __int64 a2)
@@ -64,8 +64,8 @@ LABEL_6:
           if ( v6 == 2 && MiIsDecayPfn(v10) )
           {
             v12 = *(_QWORD *)(v11 + 48 * v10 + 16);
-            if ( qword_140C4DF40 && (v12 & 0x10) == 0 )
-              v12 &= ~qword_140C4DF40;
+            if ( qword_140C4DF80 && (v12 & 0x10) == 0 )
+              v12 &= ~qword_140C4DF80;
             v13 = (v12 >> 12) & 0xFFFFFFFFFLL;
             if ( v13 == v10 )
               goto LABEL_21;
@@ -96,7 +96,7 @@ LABEL_21:
       if ( v6 > 1 )
         break;
       v8 = (unsigned int)(v8 + 1);
-      if ( (unsigned int)v8 >= dword_140C4DEFC )
+      if ( (unsigned int)v8 >= dword_140C4DF3C )
       {
         v8 = 0LL;
         break;

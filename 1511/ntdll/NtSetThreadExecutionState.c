@@ -6,11 +6,11 @@
  *     <none>
  */
 
-__int64 NtSetThreadExecutionState()
+NTSTATUS __cdecl NtSetThreadExecutionState(EXECUTION_STATE NewFlags, EXECUTION_STATE *PreviousFlags)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 404LL;
+  result = 404;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

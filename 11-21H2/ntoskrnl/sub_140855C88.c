@@ -1,0 +1,26 @@
+/*
+ * XREFs of sub_140855C88 @ 0x140855C88
+ * Callers:
+ *     sub_140B026CC @ 0x140B026CC (sub_140B026CC.c)
+ * Callees:
+ *     sub_1403D81D0 @ 0x1403D81D0 (sub_1403D81D0.c)
+ *     sub_140855D7C @ 0x140855D7C (sub_140855D7C.c)
+ */
+
+__int64 sub_140855C88()
+{
+  __int64 result; // rax
+
+  qword_140C1F4A0 = 0LL;
+  qword_140C1F4A8 = sub_1403D81D0(0x2FAF080uLL, 0x989680uLL);
+  sub_140855D7C(6LL, qword_140C0BE00, qword_140C0BE00, 10000000LL);
+  sub_140855D7C(5LL, &unk_140C0BE38, &unk_140C0BE38, 10000000LL);
+  sub_140855D7C(5LL, &unk_140C0BE68, &unk_140C0BE68, 10000000LL);
+  sub_140855D7C(5LL, &unk_140C0BCF8, &unk_140C0BCF8, 10000000LL);
+  sub_140855D7C(3LL, &unk_140C0BD28, &unk_140C0BD28, 10000000LL);
+  sub_140855D7C(9LL, &unk_140C0BD50, &unk_140C1F4C0, 1000LL);
+  qword_140C1F508 = -1LL;
+  result = sub_140855D7C(11LL, &unk_140C0BDA0, &unk_140C1F520, 1000LL);
+  qword_140C1F578 = -1LL;
+  return result;
+}

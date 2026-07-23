@@ -1,16 +1,16 @@
 /*
- * XREFs of LdrpSendDllNotifications @ 0x18002E658
+ * XREFs of LdrpSendDllNotifications @ 0x18002E648
  * Callers:
- *     LdrpUnloadNode @ 0x18000D730 (LdrpUnloadNode.c)
- *     LdrpSendPostSnapNotifications @ 0x18002E4EC (LdrpSendPostSnapNotifications.c)
- *     LdrpCorProcessImports @ 0x180087948 (LdrpCorProcessImports.c)
+ *     LdrpUnloadNode @ 0x18000D720 (LdrpUnloadNode.c)
+ *     LdrpSendPostSnapNotifications @ 0x18002E4DC (LdrpSendPostSnapNotifications.c)
+ *     LdrpCorProcessImports @ 0x180087938 (LdrpCorProcessImports.c)
  * Callees:
- *     RtlEnterCriticalSection @ 0x180019B50 (RtlEnterCriticalSection.c)
- *     RtlLeaveCriticalSection @ 0x180019DC0 (RtlLeaveCriticalSection.c)
+ *     RtlEnterCriticalSection @ 0x180019B40 (RtlEnterCriticalSection.c)
+ *     RtlLeaveCriticalSection @ 0x180019DB0 (RtlLeaveCriticalSection.c)
  *     _guard_dispatch_icall_nop @ 0x1800A9C80 (_guard_dispatch_icall_nop.c)
  */
 
-__int64 __fastcall LdrpSendDllNotifications(__int64 a1, unsigned int a2)
+NTSTATUS __fastcall LdrpSendDllNotifications(__int64 a1, unsigned int a2)
 {
   _UNKNOWN **i; // rbx
   int v5; // [rsp+20h] [rbp-38h] BYREF
@@ -24,8 +24,8 @@ __int64 __fastcall LdrpSendDllNotifications(__int64 a1, unsigned int a2)
   v7 = a1 + 88;
   v8 = *(_QWORD *)(a1 + 48);
   v9 = *(_DWORD *)(a1 + 64);
-  RtlEnterCriticalSection((__int64)&LdrpDllNotificationLock);
+  RtlEnterCriticalSection(&LdrpDllNotificationLock);
   for ( i = (_UNKNOWN **)LdrpDllNotificationList; i != &LdrpDllNotificationList; i = (_UNKNOWN **)*i )
     ((void (__fastcall *)(_QWORD, int *, void *))i[2])(a2, &v5, i[3]);
-  return RtlLeaveCriticalSection((__int64)&LdrpDllNotificationLock);
+  return RtlLeaveCriticalSection(&LdrpDllNotificationLock);
 }

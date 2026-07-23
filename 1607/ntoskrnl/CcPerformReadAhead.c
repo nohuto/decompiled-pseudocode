@@ -1,24 +1,24 @@
 /*
- * XREFs of CcPerformReadAhead @ 0x140072334
+ * XREFs of CcPerformReadAhead @ 0x140071EB4
  * Callers:
- *     CcWorkerThread @ 0x140071980 (CcWorkerThread.c)
+ *     CcWorkerThread @ 0x140071500 (CcWorkerThread.c)
  * Callees:
- *     EtwTraceKernelEvent @ 0x140014190 (EtwTraceKernelEvent.c)
- *     IoDiskIoAttributionDereference @ 0x14001F3AC (IoDiskIoAttributionDereference.c)
- *     MmWaitForCacheManagerPrefetch @ 0x1400224D0 (MmWaitForCacheManagerPrefetch.c)
- *     ObfDereferenceObjectWithTag @ 0x14006ACD0 (ObfDereferenceObjectWithTag.c)
- *     PsSetPagePriorityThread @ 0x140070C40 (PsSetPagePriorityThread.c)
- *     CcDecrementOpenCount @ 0x140073698 (CcDecrementOpenCount.c)
- *     KxAcquireSpinLock @ 0x140092A60 (KxAcquireSpinLock.c)
- *     KxReleaseSpinLock @ 0x140095BA0 (KxReleaseSpinLock.c)
- *     FsRtlIsNtstatusExpected @ 0x1400AB6F8 (FsRtlIsNtstatusExpected.c)
- *     PsGetPagePriorityThread @ 0x1400E7E00 (PsGetPagePriorityThread.c)
- *     KeAcquireQueuedSpinLock @ 0x1400E8D30 (KeAcquireQueuedSpinLock.c)
- *     KeReleaseQueuedSpinLock @ 0x1400E8DA0 (KeReleaseQueuedSpinLock.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
- *     MmPrefetchForCacheManager @ 0x14042C5DC (MmPrefetchForCacheManager.c)
- *     CcMapAndCopyFromCache @ 0x140447390 (CcMapAndCopyFromCache.c)
+ *     EtwTraceKernelEvent @ 0x140013D10 (EtwTraceKernelEvent.c)
+ *     IoDiskIoAttributionDereference @ 0x14001EF2C (IoDiskIoAttributionDereference.c)
+ *     MmWaitForCacheManagerPrefetch @ 0x140022050 (MmWaitForCacheManagerPrefetch.c)
+ *     ObfDereferenceObjectWithTag @ 0x14006A850 (ObfDereferenceObjectWithTag.c)
+ *     PsSetPagePriorityThread @ 0x1400707C0 (PsSetPagePriorityThread.c)
+ *     CcDecrementOpenCount @ 0x140073218 (CcDecrementOpenCount.c)
+ *     KxAcquireSpinLock @ 0x140092260 (KxAcquireSpinLock.c)
+ *     KxReleaseSpinLock @ 0x1400953A0 (KxReleaseSpinLock.c)
+ *     FsRtlIsNtstatusExpected @ 0x1400A9C60 (FsRtlIsNtstatusExpected.c)
+ *     PsGetPagePriorityThread @ 0x1400E5CA0 (PsGetPagePriorityThread.c)
+ *     KeAcquireQueuedSpinLock @ 0x1400E6BD0 (KeAcquireQueuedSpinLock.c)
+ *     KeReleaseQueuedSpinLock @ 0x1400E6C40 (KeReleaseQueuedSpinLock.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
+ *     MmPrefetchForCacheManager @ 0x14042B4AC (MmPrefetchForCacheManager.c)
+ *     CcMapAndCopyFromCache @ 0x140446260 (CcMapAndCopyFromCache.c)
  */
 
 void __fastcall CcPerformReadAhead(__int64 a1, __int64 a2)

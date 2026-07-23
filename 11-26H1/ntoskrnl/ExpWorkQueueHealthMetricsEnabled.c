@@ -1,11 +1,11 @@
 /*
- * XREFs of ExpWorkQueueHealthMetricsEnabled @ 0x14051FCC8
+ * XREFs of ExpWorkQueueHealthMetricsEnabled @ 0x14052236C
  * Callers:
  *     ExpTryQueueWorkItem @ 0x1402020DC (ExpTryQueueWorkItem.c)
- *     ExpWorkerThread @ 0x1403F5680 (ExpWorkerThread.c)
- *     ExpPartitionCreatePoolInternal @ 0x140B6C40C (ExpPartitionCreatePoolInternal.c)
+ *     ExpWorkerThread @ 0x1403EF030 (ExpWorkerThread.c)
+ *     ExpPartitionCreatePoolInternal @ 0x140B6F508 (ExpPartitionCreatePoolInternal.c)
  * Callees:
- *     Feature_WorkQueueShardingWithinNodes__private_IsEnabledNoReportingNoInline @ 0x140382244 (Feature_WorkQueueShardingWithinNodes__private_IsEnabledNoReportingNoInline.c)
+ *     Feature_WorkQueueShardingWithinNodes__private_IsEnabledNoReportingNoInline @ 0x140383FF4 (Feature_WorkQueueShardingWithinNodes__private_IsEnabledNoReportingNoInline.c)
  */
 
 char __fastcall ExpWorkQueueHealthMetricsEnabled(PVOID *a1, int a2)

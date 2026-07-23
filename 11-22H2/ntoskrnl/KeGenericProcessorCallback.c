@@ -29,7 +29,7 @@ char __fastcall KeGenericProcessorCallback(
         __int64 a3,
         int a4)
 {
-  struct _GROUP_AFFINITY *p_PreviousAffinity; // r15
+  _GROUP_AFFINITY *p_PreviousAffinity; // r15
   struct _KPRCB *CurrentPrcb; // rbx
   KPRIORITY v9; // r12d
   struct _KTHREAD *CurrentThread; // rsi
@@ -42,12 +42,12 @@ char __fastcall KeGenericProcessorCallback(
   int v18; // [rsp+20h] [rbp-E0h] BYREF
   int v19; // [rsp+24h] [rbp-DCh]
   __int64 v20; // [rsp+28h] [rbp-D8h]
-  struct _GROUP_AFFINITY Affinity; // [rsp+30h] [rbp-D0h] BYREF
+  _GROUP_AFFINITY Affinity; // [rsp+30h] [rbp-D0h] BYREF
   _QWORD v22[2]; // [rsp+40h] [rbp-C0h] BYREF
   __int16 v23; // [rsp+50h] [rbp-B0h]
   int v24; // [rsp+52h] [rbp-AEh]
   __int16 v25; // [rsp+56h] [rbp-AAh]
-  struct _GROUP_AFFINITY PreviousAffinity; // [rsp+58h] [rbp-A8h] BYREF
+  _GROUP_AFFINITY PreviousAffinity; // [rsp+58h] [rbp-A8h] BYREF
   _QWORD v27[34]; // [rsp+70h] [rbp-90h] BYREF
 
   v20 = a3;
@@ -95,7 +95,7 @@ char __fastcall KeGenericProcessorCallback(
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
   v14 = v19;
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     LODWORD(v17) = 4;

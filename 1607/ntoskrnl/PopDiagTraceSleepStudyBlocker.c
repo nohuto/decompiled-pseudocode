@@ -1,11 +1,11 @@
 /*
- * XREFs of PopDiagTraceSleepStudyBlocker @ 0x14020945C
+ * XREFs of PopDiagTraceSleepStudyBlocker @ 0x140209288
  * Callers:
- *     PpmIdleCaptureCsVetoAccounting @ 0x1401FFB38 (PpmIdleCaptureCsVetoAccounting.c)
- *     PopFxLogSocSubsystemBlockingTimes @ 0x14066C900 (PopFxLogSocSubsystemBlockingTimes.c)
+ *     PpmIdleCaptureCsVetoAccounting @ 0x1401FF964 (PpmIdleCaptureCsVetoAccounting.c)
+ *     PopFxLogSocSubsystemBlockingTimes @ 0x14066C9E4 (PopFxLogSocSubsystemBlockingTimes.c)
  * Callees:
- *     EtwWrite @ 0x140013320 (EtwWrite.c)
- *     EtwEventEnabled @ 0x1400D54D0 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x140012EA0 (EtwWrite.c)
+ *     EtwEventEnabled @ 0x1400D3370 (EtwEventEnabled.c)
  */
 
 void __fastcall PopDiagTraceSleepStudyBlocker(__int64 a1, struct _EVENT_DATA_DESCRIPTOR *a2)

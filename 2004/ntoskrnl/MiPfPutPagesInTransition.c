@@ -43,7 +43,7 @@
 
 __int64 __fastcall MiPfPutPagesInTransition(__int64 a1, _QWORD *a2, int a3)
 {
-  struct _SLIST_ENTRY *v3; // rdi
+  _SLIST_ENTRY *v3; // rdi
   unsigned int v4; // r12d
   __int64 v5; // r13
   _QWORD *v6; // rsi
@@ -97,7 +97,7 @@ __int64 __fastcall MiPfPutPagesInTransition(__int64 a1, _QWORD *a2, int a3)
   bool v55; // zf
   unsigned __int32 v56; // eax
   __int64 v57; // rax
-  struct _SLIST_ENTRY *v58; // rcx
+  _SLIST_ENTRY *v58; // rcx
   PSLIST_ENTRY *v59; // rdx
   __int64 v60; // rcx
   unsigned __int64 v61; // rax
@@ -726,7 +726,7 @@ LABEL_70:
     }
     break;
   }
-  v3 = (struct _SLIST_ENTRY *)v94;
+  v3 = (_SLIST_ENTRY *)v94;
   v6 = v109;
 LABEL_72:
   MiFreeReadListPages(v5);

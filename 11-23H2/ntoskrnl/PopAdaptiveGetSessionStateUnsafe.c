@@ -1,14 +1,14 @@
 /*
- * XREFs of PopAdaptiveGetSessionStateUnsafe @ 0x1407EBDA0
+ * XREFs of PopAdaptiveGetSessionStateUnsafe @ 0x1407EC070
  * Callers:
- *     PopSessionConnected @ 0x1407EB7DC (PopSessionConnected.c)
- *     PopPowerInformationInternal @ 0x1407ED06C (PopPowerInformationInternal.c)
+ *     PopSessionConnected @ 0x1407EBAAC (PopSessionConnected.c)
+ *     PopPowerInformationInternal @ 0x1407ED33C (PopPowerInformationInternal.c)
  * Callees:
- *     EtwWrite @ 0x1402578A0 (EtwWrite.c)
- *     EtwEventEnabled @ 0x140258420 (EtwEventEnabled.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     PopAdaptiveGetConsoleSessionState @ 0x1407A60B8 (PopAdaptiveGetConsoleSessionState.c)
- *     PopAdaptiveGetRemoteSessionState @ 0x140860A10 (PopAdaptiveGetRemoteSessionState.c)
+ *     EtwWrite @ 0x140257960 (EtwWrite.c)
+ *     EtwEventEnabled @ 0x1402584E0 (EtwEventEnabled.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     PopAdaptiveGetConsoleSessionState @ 0x1407A62A8 (PopAdaptiveGetConsoleSessionState.c)
+ *     PopAdaptiveGetRemoteSessionState @ 0x140860C50 (PopAdaptiveGetRemoteSessionState.c)
  */
 
 char __fastcall PopAdaptiveGetSessionStateUnsafe(unsigned int a1, __int64 *a2, __int64 a3)
@@ -47,7 +47,7 @@ char __fastcall PopAdaptiveGetSessionStateUnsafe(unsigned int a1, __int64 *a2, _
 
   v9 = 0;
   v10 = 0;
-  if ( dword_140C39CF8 != a1 || a1 == -1 )
+  if ( dword_140C39C58 != a1 || a1 == -1 )
     PopAdaptiveGetRemoteSessionState(a1, (_DWORD)a2, a3, (unsigned int)&v10, (__int64)&v9);
   else
     PopAdaptiveGetConsoleSessionState(a1, a2, a3, &v10, &v9);

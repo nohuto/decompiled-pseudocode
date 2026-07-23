@@ -7,10 +7,10 @@
  *     StringToGuidNoBrackets @ 0x18004A188 (StringToGuidNoBrackets.c)
  *     EtwpQueryRegString @ 0x18004A1C8 (EtwpQueryRegString.c)
  *     __security_check_cookie @ 0x18008C940 (__security_check_cookie.c)
- *     memset @ 0x1800A4780 (memset.c)
+ *     memset @ 0x1800A4740 (memset.c)
  */
 
-__int64 __fastcall EtwpQueryPartitionRegistryInformationUm(_OWORD *a1, _DWORD *a2, _QWORD *a3, _OWORD *a4)
+__int64 __fastcall EtwpQueryPartitionRegistryInformationUm(GUID *a1, _DWORD *a2, _QWORD *a3, GUID *a4)
 {
   __int64 result; // rax
   __int64 v9; // rdx

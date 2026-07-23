@@ -49,7 +49,7 @@ __int64 __fastcall MiSnapThunk(char *a1, __int64 a2, __int64 *a3, char **a4, uns
   PVOID v38; // rcx
   __int64 v39; // [rsp+20h] [rbp-40h]
   ULONG Size[2]; // [rsp+30h] [rbp-30h] BYREF
-  STRING SourceString; // [rsp+38h] [rbp-28h] BYREF
+  ANSI_STRING SourceString; // [rsp+38h] [rbp-28h] BYREF
   void *Src; // [rsp+48h] [rbp-18h]
   UNICODE_STRING DestinationString; // [rsp+50h] [rbp-10h] BYREF
   int v44; // [rsp+88h] [rbp+28h]

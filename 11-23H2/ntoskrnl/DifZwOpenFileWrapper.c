@@ -1,12 +1,12 @@
 /*
- * XREFs of DifZwOpenFileWrapper @ 0x1405F18B0
+ * XREFs of DifZwOpenFileWrapper @ 0x1405F1E20
  * Callers:
  *     <none>
  * Callees:
- *     ZwOpenFile @ 0x14041B3C0 (ZwOpenFile.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     DifGetAPIThunkContextById @ 0x1404664BE (DifGetAPIThunkContextById.c)
- *     DifGetReturnAddressForWrappers @ 0x1405F88C4 (DifGetReturnAddressForWrappers.c)
+ *     ZwOpenFile @ 0x14041B750 (ZwOpenFile.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     DifGetAPIThunkContextById @ 0x1404668BE (DifGetAPIThunkContextById.c)
+ *     DifGetReturnAddressForWrappers @ 0x1405F8E34 (DifGetReturnAddressForWrappers.c)
  */
 
 NTSTATUS __fastcall DifZwOpenFileWrapper(

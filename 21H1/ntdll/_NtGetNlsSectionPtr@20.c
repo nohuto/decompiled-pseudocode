@@ -6,7 +6,12 @@
  *     _Wow64SystemServiceCall@0 @ 0x4B308730 (_Wow64SystemServiceCall@0.c)
  */
 
-int __stdcall NtGetNlsSectionPtr(int a1, int a2, int a3, int a4, int a5)
+NTSTATUS __cdecl NtGetNlsSectionPtr(
+        ULONG SectionType,
+        ULONG SectionData,
+        PVOID ContextData,
+        PVOID *SectionPointer,
+        PULONG SectionSize)
 {
   return Wow64SystemServiceCall();
 }

@@ -1,12 +1,12 @@
 /*
- * XREFs of KiOutSwapProcesses @ 0x14024A2B0
+ * XREFs of KiOutSwapProcesses @ 0x1402EEB00
  * Callers:
- *     KeSwapProcessOrStack @ 0x1403B4090 (KeSwapProcessOrStack.c)
+ *     KeSwapProcessOrStack @ 0x1403B4200 (KeSwapProcessOrStack.c)
  * Callees:
- *     KiReadyOutSwappedThreads @ 0x140248460 (KiReadyOutSwappedThreads.c)
- *     MmOutSwapProcess @ 0x14024A494 (MmOutSwapProcess.c)
- *     KeYieldProcessorEx @ 0x14024B280 (KeYieldProcessorEx.c)
- *     KiAcquireKobjectLockSafe @ 0x14024C4A0 (KiAcquireKobjectLockSafe.c)
+ *     KiReadyOutSwappedThreads @ 0x1402ECCB0 (KiReadyOutSwappedThreads.c)
+ *     MmOutSwapProcess @ 0x1402EECE4 (MmOutSwapProcess.c)
+ *     KeYieldProcessorEx @ 0x1402EFAD0 (KeYieldProcessorEx.c)
+ *     KiAcquireKobjectLockSafe @ 0x1402F0CF0 (KiAcquireKobjectLockSafe.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 

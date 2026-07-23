@@ -1,12 +1,12 @@
 /*
- * XREFs of IopExecuteHardwareProfileChange @ 0x1409715A4
+ * XREFs of IopExecuteHardwareProfileChange @ 0x1409717A4
  * Callers:
- *     PnpProfileUpdateHardwareProfile @ 0x14096385C (PnpProfileUpdateHardwareProfile.c)
+ *     PnpProfileUpdateHardwareProfile @ 0x140963A5C (PnpProfileUpdateHardwareProfile.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1B0 (RtlInitUnicodeString.c)
- *     memmove @ 0x140435700 (memmove.c)
- *     RtlCompareUnicodeString @ 0x1406DA140 (RtlCompareUnicodeString.c)
- *     CmSetAcpiHwProfile @ 0x14084A314 (CmSetAcpiHwProfile.c)
+ *     RtlInitUnicodeString @ 0x14022E2C0 (RtlInitUnicodeString.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     RtlCompareUnicodeString @ 0x1406DA170 (RtlCompareUnicodeString.c)
+ *     CmSetAcpiHwProfile @ 0x14084A614 (CmSetAcpiHwProfile.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

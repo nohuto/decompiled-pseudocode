@@ -1,11 +1,11 @@
 /*
- * XREFs of EtwpTraceSavePersistedLoggerStop @ 0x14082EFD0
+ * XREFs of EtwpTraceSavePersistedLoggerStop @ 0x140835210
  * Callers:
- *     EtwpSavePersistedLogger @ 0x14082E8E4 (EtwpSavePersistedLogger.c)
+ *     EtwpSavePersistedLogger @ 0x140834B24 (EtwpSavePersistedLogger.c)
  * Callees:
- *     EtwEventEnabled @ 0x140212D90 (EtwEventEnabled.c)
- *     EtwWrite @ 0x140212EF0 (EtwWrite.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x140212E70 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x140212FD0 (EtwWrite.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 BOOLEAN __fastcall EtwpTraceSavePersistedLoggerStop(unsigned __int16 *a1, int a2, int a3, int a4, char a5, int a6)
@@ -35,7 +35,7 @@ BOOLEAN __fastcall EtwpTraceSavePersistedLoggerStop(unsigned __int16 *a1, int a2
   v7 = (const EVENT_DESCRIPTOR *)ETW_EVENT_SAVE_PERSISTED_LOGGER_STOP;
   if ( a6 < 0 )
     v7 = &ETW_EVENT_SAVE_PERSISTED_LOGGER_ERROR;
-  result = EtwEventEnabled(EtwpEventTracingProvRegHandle, v7);
+  result = EtwEventEnabled((REGHANDLE)stru_140F03830.SavedApcState.ApcListHead[0].Blink, v7);
   if ( result )
   {
     UserData.Ptr = *((_QWORD *)a1 + 1);
@@ -53,7 +53,7 @@ BOOLEAN __fastcall EtwpTraceSavePersistedLoggerStop(unsigned __int16 *a1, int a2
     v17 = 4LL;
     v19 = 4LL;
     v21 = 4LL;
-    return EtwWrite(EtwpEventTracingProvRegHandle, v7, 0LL, 7u, &UserData);
+    return EtwWrite((REGHANDLE)stru_140F03830.SavedApcState.ApcListHead[0].Blink, v7, 0LL, 7u, &UserData);
   }
   return result;
 }

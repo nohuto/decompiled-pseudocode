@@ -1,15 +1,15 @@
 /*
- * XREFs of PopFxLockDevice @ 0x1403B74A4
+ * XREFs of PopFxLockDevice @ 0x1403C13A4
  * Callers:
- *     PopAllocateIrp @ 0x14026F82C (PopAllocateIrp.c)
- *     PoFxNotifySurprisePowerOn @ 0x1403B7410 (PoFxNotifySurprisePowerOn.c)
- *     PopDripsWatchdogTakeAction @ 0x14061388C (PopDripsWatchdogTakeAction.c)
- *     PopFxUnregisterDeviceOrWait @ 0x140B06444 (PopFxUnregisterDeviceOrWait.c)
- *     PopSystemIrpCompletion @ 0x140C0DBB0 (PopSystemIrpCompletion.c)
+ *     PopAllocateIrp @ 0x14026ED9C (PopAllocateIrp.c)
+ *     PoFxNotifySurprisePowerOn @ 0x1403C1310 (PoFxNotifySurprisePowerOn.c)
+ *     PopDripsWatchdogTakeAction @ 0x14061674C (PopDripsWatchdogTakeAction.c)
+ *     PopFxUnregisterDeviceOrWait @ 0x140B08574 (PopFxUnregisterDeviceOrWait.c)
+ *     PopSystemIrpCompletion @ 0x140C13DC0 (PopSystemIrpCompletion.c)
  * Callees:
- *     PopFxTryReferenceDevice @ 0x140218E68 (PopFxTryReferenceDevice.c)
- *     ExReleaseSpinLockShared @ 0x14026CEE0 (ExReleaseSpinLockShared.c)
- *     ExAcquireSpinLockShared @ 0x1402EDF10 (ExAcquireSpinLockShared.c)
+ *     PopFxTryReferenceDevice @ 0x14021B7B8 (PopFxTryReferenceDevice.c)
+ *     ExReleaseSpinLockShared @ 0x14026C450 (ExReleaseSpinLockShared.c)
+ *     ExAcquireSpinLockShared @ 0x1402CFF90 (ExAcquireSpinLockShared.c)
  */
 
 __int64 __fastcall PopFxLockDevice(__int64 a1, int a2, char a3)

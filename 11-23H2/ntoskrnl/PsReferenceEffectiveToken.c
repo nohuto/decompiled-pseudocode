@@ -1,21 +1,21 @@
 /*
- * XREFs of PsReferenceEffectiveToken @ 0x14071D6EC
+ * XREFs of PsReferenceEffectiveToken @ 0x14071D8EC
  * Callers:
- *     SepDesktopAppxSubProcessToken @ 0x140225D3C (SepDesktopAppxSubProcessToken.c)
- *     RtlpQueryLowBoxId @ 0x140297B18 (RtlpQueryLowBoxId.c)
- *     SepReferenceTokenUsingPseudoHandle @ 0x1402B2E70 (SepReferenceTokenUsingPseudoHandle.c)
- *     SeCaptureAtomTableCallout @ 0x140356510 (SeCaptureAtomTableCallout.c)
- *     SeLogAccessFailure @ 0x14035B34C (SeLogAccessFailure.c)
- *     SepVerifyDesktopAppPolicyOverrideCaller @ 0x14036ED08 (SepVerifyDesktopAppPolicyOverrideCaller.c)
- *     RtlpAllowsLowBoxAccess @ 0x1403ACD20 (RtlpAllowsLowBoxAccess.c)
- *     SeSetLearningModeObjectInformation @ 0x1405B83CC (SeSetLearningModeObjectInformation.c)
+ *     SepDesktopAppxSubProcessToken @ 0x140225E4C (SepDesktopAppxSubProcessToken.c)
+ *     RtlpQueryLowBoxId @ 0x140297DA8 (RtlpQueryLowBoxId.c)
+ *     SepReferenceTokenUsingPseudoHandle @ 0x1402B3100 (SepReferenceTokenUsingPseudoHandle.c)
+ *     SeCaptureAtomTableCallout @ 0x1403566B0 (SeCaptureAtomTableCallout.c)
+ *     SeLogAccessFailure @ 0x14035B4EC (SeLogAccessFailure.c)
+ *     SepVerifyDesktopAppPolicyOverrideCaller @ 0x14036EEA8 (SepVerifyDesktopAppPolicyOverrideCaller.c)
+ *     RtlpAllowsLowBoxAccess @ 0x1403ACF00 (RtlpAllowsLowBoxAccess.c)
+ *     SeSetLearningModeObjectInformation @ 0x1405B893C (SeSetLearningModeObjectInformation.c)
  *     PspAllocateAndQueryNotificationChannel @ 0x14069F068 (PspAllocateAndQueryNotificationChannel.c)
- *     SeSubProcessToken @ 0x1406B71F8 (SeSubProcessToken.c)
- *     ExpWnfQueryCurrentUserSID @ 0x140714A30 (ExpWnfQueryCurrentUserSID.c)
- *     MiIsUserQueryVmCallerTrusted @ 0x1407D037C (MiIsUserQueryVmCallerTrusted.c)
+ *     SeSubProcessToken @ 0x1406B722C (SeSubProcessToken.c)
+ *     ExpWnfQueryCurrentUserSID @ 0x140714C40 (ExpWnfQueryCurrentUserSID.c)
+ *     MiIsUserQueryVmCallerTrusted @ 0x1407D064C (MiIsUserQueryVmCallerTrusted.c)
  * Callees:
- *     PsReferencePrimaryTokenWithTag @ 0x1402329C0 (PsReferencePrimaryTokenWithTag.c)
- *     PsReferenceImpersonationTokenEx @ 0x14071D7A0 (PsReferenceImpersonationTokenEx.c)
+ *     PsReferencePrimaryTokenWithTag @ 0x140232A90 (PsReferencePrimaryTokenWithTag.c)
+ *     PsReferenceImpersonationTokenEx @ 0x14071D9A0 (PsReferenceImpersonationTokenEx.c)
  */
 
 __int64 __fastcall PsReferenceEffectiveToken(__int64 a1, ULONG a2, _DWORD *a3, _BYTE *a4, __int64 a5, _BYTE *a6)

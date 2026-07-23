@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlpQueryRegistryDirect @ 0x18005A930
+ * XREFs of RtlpQueryRegistryDirect @ 0x180044EB0
  * Callers:
- *     RtlpCallQueryRegistryRoutine @ 0x18005A26C (RtlpCallQueryRegistryRoutine.c)
+ *     RtlpCallQueryRegistryRoutine @ 0x1800447EC (RtlpCallQueryRegistryRoutine.c)
  * Callees:
- *     RtlpAllocateAtom @ 0x180037BF0 (RtlpAllocateAtom.c)
- *     Feature_FixTruncationNonTerminatedStrings__private_IsEnabledDeviceUsageNoInline @ 0x180114790 (Feature_FixTruncationNonTerminatedStrings__private_IsEnabledDeviceUsageNoInline.c)
- *     RtlpQueryRegistryDirectStringValue @ 0x1801213C8 (RtlpQueryRegistryDirectStringValue.c)
- *     memmove @ 0x180164700 (memmove.c)
+ *     RtlpAllocateAtom @ 0x1800018C0 (RtlpAllocateAtom.c)
+ *     Feature_FixTruncationNonTerminatedStrings__private_IsEnabledDeviceUsageNoInline @ 0x180113F8C (Feature_FixTruncationNonTerminatedStrings__private_IsEnabledDeviceUsageNoInline.c)
+ *     RtlpQueryRegistryDirectStringValue @ 0x180121164 (RtlpQueryRegistryDirectStringValue.c)
+ *     memmove @ 0x180164600 (memmove.c)
  */
 
 __int64 __fastcall RtlpQueryRegistryDirect(__int64 a1, unsigned int *a2, size_t a3, unsigned int *a4)
@@ -17,7 +17,7 @@ __int64 __fastcall RtlpQueryRegistryDirect(__int64 a1, unsigned int *a2, size_t 
   unsigned __int64 v9; // rax
   unsigned int v10; // esi
   int RegistryDirectStringValue; // eax
-  void *Atom; // rax
+  PVOID Atom; // rax
   size_t v14; // r14
 
   v4 = a3;
@@ -60,7 +60,7 @@ LABEL_12:
   {
     if ( v4 > 0xFFFE )
       LOWORD(v4) = -2;
-    Atom = (void *)*((_QWORD *)a4 + 1);
+    Atom = (PVOID)*((_QWORD *)a4 + 1);
     if ( Atom )
     {
       if ( (unsigned __int16)v4 > *((_WORD *)a4 + 1) )
@@ -70,7 +70,7 @@ LABEL_12:
     else
     {
       v14 = (unsigned __int16)v4;
-      Atom = (void *)RtlpAllocateAtom((unsigned __int16)v4);
+      Atom = RtlpAllocateAtom((unsigned __int16)v4);
       *((_QWORD *)a4 + 1) = Atom;
       if ( !Atom )
         return 3221225495LL;

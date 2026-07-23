@@ -1,16 +1,16 @@
 /*
- * XREFs of MiDoGangAssignment @ 0x140560170
+ * XREFs of MiDoGangAssignment @ 0x1405603B0
  * Callers:
- *     MiDpcGangTarget @ 0x140560320 (MiDpcGangTarget.c)
- *     MiStartDpcGang @ 0x1405606AC (MiStartDpcGang.c)
+ *     MiDpcGangTarget @ 0x140560560 (MiDpcGangTarget.c)
+ *     MiStartDpcGang @ 0x1405608EC (MiStartDpcGang.c)
  * Callees:
- *     KeShouldYieldProcessor @ 0x140293FD0 (KeShouldYieldProcessor.c)
- *     MiInitializeUnusablePfns @ 0x1403B0FE0 (MiInitializeUnusablePfns.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
- *     KeZeroPages @ 0x140402DB0 (KeZeroPages.c)
- *     RtlCompareMemoryUlong @ 0x140408230 (RtlCompareMemoryUlong.c)
- *     memset @ 0x140414200 (memset.c)
- *     MiInitializeLargeMdlLeafPfns @ 0x140533FE8 (MiInitializeLargeMdlLeafPfns.c)
+ *     KeShouldYieldProcessor @ 0x140211F40 (KeShouldYieldProcessor.c)
+ *     MiInitializeUnusablePfns @ 0x1403B1150 (MiInitializeUnusablePfns.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
+ *     KeZeroPages @ 0x140402F90 (KeZeroPages.c)
+ *     RtlCompareMemoryUlong @ 0x140408410 (RtlCompareMemoryUlong.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     MiInitializeLargeMdlLeafPfns @ 0x140534228 (MiInitializeLargeMdlLeafPfns.c)
  */
 
 void __fastcall MiDoGangAssignment(__int64 a1, ULONG_PTR **a2)

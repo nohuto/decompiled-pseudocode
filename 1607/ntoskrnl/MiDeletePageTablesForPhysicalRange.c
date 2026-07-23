@@ -1,15 +1,15 @@
 /*
- * XREFs of MiDeletePageTablesForPhysicalRange @ 0x1401EFF9C
+ * XREFs of MiDeletePageTablesForPhysicalRange @ 0x1401EFDC8
  * Callers:
- *     MiDeleteVad @ 0x1400288D0 (MiDeleteVad.c)
+ *     MiDeleteVad @ 0x140028450 (MiDeleteVad.c)
  * Callees:
- *     MiLockPageAtDpcInline @ 0x14002EB30 (MiLockPageAtDpcInline.c)
- *     MiFlushTbList @ 0x1400E0490 (MiFlushTbList.c)
- *     MiDeletePageTableHierarchy @ 0x1400E4D40 (MiDeletePageTableHierarchy.c)
- *     MiDecreaseUsedPtesCount @ 0x1400E681C (MiDecreaseUsedPtesCount.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     MiGetUsedPtesHandle @ 0x1401EF7E0 (MiGetUsedPtesHandle.c)
- *     MI_GET_PAGE_FRAME_FROM_PTE @ 0x1401F2550 (MI_GET_PAGE_FRAME_FROM_PTE.c)
+ *     MiLockPageAtDpcInline @ 0x14002E6B0 (MiLockPageAtDpcInline.c)
+ *     MiFlushTbList @ 0x1400DE330 (MiFlushTbList.c)
+ *     MiDeletePageTableHierarchy @ 0x1400E2BE0 (MiDeletePageTableHierarchy.c)
+ *     MiDecreaseUsedPtesCount @ 0x1400E46BC (MiDecreaseUsedPtesCount.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     MiGetUsedPtesHandle @ 0x1401EF60C (MiGetUsedPtesHandle.c)
+ *     MI_GET_PAGE_FRAME_FROM_PTE @ 0x1401F237C (MI_GET_PAGE_FRAME_FROM_PTE.c)
  */
 
 void __fastcall MiDeletePageTablesForPhysicalRange(__int64 a1)

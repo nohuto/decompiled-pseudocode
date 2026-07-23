@@ -16,12 +16,12 @@
  *     <none>
  */
 
-__int64 __fastcall MiIsPageInHugePfn(unsigned __int64 a1)
+unsigned __int64 *__fastcall MiIsPageInHugePfn(unsigned __int64 a1)
 {
-  __int64 result; // rax
+  unsigned __int64 *result; // rax
 
-  result = qword_140E2FD78;
-  if ( qword_140E2FD78 )
-    return _bittest64((const signed __int64 *)qword_140E2FD78, (a1 >> 18) & 0x3FFFFF) != 0;
+  result = stru_140E2FD70.Buffer;
+  if ( stru_140E2FD70.Buffer )
+    return (unsigned __int64 *)(_bittest64((const signed __int64 *)stru_140E2FD70.Buffer, (a1 >> 18) & 0x3FFFFF) != 0);
   return result;
 }

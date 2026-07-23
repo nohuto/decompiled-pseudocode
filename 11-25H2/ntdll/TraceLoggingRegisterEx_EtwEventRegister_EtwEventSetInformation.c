@@ -17,22 +17,26 @@
  *     __security_check_cookie @ 0x180166F50 (__security_check_cookie.c)
  */
 
-__int64 __fastcall TraceLoggingRegisterEx_EtwEventRegister_EtwEventSetInformation(__int64 *a1)
+__int64 __fastcall TraceLoggingRegisterEx_EtwEventRegister_EtwEventSetInformation(char *CallbackContext)
 {
-  __int64 *v1; // rsi
+  ULONGLONG *v1; // rsi
   bool v2; // zf
-  unsigned int v4; // edi
-  __int128 v6; // [rsp+20h] [rbp-28h] BYREF
+  unsigned __int32 v4; // edi
+  GUID ProviderId; // [rsp+20h] [rbp-28h] BYREF
 
-  v1 = a1 + 4;
-  v2 = a1[4] == 0;
-  v6 = *(_OWORD *)(a1[1] - 16);
+  v1 = (ULONGLONG *)(CallbackContext + 32);
+  v2 = *((_QWORD *)CallbackContext + 4) == 0LL;
+  ProviderId = *(GUID *)(*((_QWORD *)CallbackContext + 1) - 16LL);
   if ( !v2 )
     __fastfail(5u);
-  a1[5] = 0LL;
-  a1[6] = 0LL;
-  v4 = EtwEventRegister((int)&v6, (__int64)tlgEnableCallback, (__int64)a1, (__int64)v1);
+  *((_QWORD *)CallbackContext + 5) = 0LL;
+  *((_QWORD *)CallbackContext + 6) = 0LL;
+  v4 = EtwEventRegister(&ProviderId, tlgEnableCallback, CallbackContext, v1);
   if ( !v4 )
-    EtwEventSetInformation(*v1, 2, a1[1], *(unsigned __int16 *)a1[1]);
+    EtwEventSetInformation(
+      *v1,
+      (EVENT_INFO_CLASS)2,
+      *((PVOID *)CallbackContext + 1),
+      **((unsigned __int16 **)CallbackContext + 1));
   return v4;
 }

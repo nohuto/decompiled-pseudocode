@@ -10,46 +10,47 @@
  *     RtlRaiseStatus @ 0x18010F220 (RtlRaiseStatus.c)
  */
 
-signed __int64 __fastcall RtlGrowFunctionTable(__int64 a1, unsigned int a2)
+void __cdecl RtlGrowFunctionTable(PVOID DynamicTable, DWORD NewEntryCount)
 {
-  int v4; // edi
-  signed __int64 result; // rax
-  int v6; // edx
+  int v4; // eax
+  int v5; // edi
+  int v6; // eax
+  int v7; // edx
 
-  if ( *(_DWORD *)(a1 + 80) != 3 || a2 < *(_DWORD *)(a1 + 84) )
-    RtlRaiseStatus(3221225485LL);
-  if ( LdrControlFlowGuardEnforced() )
+  if ( *((_DWORD *)DynamicTable + 20) != 3 || NewEntryCount < *((_DWORD *)DynamicTable + 21) )
+    RtlRaiseStatus(-1073741811);
+  LOBYTE(v4) = LdrControlFlowGuardEnforced();
+  if ( v4 )
   {
     RtlAcquireSRWLockExclusive(&LdrpMrdataLock);
-    v4 = *(_DWORD *)LdrpMrdataHeapUnprotected;
+    v5 = *(_DWORD *)LdrpMrdataHeapUnprotected;
     if ( *(_DWORD *)LdrpMrdataHeapUnprotected )
     {
-      if ( v4 == -1 )
+      if ( v5 == -1 )
         goto LABEL_10;
     }
     else
     {
-      RtlProtectHeap((__m128i *)LdrpMrdataHeap, 0);
+      RtlProtectHeap(LdrpMrdataHeap, 0);
     }
-    *(_DWORD *)LdrpMrdataHeapUnprotected = v4 + 1;
+    *(_DWORD *)LdrpMrdataHeapUnprotected = v5 + 1;
     RtlReleaseSRWLockExclusive(&LdrpMrdataLock);
   }
-  *(_DWORD *)(a1 + 84) = a2;
-  result = LdrControlFlowGuardEnforced();
-  if ( (_DWORD)result )
+  *((_DWORD *)DynamicTable + 21) = NewEntryCount;
+  LOBYTE(v6) = LdrControlFlowGuardEnforced();
+  if ( v6 )
   {
     RtlAcquireSRWLockExclusive(&LdrpMrdataLock);
-    v6 = *(_DWORD *)LdrpMrdataHeapUnprotected;
+    v7 = *(_DWORD *)LdrpMrdataHeapUnprotected;
     if ( !*(_DWORD *)LdrpMrdataHeapUnprotected )
     {
 LABEL_10:
       RtlReleaseSRWLockExclusive(&LdrpMrdataLock);
       __fastfail(0xEu);
     }
-    *(_DWORD *)LdrpMrdataHeapUnprotected = v6 - 1;
-    if ( v6 == 1 )
-      RtlProtectHeap((__m128i *)LdrpMrdataHeap, 1);
-    return RtlReleaseSRWLockExclusive(&LdrpMrdataLock);
+    *(_DWORD *)LdrpMrdataHeapUnprotected = v7 - 1;
+    if ( v7 == 1 )
+      RtlProtectHeap(LdrpMrdataHeap, 1u);
+    RtlReleaseSRWLockExclusive(&LdrpMrdataLock);
   }
-  return result;
 }

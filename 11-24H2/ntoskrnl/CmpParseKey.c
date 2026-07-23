@@ -1,23 +1,23 @@
 /*
- * XREFs of CmpParseKey @ 0x14089F150
+ * XREFs of CmpParseKey @ 0x1408A77F0
  * Callers:
- *     ObpLookupObjectName @ 0x14089D210 (ObpLookupObjectName.c)
+ *     ObpLookupObjectName @ 0x1408A58B0 (ObpLookupObjectName.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x1402595A0 (KeLeaveCriticalRegionThread.c)
- *     KeWaitForSingleObject @ 0x14033E960 (KeWaitForSingleObject.c)
- *     CmpInitializeThreadInfo @ 0x1403FA250 (CmpInitializeThreadInfo.c)
- *     PsGetCurrentSilo @ 0x140402420 (PsGetCurrentSilo.c)
- *     CmpCleanupThreadInfo @ 0x14041EE60 (CmpCleanupThreadInfo.c)
- *     CmpIsRegistryLockAcquired @ 0x14041EE80 (CmpIsRegistryLockAcquired.c)
- *     CmSiFreeMemory @ 0x14046B8D0 (CmSiFreeMemory.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     CmpAllocateParseContext @ 0x1406F509C (CmpAllocateParseContext.c)
- *     CmpCallCallBacksEx @ 0x140847D10 (CmpCallCallBacksEx.c)
- *     CmpRollbackTransactionArray @ 0x14086C1E8 (CmpRollbackTransactionArray.c)
- *     CmpDoParseKey @ 0x14086E7B0 (CmpDoParseKey.c)
- *     CmpCleanupParseContext @ 0x14092D4B0 (CmpCleanupParseContext.c)
- *     CmpDoesParseEnterRegistryA @ 0x1409B2300 (CmpDoesParseEnterRegistryA.c)
- *     CmpGetRegistryNamespaceRootForSilo @ 0x1409B2680 (CmpGetRegistryNamespaceRootForSilo.c)
+ *     KeLeaveCriticalRegionThread @ 0x140289BB0 (KeLeaveCriticalRegionThread.c)
+ *     KeWaitForSingleObject @ 0x14031DE40 (KeWaitForSingleObject.c)
+ *     CmpInitializeThreadInfo @ 0x1403F0160 (CmpInitializeThreadInfo.c)
+ *     PsGetCurrentSilo @ 0x1403FCA20 (PsGetCurrentSilo.c)
+ *     CmpCleanupThreadInfo @ 0x140414BA0 (CmpCleanupThreadInfo.c)
+ *     CmpIsRegistryLockAcquired @ 0x140414BC0 (CmpIsRegistryLockAcquired.c)
+ *     CmSiFreeMemory @ 0x140464550 (CmSiFreeMemory.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     CmpAllocateParseContext @ 0x1406F309C (CmpAllocateParseContext.c)
+ *     CmpCallCallBacksEx @ 0x140843FD0 (CmpCallCallBacksEx.c)
+ *     CmpRollbackTransactionArray @ 0x140870518 (CmpRollbackTransactionArray.c)
+ *     CmpDoParseKey @ 0x140872AE0 (CmpDoParseKey.c)
+ *     CmpCleanupParseContext @ 0x14092F5F0 (CmpCleanupParseContext.c)
+ *     CmpDoesParseEnterRegistryA @ 0x1409A99C0 (CmpDoesParseEnterRegistryA.c)
+ *     CmpGetRegistryNamespaceRootForSilo @ 0x1409A9A10 (CmpGetRegistryNamespaceRootForSilo.c)
  */
 
 __int64 __fastcall CmpParseKey(
@@ -286,7 +286,7 @@ LABEL_41:
         v24 = v26;
         if ( v26 != 259 )
           break;
-        KeWaitForSingleObject((char *)&unk_140E098A0 + 184 * *(unsigned int *)(v16 + 136), Executive, 0, 0, 0LL);
+        KeWaitForSingleObject((char *)&unk_140E09910 + 184 * *(unsigned int *)(v16 + 136), Executive, 0, 0, 0LL);
         *(_DWORD *)v16 &= ~0x100u;
       }
       if ( v26 != -1073741267 )

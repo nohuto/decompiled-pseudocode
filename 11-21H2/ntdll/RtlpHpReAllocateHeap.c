@@ -17,13 +17,7 @@
  *     RtlpHpLargeReAlloc @ 0x18011FE14 (RtlpHpLargeReAlloc.c)
  */
 
-__int64 __fastcall RtlpHpReAllocateHeap(
-        __int64 a1,
-        int a2,
-        unsigned __int64 a3,
-        unsigned __int64 a4,
-        _QWORD *a5,
-        _WORD *a6)
+__int64 __fastcall RtlpHpReAllocateHeap(__int64 a1, int a2, char *a3, unsigned __int64 a4, _QWORD *a5, _WORD *a6)
 {
   unsigned int v7; // r12d
   __int64 v10; // rax
@@ -47,8 +41,8 @@ __int64 __fastcall RtlpHpReAllocateHeap(
   unsigned __int64 v28; // rbx
   unsigned __int64 v29; // rcx
   __int64 v30; // rax
-  unsigned __int64 v31; // rax
-  unsigned __int64 v32; // rcx
+  char *v31; // rax
+  char *v32; // rcx
   __int16 v33; // ax
   unsigned int v34; // ebx
   int v35; // eax
@@ -59,7 +53,7 @@ __int64 __fastcall RtlpHpReAllocateHeap(
   __int64 v40; // rcx
   bool v42; // zf
   int v43; // r10d
-  unsigned __int64 v44; // rbx
+  char *v44; // rbx
   __int64 v45; // rax
   unsigned __int64 v46; // [rsp+30h] [rbp-40h]
   _QWORD v47[2]; // [rsp+40h] [rbp-30h] BYREF
@@ -87,7 +81,7 @@ __int64 __fastcall RtlpHpReAllocateHeap(
   }
   else
   {
-    v14 = RtlCSparseBitmapBitmaskRead(&unk_18017B720, 2 * ((a3 - qword_18017B718) >> 20));
+    v14 = RtlCSparseBitmapBitmaskRead(&BaseAddress, 2 * ((unsigned __int64)&a3[-qword_18017B718] >> 20));
     if ( !v14 || (v13 = v14 - 1, v13 == 2) )
     {
       v18 = RtlpHpLargeAllocSize(a1, a3, v7, &v48);
@@ -102,7 +96,7 @@ __int64 __fastcall RtlpHpReAllocateHeap(
     v20 = -1LL;
     goto LABEL_10;
   }
-  v18 = RtlpHpSegSizeInternal(v15 + a1 + 320, v16, a3, v17, (int *)&v48);
+  v18 = RtlpHpSegSizeInternal(v15 + a1 + 320, v16, (unsigned __int64)a3, v17, (int *)&v48);
 LABEL_9:
   v19 = v49;
   v20 = v18;
@@ -126,9 +120,9 @@ LABEL_10:
     v23 = v22;
   if ( v11 )
   {
-    v24 = a3 + v20 + 16;
+    v24 = (__int64)&a3[v20 + 16];
     if ( (v21 & 0x10000000) == 0 )
-      v24 = a3 + v20;
+      v24 = (__int64)&a3[v20];
     v25 = 16 * *(unsigned __int8 *)(((v24 + 15) & 0xFFFFFFFFFFFFFFF0uLL) + 3);
     v23 += v25;
   }
@@ -163,11 +157,11 @@ LABEL_10:
         *a5 = v30;
       if ( v52 )
       {
-        v31 = a3 + v30;
+        v31 = &a3[v30];
         v32 = v31 + 16;
         if ( !v51 )
           v32 = v31;
-        v29 = (v32 + 15) & 0xFFFFFFFFFFFFFFF0uLL;
+        v29 = (unsigned __int64)(v32 + 15) & 0xFFFFFFFFFFFFFFF0uLL;
         if ( v29 )
         {
           v33 = *(_WORD *)v29;
@@ -189,7 +183,7 @@ LABEL_39:
 LABEL_40:
   if ( v20 == v28 )
   {
-    v12 = a3;
+    v12 = (__int64)a3;
 LABEL_53:
     SharedData = NtCurrentPeb()->SharedData;
     if ( SharedData && *SharedData )
@@ -197,7 +191,7 @@ LABEL_53:
     else
       v40 = 2147353472LL;
     if ( *(_BYTE *)v40 && (NtCurrentPeb()->TracingFlags & 1) != 0 && v12 )
-      RtlpLogHeapReallocateEvent(a1, v12, a3, v47[0], v49, 3);
+      RtlpLogHeapReallocateEvent(a1, v12, (_DWORD)a3, v47[0], v49, 3);
     return v12;
   }
   v52 = 0;
@@ -210,7 +204,7 @@ LABEL_53:
         v42 = (*(_BYTE *)(v29 + 2) & 0xF) == 0;
         v43 = *(_BYTE *)(v29 + 2) & 0xF;
         v52 = v43;
-        if ( !v42 && (int)RtlpCallInterceptRoutine(v43, a1, a3, 5, v29 + 16) < 0 )
+        if ( !v42 && (int)RtlpCallInterceptRoutine(v43, a1, (_DWORD)a3, 5, v29 + 16) < 0 )
           return v12;
       }
     }
@@ -220,10 +214,10 @@ LABEL_53:
   {
     v35 = 0;
 LABEL_47:
-    v37 = RtlpHpSegReAlloc(a1 + 192LL * v35 + 320, v34, a3, v47);
+    v37 = RtlpHpSegReAlloc((int)a1 + 192 * v35 + 320, v34, a3);
     goto LABEL_48;
   }
-  v36 = RtlCSparseBitmapBitmaskRead(&unk_18017B720, 2 * ((a3 - qword_18017B718) >> 20));
+  v36 = RtlCSparseBitmapBitmaskRead(&BaseAddress, 2 * ((unsigned __int64)&a3[-qword_18017B718] >> 20));
   if ( v36 )
   {
     v35 = v36 - 1;
@@ -237,9 +231,9 @@ LABEL_48:
   {
     v44 = a3;
     if ( (unsigned __int64)(v37 - 1) <= 0xFFFFFFFFFFFFFFFDuLL )
-      v44 = v37;
+      v44 = (char *)v37;
     v45 = RtlpHpExtrasGet(a1, v44, v7);
-    RtlpCallInterceptRoutine(v52, a1, v44, 6, v45 + 16);
+    RtlpCallInterceptRoutine(v52, a1, (_DWORD)v44, 6, v45 + 16);
   }
   if ( (unsigned __int64)(v12 - 1) <= 0xFFFFFFFFFFFFFFFDuLL )
   {

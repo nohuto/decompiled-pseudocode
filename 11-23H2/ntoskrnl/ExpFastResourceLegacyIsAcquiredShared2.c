@@ -1,10 +1,10 @@
 /*
- * XREFs of ExpFastResourceLegacyIsAcquiredShared2 @ 0x140415768
+ * XREFs of ExpFastResourceLegacyIsAcquiredShared2 @ 0x140415AFC
  * Callers:
- *     ExpFastResourceLegacyIsAcquiredShared @ 0x14060A588 (ExpFastResourceLegacyIsAcquiredShared.c)
+ *     ExpFastResourceLegacyIsAcquiredShared @ 0x14060AAD8 (ExpFastResourceLegacyIsAcquiredShared.c)
  * Callees:
- *     ExpIsFastResourceOwned @ 0x140415A5C (ExpIsFastResourceOwned.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     ExpIsFastResourceOwned @ 0x140415DF0 (ExpIsFastResourceOwned.c)
  */
 
 __int64 __fastcall ExpFastResourceLegacyIsAcquiredShared2(__int64 a1, __int64 a2)
@@ -29,7 +29,7 @@ __int64 __fastcall ExpFastResourceLegacyIsAcquiredShared2(__int64 a1, __int64 a2
     CurrentThread = KeGetCurrentThread();
     CurrentIrql = KeGetCurrentIrql();
     __writecr8(2uLL);
-    if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+    if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
     {
       SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
       v7 = 4;
@@ -45,10 +45,10 @@ __int64 __fastcall ExpFastResourceLegacyIsAcquiredShared2(__int64 a1, __int64 a2
       if ( (v9 & 2) == 0 && (unsigned __int64 *)i[3] == v3 || (v9 & 2) != 0 && v3 == i - 8 )
         v2 += *((_DWORD *)i + 8);
     }
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v10 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v10 <= 0xFu && CurrentIrql <= 0xFu && v10 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v10 <= 0xFu && CurrentIrql <= 0xFu && v10 >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         v12 = CurrentPrcb->SchedulerAssist;
@@ -56,7 +56,7 @@ __int64 __fastcall ExpFastResourceLegacyIsAcquiredShared2(__int64 a1, __int64 a2
         v14 = (v13 & v12[5]) == 0;
         v12[5] &= v13;
         if ( v14 )
-          KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+          KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
       }
     }
     __writecr8(CurrentIrql);

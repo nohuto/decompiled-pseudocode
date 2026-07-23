@@ -1,16 +1,25 @@
 /*
- * XREFs of NtLoadEnclaveData @ 0x180161110
+ * XREFs of NtLoadEnclaveData @ 0x180161010
  * Callers:
- *     LdrpLoadEnclaveModule @ 0x180117220 (LdrpLoadEnclaveModule.c)
+ *     LdrpLoadEnclaveModule @ 0x180116A00 (LdrpLoadEnclaveModule.c)
  * Callees:
  *     <none>
  */
 
-__int64 NtLoadEnclaveData()
+NTSTATUS __cdecl NtLoadEnclaveData(
+        HANDLE ProcessHandle,
+        PVOID BaseAddress,
+        PVOID Buffer,
+        SIZE_T BufferSize,
+        ULONG Protect,
+        PVOID PageInformation,
+        ULONG PageInformationLength,
+        PSIZE_T NumberOfBytesWritten,
+        PULONG EnclaveError)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 271LL;
+  result = 271;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

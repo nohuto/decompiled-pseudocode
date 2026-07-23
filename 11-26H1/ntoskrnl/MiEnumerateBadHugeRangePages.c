@@ -1,10 +1,10 @@
 /*
- * XREFs of MiEnumerateBadHugeRangePages @ 0x1406EB464
+ * XREFs of MiEnumerateBadHugeRangePages @ 0x1406F0104
  * Callers:
- *     MiGetListOfPendingBadPages @ 0x14052AB58 (MiGetListOfPendingBadPages.c)
- *     MiEnumerateQuarantinedBadHugeRangePages @ 0x14052D548 (MiEnumerateQuarantinedBadHugeRangePages.c)
+ *     MiGetListOfPendingBadPages @ 0x14052D078 (MiGetListOfPendingBadPages.c)
+ *     MiEnumerateQuarantinedBadHugeRangePages @ 0x14052FA68 (MiEnumerateQuarantinedBadHugeRangePages.c)
  * Callees:
- *     MiWalkAllBitmapRanges @ 0x14044B8F0 (MiWalkAllBitmapRanges.c)
+ *     MiWalkAllBitmapRanges @ 0x140443A20 (MiWalkAllBitmapRanges.c)
  */
 
 __int64 __fastcall MiEnumerateBadHugeRangePages(__int64 a1, __int64 a2, char a3)
@@ -23,7 +23,7 @@ __int64 __fastcall MiEnumerateBadHugeRangePages(__int64 a1, __int64 a2, char a3)
   __int64 v16; // [rsp+58h] [rbp-18h]
   __int128 v17; // [rsp+60h] [rbp-10h]
 
-  v3 = (_QWORD *)qword_140E2EB60;
+  v3 = (_QWORD *)qword_140E2ECE0;
   v4 = 0LL;
   v15 = 0LL;
   v16 = 0LL;
@@ -42,7 +42,7 @@ __int64 __fastcall MiEnumerateBadHugeRangePages(__int64 a1, __int64 a2, char a3)
   {
     while ( 1 )
     {
-      if ( (*(_QWORD *)(*(_QWORD *)((char *)&stru_140E2EB88.116 + 4) + 8LL * (*(_DWORD *)(v5 + 24) & 0x3FFFFF)) & 7) == 4 )
+      if ( (*(_QWORD *)(*(_QWORD *)((char *)&stru_140E2ED08.116 + 4) + 8LL * (*(_DWORD *)(v5 + 24) & 0x3FFFFF)) & 7) == 4 )
       {
         if ( (a3 & 1) != 0 )
         {

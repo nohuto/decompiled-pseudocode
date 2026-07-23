@@ -1,14 +1,14 @@
 /*
- * XREFs of IopAppendLegacyVeto @ 0x1407330BC
+ * XREFs of IopAppendLegacyVeto @ 0x140730FF0
  * Callers:
- *     IoGetLegacyVetoList @ 0x1409B9120 (IoGetLegacyVetoList.c)
- *     PopFilterCapabilities @ 0x1409B923C (PopFilterCapabilities.c)
- *     IopGetLegacyVetoListDrivers @ 0x1409B9634 (IopGetLegacyVetoListDrivers.c)
- *     IopGetLegacyVetoListDeviceNode @ 0x1409B98DC (IopGetLegacyVetoListDeviceNode.c)
+ *     IoGetLegacyVetoList @ 0x14099F770 (IoGetLegacyVetoList.c)
+ *     PopFilterCapabilities @ 0x14099F88C (PopFilterCapabilities.c)
+ *     IopGetLegacyVetoListDrivers @ 0x14099FC84 (IopGetLegacyVetoListDrivers.c)
+ *     IopGetLegacyVetoListDeviceNode @ 0x14099FF2C (IopGetLegacyVetoListDeviceNode.c)
  * Callees:
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 char __fastcall IopAppendLegacyVeto(const void ***a1, const void **a2)
@@ -21,7 +21,7 @@ char __fastcall IopAppendLegacyVeto(const void ***a1, const void **a2)
   const void **v9; // rax
 
   v3 = *(unsigned __int16 *)a2 + 2 + *((_DWORD *)a1 + 2);
-  Pool2 = (_WORD *)ExAllocatePool2(0x40uLL);
+  Pool2 = (_WORD *)ExAllocatePool2(0x40uLL, v3, 0x6F697050u);
   v6 = Pool2;
   if ( Pool2 )
   {

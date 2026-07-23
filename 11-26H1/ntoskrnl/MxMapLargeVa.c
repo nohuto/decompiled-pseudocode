@@ -1,12 +1,12 @@
 /*
- * XREFs of MxMapLargeVa @ 0x1406E7444
+ * XREFs of MxMapLargeVa @ 0x1406EC0F4
  * Callers:
- *     MxMapVa @ 0x140CF7FB0 (MxMapVa.c)
+ *     MxMapVa @ 0x140CFE330 (MxMapVa.c)
  * Callees:
- *     MiWriteLargePte @ 0x1402A10E0 (MiWriteLargePte.c)
- *     MiGetLeafVa @ 0x140326060 (MiGetLeafVa.c)
- *     MiGetLargePteAddress @ 0x14043AB90 (MiGetLargePteAddress.c)
- *     KeZeroPages @ 0x1407307E0 (KeZeroPages.c)
+ *     MiWriteLargePte @ 0x1402A0630 (MiWriteLargePte.c)
+ *     MiGetLeafVa @ 0x140328090 (MiGetLeafVa.c)
+ *     MiGetLargePteAddress @ 0x14042D440 (MiGetLargePteAddress.c)
+ *     KeZeroPages @ 0x1407353B0 (KeZeroPages.c)
  */
 
 unsigned __int64 __fastcall MxMapLargeVa(__int64 a1, __int64 a2)
@@ -25,7 +25,7 @@ unsigned __int64 __fastcall MxMapLargeVa(__int64 a1, __int64 a2)
 
   v3 = MiWriteLargePte(*(_QWORD *)a1, a2, 1u, -1275068412);
   LeafVa = MiGetLeafVa(v3);
-  _InterlockedAdd64((volatile signed __int64 *)&stru_140E36558.WaitBlock[0].Thread, 0x200uLL);
+  _InterlockedAdd64((volatile signed __int64 *)&stru_140E366D8.WaitBlock[0].Thread, 0x200uLL);
   if ( *(_DWORD *)(a1 + 12)
     || (v5 = *(_QWORD *)(a1 + 24)) != 0
     && (v6 = MiGetLeafVa(v5), LargePteAddress = MiGetLargePteAddress(v6, 1u), v8 <= LargePteAddress)

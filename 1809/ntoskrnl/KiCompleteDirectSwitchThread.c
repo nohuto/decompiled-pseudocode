@@ -1,10 +1,10 @@
 /*
- * XREFs of KiCompleteDirectSwitchThread @ 0x1400D2C1C
+ * XREFs of KiCompleteDirectSwitchThread @ 0x1400D2C9C
  * Callers:
- *     KeReleaseSemaphoreEx @ 0x1400D2970 (KeReleaseSemaphoreEx.c)
+ *     KeReleaseSemaphoreEx @ 0x1400D29F0 (KeReleaseSemaphoreEx.c)
  * Callees:
- *     KiRemoveBoostThread @ 0x1400CFDE0 (KiRemoveBoostThread.c)
- *     KiUpdateTotalCyclesCurrentThread @ 0x1400D1D3C (KiUpdateTotalCyclesCurrentThread.c)
+ *     KiRemoveBoostThread @ 0x1400CFE60 (KiRemoveBoostThread.c)
+ *     KiUpdateTotalCyclesCurrentThread @ 0x1400D1DBC (KiUpdateTotalCyclesCurrentThread.c)
  */
 
 char __fastcall KiCompleteDirectSwitchThread(__int64 a1, __int64 a2)

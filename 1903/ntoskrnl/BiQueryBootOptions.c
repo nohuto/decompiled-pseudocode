@@ -12,11 +12,11 @@
  *     BiAcquirePrivilege @ 0x14073F3BC (BiAcquirePrivilege.c)
  */
 
-__int64 __fastcall BiQueryBootOptions(struct _BOOT_OPTIONS **a1, ULONG *a2)
+__int64 __fastcall BiQueryBootOptions(_BOOT_OPTIONS **a1, ULONG *a2)
 {
-  struct _BOOT_OPTIONS *v2; // rdi
-  int v5; // ebx
-  struct _BOOT_OPTIONS *PoolWithTag; // rax
+  _BOOT_OPTIONS *v2; // rdi
+  NTSTATUS v5; // ebx
+  _BOOT_OPTIONS *PoolWithTag; // rax
   ULONG BootOptionsLength; // [rsp+40h] [rbp+8h] BYREF
   __int64 v9; // [rsp+48h] [rbp+10h] BYREF
 
@@ -31,7 +31,7 @@ __int64 __fastcall BiQueryBootOptions(struct _BOOT_OPTIONS **a1, ULONG *a2)
     v5 = ZwQueryBootOptions(0LL, &BootOptionsLength);
     if ( v5 != -1073741789 )
       goto LABEL_6;
-    PoolWithTag = (struct _BOOT_OPTIONS *)ExAllocatePoolWithTag(PagedPool, BootOptionsLength, 0x4B444342u);
+    PoolWithTag = (_BOOT_OPTIONS *)ExAllocatePoolWithTag(PagedPool, BootOptionsLength, 0x4B444342u);
     v2 = PoolWithTag;
     if ( !PoolWithTag )
     {

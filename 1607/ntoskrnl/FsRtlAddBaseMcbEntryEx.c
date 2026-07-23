@@ -1,343 +1,341 @@
 /*
- * XREFs of FsRtlAddBaseMcbEntryEx @ 0x14008CCB0
+ * XREFs of FsRtlAddBaseMcbEntryEx @ 0x14008C410
  * Callers:
- *     FsRtlAddBaseMcbEntry @ 0x14008CC94 (FsRtlAddBaseMcbEntry.c)
+ *     FsRtlAddBaseMcbEntry @ 0x14008C3F4 (FsRtlAddBaseMcbEntry.c)
  * Callees:
- *     FsRtlAddEntry @ 0x14008D2B0 (FsRtlAddEntry.c)
- *     FsRtlFindLargeIndex @ 0x14008D3B4 (FsRtlFindLargeIndex.c)
- *     FsRtlRemoveLargeEntry @ 0x14008D438 (FsRtlRemoveLargeEntry.c)
- *     EvaluateCurrentState @ 0x1401B8354 (EvaluateCurrentState.c)
+ *     FsRtlAddEntry @ 0x14008CA14 (FsRtlAddEntry.c)
+ *     FsRtlFindLargeIndex @ 0x14008CB18 (FsRtlFindLargeIndex.c)
+ *     FsRtlRemoveLargeEntry @ 0x14008CB9C (FsRtlRemoveLargeEntry.c)
  */
 
 NTSTATUS __stdcall FsRtlAddBaseMcbEntryEx(PBASE_MCB Mcb, LONGLONG Vbn, LONGLONG Lbn, LONGLONG SectorCount)
 {
-  LONGLONG v5; // r13
-  int v9; // r12d
-  signed int v10; // r9d
-  signed int v11; // r8d
-  int v12; // r15d
-  unsigned int v13; // eax
-  __int64 v14; // rbx
-  unsigned int v15; // eax
+  unsigned int v4; // r13d
+  unsigned int v5; // ebp
+  unsigned int v6; // esi
+  int v8; // r12d
+  signed int v9; // r9d
+  signed int v10; // r8d
+  int v11; // r15d
+  unsigned int v12; // eax
+  __int64 v13; // rbx
+  unsigned int v14; // eax
   _DWORD *Mapping; // rax
-  int v17; // r9d
-  __int64 v18; // rdx
-  _DWORD *v19; // r14
-  int v20; // ecx
-  int v21; // r8d
-  ULONG v22; // r10d
-  int v23; // eax
-  __int64 v24; // r8
-  int v25; // ecx
-  int v26; // eax
-  ULONG v27; // ebx
-  _DWORD *v28; // r14
-  unsigned int v29; // ebx
-  unsigned int v30; // r8d
-  __int64 v31; // r13
-  _DWORD *v32; // r9
-  unsigned int v33; // edx
-  unsigned int v34; // eax
-  __int64 v35; // rcx
-  int v36; // edx
-  int v37; // eax
-  __int64 v38; // rcx
-  int v39; // edx
-  int v40; // edx
-  unsigned int v41; // eax
-  int v42; // ecx
-  int v43; // eax
-  __int64 v44; // rcx
-  int v45; // edx
-  int v46; // eax
+  int v16; // r9d
+  __int64 v17; // rdx
+  _DWORD *v18; // r14
+  int v19; // ecx
+  int v20; // r8d
+  ULONG v21; // r10d
+  int v22; // eax
+  __int64 v23; // r8
+  int v24; // ecx
+  int v25; // eax
+  unsigned int v26; // ebx
+  _DWORD *v27; // r14
+  unsigned int v28; // ebx
+  unsigned int v29; // r8d
+  __int64 v30; // r13
+  unsigned int *v31; // r9
+  unsigned int v32; // edx
+  unsigned int v33; // eax
+  __int64 v34; // rcx
+  int v35; // eax
+  __int64 v36; // rcx
+  int v37; // edx
+  int v38; // edx
+  unsigned int v39; // eax
+  int v40; // ecx
+  int v41; // eax
+  __int64 v42; // rcx
+  int v43; // edx
+  int v44; // eax
+  int v45; // ecx
+  int v46; // edx
   int v47; // ecx
-  int v48; // edx
-  int v49; // ecx
-  __int64 v50; // rcx
-  int v51; // edx
-  _DWORD *v52; // r8
-  __int64 v53; // r8
-  int v54; // r9d
-  int v55; // edx
+  __int64 v48; // rcx
+  int v49; // edx
+  unsigned int *v50; // r8
+  __int64 v52; // r8
+  int v53; // r9d
+  int v54; // edx
+  int v55; // eax
   int v56; // eax
-  int v57; // eax
-  __int64 v58; // rcx
-  __int64 v59; // rax
-  __int64 v60; // rdx
-  unsigned int v61; // [rsp+20h] [rbp-48h] BYREF
-  int v62[3]; // [rsp+24h] [rbp-44h] BYREF
+  __int64 v57; // rcx
+  __int64 v58; // rax
+  __int64 v59; // rdx
+  unsigned int v60; // [rsp+20h] [rbp-48h]
   ULONG PairCount; // [rsp+70h] [rbp+8h]
-  int v64; // [rsp+88h] [rbp+20h]
+  unsigned int v62; // [rsp+78h] [rbp+10h] BYREF
+  LONGLONG v63; // [rsp+88h] [rbp+20h]
 
-  v64 = SectorCount;
-  v5 = SectorCount;
-  if ( (unsigned int)EvaluateCurrentState(&g_Feature_1915950393_60412418_FeatureDescriptorDetails)
-    && (Vbn < 0 || Lbn < 0 || v5 <= 0) )
-  {
+  v63 = SectorCount;
+  v4 = SectorCount;
+  v5 = Lbn;
+  v6 = Vbn;
+  if ( Vbn < 0 || Lbn < 0 || SectorCount <= 0 )
     return -1073741811;
-  }
+  v8 = 0;
   v9 = 0;
-  v10 = 0;
   PairCount = Mcb->PairCount;
-  v11 = PairCount - 1;
-  v12 = -1;
+  v10 = PairCount - 1;
+  v11 = -1;
   if ( (int)(PairCount - 1) < 0 )
-    goto LABEL_36;
+    goto LABEL_34;
   while ( 1 )
   {
-    v13 = (v11 + v10) / 2;
-    v14 = v13;
-    if ( !v13 )
+    v12 = (v10 + v9) / 2;
+    v13 = v12;
+    if ( !v12 )
       break;
-    v15 = v13 - 1;
-    if ( (unsigned int)Vbn >= *((_DWORD *)Mcb->Mapping + 2 * (int)v15) )
+    v14 = v12 - 1;
+    if ( (unsigned int)Vbn >= *((_DWORD *)Mcb->Mapping + 2 * (int)v14) )
       break;
-    v11 = v15;
-LABEL_12:
-    if ( v10 > v11 )
-      goto LABEL_36;
+    v10 = v14;
+LABEL_10:
+    if ( v9 > v10 )
+      goto LABEL_34;
   }
   Mapping = Mcb->Mapping;
-  if ( (unsigned int)Vbn > Mapping[2 * (int)v14] - 1 )
+  if ( (unsigned int)Vbn > Mapping[2 * (int)v13] - 1 )
   {
-    v10 = v14 + 1;
-    goto LABEL_12;
+    v9 = v13 + 1;
+    goto LABEL_10;
   }
-  v17 = Mapping[2 * v14 + 1];
-  v18 = (unsigned int)(v5 + Vbn - 1);
-  v19 = Mcb->Mapping;
-  if ( v17 == -1 )
+  v16 = Mapping[2 * v13 + 1];
+  v17 = v4 + (_DWORD)Vbn - 1;
+  v18 = Mcb->Mapping;
+  if ( v16 == -1 )
   {
-    if ( (unsigned __int8)FsRtlFindLargeIndex(Mcb, v18, v62) )
+    if ( (unsigned __int8)FsRtlFindLargeIndex(Mcb, v17, &v62) )
     {
-      v24 = (unsigned int)(v62[0] - 1);
-      if ( (_DWORD)v14 == (_DWORD)v24 )
+      v23 = v62 - 1;
+      if ( (_DWORD)v13 == (_DWORD)v23 )
       {
-        v25 = 0;
-        if ( v62[0] )
-          v25 = v19[2 * v24];
-        if ( v19[2 * v62[0] + 1] != (_DWORD)Lbn + v25 - (_DWORD)Vbn )
+        v24 = 0;
+        if ( v62 )
+          v24 = v18[2 * v23];
+        if ( v18[2 * v62 + 1] != v5 + v24 - v6 )
           return -1073741823;
-        v26 = 0;
-        if ( v62[0] )
-          v26 = v19[2 * v24];
-        LODWORD(v5) = v26 - Vbn;
-        v64 = v26 - Vbn;
+        v25 = 0;
+        if ( v62 )
+          v25 = v18[2 * v23];
+        v4 = v25 - v6;
+        v63 = v25 - v6;
       }
     }
-LABEL_36:
-    v22 = PairCount;
-    goto LABEL_37;
+LABEL_34:
+    v21 = PairCount;
+    goto LABEL_35;
   }
-  if ( (_DWORD)v14 )
-    v20 = v19[2 * (unsigned int)(v14 - 1)];
+  if ( (_DWORD)v13 )
+    v19 = v18[2 * (unsigned int)(v13 - 1)];
   else
-    v20 = 0;
-  if ( (_DWORD)Lbn != (_DWORD)Vbn + v17 - v20 )
+    v19 = 0;
+  if ( v5 != v6 + v16 - v19 )
     return -1073741823;
-  v21 = Mapping[2 * v14];
-  if ( (unsigned int)v18 <= v21 - 1 )
+  v20 = Mapping[2 * v13];
+  if ( (unsigned int)v17 <= v20 - 1 )
     return 0;
-  v22 = Mcb->PairCount;
-  if ( (unsigned int)v14 < PairCount )
+  v21 = PairCount;
+  if ( (unsigned int)v13 < PairCount )
   {
-    LODWORD(Vbn) = Mapping[2 * v14];
-    if ( (_DWORD)v14 == -1 )
-      LODWORD(Vbn) = 0;
+    v6 = Mapping[2 * v13];
+    if ( (_DWORD)v13 == -1 )
+      v6 = 0;
   }
   else
   {
-    LODWORD(Vbn) = 0;
+    v6 = 0;
   }
-  if ( (_DWORD)v14 )
-    v23 = v19[2 * (unsigned int)(v14 - 1)];
+  if ( (_DWORD)v13 )
+    v22 = v18[2 * (unsigned int)(v13 - 1)];
   else
-    v23 = 0;
-  LODWORD(Lbn) = v21 - v23 + v17;
-  LODWORD(v5) = v18 - Vbn + 1;
-  v64 = v5;
-LABEL_37:
-  v27 = v22;
-  v61 = v22;
-  if ( !v22 )
+    v22 = 0;
+  v5 = v20 - v22 + v16;
+  v4 = v17 - v6 + 1;
+  v63 = v4;
+LABEL_35:
+  v26 = v21;
+  v62 = v21;
+  if ( !v21 )
   {
-LABEL_122:
-    if ( !(_DWORD)Vbn
-      || (v27 ? (v57 = *((_DWORD *)Mcb->Mapping + 2 * v27 - 2) - 1) : (v57 = -1), v57 + 1 == (_DWORD)Vbn) )
+LABEL_120:
+    if ( !v6 || (v26 ? (v56 = *((_DWORD *)Mcb->Mapping + 2 * v26 - 2) - 1) : (v56 = -1), v56 + 1 == v6) )
     {
-      if ( !(unsigned __int8)FsRtlAddEntry(Mcb, v27, 1LL) )
+      if ( !(unsigned __int8)FsRtlAddEntry(Mcb, v26, 1LL) )
         return -1073741670;
-      v59 = v27;
+      v58 = v26;
     }
     else
     {
-      if ( !(unsigned __int8)FsRtlAddEntry(Mcb, v27, 2LL) )
+      if ( !(unsigned __int8)FsRtlAddEntry(Mcb, v26, 2LL) )
         return -1073741670;
-      v58 = 8LL * v27;
-      *(_DWORD *)((char *)Mcb->Mapping + v58 + 4) = -1;
-      *(_DWORD *)((char *)Mcb->Mapping + v58) = Vbn;
-      v59 = v27 + 1;
+      v57 = 8LL * v26;
+      *(_DWORD *)((char *)Mcb->Mapping + v57 + 4) = -1;
+      *(_DWORD *)((char *)Mcb->Mapping + v57) = v6;
+      v58 = v26 + 1;
     }
-    v60 = 8 * v59;
-    *(_DWORD *)((char *)Mcb->Mapping + v60 + 4) = Lbn;
-    *(_DWORD *)((char *)Mcb->Mapping + v60) = Vbn + v5;
+    v59 = 8 * v58;
+    *(_DWORD *)((char *)Mcb->Mapping + v59 + 4) = v5;
+    *(_DWORD *)((char *)Mcb->Mapping + v59) = v6 + v4;
     return 0;
   }
-  v28 = Mcb->Mapping;
-  if ( v28[2 * v22 - 2] <= (unsigned int)Vbn )
+  v27 = Mcb->Mapping;
+  if ( v27[2 * v21 - 2] <= v6 )
   {
-LABEL_113:
-    if ( v27 )
+LABEL_111:
+    if ( v26 )
     {
-      v53 = v27 - 1;
-      v54 = v28[2 * v53];
-      if ( v54 == (_DWORD)Vbn )
+      v52 = v26 - 1;
+      v53 = v27[2 * v52];
+      if ( v53 == v6 )
       {
-        v55 = v28[2 * v53 + 1];
-        if ( v55 == -1 )
+        v54 = v27[2 * v52 + 1];
+        if ( v54 == -1 )
         {
-          v56 = -1;
+          v55 = -1;
         }
         else
         {
-          if ( v27 != 1 )
-            v9 = v28[2 * v27 - 4];
-          v56 = v55 - v9 + v54 - 1;
+          if ( v26 != 1 )
+            v8 = v27[2 * v26 - 4];
+          v55 = v54 - v8 + v53 - 1;
         }
-        if ( v56 + 1 == (_DWORD)Lbn )
+        if ( v55 + 1 == v5 )
         {
-          v28[2 * PairCount - 2] += v5;
+          v27[2 * PairCount - 2] += v4;
           return 0;
         }
       }
     }
-    goto LABEL_122;
+    goto LABEL_120;
   }
-  if ( !(unsigned __int8)FsRtlFindLargeIndex(Mcb, (unsigned int)Vbn, &v61) )
+  if ( !(unsigned __int8)FsRtlFindLargeIndex(Mcb, v6, &v62) )
   {
-    v27 = v61;
-    goto LABEL_113;
+    v26 = v62;
+    goto LABEL_111;
   }
-  v29 = v61;
-  v62[0] = Vbn + v5;
-  v30 = Vbn + v5 - 1;
-  v31 = 8LL * v61;
-  v32 = &v28[(unsigned __int64)v31 / 4];
-  if ( v28[(unsigned __int64)v31 / 4 + 1] != -1 || v61 && v28[2 * v61 - 2] > (unsigned int)Vbn )
+  v28 = v62;
+  v60 = v6 + v4;
+  v29 = v6 + v4 - 1;
+  v30 = 8LL * v62;
+  v31 = &v27[(unsigned __int64)v30 / 4];
+  if ( v27[(unsigned __int64)v30 / 4 + 1] != -1 || v62 && v27[2 * v62 - 2] > v6 )
     return -1073741823;
-  v33 = *v32 - 1;
-  if ( v30 > v33 )
+  v32 = *v31 - 1;
+  if ( v29 > v32 )
     return -1073741823;
-  if ( v61 )
-    v34 = v28[2 * v61 - 2];
+  if ( v62 )
+    v33 = v27[2 * v62 - 2];
   else
-    v34 = 0;
-  if ( v34 >= (unsigned int)Vbn || v30 >= v33 )
+    v33 = 0;
+  if ( v33 >= v6 || v29 >= v32 )
   {
-    if ( v61 )
-      v37 = v28[2 * v61 - 2];
+    if ( v62 )
+      v35 = v27[2 * v62 - 2];
     else
-      v37 = 0;
-    if ( v37 == (_DWORD)Vbn && v30 < v33 )
+      v35 = 0;
+    if ( v35 == v6 && v29 < v32 )
     {
-      if ( v61 )
+      if ( v62 )
       {
-        v38 = v61 - 1;
-        v39 = v28[2 * v38 + 1];
-        if ( v39 != -1 )
+        v36 = v62 - 1;
+        v37 = v27[2 * v36 + 1];
+        if ( v37 != -1 )
         {
-          if ( v61 != 1 )
-            v9 = v28[2 * v61 - 4];
-          v12 = v39 - v9 + v28[2 * v38] - 1;
+          if ( v62 != 1 )
+            v8 = v27[2 * v62 - 4];
+          v11 = v37 - v8 + v27[2 * v36] - 1;
         }
       }
-      if ( v12 + 1 == (_DWORD)Lbn )
+      if ( v11 + 1 == v5 )
       {
-        if ( v61 )
+        if ( v62 )
         {
-          v28[2 * v61 - 2] += v64;
+          v27[2 * v62 - 2] += v63;
         }
         else
         {
           if ( !(unsigned __int8)FsRtlAddEntry(Mcb, 0LL, 1LL) )
             return -1073741670;
-          *((_DWORD *)Mcb->Mapping + 1) = Lbn;
-          *(_DWORD *)Mcb->Mapping = v64;
+          v38 = v63;
+          *((_DWORD *)Mcb->Mapping + 1) = v5;
+          *(_DWORD *)Mcb->Mapping = v38;
         }
       }
       else
       {
-        if ( !(unsigned __int8)FsRtlAddEntry(Mcb, v61, 1LL) )
+        if ( !(unsigned __int8)FsRtlAddEntry(Mcb, v62, 1LL) )
           return -1073741670;
-        v40 = v62[0];
-        *(_DWORD *)((char *)Mcb->Mapping + v31 + 4) = Lbn;
-        *(_DWORD *)((char *)Mcb->Mapping + v31) = v40;
+        *(_DWORD *)((char *)Mcb->Mapping + v30 + 4) = v5;
+        *(_DWORD *)((char *)Mcb->Mapping + v30) = v60;
       }
       return 0;
     }
-    if ( v61 )
-      v41 = v28[2 * v61 - 2];
+    if ( v62 )
+      v39 = v27[2 * v62 - 2];
     else
-      v41 = 0;
-    if ( v41 < (unsigned int)Vbn && v30 == v33 )
+      v39 = 0;
+    if ( v39 < v6 && v29 == v32 )
     {
-      if ( v61 < PairCount - 1 )
-        v42 = v28[2 * v61 + 3];
+      if ( v62 < PairCount - 1 )
+        v40 = v27[2 * v62 + 3];
       else
-        v42 = -1;
-      if ( v42 == (_DWORD)Lbn + v64 )
+        v40 = -1;
+      if ( v40 == v5 + (_DWORD)v63 )
       {
-        *v32 = Vbn;
-        *((_DWORD *)Mcb->Mapping + 2 * v29 + 3) = Lbn;
+        *v31 = v6;
+        *((_DWORD *)Mcb->Mapping + 2 * v28 + 3) = v5;
       }
       else
       {
-        if ( !(unsigned __int8)FsRtlAddEntry(Mcb, v61, 1LL) )
+        if ( !(unsigned __int8)FsRtlAddEntry(Mcb, v62, 1LL) )
           return -1073741670;
-        *(_DWORD *)((char *)Mcb->Mapping + v31 + 4) = -1;
-        *(_DWORD *)((char *)Mcb->Mapping + v31) = Vbn;
-        *((_DWORD *)Mcb->Mapping + 2 * v29 + 3) = Lbn;
+        *(_DWORD *)((char *)Mcb->Mapping + v30 + 4) = -1;
+        *(_DWORD *)((char *)Mcb->Mapping + v30) = v6;
+        *((_DWORD *)Mcb->Mapping + 2 * v28 + 3) = v5;
       }
       return 0;
     }
-    if ( v61 )
+    if ( v62 )
     {
-      v44 = v61 - 1;
-      v45 = v28[2 * v44 + 1];
-      if ( v45 == -1 )
+      v42 = v62 - 1;
+      v43 = v27[2 * v42 + 1];
+      if ( v43 == -1 )
       {
-        v43 = -1;
+        v41 = -1;
       }
       else
       {
-        if ( v61 == 1 )
-          v46 = 0;
+        if ( v62 == 1 )
+          v44 = 0;
         else
-          v46 = v28[2 * v61 - 4];
-        v43 = v45 - v46 + v28[2 * v44] - 1;
+          v44 = v27[2 * v62 - 4];
+        v41 = v43 - v44 + v27[2 * v42] - 1;
       }
     }
     else
     {
-      v43 = -1;
+      v41 = -1;
     }
-    if ( v43 + 1 == (_DWORD)Lbn )
+    if ( v41 + 1 == v5 )
     {
-      if ( v61 < PairCount - 1 )
-        v47 = v28[2 * v61 + 3];
+      if ( v62 < PairCount - 1 )
+        v45 = v27[2 * v62 + 3];
       else
-        v47 = -1;
-      v48 = v64;
-      if ( v47 == v64 + (_DWORD)Lbn )
+        v45 = -1;
+      v46 = v63;
+      if ( v45 == (_DWORD)v63 + v5 )
       {
-        if ( v61 )
+        if ( v62 )
         {
-          v28[2 * v61 - 2] = v28[2 * v61 + 2];
-          FsRtlRemoveLargeEntry(Mcb, v29, 2LL);
+          v27[2 * v62 - 2] = v27[2 * v62 + 2];
+          FsRtlRemoveLargeEntry(Mcb, v28, 2LL);
         }
         else
         {
-          v28[3] = Lbn;
+          v27[3] = v5;
           FsRtlRemoveLargeEntry(Mcb, 0LL, 1LL);
         }
         return 0;
@@ -345,48 +343,47 @@ LABEL_113:
     }
     else
     {
-      v48 = v64;
+      v46 = v63;
     }
-    if ( v61 < PairCount - 1 )
-      v49 = v28[2 * v61 + 3];
+    if ( v62 < PairCount - 1 )
+      v47 = v27[2 * v62 + 3];
     else
-      v49 = -1;
-    if ( v49 == v48 + (_DWORD)Lbn )
+      v47 = -1;
+    if ( v47 == v46 + v5 )
     {
-      v28[2 * v61 + 3] = Lbn;
+      v27[2 * v62 + 3] = v5;
     }
     else
     {
-      if ( !v61 )
-        goto LABEL_110;
-      v50 = v61 - 1;
-      v51 = v28[2 * v50 + 1];
-      v52 = &v28[2 * v50];
-      if ( v51 != -1 )
+      if ( !v62 )
+        goto LABEL_108;
+      v48 = v62 - 1;
+      v49 = v27[2 * v48 + 1];
+      v50 = &v27[2 * v48];
+      if ( v49 != -1 )
       {
-        if ( v61 != 1 )
-          v9 = v28[2 * v61 - 4];
-        v12 = v51 - v9 + *v52 - 1;
+        if ( v62 != 1 )
+          v8 = v27[2 * v62 - 4];
+        v11 = v49 - v8 + *v50 - 1;
       }
-      if ( v12 + 1 != (_DWORD)Lbn )
+      if ( v11 + 1 != v5 )
       {
-LABEL_110:
-        v32[1] = Lbn;
+LABEL_108:
+        v31[1] = v5;
         return 0;
       }
-      *v52 = *v32;
+      *v50 = *v31;
     }
-    FsRtlRemoveLargeEntry(Mcb, v29, 1LL);
+    FsRtlRemoveLargeEntry(Mcb, v28, 1LL);
     return 0;
   }
-  if ( (unsigned __int8)FsRtlAddEntry(Mcb, v61, 2LL) )
+  if ( (unsigned __int8)FsRtlAddEntry(Mcb, v62, 2LL) )
   {
-    v35 = v29 + 1;
-    v36 = v62[0];
-    *(_DWORD *)((char *)Mcb->Mapping + v31 + 4) = -1;
-    *(_DWORD *)((char *)Mcb->Mapping + v31) = Vbn;
-    *((_DWORD *)Mcb->Mapping + 2 * v35 + 1) = Lbn;
-    *((_DWORD *)Mcb->Mapping + 2 * v35) = v36;
+    v34 = v28 + 1;
+    *(_DWORD *)((char *)Mcb->Mapping + v30 + 4) = -1;
+    *(_DWORD *)((char *)Mcb->Mapping + v30) = v6;
+    *((_DWORD *)Mcb->Mapping + 2 * v34 + 1) = v5;
+    *((_DWORD *)Mcb->Mapping + 2 * v34) = v60;
     return 0;
   }
   return -1073741670;

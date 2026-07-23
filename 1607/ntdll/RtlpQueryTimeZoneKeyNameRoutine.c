@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpQueryTimeZoneKeyNameRoutine @ 0x1800E5480
+ * XREFs of RtlpQueryTimeZoneKeyNameRoutine @ 0x1800E5540
  * Callers:
  *     <none>
  * Callees:
- *     wcsnlen @ 0x18009C750 (wcsnlen.c)
+ *     wcsnlen @ 0x18009C740 (wcsnlen.c)
  *     memmove @ 0x1800AC980 (memmove.c)
  */
 

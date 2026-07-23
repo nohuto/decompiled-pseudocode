@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlpHpSegHeapCheckCommitLimit @ 0x1403521D4
+ * XREFs of RtlpHpSegHeapCheckCommitLimit @ 0x140354258
  * Callers:
- *     RtlpHpSegMgrCommit @ 0x14034EB50 (RtlpHpSegMgrCommit.c)
- *     RtlpHpLargeAlloc @ 0x140351D9C (RtlpHpLargeAlloc.c)
+ *     RtlpHpSegMgrCommit @ 0x140350BD0 (RtlpHpSegMgrCommit.c)
+ *     RtlpHpLargeAlloc @ 0x140353E20 (RtlpHpLargeAlloc.c)
  * Callees:
- *     RtlpLogHeapFailure @ 0x140521C9C (RtlpLogHeapFailure.c)
+ *     RtlpLogHeapFailure @ 0x140524308 (RtlpLogHeapFailure.c)
  */
 
 __int64 __fastcall RtlpHpSegHeapCheckCommitLimit(__int64 a1, _QWORD *a2)

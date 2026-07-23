@@ -1,18 +1,18 @@
 /*
- * XREFs of DbgkFlushErrorPort @ 0x140A43A48
+ * XREFs of DbgkFlushErrorPort @ 0x140AF614C
  * Callers:
- *     PspExitProcess @ 0x140A43620 (PspExitProcess.c)
+ *     PspExitProcess @ 0x1409FE380 (PspExitProcess.c)
  * Callees:
- *     PsGetServerSiloGlobals @ 0x140216B70 (PsGetServerSiloGlobals.c)
- *     ExfAcquirePushLockSharedEx @ 0x140277CC0 (ExfAcquirePushLockSharedEx.c)
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     ExfReleasePushLockShared @ 0x140278BD0 (ExfReleasePushLockShared.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     KeLeaveCriticalRegionThread @ 0x1402B8A60 (KeLeaveCriticalRegionThread.c)
- *     PsGetProcessServerSilo @ 0x140476BF0 (PsGetProcessServerSilo.c)
- *     DbgkpDereferenceErrorPort @ 0x140532ABC (DbgkpDereferenceErrorPort.c)
- *     DbgkpRemoveErrorPort @ 0x140B3A9A0 (DbgkpRemoveErrorPort.c)
+ *     PsGetServerSiloGlobals @ 0x140216EA0 (PsGetServerSiloGlobals.c)
+ *     ExfAcquirePushLockSharedEx @ 0x140277230 (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     ExfReleasePushLockShared @ 0x140278140 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     KeLeaveCriticalRegionThread @ 0x140303720 (KeLeaveCriticalRegionThread.c)
+ *     PsGetProcessServerSilo @ 0x140470370 (PsGetProcessServerSilo.c)
+ *     DbgkpDereferenceErrorPort @ 0x140534F5C (DbgkpDereferenceErrorPort.c)
+ *     DbgkpRemoveErrorPort @ 0x140AF6254 (DbgkpRemoveErrorPort.c)
  */
 
 __int64 __fastcall DbgkFlushErrorPort(__int64 a1)
@@ -25,8 +25,6 @@ __int64 __fastcall DbgkFlushErrorPort(__int64 a1)
   volatile signed __int32 *v7; // rdi
   void *v8; // rdx
   LegacyAutoBoost *v9; // rsi
-  __int64 v10; // rdx
-  __int64 v11; // r8
 
   ProcessServerSilo = PsGetProcessServerSilo(a1);
   result = (__int64)PsGetServerSiloGlobals(ProcessServerSilo);
@@ -54,7 +52,7 @@ __int64 __fastcall DbgkFlushErrorPort(__int64 a1)
     if ( _InterlockedCompareExchange64(v5, 0LL, 17LL) != 17 )
       ExfReleasePushLockShared(v5);
     KeAbPostRelease((unsigned __int64)v5);
-    result = KeLeaveCriticalRegionThread((__int64)CurrentThread, v10, v11);
+    result = KeLeaveCriticalRegionThread((__int64)CurrentThread);
     if ( v7 )
     {
       DbgkpRemoveErrorPort(CurrentThread, v5, v7);

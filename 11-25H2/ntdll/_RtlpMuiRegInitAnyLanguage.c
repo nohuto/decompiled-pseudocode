@@ -10,23 +10,23 @@
  *     RtlInitUnicodeString @ 0x1800A8A00 (RtlInitUnicodeString.c)
  */
 
-__int64 __fastcall RtlpMuiRegInitAnyLanguage(__int64 a1, __int64 a2, WCHAR *a3, __int16 a4)
+__int64 __fastcall RtlpMuiRegInitAnyLanguage(__int64 a1, __int64 a2, const WCHAR *a3, __int16 a4)
 {
   int v8; // edi
   __int16 v10[2]; // [rsp+20h] [rbp-38h] BYREF
-  int v11; // [rsp+24h] [rbp-34h] BYREF
-  UNICODE_STRING DestinationString; // [rsp+28h] [rbp-30h] BYREF
+  DWORD Lcid; // [rsp+24h] [rbp-34h] BYREF
+  _UNICODE_STRING DestinationString; // [rsp+28h] [rbp-30h] BYREF
 
   DestinationString = 0LL;
-  v11 = 0;
+  Lcid = 0;
   v10[0] = -1;
   RtlInitUnicodeString(&DestinationString, a3);
-  if ( RtlCultureNameToLCID(&DestinationString.Length, &v11) )
+  if ( RtlCultureNameToLCID(&DestinationString, &Lcid) )
   {
-    v8 = RtlpMuiRegGetOrAddString(a1, (__int64)a3, 1, v10);
+    v8 = RtlpMuiRegGetOrAddString(a1, a3, 1, v10);
     if ( v8 >= 0 )
     {
-      *(_WORD *)(a2 + 4) = v11;
+      *(_WORD *)(a2 + 4) = Lcid;
       *(_WORD *)(a2 + 6) = v10[0];
       *(_WORD *)a2 = a4;
       *(_WORD *)(a2 + 2) = 0;

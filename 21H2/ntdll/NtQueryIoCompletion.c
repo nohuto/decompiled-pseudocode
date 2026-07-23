@@ -1,16 +1,21 @@
 /*
- * XREFs of NtQueryIoCompletion @ 0x1800A0090
+ * XREFs of NtQueryIoCompletion @ 0x1800A0050
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 NtQueryIoCompletion()
+NTSTATUS __cdecl NtQueryIoCompletion(
+        HANDLE IoCompletionHandle,
+        IO_COMPLETION_INFORMATION_CLASS IoCompletionInformationClass,
+        PVOID IoCompletionInformation,
+        ULONG IoCompletionInformationLength,
+        PULONG ReturnLength)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 339LL;
+  result = 339;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

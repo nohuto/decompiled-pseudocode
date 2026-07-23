@@ -1,12 +1,12 @@
 /*
- * XREFs of MiInsertPageFileMemoryExtents @ 0x14068E7E8
+ * XREFs of MiInsertPageFileMemoryExtents @ 0x14068F918
  * Callers:
- *     MiCreatePagefileMemoryExtents @ 0x1407FDE8C (MiCreatePagefileMemoryExtents.c)
+ *     MiCreatePagefileMemoryExtents @ 0x1407FE5FC (MiCreatePagefileMemoryExtents.c)
  * Callees:
- *     MiReleaseSpinLockExclusive @ 0x14028EE30 (MiReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x14028F370 (ExAcquireSpinLockExclusive.c)
- *     RtlRbInsertNodeEx @ 0x1402BDA80 (RtlRbInsertNodeEx.c)
- *     MiComparePageFileMemoryExtents @ 0x14068E304 (MiComparePageFileMemoryExtents.c)
+ *     MiReleaseSpinLockExclusive @ 0x14029EA30 (MiReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14029EF70 (ExAcquireSpinLockExclusive.c)
+ *     RtlRbInsertNodeEx @ 0x1403651C0 (RtlRbInsertNodeEx.c)
+ *     MiComparePageFileMemoryExtents @ 0x14068F434 (MiComparePageFileMemoryExtents.c)
  */
 
 __int64 __fastcall MiInsertPageFileMemoryExtents(__int64 a1, __int64 a2)
@@ -19,8 +19,8 @@ __int64 __fastcall MiInsertPageFileMemoryExtents(__int64 a1, __int64 a2)
   unsigned __int64 v9; // rax
   _QWORD *v10; // rcx
   unsigned __int64 v11; // rsi
-  unsigned __int64 v12; // rdi
-  bool v13; // r8
+  signed __int64 v12; // rdi
+  BOOLEAN v13; // r8
   int v14; // ebp
   unsigned __int64 v15; // rax
   char v16; // al
@@ -101,7 +101,7 @@ LABEL_25:
             v12 = v15;
           }
         }
-        RtlRbInsertNodeEx((__int64 *)v8, v12, v13, v6);
+        RtlRbInsertNodeEx((PRTL_RB_TREE)v8, (PRTL_BALANCED_NODE)v12, v13, (PRTL_BALANCED_NODE)v6);
         if ( !v11 )
         {
           v5 = v19;

@@ -16,7 +16,7 @@ __int64 __fastcall sub_18005BC5C(wchar_t *String1, size_t *a2, const wchar_t **a
 
   *a3 = 0LL;
   *a2 = 0LL;
-  NtSystemRoot = (const wchar_t *)RtlGetNtSystemRoot();
+  NtSystemRoot = RtlGetNtSystemRoot();
   v7 = -1LL;
   do
     ++v7;

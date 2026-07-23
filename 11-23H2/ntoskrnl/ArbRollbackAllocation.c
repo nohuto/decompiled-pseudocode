@@ -1,9 +1,9 @@
 /*
- * XREFs of ArbRollbackAllocation @ 0x140936890
+ * XREFs of ArbRollbackAllocation @ 0x140936A90
  * Callers:
  *     <none>
  * Callees:
- *     RtlFreeRangeList @ 0x140815600 (RtlFreeRangeList.c)
+ *     RtlFreeRangeList @ 0x1408158D0 (RtlFreeRangeList.c)
  */
 
 __int64 __fastcall ArbRollbackAllocation(__int64 a1)

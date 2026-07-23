@@ -1,11 +1,11 @@
 /*
- * XREFs of EmonReserveProfileResources @ 0x140596360
+ * XREFs of EmonReserveProfileResources @ 0x140598AE0
  * Callers:
  *     <none>
  * Callees:
- *     HalpPmuGetNumberOfReservedCounters @ 0x140580560 (HalpPmuGetNumberOfReservedCounters.c)
- *     EmonAllocateResources @ 0x140594F44 (EmonAllocateResources.c)
- *     EmonGetCountersBitmap @ 0x140595774 (EmonGetCountersBitmap.c)
+ *     HalpPmuGetNumberOfReservedCounters @ 0x140582A80 (HalpPmuGetNumberOfReservedCounters.c)
+ *     EmonAllocateResources @ 0x1405976C4 (EmonAllocateResources.c)
+ *     EmonGetCountersBitmap @ 0x140597EF4 (EmonGetCountersBitmap.c)
  */
 
 __int64 __fastcall EmonReserveProfileResources(__int64 a1, __int64 a2, unsigned int ***a3, _DWORD *a4)
@@ -64,9 +64,9 @@ __int64 __fastcall EmonReserveProfileResources(__int64 a1, __int64 a2, unsigned 
             }
             else
             {
-              if ( !IommuInterfaceStateChangeCallbackPushLock.PriorityFloorCounts[25] )
+              if ( !IommuInterfaceStateChangeCallbackPushLock.PriorityFloorCounts[24] )
                 return 3221225659LL;
-              if ( !LODWORD(IommuInterfaceStateChangeCallbackPushLock.ReadOperationCount) && !v14[6 * i + 6]
+              if ( !LODWORD(IommuInterfaceStateChangeCallbackPushLock.InGlobalForegroundList) && !v14[6 * i + 6]
                 || !v14[6 * i + 7] )
               {
                 return 3221225485LL;

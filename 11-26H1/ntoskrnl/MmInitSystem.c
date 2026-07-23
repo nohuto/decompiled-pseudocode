@@ -1,16 +1,16 @@
 /*
- * XREFs of MmInitSystem @ 0x140C7FD84
+ * XREFs of MmInitSystem @ 0x140C85D84
  * Callers:
- *     KiInitializeBootStructures @ 0x140BF5890 (KiInitializeBootStructures.c)
- *     InitBootProcessor @ 0x140CAA7CC (InitBootProcessor.c)
- *     Phase1InitializationDiscard @ 0x140CABD00 (Phase1InitializationDiscard.c)
- *     Phase1InitializationIoReady @ 0x140CAD020 (Phase1InitializationIoReady.c)
+ *     KiInitializeBootStructures @ 0x140BFB890 (KiInitializeBootStructures.c)
+ *     InitBootProcessor @ 0x140CB07CC (InitBootProcessor.c)
+ *     Phase1InitializationDiscard @ 0x140CB1D40 (Phase1InitializationDiscard.c)
+ *     Phase1InitializationIoReady @ 0x140CB3060 (Phase1InitializationIoReady.c)
  * Callees:
- *     MiInitializeStrongCode @ 0x140C7FF10 (MiInitializeStrongCode.c)
- *     MiComputeNumaCosts @ 0x140CF10D4 (MiComputeNumaCosts.c)
- *     MiInitSystem @ 0x140CF15C4 (MiInitSystem.c)
- *     MiInitNucleus @ 0x140CF2CBC (MiInitNucleus.c)
- *     MiInitializeSystemVa @ 0x140D0AC28 (MiInitializeSystemVa.c)
+ *     MiInitializeStrongCode @ 0x140C85F10 (MiInitializeStrongCode.c)
+ *     MiComputeNumaCosts @ 0x140CF744C (MiComputeNumaCosts.c)
+ *     MiInitSystem @ 0x140CF7944 (MiInitSystem.c)
+ *     MiInitNucleus @ 0x140CF903C (MiInitNucleus.c)
+ *     MiInitializeSystemVa @ 0x140D10EF8 (MiInitializeSystemVa.c)
  */
 
 void __fastcall MmInitSystem(int a1, ULONG_PTR a2)
@@ -22,7 +22,7 @@ void __fastcall MmInitSystem(int a1, ULONG_PTR a2)
   signed __int64 v18; // rdx
   char v19; // [rsp+20h] [rbp-18h]
 
-  if ( !dword_140E2D6F8 )
+  if ( !dword_140E2D878 )
   {
     _RAX = 0x80000000LL;
     __asm { cpuid }
@@ -36,23 +36,23 @@ void __fastcall MmInitSystem(int a1, ULONG_PTR a2)
       __asm { cpuid }
       v19 = _RAX;
     }
-    byte_140E2D718 = 1;
+    byte_140E2D898 = 1;
     v14 = v19;
     if ( (unsigned __int8)v19 > 0x34u )
       v14 = 52;
-    dword_140E2D6F8 = v14;
+    dword_140E2D878 = v14;
     v15 = v14 - 12;
     if ( (unsigned __int8)(v14 - 12) > 0x26u )
       v15 = 38;
-    dword_140E2D6FC = v15;
+    dword_140E2D87C = v15;
   }
   if ( a1 == -1 )
   {
-    word_140EF8C12 |= 1u;
-    BitMapHeader.Buffer = (unsigned int *)&unk_140EF8AB0;
+    word_140EF8F72 |= 1u;
+    BitMapHeader.Buffer = (unsigned int *)&unk_140EF8E10;
     BitMapHeader.SizeOfBitMap = 2048;
     MiInitializeStrongCode();
-    if ( byte_140FC7BE8 )
+    if ( byte_140FC8BD8 )
       MiFlags |= 0x2000000000uLL;
     MiInitializeSystemVa(a2);
   }
@@ -63,7 +63,7 @@ void __fastcall MmInitSystem(int a1, ULONG_PTR a2)
       _InterlockedOr64(&MiFlags, 0x10uLL);
       MiComputeNumaCosts();
       MiInitSystem(1LL, a2);
-      LOBYTE(stru_140E36558.ReadyTime) = 1;
+      LOBYTE(stru_140E366D8.ReadyTime) = 1;
     }
     else if ( a1 == 2 )
     {

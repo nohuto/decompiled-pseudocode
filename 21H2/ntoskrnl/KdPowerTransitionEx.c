@@ -1,20 +1,20 @@
 /*
- * XREFs of KdPowerTransitionEx @ 0x140510FC0
+ * XREFs of KdPowerTransitionEx @ 0x140511200
  * Callers:
- *     PpmIdleExecuteTransition @ 0x1402224B0 (PpmIdleExecuteTransition.c)
- *     PpmExitCoordinatedIdle @ 0x140224000 (PpmExitCoordinatedIdle.c)
- *     KdDisableDebuggerWithLock @ 0x1403CFA38 (KdDisableDebuggerWithLock.c)
- *     HalReturnToFirmware @ 0x1404BE1A0 (HalReturnToFirmware.c)
- *     KdEnableDebuggerWithLock @ 0x140510D7C (KdEnableDebuggerWithLock.c)
- *     KdPowerTransition @ 0x140510FA0 (KdPowerTransition.c)
- *     PopFxDebuggerPowerCriticalTransitionCallback @ 0x140579240 (PopFxDebuggerPowerCriticalTransitionCallback.c)
+ *     PpmIdleExecuteTransition @ 0x1402C6DB0 (PpmIdleExecuteTransition.c)
+ *     PpmExitCoordinatedIdle @ 0x1402C8900 (PpmExitCoordinatedIdle.c)
+ *     KdDisableDebuggerWithLock @ 0x1403CFBA8 (KdDisableDebuggerWithLock.c)
+ *     HalReturnToFirmware @ 0x1404BE3E0 (HalReturnToFirmware.c)
+ *     KdEnableDebuggerWithLock @ 0x140510FBC (KdEnableDebuggerWithLock.c)
+ *     KdPowerTransition @ 0x1405111E0 (KdPowerTransition.c)
+ *     PopFxDebuggerPowerCriticalTransitionCallback @ 0x140579480 (PopFxDebuggerPowerCriticalTransitionCallback.c)
  * Callees:
- *     KxAcquireSpinLock @ 0x1402295B0 (KxAcquireSpinLock.c)
- *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
- *     ObGetCurrentIrql @ 0x14025F590 (ObGetCurrentIrql.c)
+ *     KxReleaseSpinLock @ 0x140212140 (KxReleaseSpinLock.c)
+ *     ObGetCurrentIrql @ 0x14023A8A0 (ObGetCurrentIrql.c)
+ *     KxAcquireSpinLock @ 0x1402CDEB0 (KxAcquireSpinLock.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     PpmCancelExitLatencyTrace @ 0x1405656E0 (PpmCancelExitLatencyTrace.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     PpmCancelExitLatencyTrace @ 0x140565920 (PpmCancelExitLatencyTrace.c)
  */
 
 __int64 __fastcall KdPowerTransitionEx(int a1, char a2)

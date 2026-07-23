@@ -1,18 +1,18 @@
 /*
- * XREFs of SymCryptModElementIsEqual @ 0x14055C5D0
+ * XREFs of SymCryptModElementIsEqual @ 0x14055EAB8
  * Callers:
- *     SymCryptRsakeyCalculatePrimesFromPrivateExponent @ 0x1405598D8 (SymCryptRsakeyCalculatePrimesFromPrivateExponent.c)
- *     SymCryptEcurveInitialize @ 0x14055ADA4 (SymCryptEcurveInitialize.c)
- *     SymCryptEcurveIsSame @ 0x14055B378 (SymCryptEcurveIsSame.c)
- *     SymCryptEcDsaVerify @ 0x14055D084 (SymCryptEcDsaVerify.c)
- *     SymCryptTwistedEdwardsIsEqual @ 0x140565570 (SymCryptTwistedEdwardsIsEqual.c)
- *     SymCryptTwistedEdwardsIsZero @ 0x140565760 (SymCryptTwistedEdwardsIsZero.c)
- *     SymCryptTwistedEdwardsOnCurve @ 0x1405658A0 (SymCryptTwistedEdwardsOnCurve.c)
- *     SymCryptMontgomeryIsEqual @ 0x140565F90 (SymCryptMontgomeryIsEqual.c)
- *     SymCryptShortWeierstrassIsEqual @ 0x140567940 (SymCryptShortWeierstrassIsEqual.c)
- *     SymCryptShortWeierstrassOnCurve @ 0x140567C70 (SymCryptShortWeierstrassOnCurve.c)
+ *     SymCryptRsakeyCalculatePrimesFromPrivateExponent @ 0x14055BD68 (SymCryptRsakeyCalculatePrimesFromPrivateExponent.c)
+ *     SymCryptEcurveInitialize @ 0x14055D2B8 (SymCryptEcurveInitialize.c)
+ *     SymCryptEcurveIsSame @ 0x14055D85C (SymCryptEcurveIsSame.c)
+ *     SymCryptEcDsaVerify @ 0x14055F56C (SymCryptEcDsaVerify.c)
+ *     SymCryptShortWeierstrassIsEqual @ 0x1405755B0 (SymCryptShortWeierstrassIsEqual.c)
+ *     SymCryptShortWeierstrassOnCurve @ 0x1405758E0 (SymCryptShortWeierstrassOnCurve.c)
+ *     SymCryptTwistedEdwardsIsEqual @ 0x140576440 (SymCryptTwistedEdwardsIsEqual.c)
+ *     SymCryptTwistedEdwardsIsZero @ 0x140576630 (SymCryptTwistedEdwardsIsZero.c)
+ *     SymCryptTwistedEdwardsOnCurve @ 0x140576770 (SymCryptTwistedEdwardsOnCurve.c)
+ *     SymCryptMontgomeryIsEqual @ 0x140576E40 (SymCryptMontgomeryIsEqual.c)
  * Callees:
- *     SymCryptFdefModElementIsEqual @ 0x14056F574 (SymCryptFdefModElementIsEqual.c)
+ *     SymCryptFdefModElementIsEqual @ 0x14056E754 (SymCryptFdefModElementIsEqual.c)
  */
 
 __int64 SymCryptModElementIsEqual()

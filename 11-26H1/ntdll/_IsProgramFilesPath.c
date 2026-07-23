@@ -1,31 +1,31 @@
 /*
- * XREFs of _IsProgramFilesPath @ 0x18009AF84
+ * XREFs of _IsProgramFilesPath @ 0x18009A0B4
  * Callers:
- *     GetOverlayFilePathUsingChecksum @ 0x1800327F0 (GetOverlayFilePathUsingChecksum.c)
+ *     GetOverlayFilePathUsingChecksum @ 0x18001D950 (GetOverlayFilePathUsingChecksum.c)
  * Callees:
- *     RtlFreeHeap_0 @ 0x18003FD10 (RtlFreeHeap_0.c)
- *     RtlAllocateHeap_0 @ 0x1800439E0 (RtlAllocateHeap_0.c)
- *     RtlQueryEnvironmentVariable @ 0x18009CD10 (RtlQueryEnvironmentVariable.c)
- *     _wcsnicmp @ 0x180129080 (_wcsnicmp.c)
- *     __security_check_cookie @ 0x180162C90 (__security_check_cookie.c)
+ *     RtlFreeHeap_0 @ 0x18002A280 (RtlFreeHeap_0.c)
+ *     RtlAllocateHeap_0 @ 0x18002DF50 (RtlAllocateHeap_0.c)
+ *     RtlQueryEnvironmentVariable @ 0x18009BE40 (RtlQueryEnvironmentVariable.c)
+ *     _wcsnicmp @ 0x180128DF0 (_wcsnicmp.c)
+ *     __security_check_cookie @ 0x180162B90 (__security_check_cookie.c)
  */
 
 __int64 __fastcall IsProgramFilesPath(wchar_t *String1, size_t *a2)
 {
-  const wchar_t *Heap_0; // rsi
-  unsigned __int16 v5; // di
-  int EnvironmentVariable; // ebx
-  int v7; // eax
+  WCHAR *Heap_0; // rsi
+  SIZE_T v5; // rdi
+  NTSTATUS EnvironmentVariable; // ebx
+  NTSTATUS v7; // eax
   size_t v8; // rdi
-  _QWORD v10[2]; // [rsp+30h] [rbp-308h] BYREF
-  wchar_t String2[352]; // [rsp+40h] [rbp-2F8h] BYREF
+  ULONG_PTR ReturnLength[2]; // [rsp+30h] [rbp-308h] BYREF
+  WCHAR Value[352]; // [rsp+40h] [rbp-2F8h] BYREF
 
   *a2 = 0LL;
-  v10[0] = 0LL;
-  Heap_0 = String2;
-  v5 = 702;
-  EnvironmentVariable = RtlQueryEnvironmentVariable(0LL, L"ProgramFiles", 12LL, String2, 351LL, v10);
-  if ( v10[0] > 0x7FFFuLL )
+  ReturnLength[0] = 0LL;
+  Heap_0 = Value;
+  LOWORD(v5) = 702;
+  EnvironmentVariable = RtlQueryEnvironmentVariable(0LL, L"ProgramFiles", 0xCuLL, Value, 0x15FuLL, ReturnLength);
+  if ( ReturnLength[0] > 0x7FFF )
     return (unsigned int)-1073741801;
   if ( EnvironmentVariable != -1073741789 )
   {
@@ -33,15 +33,21 @@ __int64 __fastcall IsProgramFilesPath(wchar_t *String1, size_t *a2)
       goto LABEL_6;
     return (unsigned int)EnvironmentVariable;
   }
-  v5 = 2 * LOWORD(v10[0]);
-  Heap_0 = (const wchar_t *)RtlAllocateHeap_0();
+  v5 = (unsigned __int16)(2 * LOWORD(ReturnLength[0]));
+  Heap_0 = (WCHAR *)RtlAllocateHeap_0(NtCurrentPeb()->ProcessHeap, 8u, v5);
   if ( Heap_0 )
   {
 LABEL_6:
-    v10[0] = 0LL;
-    v7 = RtlQueryEnvironmentVariable(0LL, L"ProgramFiles", 12LL, Heap_0, (unsigned __int64)v5 >> 1, v10);
+    ReturnLength[0] = 0LL;
+    v7 = RtlQueryEnvironmentVariable(
+           0LL,
+           L"ProgramFiles",
+           0xCuLL,
+           Heap_0,
+           (unsigned __int64)(unsigned __int16)v5 >> 1,
+           ReturnLength);
     EnvironmentVariable = v7;
-    if ( v10[0] > 0x7FFFuLL )
+    if ( ReturnLength[0] > 0x7FFF )
     {
       EnvironmentVariable = -1073741801;
     }
@@ -56,8 +62,8 @@ LABEL_6:
       else
         *a2 = v8;
     }
-    if ( Heap_0 != String2 )
-      RtlFreeHeap_0();
+    if ( Heap_0 != Value )
+      RtlFreeHeap_0(NtCurrentPeb()->ProcessHeap, 0, Heap_0);
     return (unsigned int)EnvironmentVariable;
   }
   return 3221225659LL;

@@ -1,14 +1,19 @@
 /*
- * XREFs of ZwWriteVirtualMemory @ 0x14041B4A0
+ * XREFs of ZwWriteVirtualMemory @ 0x14041B830
  * Callers:
- *     SepAdtCopyToLsaSharedMemory @ 0x1409D1B74 (SepAdtCopyToLsaSharedMemory.c)
+ *     SepAdtCopyToLsaSharedMemory @ 0x1409D1D74 (SepAdtCopyToLsaSharedMemory.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwWriteVirtualMemory(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwWriteVirtualMemory(
+        HANDLE ProcessHandle,
+        PVOID BaseAddress,
+        PVOID Buffer,
+        SIZE_T BufferSize,
+        PSIZE_T NumberOfBytesWritten)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(ProcessHandle);
 }

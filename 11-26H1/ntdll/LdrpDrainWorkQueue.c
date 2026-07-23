@@ -1,40 +1,40 @@
 /*
- * XREFs of LdrpDrainWorkQueue @ 0x180087180
+ * XREFs of LdrpDrainWorkQueue @ 0x18007E4F0
  * Callers:
- *     RtlQueryInformationActivationContext @ 0x18004DED0 (RtlQueryInformationActivationContext.c)
- *     LdrpFindLoadedDll @ 0x180051680 (LdrpFindLoadedDll.c)
- *     LdrpLoadDllInternal @ 0x1800520B0 (LdrpLoadDllInternal.c)
- *     LdrpFastpthReloadedDll @ 0x180052D40 (LdrpFastpthReloadedDll.c)
- *     LdrUnloadDll @ 0x1800553B0 (LdrUnloadDll.c)
- *     LdrGetProcedureAddressForCaller @ 0x180085C00 (LdrGetProcedureAddressForCaller.c)
- *     RtlExitUserProcess @ 0x1800869E0 (RtlExitUserProcess.c)
- *     LdrShutdownThread @ 0x180086CA0 (LdrShutdownThread.c)
- *     LdrInitShimEngineDynamic @ 0x1800C5320 (LdrInitShimEngineDynamic.c)
- *     LdrpInitializeProcess @ 0x1800CF8B8 (LdrpInitializeProcess.c)
- *     LdrEnumerateLoadedModules @ 0x1800E1C10 (LdrEnumerateLoadedModules.c)
- *     LdrpInitializeImportRedirection @ 0x18011D004 (LdrpInitializeImportRedirection.c)
- *     RtlCloneUserProcess @ 0x18015C640 (RtlCloneUserProcess.c)
- *     RtlPrepareForProcessCloning @ 0x18015CB00 (RtlPrepareForProcessCloning.c)
+ *     RtlQueryInformationActivationContext @ 0x180038450 (RtlQueryInformationActivationContext.c)
+ *     LdrpFindLoadedDll @ 0x18003BC00 (LdrpFindLoadedDll.c)
+ *     LdrpLoadDllInternal @ 0x18003C630 (LdrpLoadDllInternal.c)
+ *     LdrpFastpthReloadedDll @ 0x18003D2C0 (LdrpFastpthReloadedDll.c)
+ *     LdrUnloadDll @ 0x18003F930 (LdrUnloadDll.c)
+ *     LdrGetProcedureAddressForCaller @ 0x18007CFA0 (LdrGetProcedureAddressForCaller.c)
+ *     RtlExitUserProcess @ 0x18007DD80 (RtlExitUserProcess.c)
+ *     LdrShutdownThread @ 0x18007E040 (LdrShutdownThread.c)
+ *     LdrInitShimEngineDynamic @ 0x1800C2AE0 (LdrInitShimEngineDynamic.c)
+ *     LdrpInitializeProcess @ 0x1800CD028 (LdrpInitializeProcess.c)
+ *     LdrEnumerateLoadedModules @ 0x1800DF4B0 (LdrEnumerateLoadedModules.c)
+ *     LdrpInitializeImportRedirection @ 0x18011CDB4 (LdrpInitializeImportRedirection.c)
+ *     RtlCloneUserProcess @ 0x18015C500 (RtlCloneUserProcess.c)
+ *     RtlPrepareForProcessCloning @ 0x18015C9C0 (RtlPrepareForProcessCloning.c)
  * Callees:
- *     RtlEnterCriticalSection @ 0x180048D70 (RtlEnterCriticalSection.c)
- *     RtlLeaveCriticalSection @ 0x18004A3E0 (RtlLeaveCriticalSection.c)
- *     LdrpUpdateStatistics @ 0x1800870D4 (LdrpUpdateStatistics.c)
- *     LdrpProcessWork @ 0x180087350 (LdrpProcessWork.c)
- *     NtWaitForSingleObject @ 0x18015EFC0 (NtWaitForSingleObject.c)
+ *     RtlEnterCriticalSection @ 0x1800332F0 (RtlEnterCriticalSection.c)
+ *     RtlLeaveCriticalSection @ 0x180034960 (RtlLeaveCriticalSection.c)
+ *     LdrpUpdateStatistics @ 0x18007E444 (LdrpUpdateStatistics.c)
+ *     LdrpProcessWork @ 0x18007E6C0 (LdrpProcessWork.c)
+ *     NtWaitForSingleObject @ 0x18015EEC0 (NtWaitForSingleObject.c)
  */
 
 struct _TEB *__fastcall LdrpDrainWorkQueue(int a1)
 {
   HANDLE v1; // r14
   char v2; // si
-  char v4; // di
+  unsigned __int8 v4; // di
   __int64 *v5; // rbx
   __int64 v6; // rax
   struct _TEB *result; // rax
   __int64 v8; // rax
   __int64 v9; // rax
 
-  v1 = (HANDLE)LdrpWorkCompleteEvent;
+  v1 = LdrpWorkCompleteEvent;
   v2 = 0;
   if ( !a1 )
     v1 = LdrpLoadCompleteEvent;
@@ -42,7 +42,7 @@ struct _TEB *__fastcall LdrpDrainWorkQueue(int a1)
   {
     while ( 1 )
     {
-      RtlEnterCriticalSection((__int64)&LdrpWorkQueueLock);
+      RtlEnterCriticalSection(&LdrpWorkQueueLock);
       v4 = LdrpDetourExist;
       if ( LdrpDetourExist && a1 != 1 )
       {
@@ -68,32 +68,32 @@ struct _TEB *__fastcall LdrpDrainWorkQueue(int a1)
         ++LdrpWorkInProgress;
       LdrpUpdateStatistics();
 LABEL_16:
-      RtlLeaveCriticalSection((__int64)&LdrpWorkQueueLock);
+      RtlLeaveCriticalSection(&LdrpWorkQueueLock);
       if ( v2 )
         goto LABEL_9;
       if ( &LdrpWorkQueue == v5 )
         NtWaitForSingleObject(v1, 0, 0LL);
       else
-        LdrpProcessWork((_BYTE)v5 - 64);
+        LdrpProcessWork(v5 - 8, v4);
     }
     if ( LdrpWorkInProgress != a1 )
       goto LABEL_16;
     LdrpWorkInProgress = 1;
-    RtlLeaveCriticalSection((__int64)&LdrpWorkQueueLock);
+    RtlLeaveCriticalSection(&LdrpWorkQueueLock);
 LABEL_9:
     if ( !a1 || (__int64 *)LdrpRetryQueue == &LdrpRetryQueue )
       break;
-    RtlEnterCriticalSection((__int64)&LdrpWorkQueueLock);
+    RtlEnterCriticalSection(&LdrpWorkQueueLock);
     v8 = LdrpRetryQueue;
     *(_QWORD *)(LdrpRetryQueue + 8) = &LdrpWorkQueue;
     LdrpWorkQueue = v8;
-    v9 = qword_1801CB648;
-    *(_QWORD *)qword_1801CB648 = &LdrpWorkQueue;
-    qword_1801CB698 = v9;
-    qword_1801CB648 = (__int64)&LdrpRetryQueue;
+    v9 = qword_1801CA678;
+    *(_QWORD *)qword_1801CA678 = &LdrpWorkQueue;
+    qword_1801CA6F8 = v9;
+    qword_1801CA678 = (__int64)&LdrpRetryQueue;
     LdrpRetryQueue = (__int64)&LdrpRetryQueue;
     LdrpRetryingModuleIndex = 0LL;
-    RtlLeaveCriticalSection((__int64)&LdrpWorkQueueLock);
+    RtlLeaveCriticalSection(&LdrpWorkQueueLock);
     v2 = 0;
   }
   result = NtCurrentTeb();

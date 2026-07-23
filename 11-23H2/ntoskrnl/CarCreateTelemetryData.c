@@ -1,11 +1,11 @@
 /*
- * XREFs of CarCreateTelemetryData @ 0x1405D3A3C
+ * XREFs of CarCreateTelemetryData @ 0x1405D3FAC
  * Callers:
- *     CarReportRuleViolationForTriage @ 0x1405D43C0 (CarReportRuleViolationForTriage.c)
+ *     CarReportRuleViolationForTriage @ 0x1405D4930 (CarReportRuleViolationForTriage.c)
  * Callees:
- *     memset @ 0x140435A00 (memset.c)
- *     CarDeleteTelemetryData @ 0x1405D3AE4 (CarDeleteTelemetryData.c)
- *     CarInitializeTelemetryData @ 0x1405D3D90 (CarInitializeTelemetryData.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     CarDeleteTelemetryData @ 0x1405D4054 (CarDeleteTelemetryData.c)
+ *     CarInitializeTelemetryData @ 0x1405D4300 (CarInitializeTelemetryData.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
 

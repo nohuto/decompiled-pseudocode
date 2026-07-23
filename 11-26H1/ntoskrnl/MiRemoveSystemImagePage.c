@@ -1,11 +1,11 @@
 /*
- * XREFs of MiRemoveSystemImagePage @ 0x14038A3F4
+ * XREFs of MiRemoveSystemImagePage @ 0x14038C1A4
  * Callers:
- *     MiLockCode @ 0x14029602C (MiLockCode.c)
- *     MiMakeDriverPageStayResident @ 0x14038A698 (MiMakeDriverPageStayResident.c)
+ *     MiLockCode @ 0x14029558C (MiLockCode.c)
+ *     MiMakeDriverPageStayResident @ 0x14038C448 (MiMakeDriverPageStayResident.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     MiTerminateWsle @ 0x140324930 (MiTerminateWsle.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     MiTerminateWsle @ 0x140326960 (MiTerminateWsle.c)
  */
 
 __int64 __fastcall MiRemoveSystemImagePage(__int64 a1, __int64 a2, __int64 a3)
@@ -19,10 +19,16 @@ __int64 __fastcall MiRemoveSystemImagePage(__int64 a1, __int64 a2, __int64 a3)
   v7 = 0;
   _InterlockedAnd64((volatile signed __int64 *)(a3 + 24), 0x7FFFFFFFFFFFFFFFuLL);
   v4 = a2 << 25 >> 16;
-  if ( PsNtosImageBase && (v4 < PsNtosImageEnd && v4 >= PsNtosImageBase || v4 < PsHalImageEnd && v4 >= PsHalImageBase) )
-    p_UserTime = (unsigned int *)&stru_140E2D150.SchedulerApcFill5[80];
+  if ( PsNtosImageBase
+    && (v4 < PsNtosImageEnd && v4 >= (unsigned __int64)PsNtosImageBase
+     || v4 < PsHalImageEnd && v4 >= (unsigned __int64)PsHalImageBase) )
+  {
+    p_UserTime = (unsigned int *)&stru_140E2D2D0.SchedulerApcFill5[80];
+  }
   else
-    p_UserTime = &stru_140E2D150.UserTime;
+  {
+    p_UserTime = &stru_140E2D2D0.UserTime;
+  }
   _InterlockedDecrement((volatile signed __int32 *)p_UserTime);
   result = MiTerminateWsle(a1, v4, 0, 1, &v7);
   v7 = 0;

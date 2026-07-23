@@ -1,15 +1,15 @@
 /*
- * XREFs of ZwLockProductActivationKeys @ 0x140725690
+ * XREFs of ZwLockProductActivationKeys @ 0x14072A260
  * Callers:
- *     DifZwLockProductActivationKeysWrapper @ 0x1406A96B0 (DifZwLockProductActivationKeysWrapper.c)
- *     ExInitializeTimeRefresh @ 0x140CE3D60 (ExInitializeTimeRefresh.c)
+ *     DifZwLockProductActivationKeysWrapper @ 0x1406AD290 (DifZwLockProductActivationKeysWrapper.c)
+ *     ExInitializeTimeRefresh @ 0x140CEA100 (ExInitializeTimeRefresh.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwLockProductActivationKeys(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwLockProductActivationKeys(ULONG *pPrivateVer, ULONG *pSafeMode)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(pPrivateVer);
 }

@@ -16,27 +16,27 @@ NTSTATUS __stdcall RtlUnicodeStringToAnsiString(
 {
   NTSTATUS v6; // r14d
   unsigned int v7; // eax
-  unsigned __int16 v8; // cx
-  char *v9; // rax
-  unsigned int Length; // r9d
-  wchar_t *Buffer; // r11
-  unsigned int v12; // ecx
-  char *v13; // r10
-  unsigned int v14; // r9d
+  USHORT v8; // cx
+  CHAR *v9; // rax
+  ULONG UnicodeStringByteCount; // r9d
+  const WCHAR *Buffer; // r11
+  ULONG Length; // ecx
+  CHAR *v13; // r10
+  ULONG v14; // r9d
   __int64 v15; // rbx
-  unsigned int i; // eax
+  ULONG i; // eax
   int v17; // ebx
   __int64 v18; // rdi
   __int16 v19; // r8
   unsigned int v20; // eax
-  unsigned __int16 MaximumLength; // ax
-  unsigned int v23; // [rsp+30h] [rbp-58h] BYREF
+  USHORT MaximumLength; // ax
+  ULONG UTF8StringActualByteCount; // [rsp+30h] [rbp-58h] BYREF
   int v24; // [rsp+34h] [rbp-54h]
-  unsigned int v25; // [rsp+38h] [rbp-50h]
-  unsigned int v26; // [rsp+40h] [rbp-48h]
-  unsigned int v27; // [rsp+44h] [rbp-44h]
-  char *v28; // [rsp+48h] [rbp-40h]
-  wchar_t *v29; // [rsp+50h] [rbp-38h]
+  ULONG v25; // [rsp+38h] [rbp-50h]
+  ULONG v26; // [rsp+40h] [rbp-48h]
+  ULONG v27; // [rsp+44h] [rbp-44h]
+  CHAR *v28; // [rsp+48h] [rbp-40h]
+  const WCHAR *v29; // [rsp+50h] [rbp-38h]
 
   v6 = 0;
   if ( NlsMbCodePageTag )
@@ -50,7 +50,7 @@ NTSTATUS __stdcall RtlUnicodeStringToAnsiString(
   if ( AllocateDestinationString )
   {
     DestinationString->MaximumLength = v7;
-    v9 = (char *)sub_18003B5E0(v7);
+    v9 = (CHAR *)sub_18003B5E0(v7);
     DestinationString->Buffer = v9;
     if ( !v9 )
       return -1073741801;
@@ -67,36 +67,36 @@ NTSTATUS __stdcall RtlUnicodeStringToAnsiString(
     }
   }
   v24 = 0;
-  Length = SourceString->Length;
+  UnicodeStringByteCount = SourceString->Length;
   Buffer = SourceString->Buffer;
   v29 = Buffer;
-  v12 = DestinationString->Length;
-  v25 = v12;
+  Length = DestinationString->Length;
+  v25 = Length;
   v13 = DestinationString->Buffer;
   v28 = v13;
   if ( byte_18015ADB1 )
   {
-    if ( Length )
-      RtlUnicodeToUTF8N((_DWORD)v13, v12, (unsigned int)&v23, (_DWORD)Buffer, Length);
+    if ( UnicodeStringByteCount )
+      RtlUnicodeToUTF8N(v13, Length, &UTF8StringActualByteCount, Buffer, UnicodeStringByteCount);
     else
-      v23 = 0;
+      UTF8StringActualByteCount = 0;
   }
   else
   {
-    v14 = Length >> 1;
+    v14 = UnicodeStringByteCount >> 1;
     v27 = v14;
     if ( NlsMbCodePageTag )
     {
       v17 = (int)v13;
       v18 = qword_18015ADB8;
-      while ( v14 && v12 )
+      while ( v14 && Length )
       {
         v19 = *(_WORD *)(v18 + 2LL * *Buffer++);
         v29 = Buffer;
         if ( HIBYTE(v19) )
         {
-          v20 = v12--;
-          v25 = v12;
+          v20 = Length--;
+          v25 = Length;
           if ( v20 < 2 )
             break;
           *v13++ = HIBYTE(v19);
@@ -104,16 +104,16 @@ NTSTATUS __stdcall RtlUnicodeStringToAnsiString(
         }
         *v13++ = v19;
         v28 = v13;
-        v25 = --v12;
+        v25 = --Length;
         v27 = --v14;
       }
-      v23 = (_DWORD)v13 - v17;
+      UTF8StringActualByteCount = (_DWORD)v13 - v17;
     }
     else
     {
-      if ( v14 >= v12 )
-        v14 = v12;
-      v23 = v14;
+      if ( v14 >= Length )
+        v14 = Length;
+      UTF8StringActualByteCount = v14;
       v15 = qword_18015B218;
       for ( i = 0; ; ++i )
       {
@@ -125,6 +125,6 @@ NTSTATUS __stdcall RtlUnicodeStringToAnsiString(
     }
   }
   v24 = 0;
-  DestinationString->Buffer[v23] = 0;
+  DestinationString->Buffer[UTF8StringActualByteCount] = 0;
   return v6;
 }

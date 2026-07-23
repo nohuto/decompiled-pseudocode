@@ -1,11 +1,11 @@
 /*
- * XREFs of HalpMcaProcessorBankClear @ 0x140505ECC
+ * XREFs of HalpMcaProcessorBankClear @ 0x14050641C
  * Callers:
- *     HalpMcaClearError @ 0x140502F90 (HalpMcaClearError.c)
+ *     HalpMcaClearError @ 0x1405034E0 (HalpMcaClearError.c)
  * Callees:
- *     HalpWheaReadMsrStatus @ 0x1403805A0 (HalpWheaReadMsrStatus.c)
- *     HalpGetCpuVendor @ 0x1403805F4 (HalpGetCpuVendor.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
+ *     HalpWheaReadMsrStatus @ 0x140380740 (HalpWheaReadMsrStatus.c)
+ *     HalpGetCpuVendor @ 0x140380794 (HalpGetCpuVendor.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
  */
 
 char __fastcall HalpMcaProcessorBankClear(__int64 a1, int a2)

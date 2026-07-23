@@ -1,10 +1,10 @@
 /*
- * XREFs of VfZwCloseObjectAuditAlarm_Entry @ 0x140C324B0
+ * XREFs of VfZwCloseObjectAuditAlarm_Entry @ 0x140C384C0
  * Callers:
  *     <none>
  * Callees:
- *     ViZwCheckUnicodeString @ 0x140C33170 (ViZwCheckUnicodeString.c)
- *     ViZwShouldCheck @ 0x140C47B84 (ViZwShouldCheck.c)
+ *     ViZwCheckUnicodeString @ 0x140C39180 (ViZwCheckUnicodeString.c)
+ *     ViZwShouldCheck @ 0x140C4DB94 (ViZwShouldCheck.c)
  */
 
 __int64 __fastcall VfZwCloseObjectAuditAlarm_Entry(__int64 a1, __int64 a2)

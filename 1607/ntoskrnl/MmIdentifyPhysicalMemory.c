@@ -1,14 +1,14 @@
 /*
- * XREFs of MmIdentifyPhysicalMemory @ 0x140658E18
+ * XREFs of MmIdentifyPhysicalMemory @ 0x140658EFC
  * Callers:
- *     EtwpKernelTraceRundown @ 0x140495B04 (EtwpKernelTraceRundown.c)
- *     EtwpSetMark @ 0x1406A2924 (EtwpSetMark.c)
+ *     EtwpKernelTraceRundown @ 0x140496594 (EtwpKernelTraceRundown.c)
+ *     EtwpSetMark @ 0x1406A2A5C (EtwpSetMark.c)
  * Callees:
- *     MiIdentifyPfnWrapper @ 0x14000FBF0 (MiIdentifyPfnWrapper.c)
- *     EtwpLogKernelEvent @ 0x140059740 (EtwpLogKernelEvent.c)
- *     MiDereferencePageRuns @ 0x140107058 (MiDereferencePageRuns.c)
- *     MiReferencePageRuns @ 0x1401070F0 (MiReferencePageRuns.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
+ *     MiIdentifyPfnWrapper @ 0x14000F770 (MiIdentifyPfnWrapper.c)
+ *     EtwpLogKernelEvent @ 0x1400592C0 (EtwpLogKernelEvent.c)
+ *     MiDereferencePageRuns @ 0x140104DD8 (MiDereferencePageRuns.c)
+ *     MiReferencePageRuns @ 0x140104E70 (MiReferencePageRuns.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall MmIdentifyPhysicalMemory(unsigned int a1, unsigned __int16 a2, int a3)

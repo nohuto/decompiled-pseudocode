@@ -14,12 +14,13 @@ _DWORD *__fastcall LdrpRecordModuleDependency(int a1, int a2, _DWORD *a3, _DWORD
   int v5; // edi
   unsigned int v6; // eax
   _DWORD *v8; // ecx
-  int Heap; // eax
+  _DWORD *Heap; // eax
   _DWORD *v10; // edx
   _DWORD *v11; // edx
   _DWORD *v12; // ebx
   int v13; // eax
   int v14; // eax
+  SIZE_T v15; // [esp-4h] [ebp-10h]
 
   v4 = *(_DWORD *)(a1 + 80);
   v5 = *(_DWORD *)(a2 + 80);
@@ -28,14 +29,15 @@ _DWORD *__fastcall LdrpRecordModuleDependency(int a1, int a2, _DWORD *a3, _DWORD
     v8 = a3;
     if ( !a3 )
     {
-      Heap = RtlAllocateHeap(LdrpHeap, NtdllBaseTag + 2359296, 16);
-      v8 = (_DWORD *)Heap;
+      LODWORD(v15) = 16;
+      Heap = RtlAllocateHeap(LdrpHeap, NtdllBaseTag + 2359296, v15);
+      v8 = Heap;
       if ( !Heap )
       {
         *a4 = -1073741801;
         return 0;
       }
-      *(_DWORD *)(Heap + 12) |= 1u;
+      Heap[3] |= 1u;
     }
     v10 = *(_DWORD **)(v4 + 24);
     if ( v10 )

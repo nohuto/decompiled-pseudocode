@@ -1,11 +1,11 @@
 /*
- * XREFs of PiDevCfgVerifyService @ 0x14087985C
+ * XREFs of PiDevCfgVerifyService @ 0x140879A9C
  * Callers:
- *     PiDevCfgQueryDriverConfiguration @ 0x140879374 (PiDevCfgQueryDriverConfiguration.c)
+ *     PiDevCfgQueryDriverConfiguration @ 0x1408795B4 (PiDevCfgQueryDriverConfiguration.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1B0 (RtlInitUnicodeString.c)
- *     PnpValidateRegistryDword @ 0x1403C6BBC (PnpValidateRegistryDword.c)
- *     ZwClose @ 0x14041AF40 (ZwClose.c)
+ *     RtlInitUnicodeString @ 0x14022E2C0 (RtlInitUnicodeString.c)
+ *     PnpValidateRegistryDword @ 0x1403C6D9C (PnpValidateRegistryDword.c)
+ *     ZwClose @ 0x14041B2D0 (ZwClose.c)
  *     IopGetRegistryValue @ 0x14068CE78 (IopGetRegistryValue.c)
  *     PipOpenServiceEnumKeys @ 0x14068E904 (PipOpenServiceEnumKeys.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)

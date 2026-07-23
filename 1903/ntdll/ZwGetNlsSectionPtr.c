@@ -6,11 +6,16 @@
  *     <none>
  */
 
-__int64 ZwGetNlsSectionPtr()
+NTSTATUS __cdecl ZwGetNlsSectionPtr(
+        ULONG SectionType,
+        ULONG SectionData,
+        PVOID ContextData,
+        PVOID *SectionPointer,
+        PULONG SectionSize)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 244LL;
+  result = 244;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

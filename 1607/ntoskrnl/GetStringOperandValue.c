@@ -1,10 +1,10 @@
 /*
- * XREFs of GetStringOperandValue @ 0x1406CDEDC
+ * XREFs of GetStringOperandValue @ 0x1406CE014
  * Callers:
- *     GetOperandValue @ 0x1406CCF20 (GetOperandValue.c)
+ *     GetOperandValue @ 0x1406CD058 (GetOperandValue.c)
  * Callees:
- *     memmove @ 0x140171280 (memmove.c)
- *     SddlpAlloc @ 0x1404D7574 (SddlpAlloc.c)
+ *     memmove @ 0x140171780 (memmove.c)
+ *     SddlpAlloc @ 0x1404BAB78 (SddlpAlloc.c)
  */
 
 __int64 __fastcall GetStringOperandValue(__int64 a1, __int64 *a2, _DWORD *a3)

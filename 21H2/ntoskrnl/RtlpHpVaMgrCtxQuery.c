@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlpHpVaMgrCtxQuery @ 0x14030944C
+ * XREFs of RtlpHpVaMgrCtxQuery @ 0x14031419C
  * Callers:
- *     RtlpHpQueryVA @ 0x1402A5CA4 (RtlpHpQueryVA.c)
- *     RtlpHpSegMgrCommit @ 0x14030A610 (RtlpHpSegMgrCommit.c)
+ *     RtlpHpQueryVA @ 0x1402230E4 (RtlpHpQueryVA.c)
+ *     RtlpHpSegMgrCommit @ 0x140315360 (RtlpHpSegMgrCommit.c)
  * Callees:
- *     RtlSparseArrayElementAllocated @ 0x1403094EC (RtlSparseArrayElementAllocated.c)
- *     RtlpLogHeapFailure @ 0x14059356C (RtlpLogHeapFailure.c)
+ *     RtlSparseArrayElementAllocated @ 0x14031423C (RtlSparseArrayElementAllocated.c)
+ *     RtlpLogHeapFailure @ 0x14059379C (RtlpLogHeapFailure.c)
  */
 
 __int64 __fastcall RtlpHpVaMgrCtxQuery(__int64 a1, __int64 a2, __int64 a3)

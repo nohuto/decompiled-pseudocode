@@ -1,31 +1,31 @@
 /*
- * XREFs of PiDevCfgResolveVariable @ 0x140A6A668
+ * XREFs of PiDevCfgResolveVariable @ 0x140A63A18
  * Callers:
- *     PiDevCfgQueryResolveValue @ 0x1405A6EBC (PiDevCfgQueryResolveValue.c)
- *     PiDevCfgResolveVariableFormatString @ 0x14072B770 (PiDevCfgResolveVariableFormatString.c)
- *     PiDevCfgResolveVariableKeyValue @ 0x14072BE70 (PiDevCfgResolveVariableKeyValue.c)
- *     PiDevCfgResolveVariableSwitchCase @ 0x14072C050 (PiDevCfgResolveVariableSwitchCase.c)
- *     PiDevCfgCopyDeviceKey @ 0x14099BA04 (PiDevCfgCopyDeviceKey.c)
- *     PiDevCfgConfigureDeviceInterfaces @ 0x140A77CC0 (PiDevCfgConfigureDeviceInterfaces.c)
- *     PiDevCfgResolveVariableExpression @ 0x140A91630 (PiDevCfgResolveVariableExpression.c)
- *     PiDevCfgResolveVariableKeyHandle @ 0x140A9C7E4 (PiDevCfgResolveVariableKeyHandle.c)
+ *     PiDevCfgQueryResolveValue @ 0x1405A3EAC (PiDevCfgQueryResolveValue.c)
+ *     PiDevCfgResolveVariableFormatString @ 0x140729760 (PiDevCfgResolveVariableFormatString.c)
+ *     PiDevCfgResolveVariableKeyValue @ 0x140729E60 (PiDevCfgResolveVariableKeyValue.c)
+ *     PiDevCfgResolveVariableSwitchCase @ 0x14072A040 (PiDevCfgResolveVariableSwitchCase.c)
+ *     PiDevCfgCopyDeviceKey @ 0x1409CE174 (PiDevCfgCopyDeviceKey.c)
+ *     PiDevCfgConfigureDeviceInterfaces @ 0x140A71FC0 (PiDevCfgConfigureDeviceInterfaces.c)
+ *     PiDevCfgResolveVariableExpression @ 0x140A8DDE0 (PiDevCfgResolveVariableExpression.c)
+ *     PiDevCfgResolveVariableKeyHandle @ 0x140A97D54 (PiDevCfgResolveVariableKeyHandle.c)
  * Callees:
- *     PsGetCurrentServerSiloGlobals @ 0x140347D10 (PsGetCurrentServerSiloGlobals.c)
- *     NLS_UPCASE @ 0x140400650 (NLS_UPCASE.c)
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     PnpValidateRegistryString @ 0x1404ACEE0 (PnpValidateRegistryString.c)
- *     PnpStringToDwordValue @ 0x1404D71D0 (PnpStringToDwordValue.c)
- *     _wcsicmp @ 0x1404FE3B0 (_wcsicmp.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     ZwOpenKey @ 0x1406A6650 (ZwOpenKey.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     RtlCreateUnicodeString @ 0x140833010 (RtlCreateUnicodeString.c)
- *     RtlEqualUnicodeString @ 0x140927050 (RtlEqualUnicodeString.c)
- *     PiDevCfgFreeVariable @ 0x1409648DC (PiDevCfgFreeVariable.c)
- *     IopGetRegistryValue @ 0x1409CAD5C (IopGetRegistryValue.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x140326710 (PsGetCurrentServerSiloGlobals.c)
+ *     NLS_UPCASE @ 0x1403FAB40 (NLS_UPCASE.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     PnpValidateRegistryString @ 0x1404A75C4 (PnpValidateRegistryString.c)
+ *     PnpStringToDwordValue @ 0x1404D0620 (PnpStringToDwordValue.c)
+ *     _wcsicmp @ 0x1404FBC70 (_wcsicmp.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     ZwOpenKey @ 0x1406A75F0 (ZwOpenKey.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     RtlEqualUnicodeString @ 0x140929190 (RtlEqualUnicodeString.c)
+ *     PiDevCfgFreeVariable @ 0x14094C6B4 (PiDevCfgFreeVariable.c)
+ *     IopGetRegistryValue @ 0x1409B5F9C (IopGetRegistryValue.c)
+ *     RtlCreateUnicodeString @ 0x1409D2A00 (RtlCreateUnicodeString.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PiDevCfgResolveVariable(__int64 a1, const WCHAR *a2, __int64 *a3)
@@ -55,10 +55,10 @@ __int64 __fastcall PiDevCfgResolveVariable(__int64 a1, const WCHAR *a2, __int64 
   __int64 Pool2; // rdi
   const UNICODE_STRING *v28; // rcx
   __int64 *v29; // rax
-  __int64 v30; // r9
-  int v31; // eax
-  _WORD *v32; // rsi
-  __int64 v33; // rax
+  int v30; // eax
+  _WORD *v31; // rsi
+  __int64 v32; // rax
+  unsigned int v33; // eax
   void *v34; // rax
   _DWORD *v35; // rax
   __int64 v36; // rcx
@@ -129,7 +129,7 @@ LABEL_5:
       {
         if ( i >= 4 )
           goto LABEL_29;
-        v24 = &(&off_140B3D1E0)[3 * i];
+        v24 = &(&off_140B3EF90)[3 * i];
         if ( !wcsicmp(*v24, a2) )
           break;
       }
@@ -145,7 +145,7 @@ LABEL_29:
         v6 = v47;
         v22 = 0LL;
 LABEL_27:
-        Pool2 = ExAllocatePool2(0x100uLL);
+        Pool2 = ExAllocatePool2(0x100uLL, 0x30uLL, 0x63647050u);
         if ( !Pool2 )
         {
           v4 = -1073741670;
@@ -164,28 +164,29 @@ LABEL_27:
           if ( v22 )
           {
             *(_DWORD *)(Pool2 + 32) = -1;
-            v31 = guard_dispatch_icall_no_overrides(a1, KeyHandle, Pool2, v30);
-            v4 = v31;
-            if ( v31 >= 0 )
+            v30 = guard_dispatch_icall_no_overrides(a1, KeyHandle);
+            v4 = v30;
+            if ( v30 >= 0 )
               goto LABEL_51;
-            if ( v31 == -1073741772 )
+            if ( v30 == -1073741772 )
               v4 = -1073741823;
             goto LABEL_55;
           }
-          v32 = Src;
+          v31 = Src;
           if ( Src )
           {
             *(_DWORD *)(Pool2 + 32) = 1;
-            v33 = -1LL;
+            v32 = -1LL;
             do
-              ++v33;
-            while ( v32[v33] );
-            *(_DWORD *)(Pool2 + 36) = 2 * v33 + 2;
-            v34 = (void *)ExAllocatePool2(0x100uLL);
+              ++v32;
+            while ( v31[v32] );
+            v33 = 2 * v32 + 2;
+            *(_DWORD *)(Pool2 + 36) = v33;
+            v34 = (void *)ExAllocatePool2(0x100uLL, v33, 0x63647050u);
             *(_QWORD *)(Pool2 + 40) = v34;
             if ( v34 )
             {
-              memmove(v34, v32, *(unsigned int *)(Pool2 + 36));
+              memmove(v34, v31, *(unsigned int *)(Pool2 + 36));
               goto LABEL_51;
             }
           }
@@ -193,7 +194,7 @@ LABEL_27:
           {
             *(_DWORD *)(Pool2 + 32) = 4;
             *(_DWORD *)(Pool2 + 36) = 4;
-            v35 = (_DWORD *)ExAllocatePool2(0x100uLL);
+            v35 = (_DWORD *)ExAllocatePool2(0x100uLL, 4uLL, 0x63647050u);
             *(_QWORD *)(Pool2 + 40) = v35;
             if ( v35 )
             {
@@ -229,7 +230,7 @@ LABEL_58:
     }
     else
     {
-      RegistryValue = IopGetRegistryValue(KeyHandle, (const WCHAR *)&dword_140B43C84, 0, P);
+      RegistryValue = IopGetRegistryValue(KeyHandle, (const WCHAR *)&dword_140B45A74, 0, P);
       v5 = (unsigned int *)P[0];
       v4 = RegistryValue;
       if ( RegistryValue < 0 )
@@ -245,10 +246,10 @@ LABEL_58:
         if ( j >= 8 )
           goto LABEL_18;
         v47 = 16LL * j;
-        if ( !wcsicmp((&off_140B3D8A0)[v47 / 8], v20) )
+        if ( !wcsicmp((&off_140B3F650)[v47 / 8], v20) )
           break;
       }
-      v22 = *(__int64 *)((char *)&off_140B3D8A8 + v47);
+      v22 = *(__int64 *)((char *)&off_140B3F658 + v47);
       if ( !v22 )
       {
 LABEL_18:

@@ -1,10 +1,10 @@
 /*
- * XREFs of MmAllocatePagesForMdl @ 0x140348900
+ * XREFs of MmAllocatePagesForMdl @ 0x14034A980
  * Callers:
- *     DifMmAllocatePagesForMdlWrapper @ 0x140666290 (DifMmAllocatePagesForMdlWrapper.c)
- *     HalpDmaAllocateScatterMemory @ 0x140B30EDC (HalpDmaAllocateScatterMemory.c)
+ *     DifMmAllocatePagesForMdlWrapper @ 0x140669E70 (DifMmAllocatePagesForMdlWrapper.c)
+ *     HalpDmaAllocateScatterMemory @ 0x140B330DC (HalpDmaAllocateScatterMemory.c)
  * Callees:
- *     MiAllocatePagesForMdl @ 0x14034898C (MiAllocatePagesForMdl.c)
+ *     MiAllocatePagesForMdl @ 0x14034AA0C (MiAllocatePagesForMdl.c)
  */
 
 PMDL __stdcall MmAllocatePagesForMdl(

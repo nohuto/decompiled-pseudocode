@@ -1,15 +1,15 @@
 /*
- * XREFs of SmKmIsVolumeIoPossible @ 0x140698108
+ * XREFs of SmKmIsVolumeIoPossible @ 0x1406981EC
  * Callers:
- *     SmKmStoreFileCreateForIoType @ 0x140698F68 (SmKmStoreFileCreateForIoType.c)
+ *     SmKmStoreFileCreateForIoType @ 0x14069904C (SmKmStoreFileCreateForIoType.c)
  * Callees:
- *     IoGetRelatedDeviceObject @ 0x14002E0E0 (IoGetRelatedDeviceObject.c)
- *     IoFreeIrp @ 0x140055DD0 (IoFreeIrp.c)
- *     KeWaitForSingleObject @ 0x14005C880 (KeWaitForSingleObject.c)
- *     IoSetThreadHardErrorMode @ 0x140074CB8 (IoSetThreadHardErrorMode.c)
- *     IoAllocateIrp @ 0x1400C611C (IoAllocateIrp.c)
- *     ZwQueryVolumeInformationFile @ 0x14015A5A0 (ZwQueryVolumeInformationFile.c)
- *     SmKmSendUsageNotification @ 0x140698A2C (SmKmSendUsageNotification.c)
+ *     IoGetRelatedDeviceObject @ 0x14002DC60 (IoGetRelatedDeviceObject.c)
+ *     IoFreeIrp @ 0x140055950 (IoFreeIrp.c)
+ *     KeWaitForSingleObject @ 0x14005C400 (KeWaitForSingleObject.c)
+ *     IoSetThreadHardErrorMode @ 0x140074D38 (IoSetThreadHardErrorMode.c)
+ *     IoAllocateIrp @ 0x1400C3FBC (IoAllocateIrp.c)
+ *     ZwQueryVolumeInformationFile @ 0x14015AB10 (ZwQueryVolumeInformationFile.c)
+ *     SmKmSendUsageNotification @ 0x140698B10 (SmKmSendUsageNotification.c)
  */
 
 __int64 __fastcall SmKmIsVolumeIoPossible(__int64 a1, int *a2)

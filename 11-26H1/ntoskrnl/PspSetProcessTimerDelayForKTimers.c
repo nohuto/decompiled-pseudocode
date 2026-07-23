@@ -1,13 +1,13 @@
 /*
- * XREFs of PspSetProcessTimerDelayForKTimers @ 0x1406171C0
+ * XREFs of PspSetProcessTimerDelayForKTimers @ 0x14061A1B0
  * Callers:
- *     PspApplyTimerDelayProcess @ 0x140616E50 (PspApplyTimerDelayProcess.c)
+ *     PspApplyTimerDelayProcess @ 0x140619E40 (PspApplyTimerDelayProcess.c)
  * Callees:
- *     KiAcquireKobjectLockSafe @ 0x140277760 (KiAcquireKobjectLockSafe.c)
- *     KeReleaseSpinLock @ 0x1402BE860 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14032F300 (KeAcquireSpinLockRaiseToDpc.c)
- *     KeAdjustTimerDelayProcess @ 0x1405E56FC (KeAdjustTimerDelayProcess.c)
- *     ExpTimerAdjust @ 0x1406CF460 (ExpTimerAdjust.c)
+ *     KiAcquireKobjectLockSafe @ 0x140276CD0 (KiAcquireKobjectLockSafe.c)
+ *     KeReleaseSpinLock @ 0x140309520 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140331330 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KeAdjustTimerDelayProcess @ 0x1405E806C (KeAdjustTimerDelayProcess.c)
+ *     ExpTimerAdjust @ 0x1406D3490 (ExpTimerAdjust.c)
  */
 
 __int64 __fastcall PspSetProcessTimerDelayForKTimers(__int64 a1)

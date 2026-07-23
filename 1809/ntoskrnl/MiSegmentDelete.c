@@ -1,25 +1,25 @@
 /*
- * XREFs of MiSegmentDelete @ 0x14061E928
+ * XREFs of MiSegmentDelete @ 0x14061F928
  * Callers:
- *     MiCheckControlArea @ 0x1400764A0 (MiCheckControlArea.c)
- *     MiProcessDereferenceList @ 0x140154050 (MiProcessDereferenceList.c)
- *     MiDestroySection @ 0x1401697BC (MiDestroySection.c)
+ *     MiCheckControlArea @ 0x140076490 (MiCheckControlArea.c)
+ *     MiProcessDereferenceList @ 0x140154150 (MiProcessDereferenceList.c)
+ *     MiDestroySection @ 0x1401698BC (MiDestroySection.c)
  * Callees:
  *     MiReleaseControlAreaWaiters @ 0x14001E3A8 (MiReleaseControlAreaWaiters.c)
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
- *     MiReleaseControlAreaCharges @ 0x140079C68 (MiReleaseControlAreaCharges.c)
- *     MiGetControlAreaPartition @ 0x1400938A8 (MiGetControlAreaPartition.c)
- *     ObFastReplaceObject @ 0x140094924 (ObFastReplaceObject.c)
- *     MiDereferenceControlAreaProbe @ 0x140094CEC (MiDereferenceControlAreaProbe.c)
- *     MiDeleteSegmentPages @ 0x140094E38 (MiDeleteSegmentPages.c)
- *     MiPrepareSegmentForDeletion @ 0x1400958BC (MiPrepareSegmentForDeletion.c)
- *     MiUpdateSystemProtoPtesTree @ 0x140096060 (MiUpdateSystemProtoPtesTree.c)
- *     IoDiskIoAttributionDereference @ 0x140105854 (IoDiskIoAttributionDereference.c)
- *     DbgUnLoadImageSymbolsUnicode @ 0x14016C7B4 (DbgUnLoadImageSymbolsUnicode.c)
- *     MiReturnCrossPartitionSectionCharges @ 0x1402C4CB4 (MiReturnCrossPartitionSectionCharges.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     MiDeletePageFileSectionNodes @ 0x14061EAB4 (MiDeletePageFileSectionNodes.c)
- *     MiLogSectionCreate @ 0x14084E738 (MiLogSectionCreate.c)
+ *     MiReleaseControlAreaCharges @ 0x140079C58 (MiReleaseControlAreaCharges.c)
+ *     MiGetControlAreaPartition @ 0x1400937E8 (MiGetControlAreaPartition.c)
+ *     ObFastReplaceObject @ 0x140094864 (ObFastReplaceObject.c)
+ *     MiDereferenceControlAreaProbe @ 0x140094C2C (MiDereferenceControlAreaProbe.c)
+ *     MiDeleteSegmentPages @ 0x140094D78 (MiDeleteSegmentPages.c)
+ *     MiPrepareSegmentForDeletion @ 0x1400957FC (MiPrepareSegmentForDeletion.c)
+ *     MiUpdateSystemProtoPtesTree @ 0x140095FA0 (MiUpdateSystemProtoPtesTree.c)
+ *     IoDiskIoAttributionDereference @ 0x1401058D4 (IoDiskIoAttributionDereference.c)
+ *     DbgUnLoadImageSymbolsUnicode @ 0x14016C8B4 (DbgUnLoadImageSymbolsUnicode.c)
+ *     MiReturnCrossPartitionSectionCharges @ 0x1402C4EA4 (MiReturnCrossPartitionSectionCharges.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     MiDeletePageFileSectionNodes @ 0x14061FAB4 (MiDeletePageFileSectionNodes.c)
+ *     MiLogSectionCreate @ 0x14084F998 (MiLogSectionCreate.c)
  */
 
 __int64 __fastcall MiSegmentDelete(volatile signed __int64 *a1)

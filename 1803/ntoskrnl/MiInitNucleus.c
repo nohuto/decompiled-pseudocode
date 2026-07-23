@@ -206,7 +206,7 @@ LABEL_39:
     return 0;
   }
   MiCheckLargePageOk(BugCheckParameter2);
-  if ( (unsigned int)MI_IS_PHYSICAL_ADDRESS(PsNtosImageBase) )
+  if ( (unsigned int)MI_IS_PHYSICAL_ADDRESS((unsigned __int64)PsNtosImageBase) )
     MiFlags |= 4u;
   qword_1403CB708 = -1LL;
   MiProtectSharedUserPage();

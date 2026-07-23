@@ -1,22 +1,22 @@
 /*
- * XREFs of PopFxUnregisterDevice @ 0x140985DC4
+ * XREFs of PopFxUnregisterDevice @ 0x140985FC4
  * Callers:
- *     PopFxUnregisterDeviceOrWait @ 0x140884C08 (PopFxUnregisterDeviceOrWait.c)
- *     PoFxUnregisterDevice @ 0x140984B50 (PoFxUnregisterDevice.c)
+ *     PopFxUnregisterDeviceOrWait @ 0x140884E48 (PopFxUnregisterDeviceOrWait.c)
+ *     PoFxUnregisterDevice @ 0x140984D50 (PoFxUnregisterDevice.c)
  * Callees:
- *     KeSetEvent @ 0x14023C5E0 (KeSetEvent.c)
- *     KeWaitForSingleObject @ 0x140243CE0 (KeWaitForSingleObject.c)
- *     PoFxActivateComponent @ 0x140287290 (PoFxActivateComponent.c)
- *     PopFxAssignDeviceToDevNode @ 0x140397924 (PopFxAssignDeviceToDevNode.c)
- *     IoReleaseRemoveLockAndWaitEx @ 0x1403D6B10 (IoReleaseRemoveLockAndWaitEx.c)
- *     PopFxComponentRelationsCleanup @ 0x140589914 (PopFxComponentRelationsCleanup.c)
- *     PopFxDestroyDeviceDpm @ 0x140589C3C (PopFxDestroyDeviceDpm.c)
- *     PopFxDeviceRelationsCleanup @ 0x140589DD8 (PopFxDeviceRelationsCleanup.c)
- *     PopFxRemoveDevice @ 0x14058B6F0 (PopFxRemoveDevice.c)
- *     PopPluginUnregisterDevice @ 0x14058CB7C (PopPluginUnregisterDevice.c)
- *     PopPlUnregisterDevice @ 0x1405A1E30 (PopPlUnregisterDevice.c)
- *     PopDiagTraceFxDeviceUnregistration @ 0x14098F5AC (PopDiagTraceFxDeviceUnregistration.c)
- *     PopPepUnregisterDevice @ 0x14099D928 (PopPepUnregisterDevice.c)
+ *     KeSetEvent @ 0x14023C6B0 (KeSetEvent.c)
+ *     KeWaitForSingleObject @ 0x140243DB0 (KeWaitForSingleObject.c)
+ *     PoFxActivateComponent @ 0x140287520 (PoFxActivateComponent.c)
+ *     PopFxAssignDeviceToDevNode @ 0x140397B04 (PopFxAssignDeviceToDevNode.c)
+ *     IoReleaseRemoveLockAndWaitEx @ 0x1403D6CF0 (IoReleaseRemoveLockAndWaitEx.c)
+ *     PopFxComponentRelationsCleanup @ 0x140589E04 (PopFxComponentRelationsCleanup.c)
+ *     PopFxDestroyDeviceDpm @ 0x14058A12C (PopFxDestroyDeviceDpm.c)
+ *     PopFxDeviceRelationsCleanup @ 0x14058A2C8 (PopFxDeviceRelationsCleanup.c)
+ *     PopFxRemoveDevice @ 0x14058BBE0 (PopFxRemoveDevice.c)
+ *     PopPluginUnregisterDevice @ 0x14058D06C (PopPluginUnregisterDevice.c)
+ *     PopPlUnregisterDevice @ 0x1405A2320 (PopPlUnregisterDevice.c)
+ *     PopDiagTraceFxDeviceUnregistration @ 0x14098F7AC (PopDiagTraceFxDeviceUnregistration.c)
+ *     PopPepUnregisterDevice @ 0x14099DB28 (PopPepUnregisterDevice.c)
  */
 
 void __fastcall PopFxUnregisterDevice(ULONG_PTR BugCheckParameter2)

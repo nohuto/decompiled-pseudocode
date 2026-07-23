@@ -24,7 +24,7 @@ __int64 __fastcall MiFindEmptyAddressRange(
   int v10; // ebp
   _KPROCESS *Process; // r11
   _QWORD *v14; // r10
-  struct _RTL_BITMAP *v15; // rdi
+  _RTL_BITMAP *v15; // rdi
   unsigned int Buffer_high; // r8d
   __int64 v17; // rdx
   unsigned __int64 v18; // r15
@@ -53,7 +53,7 @@ __int64 __fastcall MiFindEmptyAddressRange(
   *a8 = 1;
   v14 = (_QWORD *)(*(_QWORD *)&Process[1].IdealGlobalNode + 40LL);
   v32 = Process;
-  v15 = (struct _RTL_BITMAP *)&v14[4 * ((unsigned __int64)a6 >> 31) + 1 + ((unsigned __int64)a6 >> 31)];
+  v15 = (_RTL_BITMAP *)&v14[4 * ((unsigned __int64)a6 >> 31) + 1 + ((unsigned __int64)a6 >> 31)];
   if ( (a5 & 2) != 0 )
   {
     v25 = Process[1].ActiveProcessors.Bitmap[18];

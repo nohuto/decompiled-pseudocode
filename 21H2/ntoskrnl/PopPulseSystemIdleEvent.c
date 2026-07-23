@@ -1,10 +1,10 @@
 /*
- * XREFs of PopPulseSystemIdleEvent @ 0x14078E950
+ * XREFs of PopPulseSystemIdleEvent @ 0x14078EB10
  * Callers:
- *     PopUpdateLastUserInputTime @ 0x1407815C0 (PopUpdateLastUserInputTime.c)
- *     PopSystemIdleWorker @ 0x1408F1100 (PopSystemIdleWorker.c)
- *     PopUpdateSystemIdleContext @ 0x1408F12A4 (PopUpdateSystemIdleContext.c)
- *     PopInitializeSystemIdleDetection @ 0x140A731B8 (PopInitializeSystemIdleDetection.c)
+ *     PopUpdateLastUserInputTime @ 0x140781780 (PopUpdateLastUserInputTime.c)
+ *     PopSystemIdleWorker @ 0x1408F1260 (PopSystemIdleWorker.c)
+ *     PopUpdateSystemIdleContext @ 0x1408F1404 (PopUpdateSystemIdleContext.c)
+ *     PopInitializeSystemIdleDetection @ 0x140A741B8 (PopInitializeSystemIdleDetection.c)
  * Callees:
  *     <none>
  */

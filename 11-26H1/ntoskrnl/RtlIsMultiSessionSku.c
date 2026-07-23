@@ -1,21 +1,21 @@
 /*
- * XREFs of RtlIsMultiSessionSku @ 0x140A91D70
+ * XREFs of RtlIsMultiSessionSku @ 0x140A968C0
  * Callers:
- *     GetGlobalizationUserModelType @ 0x1405026D4 (GetGlobalizationUserModelType.c)
- *     PopAdaptiveStandbyInitialize @ 0x1407DFAF8 (PopAdaptiveStandbyInitialize.c)
- *     RtlCapabilityCheckForSingleSessionSku @ 0x140803F90 (RtlCapabilityCheckForSingleSessionSku.c)
- *     NtSetSystemTime @ 0x1408366B0 (NtSetSystemTime.c)
- *     AuthzBasepInitializeSystemSecurityAttributes @ 0x14088FB44 (AuthzBasepInitializeSystemSecurityAttributes.c)
- *     RtlCapabilityCheck @ 0x140A91900 (RtlCapabilityCheck.c)
- *     SepIsImpersonationAllowedDueToCapability @ 0x140A91D08 (SepIsImpersonationAllowedDueToCapability.c)
- *     NtSetDefaultLocale @ 0x140B0F0F0 (NtSetDefaultLocale.c)
- *     PopPowerInformationInternal @ 0x140B6F6FC (PopPowerInformationInternal.c)
+ *     GetGlobalizationUserModelType @ 0x1404FBFA4 (GetGlobalizationUserModelType.c)
+ *     PopAdaptiveStandbyInitialize @ 0x1407E44EC (PopAdaptiveStandbyInitialize.c)
+ *     RtlCapabilityCheckForSingleSessionSku @ 0x140809A30 (RtlCapabilityCheckForSingleSessionSku.c)
+ *     NtSetSystemTime @ 0x14083C8F0 (NtSetSystemTime.c)
+ *     AuthzBasepInitializeSystemSecurityAttributes @ 0x140895F40 (AuthzBasepInitializeSystemSecurityAttributes.c)
+ *     RtlCapabilityCheck @ 0x140A96450 (RtlCapabilityCheck.c)
+ *     SepIsImpersonationAllowedDueToCapability @ 0x140A96858 (SepIsImpersonationAllowedDueToCapability.c)
+ *     NtSetDefaultLocale @ 0x140B10920 (NtSetDefaultLocale.c)
+ *     PopPowerInformationInternal @ 0x140B73EF0 (PopPowerInformationInternal.c)
  * Callees:
- *     PsGetCurrentServerSiloGlobals @ 0x1402150C0 (PsGetCurrentServerSiloGlobals.c)
- *     PsIsCurrentThreadInServerSilo @ 0x140450FF0 (PsIsCurrentThreadInServerSilo.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x1402153F0 (PsGetCurrentServerSiloGlobals.c)
+ *     PsIsCurrentThreadInServerSilo @ 0x140449120 (PsIsCurrentThreadInServerSilo.c)
  */
 
-char RtlIsMultiSessionSku()
+BOOLEAN RtlIsMultiSessionSku(void)
 {
   if ( PsIsCurrentThreadInServerSilo() )
     return BYTE4(PsGetCurrentServerSiloGlobals()[80].Blink[1].Blink);

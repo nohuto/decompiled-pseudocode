@@ -10,7 +10,7 @@
  *     KiRemoveSystemWorkPriorityKick @ 0x1403EDAA4 (KiRemoveSystemWorkPriorityKick.c)
  */
 
-__int64 KeResumeClockTimerSafe()
+LONGLONG KeResumeClockTimerSafe()
 {
   unsigned __int8 CurrentIrql; // bl
   _DWORD *SchedulerAssist; // r9
@@ -19,7 +19,7 @@ __int64 KeResumeClockTimerSafe()
   _DWORD *v4; // r8
   int v5; // eax
   bool v6; // zf
-  __int64 result; // rax
+  LONGLONG result; // rax
 
   if ( ObGetCurrentIrql() >= 0xDu )
     return KiResumeClockTimer();

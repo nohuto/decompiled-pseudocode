@@ -9,14 +9,12 @@
  *     RtlpHpLargeLockAcquireShared @ 0x1800F5B3C (RtlpHpLargeLockAcquireShared.c)
  */
 
-__int64 __fastcall RtlpHpLargeAllocSetExtraPresent(__int64 a1, unsigned __int64 a2)
+void __fastcall RtlpHpLargeAllocSetExtraPresent(_RTL_SRWLOCK *a1, unsigned __int64 a2)
 {
   unsigned __int64 Metadata; // rbx
-  __int64 result; // rax
 
   RtlpHpLargeLockAcquireShared();
-  Metadata = RtlpHpLargeAllocGetMetadata(a1, a2);
-  result = RtlReleaseSRWLockShared((volatile signed __int64 *)(a1 + 64));
+  Metadata = RtlpHpLargeAllocGetMetadata((__int64)a1, a2);
+  RtlReleaseSRWLockShared(a1 + 8);
   *(_QWORD *)(Metadata + 32) |= 1uLL;
-  return result;
 }

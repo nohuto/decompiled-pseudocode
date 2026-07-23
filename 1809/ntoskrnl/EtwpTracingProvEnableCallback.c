@@ -1,19 +1,19 @@
 /*
- * XREFs of EtwpTracingProvEnableCallback @ 0x1407642F0
+ * XREFs of EtwpTracingProvEnableCallback @ 0x1407654E0
  * Callers:
  *     <none>
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     ExReleasePushLockEx @ 0x14004F160 (ExReleasePushLockEx.c)
  *     EtwEventEnabled @ 0x14005B2D0 (EtwEventEnabled.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
- *     EtwpGetNextGuidEntry @ 0x1405C2614 (EtwpGetNextGuidEntry.c)
- *     EtwpReleaseLoggerContext @ 0x1405C5160 (EtwpReleaseLoggerContext.c)
- *     EtwpAcquireLoggerContextByLoggerId @ 0x1405C51A8 (EtwpAcquireLoggerContextByLoggerId.c)
- *     EtwpEventWriteEnableInfo @ 0x1408BAA7C (EtwpEventWriteEnableInfo.c)
- *     EtwpEventWriteGuidEntry @ 0x1408BAB74 (EtwpEventWriteGuidEntry.c)
- *     EtwpEventWriteRegEntry @ 0x1408BACC0 (EtwpEventWriteRegEntry.c)
- *     EtwpEventWriteTemplateSession @ 0x1408BB068 (EtwpEventWriteTemplateSession.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B78F0 (KiLeaveCriticalRegionUnsafe.c)
+ *     EtwpGetNextGuidEntry @ 0x1405C3614 (EtwpGetNextGuidEntry.c)
+ *     EtwpReleaseLoggerContext @ 0x1405C6160 (EtwpReleaseLoggerContext.c)
+ *     EtwpAcquireLoggerContextByLoggerId @ 0x1405C61A8 (EtwpAcquireLoggerContextByLoggerId.c)
+ *     EtwpEventWriteEnableInfo @ 0x1408BBD3C (EtwpEventWriteEnableInfo.c)
+ *     EtwpEventWriteGuidEntry @ 0x1408BBE34 (EtwpEventWriteGuidEntry.c)
+ *     EtwpEventWriteRegEntry @ 0x1408BBF80 (EtwpEventWriteRegEntry.c)
+ *     EtwpEventWriteTemplateSession @ 0x1408BC328 (EtwpEventWriteTemplateSession.c)
  */
 
 void __fastcall EtwpTracingProvEnableCallback(

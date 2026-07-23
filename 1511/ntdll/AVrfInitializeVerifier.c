@@ -23,71 +23,62 @@
  *     AvrfMiniLoadDll @ 0x1800CF6C8 (AvrfMiniLoadDll.c)
  */
 
-__int64 __fastcall AVrfInitializeVerifier(char a1, int a2, __int64 a3, int a4, __int64 a5, _QWORD *a6)
+int __fastcall AVrfInitializeVerifier(char a1, int a2, void *a3, int a4, __int64 a5, _QWORD *a6)
 {
   struct _PEB *v6; // r14
-  __int64 result; // rax
+  int result; // eax
   __int64 *i; // rbx
-  char *v12; // rdx
-  __int64 v13; // r8
-  __int64 v14; // r9
-  unsigned __int64 v15; // rbx
-  int ProcedureAddress; // ebx
-  char *v17; // rdx
-  __int64 v18; // r8
-  __int64 v19; // r9
-  char *v20; // rdx
-  __int64 v21; // r8
-  __int64 v22; // r9
+  void *v12; // rbx
+  NTSTATUS v13; // ebx
   __int64 *j; // rbx
-  __int64 v24; // rax
-  __int64 *v25; // rbx
-  __int64 v26; // rdx
-  _QWORD *v27; // rsi
-  int v28; // eax
-  __int64 v29; // [rsp+20h] [rbp-58h]
-  int v30; // [rsp+30h] [rbp-48h] BYREF
-  unsigned __int64 v31; // [rsp+38h] [rbp-40h] BYREF
-  __int64 v32; // [rsp+40h] [rbp-38h] BYREF
-  __int64 v33; // [rsp+48h] [rbp-30h] BYREF
-  char v34; // [rsp+98h] [rbp+20h] BYREF
+  __int64 v15; // rax
+  __int64 *v16; // rbx
+  __int64 v17; // rdx
+  _QWORD *v18; // rsi
+  int v19; // eax
+  ULONG Flags[2]; // [rsp+20h] [rbp-58h]
+  int v21; // [rsp+30h] [rbp-48h] BYREF
+  PVOID BaseAddress; // [rsp+38h] [rbp-40h] BYREF
+  PVOID ProcedureAddress; // [rsp+40h] [rbp-38h] BYREF
+  PIMAGE_NT_HEADERS OutHeaders; // [rsp+48h] [rbp-30h] BYREF
+  char v25; // [rsp+98h] [rbp+20h] BYREF
 
   v6 = NtCurrentPeb();
-  v30 = 0;
+  v21 = 0;
   if ( !a4 )
   {
-    v27 = a6;
+    v18 = a6;
     if ( !a6 )
-      return 3221225485LL;
+      return -1073741811;
     *a6 = 0LL;
-    if ( (v6->NtGlobalFlag & 0x100) != 0 || (v28 = 0, a1) )
-      v28 = 294916;
-    AVrfpVerifierFlags = v28;
+    if ( (v6->NtGlobalFlag & 0x100) != 0 || (v19 = 0, a1) )
+      v19 = 294916;
+    AVrfpVerifierFlags = v19;
     LOWORD(AVrfpVerifierDllsString[0]) = 0;
     if ( a3 )
     {
-      RtlQueryImageFileKeyOption(a3, (__int64)L"VerifierFlags", 4, &v30, 4u, 0LL);
-      LOBYTE(v28) = v30;
-      if ( v30 )
+      RtlQueryImageFileKeyOption(a3, L"VerifierFlags", 4, (ULONG *)&v21, 4u, 0LL);
+      LOBYTE(v19) = v21;
+      if ( v21 )
       {
-        AVrfpVerifierFlags = v30;
+        AVrfpVerifierFlags = v21;
 LABEL_39:
         if ( a3 )
         {
-          if ( (v28 & 4) != 0 )
-            RtlQueryImageFileKeyOption(a3, (__int64)L"HandleTraces", 4, &AVrfpHandleTraces, 4u, 0LL);
-          RtlQueryImageFileKeyOption(a3, (__int64)L"VerifierDebug", 4, &AVrfpDebug, 4u, 0LL);
-          RtlQueryImageFileKeyOption(a3, (__int64)L"VerifierDlls", 1, AVrfpVerifierDllsString, 0x200u, 0LL);
+          if ( (v19 & 4) != 0 )
+            RtlQueryImageFileKeyOption(a3, L"HandleTraces", 4, (ULONG *)&AVrfpHandleTraces, 4u, 0LL);
+          RtlQueryImageFileKeyOption(a3, L"VerifierDebug", 4, (ULONG *)&AVrfpDebug, 4u, 0LL);
+          RtlQueryImageFileKeyOption(a3, L"VerifierDlls", 1, AVrfpVerifierDllsString, 0x200u, 0LL);
         }
-        result = AvrfMiniLoadDll(a1, a2, a3, a5, (__int64)&AvrfpLoaderEntry);
-        if ( (int)result >= 0 )
+        result = AvrfMiniLoadDll(a1, a2, (_DWORD)a3, a5, (__int64)&AvrfpLoaderEntry);
+        if ( result >= 0 )
         {
-          *v27 = &AvrfpLoaderEntry;
+          *v18 = &AvrfpLoaderEntry;
           return AVrfpEnableVerifierOptions();
         }
         return result;
       }
-      LOBYTE(v28) = AVrfpVerifierFlags;
+      LOBYTE(v19) = AVrfpVerifierFlags;
     }
     if ( a1 )
       AVrfpEnabledSystemWide = 1;
@@ -97,11 +88,11 @@ LABEL_39:
   {
     qword_180144498 = (__int64)&AVrfpVerifierProvidersList;
     AVrfpVerifierProvidersList = (__int64)&AVrfpVerifierProvidersList;
-    result = RtlInitializeCriticalSectionEx((__int64)&AVrfpVerifierLock, 0, 0);
-    if ( (int)result < 0 )
+    result = RtlInitializeCriticalSectionEx(&AVrfpVerifierLock, 0, 0);
+    if ( result < 0 )
       return result;
     DbgPrintEx(
-      93,
+      0x5Du,
       0,
       "AVRF: %ws: pid 0x%X: flags 0x%X: application verifier enabled\n",
       *(_QWORD *)(qword_180145210 + 96),
@@ -109,69 +100,72 @@ LABEL_39:
       AVrfpVerifierFlags);
     if ( (int)AVrfpParseVerifierDllsString() < 0 )
     {
-      LODWORD(v29) = NtCurrentTeb()->ClientId.UniqueProcess;
+      Flags[0] = (ULONG)NtCurrentTeb()->ClientId.UniqueProcess;
       DbgPrintEx(
-        93,
+        0x5Du,
         0,
         "AVRF: %ws: pid 0x%X: application verifier will be disabled due to an initialization error.\n",
         *(_QWORD *)(qword_180145210 + 96),
-        v29);
+        *(_QWORD *)Flags);
       NtCurrentPeb()->NtGlobalFlag = NtCurrentPeb()->NtGlobalFlag & 0xFFFFFEFF;
-      return 3221225473LL;
+      return -1073741823;
     }
     for ( i = (__int64 *)AVrfpVerifierProvidersList; i != &AVrfpVerifierProvidersList; i = (__int64 *)*i )
     {
       if ( !(unsigned __int8)AVrfpLoadAndInitializeProvider(i) )
-        return 3221225794LL;
+        return -1073741502;
     }
     AVrfpChainDuplicateVerificationLayers();
-    result = LdrpFindLoadedDllByName(VrfcoreDllString, 0LL, 0, (__int64)&v31, 0LL);
-    if ( (int)result < 0 )
+    result = LdrpFindLoadedDllByName((PUNICODE_STRING)&VrfcoreDllString, 0LL, 0, (__int64)&BaseAddress, 0LL);
+    if ( result < 0 )
     {
-      if ( (_DWORD)result != -1073741515 )
+      if ( result != -1073741515 )
         return result;
-      v15 = qword_180144130;
+      v12 = (void *)qword_180144130;
     }
     else
     {
-      v15 = *(_QWORD *)(v31 + 48);
-      LdrpDereferenceModule(v31, v12, v13, v14);
+      v12 = (void *)*((_QWORD *)BaseAddress + 6);
+      LdrpDereferenceModule((char *)BaseAddress);
     }
-    ProcedureAddress = LdrGetProcedureAddressEx(v15, &AvrfpAPILookupCallbackName, 0LL, (__int64)&v32, 1);
-    LdrProtectMrdata(0, v17, v18, v19);
-    if ( ProcedureAddress >= 0 )
+    v13 = LdrGetProcedureAddressEx(v12, (PANSI_STRING)&AvrfpAPILookupCallbackName, 0, &ProcedureAddress, 1u);
+    LdrProtectMrdata(0);
+    if ( v13 >= 0 )
     {
-      v20 = (char *)__ROR8__(v32 ^ MEMORY[0x7FFE0330], MEMORY[0x7FFE0330] & 0x3F);
-      AvrfpAPILookupCallbackRoutine = (__int64)v20;
+      AvrfpAPILookupCallbackRoutine = __ROR8__(
+                                        (unsigned __int64)ProcedureAddress ^ (unsigned int)MEMORY[0x7FFE0330],
+                                        (unsigned __int8)MEMORY[0x7FFE0330] & 0x3F);
       AvrfpAPILookupCallbacksEnabled = 1;
     }
     AVrfpEnabled = 1;
     RtlGuardAllowSuppressedCalls = 1;
-    LdrProtectMrdata(1, v20, v21, v22);
+    LdrProtectMrdata(1);
     AVrfpSnapAlreadyLoadedDlls();
     for ( j = (__int64 *)AVrfpVerifierProvidersList; j != &AVrfpVerifierProvidersList; j = (__int64 *)*j )
     {
-      v24 = j[4];
-      v34 = 0;
-      result = LdrpInitializeGraphRecurse(*(_QWORD *)(v24 + 152), 0LL, &v34);
-      if ( (int)result < 0 )
+      v15 = j[4];
+      v25 = 0;
+      result = LdrpInitializeGraphRecurse(*(_QWORD *)(v15 + 152), 0LL, &v25);
+      if ( result < 0 )
         return result;
     }
     if ( (AVrfpDebug & 8) != 0 )
     {
       DbgPrint("AVRF: -*- final list of providers -*- \n");
-      v25 = (__int64 *)AVrfpVerifierProvidersList;
-      while ( v25 != &AVrfpVerifierProvidersList )
+      v16 = (__int64 *)AVrfpVerifierProvidersList;
+      while ( v16 != &AVrfpVerifierProvidersList )
       {
-        v26 = v25[3];
-        v25 = (__int64 *)*v25;
-        DbgPrint("AVRF: provider %ws \n", v26);
+        v17 = v16[3];
+        v16 = (__int64 *)*v16;
+        DbgPrint("AVRF: provider %ws \n", v17);
       }
     }
     AVrfpVerifierStopInitialize();
-    RtlImageNtHeaderEx(3, (unsigned __int64)v6->ImageBaseAddress, 0LL, &v33);
-    if ( (unsigned __int16)(*(_WORD *)(v33 + 92) - 1) <= 2u )
-      AVrfpAllowResourceConversion = *(_WORD *)(v33 + 72) < 6u ? AVrfpAllowResourceConversion : 0;
+    RtlImageNtHeaderEx(3u, v6->ImageBaseAddress, 0LL, &OutHeaders);
+    if ( (unsigned __int16)(OutHeaders->OptionalHeader.Subsystem - 1) <= 2u )
+      AVrfpAllowResourceConversion = OutHeaders->OptionalHeader.MajorSubsystemVersion < 6u
+                                   ? AVrfpAllowResourceConversion
+                                   : 0;
   }
-  return 0LL;
+  return 0;
 }

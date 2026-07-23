@@ -1,17 +1,17 @@
 /*
- * XREFs of SepExamineSaclEx @ 0x140921D50
+ * XREFs of SepExamineSaclEx @ 0x140921EB0
  * Callers:
- *     SepExamineGlobalSaclEx @ 0x140596F28 (SepExamineGlobalSaclEx.c)
- *     SepAccessCheckAndAuditAlarmWithAdminlessChecks @ 0x1406261B0 (SepAccessCheckAndAuditAlarmWithAdminlessChecks.c)
+ *     SepExamineGlobalSaclEx @ 0x140597158 (SepExamineGlobalSaclEx.c)
+ *     SepAccessCheckAndAuditAlarmWithAdminlessChecks @ 0x1406922C0 (SepAccessCheckAndAuditAlarmWithAdminlessChecks.c)
  * Callees:
- *     AuthzBasepEvaluateAceCondition @ 0x14024DC80 (AuthzBasepEvaluateAceCondition.c)
- *     SepSidInToken @ 0x14027EA84 (SepSidInToken.c)
- *     AuthzBasepInitializeResourceClaimsFromSacl @ 0x1402B2C28 (AuthzBasepInitializeResourceClaimsFromSacl.c)
- *     AuthzBasepFreeSecurityAttributesList @ 0x1402F5290 (AuthzBasepFreeSecurityAttributesList.c)
- *     memcmp @ 0x1403D29E0 (memcmp.c)
- *     AuthzBasepObjectInTypeList @ 0x1405C16B0 (AuthzBasepObjectInTypeList.c)
- *     SepSetAuditInfoForObjectType @ 0x1409224D4 (SepSetAuditInfoForObjectType.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     AuthzBasepInitializeResourceClaimsFromSacl @ 0x140230DD8 (AuthzBasepInitializeResourceClaimsFromSacl.c)
+ *     SepSidInToken @ 0x14026CA24 (SepSidInToken.c)
+ *     AuthzBasepEvaluateAceCondition @ 0x1402F24D0 (AuthzBasepEvaluateAceCondition.c)
+ *     AuthzBasepFreeSecurityAttributesList @ 0x1402FFFE0 (AuthzBasepFreeSecurityAttributesList.c)
+ *     memcmp @ 0x1403D2B50 (memcmp.c)
+ *     AuthzBasepObjectInTypeList @ 0x1405C18E0 (AuthzBasepObjectInTypeList.c)
+ *     SepSetAuditInfoForObjectType @ 0x140922634 (SepSetAuditInfoForObjectType.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 void __fastcall SepExamineSaclEx(
@@ -261,7 +261,7 @@ LABEL_85:
               v43 = 4 * (unsigned __int8)v25[9] + 8;
               if ( v17 && !v13 )
               {
-                AuthzBasepInitializeResourceClaimsFromSacl(v17, (__int64 *)&v57);
+                AuthzBasepInitializeResourceClaimsFromSacl(v17, &v57);
                 v19 = a12;
                 v24 = v59;
                 v13 = v57;

@@ -1,10 +1,10 @@
 /*
- * XREFs of McTemplateK0xxxxxxxxxxxxxxxxxq_EtwWriteTransfer @ 0x1403D3030
+ * XREFs of McTemplateK0xxxxxxxxxxxxxxxxxq_EtwWriteTransfer @ 0x1403D3210
  * Callers:
- *     CcPostVolumeTelemetry @ 0x1403D10D0 (CcPostVolumeTelemetry.c)
+ *     CcPostVolumeTelemetry @ 0x1403D12B0 (CcPostVolumeTelemetry.c)
  * Callees:
- *     McGenEventWrite_EtwWriteTransfer @ 0x1403C42C0 (McGenEventWrite_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     McGenEventWrite_EtwWriteTransfer @ 0x1403C44A0 (McGenEventWrite_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  */
 
 NTSTATUS McTemplateK0xxxxxxxxxxxxxxxxxq_EtwWriteTransfer(__int64 a1, __int64 a2, __int64 a3, ...)

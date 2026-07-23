@@ -5,7 +5,7 @@
  *     NtSetInformationJobObject @ 0x1406A4040 (NtSetInformationJobObject.c)
  * Callees:
  *     KeInsertSchedulingGroup @ 0x1402050DC (KeInsertSchedulingGroup.c)
- *     ObfReferenceObjectWithTag @ 0x1402B68C0 (ObfReferenceObjectWithTag.c)
+ *     ObfReferenceObjectWithTag @ 0x1402B6B50 (ObfReferenceObjectWithTag.c)
  *     PspFreeRateControl @ 0x140684EAC (PspFreeRateControl.c)
  *     PspAllocateRateControl @ 0x140684EF8 (PspAllocateRateControl.c)
  *     PspEnumJobsAndProcessesInJobHierarchy @ 0x1406A3448 (PspEnumJobsAndProcessesInJobHierarchy.c)

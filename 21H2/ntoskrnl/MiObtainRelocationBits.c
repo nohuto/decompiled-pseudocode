@@ -1,16 +1,16 @@
 /*
- * XREFs of MiObtainRelocationBits @ 0x140714818
+ * XREFs of MiObtainRelocationBits @ 0x1406C2E68
  * Callers:
- *     MiSelectImageBase @ 0x140714524 (MiSelectImageBase.c)
+ *     MiSelectImageBase @ 0x1406C2B74 (MiSelectImageBase.c)
  * Callees:
- *     RtlFindClearBitsAndSetEx @ 0x1402793D0 (RtlFindClearBitsAndSetEx.c)
- *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
- *     RtlClearBitsEx @ 0x1402FE300 (RtlClearBitsEx.c)
- *     RtlSetBitsEx @ 0x140316A00 (RtlSetBitsEx.c)
- *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
- *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
- *     KiLeaveGuardedRegionUnsafe @ 0x14034AD90 (KiLeaveGuardedRegionUnsafe.c)
- *     MiSelectRelocationStartHint @ 0x1407148F4 (MiSelectRelocationStartHint.c)
+ *     RtlFindClearBitsAndSetEx @ 0x140267370 (RtlFindClearBitsAndSetEx.c)
+ *     ExfTryToWakePushLock @ 0x1402FC2C0 (ExfTryToWakePushLock.c)
+ *     RtlClearBitsEx @ 0x140309050 (RtlClearBitsEx.c)
+ *     RtlSetBitsEx @ 0x140321750 (RtlSetBitsEx.c)
+ *     KeAbPostRelease @ 0x1403539D0 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1403556E0 (ExAcquirePushLockExclusiveEx.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x140355AE0 (KiLeaveGuardedRegionUnsafe.c)
+ *     MiSelectRelocationStartHint @ 0x1406C2F44 (MiSelectRelocationStartHint.c)
  */
 
 unsigned __int64 __fastcall MiObtainRelocationBits(unsigned __int64 **a1, unsigned __int16 a2, unsigned __int64 a3)
@@ -26,7 +26,7 @@ unsigned __int64 __fastcall MiObtainRelocationBits(unsigned __int64 **a1, unsign
   CurrentThread = KeGetCurrentThread();
   v5 = a2;
   --CurrentThread->SpecialApcDisable;
-  ExAcquirePushLockExclusiveEx((ULONG_PTR)&qword_140C4CB48, 0LL);
+  ExAcquirePushLockExclusiveEx((ULONG_PTR)&qword_140C4CB88, 0LL);
   ClearBitsAndSet = RtlFindClearBitsAndSetEx(*a1, (unsigned int)v5, a3);
   v8 = ClearBitsAndSet;
   if ( ClearBitsAndSet != -1LL )
@@ -50,9 +50,9 @@ unsigned __int64 __fastcall MiObtainRelocationBits(unsigned __int64 **a1, unsign
       }
     }
   }
-  if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_140C4CB48, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-    ExfTryToWakePushLock(&qword_140C4CB48);
-  KeAbPostRelease((ULONG_PTR)&qword_140C4CB48);
+  if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_140C4CB88, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+    ExfTryToWakePushLock(&qword_140C4CB88);
+  KeAbPostRelease((ULONG_PTR)&qword_140C4CB88);
   KiLeaveGuardedRegionUnsafe((__int64)CurrentThread);
   return v8;
 }

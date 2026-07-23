@@ -1,12 +1,12 @@
 /*
- * XREFs of PopIdleWakeStopActiveIntervalAccounting @ 0x1404EA3F0
+ * XREFs of PopIdleWakeStopActiveIntervalAccounting @ 0x1404E37A0
  * Callers:
- *     PopIdleWakeNotifyModernStandbyExit @ 0x1404EA34C (PopIdleWakeNotifyModernStandbyExit.c)
- *     PopIdleWakeNotifyWakeSource @ 0x140610904 (PopIdleWakeNotifyWakeSource.c)
+ *     PopIdleWakeNotifyModernStandbyExit @ 0x1404E36FC (PopIdleWakeNotifyModernStandbyExit.c)
+ *     PopIdleWakeNotifyWakeSource @ 0x140613B64 (PopIdleWakeNotifyWakeSource.c)
  * Callees:
- *     KeAddProcessorAffinityEx @ 0x140246720 (KeAddProcessorAffinityEx.c)
- *     PopIdleWakeInsertTimeInterval @ 0x1404EA5E8 (PopIdleWakeInsertTimeInterval.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     KeAddProcessorAffinityEx @ 0x140248080 (KeAddProcessorAffinityEx.c)
+ *     PopIdleWakeInsertTimeInterval @ 0x1404E3998 (PopIdleWakeInsertTimeInterval.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall PopIdleWakeStopActiveIntervalAccounting(unsigned int *a1, __int64 a2)
@@ -62,7 +62,7 @@ __int64 __fastcall PopIdleWakeStopActiveIntervalAccounting(unsigned int *a1, __i
     {
       v12 = (unsigned int)v11;
       v11 = (unsigned int)(v11 + 1);
-      if ( v10 >= *(&PopAdaptiveStandbyLock.KcsanThread + v12) && v10 < *(&PopAdaptiveStandbyLock.KcsanThread + v11) )
+      if ( v10 >= PopIdleWakeIdleAccountingBucketLimitsQpc[v12] && v10 < PopIdleWakeIdleAccountingBucketLimitsQpc[v11] )
       {
         ++*(_DWORD *)(v7 + 4 * v12 + 32);
         break;
@@ -74,7 +74,7 @@ __int64 __fastcall PopIdleWakeStopActiveIntervalAccounting(unsigned int *a1, __i
         11,
         v7 + 68,
         0,
-        (__int64)&PopAdaptiveStandbyLock.KernelShadowStackLimit);
+        (__int64)&PopIdleWakePeriodAccountingBucketLimitsQpc);
     *(_QWORD *)(v7 + 112) = a2;
     KeAddProcessorAffinityEx((unsigned __int16 *)(v6 + 144), a1[16]);
     v13 = *((_QWORD *)a1 + 3) + *((_QWORD *)a1 + 4) + *((_QWORD *)a1 + 2);

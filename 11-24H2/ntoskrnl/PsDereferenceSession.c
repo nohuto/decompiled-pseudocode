@@ -1,11 +1,11 @@
 /*
- * XREFs of PsDereferenceSession @ 0x140A07200
+ * XREFs of PsDereferenceSession @ 0x140A03730
  * Callers:
- *     PsSessionCreate @ 0x1406F73F8 (PsSessionCreate.c)
- *     MmCleanProcessAddressSpace @ 0x140A06E44 (MmCleanProcessAddressSpace.c)
- *     MiCleanEmbryonicProcess @ 0x140A070F0 (MiCleanEmbryonicProcess.c)
+ *     PsSessionCreate @ 0x1406F53F8 (PsSessionCreate.c)
+ *     MmCleanProcessAddressSpace @ 0x140A03374 (MmCleanProcessAddressSpace.c)
+ *     MiCleanEmbryonicProcess @ 0x140A03620 (MiCleanEmbryonicProcess.c)
  * Callees:
- *     PspDereferenceSessionFinal @ 0x14077BA80 (PspDereferenceSessionFinal.c)
+ *     PspDereferenceSessionFinal @ 0x14077B930 (PspDereferenceSessionFinal.c)
  */
 
 void PsDereferenceSession()

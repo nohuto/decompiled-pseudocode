@@ -1,14 +1,14 @@
 /*
- * XREFs of VrpFindOrCreateDiffHiveEntryForMountPoint @ 0x14097991C
+ * XREFs of VrpFindOrCreateDiffHiveEntryForMountPoint @ 0x14093B92C
  * Callers:
- *     VrpLoadDifferencingHive @ 0x14097955C (VrpLoadDifferencingHive.c)
+ *     VrpLoadDifferencingHive @ 0x14093B56C (VrpLoadDifferencingHive.c)
  * Callees:
- *     VrpUnlockDiffHiveTable @ 0x140979A98 (VrpUnlockDiffHiveTable.c)
- *     VrpFindDiffHiveEntryForMountPointWithLock @ 0x140979AFC (VrpFindDiffHiveEntryForMountPointWithLock.c)
- *     VrpLockDiffHiveTableShared @ 0x140979D8C (VrpLockDiffHiveTableShared.c)
- *     VrpLockDiffHiveTableExclusive @ 0x140979E44 (VrpLockDiffHiveTableExclusive.c)
- *     VrpAllocateDiffHiveEntry @ 0x140979EBC (VrpAllocateDiffHiveEntry.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     VrpUnlockDiffHiveTable @ 0x14093BAA8 (VrpUnlockDiffHiveTable.c)
+ *     VrpFindDiffHiveEntryForMountPointWithLock @ 0x14093BB0C (VrpFindDiffHiveEntryForMountPointWithLock.c)
+ *     VrpLockDiffHiveTableShared @ 0x14093BD9C (VrpLockDiffHiveTableShared.c)
+ *     VrpLockDiffHiveTableExclusive @ 0x14093BE54 (VrpLockDiffHiveTableExclusive.c)
+ *     VrpAllocateDiffHiveEntry @ 0x14093BECC (VrpAllocateDiffHiveEntry.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall VrpFindOrCreateDiffHiveEntryForMountPoint(PCUNICODE_STRING String1, __int64 a2, __int64 *a3)

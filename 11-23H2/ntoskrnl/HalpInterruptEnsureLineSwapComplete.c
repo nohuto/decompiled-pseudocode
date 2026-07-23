@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpInterruptEnsureLineSwapComplete @ 0x140A97C74
+ * XREFs of HalpInterruptEnsureLineSwapComplete @ 0x140A97AE4
  * Callers:
- *     HalpInterruptSwapProcessorIdentifiers @ 0x140A97D60 (HalpInterruptSwapProcessorIdentifiers.c)
+ *     HalpInterruptSwapProcessorIdentifiers @ 0x140A97BD0 (HalpInterruptSwapProcessorIdentifiers.c)
  * Callees:
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
  */
 
 void HalpInterruptEnsureLineSwapComplete()

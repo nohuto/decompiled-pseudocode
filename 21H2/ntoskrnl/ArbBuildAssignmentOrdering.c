@@ -1,22 +1,22 @@
 /*
- * XREFs of ArbBuildAssignmentOrdering @ 0x1407A2578
+ * XREFs of ArbBuildAssignmentOrdering @ 0x1407A2778
  * Callers:
- *     ArbInitializeArbiterInstance @ 0x1407A2260 (ArbInitializeArbiterInstance.c)
+ *     ArbInitializeArbiterInstance @ 0x1407A2460 (ArbInitializeArbiterInstance.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
- *     KeSetEvent @ 0x1403435A0 (KeSetEvent.c)
- *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     ZwClose @ 0x1403FA580 (ZwClose.c)
- *     ZwOpenKey @ 0x1403FA5E0 (ZwOpenKey.c)
- *     ZwCreateKey @ 0x1403FA740 (ZwCreateKey.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     ArbAddOrdering @ 0x1407A2A54 (ArbAddOrdering.c)
- *     ArbpGetRegistryValue @ 0x1407A2B30 (ArbpGetRegistryValue.c)
- *     ArbInitializeOrderingList @ 0x1407A2BFC (ArbInitializeOrderingList.c)
- *     ArbFreeOrderingList @ 0x1407A2C54 (ArbFreeOrderingList.c)
- *     ArbPruneOrdering @ 0x1407A2C90 (ArbPruneOrdering.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     KeLeaveCriticalRegionThread @ 0x1402AB8C0 (KeLeaveCriticalRegionThread.c)
+ *     KeSetEvent @ 0x14034E2F0 (KeSetEvent.c)
+ *     KeWaitForSingleObject @ 0x1403504C0 (KeWaitForSingleObject.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     ZwClose @ 0x1403FA760 (ZwClose.c)
+ *     ZwOpenKey @ 0x1403FA7C0 (ZwOpenKey.c)
+ *     ZwCreateKey @ 0x1403FA920 (ZwCreateKey.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     ArbAddOrdering @ 0x1407A2C54 (ArbAddOrdering.c)
+ *     ArbpGetRegistryValue @ 0x1407A2D30 (ArbpGetRegistryValue.c)
+ *     ArbInitializeOrderingList @ 0x1407A2DFC (ArbInitializeOrderingList.c)
+ *     ArbFreeOrderingList @ 0x1407A2E54 (ArbFreeOrderingList.c)
+ *     ArbPruneOrdering @ 0x1407A2E90 (ArbPruneOrdering.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall ArbBuildAssignmentOrdering(
@@ -39,34 +39,37 @@ __int64 __fastcall ArbBuildAssignmentOrdering(
   char *v17; // r13
   char *j; // r15
   int v19; // eax
-  char *v21; // rdx
-  unsigned __int64 v22; // rax
-  void *v23; // rcx
-  void *v24; // rcx
+  __int64 v20; // rdx
+  __int64 v21; // r8
+  __int64 v22; // r9
+  char *v24; // rdx
+  unsigned __int64 v25; // rax
+  void *v26; // rcx
+  void *v27; // rcx
   HANDLE Handle; // [rsp+40h] [rbp-89h] BYREF
   PVOID P; // [rsp+48h] [rbp-81h]
   HANDLE KeyHandle; // [rsp+50h] [rbp-79h] BYREF
-  __int128 v28; // [rsp+58h] [rbp-71h] BYREF
-  __int64 v29; // [rsp+68h] [rbp-61h] BYREF
-  __int64 v30; // [rsp+70h] [rbp-59h] BYREF
-  __int64 v31; // [rsp+78h] [rbp-51h] BYREF
+  __int128 v31; // [rsp+58h] [rbp-71h] BYREF
+  __int64 v32; // [rsp+68h] [rbp-61h] BYREF
+  __int64 v33; // [rsp+70h] [rbp-59h] BYREF
+  __int64 v34; // [rsp+78h] [rbp-51h] BYREF
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+80h] [rbp-49h] BYREF
-  _DWORD *v33; // [rsp+B0h] [rbp-19h]
-  _DWORD *v34; // [rsp+B8h] [rbp-11h]
-  __int128 v35; // [rsp+C0h] [rbp-9h] BYREF
-  __int128 v36; // [rsp+D0h] [rbp+7h]
+  _DWORD *v36; // [rsp+B0h] [rbp-19h]
+  _DWORD *v37; // [rsp+B8h] [rbp-11h]
+  __int128 v38; // [rsp+C0h] [rbp-9h] BYREF
+  __int128 v39; // [rsp+D0h] [rbp+7h]
 
   v4 = 0;
   KeyHandle = 0LL;
   Handle = 0LL;
-  v28 = 0LL;
   v31 = 0LL;
-  v30 = 0LL;
-  v29 = 0LL;
+  v34 = 0LL;
+  v33 = 0LL;
+  v32 = 0LL;
   memset(&ObjectAttributes, 0, sizeof(ObjectAttributes));
   P = 0LL;
-  v35 = 0LL;
-  v36 = 0LL;
+  v38 = 0LL;
+  v39 = 0LL;
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
   KeWaitForSingleObject(*(PVOID *)(a1 + 8), Executive, 0, 0, 0LL);
@@ -78,21 +81,21 @@ __int64 __fastcall ArbBuildAssignmentOrdering(
   v8 = ArbInitializeOrderingList(a1 + 72);
   if ( v8 < 0 )
     goto LABEL_49;
-  LODWORD(v28) = 7733366;
-  *((_QWORD *)&v28 + 1) = L"\\Registry\\Machine\\System\\CurrentControlSet\\Control\\Arbiters";
+  LODWORD(v31) = 7733366;
+  *((_QWORD *)&v31 + 1) = L"\\Registry\\Machine\\System\\CurrentControlSet\\Control\\Arbiters";
   ObjectAttributes.Length = 48;
-  ObjectAttributes.ObjectName = (PUNICODE_STRING)&v28;
+  ObjectAttributes.ObjectName = (PUNICODE_STRING)&v31;
   ObjectAttributes.RootDirectory = 0LL;
   ObjectAttributes.Attributes = 576;
   *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
   v8 = ZwOpenKey(&KeyHandle, 0x20019u, &ObjectAttributes);
   if ( v8 < 0 )
     goto LABEL_49;
-  LODWORD(v28) = 1966110;
-  *((_QWORD *)&v28 + 1) = L"AllocationOrder";
+  LODWORD(v31) = 1966110;
+  *((_QWORD *)&v31 + 1) = L"AllocationOrder";
   ObjectAttributes.RootDirectory = KeyHandle;
   ObjectAttributes.Length = 48;
-  ObjectAttributes.ObjectName = (PUNICODE_STRING)&v28;
+  ObjectAttributes.ObjectName = (PUNICODE_STRING)&v31;
   ObjectAttributes.Attributes = 576;
   *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
   v8 = ZwOpenKey(&Handle, 0x20019u, &ObjectAttributes);
@@ -109,16 +112,16 @@ LABEL_49:
     goto LABEL_50;
   if ( *((_DWORD *)P + 1) == 1 )
   {
-    v21 = (char *)P + *((unsigned int *)P + 2);
-    v22 = (unsigned __int64)*((unsigned int *)P + 3) >> 1;
-    v33 = 0LL;
-    if ( *(_WORD *)&v21[2 * v22 - 2] )
+    v24 = (char *)P + *((unsigned int *)P + 2);
+    v25 = (unsigned __int64)*((unsigned int *)P + 3) >> 1;
+    v36 = 0LL;
+    if ( *(_WORD *)&v24[2 * v25 - 2] )
       goto LABEL_44;
     v8 = ArbpGetRegistryValue(Handle);
     if ( v8 < 0 )
       goto LABEL_50;
     ExFreePoolWithTag(v10, 0);
-    v10 = v33;
+    v10 = v36;
   }
   ZwClose(Handle);
   Handle = 0LL;
@@ -129,38 +132,38 @@ LABEL_49:
   {
     if ( a4 )
     {
-      v8 = a4(&v35, i);
+      v8 = a4(&v38, i);
       if ( v8 < 0 )
         goto LABEL_50;
     }
     else
     {
-      v35 = *(_OWORD *)i;
-      v36 = *((_OWORD *)i + 1);
+      v38 = *(_OWORD *)i;
+      v39 = *((_OWORD *)i + 1);
     }
     v13 = *(_DWORD *)(a1 + 32);
-    if ( BYTE1(v35) == v13 || BYTE1(v35) == 7 && v13 == 3 )
+    if ( BYTE1(v38) == v13 || BYTE1(v38) == 7 && v13 == 3 )
     {
       v8 = (*(__int64 (__fastcall **)(__int128 *, __int64 *, __int64 *, __int64 *, __int64 *))(a1 + 120))(
-             &v35,
-             &v30,
-             &v29,
-             &v31,
-             &v31);
+             &v38,
+             &v33,
+             &v32,
+             &v34,
+             &v34);
       if ( v8 < 0 )
         goto LABEL_50;
-      v8 = ArbAddOrdering(a1 + 56, v30, v29);
+      v8 = ArbAddOrdering(a1 + 56, v33, v32);
       if ( v8 < 0 )
         goto LABEL_50;
     }
   }
   ExFreePoolWithTag(v10, 0);
-  *((_QWORD *)&v28 + 1) = L"ReservedResources";
+  *((_QWORD *)&v31 + 1) = L"ReservedResources";
   ObjectAttributes.RootDirectory = KeyHandle;
-  ObjectAttributes.ObjectName = (PUNICODE_STRING)&v28;
+  ObjectAttributes.ObjectName = (PUNICODE_STRING)&v31;
   P = 0LL;
   v10 = 0LL;
-  LODWORD(v28) = 2228258;
+  LODWORD(v31) = 2228258;
   ObjectAttributes.Length = 48;
   ObjectAttributes.Attributes = 576;
   *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
@@ -174,16 +177,16 @@ LABEL_50:
       ZwClose(Handle);
     if ( v10 )
       ExFreePoolWithTag(v10, 0);
-    v23 = *(void **)(a1 + 64);
-    if ( v23 )
+    v26 = *(void **)(a1 + 64);
+    if ( v26 )
     {
-      ExFreePoolWithTag(v23, 0);
+      ExFreePoolWithTag(v26, 0);
       *(_DWORD *)(a1 + 56) = 0;
     }
-    v24 = *(void **)(a1 + 80);
-    if ( v24 )
+    v27 = *(void **)(a1 + 80);
+    if ( v27 )
     {
-      ExFreePoolWithTag(v24, 0);
+      ExFreePoolWithTag(v27, 0);
       *(_DWORD *)(a1 + 72) = 0;
     }
     v4 = v8;
@@ -193,7 +196,7 @@ LABEL_50:
     goto LABEL_21;
   v15 = (char *)P + *((unsigned int *)P + 2);
   v16 = (unsigned __int64)*((unsigned int *)P + 3) >> 1;
-  v34 = 0LL;
+  v37 = 0LL;
   if ( *(_WORD *)&v15[2 * v16 - 2] )
   {
 LABEL_44:
@@ -204,7 +207,7 @@ LABEL_44:
   if ( v8 < 0 )
     goto LABEL_50;
   ExFreePoolWithTag(v10, 0);
-  v10 = v34;
+  v10 = v37;
 LABEL_21:
   ZwClose(Handle);
   Handle = 0LL;
@@ -213,30 +216,30 @@ LABEL_21:
   {
     if ( a4 )
     {
-      v8 = a4(&v35, j);
+      v8 = a4(&v38, j);
       if ( v8 < 0 )
         goto LABEL_50;
     }
     else
     {
-      v35 = *(_OWORD *)j;
-      v36 = *((_OWORD *)j + 1);
+      v38 = *(_OWORD *)j;
+      v39 = *((_OWORD *)j + 1);
     }
     v19 = *(_DWORD *)(a1 + 32);
-    if ( BYTE1(v35) == v19 || BYTE1(v35) == 7 && v19 == 3 )
+    if ( BYTE1(v38) == v19 || BYTE1(v38) == 7 && v19 == 3 )
     {
       v8 = (*(__int64 (__fastcall **)(__int128 *, __int64 *, __int64 *, __int64 *, __int64 *))(a1 + 120))(
-             &v35,
-             &v30,
-             &v29,
-             &v31,
-             &v31);
+             &v38,
+             &v33,
+             &v32,
+             &v34,
+             &v34);
       if ( v8 < 0 )
         goto LABEL_50;
-      v8 = ArbAddOrdering(a1 + 72, v30, v29);
+      v8 = ArbAddOrdering(a1 + 72, v33, v32);
       if ( v8 < 0 )
         goto LABEL_50;
-      v8 = ArbPruneOrdering(a1 + 56, v30, v29);
+      v8 = ArbPruneOrdering(a1 + 56, v33, v32);
       if ( v8 < 0 )
         goto LABEL_50;
     }
@@ -246,6 +249,6 @@ LABEL_21:
   KeyHandle = 0LL;
 LABEL_40:
   KeSetEvent(*(PRKEVENT *)(a1 + 8), 0, 0);
-  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v20, v21, v22);
   return v4;
 }

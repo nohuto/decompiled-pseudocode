@@ -8,16 +8,12 @@
  *     LdrpLogDbgPrint @ 0x1800C9198 (LdrpLogDbgPrint.c)
  */
 
-__int64 __fastcall LdrGetKnownDllSectionHandle(__int64 a1, char a2, __int64 a3)
+NTSTATUS __cdecl LdrGetKnownDllSectionHandle(PCWSTR DllName, BOOLEAN KnownDlls32, PHANDLE Section)
 {
-  __int64 v6; // rdi
+  HANDLE v6; // rdi
   int inited; // ebx
-  _BYTE v9[16]; // [rsp+30h] [rbp-48h] BYREF
-  int v10; // [rsp+40h] [rbp-38h] BYREF
-  __int64 v11; // [rsp+48h] [rbp-30h]
-  _BYTE *v12; // [rsp+50h] [rbp-28h]
-  int v13; // [rsp+58h] [rbp-20h]
-  __int128 v14; // [rsp+60h] [rbp-18h]
+  _UNICODE_STRING DestinationString; // [rsp+30h] [rbp-48h] BYREF
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+40h] [rbp-38h] BYREF
 
   if ( (LdrpDebugFlags & 9) != 0 )
     LdrpLogDbgPrint(
@@ -26,7 +22,7 @@ __int64 __fastcall LdrGetKnownDllSectionHandle(__int64 a1, char a2, __int64 a3)
       (unsigned int)"LdrGetKnownDllSectionHandle",
       3,
       (__int64)"DLL name: %ws\n");
-  if ( a2 )
+  if ( KnownDlls32 )
   {
     if ( !UseWOW64 )
       goto LABEL_13;
@@ -42,15 +38,15 @@ LABEL_13:
     inited = -1073741816;
     goto LABEL_8;
   }
-  inited = RtlInitUnicodeStringEx((__int64)v9, a1);
+  inited = RtlInitUnicodeStringEx(&DestinationString, DllName);
   if ( inited >= 0 )
   {
-    v10 = 48;
-    v12 = v9;
-    v11 = v6;
-    v13 = 64;
-    v14 = 0LL;
-    inited = NtOpenSection(a3, 15LL, &v10);
+    ObjectAttributes.Length = 48;
+    ObjectAttributes.ObjectName = &DestinationString;
+    ObjectAttributes.RootDirectory = v6;
+    ObjectAttributes.Attributes = 64;
+    *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+    inited = NtOpenSection(Section, 0xFu, &ObjectAttributes);
   }
 LABEL_8:
   if ( (LdrpDebugFlags & 9) != 0 )
@@ -60,5 +56,5 @@ LABEL_8:
       (unsigned int)"LdrGetKnownDllSectionHandle",
       4,
       (__int64)"Status: 0x%08lx\n");
-  return (unsigned int)inited;
+  return inited;
 }

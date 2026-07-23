@@ -12,53 +12,53 @@
  *     ViGetAdapterInformationInternal @ 0x14081B044 (ViGetAdapterInformationInternal.c)
  */
 
-ULONG_PTR __fastcall ViHookDmaAdapter(PVOID Object, __int64 a2, int a3, char a4)
+struct _LIST_ENTRY *__fastcall ViHookDmaAdapter(struct _LIST_ENTRY *Object, __int64 a2, int a3, char a4)
 {
-  ULONG_PTR AdapterInformationInternal; // rbx
-  PVOID PoolWithTag; // rax
+  struct _LIST_ENTRY *AdapterInformationInternal; // rbx
+  struct _LIST_ENTRY *PoolWithTag; // rax
 
   AdapterInformationInternal = ViGetAdapterInformationInternal((ULONG_PTR)Object, 0);
   if ( !AdapterInformationInternal )
   {
-    PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, 0x140uLL, 0x566C6148u);
-    AdapterInformationInternal = (ULONG_PTR)PoolWithTag;
+    PoolWithTag = (struct _LIST_ENTRY *)ExAllocatePoolWithTag(NonPagedPoolNx, 0x140uLL, 0x566C6148u);
+    AdapterInformationInternal = PoolWithTag;
     if ( !PoolWithTag )
       return AdapterInformationInternal;
     memset(PoolWithTag, 0, 0x140uLL);
-    *(_DWORD *)(AdapterInformationInternal + 36) = 0;
-    *(_QWORD *)(AdapterInformationInternal + 16) = Object;
-    ExInterlockedInsertHeadList((PLIST_ENTRY)&ViAdapterList, (PLIST_ENTRY)AdapterInformationInternal, &Lock);
+    HIDWORD(AdapterInformationInternal[2].Flink) = 0;
+    AdapterInformationInternal[1].Flink = Object;
+    ExInterlockedInsertHeadList(&ViAdapterList, AdapterInformationInternal, &Lock);
     ObfReferenceObject(Object);
-    *(_QWORD *)(AdapterInformationInternal + 72) = 0LL;
-    *(_QWORD *)(AdapterInformationInternal + 64) = AdapterInformationInternal + 56;
-    *(_QWORD *)(AdapterInformationInternal + 56) = AdapterInformationInternal + 56;
-    *(_QWORD *)(AdapterInformationInternal + 96) = 0LL;
-    *(_QWORD *)(AdapterInformationInternal + 88) = AdapterInformationInternal + 80;
-    *(_QWORD *)(AdapterInformationInternal + 80) = AdapterInformationInternal + 80;
-    *(_QWORD *)(AdapterInformationInternal + 120) = 0LL;
-    *(_QWORD *)(AdapterInformationInternal + 112) = AdapterInformationInternal + 104;
-    *(_QWORD *)(AdapterInformationInternal + 104) = AdapterInformationInternal + 104;
-    *(_QWORD *)(AdapterInformationInternal + 144) = 0LL;
-    *(_QWORD *)(AdapterInformationInternal + 136) = AdapterInformationInternal + 128;
-    *(_QWORD *)(AdapterInformationInternal + 128) = AdapterInformationInternal + 128;
-    ViCopyDeviceDescription(AdapterInformationInternal + 192, (unsigned int *)a2);
-    *(_DWORD *)(AdapterInformationInternal + 152) = a3;
+    AdapterInformationInternal[4].Blink = 0LL;
+    AdapterInformationInternal[4].Flink = (struct _LIST_ENTRY *)((char *)AdapterInformationInternal + 56);
+    AdapterInformationInternal[3].Blink = (struct _LIST_ENTRY *)((char *)AdapterInformationInternal + 56);
+    AdapterInformationInternal[6].Flink = 0LL;
+    AdapterInformationInternal[5].Blink = AdapterInformationInternal + 5;
+    AdapterInformationInternal[5].Flink = AdapterInformationInternal + 5;
+    AdapterInformationInternal[7].Blink = 0LL;
+    AdapterInformationInternal[7].Flink = (struct _LIST_ENTRY *)((char *)AdapterInformationInternal + 104);
+    AdapterInformationInternal[6].Blink = (struct _LIST_ENTRY *)((char *)AdapterInformationInternal + 104);
+    AdapterInformationInternal[9].Flink = 0LL;
+    AdapterInformationInternal[8].Blink = AdapterInformationInternal + 8;
+    AdapterInformationInternal[8].Flink = AdapterInformationInternal + 8;
+    ViCopyDeviceDescription((__int64)&AdapterInformationInternal[12], (unsigned int *)a2);
+    LODWORD(AdapterInformationInternal[9].Blink) = a3;
     if ( *(_DWORD *)(a2 + 20) == 1 && *(_DWORD *)(a2 + 16) < 8u || !*(_BYTE *)(a2 + 4) )
-      *(_BYTE *)(AdapterInformationInternal + 34) = 1;
-    *(_QWORD *)(AdapterInformationInternal + 280) = 0LL;
+      BYTE2(AdapterInformationInternal[2].Flink) = 1;
+    AdapterInformationInternal[17].Blink = 0LL;
     if ( *(_BYTE *)(a2 + 4) && *(_BYTE *)(a2 + 5) )
     {
       if ( ViDoubleBufferDma )
-        ViAllocateContiguousMemory(AdapterInformationInternal);
+        ViAllocateContiguousMemory((__int64)AdapterInformationInternal);
     }
     else
     {
-      *(_BYTE *)(AdapterInformationInternal + 33) = 1;
+      BYTE1(AdapterInformationInternal[2].Flink) = 1;
     }
-    *(_QWORD *)(AdapterInformationInternal + 48) = *((_QWORD *)Object + 1);
-    *((_QWORD *)Object + 1) = &ViDmaOperations;
+    AdapterInformationInternal[3].Flink = Object->Blink;
+    Object->Blink = (struct _LIST_ENTRY *)&ViDmaOperations;
   }
   if ( a4 )
-    _InterlockedIncrement((volatile signed __int32 *)(AdapterInformationInternal + 36));
+    _InterlockedIncrement((volatile signed __int32 *)&AdapterInformationInternal[2].Flink + 1);
   return AdapterInformationInternal;
 }

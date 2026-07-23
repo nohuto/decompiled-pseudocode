@@ -1,18 +1,16 @@
 /*
- * XREFs of ZwMakeTemporaryObject @ 0x1403FC5A0
+ * XREFs of ZwMakeTemporaryObject @ 0x1403FC780
  * Callers:
- *     SepCleanupLUIDDeviceMapDirectory @ 0x1406A5914 (SepCleanupLUIDDeviceMapDirectory.c)
- *     IoDeleteSymbolicLink @ 0x1407722B0 (IoDeleteSymbolicLink.c)
- *     IoCreateDriver @ 0x1407A4F00 (IoCreateDriver.c)
+ *     SepCleanupLUIDDeviceMapDirectory @ 0x140603544 (SepCleanupLUIDDeviceMapDirectory.c)
+ *     IoDeleteSymbolicLink @ 0x140772470 (IoDeleteSymbolicLink.c)
+ *     IoCreateDriver @ 0x1407A5100 (IoCreateDriver.c)
  * Callees:
  *     <none>
  */
 
 NTSTATUS __stdcall ZwMakeTemporaryObject(HANDLE Handle)
 {
-  __int64 v1; // rdx
-
   _disable();
   __readeflags();
-  return KiServiceInternal(Handle, v1);
+  return KiServiceInternal(Handle);
 }

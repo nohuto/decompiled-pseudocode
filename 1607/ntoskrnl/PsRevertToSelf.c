@@ -1,7 +1,7 @@
 /*
- * XREFs of PsRevertToSelf @ 0x14067EFCC
+ * XREFs of PsRevertToSelf @ 0x14067F0B0
  * Callers:
- *     CmpOpenHiveFile @ 0x1403F9400 (CmpOpenHiveFile.c)
+ *     CmpOpenHiveFile @ 0x1403F82C0 (CmpOpenHiveFile.c)
  * Callees:
  *     <none>
  */

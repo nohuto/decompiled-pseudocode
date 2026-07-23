@@ -1,10 +1,10 @@
 /*
- * XREFs of KeQueryEffectivePriorityThread @ 0x1403AEE20
+ * XREFs of KeQueryEffectivePriorityThread @ 0x1403AF000
  * Callers:
  *     <none>
  * Callees:
- *     KiIsThreadRankNonZero @ 0x140308FE0 (KiIsThreadRankNonZero.c)
- *     KiUpdateVpBackingThreadPriorityOnPriorityQuery @ 0x14056EAAC (KiUpdateVpBackingThreadPriorityOnPriorityQuery.c)
+ *     KiIsThreadRankNonZero @ 0x140309270 (KiIsThreadRankNonZero.c)
+ *     KiUpdateVpBackingThreadPriorityOnPriorityQuery @ 0x14056EFEC (KiUpdateVpBackingThreadPriorityOnPriorityQuery.c)
  */
 
 __int64 __fastcall KeQueryEffectivePriorityThread(ULONG_PTR a1)

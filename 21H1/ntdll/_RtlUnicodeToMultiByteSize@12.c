@@ -36,7 +36,7 @@ NTSTATUS __stdcall RtlUnicodeToMultiByteSize(
         v6 = UnicodeString;
         do
         {
-          v7 = *v6++;
+          v7 = (unsigned __int16)*v6++;
           v3 += (HIBYTE(*(_WORD *)(NlsUnicodeToMbAnsiData + 2 * v7)) != 0) + 1;
           --v4;
         }

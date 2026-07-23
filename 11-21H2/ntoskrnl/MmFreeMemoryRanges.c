@@ -1,9 +1,9 @@
 /*
  * XREFs of MmFreeMemoryRanges @ 0x14096AD50
  * Callers:
- *     IopLiveDumpFreeIoSpaceRanges @ 0x14093C544 (IopLiveDumpFreeIoSpaceRanges.c)
+ *     sub_14093C544 @ 0x14093C544 (sub_14093C544.c)
  * Callees:
- *     MiReleaseMemoryRuns @ 0x14096AA38 (MiReleaseMemoryRuns.c)
+ *     sub_14096AA38 @ 0x14096AA38 (sub_14096AA38.c)
  */
 
 __int64 __fastcall MmFreeMemoryRanges(ULONG_PTR a1)
@@ -32,6 +32,6 @@ __int64 __fastcall MmFreeMemoryRanges(ULONG_PTR a1)
   }
   v4[2] = *(_QWORD *)(a1 + 48);
   v4[0] = v2;
-  MiReleaseMemoryRuns(a1, v4, 1);
+  sub_14096AA38(a1, v4, 1);
   return 0LL;
 }

@@ -1,10 +1,10 @@
 /*
- * XREFs of PspProcessOpen @ 0x140609150
+ * XREFs of PspProcessOpen @ 0x14060A150
  * Callers:
  *     <none>
  * Callees:
- *     PspIsParentProcess @ 0x140091DA8 (PspIsParentProcess.c)
- *     PsTestProtectedProcessIncompatibility @ 0x14060921C (PsTestProtectedProcessIncompatibility.c)
+ *     PspIsParentProcess @ 0x140091CE8 (PspIsParentProcess.c)
+ *     PsTestProtectedProcessIncompatibility @ 0x14060A21C (PsTestProtectedProcessIncompatibility.c)
  */
 
 __int64 __fastcall PspProcessOpen(__int64 a1, unsigned __int8 a2, __int64 a3, __int64 a4, int *a5)
@@ -19,7 +19,7 @@ __int64 __fastcall PspProcessOpen(__int64 a1, unsigned __int8 a2, __int64 a3, __
   if ( !IsParentProcess )
     v10 = v9;
   if ( (v10 & *a5) != 0 && (unsigned __int8)PsTestProtectedProcessIncompatibility(a2, a3, a4)
-    || *(_QWORD *)(a4 + 1808) && !*(_QWORD *)(a3 + 1808) && a2 && (~DWORD2(xmmword_14040E300) & *a5) != 0 )
+    || *(_QWORD *)(a4 + 1808) && !*(_QWORD *)(a3 + 1808) && a2 && (~DWORD2(xmmword_14040F360) & *a5) != 0 )
   {
     return 3221225506LL;
   }

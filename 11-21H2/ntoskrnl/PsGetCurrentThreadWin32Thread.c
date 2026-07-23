@@ -6,7 +6,7 @@
  *     <none>
  */
 
-PVOID PsGetCurrentThreadWin32Thread()
+__int64 PsGetCurrentThreadWin32Thread()
 {
-  return KeGetCurrentThread()->WaitBlock[2].SparePtr;
+  return *((_QWORD *)KeGetCurrentThread() + 57);
 }

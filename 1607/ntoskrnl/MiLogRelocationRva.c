@@ -1,14 +1,14 @@
 /*
- * XREFs of MiLogRelocationRva @ 0x140525BF0
+ * XREFs of MiLogRelocationRva @ 0x140508C50
  * Callers:
- *     MiParseComImage @ 0x1405250A8 (MiParseComImage.c)
- *     MiLogRelocationFaults @ 0x140525660 (MiLogRelocationFaults.c)
- *     MiParseImageCfgBits @ 0x1405256E0 (MiParseImageCfgBits.c)
+ *     MiParseComImage @ 0x140508108 (MiParseComImage.c)
+ *     MiLogRelocationFaults @ 0x1405086C0 (MiLogRelocationFaults.c)
+ *     MiParseImageCfgBits @ 0x140508740 (MiParseImageCfgBits.c)
  * Callees:
- *     MiOffsetToProtos @ 0x140033070 (MiOffsetToProtos.c)
- *     PsGetIoPriorityThread @ 0x1400E7E30 (PsGetIoPriorityThread.c)
- *     PfSnLogPageFault @ 0x1400FDE20 (PfSnLogPageFault.c)
- *     PfLogFileDataAccess @ 0x1401FEED0 (PfLogFileDataAccess.c)
+ *     MiOffsetToProtos @ 0x140032BF0 (MiOffsetToProtos.c)
+ *     PsGetIoPriorityThread @ 0x1400E5CD0 (PsGetIoPriorityThread.c)
+ *     PfSnLogPageFault @ 0x1400FBBA0 (PfSnLogPageFault.c)
+ *     PfLogFileDataAccess @ 0x1401FECFC (PfLogFileDataAccess.c)
  */
 
 void __fastcall MiLogRelocationRva(unsigned int a1, unsigned int a2, _QWORD *a3, _DWORD *a4)
@@ -27,13 +27,13 @@ void __fastcall MiLogRelocationRva(unsigned int a1, unsigned int a2, _QWORD *a3,
   if ( v7 )
   {
     v8 = (v11[0] << 12) + ((unsigned __int64)*(unsigned int *)(v7 + 36) << 9);
-    if ( (PfSnNumActiveTraces || dword_14033B818) && (int)PsGetIoPriorityThread((__int64)KeGetCurrentThread()) >= 2 )
+    if ( (PfSnNumActiveTraces || dword_14033B858) && (int)PsGetIoPriorityThread((__int64)KeGetCurrentThread()) >= 2 )
     {
       v9 = (v4 + (unsigned __int64)(v6 & 0xFFF) + 4095) >> 12;
       if ( (v8 & 0xFFF) != 0 )
         LODWORD(v9) = v9 + 1;
       v10 = v8 & 0xFFFFFFFFFFFFF000uLL;
-      if ( dword_14033B818 )
+      if ( dword_14033B858 )
         PfLogFileDataAccess(a3[3], (__int64)KeGetCurrentThread(), v10, (unsigned int)v9, 0);
       if ( PfSnNumActiveTraces && (_DWORD)v9 )
       {

@@ -1,31 +1,31 @@
 /*
- * XREFs of ZwQuerySystemInformation @ 0x14015A340
+ * XREFs of ZwQuerySystemInformation @ 0x14015A8B0
  * Callers:
- *     ?StDmStart@?$ST_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_ST_DATA_MGR@1@PEAU_STDM_PARAMETERS@@PEAU_RTL_BITMAP@@PEAKK@Z @ 0x1400052E8 (-StDmStart@-$ST_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_ST_DATA_MGR@1@PEAU_STDM_PARAMETERS@@PEAU_RTL_B.c)
- *     HvlpProcessIommu @ 0x1401BF944 (HvlpProcessIommu.c)
- *     SmKmStoreTerminateWorker @ 0x140220D48 (SmKmStoreTerminateWorker.c)
+ *     ?StDmStart@?$ST_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_ST_DATA_MGR@1@PEAU_STDM_PARAMETERS@@PEAU_RTL_BITMAP@@PEAKK@Z @ 0x14000545C (-StDmStart@-$ST_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_ST_DATA_MGR@1@PEAU_STDM_PARAMETERS@@PEAU_RTL_B.c)
+ *     HvlpProcessIommu @ 0x1401BF828 (HvlpProcessIommu.c)
+ *     SmKmStoreTerminateWorker @ 0x140220B74 (SmKmStoreTerminateWorker.c)
  *     PopGetHwConfigurationSignature @ 0x1403D21C4 (PopGetHwConfigurationSignature.c)
- *     sub_1404A6E00 @ 0x1404A6E00 (sub_1404A6E00.c)
- *     PspDetectComplusILImage @ 0x1404E1528 (PspDetectComplusILImage.c)
- *     ExpHwidBiosIfGetFirmwareTable @ 0x1404EF5F4 (ExpHwidBiosIfGetFirmwareTable.c)
- *     PfpPrivSourceEnum @ 0x140508A08 (PfpPrivSourceEnum.c)
- *     RtlQueryModuleInformation @ 0x1405381A4 (RtlQueryModuleInformation.c)
- *     SiQuerySystemPartitionInformation @ 0x14053B914 (SiQuerySystemPartitionInformation.c)
- *     BiGetFirmwareType @ 0x14053C0EC (BiGetFirmwareType.c)
- *     BiGetNtPartitionPath @ 0x14053CA90 (BiGetNtPartitionPath.c)
- *     BiGetCurrentBootEntryIdentifier @ 0x14053F080 (BiGetCurrentBootEntryIdentifier.c)
- *     RtlCreateHeap @ 0x140540228 (RtlCreateHeap.c)
- *     SiGetSystemDeviceName @ 0x140541F38 (SiGetSystemDeviceName.c)
- *     PoInitHiberServices @ 0x14056BEA8 (PoInitHiberServices.c)
- *     KsepGetLoadedModulesList @ 0x140570784 (KsepGetLoadedModulesList.c)
- *     RtlSystemTimeToLocalTime @ 0x14057D574 (RtlSystemTimeToLocalTime.c)
- *     SepInitQuerySigningPolicyExt @ 0x140581244 (SepInitQuerySigningPolicyExt.c)
- *     PnpGetStableSystemBootTime @ 0x14062D818 (PnpGetStableSystemBootTime.c)
- *     PopDripsWatchdogTakeAction @ 0x140675208 (PopDripsWatchdogTakeAction.c)
- *     RtlLocalTimeToSystemTime @ 0x140685938 (RtlLocalTimeToSystemTime.c)
- *     EtwpLogMemInfoWs @ 0x1406A1FFC (EtwpLogMemInfoWs.c)
- *     ExpFindDiskSignature @ 0x1406B0B24 (ExpFindDiskSignature.c)
- *     SdbpCheckMatchingRegistryEntry @ 0x1406C256C (SdbpCheckMatchingRegistryEntry.c)
+ *     PspDetectComplusILImage @ 0x1404C4B2C (PspDetectComplusILImage.c)
+ *     ExpHwidBiosIfGetFirmwareTable @ 0x1404D16B8 (ExpHwidBiosIfGetFirmwareTable.c)
+ *     PfpPrivSourceEnum @ 0x1404EB998 (PfpPrivSourceEnum.c)
+ *     sub_14051F200 @ 0x14051F200 (sub_14051F200.c)
+ *     RtlQueryModuleInformation @ 0x1405386E4 (RtlQueryModuleInformation.c)
+ *     SiQuerySystemPartitionInformation @ 0x14053BE54 (SiQuerySystemPartitionInformation.c)
+ *     BiGetFirmwareType @ 0x14053C62C (BiGetFirmwareType.c)
+ *     BiGetNtPartitionPath @ 0x14053CFD0 (BiGetNtPartitionPath.c)
+ *     BiGetCurrentBootEntryIdentifier @ 0x14053F5C0 (BiGetCurrentBootEntryIdentifier.c)
+ *     RtlCreateHeap @ 0x140540768 (RtlCreateHeap.c)
+ *     SiGetSystemDeviceName @ 0x140542478 (SiGetSystemDeviceName.c)
+ *     PoInitHiberServices @ 0x14056C3E8 (PoInitHiberServices.c)
+ *     KsepGetLoadedModulesList @ 0x140570CC4 (KsepGetLoadedModulesList.c)
+ *     RtlSystemTimeToLocalTime @ 0x14057DA20 (RtlSystemTimeToLocalTime.c)
+ *     SepInitQuerySigningPolicyExt @ 0x1405816F0 (SepInitQuerySigningPolicyExt.c)
+ *     PnpGetStableSystemBootTime @ 0x14062D8CC (PnpGetStableSystemBootTime.c)
+ *     PopDripsWatchdogTakeAction @ 0x1406752EC (PopDripsWatchdogTakeAction.c)
+ *     RtlLocalTimeToSystemTime @ 0x140685A1C (RtlLocalTimeToSystemTime.c)
+ *     EtwpLogMemInfoWs @ 0x1406A2134 (EtwpLogMemInfoWs.c)
+ *     ExpFindDiskSignature @ 0x1406B0C5C (ExpFindDiskSignature.c)
+ *     SdbpCheckMatchingRegistryEntry @ 0x1406C26A4 (SdbpCheckMatchingRegistryEntry.c)
  *     HdlspAddLogEntry @ 0x140722ADC (HdlspAddLogEntry.c)
  *     SepInitializeDebugOptions @ 0x1407B9C50 (SepInitializeDebugOptions.c)
  *     PopInitPlatformSettings @ 0x1407BAB80 (PopInitPlatformSettings.c)
@@ -42,5 +42,5 @@ NTSTATUS __stdcall ZwQuerySystemInformation(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(*(_QWORD *)&SystemInformationClass, SystemInformation, *(_QWORD *)&SystemInformationLength);
+  return KiServiceInternal(*(_QWORD *)&SystemInformationClass);
 }

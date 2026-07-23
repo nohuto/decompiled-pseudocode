@@ -15,19 +15,18 @@
  *     _ZwDelayExecution@8 @ 0x4B2F2CC0 (_ZwDelayExecution@8.c)
  */
 
-int RtlpInitMuiCriticalSection()
+NTSTATUS RtlpInitMuiCriticalSection()
 {
-  int result; // eax
-  _DWORD v1[2]; // [esp+0h] [ebp-8h] BYREF
+  NTSTATUS result; // eax
+  LARGE_INTEGER DelayInterval; // [esp+0h] [ebp-8h] BYREF
 
-  v1[1] = -1;
-  v1[0] = -1000000;
+  DelayInterval.QuadPart = -1000000LL;
   while ( _InterlockedCompareExchange(&InitRegistryInfoCritSect, 1, 0) )
   {
     result = InitRegistryInfoCritSect;
     if ( InitRegistryInfoCritSect == 1 )
     {
-      ZwDelayExecution(0, v1);
+      ZwDelayExecution(0, &DelayInterval);
       result = InitRegistryInfoCritSect;
     }
     if ( result == 2 )

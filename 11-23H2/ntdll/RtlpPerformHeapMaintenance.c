@@ -17,7 +17,7 @@ __int64 __fastcall RtlpPerformHeapMaintenance(__int64 a1)
   {
     *(_DWORD *)(a1 + 120) = v1 & 0xDFFFFFFF;
     if ( (RtlpDisableHeapLookaside & 1) == 0 )
-      RtlpActivateLowFragmentationHeap(a1);
+      RtlpActivateLowFragmentationHeap((PRTL_CRITICAL_SECTION *)a1);
   }
   result = *(unsigned int *)(a1 + 120);
   if ( (result & 0x10000000) != 0 )

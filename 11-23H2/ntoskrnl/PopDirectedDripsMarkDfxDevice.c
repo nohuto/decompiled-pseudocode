@@ -1,10 +1,10 @@
 /*
- * XREFs of PopDirectedDripsMarkDfxDevice @ 0x1409A00E4
+ * XREFs of PopDirectedDripsMarkDfxDevice @ 0x1409A02E4
  * Callers:
- *     PopDirectedDripsBuildBroadcastTreeFull @ 0x14099FB50 (PopDirectedDripsBuildBroadcastTreeFull.c)
+ *     PopDirectedDripsBuildBroadcastTreeFull @ 0x14099FD50 (PopDirectedDripsBuildBroadcastTreeFull.c)
  * Callees:
- *     PopDirectedDripsInsertQueueDevice @ 0x1409A005C (PopDirectedDripsInsertQueueDevice.c)
- *     PopDirectedDripsVisitDevice @ 0x1409A0210 (PopDirectedDripsVisitDevice.c)
+ *     PopDirectedDripsInsertQueueDevice @ 0x1409A025C (PopDirectedDripsInsertQueueDevice.c)
+ *     PopDirectedDripsVisitDevice @ 0x1409A0410 (PopDirectedDripsVisitDevice.c)
  */
 
 unsigned __int64 __fastcall PopDirectedDripsMarkDfxDevice(__int64 a1, __int64 a2, __int64 a3, __int64 a4)

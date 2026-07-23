@@ -1,13 +1,13 @@
 /*
- * XREFs of AllocateOrValidateCharStringBuffer @ 0x1402F768C
+ * XREFs of AllocateOrValidateCharStringBuffer @ 0x1402F791C
  * Callers:
- *     RtlUpcaseUnicodeStringToCountedOemString @ 0x140755B10 (RtlUpcaseUnicodeStringToCountedOemString.c)
- *     RtlUnicodeStringToCountedOemString @ 0x1407D0C20 (RtlUnicodeStringToCountedOemString.c)
- *     RtlUnicodeStringToOemString @ 0x1408611F0 (RtlUnicodeStringToOemString.c)
- *     RtlUpcaseUnicodeStringToOemString @ 0x1408740D0 (RtlUpcaseUnicodeStringToOemString.c)
- *     RtlUpcaseUnicodeStringToAnsiString @ 0x1409B8B30 (RtlUpcaseUnicodeStringToAnsiString.c)
+ *     RtlUpcaseUnicodeStringToCountedOemString @ 0x140755D00 (RtlUpcaseUnicodeStringToCountedOemString.c)
+ *     RtlUnicodeStringToCountedOemString @ 0x1407D0EF0 (RtlUnicodeStringToCountedOemString.c)
+ *     RtlUnicodeStringToOemString @ 0x140861430 (RtlUnicodeStringToOemString.c)
+ *     RtlUpcaseUnicodeStringToOemString @ 0x140874310 (RtlUpcaseUnicodeStringToOemString.c)
+ *     RtlUpcaseUnicodeStringToAnsiString @ 0x1409B8D30 (RtlUpcaseUnicodeStringToAnsiString.c)
  * Callees:
- *     ExpAllocateStringRoutine @ 0x1407C6F90 (ExpAllocateStringRoutine.c)
+ *     ExpAllocateStringRoutine @ 0x1407C7260 (ExpAllocateStringRoutine.c)
  */
 
 __int64 __fastcall AllocateOrValidateCharStringBuffer(char a1, unsigned int a2, __int64 *a3, _WORD *a4)

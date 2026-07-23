@@ -1,14 +1,14 @@
 /*
- * XREFs of PnpHandleEnumerateHandlesAgainstPdoStack @ 0x140560F08
+ * XREFs of PnpHandleEnumerateHandlesAgainstPdoStack @ 0x1405615C8
  * Callers:
- *     PnpCollectOpenHandles @ 0x1409640BC (PnpCollectOpenHandles.c)
+ *     PnpCollectOpenHandles @ 0x1409642BC (PnpCollectOpenHandles.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14022F5B0 (ObfDereferenceObjectWithTag.c)
- *     KeAcquireQueuedSpinLock @ 0x1402A0760 (KeAcquireQueuedSpinLock.c)
- *     ObfReferenceObjectWithTag @ 0x1402B68C0 (ObfReferenceObjectWithTag.c)
- *     KeReleaseQueuedSpinLock @ 0x140302810 (KeReleaseQueuedSpinLock.c)
- *     IoGetDeviceAttachmentBaseRefWithTag @ 0x140302A88 (IoGetDeviceAttachmentBaseRefWithTag.c)
- *     PnpHandleEnumerateHandlesAgainstDeviceObject @ 0x140958078 (PnpHandleEnumerateHandlesAgainstDeviceObject.c)
+ *     ObfDereferenceObjectWithTag @ 0x14022F6C0 (ObfDereferenceObjectWithTag.c)
+ *     KeAcquireQueuedSpinLock @ 0x1402A09F0 (KeAcquireQueuedSpinLock.c)
+ *     ObfReferenceObjectWithTag @ 0x1402B6B50 (ObfReferenceObjectWithTag.c)
+ *     KeReleaseQueuedSpinLock @ 0x140302AA0 (KeReleaseQueuedSpinLock.c)
+ *     IoGetDeviceAttachmentBaseRefWithTag @ 0x140302D18 (IoGetDeviceAttachmentBaseRefWithTag.c)
+ *     PnpHandleEnumerateHandlesAgainstDeviceObject @ 0x140958278 (PnpHandleEnumerateHandlesAgainstDeviceObject.c)
  */
 
 __int64 __fastcall PnpHandleEnumerateHandlesAgainstPdoStack(PVOID *Object, __int64 a2, __int64 a3)

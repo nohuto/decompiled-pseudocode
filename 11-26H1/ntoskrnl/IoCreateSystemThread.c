@@ -1,23 +1,23 @@
 /*
- * XREFs of IoCreateSystemThread @ 0x140A03780
+ * XREFs of IoCreateSystemThread @ 0x140A782C0
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     PsReferenceSiloContext @ 0x140277800 (PsReferenceSiloContext.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     PsCreateSystemThreadEx @ 0x140A03170 (PsCreateSystemThreadEx.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     PsReferenceSiloContext @ 0x140276D70 (PsReferenceSiloContext.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     PsCreateSystemThreadEx @ 0x140A78DE0 (PsCreateSystemThreadEx.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall IoCreateSystemThread(
         _WORD *Object,
         __int64 a2,
-        int a3,
-        __int128 *a4,
-        ULONG_PTR a5,
-        void *a6,
+        unsigned int a3,
+        __int64 a4,
+        __int64 a5,
+        __int64 a6,
         ULONG_PTR BugCheckParameter2,
         __int64 a8)
 {
@@ -35,7 +35,7 @@ __int64 __fastcall IoCreateSystemThread(
   Pool2[1] = BugCheckParameter2;
   Pool2[2] = a8;
   PsReferenceSiloContext(Object);
-  SystemThread = PsCreateSystemThreadEx(a2, a3, a4, a5, a6, (__int64)IopThreadStart, (__int64)v13, 0LL, 0LL);
+  SystemThread = PsCreateSystemThreadEx(a2, a3, a4, a5, a6, IopThreadStart, v13, 0LL, 0LL);
   if ( SystemThread < 0 )
   {
     ObfDereferenceObject(Object);

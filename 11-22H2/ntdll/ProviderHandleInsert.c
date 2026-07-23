@@ -16,13 +16,13 @@ __int64 __fastcall ProviderHandleInsert(__int64 a1, __int64 a2, unsigned int *a3
   unsigned __int64 v8; // r9
   __int64 v9; // r8
   unsigned int v11; // ebx
-  __int64 Heap; // r9
+  _QWORD *Heap; // r9
   unsigned __int8 v13; // cl
   unsigned int v14; // r8d
   unsigned __int64 v15; // rdx
   __int64 v16; // rcx
 
-  RtlAcquireSRWLockExclusive(&unk_180184ED8);
+  RtlAcquireSRWLockExclusive(&stru_180184ED8);
   v5 = dword_180184ED0;
   v6 = 0;
   if ( !dword_180184ED0
@@ -30,7 +30,7 @@ __int64 __fastcall ProviderHandleInsert(__int64 a1, __int64 a2, unsigned int *a3
   {
     if ( (unsigned __int8)byte_180184ED4 >= 8u
       || (v11 = dword_180145CF0[(unsigned __int8)byte_180184ED4],
-          (Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8LL, 8LL * v11)) == 0) )
+          (Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, 8LL * v11)) == 0LL) )
     {
       v7 = 14;
       goto LABEL_4;
@@ -44,12 +44,12 @@ __int64 __fastcall ProviderHandleInsert(__int64 a1, __int64 a2, unsigned int *a3
       {
         v15 = v5 | (unsigned __int64)(16 * (v14 + 1));
         v16 = v14++;
-        *(_QWORD *)(Heap + 8 * v16) = v15;
+        Heap[v16] = v15;
       }
       while ( v14 != v11 );
       v13 = byte_180184ED4;
     }
-    _InterlockedExchange64(&qword_180184E90[v13], Heap);
+    _InterlockedExchange64(&qword_180184E90[v13], (__int64)Heap);
     ++byte_180184ED4;
   }
   v7 = 0;
@@ -60,6 +60,6 @@ __int64 __fastcall ProviderHandleInsert(__int64 a1, __int64 a2, unsigned int *a3
   _InterlockedExchange64((volatile __int64 *)(v9 + 8 * v8), a2);
 LABEL_4:
   *a3 = v6;
-  RtlReleaseSRWLockExclusive(&unk_180184ED8);
+  RtlReleaseSRWLockExclusive(&stru_180184ED8);
   return v7;
 }

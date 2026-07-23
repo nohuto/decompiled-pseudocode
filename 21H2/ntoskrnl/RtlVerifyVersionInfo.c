@@ -1,14 +1,14 @@
 /*
- * XREFs of RtlVerifyVersionInfo @ 0x14037D8C0
+ * XREFs of RtlVerifyVersionInfo @ 0x14037D410
  * Callers:
- *     WdipSemLoadScenarioTable @ 0x140799978 (WdipSemLoadScenarioTable.c)
- *     AslpFileGetVersionBlock @ 0x1407B3224 (AslpFileGetVersionBlock.c)
+ *     WdipSemLoadScenarioTable @ 0x140799B78 (WdipSemLoadScenarioTable.c)
+ *     AslpFileGetVersionBlock @ 0x1407B33C4 (AslpFileGetVersionBlock.c)
  * Callees:
- *     RtlpVerGetConditionMask @ 0x14037DB60 (RtlpVerGetConditionMask.c)
- *     RtlpVerCompare @ 0x14037DB80 (RtlpVerCompare.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     memset @ 0x140414200 (memset.c)
- *     RtlGetVersion @ 0x1406AC620 (RtlGetVersion.c)
+ *     RtlpVerGetConditionMask @ 0x14037D6B0 (RtlpVerGetConditionMask.c)
+ *     RtlpVerCompare @ 0x14037D6D0 (RtlpVerCompare.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     RtlGetVersion @ 0x14060AD10 (RtlGetVersion.c)
  */
 
 NTSTATUS __stdcall RtlVerifyVersionInfo(PRTL_OSVERSIONINFOEXW VersionInfo, ULONG TypeMask, ULONGLONG ConditionMask)

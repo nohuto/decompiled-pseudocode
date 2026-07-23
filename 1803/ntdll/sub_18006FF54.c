@@ -12,14 +12,14 @@
  *     sub_1800FA22C @ 0x1800FA22C (sub_1800FA22C.c)
  */
 
-__int64 __fastcall sub_18006FF54(__int64 a1, __int64 *a2, __int64 a3)
+__int64 __fastcall sub_18006FF54(void *a1, __int64 *a2, __int64 a3)
 {
   unsigned __int8 *v3; // rbp
   int v4; // r11d
   __int64 v5; // r12
   __int64 v7; // rdi
-  unsigned int v8; // eax
-  int v9; // eax
+  ULONG v8; // eax
+  NTSTATUS v9; // eax
   __int64 v10; // r9
   int v11; // ebx
   __int64 v12; // rax
@@ -56,7 +56,7 @@ __int64 __fastcall sub_18006FF54(__int64 a1, __int64 *a2, __int64 a3)
     *(_DWORD *)(((unsigned __int64)&v31 & 0xFFFFFFFFFFFFFFE0uLL) + 4) = 0;
     while ( 1 )
     {
-      v9 = ZwEnumerateValueKey(a1, v8, 1LL, v3 + 96, 512, v3 + 32);
+      v9 = ZwEnumerateValueKey(a1, v8, KeyValueFullInformation, v3 + 96, 0x200u, (PULONG)v3 + 8);
       v4 = 0;
       v11 = v9;
       if ( v9 < 0 )
@@ -167,7 +167,7 @@ LABEL_8:
         v11 = v4;
         goto LABEL_10;
       }
-      a1 = *(_QWORD *)(((unsigned __int64)&v31 & 0xFFFFFFFFFFFFFFE0uLL) + 0x30);
+      a1 = *(void **)(((unsigned __int64)&v31 & 0xFFFFFFFFFFFFFFE0uLL) + 0x30);
     }
     if ( v9 != -2147483622 )
       goto LABEL_10;

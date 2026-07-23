@@ -8,13 +8,13 @@
  *     ZwFlushBuffersFile @ 0x180093DB0 (ZwFlushBuffersFile.c)
  */
 
-NTSTATUS __fastcall RtlUnlockBootStatusData(HANDLE Handle)
+NTSTATUS __cdecl RtlUnlockBootStatusData(HANDLE FileHandle)
 {
-  _BYTE v3[24]; // [rsp+50h] [rbp-18h] BYREF
+  _IO_STATUS_BLOCK IoStatusBlock; // [rsp+50h] [rbp-18h] BYREF
   __int16 v4; // [rsp+78h] [rbp+10h] BYREF
 
   v4 = 0;
-  ZwFsControlFile(Handle, 0LL, 0LL, 0LL, v3, 639040, &v4, 2, 0LL, 0);
-  ZwFlushBuffersFile(Handle, v3);
-  return NtClose(Handle);
+  ZwFsControlFile(FileHandle, 0LL, 0LL, 0LL, &IoStatusBlock, 0x9C040u, &v4, 2u, 0LL, 0);
+  ZwFlushBuffersFile(FileHandle, &IoStatusBlock);
+  return NtClose(FileHandle);
 }

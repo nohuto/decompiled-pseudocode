@@ -1,10 +1,10 @@
 /*
- * XREFs of BgfxGrowDirtyRect @ 0x140716198
+ * XREFs of BgfxGrowDirtyRect @ 0x14071AE88
  * Callers:
- *     GxpWriteFrameBufferPixels @ 0x1404BFCF0 (GxpWriteFrameBufferPixels.c)
+ *     GxpWriteFrameBufferPixels @ 0x1404B9540 (GxpWriteFrameBufferPixels.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x1402BDEF0 (KxReleaseSpinLock.c)
- *     KxAcquireSpinLock @ 0x14032F2C0 (KxAcquireSpinLock.c)
+ *     KxReleaseSpinLock @ 0x140308BB0 (KxReleaseSpinLock.c)
+ *     KxAcquireSpinLock @ 0x1403312F0 (KxAcquireSpinLock.c)
  */
 
 void __fastcall BgfxGrowDirtyRect(_DWORD *a1, int *a2, unsigned int a3)

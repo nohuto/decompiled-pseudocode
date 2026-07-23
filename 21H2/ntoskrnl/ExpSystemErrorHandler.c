@@ -1,14 +1,14 @@
 /*
- * XREFs of ExpSystemErrorHandler @ 0x140409710
+ * XREFs of ExpSystemErrorHandler @ 0x1404098F0
  * Callers:
- *     ExpRaiseHardError @ 0x140956428 (ExpRaiseHardError.c)
+ *     ExpRaiseHardError @ 0x1409565F8 (ExpRaiseHardError.c)
  * Callees:
- *     KiSaveProcessorControlState @ 0x1403FE240 (KiSaveProcessorControlState.c)
- *     RtlCaptureContext @ 0x140407A50 (RtlCaptureContext.c)
- *     ExpSystemErrorHandler2 @ 0x1409B3000 (ExpSystemErrorHandler2.c)
+ *     KiSaveProcessorControlState @ 0x1403FE420 (KiSaveProcessorControlState.c)
+ *     RtlCaptureContext @ 0x140407C30 (RtlCaptureContext.c)
+ *     ExpSystemErrorHandler2 @ 0x1409B3F30 (ExpSystemErrorHandler2.c)
  */
 
-__int64 __fastcall ExpSystemErrorHandler(unsigned __int64 a1, __int64 a2, __int64 a3, __int64 a4, __int64 a5)
+__int64 __fastcall ExpSystemErrorHandler(unsigned __int64 a1, __int64 a2, __int64 a3, __int64 a4, char a5)
 {
   __int64 v5; // rax
   __int64 CurrentIrql; // rax
@@ -32,5 +32,5 @@ __int64 __fastcall ExpSystemErrorHandler(unsigned __int64 a1, __int64 a2, __int6
   Context->Rsp = (unsigned __int64)&retaddr;
   Context->Rip = (unsigned __int64)ExpSystemErrorHandler;
   __writecr8(v11[0]);
-  return ExpSystemErrorHandler2(a1, a2, a3, a4, a5);
+  return ExpSystemErrorHandler2(a1, a5);
 }

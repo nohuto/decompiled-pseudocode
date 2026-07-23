@@ -1,13 +1,12 @@
 /*
- * XREFs of ZwQueryInformationJobObject @ 0x14015C360
+ * XREFs of ZwQueryInformationJobObject @ 0x14015C8D0
  * Callers:
- *     NtQueryInformationProcess @ 0x140422590 (NtQueryInformationProcess.c)
- *     RtlGetConsoleSessionForegroundProcessId @ 0x1406890AC (RtlGetConsoleSessionForegroundProcessId.c)
+ *     NtQueryInformationProcess @ 0x140421450 (NtQueryInformationProcess.c)
+ *     RtlGetConsoleSessionForegroundProcessId @ 0x140689190 (RtlGetConsoleSessionForegroundProcessId.c)
  * Callees:
  *     <none>
  */
 
-// local variable allocation has failed, the output may be wrong!
 NTSTATUS __stdcall ZwQueryInformationJobObject(
         HANDLE JobHandle,
         JOBOBJECTINFOCLASS JobInformationClass,
@@ -17,5 +16,5 @@ NTSTATUS __stdcall ZwQueryInformationJobObject(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(JobHandle, *(_QWORD *)&JobInformationClass, JobInformation);
+  return KiServiceInternal(JobHandle);
 }

@@ -1,18 +1,18 @@
 /*
- * XREFs of ViGrowPoolAllocation @ 0x140645390
+ * XREFs of ViGrowPoolAllocation @ 0x140648F70
  * Callers:
- *     VfHandlePoolAlloc @ 0x140C44300 (VfHandlePoolAlloc.c)
+ *     VfHandlePoolAlloc @ 0x140C4A310 (VfHandlePoolAlloc.c)
  * Callees:
- *     KeZeroSinglePage @ 0x1407307A0 (KeZeroSinglePage.c)
- *     RtlpInterlockedPopEntrySList @ 0x140730C90 (RtlpInterlockedPopEntrySList.c)
- *     RtlpInterlockedPushEntrySList @ 0x140730CD0 (RtlpInterlockedPushEntrySList.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
+ *     KeZeroSinglePage @ 0x140735370 (KeZeroSinglePage.c)
+ *     RtlpInterlockedPopEntrySList @ 0x140735860 (RtlpInterlockedPopEntrySList.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1407358A0 (RtlpInterlockedPushEntrySList.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
  */
 
-PSLIST_ENTRY __fastcall ViGrowPoolAllocation(union _SLIST_HEADER *a1)
+PSLIST_ENTRY __fastcall ViGrowPoolAllocation(_SLIST_HEADER *a1)
 {
   __int64 Pool2; // rax
-  union _SLIST_HEADER *v3; // rdi
+  _SLIST_HEADER *v3; // rdi
   __int64 v4; // rbx
   PSLIST_ENTRY result; // rax
   __int64 v6; // rsi

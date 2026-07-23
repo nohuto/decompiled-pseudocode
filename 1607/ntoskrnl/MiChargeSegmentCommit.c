@@ -1,23 +1,23 @@
 /*
- * XREFs of MiChargeSegmentCommit @ 0x1404BA400
+ * XREFs of MiChargeSegmentCommit @ 0x1404A6130
  * Callers:
- *     MiUpdateCfgSystemWideBitmapWorker @ 0x14042F650 (MiUpdateCfgSystemWideBitmapWorker.c)
- *     MiMapViewOfDataSection @ 0x1404354C0 (MiMapViewOfDataSection.c)
- *     MmCommitSessionMappedView @ 0x1404BA0D8 (MmCommitSessionMappedView.c)
- *     MiCommitPagefileBackedSection @ 0x1404BA2E0 (MiCommitPagefileBackedSection.c)
+ *     MiUpdateCfgSystemWideBitmapWorker @ 0x14042E520 (MiUpdateCfgSystemWideBitmapWorker.c)
+ *     MiMapViewOfDataSection @ 0x140434390 (MiMapViewOfDataSection.c)
+ *     MmCommitSessionMappedView @ 0x1404A5E08 (MmCommitSessionMappedView.c)
+ *     MiCommitPagefileBackedSection @ 0x1404A6010 (MiCommitPagefileBackedSection.c)
  * Callees:
- *     KiLeaveGuardedRegionUnsafe @ 0x140013B70 (KiLeaveGuardedRegionUnsafe.c)
- *     MiChargeCommit @ 0x14002B650 (MiChargeCommit.c)
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     MiReturnCommit @ 0x14004E500 (MiReturnCommit.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1400C8070 (ExfAcquirePushLockExclusiveEx.c)
- *     ExfTryToWakePushLock @ 0x1400C8738 (ExfTryToWakePushLock.c)
- *     MiPteInShadowRange @ 0x1401EF3B8 (MiPteInShadowRange.c)
- *     MiWritePteShadow @ 0x1401EF658 (MiWritePteShadow.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1401F25D0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiMakeDemandZeroPte @ 0x1401F2734 (MiMakeDemandZeroPte.c)
- *     MiUpdateProcessSharedCommit @ 0x1404BA66C (MiUpdateProcessSharedCommit.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x1400136F0 (KiLeaveGuardedRegionUnsafe.c)
+ *     MiChargeCommit @ 0x14002B1D0 (MiChargeCommit.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     MiReturnCommit @ 0x14004E080 (MiReturnCommit.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1400C5F10 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfTryToWakePushLock @ 0x1400C65D8 (ExfTryToWakePushLock.c)
+ *     MiPteInShadowRange @ 0x1401EF1E4 (MiPteInShadowRange.c)
+ *     MiWritePteShadow @ 0x1401EF484 (MiWritePteShadow.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1401F23FC (MI_READ_PTE_LOCK_FREE.c)
+ *     MiMakeDemandZeroPte @ 0x1401F2560 (MiMakeDemandZeroPte.c)
+ *     MiUpdateProcessSharedCommit @ 0x1404A639C (MiUpdateProcessSharedCommit.c)
  */
 
 __int64 __fastcall MiChargeSegmentCommit(__int64 **a1, __int64 *a2, unsigned __int64 a3, int a4)
@@ -124,7 +124,7 @@ __int64 __fastcall MiChargeSegmentCommit(__int64 **a1, __int64 *a2, unsigned __i
   if ( v7 )
   {
     MiUpdateProcessSharedCommit(*(_QWORD *)v25, v7);
-    _InterlockedExchangeAdd64(&qword_140327918, v7);
+    _InterlockedExchangeAdd64(&qword_140327958, v7);
   }
 LABEL_32:
   if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)v12, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )

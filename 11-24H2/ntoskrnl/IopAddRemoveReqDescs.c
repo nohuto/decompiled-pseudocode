@@ -1,18 +1,17 @@
 /*
- * XREFs of IopAddRemoveReqDescs @ 0x140A9D650
+ * XREFs of IopAddRemoveReqDescs @ 0x140A98BC0
  * Callers:
- *     IopSelectNextConfiguration @ 0x140721C54 (IopSelectNextConfiguration.c)
- *     PnpFindBestConfigurationWorker @ 0x140722208 (PnpFindBestConfigurationWorker.c)
- *     PnpSelectFirstConfiguration @ 0x1407223A4 (PnpSelectFirstConfiguration.c)
- *     IopBootAllocation @ 0x140725438 (IopBootAllocation.c)
+ *     IopSelectNextConfiguration @ 0x14071F7E4 (IopSelectNextConfiguration.c)
+ *     PnpFindBestConfigurationWorker @ 0x14071FD98 (PnpFindBestConfigurationWorker.c)
+ *     PnpSelectFirstConfiguration @ 0x14071FF34 (PnpSelectFirstConfiguration.c)
+ *     IopBootAllocation @ 0x140722FC8 (IopBootAllocation.c)
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
  */
 
-void __fastcall IopAddRemoveReqDescs(__int64 a1, unsigned int a2, _QWORD *a3, __int64 a4)
+void __fastcall IopAddRemoveReqDescs(__int64 a1, unsigned int a2, _QWORD *a3, char a4)
 {
   __int64 v4; // rsi
-  char v5; // r12
   __int64 v9; // rdi
   __int64 v10; // rbx
   char v11; // al
@@ -30,7 +29,6 @@ void __fastcall IopAddRemoveReqDescs(__int64 a1, unsigned int a2, _QWORD *a3, __
   if ( a2 )
   {
     v4 = 0LL;
-    v5 = a4;
     do
     {
       v9 = *(_QWORD *)(a1 + 8 * v4);
@@ -42,11 +40,11 @@ void __fastcall IopAddRemoveReqDescs(__int64 a1, unsigned int a2, _QWORD *a3, __
         {
           v12 = *(_QWORD *)(v10 + 24);
           *(_BYTE *)(v10 + 104) = v11 & 0xFE;
-          guard_dispatch_icall_no_overrides(*(_QWORD *)(v12 + 8), 3LL, 0LL, a4);
+          guard_dispatch_icall_no_overrides(*(_QWORD *)(v12 + 8), 3LL);
         }
         *(_BYTE *)(v10 + 105) = 1;
         v13 = (_QWORD *)(*(_QWORD *)(v9 + 32) + 40LL);
-        if ( v5 )
+        if ( a4 )
         {
           *(_QWORD *)(*(_QWORD *)(v9 + 32) + 48LL) = *(_QWORD *)(v9 + 32) + 40LL;
           *v13 = v13;

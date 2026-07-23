@@ -32,7 +32,7 @@ int __thiscall TppWorkInitialize(_DWORD *this, int a2, int a3, int a4, int a5)
       v6 = -1073741811;
     }
     if ( v6 < 0 )
-      TppCleanupGroupMemberDestroy(this);
+      TppCleanupGroupMemberDestroy((int)this);
   }
   return v6;
 }

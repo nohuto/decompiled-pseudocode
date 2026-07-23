@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlpInitializeStackTraceDatabase @ 0x14080288C
+ * XREFs of RtlpInitializeStackTraceDatabase @ 0x14080832C
  * Callers:
- *     InitBootProcessor @ 0x140CAA7CC (InitBootProcessor.c)
+ *     InitBootProcessor @ 0x140CB07CC (InitBootProcessor.c)
  * Callees:
- *     RtlStdInitializeStackDatabase @ 0x14080274C (RtlStdInitializeStackDatabase.c)
- *     NtFreeVirtualMemory @ 0x14095F2D0 (NtFreeVirtualMemory.c)
+ *     RtlStdInitializeStackDatabase @ 0x1408081EC (RtlStdInitializeStackDatabase.c)
+ *     NtFreeVirtualMemory @ 0x140A04B90 (NtFreeVirtualMemory.c)
  */
 
 __int64 __fastcall RtlpInitializeStackTraceDatabase(__int64 a1, __int64 a2, unsigned __int64 a3)
@@ -14,11 +14,14 @@ __int64 __fastcall RtlpInitializeStackTraceDatabase(__int64 a1, __int64 a2, unsi
   ULONG_PTR RegionSize; // [rsp+58h] [rbp+20h] BYREF
 
   RegionSize = 0LL;
-  if ( NormalizationListLock.SchedulingGroup )
+  if ( *(_QWORD *)&NormalizationListLock.WaitRegister.Flags )
     return 3221225994LL;
   v4 = RtlStdInitializeStackDatabase(a1, a2, a3, &RegionSize);
   if ( v4 >= 0
-    && _InterlockedCompareExchange64((volatile signed __int64 *)&NormalizationListLock.SchedulingGroup, RegionSize, 0LL) )
+    && _InterlockedCompareExchange64(
+         (volatile signed __int64 *)&NormalizationListLock.WaitRegister.Flags,
+         RegionSize,
+         0LL) )
   {
     BaseAddress = (PVOID)RegionSize;
     RegionSize = *(_QWORD *)(RegionSize + 184) - RegionSize;

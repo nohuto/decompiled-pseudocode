@@ -1,7 +1,7 @@
 /*
- * XREFs of VfUtilCrashEvent @ 0x1405CE234
+ * XREFs of VfUtilCrashEvent @ 0x1405CE7A4
  * Callers:
- *     CarReportUnusualShutdown @ 0x1405D45B0 (CarReportUnusualShutdown.c)
+ *     CarReportUnusualShutdown @ 0x1405D4B20 (CarReportUnusualShutdown.c)
  * Callees:
  *     <none>
  */

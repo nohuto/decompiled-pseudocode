@@ -1,13 +1,13 @@
 /*
- * XREFs of HvpViewMapUnpinForFileOffset @ 0x1401B6B34
+ * XREFs of HvpViewMapUnpinForFileOffset @ 0x1401B6A18
  * Callers:
- *     HvViewMapUnpinFile @ 0x1401B673C (HvViewMapUnpinFile.c)
- *     HvViewMapUnpinForFileOffset @ 0x14060FE80 (HvViewMapUnpinForFileOffset.c)
+ *     HvViewMapUnpinFile @ 0x1401B6620 (HvViewMapUnpinFile.c)
+ *     HvViewMapUnpinForFileOffset @ 0x14060FF34 (HvViewMapUnpinForFileOffset.c)
  * Callees:
- *     RtlWalkFrameChain @ 0x14004F2A0 (RtlWalkFrameChain.c)
- *     HvpViewMapUnpinViewOfPrimaryFile @ 0x1401B6C7C (HvpViewMapUnpinViewOfPrimaryFile.c)
- *     HvpViewMapContiguousBytesAfterFileOffset @ 0x1405818BC (HvpViewMapContiguousBytesAfterFileOffset.c)
- *     HvpViewMapCountPinMaskSetBits @ 0x14060FF08 (HvpViewMapCountPinMaskSetBits.c)
+ *     RtlWalkFrameChain @ 0x14004EE20 (RtlWalkFrameChain.c)
+ *     HvpViewMapUnpinViewOfPrimaryFile @ 0x1401B6B60 (HvpViewMapUnpinViewOfPrimaryFile.c)
+ *     HvpViewMapContiguousBytesAfterFileOffset @ 0x140581D6C (HvpViewMapContiguousBytesAfterFileOffset.c)
+ *     HvpViewMapCountPinMaskSetBits @ 0x14060FFBC (HvpViewMapCountPinMaskSetBits.c)
  */
 
 __int64 __fastcall HvpViewMapUnpinForFileOffset(__int64 a1, int a2, int a3)

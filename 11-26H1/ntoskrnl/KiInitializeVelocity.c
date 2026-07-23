@@ -1,18 +1,18 @@
 /*
- * XREFs of KiInitializeVelocity @ 0x140CCA1CC
+ * XREFs of KiInitializeVelocity @ 0x140CD02B4
  * Callers:
- *     KeInitSystem @ 0x140CC82B8 (KeInitSystem.c)
+ *     KeInitSystem @ 0x140CCE3A8 (KeInitSystem.c)
  * Callees:
- *     Feature_ShortThreadQuantum__private_IsEnabledDeviceUsageNoInline @ 0x140523FB8 (Feature_ShortThreadQuantum__private_IsEnabledDeviceUsageNoInline.c)
- *     Feature_QueueReadyThreadRecheckPriority__private_IsEnabledDeviceUsageNoInline @ 0x1405269D4 (Feature_QueueReadyThreadRecheckPriority__private_IsEnabledDeviceUsageNoInline.c)
- *     Feature_SharedReadyQueueLock__private_IsEnabledDeviceUsageNoInline @ 0x140526A30 (Feature_SharedReadyQueueLock__private_IsEnabledDeviceUsageNoInline.c)
- *     Feature_AvoidSmtGroupings__private_IsEnabledDeviceUsageNoInline @ 0x140526B44 (Feature_AvoidSmtGroupings__private_IsEnabledDeviceUsageNoInline.c)
- *     Feature_HaltOnAddress_IpiLevel__private_IsEnabledDeviceUsageNoInline @ 0x140526BFC (Feature_HaltOnAddress_IpiLevel__private_IsEnabledDeviceUsageNoInline.c)
- *     Feature_SchedulerAssist_YieldBoost__private_IsEnabledDeviceUsageNoInline @ 0x140526C58 (Feature_SchedulerAssist_YieldBoost__private_IsEnabledDeviceUsageNoInline.c)
- *     wil_details_FeatureReporting_ReportUsageToService @ 0x14052D25C (wil_details_FeatureReporting_ReportUsageToService.c)
- *     wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath @ 0x140532A10 (wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath.c)
- *     Feature_DisableQosGroupingForMediumQos__private_IsEnabledDeviceUsageNoInline @ 0x1405E9468 (Feature_DisableQosGroupingForMediumQos__private_IsEnabledDeviceUsageNoInline.c)
- *     Feature_IldeLatencyAwareStandbyStealing__private_IsEnabledDeviceUsageNoInline @ 0x1405E94C4 (Feature_IldeLatencyAwareStandbyStealing__private_IsEnabledDeviceUsageNoInline.c)
+ *     Feature_ShortThreadQuantum__private_IsEnabledDeviceUsageNoInline @ 0x140526628 (Feature_ShortThreadQuantum__private_IsEnabledDeviceUsageNoInline.c)
+ *     Feature_QueueReadyThreadRecheckPriority__private_IsEnabledDeviceUsageNoInline @ 0x140529044 (Feature_QueueReadyThreadRecheckPriority__private_IsEnabledDeviceUsageNoInline.c)
+ *     Feature_SharedReadyQueueLock__private_IsEnabledDeviceUsageNoInline @ 0x1405290A0 (Feature_SharedReadyQueueLock__private_IsEnabledDeviceUsageNoInline.c)
+ *     Feature_AvoidSmtGroupings__private_IsEnabledDeviceUsageNoInline @ 0x1405291B4 (Feature_AvoidSmtGroupings__private_IsEnabledDeviceUsageNoInline.c)
+ *     Feature_HaltOnAddress_IpiLevel__private_IsEnabledDeviceUsageNoInline @ 0x14052926C (Feature_HaltOnAddress_IpiLevel__private_IsEnabledDeviceUsageNoInline.c)
+ *     Feature_SchedulerAssist_YieldBoost__private_IsEnabledDeviceUsageNoInline @ 0x1405292C8 (Feature_SchedulerAssist_YieldBoost__private_IsEnabledDeviceUsageNoInline.c)
+ *     wil_details_FeatureReporting_ReportUsageToService @ 0x14052F77C (wil_details_FeatureReporting_ReportUsageToService.c)
+ *     wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath @ 0x140534EB0 (wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath.c)
+ *     Feature_DisableQosGroupingForMediumQos__private_IsEnabledDeviceUsageNoInline @ 0x1405EBDD8 (Feature_DisableQosGroupingForMediumQos__private_IsEnabledDeviceUsageNoInline.c)
+ *     Feature_IldeLatencyAwareStandbyStealing__private_IsEnabledDeviceUsageNoInline @ 0x1405EBE34 (Feature_IldeLatencyAwareStandbyStealing__private_IsEnabledDeviceUsageNoInline.c)
  */
 
 __int64 KiInitializeVelocity()

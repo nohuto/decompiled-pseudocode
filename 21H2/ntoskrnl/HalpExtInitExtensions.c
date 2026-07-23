@@ -1,13 +1,13 @@
 /*
- * XREFs of HalpExtInitExtensions @ 0x140A6EE38
+ * XREFs of HalpExtInitExtensions @ 0x140A6FE38
  * Callers:
- *     HalpHalExtInitSystem @ 0x1409A16D0 (HalpHalExtInitSystem.c)
+ *     HalpHalExtInitSystem @ 0x1409A2600 (HalpHalExtInitSystem.c)
  * Callees:
- *     HalpAcpiGetTable @ 0x140294680 (HalpAcpiGetTable.c)
- *     DbgPrintEx @ 0x14037F820 (DbgPrintEx.c)
- *     HalpMmAllocateMemoryInternal @ 0x1403BB2B8 (HalpMmAllocateMemoryInternal.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     memset @ 0x140414200 (memset.c)
+ *     HalpAcpiGetTable @ 0x140216340 (HalpAcpiGetTable.c)
+ *     DbgPrintEx @ 0x14037F370 (DbgPrintEx.c)
+ *     HalpMmAllocateMemoryInternal @ 0x1403BB428 (HalpMmAllocateMemoryInternal.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     memset @ 0x140414300 (memset.c)
  */
 
 __int64 __fastcall HalpExtInitExtensions(__int64 a1)

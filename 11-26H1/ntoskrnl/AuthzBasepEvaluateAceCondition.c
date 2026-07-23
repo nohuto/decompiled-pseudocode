@@ -1,38 +1,38 @@
 /*
- * XREFs of AuthzBasepEvaluateAceCondition @ 0x1403CDD60
+ * XREFs of AuthzBasepEvaluateAceCondition @ 0x1402FBC90
  * Callers:
- *     SeAccessCheckByType @ 0x1402AAD98 (SeAccessCheckByType.c)
- *     SepMaximumAccessCheckEx @ 0x1402ACD9C (SepMaximumAccessCheckEx.c)
- *     SepCommonAccessCheckEx @ 0x1402AD130 (SepCommonAccessCheckEx.c)
- *     SepNormalAccessCheckEx @ 0x1402AF210 (SepNormalAccessCheckEx.c)
- *     SepNormalAccessCheck @ 0x1402B0BC0 (SepNormalAccessCheck.c)
- *     SepMaximumAccessCheck @ 0x1402B1890 (SepMaximumAccessCheck.c)
- *     SeAccessCheckWithHint @ 0x1402B63B0 (SeAccessCheckWithHint.c)
- *     SepFilterCheck @ 0x1402B7790 (SepFilterCheck.c)
- *     SepVerifyDesktopAppxPackageName @ 0x1403D0998 (SepVerifyDesktopAppxPackageName.c)
- *     SepAccessCheckAndAuditAlarm @ 0x1409F55D0 (SepAccessCheckAndAuditAlarm.c)
- *     SepExamineSaclEx @ 0x1409F7C30 (SepExamineSaclEx.c)
- *     SeExamineSacl @ 0x1409F8430 (SeExamineSacl.c)
+ *     SeAccessCheckWithHint @ 0x140301070 (SeAccessCheckWithHint.c)
+ *     SepFilterCheck @ 0x140302450 (SepFilterCheck.c)
+ *     SeAccessCheckByType @ 0x1403AC1E8 (SeAccessCheckByType.c)
+ *     SepCommonAccessCheckEx @ 0x1403AD570 (SepCommonAccessCheckEx.c)
+ *     SepVerifyDesktopAppxPackageName @ 0x1403AF970 (SepVerifyDesktopAppxPackageName.c)
+ *     SepMaximumAccessCheck @ 0x14051A140 (SepMaximumAccessCheck.c)
+ *     SepMaximumAccessCheckEx @ 0x14051B700 (SepMaximumAccessCheckEx.c)
+ *     SepNormalAccessCheck @ 0x14051BF40 (SepNormalAccessCheck.c)
+ *     SepNormalAccessCheckEx @ 0x14051D0B0 (SepNormalAccessCheckEx.c)
+ *     SepAccessCheckAndAuditAlarm @ 0x140A5E120 (SepAccessCheckAndAuditAlarm.c)
+ *     SepExamineSaclEx @ 0x140A60770 (SepExamineSaclEx.c)
+ *     SeExamineSacl @ 0x140A60F70 (SeExamineSacl.c)
  * Callees:
- *     AuthzBasepQuerySecurityAttributeAndValues @ 0x1402B2540 (AuthzBasepQuerySecurityAttributeAndValues.c)
- *     SepPotentialGlobalTableAttribute @ 0x1403CD380 (SepPotentialGlobalTableAttribute.c)
- *     AuthzBasepEvaluateAttribute @ 0x1403CEFAC (AuthzBasepEvaluateAttribute.c)
- *     AuthzBasepFreeSecurityAttributesList @ 0x1403CF030 (AuthzBasepFreeSecurityAttributesList.c)
- *     AuthzBasepSupportSetOperation @ 0x1403CF188 (AuthzBasepSupportSetOperation.c)
- *     AuthzBasepEvaluateExpression @ 0x1403CF1B4 (AuthzBasepEvaluateExpression.c)
- *     AuthzBasepOperandValueTypesCompatible @ 0x1403CF34C (AuthzBasepOperandValueTypesCompatible.c)
- *     AuthzBasepIsValidExpression @ 0x1403D0180 (AuthzBasepIsValidExpression.c)
- *     AuthzBasepResetOperands @ 0x1403D0360 (AuthzBasepResetOperands.c)
- *     AuthzBasepMemberOf @ 0x140517AE0 (AuthzBasepMemberOf.c)
- *     AuthzBasepDeviceMemberOf @ 0x140517BEC (AuthzBasepDeviceMemberOf.c)
- *     __report_rangecheckfailure @ 0x140522044 (__report_rangecheckfailure.c)
- *     SepValidateAndCopyGlobalEntry @ 0x140529F94 (SepValidateAndCopyGlobalEntry.c)
- *     AuthzBasepComputeBitwise @ 0x1407152D4 (AuthzBasepComputeBitwise.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     AuthzBasepEvaluateExpression @ 0x1402FB3B8 (AuthzBasepEvaluateExpression.c)
+ *     AuthzBasepOperandValueTypesCompatible @ 0x1402FB550 (AuthzBasepOperandValueTypesCompatible.c)
+ *     AuthzBasepSupportSetOperation @ 0x1402FBA2C (AuthzBasepSupportSetOperation.c)
+ *     AuthzBasepFreeSecurityAttributesList @ 0x1402FBB30 (AuthzBasepFreeSecurityAttributesList.c)
+ *     AuthzBasepEvaluateAttribute @ 0x1402FCEDC (AuthzBasepEvaluateAttribute.c)
+ *     AuthzBasepQuerySecurityAttributeAndValues @ 0x1402FD210 (AuthzBasepQuerySecurityAttributeAndValues.c)
+ *     SepPotentialGlobalTableAttribute @ 0x1403B1CA0 (SepPotentialGlobalTableAttribute.c)
+ *     AuthzBasepResetOperands @ 0x140462C30 (AuthzBasepResetOperands.c)
+ *     AuthzBasepIsValidExpression @ 0x140472080 (AuthzBasepIsValidExpression.c)
+ *     AuthzBasepMemberOf @ 0x140511550 (AuthzBasepMemberOf.c)
+ *     AuthzBasepDeviceMemberOf @ 0x14051165C (AuthzBasepDeviceMemberOf.c)
+ *     __report_rangecheckfailure @ 0x1405246B0 (__report_rangecheckfailure.c)
+ *     SepValidateAndCopyGlobalEntry @ 0x14052C4B4 (SepValidateAndCopyGlobalEntry.c)
+ *     AuthzBasepComputeBitwise @ 0x140719FC4 (AuthzBasepComputeBitwise.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall AuthzBasepEvaluateAceCondition(
@@ -274,7 +274,7 @@ LABEL_115:
           goto LABEL_114;
         }
       }
-      if ( (unsigned __int8)AuthzBasepSupportSetOperation((unsigned __int8)v24) )
+      if ( AuthzBasepSupportSetOperation((unsigned __int8)v24) )
         goto LABEL_48;
       if ( v12 == 2 )
       {
@@ -386,7 +386,7 @@ LABEL_242:
           goto LABEL_97;
         }
       }
-      if ( !(unsigned __int8)AuthzBasepSupportSetOperation((unsigned __int8)v24)
+      if ( !AuthzBasepSupportSetOperation((unsigned __int8)v24)
         && v12 == 2
         && (v101 & 0xFFFB) != 0
         && BYTE4(v105) != (_BYTE)v60
@@ -452,7 +452,7 @@ LABEL_92:
         }
       }
 LABEL_96:
-      AuthzBasepEvaluateExpression((unsigned __int8)v24, &v101, &v94);
+      AuthzBasepEvaluateExpression(v24, (__int64)&v101, &v94);
       v61 = v94;
       v20 = v102;
       if ( (unsigned __int8)(v24 + 114) <= 1u && v94 != -1 )
@@ -721,7 +721,7 @@ LABEL_251:
           v83 = v101;
           if ( v19 == 1 )
             v83 = v105;
-          if ( !(unsigned __int8)AuthzBasepOperandValueTypesCompatible(&v101) || (_BYTE)v24 != 0xA3 || v83 != 2 )
+          if ( !AuthzBasepOperandValueTypesCompatible((__int16 *)&v101) || (_BYTE)v24 != 0xA3 || v83 != 2 )
           {
 LABEL_211:
             v84 = 0;
@@ -954,13 +954,13 @@ LABEL_38:
         v42 = &P[v36 - 1];
         *(_QWORD *)((char *)&v119 + v36 * 8 + 8) = 0LL;
         *(__int64 *)((char *)&v120 + v36 * 8) = 0LL;
-        SecurityAttributeAndValues = AuthzBasepQuerySecurityAttributeAndValues((__int64)&P[v36 - 2]);
+        SecurityAttributeAndValues = AuthzBasepQuerySecurityAttributeAndValues(&P[v36 - 2]);
         if ( SecurityAttributeAndValues == -1073741275 )
         {
           if ( *(_DWORD *)v39 != 2
             || (SepSingletonGlobal[4] & 1) == 0
             || (v41[50] & 0x20000) != 0
-            || !SepPotentialGlobalTableAttribute((PCUNICODE_STRING)v39 + 1)
+            || !(unsigned __int8)SepPotentialGlobalTableAttribute((PCUNICODE_STRING)v39 + 1)
             || v100 )
           {
             goto LABEL_41;
@@ -985,7 +985,7 @@ LABEL_102:
             v91 = 1;
           }
           *v42 = v111;
-          SecurityAttributeAndValues = AuthzBasepQuerySecurityAttributeAndValues((__int64)&P[v36 - 2]);
+          SecurityAttributeAndValues = AuthzBasepQuerySecurityAttributeAndValues(&P[v36 - 2]);
           if ( SecurityAttributeAndValues == -1073741275 )
           {
             *v42 = v64;
@@ -1010,7 +1010,7 @@ LABEL_103:
             }
             *(_DWORD *)v39 = 7;
             *v42 = 0LL;
-            SecurityAttributeAndValues = AuthzBasepQuerySecurityAttributeAndValues((__int64)&P[v36 - 2]);
+            SecurityAttributeAndValues = AuthzBasepQuerySecurityAttributeAndValues(&P[v36 - 2]);
           }
         }
         if ( SecurityAttributeAndValues >= 0 )

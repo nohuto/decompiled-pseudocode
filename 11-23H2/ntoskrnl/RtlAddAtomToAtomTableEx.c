@@ -1,21 +1,21 @@
 /*
- * XREFs of RtlAddAtomToAtomTableEx @ 0x140297790
+ * XREFs of RtlAddAtomToAtomTableEx @ 0x140297A20
  * Callers:
- *     NtAddAtomEx @ 0x1407D17C0 (NtAddAtomEx.c)
- *     RtlAddAtomToAtomTable @ 0x1407E4230 (RtlAddAtomToAtomTable.c)
+ *     NtAddAtomEx @ 0x1407D1A90 (NtAddAtomEx.c)
+ *     RtlAddAtomToAtomTable @ 0x1407E4500 (RtlAddAtomToAtomTable.c)
  * Callees:
- *     RtlpReferenceAtom @ 0x140297734 (RtlpReferenceAtom.c)
- *     RtlpAllocateAtomTableEntry @ 0x1402F8528 (RtlpAllocateAtomTableEntry.c)
- *     memmove @ 0x140435700 (memmove.c)
+ *     RtlpReferenceAtom @ 0x1402979C4 (RtlpReferenceAtom.c)
+ *     RtlpAllocateAtomTableEntry @ 0x1402F87B8 (RtlpAllocateAtomTableEntry.c)
+ *     memmove @ 0x140435B00 (memmove.c)
  *     RtlpFreeAtom @ 0x14069EC78 (RtlpFreeAtom.c)
- *     RtlpInsertStringAtom @ 0x140714FB0 (RtlpInsertStringAtom.c)
- *     RtlpUnlockAtomTable @ 0x140717C58 (RtlpUnlockAtomTable.c)
- *     RtlpHashStringToAtom @ 0x140717F70 (RtlpHashStringToAtom.c)
- *     RtlpLockAtomTable @ 0x1407180D0 (RtlpLockAtomTable.c)
- *     RtlGetIntegerAtom @ 0x140718110 (RtlGetIntegerAtom.c)
+ *     RtlpInsertStringAtom @ 0x1407151C0 (RtlpInsertStringAtom.c)
+ *     RtlpUnlockAtomTable @ 0x140717E58 (RtlpUnlockAtomTable.c)
+ *     RtlpHashStringToAtom @ 0x140718170 (RtlpHashStringToAtom.c)
+ *     RtlpLockAtomTable @ 0x1407182D0 (RtlpLockAtomTable.c)
+ *     RtlGetIntegerAtom @ 0x140718310 (RtlGetIntegerAtom.c)
  */
 
-__int64 __fastcall RtlAddAtomToAtomTableEx(__int64 a1, _WORD *a2, unsigned __int16 *a3, unsigned int a4)
+__int64 __fastcall RtlAddAtomToAtomTableEx(__int64 a1, WCHAR *a2, USHORT *a3, unsigned int a4)
 {
   int v8; // edi
   __int64 v9; // rcx
@@ -24,8 +24,8 @@ __int64 __fastcall RtlAddAtomToAtomTableEx(__int64 a1, _WORD *a2, unsigned __int
   __int64 v12; // rsi
   unsigned __int64 v13; // rbx
   __int64 v14; // rcx
-  unsigned __int16 v15; // cx
-  unsigned __int16 v17[2]; // [rsp+40h] [rbp-58h] BYREF
+  USHORT v15; // cx
+  USHORT IntegerAtom[2]; // [rsp+40h] [rbp-58h] BYREF
   int v18; // [rsp+44h] [rbp-54h]
   size_t Size; // [rsp+48h] [rbp-50h] BYREF
   __int64 v20; // [rsp+50h] [rbp-48h] BYREF
@@ -35,17 +35,17 @@ __int64 __fastcall RtlAddAtomToAtomTableEx(__int64 a1, _WORD *a2, unsigned __int
   v21 = 0LL;
   v22 = 0LL;
   LODWORD(Size) = 0;
-  v17[0] = 0;
+  IntegerAtom[0] = 0;
   v20 = 0LL;
   if ( (unsigned __int8)RtlpLockAtomTable() )
   {
-    if ( (unsigned __int8)RtlGetIntegerAtom(a2, v17) )
+    if ( RtlGetIntegerAtom(a2, IntegerAtom) )
     {
-      v15 = v17[0];
-      if ( v17[0] >= 0xC000u )
+      v15 = IntegerAtom[0];
+      if ( IntegerAtom[0] >= 0xC000u )
       {
         v15 = 0;
-        v17[0] = 0;
+        IntegerAtom[0] = 0;
         v8 = -1073741811;
         v18 = -1073741811;
       }

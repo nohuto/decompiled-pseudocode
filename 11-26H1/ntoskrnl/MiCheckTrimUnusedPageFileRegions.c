@@ -1,12 +1,12 @@
 /*
- * XREFs of MiCheckTrimUnusedPageFileRegions @ 0x1402073C8
+ * XREFs of MiCheckTrimUnusedPageFileRegions @ 0x1402074A8
  * Callers:
- *     MiPartitionPeriodicTick @ 0x1402A703C (MiPartitionPeriodicTick.c)
+ *     MiPartitionPeriodicTick @ 0x1402A6458 (MiPartitionPeriodicTick.c)
  * Callees:
- *     MiNumberWsSwapPagefiles @ 0x140207478 (MiNumberWsSwapPagefiles.c)
- *     KeQueryUnbiasedInterruptTimePrecise @ 0x140207BF0 (KeQueryUnbiasedInterruptTimePrecise.c)
- *     PsReferencePartitionSafe @ 0x140258850 (PsReferencePartitionSafe.c)
- *     ExQueueWorkItemToPartition @ 0x1403830D0 (ExQueueWorkItemToPartition.c)
+ *     MiNumberWsSwapPagefiles @ 0x140207558 (MiNumberWsSwapPagefiles.c)
+ *     KeQueryUnbiasedInterruptTimePrecise @ 0x140207CD0 (KeQueryUnbiasedInterruptTimePrecise.c)
+ *     PsReferencePartitionSafe @ 0x14025A030 (PsReferencePartitionSafe.c)
+ *     ExQueueWorkItemToPartition @ 0x140384E80 (ExQueueWorkItemToPartition.c)
  */
 
 ULONG64 __fastcall MiCheckTrimUnusedPageFileRegions(_QWORD *a1)
@@ -25,7 +25,7 @@ ULONG64 __fastcall MiCheckTrimUnusedPageFileRegions(_QWORD *a1)
       result = KeQueryUnbiasedInterruptTimePrecise(&QpcTimeStamp);
       if ( result - a1[153] >= 0x861C46800LL )
       {
-        if ( BYTE1(stru_140E2EB88.RelativeTimerBias) )
+        if ( BYTE1(stru_140E2ED08.RelativeTimerBias) )
         {
           result -= 33000000000LL;
           a1[153] = result;

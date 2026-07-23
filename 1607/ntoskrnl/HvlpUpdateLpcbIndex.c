@@ -1,9 +1,9 @@
 /*
- * XREFs of HvlpUpdateLpcbIndex @ 0x1401BC8D8
+ * XREFs of HvlpUpdateLpcbIndex @ 0x1401BC7BC
  * Callers:
- *     HvlStartBootLogicalProcessors @ 0x140139734 (HvlStartBootLogicalProcessors.c)
+ *     HvlStartBootLogicalProcessors @ 0x140139CA4 (HvlStartBootLogicalProcessors.c)
  * Callees:
- *     HvlpSetLogicalProcessorProperty @ 0x1401BC4BC (HvlpSetLogicalProcessorProperty.c)
+ *     HvlpSetLogicalProcessorProperty @ 0x1401BC3A0 (HvlpSetLogicalProcessorProperty.c)
  */
 
 __int64 __fastcall HvlpUpdateLpcbIndex(__int64 a1, int a2)

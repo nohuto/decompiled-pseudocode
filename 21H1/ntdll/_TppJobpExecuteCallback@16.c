@@ -14,7 +14,7 @@
  *     _TppETWCallbackStop@20 @ 0x4B384B22 (_TppETWCallbackStop@20.c)
  */
 
-void __stdcall TppJobpExecuteCallback(_DWORD *a1, int a2, int a3, _DWORD *a4)
+void __stdcall TppJobpExecuteCallback(PTP_CALLBACK_INSTANCE Instance, int a2, int a3, _DWORD *a4)
 {
   volatile signed __int64 *v4; // edi
   unsigned int v5; // esi
@@ -53,7 +53,7 @@ void __stdcall TppJobpExecuteCallback(_DWORD *a1, int a2, int a3, _DWORD *a4)
   v7 = *(_DWORD *)(a2 + 136);
   if ( v7 )
   {
-    if ( LdrAddRefDll(0, *(_DWORD *)(a2 + 136)) < 0 )
+    if ( LdrAddRefDll(0, *(PVOID *)(a2 + 136)) < 0 )
     {
       v6 = v16;
 LABEL_10:
@@ -62,10 +62,10 @@ LABEL_10:
         (**((void (__thiscall ***)(_DWORD, volatile signed __int32 *))v6 + 1))(**((_DWORD **)v6 + 1), v6);
       return;
     }
-    a1[20] |= 0x100u;
-    a1[25] = v7;
+    *((_DWORD *)Instance + 20) |= 0x100u;
+    *((_DWORD *)Instance + 25) = v7;
   }
-  TppCleanupGroupMemberCallbackProlog((int)a1, a2 + 48);
+  TppCleanupGroupMemberCallbackProlog(Instance, a2 + 48);
   v8 = 2147353478;
   if ( RtlGetCurrentServiceSessionId() )
     v9 = (int)NtCurrentPeb()->SharedData + 556;
@@ -74,12 +74,12 @@ LABEL_10:
   if ( *(_BYTE *)v9 )
     TppETWCallbackStart(*(_DWORD *)(a2 + 96), *(_DWORD *)(a2 + 100), *(_DWORD *)(a2 + 108));
   TppStartThreadData((int *)&v11, *(_DWORD *)(a2 + 96), *(_DWORD *)(a2 + 100), *(_DWORD *)(a2 + 108));
-  a1[12] = *(_DWORD *)(a2 + 96);
+  *((_DWORD *)Instance + 12) = *(_DWORD *)(a2 + 96);
   v10 = *(_DWORD *)(a2 + 100);
-  a1[13] = v10;
-  (*(void (__thiscall **)(_DWORD, _DWORD *, int, int, _DWORD, int, _DWORD))(a2 + 96))(
+  *((_DWORD *)Instance + 13) = v10;
+  (*(void (__thiscall **)(_DWORD, PTP_CALLBACK_INSTANCE, int, int, _DWORD, int, _DWORD))(a2 + 96))(
     *(_DWORD *)(a2 + 96),
-    a1,
+    Instance,
     v10,
     a2,
     a4[1],

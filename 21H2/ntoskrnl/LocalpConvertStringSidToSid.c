@@ -1,16 +1,16 @@
 /*
- * XREFs of LocalpConvertStringSidToSid @ 0x1407B7BB0
+ * XREFs of LocalpConvertStringSidToSid @ 0x1407B80D0
  * Callers:
- *     SeConvertStringSidToSid @ 0x1403C0380 (SeConvertStringSidToSid.c)
- *     LocalGetSidForString @ 0x140787E40 (LocalGetSidForString.c)
+ *     SeConvertStringSidToSid @ 0x1403C07B0 (SeConvertStringSidToSid.c)
+ *     LocalGetSidForString @ 0x140788000 (LocalGetSidForString.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     wcschr @ 0x1403D3F10 (wcschr.c)
- *     wcstoul @ 0x1403D4500 (wcstoul.c)
- *     wcstoxq @ 0x1403D46CC (wcstoxq.c)
- *     memmove @ 0x140413F40 (memmove.c)
- *     SddlpAlloc @ 0x140674548 (SddlpAlloc.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     wcschr @ 0x1403D4080 (wcschr.c)
+ *     wcstoul @ 0x1403D4670 (wcstoul.c)
+ *     wcstoxq @ 0x1403D483C (wcstoxq.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     SddlpAlloc @ 0x140669778 (SddlpAlloc.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall LocalpConvertStringSidToSid(_WORD *a1, _QWORD *a2, wchar_t **a3)

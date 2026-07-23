@@ -1,100 +1,100 @@
 /*
  * XREFs of KeAcquireQueuedSpinLock @ 0x140285C80
  * Callers:
- *     IopQueryVpbFlagsSafe @ 0x14020C4D4 (IopQueryVpbFlagsSafe.c)
- *     IopMountInitializeVpb @ 0x14020C530 (IopMountInitializeVpb.c)
- *     FsRtlPrivateFastUnlockAll @ 0x14021D404 (FsRtlPrivateFastUnlockAll.c)
- *     FsRtlPrivateCheckWaitingLocks @ 0x14021F280 (FsRtlPrivateCheckWaitingLocks.c)
+ *     sub_14020C4D4 @ 0x14020C4D4 (sub_14020C4D4.c)
+ *     sub_14020C530 @ 0x14020C530 (sub_14020C530.c)
+ *     sub_14021D404 @ 0x14021D404 (sub_14021D404.c)
+ *     sub_14021F280 @ 0x14021F280 (sub_14021F280.c)
  *     IoCancelIrp @ 0x14022D160 (IoCancelIrp.c)
- *     FsRtlNotifySetCancelRoutine @ 0x140233104 (FsRtlNotifySetCancelRoutine.c)
+ *     sub_140233104 @ 0x140233104 (sub_140233104.c)
  *     FsRtlUninitializeOplock @ 0x14023A260 (FsRtlUninitializeOplock.c)
- *     CcExtendVacbArray @ 0x140247300 (CcExtendVacbArray.c)
- *     FsRtlpWaitOnIrp @ 0x140249470 (FsRtlpWaitOnIrp.c)
- *     FsRtlpOplockBreakToII @ 0x14024A5B4 (FsRtlpOplockBreakToII.c)
- *     IopGetMountFlag @ 0x14024B024 (IopGetMountFlag.c)
- *     FsRtlpRemoveAndCompleteWaitingIrp @ 0x14024E884 (FsRtlpRemoveAndCompleteWaitingIrp.c)
- *     IopAttachDeviceToDeviceStackSafe @ 0x14024FC04 (IopAttachDeviceToDeviceStackSafe.c)
+ *     sub_140247300 @ 0x140247300 (sub_140247300.c)
+ *     sub_140249470 @ 0x140249470 (sub_140249470.c)
+ *     sub_14024A5B4 @ 0x14024A5B4 (sub_14024A5B4.c)
+ *     sub_14024B024 @ 0x14024B024 (sub_14024B024.c)
+ *     sub_14024E884 @ 0x14024E884 (sub_14024E884.c)
+ *     sub_14024FC04 @ 0x14024FC04 (sub_14024FC04.c)
  *     IoAcquireVpbSpinLock @ 0x140251D90 (IoAcquireVpbSpinLock.c)
- *     IopInterlockedRemoveHeadList @ 0x140255C70 (IopInterlockedRemoveHeadList.c)
+ *     sub_140255C70 @ 0x140255C70 (sub_140255C70.c)
  *     IoDetachDevice @ 0x140256080 (IoDetachDevice.c)
  *     IoGetDriverObjectExtension @ 0x140256300 (IoGetDriverObjectExtension.c)
- *     FsRtlpOplockBreakToNone @ 0x140256F58 (FsRtlpOplockBreakToNone.c)
+ *     sub_140256F58 @ 0x140256F58 (sub_140256F58.c)
  *     IoStartPacket @ 0x1402576D0 (IoStartPacket.c)
- *     IopStartNextPacket @ 0x140257964 (IopStartNextPacket.c)
+ *     sub_140257964 @ 0x140257964 (sub_140257964.c)
  *     FsRtlUninitializeFileLock @ 0x140259FA0 (FsRtlUninitializeFileLock.c)
  *     IoAllocateDriverObjectExtension @ 0x14025B7E0 (IoAllocateDriverObjectExtension.c)
- *     IopResurrectDriver @ 0x14025DD20 (IopResurrectDriver.c)
- *     IoBoostThreadIoPriority @ 0x140280754 (IoBoostThreadIoPriority.c)
- *     CcUnmapVacbArray @ 0x1402853B0 (CcUnmapVacbArray.c)
- *     CcGetVacbMiss @ 0x1402858A0 (CcGetVacbMiss.c)
- *     IopVerifyDeviceObjectOnStack @ 0x1402A2260 (IopVerifyDeviceObjectOnStack.c)
- *     FsRtlpRequestShareableOplock @ 0x1402A2490 (FsRtlpRequestShareableOplock.c)
- *     FsRtlpOplockCleanup @ 0x1402A30D0 (FsRtlpOplockCleanup.c)
- *     IopInterlockedIncrementUlong @ 0x1402A3EF0 (IopInterlockedIncrementUlong.c)
- *     IopGetDevicePDO @ 0x1402A4000 (IopGetDevicePDO.c)
- *     IopCheckVpbMounted @ 0x1402A7910 (IopCheckVpbMounted.c)
- *     IopfCompleteRequest @ 0x1402B59D0 (IopfCompleteRequest.c)
- *     RawInitiateDeleteVolume @ 0x1402D2BD8 (RawInitiateDeleteVolume.c)
- *     PnpGetRelatedTargetDevice @ 0x1402D2E74 (PnpGetRelatedTargetDevice.c)
- *     IoGetAttachedDeviceReferenceWithTag @ 0x1402D30A0 (IoGetAttachedDeviceReferenceWithTag.c)
+ *     sub_14025DD20 @ 0x14025DD20 (sub_14025DD20.c)
+ *     sub_140280754 @ 0x140280754 (sub_140280754.c)
+ *     sub_1402853B0 @ 0x1402853B0 (sub_1402853B0.c)
+ *     sub_1402858A0 @ 0x1402858A0 (sub_1402858A0.c)
+ *     sub_1402A2260 @ 0x1402A2260 (sub_1402A2260.c)
+ *     sub_1402A2490 @ 0x1402A2490 (sub_1402A2490.c)
+ *     sub_1402A30D0 @ 0x1402A30D0 (sub_1402A30D0.c)
+ *     sub_1402A3EF0 @ 0x1402A3EF0 (sub_1402A3EF0.c)
+ *     sub_1402A4000 @ 0x1402A4000 (sub_1402A4000.c)
+ *     sub_1402A7910 @ 0x1402A7910 (sub_1402A7910.c)
+ *     sub_1402B59D0 @ 0x1402B59D0 (sub_1402B59D0.c)
+ *     sub_1402D2BD8 @ 0x1402D2BD8 (sub_1402D2BD8.c)
+ *     sub_1402D2E74 @ 0x1402D2E74 (sub_1402D2E74.c)
+ *     sub_1402D30A0 @ 0x1402D30A0 (sub_1402D30A0.c)
  *     IoDeleteDevice @ 0x1402D3820 (IoDeleteDevice.c)
- *     IopInsertRemoveDevice @ 0x1402D5A04 (IopInsertRemoveDevice.c)
- *     IopCompleteUnloadOrDelete @ 0x1402D5CA8 (IopCompleteUnloadOrDelete.c)
- *     PnpRemoveLockedDeviceNode @ 0x1402DDAE4 (PnpRemoveLockedDeviceNode.c)
- *     PnpFindMountableDevice @ 0x1402DDE58 (PnpFindMountableDevice.c)
- *     PpMarkDeviceStackExtensionFlag @ 0x1402DE33C (PpMarkDeviceStackExtensionFlag.c)
- *     CcGetVirtualAddress @ 0x140328180 (CcGetVirtualAddress.c)
- *     IoGetDeviceAttachmentBaseRefWithTag @ 0x14036B86C (IoGetDeviceAttachmentBaseRefWithTag.c)
- *     IoGetLowerDeviceObjectWithTag @ 0x14036CCBC (IoGetLowerDeviceObjectWithTag.c)
- *     RawCheckForDeleteVolume @ 0x1403770A8 (RawCheckForDeleteVolume.c)
- *     FsRtlpRequestExclusiveOplock @ 0x1403857EC (FsRtlpRequestExclusiveOplock.c)
- *     FsRtlpAcknowledgeOplockBreakByCacheFlags @ 0x14039F3B0 (FsRtlpAcknowledgeOplockBreakByCacheFlags.c)
- *     PnpMarkDeviceForRemove @ 0x1403A0064 (PnpMarkDeviceForRemove.c)
- *     PnpLockMountableDevice @ 0x1403A0154 (PnpLockMountableDevice.c)
- *     PnpUnlockMountableDevice @ 0x1403A01B0 (PnpUnlockMountableDevice.c)
- *     IopCheckStackForTransactionSupport @ 0x1403A0B00 (IopCheckStackForTransactionSupport.c)
- *     IopInterlockedDecrementUlong @ 0x1403A156C (IopInterlockedDecrementUlong.c)
- *     PopQueueQuerySetIrp @ 0x1403A4264 (PopQueueQuerySetIrp.c)
- *     CcAllocateInitializeVacbArray @ 0x1403A5298 (CcAllocateInitializeVacbArray.c)
- *     PnpIsChainDereferenced @ 0x1403A55B8 (PnpIsChainDereferenced.c)
- *     IopSetFsRegistrationInProgress @ 0x1403A5A30 (IopSetFsRegistrationInProgress.c)
+ *     sub_1402D5A04 @ 0x1402D5A04 (sub_1402D5A04.c)
+ *     sub_1402D5CA8 @ 0x1402D5CA8 (sub_1402D5CA8.c)
+ *     sub_1402DDAE4 @ 0x1402DDAE4 (sub_1402DDAE4.c)
+ *     sub_1402DDE58 @ 0x1402DDE58 (sub_1402DDE58.c)
+ *     sub_1402DE33C @ 0x1402DE33C (sub_1402DE33C.c)
+ *     sub_140328180 @ 0x140328180 (sub_140328180.c)
+ *     sub_14036B86C @ 0x14036B86C (sub_14036B86C.c)
+ *     sub_14036CCBC @ 0x14036CCBC (sub_14036CCBC.c)
+ *     sub_1403770A8 @ 0x1403770A8 (sub_1403770A8.c)
+ *     sub_1403857EC @ 0x1403857EC (sub_1403857EC.c)
+ *     sub_14039F3B0 @ 0x14039F3B0 (sub_14039F3B0.c)
+ *     sub_1403A0064 @ 0x1403A0064 (sub_1403A0064.c)
+ *     sub_1403A0154 @ 0x1403A0154 (sub_1403A0154.c)
+ *     sub_1403A01B0 @ 0x1403A01B0 (sub_1403A01B0.c)
+ *     sub_1403A0B00 @ 0x1403A0B00 (sub_1403A0B00.c)
+ *     sub_1403A156C @ 0x1403A156C (sub_1403A156C.c)
+ *     sub_1403A4264 @ 0x1403A4264 (sub_1403A4264.c)
+ *     sub_1403A5298 @ 0x1403A5298 (sub_1403A5298.c)
+ *     sub_1403A55B8 @ 0x1403A55B8 (sub_1403A55B8.c)
+ *     sub_1403A5A30 @ 0x1403A5A30 (sub_1403A5A30.c)
  *     IoGetDiskDeviceObject @ 0x1403A6F80 (IoGetDiskDeviceObject.c)
  *     IoEnumerateDeviceObjectList @ 0x1403A7030 (IoEnumerateDeviceObjectList.c)
- *     CcInitializePartitionVacbs @ 0x1403D1490 (CcInitializePartitionVacbs.c)
- *     IopInterlockedInsertHeadList @ 0x1403D23B8 (IopInterlockedInsertHeadList.c)
- *     IopInterlockedInsertTailList @ 0x1403D7D9C (IopInterlockedInsertTailList.c)
- *     IopCheckUnloadDriver @ 0x1403D8834 (IopCheckUnloadDriver.c)
- *     IopCopyCompleteReadIrp @ 0x140417DE0 (IopCopyCompleteReadIrp.c)
- *     CcDereferenceVacbArray @ 0x14053B0B8 (CcDereferenceVacbArray.c)
- *     CcGetRandomVacbArrayWithReference @ 0x14053B160 (CcGetRandomVacbArrayWithReference.c)
- *     CcUnmapInactiveViewsInternal @ 0x14053B55C (CcUnmapInactiveViewsInternal.c)
- *     CcUninitializePartitionVacbs @ 0x14053E3AC (CcUninitializePartitionVacbs.c)
- *     FsRtlpAcknowledgeOplockBreak @ 0x140542458 (FsRtlpAcknowledgeOplockBreak.c)
- *     FsRtlpGrantAnyOplockFromExclusive @ 0x140542834 (FsRtlpGrantAnyOplockFromExclusive.c)
- *     FsRtlpRemoveAndCompleteReadOnlyIrp @ 0x140542AEC (FsRtlpRemoveAndCompleteReadOnlyIrp.c)
- *     IopDisassociateThreadIrp @ 0x1405566C0 (IopDisassociateThreadIrp.c)
- *     IopGetDriverPathInformation @ 0x140556AEC (IopGetDriverPathInformation.c)
- *     IopReferenceVerifyVpb @ 0x140556F1C (IopReferenceVerifyVpb.c)
+ *     sub_1403D1490 @ 0x1403D1490 (sub_1403D1490.c)
+ *     sub_1403D23B8 @ 0x1403D23B8 (sub_1403D23B8.c)
+ *     sub_1403D7D9C @ 0x1403D7D9C (sub_1403D7D9C.c)
+ *     sub_1403D8834 @ 0x1403D8834 (sub_1403D8834.c)
+ *     sub_140417DE0 @ 0x140417DE0 (sub_140417DE0.c)
+ *     sub_14053B0B8 @ 0x14053B0B8 (sub_14053B0B8.c)
+ *     sub_14053B160 @ 0x14053B160 (sub_14053B160.c)
+ *     sub_14053B55C @ 0x14053B55C (sub_14053B55C.c)
+ *     sub_14053E3AC @ 0x14053E3AC (sub_14053E3AC.c)
+ *     sub_140542458 @ 0x140542458 (sub_140542458.c)
+ *     sub_140542834 @ 0x140542834 (sub_140542834.c)
+ *     sub_140542AEC @ 0x140542AEC (sub_140542AEC.c)
+ *     sub_1405566C0 @ 0x1405566C0 (sub_1405566C0.c)
+ *     sub_140556AEC @ 0x140556AEC (sub_140556AEC.c)
+ *     sub_140556F1C @ 0x140556F1C (sub_140556F1C.c)
  *     IoAdjustStackSizeForRedirection @ 0x1405572B0 (IoAdjustStackSizeForRedirection.c)
- *     IopGetFsRegistrationInProgress @ 0x140557FF8 (IopGetFsRegistrationInProgress.c)
- *     IopStartNextPacketByKey @ 0x14055838C (IopStartNextPacketByKey.c)
- *     PnpHandleEnumerateHandlesAgainstPdoStack @ 0x140560680 (PnpHandleEnumerateHandlesAgainstPdoStack.c)
- *     IopSetLegacyResourcesFlag @ 0x14056117C (IopSetLegacyResourcesFlag.c)
- *     IopEliminateBogusConflict @ 0x140564E78 (IopEliminateBogusConflict.c)
- *     RawVerifyVolume @ 0x1405E364C (RawVerifyVolume.c)
- *     DifKeAcquireQueuedSpinLockWrapper @ 0x1406124B0 (DifKeAcquireQueuedSpinLockWrapper.c)
+ *     sub_140557FF8 @ 0x140557FF8 (sub_140557FF8.c)
+ *     sub_14055838C @ 0x14055838C (sub_14055838C.c)
+ *     sub_140560680 @ 0x140560680 (sub_140560680.c)
+ *     sub_14056117C @ 0x14056117C (sub_14056117C.c)
+ *     sub_140564E78 @ 0x140564E78 (sub_140564E78.c)
+ *     sub_1405E364C @ 0x1405E364C (sub_1405E364C.c)
+ *     sub_1406124B0 @ 0x1406124B0 (sub_1406124B0.c)
  *     IoUnregisterShutdownNotification @ 0x140A65430 (IoUnregisterShutdownNotification.c)
- *     IovUtilGetBottomDeviceObjectWithTag @ 0x140A92010 (IovUtilGetBottomDeviceObjectWithTag.c)
- *     IovUtilGetLowerDeviceObjectWithTag @ 0x140A92074 (IovUtilGetLowerDeviceObjectWithTag.c)
- *     IovUtilGetUpperDeviceObjectWithTag @ 0x140A920D0 (IovUtilGetUpperDeviceObjectWithTag.c)
- *     IovUtilIsInFdoStack @ 0x140A92178 (IovUtilIsInFdoStack.c)
- *     IovUtilIsVerifiedDeviceStack @ 0x140A921E0 (IovUtilIsVerifiedDeviceStack.c)
- *     IovUtilMultipleDevicesSameDriver @ 0x140A922F8 (IovUtilMultipleDevicesSameDriver.c)
- *     IovUtilRelateDeviceObjects @ 0x140A9235C (IovUtilRelateDeviceObjects.c)
+ *     sub_140A92010 @ 0x140A92010 (sub_140A92010.c)
+ *     sub_140A92074 @ 0x140A92074 (sub_140A92074.c)
+ *     sub_140A920D0 @ 0x140A920D0 (sub_140A920D0.c)
+ *     sub_140A92178 @ 0x140A92178 (sub_140A92178.c)
+ *     sub_140A921E0 @ 0x140A921E0 (sub_140A921E0.c)
+ *     sub_140A922F8 @ 0x140A922F8 (sub_140A922F8.c)
+ *     sub_140A9235C @ 0x140A9235C (sub_140A9235C.c)
  * Callees:
- *     KxWaitForLockOwnerShip @ 0x140311C70 (KxWaitForLockOwnerShip.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     KiAcquireQueuedSpinLockInstrumented @ 0x14045A10C (KiAcquireQueuedSpinLockInstrumented.c)
+ *     sub_140311C70 @ 0x140311C70 (sub_140311C70.c)
+ *     sub_140418E4C @ 0x140418E4C (sub_140418E4C.c)
+ *     sub_14045A10C @ 0x14045A10C (sub_14045A10C.c)
  */
 
 KIRQL __stdcall KeAcquireQueuedSpinLock(KSPIN_LOCK_QUEUE_NUMBER Number)
@@ -103,38 +103,38 @@ KIRQL __stdcall KeAcquireQueuedSpinLock(KSPIN_LOCK_QUEUE_NUMBER Number)
   char *v2; // rbx
   volatile __int64 *v3; // rdi
   struct _KPRCB *CurrentPrcb; // rcx
-  _DWORD *v5; // rax
-  _DWORD *SchedulerAssist; // r9
+  __int64 v5; // rax
+  __int64 v7; // r9
   int v8; // r8d
 
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( dword_140D06B08 && (dword_140D06B08 & 1) != 0 && CurrentIrql <= 0xFu )
   {
-    SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
-    SchedulerAssist[5] |= (-1 << (CurrentIrql + 1)) & 4;
+    v7 = *((_QWORD *)KeGetCurrentPrcb() + 4375);
+    *(_DWORD *)(v7 + 20) |= (-1 << (CurrentIrql + 1)) & 4;
   }
   v2 = (char *)KeGetPcr()->NtTib.ArbitraryUserPointer + 16 * Number;
   v3 = (volatile __int64 *)*((_QWORD *)v2 + 1);
   CurrentPrcb = KeGetCurrentPrcb();
-  v5 = CurrentPrcb->SchedulerAssist;
+  v5 = *((_QWORD *)CurrentPrcb + 4375);
   if ( v5 )
   {
-    if ( CurrentPrcb->NestingLevel <= 1u )
+    if ( *((_BYTE *)CurrentPrcb + 32) <= 1u )
     {
-      v8 = v5[6];
-      v5[6] = v8 + 1;
+      v8 = *(_DWORD *)(v5 + 24);
+      *(_DWORD *)(v5 + 24) = v8 + 1;
       if ( v8 == -1 )
-        KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+        sub_140418E4C(CurrentPrcb);
     }
   }
-  if ( (BYTE6(PerfGlobalGroupMask) & 0x21) != 0 )
+  if ( (BYTE6(xmmword_140D06900) & 0x21) != 0 )
   {
-    KiAcquireQueuedSpinLockInstrumented(v2, v3);
+    sub_14045A10C(v2, v3);
   }
   else if ( _InterlockedExchange64(v3, (__int64)v2) )
   {
-    KxWaitForLockOwnerShip(v2);
+    sub_140311C70(v2);
   }
   return CurrentIrql;
 }

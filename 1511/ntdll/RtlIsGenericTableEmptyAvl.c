@@ -6,7 +6,7 @@
  *     <none>
  */
 
-_BOOL8 __fastcall RtlIsGenericTableEmptyAvl(__int64 a1)
+BOOLEAN __cdecl RtlIsGenericTableEmptyAvl(PRTL_AVL_TABLE Table)
 {
-  return *(_DWORD *)(a1 + 44) == 0;
+  return Table->NumberGenericTableElements == 0;
 }

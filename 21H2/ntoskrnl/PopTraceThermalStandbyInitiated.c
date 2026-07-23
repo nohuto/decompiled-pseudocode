@@ -1,11 +1,11 @@
 /*
- * XREFs of PopTraceThermalStandbyInitiated @ 0x140573A34
+ * XREFs of PopTraceThermalStandbyInitiated @ 0x140573C74
  * Callers:
- *     PopThermalCsEntry @ 0x14056F770 (PopThermalCsEntry.c)
+ *     PopThermalCsEntry @ 0x14056F9B0 (PopThermalCsEntry.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14025FAE0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgKeywordOn @ 0x1402605BC (_tlgKeywordOn.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14027E1A4 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x1402864F4 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  */
 
 void PopTraceThermalStandbyInitiated()
@@ -25,7 +25,7 @@ void PopTraceThermalStandbyInitiated()
       v3 = &v1;
       v1 = v0;
       v4 = 4;
-      tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140C02228, (unsigned __int8 *)byte_140027F39, 0LL, 0LL, 3u, &v2);
+      tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140C02228, (unsigned __int8 *)word_1400280FA, 0LL, 0LL, 3u, &v2);
     }
   }
 }

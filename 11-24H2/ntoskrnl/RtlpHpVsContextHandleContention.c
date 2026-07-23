@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlpHpVsContextHandleContention @ 0x14048946C
+ * XREFs of RtlpHpVsContextHandleContention @ 0x1403687F4
  * Callers:
- *     RtlpHpVsContextAllocate @ 0x1402B7840 (RtlpHpVsContextAllocate.c)
+ *     RtlpHpVsContextAllocate @ 0x14036781C (RtlpHpVsContextAllocate.c)
  * Callees:
- *     RtlpHpVsContextGetSlotInfo @ 0x1402B48AC (RtlpHpVsContextGetSlotInfo.c)
- *     RtlpHpAffinityMgrUpdateProcess @ 0x1404895B0 (RtlpHpAffinityMgrUpdateProcess.c)
- *     RtlpHpAffinityMgrUpdateComplete @ 0x140489748 (RtlpHpAffinityMgrUpdateComplete.c)
- *     RtlpHpVsSlotCreate @ 0x1406074FC (RtlpHpVsSlotCreate.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     RtlpHpVsContextGetSlotInfo @ 0x140368938 (RtlpHpVsContextGetSlotInfo.c)
+ *     RtlpHpAffinityMgrUpdateProcess @ 0x1403689B4 (RtlpHpAffinityMgrUpdateProcess.c)
+ *     RtlpHpAffinityMgrUpdateComplete @ 0x140368B4C (RtlpHpAffinityMgrUpdateComplete.c)
+ *     RtlpHpVsSlotCreate @ 0x140604AFC (RtlpHpVsSlotCreate.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 __int64 __fastcall RtlpHpVsContextHandleContention(volatile signed __int8 *a1, unsigned int a2)
@@ -21,7 +21,7 @@ __int64 __fastcall RtlpHpVsContextHandleContention(volatile signed __int8 *a1, u
   char v9; // r8
   __int64 v10; // rax
   __int64 updated; // [rsp+30h] [rbp-148h]
-  _WORD v12[128]; // [rsp+40h] [rbp-138h] BYREF
+  _BYTE v12[256]; // [rsp+40h] [rbp-138h] BYREF
 
   Number = KeGetCurrentPrcb()->Number;
   if ( a2 != (Number & a1[2]) )
@@ -36,7 +36,7 @@ __int64 __fastcall RtlpHpVsContextHandleContention(volatile signed __int8 *a1, u
   if ( !(_BYTE)result )
   {
     v7 = *(unsigned __int16 *)&a1[4 * v5];
-    SlotInfo = RtlpHpVsContextGetSlotInfo((unsigned __int16 *)a1, v12);
+    SlotInfo = RtlpHpVsContextGetSlotInfo(a1, v12);
     v9 = 0;
     if ( *(unsigned __int16 *)&a1[4 * v5 + 2] >= SlotInfo - 1 )
       v9 = SlotInfo < (unsigned int)*((unsigned __int8 *)a1 + 2) + 1;

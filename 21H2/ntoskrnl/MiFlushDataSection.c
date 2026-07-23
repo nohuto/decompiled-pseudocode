@@ -1,12 +1,12 @@
 /*
- * XREFs of MiFlushDataSection @ 0x1402E8F50
+ * XREFs of MiFlushDataSection @ 0x14029A2A0
  * Callers:
- *     MiCreateImageFileMap @ 0x1406D33F4 (MiCreateImageFileMap.c)
+ *     MiCreateImageFileMap @ 0x1406AA6D4 (MiCreateImageFileMap.c)
  * Callees:
- *     CcFlushCachePriv @ 0x14022CBA0 (CcFlushCachePriv.c)
- *     MmFlushSection @ 0x1402746FC (MmFlushSection.c)
- *     MiLockSectionControlArea @ 0x140274944 (MiLockSectionControlArea.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14033BD80 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MmFlushSection @ 0x14026269C (MmFlushSection.c)
+ *     MiLockSectionControlArea @ 0x1402628E4 (MiLockSectionControlArea.c)
+ *     CcFlushCachePriv @ 0x1402D13F0 (CcFlushCachePriv.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140346AD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
@@ -59,12 +59,12 @@ __int64 __fastcall MiFlushDataSection(__int64 a1, _DWORD *a2)
     v9 = *(_QWORD *)(a1 + 40);
     if ( v6 )
     {
-      CcFlushCachePriv(v9, &CcFlushForImageSection, 0, 0LL, 0, &v14);
+      CcFlushCachePriv(v9, (unsigned int)&CcFlushForImageSection, 0, 0, 0, (__int64)&v14);
       return (unsigned int)v14;
     }
     else
     {
-      return MmFlushSection(v9, 0LL, 0LL, SchedulerAssist, &v14, 1u);
+      return MmFlushSection(v9, 0LL, 0LL, SchedulerAssist, &v14, 1);
     }
   }
   return result;

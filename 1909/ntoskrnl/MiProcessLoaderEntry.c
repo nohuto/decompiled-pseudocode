@@ -109,7 +109,7 @@ LABEL_22:
   }
   __writecr8(v16);
   if ( (MiFlags & 0x80000) == 0 )
-    RtlInsertInvertedFunctionTable(a1[6], *((_DWORD *)a1 + 16));
+    RtlInsertInvertedFunctionTable(a1[6], *((unsigned int *)a1 + 16));
 LABEL_15:
   ExReleaseResourceLite(&PsLoadedModuleResource);
   return KeLeaveCriticalRegionThread((__int64)CurrentThread);

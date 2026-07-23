@@ -1,13 +1,13 @@
 /*
- * XREFs of _PnpIsValidGuidString @ 0x1404F7EB8
+ * XREFs of _PnpIsValidGuidString @ 0x1404DAE44
  * Callers:
- *     _CmValidateDeviceContainerName @ 0x140486A2C (_CmValidateDeviceContainerName.c)
- *     _CmValidateInstallerClassName @ 0x1404F6E60 (_CmValidateInstallerClassName.c)
- *     _CmGetMatchingFilteredDeviceInterfaceListWorker @ 0x140561D68 (_CmGetMatchingFilteredDeviceInterfaceListWorker.c)
+ *     _CmValidateInstallerClassName @ 0x1404D9DEC (_CmValidateInstallerClassName.c)
+ *     _CmValidateDeviceContainerName @ 0x14051383C (_CmValidateDeviceContainerName.c)
+ *     _CmGetMatchingFilteredDeviceInterfaceListWorker @ 0x1405622A8 (_CmGetMatchingFilteredDeviceInterfaceListWorker.c)
  * Callees:
- *     RtlInitUnicodeStringEx @ 0x1400C39C0 (RtlInitUnicodeStringEx.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     RtlGUIDFromString @ 0x1404FB370 (RtlGUIDFromString.c)
+ *     RtlInitUnicodeStringEx @ 0x1400C1850 (RtlInitUnicodeStringEx.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     RtlGUIDFromString @ 0x1404DE2FC (RtlGUIDFromString.c)
  */
 
 bool __fastcall PnpIsValidGuidString(PCWSTR SourceString)

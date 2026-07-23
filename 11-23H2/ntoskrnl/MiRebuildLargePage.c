@@ -1,22 +1,22 @@
 /*
- * XREFs of MiRebuildLargePage @ 0x14046E7E8
+ * XREFs of MiRebuildLargePage @ 0x14046EBE8
  * Callers:
- *     MiRebuildLargePages @ 0x14065DDF0 (MiRebuildLargePages.c)
- *     MmManagePartitionCreateLargePages @ 0x140A455D4 (MmManagePartitionCreateLargePages.c)
- *     MmBuildLargePages @ 0x140A45F68 (MmBuildLargePages.c)
+ *     MiRebuildLargePages @ 0x14065E340 (MiRebuildLargePages.c)
+ *     MmManagePartitionCreateLargePages @ 0x140A45884 (MmManagePartitionCreateLargePages.c)
+ *     MmBuildLargePages @ 0x140A46218 (MmBuildLargePages.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x140242E40 (KeYieldProcessorEx.c)
- *     MiInsertLargePageInNodeList @ 0x1402D6BE0 (MiInsertLargePageInNodeList.c)
- *     MiReturnCommit @ 0x1402DC250 (MiReturnCommit.c)
- *     MiNodeFreeZeroPages @ 0x1402E8524 (MiNodeFreeZeroPages.c)
- *     MiUpdateLargePageBitMap @ 0x1402E890C (MiUpdateLargePageBitMap.c)
- *     MiReferencePageRuns @ 0x1403576E0 (MiReferencePageRuns.c)
- *     MiDereferencePageRunsEx @ 0x140357BE4 (MiDereferencePageRunsEx.c)
- *     MiConvertSmallPageRangeToLarge @ 0x1403B8360 (MiConvertSmallPageRangeToLarge.c)
- *     MiFindContiguousPagesEx @ 0x1403BB018 (MiFindContiguousPagesEx.c)
- *     MiGetNodeStandbyPageCount @ 0x14046CE2A (MiGetNodeStandbyPageCount.c)
- *     MiFindRebuildCandidate @ 0x14046E672 (MiFindRebuildCandidate.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeYieldProcessorEx @ 0x140242F10 (KeYieldProcessorEx.c)
+ *     MiInsertLargePageInNodeList @ 0x1402D6E70 (MiInsertLargePageInNodeList.c)
+ *     MiReturnCommit @ 0x1402DC4E0 (MiReturnCommit.c)
+ *     MiNodeFreeZeroPages @ 0x1402E87B4 (MiNodeFreeZeroPages.c)
+ *     MiUpdateLargePageBitMap @ 0x1402E8B9C (MiUpdateLargePageBitMap.c)
+ *     MiReferencePageRuns @ 0x140357880 (MiReferencePageRuns.c)
+ *     MiDereferencePageRunsEx @ 0x140357D84 (MiDereferencePageRunsEx.c)
+ *     MiConvertSmallPageRangeToLarge @ 0x1403B8540 (MiConvertSmallPageRangeToLarge.c)
+ *     MiFindContiguousPagesEx @ 0x1403BB1F8 (MiFindContiguousPagesEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     MiGetNodeStandbyPageCount @ 0x14046D22A (MiGetNodeStandbyPageCount.c)
+ *     MiFindRebuildCandidate @ 0x14046EA72 (MiFindRebuildCandidate.c)
  */
 
 unsigned __int64 __fastcall MiRebuildLargePage(
@@ -231,7 +231,7 @@ LABEL_58:
     v19 = 48 * RebuildCandidate - 0x220000000000LL;
     CurrentIrql = KeGetCurrentIrql();
     __writecr8(2uLL);
-    if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+    if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
     {
       SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
       if ( CurrentIrql == 2 )
@@ -252,10 +252,10 @@ LABEL_58:
     *((_QWORD *)&v53 + 1) = 1LL;
     LOBYTE(v54) = 2;
     inserted = MiInsertLargePageInNodeList((__int64)&v53);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v24 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v24 <= 0xFu && CurrentIrql <= 0xFu && v24 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v24 <= 0xFu && CurrentIrql <= 0xFu && v24 >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         v26 = CurrentPrcb->SchedulerAssist;
@@ -263,7 +263,7 @@ LABEL_58:
         v28 = (v27 & v26[5]) == 0;
         v26[5] &= v27;
         if ( v28 )
-          KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+          KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
       }
     }
     __writecr8(CurrentIrql);

@@ -13,20 +13,17 @@
  *     memmove @ 0x180098200 (memmove.c)
  */
 
-unsigned __int64 RtlpHeapTrkTrackStack()
+_WORD *RtlpHeapTrkTrackStack()
 {
   USHORT v0; // r14
   ULONG v1; // r12d
-  unsigned __int64 Heap; // rdi
+  _WORD *Heap; // rdi
   __int64 v3; // rbp
-  char *v4; // rdx
-  __int64 v5; // r8
-  __int64 v6; // r9
-  __int64 v7; // rbx
-  _QWORD *v8; // rcx
-  _QWORD *v9; // rsi
-  unsigned __int64 *v11; // rax
-  unsigned __int64 v12; // rdx
+  __int64 v4; // rbx
+  _QWORD *v5; // rcx
+  _QWORD *v6; // rsi
+  __int64 *v8; // rax
+  __int64 v9; // rdx
   ULONG BackTraceHash[4]; // [rsp+20h] [rbp-238h] BYREF
   PVOID BackTrace[64]; // [rsp+30h] [rbp-228h] BYREF
 
@@ -34,54 +31,54 @@ unsigned __int64 RtlpHeapTrkTrackStack()
   v0 = RtlCaptureStackBackTrace(3u, 0x40u, BackTrace, BackTraceHash);
   BackTraceHash[0] %= 0x1EEFu;
   v1 = BackTraceHash[0];
-  Heap = RtlAllocateHeap(qword_1801486F8, 0, 8 * v0 + 24);
+  Heap = RtlAllocateHeap(HeapHandle, 0, 8 * v0 + 24);
   v3 = v1 & 0xF;
-  RtlAcquireSRWLockExclusive(*(volatile signed __int64 **)(qword_1801486A0 + 8 * v3), v4, v5, v6);
-  v7 = qword_1801485E0;
-  v8 = (_QWORD *)(qword_1801485E0 + 16LL * v1);
-  v9 = (_QWORD *)*v8;
-  if ( (_QWORD *)*v8 == v8 )
+  RtlAcquireSRWLockExclusive(*(PRTL_SRWLOCK *)(qword_1801486A0 + 8 * v3));
+  v4 = qword_1801485E0;
+  v5 = (_QWORD *)(qword_1801485E0 + 16LL * v1);
+  v6 = (_QWORD *)*v5;
+  if ( (_QWORD *)*v5 == v5 )
   {
 LABEL_6:
     if ( Heap )
     {
-      *(_WORD *)(Heap + 16) = v0;
-      *(_WORD *)(Heap + 18) = v1;
-      *(_DWORD *)(Heap + 20) = 1;
-      memmove((void *)(Heap + 24), BackTrace, 8LL * v0);
-      v11 = (unsigned __int64 *)(v7 + 16LL * v1);
-      v12 = *v11;
-      *(_QWORD *)Heap = *v11;
-      *(_QWORD *)(Heap + 8) = v11;
-      if ( *(unsigned __int64 **)(v12 + 8) != v11 )
+      Heap[8] = v0;
+      Heap[9] = v1;
+      *((_DWORD *)Heap + 5) = 1;
+      memmove(Heap + 12, BackTrace, 8LL * v0);
+      v8 = (__int64 *)(v4 + 16LL * v1);
+      v9 = *v8;
+      *(_QWORD *)Heap = *v8;
+      *((_QWORD *)Heap + 1) = v8;
+      if ( *(__int64 **)(v9 + 8) != v8 )
         __fastfail(3u);
-      *(_QWORD *)(v12 + 8) = Heap;
-      *v11 = Heap;
+      *(_QWORD *)(v9 + 8) = Heap;
+      *v8 = (__int64)Heap;
       _InterlockedIncrement(&dword_1801485E8);
-      RtlReleaseSRWLockExclusive(*(volatile signed __int64 **)(qword_1801486A0 + 8 * v3));
+      RtlReleaseSRWLockExclusive(*(PRTL_SRWLOCK *)(qword_1801486A0 + 8 * v3));
       return Heap;
     }
     else
     {
-      RtlReleaseSRWLockExclusive(*(volatile signed __int64 **)(qword_1801486A0 + 8 * v3));
+      RtlReleaseSRWLockExclusive(*(PRTL_SRWLOCK *)(qword_1801486A0 + 8 * v3));
       return 0LL;
     }
   }
-  while ( *((_WORD *)v9 + 8) != v0 )
+  while ( *((_WORD *)v6 + 8) != v0 )
   {
 LABEL_5:
-    v9 = (_QWORD *)*v9;
-    if ( v9 == (_QWORD *)(v7 + 16LL * v1) )
+    v6 = (_QWORD *)*v6;
+    if ( v6 == (_QWORD *)(v4 + 16LL * v1) )
       goto LABEL_6;
   }
-  if ( RtlCompareMemory(BackTrace, v9 + 3, 8LL * v0) != 8LL * v0 )
+  if ( RtlCompareMemory(BackTrace, v6 + 3, 8LL * v0) != 8LL * v0 )
   {
-    v7 = qword_1801485E0;
+    v4 = qword_1801485E0;
     goto LABEL_5;
   }
-  ++*((_DWORD *)v9 + 5);
-  RtlReleaseSRWLockExclusive(*(volatile signed __int64 **)(qword_1801486A0 + 8 * v3));
+  ++*((_DWORD *)v6 + 5);
+  RtlReleaseSRWLockExclusive(*(PRTL_SRWLOCK *)(qword_1801486A0 + 8 * v3));
   if ( Heap )
-    RtlFreeHeap(qword_1801486F8, 0, Heap);
-  return (unsigned __int64)v9;
+    RtlFreeHeap(HeapHandle, 0, Heap);
+  return v6;
 }

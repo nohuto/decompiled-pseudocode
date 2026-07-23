@@ -11,11 +11,11 @@
 TLG_STATUS PopEsUpdateSetting()
 {
   __int64 v0; // rcx
-  _DWORD v2[4]; // [rsp+40h] [rbp-28h] BYREF
+  _DWORD Buffer[4]; // [rsp+40h] [rbp-28h] BYREF
 
-  v2[0] = PopEsMode;
-  v2[2] = (unsigned __int8)byte_140443A75;
-  v2[1] = dword_140443A70;
-  ZwUpdateWnfStateData((__int64)&WNF_PO_ENERGY_SAVER_SETTING, (__int64)v2, 12LL);
+  Buffer[0] = PopEsMode;
+  Buffer[2] = (unsigned __int8)byte_140443A75;
+  Buffer[1] = dword_140443A70;
+  ZwUpdateWnfStateData(&WNF_PO_ENERGY_SAVER_SETTING, Buffer, 0xCu, 0LL, 0LL, 0, 0);
   return PopTraceEsSetting(v0, dword_140443A70, byte_140443A75);
 }

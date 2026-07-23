@@ -6,7 +6,7 @@
  *     RtlQueryPerformanceCounter @ 0x180040150 (RtlQueryPerformanceCounter.c)
  */
 
-__int64 __fastcall RtlGetMultiTimePrecise(_QWORD *a1, __int64 a2, int *a3)
+__int64 __fastcall RtlGetMultiTimePrecise(LARGE_INTEGER *a1, int a2, int *a3)
 {
   __int64 v3; // rdi
   char v4; // bp
@@ -17,11 +17,11 @@ __int64 __fastcall RtlGetMultiTimePrecise(_QWORD *a1, __int64 a2, int *a3)
   int v9; // r14d
   __int64 v10; // rbx
   __int64 v11; // r14
-  unsigned __int64 v12; // rdx
+  LARGE_INTEGER v12; // rdx
   int v13; // esi
   __int64 v14; // rdx
   __int64 v16; // [rsp+28h] [rbp-80h]
-  unsigned __int64 v17; // [rsp+30h] [rbp-78h] BYREF
+  LARGE_INTEGER PerformanceCounter; // [rsp+30h] [rbp-78h] BYREF
   __int64 v18; // [rsp+38h] [rbp-70h]
   __int64 v19; // [rsp+40h] [rbp-68h]
   unsigned __int64 v20; // [rsp+48h] [rbp-60h]
@@ -39,7 +39,7 @@ __int64 __fastcall RtlGetMultiTimePrecise(_QWORD *a1, __int64 a2, int *a3)
   v19 = 0LL;
   v18 = 0LL;
   v21 = 0LL;
-  if ( (_DWORD)a2 )
+  if ( a2 )
   {
     v7 = RtlpHypervisorSharedUserVa;
     v8 = a2 & 4;
@@ -69,7 +69,7 @@ __int64 __fastcall RtlGetMultiTimePrecise(_QWORD *a1, __int64 a2, int *a3)
               v5 = *(_QWORD *)(v16 + 24);
               v11 = MEMORY[0x7FFE03B8];
               v19 = MEMORY[0x7FFE03B8];
-              RtlQueryPerformanceCounter(&v17, a2);
+              RtlQueryPerformanceCounter(&PerformanceCounter);
             }
             while ( v5 != *(_QWORD *)(v16 + 24) );
           }
@@ -80,35 +80,35 @@ __int64 __fastcall RtlGetMultiTimePrecise(_QWORD *a1, __int64 a2, int *a3)
         }
         else
         {
-          RtlQueryPerformanceCounter(&v17, a2);
+          RtlQueryPerformanceCounter(&PerformanceCounter);
         }
         if ( MEMORY[0x7FFE0340] == v10 )
           break;
       }
       _mm_pause();
     }
-    v12 = v17;
+    v12 = PerformanceCounter;
     v13 = 0;
     if ( (v4 & 1) != 0 )
     {
-      *a1 = v17;
+      *a1 = PerformanceCounter;
       v13 = 1;
     }
     if ( v24 && !v18 && v5 )
     {
-      a1[1] = v5 + v12 - v19;
+      a1[1].QuadPart = v5 + v12.QuadPart - v19;
       v13 |= 2u;
     }
     if ( v26 )
     {
-      if ( v12 > v20 )
+      if ( v12.QuadPart > v20 )
       {
-        v14 = v12 - v20 - 1;
+        v14 = v12.QuadPart - v20 - 1;
         if ( v6 )
           v14 <<= v6;
         v3 = ((unsigned __int64)v14 * (unsigned __int128)v21) >> 64;
       }
-      a1[2] = v3 + v22;
+      a1[2].QuadPart = v3 + v22;
       v13 |= 4u;
     }
     *a3 = v13;

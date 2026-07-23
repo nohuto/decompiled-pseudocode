@@ -1,39 +1,47 @@
 /*
- * XREFs of TppIsWorkerThread @ 0x180086B60
+ * XREFs of TppIsWorkerThread @ 0x18007DF00
  * Callers:
- *     TpCheckTerminateWorker @ 0x180086AD0 (TpCheckTerminateWorker.c)
+ *     TpCheckTerminateWorker @ 0x18007DE70 (TpCheckTerminateWorker.c)
  * Callees:
- *     NtClose @ 0x18015F120 (NtClose.c)
- *     ZwQueryInformationThread @ 0x18015F3E0 (ZwQueryInformationThread.c)
- *     ZwDuplicateObject @ 0x18015F6C0 (ZwDuplicateObject.c)
+ *     NtClose @ 0x18015F020 (NtClose.c)
+ *     ZwQueryInformationThread @ 0x18015F2E0 (ZwQueryInformationThread.c)
+ *     ZwDuplicateObject @ 0x18015F5C0 (ZwDuplicateObject.c)
  */
 
-bool __fastcall TppIsWorkerThread(__int64 a1)
+bool __fastcall TppIsWorkerThread(HANDLE SourceHandle)
 {
   struct _TEB *v1; // rbx
   bool v2; // zf
   bool v3; // bl
   __int128 v5; // [rsp+40h] [rbp-40h] BYREF
-  __int128 v6; // [rsp+50h] [rbp-30h] BYREF
+  __int128 ThreadInformation; // [rsp+50h] [rbp-30h] BYREF
   __int128 v7; // [rsp+60h] [rbp-20h]
   __int64 v8; // [rsp+70h] [rbp-10h]
   int v9; // [rsp+78h] [rbp-8h]
-  HANDLE Handle; // [rsp+90h] [rbp+10h] BYREF
+  HANDLE TargetHandle; // [rsp+90h] [rbp+10h] BYREF
   __int64 v11; // [rsp+98h] [rbp+18h] BYREF
 
   v11 = 0LL;
-  Handle = 0LL;
+  TargetHandle = 0LL;
   v8 = 0LL;
   v9 = 0;
   v5 = 0LL;
-  v6 = 0LL;
+  ThreadInformation = 0LL;
   v7 = 0LL;
   v1 = NtCurrentTeb();
-  if ( !a1 )
+  if ( !SourceHandle )
     return v1->ThreadPoolData != 0LL;
-  if ( (int)ZwDuplicateObject(-1LL, a1, -1LL, &Handle, 2072, 0, 0) < 0 )
+  if ( ZwDuplicateObject(
+         (HANDLE)0xFFFFFFFFFFFFFFFFLL,
+         SourceHandle,
+         (HANDLE)0xFFFFFFFFFFFFFFFFLL,
+         &TargetHandle,
+         0x818u,
+         0,
+         0) < 0 )
     return 0;
-  if ( (int)ZwQueryInformationThread(Handle, 0LL, &v6, 48LL, 0LL) >= 0 && v1->ClientId.UniqueProcess == (void *)v7 )
+  if ( ZwQueryInformationThread(TargetHandle, ThreadBasicInformation, &ThreadInformation, 0x30u, 0LL) >= 0
+    && v1->ClientId.UniqueProcess == (void *)v7 )
   {
     if ( v1->ClientId.UniqueThread == (void *)*((_QWORD *)&v7 + 1) )
     {
@@ -42,7 +50,7 @@ bool __fastcall TppIsWorkerThread(__int64 a1)
     }
     *(_QWORD *)&v5 = &v11;
     *((_QWORD *)&v5 + 1) = 0x800001778LL;
-    if ( (int)ZwQueryInformationThread(Handle, 26LL, &v5, 16LL, 0LL) >= 0 )
+    if ( ZwQueryInformationThread(TargetHandle, ThreadTebInformation, &v5, 0x10u, 0LL) >= 0 )
     {
       v2 = v11 == 0;
 LABEL_9:
@@ -52,7 +60,7 @@ LABEL_9:
   }
   v3 = 0;
 LABEL_10:
-  if ( Handle )
-    NtClose(Handle);
+  if ( TargetHandle )
+    NtClose(TargetHandle);
   return v3;
 }

@@ -1,10 +1,10 @@
 /*
- * XREFs of VfSpecialPoolEntry @ 0x14067C204
+ * XREFs of VfSpecialPoolEntry @ 0x14067C754
  * Callers:
- *     DifRegisterKernelPlugin @ 0x1405D4F40 (DifRegisterKernelPlugin.c)
+ *     DifRegisterKernelPlugin @ 0x1405D54B0 (DifRegisterKernelPlugin.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     DifRegisterPlugin @ 0x1405D5070 (DifRegisterPlugin.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     DifRegisterPlugin @ 0x1405D55E0 (DifRegisterPlugin.c)
  */
 
 __int64 VfSpecialPoolEntry()

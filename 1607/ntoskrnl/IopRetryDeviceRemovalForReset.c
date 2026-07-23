@@ -1,13 +1,13 @@
 /*
- * XREFs of IopRetryDeviceRemovalForReset @ 0x14062C83C
+ * XREFs of IopRetryDeviceRemovalForReset @ 0x14062C8F0
  * Callers:
  *     <none>
  * Callees:
- *     PipIsDevNodeEffectivelyRemoved @ 0x1401CDEE8 (PipIsDevNodeEffectivelyRemoved.c)
- *     PpDevNodeUnlockTree @ 0x1403F49E0 (PpDevNodeUnlockTree.c)
- *     PpDevNodeLockTree @ 0x1403F4AB8 (PpDevNodeLockTree.c)
- *     PnpSetTargetDeviceRemove @ 0x1404C3F44 (PnpSetTargetDeviceRemove.c)
- *     IopFreeResetRemovalContext @ 0x14062C7CC (IopFreeResetRemovalContext.c)
+ *     PipIsDevNodeEffectivelyRemoved @ 0x1401CDD34 (PipIsDevNodeEffectivelyRemoved.c)
+ *     PpDevNodeUnlockTree @ 0x1403F38A4 (PpDevNodeUnlockTree.c)
+ *     PpDevNodeLockTree @ 0x1403F397C (PpDevNodeLockTree.c)
+ *     PnpSetTargetDeviceRemove @ 0x140484C7C (PnpSetTargetDeviceRemove.c)
+ *     IopFreeResetRemovalContext @ 0x14062C880 (IopFreeResetRemovalContext.c)
  */
 
 void __fastcall IopRetryDeviceRemovalForReset(__int64 a1)
@@ -42,7 +42,7 @@ void __fastcall IopRetryDeviceRemovalForReset(__int64 a1)
            (_DWORD *)(a1 + 164),
            a1 + 192,
            a1 + 200,
-           (__int64 *)(a1 + 168));
+           (_QWORD *)(a1 + 168));
   if ( v5 < 0 )
     IopFreeResetRemovalContext(a1);
 }

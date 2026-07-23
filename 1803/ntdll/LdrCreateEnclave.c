@@ -8,22 +8,41 @@
  *     sub_1800C9C98 @ 0x1800C9C98 (sub_1800C9C98.c)
  */
 
-__int64 __fastcall LdrCreateEnclave(__int64 a1, __int64 *a2, __int64 a3, __int64 a4, __int64 a5, int a6)
+// local variable allocation has failed, the output may be wrong!
+NTSTATUS __cdecl LdrCreateEnclave(
+        HANDLE ProcessHandle,
+        PVOID *BaseAddress,
+        ULONG Reserved,
+        SIZE_T Size,
+        SIZE_T InitialCommitment,
+        ULONG EnclaveType,
+        PVOID EnclaveInformation,
+        ULONG EnclaveInformationLength,
+        PULONG EnclaveError)
 {
-  __int64 result; // rax
-  int v9; // ebx
-  __int64 v10; // [rsp+58h] [rbp-10h]
+  NTSTATUS result; // eax
+  int v13; // ebx
+  PVOID BaseAddressa; // [rsp+58h] [rbp-10h] BYREF
 
-  v10 = *a2;
-  result = ZwCreateEnclave();
-  v9 = result;
-  if ( (int)result >= 0 )
+  BaseAddressa = *BaseAddress;
+  result = ZwCreateEnclave(
+             ProcessHandle,
+             &BaseAddressa,
+             *(ULONG_PTR *)&Reserved,
+             Size,
+             InitialCommitment,
+             EnclaveType,
+             EnclaveInformation,
+             EnclaveInformationLength,
+             EnclaveError);
+  v13 = result;
+  if ( result >= 0 )
   {
-    if ( a6 == 16 && (v9 = sub_1800C9C98(v10, a4), v9 < 0) )
-      ZwFreeVirtualMemory();
+    if ( EnclaveType == 16 && (v13 = sub_1800C9C98(BaseAddressa, Size), v13 < 0) )
+      ZwFreeVirtualMemory(ProcessHandle, &BaseAddressa, 0LL, 0x8000u);
     else
-      *a2 = v10;
-    return (unsigned int)v9;
+      *BaseAddress = BaseAddressa;
+    return v13;
   }
   return result;
 }

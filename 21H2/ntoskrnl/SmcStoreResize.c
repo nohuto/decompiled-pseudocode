@@ -1,22 +1,22 @@
 /*
- * XREFs of SmcStoreResize @ 0x14092E078
+ * XREFs of SmcStoreResize @ 0x14092E1D8
  * Callers:
- *     SmcProcessResizeRequest @ 0x14092AAB0 (SmcProcessResizeRequest.c)
+ *     SmcProcessResizeRequest @ 0x14092AC10 (SmcProcessResizeRequest.c)
  * Callees:
- *     CmSiFreeMemory @ 0x140201A30 (CmSiFreeMemory.c)
- *     ExReleaseRundownProtection_0 @ 0x14027C4F0 (ExReleaseRundownProtection_0.c)
- *     ExAcquireRundownProtection_0 @ 0x14027C9B0 (ExAcquireRundownProtection_0.c)
- *     SSHSupportAllocateNonPaged @ 0x1402C9AC4 (SSHSupportAllocateNonPaged.c)
- *     RtlSetAllBits @ 0x1402E2160 (RtlSetAllBits.c)
- *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
- *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
- *     KeLeaveCriticalRegion @ 0x14034B3B0 (KeLeaveCriticalRegion.c)
- *     RtlClearAllBits @ 0x140362270 (RtlClearAllBits.c)
- *     SmStoreResize @ 0x14092A658 (SmStoreResize.c)
- *     SmcCacheReference @ 0x14092D704 (SmcCacheReference.c)
- *     SmcStoreEntryFind @ 0x14092DF18 (SmcStoreEntryFind.c)
- *     SmcStorePlacementGet @ 0x14092DF58 (SmcStorePlacementGet.c)
+ *     CmSiFreeMemory @ 0x1402253C0 (CmSiFreeMemory.c)
+ *     SSHSupportAllocateNonPaged @ 0x1402483BC (SSHSupportAllocateNonPaged.c)
+ *     ExReleaseRundownProtection @ 0x14026A490 (ExReleaseRundownProtection.c)
+ *     ExAcquireRundownProtection @ 0x14026A950 (ExAcquireRundownProtection.c)
+ *     RtlSetAllBits @ 0x1402934B0 (RtlSetAllBits.c)
+ *     RtlClearAllBits @ 0x1402F70D0 (RtlClearAllBits.c)
+ *     ExfTryToWakePushLock @ 0x1402FC2C0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x1403539D0 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1403556E0 (ExAcquirePushLockExclusiveEx.c)
+ *     KeLeaveCriticalRegion @ 0x140356100 (KeLeaveCriticalRegion.c)
+ *     SmStoreResize @ 0x14092A7B8 (SmStoreResize.c)
+ *     SmcCacheReference @ 0x14092D864 (SmcCacheReference.c)
+ *     SmcStoreEntryFind @ 0x14092E078 (SmcStoreEntryFind.c)
+ *     SmcStorePlacementGet @ 0x14092E0B8 (SmcStorePlacementGet.c)
  */
 
 __int64 __fastcall SmcStoreResize(__int64 a1, _DWORD *a2)
@@ -43,7 +43,7 @@ __int64 __fastcall SmcStoreResize(__int64 a1, _DWORD *a2)
   unsigned __int64 v22; // r9
   struct _PRIVILEGE_SET *v23; // rdx
   unsigned __int64 v24; // r8
-  RTL_BITMAP BitMapHeader; // [rsp+30h] [rbp-30h] BYREF
+  _RTL_BITMAP BitMapHeader; // [rsp+30h] [rbp-30h] BYREF
   __int128 v27; // [rsp+40h] [rbp-20h] BYREF
   __int64 v28; // [rsp+50h] [rbp-10h]
   int v30; // [rsp+A8h] [rbp+48h]
@@ -92,7 +92,7 @@ __int64 __fastcall SmcStoreResize(__int64 a1, _DWORD *a2)
     v31 = v14;
     if ( v14 )
     {
-      v30 = ExAcquireRundownProtection_0(v14 + 2);
+      v30 = ExAcquireRundownProtection(v14 + 2);
       if ( (*a2 & 0x100) != 0 )
       {
         v7 = SmcStorePlacementGet(Count, *v9, (__int64)&v27);
@@ -131,7 +131,7 @@ __int64 __fastcall SmcStoreResize(__int64 a1, _DWORD *a2)
         v7 = 0;
 LABEL_33:
         if ( v30 )
-          ExReleaseRundownProtection_0(v31 + 2);
+          ExReleaseRundownProtection(v31 + 2);
         goto LABEL_35;
       }
       v20 = KeGetCurrentThread();
@@ -169,7 +169,7 @@ LABEL_30:
   }
   v7 = -1073741670;
 LABEL_35:
-  ExReleaseRundownProtection_0((PEX_RUNDOWN_REF)(32LL * (a2[1] & 0xF) + a1 + 8));
+  ExReleaseRundownProtection((PEX_RUNDOWN_REF)(32LL * (a2[1] & 0xF) + a1 + 8));
   if ( NonPaged )
     CmSiFreeMemory(NonPaged);
   return (unsigned int)v7;

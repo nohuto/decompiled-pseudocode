@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlLargeIntegerToUnicode @ 0x1800E5060
+ * XREFs of RtlLargeIntegerToUnicode @ 0x1800E5120
  * Callers:
- *     RtlConvertSidToUnicodeString @ 0x1800149E0 (RtlConvertSidToUnicodeString.c)
+ *     RtlConvertSidToUnicodeString @ 0x1800149D0 (RtlConvertSidToUnicodeString.c)
  * Callees:
- *     __security_check_cookie @ 0x180096C40 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x180096C30 (__security_check_cookie.c)
  *     memmove @ 0x1800AC980 (memmove.c)
  */
 

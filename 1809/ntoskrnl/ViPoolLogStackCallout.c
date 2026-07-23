@@ -1,10 +1,10 @@
 /*
- * XREFs of ViPoolLogStackCallout @ 0x140924960
+ * XREFs of ViPoolLogStackCallout @ 0x140925960
  * Callers:
- *     IovpLogStackTrace @ 0x140924998 (IovpLogStackTrace.c)
- *     ViPoolLogStackTrace @ 0x140938198 (ViPoolLogStackTrace.c)
+ *     IovpLogStackTrace @ 0x140925998 (IovpLogStackTrace.c)
+ *     ViPoolLogStackTrace @ 0x140939198 (ViPoolLogStackTrace.c)
  * Callees:
- *     RtlCaptureStackBackTrace @ 0x1400CCCB0 (RtlCaptureStackBackTrace.c)
+ *     RtlCaptureStackBackTrace @ 0x1400CCD30 (RtlCaptureStackBackTrace.c)
  */
 
 void __fastcall ViPoolLogStackCallout(PVOID *Parameter)

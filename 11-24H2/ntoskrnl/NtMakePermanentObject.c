@@ -1,19 +1,19 @@
 /*
- * XREFs of NtMakePermanentObject @ 0x140A80770
+ * XREFs of NtMakePermanentObject @ 0x140A7B1D0
  * Callers:
  *     <none>
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     ExfReleasePushLock @ 0x14025E260 (ExfReleasePushLock.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     ObfDereferenceObject @ 0x140325680 (ObfDereferenceObject.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     ObReferenceObjectByHandle @ 0x14084AF40 (ObReferenceObjectByHandle.c)
- *     SeSinglePrivilegeCheck @ 0x140853E90 (SeSinglePrivilegeCheck.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     ExfReleasePushLock @ 0x14028E870 (ExfReleasePushLock.c)
+ *     ObfDereferenceObject @ 0x1402CE210 (ObfDereferenceObject.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     ObReferenceObjectByHandle @ 0x140847200 (ObReferenceObjectByHandle.c)
+ *     SeSinglePrivilegeCheck @ 0x140850150 (SeSinglePrivilegeCheck.c)
  */
 
-NTSTATUS __fastcall NtMakePermanentObject(HANDLE Handle)
+NTSTATUS __cdecl NtMakePermanentObject(HANDLE Handle)
 {
   KPROCESSOR_MODE PreviousMode; // bl
   NTSTATUS result; // eax
@@ -21,8 +21,8 @@ NTSTATUS __fastcall NtMakePermanentObject(HANDLE Handle)
   struct _KTHREAD *CurrentThread; // rax
   unsigned __int64 *v6; // rbx
   char *v7; // rcx
-  _QWORD *v8; // rax
-  _QWORD *v9; // rdi
+  char *v8; // rax
+  char *v9; // rdi
   signed __int64 v10; // rax
   signed __int64 v11; // rdx
   unsigned __int64 v12; // rtt
@@ -40,12 +40,12 @@ NTSTATUS __fastcall NtMakePermanentObject(HANDLE Handle)
     v6 = (unsigned __int64 *)((char *)Object - 32);
     v7 = (char *)Object - 32;
     --CurrentThread->KernelApcDisable;
-    v8 = KeAbPreAcquire((__int64)v7, 0LL);
+    v8 = (char *)KeAbPreAcquire((__int64)v7, 0LL);
     v9 = v8;
     if ( _interlockedbittestandset64((volatile signed __int32 *)v6, 0LL) )
-      ExfAcquirePushLockExclusiveEx(v6, (__int64)v8, (__int64)v6);
+      ExfAcquirePushLockExclusiveEx(v6, v8, (__int64)v6);
     if ( v9 )
-      *((_BYTE *)v9 + 10) = 1;
+      v9[10] = 1;
     *((char *)Object - 21) |= 0x10u;
     _m_prefetchw(v6);
     v10 = *v6;

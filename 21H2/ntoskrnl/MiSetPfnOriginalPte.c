@@ -1,7 +1,7 @@
 /*
- * XREFs of MiSetPfnOriginalPte @ 0x14054F41C
+ * XREFs of MiSetPfnOriginalPte @ 0x14054F65C
  * Callers:
- *     MmFreeNonCachedMemory @ 0x1408C68E0 (MmFreeNonCachedMemory.c)
+ *     MmFreeNonCachedMemory @ 0x1408C6A40 (MmFreeNonCachedMemory.c)
  * Callees:
  *     <none>
  */

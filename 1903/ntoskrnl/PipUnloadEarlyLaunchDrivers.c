@@ -9,18 +9,17 @@
  *     IopUnloadDriver @ 0x140764248 (IopUnloadDriver.c)
  */
 
-__int64 __fastcall PipUnloadEarlyLaunchDrivers(__int64 a1)
+NTSTATUS __fastcall PipUnloadEarlyLaunchDrivers(__int64 a1)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
   UNICODE_STRING **v3; // rdi
   UNICODE_STRING *v4; // rbx
   UNICODE_STRING *v5; // rcx
-  __int64 v6; // r8
   UNICODE_STRING DestinationString; // [rsp+20h] [rbp-48h] BYREF
-  _OWORD v8[3]; // [rsp+30h] [rbp-38h] BYREF
+  OBJECT_ATTRIBUTES TargetKey; // [rsp+30h] [rbp-38h] BYREF
 
-  memset(v8, 0, sizeof(v8));
-  result = 0LL;
+  memset(&TargetKey, 0, sizeof(TargetKey));
+  result = 0;
   v3 = (UNICODE_STRING **)(a1 + 64);
   *(_QWORD *)&DestinationString.Length = 0LL;
   DestinationString.Buffer = 0LL;
@@ -36,12 +35,12 @@ __int64 __fastcall PipUnloadEarlyLaunchDrivers(__int64 a1)
     }
     while ( v4 != (UNICODE_STRING *)v3 );
     RtlInitUnicodeString(&DestinationString, L"\\Registry\\Machine\\ELAM");
-    *((_QWORD *)&v8[0] + 1) = 0LL;
-    *(_QWORD *)&v8[1] = &DestinationString;
-    LODWORD(v8[0]) = 48;
-    DWORD2(v8[1]) = 576;
-    v8[2] = 0LL;
-    return ZwUnloadKey2((__int64)v8, 1LL, v6);
+    TargetKey.RootDirectory = 0LL;
+    TargetKey.ObjectName = &DestinationString;
+    TargetKey.Length = 48;
+    TargetKey.Attributes = 576;
+    *(_OWORD *)&TargetKey.SecurityDescriptor = 0LL;
+    return ZwUnloadKey2(&TargetKey, 1u);
   }
   return result;
 }

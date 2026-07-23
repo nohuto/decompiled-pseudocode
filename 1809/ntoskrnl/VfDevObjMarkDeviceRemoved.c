@@ -1,11 +1,11 @@
 /*
- * XREFs of VfDevObjMarkDeviceRemoved @ 0x140934034
+ * XREFs of VfDevObjMarkDeviceRemoved @ 0x140935034
  * Callers:
- *     IovpCallDriver1 @ 0x14092EC8C (IovpCallDriver1.c)
+ *     IovpCallDriver1 @ 0x14092FC8C (IovpCallDriver1.c)
  * Callees:
- *     VfAvlCleanupLockContext @ 0x1400F5688 (VfAvlCleanupLockContext.c)
- *     VfAvlLookupTreeNode @ 0x14016C430 (VfAvlLookupTreeNode.c)
- *     VfAvlInitializeLockContext @ 0x14030B5B4 (VfAvlInitializeLockContext.c)
+ *     VfAvlCleanupLockContext @ 0x1400F5708 (VfAvlCleanupLockContext.c)
+ *     VfAvlLookupTreeNode @ 0x14016C530 (VfAvlLookupTreeNode.c)
+ *     VfAvlInitializeLockContext @ 0x14030B7A4 (VfAvlInitializeLockContext.c)
  */
 
 unsigned __int8 VfDevObjMarkDeviceRemoved()

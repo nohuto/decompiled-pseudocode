@@ -1,13 +1,13 @@
 /*
- * XREFs of PopIdleCsStateChanged @ 0x1408F5634
+ * XREFs of PopIdleCsStateChanged @ 0x1408F5794
  * Callers:
- *     PdcPoCurrentPdcPhase @ 0x1405763C0 (PdcPoCurrentPdcPhase.c)
+ *     PdcPoCurrentPdcPhase @ 0x140576600 (PdcPoCurrentPdcPhase.c)
  * Callees:
- *     PopIdleCancelAoAcDozeS4Timer @ 0x140381D44 (PopIdleCancelAoAcDozeS4Timer.c)
- *     PopGetModernStandbyTransitionReason @ 0x140576500 (PopGetModernStandbyTransitionReason.c)
- *     PopIdleArmAoAcDozeS4Timer @ 0x14057C218 (PopIdleArmAoAcDozeS4Timer.c)
- *     PopReleasePolicyLock @ 0x14098F590 (PopReleasePolicyLock.c)
- *     PopAcquirePolicyLock @ 0x14098F5D0 (PopAcquirePolicyLock.c)
+ *     PopIdleCancelAoAcDozeS4Timer @ 0x140381894 (PopIdleCancelAoAcDozeS4Timer.c)
+ *     PopGetModernStandbyTransitionReason @ 0x140576740 (PopGetModernStandbyTransitionReason.c)
+ *     PopIdleArmAoAcDozeS4Timer @ 0x14057C458 (PopIdleArmAoAcDozeS4Timer.c)
+ *     PopReleasePolicyLock @ 0x140991044 (PopReleasePolicyLock.c)
+ *     PopAcquirePolicyLock @ 0x140991084 (PopAcquirePolicyLock.c)
  */
 
 __int64 __fastcall PopIdleCsStateChanged(int a1)
@@ -18,19 +18,19 @@ __int64 __fastcall PopIdleCsStateChanged(int a1)
 
   v1 = a1;
   PopAcquirePolicyLock(a1);
-  byte_140C233B1 = v1;
+  byte_140C239B1 = v1;
   if ( v1 )
   {
-    qword_140C233B8 = qword_140C4FF08;
-    if ( !qword_140C4FF08 )
-      qword_140C233B8 = MEMORY[0xFFFFF78000000008];
+    qword_140C239B8 = qword_140C4FF48;
+    if ( !qword_140C4FF48 )
+      qword_140C239B8 = MEMORY[0xFFFFF78000000008];
     PopIdleArmAoAcDozeS4Timer();
   }
   else if ( (unsigned int)PopGetModernStandbyTransitionReason(0, 0LL) != 6 )
   {
     PopIdleCancelAoAcDozeS4Timer(1u);
-    dword_140C23390 = 0;
-    qword_140C233B8 = 0LL;
+    dword_140C23990 = 0;
+    qword_140C239B8 = 0LL;
   }
   return PopReleasePolicyLock(v3, v2);
 }

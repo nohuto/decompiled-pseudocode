@@ -1,21 +1,21 @@
 /*
- * XREFs of MmAllocatePartitionNodePagesForMdlEx @ 0x1402F87A0
+ * XREFs of MmAllocatePartitionNodePagesForMdlEx @ 0x1402F8A30
  * Callers:
- *     MmAllocatePagesForMdlEx @ 0x1402F8740 (MmAllocatePagesForMdlEx.c)
- *     HalpAllocateCommonBufferDmaThin @ 0x140390EC4 (HalpAllocateCommonBufferDmaThin.c)
- *     MmAllocateNodePagesForMdlEx @ 0x1403C4000 (MmAllocateNodePagesForMdlEx.c)
- *     HalpAllocateCommonBufferVectorInternal @ 0x14050F470 (HalpAllocateCommonBufferVectorInternal.c)
- *     HalpAllocateDomainCommonBufferInternal @ 0x1405123D0 (HalpAllocateDomainCommonBufferInternal.c)
- *     HalpAllocateCommonBufferDmarThin @ 0x140513B58 (HalpAllocateCommonBufferDmarThin.c)
- *     HvlpDepositPages @ 0x140540B94 (HvlpDepositPages.c)
- *     EtwpAllocatePartitionMemory @ 0x1406012E4 (EtwpAllocatePartitionMemory.c)
- *     MmAllocateSecureKernelPages @ 0x1406577AC (MmAllocateSecureKernelPages.c)
- *     IopLiveDumpAllocateFromVMMemoryPartition @ 0x14094D824 (IopLiveDumpAllocateFromVMMemoryPartition.c)
+ *     MmAllocatePagesForMdlEx @ 0x1402F89D0 (MmAllocatePagesForMdlEx.c)
+ *     HalpAllocateCommonBufferDmaThin @ 0x1403910A4 (HalpAllocateCommonBufferDmaThin.c)
+ *     MmAllocateNodePagesForMdlEx @ 0x1403C41E0 (MmAllocateNodePagesForMdlEx.c)
+ *     HalpAllocateCommonBufferVectorInternal @ 0x14050F9C0 (HalpAllocateCommonBufferVectorInternal.c)
+ *     HalpAllocateDomainCommonBufferInternal @ 0x140512920 (HalpAllocateDomainCommonBufferInternal.c)
+ *     HalpAllocateCommonBufferDmarThin @ 0x1405140A8 (HalpAllocateCommonBufferDmarThin.c)
+ *     HvlpDepositPages @ 0x140541254 (HvlpDepositPages.c)
+ *     EtwpAllocatePartitionMemory @ 0x140601834 (EtwpAllocatePartitionMemory.c)
+ *     MmAllocateSecureKernelPages @ 0x140657CFC (MmAllocateSecureKernelPages.c)
+ *     IopLiveDumpAllocateFromVMMemoryPartition @ 0x14094DA24 (IopLiveDumpAllocateFromVMMemoryPartition.c)
  *     KiComputeNumaCosts @ 0x140B75D24 (KiComputeNumaCosts.c)
  * Callees:
- *     MiPartitionObjectToPartition @ 0x1402F8AA4 (MiPartitionObjectToPartition.c)
- *     MiAllocatePagesForMdl @ 0x1402F8CDC (MiAllocatePagesForMdl.c)
- *     PsDereferencePartition @ 0x1402F9C4C (PsDereferencePartition.c)
+ *     MiPartitionObjectToPartition @ 0x1402F8D34 (MiPartitionObjectToPartition.c)
+ *     MiAllocatePagesForMdl @ 0x1402F8F6C (MiAllocatePagesForMdl.c)
+ *     PsDereferencePartition @ 0x1402F9EDC (PsDereferencePartition.c)
  */
 
 __int64 __fastcall MmAllocatePartitionNodePagesForMdlEx(

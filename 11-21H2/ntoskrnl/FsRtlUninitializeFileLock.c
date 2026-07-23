@@ -3,149 +3,149 @@
  * Callers:
  *     FsRtlFreeFileLock @ 0x140259F70 (FsRtlFreeFileLock.c)
  * Callees:
- *     ExFreeToNPagedLookasideList @ 0x140203D88 (ExFreeToNPagedLookasideList.c)
- *     KxAcquireSpinLock @ 0x140211E00 (KxAcquireSpinLock.c)
- *     KxReleaseSpinLock @ 0x14021D070 (KxReleaseSpinLock.c)
+ *     sub_140203D88 @ 0x140203D88 (sub_140203D88.c)
+ *     KeAcquireSpinLockAtDpcLevel @ 0x140211E00 (KeAcquireSpinLockAtDpcLevel.c)
+ *     KeReleaseSpinLockFromDpcLevel @ 0x14021D070 (KeReleaseSpinLockFromDpcLevel.c)
  *     RtlDeleteNoSplay @ 0x14021D900 (RtlDeleteNoSplay.c)
- *     FsRtlCompleteLockIrpReal @ 0x14021F5E4 (FsRtlCompleteLockIrpReal.c)
+ *     sub_14021F5E4 @ 0x14021F5E4 (sub_14021F5E4.c)
  *     KeAcquireQueuedSpinLock @ 0x140285C80 (KeAcquireQueuedSpinLock.c)
  *     KeReleaseQueuedSpinLock @ 0x1402A3F30 (KeReleaseQueuedSpinLock.c)
  *     KeAcquireSpinLockRaiseToDpc @ 0x1402AD540 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     sub_140418E4C @ 0x140418E4C (sub_140418E4C.c)
  */
 
 void __stdcall FsRtlUninitializeFileLock(PFILE_LOCK FileLock)
 {
   char *LockInformation; // rbx
   KIRQL v3; // bp
-  RTL_SPLAY_LINKS **v4; // r14
-  RTL_SPLAY_LINKS *v5; // rdi
-  PRTL_SPLAY_LINKS *v6; // rsi
-  PRTL_SPLAY_LINKS v7; // rdi
-  _QWORD *v8; // rdi
-  KSPIN_LOCK *v9; // rcx
-  RTL_SPLAY_LINKS *v10; // rsi
-  _RTL_SPLAY_LINKS *Parent; // rdx
-  __int64 v12; // rsi
-  KIRQL v13; // dl
+  __int64 v4; // r8
+  _RTL_SPLAY_LINKS **v5; // r14
+  _RTL_SPLAY_LINKS *v6; // rdi
+  PRTL_SPLAY_LINKS *v7; // rsi
+  PRTL_SPLAY_LINKS v8; // rdi
+  __int64 v9; // rdi
+  KSPIN_LOCK *v10; // rcx
+  __int64 v11; // r8
+  _SLIST_ENTRY **v12; // rsi
+  _SLIST_ENTRY *v13; // rdx
+  __int64 v14; // r8
+  __int64 v15; // r8
+  __int64 v16; // rsi
+  KIRQL v17; // dl
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r8
-  _DWORD *SchedulerAssist; // r10
-  int v17; // eax
-  bool v18; // zf
-  unsigned __int8 v19; // al
-  struct _KPRCB *v20; // rdx
-  _DWORD *v21; // r9
-  int v22; // eax
-  NTSTATUS v23; // [rsp+60h] [rbp+8h] BYREF
+  __int64 v20; // r10
+  int v21; // eax
+  bool v22; // zf
+  __int64 v23; // r8
+  unsigned __int8 v24; // al
+  struct _KPRCB *v25; // rdx
+  __int64 v26; // r9
+  int v27; // eax
+  NTSTATUS v28; // [rsp+60h] [rbp+8h] BYREF
 
-  v23 = 0;
+  v28 = 0;
   LockInformation = (char *)FileLock->LockInformation;
   if ( LockInformation )
   {
-    v3 = KeAcquireSpinLockRaiseToDpc(&FsRtlFileLockCancelCollideLock);
-    KxAcquireSpinLock((PKSPIN_LOCK)LockInformation + 3);
-    v4 = (RTL_SPLAY_LINKS **)(LockInformation + 32);
+    v3 = KeAcquireSpinLockRaiseToDpc(&qword_140C48B98);
+    KeAcquireSpinLockAtDpcLevel((PKSPIN_LOCK)LockInformation + 3);
+    v5 = (_RTL_SPLAY_LINKS **)(LockInformation + 32);
     while ( 1 )
     {
-      v5 = *v4;
-      if ( !*v4 )
+      v6 = *v5;
+      if ( !*v5 )
         break;
-      v10 = v5 - 1;
+      v12 = (_SLIST_ENTRY **)&v6[-1];
       while ( 1 )
       {
-        Parent = v10->Parent;
-        if ( !v10->Parent )
+        v13 = *v12;
+        if ( !*v12 )
           break;
-        v10->Parent = Parent->Parent;
-        ExFreeToNPagedLookasideList(&FsRtlSharedLockLookasideList, Parent);
+        *v12 = v13->Next;
+        sub_140203D88((__int64)&stru_140CE2880, v13, v4);
       }
-      RtlDeleteNoSplay(v5, (PRTL_SPLAY_LINKS *)LockInformation + 4);
-      ExFreeToNPagedLookasideList(&FsRtlLockTreeNodeLookasideList, &v5[-1]);
+      RtlDeleteNoSplay(v6, (PRTL_SPLAY_LINKS *)LockInformation + 4);
+      sub_140203D88((__int64)&stru_140CE2600, (_SLIST_ENTRY *)&v6[-1], v14);
     }
-    v6 = (PRTL_SPLAY_LINKS *)(LockInformation + 40);
+    v7 = (PRTL_SPLAY_LINKS *)(LockInformation + 40);
     while ( 1 )
     {
-      v7 = *v6;
-      if ( !*v6 )
+      v8 = *v7;
+      if ( !*v7 )
         break;
-      RtlDeleteNoSplay(*v6, (PRTL_SPLAY_LINKS *)LockInformation + 5);
-      ExFreeToNPagedLookasideList(&FsRtlExclusiveLockLookasideList, v7);
+      RtlDeleteNoSplay(*v7, (PRTL_SPLAY_LINKS *)LockInformation + 5);
+      sub_140203D88((__int64)&stru_140CE2800, (_SLIST_ENTRY *)v8, v15);
     }
     while ( 1 )
     {
-      v8 = (_QWORD *)*((_QWORD *)LockInformation + 6);
-      v9 = (KSPIN_LOCK *)(LockInformation + 24);
-      if ( !v8 )
+      v9 = *((_QWORD *)LockInformation + 6);
+      v10 = (KSPIN_LOCK *)(LockInformation + 24);
+      if ( !v9 )
         break;
-      *((_QWORD *)LockInformation + 6) = *v8;
-      v12 = v8[3];
-      KxReleaseSpinLock(v9);
-      *(_BYTE *)(v12 + 69) = KeAcquireQueuedSpinLock(7uLL);
-      _InterlockedExchange64((volatile __int64 *)(v12 + 104), 0LL);
-      v13 = *(_BYTE *)(v12 + 69);
-      if ( *(_BYTE *)(v12 + 68) )
+      *((_QWORD *)LockInformation + 6) = *(_QWORD *)v9;
+      v16 = *(_QWORD *)(v9 + 24);
+      KeReleaseSpinLockFromDpcLevel(v10);
+      *(_BYTE *)(v16 + 69) = KeAcquireQueuedSpinLock(7uLL);
+      _InterlockedExchange64((volatile __int64 *)(v16 + 104), 0LL);
+      v17 = *(_BYTE *)(v16 + 69);
+      if ( *(_BYTE *)(v16 + 68) )
       {
-        KeReleaseQueuedSpinLock(7uLL, v13);
-        *v8 = FsRtlFileLockCancelCollideList;
-        FsRtlFileLockCancelCollideList = (__int64)v8;
+        KeReleaseQueuedSpinLock(7uLL, v17);
+        *(_QWORD *)v9 = qword_140C48BA0;
+        qword_140C48BA0 = v9;
       }
       else
       {
-        KeReleaseQueuedSpinLock(7uLL, v13);
-        KxReleaseSpinLock(&FsRtlFileLockCancelCollideLock);
-        if ( KiIrqlFlags )
+        KeReleaseQueuedSpinLock(7uLL, v17);
+        KeReleaseSpinLockFromDpcLevel(&qword_140C48B98);
+        if ( dword_140D06B08 )
         {
-          if ( (KiIrqlFlags & 1) != 0 )
+          if ( (dword_140D06B08 & 1) != 0 )
           {
             CurrentIrql = KeGetCurrentIrql();
             if ( CurrentIrql <= 0xFu && v3 <= 0xFu && CurrentIrql >= 2u )
             {
               CurrentPrcb = KeGetCurrentPrcb();
-              SchedulerAssist = CurrentPrcb->SchedulerAssist;
-              v17 = ~(unsigned __int16)(-1LL << (v3 + 1));
-              v18 = (v17 & SchedulerAssist[5]) == 0;
-              SchedulerAssist[5] &= v17;
-              if ( v18 )
-                KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+              v20 = *((_QWORD *)CurrentPrcb + 4375);
+              v21 = ~(unsigned __int16)(-1LL << (v3 + 1));
+              v22 = (v21 & *(_DWORD *)(v20 + 20)) == 0;
+              *(_DWORD *)(v20 + 20) &= v21;
+              if ( v22 )
+                sub_140418E4C(CurrentPrcb);
             }
           }
         }
         __writecr8(v3);
-        *(_QWORD *)(v12 + 56) = 0LL;
-        FsRtlCompleteLockIrpReal(
-          *((__int64 (__fastcall **)(__int64, IRP *))LockInformation + 1),
-          v8[2],
-          (IRP *)v12,
-          -1073741698,
-          &v23,
-          0LL);
-        ExFreeToNPagedLookasideList(&FsRtlWaitingLockLookasideList, v8);
-        v3 = KeAcquireSpinLockRaiseToDpc(&FsRtlFileLockCancelCollideLock);
+        *(_QWORD *)(v16 + 56) = 0LL;
+        sub_14021F5E4(*((_QWORD *)LockInformation + 1), *(_QWORD *)(v9 + 16), (IRP *)v16, -1073741698, &v28, 0LL);
+        sub_140203D88((__int64)&stru_140CE2680, (_SLIST_ENTRY *)v9, v23);
+        v3 = KeAcquireSpinLockRaiseToDpc(&qword_140C48B98);
       }
-      KxAcquireSpinLock((PKSPIN_LOCK)LockInformation + 3);
+      KeAcquireSpinLockAtDpcLevel((PKSPIN_LOCK)LockInformation + 3);
     }
-    KxReleaseSpinLock(v9);
-    KxReleaseSpinLock(&FsRtlFileLockCancelCollideLock);
-    if ( KiIrqlFlags )
+    KeReleaseSpinLockFromDpcLevel(v10);
+    KeReleaseSpinLockFromDpcLevel(&qword_140C48B98);
+    if ( dword_140D06B08 )
     {
-      if ( (KiIrqlFlags & 1) != 0 )
+      if ( (dword_140D06B08 & 1) != 0 )
       {
-        v19 = KeGetCurrentIrql();
-        if ( v19 <= 0xFu && v3 <= 0xFu && v19 >= 2u )
+        v24 = KeGetCurrentIrql();
+        if ( v24 <= 0xFu && v3 <= 0xFu && v24 >= 2u )
         {
-          v20 = KeGetCurrentPrcb();
-          v21 = v20->SchedulerAssist;
-          v22 = ~(unsigned __int16)(-1LL << (v3 + 1));
-          v18 = (v22 & v21[5]) == 0;
-          v21[5] &= v22;
-          if ( v18 )
-            KiRemoveSystemWorkPriorityKick(v20);
+          v25 = KeGetCurrentPrcb();
+          v26 = *((_QWORD *)v25 + 4375);
+          v27 = ~(unsigned __int16)(-1LL << (v3 + 1));
+          v22 = (v27 & *(_DWORD *)(v26 + 20)) == 0;
+          v11 = (unsigned int)v27 & *(_DWORD *)(v26 + 20);
+          *(_DWORD *)(v26 + 20) = v11;
+          if ( v22 )
+            sub_140418E4C(v25);
         }
       }
     }
     __writecr8(v3);
-    ExFreeToNPagedLookasideList(&FsRtlLockInfoLookasideList, LockInformation);
+    sub_140203D88((__int64)&stru_140CE2780, (_SLIST_ENTRY *)LockInformation, v11);
     FileLock->LockInformation = 0LL;
   }
 }

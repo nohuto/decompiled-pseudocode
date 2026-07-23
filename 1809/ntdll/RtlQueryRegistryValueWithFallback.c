@@ -5,54 +5,57 @@
  * Callees:
  *     RtlAllocateHeap @ 0x18000F2A0 (RtlAllocateHeap.c)
  *     RtlFreeHeap @ 0x180017E40 (RtlFreeHeap.c)
- *     NtQueryValueKey @ 0x1800A05C0 (NtQueryValueKey.c)
+ *     NtQueryValueKey @ 0x1800A05E0 (NtQueryValueKey.c)
  *     memmove @ 0x1800A6DC0 (memmove.c)
  */
 
-__int64 __fastcall RtlQueryRegistryValueWithFallback(
-        __int64 a1,
-        __int64 a2,
-        __int64 a3,
-        unsigned int a4,
-        _DWORD *a5,
-        void *a6,
-        _DWORD *a7)
+NTSTATUS __cdecl RtlQueryRegistryValueWithFallback(
+        HANDLE PrimaryHandle,
+        HANDLE FallbackHandle,
+        PUNICODE_STRING ValueName,
+        ULONG ValueLength,
+        PULONG ValueType,
+        PVOID ValueData,
+        PULONG ResultLength)
 {
-  unsigned int v10; // esi
-  unsigned int ValueKey; // ebx
-  _DWORD *Heap; // rdi
+  ULONG Length; // esi
+  signed int v12; // ebx
+  ULONG *Heap; // rdi
+  ULONG v14; // [rsp+50h] [rbp+8h] BYREF
 
-  if ( !a1 && !a2 )
-    return 3221225485LL;
-  v10 = -1;
-  if ( a4 < 0xFFFFFFF0 )
-    v10 = a4 + 16;
-  ValueKey = a4 >= 0xFFFFFFF0 ? 0xC0000095 : 0;
-  if ( a4 + 16 >= 0x10 )
+  if ( __PAIR128__((unsigned __int64)PrimaryHandle, (unsigned __int64)FallbackHandle) == 0 )
+    return -1073741811;
+  Length = -1;
+  if ( ValueLength < 0xFFFFFFF0 )
+    Length = ValueLength + 16;
+  v12 = ValueLength >= 0xFFFFFFF0 ? 0xC0000095 : 0;
+  if ( ValueLength + 16 >= 0x10 )
   {
-    Heap = (_DWORD *)RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v10);
+    Heap = (ULONG *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, Length);
     if ( !Heap )
-      return (unsigned int)-1073741801;
-    ValueKey = -1073741772;
-    if ( !a1 || (ValueKey = NtQueryValueKey(), ValueKey == -1073741772) )
+      return -1073741801;
+    v12 = -1073741772;
+    if ( !PrimaryHandle
+      || (v12 = NtQueryValueKey(PrimaryHandle, ValueName, KeyValuePartialInformation, Heap, Length, &v14),
+          v12 == -1073741772) )
     {
-      if ( !a2 )
+      if ( !FallbackHandle )
       {
-LABEL_19:
-        RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, (unsigned __int64)Heap);
-        return ValueKey;
+LABEL_18:
+        RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, Heap);
+        return v12;
       }
-      ValueKey = NtQueryValueKey();
+      v12 = NtQueryValueKey(FallbackHandle, ValueName, KeyValuePartialInformation, Heap, Length, &v14);
     }
-    if ( (int)(ValueKey + 0x80000000) < 0 || ValueKey == -2147483643 )
+    if ( (int)(v12 + 0x80000000) < 0 || v12 == -2147483643 )
     {
-      *a7 = Heap[2];
-      if ( a5 )
-        *a5 = Heap[1];
-      if ( (ValueKey & 0x80000000) == 0 )
-        memmove(a6, Heap + 3, (unsigned int)Heap[2]);
+      *ResultLength = Heap[2];
+      if ( ValueType )
+        *ValueType = Heap[1];
+      if ( v12 >= 0 )
+        memmove(ValueData, Heap + 3, Heap[2]);
     }
-    goto LABEL_19;
+    goto LABEL_18;
   }
-  return ValueKey;
+  return v12;
 }

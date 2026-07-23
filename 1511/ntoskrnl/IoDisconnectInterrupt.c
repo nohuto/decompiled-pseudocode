@@ -24,7 +24,7 @@ void __stdcall IoDisconnectInterrupt(PKINTERRUPT InterruptObject)
   void **p_DisconnectData; // rsi
   unsigned __int64 v2; // rax
   unsigned __int64 v3; // rdi
-  struct _SLIST_ENTRY **v4; // r14
+  _SLIST_ENTRY **v4; // r14
   __int64 v5; // rdx
   struct _KTHREAD *CurrentThread; // rax
   unsigned __int64 v7; // rbx
@@ -44,7 +44,7 @@ void __stdcall IoDisconnectInterrupt(PKINTERRUPT InterruptObject)
         + ((v2 >> 2) & 0x3333333333333333LL)
         + (((v2 & 0x3333333333333333LL) + ((v2 >> 2) & 0x3333333333333333LL)) >> 4)) & 0xF0F0F0F0F0F0F0FLL)) >> 56;
   IopAcquireActiveConnectLock(v13);
-  v4 = (struct _SLIST_ENTRY **)(p_DisconnectData + 58);
+  v4 = (_SLIST_ENTRY **)(p_DisconnectData + 58);
   LOBYTE(v5) = v3;
   KeDisconnectInterrupt((__int64 *)p_DisconnectData + 58, v5, (__int64)(p_DisconnectData + 2));
   IopReleaseActiveConnectLock(v13);

@@ -1,16 +1,16 @@
 /*
- * XREFs of FsRtlQueryOpen @ 0x1407ABB44
+ * XREFs of FsRtlQueryOpen @ 0x1407ABD34
  * Callers:
- *     IopQueryInformation @ 0x1407AB900 (IopQueryInformation.c)
+ *     IopQueryInformation @ 0x1407ABAF0 (IopQueryInformation.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     FsFilterCtrlInit @ 0x1402A1E90 (FsFilterCtrlInit.c)
- *     FsFilterPerformCompletionCallbacks @ 0x1402A1F20 (FsFilterPerformCompletionCallbacks.c)
- *     FsFilterPerformCallbacks @ 0x1402A1FB0 (FsFilterPerformCallbacks.c)
- *     FsFilterCtrlFree @ 0x1402A22C8 (FsFilterCtrlFree.c)
- *     IoGetAttachedDevice @ 0x1402AF410 (IoGetAttachedDevice.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memset @ 0x140435A00 (memset.c)
+ *     KeLeaveCriticalRegion @ 0x140231550 (KeLeaveCriticalRegion.c)
+ *     FsFilterCtrlInit @ 0x1402A2120 (FsFilterCtrlInit.c)
+ *     FsFilterPerformCompletionCallbacks @ 0x1402A21B0 (FsFilterPerformCompletionCallbacks.c)
+ *     FsFilterPerformCallbacks @ 0x1402A2240 (FsFilterPerformCallbacks.c)
+ *     FsFilterCtrlFree @ 0x1402A2558 (FsFilterCtrlFree.c)
+ *     IoGetAttachedDevice @ 0x1402AF6A0 (IoGetAttachedDevice.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     memset @ 0x140435E00 (memset.c)
  */
 
 __int64 __fastcall FsRtlQueryOpen(PDEVICE_OBJECT DeviceObject, __int64 a2, __int64 a3, __int64 a4, int a5)

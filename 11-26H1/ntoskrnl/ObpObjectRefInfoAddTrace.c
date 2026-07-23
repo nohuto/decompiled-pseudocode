@@ -1,10 +1,10 @@
 /*
- * XREFs of ObpObjectRefInfoAddTrace @ 0x1407C4E94
+ * XREFs of ObpObjectRefInfoAddTrace @ 0x1407C7EF4
  * Callers:
- *     ObpPushRefDerefInfoNoLock @ 0x1407702BC (ObpPushRefDerefInfoNoLock.c)
+ *     ObpPushRefDerefInfoNoLock @ 0x1407732BC (ObpPushRefDerefInfoNoLock.c)
  * Callees:
- *     DbgPrintEx @ 0x140397530 (DbgPrintEx.c)
- *     ObpGetObjectRefInfo @ 0x1407C4B04 (ObpGetObjectRefInfo.c)
+ *     DbgPrintEx @ 0x1403992B0 (DbgPrintEx.c)
+ *     ObpGetObjectRefInfo @ 0x1407C7B64 (ObpGetObjectRefInfo.c)
  */
 
 int __fastcall ObpObjectRefInfoAddTrace(__int64 a1, unsigned int a2, __int16 a3, unsigned int a4, __int64 a5)

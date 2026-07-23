@@ -1,14 +1,14 @@
 /*
- * XREFs of CmpDoFindSubKeyByNumber @ 0x1405F2D00
+ * XREFs of CmpDoFindSubKeyByNumber @ 0x1406E2460
  * Callers:
- *     CmpCheckRegistry2 @ 0x1405F0040 (CmpCheckRegistry2.c)
- *     CmpFindSubKeyByNumber @ 0x1405F34E0 (CmpFindSubKeyByNumber.c)
- *     CmpFindSubKeyByNumberEx @ 0x1405F35A0 (CmpFindSubKeyByNumberEx.c)
- *     CmpKeyEnumStackEntryBegin @ 0x140729E3C (CmpKeyEnumStackEntryBegin.c)
- *     CmpKeyEnumStackEntryAdvance @ 0x14087A918 (CmpKeyEnumStackEntryAdvance.c)
- *     CmpKeyEnumStackEntryNotifyPromotion @ 0x14087AA20 (CmpKeyEnumStackEntryNotifyPromotion.c)
+ *     CmpCheckRegistry2 @ 0x1406DF7A0 (CmpCheckRegistry2.c)
+ *     CmpFindSubKeyByNumber @ 0x1406E2C40 (CmpFindSubKeyByNumber.c)
+ *     CmpFindSubKeyByNumberEx @ 0x1406E2D00 (CmpFindSubKeyByNumberEx.c)
+ *     CmpKeyEnumStackEntryBegin @ 0x14072A2EC (CmpKeyEnumStackEntryBegin.c)
+ *     CmpKeyEnumStackEntryAdvance @ 0x14087AA78 (CmpKeyEnumStackEntryAdvance.c)
+ *     CmpKeyEnumStackEntryNotifyPromotion @ 0x14087AB80 (CmpKeyEnumStackEntryNotifyPromotion.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall CmpDoFindSubKeyByNumber(__int64 a1, __int16 *a2, unsigned int a3)

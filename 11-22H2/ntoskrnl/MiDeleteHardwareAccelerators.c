@@ -35,10 +35,13 @@ void MiDeleteHardwareAccelerators()
   byte_140C69914 = 1;
   ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140C69920);
   v4 = (unsigned int)KiIrqlFlags;
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v0 <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
+      && (unsigned __int8)v0 <= 0xFu
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       v4 = (unsigned int)(v0 + 1);
@@ -84,10 +87,10 @@ void MiDeleteHardwareAccelerators()
     while ( (PVOID *)v10 != &qword_140C69900 );
   }
   ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140C69920);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v13 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v13 <= 0xFu && (unsigned __int8)v0 <= 0xFu && v13 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v13 <= 0xFu && (unsigned __int8)v0 <= 0xFu && v13 >= 2u )
     {
       v14 = KeGetCurrentPrcb();
       v15 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v0 + 1));

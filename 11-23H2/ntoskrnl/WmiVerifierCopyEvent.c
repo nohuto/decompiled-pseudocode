@@ -1,9 +1,9 @@
 /*
- * XREFs of WmiVerifierCopyEvent @ 0x1405FBB48
+ * XREFs of WmiVerifierCopyEvent @ 0x1405FC0B8
  * Callers:
- *     VerifierIoWMIWriteEvent @ 0x140AE41A0 (VerifierIoWMIWriteEvent.c)
+ *     VerifierIoWMIWriteEvent @ 0x140AE4190 (VerifierIoWMIWriteEvent.c)
  * Callees:
- *     memmove @ 0x140435700 (memmove.c)
+ *     memmove @ 0x140435B00 (memmove.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
 

@@ -1,40 +1,41 @@
 /*
- * XREFs of NtUmsThreadYield @ 0x140845BD0
+ * XREFs of NtUmsThreadYield @ 0x140846E30
  * Callers:
  *     <none>
  * Callees:
- *     KiIsPrimaryPresent @ 0x14029D504 (KiIsPrimaryPresent.c)
- *     KiUmsExceptionFilter @ 0x140845BA4 (KiUmsExceptionFilter.c)
+ *     KiIsPrimaryPresent @ 0x14029D6F4 (KiIsPrimaryPresent.c)
+ *     KiUmsExceptionFilter @ 0x140846E04 (KiUmsExceptionFilter.c)
  */
 
-__int64 __fastcall NtUmsThreadYield(__int64 a1, __int64 a2, __int64 a3)
+NTSTATUS __cdecl NtUmsThreadYield(PVOID SchedulerParam)
 {
+  __int64 v1; // r8
   struct _KTHREAD *CurrentThread; // rdi
-  struct _KTHREAD *v4; // rax
-  __int64 result; // rax
+  struct _KTHREAD *v3; // rax
+  NTSTATUS result; // eax
   _DWORD *Object; // rdi
-  __int64 v7; // rbx
-  __int64 v8; // rsi
+  __int64 v6; // rbx
+  __int64 v7; // rsi
 
   CurrentThread = KeGetCurrentThread();
-  v4 = CurrentThread;
+  v3 = CurrentThread;
   if ( !CurrentThread )
-    v4 = KeGetCurrentThread();
-  if ( (v4->Header.Reserved1 & 0x40) == 0 )
-    return 3221225659LL;
+    v3 = KeGetCurrentThread();
+  if ( (v3->Header.Reserved1 & 0x40) == 0 )
+    return -1073741637;
   Object = CurrentThread->WaitBlock[3].Object;
-  v7 = *(_QWORD *)Object;
-  v8 = *(_QWORD *)(*(_QWORD *)Object + 1272LL);
+  v6 = *(_QWORD *)Object;
+  v7 = *(_QWORD *)(*(_QWORD *)Object + 1272LL);
   *(_QWORD *)(*(_QWORD *)Object + 1272LL) = 1LL;
-  if ( KiIsPrimaryPresent(v7, a1, a3) )
+  if ( KiIsPrimaryPresent(v6, (__int64)SchedulerParam, v1) )
   {
     Object[20] |= 1u;
-    return 0LL;
+    return 0;
   }
   else
   {
-    result = 3221227292LL;
-    *(_QWORD *)(v7 + 1272) = v8;
+    result = -1073740004;
+    *(_QWORD *)(v6 + 1272) = v7;
   }
   return result;
 }

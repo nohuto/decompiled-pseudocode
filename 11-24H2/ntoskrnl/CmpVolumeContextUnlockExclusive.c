@@ -1,11 +1,11 @@
 /*
- * XREFs of CmpVolumeContextUnlockExclusive @ 0x1407D8B50
+ * XREFs of CmpVolumeContextUnlockExclusive @ 0x1407D90A0
  * Callers:
- *     CmpVolumeManagerCreateContextsForWellKnownVolumes @ 0x1406F9250 (CmpVolumeManagerCreateContextsForWellKnownVolumes.c)
- *     CmpVolumeContextSendDeviceUsageNotification @ 0x1407D88F8 (CmpVolumeContextSendDeviceUsageNotification.c)
+ *     CmpVolumeManagerCreateContextsForWellKnownVolumes @ 0x1406F6E90 (CmpVolumeManagerCreateContextsForWellKnownVolumes.c)
+ *     CmpVolumeContextSendDeviceUsageNotification @ 0x1407D8E48 (CmpVolumeContextSendDeviceUsageNotification.c)
  * Callees:
- *     ExfTryToWakePushLock @ 0x14025F9A0 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
+ *     ExfTryToWakePushLock @ 0x14028FFB0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
  */
 
 __int64 __fastcall CmpVolumeContextUnlockExclusive(__int64 a1)

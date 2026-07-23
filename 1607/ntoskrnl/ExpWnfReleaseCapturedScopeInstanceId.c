@@ -1,10 +1,10 @@
 /*
- * XREFs of ExpWnfReleaseCapturedScopeInstanceId @ 0x1404624D4
+ * XREFs of ExpWnfReleaseCapturedScopeInstanceId @ 0x1404613A4
  * Callers:
- *     NtUpdateWnfStateData @ 0x140461CC4 (NtUpdateWnfStateData.c)
- *     NtQueryWnfStateData @ 0x140462090 (NtQueryWnfStateData.c)
- *     NtQueryWnfStateNameInformation @ 0x1404DCB58 (NtQueryWnfStateNameInformation.c)
- *     NtDeleteWnfStateData @ 0x14057CAB8 (NtDeleteWnfStateData.c)
+ *     NtUpdateWnfStateData @ 0x140460B94 (NtUpdateWnfStateData.c)
+ *     NtQueryWnfStateData @ 0x140460F60 (NtQueryWnfStateData.c)
+ *     NtQueryWnfStateNameInformation @ 0x1404C015C (NtQueryWnfStateNameInformation.c)
+ *     NtDeleteWnfStateData @ 0x14057CF64 (NtDeleteWnfStateData.c)
  * Callees:
  *     <none>
  */

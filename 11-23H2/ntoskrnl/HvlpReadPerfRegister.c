@@ -1,11 +1,11 @@
 /*
- * XREFs of HvlpReadPerfRegister @ 0x140541388
+ * XREFs of HvlpReadPerfRegister @ 0x140541A48
  * Callers:
- *     HvlReadPerfIoPort @ 0x140540500 (HvlReadPerfIoPort.c)
- *     HvlReadPerfMsr @ 0x140540580 (HvlReadPerfMsr.c)
+ *     HvlReadPerfIoPort @ 0x140540BC0 (HvlReadPerfIoPort.c)
+ *     HvlReadPerfMsr @ 0x140540C40 (HvlReadPerfMsr.c)
  * Callees:
- *     HvcallFastExtended @ 0x1403CC1B0 (HvcallFastExtended.c)
- *     HvlpHvToNtStatus @ 0x14045F516 (HvlpHvToNtStatus.c)
+ *     HvcallFastExtended @ 0x1403CC390 (HvcallFastExtended.c)
+ *     HvlpHvToNtStatus @ 0x14045F916 (HvlpHvToNtStatus.c)
  */
 
 __int64 __fastcall HvlpReadPerfRegister(int a1, __int64 a2, _QWORD *a3)

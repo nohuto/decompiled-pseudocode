@@ -1,16 +1,16 @@
 /*
- * XREFs of PopFxTracePerfRegistration @ 0x140B44010
+ * XREFs of PopFxTracePerfRegistration @ 0x140B45F00
  * Callers:
- *     PopFxRegisterComponentPerfStates @ 0x1407CD93C (PopFxRegisterComponentPerfStates.c)
- *     PopFxTraceDeviceRegistration @ 0x140AEE2C4 (PopFxTraceDeviceRegistration.c)
+ *     PopFxRegisterComponentPerfStates @ 0x1407D09DC (PopFxRegisterComponentPerfStates.c)
+ *     PopFxTraceDeviceRegistration @ 0x140AF125C (PopFxTraceDeviceRegistration.c)
  * Callees:
- *     EtwEventEnabled @ 0x140212D90 (EtwEventEnabled.c)
- *     PopFxAddLogEntry @ 0x14021A640 (PopFxAddLogEntry.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     PopDiagTraceFxPerfSetRegistration @ 0x1407708FC (PopDiagTraceFxPerfSetRegistration.c)
- *     PopDiagTraceFxPerfRegistration @ 0x140B44258 (PopDiagTraceFxPerfRegistration.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     EtwEventEnabled @ 0x140212E70 (EtwEventEnabled.c)
+ *     PopFxAddLogEntry @ 0x14021BFD0 (PopFxAddLogEntry.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     PopDiagTraceFxPerfSetRegistration @ 0x1407738FC (PopDiagTraceFxPerfSetRegistration.c)
+ *     PopDiagTraceFxPerfRegistration @ 0x140B46148 (PopDiagTraceFxPerfRegistration.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __fastcall PopFxTracePerfRegistration(_QWORD *a1, char a2)
@@ -41,13 +41,13 @@ void __fastcall PopFxTracePerfRegistration(_QWORD *a1, char a2)
     v5 = (const EVENT_DESCRIPTOR *)POP_ETW_EVENT_PERFORMANCE_STATE_REGISTRATION;
     PopFxAddLogEntry(*(_QWORD *)(*(_QWORD *)(*a1 + 80LL) + 48LL), *(_DWORD *)(*a1 + 16LL), 12, (unsigned int)*v2);
   }
-  if ( byte_140E67628 && EtwEventEnabled(*(REGHANDLE *)&PopSleepstudySessionLock.PriorityFloorCounts[16], v5) )
+  if ( PopDiagHandleRegistered && EtwEventEnabled(PopDiagHandle, v5) )
   {
     PopDiagTraceFxPerfRegistration(v5);
     v6 = (const EVENT_DESCRIPTOR *)POP_ETW_EVENT_PERFORMANCE_STATE_SET_REGISTRATION_RUNDOWN;
     if ( !a2 )
       v6 = &POP_ETW_EVENT_PERFORMANCE_STATE_SET_REGISTRATION;
-    if ( EtwEventEnabled(*(REGHANDLE *)&PopSleepstudySessionLock.PriorityFloorCounts[16], v6) )
+    if ( EtwEventEnabled(PopDiagHandle, v6) )
     {
       v7 = 0;
       if ( *v2 )

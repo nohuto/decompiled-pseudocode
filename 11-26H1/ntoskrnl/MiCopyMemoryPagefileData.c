@@ -1,16 +1,16 @@
 /*
- * XREFs of MiCopyMemoryPagefileData @ 0x14070C8A0
+ * XREFs of MiCopyMemoryPagefileData @ 0x140711550
  * Callers:
- *     MiTransferMemoryPagefileData @ 0x140503118 (MiTransferMemoryPagefileData.c)
+ *     MiTransferMemoryPagefileData @ 0x1404FC9E8 (MiTransferMemoryPagefileData.c)
  * Callees:
- *     MiReleasePtes @ 0x140281CE0 (MiReleasePtes.c)
- *     MiMakeValidPte @ 0x1402DA020 (MiMakeValidPte.c)
- *     MiMakeProtectionPfnCompatible @ 0x14033C7D0 (MiMakeProtectionPfnCompatible.c)
- *     MiReservePtes @ 0x14035DE50 (MiReservePtes.c)
- *     MiGetPteMappingSet @ 0x14044FFD0 (MiGetPteMappingSet.c)
- *     MiReturnPteMappingSet @ 0x140457050 (MiReturnPteMappingSet.c)
- *     KeCopyPageNoOverride @ 0x140730860 (KeCopyPageNoOverride.c)
- *     memmove @ 0x14073D480 (memmove.c)
+ *     MiReleasePtes @ 0x140281250 (MiReleasePtes.c)
+ *     MiMakeValidPte @ 0x1402BBDE0 (MiMakeValidPte.c)
+ *     MiMakeProtectionPfnCompatible @ 0x14033E850 (MiMakeProtectionPfnCompatible.c)
+ *     MiReservePtes @ 0x14035FBF0 (MiReservePtes.c)
+ *     MiGetPteMappingSet @ 0x140448100 (MiGetPteMappingSet.c)
+ *     MiReturnPteMappingSet @ 0x14044E8C0 (MiReturnPteMappingSet.c)
+ *     KeCopyPageNoOverride @ 0x140735430 (KeCopyPageNoOverride.c)
+ *     memmove @ 0x140742080 (memmove.c)
  */
 
 struct _KPRCB *__fastcall MiCopyMemoryPagefileData(
@@ -49,7 +49,7 @@ struct _KPRCB *__fastcall MiCopyMemoryPagefileData(
   v6 = a3;
   v7 = a2;
   v29 = 0LL;
-  if ( a2 && (v9 = MiReservePtes((__int64)&stru_140E36558.WaitBlockList, a4, a3, a4), (v10 = v9) != 0) )
+  if ( a2 && (v9 = MiReservePtes((__int64)&stru_140E366D8.WaitBlockList, a4, a3, a4), (v10 = v9) != 0) )
   {
     ValidPte = MiMakeValidPte(v9, -1LL, (a5 != 0 ? 1 : 4) | 0xA0000000);
     v12 = (unsigned __int64 *)(v10 + 8 * a4);
@@ -74,7 +74,7 @@ struct _KPRCB *__fastcall MiCopyMemoryPagefileData(
       v7 = (__int64)(v10 << 25) >> 16;
     }
     memmove((void *)v7, (const void *)v15, a4 << 12);
-    return (struct _KPRCB *)MiReleasePtes((__int64)&stru_140E36558.WaitBlockList, (unsigned __int64 *)v10, a4);
+    return (struct _KPRCB *)MiReleasePtes((__int64)&stru_140E366D8.WaitBlockList, (unsigned __int64 *)v10, a4);
   }
   else
   {

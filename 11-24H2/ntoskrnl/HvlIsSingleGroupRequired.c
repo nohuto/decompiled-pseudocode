@@ -1,12 +1,12 @@
 /*
- * XREFs of HvlIsSingleGroupRequired @ 0x140582834
+ * XREFs of HvlIsSingleGroupRequired @ 0x14057FBB4
  * Callers:
- *     HvlpSelectVpSet @ 0x140584E2C (HvlpSelectVpSet.c)
- *     KiPerformGroupConfiguration @ 0x140C28DE0 (KiPerformGroupConfiguration.c)
+ *     HvlpSelectVpSet @ 0x1405821AC (HvlpSelectVpSet.c)
+ *     KiPerformGroupConfiguration @ 0x140C2AE80 (KiPerformGroupConfiguration.c)
  * Callees:
- *     RtlNumberOfSetBitsEx @ 0x1404181F0 (RtlNumberOfSetBitsEx.c)
- *     HviGetImplementationLimits @ 0x140663B88 (HviGetImplementationLimits.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     RtlNumberOfSetBitsEx @ 0x140407FA0 (RtlNumberOfSetBitsEx.c)
+ *     HviGetImplementationLimits @ 0x140662478 (HviGetImplementationLimits.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 bool HvlIsSingleGroupRequired()

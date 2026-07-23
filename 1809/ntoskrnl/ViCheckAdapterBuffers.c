@@ -1,13 +1,13 @@
 /*
- * XREFs of ViCheckAdapterBuffers @ 0x14092CCBC
+ * XREFs of ViCheckAdapterBuffers @ 0x14092DCBC
  * Callers:
- *     VfMapTransfer @ 0x14092BAB0 (VfMapTransfer.c)
- *     VfMapTransferEx @ 0x14092BC70 (VfMapTransferEx.c)
+ *     VfMapTransfer @ 0x14092CAB0 (VfMapTransfer.c)
+ *     VfMapTransferEx @ 0x14092CC70 (VfMapTransferEx.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x1400630E0 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14008CF40 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     ViCheckTag @ 0x14092CFBC (ViCheckTag.c)
+ *     KxReleaseSpinLock @ 0x1400630D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14008CE80 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     ViCheckTag @ 0x14092DFBC (ViCheckTag.c)
  */
 
 void __fastcall ViCheckAdapterBuffers(__int64 a1)

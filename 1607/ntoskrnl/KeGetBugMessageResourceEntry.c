@@ -1,9 +1,9 @@
 /*
- * XREFs of KeGetBugMessageResourceEntry @ 0x1401D4DE4
+ * XREFs of KeGetBugMessageResourceEntry @ 0x1401D4C10
  * Callers:
- *     CmpCreateHwProfileFriendlyName @ 0x140607904 (CmpCreateHwProfileFriendlyName.c)
+ *     CmpCreateHwProfileFriendlyName @ 0x1406079B8 (CmpCreateHwProfileFriendlyName.c)
  * Callees:
- *     RtlFindMessageInTable @ 0x1400FA24C (RtlFindMessageInTable.c)
+ *     RtlFindMessageInTable @ 0x1400F7FD8 (RtlFindMessageInTable.c)
  */
 
 __int64 __fastcall KeGetBugMessageResourceEntry(unsigned int a1)

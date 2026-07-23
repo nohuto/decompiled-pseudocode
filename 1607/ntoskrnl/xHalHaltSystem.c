@@ -1,8 +1,8 @@
 /*
- * XREFs of xHalHaltSystem @ 0x140171708
+ * XREFs of xHalHaltSystem @ 0x140171C08
  * Callers:
- *     KeBugCheck2 @ 0x1401D40EC (KeBugCheck2.c)
- *     KiBugCheckDebugBreak @ 0x1401D4F9C (KiBugCheckDebugBreak.c)
+ *     KeBugCheck2 @ 0x1401D3F18 (KeBugCheck2.c)
+ *     KiBugCheckDebugBreak @ 0x1401D4DC8 (KiBugCheckDebugBreak.c)
  *     PopShutdownHandler @ 0x1403DF97C (PopShutdownHandler.c)
  * Callees:
  *     <none>

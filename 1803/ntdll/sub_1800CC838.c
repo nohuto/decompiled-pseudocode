@@ -11,32 +11,43 @@
  *     ZwQueryVolumeInformationFile @ 0x18009B3E0 (ZwQueryVolumeInformationFile.c)
  */
 
-void __fastcall sub_1800CC838(__int128 *a1, __int64 a2)
+void __fastcall sub_1800CC838(_UNICODE_STRING *a1, __int64 a2)
 {
-  __int64 v2; // [rsp+50h] [rbp-B0h] BYREF
-  int v3; // [rsp+58h] [rbp-A8h] BYREF
-  char *v4; // [rsp+60h] [rbp-A0h]
-  UNICODE_STRING UnicodeString; // [rsp+68h] [rbp-98h] BYREF
-  int v6; // [rsp+88h] [rbp-78h]
-  __int64 v7; // [rsp+90h] [rbp-70h]
-  __int64 v8; // [rsp+98h] [rbp-68h]
-  int v9; // [rsp+A0h] [rbp-60h]
-  __int128 v10; // [rsp+A8h] [rbp-58h]
-  char v11; // [rsp+C0h] [rbp-40h] BYREF
+  int v2; // eax
+  HANDLE FileHandle; // [rsp+40h] [rbp-C0h] BYREF
+  _BYTE FsInformation[4]; // [rsp+48h] [rbp-B8h] BYREF
+  int v5; // [rsp+4Ch] [rbp-B4h]
+  _UNICODE_STRING *v6; // [rsp+50h] [rbp-B0h] BYREF
+  int v7; // [rsp+58h] [rbp-A8h] BYREF
+  char *v8; // [rsp+60h] [rbp-A0h]
+  _UNICODE_STRING UnicodeString; // [rsp+68h] [rbp-98h] BYREF
+  _IO_STATUS_BLOCK IoStatusBlock; // [rsp+78h] [rbp-88h] BYREF
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+88h] [rbp-78h] BYREF
+  char v12; // [rsp+C0h] [rbp-40h] BYREF
 
-  v3 = 0x1000000;
-  v4 = &v11;
+  v7 = 0x1000000;
+  v5 = 0;
+  v8 = &v12;
   UnicodeString.Buffer = 0LL;
-  if ( (int)sub_180076D50(0, a2, a1, (unsigned __int16 *)&v3, &UnicodeString.Length, &v2) >= 0 )
+  FileHandle = 0LL;
+  if ( (int)sub_180076D50(0, a2, a1, (unsigned __int16 *)&v7, &UnicodeString.Length, &v6) >= 0 )
   {
-    v8 = v2;
-    v6 = 48;
-    v7 = 0LL;
-    v10 = 0LL;
-    v9 = 64;
-    if ( (int)ZwOpenFile() >= 0 )
-      ZwQueryVolumeInformationFile();
+    ObjectAttributes.ObjectName = v6;
+    ObjectAttributes.Length = 48;
+    ObjectAttributes.RootDirectory = 0LL;
+    *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+    ObjectAttributes.Attributes = 64;
+    if ( ZwOpenFile(&FileHandle, 0x100001u, &ObjectAttributes, &IoStatusBlock, 5u, 0x60u) >= 0
+      && ZwQueryVolumeInformationFile(FileHandle, &IoStatusBlock, FsInformation, 8u, FileFsDeviceInformation) >= 0 )
+    {
+      v2 = dword_18015D400;
+      if ( (dword_18015D400 & v5) != 0 )
+        v2 = 0;
+      dword_18015D400 = v2;
+    }
   }
+  if ( FileHandle )
+    ZwClose(FileHandle);
   if ( UnicodeString.Buffer )
     RtlFreeUnicodeString(&UnicodeString);
 }

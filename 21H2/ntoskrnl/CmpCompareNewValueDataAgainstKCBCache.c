@@ -1,13 +1,13 @@
 /*
- * XREFs of CmpCompareNewValueDataAgainstKCBCache @ 0x140665DE8
+ * XREFs of CmpCompareNewValueDataAgainstKCBCache @ 0x14065AC08
  * Callers:
- *     CmSetValueKey @ 0x1406646C0 (CmSetValueKey.c)
+ *     CmSetValueKey @ 0x1406594E0 (CmSetValueKey.c)
  * Callees:
- *     RtlCompareMemory @ 0x1404081B0 (RtlCompareMemory.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     CmpGetValueData @ 0x1405F8410 (CmpGetValueData.c)
- *     CmpFindNameInListWithStatus @ 0x140665F7C (CmpFindNameInListWithStatus.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     RtlCompareMemory @ 0x140408390 (RtlCompareMemory.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     CmpFindNameInListWithStatus @ 0x14065AD9C (CmpFindNameInListWithStatus.c)
+ *     CmpGetValueData @ 0x1406E7B70 (CmpGetValueData.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall CmpCompareNewValueDataAgainstKCBCache(__int64 a1, int a2, int a3, const void *a4, unsigned int a5)
@@ -21,7 +21,7 @@ __int64 __fastcall CmpCompareNewValueDataAgainstKCBCache(__int64 a1, int a2, int
   void *v14; // rdi
   SIZE_T v15; // r8
   int v16; // eax
-  bool ValueData; // al
+  char ValueData; // al
   unsigned int v19; // [rsp+40h] [rbp-20h] BYREF
   unsigned int v20; // [rsp+44h] [rbp-1Ch] BYREF
   void *v21; // [rsp+48h] [rbp-18h] BYREF
@@ -59,7 +59,14 @@ __int64 __fastcall CmpCompareNewValueDataAgainstKCBCache(__int64 a1, int a2, int
         if ( v12 < 0x80000000 )
         {
           v8 = 1;
-          ValueData = CmpGetValueData(*(_QWORD *)(a1 + 32), v19, v11, &v20, (__int64)&v21, (__int64)&v24, (__int64)v22);
+          ValueData = CmpGetValueData(
+                        *(_QWORD *)(a1 + 32),
+                        v19,
+                        v11,
+                        (unsigned int)&v20,
+                        (__int64)&v21,
+                        (__int64)&v24,
+                        (__int64)v22);
           v14 = v21;
           if ( !ValueData )
             goto LABEL_11;

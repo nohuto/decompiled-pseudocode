@@ -1,25 +1,25 @@
 /*
- * XREFs of EtwQueryProcessTelemetryInfo @ 0x1404B1BB0
+ * XREFs of EtwQueryProcessTelemetryInfo @ 0x14049BF90
  * Callers:
- *     NtQueryInformationProcess @ 0x140422590 (NtQueryInformationProcess.c)
+ *     NtQueryInformationProcess @ 0x140421450 (NtQueryInformationProcess.c)
  * Callees:
- *     ObFastDereferenceObject @ 0x14000F690 (ObFastDereferenceObject.c)
- *     PsGetProcessSessionId @ 0x140014150 (PsGetProcessSessionId.c)
- *     KiStackAttachProcess @ 0x1400CD1F0 (KiStackAttachProcess.c)
- *     KiUnstackDetachProcess @ 0x1400CE820 (KiUnstackDetachProcess.c)
- *     ExReleaseRundownProtection @ 0x1400D3F00 (ExReleaseRundownProtection.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     memmove @ 0x140171280 (memmove.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     ObFastDereferenceObject @ 0x14000F210 (ObFastDereferenceObject.c)
+ *     PsGetProcessSessionId @ 0x140013CD0 (PsGetProcessSessionId.c)
+ *     KiStackAttachProcess @ 0x1400CB090 (KiStackAttachProcess.c)
+ *     KiUnstackDetachProcess @ 0x1400CC6C0 (KiUnstackDetachProcess.c)
+ *     ExReleaseRundownProtection @ 0x1400D1DA0 (ExReleaseRundownProtection.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     memmove @ 0x140171780 (memmove.c)
+ *     memset @ 0x140171AC0 (memset.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
- *     SeQueryUserSidToken @ 0x1403FFC40 (SeQueryUserSidToken.c)
- *     PsReferencePrimaryToken @ 0x140418C20 (PsReferencePrimaryToken.c)
- *     ProbeForWrite @ 0x14044DAC0 (ProbeForWrite.c)
- *     EtwpQueryTokenPackageInfo @ 0x14045DB40 (EtwpQueryTokenPackageInfo.c)
- *     EtwpQueryProcessOtherInfo @ 0x14045DBFC (EtwpQueryProcessOtherInfo.c)
- *     EtwpQueryProcessCommandLine @ 0x14045DC34 (EtwpQueryProcessCommandLine.c)
- *     MmGetSessionCreateTime @ 0x1404B1ED8 (MmGetSessionCreateTime.c)
- *     PsAcquireProcessExitSynchronization @ 0x1404B1F04 (PsAcquireProcessExitSynchronization.c)
+ *     SeQueryUserSidToken @ 0x1403FEB00 (SeQueryUserSidToken.c)
+ *     PsReferencePrimaryToken @ 0x140417AE0 (PsReferencePrimaryToken.c)
+ *     ProbeForWrite @ 0x14044C990 (ProbeForWrite.c)
+ *     EtwpQueryTokenPackageInfo @ 0x14045CA10 (EtwpQueryTokenPackageInfo.c)
+ *     EtwpQueryProcessOtherInfo @ 0x14045CACC (EtwpQueryProcessOtherInfo.c)
+ *     EtwpQueryProcessCommandLine @ 0x14045CB04 (EtwpQueryProcessCommandLine.c)
+ *     MmGetSessionCreateTime @ 0x14049C2B8 (MmGetSessionCreateTime.c)
+ *     PsAcquireProcessExitSynchronization @ 0x14049C2E4 (PsAcquireProcessExitSynchronization.c)
  */
 
 __int64 __fastcall EtwQueryProcessTelemetryInfo(
@@ -51,7 +51,7 @@ __int64 __fastcall EtwQueryProcessTelemetryInfo(
   unsigned int *v28; // [rsp+50h] [rbp-288h]
   PACCESS_TOKEN v29; // [rsp+58h] [rbp-280h]
   __int64 v30; // [rsp+60h] [rbp-278h]
-  size_t v31; // [rsp+70h] [rbp-268h] BYREF
+  size_t PackageSize; // [rsp+70h] [rbp-268h] BYREF
   size_t v32; // [rsp+78h] [rbp-260h]
   char v33[256]; // [rsp+80h] [rbp-258h] BYREF
   char v34[144]; // [rsp+180h] [rbp-158h] BYREF
@@ -70,7 +70,7 @@ __int64 __fastcall EtwQueryProcessTelemetryInfo(
   v10 = PsReferencePrimaryToken((PEPROCESS)BugCheckParameter1);
   v29 = v10;
   Size = 0;
-  EtwpQueryTokenPackageInfo((__int64)v10, (__int64)&v31, &Size);
+  EtwpQueryTokenPackageInfo(v10, (WCHAR *)&PackageSize, &Size);
   v11 = SeQueryUserSidToken((__int64)v10, Src, 0x44u, &Size);
   if ( v11 >= 0 )
   {
@@ -84,7 +84,7 @@ __int64 __fastcall EtwQueryProcessTelemetryInfo(
       v8 = v26;
       v9 = v24;
     }
-    v12 = v31 + v32 + *(unsigned __int16 *)v27 + (unsigned __int16)v25 + Size + 100;
+    v12 = PackageSize + v32 + *(unsigned __int16 *)v27 + (unsigned __int16)v25 + Size + 100;
     *v28 = v12;
     if ( a4 )
       ProbeForWrite(a2, v5, 4u);
@@ -122,8 +122,8 @@ __int64 __fastcall EtwQueryProcessTelemetryInfo(
         memmove(v15, v27[1], *(unsigned __int16 *)v27);
         v17 = &v15[*v16 + 2];
         *((_DWORD *)a2 + 20) = (_DWORD)v17 - (_DWORD)a2;
-        memmove(v17, v33, v31);
-        v18 = &v17[v31];
+        memmove(v17, v33, PackageSize);
+        v18 = &v17[PackageSize];
         *((_DWORD *)a2 + 21) = (_DWORD)v18 - (_DWORD)a2;
         memmove(v18, v34, v32);
         v19 = &v18[v32];

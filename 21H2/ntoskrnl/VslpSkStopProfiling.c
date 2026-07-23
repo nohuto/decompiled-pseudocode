@@ -1,17 +1,17 @@
 /*
- * XREFs of VslpSkStopProfiling @ 0x1404FE0EC
+ * XREFs of VslpSkStopProfiling @ 0x1404FE06C
  * Callers:
- *     VslpEtwClassicCallback @ 0x1408907D0 (VslpEtwClassicCallback.c)
+ *     VslpEtwClassicCallback @ 0x140890930 (VslpEtwClassicCallback.c)
  * Callees:
- *     KeCancelTimer @ 0x140260240 (KeCancelTimer.c)
- *     VslpEnterIumSecureMode @ 0x140262C90 (VslpEnterIumSecureMode.c)
- *     ExWaitForRundownProtectionRelease @ 0x1402797E0 (ExWaitForRundownProtectionRelease.c)
- *     VslpUnlockPagesForTransfer @ 0x140394074 (VslpUnlockPagesForTransfer.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     ExWaitForRundownProtectionRelease @ 0x140267780 (ExWaitForRundownProtectionRelease.c)
+ *     KeCancelTimer @ 0x1402819B0 (KeCancelTimer.c)
+ *     VslpEnterIumSecureMode @ 0x1402840D0 (VslpEnterIumSecureMode.c)
+ *     VslpUnlockPagesForTransfer @ 0x1403941C4 (VslpUnlockPagesForTransfer.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     memset @ 0x140414200 (memset.c)
- *     VslpFlushBufferArray @ 0x1404FDCF0 (VslpFlushBufferArray.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     VslpFlushBufferArray @ 0x1404FDC70 (VslpFlushBufferArray.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 __int64 VslpSkStopProfiling()

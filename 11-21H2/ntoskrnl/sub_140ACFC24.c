@@ -2,13 +2,13 @@
  * XREFs of sub_140ACFC24 @ 0x140ACFC24
  * Callers:
  *     sub_1403ED150 @ 0x1403ED150 (sub_1403ED150.c)
- *     FsRtlMdlReadCompleteDevEx @ 0x140AB9010 (FsRtlMdlReadCompleteDevEx.c)
+ *     sub_140AB9010 @ 0x140AB9010 (sub_140AB9010.c)
  *     sub_140ACD048 @ 0x140ACD048 (sub_140ACD048.c)
  *     sub_140ACF0E0 @ 0x140ACF0E0 (sub_140ACF0E0.c)
  *     sub_140AD6FD0 @ 0x140AD6FD0 (sub_140AD6FD0.c)
  *     sub_140AD7DE4 @ 0x140AD7DE4 (sub_140AD7DE4.c)
  * Callees:
- *     KeGuardDispatchICall @ 0x140AD23B0 (KeGuardDispatchICall.c)
+ *     j__guard_dispatch_icall_nop @ 0x140AD23B0 (j__guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall sub_140ACFC24(_DWORD *a1, unsigned int a2, int a3)

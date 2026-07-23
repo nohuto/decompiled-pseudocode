@@ -1,9 +1,9 @@
 /*
- * XREFs of MiInitializeHugeIoRanges @ 0x140867CE0
+ * XREFs of MiInitializeHugeIoRanges @ 0x14086E0C0
  * Callers:
- *     MiInitializeNuma @ 0x1406E3230 (MiInitializeNuma.c)
+ *     MiInitializeNuma @ 0x1406E7EDC (MiInitializeNuma.c)
  * Callees:
- *     MiWriteSecureFlags @ 0x1404CD974 (MiWriteSecureFlags.c)
+ *     MiWriteSecureFlags @ 0x1404C73A4 (MiWriteSecureFlags.c)
  */
 
 void __fastcall MiInitializeHugeIoRanges(__int64 a1)
@@ -21,7 +21,7 @@ void __fastcall MiInitializeHugeIoRanges(__int64 a1)
 
   v1 = *(_QWORD *)(a1 + 13896);
   v2 = a1;
-  v3 = (unsigned int)dword_140E2D780[0];
+  v3 = (unsigned int)dword_140E2D900[0];
   v4 = 2LL;
   v5 = a1 + 13984;
   v6 = *(_QWORD **)(v1 + 17040);

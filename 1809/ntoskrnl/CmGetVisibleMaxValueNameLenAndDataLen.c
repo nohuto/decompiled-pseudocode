@@ -1,10 +1,10 @@
 /*
- * XREFs of CmGetVisibleMaxValueNameLenAndDataLen @ 0x1405D7C2C
+ * XREFs of CmGetVisibleMaxValueNameLenAndDataLen @ 0x1405D8C2C
  * Callers:
- *     CmpQueryKeyDataFromNode @ 0x1405D3570 (CmpQueryKeyDataFromNode.c)
- *     CmpQueryKeyDataFromCache @ 0x1405D79A0 (CmpQueryKeyDataFromCache.c)
+ *     CmpQueryKeyDataFromNode @ 0x1405D4570 (CmpQueryKeyDataFromNode.c)
+ *     CmpQueryKeyDataFromCache @ 0x1405D89A0 (CmpQueryKeyDataFromCache.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall CmGetVisibleMaxValueNameLenAndDataLen(

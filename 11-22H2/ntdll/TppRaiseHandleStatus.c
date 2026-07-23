@@ -11,13 +11,13 @@
 
 void __fastcall TppRaiseHandleStatus(int a1, unsigned __int64 a2, unsigned __int64 a3)
 {
-  __int64 (__fastcall *v3)(__int64, __int64, __int64, unsigned int); // r9
+  void (__fastcall *v3)(PTP_CALLBACK_INSTANCE, _BYTE *, PTP_WAIT, unsigned int); // r9
   __int64 v4; // rax
   EXCEPTION_RECORD ExceptionRecord; // [rsp+20h] [rbp-59h] BYREF
 
   if ( a3 )
   {
-    v3 = *(__int64 (__fastcall **)(__int64, __int64, __int64, unsigned int))(a3 + 80);
+    v3 = *(void (__fastcall **)(PTP_CALLBACK_INSTANCE, _BYTE *, PTP_WAIT, unsigned int))(a3 + 80);
     ExceptionRecord.NumberParameters = 5;
     if ( v3 == RtlpTpWaitCallback && (v4 = *(_QWORD *)(a3 + 88), *(_QWORD *)(v4 + 32)) )
       ExceptionRecord.ExceptionInformation[4] = *(_QWORD *)(v4 + 32);

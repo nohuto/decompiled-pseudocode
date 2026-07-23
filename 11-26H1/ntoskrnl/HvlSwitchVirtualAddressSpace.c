@@ -1,16 +1,16 @@
 /*
- * XREFs of HvlSwitchVirtualAddressSpace @ 0x1402C79B0
+ * XREFs of HvlSwitchVirtualAddressSpace @ 0x140312650
  * Callers:
- *     KiUnstackDetachProcess @ 0x1402307C0 (KiUnstackDetachProcess.c)
- *     KiDetachProcess @ 0x140246EA0 (KiDetachProcess.c)
- *     KiStackAttachProcess @ 0x140247880 (KiStackAttachProcess.c)
- *     MiUnlockStealVm @ 0x140294D10 (MiUnlockStealVm.c)
- *     KeForceDetachProcess @ 0x1402C6C30 (KeForceDetachProcess.c)
- *     KeUnstackDetachProcess @ 0x1402C7110 (KeUnstackDetachProcess.c)
- *     KiAttachProcess @ 0x1402C76D0 (KiAttachProcess.c)
- *     SwapContext @ 0x14072FFB0 (SwapContext.c)
+ *     KiUnstackDetachProcess @ 0x140232120 (KiUnstackDetachProcess.c)
+ *     KiDetachProcess @ 0x140248800 (KiDetachProcess.c)
+ *     KiStackAttachProcess @ 0x1402491E0 (KiStackAttachProcess.c)
+ *     MiUnlockStealVm @ 0x140294270 (MiUnlockStealVm.c)
+ *     KeForceDetachProcess @ 0x1403118D0 (KeForceDetachProcess.c)
+ *     KeUnstackDetachProcess @ 0x140311DB0 (KeUnstackDetachProcess.c)
+ *     KiAttachProcess @ 0x140312370 (KiAttachProcess.c)
+ *     SwapContext @ 0x140734B80 (SwapContext.c)
  * Callees:
- *     HvcallInitiateHypercall @ 0x14032BB00 (HvcallInitiateHypercall.c)
+ *     HvcallInitiateHypercall @ 0x14032DB30 (HvcallInitiateHypercall.c)
  */
 
 __int64 __fastcall HvlSwitchVirtualAddressSpace(__int64 a1)

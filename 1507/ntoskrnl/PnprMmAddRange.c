@@ -13,8 +13,8 @@ __int64 __fastcall PnprMmAddRange(unsigned int *a1, unsigned __int64 a2, unsigne
   unsigned int v4; // r15d
   unsigned __int64 v5; // rdi
   __int64 v7; // rbp
-  struct _RTL_BITMAP *PoolWithTag; // rax
-  struct _RTL_BITMAP *v9; // rbx
+  _RTL_BITMAP *PoolWithTag; // rax
+  _RTL_BITMAP *v9; // rbx
   unsigned int *i; // rax
   __int64 v11; // rcx
   SIZE_T v12; // rdx
@@ -31,10 +31,10 @@ __int64 __fastcall PnprMmAddRange(unsigned int *a1, unsigned __int64 a2, unsigne
       v7 = v5;
       if ( v5 > 0x80000000 )
         v7 = 0x80000000LL;
-      PoolWithTag = (struct _RTL_BITMAP *)ExAllocatePoolWithTag(
-                                            NonPagedPoolNx,
-                                            ((((_DWORD)v7 + 32) & 0xFFFFFFE0) >> 3) + 48,
-                                            0x52706E50u);
+      PoolWithTag = (_RTL_BITMAP *)ExAllocatePoolWithTag(
+                                     NonPagedPoolNx,
+                                     ((((_DWORD)v7 + 32) & 0xFFFFFFE0) >> 3) + 48,
+                                     0x52706E50u);
       v9 = PoolWithTag;
       if ( !PoolWithTag )
         break;

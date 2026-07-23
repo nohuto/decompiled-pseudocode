@@ -38,7 +38,7 @@ __int64 __fastcall MiExpandNonPagedPool(
   unsigned __int128 v6; // rax
   unsigned __int64 v7; // r12
   __int64 v9; // r8
-  union _SLIST_HEADER *v10; // rdi
+  _SLIST_HEADER *v10; // rdi
   int v11; // r9d
   unsigned __int64 v12; // r8
   unsigned __int64 v13; // r8
@@ -82,7 +82,7 @@ __int64 __fastcall MiExpandNonPagedPool(
   __int64 v53; // [rsp+58h] [rbp-41h]
   unsigned __int64 v54; // [rsp+60h] [rbp-39h]
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+68h] [rbp-31h] BYREF
-  union _SLIST_HEADER *v56; // [rsp+80h] [rbp-19h]
+  _SLIST_HEADER *v56; // [rsp+80h] [rbp-19h]
   _QWORD v57[3]; // [rsp+88h] [rbp-11h] BYREF
   unsigned __int64 v58; // [rsp+A0h] [rbp+7h]
 

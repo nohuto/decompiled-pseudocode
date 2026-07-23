@@ -1,15 +1,25 @@
 /*
- * XREFs of NtCreatePagingFile @ 0x1407EFC10
+ * XREFs of NtCreatePagingFile @ 0x1407F01E0
  * Callers:
  *     <none>
  * Callees:
- *     MiCreatePagingFile @ 0x1407EE364 (MiCreatePagingFile.c)
+ *     MiCreatePagingFile @ 0x1407EE934 (MiCreatePagingFile.c)
  */
 
-__int64 __fastcall NtCreatePagingFile(_OWORD *a1, __int64 *a2, unsigned __int64 *a3, int a4)
+NTSTATUS __cdecl NtCreatePagingFile(
+        PUNICODE_STRING PageFileName,
+        PLARGE_INTEGER MinimumSize,
+        PLARGE_INTEGER MaximumSize,
+        ULONG Priority)
 {
   __int64 v5; // [rsp+20h] [rbp-18h]
 
-  LODWORD(v5) = a4;
-  return MiCreatePagingFile(a1, a2, a3, KeGetCurrentThread()->PreviousMode, v5, (__int64)&MiSystemPartition);
+  LODWORD(v5) = Priority;
+  return MiCreatePagingFile(
+           PageFileName,
+           (__int64 *)MinimumSize,
+           (unsigned __int64 *)&MaximumSize->QuadPart,
+           KeGetCurrentThread()->PreviousMode,
+           v5,
+           (__int64)&MiSystemPartition);
 }

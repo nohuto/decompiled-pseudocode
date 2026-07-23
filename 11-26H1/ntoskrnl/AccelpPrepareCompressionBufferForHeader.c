@@ -1,8 +1,8 @@
 /*
- * XREFs of AccelpPrepareCompressionBufferForHeader @ 0x1406DF748
+ * XREFs of AccelpPrepareCompressionBufferForHeader @ 0x1406E39C8
  * Callers:
- *     AccelpQatCompressionDecompression @ 0x1406DF784 (AccelpQatCompressionDecompression.c)
- *     AccelpSiovIaaCompressionDecompression @ 0x1406DFC80 (AccelpSiovIaaCompressionDecompression.c)
+ *     AccelpQatCompressionDecompression @ 0x1406E3A04 (AccelpQatCompressionDecompression.c)
+ *     AccelpSiovIaaCompressionDecompression @ 0x1406E3F00 (AccelpSiovIaaCompressionDecompression.c)
  * Callees:
  *     <none>
  */

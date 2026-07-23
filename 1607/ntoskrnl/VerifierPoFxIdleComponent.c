@@ -1,5 +1,5 @@
 /*
- * XREFs of VerifierPoFxIdleComponent @ 0x14070CBC0
+ * XREFs of VerifierPoFxIdleComponent @ 0x14070CBF0
  * Callers:
  *     <none>
  * Callees:

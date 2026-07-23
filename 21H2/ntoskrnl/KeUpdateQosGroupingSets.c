@@ -1,10 +1,10 @@
 /*
- * XREFs of KeUpdateQosGroupingSets @ 0x140398DFC
+ * XREFs of KeUpdateQosGroupingSets @ 0x140398F4C
  * Callers:
- *     PpmPerfArbitratorApplyProcessorState @ 0x140398CA4 (PpmPerfArbitratorApplyProcessorState.c)
+ *     PpmPerfArbitratorApplyProcessorState @ 0x140398DF4 (PpmPerfArbitratorApplyProcessorState.c)
  * Callees:
- *     KiIsQosGroupingActive @ 0x140398E54 (KiIsQosGroupingActive.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     KiIsQosGroupingActive @ 0x140398FA4 (KiIsQosGroupingActive.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall KeUpdateQosGroupingSets(__int64 a1, __int64 a2, __int64 a3)

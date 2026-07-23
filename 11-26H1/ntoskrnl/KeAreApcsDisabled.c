@@ -1,7 +1,7 @@
 /*
- * XREFs of KeAreApcsDisabled @ 0x14048CB50
+ * XREFs of KeAreApcsDisabled @ 0x140486690
  * Callers:
- *     sub_140542730 @ 0x140542730 (sub_140542730.c)
+ *     sub_140544BB0 @ 0x140544BB0 (sub_140544BB0.c)
  * Callees:
  *     <none>
  */

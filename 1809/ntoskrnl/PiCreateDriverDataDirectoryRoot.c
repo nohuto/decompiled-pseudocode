@@ -1,23 +1,23 @@
 /*
- * XREFs of PiCreateDriverDataDirectoryRoot @ 0x1409D9820
+ * XREFs of PiCreateDriverDataDirectoryRoot @ 0x1409DA820
  * Callers:
- *     IopInitializeBootDrivers @ 0x1409CB0BC (IopInitializeBootDrivers.c)
+ *     IopInitializeBootDrivers @ 0x1409CC0BC (IopInitializeBootDrivers.c)
  * Callees:
  *     KeDelayExecutionThread @ 0x14004DA20 (KeDelayExecutionThread.c)
- *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
- *     ZwClose @ 0x1401B8370 (ZwClose.c)
- *     ZwCreateFile @ 0x1401B8C30 (ZwCreateFile.c)
- *     ZwCreateSymbolicLinkObject @ 0x1401B98F0 (ZwCreateSymbolicLinkObject.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     RtlFreeAnsiString @ 0x140623790 (RtlFreeAnsiString.c)
- *     PiGetStateRootPath @ 0x14070E140 (PiGetStateRootPath.c)
- *     PiAuGetDriverDataDirectorySecurityObject @ 0x1409D99A8 (PiAuGetDriverDataDirectorySecurityObject.c)
+ *     RtlInitUnicodeString @ 0x1400B99D0 (RtlInitUnicodeString.c)
+ *     ZwClose @ 0x1401B84D0 (ZwClose.c)
+ *     ZwCreateFile @ 0x1401B8D90 (ZwCreateFile.c)
+ *     ZwCreateSymbolicLinkObject @ 0x1401B9A50 (ZwCreateSymbolicLinkObject.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     RtlFreeAnsiString @ 0x140624790 (RtlFreeAnsiString.c)
+ *     PiGetStateRootPath @ 0x14070F3E0 (PiGetStateRootPath.c)
+ *     PiAuGetDriverDataDirectorySecurityObject @ 0x1409DA9A8 (PiAuGetDriverDataDirectorySecurityObject.c)
  */
 
 __int64 PiCreateDriverDataDirectoryRoot()
 {
   void *v0; // rdi
-  int StateRootPath; // ebx
+  NTSTATUS StateRootPath; // ebx
   unsigned int v2; // esi
   UNICODE_STRING DestinationString; // [rsp+60h] [rbp-29h] BYREF
   UNICODE_STRING v5; // [rsp+70h] [rbp-19h] BYREF
@@ -37,7 +37,7 @@ __int64 PiCreateDriverDataDirectoryRoot()
   StateRootPath = PiGetStateRootPath(
                     L"DriverData",
                     L"\\SystemRoot\\System32\\Drivers\\DriverData",
-                    1u,
+                    LocationTypeFileSystem,
                     &DestinationString);
   if ( StateRootPath >= 0 )
   {

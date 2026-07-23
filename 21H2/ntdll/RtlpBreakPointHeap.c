@@ -1,5 +1,5 @@
 /*
- * XREFs of RtlpBreakPointHeap @ 0x1800FA5EC
+ * XREFs of RtlpBreakPointHeap @ 0x1800FA5AC
  * Callers:
  *     RtlpCreateSplitBlock @ 0x18001DD64 (RtlpCreateSplitBlock.c)
  *     RtlpCoalesceFreeBlocks @ 0x18001EEB4 (RtlpCoalesceFreeBlocks.c)
@@ -9,12 +9,12 @@
  *     RtlpAllocateHeap @ 0x18002D160 (RtlpAllocateHeap.c)
  *     RtlpValidateHeapEntry @ 0x18005F850 (RtlpValidateHeapEntry.c)
  *     RtlpCheckHeapSignature @ 0x18005FAC0 (RtlpCheckHeapSignature.c)
- *     RtlpCheckBusyBlockTail @ 0x1800F6A88 (RtlpCheckBusyBlockTail.c)
- *     RtlDebugAllocateHeap @ 0x1800F89E0 (RtlDebugAllocateHeap.c)
- *     RtlDebugCreateHeap @ 0x1800F8EF0 (RtlDebugCreateHeap.c)
- *     RtlDebugFreeHeap @ 0x1800F93EC (RtlDebugFreeHeap.c)
- *     RtlDebugReAllocateHeap @ 0x1800F99D0 (RtlDebugReAllocateHeap.c)
- *     RtlpValidateHeap @ 0x1800FA614 (RtlpValidateHeap.c)
+ *     RtlpCheckBusyBlockTail @ 0x1800F6A48 (RtlpCheckBusyBlockTail.c)
+ *     RtlDebugAllocateHeap @ 0x1800F89A0 (RtlDebugAllocateHeap.c)
+ *     RtlDebugCreateHeap @ 0x1800F8EB0 (RtlDebugCreateHeap.c)
+ *     RtlDebugFreeHeap @ 0x1800F93AC (RtlDebugFreeHeap.c)
+ *     RtlDebugReAllocateHeap @ 0x1800F9990 (RtlDebugReAllocateHeap.c)
+ *     RtlpValidateHeap @ 0x1800FA5D4 (RtlpValidateHeap.c)
  * Callees:
  *     <none>
  */

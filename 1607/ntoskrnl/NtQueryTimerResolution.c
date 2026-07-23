@@ -1,5 +1,5 @@
 /*
- * XREFs of NtQueryTimerResolution @ 0x1404E76B4
+ * XREFs of NtQueryTimerResolution @ 0x1404C9C28
  * Callers:
  *     <none>
  * Callees:

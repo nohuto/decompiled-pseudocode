@@ -1,18 +1,18 @@
 /*
- * XREFs of RtlQueryResourcePolicy @ 0x18010F510
+ * XREFs of RtlQueryResourcePolicy @ 0x18010F0A0
  * Callers:
  *     <none>
  * Callees:
- *     RtlGetNtSystemRoot @ 0x180032E30 (RtlGetNtSystemRoot.c)
- *     RtlGetSuiteMask @ 0x180063C60 (RtlGetSuiteMask.c)
+ *     RtlGetNtSystemRoot @ 0x18001DF90 (RtlGetNtSystemRoot.c)
+ *     RtlGetSuiteMask @ 0x1800840B0 (RtlGetSuiteMask.c)
  */
 
 __int64 __fastcall RtlQueryResourcePolicy(int a1, int a2, int *a3, __int64 a4)
 {
   int v6; // ecx
   int v7; // ecx
-  __int64 NtSystemRoot; // rax
-  const wchar_t *v9; // rax
+  PWSTR NtSystemRoot; // rax
+  PWSTR v9; // rax
 
   if ( !a3 || a2 )
     return 3221225485LL;
@@ -44,7 +44,7 @@ __int64 __fastcall RtlQueryResourcePolicy(int a1, int a2, int *a3, __int64 a4)
       if ( (RtlGetSuiteMask() & 0x10000) != 0 )
         v9 = L"C:\\data\\programs\\windowsapps";
       else
-        v9 = (const wchar_t *)RtlGetNtSystemRoot();
+        v9 = RtlGetNtSystemRoot();
       return RtlpQueryDiskSpacePolicy(v9, a3);
     }
   }

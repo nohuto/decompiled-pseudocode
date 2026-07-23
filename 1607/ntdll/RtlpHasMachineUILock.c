@@ -1,29 +1,29 @@
 /*
  * XREFs of RtlpHasMachineUILock @ 0x1800F3CCC
  * Callers:
- *     RtlpLoadLanguageConfigList @ 0x1800710C4 (RtlpLoadLanguageConfigList.c)
- *     RtlpMuiRegLoadPreferredUILanguages @ 0x1800712D8 (RtlpMuiRegLoadPreferredUILanguages.c)
+ *     RtlpLoadLanguageConfigList @ 0x1800710B4 (RtlpLoadLanguageConfigList.c)
+ *     RtlpMuiRegLoadPreferredUILanguages @ 0x1800712C8 (RtlpMuiRegLoadPreferredUILanguages.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x180044150 (RtlInitUnicodeString.c)
- *     LdrpQueryValueKey @ 0x1800716D4 (LdrpQueryValueKey.c)
+ *     RtlInitUnicodeString @ 0x180044140 (RtlInitUnicodeString.c)
+ *     LdrpQueryValueKey @ 0x1800716C4 (LdrpQueryValueKey.c)
  */
 
-__int64 __fastcall RtlpHasMachineUILock(__int64 a1, _BYTE *a2)
+__int64 __fastcall RtlpHasMachineUILock(HANDLE KeyHandle, _BYTE *a2)
 {
   __int64 result; // rax
-  UNICODE_STRING DestinationString; // [rsp+30h] [rbp-18h] BYREF
+  _UNICODE_STRING DestinationString; // [rsp+30h] [rbp-18h] BYREF
   int v6; // [rsp+58h] [rbp+10h] BYREF
-  unsigned int v7; // [rsp+60h] [rbp+18h] BYREF
+  __int64 v7; // [rsp+60h] [rbp+18h] BYREF
   int v8; // [rsp+68h] [rbp+20h] BYREF
 
   v6 = -1;
   v8 = 4;
-  v7 = 4;
-  if ( !a2 || !a1 )
+  LODWORD(v7) = 4;
+  if ( !a2 || !KeyHandle )
     return 3221225485LL;
   *a2 = 0;
   RtlInitUnicodeString(&DestinationString, L"MachineUILock");
-  result = LdrpQueryValueKey(a1, (__int64)&DestinationString, &v8, &v6, &v7);
+  result = LdrpQueryValueKey(KeyHandle, &DestinationString, &v8, &v6, (ULONG *)&v7);
   if ( (int)result >= 0 )
   {
     if ( v6 == 1 )

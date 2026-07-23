@@ -1,18 +1,18 @@
 /*
- * XREFs of PiSwCloseDevice @ 0x1409670C0
+ * XREFs of PiSwCloseDevice @ 0x1409672C0
  * Callers:
- *     PiSwIrpCleanup @ 0x14081A4B4 (PiSwIrpCleanup.c)
- *     PiSwStopDestroy @ 0x140869CC8 (PiSwStopDestroy.c)
- *     PiSwCloseDescendants @ 0x140869E0C (PiSwCloseDescendants.c)
+ *     PiSwIrpCleanup @ 0x14081A784 (PiSwIrpCleanup.c)
+ *     PiSwStopDestroy @ 0x140869F08 (PiSwStopDestroy.c)
+ *     PiSwCloseDescendants @ 0x14086A04C (PiSwCloseDescendants.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     RtlDeleteElementGenericTableAvl @ 0x14031E9D0 (RtlDeleteElementGenericTableAvl.c)
- *     IoInvalidateDeviceRelations @ 0x140358F90 (IoInvalidateDeviceRelations.c)
- *     McTemplateK0zz_EtwWriteTransfer @ 0x1405637D4 (McTemplateK0zz_EtwWriteTransfer.c)
- *     PnpDeviceObjectFromDeviceInstanceWithTag @ 0x1406CBEA4 (PnpDeviceObjectFromDeviceInstanceWithTag.c)
- *     PiSwDeviceDereference @ 0x14081A5C4 (PiSwDeviceDereference.c)
- *     PiSwBusRelationRemove @ 0x140967008 (PiSwBusRelationRemove.c)
- *     PiSwQueuedCreateInfoFree @ 0x140967B10 (PiSwQueuedCreateInfoFree.c)
+ *     ObfDereferenceObject @ 0x140231660 (ObfDereferenceObject.c)
+ *     RtlDeleteElementGenericTableAvl @ 0x14031EC60 (RtlDeleteElementGenericTableAvl.c)
+ *     IoInvalidateDeviceRelations @ 0x140359130 (IoInvalidateDeviceRelations.c)
+ *     McTemplateK0zz_EtwWriteTransfer @ 0x140563E94 (McTemplateK0zz_EtwWriteTransfer.c)
+ *     PnpDeviceObjectFromDeviceInstanceWithTag @ 0x1406CBED4 (PnpDeviceObjectFromDeviceInstanceWithTag.c)
+ *     PiSwDeviceDereference @ 0x14081A894 (PiSwDeviceDereference.c)
+ *     PiSwBusRelationRemove @ 0x140967208 (PiSwBusRelationRemove.c)
+ *     PiSwQueuedCreateInfoFree @ 0x140967D10 (PiSwQueuedCreateInfoFree.c)
  */
 
 void __fastcall PiSwCloseDevice(__int64 a1, __int64 a2, __int64 a3)

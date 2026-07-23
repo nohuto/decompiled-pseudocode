@@ -1,13 +1,13 @@
 /*
- * XREFs of MiWriteUselessChildPte @ 0x1402CB038
+ * XREFs of MiWriteUselessChildPte @ 0x1402CB228
  * Callers:
- *     MiBuildForkPte @ 0x1402C7BF0 (MiBuildForkPte.c)
- *     MiHandleForkTransitionPte @ 0x1402CA118 (MiHandleForkTransitionPte.c)
+ *     MiBuildForkPte @ 0x1402C7DE0 (MiBuildForkPte.c)
+ *     MiHandleForkTransitionPte @ 0x1402CA308 (MiHandleForkTransitionPte.c)
  * Callees:
  *     MiPteInShadowRange @ 0x14003D740 (MiPteInShadowRange.c)
  *     MiSwizzleInvalidPte @ 0x14003D7C0 (MiSwizzleInvalidPte.c)
- *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
+ *     MiWritePteShadow @ 0x140120F40 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120FA0 (MiPteHasShadow.c)
  */
 
 char MiWriteUselessChildPte()
@@ -27,7 +27,7 @@ char MiWriteUselessChildPte()
     if ( (_DWORD)CurrentThread )
     {
       v4 = 1;
-      if ( HIBYTE(word_14043A1AC) )
+      if ( HIBYTE(word_14043B26C) )
         goto LABEL_9;
       v5 = (v2 & 1) == 0;
     }

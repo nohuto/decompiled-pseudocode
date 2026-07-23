@@ -1,14 +1,14 @@
 /*
- * XREFs of MmGetChannelInformation @ 0x140851F90
+ * XREFs of MmGetChannelInformation @ 0x140852290
  * Callers:
- *     ExpQueryChannelInformation @ 0x1409F6720 (ExpQueryChannelInformation.c)
- *     ExpQueryNumaAvailableMemory @ 0x1409F6ED4 (ExpQueryNumaAvailableMemory.c)
+ *     ExpQueryChannelInformation @ 0x1409F69B0 (ExpQueryChannelInformation.c)
+ *     ExpQueryNumaAvailableMemory @ 0x1409F7164 (ExpQueryNumaAvailableMemory.c)
  *     KiPopulateNodeInformation @ 0x140B697CC (KiPopulateNodeInformation.c)
  * Callees:
- *     MiAllocatePool @ 0x1402DF1A0 (MiAllocatePool.c)
- *     MiGetChannelInformation @ 0x1402F9C74 (MiGetChannelInformation.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memmove @ 0x140435700 (memmove.c)
+ *     MiAllocatePool @ 0x1402DF430 (MiAllocatePool.c)
+ *     MiGetChannelInformation @ 0x1402F9F04 (MiGetChannelInformation.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     memmove @ 0x140435B00 (memmove.c)
  */
 
 __int64 __fastcall MmGetChannelInformation(unsigned __int16 a1, unsigned int a2, _QWORD *a3, size_t *a4)

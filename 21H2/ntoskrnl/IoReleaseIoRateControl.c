@@ -3,7 +3,7 @@
  * Callers:
  *     <none>
  * Callees:
- *     ExReleaseRundownProtection_0 @ 0x14027C4F0 (ExReleaseRundownProtection_0.c)
+ *     ExReleaseRundownProtection @ 0x14026A490 (ExReleaseRundownProtection.c)
  */
 
 void __fastcall IoReleaseIoRateControl(struct _EX_RUNDOWN_REF **a1)
@@ -14,7 +14,7 @@ void __fastcall IoReleaseIoRateControl(struct _EX_RUNDOWN_REF **a1)
   do
   {
     if ( *a1 )
-      ExReleaseRundownProtection_0(*a1 + 4);
+      ExReleaseRundownProtection(*a1 + 4);
     ++a1;
     --v2;
   }

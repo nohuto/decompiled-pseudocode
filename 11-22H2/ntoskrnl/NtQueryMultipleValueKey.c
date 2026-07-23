@@ -30,24 +30,25 @@
  *     CmpReleaseShutdownRundown @ 0x140AF6470 (CmpReleaseShutdownRundown.c)
  */
 
-__int64 __fastcall NtQueryMultipleValueKey(
-        int a1,
-        void *a2,
-        unsigned int a3,
-        volatile void *a4,
-        unsigned int *a5,
-        _DWORD *a6)
+NTSTATUS __cdecl NtQueryMultipleValueKey(
+        HANDLE KeyHandle,
+        PKEY_VALUE_ENTRY ValueEntries,
+        ULONG EntryCount,
+        PVOID ValueBuffer,
+        PULONG BufferLength,
+        PULONG RequiredBufferLength)
 {
   __int64 v6; // r14
+  int v8; // edi
   __int64 v9; // rdx
   __int64 v10; // rcx
   __int64 v11; // r8
   int v12; // r8d
   int v13; // r9d
-  signed int v14; // edi
+  int v14; // edi
   int PreviousMode; // r15d
   __int64 v16; // rdi
-  __int64 v17; // rax
+  PULONG v17; // rax
   struct _KTHREAD *CurrentThread; // rax
   int v19; // eax
   unsigned int v20; // r8d
@@ -58,11 +59,11 @@ __int64 __fastcall NtQueryMultipleValueKey(
   __int64 v25; // rcx
   char v27; // [rsp+40h] [rbp-1D8h]
   char v28; // [rsp+41h] [rbp-1D7h]
-  unsigned int Length; // [rsp+44h] [rbp-1D4h] BYREF
+  ULONG Length; // [rsp+44h] [rbp-1D4h] BYREF
   char Length_4; // [rsp+48h] [rbp-1D0h]
-  unsigned int v31; // [rsp+50h] [rbp-1C8h]
+  ULONG v31; // [rsp+50h] [rbp-1C8h]
   __int128 v32; // [rsp+58h] [rbp-1C0h] BYREF
-  unsigned int v33; // [rsp+68h] [rbp-1B0h] BYREF
+  ULONG v33; // [rsp+68h] [rbp-1B0h] BYREF
   unsigned int v34; // [rsp+6Ch] [rbp-1ACh]
   volatile void *Address; // [rsp+70h] [rbp-1A8h]
   PVOID Object[3]; // [rsp+78h] [rbp-1A0h] BYREF
@@ -77,11 +78,12 @@ __int64 __fastcall NtQueryMultipleValueKey(
   _OWORD v45[3]; // [rsp+140h] [rbp-D8h] BYREF
   __int64 v46[12]; // [rsp+170h] [rbp-A8h] BYREF
 
-  Address = a4;
-  v6 = a3;
-  Object[1] = a2;
-  v31 = a3;
-  Object[2] = a5;
+  Address = ValueBuffer;
+  v6 = EntryCount;
+  v8 = (int)KeyHandle;
+  Object[1] = ValueEntries;
+  v31 = EntryCount;
+  Object[2] = BufferLength;
   v42 = 0LL;
   Length = 0;
   v33 = 0;
@@ -110,7 +112,7 @@ __int64 __fastcall NtQueryMultipleValueKey(
   }
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   LOBYTE(v13) = PreviousMode;
-  v14 = CmObReferenceObjectByHandle(a1, 1, v12, v13, (__int64)&v32, 0LL);
+  v14 = CmObReferenceObjectByHandle(v8, 1, v12, v13, (__int64)&v32, 0LL);
   if ( v14 >= 0 )
   {
     if ( CmpTraceRoutine && (_QWORD)v32 )
@@ -118,27 +120,27 @@ __int64 __fastcall NtQueryMultipleValueKey(
     if ( (_BYTE)PreviousMode == 1 )
     {
       v16 = 0x7FFFFFFF0000LL;
-      v17 = 0x7FFFFFFF0000LL;
-      if ( (unsigned __int64)a5 < 0x7FFFFFFF0000LL )
-        v17 = (__int64)a5;
-      Length = *(_DWORD *)v17;
+      v17 = (PULONG)0x7FFFFFFF0000LL;
+      if ( (unsigned __int64)BufferLength < 0x7FFFFFFF0000LL )
+        v17 = BufferLength;
+      Length = *v17;
       if ( (unsigned int)v6 > 0x10000 )
         RtlRaiseStatus(-1073741670);
-      ProbeForWrite(a2, 24 * v6, 4u);
-      if ( a6 )
+      ProbeForWrite(ValueEntries, 24 * v6, 4u);
+      if ( RequiredBufferLength )
       {
-        if ( (unsigned __int64)a6 < 0x7FFFFFFF0000LL )
-          v16 = (__int64)a6;
+        if ( (unsigned __int64)RequiredBufferLength < 0x7FFFFFFF0000LL )
+          v16 = (__int64)RequiredBufferLength;
         *(_DWORD *)v16 = *(_DWORD *)v16;
       }
       ProbeForWrite(Address, Length, 4u);
     }
     else
     {
-      Length = *a5;
+      Length = *BufferLength;
     }
     v14 = CmpCaptureKeyValueArray(
-            (__int64)a2,
+            (__int64)ValueEntries,
             v6,
             PreviousMode,
             (struct _PRIVILEGE_SET **)&v32 + 1,
@@ -155,7 +157,7 @@ __int64 __fastcall NtQueryMultipleValueKey(
         LODWORD(v43[1]) = v6;
         *((_QWORD *)&v43[1] + 1) = Address;
         *(_QWORD *)&v43[2] = &Length;
-        *((_QWORD *)&v43[2] + 1) = a6;
+        *((_QWORD *)&v43[2] + 1) = RequiredBufferLength;
         v19 = CmpCallCallBacksEx(9u, v43, 0LL, 1, 0x18u, v32, (__int64)v40);
         v14 = v19;
         if ( v19 < 0 )
@@ -182,8 +184,8 @@ __int64 __fastcall NtQueryMultipleValueKey(
                   &Length,
                   &v33);
           CmpDetachFromRegistryProcess(v45);
-          if ( a6 )
-            *a6 = v33;
+          if ( RequiredBufferLength )
+            *RequiredBufferLength = v33;
           if ( (int)(v14 + 0x80000000) < 0 || v14 == -2147483643 )
             CmpBounceContextCopyDataToCallerBuffer(v46, Length);
         }
@@ -197,18 +199,18 @@ LABEL_33:
     v14 = CmPostCallbackNotificationEx(24, v32, v14, (__int64)v43, 0LL, v40);
   if ( *((_QWORD *)&v32 + 1) )
   {
-    *a5 = Length;
+    *BufferLength = Length;
     if ( ((v14 + 0x80000000) & 0x80000000) != 0 || v14 == -2147483643 )
     {
       v20 = 0;
       v34 = 0;
       while ( v20 < (unsigned int)v6 )
       {
-        v21 = 3LL * v20;
+        v21 = v20;
         v22 = *((_QWORD *)&v32 + 1);
-        *((_DWORD *)a2 + 2 * v21 + 2) = *(_DWORD *)(*((_QWORD *)&v32 + 1) + 24LL * v20 + 8);
-        *((_DWORD *)a2 + 2 * v21 + 3) = *(_DWORD *)(v22 + 24LL * v20 + 12);
-        *((_DWORD *)a2 + 2 * v21 + 4) = *(_DWORD *)(v22 + 24LL * v20++ + 16);
+        ValueEntries[v21].DataLength = *(_DWORD *)(*((_QWORD *)&v32 + 1) + 24LL * v20 + 8);
+        ValueEntries[v21].DataOffset = *(_DWORD *)(v22 + 24LL * v20 + 12);
+        ValueEntries[v21].Type = *(_DWORD *)(v22 + 24LL * v20++ + 16);
         v34 = v20;
       }
     }
@@ -233,5 +235,5 @@ LABEL_33:
   if ( v39 )
     CmSiFreeMemory(v39);
   CmCleanupThreadInfo((__int64 *)&v42);
-  return (unsigned int)v14;
+  return v14;
 }

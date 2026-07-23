@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpIommuReportIommuFault @ 0x140518610
+ * XREFs of HalpIommuReportIommuFault @ 0x140518B60
  * Callers:
  *     <none>
  * Callees:
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     HalpIommuTraceFault @ 0x14051865C (HalpIommuTraceFault.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
+ *     HalpIommuTraceFault @ 0x140518BAC (HalpIommuTraceFault.c)
  */
 
 __int64 __fastcall HalpIommuReportIommuFault(ULONG_PTR BugCheckParameter2, __int64 a2)

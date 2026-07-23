@@ -1,10 +1,10 @@
 /*
- * XREFs of MmFreeMemoryRanges @ 0x140867FF0
+ * XREFs of MmFreeMemoryRanges @ 0x14086E3D0
  * Callers:
- *     IopLiveDumpFreeIoSpaceRanges @ 0x1405CF4FC (IopLiveDumpFreeIoSpaceRanges.c)
- *     MiFreePhysicalRange @ 0x140701AA0 (MiFreePhysicalRange.c)
+ *     IopLiveDumpFreeIoSpaceRanges @ 0x1405D1D0C (IopLiveDumpFreeIoSpaceRanges.c)
+ *     MiFreePhysicalRange @ 0x140706770 (MiFreePhysicalRange.c)
  * Callees:
- *     MiReleaseMemoryRuns @ 0x1406ED4A8 (MiReleaseMemoryRuns.c)
+ *     MiReleaseMemoryRuns @ 0x1406F2148 (MiReleaseMemoryRuns.c)
  */
 
 __int64 __fastcall MmFreeMemoryRanges(__int64 a1)

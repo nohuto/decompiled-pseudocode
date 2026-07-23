@@ -1,23 +1,23 @@
 /*
- * XREFs of HalpInterruptEnableNmi @ 0x1403A376C
+ * XREFs of HalpInterruptEnableNmi @ 0x1403A38BC
  * Callers:
- *     HalpPostSleepMP @ 0x140995864 (HalpPostSleepMP.c)
- *     HalpInterruptInitSystem @ 0x14099B890 (HalpInterruptInitSystem.c)
- *     HalpDpPostReplaceInitialization @ 0x1409A84D8 (HalpDpPostReplaceInitialization.c)
+ *     HalpPostSleepMP @ 0x140996864 (HalpPostSleepMP.c)
+ *     HalpInterruptInitSystem @ 0x14099C890 (HalpInterruptInitSystem.c)
+ *     HalpDpPostReplaceInitialization @ 0x1409A9408 (HalpDpPostReplaceInitialization.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
- *     HalpInterruptFindLines @ 0x140378CA0 (HalpInterruptFindLines.c)
- *     HalpInterruptLookupController @ 0x140378D00 (HalpInterruptLookupController.c)
- *     HalpInterruptDestinationToTarget @ 0x140378D30 (HalpInterruptDestinationToTarget.c)
- *     HalpAcquireHighLevelLock @ 0x140378F20 (HalpAcquireHighLevelLock.c)
- *     HalpInterruptGsiToLine @ 0x140378F5C (HalpInterruptGsiToLine.c)
- *     HalpInterruptSetLineState @ 0x1403A3AF8 (HalpInterruptSetLineState.c)
- *     HalpInterruptSetRemappedLineStateInternal @ 0x1403CB7B4 (HalpInterruptSetRemappedLineStateInternal.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     KxReleaseSpinLock @ 0x140212140 (KxReleaseSpinLock.c)
+ *     HalpInterruptFindLines @ 0x1403787F0 (HalpInterruptFindLines.c)
+ *     HalpInterruptLookupController @ 0x140378850 (HalpInterruptLookupController.c)
+ *     HalpInterruptDestinationToTarget @ 0x140378880 (HalpInterruptDestinationToTarget.c)
+ *     HalpAcquireHighLevelLock @ 0x140378A70 (HalpAcquireHighLevelLock.c)
+ *     HalpInterruptGsiToLine @ 0x140378AAC (HalpInterruptGsiToLine.c)
+ *     HalpInterruptSetLineState @ 0x1403A3C48 (HalpInterruptSetLineState.c)
+ *     HalpInterruptSetRemappedLineStateInternal @ 0x1403CB924 (HalpInterruptSetRemappedLineStateInternal.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
- *     HalpIommuUpdateRemappingTableEntry @ 0x1404C5634 (HalpIommuUpdateRemappingTableEntry.c)
- *     HalpHvMapDeviceInterrupt @ 0x1409A7168 (HalpHvMapDeviceInterrupt.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
+ *     HalpIommuUpdateRemappingTableEntry @ 0x1404C5874 (HalpIommuUpdateRemappingTableEntry.c)
+ *     HalpHvMapDeviceInterrupt @ 0x1409A8098 (HalpHvMapDeviceInterrupt.c)
  */
 
 __int64 HalpInterruptEnableNmi()
@@ -202,7 +202,7 @@ LABEL_17:
         DWORD2(v29) = 7;
         LODWORD(v30) = v34 & 0x3FFFFFFF;
       }
-      if ( qword_140C4A1A8 )
+      if ( qword_140C4A1E8 )
       {
         v12 = HalpHvMapDeviceInterrupt(*((unsigned int *)v18 + 58), v20, &v28, 0LL);
         if ( v12 < 0 )

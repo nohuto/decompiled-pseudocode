@@ -1,11 +1,11 @@
 /*
- * XREFs of SeAuditingFileOrGlobalEvents @ 0x1408134E0
+ * XREFs of SeAuditingFileOrGlobalEvents @ 0x140819340
  * Callers:
  *     <none>
  * Callees:
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     SepAdtAuditThisEventWithContext @ 0x140932EA0 (SepAdtAuditThisEventWithContext.c)
- *     SepRmGlobalSaclFind @ 0x140A906C0 (SepRmGlobalSaclFind.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     SepAdtAuditThisEventWithContext @ 0x14090EA50 (SepAdtAuditThisEventWithContext.c)
+ *     SepRmGlobalSaclFind @ 0x140A95210 (SepRmGlobalSaclFind.c)
  */
 
 BOOLEAN __stdcall SeAuditingFileOrGlobalEvents(

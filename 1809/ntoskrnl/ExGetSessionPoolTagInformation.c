@@ -1,17 +1,17 @@
 /*
- * XREFs of ExGetSessionPoolTagInformation @ 0x14069E4B4
+ * XREFs of ExGetSessionPoolTagInformation @ 0x14069F774
  * Callers:
- *     ExpQuerySystemInformation @ 0x140626390 (ExpQuerySystemInformation.c)
+ *     ExpQuerySystemInformation @ 0x1406273B0 (ExpQuerySystemInformation.c)
  * Callees:
  *     MmGetNextSession @ 0x140012740 (MmGetNextSession.c)
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
  *     MmGetSessionIdEx @ 0x14004F060 (MmGetSessionIdEx.c)
- *     MmDetachSession @ 0x14011A5C0 (MmDetachSession.c)
- *     MmAttachSession @ 0x14011A650 (MmAttachSession.c)
- *     ExUnlockUserBuffer @ 0x14011A718 (ExUnlockUserBuffer.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     ExGetAttachedSessionPoolTagInfo @ 0x14069E68C (ExGetAttachedSessionPoolTagInfo.c)
- *     ExLockUserBuffer @ 0x14069E918 (ExLockUserBuffer.c)
+ *     MmDetachSession @ 0x14011A630 (MmDetachSession.c)
+ *     MmAttachSession @ 0x14011A6C0 (MmAttachSession.c)
+ *     ExUnlockUserBuffer @ 0x14011A788 (ExUnlockUserBuffer.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     ExGetAttachedSessionPoolTagInfo @ 0x14069F94C (ExGetAttachedSessionPoolTagInfo.c)
+ *     ExLockUserBuffer @ 0x14069FBD8 (ExLockUserBuffer.c)
  */
 
 __int64 __fastcall ExGetSessionPoolTagInformation(__int64 a1, __int64 a2, _DWORD *a3, _DWORD *a4)

@@ -1,16 +1,16 @@
 /*
- * XREFs of MiCheckLogPinDriverAddresses @ 0x1402D2718
+ * XREFs of MiCheckLogPinDriverAddresses @ 0x140353990
  * Callers:
- *     MiWorkingSetManager @ 0x1402D3D20 (MiWorkingSetManager.c)
+ *     MiWorkingSetManager @ 0x140354FA0 (MiWorkingSetManager.c)
  * Callees:
- *     ExQueueWorkItem @ 0x140325850 (ExQueueWorkItem.c)
+ *     ExQueueWorkItem @ 0x1402CE3E0 (ExQueueWorkItem.c)
  */
 
 void MiCheckLogPinDriverAddresses()
 {
-  _DWORD *v0; // rcx
-  int v1; // r9d
-  unsigned __int64 v2; // r10
+  unsigned int *Buffer; // rcx
+  unsigned int v1; // r9d
+  unsigned int *v2; // r10
   bool i; // zf
   int v4; // edx
   bool v5; // zf
@@ -20,44 +20,44 @@ void MiCheckLogPinDriverAddresses()
   unsigned int m; // r10d
   __int64 v10; // rcx
 
-  if ( !*(_QWORD *)&qword_140E37518 )
+  if ( !*(_QWORD *)&qword_140E37658 )
     return;
-  if ( !dword_140EF4A80 )
+  if ( !stru_140EF4CA0.SizeOfBitMap )
     goto LABEL_25;
-  if ( (unsigned int)dword_140EF4A80 <= 1 )
+  if ( stru_140EF4CA0.SizeOfBitMap <= 1 )
   {
-    if ( dword_140EF4A80 == 1 )
+    if ( stru_140EF4CA0.SizeOfBitMap == 1 )
     {
-      v6 = !_bittest((const signed __int32 *)qword_140EF4A88, 0);
+      v6 = !_bittest((const signed __int32 *)stru_140EF4CA0.Buffer, 0);
       goto LABEL_11;
     }
 LABEL_25:
-    if ( !_InterlockedCompareExchange16(&word_140EF4BF0, 1, 0) )
+    if ( !_InterlockedCompareExchange16(&word_140EF4E10, 1, 0) )
     {
-      WorkItem.Parameter = 0LL;
-      WorkItem.WorkerRoutine = (void (__fastcall *)(void *))MiLogPinDriverAddressesWorker;
-      WorkItem.List.Flink = 0LL;
-      ExQueueWorkItem(&WorkItem, DelayedWorkQueue);
+      stru_140EF4DF0.Parameter = 0LL;
+      stru_140EF4DF0.WorkerRoutine = (void (__fastcall *)(void *))MiLogPinDriverAddressesWorker;
+      stru_140EF4DF0.List.Flink = 0LL;
+      ExQueueWorkItem(&stru_140EF4DF0, DelayedWorkQueue);
     }
     return;
   }
-  v0 = (_DWORD *)qword_140EF4A88;
-  v1 = *(_DWORD *)qword_140EF4A88;
-  v2 = qword_140EF4A88 + 4 * ((unsigned __int64)(unsigned int)(dword_140EF4A80 - 1) >> 5);
-  if ( qword_140EF4A88 != v2 )
+  Buffer = stru_140EF4CA0.Buffer;
+  v1 = *stru_140EF4CA0.Buffer;
+  v2 = &stru_140EF4CA0.Buffer[(unsigned __int64)(stru_140EF4CA0.SizeOfBitMap - 1) >> 5];
+  if ( stru_140EF4CA0.Buffer != v2 )
   {
     for ( i = v1 == 0; i; i = v4 == 0 )
     {
-      v4 = *++v0;
-      if ( v0 == (_DWORD *)v2 )
+      v4 = *++Buffer;
+      if ( Buffer == v2 )
       {
-        v5 = (v4 & (0xFFFFFFFF >> ~(dword_140EF4A80 - 1))) == 0;
+        v5 = (v4 & (0xFFFFFFFF >> ~(LOBYTE(stru_140EF4CA0.SizeOfBitMap) - 1))) == 0;
         goto LABEL_10;
       }
     }
     goto LABEL_25;
   }
-  v5 = (v1 & (0xFFFFFFFF >> (32 - dword_140EF4A80))) == 0;
+  v5 = (v1 & (0xFFFFFFFF >> (32 - LOBYTE(stru_140EF4CA0.SizeOfBitMap)))) == 0;
 LABEL_10:
   v6 = v5;
 LABEL_11:

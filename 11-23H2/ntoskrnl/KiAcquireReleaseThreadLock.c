@@ -1,10 +1,10 @@
 /*
- * XREFs of KiAcquireReleaseThreadLock @ 0x14030AFE0
+ * XREFs of KiAcquireReleaseThreadLock @ 0x14030B270
  * Callers:
- *     KeRundownApcQueues @ 0x14076E440 (KeRundownApcQueues.c)
+ *     KeRundownApcQueues @ 0x14076E630 (KeRundownApcQueues.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x140242E40 (KeYieldProcessorEx.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeYieldProcessorEx @ 0x140242F10 (KeYieldProcessorEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall KiAcquireReleaseThreadLock(__int64 a1)
@@ -23,7 +23,7 @@ __int64 __fastcall KiAcquireReleaseThreadLock(__int64 a1)
 
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     LODWORD(v5) = 4;
@@ -43,10 +43,10 @@ __int64 __fastcall KiAcquireReleaseThreadLock(__int64 a1)
     }
     *(_QWORD *)(a1 + 64) = 0LL;
   }
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v6 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v6 <= 0xFu && CurrentIrql <= 0xFu && v6 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v6 <= 0xFu && CurrentIrql <= 0xFu && v6 >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       v8 = CurrentPrcb->SchedulerAssist;

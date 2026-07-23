@@ -1,9 +1,9 @@
 /*
- * XREFs of ObGetHandleInformation @ 0x14090697C
+ * XREFs of ObGetHandleInformation @ 0x140A30AF8
  * Callers:
- *     ExpGetHandleInformation @ 0x140907690 (ExpGetHandleInformation.c)
+ *     ExpGetHandleInformation @ 0x140A2F8F0 (ExpGetHandleInformation.c)
  * Callees:
- *     ExpSnapShotHandleTables @ 0x1408F99A0 (ExpSnapShotHandleTables.c)
+ *     ExpSnapShotHandleTables @ 0x140929930 (ExpSnapShotHandleTables.c)
  */
 
 __int64 __fastcall ObGetHandleInformation(unsigned int a1, _DWORD *a2, unsigned int a3, _DWORD *a4)

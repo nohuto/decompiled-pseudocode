@@ -1,8 +1,8 @@
 /*
- * XREFs of VfIsRuleClassEnabled @ 0x140BA7550
+ * XREFs of VfIsRuleClassEnabled @ 0x140BA9550
  * Callers:
- *     VfIrpTrackingPluginEntry @ 0x1406A4140 (VfIrpTrackingPluginEntry.c)
- *     VerifierInitSystem @ 0x140C3B1B8 (VerifierInitSystem.c)
+ *     VfIrpTrackingPluginEntry @ 0x1406A5140 (VfIrpTrackingPluginEntry.c)
+ *     VerifierInitSystem @ 0x140C3D310 (VerifierInitSystem.c)
  * Callees:
  *     <none>
  */

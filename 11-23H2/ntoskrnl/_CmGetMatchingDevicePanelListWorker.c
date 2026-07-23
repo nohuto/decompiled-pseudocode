@@ -1,10 +1,10 @@
 /*
- * XREFs of _CmGetMatchingDevicePanelListWorker @ 0x14082A3C0
+ * XREFs of _CmGetMatchingDevicePanelListWorker @ 0x14082A6C0
  * Callers:
- *     _CmGetMatchingDevicePanelList @ 0x140829EA8 (_CmGetMatchingDevicePanelList.c)
+ *     _CmGetMatchingDevicePanelList @ 0x14082A1A8 (_CmGetMatchingDevicePanelList.c)
  * Callees:
- *     _PnpCtxGetCachedContextBaseKey @ 0x1406CEEB0 (_PnpCtxGetCachedContextBaseKey.c)
- *     _PnpCtxRegEnumKeyWithCallback @ 0x14082B3C0 (_PnpCtxRegEnumKeyWithCallback.c)
+ *     _PnpCtxGetCachedContextBaseKey @ 0x1406CEEE0 (_PnpCtxGetCachedContextBaseKey.c)
+ *     _PnpCtxRegEnumKeyWithCallback @ 0x14082B6C0 (_PnpCtxRegEnumKeyWithCallback.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

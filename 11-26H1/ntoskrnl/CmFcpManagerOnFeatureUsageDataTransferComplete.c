@@ -1,15 +1,15 @@
 /*
- * XREFs of CmFcpManagerOnFeatureUsageDataTransferComplete @ 0x140B04388
+ * XREFs of CmFcpManagerOnFeatureUsageDataTransferComplete @ 0x140B05F98
  * Callers:
- *     CmFcpManagerPublishFeatureUsageDataBuffers @ 0x140B03F58 (CmFcpManagerPublishFeatureUsageDataBuffers.c)
+ *     CmFcpManagerPublishFeatureUsageDataBuffers @ 0x140B05B68 (CmFcpManagerPublishFeatureUsageDataBuffers.c)
  * Callees:
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     ExfTryToWakePushLock @ 0x1403170A0 (ExfTryToWakePushLock.c)
- *     ExfUnblockPushLock @ 0x1404CE970 (ExfUnblockPushLock.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     ExfTryToWakePushLock @ 0x1403190D0 (ExfTryToWakePushLock.c)
+ *     ExfUnblockPushLock @ 0x1404C83A0 (ExfUnblockPushLock.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __fastcall CmFcpManagerOnFeatureUsageDataTransferComplete(
@@ -29,9 +29,9 @@ void __fastcall CmFcpManagerOnFeatureUsageDataTransferComplete(
   void **v13; // rax
   signed __int32 v14[10]; // [rsp+0h] [rbp-28h] BYREF
 
-  v4 = (unsigned __int64 *)(a1 + 1400);
+  v4 = (unsigned __int64 *)(a1 + 1472);
   v6 = 0;
-  v7 = (AutoBoost *)KeAbPreAcquire(a1 + 1400, 0LL, 0LL, a4);
+  v7 = (AutoBoost *)KeAbPreAcquire(a1 + 1472, 0LL, 0LL, a4);
   v9 = v7;
   if ( _interlockedbittestandset64((volatile signed __int32 *)v4, 0LL) )
     ExfAcquirePushLockExclusiveEx(v4, v7, (__int64)v4);
@@ -42,8 +42,8 @@ void __fastcall CmFcpManagerOnFeatureUsageDataTransferComplete(
     else
       *((_BYTE *)v9 + 10) = 1;
   }
-  v10 = (void **)(a1 + 1360);
-  for ( i = *(void ****)(a1 + 1360); i != (void ***)v10; i = (void ***)v12 )
+  v10 = (void **)(a1 + 1432);
+  for ( i = *(void ****)(a1 + 1432); i != (void ***)v10; i = (void ***)v12 )
   {
     if ( ((_DWORD)i[3] & 7) == 1 )
     {
@@ -59,12 +59,12 @@ void __fastcall CmFcpManagerOnFeatureUsageDataTransferComplete(
     v12[1] = v13;
     ExFreePoolWithTag(i, 0);
   }
-  if ( *(_DWORD *)(a1 + 1748) != v6 )
+  if ( *(_DWORD *)(a1 + 1820) != v6 )
   {
-    *(_DWORD *)(a1 + 1748) = v6;
+    *(_DWORD *)(a1 + 1820) = v6;
     _InterlockedOr(v14, 0);
-    if ( *(_QWORD *)(a1 + 1392) )
-      ExfUnblockPushLock((volatile __int64 *)(a1 + 1392), 0LL);
+    if ( *(_QWORD *)(a1 + 1464) )
+      ExfUnblockPushLock((volatile __int64 *)(a1 + 1464), 0LL);
   }
 LABEL_9:
   if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)v4, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )

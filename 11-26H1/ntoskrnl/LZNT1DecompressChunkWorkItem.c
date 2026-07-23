@@ -1,12 +1,12 @@
 /*
- * XREFs of LZNT1DecompressChunkWorkItem @ 0x14047F5F0
+ * XREFs of LZNT1DecompressChunkWorkItem @ 0x140478F60
  * Callers:
  *     <none>
  * Callees:
- *     KeSetEvent @ 0x1402DE9C0 (KeSetEvent.c)
- *     RtlpInterlockedPushEntrySList @ 0x140730CD0 (RtlpInterlockedPushEntrySList.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     LZNT1DecompressChunk @ 0x140731700 (LZNT1DecompressChunk.c)
+ *     KeSetEvent @ 0x1402C0780 (KeSetEvent.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1407358A0 (RtlpInterlockedPushEntrySList.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     LZNT1DecompressChunk @ 0x1407362D0 (LZNT1DecompressChunk.c)
  */
 
 PSLIST_ENTRY __fastcall LZNT1DecompressChunkWorkItem(PSLIST_ENTRY ListEntry)

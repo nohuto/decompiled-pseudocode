@@ -1,13 +1,13 @@
 /*
- * XREFs of EtwTiLogDeviceObjectLoadUnload @ 0x1409FF3B8
+ * XREFs of EtwTiLogDeviceObjectLoadUnload @ 0x14091C1B8
  * Callers:
- *     IoDeleteDevice @ 0x140437BA0 (IoDeleteDevice.c)
- *     IoCreateDevice @ 0x1409FEBC0 (IoCreateDevice.c)
+ *     IoDeleteDevice @ 0x140426AC0 (IoDeleteDevice.c)
+ *     IoCreateDevice @ 0x14091B9C0 (IoCreateDevice.c)
  * Callees:
- *     EtwEventEnabled @ 0x140212D90 (EtwEventEnabled.c)
- *     EtwWrite @ 0x140212EF0 (EtwWrite.c)
- *     EtwProviderEnabled @ 0x1402563E0 (EtwProviderEnabled.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x140212E70 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x140212FD0 (EtwWrite.c)
+ *     EtwProviderEnabled @ 0x140257D70 (EtwProviderEnabled.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 BOOLEAN __fastcall EtwTiLogDeviceObjectLoadUnload(char a1, unsigned __int16 *a2, unsigned __int16 *a3)
@@ -35,10 +35,10 @@ BOOLEAN __fastcall EtwTiLogDeviceObjectLoadUnload(char a1, unsigned __int16 *a2,
   v4 = (const EVENT_DESCRIPTOR *)THREATINT_DEVICE_OBJECT_LOAD;
   if ( !a1 )
     v4 = &THREATINT_DEVICE_OBJECT_UNLOAD;
-  result = EtwEventEnabled(*(REGHANDLE *)&EtwpSecurityLock.AbWaitEntryCount, v4);
+  result = EtwEventEnabled(EtwThreatIntProvRegHandle, v4);
   if ( result )
   {
-    result = EtwProviderEnabled(*(REGHANDLE *)&EtwpSecurityLock.AbWaitEntryCount, 0, 0x80000000uLL);
+    result = EtwProviderEnabled(EtwThreatIntProvRegHandle, 0, 0x80000000uLL);
     if ( result )
     {
       v7 = 12;
@@ -77,7 +77,7 @@ BOOLEAN __fastcall EtwTiLogDeviceObjectLoadUnload(char a1, unsigned __int16 *a2,
       v22 = v7;
       v20 = 2LL;
       v23 = 0;
-      return EtwWrite(*(REGHANDLE *)&EtwpSecurityLock.AbWaitEntryCount, v4, 0LL, 4u, &UserData);
+      return EtwWrite(EtwThreatIntProvRegHandle, v4, 0LL, 4u, &UserData);
     }
   }
   return result;

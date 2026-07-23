@@ -3,9 +3,9 @@
  * Callers:
  *     MiAssignTopLevelRanges @ 0x140B5FC2C (MiAssignTopLevelRanges.c)
  * Callees:
- *     RtlClearBits @ 0x14022DA00 (RtlClearBits.c)
- *     RtlFindClearBitsAndSet @ 0x140295EA0 (RtlFindClearBitsAndSet.c)
- *     ExGenRandom @ 0x1403175D0 (ExGenRandom.c)
+ *     RtlClearBits @ 0x14022DB10 (RtlClearBits.c)
+ *     RtlFindClearBitsAndSet @ 0x140296130 (RtlFindClearBitsAndSet.c)
+ *     ExGenRandom @ 0x140317860 (ExGenRandom.c)
  */
 
 __int64 __fastcall MiAssignSystemVa(ULONG NumberToClear, unsigned int a2)
@@ -16,7 +16,7 @@ __int64 __fastcall MiAssignSystemVa(ULONG NumberToClear, unsigned int a2)
   __int64 v7; // rdi
   unsigned __int8 v8; // al
   ULONG v9; // ebx
-  RTL_BITMAP BitMapHeader; // [rsp+20h] [rbp-18h] BYREF
+  _RTL_BITMAP BitMapHeader; // [rsp+20h] [rbp-18h] BYREF
 
   *(_QWORD *)&BitMapHeader.SizeOfBitMap = 256LL;
   BitMapHeader.Buffer = (unsigned int *)&xmmword_140C66F60;

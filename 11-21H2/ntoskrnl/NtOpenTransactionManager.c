@@ -15,5 +15,5 @@ NTSTATUS __stdcall NtOpenTransactionManager(
         LPGUID TmIdentity,
         ULONG OpenOptions)
 {
-  return __imp_NtOpenTransactionManager(TmHandle, DesiredAccess, ObjectAttributes, LogFileName, TmIdentity, OpenOptions);
+  return NtOpenTransactionManager_0(TmHandle, DesiredAccess, ObjectAttributes, LogFileName, TmIdentity, OpenOptions);
 }

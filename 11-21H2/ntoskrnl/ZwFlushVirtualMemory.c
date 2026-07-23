@@ -1,7 +1,7 @@
 /*
  * XREFs of ZwFlushVirtualMemory @ 0x14041D580
  * Callers:
- *     DifZwFlushVirtualMemoryWrapper @ 0x140620920 (DifZwFlushVirtualMemoryWrapper.c)
+ *     sub_140620920 @ 0x140620920 (sub_140620920.c)
  * Callees:
  *     <none>
  */
@@ -14,5 +14,5 @@ NTSTATUS __stdcall ZwFlushVirtualMemory(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(ProcessHandle, BaseAddress);
+  return sub_140433F80(ProcessHandle, BaseAddress);
 }

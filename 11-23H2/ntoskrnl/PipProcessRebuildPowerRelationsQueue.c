@@ -1,24 +1,24 @@
 /*
- * XREFs of PipProcessRebuildPowerRelationsQueue @ 0x14079C344
+ * XREFs of PipProcessRebuildPowerRelationsQueue @ 0x14079C534
  * Callers:
- *     IoResolveDependency @ 0x140398140 (IoResolveDependency.c)
- *     PnpDeleteAllDependencyRelations @ 0x14078E45C (PnpDeleteAllDependencyRelations.c)
- *     PnpNewDeviceNodeDependencyCheck @ 0x14079C210 (PnpNewDeviceNodeDependencyCheck.c)
- *     PnpSurpriseRemoveLockedDeviceNode @ 0x140882AE8 (PnpSurpriseRemoveLockedDeviceNode.c)
- *     IoDuplicateDependency @ 0x140954170 (IoDuplicateDependency.c)
- *     IoSetDependency @ 0x1409542A0 (IoSetDependency.c)
+ *     IoResolveDependency @ 0x140398320 (IoResolveDependency.c)
+ *     PnpDeleteAllDependencyRelations @ 0x14078E64C (PnpDeleteAllDependencyRelations.c)
+ *     PnpNewDeviceNodeDependencyCheck @ 0x14079C400 (PnpNewDeviceNodeDependencyCheck.c)
+ *     PnpSurpriseRemoveLockedDeviceNode @ 0x140882D28 (PnpSurpriseRemoveLockedDeviceNode.c)
+ *     IoDuplicateDependency @ 0x140954370 (IoDuplicateDependency.c)
+ *     IoSetDependency @ 0x1409544A0 (IoSetDependency.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14022F5B0 (ObfDereferenceObjectWithTag.c)
- *     ExAcquireFastMutex @ 0x140230720 (ExAcquireFastMutex.c)
- *     ExReleaseFastMutex @ 0x140230860 (ExReleaseFastMutex.c)
- *     ExReleaseResourceLite @ 0x14023D410 (ExReleaseResourceLite.c)
- *     PiGetProviderList @ 0x1406C98D0 (PiGetProviderList.c)
- *     PpDevNodeUnlockTree @ 0x1406C98FC (PpDevNodeUnlockTree.c)
- *     PnpAcquireDependencyRelationsLock @ 0x1406C9958 (PnpAcquireDependencyRelationsLock.c)
- *     PipIsDeviceReadyForPowerRelations @ 0x14079C520 (PipIsDeviceReadyForPowerRelations.c)
- *     PiEnumerateProviderListEntry @ 0x140838348 (PiEnumerateProviderListEntry.c)
- *     PiQueryPowerRelations @ 0x14086EB74 (PiQueryPowerRelations.c)
- *     PipDeleteDependencyNode @ 0x1409545D8 (PipDeleteDependencyNode.c)
+ *     ObfDereferenceObjectWithTag @ 0x14022F6C0 (ObfDereferenceObjectWithTag.c)
+ *     ExAcquireFastMutex @ 0x140230810 (ExAcquireFastMutex.c)
+ *     ExReleaseFastMutex @ 0x140230950 (ExReleaseFastMutex.c)
+ *     ExReleaseResourceLite @ 0x14023D4E0 (ExReleaseResourceLite.c)
+ *     PiGetProviderList @ 0x1406C9900 (PiGetProviderList.c)
+ *     PpDevNodeUnlockTree @ 0x1406C992C (PpDevNodeUnlockTree.c)
+ *     PnpAcquireDependencyRelationsLock @ 0x1406C9988 (PnpAcquireDependencyRelationsLock.c)
+ *     PipIsDeviceReadyForPowerRelations @ 0x14079C710 (PipIsDeviceReadyForPowerRelations.c)
+ *     PiEnumerateProviderListEntry @ 0x140838648 (PiEnumerateProviderListEntry.c)
+ *     PiQueryPowerRelations @ 0x14086EDB4 (PiQueryPowerRelations.c)
+ *     PipDeleteDependencyNode @ 0x1409547D8 (PipDeleteDependencyNode.c)
  */
 
 void PipProcessRebuildPowerRelationsQueue()

@@ -2,13 +2,13 @@
  * XREFs of IopOpenSystemVariableDevice @ 0x14068779C
  * Callers:
  *     IoGetEnvironmentVariableEx @ 0x1406876A0 (IoGetEnvironmentVariableEx.c)
- *     IoEnumerateEnvironmentVariablesEx @ 0x14083EA20 (IoEnumerateEnvironmentVariablesEx.c)
- *     IoQueryEnvironmentVariableInfoEx @ 0x1409502EC (IoQueryEnvironmentVariableInfoEx.c)
- *     IoSetEnvironmentVariableEx @ 0x140950474 (IoSetEnvironmentVariableEx.c)
+ *     IoEnumerateEnvironmentVariablesEx @ 0x14083ED20 (IoEnumerateEnvironmentVariablesEx.c)
+ *     IoQueryEnvironmentVariableInfoEx @ 0x1409504EC (IoQueryEnvironmentVariableInfoEx.c)
+ *     IoSetEnvironmentVariableEx @ 0x140950674 (IoSetEnvironmentVariableEx.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1B0 (RtlInitUnicodeString.c)
- *     IoGetDeviceObjectPointer @ 0x14075B260 (IoGetDeviceObjectPointer.c)
- *     IopGetDeviceInterfaces @ 0x1407873F0 (IopGetDeviceInterfaces.c)
+ *     RtlInitUnicodeString @ 0x14022E2C0 (RtlInitUnicodeString.c)
+ *     IoGetDeviceObjectPointer @ 0x14075B450 (IoGetDeviceObjectPointer.c)
+ *     IopGetDeviceInterfaces @ 0x1407875E0 (IopGetDeviceInterfaces.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

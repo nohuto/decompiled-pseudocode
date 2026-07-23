@@ -13,7 +13,7 @@ signed __int32 __thiscall RtlpHpLfhSubsegmentLockOwner(volatile signed __int32 *
   signed __int32 v3; // esi
   signed __int32 v4; // edi
   signed __int32 v5; // eax
-  volatile signed __int32 *v7; // [esp+10h] [ebp-4h]
+  _RTL_SRWLOCK *SRWLock; // [esp+10h] [ebp-4h]
 
   v2 = this + 2;
   v3 = *((_DWORD *)this + 2);
@@ -35,13 +35,13 @@ signed __int32 __thiscall RtlpHpLfhSubsegmentLockOwner(volatile signed __int32 *
     else
     {
       v4 = v3;
-      v7 = (volatile signed __int32 *)(v3 + 8);
-      RtlAcquireSRWLockExclusive((volatile signed __int32 *)(v3 + 8));
+      SRWLock = (_RTL_SRWLOCK *)(v3 + 8);
+      RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)(v3 + 8));
       v3 = *v2;
       *a2 = -1;
       if ( v4 == v3 )
         return v4;
-      RtlReleaseSRWLockExclusive(v7);
+      RtlReleaseSRWLockExclusive(SRWLock);
     }
   }
   return 0;

@@ -1,7 +1,7 @@
 /*
- * XREFs of PfSnCheckLoggingForThread @ 0x1402EE230
+ * XREFs of PfSnCheckLoggingForThread @ 0x14034F870
  * Callers:
- *     MiCompleteProtoPteFault @ 0x1402EBD20 (MiCompleteProtoPteFault.c)
+ *     MiCompleteProtoPteFault @ 0x14034D360 (MiCompleteProtoPteFault.c)
  * Callees:
  *     <none>
  */

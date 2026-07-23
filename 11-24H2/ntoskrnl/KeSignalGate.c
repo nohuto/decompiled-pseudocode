@@ -1,45 +1,47 @@
 /*
- * XREFs of KeSignalGate @ 0x14030AB68
+ * XREFs of KeSignalGate @ 0x140314A48
  * Callers:
- *     MiAttachThreadDone @ 0x1402E2710 (MiAttachThreadDone.c)
- *     MiZeroInParallelWorker @ 0x14030A090 (MiZeroInParallelWorker.c)
- *     KiRcuFlushCompleted @ 0x14033D510 (KiRcuFlushCompleted.c)
- *     PspDetachSession @ 0x140348AEC (PspDetachSession.c)
- *     MiUnlockControlAreaSectionExtend @ 0x140445544 (MiUnlockControlAreaSectionExtend.c)
- *     PsWatchWorkingSet @ 0x14044BCD0 (PsWatchWorkingSet.c)
- *     MiFinishVadDeletion @ 0x14044C9BC (MiFinishVadDeletion.c)
- *     KiGenericCallDpcInitiatorDpc @ 0x1404B6360 (KiGenericCallDpcInitiatorDpc.c)
- *     MiSubsectionProtosCreated @ 0x1404CFC98 (MiSubsectionProtosCreated.c)
- *     KiSrcuFlushCompleted @ 0x1405C0EA4 (KiSrcuFlushCompleted.c)
- *     KiSrcuNotifyWorkerSelectAndQueue @ 0x1405C15C4 (KiSrcuNotifyWorkerSelectAndQueue.c)
- *     KiEpfComplete @ 0x1405C33B8 (KiEpfComplete.c)
- *     MiDeleteExtentPfns @ 0x14067A760 (MiDeleteExtentPfns.c)
- *     MiWakeWaitersForAweCacheAttributeChange @ 0x140683208 (MiWakeWaitersForAweCacheAttributeChange.c)
- *     MiZeroHugeRangeWorker @ 0x140686090 (MiZeroHugeRangeWorker.c)
- *     MiUnlinkAccelerator @ 0x140691050 (MiUnlinkAccelerator.c)
- *     MiScrubMemoryWorker @ 0x1407FDAD0 (MiScrubMemoryWorker.c)
- *     sub_140BE0C70 @ 0x140BE0C70 (sub_140BE0C70.c)
+ *     KiGenericCallDpcInitiatorDpc @ 0x1402700D0 (KiGenericCallDpcInitiatorDpc.c)
+ *     MiAttachThreadDone @ 0x1402FE6F0 (MiAttachThreadDone.c)
+ *     MiZeroInParallelWorker @ 0x140313F70 (MiZeroInParallelWorker.c)
+ *     KiRcuFlushCompleted @ 0x14031C9F0 (KiRcuFlushCompleted.c)
+ *     PspDetachSession @ 0x1403C252C (PspDetachSession.c)
+ *     MiUnlockControlAreaSectionExtend @ 0x14043D6F4 (MiUnlockControlAreaSectionExtend.c)
+ *     PsWatchWorkingSet @ 0x140442E10 (PsWatchWorkingSet.c)
+ *     MiFinishVadDeletion @ 0x1404438BC (MiFinishVadDeletion.c)
+ *     MiSubsectionProtosCreated @ 0x1404C8D48 (MiSubsectionProtosCreated.c)
+ *     KiSrcuFlushCompleted @ 0x1405BE474 (KiSrcuFlushCompleted.c)
+ *     KiSrcuNotifyWorkerSelectAndQueue @ 0x1405BEB94 (KiSrcuNotifyWorkerSelectAndQueue.c)
+ *     KiEpfComplete @ 0x1405C0988 (KiEpfComplete.c)
+ *     MiDeleteExtentPfns @ 0x14067B940 (MiDeleteExtentPfns.c)
+ *     MiWakeWaitersForAweCacheAttributeChange @ 0x1406843F8 (MiWakeWaitersForAweCacheAttributeChange.c)
+ *     MiZeroHugeRangeWorker @ 0x1406871C0 (MiZeroHugeRangeWorker.c)
+ *     MiUnlinkAccelerator @ 0x140692120 (MiUnlinkAccelerator.c)
+ *     MiScrubMemoryWorker @ 0x1407FE240 (MiScrubMemoryWorker.c)
+ *     sub_140BE2C70 @ 0x140BE2C70 (sub_140BE2C70.c)
  * Callees:
- *     KeInsertQueueDpc @ 0x1402542F0 (KeInsertQueueDpc.c)
- *     KiAcquireKobjectLockSafe @ 0x14031E740 (KiAcquireKobjectLockSafe.c)
- *     KiExitDispatcher @ 0x14031E7A0 (KiExitDispatcher.c)
- *     KiInsertQueueInternal @ 0x140323B94 (KiInsertQueueInternal.c)
- *     KiTryUnwaitThread @ 0x1403D95F0 (KiTryUnwaitThread.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KeInsertQueueDpc @ 0x140284900 (KeInsertQueueDpc.c)
+ *     KiAcquireKobjectLockSafe @ 0x1402C72D0 (KiAcquireKobjectLockSafe.c)
+ *     KiExitDispatcher @ 0x1402C7330 (KiExitDispatcher.c)
+ *     KiInsertQueueInternal @ 0x1402CC724 (KiInsertQueueInternal.c)
+ *     KiTryUnwaitThread @ 0x1402F28C0 (KiTryUnwaitThread.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
-__int64 __fastcall KeSignalGate(_DWORD *SystemArgument1, __int64 a2)
+void __fastcall KeSignalGate(volatile signed __int32 *SystemArgument1, __int64 a2)
 {
-  _DWORD *v2; // rbx
-  char CurrentIrql; // di
+  unsigned int v2; // ebp
+  volatile signed __int32 *v3; // rbx
+  unsigned __int8 CurrentIrql; // di
   struct _KPRCB *CurrentPrcb; // rsi
-  _QWORD *v5; // r14
-  _QWORD *v6; // rdx
-  _QWORD *v7; // rax
-  _QWORD *v8; // rcx
-  char v9; // cl
+  volatile signed __int32 *v6; // r14
+  volatile signed __int32 *v7; // rdx
+  __int64 v8; // rax
+  volatile signed __int32 **v9; // rcx
+  char v10; // cl
 
-  v2 = SystemArgument1;
+  v2 = a2;
+  v3 = SystemArgument1;
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
   if ( KiIrqlFlags )
@@ -49,54 +51,54 @@ __int64 __fastcall KeSignalGate(_DWORD *SystemArgument1, __int64 a2)
     KiRaiseIrqlProcessIrqlFlags(SystemArgument1, a2);
   }
   CurrentPrcb = KeGetCurrentPrcb();
-  KiAcquireKobjectLockSafe(v2);
-  if ( !v2[1] )
+  KiAcquireKobjectLockSafe(v3);
+  if ( !*((_DWORD *)v3 + 1) )
   {
-    v2[1] = 1;
-    v5 = (_QWORD *)*((_QWORD *)v2 + 1);
+    *((_DWORD *)v3 + 1) = 1;
+    v6 = (volatile signed __int32 *)*((_QWORD *)v3 + 1);
     while ( 1 )
     {
       while ( 1 )
       {
-        if ( v5 == (_QWORD *)(v2 + 2) )
+        if ( v6 == v3 + 2 )
           goto LABEL_12;
-        v6 = (_QWORD *)*v5;
-        v7 = v5;
-        v5 = v6;
-        v8 = (_QWORD *)v7[1];
-        if ( (_QWORD *)v6[1] != v7 || (_QWORD *)*v8 != v7 )
+        v7 = *(volatile signed __int32 **)v6;
+        v8 = (__int64)v6;
+        v6 = v7;
+        v9 = *(volatile signed __int32 ***)(v8 + 8);
+        if ( *((_QWORD *)v7 + 1) != v8 || *v9 != (volatile signed __int32 *)v8 )
           __fastfail(3u);
-        *v8 = v6;
-        v6[1] = v8;
-        v9 = *((_BYTE *)v7 + 16);
-        if ( v9 != 1 )
+        *v9 = v7;
+        *((_QWORD *)v7 + 1) = v9;
+        v10 = *(_BYTE *)(v8 + 16);
+        if ( v10 != 1 )
           break;
-        if ( (unsigned __int8)KiTryUnwaitThread(CurrentPrcb, v7, *((unsigned __int16 *)v7 + 9), 0LL) )
+        if ( (unsigned __int8)KiTryUnwaitThread((__int64)CurrentPrcb, v8, *(unsigned __int16 *)(v8 + 18), 0LL) )
         {
 LABEL_11:
-          if ( v2[1]-- == 1 )
+          if ( (*((_DWORD *)v3 + 1))-- == 1 )
             goto LABEL_12;
         }
       }
-      if ( v9 == 2 )
+      if ( v10 == 2 )
       {
-        *((_BYTE *)v7 + 17) = 5;
-        KiInsertQueueInternal(v7[3], v7);
+        *(_BYTE *)(v8 + 17) = 5;
+        KiInsertQueueInternal(*(_QWORD *)(v8 + 24), (__int64 *)v8);
         goto LABEL_11;
       }
-      if ( v9 == 4 )
+      if ( v10 == 4 )
       {
-        *((_BYTE *)v7 + 17) = 5;
-        v2[1] = 0;
-        KeInsertQueueDpc((PRKDPC)v7[3], v2, v7);
+        *(_BYTE *)(v8 + 17) = 5;
+        *((_DWORD *)v3 + 1) = 0;
+        KeInsertQueueDpc(*(PRKDPC *)(v8 + 24), (PVOID)v3, (PVOID)v8);
       }
       else
       {
-        KiTryUnwaitThread(CurrentPrcb, v7, 256LL, 0LL);
+        KiTryUnwaitThread((__int64)CurrentPrcb, v8, 256LL, 0LL);
       }
     }
   }
 LABEL_12:
-  _InterlockedAnd(v2, 0xFFFFFF7F);
-  return KiExitDispatcher(CurrentPrcb, CurrentIrql);
+  _InterlockedAnd(v3, 0xFFFFFF7F);
+  KiExitDispatcher((unsigned __int64)CurrentPrcb, 0LL, 1u, v2, CurrentIrql);
 }

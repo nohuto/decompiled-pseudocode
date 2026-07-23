@@ -1,12 +1,12 @@
 /*
- * XREFs of PopDiagTraceProcessorThrottleDurationPerfTrack @ 0x14059423C
+ * XREFs of PopDiagTraceProcessorThrottleDurationPerfTrack @ 0x14059472C
  * Callers:
- *     PpmRegisterPerfCap @ 0x14058D410 (PpmRegisterPerfCap.c)
+ *     PpmRegisterPerfCap @ 0x14058D900 (PpmRegisterPerfCap.c)
  * Callees:
- *     RtlStringCchPrintfExW @ 0x14022B720 (RtlStringCchPrintfExW.c)
- *     EtwWriteEx @ 0x1402581E0 (EtwWriteEx.c)
- *     EtwEventEnabled @ 0x140258420 (EtwEventEnabled.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     RtlStringCchPrintfExW @ 0x14022B830 (RtlStringCchPrintfExW.c)
+ *     EtwWriteEx @ 0x1402582A0 (EtwWriteEx.c)
+ *     EtwEventEnabled @ 0x1402584E0 (EtwEventEnabled.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  */
 
 char __fastcall PopDiagTraceProcessorThrottleDurationPerfTrack(int a1, ULONG a2)

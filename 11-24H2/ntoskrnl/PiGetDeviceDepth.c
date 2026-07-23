@@ -1,14 +1,14 @@
 /*
- * XREFs of PiGetDeviceDepth @ 0x1408BC2DC
+ * XREFs of PiGetDeviceDepth @ 0x1408B9C2C
  * Callers:
- *     PiControlGetDeviceDepth @ 0x1408BB720 (PiControlGetDeviceDepth.c)
- *     PiCMGetDeviceDepth @ 0x140A7FAEC (PiCMGetDeviceDepth.c)
+ *     PiControlGetDeviceDepth @ 0x1408B90D0 (PiControlGetDeviceDepth.c)
+ *     PiCMGetDeviceDepth @ 0x140A7A54C (PiCMGetDeviceDepth.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     ExReleaseResourceLite @ 0x14025A450 (ExReleaseResourceLite.c)
- *     ObfDereferenceObjectWithTag @ 0x1403254A0 (ObfDereferenceObjectWithTag.c)
- *     ExAcquireResourceSharedLite @ 0x140341E80 (ExAcquireResourceSharedLite.c)
- *     PnpDeviceObjectFromDeviceInstanceWithTag @ 0x1408BDDF0 (PnpDeviceObjectFromDeviceInstanceWithTag.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     ExReleaseResourceLite @ 0x14028AA60 (ExReleaseResourceLite.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CE030 (ObfDereferenceObjectWithTag.c)
+ *     ExAcquireResourceSharedLite @ 0x140321360 (ExAcquireResourceSharedLite.c)
+ *     PnpDeviceObjectFromDeviceInstanceWithTag @ 0x1408BB740 (PnpDeviceObjectFromDeviceInstanceWithTag.c)
  */
 
 __int64 __fastcall PiGetDeviceDepth(__int64 a1, _DWORD *a2)

@@ -1,9 +1,9 @@
 /*
- * XREFs of IoSetCompletionRoutineEx @ 0x140469B90
+ * XREFs of IoSetCompletionRoutineEx @ 0x140463310
  * Callers:
- *     DifIoSetCompletionRoutineExWrapper @ 0x14065E500 (DifIoSetCompletionRoutineExWrapper.c)
+ *     DifIoSetCompletionRoutineExWrapper @ 0x1406620E0 (DifIoSetCompletionRoutineExWrapper.c)
  * Callees:
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
  */
 
 NTSTATUS __stdcall IoSetCompletionRoutineEx(

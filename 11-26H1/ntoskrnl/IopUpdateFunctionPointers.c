@@ -1,14 +1,14 @@
 /*
- * XREFs of IopUpdateFunctionPointers @ 0x1405CAB80
+ * XREFs of IopUpdateFunctionPointers @ 0x1405CD450
  * Callers:
- *     IoPerfInit @ 0x14050EB0C (IoPerfInit.c)
- *     IopIrpExtensionControl @ 0x1405CAA44 (IopIrpExtensionControl.c)
- *     IoPerfReset @ 0x1405CBD6C (IoPerfReset.c)
- *     ViIovPluginUnload @ 0x1406429A0 (ViIovPluginUnload.c)
- *     IoVerifierInit @ 0x140C20A2C (IoVerifierInit.c)
+ *     IoPerfInit @ 0x14050857C (IoPerfInit.c)
+ *     IopIrpExtensionControl @ 0x1405CD314 (IopIrpExtensionControl.c)
+ *     IoPerfReset @ 0x1405CE5DC (IoPerfReset.c)
+ *     ViIovPluginUnload @ 0x140646580 (ViIovPluginUnload.c)
+ *     IoVerifierInit @ 0x140C26A3C (IoVerifierInit.c)
  * Callees:
- *     KeAcquireInStackQueuedSpinLock @ 0x1402B4730 (KeAcquireInStackQueuedSpinLock.c)
- *     KeReleaseInStackQueuedSpinLock @ 0x1402B98C0 (KeReleaseInStackQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402FF400 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x140304580 (KeReleaseInStackQueuedSpinLock.c)
  */
 
 void __fastcall IopUpdateFunctionPointers(int a1, char a2, char a3)
@@ -21,9 +21,7 @@ void __fastcall IopUpdateFunctionPointers(int a1, char a2, char a3)
 
   memset(&LockHandle, 0, sizeof(LockHandle));
   if ( !a3 )
-    KeAcquireInStackQueuedSpinLock(
-      (PKSPIN_LOCK)&IopSessionNotificationLock.SuspendEvent.Header.WaitListHead,
-      &LockHandle);
+    KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)&IopPerfIoTrackingLock.Header.WaitListHead, &LockHandle);
   if ( a2 )
     v6 = IopFunctionPointerMask | a1;
   else

@@ -1,12 +1,12 @@
 /*
- * XREFs of PfTAllocateBuffers @ 0x1407BFCD8
+ * XREFs of PfTAllocateBuffers @ 0x1407C01F4
  * Callers:
- *     PfTStart @ 0x1407BFA40 (PfTStart.c)
+ *     PfTStart @ 0x1407BFF5C (PfTStart.c)
  * Callees:
- *     memset @ 0x140414200 (memset.c)
- *     PfTGetFreeBuffer @ 0x1406CB1D4 (PfTGetFreeBuffer.c)
- *     PfTLbInitialize @ 0x1406CD328 (PfTLbInitialize.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     PfTGetFreeBuffer @ 0x140679AC4 (PfTGetFreeBuffer.c)
+ *     PfTLbInitialize @ 0x14067BC18 (PfTLbInitialize.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PfTAllocateBuffers(__int64 a1, unsigned int a2, unsigned int a3, ULONG a4)

@@ -3,10 +3,10 @@
  * Callers:
  *     <none>
  * Callees:
- *     _vswprintf_l @ 0x1403E13CC (_vswprintf_l.c)
+ *     sub_1403E13CC @ 0x1403E13CC (sub_1403E13CC.c)
  */
 
 int __cdecl vswprintf(wchar_t *Dest, const wchar_t *Format, va_list Args)
 {
-  return vswprintf_l(Dest, Format, 0LL, Args);
+  return sub_1403E13CC(Dest, Format, 0LL, Args);
 }

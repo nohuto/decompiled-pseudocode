@@ -1,10 +1,10 @@
 /*
- * XREFs of EtwpUnsubscribeContainerStateWnf @ 0x1406C4440
+ * XREFs of EtwpUnsubscribeContainerStateWnf @ 0x1406C8080
  * Callers:
  *     <none>
  * Callees:
- *     ExUnsubscribeWnfStateChange @ 0x140A41930 (ExUnsubscribeWnfStateChange.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ExUnsubscribeWnfStateChange @ 0x1409FD2E0 (ExUnsubscribeWnfStateChange.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void EtwpUnsubscribeContainerStateWnf()

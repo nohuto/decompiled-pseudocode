@@ -1,9 +1,9 @@
 /*
- * XREFs of MiUpdateEnclavePfnProtection @ 0x1401F075C
+ * XREFs of MiUpdateEnclavePfnProtection @ 0x1401F0588
  * Callers:
- *     MiProtectEnclavePages @ 0x14065F614 (MiProtectEnclavePages.c)
+ *     MiProtectEnclavePages @ 0x14065F6F8 (MiProtectEnclavePages.c)
  * Callees:
- *     MiLockPageInline @ 0x140022E70 (MiLockPageInline.c)
+ *     MiLockPageInline @ 0x1400229F0 (MiLockPageInline.c)
  */
 
 __int64 __fastcall MiUpdateEnclavePfnProtection(__int64 a1, int a2)

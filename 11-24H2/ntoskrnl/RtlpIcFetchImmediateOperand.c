@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlpIcFetchImmediateOperand @ 0x140BB83D8
+ * XREFs of RtlpIcFetchImmediateOperand @ 0x140BBA3D8
  * Callers:
- *     RtlpIcEmulateGroup11Instruction @ 0x140BB7750 (RtlpIcEmulateGroup11Instruction.c)
- *     RtlpIcEmulateGroup1Instruction @ 0x140BB7818 (RtlpIcEmulateGroup1Instruction.c)
- *     RtlpIcEmulateInstruction @ 0x140BB7A08 (RtlpIcEmulateInstruction.c)
+ *     RtlpIcEmulateGroup11Instruction @ 0x140BB9750 (RtlpIcEmulateGroup11Instruction.c)
+ *     RtlpIcEmulateGroup1Instruction @ 0x140BB9818 (RtlpIcEmulateGroup1Instruction.c)
+ *     RtlpIcEmulateInstruction @ 0x140BB9A08 (RtlpIcEmulateInstruction.c)
  * Callees:
- *     RtlpIcFetchInstructionBytes @ 0x140BB8454 (RtlpIcFetchInstructionBytes.c)
+ *     RtlpIcFetchInstructionBytes @ 0x140BBA454 (RtlpIcFetchInstructionBytes.c)
  */
 
 __int64 __fastcall RtlpIcFetchImmediateOperand(__int64 a1, __int64 a2, _DWORD *a3)

@@ -1,12 +1,12 @@
 /*
- * XREFs of CmpSendUnsupportedOperationTelemetryEvent @ 0x1407FA3E0
+ * XREFs of CmpSendUnsupportedOperationTelemetryEvent @ 0x1407FB5E0
  * Callers:
- *     CmpFlushUnsupportedOperationTelemetry @ 0x1406C770C (CmpFlushUnsupportedOperationTelemetry.c)
- *     CmpLogUnsupportedOperation @ 0x1407FA044 (CmpLogUnsupportedOperation.c)
+ *     CmpFlushUnsupportedOperationTelemetry @ 0x1406C89AC (CmpFlushUnsupportedOperationTelemetry.c)
+ *     CmpLogUnsupportedOperation @ 0x1407FB244 (CmpLogUnsupportedOperation.c)
  * Callees:
  *     _TlgKeywordOn @ 0x140012A04 (_TlgKeywordOn.c)
  *     _TlgWrite @ 0x140012EE4 (_TlgWrite.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
  */
 
 void CmpSendUnsupportedOperationTelemetryEvent()
@@ -23,9 +23,9 @@ void CmpSendUnsupportedOperationTelemetryEvent()
   int v9; // [rsp+78h] [rbp-20h]
   int v10; // [rsp+7Ch] [rbp-1Ch]
 
-  if ( stru_1403FFAA0.LevelPlus1 > 5 )
+  if ( stru_140400AA0.LevelPlus1 > 5 )
   {
-    if ( TlgKeywordOn(&stru_1403FFAA0, 0x400000000000uLL) )
+    if ( TlgKeywordOn(&stru_140400AA0, 0x400000000000uLL) )
     {
       v7 = 0;
       v10 = 0;
@@ -35,7 +35,7 @@ void CmpSendUnsupportedOperationTelemetryEvent()
       v3 = v0;
       v6 = 4;
       v9 = 4;
-      TlgWrite(&stru_1403FFAA0, &unk_14036C5BD, 0LL, 0LL, 4u, &pData);
+      TlgWrite(&stru_140400AA0, &unk_14036D54D, 0LL, 0LL, 4u, &pData);
     }
   }
 }

@@ -1,16 +1,16 @@
 /*
- * XREFs of MiModifiedWriterInitialize @ 0x1404048B8
+ * XREFs of MiModifiedWriterInitialize @ 0x1403FD9B8
  * Callers:
- *     MiModifiedPageWriter @ 0x1404064D0 (MiModifiedPageWriter.c)
+ *     MiModifiedPageWriter @ 0x1403FF5C0 (MiModifiedPageWriter.c)
  * Callees:
- *     KeSetActualBasePriorityThread @ 0x140239560 (KeSetActualBasePriorityThread.c)
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     KiCheckForKernelApcDelivery @ 0x14027DB80 (KiCheckForKernelApcDelivery.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     KeSetEvent @ 0x1402DE9C0 (KeSetEvent.c)
- *     ExfTryToWakePushLock @ 0x1403170A0 (ExfTryToWakePushLock.c)
+ *     KeSetActualBasePriorityThread @ 0x14023AEC0 (KeSetActualBasePriorityThread.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     KiCheckForKernelApcDelivery @ 0x14027D0F0 (KiCheckForKernelApcDelivery.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     KeSetEvent @ 0x1402C0780 (KeSetEvent.c)
+ *     ExfTryToWakePushLock @ 0x1403190D0 (ExfTryToWakePushLock.c)
  */
 
 __int64 __fastcall MiModifiedWriterInitialize(__int64 *a1, _DWORD *a2, __int64 a3, struct _KLOCK_ENTRIES *a4)
@@ -23,7 +23,7 @@ __int64 __fastcall MiModifiedWriterInitialize(__int64 *a1, _DWORD *a2, __int64 a
   AutoBoost *v11; // r14
   __int64 v12; // r8
   __int64 v13; // rdx
-  $7A85BAF4F1FA08634C1C4A3E45B775B3 *v15; // rcx
+  $241382875694CED3D471BC5892DE3337 *v15; // rcx
 
   v4 = *a1;
   CurrentThread = KeGetCurrentThread();
@@ -57,7 +57,7 @@ __int64 __fastcall MiModifiedWriterInitialize(__int64 *a1, _DWORD *a2, __int64 a
   if ( CurrentThread->SpecialApcDisable++ == -1 )
   {
     v15 = &CurrentThread->152;
-    if ( ($7A85BAF4F1FA08634C1C4A3E45B775B3 *)v15->ApcState.ApcListHead[0].Flink != v15 )
+    if ( ($241382875694CED3D471BC5892DE3337 *)v15->ApcState.ApcListHead[0].Flink != v15 )
       KiCheckForKernelApcDelivery((__int64)v15, v13);
   }
   return v8;

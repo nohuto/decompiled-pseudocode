@@ -42,7 +42,7 @@
 
 __int64 __fastcall ExpGetProcessInformation(__int64 a1, ULONG a2, ULONG *a3, _DWORD *a4, int a5)
 {
-  unsigned __int64 v5; // r13
+  ULONG_PTR v5; // r13
   unsigned __int8 v6; // bl
   unsigned __int64 v7; // r9
   PEPROCESS v8; // r14
@@ -128,7 +128,7 @@ __int64 __fastcall ExpGetProcessInformation(__int64 a1, ULONG a2, ULONG *a3, _DW
   $26250A4449D73754BE65B784E5A61230 v88; // eax
   _LIST_ENTRY *Flink; // rdi
   PACCESS_TOKEN v90; // rbx
-  unsigned __int64 v91; // r12
+  ULONG_PTR v91; // r12
   NTSTATUS v92; // eax
   int v93; // edx
   unsigned int v94; // r9d
@@ -146,7 +146,7 @@ __int64 __fastcall ExpGetProcessInformation(__int64 a1, ULONG a2, ULONG *a3, _DW
   __int64 result; // rax
   signed __int32 v107[8]; // [rsp+0h] [rbp-468h] BYREF
   int v108; // [rsp+40h] [rbp-428h]
-  int PackageIdentity; // [rsp+44h] [rbp-424h]
+  NTSTATUS v109; // [rsp+44h] [rbp-424h]
   char v110; // [rsp+48h] [rbp-420h]
   ULONG pulResult; // [rsp+4Ch] [rbp-41Ch] BYREF
   PVOID v112; // [rsp+50h] [rbp-418h]
@@ -164,8 +164,8 @@ __int64 __fastcall ExpGetProcessInformation(__int64 a1, ULONG a2, ULONG *a3, _DW
   ULONG v124; // [rsp+A8h] [rbp-3C0h]
   bool v125; // [rsp+ACh] [rbp-3BCh]
   unsigned int v126; // [rsp+B0h] [rbp-3B8h]
-  __int64 v127; // [rsp+B8h] [rbp-3B0h] BYREF
-  __int64 v128; // [rsp+C0h] [rbp-3A8h] BYREF
+  ULONG_PTR AppIdSize; // [rsp+B8h] [rbp-3B0h] BYREF
+  ULONG_PTR PackageSize; // [rsp+C0h] [rbp-3A8h] BYREF
   int v129; // [rsp+C8h] [rbp-3A0h] BYREF
   unsigned __int8 v130; // [rsp+CCh] [rbp-39Ch]
   unsigned __int8 v131; // [rsp+CDh] [rbp-39Bh]
@@ -189,15 +189,15 @@ __int64 __fastcall ExpGetProcessInformation(__int64 a1, ULONG a2, ULONG *a3, _DW
   HANDLE Handle[10]; // [rsp+1A0h] [rbp-2C8h] BYREF
   _QWORD v150[10]; // [rsp+1F0h] [rbp-278h] BYREF
   _BYTE Src[80]; // [rsp+240h] [rbp-228h] BYREF
-  _BYTE v152[144]; // [rsp+290h] [rbp-1D8h] BYREF
-  _BYTE v153[256]; // [rsp+320h] [rbp-148h] BYREF
+  WCHAR AppId[72]; // [rsp+290h] [rbp-1D8h] BYREF
+  WCHAR PackageFullName[128]; // [rsp+320h] [rbp-148h] BYREF
 
   v143 = a1;
   v120 = a3;
-  v127 = 130LL;
+  AppIdSize = 130LL;
   v5 = 0LL;
   v114 = 0;
-  v128 = 254LL;
+  PackageSize = 254LL;
   v112 = 0LL;
   v108 = 0;
   Object = 0LL;
@@ -228,7 +228,7 @@ __int64 __fastcall ExpGetProcessInformation(__int64 a1, ULONG a2, ULONG *a3, _DW
   {
     if ( (unsigned int)ExIsRestrictedCaller(v6) )
       v110 = 1;
-    PackageIdentity = 0;
+    v109 = 0;
     KeFlushProcessWriteBuffers(1);
     CurrentSilo = (void *)PsGetCurrentSilo();
     v8 = (PEPROCESS)PsIdleProcess;
@@ -239,9 +239,9 @@ LABEL_10:
 LABEL_11:
       if ( !v8 )
       {
-        if ( v108 >= 0 && v119 && (*(_DWORD *)v119 = 0, PackageIdentity < 0) )
+        if ( v108 >= 0 && v119 && (*(_DWORD *)v119 = 0, v109 < 0) )
         {
-          v108 = PackageIdentity;
+          v108 = v109;
         }
         else if ( v120 )
         {
@@ -333,7 +333,7 @@ LABEL_149:
     v114 = ulAddend;
     v11 = RtlULongAdd(pulResult, ulAddend, &pulResult);
     v12 = v11;
-    PackageIdentity = v11;
+    v109 = v11;
     if ( v11 < 0 )
     {
       v108 = v11;
@@ -350,7 +350,7 @@ LABEL_149:
     {
       v16 = ExpCopyProcessInfo(v119, (struct _EX_RUNDOWN_REF *)v8, v113, v150);
       v12 = v16;
-      PackageIdentity = v16;
+      v109 = v16;
       if ( v16 < 0 )
       {
         v108 = v16;
@@ -427,7 +427,7 @@ LABEL_31:
       v141 = 0LL;
     }
     v8 = (PEPROCESS)v112;
-    v12 = PackageIdentity;
+    v12 = v109;
     v18 = v116;
     while ( 1 )
     {
@@ -579,8 +579,8 @@ LABEL_38:
             v8 = (PEPROCESS)v112;
             v45 = v121;
           }
-          v12 = PackageIdentity;
-          if ( PackageIdentity >= 0 )
+          v12 = v109;
+          if ( v109 >= 0 )
           {
             p_Blink = (char *)Object;
             v46 = (char *)v116;
@@ -590,32 +590,26 @@ LABEL_127:
               v90 = PsReferencePrimaryToken(v8);
               Handle[9] = v90;
               SeQueryUserSidToken((__int64)v90, Src, 0x44u, &v123);
-              v128 = 254LL;
-              v127 = 130LL;
-              PackageIdentity = RtlQueryPackageIdentity(
-                                  (__int64)v90,
-                                  (__int64)v153,
-                                  (__int64)&v128,
-                                  (__int64)v152,
-                                  (__int64)&v127,
-                                  0LL);
-              if ( PackageIdentity >= 0 )
+              PackageSize = 254LL;
+              AppIdSize = 130LL;
+              v109 = RtlQueryPackageIdentity(v90, PackageFullName, &PackageSize, AppId, &AppIdSize, 0LL);
+              if ( v109 >= 0 )
               {
-                v5 = v127;
-                v91 = v128;
+                v5 = AppIdSize;
+                v91 = PackageSize;
               }
               else
               {
                 v91 = 0LL;
-                v128 = 0LL;
-                v127 = 0LL;
+                PackageSize = 0LL;
+                AppIdSize = 0LL;
               }
               ObFastDereferenceObject((signed __int64 *)&v8[1].Affinity.Bitmap[5], (unsigned __int64)v90);
               v118 = (v123 + 7) & 0xFFFFFFF8;
               v117 = v118;
               v92 = RtlULongAdd(pulResult, v118, &pulResult);
               v12 = v92;
-              PackageIdentity = v92;
+              v109 = v92;
               if ( v92 < 0 )
               {
                 v108 = v92;
@@ -651,7 +645,7 @@ LABEL_127:
                 v117 = v91;
                 v95 = RtlULongAdd(pulResult, v91, &pulResult);
                 v12 = v95;
-                PackageIdentity = v95;
+                v109 = v95;
                 if ( v95 < 0 )
                 {
                   v108 = v95;
@@ -667,7 +661,7 @@ LABEL_127:
                 else
                 {
                   *((_DWORD *)v45 + 14) = (_DWORD)v46 - (_DWORD)v45;
-                  memmove(v46, v153, (unsigned int)v91);
+                  memmove(v46, PackageFullName, (unsigned int)v91);
                   v7 = 0xFFFFFFFFLL;
                   if ( v12 < 0 )
                   {
@@ -688,7 +682,7 @@ LABEL_127:
                 v117 = v5;
                 v96 = RtlULongAdd(pulResult, v5, &pulResult);
                 v12 = v96;
-                PackageIdentity = v96;
+                v109 = v96;
                 if ( v96 < 0 )
                 {
                   v108 = v96;
@@ -704,7 +698,7 @@ LABEL_127:
                 else
                 {
                   *((_DWORD *)v45 + 52) = (_DWORD)v46 - (_DWORD)v45;
-                  memmove(v46, v152, (unsigned int)v5);
+                  memmove(v46, AppId, (unsigned int)v5);
                   if ( v12 < 0 )
                   {
                     v108 = v12;
@@ -771,7 +765,7 @@ LABEL_146:
               v117 = v76;
               v77 = RtlULongAdd(pulResult, v76, &pulResult);
               v12 = v77;
-              PackageIdentity = v77;
+              v109 = v77;
               if ( v77 < 0 )
               {
                 v108 = v77;
@@ -818,7 +812,7 @@ LABEL_146:
             v5 = 0LL;
             goto LABEL_149;
           }
-          v108 = PackageIdentity;
+          v108 = v109;
 LABEL_195:
           p_Blink = (char *)Object;
 LABEL_280:
@@ -836,7 +830,7 @@ LABEL_280:
           v30 = v124;
           v31 = RtlULongAdd(pulResult, v124, &pulResult);
           v12 = v31;
-          PackageIdentity = v31;
+          v109 = v31;
           if ( v31 < 0 )
           {
             v108 = v31;
@@ -882,7 +876,7 @@ LABEL_280:
                   v33 = 0LL;
                 }
                 v8 = (PEPROCESS)v112;
-                v12 = PackageIdentity;
+                v12 = v109;
                 p_Blink = (char *)Object;
                 v18 = v116;
               }
@@ -904,7 +898,7 @@ LABEL_280:
                   v18 = v116;
                   v116[11] = *((_QWORD *)p_Blink + 6);
                   v8 = (PEPROCESS)v112;
-                  v12 = PackageIdentity;
+                  v12 = v109;
                   p_Blink = (char *)Object;
                 }
                 v34 = *((_QWORD *)p_Blink + 208);
@@ -976,7 +970,7 @@ LABEL_280:
         v140 = p_Blink;
 LABEL_83:
         v8 = (PEPROCESS)v112;
-        v12 = PackageIdentity;
+        v12 = v109;
         v18 = v116;
       }
       v87 = (_LIST_ENTRY *)*((_QWORD *)p_Blink + 95);

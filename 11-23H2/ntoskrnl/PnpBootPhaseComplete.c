@@ -1,15 +1,15 @@
 /*
- * XREFs of PnpBootPhaseComplete @ 0x140811110
+ * XREFs of PnpBootPhaseComplete @ 0x1408113E0
  * Callers:
- *     CmCompleteRegistryInitialization @ 0x14080A920 (CmCompleteRegistryInitialization.c)
+ *     CmCompleteRegistryInitialization @ 0x14080ABF0 (CmCompleteRegistryInitialization.c)
  * Callees:
- *     ExQueueWorkItem @ 0x1402B7C30 (ExQueueWorkItem.c)
- *     PnpRequestDeviceAction @ 0x140359044 (PnpRequestDeviceAction.c)
- *     PiDmaGuardInitialize @ 0x140374DD8 (PiDmaGuardInitialize.c)
- *     ExSubscribeWnfStateChange @ 0x1407DAD30 (ExSubscribeWnfStateChange.c)
- *     PpDevCfgProcessDevices @ 0x140810D14 (PpDevCfgProcessDevices.c)
- *     PiPnpRtlInit @ 0x140811214 (PiPnpRtlInit.c)
- *     Pdcv2ActivationClientRegister @ 0x14085AA64 (Pdcv2ActivationClientRegister.c)
+ *     ExQueueWorkItem @ 0x1402B7EC0 (ExQueueWorkItem.c)
+ *     PnpRequestDeviceAction @ 0x1403591E4 (PnpRequestDeviceAction.c)
+ *     PiDmaGuardInitialize @ 0x140374F78 (PiDmaGuardInitialize.c)
+ *     ExSubscribeWnfStateChange @ 0x1407DB000 (ExSubscribeWnfStateChange.c)
+ *     PpDevCfgProcessDevices @ 0x140810FE4 (PpDevCfgProcessDevices.c)
+ *     PiPnpRtlInit @ 0x1408114E4 (PiPnpRtlInit.c)
+ *     Pdcv2ActivationClientRegister @ 0x14085ACA4 (Pdcv2ActivationClientRegister.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
 

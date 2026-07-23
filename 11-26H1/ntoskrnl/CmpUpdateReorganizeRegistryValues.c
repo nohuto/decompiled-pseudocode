@@ -1,17 +1,17 @@
 /*
- * XREFs of CmpUpdateReorganizeRegistryValues @ 0x140B363D8
+ * XREFs of CmpUpdateReorganizeRegistryValues @ 0x140B385E8
  * Callers:
- *     CmpAcceptBoot @ 0x14084E81C (CmpAcceptBoot.c)
- *     CmpReorganizeHive @ 0x140AE35CC (CmpReorganizeHive.c)
+ *     CmpAcceptBoot @ 0x140854B2C (CmpAcceptBoot.c)
+ *     CmpReorganizeHive @ 0x140AE10D4 (CmpReorganizeHive.c)
  * Callees:
- *     ExSystemTimeToLocalTime @ 0x140215090 (ExSystemTimeToLocalTime.c)
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     RtlTimeToTimeFields @ 0x140451D20 (RtlTimeToTimeFields.c)
- *     swprintf_s @ 0x14053B0E0 (swprintf_s.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     ZwCreateKey @ 0x140723790 (ZwCreateKey.c)
- *     ZwSetValueKey @ 0x140723FF0 (ZwSetValueKey.c)
+ *     ExSystemTimeToLocalTime @ 0x1402153C0 (ExSystemTimeToLocalTime.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     RtlTimeToTimeFields @ 0x140449E50 (RtlTimeToTimeFields.c)
+ *     swprintf_s @ 0x14053D560 (swprintf_s.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     ZwCreateKey @ 0x140728360 (ZwCreateKey.c)
+ *     ZwSetValueKey @ 0x140728BC0 (ZwSetValueKey.c)
  */
 
 void CmpUpdateReorganizeRegistryValues()
@@ -22,7 +22,7 @@ void CmpUpdateReorganizeRegistryValues()
   HANDLE KeyHandle; // [rsp+40h] [rbp-39h] BYREF
   UNICODE_STRING DestinationString; // [rsp+48h] [rbp-31h] BYREF
   LARGE_INTEGER LocalTime; // [rsp+58h] [rbp-21h] BYREF
-  TIME_FIELDS TimeFields; // [rsp+60h] [rbp-19h] BYREF
+  _TIME_FIELDS TimeFields; // [rsp+60h] [rbp-19h] BYREF
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+70h] [rbp-9h] BYREF
   wchar_t Dst[16]; // [rsp+A0h] [rbp+27h] BYREF
 
@@ -32,7 +32,7 @@ void CmpUpdateReorganizeRegistryValues()
   KeyHandle = 0LL;
   TimeFields = 0LL;
   LocalTime.QuadPart = 0LL;
-  if ( WheapPfaLock.Teb )
+  if ( WheapPfaLock.Timer.TimerListEntry.Blink )
   {
     if ( CmpAccessBitForPhase == 2 )
     {
@@ -46,7 +46,7 @@ void CmpUpdateReorganizeRegistryValues()
       *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
       if ( ZwCreateKey(&KeyHandle, 2u, &ObjectAttributes, 0, 0LL, 0, 0LL) >= 0 )
       {
-        ExSystemTimeToLocalTime((PLARGE_INTEGER)&WheapPfaLock.Queue, &LocalTime);
+        ExSystemTimeToLocalTime((PLARGE_INTEGER)&WheapPfaLock.Timer.TimerListEntry, &LocalTime);
         RtlTimeToTimeFields(&LocalTime, &TimeFields);
         LODWORD(CreateOptions) = TimeFields.Year % 10000;
         LODWORD(Class) = TimeFields.Day;
@@ -60,7 +60,7 @@ void CmpUpdateReorganizeRegistryValues()
           if ( ZwSetValueKey(KeyHandle, &DestinationString, 0, 1u, Dst, 2 * v0) >= 0 )
           {
             RtlInitUnicodeString(&DestinationString, L"TotalBytesSaved");
-            ZwSetValueKey(KeyHandle, &DestinationString, 0, 0xBu, &WheapPfaLock.Teb, 8u);
+            ZwSetValueKey(KeyHandle, &DestinationString, 0, 0xBu, &WheapPfaLock.Timer.TimerListEntry.Blink, 8u);
           }
         }
         ZwClose(KeyHandle);

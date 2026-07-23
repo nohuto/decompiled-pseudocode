@@ -1,10 +1,10 @@
 /*
- * XREFs of EtwpAddDataSource @ 0x140490E70
+ * XREFs of EtwpAddDataSource @ 0x140491900
  * Callers:
- *     EtwpQueueNotification @ 0x140490BB0 (EtwpQueueNotification.c)
- *     EtwpAddNotificationEvent @ 0x140490DD0 (EtwpAddNotificationEvent.c)
+ *     EtwpQueueNotification @ 0x140491640 (EtwpQueueNotification.c)
+ *     EtwpAddNotificationEvent @ 0x140491860 (EtwpAddNotificationEvent.c)
  * Callees:
- *     memset @ 0x1401715C0 (memset.c)
+ *     memset @ 0x140171AC0 (memset.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
  */

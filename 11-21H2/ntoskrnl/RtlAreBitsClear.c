@@ -1,12 +1,12 @@
 /*
  * XREFs of RtlAreBitsClear @ 0x14020AED0
  * Callers:
- *     HvGetHiveLogFileStatus @ 0x14068A5A8 (HvGetHiveLogFileStatus.c)
- *     CmpMountPreloadedHives @ 0x14083200C (CmpMountPreloadedHives.c)
- *     CmpLoadHiveThread @ 0x14083C870 (CmpLoadHiveThread.c)
- *     HvIsRangeDirty @ 0x14092200C (HvIsRangeDirty.c)
- *     MiCheckPatchPagesCallback @ 0x140972980 (MiCheckPatchPagesCallback.c)
- *     HalpMmAllocCtxMarkHiberPhase @ 0x140A4F0DC (HalpMmAllocCtxMarkHiberPhase.c)
+ *     sub_14068A5A8 @ 0x14068A5A8 (sub_14068A5A8.c)
+ *     sub_14083200C @ 0x14083200C (sub_14083200C.c)
+ *     sub_14083C870 @ 0x14083C870 (sub_14083C870.c)
+ *     sub_14092200C @ 0x14092200C (sub_14092200C.c)
+ *     sub_140972980 @ 0x140972980 (sub_140972980.c)
+ *     sub_140A4F0DC @ 0x140A4F0DC (sub_140A4F0DC.c)
  * Callees:
  *     <none>
  */
@@ -14,12 +14,12 @@
 BOOLEAN __stdcall RtlAreBitsClear(PRTL_BITMAP BitMapHeader, ULONG StartingIndex, ULONG Length)
 {
   BOOLEAN result; // al
-  unsigned int *Buffer; // rcx
+  PULONG Buffer; // rcx
   char v6; // r11
-  unsigned int *v7; // rdx
-  unsigned int v8; // ebx
-  unsigned int *v9; // r10
-  unsigned int *v10; // rdx
+  ULONG *v7; // rdx
+  ULONG v8; // ebx
+  ULONG *v9; // r10
+  ULONG *v10; // rdx
 
   if ( StartingIndex >= BitMapHeader->SizeOfBitMap )
     return 0;

@@ -1,33 +1,33 @@
 /*
- * XREFs of SeCaptureSubjectContextEx @ 0x140657C60
+ * XREFs of SeCaptureSubjectContextEx @ 0x14064CA80
  * Callers:
  *     CmQueryLayeredKey @ 0x140200A78 (CmQueryLayeredKey.c)
- *     ExCpuSetResourceManagerAccessCheck @ 0x1402BD264 (ExCpuSetResourceManagerAccessCheck.c)
- *     NtSetInformationFile @ 0x140352270 (NtSetInformationFile.c)
- *     AlpcpCheckConnectionSecurity @ 0x1405DEB24 (AlpcpCheckConnectionSecurity.c)
- *     CmQueryKey @ 0x1405F5810 (CmQueryKey.c)
- *     NtSetInformationJobObject @ 0x140614200 (NtSetInformationJobObject.c)
- *     CmpIsSystemEntity @ 0x140656AF0 (CmpIsSystemEntity.c)
- *     PsOpenProcess @ 0x14065A730 (PsOpenProcess.c)
- *     SeCreateAccessStateEx @ 0x1406618D0 (SeCreateAccessStateEx.c)
- *     EtwpCheckProviderLoggingAccess @ 0x1406E3FF0 (EtwpCheckProviderLoggingAccess.c)
- *     ObpVerifyCreatorAccessCheck @ 0x1406E50F0 (ObpVerifyCreatorAccessCheck.c)
- *     ObpCaptureBoundaryDescriptor @ 0x1406E52CC (ObpCaptureBoundaryDescriptor.c)
- *     CmpVEExecuteParseLogic @ 0x1406FC190 (CmpVEExecuteParseLogic.c)
- *     IopXxxControlFile @ 0x1406FE010 (IopXxxControlFile.c)
- *     ObInsertObjectEx @ 0x140704A20 (ObInsertObjectEx.c)
- *     NtDuplicateToken @ 0x140705150 (NtDuplicateToken.c)
- *     NtSetInformationProcess @ 0x14070A4B0 (NtSetInformationProcess.c)
- *     ExpCheckWakeTimerAccess @ 0x14078E5D8 (ExpCheckWakeTimerAccess.c)
- *     VfUtilIsLocalSystem @ 0x1409C67E4 (VfUtilIsLocalSystem.c)
+ *     ExCpuSetResourceManagerAccessCheck @ 0x14023B914 (ExCpuSetResourceManagerAccessCheck.c)
+ *     NtSetInformationFile @ 0x14035CFC0 (NtSetInformationFile.c)
+ *     CmpIsSystemEntity @ 0x14064B910 (CmpIsSystemEntity.c)
+ *     PsOpenProcess @ 0x14064F550 (PsOpenProcess.c)
+ *     SeCreateAccessStateEx @ 0x1406566F0 (SeCreateAccessStateEx.c)
+ *     NtSetInformationJobObject @ 0x14067DE60 (NtSetInformationJobObject.c)
+ *     EtwpCheckProviderLoggingAccess @ 0x1406BB2D0 (EtwpCheckProviderLoggingAccess.c)
+ *     ObpVerifyCreatorAccessCheck @ 0x1406BC3D0 (ObpVerifyCreatorAccessCheck.c)
+ *     ObpCaptureBoundaryDescriptor @ 0x1406BC5AC (ObpCaptureBoundaryDescriptor.c)
+ *     AlpcpCheckConnectionSecurity @ 0x1406CE284 (AlpcpCheckConnectionSecurity.c)
+ *     CmQueryKey @ 0x1406E4F70 (CmQueryKey.c)
+ *     CmpVEExecuteParseLogic @ 0x140713570 (CmpVEExecuteParseLogic.c)
+ *     IopXxxControlFile @ 0x1407153F0 (IopXxxControlFile.c)
+ *     ObInsertObjectEx @ 0x14071BE00 (ObInsertObjectEx.c)
+ *     NtDuplicateToken @ 0x14071C530 (NtDuplicateToken.c)
+ *     NtSetInformationProcess @ 0x140721890 (NtSetInformationProcess.c)
+ *     ExpCheckWakeTimerAccess @ 0x14078E798 (ExpCheckWakeTimerAccess.c)
+ *     VfUtilIsLocalSystem @ 0x1409C77E4 (VfUtilIsLocalSystem.c)
  * Callees:
- *     ObFastReferenceObjectLocked @ 0x140206338 (ObFastReferenceObjectLocked.c)
- *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
- *     ObFastReferenceObject @ 0x14027C6E0 (ObFastReferenceObject.c)
- *     ExfReleasePushLockShared @ 0x1402F1470 (ExfReleasePushLockShared.c)
- *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
- *     ExAcquirePushLockSharedEx @ 0x14034AB50 (ExAcquirePushLockSharedEx.c)
- *     ObfReferenceObject @ 0x14034B230 (ObfReferenceObject.c)
+ *     ObFastReferenceObject @ 0x14026A680 (ObFastReferenceObject.c)
+ *     ObFastReferenceObjectLocked @ 0x1402AAC68 (ObFastReferenceObjectLocked.c)
+ *     KeLeaveCriticalRegionThread @ 0x1402AB8C0 (KeLeaveCriticalRegionThread.c)
+ *     ExfReleasePushLockShared @ 0x1402FC1C0 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x1403539D0 (KeAbPostRelease.c)
+ *     ExAcquirePushLockSharedEx @ 0x1403558A0 (ExAcquirePushLockSharedEx.c)
+ *     ObfReferenceObject @ 0x140355F80 (ObfReferenceObject.c)
  */
 
 void __stdcall SeCaptureSubjectContextEx(PETHREAD Thread, PEPROCESS Process, PSECURITY_SUBJECT_CONTEXT SubjectContext)
@@ -36,8 +36,14 @@ void __stdcall SeCaptureSubjectContextEx(PETHREAD Thread, PEPROCESS Process, PSE
   unsigned __int64 *v7; // r14
   _QWORD *v8; // rdi
   struct _KTHREAD *CurrentThread; // r12
-  struct _KTHREAD *v10; // r15
+  __int64 v10; // rdx
+  __int64 v11; // r8
+  __int64 v12; // r9
+  struct _KTHREAD *v13; // r15
   signed __int64 *p_Lock; // rsi
+  __int64 v15; // rdx
+  __int64 v16; // r8
+  __int64 v17; // r9
 
   SubjectContext->ProcessAuditId = Process[1].Header.WaitListHead.Flink;
   if ( Thread )
@@ -60,7 +66,7 @@ void __stdcall SeCaptureSubjectContextEx(PETHREAD Thread, PEPROCESS Process, PSE
       if ( _InterlockedCompareExchange64((volatile signed __int64 *)&Thread[1].WaitBlockList, 0LL, 17LL) != 17 )
         ExfReleasePushLockShared((signed __int64 *)&Thread[1].WaitBlockList);
       KeAbPostRelease((ULONG_PTR)&Thread[1].WaitBlockList);
-      KeLeaveCriticalRegionThread((__int64)CurrentThread);
+      KeLeaveCriticalRegionThread((__int64)CurrentThread, v10, v11, v12);
     }
     else
     {
@@ -76,15 +82,15 @@ void __stdcall SeCaptureSubjectContextEx(PETHREAD Thread, PEPROCESS Process, PSE
   v8 = (_QWORD *)ObFastReferenceObject((signed __int64 *)&Process[1].Affinity.Bitmap[5]);
   if ( !v8 )
   {
-    v10 = KeGetCurrentThread();
-    --v10->KernelApcDisable;
+    v13 = KeGetCurrentThread();
+    --v13->KernelApcDisable;
     p_Lock = (signed __int64 *)&Process[1].Header.Lock;
     ExAcquirePushLockSharedEx((ULONG_PTR)p_Lock, 0LL);
     v8 = (_QWORD *)ObFastReferenceObjectLocked(v7);
     if ( _InterlockedCompareExchange64(p_Lock, 0LL, 17LL) != 17 )
       ExfReleasePushLockShared(p_Lock);
     KeAbPostRelease((ULONG_PTR)p_Lock);
-    KeLeaveCriticalRegionThread((__int64)v10);
+    KeLeaveCriticalRegionThread((__int64)v13, v15, v16, v17);
   }
   SubjectContext->PrimaryToken = v8;
   if ( SeTokenLeakTracking )

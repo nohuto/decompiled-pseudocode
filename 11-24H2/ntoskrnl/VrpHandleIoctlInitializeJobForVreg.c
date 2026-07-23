@@ -1,28 +1,28 @@
 /*
- * XREFs of VrpHandleIoctlInitializeJobForVreg @ 0x1409FE37C
+ * XREFs of VrpHandleIoctlInitializeJobForVreg @ 0x1409F75EC
  * Callers:
- *     VrpIoctlDeviceDispatch @ 0x140929280 (VrpIoctlDeviceDispatch.c)
+ *     VrpIoctlDeviceDispatch @ 0x14092B3C0 (VrpIoctlDeviceDispatch.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x1403254A0 (ObfDereferenceObjectWithTag.c)
- *     ObfDereferenceObject @ 0x140325680 (ObfDereferenceObject.c)
- *     RtlUnicodeStringCopy @ 0x1403E4550 (RtlUnicodeStringCopy.c)
- *     PsIsThreadInSilo @ 0x14040EEDC (PsIsThreadInSilo.c)
- *     PsGetJobSilo @ 0x14040EF70 (PsGetJobSilo.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     PsMakeSiloContextPermanent @ 0x1406FB440 (PsMakeSiloContextPermanent.c)
- *     PsRemoveSiloContext @ 0x1407721F0 (PsRemoveSiloContext.c)
- *     ObpReferenceObjectByHandleWithTag @ 0x14084B7E0 (ObpReferenceObjectByHandleWithTag.c)
- *     ObCreateObjectEx @ 0x14089C4F0 (ObCreateObjectEx.c)
- *     CmSetCallbackObjectContext @ 0x14098AF60 (CmSetCallbackObjectContext.c)
- *     CmGetRootKeyObjectForSilo @ 0x1409E1B94 (CmGetRootKeyObjectForSilo.c)
- *     PsInsertSiloContext @ 0x1409E1C10 (PsInsertSiloContext.c)
- *     CmInitSiloNamespace @ 0x1409E1CA8 (CmInitSiloNamespace.c)
- *     VrpFreeKeyContext @ 0x1409F6FD8 (VrpFreeKeyContext.c)
- *     VrpIncrementSiloCount @ 0x1409FE6BC (VrpIncrementSiloCount.c)
- *     VrpAllocateKeyContext @ 0x1409FE79C (VrpAllocateKeyContext.c)
- *     ExAllocatePoolWithTag @ 0x140B72010 (ExAllocatePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CE030 (ObfDereferenceObjectWithTag.c)
+ *     ObfDereferenceObject @ 0x1402CE210 (ObfDereferenceObject.c)
+ *     RtlUnicodeStringCopy @ 0x1403D20F0 (RtlUnicodeStringCopy.c)
+ *     PsIsThreadInSilo @ 0x1404070DC (PsIsThreadInSilo.c)
+ *     PsGetJobSilo @ 0x140407170 (PsGetJobSilo.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     PsMakeSiloContextPermanent @ 0x1406F9080 (PsMakeSiloContextPermanent.c)
+ *     PsRemoveSiloContext @ 0x140772410 (PsRemoveSiloContext.c)
+ *     ObpReferenceObjectByHandleWithTag @ 0x140847AA0 (ObpReferenceObjectByHandleWithTag.c)
+ *     ObCreateObjectEx @ 0x1408A4B90 (ObCreateObjectEx.c)
+ *     CmSetCallbackObjectContext @ 0x140975570 (CmSetCallbackObjectContext.c)
+ *     CmGetRootKeyObjectForSilo @ 0x1409DB944 (CmGetRootKeyObjectForSilo.c)
+ *     PsInsertSiloContext @ 0x1409DB9C0 (PsInsertSiloContext.c)
+ *     CmInitSiloNamespace @ 0x1409DBA58 (CmInitSiloNamespace.c)
+ *     VrpFreeKeyContext @ 0x1409EACB8 (VrpFreeKeyContext.c)
+ *     VrpIncrementSiloCount @ 0x1409F792C (VrpIncrementSiloCount.c)
+ *     VrpAllocateKeyContext @ 0x1409F7A0C (VrpAllocateKeyContext.c)
+ *     ExAllocatePoolWithTag @ 0x140B74010 (ExAllocatePoolWithTag.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall VrpHandleIoctlInitializeJobForVreg(
@@ -145,7 +145,7 @@ __int64 __fastcall VrpHandleIoctlInitializeJobForVreg(
           || (v17 = *(_OWORD *)(v11 + 1472),
               *(_WORD *)(KeyContext + 32) = 1,
               *(_OWORD *)KeyContext = v17,
-              Pool2 = ExAllocatePool2(0x100uLL),
+              Pool2 = ExAllocatePool2(0x100uLL, CmRegistryRootName.Length, 0x67655256u),
               (v9[1].Buffer = (wchar_t *)Pool2) == 0LL) )
         {
           JobSilo = -1073741670;

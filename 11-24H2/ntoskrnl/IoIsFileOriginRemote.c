@@ -1,8 +1,8 @@
 /*
- * XREFs of IoIsFileOriginRemote @ 0x1402CE220
+ * XREFs of IoIsFileOriginRemote @ 0x14040C220
  * Callers:
- *     CcForceWriteThrough @ 0x1402CE010 (CcForceWriteThrough.c)
- *     FsRtlpOplockTryPrepForAckTimeout @ 0x14070C450 (FsRtlpOplockTryPrepForAckTimeout.c)
+ *     CcForceWriteThrough @ 0x14040C010 (CcForceWriteThrough.c)
+ *     FsRtlpOplockTryPrepForAckTimeout @ 0x140709FE4 (FsRtlpOplockTryPrepForAckTimeout.c)
  * Callees:
  *     <none>
  */

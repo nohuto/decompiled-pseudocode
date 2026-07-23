@@ -1,10 +1,10 @@
 /*
- * XREFs of CmGetKeyLastWriteTime @ 0x1406B9784
+ * XREFs of CmGetKeyLastWriteTime @ 0x1406BAA24
  * Callers:
- *     CmpQueryKeyDataFromNode @ 0x1405D3570 (CmpQueryKeyDataFromNode.c)
+ *     CmpQueryKeyDataFromNode @ 0x1405D4570 (CmpQueryKeyDataFromNode.c)
  * Callees:
- *     CmEqualTrans @ 0x1405A94E8 (CmEqualTrans.c)
- *     CmListGetPrevElement @ 0x1406C05EC (CmListGetPrevElement.c)
+ *     CmEqualTrans @ 0x1405AA4E8 (CmEqualTrans.c)
+ *     CmListGetPrevElement @ 0x1406C188C (CmListGetPrevElement.c)
  */
 
 __int64 __fastcall CmGetKeyLastWriteTime(__int64 a1, __int64 a2, __int64 a3, __int64 a4)

@@ -1,12 +1,12 @@
 /*
- * XREFs of PopDeepSleepResiliencyPhaseAccountingEnd @ 0x1403CB954
+ * XREFs of PopDeepSleepResiliencyPhaseAccountingEnd @ 0x1402B962C
  * Callers:
- *     PopDeepSleepResiliencyPhaseAccountingUpdate @ 0x1403CB59C (PopDeepSleepResiliencyPhaseAccountingUpdate.c)
- *     PdcPoCurrentPdcPhase @ 0x1405D87A0 (PdcPoCurrentPdcPhase.c)
+ *     PopDeepSleepResiliencyPhaseAccountingUpdate @ 0x1402BA0B4 (PopDeepSleepResiliencyPhaseAccountingUpdate.c)
+ *     PdcPoCurrentPdcPhase @ 0x1405D5CC0 (PdcPoCurrentPdcPhase.c)
  * Callees:
- *     KeReleaseSpinLock @ 0x14024DD30 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140254B20 (KeAcquireSpinLockRaiseToDpc.c)
- *     KeQueryPerformanceCounter @ 0x14034FA10 (KeQueryPerformanceCounter.c)
+ *     KeReleaseSpinLock @ 0x14027E340 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140285130 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KeQueryPerformanceCounter @ 0x14036DEF0 (KeQueryPerformanceCounter.c)
  */
 
 void __fastcall PopDeepSleepResiliencyPhaseAccountingEnd(unsigned int a1, char a2)
@@ -26,7 +26,7 @@ void __fastcall PopDeepSleepResiliencyPhaseAccountingEnd(unsigned int a1, char a
     v3 = KeAcquireSpinLockRaiseToDpc(&PopCsResiliencyStatsLock);
   }
   PerformanceCounter = KeQueryPerformanceCounter(0LL);
-  dword_140F0BF9C &= ~a1;
+  dword_140F0C41C &= ~a1;
   for ( i = !_BitScanForward(&v8, a1); !i; i = !_BitScanForward(&v8, a1) )
   {
     v9 = PopDeepSleepDisengageReasonMask;

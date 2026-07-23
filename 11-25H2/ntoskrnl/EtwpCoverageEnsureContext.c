@@ -202,7 +202,7 @@ LABEL_49:
     v27[1] = -1LL;
     KeSetTimer2(
       *(_QWORD *)EtwpCoverageContext + 104LL,
-      -10000LL * (unsigned int)EtwpCoverageResetPeriod,
+      (LARGE_INTEGER)(-10000LL * (unsigned int)EtwpCoverageResetPeriod),
       10000LL * (unsigned int)EtwpCoverageResetPeriod,
       (__int64)v27);
   }

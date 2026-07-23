@@ -1,22 +1,22 @@
 /*
- * XREFs of ?KiAbpProcessEntry@AutoBoost@@YAXPEAU_KTHREAD@@PEAU_AB_THREAD_ENTRY@1@PEAU_AB_BOOST_CONTEXT@1@@Z @ 0x140376BF0
+ * XREFs of ?KiAbpProcessEntry@AutoBoost@@YAXPEAU_KTHREAD@@PEAU_AB_THREAD_ENTRY@1@PEAU_AB_BOOST_CONTEXT@1@@Z @ 0x1403789A0
  * Callers:
- *     ?KiAbpConvertWaiterToOwner@AutoBoost@@YAXPEAU_KTHREAD@@PEAU_AB_THREAD_ENTRY@1@K@Z @ 0x140274C5C (-KiAbpConvertWaiterToOwner@AutoBoost@@YAXPEAU_KTHREAD@@PEAU_AB_THREAD_ENTRY@1@K@Z.c)
- *     ?KiAbpMarkCrossThreadReleasable@AutoBoost@@YAXPEAX0@Z @ 0x140504AAC (-KiAbpMarkCrossThreadReleasable@AutoBoost@@YAXPEAX0@Z.c)
+ *     ?KiAbpConvertWaiterToOwner@AutoBoost@@YAXPEAU_KTHREAD@@PEAU_AB_THREAD_ENTRY@1@K@Z @ 0x1402741CC (-KiAbpConvertWaiterToOwner@AutoBoost@@YAXPEAU_KTHREAD@@PEAU_AB_THREAD_ENTRY@1@K@Z.c)
+ *     ?KiAbpMarkCrossThreadReleasable@AutoBoost@@YAXPEAX0@Z @ 0x1404FE3F0 (-KiAbpMarkCrossThreadReleasable@AutoBoost@@YAXPEAX0@Z.c)
  * Callees:
- *     IoBoostThreadIoPriority @ 0x140205ACC (IoBoostThreadIoPriority.c)
- *     ObReferenceObjectSafeWithTag @ 0x140258450 (ObReferenceObjectSafeWithTag.c)
- *     ObDereferenceObjectDeferDeleteWithTag @ 0x14027C870 (ObDereferenceObjectDeferDeleteWithTag.c)
- *     KiReleaseSpinLockInstrumented @ 0x1402BDFEC (KiReleaseSpinLockInstrumented.c)
- *     PsBoostThreadOutstandingIoQoS @ 0x1402F0600 (PsBoostThreadOutstandingIoQoS.c)
- *     KiAcquireSpinLockInstrumented @ 0x14032F380 (KiAcquireSpinLockInstrumented.c)
- *     KxWaitForSpinLockAndAcquire @ 0x14032F490 (KxWaitForSpinLockAndAcquire.c)
- *     PsGetIoPriorityThread @ 0x1403750A0 (PsGetIoPriorityThread.c)
- *     ?KiAbpApplyTargetPriority@AutoBoost@@YAKPEAU_KTHREAD@@PEAU_AB_THREAD_ENTRY@1@U_AB_PRIORITY@1@PEAU_AB_BOOST_CONTEXT@1@PEAT_AB_IO_BOOST@1@@Z @ 0x1403754D0 (-KiAbpApplyTargetPriority@AutoBoost@@YAKPEAU_KTHREAD@@PEAU_AB_THREAD_ENTRY@1@U_AB_PRIORITY@1@PEA.c)
- *     ?KiAbpOwnerComputeCpuPriorityKey@AutoBoost@@YACPEAU_AB_THREAD_ENTRY@1@@Z @ 0x1403759C0 (-KiAbpOwnerComputeCpuPriorityKey@AutoBoost@@YACPEAU_AB_THREAD_ENTRY@1@@Z.c)
- *     ?KiAbpProcessEntryAddToTree@AutoBoost@@YAXPEAU_AB_THREAD_ENTRY@1@@Z @ 0x1403764A0 (-KiAbpProcessEntryAddToTree@AutoBoost@@YAXPEAU_AB_THREAD_ENTRY@1@@Z.c)
- *     RtlRbInsertNodeEx @ 0x1403774B0 (RtlRbInsertNodeEx.c)
- *     RtlRbRemoveNode @ 0x140377C60 (RtlRbRemoveNode.c)
+ *     IoBoostThreadIoPriority @ 0x140205BAC (IoBoostThreadIoPriority.c)
+ *     ObReferenceObjectSafeWithTag @ 0x140259C30 (ObReferenceObjectSafeWithTag.c)
+ *     ObDereferenceObjectDeferDeleteWithTag @ 0x14027BDE0 (ObDereferenceObjectDeferDeleteWithTag.c)
+ *     PsBoostThreadOutstandingIoQoS @ 0x1402D2680 (PsBoostThreadOutstandingIoQoS.c)
+ *     KiReleaseSpinLockInstrumented @ 0x140308CAC (KiReleaseSpinLockInstrumented.c)
+ *     KiAcquireSpinLockInstrumented @ 0x1403313B0 (KiAcquireSpinLockInstrumented.c)
+ *     KxWaitForSpinLockAndAcquire @ 0x1403314C0 (KxWaitForSpinLockAndAcquire.c)
+ *     PsGetIoPriorityThread @ 0x140376E50 (PsGetIoPriorityThread.c)
+ *     ?KiAbpApplyTargetPriority@AutoBoost@@YAKPEAU_KTHREAD@@PEAU_AB_THREAD_ENTRY@1@U_AB_PRIORITY@1@PEAU_AB_BOOST_CONTEXT@1@PEAT_AB_IO_BOOST@1@@Z @ 0x140377280 (-KiAbpApplyTargetPriority@AutoBoost@@YAKPEAU_KTHREAD@@PEAU_AB_THREAD_ENTRY@1@U_AB_PRIORITY@1@PEA.c)
+ *     ?KiAbpOwnerComputeCpuPriorityKey@AutoBoost@@YACPEAU_AB_THREAD_ENTRY@1@@Z @ 0x140377770 (-KiAbpOwnerComputeCpuPriorityKey@AutoBoost@@YACPEAU_AB_THREAD_ENTRY@1@@Z.c)
+ *     ?KiAbpProcessEntryAddToTree@AutoBoost@@YAXPEAU_AB_THREAD_ENTRY@1@@Z @ 0x140378250 (-KiAbpProcessEntryAddToTree@AutoBoost@@YAXPEAU_AB_THREAD_ENTRY@1@@Z.c)
+ *     RtlRbInsertNodeEx @ 0x140379260 (RtlRbInsertNodeEx.c)
+ *     RtlRbRemoveNode @ 0x140379A10 (RtlRbRemoveNode.c)
  */
 
 void __fastcall AutoBoost::KiAbpProcessEntry(
@@ -39,7 +39,7 @@ void __fastcall AutoBoost::KiAbpProcessEntry(
   unsigned int v18; // edi
   int v19; // ecx
   __int64 v20; // rdx
-  unsigned __int8 v21; // al
+  BOOLEAN v21; // al
   __int64 v22; // rax
   __int64 v23; // rax
   int v24; // edx
@@ -48,9 +48,9 @@ void __fastcall AutoBoost::KiAbpProcessEntry(
   __int64 v27; // rax
   volatile signed __int64 *v28; // rcx
   char v29; // si
-  __int64 v30; // r8
-  __int64 v31; // rcx
-  __int64 v32; // rdx
+  __int64 v30; // rcx
+  __int64 v31; // rdx
+  BOOLEAN v32; // r8
   int v33; // ecx
   __int64 v34; // rax
   __int64 v35; // rax
@@ -71,8 +71,8 @@ void __fastcall AutoBoost::KiAbpProcessEntry(
   struct AutoBoost::_AB_THREAD_ENTRY *v50; // rdx
   char v51; // al
   int v52; // esi
-  __int64 v53; // r8
-  __int64 v54; // rcx
+  __int64 v53; // rcx
+  BOOLEAN v54; // r8
   __int64 v55; // rax
   __int64 v56; // rax
   __int64 v57; // rcx
@@ -91,10 +91,7 @@ void __fastcall AutoBoost::KiAbpProcessEntry(
   v5 = 0LL;
   v67 = 0;
   if ( (v4 & 1) != 0 && (this->QuantumTarget & 2) == 0 )
-    AutoBoost::KiAbpProcessEntryAddToTree(
-      (AutoBoost *)this,
-      (struct AutoBoost::_AB_THREAD_ENTRY *)this,
-      (unsigned __int64)a3);
+    AutoBoost::KiAbpProcessEntryAddToTree((AutoBoost *)this, (struct AutoBoost::_AB_THREAD_ENTRY *)this);
   v9 = (char *)&this->QuantumTarget + 3;
   _m_prefetchw((char *)&this->QuantumTarget + 3);
   v10 = BYTE3(this->QuantumTarget);
@@ -129,7 +126,7 @@ void __fastcall AutoBoost::KiAbpProcessEntry(
   }
   v14 = *(_QWORD *)&this->Header.Lock;
   v15 = (volatile signed __int32 *)(*(_QWORD *)&this->Header.Lock + 32LL);
-  if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+  if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || PopHibernateInProgress )
   {
     if ( _interlockedbittestandset64(v15, 0LL) )
       KxWaitForSpinLockAndAcquire(v15);
@@ -148,7 +145,7 @@ void __fastcall AutoBoost::KiAbpProcessEntry(
       v29 = 30;
     if ( BYTE5(this->QuantumTarget) == v29 )
     {
-LABEL_71:
+LABEL_70:
       v36 = *(_QWORD *)(v14 + 48);
       if ( v36 )
         v37 = *(_BYTE *)(v36 + 29);
@@ -163,7 +160,7 @@ LABEL_71:
         if ( (QuantumTarget & 8) != 0 )
         {
           if ( (QuantumTarget & 0x10) != 0 )
-            goto LABEL_83;
+            goto LABEL_82;
         }
         else
         {
@@ -187,12 +184,12 @@ LABEL_71:
             v38 |= 2u;
         }
       }
-LABEL_83:
+LABEL_82:
       if ( v37 < v39 )
       {
         if ( !v38 )
         {
-LABEL_90:
+LABEL_89:
           j = *(_QWORD *)(v14 + 48);
           while ( j )
           {
@@ -264,63 +261,66 @@ LABEL_90:
           }
         }
       }
-      goto LABEL_90;
+      goto LABEL_89;
     }
-    RtlRbRemoveNode(v14 + 56, &this->Header.WaitListHead);
+    RtlRbRemoveNode((PRTL_RB_TREE)(v14 + 56), (PRTL_BALANCED_NODE)&this->Header.WaitListHead);
     BYTE5(this->QuantumTarget) = v29;
-    v31 = *(_QWORD *)(v14 + 64);
-    if ( (v31 & 1) != 0 )
+    v30 = *(_QWORD *)(v14 + 64);
+    if ( (v30 & 1) != 0 )
     {
       v62 = *(_QWORD *)(v14 + 56);
       if ( !v62 )
       {
-        v32 = 0LL;
-LABEL_147:
-        LOBYTE(v30) = 0;
-LABEL_70:
-        RtlRbInsertNodeEx(v14 + 56, v32, v30, &this->Header.WaitListHead);
-        goto LABEL_71;
+        v31 = 0LL;
+LABEL_146:
+        v32 = 0;
+LABEL_69:
+        RtlRbInsertNodeEx(
+          (PRTL_RB_TREE)(v14 + 56),
+          (PRTL_BALANCED_NODE)v31,
+          v32,
+          (PRTL_BALANCED_NODE)&this->Header.WaitListHead);
+        goto LABEL_70;
       }
-      v32 = v62 ^ (v14 + 56);
+      v31 = v62 ^ (v14 + 56);
     }
     else
     {
-      v32 = *(_QWORD *)(v14 + 56);
+      v31 = *(_QWORD *)(v14 + 56);
     }
-    LOBYTE(v30) = 0;
-    v33 = v31 & 1;
-    if ( v32 )
+    v32 = 0;
+    v33 = v30 & 1;
+    if ( v31 )
     {
-      v30 = (unsigned int)v29;
       while ( 1 )
       {
-        while ( *(char *)(v32 + 29) - (int)v30 < 0 )
+        while ( *(char *)(v31 + 29) - v29 < 0 )
         {
-          v34 = *(_QWORD *)v32;
+          v34 = *(_QWORD *)v31;
           if ( v33 )
           {
             if ( !v34 )
-              goto LABEL_147;
-            v34 ^= v32;
+              goto LABEL_146;
+            v34 ^= v31;
           }
           if ( !v34 )
-            goto LABEL_147;
-          v32 = v34;
+            goto LABEL_146;
+          v31 = v34;
         }
-        v35 = *(_QWORD *)(v32 + 8);
+        v35 = *(_QWORD *)(v31 + 8);
         if ( v33 )
         {
           if ( !v35 )
             break;
-          v35 ^= v32;
+          v35 ^= v31;
         }
         if ( !v35 )
           break;
-        v32 = v35;
+        v31 = v35;
       }
-      LOBYTE(v30) = 1;
+      v32 = 1;
     }
-    goto LABEL_70;
+    goto LABEL_69;
   }
   if ( (v16 & 2) != 0 )
   {
@@ -356,23 +356,27 @@ LABEL_40:
       if ( !v65 )
         goto LABEL_47;
       if ( !(unsigned int)AutoBoost::KiAbpApplyTargetPriority((ULONG_PTR)Object, (__int64)this, v65, (__int64)a3, &v67) )
-        goto LABEL_114;
+        goto LABEL_113;
       v51 = AutoBoost::KiAbpOwnerComputeCpuPriorityKey((AutoBoost *)this, v50);
       v52 = v51;
       if ( BYTE5(this->QuantumTarget) == v51 )
-        goto LABEL_114;
-      RtlRbRemoveNode(v14 + 40, &this->Header.WaitListHead);
+        goto LABEL_113;
+      RtlRbRemoveNode((PRTL_RB_TREE)(v14 + 40), (PRTL_BALANCED_NODE)&this->Header.WaitListHead);
       BYTE5(this->QuantumTarget) = v52;
-      v54 = *(_QWORD *)(v14 + 48);
-      if ( (v54 & 1) != 0 )
+      v53 = *(_QWORD *)(v14 + 48);
+      if ( (v53 & 1) != 0 )
       {
         v63 = *(_QWORD *)(v14 + 40);
         if ( !v63 )
         {
-          LOBYTE(v53) = 0;
+          v54 = 0;
+LABEL_112:
+          RtlRbInsertNodeEx(
+            (PRTL_RB_TREE)(v14 + 40),
+            (PRTL_BALANCED_NODE)v5,
+            v54,
+            (PRTL_BALANCED_NODE)&this->Header.WaitListHead);
 LABEL_113:
-          RtlRbInsertNodeEx(v14 + 40, v5, v53, &this->Header.WaitListHead);
-LABEL_114:
           LODWORD(v5) = v67;
           goto LABEL_47;
         }
@@ -382,7 +386,7 @@ LABEL_114:
       {
         v5 = *(_QWORD *)(v14 + 40);
       }
-      LOBYTE(v53) = 0;
+      v54 = 0;
       if ( v5 )
       {
         while ( 1 )
@@ -390,18 +394,18 @@ LABEL_114:
           while ( v52 - *(char *)(v5 + 29) < 0 )
           {
             v55 = *(_QWORD *)v5;
-            if ( (v54 & 1) != 0 )
+            if ( (v53 & 1) != 0 )
             {
               if ( !v55 )
-                goto LABEL_113;
+                goto LABEL_112;
               v55 ^= v5;
             }
             if ( !v55 )
-              goto LABEL_113;
+              goto LABEL_112;
             v5 = v55;
           }
           v56 = *(_QWORD *)(v5 + 8);
-          if ( (v54 & 1) != 0 )
+          if ( (v53 & 1) != 0 )
           {
             if ( !v56 )
               break;
@@ -411,11 +415,11 @@ LABEL_114:
             break;
           v5 = v56;
         }
-        LOBYTE(v53) = 1;
+        v54 = 1;
       }
-      goto LABEL_113;
+      goto LABEL_112;
     }
-    RtlRbRemoveNode(v14 + 40, &this->Header.WaitListHead);
+    RtlRbRemoveNode((PRTL_RB_TREE)(v14 + 40), (PRTL_BALANCED_NODE)&this->Header.WaitListHead);
     BYTE5(this->QuantumTarget) = v17;
     if ( (*(_QWORD *)(v14 + 48) & 1) != 0 )
     {
@@ -423,10 +427,14 @@ LABEL_114:
       if ( !v57 )
       {
         v20 = 0LL;
-LABEL_118:
+LABEL_117:
         v21 = 0;
 LABEL_39:
-        RtlRbInsertNodeEx(v14 + 40, v20, v21, &this->Header.WaitListHead);
+        RtlRbInsertNodeEx(
+          (PRTL_RB_TREE)(v14 + 40),
+          (PRTL_BALANCED_NODE)v20,
+          v21,
+          (PRTL_BALANCED_NODE)&this->Header.WaitListHead);
         goto LABEL_40;
       }
       v20 = v57 ^ (v14 + 40);
@@ -446,11 +454,11 @@ LABEL_39:
           if ( (*(_QWORD *)(v14 + 48) & 1) != 0 )
           {
             if ( !v22 )
-              goto LABEL_118;
+              goto LABEL_117;
             v22 ^= v20;
           }
           if ( !v22 )
-            goto LABEL_118;
+            goto LABEL_117;
           v20 = v22;
         }
         v23 = *(_QWORD *)(v20 + 8);
@@ -470,7 +478,7 @@ LABEL_39:
   }
 LABEL_47:
   v28 = (volatile signed __int64 *)(v14 + 32);
-  if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+  if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || PopHibernateInProgress )
     _InterlockedAnd64(v28, 0LL);
   else
     KiReleaseSpinLockInstrumented(v28, retaddr);

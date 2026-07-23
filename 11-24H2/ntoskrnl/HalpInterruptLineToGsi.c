@@ -1,11 +1,11 @@
 /*
- * XREFs of HalpInterruptLineToGsi @ 0x1403BAFE0
+ * XREFs of HalpInterruptLineToGsi @ 0x14049A1F8
  * Callers:
- *     HalpInterruptConnect @ 0x140540AD8 (HalpInterruptConnect.c)
- *     HalpTimerConfigureInterrupt @ 0x140547380 (HalpTimerConfigureInterrupt.c)
- *     HalpTimerUnmapInterrupt @ 0x140548A10 (HalpTimerUnmapInterrupt.c)
+ *     HalpInterruptConnect @ 0x14053E3D8 (HalpInterruptConnect.c)
+ *     HalpTimerConfigureInterrupt @ 0x140544C40 (HalpTimerConfigureInterrupt.c)
+ *     HalpTimerUnmapInterrupt @ 0x1405462D0 (HalpTimerUnmapInterrupt.c)
  * Callees:
- *     HalpInterruptLookupController @ 0x1403B9D14 (HalpInterruptLookupController.c)
+ *     HalpInterruptLookupController @ 0x1403726E4 (HalpInterruptLookupController.c)
  */
 
 __int64 __fastcall HalpInterruptLineToGsi(int *a1, _DWORD *a2)

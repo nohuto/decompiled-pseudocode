@@ -1,8 +1,8 @@
 /*
- * XREFs of ObpFilterOperation @ 0x1400D1714
+ * XREFs of ObpFilterOperation @ 0x1400CF5B4
  * Callers:
- *     ObCompleteObjectDuplication @ 0x1404CBC54 (ObCompleteObjectDuplication.c)
- *     ObDuplicateObject @ 0x14050CBB0 (ObDuplicateObject.c)
+ *     ObCompleteObjectDuplication @ 0x1404B1680 (ObCompleteObjectDuplication.c)
+ *     ObDuplicateObject @ 0x1404EFB40 (ObDuplicateObject.c)
  * Callees:
  *     <none>
  */

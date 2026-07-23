@@ -1,24 +1,24 @@
 /*
- * XREFs of MiMapNewSession @ 0x140715F38
+ * XREFs of MiMapNewSession @ 0x1407171D8
  * Callers:
- *     MiSessionCreateInternal @ 0x140715C68 (MiSessionCreateInternal.c)
+ *     MiSessionCreateInternal @ 0x140716F08 (MiSessionCreateInternal.c)
  * Callees:
  *     MiInitializePfnForOtherProcess @ 0x140026C2C (MiInitializePfnForOtherProcess.c)
  *     MiInitializePageColorBase @ 0x14002C4C0 (MiInitializePageColorBase.c)
  *     MiGetNextPageColor @ 0x140031260 (MiGetNextPageColor.c)
  *     MiPteInShadowRange @ 0x14003D740 (MiPteInShadowRange.c)
  *     MiMakeValidPte @ 0x14003D7F0 (MiMakeValidPte.c)
- *     MiSetPfnLink @ 0x140065CA4 (MiSetPfnLink.c)
- *     MiGetPteAddress @ 0x140065DE8 (MiGetPteAddress.c)
- *     MiGetSystemPage @ 0x1400935E4 (MiGetSystemPage.c)
- *     MiFillPteHierarchy @ 0x1400990E0 (MiFillPteHierarchy.c)
- *     MiGetPfnLink @ 0x1400E1060 (MiGetPfnLink.c)
- *     MiInitializePfn @ 0x140109430 (MiInitializePfn.c)
- *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
- *     MiPartitionIdToPointer @ 0x140134CE8 (MiPartitionIdToPointer.c)
- *     MiSetPageTablePfnBuddy @ 0x14013D9A8 (MiSetPageTablePfnBuddy.c)
- *     MiWriteTopLevelPxe @ 0x140170950 (MiWriteTopLevelPxe.c)
+ *     MiSetPfnLink @ 0x140065C94 (MiSetPfnLink.c)
+ *     MiGetPteAddress @ 0x140065DD8 (MiGetPteAddress.c)
+ *     MiGetSystemPage @ 0x140093524 (MiGetSystemPage.c)
+ *     MiFillPteHierarchy @ 0x140099020 (MiFillPteHierarchy.c)
+ *     MiGetPfnLink @ 0x1400E10E0 (MiGetPfnLink.c)
+ *     MiInitializePfn @ 0x1401094B0 (MiInitializePfn.c)
+ *     MiWritePteShadow @ 0x140120F40 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120FA0 (MiPteHasShadow.c)
+ *     MiPartitionIdToPointer @ 0x140134DB8 (MiPartitionIdToPointer.c)
+ *     MiSetPageTablePfnBuddy @ 0x14013DAA8 (MiSetPageTablePfnBuddy.c)
+ *     MiWriteTopLevelPxe @ 0x140170A50 (MiWriteTopLevelPxe.c)
  */
 
 __int64 __fastcall MiMapNewSession(unsigned __int64 a1, unsigned __int16 a2)
@@ -68,7 +68,7 @@ __int64 __fastcall MiMapNewSession(unsigned __int64 a1, unsigned __int16 a2)
     --v5;
   }
   while ( v5 );
-  MiFillPteHierarchy(qword_140439FC0, v33);
+  MiFillPteHierarchy(qword_14043B080, v33);
   v8 = 2560;
   v9 = 4LL;
   v10 = 0xFFFFFFFFFLL;
@@ -81,7 +81,7 @@ __int64 __fastcall MiMapNewSession(unsigned __int64 a1, unsigned __int16 a2)
     v4 = PfnLink;
     if ( v9 == 3 )
     {
-      *(_QWORD *)(v12 + 8) = MiGetPteAddress(qword_140439FC0);
+      *(_QWORD *)(v12 + 8) = MiGetPteAddress(qword_14043B080);
       MiSetPageTablePfnBuddy(v12, a1, 0);
     }
     v15 = (__int64)((unsigned __int128)((v12 + 0x58000000000LL) * (__int128)0x2AAAAAAAAAAAAAABLL) >> 64) >> 3;
@@ -97,7 +97,7 @@ __int64 __fastcall MiMapNewSession(unsigned __int64 a1, unsigned __int16 a2)
       if ( (unsigned int)MiPteHasShadow() )
       {
         v19 = 1;
-        if ( HIBYTE(word_14043A1AC) )
+        if ( HIBYTE(word_14043B26C) )
           goto LABEL_8;
         v30 = (v18 & 1) == 0;
       }
@@ -122,7 +122,7 @@ LABEL_10:
   while ( v9 != 1 );
   ValidPte = MiMakeValidPte(PteAddress, 0LL, -1610612732);
   v21 = 0;
-  v22 = (_QWORD *)MiGetPteAddress(qword_140439FC0);
+  v22 = (_QWORD *)MiGetPteAddress(qword_14043B080);
   v23 = PteAddress - (_QWORD)v22;
   while ( 2 )
   {
@@ -130,14 +130,14 @@ LABEL_10:
     v4 = MiGetPfnLink(v4);
     if ( v21 >= 3 )
       goto LABEL_16;
-    *(_QWORD *)(v24 + 8) = MiGetPteAddress(qword_140439FC0);
+    *(_QWORD *)(v24 + 8) = MiGetPteAddress(qword_14043B080);
     MiSetPageTablePfnBuddy(v24, a1, 0);
     if ( MiPteInShadowRange((unsigned __int64)v22 + v23) )
     {
       if ( (unsigned int)MiPteHasShadow() )
       {
         v27 = 1;
-        if ( HIBYTE(word_14043A1AC) )
+        if ( HIBYTE(word_14043B26C) )
           goto LABEL_14;
         v31 = (ValidPte & 1) == 0;
       }
@@ -170,7 +170,7 @@ LABEL_17:
       *v22 = v28;
       goto LABEL_18;
     }
-    if ( !HIBYTE(word_14043A1AC) && (v28 & 1) != 0 )
+    if ( !HIBYTE(word_14043B26C) && (v28 & 1) != 0 )
       v28 |= 0x8000000000000000uLL;
     *v22 = v28;
     MiWritePteShadow((__int64)v22, v28);

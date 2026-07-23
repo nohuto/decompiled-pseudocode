@@ -1,9 +1,9 @@
 /*
- * XREFs of DrvDbGetDriverDatabaseCompositeMappedPropertyKeys @ 0x140821B2C
+ * XREFs of DrvDbGetDriverDatabaseCompositeMappedPropertyKeys @ 0x14082226C
  * Callers:
- *     DrvDbGetDriverDatabaseMappedPropertyKeys @ 0x140821C3C (DrvDbGetDriverDatabaseMappedPropertyKeys.c)
+ *     DrvDbGetDriverDatabaseMappedPropertyKeys @ 0x14082237C (DrvDbGetDriverDatabaseMappedPropertyKeys.c)
  * Callees:
- *     DrvDbGetDriverDatabaseMappedProperty @ 0x140922D68 (DrvDbGetDriverDatabaseMappedProperty.c)
+ *     DrvDbGetDriverDatabaseMappedProperty @ 0x140924EA0 (DrvDbGetDriverDatabaseMappedProperty.c)
  */
 
 __int64 __fastcall DrvDbGetDriverDatabaseCompositeMappedPropertyKeys(
@@ -36,7 +36,7 @@ __int64 __fastcall DrvDbGetDriverDatabaseCompositeMappedPropertyKeys(
   v12 = a6;
   for ( i = 0LL; (unsigned int)i < 8; i = (unsigned int)(i + 1) )
   {
-    result = DrvDbGetDriverDatabaseMappedProperty(a1, a2, a3, off_140E0A3C0[i], &v19, 0LL, 0, &a5);
+    result = DrvDbGetDriverDatabaseMappedProperty(a1, a2, a3, off_140E0A430[i], &v19, 0LL, 0, &a5);
     if ( (_DWORD)result != -1073741772 )
     {
       if ( (_DWORD)result && (_DWORD)result != -1073741789 )
@@ -47,7 +47,7 @@ __int64 __fastcall DrvDbGetDriverDatabaseCompositeMappedPropertyKeys(
         {
           v16 = 5 * v10;
           v10 = (unsigned int)(v10 + 1);
-          v17 = off_140E0A3C0[i];
+          v17 = off_140E0A430[i];
           *(_OWORD *)(v12 + 4 * v16) = *(_OWORD *)v17;
           *(_DWORD *)(v12 + 4 * v16 + 16) = *(_DWORD *)(v17 + 16);
         }

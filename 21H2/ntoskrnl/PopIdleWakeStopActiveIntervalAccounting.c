@@ -1,13 +1,13 @@
 /*
- * XREFs of PopIdleWakeStopActiveIntervalAccounting @ 0x14057BE14
+ * XREFs of PopIdleWakeStopActiveIntervalAccounting @ 0x14057C054
  * Callers:
- *     PopIdleWakeNotifyModernStandbyExit @ 0x14057BA10 (PopIdleWakeNotifyModernStandbyExit.c)
- *     PopIdleWakeNotifyWakeSource @ 0x14057BD20 (PopIdleWakeNotifyWakeSource.c)
+ *     PopIdleWakeNotifyModernStandbyExit @ 0x14057BC50 (PopIdleWakeNotifyModernStandbyExit.c)
+ *     PopIdleWakeNotifyWakeSource @ 0x14057BF60 (PopIdleWakeNotifyWakeSource.c)
  * Callees:
- *     KeAddProcessorAffinityEx @ 0x140229380 (KeAddProcessorAffinityEx.c)
- *     memset @ 0x140414200 (memset.c)
- *     PopIdleWakeFindOrAllocateWakeSource @ 0x14057B4EC (PopIdleWakeFindOrAllocateWakeSource.c)
- *     PopIdleWakeInsertTimeInterval @ 0x14057B620 (PopIdleWakeInsertTimeInterval.c)
+ *     KeAddProcessorAffinityEx @ 0x1402CDC80 (KeAddProcessorAffinityEx.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     PopIdleWakeFindOrAllocateWakeSource @ 0x14057B72C (PopIdleWakeFindOrAllocateWakeSource.c)
+ *     PopIdleWakeInsertTimeInterval @ 0x14057B860 (PopIdleWakeInsertTimeInterval.c)
  */
 
 __int64 __fastcall PopIdleWakeStopActiveIntervalAccounting(unsigned int *a1, __int64 a2)

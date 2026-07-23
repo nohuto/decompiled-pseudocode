@@ -31,20 +31,20 @@ __int64 __fastcall CmpBuildAdminInformation(_QWORD *a1, __int64 *a2)
   ULONG v13; // ebx
   __int64 v14; // rdx
   __int64 v15; // r13
-  struct _SID_AND_ATTRIBUTES *v16; // r15
+  _SID_AND_ATTRIBUTES *v16; // r15
   unsigned int v17; // r13d
   int v18; // r8d
   unsigned int v19; // eax
   size_t v20; // rdi
   char *TransientPoolWithTag; // rax
   char *v22; // r15
-  unsigned int *v23; // rdi
+  ULONG *v23; // rdi
   ULONG v24; // edx
   __int64 v25; // rbx
   ULONG v26; // ecx
   PSID RemainingSidArea; // [rsp+40h] [rbp-30h] BYREF
   PSID Sid2; // [rsp+48h] [rbp-28h]
-  struct _SID_AND_ATTRIBUTES Src[2]; // [rsp+50h] [rbp-20h] BYREF
+  _SID_AND_ATTRIBUTES Src[2]; // [rsp+50h] [rbp-20h] BYREF
   PVOID TokenInformation; // [rsp+C0h] [rbp+50h] BYREF
   NTSTATUS v33; // [rsp+C8h] [rbp+58h]
 
@@ -121,7 +121,7 @@ __int64 __fastcall CmpBuildAdminInformation(_QWORD *a1, __int64 *a2)
     if ( TransientPoolWithTag )
     {
       memset(TransientPoolWithTag, 0, v20);
-      v23 = (unsigned int *)(v22 + 88);
+      v23 = (ULONG *)(v22 + 88);
       *((_QWORD *)v22 + 3) = v4[3];
       *((_DWORD *)v22 + 8) = *((_DWORD *)v4 + 8);
       *((_DWORD *)v22 + 9) = *((_DWORD *)v4 + 9);
@@ -151,7 +151,7 @@ __int64 __fastcall CmpBuildAdminInformation(_QWORD *a1, __int64 *a2)
           RemainingSidArea,
           &RemainingSidArea,
           (PULONG)&TokenInformation);
-      RtlSidHashInitialize(*((__int64 **)v22 + 12), *v23, (_QWORD *)v22 + 11);
+      RtlSidHashInitialize(*((PSID_AND_ATTRIBUTES *)v22 + 12), *v23, (PSID_AND_ATTRIBUTES_HASH)(v22 + 88));
       *(_QWORD *)v22 = v23;
       v25 = *((_QWORD *)v22 + 12) + v17;
       *(_DWORD *)v25 = 0;

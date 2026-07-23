@@ -1,10 +1,10 @@
 /*
- * XREFs of InbvPortInitialize @ 0x1406795FC
+ * XREFs of InbvPortInitialize @ 0x140679B4C
  * Callers:
  *     HdlspEnableTerminal @ 0x140AEA5C4 (HdlspEnableTerminal.c)
  * Callees:
- *     MmMapIoSpaceEx @ 0x1403359B0 (MmMapIoSpaceEx.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
+ *     MmMapIoSpaceEx @ 0x140335C40 (MmMapIoSpaceEx.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
  */
 
 char __fastcall InbvPortInitialize(
@@ -74,7 +74,7 @@ LABEL_12:
   if ( a1 )
     v18 = a1;
   LOBYTE(a4) = v10;
-  dword_140D1C278[10 * v14] = v18;
+  dword_140D1C268[10 * v14] = v18;
   LOBYTE(v11) = v16;
   v19 = (__int64 (__fastcall **)(_QWORD, char *, __int64, _DWORD *, char))UartHardwareDriver;
   *v12 = v14;

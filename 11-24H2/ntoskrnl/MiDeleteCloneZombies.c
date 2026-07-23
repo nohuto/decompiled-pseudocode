@@ -1,15 +1,15 @@
 /*
- * XREFs of MiDeleteCloneZombies @ 0x14048F544
+ * XREFs of MiDeleteCloneZombies @ 0x140489754
  * Callers:
- *     MiCloneVads @ 0x1402C4DAC (MiCloneVads.c)
- *     MiInsertClone @ 0x1404CA408 (MiInsertClone.c)
- *     MiDeleteInsertedCloneVads @ 0x140800264 (MiDeleteInsertedCloneVads.c)
- *     MmCleanProcessAddressSpace @ 0x140A06E44 (MmCleanProcessAddressSpace.c)
+ *     MiCloneVads @ 0x140268194 (MiCloneVads.c)
+ *     MiInsertClone @ 0x1404C392C (MiInsertClone.c)
+ *     MiDeleteInsertedCloneVads @ 0x1408009A4 (MiDeleteInsertedCloneVads.c)
+ *     MmCleanProcessAddressSpace @ 0x140A03374 (MmCleanProcessAddressSpace.c)
  * Callees:
- *     MiLockWorkingSetExclusive @ 0x14020D480 (MiLockWorkingSetExclusive.c)
- *     MiUnlockWorkingSetExclusive @ 0x140218550 (MiUnlockWorkingSetExclusive.c)
- *     MiDeleteDeferredCloneDescriptors @ 0x1404CF22C (MiDeleteDeferredCloneDescriptors.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     MiUnlockWorkingSetExclusive @ 0x140243400 (MiUnlockWorkingSetExclusive.c)
+ *     MiLockWorkingSetExclusive @ 0x1403367E0 (MiLockWorkingSetExclusive.c)
+ *     MiDeleteDeferredCloneDescriptors @ 0x1404C83F8 (MiDeleteDeferredCloneDescriptors.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __fastcall MiDeleteCloneZombies(__int64 a1, int a2)

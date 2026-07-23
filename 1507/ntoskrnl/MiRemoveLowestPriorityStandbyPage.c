@@ -276,7 +276,7 @@ LABEL_61:
   {
     v25 = v6 & 0x1F;
     LOBYTE(v26) = 1;
-    v11 = (volatile signed __int32 *)(*(_QWORD *)(qword_14034F160 + 8) + 4 * (v6 >> 5));
+    v11 = (volatile signed __int32 *)qword_14034F160->Buffer + (v6 >> 5);
     if ( v25 + 1 <= 0x20 )
     {
       v27 = 1 << v25;

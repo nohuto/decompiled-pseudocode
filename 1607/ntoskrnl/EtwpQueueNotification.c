@@ -1,20 +1,20 @@
 /*
- * XREFs of EtwpQueueNotification @ 0x140490BB0
+ * XREFs of EtwpQueueNotification @ 0x140491640
  * Callers:
- *     EtwpSendDataBlock @ 0x140490A2C (EtwpSendDataBlock.c)
+ *     EtwpSendDataBlock @ 0x1404914BC (EtwpSendDataBlock.c)
  * Callees:
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x140055FA0 (KiLeaveCriticalRegionUnsafe.c)
- *     KeSetEvent @ 0x1400562D0 (KeSetEvent.c)
- *     ObfReferenceObject @ 0x14006A060 (ObfReferenceObject.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1400C8070 (ExfAcquirePushLockExclusiveEx.c)
- *     ExfReleasePushLock @ 0x1400C8620 (ExfReleasePushLock.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140055B20 (KiLeaveCriticalRegionUnsafe.c)
+ *     KeSetEvent @ 0x140055E50 (KeSetEvent.c)
+ *     ObfReferenceObject @ 0x140069BE0 (ObfReferenceObject.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1400C5F10 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfReleasePushLock @ 0x1400C64C0 (ExfReleasePushLock.c)
+ *     memset @ 0x140171AC0 (memset.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     EtwpReleaseQueueEntry @ 0x14048E35C (EtwpReleaseQueueEntry.c)
- *     EtwpAddDataSource @ 0x140490E70 (EtwpAddDataSource.c)
- *     PsChargeProcessWakeCounter @ 0x14051E1B0 (PsChargeProcessWakeCounter.c)
+ *     EtwpReleaseQueueEntry @ 0x14048EDEC (EtwpReleaseQueueEntry.c)
+ *     EtwpAddDataSource @ 0x140491900 (EtwpAddDataSource.c)
+ *     PsChargeProcessWakeCounter @ 0x140501218 (PsChargeProcessWakeCounter.c)
  */
 
 __int64 __fastcall EtwpQueueNotification(__int64 a1, __int64 a2, __int64 a3)

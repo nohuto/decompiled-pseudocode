@@ -1,12 +1,12 @@
 /*
- * XREFs of PpmPerfRecordUtility @ 0x1401024B0
+ * XREFs of PpmPerfRecordUtility @ 0x140102530
  * Callers:
- *     PpmCheckRecordAllUtility @ 0x140102400 (PpmCheckRecordAllUtility.c)
+ *     PpmCheckRecordAllUtility @ 0x140102480 (PpmCheckRecordAllUtility.c)
  * Callees:
  *     EtwpLevelKeywordEnabled @ 0x14005B930 (EtwpLevelKeywordEnabled.c)
- *     EtwWriteEx @ 0x1400CAD60 (EtwWriteEx.c)
- *     PpmPerfResetHistory @ 0x14018A368 (PpmPerfResetHistory.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     EtwWriteEx @ 0x1400CAE40 (EtwWriteEx.c)
+ *     PpmPerfResetHistory @ 0x14018A4A8 (PpmPerfResetHistory.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
  */
 
 __int64 __fastcall PpmPerfRecordUtility(__int64 a1)

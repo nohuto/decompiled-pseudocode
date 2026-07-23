@@ -27,9 +27,9 @@ NTSTATUS __stdcall KeQueryLogicalProcessorRelationship(
   __int64 v14; // rdi
   __int64 v15; // rdx
   LOGICAL_PROCESSOR_RELATIONSHIP v16; // r14d
-  ULONG v17; // edi
+  DWORD v17; // edi
   int v18; // r8d
-  ULONG v19; // r9d
+  DWORD v19; // r9d
   __int64 v20; // rcx
   unsigned __int64 v21; // r10
   unsigned __int16 v22; // r11
@@ -73,7 +73,7 @@ NTSTATUS __stdcall KeQueryLogicalProcessorRelationship(
   __int64 v61; // rcx
   __int64 v62; // r9
   __int64 v63; // rax
-  USHORT v64; // cx
+  WORD v64; // cx
   _QWORD *v65; // rax
   __int64 v66; // rax
   GROUP_AFFINITY *GroupMask; // rcx
@@ -342,7 +342,7 @@ LABEL_3:
             v9->Processor.Flags = *(_QWORD *)(v14 + 1608) != v53;
             v9->Relationship = RelationProcessorCore;
             v9->Size = 48;
-            v9->Processor.Reserved[0] = *(_BYTE *)(v14 + 23858);
+            v9->Processor.EfficiencyClass = *(_BYTE *)(v14 + 23858);
             v9->Processor.GroupCount = 1;
             *(_QWORD *)((char *)&v9->NumaNode.NodeNumber + 2) = 0LL;
             *(_QWORD *)&v9->Group.Reserved[6] = 0LL;
@@ -393,7 +393,7 @@ LABEL_3:
               v9->Relationship = RelationCache;
               v9->Size = 56;
               v9->Processor.Flags = *(_BYTE *)(v14 + 12LL * v24 + 24448);
-              v9->Processor.Reserved[0] = *(_BYTE *)(v14 + 12LL * v24 + 24449);
+              v9->Processor.EfficiencyClass = *(_BYTE *)(v14 + 12LL * v24 + 24449);
               v9->Cache.LineSize = *(_WORD *)(v14 + 12LL * v24 + 24450);
               v9->Cache.CacheSize = *(_DWORD *)(v14 + 12LL * v24 + 24452);
               v9->Cache.Type = *(_DWORD *)(v14 + 12LL * v24 + 24456);

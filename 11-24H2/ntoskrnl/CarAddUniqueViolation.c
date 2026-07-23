@@ -1,16 +1,16 @@
 /*
- * XREFs of CarAddUniqueViolation @ 0x14061907C
+ * XREFs of CarAddUniqueViolation @ 0x14061763C
  * Callers:
- *     CarHandleEtwEvent @ 0x140615FAC (CarHandleEtwEvent.c)
+ *     CarHandleEtwEvent @ 0x14061456C (CarHandleEtwEvent.c)
  * Callees:
- *     RtlInsertElementGenericTableAvl @ 0x1403F03D0 (RtlInsertElementGenericTableAvl.c)
- *     ViPtRaiseIrqlSafe @ 0x14061195C (ViPtRaiseIrqlSafe.c)
- *     CarAcquireDbLockAtDpcLevelSafe @ 0x140618FFC (CarAcquireDbLockAtDpcLevelSafe.c)
- *     CarCleanDbLockContext @ 0x1406192D4 (CarCleanDbLockContext.c)
- *     CarReleaseDbLockFromDpcLevel @ 0x1406195CC (CarReleaseDbLockFromDpcLevel.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     RtlInsertElementGenericTableAvl @ 0x1403E40F0 (RtlInsertElementGenericTableAvl.c)
+ *     ViPtRaiseIrqlSafe @ 0x14060FF1C (ViPtRaiseIrqlSafe.c)
+ *     CarAcquireDbLockAtDpcLevelSafe @ 0x1406175BC (CarAcquireDbLockAtDpcLevelSafe.c)
+ *     CarCleanDbLockContext @ 0x140617894 (CarCleanDbLockContext.c)
+ *     CarReleaseDbLockFromDpcLevel @ 0x140617B8C (CarReleaseDbLockFromDpcLevel.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall CarAddUniqueViolation(
@@ -80,7 +80,7 @@ __int64 __fastcall CarAddUniqueViolation(
       *v12 = inserted[5];
       if ( v17 && v15 )
       {
-        Pool2 = ExAllocatePool2(0x40uLL);
+        Pool2 = ExAllocatePool2(0x40uLL, 0x68uLL, 0x4E726143u);
         *((_QWORD *)v16 + 3) = Pool2;
         if ( Pool2 )
         {
@@ -92,7 +92,7 @@ __int64 __fastcall CarAddUniqueViolation(
           do
             ++v19;
           while ( v10[v19] );
-          v20 = (void *)ExAllocatePool2(0x40uLL);
+          v20 = (void *)ExAllocatePool2(0x40uLL, (unsigned int)(v19 + 1), 0x4E726143u);
           v21 = v20;
           if ( v20 )
           {

@@ -4,7 +4,7 @@
  *     _vsnprintf_s @ 0x1800A1330 (_vsnprintf_s.c)
  *     vsprintf_s @ 0x1800A1E50 (vsprintf_s.c)
  * Callees:
- *     _invalid_parameter @ 0x180096B68 (_invalid_parameter.c)
+ *     _invalid_parameter @ 0x180096B58 (_invalid_parameter.c)
  *     _output_s @ 0x1800A2874 (_output_s.c)
  *     _flsbuf @ 0x1800A5A68 (_flsbuf.c)
  */

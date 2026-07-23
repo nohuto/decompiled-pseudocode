@@ -1,17 +1,22 @@
 /*
- * XREFs of DifNtCreateDirectoryObjectExWrapper @ 0x140670290
+ * XREFs of DifNtCreateDirectoryObjectExWrapper @ 0x140673E70
  * Callers:
  *     <none>
  * Callees:
- *     DifGetReturnAddressForWrappers @ 0x140260EA4 (DifGetReturnAddressForWrappers.c)
- *     ExReleaseRundownProtection_0 @ 0x140266240 (ExReleaseRundownProtection_0.c)
- *     ExAcquireRundownProtection_0 @ 0x1402F0590 (ExAcquireRundownProtection_0.c)
- *     DifGetAPIThunkContextById @ 0x1404C17A4 (DifGetAPIThunkContextById.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     NtCreateDirectoryObjectEx @ 0x140AF9E50 (NtCreateDirectoryObjectEx.c)
+ *     DifGetReturnAddressForWrappers @ 0x14026040C (DifGetReturnAddressForWrappers.c)
+ *     ExReleaseRundownProtection_0 @ 0x1402657B0 (ExReleaseRundownProtection_0.c)
+ *     ExAcquireRundownProtection_0 @ 0x1402D2610 (ExAcquireRundownProtection_0.c)
+ *     DifGetAPIThunkContextById @ 0x1404BAFF4 (DifGetAPIThunkContextById.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     NtCreateDirectoryObjectEx @ 0x140AFC2E0 (NtCreateDirectoryObjectEx.c)
  */
 
-__int64 __fastcall DifNtCreateDirectoryObjectExWrapper(__int64 a1, int a2, __int64 a3, __int64 a4, int a5)
+__int64 __fastcall DifNtCreateDirectoryObjectExWrapper(
+        HANDLE *a1,
+        ACCESS_MASK a2,
+        OBJECT_ATTRIBUTES *a3,
+        void *a4,
+        ULONG Flags)
 {
   __int128 *APIThunkContextById; // rax
   __int64 v9; // rdx
@@ -47,7 +52,7 @@ __int64 __fastcall DifNtCreateDirectoryObjectExWrapper(__int64 a1, int a2, __int
     }
     v12 = 0;
     *((_QWORD *)&v20 + 1) = a1;
-    DWORD2(v18) = a5;
+    DWORD2(v18) = Flags;
     LODWORD(v20) = a2;
     *((_QWORD *)&v19 + 1) = a3;
     *(_QWORD *)&v19 = a4;
@@ -63,7 +68,7 @@ __int64 __fastcall DifNtCreateDirectoryObjectExWrapper(__int64 a1, int a2, __int
         ExReleaseRundownProtection_0(&DifRebootlessRundown);
     }
   }
-  LODWORD(v21) = NtCreateDirectoryObjectEx(a1, a2, a3, a4, a5);
+  LODWORD(v21) = NtCreateDirectoryObjectEx(a1, a2, a3, a4, Flags);
   if ( v10 )
   {
     if ( (v15 = 0, !VfDifRunningWithoutReboot) && (VfOptionFlags & 0x800) == 0

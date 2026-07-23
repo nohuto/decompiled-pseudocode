@@ -61,10 +61,13 @@ BOOLEAN __stdcall FsRtlFastCheckLockForRead(
     && (PVOID)LastLock[4] == ProcessId )
   {
     KxReleaseSpinLock(LockInformation + 3);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v13 <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+        && CurrentIrql <= 0xFu
+        && (unsigned __int8)v13 <= 0xFu
+        && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -88,10 +91,10 @@ BOOLEAN __stdcall FsRtlFastCheckLockForRead(
     v16 = LockInformation + 3;
     v17 = v15;
     KxReleaseSpinLock(v16);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v23 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v23 <= 0xFu && (unsigned __int8)v13 <= 0xFu && v23 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v23 <= 0xFu && (unsigned __int8)v13 <= 0xFu && v23 >= 2u )
       {
         v24 = KeGetCurrentPrcb();
         v25 = v24->SchedulerAssist;

@@ -1,28 +1,28 @@
 /*
- * XREFs of EtwpCovSampCaptureContextStart @ 0x1407B1F9C
+ * XREFs of EtwpCovSampCaptureContextStart @ 0x1407B23EC
  * Callers:
- *     EtwpCoverageSamplerStart @ 0x1407B2D48 (EtwpCoverageSamplerStart.c)
+ *     EtwpCoverageSamplerStart @ 0x1407B3198 (EtwpCoverageSamplerStart.c)
  * Callees:
- *     KeQueryMaximumProcessorCountEx @ 0x14033E440 (KeQueryMaximumProcessorCountEx.c)
- *     KeInitializeEvent @ 0x140409D80 (KeInitializeEvent.c)
- *     ExGenRandom @ 0x14041A540 (ExGenRandom.c)
- *     KeInitializeDpc @ 0x140455470 (KeInitializeDpc.c)
- *     InitializeSListHead @ 0x14045FE80 (InitializeSListHead.c)
- *     ExSaAllocate @ 0x14047B8B4 (ExSaAllocate.c)
- *     KeSetBasePriorityThread @ 0x1404E7260 (KeSetBasePriorityThread.c)
- *     EtwpCovSampLookasideGrow @ 0x1404EF6CC (EtwpCovSampLookasideGrow.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ZwSetInformationThread @ 0x1406A65B0 (ZwSetInformationThread.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     EtwpCovSampLookasideControlInitialize @ 0x1407B2624 (EtwpCovSampLookasideControlInitialize.c)
- *     EtwpCovSampLookasideInitialize @ 0x1407B26B8 (EtwpCovSampLookasideInitialize.c)
- *     EtwpCovSampStackHashTableAlloc @ 0x1407B283C (EtwpCovSampStackHashTableAlloc.c)
- *     EtwpCovSampStrideSamplerInitialize @ 0x1407B28D8 (EtwpCovSampStrideSamplerInitialize.c)
- *     ObReferenceObjectByHandle @ 0x14084AF40 (ObReferenceObjectByHandle.c)
- *     ObCloseHandle @ 0x1408A2B10 (ObCloseHandle.c)
- *     PsCreateSystemThreadEx @ 0x140A224A0 (PsCreateSystemThreadEx.c)
- *     EtwpCovSampCaptureFreeLookasides @ 0x140AB6D0C (EtwpCovSampCaptureFreeLookasides.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     ExSaAllocate @ 0x14026E1D4 (ExSaAllocate.c)
+ *     KeQueryMaximumProcessorCountEx @ 0x14031D920 (KeQueryMaximumProcessorCountEx.c)
+ *     KeInitializeEvent @ 0x140402260 (KeInitializeEvent.c)
+ *     ExGenRandom @ 0x14040A540 (ExGenRandom.c)
+ *     KeInitializeDpc @ 0x14044A220 (KeInitializeDpc.c)
+ *     InitializeSListHead @ 0x140454D40 (InitializeSListHead.c)
+ *     KeSetBasePriorityThread @ 0x1404DDF20 (KeSetBasePriorityThread.c)
+ *     EtwpCovSampLookasideGrow @ 0x1404ED000 (EtwpCovSampLookasideGrow.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ZwSetInformationThread @ 0x1406A7550 (ZwSetInformationThread.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     EtwpCovSampLookasideControlInitialize @ 0x1407B2A74 (EtwpCovSampLookasideControlInitialize.c)
+ *     EtwpCovSampLookasideInitialize @ 0x1407B2B08 (EtwpCovSampLookasideInitialize.c)
+ *     EtwpCovSampStackHashTableAlloc @ 0x1407B2C8C (EtwpCovSampStackHashTableAlloc.c)
+ *     EtwpCovSampStrideSamplerInitialize @ 0x1407B2D28 (EtwpCovSampStrideSamplerInitialize.c)
+ *     ObReferenceObjectByHandle @ 0x140847200 (ObReferenceObjectByHandle.c)
+ *     ObCloseHandle @ 0x1408AB1B0 (ObCloseHandle.c)
+ *     PsCreateSystemThreadEx @ 0x1408F8C50 (PsCreateSystemThreadEx.c)
+ *     EtwpCovSampCaptureFreeLookasides @ 0x140AB0FE4 (EtwpCovSampCaptureFreeLookasides.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall EtwpCovSampCaptureContextStart(_DWORD *a1)
@@ -31,34 +31,35 @@ __int64 __fastcall EtwpCovSampCaptureContextStart(_DWORD *a1)
   PVOID *Pool2; // rax
   int v4; // ebx
   volatile __int32 **v5; // r12
-  PVOID v6; // rax
-  __int64 *v7; // r14
-  __int64 v8; // rax
-  int v9; // ebx
+  __int64 v6; // rdx
+  __int64 v7; // r8
+  __int64 v8; // r9
+  PVOID v9; // rax
+  __int64 *v10; // r14
+  __int64 v11; // rax
+  int v12; // ebx
   ULONG MaximumProcessorCount; // eax
-  ULONG v11; // r15d
-  __int64 v12; // r15
-  __int64 v13; // rax
-  unsigned int v14; // edx
-  unsigned int v15; // ecx
-  _QWORD *v16; // rbx
-  bool v17; // zf
-  __int64 v18; // r8
-  __int64 v19; // r9
-  int v20; // eax
-  volatile __int32 *v21; // r15
+  ULONG v14; // r15d
+  __int64 v15; // r15
+  __int64 v16; // rax
+  unsigned int v17; // edx
+  unsigned int v18; // ecx
+  _QWORD *v19; // rbx
+  bool v20; // zf
+  int v21; // eax
+  volatile __int32 *v22; // r15
   HANDLE Handle; // [rsp+58h] [rbp-9h] BYREF
-  __int64 v24; // [rsp+60h] [rbp-1h]
-  ULONG v25; // [rsp+68h] [rbp+7h]
+  __int64 v25; // [rsp+60h] [rbp-1h]
+  ULONG v26; // [rsp+68h] [rbp+7h]
   PVOID Object; // [rsp+70h] [rbp+Fh] BYREF
-  __int64 v27; // [rsp+78h] [rbp+17h]
+  __int64 v28; // [rsp+78h] [rbp+17h]
   _DWORD ThreadInformation[4]; // [rsp+80h] [rbp+1Fh] BYREF
 
-  v1 = (PVOID *)qword_140EFEC88;
+  v1 = (PVOID *)qword_140EFEFA8;
   Handle = 0LL;
-  if ( !qword_140EFEC88 )
+  if ( !qword_140EFEFA8 )
   {
-    Pool2 = (PVOID *)ExAllocatePool2(0x40uLL);
+    Pool2 = (PVOID *)ExAllocatePool2(0x40uLL, 0x540uLL, 0x56777445u);
     v1 = Pool2;
     if ( !Pool2 )
     {
@@ -75,7 +76,7 @@ __int64 __fastcall EtwpCovSampCaptureContextStart(_DWORD *a1)
     KeInitializeDpc((PRKDPC)(v1 + 149), (PKDEFERRED_ROUTINE)EtwpCovSampCaptureCleanupDpc, v1);
     KeInitializeEvent((PRKEVENT)(v1 + 157), NotificationEvent, 0);
     *((_DWORD *)v1 + 323) = (*a1 >> 11) & 1;
-    qword_140EFEC88 = (__int64)v1;
+    qword_140EFEFA8 = (__int64)v1;
   }
   v5 = (volatile __int32 **)(v1 + 118);
   v1[121] = v1 + 120;
@@ -98,26 +99,26 @@ __int64 __fastcall EtwpCovSampCaptureContextStart(_DWORD *a1)
   {
     EtwpCovSampStackHashTableAlloc(v1 + 165);
     EtwpCovSampStackHashTableAlloc(v1 + 166);
-    v6 = v1[165];
-    if ( !v6 || !v1[166] )
+    v9 = v1[165];
+    if ( !v9 || !v1[166] )
     {
       v4 = -1073741670;
-      v7 = (__int64 *)(v1 + 1);
+      v10 = (__int64 *)(v1 + 1);
       goto LABEL_12;
     }
-    v1[164] = v6;
-    v1[167] = (PVOID)(unsigned int)ExGenRandom(0);
+    v1[164] = v9;
+    v1[167] = (PVOID)(unsigned int)ExGenRandom(0, v6, v7, v8);
   }
-  v7 = (__int64 *)(v1 + 1);
+  v10 = (__int64 *)(v1 + 1);
   if ( v1[1] == (PVOID)-1LL )
   {
-    v8 = ExSaAllocate(344LL, 0);
-    if ( v8 == -1 )
+    v11 = ExSaAllocate(344LL, 0);
+    if ( v11 == -1 )
     {
       v4 = -1073741670;
       goto LABEL_12;
     }
-    *v7 = v8;
+    *v10 = v11;
   }
   if ( !*v1 )
   {
@@ -130,80 +131,80 @@ __int64 __fastcall EtwpCovSampCaptureContextStart(_DWORD *a1)
       ThreadInformation[0] = 1;
       ThreadInformation[1] = 1;
       ThreadInformation[2] = 1;
-      ZwSetInformationThread(Handle, ThreadIdealProcessorEx|ThreadIsIoPending, ThreadInformation, 0xCu);
+      ZwSetInformationThread(Handle, ThreadPowerThrottlingState, ThreadInformation, 0xCu);
       goto LABEL_19;
     }
 LABEL_12:
-    if ( *v7 != -1 )
+    if ( *v10 != -1 )
       EtwpCovSampCaptureFreeLookasides(v1);
     goto LABEL_31;
   }
 LABEL_19:
-  v9 = *a1 & 0x200;
-  KeSetBasePriorityThread((PKTHREAD)*v1, (v9 != 0) - 1);
-  *((_DWORD *)v1 + 326) = v9 != 0;
+  v12 = *a1 & 0x200;
+  KeSetBasePriorityThread((PKTHREAD)*v1, (v12 != 0) - 1);
+  *((_DWORD *)v1 + 326) = v12 != 0;
   MaximumProcessorCount = KeQueryMaximumProcessorCountEx(0xFFFFu);
-  v11 = MaximumProcessorCount;
-  v25 = MaximumProcessorCount;
+  v14 = MaximumProcessorCount;
+  v26 = MaximumProcessorCount;
   if ( MaximumProcessorCount )
   {
-    v24 = 0LL;
-    v27 = MaximumProcessorCount;
-    v12 = 0LL;
+    v25 = 0LL;
+    v28 = MaximumProcessorCount;
+    v15 = 0LL;
     do
     {
-      v13 = ((unsigned __int64)*v7 >> 4) & 0x1FF;
-      v14 = ((unsigned int)*v7 >> 13) & 0x3FFFF;
-      _BitScanReverse(&v15, v14);
-      LODWORD(v24) = v15 - 2;
-      v16 = (_QWORD *)((*(_QWORD *)(*(_QWORD *)(*(_QWORD *)(v12 + ExSaPageArrays) + 8LL * (v15 - 2))
-                                  + 8LL * (v14 ^ (1 << v15))
+      v16 = ((unsigned __int64)*v10 >> 4) & 0x1FF;
+      v17 = ((unsigned int)*v10 >> 13) & 0x3FFFF;
+      _BitScanReverse(&v18, v17);
+      LODWORD(v25) = v18 - 2;
+      v19 = (_QWORD *)((*(_QWORD *)(*(_QWORD *)(*(_QWORD *)(v15 + ExSaPageArrays) + 8LL * (v18 - 2))
+                                  + 8LL * (v17 ^ (1 << v18))
                                   + 8)
-                      + 8 * v13
+                      + 8 * v16
                       + 15) & 0xFFFFFFFFFFFFFFF0uLL);
-      memset_0(v16 + 1, 0, 0x148uLL);
-      *v16 = 0LL;
-      EtwpCovSampLookasideInitialize(v1, v16 + 2, v1 + 80);
-      EtwpCovSampLookasideInitialize(v1, v16 + 10, v1 + 90);
-      EtwpCovSampStrideSamplerInitialize(v16 + 18, (unsigned int)a1[10], (unsigned int)a1[11]);
-      EtwpCovSampStrideSamplerInitialize(v16 + 23, (unsigned int)a1[12], (unsigned int)a1[13]);
-      EtwpCovSampStrideSamplerInitialize(v16 + 28, (unsigned int)a1[14], (unsigned int)a1[15]);
-      EtwpCovSampStrideSamplerInitialize(v16 + 33, (unsigned int)a1[16], (unsigned int)a1[17]);
-      v17 = v27-- == 1;
-      v12 += 8LL;
+      memset_0(v19 + 1, 0, 0x148uLL);
+      *v19 = 0LL;
+      EtwpCovSampLookasideInitialize(v1, v19 + 2, v1 + 80);
+      EtwpCovSampLookasideInitialize(v1, v19 + 10, v1 + 90);
+      EtwpCovSampStrideSamplerInitialize(v19 + 18, (unsigned int)a1[10], (unsigned int)a1[11]);
+      EtwpCovSampStrideSamplerInitialize(v19 + 23, (unsigned int)a1[12], (unsigned int)a1[13]);
+      EtwpCovSampStrideSamplerInitialize(v19 + 28, (unsigned int)a1[14], (unsigned int)a1[15]);
+      EtwpCovSampStrideSamplerInitialize(v19 + 33, (unsigned int)a1[16], (unsigned int)a1[17]);
+      v20 = v28-- == 1;
+      v15 += 8LL;
     }
-    while ( !v17 );
-    v11 = v25;
+    while ( !v20 );
+    v14 = v26;
     v5 = (volatile __int32 **)(v1 + 118);
   }
   EtwpCovSampLookasideControlInitialize(
     v1,
     v1 + 100,
     EtwpCovSampCaptureAllocateSampleBuffer,
-    (3 * a1[7] * v11) >> 2,
-    a1[7] * v11);
+    (3 * a1[7] * v14) >> 2,
+    a1[7] * v14);
   EtwpCovSampLookasideInitialize(v1, v1 + 110, v1 + 100);
-  v20 = MEMORY[0xFFFFF78000000320];
+  v21 = MEMORY[0xFFFFF78000000320];
   *((_DWORD *)v1 + 266) = MEMORY[0xFFFFF78000000320];
-  *((_DWORD *)v1 + 267) = v20;
+  *((_DWORD *)v1 + 267) = v21;
   *((_DWORD *)v1 + 322) = 0;
   *((_DWORD *)v1 + 324) = a1[18];
   *((_DWORD *)v1 + 325) = a1[6];
   _InterlockedExchange((volatile __int32 *)v1 + 320, 1);
-  v21 = *v5;
+  v22 = *v5;
   *((_DWORD *)v1 + 321) = 0;
-  while ( v21 != (volatile __int32 *)v5 )
+  while ( v22 != (volatile __int32 *)v5 )
   {
-    _InterlockedExchange(v21 + 6, 1);
-    *((_DWORD *)v21 + 7) = 0;
-    while ( *((_DWORD *)v21 + 9) < *(_DWORD *)(*((_QWORD *)v21 + 2) + 56LL)
-         && *((_DWORD *)v21 + 9) < *((_DWORD *)v21 + 10) )
+    _InterlockedExchange(v22 + 6, 1);
+    *((_DWORD *)v22 + 7) = 0;
+    while ( *((_DWORD *)v22 + 9) < *(_DWORD *)(*((_QWORD *)v22 + 2) + 56LL)
+         && *((_DWORD *)v22 + 9) < *((_DWORD *)v22 + 10) )
     {
-      v4 = EtwpCovSampLookasideGrow((__int64)v1, (__int64)(v21 - 4), v18, v19);
+      v4 = EtwpCovSampLookasideGrow((__int64)v1, (__int64)(v22 - 4));
       if ( v4 < 0 )
         goto LABEL_12;
     }
-    v21 = *(volatile __int32 **)v21;
+    v22 = *(volatile __int32 **)v22;
   }
   v4 = 0;
 LABEL_31:

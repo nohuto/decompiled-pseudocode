@@ -10,63 +10,63 @@
  *     _RtlpPossibleDeadlock@4 @ 0x4B34A99E (_RtlpPossibleDeadlock@4.c)
  */
 
-char __stdcall RtlAcquireResourceShared(int a1, char a2)
+BOOLEAN __cdecl RtlAcquireResourceShared(PRTL_RESOURCE Resource, BOOLEAN Wait)
 {
-  int v2; // edi
-  signed __int32 v3; // ecx
-  volatile signed __int32 *v4; // esi
+  PRTL_RESOURCE v2; // edi
+  LONG NumberOfActive; // ecx
+  LONG *p_NumberOfActive; // esi
   signed __int32 v5; // eax
   bool v7; // zf
   signed __int32 v8; // esi
   int v9; // eax
   int v10; // esi
   int v11; // eax
-  int v12; // [esp+10h] [ebp-8h]
-  int *v13; // [esp+14h] [ebp-4h]
+  int v12; // [esp+0h] [ebp-18h]
+  int NumberOfWaitingShared; // [esp+10h] [ebp-8h]
 
-  v2 = a1;
-  v3 = *(_DWORD *)(a1 + 40);
-  v4 = (volatile signed __int32 *)(a1 + 40);
-  if ( v3 < 0 && *(void **)(a1 + 44) == NtCurrentTeb()->ClientId.UniqueThread )
+  v2 = Resource;
+  NumberOfActive = Resource->NumberOfActive;
+  p_NumberOfActive = &Resource->NumberOfActive;
+  if ( NumberOfActive < 0 && Resource->ExclusiveOwnerThread == NtCurrentTeb()->ClientId.UniqueThread )
   {
-    _InterlockedDecrement(v4);
+    _InterlockedDecrement(p_NumberOfActive);
     return 1;
   }
   else
   {
     while ( 1 )
     {
-      while ( v3 >= 0 )
+      while ( NumberOfActive >= 0 )
       {
-        v5 = _InterlockedCompareExchange(v4, v3 + 1, v3);
-        if ( v5 == v3 )
+        v5 = _InterlockedCompareExchange(p_NumberOfActive, NumberOfActive + 1, NumberOfActive);
+        if ( v5 == NumberOfActive )
           return 1;
-        v3 = v5;
+        NumberOfActive = v5;
       }
-      if ( !a2 )
+      if ( !Wait )
         break;
-      ++*(_DWORD *)(*(_DWORD *)(v2 + 52) + 20);
-      _InterlockedIncrement((volatile signed __int32 *)(v2 + 28));
-      v3 = *v4;
-      if ( *(int *)v4 >= 0 )
+      ++v2->DebugInfo->ContentionCount;
+      _InterlockedIncrement((volatile signed __int32 *)&v2->NumberOfWaitingShared);
+      NumberOfActive = *p_NumberOfActive;
+      if ( *p_NumberOfActive >= 0 )
       {
-        v12 = *(_DWORD *)(v2 + 28);
-        v7 = v12 == 0;
-        if ( v12 > 0 )
+        NumberOfWaitingShared = v2->NumberOfWaitingShared;
+        v7 = NumberOfWaitingShared == 0;
+        if ( NumberOfWaitingShared > 0 )
         {
-          v8 = *(_DWORD *)(v2 + 28);
+          v8 = v2->NumberOfWaitingShared;
           do
           {
-            v9 = _InterlockedCompareExchange((volatile signed __int32 *)(v2 + 28), v8 - 1, v8);
+            v9 = _InterlockedCompareExchange((volatile signed __int32 *)&v2->NumberOfWaitingShared, v8 - 1, v8);
             if ( v9 == v8 )
               break;
             v8 = v9;
-            v12 = v9;
+            NumberOfWaitingShared = v9;
           }
           while ( v9 > 0 );
-          v2 = a1;
-          v7 = v12 == 0;
-          v4 = (volatile signed __int32 *)(a1 + 40);
+          v2 = Resource;
+          v7 = NumberOfWaitingShared == 0;
+          p_NumberOfActive = &Resource->NumberOfActive;
         }
         if ( !v7 )
           continue;
@@ -74,20 +74,19 @@ char __stdcall RtlAcquireResourceShared(int a1, char a2)
       v10 = 0;
       while ( 1 )
       {
-        v13 = (*(_DWORD *)(v2 + 48) & 1) == 0 ? &RtlpTimeout : 0;
-        v11 = ZwWaitForSingleObject(*(_DWORD *)(v2 + 24), 0, v13);
+        v11 = ZwWaitForSingleObject(v2->SharedSemaphore, 0, (v2->Flags & 1) == 0 ? &RtlpTimeout : 0);
         if ( v11 != 258 )
           break;
-        DbgPrintEx(101, 0, "RTL: Acquire Shared Sem Timeout %d(%I64u secs)\n", v10, *(_QWORD *)v13 / -10000000LL);
-        DbgPrintEx(101, 0, "RTL: Resource at %p\n", (const void *)v2);
+        DbgPrintEx(101, 0, (int)"RTL: Acquire Shared Sem Timeout %d(%I64u secs)\n", v10);
+        DbgPrintEx(101, 0, (int)"RTL: Resource at %p\n", (int)v2);
         if ( (unsigned int)++v10 > 2 )
           RtlpPossibleDeadlock(v2);
-        DbgPrintEx(101, 0, "RTL: Re-Waiting\n");
+        DbgPrintEx(101, 0, (int)"RTL: Re-Waiting\n", v12);
       }
-      v4 = (volatile signed __int32 *)(v2 + 40);
+      p_NumberOfActive = &v2->NumberOfActive;
       if ( v11 < 0 )
         RtlRaiseStatus(v11);
-      v3 = *v4;
+      NumberOfActive = *p_NumberOfActive;
     }
     return 0;
   }

@@ -18,7 +18,7 @@ __int64 ExpSetSystemTime(char a1, char a2, int a3, ...)
   _QWORD *CurrentServerSiloGlobals; // r14
   int v8; // [rsp+28h] [rbp-38h]
   LARGE_INTEGER LocalTime; // [rsp+40h] [rbp-20h] BYREF
-  TIME_FIELDS TimeFields; // [rsp+48h] [rbp-18h] BYREF
+  _TIME_FIELDS TimeFields; // [rsp+48h] [rbp-18h] BYREF
   LARGE_INTEGER SystemTime; // [rsp+98h] [rbp+38h] BYREF
   va_list SystemTimea; // [rsp+98h] [rbp+38h]
   __int64 *v13; // [rsp+A0h] [rbp+40h]

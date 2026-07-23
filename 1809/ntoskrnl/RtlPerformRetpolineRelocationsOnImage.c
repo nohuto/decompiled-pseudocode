@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlPerformRetpolineRelocationsOnImage @ 0x1402F7074
+ * XREFs of RtlPerformRetpolineRelocationsOnImage @ 0x1402F7264
  * Callers:
- *     MiUseLargeDriverPage @ 0x140683260 (MiUseLargeDriverPage.c)
+ *     MiUseLargeDriverPage @ 0x140684420 (MiUseLargeDriverPage.c)
  * Callees:
- *     RtlPerformRetpolineRelocationsOnImageEx @ 0x1402F70A4 (RtlPerformRetpolineRelocationsOnImageEx.c)
+ *     RtlPerformRetpolineRelocationsOnImageEx @ 0x1402F7294 (RtlPerformRetpolineRelocationsOnImageEx.c)
  */
 
 __int64 __fastcall RtlPerformRetpolineRelocationsOnImage(

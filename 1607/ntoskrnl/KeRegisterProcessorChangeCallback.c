@@ -1,16 +1,16 @@
 /*
- * XREFs of KeRegisterProcessorChangeCallback @ 0x140578064
+ * XREFs of KeRegisterProcessorChangeCallback @ 0x1405785A4
  * Callers:
  *     PoInitSystem @ 0x140795530 (PoInitSystem.c)
  * Callees:
- *     KeReleaseGuardedMutex @ 0x14000CA40 (KeReleaseGuardedMutex.c)
- *     ExAcquireFastMutex @ 0x14002D0A0 (ExAcquireFastMutex.c)
- *     RtlInitUnicodeString @ 0x14002DC60 (RtlInitUnicodeString.c)
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
- *     ExRegisterCallback @ 0x14012FD34 (ExRegisterCallback.c)
- *     ExUnregisterCallback @ 0x140131758 (ExUnregisterCallback.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     ExCreateCallback @ 0x1404EADFC (ExCreateCallback.c)
+ *     KeReleaseGuardedMutex @ 0x14000C5C0 (KeReleaseGuardedMutex.c)
+ *     ExAcquireFastMutex @ 0x14002CC20 (ExAcquireFastMutex.c)
+ *     RtlInitUnicodeString @ 0x14002D7E0 (RtlInitUnicodeString.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
+ *     ExRegisterCallback @ 0x1401302A4 (ExRegisterCallback.c)
+ *     ExUnregisterCallback @ 0x140131CC8 (ExUnregisterCallback.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     ExCreateCallback @ 0x1404CCE20 (ExCreateCallback.c)
  */
 
 PVOID __stdcall KeRegisterProcessorChangeCallback(

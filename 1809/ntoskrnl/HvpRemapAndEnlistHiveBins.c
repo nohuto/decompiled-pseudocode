@@ -1,21 +1,21 @@
 /*
- * XREFs of HvpRemapAndEnlistHiveBins @ 0x1405F96A0
+ * XREFs of HvpRemapAndEnlistHiveBins @ 0x1405FA6A0
  * Callers:
- *     HvLoadHive @ 0x1405A4C9C (HvLoadHive.c)
+ *     HvLoadHive @ 0x1405A5C9C (HvLoadHive.c)
  * Callees:
- *     memmove @ 0x1401D1540 (memmove.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     HvpAllocateBin @ 0x1405A2540 (HvpAllocateBin.c)
- *     HvpProtectBin @ 0x1405A2584 (HvpProtectBin.c)
- *     HvpPointMapEntriesToBuffer @ 0x1405A3F90 (HvpPointMapEntriesToBuffer.c)
- *     HvpEnlistFreeCells @ 0x1405F9800 (HvpEnlistFreeCells.c)
- *     HvpValidateLoadedBin @ 0x1405F98E0 (HvpValidateLoadedBin.c)
- *     HvpMarkDirty @ 0x1405FAD2C (HvpMarkDirty.c)
- *     HvpGetCellMap @ 0x1405FB04C (HvpGetCellMap.c)
- *     CmpReleaseGlobalQuota @ 0x1405FB668 (CmpReleaseGlobalQuota.c)
- *     HvpViewMapPromoteRangeToMapping @ 0x1406BA4B0 (HvpViewMapPromoteRangeToMapping.c)
- *     HvpFreeBin @ 0x1406CFF90 (HvpFreeBin.c)
- *     HvIsRangeDirty @ 0x140800F24 (HvIsRangeDirty.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     HvpAllocateBin @ 0x1405A3540 (HvpAllocateBin.c)
+ *     HvpProtectBin @ 0x1405A3584 (HvpProtectBin.c)
+ *     HvpPointMapEntriesToBuffer @ 0x1405A4F90 (HvpPointMapEntriesToBuffer.c)
+ *     HvpEnlistFreeCells @ 0x1405FA800 (HvpEnlistFreeCells.c)
+ *     HvpValidateLoadedBin @ 0x1405FA8E0 (HvpValidateLoadedBin.c)
+ *     HvpMarkDirty @ 0x1405FBD2C (HvpMarkDirty.c)
+ *     HvpGetCellMap @ 0x1405FC04C (HvpGetCellMap.c)
+ *     CmpReleaseGlobalQuota @ 0x1405FC668 (CmpReleaseGlobalQuota.c)
+ *     HvpViewMapPromoteRangeToMapping @ 0x1406BB750 (HvpViewMapPromoteRangeToMapping.c)
+ *     HvpFreeBin @ 0x1406D1230 (HvpFreeBin.c)
+ *     HvIsRangeDirty @ 0x140802124 (HvIsRangeDirty.c)
  */
 
 __int64 __fastcall HvpRemapAndEnlistHiveBins(_DWORD *BugCheckParameter2)

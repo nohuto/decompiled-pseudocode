@@ -1,20 +1,20 @@
 /*
- * XREFs of PiDrvDbCreateNode @ 0x1407A39CC
+ * XREFs of PiDrvDbCreateNode @ 0x1407A3BCC
  * Callers:
- *     PiDrvDbRegisterNode @ 0x1407A3878 (PiDrvDbRegisterNode.c)
+ *     PiDrvDbRegisterNode @ 0x1407A3A78 (PiDrvDbRegisterNode.c)
  * Callees:
- *     ExInitializeResourceLite @ 0x14021CC50 (ExInitializeResourceLite.c)
- *     RtlAppendUnicodeToString @ 0x140265A40 (RtlAppendUnicodeToString.c)
- *     KeInitializeTimerEx @ 0x140278AE0 (KeInitializeTimerEx.c)
- *     KeInitializeDpc @ 0x14027B6B0 (KeInitializeDpc.c)
- *     ZwClose @ 0x1403FA580 (ZwClose.c)
- *     ZwCreateEvent @ 0x1403FACA0 (ZwCreateEvent.c)
- *     memset @ 0x140414200 (memset.c)
- *     _SysCtxRegOpenKey @ 0x1406426AC (_SysCtxRegOpenKey.c)
- *     RtlCreateUnicodeString @ 0x1406748C0 (RtlCreateUnicodeString.c)
- *     ExpAllocateStringRoutine @ 0x1406A0F60 (ExpAllocateStringRoutine.c)
- *     PiDrvDbDestroyNode @ 0x1408B5CF4 (PiDrvDbDestroyNode.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     RtlAppendUnicodeToString @ 0x1402539E0 (RtlAppendUnicodeToString.c)
+ *     KeInitializeTimerEx @ 0x140266A80 (KeInitializeTimerEx.c)
+ *     KeInitializeDpc @ 0x140269650 (KeInitializeDpc.c)
+ *     ExInitializeResourceLite @ 0x1402C1550 (ExInitializeResourceLite.c)
+ *     ZwClose @ 0x1403FA760 (ZwClose.c)
+ *     ZwCreateEvent @ 0x1403FAE80 (ZwCreateEvent.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     ExpAllocateStringRoutine @ 0x1406006F0 (ExpAllocateStringRoutine.c)
+ *     _SysCtxRegOpenKey @ 0x1406374BC (_SysCtxRegOpenKey.c)
+ *     RtlCreateUnicodeString @ 0x140669AF0 (RtlCreateUnicodeString.c)
+ *     PiDrvDbDestroyNode @ 0x1408B5E54 (PiDrvDbDestroyNode.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PiDrvDbCreateNode(PCWSTR Source, int a2, __int64 a3, const WCHAR *a4, __int64 *a5)
@@ -91,13 +91,13 @@ LABEL_14:
           appended >= 0) )
     {
       *(_DWORD *)(v9 + 496) = 259;
-      v17 = (__int64 *)qword_140C43158;
-      if ( *(__int64 **)qword_140C43158 != &PiDrvDbNodeList )
+      v17 = (__int64 *)qword_140C43108;
+      if ( *(__int64 **)qword_140C43108 != &PiDrvDbNodeList )
         __fastfail(3u);
-      *(_QWORD *)(v9 + 8) = qword_140C43158;
+      *(_QWORD *)(v9 + 8) = qword_140C43108;
       *(_QWORD *)v9 = &PiDrvDbNodeList;
       *v17 = v9;
-      qword_140C43158 = v9;
+      qword_140C43108 = v9;
       *a5 = v9;
       v9 = 0LL;
     }

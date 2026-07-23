@@ -1,10 +1,10 @@
 /*
- * XREFs of SepSecureBootValidateBcdDataAgainstBcdRule @ 0x14079430C
+ * XREFs of SepSecureBootValidateBcdDataAgainstBcdRule @ 0x14079441C
  * Callers:
- *     SepSecureBootUpdateBcdDataForRule @ 0x140794164 (SepSecureBootUpdateBcdDataForRule.c)
- *     NtFilterBootOption @ 0x140AD8E50 (NtFilterBootOption.c)
+ *     SepSecureBootUpdateBcdDataForRule @ 0x140794274 (SepSecureBootUpdateBcdDataForRule.c)
+ *     NtFilterBootOption @ 0x140AD74D0 (NtFilterBootOption.c)
  * Callees:
- *     memcmp @ 0x1406BFF10 (memcmp.c)
+ *     memcmp @ 0x1406C0E10 (memcmp.c)
  */
 
 __int64 __fastcall SepSecureBootValidateBcdDataAgainstBcdRule(__int64 a1, _BYTE *a2, unsigned int a3)
@@ -21,7 +21,7 @@ __int64 __fastcall SepSecureBootValidateBcdDataAgainstBcdRule(__int64 a1, _BYTE 
   unsigned __int64 i; // rax
 
   v3 = 0;
-  v5 = qword_140E67B30 + *(unsigned int *)(a1 + 8);
+  v5 = qword_140E67D28 + *(unsigned int *)(a1 + 8);
   v6 = *(_WORD *)v5 & 0x1F;
   if ( v6 != 8 )
   {

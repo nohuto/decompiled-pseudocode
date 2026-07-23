@@ -1,20 +1,20 @@
 /*
- * XREFs of TtmNotifySessionDisplayRequiredChange @ 0x14087FC80
+ * XREFs of TtmNotifySessionDisplayRequiredChange @ 0x140880EE0
  * Callers:
- *     PopNotifySessionDisplayRequired @ 0x1406DBEA0 (PopNotifySessionDisplayRequired.c)
+ *     PopNotifySessionDisplayRequired @ 0x1406DD140 (PopNotifySessionDisplayRequired.c)
  * Callees:
  *     KeLeaveCriticalRegion @ 0x14004F410 (KeLeaveCriticalRegion.c)
  *     ExReleaseResourceLite @ 0x14004F590 (ExReleaseResourceLite.c)
- *     ZwUpdateWnfStateData @ 0x1401BBA70 (ZwUpdateWnfStateData.c)
- *     PoSessionEngagementUpdate @ 0x1402E70D4 (PoSessionEngagementUpdate.c)
- *     TtmpAcquireSessionById @ 0x140761674 (TtmpAcquireSessionById.c)
- *     TtmiLogError @ 0x1407616DC (TtmiLogError.c)
- *     TtmpUpdateDisplayRequiredPowerRequest @ 0x1408814D0 (TtmpUpdateDisplayRequiredPowerRequest.c)
- *     TtmiLogSessionDisplayRequiredDereference @ 0x140884CD8 (TtmiLogSessionDisplayRequiredDereference.c)
- *     TtmiLogSessionDisplayRequiredReference @ 0x140884E5C (TtmiLogSessionDisplayRequiredReference.c)
+ *     ZwUpdateWnfStateData @ 0x1401BBBD0 (ZwUpdateWnfStateData.c)
+ *     PoSessionEngagementUpdate @ 0x1402E72C4 (PoSessionEngagementUpdate.c)
+ *     TtmpAcquireSessionById @ 0x140762864 (TtmpAcquireSessionById.c)
+ *     TtmiLogError @ 0x1407628CC (TtmiLogError.c)
+ *     TtmpUpdateDisplayRequiredPowerRequest @ 0x140882730 (TtmpUpdateDisplayRequiredPowerRequest.c)
+ *     TtmiLogSessionDisplayRequiredDereference @ 0x140885F38 (TtmiLogSessionDisplayRequiredDereference.c)
+ *     TtmiLogSessionDisplayRequiredReference @ 0x1408860BC (TtmiLogSessionDisplayRequiredReference.c)
  */
 
-__int64 __fastcall TtmNotifySessionDisplayRequiredChange(unsigned int a1, unsigned int a2, char a3)
+__int64 __fastcall TtmNotifySessionDisplayRequiredChange(int a1, unsigned int a2, char a3)
 {
   unsigned int v5; // esi
   int v6; // eax
@@ -28,9 +28,11 @@ __int64 __fastcall TtmNotifySessionDisplayRequiredChange(unsigned int a1, unsign
   bool v14; // cl
   __int64 v15; // rcx
   int v16; // edx
-  bool v19; // [rsp+80h] [rbp+18h] BYREF
+  unsigned int ExplicitScope; // [rsp+70h] [rbp+8h] BYREF
+  bool Buffer; // [rsp+80h] [rbp+18h] BYREF
   __int64 v20; // [rsp+88h] [rbp+20h] BYREF
 
+  ExplicitScope = a1;
   v5 = 0;
   v6 = TtmpAcquireSessionById(&v20, a1);
   v8 = v20;
@@ -74,9 +76,9 @@ LABEL_3:
   v9 = 0;
   if ( v14 )
   {
-    v19 = v13 != 0;
-    ZwUpdateWnfStateData((__int64)&WNF_PO_DISPLAY_REQUEST_ACTIVE, (__int64)&v19, 1LL);
-    LOBYTE(v15) = v19;
+    Buffer = v13 != 0;
+    ZwUpdateWnfStateData(&WNF_PO_DISPLAY_REQUEST_ACTIVE, &Buffer, 1u, 0LL, &ExplicitScope, 0, 0);
+    LOBYTE(v15) = Buffer;
     PoSessionEngagementUpdate(v15, v16);
   }
 LABEL_13:
@@ -87,7 +89,7 @@ LABEL_13:
     KeLeaveCriticalRegion();
   }
   if ( a3 )
-    return TtmiLogSessionDisplayRequiredReference(a1, v5, v9);
+    return TtmiLogSessionDisplayRequiredReference(ExplicitScope, v5, v9);
   else
-    return TtmiLogSessionDisplayRequiredDereference(a1, v5, v9);
+    return TtmiLogSessionDisplayRequiredDereference(ExplicitScope, v5, v9);
 }

@@ -25,7 +25,7 @@ char __fastcall ExfAcquireReleasePushLockExclusive(unsigned __int64 *BugCheckPar
   __int64 v2; // rbx
   char result; // al
 
-  v2 = KeAbPreAcquire((ULONG_PTR)BugCheckParameter2, 0LL, 0LL);
+  v2 = KeAbPreAcquire((ULONG_PTR)BugCheckParameter2, 0LL, 0);
   ExfAcquirePushLockExclusiveEx(BugCheckParameter2, v2, (ULONG_PTR)BugCheckParameter2);
   if ( v2 )
     *(_BYTE *)(v2 + 26) |= 1u;

@@ -1,12 +1,12 @@
 /*
- * XREFs of MiPickClusterForMappedFileFault @ 0x1402E1710
+ * XREFs of MiPickClusterForMappedFileFault @ 0x1402E19A0
  * Callers:
- *     MiResolveMappedFileFault @ 0x1402E05E0 (MiResolveMappedFileFault.c)
+ *     MiResolveMappedFileFault @ 0x1402E0870 (MiResolveMappedFileFault.c)
  * Callees:
- *     MI_READ_PTE_LOCK_FREE @ 0x1402712F0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiObtainFaultCharges @ 0x140274BB0 (MiObtainFaultCharges.c)
- *     MiStartingOffset @ 0x1402E2310 (MiStartingOffset.c)
- *     MiSufficientAvailablePages @ 0x1402E35AC (MiSufficientAvailablePages.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140271580 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiObtainFaultCharges @ 0x140274E40 (MiObtainFaultCharges.c)
+ *     MiStartingOffset @ 0x1402E25A0 (MiStartingOffset.c)
+ *     MiSufficientAvailablePages @ 0x1402E383C (MiSufficientAvailablePages.c)
  */
 
 unsigned __int64 __fastcall MiPickClusterForMappedFileFault(

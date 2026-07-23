@@ -1,21 +1,21 @@
 /*
- * XREFs of IoDisconnectInterrupt @ 0x1405324F4
+ * XREFs of IoDisconnectInterrupt @ 0x140532A34
  * Callers:
- *     IoDisconnectInterruptEx @ 0x14053247C (IoDisconnectInterruptEx.c)
- *     IopConnectLineBasedInterrupt @ 0x1405392E8 (IopConnectLineBasedInterrupt.c)
- *     IopConnectMessageBasedInterrupt @ 0x1405397D4 (IopConnectMessageBasedInterrupt.c)
+ *     IoDisconnectInterruptEx @ 0x1405329BC (IoDisconnectInterruptEx.c)
+ *     IopConnectLineBasedInterrupt @ 0x140539828 (IopConnectLineBasedInterrupt.c)
+ *     IopConnectMessageBasedInterrupt @ 0x140539D14 (IopConnectMessageBasedInterrupt.c)
  * Callees:
- *     KiLeaveCriticalRegionUnsafe @ 0x140055FA0 (KiLeaveCriticalRegionUnsafe.c)
- *     KeWaitForSingleObject @ 0x14005C880 (KeWaitForSingleObject.c)
- *     KeRemoveQueueDpc @ 0x140085D20 (KeRemoveQueueDpc.c)
- *     KeFreeInterrupt @ 0x140123E44 (KeFreeInterrupt.c)
- *     KeDisconnectInterrupt @ 0x140123E5C (KeDisconnectInterrupt.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140055B20 (KiLeaveCriticalRegionUnsafe.c)
+ *     KeWaitForSingleObject @ 0x14005C400 (KeWaitForSingleObject.c)
+ *     KeRemoveQueueDpc @ 0x140087610 (KeRemoveQueueDpc.c)
+ *     KeFreeInterrupt @ 0x1401243B4 (KeFreeInterrupt.c)
+ *     KeDisconnectInterrupt @ 0x1401243CC (KeDisconnectInterrupt.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
- *     IopDestroyActiveConnectBlock @ 0x140539F98 (IopDestroyActiveConnectBlock.c)
- *     IopInitializeActiveConnectBlock @ 0x14053A080 (IopInitializeActiveConnectBlock.c)
- *     IopReleaseActiveConnectLock @ 0x14053A1AC (IopReleaseActiveConnectLock.c)
- *     IopAcquireActiveConnectLock @ 0x14053A1C8 (IopAcquireActiveConnectLock.c)
- *     IopDestroyPassiveInterruptBlock @ 0x14062D190 (IopDestroyPassiveInterruptBlock.c)
+ *     IopDestroyActiveConnectBlock @ 0x14053A4D8 (IopDestroyActiveConnectBlock.c)
+ *     IopInitializeActiveConnectBlock @ 0x14053A5C0 (IopInitializeActiveConnectBlock.c)
+ *     IopReleaseActiveConnectLock @ 0x14053A6EC (IopReleaseActiveConnectLock.c)
+ *     IopAcquireActiveConnectLock @ 0x14053A708 (IopAcquireActiveConnectLock.c)
+ *     IopDestroyPassiveInterruptBlock @ 0x14062D244 (IopDestroyPassiveInterruptBlock.c)
  */
 
 void __stdcall IoDisconnectInterrupt(PKINTERRUPT InterruptObject)
@@ -23,7 +23,7 @@ void __stdcall IoDisconnectInterrupt(PKINTERRUPT InterruptObject)
   void **p_DisconnectData; // rsi
   unsigned __int64 v2; // rax
   unsigned __int64 v3; // rdi
-  struct _SLIST_ENTRY **v4; // r14
+  _SLIST_ENTRY **v4; // r14
   __int64 v5; // rdx
   __int64 v6; // rdx
   __int64 *v7; // r8
@@ -43,7 +43,7 @@ void __stdcall IoDisconnectInterrupt(PKINTERRUPT InterruptObject)
         + ((v2 >> 2) & 0x3333333333333333LL)
         + (((v2 & 0x3333333333333333LL) + ((v2 >> 2) & 0x3333333333333333LL)) >> 4)) & 0xF0F0F0F0F0F0F0FLL)) >> 56;
   IopAcquireActiveConnectLock(v13);
-  v4 = (struct _SLIST_ENTRY **)(p_DisconnectData + 58);
+  v4 = (_SLIST_ENTRY **)(p_DisconnectData + 58);
   LOBYTE(v5) = v3;
   KeDisconnectInterrupt((__int64 *)p_DisconnectData + 58, v5, (__int64)(p_DisconnectData + 2));
   IopReleaseActiveConnectLock(v13);

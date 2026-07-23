@@ -1,12 +1,12 @@
 /*
- * XREFs of MiEmptyAllWorkingSets @ 0x1406346D8
+ * XREFs of MiEmptyAllWorkingSets @ 0x140634C28
  * Callers:
- *     MiFlushAllFilesystemPages @ 0x140629294 (MiFlushAllFilesystemPages.c)
- *     MmEmptyAllWorkingSets @ 0x140635650 (MmEmptyAllWorkingSets.c)
+ *     MiFlushAllFilesystemPages @ 0x1406297E4 (MiFlushAllFilesystemPages.c)
+ *     MmEmptyAllWorkingSets @ 0x140635BA0 (MmEmptyAllWorkingSets.c)
  *     MmPerformMemoryListCommand @ 0x140A884BC (MmPerformMemoryListCommand.c)
- *     MiMirrorBrownPhase @ 0x140AAC62C (MiMirrorBrownPhase.c)
+ *     MiMirrorBrownPhase @ 0x140AAC49C (MiMirrorBrownPhase.c)
  * Callees:
- *     MiQueueWorkingSetRequest @ 0x14035EEC8 (MiQueueWorkingSetRequest.c)
+ *     MiQueueWorkingSetRequest @ 0x14035F068 (MiQueueWorkingSetRequest.c)
  */
 
 __int64 __fastcall MiEmptyAllWorkingSets(__int64 a1)

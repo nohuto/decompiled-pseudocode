@@ -1,19 +1,19 @@
 /*
- * XREFs of ExpAddTagForBigPages @ 0x1400E7110
+ * XREFs of ExpAddTagForBigPages @ 0x1400E7190
  * Callers:
- *     ExAllocateHeapPool @ 0x1400BA170 (ExAllocateHeapPool.c)
- *     ExpAllocateBigPool @ 0x1400E69F0 (ExpAllocateBigPool.c)
- *     ExAllocateContiguousHeapPool @ 0x1400E7418 (ExAllocateContiguousHeapPool.c)
+ *     ExAllocateHeapPool @ 0x1400BA0B0 (ExAllocateHeapPool.c)
+ *     ExpAllocateBigPool @ 0x1400E6A70 (ExpAllocateBigPool.c)
+ *     ExAllocateContiguousHeapPool @ 0x1400E7498 (ExAllocateContiguousHeapPool.c)
  * Callees:
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14009D110 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC660 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExpWaitForSpinLockSharedAndAcquire @ 0x1400E77A0 (ExpWaitForSpinLockSharedAndAcquire.c)
- *     ExTryConvertSharedSpinLockExclusive @ 0x140119260 (ExTryConvertSharedSpinLockExclusive.c)
- *     ExpResizeBigPageTable @ 0x14015C470 (ExpResizeBigPageTable.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     ExpAcquireSpinLockSharedAtDpcLevelInstrumented @ 0x14031C164 (ExpAcquireSpinLockSharedAtDpcLevelInstrumented.c)
- *     ExpReleaseSpinLockSharedFromDpcLevelInstrumented @ 0x14031C2A4 (ExpReleaseSpinLockSharedFromDpcLevelInstrumented.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14009D050 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC5A0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExpWaitForSpinLockSharedAndAcquire @ 0x1400E7820 (ExpWaitForSpinLockSharedAndAcquire.c)
+ *     ExTryConvertSharedSpinLockExclusive @ 0x1401192D0 (ExTryConvertSharedSpinLockExclusive.c)
+ *     ExpResizeBigPageTable @ 0x14015C570 (ExpResizeBigPageTable.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExpAcquireSpinLockSharedAtDpcLevelInstrumented @ 0x14031C354 (ExpAcquireSpinLockSharedAtDpcLevelInstrumented.c)
+ *     ExpReleaseSpinLockSharedFromDpcLevelInstrumented @ 0x14031C494 (ExpReleaseSpinLockSharedFromDpcLevelInstrumented.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall ExpAddTagForBigPages(
@@ -121,9 +121,9 @@ __int64 __fastcall ExpAddTagForBigPages(
       }
       if ( v9 )
       {
-        v16 = *(_QWORD *)(qword_140439FC0 + 8248);
-        v17 = (volatile signed __int32 *)(qword_140439FC0 + 8120);
-        v18 = *(_QWORD *)(qword_140439FC0 + 8256);
+        v16 = *(_QWORD *)(qword_14043B080 + 8248);
+        v17 = (volatile signed __int32 *)(qword_14043B080 + 8120);
+        v18 = *(_QWORD *)(qword_14043B080 + 8256);
       }
       else
       {

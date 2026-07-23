@@ -1,15 +1,15 @@
 /*
- * XREFs of HalpTimerClockArm @ 0x1403BC1E0
+ * XREFs of HalpTimerClockArm @ 0x140375660
  * Callers:
- *     HalpTimerSwitchToNormalClock @ 0x1405470E4 (HalpTimerSwitchToNormalClock.c)
+ *     HalpTimerSwitchToNormalClock @ 0x1405449A4 (HalpTimerSwitchToNormalClock.c)
  * Callees:
- *     HalpTimerScaleCounter @ 0x14030AA50 (HalpTimerScaleCounter.c)
- *     HalpTimerGetInternalData @ 0x14033BC10 (HalpTimerGetInternalData.c)
- *     HalpHvWatchdogArm @ 0x1403BC810 (HalpHvWatchdogArm.c)
- *     HalpTimerSetProblemEx @ 0x1404F98E4 (HalpTimerSetProblemEx.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     HalpTimerSwitchToNormalClock @ 0x1405470E4 (HalpTimerSwitchToNormalClock.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
+ *     HalpTimerScaleCounter @ 0x140314930 (HalpTimerScaleCounter.c)
+ *     HalpTimerGetInternalData @ 0x14031B0F0 (HalpTimerGetInternalData.c)
+ *     HalpHvWatchdogArm @ 0x140375C90 (HalpHvWatchdogArm.c)
+ *     HalpTimerSetProblemEx @ 0x1404F71C4 (HalpTimerSetProblemEx.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     HalpTimerSwitchToNormalClock @ 0x1405449A4 (HalpTimerSwitchToNormalClock.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall HalpTimerClockArm(int a1, ULONG_PTR a2, unsigned __int64 *a3)
@@ -29,15 +29,13 @@ __int64 __fastcall HalpTimerClockArm(int a1, ULONG_PTR a2, unsigned __int64 *a3)
   unsigned __int64 v17; // rbx
   unsigned __int64 v18; // rax
   __int64 InternalData; // rax
-  __int64 (__fastcall *v20)(_QWORD, _QWORD, _QWORD); // r9
-  __int64 v21; // rdx
-  int v22; // eax
-  unsigned int v23; // ecx
-  unsigned __int64 v24; // r11
-  unsigned __int64 v25; // rax
-  __int64 v26; // rcx
-  __int64 (__fastcall *v27)(_QWORD, _QWORD, _QWORD); // r9
-  int v28; // eax
+  __int64 v20; // rdx
+  int v21; // eax
+  unsigned int v22; // ecx
+  unsigned __int64 v23; // r11
+  unsigned __int64 v24; // rax
+  __int64 v25; // rcx
+  int v26; // eax
 
   v3 = HalpClockTimer;
   CurrentPrcb = KeGetCurrentPrcb();
@@ -75,15 +73,14 @@ __int64 __fastcall HalpTimerClockArm(int a1, ULONG_PTR a2, unsigned __int64 *a3)
         v14 = v18 / 0x3E8;
         LOBYTE(v13) = (v8 & 0x40) != 0;
         InternalData = HalpTimerGetInternalData(v3);
-        v20 = *(__int64 (__fastcall **)(_QWORD, _QWORD, _QWORD))(v3 + 128);
-        v21 = (unsigned int)(v13 + 1);
-        if ( v20 == HalpHvWatchdogArm )
-          v22 = HalpHvWatchdogArm(InternalData, v21, v17);
+        v20 = (unsigned int)(v13 + 1);
+        if ( *(__int64 (__fastcall **)(_QWORD, _QWORD, _QWORD))(v3 + 128) == HalpHvWatchdogArm )
+          v21 = HalpHvWatchdogArm(InternalData, v20, v17);
         else
-          v22 = guard_dispatch_icall_no_overrides(InternalData, v21, v17, v20);
-        v12 = v22;
-        if ( v22 < 0 )
-          HalpTimerSetProblemEx(v3, 18, v22, (unsigned int)"minkernel\\hals\\lib\\timers\\common\\timersup.c", 782);
+          v21 = guard_dispatch_icall_no_overrides(InternalData, v20);
+        v12 = v21;
+        if ( v21 < 0 )
+          HalpTimerSetProblemEx(v3, 18, v21, (unsigned int)"minkernel\\hals\\lib\\timers\\common\\timersup.c", 782);
       }
       else
       {
@@ -104,29 +101,28 @@ __int64 __fastcall HalpTimerClockArm(int a1, ULONG_PTR a2, unsigned __int64 *a3)
     v11 = v10 * v7;
     if ( is_mul_ok(v10, v7) && v11 + 9999999 >= v11 )
     {
-      v23 = *(_DWORD *)(v3 + 220);
-      v24 = (v11 + 9999999) / 0x989680;
-      if ( v23 >= 0x40 || v24 < 1LL << v23 )
+      v22 = *(_DWORD *)(v3 + 220);
+      v23 = (v11 + 9999999) / 0x989680;
+      if ( v22 >= 0x40 || v23 < 1LL << v22 )
       {
-        if ( is_mul_ok(v24, 0x2540BE400uLL) )
-          v25 = v24 * (unsigned __int128)0x2540BE400uLL / v10;
+        if ( is_mul_ok(v23, 0x2540BE400uLL) )
+          v24 = v23 * (unsigned __int128)0x2540BE400uLL / v10;
         else
-          v25 = HalpTimerScaleCounter(v24, *(_QWORD *)(v3 + 192), 10000000000LL);
-        *(_QWORD *)(v3 + 16) = v24;
+          v24 = HalpTimerScaleCounter(v23, *(_QWORD *)(v3 + 192), 10000000000LL);
+        *(_QWORD *)(v3 + 16) = v23;
         *(_DWORD *)(v3 + 52) = 1;
-        v9 = v25 / 0x3E8;
+        v9 = v24 / 0x3E8;
         if ( (*(_DWORD *)(v3 + 224) & 0x10000) != 0 )
-          v26 = *(_QWORD *)(v3 + 72) + *(_DWORD *)(v3 + 80) * KeGetPcr()->Prcb.Number;
+          v25 = *(_QWORD *)(v3 + 72) + *(_DWORD *)(v3 + 80) * KeGetPcr()->Prcb.Number;
         else
-          v26 = *(_QWORD *)(v3 + 72);
-        v27 = *(__int64 (__fastcall **)(_QWORD, _QWORD, _QWORD))(v3 + 128);
-        if ( v27 == HalpHvWatchdogArm )
-          v28 = HalpHvWatchdogArm(v26, 3LL, v24);
+          v25 = *(_QWORD *)(v3 + 72);
+        if ( *(__int64 (__fastcall **)(_QWORD, _QWORD, _QWORD))(v3 + 128) == HalpHvWatchdogArm )
+          v26 = HalpHvWatchdogArm(v25, 3LL, v23);
         else
-          v28 = guard_dispatch_icall_no_overrides(v26, 3LL, v24, v27);
-        v12 = v28;
-        if ( v28 < 0 )
-          HalpTimerSetProblemEx(v3, 18, v28, (unsigned int)"minkernel\\hals\\lib\\timers\\common\\timersup.c", 782);
+          v26 = guard_dispatch_icall_no_overrides(v25, 3LL);
+        v12 = v26;
+        if ( v26 < 0 )
+          HalpTimerSetProblemEx(v3, 18, v26, (unsigned int)"minkernel\\hals\\lib\\timers\\common\\timersup.c", 782);
       }
       else
       {

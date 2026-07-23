@@ -1,12 +1,12 @@
 /*
- * XREFs of KiSwInterruptPresent @ 0x140BDEBD4
+ * XREFs of KiSwInterruptPresent @ 0x140BE0BD4
  * Callers:
- *     KiLockExtendedServiceTable @ 0x140508278 (KiLockExtendedServiceTable.c)
- *     KiVerifyXcpt15 @ 0x140BDEC40 (KiVerifyXcpt15.c)
- *     KeCheckedKernelInitialize @ 0x140BDF44C (KeCheckedKernelInitialize.c)
- *     KeFreeInitializationCode @ 0x140BDF4F0 (KeFreeInitializationCode.c)
- *     KiFilterFiberContext @ 0x140BDF530 (KiFilterFiberContext.c)
- *     sub_140BE10B0 @ 0x140BE10B0 (sub_140BE10B0.c)
+ *     KiLockExtendedServiceTable @ 0x140505B38 (KiLockExtendedServiceTable.c)
+ *     KiVerifyXcpt15 @ 0x140BE0C40 (KiVerifyXcpt15.c)
+ *     KeCheckedKernelInitialize @ 0x140BE144C (KeCheckedKernelInitialize.c)
+ *     KeFreeInitializationCode @ 0x140BE14F0 (KeFreeInitializationCode.c)
+ *     KiFilterFiberContext @ 0x140BE1530 (KiFilterFiberContext.c)
+ *     sub_140BE30B0 @ 0x140BE30B0 (sub_140BE30B0.c)
  * Callees:
  *     <none>
  */

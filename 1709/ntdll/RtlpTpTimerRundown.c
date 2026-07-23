@@ -10,18 +10,18 @@
  *     NtClose @ 0x1800A02A0 (NtClose.c)
  */
 
-__int64 __fastcall RtlpTpTimerRundown(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+LOGICAL __fastcall RtlpTpTimerRundown(__int64 a1)
 {
-  __int64 v5; // rcx
-  void *v6; // rcx
+  void *v2; // rcx
+  void *v3; // rcx
 
-  v5 = *(_QWORD *)(a1 + 72);
-  if ( v5 )
-    ZwSetEvent(v5, 0LL, a3, a4);
-  v6 = *(void **)(a1 + 16);
-  if ( v6 )
-    NtClose(v6);
+  v2 = *(void **)(a1 + 72);
+  if ( v2 )
+    ZwSetEvent(v2, 0LL);
+  v3 = *(void **)(a1 + 16);
+  if ( v3 )
+    NtClose(v3);
   if ( _InterlockedExchangeAdd(*(volatile signed __int32 **)(a1 + 56), 0xFFFFFFFF) == 1 )
     RtlpTpTimerQueueRundown(*(_QWORD *)(a1 + 56));
-  return RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0LL, a1);
+  return RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, (PVOID)a1);
 }

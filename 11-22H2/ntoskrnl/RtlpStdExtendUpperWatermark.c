@@ -55,10 +55,13 @@ LABEL_8:
 LABEL_9:
   v7 = *(unsigned __int8 *)(a1 + 8);
   KxReleaseSpinLock((volatile signed __int64 *)a1);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v7 <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
+      && (unsigned __int8)v7 <= 0xFu
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       v10 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v7 + 1));

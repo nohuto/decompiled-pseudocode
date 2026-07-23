@@ -1,11 +1,11 @@
 /*
- * XREFs of ObCheckActiveHandles @ 0x1406B380C
+ * XREFs of ObCheckActiveHandles @ 0x1406129DC
  * Callers:
- *     MiFinishCreateSection @ 0x140705C20 (MiFinishCreateSection.c)
+ *     MiFinishCreateSection @ 0x14071D000 (MiFinishCreateSection.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
- *     ExReleasePushLockEx @ 0x14034AE90 (ExReleasePushLockEx.c)
- *     KeLeaveCriticalRegion @ 0x14034B3B0 (KeLeaveCriticalRegion.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1403556E0 (ExAcquirePushLockExclusiveEx.c)
+ *     ExReleasePushLockEx @ 0x140355BE0 (ExReleasePushLockEx.c)
+ *     KeLeaveCriticalRegion @ 0x140356100 (KeLeaveCriticalRegion.c)
  */
 
 bool __fastcall ObCheckActiveHandles(__int64 a1)

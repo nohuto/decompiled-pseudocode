@@ -1,11 +1,11 @@
 /*
- * XREFs of ExGetPreviousMode @ 0x140445830
+ * XREFs of ExGetPreviousMode @ 0x14043D9E0
  * Callers:
- *     FsRtlpOplockTryPrepForAckTimeout @ 0x14070C450 (FsRtlpOplockTryPrepForAckTimeout.c)
- *     AhcCacheQueryHwId @ 0x140828F30 (AhcCacheQueryHwId.c)
- *     VrpPostQueryKey @ 0x140927F20 (VrpPostQueryKey.c)
- *     VrpPostEnumerateKey @ 0x1409284D8 (VrpPostEnumerateKey.c)
- *     NtApphelpCacheControl @ 0x140967860 (NtApphelpCacheControl.c)
+ *     FsRtlpOplockTryPrepForAckTimeout @ 0x140709FE4 (FsRtlpOplockTryPrepForAckTimeout.c)
+ *     AhcCacheQueryHwId @ 0x14082976C (AhcCacheQueryHwId.c)
+ *     VrpPostQueryKey @ 0x14092A060 (VrpPostQueryKey.c)
+ *     VrpPostEnumerateKey @ 0x14092A618 (VrpPostEnumerateKey.c)
+ *     NtApphelpCacheControl @ 0x1409502F0 (NtApphelpCacheControl.c)
  * Callees:
  *     <none>
  */

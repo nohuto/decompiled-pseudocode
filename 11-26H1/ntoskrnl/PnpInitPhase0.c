@@ -1,22 +1,22 @@
 /*
- * XREFs of PnpInitPhase0 @ 0x140CC3724
+ * XREFs of PnpInitPhase0 @ 0x140CC97F8
  * Callers:
- *     PpInitSystem @ 0x140CC39F0 (PpInitSystem.c)
+ *     PpInitSystem @ 0x140CC9AC4 (PpInitSystem.c)
  * Callees:
- *     MmDeterminePoolType @ 0x1402609A0 (MmDeterminePoolType.c)
- *     ExpAddResourceToSystemResourceList @ 0x140260A5C (ExpAddResourceToSystemResourceList.c)
- *     RtlStdLogStackTrace @ 0x140260BE8 (RtlStdLogStackTrace.c)
- *     RtlpStdGetRecordedStackTraceIndex @ 0x140260C74 (RtlpStdGetRecordedStackTraceIndex.c)
- *     RtlStdReleaseStackTrace @ 0x140260D48 (RtlStdReleaseStackTrace.c)
- *     PerfLogExecutiveResourceInitialize @ 0x1405263E4 (PerfLogExecutiveResourceInitialize.c)
- *     ExpTraceLogBadResourceAddress @ 0x14052D790 (ExpTraceLogBadResourceAddress.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     MmDeterminePoolType @ 0x14021A220 (MmDeterminePoolType.c)
+ *     ExpAddResourceToSystemResourceList @ 0x14021B4EC (ExpAddResourceToSystemResourceList.c)
+ *     RtlStdLogStackTrace @ 0x140260150 (RtlStdLogStackTrace.c)
+ *     RtlpStdGetRecordedStackTraceIndex @ 0x1402601DC (RtlpStdGetRecordedStackTraceIndex.c)
+ *     RtlStdReleaseStackTrace @ 0x1402602B0 (RtlStdReleaseStackTrace.c)
+ *     PerfLogExecutiveResourceInitialize @ 0x140528A54 (PerfLogExecutiveResourceInitialize.c)
+ *     ExpTraceLogBadResourceAddress @ 0x14052FCB0 (ExpTraceLogBadResourceAddress.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 char PnpInitPhase0()
 {
   ULONG_PTR v0; // rax
-  KSPIN_LOCK *p_Policy; // rdi
+  KSPIN_LOCK *v1; // rdi
   unsigned __int16 *v2; // rax
   __int64 *v3; // rsi
   int RecordedStackTraceIndex; // eax
@@ -38,15 +38,15 @@ char PnpInitPhase0()
   PnpRegistryDeviceResource.SpinLock = 0LL;
   if ( (NtGlobalFlag & 0x2000) != 0 )
   {
-    p_Policy = (KSPIN_LOCK *)&NormalizationListLock.SchedulingGroup->Policy;
-    if ( NormalizationListLock.SchedulingGroup
-      && (v2 = (unsigned __int16 *)RtlStdLogStackTrace((PKSPIN_LOCK)&NormalizationListLock.SchedulingGroup->Policy, 1),
+    v1 = *(KSPIN_LOCK **)&NormalizationListLock.WaitRegister.Flags;
+    if ( *(_QWORD *)&NormalizationListLock.WaitRegister.Flags
+      && (v2 = (unsigned __int16 *)RtlStdLogStackTrace(*(PKSPIN_LOCK *)&NormalizationListLock.WaitRegister.Flags, 1),
           (v3 = (__int64 *)v2) != 0LL) )
     {
-      RecordedStackTraceIndex = RtlpStdGetRecordedStackTraceIndex(p_Policy, v2);
+      RecordedStackTraceIndex = RtlpStdGetRecordedStackTraceIndex(v1, v2);
       v5 = RecordedStackTraceIndex;
       if ( !RecordedStackTraceIndex )
-        RtlStdReleaseStackTrace((__int64)p_Policy, v3);
+        RtlStdReleaseStackTrace((__int64)v1, v3);
     }
     else
     {
@@ -56,7 +56,7 @@ char PnpInitPhase0()
   }
   PnpRegistryDeviceResource.CreatorBackTraceIndex = v0;
   HIDWORD(PnpRegistryDeviceResource.Reserved2) = -1;
-  ExpAddResourceToSystemResourceList((struct _SINGLE_LIST_ENTRY *)&PnpRegistryDeviceResource);
+  ExpAddResourceToSystemResourceList((_KSWAPPABLE_PAGE *)&PnpRegistryDeviceResource);
   __incgsdword(0x9098u);
   if ( (DWORD1(PerfGlobalGroupMask[0]) & 0x20000) != 0 )
     PerfLogExecutiveResourceInitialize(65544, (__int64)&PnpRegistryDeviceResource, 0, 0);

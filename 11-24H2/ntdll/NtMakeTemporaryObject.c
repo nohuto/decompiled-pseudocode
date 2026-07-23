@@ -1,16 +1,16 @@
 /*
- * XREFs of NtMakeTemporaryObject @ 0x180163FA0
+ * XREFs of NtMakeTemporaryObject @ 0x180162360
  * Callers:
- *     LdrVerifyImageMatchesChecksumEx @ 0x180110720 (LdrVerifyImageMatchesChecksumEx.c)
+ *     LdrVerifyImageMatchesChecksumEx @ 0x18010B9E0 (LdrVerifyImageMatchesChecksumEx.c)
  * Callees:
  *     <none>
  */
 
-__int64 NtMakeTemporaryObject()
+NTSTATUS __cdecl NtMakeTemporaryObject(HANDLE Handle)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 281LL;
+  result = 281;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

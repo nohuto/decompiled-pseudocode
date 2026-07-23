@@ -1,14 +1,14 @@
 /*
- * XREFs of PnpProcessTargetDeviceEvent @ 0x14074B120
+ * XREFs of PnpProcessTargetDeviceEvent @ 0x14074B2E0
  * Callers:
- *     PnpDeviceEventWorker @ 0x1406E78D0 (PnpDeviceEventWorker.c)
+ *     PnpDeviceEventWorker @ 0x1406FECB0 (PnpDeviceEventWorker.c)
  * Callees:
- *     memcmp @ 0x1403D29E0 (memcmp.c)
- *     McTemplateK0z_EtwWriteTransfer @ 0x14050DAB4 (McTemplateK0z_EtwWriteTransfer.c)
- *     PiPnpRtlEndOperation @ 0x140633ED8 (PiPnpRtlEndOperation.c)
- *     PiPnpRtlBeginOperation @ 0x140634680 (PiPnpRtlBeginOperation.c)
- *     PiUEventNotifyUserMode @ 0x1406E675C (PiUEventNotifyUserMode.c)
- *     PnpProcessQueryRemoveAndEject @ 0x140736914 (PnpProcessQueryRemoveAndEject.c)
+ *     memcmp @ 0x1403D2B50 (memcmp.c)
+ *     McTemplateK0z_EtwWriteTransfer @ 0x14050DCF4 (McTemplateK0z_EtwWriteTransfer.c)
+ *     PiPnpRtlEndOperation @ 0x140628F64 (PiPnpRtlEndOperation.c)
+ *     PiPnpRtlBeginOperation @ 0x140629498 (PiPnpRtlBeginOperation.c)
+ *     PiUEventNotifyUserMode @ 0x1406FDB3C (PiUEventNotifyUserMode.c)
+ *     PnpProcessQueryRemoveAndEject @ 0x140736AD4 (PnpProcessQueryRemoveAndEject.c)
  */
 
 __int64 __fastcall PnpProcessTargetDeviceEvent(__int64 *a1)

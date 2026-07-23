@@ -1,16 +1,16 @@
 /*
- * XREFs of PopDripsWatchdogPs4Callback @ 0x14086E630
+ * XREFs of PopDripsWatchdogPs4Callback @ 0x14086F890
  * Callers:
  *     <none>
  * Callees:
- *     PopFxBuildDripsBlockingDeviceList @ 0x1402D75D0 (PopFxBuildDripsBlockingDeviceList.c)
- *     PopFxClearDirectedDripsCandidateDeviceList @ 0x1402D78F4 (PopFxClearDirectedDripsCandidateDeviceList.c)
- *     PopFxIsDirectedPowerTransitionSupported @ 0x1402D8464 (PopFxIsDirectedPowerTransitionSupported.c)
- *     PopDeviceConstraintsEnforced @ 0x1402E7158 (PopDeviceConstraintsEnforced.c)
- *     PopDirectedDripsNotify @ 0x14071E748 (PopDirectedDripsNotify.c)
- *     PopDirectedDripsMarkCandidateDevice @ 0x140867F84 (PopDirectedDripsMarkCandidateDevice.c)
- *     PopFxDestroyDripsBlockingDeviceList @ 0x1408695F4 (PopFxDestroyDripsBlockingDeviceList.c)
- *     PopDirectedDripsFindPs4RootDevice @ 0x14087C37C (PopDirectedDripsFindPs4RootDevice.c)
+ *     PopFxBuildDripsBlockingDeviceList @ 0x1402D77C0 (PopFxBuildDripsBlockingDeviceList.c)
+ *     PopFxClearDirectedDripsCandidateDeviceList @ 0x1402D7AE4 (PopFxClearDirectedDripsCandidateDeviceList.c)
+ *     PopFxIsDirectedPowerTransitionSupported @ 0x1402D8654 (PopFxIsDirectedPowerTransitionSupported.c)
+ *     PopDeviceConstraintsEnforced @ 0x1402E7348 (PopDeviceConstraintsEnforced.c)
+ *     PopDirectedDripsNotify @ 0x14071F9E8 (PopDirectedDripsNotify.c)
+ *     PopDirectedDripsMarkCandidateDevice @ 0x1408691E4 (PopDirectedDripsMarkCandidateDevice.c)
+ *     PopFxDestroyDripsBlockingDeviceList @ 0x14086A854 (PopFxDestroyDripsBlockingDeviceList.c)
+ *     PopDirectedDripsFindPs4RootDevice @ 0x14087D5DC (PopDirectedDripsFindPs4RootDevice.c)
  */
 
 void __fastcall PopDripsWatchdogPs4Callback(__int64 a1)
@@ -41,7 +41,7 @@ void __fastcall PopDripsWatchdogPs4Callback(__int64 a1)
       }
       while ( v3 != v2 );
       if ( (v2 & 1) != 0 && PopDirectedDripsEnableV2 )
-        dword_140419168 = 0;
+        dword_14041A248 = 0;
       for ( i = (_QWORD *)v9[0]; i != v9; i = *v8 )
       {
         v5 = (__int64)(i - 107);

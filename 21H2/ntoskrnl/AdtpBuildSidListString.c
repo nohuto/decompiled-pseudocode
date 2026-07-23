@@ -1,15 +1,15 @@
 /*
- * XREFs of AdtpBuildSidListString @ 0x14096DB54
+ * XREFs of AdtpBuildSidListString @ 0x14096DD34
  * Callers:
- *     AdtpPackageParameters @ 0x1403C06B4 (AdtpPackageParameters.c)
+ *     AdtpPackageParameters @ 0x1403C0AE4 (AdtpPackageParameters.c)
  * Callees:
- *     RtlAppendUnicodeToString @ 0x140265A40 (RtlAppendUnicodeToString.c)
- *     RtlAppendUnicodeStringToString @ 0x14027F0B0 (RtlAppendUnicodeStringToString.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     RtlConvertSidToUnicodeString @ 0x1406745A0 (RtlConvertSidToUnicodeString.c)
- *     RtlLengthSidAsUnicodeString @ 0x140676DD8 (RtlLengthSidAsUnicodeString.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     RtlAppendUnicodeToString @ 0x1402539E0 (RtlAppendUnicodeToString.c)
+ *     RtlAppendUnicodeStringToString @ 0x14026D4E0 (RtlAppendUnicodeStringToString.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     RtlConvertSidToUnicodeString @ 0x1406697D0 (RtlConvertSidToUnicodeString.c)
+ *     RtlLengthSidAsUnicodeString @ 0x14066A4A8 (RtlLengthSidAsUnicodeString.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall AdtpBuildSidListString(unsigned int *a1, __int64 a2, __int64 a3, __int64 a4, _DWORD *a5, char *a6)
@@ -19,8 +19,8 @@ __int64 __fastcall AdtpBuildSidListString(unsigned int *a1, __int64 a2, __int64 
   unsigned int v10; // r15d
   unsigned int v11; // r13d
   unsigned int v12; // ebx
-  unsigned __int8 **v13; // rsi
-  unsigned __int8 *v14; // rcx
+  void **v13; // rsi
+  void *v14; // rcx
   unsigned int v15; // ecx
   NTSTATUS appended; // ebx
   __int64 v17; // rax
@@ -29,7 +29,7 @@ __int64 __fastcall AdtpBuildSidListString(unsigned int *a1, __int64 a2, __int64 
   unsigned int v20; // r13d
   PSID *v21; // r15
   unsigned int v22; // eax
-  unsigned int v24; // [rsp+20h] [rbp-E0h] BYREF
+  ULONG StringLength; // [rsp+20h] [rbp-E0h] BYREF
   UNICODE_STRING Destination; // [rsp+28h] [rbp-D8h] BYREF
   UNICODE_STRING UnicodeString; // [rsp+38h] [rbp-C8h] BYREF
   _DWORD *v27; // [rsp+48h] [rbp-B8h]
@@ -60,13 +60,13 @@ LABEL_23:
   }
   v11 = 0;
   v12 = 1;
-  v13 = (unsigned __int8 **)(*((_QWORD *)a1 + 1) + 8LL);
+  v13 = (void **)(*((_QWORD *)a1 + 1) + 8LL);
   do
   {
     v14 = *v13;
-    v24 = 0;
-    RtlLengthSidAsUnicodeString(v14, &v24);
-    v15 = v12 + (v24 >> 1) + 7;
+    StringLength = 0;
+    RtlLengthSidAsUnicodeString(v14, &StringLength);
+    v15 = v12 + (StringLength >> 1) + 7;
     if ( v15 < v12 )
     {
       appended = -1073741675;
@@ -74,7 +74,7 @@ LABEL_23:
     }
     ++v11;
     v13 += 2;
-    v12 += (v24 >> 1) + 7;
+    v12 += (StringLength >> 1) + 7;
   }
   while ( v11 < v10 );
   if ( v15 > 0x7FFF )

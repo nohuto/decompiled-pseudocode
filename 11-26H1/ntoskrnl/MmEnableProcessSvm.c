@@ -1,10 +1,10 @@
 /*
- * XREFs of MmEnableProcessSvm @ 0x1406E549C
+ * XREFs of MmEnableProcessSvm @ 0x1406EA14C
  * Callers:
- *     ExpShareAddressSpaceWithDevice @ 0x1406D1A1C (ExpShareAddressSpaceWithDevice.c)
+ *     ExpShareAddressSpaceWithDevice @ 0x1406D5A4C (ExpShareAddressSpaceWithDevice.c)
  * Callees:
- *     MiLockWorkingSetExclusive @ 0x14027E5A0 (MiLockWorkingSetExclusive.c)
- *     MiUnlockWorkingSetExclusive @ 0x14027E758 (MiUnlockWorkingSetExclusive.c)
+ *     MiLockWorkingSetExclusive @ 0x14027DB10 (MiLockWorkingSetExclusive.c)
+ *     MiUnlockWorkingSetExclusive @ 0x14027DCC8 (MiUnlockWorkingSetExclusive.c)
  */
 
 void __fastcall MmEnableProcessSvm(__int64 a1, __int64 a2, __int64 a3)

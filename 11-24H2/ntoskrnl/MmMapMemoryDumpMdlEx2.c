@@ -1,10 +1,10 @@
 /*
- * XREFs of MmMapMemoryDumpMdlEx2 @ 0x1404F8788
+ * XREFs of MmMapMemoryDumpMdlEx2 @ 0x1404F6068
  * Callers:
- *     PopGetNextTable @ 0x1405D3444 (PopGetNextTable.c)
- *     PopDecompressHiberBlocks @ 0x140B5C904 (PopDecompressHiberBlocks.c)
+ *     PopGetNextTable @ 0x1405D0B64 (PopGetNextTable.c)
+ *     PopDecompressHiberBlocks @ 0x140B5E974 (PopDecompressHiberBlocks.c)
  * Callees:
- *     MiMapMemoryDumpMdl @ 0x14049BB2C (MiMapMemoryDumpMdl.c)
+ *     MiMapMemoryDumpMdl @ 0x14049665C (MiMapMemoryDumpMdl.c)
  */
 
 __int64 __fastcall MmMapMemoryDumpMdlEx2(unsigned __int64 a1, __int64 a2, __int64 a3, int a4)

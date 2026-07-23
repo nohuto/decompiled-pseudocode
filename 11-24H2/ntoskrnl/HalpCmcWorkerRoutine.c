@@ -1,16 +1,16 @@
 /*
- * XREFs of HalpCmcWorkerRoutine @ 0x140A4DAA0
+ * XREFs of HalpCmcWorkerRoutine @ 0x140A44630
  * Callers:
  *     <none>
  * Callees:
- *     KeQueryActiveProcessorCountEx @ 0x1402105E0 (KeQueryActiveProcessorCountEx.c)
- *     KeCancelTimer @ 0x140333B20 (KeCancelTimer.c)
- *     KeSetSystemGroupAffinityThread @ 0x140339650 (KeSetSystemGroupAffinityThread.c)
- *     KeRevertToUserGroupAffinityThread @ 0x14033A250 (KeRevertToUserGroupAffinityThread.c)
- *     HalpCmcPollProcessor @ 0x14047D32C (HalpCmcPollProcessor.c)
- *     WheaLogInternalEvent @ 0x14065E070 (WheaLogInternalEvent.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     HalpCmciInit @ 0x140B6C938 (HalpCmciInit.c)
+ *     KeCancelTimer @ 0x1402BE1D0 (KeCancelTimer.c)
+ *     KeSetSystemGroupAffinityThread @ 0x140318B30 (KeSetSystemGroupAffinityThread.c)
+ *     KeRevertToUserGroupAffinityThread @ 0x140319730 (KeRevertToUserGroupAffinityThread.c)
+ *     KeQueryActiveProcessorCountEx @ 0x140339940 (KeQueryActiveProcessorCountEx.c)
+ *     HalpCmcPollProcessor @ 0x1404784BC (HalpCmcPollProcessor.c)
+ *     WheaLogInternalEvent @ 0x14065C840 (WheaLogInternalEvent.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     HalpCmciInit @ 0x140B6E1D8 (HalpCmciInit.c)
  */
 
 void __fastcall HalpCmcWorkerRoutine(__int64 a1)
@@ -24,16 +24,16 @@ void __fastcall HalpCmcWorkerRoutine(__int64 a1)
   ULONG v8; // r15d
   __int64 v9; // r12
   unsigned int v10; // edx
-  struct _GROUP_AFFINITY *p_PreviousAffinity; // rdx
+  _GROUP_AFFINITY *p_PreviousAffinity; // rdx
   __int64 v12; // r14
   unsigned int v13; // eax
-  unsigned int v14; // edx
+  __int64 v14; // rdx
   bool v15; // cf
-  struct _GROUP_AFFINITY Affinity; // [rsp+20h] [rbp-60h] BYREF
+  _GROUP_AFFINITY Affinity; // [rsp+20h] [rbp-60h] BYREF
   __int128 Src; // [rsp+30h] [rbp-50h] BYREF
   __int128 v18; // [rsp+40h] [rbp-40h]
   __int128 v19; // [rsp+50h] [rbp-30h]
-  struct _GROUP_AFFINITY PreviousAffinity; // [rsp+60h] [rbp-20h] BYREF
+  _GROUP_AFFINITY PreviousAffinity; // [rsp+60h] [rbp-20h] BYREF
 
   ++*(_DWORD *)(a1 + 184);
   Affinity = 0LL;
@@ -102,8 +102,8 @@ void __fastcall HalpCmcWorkerRoutine(__int64 a1)
     {
       ++*(_DWORD *)(a1 + 188);
       KeCancelTimer((PKTIMER)(a1 + 8));
-      v14 = *(_DWORD *)(a1 + 180);
-      v15 = *(_DWORD *)(a1 + 188) < v14;
+      v14 = *(unsigned int *)(a1 + 180);
+      v15 = *(_DWORD *)(a1 + 188) < (unsigned int)v14;
       LODWORD(v19) = *(_DWORD *)(a1 + 188);
       HalpCmcPollingStarted = 0;
       *(_DWORD *)(a1 + 184) = 0;
@@ -114,7 +114,7 @@ void __fastcall HalpCmcWorkerRoutine(__int64 a1)
       LODWORD(v18) = 541868360;
       *((_QWORD *)&v18 + 1) = 0x1000000002LL;
       *(_QWORD *)((char *)&v19 + 4) = __PAIR64__(v2, v14);
-      WheaLogInternalEvent(&Src);
+      WheaLogInternalEvent(&Src, v14);
     }
   }
   KeRevertToUserGroupAffinityThread(&PreviousAffinity);

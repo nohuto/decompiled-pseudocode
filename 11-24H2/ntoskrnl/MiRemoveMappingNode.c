@@ -1,12 +1,12 @@
 /*
- * XREFs of MiRemoveMappingNode @ 0x1404A2BAC
+ * XREFs of MiRemoveMappingNode @ 0x14049DACC
  * Callers:
- *     MmFreeMappingAddress @ 0x140A5DAA0 (MmFreeMappingAddress.c)
+ *     MmFreeMappingAddress @ 0x140A55EC0 (MmFreeMappingAddress.c)
  * Callees:
- *     RtlAvlRemoveNode @ 0x140260BC0 (RtlAvlRemoveNode.c)
- *     MiReleaseSpinLockExclusive @ 0x14028EE30 (MiReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x14028F370 (ExAcquireSpinLockExclusive.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
+ *     RtlAvlRemoveNode @ 0x1402911D0 (RtlAvlRemoveNode.c)
+ *     MiReleaseSpinLockExclusive @ 0x14029EA30 (MiReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14029EF70 (ExAcquireSpinLockExclusive.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
  */
 
 _QWORD *__fastcall MiRemoveMappingNode(ULONG_PTR BugCheckParameter2, ULONG_PTR BugCheckParameter3)
@@ -19,8 +19,8 @@ _QWORD *__fastcall MiRemoveMappingNode(ULONG_PTR BugCheckParameter2, ULONG_PTR B
   ULONG_PTR v9; // rcx
 
   v3 = (unsigned int)BugCheckParameter3;
-  v4 = ExAcquireSpinLockExclusive(&dword_140E35EA8);
-  v5 = (_QWORD *)qword_140E35EB0;
+  v4 = ExAcquireSpinLockExclusive(&dword_140E35FE8);
+  v5 = (_QWORD *)qword_140E35FF0;
   v6 = BugCheckParameter2 & 0xFFFFFFFFFFFFF000uLL;
   v7 = v4;
   while ( v5 )
@@ -39,7 +39,7 @@ _QWORD *__fastcall MiRemoveMappingNode(ULONG_PTR BugCheckParameter2, ULONG_PTR B
   }
   if ( !v5 )
     KeBugCheckEx(0xDAu, 0x106uLL, BugCheckParameter2, v3, 0LL);
-  RtlAvlRemoveNode((unsigned __int64 *)&qword_140E35EB0, (__int64)v5);
-  MiReleaseSpinLockExclusive(&dword_140E35EA8, v7);
+  RtlAvlRemoveNode((unsigned __int64 *)&qword_140E35FF0, (__int64)v5);
+  MiReleaseSpinLockExclusive(&dword_140E35FE8, v7);
   return v5;
 }

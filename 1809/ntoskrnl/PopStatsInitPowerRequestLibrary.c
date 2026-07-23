@@ -1,18 +1,18 @@
 /*
- * XREFs of PopStatsInitPowerRequestLibrary @ 0x1409DB758
+ * XREFs of PopStatsInitPowerRequestLibrary @ 0x1409DC758
  * Callers:
- *     PopPowerRequestInit @ 0x1409DB558 (PopPowerRequestInit.c)
+ *     PopPowerRequestInit @ 0x1409DC558 (PopPowerRequestInit.c)
  * Callees:
  *     RtlInitializeGenericTableAvl @ 0x140006820 (RtlInitializeGenericTableAvl.c)
- *     memset @ 0x1401D1880 (memset.c)
+ *     memset @ 0x1401D1980 (memset.c)
  */
 
 __int64 PopStatsInitPowerRequestLibrary()
 {
   PowerReqestStatsLock = 0LL;
-  qword_14040E778 = 0LL;
+  qword_14040F7D8 = 0LL;
   memset(&ExecutionRequiredStopWatchCollection, 0, 0x38uLL);
-  qword_14040E6C8 = (__int64)&ExecutionRequiredStopWatchCollection;
+  qword_14040F728 = (__int64)&ExecutionRequiredStopWatchCollection;
   ExecutionRequiredStopWatchCollection = (__int64)&ExecutionRequiredStopWatchCollection;
   RtlInitializeGenericTableAvl(
     &PowerRequestStatsDatabase,

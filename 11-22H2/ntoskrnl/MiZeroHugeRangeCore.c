@@ -59,7 +59,7 @@ __int64 __fastcall MiZeroHugeRangeCore(__int64 a1, __int64 a2, int a3, int a4)
   ULONG_PTR v29; // [rsp+78h] [rbp-41h]
   PVOID Object; // [rsp+80h] [rbp-39h] BYREF
   __int64 v31; // [rsp+88h] [rbp-31h]
-  struct _GROUP_AFFINITY Affinity; // [rsp+90h] [rbp-29h] BYREF
+  _GROUP_AFFINITY Affinity; // [rsp+90h] [rbp-29h] BYREF
   _OWORD v33[3]; // [rsp+A0h] [rbp-19h] BYREF
 
   v29 = a1;
@@ -166,7 +166,7 @@ LABEL_34:
     v21 = -1;
     if ( HIBYTE(v22) && (int)MiGetNextAffinityWalker((__int64)v18, v33) >= 0 )
     {
-      Affinity = *(struct _GROUP_AFFINITY *)((char *)v33 + 8);
+      Affinity = *(_GROUP_AFFINITY *)((char *)v33 + 8);
       v21 = MiSetIdealProcessorThread(&Affinity);
     }
     if ( v16 && _InterlockedIncrement64((volatile signed __int64 *)(v16 + 32)) <= 1 )

@@ -1,14 +1,14 @@
 /*
- * XREFs of IopLiveDumpCapture @ 0x1405CE5BC
+ * XREFs of IopLiveDumpCapture @ 0x1405D0DCC
  * Callers:
- *     IopLiveDumpCaptureMemoryPages @ 0x1405CE6D0 (IopLiveDumpCaptureMemoryPages.c)
- *     IopLiveDumpEstimateMemoryPages @ 0x1405CF098 (IopLiveDumpEstimateMemoryPages.c)
+ *     IopLiveDumpCaptureMemoryPages @ 0x1405D0EE0 (IopLiveDumpCaptureMemoryPages.c)
+ *     IopLiveDumpEstimateMemoryPages @ 0x1405D18A8 (IopLiveDumpEstimateMemoryPages.c)
  * Callees:
- *     MmUnlockPagableImageSection @ 0x140366CB0 (MmUnlockPagableImageSection.c)
- *     IopLiveDumpCollectPages @ 0x1405CE958 (IopLiveDumpCollectPages.c)
- *     IopLiveDumpEnterCorralledState @ 0x1405CF050 (IopLiveDumpEnterCorralledState.c)
- *     MmLockPagableSectionByHandle @ 0x140A9C420 (MmLockPagableSectionByHandle.c)
- *     MmDuplicateMemory @ 0x140C0CEE0 (MmDuplicateMemory.c)
+ *     MmUnlockPagableImageSection @ 0x140368A50 (MmUnlockPagableImageSection.c)
+ *     IopLiveDumpCollectPages @ 0x1405D1168 (IopLiveDumpCollectPages.c)
+ *     IopLiveDumpEnterCorralledState @ 0x1405D1860 (IopLiveDumpEnterCorralledState.c)
+ *     MmLockPagableSectionByHandle @ 0x140A9F220 (MmLockPagableSectionByHandle.c)
+ *     MmDuplicateMemory @ 0x140C130F0 (MmDuplicateMemory.c)
  */
 
 __int64 __fastcall IopLiveDumpCapture(__int64 a1)

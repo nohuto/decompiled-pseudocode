@@ -1,18 +1,18 @@
 /*
- * XREFs of MiAgeWorkingSet @ 0x1402FD0D0
+ * XREFs of MiAgeWorkingSet @ 0x1402DF150
  * Callers:
- *     MiAgeTargetedWorkingSet @ 0x140476D30 (MiAgeTargetedWorkingSet.c)
+ *     MiAgeTargetedWorkingSet @ 0x1404704B0 (MiAgeTargetedWorkingSet.c)
  * Callees:
- *     KeQueryPerformanceCounter @ 0x14021C3F0 (KeQueryPerformanceCounter.c)
- *     MiUnlockWorkingSetCoreExclusive @ 0x1402FE650 (MiUnlockWorkingSetCoreExclusive.c)
- *     MiComputeAgingAmount @ 0x1402FE6B0 (MiComputeAgingAmount.c)
- *     MiLockWorkingSetCoreExclusive @ 0x1402FE7B0 (MiLockWorkingSetCoreExclusive.c)
- *     MiWalkPageTables @ 0x140326A80 (MiWalkPageTables.c)
- *     MiIsStoreProcess @ 0x140404810 (MiIsStoreProcess.c)
- *     MiComputeHardAgingPercent @ 0x1404B1DCC (MiComputeHardAgingPercent.c)
- *     MiLogWsAging @ 0x14050B9EC (MiLogWsAging.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     KeQueryPerformanceCounter @ 0x14021DD80 (KeQueryPerformanceCounter.c)
+ *     MiUnlockWorkingSetCoreExclusive @ 0x1402E06D0 (MiUnlockWorkingSetCoreExclusive.c)
+ *     MiComputeAgingAmount @ 0x1402E0730 (MiComputeAgingAmount.c)
+ *     MiLockWorkingSetCoreExclusive @ 0x1402E0830 (MiLockWorkingSetCoreExclusive.c)
+ *     MiWalkPageTables @ 0x140328AB0 (MiWalkPageTables.c)
+ *     MiIsStoreProcess @ 0x1403FD910 (MiIsStoreProcess.c)
+ *     MiComputeHardAgingPercent @ 0x1404AB228 (MiComputeHardAgingPercent.c)
+ *     MiLogWsAging @ 0x14050545C (MiLogWsAging.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 unsigned __int64 __fastcall MiAgeWorkingSet(__int64 a1, char a2, unsigned int a3, __int64 a4)
@@ -125,7 +125,7 @@ unsigned __int64 __fastcall MiAgeWorkingSet(__int64 a1, char a2, unsigned int a3
       MiUnlockWorkingSetCoreExclusive(a1);
       v19 = *(unsigned __int16 *)(a1 + 174);
       v53 = v7;
-      v20 = *(_QWORD *)(stru_140E2EB88.ThreadLock + 8 * v19);
+      v20 = *(_QWORD *)(stru_140E2ED08.ThreadLock + 8 * v19);
       if ( v39 )
         goto LABEL_27;
       v21 = v20 + 3648;
@@ -220,11 +220,11 @@ LABEL_27:
       }
     }
   }
-  if ( stru_140E36558.FirstArgument
-    && *(_DWORD *)stru_140E36558.FirstArgument
-    && (*((_BYTE *)stru_140E36558.FirstArgument + 16) & 1) != 0 )
+  if ( stru_140E366D8.FirstArgument
+    && *(_DWORD *)stru_140E366D8.FirstArgument
+    && (*((_BYTE *)stru_140E366D8.FirstArgument + 16) & 1) != 0 )
   {
-    v35 = *((_QWORD *)stru_140E36558.FirstArgument + 3);
+    v35 = *((_QWORD *)stru_140E366D8.FirstArgument + 3);
     result = v35 & 1;
     if ( result == v35 )
       return MiLogWsAging(v35, a1, &v49, a3);

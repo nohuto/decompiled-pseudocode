@@ -1,14 +1,14 @@
 /*
- * XREFs of FsRtlRemovePerStreamContext @ 0x1403C5300
+ * XREFs of FsRtlRemovePerStreamContext @ 0x1403B3EC0
  * Callers:
  *     <none>
  * Callees:
- *     KeReleaseGuardedMutex @ 0x14031E470 (KeReleaseGuardedMutex.c)
- *     ExAcquireFastMutex @ 0x14033E850 (ExAcquireFastMutex.c)
- *     FsRtlAcquireAutoExpandPushLockExclusive @ 0x1403C576C (FsRtlAcquireAutoExpandPushLockExclusive.c)
- *     FsRtlReleaseAutoExpandPushLockExclusive @ 0x1403C58E4 (FsRtlReleaseAutoExpandPushLockExclusive.c)
- *     FsRtlReleasePushLock @ 0x1403C5B48 (FsRtlReleasePushLock.c)
- *     FsRtlAcquirePushLockExclusive @ 0x1403C5B9C (FsRtlAcquirePushLockExclusive.c)
+ *     KeReleaseGuardedMutex @ 0x1402C7000 (KeReleaseGuardedMutex.c)
+ *     ExAcquireFastMutex @ 0x14031DD30 (ExAcquireFastMutex.c)
+ *     FsRtlAcquireAutoExpandPushLockExclusive @ 0x1403B432C (FsRtlAcquireAutoExpandPushLockExclusive.c)
+ *     FsRtlReleaseAutoExpandPushLockExclusive @ 0x1403B44A4 (FsRtlReleaseAutoExpandPushLockExclusive.c)
+ *     FsRtlReleasePushLock @ 0x1403B4708 (FsRtlReleasePushLock.c)
+ *     FsRtlAcquirePushLockExclusive @ 0x1403B475C (FsRtlAcquirePushLockExclusive.c)
  */
 
 PFSRTL_PER_STREAM_CONTEXT __stdcall FsRtlRemovePerStreamContext(

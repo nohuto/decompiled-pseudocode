@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlEthernetAddressToStringW @ 0x18010C700
+ * XREFs of RtlEthernetAddressToStringW @ 0x18010C250
  * Callers:
  *     <none>
  * Callees:
- *     swprintf_s @ 0x180134190 (swprintf_s.c)
+ *     swprintf_s @ 0x180133F00 (swprintf_s.c)
  */
 
 PWSTR __stdcall RtlEthernetAddressToStringW(const DL_EUI48 *Addr, PWSTR S)

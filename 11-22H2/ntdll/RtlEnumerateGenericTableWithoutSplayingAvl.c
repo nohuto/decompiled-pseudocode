@@ -6,45 +6,45 @@
  *     <none>
  */
 
-__int64 __fastcall RtlEnumerateGenericTableWithoutSplayingAvl(__int64 a1, _QWORD *a2)
+PVOID __cdecl RtlEnumerateGenericTableWithoutSplayingAvl(PRTL_AVL_TABLE Table, PVOID *RestartKey)
 {
-  _QWORD *v3; // rcx
-  _QWORD *j; // rax
-  _QWORD *i; // rcx
-  _QWORD *k; // rcx
+  _RTL_BALANCED_LINKS *v3; // rcx
+  _RTL_BALANCED_LINKS *RightChild; // rax
+  _RTL_BALANCED_LINKS *i; // rcx
+  _RTL_BALANCED_LINKS *j; // rcx
 
-  if ( *(_DWORD *)(a1 + 44) )
+  if ( Table->NumberGenericTableElements )
   {
-    v3 = (_QWORD *)*a2;
-    if ( *a2 )
+    v3 = (_RTL_BALANCED_LINKS *)*RestartKey;
+    if ( *RestartKey )
     {
-      j = (_QWORD *)v3[2];
-      if ( j )
+      RightChild = v3->RightChild;
+      if ( RightChild )
       {
-        for ( i = (_QWORD *)j[1]; i; i = (_QWORD *)i[1] )
-          j = i;
+        for ( i = RightChild->LeftChild; i; i = i->LeftChild )
+          RightChild = i;
       }
       else
       {
-        for ( j = (_QWORD *)*v3; (_QWORD *)j[2] == v3; j = (_QWORD *)*j )
-          v3 = j;
-        if ( (_QWORD *)j[1] != v3 )
+        for ( RightChild = v3->Parent; RightChild->RightChild == v3; RightChild = RightChild->Parent )
+          v3 = RightChild;
+        if ( RightChild->LeftChild != v3 )
         {
-          j = 0LL;
-          return (unsigned __int64)(j + 4) & -(__int64)(j != 0LL);
+          RightChild = 0LL;
+          return (PVOID)((unsigned __int64)&RightChild[1] & -(__int64)(RightChild != 0LL));
         }
       }
-      if ( !j )
-        return (unsigned __int64)(j + 4) & -(__int64)(j != 0LL);
+      if ( !RightChild )
+        return (PVOID)((unsigned __int64)&RightChild[1] & -(__int64)(RightChild != 0LL));
     }
     else
     {
-      j = *(_QWORD **)(a1 + 16);
-      for ( k = (_QWORD *)j[1]; k; k = (_QWORD *)k[1] )
-        j = k;
+      RightChild = Table->BalancedRoot.RightChild;
+      for ( j = RightChild->LeftChild; j; j = j->LeftChild )
+        RightChild = j;
     }
-    *a2 = j;
-    return (unsigned __int64)(j + 4) & -(__int64)(j != 0LL);
+    *RestartKey = RightChild;
+    return (PVOID)((unsigned __int64)&RightChild[1] & -(__int64)(RightChild != 0LL));
   }
   return 0LL;
 }

@@ -16,12 +16,12 @@ __int64 PopEnableSystemSleepCheckpoint()
   NTSTATUS v1; // ebx
   __int32 v3; // eax
   __int32 v4; // eax
-  __int64 InterruptTimePrecise; // rsi
-  unsigned __int64 v6; // rax
+  LARGE_INTEGER InterruptTimePrecise; // rsi
+  LONGLONG v6; // rax
   _BYTE v7[40]; // [rsp+30h] [rbp-28h] BYREF
   int v8; // [rsp+60h] [rbp+8h] BYREF
   unsigned __int64 v9; // [rsp+68h] [rbp+10h] BYREF
-  LARGE_INTEGER v10; // [rsp+70h] [rbp+18h] BYREF
+  LARGE_INTEGER PerformanceCounter; // [rsp+70h] [rbp+18h] BYREF
   char v11; // [rsp+78h] [rbp+20h] BYREF
 
   if ( (int)PopReadUlongPowerKey(L"SleepReliabilityDetailedDiagnostics", (unsigned int *)&v8, 0, 0, 1u, 0) >= 0 )
@@ -62,7 +62,7 @@ LABEL_25:
     v4 = 9;
     goto LABEL_15;
   }
-  InterruptTimePrecise = RtlGetInterruptTimePrecise(&v10);
+  InterruptTimePrecise = RtlGetInterruptTimePrecise(&PerformanceCounter);
   v1 = PopCheckpointSystemSleepUnsafe(0);
   if ( v1 < 0 )
   {
@@ -71,8 +71,8 @@ LABEL_22:
   }
   else
   {
-    v6 = RtlGetInterruptTimePrecise(&v10) - InterruptTimePrecise;
-    if ( v0 && v6 > 0x186A0 )
+    v6 = *(_QWORD *)&RtlGetInterruptTimePrecise(&PerformanceCounter) - InterruptTimePrecise.QuadPart;
+    if ( v0 && (unsigned __int64)v6 > 0x186A0 )
     {
       v1 = 258;
       _InterlockedExchange(&PopSleepCheckpointStatus, 10);

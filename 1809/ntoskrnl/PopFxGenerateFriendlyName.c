@@ -1,14 +1,14 @@
 /*
- * XREFs of PopFxGenerateFriendlyName @ 0x140725300
+ * XREFs of PopFxGenerateFriendlyName @ 0x1407265A0
  * Callers:
- *     PopFxRegisterDevice @ 0x140725190 (PopFxRegisterDevice.c)
+ *     PopFxRegisterDevice @ 0x140726430 (PopFxRegisterDevice.c)
  * Callees:
- *     RtlCopyUnicodeString @ 0x1400B9890 (RtlCopyUnicodeString.c)
- *     RtlUnicodeStringCat @ 0x14012B4CC (RtlUnicodeStringCat.c)
- *     RtlUnicodeStringCatString @ 0x140179DA4 (RtlUnicodeStringCatString.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     IoGetDeviceProperty @ 0x1405876E0 (IoGetDeviceProperty.c)
+ *     RtlCopyUnicodeString @ 0x1400B97D0 (RtlCopyUnicodeString.c)
+ *     RtlUnicodeStringCat @ 0x14012B59C (RtlUnicodeStringCat.c)
+ *     RtlUnicodeStringCatString @ 0x140179EA4 (RtlUnicodeStringCatString.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     IoGetDeviceProperty @ 0x1405886E0 (IoGetDeviceProperty.c)
  */
 
 void __fastcall PopFxGenerateFriendlyName(UNICODE_STRING *a1, __int64 a2)

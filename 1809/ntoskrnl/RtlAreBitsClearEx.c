@@ -1,8 +1,8 @@
 /*
- * XREFs of RtlAreBitsClearEx @ 0x1401143C0
+ * XREFs of RtlAreBitsClearEx @ 0x140114430
  * Callers:
- *     MiMarkRetpolineBits @ 0x140853D50 (MiMarkRetpolineBits.c)
- *     MiHotAddPartitionMemory @ 0x1408603D4 (MiHotAddPartitionMemory.c)
+ *     MiMarkRetpolineBits @ 0x140854FB0 (MiMarkRetpolineBits.c)
+ *     MiHotAddPartitionMemory @ 0x140861634 (MiHotAddPartitionMemory.c)
  * Callees:
  *     <none>
  */

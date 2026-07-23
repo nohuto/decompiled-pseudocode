@@ -9,24 +9,25 @@
  *     _memcpy @ 0x4B2F88B0 (_memcpy.c)
  */
 
-int __stdcall LdrGetDllFullName(unsigned int a1, unsigned __int16 *a2)
+NTSTATUS __cdecl LdrGetDllFullName(PVOID DllHandle, PUNICODE_STRING FullDllName)
 {
-  int v2; // edi
-  unsigned int v3; // eax
+  volatile signed __int32 *v2; // edi
+  _RTL_BALANCED_NODE *Root; // eax
   unsigned __int16 *v4; // esi
-  size_t v5; // ebx
-  unsigned __int16 *v6; // edx
-  unsigned int v7; // esi
+  unsigned int MaximumLength; // ebx
+  PUNICODE_STRING v6; // edx
+  NTSTATUS v7; // esi
   _DWORD *SubSystemTib; // eax
-  _DWORD *v10; // eax
-  unsigned int v11; // ecx
+  _RTL_BALANCED_NODE *v10; // eax
+  _RTL_BALANCED_NODE *v11; // ecx
   unsigned __int16 *v12; // eax
+  size_t v13; // [esp-4h] [ebp-1Ch]
   void *Src; // [esp+10h] [ebp-8h]
-  void *v14; // [esp+14h] [ebp-4h]
+  wchar_t *Buffer; // [esp+14h] [ebp-4h]
 
-  if ( !a1 )
+  if ( !DllHandle )
   {
-    v2 = LdrpImageEntry;
+    v2 = (volatile signed __int32 *)LdrpImageEntry;
     SubSystemTib = NtCurrentTeb()->NtTib.SubSystemTib;
     v4 = (unsigned __int16 *)(LdrpImageEntry + 36);
     if ( SubSystemTib )
@@ -38,73 +39,74 @@ int __stdcall LdrGetDllFullName(unsigned int a1, unsigned __int16 *a2)
     goto LABEL_10;
   }
   v2 = 0;
-  if ( a1 == LdrpSystemDllBase )
+  if ( DllHandle == (PVOID)LdrpSystemDllBase )
   {
-    v2 = LdrpNtDllDataTableEntry;
+    v2 = (volatile signed __int32 *)LdrpNtDllDataTableEntry;
     goto LABEL_8;
   }
   RtlAcquireSRWLockExclusive(&LdrpModuleDatatableLock);
-  v3 = LdrpModuleBaseAddressIndex;
-  if ( (dword_4B3A67A8 & 1) != 0 && LdrpModuleBaseAddressIndex )
-    v3 = (unsigned int)&LdrpModuleBaseAddressIndex ^ LdrpModuleBaseAddressIndex;
-  while ( v3 )
+  Root = LdrpModuleBaseAddressIndex.Root;
+  if ( (*(_BYTE *)&LdrpModuleBaseAddressIndex.0 & 1) != 0 && LdrpModuleBaseAddressIndex.Root )
+    Root = (_RTL_BALANCED_NODE *)((unsigned int)&LdrpModuleBaseAddressIndex ^ (unsigned int)LdrpModuleBaseAddressIndex.Root);
+  while ( Root )
   {
-    if ( a1 < *(_DWORD *)(v3 - 80) )
+    if ( DllHandle < Root[-7].Children[1] )
     {
-      v11 = *(_DWORD *)v3;
-      if ( (dword_4B3A67A8 & 1) != 0 && v11 )
+      v11 = Root->Children[0];
+      if ( (*(_BYTE *)&LdrpModuleBaseAddressIndex.0 & 1) != 0 && v11 )
       {
-        v3 ^= v11;
+        Root = (_RTL_BALANCED_NODE *)((unsigned int)v11 ^ (unsigned int)Root);
         continue;
       }
     }
     else
     {
-      if ( a1 <= *(_DWORD *)(v3 - 80) )
+      if ( DllHandle <= Root[-7].Children[1] )
       {
-        v2 = v3 - 104;
-        v10 = *(_DWORD **)(v3 - 104 + 80);
-        if ( v10[3] != -1 && (*(_BYTE *)(*v10 - 32) & 0x20) == 0 )
-          _InterlockedIncrement((volatile signed __int32 *)(v2 + 156));
+        v2 = (volatile signed __int32 *)&Root[-9].Children[1];
+        v10 = Root[-2].Children[0];
+        if ( v10[1].Children[0] != (_RTL_BALANCED_NODE *)-1 && ((int)v10->Children[0][-3].Right & 0x20) == 0 )
+          _InterlockedIncrement(v2 + 39);
         break;
       }
-      v11 = *(_DWORD *)(v3 + 4);
-      if ( (dword_4B3A67A8 & 1) != 0 && v11 )
+      v11 = Root->Children[1];
+      if ( (*(_BYTE *)&LdrpModuleBaseAddressIndex.0 & 1) != 0 && v11 )
       {
-        v3 ^= v11;
+        Root = (_RTL_BALANCED_NODE *)((unsigned int)v11 ^ (unsigned int)Root);
         continue;
       }
     }
-    v3 = v11;
+    Root = v11;
   }
   RtlReleaseSRWLockExclusive(&LdrpModuleDatatableLock);
 LABEL_8:
   if ( !v2 )
     return -1073741515;
-  v4 = (unsigned __int16 *)(v2 + 36);
+  v4 = (unsigned __int16 *)(v2 + 9);
 LABEL_10:
   if ( !v2 )
     return 0;
   if ( v4 )
   {
     Src = (void *)*((_DWORD *)v4 + 1);
-    v5 = *v4;
-    v14 = (void *)*((_DWORD *)a2 + 1);
-    if ( (unsigned __int16)v5 > a2[1] )
-      v5 = a2[1];
-    *a2 = v5;
-    memcpy(v14, Src, v5);
-    v6 = a2;
-    if ( (unsigned int)*a2 + 2 <= a2[1] )
-      *((_WORD *)v14 + (v5 >> 1)) = 0;
+    MaximumLength = *v4;
+    Buffer = FullDllName->Buffer;
+    if ( (unsigned __int16)MaximumLength > FullDllName->MaximumLength )
+      MaximumLength = FullDllName->MaximumLength;
+    LODWORD(v13) = MaximumLength;
+    FullDllName->Length = MaximumLength;
+    memcpy(Buffer, Src, v13);
+    v6 = FullDllName;
+    if ( (unsigned int)FullDllName->Length + 2 <= FullDllName->MaximumLength )
+      Buffer[MaximumLength >> 1] = 0;
   }
   else
   {
-    v6 = a2;
-    *a2 = 0;
+    v6 = FullDllName;
+    FullDllName->Length = 0;
   }
-  v7 = v6[1] < *v4 ? 0xC0000023 : 0;
-  if ( v2 != LdrpImageEntry )
-    LdrpDereferenceModule(v2);
+  v7 = v6->MaximumLength < *v4 ? 0xC0000023 : 0;
+  if ( v2 != (volatile signed __int32 *)LdrpImageEntry )
+    LdrpDereferenceModule((PVOID)v2);
   return v7;
 }

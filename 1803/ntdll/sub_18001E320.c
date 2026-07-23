@@ -27,38 +27,39 @@ PSLIST_ENTRY __fastcall sub_18001E320(__int64 a1, __int64 a2, __int64 a3)
   unsigned int v13; // eax
   __int64 v14; // rdx
   int v15; // eax
-  __int64 v16; // r8
+  unsigned int v16; // r8d
   int v17; // edx
-  __int64 v18; // r9
-  unsigned __int64 v19; // rdx
-  int v20; // ecx
-  unsigned int v21; // eax
-  unsigned int v22; // ebx
-  unsigned int v23; // esi
-  unsigned int v24; // eax
-  int v25; // r12d
-  union _SLIST_HEADER *v26; // rcx
-  PSLIST_ENTRY v27; // rbp
-  unsigned int v28; // edx
-  unsigned int v29; // ebx
-  unsigned int v30; // ecx
-  __int64 v32; // rcx
-  __int64 (__fastcall *v33)(__int64, __int64, unsigned int); // rax
-  int v34; // eax
-  __int64 v35; // rcx
-  __int64 (__fastcall *v36)(__int64, _QWORD, _QWORD, _QWORD); // rax
-  __int64 v37; // rax
-  int v38; // [rsp+90h] [rbp+8h]
-  int v39; // [rsp+98h] [rbp+10h]
-  unsigned int v40; // [rsp+A0h] [rbp+18h]
+  unsigned int v18; // r9d
+  unsigned int v19; // edx
+  unsigned int v20; // eax
+  unsigned int v21; // ecx
+  unsigned int v22; // eax
+  unsigned int v23; // ebx
+  unsigned int v24; // esi
+  unsigned int v25; // eax
+  int v26; // r12d
+  _SLIST_HEADER *v27; // rcx
+  PSLIST_ENTRY v28; // rbp
+  unsigned int v29; // edx
+  unsigned int v30; // ebx
+  unsigned int v31; // ecx
+  __int64 v33; // rcx
+  __int64 (__fastcall *v34)(__int64, __int64, unsigned int); // rax
+  int v35; // eax
+  __int64 v36; // rcx
+  __int64 (__fastcall *v37)(__int64, _QWORD, _QWORD, _QWORD); // rax
+  __int64 v38; // rax
+  int v39; // [rsp+90h] [rbp+8h]
+  int v40; // [rsp+98h] [rbp+10h]
+  unsigned int v41; // [rsp+A0h] [rbp+18h]
 
-  v40 = a3;
+  v41 = a3;
   v3 = *(unsigned __int8 *)(a2 + 1);
   v4 = 0LL;
   v5 = a3;
   v8 = 0LL;
   v9 = (unsigned __int16)word_180119600[v3];
-  v38 = v9;
+  v39 = v9;
   if ( (dword_18015A43C & 1) != 0 )
   {
     v10 = sub_180104D30(a1 + 104, *(unsigned __int8 *)(a2 + 1));
@@ -69,7 +70,7 @@ PSLIST_ENTRY __fastcall sub_18001E320(__int64 a1, __int64 a2, __int64 a3)
     v10 = 0;
   }
   v11 = *(unsigned __int8 *)(a2 + 2);
-  v39 = v10;
+  v40 = v10;
   v12 = (unsigned __int16)word_180119600[(unsigned __int8)v3];
   v13 = *(_DWORD *)(a2 + 56);
   if ( !v10 )
@@ -83,123 +84,123 @@ PSLIST_ENTRY __fastcall sub_18001E320(__int64 a1, __int64 a2, __int64 a3)
     v14 = 0xFFFFFFFFLL;
   LOBYTE(a3) = v11 > 1;
   v15 = sub_18001EDA0(v12, v14, a3, *(_QWORD *)(a2 + 64) != 0LL);
-  v16 = (unsigned int)(v9 * v15);
+  v16 = v9 * v15;
   v17 = (8 * (((unsigned __int64)(unsigned int)(2 * v15) + 63) >> 6) + 63) & 0xFFFFFFF0;
-  v18 = v17 + 2 * ((unsigned int)(v16 + v17 + 4095) >> 12);
-  v19 = *(unsigned int *)(a1 + 84);
-  v20 = v19;
-  if ( (int)v18 + (int)v16 < (unsigned int)v19 )
-    v20 = v18 + v16;
-  _BitScanReverse(&v21, v20 - 1);
-  v22 = v21 + 1;
-  if ( v21 + 1 <= 7 )
+  v18 = v17 + 2 * ((unsigned int)(v9 * v15 + v17 + 4095) >> 12);
+  v19 = *(_DWORD *)(a1 + 84);
+  v20 = v18 + v9 * v15;
+  v21 = v19;
+  if ( v20 < v19 )
+    v21 = v20;
+  _BitScanReverse(&v22, v21 - 1);
+  v23 = v22 + 1;
+  if ( v22 + 1 <= 7 )
   {
-    v22 = 7;
+    v23 = 7;
   }
-  else if ( v22 >= 0x12 )
+  else if ( v23 >= 0x12 )
   {
-    v22 = 18;
+    v23 = 18;
     goto LABEL_14;
   }
-  if ( v22 <= 0xC )
-    v22 = 12;
+  if ( v23 <= 0xC )
+    v23 = 12;
 LABEL_14:
-  v23 = 1 << v22;
-  if ( (dword_18015A43C & 8) == 0 || (unsigned int)v18 > (unsigned int)v16 >> 6 )
+  v24 = 1 << v23;
+  if ( (dword_18015A43C & 8) == 0 || v18 > v16 >> 6 )
     goto LABEL_24;
-  if ( (unsigned int)v16 < (unsigned int)v19 )
-    LODWORD(v19) = v16;
-  v19 = (unsigned int)(v19 - 1);
-  _BitScanReverse(&v24, v19);
-  v22 = v24 + 1;
-  if ( v24 + 1 <= 7 )
+  if ( v16 < v19 )
+    v19 = v16;
+  _BitScanReverse(&v25, v19 - 1);
+  v23 = v25 + 1;
+  if ( v25 + 1 <= 7 )
   {
-    v22 = 7;
+    v23 = 7;
 LABEL_20:
-    if ( v22 <= 0xC )
-      v22 = 12;
+    if ( v23 <= 0xC )
+      v23 = 12;
     goto LABEL_22;
   }
-  if ( v22 < 0x12 )
+  if ( v23 < 0x12 )
     goto LABEL_20;
-  v22 = 18;
+  v23 = 18;
 LABEL_22:
-  if ( v23 > 1 << v22 )
-    v23 = 1 << v22;
+  if ( v24 > 1 << v23 )
+    v24 = 1 << v23;
 LABEL_24:
-  v25 = v5 & 1;
+  v26 = v5 & 1;
   if ( (v5 & 1) == 0 )
-    RtlAcquireSRWLockShared((volatile signed __int64 *)(a1 + 96), (char *)v19, v16, v18);
-  v26 = (union _SLIST_HEADER *)(a1 + 16 * (v22 - 12 + 7LL));
-  if ( !LOWORD(v26->Alignment) || (v27 = RtlInterlockedPopEntrySList(v26)) == 0LL )
-    v27 = 0LL;
-  if ( v27 )
+    RtlAcquireSRWLockShared((PRTL_SRWLOCK)(a1 + 96));
+  v27 = (_SLIST_HEADER *)(a1 + 16 * (v23 - 12 + 7LL));
+  if ( !LOWORD(v27->Alignment) || (v28 = RtlInterlockedPopEntrySList(v27)) == 0LL )
+    v28 = 0LL;
+  if ( v28 )
   {
-    v28 = 1 << *((_BYTE *)&v27[2].Next + 12);
+    v29 = 1 << *((_BYTE *)&v28[2].Next + 12);
   }
   else
   {
-    v35 = *(_QWORD *)a1;
-    v36 = (__int64 (__fastcall *)(__int64, _QWORD, _QWORD, _QWORD))(a1 ^ qword_18015A440 ^ *(_QWORD *)(a1 + 8));
-    if ( v36 == sub_180023320 )
-      v37 = sub_180023320(v35, v23, 0LL, v40);
+    v36 = *(_QWORD *)a1;
+    v37 = (__int64 (__fastcall *)(__int64, _QWORD, _QWORD, _QWORD))(a1 ^ qword_18015A440 ^ *(_QWORD *)(a1 + 8));
+    if ( v37 == sub_180023320 )
+      v38 = sub_180023320(v36, v24, 0LL, v41);
     else
-      v37 = v36(v35, v23, 0LL, v40);
-    v27 = (PSLIST_ENTRY)v37;
-    if ( !v37 )
+      v38 = v37(v36, v24, 0LL, v41);
+    v28 = (PSLIST_ENTRY)v38;
+    if ( !v38 )
       goto LABEL_47;
-    v28 = 0;
+    v29 = 0;
   }
-  if ( (dword_18015A43C & 2) != 0 && v39 )
+  if ( (dword_18015A43C & 2) != 0 && v40 )
   {
-    v29 = v23;
+    v30 = v24;
   }
   else if ( (dword_180159760 & 4) != 0 )
   {
-    v29 = v23;
+    v30 = v24;
   }
   else
   {
-    v29 = 2 * v38;
-    if ( ((v29 - 1) & v29) != 0 )
+    v30 = 2 * v39;
+    if ( ((v30 - 1) & v30) != 0 )
     {
-      _BitScanReverse(&v30, v29);
-      v29 = 1 << (v30 + 1);
+      _BitScanReverse(&v31, v30);
+      v30 = 1 << (v31 + 1);
     }
-    if ( v29 <= 0x1000 )
-      v29 = 4096;
-    if ( v29 >= v23 )
-      v29 = v23;
+    if ( v30 <= 0x1000 )
+      v30 = 4096;
+    if ( v30 >= v24 )
+      v30 = v24;
   }
-  if ( v28 && *((_BYTE *)&v27[2].Next + 13) > 1u )
-    v8 = -(__int64)((unsigned __int64)v28 >> 12);
-  if ( v28 < v29
-    && ((v32 = *(_QWORD *)a1,
-         v33 = (__int64 (__fastcall *)(__int64, __int64, unsigned int))(a1 ^ qword_18015A440 ^ *(_QWORD *)(a1 + 24)),
-         v33 != sub_180012010)
-      ? (v34 = v33(v32, (__int64)v27, v29))
-      : (v34 = sub_180012010(v32, (__int64)v27, v29)),
-        v34 < 0) )
+  if ( v29 && *((_BYTE *)&v28[2].Next + 13) > 1u )
+    v8 = -(__int64)((unsigned __int64)v29 >> 12);
+  if ( v29 < v30
+    && ((v33 = *(_QWORD *)a1,
+         v34 = (__int64 (__fastcall *)(__int64, __int64, unsigned int))(a1 ^ qword_18015A440 ^ *(_QWORD *)(a1 + 24)),
+         v34 != sub_180012010)
+      ? (v35 = v34(v33, (__int64)v28, v30))
+      : (v35 = sub_180012010(v33, (__int64)v28, v30)),
+        v35 < 0) )
   {
     ((void (__fastcall *)(_QWORD, PSLIST_ENTRY, _QWORD, _QWORD))(a1 ^ qword_18015A440 ^ *(_QWORD *)(a1 + 16)))(
       *(_QWORD *)a1,
-      v27,
-      v23,
-      v40);
+      v28,
+      v24,
+      v41);
   }
   else
   {
-    if ( v29 != v23 )
-      v8 += (unsigned __int64)v29 >> 12;
+    if ( v30 != v24 )
+      v8 += (unsigned __int64)v30 >> 12;
     if ( v8 )
       _InterlockedExchangeAdd64((volatile signed __int64 *)(*(_QWORD *)(a1 + 72) + 24LL), v8);
-    sub_18001E658(v27);
+    sub_18001E658(v28);
     _InterlockedIncrement64((volatile signed __int64 *)(a2 + 64));
-    _InterlockedExchangeAdd64((volatile signed __int64 *)(a2 + 56), WORD1(v27[2].Next));
-    v4 = v27;
+    _InterlockedExchangeAdd64((volatile signed __int64 *)(a2 + 56), WORD1(v28[2].Next));
+    v4 = v28;
   }
 LABEL_47:
-  if ( !v25 )
-    RtlReleaseSRWLockShared((volatile signed __int64 *)(a1 + 96));
+  if ( !v26 )
+    RtlReleaseSRWLockShared((PRTL_SRWLOCK)(a1 + 96));
   return v4;
 }

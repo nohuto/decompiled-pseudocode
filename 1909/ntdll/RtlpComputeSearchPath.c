@@ -25,7 +25,7 @@ __int64 RtlpComputeSearchPath()
     {
       v0 = dword_180166344;
       if ( !dword_180166344 )
-        v0 = RtlpLookupCurDirSetting(L"*,", 0LL, &dword_180166344);
+        v0 = RtlpLookupCurDirSetting((PUNICODE_STRING)&stru_1801184B0);
     }
   }
   result = RtlpComputePath((char *)&unk_18011DD10 + 16 * v0, 4LL, 0LL);

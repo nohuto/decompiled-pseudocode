@@ -1,15 +1,15 @@
 /*
- * XREFs of PopBuildMemoryImageHeader @ 0x140AA1BB8
+ * XREFs of PopBuildMemoryImageHeader @ 0x140AA1A28
  * Callers:
- *     PopEndMirroring @ 0x140AA2820 (PopEndMirroring.c)
+ *     PopEndMirroring @ 0x140AA2690 (PopEndMirroring.c)
  * Callees:
- *     MmGetPhysicalAddress @ 0x14028BEE0 (MmGetPhysicalAddress.c)
- *     MmGetHighestPhysicalPage @ 0x1402F8938 (MmGetHighestPhysicalPage.c)
- *     memset @ 0x140435A00 (memset.c)
- *     PoSetHiberRange @ 0x14058E8A0 (PoSetHiberRange.c)
- *     PopAllocatePages @ 0x140AA1A48 (PopAllocatePages.c)
- *     PopBootLoaderTraceCopyPfnList @ 0x140AA1B18 (PopBootLoaderTraceCopyPfnList.c)
- *     PopCopyFirmwareRuntimeInformationPfnList @ 0x140AA205C (PopCopyFirmwareRuntimeInformationPfnList.c)
+ *     MmGetPhysicalAddress @ 0x14028C170 (MmGetPhysicalAddress.c)
+ *     MmGetHighestPhysicalPage @ 0x1402F8BC8 (MmGetHighestPhysicalPage.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     PoSetHiberRange @ 0x14058ED90 (PoSetHiberRange.c)
+ *     PopAllocatePages @ 0x140AA18B8 (PopAllocatePages.c)
+ *     PopBootLoaderTraceCopyPfnList @ 0x140AA1988 (PopBootLoaderTraceCopyPfnList.c)
+ *     PopCopyFirmwareRuntimeInformationPfnList @ 0x140AA1ECC (PopCopyFirmwareRuntimeInformationPfnList.c)
  */
 
 __int64 __fastcall PopBuildMemoryImageHeader(_QWORD *MemoryMap, int a2)
@@ -38,13 +38,13 @@ __int64 __fastcall PopBuildMemoryImageHeader(_QWORD *MemoryMap, int a2)
   *(_QWORD *)(v3 + 16) = (unsigned __int64)MmGetPhysicalAddress((PVOID)v3).QuadPart >> 12;
   *(_QWORD *)(v3 + 32) = MEMORY[0xFFFFF78000000014];
   *(_QWORD *)(v3 + 40) = MEMORY[0xFFFFF78000000008];
-  *(_QWORD *)(v3 + 64) = qword_140C3CDF0;
+  *(_QWORD *)(v3 + 64) = qword_140C3CF90;
   *(_DWORD *)(v3 + 60) = 10;
   *(_QWORD *)(v3 + 48) = KeFeatureBits;
   *(_DWORD *)(v3 + 4) = (unsigned __int16)KeProcessorArchitecture;
   *(_BYTE *)(v3 + 56) = *((_BYTE *)MemoryMap + 1);
   *(_BYTE *)(v3 + 57) = -54;
-  *(_BYTE *)(v3 + 972) = byte_140C3CE00;
+  *(_BYTE *)(v3 + 972) = byte_140C3CFA0;
   *(_QWORD *)(v3 + 1024) = MmGetHighestPhysicalPage(0);
   *(_BYTE *)(v3 + 973) = PopSecureLaunched;
   *(_BYTE *)(v3 + 974) = *((_BYTE *)MemoryMap + 453);

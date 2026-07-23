@@ -1,8 +1,8 @@
 /*
- * XREFs of RtlStringCopyWorkerA @ 0x140472860
+ * XREFs of RtlStringCopyWorkerA @ 0x14046BFE0
  * Callers:
- *     RtlStringCbCatExA @ 0x14057658C (RtlStringCbCatExA.c)
- *     InitBootProcessor @ 0x140CAA7CC (InitBootProcessor.c)
+ *     RtlStringCbCatExA @ 0x140578A3C (RtlStringCbCatExA.c)
+ *     InitBootProcessor @ 0x140CB07CC (InitBootProcessor.c)
  * Callees:
  *     <none>
  */

@@ -1,9 +1,9 @@
 /*
- * XREFs of SymCryptShake128Init @ 0x14057498C
+ * XREFs of SymCryptShake128Init @ 0x140573BF0
  * Callers:
- *     SymCryptMlDsaRejNttPoly @ 0x1405737E8 (SymCryptMlDsaRejNttPoly.c)
+ *     SymCryptMlDsaRejNttPoly @ 0x140572A10 (SymCryptMlDsaRejNttPoly.c)
  * Callees:
- *     SymCryptKeccakInit @ 0x140575B9C (SymCryptKeccakInit.c)
+ *     SymCryptKeccakInit @ 0x14057804C (SymCryptKeccakInit.c)
  */
 
 __int64 __fastcall SymCryptShake128Init(__int64 a1, __int64 a2, __int64 a3)

@@ -1,16 +1,16 @@
 /*
- * XREFs of CmpCmdInit @ 0x14056F1EC
+ * XREFs of CmpCmdInit @ 0x14056F72C
  * Callers:
- *     NtInitializeRegistry @ 0x140547164 (NtInitializeRegistry.c)
+ *     NtInitializeRegistry @ 0x1405476A4 (NtInitializeRegistry.c)
  * Callees:
- *     KiSetTimerEx @ 0x140006E00 (KiSetTimerEx.c)
- *     KeInitializeDpc @ 0x14000D6DC (KeInitializeDpc.c)
- *     ExGenRandom @ 0x1400F0494 (ExGenRandom.c)
- *     KeInitializeTimerEx @ 0x1400F0C50 (KeInitializeTimerEx.c)
+ *     KiSetTimerEx @ 0x140006F70 (KiSetTimerEx.c)
+ *     KeInitializeDpc @ 0x14000D25C (KeInitializeDpc.c)
+ *     ExGenRandom @ 0x1400EE314 (ExGenRandom.c)
+ *     KeInitializeTimerEx @ 0x1400EEAA0 (KeInitializeTimerEx.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     PoRegisterCoalescingCallback @ 0x14056F390 (PoRegisterCoalescingCallback.c)
- *     CmpInitializeLazyWriters @ 0x14056F44C (CmpInitializeLazyWriters.c)
+ *     PoRegisterCoalescingCallback @ 0x14056F8D0 (PoRegisterCoalescingCallback.c)
+ *     CmpInitializeLazyWriters @ 0x14056F98C (CmpInitializeLazyWriters.c)
  */
 
 __int64 __fastcall CmpCmdInit(char a1)

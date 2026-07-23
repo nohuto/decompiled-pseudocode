@@ -1,19 +1,19 @@
 /*
- * XREFs of PspCreatePicoThread @ 0x140A041C0
+ * XREFs of PspCreatePicoThread @ 0x140A7C010
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     ExReleaseRundownProtection_0 @ 0x140266240 (ExReleaseRundownProtection_0.c)
- *     ObfReferenceObjectWithTag @ 0x140278B30 (ObfReferenceObjectWithTag.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402BA1B0 (KiLeaveCriticalRegionUnsafe.c)
- *     ExAcquireRundownProtection_0 @ 0x1402F0590 (ExAcquireRundownProtection_0.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     ObpReferenceObjectByHandleWithTag @ 0x1408FA680 (ObpReferenceObjectByHandleWithTag.c)
- *     PspAllocateThread @ 0x140A01BF0 (PspAllocateThread.c)
- *     PspInsertThread @ 0x140A026D0 (PspInsertThread.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     ExReleaseRundownProtection_0 @ 0x1402657B0 (ExReleaseRundownProtection_0.c)
+ *     ObfReferenceObjectWithTag @ 0x1402780A0 (ObfReferenceObjectWithTag.c)
+ *     ExAcquireRundownProtection_0 @ 0x1402D2610 (ExAcquireRundownProtection_0.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140304E70 (KiLeaveCriticalRegionUnsafe.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     ObpReferenceObjectByHandleWithTag @ 0x14092A610 (ObpReferenceObjectByHandleWithTag.c)
+ *     PspAllocateThread @ 0x140A7A6A8 (PspAllocateThread.c)
+ *     PspInsertThread @ 0x140A7B188 (PspInsertThread.c)
  */
 
 __int64 __fastcall PspCreatePicoThread(__int64 a1, __int64 a2, __int64 *a3)
@@ -32,36 +32,36 @@ __int64 __fastcall PspCreatePicoThread(__int64 a1, __int64 a2, __int64 *a3)
   __int64 v18; // [rsp+90h] [rbp-70h]
   _BYTE v19[416]; // [rsp+A0h] [rbp-60h] BYREF
   __int64 v20; // [rsp+240h] [rbp+140h]
-  __int64 v21[6]; // [rsp+2A0h] [rbp+1A0h] BYREF
-  int v22; // [rsp+2D0h] [rbp+1D0h]
-  int v23; // [rsp+2D4h] [rbp+1D4h]
-  __int16 v24; // [rsp+2D8h] [rbp+1D8h]
-  int v25; // [rsp+2DAh] [rbp+1DAh]
-  __int16 v26; // [rsp+2DEh] [rbp+1DEh]
-  __int16 v27; // [rsp+2E0h] [rbp+1E0h]
-  __int16 v28; // [rsp+2E2h] [rbp+1E2h]
-  __int64 v29; // [rsp+318h] [rbp+218h]
-  __int64 v30; // [rsp+320h] [rbp+220h]
-  __int64 v31; // [rsp+328h] [rbp+228h]
-  __int64 v32; // [rsp+330h] [rbp+230h]
-  __int64 v33; // [rsp+338h] [rbp+238h]
-  __int64 v34; // [rsp+340h] [rbp+240h]
-  __int64 v35; // [rsp+348h] [rbp+248h]
-  __int64 v36; // [rsp+350h] [rbp+250h]
-  __int64 v37; // [rsp+358h] [rbp+258h]
-  __int64 v38; // [rsp+360h] [rbp+260h]
-  __int64 v39; // [rsp+368h] [rbp+268h]
-  __int64 v40; // [rsp+370h] [rbp+270h]
-  __int64 v41; // [rsp+378h] [rbp+278h]
-  __int64 v42; // [rsp+380h] [rbp+280h]
-  __int64 v43; // [rsp+388h] [rbp+288h]
-  __int64 v44; // [rsp+390h] [rbp+290h]
-  __int64 v45; // [rsp+398h] [rbp+298h]
-  __int16 v46; // [rsp+3A0h] [rbp+2A0h]
-  int v47; // [rsp+3B8h] [rbp+2B8h]
-  __int64 v48[50]; // [rsp+770h] [rbp+670h] BYREF
+  __int64 v21[6]; // [rsp+2C0h] [rbp+1C0h] BYREF
+  int v22; // [rsp+2F0h] [rbp+1F0h]
+  int v23; // [rsp+2F4h] [rbp+1F4h]
+  __int16 v24; // [rsp+2F8h] [rbp+1F8h]
+  int v25; // [rsp+2FAh] [rbp+1FAh]
+  __int16 v26; // [rsp+2FEh] [rbp+1FEh]
+  __int16 v27; // [rsp+300h] [rbp+200h]
+  __int16 v28; // [rsp+302h] [rbp+202h]
+  __int64 v29; // [rsp+338h] [rbp+238h]
+  __int64 v30; // [rsp+340h] [rbp+240h]
+  __int64 v31; // [rsp+348h] [rbp+248h]
+  __int64 v32; // [rsp+350h] [rbp+250h]
+  __int64 v33; // [rsp+358h] [rbp+258h]
+  __int64 v34; // [rsp+360h] [rbp+260h]
+  __int64 v35; // [rsp+368h] [rbp+268h]
+  __int64 v36; // [rsp+370h] [rbp+270h]
+  __int64 v37; // [rsp+378h] [rbp+278h]
+  __int64 v38; // [rsp+380h] [rbp+280h]
+  __int64 v39; // [rsp+388h] [rbp+288h]
+  __int64 v40; // [rsp+390h] [rbp+290h]
+  __int64 v41; // [rsp+398h] [rbp+298h]
+  __int64 v42; // [rsp+3A0h] [rbp+2A0h]
+  __int64 v43; // [rsp+3A8h] [rbp+2A8h]
+  __int64 v44; // [rsp+3B0h] [rbp+2B0h]
+  __int64 v45; // [rsp+3B8h] [rbp+2B8h]
+  __int16 v46; // [rsp+3C0h] [rbp+2C0h]
+  int v47; // [rsp+3D8h] [rbp+2D8h]
+  __int64 v48[50]; // [rsp+790h] [rbp+690h] BYREF
 
-  memset_0(v19, 0, 0x1F8uLL);
+  memset_0(v19, 0, 0x218uLL);
   LODWORD(v13) = 0;
   v16 = 0LL;
   memset_0(v48, 0, sizeof(v48));
@@ -77,7 +77,15 @@ __int64 __fastcall PspCreatePicoThread(__int64 a1, __int64 a2, __int64 *a3)
     inserted = -1073741811;
     goto LABEL_20;
   }
-  inserted = ObpReferenceObjectByHandleWithTag(*(_QWORD *)a1, 2LL, PsProcessType, 0, 0x72437350u, &Object, 0LL, 0LL);
+  inserted = ObpReferenceObjectByHandleWithTag(
+               *(_QWORD *)a1,
+               2,
+               (__int64)PsProcessType,
+               0,
+               0x72437350u,
+               &Object,
+               0LL,
+               0LL);
   if ( inserted < 0 )
   {
 LABEL_14:

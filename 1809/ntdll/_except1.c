@@ -1,15 +1,15 @@
 /*
- * XREFs of _except1 @ 0x1800984F0
+ * XREFs of _except1 @ 0x180098500
  * Callers:
- *     fabs @ 0x180093570 (fabs.c)
+ *     fabs @ 0x180093580 (fabs.c)
  * Callees:
- *     __security_check_cookie @ 0x18008FEC0 (__security_check_cookie.c)
- *     _errcode @ 0x1800984A4 (_errcode.c)
- *     _handle_exc @ 0x1800985E8 (_handle_exc.c)
- *     _raise_exc_ex @ 0x1800988F0 (_raise_exc_ex.c)
- *     _set_errno_from_matherr @ 0x180098B70 (_set_errno_from_matherr.c)
- *     _umatherr @ 0x180098BA4 (_umatherr.c)
- *     _ctrlfp @ 0x180098E60 (_ctrlfp.c)
+ *     __security_check_cookie @ 0x18008FED0 (__security_check_cookie.c)
+ *     _errcode @ 0x1800984B4 (_errcode.c)
+ *     _handle_exc @ 0x1800985F8 (_handle_exc.c)
+ *     _raise_exc_ex @ 0x180098900 (_raise_exc_ex.c)
+ *     _set_errno_from_matherr @ 0x180098B80 (_set_errno_from_matherr.c)
+ *     _umatherr @ 0x180098BB4 (_umatherr.c)
+ *     _ctrlfp @ 0x180098E70 (_ctrlfp.c)
  */
 
 double __fastcall except1(__int64 a1, int a2, double a3, double a4, __int64 a5)

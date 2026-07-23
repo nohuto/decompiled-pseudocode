@@ -1,17 +1,17 @@
 /*
- * XREFs of WdipSemFreePool @ 0x1407A27F8
+ * XREFs of WdipSemFreePool @ 0x1407A2908
  * Callers:
- *     WdipSemShutdown @ 0x1407A2184 (WdipSemShutdown.c)
+ *     WdipSemShutdown @ 0x1407A2294 (WdipSemShutdown.c)
  * Callees:
- *     InitializeSListHead @ 0x14045FE80 (InitializeSListHead.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     InitializeSListHead @ 0x140454D40 (InitializeSListHead.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void WdipSemFreePool()
 {
   PVOID *v0; // rax
   _QWORD *v1; // rcx
-  union _SLIST_HEADER *v2; // rbx
+  _SLIST_HEADER *v2; // rbx
   __int64 v3; // rdi
 
   v0 = (PVOID *)WdipSemPool;
@@ -33,9 +33,9 @@ LABEL_2:
       goto LABEL_2;
     v1 = *(_QWORD **)WdipSemPool;
   }
-  dword_140E28B70 = 0;
+  dword_140E28CB0 = 0;
   v2 = &SListHead;
-  qword_140E28B78 = 0LL;
+  qword_140E28CB8 = 0LL;
   v3 = 6LL;
   do
   {

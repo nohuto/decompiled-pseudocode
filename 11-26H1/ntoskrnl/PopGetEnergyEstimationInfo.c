@@ -1,14 +1,14 @@
 /*
- * XREFs of PopGetEnergyEstimationInfo @ 0x140601114
+ * XREFs of PopGetEnergyEstimationInfo @ 0x140603BC4
  * Callers:
- *     PopPowerInformationInternal @ 0x140B6F6FC (PopPowerInformationInternal.c)
+ *     PopPowerInformationInternal @ 0x140B73EF0 (PopPowerInformationInternal.c)
  * Callees:
  *     <none>
  */
 
 __int64 __fastcall PopGetEnergyEstimationInfo(_DWORD *a1)
 {
-  _DWORD *SystemArgument1; // r8
+  _DWORD *IptSaveArea; // r8
   unsigned int v2; // edx
   unsigned int v4; // r9d
   __int64 v5; // rcx
@@ -16,19 +16,19 @@ __int64 __fastcall PopGetEnergyEstimationInfo(_DWORD *a1)
   _DWORD *v7; // r8
   __int64 v8; // rcx
 
-  SystemArgument1 = stru_140F12D20.SchedulerApc.SystemArgument1;
+  IptSaveArea = stru_140F12EA0.IptSaveArea;
   v2 = 0;
-  if ( stru_140F12D20.SchedulerApc.SystemArgument1 )
+  if ( stru_140F12EA0.IptSaveArea )
   {
-    if ( (unsigned int)(16 * *(_DWORD *)stru_140F12D20.SchedulerApc.SystemArgument1 + 4) <= 0x24 )
+    if ( (unsigned int)(16 * *(_DWORD *)stru_140F12EA0.IptSaveArea + 4) <= 0x24 )
     {
-      *a1 = *(_DWORD *)stru_140F12D20.SchedulerApc.SystemArgument1;
+      *a1 = *(_DWORD *)stru_140F12EA0.IptSaveArea;
       v4 = 0;
-      if ( *SystemArgument1 )
+      if ( *IptSaveArea )
       {
         do
         {
-          v5 = (__int64)&SystemArgument1[14 * v4 + 2];
+          v5 = (__int64)&IptSaveArea[14 * v4 + 2];
           v6 = (char *)a1 + 16LL * v4 - v5;
           v7 = (_DWORD *)(v5 + 40);
           v8 = 4LL;
@@ -39,10 +39,10 @@ __int64 __fastcall PopGetEnergyEstimationInfo(_DWORD *a1)
             --v8;
           }
           while ( v8 );
-          SystemArgument1 = stru_140F12D20.SchedulerApc.SystemArgument1;
+          IptSaveArea = stru_140F12EA0.IptSaveArea;
           ++v4;
         }
-        while ( v4 < *(_DWORD *)stru_140F12D20.SchedulerApc.SystemArgument1 );
+        while ( v4 < *(_DWORD *)stru_140F12EA0.IptSaveArea );
       }
     }
     else

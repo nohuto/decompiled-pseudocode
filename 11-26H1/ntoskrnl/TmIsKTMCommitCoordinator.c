@@ -1,5 +1,5 @@
 /*
- * XREFs of TmIsKTMCommitCoordinator @ 0x1405345D0
+ * XREFs of TmIsKTMCommitCoordinator @ 0x140536A50
  * Callers:
  *     <none>
  * Callees:

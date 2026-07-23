@@ -1,13 +1,13 @@
 /*
- * XREFs of HvCheckAndUpdateHiveBackupTimeStamp @ 0x1405A73BC
+ * XREFs of HvCheckAndUpdateHiveBackupTimeStamp @ 0x1405A83BC
  * Callers:
- *     CmpCreateHive @ 0x1405A6574 (CmpCreateHive.c)
- *     CmpCreateHiveRootCell @ 0x14075BB98 (CmpCreateHiveRootCell.c)
- *     HvpPerformLogFileRecovery @ 0x1407F7B60 (HvpPerformLogFileRecovery.c)
+ *     CmpCreateHive @ 0x1405A7574 (CmpCreateHive.c)
+ *     CmpCreateHiveRootCell @ 0x14075CD88 (CmpCreateHiveRootCell.c)
+ *     HvpPerformLogFileRecovery @ 0x1407F8D60 (HvpPerformLogFileRecovery.c)
  * Callees:
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
- *     HvpMarkDirty @ 0x1405FAD2C (HvpMarkDirty.c)
- *     HvpGetCellMap @ 0x1405FB04C (HvpGetCellMap.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
+ *     HvpMarkDirty @ 0x1405FBD2C (HvpMarkDirty.c)
+ *     HvpGetCellMap @ 0x1405FC04C (HvpGetCellMap.c)
  */
 
 __int64 __fastcall HvCheckAndUpdateHiveBackupTimeStamp(ULONG_PTR BugCheckParameter2)

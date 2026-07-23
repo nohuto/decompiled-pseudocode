@@ -1,21 +1,21 @@
 /*
- * XREFs of MiZeroPageCalibrate @ 0x140710F80
+ * XREFs of MiZeroPageCalibrate @ 0x140715C7C
  * Callers:
- *     MiInitializeZeroEngines @ 0x140B277AC (MiInitializeZeroEngines.c)
+ *     MiInitializeZeroEngines @ 0x140B2A06C (MiInitializeZeroEngines.c)
  * Callees:
- *     RtlRaiseStatus @ 0x1402E84A0 (RtlRaiseStatus.c)
- *     ExAllocatePoolMm @ 0x1403985B0 (ExAllocatePoolMm.c)
- *     KeGenericCallDpcEx @ 0x1403C2284 (KeGenericCallDpcEx.c)
- *     MiIsCalibrationWorthwhile @ 0x1404CACF0 (MiIsCalibrationWorthwhile.c)
- *     MiDeleteAcceleratorDescriptor @ 0x14070F474 (MiDeleteAcceleratorDescriptor.c)
- *     MiAllocateZeroCalibrationBuffer @ 0x140710120 (MiAllocateZeroCalibrationBuffer.c)
- *     MiFreeZeroCalibrationBuffer @ 0x140710730 (MiFreeZeroCalibrationBuffer.c)
- *     MiMergeCalibrationResults @ 0x140710A90 (MiMergeCalibrationResults.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     FirstEntrySList @ 0x140730C80 (FirstEntrySList.c)
- *     RtlpInterlockedPopEntrySList @ 0x140730C90 (RtlpInterlockedPopEntrySList.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     RtlRaiseStatus @ 0x1402CA4E0 (RtlRaiseStatus.c)
+ *     ExAllocatePoolMm @ 0x14039A310 (ExAllocatePoolMm.c)
+ *     KeGenericCallDpcEx @ 0x1403CC184 (KeGenericCallDpcEx.c)
+ *     MiIsCalibrationWorthwhile @ 0x1404C4720 (MiIsCalibrationWorthwhile.c)
+ *     MiDeleteAcceleratorDescriptor @ 0x140714170 (MiDeleteAcceleratorDescriptor.c)
+ *     MiAllocateZeroCalibrationBuffer @ 0x140714E1C (MiAllocateZeroCalibrationBuffer.c)
+ *     MiFreeZeroCalibrationBuffer @ 0x14071542C (MiFreeZeroCalibrationBuffer.c)
+ *     MiMergeCalibrationResults @ 0x14071578C (MiMergeCalibrationResults.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     FirstEntrySList @ 0x140735850 (FirstEntrySList.c)
+ *     RtlpInterlockedPopEntrySList @ 0x140735860 (RtlpInterlockedPopEntrySList.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall MiZeroPageCalibrate(int *a1, int a2)
@@ -71,7 +71,7 @@ __int64 __fastcall MiZeroPageCalibrate(int *a1, int a2)
   v10 = *(_QWORD *)(v7 + 48);
   v11 = *(unsigned int *)(v7 + 56);
   *(_QWORD *)(((unsigned __int64)&v39 & 0xFFFFFFFFFFFFFFC0uLL) + 0x18) = v10;
-  v12 = qword_140E2D6B8;
+  v12 = qword_140E2D838;
   *(_DWORD *)(((unsigned __int64)&v39 & 0xFFFFFFFFFFFFFFC0uLL) + 0x14C) = v11;
   v13 = *(_QWORD *)(384 * v11 + v12 + 376);
   v14 = *(_BYTE *)(((unsigned __int64)&v39 & 0xFFFFFFFFFFFFFFC0uLL) + 0x59);

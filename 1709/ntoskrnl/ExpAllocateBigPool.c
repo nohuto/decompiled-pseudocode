@@ -49,7 +49,7 @@ unsigned __int64 __fastcall ExpAllocateBigPool(unsigned __int64 a1, int a2, unsi
   __int64 v18; // rcx
   __int64 v19; // rax
   __int64 v20; // rcx
-  union _SLIST_HEADER *v21; // rcx
+  _SLIST_HEADER *v21; // rcx
   PSLIST_ENTRY v22; // rax
   ULONG_PTR *PagedPoolPages; // r12
   ULONG_PTR BugCheckParameter4; // rax

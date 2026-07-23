@@ -1,9 +1,9 @@
 /*
- * XREFs of IoTestDependency @ 0x140157E60
+ * XREFs of IoTestDependency @ 0x140157F60
  * Callers:
  *     <none>
  * Callees:
- *     PipFindDependencyNodePath @ 0x140157EBC (PipFindDependencyNodePath.c)
+ *     PipFindDependencyNodePath @ 0x140157FBC (PipFindDependencyNodePath.c)
  */
 
 __int64 __fastcall IoTestDependency(__int64 a1, __int64 a2, _DWORD *a3, _DWORD *a4)

@@ -1,14 +1,14 @@
 /*
- * XREFs of MmInSwapVirtualAddresses @ 0x14085ECDC
+ * XREFs of MmInSwapVirtualAddresses @ 0x14085FF3C
  * Callers:
- *     SmPerformStoreSwapOperation @ 0x140309180 (SmPerformStoreSwapOperation.c)
+ *     SmPerformStoreSwapOperation @ 0x140309370 (SmPerformStoreSwapOperation.c)
  * Callees:
  *     MiGetProcessPartition @ 0x14004D19C (MiGetProcessPartition.c)
- *     MiProcessWsInSwapSupport @ 0x1400E5A94 (MiProcessWsInSwapSupport.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     MiContractWsSwapPageFile @ 0x14066B784 (MiContractWsSwapPageFile.c)
- *     EtwTraceWorkingSetSwap @ 0x14066B7C8 (EtwTraceWorkingSetSwap.c)
+ *     MiProcessWsInSwapSupport @ 0x1400E5B14 (MiProcessWsInSwapSupport.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     MiContractWsSwapPageFile @ 0x14066C944 (MiContractWsSwapPageFile.c)
+ *     EtwTraceWorkingSetSwap @ 0x14066C988 (EtwTraceWorkingSetSwap.c)
  */
 
 __int64 __fastcall MmInSwapVirtualAddresses(PEPROCESS Process, PVOID P)

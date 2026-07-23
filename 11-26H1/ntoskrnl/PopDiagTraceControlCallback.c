@@ -1,35 +1,35 @@
 /*
- * XREFs of PopDiagTraceControlCallback @ 0x140AC0910
+ * XREFs of PopDiagTraceControlCallback @ 0x140AC29B0
  * Callers:
  *     <none>
  * Callees:
- *     EtwWrite @ 0x140212EF0 (EtwWrite.c)
- *     ExQueueWorkItem @ 0x140381C70 (ExQueueWorkItem.c)
- *     PopDiagTraceFxRundown @ 0x14042B1A4 (PopDiagTraceFxRundown.c)
- *     PopThermalTraceRundownEvents @ 0x14043572C (PopThermalTraceRundownEvents.c)
- *     PopAcquireRwLockShared @ 0x140436298 (PopAcquireRwLockShared.c)
- *     PopReleaseRwLock @ 0x14043630C (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x140436378 (PopAcquireRwLockExclusive.c)
- *     PopDiagTraceSystemLatencyUpdate @ 0x1404A5D5C (PopDiagTraceSystemLatencyUpdate.c)
- *     ExTraceTimerResolution @ 0x1404EA784 (ExTraceTimerResolution.c)
- *     PopDiagTraceDeepSleepConstraintRundown @ 0x1404F2A9C (PopDiagTraceDeepSleepConstraintRundown.c)
- *     PopPlTraceLogPowerPlane @ 0x140612B9C (PopPlTraceLogPowerPlane.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     PopDiagTracePowerRequestCreate @ 0x140AC0BAC (PopDiagTracePowerRequestCreate.c)
- *     PopDiagTracePlatformRoleRundown @ 0x140AC0F74 (PopDiagTracePlatformRoleRundown.c)
- *     PopRundownPowerSettings @ 0x140AC1020 (PopRundownPowerSettings.c)
- *     PopDiagTracePowerStateEventRundown @ 0x140AC118C (PopDiagTracePowerStateEventRundown.c)
- *     PopLoggingInformation @ 0x140AC125C (PopLoggingInformation.c)
- *     PopRundownThermalRequests @ 0x140AC135C (PopRundownThermalRequests.c)
- *     PopDiagTraceDeviceComplianceRundown @ 0x140AC1418 (PopDiagTraceDeviceComplianceRundown.c)
- *     PopDiagTraceDynamicTickStatusRundown @ 0x140AC14D4 (PopDiagTraceDynamicTickStatusRundown.c)
- *     PopRundownPowerLimitRequests @ 0x140AC1560 (PopRundownPowerLimitRequests.c)
- *     PopDiagTraceSystemIdleRundown @ 0x140AC1618 (PopDiagTraceSystemIdleRundown.c)
- *     PopTraceStandbyConnectivityRundown @ 0x140AC16A0 (PopTraceStandbyConnectivityRundown.c)
- *     PopTransitionTelemetryOsState @ 0x140B20D08 (PopTransitionTelemetryOsState.c)
- *     PopAcquirePolicyLock @ 0x140C04BF0 (PopAcquirePolicyLock.c)
- *     PopReleasePolicyLock @ 0x140C04C40 (PopReleasePolicyLock.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     EtwWrite @ 0x140212FD0 (EtwWrite.c)
+ *     PopReleaseRwLock @ 0x14021B1A8 (PopReleaseRwLock.c)
+ *     ExQueueWorkItem @ 0x140383A20 (ExQueueWorkItem.c)
+ *     PopDiagTraceFxRundown @ 0x140422618 (PopDiagTraceFxRundown.c)
+ *     PopThermalTraceRundownEvents @ 0x1404246B4 (PopThermalTraceRundownEvents.c)
+ *     PopAcquireRwLockShared @ 0x140424A28 (PopAcquireRwLockShared.c)
+ *     PopAcquireRwLockExclusive @ 0x140425310 (PopAcquireRwLockExclusive.c)
+ *     PopDiagTraceSystemLatencyUpdate @ 0x14049F3EC (PopDiagTraceSystemLatencyUpdate.c)
+ *     ExTraceTimerResolution @ 0x1404E3B34 (ExTraceTimerResolution.c)
+ *     PopDiagTraceDeepSleepConstraintRundown @ 0x1404EC07C (PopDiagTraceDeepSleepConstraintRundown.c)
+ *     PopPlTraceLogPowerPlane @ 0x1406159DC (PopPlTraceLogPowerPlane.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     PopDiagTracePowerRequestCreate @ 0x140AC2C4C (PopDiagTracePowerRequestCreate.c)
+ *     PopDiagTracePlatformRoleRundown @ 0x140AC3014 (PopDiagTracePlatformRoleRundown.c)
+ *     PopRundownPowerSettings @ 0x140AC30C0 (PopRundownPowerSettings.c)
+ *     PopDiagTracePowerStateEventRundown @ 0x140AC322C (PopDiagTracePowerStateEventRundown.c)
+ *     PopLoggingInformation @ 0x140AC32FC (PopLoggingInformation.c)
+ *     PopRundownThermalRequests @ 0x140AC33FC (PopRundownThermalRequests.c)
+ *     PopDiagTraceDeviceComplianceRundown @ 0x140AC34B8 (PopDiagTraceDeviceComplianceRundown.c)
+ *     PopDiagTraceDynamicTickStatusRundown @ 0x140AC3574 (PopDiagTraceDynamicTickStatusRundown.c)
+ *     PopRundownPowerLimitRequests @ 0x140AC3600 (PopRundownPowerLimitRequests.c)
+ *     PopDiagTraceSystemIdleRundown @ 0x140AC36B8 (PopDiagTraceSystemIdleRundown.c)
+ *     PopTraceStandbyConnectivityRundown @ 0x140AC3740 (PopTraceStandbyConnectivityRundown.c)
+ *     PopTransitionTelemetryOsState @ 0x140B23108 (PopTransitionTelemetryOsState.c)
+ *     PopAcquirePolicyLock @ 0x140C0AE00 (PopAcquirePolicyLock.c)
+ *     PopReleasePolicyLock @ 0x140C0AE50 (PopReleasePolicyLock.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __fastcall PopDiagTraceControlCallback(
@@ -85,7 +85,7 @@ void __fastcall PopDiagTraceControlCallback(
   if ( (_DWORD)ControlCode == 2 )
   {
     v43 = 0;
-    if ( CallbackContext == &dword_140E07598 )
+    if ( CallbackContext == &dword_140E07560 )
     {
       if ( (MatchAnyKeyword & 0x800000000000LL) != 0 )
         PopTransitionTelemetryOsState(5LL);
@@ -96,24 +96,19 @@ void __fastcall PopDiagTraceControlCallback(
     {
       ExTraceTimerResolution();
       PopDiagTraceSystemLatencyUpdate(1, PopFxSystemLatencyLimit);
-      PopAcquireRwLockShared((volatile signed __int64 *)&stru_140F12D20.Header.Lock, v7, v8, v9);
-      for ( i = (struct _KTHREAD *)stru_140F12D20.QuantumTarget;
-            i != (struct _KTHREAD *)&stru_140F12D20.QuantumTarget;
+      PopAcquireRwLockShared((volatile signed __int64 *)stru_140F12EA0.TracingPrivate, v7, v8, v9);
+      for ( i = (struct _KTHREAD *)stru_140F12EA0.WpsFeedback;
+            i != (struct _KTHREAD *)&stru_140F12EA0.WpsFeedback;
             i = *(struct _KTHREAD **)&i->Header.Lock )
       {
         LOBYTE(v10) = 1;
         PopDiagTracePowerRequestCreate(v10, i);
       }
-      PopReleaseRwLock(&stru_140F12D20);
+      PopReleaseRwLock((struct _KTHREAD *)stru_140F12EA0.TracingPrivate);
       *(_QWORD *)&v46.Size = 4LL;
-      v44 = dword_140F106CC == 0;
+      v44 = HIDWORD(PpmIdlePolicyLock.PropagateBoostsEntry.Next) == 0;
       v46.Ptr = (ULONGLONG)&v44;
-      EtwWrite(
-        *(REGHANDLE *)&PopSleepstudySessionLock.PriorityFloorCounts[16],
-        &POP_ETW_EVENT_ACDC_STATE_RUNDOWN,
-        0LL,
-        1u,
-        &v46);
+      EtwWrite(PopDiagHandle, &POP_ETW_EVENT_ACDC_STATE_RUNDOWN, 0LL, 1u, &v46);
       PopRundownPowerSettings();
       PopThermalTraceRundownEvents();
       P = 0LL;
@@ -137,12 +132,7 @@ void __fastcall PopDiagTraceControlCallback(
             v46.Ptr = (ULONGLONG)v37;
             v46.Size = v40;
             v46.Reserved = 0;
-            EtwWrite(
-              *(REGHANDLE *)&PopSleepstudySessionLock.PriorityFloorCounts[16],
-              &POP_ETW_EVENT_SLEEP_DISABLE_REASON_RUNDOWN,
-              0LL,
-              1u,
-              &v46);
+            EtwWrite(PopDiagHandle, &POP_ETW_EVENT_SLEEP_DISABLE_REASON_RUNDOWN, 0LL, 1u, &v46);
             ++v38;
             v37 += v40;
           }
@@ -151,9 +141,9 @@ void __fastcall PopDiagTraceControlCallback(
       }
       if ( v23 )
         ExFreePoolWithTag(v23, 0);
-      if ( !_InterlockedCompareExchange((volatile signed __int32 *)&PopSleepstudySessionLock.ForegroundLossTime, 1, 0) )
-        ExQueueWorkItem((PWORK_QUEUE_ITEM)&PopSleepstudySessionLock.ReadOperationCount, DelayedWorkQueue);
-      if ( CallbackContext == (int *)&PopSleepstudySessionLock.PriorityFloorCounts[16] )
+      if ( !_InterlockedCompareExchange(&PopDiagDeviceRundownRequests, 1, 0) )
+        ExQueueWorkItem(&PopDiagDeviceRundownWorkItem, DelayedWorkQueue);
+      if ( CallbackContext == (int *)&PopDiagHandle )
         PopDiagTraceFxRundown(0LL, v20, v21, v22);
       PopDiagTracePlatformRoleRundown();
       PopRundownThermalRequests();
@@ -164,12 +154,12 @@ void __fastcall PopDiagTraceControlCallback(
       PopReleasePolicyLock(v27, v26, v28, v29, UserData);
       PopDiagTraceDynamicTickStatusRundown();
       PopDiagTraceDeepSleepConstraintRundown();
-      PopAcquireRwLockExclusive((unsigned __int64 *)&PopWeakChargerLock.OtherOperationCount, v30, v31, v32);
+      PopAcquireRwLockExclusive((unsigned __int64 *)&PopPowerEventLock, v30, v31, v32);
       PopDiagTracePowerStateEventRundown();
-      PopReleaseRwLock((struct _KTHREAD *)&PopWeakChargerLock.OtherOperationCount);
-      PopAcquireRwLockExclusive((unsigned __int64 *)&PopWeakChargerLock.SuspendEvent, v33, v34, v35);
+      PopReleaseRwLock((struct _KTHREAD *)&PopPowerEventLock);
+      PopAcquireRwLockExclusive((unsigned __int64 *)&PopSystemIdleLock, v33, v34, v35);
       PopDiagTraceSystemIdleRundown();
-      PopReleaseRwLock((struct _KTHREAD *)&PopWeakChargerLock.SuspendEvent);
+      PopReleaseRwLock((struct _KTHREAD *)&PopSystemIdleLock);
     }
   }
 }

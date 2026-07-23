@@ -10,14 +10,17 @@
  *     ZwWaitForAlertByThreadId @ 0x1800A8B30 (ZwWaitForAlertByThreadId.c)
  */
 
-__int64 __fastcall RtlSleepConditionVariableCS(signed __int64 *a1, __int64 a2, __int64 a3)
+NTSTATUS __cdecl RtlSleepConditionVariableCS(
+        PRTL_CONDITION_VARIABLE ConditionVariable,
+        PRTL_CRITICAL_SECTION CriticalSection,
+        PLARGE_INTEGER Timeout)
 {
-  signed __int64 v6; // rdi
-  unsigned int v7; // esi
+  signed __int64 Ptr; // rdi
+  NTSTATUS v7; // esi
   unsigned __int64 v8; // rbx
   signed __int64 v9; // rax
   int i; // ecx
-  unsigned int v11; // ebx
+  NTSTATUS v11; // ebx
   unsigned __int64 v14; // [rsp+20h] [rbp-30h] BYREF
   unsigned __int64 *v15; // [rsp+28h] [rbp-28h]
   __int64 v16; // [rsp+30h] [rbp-20h]
@@ -25,8 +28,8 @@ __int64 __fastcall RtlSleepConditionVariableCS(signed __int64 *a1, __int64 a2, _
   signed __int32 v18; // [rsp+44h] [rbp-Ch] BYREF
   __int64 v19; // [rsp+48h] [rbp-8h]
 
-  _m_prefetchw(a1);
-  v6 = *a1;
+  _m_prefetchw(ConditionVariable);
+  Ptr = (signed __int64)ConditionVariable->Ptr;
   v7 = 0;
   v16 = 0LL;
   v19 = 0LL;
@@ -34,9 +37,9 @@ __int64 __fastcall RtlSleepConditionVariableCS(signed __int64 *a1, __int64 a2, _
   UniqueThread = NtCurrentTeb()->ClientId.UniqueThread;
   while ( 1 )
   {
-    v8 = (unsigned __int64)&v14 | v6 & 0xF;
-    v14 = v6 & 0xFFFFFFFFFFFFFFF0uLL;
-    if ( (v6 & 0xFFFFFFFFFFFFFFF0uLL) != 0 )
+    v8 = (unsigned __int64)&v14 | Ptr & 0xF;
+    v14 = Ptr & 0xFFFFFFFFFFFFFFF0uLL;
+    if ( (Ptr & 0xFFFFFFFFFFFFFFF0uLL) != 0 )
     {
       v15 = 0LL;
       v8 |= 8uLL;
@@ -45,14 +48,14 @@ __int64 __fastcall RtlSleepConditionVariableCS(signed __int64 *a1, __int64 a2, _
     {
       v15 = &v14;
     }
-    v9 = _InterlockedCompareExchange64(a1, v8, v6);
-    if ( v6 == v9 )
+    v9 = _InterlockedCompareExchange64((volatile signed __int64 *)ConditionVariable, v8, Ptr);
+    if ( Ptr == v9 )
       break;
-    v6 = v9;
+    Ptr = v9;
   }
-  RtlLeaveCriticalSection(a2);
-  if ( (((unsigned __int8)v6 ^ (unsigned __int8)v8) & 8) != 0 )
-    sub_1800711F0(a1, v8);
+  RtlLeaveCriticalSection(CriticalSection);
+  if ( (((unsigned __int8)Ptr ^ (unsigned __int8)v8) & 8) != 0 )
+    sub_1800711F0((volatile signed __int64 *)ConditionVariable, v8);
   for ( i = dword_180159A14; i; --i )
   {
     if ( (v18 & 2) == 0 )
@@ -61,12 +64,12 @@ __int64 __fastcall RtlSleepConditionVariableCS(signed __int64 *a1, __int64 a2, _
   }
   v11 = 0;
   if ( _interlockedbittestandreset(&v18, 1u) )
-    v11 = ZwWaitForAlertByThreadId(a2, a3);
+    v11 = ZwWaitForAlertByThreadId(CriticalSection, Timeout);
   else
     _InterlockedOr(&v18, 4u);
   if ( v11 == 258 || (v18 & 4) == 0 )
   {
-    if ( (unsigned __int8)sub_18007139C(a1, &v14) )
+    if ( (unsigned __int8)sub_18007139C(ConditionVariable, &v14) )
     {
       if ( v11 != 258 )
         v11 = 0;
@@ -75,10 +78,10 @@ __int64 __fastcall RtlSleepConditionVariableCS(signed __int64 *a1, __int64 a2, _
     else
     {
       do
-        ZwWaitForAlertByThreadId(a2, 0LL);
+        ZwWaitForAlertByThreadId(CriticalSection, 0LL);
       while ( (v18 & 4) == 0 );
     }
   }
-  RtlEnterCriticalSection(a2);
+  RtlEnterCriticalSection(CriticalSection);
   return v7;
 }

@@ -1,13 +1,13 @@
 /*
- * XREFs of MiAcceptNewAccelerators @ 0x14087F98C
+ * XREFs of MiAcceptNewAccelerators @ 0x140885D8C
  * Callers:
- *     MmAcceleratorCallbackRoutine @ 0x14087FB60 (MmAcceleratorCallbackRoutine.c)
+ *     MmAcceleratorCallbackRoutine @ 0x140885F60 (MmAcceleratorCallbackRoutine.c)
  * Callees:
- *     ExAllocatePoolMm @ 0x1403985B0 (ExAllocatePoolMm.c)
- *     MmGetCurrentProcessorColor @ 0x14044ADC0 (MmGetCurrentProcessorColor.c)
- *     MiSignalNewAcceleratorsAvailable @ 0x14070F78C (MiSignalNewAcceleratorsAvailable.c)
- *     MiQueryAcceleratorHandle @ 0x14087FAB0 (MiQueryAcceleratorHandle.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolMm @ 0x14039A310 (ExAllocatePoolMm.c)
+ *     MmGetCurrentProcessorColor @ 0x140442EF0 (MmGetCurrentProcessorColor.c)
+ *     MiSignalNewAcceleratorsAvailable @ 0x140714488 (MiSignalNewAcceleratorsAvailable.c)
+ *     MiQueryAcceleratorHandle @ 0x140885EB0 (MiQueryAcceleratorHandle.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 *__fastcall MiAcceptNewAccelerators(__int64 a1)
@@ -39,12 +39,12 @@ __int64 *__fastcall MiAcceptNewAccelerators(__int64 a1)
     v5 = *(_QWORD *)(*(_QWORD *)(a1 + 16) + 8 * v2);
     if ( (int)MiQueryAcceleratorHandle(v5, &v10, &v11) < 0 )
     {
-      byte_140E36506 = 1;
+      byte_140E36686 = 1;
       goto LABEL_11;
     }
     if ( v10 >= (unsigned __int16)KeNumberNodes )
     {
-      byte_140E36507 = 1;
+      byte_140E36687 = 1;
 LABEL_11:
       ExFreePoolWithTag(PoolMm, 0);
       goto LABEL_13;
@@ -61,7 +61,7 @@ LABEL_11:
     *v6 = (char ***)PoolMm;
     v9 = (char ****)PoolMm;
   }
-  byte_140E36505 = 1;
+  byte_140E36685 = 1;
 LABEL_13:
   result = (__int64 *)&v8;
   if ( v8 != (char ***)&v8 )

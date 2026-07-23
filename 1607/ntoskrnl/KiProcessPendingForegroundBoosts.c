@@ -1,14 +1,14 @@
 /*
- * XREFs of KiProcessPendingForegroundBoosts @ 0x1400CABB4
+ * XREFs of KiProcessPendingForegroundBoosts @ 0x1400C8A54
  * Callers:
  *     <none>
  * Callees:
- *     KeYieldProcessorEx @ 0x14002ECB0 (KeYieldProcessorEx.c)
- *     KxAcquireSpinLock @ 0x140092A60 (KxAcquireSpinLock.c)
- *     KxReleaseSpinLock @ 0x140095BA0 (KxReleaseSpinLock.c)
- *     KiApplyForegroundBoostThread @ 0x1400CAD5C (KiApplyForegroundBoostThread.c)
- *     KiReadyDeferredReadyList @ 0x1400D3558 (KiReadyDeferredReadyList.c)
- *     KeSetTimer2 @ 0x1400EB320 (KeSetTimer2.c)
+ *     KeYieldProcessorEx @ 0x14002E830 (KeYieldProcessorEx.c)
+ *     KxAcquireSpinLock @ 0x140092260 (KxAcquireSpinLock.c)
+ *     KxReleaseSpinLock @ 0x1400953A0 (KxReleaseSpinLock.c)
+ *     KiApplyForegroundBoostThread @ 0x1400C8BFC (KiApplyForegroundBoostThread.c)
+ *     KiReadyDeferredReadyList @ 0x1400D13F8 (KiReadyDeferredReadyList.c)
+ *     KeSetTimer2 @ 0x1400E9190 (KeSetTimer2.c)
  */
 
 void __fastcall KiProcessPendingForegroundBoosts(
@@ -37,9 +37,9 @@ void __fastcall KiProcessPendingForegroundBoosts(
   v4 = 0LL;
   v5 = 0;
   v6 = MEMORY[0xFFFFF78000000320];
-  KxAcquireSpinLock(&qword_14030E4D8);
-  v7 = (__int64 *)qword_14030E4C8;
-  if ( (__int64 *)qword_14030E4C8 != &qword_14030E4C8 )
+  KxAcquireSpinLock(&qword_14030E518);
+  v7 = (__int64 *)qword_14030E508;
+  if ( (__int64 *)qword_14030E508 != &qword_14030E508 )
   {
     do
     {
@@ -66,11 +66,11 @@ void __fastcall KiProcessPendingForegroundBoosts(
         _InterlockedAdd16((volatile signed __int16 *)v8 + 710, 1u);
       }
     }
-    while ( v7 != &qword_14030E4C8 );
-    v7 = (__int64 *)qword_14030E4C8;
+    while ( v7 != &qword_14030E508 );
+    v7 = (__int64 *)qword_14030E508;
   }
-  v13 = v7 != &qword_14030E4C8;
-  KxReleaseSpinLock(&qword_14030E4D8);
+  v13 = v7 != &qword_14030E508;
+  KxReleaseSpinLock(&qword_14030E518);
   if ( v13 )
   {
     v18[1] = -1LL;

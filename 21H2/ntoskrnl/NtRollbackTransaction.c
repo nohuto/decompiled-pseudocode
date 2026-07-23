@@ -1,5 +1,5 @@
 /*
- * XREFs of NtRollbackTransaction @ 0x1403D0AC0
+ * XREFs of NtRollbackTransaction @ 0x1403D0C30
  * Callers:
  *     <none>
  * Callees:

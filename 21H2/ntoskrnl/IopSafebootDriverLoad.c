@@ -1,18 +1,18 @@
 /*
- * XREFs of IopSafebootDriverLoad @ 0x140891F24
+ * XREFs of IopSafebootDriverLoad @ 0x140892084
  * Callers:
- *     IopLoadDriver @ 0x140740868 (IopLoadDriver.c)
- *     PipCallDriverAddDevice @ 0x140741988 (PipCallDriverAddDevice.c)
+ *     IopLoadDriver @ 0x140740A28 (IopLoadDriver.c)
+ *     PipCallDriverAddDevice @ 0x140741B48 (PipCallDriverAddDevice.c)
  * Callees:
- *     IopVerifierExAllocatePool @ 0x14022C9E0 (IopVerifierExAllocatePool.c)
- *     RtlAppendUnicodeToString @ 0x140265A40 (RtlAppendUnicodeToString.c)
- *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
- *     RtlAppendUnicodeStringToString @ 0x14027F0B0 (RtlAppendUnicodeStringToString.c)
- *     RtlCopyUnicodeString @ 0x1403534C0 (RtlCopyUnicodeString.c)
- *     ObCloseHandle @ 0x14061AB80 (ObCloseHandle.c)
- *     IopGetRegistryValue @ 0x140742A98 (IopGetRegistryValue.c)
- *     IopOpenRegistryKey @ 0x140769AA4 (IopOpenRegistryKey.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     IopVerifierExAllocatePool @ 0x1402336E0 (IopVerifierExAllocatePool.c)
+ *     RtlAppendUnicodeToString @ 0x1402539E0 (RtlAppendUnicodeToString.c)
+ *     RtlInitUnicodeString @ 0x14026A4C0 (RtlInitUnicodeString.c)
+ *     RtlAppendUnicodeStringToString @ 0x14026D4E0 (RtlAppendUnicodeStringToString.c)
+ *     RtlCopyUnicodeString @ 0x14035E210 (RtlCopyUnicodeString.c)
+ *     ObCloseHandle @ 0x1406847E0 (ObCloseHandle.c)
+ *     IopGetRegistryValue @ 0x140742C58 (IopGetRegistryValue.c)
+ *     IopOpenRegistryKey @ 0x140769C64 (IopOpenRegistryKey.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 char __fastcall IopSafebootDriverLoad(PCUNICODE_STRING Source, _BYTE *a2)
@@ -36,16 +36,16 @@ char __fastcall IopSafebootDriverLoad(PCUNICODE_STRING Source, _BYTE *a2)
   DestinationString = 0LL;
   if ( a2 )
     *a2 = 0;
-  if ( (_DWORD)InitSafeBootMode == 1 )
+  if ( InitSafeBootMode == 1 )
   {
     v6 = L"MINIMAL";
   }
   else
   {
     result = InitSafeBootMode - 2;
-    if ( (_DWORD)InitSafeBootMode != 2 )
+    if ( InitSafeBootMode != 2 )
     {
-      if ( (_DWORD)InitSafeBootMode == 3 )
+      if ( InitSafeBootMode == 3 )
         return result;
       return 0;
     }

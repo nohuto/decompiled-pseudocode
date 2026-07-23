@@ -66,10 +66,13 @@ LABEL_10:
     if ( (*(_DWORD *)a1 & 1) != 0 )
     {
       ExReleaseSpinLockExclusiveFromDpcLevel(v2);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         CurrentIrql = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v10 <= 0xFu && CurrentIrql >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+          && CurrentIrql <= 0xFu
+          && (unsigned __int8)v10 <= 0xFu
+          && CurrentIrql >= 2u )
         {
           CurrentPrcb = KeGetCurrentPrcb();
           SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -122,10 +125,10 @@ LABEL_10:
   if ( (*(_DWORD *)a1 & 1) != 0 )
   {
     ExReleaseSpinLockExclusiveFromDpcLevel(v2);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v22 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v22 <= 0xFu && (unsigned __int8)v10 <= 0xFu && v22 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v22 <= 0xFu && (unsigned __int8)v10 <= 0xFu && v22 >= 2u )
       {
         v23 = KeGetCurrentPrcb();
         v24 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v10 + 1));

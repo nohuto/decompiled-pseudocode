@@ -1,12 +1,12 @@
 /*
- * XREFs of CmLogTmRmAction @ 0x1404DA104
+ * XREFs of CmLogTmRmAction @ 0x1404BD708
  * Callers:
- *     CmKtmNotification @ 0x1404D9B64 (CmKtmNotification.c)
+ *     CmKtmNotification @ 0x1404BD168 (CmKtmNotification.c)
  * Callees:
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     CmpTransWriteLog @ 0x1404A1ACC (CmpTransWriteLog.c)
- *     HvBufferCheckSum @ 0x1404A1D5C (HvBufferCheckSum.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     CmpTransWriteLog @ 0x140519ED8 (CmpTransWriteLog.c)
+ *     HvBufferCheckSum @ 0x14051A168 (HvBufferCheckSum.c)
  */
 
 NTSTATUS __fastcall CmLogTmRmAction(__int64 a1, __int64 a2, int a3)
@@ -25,8 +25,8 @@ NTSTATUS __fastcall CmLogTmRmAction(__int64 a1, __int64 a2, int a3)
   v10[1] = 48;
   *(_OWORD *)&v10[4] = v6;
   v10[2] = a3;
-  v10[0] = HvBufferCheckSum((__int64)v10, 0x30u);
-  result = CmpTransWriteLog(a1, (__int64)v10, 0x30u, 2u, &plsnFlush);
+  v10[0] = HvBufferCheckSum(v10, 48LL);
+  result = CmpTransWriteLog(a1, (int)v10, 48, 2, &plsnFlush);
   if ( result >= 0 )
     return ClfsFlushToLsn(*(PVOID *)(a1 + 96), &plsnFlush, &plsnLastFlushed);
   return result;

@@ -1,9 +1,9 @@
 /*
  * XREFs of RtlRestoreContext @ 0x1800AA210
  * Callers:
- *     RtlUnwindEx @ 0x180035340 (RtlUnwindEx.c)
- *     RtlRaiseException @ 0x180036770 (RtlRaiseException.c)
- *     RtlGuardRestoreContext @ 0x180087040 (RtlGuardRestoreContext.c)
+ *     RtlUnwindEx @ 0x180035330 (RtlUnwindEx.c)
+ *     RtlRaiseException @ 0x180036760 (RtlRaiseException.c)
+ *     RtlGuardRestoreContext @ 0x180087030 (RtlGuardRestoreContext.c)
  * Callees:
  *     ZwContinue @ 0x1800A6C80 (ZwContinue.c)
  */
@@ -77,5 +77,5 @@ void __cdecl RtlRestoreContext(PCONTEXT ContextRecord, struct _EXCEPTION_RECORD 
     _FFFFFFFFFFFFFF68[160] = ContextRecord->Rip;
     __asm { iretq }
   }
-  ZwContinue();
+  ZwContinue(ContextRecord, 0);
 }

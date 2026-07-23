@@ -1,12 +1,12 @@
 /*
- * XREFs of AdtpBuildPrivilegeAuditString @ 0x1406D07D4
+ * XREFs of AdtpBuildPrivilegeAuditString @ 0x1406D090C
  * Callers:
- *     AdtpPackageParameters @ 0x140144450 (AdtpPackageParameters.c)
- *     AdtpBuildAccessReasonAuditStringInternal @ 0x140238284 (AdtpBuildAccessReasonAuditStringInternal.c)
+ *     AdtpPackageParameters @ 0x1401449C0 (AdtpPackageParameters.c)
+ *     AdtpBuildAccessReasonAuditStringInternal @ 0x1402380B0 (AdtpBuildAccessReasonAuditStringInternal.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14002DC60 (RtlInitUnicodeString.c)
- *     memmove @ 0x140171280 (memmove.c)
- *     AdtpLookupKnownPrivilegeNameQuickly @ 0x14023915C (AdtpLookupKnownPrivilegeNameQuickly.c)
+ *     RtlInitUnicodeString @ 0x14002D7E0 (RtlInitUnicodeString.c)
+ *     memmove @ 0x140171780 (memmove.c)
+ *     AdtpLookupKnownPrivilegeNameQuickly @ 0x140238F88 (AdtpLookupKnownPrivilegeNameQuickly.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
  */
 
@@ -104,7 +104,7 @@ __int64 __fastcall AdtpBuildPrivilegeAuditString(
   else if ( a3 )
   {
     a3[1] = (wchar_t *)4;
-    *a3 = (wchar_t *)&unk_140261FC8;
+    *a3 = (wchar_t *)&unk_140261FE8;
   }
   else if ( a2 )
   {

@@ -1,76 +1,79 @@
 /*
- * XREFs of RtlUTF8StringToUnicodeString @ 0x140787330
+ * XREFs of RtlUTF8StringToUnicodeString @ 0x140787260
  * Callers:
- *     PiGetDefaultMessageString @ 0x1409C8444 (PiGetDefaultMessageString.c)
+ *     PiGetDefaultMessageString @ 0x1409B8860 (PiGetDefaultMessageString.c)
  * Callees:
- *     CountUTF8ToUnicode @ 0x14047B014 (CountUTF8ToUnicode.c)
- *     RtlUTF8ToUnicodeN @ 0x1408AFDF0 (RtlUTF8ToUnicodeN.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePool @ 0x140B72CB0 (ExFreePool.c)
+ *     CountUTF8ToUnicode @ 0x1404766C4 (CountUTF8ToUnicode.c)
+ *     RtlUTF8ToUnicodeN @ 0x140906050 (RtlUTF8ToUnicodeN.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePool @ 0x140B74850 (ExFreePool.c)
  */
 
-__int64 __fastcall RtlUTF8StringToUnicodeString(__int64 a1, char **a2, char a3)
+NTSTATUS __cdecl RtlUTF8StringToUnicodeString(
+        PUNICODE_STRING DestinationString,
+        PUTF8_STRING SourceString,
+        BOOLEAN AllocateDestinationString)
 {
-  int v5; // edx
-  __int64 result; // rax
+  int Length; // edx
+  NTSTATUS result; // eax
   ULONG v8; // edi
-  __int64 Pool2; // rax
-  ULONG v10; // ecx
-  NTSTATUS v11; // edi
+  wchar_t *Pool2; // rax
+  ULONG MaximumLength; // ecx
+  int v11; // edi
   unsigned __int64 v12; // rcx
   unsigned int v13; // eax
   ULONG UnicodeStringActualByteCount; // [rsp+58h] [rbp+10h] BYREF
 
-  v5 = *(unsigned __int16 *)a2;
+  Length = SourceString->Length;
   UnicodeStringActualByteCount = 0;
-  result = CountUTF8ToUnicode(a2[1], v5, &UnicodeStringActualByteCount);
-  if ( (int)result >= 0 )
+  result = CountUTF8ToUnicode(SourceString->Buffer, Length, &UnicodeStringActualByteCount);
+  if ( result >= 0 )
   {
     v8 = UnicodeStringActualByteCount + 2;
     UnicodeStringActualByteCount = v8;
     if ( v8 > 0xFFFE )
-      return 3221225712LL;
-    if ( a3 )
+      return -1073741584;
+    if ( AllocateDestinationString )
     {
-      Pool2 = ExAllocatePool2(0x100uLL);
-      *(_QWORD *)(a1 + 8) = Pool2;
+      Pool2 = (wchar_t *)ExAllocatePool2(0x100uLL, v8, 0x67727453u);
+      DestinationString->Buffer = Pool2;
       if ( !Pool2 )
-        return 3221225495LL;
-      *(_WORD *)(a1 + 2) = v8;
-      LOWORD(v10) = v8;
+        return -1073741801;
+      DestinationString->MaximumLength = v8;
+      LOWORD(MaximumLength) = v8;
     }
     else
     {
-      v10 = *(unsigned __int16 *)(a1 + 2);
-      if ( v8 > v10 )
-        return 2147483653LL;
+      MaximumLength = DestinationString->MaximumLength;
+      if ( v8 > MaximumLength )
+        return -2147483643;
     }
     v11 = RtlUTF8ToUnicodeN(
-            *(PWSTR *)(a1 + 8),
-            (unsigned __int16)v10,
+            DestinationString->Buffer,
+            (unsigned __int16)MaximumLength,
             &UnicodeStringActualByteCount,
-            a2[1],
-            *(unsigned __int16 *)a2);
+            SourceString->Buffer,
+            SourceString->Length);
     if ( v11 < 0 )
     {
-      if ( a3 )
+      if ( AllocateDestinationString )
       {
-        ExFreePool(*(PVOID *)(a1 + 8));
-        *(_QWORD *)(a1 + 8) = 0LL;
-        *(_WORD *)(a1 + 2) = 0;
+        ExFreePool(DestinationString->Buffer);
+        DestinationString->Buffer = 0LL;
+        DestinationString->MaximumLength = 0;
       }
-      return (unsigned int)v11;
+      return v11;
     }
     v12 = UnicodeStringActualByteCount;
-    v13 = *(unsigned __int16 *)(a1 + 2);
-    *(_WORD *)a1 = UnicodeStringActualByteCount;
+    v13 = DestinationString->MaximumLength;
+    DestinationString->Length = UnicodeStringActualByteCount;
     if ( (unsigned int)v12 < v13 )
     {
       v11 = 0;
-      *(_WORD *)(*(_QWORD *)(a1 + 8) + 2 * (v12 >> 1)) = 0;
-      return (unsigned int)v11;
+      DestinationString->Buffer[v12 >> 1] = 0;
+      return v11;
     }
-    return 2147483653LL;
+    return -2147483643;
   }
   return result;
 }

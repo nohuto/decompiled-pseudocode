@@ -1,7 +1,7 @@
 /*
- * XREFs of PpmBeginProfileAccumulation @ 0x14077793C
+ * XREFs of PpmBeginProfileAccumulation @ 0x14077A7DC
  * Callers:
- *     PpmInitPolicyConfiguration @ 0x140CD2D80 (PpmInitPolicyConfiguration.c)
+ *     PpmInitPolicyConfiguration @ 0x140CD8F20 (PpmInitPolicyConfiguration.c)
  * Callees:
  *     <none>
  */

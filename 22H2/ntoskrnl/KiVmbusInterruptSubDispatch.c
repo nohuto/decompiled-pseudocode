@@ -12,22 +12,23 @@
  *     PerfInfoLogInterruptHv @ 0x1405AA080 (PerfInfoLogInterruptHv.c)
  */
 
-__int64 __fastcall KiVmbusInterruptSubDispatch(__int64 a1, __int64 a2, __int64 CurrentThread, __int64 a4)
+__int64 __fastcall KiVmbusInterruptSubDispatch()
 {
-  __int64 v4; // rbp
+  __int64 v0; // rbp
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // rcx
-  unsigned __int64 v7; // rax
+  unsigned __int64 v3; // rax
   unsigned int EntropyCount; // r11d
-  unsigned int *v9; // r10
-  unsigned __int64 v10; // rax
-  __int64 v11; // rdx
-  unsigned __int64 v12; // rdx
-  int v13; // ecx
-  bool v14; // zf
-  __int64 (*v15)(void); // rsi
+  unsigned int *v5; // r10
+  __int64 CurrentThread; // r8
+  unsigned __int64 v7; // rax
+  __int64 v8; // rdx
+  unsigned __int64 v9; // rdx
+  int v10; // ecx
+  bool v11; // zf
+  __int64 (*v12)(void); // rsi
   __int64 result; // rax
-  LARGE_INTEGER v17[5]; // [rsp+20h] [rbp-28h] BYREF
+  LARGE_INTEGER v14[5]; // [rsp+20h] [rbp-28h] BYREF
 
   if ( KiIrqlFlags )
   {
@@ -38,42 +39,42 @@ __int64 __fastcall KiVmbusInterruptSubDispatch(__int64 a1, __int64 a2, __int64 C
     CurrentIrql = KeGetCurrentIrql();
     __writecr8(3uLL);
   }
-  *(_BYTE *)(v4 - 87) = CurrentIrql;
-  *(_DWORD *)(v4 - 96) = 0;
+  *(_BYTE *)(v0 - 87) = CurrentIrql;
+  *(_DWORD *)(v0 - 96) = 0;
   CurrentPrcb = KeGetCurrentPrcb();
   if ( ++CurrentPrcb->NestingLevel == 1 )
   {
-    v7 = __rdtsc();
+    v3 = __rdtsc();
     EntropyCount = CurrentPrcb->EntropyTimingState.EntropyCount;
-    v9 = &CurrentPrcb->EntropyTimingState.Buffer[(unsigned __int16)(EntropyCount & 0x7FF) >> 5];
-    *v9 = v7 ^ __ROR4__(*v9, 5);
+    v5 = &CurrentPrcb->EntropyTimingState.Buffer[(unsigned __int16)(EntropyCount & 0x7FF) >> 5];
+    *v5 = v3 ^ __ROR4__(*v5, 5);
     CurrentPrcb->EntropyTimingState.EntropyCount = ++EntropyCount;
     if ( (EntropyCount & 0x3FF) == 0 )
-      *(_DWORD *)(v4 - 96) = 1;
+      *(_DWORD *)(v0 - 96) = 1;
     CurrentThread = (__int64)CurrentPrcb->CurrentThread;
-    v10 = v7 - CurrentPrcb->StartCycles;
-    *(_QWORD *)(CurrentThread + 72) += v10;
-    v11 = *(unsigned int *)(CurrentThread + 80);
-    CurrentPrcb->StartCycles += v10;
-    v12 = v10 + v11;
-    v13 = v12;
-    if ( HIDWORD(v12) )
-      v13 = -1;
-    *(_DWORD *)(CurrentThread + 80) = v13;
+    v7 = v3 - CurrentPrcb->StartCycles;
+    *(_QWORD *)(CurrentThread + 72) += v7;
+    v8 = *(unsigned int *)(CurrentThread + 80);
+    CurrentPrcb->StartCycles += v7;
+    v9 = v7 + v8;
+    v10 = v9;
+    if ( HIDWORD(v9) )
+      v10 = -1;
+    *(_DWORD *)(CurrentThread + 80) = v10;
     if ( (*(_BYTE *)(CurrentThread + 2) & 0x3E) != 0 )
-      KiEndThreadAccountingPeriod((__int64)KeGetCurrentPrcb(), CurrentThread, v10);
+      KiEndThreadAccountingPeriod((__int64)KeGetCurrentPrcb(), CurrentThread, v7);
   }
   _enable();
-  if ( *(_DWORD *)(v4 - 96) )
+  if ( *(_DWORD *)(v0 - 96) )
     KiEntropyQueueDpc((__int64)KeGetCurrentPrcb());
-  v14 = (WORD2(PerfGlobalGroupMask) & 0x4000) == 0;
-  *(_BYTE *)(v4 + 243) = (WORD2(PerfGlobalGroupMask) & 0x4000) != 0;
-  if ( !v14 )
-    EtwGetKernelTraceTimestamp(v17, 536887296LL, CurrentThread, a4);
-  v15 = HvlpInterruptCallback[*(unsigned int *)(v4 + 224)];
-  result = v15();
-  if ( *(_BYTE *)(v4 + 243) )
-    result = PerfInfoLogInterruptHv(v15, (unsigned int)(((*(_DWORD *)(v4 + 224) + 48) << 8) + 1), v17);
+  v11 = (WORD2(PerfGlobalGroupMask) & 0x4000) == 0;
+  *(_BYTE *)(v0 + 243) = (WORD2(PerfGlobalGroupMask) & 0x4000) != 0;
+  if ( !v11 )
+    EtwGetKernelTraceTimestamp(v14, 0x20004000u);
+  v12 = HvlpInterruptCallback[*(unsigned int *)(v0 + 224)];
+  result = v12();
+  if ( *(_BYTE *)(v0 + 243) )
+    result = PerfInfoLogInterruptHv(v12, (unsigned int)(((*(_DWORD *)(v0 + 224) + 48) << 8) + 1), v14);
   _disable();
   return result;
 }

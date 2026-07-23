@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlAllocateHeap @ 0x14051C360
+ * XREFs of RtlAllocateHeap @ 0x140518F50
  * Callers:
  *     <none>
  * Callees:
- *     RtlAllocateHeapExport @ 0x140619688 (RtlAllocateHeapExport.c)
- *     RtlAllocateHeapFull @ 0x1406196B8 (RtlAllocateHeapFull.c)
+ *     RtlAllocateHeapExport @ 0x14061C6E4 (RtlAllocateHeapExport.c)
+ *     RtlAllocateHeapFull @ 0x14061C714 (RtlAllocateHeapFull.c)
  */
 
 PVOID __stdcall RtlAllocateHeap(PVOID HeapHandle, ULONG Flags, SIZE_T Size)

@@ -20,20 +20,22 @@
  *     EtwTraceJob @ 0x1409E53B8 (EtwTraceJob.c)
  */
 
-__int64 __fastcall NtCreateJobObject(__int64 *a1, __int64 a2, int a3)
+NTSTATUS __cdecl NtCreateJobObject(PHANDLE JobHandle, ACCESS_MASK DesiredAccess, POBJECT_ATTRIBUTES ObjectAttributes)
 {
+  int v3; // r13d
   struct _KTHREAD *CurrentThread; // r15
   char PreviousMode; // si
   __int64 v7; // rcx
   char v8; // r12
   int v9; // r9d
   int v10; // ecx
-  int Object; // esi
+  NTSTATUS Object; // esi
   __int64 Handle; // rax
   __int64 v14; // [rsp+60h] [rbp-48h] BYREF
   LARGE_INTEGER Interval; // [rsp+68h] [rbp-40h] BYREF
   unsigned int v16; // [rsp+C8h] [rbp+20h]
 
+  v3 = (int)ObjectAttributes;
   v14 = 0LL;
   v16 = 0;
   CurrentThread = KeGetCurrentThread();
@@ -41,15 +43,15 @@ __int64 __fastcall NtCreateJobObject(__int64 *a1, __int64 a2, int a3)
   if ( PreviousMode )
   {
     v7 = 0x7FFFFFFF0000LL;
-    if ( (unsigned __int64)a1 < 0x7FFFFFFF0000LL )
-      v7 = (__int64)a1;
+    if ( (unsigned __int64)JobHandle < 0x7FFFFFFF0000LL )
+      v7 = (__int64)JobHandle;
     *(_QWORD *)v7 = *(_QWORD *)v7;
   }
-  *a1 = 0LL;
+  *JobHandle = 0LL;
   v8 = PoEnergyEstimationEnabled();
   LOBYTE(v9) = PreviousMode;
   LOBYTE(v10) = PreviousMode;
-  Object = ObCreateObjectEx(v10, (_DWORD)PsJobType, a3, v9);
+  Object = ObCreateObjectEx(v10, (_DWORD)PsJobType, v3, v9);
   if ( Object >= 0 )
   {
     memset(0LL, 0, v8 != 0 ? 2248 : 1816);
@@ -119,9 +121,9 @@ __int64 __fastcall NtCreateJobObject(__int64 *a1, __int64 a2, int a3)
     if ( Object < 0 || (ObfReferenceObject(0LL), Object = ObInsertObjectEx(0LL, 0LL, 0, 0LL, (__int64)&v14), Object < 0) )
       ObfDereferenceObject(0LL);
     else
-      *a1 = v14;
+      *JobHandle = (HANDLE)v14;
   }
   if ( (PerfGlobalGroupMask & 0x80000) != 0 )
     EtwTraceJob(0LL, v16, (unsigned int)Object, 1824LL);
-  return (unsigned int)Object;
+  return Object;
 }

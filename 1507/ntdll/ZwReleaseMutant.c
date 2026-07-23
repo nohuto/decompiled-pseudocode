@@ -7,11 +7,11 @@
  *     <none>
  */
 
-__int64 ZwReleaseMutant()
+NTSTATUS __cdecl ZwReleaseMutant(HANDLE MutantHandle, PLONG PreviousCount)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 32LL;
+  result = 32;
   __asm { syscall; Low latency system call }
   return result;
 }

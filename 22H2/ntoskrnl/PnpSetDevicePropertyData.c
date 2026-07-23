@@ -17,7 +17,7 @@
 __int64 __fastcall PnpSetDevicePropertyData(
         __int64 a1,
         __int64 a2,
-        unsigned int a3,
+        LCID a3,
         __int64 a4,
         int a5,
         unsigned int a6,
@@ -27,12 +27,11 @@ __int64 __fastcall PnpSetDevicePropertyData(
   struct _KTHREAD *CurrentThread; // rax
   int v12; // ebx
   __int64 v14; // rax
-  __int64 v15; // [rsp+50h] [rbp-F8h] BYREF
-  _BYTE *v16; // [rsp+58h] [rbp-F0h]
-  _BYTE v17[176]; // [rsp+60h] [rbp-E8h] BYREF
+  UNICODE_STRING String; // [rsp+50h] [rbp-F8h] BYREF
+  _BYTE v16[176]; // [rsp+60h] [rbp-E8h] BYREF
 
-  memset(v17, 0, 0xAAuLL);
-  v15 = 0LL;
+  memset(v16, 0, 0xAAuLL);
+  *(_QWORD *)&String.Length = 0LL;
   if ( a1 )
     v10 = *(_QWORD *)(*(_QWORD *)(a1 + 312) + 40LL);
   else
@@ -41,14 +40,14 @@ __int64 __fastcall PnpSetDevicePropertyData(
     return (unsigned int)-1073741808;
   if ( a3 )
   {
-    WORD1(v15) = 170;
-    v16 = v17;
-    if ( !(unsigned __int8)RtlLCIDToCultureName(a3, &v15) )
+    String.MaximumLength = 170;
+    String.Buffer = (wchar_t *)v16;
+    if ( !RtlLCIDToCultureName(a3, &String) )
       return (unsigned int)-1073741823;
   }
   else
   {
-    v16 = 0LL;
+    String.Buffer = 0LL;
   }
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
@@ -58,7 +57,7 @@ __int64 __fastcall PnpSetDevicePropertyData(
           *(const WCHAR **)(v10 + 48),
           1,
           0LL,
-          (__int64)v16,
+          (__int64)String.Buffer,
           a2,
           a5,
           a7,

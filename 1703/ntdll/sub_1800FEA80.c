@@ -9,27 +9,30 @@
  *     memset @ 0x1800ABDC0 (memset.c)
  */
 
-void __fastcall sub_1800FEA80(__int64 a1, int a2)
+void __fastcall sub_1800FEA80(LPCGUID a1, int a2)
 {
   signed __int32 *v2; // rax
   signed __int32 *v3; // rdi
   signed __int32 v4; // ebx
-  _QWORD v5[5]; // [rsp+30h] [rbp-28h] BYREF
+  int HeapInformation; // [rsp+30h] [rbp-28h] BYREF
+  __int64 v6; // [rsp+38h] [rbp-20h]
+  __int64 (__fastcall *v7)(void *); // [rsp+40h] [rbp-18h]
+  signed __int32 *v8; // [rsp+48h] [rbp-10h]
 
   if ( a2 == 2 )
   {
-    v2 = (signed __int32 *)sub_1800093FC(16400LL, 0);
+    v2 = (signed __int32 *)sub_1800093FC(0x4010uLL, 0);
     v3 = v2;
     if ( v2 )
     {
       v4 = _InterlockedIncrement(&dword_18015C7C8);
       memset(v2, 0, 0x4010uLL);
       *v3 = v4;
-      v5[1] = -1LL;
-      LODWORD(v5[0]) = 1;
-      v5[3] = v3;
-      v5[2] = sub_1800FEB20;
-      RtlQueryHeapInformation(0LL, 5, v5, 0x20uLL, 0LL);
+      v6 = -1LL;
+      HeapInformation = 1;
+      v8 = v3;
+      v7 = sub_1800FEB20;
+      RtlQueryHeapInformation(0LL, (HEAP_INFORMATION_CLASS)5, &HeapInformation, 0x20uLL, 0LL);
       sub_18000913C((int)v3);
     }
   }

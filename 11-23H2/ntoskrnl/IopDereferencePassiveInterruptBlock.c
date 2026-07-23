@@ -1,13 +1,13 @@
 /*
- * XREFs of IopDereferencePassiveInterruptBlock @ 0x1403A328C
+ * XREFs of IopDereferencePassiveInterruptBlock @ 0x1403A346C
  * Callers:
- *     IopPassiveInterruptWorker @ 0x1403A3340 (IopPassiveInterruptWorker.c)
- *     IopDestroyPassiveInterruptBlock @ 0x14095821C (IopDestroyPassiveInterruptBlock.c)
+ *     IopPassiveInterruptWorker @ 0x1403A3520 (IopPassiveInterruptWorker.c)
+ *     IopDestroyPassiveInterruptBlock @ 0x14095841C (IopDestroyPassiveInterruptBlock.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     IopAcquirePassiveInterruptBlockLock @ 0x1403A3464 (IopAcquirePassiveInterruptBlockLock.c)
- *     IopAcquireGlobalPassiveInterruptListLock @ 0x1403A35BC (IopAcquireGlobalPassiveInterruptListLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     IopAcquirePassiveInterruptBlockLock @ 0x1403A3644 (IopAcquirePassiveInterruptBlockLock.c)
+ *     IopAcquireGlobalPassiveInterruptListLock @ 0x1403A379C (IopAcquireGlobalPassiveInterruptListLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 
@@ -46,7 +46,9 @@ void __fastcall IopDereferencePassiveInterruptBlock(PVOID P)
     v5[1] = v6;
   }
   KxReleaseSpinLock((volatile signed __int64 *)P + 7);
-  if ( KiIrqlFlags && (CurrentIrql = KeGetCurrentIrql(), (KiIrqlFlags & 1) != 0) && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags
+    && (CurrentIrql = KeGetCurrentIrql(), ((unsigned __int8)KiIrqlFlags & 1) != 0)
+    && CurrentIrql <= 0xFu )
   {
     v3 = v16;
     if ( v16 <= 0xFu && CurrentIrql >= 2u )
@@ -67,7 +69,7 @@ void __fastcall IopDereferencePassiveInterruptBlock(PVOID P)
   }
   __writecr8(v3);
   KxReleaseSpinLock((volatile signed __int64 *)&PassiveInterruptListLock);
-  if ( KiIrqlFlags && (v12 = KeGetCurrentIrql(), (KiIrqlFlags & 1) != 0) && v12 <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && (v12 = KeGetCurrentIrql(), ((unsigned __int8)KiIrqlFlags & 1) != 0) && v12 <= 0xFu )
   {
     v4 = v17;
     if ( v17 <= 0xFu && v12 >= 2u )

@@ -1,20 +1,20 @@
 /*
- * XREFs of AslpFileGet16BitModuleName @ 0x1408EC304
+ * XREFs of AslpFileGet16BitModuleName @ 0x1408ED5C4
  * Callers:
- *     AslpFileGetHeaderAttributesNE @ 0x1408ECD88 (AslpFileGetHeaderAttributesNE.c)
+ *     AslpFileGetHeaderAttributesNE @ 0x1408EE048 (AslpFileGetHeaderAttributesNE.c)
  * Callees:
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     AslLogCallPrintf @ 0x140680C60 (AslLogCallPrintf.c)
- *     AslStringAnsiToUnicode @ 0x1408E9264 (AslStringAnsiToUnicode.c)
- *     AslpFileQuery16BitModuleName @ 0x1408ED760 (AslpFileQuery16BitModuleName.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     AslLogCallPrintf @ 0x140681E20 (AslLogCallPrintf.c)
+ *     AslStringAnsiToUnicode @ 0x1408EA524 (AslStringAnsiToUnicode.c)
+ *     AslpFileQuery16BitModuleName @ 0x1408EEA20 (AslpFileQuery16BitModuleName.c)
  */
 
 __int64 __fastcall AslpFileGet16BitModuleName(wchar_t **a1, __int64 a2)
 {
   int v4; // edi
   int v5; // ebx
-  char v6[256]; // [rsp+30h] [rbp-118h] BYREF
+  CHAR v6[256]; // [rsp+30h] [rbp-118h] BYREF
 
   if ( *(_DWORD *)(a2 + 64) == 5 )
   {

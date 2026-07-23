@@ -1,15 +1,25 @@
 /*
- * XREFs of TppETWPoolCreate @ 0x180112928
+ * XREFs of TppETWPoolCreate @ 0x1801128E8
  * Callers:
  *     TpAllocPoolInternal @ 0x180062D34 (TpAllocPoolInternal.c)
  * Callees:
  *     RtlGetCurrentServiceSessionId @ 0x180024850 (RtlGetCurrentServiceSessionId.c)
  *     __security_check_cookie @ 0x18008C940 (__security_check_cookie.c)
- *     NtTraceEvent @ 0x18009E1F0 (NtTraceEvent.c)
+ *     NtTraceEvent @ 0x18009E1B0 (NtTraceEvent.c)
  */
 
-__int64 TppETWPoolCreate()
+NTSTATUS __fastcall TppETWPoolCreate(__int64 a1)
 {
-  RtlGetCurrentServiceSessionId();
-  return NtTraceEvent();
+  __int64 v1; // rcx
+  _BYTE Fields[6]; // [rsp+20h] [rbp-38h] BYREF
+  __int16 v4; // [rsp+26h] [rbp-32h]
+  __int64 v5; // [rsp+40h] [rbp-18h]
+
+  v5 = a1;
+  v4 = 7205;
+  if ( RtlGetCurrentServiceSessionId() )
+    v1 = (__int64)NtCurrentPeb()->SharedData + 556;
+  else
+    v1 = 2147353478LL;
+  return NtTraceEvent((HANDLE)*(unsigned __int8 *)v1, 0x20402u, 8u, Fields);
 }

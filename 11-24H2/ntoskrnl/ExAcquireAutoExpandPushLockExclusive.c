@@ -1,15 +1,15 @@
 /*
- * XREFs of ExAcquireAutoExpandPushLockExclusive @ 0x14033E4C0
+ * XREFs of ExAcquireAutoExpandPushLockExclusive @ 0x14031D9A0
  * Callers:
- *     MiPostInsertVad @ 0x14025EBE0 (MiPostInsertVad.c)
- *     MiLockLoaderEntry @ 0x1402C7520 (MiLockLoaderEntry.c)
- *     MiLockAweVadsExclusive @ 0x1404B3CC4 (MiLockAweVadsExclusive.c)
- *     MiLockAwePagesExclusive @ 0x140682830 (MiLockAwePagesExclusive.c)
+ *     MiLockAweVadsExclusive @ 0x14026788C (MiLockAweVadsExclusive.c)
+ *     MiPostInsertVad @ 0x14028F1F0 (MiPostInsertVad.c)
+ *     MiLockLoaderEntry @ 0x1402BC0A0 (MiLockLoaderEntry.c)
+ *     MiLockAwePagesExclusive @ 0x140683A20 (MiLockAwePagesExclusive.c)
  * Callees:
- *     KeQueryMaximumProcessorCountEx @ 0x14033E440 (KeQueryMaximumProcessorCountEx.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
+ *     KeQueryMaximumProcessorCountEx @ 0x14031D920 (KeQueryMaximumProcessorCountEx.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
  */
 
 void __fastcall ExAcquireAutoExpandPushLockExclusive(ULONG_PTR BugCheckParameter2, ULONG_PTR BugCheckParameter1)

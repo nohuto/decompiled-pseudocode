@@ -1,20 +1,20 @@
 /*
- * XREFs of HalpIommuDeleteDevice @ 0x140864C50
+ * XREFs of HalpIommuDeleteDevice @ 0x140864DB0
  * Callers:
- *     HalpDmaFreeChildAdapter @ 0x14036D1C0 (HalpDmaFreeChildAdapter.c)
- *     HalpIommuBlockDevice @ 0x1404C8E60 (HalpIommuBlockDevice.c)
- *     HalpIommuUnblockDevice @ 0x1404C9E80 (HalpIommuUnblockDevice.c)
- *     IommuDomainAttachDevice @ 0x1404DA3E0 (IommuDomainAttachDevice.c)
- *     IommuDomainDetachDevice @ 0x1404DA5F0 (IommuDomainDetachDevice.c)
- *     HalpDmaAllocateChildAdapterV3 @ 0x1407C36A8 (HalpDmaAllocateChildAdapterV3.c)
+ *     HalpDmaFreeChildAdapter @ 0x14036D370 (HalpDmaFreeChildAdapter.c)
+ *     HalpIommuBlockDevice @ 0x1404C90A0 (HalpIommuBlockDevice.c)
+ *     HalpIommuUnblockDevice @ 0x1404CA0C0 (HalpIommuUnblockDevice.c)
+ *     IommuDomainAttachDevice @ 0x1404DA620 (IommuDomainAttachDevice.c)
+ *     IommuDomainDetachDevice @ 0x1404DA830 (IommuDomainDetachDevice.c)
+ *     HalpDmaAllocateChildAdapterV3 @ 0x1407C3BC8 (HalpDmaAllocateChildAdapterV3.c)
  * Callees:
- *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
- *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
- *     HalpMmAllocCtxFree @ 0x140379460 (HalpMmAllocCtxFree.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     IommupHvUnregisterDeviceId @ 0x1404DA3BC (IommupHvUnregisterDeviceId.c)
- *     IidAreIdsStrictlyEqual @ 0x1405C638C (IidAreIdsStrictlyEqual.c)
+ *     ExfTryToWakePushLock @ 0x1402FC2C0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x1403539D0 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1403556E0 (ExAcquirePushLockExclusiveEx.c)
+ *     HalpMmAllocCtxFree @ 0x140378FB0 (HalpMmAllocCtxFree.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     IommupHvUnregisterDeviceId @ 0x1404DA5FC (IommupHvUnregisterDeviceId.c)
+ *     IidAreIdsStrictlyEqual @ 0x1405C65BC (IidAreIdsStrictlyEqual.c)
  */
 
 __int64 __fastcall HalpIommuDeleteDevice(_QWORD *a1)

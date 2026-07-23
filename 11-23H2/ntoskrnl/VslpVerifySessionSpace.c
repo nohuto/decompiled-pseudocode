@@ -1,16 +1,16 @@
 /*
- * XREFs of VslpVerifySessionSpace @ 0x14054CFD0
+ * XREFs of VslpVerifySessionSpace @ 0x14054D690
  * Callers:
  *     <none>
  * Callees:
  *     RtlImageNtHeader @ 0x140214B30 (RtlImageNtHeader.c)
- *     RtlSetBits @ 0x1402E0530 (RtlSetBits.c)
- *     ExGenRandom @ 0x1403175D0 (ExGenRandom.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     _alloca_probe @ 0x140429B10 (_alloca_probe.c)
- *     memset @ 0x140435A00 (memset.c)
- *     VslVerifyPage @ 0x14054CC80 (VslVerifyPage.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     RtlSetBits @ 0x1402E07C0 (RtlSetBits.c)
+ *     ExGenRandom @ 0x140317860 (ExGenRandom.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     _alloca_probe @ 0x140429EA0 (_alloca_probe.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     VslVerifyPage @ 0x14054D340 (VslVerifyPage.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
@@ -30,9 +30,9 @@ __int64 __fastcall VslpVerifySessionSpace(__int64 a1, __int64 a2)
   unsigned __int64 v14; // rax
   void *v15; // rsp
   void *v16; // rsp
-  __int64 v17; // rax
+  PIMAGE_NT_HEADERS v17; // rax
   __int64 v18; // r15
-  __int64 v19; // r12
+  PIMAGE_NT_HEADERS v19; // r12
   unsigned __int64 v20; // rsi
   unsigned __int8 CurrentIrql; // di
   _DWORD *SchedulerAssist; // r9
@@ -70,7 +70,7 @@ __int64 __fastcall VslpVerifySessionSpace(__int64 a1, __int64 a2)
   int v54; // eax
   unsigned int v55; // r8d
   int v56; // ecx
-  unsigned __int64 v57; // rax
+  unsigned __int64 NumberOfSections; // rax
   unsigned int v58; // esi
   __int64 v59; // rdx
   unsigned int v60; // r9d
@@ -107,7 +107,7 @@ __int64 __fastcall VslpVerifySessionSpace(__int64 a1, __int64 a2)
   int v91; // [rsp+20h] [rbp+0h] BYREF
   int v92; // [rsp+24h] [rbp+4h]
   __int64 v93; // [rsp+28h] [rbp+8h]
-  RTL_BITMAP BitMapHeader; // [rsp+30h] [rbp+10h] BYREF
+  _RTL_BITMAP BitMapHeader; // [rsp+30h] [rbp+10h] BYREF
   int v95; // [rsp+40h] [rbp+20h]
   unsigned int v96; // [rsp+44h] [rbp+24h]
   PVOID P; // [rsp+48h] [rbp+28h]
@@ -158,19 +158,19 @@ __int64 __fastcall VslpVerifySessionSpace(__int64 a1, __int64 a2)
     BitMapHeader.SizeOfBitMap = v96;
     BitMapHeader.Buffer = (unsigned int *)Pool2;
   }
-  v17 = RtlImageNtHeader(*(_QWORD *)(a1 + 48));
+  v17 = RtlImageNtHeader(*(PVOID *)(a1 + 48));
   v18 = *(_QWORD *)(a1 + 48);
   v19 = v17;
   v91 = 0;
-  v20 = v17 & 0xFFFFFFFFFFFFF000uLL;
-  v93 = *(unsigned __int16 *)(v17 + 20) + v17 + 24;
-  if ( (v17 & 0xFFFFFFFFFFFFF000uLL) != v18 )
+  v20 = (unsigned __int64)v17 & 0xFFFFFFFFFFFFF000uLL;
+  v93 = (__int64)&v17->OptionalHeader + v17->FileHeader.SizeOfOptionalHeader;
+  if ( ((unsigned __int64)v17 & 0xFFFFFFFFFFFFF000uLL) != v18 )
   {
     do
     {
       CurrentIrql = KeGetCurrentIrql();
       __writecr8(2uLL);
-      if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+      if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
       {
         SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
         if ( CurrentIrql == 2 )
@@ -180,10 +180,10 @@ __int64 __fastcall VslpVerifySessionSpace(__int64 a1, __int64 a2)
         SchedulerAssist[5] |= v23;
       }
       *(_DWORD *)(a2 + 24) = VslVerifyPage(v18, 1);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v24 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v24 <= 0xFu && CurrentIrql <= 0xFu && v24 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v24 <= 0xFu && CurrentIrql <= 0xFu && v24 >= 2u )
         {
           CurrentPrcb = KeGetCurrentPrcb();
           v26 = CurrentPrcb->SchedulerAssist;
@@ -191,7 +191,7 @@ __int64 __fastcall VslpVerifySessionSpace(__int64 a1, __int64 a2)
           v9 = (v27 & v26[5]) == 0;
           v26[5] &= v27;
           if ( v9 )
-            KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+            KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
         }
       }
       __writecr8(CurrentIrql);
@@ -205,7 +205,7 @@ __int64 __fastcall VslpVerifySessionSpace(__int64 a1, __int64 a2)
   {
     v29 = KeGetCurrentIrql();
     __writecr8(2uLL);
-    if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && v29 <= 0xFu )
+    if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && v29 <= 0xFu )
     {
       v30 = KeGetCurrentPrcb()->SchedulerAssist;
       if ( v29 == 2 )
@@ -215,10 +215,10 @@ __int64 __fastcall VslpVerifySessionSpace(__int64 a1, __int64 a2)
       v30[5] |= v31;
     }
     *(_DWORD *)(a2 + 24) = VslVerifyPage(v20, 1);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v32 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v32 <= 0xFu && v29 <= 0xFu && v32 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v32 <= 0xFu && v29 <= 0xFu && v32 >= 2u )
       {
         v33 = KeGetCurrentPrcb();
         v34 = v33->SchedulerAssist;
@@ -226,7 +226,7 @@ __int64 __fastcall VslpVerifySessionSpace(__int64 a1, __int64 a2)
         v9 = (v35 & v34[5]) == 0;
         v34[5] &= v35;
         if ( v9 )
-          KiRemoveSystemWorkPriorityKick(v33);
+          KiRemoveSystemWorkPriorityKick((__int64)v33);
       }
     }
     __writecr8(v29);
@@ -235,14 +235,14 @@ __int64 __fastcall VslpVerifySessionSpace(__int64 a1, __int64 a2)
   while ( v36 == -1073741267 );
   if ( v36 < 0 )
     goto LABEL_147;
-  if ( v20 != ((v19 + 264) & 0xFFFFFFFFFFFFF000uLL) )
+  if ( v20 != ((unsigned __int64)&v19[1] & 0xFFFFFFFFFFFFF000uLL) )
   {
-    v20 = (v19 + 264) & 0xFFFFFFFFFFFFF000uLL;
+    v20 = (unsigned __int64)&v19[1] & 0xFFFFFFFFFFFFF000uLL;
     do
     {
       v37 = KeGetCurrentIrql();
       __writecr8(2uLL);
-      if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && v37 <= 0xFu )
+      if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && v37 <= 0xFu )
       {
         v38 = KeGetCurrentPrcb()->SchedulerAssist;
         if ( v37 == 2 )
@@ -252,10 +252,10 @@ __int64 __fastcall VslpVerifySessionSpace(__int64 a1, __int64 a2)
         v38[5] |= v39;
       }
       *(_DWORD *)(a2 + 24) = VslVerifyPage(v20, 1);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v40 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v40 <= 0xFu && v37 <= 0xFu && v40 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v40 <= 0xFu && v37 <= 0xFu && v40 >= 2u )
         {
           v41 = KeGetCurrentPrcb();
           v42 = v41->SchedulerAssist;
@@ -263,7 +263,7 @@ __int64 __fastcall VslpVerifySessionSpace(__int64 a1, __int64 a2)
           v9 = (v43 & v42[5]) == 0;
           v42[5] &= v43;
           if ( v9 )
-            KiRemoveSystemWorkPriorityKick(v41);
+            KiRemoveSystemWorkPriorityKick((__int64)v41);
         }
       }
       __writecr8(v37);
@@ -274,7 +274,7 @@ __int64 __fastcall VslpVerifySessionSpace(__int64 a1, __int64 a2)
       goto LABEL_147;
   }
   v45 = 0LL;
-  if ( !*(_WORD *)(v19 + 6) )
+  if ( !v19->FileHeader.NumberOfSections )
     goto LABEL_147;
   v46 = v93;
   do
@@ -286,7 +286,7 @@ __int64 __fastcall VslpVerifySessionSpace(__int64 a1, __int64 a2)
       {
         v47 = KeGetCurrentIrql();
         __writecr8(2uLL);
-        if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && v47 <= 0xFu )
+        if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && v47 <= 0xFu )
         {
           v48 = KeGetCurrentPrcb()->SchedulerAssist;
           if ( v47 == 2 )
@@ -296,10 +296,10 @@ __int64 __fastcall VslpVerifySessionSpace(__int64 a1, __int64 a2)
           v48[5] |= v49;
         }
         *(_DWORD *)(a2 + 24) = VslVerifyPage(v20, 1);
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
           v50 = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && v50 <= 0xFu && v47 <= 0xFu && v50 >= 2u )
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v50 <= 0xFu && v47 <= 0xFu && v50 >= 2u )
           {
             v51 = KeGetCurrentPrcb();
             v52 = v51->SchedulerAssist;
@@ -307,7 +307,7 @@ __int64 __fastcall VslpVerifySessionSpace(__int64 a1, __int64 a2)
             v9 = (v53 & v52[5]) == 0;
             v52[5] &= v53;
             if ( v9 )
-              KiRemoveSystemWorkPriorityKick(v51);
+              KiRemoveSystemWorkPriorityKick((__int64)v51);
           }
         }
         __writecr8(v47);
@@ -334,13 +334,13 @@ LABEL_90:
       v56 = 1;
       v91 = 1;
     }
-    v57 = *(unsigned __int16 *)(v19 + 6);
+    NumberOfSections = v19->FileHeader.NumberOfSections;
     v46 += 40LL;
     ++v45;
     v93 = v46;
   }
-  while ( v45 < v57 );
-  if ( !v56 || *(_DWORD *)(v19 + 56) < 0x1000u )
+  while ( v45 < NumberOfSections );
+  if ( !v56 || v19->OptionalHeader.SectionAlignment < 0x1000 )
     goto LABEL_147;
   v91 = 16;
   v58 = (unsigned int)ExGenRandom(0) % v8;
@@ -445,7 +445,7 @@ LABEL_127:
       {
         v82 = KeGetCurrentIrql();
         __writecr8(2uLL);
-        if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && v82 <= 0xFu )
+        if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && v82 <= 0xFu )
         {
           v83 = KeGetCurrentPrcb()->SchedulerAssist;
           if ( v82 == 2 )
@@ -455,10 +455,10 @@ LABEL_127:
           v83[5] |= v84;
         }
         *(_DWORD *)(a2 + 24) = VslVerifyPage(v81, 1);
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
           v85 = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && v85 <= 0xFu && v82 <= 0xFu && v85 >= 2u )
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v85 <= 0xFu && v82 <= 0xFu && v85 >= 2u )
           {
             v86 = KeGetCurrentPrcb();
             v87 = v86->SchedulerAssist;
@@ -466,7 +466,7 @@ LABEL_127:
             v9 = (v88 & v87[5]) == 0;
             v87[5] &= v88;
             if ( v9 )
-              KiRemoveSystemWorkPriorityKick(v86);
+              KiRemoveSystemWorkPriorityKick((__int64)v86);
           }
         }
         __writecr8(v82);

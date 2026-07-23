@@ -1,13 +1,13 @@
 /*
- * XREFs of CmFcpManagerCreateSection @ 0x14080DF10
+ * XREFs of CmFcpManagerCreateSection @ 0x14080E1E0
  * Callers:
- *     CmFcpManagerCreateSectionFromBuffer @ 0x14080DD60 (CmFcpManagerCreateSectionFromBuffer.c)
- *     CmFcManagerUpdateFeatureConfigurations @ 0x140A272F0 (CmFcManagerUpdateFeatureConfigurations.c)
- *     CmFcManagerUpdateFeatureUsageSubscriptions @ 0x140A27718 (CmFcManagerUpdateFeatureUsageSubscriptions.c)
+ *     CmFcpManagerCreateSectionFromBuffer @ 0x14080E030 (CmFcpManagerCreateSectionFromBuffer.c)
+ *     CmFcManagerUpdateFeatureConfigurations @ 0x140A275A0 (CmFcManagerUpdateFeatureConfigurations.c)
+ *     CmFcManagerUpdateFeatureUsageSubscriptions @ 0x140A279C8 (CmFcManagerUpdateFeatureUsageSubscriptions.c)
  * Callees:
- *     ZwClose @ 0x14041AF40 (ZwClose.c)
- *     ZwCreateSection @ 0x14041B6A0 (ZwCreateSection.c)
- *     ObReferenceObjectByHandle @ 0x1406E62C0 (ObReferenceObjectByHandle.c)
+ *     ZwClose @ 0x14041B2D0 (ZwClose.c)
+ *     ZwCreateSection @ 0x14041BA30 (ZwCreateSection.c)
+ *     ObReferenceObjectByHandle @ 0x1406E62F0 (ObReferenceObjectByHandle.c)
  */
 
 __int64 __fastcall CmFcpManagerCreateSection(LARGE_INTEGER a1, __int64 a2, void *a3, _QWORD *a4)

@@ -1,21 +1,21 @@
 /*
- * XREFs of MiPfnRangeIsZero @ 0x14038F184
+ * XREFs of MiPfnRangeIsZero @ 0x14038F364
  * Callers:
- *     MiFreedUnusedPfnPagesWorker @ 0x14038ED1C (MiFreedUnusedPfnPagesWorker.c)
+ *     MiFreedUnusedPfnPagesWorker @ 0x14038EEFC (MiFreedUnusedPfnPagesWorker.c)
  * Callees:
  *     MiFreeLargeZeroPages @ 0x140212098 (MiFreeLargeZeroPages.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1402712F0 (MI_READ_PTE_LOCK_FREE.c)
- *     MI_IS_PHYSICAL_ADDRESS @ 0x1402848B0 (MI_IS_PHYSICAL_ADDRESS.c)
- *     MiReturnCommit @ 0x1402DC250 (MiReturnCommit.c)
- *     MiGetContainingPageTable @ 0x1402E1270 (MiGetContainingPageTable.c)
- *     MiGetLeafVa @ 0x1402E5A20 (MiGetLeafVa.c)
- *     MiInitializeLargePfnList @ 0x1402E8F98 (MiInitializeLargePfnList.c)
- *     MiReplacePfnWithGapMapping @ 0x14038F4F8 (MiReplacePfnWithGapMapping.c)
- *     MiPreparePfnDatabasePageForFree @ 0x14038F5A4 (MiPreparePfnDatabasePageForFree.c)
- *     MiDemoteValidLargePageOneLevel @ 0x14038F6A4 (MiDemoteValidLargePageOneLevel.c)
- *     MiClearSystemAccessBits @ 0x14038FC04 (MiClearSystemAccessBits.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memset @ 0x140435A00 (memset.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140271580 (MI_READ_PTE_LOCK_FREE.c)
+ *     MI_IS_PHYSICAL_ADDRESS @ 0x140284B40 (MI_IS_PHYSICAL_ADDRESS.c)
+ *     MiReturnCommit @ 0x1402DC4E0 (MiReturnCommit.c)
+ *     MiGetContainingPageTable @ 0x1402E1500 (MiGetContainingPageTable.c)
+ *     MiGetLeafVa @ 0x1402E5CB0 (MiGetLeafVa.c)
+ *     MiInitializeLargePfnList @ 0x1402E9228 (MiInitializeLargePfnList.c)
+ *     MiReplacePfnWithGapMapping @ 0x14038F6D8 (MiReplacePfnWithGapMapping.c)
+ *     MiPreparePfnDatabasePageForFree @ 0x14038F784 (MiPreparePfnDatabasePageForFree.c)
+ *     MiDemoteValidLargePageOneLevel @ 0x14038F884 (MiDemoteValidLargePageOneLevel.c)
+ *     MiClearSystemAccessBits @ 0x14038FDE4 (MiClearSystemAccessBits.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     memset @ 0x140435E00 (memset.c)
  */
 
 void __fastcall MiPfnRangeIsZero(unsigned __int64 LeafVa, unsigned __int64 a2)

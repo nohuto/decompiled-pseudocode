@@ -1,13 +1,13 @@
 /*
- * XREFs of HaliAcpiMachineStateInit @ 0x1407854C0
+ * XREFs of HaliAcpiMachineStateInit @ 0x140787FF0
  * Callers:
  *     <none>
  * Callees:
- *     HalpInterruptModel @ 0x140427BB0 (HalpInterruptModel.c)
- *     HalpIsXboxNanovisorPresent @ 0x14058526C (HalpIsXboxNanovisorPresent.c)
- *     HalpHvSetSleepStateProperty @ 0x140585E30 (HalpHvSetSleepStateProperty.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     ZwPowerInformation @ 0x140723FD0 (ZwPowerInformation.c)
+ *     HalpInterruptModel @ 0x140434CC0 (HalpInterruptModel.c)
+ *     HalpIsXboxNanovisorPresent @ 0x14058778C (HalpIsXboxNanovisorPresent.c)
+ *     HalpHvSetSleepStateProperty @ 0x140588350 (HalpHvSetSleepStateProperty.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     ZwPowerInformation @ 0x140728BA0 (ZwPowerInformation.c)
  */
 
 int __fastcall HaliAcpiMachineStateInit(_BYTE *a1)
@@ -44,7 +44,7 @@ int __fastcall HaliAcpiMachineStateInit(_BYTE *a1)
   HalpWakeupState = 1;
   v3 = HalpInterruptModel();
   *v4 = v3;
-  if ( a1[9] && !HalpDisableHibernate )
+  if ( a1[9] && !BYTE2(HalpDeviceBlockUnblockPushLock.OtherTransferCount) )
     v2 = HalpIsXboxNanovisorPresent() == 0;
   v5 = HaliAcpiSleep;
   if ( *a1 )
@@ -62,7 +62,7 @@ int __fastcall HaliAcpiMachineStateInit(_BYTE *a1)
     }
     v5 = HaliAcpiSleep;
   }
-  if ( !*(_QWORD *)&HalpDeviceBlockUnblockPushLock.PriorityFloorCounts[24] )
+  if ( !HalpDeviceBlockUnblockPushLock.IoSelfBoostsEntry.Next )
     goto LABEL_22;
   if ( a1[3] )
   {
@@ -104,7 +104,7 @@ int __fastcall HaliAcpiMachineStateInit(_BYTE *a1)
     if ( !v2 )
       goto LABEL_26;
     v17 = a1[8] & 0xF | 0x3740LL;
-    BYTE4(InputBuffer) = HalpDeviceBlockUnblockPushLock.SchedulerApcFill3[8] >> 7;
+    BYTE4(InputBuffer) = HalpDeviceBlockUnblockPushLock.SavedApcStateFill[24] >> 7;
     v18 = a1[7] & 0xF | (unsigned __int64)(16 * v17);
     LODWORD(InputBuffer) = 6;
     TrapFrame_low = v18;
@@ -118,19 +118,19 @@ LABEL_22:
       goto LABEL_26;
   }
   v19 = a1[10] & 0xF;
-  BYTE4(InputBuffer) = HalpDeviceBlockUnblockPushLock.SchedulerApcFill3[8] >> 7;
+  BYTE4(InputBuffer) = HalpDeviceBlockUnblockPushLock.SavedApcStateFill[24] >> 7;
   v20 = a1[11] & 0xF;
   LODWORD(InputBuffer) = 3;
   *((_QWORD *)&InputBuffer + 1) = HaliAcpiSleep;
   v21 = v19 | (16 * (v20 | 0x540));
-  if ( !BYTE5(HalpDeviceBlockUnblockPushLock.TracingPrivate[0]) )
+  if ( !LOBYTE(HalpDeviceBlockUnblockPushLock.OtherTransferCount) )
     v21 |= 0x10000u;
   TrapFrame_low = v21;
   LODWORD(v5) = ZwPowerInformation(SystemPowerStateHandler, &InputBuffer, 0x18u, 0LL, 0);
 LABEL_26:
   if ( !a1[12] )
   {
-    if ( !HalpDeviceBlockUnblockPushLock.WaitBlockFill6[104] )
+    if ( !HalpDeviceBlockUnblockPushLock.WaitBlockFill6[72] )
       goto LABEL_32;
     goto LABEL_31;
   }

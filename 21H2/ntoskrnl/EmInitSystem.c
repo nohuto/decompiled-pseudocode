@@ -1,25 +1,25 @@
 /*
- * XREFs of EmInitSystem @ 0x140A4528C
+ * XREFs of EmInitSystem @ 0x140A4628C
  * Callers:
- *     Phase1InitializationDiscard @ 0x140A3B6A4 (Phase1InitializationDiscard.c)
- *     Phase1InitializationIoReady @ 0x140A4C104 (Phase1InitializationIoReady.c)
+ *     Phase1InitializationDiscard @ 0x140A3C6A4 (Phase1InitializationDiscard.c)
+ *     Phase1InitializationIoReady @ 0x140A4D104 (Phase1InitializationIoReady.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     ZwReadFile @ 0x1403FA460 (ZwReadFile.c)
- *     ZwClose @ 0x1403FA580 (ZwClose.c)
- *     ZwQueryInformationFile @ 0x1403FA5C0 (ZwQueryInformationFile.c)
- *     ZwEnumerateValueKey @ 0x1403FA600 (ZwEnumerateValueKey.c)
- *     ZwQueryKey @ 0x1403FA660 (ZwQueryKey.c)
- *     ZwCreateKey @ 0x1403FA740 (ZwCreateKey.c)
- *     ZwCreateFile @ 0x1403FAE40 (ZwCreateFile.c)
- *     RtlAppendStringToString @ 0x14076DBC0 (RtlAppendStringToString.c)
- *     EmpProviderRegister @ 0x14079CFE0 (EmpProviderRegister.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
- *     HalRegisterErrataCallbacks @ 0x140A455B0 (HalRegisterErrataCallbacks.c)
- *     EmpParseInfDatabase @ 0x140A455E8 (EmpParseInfDatabase.c)
- *     EmpCacheBiosDate @ 0x140A4768C (EmpCacheBiosDate.c)
+ *     RtlInitUnicodeString @ 0x14026A4C0 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     ZwReadFile @ 0x1403FA640 (ZwReadFile.c)
+ *     ZwClose @ 0x1403FA760 (ZwClose.c)
+ *     ZwQueryInformationFile @ 0x1403FA7A0 (ZwQueryInformationFile.c)
+ *     ZwEnumerateValueKey @ 0x1403FA7E0 (ZwEnumerateValueKey.c)
+ *     ZwQueryKey @ 0x1403FA840 (ZwQueryKey.c)
+ *     ZwCreateKey @ 0x1403FA920 (ZwCreateKey.c)
+ *     ZwCreateFile @ 0x1403FB020 (ZwCreateFile.c)
+ *     RtlAppendStringToString @ 0x14076DD80 (RtlAppendStringToString.c)
+ *     EmpProviderRegister @ 0x14079D1E0 (EmpProviderRegister.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
+ *     HalRegisterErrataCallbacks @ 0x140A465B0 (HalRegisterErrataCallbacks.c)
+ *     EmpParseInfDatabase @ 0x140A465E8 (EmpParseInfDatabase.c)
+ *     EmpCacheBiosDate @ 0x140A4868C (EmpCacheBiosDate.c)
  */
 
 __int64 __fastcall EmInitSystem(int a1, __int64 a2)
@@ -60,7 +60,7 @@ __int64 __fastcall EmInitSystem(int a1, __int64 a2)
   *(_OWORD *)&DestinationString[1] = 0LL;
   if ( !a1 )
   {
-    dword_140C478E8 |= 0x80000000;
+    dword_140C47928 |= 0x80000000;
     EmpRuleUpdateWorker.WorkerRoutine = (void (__fastcall *)(void *))EmpRuleUpdateWorkerThread;
     EmpParseLock = 0LL;
     EmpDatabaseLock = 0LL;
@@ -93,7 +93,7 @@ __int64 __fastcall EmInitSystem(int a1, __int64 a2)
     }
     EmpCacheBiosDate();
     HalRegisterErrataCallbacks();
-    v4 = EmpProviderRegister(0LL, 0LL, 0, (__int64)&BuiltinCallbackReg, 6u, EmBuiltinProviderHandle);
+    v4 = EmpProviderRegister(0LL, 0LL, 0, (__int64)&BuiltinCallbackReg, 6u, &EmBuiltinProviderHandle);
     if ( v4 < 0 )
       goto LABEL_11;
 LABEL_10:

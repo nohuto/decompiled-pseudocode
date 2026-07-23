@@ -1,11 +1,11 @@
 /*
- * XREFs of MiLogTrimWs @ 0x1403D05E4
+ * XREFs of MiLogTrimWs @ 0x14038F63C
  * Callers:
- *     MiTrimWorkingSet @ 0x1403CF15C (MiTrimWorkingSet.c)
+ *     MiTrimWorkingSet @ 0x140390208 (MiTrimWorkingSet.c)
  * Callees:
- *     _tlgCreate1Sz_char @ 0x1404397B4 (_tlgCreate1Sz_char.c)
- *     _tlgWriteEx_EtwWriteEx @ 0x1404A083C (_tlgWriteEx_EtwWriteEx.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     _tlgCreate1Sz_char @ 0x14042C374 (_tlgCreate1Sz_char.c)
+ *     _tlgWriteEx_EtwWriteEx @ 0x14049AEBC (_tlgWriteEx_EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 char __fastcall MiLogTrimWs(__int64 a1, __int64 a2, __int64 a3, __int64 a4, __int64 a5, int a6, int a7)
@@ -68,19 +68,19 @@ char __fastcall MiLogTrimWs(__int64 a1, __int64 a2, __int64 a3, __int64 a4, __in
   _UNKNOWN *retaddr; // [rsp+1F0h] [rbp+E8h] BYREF
 
   v7 = &retaddr;
-  if ( *(_QWORD *)&qword_140E37518 )
+  if ( *(_QWORD *)&qword_140E37658 )
   {
-    v12 = *((_QWORD *)qword_140E2FF88 + *(unsigned __int16 *)(a1 + 174));
+    v12 = *((_QWORD *)qword_140E300C8 + *(unsigned __int16 *)(a1 + 174));
     v13 = (*(_DWORD *)(a1 + 184) & 0xF) != 0 ? 0LL : a1 - 200;
     v7 = *(_UNKNOWN ***)(v12 + 19392);
     v14 = *(_QWORD *)(a1 + 144);
     v15 = *(_QWORD *)(a1 + 152);
     v16 = *(_QWORD *)(v12 + 18688);
-    if ( **(_DWORD **)&qword_140E37518 > 5u )
+    if ( **(_DWORD **)&qword_140E37658 > 5u )
     {
-      if ( (*(_BYTE *)(*(_QWORD *)&qword_140E37518 + 16LL) & 1) == 0
+      if ( (*(_BYTE *)(*(_QWORD *)&qword_140E37658 + 16LL) & 1) == 0
         || (LOBYTE(v7) = 1,
-            (*(_QWORD *)(*(_QWORD *)&qword_140E37518 + 24LL) & 1LL) != *(_QWORD *)(*(_QWORD *)&qword_140E37518 + 24LL)) )
+            (*(_QWORD *)(*(_QWORD *)&qword_140E37658 + 24LL) & 1LL) != *(_QWORD *)(*(_QWORD *)&qword_140E37658 + 24LL)) )
       {
         LOBYTE(v7) = 0;
       }
@@ -130,7 +130,7 @@ char __fastcall MiLogTrimWs(__int64 a1, __int64 a2, __int64 a3, __int64 a4, __in
         v62 = 4LL;
         v64 = 4LL;
         v66 = 4LL;
-        LOBYTE(v7) = tlgWriteEx_EtwWriteEx(v21, (int)&dword_1400565C7 + 1, v21, 1, v23, v24, 0x11u, (__int64)v39);
+        LOBYTE(v7) = tlgWriteEx_EtwWriteEx(v21, (int)&byte_1400572C1, v21, 1, v23, v24, 0x11u, (__int64)v39);
       }
     }
   }

@@ -1,10 +1,10 @@
 /*
- * XREFs of PpmPerfRecordUtility @ 0x140257400
+ * XREFs of PpmPerfRecordUtility @ 0x1402574C0
  * Callers:
- *     PpmCheckRecordAllUtility @ 0x140256940 (PpmCheckRecordAllUtility.c)
+ *     PpmCheckRecordAllUtility @ 0x140256A00 (PpmCheckRecordAllUtility.c)
  * Callees:
- *     PpmEventTraceRecordedUtility @ 0x140257630 (PpmEventTraceRecordedUtility.c)
- *     PpmPerfResetHistory @ 0x140393798 (PpmPerfResetHistory.c)
+ *     PpmEventTraceRecordedUtility @ 0x1402576F0 (PpmEventTraceRecordedUtility.c)
+ *     PpmPerfResetHistory @ 0x140393978 (PpmPerfResetHistory.c)
  */
 
 __int64 __fastcall PpmPerfRecordUtility(__int64 a1)

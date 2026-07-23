@@ -14,19 +14,15 @@ __int64 CarReadRegistry()
   __int64 v1; // rdx
   wchar_t *Buffer; // rbx
   __int128 v4; // [rsp+30h] [rbp-D0h] BYREF
-  _BYTE v5[8]; // [rsp+40h] [rbp-C0h] BYREF
-  int v6; // [rsp+48h] [rbp-B8h]
-  const WCHAR *v7; // [rsp+50h] [rbp-B0h]
-  __int128 *v8; // [rsp+58h] [rbp-A8h]
-  int v9; // [rsp+60h] [rbp-A0h]
-  int v10; // [rsp+80h] [rbp-80h]
-  const WCHAR *v11; // [rsp+88h] [rbp-78h]
-  int *v12; // [rsp+90h] [rbp-70h]
-  int v13; // [rsp+98h] [rbp-68h]
-  int v14; // [rsp+B8h] [rbp-48h]
-  const wchar_t *v15; // [rsp+C0h] [rbp-40h]
-  int *v16; // [rsp+C8h] [rbp-38h]
-  int v17; // [rsp+D0h] [rbp-30h]
+  _RTL_QUERY_REGISTRY_TABLE QueryTable; // [rsp+40h] [rbp-C0h] BYREF
+  int v6; // [rsp+80h] [rbp-80h]
+  const WCHAR *v7; // [rsp+88h] [rbp-78h]
+  int *v8; // [rsp+90h] [rbp-70h]
+  int v9; // [rsp+98h] [rbp-68h]
+  int v10; // [rsp+B8h] [rbp-48h]
+  const wchar_t *v11; // [rsp+C0h] [rbp-40h]
+  int *v12; // [rsp+C8h] [rbp-38h]
+  int v13; // [rsp+D0h] [rbp-30h]
 
   v0 = CarDrivers;
   v4 = 0LL;
@@ -42,21 +38,21 @@ __int64 CarReadRegistry()
 LABEL_6:
   Buffer = CmRegistryMachineSystemCurrentControlSetControlSessionManagerMemoryManagement.Buffer;
   if ( CmStateSeparationEnabled )
-    Buffer = off_140E08DA8[0];
+    Buffer = (wchar_t *)off_140E08DA8;
   WORD1(v4) = 3072;
-  memset_0(v5, 0, 0xE0uLL);
-  v9 = 0x1000000;
+  memset_0(&QueryTable, 0, 0xE0uLL);
+  QueryTable.DefaultType = 0x1000000;
+  QueryTable.Flags = 288;
+  v9 = 0x4000000;
+  QueryTable.Name = (wchar_t *)L"VerifyDrivers";
   v6 = 288;
+  QueryTable.EntryContext = &v4;
   v13 = 0x4000000;
-  v7 = L"VerifyDrivers";
+  v7 = L"XdvVerifierOptions";
   v10 = 288;
-  v8 = &v4;
-  v17 = 0x4000000;
-  v11 = L"XdvVerifierOptions";
-  v14 = 288;
-  v12 = &CarXdvOptions;
-  v15 = L"XdvTipTag";
-  v16 = &CarTipTag;
-  RtlQueryRegistryValuesEx(0LL, Buffer, v5, 0LL, 0LL);
+  v8 = &CarXdvOptions;
+  v11 = L"XdvTipTag";
+  v12 = &CarTipTag;
+  RtlQueryRegistryValuesEx(0, Buffer, &QueryTable, 0LL, 0LL);
   return 0LL;
 }

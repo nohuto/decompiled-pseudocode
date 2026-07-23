@@ -1,11 +1,11 @@
 /*
- * XREFs of CmpCreateGlobalKeyLockEntry @ 0x1407C32FC
+ * XREFs of CmpCreateGlobalKeyLockEntry @ 0x1407C381C
  * Callers:
- *     CmpGlobalLockKeyForWrite @ 0x1407C31E0 (CmpGlobalLockKeyForWrite.c)
+ *     CmpGlobalLockKeyForWrite @ 0x1407C3700 (CmpGlobalLockKeyForWrite.c)
  * Callees:
- *     CmpAllocateTransientPoolWithTag @ 0x140206F90 (CmpAllocateTransientPoolWithTag.c)
- *     CmpReferenceKeyControlBlockUnsafe @ 0x1405EF620 (CmpReferenceKeyControlBlockUnsafe.c)
- *     CmpDereferenceKeyControlBlockUnsafe @ 0x14071D94C (CmpDereferenceKeyControlBlockUnsafe.c)
+ *     CmpAllocateTransientPoolWithTag @ 0x14023EDD0 (CmpAllocateTransientPoolWithTag.c)
+ *     CmpDereferenceKeyControlBlockUnsafe @ 0x1406643E8 (CmpDereferenceKeyControlBlockUnsafe.c)
+ *     CmpReferenceKeyControlBlockUnsafe @ 0x1406DED80 (CmpReferenceKeyControlBlockUnsafe.c)
  */
 
 _QWORD *__fastcall CmpCreateGlobalKeyLockEntry(volatile signed __int64 *a1)

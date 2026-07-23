@@ -9,23 +9,23 @@
  *     RtlCultureNameToLCID @ 0x1800524A0 (RtlCultureNameToLCID.c)
  */
 
-__int64 __fastcall ResCultureNameToLCID(__int64 a1)
+__int64 __fastcall ResCultureNameToLCID(PCWSTR SourceString)
 {
-  ULONG v1; // ecx
+  LONG v1; // ecx
   NTSTATUS inited; // eax
-  unsigned __int16 v4[12]; // [rsp+20h] [rbp-18h] BYREF
-  unsigned int v5; // [rsp+40h] [rbp+8h] BYREF
+  _UNICODE_STRING DestinationString; // [rsp+20h] [rbp-18h] BYREF
+  DWORD Lcid; // [rsp+40h] [rbp+8h] BYREF
 
-  v5 = 0;
-  if ( !a1 )
+  Lcid = 0;
+  if ( !SourceString )
     goto LABEL_2;
-  inited = RtlInitUnicodeStringEx((__int64)v4, a1);
+  inited = RtlInitUnicodeStringEx(&DestinationString, SourceString);
   if ( (inited & 0xC0000000) == 0xC0000000 )
   {
     v1 = RtlNtStatusToDosError(inited);
     goto LABEL_3;
   }
-  if ( !RtlCultureNameToLCID(v4, &v5) )
+  if ( !RtlCultureNameToLCID(&DestinationString, &Lcid) )
   {
 LABEL_2:
     v1 = 50;
@@ -33,5 +33,5 @@ LABEL_3:
     RtlSetLastWin32Error(v1);
     return 0LL;
   }
-  return v5;
+  return Lcid;
 }

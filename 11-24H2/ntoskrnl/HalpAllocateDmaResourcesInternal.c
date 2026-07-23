@@ -1,23 +1,23 @@
 /*
- * XREFs of HalpAllocateDmaResourcesInternal @ 0x140392950
+ * XREFs of HalpAllocateDmaResourcesInternal @ 0x14038C280
  * Callers:
- *     HalpDmaProcessMapRegisterQueueV3 @ 0x1403927A8 (HalpDmaProcessMapRegisterQueueV3.c)
- *     HalpContinueProcessingWaitQueue @ 0x140392D2C (HalpContinueProcessingWaitQueue.c)
- *     HalpAllocateAdapterChannel @ 0x140392E10 (HalpAllocateAdapterChannel.c)
- *     HalpFreeDmaChannels @ 0x1403933A8 (HalpFreeDmaChannels.c)
- *     HalpDmaReturnEmergencyLogicalAddressResources @ 0x14053C948 (HalpDmaReturnEmergencyLogicalAddressResources.c)
+ *     HalpDmaProcessMapRegisterQueueV3 @ 0x14038C0D8 (HalpDmaProcessMapRegisterQueueV3.c)
+ *     HalpContinueProcessingWaitQueue @ 0x14038C65C (HalpContinueProcessingWaitQueue.c)
+ *     HalpAllocateAdapterChannel @ 0x14038C740 (HalpAllocateAdapterChannel.c)
+ *     HalpFreeDmaChannels @ 0x14038CCD8 (HalpFreeDmaChannels.c)
+ *     HalpDmaReturnEmergencyLogicalAddressResources @ 0x14053A1C0 (HalpDmaReturnEmergencyLogicalAddressResources.c)
  * Callees:
- *     HalpDmaAllocateMapRegisters @ 0x14038E95C (HalpDmaAllocateMapRegisters.c)
- *     HalFreeAdapterObject @ 0x140392B80 (HalFreeAdapterObject.c)
- *     IoFreeAdapterChannelV3 @ 0x140392BB0 (IoFreeAdapterChannelV3.c)
- *     HalpAllocateDmaChannels @ 0x14039304C (HalpAllocateDmaChannels.c)
- *     HalpQueueMapBufferWorker @ 0x14049D1A8 (HalpQueueMapBufferWorker.c)
- *     HalpDmaQueueAdapter @ 0x1404D9E04 (HalpDmaQueueAdapter.c)
- *     HalpDmaRemoveAdapterFromMasterQueue @ 0x14053C744 (HalpDmaRemoveAdapterFromMasterQueue.c)
- *     HalpDmaRemoveFromEmergencyLogicalAddressQueue @ 0x14053C818 (HalpDmaRemoveFromEmergencyLogicalAddressQueue.c)
- *     HalpDmaUseEmergencyLogicalAddressResources @ 0x14053CA24 (HalpDmaUseEmergencyLogicalAddressResources.c)
- *     HalpDmaRemoveAdapterFromChannelQueue @ 0x140552F34 (HalpDmaRemoveAdapterFromChannelQueue.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
+ *     HalpDmaAllocateMapRegisters @ 0x14038829C (HalpDmaAllocateMapRegisters.c)
+ *     HalFreeAdapterObject @ 0x14038C4B0 (HalFreeAdapterObject.c)
+ *     IoFreeAdapterChannelV3 @ 0x14038C4E0 (IoFreeAdapterChannelV3.c)
+ *     HalpAllocateDmaChannels @ 0x14038C97C (HalpAllocateDmaChannels.c)
+ *     HalpQueueMapBufferWorker @ 0x140497EF8 (HalpQueueMapBufferWorker.c)
+ *     HalpDmaQueueAdapter @ 0x1404D3844 (HalpDmaQueueAdapter.c)
+ *     HalpDmaRemoveAdapterFromMasterQueue @ 0x140539FD0 (HalpDmaRemoveAdapterFromMasterQueue.c)
+ *     HalpDmaRemoveFromEmergencyLogicalAddressQueue @ 0x14053A090 (HalpDmaRemoveFromEmergencyLogicalAddressQueue.c)
+ *     HalpDmaUseEmergencyLogicalAddressResources @ 0x14053A29C (HalpDmaUseEmergencyLogicalAddressResources.c)
+ *     HalpDmaRemoveAdapterFromChannelQueue @ 0x140550874 (HalpDmaRemoveAdapterFromChannelQueue.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
  */
 
 char __fastcall HalpAllocateDmaResourcesInternal(__int64 a1, char a2, unsigned int *a3)
@@ -121,9 +121,7 @@ LABEL_11:
   v20 = (_QWORD *)(*(_QWORD *)(a1 + 240) + 24LL);
   if ( (int)guard_dispatch_icall_no_overrides(
               *(_QWORD *)(*(_QWORD *)(a1 + 512) + 40LL),
-              *(_DWORD *)(v3 + 20) & 0xFFFFF000,
-              0LL,
-              0LL) >= 0 )
+              *(_DWORD *)(v3 + 20) & 0xFFFFF000) >= 0 )
     goto LABEL_12;
   LOBYTE(v21) = (*(_BYTE *)(v3 + 20) & 1) == 0;
   if ( !(unsigned __int8)HalpDmaUseEmergencyLogicalAddressResources(a1, a1 + 600, v21) )
@@ -139,11 +137,7 @@ LABEL_13:
     *(_QWORD *)(a1 + 360) = v3 - 16;
   if ( *(_QWORD *)(v3 + 24) )
   {
-    v13 = guard_dispatch_icall_no_overrides(
-            *(_QWORD *)(v3 + 48),
-            *(_QWORD *)(v3 + 56),
-            *(_QWORD *)(a1 + 240),
-            *(_QWORD *)(v3 + 32));
+    v13 = guard_dispatch_icall_no_overrides(*(_QWORD *)(v3 + 48), *(_QWORD *)(v3 + 56));
     if ( a3 )
       *a3 = v13;
     if ( a2 )

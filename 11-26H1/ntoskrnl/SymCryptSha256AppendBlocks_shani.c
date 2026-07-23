@@ -1,7 +1,7 @@
 /*
- * XREFs of SymCryptSha256AppendBlocks_shani @ 0x14055366C
+ * XREFs of SymCryptSha256AppendBlocks_shani @ 0x140555AFC
  * Callers:
- *     SymCryptSha256AppendBlocks @ 0x1405535A0 (SymCryptSha256AppendBlocks.c)
+ *     SymCryptSha256AppendBlocks @ 0x140555A30 (SymCryptSha256AppendBlocks.c)
  * Callees:
  *     <none>
  */

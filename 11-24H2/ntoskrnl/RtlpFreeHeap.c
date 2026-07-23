@@ -1,31 +1,31 @@
 /*
- * XREFs of RtlpFreeHeap @ 0x1405ECA10
+ * XREFs of RtlpFreeHeap @ 0x1405E9FB0
  * Callers:
- *     RtlpFreeNTHeapInternal @ 0x14047DEEC (RtlpFreeNTHeapInternal.c)
+ *     RtlpFreeNTHeapInternal @ 0x14047917C (RtlpFreeNTHeapInternal.c)
  * Callees:
- *     ExReleaseResourceLite @ 0x14025A450 (ExReleaseResourceLite.c)
- *     ExAcquireResourceExclusiveLite @ 0x1402769C0 (ExAcquireResourceExclusiveLite.c)
- *     RtlpLogHeapFailure @ 0x1402B2E04 (RtlpLogHeapFailure.c)
- *     RtlpCoalesceFreeBlocks @ 0x1405EB39C (RtlpCoalesceFreeBlocks.c)
- *     RtlpDeCommitFreeBlock @ 0x1405EBFC0 (RtlpDeCommitFreeBlock.c)
- *     RtlpInsertFreeBlock @ 0x1405ED2D8 (RtlpInsertFreeBlock.c)
- *     RtlpAnalyzeHeapFailure @ 0x1405F2C1C (RtlpAnalyzeHeapFailure.c)
- *     RtlpFindEntry @ 0x1405F3434 (RtlpFindEntry.c)
- *     RtlpHeapAddListEntry @ 0x1405F3548 (RtlpHeapAddListEntry.c)
- *     ZwFreeVirtualMemory @ 0x1406A67D0 (ZwFreeVirtualMemory.c)
+ *     ExAcquireResourceExclusiveLite @ 0x14022BF50 (ExAcquireResourceExclusiveLite.c)
+ *     ExReleaseResourceLite @ 0x14028AA60 (ExReleaseResourceLite.c)
+ *     RtlpLogHeapFailure @ 0x14035B9C4 (RtlpLogHeapFailure.c)
+ *     RtlpCoalesceFreeBlocks @ 0x1405E890C (RtlpCoalesceFreeBlocks.c)
+ *     RtlpDeCommitFreeBlock @ 0x1405E953C (RtlpDeCommitFreeBlock.c)
+ *     RtlpInsertFreeBlock @ 0x1405EA8C0 (RtlpInsertFreeBlock.c)
+ *     RtlpAnalyzeHeapFailure @ 0x1405F025C (RtlpAnalyzeHeapFailure.c)
+ *     RtlpFindEntry @ 0x1405F0A74 (RtlpFindEntry.c)
+ *     RtlpHeapAddListEntry @ 0x1405F0B88 (RtlpHeapAddListEntry.c)
+ *     ZwFreeVirtualMemory @ 0x1406A7770 (ZwFreeVirtualMemory.c)
  */
 
 __int64 __fastcall RtlpFreeHeap(ULONG_PTR a1, int a2, ULONG_PTR a3)
 {
-  char v5; // r15
+  char v5; // r14
   int v7; // edx
-  int v8; // r14d
+  int v8; // r15d
   __int64 **v9; // rcx
   char v10; // al
   __int64 v11; // rsi
   unsigned __int16 v12; // r8
   bool v13; // zf
-  unsigned __int64 v14; // r14
+  unsigned __int64 v14; // r15
   _QWORD **v15; // rdi
   _QWORD *Entry; // r8
   int v17; // eax
@@ -104,7 +104,8 @@ __int64 __fastcall RtlpFreeHeap(ULONG_PTR a1, int a2, ULONG_PTR a3)
     v31 = a3 - 48;
     v32 = *(_QWORD *)(a3 - 48 + 32);
     BaseAddress = (PVOID)((a3 - 48) & 0xFFFFFFFFFFFF0000uLL);
-    *(_QWORD *)(a1 + 592) -= v32;
+    *(_QWORD *)(a1 + 600) -= v32;
+    *(_QWORD *)(a1 + 592) -= *(_QWORD *)(a3 - 48 + 40);
     v33 = *(_QWORD *)(a3 - 48);
     v34 = *(__int64 **)(a3 - 48 + 8);
     v35 = *v34;

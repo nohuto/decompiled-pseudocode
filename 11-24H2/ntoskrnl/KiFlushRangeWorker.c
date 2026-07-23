@@ -1,10 +1,10 @@
 /*
- * XREFs of KiFlushRangeWorker @ 0x140292770
+ * XREFs of KiFlushRangeWorker @ 0x1402A2370
  * Callers:
- *     MiFlushTbList @ 0x140291730 (MiFlushTbList.c)
+ *     MiFlushTbList @ 0x1402A1330 (MiFlushTbList.c)
  * Callees:
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     KiSetUserTbFlushPending @ 0x1406AB3E0 (KiSetUserTbFlushPending.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     KiSetUserTbFlushPending @ 0x1406AC380 (KiSetUserTbFlushPending.c)
  */
 
 char __fastcall KiFlushRangeWorker(__int64 a1)

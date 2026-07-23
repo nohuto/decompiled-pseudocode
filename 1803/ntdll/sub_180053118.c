@@ -10,7 +10,7 @@
 
 __int64 __fastcall sub_180053118(
         __int64 a1,
-        __int64 a2,
+        void *a2,
         __int64 a3,
         const wchar_t *a4,
         unsigned __int64 a5,
@@ -23,10 +23,10 @@ __int64 __fastcall sub_180053118(
   __int64 result; // rax
   __int64 v14; // rsi
   unsigned __int64 v15; // rax
-  unsigned __int16 *v16; // rdi
+  char *v16; // rdi
   int v17; // ecx
-  _WORD v18[8]; // [rsp+20h] [rbp-268h] BYREF
-  _BYTE v19[528]; // [rsp+30h] [rbp-258h] BYREF
+  unsigned __int16 v18; // [rsp+20h] [rbp-268h]
+  char v19; // [rsp+30h] [rbp-258h] BYREF
 
   if ( !a5 || !a6 )
     return 3221225485LL;
@@ -61,26 +61,26 @@ LABEL_27:
   {
     if ( v15 < a5 )
       return (unsigned int)-1073741701;
-    v16 = (unsigned __int16 *)(v11 + a5);
+    v16 = (char *)(v11 + a5);
     if ( v15 > a3 + (a1 & 0xFFFFFFFFFFFFFFFCuLL) )
       return (unsigned int)-1073741701;
   }
   else
   {
-    v16 = (unsigned __int16 *)(v11 + a5);
+    v16 = (char *)(v11 + a5);
   }
   if ( (a7 & 0x8800) != 0x8800 )
   {
 LABEL_15:
-    if ( ((unsigned __int64)(v16 + 1) & 0xFFFFFFFFFFFF0000uLL) == 0 )
+    if ( ((unsigned __int64)(v16 + 2) & 0xFFFFFFFFFFFF0000uLL) == 0 )
       return (unsigned int)-1073741701;
-    v17 = wcsncmp(a4, v16 + 1, *v16);
+    v17 = wcsncmp(a4, (const wchar_t *)v16 + 1, *(unsigned __int16 *)v16);
     if ( v17 )
       goto LABEL_19;
     do
       ++v14;
     while ( a4[v14] );
-    if ( v14 == *v16 )
+    if ( v14 == *(unsigned __int16 *)v16 )
     {
 LABEL_19:
       *a8 = v17;
@@ -88,16 +88,16 @@ LABEL_19:
     }
     goto LABEL_27;
   }
-  result = sub_1800DE154(a2, v16, v18, 2LL);
+  result = sub_1800DE154(a2);
   if ( (int)result >= 0 )
   {
-    if ( (unsigned __int64)v18[0] + 3 > 0x104 )
+    if ( (unsigned __int64)v18 + 3 > 0x104 )
       return (unsigned int)-1073741701;
-    result = sub_1800DE154(a2, v16, v19, 2 * (unsigned int)v18[0] + 2);
+    result = sub_1800DE154(a2);
     v12 = result;
     if ( (int)result >= 0 )
     {
-      v16 = (unsigned __int16 *)v19;
+      v16 = &v19;
       goto LABEL_15;
     }
   }

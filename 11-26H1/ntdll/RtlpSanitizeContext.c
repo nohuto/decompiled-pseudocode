@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlpSanitizeContext @ 0x1800B49F0
+ * XREFs of RtlpSanitizeContext @ 0x1800B1F10
  * Callers:
- *     RtlUnwindEx @ 0x180049930 (RtlUnwindEx.c)
- *     RtlDispatchException @ 0x18004C680 (RtlDispatchException.c)
- *     RtlVirtualUnwind @ 0x1800B4070 (RtlVirtualUnwind.c)
- *     RtlVirtualUnwind3 @ 0x18014CC58 (RtlVirtualUnwind3.c)
+ *     RtlUnwindEx @ 0x180033EB0 (RtlUnwindEx.c)
+ *     RtlDispatchException @ 0x180036C00 (RtlDispatchException.c)
+ *     RtlVirtualUnwind @ 0x1800B1590 (RtlVirtualUnwind.c)
+ *     RtlVirtualUnwind3 @ 0x18014CB08 (RtlVirtualUnwind3.c)
  * Callees:
- *     RtlpValidateContextFlags2 @ 0x1800B4AD0 (RtlpValidateContextFlags2.c)
+ *     RtlpValidateContextFlags2 @ 0x1800B1FF0 (RtlpValidateContextFlags2.c)
  */
 
 __int64 __fastcall RtlpSanitizeContext(_DWORD *a1)

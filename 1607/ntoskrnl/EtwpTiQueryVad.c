@@ -1,12 +1,12 @@
 /*
- * XREFs of EtwpTiQueryVad @ 0x1406A63DC
+ * XREFs of EtwpTiQueryVad @ 0x1406A6514
  * Callers:
- *     EtwpTiVadQueryEventWriteCallback @ 0x1406A651C (EtwpTiVadQueryEventWriteCallback.c)
+ *     EtwpTiVadQueryEventWriteCallback @ 0x1406A6654 (EtwpTiVadQueryEventWriteCallback.c)
  * Callees:
- *     KeStackAttachProcess @ 0x1400CD110 (KeStackAttachProcess.c)
- *     KeUnstackDetachProcess @ 0x1400CD1BC (KeUnstackDetachProcess.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     ZwQueryVirtualMemory @ 0x14015A0E0 (ZwQueryVirtualMemory.c)
+ *     KeStackAttachProcess @ 0x1400CAFB0 (KeStackAttachProcess.c)
+ *     KeUnstackDetachProcess @ 0x1400CB05C (KeUnstackDetachProcess.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     ZwQueryVirtualMemory @ 0x14015A650 (ZwQueryVirtualMemory.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
  */
@@ -42,7 +42,7 @@ __int64 __fastcall EtwpTiQueryVad(__int64 a1, struct _KPROCESS *a2, PVOID *a3, u
       VirtualMemory = ZwQueryVirtualMemory(
                         (HANDLE)0xFFFFFFFFFFFFFFFFLL,
                         *a3,
-                        MemoryBasicVlmInformation,
+                        MemoryRegionInformation,
                         v12,
                         0x20uLL,
                         0LL);
@@ -55,7 +55,13 @@ __int64 __fastcall EtwpTiQueryVad(__int64 a1, struct _KPROCESS *a2, PVOID *a3, u
           PoolWithTag = ExAllocatePoolWithTag(PagedPool, 0x200uLL, 0x6E734954u);
           *v11 = PoolWithTag;
           if ( !PoolWithTag
-            || ZwQueryVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, *a3, MemorySectionName, PoolWithTag, 0x200uLL, 0LL) >= 0 )
+            || ZwQueryVirtualMemory(
+                 (HANDLE)0xFFFFFFFFFFFFFFFFLL,
+                 *a3,
+                 MemoryMappedFilenameInformation,
+                 PoolWithTag,
+                 0x200uLL,
+                 0LL) >= 0 )
           {
             goto LABEL_12;
           }

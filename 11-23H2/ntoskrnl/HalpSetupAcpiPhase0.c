@@ -3,10 +3,10 @@
  * Callers:
  *     HalpAcpiInitDiscard @ 0x140B653A4 (HalpAcpiInitDiscard.c)
  * Callees:
- *     HalpAcpiGetTable @ 0x140336FF0 (HalpAcpiGetTable.c)
- *     HalpMmAllocateMemoryInternal @ 0x14037DB08 (HalpMmAllocateMemoryInternal.c)
- *     HalpMap @ 0x14037E228 (HalpMap.c)
- *     memmove @ 0x140435700 (memmove.c)
+ *     HalpAcpiGetTable @ 0x140337280 (HalpAcpiGetTable.c)
+ *     HalpMmAllocateMemoryInternal @ 0x14037DCA8 (HalpMmAllocateMemoryInternal.c)
+ *     HalpMap @ 0x14037E3C8 (HalpMap.c)
+ *     memmove @ 0x140435B00 (memmove.c)
  *     HalpAllocPhysicalMemory @ 0x140B4893C (HalpAllocPhysicalMemory.c)
  *     HalpAcpiTableCacheInit @ 0x140B48D28 (HalpAcpiTableCacheInit.c)
  *     HalpAcpiInitializePmRegisters @ 0x140B65744 (HalpAcpiInitializePmRegisters.c)

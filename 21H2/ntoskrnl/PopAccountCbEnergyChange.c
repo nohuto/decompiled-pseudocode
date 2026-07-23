@@ -1,11 +1,11 @@
 /*
- * XREFs of PopAccountCbEnergyChange @ 0x140780024
+ * XREFs of PopAccountCbEnergyChange @ 0x1407801E4
  * Callers:
- *     PopBatteryApplyCompositeState @ 0x14077FC1C (PopBatteryApplyCompositeState.c)
+ *     PopBatteryApplyCompositeState @ 0x14077FDDC (PopBatteryApplyCompositeState.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14025FAE0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgCreate1Sz_char @ 0x140263F30 (_tlgCreate1Sz_char.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     _tlgCreate1Sz_char @ 0x140270A0C (_tlgCreate1Sz_char.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14027E1A4 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  */
 
 int PopAccountCbEnergyChange()
@@ -100,35 +100,35 @@ int PopAccountCbEnergyChange()
   int v88; // [rsp+1C8h] [rbp+C8h]
   int v89; // [rsp+1CCh] [rbp+CCh]
 
-  v0 = (__int64 *)qword_140C23640;
+  v0 = (__int64 *)qword_140C23C60;
   v1 = 0LL;
   v49 = 0uLL;
-  if ( (__int64 *)qword_140C23640 != &qword_140C23640 )
+  if ( (__int64 *)qword_140C23C60 != &qword_140C23C60 )
   {
     do
     {
       v1 += v0[25];
       v0 = (__int64 *)*v0;
     }
-    while ( v0 != &qword_140C23640 );
+    while ( v0 != &qword_140C23C60 );
     *((_QWORD *)&v49 + 1) = v1;
   }
-  v2 = qword_140C23650;
+  v2 = qword_140C23C70;
   v3 = 0;
   LODWORD(v49) = 0;
-  if ( (__int64 *)qword_140C23650 != &qword_140C23650 )
+  if ( (__int64 *)qword_140C23C70 != &qword_140C23C70 )
   {
     do
     {
       v3 |= *(_DWORD *)(v2 + 128);
       v2 = *(_QWORD *)v2;
     }
-    while ( (__int64 *)v2 != &qword_140C23650 );
+    while ( (__int64 *)v2 != &qword_140C23C70 );
     LODWORD(v49) = v3;
   }
-  if ( v3 != (_DWORD)xmmword_140C23820 || v1 != *((_QWORD *)&xmmword_140C23820 + 1) )
+  if ( v3 != (_DWORD)xmmword_140C23E40 || v1 != *((_QWORD *)&xmmword_140C23E40 + 1) )
   {
-    xmmword_140C23820 = v49;
+    xmmword_140C23E40 = v49;
     if ( (unsigned int)dword_140C02228 > 5 )
     {
       v54 = 0;
@@ -156,9 +156,9 @@ int PopAccountCbEnergyChange()
       v64 = 0;
       v19 = "AC Power";
       v59 = &v49;
-      v42 = dword_140C23634;
+      v42 = dword_140C23C54;
       v62 = &v42;
-      if ( (unk_140C23660 & 1) == 0 )
+      if ( (unk_140C23C80 & 1) == 0 )
         v19 = "DC Power";
       *(_QWORD *)&v49 = v17;
       v60 = v18;
@@ -188,16 +188,16 @@ int PopAccountCbEnergyChange()
       if ( (v37 & 0x40) == 0 )
         v38 = v36;
       tlgCreate1Sz_char((__int64)v71, v38);
-      if ( HIDWORD(qword_140C23680) )
-        v39 = (100 * dword_140C23664 + (HIDWORD(qword_140C23680) >> 1)) / HIDWORD(qword_140C23680);
+      if ( HIDWORD(qword_140C23CA0) )
+        v39 = (100 * dword_140C23C84 + (HIDWORD(qword_140C23CA0) >> 1)) / HIDWORD(qword_140C23CA0);
       else
         v39 = 0;
       v74 = 0;
       v43 = v39;
       v72 = &v43;
       v73 = v10;
-      if ( HIDWORD(qword_140C23680) )
-        v40 = 100000 * (unsigned __int64)dword_140C23664 / HIDWORD(qword_140C23680);
+      if ( HIDWORD(qword_140C23CA0) )
+        v40 = 100000 * (unsigned __int64)dword_140C23C84 / HIDWORD(qword_140C23CA0);
       else
         LODWORD(v40) = 0;
       v77 = 0;
@@ -207,14 +207,14 @@ int PopAccountCbEnergyChange()
       v89 = 0;
       v44 = v40;
       v75 = &v44;
-      v45 = dword_140C23664;
+      v45 = dword_140C23C84;
       v78 = (int *)&v45;
       v81 = &v46;
-      v47 = unk_140C23668;
+      v47 = unk_140C23C88;
       v84 = &v47;
-      v48 = qword_140C2366C;
+      v48 = qword_140C23C8C;
       v87 = &v48;
-      v46 = HIDWORD(qword_140C23680);
+      v46 = HIDWORD(qword_140C23CA0);
       v76 = v10;
       v79 = v10;
       v82 = v10;
@@ -222,7 +222,7 @@ int PopAccountCbEnergyChange()
       v88 = v10;
       LODWORD(v1) = tlgWriteTransfer_EtwWriteTransfer(
                       (__int64)&dword_140C02228,
-                      (unsigned __int8 *)byte_1400290A3,
+                      (unsigned __int8 *)byte_140029281,
                       0LL,
                       0LL,
                       0x16u,

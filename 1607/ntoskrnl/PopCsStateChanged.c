@@ -1,12 +1,12 @@
 /*
- * XREFs of PopCsStateChanged @ 0x14066A964
+ * XREFs of PopCsStateChanged @ 0x14066AA48
  * Callers:
- *     PdcPoCurrentPdcPhase @ 0x14066F9BC (PdcPoCurrentPdcPhase.c)
+ *     PdcPoCurrentPdcPhase @ 0x14066FAA0 (PdcPoCurrentPdcPhase.c)
  * Callees:
- *     KiSetTimerEx @ 0x140006E00 (KiSetTimerEx.c)
- *     PopAcquirePowerRequestPushLock @ 0x140520750 (PopAcquirePowerRequestPushLock.c)
- *     PopEnableExecutionRequiredPowerRequests @ 0x14057F32C (PopEnableExecutionRequiredPowerRequests.c)
- *     PopIsUserInitiatedMonitorRequestReason @ 0x14066C208 (PopIsUserInitiatedMonitorRequestReason.c)
+ *     KiSetTimerEx @ 0x140006F70 (KiSetTimerEx.c)
+ *     PopAcquirePowerRequestPushLock @ 0x1405037B8 (PopAcquirePowerRequestPushLock.c)
+ *     PopEnableExecutionRequiredPowerRequests @ 0x14057F7D8 (PopEnableExecutionRequiredPowerRequests.c)
+ *     PopIsUserInitiatedMonitorRequestReason @ 0x14066C2EC (PopIsUserInitiatedMonitorRequestReason.c)
  */
 
 void __fastcall PopCsStateChanged(char a1)

@@ -1,21 +1,21 @@
 /*
- * XREFs of HvlInitializeProcessor @ 0x1407918C4
+ * XREFs of HvlInitializeProcessor @ 0x1407943F4
  * Callers:
- *     KiStartDynamicProcessor @ 0x1407B9978 (KiStartDynamicProcessor.c)
- *     KeStartAllProcessors @ 0x140CC8ACC (KeStartAllProcessors.c)
+ *     KiStartDynamicProcessor @ 0x1407BC9D8 (KiStartDynamicProcessor.c)
+ *     KeStartAllProcessors @ 0x140CCEBBC (KeStartAllProcessors.c)
  * Callees:
- *     MmGetPhysicalAddress @ 0x14024D8F0 (MmGetPhysicalAddress.c)
- *     HvlpFreeOverlayPages @ 0x140344280 (HvlpFreeOverlayPages.c)
- *     MmMapIoSpaceEx @ 0x140363DC0 (MmMapIoSpaceEx.c)
- *     HvlpGetLpcbByLpIndex @ 0x1403E6258 (HvlpGetLpcbByLpIndex.c)
- *     HvlGetLpIndexFromProcessorIndex @ 0x1403E62C0 (HvlGetLpIndexFromProcessorIndex.c)
- *     KeGetProcessorNodeNumber @ 0x14046B620 (KeGetProcessorNodeNumber.c)
- *     HvlGetRootVpSharedPages @ 0x1405B92C8 (HvlGetRootVpSharedPages.c)
- *     HvlpSetupCachedHypercallPages @ 0x1405BB1B8 (HvlpSetupCachedHypercallPages.c)
- *     HvlpAllocateOverlayPages @ 0x1405BFA48 (HvlpAllocateOverlayPages.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     HvlpEnableRootVirtualProcessor @ 0x140791C18 (HvlpEnableRootVirtualProcessor.c)
- *     MmAllocateIndependentPagesEx @ 0x140B3D7BC (MmAllocateIndependentPagesEx.c)
+ *     MmGetPhysicalAddress @ 0x14024F250 (MmGetPhysicalAddress.c)
+ *     HvlpGetLpcbByLpIndex @ 0x1402F3138 (HvlpGetLpcbByLpIndex.c)
+ *     HvlGetLpIndexFromProcessorIndex @ 0x1402F31A0 (HvlGetLpIndexFromProcessorIndex.c)
+ *     HvlpFreeOverlayPages @ 0x140346300 (HvlpFreeOverlayPages.c)
+ *     MmMapIoSpaceEx @ 0x140365B60 (MmMapIoSpaceEx.c)
+ *     KeGetProcessorNodeNumber @ 0x140464DA0 (KeGetProcessorNodeNumber.c)
+ *     HvlGetRootVpSharedPages @ 0x1405BBB38 (HvlGetRootVpSharedPages.c)
+ *     HvlpSetupCachedHypercallPages @ 0x1405BDA28 (HvlpSetupCachedHypercallPages.c)
+ *     HvlpAllocateOverlayPages @ 0x1405C22B8 (HvlpAllocateOverlayPages.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     HvlpEnableRootVirtualProcessor @ 0x140794748 (HvlpEnableRootVirtualProcessor.c)
+ *     MmAllocateIndependentPagesEx @ 0x140B3F88C (MmAllocateIndependentPagesEx.c)
  */
 
 __int64 __fastcall HvlInitializeProcessor(__int64 a1, unsigned int a2, unsigned int a3)
@@ -111,7 +111,7 @@ __int64 __fastcall HvlInitializeProcessor(__int64 a1, unsigned int a2, unsigned 
       --v6;
     }
     while ( v6 );
-    HvlpSetupCachedHypercallPages((union _SLIST_HEADER *)a1);
+    HvlpSetupCachedHypercallPages((_SLIST_HEADER *)a1);
     return 0LL;
   }
 LABEL_23:

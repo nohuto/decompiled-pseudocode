@@ -9,38 +9,29 @@
  *     TppETWCallbackCancel @ 0x18010F1B0 (TppETWCallbackCancel.c)
  */
 
-unsigned int *__fastcall TpWaitForIoCompletion(__int64 a1, __int32 a2)
+void __cdecl TpWaitForIoCompletion(PTP_IO Io, LOGICAL CancelPendingCallbacks)
 {
-  unsigned int *result; // rax
-  __int64 v5; // rcx
+  __int64 v4; // rcx
 
-  result = (unsigned int *)TppIopValidateIo(a1, 0LL, 0LL);
-  if ( (_DWORD)result )
+  if ( (unsigned int)TppIopValidateIo(Io, 0LL, 0LL) )
   {
-    if ( a2 )
-      a2 = _InterlockedExchange((volatile __int32 *)(a1 + 280), 0);
-    result = (unsigned int *)TppBarrierAdjust(a1 + 56, (unsigned int)-a2);
-    if ( a2 )
+    if ( CancelPendingCallbacks )
+      CancelPendingCallbacks = _InterlockedExchange((volatile __int32 *)Io + 70, 0);
+    TppBarrierAdjust((char *)Io + 56, -CancelPendingCallbacks);
+    if ( CancelPendingCallbacks )
     {
-      result = RtlGetCurrentServiceSessionId();
-      if ( (_DWORD)result )
-      {
-        result = (unsigned int *)NtCurrentPeb();
-        v5 = *((_QWORD *)result + 18) + 556LL;
-      }
+      if ( RtlGetCurrentServiceSessionId() )
+        v4 = (__int64)NtCurrentPeb()->SharedData + 556;
       else
-      {
-        v5 = 2147353478LL;
-      }
-      if ( *(_BYTE *)v5 )
-        return (unsigned int *)TppETWCallbackCancel(
-                                 *(_QWORD *)(a1 + 144),
-                                 (int)a1 + 200,
-                                 (int)a1 + 80,
-                                 *(_QWORD *)(a1 + 88),
-                                 *(_QWORD *)(a1 + 104),
-                                 a2);
+        v4 = 2147353478LL;
+      if ( *(_BYTE *)v4 )
+        TppETWCallbackCancel(
+          *((_QWORD *)Io + 18),
+          (_DWORD)Io + 200,
+          (_DWORD)Io + 80,
+          *((_QWORD *)Io + 11),
+          *((_QWORD *)Io + 13),
+          CancelPendingCallbacks);
     }
   }
-  return result;
 }

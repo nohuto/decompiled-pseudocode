@@ -1,49 +1,49 @@
 /*
- * XREFs of VfQueryDispatchTable @ 0x140610A80
+ * XREFs of VfQueryDispatchTable @ 0x14060F040
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
  */
 
-void *__fastcall VfQueryDispatchTable(int a1, __int64 a2, __int64 a3, __int64 a4)
+void *__fastcall VfQueryDispatchTable(int a1, __int64 a2)
 {
-  __int64 v4; // r8
-  int v6; // ecx
-  int v7; // ecx
-  __int64 v8; // rcx
-  void *v9; // rax
+  __int64 v2; // r8
+  int v4; // ecx
+  int v5; // ecx
+  __int64 v6; // rcx
+  void *v7; // rax
 
-  v4 = 0LL;
+  v2 = 0LL;
   if ( !(_QWORD)ViVerifierDriverAddedThunkListHead && !VfClearanceFlag )
     return 0LL;
   if ( !a1 )
   {
-    v9 = &VfWdmDispatchTable;
+    v7 = &VfWdmDispatchTable;
     if ( (unsigned int)a2 > dword_140E01EE4 )
       return 0LL;
-    return v9;
+    return v7;
   }
-  v6 = a1 - 2;
-  if ( v6 )
+  v4 = a1 - 2;
+  if ( v4 )
   {
-    v7 = v6 - 1;
-    if ( !v7 )
+    v5 = v4 - 1;
+    if ( !v5 )
     {
       if ( (unsigned int)a2 <= dword_140E01EC4 )
         return &VfXdvDispatchTable;
-      return (void *)v4;
+      return (void *)v2;
     }
-    if ( v7 == 1 && ViFnXdvQueryDispatchTable )
+    if ( v5 == 1 && ViFnXdvQueryDispatchTable )
     {
-      v8 = 4LL;
-      return (void *)guard_dispatch_icall_no_overrides(v8, a2, 0LL, a4);
+      v6 = 4LL;
+      return (void *)guard_dispatch_icall_no_overrides(v6, a2);
     }
   }
   else if ( ViFnXdvQueryDispatchTable )
   {
-    v8 = 2LL;
-    return (void *)guard_dispatch_icall_no_overrides(v8, a2, 0LL, a4);
+    v6 = 2LL;
+    return (void *)guard_dispatch_icall_no_overrides(v6, a2);
   }
-  return (void *)v4;
+  return (void *)v2;
 }

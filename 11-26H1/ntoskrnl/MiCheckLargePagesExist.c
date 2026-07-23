@@ -1,9 +1,9 @@
 /*
- * XREFs of MiCheckLargePagesExist @ 0x1403C9224
+ * XREFs of MiCheckLargePagesExist @ 0x1403D30D4
  * Callers:
- *     MiProcessLargeCoalesceCandidates @ 0x1403C8674 (MiProcessLargeCoalesceCandidates.c)
- *     MiProcessLargeCoalesceBitmapCandidates @ 0x1403C8C60 (MiProcessLargeCoalesceBitmapCandidates.c)
- *     MiPerformOnDemandLargePageCoalesce @ 0x1403C8EC4 (MiPerformOnDemandLargePageCoalesce.c)
+ *     MiProcessLargeCoalesceCandidates @ 0x1403D2564 (MiProcessLargeCoalesceCandidates.c)
+ *     MiProcessLargeCoalesceBitmapCandidates @ 0x1403D2B10 (MiProcessLargeCoalesceBitmapCandidates.c)
+ *     MiPerformOnDemandLargePageCoalesce @ 0x1403D2D74 (MiPerformOnDemandLargePageCoalesce.c)
  * Callees:
  *     <none>
  */

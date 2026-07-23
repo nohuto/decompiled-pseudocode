@@ -8,76 +8,80 @@
  *     RtlTimeToTimeFields @ 0x14033B4B0 (RtlTimeToTimeFields.c)
  */
 
-bool __fastcall RtlCutoverTimeToSystemTime(PTIME_FIELDS TimeFields, PLARGE_INTEGER Time, PLARGE_INTEGER a3)
+BOOLEAN __cdecl RtlCutoverTimeToSystemTime(
+        PTIME_FIELDS CutoverTime,
+        PLARGE_INTEGER SystemTime,
+        PLARGE_INTEGER CurrentSystemTime,
+        BOOLEAN ThisYear)
 {
   __int16 Day; // r14
   __int16 Month; // cx
   __int16 Weekday; // r15
-  __int16 v8; // bx
+  __int16 v9; // bx
   __int16 Milliseconds; // ax
-  __int16 v10; // r15
-  __int16 v11; // si
-  TIME_FIELDS v13; // [rsp+20h] [rbp-30h] BYREF
-  TIME_FIELDS v14; // [rsp+30h] [rbp-20h] BYREF
-  TIME_FIELDS TimeFieldsa; // [rsp+40h] [rbp-10h] BYREF
-  LARGE_INTEGER Timea; // [rsp+80h] [rbp+30h] BYREF
+  __int16 v11; // r15
+  __int16 v12; // si
+  _TIME_FIELDS v14; // [rsp+20h] [rbp-30h] BYREF
+  _TIME_FIELDS v15; // [rsp+30h] [rbp-20h] BYREF
+  _TIME_FIELDS TimeFields; // [rsp+40h] [rbp-10h] BYREF
+  LARGE_INTEGER Time; // [rsp+80h] [rbp+30h] BYREF
 
-  TimeFieldsa = 0LL;
-  RtlTimeToTimeFields(a3, &TimeFieldsa);
-  if ( !TimeFields->Year )
+  TimeFields = 0LL;
+  RtlTimeToTimeFields(CurrentSystemTime, &TimeFields);
+  if ( !CutoverTime->Year )
   {
-    Day = TimeFields->Day;
-    v13.Day = 0;
-    Timea.QuadPart = 0LL;
-    v14 = 0LL;
+    Day = CutoverTime->Day;
+    v14.Day = 0;
+    Time.QuadPart = 0LL;
+    v15 = 0LL;
     if ( Day <= 5 )
     {
       if ( Day )
       {
-        Month = TimeFields->Month;
-        Weekday = TimeFields->Weekday;
-        v8 = 1;
-        v13.Year = TimeFieldsa.Year;
-        v13.Hour = TimeFields->Hour;
-        v13.Minute = TimeFields->Minute;
-        v13.Second = TimeFields->Second;
-        Milliseconds = TimeFields->Milliseconds;
-        v13.Month = Month;
-        v13.Milliseconds = Milliseconds;
-        v13.Day = 1;
-        v13.Weekday = 0;
-        if ( RtlTimeFieldsToTime(&v13, &Timea) )
+        Month = CutoverTime->Month;
+        Weekday = CutoverTime->Weekday;
+        v9 = 1;
+        v14.Year = TimeFields.Year;
+        v14.Hour = CutoverTime->Hour;
+        v14.Minute = CutoverTime->Minute;
+        v14.Second = CutoverTime->Second;
+        Milliseconds = CutoverTime->Milliseconds;
+        v14.Month = Month;
+        v14.Milliseconds = Milliseconds;
+        v14.Day = 1;
+        v14.Weekday = 0;
+        if ( RtlTimeFieldsToTime(&v14, &Time) )
         {
-          RtlTimeToTimeFields(&Timea, &v14);
-          if ( v14.Weekday <= Weekday )
+          RtlTimeToTimeFields(&Time, &v15);
+          if ( v15.Weekday <= Weekday )
           {
-            if ( v14.Weekday < Weekday )
-              v8 = Weekday - v14.Weekday + 1;
+            if ( v15.Weekday < Weekday )
+              v9 = Weekday - v15.Weekday + 1;
           }
           else
           {
-            v8 = Weekday - v14.Weekday + 8;
+            v9 = Weekday - v15.Weekday + 8;
           }
-          v10 = v8;
-          v11 = 1;
+          v11 = v9;
+          v12 = 1;
           if ( Day > 1 )
           {
             do
             {
-              v8 += 7;
-              v13.Day = v8;
-              if ( !RtlTimeFieldsToTime(&v13, &Timea) )
+              v9 += 7;
+              v14.Day = v9;
+              if ( !RtlTimeFieldsToTime(&v14, &Time) )
                 break;
-              RtlTimeToTimeFields(&Timea, &v14);
-              v10 = v14.Day;
-              ++v11;
+              RtlTimeToTimeFields(&Time, &v15);
+              v11 = v15.Day;
+              ++v12;
             }
-            while ( v11 < Day );
+            while ( v12 < Day );
           }
-          v13.Day = v10;
-          if ( RtlTimeFieldsToTime(&v13, &Timea) )
+          v14.Day = v11;
+          if ( RtlTimeFieldsToTime(&v14, &Time) )
           {
-            *Time = Timea;
+            *SystemTime = Time;
             return 1;
           }
         }
@@ -85,5 +89,5 @@ bool __fastcall RtlCutoverTimeToSystemTime(PTIME_FIELDS TimeFields, PLARGE_INTEG
     }
     return 0;
   }
-  return RtlTimeFieldsToTime(TimeFields, Time) != 0;
+  return RtlTimeFieldsToTime(CutoverTime, SystemTime) != 0;
 }

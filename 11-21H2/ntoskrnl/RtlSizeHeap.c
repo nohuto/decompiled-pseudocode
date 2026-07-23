@@ -3,13 +3,14 @@
  * Callers:
  *     <none>
  * Callees:
- *     RtlpSizeHeapInternal @ 0x1405EB088 (RtlpSizeHeapInternal.c)
- *     RtlpLogHeapFailure @ 0x1405F1BBC (RtlpLogHeapFailure.c)
+ *     sub_1405EB088 @ 0x1405EB088 (sub_1405EB088.c)
+ *     sub_1405F1BBC @ 0x1405F1BBC (sub_1405F1BBC.c)
  */
 
-__int64 __fastcall RtlSizeHeap(__int64 a1, __int64 a2, __int64 a3)
+// local variable allocation has failed, the output may be wrong!
+SIZE_T __cdecl RtlSizeHeap(PVOID HeapHandle, ULONG Flags, PVOID BaseAddress)
 {
-  if ( !a1 )
-    RtlpLogHeapFailure(19, 0, a3, 0, 0LL, 0LL);
-  return RtlpSizeHeapInternal(a1, a2, a3);
+  if ( !HeapHandle )
+    sub_1405F1BBC(19, 0, (_DWORD)BaseAddress, 0, 0LL, 0LL);
+  return sub_1405EB088(HeapHandle, *(_QWORD *)&Flags, BaseAddress);
 }

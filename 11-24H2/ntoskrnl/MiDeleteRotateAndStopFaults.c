@@ -1,12 +1,12 @@
 /*
- * XREFs of MiDeleteRotateAndStopFaults @ 0x1403CC068
+ * XREFs of MiDeleteRotateAndStopFaults @ 0x14026622C
  * Callers:
- *     MiRotateToFrameBuffer @ 0x140A2E9A4 (MiRotateToFrameBuffer.c)
- *     MiRotateToFrameBufferNoCopy @ 0x140A2ECC0 (MiRotateToFrameBufferNoCopy.c)
+ *     MiRotateToFrameBuffer @ 0x140A233E4 (MiRotateToFrameBuffer.c)
+ *     MiRotateToFrameBufferNoCopy @ 0x140A23700 (MiRotateToFrameBufferNoCopy.c)
  * Callees:
- *     MiLockWorkingSetExclusive @ 0x14020D480 (MiLockWorkingSetExclusive.c)
- *     MiUnlockWorkingSetExclusive @ 0x140218550 (MiUnlockWorkingSetExclusive.c)
- *     MiDeletePagablePteRange @ 0x1403CC1D4 (MiDeletePagablePteRange.c)
+ *     MiUnlockWorkingSetExclusive @ 0x140243400 (MiUnlockWorkingSetExclusive.c)
+ *     MiDeletePagablePteRange @ 0x1402663A4 (MiDeletePagablePteRange.c)
+ *     MiLockWorkingSetExclusive @ 0x1403367E0 (MiLockWorkingSetExclusive.c)
  */
 
 __int64 __fastcall MiDeleteRotateAndStopFaults(int a1, int a2, _QWORD *a3)
@@ -26,7 +26,7 @@ __int64 __fastcall MiDeleteRotateAndStopFaults(int a1, int a2, _QWORD *a3)
   v13 = 0LL;
   v14 = 0LL;
   Process = KeGetCurrentThread()->ApcState.Process;
-  v7 = MiLockWorkingSetExclusive((__int64)&Process[2].ReadyListHead.Blink);
+  v7 = MiLockWorkingSetExclusive(&Process[2].ReadyListHead.Blink);
   *a3 = Process[1].ActiveGroupsMask.Masks[1];
   Process[1].ActiveGroupsMask.Masks[1] = (unsigned __int64)a3;
   MiUnlockWorkingSetExclusive((__int64)&Process[2].ReadyListHead.Blink, v7);

@@ -1,12 +1,12 @@
 /*
- * XREFs of MicrocodeLogRegistry @ 0x1406647D8
+ * XREFs of MicrocodeLogRegistry @ 0x1406630C8
  * Callers:
- *     PrExtLogToRegistry @ 0x1404D91A8 (PrExtLogToRegistry.c)
+ *     PrExtLogToRegistry @ 0x1404D25F8 (PrExtLogToRegistry.c)
  * Callees:
- *     RtlCopyUnicodeString @ 0x1403FFE80 (RtlCopyUnicodeString.c)
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     PrpWriteLogsToRegistry @ 0x1404C05E4 (PrpWriteLogsToRegistry.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     RtlCopyUnicodeString @ 0x1403FA370 (RtlCopyUnicodeString.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     PrpWriteLogsToRegistry @ 0x1404BBC04 (PrpWriteLogsToRegistry.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 __int64 MicrocodeLogRegistry()

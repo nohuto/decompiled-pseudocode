@@ -1,20 +1,20 @@
 /*
- * XREFs of _CmSetDeviceRegPropWorker @ 0x140990F90
+ * XREFs of _CmSetDeviceRegPropWorker @ 0x14097BFD0
  * Callers:
- *     _CmSetDeviceRegProp @ 0x140990E18 (_CmSetDeviceRegProp.c)
+ *     _CmSetDeviceRegProp @ 0x14097BE58 (_CmSetDeviceRegProp.c)
  * Callees:
- *     _CmDevicePropertyRead @ 0x14043F000 (_CmDevicePropertyRead.c)
- *     _MapCmDevicePropertyToRegValue @ 0x140440040 (_MapCmDevicePropertyToRegValue.c)
- *     _MapCmDevicePropertyToRegType @ 0x14046F164 (_MapCmDevicePropertyToRegType.c)
- *     _CmDevicePropertyWrite @ 0x1404882F0 (_CmDevicePropertyWrite.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     RtlLengthSecurityDescriptor @ 0x14085A2E0 (RtlLengthSecurityDescriptor.c)
- *     RtlValidRelativeSecurityDescriptor @ 0x14085B000 (RtlValidRelativeSecurityDescriptor.c)
- *     _CmOpenDeviceRegKey @ 0x1408C6880 (_CmOpenDeviceRegKey.c)
- *     _CmIsRootDevice @ 0x140926C14 (_CmIsRootDevice.c)
- *     _PnpCtxRegDeleteValue @ 0x14098FA7C (_PnpCtxRegDeleteValue.c)
- *     _PnpCtxRegSetValue @ 0x140993B14 (_PnpCtxRegSetValue.c)
- *     _CmRaisePropertyChangeEvent @ 0x1409D4494 (_CmRaisePropertyChangeEvent.c)
+ *     _CmDevicePropertyRead @ 0x140434BB0 (_CmDevicePropertyRead.c)
+ *     _MapCmDevicePropertyToRegValue @ 0x140436300 (_MapCmDevicePropertyToRegValue.c)
+ *     _MapCmDevicePropertyToRegType @ 0x140469874 (_MapCmDevicePropertyToRegType.c)
+ *     _CmDevicePropertyWrite @ 0x140483440 (_CmDevicePropertyWrite.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     RtlValidRelativeSecurityDescriptor @ 0x140833A70 (RtlValidRelativeSecurityDescriptor.c)
+ *     RtlLengthSecurityDescriptor @ 0x1408565C0 (RtlLengthSecurityDescriptor.c)
+ *     _CmOpenDeviceRegKey @ 0x1408C42B0 (_CmOpenDeviceRegKey.c)
+ *     _CmIsRootDevice @ 0x140928D54 (_CmIsRootDevice.c)
+ *     _PnpCtxRegDeleteValue @ 0x14097AAB4 (_PnpCtxRegDeleteValue.c)
+ *     _PnpCtxRegSetValue @ 0x14097EB54 (_PnpCtxRegSetValue.c)
+ *     _CmRaisePropertyChangeEvent @ 0x1409C42C4 (_CmRaisePropertyChangeEvent.c)
  */
 
 __int64 __fastcall CmSetDeviceRegPropWorker(

@@ -19,53 +19,54 @@ __int64 __fastcall RtlpAddNeutralsToMergedList(char a1, __int64 a2, __int64 a3, 
 {
   int v4; // r12d
   int NameFromLangListNode; // ebx
-  __int64 Heap; // rax
+  wchar_t *Heap; // rax
   wchar_t *v9; // r14
-  unsigned __int16 v10; // ax
+  NTSTATUS InstallUILanguage; // esi
+  LANGID v11; // ax
   unsigned int i; // esi
-  wchar_t *v12; // r15
-  const WCHAR *v14; // r15
-  _WORD v15[2]; // [rsp+30h] [rbp-40h] BYREF
-  _WORD v16[2]; // [rsp+34h] [rbp-3Ch] BYREF
-  __int64 v17; // [rsp+38h] [rbp-38h] BYREF
-  const WCHAR *v18; // [rsp+40h] [rbp-30h]
+  wchar_t *v13; // r15
+  wchar_t *Buffer; // r15
+  LANGID InstallUILanguageId[2]; // [rsp+30h] [rbp-40h] BYREF
+  _WORD v17[2]; // [rsp+34h] [rbp-3Ch] BYREF
+  _UNICODE_STRING v18; // [rsp+38h] [rbp-38h] BYREF
   __int64 v19; // [rsp+48h] [rbp-28h] BYREF
   wchar_t *String1; // [rsp+50h] [rbp-20h]
-  __int64 v21; // [rsp+58h] [rbp-18h] BYREF
-  wchar_t *String2; // [rsp+60h] [rbp-10h]
-  char v24; // [rsp+C0h] [rbp+50h] BYREF
+  _UNICODE_STRING String; // [rsp+58h] [rbp-18h] BYREF
+  char v23; // [rsp+C0h] [rbp+50h] BYREF
 
   v19 = 0LL;
   v4 = (int)a4;
   String1 = 0LL;
-  v21 = 0LL;
-  String2 = 0LL;
+  *(_QWORD *)&String.Length = 0LL;
+  String.Buffer = 0LL;
   NameFromLangListNode = 0;
-  v17 = 0LL;
-  v18 = 0LL;
-  v16[0] = 0;
+  *(_QWORD *)&v18.Length = 0LL;
+  v18.Buffer = 0LL;
+  v17[0] = 0;
   if ( !a3 || !a4 || !*a4 || !a2 )
     return 3221225485LL;
-  Heap = RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 8u, 510LL);
-  v9 = (wchar_t *)Heap;
+  Heap = (wchar_t *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, 0x1FEuLL);
+  v9 = Heap;
   if ( Heap )
   {
-    v15[0] = 0;
-    String2 = (wchar_t *)(Heap + 170);
-    LODWORD(v21) = 11141120;
-    v10 = *(_WORD *)(a2 + 4);
-    if ( !v10 )
+    InstallUILanguageId[0] = 0;
+    String.Buffer = Heap + 85;
+    InstallUILanguage = 0;
+    *(_DWORD *)&String.Length = 11141120;
+    v11 = *(_WORD *)(a2 + 4);
+    if ( !v11 )
     {
-      if ( (int)NtQueryInstallUILanguage(v15) < 0 )
-        goto LABEL_28;
-      if ( (int)NtIsUILanguageComitted() >= 0 )
+      InstallUILanguage = NtQueryInstallUILanguage(InstallUILanguageId);
+      if ( InstallUILanguage < 0 )
+        goto LABEL_29;
+      if ( NtIsUILanguageComitted() >= 0 )
       {
         RtlpLoadInstallLanguageFallback(a2, a2 + 6, a2 + 8);
-        *(_WORD *)(a2 + 4) = v15[0];
+        *(_WORD *)(a2 + 4) = InstallUILanguageId[0];
       }
-      v10 = v15[0];
+      v11 = InstallUILanguageId[0];
     }
-    if ( (unsigned __int8)RtlLCIDToCultureName(v10, &v21) )
+    if ( InstallUILanguage >= 0 && RtlLCIDToCultureName(v11, &String) )
     {
       for ( i = 0; i < *(unsigned __int16 *)(a3 + 4); ++i )
       {
@@ -74,39 +75,39 @@ __int64 __fastcall RtlpAddNeutralsToMergedList(char a1, __int64 a2, __int64 a3, 
         NameFromLangListNode = GetNameFromLangListNode(a2, *(_QWORD *)(a3 + 24) + 6LL * i, &v19);
         if ( NameFromLangListNode < 0 )
           break;
-        v12 = String1;
-        NameFromLangListNode = LdrpLangFallbackListAppendNode(v4, a2, 0, (unsigned int)v16, (__int64)String1);
+        v13 = String1;
+        NameFromLangListNode = LdrpLangFallbackListAppendNode(v4, a2, 0, (unsigned int)v17, (__int64)String1);
         if ( NameFromLangListNode < 0 )
           break;
-        if ( a1 || !wcsicmp(v12, String2) )
+        if ( a1 || !wcsicmp(v13, String.Buffer) )
         {
-          v24 = 0;
-          v18 = v9 + 170;
-          LODWORD(v17) = 11141120;
-          NameFromLangListNode = RtlGetNeutralFallback(a2, v12, (__int64)&v17, &v24);
+          v23 = 0;
+          v18.Buffer = v9 + 170;
+          *(_DWORD *)&v18.Length = 11141120;
+          NameFromLangListNode = RtlGetNeutralFallback(a2, v13, &v18, &v23);
           if ( NameFromLangListNode < 0 )
             break;
           do
           {
-            if ( !(_WORD)v17 || v24 )
+            if ( !v18.Length || v23 )
               break;
-            v14 = v18;
-            NameFromLangListNode = LdrpLangFallbackListAppendNode(v4, a2, 0, (unsigned int)v16, (__int64)v18);
+            Buffer = v18.Buffer;
+            NameFromLangListNode = LdrpLangFallbackListAppendNode(v4, a2, 0, (unsigned int)v17, (__int64)v18.Buffer);
             if ( NameFromLangListNode < 0 )
-              goto LABEL_16;
-            NameFromLangListNode = RtlGetNeutralFallback(a2, v14, (__int64)&v17, &v24);
+              goto LABEL_17;
+            NameFromLangListNode = RtlGetNeutralFallback(a2, Buffer, &v18, &v23);
           }
           while ( NameFromLangListNode >= 0 );
           if ( NameFromLangListNode < 0 )
             break;
         }
       }
-      goto LABEL_16;
+      goto LABEL_17;
     }
-LABEL_28:
+LABEL_29:
     NameFromLangListNode = -1073741823;
-LABEL_16:
-    RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, (unsigned __int64)v9);
+LABEL_17:
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v9);
     return (unsigned int)NameFromLangListNode;
   }
   return 3221225495LL;

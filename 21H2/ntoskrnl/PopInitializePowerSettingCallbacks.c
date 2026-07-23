@@ -1,10 +1,10 @@
 /*
- * XREFs of PopInitializePowerSettingCallbacks @ 0x140A6B410
+ * XREFs of PopInitializePowerSettingCallbacks @ 0x140A6C410
  * Callers:
- *     PoInitSystem @ 0x140A3F948 (PoInitSystem.c)
+ *     PoInitSystem @ 0x140A40948 (PoInitSystem.c)
  * Callees:
- *     PoRegisterPowerSettingCallback @ 0x14067BD00 (PoRegisterPowerSettingCallback.c)
- *     PpmInfoRegisterCallbacks @ 0x140A6B4EC (PpmInfoRegisterCallbacks.c)
+ *     PoRegisterPowerSettingCallback @ 0x14066F440 (PoRegisterPowerSettingCallback.c)
+ *     PpmInfoRegisterCallbacks @ 0x140A6C4EC (PpmInfoRegisterCallbacks.c)
  */
 
 NTSTATUS PopInitializePowerSettingCallbacks()

@@ -6,20 +6,21 @@
  *     _memcpy @ 0x4B2F88B0 (_memcpy.c)
  */
 
-void **__stdcall RtlCopyString(void **a1, const void **a2)
+void __cdecl RtlCopyString(PSTRING DestinationString, PSTRING SourceString)
 {
-  void **result; // eax
-  size_t v3; // ecx
+  int v2; // esi
+  unsigned int Length; // ecx
+  size_t v4; // [esp-8h] [ebp-8h]
 
-  result = a1;
-  *(_WORD *)a1 = 0;
-  if ( a2 )
+  DestinationString->Length = 0;
+  if ( SourceString )
   {
-    v3 = *(unsigned __int16 *)a2;
-    if ( v3 > *((unsigned __int16 *)a1 + 1) )
-      v3 = *((unsigned __int16 *)a1 + 1);
-    *(_WORD *)a1 = v3;
-    return (void **)memcpy(a1[1], a2[1], v3);
+    Length = SourceString->Length;
+    HIDWORD(v4) = v2;
+    if ( Length > DestinationString->MaximumLength )
+      Length = DestinationString->MaximumLength;
+    LODWORD(v4) = Length;
+    DestinationString->Length = Length;
+    memcpy(DestinationString->Buffer, SourceString->Buffer, v4);
   }
-  return result;
 }

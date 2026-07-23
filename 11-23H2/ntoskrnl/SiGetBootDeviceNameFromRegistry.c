@@ -1,11 +1,11 @@
 /*
- * XREFs of SiGetBootDeviceNameFromRegistry @ 0x1407BFD30
+ * XREFs of SiGetBootDeviceNameFromRegistry @ 0x1407C0000
  * Callers:
- *     SiGetBootDeviceName @ 0x1407BFB04 (SiGetBootDeviceName.c)
- *     SiIsWinPeHardDiskZeroUfdBoot @ 0x140A60594 (SiIsWinPeHardDiskZeroUfdBoot.c)
+ *     SiGetBootDeviceName @ 0x1407BFDD4 (SiGetBootDeviceName.c)
+ *     SiIsWinPeHardDiskZeroUfdBoot @ 0x140A60844 (SiIsWinPeHardDiskZeroUfdBoot.c)
  * Callees:
- *     _wcslwr @ 0x1403D9AB0 (_wcslwr.c)
- *     SiGetRegistryValue @ 0x1407BFDAC (SiGetRegistryValue.c)
+ *     _wcslwr @ 0x1403D9C90 (_wcslwr.c)
+ *     SiGetRegistryValue @ 0x1407C007C (SiGetRegistryValue.c)
  */
 
 __int64 __fastcall SiGetBootDeviceNameFromRegistry(int a1, wchar_t **a2, __int64 a3, int a4)

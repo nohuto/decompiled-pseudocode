@@ -1,9 +1,9 @@
 /*
- * XREFs of HvpProtectBin @ 0x1405A2584
+ * XREFs of HvpProtectBin @ 0x1405A3584
  * Callers:
- *     HvpAddBin @ 0x1405A39BC (HvpAddBin.c)
- *     HvpRemapAndEnlistHiveBins @ 0x1405F96A0 (HvpRemapAndEnlistHiveBins.c)
- *     HvpMapHiveImage @ 0x1407F794C (HvpMapHiveImage.c)
+ *     HvpAddBin @ 0x1405A49BC (HvpAddBin.c)
+ *     HvpRemapAndEnlistHiveBins @ 0x1405FA6A0 (HvpRemapAndEnlistHiveBins.c)
+ *     HvpMapHiveImage @ 0x1407F8B4C (HvpMapHiveImage.c)
  * Callees:
  *     ExProtectPool @ 0x14000DEB8 (ExProtectPool.c)
  */

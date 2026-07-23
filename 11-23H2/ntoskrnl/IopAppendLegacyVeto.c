@@ -1,11 +1,11 @@
 /*
- * XREFs of IopAppendLegacyVeto @ 0x14096C654
+ * XREFs of IopAppendLegacyVeto @ 0x14096C854
  * Callers:
- *     IopGetLegacyVetoListDrivers @ 0x1406C23F4 (IopGetLegacyVetoListDrivers.c)
- *     IoGetLegacyVetoList @ 0x1407A88C0 (IoGetLegacyVetoList.c)
- *     IopGetLegacyVetoListDeviceNode @ 0x1407A8A78 (IopGetLegacyVetoListDeviceNode.c)
+ *     IopGetLegacyVetoListDrivers @ 0x1406C2424 (IopGetLegacyVetoListDrivers.c)
+ *     IoGetLegacyVetoList @ 0x1407A8AB0 (IoGetLegacyVetoList.c)
+ *     IopGetLegacyVetoListDeviceNode @ 0x1407A8C68 (IopGetLegacyVetoListDeviceNode.c)
  * Callees:
- *     memmove @ 0x140435700 (memmove.c)
+ *     memmove @ 0x140435B00 (memmove.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

@@ -1,16 +1,16 @@
 /*
- * XREFs of CmpPrepareLightWeightTransaction @ 0x140A0683C
+ * XREFs of CmpPrepareLightWeightTransaction @ 0x140A02D6C
  * Callers:
- *     CmpCommitLightWeightTransaction @ 0x140A064F0 (CmpCommitLightWeightTransaction.c)
+ *     CmpCommitLightWeightTransaction @ 0x140A02A20 (CmpCommitLightWeightTransaction.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     ExReleaseFastMutexUnsafe @ 0x14031CF70 (ExReleaseFastMutexUnsafe.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140330CB0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     LOCK_TRANSACTION_LIST @ 0x14087B17C (LOCK_TRANSACTION_LIST.c)
- *     CmpProcessLightWeightUOW @ 0x140A069C4 (CmpProcessLightWeightUOW.c)
- *     CmpCleanupLightWeightPrepare @ 0x140A567CC (CmpCleanupLightWeightPrepare.c)
- *     CmListGetNextElement @ 0x140BB9940 (CmListGetNextElement.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402B92F0 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     ExReleaseFastMutexUnsafe @ 0x1402C5B00 (ExReleaseFastMutexUnsafe.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     LOCK_TRANSACTION_LIST @ 0x14087F02C (LOCK_TRANSACTION_LIST.c)
+ *     CmpProcessLightWeightUOW @ 0x140A02EF4 (CmpProcessLightWeightUOW.c)
+ *     CmpCleanupLightWeightPrepare @ 0x140A4E660 (CmpCleanupLightWeightPrepare.c)
+ *     CmListGetNextElement @ 0x140BBB940 (CmListGetNextElement.c)
  */
 
 __int64 __fastcall CmpPrepareLightWeightTransaction(__int64 a1, __int64 a2)
@@ -24,8 +24,8 @@ __int64 __fastcall CmpPrepareLightWeightTransaction(__int64 a1, __int64 a2)
   struct _EVENT_DATA_DESCRIPTOR v12[2]; // [rsp+38h] [rbp-40h] BYREF
 
   v4 = 1;
-  if ( (unsigned int)dword_140E09EE8 > 5 && (qword_140E09EF8 & 1) != 0 && (qword_140E09F00 & 1) == qword_140E09F00 )
-    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140E09EE8, (unsigned __int8 *)&dword_14005513C, 0LL, 0LL, 2u, v12);
+  if ( (unsigned int)dword_140E09F58 > 5 && (qword_140E09F68 & 1) != 0 && (qword_140E09F70 & 1) == qword_140E09F70 )
+    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140E09F58, (unsigned __int8 *)&dword_140055C1C, 0LL, 0LL, 2u, v12);
   if ( a1 )
   {
     LOCK_TRANSACTION_LIST();
@@ -48,12 +48,12 @@ __int64 __fastcall CmpPrepareLightWeightTransaction(__int64 a1, __int64 a2)
   }
   v5 = 0;
 LABEL_4:
-  if ( (unsigned int)dword_140E09EE8 > 5 )
+  if ( (unsigned int)dword_140E09F58 > 5 )
   {
-    if ( (qword_140E09EF8 & 1) == 0 || (qword_140E09F00 & 1) != qword_140E09F00 )
+    if ( (qword_140E09F68 & 1) == 0 || (qword_140E09F70 & 1) != qword_140E09F70 )
       v4 = 0;
     if ( v4 )
-      tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140E09EE8, (unsigned __int8 *)byte_140055071, 0LL, 0LL, 2u, v12);
+      tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140E09F58, (unsigned __int8 *)byte_140055C4D, 0LL, 0LL, 2u, v12);
   }
   return (unsigned int)v5;
 }

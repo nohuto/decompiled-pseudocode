@@ -1,31 +1,24 @@
 /*
- * XREFs of VfThunkAddTargetNotify @ 0x140ABCF7C
+ * XREFs of VfThunkAddTargetNotify @ 0x140ABCF6C
  * Callers:
  *     VfTargetDriversAdd @ 0x14020A190 (VfTargetDriversAdd.c)
  * Callees:
- *     ViThunkFreeSharedThunksArray @ 0x140ABCF50 (ViThunkFreeSharedThunksArray.c)
- *     ViThunkCreateSharedExportInformation @ 0x140ABD010 (ViThunkCreateSharedExportInformation.c)
+ *     ViThunkFreeSharedThunksArray @ 0x140ABCF40 (ViThunkFreeSharedThunksArray.c)
+ *     ViThunkCreateSharedExportInformation @ 0x140ABD000 (ViThunkCreateSharedExportInformation.c)
  */
 
-void __fastcall VfThunkAddTargetNotify(void **a1, __int64 a2, __int64 a3)
+void __fastcall VfThunkAddTargetNotify(PVOID *a1)
 {
-  void **v3; // rdi
-  __int64 v5; // r8
-  __int64 v6; // r8
+  void **v1; // rdi
 
-  v3 = a1 + 3;
-  if ( !(unsigned int)ViThunkCreateSharedExportInformation(
-                        *a1,
-                        &VfRegularThunks,
-                        a3,
-                        &VfRegularThunksBitMapHeader,
-                        a1 + 3)
-    || !(unsigned int)ViThunkCreateSharedExportInformation(*a1, &VfPoolThunks, v5, &VfPoolThunksBitMapHeader, a1 + 4)
-    || !(unsigned int)ViThunkCreateSharedExportInformation(*a1, &VfDifThunks, v6, &VfDifThunksBitMapHeader, a1 + 5) )
+  v1 = a1 + 3;
+  if ( !(unsigned int)ViThunkCreateSharedExportInformation(*a1, (__int64)(a1 + 3))
+    || !(unsigned int)ViThunkCreateSharedExportInformation(*a1, (__int64)(a1 + 4))
+    || !(unsigned int)ViThunkCreateSharedExportInformation(*a1, (__int64)(a1 + 5)) )
   {
-    ViThunkFreeSharedThunksArray(v3);
+    ViThunkFreeSharedThunksArray(v1);
     ViThunkFreeSharedThunksArray(a1 + 4);
     ViThunkFreeSharedThunksArray(a1 + 5);
-    *(_DWORD *)v3 |= 1u;
+    *(_DWORD *)v1 |= 1u;
   }
 }

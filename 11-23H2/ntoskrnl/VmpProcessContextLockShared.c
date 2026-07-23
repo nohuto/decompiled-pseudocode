@@ -1,13 +1,13 @@
 /*
- * XREFs of VmpProcessContextLockShared @ 0x140466D94
+ * XREFs of VmpProcessContextLockShared @ 0x140467194
  * Callers:
- *     VmpAccessFaultBatch @ 0x140466546 (VmpAccessFaultBatch.c)
- *     VmpQueryAccessedState @ 0x140466E0A (VmpQueryAccessedState.c)
- *     VmColdPagesHint @ 0x1405F8930 (VmColdPagesHint.c)
- *     VmpPrefetchVirtualAddresses @ 0x1405FA69C (VmpPrefetchVirtualAddresses.c)
- *     VmpSplitMemoryRange @ 0x1405FB0B0 (VmpSplitMemoryRange.c)
+ *     VmpAccessFaultBatch @ 0x140466946 (VmpAccessFaultBatch.c)
+ *     VmpQueryAccessedState @ 0x14046720A (VmpQueryAccessedState.c)
+ *     VmColdPagesHint @ 0x1405F8EA0 (VmColdPagesHint.c)
+ *     VmpPrefetchVirtualAddresses @ 0x1405FAC0C (VmpPrefetchVirtualAddresses.c)
+ *     VmpSplitMemoryRange @ 0x1405FB620 (VmpSplitMemoryRange.c)
  * Callees:
- *     ExAcquireSpinLockSharedAtDpcLevel @ 0x14025AD10 (ExAcquireSpinLockSharedAtDpcLevel.c)
+ *     ExAcquireSpinLockSharedAtDpcLevel @ 0x14025AFA0 (ExAcquireSpinLockSharedAtDpcLevel.c)
  */
 
 __int64 __fastcall VmpProcessContextLockShared(PEX_SPIN_LOCK SpinLock)
@@ -18,7 +18,7 @@ __int64 __fastcall VmpProcessContextLockShared(PEX_SPIN_LOCK SpinLock)
 
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(0xFuLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     if ( CurrentIrql == 15 )

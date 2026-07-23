@@ -1,44 +1,44 @@
 /*
- * XREFs of MiInsertPartitionPages @ 0x14065A480
+ * XREFs of MiInsertPartitionPages @ 0x14065A9D0
  * Callers:
- *     MiAddPhysicalMemory @ 0x140A2B6C8 (MiAddPhysicalMemory.c)
- *     MmRemovePhysicalMemory @ 0x140A2D210 (MmRemovePhysicalMemory.c)
- *     MiAllocatePartitionPhysicalPages @ 0x140A4431C (MiAllocatePartitionPhysicalPages.c)
- *     MiHotAddPartitionMemory @ 0x140A44CA0 (MiHotAddPartitionMemory.c)
+ *     MiAddPhysicalMemory @ 0x140A2B978 (MiAddPhysicalMemory.c)
+ *     MmRemovePhysicalMemory @ 0x140A2D4C0 (MmRemovePhysicalMemory.c)
+ *     MiAllocatePartitionPhysicalPages @ 0x140A445CC (MiAllocatePartitionPhysicalPages.c)
+ *     MiHotAddPartitionMemory @ 0x140A44F50 (MiHotAddPartitionMemory.c)
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x14024D360 (ExAcquireSpinLockExclusive.c)
- *     KxReleaseQueuedSpinLock @ 0x140260360 (KxReleaseQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140260E60 (KeAcquireInStackQueuedSpinLock.c)
- *     RtlAvlInsertNodeEx @ 0x1402880C0 (RtlAvlInsertNodeEx.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402894C0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     RtlAvlRemoveNode @ 0x14028AF50 (RtlAvlRemoveNode.c)
- *     MmGetSessionIdEx @ 0x1402A1720 (MmGetSessionIdEx.c)
- *     MiReturnCommit @ 0x1402DC250 (MiReturnCommit.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1402FCE10 (ExfAcquirePushLockExclusiveEx.c)
- *     KiAbTryReclaimOrphanedEntries @ 0x14032FA68 (KiAbTryReclaimOrphanedEntries.c)
- *     KeInvalidateAllCaches @ 0x14036DB40 (KeInvalidateAllCaches.c)
- *     MiFlushEntireTbDueToAttributeChange @ 0x14036F59C (MiFlushEntireTbDueToAttributeChange.c)
- *     MiIncreaseCommitLimits @ 0x140396064 (MiIncreaseCommitLimits.c)
- *     MiComputeCommitThresholds @ 0x140396178 (MiComputeCommitThresholds.c)
- *     memset @ 0x140435A00 (memset.c)
- *     IoUpdateDumpPhysicalRanges @ 0x140551060 (IoUpdateDumpPhysicalRanges.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     RtlNumberOfSetBitsEx @ 0x1405A8B70 (RtlNumberOfSetBitsEx.c)
- *     MiUnlockDynamicMemoryExclusive @ 0x14061BFAC (MiUnlockDynamicMemoryExclusive.c)
- *     MiInitializeHugePfnDatabase @ 0x140620D50 (MiInitializeHugePfnDatabase.c)
- *     MiInsertHugeRangeInList @ 0x140620FCC (MiInsertHugeRangeInList.c)
- *     MiLockHugePfn @ 0x1406213F4 (MiLockHugePfn.c)
- *     MiReduceCommitLimits @ 0x14065655C (MiReduceCommitLimits.c)
- *     MiActOnPartitionNodePages @ 0x140658080 (MiActOnPartitionNodePages.c)
- *     MiAddRangeToPartitionTree @ 0x140658B1C (MiAddRangeToPartitionTree.c)
- *     MiClearPartitionPageBitMap @ 0x140658FC0 (MiClearPartitionPageBitMap.c)
- *     MiDeletePartitionPageNodes @ 0x1406593F4 (MiDeletePartitionPageNodes.c)
- *     MiFreePartitionNodePages @ 0x140659C70 (MiFreePartitionNodePages.c)
- *     MiFreePartitionTree @ 0x140659E98 (MiFreePartitionTree.c)
- *     MiMergePageNodes @ 0x14065AF10 (MiMergePageNodes.c)
- *     MiPartitionDeleteMemoryNode @ 0x14065B18C (MiPartitionDeleteMemoryNode.c)
- *     MiMakePartitionMemoryBlock @ 0x140A45090 (MiMakePartitionMemoryBlock.c)
- *     MiUpdatePartitionLargePfnBitMap @ 0x140A45288 (MiUpdatePartitionLargePfnBitMap.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024D430 (ExAcquireSpinLockExclusive.c)
+ *     KxReleaseQueuedSpinLock @ 0x1402605F0 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402610F0 (KeAcquireInStackQueuedSpinLock.c)
+ *     RtlAvlInsertNodeEx @ 0x140288350 (RtlAvlInsertNodeEx.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140289750 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     RtlAvlRemoveNode @ 0x14028B1E0 (RtlAvlRemoveNode.c)
+ *     MmGetSessionIdEx @ 0x1402A19B0 (MmGetSessionIdEx.c)
+ *     MiReturnCommit @ 0x1402DC4E0 (MiReturnCommit.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402FD0A0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KiAbTryReclaimOrphanedEntries @ 0x14032FCF8 (KiAbTryReclaimOrphanedEntries.c)
+ *     KeInvalidateAllCaches @ 0x14036DCE0 (KeInvalidateAllCaches.c)
+ *     MiFlushEntireTbDueToAttributeChange @ 0x14036F73C (MiFlushEntireTbDueToAttributeChange.c)
+ *     MiIncreaseCommitLimits @ 0x140396244 (MiIncreaseCommitLimits.c)
+ *     MiComputeCommitThresholds @ 0x140396358 (MiComputeCommitThresholds.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     IoUpdateDumpPhysicalRanges @ 0x140551720 (IoUpdateDumpPhysicalRanges.c)
+ *     RtlNumberOfSetBitsEx @ 0x1405A90E0 (RtlNumberOfSetBitsEx.c)
+ *     MiUnlockDynamicMemoryExclusive @ 0x14061C4FC (MiUnlockDynamicMemoryExclusive.c)
+ *     MiInitializeHugePfnDatabase @ 0x1406212A0 (MiInitializeHugePfnDatabase.c)
+ *     MiInsertHugeRangeInList @ 0x14062151C (MiInsertHugeRangeInList.c)
+ *     MiLockHugePfn @ 0x140621944 (MiLockHugePfn.c)
+ *     MiReduceCommitLimits @ 0x140656AAC (MiReduceCommitLimits.c)
+ *     MiActOnPartitionNodePages @ 0x1406585D0 (MiActOnPartitionNodePages.c)
+ *     MiAddRangeToPartitionTree @ 0x14065906C (MiAddRangeToPartitionTree.c)
+ *     MiClearPartitionPageBitMap @ 0x140659510 (MiClearPartitionPageBitMap.c)
+ *     MiDeletePartitionPageNodes @ 0x140659944 (MiDeletePartitionPageNodes.c)
+ *     MiFreePartitionNodePages @ 0x14065A1C0 (MiFreePartitionNodePages.c)
+ *     MiFreePartitionTree @ 0x14065A3E8 (MiFreePartitionTree.c)
+ *     MiMergePageNodes @ 0x14065B460 (MiMergePageNodes.c)
+ *     MiPartitionDeleteMemoryNode @ 0x14065B6DC (MiPartitionDeleteMemoryNode.c)
+ *     MiMakePartitionMemoryBlock @ 0x140A45340 (MiMakePartitionMemoryBlock.c)
+ *     MiUpdatePartitionLargePfnBitMap @ 0x140A45538 (MiUpdatePartitionLargePfnBitMap.c)
  */
 
 __int64 __fastcall MiInsertPartitionPages(__int16 *a1, __int64 a2, __int64 a3, __int64 a4, __int64 a5)
@@ -286,10 +286,13 @@ LABEL_17:
       _InterlockedAnd(
         (volatile signed __int32 *)(qword_140C67DF8 + 4 * ((((v29 - qword_140C67DF0) >> 3) & 0x3FFFFFuLL) >> 5)),
         ~(1 << (((v29 - qword_140C67DF0) >> 3) & 0x1F)));
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         CurrentIrql = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v30 <= 0xFu && CurrentIrql >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+          && CurrentIrql <= 0xFu
+          && (unsigned __int8)v30 <= 0xFu
+          && CurrentIrql >= 2u )
         {
           CurrentPrcb = KeGetCurrentPrcb();
           SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -451,10 +454,10 @@ LABEL_72:
       v97 = 1;
 LABEL_122:
       ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(a2 + 224));
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v68 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v68 <= 0xFu && v95 <= 0xFu && v68 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v68 <= 0xFu && v95 <= 0xFu && v68 >= 2u )
         {
           v69 = KeGetCurrentPrcb();
           v70 = v69->SchedulerAssist;
@@ -488,7 +491,7 @@ LABEL_122:
           _InterlockedAnd(
             (volatile signed __int32 *)(qword_140C67DF8 + 4 * ((((v78 - qword_140C67DF0) >> 3) & 0x3FFFFFuLL) >> 5)),
             ~(1 << (((v78 - qword_140C67DF0) >> 3) & 0x1F)));
-          if ( KiIrqlFlags && (v79 = KeGetCurrentIrql(), (KiIrqlFlags & 1) != 0) && v79 <= 0xFu )
+          if ( (_DWORD)KiIrqlFlags && (v79 = KeGetCurrentIrql(), ((unsigned __int8)KiIrqlFlags & 1) != 0) && v79 <= 0xFu )
           {
             v80 = v96;
             if ( v96 <= 0xFu && v79 >= 2u )
@@ -550,10 +553,10 @@ LABEL_93:
           MiComputeCommitThresholds((_QWORD *)a2);
           KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
           OldIrql = LockHandle.OldIrql;
-          if ( KiIrqlFlags )
+          if ( (_DWORD)KiIrqlFlags )
           {
             v56 = KeGetCurrentIrql();
-            if ( (KiIrqlFlags & 1) != 0 && v56 <= 0xFu && LockHandle.OldIrql <= 0xFu && v56 >= 2u )
+            if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v56 <= 0xFu && LockHandle.OldIrql <= 0xFu && v56 >= 2u )
             {
               v57 = KeGetCurrentPrcb();
               v58 = v57->SchedulerAssist;

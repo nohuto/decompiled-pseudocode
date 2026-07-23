@@ -1,27 +1,27 @@
 /*
- * XREFs of IoSetInformation @ 0x140701280
+ * XREFs of IoSetInformation @ 0x140702520
  * Callers:
- *     MiAttemptPageFileReduction @ 0x1402B72CC (MiAttemptPageFileReduction.c)
- *     MiAttemptPageFileExtension @ 0x140852FB0 (MiAttemptPageFileExtension.c)
+ *     MiAttemptPageFileReduction @ 0x1402B74BC (MiAttemptPageFileReduction.c)
+ *     MiAttemptPageFileExtension @ 0x140854210 (MiAttemptPageFileExtension.c)
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
  *     ObfReferenceObject @ 0x14004E220 (ObfReferenceObject.c)
  *     KeWaitForSingleObject @ 0x140054880 (KeWaitForSingleObject.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
- *     KeResetEvent @ 0x1400B8AA0 (KeResetEvent.c)
- *     IoGetRelatedDeviceObject @ 0x1400B8B90 (IoGetRelatedDeviceObject.c)
- *     IofCallDriver @ 0x1400B8DF0 (IofCallDriver.c)
- *     KeInitializeEvent @ 0x1400B8E70 (KeInitializeEvent.c)
- *     IopAllocateIrpExReturn @ 0x1400B92E0 (IopAllocateIrpExReturn.c)
- *     IopQueueThreadIrp @ 0x1400BC380 (IopQueueThreadIrp.c)
- *     IofCompleteRequest @ 0x1400C10C0 (IofCompleteRequest.c)
- *     KeSetEvent @ 0x1400C2B00 (KeSetEvent.c)
- *     IopAcquireFileObjectLock @ 0x1405A3480 (IopAcquireFileObjectLock.c)
- *     ObCloseHandle @ 0x1405F5700 (ObCloseHandle.c)
- *     IopOpenLinkOrRenameTarget @ 0x14068BA28 (IopOpenLinkOrRenameTarget.c)
- *     IopAllocateIrpCleanup @ 0x1408193B4 (IopAllocateIrpCleanup.c)
- *     IopCancelAlertedRequest @ 0x1408195EC (IopCancelAlertedRequest.c)
- *     IopSetFileMemoryPartitionInformation @ 0x14081CF80 (IopSetFileMemoryPartitionInformation.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B78F0 (KiLeaveCriticalRegionUnsafe.c)
+ *     KeResetEvent @ 0x1400B89E0 (KeResetEvent.c)
+ *     IoGetRelatedDeviceObject @ 0x1400B8AD0 (IoGetRelatedDeviceObject.c)
+ *     IofCallDriver @ 0x1400B8D30 (IofCallDriver.c)
+ *     KeInitializeEvent @ 0x1400B8DB0 (KeInitializeEvent.c)
+ *     IopAllocateIrpExReturn @ 0x1400B9220 (IopAllocateIrpExReturn.c)
+ *     IopQueueThreadIrp @ 0x1400BC2C0 (IopQueueThreadIrp.c)
+ *     IofCompleteRequest @ 0x1400C1000 (IofCompleteRequest.c)
+ *     KeSetEvent @ 0x1400C2A40 (KeSetEvent.c)
+ *     IopAcquireFileObjectLock @ 0x1405A4480 (IopAcquireFileObjectLock.c)
+ *     ObCloseHandle @ 0x1405F6700 (ObCloseHandle.c)
+ *     IopOpenLinkOrRenameTarget @ 0x14068CBE8 (IopOpenLinkOrRenameTarget.c)
+ *     IopAllocateIrpCleanup @ 0x14081A5B4 (IopAllocateIrpCleanup.c)
+ *     IopCancelAlertedRequest @ 0x14081A7EC (IopCancelAlertedRequest.c)
+ *     IopSetFileMemoryPartitionInformation @ 0x14081E180 (IopSetFileMemoryPartitionInformation.c)
  */
 
 NTSTATUS __stdcall IoSetInformation(

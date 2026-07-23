@@ -1,10 +1,10 @@
 /*
- * XREFs of PoSessionEngagementUpdate @ 0x140610C00
+ * XREFs of PoSessionEngagementUpdate @ 0x140613EB0
  * Callers:
- *     TtmNotifySessionDisplayRequiredChange @ 0x140ABC910 (TtmNotifySessionDisplayRequiredChange.c)
+ *     TtmNotifySessionDisplayRequiredChange @ 0x140ABE730 (TtmNotifySessionDisplayRequiredChange.c)
  * Callees:
- *     PopBlockSessionSwitch @ 0x140A38870 (PopBlockSessionSwitch.c)
- *     PopInvokeWin32Callout @ 0x140ABCA7C (PopInvokeWin32Callout.c)
+ *     PopBlockSessionSwitch @ 0x1409F4430 (PopBlockSessionSwitch.c)
+ *     PopInvokeWin32Callout @ 0x140ABE89C (PopInvokeWin32Callout.c)
  */
 
 __int64 __fastcall PoSessionEngagementUpdate(__int64 a1)

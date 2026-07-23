@@ -4,7 +4,7 @@
  *     RtlCreateAtomTable @ 0x180059CD0 (RtlCreateAtomTable.c)
  * Callees:
  *     RtlAllocateHeap @ 0x18002A9A0 (RtlAllocateHeap.c)
- *     memset @ 0x1800A4780 (memset.c)
+ *     memset @ 0x1800A4740 (memset.c)
  */
 
 __int64 __fastcall RtlCreateAtomTableEx(unsigned int a1, __int64 a2, _QWORD *a3)
@@ -23,10 +23,10 @@ __int64 __fastcall RtlCreateAtomTableEx(unsigned int a1, __int64 a2, _QWORD *a3)
   if ( is_mul_ok(0x18uLL, (unsigned int)(v5 - 1))
     && 24 * (unsigned __int64)(unsigned int)(v5 - 1) + 80 >= 24 * (unsigned __int64)(unsigned int)(v5 - 1) )
   {
-    Heap = (_DWORD *)RtlAllocateHeap(
-                       (__int64)NtCurrentPeb()->ProcessHeap,
-                       (0x18 * (unsigned __int128)(unsigned int)(v5 - 1)) >> 64,
-                       24LL * (unsigned int)(v5 - 1) + 80);
+    Heap = RtlAllocateHeap(
+             NtCurrentPeb()->ProcessHeap,
+             (0x18 * (unsigned __int128)(unsigned int)(v5 - 1)) >> 64,
+             24LL * (unsigned int)(v5 - 1) + 80);
     v7 = Heap;
     if ( Heap )
     {

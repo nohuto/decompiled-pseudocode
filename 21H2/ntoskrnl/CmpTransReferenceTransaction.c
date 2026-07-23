@@ -1,13 +1,13 @@
 /*
- * XREFs of CmpTransReferenceTransaction @ 0x1406A3280
+ * XREFs of CmpTransReferenceTransaction @ 0x1405DEF80
  * Callers:
- *     CmpTransSearchAddLightWeightTrans @ 0x1406A3134 (CmpTransSearchAddLightWeightTrans.c)
- *     CmpCreateKeyBody @ 0x1406FC690 (CmpCreateKeyBody.c)
- *     CmpTransSearchAddTrans @ 0x140766E2C (CmpTransSearchAddTrans.c)
- *     CmpTransInitializeTransaction @ 0x1407670BC (CmpTransInitializeTransaction.c)
+ *     CmpTransSearchAddLightWeightTrans @ 0x1405DEE34 (CmpTransSearchAddLightWeightTrans.c)
+ *     CmpCreateKeyBody @ 0x140713A70 (CmpCreateKeyBody.c)
+ *     CmpTransSearchAddTrans @ 0x140766FEC (CmpTransSearchAddTrans.c)
+ *     CmpTransInitializeTransaction @ 0x14076727C (CmpTransInitializeTransaction.c)
  * Callees:
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     ObfReferenceObject @ 0x14034B230 (ObfReferenceObject.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     ObfReferenceObject @ 0x140355F80 (ObfReferenceObject.c)
  */
 
 __int64 __fastcall CmpTransReferenceTransaction(__int64 a1)

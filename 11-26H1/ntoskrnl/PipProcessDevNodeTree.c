@@ -1,50 +1,57 @@
 /*
- * XREFs of PipProcessDevNodeTree @ 0x14090C86C
+ * XREFs of PipProcessDevNodeTree @ 0x1409AE99C
  * Callers:
- *     PnpDeviceActionWorker @ 0x140482AA0 (PnpDeviceActionWorker.c)
- *     PnpProcessRebalance @ 0x1405DD30C (PnpProcessRebalance.c)
- *     PiProcessResourceRequirementsChanged @ 0x1407A50B4 (PiProcessResourceRequirementsChanged.c)
- *     PiProcessStartSystemDevices @ 0x1407A521C (PiProcessStartSystemDevices.c)
- *     PipProcessDevNodeTree @ 0x14090C86C (PipProcessDevNodeTree.c)
- *     PiProcessReenumeration @ 0x140AC6B74 (PiProcessReenumeration.c)
- *     PiRestartDevice @ 0x140B3AFB0 (PiRestartDevice.c)
+ *     PnpDeviceActionWorker @ 0x14047C410 (PnpDeviceActionWorker.c)
+ *     PnpProcessRebalance @ 0x1405DFC7C (PnpProcessRebalance.c)
+ *     PiProcessResourceRequirementsChanged @ 0x1407A7BF4 (PiProcessResourceRequirementsChanged.c)
+ *     PiProcessStartSystemDevices @ 0x1407A7D5C (PiProcessStartSystemDevices.c)
+ *     PipProcessDevNodeTree @ 0x1409AE99C (PipProcessDevNodeTree.c)
+ *     PiProcessReenumeration @ 0x140AC8764 (PiProcessReenumeration.c)
+ *     PiRestartDevice @ 0x140B3D230 (PiRestartDevice.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     ExAcquireResourceExclusiveLite @ 0x140275200 (ExAcquireResourceExclusiveLite.c)
- *     ExAcquireResourceSharedLite @ 0x1402B3C80 (ExAcquireResourceSharedLite.c)
- *     ExReleaseResourceLite @ 0x1402B4CF0 (ExReleaseResourceLite.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     RtlCopyUnicodeString @ 0x140419A90 (RtlCopyUnicodeString.c)
- *     McTemplateK0z_EtwWriteTransfer @ 0x1404A0040 (McTemplateK0z_EtwWriteTransfer.c)
- *     PoFxPrepareDevice @ 0x1404A1864 (PoFxPrepareDevice.c)
- *     PoFxIdleDevice @ 0x1404B2604 (PoFxIdleDevice.c)
- *     PnpDeviceCompletionQueueIsEmpty @ 0x1404B81B4 (PnpDeviceCompletionQueueIsEmpty.c)
- *     PiCollapseEnumRequests @ 0x1404DF76C (PiCollapseEnumRequests.c)
- *     PnpDeviceCompletionQueueGetCompletedRequest @ 0x1404EFCBC (PnpDeviceCompletionQueueGetCompletedRequest.c)
- *     PipProcessRestartPhase1 @ 0x1407B4D28 (PipProcessRestartPhase1.c)
- *     PipProcessRestartPhase2 @ 0x1407B4DF4 (PipProcessRestartPhase2.c)
- *     PipProcessStartPhase3 @ 0x140908998 (PipProcessStartPhase3.c)
- *     PnpProcessAssignResources @ 0x14090B6F8 (PnpProcessAssignResources.c)
- *     PnpDeviceCompletionProcessCompletedRequests @ 0x14090C7D8 (PnpDeviceCompletionProcessCompletedRequests.c)
- *     PipProcessDevNodeTree @ 0x14090C86C (PipProcessDevNodeTree.c)
- *     PnpCheckForActiveDependencies @ 0x14090D0F0 (PnpCheckForActiveDependencies.c)
- *     PpDevCfgTraceDeviceStart @ 0x14090D160 (PpDevCfgTraceDeviceStart.c)
- *     PnpDeviceCompletionProcessCompletedRequest @ 0x14090D1F0 (PnpDeviceCompletionProcessCompletedRequest.c)
- *     PipEnumerateCompleted @ 0x14090D2B4 (PipEnumerateCompleted.c)
- *     IopAllocateUnicodeString @ 0x14090DDE8 (IopAllocateUnicodeString.c)
- *     PipEnumerateDevice @ 0x14090DEA8 (PipEnumerateDevice.c)
- *     PnpPoFxActivateDevice @ 0x14090E180 (PnpPoFxActivateDevice.c)
- *     PnpSynchronizeDeviceEventQueue @ 0x14090E200 (PnpSynchronizeDeviceEventQueue.c)
- *     PipProcessStartPhase1 @ 0x1409108E0 (PipProcessStartPhase1.c)
- *     PipCallDriverAddDevice @ 0x1409156CC (PipCallDriverAddDevice.c)
- *     PipSetDevNodeProblem @ 0x140916A54 (PipSetDevNodeProblem.c)
- *     PnpDeviceObjectFromDeviceInstanceWithTag @ 0x140999B20 (PnpDeviceObjectFromDeviceInstanceWithTag.c)
- *     PiProcessNewDeviceNodeAsync @ 0x140AA5DC4 (PiProcessNewDeviceNodeAsync.c)
- *     PipProcessStartPhase2 @ 0x140B0AC1C (PipProcessStartPhase2.c)
- *     ExFreePool @ 0x140C10E30 (ExFreePool.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     ExAcquireResourceExclusiveLite @ 0x140274770 (ExAcquireResourceExclusiveLite.c)
+ *     ExAcquireResourceSharedLite @ 0x1402FE950 (ExAcquireResourceSharedLite.c)
+ *     ExReleaseResourceLite @ 0x1402FF9C0 (ExReleaseResourceLite.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     RtlCopyUnicodeString @ 0x14040DFC0 (RtlCopyUnicodeString.c)
+ *     McTemplateK0z_EtwWriteTransfer @ 0x140499B90 (McTemplateK0z_EtwWriteTransfer.c)
+ *     PoFxPrepareDevice @ 0x14049B394 (PoFxPrepareDevice.c)
+ *     PoFxIdleDevice @ 0x1404ABB10 (PoFxIdleDevice.c)
+ *     PnpDeviceCompletionQueueIsEmpty @ 0x1404B19E4 (PnpDeviceCompletionQueueIsEmpty.c)
+ *     PiCollapseEnumRequests @ 0x1404D8E4C (PiCollapseEnumRequests.c)
+ *     PnpDeviceCompletionQueueGetCompletedRequest @ 0x1404E929C (PnpDeviceCompletionQueueGetCompletedRequest.c)
+ *     PipProcessRestartPhase1 @ 0x1407B7D88 (PipProcessRestartPhase1.c)
+ *     PipProcessRestartPhase2 @ 0x1407B7E54 (PipProcessRestartPhase2.c)
+ *     PnpDeviceObjectFromDeviceInstanceWithTag @ 0x14095A580 (PnpDeviceObjectFromDeviceInstanceWithTag.c)
+ *     PipCallDriverAddDevice @ 0x140970138 (PipCallDriverAddDevice.c)
+ *     PipSetDevNodeProblem @ 0x1409714C0 (PipSetDevNodeProblem.c)
+ *     PipProcessStartPhase3 @ 0x1409AB9E8 (PipProcessStartPhase3.c)
+ *     PnpProcessAssignResources @ 0x1409AD81C (PnpProcessAssignResources.c)
+ *     PnpDeviceCompletionProcessCompletedRequests @ 0x1409AE908 (PnpDeviceCompletionProcessCompletedRequests.c)
+ *     PipProcessDevNodeTree @ 0x1409AE99C (PipProcessDevNodeTree.c)
+ *     PnpCheckForActiveDependencies @ 0x1409AF220 (PnpCheckForActiveDependencies.c)
+ *     PpDevCfgTraceDeviceStart @ 0x1409AF290 (PpDevCfgTraceDeviceStart.c)
+ *     PnpDeviceCompletionProcessCompletedRequest @ 0x1409AF320 (PnpDeviceCompletionProcessCompletedRequest.c)
+ *     PipEnumerateCompleted @ 0x1409AF3E4 (PipEnumerateCompleted.c)
+ *     IopAllocateUnicodeString @ 0x1409AFF18 (IopAllocateUnicodeString.c)
+ *     PipEnumerateDevice @ 0x1409AFFD8 (PipEnumerateDevice.c)
+ *     PnpPoFxActivateDevice @ 0x1409B02B0 (PnpPoFxActivateDevice.c)
+ *     PnpSynchronizeDeviceEventQueue @ 0x1409B0330 (PnpSynchronizeDeviceEventQueue.c)
+ *     PipProcessStartPhase1 @ 0x1409B29C0 (PipProcessStartPhase1.c)
+ *     PiProcessNewDeviceNodeAsync @ 0x1409D92F8 (PiProcessNewDeviceNodeAsync.c)
+ *     PipProcessStartPhase2 @ 0x140B0C368 (PipProcessStartPhase2.c)
+ *     ExFreePool @ 0x140C16E30 (ExFreePool.c)
  */
 
-__int64 __fastcall PipProcessDevNodeTree(__int64 a1, __int64 a2, int a3, int a4, char a5, unsigned __int8 a6, char a7)
+__int64 __fastcall PipProcessDevNodeTree(
+        __int64 a1,
+        __int64 a2,
+        __int64 a3,
+        int a4,
+        char a5,
+        unsigned __int8 a6,
+        char a7)
 {
   int v7; // r15d
   char v8; // r12
@@ -56,7 +63,7 @@ __int64 __fastcall PipProcessDevNodeTree(__int64 a1, __int64 a2, int a3, int a4,
   char v14; // al
   __int64 v15; // rcx
   __int64 v16; // r8
-  ULONG_PTR v17; // rbx
+  __int64 v17; // rbx
   int v18; // esi
   int v19; // eax
   int v20; // eax
@@ -66,13 +73,13 @@ __int64 __fastcall PipProcessDevNodeTree(__int64 a1, __int64 a2, int a3, int a4,
   char v24; // r12
   char v25; // r14
   int v26; // esi
-  ULONG_PTR v27; // rax
-  ULONG_PTR v29; // rax
+  __int64 v27; // rax
+  __int64 v29; // rax
   void *CompletedRequest; // rax
   int v31; // eax
   int v32; // ebx
   struct _KTHREAD *CurrentThread; // rax
-  __int64 v34; // rbx
+  _QWORD *v34; // rbx
   int v35; // esi
   __int64 v36; // r8
   struct _KLOCK_ENTRIES *v37; // r9
@@ -91,7 +98,7 @@ __int64 __fastcall PipProcessDevNodeTree(__int64 a1, __int64 a2, int a3, int a4,
   char v50; // [rsp+4Ch] [rbp-3Dh]
   int v51; // [rsp+50h] [rbp-39h]
   unsigned int v52; // [rsp+54h] [rbp-35h]
-  ULONG_PTR v53; // [rsp+58h] [rbp-31h]
+  __int64 v53; // [rsp+58h] [rbp-31h]
   PVOID *v54; // [rsp+60h] [rbp-29h]
   unsigned int v55; // [rsp+68h] [rbp-21h]
   UNICODE_STRING DestinationString; // [rsp+70h] [rbp-19h] BYREF
@@ -127,19 +134,19 @@ __int64 __fastcall PipProcessDevNodeTree(__int64 a1, __int64 a2, int a3, int a4,
 LABEL_9:
   if ( !v8 )
   {
-    LOBYTE(v53) = byte_140EF3DCB & 0x10;
-    if ( (byte_140EF3DCB & 0x10) != 0 )
+    LOBYTE(v53) = byte_140EF412B & 0x10;
+    if ( (byte_140EF412B & 0x10) != 0 )
       McTemplateK0z_EtwWriteTransfer(
         a1,
         (const EVENT_DESCRIPTOR *)KMPnPEvt_AssignResources_Start,
         1LL,
         *((const wchar_t **)v11 + 6));
     v47 = 0;
-    v49 = PnpProcessAssignResources((__int64 *)v11, a5, (__int64)&v47);
-    LOBYTE(v53) = byte_140EF3DCB & 0x10;
-    if ( (byte_140EF3DCB & 0x10) != 0 )
+    v49 = PnpProcessAssignResources((__int64)v11, a5, (__int64)&v47);
+    LOBYTE(v53) = byte_140EF412B & 0x10;
+    if ( (byte_140EF412B & 0x10) != 0 )
     {
-      LOBYTE(v15) = byte_140EF3DCB & 0x10;
+      LOBYTE(v15) = byte_140EF412B & 0x10;
       McTemplateK0z_EtwWriteTransfer(
         v15,
         (const EVENT_DESCRIPTOR *)KMPnPEvt_AssignResources_Stop,
@@ -160,9 +167,9 @@ LABEL_9:
     }
     v14 = v46;
   }
-  v17 = (ULONG_PTR)v11;
+  v17 = (__int64)v11;
   v47 = 0;
-  v53 = (ULONG_PTR)v11;
+  v53 = (__int64)v11;
   v50 = 1;
   while ( 1 )
   {
@@ -181,7 +188,7 @@ LABEL_9:
       && (*(_DWORD *)(v17 + 396) & 0x6000) == 0
       && (unsigned __int8)PnpCheckForActiveDependencies(v17, 2LL, 1LL) )
     {
-      PipSetDevNodeProblem(v17, 51LL, 0LL);
+      PipSetDevNodeProblem(v17, 51, 0);
     }
     v21 = *(unsigned int *)(v17 + 396);
     if ( (v21 & 0x6000) != 0 )
@@ -268,7 +275,7 @@ LABEL_77:
       }
       if ( v8 || (*(_DWORD *)(v17 + 704) & 0x10000) != 0 )
         goto LABEL_37;
-      started = PipCallDriverAddDevice(v17);
+      started = PipCallDriverAddDevice(v17, a3);
       if ( started >= 0 )
       {
         PoFxPrepareDevice(v17, 0, v36, v37);
@@ -284,11 +291,11 @@ LABEL_77:
     {
       if ( (unsigned __int8)PnpCheckForActiveDependencies(v17, 1LL, 1LL) )
       {
-        PipSetDevNodeProblem(v17, 51LL, 0LL);
+        PipSetDevNodeProblem(v17, 51, 0);
       }
       else
       {
-        v40 = PiProcessNewDeviceNodeAsync(v17);
+        v40 = PiProcessNewDeviceNodeAsync(v17, a6);
         started = v40;
         if ( v40 == 259 )
           goto LABEL_109;
@@ -489,7 +496,7 @@ LABEL_80:
     --CurrentThread->KernelApcDisable;
     ExAcquireResourceExclusiveLite(&PiEngineLock, 1u);
     ExAcquireResourceSharedLite(&IopDeviceTreeLock, 1u);
-    v34 = PnpDeviceObjectFromDeviceInstanceWithTag(&DestinationString, 1953261124LL);
+    v34 = PnpDeviceObjectFromDeviceInstanceWithTag((__int64)&DestinationString, 0x746C6644u);
     if ( DestinationString.Buffer )
     {
       ExFreePool(DestinationString.Buffer);
@@ -497,10 +504,10 @@ LABEL_80:
     }
     if ( v34 )
     {
-      v11 = *(char **)(*(_QWORD *)(v34 + 312) + 40LL);
+      v11 = *(char **)(v34[39] + 40LL);
       v14 = v46;
-      v17 = (ULONG_PTR)v11;
-      v53 = (ULONG_PTR)v11;
+      v17 = (__int64)v11;
+      v53 = (__int64)v11;
       v12 = (PVOID *)v11;
       v57 = v11;
       v54 = (PVOID *)v11;

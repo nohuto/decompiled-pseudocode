@@ -1,16 +1,16 @@
 /*
- * XREFs of _winput_s @ 0x140155A7C
+ * XREFs of _winput_s @ 0x140155FEC
  * Callers:
- *     _swinput_s @ 0x1401559C8 (_swinput_s.c)
+ *     _swinput_s @ 0x140155F38 (_swinput_s.c)
  * Callees:
- *     xHalFreeMessageTarget @ 0x140130D64 (xHalFreeMessageTarget.c)
- *     iswctype @ 0x14014FB60 (iswctype.c)
- *     ReadString_0 @ 0x1401555AC (ReadString_0.c)
- *     ReadStringDelimited_0 @ 0x1401557E4 (ReadStringDelimited_0.c)
- *     _hextodec @ 0x140155980 (_hextodec.c)
- *     _whiteout @ 0x140155A2C (_whiteout.c)
- *     _fgetwc_nolock @ 0x1401564DC (_fgetwc_nolock.c)
- *     _ungetwc_nolock @ 0x14015652C (_ungetwc_nolock.c)
+ *     xHalFreeMessageTarget @ 0x1401312D4 (xHalFreeMessageTarget.c)
+ *     iswctype @ 0x140150120 (iswctype.c)
+ *     ReadString_0 @ 0x140155B1C (ReadString_0.c)
+ *     ReadStringDelimited_0 @ 0x140155D54 (ReadStringDelimited_0.c)
+ *     _hextodec @ 0x140155EF0 (_hextodec.c)
+ *     _whiteout @ 0x140155F9C (_whiteout.c)
+ *     _fgetwc_nolock @ 0x140156A54 (_fgetwc_nolock.c)
+ *     _ungetwc_nolock @ 0x140156AA4 (_ungetwc_nolock.c)
  */
 
 __int64 __fastcall winput_s(FILE *File, wint_t *a2, _DWORD *a3)

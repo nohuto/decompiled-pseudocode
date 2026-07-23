@@ -8,11 +8,11 @@
  *     <none>
  */
 
-__int64 NtReleaseWorkerFactoryWorker()
+NTSTATUS __cdecl NtReleaseWorkerFactoryWorker(HANDLE WorkerFactoryHandle)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 341LL;
+  result = 341;
   __asm { syscall; Low latency system call }
   return result;
 }

@@ -17,11 +17,16 @@
  *     <none>
  */
 
-__int64 ZwCreateEvent()
+NTSTATUS __cdecl ZwCreateEvent(
+        PHANDLE EventHandle,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        EVENT_TYPE EventType,
+        BOOLEAN InitialState)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 72LL;
+  result = 72;
   __asm { syscall; Low latency system call }
   return result;
 }

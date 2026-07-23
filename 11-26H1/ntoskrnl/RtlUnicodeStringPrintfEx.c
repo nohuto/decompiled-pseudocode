@@ -1,17 +1,17 @@
 /*
- * XREFs of RtlUnicodeStringPrintfEx @ 0x1404DEF40
+ * XREFs of RtlUnicodeStringPrintfEx @ 0x1404D8620
  * Callers:
- *     PiBuildAndOpenDeviceDirectoryPath @ 0x1407A0964 (PiBuildAndOpenDeviceDirectoryPath.c)
- *     PiCreateServiceKeyUnderPath @ 0x1407A102C (PiCreateServiceKeyUnderPath.c)
- *     PiGetDriverMutableStateDirectory @ 0x1407A1284 (PiGetDriverMutableStateDirectory.c)
- *     PiDevCfgBuildIndirectString @ 0x14098838C (PiDevCfgBuildIndirectString.c)
- *     PiOpenDriverRedirectedStateKey @ 0x140A2DDCC (PiOpenDriverRedirectedStateKey.c)
- *     PiDevCfgLogDeviceConfigured @ 0x140AD1378 (PiDevCfgLogDeviceConfigured.c)
- *     PiDevCfgBuildDriverConfigurationId @ 0x140AD39B4 (PiDevCfgBuildDriverConfigurationId.c)
+ *     PiBuildAndOpenDeviceDirectoryPath @ 0x1407A34A4 (PiBuildAndOpenDeviceDirectoryPath.c)
+ *     PiCreateServiceKeyUnderPath @ 0x1407A3B6C (PiCreateServiceKeyUnderPath.c)
+ *     PiGetDriverMutableStateDirectory @ 0x1407A3DC4 (PiGetDriverMutableStateDirectory.c)
+ *     PiOpenDriverRedirectedStateKey @ 0x140A3FA1C (PiOpenDriverRedirectedStateKey.c)
+ *     PiDevCfgBuildIndirectString @ 0x140A42AB8 (PiDevCfgBuildIndirectString.c)
+ *     PiDevCfgLogDeviceConfigured @ 0x140AE8544 (PiDevCfgLogDeviceConfigured.c)
+ *     PiDevCfgBuildDriverConfigurationId @ 0x140AEACE8 (PiDevCfgBuildDriverConfigurationId.c)
  * Callees:
- *     _vsnwprintf @ 0x1405353B0 (_vsnwprintf.c)
- *     RtlUnicodeStringExHandleOtherFlags @ 0x1405D8FE0 (RtlUnicodeStringExHandleOtherFlags.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     _vsnwprintf @ 0x140537830 (_vsnwprintf.c)
+ *     RtlUnicodeStringExHandleOtherFlags @ 0x1405DB7E0 (RtlUnicodeStringExHandleOtherFlags.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 NTSTATUS RtlUnicodeStringPrintfEx(

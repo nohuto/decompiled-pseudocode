@@ -5,33 +5,33 @@
  *     IoCreateStreamFileObjectEx @ 0x1407FC9D0 (IoCreateStreamFileObjectEx.c)
  *     IoCreateStreamFileObject @ 0x14080AE10 (IoCreateStreamFileObject.c)
  * Callees:
- *     IopGetSetSpecificExtension @ 0x1402A38B4 (IopGetSetSpecificExtension.c)
- *     IopIncrementVpbRefCount @ 0x1402A3EAC (IopIncrementVpbRefCount.c)
- *     IopIncrementDeviceObjectRefCount @ 0x1402A6E00 (IopIncrementDeviceObjectRefCount.c)
- *     IopDecrementDeviceObjectRef @ 0x1402A7190 (IopDecrementDeviceObjectRef.c)
+ *     sub_1402A38B4 @ 0x1402A38B4 (sub_1402A38B4.c)
+ *     sub_1402A3EAC @ 0x1402A3EAC (sub_1402A3EAC.c)
+ *     sub_1402A6E00 @ 0x1402A6E00 (sub_1402A6E00.c)
+ *     sub_1402A7190 @ 0x1402A7190 (sub_1402A7190.c)
  *     KeInitializeEvent @ 0x1402A7B90 (KeInitializeEvent.c)
  *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
  *     RtlRaiseStatus @ 0x1402D37A0 (RtlRaiseStatus.c)
- *     RtlpInterlockedPushEntrySList @ 0x1404298C0 (RtlpInterlockedPushEntrySList.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
+ *     ExpInterlockedPushEntrySList @ 0x1404298C0 (ExpInterlockedPushEntrySList.c)
+ *     sub_14042A5E0 @ 0x14042A5E0 (sub_14042A5E0.c)
  *     memset @ 0x140435E00 (memset.c)
  *     ObInsertObject @ 0x14066BA50 (ObInsertObject.c)
- *     ObCreateObjectEx @ 0x14072B3B0 (ObCreateObjectEx.c)
+ *     sub_14072B3B0 @ 0x14072B3B0 (sub_14072B3B0.c)
  *     ObCloseHandle @ 0x14074F6A0 (ObCloseHandle.c)
  */
 
-NTSTATUS __fastcall IoCreateStreamFileObjectEx2(__int64 a1, __int64 a2, ULONG_PTR a3, PVOID *a4, HANDLE *a5)
+int __fastcall IoCreateStreamFileObjectEx2(__int64 a1, __int64 a2, ULONG_PTR a3, PVOID *a4, HANDLE *a5)
 {
   HANDLE *v5; // r14
   __int16 v6; // r12
   ULONG_PTR v8; // r15
-  int SetSpecificExtension; // edi
+  NTSTATUS v10; // edi
   _QWORD *v11; // rax
   struct _KPRCB *CurrentPrcb; // r8
-  _GENERAL_LOOKASIDE *P; // rcx
-  struct _SLIST_ENTRY *v14; // rdx
+  __int64 v13; // rcx
+  _SLIST_ENTRY *v14; // rdx
   ULONG_PTR v15; // rcx
-  NTSTATUS result; // eax
+  int result; // eax
   PVOID v17; // rcx
   PVOID *NewObject; // [rsp+20h] [rbp-60h]
   _DWORD v19[2]; // [rsp+50h] [rbp-30h] BYREF
@@ -74,30 +74,20 @@ LABEL_33:
     return -1073741811;
   }
 LABEL_8:
-  IopIncrementDeviceObjectRefCount(v8, 1);
+  sub_1402A6E00(v8, 1);
   v19[0] = 48;
   v20 = 0LL;
   v22 = 512;
   v21 = 0LL;
   v24 = 0LL;
   LOWORD(a5) = 1;
-  SetSpecificExtension = ObCreateObjectEx(
-                           0,
-                           IoFileObjectType,
-                           (int)v19,
-                           0,
-                           (__int64)NewObject,
-                           216,
-                           216,
-                           0,
-                           &Object,
-                           (__int64)&a5);
-  if ( SetSpecificExtension < 0 )
+  v10 = sub_14072B3B0(0, IoFileObjectType, (int)v19, 0, (__int64)NewObject, 216, 216, 0, &Object, (__int64)&a5);
+  if ( v10 < 0 )
   {
-    IopDecrementDeviceObjectRef(v8, 0);
+    sub_1402A7190(v8, 0);
     if ( (*(_BYTE *)(a1 + 2) & 1) != 0 )
-      RtlRaiseStatus(SetSpecificExtension);
-    return SetSpecificExtension;
+      RtlRaiseStatus(v10);
+    return v10;
   }
   memset(Object, 0, 0xD8uLL);
   *(_WORD *)Object = 5;
@@ -112,28 +102,28 @@ LABEL_8:
   if ( v6 )
   {
     CurrentPrcb = KeGetCurrentPrcb();
-    P = CurrentPrcb->PPLookasideList[4].P;
-    v14 = (struct _SLIST_ENTRY *)*((_QWORD *)Object - 2);
-    ++P->TotalFrees;
-    if ( LOWORD(P->ListHead.Alignment) < P->Depth
-      || (++P->FreeMisses,
-          P = CurrentPrcb->PPLookasideList[4].L,
-          ++P->TotalFrees,
-          LOWORD(P->ListHead.Alignment) < P->Depth) )
+    v13 = *((_QWORD *)CurrentPrcb + 264);
+    v14 = (_SLIST_ENTRY *)*((_QWORD *)Object - 2);
+    ++*(_DWORD *)(v13 + 28);
+    if ( *(_WORD *)v13 < *(_WORD *)(v13 + 16)
+      || (++*(_DWORD *)(v13 + 32),
+          v13 = *((_QWORD *)CurrentPrcb + 265),
+          ++*(_DWORD *)(v13 + 28),
+          *(_WORD *)v13 < *(_WORD *)(v13 + 16)) )
     {
-      RtlpInterlockedPushEntrySList(&P->ListHead, v14);
+      ExpInterlockedPushEntrySList((PSLIST_HEADER)v13, v14);
     }
     else
     {
-      ++P->FreeMisses;
-      ((void (__fastcall *)(struct _SLIST_ENTRY *))P->FreeEx)(v14);
+      ++*(_DWORD *)(v13 + 32);
+      sub_14042A5E0(v14, v14);
     }
     *((_QWORD *)Object - 2) = 0LL;
 LABEL_13:
     *((_DWORD *)Object + 20) |= 0x40000u;
     v15 = *(_QWORD *)(v8 + 56);
     if ( v15 )
-      IopIncrementVpbRefCount(v15, 1);
+      sub_1402A3EAC(v15, 1);
     if ( !v6 )
     {
       if ( v5 )
@@ -150,8 +140,8 @@ LABEL_13:
     if ( *(_QWORD *)(a1 + 8) )
     {
       a5 = 0LL;
-      SetSpecificExtension = IopGetSetSpecificExtension((__int64)Object, 1u, 0x20u, 1, &a5, 0LL);
-      if ( SetSpecificExtension < 0 )
+      v10 = sub_1402A38B4((__int64)Object, 1u, 0x20u, 1, &a5, 0LL);
+      if ( v10 < 0 )
       {
         if ( v5 )
         {
@@ -163,16 +153,16 @@ LABEL_13:
           ObfDereferenceObject(Object);
         }
         if ( (*(_BYTE *)(a1 + 2) & 1) != 0 )
-          RtlRaiseStatus(SetSpecificExtension);
-        return SetSpecificExtension;
+          RtlRaiseStatus(v10);
+        return v10;
       }
       *a5 = *(HANDLE *)(a1 + 8);
     }
     *a4 = Object;
-    return SetSpecificExtension;
+    return v10;
   }
   result = ObInsertObject(Object, 0LL, 1u, 1u, &Object, &Handle);
-  SetSpecificExtension = result;
+  v10 = result;
   if ( result >= 0 )
     goto LABEL_13;
   if ( (*(_BYTE *)(a1 + 2) & 1) != 0 )

@@ -2,12 +2,12 @@
  * XREFs of MiReferenceInPageFile @ 0x14001CAC8
  * Callers:
  *     MiIssueHardFault @ 0x14001BCD0 (MiIssueHardFault.c)
- *     MiPfExecuteReadList @ 0x14066279C (MiPfExecuteReadList.c)
+ *     MiPfExecuteReadList @ 0x14066395C (MiPfExecuteReadList.c)
  * Callees:
  *     MiComputeImagePteIndex @ 0x14001B70C (MiComputeImagePteIndex.c)
  *     MiReferenceControlAreaFile @ 0x14001CBB0 (MiReferenceControlAreaFile.c)
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
- *     MiCanPageMove @ 0x1401183F4 (MiCanPageMove.c)
+ *     MiCanPageMove @ 0x140118464 (MiCanPageMove.c)
  */
 
 __int64 __fastcall MiReferenceInPageFile(__int64 a1, unsigned int a2)

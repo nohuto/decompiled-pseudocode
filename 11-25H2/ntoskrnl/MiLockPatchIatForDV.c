@@ -17,7 +17,7 @@
 _BOOL8 __fastcall MiLockPatchIatForDV(__int64 a1, __int64 a2)
 {
   _QWORD *v2; // rdi
-  __int64 v5; // rbp
+  char *v5; // rbp
   __int64 v6; // r15
   __int64 Pool2; // rax
   int v8; // ebx
@@ -27,16 +27,16 @@ _BOOL8 __fastcall MiLockPatchIatForDV(__int64 a1, __int64 a2)
   PMDL Mdl; // rax
   unsigned int v13; // r9d
   __int64 v14; // r8
-  PVOID v15; // rax
+  char *v15; // rax
   _QWORD *v16; // rcx
-  unsigned int v18; // [rsp+70h] [rbp+8h] BYREF
+  ULONG Size; // [rsp+70h] [rbp+8h] BYREF
   unsigned int v19; // [rsp+78h] [rbp+10h]
 
-  v18 = 0;
+  Size = 0;
   v19 = 0;
   v2 = 0LL;
-  v5 = RtlImageDirectoryEntryToData(*(_QWORD *)(a1 + 48), 1, 0xCu, &v18);
-  if ( v5 && (v6 = v18, v18 >= 8) )
+  v5 = (char *)RtlImageDirectoryEntryToData(*(PVOID *)(a1 + 48), 1u, 0xCu, &Size);
+  if ( v5 && (v6 = Size, Size >= 8) )
   {
     Pool2 = ExAllocatePool2(0x40uLL);
     v2 = (_QWORD *)Pool2;
@@ -79,9 +79,9 @@ LABEL_4:
       }
       v8 = MiLockDriverPageRange(
              v9,
-             (unsigned int)(v5 - *(_DWORD *)(a1 + 48)) >> 12,
-             ((unsigned int)(v5 - *(_DWORD *)(a1 + 48)) >> 12)
-           + ((v6 + 4095 + (unsigned __int64)(v5 & 0xFFF)) >> 12)
+             (unsigned int)((_DWORD)v5 - *(_DWORD *)(a1 + 48)) >> 12,
+             ((unsigned int)((_DWORD)v5 - *(_DWORD *)(a1 + 48)) >> 12)
+           + ((v6 + 4095 + (unsigned __int64)((unsigned __int16)v5 & 0xFFF)) >> 12)
            - 1,
              v19,
              *v11);
@@ -89,10 +89,10 @@ LABEL_4:
       {
         if ( *v11 )
         {
-          v15 = MmMapLockedPagesSpecifyCache((PMDL)*v11, 0, MmCached, 0LL, 0, 0x40000010u);
+          v15 = (char *)MmMapLockedPagesSpecifyCache((PMDL)*v11, 0, MmCached, 0LL, 0, 0x40000010u);
           if ( !v15 )
             goto LABEL_4;
-          v5 += (__int64)v15 - *(_QWORD *)(a1 + 48);
+          v5 = &v15[(_QWORD)v5 - *(_QWORD *)(a1 + 48)];
         }
         v2[16] = v5;
         *((_DWORD *)v2 + 34) = v6;

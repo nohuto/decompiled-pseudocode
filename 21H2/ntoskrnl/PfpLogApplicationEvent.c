@@ -1,15 +1,15 @@
 /*
- * XREFs of PfpLogApplicationEvent @ 0x1402D48C8
+ * XREFs of PfpLogApplicationEvent @ 0x1402735A8
  * Callers:
- *     PfCalculateProcessHash @ 0x1406CC490 (PfCalculateProcessHash.c)
- *     PspExitProcess @ 0x1406CD37C (PspExitProcess.c)
+ *     PfCalculateProcessHash @ 0x14067AD80 (PfCalculateProcessHash.c)
+ *     PspExitProcess @ 0x14067C00C (PspExitProcess.c)
  * Callees:
- *     PfLogEvent @ 0x1402D4DFC (PfLogEvent.c)
- *     MmGetSessionIdEx @ 0x14034AE60 (MmGetSessionIdEx.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     memmove @ 0x140413F40 (memmove.c)
- *     MmGetDirectoryFrameFromProcess @ 0x1406CB4F4 (MmGetDirectoryFrameFromProcess.c)
- *     MmGetSessionGlobalVA @ 0x1406CB504 (MmGetSessionGlobalVA.c)
+ *     PfLogEvent @ 0x140273ADC (PfLogEvent.c)
+ *     MmGetSessionIdEx @ 0x140355BB0 (MmGetSessionIdEx.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     MmGetDirectoryFrameFromProcess @ 0x140679DE4 (MmGetDirectoryFrameFromProcess.c)
+ *     MmGetSessionGlobalVA @ 0x140679DF4 (MmGetSessionGlobalVA.c)
  */
 
 __int64 __fastcall PfpLogApplicationEvent(__int64 a1, _QWORD *a2, char a3)
@@ -43,7 +43,7 @@ __int64 __fastcall PfpLogApplicationEvent(__int64 a1, _QWORD *a2, char a3)
   __int64 v32; // [rsp+830h] [rbp+728h]
 
   *(_OWORD *)&v20[1] = 0LL;
-  if ( dword_140C4FDD8 >= (unsigned int)dword_140C4FDDC )
+  if ( dword_140C4FE18 >= (unsigned int)dword_140C4FE1C )
     return 3221225659LL;
   v5 = *(_DWORD *)(a1 + 1088);
   v6 = 0;
@@ -92,7 +92,7 @@ __int64 __fastcall PfpLogApplicationEvent(__int64 a1, _QWORD *a2, char a3)
   }
   return PfLogEvent(
            v16,
-           dword_140C502DC
+           dword_140C5031C
          + (unsigned int)((((MEMORY[0xFFFFF78000000004] * HIDWORD(MEMORY[0xFFFFF78000000320])) << 8)
                          + ((MEMORY[0xFFFFF78000000004] * (unsigned __int64)MEMORY[0xFFFFF78000000320]) >> 24)) >> 10),
            &v21);

@@ -1,36 +1,38 @@
 /*
- * XREFs of RtlGetNextEntryHashTable @ 0x180086290
+ * XREFs of RtlGetNextEntryHashTable @ 0x1800862A0
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-_QWORD *__fastcall RtlGetNextEntryHashTable(__int64 a1, __int64 a2)
+PRTL_DYNAMIC_HASH_TABLE_ENTRY __cdecl RtlGetNextEntryHashTable(
+        PRTL_DYNAMIC_HASH_TABLE HashTable,
+        PRTL_DYNAMIC_HASH_TABLE_CONTEXT Context)
 {
-  _QWORD *v3; // r9
-  _QWORD *result; // rax
-  _QWORD *v5; // rdx
+  PRTL_DYNAMIC_HASH_TABLE_ENTRY *Flink; // r9
+  PRTL_DYNAMIC_HASH_TABLE_ENTRY result; // rax
+  PRTL_DYNAMIC_HASH_TABLE_ENTRY v5; // rdx
 
-  v3 = **(_QWORD ***)(a2 + 8);
-  result = (_QWORD *)*v3;
-  if ( *v3 == *(_QWORD *)a2 )
+  Flink = (PRTL_DYNAMIC_HASH_TABLE_ENTRY *)Context->PrevLinkage->Flink;
+  result = *Flink;
+  if ( *Flink == (PRTL_DYNAMIC_HASH_TABLE_ENTRY)Context->ChainHead )
     return 0LL;
-  if ( *(_DWORD *)(a1 + 28) )
+  if ( HashTable->NumEnumerators )
   {
-    v5 = (_QWORD *)*v3;
+    v5 = *Flink;
     do
     {
       result = v5;
-      if ( v5[2] )
+      if ( v5->Signature )
         break;
-      v3 = v5;
-      v5 = (_QWORD *)*v5;
+      Flink = (PRTL_DYNAMIC_HASH_TABLE_ENTRY *)v5;
+      v5 = (PRTL_DYNAMIC_HASH_TABLE_ENTRY)v5->Linkage.Flink;
     }
-    while ( v5 != *(_QWORD **)a2 );
+    while ( v5 != (PRTL_DYNAMIC_HASH_TABLE_ENTRY)Context->ChainHead );
   }
-  if ( result[2] != *(_QWORD *)(a2 + 16) )
+  if ( result->Signature != Context->Signature )
     return 0LL;
-  *(_QWORD *)(a2 + 8) = v3;
+  Context->PrevLinkage = (_LIST_ENTRY *)Flink;
   return result;
 }

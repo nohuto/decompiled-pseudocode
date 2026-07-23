@@ -1,16 +1,16 @@
 /*
- * XREFs of CmpCaptureUnicodeString @ 0x14097E720
+ * XREFs of CmpCaptureUnicodeString @ 0x140940730
  * Callers:
- *     NtRenameKey @ 0x14084F890 (NtRenameKey.c)
- *     CmLoadDifferencingKey @ 0x14097B3F0 (CmLoadDifferencingKey.c)
- *     CmpNameFromAttributes @ 0x14097C958 (CmpNameFromAttributes.c)
- *     NtDeleteValueKey @ 0x14097CD00 (NtDeleteValueKey.c)
- *     CmpCaptureKeyValueArray @ 0x14097DACC (CmpCaptureKeyValueArray.c)
- *     NtSetValueKey @ 0x14097DE30 (NtSetValueKey.c)
- *     CmUnloadKey @ 0x140B0A63C (CmUnloadKey.c)
+ *     NtRenameKey @ 0x140855BA0 (NtRenameKey.c)
+ *     CmLoadDifferencingKey @ 0x14093D400 (CmLoadDifferencingKey.c)
+ *     CmpNameFromAttributes @ 0x14093E968 (CmpNameFromAttributes.c)
+ *     NtDeleteValueKey @ 0x14093ED10 (NtDeleteValueKey.c)
+ *     CmpCaptureKeyValueArray @ 0x14093FADC (CmpCaptureKeyValueArray.c)
+ *     NtSetValueKey @ 0x14093FE40 (NtSetValueKey.c)
+ *     CmUnloadKey @ 0x140A3E88C (CmUnloadKey.c)
  * Callees:
- *     RtlReadULong64FromUser @ 0x14077F554 (RtlReadULong64FromUser.c)
- *     RtlReadULongFromUser @ 0x14077F590 (RtlReadULongFromUser.c)
+ *     RtlReadULong64FromUser @ 0x140782054 (RtlReadULong64FromUser.c)
+ *     RtlReadULongFromUser @ 0x140782090 (RtlReadULongFromUser.c)
  */
 
 __int64 __fastcall CmpCaptureUnicodeString(__m128i *a1, unsigned int *a2, char a3)

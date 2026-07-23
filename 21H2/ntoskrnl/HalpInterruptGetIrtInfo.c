@@ -1,13 +1,13 @@
 /*
- * XREFs of HalpInterruptGetIrtInfo @ 0x1407B9474
+ * XREFs of HalpInterruptGetIrtInfo @ 0x1407B9994
  * Callers:
- *     HalpQueryAcpiResourceRequirements @ 0x1407B9344 (HalpQueryAcpiResourceRequirements.c)
- *     HaliQuerySystemInformation @ 0x14098FEF0 (HaliQuerySystemInformation.c)
+ *     HalpQueryAcpiResourceRequirements @ 0x1407B9864 (HalpQueryAcpiResourceRequirements.c)
+ *     HaliQuerySystemInformation @ 0x1409909D0 (HaliQuerySystemInformation.c)
  * Callees:
- *     HalQueryMaximumProcessorCount @ 0x14037B300 (HalQueryMaximumProcessorCount.c)
- *     HalpIsMicrosoftCompatibleHvLoaded @ 0x1403A1F98 (HalpIsMicrosoftCompatibleHvLoaded.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     HalpHvCpuid @ 0x1404C1E5C (HalpHvCpuid.c)
+ *     HalQueryMaximumProcessorCount @ 0x14037AE50 (HalQueryMaximumProcessorCount.c)
+ *     HalpIsMicrosoftCompatibleHvLoaded @ 0x1403A20E8 (HalpIsMicrosoftCompatibleHvLoaded.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     HalpHvCpuid @ 0x1404C209C (HalpHvCpuid.c)
  */
 
 __int64 __fastcall HalpInterruptGetIrtInfo(int *a1)

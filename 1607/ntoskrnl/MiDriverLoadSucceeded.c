@@ -1,21 +1,21 @@
 /*
- * XREFs of MiDriverLoadSucceeded @ 0x140484174
+ * XREFs of MiDriverLoadSucceeded @ 0x140482EC8
  * Callers:
- *     MmLoadSystemImage @ 0x140482B2C (MmLoadSystemImage.c)
+ *     MmLoadSystemImage @ 0x140481880 (MmLoadSystemImage.c)
  * Callees:
- *     RtlStringCbPrintfW @ 0x14000C1D4 (RtlStringCbPrintfW.c)
- *     MiDereferenceControlAreaFile @ 0x140026640 (MiDereferenceControlAreaFile.c)
- *     MiReferenceControlAreaFile @ 0x140026690 (MiReferenceControlAreaFile.c)
- *     MiSectionControlArea @ 0x14002C4D0 (MiSectionControlArea.c)
- *     RtlInitUnicodeString @ 0x14002DC60 (RtlInitUnicodeString.c)
- *     DbgLoadImageSymbolsUnicode @ 0x1400B0FFC (DbgLoadImageSymbolsUnicode.c)
- *     MiSessionUpdateImageCharges @ 0x14012C9D8 (MiSessionUpdateImageCharges.c)
- *     _wcsnicmp @ 0x14014D8A0 (_wcsnicmp.c)
+ *     RtlStringCbPrintfW @ 0x14000BD54 (RtlStringCbPrintfW.c)
+ *     MiDereferenceControlAreaFile @ 0x1400261C0 (MiDereferenceControlAreaFile.c)
+ *     MiReferenceControlAreaFile @ 0x140026210 (MiReferenceControlAreaFile.c)
+ *     MiSectionControlArea @ 0x14002C050 (MiSectionControlArea.c)
+ *     RtlInitUnicodeString @ 0x14002D7E0 (RtlInitUnicodeString.c)
+ *     DbgLoadImageSymbolsUnicode @ 0x140084674 (DbgLoadImageSymbolsUnicode.c)
+ *     MiSessionUpdateImageCharges @ 0x14012CF48 (MiSessionUpdateImageCharges.c)
+ *     _wcsnicmp @ 0x14014DE10 (_wcsnicmp.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     PsCallImageNotifyRoutines @ 0x140429240 (PsCallImageNotifyRoutines.c)
- *     MiCacheImageSymbols @ 0x1404EF3AC (MiCacheImageSymbols.c)
- *     MiProtectSystemImage @ 0x140553CC4 (MiProtectSystemImage.c)
+ *     PsCallImageNotifyRoutines @ 0x140428110 (PsCallImageNotifyRoutines.c)
+ *     MiCacheImageSymbols @ 0x140483508 (MiCacheImageSymbols.c)
+ *     MiProtectSystemImage @ 0x140554204 (MiProtectSystemImage.c)
  */
 
 __int64 __fastcall MiDriverLoadSucceeded(__int64 a1, __int64 a2, _BYTE *a3, __int64 a4, __int64 a5, char a6, char a7)
@@ -41,7 +41,7 @@ __int64 __fastcall MiDriverLoadSucceeded(__int64 a1, __int64 a2, _BYTE *a3, __in
   {
     *(_DWORD *)(a1 + 104) |= 0x41004000u;
     if ( (a7 & 1) == 0 )
-      _InterlockedExchangeAdd(&dword_140327920, *(_DWORD *)(a1 + 64) >> 12);
+      _InterlockedExchangeAdd(&dword_140327960, *(_DWORD *)(a1 + 64) >> 12);
     v10 = (__int64 *)MiSectionControlArea(a2);
     v11 = *v10;
     v21 = 3;
@@ -85,11 +85,11 @@ __int64 __fastcall MiDriverLoadSucceeded(__int64 a1, __int64 a2, _BYTE *a3, __in
   if ( !*(_QWORD *)(MiSectionControlArea(*(_QWORD *)(a1 + 112)) + 144) || (*(_DWORD *)(a1 + 104) & 0x8000000) == 0 )
     MiProtectSystemImage(a1);
   v17 = *(_QWORD *)(a1 + 48);
-  result = qword_140326910;
-  if ( v17 >= qword_140326910 )
+  result = qword_140326950;
+  if ( v17 >= qword_140326950 )
   {
-    result = qword_140326910 + 0x8000000000LL;
-    if ( v17 < qword_140326910 + 0x8000000000LL )
+    result = qword_140326950 + 0x8000000000LL;
+    if ( v17 < qword_140326950 + 0x8000000000LL )
       return MiSessionUpdateImageCharges(a1);
   }
   return result;

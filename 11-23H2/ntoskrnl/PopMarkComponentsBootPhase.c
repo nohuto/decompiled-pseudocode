@@ -1,24 +1,24 @@
 /*
- * XREFs of PopMarkComponentsBootPhase @ 0x140AA360C
+ * XREFs of PopMarkComponentsBootPhase @ 0x140AA347C
  * Callers:
- *     PopSaveHiberContext @ 0x140AA4980 (PopSaveHiberContext.c)
+ *     PopSaveHiberContext @ 0x140AA47F0 (PopSaveHiberContext.c)
  * Callees:
- *     VfIsVerifierEnabled @ 0x140293980 (VfIsVerifierEnabled.c)
- *     MmIsAddressValid @ 0x1403AEE00 (MmIsAddressValid.c)
- *     FirstEntrySList @ 0x140428EA0 (FirstEntrySList.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     HvlMarkHiberPhase @ 0x140546904 (HvlMarkHiberPhase.c)
- *     KeMarkDynamicTracingHiberPhase @ 0x14057EB2C (KeMarkDynamicTracingHiberPhase.c)
- *     PoSetHiberRange @ 0x14058E8A0 (PoSetHiberRange.c)
- *     RtlMarkHiberPhase @ 0x1405B474C (RtlMarkHiberPhase.c)
- *     VfIsVerifierExtensionEnabled @ 0x1405CE224 (VfIsVerifierExtensionEnabled.c)
- *     DifMarkHiberPhase @ 0x1405D4E84 (DifMarkHiberPhase.c)
- *     BgkResumePrepare @ 0x140A99A74 (BgkResumePrepare.c)
- *     KdMarkHiberPhase @ 0x140A9E9A8 (KdMarkHiberPhase.c)
- *     KeMarkHiberPhase @ 0x140A9EA38 (KeMarkHiberPhase.c)
- *     PopMarkHiberPhase @ 0x140AA3898 (PopMarkHiberPhase.c)
- *     MiConvertHiberPhasePages @ 0x140AAC06C (MiConvertHiberPhasePages.c)
- *     MmMarkHiberPhase @ 0x140AACCE0 (MmMarkHiberPhase.c)
+ *     VfIsVerifierEnabled @ 0x140293C10 (VfIsVerifierEnabled.c)
+ *     MmIsAddressValid @ 0x1403AEFE0 (MmIsAddressValid.c)
+ *     FirstEntrySList @ 0x140429230 (FirstEntrySList.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     HvlMarkHiberPhase @ 0x140546FC4 (HvlMarkHiberPhase.c)
+ *     KeMarkDynamicTracingHiberPhase @ 0x14057F01C (KeMarkDynamicTracingHiberPhase.c)
+ *     PoSetHiberRange @ 0x14058ED90 (PoSetHiberRange.c)
+ *     RtlMarkHiberPhase @ 0x1405B4CBC (RtlMarkHiberPhase.c)
+ *     VfIsVerifierExtensionEnabled @ 0x1405CE794 (VfIsVerifierExtensionEnabled.c)
+ *     DifMarkHiberPhase @ 0x1405D53F4 (DifMarkHiberPhase.c)
+ *     BgkResumePrepare @ 0x140A998E4 (BgkResumePrepare.c)
+ *     KdMarkHiberPhase @ 0x140A9E818 (KdMarkHiberPhase.c)
+ *     KeMarkHiberPhase @ 0x140A9E8A8 (KeMarkHiberPhase.c)
+ *     PopMarkHiberPhase @ 0x140AA3708 (PopMarkHiberPhase.c)
+ *     MiConvertHiberPhasePages @ 0x140AABEDC (MiConvertHiberPhasePages.c)
+ *     MmMarkHiberPhase @ 0x140AACB50 (MmMarkHiberPhase.c)
  */
 
 void __fastcall PopMarkComponentsBootPhase(char *Address)
@@ -30,7 +30,7 @@ void __fastcall PopMarkComponentsBootPhase(char *Address)
   PVOID *m; // rbx
 
   v1 = 0;
-  if ( !byte_140C3CE01 )
+  if ( !byte_140C3CFA1 )
   {
     PoSetHiberRange(0LL, 0x10000u, PopSaveHiberContext, 0LL, 0x6E72654Bu);
     PoSetHiberRange(0LL, 0x10000u, HalAllocateCrashDumpRegisters, 0LL, 0x6348616Cu);

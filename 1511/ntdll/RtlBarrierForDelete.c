@@ -8,25 +8,27 @@
  *     NtClearEvent @ 0x1800A5880 (NtClearEvent.c)
  */
 
-char __fastcall RtlBarrierForDelete(__int64 a1, int a2)
+BOOLEAN __cdecl RtlBarrierForDelete(PRTL_BARRIER Barrier, ULONG Flags)
 {
-  int v3; // esi
+  ULONG v3; // esi
   signed __int32 v4; // eax
-  char v5; // di
+  BOOLEAN v5; // di
   unsigned int v6; // ebp
-  BOOL v7; // r14d
-  unsigned int v8; // eax
+  _BOOL8 v7; // r14
+  DWORD v8; // eax
   _BOOL8 v9; // rax
-  __int64 v10; // rcx
-  int v11; // eax
-  unsigned int v12; // ecx
-  unsigned int v13; // eax
-  __int64 v14; // rax
-  unsigned int v16; // eax
-  signed __int32 v17[10]; // [rsp+0h] [rbp-28h] BYREF
+  ULONG_PTR v10; // rcx
+  void *v11; // rcx
+  DWORD v12; // eax
+  ULONG_PTR v13; // rcx
+  DWORD v14; // ecx
+  DWORD v15; // eax
+  ULONG_PTR v16; // rax
+  DWORD Reserved5; // eax
+  signed __int32 v19[10]; // [rsp+0h] [rbp-28h] BYREF
 
-  v3 = a2 | 0x10000;
-  v4 = _InterlockedDecrement((volatile signed __int32 *)a1);
+  v3 = Flags | 0x10000;
+  v4 = _InterlockedDecrement((volatile signed __int32 *)Barrier);
   v5 = 1;
   v6 = ~v4 & 0x80000000;
   v7 = ~v4 < 0;
@@ -34,54 +36,56 @@ char __fastcall RtlBarrierForDelete(__int64 a1, int a2)
   if ( !v8 )
   {
     v9 = !v7;
-    v10 = *(_QWORD *)(a1 + 8 * v9 + 8);
+    v10 = Barrier->Reserved3[v9];
     if ( (v10 & 1) != 0 )
     {
-      *(_QWORD *)(a1 + 8 * v9 + 8) = v10 & 0xFFFFFFFFFFFFFFFEuLL;
-      NtClearEvent();
+      v11 = (void *)(v10 & 0xFFFFFFFFFFFFFFFEuLL);
+      Barrier->Reserved3[v9] = (ULONG_PTR)v11;
+      NtClearEvent(v11);
     }
-    v11 = v6 | *(_DWORD *)(a1 + 4);
+    v12 = v6 | Barrier->Reserved2;
     if ( (v3 & 0x10000) != 0 )
-      *(_DWORD *)(a1 + 4) = 1;
-    *(_DWORD *)a1 = v11;
-    _InterlockedOr(v17, 0);
-    if ( (*(_QWORD *)(a1 + 8LL * v7 + 8) & 1) != 0 )
-      ZwSetEvent();
+      Barrier->Reserved2 = 1;
+    Barrier->Reserved1 = v12;
+    _InterlockedOr(v19, 0);
+    v13 = Barrier->Reserved3[v7];
+    if ( (v13 & 1) != 0 )
+      ZwSetEvent((HANDLE)(v13 & 0xFFFFFFFFFFFFFFFEuLL), 0LL);
     return v5;
   }
-  if ( v8 < *(_DWORD *)(a1 + 24) && (a2 & 2) == 0 || (a2 & 1) != 0 )
+  if ( v8 < Barrier->Reserved4 && (Flags & 2) == 0 || (Flags & 1) != 0 )
   {
-    v12 = 0;
-    if ( *(_DWORD *)(a1 + 28) )
+    v14 = 0;
+    if ( Barrier->Reserved5 )
     {
-      while ( (*(_DWORD *)a1 & 0x80000000) != v6 )
+      while ( (Barrier->Reserved1 & 0x80000000) != v6 )
       {
-        if ( (a2 & 1) == 0 )
-          ++v12;
+        if ( (Flags & 1) == 0 )
+          ++v14;
         _mm_pause();
-        if ( v12 >= *(_DWORD *)(a1 + 28) )
+        if ( v14 >= Barrier->Reserved5 )
           goto LABEL_16;
       }
-      v16 = *(_DWORD *)(a1 + 28);
-      if ( v16 < 0x1388 )
-        *(_DWORD *)(a1 + 28) = v16 + 1;
+      Reserved5 = Barrier->Reserved5;
+      if ( Reserved5 < 0x1388 )
+        Barrier->Reserved5 = Reserved5 + 1;
       goto LABEL_22;
     }
 LABEL_16:
-    v13 = *(_DWORD *)(a1 + 28);
-    if ( v13 > 0x32 )
-      *(_DWORD *)(a1 + 28) = v13 - 1;
+    v15 = Barrier->Reserved5;
+    if ( v15 > 0x32 )
+      Barrier->Reserved5 = v15 - 1;
   }
-  v14 = *(_QWORD *)(a1 + 8LL * v7 + 8);
-  if ( (v14 & 1) == 0 )
+  v16 = Barrier->Reserved3[v7];
+  if ( (v16 & 1) == 0 )
   {
-    *(_QWORD *)(a1 + 8LL * v7 + 8) = v14 | 1;
-    _InterlockedOr(v17, 0);
+    Barrier->Reserved3[v7] = v16 | 1;
+    _InterlockedOr(v19, 0);
   }
-  if ( (*(_DWORD *)a1 & 0x80000000) != v6 )
-    NtWaitForSingleObject((HANDLE)(*(_QWORD *)(a1 + 8LL * v7 + 8) & 0xFFFFFFFFFFFFFFFEuLL), 0, 0LL);
+  if ( (Barrier->Reserved1 & 0x80000000) != v6 )
+    NtWaitForSingleObject((HANDLE)(Barrier->Reserved3[v7] & 0xFFFFFFFFFFFFFFFEuLL), 0, 0LL);
 LABEL_22:
   if ( (v3 & 0x10000) != 0 )
-    _InterlockedAdd((volatile signed __int32 *)(a1 + 4), 1u);
+    _InterlockedAdd((volatile signed __int32 *)&Barrier->Reserved2, 1u);
   return 0;
 }

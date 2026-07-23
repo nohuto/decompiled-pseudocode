@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlpHpLfhSubsegmentIncBlockCounts @ 0x1402FDC00
+ * XREFs of RtlpHpLfhSubsegmentIncBlockCounts @ 0x1402FDDF0
  * Callers:
- *     RtlpHpLfhSubsegmentCommitBlock @ 0x1402FD318 (RtlpHpLfhSubsegmentCommitBlock.c)
+ *     RtlpHpLfhSubsegmentCommitBlock @ 0x1402FD508 (RtlpHpLfhSubsegmentCommitBlock.c)
  * Callees:
  *     KiAbEntryRemoveFromTree @ 0x140004530 (KiAbEntryRemoveFromTree.c)
  *     KiCheckForKernelApcDelivery @ 0x140005A50 (KiCheckForKernelApcDelivery.c)
@@ -9,11 +9,11 @@
  *     KiAbThreadRemoveBoosts @ 0x14004EFD0 (KiAbThreadRemoveBoosts.c)
  *     MmGetSessionIdEx @ 0x14004F060 (MmGetSessionIdEx.c)
  *     KiLeaveGuardedRegionUnsafe @ 0x14004F090 (KiLeaveGuardedRegionUnsafe.c)
- *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     RtlpHpAcquireLockExclusive @ 0x1400BC4A0 (RtlpHpAcquireLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC660 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     ExfTryToWakePushLock @ 0x140091500 (ExfTryToWakePushLock.c)
+ *     RtlpHpAcquireLockExclusive @ 0x1400BC3E0 (RtlpHpAcquireLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC5A0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall RtlpHpLfhSubsegmentIncBlockCounts(
@@ -175,7 +175,7 @@ LABEL_36:
       }
       v27->CrossThreadReleasableAndBusyByte |= 2u;
       if ( (__int64)v27->LockState.LockState < 0 )
-        KiAbEntryRemoveFromTree((__int64)&CurrentThread->LockEntries[v26], v24);
+        KiAbEntryRemoveFromTree(&CurrentThread->LockEntries[v26].TreeNode, v24);
       a6 = 0;
       a6 = v27->BoostBitmap.AllFields & 0x1FFFF;
       v27->BoostBitmap.AllFields &= 0xFFFE0000;

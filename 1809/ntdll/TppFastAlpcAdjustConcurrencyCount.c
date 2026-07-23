@@ -1,10 +1,10 @@
 /*
- * XREFs of TppFastAlpcAdjustConcurrencyCount @ 0x180088A94
+ * XREFs of TppFastAlpcAdjustConcurrencyCount @ 0x180088AA4
  * Callers:
  *     TppCallbackMayRunLongProlog @ 0x180030528 (TppCallbackMayRunLongProlog.c)
- *     TpAlpcRegisterCompletionList @ 0x180088A40 (TpAlpcRegisterCompletionList.c)
+ *     TpAlpcRegisterCompletionList @ 0x180088A50 (TpAlpcRegisterCompletionList.c)
  * Callees:
- *     NtAlpcSetInformation @ 0x1800A1430 (NtAlpcSetInformation.c)
+ *     NtAlpcSetInformation @ 0x1800A1450 (NtAlpcSetInformation.c)
  */
 
 __int64 __fastcall TppFastAlpcAdjustConcurrencyCount(__int64 a1)
@@ -12,8 +12,8 @@ __int64 __fastcall TppFastAlpcAdjustConcurrencyCount(__int64 a1)
   __int64 result; // rax
   int v3; // edx
   signed __int32 v4; // r8d
-  __int64 v5; // rcx
-  signed __int32 v6; // [rsp+30h] [rbp+8h] BYREF
+  void *v5; // rcx
+  signed __int32 PortInformation; // [rsp+30h] [rbp+8h] BYREF
 
   result = *(_DWORD *)(a1 + 288) & 3;
   if ( (*(_BYTE *)(a1 + 288) & 3) == 3 )
@@ -27,9 +27,9 @@ __int64 __fastcall TppFastAlpcAdjustConcurrencyCount(__int64 a1)
         break;
       if ( (_DWORD)result == _InterlockedCompareExchange((volatile signed __int32 *)(a1 + 284), v4, result) )
       {
-        v5 = *(_QWORD *)(a1 + 272);
-        v6 = v4;
-        NtAlpcSetInformation(v5, 8LL, &v6);
+        v5 = *(void **)(a1 + 272);
+        PortInformation = v4;
+        NtAlpcSetInformation(v5, AlpcAdjustCompletionListConcurrencyCountInformation, &PortInformation, 4u);
       }
     }
   }

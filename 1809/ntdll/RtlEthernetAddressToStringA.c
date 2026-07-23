@@ -3,7 +3,7 @@
  * Callers:
  *     <none>
  * Callees:
- *     sprintf_s @ 0x18009B1C0 (sprintf_s.c)
+ *     sprintf_s @ 0x18009B1D0 (sprintf_s.c)
  */
 
 PSTR __stdcall RtlEthernetAddressToStringA(const DL_EUI48 *Addr, PSTR S)

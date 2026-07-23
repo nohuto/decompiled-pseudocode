@@ -1,21 +1,21 @@
 /*
- * XREFs of MiObtainFaultCharges @ 0x140274BB0
+ * XREFs of MiObtainFaultCharges @ 0x140274E40
  * Callers:
  *     MiGetPageForHeader @ 0x14021A4D4 (MiGetPageForHeader.c)
- *     MiMigratePfn @ 0x1402630E0 (MiMigratePfn.c)
- *     MiResolveMappedFileFault @ 0x1402E05E0 (MiResolveMappedFileFault.c)
- *     MiPickClusterForMappedFileFault @ 0x1402E1710 (MiPickClusterForMappedFileFault.c)
- *     MiPrivateFixup @ 0x1402ED678 (MiPrivateFixup.c)
- *     MiPrefetchPagesViable @ 0x14033E5E4 (MiPrefetchPagesViable.c)
- *     MiSwitchToTransition @ 0x14063318C (MiSwitchToTransition.c)
- *     MiResolvePageFileFault @ 0x14066B4BC (MiResolvePageFileFault.c)
- *     MiPfPrepareReadList @ 0x1406F62A0 (MiPfPrepareReadList.c)
- *     MiPfPrepareSequentialReadList @ 0x1407446E0 (MiPfPrepareSequentialReadList.c)
+ *     MiMigratePfn @ 0x140263370 (MiMigratePfn.c)
+ *     MiResolveMappedFileFault @ 0x1402E0870 (MiResolveMappedFileFault.c)
+ *     MiPickClusterForMappedFileFault @ 0x1402E19A0 (MiPickClusterForMappedFileFault.c)
+ *     MiPrivateFixup @ 0x1402ED908 (MiPrivateFixup.c)
+ *     MiPrefetchPagesViable @ 0x14033E874 (MiPrefetchPagesViable.c)
+ *     MiSwitchToTransition @ 0x1406336DC (MiSwitchToTransition.c)
+ *     MiResolvePageFileFault @ 0x14066BA0C (MiResolvePageFileFault.c)
+ *     MiPfPrepareReadList @ 0x1406F64B0 (MiPfPrepareReadList.c)
+ *     MiPfPrepareSequentialReadList @ 0x1407448D0 (MiPfPrepareSequentialReadList.c)
  * Callees:
- *     MiChargeCommit @ 0x1402764C0 (MiChargeCommit.c)
- *     MiChargeResident @ 0x1402E43A8 (MiChargeResident.c)
- *     MiChargePartitionResidentAvailable @ 0x1402E6278 (MiChargePartitionResidentAvailable.c)
- *     MiReturnFaultCharges @ 0x14035FEC0 (MiReturnFaultCharges.c)
+ *     MiChargeCommit @ 0x140276750 (MiChargeCommit.c)
+ *     MiChargeResident @ 0x1402E4638 (MiChargeResident.c)
+ *     MiChargePartitionResidentAvailable @ 0x1402E6508 (MiChargePartitionResidentAvailable.c)
+ *     MiReturnFaultCharges @ 0x140360060 (MiReturnFaultCharges.c)
  */
 
 unsigned __int64 __fastcall MiObtainFaultCharges(void *a1, unsigned __int64 a2, char a3)

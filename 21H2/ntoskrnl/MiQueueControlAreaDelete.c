@@ -1,11 +1,11 @@
 /*
- * XREFs of MiQueueControlAreaDelete @ 0x14052A61C
+ * XREFs of MiQueueControlAreaDelete @ 0x14052A85C
  * Callers:
- *     MiDereferenceControlAreaProbe @ 0x1402F7AB0 (MiDereferenceControlAreaProbe.c)
+ *     MiDereferenceControlAreaProbe @ 0x140302800 (MiDereferenceControlAreaProbe.c)
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x14021D060 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14033BD80 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KeSetEvent @ 0x1403435A0 (KeSetEvent.c)
+ *     ExAcquireSpinLockExclusive @ 0x1402C1960 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140346AD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KeSetEvent @ 0x14034E2F0 (KeSetEvent.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
@@ -20,7 +20,7 @@ LONG __fastcall MiQueueControlAreaDelete(__int64 a1)
   int v8; // eax
   bool v9; // zf
 
-  v2 = *(_QWORD *)(qword_140C4E648 + 8LL * (*(_WORD *)(a1 + 60) & 0x3FF));
+  v2 = *(_QWORD *)(qword_140C4E688 + 8LL * (*(_WORD *)(a1 + 60) & 0x3FF));
   *(_QWORD *)a1 = 0LL;
   v3 = ExAcquireSpinLockExclusive((PEX_SPIN_LOCK)(v2 + 1344));
   *(_QWORD *)a1 = *(_QWORD *)(v2 + 1776);

@@ -1,18 +1,18 @@
 /*
- * XREFs of PiDqQuerySerializeActionQueue @ 0x140591044
+ * XREFs of PiDqQuerySerializeActionQueue @ 0x140592044
  * Callers:
- *     PiDqIrpQueryCreate @ 0x140590B08 (PiDqIrpQueryCreate.c)
- *     PiDqIrpQueryGetResult @ 0x1406BE1DC (PiDqIrpQueryGetResult.c)
+ *     PiDqIrpQueryCreate @ 0x140591B08 (PiDqIrpQueryCreate.c)
+ *     PiDqIrpQueryGetResult @ 0x1406BF47C (PiDqIrpQueryGetResult.c)
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     ExReleasePushLockEx @ 0x14004F160 (ExReleasePushLockEx.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     PiDqQueryGetObjectManager @ 0x140590290 (PiDqQueryGetObjectManager.c)
- *     PiDqObjectManagerEnumerateAndRegisterQuery @ 0x1405902D0 (PiDqObjectManagerEnumerateAndRegisterQuery.c)
- *     PiDqQueryActionQueueEntryFree @ 0x1405913C4 (PiDqQueryActionQueueEntryFree.c)
- *     PiDqActionDataCreate @ 0x140591404 (PiDqActionDataCreate.c)
- *     PiDqActionDataFree @ 0x1405915B4 (PiDqActionDataFree.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B78F0 (KiLeaveCriticalRegionUnsafe.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     PiDqQueryGetObjectManager @ 0x140591290 (PiDqQueryGetObjectManager.c)
+ *     PiDqObjectManagerEnumerateAndRegisterQuery @ 0x1405912D0 (PiDqObjectManagerEnumerateAndRegisterQuery.c)
+ *     PiDqQueryActionQueueEntryFree @ 0x1405923C4 (PiDqQueryActionQueueEntryFree.c)
+ *     PiDqActionDataCreate @ 0x140592404 (PiDqActionDataCreate.c)
+ *     PiDqActionDataFree @ 0x1405925B4 (PiDqActionDataFree.c)
  */
 
 __int64 __fastcall PiDqQuerySerializeActionQueue(KSPIN_LOCK a1, __int64 a2, int a3, int *a4, _DWORD *a5)
@@ -88,7 +88,7 @@ LABEL_30:
         {
           if ( v26 )
           {
-            NdrMesTypeEncode3(v19[0], "TP 3\a", &off_14034F000, &off_1403FF520, 1, &v26);
+            NdrMesTypeEncode3(v19[0], "TP 3\a", &off_140350000, &off_140400520, 1, &v26);
             if ( HIBYTE(v25) )
             {
               v7 = -1073741819;

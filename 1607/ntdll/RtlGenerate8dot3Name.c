@@ -3,50 +3,54 @@
  * Callers:
  *     <none>
  * Callees:
- *     __security_check_cookie @ 0x180096C40 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x180096C30 (__security_check_cookie.c)
  *     memmove @ 0x1800AC980 (memmove.c)
  *     GetNextWchar @ 0x1800EE584 (GetNextWchar.c)
  *     RtlComputeLfnChecksum @ 0x1800EE680 (RtlComputeLfnChecksum.c)
  */
 
-__int64 __fastcall RtlGenerate8dot3Name(unsigned __int16 *a1, char a2, __int64 a3, unsigned __int16 *a4)
+NTSTATUS __cdecl RtlGenerate8dot3Name(
+        PUNICODE_STRING Name,
+        BOOLEAN AllowExtendedCharacters,
+        PGENERATE_NAME_CONTEXT Context,
+        PUNICODE_STRING Name8dot3)
 {
   char v5; // r8
-  unsigned __int16 *v6; // r15
+  PUNICODE_STRING v6; // r15
   char v9; // r12
   unsigned int v10; // esi
   __int16 NextWchar; // ax
-  unsigned int v12; // edi
+  unsigned int NameLength; // edi
   __int64 v13; // r15
   bool v14; // zf
-  unsigned __int16 v15; // ax
-  unsigned __int16 v16; // cx
+  WCHAR v15; // ax
+  WCHAR v16; // cx
   int v17; // eax
-  unsigned __int16 v18; // ax
+  USHORT v18; // ax
   unsigned int v19; // r8d
-  unsigned __int16 v20; // r11
+  USHORT v20; // r11
   __int16 v21; // dx
   __int64 v22; // rax
-  __int16 v23; // dx
+  WCHAR v23; // dx
   unsigned int v24; // edi
-  unsigned __int16 v25; // ax
-  unsigned __int16 v26; // dx
+  WCHAR v25; // ax
+  WCHAR v26; // dx
   __int64 v27; // rcx
   int v28; // eax
-  unsigned __int16 v29; // ax
+  USHORT v29; // ax
   int v30; // r11d
-  unsigned __int16 v31; // r9
+  USHORT v31; // r9
   __int64 v32; // r8
-  _WORD *v33; // r10
+  WCHAR *v33; // r10
   __int16 v34; // ax
   unsigned __int16 v35; // cx
-  unsigned int v36; // ecx
+  ULONG LastIndexValue; // ecx
   unsigned int v37; // edi
   char v38; // bp
   unsigned int v39; // edx
   __int64 v40; // rax
   unsigned int v41; // ecx
-  int v42; // eax
+  ULONG ExtensionLength; // eax
   unsigned int v43; // ecx
   unsigned int i; // edx
   int v45; // eax
@@ -55,90 +59,90 @@ __int64 __fastcall RtlGenerate8dot3Name(unsigned __int16 *a1, char a2, __int64 a
   int v49; // [rsp+28h] [rbp-60h]
   _QWORD v50[2]; // [rsp+30h] [rbp-58h] BYREF
 
-  v50[0] = a4;
+  v50[0] = Name8dot3;
   v5 = 0;
   LOBYTE(v49) = 1;
-  v6 = a4;
-  if ( !a2 || (v9 = 1, !NlsMbOemCodePageTag) )
+  v6 = Name8dot3;
+  if ( !AllowExtendedCharacters || (v9 = 1, !NlsMbOemCodePageTag) )
     v9 = 0;
-  if ( !*(_BYTE *)(a3 + 3) )
+  if ( !Context->NameLength )
   {
     v10 = -1;
     v47 = 0;
-    if ( *a1 && **((_WORD **)a1 + 1) == 46 )
+    if ( Name->Length && *Name->Buffer == 46 )
       v5 = 1;
     while ( 1 )
     {
-      NextWchar = GetNextWchar(a1, &v47, v5, a2);
+      NextWchar = GetNextWchar(&Name->Length, &v47, v5, AllowExtendedCharacters);
       if ( !NextWchar )
         break;
       v5 = 0;
       if ( NextWchar == 46 )
         v10 = v47;
     }
-    v12 = 0;
+    NameLength = 0;
     v13 = NlsUnicodeToMbOemData;
-    v14 = v10 == *a1 >> 1;
+    v14 = v10 == Name->Length >> 1;
     v47 = 0;
-    *(_BYTE *)(a3 + 3) = 0;
+    Context->NameLength = 0;
     if ( v14 )
       v10 = -1;
     v48 = v10;
     while ( 1 )
     {
-      v15 = GetNextWchar(a1, &v47, 1, a2);
+      v15 = GetNextWchar(&Name->Length, &v47, 1, AllowExtendedCharacters);
       v16 = v15;
-      if ( !v15 || v47 >= v10 || *(_BYTE *)(a3 + 3) >= 6u )
+      if ( !v15 || v47 >= v10 || Context->NameLength >= 6u )
         break;
       if ( v9 )
       {
         if ( v15 <= 0x7Fu || (v14 = *(_BYTE *)(v13 + 2LL * v15 + 1) == 0, v17 = 2, v14) )
           v17 = 1;
-        v12 += v17;
-        if ( v12 > 6 )
+        NameLength += v17;
+        if ( NameLength > 6 )
           break;
       }
-      *(_WORD *)(a3 + 2LL * (unsigned __int8)(*(_BYTE *)(a3 + 3))++ + 4) = v16;
+      Context->NameBuffer[Context->NameLength++] = v16;
     }
     if ( !v9 )
-      v12 = *(unsigned __int8 *)(a3 + 3);
-    v6 = (unsigned __int16 *)v50[0];
-    if ( v12 <= 2 )
+      NameLength = Context->NameLength;
+    v6 = (PUNICODE_STRING)v50[0];
+    if ( NameLength <= 2 )
     {
-      v18 = RtlComputeLfnChecksum(a1);
+      v18 = RtlComputeLfnChecksum(&Name->Length);
       v19 = 0;
-      *(_WORD *)a3 = v18;
+      Context->Checksum = v18;
       v20 = v18;
       do
       {
         v21 = 55;
         if ( (v20 & 0xFu) <= 9 )
           v21 = 48;
-        v22 = v19 + *(unsigned __int8 *)(a3 + 3);
+        v22 = v19 + Context->NameLength;
         v23 = (v20 & 0xF) + v21;
         v20 >>= 4;
         ++v19;
-        *(_WORD *)(a3 + 2 * v22 + 4) = v23;
+        Context->NameBuffer[v22] = v23;
       }
       while ( v19 < 4 );
-      *(_BYTE *)(a3 + 3) += 4;
-      *(_BYTE *)(a3 + 2) = 1;
+      Context->NameLength += 4;
+      Context->CheckSumInserted = 1;
     }
     if ( v10 == -1 )
     {
-      *(_DWORD *)(a3 + 20) = 0;
+      Context->ExtensionLength = 0;
     }
     else
     {
-      *(_WORD *)(a3 + 24) = 46;
+      Context->ExtensionBuffer[0] = 46;
       v24 = 1;
-      for ( *(_DWORD *)(a3 + 20) = 1; ; ++*(_DWORD *)(a3 + 20) )
+      for ( Context->ExtensionLength = 1; ; ++Context->ExtensionLength )
       {
-        v25 = GetNextWchar(a1, &v48, 1, a2);
+        v25 = GetNextWchar(&Name->Length, &v48, 1, AllowExtendedCharacters);
         v26 = v25;
         if ( !v25 )
           break;
-        if ( *(_DWORD *)(a3 + 20) >= 4u )
+        if ( Context->ExtensionLength >= 4 )
           goto LABEL_41;
         if ( v9 )
         {
@@ -148,23 +152,23 @@ __int64 __fastcall RtlGenerate8dot3Name(unsigned __int16 *a1, char a2, __int64 a
           if ( v24 > 4 )
           {
 LABEL_41:
-            *(_WORD *)(a3 + 2LL * (unsigned int)(*(_DWORD *)(a3 + 20) - 1) + 24) = 126;
+            Context->ExtensionBuffer[Context->ExtensionLength - 1] = 126;
             break;
           }
         }
-        *(_WORD *)(a3 + 2LL * *(unsigned int *)(a3 + 20) + 24) = v26;
+        Context->ExtensionBuffer[Context->ExtensionLength] = v26;
       }
     }
   }
-  if ( ++*(_DWORD *)(a3 + 32) > 4u && !*(_BYTE *)(a3 + 2) )
+  if ( ++Context->LastIndexValue > 4 && !Context->CheckSumInserted )
   {
-    v29 = RtlComputeLfnChecksum(a1);
-    *(_WORD *)a3 = v29;
+    v29 = RtlComputeLfnChecksum(&Name->Length);
+    Context->Checksum = v29;
     v31 = v29;
     if ( 2 - v30 < (unsigned int)(6 - v30) )
     {
       v32 = 4LL;
-      v33 = (_WORD *)(a3 + 2 * ((unsigned int)(2 - v30) + 2LL));
+      v33 = &Context->NameBuffer[2 - v30];
       do
       {
         v34 = 55;
@@ -177,57 +181,54 @@ LABEL_41:
       }
       while ( v32 );
     }
-    *(_DWORD *)(a3 + 32) = 1;
-    *(_BYTE *)(a3 + 3) = 6 - v30;
-    *(_BYTE *)(a3 + 2) = 1;
+    Context->LastIndexValue = 1;
+    Context->NameLength = 6 - v30;
+    Context->CheckSumInserted = 1;
   }
-  v36 = *(_DWORD *)(a3 + 32);
+  LastIndexValue = Context->LastIndexValue;
   v37 = 1;
   v38 = v49;
   do
   {
-    if ( !v36 )
+    if ( !LastIndexValue )
       break;
-    v39 = v36 / 0xA;
+    v39 = LastIndexValue / 0xA;
     v40 = 8 - v37;
-    v41 = v36 % 0xA + 48;
+    v41 = LastIndexValue % 0xA + 48;
     if ( (_WORD)v41 != 57 )
       v38 = 0;
     ++v37;
     *((_WORD *)v50 + v40) = v41;
-    v36 = v39;
+    LastIndexValue = v39;
   }
   while ( v37 <= 7 );
   *((_WORD *)v50 + 8 - v37) = 126;
-  if ( (unsigned __int8)(*(_BYTE *)(a3 + 3) - 1) > 0xBu )
+  if ( (unsigned __int8)(Context->NameLength - 1) > 0xBu )
   {
-    *v6 = 0;
+    v6->Length = 0;
   }
   else
   {
-    memmove(*((void **)v6 + 1), (const void *)(a3 + 4), 2 * *(unsigned __int8 *)(a3 + 3));
-    *v6 = 2 * *(unsigned __int8 *)(a3 + 3);
+    memmove(v6->Buffer, Context->NameBuffer, 2 * Context->NameLength);
+    v6->Length = 2 * Context->NameLength;
   }
-  memmove((void *)(*((_QWORD *)v6 + 1) + 2 * ((unsigned __int64)*v6 >> 1)), (char *)v50 + 2 * (8 - v37), 2 * v37);
-  *v6 += 2 * v37;
-  v42 = *(_DWORD *)(a3 + 20);
-  if ( v42 )
+  memmove(&v6->Buffer[(unsigned __int64)v6->Length >> 1], (char *)v50 + 2 * (8 - v37), 2 * v37);
+  v6->Length += 2 * v37;
+  ExtensionLength = Context->ExtensionLength;
+  if ( ExtensionLength )
   {
-    memmove(
-      (void *)(*((_QWORD *)v6 + 1) + 2 * ((unsigned __int64)*v6 >> 1)),
-      (const void *)(a3 + 24),
-      (unsigned int)(2 * v42));
-    *v6 += 2 * *(_WORD *)(a3 + 20);
+    memmove(&v6->Buffer[(unsigned __int64)v6->Length >> 1], Context->ExtensionBuffer, 2 * ExtensionLength);
+    v6->Length += 2 * LOWORD(Context->ExtensionLength);
   }
   if ( !v38 )
-    return 0LL;
+    return 0;
   if ( v9 )
   {
     v43 = 0;
-    for ( i = 0; v43 < *(unsigned __int8 *)(a3 + 3); ++v43 )
+    for ( i = 0; v43 < Context->NameLength; ++v43 )
     {
-      if ( *(_WORD *)(a3 + 2LL * v43 + 4) <= 0x7Fu
-        || (v45 = 2, !*(_BYTE *)(NlsUnicodeToMbOemData + 2LL * *(unsigned __int16 *)(a3 + 2LL * v43 + 4) + 1)) )
+      if ( Context->NameBuffer[v43] <= 0x7Fu
+        || (v45 = 2, !*(_BYTE *)(NlsUnicodeToMbOemData + 2LL * Context->NameBuffer[v43] + 1)) )
       {
         v45 = 1;
       }
@@ -235,14 +236,14 @@ LABEL_41:
       if ( i > 7 - v37 )
         break;
     }
-    *(_BYTE *)(a3 + 3) = v43;
+    Context->NameLength = v43;
   }
   else
   {
-    --*(_BYTE *)(a3 + 3);
+    --Context->NameLength;
   }
-  if ( *(_BYTE *)(a3 + 3) )
-    return 0LL;
+  if ( Context->NameLength )
+    return 0;
   else
-    return 3221226535LL;
+    return -1073740761;
 }

@@ -4,7 +4,7 @@
  *     VerifierKeInitializeMutex @ 0x14071202C (VerifierKeInitializeMutex.c)
  *     VerifierKeInitializeMutexNoReboot @ 0x14071204C (VerifierKeInitializeMutexNoReboot.c)
  * Callees:
- *     VfUtilSynchronizationObjectSanityChecks @ 0x140703048 (VfUtilSynchronizationObjectSanityChecks.c)
+ *     VfUtilSynchronizationObjectSanityChecks @ 0x140703078 (VfUtilSynchronizationObjectSanityChecks.c)
  */
 
 __int64 __fastcall ViKeInitializeMutexCommon(void *a1, unsigned int a2)

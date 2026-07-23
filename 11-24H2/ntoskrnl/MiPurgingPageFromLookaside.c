@@ -1,10 +1,10 @@
 /*
- * XREFs of MiPurgingPageFromLookaside @ 0x14026DE70
+ * XREFs of MiPurgingPageFromLookaside @ 0x140223400
  * Callers:
- *     MiSynchronizeFastPageInsert @ 0x14022D9F0 (MiSynchronizeFastPageInsert.c)
+ *     MiSynchronizeFastPageInsert @ 0x140301300 (MiSynchronizeFastPageInsert.c)
  * Callees:
- *     MiSearchChannelTable @ 0x14026F0D4 (MiSearchChannelTable.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
+ *     MiSearchChannelTable @ 0x140224664 (MiSearchChannelTable.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
  */
 
 unsigned __int64 __fastcall MiPurgingPageFromLookaside(int a1, ULONG_PTR a2)
@@ -51,15 +51,15 @@ unsigned __int64 __fastcall MiPurgingPageFromLookaside(int a1, ULONG_PTR a2)
     v6 = -134217729LL;
   v34 = v5 & v6;
   v7 = v2 - 0x220000000000LL;
-  if ( a2 >= qword_140E35B00 && a2 < qword_140E35B00 + 2048 )
+  if ( a2 >= qword_140E35C40 && a2 < qword_140E35C40 + 2048 )
   {
     v10 = 9;
   }
-  else if ( byte_140E3CAE6 )
+  else if ( byte_140E3CC26 )
   {
     v8 = (0xAAAAAAAAAAAAAAABuLL * (v2 >> 4)) >> 9;
-    v9 = *(unsigned __int8 *)(qword_140E3D140 + 2 * v8);
-    if ( *(_BYTE *)(qword_140E3D140 + 2 * v8) )
+    v9 = *(unsigned __int8 *)(qword_140E3D280 + 2 * v8);
+    if ( *(_BYTE *)(qword_140E3D280 + 2 * v8) )
       v10 = v9 - 1;
     else
       v10 = v9 + 9;
@@ -68,11 +68,11 @@ unsigned __int64 __fastcall MiPurgingPageFromLookaside(int a1, ULONG_PTR a2)
   {
     v10 = 9;
   }
-  v29 = *((_QWORD *)qword_140E2FF88 + ((*(_QWORD *)(v7 + 40) >> 43) & 0x3FFLL));
-  v11 = dword_140E2DAC4;
-  if ( dword_140E2DAC0 > (unsigned int)dword_140E2DAC4
-    || (v12 = (char *)qword_140E2DB20 + 16 * dword_140E2DAC0, a2 < *(_QWORD *)v12)
-    || dword_140E2DAC0 != dword_140E2DAC4 && a2 >= *((_QWORD *)v12 + 2) )
+  v29 = *((_QWORD *)qword_140E300C8 + ((*(_QWORD *)(v7 + 40) >> 43) & 0x3FFLL));
+  v11 = dword_140E2DC04;
+  if ( dword_140E2DC00 > (unsigned int)dword_140E2DC04
+    || (v12 = (char *)qword_140E2DC60 + 16 * dword_140E2DC00, a2 < *(_QWORD *)v12)
+    || dword_140E2DC00 != dword_140E2DC04 && a2 >= *((_QWORD *)v12 + 2) )
   {
     for ( i = 0; ; i = v14 + 1 )
     {
@@ -81,29 +81,29 @@ unsigned __int64 __fastcall MiPurgingPageFromLookaside(int a1, ULONG_PTR a2)
         if ( v11 < i )
           KeBugCheckEx(0x1Au, 0x5180uLL, a2, 0LL, 0LL);
         v14 = (i + v11) >> 1;
-        v12 = (char *)qword_140E2DB20 + 16 * v14;
+        v12 = (char *)qword_140E2DC60 + 16 * v14;
         if ( a2 >= *(_QWORD *)v12 )
           break;
         if ( !v14 )
-          KeBugCheckEx(0x1Au, 0x5180uLL, a2, (ULONG_PTR)qword_140E2DB20, 0LL);
+          KeBugCheckEx(0x1Au, 0x5180uLL, a2, (ULONG_PTR)qword_140E2DC60, 0LL);
         v11 = v14 - 1;
       }
-      if ( v14 == dword_140E2DAC4 || a2 < *((_QWORD *)v12 + 2) )
+      if ( v14 == dword_140E2DC04 || a2 < *((_QWORD *)v12 + 2) )
         break;
     }
-    dword_140E2DAC0 = (i + v11) >> 1;
+    dword_140E2DC00 = (i + v11) >> 1;
     v2 = v33;
   }
   v15 = *(_DWORD *)(v7 + 32);
   v30 = *((_DWORD *)v12 + 2);
   if ( (v15 & 0x8000000) == 0
     || v7 >= 0xFFFFDE0000000000uLL
-    && v7 < 48 * qword_140E2DBE0 - 0x21FFFFFFFFD0LL
-    && ((v26 = 0xAAAAAAAAAAAAAAABuLL * (v2 >> 4), v26 < qword_140E35B00) || v26 >= qword_140E35B00 + 2048)
+    && v7 < 48 * qword_140E2DD20 - 0x21FFFFFFFFD0LL
+    && ((v26 = 0xAAAAAAAAAAAAAAABuLL * (v2 >> 4), v26 < qword_140E35C40) || v26 >= qword_140E35C40 + 2048)
     && ((BYTE2(v15) & 7) == 6
-     || byte_140E3CAE6
-     && (v27 = v26 >> 9, *(_BYTE *)(qword_140E3D140 + 2 * v27))
-     && *(_BYTE *)(qword_140E3D140 + 2 * v27) != 10) )
+     || byte_140E3CC26
+     && (v27 = v26 >> 9, *(_BYTE *)(qword_140E3D280 + 2 * v27))
+     && *(_BYTE *)(qword_140E3D280 + 2 * v27) != 10) )
   {
     v16 = HIBYTE(v15) & 7;
   }
@@ -111,7 +111,7 @@ unsigned __int64 __fastcall MiPurgingPageFromLookaside(int a1, ULONG_PTR a2)
   {
     v16 = 5;
   }
-  if ( qword_140E2DB28 )
+  if ( qword_140E2DC68 )
   {
     v25 = MiSearchChannelTable(0xAAAAAAAAAAAAAAABuLL * (v2 >> 4));
     v4 = a1;
@@ -126,7 +126,7 @@ unsigned __int64 __fastcall MiPurgingPageFromLookaside(int a1, ULONG_PTR a2)
   if ( v10 < 9 )
   {
     if ( v10 == 8 )
-      BYTE8(v31) = *(_BYTE *)(qword_140E3D140
+      BYTE8(v31) = *(_BYTE *)(qword_140E3D280
                             + 2 * ((0xAAAAAAAAAAAAAAABuLL * ((__int64)(v7 + 0x220000000000LL) >> 4)) >> 9)
                             + 1) & 0x7F;
     else

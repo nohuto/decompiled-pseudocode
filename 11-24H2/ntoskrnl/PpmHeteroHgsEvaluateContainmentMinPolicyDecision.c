@@ -1,8 +1,8 @@
 /*
- * XREFs of PpmHeteroHgsEvaluateContainmentMinPolicyDecision @ 0x140457AE8
+ * XREFs of PpmHeteroHgsEvaluateContainmentMinPolicyDecision @ 0x1404B9270
  * Callers:
- *     PpmHeteroHgsEvaluateContainmentDecision @ 0x1404579CC (PpmHeteroHgsEvaluateContainmentDecision.c)
- *     PpmEventTraceControlCallback @ 0x140ACA960 (PpmEventTraceControlCallback.c)
+ *     PpmHeteroHgsEvaluateContainmentDecision @ 0x14044C47C (PpmHeteroHgsEvaluateContainmentDecision.c)
+ *     PpmEventTraceControlCallback @ 0x140AC8550 (PpmEventTraceControlCallback.c)
  * Callees:
  *     <none>
  */
@@ -18,9 +18,9 @@ char __fastcall PpmHeteroHgsEvaluateContainmentMinPolicyDecision(__int64 a1)
   result = 0;
   if ( *(_BYTE *)(a1 + 12) )
   {
-    v2 = *(_QWORD *)(a1 + 1272);
+    v2 = *(_QWORD *)(a1 + 1280);
     v3 = *(unsigned __int8 *)(a1 + 12);
-    v4 = *(_WORD **)(a1 + 1280);
+    v4 = *(_WORD **)(a1 + 1288);
     do
     {
       if ( *v4 )

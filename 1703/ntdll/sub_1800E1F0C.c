@@ -13,8 +13,9 @@ __int64 __fastcall sub_1800E1F0C(__int64 a1, char a2)
 {
   __int64 result; // rax
   char v5; // dl
-  void *Heap; // rax
-  unsigned __int64 v7; // rdi
+  void *v6; // rcx
+  PVOID Heap; // rax
+  unsigned __int64 v8; // rdi
 
   if ( !a1 )
     return 3221225485LL;
@@ -24,12 +25,16 @@ __int64 __fastcall sub_1800E1F0C(__int64 a1, char a2)
     v5 = dword_18015A2A8;
     if ( dword_18015A2A8 )
     {
-      if ( (dword_18015A2A8 & 1) != 0 && *(_QWORD *)(a1 + 40) )
+      if ( (dword_18015A2A8 & 1) != 0 )
       {
-        ZwClose();
-        *(_QWORD *)(a1 + 40) = 0LL;
-        v5 = dword_18015A2A8;
-        result = 0LL;
+        v6 = *(void **)(a1 + 40);
+        if ( v6 )
+        {
+          ZwClose(v6);
+          *(_QWORD *)(a1 + 40) = 0LL;
+          v5 = dword_18015A2A8;
+          result = 0LL;
+        }
       }
       if ( (v5 & 6) != 0 )
       {
@@ -40,14 +45,14 @@ __int64 __fastcall sub_1800E1F0C(__int64 a1, char a2)
         {
           if ( *(_DWORD *)(a1 + 64) == -1073741799 )
             return 3221225497LL;
-          Heap = (void *)RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 8u, *(_QWORD *)(a1 + 48));
-          v7 = (unsigned __int64)Heap;
+          Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, *(_QWORD *)(a1 + 48));
+          v8 = (unsigned __int64)Heap;
           if ( !Heap )
             return 3221225495LL;
           memmove(Heap, (const void *)(*(_QWORD *)(a1 + 32) & 0xFFFFFFFFFFFFFFFCuLL), *(_QWORD *)(a1 + 48));
-          ZwUnmapViewOfSection();
+          ZwUnmapViewOfSection((HANDLE)0xFFFFFFFFFFFFFFFFLL, (PVOID)(*(_QWORD *)(a1 + 32) & 0xFFFFFFFFFFFFFFFCuLL));
           *(_DWORD *)(a1 + 64) = -1073741799;
-          *(_QWORD *)(a1 + 32) = v7 | 1;
+          *(_QWORD *)(a1 + 32) = v8 | 1;
         }
         return 0LL;
       }

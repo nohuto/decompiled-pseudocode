@@ -1,9 +1,9 @@
 /*
- * XREFs of CmpDeleteLightWeightTransaction @ 0x1406D00C0
+ * XREFs of CmpDeleteLightWeightTransaction @ 0x1406D1360
  * Callers:
  *     <none>
  * Callees:
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
  */
 
 void __fastcall CmpDeleteLightWeightTransaction(__int64 a1)

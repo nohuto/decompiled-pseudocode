@@ -1,17 +1,17 @@
 /*
- * XREFs of PiCMOpenObjectKey @ 0x14086D9CC
+ * XREFs of PiCMOpenObjectKey @ 0x14086DC0C
  * Callers:
- *     PiCMHandleIoctl @ 0x1406D0760 (PiCMHandleIoctl.c)
+ *     PiCMHandleIoctl @ 0x1406D0790 (PiCMHandleIoctl.c)
  * Callees:
- *     ZwClose @ 0x14041AF40 (ZwClose.c)
- *     _PnpOpenObjectRegKey @ 0x1406CF960 (_PnpOpenObjectRegKey.c)
- *     ObCloseHandle @ 0x14076B890 (ObCloseHandle.c)
- *     PiCMReleaseObjectInputData @ 0x14079A0D8 (PiCMReleaseObjectInputData.c)
- *     PiAuDoesClientHaveAccess @ 0x14079A888 (PiAuDoesClientHaveAccess.c)
- *     PiCMReturnHandleResultData @ 0x1407BEAC4 (PiCMReturnHandleResultData.c)
- *     PiCMCaptureRegistryInputData @ 0x1407BEB5C (PiCMCaptureRegistryInputData.c)
- *     PiCMDuplicateRegistryHandle @ 0x1407BECFC (PiCMDuplicateRegistryHandle.c)
- *     _PnpCreateObject @ 0x140A64A44 (_PnpCreateObject.c)
+ *     ZwClose @ 0x14041B2D0 (ZwClose.c)
+ *     _PnpOpenObjectRegKey @ 0x1406CF990 (_PnpOpenObjectRegKey.c)
+ *     ObCloseHandle @ 0x14076BA80 (ObCloseHandle.c)
+ *     PiCMReleaseObjectInputData @ 0x14079A2C8 (PiCMReleaseObjectInputData.c)
+ *     PiAuDoesClientHaveAccess @ 0x14079AA78 (PiAuDoesClientHaveAccess.c)
+ *     PiCMReturnHandleResultData @ 0x1407BED94 (PiCMReturnHandleResultData.c)
+ *     PiCMCaptureRegistryInputData @ 0x1407BEE2C (PiCMCaptureRegistryInputData.c)
+ *     PiCMDuplicateRegistryHandle @ 0x1407BEFCC (PiCMDuplicateRegistryHandle.c)
+ *     _PnpCreateObject @ 0x140A64CF4 (_PnpCreateObject.c)
  */
 
 __int64 __fastcall PiCMOpenObjectKey(_DWORD *a1, unsigned int a2, _DWORD *a3, unsigned int a4, int a5, _DWORD *a6)

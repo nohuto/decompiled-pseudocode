@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlDecompressBufferDeflateInternal @ 0x18014CF88
+ * XREFs of RtlDecompressBufferDeflateInternal @ 0x18014B348
  * Callers:
- *     RtlDecompressBufferDeflateRaw @ 0x18014D090 (RtlDecompressBufferDeflateRaw.c)
- *     RtlDecompressBufferDeflateZlib @ 0x18014D0D0 (RtlDecompressBufferDeflateZlib.c)
+ *     RtlDecompressBufferDeflateRaw @ 0x18014B450 (RtlDecompressBufferDeflateRaw.c)
+ *     RtlDecompressBufferDeflateZlib @ 0x18014B490 (RtlDecompressBufferDeflateZlib.c)
  * Callees:
- *     inflate @ 0x180151674 (inflate.c)
- *     inflateReset2 @ 0x180152740 (inflateReset2.c)
- *     memset$thunk$772440563353939046 @ 0x180172030 (memset$thunk$772440563353939046.c)
+ *     inflate @ 0x18014FA34 (inflate.c)
+ *     inflateReset2 @ 0x180150B00 (inflateReset2.c)
+ *     memset$thunk$772440563353939046 @ 0x180171030 (memset$thunk$772440563353939046.c)
  */
 
 __int64 __fastcall RtlDecompressBufferDeflateInternal(
@@ -30,7 +30,7 @@ __int64 __fastcall RtlDecompressBufferDeflateInternal(
   int v20; // [rsp+3Ch] [rbp-44h]
   _QWORD *v21; // [rsp+48h] [rbp-38h]
   __int64 (*v22)(); // [rsp+50h] [rbp-30h]
-  void (*v23)(); // [rsp+58h] [rbp-28h]
+  void (__cdecl *v23)(PRTL_DYNAMIC_HASH_TABLE, PRTL_DYNAMIC_HASH_TABLE_ENUMERATOR); // [rsp+58h] [rbp-28h]
 
   memset_thunk_772440563353939046(&v16, 0, 0x58uLL);
   memset_thunk_772440563353939046(a8, 0, 0x2370uLL);

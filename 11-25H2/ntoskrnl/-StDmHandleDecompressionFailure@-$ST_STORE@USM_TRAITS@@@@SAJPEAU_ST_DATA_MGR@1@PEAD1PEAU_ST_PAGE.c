@@ -35,7 +35,7 @@ __int64 __fastcall ST_STORE<SM_TRAITS>::StDmHandleDecompressionFailure(
   struct VLOCK *v14; // rcx
   void *v15; // r12
   __int64 v16; // r8
-  unsigned int v17; // eax
+  ULONG v17; // eax
   int v18; // eax
   int v19; // edx
   unsigned int v20; // esi
@@ -123,11 +123,11 @@ LABEL_13:
         *(_QWORD *)(a4 + 8) = 2LL;
         v18 = SmStoreDecompressBuffer(
                 *(_QWORD *)(a1 + 800),
-                (__int64)a3,
+                (UCHAR *)a3,
                 v16,
                 (__int64)v15,
                 v17,
-                *(_QWORD *)(a5 + 16),
+                *(PVOID *)(a5 + 16),
                 (_QWORD *)(a4 + 8));
         *(_QWORD *)(a4 + 8) = 0LL;
       }

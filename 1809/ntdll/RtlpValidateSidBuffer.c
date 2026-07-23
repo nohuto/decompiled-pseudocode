@@ -1,12 +1,15 @@
 /*
- * XREFs of RtlpValidateSidBuffer @ 0x180081E08
+ * XREFs of RtlpValidateSidBuffer @ 0x180081E18
  * Callers:
- *     RtlEnumerateBoundaryDescriptorEntries @ 0x180081D34 (RtlEnumerateBoundaryDescriptorEntries.c)
+ *     RtlEnumerateBoundaryDescriptorEntries @ 0x180081D44 (RtlEnumerateBoundaryDescriptorEntries.c)
  * Callees:
  *     <none>
  */
 
-bool __fastcall RtlpValidateSidBuffer(_BYTE *a1, unsigned int a2)
+BOOLEAN __fastcall RtlpValidateSidBuffer(PSID Sid, unsigned int a2)
 {
-  return a2 >= 8 && a2 >= 4 * (unsigned int)(unsigned __int8)a1[1] + 8 && RtlValidSid(a1);
+  if ( a2 >= 8 && a2 >= 4 * (unsigned int)*((unsigned __int8 *)Sid + 1) + 8 )
+    return RtlValidSid(Sid);
+  else
+    return 0;
 }

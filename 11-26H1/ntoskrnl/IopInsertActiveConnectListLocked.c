@@ -1,7 +1,7 @@
 /*
- * XREFs of IopInsertActiveConnectListLocked @ 0x140A99088
+ * XREFs of IopInsertActiveConnectListLocked @ 0x140A9D208
  * Callers:
- *     IopInitializeActiveConnectBlock @ 0x140A98EA4 (IopInitializeActiveConnectBlock.c)
+ *     IopInitializeActiveConnectBlock @ 0x140A9D024 (IopInitializeActiveConnectBlock.c)
  * Callees:
  *     <none>
  */
@@ -28,12 +28,12 @@ LABEL_4:
       __fastfail(3u);
     }
   }
-  result = (__int64 *)qword_140F849E8;
-  if ( *(__int64 **)qword_140F849E8 != &ActiveConnectList )
+  result = (__int64 *)qword_140F84D88;
+  if ( *(__int64 **)qword_140F84D88 != &ActiveConnectList )
     goto LABEL_4;
   *(_QWORD *)a1 = &ActiveConnectList;
   *(_QWORD *)(a1 + 8) = result;
   *result = a1;
-  qword_140F849E8 = a1;
+  qword_140F84D88 = a1;
   return result;
 }

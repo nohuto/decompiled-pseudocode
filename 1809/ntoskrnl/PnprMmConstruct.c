@@ -1,10 +1,10 @@
 /*
- * XREFs of PnprMmConstruct @ 0x140835A64
+ * XREFs of PnprMmConstruct @ 0x140836CC4
  * Callers:
- *     PnpReplacePartitionUnit @ 0x140833780 (PnpReplacePartitionUnit.c)
+ *     PnpReplacePartitionUnit @ 0x1408349E0 (PnpReplacePartitionUnit.c)
  * Callees:
- *     PnprMmAddRange @ 0x14083592C (PnprMmAddRange.c)
- *     PnprMmFree @ 0x140835B70 (PnprMmFree.c)
+ *     PnprMmAddRange @ 0x140836B8C (PnprMmAddRange.c)
+ *     PnprMmFree @ 0x140836DD0 (PnprMmFree.c)
  */
 
 __int64 __fastcall PnprMmConstruct(__int64 a1, unsigned int *a2)

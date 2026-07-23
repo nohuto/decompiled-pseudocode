@@ -1,10 +1,10 @@
 /*
- * XREFs of PpmHeteroHgsEvaluateContainmentDecision @ 0x1404F9270
+ * XREFs of PpmHeteroHgsEvaluateContainmentDecision @ 0x1404F2880
  * Callers:
- *     PpmHeteroHgsCheckContainmentDecision @ 0x1402589C8 (PpmHeteroHgsCheckContainmentDecision.c)
+ *     PpmHeteroHgsCheckContainmentDecision @ 0x14025A1A8 (PpmHeteroHgsCheckContainmentDecision.c)
  * Callees:
- *     PpmHeteroHgsEvaluateContainmentMinPolicyDecision @ 0x1404F9310 (PpmHeteroHgsEvaluateContainmentMinPolicyDecision.c)
- *     PpmEventHgsContainmentPolicyChange @ 0x14060E190 (PpmEventHgsContainmentPolicyChange.c)
+ *     PpmHeteroHgsEvaluateContainmentMinPolicyDecision @ 0x1404F2920 (PpmHeteroHgsEvaluateContainmentMinPolicyDecision.c)
+ *     PpmEventHgsContainmentPolicyChange @ 0x140611290 (PpmEventHgsContainmentPolicyChange.c)
  */
 
 __int64 PpmHeteroHgsEvaluateContainmentDecision()
@@ -24,8 +24,8 @@ __int64 PpmHeteroHgsEvaluateContainmentDecision()
   if ( PpmHeteroPolicy == 4
     && PpmHeteroContainmentPolicy == 1
     && PpmHeteroHgsParkingEnabled
-    && !LOBYTE(stru_140F11D08.RealtimePriorityFloor)
-    && !*(_DWORD *)&PopSleepstudySessionLock.WaitRegister.Flags
+    && !PpmPerfMaxOverrideEnabled
+    && !PpmCheckLatencyBoostActive
     && !(_BYTE)result
     && !v3 )
   {

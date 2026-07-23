@@ -16,33 +16,36 @@
  *     <none>
  */
 
-unsigned __int64 __fastcall RtlSectionTableFromVirtualAddress(unsigned __int64 a1, __int64 a2, unsigned int a3)
+PIMAGE_SECTION_HEADER __cdecl RtlSectionTableFromVirtualAddress(
+        PIMAGE_NT_HEADERS NtHeaders,
+        PVOID BaseOfImage,
+        ULONG VirtualAddress)
 {
-  unsigned __int64 v4; // r9
+  char *v4; // r9
   unsigned int v5; // r8d
-  unsigned int v6; // r11d
-  unsigned __int64 v7; // rdx
-  unsigned int v8; // ecx
+  unsigned int NumberOfSections; // r11d
+  _IMAGE_SECTION_HEADER *v7; // rdx
+  ULONG v8; // ecx
   unsigned __int64 v10; // r9
 
-  v4 = a1 + *(unsigned __int16 *)(a1 + 20);
+  v4 = (char *)NtHeaders + NtHeaders->FileHeader.SizeOfOptionalHeader;
   v5 = 0;
-  v6 = *(unsigned __int16 *)(a1 + 6);
-  v7 = v4 + 24;
-  if ( a1 > 0x7FFFFFFEFFFFLL )
+  NumberOfSections = NtHeaders->FileHeader.NumberOfSections;
+  v7 = (_IMAGE_SECTION_HEADER *)(v4 + 24);
+  if ( (unsigned __int64)NtHeaders > 0x7FFFFFFEFFFFLL )
     goto LABEL_2;
-  v10 = v4 + 40LL * *(unsigned __int16 *)(a1 + 6) + 23;
-  if ( !*(_WORD *)(a1 + 6) )
-    v10 = v7;
-  if ( v10 >= v7 && v10 <= 0x7FFFFFFEFFFFLL )
+  v10 = (unsigned __int64)&v4[40 * NtHeaders->FileHeader.NumberOfSections + 23];
+  if ( !NtHeaders->FileHeader.NumberOfSections )
+    v10 = (unsigned __int64)v7;
+  if ( v10 >= (unsigned __int64)v7 && v10 <= 0x7FFFFFFEFFFFLL )
   {
 LABEL_2:
-    while ( v5 < v6 )
+    while ( v5 < NumberOfSections )
     {
-      v8 = *(_DWORD *)(v7 + 12);
-      if ( a3 >= v8 && a3 < *(_DWORD *)(v7 + 16) + v8 )
+      v8 = v7->VirtualAddress;
+      if ( VirtualAddress >= v8 && VirtualAddress < v7->SizeOfRawData + v8 )
         return v7;
-      v7 += 40LL;
+      ++v7;
       ++v5;
     }
   }

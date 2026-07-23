@@ -1,23 +1,23 @@
 /*
- * XREFs of CcGetVacbMiss @ 0x14001872C
+ * XREFs of CcGetVacbMiss @ 0x1400182AC
  * Callers:
- *     CcGetVirtualAddress @ 0x1400333C0 (CcGetVirtualAddress.c)
+ *     CcGetVirtualAddress @ 0x140032F40 (CcGetVirtualAddress.c)
  * Callees:
- *     CcGetVacbLargeOffset @ 0x140018248 (CcGetVacbLargeOffset.c)
- *     CcSetVacbInFreeList @ 0x1400182B4 (CcSetVacbInFreeList.c)
- *     SetVacb @ 0x1400185FC (SetVacb.c)
- *     CcGetVacbFromFreeList @ 0x14001866C (CcGetVacbFromFreeList.c)
- *     CcReleaseBcbLockAndVacbLock @ 0x140018910 (CcReleaseBcbLockAndVacbLock.c)
- *     CcIncrementVacbActiveCount @ 0x140018984 (CcIncrementVacbActiveCount.c)
- *     CcAcquireBcbLockAndVacbLock @ 0x1400189B4 (CcAcquireBcbLockAndVacbLock.c)
- *     MmMapViewInSystemCache @ 0x140018A20 (MmMapViewInSystemCache.c)
- *     FsRtlIsNtstatusExpected @ 0x1400AB6F8 (FsRtlIsNtstatusExpected.c)
- *     KeAcquireQueuedSpinLock @ 0x1400E8D30 (KeAcquireQueuedSpinLock.c)
- *     KeReleaseQueuedSpinLock @ 0x1400E8DA0 (KeReleaseQueuedSpinLock.c)
- *     RtlRaiseStatus @ 0x1400F6738 (RtlRaiseStatus.c)
- *     CcUnmapInactiveViews @ 0x14014199C (CcUnmapInactiveViews.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
- *     CcUnmapVacb @ 0x14042B660 (CcUnmapVacb.c)
+ *     CcGetVacbLargeOffset @ 0x140017DC8 (CcGetVacbLargeOffset.c)
+ *     CcSetVacbInFreeList @ 0x140017E34 (CcSetVacbInFreeList.c)
+ *     SetVacb @ 0x14001817C (SetVacb.c)
+ *     CcGetVacbFromFreeList @ 0x1400181EC (CcGetVacbFromFreeList.c)
+ *     CcReleaseBcbLockAndVacbLock @ 0x140018490 (CcReleaseBcbLockAndVacbLock.c)
+ *     CcIncrementVacbActiveCount @ 0x140018504 (CcIncrementVacbActiveCount.c)
+ *     CcAcquireBcbLockAndVacbLock @ 0x140018534 (CcAcquireBcbLockAndVacbLock.c)
+ *     MmMapViewInSystemCache @ 0x1400185A0 (MmMapViewInSystemCache.c)
+ *     FsRtlIsNtstatusExpected @ 0x1400A9C60 (FsRtlIsNtstatusExpected.c)
+ *     KeAcquireQueuedSpinLock @ 0x1400E6BD0 (KeAcquireQueuedSpinLock.c)
+ *     KeReleaseQueuedSpinLock @ 0x1400E6C40 (KeReleaseQueuedSpinLock.c)
+ *     RtlRaiseStatus @ 0x1400F4588 (RtlRaiseStatus.c)
+ *     CcUnmapInactiveViews @ 0x140141F0C (CcUnmapInactiveViews.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
+ *     CcUnmapVacb @ 0x14042A530 (CcUnmapVacb.c)
  */
 
 _QWORD *__fastcall CcGetVacbMiss(_QWORD *a1, __int64 a2, unsigned int a3, int a4)

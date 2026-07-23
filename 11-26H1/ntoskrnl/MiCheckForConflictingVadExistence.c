@@ -1,7 +1,7 @@
 /*
- * XREFs of MiCheckForConflictingVadExistence @ 0x140480590
+ * XREFs of MiCheckForConflictingVadExistence @ 0x140479ED0
  * Callers:
- *     MiIsVaRangeAvailable @ 0x1409CE424 (MiIsVaRangeAvailable.c)
+ *     MiIsVaRangeAvailable @ 0x14099F404 (MiIsVaRangeAvailable.c)
  * Callees:
  *     <none>
  */

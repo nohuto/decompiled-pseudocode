@@ -13,5 +13,5 @@ NTSTATUS __stdcall ZwImpersonateThread(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(ThreadHandle, ThreadToImpersonate, SecurityQualityOfService);
+  return KiServiceInternal(ThreadHandle);
 }

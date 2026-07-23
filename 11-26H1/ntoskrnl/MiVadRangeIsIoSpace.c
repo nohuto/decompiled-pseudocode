@@ -1,15 +1,15 @@
 /*
- * XREFs of MiVadRangeIsIoSpace @ 0x1404F4AF0
+ * XREFs of MiVadRangeIsIoSpace @ 0x1404EE0D0
  * Callers:
- *     MiCopyVmLockVad @ 0x140A22620 (MiCopyVmLockVad.c)
+ *     MiCopyVmLockVad @ 0x140A2BC40 (MiCopyVmLockVad.c)
  * Callees:
- *     MiUnlockPageTableInternal @ 0x1402D13E0 (MiUnlockPageTableInternal.c)
- *     KeShouldYieldProcessor @ 0x1402D49D0 (KeShouldYieldProcessor.c)
- *     MiUnlockWorkingSetShared @ 0x1402EB6C0 (MiUnlockWorkingSetShared.c)
- *     MiLockWorkingSetShared @ 0x1402EDD60 (MiLockWorkingSetShared.c)
- *     MiMakeSystemAddressValid @ 0x1403028C0 (MiMakeSystemAddressValid.c)
- *     MiPageTableLockIsContended @ 0x140306820 (MiPageTableLockIsContended.c)
- *     MiWorkingSetIsContended @ 0x1403182D0 (MiWorkingSetIsContended.c)
+ *     MiUnlockPageTableInternal @ 0x1402B31A0 (MiUnlockPageTableInternal.c)
+ *     KeShouldYieldProcessor @ 0x1402B6790 (KeShouldYieldProcessor.c)
+ *     MiUnlockWorkingSetShared @ 0x1402CD700 (MiUnlockWorkingSetShared.c)
+ *     MiLockWorkingSetShared @ 0x1402CFDE0 (MiLockWorkingSetShared.c)
+ *     MiMakeSystemAddressValid @ 0x1402E4940 (MiMakeSystemAddressValid.c)
+ *     MiPageTableLockIsContended @ 0x1402E88A0 (MiPageTableLockIsContended.c)
+ *     MiWorkingSetIsContended @ 0x14031A300 (MiWorkingSetIsContended.c)
  */
 
 unsigned __int64 __fastcall MiVadRangeIsIoSpace(__int64 a1, unsigned __int64 a2, __int64 a3)
@@ -51,7 +51,7 @@ unsigned __int64 __fastcall MiVadRangeIsIoSpace(__int64 a1, unsigned __int64 a2,
     MiMakeSystemAddressValid(v6, 0, v11, 0);
 LABEL_10:
     v14 = (*(_QWORD *)v6 >> 12) & 0xFFFFFFFFFFLL;
-    if ( v14 > qword_140E2D7A0 || ((*(_QWORD *)(48 * v14 - 0x21FFFFFFFFD8LL) >> 54) & 1) == 0 )
+    if ( v14 > qword_140E2D920 || ((*(_QWORD *)(48 * v14 - 0x21FFFFFFFFD8LL) >> 54) & 1) == 0 )
       break;
     v6 += 8LL;
     if ( (v6 & 0x78) == 0

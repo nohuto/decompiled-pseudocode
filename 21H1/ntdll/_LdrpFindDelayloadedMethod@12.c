@@ -7,20 +7,20 @@
  *     _LdrpFindDelayloadedMethodInDescriptor@12 @ 0x4B32F710 (_LdrpFindDelayloadedMethodInDescriptor@12.c)
  */
 
-int __fastcall LdrpFindDelayloadedMethod(void *a1, int a2, _DWORD *a3)
+int __fastcall LdrpFindDelayloadedMethod(PVOID BaseOfImage, int a2, _DWORD *a3)
 {
   int DelayloadedMethodInDescriptor; // edi
   char *v4; // esi
-  unsigned int v5; // ebx
-  unsigned int v8; // [esp+10h] [ebp-4h] BYREF
+  ULONG v5; // ebx
+  ULONG Size; // [esp+10h] [ebp-4h] BYREF
 
   DelayloadedMethodInDescriptor = 0;
   *a3 = 0;
-  v4 = (char *)RtlImageDirectoryEntryToData(a1, (int)a1, 1, 13, (int)&v8);
+  v4 = (char *)RtlImageDirectoryEntryToData(BaseOfImage, 1u, 0xDu, &Size);
   if ( v4 )
   {
-    v5 = v8 >> 5;
-    v8 = 0;
+    v5 = Size >> 5;
+    Size = 0;
     if ( v5 )
     {
       while ( 1 )
@@ -29,7 +29,7 @@ int __fastcall LdrpFindDelayloadedMethod(void *a1, int a2, _DWORD *a3)
         if ( DelayloadedMethodInDescriptor )
           break;
         v4 += 32;
-        if ( ++v8 >= v5 )
+        if ( ++Size >= v5 )
           return DelayloadedMethodInDescriptor;
       }
       *a3 = v4;

@@ -1,20 +1,20 @@
 /*
- * XREFs of CmpCheckRegistry2 @ 0x140A079F0
+ * XREFs of CmpCheckRegistry2 @ 0x140A1DAC0
  * Callers:
- *     CmCheckRegistry @ 0x140B7E7A0 (CmCheckRegistry.c)
+ *     CmCheckRegistry @ 0x140B87680 (CmCheckRegistry.c)
  * Callees:
- *     SetFailureLocation @ 0x140494894 (SetFailureLocation.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     HvpGetCellFlat @ 0x14085EB00 (HvpGetCellFlat.c)
- *     RtlUpcaseUnicodeChar @ 0x1408D5170 (RtlUpcaseUnicodeChar.c)
- *     HvpReleaseCellFlat @ 0x1408D51E0 (HvpReleaseCellFlat.c)
- *     HvpReleaseCellPaged @ 0x1408D73B0 (HvpReleaseCellPaged.c)
- *     HvpGetCellPaged @ 0x1408D7410 (HvpGetCellPaged.c)
- *     HvpGetCellContextInitialize @ 0x1408D9320 (HvpGetCellContextInitialize.c)
- *     RtlCompareUnicodeStrings @ 0x140981100 (RtlCompareUnicodeStrings.c)
- *     CmpRemoveSubKeyCellNoCellRef @ 0x140A0752C (CmpRemoveSubKeyCellNoCellRef.c)
- *     CmpCheckAndFixSecurityCellsRefcount @ 0x140A07840 (CmpCheckAndFixSecurityCellsRefcount.c)
- *     CmpCheckKey @ 0x140A08360 (CmpCheckKey.c)
+ *     SetFailureLocation @ 0x14048E3E4 (SetFailureLocation.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     HvpGetCellFlat @ 0x140864DF0 (HvpGetCellFlat.c)
+ *     RtlUpcaseUnicodeChar @ 0x1408DB730 (RtlUpcaseUnicodeChar.c)
+ *     HvpReleaseCellFlat @ 0x1408DB7A0 (HvpReleaseCellFlat.c)
+ *     HvpReleaseCellPaged @ 0x1408DD970 (HvpReleaseCellPaged.c)
+ *     HvpGetCellPaged @ 0x1408DD9D0 (HvpGetCellPaged.c)
+ *     HvpGetCellContextInitialize @ 0x1408DF8E0 (HvpGetCellContextInitialize.c)
+ *     RtlCompareUnicodeStrings @ 0x140943110 (RtlCompareUnicodeStrings.c)
+ *     CmpRemoveSubKeyCellNoCellRef @ 0x140A1D604 (CmpRemoveSubKeyCellNoCellRef.c)
+ *     CmpCheckAndFixSecurityCellsRefcount @ 0x140A1D918 (CmpCheckAndFixSecurityCellsRefcount.c)
+ *     CmpCheckKey @ 0x140A1E430 (CmpCheckKey.c)
  */
 
 __int64 __fastcall CmpCheckRegistry2(
@@ -23,7 +23,7 @@ __int64 __fastcall CmpCheckRegistry2(
         int a3,
         __int64 a4,
         char a5,
-        RTL_BITMAP *BitMapHeader,
+        _RTL_BITMAP *BitMapHeader,
         __int64 a7,
         int *a8)
 {
@@ -475,12 +475,12 @@ LABEL_87:
   if ( v20 != -1073741492 )
     goto LABEL_110;
   v62 = a2 & 0x20000;
-  if ( (a2 & 0x20000) == 0 && (BYTE2(NlsMbOemCodePageTag) || (CmpCallbackListLock.ApcStateFill[28] & 6) != 0) )
+  if ( (a2 & 0x20000) == 0 && (BYTE2(NlsMbOemCodePageTag) || (CmpContextListLock.ApcStateFill[36] & 6) != 0) )
     v9 = 1;
   v63 = 16;
 LABEL_146:
   SetFailureLocation(a7, v9, 13, v21, v63);
-  if ( !v62 && (BYTE2(NlsMbOemCodePageTag) || (CmpCallbackListLock.ApcStateFill[28] & 6) != 0) && v16 )
+  if ( !v62 && (BYTE2(NlsMbOemCodePageTag) || (CmpContextListLock.ApcStateFill[36] & 6) != 0) && v16 )
   {
     v64 = CmpRemoveSubKeyCellNoCellRef(
             BugCheckParameter3,

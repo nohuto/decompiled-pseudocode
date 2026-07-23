@@ -28,8 +28,8 @@ __int64 __fastcall EmonMarkCountersReserved(int a1, unsigned __int64 a2)
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *v18; // r9
   int v19; // edx
-  struct _GROUP_AFFINITY Affinity; // [rsp+28h] [rbp-28h] BYREF
-  struct _GROUP_AFFINITY PreviousAffinity; // [rsp+38h] [rbp-18h] BYREF
+  _GROUP_AFFINITY Affinity; // [rsp+28h] [rbp-28h] BYREF
+  _GROUP_AFFINITY PreviousAffinity; // [rsp+38h] [rbp-18h] BYREF
 
   v2 = 0;
   v4 = a2;

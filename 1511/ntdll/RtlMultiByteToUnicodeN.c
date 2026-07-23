@@ -10,37 +10,42 @@
  *     <none>
  */
 
-__int64 __fastcall RtlMultiByteToUnicodeN(_WORD *a1, unsigned int a2, _DWORD *a3, unsigned __int8 *a4, unsigned int a5)
+NTSTATUS __cdecl RtlMultiByteToUnicodeN(
+        PWCH UnicodeString,
+        ULONG MaxBytesInUnicodeString,
+        PULONG BytesInUnicodeString,
+        PCSTR MultiByteString,
+        ULONG BytesInMultiByteString)
 {
-  unsigned int v5; // edx
-  _WORD *v6; // rbx
-  unsigned int v7; // r11d
+  ULONG v5; // edx
+  PWCH v6; // rbx
+  ULONG v7; // r11d
   __int64 v8; // r8
   int v9; // r10d
   unsigned __int8 *v10; // r9
-  _WORD *i; // rdx
+  WCHAR *i; // rdx
   int v13; // r11d
   __int64 v14; // rsi
-  unsigned int v15; // r10d
+  ULONG v15; // r10d
   __int64 v16; // rbp
   __int64 v17; // rax
   unsigned __int16 v18; // di
   __int64 v19; // rcx
 
-  v5 = a2 >> 1;
-  v6 = a1;
+  v5 = MaxBytesInUnicodeString >> 1;
+  v6 = UnicodeString;
   if ( NlsMbCodePageTag )
   {
-    v13 = (int)a1;
+    v13 = (int)UnicodeString;
     v14 = NlsMbAnsiCodePageTables;
     if ( v5 )
     {
-      v15 = a5;
+      v15 = BytesInMultiByteString;
       v16 = NlsAnsiToUnicodeData;
       while ( v15 )
       {
         --v5;
-        v17 = *a4;
+        v17 = *(unsigned __int8 *)MultiByteString;
         --v15;
         v18 = NlsLeadByteInfoTable[v17];
         if ( v18 )
@@ -51,34 +56,34 @@ __int64 __fastcall RtlMultiByteToUnicodeN(_WORD *a1, unsigned int a2, _DWORD *a3
             LODWORD(v6) = (_DWORD)v6 + 2;
             break;
           }
-          v19 = a4[1];
-          a4 += 2;
+          v19 = *((unsigned __int8 *)MultiByteString + 1);
+          MultiByteString += 2;
           *v6++ = *(_WORD *)(v14 + 2 * (v18 + v19));
           --v15;
         }
         else
         {
           *v6++ = *(_WORD *)(v17 * 2 + v16);
-          ++a4;
+          ++MultiByteString;
         }
         if ( !v5 )
           break;
       }
     }
-    if ( a3 )
-      *a3 = (_DWORD)v6 - v13;
+    if ( BytesInUnicodeString )
+      *BytesInUnicodeString = (_DWORD)v6 - v13;
   }
   else
   {
-    v7 = a5;
-    if ( v5 < a5 )
+    v7 = BytesInMultiByteString;
+    if ( v5 < BytesInMultiByteString )
       v7 = v5;
-    if ( a3 )
-      *a3 = 2 * v7;
+    if ( BytesInUnicodeString )
+      *BytesInUnicodeString = 2 * v7;
     v8 = NlsAnsiToUnicodeData;
     v9 = v7 & 0x1F;
-    v10 = &a4[v7 - v9];
-    for ( i = &a1[v7 - v9]; ; i -= 32 )
+    v10 = (unsigned __int8 *)&MultiByteString[v7 - v9];
+    for ( i = &UnicodeString[v7 - v9]; ; i -= 32 )
     {
       if ( v9 != 1 )
       {
@@ -220,5 +225,5 @@ LABEL_41:
       v10 -= 32;
     }
   }
-  return 0LL;
+  return 0;
 }

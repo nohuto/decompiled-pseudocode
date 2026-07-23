@@ -1,12 +1,12 @@
 /*
- * XREFs of PpmEventTraceRecordedUtility @ 0x140257630
+ * XREFs of PpmEventTraceRecordedUtility @ 0x1402576F0
  * Callers:
- *     PpmPerfRecordUtility @ 0x140257400 (PpmPerfRecordUtility.c)
+ *     PpmPerfRecordUtility @ 0x1402574C0 (PpmPerfRecordUtility.c)
  * Callees:
- *     PpmEventGetEventDescriptorAndProcessorId @ 0x1402576D0 (PpmEventGetEventDescriptorAndProcessorId.c)
- *     EtwWriteEx @ 0x1402581E0 (EtwWriteEx.c)
- *     EtwEventEnabled @ 0x140258420 (EtwEventEnabled.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     PpmEventGetEventDescriptorAndProcessorId @ 0x140257790 (PpmEventGetEventDescriptorAndProcessorId.c)
+ *     EtwWriteEx @ 0x1402582A0 (EtwWriteEx.c)
+ *     EtwEventEnabled @ 0x1402584E0 (EtwEventEnabled.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  */
 
 char PpmEventTraceRecordedUtility(

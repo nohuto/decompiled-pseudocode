@@ -1,32 +1,32 @@
 /*
- * XREFs of PpmParkRegisterParking @ 0x14060FE58
+ * XREFs of PpmParkRegisterParking @ 0x1406130BC
  * Callers:
- *     PpmCheckInitProcessors @ 0x140A9CBF0 (PpmCheckInitProcessors.c)
+ *     PpmCheckInitProcessors @ 0x140AEB890 (PpmCheckInitProcessors.c)
  * Callees:
- *     ?RtlpCopyAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z @ 0x1402518B0 (-RtlpCopyAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z.c)
- *     RtlAndAffinityEx @ 0x140252394 (RtlAndAffinityEx.c)
- *     PpmParkApplyPolicy @ 0x1402592F0 (PpmParkApplyPolicy.c)
- *     KeReleaseSpinLock @ 0x1402BE860 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14032F300 (KeAcquireSpinLockRaiseToDpc.c)
- *     PopExecuteOnTargetProcessors @ 0x140428780 (PopExecuteOnTargetProcessors.c)
- *     KeEnumerateNextSchedulerSubNodeInNode @ 0x140470DF0 (KeEnumerateNextSchedulerSubNodeInNode.c)
- *     KeQueryNodeActiveAffinityEx @ 0x140476C00 (KeQueryNodeActiveAffinityEx.c)
- *     Feature_PpmParkUseWholeNumaNode__private_IsEnabledDeviceUsageNoInline @ 0x14060F0B4 (Feature_PpmParkUseWholeNumaNode__private_IsEnabledDeviceUsageNoInline.c)
- *     PpmParkInitParkNode @ 0x14060F9F4 (PpmParkInitParkNode.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     PpmParkFreeAllParkNodes @ 0x1407DD4B4 (PpmParkFreeAllParkNodes.c)
- *     PpmParkParkingAvailable @ 0x140A9D5A0 (PpmParkParkingAvailable.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     PopExecuteOnTargetProcessors @ 0x14021AA60 (PopExecuteOnTargetProcessors.c)
+ *     ?RtlpCopyAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z @ 0x140253210 (-RtlpCopyAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z.c)
+ *     RtlAndAffinityEx @ 0x140253CF4 (RtlAndAffinityEx.c)
+ *     PpmParkApplyPolicy @ 0x14025AAD0 (PpmParkApplyPolicy.c)
+ *     KeReleaseSpinLock @ 0x140309520 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140331330 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KeEnumerateNextSchedulerSubNodeInNode @ 0x14046A570 (KeEnumerateNextSchedulerSubNodeInNode.c)
+ *     KeQueryNodeActiveAffinityEx @ 0x140470380 (KeQueryNodeActiveAffinityEx.c)
+ *     Feature_PpmParkUseWholeNumaNode__private_IsEnabledDeviceUsageNoInline @ 0x140612318 (Feature_PpmParkUseWholeNumaNode__private_IsEnabledDeviceUsageNoInline.c)
+ *     PpmParkInitParkNode @ 0x140612C58 (PpmParkInitParkNode.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     PpmParkFreeAllParkNodes @ 0x1407E1AE0 (PpmParkFreeAllParkNodes.c)
+ *     PpmParkParkingAvailable @ 0x140AEBCBC (PpmParkParkingAvailable.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 PpmParkRegisterParking()
 {
   unsigned __int8 v0; // si
   char v1; // al
-  unsigned int SystemCallNumber; // r12d
+  unsigned int v2; // r12d
   char v3; // r15
   _BYTE *v4; // rbx
   __int64 v5; // rdi
@@ -37,7 +37,7 @@ __int64 PpmParkRegisterParking()
   int v10; // ecx
   unsigned int v11; // eax
   __int64 v12; // rax
-  __int64 v13; // rcx
+  unsigned __int64 v13; // rcx
   unsigned int v14; // eax
   __int64 v15; // r13
   __int64 v16; // r9
@@ -51,8 +51,8 @@ __int64 PpmParkRegisterParking()
   char *v24; // rdx
   __int64 v25; // r15
   __int64 v26; // rbx
-  __int64 v27; // rax
-  __int64 v28; // r13
+  unsigned __int64 v27; // rax
+  unsigned __int64 v28; // r13
   __int64 v29; // rdi
   char *v30; // rdx
   char *v31; // rax
@@ -83,7 +83,7 @@ __int64 PpmParkRegisterParking()
   char *v57; // [rsp+58h] [rbp-B0h]
   PVOID v58[2]; // [rsp+60h] [rbp-A8h] BYREF
   PVOID P; // [rsp+70h] [rbp-98h]
-  PVOID FirstArgument; // [rsp+78h] [rbp-90h]
+  PVOID v60; // [rsp+78h] [rbp-90h]
   __int64 v61; // [rsp+80h] [rbp-88h]
   struct _KAFFINITY_EX v62; // [rsp+88h] [rbp-80h] BYREF
 
@@ -97,22 +97,22 @@ __int64 PpmParkRegisterParking()
   if ( PpmParkUseWholeNumaNodeOverride == -1 )
     v1 = (unsigned int)Feature_PpmParkUseWholeNumaNode__private_IsEnabledDeviceUsageNoInline() != 0;
   PpmParkUseWholeNumaNode = v1;
-  SystemCallNumber = 0;
+  v2 = 0;
   v3 = 0;
   P = 0LL;
   v57 = 0LL;
-  FirstArgument = 0LL;
+  v60 = 0LL;
   v53 = 0;
-  if ( *($353D57E818BB6F967B4B818D974CF463 *)((char *)&PopModernStandbyStateNotify.116 + 4) )
+  if ( PpmParkNodes )
   {
-    SystemCallNumber = PopModernStandbyStateNotify.SystemCallNumber;
-    v57 = *(char **)((char *)&PopModernStandbyStateNotify.116 + 4);
-    FirstArgument = PopModernStandbyStateNotify.FirstArgument;
-    v53 = PopModernStandbyStateNotify.SystemCallNumber;
-    if ( PopModernStandbyStateNotify.SystemCallNumber )
+    v2 = PpmParkNumNodes;
+    v57 = (char *)PpmParkNodes;
+    v60 = (PVOID)PpmParkHistograms;
+    v53 = PpmParkNumNodes;
+    if ( PpmParkNumNodes )
     {
-      v4 = (_BYTE *)(*(_QWORD *)((char *)&PopModernStandbyStateNotify.116 + 4) + 1152LL);
-      v5 = PopModernStandbyStateNotify.SystemCallNumber;
+      v4 = (_BYTE *)(PpmParkNodes + 1152);
+      v5 = (unsigned int)PpmParkNumNodes;
       do
       {
         if ( *((_QWORD *)v4 - 10) && (*v4 & 8) != 0 )
@@ -135,7 +135,7 @@ __int64 PpmParkRegisterParking()
       *(_QWORD *)&v62.Count = 2097153LL;
       memset_0(&v62.8, 0, sizeof(v62.8));
       KeQueryNodeActiveAffinityEx(v8, &v62.Count, 0LL);
-      RtlAndAffinityEx(&v62.Count, (unsigned __int16 *)PpmCheckRegistered, (__int64)&v62);
+      RtlAndAffinityEx(&v62.Count, &PpmCheckRegistered.Count, (__int64)&v62);
       for ( i = 0; i < v62.Count; ++i )
       {
         if ( v62.Bitmap[i] )
@@ -165,10 +165,10 @@ LABEL_20:
       while ( !(unsigned int)KeEnumerateNextSchedulerSubNodeInNode((unsigned int *)v58, &v55) )
       {
         v12 = *(unsigned __int16 *)(v55 + 136);
-        if ( (unsigned __int16)v12 >= LOWORD(PpmCheckRegistered[0]) )
+        if ( (unsigned __int16)v12 >= PpmCheckRegistered.Count )
           v13 = 0LL;
         else
-          v13 = PpmCheckRegistered[v12 + 1];
+          v13 = PpmCheckRegistered.Bitmap[v12];
         v14 = v7 + 1;
         if ( (v13 & *(_QWORD *)(v55 + 128)) == 0 )
           v14 = v7;
@@ -178,7 +178,7 @@ LABEL_20:
     }
     while ( v8 < (unsigned __int16)KeNumberNodes );
   }
-  SystemCallNumber = v53;
+  v2 = v53;
   v3 = 0;
 LABEL_35:
   Pool2 = ExAllocatePool2(0x40uLL);
@@ -219,10 +219,10 @@ LABEL_35:
               }
               v25 = v55;
               v26 = *(unsigned __int16 *)(v55 + 136);
-              if ( (unsigned __int16)v26 >= LOWORD(PpmCheckRegistered[0]) )
+              if ( (unsigned __int16)v26 >= PpmCheckRegistered.Count )
                 v27 = 0LL;
               else
-                v27 = PpmCheckRegistered[v26 + 1];
+                v27 = PpmCheckRegistered.Bitmap[v26];
               v28 = v27 & *(_QWORD *)(v55 + 128);
             }
             while ( !v28 );
@@ -257,7 +257,7 @@ LABEL_62:
         *(_QWORD *)&v62.Count = 2097153LL;
         memset_0(&v62.8, 0, sizeof(v62.8));
         KeQueryNodeActiveAffinityEx(j, &v62.Count, 0LL);
-        RtlAndAffinityEx(&v62.Count, (unsigned __int16 *)PpmCheckRegistered, (__int64)&v62);
+        RtlAndAffinityEx(&v62.Count, &PpmCheckRegistered.Count, (__int64)&v62);
         for ( k = 0; k < v62.Count; ++k )
         {
           if ( v62.Bitmap[k] )
@@ -268,7 +268,7 @@ LABEL_62:
             *(_QWORD *)(v23 + 16) = 2097153LL;
             memset_0((void *)(v22 + v15 + 24), 0, 0x100uLL);
             RtlpCopyAffinityEx((struct _KAFFINITY_EX *)(v23 + 16), *(_WORD *)(v23 + 18), &v62);
-            if ( v6 >= SystemCallNumber || (v24 = &v57[v22], *(unsigned __int16 *)&v57[v22 + 4] != j) )
+            if ( v6 >= v2 || (v24 = &v57[v22], *(unsigned __int16 *)&v57[v22 + 4] != j) )
               v24 = 0LL;
             ++v6;
             if ( (int)PpmParkInitParkNode(v23, (__int64)v24, &v54) < 0 )
@@ -277,7 +277,7 @@ LABEL_62:
           }
         }
 LABEL_70:
-        SystemCallNumber = v53;
+        v2 = v53;
       }
       if ( v6 == v52 && (v31 = (char *)ExAllocatePool2(0x40uLL), (P = v31) != 0LL) )
       {
@@ -355,19 +355,19 @@ LABEL_68:
       v6 = v7;
     }
   }
-  v49 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)&stru_140F10070.SchedulerAssistYieldCounter);
+  v49 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)&PpmIdlePolicyLock.StateSaveArea);
   v50 = 0LL;
-  *($353D57E818BB6F967B4B818D974CF463 *)((char *)&PopModernStandbyStateNotify.116 + 4) = ($353D57E818BB6F967B4B818D974CF463)(v15 & -(__int64)(v3 != 0));
+  PpmParkNodes = v15 & -(__int64)(v3 != 0);
   if ( !v3 )
     v50 = P;
-  PopModernStandbyStateNotify.SystemCallNumber = v3 != 0 ? v6 : 0;
-  PopModernStandbyStateNotify.FirstArgument = (void *)((unsigned __int64)P & -(__int64)(v3 != 0));
-  KeReleaseSpinLock((PKSPIN_LOCK)&stru_140F10070.SchedulerAssistYieldCounter, v49);
+  PpmParkNumNodes = v3 != 0 ? v6 : 0;
+  PpmParkHistograms = (unsigned __int64)P & -(__int64)(v3 != 0);
+  KeReleaseSpinLock((PKSPIN_LOCK)&PpmIdlePolicyLock.StateSaveArea, v49);
   PpmParkFreeAllParkNodes(v57, v3);
   if ( v50 )
     ExFreePoolWithTag(v50, 0x704D5050u);
-  if ( FirstArgument )
-    ExFreePoolWithTag(FirstArgument, 0x704D5050u);
+  if ( v60 )
+    ExFreePoolWithTag(v60, 0x704D5050u);
   PpmParkApplyPolicy();
   return PpmParkParkingAvailable();
 }

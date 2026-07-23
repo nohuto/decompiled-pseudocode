@@ -1,11 +1,11 @@
 /*
- * XREFs of EtwpTraceIoInit @ 0x140468170
+ * XREFs of EtwpTraceIoInit @ 0x140468570
  * Callers:
  *     <none>
  * Callees:
  *     EtwTraceSiloKernelEvent @ 0x140214950 (EtwTraceSiloKernelEvent.c)
- *     PsGetThreadServerSilo @ 0x14028C190 (PsGetThreadServerSilo.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     PsGetThreadServerSilo @ 0x14028C420 (PsGetThreadServerSilo.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall EtwpTraceIoInit(__int64 a1)

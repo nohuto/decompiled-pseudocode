@@ -1,34 +1,34 @@
 /*
- * XREFs of PopBcdClearPendingResume @ 0x140801C34
+ * XREFs of PopBcdClearPendingResume @ 0x140801F04
  * Callers:
- *     PoInitHiberServices @ 0x140801AE8 (PoInitHiberServices.c)
- *     PopFreeHiberContext @ 0x1409885F0 (PopFreeHiberContext.c)
+ *     PoInitHiberServices @ 0x140801DB8 (PoInitHiberServices.c)
+ *     PopFreeHiberContext @ 0x1409887F0 (PopFreeHiberContext.c)
  * Callees:
- *     BiDeleteElement @ 0x14080367C (BiDeleteElement.c)
- *     BcdCloseObject @ 0x140804F00 (BcdCloseObject.c)
- *     BcdOpenObject @ 0x140804F44 (BcdOpenObject.c)
- *     BcdFlushStore @ 0x140A5C228 (BcdFlushStore.c)
+ *     BiDeleteElement @ 0x14080394C (BiDeleteElement.c)
+ *     BcdCloseObject @ 0x1408051D0 (BcdCloseObject.c)
+ *     BcdOpenObject @ 0x140805214 (BcdOpenObject.c)
+ *     BcdFlushStore @ 0x140A5C4D8 (BcdFlushStore.c)
  */
 
-__int64 __fastcall PopBcdClearPendingResume(__int64 a1)
+NTSTATUS __fastcall PopBcdClearPendingResume(HANDLE BcdStoreHandle)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
   int v3; // ebx
-  __int64 v4; // [rsp+38h] [rbp+10h] BYREF
+  HANDLE BcdObjectHandle; // [rsp+38h] [rbp+10h] BYREF
 
-  v4 = 0LL;
-  result = BcdOpenObject(a1, &GUID_WINDOWS_BOOTMGR, &v4);
-  if ( (int)result >= 0 )
+  BcdObjectHandle = 0LL;
+  result = BcdOpenObject(BcdStoreHandle, &GUID_WINDOWS_BOOTMGR, &BcdObjectHandle);
+  if ( result >= 0 )
   {
-    v3 = BiDeleteElement(v4, 637534213LL);
+    v3 = BiDeleteElement(BcdObjectHandle, 637534213LL);
     if ( v3 >= 0 )
     {
-      v3 = BiDeleteElement(v4, 637534245LL);
+      v3 = BiDeleteElement(BcdObjectHandle, 637534245LL);
       if ( v3 >= 0 )
-        BcdFlushStore(a1);
+        BcdFlushStore(BcdStoreHandle);
     }
-    BcdCloseObject(v4);
-    return (unsigned int)v3;
+    BcdCloseObject(BcdObjectHandle);
+    return v3;
   }
   return result;
 }

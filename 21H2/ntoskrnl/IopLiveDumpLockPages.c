@@ -1,9 +1,9 @@
 /*
- * XREFs of IopLiveDumpLockPages @ 0x1408986C8
+ * XREFs of IopLiveDumpLockPages @ 0x140898828
  * Callers:
- *     IopLiveDumpCorralProcessors @ 0x1409ABCA0 (IopLiveDumpCorralProcessors.c)
+ *     IopLiveDumpCorralProcessors @ 0x1409ACBD0 (IopLiveDumpCorralProcessors.c)
  * Callees:
- *     MiLockPagableImageSection @ 0x14031C4F0 (MiLockPagableImageSection.c)
+ *     MiLockPagableImageSection @ 0x140327240 (MiLockPagableImageSection.c)
  */
 
 void IopLiveDumpLockPages()

@@ -1,10 +1,10 @@
 /*
- * XREFs of tcpxsum @ 0x1406B3530
+ * XREFs of tcpxsum @ 0x1406B44D0
  * Callers:
- *     PopHiberChecksumHiberFileData @ 0x140B5D0C0 (PopHiberChecksumHiberFileData.c)
- *     PopHiberWriteBootFreePageMap @ 0x140B5D55C (PopHiberWriteBootFreePageMap.c)
- *     PopWriteHeaderPages @ 0x140B5E6C4 (PopWriteHeaderPages.c)
- *     PopWriteImageHeader @ 0x140B5ED50 (PopWriteImageHeader.c)
+ *     PopHiberChecksumHiberFileData @ 0x140B5F13C (PopHiberChecksumHiberFileData.c)
+ *     PopHiberWriteBootFreePageMap @ 0x140B5F5DC (PopHiberWriteBootFreePageMap.c)
+ *     PopWriteHeaderPages @ 0x140B60744 (PopWriteHeaderPages.c)
+ *     PopWriteImageHeader @ 0x140B60DD0 (PopWriteImageHeader.c)
  * Callees:
  *     <none>
  */

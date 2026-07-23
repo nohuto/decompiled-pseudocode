@@ -1,16 +1,16 @@
 /*
- * XREFs of ZwQueryDefaultUILanguage @ 0x180162510
+ * XREFs of ZwQueryDefaultUILanguage @ 0x1801608D0
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 ZwQueryDefaultUILanguage()
+NTSTATUS __cdecl ZwQueryDefaultUILanguage(LANGID *DefaultUILanguageId)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 68LL;
+  result = 68;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

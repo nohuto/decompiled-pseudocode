@@ -1,85 +1,69 @@
 /*
- * XREFs of ExpTimerPause @ 0x1403E3988
+ * XREFs of ExpTimerPause @ 0x14046BB18
  * Callers:
- *     PspSetProcessFreezeStateCallback @ 0x1403E3850 (PspSetProcessFreezeStateCallback.c)
- *     PsInsertVirtualizedTimer @ 0x14046374C (PsInsertVirtualizedTimer.c)
- *     ExWakeTimersPause @ 0x1404BC0DC (ExWakeTimersPause.c)
+ *     PsInsertVirtualizedTimer @ 0x140459FA8 (PsInsertVirtualizedTimer.c)
+ *     PspSetProcessFreezeStateCallback @ 0x14046B9E0 (PspSetProcessFreezeStateCallback.c)
+ *     ExWakeTimersPause @ 0x1404B6D9C (ExWakeTimersPause.c)
  * Callees:
- *     KxAcquireSpinLock @ 0x140254AE0 (KxAcquireSpinLock.c)
- *     KxReleaseSpinLock @ 0x140279CC0 (KxReleaseSpinLock.c)
- *     KiCancelTimer @ 0x1403E3B40 (KiCancelTimer.c)
+ *     KxReleaseSpinLock @ 0x14022F250 (KxReleaseSpinLock.c)
+ *     KxAcquireSpinLock @ 0x1402850F0 (KxAcquireSpinLock.c)
+ *     KeCancelTimerInternal @ 0x14046BBF4 (KeCancelTimerInternal.c)
  */
 
 char __fastcall ExpTimerPause(__int64 a1, __int64 a2, unsigned __int64 a3, char a4)
 {
-  unsigned __int64 v4; // rdi
-  int v5; // ebp
-  char result; // al
-  char v11; // r8
-  unsigned __int64 v12; // rsi
-  int v13; // ecx
-  unsigned int v14; // ecx
+  unsigned __int64 v8; // rax
+  char v9; // dl
+  unsigned __int64 v10; // rdi
+  unsigned __int64 v12; // [rsp+40h] [rbp+8h] BYREF
+  int v13; // [rsp+58h] [rbp+20h] BYREF
 
-  v4 = 0LL;
-  v5 = 0;
+  v12 = 0LL;
+  v13 = 0;
   if ( !a4 )
     KxAcquireSpinLock((PKSPIN_LOCK)(a1 + 64));
-  result = *(_BYTE *)(a1 + 304);
-  if ( (result & 2) == 0 )
+  LOBYTE(v8) = *(_BYTE *)(a1 + 304);
+  if ( (v8 & 2) == 0 )
   {
-    *(_BYTE *)(a1 + 304) = result | 2;
-    result = KiCancelTimer(a1, 0LL);
-    v11 = result;
-    if ( result )
+    *(_BYTE *)(a1 + 304) = v8 | 2;
+    LOBYTE(v8) = KeCancelTimerInternal(a1, &v12, &v13, a1 + 320);
+    if ( !(_BYTE)v8 )
     {
-      v13 = *(unsigned __int8 *)(a1 + 1);
-      v5 = 1;
-      v4 = *(_QWORD *)(a1 + 24);
-      if ( (v13 & 1) == 0 )
-      {
-        v5 = 2;
-        if ( (v13 & 2) != 0 )
-          v5 = 3;
-      }
-      v14 = (v13 & 0xFFFFFFFC) << 16;
-      result = 89 * v14;
-      *(_DWORD *)(a1 + 320) = v14 / 0x2710;
+      v9 = 0;
+      goto LABEL_6;
     }
-    _InterlockedAnd((volatile signed __int32 *)a1, 0xFFFFFF7F);
-    if ( !v11 )
-    {
-      LOBYTE(v5) = 0;
-      goto LABEL_7;
-    }
-    switch ( v5 )
+    v9 = v13;
+    switch ( v13 )
     {
       case 1:
-        if ( v4 <= a3 )
+        LOBYTE(v8) = v12;
+        if ( v12 <= a3 )
         {
           *(_QWORD *)(a1 + 312) = 0LL;
-          goto LABEL_7;
+          goto LABEL_6;
         }
-        v4 = a2 + v4 - a3;
+        v8 = a2 + v12 - a3;
         break;
       case 2:
-        if ( v4 <= a3 )
-          v12 = 0LL;
+        if ( v12 <= a3 )
+          v10 = 0LL;
         else
-          v12 = a3 - v4;
-        *(_QWORD *)(a1 + 312) = v12;
-        goto LABEL_7;
+          v10 = a3 - v12;
+        *(_QWORD *)(a1 + 312) = v10;
+        goto LABEL_6;
       case 3:
+        v8 = v12;
         break;
       default:
-LABEL_7:
-        *(_BYTE *)(a1 + 248) = v5;
-        goto LABEL_8;
+LABEL_6:
+        *(_BYTE *)(a1 + 248) = v9;
+        goto LABEL_7;
     }
-    *(_QWORD *)(a1 + 312) = v4;
-    goto LABEL_7;
+    *(_QWORD *)(a1 + 312) = v8;
+    goto LABEL_6;
   }
-LABEL_8:
+LABEL_7:
   if ( !a4 )
-    return KxReleaseSpinLock((volatile signed __int64 *)(a1 + 64));
-  return result;
+    LOBYTE(v8) = KxReleaseSpinLock((volatile signed __int64 *)(a1 + 64));
+  return v8;
 }

@@ -1,11 +1,11 @@
 /*
- * XREFs of KsepDsEventIoCreateDevice @ 0x1405FF1BC
+ * XREFs of KsepDsEventIoCreateDevice @ 0x140601C0C
  * Callers:
- *     KseDsHookIoCreateDevice @ 0x1405FE9C0 (KseDsHookIoCreateDevice.c)
+ *     KseDsHookIoCreateDevice @ 0x140601410 (KseDsHookIoCreateDevice.c)
  * Callees:
- *     EtwEventEnabled @ 0x140212D90 (EtwEventEnabled.c)
- *     EtwWriteEx @ 0x140212F70 (EtwWriteEx.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x140212E70 (EtwEventEnabled.c)
+ *     EtwWriteEx @ 0x140213050 (EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 BOOLEAN __fastcall KsepDsEventIoCreateDevice(__int64 a1, __int64 a2, int a3, int a4, unsigned __int8 a5, char a6)
@@ -34,9 +34,9 @@ BOOLEAN __fastcall KsepDsEventIoCreateDevice(__int64 a1, __int64 a2, int a3, int
   v19 = a1;
   result = a5;
   v7 = a5;
-  if ( stru_140E66B30.StackLimit )
+  if ( stru_140E66D40.StackLimit )
   {
-    result = EtwEventEnabled((REGHANDLE)stru_140E66B30.StackLimit, &KseDsEventCreateDevice);
+    result = EtwEventEnabled((REGHANDLE)stru_140E66D40.StackLimit, &KseDsEventCreateDevice);
     if ( result )
     {
       UserData.Ptr = (ULONGLONG)&v19;
@@ -51,7 +51,7 @@ BOOLEAN __fastcall KsepDsEventIoCreateDevice(__int64 a1, __int64 a2, int a3, int
       v14 = 4LL;
       v16 = 4LL;
       v18 = 4LL;
-      return EtwWriteEx((REGHANDLE)stru_140E66B30.StackLimit, &KseDsEventCreateDevice, 0LL, 0, 0LL, 0LL, 6u, &UserData);
+      return EtwWriteEx((REGHANDLE)stru_140E66D40.StackLimit, &KseDsEventCreateDevice, 0LL, 0, 0LL, 0LL, 6u, &UserData);
     }
   }
   return result;

@@ -1,11 +1,11 @@
 /*
- * XREFs of PpmEventInitialize @ 0x140CD6358
+ * XREFs of PpmEventInitialize @ 0x140CDC6AC
  * Callers:
- *     PoInitSystem @ 0x140CCE870 (PoInitSystem.c)
+ *     PoInitSystem @ 0x140CD49D0 (PoInitSystem.c)
  * Callees:
- *     EtwRegister @ 0x14093BDE0 (EtwRegister.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     EtwRegister @ 0x140917980 (EtwRegister.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 PpmEventInitialize()
@@ -18,11 +18,7 @@ __int64 PpmEventInitialize()
   Pool2 = (struct _EVENT_DATA_DESCRIPTOR *)ExAllocatePool2(64LL, 0x3DDuLL, 0x704D5050u);
   if ( Pool2 )
   {
-    v2 = EtwRegister(
-           &PPM_ETW_PROVIDER,
-           (PETWENABLECALLBACK)PpmEventTraceControlCallback,
-           0LL,
-           (PREGHANDLE)&PopModernStandbyStateNotify.ApcState.ApcListHead[1].Blink);
+    v2 = EtwRegister(&PPM_ETW_PROVIDER, (PETWENABLECALLBACK)PpmEventTraceControlCallback, 0LL, &PpmEtwHandle);
     if ( v2 < 0 )
     {
       ExFreePoolWithTag(Pool2, 0x704D5050u);

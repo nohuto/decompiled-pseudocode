@@ -1,10 +1,10 @@
 /*
- * XREFs of Feature_WorkQueueShardingWithinNodes__private_IsEnabledFallback @ 0x140532DB4
+ * XREFs of Feature_WorkQueueShardingWithinNodes__private_IsEnabledFallback @ 0x140535254
  * Callers:
- *     Feature_WorkQueueShardingWithinNodes__private_IsEnabledNoReportingNoInline @ 0x140382244 (Feature_WorkQueueShardingWithinNodes__private_IsEnabledNoReportingNoInline.c)
- *     Feature_WorkQueueShardingWithinNodes__private_IsEnabledDeviceUsageNoInline @ 0x1406D0F2C (Feature_WorkQueueShardingWithinNodes__private_IsEnabledDeviceUsageNoInline.c)
+ *     Feature_WorkQueueShardingWithinNodes__private_IsEnabledNoReportingNoInline @ 0x140383FF4 (Feature_WorkQueueShardingWithinNodes__private_IsEnabledNoReportingNoInline.c)
+ *     Feature_WorkQueueShardingWithinNodes__private_IsEnabledDeviceUsageNoInline @ 0x1406D4F5C (Feature_WorkQueueShardingWithinNodes__private_IsEnabledDeviceUsageNoInline.c)
  * Callees:
- *     wil_details_IsEnabledFallback @ 0x1405016DC (wil_details_IsEnabledFallback.c)
+ *     wil_details_IsEnabledFallback @ 0x1404FAECC (wil_details_IsEnabledFallback.c)
  */
 
 __int64 __fastcall Feature_WorkQueueShardingWithinNodes__private_IsEnabledFallback(__int64 a1, unsigned int a2)

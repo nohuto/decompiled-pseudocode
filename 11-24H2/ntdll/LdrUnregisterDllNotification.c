@@ -1,31 +1,31 @@
 /*
- * XREFs of LdrUnregisterDllNotification @ 0x180111490
+ * XREFs of LdrUnregisterDllNotification @ 0x18010C8A0
  * Callers:
  *     <none>
  * Callees:
- *     RtlEnterCriticalSection @ 0x1800148F0 (RtlEnterCriticalSection.c)
- *     RtlLeaveCriticalSection @ 0x1800149F0 (RtlLeaveCriticalSection.c)
- *     RtlFreeHeap @ 0x1800269F0 (RtlFreeHeap.c)
+ *     RtlEnterCriticalSection @ 0x1800412F0 (RtlEnterCriticalSection.c)
+ *     RtlLeaveCriticalSection @ 0x1800413F0 (RtlLeaveCriticalSection.c)
+ *     RtlFreeHeap @ 0x1800533F0 (RtlFreeHeap.c)
  */
 
-__int64 __fastcall LdrUnregisterDllNotification(_UNKNOWN **a1)
+NTSTATUS __cdecl LdrUnregisterDllNotification(PVOID Cookie)
 {
-  unsigned __int64 v2; // rdi
-  int v3; // ebx
-  _UNKNOWN **i; // rax
-  _UNKNOWN **v5; // rcx
-  void **v6; // rdx
+  void *v2; // rdi
+  NTSTATUS v3; // ebx
+  _QWORD *i; // rax
+  _QWORD *v5; // rcx
+  _QWORD *v6; // rdx
 
   v2 = 0LL;
   v3 = -1073741515;
-  RtlEnterCriticalSection((__int64)&LdrpDllNotificationLock);
-  for ( i = (_UNKNOWN **)LdrpDllNotificationList; i != &LdrpDllNotificationList; i = (_UNKNOWN **)*i )
+  RtlEnterCriticalSection(&LdrpDllNotificationLock);
+  for ( i = LdrpDllNotificationList; i != &LdrpDllNotificationList; i = (_QWORD *)*i )
   {
-    v5 = (_UNKNOWN **)*i;
-    v2 = (unsigned __int64)i;
-    if ( i == a1 )
+    v5 = (_QWORD *)*i;
+    v2 = i;
+    if ( i == Cookie )
     {
-      if ( v5[1] != (_UNKNOWN *)i || (v6 = (void **)i[1], *v6 != i) )
+      if ( (_QWORD *)v5[1] != i || (v6 = (_QWORD *)i[1], (_QWORD *)*v6 != i) )
         __fastfail(3u);
       *v6 = v5;
       v3 = 0;
@@ -33,8 +33,8 @@ __int64 __fastcall LdrUnregisterDllNotification(_UNKNOWN **a1)
       break;
     }
   }
-  RtlLeaveCriticalSection((__int64)&LdrpDllNotificationLock);
+  RtlLeaveCriticalSection(&LdrpDllNotificationLock);
   if ( v3 >= 0 )
     RtlFreeHeap(LdrpHeap, 0, v2);
-  return (unsigned int)v3;
+  return v3;
 }

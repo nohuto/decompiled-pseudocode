@@ -1,7 +1,7 @@
 /*
- * XREFs of PnpExtractCategorySpecificEventData @ 0x140A579CC
+ * XREFs of PnpExtractCategorySpecificEventData @ 0x140A4F174
  * Callers:
- *     PiUEventGatherEventData @ 0x140724AE8 (PiUEventGatherEventData.c)
+ *     PiUEventGatherEventData @ 0x140722678 (PiUEventGatherEventData.c)
  * Callees:
  *     <none>
  */

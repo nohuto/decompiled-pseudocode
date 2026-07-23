@@ -33,10 +33,13 @@ __int64 __fastcall WmipFindRegEntryByDevice(__int64 a1)
   if ( RegEntryByDevice )
     _InterlockedIncrement((volatile signed __int32 *)(RegEntryByDevice + 48));
   KxReleaseSpinLock((volatile signed __int64 *)&WmipRegistrationSpinLock);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v2 <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
+      && (unsigned __int8)v2 <= 0xFu
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;

@@ -1,18 +1,18 @@
 /*
- * XREFs of KeCopyPage @ 0x140402E50
+ * XREFs of KeCopyPage @ 0x140403030
  * Callers:
- *     MiCopyPage @ 0x140240220 (MiCopyPage.c)
- *     MiReplacePageOfProtoPool @ 0x140268F5C (MiReplacePageOfProtoPool.c)
- *     MiInitializeImageProtos @ 0x14026DF7C (MiInitializeImageProtos.c)
- *     MiCreateSystemPageTable @ 0x1402E5210 (MiCreateSystemPageTable.c)
- *     MiCopyDataPageToImagePage @ 0x1403043E8 (MiCopyDataPageToImagePage.c)
- *     MiFillCombinePage @ 0x14036B00C (MiFillCombinePage.c)
- *     MiCopyKstack @ 0x140535C50 (MiCopyKstack.c)
- *     MiSlowRotateCopy @ 0x140539CFC (MiSlowRotateCopy.c)
- *     MiScrubPage @ 0x1405642F4 (MiScrubPage.c)
- *     MiRevertRelocatedImagePfn @ 0x14069BF78 (MiRevertRelocatedImagePfn.c)
- *     MiValidateSectionCreate @ 0x140714C70 (MiValidateSectionCreate.c)
- *     MxCopyPage @ 0x140A568CC (MxCopyPage.c)
+ *     MiReplacePageOfProtoPool @ 0x140256EFC (MiReplacePageOfProtoPool.c)
+ *     MiInitializeImageProtos @ 0x14025BF1C (MiInitializeImageProtos.c)
+ *     MiCreateSystemPageTable @ 0x140296560 (MiCreateSystemPageTable.c)
+ *     MiCopyPage @ 0x1402E4A70 (MiCopyPage.c)
+ *     MiCopyDataPageToImagePage @ 0x14030F138 (MiCopyDataPageToImagePage.c)
+ *     MiFillCombinePage @ 0x14036B1BC (MiFillCombinePage.c)
+ *     MiCopyKstack @ 0x140535E90 (MiCopyKstack.c)
+ *     MiSlowRotateCopy @ 0x140539F3C (MiSlowRotateCopy.c)
+ *     MiScrubPage @ 0x140564534 (MiScrubPage.c)
+ *     MiRevertRelocatedImagePfn @ 0x1405FB138 (MiRevertRelocatedImagePfn.c)
+ *     MiValidateSectionCreate @ 0x1406C32C0 (MiValidateSectionCreate.c)
+ *     MxCopyPage @ 0x140A578CC (MxCopyPage.c)
  * Callees:
  *     <none>
  */

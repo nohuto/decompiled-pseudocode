@@ -1,10 +1,10 @@
 /*
- * XREFs of AlpcpReferenceReplyTargetPorts @ 0x1405E3970
+ * XREFs of AlpcpReferenceReplyTargetPorts @ 0x1406D30D0
  * Callers:
- *     AlpcpDispatchReplyToPort @ 0x1405E35BC (AlpcpDispatchReplyToPort.c)
+ *     AlpcpDispatchReplyToPort @ 0x1406D2D1C (AlpcpDispatchReplyToPort.c)
  * Callees:
- *     ObReferenceObjectSafe @ 0x14029B150 (ObReferenceObjectSafe.c)
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
+ *     ObReferenceObjectSafe @ 0x140212AE0 (ObReferenceObjectSafe.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
  */
 
 __int64 __fastcall AlpcpReferenceReplyTargetPorts(__int64 DmaAdapter, signed __int64 a2)

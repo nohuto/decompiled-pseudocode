@@ -1,12 +1,12 @@
 /*
- * XREFs of MiColdPageSizeSupported @ 0x140347930
+ * XREFs of MiColdPageSizeSupported @ 0x140347BC0
  * Callers:
- *     MiFreeLargePageMemory @ 0x1402E7498 (MiFreeLargePageMemory.c)
- *     MiDetermineCoalescedLargePageHeatState @ 0x1403478A8 (MiDetermineCoalescedLargePageHeatState.c)
- *     MiDetermineNewPfnHeatState @ 0x1403478E8 (MiDetermineNewPfnHeatState.c)
- *     MmSetPfnListInfo @ 0x14038C2D0 (MmSetPfnListInfo.c)
- *     MiSplitDirectMapPage @ 0x14063F264 (MiSplitDirectMapPage.c)
- *     MiChangePageHeatImmediate @ 0x140653DEC (MiChangePageHeatImmediate.c)
+ *     MiFreeLargePageMemory @ 0x1402E7728 (MiFreeLargePageMemory.c)
+ *     MiDetermineCoalescedLargePageHeatState @ 0x140347B38 (MiDetermineCoalescedLargePageHeatState.c)
+ *     MiDetermineNewPfnHeatState @ 0x140347B78 (MiDetermineNewPfnHeatState.c)
+ *     MmSetPfnListInfo @ 0x14038C4B0 (MmSetPfnListInfo.c)
+ *     MiSplitDirectMapPage @ 0x14063F7B4 (MiSplitDirectMapPage.c)
+ *     MiChangePageHeatImmediate @ 0x14065433C (MiChangePageHeatImmediate.c)
  * Callees:
  *     <none>
  */

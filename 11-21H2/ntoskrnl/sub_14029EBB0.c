@@ -1,0 +1,51 @@
+/*
+ * XREFs of sub_14029EBB0 @ 0x14029EBB0
+ * Callers:
+ *     sub_140709F54 @ 0x140709F54 (sub_140709F54.c)
+ * Callees:
+ *     sub_1402819DC @ 0x1402819DC (sub_1402819DC.c)
+ */
+
+__int64 **__fastcall sub_14029EBB0(__int64 a1, unsigned __int64 a2, unsigned __int64 a3)
+{
+  __int64 **result; // rax
+  unsigned __int64 v4; // r11
+  unsigned __int64 *v5; // r10
+  unsigned __int64 v6; // rdx
+  unsigned __int64 *v7; // rcx
+  unsigned __int64 i; // rdx
+
+  result = sub_1402819DC(a1, a2, a3);
+  v5 = (unsigned __int64 *)result;
+  if ( result )
+  {
+    while ( 1 )
+    {
+      v6 = *v5;
+      v7 = v5;
+      if ( *v5 )
+      {
+        for ( ; *(_QWORD *)(v6 + 8); v6 = *(_QWORD *)(v6 + 8) )
+          ;
+      }
+      else
+      {
+        for ( i = v5[2]; ; i = *(_QWORD *)(v6 + 16) )
+        {
+          v6 = i & 0xFFFFFFFFFFFFFFFCuLL;
+          if ( !v6 || *(unsigned __int64 **)(v6 + 8) == v7 )
+            break;
+          v7 = (unsigned __int64 *)v6;
+        }
+      }
+      if ( !v6
+        || (((*(unsigned int *)(v6 + 28) | ((unsigned __int64)*(unsigned __int8 *)(v6 + 33) << 32)) << 12) | 0xFFF) < v4 )
+      {
+        break;
+      }
+      v5 = (unsigned __int64 *)v6;
+    }
+    return (__int64 **)v5;
+  }
+  return result;
+}

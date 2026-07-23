@@ -1,13 +1,13 @@
 /*
- * XREFs of EtwpTraceSystemShutdown @ 0x1409E6EB4
+ * XREFs of EtwpTraceSystemShutdown @ 0x1409E7144
  * Callers:
- *     EtwShutdown @ 0x1409E2B1C (EtwShutdown.c)
+ *     EtwShutdown @ 0x1409E2DAC (EtwShutdown.c)
  * Callees:
  *     _tlgKeywordOn @ 0x140212E64 (_tlgKeywordOn.c)
- *     EtwWrite @ 0x1402578A0 (EtwWrite.c)
- *     KeQuerySystemTimePrecise @ 0x1402BE530 (KeQuerySystemTimePrecise.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6B24 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     EtwWrite @ 0x140257960 (EtwWrite.c)
+ *     KeQuerySystemTimePrecise @ 0x1402BE7C0 (KeQuerySystemTimePrecise.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6DB4 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  */
 
 char EtwpTraceSystemShutdown()
@@ -27,9 +27,9 @@ char EtwpTraceSystemShutdown()
 
   v2 = 0LL;
   result = KeQuerySystemTimePrecise(&v2);
-  if ( (unsigned int)dword_140C04320 > 5 )
+  if ( (unsigned int)dword_140C066C0 > 5 )
   {
-    result = tlgKeywordOn((__int64)&dword_140C04320, 0x400000000000LL);
+    result = tlgKeywordOn((__int64)&dword_140C066C0, 0x400000000000LL);
     if ( result )
     {
       v8 = 0;
@@ -41,8 +41,8 @@ char EtwpTraceSystemShutdown()
       v1 = 2;
       v10 = 8;
       result = tlgWriteTransfer_EtwWriteTransfer(
-                 (__int64)&dword_140C04320,
-                 (unsigned __int8 *)byte_140034989,
+                 (__int64)&dword_140C066C0,
+                 (unsigned __int8 *)word_140034C5A,
                  0LL,
                  0LL,
                  4u,

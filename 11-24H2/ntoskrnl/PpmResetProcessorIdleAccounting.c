@@ -1,10 +1,10 @@
 /*
- * XREFs of PpmResetProcessorIdleAccounting @ 0x14032D0D4
+ * XREFs of PpmResetProcessorIdleAccounting @ 0x1404373E4
  * Callers:
- *     PpmResetIdlePolicy @ 0x14032CFA8 (PpmResetIdlePolicy.c)
- *     PoIdle @ 0x140449020 (PoIdle.c)
+ *     PpmResetIdlePolicy @ 0x1404372B8 (PpmResetIdlePolicy.c)
+ *     PoIdle @ 0x140441770 (PoIdle.c)
  * Callees:
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 __int64 __fastcall PpmResetProcessorIdleAccounting(unsigned int *a1, __int64 a2)

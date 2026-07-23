@@ -1,5 +1,5 @@
 /*
- * XREFs of RtlQueryDynamicTimeZoneInformation @ 0x180141D10
+ * XREFs of RtlQueryDynamicTimeZoneInformation @ 0x180141C10
  * Callers:
  *     <none>
  * Callees:

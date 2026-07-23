@@ -6,7 +6,7 @@
  *     RtlpLangNameInMultiSzString @ 0x18003B314 (RtlpLangNameInMultiSzString.c)
  *     RtlInitUnicodeString @ 0x180040650 (RtlInitUnicodeString.c)
  *     RtlpMuiRegGetLanguageSpec @ 0x18004C824 (RtlpMuiRegGetLanguageSpec.c)
- *     __security_check_cookie @ 0x18008FEC0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x18008FED0 (__security_check_cookie.c)
  *     RtlpMuiRegGetOrAddLangInfo @ 0x180100C84 (RtlpMuiRegGetOrAddLangInfo.c)
  *     _RtlpMuiRegInitAnyLanguage @ 0x180102378 (_RtlpMuiRegInitAnyLanguage.c)
  */
@@ -43,7 +43,7 @@ __int64 __fastcall RtlpMuiRegAddBaseLanguage(__int64 a1, _WORD *a2, unsigned int
   signed int v35; // [rsp+54h] [rbp-3Dh]
   __int64 v36; // [rsp+58h] [rbp-39h]
   _WORD *v37; // [rsp+60h] [rbp-31h]
-  UNICODE_STRING DestinationString; // [rsp+68h] [rbp-29h] BYREF
+  _UNICODE_STRING DestinationString; // [rsp+68h] [rbp-29h] BYREF
   _WORD v39[2]; // [rsp+78h] [rbp-19h] BYREF
   __int16 v40; // [rsp+7Ch] [rbp-15h]
   __int16 v41; // [rsp+7Eh] [rbp-13h]

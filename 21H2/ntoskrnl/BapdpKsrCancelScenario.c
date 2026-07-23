@@ -1,9 +1,9 @@
 /*
- * XREFs of BapdpKsrCancelScenario @ 0x1405B1FC0
+ * XREFs of BapdpKsrCancelScenario @ 0x1405B21F0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall BapdpKsrCancelScenario(int a1, int a2)

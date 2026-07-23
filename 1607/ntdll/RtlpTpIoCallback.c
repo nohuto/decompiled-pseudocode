@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlpTpIoCallback @ 0x1800965A0
+ * XREFs of RtlpTpIoCallback @ 0x180096590
  * Callers:
  *     <none>
  * Callees:
  *     RtlpTpETWCallbackStop @ 0x1800010F4 (RtlpTpETWCallbackStop.c)
  *     RtlpTpETWCallbackStart @ 0x18000116C (RtlpTpETWCallbackStart.c)
- *     TppStartThreadData @ 0x18003B370 (TppStartThreadData.c)
- *     RtlSetThreadSubProcessTag @ 0x18003B520 (RtlSetThreadSubProcessTag.c)
+ *     TppStartThreadData @ 0x18003B360 (TppStartThreadData.c)
+ *     RtlSetThreadSubProcessTag @ 0x18003B510 (RtlSetThreadSubProcessTag.c)
  *     _guard_dispatch_icall_nop @ 0x1800A9C80 (_guard_dispatch_icall_nop.c)
  */
 

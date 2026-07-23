@@ -1,13 +1,13 @@
 /*
- * XREFs of PspDestroySyscallProvider @ 0x1407711F4
+ * XREFs of PspDestroySyscallProvider @ 0x140771414
  * Callers:
- *     PspDereferenceSyscallProvider @ 0x1405E4998 (PspDereferenceSyscallProvider.c)
+ *     PspDereferenceSyscallProvider @ 0x1405E1EC0 (PspDereferenceSyscallProvider.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x1403254A0 (ObfDereferenceObjectWithTag.c)
- *     PspAcquireSyscallProviderRegistrationLockExclusive @ 0x1405E4934 (PspAcquireSyscallProviderRegistrationLockExclusive.c)
- *     PspReleaseSyscallProviderRegistrationLockExclusive @ 0x1405E4AE8 (PspReleaseSyscallProviderRegistrationLockExclusive.c)
- *     VslRevokeSyscallProviderServiceTables @ 0x140710294 (VslRevokeSyscallProviderServiceTables.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CE030 (ObfDereferenceObjectWithTag.c)
+ *     PspAcquireSyscallProviderRegistrationLockExclusive @ 0x1405E1E5C (PspAcquireSyscallProviderRegistrationLockExclusive.c)
+ *     PspReleaseSyscallProviderRegistrationLockExclusive @ 0x1405E2010 (PspReleaseSyscallProviderRegistrationLockExclusive.c)
+ *     VslRevokeSyscallProviderServiceTables @ 0x14070DE24 (VslRevokeSyscallProviderServiceTables.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __fastcall PspDestroySyscallProvider(PVOID **P)

@@ -1,18 +1,18 @@
 /*
- * XREFs of ExpOsProductCacheProviderHelper @ 0x1407D15A4
+ * XREFs of ExpOsProductCacheProviderHelper @ 0x1407D1714
  * Callers:
- *     ExpCloudbookHardwareLockedProvider @ 0x1407D1490 (ExpCloudbookHardwareLockedProvider.c)
- *     ExpCloudbookHardwareIDProvider @ 0x14094D4A0 (ExpCloudbookHardwareIDProvider.c)
- *     ExpGenuinePolicyPostProcess @ 0x14094D9C0 (ExpGenuinePolicyPostProcess.c)
- *     ExpOsProductContentIdCacheProvider @ 0x14094DC10 (ExpOsProductContentIdCacheProvider.c)
- *     ExpOsProductPfnCacheProvider @ 0x14094DC50 (ExpOsProductPfnCacheProvider.c)
+ *     ExpCloudbookHardwareLockedProvider @ 0x1407D1600 (ExpCloudbookHardwareLockedProvider.c)
+ *     ExpCloudbookHardwareIDProvider @ 0x14094D670 (ExpCloudbookHardwareIDProvider.c)
+ *     ExpGenuinePolicyPostProcess @ 0x14094DB90 (ExpGenuinePolicyPostProcess.c)
+ *     ExpOsProductContentIdCacheProvider @ 0x14094DDE0 (ExpOsProductContentIdCacheProvider.c)
+ *     ExpOsProductPfnCacheProvider @ 0x14094DE20 (ExpOsProductPfnCacheProvider.c)
  * Callees:
- *     ZwClose @ 0x1403FA580 (ZwClose.c)
- *     ZwOpenKey @ 0x1403FA5E0 (ZwOpenKey.c)
- *     ZwQueryValueKey @ 0x1403FA680 (ZwQueryValueKey.c)
- *     memmove @ 0x140413F40 (memmove.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     ZwClose @ 0x1403FA760 (ZwClose.c)
+ *     ZwOpenKey @ 0x1403FA7C0 (ZwOpenKey.c)
+ *     ZwQueryValueKey @ 0x1403FA860 (ZwQueryValueKey.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall ExpOsProductCacheProviderHelper(
@@ -35,7 +35,7 @@ __int64 __fastcall ExpOsProductCacheProviderHelper(
   KeyHandle = 0LL;
   ResultLength = 0;
   *a7 = 1;
-  v10 = ZwOpenKey(&KeyHandle, 0x20019u, (POBJECT_ATTRIBUTES)&stru_140984850);
+  v10 = ZwOpenKey(&KeyHandle, 0x20019u, (POBJECT_ATTRIBUTES)&stru_140984A00);
   if ( v10 >= 0 )
   {
     v10 = ZwQueryValueKey(KeyHandle, a2, KeyValuePartialInformation, 0LL, 0, &ResultLength);

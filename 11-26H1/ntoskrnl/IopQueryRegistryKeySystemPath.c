@@ -1,20 +1,20 @@
 /*
- * XREFs of IopQueryRegistryKeySystemPath @ 0x140A27D00
+ * XREFs of IopQueryRegistryKeySystemPath @ 0x140A3ADA0
  * Callers:
- *     PiDrvDbResolveKeyFilePaths @ 0x1407B77A4 (PiDrvDbResolveKeyFilePaths.c)
- *     IopBuildFullDriverPath @ 0x140A27A4C (IopBuildFullDriverPath.c)
+ *     PiDrvDbResolveKeyFilePaths @ 0x1407BA804 (PiDrvDbResolveKeyFilePaths.c)
+ *     IopBuildFullDriverPath @ 0x140A3AAEC (IopBuildFullDriverPath.c)
  * Callees:
- *     RtlCopyUnicodeString @ 0x140419A90 (RtlCopyUnicodeString.c)
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     RtlAppendUnicodeStringToString @ 0x140432F70 (RtlAppendUnicodeStringToString.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     ZwOpenSymbolicLinkObject @ 0x140725B10 (ZwOpenSymbolicLinkObject.c)
- *     RtlEqualUnicodeString @ 0x14091F0E0 (RtlEqualUnicodeString.c)
- *     NtQueryObject @ 0x1409FC830 (NtQueryObject.c)
- *     RtlPrefixUnicodeString @ 0x140A29BF0 (RtlPrefixUnicodeString.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePool @ 0x140C10E30 (ExFreePool.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     RtlCopyUnicodeString @ 0x14040DFC0 (RtlCopyUnicodeString.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     RtlAppendUnicodeStringToString @ 0x14041FFA0 (RtlAppendUnicodeStringToString.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     ZwOpenSymbolicLinkObject @ 0x14072A6E0 (ZwOpenSymbolicLinkObject.c)
+ *     NtQueryObject @ 0x140921430 (NtQueryObject.c)
+ *     RtlEqualUnicodeString @ 0x140979B40 (RtlEqualUnicodeString.c)
+ *     RtlPrefixUnicodeString @ 0x140A3CC90 (RtlPrefixUnicodeString.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePool @ 0x140C16E30 (ExFreePool.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall IopQueryRegistryKeySystemPath(HANDLE Handle, PUNICODE_STRING DestinationString)
@@ -57,9 +57,9 @@ LABEL_17:
       ExFreePoolWithTag(Pool2, 0);
       goto LABEL_18;
     }
-    ReturnLength = *(unsigned __int16 *)&PspSiloMonitorLock.SavedApcStateFill[32] + 2;
-    if ( Pool2->Length < (unsigned __int16)(*(_WORD *)&PspSiloMonitorLock.SavedApcStateFill[32] + 2)
-      || !RtlPrefixUnicodeString((PCUNICODE_STRING)&PspSiloMonitorLock.SavedApcStateFill[32], Pool2, 1u)
+    ReturnLength = *(unsigned __int16 *)&PspSiloMonitorLock.SchedulerApc.Type + 2;
+    if ( Pool2->Length < (unsigned __int16)(*(_WORD *)&PspSiloMonitorLock.SchedulerApc.Type + 2)
+      || !RtlPrefixUnicodeString((PCUNICODE_STRING)&PspSiloMonitorLock.648, Pool2, 1u)
       || (v6 = (unsigned __int64)&Pool2->Buffer[(unsigned __int64)ReturnLength >> 1], *(_WORD *)(v6 - 2) != 92) )
     {
       appended = -1073741595;

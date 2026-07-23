@@ -73,7 +73,7 @@ __int64 __fastcall CmFcManagerUpdateFeatureUsageSubscriptions(__int64 a1, __int6
   v7 = _interlockedbittestandset64((volatile signed __int32 *)&stru_140EF6B70, 0LL);
   v8 = v6;
   if ( v7 )
-    ExfAcquirePushLockExclusiveEx(&stru_140EF6B70, v6, (__int64)&stru_140EF6B70);
+    ExfAcquirePushLockExclusiveEx((unsigned __int64 *)&stru_140EF6B70, v6, (__int64)&stru_140EF6B70);
   if ( v8 )
     *((_BYTE *)v8 + 10) = 1;
   RtlpFcBufferManagerReferenceBuffers((__int64)&unk_140EF6BE8, (__int64)&v28, &v24);
@@ -108,7 +108,7 @@ LABEL_8:
             v7 = _interlockedbittestandset64((volatile signed __int32 *)&stru_140EF6B68, 0LL);
             v16 = v15;
             if ( v7 )
-              ExfAcquirePushLockExclusiveEx(&stru_140EF6B68, v15, (__int64)&stru_140EF6B68);
+              ExfAcquirePushLockExclusiveEx((unsigned __int64 *)&stru_140EF6B68, v15, (__int64)&stru_140EF6B68);
             if ( v16 )
               *((_BYTE *)v16 + 10) = 1;
             v17 = (void *)qword_140EF6BC0;

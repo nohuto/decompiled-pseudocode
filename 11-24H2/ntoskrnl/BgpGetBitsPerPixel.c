@@ -1,18 +1,18 @@
 /*
- * XREFs of BgpGetBitsPerPixel @ 0x1404822C8
+ * XREFs of BgpGetBitsPerPixel @ 0x14047D508
  * Callers:
- *     BgpTxtDisplayCharacter @ 0x140472A28 (BgpTxtDisplayCharacter.c)
- *     BgpGxDrawRectangle @ 0x140481E44 (BgpGxDrawRectangle.c)
- *     GxpWriteFrameBufferPixels @ 0x140481F1C (GxpWriteFrameBufferPixels.c)
- *     BgpClearScreen @ 0x140697E28 (BgpClearScreen.c)
- *     BgpGxProcessQrCodeBitmap @ 0x1406985BC (BgpGxProcessQrCodeBitmap.c)
- *     BgpFwDisplayBugCheckScreen @ 0x14069A360 (BgpFwDisplayBugCheckScreen.c)
- *     AnFwConfigureProgressResources @ 0x140BB1CFC (AnFwConfigureProgressResources.c)
- *     AnFwpFadeAnimationTimer @ 0x140BB2F50 (AnFwpFadeAnimationTimer.c)
- *     AnFwDisplayFade @ 0x140BB36EC (AnFwDisplayFade.c)
- *     BgpGxReadRectangle @ 0x140BB3D18 (BgpGxReadRectangle.c)
- *     GxpReadFrameBufferPixels @ 0x140BB3F2C (GxpReadFrameBufferPixels.c)
- *     LogFwReport @ 0x140BB43FC (LogFwReport.c)
+ *     BgpTxtDisplayCharacter @ 0x14046ECF8 (BgpTxtDisplayCharacter.c)
+ *     BgpGxDrawRectangle @ 0x14047D084 (BgpGxDrawRectangle.c)
+ *     GxpWriteFrameBufferPixels @ 0x14047D15C (GxpWriteFrameBufferPixels.c)
+ *     BgpClearScreen @ 0x140698EA8 (BgpClearScreen.c)
+ *     BgpGxProcessQrCodeBitmap @ 0x14069963C (BgpGxProcessQrCodeBitmap.c)
+ *     BgpFwDisplayBugCheckScreen @ 0x14069B3E0 (BgpFwDisplayBugCheckScreen.c)
+ *     AnFwConfigureProgressResources @ 0x140BB3CFC (AnFwConfigureProgressResources.c)
+ *     AnFwpFadeAnimationTimer @ 0x140BB4F50 (AnFwpFadeAnimationTimer.c)
+ *     AnFwDisplayFade @ 0x140BB56EC (AnFwDisplayFade.c)
+ *     BgpGxReadRectangle @ 0x140BB5D18 (BgpGxReadRectangle.c)
+ *     GxpReadFrameBufferPixels @ 0x140BB5F2C (GxpReadFrameBufferPixels.c)
+ *     LogFwReport @ 0x140BB63FC (LogFwReport.c)
  * Callees:
  *     <none>
  */
@@ -21,10 +21,10 @@ __int64 BgpGetBitsPerPixel()
 {
   __int64 result; // rax
 
-  if ( (_DWORD)xmmword_140EEFFF0 == 4 )
+  if ( (_DWORD)xmmword_140EF0210 == 4 )
     return 24LL;
   result = 1LL;
-  if ( (_DWORD)xmmword_140EEFFF0 == 5 )
+  if ( (_DWORD)xmmword_140EF0210 == 5 )
     return 32LL;
   return result;
 }

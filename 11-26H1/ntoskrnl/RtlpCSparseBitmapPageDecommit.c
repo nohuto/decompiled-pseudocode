@@ -1,19 +1,19 @@
 /*
- * XREFs of RtlpCSparseBitmapPageDecommit @ 0x140351604
+ * XREFs of RtlpCSparseBitmapPageDecommit @ 0x140353684
  * Callers:
- *     RtlCSparseBitmapBitsClear @ 0x14034E15C (RtlCSparseBitmapBitsClear.c)
+ *     RtlCSparseBitmapBitsClear @ 0x1403501DC (RtlCSparseBitmapBitsClear.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     ExAcquireSpinLockExclusive @ 0x140249CD0 (ExAcquireSpinLockExclusive.c)
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     KeLeaveGuardedRegion @ 0x14027DB10 (KeLeaveGuardedRegion.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     MmFreePoolMemory @ 0x14035029C (MmFreePoolMemory.c)
- *     RtlpCSparseBitmapUnlock @ 0x140351A4C (RtlpCSparseBitmapUnlock.c)
- *     RtlpCSparseBitmapWaitOnAddress @ 0x140351AB4 (RtlpCSparseBitmapWaitOnAddress.c)
- *     RtlCSparseBitmapEnterLockingRegion @ 0x140351B84 (RtlCSparseBitmapEnterLockingRegion.c)
- *     ExpUnblockPushLock @ 0x1403682A0 (ExpUnblockPushLock.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024B630 (ExAcquireSpinLockExclusive.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     KeLeaveGuardedRegion @ 0x14027D080 (KeLeaveGuardedRegion.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     MmFreePoolMemory @ 0x14035231C (MmFreePoolMemory.c)
+ *     RtlpCSparseBitmapUnlock @ 0x140353ACC (RtlpCSparseBitmapUnlock.c)
+ *     RtlpCSparseBitmapWaitOnAddress @ 0x140353B34 (RtlpCSparseBitmapWaitOnAddress.c)
+ *     RtlCSparseBitmapEnterLockingRegion @ 0x140353C04 (RtlCSparseBitmapEnterLockingRegion.c)
+ *     ExpUnblockPushLock @ 0x14036A040 (ExpUnblockPushLock.c)
  */
 
 void __fastcall RtlpCSparseBitmapPageDecommit(ULONG_PTR a1, unsigned __int64 a2, int a3)

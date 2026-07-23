@@ -1,10 +1,10 @@
 /*
- * XREFs of CmpGetSecurityDescriptorForKcbStackEx @ 0x1401B511C
+ * XREFs of CmpGetSecurityDescriptorForKcbStackEx @ 0x1401B5000
  * Callers:
- *     CmpDoParseKey @ 0x140453D10 (CmpDoParseKey.c)
- *     CmpCheckKeyBodyAccess @ 0x140601F80 (CmpCheckKeyBodyAccess.c)
+ *     CmpDoParseKey @ 0x140452BE0 (CmpDoParseKey.c)
+ *     CmpCheckKeyBodyAccess @ 0x140602034 (CmpCheckKeyBodyAccess.c)
  * Callees:
- *     CmpGetSecurityCacheEntryForKcbStack @ 0x140440140 (CmpGetSecurityCacheEntryForKcbStack.c)
+ *     CmpGetSecurityCacheEntryForKcbStack @ 0x14043F010 (CmpGetSecurityCacheEntryForKcbStack.c)
  */
 
 __int64 CmpGetSecurityDescriptorForKcbStackEx()

@@ -22,61 +22,67 @@
  *     ExFreePoolWithTag @ 0x140B62CD0 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall BiUpdateBcdObject(__int64 a1, __int64 a2)
+__int64 __fastcall BiUpdateBcdObject(void *a1, const GUID *a2)
 {
   char *v2; // rsi
   _DWORD *v4; // r12
   void *v5; // r15
-  ULONG *v6; // rdi
-  int v7; // eax
-  void *v8; // r14
+  PBOOT_ENTRY v6; // rdi
+  NTSTATUS v7; // eax
+  HANDLE v8; // r14
   int v9; // ebx
   unsigned int v10; // eax
   char *v11; // r15
   __int64 v12; // rax
-  int ElementData; // eax
+  NTSTATUS ElementData; // eax
   void *Pool2; // rax
   void *v15; // rbx
   __int64 v16; // rbx
-  __int64 v17; // r8
+  BCD_FLAGS v17; // r8d
   __int64 v18; // rax
   char *v19; // rbx
-  __int64 v20; // r8
+  BCD_FLAGS v20; // r8d
   PVOID v21; // r15
-  __int64 v22; // r8
+  BCD_FLAGS v22; // r8d
   int v23; // eax
-  unsigned int v25; // [rsp+30h] [rbp-40h] BYREF
+  ULONG v25; // [rsp+30h] [rbp-40h] BYREF
   void *v26; // [rsp+38h] [rbp-38h]
-  PVOID P; // [rsp+40h] [rbp-30h] BYREF
-  PVOID v28; // [rsp+48h] [rbp-28h] BYREF
-  ULONG *v29; // [rsp+50h] [rbp-20h] BYREF
+  PVOID Buffer; // [rsp+40h] [rbp-30h] BYREF
+  PVOID P; // [rsp+48h] [rbp-28h] BYREF
+  PBOOT_ENTRY BootEntry; // [rsp+50h] [rbp-20h] BYREF
   void *Source2; // [rsp+58h] [rbp-18h] BYREF
-  void *v31; // [rsp+60h] [rbp-10h] BYREF
-  int v32; // [rsp+B8h] [rbp+48h] BYREF
-  unsigned int v33; // [rsp+C0h] [rbp+50h] BYREF
+  HANDLE BcdObjectHandle; // [rsp+60h] [rbp-10h] BYREF
+  ULONG BufferSize; // [rsp+B8h] [rbp+48h] BYREF
+  ULONG v33; // [rsp+C0h] [rbp+50h] BYREF
   SIZE_T Length; // [rsp+C8h] [rbp+58h] BYREF
 
-  v2 = *(char **)(a2 + 40);
+  v2 = *(char **)a2[2].Data4;
   v33 = 0;
   v25 = 0;
   v4 = 0LL;
-  P = 0LL;
+  Buffer = 0LL;
   v5 = 0LL;
-  v28 = 0LL;
+  P = 0LL;
   v6 = 0LL;
   Source2 = 0LL;
   LODWORD(Length) = 0;
-  v31 = 0LL;
+  BcdObjectHandle = 0LL;
   v26 = 0LL;
-  v32 = 0;
-  v29 = 0LL;
-  v7 = BcdOpenObject(a1, (unsigned int *)(a2 + 16), &v31);
-  v8 = v31;
+  BufferSize = 0;
+  BootEntry = 0LL;
+  v7 = BcdOpenObject(a1, a2 + 1, &BcdObjectHandle);
+  v8 = BcdObjectHandle;
   v9 = v7;
   if ( v7 < 0 )
     goto LABEL_40;
-  if ( (*(_DWORD *)(a2 + 48) & 2) != 0
-    && (int)BiGetRegistryValue((__int64)v31, L"FirmwareVariable", (__int64)L"Description", 3u, &Source2, &Length) >= 0 )
+  if ( (a2[3].Data1 & 2) != 0
+    && (int)BiGetRegistryValue(
+              (__int64)BcdObjectHandle,
+              L"FirmwareVariable",
+              (__int64)L"Description",
+              3u,
+              &Source2,
+              &Length) >= 0 )
   {
     v10 = *((_DWORD *)v2 + 1);
     if ( v10 == (_DWORD)Length && RtlCompareMemory(v2, Source2, v10) == *((_DWORD *)v2 + 1) )
@@ -88,7 +94,7 @@ LABEL_8:
         ++v12;
       while ( *(_WORD *)&v11[2 * v12] );
       LODWORD(Length) = 2 * v12 + 2;
-      ElementData = BcdGetElementData((__int64)v8, 0x12000004u, 0LL, &v32);
+      ElementData = BcdGetElementData(v8, 0x12000004u, 0LL, &BufferSize);
       if ( ElementData == -1073741789 )
       {
         Pool2 = (void *)ExAllocatePool2(0x102uLL);
@@ -96,7 +102,7 @@ LABEL_8:
         v15 = Pool2;
         if ( !Pool2 )
           goto LABEL_18;
-        ElementData = BcdGetElementData((__int64)v8, 0x12000004u, (__int64)Pool2, &v32);
+        ElementData = BcdGetElementData(v8, 0x12000004u, Pool2, &BufferSize);
       }
       else
       {
@@ -106,7 +112,7 @@ LABEL_8:
       {
         if ( v15 )
         {
-          if ( v32 == (_DWORD)Length )
+          if ( BufferSize == (_DWORD)Length )
           {
             v16 = (unsigned int)Length;
             if ( RtlCompareMemory(v11, v26, (unsigned int)Length) == v16 )
@@ -116,46 +122,46 @@ LABEL_19:
               if ( *(_DWORD *)&v2[v18 + 8] == 4 )
               {
                 v19 = &v2[v18];
-                if ( (int)BiGetDeviceFromEfiPath(&v2[v18 + 12], &P, &v33) < 0 )
+                if ( (int)BiGetDeviceFromEfiPath(&v2[v18 + 12], &Buffer, (int *)&v33) < 0 )
                 {
-                  v4 = P;
+                  v4 = Buffer;
                 }
                 else
                 {
                   BiDeleteElement(v8, 0x11000001u);
-                  BiMapEfiDeviceForSpaces(a2, (const void **)&P, &v33);
-                  v4 = P;
-                  BcdSetElementDataWithFlags(v8, 285212673LL, v20, (__int64)P, v33);
+                  BiMapEfiDeviceForSpaces((__int64)a2, (const void **)&Buffer, &v33);
+                  v4 = Buffer;
+                  BcdSetElementDataWithFlags(v8, 0x11000001u, v20, Buffer, v33);
                 }
-                if ( BiGetFilePathFromEfiPath((__int64)(v19 + 12), (__int64 *)&v28, &v25) < 0 )
+                if ( BiGetFilePathFromEfiPath((__int64)(v19 + 12), (__int64 *)&P, &v25) < 0 )
                 {
-                  v21 = v28;
+                  v21 = P;
                 }
                 else
                 {
                   BiDeleteElement(v8, 0x12000002u);
-                  v21 = v28;
-                  BcdSetElementDataWithFlags(v8, 301989890LL, v22, (__int64)v28, v25);
+                  v21 = P;
+                  BcdSetElementDataWithFlags(v8, 0x12000002u, v22, P, v25);
                 }
-                v23 = BiCreateMergedBootEntry(v2, 0LL, v4, 0LL, &v29);
-                v6 = v29;
-                if ( v23 >= 0 && !BiAreBootEntriesEqual(v2, v29) )
+                v23 = BiCreateMergedBootEntry(v2, 0LL, v4, 0LL, &BootEntry);
+                v6 = BootEntry;
+                if ( v23 >= 0 && !BiAreBootEntriesEqual(v2, BootEntry) )
                 {
                   BiLogMessage();
-                  v9 = BiModifyBootEntry((__int64)v6);
+                  v9 = BiModifyBootEntry(v6);
                   if ( v9 < 0 )
                     goto LABEL_33;
-                  v9 = BiSetRegistryValue((__int64)v8, L"FirmwareVariable", L"Description", 3u, v6, v6[1]);
+                  v9 = BiSetRegistryValue((__int64)v8, L"FirmwareVariable", L"Description", 3u, v6, v6->Length);
                   if ( v9 < 0 )
                     goto LABEL_33;
                   ExFreePoolWithTag(v2, 0x4B444342u);
-                  *(_QWORD *)(a2 + 40) = v6;
+                  *(_QWORD *)a2[2].Data4 = v6;
                   v6 = 0LL;
                 }
               }
               else
               {
-                v21 = v28;
+                v21 = P;
               }
               v9 = 0;
 LABEL_33:
@@ -171,14 +177,14 @@ LABEL_33:
       }
 LABEL_18:
       BiDeleteElement(v8, 0x12000004u);
-      BcdSetElementDataWithFlags(v8, 301989892LL, v17, (__int64)v11, Length);
+      BcdSetElementDataWithFlags(v8, 0x12000004u, v17, v11, Length);
       goto LABEL_19;
     }
   }
   v9 = BiSetRegistryValue((__int64)v8, L"FirmwareVariable", L"Description", 3u, v2, *((_DWORD *)v2 + 1));
   if ( v9 >= 0 )
   {
-    *(_DWORD *)(a2 + 48) |= 2u;
+    a2[3].Data1 |= 2u;
     goto LABEL_8;
   }
 LABEL_38:

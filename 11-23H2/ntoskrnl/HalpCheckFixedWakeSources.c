@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpCheckFixedWakeSources @ 0x140A96AFC
+ * XREFs of HalpCheckFixedWakeSources @ 0x140A9696C
  * Callers:
- *     HalpAcpiPostSleep @ 0x140A96600 (HalpAcpiPostSleep.c)
+ *     HalpAcpiPostSleep @ 0x140A96470 (HalpAcpiPostSleep.c)
  * Callees:
- *     HalpAcpiPmRegisterAvailable @ 0x140364940 (HalpAcpiPmRegisterAvailable.c)
- *     HalpAcpiPmRegisterRead @ 0x1403A1D30 (HalpAcpiPmRegisterRead.c)
+ *     HalpAcpiPmRegisterAvailable @ 0x140364AE0 (HalpAcpiPmRegisterAvailable.c)
+ *     HalpAcpiPmRegisterRead @ 0x1403A1F10 (HalpAcpiPmRegisterRead.c)
  */
 
 bool HalpCheckFixedWakeSources()

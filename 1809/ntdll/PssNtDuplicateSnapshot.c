@@ -3,12 +3,12 @@
  * Callers:
  *     <none>
  * Callees:
- *     PssNtValidateDescriptor @ 0x1800898A0 (PssNtValidateDescriptor.c)
+ *     PssNtValidateDescriptor @ 0x1800898B0 (PssNtValidateDescriptor.c)
  *     PsspDuplicateSnapshotLocalToRemote @ 0x180114174 (PsspDuplicateSnapshotLocalToRemote.c)
- *     PsspDuplicateSnapshotRemoteToRemote @ 0x180114744 (PsspDuplicateSnapshotRemoteToRemote.c)
+ *     PsspDuplicateSnapshotRemoteToRemote @ 0x18011470C (PsspDuplicateSnapshotRemoteToRemote.c)
  */
 
-__int64 __fastcall PssNtDuplicateSnapshot(__int64 a1, unsigned int *a2, __int64 a3, __int64 a4, unsigned int a5)
+__int64 __fastcall PssNtDuplicateSnapshot(void *a1, unsigned int *a2, __int64 a3, __int64 a4, unsigned int a5)
 {
   __int64 v6; // rbx
   __int64 result; // rax
@@ -16,7 +16,7 @@ __int64 __fastcall PssNtDuplicateSnapshot(__int64 a1, unsigned int *a2, __int64 
   void *retaddr; // [rsp+38h] [rbp+0h]
 
   v6 = a3;
-  if ( a1 == -1 )
+  if ( a1 == (void *)-1LL )
   {
     result = PssNtValidateDescriptor(a2, retaddr);
     if ( (int)result >= 0 )
@@ -31,8 +31,8 @@ __int64 __fastcall PssNtDuplicateSnapshot(__int64 a1, unsigned int *a2, __int64 
   else
   {
     if ( a3 == -1 )
-      LODWORD(a3) = -1;
-    return PsspDuplicateSnapshotRemoteToRemote(a1, (_DWORD)a2, a3, a4, a5);
+      a3 = -1LL;
+    return PsspDuplicateSnapshotRemoteToRemote(a1, a2, (HANDLE)a3, a5);
   }
   return result;
 }

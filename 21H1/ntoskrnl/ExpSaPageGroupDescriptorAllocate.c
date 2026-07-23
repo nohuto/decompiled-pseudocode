@@ -46,7 +46,7 @@ PVOID __fastcall ExpSaPageGroupDescriptorAllocate(__int64 a1, char a2)
   unsigned int v20; // edx
   bool v21; // zf
   __int64 v22; // rcx
-  unsigned __int64 v23; // rdi
+  __int64 v23; // rdi
   __int64 v24; // rdx
   __int64 v25; // rdx
   __int64 v26; // rcx
@@ -60,7 +60,7 @@ PVOID __fastcall ExpSaPageGroupDescriptorAllocate(__int64 a1, char a2)
   _DWORD *v34; // r9
   struct _KTHREAD *CurrentThread; // rbx
   unsigned __int8 AbOrphanedEntrySummary; // al
-  struct _GROUP_AFFINITY *p_PreviousAffinity; // rdx
+  _GROUP_AFFINITY *p_PreviousAffinity; // rdx
   __int64 v38; // rdx
   __int64 v39; // rbx
   unsigned int v40; // eax
@@ -75,8 +75,8 @@ PVOID __fastcall ExpSaPageGroupDescriptorAllocate(__int64 a1, char a2)
   unsigned int v50; // [rsp+48h] [rbp-38h]
   int v51; // [rsp+4Ch] [rbp-34h]
   __int64 v52; // [rsp+50h] [rbp-30h]
-  struct _GROUP_AFFINITY Affinity; // [rsp+58h] [rbp-28h] BYREF
-  struct _GROUP_AFFINITY PreviousAffinity; // [rsp+68h] [rbp-18h] BYREF
+  _GROUP_AFFINITY Affinity; // [rsp+58h] [rbp-28h] BYREF
+  _GROUP_AFFINITY PreviousAffinity; // [rsp+68h] [rbp-18h] BYREF
 
   v44 = 0;
   Affinity = 0LL;
@@ -248,7 +248,7 @@ LABEL_69:
     v21 = !_BitScanReverse((unsigned int *)&v22, v20);
     if ( v21 )
       break;
-    v23 = (unsigned __int64)&v18->LockEntries[v22];
+    v23 = (__int64)&v18->LockEntries[v22];
     v20 &= ~(1 << v22);
     if ( (*(_BYTE *)(v23 + 26) & 1) != 0
       && (*(_DWORD *)(v23 + 32) & 1) == 0
@@ -262,12 +262,12 @@ LABEL_69:
         {
           *(_BYTE *)(v23 + 32) |= 2u;
           if ( *(__int64 *)(v23 + 32) < 0 )
-            KiAbEntryRemoveFromTree(v23);
+            KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)v23);
           v47 = *(_DWORD *)(v23 + 88) & 0x1FFFF;
           *(_DWORD *)(v23 + 88) &= 0xFFFE0000;
           *(_BYTE *)(v23 + 25) &= ~1u;
           *(_QWORD *)(v23 + 32) = 0LL;
-          v24 = (__int64)(v23 - (unsigned __int64)v18->LockEntries) / 96;
+          v24 = (signed __int64)(v23 - (unsigned __int64)v18->LockEntries) / 96;
           if ( v19 == 1 )
             v18->AbEntrySummary |= 1 << v24;
           else

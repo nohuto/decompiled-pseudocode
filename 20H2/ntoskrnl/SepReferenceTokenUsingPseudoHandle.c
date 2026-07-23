@@ -11,7 +11,7 @@
  *     PsReferencePrimaryToken @ 0x14067EEB0 (PsReferencePrimaryToken.c)
  */
 
-__int64 __fastcall SepReferenceTokenUsingPseudoHandle(__int64 a1, PACCESS_TOKEN *a2, _BYTE *a3, __int64 *a4)
+__int64 __fastcall SepReferenceTokenUsingPseudoHandle(__int64 a1, PACCESS_TOKEN *a2, _BYTE *a3, _QWORD *a4)
 {
   struct _KTHREAD *CurrentThread; // rax
   struct _DMA_ADAPTER *v8; // rax
@@ -19,14 +19,14 @@ __int64 __fastcall SepReferenceTokenUsingPseudoHandle(__int64 a1, PACCESS_TOKEN 
   __int64 v10; // r8
   struct _DMA_ADAPTER *v11; // r11
   __int64 v12; // r9
-  __int64 v13; // rbp
-  __int64 v14; // r9
+  void *v13; // rbp
+  PSID v14; // r9
   void *v15; // r11
   int v17; // [rsp+30h] [rbp-38h] BYREF
   int v18; // [rsp+34h] [rbp-34h] BYREF
   char v19; // [rsp+70h] [rbp+8h] BYREF
   char v20; // [rsp+78h] [rbp+10h] BYREF
-  char v21; // [rsp+80h] [rbp+18h] BYREF
+  BOOLEAN DominatesTrust; // [rsp+80h] [rbp+18h] BYREF
   char v22; // [rsp+88h] [rbp+20h] BYREF
 
   v20 = 0;
@@ -76,10 +76,10 @@ LABEL_7:
   v12 = *(_QWORD *)&v11[69].Version;
   *a3 = 0;
   *a4 = 0LL;
-  v21 = 0;
-  v13 = SepSidFromProcessProtection(&v19, v9, v10, v12);
-  RtlSidDominatesForTrust(v13, v14, &v21);
-  if ( !v21 )
+  DominatesTrust = 0;
+  v13 = (void *)SepSidFromProcessProtection(&v19, v9, v10, v12);
+  RtlSidDominatesForTrust(v13, v14, &DominatesTrust);
+  if ( !DominatesTrust )
   {
     *a3 = 1;
     *a4 = v13;

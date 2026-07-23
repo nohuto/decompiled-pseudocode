@@ -1,24 +1,24 @@
 /*
- * XREFs of HvpViewMapMakeViewRangeInvalid @ 0x1408B7714
+ * XREFs of HvpViewMapMakeViewRangeInvalid @ 0x1408BDCE4
  * Callers:
- *     HvpViewMapShrinkStorage @ 0x14085CBD8 (HvpViewMapShrinkStorage.c)
- *     HvpViewMapPromoteRangeToMapping @ 0x1408DD1F4 (HvpViewMapPromoteRangeToMapping.c)
+ *     HvpViewMapShrinkStorage @ 0x140862EC8 (HvpViewMapShrinkStorage.c)
+ *     HvpViewMapPromoteRangeToMapping @ 0x1408E37B4 (HvpViewMapPromoteRangeToMapping.c)
  * Callees:
- *     CmSiProtectViewOfSection @ 0x1404A2CD4 (CmSiProtectViewOfSection.c)
- *     HvpViewMapReleaseChargesAndUnlockViewPages @ 0x1408B95E4 (HvpViewMapReleaseChargesAndUnlockViewPages.c)
+ *     CmSiProtectViewOfSection @ 0x14049C6F4 (CmSiProtectViewOfSection.c)
+ *     HvpViewMapReleaseChargesAndUnlockViewPages @ 0x1408BFBB4 (HvpViewMapReleaseChargesAndUnlockViewPages.c)
  */
 
-__int64 __fastcall HvpViewMapMakeViewRangeInvalid(unsigned __int64 a1, _QWORD *a2, __int64 a3, __int64 a4)
+__int64 __fastcall HvpViewMapMakeViewRangeInvalid(ULONG_PTR a1, _QWORD *a2, __int64 a3, __int64 a4)
 {
-  unsigned __int64 v7; // r15
+  ULONG_PTR v7; // r15
   __int64 i; // rbp
-  unsigned __int64 v9; // r14
+  ULONG_PTR v9; // r14
   __int64 j; // rcx
   __int64 v11; // rax
   __int64 result; // rax
-  int v13; // [rsp+60h] [rbp+8h] BYREF
+  __int64 v13; // [rsp+60h] [rbp+8h] BYREF
 
-  v13 = 0;
+  LODWORD(v13) = 0;
   v7 = a1;
   for ( i = a3; i < a4; i += 4096LL )
   {
@@ -33,7 +33,7 @@ __int64 __fastcall HvpViewMapMakeViewRangeInvalid(unsigned __int64 a1, _QWORD *a
       --a2[8];
     }
   }
-  CmSiProtectViewOfSection(a1, *(__int64 **)(v7 + 24), a3 + a2[7] - a2[3], a4 - a3, 0x80000001, (__int64)&v13);
+  CmSiProtectViewOfSection(a1, *(void ***)(v7 + 24), (void *)(a3 + a2[7] - a2[3]), a4 - a3, 0x80000001, (ULONG *)&v13);
   for ( j = a3; j < a4; *((_BYTE *)a2 + ((unsigned __int64)(v11 - a2[3]) >> 12) + 72) = 0 )
   {
     v11 = j;

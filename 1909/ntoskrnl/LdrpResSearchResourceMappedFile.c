@@ -52,17 +52,17 @@ __int64 __fastcall LdrpResSearchResourceMappedFile(
   int v30; // ecx
   int v31; // eax
   int RCConfig; // eax
-  int v33; // eax
+  NTSTATUS v33; // eax
   ULONGLONG v34; // rdx
   unsigned __int64 v35; // r8
   __int64 v36; // rsi
   _WORD *v37; // r15
   char v38; // [rsp+70h] [rbp-2D8h]
-  unsigned __int16 v39; // [rsp+74h] [rbp-2D4h]
+  LANGID v39; // [rsp+74h] [rbp-2D4h]
   int v40; // [rsp+78h] [rbp-2D0h]
-  ULONGLONG v41; // [rsp+80h] [rbp-2C8h] BYREF
-  PVOID v42; // [rsp+88h] [rbp-2C0h] BYREF
-  PVOID BaseAddress; // [rsp+90h] [rbp-2B8h]
+  ULONG_PTR ResourceOffset; // [rsp+80h] [rbp-2C8h] BYREF
+  PVOID ResourceDllBase; // [rsp+88h] [rbp-2C0h] BYREF
+  PVOID DllHandle; // [rsp+90h] [rbp-2B8h]
   int v44; // [rsp+98h] [rbp-2B0h]
   int v45; // [rsp+9Ch] [rbp-2ACh]
   ULONGLONG Size; // [rsp+A0h] [rbp-2A8h]
@@ -78,7 +78,7 @@ __int64 __fastcall LdrpResSearchResourceMappedFile(
   _DWORD Src[132]; // [rsp+F0h] [rbp-258h] BYREF
 
   Size = a2;
-  BaseAddress = a1;
+  DllHandle = a1;
   v47 = a6;
   v52 = a7;
   v55 = a8;
@@ -111,7 +111,7 @@ __int64 __fastcall LdrpResSearchResourceMappedFile(
        || (v16 & 0xF3FF) != 0
        || v16 == 3072) )
     {
-      RCConfig = LdrResGetRCConfig((_DWORD)BaseAddress, Size, 0, a3, 1);
+      RCConfig = LdrResGetRCConfig((_DWORD)DllHandle, Size, 0, a3, 1);
       MappingSize = RCConfig;
       if ( RCConfig < 0 )
       {
@@ -122,7 +122,7 @@ __int64 __fastcall LdrpResSearchResourceMappedFile(
       }
       else
       {
-        v15 = v13 | LdrIsResItemExist(BaseAddress, (_QWORD *)a4);
+        v15 = v13 | LdrIsResItemExist(DllHandle, (_QWORD *)a4);
         v14 = a5;
       }
     }
@@ -152,7 +152,7 @@ __int64 __fastcall LdrpResSearchResourceMappedFile(
   }
   if ( (a3 & 0x10) != 0 || (~v15 & 0x40000) != 0 || (v15 & 0x80000) != 0 )
   {
-    result = LdrpResGetResourceDirectory(BaseAddress, Size, (__int64)&v48);
+    result = LdrpResGetResourceDirectory(DllHandle, Size, (__int64)&v48);
     if ( (int)result < 0 )
       return result;
   }
@@ -161,8 +161,8 @@ __int64 __fastcall LdrpResSearchResourceMappedFile(
 LABEL_24:
   if ( v19 >= LOWORD(Src[0]) )
     return (unsigned int)MappingSize;
-  v42 = 0LL;
-  v41 = 0LL;
+  ResourceDllBase = 0LL;
+  ResourceOffset = 0LL;
   v39 = Src[2 * v19 + 1];
   v20 = Src[2 * v19 + 2];
   v40 = v20;
@@ -181,7 +181,7 @@ LABEL_50:
       if ( (v15 & 0xA0000) == 0 && (a3 & 0x10) == 0 && v39 && PnPBootDriversInitialized )
       {
         v38 = 1;
-        v33 = LdrLoadAlternateResourceModuleEx((unsigned __int64)BaseAddress, v39, &v42, (__int64 *)&v41, v15 | 0x1000u);
+        v33 = LdrLoadAlternateResourceModuleEx(DllHandle, v39, &ResourceDllBase, &ResourceOffset, v15 | 0x1000);
         MappingSize = v33;
         if ( v33 < 0 )
         {
@@ -190,15 +190,15 @@ LABEL_50:
         }
         else
         {
-          v34 = v41;
-          if ( !v41 )
+          v34 = ResourceOffset;
+          if ( !ResourceOffset )
           {
-            MappingSize = LdrpResGetMappingSize(v42, &v41, 512LL);
-            v34 = v41;
+            MappingSize = LdrpResGetMappingSize(ResourceDllBase, &ResourceOffset, 512LL);
+            v34 = ResourceOffset;
           }
           if ( (a3 & 0x1000) != 0 && MappingSize < 0 )
             goto LABEL_50;
-          MappingSize = LdrpResGetResourceDirectory(v42, v34, (__int64)&v49);
+          MappingSize = LdrpResGetResourceDirectory(ResourceDllBase, v34, (__int64)&v49);
           if ( MappingSize >= 0 )
           {
             v22 = 1;
@@ -226,16 +226,16 @@ LABEL_29:
     v24 = v51;
   v25 = Size;
   if ( v22 )
-    v25 = v41;
-  v26 = BaseAddress;
+    v25 = ResourceOffset;
+  v26 = DllHandle;
   if ( v22 )
-    v26 = v42;
+    v26 = ResourceDllBase;
   v27 = LdrpResSearchResourceInsideDirectory(v26, v23, v25, v24, v23);
   MappingSize = v27;
   if ( v44 && v27 >= 0 && v47 && v38 )
   {
     v35 = v52 ? *v52 : v53;
-    MappingSize = LdrpFindMessageInAlternateModule(v42, *v47, v35, *(_DWORD *)(a4 + 24), 1);
+    MappingSize = LdrpFindMessageInAlternateModule(ResourceDllBase, *v47, v35, *(_DWORD *)(a4 + 24), 1);
     if ( MappingSize < 0 )
     {
       *v47 = 0LL;

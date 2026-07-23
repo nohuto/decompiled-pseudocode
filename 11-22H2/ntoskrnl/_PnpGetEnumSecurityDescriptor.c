@@ -32,9 +32,9 @@ void *PnpGetEnumSecurityDescriptor()
   ULONG v6; // eax
   void *v7; // rax
   void *v8; // rbx
-  struct _SID_IDENTIFIER_AUTHORITY IdentifierAuthority; // [rsp+38h] [rbp-29h] BYREF
-  struct _SID_IDENTIFIER_AUTHORITY v11; // [rsp+40h] [rbp-21h] BYREF
-  struct _SID_IDENTIFIER_AUTHORITY v12; // [rsp+48h] [rbp-19h] BYREF
+  _SID_IDENTIFIER_AUTHORITY IdentifierAuthority; // [rsp+38h] [rbp-29h] BYREF
+  _SID_IDENTIFIER_AUTHORITY v11; // [rsp+40h] [rbp-21h] BYREF
+  _SID_IDENTIFIER_AUTHORITY v12; // [rsp+48h] [rbp-19h] BYREF
   _OWORD SecurityDescriptor[2]; // [rsp+50h] [rbp-11h] BYREF
   __int64 v14; // [rsp+70h] [rbp+Fh]
   unsigned __int8 Sid[12]; // [rsp+78h] [rbp+17h] BYREF
@@ -80,9 +80,9 @@ void *PnpGetEnumSecurityDescriptor()
                   if ( Pool2 )
                   {
                     if ( RtlCreateAcl(Pool2, v3, 2u) >= 0
-                      && (int)RtlpAddKnownAce((__int64)v5, 2u, 2, 983103, Sid, 0) >= 0
-                      && (int)RtlpAddKnownAce((__int64)v5, 2u, 2, 0x20000, Src, 0) >= 0
-                      && (int)RtlpAddKnownAce((__int64)v5, 2u, 2, 131097, v17, 0) >= 0
+                      && (int)RtlpAddKnownAce(v5, 2u, 2, 983103, Sid, 0) >= 0
+                      && (int)RtlpAddKnownAce(v5, 2u, 2, 0x20000, Src, 0) >= 0
+                      && (int)RtlpAddKnownAce(v5, 2u, 2, 131097, v17, 0) >= 0
                       && RtlCreateSecurityDescriptor(SecurityDescriptor, 1u) >= 0
                       && RtlSetDaclSecurityDescriptor(SecurityDescriptor, 1u, v5, 0) >= 0
                       && RtlSetOwnerSecurityDescriptor(SecurityDescriptor, Owner, 1u) >= 0

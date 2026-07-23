@@ -1,14 +1,14 @@
 /*
- * XREFs of PpmIdleUpdateConcurrency @ 0x14047A440
+ * XREFs of PpmIdleUpdateConcurrency @ 0x140475BB0
  * Callers:
- *     PpmIdleExecuteTransition @ 0x1403B4CA0 (PpmIdleExecuteTransition.c)
- *     PpmIdleRemoveConcurrency @ 0x14047A340 (PpmIdleRemoveConcurrency.c)
- *     PpmIdleInstallConcurrency @ 0x14047A3C0 (PpmIdleInstallConcurrency.c)
+ *     PpmIdleExecuteTransition @ 0x140371030 (PpmIdleExecuteTransition.c)
+ *     PpmIdleRemoveConcurrency @ 0x140475AB0 (PpmIdleRemoveConcurrency.c)
+ *     PpmIdleInstallConcurrency @ 0x140475B30 (PpmIdleInstallConcurrency.c)
  * Callees:
- *     KxAcquireSpinLock @ 0x140254AE0 (KxAcquireSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14025E408 (KiRemoveSystemWorkPriorityKick.c)
- *     KxReleaseSpinLock @ 0x140279CC0 (KxReleaseSpinLock.c)
- *     KeDisableInterrupts @ 0x140321E80 (KeDisableInterrupts.c)
+ *     KxReleaseSpinLock @ 0x14022F250 (KxReleaseSpinLock.c)
+ *     KxAcquireSpinLock @ 0x1402850F0 (KxAcquireSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14028EA18 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeDisableInterrupts @ 0x1402CAA10 (KeDisableInterrupts.c)
  */
 
 __int64 __fastcall PpmIdleUpdateConcurrency(PKSPIN_LOCK SpinLock, KSPIN_LOCK a2, char a3, char a4)

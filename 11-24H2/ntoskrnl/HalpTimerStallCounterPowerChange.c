@@ -1,11 +1,11 @@
 /*
- * XREFs of HalpTimerStallCounterPowerChange @ 0x140548948
+ * XREFs of HalpTimerStallCounterPowerChange @ 0x140546208
  * Callers:
- *     HalpTimerPowerChange @ 0x1405486C0 (HalpTimerPowerChange.c)
+ *     HalpTimerPowerChange @ 0x140545F80 (HalpTimerPowerChange.c)
  * Callees:
- *     HalpTimerGetInternalData @ 0x14033BC10 (HalpTimerGetInternalData.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
+ *     HalpTimerGetInternalData @ 0x14031B0F0 (HalpTimerGetInternalData.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
  */
 
 char __fastcall HalpTimerStallCounterPowerChange(ULONG_PTR BugCheckParameter3, char a2)
@@ -14,8 +14,6 @@ char __fastcall HalpTimerStallCounterPowerChange(ULONG_PTR BugCheckParameter3, c
   int v3; // eax
   __int64 InternalData; // rax
   __int64 v5; // rdx
-  __int64 v6; // r8
-  __int64 v7; // r9
 
   v2 = HalpSavedStallCounter;
   LOBYTE(v3) = a2;
@@ -26,7 +24,7 @@ char __fastcall HalpTimerStallCounterPowerChange(ULONG_PTR BugCheckParameter3, c
       if ( HalpSavedStallCounter != HalpPerformanceCounter )
       {
         InternalData = HalpTimerGetInternalData(HalpSavedStallCounter);
-        v3 = guard_dispatch_icall_no_overrides(InternalData, v5, v6, v7);
+        v3 = guard_dispatch_icall_no_overrides(InternalData, v5);
         if ( v3 < 0 )
           KeBugCheckEx(0x5Cu, 0x113uLL, 0xFuLL, v2, v3);
       }

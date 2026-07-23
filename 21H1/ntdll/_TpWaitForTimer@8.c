@@ -11,41 +11,37 @@
  *     _RtlpHpAppCompatDontChangePolicy@0 @ 0x4B2ED850 (_RtlpHpAppCompatDontChangePolicy@0.c)
  */
 
-int __stdcall TpWaitForTimer(int a1, int a2)
+void __cdecl TpWaitForTimer(PTP_TIMER Timer, LOGICAL CancelPendingCallbacks)
 {
   char v2; // bl
-  int result; // eax
-  char v4; // [esp+Bh] [ebp-1h]
+  char v3; // [esp+Bh] [ebp-1h]
 
   v2 = 0;
-  result = TppTimerpValidateTimer(0);
-  if ( result )
+  if ( TppTimerpValidateTimer(0) )
   {
-    v4 = 0;
-    if ( a2 )
+    v3 = 0;
+    if ( CancelPendingCallbacks )
     {
-      RtlAcquireSRWLockExclusive(a1 + 144);
-      ++*(_BYTE *)(a1 + 223);
-      v2 = TppCancelTimer(1);
-      if ( *(_DWORD *)(a1 + 32) )
-        v4 = 1;
+      RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)Timer + 36);
+      ++*((_BYTE *)Timer + 223);
+      v2 = TppCancelTimer(Timer, *((_DWORD *)Timer + 23) + 64, 1);
+      if ( *((_DWORD *)Timer + 8) )
+        v3 = 1;
       else
-        --*(_BYTE *)(a1 + 223);
-      RtlReleaseSRWLockExclusive(a1 + 144);
+        --*((_BYTE *)Timer + 223);
+      RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)Timer + 36);
     }
-    result = TppWorkWait((_DWORD *)a1, a2);
-    if ( v4 )
+    TppWorkWait(Timer, CancelPendingCallbacks);
+    if ( v3 )
     {
-      RtlAcquireSRWLockExclusive(a1 + 144);
-      --*(_BYTE *)(a1 + 223);
-      result = RtlReleaseSRWLockExclusive(a1 + 144);
+      RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)Timer + 36);
+      --*((_BYTE *)Timer + 223);
+      RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)Timer + 36);
     }
     if ( v2 )
     {
-      result = _InterlockedExchangeAdd((volatile signed __int32 *)a1, 0xFFFFFFFF);
-      if ( !result )
-        return (**(int (__thiscall ***)(_DWORD, int))(a1 + 4))(**(_DWORD **)(a1 + 4), a1);
+      if ( !_InterlockedExchangeAdd((volatile signed __int32 *)Timer, 0xFFFFFFFF) )
+        (**((void (__thiscall ***)(_DWORD, PTP_TIMER))Timer + 1))(**((_DWORD **)Timer + 1), Timer);
     }
   }
-  return result;
 }

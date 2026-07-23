@@ -1,9 +1,9 @@
 /*
- * XREFs of CcErrorCallbackRoutine @ 0x1404EA2A0
+ * XREFs of CcErrorCallbackRoutine @ 0x1404EA4E0
  * Callers:
  *     <none>
  * Callees:
- *     CcCrossPartitionDrainSectionDeletion @ 0x1404E986C (CcCrossPartitionDrainSectionDeletion.c)
+ *     CcCrossPartitionDrainSectionDeletion @ 0x1404E9AAC (CcCrossPartitionDrainSectionDeletion.c)
  */
 
 __int64 __fastcall CcErrorCallbackRoutine(__int64 a1)

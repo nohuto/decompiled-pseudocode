@@ -1,16 +1,16 @@
 /*
- * XREFs of XmGetOffsetAddress @ 0x1405AE960
+ * XREFs of XmGetOffsetAddress @ 0x1405B1170
  * Callers:
- *     XmGroup45General @ 0x1404A7EB0 (XmGroup45General.c)
- *     XmGeneralBitOffset @ 0x1405AC040 (XmGeneralBitOffset.c)
- *     XmGroup8BitOffset @ 0x1405AC330 (XmGroup8BitOffset.c)
- *     XmLoadSegment @ 0x1405AC500 (XmLoadSegment.c)
- *     XmSegmentOffset @ 0x1405AC850 (XmSegmentOffset.c)
- *     XmXlatOpcode @ 0x1405AC9C0 (XmXlatOpcode.c)
- *     XmBoundOp @ 0x1405AE0D0 (XmBoundOp.c)
+ *     XmGroup45General @ 0x1404A1540 (XmGroup45General.c)
+ *     XmGeneralBitOffset @ 0x1405AE850 (XmGeneralBitOffset.c)
+ *     XmGroup8BitOffset @ 0x1405AEB40 (XmGroup8BitOffset.c)
+ *     XmLoadSegment @ 0x1405AED10 (XmLoadSegment.c)
+ *     XmSegmentOffset @ 0x1405AF060 (XmSegmentOffset.c)
+ *     XmXlatOpcode @ 0x1405AF1D0 (XmXlatOpcode.c)
+ *     XmBoundOp @ 0x1405B08E0 (XmBoundOp.c)
  * Callees:
- *     x86BiosTranslateAddress @ 0x1404A8B20 (x86BiosTranslateAddress.c)
- *     longjmp @ 0x140533940 (longjmp.c)
+ *     x86BiosTranslateAddress @ 0x1404A21B0 (x86BiosTranslateAddress.c)
+ *     longjmp @ 0x140535DC0 (longjmp.c)
  */
 
 int *__fastcall XmGetOffsetAddress(__int64 a1, unsigned int a2)

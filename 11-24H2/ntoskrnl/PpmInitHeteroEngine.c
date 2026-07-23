@@ -1,11 +1,11 @@
 /*
- * XREFs of PpmInitHeteroEngine @ 0x140C316D8
+ * XREFs of PpmInitHeteroEngine @ 0x140C337F8
  * Callers:
- *     PoInitHeteroDetection @ 0x140C2D09C (PoInitHeteroDetection.c)
+ *     PoInitHeteroDetection @ 0x140C2F1BC (PoInitHeteroDetection.c)
  * Callees:
- *     KeQueryMaximumProcessorCountEx @ 0x14033E440 (KeQueryMaximumProcessorCountEx.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     KeQueryMaximumProcessorCountEx @ 0x14031D920 (KeQueryMaximumProcessorCountEx.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 PpmInitHeteroEngine()
@@ -16,11 +16,11 @@ __int64 PpmInitHeteroEngine()
   ULONG_PTR v3; // r15
   _QWORD *Pool2; // rsi
   unsigned int v5; // ebx
-  ULONG_PTR v6; // r14
+  __int64 v6; // r14
   unsigned int v7; // r12d
-  ULONG_PTR v8; // rax
-  ULONG_PTR v9; // rbp
-  ULONG_PTR v10; // rax
+  __int64 v8; // rax
+  __int64 v9; // rbp
+  __int64 v10; // rax
   void *v11; // rcx
   void *v12; // rcx
   void *v13; // rcx

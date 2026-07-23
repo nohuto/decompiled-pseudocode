@@ -1,24 +1,24 @@
 /*
- * XREFs of MiUnmapMdlCommon @ 0x1402A9424
+ * XREFs of MiUnmapMdlCommon @ 0x1402A9614
  * Callers:
- *     MmUnmapReservedMapping @ 0x1402A9820 (MmUnmapReservedMapping.c)
- *     MmUnmapLockedRestartPages @ 0x14084C710 (MmUnmapLockedRestartPages.c)
+ *     MmUnmapReservedMapping @ 0x1402A9A10 (MmUnmapReservedMapping.c)
+ *     MmUnmapLockedRestartPages @ 0x14084D970 (MmUnmapLockedRestartPages.c)
  * Callees:
  *     MiLockPageInline @ 0x14002CE40 (MiLockPageInline.c)
  *     MiPteInShadowRange @ 0x14003D740 (MiPteInShadowRange.c)
  *     MiMakeValidPte @ 0x14003D7F0 (MiMakeValidPte.c)
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
- *     MiFlushTbList @ 0x1400740C0 (MiFlushTbList.c)
- *     MiInsertTbFlushEntry @ 0x1400B3AF0 (MiInsertTbFlushEntry.c)
- *     ExAcquireSpinLockExclusive @ 0x1400BC4E0 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC660 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     MiWriteValidPteNewPage @ 0x1400EEB2C (MiWriteValidPteNewPage.c)
- *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
- *     MiInsertLargeTbFlushEntry @ 0x140121484 (MiInsertLargeTbFlushEntry.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     MiFlushTbList @ 0x1400740B0 (MiFlushTbList.c)
+ *     MiInsertTbFlushEntry @ 0x1400B3A30 (MiInsertTbFlushEntry.c)
+ *     ExAcquireSpinLockExclusive @ 0x1400BC420 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC5A0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiWriteValidPteNewPage @ 0x1400EEBAC (MiWriteValidPteNewPage.c)
+ *     MiWritePteShadow @ 0x140120F40 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120FA0 (MiPteHasShadow.c)
+ *     MiInsertLargeTbFlushEntry @ 0x140121554 (MiInsertLargeTbFlushEntry.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
  */
 
 void __fastcall MiUnmapMdlCommon(ULONG_PTR BugCheckParameter2, unsigned int a2, __int64 a3, ULONG_PTR a4)
@@ -69,11 +69,11 @@ void __fastcall MiUnmapMdlCommon(ULONG_PTR BugCheckParameter2, unsigned int a2, 
   }
   else
   {
-    v12 = ExAcquireSpinLockExclusive(&dword_14043AC80);
-    v13 = (_QWORD *)qword_14043AC90;
+    v12 = ExAcquireSpinLockExclusive(&dword_14043BD40);
+    v13 = (_QWORD *)qword_14043BD50;
     v14 = 0;
     v15 = v12;
-    v16 = (_QWORD *)qword_14043AC90;
+    v16 = (_QWORD *)qword_14043BD50;
     if ( a4 >> 9 != 1 )
     {
       do
@@ -83,9 +83,9 @@ void __fastcall MiUnmapMdlCommon(ULONG_PTR BugCheckParameter2, unsigned int a2, 
       }
       while ( v14 < (a4 >> 9) - 1 );
     }
-    qword_14043AC90 = *v16;
+    qword_14043BD50 = *v16;
     *v16 = 0LL;
-    ExReleaseSpinLockExclusiveFromDpcLevel(&dword_14043AC80);
+    ExReleaseSpinLockExclusiveFromDpcLevel(&dword_14043BD40);
     if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && KeGetCurrentIrql() >= 2u && v15 < 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
@@ -141,7 +141,7 @@ LABEL_33:
       if ( (unsigned int)MiPteHasShadow() )
       {
         v10 = 1LL;
-        if ( !HIBYTE(word_14043A1AC) )
+        if ( !HIBYTE(word_14043B26C) )
         {
           v26 = (v25 & 1) == 0;
           goto LABEL_28;

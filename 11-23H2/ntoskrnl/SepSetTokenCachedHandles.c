@@ -1,18 +1,18 @@
 /*
- * XREFs of SepSetTokenCachedHandles @ 0x1407F44A0
+ * XREFs of SepSetTokenCachedHandles @ 0x1407F4770
  * Callers:
- *     SepSetTokenBnoIsolation @ 0x140224BA8 (SepSetTokenBnoIsolation.c)
- *     NtCreateLowBoxToken @ 0x1407F2540 (NtCreateLowBoxToken.c)
+ *     SepSetTokenBnoIsolation @ 0x140224CB0 (SepSetTokenBnoIsolation.c)
+ *     NtCreateLowBoxToken @ 0x1407F2810 (NtCreateLowBoxToken.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1402BD960 (ExfTryToWakePushLock.c)
- *     RtlCreateHashTable @ 0x14036F680 (RtlCreateHashTable.c)
- *     SepCloseCachedTokenHandles @ 0x140370038 (SepCloseCachedTokenHandles.c)
- *     SepReferenceCachedTokenHandles @ 0x140371168 (SepReferenceCachedTokenHandles.c)
- *     SepGetCachedHandlesEntry @ 0x1407F465C (SepGetCachedHandlesEntry.c)
- *     SepValidateReferencedCachedHandles @ 0x1407F4B60 (SepValidateReferencedCachedHandles.c)
+ *     KeLeaveCriticalRegionThread @ 0x14022F7F0 (KeLeaveCriticalRegionThread.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140231120 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     ExfTryToWakePushLock @ 0x1402BDBF0 (ExfTryToWakePushLock.c)
+ *     RtlCreateHashTable @ 0x14036F820 (RtlCreateHashTable.c)
+ *     SepCloseCachedTokenHandles @ 0x1403701D8 (SepCloseCachedTokenHandles.c)
+ *     SepReferenceCachedTokenHandles @ 0x140371308 (SepReferenceCachedTokenHandles.c)
+ *     SepGetCachedHandlesEntry @ 0x1407F492C (SepGetCachedHandlesEntry.c)
+ *     SepValidateReferencedCachedHandles @ 0x1407F4E30 (SepValidateReferencedCachedHandles.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

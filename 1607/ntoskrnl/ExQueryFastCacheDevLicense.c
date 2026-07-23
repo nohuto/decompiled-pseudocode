@@ -1,16 +1,16 @@
 /*
- * XREFs of ExQueryFastCacheDevLicense @ 0x1404E827C
+ * XREFs of ExQueryFastCacheDevLicense @ 0x1404CA608
  * Callers:
- *     SepIsLockedDown @ 0x14068C9DC (SepIsLockedDown.c)
+ *     SepIsLockedDown @ 0x14068CAC0 (SepIsLockedDown.c)
  * Callees:
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x140055FA0 (KiLeaveCriticalRegionUnsafe.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     ExfAcquirePushLockSharedEx @ 0x1400C8280 (ExfAcquirePushLockSharedEx.c)
- *     ExfReleasePushLockShared @ 0x1400C8640 (ExfReleasePushLockShared.c)
- *     KIsUnlockSettingEnabled @ 0x1404E8370 (KIsUnlockSettingEnabled.c)
- *     sub_1406AF784 @ 0x1406AF784 (sub_1406AF784.c)
- *     ExpTriggerFastCacheReeval @ 0x1406AFB08 (ExpTriggerFastCacheReeval.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140055B20 (KiLeaveCriticalRegionUnsafe.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockSharedEx @ 0x1400C6120 (ExfAcquirePushLockSharedEx.c)
+ *     ExfReleasePushLockShared @ 0x1400C64E0 (ExfReleasePushLockShared.c)
+ *     KIsUnlockSettingEnabled @ 0x1404CA6FC (KIsUnlockSettingEnabled.c)
+ *     sub_1406AF8BC @ 0x1406AF8BC (sub_1406AF8BC.c)
+ *     ExpTriggerFastCacheReeval @ 0x1406AFC40 (ExpTriggerFastCacheReeval.c)
  */
 
 char ExQueryFastCacheDevLicense()
@@ -58,7 +58,7 @@ LABEL_16:
         v0 = 1;
       goto LABEL_12;
     }
-    sub_1406AF784(8444LL);
+    sub_1406AF8BC(8444LL);
     goto LABEL_16;
   }
 LABEL_12:

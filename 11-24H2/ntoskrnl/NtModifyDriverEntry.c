@@ -1,15 +1,15 @@
 /*
- * XREFs of NtModifyDriverEntry @ 0x1407BE2B0
+ * XREFs of NtModifyDriverEntry @ 0x1407BE700
  * Callers:
  *     <none>
  * Callees:
- *     ExpSetDriverEntry @ 0x1407BCA24 (ExpSetDriverEntry.c)
+ *     ExpSetDriverEntry @ 0x1407BCE74 (ExpSetDriverEntry.c)
  */
 
-__int64 __fastcall NtModifyDriverEntry(const void *a1)
+NTSTATUS __cdecl NtModifyDriverEntry(PEFI_DRIVER_ENTRY DriverEntry)
 {
-  if ( dword_140EFEAF0 == 2 )
-    return ExpSetDriverEntry(0, a1, 0LL);
+  if ( dword_140EFEE10 == 2 )
+    return ExpSetDriverEntry(0, DriverEntry, 0LL);
   else
-    return 3221225474LL;
+    return -1073741822;
 }

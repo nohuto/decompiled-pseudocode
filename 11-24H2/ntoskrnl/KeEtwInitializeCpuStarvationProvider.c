@@ -1,12 +1,12 @@
 /*
- * XREFs of KeEtwInitializeCpuStarvationProvider @ 0x1405B4668
+ * XREFs of KeEtwInitializeCpuStarvationProvider @ 0x1405B15EC
  * Callers:
- *     EtwpCpuStarvationProvEnableCallback @ 0x14064C7F0 (EtwpCpuStarvationProvEnableCallback.c)
+ *     EtwpCpuStarvationProvEnableCallback @ 0x14064AE00 (EtwpCpuStarvationProvEnableCallback.c)
  * Callees:
- *     KeGetPrcb @ 0x140352980 (KeGetPrcb.c)
- *     KeEnumerateNextProcessor @ 0x14040D4F0 (KeEnumerateNextProcessor.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
- *     ExAllocatePool3 @ 0x140B746D0 (ExAllocatePool3.c)
+ *     KeGetPrcb @ 0x1402B0A10 (KeGetPrcb.c)
+ *     KeEnumerateNextProcessor @ 0x140405740 (KeEnumerateNextProcessor.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
+ *     ExAllocatePool3 @ 0x140B76270 (ExAllocatePool3.c)
  */
 
 __int64 KeEtwInitializeCpuStarvationProvider()

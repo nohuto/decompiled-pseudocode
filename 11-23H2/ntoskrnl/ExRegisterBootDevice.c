@@ -1,18 +1,18 @@
 /*
- * XREFs of ExRegisterBootDevice @ 0x1406094B0
+ * XREFs of ExRegisterBootDevice @ 0x140609A00
  * Callers:
  *     <none>
  * Callees:
- *     KeSetEvent @ 0x14023C5E0 (KeSetEvent.c)
- *     KeWaitForSingleObject @ 0x140243CE0 (KeWaitForSingleObject.c)
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250E80 (KeAcquireSpinLockRaiseToDpc.c)
- *     KeSetPriorityThread @ 0x1402B0340 (KeSetPriorityThread.c)
- *     ObfReferenceObjectWithTag @ 0x1402B68C0 (ObfReferenceObjectWithTag.c)
- *     ZwClose @ 0x14041AF40 (ZwClose.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     ObReferenceObjectByHandle @ 0x1406E62C0 (ObReferenceObjectByHandle.c)
- *     PsCreateSystemThread @ 0x1407B8100 (PsCreateSystemThread.c)
+ *     KeSetEvent @ 0x14023C6B0 (KeSetEvent.c)
+ *     KeWaitForSingleObject @ 0x140243DB0 (KeWaitForSingleObject.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140250F40 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KeSetPriorityThread @ 0x1402B05D0 (KeSetPriorityThread.c)
+ *     ObfReferenceObjectWithTag @ 0x1402B6B50 (ObfReferenceObjectWithTag.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     ZwClose @ 0x14041B2D0 (ZwClose.c)
+ *     ObReferenceObjectByHandle @ 0x1406E62F0 (ObReferenceObjectByHandle.c)
+ *     PsCreateSystemThread @ 0x1407B83E0 (PsCreateSystemThread.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
 
@@ -71,19 +71,22 @@ __int64 __fastcall ExRegisterBootDevice(__int64 a1, __int64 *a2)
         *(_OWORD *)(Pool2 + 40) = *(_OWORD *)(a1 + 16);
         *(_QWORD *)(Pool2 + 56) = *(_QWORD *)(a1 + 32);
         v7 = KeAcquireSpinLockRaiseToDpc(&ExBootDeviceListSpinLock);
-        v8 = (_QWORD *)qword_140C2D708;
+        v8 = (_QWORD *)qword_140C2D678;
         v9 = (_QWORD *)(Pool2 + 8);
-        if ( *(__int64 **)qword_140C2D708 != &ExBootDeviceList )
+        if ( *(__int64 **)qword_140C2D678 != &ExBootDeviceList )
           __fastfail(3u);
         *v9 = &ExBootDeviceList;
         *(_QWORD *)(Pool2 + 16) = v8;
         *v8 = v9;
-        qword_140C2D708 = Pool2 + 8;
+        qword_140C2D678 = Pool2 + 8;
         KxReleaseSpinLock((volatile signed __int64 *)&ExBootDeviceListSpinLock);
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
           CurrentIrql = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v7 <= 0xFu && CurrentIrql >= 2u )
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+            && CurrentIrql <= 0xFu
+            && (unsigned __int8)v7 <= 0xFu
+            && CurrentIrql >= 2u )
           {
             CurrentPrcb = KeGetCurrentPrcb();
             SchedulerAssist = CurrentPrcb->SchedulerAssist;

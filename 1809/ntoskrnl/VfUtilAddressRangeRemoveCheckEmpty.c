@@ -1,13 +1,13 @@
 /*
- * XREFs of VfUtilAddressRangeRemoveCheckEmpty @ 0x14092606C
+ * XREFs of VfUtilAddressRangeRemoveCheckEmpty @ 0x14092706C
  * Callers:
- *     IovpCompleteRequest2 @ 0x14092F620 (IovpCompleteRequest2.c)
- *     VfIoFreeIrp @ 0x14093027C (VfIoFreeIrp.c)
- *     VfPendingMoreProcessingRequired @ 0x140933880 (VfPendingMoreProcessingRequired.c)
- *     ViPendingCompleteAfterWait @ 0x140933B18 (ViPendingCompleteAfterWait.c)
- *     VfIrpDatabaseEntryReleaseLock @ 0x14093E3A4 (VfIrpDatabaseEntryReleaseLock.c)
+ *     IovpCompleteRequest2 @ 0x140930620 (IovpCompleteRequest2.c)
+ *     VfIoFreeIrp @ 0x14093127C (VfIoFreeIrp.c)
+ *     VfPendingMoreProcessingRequired @ 0x140934880 (VfPendingMoreProcessingRequired.c)
+ *     ViPendingCompleteAfterWait @ 0x140934B18 (ViPendingCompleteAfterWait.c)
+ *     VfIrpDatabaseEntryReleaseLock @ 0x14093F3A4 (VfIrpDatabaseEntryReleaseLock.c)
  * Callees:
- *     VfUtilAddressRangeRemove @ 0x140926040 (VfUtilAddressRangeRemove.c)
+ *     VfUtilAddressRangeRemove @ 0x140927040 (VfUtilAddressRangeRemove.c)
  */
 
 __int64 __fastcall VfUtilAddressRangeRemoveCheckEmpty(_QWORD *a1, __int64 a2)

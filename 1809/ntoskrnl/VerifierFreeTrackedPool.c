@@ -1,13 +1,13 @@
 /*
- * XREFs of VerifierFreeTrackedPool @ 0x1402BA41C
+ * XREFs of VerifierFreeTrackedPool @ 0x1402BA60C
  * Callers:
- *     ExFreeLargePool @ 0x14009ADD0 (ExFreeLargePool.c)
- *     MmFreeSpecialPool @ 0x1402AD178 (MmFreeSpecialPool.c)
- *     ExpFreeHeapSpecialPool @ 0x14031EC64 (ExpFreeHeapSpecialPool.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
+ *     ExFreeLargePool @ 0x14009AD10 (ExFreeLargePool.c)
+ *     MmFreeSpecialPool @ 0x1402AD368 (MmFreeSpecialPool.c)
+ *     ExpFreeHeapSpecialPool @ 0x14031EE54 (ExpFreeHeapSpecialPool.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
  * Callees:
- *     ViFreeTrackedPool @ 0x140925838 (ViFreeTrackedPool.c)
- *     VerifierBugCheckIfAppropriate @ 0x14092FD84 (VerifierBugCheckIfAppropriate.c)
+ *     ViFreeTrackedPool @ 0x140926838 (ViFreeTrackedPool.c)
+ *     VerifierBugCheckIfAppropriate @ 0x140930D84 (VerifierBugCheckIfAppropriate.c)
  */
 
 __int64 __fastcall VerifierFreeTrackedPool(ULONG_PTR BugCheckParameter2, ULONG_PTR a2)

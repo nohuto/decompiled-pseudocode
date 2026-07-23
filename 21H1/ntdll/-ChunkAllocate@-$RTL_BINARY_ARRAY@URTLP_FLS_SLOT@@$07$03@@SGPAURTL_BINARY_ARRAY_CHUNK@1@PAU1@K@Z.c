@@ -13,16 +13,22 @@ _DWORD *__fastcall RTL_BINARY_ARRAY<RTLP_FLS_SLOT,8,4>::ChunkAllocate(int a1, in
   int v3; // edi
   _DWORD *Heap; // eax
   _DWORD *v5; // esi
+  SIZE_T v7; // [esp-4h] [ebp-14h]
+  size_t v8; // [esp-4h] [ebp-14h]
 
   v3 = 1 << (a2 + 4);
-  Heap = (_DWORD *)RtlAllocateHeap((int)NtCurrentPeb()->ProcessHeap, 0, 4 * v3 + 4);
+  LODWORD(v7) = 4 * v3 + 4;
+  Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, v7);
   v5 = Heap;
   if ( Heap )
   {
     *Heap = 0;
     Heap[1] = 0;
     if ( v3 )
-      memset(Heap + 1, 0, 4 * v3);
+    {
+      LODWORD(v8) = 4 * v3;
+      memset(Heap + 1, 0, v8);
+    }
     *(_DWORD *)(a1 + 4 * a2) = v5;
   }
   return v5;

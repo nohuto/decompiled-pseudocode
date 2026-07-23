@@ -1,12 +1,12 @@
 /*
- * XREFs of CmpEnumerateCallback @ 0x14077CDB0
+ * XREFs of CmpEnumerateCallback @ 0x14077CF70
  * Callers:
  *     <none>
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
- *     ExAcquirePushLockSharedEx @ 0x14034AB50 (ExAcquirePushLockSharedEx.c)
- *     ExReleasePushLockEx @ 0x14034AE90 (ExReleasePushLockEx.c)
- *     ExfUnblockPushLock @ 0x1403F9560 (ExfUnblockPushLock.c)
+ *     KeLeaveCriticalRegionThread @ 0x1402AB8C0 (KeLeaveCriticalRegionThread.c)
+ *     ExAcquirePushLockSharedEx @ 0x1403558A0 (ExAcquirePushLockSharedEx.c)
+ *     ExReleasePushLockEx @ 0x140355BE0 (ExReleasePushLockEx.c)
+ *     ExfUnblockPushLock @ 0x1403F96E0 (ExfUnblockPushLock.c)
  */
 
 __int64 __fastcall CmpEnumerateCallback(__int64 **a1)
@@ -16,7 +16,10 @@ __int64 __fastcall CmpEnumerateCallback(__int64 **a1)
   __int64 v4; // rbx
   __int64 v5; // rdx
   __int64 v6; // rdi
-  signed __int32 v8[10]; // [rsp+0h] [rbp-28h] BYREF
+  __int64 v7; // rdx
+  __int64 v8; // r8
+  __int64 v9; // r9
+  signed __int32 v11[10]; // [rsp+0h] [rbp-28h] BYREF
 
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
@@ -39,12 +42,12 @@ __int64 __fastcall CmpEnumerateCallback(__int64 **a1)
     v5 = *(_QWORD *)v5;
   }
   ExReleasePushLockEx((ULONG_PTR)&CmpCallbackListLock, 0LL);
-  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v7, v8, v9);
   if ( v4 )
   {
     if ( _InterlockedDecrement((volatile signed __int32 *)(v4 + 16)) == 0x80000000 )
     {
-      _InterlockedOr(v8, 0);
+      _InterlockedOr(v11, 0);
       if ( CallbackListDeleteEvent )
         ExfUnblockPushLock(&CallbackListDeleteEvent, 0LL);
     }

@@ -1,14 +1,14 @@
 /*
- * XREFs of ExInitializeFastResource2 @ 0x140413770
+ * XREFs of ExInitializeFastResource2 @ 0x140413B04
  * Callers:
- *     ExInitializeFastResource @ 0x1403C4EF0 (ExInitializeFastResource.c)
- *     ExInitializeFastResourceAcquired2 @ 0x1404138B4 (ExInitializeFastResourceAcquired2.c)
+ *     ExInitializeFastResource @ 0x1403C50D0 (ExInitializeFastResource.c)
+ *     ExInitializeFastResourceAcquired2 @ 0x140413C48 (ExInitializeFastResourceAcquired2.c)
  * Callees:
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     memset @ 0x140435A00 (memset.c)
- *     RtlStdLogStackTrace @ 0x1405A94F4 (RtlStdLogStackTrace.c)
- *     RtlStdReleaseStackTrace @ 0x1405A9580 (RtlStdReleaseStackTrace.c)
- *     RtlpStdGetRecordedStackTraceIndex @ 0x1405A9974 (RtlpStdGetRecordedStackTraceIndex.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     RtlStdLogStackTrace @ 0x1405A9A64 (RtlStdLogStackTrace.c)
+ *     RtlStdReleaseStackTrace @ 0x1405A9AF0 (RtlStdReleaseStackTrace.c)
+ *     RtlpStdGetRecordedStackTraceIndex @ 0x1405A9EE4 (RtlpStdGetRecordedStackTraceIndex.c)
  */
 
 __int16 __fastcall ExInitializeFastResource2(ULONG_PTR BugCheckParameter2, ULONG_PTR BugCheckParameter3)

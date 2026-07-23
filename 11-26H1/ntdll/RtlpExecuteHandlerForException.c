@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlpExecuteHandlerForException @ 0x1801636A0
+ * XREFs of RtlpExecuteHandlerForException @ 0x1801635A0
  * Callers:
- *     RtlDispatchException @ 0x18004C680 (RtlDispatchException.c)
+ *     RtlDispatchException @ 0x180036C00 (RtlDispatchException.c)
  * Callees:
  *     <none>
  */

@@ -1,15 +1,15 @@
 /*
- * XREFs of VerifierInitSystem @ 0x1409DAED4
+ * XREFs of VerifierInitSystem @ 0x1409DBED4
  * Callers:
- *     Phase1InitializationDiscard @ 0x1409B3E10 (Phase1InitializationDiscard.c)
- *     InitBootProcessor @ 0x1409B4EDC (InitBootProcessor.c)
+ *     Phase1InitializationDiscard @ 0x1409B4E10 (Phase1InitializationDiscard.c)
+ *     InitBootProcessor @ 0x1409B5EDC (InitBootProcessor.c)
  * Callees:
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
- *     PsSetCreateProcessNotifyRoutine @ 0x140748340 (PsSetCreateProcessNotifyRoutine.c)
- *     VfPendingInitPhase1 @ 0x140933774 (VfPendingInitPhase1.c)
- *     VfPoolInitPhase1 @ 0x140938034 (VfPoolInitPhase1.c)
- *     VfSettingsMiscellaneousChecksInitPhase1 @ 0x14093DFEC (VfSettingsMiscellaneousChecksInitPhase1.c)
- *     ViInitSystemPhase0 @ 0x1409DAF34 (ViInitSystemPhase0.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
+ *     PsSetCreateProcessNotifyRoutine @ 0x140749530 (PsSetCreateProcessNotifyRoutine.c)
+ *     VfPendingInitPhase1 @ 0x140934774 (VfPendingInitPhase1.c)
+ *     VfPoolInitPhase1 @ 0x140939034 (VfPoolInitPhase1.c)
+ *     VfSettingsMiscellaneousChecksInitPhase1 @ 0x14093EFEC (VfSettingsMiscellaneousChecksInitPhase1.c)
+ *     ViInitSystemPhase0 @ 0x1409DBF34 (ViInitSystemPhase0.c)
  */
 
 __int64 VerifierInitSystem()

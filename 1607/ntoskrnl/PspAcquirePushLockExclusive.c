@@ -1,11 +1,11 @@
 /*
- * XREFs of PspAcquirePushLockExclusive @ 0x14013E198
+ * XREFs of PspAcquirePushLockExclusive @ 0x14013E708
  * Callers:
- *     PsStartSiloMonitor @ 0x14055F7E8 (PsStartSiloMonitor.c)
- *     PsUnregisterSiloMonitor @ 0x140681064 (PsUnregisterSiloMonitor.c)
+ *     PsStartSiloMonitor @ 0x14055FD28 (PsStartSiloMonitor.c)
+ *     PsUnregisterSiloMonitor @ 0x140681148 (PsUnregisterSiloMonitor.c)
  * Callees:
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1400C8070 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1400C5F10 (ExfAcquirePushLockExclusiveEx.c)
  */
 
 _BYTE *PspAcquirePushLockExclusive()

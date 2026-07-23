@@ -1,19 +1,24 @@
 /*
- * XREFs of NtWaitForMultipleObjects @ 0x18015FA90
+ * XREFs of NtWaitForMultipleObjects @ 0x18015F990
  * Callers:
- *     WerpWaitForCrashReporting @ 0x180088850 (WerpWaitForCrashReporting.c)
- *     TpTrimPools @ 0x1800E86D0 (TpTrimPools.c)
- *     RtlpHeapTrkSyncWithDiagnoser @ 0x1801106B0 (RtlpHeapTrkSyncWithDiagnoser.c)
- *     RtlCreateProcessReflection @ 0x1801397C0 (RtlCreateProcessReflection.c)
+ *     WerpWaitForCrashReporting @ 0x18007FBD0 (WerpWaitForCrashReporting.c)
+ *     TpTrimPools @ 0x1800E78E0 (TpTrimPools.c)
+ *     RtlpHeapTrkSyncWithDiagnoser @ 0x180110240 (RtlpHeapTrkSyncWithDiagnoser.c)
+ *     RtlCreateProcessReflection @ 0x180139530 (RtlCreateProcessReflection.c)
  * Callees:
  *     <none>
  */
 
-__int64 NtWaitForMultipleObjects()
+NTSTATUS __cdecl NtWaitForMultipleObjects(
+        ULONG Count,
+        HANDLE Handles[],
+        WAIT_TYPE WaitType,
+        BOOLEAN Alertable,
+        PLARGE_INTEGER Timeout)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 91LL;
+  result = 91;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

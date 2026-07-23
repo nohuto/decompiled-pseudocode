@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlCreateHashTable @ 0x1400A955C
+ * XREFs of RtlCreateHashTable @ 0x1400A7ADC
  * Callers:
- *     SepSetTokenLowboxHandles @ 0x14007F580 (SepSetTokenLowboxHandles.c)
- *     SepBuildCapPolicyTable @ 0x140144EF0 (SepBuildCapPolicyTable.c)
- *     SepInitializeLowBoxNumberTable @ 0x14054847C (SepInitializeLowBoxNumberTable.c)
- *     SepInitializeSharedSidMap @ 0x14054CF48 (SepInitializeSharedSidMap.c)
+ *     SepSetTokenLowboxHandles @ 0x14007F600 (SepSetTokenLowboxHandles.c)
+ *     SepBuildCapPolicyTable @ 0x140145460 (SepBuildCapPolicyTable.c)
+ *     SepInitializeLowBoxNumberTable @ 0x1405489BC (SepInitializeLowBoxNumberTable.c)
+ *     SepInitializeSharedSidMap @ 0x14054D488 (SepInitializeSharedSidMap.c)
  *     SepInitializeSingletonAttributesStructures @ 0x1407B2E80 (SepInitializeSingletonAttributesStructures.c)
  * Callees:
  *     <none>

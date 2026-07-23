@@ -66,10 +66,10 @@ __int64 __fastcall AlpcpProcessSynchronousRequest(
   __int64 v35; // rcx
   int v36; // r14d
   int v37; // eax
-  signed int v38; // r8d
+  unsigned int v38; // r8d
   int v39; // edx
   __int64 v40; // rcx
-  signed int v41; // r8d
+  unsigned int v41; // r8d
   __int64 v42; // rax
   unsigned int v43; // [rsp+40h] [rbp-D8h]
   ULONG_PTR BugCheckParameter2; // [rsp+48h] [rbp-D0h] BYREF

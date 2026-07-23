@@ -1,13 +1,13 @@
 /*
- * XREFs of _CmGetDeviceInterfaceReferenceString @ 0x140528F14
+ * XREFs of _CmGetDeviceInterfaceReferenceString @ 0x140529454
  * Callers:
- *     PiSwCompleteCreate @ 0x1404C6A1C (PiSwCompleteCreate.c)
- *     _CmGetDeviceInterfaceMappedPropertyFromComposite @ 0x140503538 (_CmGetDeviceInterfaceMappedPropertyFromComposite.c)
- *     IoGetDeviceInterfaceAlias @ 0x140528B50 (IoGetDeviceInterfaceAlias.c)
+ *     PiSwCompleteCreate @ 0x140487650 (PiSwCompleteCreate.c)
+ *     _CmGetDeviceInterfaceMappedPropertyFromComposite @ 0x1404E64C8 (_CmGetDeviceInterfaceMappedPropertyFromComposite.c)
+ *     IoGetDeviceInterfaceAlias @ 0x140529090 (IoGetDeviceInterfaceAlias.c)
  * Callees:
- *     RtlStringCchCopyExW @ 0x1400C34A8 (RtlStringCchCopyExW.c)
- *     wcschr @ 0x14014EF44 (wcschr.c)
- *     _CmValidateDeviceInterfaceName @ 0x1404FC520 (_CmValidateDeviceInterfaceName.c)
+ *     RtlStringCchCopyExW @ 0x1400C1338 (RtlStringCchCopyExW.c)
+ *     wcschr @ 0x14014F504 (wcschr.c)
+ *     _CmValidateDeviceInterfaceName @ 0x1404DF4B0 (_CmValidateDeviceInterfaceName.c)
  */
 
 __int64 __fastcall CmGetDeviceInterfaceReferenceString(

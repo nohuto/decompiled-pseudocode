@@ -1,9 +1,9 @@
 /*
- * XREFs of MiReduceSystemRegionType @ 0x1402A5914
+ * XREFs of MiReduceSystemRegionType @ 0x1402A4E64
  * Callers:
- *     MiMakeSystemRangeAvailable @ 0x1402A4448 (MiMakeSystemRangeAvailable.c)
- *     MiObtainDynamicVa @ 0x1402A4DF8 (MiObtainDynamicVa.c)
- *     MiSplitBitmapPages @ 0x1402A5028 (MiSplitBitmapPages.c)
+ *     MiMakeSystemRangeAvailable @ 0x1402A3998 (MiMakeSystemRangeAvailable.c)
+ *     MiObtainDynamicVa @ 0x1402A4348 (MiObtainDynamicVa.c)
+ *     MiSplitBitmapPages @ 0x1402A4578 (MiSplitBitmapPages.c)
  * Callees:
  *     <none>
  */

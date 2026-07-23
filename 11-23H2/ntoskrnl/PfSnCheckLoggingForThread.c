@@ -1,10 +1,10 @@
 /*
- * XREFs of PfSnCheckLoggingForThread @ 0x14035685C
+ * XREFs of PfSnCheckLoggingForThread @ 0x1403569FC
  * Callers:
- *     PfSnLogFileDataAccess @ 0x1402E245C (PfSnLogFileDataAccess.c)
- *     PfSnLogPageFault @ 0x1402E2510 (PfSnLogPageFault.c)
+ *     PfSnLogFileDataAccess @ 0x1402E26EC (PfSnLogFileDataAccess.c)
+ *     PfSnLogPageFault @ 0x1402E27A0 (PfSnLogPageFault.c)
  * Callees:
- *     PsGetIoPriorityThread @ 0x1402A8BB0 (PsGetIoPriorityThread.c)
+ *     PsGetIoPriorityThread @ 0x1402A8E40 (PsGetIoPriorityThread.c)
  */
 
 __int64 __fastcall PfSnCheckLoggingForThread(__int64 a1, __int64 a2, char a3)

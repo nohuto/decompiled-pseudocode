@@ -1,12 +1,12 @@
 /*
- * XREFs of MmShutdownSystem @ 0x140C00720
+ * XREFs of MmShutdownSystem @ 0x140C06930
  * Callers:
- *     PopGracefulShutdown @ 0x140BF9180 (PopGracefulShutdown.c)
- *     PoBroadcastSystemState @ 0x140C05D10 (PoBroadcastSystemState.c)
+ *     PopGracefulShutdown @ 0x140BFF180 (PopGracefulShutdown.c)
+ *     PoBroadcastSystemState @ 0x140C0BF20 (PoBroadcastSystemState.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     MiTrimAllSystemPagableMemory @ 0x140457728 (MiTrimAllSystemPagableMemory.c)
- *     MiShutdownSystem @ 0x140C0025C (MiShutdownSystem.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     MiTrimAllSystemPagableMemory @ 0x14044EF98 (MiTrimAllSystemPagableMemory.c)
+ *     MiShutdownSystem @ 0x140C0646C (MiShutdownSystem.c)
  */
 
 char __fastcall MmShutdownSystem(int a1)
@@ -18,15 +18,15 @@ char __fastcall MmShutdownSystem(int a1)
     return MiShutdownSystem();
   if ( a1 == 1 )
   {
-    if ( HIDWORD(stru_140E2EB88.RelativeTimerBias) < 2 )
+    if ( HIDWORD(stru_140E2ED08.RelativeTimerBias) < 2 )
     {
-      HIDWORD(stru_140E2EB88.RelativeTimerBias) = 2;
-      if ( ((__int64)stru_140F10828.KernelShadowStackInitial & 2) != 0 )
+      HIDWORD(stru_140E2ED08.RelativeTimerBias) = 2;
+      if ( (PopShutdownCleanly & 2) != 0 )
       {
         MiTrimAllSystemPagableMemory(1);
         if ( Count )
         {
-          v2 = (char *)&unk_140E3D3E0;
+          v2 = (char *)&unk_140E3D560;
           v3 = Count;
           do
           {
@@ -40,9 +40,9 @@ char __fastcall MmShutdownSystem(int a1)
       }
     }
   }
-  else if ( HIDWORD(stru_140E2EB88.RelativeTimerBias) < 3 )
+  else if ( HIDWORD(stru_140E2ED08.RelativeTimerBias) < 3 )
   {
-    HIDWORD(stru_140E2EB88.RelativeTimerBias) = 3;
+    HIDWORD(stru_140E2ED08.RelativeTimerBias) = 3;
   }
   return 1;
 }

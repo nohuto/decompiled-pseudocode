@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlFindLongestRunClearCapped @ 0x1405A8020
+ * XREFs of RtlFindLongestRunClearCapped @ 0x1405A8590
  * Callers:
- *     MiFindPageFileWriteCluster @ 0x1406398F0 (MiFindPageFileWriteCluster.c)
+ *     MiFindPageFileWriteCluster @ 0x140639E40 (MiFindPageFileWriteCluster.c)
  * Callees:
  *     <none>
  */
@@ -53,7 +53,7 @@ __int64 __fastcall RtlFindLongestRunClearCapped(unsigned int *a1, unsigned int a
   v16 = *v14;
   v17 = v14 + 1;
   if ( v10 >> 3 == v7 - 1 && (v6 & 7) != 0 )
-    v16 |= byte_140016E88[v6 & 7];
+    v16 |= byte_140016E78[v6 & 7];
   for ( i = 0; i < v7; ++i )
   {
     v18 = v9;
@@ -75,7 +75,7 @@ __int64 __fastcall RtlFindLongestRunClearCapped(unsigned int *a1, unsigned int a
         v9 = v18;
       v11 = *((unsigned __int8 *)RtlpBitsClearHigh + v16);
       v13 = 8 * v12 - v11 + 8;
-      v20 = *((_BYTE *)qword_140016E90 - v11) | byte_140018F88[v19];
+      v20 = *((_BYTE *)qword_140016E80 - v11) | byte_140018F80[v19];
       while ( 1 )
       {
         v16 |= v20;
@@ -84,7 +84,7 @@ __int64 __fastcall RtlFindLongestRunClearCapped(unsigned int *a1, unsigned int a
         v21 = *((unsigned __int8 *)RtlpBitsClearAnywhere + v16);
         if ( v15 >= (unsigned int)v21 )
           break;
-        v20 = byte_140018F88[v21];
+        v20 = byte_140018F80[v21];
         v22 = 0;
         while ( ((unsigned __int8)v20 & v16) != 0 )
         {
@@ -136,7 +136,7 @@ LABEL_47:
     }
     v16 = *v17++;
     if ( v12 == v7 - 1 && v34 )
-      v16 |= byte_140016E88[v32 & 7];
+      v16 |= byte_140016E78[v32 & 7];
   }
   v26 = v8;
   v27 = v15;

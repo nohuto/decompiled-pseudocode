@@ -1,30 +1,30 @@
 /*
- * XREFs of ExInitializeNPagedLookasideListInternal @ 0x140498C60
+ * XREFs of ExInitializeNPagedLookasideListInternal @ 0x1404927B0
  * Callers:
- *     ExInitializeNPagedLookasideList @ 0x140498C20 (ExInitializeNPagedLookasideList.c)
- *     RtlInitializeCompression @ 0x140617DD0 (RtlInitializeCompression.c)
- *     VfObjectContextInit @ 0x140C22764 (VfObjectContextInit.c)
- *     ViIovInitialization @ 0x140C2AC6C (ViIovInitialization.c)
- *     VfDeadlockInitialize @ 0x140C36058 (VfDeadlockInitialize.c)
- *     ViDmaInit @ 0x140C397DC (ViDmaInit.c)
- *     VfWdInit @ 0x140C39FB0 (VfWdInit.c)
- *     CcInitializeCacheManager @ 0x140C7F4E8 (CcInitializeCacheManager.c)
- *     FsRtlInitializeLargeMcbs @ 0x140CB8D9C (FsRtlInitializeLargeMcbs.c)
- *     FsRtlInitializeFileLocks @ 0x140CB8F3C (FsRtlInitializeFileLocks.c)
- *     FsRtlInitializeOplockPerf @ 0x140CB90F0 (FsRtlInitializeOplockPerf.c)
- *     IoInitSystemPreDrivers @ 0x140CBACA0 (IoInitSystemPreDrivers.c)
- *     PoInitSystem @ 0x140CCE870 (PoInitSystem.c)
- *     PopInitializeIrpWorkers @ 0x140CD3300 (PopInitializeIrpWorkers.c)
- *     VfInitBootDriversLoaded @ 0x140CDE91C (VfInitBootDriversLoaded.c)
- *     WmipInitializeRegistration @ 0x140CDFEE8 (WmipInitializeRegistration.c)
- *     MiInitNucleus @ 0x140CF2CBC (MiInitNucleus.c)
- *     ObInitSystem @ 0x140D0936C (ObInitSystem.c)
+ *     ExInitializeNPagedLookasideList @ 0x140492770 (ExInitializeNPagedLookasideList.c)
+ *     RtlInitializeCompression @ 0x14061AE20 (RtlInitializeCompression.c)
+ *     VfObjectContextInit @ 0x140C28774 (VfObjectContextInit.c)
+ *     ViIovInitialization @ 0x140C30C7C (ViIovInitialization.c)
+ *     VfDeadlockInitialize @ 0x140C3C068 (VfDeadlockInitialize.c)
+ *     ViDmaInit @ 0x140C3F7EC (ViDmaInit.c)
+ *     VfWdInit @ 0x140C3FFC0 (VfWdInit.c)
+ *     CcInitializeCacheManager @ 0x140C854E8 (CcInitializeCacheManager.c)
+ *     FsRtlInitializeLargeMcbs @ 0x140CBEDE0 (FsRtlInitializeLargeMcbs.c)
+ *     FsRtlInitializeFileLocks @ 0x140CBEF80 (FsRtlInitializeFileLocks.c)
+ *     FsRtlInitializeOplockPerf @ 0x140CBF134 (FsRtlInitializeOplockPerf.c)
+ *     IoInitSystemPreDrivers @ 0x140CC0D18 (IoInitSystemPreDrivers.c)
+ *     PoInitSystem @ 0x140CD49D0 (PoInitSystem.c)
+ *     PopInitializeIrpWorkers @ 0x140CD94A0 (PopInitializeIrpWorkers.c)
+ *     VfInitBootDriversLoaded @ 0x140CE4CB4 (VfInitBootDriversLoaded.c)
+ *     WmipInitializeRegistration @ 0x140CE6280 (WmipInitializeRegistration.c)
+ *     MiInitNucleus @ 0x140CF903C (MiInitNucleus.c)
+ *     ObInitSystem @ 0x140D0F63C (ObInitSystem.c)
  * Callees:
- *     KeReleaseSpinLock @ 0x1402BE860 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14032F300 (KeAcquireSpinLockRaiseToDpc.c)
- *     DifObjTrkIsKvEnabledForPlugin @ 0x1403ACC60 (DifObjTrkIsKvEnabledForPlugin.c)
- *     InitializeSListHead @ 0x140499200 (InitializeSListHead.c)
- *     DifObjTrkInsertItem @ 0x14064AED0 (DifObjTrkInsertItem.c)
+ *     KeReleaseSpinLock @ 0x140309520 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140331330 (KeAcquireSpinLockRaiseToDpc.c)
+ *     DifObjTrkIsKvEnabledForPlugin @ 0x1403B6970 (DifObjTrkIsKvEnabledForPlugin.c)
+ *     InitializeSListHead @ 0x140492D50 (InitializeSListHead.c)
+ *     DifObjTrkInsertItem @ 0x14064EAB0 (DifObjTrkInsertItem.c)
  */
 
 char __fastcall ExInitializeNPagedLookasideListInternal(
@@ -40,8 +40,8 @@ char __fastcall ExInitializeNPagedLookasideListInternal(
   PVOID (__fastcall *v12)(int, SIZE_T, ULONG); // rax
   void (__stdcall *v13)(PVOID); // rax
   KIRQL v14; // dl
-  void ****AllFields; // rcx
-  void ***v16; // rax
+  _KTHREAD_WPS_FEEDBACK ****v15; // rcx
+  _KTHREAD_WPS_FEEDBACK ***v16; // rax
   char result; // al
   unsigned int v18; // r10d
 
@@ -62,7 +62,7 @@ char __fastcall ExInitializeNPagedLookasideListInternal(
     v13 = a3;
   *(_QWORD *)(a1 + 56) = v13;
   *(_QWORD *)(a1 + 80) = 0LL;
-  v14 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)&ExSaPageGroupDescriptorArrayLock.KernelShadowStack);
+  v14 = KeAcquireSpinLockRaiseToDpc(&ExSaPageGroupDescriptorArrayLock.KernelShadowStackLimit.AllFields);
   if ( a8 )
   {
     *(_WORD *)(a1 + 16) = a7;
@@ -72,15 +72,15 @@ char __fastcall ExInitializeNPagedLookasideListInternal(
   {
     *(_DWORD *)(a1 + 16) = -65536;
   }
-  AllFields = (void ****)ExSaPageGroupDescriptorArrayLock.KernelShadowStackLimit.AllFields;
-  v16 = (void ***)(a1 + 64);
-  if ( *(struct _KTHREAD **)ExSaPageGroupDescriptorArrayLock.KernelShadowStackLimit.AllFields != (struct _KTHREAD *)&ExSaPageGroupDescriptorArrayLock.KernelShadowStackBase )
+  v15 = (_KTHREAD_WPS_FEEDBACK ****)ExSaPageGroupDescriptorArrayLock.Spare35[0];
+  v16 = (_KTHREAD_WPS_FEEDBACK ***)(a1 + 64);
+  if ( *(struct _KTHREAD **)ExSaPageGroupDescriptorArrayLock.Spare35[0] != (struct _KTHREAD *)&ExSaPageGroupDescriptorArrayLock.WpsFeedback )
     __fastfail(3u);
-  *(_QWORD *)(a1 + 72) = ExSaPageGroupDescriptorArrayLock.KernelShadowStackLimit.AllFields;
-  *v16 = &ExSaPageGroupDescriptorArrayLock.KernelShadowStackBase;
-  *AllFields = v16;
-  ExSaPageGroupDescriptorArrayLock.KernelShadowStackLimit.AllFields = a1 + 64;
-  KeReleaseSpinLock((PKSPIN_LOCK)&ExSaPageGroupDescriptorArrayLock.KernelShadowStack, v14);
+  *(_QWORD *)(a1 + 72) = ExSaPageGroupDescriptorArrayLock.Spare35[0];
+  *v16 = &ExSaPageGroupDescriptorArrayLock.WpsFeedback;
+  *v15 = v16;
+  ExSaPageGroupDescriptorArrayLock.Spare35[0] = a1 + 64;
+  KeReleaseSpinLock(&ExSaPageGroupDescriptorArrayLock.KernelShadowStackLimit.AllFields, v14);
   result = DifObjTrkIsKvEnabledForPlugin(48LL);
   if ( result )
     return DifObjTrkInsertItem(v18, a1, 128LL, 0LL);

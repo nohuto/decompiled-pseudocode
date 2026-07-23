@@ -42,7 +42,7 @@ int __fastcall RtlpWaitOnCriticalSection(__int64 a1, int a2)
   char v24; // [rsp+40h] [rbp-98h]
   int v25; // [rsp+48h] [rbp-90h] BYREF
   struct _TEB *v26; // [rsp+50h] [rbp-88h]
-  _BYTE v27[6]; // [rsp+58h] [rbp-80h] BYREF
+  _BYTE Fields[6]; // [rsp+58h] [rbp-80h] BYREF
   __int16 v28; // [rsp+5Eh] [rbp-7Ah]
   int v29; // [rsp+78h] [rbp-60h]
   int v30; // [rsp+7Ch] [rbp-5Ch]
@@ -54,7 +54,7 @@ int __fastcall RtlpWaitOnCriticalSection(__int64 a1, int a2)
   v24 = 0;
   v26 = v2;
   v4 = 0;
-  if ( (_UNKNOWN **)a1 == &LdrpLoaderLock )
+  if ( (_RTL_CRITICAL_SECTION *)a1 == &LdrpLoaderLock )
   {
     v24 = 1;
     v2->WaitingOnLoaderLock = 1;
@@ -79,7 +79,7 @@ int __fastcall RtlpWaitOnCriticalSection(__int64 a1, int a2)
     {
       if ( *(_BYTE *)(v14 + 40) )
 LABEL_32:
-        ZwTerminateProcess(-1LL, 3221225547LL);
+        ZwTerminateProcess((HANDLE)0xFFFFFFFFFFFFFFFFLL, -1073741749);
     }
   }
   v5 = (LARGE_INTEGER *)&RtlpTimeout;
@@ -103,7 +103,7 @@ LABEL_32:
   v8 = *(void **)(a1 + 24);
   while ( 1 )
   {
-    if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+    if ( RtlGetCurrentServiceSessionId() )
       v9 = (__int64)NtCurrentPeb()->SharedData + 552;
     else
       v9 = 2147353474LL;
@@ -120,7 +120,7 @@ LABEL_32:
         v17 = (__int64)NtCurrentPeb()->SharedData + 552;
       else
         v17 = 2147353474LL;
-      NtTraceEvent(*(unsigned __int8 *)v17, 132098LL, 24LL, v27);
+      NtTraceEvent((HANDLE)*(unsigned __int8 *)v17, 0x20402u, 0x18u, Fields);
     }
     if ( v8 == (void *)-1LL )
     {
@@ -141,14 +141,14 @@ LABEL_19:
 LABEL_42:
     v18 = NtCurrentTeb();
     v19 = (__int64)(((unsigned __int128)(v5->QuadPart * (__int128)0x29406B2A1A85BD43LL) >> 64) - v5->QuadPart) >> 23;
-    DbgPrintEx(101LL, 1LL, "RTL: Enter CriticalSection Timeout (%I64u secs) %d\n", v19 + (v19 >> 63), v4);
+    DbgPrintEx(0x65u, 1u, "RTL: Enter CriticalSection Timeout (%I64u secs) %d\n", v19 + (v19 >> 63), v4);
     if ( *(_QWORD *)a1 == -1LL )
       v20 = 0;
     else
       v20 = *(_DWORD *)(*(_QWORD *)a1 + 36LL);
     DbgPrintEx(
-      101LL,
-      0LL,
+      0x65u,
+      0,
       "RTL: Pid.Tid %p.%p, owner tid %p Critical Section %p - ContentionCount == %u\n",
       v18->ClientId.UniqueProcess,
       v18->ClientId.UniqueThread,
@@ -158,13 +158,13 @@ LABEL_42:
     ++v4;
     CriticalSectionContentionCount = RtlpGetCriticalSectionContentionCount(a1);
     v22 = CriticalSectionContentionCount;
-    if ( v4 > 2 && (_UNKNOWN **)a1 != &LdrpLoaderLock && CriticalSectionContentionCount == v7 )
+    if ( v4 > 2 && (_RTL_CRITICAL_SECTION *)a1 != &LdrpLoaderLock && CriticalSectionContentionCount == v7 )
       RtlpPossibleDeadlock();
     v7 = v22;
-    DbgPrintEx(101LL, 0LL, "RTL: Re-Waiting\n");
+    DbgPrintEx(0x65u, 0, "RTL: Re-Waiting\n");
   }
   if ( (int)v10 < 0 )
-    RtlRaiseStatus((unsigned int)v10);
+    RtlRaiseStatus((NTSTATUS)v10);
   if ( v24 )
   {
     v26->WaitingOnLoaderLock = 0;

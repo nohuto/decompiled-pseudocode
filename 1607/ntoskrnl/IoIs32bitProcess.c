@@ -1,18 +1,18 @@
 /*
- * XREFs of IoIs32bitProcess @ 0x1400C3800
+ * XREFs of IoIs32bitProcess @ 0x1400C1690
  * Callers:
- *     IoIsInitiator32bitProcess @ 0x1400B40DC (IoIsInitiator32bitProcess.c)
- *     PoGetRequester @ 0x1400FC1D4 (PoGetRequester.c)
- *     FsRtlGetMarkHandleInfo @ 0x1401B92A0 (FsRtlGetMarkHandleInfo.c)
- *     EtwpGetScsiPassThroughCdb @ 0x1402266A0 (EtwpGetScsiPassThroughCdb.c)
- *     PoTraceSystemTimerResolution @ 0x1403E9EB0 (PoTraceSystemTimerResolution.c)
- *     WmipIoControl @ 0x1404749C4 (WmipIoControl.c)
- *     WmipProbeWmiOpenGuidBlock @ 0x140474D00 (WmipProbeWmiOpenGuidBlock.c)
- *     WmipProbeAndCaptureGuidObjectAttributes @ 0x140474DB4 (WmipProbeAndCaptureGuidObjectAttributes.c)
- *     PiDqDispatch @ 0x14048B160 (PiDqDispatch.c)
- *     PiCMFastIoDeviceDispatch @ 0x1404FC714 (PiCMFastIoDeviceDispatch.c)
+ *     IoIsInitiator32bitProcess @ 0x1400B1F5C (IoIsInitiator32bitProcess.c)
+ *     PoGetRequester @ 0x1400F9F54 (PoGetRequester.c)
+ *     FsRtlGetMarkHandleInfo @ 0x1401B8FF4 (FsRtlGetMarkHandleInfo.c)
+ *     EtwpGetScsiPassThroughCdb @ 0x1402264CC (EtwpGetScsiPassThroughCdb.c)
+ *     PoTraceSystemTimerResolution @ 0x1403EB4E0 (PoTraceSystemTimerResolution.c)
+ *     WmipIoControl @ 0x140473894 (WmipIoControl.c)
+ *     WmipProbeWmiOpenGuidBlock @ 0x140473BD0 (WmipProbeWmiOpenGuidBlock.c)
+ *     WmipProbeAndCaptureGuidObjectAttributes @ 0x140473C84 (WmipProbeAndCaptureGuidObjectAttributes.c)
+ *     PiDqDispatch @ 0x14048B6C4 (PiDqDispatch.c)
+ *     PiCMFastIoDeviceDispatch @ 0x1404DF6A4 (PiCMFastIoDeviceDispatch.c)
  * Callees:
- *     IoGetRequestorProcess @ 0x1400C3870 (IoGetRequestorProcess.c)
+ *     IoGetRequestorProcess @ 0x1400C1700 (IoGetRequestorProcess.c)
  */
 
 BOOLEAN __stdcall IoIs32bitProcess(PIRP Irp)

@@ -1,11 +1,11 @@
 /*
- * XREFs of SepSetLogonSessionToken @ 0x14047D1FC
+ * XREFs of SepSetLogonSessionToken @ 0x14047C0CC
  * Callers:
- *     SepFilterToken @ 0x14047AFF4 (SepFilterToken.c)
+ *     SepFilterToken @ 0x140479EC4 (SepFilterToken.c)
  * Callees:
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
- *     SepDuplicateToken @ 0x140412BD0 (SepDuplicateToken.c)
- *     SepStopReferencingLogonSession @ 0x14047C9A8 (SepStopReferencingLogonSession.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
+ *     SepDuplicateToken @ 0x140411A90 (SepDuplicateToken.c)
+ *     SepStopReferencingLogonSession @ 0x14047B878 (SepStopReferencingLogonSession.c)
  */
 
 __int64 __fastcall SepSetLogonSessionToken(__int64 a1)

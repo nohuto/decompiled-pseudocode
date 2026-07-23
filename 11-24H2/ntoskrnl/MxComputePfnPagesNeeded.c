@@ -1,7 +1,7 @@
 /*
- * XREFs of MxComputePfnPagesNeeded @ 0x140C523C0
+ * XREFs of MxComputePfnPagesNeeded @ 0x140C54550
  * Callers:
- *     MxComputeFreeNodeDescriptorRequirements @ 0x140C521F8 (MxComputeFreeNodeDescriptorRequirements.c)
+ *     MxComputeFreeNodeDescriptorRequirements @ 0x140C54388 (MxComputeFreeNodeDescriptorRequirements.c)
  * Callees:
  *     <none>
  */

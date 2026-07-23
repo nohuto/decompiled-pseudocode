@@ -1,12 +1,12 @@
 /*
- * XREFs of KsepRegistryQueryDWORD @ 0x1408445D8
+ * XREFs of KsepRegistryQueryDWORD @ 0x1408448D8
  * Callers:
  *     KsepEngineReadFlags @ 0x140B6126C (KsepEngineReadFlags.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1B0 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     ZwQueryValueKey @ 0x14041B040 (ZwQueryValueKey.c)
- *     RtlAssert @ 0x1405AA0C0 (RtlAssert.c)
+ *     RtlInitUnicodeString @ 0x14022E2C0 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     ZwQueryValueKey @ 0x14041B3D0 (ZwQueryValueKey.c)
+ *     RtlAssert @ 0x1405AA630 (RtlAssert.c)
  */
 
 NTSTATUS __fastcall KsepRegistryQueryDWORD(HANDLE KeyHandle, PCWSTR SourceString, _DWORD *a3)

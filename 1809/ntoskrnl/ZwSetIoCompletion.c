@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwSetIoCompletion @ 0x1401BB4D0
+ * XREFs of ZwSetIoCompletion @ 0x1401BB630
  * Callers:
  *     <none>
  * Callees:
@@ -15,5 +15,5 @@ NTSTATUS __stdcall ZwSetIoCompletion(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(IoCompletionPortHandle, CompletionKey, CompletionContext);
+  return KiServiceInternal(IoCompletionPortHandle);
 }

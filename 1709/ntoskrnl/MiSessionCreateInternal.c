@@ -39,8 +39,8 @@ __int64 __fastcall MiSessionCreateInternal(ULONG_PTR *a1)
   __int64 Process; // rax
   ULONG ClearBitsAndSet; // r14d
   unsigned int v6; // edi
-  struct _RTL_BITMAP *PoolWithTag; // rax
-  struct _RTL_BITMAP *v8; // r14
+  _RTL_BITMAP *PoolWithTag; // rax
+  _RTL_BITMAP *v8; // r14
   __int64 v9; // r9
   __int64 v10; // r8
   ULONG_PTR v11; // rax
@@ -78,10 +78,7 @@ __int64 __fastcall MiSessionCreateInternal(ULONG_PTR *a1)
     v6 = qword_140389310->SizeOfBitMap + 128;
     if ( v6 > 0x7FFFF )
       v6 = 0x7FFFF;
-    PoolWithTag = (struct _RTL_BITMAP *)ExAllocatePoolWithTag(
-                                          PagedPool,
-                                          8 * ((v6 >> 6) + ((v6 & 0x3F) != 0) + 2),
-                                          0x20206D4Du);
+    PoolWithTag = (_RTL_BITMAP *)ExAllocatePoolWithTag(PagedPool, 8 * ((v6 >> 6) + ((v6 & 0x3F) != 0) + 2), 0x20206D4Du);
     v8 = PoolWithTag;
     if ( !PoolWithTag )
       goto LABEL_27;
@@ -116,7 +113,7 @@ __int64 __fastcall MiSessionCreateInternal(ULONG_PTR *a1)
         *(_DWORD *)(v13 + 112) = v15;
         *(_DWORD *)v13 = 1;
         *(_DWORD *)(v13 + 8) = ClearBitsAndSet;
-        *(_QWORD *)(v13 + 8184) = KeQueryInterruptTimePrecise(&v30);
+        *(LARGE_INTEGER *)(v13 + 8184) = KeQueryInterruptTimePrecise(&v30);
         PdeAddress = (__int64 *)MiGetPdeAddress(v2);
         PteShadow = *PdeAddress;
         if ( (unsigned __int64)PdeAddress >= 0xFFFFF6FB7DBED000uLL

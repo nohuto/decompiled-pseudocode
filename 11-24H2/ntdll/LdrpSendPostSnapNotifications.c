@@ -1,16 +1,16 @@
 /*
- * XREFs of LdrpSendPostSnapNotifications @ 0x1800707A0
+ * XREFs of LdrpSendPostSnapNotifications @ 0x18008D080
  * Callers:
- *     LdrpNotifyLoadOfGraph @ 0x180004CE0 (LdrpNotifyLoadOfGraph.c)
+ *     LdrpNotifyLoadOfGraph @ 0x1800316E0 (LdrpNotifyLoadOfGraph.c)
  * Callees:
- *     RtlEnterCriticalSection @ 0x1800148F0 (RtlEnterCriticalSection.c)
- *     RtlLeaveCriticalSection @ 0x1800149F0 (RtlLeaveCriticalSection.c)
- *     LdrpLogDllState @ 0x180070D00 (LdrpLogDllState.c)
- *     SbUpdateSwitchContextBasedOnDll @ 0x180070DD0 (SbUpdateSwitchContextBasedOnDll.c)
- *     LdrpSendDllNotifications @ 0x1800712E4 (LdrpSendDllNotifications.c)
- *     LdrpCheckModule @ 0x180071380 (LdrpCheckModule.c)
- *     AVrfDllLoadNotification @ 0x1800EC804 (AVrfDllLoadNotification.c)
- *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x180172020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
+ *     RtlEnterCriticalSection @ 0x1800412F0 (RtlEnterCriticalSection.c)
+ *     RtlLeaveCriticalSection @ 0x1800413F0 (RtlLeaveCriticalSection.c)
+ *     LdrpLogDllState @ 0x18008D5E0 (LdrpLogDllState.c)
+ *     SbUpdateSwitchContextBasedOnDll @ 0x18008D6B0 (SbUpdateSwitchContextBasedOnDll.c)
+ *     LdrpSendDllNotifications @ 0x18008DBC4 (LdrpSendDllNotifications.c)
+ *     LdrpCheckModule @ 0x18008DC60 (LdrpCheckModule.c)
+ *     AVrfDllLoadNotification @ 0x1800E7434 (AVrfDllLoadNotification.c)
+ *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x180171020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
  */
 
 __int64 __fastcall LdrpSendPostSnapNotifications(__int64 a1)
@@ -29,7 +29,7 @@ __int64 __fastcall LdrpSendPostSnapNotifications(__int64 a1)
   v3 = 0LL;
   NtGlobalFlag = NtCurrentPeb()->NtGlobalFlag;
   v5 = g_pShimmedModuleList != 0LL;
-  RtlEnterCriticalSection((__int64)&LdrpDllNotificationLock);
+  RtlEnterCriticalSection(&LdrpDllNotificationLock);
   if ( g_ShimsEnabled )
   {
     v6 = MEMORY[0x7FFE0330];
@@ -66,6 +66,6 @@ __int64 __fastcall LdrpSendPostSnapNotifications(__int64 a1)
     }
     while ( v7 != a1 );
   }
-  RtlLeaveCriticalSection((__int64)&LdrpDllNotificationLock);
+  RtlLeaveCriticalSection(&LdrpDllNotificationLock);
   return (unsigned int)Notification;
 }

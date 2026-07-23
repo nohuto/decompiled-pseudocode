@@ -1,13 +1,13 @@
 /*
- * XREFs of BiOpenStoreKeyFromObject @ 0x1409D49B8
+ * XREFs of BiOpenStoreKeyFromObject @ 0x1409A5998
  * Callers:
- *     BiSetFirmwareModifiedFromObject @ 0x1409D496C (BiSetFirmwareModifiedFromObject.c)
+ *     BiSetFirmwareModifiedFromObject @ 0x1409A594C (BiSetFirmwareModifiedFromObject.c)
  * Callees:
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     ZwQueryKey @ 0x1407236B0 (ZwQueryKey.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     BiOpenKey @ 0x1409D5F14 (BiOpenKey.c)
- *     BiCloseKey @ 0x1409D6368 (BiCloseKey.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     ZwQueryKey @ 0x140728280 (ZwQueryKey.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     BiOpenKey @ 0x1409A6EF4 (BiOpenKey.c)
+ *     BiCloseKey @ 0x1409A7258 (BiCloseKey.c)
  */
 
 __int64 __fastcall BiOpenStoreKeyFromObject(HANDLE KeyHandle, HANDLE *a2)

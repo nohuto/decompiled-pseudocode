@@ -1,10 +1,10 @@
 /*
- * XREFs of SdbpGetCustomSdbFileName @ 0x140966E38
+ * XREFs of SdbpGetCustomSdbFileName @ 0x140967018
  * Callers:
- *     SdbGetPathCustomSdb @ 0x1409669CC (SdbGetPathCustomSdb.c)
+ *     SdbGetPathCustomSdb @ 0x140966BAC (SdbGetPathCustomSdb.c)
  * Callees:
- *     AslLogCallPrintf @ 0x140755F64 (AslLogCallPrintf.c)
- *     AslGuidToString @ 0x1407C1FD8 (AslGuidToString.c)
+ *     AslLogCallPrintf @ 0x140756124 (AslLogCallPrintf.c)
+ *     AslGuidToString @ 0x1407C24F8 (AslGuidToString.c)
  */
 
 __int64 __fastcall SdbpGetCustomSdbFileName(wchar_t *a1, __int64 a2, unsigned int *a3)

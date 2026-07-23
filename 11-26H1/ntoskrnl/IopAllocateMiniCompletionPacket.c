@@ -1,16 +1,16 @@
 /*
- * XREFs of IopAllocateMiniCompletionPacket @ 0x140A8405C
+ * XREFs of IopAllocateMiniCompletionPacket @ 0x140A893B0
  * Callers:
- *     IoSetIoCompletionEx3 @ 0x140266450 (IoSetIoCompletionEx3.c)
- *     IoSetIoCompletionEx2 @ 0x140267520 (IoSetIoCompletionEx2.c)
- *     IoSetIoCompletionEx @ 0x1402678E0 (IoSetIoCompletionEx.c)
- *     AlpcpQueueIoCompletionPort @ 0x140268A70 (AlpcpQueueIoCompletionPort.c)
- *     AlpcpQueueIoCompletion @ 0x140269140 (AlpcpQueueIoCompletion.c)
- *     NtReleaseWorkerFactoryWorker @ 0x1402C2440 (NtReleaseWorkerFactoryWorker.c)
+ *     IoSetIoCompletionEx3 @ 0x1402659C0 (IoSetIoCompletionEx3.c)
+ *     IoSetIoCompletionEx2 @ 0x140266A90 (IoSetIoCompletionEx2.c)
+ *     IoSetIoCompletionEx @ 0x140266E50 (IoSetIoCompletionEx.c)
+ *     AlpcpQueueIoCompletionPort @ 0x140267FE0 (AlpcpQueueIoCompletionPort.c)
+ *     AlpcpQueueIoCompletion @ 0x1402686B0 (AlpcpQueueIoCompletion.c)
+ *     NtReleaseWorkerFactoryWorker @ 0x14030D100 (NtReleaseWorkerFactoryWorker.c)
  * Callees:
- *     RtlpInterlockedPopEntrySList @ 0x140730C90 (RtlpInterlockedPopEntrySList.c)
- *     ExAllocatePool3 @ 0x140C10010 (ExAllocatePool3.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
+ *     RtlpInterlockedPopEntrySList @ 0x140735860 (RtlpInterlockedPopEntrySList.c)
+ *     ExAllocatePool3 @ 0x140C16010 (ExAllocatePool3.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
  */
 
 PSLIST_ENTRY __fastcall IopAllocateMiniCompletionPacket(char a1, char a2)

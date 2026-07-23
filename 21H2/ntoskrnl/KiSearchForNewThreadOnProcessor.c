@@ -1,21 +1,21 @@
 /*
- * XREFs of KiSearchForNewThreadOnProcessor @ 0x140347370
+ * XREFs of KiSearchForNewThreadOnProcessor @ 0x1403520C0
  * Callers:
- *     KiSearchForNewThreadOnNode @ 0x140256F0C (KiSearchForNewThreadOnNode.c)
- *     KiSwapThread @ 0x1403466D0 (KiSwapThread.c)
+ *     KiSearchForNewThreadOnNode @ 0x14027847C (KiSearchForNewThreadOnNode.c)
+ *     KiSwapThread @ 0x140351420 (KiSwapThread.c)
  * Callees:
- *     KiReadyDeferredReadyList @ 0x140230D60 (KiReadyDeferredReadyList.c)
- *     KiEnterDeferredReadyState @ 0x140248780 (KiEnterDeferredReadyState.c)
- *     KeYieldProcessorEx @ 0x14024B280 (KeYieldProcessorEx.c)
- *     KiIsThreadRankNonZero @ 0x14024D450 (KiIsThreadRankNonZero.c)
- *     KiSelectNextThread @ 0x14025708C (KiSelectNextThread.c)
- *     KiCheckThreadAffinity @ 0x140259384 (KiCheckThreadAffinity.c)
- *     KiFindReadyThread @ 0x1402EA5D0 (KiFindReadyThread.c)
- *     KiGroupSchedulingMoveThread @ 0x1402EB678 (KiGroupSchedulingMoveThread.c)
- *     KiPrcbInGroupAffinity @ 0x1402EBA74 (KiPrcbInGroupAffinity.c)
- *     KiMayStealStandbyThread @ 0x1403478C0 (KiMayStealStandbyThread.c)
+ *     KiSelectNextThread @ 0x1402785FC (KiSelectNextThread.c)
+ *     KiCheckThreadAffinity @ 0x14027A8F4 (KiCheckThreadAffinity.c)
+ *     KiFindReadyThread @ 0x14029B920 (KiFindReadyThread.c)
+ *     KiGroupSchedulingMoveThread @ 0x14029C9C8 (KiGroupSchedulingMoveThread.c)
+ *     KiPrcbInGroupAffinity @ 0x14029CDC4 (KiPrcbInGroupAffinity.c)
+ *     KiReadyDeferredReadyList @ 0x1402D55B0 (KiReadyDeferredReadyList.c)
+ *     KiEnterDeferredReadyState @ 0x1402ECFD0 (KiEnterDeferredReadyState.c)
+ *     KeYieldProcessorEx @ 0x1402EFAD0 (KeYieldProcessorEx.c)
+ *     KiIsThreadRankNonZero @ 0x1402F1CA0 (KiIsThreadRankNonZero.c)
+ *     KiMayStealStandbyThread @ 0x140352610 (KiMayStealStandbyThread.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     KiSetSchedulerAssistPriority @ 0x140520954 (KiSetSchedulerAssistPriority.c)
+ *     KiSetSchedulerAssistPriority @ 0x140520B94 (KiSetSchedulerAssistPriority.c)
  */
 
 __int64 __fastcall KiSearchForNewThreadOnProcessor(unsigned __int64 a1, __int64 a2, __int64 a3, __int64 a4)
@@ -297,7 +297,7 @@ LABEL_112:
           ReadyThread = *(_QWORD *)(v5 + 16);
           if ( KiPrcbInGroupAffinity(a1, ReadyThread + 576) )
           {
-            KiSelectNextThread((struct _KPRCB *)v5, 0LL);
+            KiSelectNextThread(v5, 0LL);
             *(_DWORD *)(ReadyThread + 536) = *(_DWORD *)(a1 + 36);
             if ( ReadyThread )
               goto LABEL_30;

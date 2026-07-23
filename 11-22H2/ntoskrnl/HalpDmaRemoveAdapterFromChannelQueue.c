@@ -35,7 +35,10 @@ char __fastcall HalpDmaRemoveAdapterFromChannelQueue(__int64 a1)
   v4 = *(_QWORD *)(v1 + 56) + 160LL * *(unsigned int *)(a1 + 380);
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(v3);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)(v3 - 2) <= 0xDu )
+  if ( (_DWORD)KiIrqlFlags
+    && ((unsigned __int8)KiIrqlFlags & 1) != 0
+    && CurrentIrql <= 0xFu
+    && (unsigned __int8)(v3 - 2) <= 0xDu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     if ( CurrentIrql == (_BYTE)v3 )
@@ -68,10 +71,10 @@ char __fastcall HalpDmaRemoveAdapterFromChannelQueue(__int64 a1)
   }
 LABEL_12:
   KxReleaseSpinLock((volatile signed __int64 *)(*(_QWORD *)(a1 + 368) + 168LL));
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v12 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v12 <= 0xFu && CurrentIrql <= 0xFu && v12 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v12 <= 0xFu && CurrentIrql <= 0xFu && v12 >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       v14 = CurrentPrcb->SchedulerAssist;

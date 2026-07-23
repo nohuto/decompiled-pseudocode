@@ -13,51 +13,50 @@
 
 char __fastcall MmIsSessionInCurrentServerSilo(unsigned int a1)
 {
-  unsigned int SessionId; // eax
-  __int64 v3; // rcx
-  __int64 v4; // rdx
-  bool v6; // di
+  int SessionId; // eax
+  int v3; // edx
+  bool v5; // di
   __int64 ThreadServerSilo; // rsi
-  _QWORD *v8; // rcx
-  unsigned int v9; // eax
+  _QWORD *v7; // rcx
+  unsigned int v8; // eax
   unsigned __int64 OldIrql; // rsi
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // rax
   _DWORD *SchedulerAssist; // r9
-  int v14; // edx
-  bool v15; // zf
+  int v13; // edx
+  bool v14; // zf
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+20h] [rbp-28h] BYREF
 
   memset(&LockHandle, 0, sizeof(LockHandle));
   SessionId = MmGetSessionIdEx((__int64)KeGetCurrentThread()->ApcState.Process);
-  v4 = 0LL;
+  v3 = 0;
   if ( SessionId != -1 )
-    v4 = SessionId;
-  if ( (_DWORD)v4 == a1 )
+    v3 = SessionId;
+  if ( v3 == a1 )
     return 1;
-  v6 = 0;
-  if ( (unsigned int)KeIsExecutingInArbitraryThreadContext(v3, v4) )
+  v5 = 0;
+  if ( (unsigned int)KeIsExecutingInArbitraryThreadContext() )
     ThreadServerSilo = 0LL;
   else
     ThreadServerSilo = PsGetThreadServerSilo((__int64)KeGetCurrentThread());
   KeAcquireInStackQueuedSpinLock(&qword_140C4ECC0, &LockHandle);
-  v8 = (_QWORD *)qword_140C4DC68;
-  while ( v8 )
+  v7 = (_QWORD *)qword_140C4DC68;
+  while ( v7 )
   {
-    v9 = *((_DWORD *)v8 - 34);
-    if ( a1 > v9 )
+    v8 = *((_DWORD *)v7 - 34);
+    if ( a1 > v8 )
     {
-      v8 = (_QWORD *)v8[1];
+      v7 = (_QWORD *)v7[1];
     }
     else
     {
-      if ( a1 >= v9 )
+      if ( a1 >= v8 )
       {
-        if ( v8[113] == ThreadServerSilo && v9 == a1 && (*((_DWORD *)v8 - 35) & 2) == 0 )
-          v6 = *(v8 - 16) != (_QWORD)(v8 - 16);
+        if ( v7[113] == ThreadServerSilo && v8 == a1 && (*((_DWORD *)v7 - 35) & 2) == 0 )
+          v5 = *(v7 - 16) != (_QWORD)(v7 - 16);
         break;
       }
-      v8 = (_QWORD *)*v8;
+      v7 = (_QWORD *)*v7;
     }
   }
   KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
@@ -71,14 +70,14 @@ char __fastcall MmIsSessionInCurrentServerSilo(unsigned int a1)
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;
-        v14 = ~(unsigned __int16)(-1LL << (LockHandle.OldIrql + 1));
-        v15 = (v14 & SchedulerAssist[5]) == 0;
-        SchedulerAssist[5] &= v14;
-        if ( v15 )
+        v13 = ~(unsigned __int16)(-1LL << (LockHandle.OldIrql + 1));
+        v14 = (v13 & SchedulerAssist[5]) == 0;
+        SchedulerAssist[5] &= v13;
+        if ( v14 )
           KiRemoveSystemWorkPriorityKick(CurrentPrcb);
       }
     }
   }
   __writecr8(OldIrql);
-  return v6;
+  return v5;
 }

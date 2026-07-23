@@ -1,20 +1,20 @@
 /*
- * XREFs of MiAddPartitionHugeRange @ 0x1406EB048
+ * XREFs of MiAddPartitionHugeRange @ 0x1406EFCE8
  * Callers:
- *     MiHotAddHugeRange @ 0x140867C50 (MiHotAddHugeRange.c)
- *     MiCreateHugeIoRanges @ 0x140CF89F0 (MiCreateHugeIoRanges.c)
+ *     MiHotAddHugeRange @ 0x14086E030 (MiHotAddHugeRange.c)
+ *     MiCreateHugeIoRanges @ 0x140CFED70 (MiCreateHugeIoRanges.c)
  * Callees:
- *     ExReleaseSpinLockExclusive @ 0x14021AA80 (ExReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x140249CD0 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     MiLockHugePfnAtDpc @ 0x140358C94 (MiLockHugePfnAtDpc.c)
- *     RtlSetBitsEx @ 0x14036F510 (RtlSetBitsEx.c)
- *     MiInsertHugeRangeInList @ 0x14048E66C (MiInsertHugeRangeInList.c)
- *     MiLockDynamicMemoryShared @ 0x1404CB6E0 (MiLockDynamicMemoryShared.c)
- *     MiUnlockDynamicMemoryShared @ 0x1404D0330 (MiUnlockDynamicMemoryShared.c)
- *     MiMemoryRangeAlreadyExists @ 0x1406E9920 (MiMemoryRangeAlreadyExists.c)
- *     MiUpdateHugePageCounts @ 0x1406EDE20 (MiUpdateHugePageCounts.c)
- *     MiUpdateMirrorBitmaps @ 0x140B65ABC (MiUpdateMirrorBitmaps.c)
+ *     ExReleaseSpinLockExclusive @ 0x14021C410 (ExReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024B630 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiLockHugePfnAtDpc @ 0x14035AA34 (MiLockHugePfnAtDpc.c)
+ *     RtlSetBitsEx @ 0x1403712C0 (RtlSetBitsEx.c)
+ *     MiInsertHugeRangeInList @ 0x1404881AC (MiInsertHugeRangeInList.c)
+ *     MiLockDynamicMemoryShared @ 0x1404C5110 (MiLockDynamicMemoryShared.c)
+ *     MiUnlockDynamicMemoryShared @ 0x1404C9D60 (MiUnlockDynamicMemoryShared.c)
+ *     MiMemoryRangeAlreadyExists @ 0x1406EE5C0 (MiMemoryRangeAlreadyExists.c)
+ *     MiUpdateHugePageCounts @ 0x1406F2AC0 (MiUpdateHugePageCounts.c)
+ *     MiUpdateMirrorBitmaps @ 0x140B68B5C (MiUpdateMirrorBitmaps.c)
  */
 
 __int64 __fastcall MiAddPartitionHugeRange(unsigned __int16 *a1, __int64 a2, __int64 a3, struct _KLOCK_ENTRIES *a4)
@@ -61,16 +61,16 @@ __int64 __fastcall MiAddPartitionHugeRange(unsigned __int16 *a1, __int64 a2, __i
       MiUnlockDynamicMemoryShared((__int64)&MiSystemPartition, (__int64)CurrentThread);
     return 3221225626LL;
   }
-  v14 = ExAcquireSpinLockExclusive((PEX_SPIN_LOCK)&stru_140E2EB88.ApcStateFill[32]);
-  if ( (_KSCHEDULING_GROUP *volatile)v11 >= stru_140E2EB88.SchedulingGroup )
+  v14 = ExAcquireSpinLockExclusive((PEX_SPIN_LOCK)&stru_140E2ED08.ApcStateFill[32]);
+  if ( (_KSCHEDULING_GROUP *volatile)v11 >= stru_140E2ED08.SchedulingGroup )
     goto LABEL_12;
   if ( (unsigned __int64)v12 > 1 )
   {
-    if ( (char *)stru_140E2EB88.SchedulingGroup - v11 >= (char *)v12 )
+    if ( (char *)stru_140E2ED08.SchedulingGroup - v11 >= (char *)v12 )
     {
-      v15 = (__int64 *)(*(_QWORD *)&stru_140E2EB88.WaitRegister.Flags + 8 * (v11 >> 6));
+      v15 = (__int64 *)(*(_QWORD *)&stru_140E2ED08.WaitRegister.Flags + 8 * (v11 >> 6));
       v16 = *v15;
-      v17 = *(_QWORD *)&stru_140E2EB88.WaitRegister.Flags
+      v17 = *(_QWORD *)&stru_140E2ED08.WaitRegister.Flags
           + 8 * (((unsigned __int64)&v12[-1].PerProcessor[1].LastReportedCycles + v11 + 7) >> 6);
       if ( v15 != (__int64 *)v17 )
       {
@@ -91,21 +91,21 @@ LABEL_22:
     }
 LABEL_12:
     if ( v14 == 17 )
-      ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)&stru_140E2EB88.ApcStateFill[32]);
+      ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)&stru_140E2ED08.ApcStateFill[32]);
     else
-      ExReleaseSpinLockExclusive((PEX_SPIN_LOCK)&stru_140E2EB88.ApcStateFill[32], v14);
+      ExReleaseSpinLockExclusive((PEX_SPIN_LOCK)&stru_140E2ED08.ApcStateFill[32], v14);
 LABEL_38:
     if ( !v5 )
       MiUnlockDynamicMemoryShared((__int64)&MiSystemPartition, (__int64)CurrentThread);
     return 3221225496LL;
   }
   if ( v12 != (_KSCHEDULING_GROUP *)1
-    || _bittest64((const signed __int64 *)(*(_QWORD *)&stru_140E2EB88.WaitRegister.Flags + 8 * (v11 >> 6)), v10 & 0x3F) )
+    || _bittest64((const signed __int64 *)(*(_QWORD *)&stru_140E2ED08.WaitRegister.Flags + 8 * (v11 >> 6)), v10 & 0x3F) )
   {
     goto LABEL_12;
   }
 LABEL_23:
-  v20 = (__int64 *)(*(_QWORD *)((char *)&stru_140E2EB88.116 + 4) + 8 * v11);
+  v20 = (__int64 *)(*(_QWORD *)((char *)&stru_140E2ED08.116 + 4) + 8 * v11);
   if ( v8 == 3 )
     v21 = (16LL * (*a1 & 0x7FF)) | 3;
   else
@@ -113,24 +113,24 @@ LABEL_23:
   for ( j = 0LL; j < (unsigned __int64)v12; ++j )
   {
     MiLockHugePfnAtDpc((__int64)v20);
-    RtlSetBitsEx((__int64)&stru_140E2EB88.SchedulingGroup, v10 & 0x3FFFFF, 1uLL);
+    RtlSetBitsEx((__int64)&stru_140E2ED08.SchedulingGroup, v10 & 0x3FFFFF, 1uLL);
     *v20 = v21;
     if ( v25 == 3 )
       MiUpdateHugePageCounts(a1, v10, 1LL);
     else
       MiInsertHugeRangeInList(a1, v10, v25 == 1);
     _InterlockedAnd(
-      (volatile signed __int32 *)(*(_QWORD *)&stru_140E2EB88.SystemCallNumber
+      (volatile signed __int32 *)(*(_QWORD *)&stru_140E2ED08.SystemCallNumber
                                 + 4
-                                * (((((__int64)v20 - *(_QWORD *)((char *)&stru_140E2EB88.116 + 4)) >> 3) & 0x3FFFFFuLL) >> 5)),
-      ~(1 << (((__int64)v20 - *(_QWORD *)((char *)&stru_140E2EB88.116 + 4)) >> 3)));
+                                * (((((__int64)v20 - *(_QWORD *)((char *)&stru_140E2ED08.116 + 4)) >> 3) & 0x3FFFFFuLL) >> 5)),
+      ~(1 << (((__int64)v20 - *(_QWORD *)((char *)&stru_140E2ED08.116 + 4)) >> 3)));
     ++v20;
     v10 = (v10 + 1) ^ ((v10 + 1) ^ v10) & 0xFFFFFFFFFFC00000uLL;
   }
   if ( v14 == 17 )
-    ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)&stru_140E2EB88.ApcStateFill[32]);
+    ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)&stru_140E2ED08.ApcStateFill[32]);
   else
-    ExReleaseSpinLockExclusive((PEX_SPIN_LOCK)&stru_140E2EB88.ApcStateFill[32], v14);
+    ExReleaseSpinLockExclusive((PEX_SPIN_LOCK)&stru_140E2ED08.ApcStateFill[32], v14);
   if ( !v26 )
     MiUnlockDynamicMemoryShared((__int64)&MiSystemPartition, v23);
   return 0LL;

@@ -29,35 +29,35 @@
  *     TpAllocJobNotification @ 0x180032300 (TpAllocJobNotification.c)
  *     TppJobpValidateJob @ 0x1800327B0 (TppJobpValidateJob.c)
  *     TpCallbackIndependent @ 0x18006CA90 (TpCallbackIndependent.c)
- *     TpReleaseCleanupGroupMembers @ 0x1800739E0 (TpReleaseCleanupGroupMembers.c)
- *     TpAllocCleanupGroup @ 0x180081FB0 (TpAllocCleanupGroup.c)
- *     TpReleasePool @ 0x180082870 (TpReleasePool.c)
- *     TpCallbackUnloadDllOnCompletion @ 0x180083200 (TpCallbackUnloadDllOnCompletion.c)
- *     TpDisassociateCallback @ 0x180084980 (TpDisassociateCallback.c)
- *     TpReleaseCleanupGroup @ 0x180084D70 (TpReleaseCleanupGroup.c)
- *     TpSetPoolMinThreads @ 0x180085300 (TpSetPoolMinThreads.c)
- *     TpCallbackSetEventOnCompletion @ 0x1800884E0 (TpCallbackSetEventOnCompletion.c)
- *     TpAlpcRegisterCompletionList @ 0x180088A40 (TpAlpcRegisterCompletionList.c)
- *     TpCallbackLeaveCriticalSectionOnCompletion @ 0x1800892E0 (TpCallbackLeaveCriticalSectionOnCompletion.c)
- *     TpAlpcUnregisterCompletionList @ 0x180089310 (TpAlpcUnregisterCompletionList.c)
- *     TpCallbackReleaseMutexOnCompletion @ 0x18008C460 (TpCallbackReleaseMutexOnCompletion.c)
+ *     TpReleaseCleanupGroupMembers @ 0x1800739F0 (TpReleaseCleanupGroupMembers.c)
+ *     TpAllocCleanupGroup @ 0x180081FC0 (TpAllocCleanupGroup.c)
+ *     TpReleasePool @ 0x180082880 (TpReleasePool.c)
+ *     TpCallbackUnloadDllOnCompletion @ 0x180083210 (TpCallbackUnloadDllOnCompletion.c)
+ *     TpDisassociateCallback @ 0x180084990 (TpDisassociateCallback.c)
+ *     TpReleaseCleanupGroup @ 0x180084D80 (TpReleaseCleanupGroup.c)
+ *     TpSetPoolMinThreads @ 0x180085310 (TpSetPoolMinThreads.c)
+ *     TpCallbackSetEventOnCompletion @ 0x1800884F0 (TpCallbackSetEventOnCompletion.c)
+ *     TpAlpcRegisterCompletionList @ 0x180088A50 (TpAlpcRegisterCompletionList.c)
+ *     TpCallbackLeaveCriticalSectionOnCompletion @ 0x1800892F0 (TpCallbackLeaveCriticalSectionOnCompletion.c)
+ *     TpAlpcUnregisterCompletionList @ 0x180089320 (TpAlpcUnregisterCompletionList.c)
+ *     TpCallbackReleaseMutexOnCompletion @ 0x18008C470 (TpCallbackReleaseMutexOnCompletion.c)
  *     TpCallbackDetectedUnrecoverableError @ 0x180110660 (TpCallbackDetectedUnrecoverableError.c)
  *     TpCallbackReleaseSemaphoreOnCompletion @ 0x180110690 (TpCallbackReleaseSemaphoreOnCompletion.c)
  *     TpCallbackSendPendingAlpcMessage @ 0x1801106D0 (TpCallbackSendPendingAlpcMessage.c)
  * Callees:
  *     RtlRaiseException @ 0x1800087D0 (RtlRaiseException.c)
  *     RtlSetLastWin32Error @ 0x18004ED60 (RtlSetLastWin32Error.c)
- *     __security_check_cookie @ 0x18008FEC0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x18008FED0 (__security_check_cookie.c)
  *     memset @ 0x1800A7100 (memset.c)
  *     TppReportExceptionFilter @ 0x180110988 (TppReportExceptionFilter.c)
  */
 
-void TppRaiseInvalidParameter()
+void __fastcall TppRaiseInvalidParameter()
 {
   EXCEPTION_RECORD ExceptionRecord; // [rsp+20h] [rbp-B8h] BYREF
 
   memset(&ExceptionRecord, 0, sizeof(ExceptionRecord));
   ExceptionRecord.ExceptionCode = -1073741811;
-  RtlSetLastWin32Error(0x57u);
+  RtlSetLastWin32Error(87);
   RtlRaiseException(&ExceptionRecord);
 }

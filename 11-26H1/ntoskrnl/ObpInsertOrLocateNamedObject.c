@@ -1,31 +1,31 @@
 /*
- * XREFs of ObpInsertOrLocateNamedObject @ 0x1408EEAF0
+ * XREFs of ObpInsertOrLocateNamedObject @ 0x1408F50B0
  * Callers:
- *     ObpCreateHandle @ 0x14092CA60 (ObpCreateHandle.c)
+ *     ObpCreateHandle @ 0x140908590 (ObpCreateHandle.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     ObpReleaseLookupContext @ 0x14027BE10 (ObpReleaseLookupContext.c)
- *     ObpDereferenceNamedObject @ 0x1403DE82C (ObpDereferenceNamedObject.c)
- *     PsGetCurrentSilo @ 0x14041BBC0 (PsGetCurrentSilo.c)
- *     SeComputeAutoInheritByObjectTypeEx @ 0x140455AC0 (SeComputeAutoInheritByObjectTypeEx.c)
- *     SeAssignSecurityEx2 @ 0x1404632D0 (SeAssignSecurityEx2.c)
- *     RtlGetDaclSecurityDescriptor @ 0x140486620 (RtlGetDaclSecurityDescriptor.c)
- *     ObpReferenceNamedObject @ 0x140486A68 (ObpReferenceNamedObject.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     ObpGetObjectSecurity @ 0x1408EF250 (ObpGetObjectSecurity.c)
- *     ObpDecrementHandleCount2 @ 0x1408F0360 (ObpDecrementHandleCount2.c)
- *     ObpLookupObjectName @ 0x1408FE2F0 (ObpLookupObjectName.c)
- *     ObpIncrementHandleCountEx @ 0x14092E8D0 (ObpIncrementHandleCountEx.c)
- *     ObpGrantAccess @ 0x140930170 (ObpGrantAccess.c)
- *     ObDereferenceSecurityDescriptor @ 0x140931DF0 (ObDereferenceSecurityDescriptor.c)
- *     ObReleaseObjectSecurityEx @ 0x14093C920 (ObReleaseObjectSecurityEx.c)
- *     ObpUnlockDirectory @ 0x1409E2240 (ObpUnlockDirectory.c)
- *     ObpDeleteDirectoryName @ 0x1409E22D8 (ObpDeleteDirectoryName.c)
- *     SeReleaseSecurityDescriptor @ 0x1409F8160 (SeReleaseSecurityDescriptor.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     ObpReleaseLookupContext @ 0x14027B380 (ObpReleaseLookupContext.c)
+ *     ObpDereferenceNamedObject @ 0x1403E1A1C (ObpDereferenceNamedObject.c)
+ *     PsGetCurrentSilo @ 0x140413410 (PsGetCurrentSilo.c)
+ *     SeComputeAutoInheritByObjectTypeEx @ 0x14044DBF0 (SeComputeAutoInheritByObjectTypeEx.c)
+ *     SeAssignSecurityEx2 @ 0x14045C290 (SeAssignSecurityEx2.c)
+ *     RtlGetDaclSecurityDescriptor @ 0x14047FDF0 (RtlGetDaclSecurityDescriptor.c)
+ *     ObpReferenceNamedObject @ 0x140480438 (ObpReferenceNamedObject.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     ObpGetObjectSecurity @ 0x1408F5810 (ObpGetObjectSecurity.c)
+ *     ObpDecrementHandleCount2 @ 0x1408F6920 (ObpDecrementHandleCount2.c)
+ *     ObpIncrementHandleCountEx @ 0x14090A400 (ObpIncrementHandleCountEx.c)
+ *     ObpGrantAccess @ 0x14090BCA0 (ObpGrantAccess.c)
+ *     ObDereferenceSecurityDescriptor @ 0x14090D9C0 (ObDereferenceSecurityDescriptor.c)
+ *     ObReleaseObjectSecurityEx @ 0x1409184C0 (ObReleaseObjectSecurityEx.c)
+ *     ObpLookupObjectName @ 0x14092E280 (ObpLookupObjectName.c)
+ *     ObpUnlockDirectory @ 0x1409DF250 (ObpUnlockDirectory.c)
+ *     ObpDeleteDirectoryName @ 0x1409DF2E8 (ObpDeleteDirectoryName.c)
+ *     SeReleaseSecurityDescriptor @ 0x140A60CA0 (SeReleaseSecurityDescriptor.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall ObpInsertOrLocateNamedObject(
@@ -77,7 +77,7 @@ __int64 __fastcall ObpInsertOrLocateNamedObject(
   __int128 v47; // xmm1
   __int128 v48; // xmm0
   _OWORD *v49; // rax
-  int v50; // [rsp+20h] [rbp-E0h]
+  int Index; // [rsp+20h] [rbp-E0h]
   unsigned __int8 v51; // [rsp+70h] [rbp-90h] BYREF
   BOOLEAN DaclPresent[3]; // [rsp+71h] [rbp-8Fh] BYREF
   int v53; // [rsp+74h] [rbp-8Ch]
@@ -147,7 +147,7 @@ __int64 __fastcall ObpInsertOrLocateNamedObject(
       v57 = 0;
       if ( v17 )
       {
-        if ( (*(_DWORD *)(v17 + 336) & 8) != 0 || LODWORD(stru_140E66B30.WaitBlock[0].WaitListEntry.Flink) )
+        if ( (*(_DWORD *)(v17 + 336) & 8) != 0 || *(_DWORD *)&stru_140E66D40.WaitBlockFill11[16] )
           v57 = 3;
         ObjectSecurity = ObpGetObjectSecurity(v17, &v59, &v51, a5);
         if ( ObjectSecurity < 0 )
@@ -159,7 +159,7 @@ __int64 __fastcall ObpInsertOrLocateNamedObject(
       v53 = v17;
       v60 = v10;
       if ( v19
-        && ((*(_DWORD *)(v19 + 336) & 8) != 0 || LODWORD(stru_140E66B30.WaitBlock[0].WaitListEntry.Flink))
+        && ((*(_DWORD *)(v19 + 336) & 8) != 0 || *(_DWORD *)&stru_140E66D40.WaitBlockFill11[16])
         && *((_QWORD *)v10 + 8) )
       {
         ObjectSecurity = RtlGetDaclSecurityDescriptor(
@@ -360,8 +360,8 @@ LABEL_31:
       v38 = ObpGrantAccess(1LL, v37, v10, a5, *a6, a3);
       if ( v38 >= 0 )
       {
-        LOBYTE(v50) = a5;
-        ObjectSecurity = ObpIncrementHandleCountEx(1LL, a3, v36, v55, v50, *a6, 0LL);
+        LOBYTE(Index) = a5;
+        ObjectSecurity = ObpIncrementHandleCountEx(1LL, a3, v36, v55, Index, *a6, 0LL);
         if ( v16 )
           ObpDereferenceNamedObject(v16);
         if ( ObjectSecurity < 0 )

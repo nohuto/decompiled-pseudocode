@@ -1,10 +1,10 @@
 /*
- * XREFs of MiUpdateLargePageSectionPfn @ 0x1401E5B78
+ * XREFs of MiUpdateLargePageSectionPfn @ 0x1401E59A4
  * Callers:
- *     MiCreatePagingFileMap @ 0x1404B8370 (MiCreatePagingFileMap.c)
+ *     MiCreatePagingFileMap @ 0x1404A2750 (MiCreatePagingFileMap.c)
  * Callees:
- *     MiLockPageInline @ 0x140022E70 (MiLockPageInline.c)
- *     MiSetPfnPageState @ 0x1401F2FEC (MiSetPfnPageState.c)
+ *     MiLockPageInline @ 0x1400229F0 (MiLockPageInline.c)
+ *     MiSetPfnPageState @ 0x1401F2E18 (MiSetPfnPageState.c)
  */
 
 __int64 __fastcall MiUpdateLargePageSectionPfn(__int64 a1, __int64 a2, __int64 a3)

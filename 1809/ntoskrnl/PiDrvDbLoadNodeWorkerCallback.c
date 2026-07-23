@@ -1,20 +1,20 @@
 /*
- * XREFs of PiDrvDbLoadNodeWorkerCallback @ 0x140680D60
+ * XREFs of PiDrvDbLoadNodeWorkerCallback @ 0x140681F20
  * Callers:
  *     <none>
  * Callees:
- *     KeSetEvent @ 0x1400C2B00 (KeSetEvent.c)
- *     PnpDiagnosticTraceObject @ 0x1400F5288 (PnpDiagnosticTraceObject.c)
- *     PnpDiagnosticTraceObjectWithStatus @ 0x1400F5EC4 (PnpDiagnosticTraceObjectWithStatus.c)
- *     ZwSetEvent @ 0x1401B8350 (ZwSetEvent.c)
- *     ZwClose @ 0x1401B8370 (ZwClose.c)
- *     ZwResetEvent @ 0x1401BAFB0 (ZwResetEvent.c)
- *     _PnpGetObjectProperty @ 0x14059A008 (_PnpGetObjectProperty.c)
- *     _SysCtxRegOpenKey @ 0x1405C7AFC (_SysCtxRegOpenKey.c)
- *     PiDrvDbUnloadHive @ 0x140683760 (PiDrvDbUnloadHive.c)
- *     PiDrvDbLoadHive @ 0x1406837A8 (PiDrvDbLoadHive.c)
- *     _PnpSetObjectProperty @ 0x1406E5624 (_PnpSetObjectProperty.c)
- *     PiDrvDbSetupNodeHive @ 0x14083F0F8 (PiDrvDbSetupNodeHive.c)
+ *     KeSetEvent @ 0x1400C2A40 (KeSetEvent.c)
+ *     PnpDiagnosticTraceObject @ 0x1400F5308 (PnpDiagnosticTraceObject.c)
+ *     PnpDiagnosticTraceObjectWithStatus @ 0x1400F5F44 (PnpDiagnosticTraceObjectWithStatus.c)
+ *     ZwSetEvent @ 0x1401B84B0 (ZwSetEvent.c)
+ *     ZwClose @ 0x1401B84D0 (ZwClose.c)
+ *     ZwResetEvent @ 0x1401BB110 (ZwResetEvent.c)
+ *     _PnpGetObjectProperty @ 0x14059B008 (_PnpGetObjectProperty.c)
+ *     _SysCtxRegOpenKey @ 0x1405C8AFC (_SysCtxRegOpenKey.c)
+ *     PiDrvDbUnloadHive @ 0x140684920 (PiDrvDbUnloadHive.c)
+ *     PiDrvDbLoadHive @ 0x140684968 (PiDrvDbLoadHive.c)
+ *     _PnpSetObjectProperty @ 0x1406E68C4 (_PnpSetObjectProperty.c)
+ *     PiDrvDbSetupNodeHive @ 0x140840358 (PiDrvDbSetupNodeHive.c)
  */
 
 NTSTATUS __fastcall PiDrvDbLoadNodeWorkerCallback(__int64 a1)

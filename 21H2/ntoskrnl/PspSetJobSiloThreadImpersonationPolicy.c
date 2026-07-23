@@ -1,7 +1,7 @@
 /*
- * XREFs of PspSetJobSiloThreadImpersonationPolicy @ 0x140909834
+ * XREFs of PspSetJobSiloThreadImpersonationPolicy @ 0x140909994
  * Callers:
- *     NtSetInformationJobObject @ 0x140614200 (NtSetInformationJobObject.c)
+ *     NtSetInformationJobObject @ 0x14067DE60 (NtSetInformationJobObject.c)
  * Callees:
  *     <none>
  */

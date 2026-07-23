@@ -15,7 +15,7 @@ __int64 __fastcall VfVolatileApplyDifVerification(__int64 a1)
   int v5; // [rsp+38h] [rbp+10h] BYREF
 
   v5 = 0;
-  if ( (_DWORD)InitSafeBootMode )
+  if ( InitSafeBootMode )
   {
     return (unsigned int)-1073738742;
   }

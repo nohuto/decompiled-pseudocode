@@ -50,7 +50,7 @@ __int64 __fastcall MiStoreDeletePartition(__int64 a1)
     *(_QWORD *)(a1 + 1320) = 0LL;
     ExFreePoolWithTag(v4, 0);
     *(_QWORD *)(a1 + 1416) = 0LL;
-    MiStoreDrainWriteSupports((union _SLIST_HEADER *)a1);
+    MiStoreDrainWriteSupports((_SLIST_HEADER *)a1);
     return MiStoreReleaseReservedPageCharges(a1);
   }
   return result;

@@ -1,10 +1,10 @@
 /*
- * XREFs of PpmInstallNewIdleDomains @ 0x140602C70
+ * XREFs of PpmInstallNewIdleDomains @ 0x140605720
  * Callers:
  *     <none>
  * Callees:
- *     ?RtlpCopyAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z @ 0x1402518B0 (-RtlpCopyAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     ?RtlpCopyAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z @ 0x140253210 (-RtlpCopyAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall PpmInstallNewIdleDomains(__int64 a1, __int64 a2)

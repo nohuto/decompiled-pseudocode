@@ -20,26 +20,26 @@ NTSTATUS __stdcall RtlAnsiStringToUnicodeString(
         BOOLEAN AllocateDestinationString)
 {
   __int64 Length; // rdx
-  char *Buffer; // r8
-  unsigned int v8; // ecx
+  const CHAR *Buffer; // r8
+  ULONG v8; // ecx
   char v9; // si
   __int64 v10; // rcx
   unsigned __int64 v11; // rcx
-  unsigned int v12; // edx
-  char *v13; // rbx
-  unsigned int v14; // r10d
-  wchar_t *v15; // r11
-  unsigned int v16; // r10d
+  ULONG UTF8StringByteCount; // edx
+  PCHAR v13; // rbx
+  ULONG v14; // r10d
+  WCHAR *v15; // r11
+  ULONG v16; // r10d
   __int64 v17; // r9
-  unsigned int i; // eax
+  ULONG i; // eax
   int v19; // r8d
   __int64 v20; // rdi
   __int64 v21; // r9
   __int64 v22; // rax
   unsigned __int16 v23; // cx
-  wchar_t *v25; // rax
+  WCHAR *v25; // rax
   __int64 v26; // rax
-  unsigned int v27; // [rsp+A8h] [rbp+10h] BYREF
+  ULONG UnicodeStringActualByteCount; // [rsp+A8h] [rbp+10h] BYREF
   BOOLEAN v28; // [rsp+B0h] [rbp+18h]
 
   v28 = AllocateDestinationString;
@@ -51,8 +51,8 @@ NTSTATUS __stdcall RtlAnsiStringToUnicodeString(
   {
     if ( (_DWORD)Length )
     {
-      RtlUTF8ToUnicodeN(0, 0, (unsigned int)&v27, (_DWORD)Buffer, Length);
-      v8 = v27;
+      RtlUTF8ToUnicodeN(0LL, 0, &UnicodeStringActualByteCount, Buffer, Length);
+      v8 = UnicodeStringActualByteCount;
     }
   }
   else
@@ -65,7 +65,7 @@ NTSTATUS __stdcall RtlAnsiStringToUnicodeString(
     for ( ; (_DWORD)Length; v8 += 2 )
     {
       Length = (unsigned int)(Length - 1);
-      v26 = (unsigned __int8)*Buffer++;
+      v26 = *(unsigned __int8 *)Buffer++;
       if ( word_180163EE0[v26] )
       {
         if ( !(_DWORD)Length )
@@ -86,7 +86,7 @@ LABEL_4:
   if ( AllocateDestinationString )
   {
     DestinationString->MaximumLength = v10;
-    v25 = (wchar_t *)sub_18006D6B8(v10, Length);
+    v25 = (WCHAR *)sub_18006D6B8(v10, Length);
     DestinationString->Buffer = v25;
     if ( !v25 )
       return -1073741801;
@@ -98,16 +98,16 @@ LABEL_4:
     if ( v11 > DestinationString->MaximumLength || v11 < 2 )
       return -2147483643;
   }
-  v12 = SourceString->Length;
+  UTF8StringByteCount = SourceString->Length;
   v13 = SourceString->Buffer;
   v14 = DestinationString->Length;
   v15 = DestinationString->Buffer;
   if ( v9 )
   {
-    if ( v12 )
-      RtlUTF8ToUnicodeN((_DWORD)v15, v14, (unsigned int)&v27, (_DWORD)v13, v12);
+    if ( UTF8StringByteCount )
+      RtlUTF8ToUnicodeN(v15, v14, &UnicodeStringActualByteCount, v13, UTF8StringByteCount);
     else
-      v27 = 0;
+      UnicodeStringActualByteCount = 0;
   }
   else
   {
@@ -117,15 +117,15 @@ LABEL_4:
       v19 = (int)DestinationString->Buffer;
       v20 = qword_180166540;
       v21 = qword_180166530;
-      while ( v16 && v12 )
+      while ( v16 && UTF8StringByteCount )
       {
         --v16;
-        --v12;
+        --UTF8StringByteCount;
         v22 = (unsigned __int8)*v13;
         v23 = word_180163EE0[v22];
         if ( v23 )
         {
-          if ( !v12 )
+          if ( !UTF8StringByteCount )
           {
             *v15 = 0;
             LODWORD(v15) = (_DWORD)v15 + 2;
@@ -134,7 +134,7 @@ LABEL_4:
           *v15 = *(_WORD *)(v20 + 2 * ((unsigned __int8)v13[1] + (unsigned __int64)v23));
           v13 += 2;
           ++v15;
-          --v12;
+          --UTF8StringByteCount;
         }
         else
         {
@@ -142,18 +142,18 @@ LABEL_4:
           ++v13;
         }
       }
-      v27 = (_DWORD)v15 - v19;
+      UnicodeStringActualByteCount = (_DWORD)v15 - v19;
     }
     else
     {
-      if ( v16 >= v12 )
-        v16 = v12;
-      v27 = 2 * v16;
+      if ( v16 >= UTF8StringByteCount )
+        v16 = UTF8StringByteCount;
+      UnicodeStringActualByteCount = 2 * v16;
       v17 = qword_180166530;
       for ( i = 0; i < v16; ++i )
         v15[i] = *(_WORD *)(v17 + 2LL * (unsigned __int8)v13[i]);
     }
   }
-  DestinationString->Buffer[(unsigned __int64)v27 >> 1] = 0;
+  DestinationString->Buffer[(unsigned __int64)UnicodeStringActualByteCount >> 1] = 0;
   return 0;
 }

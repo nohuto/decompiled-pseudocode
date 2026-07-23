@@ -17,20 +17,18 @@
 
 int __thiscall RtlLogStackBackTraceEx(void *this)
 {
-  int v1; // esi
-  int v3; // eax
-  int v4; // ebx
+  _RTL_SRWLOCK *v1; // esi
+  int v3; // ebx
   int RecordedStackTraceIndex; // edi
 
   v1 = RtlpStackTraceDatabase;
   if ( !RtlpStackTraceDatabase )
     return 0;
-  v3 = RtlStdLogStackTrace(RtlpStackTraceDatabase, this);
-  v4 = v3;
+  v3 = RtlStdLogStackTrace(RtlpStackTraceDatabase, (int)this);
   if ( !v3 )
     return 0;
-  RecordedStackTraceIndex = RtlpStdGetRecordedStackTraceIndex(v1, v3);
+  RecordedStackTraceIndex = RtlpStdGetRecordedStackTraceIndex(v1);
   if ( !RecordedStackTraceIndex )
-    RtlStdReleaseStackTrace(v1, v4);
+    RtlStdReleaseStackTrace(v1, v3);
   return RecordedStackTraceIndex;
 }

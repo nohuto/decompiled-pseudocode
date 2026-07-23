@@ -1,20 +1,20 @@
 /*
- * XREFs of ObpReferenceSecurityDescriptorSlow @ 0x14087AEFC
+ * XREFs of ObpReferenceSecurityDescriptorSlow @ 0x14087EDAC
  * Callers:
- *     ObpCreateHandle @ 0x14084DAA0 (ObpCreateHandle.c)
- *     ObpGrantAccess @ 0x140851390 (ObpGrantAccess.c)
- *     ObpGetObjectSecurity @ 0x140853850 (ObpGetObjectSecurity.c)
- *     ObCheckObjectAccess @ 0x14087A740 (ObCheckObjectAccess.c)
- *     ObpAdjustCreatorAccessState @ 0x14087AD00 (ObpAdjustCreatorAccessState.c)
- *     ObpReferenceSecurityDescriptor @ 0x14090FEF0 (ObpReferenceSecurityDescriptor.c)
- *     ObGetObjectSecurity @ 0x1409B26F0 (ObGetObjectSecurity.c)
+ *     ObpCreateHandle @ 0x140849D60 (ObpCreateHandle.c)
+ *     ObpGrantAccess @ 0x14084D650 (ObpGrantAccess.c)
+ *     ObpGetObjectSecurity @ 0x14084FB10 (ObpGetObjectSecurity.c)
+ *     ObCheckObjectAccess @ 0x14087E5F0 (ObCheckObjectAccess.c)
+ *     ObpAdjustCreatorAccessState @ 0x14087EBB0 (ObpAdjustCreatorAccessState.c)
+ *     ObpReferenceSecurityDescriptor @ 0x1408E7640 (ObpReferenceSecurityDescriptor.c)
+ *     ObGetObjectSecurity @ 0x1409A9A80 (ObGetObjectSecurity.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     ExfReleasePushLockShared @ 0x14025DE00 (ExfReleasePushLockShared.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     ExfAcquirePushLockSharedEx @ 0x14034050C (ExfAcquirePushLockSharedEx.c)
- *     ObDereferenceSecurityDescriptor @ 0x140879D10 (ObDereferenceSecurityDescriptor.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     ExfReleasePushLockShared @ 0x14028E410 (ExfReleasePushLockShared.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     ExfAcquirePushLockSharedEx @ 0x14031F9EC (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     ObDereferenceSecurityDescriptor @ 0x14087E040 (ObDereferenceSecurityDescriptor.c)
  */
 
 unsigned __int64 __fastcall ObpReferenceSecurityDescriptorSlow(__int64 a1, int a2, unsigned __int64 a3)
@@ -24,7 +24,7 @@ unsigned __int64 __fastcall ObpReferenceSecurityDescriptorSlow(__int64 a1, int a
   signed __int64 v6; // rtt
   struct _KTHREAD *CurrentThread; // rax
   signed __int64 *v9; // rdi
-  _QWORD *v10; // rbx
+  char *v10; // rbx
 
   v3 = a3;
   if ( a2 )
@@ -37,11 +37,11 @@ unsigned __int64 __fastcall ObpReferenceSecurityDescriptorSlow(__int64 a1, int a
     CurrentThread = KeGetCurrentThread();
     v9 = (signed __int64 *)(a1 + 16);
     --CurrentThread->KernelApcDisable;
-    v10 = KeAbPreAcquire(a1 + 16, 0LL);
+    v10 = (char *)KeAbPreAcquire(a1 + 16, 0LL);
     if ( _InterlockedCompareExchange64(v9, 17LL, 0LL) )
       ExfAcquirePushLockSharedEx(v9, 0, v10, (__int64)v9);
     if ( v10 )
-      *((_BYTE *)v10 + 10) = 1;
+      v10[10] = 1;
     v3 = *(_QWORD *)(a1 + 40) & 0xFFFFFFFFFFFFFFF0uLL;
     if ( _InterlockedExchangeAdd64((volatile signed __int64 *)(v3 - 24), 0x10uLL) <= 0 )
       __fastfail(0xEu);

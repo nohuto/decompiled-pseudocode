@@ -1,23 +1,23 @@
 /*
- * XREFs of CcPrepareMdlWrite @ 0x1402CC1E0
+ * XREFs of CcPrepareMdlWrite @ 0x14040B2B0
  * Callers:
- *     FsRtlPrepareMdlWriteDev @ 0x14070A4B0 (FsRtlPrepareMdlWriteDev.c)
+ *     FsRtlPrepareMdlWriteDev @ 0x140708070 (FsRtlPrepareMdlWriteDev.c)
  * Callees:
- *     IoFreeMdl @ 0x140267750 (IoFreeMdl.c)
- *     IoAllocateMdl @ 0x140267BF0 (IoAllocateMdl.c)
- *     MmUnlockPages @ 0x140267F30 (MmUnlockPages.c)
- *     KeSetEvent @ 0x1402725A0 (KeSetEvent.c)
- *     CcGetVirtualAddress @ 0x140273EF0 (CcGetVirtualAddress.c)
- *     KeReleaseInStackQueuedSpinLock @ 0x140275CD0 (KeReleaseInStackQueuedSpinLock.c)
- *     RtlRaiseStatus @ 0x140280B30 (RtlRaiseStatus.c)
- *     CcMapAndRead @ 0x140280CF0 (CcMapAndRead.c)
- *     MmProbeAndLockPages @ 0x140282330 (MmProbeAndLockPages.c)
- *     CcIncrementOpenCount @ 0x1402AAADC (CcIncrementOpenCount.c)
- *     CcForceWriteThrough @ 0x1402CE010 (CcForceWriteThrough.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x1402D8540 (KeAcquireInStackQueuedSpinLock.c)
- *     KeReleaseGuardedMutex @ 0x14031E470 (KeReleaseGuardedMutex.c)
- *     ExAcquireFastMutex @ 0x14033E850 (ExAcquireFastMutex.c)
- *     CcSetDirtyInMask @ 0x1404614E0 (CcSetDirtyInMask.c)
+ *     KeSetEvent @ 0x140227B30 (KeSetEvent.c)
+ *     CcGetVirtualAddress @ 0x140229480 (CcGetVirtualAddress.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x14022B260 (KeReleaseInStackQueuedSpinLock.c)
+ *     RtlRaiseStatus @ 0x1402360C0 (RtlRaiseStatus.c)
+ *     CcMapAndRead @ 0x140236280 (CcMapAndRead.c)
+ *     MmProbeAndLockPages @ 0x1402378C0 (MmProbeAndLockPages.c)
+ *     IoFreeMdl @ 0x14025ED30 (IoFreeMdl.c)
+ *     IoAllocateMdl @ 0x14025F1D0 (IoAllocateMdl.c)
+ *     MmUnlockPages @ 0x14025F510 (MmUnlockPages.c)
+ *     CcIncrementOpenCount @ 0x14027516C (CcIncrementOpenCount.c)
+ *     KeReleaseGuardedMutex @ 0x1402C7000 (KeReleaseGuardedMutex.c)
+ *     ExAcquireFastMutex @ 0x14031DD30 (ExAcquireFastMutex.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1403597C0 (KeAcquireInStackQueuedSpinLock.c)
+ *     CcForceWriteThrough @ 0x14040C010 (CcForceWriteThrough.c)
+ *     CcSetDirtyInMask @ 0x140456AF0 (CcSetDirtyInMask.c)
  */
 
 void __stdcall CcPrepareMdlWrite(

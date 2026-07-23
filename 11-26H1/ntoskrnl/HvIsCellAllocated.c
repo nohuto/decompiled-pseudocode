@@ -1,20 +1,20 @@
 /*
- * XREFs of HvIsCellAllocated @ 0x1408D9150
+ * XREFs of HvIsCellAllocated @ 0x1408DF710
  * Callers:
- *     CmpCheckValueList @ 0x1408D96A0 (CmpCheckValueList.c)
- *     CmpValidateHiveSecurityDescriptors @ 0x14094D7E0 (CmpValidateHiveSecurityDescriptors.c)
- *     CmpCheckKey @ 0x140A08360 (CmpCheckKey.c)
+ *     CmpCheckValueList @ 0x1408DFC60 (CmpCheckValueList.c)
+ *     CmpValidateHiveSecurityDescriptors @ 0x1409C9150 (CmpValidateHiveSecurityDescriptors.c)
+ *     CmpCheckKey @ 0x140A1E430 (CmpCheckKey.c)
  * Callees:
- *     RtlClearBits @ 0x1403591A0 (RtlClearBits.c)
- *     HvpGetCellFlat @ 0x14085EB00 (HvpGetCellFlat.c)
- *     HvpReleaseCellFlat @ 0x1408D51E0 (HvpReleaseCellFlat.c)
- *     HvpReleaseCellPaged @ 0x1408D73B0 (HvpReleaseCellPaged.c)
- *     HvpGetCellPaged @ 0x1408D7410 (HvpGetCellPaged.c)
- *     HvpGetCellContextInitialize @ 0x1408D9320 (HvpGetCellContextInitialize.c)
- *     HvpMapEntryIsDiscardable @ 0x1408D9350 (HvpMapEntryIsDiscardable.c)
- *     HvpGetCellMap @ 0x140C58690 (HvpGetCellMap.c)
- *     HvpMapEntryGetBinAddress @ 0x140C586F0 (HvpMapEntryGetBinAddress.c)
- *     HvpGetBinContextInitialize @ 0x140C58AA0 (HvpGetBinContextInitialize.c)
+ *     RtlClearBits @ 0x14035AF40 (RtlClearBits.c)
+ *     HvpGetCellFlat @ 0x140864DF0 (HvpGetCellFlat.c)
+ *     HvpReleaseCellFlat @ 0x1408DB7A0 (HvpReleaseCellFlat.c)
+ *     HvpReleaseCellPaged @ 0x1408DD970 (HvpReleaseCellPaged.c)
+ *     HvpGetCellPaged @ 0x1408DD9D0 (HvpGetCellPaged.c)
+ *     HvpGetCellContextInitialize @ 0x1408DF8E0 (HvpGetCellContextInitialize.c)
+ *     HvpMapEntryIsDiscardable @ 0x1408DF910 (HvpMapEntryIsDiscardable.c)
+ *     HvpGetCellMap @ 0x140C5E690 (HvpGetCellMap.c)
+ *     HvpMapEntryGetBinAddress @ 0x140C5E6F0 (HvpMapEntryGetBinAddress.c)
+ *     HvpGetBinContextInitialize @ 0x140C5EAA0 (HvpGetBinContextInitialize.c)
  */
 
 char __fastcall HvIsCellAllocated(ULONG_PTR BugCheckParameter3, unsigned int a2)
@@ -22,7 +22,7 @@ char __fastcall HvIsCellAllocated(ULONG_PTR BugCheckParameter3, unsigned int a2)
   int *v3; // rdi
   unsigned int v5; // edx
   __int64 v6; // r8
-  RTL_BITMAP *v7; // r9
+  _RTL_BITMAP *v7; // r9
   __int64 v8; // rdx
   unsigned __int64 v9; // rdx
   __int64 CellMap; // rax

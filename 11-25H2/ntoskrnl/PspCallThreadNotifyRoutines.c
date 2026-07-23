@@ -12,16 +12,16 @@
 void __fastcall PspCallThreadNotifyRoutines(__int64 a1, char a2, char a3)
 {
   __int64 v3; // r15
-  union _RTL_RUN_ONCE *v5; // rbx
+  _RTL_RUN_ONCE *v5; // rbx
   __int64 v6; // rdi
   struct _EX_RUNDOWN_REF *v7; // rax
   struct _EX_RUNDOWN_REF *v8; // rsi
   int Count; // eax
-  union _RTL_RUN_ONCE *v10; // rbx
+  _RTL_RUN_ONCE *v10; // rbx
   __int64 v11; // rdi
   struct _EX_RUNDOWN_REF *v12; // rax
   struct _EX_RUNDOWN_REF *v13; // rsi
-  union _RTL_RUN_ONCE *v14; // rbx
+  _RTL_RUN_ONCE *v14; // rbx
   __int64 v15; // rdi
   struct _EX_RUNDOWN_REF *v16; // rax
   struct _EX_RUNDOWN_REF *v17; // rsi

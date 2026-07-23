@@ -1,7 +1,7 @@
 /*
- * XREFs of LdrpIsNlsUtf8Process @ 0x1800D4C10
+ * XREFs of LdrpIsNlsUtf8Process @ 0x1800D4BD0
  * Callers:
- *     LdrpInitializeProcess @ 0x1800D1EC0 (LdrpInitializeProcess.c)
+ *     LdrpInitializeProcess @ 0x1800D1E80 (LdrpInitializeProcess.c)
  * Callees:
  *     RtlQueryActivationContextApplicationSettings @ 0x18007AE00 (RtlQueryActivationContextApplicationSettings.c)
  *     __security_check_cookie @ 0x18008C940 (__security_check_cookie.c)
@@ -14,14 +14,14 @@ bool LdrpIsNlsUtf8Process()
   wchar_t String1[8]; // [rsp+40h] [rbp-28h] BYREF
 
   v0 = 0;
-  if ( (int)RtlQueryActivationContextApplicationSettings(
-              0LL,
-              0LL,
-              L"http://schemas.microsoft.com/SMI/2019/WindowsSettings",
-              L"activeCodePage",
-              String1,
-              8uLL,
-              0LL) >= 0 )
+  if ( RtlQueryActivationContextApplicationSettings(
+         0,
+         0LL,
+         (PWSTR)L"http://schemas.microsoft.com/SMI/2019/WindowsSettings",
+         (PWSTR)L"activeCodePage",
+         String1,
+         8uLL,
+         0LL) >= 0 )
     return wcscmp(String1, L"UTF-8") == 0;
   return v0;
 }

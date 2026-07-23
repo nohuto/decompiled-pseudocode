@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpNumaCompareMemorySideCacheEntries @ 0x140C11950
+ * XREFs of HalpNumaCompareMemorySideCacheEntries @ 0x140C13950
  * Callers:
  *     <none>
  * Callees:
- *     HalpNumaCompareMemorySideCacheNodeAndLevel @ 0x140701954 (HalpNumaCompareMemorySideCacheNodeAndLevel.c)
+ *     HalpNumaCompareMemorySideCacheNodeAndLevel @ 0x1406FF594 (HalpNumaCompareMemorySideCacheNodeAndLevel.c)
  */
 
 __int64 __fastcall HalpNumaCompareMemorySideCacheEntries(const void *a1, const void *a2)

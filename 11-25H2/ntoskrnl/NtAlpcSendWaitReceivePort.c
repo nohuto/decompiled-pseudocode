@@ -17,20 +17,20 @@
  *     AlpcpProcessSynchronousRequest @ 0x1409CE020 (AlpcpProcessSynchronousRequest.c)
  */
 
-__int64 __fastcall NtAlpcSendWaitReceivePort(
-        void *a1,
-        int a2,
-        __int64 a3,
-        __int64 a4,
-        __int64 a5,
-        __int64 a6,
-        __int64 a7,
-        __int64 a8)
+NTSTATUS __cdecl NtAlpcSendWaitReceivePort(
+        HANDLE PortHandle,
+        ULONG Flags,
+        PPORT_MESSAGE SendMessageA,
+        PALPC_MESSAGE_ATTRIBUTES SendMessageAttributes,
+        PPORT_MESSAGE ReceiveMessage,
+        PSIZE_T BufferLength,
+        PALPC_MESSAGE_ATTRIBUTES ReceiveMessageAttributes,
+        PLARGE_INTEGER Timeout)
 {
   struct _KTHREAD *CurrentThread; // rax
-  unsigned int v11; // edi
+  ULONG v11; // edi
   unsigned __int8 PreviousMode; // r14
-  NTSTATUS v13; // ebx
+  int v13; // ebx
   __int64 v14; // r9
   signed __int32 v16; // esi
   unsigned __int64 *v17; // rbp
@@ -52,11 +52,11 @@ __int64 __fastcall NtAlpcSendWaitReceivePort(
   v28 = 0LL;
   v29 = 0LL;
   CurrentThread = KeGetCurrentThread();
-  v11 = a2 & 0xFFFF0000;
+  v11 = Flags & 0xFFFF0000;
   --CurrentThread->KernelApcDisable;
   Object = 0LL;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
-  v13 = ObReferenceObjectByHandle(a1, 1u, AlpcPortObjectType, PreviousMode, &Object, 0LL);
+  v13 = ObReferenceObjectByHandle(PortHandle, 1u, AlpcPortObjectType, PreviousMode, &Object, 0LL);
   if ( v13 >= 0 )
   {
     if ( (v11 & 0x40000) != 0 )
@@ -88,10 +88,19 @@ __int64 __fastcall NtAlpcSendWaitReceivePort(
 LABEL_5:
     if ( (v11 & 0x20000) != 0 )
     {
-      if ( a3 && (v11 & 0x10000) == 0 && (v11 & 0x1000000) == 0 )
+      if ( SendMessageA && (v11 & 0x10000) == 0 && (v11 & 0x1000000) == 0 )
       {
-        if ( a5 )
-          v13 = AlpcpProcessSynchronousRequest((_DWORD)v17, v11, a3, a4, a5, a6, a7, a8, PreviousMode);
+        if ( ReceiveMessage )
+          v13 = AlpcpProcessSynchronousRequest(
+                  (_DWORD)v17,
+                  v11,
+                  (_DWORD)SendMessageA,
+                  (_DWORD)SendMessageAttributes,
+                  (__int64)ReceiveMessage,
+                  (__int64)BufferLength,
+                  (__int64)ReceiveMessageAttributes,
+                  (__int64)Timeout,
+                  PreviousMode);
         else
           v13 = -1073740027;
         goto LABEL_17;
@@ -101,11 +110,11 @@ LABEL_5:
     {
       *(_QWORD *)&v26 = v17;
       LODWORD(v29) = v11;
-      if ( !a3 )
+      if ( !SendMessageA )
       {
 LABEL_7:
-        if ( a5 )
-          v13 = AlpcpReceiveMessage(&v26, a5, a6, a7, a8);
+        if ( ReceiveMessage )
+          v13 = AlpcpReceiveMessage(&v26, ReceiveMessage, BufferLength, ReceiveMessageAttributes, Timeout);
         v19 = _bittestandreset((signed __int32 *)&v29, 2u);
         if ( v19 )
         {
@@ -122,7 +131,7 @@ LABEL_7:
         v28 = 0uLL;
         LODWORD(v29) = v11 | 4;
         *((_QWORD *)&v27 + 1) = 0LL;
-        v13 = AlpcpSendMessage(&v26, a3, a4, PreviousMode);
+        v13 = AlpcpSendMessage(&v26, SendMessageA, SendMessageAttributes, PreviousMode);
         if ( v13 >= 0 )
           goto LABEL_7;
 LABEL_17:
@@ -135,5 +144,5 @@ LABEL_17:
   }
 LABEL_2:
   KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
-  return (unsigned int)v13;
+  return v13;
 }

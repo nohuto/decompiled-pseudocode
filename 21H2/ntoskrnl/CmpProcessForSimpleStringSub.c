@@ -1,9 +1,9 @@
 /*
- * XREFs of CmpProcessForSimpleStringSub @ 0x140A4722C
+ * XREFs of CmpProcessForSimpleStringSub @ 0x140A4822C
  * Callers:
- *     CmpGetSectionLineIndex @ 0x140A46FF4 (CmpGetSectionLineIndex.c)
+ *     CmpGetSectionLineIndex @ 0x140A47FF4 (CmpGetSectionLineIndex.c)
  * Callees:
- *     _strnicmp @ 0x1403D1E80 (_strnicmp.c)
+ *     _strnicmp @ 0x1403D1FF0 (_strnicmp.c)
  */
 
 _BYTE *__fastcall CmpProcessForSimpleStringSub(__int64 a1, _BYTE *a2)

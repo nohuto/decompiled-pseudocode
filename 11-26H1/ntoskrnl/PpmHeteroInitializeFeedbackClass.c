@@ -1,10 +1,10 @@
 /*
- * XREFs of PpmHeteroInitializeFeedbackClass @ 0x14060B710
+ * XREFs of PpmHeteroInitializeFeedbackClass @ 0x14060E428
  * Callers:
- *     PpmHeteroHgsProcessorInit @ 0x14060B45C (PpmHeteroHgsProcessorInit.c)
+ *     PpmHeteroHgsProcessorInit @ 0x14060E1CC (PpmHeteroHgsProcessorInit.c)
  * Callees:
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PpmHeteroInitializeFeedbackClass(_QWORD *a1)

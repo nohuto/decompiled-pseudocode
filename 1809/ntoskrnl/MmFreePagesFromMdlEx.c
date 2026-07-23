@@ -1,10 +1,10 @@
 /*
- * XREFs of MmFreePagesFromMdlEx @ 0x1402AA600
+ * XREFs of MmFreePagesFromMdlEx @ 0x1402AA7F0
  * Callers:
  *     <none>
  * Callees:
  *     MiFreePagesFromMdl @ 0x14002A000 (MiFreePagesFromMdl.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
  */
 
 ULONG_PTR *__fastcall MmFreePagesFromMdlEx(ULONG_PTR BugCheckParameter2, ULONG_PTR BugCheckParameter3)

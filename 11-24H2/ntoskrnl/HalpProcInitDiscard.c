@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpProcInitDiscard @ 0x140C0F4B0
+ * XREFs of HalpProcInitDiscard @ 0x140C114B0
  * Callers:
- *     HalpProcInitSystem @ 0x140B4D1C0 (HalpProcInitSystem.c)
+ *     HalpProcInitSystem @ 0x140B4F200 (HalpProcInitSystem.c)
  * Callees:
- *     HalpProcGetFeatureBits @ 0x14054D160 (HalpProcGetFeatureBits.c)
+ *     HalpProcGetFeatureBits @ 0x14054AA20 (HalpProcGetFeatureBits.c)
  */
 
 __int64 HalpProcInitDiscard()

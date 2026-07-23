@@ -3,7 +3,7 @@
  * Callers:
  *     ExInitSystem @ 0x140B54930 (ExInitSystem.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  *     ExpSingleStringCheck @ 0x140B55428 (ExpSingleStringCheck.c)
  */
 
@@ -73,7 +73,7 @@ __int64 __fastcall ExpStringCheck(
   v34[28] = ExpSingleStringCheck(a29);
   for ( i = 0LL; i < 29; ++i )
   {
-    result = *(unsigned int *)((char *)qword_1400204D0 + i * 4);
+    result = *(unsigned int *)((char *)qword_140020550 + i * 4);
     if ( v34[i] != (_DWORD)result )
       LODWORD(KdDumpEnableOffset) = 8;
   }

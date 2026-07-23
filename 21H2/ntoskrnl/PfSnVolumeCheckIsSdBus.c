@@ -1,12 +1,12 @@
 /*
- * XREFs of PfSnVolumeCheckIsSdBus @ 0x1408E09DC
+ * XREFs of PfSnVolumeCheckIsSdBus @ 0x1408E0B3C
  * Callers:
- *     PfSnOpenVolumesForPrefetch @ 0x1406C7A68 (PfSnOpenVolumesForPrefetch.c)
+ *     PfSnOpenVolumesForPrefetch @ 0x140676358 (PfSnOpenVolumesForPrefetch.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     ZwWaitForSingleObject @ 0x1403FA420 (ZwWaitForSingleObject.c)
- *     ZwDeviceIoControlFile @ 0x1403FA480 (ZwDeviceIoControlFile.c)
- *     ZwResetEvent @ 0x1403FD2E0 (ZwResetEvent.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     ZwWaitForSingleObject @ 0x1403FA600 (ZwWaitForSingleObject.c)
+ *     ZwDeviceIoControlFile @ 0x1403FA660 (ZwDeviceIoControlFile.c)
+ *     ZwResetEvent @ 0x1403FD4C0 (ZwResetEvent.c)
  */
 
 __int64 __fastcall PfSnVolumeCheckIsSdBus(HANDLE *a1, void *a2)
@@ -25,7 +25,7 @@ __int64 __fastcall PfSnVolumeCheckIsSdBus(HANDLE *a1, void *a2)
   v11 = 0LL;
   InputBuffer = 1;
   IoStatusBlock = 0LL;
-  ZwResetEvent((__int64)a2, 0LL);
+  ZwResetEvent(a2, 0LL);
   Status = ZwDeviceIoControlFile(*a1, a2, 0LL, 0LL, &IoStatusBlock, 0x2D1400u, &InputBuffer, 0xCu, &OutputBuffer, 0x20u);
   if ( Status == 259 )
   {

@@ -1,17 +1,17 @@
 /*
- * XREFs of MiMakeSystemRangeAvailable @ 0x1402A4448
+ * XREFs of MiMakeSystemRangeAvailable @ 0x1402A3998
  * Callers:
- *     MiReturnSystemVa @ 0x1402A4238 (MiReturnSystemVa.c)
+ *     MiReturnSystemVa @ 0x1402A3788 (MiReturnSystemVa.c)
  * Callees:
- *     ExReleaseSpinLockExclusive @ 0x14021AA80 (ExReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x140249CD0 (ExAcquireSpinLockExclusive.c)
- *     RtlClearBitsEx @ 0x14024EFA0 (RtlClearBitsEx.c)
- *     MiSystemVaToDynamicBitmap @ 0x1402A4D64 (MiSystemVaToDynamicBitmap.c)
- *     MiReduceSystemRegionType @ 0x1402A5914 (MiReduceSystemRegionType.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402DED10 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     MiNonPagedPoolToNode @ 0x1404CE570 (MiNonPagedPoolToNode.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
+ *     ExReleaseSpinLockExclusive @ 0x14021C410 (ExReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024B630 (ExAcquireSpinLockExclusive.c)
+ *     RtlClearBitsEx @ 0x140250900 (RtlClearBitsEx.c)
+ *     MiSystemVaToDynamicBitmap @ 0x1402A42B4 (MiSystemVaToDynamicBitmap.c)
+ *     MiReduceSystemRegionType @ 0x1402A4E64 (MiReduceSystemRegionType.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402C0B20 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     MiNonPagedPoolToNode @ 0x1404C7FA0 (MiNonPagedPoolToNode.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
  */
 
 void __fastcall MiMakeSystemRangeAvailable(ULONG_PTR BugCheckParameter2, ULONG_PTR BugCheckParameter3, unsigned int a3)
@@ -39,7 +39,7 @@ void __fastcall MiMakeSystemRangeAvailable(ULONG_PTR BugCheckParameter2, ULONG_P
   v4 = BugCheckParameter3 >> 21;
   v21 = 0LL;
   if ( a3 == 4 )
-    v7 = (_QWORD *)(qword_140E2D6B8 + 384LL * (unsigned int)MiNonPagedPoolToNode(BugCheckParameter2));
+    v7 = (_QWORD *)(qword_140E2D838 + 384LL * (unsigned int)MiNonPagedPoolToNode(BugCheckParameter2));
   else
     v7 = (_QWORD *)MiSystemVaToDynamicBitmap(a3);
   v8 = v7;
@@ -105,7 +105,7 @@ LABEL_23:
         || (KiFeatureSettings & 0x20000) != 0
         || (BugCheckParameter2 < PsNtosImageEnd
           ? (v19 = PsNtosImageEnd - BugCheckParameter2)
-          : (v19 = BugCheckParameter3 + BugCheckParameter2 - PsNtosImageBase),
+          : (v19 = BugCheckParameter3 + BugCheckParameter2 - (_QWORD)PsNtosImageBase),
             v19 < 0x80000000) )
       {
         v7[3] = v9;
@@ -118,9 +118,9 @@ LABEL_23:
     if ( v9 < v7[6] )
       v7[6] = v9;
   }
-  _InterlockedAdd64(&qword_140E379C8[(int)BugCheckParameter4], -(__int64)v4);
+  _InterlockedAdd64(&qword_140E37B48[(int)BugCheckParameter4], -(__int64)v4);
   if ( (_DWORD)BugCheckParameter4 == 7 )
-    stru_140E2D930.KernelStack = (char *)stru_140E2D930.KernelStack + BugCheckParameter3;
+    stru_140E2DAB0.KernelStack = (char *)stru_140E2DAB0.KernelStack + BugCheckParameter3;
   v20 = (volatile LONG *)(v7 + 8);
   if ( OldIrql == 17 )
     ExReleaseSpinLockExclusiveFromDpcLevel(v20);

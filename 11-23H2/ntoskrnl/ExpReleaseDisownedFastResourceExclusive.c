@@ -1,18 +1,18 @@
 /*
- * XREFs of ExpReleaseDisownedFastResourceExclusive @ 0x14060A6C4
+ * XREFs of ExpReleaseDisownedFastResourceExclusive @ 0x14060AC14
  * Callers:
- *     ExReleaseDisownedFastResource @ 0x1403CA950 (ExReleaseDisownedFastResource.c)
- *     ExReleaseDisownedFastResourceExclusive @ 0x140609D80 (ExReleaseDisownedFastResourceExclusive.c)
- *     ExReleaseDisownedFastResourceShared @ 0x140609EA0 (ExReleaseDisownedFastResourceShared.c)
+ *     ExReleaseDisownedFastResource @ 0x1403CAB30 (ExReleaseDisownedFastResource.c)
+ *     ExReleaseDisownedFastResourceExclusive @ 0x14060A2D0 (ExReleaseDisownedFastResourceExclusive.c)
+ *     ExReleaseDisownedFastResourceShared @ 0x14060A3F0 (ExReleaseDisownedFastResourceShared.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14022F5B0 (ObfDereferenceObjectWithTag.c)
- *     KxReleaseQueuedSpinLock @ 0x140260360 (KxReleaseQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x14029CBD0 (KeAcquireInStackQueuedSpinLockAtDpcLevel.c)
- *     KeAbCrossThreadRelease @ 0x1403CAD08 (KeAbCrossThreadRelease.c)
- *     ExpRotateFastOwnerEntrySublistHead @ 0x1403CADAC (ExpRotateFastOwnerEntrySublistHead.c)
- *     ExpCommitWakeResourceExclusive @ 0x1403CB5F0 (ExpCommitWakeResourceExclusive.c)
- *     ExpPrepareToWakeResourceExclusive @ 0x1403CB62C (ExpPrepareToWakeResourceExclusive.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     ObfDereferenceObjectWithTag @ 0x14022F6C0 (ObfDereferenceObjectWithTag.c)
+ *     KxReleaseQueuedSpinLock @ 0x1402605F0 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x14029CE60 (KeAcquireInStackQueuedSpinLockAtDpcLevel.c)
+ *     KeAbCrossThreadRelease @ 0x1403CAEE8 (KeAbCrossThreadRelease.c)
+ *     ExpRotateFastOwnerEntrySublistHead @ 0x1403CAF8C (ExpRotateFastOwnerEntrySublistHead.c)
+ *     ExpCommitWakeResourceExclusive @ 0x1403CB7D0 (ExpCommitWakeResourceExclusive.c)
+ *     ExpPrepareToWakeResourceExclusive @ 0x1403CB80C (ExpPrepareToWakeResourceExclusive.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall ExpReleaseDisownedFastResourceExclusive(__int64 a1, __int64 a2)
@@ -57,7 +57,7 @@ __int64 __fastcall ExpReleaseDisownedFastResourceExclusive(__int64 a1, __int64 a
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
   v5 = v30.OldIrql + 1;
-  if ( KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & (unsigned __int8)v5) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & (unsigned __int8)v5) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     v7 = 4;
@@ -79,7 +79,7 @@ LABEL_10:
       *(_QWORD *)a2 = 0LL;
       *(_QWORD *)(a2 + 8) = 0LL;
       KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v13 = KeGetCurrentIrql();
         if ( ((unsigned __int8)KiIrqlFlags & (unsigned __int8)v5) != 0
@@ -139,10 +139,10 @@ LABEL_35:
   *(_QWORD *)(a2 + 48) = 0LL;
   KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
   ExpCommitWakeResourceExclusive(v23, &v34, v24, 0, v33 != 0);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v25 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v25 <= 0xFu && CurrentIrql <= 0xFu && v25 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v25 <= 0xFu && CurrentIrql <= 0xFu && v25 >= 2u )
     {
       v26 = KeGetCurrentPrcb();
       v27 = v26->SchedulerAssist;

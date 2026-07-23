@@ -1,26 +1,26 @@
 /*
- * XREFs of RtlpHpLfhContextMetadataFree @ 0x1800A4C98
+ * XREFs of RtlpHpLfhContextMetadataFree @ 0x1800D660C
  * Callers:
- *     RtlpHpLfhPrivateSlotShutdown @ 0x18004AEFC (RtlpHpLfhPrivateSlotShutdown.c)
- *     RtlpHpLfhContextSlotStandbyProcess @ 0x18004B3D8 (RtlpHpLfhContextSlotStandbyProcess.c)
- *     RtlpHpLfhContextTlsCleanup @ 0x1800A4410 (RtlpHpLfhContextTlsCleanup.c)
- *     RtlpHpLfhPrivateSlotCreate @ 0x1800A4664 (RtlpHpLfhPrivateSlotCreate.c)
- *     RtlpHpLfhContextPrivateHeatMapCreate @ 0x1800A4CF4 (RtlpHpLfhContextPrivateHeatMapCreate.c)
+ *     RtlpHpLfhPrivateSlotShutdown @ 0x180060ADC (RtlpHpLfhPrivateSlotShutdown.c)
+ *     RtlpHpLfhContextSlotStandbyProcess @ 0x180060FB8 (RtlpHpLfhContextSlotStandbyProcess.c)
+ *     RtlpHpLfhContextTlsCleanup @ 0x1800D5FC0 (RtlpHpLfhContextTlsCleanup.c)
+ *     RtlpHpLfhPrivateSlotCreate @ 0x1800D6160 (RtlpHpLfhPrivateSlotCreate.c)
+ *     RtlpHpLfhContextPrivateHeatMapCreate @ 0x1800D6668 (RtlpHpLfhContextPrivateHeatMapCreate.c)
  * Callees:
- *     RtlpHpLfhContextLockExtension @ 0x1800A4E8C (RtlpHpLfhContextLockExtension.c)
+ *     RtlpHpLfhContextLockExtension @ 0x1800D6800 (RtlpHpLfhContextLockExtension.c)
  */
 
-__int64 __fastcall RtlpHpLfhContextMetadataFree(__int64 a1, _QWORD *a2, int a3)
+void __fastcall RtlpHpLfhContextMetadataFree(_RTL_SRWLOCK *a1, unsigned __int64 *a2, int a3)
 {
   __int64 v3; // rdi
-  _QWORD *v4; // rbx
+  unsigned __int64 *v4; // rbx
 
   v3 = a3;
   v4 = a2 + 2;
   if ( a3 != 3 )
     v4 = a2;
   RtlpHpLfhContextLockExtension(a1);
-  *v4 = *(_QWORD *)(a1 + 8 * v3 + 136);
-  *(_QWORD *)(a1 + 8 * v3 + 136) = v4;
-  return RtlReleaseSRWLockExclusive((volatile signed __int64 *)(a1 + 128));
+  *v4 = a1[v3 + 17].Value;
+  a1[v3 + 17].Value = (unsigned __int64)v4;
+  RtlReleaseSRWLockExclusive(a1 + 16);
 }

@@ -1,21 +1,21 @@
 /*
- * XREFs of SepCreateAccessStateFromSubjectContext @ 0x1404425E0
+ * XREFs of SepCreateAccessStateFromSubjectContext @ 0x14043B0F0
  * Callers:
- *     AlpcpCreateClientPort @ 0x1408E9A60 (AlpcpCreateClientPort.c)
- *     PsOpenProcess @ 0x1408EFC40 (PsOpenProcess.c)
- *     ObReferenceObjectByName @ 0x1408F2260 (ObReferenceObjectByName.c)
- *     CmKeyBodyRemapToVirtualForEnum @ 0x1408F3730 (CmKeyBodyRemapToVirtualForEnum.c)
- *     ObOpenObjectByNameEx @ 0x1408FCDF0 (ObOpenObjectByNameEx.c)
- *     ObOpenObjectByPointer @ 0x14092AFF0 (ObOpenObjectByPointer.c)
- *     ObInsertObjectEx @ 0x14092B470 (ObInsertObjectEx.c)
- *     SeCreateAccessStateEx @ 0x1409843E0 (SeCreateAccessStateEx.c)
- *     PspOneDirectionSecurityDomainCombine @ 0x1409FE890 (PspOneDirectionSecurityDomainCombine.c)
- *     PspCombineSecurityDomains @ 0x140A0021C (PspCombineSecurityDomains.c)
- *     SeCreateAccessState @ 0x140A10980 (SeCreateAccessState.c)
- *     SeSubProcessToken @ 0x140A2B26C (SeSubProcessToken.c)
- *     SeCreateAccessStateFromSubjectContext @ 0x140AC859C (SeCreateAccessStateFromSubjectContext.c)
+ *     AlpcpCreateClientPort @ 0x1408F0020 (AlpcpCreateClientPort.c)
+ *     PsOpenProcess @ 0x1408F6200 (PsOpenProcess.c)
+ *     ObReferenceObjectByName @ 0x1408F8820 (ObReferenceObjectByName.c)
+ *     CmKeyBodyRemapToVirtualForEnum @ 0x1408F9CF0 (CmKeyBodyRemapToVirtualForEnum.c)
+ *     ObOpenObjectByPointer @ 0x140906B20 (ObOpenObjectByPointer.c)
+ *     ObInsertObjectEx @ 0x140906FA0 (ObInsertObjectEx.c)
+ *     PspOneDirectionSecurityDomainCombine @ 0x14091B690 (PspOneDirectionSecurityDomainCombine.c)
+ *     PspCombineSecurityDomains @ 0x14091CFB8 (PspCombineSecurityDomains.c)
+ *     ObOpenObjectByNameEx @ 0x14092CD80 (ObOpenObjectByNameEx.c)
+ *     SeCreateAccessStateEx @ 0x1409463F0 (SeCreateAccessStateEx.c)
+ *     SeCreateAccessState @ 0x140A0FB70 (SeCreateAccessState.c)
+ *     SeCreateAccessStateFromSubjectContext @ 0x140ACA18C (SeCreateAccessStateFromSubjectContext.c)
+ *     SeSubProcessToken @ 0x140B84D74 (SeSubProcessToken.c)
  * Callees:
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall SepCreateAccessStateFromSubjectContext(_OWORD *a1, _QWORD *a2, _QWORD *a3, int a4, _DWORD *a5)

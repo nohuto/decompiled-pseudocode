@@ -1,18 +1,18 @@
 /*
- * XREFs of AdtpObjsInitialize @ 0x14056FBF0
+ * XREFs of AdtpObjsInitialize @ 0x140570130
  * Callers:
- *     AdtpInitializeAuditingCommon @ 0x14056FBB8 (AdtpInitializeAuditingCommon.c)
+ *     AdtpInitializeAuditingCommon @ 0x1405700F8 (AdtpInitializeAuditingCommon.c)
  * Callees:
- *     ExInitializeResourceLite @ 0x14000ECC0 (ExInitializeResourceLite.c)
- *     RtlInitUnicodeString @ 0x14002DC60 (RtlInitUnicodeString.c)
- *     RtlCopyUnicodeString @ 0x14002DD60 (RtlCopyUnicodeString.c)
+ *     ExInitializeResourceLite @ 0x14000E840 (ExInitializeResourceLite.c)
+ *     RtlInitUnicodeString @ 0x14002D7E0 (RtlInitUnicodeString.c)
+ *     RtlCopyUnicodeString @ 0x14002D8E0 (RtlCopyUnicodeString.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     RtlIntegerToUnicodeString @ 0x1403F5E20 (RtlIntegerToUnicodeString.c)
- *     CmOpenKey @ 0x140418C90 (CmOpenKey.c)
- *     NtEnumerateValueKey @ 0x140439540 (NtEnumerateValueKey.c)
- *     NtEnumerateKey @ 0x140439B70 (NtEnumerateKey.c)
- *     NtClose @ 0x14050B0E0 (NtClose.c)
+ *     RtlIntegerToUnicodeString @ 0x1403F4CE4 (RtlIntegerToUnicodeString.c)
+ *     CmOpenKey @ 0x140417B50 (CmOpenKey.c)
+ *     NtEnumerateValueKey @ 0x140438410 (NtEnumerateValueKey.c)
+ *     NtEnumerateKey @ 0x140438A40 (NtEnumerateKey.c)
+ *     NtClose @ 0x1404EE070 (NtClose.c)
  */
 
 int AdtpObjsInitialize()

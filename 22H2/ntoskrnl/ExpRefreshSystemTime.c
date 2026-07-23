@@ -25,7 +25,7 @@ void __fastcall ExpRefreshSystemTime(__int64 a1, __int64 a2)
   char v3; // si
   int v4; // edi
   LARGE_INTEGER v5; // rax
-  TIME_FIELDS TimeFields; // [rsp+20h] [rbp-10h] BYREF
+  _TIME_FIELDS TimeFields; // [rsp+20h] [rbp-10h] BYREF
   LARGE_INTEGER SystemTime; // [rsp+50h] [rbp+20h] BYREF
   LARGE_INTEGER v8; // [rsp+58h] [rbp+28h] BYREF
   LARGE_INTEGER Time; // [rsp+60h] [rbp+30h] BYREF

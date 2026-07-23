@@ -1,9 +1,9 @@
 /*
- * XREFs of SepRmInteractiveLogoffLogonSessionCompletedWrkr @ 0x140533A90
+ * XREFs of SepRmInteractiveLogoffLogonSessionCompletedWrkr @ 0x140533FD0
  * Callers:
  *     <none>
  * Callees:
- *     SepBlockAccessForLogonSession @ 0x140533AB8 (SepBlockAccessForLogonSession.c)
+ *     SepBlockAccessForLogonSession @ 0x140533FF8 (SepBlockAccessForLogonSession.c)
  */
 
 __int64 __fastcall SepRmInteractiveLogoffLogonSessionCompletedWrkr(__int64 a1, __int64 a2)

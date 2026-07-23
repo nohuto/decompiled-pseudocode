@@ -1,13 +1,13 @@
 /*
- * XREFs of KeConfigureDynamicMemory @ 0x1405B79E4
+ * XREFs of KeConfigureDynamicMemory @ 0x1405B4FBC
  * Callers:
- *     MiAddPhysicalMemory @ 0x1407E866C (MiAddPhysicalMemory.c)
- *     MiRemovePhysicalMemory @ 0x1407E9DAC (MiRemovePhysicalMemory.c)
+ *     MiAddPhysicalMemory @ 0x1407E8C3C (MiAddPhysicalMemory.c)
+ *     MiRemovePhysicalMemory @ 0x1407EA37C (MiRemovePhysicalMemory.c)
  * Callees:
- *     KeReleaseGuardedMutex @ 0x14031E470 (KeReleaseGuardedMutex.c)
- *     ExAcquireFastMutex @ 0x14033E850 (ExAcquireFastMutex.c)
- *     VslConfigureDynamicMemory @ 0x14058CCAC (VslConfigureDynamicMemory.c)
- *     HvlConfigureDynamicMemory @ 0x1406A0BE0 (HvlConfigureDynamicMemory.c)
+ *     KeReleaseGuardedMutex @ 0x1402C7000 (KeReleaseGuardedMutex.c)
+ *     ExAcquireFastMutex @ 0x14031DD30 (ExAcquireFastMutex.c)
+ *     VslConfigureDynamicMemory @ 0x140589FA4 (VslConfigureDynamicMemory.c)
+ *     HvlConfigureDynamicMemory @ 0x1406A1C38 (HvlConfigureDynamicMemory.c)
  */
 
 __int64 __fastcall KeConfigureDynamicMemory(__int64 a1, __int64 a2, int a3)

@@ -1,14 +1,14 @@
 /*
- * XREFs of PfFbBufferListFlushStandby @ 0x1400067EC
+ * XREFs of PfFbBufferListFlushStandby @ 0x14000695C
  * Callers:
- *     PfGetCompletedTrace @ 0x1403E6AB4 (PfGetCompletedTrace.c)
- *     PfpFlushEventBuffers @ 0x1403E7CC0 (PfpFlushEventBuffers.c)
- *     PfSnEndTrace @ 0x1403E8F64 (PfSnEndTrace.c)
+ *     PfGetCompletedTrace @ 0x1403E80E4 (PfGetCompletedTrace.c)
+ *     PfpFlushEventBuffers @ 0x1403E92F0 (PfpFlushEventBuffers.c)
+ *     PfSnEndTrace @ 0x1403EA594 (PfSnEndTrace.c)
  * Callees:
- *     PfFbBufferListInsertInFree @ 0x140006744 (PfFbBufferListInsertInFree.c)
- *     ExAcquireRundownProtection @ 0x1400D3ED0 (ExAcquireRundownProtection.c)
- *     ExReleaseRundownProtection @ 0x1400D3F00 (ExReleaseRundownProtection.c)
- *     RtlpInterlockedFlushSList @ 0x140166E80 (RtlpInterlockedFlushSList.c)
+ *     PfFbBufferListInsertInFree @ 0x1400068B4 (PfFbBufferListInsertInFree.c)
+ *     ExAcquireRundownProtection @ 0x1400D1D70 (ExAcquireRundownProtection.c)
+ *     ExReleaseRundownProtection @ 0x1400D1DA0 (ExReleaseRundownProtection.c)
+ *     RtlpInterlockedFlushSList @ 0x1401673F0 (RtlpInterlockedFlushSList.c)
  */
 
 void __fastcall PfFbBufferListFlushStandby(_SLIST_ENTRY *RunRef)

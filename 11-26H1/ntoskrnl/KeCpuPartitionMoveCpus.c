@@ -1,24 +1,24 @@
 /*
- * XREFs of KeCpuPartitionMoveCpus @ 0x1405F3880
+ * XREFs of KeCpuPartitionMoveCpus @ 0x1405F6240
  * Callers:
- *     KeDeleteCpuPartition @ 0x1407BB114 (KeDeleteCpuPartition.c)
- *     NtSetInformationCpuPartition @ 0x1407F20D0 (NtSetInformationCpuPartition.c)
- *     PsCpuPartitionMoveCpus @ 0x1407F2640 (PsCpuPartitionMoveCpus.c)
+ *     KeDeleteCpuPartition @ 0x1407BE174 (KeDeleteCpuPartition.c)
+ *     NtSetInformationCpuPartition @ 0x1407F7C30 (NtSetInformationCpuPartition.c)
+ *     PsCpuPartitionMoveCpus @ 0x1407F81A0 (PsCpuPartitionMoveCpus.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     RtlOrAffinityEx @ 0x14025A978 (RtlOrAffinityEx.c)
- *     RtlSubtractAffinityEx @ 0x14025B408 (RtlSubtractAffinityEx.c)
- *     KxReleaseSpinLock @ 0x1402BDEF0 (KxReleaseSpinLock.c)
- *     KxAcquireSpinLock @ 0x14032F2C0 (KxAcquireSpinLock.c)
- *     KiAcquireCpuPartitionLock @ 0x1404D74BC (KiAcquireCpuPartitionLock.c)
- *     KiAvailableCpusSubscriptionQueueWorkItem @ 0x1404E01D0 (KiAvailableCpusSubscriptionQueueWorkItem.c)
- *     KiUpdateProcessAvailableCpuState @ 0x1405E5BB8 (KiUpdateProcessAvailableCpuState.c)
- *     KiUpdateSystemAvailableCpuState @ 0x1405E5CF4 (KiUpdateSystemAvailableCpuState.c)
- *     KiAdjustProcessCpuSetsAfterCpuPartitionChange @ 0x1405F4024 (KiAdjustProcessCpuSetsAfterCpuPartitionChange.c)
- *     KiCpuPartitionUpdatePrcbs @ 0x1405F43BC (KiCpuPartitionUpdatePrcbs.c)
- *     KiModifySystemAllowedCpuSetsWithLock @ 0x1405F4548 (KiModifySystemAllowedCpuSetsWithLock.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     RtlOrAffinityEx @ 0x14025C158 (RtlOrAffinityEx.c)
+ *     RtlSubtractAffinityEx @ 0x14025CBE8 (RtlSubtractAffinityEx.c)
+ *     KxReleaseSpinLock @ 0x140308BB0 (KxReleaseSpinLock.c)
+ *     KxAcquireSpinLock @ 0x1403312F0 (KxAcquireSpinLock.c)
+ *     KiAcquireCpuPartitionLock @ 0x1404D0C8C (KiAcquireCpuPartitionLock.c)
+ *     KiAvailableCpusSubscriptionQueueWorkItem @ 0x1404D98B0 (KiAvailableCpusSubscriptionQueueWorkItem.c)
+ *     KiUpdateProcessAvailableCpuState @ 0x1405E8528 (KiUpdateProcessAvailableCpuState.c)
+ *     KiUpdateSystemAvailableCpuState @ 0x1405E8664 (KiUpdateSystemAvailableCpuState.c)
+ *     KiAdjustProcessCpuSetsAfterCpuPartitionChange @ 0x1405F69E4 (KiAdjustProcessCpuSetsAfterCpuPartitionChange.c)
+ *     KiCpuPartitionUpdatePrcbs @ 0x1405F6D7C (KiCpuPartitionUpdatePrcbs.c)
+ *     KiModifySystemAllowedCpuSetsWithLock @ 0x1405F6F08 (KiModifySystemAllowedCpuSetsWithLock.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall KeCpuPartitionMoveCpus(__int64 a1, _WORD **a2, struct _KAFFINITY_EX *a3, char a4)

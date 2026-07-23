@@ -1,14 +1,14 @@
 /*
- * XREFs of MiFlowThroughInsertNode @ 0x14010F5E0
+ * XREFs of MiFlowThroughInsertNode @ 0x14010F660
  * Callers:
  *     MiFinishMdlForMappedFileFault @ 0x14002CB18 (MiFinishMdlForMappedFileFault.c)
- *     MiResolvePageFileFault @ 0x140154B44 (MiResolvePageFileFault.c)
+ *     MiResolvePageFileFault @ 0x140154C44 (MiResolvePageFileFault.c)
  * Callees:
- *     RtlAvlInsertNodeEx @ 0x140064B40 (RtlAvlInsertNodeEx.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14007DE90 (KeAcquireInStackQueuedSpinLock.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
- *     MiGetPagingFileOffset @ 0x14010FA24 (MiGetPagingFileOffset.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     RtlAvlInsertNodeEx @ 0x140064B30 (RtlAvlInsertNodeEx.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14007DE80 (KeAcquireInStackQueuedSpinLock.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC6A0 (KxReleaseQueuedSpinLock.c)
+ *     MiGetPagingFileOffset @ 0x14010FAA4 (MiGetPagingFileOffset.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 _QWORD *__fastcall MiFlowThroughInsertNode(__int64 a1, _QWORD *a2)
@@ -40,7 +40,7 @@ _QWORD *__fastcall MiFlowThroughInsertNode(__int64 a1, _QWORD *a2)
   else
   {
     PagingFileOffset = MiGetPagingFileOffset(&v20);
-    v9 = *(_QWORD *)(*(_QWORD *)(qword_14043A748 + 8 * ((a2[5] >> 40) & 0x3FFLL)) + 8LL * (v2 >> 12) + 7136);
+    v9 = *(_QWORD *)(*(_QWORD *)(qword_14043B808 + 8 * ((a2[5] >> 40) & 0x3FFLL)) + 8LL * (v2 >> 12) + 7136);
     *(_QWORD *)(a1 + 336) = v9;
     *(_QWORD *)(a1 + 344) = PagingFileOffset;
     KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)(v9 + 232), &LockHandle);

@@ -1,12 +1,12 @@
 /*
- * XREFs of PopReleaseUserPresentSpinLock @ 0x1404E8100
+ * XREFs of PopReleaseUserPresentSpinLock @ 0x1404E14C0
  * Callers:
- *     PopSetSystemAwayMode @ 0x1407D1390 (PopSetSystemAwayMode.c)
+ *     PopSetSystemAwayMode @ 0x1407D4430 (PopSetSystemAwayMode.c)
  * Callees:
- *     KeReleaseSpinLock @ 0x1402BE860 (KeReleaseSpinLock.c)
+ *     KeReleaseSpinLock @ 0x140309520 (KeReleaseSpinLock.c)
  */
 
 void __fastcall PopReleaseUserPresentSpinLock(KIRQL a1)
 {
-  KeReleaseSpinLock((PKSPIN_LOCK)&stru_140F11D08.WaitBlock[0].Thread, a1);
+  KeReleaseSpinLock(&PopUserPresentLock, a1);
 }

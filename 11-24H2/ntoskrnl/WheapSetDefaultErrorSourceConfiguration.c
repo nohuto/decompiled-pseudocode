@@ -1,7 +1,7 @@
 /*
- * XREFs of WheapSetDefaultErrorSourceConfiguration @ 0x140C44A34
+ * XREFs of WheapSetDefaultErrorSourceConfiguration @ 0x140C46B84
  * Callers:
- *     WheaInitializeServices @ 0x140C44660 (WheaInitializeServices.c)
+ *     WheaInitializeServices @ 0x140C467B0 (WheaInitializeServices.c)
  * Callees:
  *     <none>
  */
@@ -17,18 +17,18 @@ __int64 WheapSetDefaultErrorSourceConfiguration()
   {
     *(_QWORD *)((char *)&WheapSourceConfiguration + result) = 0LL;
     *(_QWORD *)((char *)&WheapSourceConfigOverride + result) = 0LL;
-    *(_QWORD *)((char *)&unk_140EEED90 + result) = PdcCreateWatchdogAroundClientCall;
-    *(_QWORD *)((char *)&unk_140EEED98 + result) = xHalPciEarlyRestore;
-    *(_QWORD *)((char *)&unk_140EEEDA0 + result) = WheapDefaultErrSrcCreateRecord;
-    *(_QWORD *)((char *)&unk_140EEEDA8 + result) = PdcCreateWatchdogAroundClientCall;
-    *(_QWORD *)((char *)&unk_140EEEDB0 + result) = xHalTimerWatchdogStop;
-    *(_QWORD *)((char *)&unk_140EEEDB8 + result) = 0LL;
-    *(_QWORD *)((char *)&unk_140EEF280 + result) = PdcCreateWatchdogAroundClientCall;
-    *(_QWORD *)((char *)&unk_140EEF288 + result) = xHalPciEarlyRestore;
-    *(_QWORD *)((char *)&unk_140EEF290 + result) = WheapDefaultErrSrcCreateRecord;
-    *(_QWORD *)((char *)&unk_140EEF298 + result) = PdcCreateWatchdogAroundClientCall;
-    *(_QWORD *)((char *)&unk_140EEF2A0 + result) = xHalTimerWatchdogStop;
-    *(_QWORD *)((char *)&unk_140EEF2A8 + result) = 0LL;
+    *(_QWORD *)((char *)&unk_140EEEF90 + result) = PdcCreateWatchdogAroundClientCall;
+    *(_QWORD *)((char *)&unk_140EEEF98 + result) = xHalPciEarlyRestore;
+    *(_QWORD *)((char *)&unk_140EEEFA0 + result) = WheapDefaultErrSrcCreateRecord;
+    *(_QWORD *)((char *)&unk_140EEEFA8 + result) = PdcCreateWatchdogAroundClientCall;
+    *(_QWORD *)((char *)&unk_140EEEFB0 + result) = xHalTimerWatchdogStop;
+    *(_QWORD *)((char *)&unk_140EEEFB8 + result) = 0LL;
+    *(_QWORD *)((char *)&unk_140EEF490 + result) = PdcCreateWatchdogAroundClientCall;
+    *(_QWORD *)((char *)&unk_140EEF498 + result) = xHalPciEarlyRestore;
+    *(_QWORD *)((char *)&unk_140EEF4A0 + result) = WheapDefaultErrSrcCreateRecord;
+    *(_QWORD *)((char *)&unk_140EEF4A8 + result) = PdcCreateWatchdogAroundClientCall;
+    *(_QWORD *)((char *)&unk_140EEF4B0 + result) = xHalTimerWatchdogStop;
+    *(_QWORD *)((char *)&unk_140EEF4B8 + result) = 0LL;
     result += 64LL;
     --v1;
   }

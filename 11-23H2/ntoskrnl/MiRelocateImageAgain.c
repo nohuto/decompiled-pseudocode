@@ -6,15 +6,15 @@
  *     MI_UNLOCK_RELOCATIONS_EXCLUSIVE @ 0x140210190 (MI_UNLOCK_RELOCATIONS_EXCLUSIVE.c)
  *     MI_LOCK_RELOCATIONS_EXCLUSIVE @ 0x14021020C (MI_LOCK_RELOCATIONS_EXCLUSIVE.c)
  *     MiGetControlAreaLoadConfig @ 0x140214E04 (MiGetControlAreaLoadConfig.c)
- *     MiReservePtes @ 0x14027D190 (MiReservePtes.c)
- *     MmGetSessionIdEx @ 0x1402A1720 (MmGetSessionIdEx.c)
- *     MiReleasePtes @ 0x1402CB8E0 (MiReleasePtes.c)
- *     MiImageUnused @ 0x140355A44 (MiImageUnused.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
+ *     MiReservePtes @ 0x14027D420 (MiReservePtes.c)
+ *     MmGetSessionIdEx @ 0x1402A19B0 (MmGetSessionIdEx.c)
+ *     MiReleasePtes @ 0x1402CBB70 (MiReleasePtes.c)
+ *     MiImageUnused @ 0x140355BE4 (MiImageUnused.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
  *     MiUpdateImageSystemWideBitmaps @ 0x1406AAA00 (MiUpdateImageSystemWideBitmaps.c)
  *     MiSelectImageBase @ 0x1406AAA28 (MiSelectImageBase.c)
- *     MiReturnImageBase @ 0x140721CA0 (MiReturnImageBase.c)
- *     MiSwitchBaseAddress @ 0x1407D3E1C (MiSwitchBaseAddress.c)
+ *     MiReturnImageBase @ 0x140721EA0 (MiReturnImageBase.c)
+ *     MiSwitchBaseAddress @ 0x1407D40EC (MiSwitchBaseAddress.c)
  */
 
 __int64 __fastcall MiRelocateImageAgain(__int64 a1, int a2)
@@ -85,9 +85,9 @@ LABEL_13:
           MiSwitchBaseAddress(a1, v12, v7, SessionId);
           goto LABEL_10;
         }
-        if ( qword_140C37A20 )
+        if ( qword_140C379C0 )
         {
-          updated = qword_140C37A20(*(_QWORD *)(v2 + 40) & 0xFFFFFFFFFFFFFFF8uLL);
+          updated = qword_140C379C0(*(_QWORD *)(v2 + 40) & 0xFFFFFFFFFFFFFFF8uLL);
           if ( updated >= 0 )
             goto LABEL_13;
         }

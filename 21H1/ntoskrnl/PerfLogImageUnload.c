@@ -21,16 +21,16 @@ void __fastcall PerfLogImageUnload(
         unsigned __int16 *a1,
         struct _DMA_ADAPTER *a2,
         __int64 a3,
-        __int64 a4,
+        void *a4,
         __int64 a5,
-        int a6,
+        int CheckSum,
         int a7,
         int a8,
         unsigned int a9)
 {
-  __int64 v13; // rbx
-  int v14; // edi
-  __int64 v15; // rax
+  __int64 ImageBase; // rbx
+  int TimeDateStamp; // edi
+  PIMAGE_NT_HEADERS v15; // rax
   _QWORD *PoolWithTag; // rsi
   __int64 v17; // rdx
   int v18; // eax
@@ -40,11 +40,11 @@ void __fastcall PerfLogImageUnload(
   __int64 v22; // [rsp+60h] [rbp-58h] BYREF
   _OWORD v23[5]; // [rsp+68h] [rbp-50h] BYREF
 
-  v13 = 0LL;
+  ImageBase = 0LL;
   v21 = 0LL;
   v23[0] = 0LL;
   v22 = 0LL;
-  v14 = 0;
+  TimeDateStamp = 0;
   v20 = 0;
   if ( EtwpHostSiloState != -4548 && (*(_DWORD *)(EtwpHostSiloState + 4548) & 4) != 0 )
     EtwpCoverageSamplerUnloadImage(a3, a4, a5);
@@ -53,11 +53,11 @@ void __fastcall PerfLogImageUnload(
     v15 = RtlImageNtHeader(a4);
     if ( v15 )
     {
-      a6 = *(_DWORD *)(v15 + 88);
-      v14 = *(_DWORD *)(v15 + 8);
-      v20 = v14;
-      v13 = *(_QWORD *)(v15 + 48);
-      v21 = v13;
+      CheckSum = v15->OptionalHeader.CheckSum;
+      TimeDateStamp = v15->FileHeader.TimeDateStamp;
+      v20 = TimeDateStamp;
+      ImageBase = v15->OptionalHeader.ImageBase;
+      v21 = ImageBase;
     }
   }
   if ( a2 )
@@ -72,11 +72,11 @@ void __fastcall PerfLogImageUnload(
         PoolWithTag[12] = a3;
         PoolWithTag[13] = a4;
         PoolWithTag[14] = a5;
-        *((_DWORD *)PoolWithTag + 30) = a6;
-        *((_DWORD *)PoolWithTag + 31) = v14;
+        *((_DWORD *)PoolWithTag + 30) = CheckSum;
+        *((_DWORD *)PoolWithTag + 31) = TimeDateStamp;
         *((_DWORD *)PoolWithTag + 32) = a7;
         *((_DWORD *)PoolWithTag + 33) = a8;
-        PoolWithTag[17] = v13;
+        PoolWithTag[17] = ImageBase;
         KeInitializeApc(
           (__int64)PoolWithTag,
           (__int64)KeGetCurrentThread(),
@@ -90,8 +90,8 @@ void __fastcall PerfLogImageUnload(
           return;
         ExFreePoolWithTag(PoolWithTag, 0);
         HalPutDmaAdapter(a2);
-        v13 = v21;
-        v14 = v20;
+        ImageBase = v21;
+        TimeDateStamp = v20;
       }
       v17 = 512LL;
     }
@@ -112,7 +112,7 @@ void __fastcall PerfLogImageUnload(
       a1 = v19;
     }
   }
-  EtwpTraceImageUnload(a1, a3, a4, a5, a6, v14, a7, a8, v13, a9);
+  EtwpTraceImageUnload(a1, a3, (__int64)a4, a5, CheckSum, TimeDateStamp, a7, a8, ImageBase, a9);
   if ( v22 )
     (*(void (**)(void))(FltMgrCallbacks + 32))();
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of AccelpSiovUpdateStatsOnSubmitWork @ 0x1406E06AC
+ * XREFs of AccelpSiovUpdateStatsOnSubmitWork @ 0x1406E492C
  * Callers:
- *     AccelpSiovInternalOperationHandler @ 0x140511B88 (AccelpSiovInternalOperationHandler.c)
+ *     AccelpSiovInternalOperationHandler @ 0x14050B5F8 (AccelpSiovInternalOperationHandler.c)
  * Callees:
- *     AccelpSiovGetOperationType @ 0x1406DFB8C (AccelpSiovGetOperationType.c)
+ *     AccelpSiovGetOperationType @ 0x1406E3E0C (AccelpSiovGetOperationType.c)
  */
 
 void __fastcall AccelpSiovUpdateStatsOnSubmitWork(__int64 a1, __int64 a2)

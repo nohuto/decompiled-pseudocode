@@ -6,25 +6,25 @@
  *     RtlImageNtHeader @ 0x140297240 (RtlImageNtHeader.c)
  */
 
-__int64 __fastcall MiLocateKernelSections(__int64 a1)
+PIMAGE_NT_HEADERS __fastcall MiLocateKernelSections(__int64 a1)
 {
-  __int64 v1; // rbx
-  __int64 result; // rax
-  int v3; // r8d
+  char *v1; // rbx
+  PIMAGE_NT_HEADERS result; // rax
+  int NumberOfSections; // r8d
   unsigned int *v4; // rdx
   unsigned int v5; // r9d
   unsigned int v6; // r10d
-  __int64 v7; // rcx
+  char *v7; // rcx
 
-  v1 = *(_QWORD *)(a1 + 48);
+  v1 = *(char **)(a1 + 48);
   result = RtlImageNtHeader(v1);
-  v3 = *(unsigned __int16 *)(result + 6);
-  v4 = (unsigned int *)(*(unsigned __int16 *)(result + 20) + result + 24);
-  if ( *(_WORD *)(result + 6) )
+  NumberOfSections = result->FileHeader.NumberOfSections;
+  v4 = (unsigned int *)((char *)&result->OptionalHeader.Magic + result->FileHeader.SizeOfOptionalHeader);
+  if ( result->FileHeader.NumberOfSections )
   {
     do
     {
-      result = *v4;
+      result = (PIMAGE_NT_HEADERS)*v4;
       v5 = v4[4];
       v6 = v4[2];
       if ( (_DWORD)result == 1987011374 || (_DWORD)result == 1953655086 )
@@ -33,20 +33,20 @@ __int64 __fastcall MiLocateKernelSections(__int64 a1)
       }
       else if ( (_DWORD)result == 1280266064 )
       {
-        v7 = v1 + v4[3];
+        v7 = &v1[v4[3]];
         if ( v4[1] == 1162104643 )
         {
-          ExPoolCodeStart = v1 + v4[3];
+          ExPoolCodeStart = (__int64)&v1[v4[3]];
           if ( v5 < v6 )
             v5 = v6;
-          result = v5;
-          ExPoolCodeEnd = ((v5 + v7 + 4095) & 0xFFFFFFFFFFFFF000uLL) - 1;
+          result = (PIMAGE_NT_HEADERS)v5;
+          ExPoolCodeEnd = ((unsigned __int64)&v7[v5 + 4095] & 0xFFFFFFFFFFFFF000uLL) - 1;
         }
       }
-      --v3;
+      --NumberOfSections;
       v4 += 10;
     }
-    while ( v3 > 0 );
+    while ( NumberOfSections > 0 );
   }
   return result;
 }

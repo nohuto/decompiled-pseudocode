@@ -1,18 +1,18 @@
 /*
- * XREFs of MiWritePageFileHash @ 0x14046F606
+ * XREFs of MiWritePageFileHash @ 0x14046FA06
  * Callers:
- *     MiMapPageFileHash @ 0x1406662EC (MiMapPageFileHash.c)
+ *     MiMapPageFileHash @ 0x14066683C (MiMapPageFileHash.c)
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x14024D360 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402894C0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     MiLockPageInline @ 0x1402EF680 (MiLockPageInline.c)
- *     MiGetPagingFileOffset @ 0x1402F2864 (MiGetPagingFileOffset.c)
- *     KeShouldYieldProcessor @ 0x140333C70 (KeShouldYieldProcessor.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     MiComputePageHash @ 0x14046F13C (MiComputePageHash.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     MiPageHashBugCheck @ 0x140666BB8 (MiPageHashBugCheck.c)
- *     MiWriteEntirePageHashEntry @ 0x140666DFC (MiWriteEntirePageHashEntry.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024D430 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140289750 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiLockPageInline @ 0x1402EF910 (MiLockPageInline.c)
+ *     MiGetPagingFileOffset @ 0x1402F2AF4 (MiGetPagingFileOffset.c)
+ *     KeShouldYieldProcessor @ 0x140333F00 (KeShouldYieldProcessor.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     MiComputePageHash @ 0x14046F53C (MiComputePageHash.c)
+ *     MiPageHashBugCheck @ 0x140667108 (MiPageHashBugCheck.c)
+ *     MiWriteEntirePageHashEntry @ 0x14066734C (MiWriteEntirePageHashEntry.c)
  */
 
 _BOOL8 __fastcall MiWritePageFileHash(__int64 a1, _QWORD *a2, int a3, unsigned int a4)
@@ -154,10 +154,13 @@ LABEL_22:
       while ( v20 < v4 );
     }
     ExReleaseSpinLockExclusiveFromDpcLevel(v18);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v19 <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+        && CurrentIrql <= 0xFu
+        && (unsigned __int8)v19 <= 0xFu
+        && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -165,7 +168,7 @@ LABEL_22:
         v30 = (v29 & SchedulerAssist[5]) == 0;
         SchedulerAssist[5] &= v29;
         if ( v30 )
-          KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+          KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
       }
     }
     __writecr8(v19);
@@ -184,10 +187,10 @@ LABEL_22:
             _InterlockedAnd64((volatile signed __int64 *)(v32 + 24), 0x7FFFFFFFFFFFFFFFuLL);
             if ( v32 == v5 )
             {
-              if ( KiIrqlFlags )
+              if ( (_DWORD)KiIrqlFlags )
               {
                 v33 = KeGetCurrentIrql();
-                if ( (KiIrqlFlags & 1) != 0 && v33 <= 0xFu && v7 <= 0xFu && v33 >= 2u )
+                if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v33 <= 0xFu && v7 <= 0xFu && v33 >= 2u )
                 {
                   v34 = KeGetCurrentPrcb();
                   v35 = v34->SchedulerAssist;
@@ -195,7 +198,7 @@ LABEL_22:
                   v30 = (v36 & v35[5]) == 0;
                   v35[5] &= v36;
                   if ( v30 )
-                    KiRemoveSystemWorkPriorityKick(v34);
+                    KiRemoveSystemWorkPriorityKick((__int64)v34);
                 }
               }
               __writecr8(v7);

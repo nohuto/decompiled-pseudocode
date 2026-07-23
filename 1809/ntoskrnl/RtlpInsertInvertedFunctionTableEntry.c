@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpInsertInvertedFunctionTableEntry @ 0x1400F5AC8
+ * XREFs of RtlpInsertInvertedFunctionTableEntry @ 0x1400F5B48
  * Callers:
- *     RtlInsertInvertedFunctionTable @ 0x1400F5A34 (RtlInsertInvertedFunctionTable.c)
+ *     RtlInsertInvertedFunctionTable @ 0x1400F5AB4 (RtlInsertInvertedFunctionTable.c)
  * Callees:
- *     memmove @ 0x1401D1540 (memmove.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
  */
 
 __int64 __fastcall RtlpInsertInvertedFunctionTableEntry(
@@ -19,19 +19,19 @@ __int64 __fastcall RtlpInsertInvertedFunctionTableEntry(
   __int64 v11; // rcx
 
   result = (unsigned int)PsInvertedFunctionTable[0];
-  if ( PsInvertedFunctionTable[0] == dword_140558014 )
+  if ( PsInvertedFunctionTable[0] == dword_140559014 )
   {
-    byte_14055801C = 1;
+    byte_14055901C = 1;
   }
   else
   {
-    _InterlockedIncrement(&dword_140558018);
+    _InterlockedIncrement(&dword_140559018);
     v9 = 1;
     if ( PsInvertedFunctionTable[0] != 1 )
     {
       if ( PsInvertedFunctionTable[0] > 1u )
       {
-        v10 = (unsigned __int64 *)&unk_140558040;
+        v10 = (unsigned __int64 *)&unk_140559040;
         do
         {
           if ( a2 < *v10 )
@@ -54,7 +54,7 @@ __int64 __fastcall RtlpInsertInvertedFunctionTableEntry(
     PsInvertedFunctionTable[2 * v11 + 8] = a4;
     PsInvertedFunctionTable[2 * v11 + 9] = a5;
     ++PsInvertedFunctionTable[0];
-    _InterlockedIncrement(&dword_140558018);
+    _InterlockedIncrement(&dword_140559018);
   }
   return result;
 }

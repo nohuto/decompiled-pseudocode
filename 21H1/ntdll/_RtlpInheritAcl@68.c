@@ -12,65 +12,83 @@
 int __thiscall RtlpInheritAcl(
         void *this,
         int a2,
-        int a3,
-        int a4,
+        char a3,
+        char a4,
         char a5,
         int a6,
         int a7,
         int a8,
         int a9,
-        int a10,
+        PGENERIC_MAPPING GenericMapping,
         int a11,
         int a12,
         int a13,
-        int *a14,
+        PVOID *a14,
         _BYTE *a15,
         _DWORD *a16)
 {
   void *ProcessHeap; // edi
   int v17; // ecx
-  int Heap; // eax
+  ACL *Heap; // eax
   int result; // eax
-  int v20; // [esp+14h] [ebp-Ch]
-  int v21; // [esp+18h] [ebp-8h]
-  int v22; // [esp+1Ch] [ebp-4h] BYREF
+  SIZE_T v20; // [esp-4h] [ebp-24h]
+  int v21; // [esp+14h] [ebp-Ch]
+  int v22; // [esp+18h] [ebp-8h]
+  int v23; // [esp+1Ch] [ebp-4h] BYREF
 
   ProcessHeap = NtCurrentPeb()->ProcessHeap;
   if ( a2 || this )
   {
     v17 = 200;
-    v22 = 200;
-    v21 = 0;
+    v23 = 200;
+    v22 = 0;
     while ( 1 )
     {
-      Heap = RtlAllocateHeap((int)ProcessHeap, NtdllBaseTag + 1310720, v17);
+      LODWORD(v20) = v17;
+      Heap = (ACL *)RtlAllocateHeap(ProcessHeap, NtdllBaseTag + 1310720, v20);
       *a14 = Heap;
       if ( !Heap )
         return -1073741801;
-      result = RtlpInheritAcl2(a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, &v22, Heap, a15, a16);
-      v20 = result;
+      result = RtlpInheritAcl2(
+                 a2,
+                 a3,
+                 a4,
+                 a5,
+                 a6,
+                 a7,
+                 a8,
+                 a9,
+                 GenericMapping,
+                 a11,
+                 a12,
+                 a13,
+                 (int)&v23,
+                 Heap,
+                 (int)a15,
+                 (int)a16);
+      v21 = result;
       if ( result >= 0 )
         break;
-      RtlFreeHeap((int)ProcessHeap, 0, *a14);
-      result = v20;
+      RtlFreeHeap(ProcessHeap, 0, *a14);
+      result = v21;
       *a14 = 0;
-      if ( v20 != -1073741789 )
+      if ( v21 != -1073741789 )
         return result;
-      if ( (unsigned int)++v21 >= 2 )
+      if ( (unsigned int)++v22 >= 2 )
         return result;
-      v17 = v22;
+      v17 = v23;
     }
-    if ( !v22 )
+    if ( !v23 )
     {
-      RtlFreeHeap((int)ProcessHeap, 0, *a14);
-      result = v20;
+      RtlFreeHeap(ProcessHeap, 0, *a14);
+      result = v21;
       *a14 = 0;
     }
   }
   else
   {
     *a15 = 0;
-    *a16 = (unsigned __int8)a4 != 0 ? 0x400 : 0;
+    *a16 = a4 != 0 ? 0x400 : 0;
     *a14 = 0;
     return -2147483637;
   }

@@ -1,22 +1,22 @@
 /*
- * XREFs of PspCompleteServerSiloShutdownDeferred @ 0x140772600
+ * XREFs of PspCompleteServerSiloShutdownDeferred @ 0x140772820
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObject @ 0x140325680 (ObfDereferenceObject.c)
- *     PsGetServerSiloGlobals @ 0x140349380 (PsGetServerSiloGlobals.c)
- *     PsGetServerSiloState @ 0x140349D3C (PsGetServerSiloState.c)
- *     PspSendJobNotification @ 0x140493C70 (PspSendJobNotification.c)
- *     PspAcquirePushLockShared @ 0x1404F541C (PspAcquirePushLockShared.c)
- *     PspReleasePushLockShared @ 0x1404F7900 (PspReleasePushLockShared.c)
- *     PspGetServerSiloStatePointer @ 0x1404FB1C0 (PspGetServerSiloStatePointer.c)
- *     PspDeleteExternalServerSiloState @ 0x140772928 (PspDeleteExternalServerSiloState.c)
- *     PspTerminateSiloSubsystemProcesses @ 0x1407736B8 (PspTerminateSiloSubsystemProcesses.c)
- *     PspGetNextMonitor @ 0x14077961C (PspGetNextMonitor.c)
- *     PspInvokeTerminateCallback @ 0x1407796A8 (PspInvokeTerminateCallback.c)
- *     EtwTraceJobServerSiloStateChange @ 0x1407A95D8 (EtwTraceJobServerSiloStateChange.c)
- *     PspUnlockJob @ 0x1408ED360 (PspUnlockJob.c)
- *     PspLockJobShared @ 0x1408ED5D4 (PspLockJobShared.c)
+ *     ObfDereferenceObject @ 0x1402CE210 (ObfDereferenceObject.c)
+ *     PsGetServerSiloGlobals @ 0x1403C2DC0 (PsGetServerSiloGlobals.c)
+ *     PsGetServerSiloState @ 0x1403C377C (PsGetServerSiloState.c)
+ *     PspSendJobNotification @ 0x14048E6FC (PspSendJobNotification.c)
+ *     PspAcquirePushLockShared @ 0x1404F2D1C (PspAcquirePushLockShared.c)
+ *     PspReleasePushLockShared @ 0x1404F51E0 (PspReleasePushLockShared.c)
+ *     PspGetServerSiloStatePointer @ 0x1404F8AA0 (PspGetServerSiloStatePointer.c)
+ *     PspDeleteExternalServerSiloState @ 0x140772B48 (PspDeleteExternalServerSiloState.c)
+ *     PspTerminateSiloSubsystemProcesses @ 0x1407738D8 (PspTerminateSiloSubsystemProcesses.c)
+ *     PspGetNextMonitor @ 0x14077971C (PspGetNextMonitor.c)
+ *     PspInvokeTerminateCallback @ 0x1407797A8 (PspInvokeTerminateCallback.c)
+ *     EtwTraceJobServerSiloStateChange @ 0x1407A9718 (EtwTraceJobServerSiloStateChange.c)
+ *     PspUnlockJob @ 0x14085EB90 (PspUnlockJob.c)
+ *     PspLockJobShared @ 0x14085EE04 (PspLockJobShared.c)
  */
 
 LONG_PTR __fastcall PspCompleteServerSiloShutdownDeferred(_QWORD *Object)

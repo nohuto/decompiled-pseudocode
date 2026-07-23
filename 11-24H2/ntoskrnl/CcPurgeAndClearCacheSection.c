@@ -1,18 +1,18 @@
 /*
- * XREFs of CcPurgeAndClearCacheSection @ 0x1404612E4
+ * XREFs of CcPurgeAndClearCacheSection @ 0x1404568F4
  * Callers:
- *     CcSetFileSizesEx @ 0x1404A6800 (CcSetFileSizesEx.c)
+ *     CcSetFileSizesEx @ 0x1404A10D0 (CcSetFileSizesEx.c)
  * Callees:
- *     CcPurgeCacheSection @ 0x14023EF70 (CcPurgeCacheSection.c)
- *     MmSetAddressRangeModifiedEx @ 0x140240600 (MmSetAddressRangeModifiedEx.c)
- *     MmFlushSection @ 0x140240CC4 (MmFlushSection.c)
- *     ObFastDereferenceObjectDeferDelete @ 0x140240FA0 (ObFastDereferenceObjectDeferDelete.c)
- *     CcReferenceSharedCacheMapFileObject @ 0x14024109C (CcReferenceSharedCacheMapFileObject.c)
- *     KeSetEvent @ 0x1402725A0 (KeSetEvent.c)
- *     CcGetVirtualAddress @ 0x140273EF0 (CcGetVirtualAddress.c)
- *     CcSetDirtyInMask @ 0x1404614E0 (CcSetDirtyInMask.c)
- *     CcUpdateSharedCacheMapFlag @ 0x140461D64 (CcUpdateSharedCacheMapFlag.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     CcPurgeCacheSection @ 0x1402070C0 (CcPurgeCacheSection.c)
+ *     MmSetAddressRangeModifiedEx @ 0x140208750 (MmSetAddressRangeModifiedEx.c)
+ *     MmFlushSection @ 0x140208E14 (MmFlushSection.c)
+ *     ObFastDereferenceObjectDeferDelete @ 0x1402090F0 (ObFastDereferenceObjectDeferDelete.c)
+ *     CcReferenceSharedCacheMapFileObject @ 0x1402091EC (CcReferenceSharedCacheMapFileObject.c)
+ *     KeSetEvent @ 0x140227B30 (KeSetEvent.c)
+ *     CcGetVirtualAddress @ 0x140229480 (CcGetVirtualAddress.c)
+ *     CcSetDirtyInMask @ 0x140456AF0 (CcSetDirtyInMask.c)
+ *     CcUpdateSharedCacheMapFlag @ 0x140457374 (CcUpdateSharedCacheMapFlag.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 __int64 __fastcall CcPurgeAndClearCacheSection(_QWORD *a1, LARGE_INTEGER *a2)
@@ -68,7 +68,7 @@ __int64 __fastcall CcPurgeAndClearCacheSection(_QWORD *a1, LARGE_INTEGER *a2)
     }
     goto LABEL_2;
   }
-  MmFlushSection(*(__int64 **)(v4 + 40), &v14, 1LL, 0LL, v17, 0);
+  MmFlushSection(*(_QWORD *)(v4 + 40), &v14, 1LL, 0LL, v17, 0);
   result = LODWORD(v17[0]);
   if ( SLODWORD(v17[0]) >= 0 )
   {

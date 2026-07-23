@@ -8,18 +8,28 @@
  *     sub_1800F02EC @ 0x1800F02EC (sub_1800F02EC.c)
  */
 
-char __fastcall RtlFlushSecureMemoryCache(__int64 a1, __int64 a2)
+BOOLEAN __cdecl RtlFlushSecureMemoryCache(PVOID MemoryCache, SIZE_T MemoryLength)
 {
-  int v4; // [rsp+3Ch] [rbp-1Ch]
-  __int64 v5; // [rsp+40h] [rbp-18h]
+  _BYTE MemoryInformation[12]; // [rsp+30h] [rbp-28h] BYREF
+  int v5; // [rsp+3Ch] [rbp-1Ch]
+  SIZE_T v6; // [rsp+40h] [rbp-18h]
 
-  if ( off_180156A40 == (_UNKNOWN *)&off_180156A40 )
+  if ( off_180156A40 == &off_180156A40 )
     return 0;
-  if ( !a2 )
+  if ( !MemoryLength )
   {
-    if ( (int)ZwQueryVirtualMemory() < 0 || v4 == 0x10000 )
+    if ( ZwQueryVirtualMemory(
+           (HANDLE)0xFFFFFFFFFFFFFFFFLL,
+           MemoryCache,
+           MemoryRegionInformation,
+           MemoryInformation,
+           0x20uLL,
+           0LL) < 0
+      || v5 == 0x10000 )
+    {
       return 0;
-    a2 = v5;
+    }
+    MemoryLength = v6;
   }
-  return sub_1800F02EC(a1, a2);
+  return sub_1800F02EC(MemoryCache, MemoryLength);
 }

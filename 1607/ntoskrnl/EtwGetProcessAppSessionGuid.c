@@ -1,9 +1,9 @@
 /*
- * XREFs of EtwGetProcessAppSessionGuid @ 0x14054BF40
+ * XREFs of EtwGetProcessAppSessionGuid @ 0x14054C480
  * Callers:
- *     MiLogCommitRequestFailed @ 0x1401ECE34 (MiLogCommitRequestFailed.c)
+ *     MiLogCommitRequestFailed @ 0x1401ECC60 (MiLogCommitRequestFailed.c)
  * Callees:
- *     PsGetProcessSessionId @ 0x140014150 (PsGetProcessSessionId.c)
+ *     PsGetProcessSessionId @ 0x140013CD0 (PsGetProcessSessionId.c)
  */
 
 __int64 __fastcall EtwGetProcessAppSessionGuid(__int64 a1, __int64 a2)

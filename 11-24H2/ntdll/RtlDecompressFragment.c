@@ -1,32 +1,32 @@
 /*
- * XREFs of RtlDecompressFragment @ 0x1801435D0
+ * XREFs of RtlDecompressFragment @ 0x180141980
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x180172020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
+ *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x180171020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
  */
 
-__int64 __fastcall RtlDecompressFragment(
-        unsigned __int8 a1,
-        __int64 a2,
-        unsigned int a3,
-        __int64 a4,
-        unsigned int a5,
-        int a6,
-        __int64 a7,
-        __int64 a8)
+NTSTATUS __cdecl RtlDecompressFragment(
+        USHORT CompressionFormat,
+        PUCHAR UncompressedFragment,
+        ULONG UncompressedFragmentSize,
+        PUCHAR CompressedBuffer,
+        ULONG CompressedBufferSize,
+        ULONG FragmentOffset,
+        PULONG FinalUncompressedSize,
+        PVOID WorkSpace)
 {
-  if ( a1 < 2u )
-    return 3221225485LL;
-  if ( a1 <= 8u )
-    return ((__int64 (__fastcall *)(__int64, _QWORD, __int64, _QWORD, int, _DWORD, __int64, __int64))RtlDecompressFragmentProcs[a1])(
-             a2,
-             a3,
-             a4,
-             a5,
-             a6,
+  if ( (unsigned __int8)CompressionFormat < 2u )
+    return -1073741811;
+  if ( (unsigned __int8)CompressionFormat <= 8u )
+    return ((__int64 (__fastcall *)(PUCHAR, _QWORD, PUCHAR, _QWORD, ULONG, _DWORD, PULONG, PVOID))RtlDecompressFragmentProcs[(unsigned __int8)CompressionFormat])(
+             UncompressedFragment,
+             UncompressedFragmentSize,
+             CompressedBuffer,
+             CompressedBufferSize,
+             FragmentOffset,
              0,
-             a7,
-             a8);
-  return 3221226079LL;
+             FinalUncompressedSize,
+             WorkSpace);
+  return -1073741217;
 }

@@ -1,8 +1,8 @@
 /*
- * XREFs of IoCheckEaBufferValidity @ 0x14060CAB0
+ * XREFs of IoCheckEaBufferValidity @ 0x14069C560
  * Callers:
- *     IopCreateFile @ 0x14060B4C0 (IopCreateFile.c)
- *     NtSetEaFile @ 0x140730CB0 (NtSetEaFile.c)
+ *     IopCreateFile @ 0x14069AF70 (IopCreateFile.c)
+ *     NtSetEaFile @ 0x140730E70 (NtSetEaFile.c)
  * Callees:
  *     <none>
  */

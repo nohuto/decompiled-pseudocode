@@ -1,9 +1,9 @@
 /*
- * XREFs of MiWaitForAsynchronousFlushes @ 0x1401EB0D0
+ * XREFs of MiWaitForAsynchronousFlushes @ 0x1401EAEFC
  * Callers:
- *     MiFlushSectionInternal @ 0x140029DB0 (MiFlushSectionInternal.c)
+ *     MiFlushSectionInternal @ 0x140029930 (MiFlushSectionInternal.c)
  * Callees:
- *     KeWaitForMultipleObjects @ 0x14005A2E0 (KeWaitForMultipleObjects.c)
+ *     KeWaitForMultipleObjects @ 0x140059E60 (KeWaitForMultipleObjects.c)
  */
 
 __int64 __fastcall MiWaitForAsynchronousFlushes(unsigned int *a1)

@@ -1,7 +1,7 @@
 /*
- * XREFs of KiLoadPolicyFromImage @ 0x140A90900
+ * XREFs of KiLoadPolicyFromImage @ 0x140A90780
  * Callers:
- *     KiIntersectFeaturesWithPolicy @ 0x140A90724 (KiIntersectFeaturesWithPolicy.c)
+ *     KiIntersectFeaturesWithPolicy @ 0x140A905A4 (KiIntersectFeaturesWithPolicy.c)
  * Callees:
  *     KeHwPolicyLocateResource @ 0x140B60390 (KeHwPolicyLocateResource.c)
  */

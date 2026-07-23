@@ -64,7 +64,7 @@ char __fastcall MiInitializeAllResidentPageBasePfns(
       *((_QWORD *)&v30 + 1) |= 0x8000000000000000uLL;
     CurrentIrql = KeGetCurrentIrql();
     __writecr8(2uLL);
-    if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+    if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
     {
       SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
       LODWORD(v22) = 4;
@@ -126,10 +126,10 @@ char __fastcall MiInitializeAllResidentPageBasePfns(
   }
   if ( CurrentIrql != 17 )
   {
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v23 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v23 <= 0xFu && CurrentIrql <= 0xFu && v23 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v23 <= 0xFu && CurrentIrql <= 0xFu && v23 >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         v25 = CurrentPrcb->SchedulerAssist;

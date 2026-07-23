@@ -1,9 +1,9 @@
 /*
- * XREFs of MiReleasePageHash @ 0x140666C3C
+ * XREFs of MiReleasePageHash @ 0x14066718C
  * Callers:
- *     MiDeletePagefile @ 0x140A32800 (MiDeletePagefile.c)
+ *     MiDeletePagefile @ 0x140A32AB0 (MiDeletePagefile.c)
  * Callees:
- *     MiReleasePtes @ 0x1402CB8E0 (MiReleasePtes.c)
+ *     MiReleasePtes @ 0x1402CBB70 (MiReleasePtes.c)
  */
 
 unsigned __int64 __fastcall MiReleasePageHash(unsigned __int64 a1, unsigned int a2)

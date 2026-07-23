@@ -8,27 +8,27 @@
  *     RtlSetProcessDebugInformation @ 0x1800CD370 (RtlSetProcessDebugInformation.c)
  */
 
-void __fastcall __noreturn RtlpSetProcessDebugInformationRemote(__int64 a1)
+void __fastcall __noreturn RtlpSetProcessDebugInformationRemote(_RTL_DEBUG_INFORMATION *BaseAddress)
 {
-  __int64 v2; // rcx
-  __int64 v3; // rax
-  __int64 v4; // rax
-  unsigned int v5; // eax
-  unsigned int v6; // ebx
+  ULONG_PTR ViewBaseDelta; // rcx
+  PRTL_PROCESS_VERIFIER_OPTIONS VerifierOptions; // rax
+  PRTL_PROCESS_BACKTRACES BackTraces; // rax
+  NTSTATUS v5; // eax
+  NTSTATUS v6; // ebx
 
-  v2 = *(_QWORD *)(a1 + 24);
-  if ( v2 )
+  ViewBaseDelta = BaseAddress->ViewBaseDelta;
+  if ( ViewBaseDelta )
   {
-    v3 = *(_QWORD *)(a1 + 144);
-    if ( v3 )
-      *(_QWORD *)(a1 + 144) = v3 - v2;
-    v4 = *(_QWORD *)(a1 + 104);
-    if ( v4 )
-      *(_QWORD *)(a1 + 104) = v4 - v2;
+    VerifierOptions = BaseAddress->VerifierOptions;
+    if ( VerifierOptions )
+      BaseAddress->VerifierOptions = (PRTL_PROCESS_VERIFIER_OPTIONS)((char *)VerifierOptions - ViewBaseDelta);
+    BackTraces = BaseAddress->BackTraces;
+    if ( BackTraces )
+      BaseAddress->BackTraces = (PRTL_PROCESS_BACKTRACES)((char *)BackTraces - ViewBaseDelta);
   }
-  v5 = RtlSetProcessDebugInformation(NtCurrentTeb()->ClientId.UniqueProcess, *(_DWORD *)(a1 + 64), a1);
-  *(_QWORD *)(a1 + 16) = 0LL;
+  v5 = RtlSetProcessDebugInformation(NtCurrentTeb()->ClientId.UniqueProcess, BaseAddress->Flags, BaseAddress);
+  BaseAddress->ViewBaseTarget = 0LL;
   v6 = v5;
-  NtUnmapViewOfSection();
+  NtUnmapViewOfSection((HANDLE)0xFFFFFFFFFFFFFFFFLL, BaseAddress);
   RtlExitUserThread(v6);
 }

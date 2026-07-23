@@ -1,24 +1,24 @@
 /*
- * XREFs of KeFlushProcessWriteBuffers @ 0x14027AD04
+ * XREFs of KeFlushProcessWriteBuffers @ 0x140268CA4
  * Callers:
- *     KeQueryTotalCycleTimeThread @ 0x14022EEF0 (KeQueryTotalCycleTimeThread.c)
- *     KeFlushTb @ 0x140230120 (KeFlushTb.c)
- *     KeFlushSingleTb @ 0x14026BA08 (KeFlushSingleTb.c)
- *     NtFlushProcessWriteBuffers @ 0x14027A990 (NtFlushProcessWriteBuffers.c)
- *     PoFxSendSystemLatencyUpdate @ 0x140281818 (PoFxSendSystemLatencyUpdate.c)
- *     KeSetPriorityAndQuantumProcess @ 0x1402E9944 (KeSetPriorityAndQuantumProcess.c)
- *     KeFlushMultipleRangeTb @ 0x14033B620 (KeFlushMultipleRangeTb.c)
- *     PpmClearExitLatencySamplingPercentage @ 0x140565804 (PpmClearExitLatencySamplingPercentage.c)
- *     PpmSetExitLatencySamplingPercentage @ 0x1405676C4 (PpmSetExitLatencySamplingPercentage.c)
- *     ExpQuerySystemInformation @ 0x140651070 (ExpQuerySystemInformation.c)
- *     PspTerminateAllThreads @ 0x1406D9E50 (PspTerminateAllThreads.c)
- *     ExpGetProcessInformation @ 0x1406F1260 (ExpGetProcessInformation.c)
- *     PsQueryTotalCycleTimeProcess @ 0x1409078C0 (PsQueryTotalCycleTimeProcess.c)
+ *     KeFlushSingleTb @ 0x1402599A8 (KeFlushSingleTb.c)
+ *     NtFlushProcessWriteBuffers @ 0x140268930 (NtFlushProcessWriteBuffers.c)
+ *     PoFxSendSystemLatencyUpdate @ 0x14026FA58 (PoFxSendSystemLatencyUpdate.c)
+ *     KeSetPriorityAndQuantumProcess @ 0x14029AC94 (KeSetPriorityAndQuantumProcess.c)
+ *     KeQueryTotalCycleTimeThread @ 0x1402D3740 (KeQueryTotalCycleTimeThread.c)
+ *     KeFlushTb @ 0x1402D4970 (KeFlushTb.c)
+ *     KeFlushMultipleRangeTb @ 0x140346370 (KeFlushMultipleRangeTb.c)
+ *     PpmClearExitLatencySamplingPercentage @ 0x140565A44 (PpmClearExitLatencySamplingPercentage.c)
+ *     PpmSetExitLatencySamplingPercentage @ 0x140567904 (PpmSetExitLatencySamplingPercentage.c)
+ *     ExpQuerySystemInformation @ 0x140645E90 (ExpQuerySystemInformation.c)
+ *     PspTerminateAllThreads @ 0x1406B1130 (PspTerminateAllThreads.c)
+ *     ExpGetProcessInformation @ 0x140708640 (ExpGetProcessInformation.c)
+ *     PsQueryTotalCycleTimeProcess @ 0x140907A20 (PsQueryTotalCycleTimeProcess.c)
  * Callees:
- *     KiIpiSendPacket @ 0x14027AE48 (KiIpiSendPacket.c)
- *     KeCountSetBitsAffinityEx @ 0x14027B480 (KeCountSetBitsAffinityEx.c)
- *     KeCopyAffinityEx @ 0x14033B450 (KeCopyAffinityEx.c)
- *     KeRemoveProcessorAffinityEx @ 0x14033B4A0 (KeRemoveProcessorAffinityEx.c)
+ *     KiIpiSendPacket @ 0x140268DE8 (KiIpiSendPacket.c)
+ *     KeCountSetBitsAffinityEx @ 0x140269420 (KeCountSetBitsAffinityEx.c)
+ *     KeCopyAffinityEx @ 0x1403461A0 (KeCopyAffinityEx.c)
+ *     KeRemoveProcessorAffinityEx @ 0x1403461F0 (KeRemoveProcessorAffinityEx.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 

@@ -1,16 +1,16 @@
 /*
- * XREFs of MmEnableModifiedWriteOfSection @ 0x1401E5C5C
+ * XREFs of MmEnableModifiedWriteOfSection @ 0x1401E5A88
  * Callers:
- *     CcClearPrivateWriteFile @ 0x1401B1FD8 (CcClearPrivateWriteFile.c)
+ *     CcClearPrivateWriteFile @ 0x1401B1EBC (CcClearPrivateWriteFile.c)
  * Callees:
- *     KeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x14001BCF0 (KeAcquireInStackQueuedSpinLockAtDpcLevel.c)
- *     MiLockSectionControlArea @ 0x1400218CC (MiLockSectionControlArea.c)
- *     ExReleaseSpinLockExclusive @ 0x14002E9A0 (ExReleaseSpinLockExclusive.c)
- *     MiUnlinkPageFromList @ 0x140065A40 (MiUnlinkPageFromList.c)
- *     MiPartitionIdToPointer @ 0x1400680A0 (MiPartitionIdToPointer.c)
- *     KxReleaseQueuedSpinLock @ 0x140069570 (KxReleaseQueuedSpinLock.c)
- *     MiInsertPageInList @ 0x1400695D0 (MiInsertPageInList.c)
- *     MiGetPrototypePteDirect @ 0x1401F26B0 (MiGetPrototypePteDirect.c)
+ *     KeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x14001B870 (KeAcquireInStackQueuedSpinLockAtDpcLevel.c)
+ *     MiLockSectionControlArea @ 0x14002144C (MiLockSectionControlArea.c)
+ *     ExReleaseSpinLockExclusive @ 0x14002E520 (ExReleaseSpinLockExclusive.c)
+ *     MiUnlinkPageFromList @ 0x1400655C0 (MiUnlinkPageFromList.c)
+ *     MiPartitionIdToPointer @ 0x140067C20 (MiPartitionIdToPointer.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400690F0 (KxReleaseQueuedSpinLock.c)
+ *     MiInsertPageInList @ 0x140069150 (MiInsertPageInList.c)
+ *     MiGetPrototypePteDirect @ 0x1401F24DC (MiGetPrototypePteDirect.c)
  */
 
 char __fastcall MmEnableModifiedWriteOfSection(_QWORD *a1)

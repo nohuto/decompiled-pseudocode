@@ -3,7 +3,7 @@
  * Callers:
  *     <none>
  * Callees:
- *     IopSetDiskIoAttributionExtension @ 0x1400DF570 (IopSetDiskIoAttributionExtension.c)
+ *     IopSetDiskIoAttributionExtension @ 0x1400DF5F0 (IopSetDiskIoAttributionExtension.c)
  */
 
 __int64 __fastcall IoUpdateIrpIoAttributionHandle(__int64 a1, __int64 a2)

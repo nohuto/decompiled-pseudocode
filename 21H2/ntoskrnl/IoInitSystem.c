@@ -1,17 +1,17 @@
 /*
- * XREFs of IoInitSystem @ 0x140A66E8C
+ * XREFs of IoInitSystem @ 0x140A67E8C
  * Callers:
- *     Phase1Initialization @ 0x1407B3AA0 (Phase1Initialization.c)
+ *     Phase1Initialization @ 0x1407B3C40 (Phase1Initialization.c)
  * Callees:
- *     PnpSerializeBoot @ 0x1403CEA90 (PnpSerializeBoot.c)
- *     IopRegistryInitializeCallbacks @ 0x1407B3B90 (IopRegistryInitializeCallbacks.c)
- *     VfNotifyVerifierOfEvent @ 0x1409C6050 (VfNotifyVerifierOfEvent.c)
- *     HdlspKernelAddLogEntry @ 0x1409EF9AC (HdlspKernelAddLogEntry.c)
- *     IoInitSystemPreDrivers @ 0x140A3EB60 (IoInitSystemPreDrivers.c)
- *     IopInitializeSystemDrivers @ 0x140A5D754 (IopInitializeSystemDrivers.c)
+ *     PnpSerializeBoot @ 0x1403CEC00 (PnpSerializeBoot.c)
+ *     IopRegistryInitializeCallbacks @ 0x1407B3D30 (IopRegistryInitializeCallbacks.c)
+ *     VfNotifyVerifierOfEvent @ 0x1409C7050 (VfNotifyVerifierOfEvent.c)
+ *     HdlspKernelAddLogEntry @ 0x1409F09AC (HdlspKernelAddLogEntry.c)
+ *     IoInitSystemPreDrivers @ 0x140A3FB60 (IoInitSystemPreDrivers.c)
+ *     IopInitializeSystemDrivers @ 0x140A5E754 (IopInitializeSystemDrivers.c)
  */
 
-char __fastcall IoInitSystem(__int64 a1)
+char __fastcall IoInitSystem(_QWORD *a1)
 {
   if ( !IoInitSystemPreDrivers(a1) )
     return 0;

@@ -9,13 +9,13 @@
  *     __security_check_cookie @ 0x18008C7B0 (__security_check_cookie.c)
  */
 
-__int64 __fastcall sub_1800CC218(int a1, __int64 a2, __int64 a3)
+NTSTATUS __fastcall sub_1800CC218(int a1, __int64 a2, __int64 a3)
 {
-  void *v3; // rbx
+  const EVENT_DESCRIPTOR *v3; // rbx
   __int64 v4; // rcx
   __int64 v5; // rax
-  __int64 result; // rax
-  unsigned __int64 v7; // [rsp+20h] [rbp-40h] BYREF
+  NTSTATUS result; // eax
+  ULONGLONG RegHandle; // [rsp+20h] [rbp-40h] BYREF
   __int64 v8; // [rsp+28h] [rbp-38h] BYREF
   int v9; // [rsp+30h] [rbp-30h]
   int v10; // [rsp+34h] [rbp-2Ch]
@@ -29,13 +29,13 @@ __int64 __fastcall sub_1800CC218(int a1, __int64 a2, __int64 a3)
   v16 = a1;
   if ( a1 == -1073740673 )
   {
-    v3 = &unk_18012C110;
+    v3 = &stru_18012C110;
   }
   else
   {
-    v3 = &unk_18012C130;
+    v3 = (const EVENT_DESCRIPTOR *)&unk_18012C130;
     if ( a1 != -1073740674 )
-      v3 = &unk_18012C190;
+      v3 = (const EVENT_DESCRIPTOR *)&unk_18012C190;
   }
   v4 = -1LL;
   v8 = a2;
@@ -53,11 +53,11 @@ __int64 __fastcall sub_1800CC218(int a1, __int64 a2, __int64 a3)
   while ( *(_WORD *)(a3 + 2 * v4) );
   v15 = 0;
   v14 = 2 * v4 + 2;
-  result = EtwEventRegister((int)&unk_18012C1C0, 0LL, 0LL, (__int64)&v7);
-  if ( !(_DWORD)result )
+  result = EtwEventRegister(&stru_18012C1C0, 0LL, 0LL, &RegHandle);
+  if ( !result )
   {
-    EtwEventWrite(v7, (int)v3, 3, (__int64)&v8);
-    return EtwNotificationUnregister(v7, 0LL);
+    EtwEventWrite(RegHandle, v3, 3u, (PEVENT_DATA_DESCRIPTOR)&v8);
+    return EtwNotificationUnregister(RegHandle, 0LL);
   }
   return result;
 }

@@ -6,9 +6,9 @@
  *     <none>
  */
 
-int __stdcall RtlLockBootStatusData(_DWORD *a1)
+NTSTATUS __cdecl RtlLockBootStatusData(PHANDLE FileHandle)
 {
-  if ( a1 )
-    *a1 = 0;
+  if ( FileHandle )
+    *FileHandle = 0;
   return -1073741637;
 }

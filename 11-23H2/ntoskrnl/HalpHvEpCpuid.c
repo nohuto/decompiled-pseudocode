@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpHvEpCpuid @ 0x14050B310
+ * XREFs of HalpHvEpCpuid @ 0x14050B860
  * Callers:
  *     <none>
  * Callees:
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
  */
 
 __int64 (__fastcall *__fastcall HalpHvEpCpuid(

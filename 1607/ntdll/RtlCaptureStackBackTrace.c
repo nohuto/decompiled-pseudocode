@@ -1,16 +1,16 @@
 /*
- * XREFs of RtlCaptureStackBackTrace @ 0x1800325B0
+ * XREFs of RtlCaptureStackBackTrace @ 0x1800325A0
  * Callers:
- *     RtlReleaseActivationContext @ 0x18003B790 (RtlReleaseActivationContext.c)
- *     RtlActivateActivationContextEx @ 0x180068C40 (RtlActivateActivationContextEx.c)
- *     RtlpHeapTrkTrackStack @ 0x18008EDAC (RtlpHeapTrkTrackStack.c)
+ *     RtlReleaseActivationContext @ 0x18003B780 (RtlReleaseActivationContext.c)
+ *     RtlActivateActivationContextEx @ 0x180068C30 (RtlActivateActivationContextEx.c)
+ *     RtlpHeapTrkTrackStack @ 0x18008ED9C (RtlpHeapTrkTrackStack.c)
  *     RtlpLogHeapFailure @ 0x1800A5E64 (RtlpLogHeapFailure.c)
- *     RtlGetCallersAddress @ 0x1800E4F60 (RtlGetCallersAddress.c)
+ *     RtlGetCallersAddress @ 0x1800E5020 (RtlGetCallersAddress.c)
  *     RtlStdLogStackTrace @ 0x1800F2850 (RtlStdLogStackTrace.c)
  *     RtlpHpStackTraceAddStack @ 0x1800F80E4 (RtlpHpStackTraceAddStack.c)
  *     RtlpStackTraceDatabaseLogPrefix @ 0x1800F9D90 (RtlpStackTraceDatabaseLogPrefix.c)
  * Callees:
- *     RtlWalkFrameChain @ 0x180032650 (RtlWalkFrameChain.c)
+ *     RtlWalkFrameChain @ 0x180032640 (RtlWalkFrameChain.c)
  */
 
 USHORT __stdcall RtlCaptureStackBackTrace(

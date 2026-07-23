@@ -19,5 +19,5 @@ NTSTATUS __stdcall ZwCreateProfile(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(ProfileHandle, ProcessHandle, ImageBase);
+  return KiServiceInternal(ProfileHandle);
 }

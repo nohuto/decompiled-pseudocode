@@ -1,54 +1,50 @@
 /*
- * XREFs of FsRtlTeardownPerStreamContexts @ 0x1409A4760
+ * XREFs of FsRtlTeardownPerStreamContexts @ 0x1408AE450
  * Callers:
- *     RawCleanupVcb @ 0x1409A46D4 (RawCleanupVcb.c)
+ *     RawCleanupVcb @ 0x1408AE3C4 (RawCleanupVcb.c)
  * Callees:
- *     KeReleaseGuardedMutex @ 0x14031E470 (KeReleaseGuardedMutex.c)
- *     ExAcquireFastMutex @ 0x14033E850 (ExAcquireFastMutex.c)
- *     FsRtlAcquireAutoExpandPushLockExclusive @ 0x1403C576C (FsRtlAcquireAutoExpandPushLockExclusive.c)
- *     FsRtlReleaseAutoExpandPushLockExclusive @ 0x1403C58E4 (FsRtlReleaseAutoExpandPushLockExclusive.c)
- *     FsRtlReleasePushLock @ 0x1403C5B48 (FsRtlReleasePushLock.c)
- *     FsRtlAcquirePushLockExclusive @ 0x1403C5B9C (FsRtlAcquirePushLockExclusive.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     ExFreePool @ 0x140B72CB0 (ExFreePool.c)
+ *     KeReleaseGuardedMutex @ 0x1402C7000 (KeReleaseGuardedMutex.c)
+ *     ExAcquireFastMutex @ 0x14031DD30 (ExAcquireFastMutex.c)
+ *     FsRtlAcquireAutoExpandPushLockExclusive @ 0x1403B432C (FsRtlAcquireAutoExpandPushLockExclusive.c)
+ *     FsRtlReleaseAutoExpandPushLockExclusive @ 0x1403B44A4 (FsRtlReleaseAutoExpandPushLockExclusive.c)
+ *     FsRtlReleasePushLock @ 0x1403B4708 (FsRtlReleasePushLock.c)
+ *     FsRtlAcquirePushLockExclusive @ 0x1403B475C (FsRtlAcquirePushLockExclusive.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     ExFreePool @ 0x140B74850 (ExFreePool.c)
  */
 
 void __stdcall FsRtlTeardownPerStreamContexts(PFSRTL_ADVANCED_FCB_HEADER AdvancedHeader)
 {
   __int64 v1; // rdx
-  __int64 v2; // r8
-  __int64 v3; // r9
   _FSRTL_PER_STREAM_CONTEXT *ReservedContext; // rcx
   _LIST_ENTRY *p_FilterContexts; // rdi
-  unsigned __int8 v7; // al
+  unsigned __int8 v5; // al
   void *AePushLock; // rcx
   void (__stdcall **Flink)(PVOID); // rsi
-  void (__stdcall *v10)(PVOID); // rax
-  unsigned __int8 v11; // al
-  _DWORD *v12; // rcx
-  __int64 v13; // rdx
-  __int64 v14; // r8
-  __int64 v15; // r9
-  unsigned __int8 v16; // al
-  unsigned __int8 v17; // al
-  _DWORD *v18; // rcx
+  void (__stdcall *v8)(PVOID); // rax
+  unsigned __int8 v9; // al
+  _DWORD *v10; // rcx
+  __int64 v11; // rdx
+  unsigned __int8 v12; // al
+  unsigned __int8 v13; // al
+  _DWORD *v14; // rcx
 
   if ( (*((_BYTE *)AdvancedHeader + 7) & 0xF0u) >= 0x50 )
   {
     ReservedContext = AdvancedHeader->ReservedContext;
     if ( ReservedContext )
     {
-      guard_dispatch_icall_no_overrides(ReservedContext, v1, v2, v3);
+      guard_dispatch_icall_no_overrides(ReservedContext, v1);
       AdvancedHeader->ReservedContext = 0LL;
     }
   }
   p_FilterContexts = &AdvancedHeader->FilterContexts;
   if ( p_FilterContexts->Flink != p_FilterContexts )
   {
-    v7 = *((_BYTE *)AdvancedHeader + 7) >> 4;
-    if ( v7 < 3u || (AePushLock = AdvancedHeader->AePushLock) == 0LL )
+    v5 = *((_BYTE *)AdvancedHeader + 7) >> 4;
+    if ( v5 < 3u || (AePushLock = AdvancedHeader->AePushLock) == 0LL )
     {
-      if ( !v7 )
+      if ( !v5 )
         goto LABEL_24;
       goto LABEL_21;
     }
@@ -59,17 +55,17 @@ LABEL_7:
       Flink = (void (__stdcall **)(PVOID))p_FilterContexts->Flink;
       if ( p_FilterContexts->Flink == p_FilterContexts )
         break;
-      v10 = *Flink;
-      if ( (char *)Flink[1] != (char *)p_FilterContexts || *((void (__stdcall ***)(PVOID))v10 + 1) != Flink )
+      v8 = *Flink;
+      if ( (char *)Flink[1] != (char *)p_FilterContexts || *((void (__stdcall ***)(PVOID))v8 + 1) != Flink )
         __fastfail(3u);
-      p_FilterContexts->Flink = (struct _LIST_ENTRY *)v10;
-      *((_QWORD *)v10 + 1) = p_FilterContexts;
-      v11 = *((_BYTE *)AdvancedHeader + 7) >> 4;
-      if ( v11 >= 3u && (v12 = AdvancedHeader->AePushLock) != 0LL )
+      p_FilterContexts->Flink = (struct _LIST_ENTRY *)v8;
+      *((_QWORD *)v8 + 1) = p_FilterContexts;
+      v9 = *((_BYTE *)AdvancedHeader + 7) >> 4;
+      if ( v9 >= 3u && (v10 = AdvancedHeader->AePushLock) != 0LL )
       {
-        FsRtlReleaseAutoExpandPushLockExclusive(v12);
+        FsRtlReleaseAutoExpandPushLockExclusive(v10);
       }
-      else if ( v11 )
+      else if ( v9 )
       {
         FsRtlReleasePushLock((signed __int64 *)&AdvancedHeader->PushLock);
       }
@@ -80,27 +76,27 @@ LABEL_7:
       if ( Flink[4] == ExFreePool )
         ExFreePool(Flink);
       else
-        guard_dispatch_icall_no_overrides(Flink, v13, v14, v15);
-      v16 = *((_BYTE *)AdvancedHeader + 7) >> 4;
-      if ( v16 >= 3u )
+        guard_dispatch_icall_no_overrides(Flink, v11);
+      v12 = *((_BYTE *)AdvancedHeader + 7) >> 4;
+      if ( v12 >= 3u )
       {
         AePushLock = AdvancedHeader->AePushLock;
         if ( AePushLock )
           goto LABEL_7;
       }
-      if ( v16 )
+      if ( v12 )
 LABEL_21:
         FsRtlAcquirePushLockExclusive((unsigned __int64 *)&AdvancedHeader->PushLock);
       else
 LABEL_24:
         ExAcquireFastMutex(AdvancedHeader->FastMutex);
     }
-    v17 = *((_BYTE *)AdvancedHeader + 7) >> 4;
-    if ( v17 >= 3u && (v18 = AdvancedHeader->AePushLock) != 0LL )
+    v13 = *((_BYTE *)AdvancedHeader + 7) >> 4;
+    if ( v13 >= 3u && (v14 = AdvancedHeader->AePushLock) != 0LL )
     {
-      FsRtlReleaseAutoExpandPushLockExclusive(v18);
+      FsRtlReleaseAutoExpandPushLockExclusive(v14);
     }
-    else if ( v17 )
+    else if ( v13 )
     {
       FsRtlReleasePushLock((signed __int64 *)&AdvancedHeader->PushLock);
     }

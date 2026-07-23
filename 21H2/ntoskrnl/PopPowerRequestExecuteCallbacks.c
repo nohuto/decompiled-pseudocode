@@ -1,10 +1,10 @@
 /*
- * XREFs of PopPowerRequestExecuteCallbacks @ 0x1402826D8
+ * XREFs of PopPowerRequestExecuteCallbacks @ 0x140270918
  * Callers:
- *     PopPowerRequestCallbackWorker @ 0x1402825A0 (PopPowerRequestCallbackWorker.c)
- *     PopPowerRequestCleanUp @ 0x14028278C (PopPowerRequestCleanUp.c)
+ *     PopPowerRequestCallbackWorker @ 0x1402707E0 (PopPowerRequestCallbackWorker.c)
+ *     PopPowerRequestCleanUp @ 0x140270A38 (PopPowerRequestCleanUp.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
  */
 
 __int64 (__fastcall **__fastcall PopPowerRequestExecuteCallbacks(

@@ -6,11 +6,11 @@
  *     <none>
  */
 
-__int64 NtIsProcessInJob()
+NTSTATUS __cdecl NtIsProcessInJob(HANDLE ProcessHandle, HANDLE JobHandle)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 79LL;
+  result = 79;
   __asm { syscall; Low latency system call }
   return result;
 }

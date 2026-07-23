@@ -1,23 +1,23 @@
 /*
- * XREFs of NtSystemDebugControl @ 0x1404DE844
+ * XREFs of NtSystemDebugControl @ 0x1404C1E48
  * Callers:
  *     <none>
  * Callees:
- *     ExUnlockUserBuffer @ 0x140086998 (ExUnlockUserBuffer.c)
- *     DbgBreakPointWithStatus @ 0x140166D80 (DbgBreakPointWithStatus.c)
- *     memmove @ 0x140171280 (memmove.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     DbgkCaptureLiveKernelDump @ 0x1401B7A80 (DbgkCaptureLiveKernelDump.c)
- *     KdDisableDebugger @ 0x1401D1550 (KdDisableDebugger.c)
- *     KdEnableDebugger @ 0x1401D1624 (KdEnableDebugger.c)
- *     KdSetDbgPrintBufferSize @ 0x1401D194C (KdSetDbgPrintBufferSize.c)
+ *     ExUnlockUserBuffer @ 0x140088288 (ExUnlockUserBuffer.c)
+ *     DbgBreakPointWithStatus @ 0x1401672F0 (DbgBreakPointWithStatus.c)
+ *     memmove @ 0x140171780 (memmove.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     DbgkCaptureLiveKernelDump @ 0x1401B7964 (DbgkCaptureLiveKernelDump.c)
+ *     KdDisableDebugger @ 0x1401D137C (KdDisableDebugger.c)
+ *     KdEnableDebugger @ 0x1401D1450 (KdEnableDebugger.c)
+ *     KdSetDbgPrintBufferSize @ 0x1401D1778 (KdSetDbgPrintBufferSize.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     SeSinglePrivilegeCheck @ 0x140413F70 (SeSinglePrivilegeCheck.c)
- *     ProbeForWrite @ 0x14044DAC0 (ProbeForWrite.c)
- *     ExLockUserBuffer @ 0x140499420 (ExLockUserBuffer.c)
- *     DbgkCaptureLiveDump @ 0x14061ADEC (DbgkCaptureLiveDump.c)
- *     ExRaiseDatatypeMisalignment @ 0x1406B6058 (ExRaiseDatatypeMisalignment.c)
+ *     SeSinglePrivilegeCheck @ 0x140412E30 (SeSinglePrivilegeCheck.c)
+ *     ProbeForWrite @ 0x14044C990 (ProbeForWrite.c)
+ *     ExLockUserBuffer @ 0x140499EB0 (ExLockUserBuffer.c)
+ *     DbgkCaptureLiveDump @ 0x14061AEA0 (DbgkCaptureLiveDump.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1406B6190 (ExRaiseDatatypeMisalignment.c)
  */
 
 NTSTATUS __stdcall NtSystemDebugControl(

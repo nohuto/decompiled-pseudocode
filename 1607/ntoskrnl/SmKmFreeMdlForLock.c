@@ -1,10 +1,10 @@
 /*
- * XREFs of SmKmFreeMdlForLock @ 0x140124930
+ * XREFs of SmKmFreeMdlForLock @ 0x140124EA0
  * Callers:
- *     SmFpCleanup @ 0x140003DB8 (SmFpCleanup.c)
- *     SmFpFree @ 0x14011ADA8 (SmFpFree.c)
+ *     SmFpCleanup @ 0x140003F2C (SmFpCleanup.c)
+ *     SmFpFree @ 0x14011B318 (SmFpFree.c)
  * Callees:
- *     SmAcquireReleaseCharges @ 0x140003C90 (SmAcquireReleaseCharges.c)
+ *     SmAcquireReleaseCharges @ 0x140003E04 (SmAcquireReleaseCharges.c)
  */
 
 void __fastcall SmKmFreeMdlForLock(unsigned int *a1)

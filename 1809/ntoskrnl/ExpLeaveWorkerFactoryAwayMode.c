@@ -1,14 +1,14 @@
 /*
- * XREFs of ExpLeaveWorkerFactoryAwayMode @ 0x14008DEC8
+ * XREFs of ExpLeaveWorkerFactoryAwayMode @ 0x14008DDE4
  * Callers:
  *     NtWaitForWorkViaWorkerFactory @ 0x140059B50 (NtWaitForWorkViaWorkerFactory.c)
- *     NtReleaseWorkerFactoryWorker @ 0x1400CDDB0 (NtReleaseWorkerFactoryWorker.c)
- *     ExpWorkerFactoryCheckCreate @ 0x1400CE220 (ExpWorkerFactoryCheckCreate.c)
- *     ExpShutdownWorkerFactory @ 0x1400FADE0 (ExpShutdownWorkerFactory.c)
- *     NtSetInformationWorkerFactory @ 0x140106100 (NtSetInformationWorkerFactory.c)
+ *     NtReleaseWorkerFactoryWorker @ 0x1400CDE30 (NtReleaseWorkerFactoryWorker.c)
+ *     ExpWorkerFactoryCheckCreate @ 0x1400CE2A0 (ExpWorkerFactoryCheckCreate.c)
+ *     ExpShutdownWorkerFactory @ 0x1400FAE60 (ExpShutdownWorkerFactory.c)
+ *     NtSetInformationWorkerFactory @ 0x140106180 (NtSetInformationWorkerFactory.c)
  * Callees:
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
- *     KeDeregisterObjectNotification @ 0x14008DF20 (KeDeregisterObjectNotification.c)
+ *     KeDeregisterObjectNotification @ 0x14008DE40 (KeDeregisterObjectNotification.c)
  */
 
 void __fastcall ExpLeaveWorkerFactoryAwayMode(char *Object)

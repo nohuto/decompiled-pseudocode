@@ -1,12 +1,12 @@
 /*
- * XREFs of HalMatchAcpiOemId @ 0x140398D90
+ * XREFs of HalMatchAcpiOemId @ 0x140398F70
  * Callers:
  *     <none>
  * Callees:
- *     RtlInitAnsiString @ 0x1402F6C50 (RtlInitAnsiString.c)
- *     HalpAcpiGetTable @ 0x140336FF0 (HalpAcpiGetTable.c)
- *     RtlEqualString @ 0x14034C590 (RtlEqualString.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     RtlInitAnsiString @ 0x1402F6EE0 (RtlInitAnsiString.c)
+ *     HalpAcpiGetTable @ 0x140337280 (HalpAcpiGetTable.c)
+ *     RtlEqualString @ 0x14034C730 (RtlEqualString.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall HalMatchAcpiOemId(__int64 a1, __int64 a2, __int64 a3, int a4)
@@ -15,7 +15,7 @@ __int64 __fastcall HalMatchAcpiOemId(__int64 a1, __int64 a2, __int64 a3, int a4)
   __int64 Table; // rax
   STRING DestinationString; // [rsp+20h] [rbp-30h] BYREF
   STRING String1; // [rsp+30h] [rbp-20h] BYREF
-  char SourceString[4]; // [rsp+40h] [rbp-10h] BYREF
+  CHAR SourceString[4]; // [rsp+40h] [rbp-10h] BYREF
   __int16 v11; // [rsp+44h] [rbp-Ch]
   char v12; // [rsp+46h] [rbp-Ah]
 

@@ -6,9 +6,7 @@
  *     sub_18000645C @ 0x18000645C (sub_18000645C.c)
  */
 
-__int64 __fastcall RtlUnsubscribeWnfStateChangeNotification(__int64 a1)
+NTSTATUS __cdecl RtlUnsubscribeWnfStateChangeNotification(PWNF_USER_CALLBACK Callback)
 {
-  char v2; // [rsp+30h] [rbp+8h] BYREF
-
-  return sub_18000645C(*(_QWORD *)(a1 + 24), a1, &v2);
+  return sub_18000645C(*((PVOID *)Callback + 3), Callback);
 }

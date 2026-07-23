@@ -1,15 +1,15 @@
 /*
- * XREFs of EtwpGetTraceGuidInfo @ 0x14072E6C8
+ * XREFs of EtwpGetTraceGuidInfo @ 0x14072E894
  * Callers:
- *     NtTraceControl @ 0x1405EAF60 (NtTraceControl.c)
+ *     NtTraceControl @ 0x1406DA6C0 (NtTraceControl.c)
  * Callees:
  *     RtlULongAdd @ 0x140200578 (RtlULongAdd.c)
- *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
- *     ExReleasePushLockEx @ 0x14034AE90 (ExReleasePushLockEx.c)
- *     KeLeaveCriticalRegion @ 0x14034B3B0 (KeLeaveCriticalRegion.c)
- *     memset @ 0x140414200 (memset.c)
- *     EtwpFindGuidEntryByGuid @ 0x1405EB9B0 (EtwpFindGuidEntryByGuid.c)
- *     EtwpUnreferenceGuidEntry @ 0x1405FD448 (EtwpUnreferenceGuidEntry.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1403556E0 (ExAcquirePushLockExclusiveEx.c)
+ *     ExReleasePushLockEx @ 0x140355BE0 (ExReleasePushLockEx.c)
+ *     KeLeaveCriticalRegion @ 0x140356100 (KeLeaveCriticalRegion.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     EtwpFindGuidEntryByGuid @ 0x1406DB110 (EtwpFindGuidEntryByGuid.c)
+ *     EtwpUnreferenceGuidEntry @ 0x1406ECBA8 (EtwpUnreferenceGuidEntry.c)
  */
 
 __int64 __fastcall EtwpGetTraceGuidInfo(__int64 a1, __int64 a2, int *a3, unsigned int *a4)
@@ -20,7 +20,7 @@ __int64 __fastcall EtwpGetTraceGuidInfo(__int64 a1, __int64 a2, int *a3, unsigne
   __int64 v10; // rdi
   unsigned int i; // ecx
   __int64 v12; // r14
-  __int64 *v13; // r8
+  GUID *v13; // r8
   _QWORD *GuidEntryByGuid; // r14
   __int64 v16; // rdx
   unsigned int v17; // ecx
@@ -74,11 +74,11 @@ __int64 __fastcall EtwpGetTraceGuidInfo(__int64 a1, __int64 a2, int *a3, unsigne
   for ( i = 0; i < 0xA; ++i )
   {
     v12 = 2LL * i;
-    v13 = (__int64 *)(&EtwpUmglProviders)[2 * i];
-    if ( *v13 == *(_QWORD *)a2 && v13[1] == *(_QWORD *)(a2 + 8) )
+    v13 = (&EtwpUmglProviders)[2 * i];
+    if ( *(_QWORD *)&v13->Data1 == *(_QWORD *)a2 && *(_QWORD *)v13->Data4 == *(_QWORD *)(a2 + 8) )
     {
       memset(a3, 0, v4);
-      v16 = LOBYTE((&EtwpUmglProviders)[v12 + 1]);
+      v16 = *((unsigned __int8 *)&(&EtwpUmglProviders)[v12] + 8);
       v17 = 24;
       if ( *(_BYTE *)(v10 + 2 * v16) )
       {

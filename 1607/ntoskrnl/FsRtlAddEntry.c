@@ -1,13 +1,13 @@
 /*
- * XREFs of FsRtlAddEntry @ 0x14008D2B0
+ * XREFs of FsRtlAddEntry @ 0x14008CA14
  * Callers:
- *     FsRtlRemoveBaseMcbEntry @ 0x14008C81C (FsRtlRemoveBaseMcbEntry.c)
- *     FsRtlAddBaseMcbEntryEx @ 0x14008CCB0 (FsRtlAddBaseMcbEntryEx.c)
- *     FsRtlSplitBaseMcb @ 0x1401B8864 (FsRtlSplitBaseMcb.c)
+ *     FsRtlRemoveBaseMcbEntry @ 0x14008BF7C (FsRtlRemoveBaseMcbEntry.c)
+ *     FsRtlAddBaseMcbEntryEx @ 0x14008C410 (FsRtlAddBaseMcbEntryEx.c)
+ *     FsRtlSplitBaseMcb @ 0x1401B8638 (FsRtlSplitBaseMcb.c)
  * Callees:
- *     ExFreeToNPagedLookasideList @ 0x14000F4A4 (ExFreeToNPagedLookasideList.c)
- *     RtlRaiseStatus @ 0x1400F6738 (RtlRaiseStatus.c)
- *     memmove @ 0x140171280 (memmove.c)
+ *     ExFreeToNPagedLookasideList @ 0x14000F024 (ExFreeToNPagedLookasideList.c)
+ *     RtlRaiseStatus @ 0x1400F4588 (RtlRaiseStatus.c)
+ *     memmove @ 0x140171780 (memmove.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
  */

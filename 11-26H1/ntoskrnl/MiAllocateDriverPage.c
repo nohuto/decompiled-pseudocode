@@ -1,20 +1,20 @@
 /*
- * XREFs of MiAllocateDriverPage @ 0x140AEAC6C
+ * XREFs of MiAllocateDriverPage @ 0x140AEDA3C
  * Callers:
- *     MiLockCode @ 0x14029602C (MiLockCode.c)
- *     MiMakeDriverPagesPrivate @ 0x14038A9E0 (MiMakeDriverPagesPrivate.c)
- *     MiPrivateFixup @ 0x14051D784 (MiPrivateFixup.c)
- *     MiHandleBootImage @ 0x140CFFFDC (MiHandleBootImage.c)
+ *     MiLockCode @ 0x14029558C (MiLockCode.c)
+ *     MiMakeDriverPagesPrivate @ 0x14038C790 (MiMakeDriverPagesPrivate.c)
+ *     MiPrivateFixup @ 0x14051FCB0 (MiPrivateFixup.c)
+ *     MiHandleBootImage @ 0x140D0637C (MiHandleBootImage.c)
  * Callees:
- *     MiGetSlabCurrentTime @ 0x1402073A0 (MiGetSlabCurrentTime.c)
- *     MiGetPage @ 0x1402866A0 (MiGetPage.c)
- *     MiFindContiguousPagesEx @ 0x14028F100 (MiFindContiguousPagesEx.c)
- *     MiGetSlabPage @ 0x14033A284 (MiGetSlabPage.c)
- *     MiInitializePageColorBase @ 0x14036FE20 (MiInitializePageColorBase.c)
- *     MiWaitForFreePage @ 0x1403D1DB4 (MiWaitForFreePage.c)
- *     MiGetNextPageColor @ 0x14044ADA0 (MiGetNextPageColor.c)
- *     MiUseProtectedSlabAllocatorForDriverPage @ 0x1404D6C20 (MiUseProtectedSlabAllocatorForDriverPage.c)
- *     MiPreInitializeSystemImagePage @ 0x140520188 (MiPreInitializeSystemImagePage.c)
+ *     MiGetSlabCurrentTime @ 0x140207480 (MiGetSlabCurrentTime.c)
+ *     MiGetPage @ 0x140285C00 (MiGetPage.c)
+ *     MiFindContiguousPagesEx @ 0x14028E660 (MiFindContiguousPagesEx.c)
+ *     MiGetSlabPage @ 0x14033C304 (MiGetSlabPage.c)
+ *     MiInitializePageColorBase @ 0x140371BD0 (MiInitializePageColorBase.c)
+ *     MiWaitForFreePage @ 0x1403D4D84 (MiWaitForFreePage.c)
+ *     MiGetNextPageColor @ 0x140442ED0 (MiGetNextPageColor.c)
+ *     MiUseProtectedSlabAllocatorForDriverPage @ 0x1404D03F0 (MiUseProtectedSlabAllocatorForDriverPage.c)
+ *     MiPreInitializeSystemImagePage @ 0x14052282C (MiPreInitializeSystemImagePage.c)
  */
 
 __int64 __fastcall MiAllocateDriverPage(__int64 a1, char a2, char a3)

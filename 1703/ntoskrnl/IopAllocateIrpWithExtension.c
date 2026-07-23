@@ -11,10 +11,10 @@
  *     IopInitActivityIdIrp @ 0x1401EFC10 (IopInitActivityIdIrp.c)
  */
 
-struct _SLIST_ENTRY *__fastcall IopAllocateIrpWithExtension(__int64 a1, char a2, char a3)
+_SLIST_ENTRY *__fastcall IopAllocateIrpWithExtension(__int64 a1, char a2, char a3)
 {
-  struct _SLIST_ENTRY *IrpPrivate; // rax
-  struct _SLIST_ENTRY *v4; // rbx
+  _SLIST_ENTRY *IrpPrivate; // rax
+  _SLIST_ENTRY *v4; // rbx
   bool v5; // zf
 
   IrpPrivate = IopAllocateIrpPrivate(0LL, a2 + 1, a3);

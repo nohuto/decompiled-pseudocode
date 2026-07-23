@@ -6,11 +6,11 @@
  *     <none>
  */
 
-__int64 ZwAddBootEntry()
+NTSTATUS __cdecl ZwAddBootEntry(PBOOT_ENTRY BootEntry, PULONG Id)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 104LL;
+  result = 104;
   __asm { syscall; Low latency system call }
   return result;
 }

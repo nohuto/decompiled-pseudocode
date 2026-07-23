@@ -1,12 +1,12 @@
 /*
- * XREFs of MiEmptyAllWorkingSets @ 0x1406F79C4
+ * XREFs of MiEmptyAllWorkingSets @ 0x1406FC690
  * Callers:
- *     MiMirrorBrownPhasePartition @ 0x14044B2EC (MiMirrorBrownPhasePartition.c)
- *     MiFlushAllFilesystemPages @ 0x140531F5C (MiFlushAllFilesystemPages.c)
- *     MmEmptyAllWorkingSets @ 0x1406F7E2C (MmEmptyAllWorkingSets.c)
- *     MmPerformMemoryListCommand @ 0x140C0C460 (MmPerformMemoryListCommand.c)
+ *     MiMirrorBrownPhasePartition @ 0x14044341C (MiMirrorBrownPhasePartition.c)
+ *     MiFlushAllFilesystemPages @ 0x1405343FC (MiFlushAllFilesystemPages.c)
+ *     MmEmptyAllWorkingSets @ 0x1406FCAF8 (MmEmptyAllWorkingSets.c)
+ *     MmPerformMemoryListCommand @ 0x140C12670 (MmPerformMemoryListCommand.c)
  * Callees:
- *     MiWalkAllWorkingSets @ 0x1402A9370 (MiWalkAllWorkingSets.c)
+ *     MiWalkAllWorkingSets @ 0x1402A8780 (MiWalkAllWorkingSets.c)
  */
 
 void __fastcall MiEmptyAllWorkingSets(__int64 a1)
@@ -15,7 +15,7 @@ void __fastcall MiEmptyAllWorkingSets(__int64 a1)
   __int128 v2; // [rsp+2Ch] [rbp-1Ch]
   int v3; // [rsp+3Ch] [rbp-Ch]
 
-  if ( LOBYTE(stru_140E36558.ReadyTime) )
+  if ( LOBYTE(stru_140E366D8.ReadyTime) )
   {
     v3 = 0;
     v1[0] = 2;

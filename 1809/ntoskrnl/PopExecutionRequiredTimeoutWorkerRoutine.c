@@ -1,11 +1,11 @@
 /*
- * XREFs of PopExecutionRequiredTimeoutWorkerRoutine @ 0x140866420
+ * XREFs of PopExecutionRequiredTimeoutWorkerRoutine @ 0x140867680
  * Callers:
  *     <none>
  * Callees:
  *     PopReleaseRwLock @ 0x140005EC4 (PopReleaseRwLock.c)
- *     PopAcquirePowerRequestPushLock @ 0x140589D50 (PopAcquirePowerRequestPushLock.c)
- *     PopHandleExecutionRequiredEnablementUpdate @ 0x1406DB684 (PopHandleExecutionRequiredEnablementUpdate.c)
+ *     PopAcquirePowerRequestPushLock @ 0x14058AD50 (PopAcquirePowerRequestPushLock.c)
+ *     PopHandleExecutionRequiredEnablementUpdate @ 0x1406DC924 (PopHandleExecutionRequiredEnablementUpdate.c)
  */
 
 void PopExecutionRequiredTimeoutWorkerRoutine()

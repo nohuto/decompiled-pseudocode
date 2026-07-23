@@ -1,17 +1,17 @@
 /*
- * XREFs of BiLoadSystemStore @ 0x140802124
+ * XREFs of BiLoadSystemStore @ 0x1408023F4
  * Callers:
- *     BiOpenSystemStore @ 0x1408034C4 (BiOpenSystemStore.c)
+ *     BiOpenSystemStore @ 0x140803794 (BiOpenSystemStore.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1B0 (RtlInitUnicodeString.c)
- *     memmove @ 0x140435700 (memmove.c)
- *     BiLogFileOwnerProcess @ 0x140671490 (BiLogFileOwnerProcess.c)
- *     BiMarkTreatAsSystemStore @ 0x140802250 (BiMarkTreatAsSystemStore.c)
- *     BiAddStoreFromFile @ 0x140802668 (BiAddStoreFromFile.c)
- *     BcdCloseStore @ 0x140802DF4 (BcdCloseStore.c)
- *     BiIsSystemStore @ 0x140802F50 (BiIsSystemStore.c)
- *     BcdGetSystemStorePath @ 0x14080316C (BcdGetSystemStorePath.c)
- *     BiLogMessage @ 0x140805620 (BiLogMessage.c)
+ *     RtlInitUnicodeString @ 0x14022E2C0 (RtlInitUnicodeString.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     BiLogFileOwnerProcess @ 0x1406719E0 (BiLogFileOwnerProcess.c)
+ *     BiMarkTreatAsSystemStore @ 0x140802520 (BiMarkTreatAsSystemStore.c)
+ *     BiAddStoreFromFile @ 0x140802938 (BiAddStoreFromFile.c)
+ *     BcdCloseStore @ 0x1408030C4 (BcdCloseStore.c)
+ *     BiIsSystemStore @ 0x140803220 (BiIsSystemStore.c)
+ *     BcdGetSystemStorePath @ 0x14080343C (BcdGetSystemStorePath.c)
+ *     BiLogMessage @ 0x1408058F0 (BiLogMessage.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
@@ -19,7 +19,7 @@
 __int64 __fastcall BiLoadSystemStore(_QWORD *a1)
 {
   void *v2; // rdi
-  int SystemStorePath; // eax
+  NTSTATUS SystemStorePath; // eax
   void *v4; // rbp
   unsigned int v5; // ebx
   __int64 v6; // rbx
@@ -28,19 +28,19 @@ __int64 __fastcall BiLoadSystemStore(_QWORD *a1)
   _DWORD *v9; // r14
   int v10; // eax
   __int64 v11; // rdx
-  __int64 v12; // rsi
+  HANDLE v12; // rsi
   int v13; // eax
   __int64 v15; // rdx
   __int64 v16; // r8
   UNICODE_STRING DestinationString; // [rsp+20h] [rbp-38h] BYREF
   void *Src; // [rsp+68h] [rbp+10h] BYREF
-  __int64 v19; // [rsp+70h] [rbp+18h] BYREF
+  HANDLE BcdStoreHandle; // [rsp+70h] [rbp+18h] BYREF
 
-  v19 = 0LL;
+  BcdStoreHandle = 0LL;
   Src = 0LL;
   DestinationString = 0LL;
   v2 = 0LL;
-  SystemStorePath = BcdGetSystemStorePath(&Src);
+  SystemStorePath = BcdGetSystemStorePath((PWSTR *)&Src);
   v4 = Src;
   v5 = SystemStorePath;
   if ( SystemStorePath >= 0 )
@@ -59,11 +59,17 @@ __int64 __fastcall BiLoadSystemStore(_QWORD *a1)
       Pool2[1] = 2 * v7 + 12;
       Pool2[2] = 3;
       memmove(Pool2 + 3, v4, 2LL * v7);
-      v10 = BiAddStoreFromFile(v2, 0LL, &v19);
+      v10 = BiAddStoreFromFile(v2, 0LL, &BcdStoreHandle);
       v5 = v10;
       if ( v10 < 0 )
       {
-        BiLogMessage(4LL, L"Failed to add system store from file. File: %ws Status: %x", v9, (unsigned int)v10);
+        BiLogMessage(
+          4LL,
+          L"Failed to add system store from file. File: %ws Status: %x",
+          v9,
+          (unsigned int)v10,
+          *(_QWORD *)&DestinationString.Length,
+          DestinationString.Buffer);
         if ( v5 == -1073741757 )
         {
           RtlInitUnicodeString(&DestinationString, (PCWSTR)v4);
@@ -72,13 +78,19 @@ __int64 __fastcall BiLoadSystemStore(_QWORD *a1)
       }
       else
       {
-        v12 = v19;
+        v12 = BcdStoreHandle;
         LOBYTE(v11) = 1;
-        v13 = BiMarkTreatAsSystemStore(v19, v11);
+        v13 = BiMarkTreatAsSystemStore(BcdStoreHandle, v11);
         v5 = v13;
         if ( v13 < 0 )
         {
-          BiLogMessage(4LL, L"Failed to mark system store. File: %ws Status: %x", v9, (unsigned int)v13);
+          BiLogMessage(
+            4LL,
+            L"Failed to mark system store. File: %ws Status: %x",
+            v9,
+            (unsigned int)v13,
+            *(_QWORD *)&DestinationString.Length,
+            DestinationString.Buffer);
           BcdCloseStore(v12);
         }
         else if ( (unsigned __int8)BiIsSystemStore(v12) )
@@ -87,7 +99,13 @@ __int64 __fastcall BiLoadSystemStore(_QWORD *a1)
         }
         else
         {
-          BiLogMessage(4LL, L"File is not system store. File: %ws Status: %x", v9, v5);
+          BiLogMessage(
+            4LL,
+            L"File is not system store. File: %ws Status: %x",
+            v9,
+            v5,
+            *(_QWORD *)&DestinationString.Length,
+            DestinationString.Buffer);
           BcdCloseStore(v12);
           v5 = -1073741672;
         }

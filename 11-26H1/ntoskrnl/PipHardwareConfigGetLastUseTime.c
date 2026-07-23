@@ -1,11 +1,11 @@
 /*
- * XREFs of PipHardwareConfigGetLastUseTime @ 0x140B4CE6C
+ * XREFs of PipHardwareConfigGetLastUseTime @ 0x140B4EBFC
  * Callers:
- *     PnpGetStableSystemBootTime @ 0x140B4CDF0 (PnpGetStableSystemBootTime.c)
+ *     PnpGetStableSystemBootTime @ 0x140B4EB80 (PnpGetStableSystemBootTime.c)
  * Callees:
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     _PnpCtxRegQueryValue @ 0x140917E70 (_PnpCtxRegQueryValue.c)
- *     PipHardwareConfigOpenKey @ 0x140B698F0 (PipHardwareConfigOpenKey.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     _PnpCtxRegQueryValue @ 0x1409728D0 (_PnpCtxRegQueryValue.c)
+ *     PipHardwareConfigOpenKey @ 0x140B6C880 (PipHardwareConfigOpenKey.c)
  */
 
 __int64 __fastcall PipHardwareConfigGetLastUseTime(__int64 a1, void *a2)

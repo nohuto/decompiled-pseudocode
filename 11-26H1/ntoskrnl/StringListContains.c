@@ -1,9 +1,9 @@
 /*
- * XREFs of StringListContains @ 0x140A99BA0
+ * XREFs of StringListContains @ 0x140A9DD20
  * Callers:
- *     PropertyEval @ 0x1409A8E30 (PropertyEval.c)
+ *     PropertyEval @ 0x140969840 (PropertyEval.c)
  * Callees:
- *     _wcsicmp @ 0x140536570 (_wcsicmp.c)
+ *     _wcsicmp @ 0x1405389F0 (_wcsicmp.c)
  */
 
 __int64 __fastcall StringListContains(wchar_t *Str1, int a2, const wchar_t *a3, int a4)

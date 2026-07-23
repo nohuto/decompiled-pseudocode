@@ -1,14 +1,14 @@
 /*
- * XREFs of HalpDmaRemoveAdapterFromMasterQueue @ 0x140500550
+ * XREFs of HalpDmaRemoveAdapterFromMasterQueue @ 0x140500AA0
  * Callers:
- *     HalCancelAdapterChannel @ 0x14050EEA0 (HalCancelAdapterChannel.c)
- *     HalCancelAdapterChannelDmaThin @ 0x140512F30 (HalCancelAdapterChannelDmaThin.c)
- *     HalCancelAdapterChannelDmarThin @ 0x140513720 (HalCancelAdapterChannelDmarThin.c)
- *     HalpAllocateDmaResourcesInternal @ 0x140514EBC (HalpAllocateDmaResourcesInternal.c)
+ *     HalCancelAdapterChannel @ 0x14050F3F0 (HalCancelAdapterChannel.c)
+ *     HalCancelAdapterChannelDmaThin @ 0x140513480 (HalCancelAdapterChannelDmaThin.c)
+ *     HalCancelAdapterChannelDmarThin @ 0x140513C70 (HalCancelAdapterChannelDmarThin.c)
+ *     HalpAllocateDmaResourcesInternal @ 0x14051540C (HalpAllocateDmaResourcesInternal.c)
  * Callees:
- *     KxReleaseQueuedSpinLock @ 0x140260360 (KxReleaseQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140260E60 (KeAcquireInStackQueuedSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseQueuedSpinLock @ 0x1402605F0 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402610F0 (KeAcquireInStackQueuedSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 char __fastcall HalpDmaRemoveAdapterFromMasterQueue(__int64 a1)
@@ -60,10 +60,10 @@ char __fastcall HalpDmaRemoveAdapterFromMasterQueue(__int64 a1)
 LABEL_7:
   KxReleaseQueuedSpinLock((volatile signed __int64 **)&v17);
   OldIrql = v17.OldIrql;
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v17.OldIrql <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v17.OldIrql <= 0xFu && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -71,7 +71,7 @@ LABEL_7:
       v14 = (v13 & SchedulerAssist[5]) == 0;
       SchedulerAssist[5] &= v13;
       if ( v14 )
-        KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+        KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
     }
   }
   __writecr8(OldIrql);

@@ -1,11 +1,11 @@
 /*
- * XREFs of FsRtlLookupLastLargeMcbEntryAndIndex @ 0x1404B3CC0
+ * XREFs of FsRtlLookupLastLargeMcbEntryAndIndex @ 0x1404AD290
  * Callers:
  *     <none>
  * Callees:
- *     ExAcquireFastMutex @ 0x140278070 (ExAcquireFastMutex.c)
- *     KeReleaseGuardedMutex @ 0x140278D40 (KeReleaseGuardedMutex.c)
- *     FsRtlLookupLastBaseMcbEntryAndIndex @ 0x1404B3D30 (FsRtlLookupLastBaseMcbEntryAndIndex.c)
+ *     ExAcquireFastMutex @ 0x1402775E0 (ExAcquireFastMutex.c)
+ *     KeReleaseGuardedMutex @ 0x1402782B0 (KeReleaseGuardedMutex.c)
+ *     FsRtlLookupLastBaseMcbEntryAndIndex @ 0x1404AD300 (FsRtlLookupLastBaseMcbEntryAndIndex.c)
  */
 
 BOOLEAN __stdcall FsRtlLookupLastLargeMcbEntryAndIndex(

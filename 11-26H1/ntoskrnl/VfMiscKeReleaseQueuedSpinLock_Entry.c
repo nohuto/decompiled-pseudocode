@@ -1,9 +1,9 @@
 /*
- * XREFs of VfMiscKeReleaseQueuedSpinLock_Entry @ 0x140C3CF30
+ * XREFs of VfMiscKeReleaseQueuedSpinLock_Entry @ 0x140C42F40
  * Callers:
  *     <none>
  * Callees:
- *     ViMiscCheckKeLowerIrql @ 0x140C47208 (ViMiscCheckKeLowerIrql.c)
+ *     ViMiscCheckKeLowerIrql @ 0x140C4D218 (ViMiscCheckKeLowerIrql.c)
  */
 
 __int64 __fastcall VfMiscKeReleaseQueuedSpinLock_Entry(__int64 a1)

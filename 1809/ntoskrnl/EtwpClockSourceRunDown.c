@@ -1,12 +1,12 @@
 /*
- * XREFs of EtwpClockSourceRunDown @ 0x1408BE6FC
+ * XREFs of EtwpClockSourceRunDown @ 0x1408BF9BC
  * Callers:
- *     EtwpKernelTraceRundown @ 0x140726174 (EtwpKernelTraceRundown.c)
+ *     EtwpKernelTraceRundown @ 0x140727414 (EtwpKernelTraceRundown.c)
  * Callees:
- *     EtwpLogKernelEvent @ 0x1400C71D0 (EtwpLogKernelEvent.c)
- *     KeGetDynamicTickDisableReason @ 0x14013BB14 (KeGetDynamicTickDisableReason.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     EtwpLogKernelEvent @ 0x1400C7110 (EtwpLogKernelEvent.c)
+ *     KeGetDynamicTickDisableReason @ 0x14013BC14 (KeGetDynamicTickDisableReason.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
  */
 
 void __fastcall EtwpClockSourceRunDown(__int64 a1, char a2)
@@ -25,7 +25,7 @@ void __fastcall EtwpClockSourceRunDown(__int64 a1, char a2)
   if ( a2 )
   {
     v7 = 0;
-    ((void (__fastcall *)(_BYTE *))off_1403FE5B0[0])(v8);
+    ((void (__fastcall *)(_BYTE *))off_1403FF5B0[0])(v8);
     v6 = v9;
     DynamicTickDisableReason = KeGetDynamicTickDisableReason();
     v12 = 0;

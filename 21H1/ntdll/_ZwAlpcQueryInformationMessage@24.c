@@ -6,7 +6,13 @@
  *     _Wow64SystemServiceCall@0 @ 0x4B308730 (_Wow64SystemServiceCall@0.c)
  */
 
-int __stdcall ZwAlpcQueryInformationMessage(int a1, int a2, int a3, int a4, int a5, int a6)
+NTSTATUS __cdecl ZwAlpcQueryInformationMessage(
+        HANDLE PortHandle,
+        PPORT_MESSAGE PortMessage,
+        ALPC_MESSAGE_INFORMATION_CLASS MessageInformationClass,
+        PVOID MessageInformation,
+        ULONG Length,
+        PULONG ReturnLength)
 {
   return Wow64SystemServiceCall();
 }

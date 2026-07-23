@@ -1,9 +1,9 @@
 /*
- * XREFs of PopPepClearDripsDeviceVetoMask @ 0x1405740C4
+ * XREFs of PopPepClearDripsDeviceVetoMask @ 0x140574304
  * Callers:
- *     PopFxClearDeviceConstraints @ 0x140569DC4 (PopFxClearDeviceConstraints.c)
+ *     PopFxClearDeviceConstraints @ 0x14056A004 (PopFxClearDeviceConstraints.c)
  * Callees:
- *     PopPepUpdateIdleStateRefCount @ 0x1403A0864 (PopPepUpdateIdleStateRefCount.c)
+ *     PopPepUpdateIdleStateRefCount @ 0x1403A09B4 (PopPepUpdateIdleStateRefCount.c)
  */
 
 __int64 __fastcall PopPepClearDripsDeviceVetoMask(int *a1)

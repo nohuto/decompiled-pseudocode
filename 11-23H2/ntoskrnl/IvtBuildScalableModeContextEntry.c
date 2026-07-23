@@ -1,10 +1,10 @@
 /*
- * XREFs of IvtBuildScalableModeContextEntry @ 0x14052BC8C
+ * XREFs of IvtBuildScalableModeContextEntry @ 0x14052C1DC
  * Callers:
- *     IvtUpdateScalableModeContextEntry @ 0x14052DC64 (IvtUpdateScalableModeContextEntry.c)
+ *     IvtUpdateScalableModeContextEntry @ 0x14052E1B4 (IvtUpdateScalableModeContextEntry.c)
  *     IvtInitializeIommu @ 0x140A89E10 (IvtInitializeIommu.c)
  * Callees:
- *     MmGetPhysicalAddress @ 0x14028BEE0 (MmGetPhysicalAddress.c)
+ *     MmGetPhysicalAddress @ 0x14028C170 (MmGetPhysicalAddress.c)
  */
 
 __int64 __fastcall IvtBuildScalableModeContextEntry(__int64 a1, __int64 a2, char a3, char a4, int a5, __int64 *a6)

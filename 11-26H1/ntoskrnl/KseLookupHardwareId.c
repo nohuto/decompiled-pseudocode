@@ -1,13 +1,13 @@
 /*
- * XREFs of KseLookupHardwareId @ 0x1407BE31C
+ * XREFs of KseLookupHardwareId @ 0x1407C137C
  * Callers:
- *     AhcCacheQueryHwId @ 0x140776338 (AhcCacheQueryHwId.c)
+ *     AhcCacheQueryHwId @ 0x1407791E0 (AhcCacheQueryHwId.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     KsepCacheLock @ 0x1409A73D0 (KsepCacheLock.c)
- *     KsepCacheLookup @ 0x1409E4F4C (KsepCacheLookup.c)
- *     KsepCacheUnlock @ 0x1409E5030 (KsepCacheUnlock.c)
- *     AslStringPatternMatchExW @ 0x1409E7030 (AslStringPatternMatchExW.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     KsepCacheLock @ 0x140967E30 (KsepCacheLock.c)
+ *     AslStringPatternMatchExW @ 0x1409D59C0 (AslStringPatternMatchExW.c)
+ *     KsepCacheLookup @ 0x1409D7F70 (KsepCacheLookup.c)
+ *     KsepCacheUnlock @ 0x1409D8054 (KsepCacheUnlock.c)
  */
 
 __int64 __fastcall KseLookupHardwareId(PCWSTR SourceString)
@@ -26,7 +26,7 @@ __int64 __fastcall KseLookupHardwareId(PCWSTR SourceString)
 
   v1 = *SourceString;
   v2 = SourceString + 1;
-  QuantumTarget = (struct _KTHREAD *)stru_140E66B30.QuantumTarget;
+  QuantumTarget = (struct _KTHREAD *)stru_140E66D40.QuantumTarget;
   v13 = 0;
   v5 = -1073741275;
   if ( v1 != 42 )
@@ -41,7 +41,7 @@ __int64 __fastcall KseLookupHardwareId(PCWSTR SourceString)
       break;
     if ( v7 == 42 || v7 == 63 )
     {
-      KsepCacheLock(stru_140E66B30.QuantumTarget);
+      KsepCacheLock(stru_140E66D40.QuantumTarget);
       for ( i = (unsigned __int64 *)QuantumTarget->QuantumTarget; ; i = (unsigned __int64 *)*i )
       {
         if ( i == &QuantumTarget->QuantumTarget )

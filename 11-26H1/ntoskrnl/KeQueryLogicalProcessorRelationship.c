@@ -1,23 +1,23 @@
 /*
- * XREFs of KeQueryLogicalProcessorRelationship @ 0x1404DA4D0
+ * XREFs of KeQueryLogicalProcessorRelationship @ 0x1404D3BB0
  * Callers:
- *     HalpMcStaging @ 0x140593950 (HalpMcStaging.c)
- *     ExpQuerySystemInformation @ 0x140B145DC (ExpQuerySystemInformation.c)
+ *     HalpMcStaging @ 0x1405960D0 (HalpMcStaging.c)
+ *     ExpQuerySystemInformation @ 0x140B169CC (ExpQuerySystemInformation.c)
  * Callees:
  *     KeQueryNodeGroupAffinity @ 0x14020183C (KeQueryNodeGroupAffinity.c)
- *     KeQueryActiveProcessorCountEx @ 0x140211EA0 (KeQueryActiveProcessorCountEx.c)
- *     ?RtlpCopyAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z @ 0x1402518B0 (-RtlpCopyAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z.c)
- *     ?RtlpAndAffinityExNoResult@@YAKPEAU_KAFFINITY_EX@@0@Z @ 0x14025234C (-RtlpAndAffinityExNoResult@@YAKPEAU_KAFFINITY_EX@@0@Z.c)
- *     KiTryPopulateLogicalProcessorInformation @ 0x14025A1BC (KiTryPopulateLogicalProcessorInformation.c)
- *     RtlOrAffinityEx @ 0x14025A978 (RtlOrAffinityEx.c)
- *     KeQueryMaximumProcessorCountEx @ 0x1402767B0 (KeQueryMaximumProcessorCountEx.c)
- *     KeGetProcessorIndexFromNumber @ 0x140428990 (KeGetProcessorIndexFromNumber.c)
- *     KeGetTopologySiblingAffinityForProcessor @ 0x14045E970 (KeGetTopologySiblingAffinityForProcessor.c)
- *     KeAndGroupAffinityEx @ 0x140469070 (KeAndGroupAffinityEx.c)
- *     KeQueryNodeActiveAffinityEx @ 0x140476C00 (KeQueryNodeActiveAffinityEx.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     KeQueryActiveProcessorCountEx @ 0x140211F80 (KeQueryActiveProcessorCountEx.c)
+ *     KeGetProcessorIndexFromNumber @ 0x14021AC70 (KeGetProcessorIndexFromNumber.c)
+ *     ?RtlpCopyAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z @ 0x140253210 (-RtlpCopyAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z.c)
+ *     ?RtlpAndAffinityExNoResult@@YAKPEAU_KAFFINITY_EX@@0@Z @ 0x140253CAC (-RtlpAndAffinityExNoResult@@YAKPEAU_KAFFINITY_EX@@0@Z.c)
+ *     KiTryPopulateLogicalProcessorInformation @ 0x14025B99C (KiTryPopulateLogicalProcessorInformation.c)
+ *     RtlOrAffinityEx @ 0x14025C158 (RtlOrAffinityEx.c)
+ *     KeGetTopologySiblingAffinityForProcessor @ 0x14025DE90 (KeGetTopologySiblingAffinityForProcessor.c)
+ *     KeQueryMaximumProcessorCountEx @ 0x140275D20 (KeQueryMaximumProcessorCountEx.c)
+ *     KeAndGroupAffinityEx @ 0x140462640 (KeAndGroupAffinityEx.c)
+ *     KeQueryNodeActiveAffinityEx @ 0x140470380 (KeQueryNodeActiveAffinityEx.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 NTSTATUS __stdcall KeQueryLogicalProcessorRelationship(
@@ -28,7 +28,7 @@ NTSTATUS __stdcall KeQueryLogicalProcessorRelationship(
 {
   LOGICAL_PROCESSOR_RELATIONSHIP v4; // edi
   __int64 v5; // rbx
-  struct _PROCESSOR_NUMBER *v6; // r13
+  _PROCESSOR_NUMBER *v6; // r13
   struct _KAFFINITY_EX *v8; // rdx
   NTSTATUS v9; // r12d
   unsigned int v10; // esi
@@ -143,11 +143,11 @@ NTSTATUS __stdcall KeQueryLogicalProcessorRelationship(
   {
     ++v12;
   }
-  if ( v4 == (RelationGroup|RelationNumaNode) )
+  if ( v4 == RelationProcessorDie )
   {
     ++v12;
   }
-  else if ( v4 == RelationAll || v4 == (RelationGroup|RelationProcessorPackage) )
+  else if ( v4 == RelationAll || v4 == RelationProcessorModule )
   {
     ++v12;
   }
@@ -181,7 +181,7 @@ NTSTATUS __stdcall KeQueryLogicalProcessorRelationship(
   v14 = v8;
   if ( v4 != RelationAll )
   {
-    if ( (unsigned int)v4 > (RelationGroup|RelationProcessorPackage) || (v15 = 236, !_bittest(&v15, v4)) )
+    if ( (unsigned int)v4 > RelationProcessorModule || (v15 = 236, !_bittest(&v15, v4)) )
     {
 LABEL_81:
       v16 = v90;
@@ -233,11 +233,11 @@ LABEL_19:
     goto LABEL_94;
   Size = v93;
 LABEL_21:
-  if ( v4 == (RelationGroup|RelationNumaNode) )
+  if ( v4 == RelationProcessorDie )
   {
     v94 = v14;
   }
-  else if ( v4 == RelationAll || v4 == (RelationGroup|RelationProcessorPackage) )
+  else if ( v4 == RelationAll || v4 == RelationProcessorModule )
   {
     v95 = v14;
   }
@@ -340,7 +340,7 @@ LABEL_122:
       }
     }
 LABEL_32:
-    if ( v4 == (RelationGroup|RelationNumaNode) )
+    if ( v4 == RelationProcessorDie )
     {
       KeGetTopologySiblingAffinityForProcessor(v23, 3, &v16->Count);
       LODWORD(v98) = 0;
@@ -368,7 +368,7 @@ LABEL_32:
     }
     else
     {
-      if ( v4 == (RelationGroup|RelationProcessorPackage) || v4 == RelationAll )
+      if ( v4 == RelationProcessorModule || v4 == RelationAll )
       {
         KeGetTopologySiblingAffinityForProcessor(v23, 2, &v16->Count);
         LODWORD(v98) = 0;
@@ -552,9 +552,9 @@ LABEL_39:
       NodeGroupAffinity = KeQueryNodeGroupAffinity(v61, v62);
       if ( NodeGroupAffinity
         && (!v6
-         || ((unsigned int)(NodeGroupAffinity >> *(_DWORD *)(*(_QWORD *)&KiSupervisorXStateFeaturesLock.WaitBlockFill11[112]
-                                                           + 4 * v49)) & (*(_DWORD *)(*(_QWORD *)&KiSupervisorXStateFeaturesLock.WaitBlockFill11[112]
-                                                                                    + 4 * v49) >> 6 == v62)) != 0) )
+         || ((unsigned int)(NodeGroupAffinity >> *(&KiSupervisorXStateFeaturesLock.SchedulerApc.Thread->Header.LockNV
+                                                 + v49)) & ((unsigned int)*(&KiSupervisorXStateFeaturesLock.SchedulerApc.Thread->Header.LockNV
+                                                                          + v49) >> 6 == v62)) != 0) )
       {
         v10 += 48;
         if ( v10 > v83 )
@@ -580,7 +580,7 @@ LABEL_39:
     goto LABEL_44;
   }
   v82 = v9;
-  if ( v4 == (RelationGroup|RelationCache) || (v82 = v9, v4 == RelationAll) )
+  if ( v4 == RelationNumaNodeEx || (v82 = v9, v4 == RelationAll) )
   {
     v51 = 0;
     if ( KeNumberNodes )
@@ -698,7 +698,7 @@ LABEL_44:
         *(_BYTE *)(v24 + 48LL * v77 + 32) = KeQueryMaximumProcessorCountEx(v77);
         *(_BYTE *)(v24 + 48LL * v77 + 33) = KeQueryActiveProcessorCountEx(v77);
         ++v77;
-        *($353D57E818BB6F967B4B818D974CF463 *)(v24 + 8 * v79 + 72) = *($353D57E818BB6F967B4B818D974CF463 *)((char *)&stru_140FC01F0.116 + 8 * v78 + 4);
+        *($C9C4F79064DE35237E3F199A7D1BD3E1 *)(v24 + 8 * v79 + 72) = *($C9C4F79064DE35237E3F199A7D1BD3E1 *)((char *)&stru_140FC11F0.116 + 8 * v78 + 4);
         *(_OWORD *)(v24 + 8 * v79 + 34) = 0LL;
         *(_OWORD *)(v24 + 8 * v79 + 50) = 0LL;
         *(_DWORD *)(v24 + 8 * v79 + 66) = 0;

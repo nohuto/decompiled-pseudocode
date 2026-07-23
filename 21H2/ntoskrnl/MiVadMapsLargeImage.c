@@ -1,17 +1,17 @@
 /*
- * XREFs of MiVadMapsLargeImage @ 0x14021CC20
+ * XREFs of MiVadMapsLargeImage @ 0x1402C1520
  * Callers:
- *     MiDeleteVad @ 0x14021BFF0 (MiDeleteVad.c)
- *     MiSoftFaultMappedView @ 0x14028D5A0 (MiSoftFaultMappedView.c)
- *     MiIsVadLargePrivate @ 0x1402AD514 (MiIsVadLargePrivate.c)
- *     MiInsertVad @ 0x140316330 (MiInsertVad.c)
- *     MiEmptyWorkingSetPrivatePagesByVa @ 0x14035A26C (MiEmptyWorkingSetPrivatePagesByVa.c)
- *     MmOutSwapWorkingSet @ 0x14035C7D0 (MmOutSwapWorkingSet.c)
- *     MiIsVadEligibleForCommitRelease @ 0x14052B6A8 (MiIsVadEligibleForCommitRelease.c)
- *     MmProtectVirtualMemory @ 0x1405FA060 (MmProtectVirtualMemory.c)
- *     MmQueryVirtualMemory @ 0x14061E930 (MmQueryVirtualMemory.c)
- *     MmSecureVirtualMemoryAgainstWrites @ 0x1406621F8 (MmSecureVirtualMemoryAgainstWrites.c)
- *     MiMarkPrivateImageCfgBits @ 0x140713DA4 (MiMarkPrivateImageCfgBits.c)
+ *     MiSoftFaultMappedView @ 0x14020A740 (MiSoftFaultMappedView.c)
+ *     MiIsVadLargePrivate @ 0x14022B870 (MiIsVadLargePrivate.c)
+ *     MiEmptyWorkingSetPrivatePagesByVa @ 0x14029F008 (MiEmptyWorkingSetPrivatePagesByVa.c)
+ *     MmOutSwapWorkingSet @ 0x1402A1700 (MmOutSwapWorkingSet.c)
+ *     MiDeleteVad @ 0x1402C08F0 (MiDeleteVad.c)
+ *     MiInsertVad @ 0x140321080 (MiInsertVad.c)
+ *     MiIsVadEligibleForCommitRelease @ 0x14052B8E8 (MiIsVadEligibleForCommitRelease.c)
+ *     MmSecureVirtualMemoryAgainstWrites @ 0x140657018 (MmSecureVirtualMemoryAgainstWrites.c)
+ *     MmQueryVirtualMemory @ 0x1406885A0 (MmQueryVirtualMemory.c)
+ *     MiMarkPrivateImageCfgBits @ 0x1406C23F4 (MiMarkPrivateImageCfgBits.c)
+ *     MmProtectVirtualMemory @ 0x1406E97C0 (MmProtectVirtualMemory.c)
  * Callees:
  *     <none>
  */

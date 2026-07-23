@@ -33,7 +33,7 @@ unsigned __int64 __fastcall RtlpHpVsChunkCoalesce(__int64 a1, __int64 a2, unsign
     v11 = v10 ^ RtlpHpHeapGlobals ^ *(_QWORD *)v10;
     if ( (v11 & 0xFF000000000000LL) == 0 )
     {
-      RtlpHpVsFreeChunkRemove(a1, a2, a3 - 16LL * WORD2(v6));
+      RtlpHpVsFreeChunkRemove((_RTL_RB_TREE *)a1, a2, a3 - 16LL * WORD2(v6));
       v5 = v10;
       v9 += WORD1(v11);
     }
@@ -45,7 +45,7 @@ unsigned __int64 __fastcall RtlpHpVsChunkCoalesce(__int64 a1, __int64 a2, unsign
     v14 = v13 ^ RtlpHpHeapGlobals ^ *(_QWORD *)v13;
     if ( (v14 & 0xFF000000000000LL) == 0 )
     {
-      RtlpHpVsFreeChunkRemove(a1, a2, v13);
+      RtlpHpVsFreeChunkRemove((_RTL_RB_TREE *)a1, a2, v13);
       v9 += WORD1(v14);
     }
   }
@@ -57,7 +57,7 @@ unsigned __int64 __fastcall RtlpHpVsChunkCoalesce(__int64 a1, __int64 a2, unsign
       v16 = v15 ^ RtlpHpHeapGlobals ^ *(_QWORD *)v15;
       if ( (v16 & 0xFF000000000000LL) == 0 )
       {
-        RtlpHpVsFreeChunkRemove(a1, a2, v15);
+        RtlpHpVsFreeChunkRemove((_RTL_RB_TREE *)a1, a2, v15);
         v9 += WORD1(v16);
       }
     }

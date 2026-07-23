@@ -1,15 +1,15 @@
 /*
- * XREFs of VfAvlReserveNode @ 0x140371CF0
+ * XREFs of VfAvlReserveNode @ 0x140371840
  * Callers:
- *     VfTargetDriversAdd @ 0x140371A3C (VfTargetDriversAdd.c)
- *     ViDevObjAdd @ 0x1409D62CC (ViDevObjAdd.c)
- *     VerifierIoInitializeRemoveLockEx @ 0x1409D64C0 (VerifierIoInitializeRemoveLockEx.c)
- *     ViLookasideAdd @ 0x1409E15B4 (ViLookasideAdd.c)
- *     VerifierExInitializeResourceLite @ 0x1409E2200 (VerifierExInitializeResourceLite.c)
+ *     VfTargetDriversAdd @ 0x14037158C (VfTargetDriversAdd.c)
+ *     ViDevObjAdd @ 0x1409D72CC (ViDevObjAdd.c)
+ *     VerifierIoInitializeRemoveLockEx @ 0x1409D74C0 (VerifierIoInitializeRemoveLockEx.c)
+ *     ViLookasideAdd @ 0x1409E25B4 (ViLookasideAdd.c)
+ *     VerifierExInitializeResourceLite @ 0x1409E3200 (VerifierExInitializeResourceLite.c)
  * Callees:
- *     ExAllocateFromNPagedLookasideList @ 0x140202CB4 (ExAllocateFromNPagedLookasideList.c)
- *     ViAvlNodeInitializeSessionId @ 0x140371D7C (ViAvlNodeInitializeSessionId.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     ExAllocateFromNPagedLookasideList @ 0x140213400 (ExAllocateFromNPagedLookasideList.c)
+ *     ViAvlNodeInitializeSessionId @ 0x1403718CC (ViAvlNodeInitializeSessionId.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 char *__fastcall VfAvlReserveNode(__int64 *a1, __int64 a2, __int64 a3)

@@ -1,14 +1,14 @@
 /*
- * XREFs of MxCreatePfns @ 0x1409C008C
+ * XREFs of MxCreatePfns @ 0x1409C108C
  * Callers:
- *     MiInitializePfnsForValidMappings @ 0x1409BFBA0 (MiInitializePfnsForValidMappings.c)
- *     MxCreatePfns @ 0x1409C008C (MxCreatePfns.c)
+ *     MiInitializePfnsForValidMappings @ 0x1409C0BA0 (MiInitializePfnsForValidMappings.c)
+ *     MxCreatePfns @ 0x1409C108C (MxCreatePfns.c)
  * Callees:
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
- *     MiWriteValidPteNewProtection @ 0x140087970 (MiWriteValidPteNewProtection.c)
- *     MxCreatePfns @ 0x1409C008C (MxCreatePfns.c)
- *     MxCreatePfn @ 0x1409C0310 (MxCreatePfn.c)
- *     MiIsRegularMemory @ 0x1409C044C (MiIsRegularMemory.c)
+ *     MiWriteValidPteNewProtection @ 0x140087960 (MiWriteValidPteNewProtection.c)
+ *     MxCreatePfns @ 0x1409C108C (MxCreatePfns.c)
+ *     MxCreatePfn @ 0x1409C1310 (MxCreatePfn.c)
+ *     MiIsRegularMemory @ 0x1409C144C (MiIsRegularMemory.c)
  */
 
 void __fastcall MxCreatePfns(unsigned __int64 a1, unsigned __int64 a2, int a3, __int64 a4)
@@ -62,7 +62,7 @@ void __fastcall MxCreatePfns(unsigned __int64 a1, unsigned __int64 a2, int a3, _
             if ( (v19 & 0x42) == 0 )
               v20 = v19;
             v21 = v19 | 0x800;
-            v22 = ((unsigned __int16)((unsigned __int8)word_14043A1AC << 8) ^ v20) & 0x100;
+            v22 = ((unsigned __int16)((unsigned __int8)word_14043B26C << 8) ^ v20) & 0x100;
             if ( (v19 & 0x42) == 0 )
               v21 = v19;
             MiWriteValidPteNewProtection(v7, v21 ^ v22);
@@ -84,7 +84,7 @@ void __fastcall MxCreatePfns(unsigned __int64 a1, unsigned __int64 a2, int a3, _
           if ( (v15 & 0x42) == 0 )
             v16 = v15;
           v17 = v15 | 0x800;
-          v18 = ((unsigned __int16)((unsigned __int8)word_14043A1AC << 8) ^ v16) & 0x100;
+          v18 = ((unsigned __int16)((unsigned __int8)word_14043B26C << 8) ^ v16) & 0x100;
           if ( (v15 & 0x42) == 0 )
             v17 = v15;
           MiWriteValidPteNewProtection(v7, v17 ^ v18);

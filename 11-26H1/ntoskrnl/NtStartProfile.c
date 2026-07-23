@@ -1,31 +1,31 @@
 /*
- * XREFs of NtStartProfile @ 0x140842840
+ * XREFs of NtStartProfile @ 0x14084B8E0
  * Callers:
  *     <none>
  * Callees:
- *     KeQueryActiveProcessorCountEx @ 0x140211EA0 (KeQueryActiveProcessorCountEx.c)
- *     ?RtlpCopyAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z @ 0x1402518B0 (-RtlpCopyAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z.c)
- *     RtlAndAffinityEx @ 0x140252394 (RtlAndAffinityEx.c)
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     KeWaitForSingleObject @ 0x140278560 (KeWaitForSingleObject.c)
- *     MmMapLockedPagesSpecifyCache @ 0x14035D330 (MmMapLockedPagesSpecifyCache.c)
- *     MmProbeAndLockPagesEx @ 0x14039FAC0 (MmProbeAndLockPagesEx.c)
- *     KeReleaseMutex @ 0x1403DD0F0 (KeReleaseMutex.c)
- *     MmUnlockPages @ 0x140410C10 (MmUnlockPages.c)
- *     MmSizeOfMdl @ 0x140488370 (MmSizeOfMdl.c)
- *     KeStartProfile @ 0x1405F32A8 (KeStartProfile.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     ObReferenceObjectByHandle @ 0x1408F9550 (ObReferenceObjectByHandle.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     KeQueryActiveProcessorCountEx @ 0x140211F80 (KeQueryActiveProcessorCountEx.c)
+ *     ?RtlpCopyAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z @ 0x140253210 (-RtlpCopyAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z.c)
+ *     RtlAndAffinityEx @ 0x140253CF4 (RtlAndAffinityEx.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     KeWaitForSingleObject @ 0x140277AD0 (KeWaitForSingleObject.c)
+ *     MmMapLockedPagesSpecifyCache @ 0x14035F0D0 (MmMapLockedPagesSpecifyCache.c)
+ *     MmProbeAndLockPagesEx @ 0x1403A1820 (MmProbeAndLockPagesEx.c)
+ *     KeReleaseMutex @ 0x1403E02E0 (KeReleaseMutex.c)
+ *     MmUnlockPages @ 0x140410330 (MmUnlockPages.c)
+ *     MmSizeOfMdl @ 0x140481EB0 (MmSizeOfMdl.c)
+ *     KeStartProfile @ 0x1405F5C68 (KeStartProfile.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     ObReferenceObjectByHandle @ 0x1409294E0 (ObReferenceObjectByHandle.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
-NTSTATUS __fastcall NtStartProfile(void *a1)
+NTSTATUS __cdecl NtStartProfile(HANDLE ProfileHandle)
 {
   KPROCESSOR_MODE PreviousMode; // di
   NTSTATUS result; // eax
   unsigned int *v3; // rbx
-  int started; // edi
+  NTSTATUS started; // edi
   __int64 Pool2; // rax
   _DWORD *v6; // rsi
   __int64 v7; // rdx
@@ -42,11 +42,11 @@ NTSTATUS __fastcall NtStartProfile(void *a1)
 
   Object = 0LL;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
-  result = ObReferenceObjectByHandle(a1, 1u, ExProfileObjectType, PreviousMode, &Object, 0LL);
+  result = ObReferenceObjectByHandle(ProfileHandle, 1u, ExProfileObjectType, PreviousMode, &Object, 0LL);
   v3 = (unsigned int *)Object;
   if ( result >= 0 )
   {
-    KeWaitForSingleObject(&WheapConfigTableLock.SchedulerApcFill5[24], Executive, 0, 0, 0LL);
+    KeWaitForSingleObject(&WheapConfigTableLock.WaitBlockFill11[96], Executive, 0, 0, 0LL);
     if ( *((_QWORD *)v3 + 6) )
     {
       started = -1073741640;
@@ -79,7 +79,7 @@ NTSTATUS __fastcall NtStartProfile(void *a1)
           v10 = MmMapLockedPagesSpecifyCache(*((PMDL *)v3 + 7), 0, MmCached, 0LL, 0, 0x40000010u);
           if ( !v10 )
           {
-            KeReleaseMutex((PRKMUTEX)&WheapConfigTableLock.SchedulerApcFill5[24], 0);
+            KeReleaseMutex((PRKMUTEX)&WheapConfigTableLock.WaitBlockFill11[96], 0);
             MmUnlockPages(v8);
             ExFreePoolWithTag(v6, 0);
             started = -1073741670;
@@ -105,36 +105,36 @@ NTSTATUS __fastcall NtStartProfile(void *a1)
           if ( v3 == (unsigned int *)-72LL
             || !(unsigned int)RtlAndAffinityEx(
                                 (unsigned __int16 *)v3 + 36,
-                                (unsigned __int16 *)&stru_140FC01F0.WaitRegister.Flags,
+                                (unsigned __int16 *)&stru_140FC11F0.WaitRegister.Flags,
                                 (__int64)(v6 + 18)) )
           {
             RtlpCopyAffinityEx(
               (struct _KAFFINITY_EX *)(v6 + 18),
               *((_WORD *)v6 + 37),
-              (struct _KAFFINITY_EX *)&stru_140FC01F0.WaitRegister);
+              (struct _KAFFINITY_EX *)&stru_140FC11F0.WaitRegister);
           }
           started = KeStartProfile((ULONG_PTR)v6);
           if ( started >= 0 )
           {
             *((_QWORD *)v3 + 6) = v10;
             ++ExpCurrentProfileUsage;
-            KeReleaseMutex((PRKMUTEX)&WheapConfigTableLock.SchedulerApcFill5[24], 0);
+            KeReleaseMutex((PRKMUTEX)&WheapConfigTableLock.WaitBlockFill11[96], 0);
             started = 0;
             goto LABEL_20;
           }
-          KeReleaseMutex((PRKMUTEX)&WheapConfigTableLock.SchedulerApcFill5[24], 0);
+          KeReleaseMutex((PRKMUTEX)&WheapConfigTableLock.WaitBlockFill11[96], 0);
           MmUnlockPages(v8);
         }
         else
         {
-          KeReleaseMutex((PRKMUTEX)&WheapConfigTableLock.SchedulerApcFill5[24], 0);
+          KeReleaseMutex((PRKMUTEX)&WheapConfigTableLock.WaitBlockFill11[96], 0);
         }
         ExFreePoolWithTag(v6, 0);
         goto LABEL_20;
       }
       started = -1073741670;
     }
-    KeReleaseMutex((PRKMUTEX)&WheapConfigTableLock.SchedulerApcFill5[24], 0);
+    KeReleaseMutex((PRKMUTEX)&WheapConfigTableLock.WaitBlockFill11[96], 0);
 LABEL_20:
     ObfDereferenceObject(v3);
     return started;

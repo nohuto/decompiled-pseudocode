@@ -1,16 +1,16 @@
 /*
- * XREFs of CcCopyWriteEx @ 0x14026CF40
+ * XREFs of CcCopyWriteEx @ 0x14026C4B0
  * Callers:
- *     CcCopyWrite @ 0x1404DFEF0 (CcCopyWrite.c)
- *     CcFastCopyWrite @ 0x1404F7FE0 (CcFastCopyWrite.c)
- *     DifCcCopyWriteExWrapper @ 0x14064D460 (DifCcCopyWriteExWrapper.c)
- *     DifCcCopyWriteWrapper @ 0x14064D620 (DifCcCopyWriteWrapper.c)
+ *     CcCopyWrite @ 0x1404D95D0 (CcCopyWrite.c)
+ *     CcFastCopyWrite @ 0x1404F15F0 (CcFastCopyWrite.c)
+ *     DifCcCopyWriteExWrapper @ 0x140651040 (DifCcCopyWriteExWrapper.c)
+ *     DifCcCopyWriteWrapper @ 0x140651200 (DifCcCopyWriteWrapper.c)
  * Callees:
- *     KeQueryPerformanceCounter @ 0x14021C3F0 (KeQueryPerformanceCounter.c)
- *     PsGetBaseIoPriorityThread @ 0x14026D230 (PsGetBaseIoPriorityThread.c)
- *     CcMapAndCopyInToCache @ 0x14026D270 (CcMapAndCopyInToCache.c)
- *     CcTelemetryBucketizeLatency @ 0x140A814A8 (CcTelemetryBucketizeLatency.c)
- *     CcSetTelemetryPeriodicTimer @ 0x140B5F268 (CcSetTelemetryPeriodicTimer.c)
+ *     KeQueryPerformanceCounter @ 0x14021DD80 (KeQueryPerformanceCounter.c)
+ *     PsGetBaseIoPriorityThread @ 0x14026C7A0 (PsGetBaseIoPriorityThread.c)
+ *     CcMapAndCopyInToCache @ 0x14026C7E0 (CcMapAndCopyInToCache.c)
+ *     CcTelemetryBucketizeLatency @ 0x140A87318 (CcTelemetryBucketizeLatency.c)
+ *     CcSetTelemetryPeriodicTimer @ 0x140B623E8 (CcSetTelemetryPeriodicTimer.c)
  */
 
 char __fastcall CcCopyWriteEx(__int64 a1, __int64 *a2, unsigned int a3, char a4, __int64 a5, __int64 a6)
@@ -49,12 +49,12 @@ char __fastcall CcCopyWriteEx(__int64 a1, __int64 *a2, unsigned int a3, char a4,
   {
     v10 = 1;
   }
-  ++EmpParseLock.WaitBlock[0].WaitListEntry.Blink;
-  if ( !BYTE1(EmpParseLock.Timer.DueTime.LowPart)
-    && !EmpParseLock.AffinityVersion
-    && LOBYTE(EmpParseLock.WaitListEntry.Flink) )
+  ++*(_QWORD *)&EmpParseLock.WaitBlockFill11[16];
+  if ( !BYTE1(EmpParseLock.Timer.TimerListEntry.Flink)
+    && !EmpParseLock.Affinity
+    && *((_BYTE *)&EmpParseLock.SwapListEntry + 8) )
   {
-    CcSetTelemetryPeriodicTimer((LARGE_INTEGER)EmpParseLock.RelativeTimerBias);
+    CcSetTelemetryPeriodicTimer(*(LARGE_INTEGER *)&EmpParseLock.Timer.Header.Lock);
   }
   if ( v10 && !a4 )
     return 0;
@@ -83,13 +83,13 @@ char __fastcall CcCopyWriteEx(__int64 a1, __int64 *a2, unsigned int a3, char a4,
       v19 = v16 | 6;
   }
   v20 = CcMapAndCopyInToCache(v13, a5, (unsigned int)v32, a3, v19, a1, (__int64)&v29, a4, a6, (__int64)&v28);
-  if ( !BYTE1(EmpParseLock.Timer.DueTime.LowPart) )
+  if ( !BYTE1(EmpParseLock.Timer.TimerListEntry.Flink) )
   {
     v21 = *(_QWORD **)(v13 + 512);
     if ( v20 )
     {
       if ( v28 )
-        v22 = 1000000 * (*(_QWORD *)&KeQueryPerformanceCounter(0LL) - v28) / (__int64)EmpParseLock.WaitListEntry.Blink;
+        v22 = 1000000 * (*(_QWORD *)&KeQueryPerformanceCounter(0LL) - v28) / (__int64)EmpParseLock.Queue;
       else
         v22 = v30;
       v23 = 123LL;

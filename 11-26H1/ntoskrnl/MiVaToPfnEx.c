@@ -1,16 +1,16 @@
 /*
- * XREFs of MiVaToPfnEx @ 0x14024DF10
+ * XREFs of MiVaToPfnEx @ 0x14024F870
  * Callers:
- *     MmBuildMdlForNonPagedPool @ 0x14024C4E0 (MmBuildMdlForNonPagedPool.c)
- *     MiGetVirtualAddressState @ 0x14024D274 (MiGetVirtualAddressState.c)
- *     MiGetContainingPageTable @ 0x1402D9BF0 (MiGetContainingPageTable.c)
- *     MiDecrementCloneBlock @ 0x14036A250 (MiDecrementCloneBlock.c)
- *     MiCheckKernelShadow @ 0x14040D4B4 (MiCheckKernelShadow.c)
- *     MiInitializeShadowPageTable @ 0x1408755C4 (MiInitializeShadowPageTable.c)
- *     MiFreeInitializationCode @ 0x140AC9178 (MiFreeInitializationCode.c)
- *     MiInitializeNonPagedPool @ 0x140CF9BA8 (MiInitializeNonPagedPool.c)
+ *     MmBuildMdlForNonPagedPool @ 0x14024DE40 (MmBuildMdlForNonPagedPool.c)
+ *     MiGetVirtualAddressState @ 0x14024EBD4 (MiGetVirtualAddressState.c)
+ *     MiGetContainingPageTable @ 0x1402BB9B0 (MiGetContainingPageTable.c)
+ *     MiDecrementCloneBlock @ 0x14036BFF0 (MiDecrementCloneBlock.c)
+ *     MiCheckKernelShadow @ 0x14042A3E0 (MiCheckKernelShadow.c)
+ *     MiInitializeShadowPageTable @ 0x14087B9A8 (MiInitializeShadowPageTable.c)
+ *     MiFreeInitializationCode @ 0x140ACB290 (MiFreeInitializationCode.c)
+ *     MiInitializeNonPagedPool @ 0x140CFFF28 (MiInitializeNonPagedPool.c)
  * Callees:
- *     MiPteHasShadow @ 0x1403011E0 (MiPteHasShadow.c)
+ *     MiPteHasShadow @ 0x1402E3260 (MiPteHasShadow.c)
  */
 
 __int64 __fastcall MiVaToPfnEx(unsigned __int64 a1)

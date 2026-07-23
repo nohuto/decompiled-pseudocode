@@ -9,14 +9,14 @@
  *     @__security_check_cookie@4 @ 0x4B2F4B20 (@__security_check_cookie@4.c)
  */
 
-struct _TEB *__thiscall EtwpUseDescriptorType(char *this, int a2, __int16 a3)
+LONG __thiscall EtwpUseDescriptorType(char *this, int a2, __int16 a3)
 {
   char v3; // bl
-  struct _TEB *v4; // esi
+  LONG v4; // esi
   NTSTATUS v5; // eax
   int v7; // [esp-4h] [ebp-2Ch]
-  _BYTE v8[4]; // [esp+Ch] [ebp-1Ch] BYREF
-  _DWORD v9[2]; // [esp+10h] [ebp-18h] BYREF
+  ULONG ReturnLength; // [esp+Ch] [ebp-1Ch] BYREF
+  _DWORD InputBuffer[2]; // [esp+10h] [ebp-18h] BYREF
   char v10; // [esp+18h] [ebp-10h]
 
   if ( !a3 || (a2 & 1) != 0 || a3 != *(_WORD *)(a2 + 52) )
@@ -29,19 +29,19 @@ struct _TEB *__thiscall EtwpUseDescriptorType(char *this, int a2, __int16 a3)
   {
     v7 = 87;
 LABEL_11:
-    v4 = (struct _TEB *)v7;
+    v4 = v7;
 LABEL_12:
     RtlSetLastWin32Error(v4);
     return v4;
   }
   v4 = 0;
-  v9[0] = *(_DWORD *)(a2 + 48);
-  v9[1] = 0;
+  InputBuffer[0] = *(_DWORD *)(a2 + 48);
+  InputBuffer[1] = 0;
   v10 = v3;
-  v5 = ZwTraceControl(31, (int)v9, 16, 0, 0, (int)v8);
+  v5 = ZwTraceControl(EtwUseDescriptorTypeCode, InputBuffer, 0x10u, 0, 0, &ReturnLength);
   if ( v5 )
   {
-    v4 = (struct _TEB *)RtlNtStatusToDosError(v5);
+    v4 = RtlNtStatusToDosError(v5);
     if ( v4 )
       goto LABEL_12;
   }

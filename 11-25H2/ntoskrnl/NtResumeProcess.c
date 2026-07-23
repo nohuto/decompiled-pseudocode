@@ -8,17 +8,17 @@
  *     ObpReferenceObjectByHandleWithTag @ 0x14084FA30 (ObpReferenceObjectByHandleWithTag.c)
  */
 
-__int64 __fastcall NtResumeProcess(ULONG_PTR a1)
+NTSTATUS __cdecl NtResumeProcess(HANDLE ProcessHandle)
 {
-  int v1; // ebx
+  NTSTATUS v1; // ebx
   PVOID Object; // [rsp+58h] [rbp+10h] BYREF
 
   Object = 0LL;
-  v1 = ObpReferenceObjectByHandleWithTag(a1, 0x75537350u, (__int64)&Object, 0LL, 0LL);
+  v1 = ObpReferenceObjectByHandleWithTag((ULONG_PTR)ProcessHandle, 0x75537350u, (__int64)&Object, 0LL, 0LL);
   if ( v1 >= 0 )
   {
     v1 = PsMultiResumeProcess((__int64)Object);
     ObfDereferenceObjectWithTag(Object, 0x75537350u);
   }
-  return (unsigned int)v1;
+  return v1;
 }

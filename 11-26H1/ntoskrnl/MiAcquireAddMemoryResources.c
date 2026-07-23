@@ -1,13 +1,13 @@
 /*
- * XREFs of MiAcquireAddMemoryResources @ 0x140864F54
+ * XREFs of MiAcquireAddMemoryResources @ 0x14086B334
  * Callers:
- *     MiAddPhysicalMemory @ 0x14086501C (MiAddPhysicalMemory.c)
+ *     MiAddPhysicalMemory @ 0x14086B3FC (MiAddPhysicalMemory.c)
  * Callees:
- *     MiIsAnyPartOfRangeInHugePfn @ 0x1406EC594 (MiIsAnyPartOfRangeInHugePfn.c)
- *     MiAddRangeToPartitionTree @ 0x14070821C (MiAddRangeToPartitionTree.c)
- *     MiSplitPfnBitMapsForPartitionHierarchy @ 0x140709A18 (MiSplitPfnBitMapsForPartitionHierarchy.c)
- *     MiAllocateInitialMemoryBlocks @ 0x1408659F8 (MiAllocateInitialMemoryBlocks.c)
- *     MiUpdateMirrorBitmaps @ 0x140B65ABC (MiUpdateMirrorBitmaps.c)
+ *     MiIsAnyPartOfRangeInHugePfn @ 0x1406F1234 (MiIsAnyPartOfRangeInHugePfn.c)
+ *     MiAddRangeToPartitionTree @ 0x14070CED0 (MiAddRangeToPartitionTree.c)
+ *     MiSplitPfnBitMapsForPartitionHierarchy @ 0x14070E6CC (MiSplitPfnBitMapsForPartitionHierarchy.c)
+ *     MiAllocateInitialMemoryBlocks @ 0x14086BDD8 (MiAllocateInitialMemoryBlocks.c)
+ *     MiUpdateMirrorBitmaps @ 0x140B68B5C (MiUpdateMirrorBitmaps.c)
  */
 
 __int64 __fastcall MiAcquireAddMemoryResources(__int64 a1)

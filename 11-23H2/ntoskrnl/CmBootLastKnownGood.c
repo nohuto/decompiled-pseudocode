@@ -1,9 +1,9 @@
 /*
- * XREFs of CmBootLastKnownGood @ 0x140A0A4C0
+ * XREFs of CmBootLastKnownGood @ 0x140A0A770
  * Callers:
- *     IopLoadDriver @ 0x1407945D8 (IopLoadDriver.c)
+ *     IopLoadDriver @ 0x1407947C8 (IopLoadDriver.c)
  * Callees:
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall CmBootLastKnownGood(int a1, __int64 a2, __int64 a3, int a4)

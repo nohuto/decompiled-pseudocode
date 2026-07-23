@@ -1,14 +1,14 @@
 /*
- * XREFs of EtwpTraceHandle @ 0x14084CBBC
+ * XREFs of EtwpTraceHandle @ 0x140848E7C
  * Callers:
- *     ObCloseHandleTableEntry @ 0x14084BFA0 (ObCloseHandleTableEntry.c)
- *     ObpCreateHandle @ 0x14084DAA0 (ObpCreateHandle.c)
+ *     ObCloseHandleTableEntry @ 0x140848260 (ObCloseHandleTableEntry.c)
+ *     ObpCreateHandle @ 0x140849D60 (ObpCreateHandle.c)
  * Callees:
- *     EtwpTraceKernelEventWithFilter @ 0x14048C9F0 (EtwpTraceKernelEventWithFilter.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ObQueryNameStringMode @ 0x140969A30 (ObQueryNameStringMode.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     EtwpTraceKernelEventWithFilter @ 0x140487710 (EtwpTraceKernelEventWithFilter.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ObQueryNameStringMode @ 0x1409524C0 (ObQueryNameStringMode.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __fastcall EtwpTraceHandle(__int16 a1, int a2, __int64 a3, __int64 a4)
@@ -34,7 +34,7 @@ void __fastcall EtwpTraceHandle(__int16 a1, int a2, __int64 a3, __int64 a4)
   int NameStringMode; // eax
   int v26; // ecx
   __int64 v27; // rax
-  int i; // [rsp+30h] [rbp-D0h] BYREF
+  unsigned int i; // [rsp+30h] [rbp-D0h] BYREF
   __int16 v29; // [rsp+34h] [rbp-CCh]
   _DWORD v30[2]; // [rsp+38h] [rbp-C8h]
   _DWORD v31[2]; // [rsp+40h] [rbp-C0h]
@@ -117,7 +117,7 @@ LABEL_6:
             break;
           if ( Pool2 != (_WORD *)P )
             ExFreePoolWithTag(Pool2, 0);
-          Pool2 = (_WORD *)ExAllocatePool2(0x100uLL);
+          Pool2 = (_WORD *)ExAllocatePool2(0x100uLL, i, 0x74777445u);
           if ( !Pool2 )
             goto LABEL_19;
         }

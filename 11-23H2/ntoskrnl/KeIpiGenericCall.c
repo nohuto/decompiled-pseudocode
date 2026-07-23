@@ -1,31 +1,31 @@
 /*
- * XREFs of KeIpiGenericCall @ 0x14039AC30
+ * XREFs of KeIpiGenericCall @ 0x14039AE10
  * Callers:
- *     HalpTscSynchronization @ 0x14039AB10 (HalpTscSynchronization.c)
- *     KeOptimizeSpecCtrlSettings @ 0x14039ABB4 (KeOptimizeSpecCtrlSettings.c)
- *     HalpCmciHandler @ 0x14050573C (HalpCmciHandler.c)
- *     HalpTscFallbackToPlatformSource @ 0x14050A734 (HalpTscFallbackToPlatformSource.c)
- *     HalpTimerMeasureAllProcessorFrequencies @ 0x14050CA7C (HalpTimerMeasureAllProcessorFrequencies.c)
- *     KeAdjustInterruptTime @ 0x14056C174 (KeAdjustInterruptTime.c)
- *     KeStartProfile @ 0x140573EDC (KeStartProfile.c)
- *     KeStopProfile @ 0x14057401C (KeStopProfile.c)
- *     MiStackTheftFreezeProcessors @ 0x14062D31C (MiStackTheftFreezeProcessors.c)
- *     MiReapplyImportOptimizationForDriverVerifier @ 0x1406408E8 (MiReapplyImportOptimizationForDriverVerifier.c)
- *     MiWritePteHighLevel @ 0x14064E2BC (MiWritePteHighLevel.c)
- *     HalpLoadMicrocode @ 0x140934B30 (HalpLoadMicrocode.c)
- *     HalpLbrConfigurationWorker @ 0x140935DD4 (HalpLbrConfigurationWorker.c)
- *     KeRestoreMtrrBroadcast @ 0x140A8F8CC (KeRestoreMtrrBroadcast.c)
- *     KiUpdateNumberProcessors @ 0x140A9F504 (KiUpdateNumberProcessors.c)
- *     KiUpdateSavedSupervisorState @ 0x140A9F720 (KiUpdateSavedSupervisorState.c)
+ *     HalpTscSynchronization @ 0x14039ACF0 (HalpTscSynchronization.c)
+ *     KeOptimizeSpecCtrlSettings @ 0x14039AD94 (KeOptimizeSpecCtrlSettings.c)
+ *     HalpCmciHandler @ 0x140505C8C (HalpCmciHandler.c)
+ *     HalpTscFallbackToPlatformSource @ 0x14050AC84 (HalpTscFallbackToPlatformSource.c)
+ *     HalpTimerMeasureAllProcessorFrequencies @ 0x14050CFCC (HalpTimerMeasureAllProcessorFrequencies.c)
+ *     KeAdjustInterruptTime @ 0x14056C834 (KeAdjustInterruptTime.c)
+ *     KeStartProfile @ 0x14057441C (KeStartProfile.c)
+ *     KeStopProfile @ 0x14057455C (KeStopProfile.c)
+ *     MiStackTheftFreezeProcessors @ 0x14062D86C (MiStackTheftFreezeProcessors.c)
+ *     MiReapplyImportOptimizationForDriverVerifier @ 0x140640E38 (MiReapplyImportOptimizationForDriverVerifier.c)
+ *     MiWritePteHighLevel @ 0x14064E80C (MiWritePteHighLevel.c)
+ *     HalpLoadMicrocode @ 0x140934D30 (HalpLoadMicrocode.c)
+ *     HalpLbrConfigurationWorker @ 0x140935FD4 (HalpLbrConfigurationWorker.c)
+ *     KeRestoreMtrrBroadcast @ 0x140A8F74C (KeRestoreMtrrBroadcast.c)
+ *     KiUpdateNumberProcessors @ 0x140A9F374 (KiUpdateNumberProcessors.c)
+ *     KiUpdateSavedSupervisorState @ 0x140A9F590 (KiUpdateSavedSupervisorState.c)
  * Callees:
  *     KeQueryActiveProcessorCountEx @ 0x140222050 (KeQueryActiveProcessorCountEx.c)
- *     KeYieldProcessorEx @ 0x140242E40 (KeYieldProcessorEx.c)
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KxAcquireSpinLock @ 0x1402515B0 (KxAcquireSpinLock.c)
- *     KiIpiStallOnPacketTargetsPrcb @ 0x1402C02F0 (KiIpiStallOnPacketTargetsPrcb.c)
- *     KiIpiSendPacket @ 0x1402C0330 (KiIpiSendPacket.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeYieldProcessorEx @ 0x140242F10 (KeYieldProcessorEx.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KxAcquireSpinLock @ 0x140251670 (KxAcquireSpinLock.c)
+ *     KiIpiStallOnPacketTargetsPrcb @ 0x1402C0580 (KiIpiStallOnPacketTargetsPrcb.c)
+ *     KiIpiSendPacket @ 0x1402C05C0 (KiIpiSendPacket.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
  */
 
 ULONG_PTR __stdcall KeIpiGenericCall(PKIPI_BROADCAST_WORKER BroadcastFunction, ULONG_PTR Context)
@@ -54,9 +54,9 @@ ULONG_PTR __stdcall KeIpiGenericCall(PKIPI_BROADCAST_WORKER BroadcastFunction, U
   {
     v5 = KeGetCurrentIrql();
     __writecr8(0xCuLL);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
-      if ( (KiIrqlFlags & 1) != 0 && v5 <= 0xFu )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v5 <= 0xFu )
       {
         SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
         if ( v5 == 12 )
@@ -83,7 +83,7 @@ ULONG_PTR __stdcall KeIpiGenericCall(PKIPI_BROADCAST_WORKER BroadcastFunction, U
     KeYieldProcessorEx(&v22);
   v7 = KeGetCurrentIrql();
   __writecr8(0xEuLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && v7 <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && v7 <= 0xFu )
   {
     v13 = KeGetCurrentPrcb()->SchedulerAssist;
     if ( v7 == 14 )
@@ -98,10 +98,10 @@ ULONG_PTR __stdcall KeIpiGenericCall(PKIPI_BROADCAST_WORKER BroadcastFunction, U
   {
     if ( CurrentIrql <= 0xCu )
     {
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         CurrentPrcb = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 )
         {
           LOBYTE(CurrentPrcb) = CurrentPrcb - 2;
           if ( (unsigned __int8)CurrentPrcb <= 0xDu )
@@ -120,10 +120,10 @@ ULONG_PTR __stdcall KeIpiGenericCall(PKIPI_BROADCAST_WORKER BroadcastFunction, U
     KiIpiStallOnPacketTargetsPrcb(CurrentPrcb, (__int64)KeGetCurrentPrcb());
   }
   KxReleaseSpinLock((volatile signed __int64 *)&KiReverseStallIpiLock);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v17 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v17 <= 0xFu && CurrentIrql <= 0xFu && v17 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v17 <= 0xFu && CurrentIrql <= 0xFu && v17 >= 2u )
     {
       v18 = KeGetCurrentPrcb();
       v19 = v18->SchedulerAssist;

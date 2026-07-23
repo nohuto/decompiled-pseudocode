@@ -1,26 +1,26 @@
 /*
- * XREFs of MmFlushVirtualMemory @ 0x140689134
+ * XREFs of MmFlushVirtualMemory @ 0x1405E85C4
  * Callers:
- *     NtFlushVirtualMemory @ 0x140688FD0 (NtFlushVirtualMemory.c)
- *     CMFFlushHitsFile @ 0x140958AB0 (CMFFlushHitsFile.c)
+ *     NtFlushVirtualMemory @ 0x1405E8460 (NtFlushVirtualMemory.c)
+ *     CMFFlushHitsFile @ 0x140958C80 (CMFFlushHitsFile.c)
  * Callees:
- *     KiUnstackDetachProcess @ 0x140207000 (KiUnstackDetachProcess.c)
- *     MiFlushSectionInternal @ 0x140219DB0 (MiFlushSectionInternal.c)
- *     MiObtainReferencedVadEx @ 0x14021B2A0 (MiObtainReferencedVadEx.c)
- *     KeDelayExecutionThread @ 0x140257490 (KeDelayExecutionThread.c)
- *     KeAreAllApcsDisabled @ 0x14025AC80 (KeAreAllApcsDisabled.c)
- *     MiUnlockAndDereferenceVadShared @ 0x14025B250 (MiUnlockAndDereferenceVadShared.c)
- *     KiStackAttachProcess @ 0x14025C2E0 (KiStackAttachProcess.c)
- *     MiFlushAcquire @ 0x1402A0C88 (MiFlushAcquire.c)
- *     MiFlushDirtyBitsToPfn @ 0x1402A0D3C (MiFlushDirtyBitsToPfn.c)
- *     MiFindLastSubsection @ 0x1402A13FC (MiFindLastSubsection.c)
- *     MiFlushRelease @ 0x140315010 (MiFlushRelease.c)
- *     MiReferenceControlAreaFile @ 0x14031CEB0 (MiReferenceControlAreaFile.c)
- *     MiGetProtoPteAddress @ 0x140330B40 (MiGetProtoPteAddress.c)
- *     MiDereferenceControlAreaFile @ 0x1403571E4 (MiDereferenceControlAreaFile.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     FsRtlReleaseFileForCcFlush @ 0x140647024 (FsRtlReleaseFileForCcFlush.c)
- *     FsRtlAcquireFileForCcFlushEx @ 0x140647204 (FsRtlAcquireFileForCcFlushEx.c)
+ *     MiFlushAcquire @ 0x14021E208 (MiFlushAcquire.c)
+ *     MiFlushDirtyBitsToPfn @ 0x14021E2BC (MiFlushDirtyBitsToPfn.c)
+ *     MiFindLastSubsection @ 0x14021E97C (MiFindLastSubsection.c)
+ *     KeDelayExecutionThread @ 0x140278A00 (KeDelayExecutionThread.c)
+ *     KeAreAllApcsDisabled @ 0x14027C1F0 (KeAreAllApcsDisabled.c)
+ *     MiUnlockAndDereferenceVadShared @ 0x14027C7C0 (MiUnlockAndDereferenceVadShared.c)
+ *     KiStackAttachProcess @ 0x14027D850 (KiStackAttachProcess.c)
+ *     KiUnstackDetachProcess @ 0x1402AB900 (KiUnstackDetachProcess.c)
+ *     MiFlushSectionInternal @ 0x1402BE6B0 (MiFlushSectionInternal.c)
+ *     MiObtainReferencedVadEx @ 0x1402BFBA0 (MiObtainReferencedVadEx.c)
+ *     MiFlushRelease @ 0x14031FD60 (MiFlushRelease.c)
+ *     MiReferenceControlAreaFile @ 0x140327C00 (MiReferenceControlAreaFile.c)
+ *     MiGetProtoPteAddress @ 0x14033B890 (MiGetProtoPteAddress.c)
+ *     MiDereferenceControlAreaFile @ 0x140361F34 (MiDereferenceControlAreaFile.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     FsRtlReleaseFileForCcFlush @ 0x14063BE14 (FsRtlReleaseFileForCcFlush.c)
+ *     FsRtlAcquireFileForCcFlushEx @ 0x14063BFF4 (FsRtlAcquireFileForCcFlushEx.c)
  */
 
 __int64 __fastcall MmFlushVirtualMemory(_KPROCESS *a1, unsigned __int64 *a2, _QWORD *a3, unsigned int *a4)
@@ -31,7 +31,7 @@ __int64 __fastcall MmFlushVirtualMemory(_KPROCESS *a1, unsigned __int64 *a2, _QW
   unsigned __int64 v8; // r12
   unsigned __int64 v9; // r14
   unsigned int v10; // ebx
-  volatile signed __int32 *v11; // rax
+  __int64 v11; // rax
   char *v12; // rsi
   unsigned __int64 v13; // rcx
   int v14; // edx
@@ -40,7 +40,7 @@ __int64 __fastcall MmFlushVirtualMemory(_KPROCESS *a1, unsigned __int64 *a2, _QW
   int v17; // eax
   struct _KTHREAD *ProtoPteAddress; // rax
   __int64 LastSubsection; // r14
-  _QWORD *v20; // r12
+  __int64 *v20; // r12
   struct _FILE_OBJECT *v21; // rsi
   unsigned int *v22; // r15
   int v23; // ebx
@@ -50,7 +50,7 @@ __int64 __fastcall MmFlushVirtualMemory(_KPROCESS *a1, unsigned __int64 *a2, _QW
   unsigned __int64 v28; // [rsp+48h] [rbp-61h] BYREF
   __int64 v29; // [rsp+50h] [rbp-59h] BYREF
   struct _KTHREAD *CurrentThread; // [rsp+58h] [rbp-51h]
-  _QWORD *v31; // [rsp+60h] [rbp-49h] BYREF
+  __int64 *v31; // [rsp+60h] [rbp-49h] BYREF
   unsigned int *v32; // [rsp+68h] [rbp-41h]
   _QWORD *v33; // [rsp+70h] [rbp-39h]
   __int64 v34; // [rsp+78h] [rbp-31h] BYREF
@@ -74,7 +74,7 @@ __int64 __fastcall MmFlushVirtualMemory(_KPROCESS *a1, unsigned __int64 *a2, _QW
   if ( CurrentThread->ApcState.Process != a1 )
   {
     v10 = 2;
-    KiStackAttachProcess(a1, 0LL, (__int64)v35, a4);
+    KiStackAttachProcess(a1, 0, (__int64)v35);
   }
   v27 = 0;
   v26 = KeAreAllApcsDisabled();
@@ -87,20 +87,20 @@ __int64 __fastcall MmFlushVirtualMemory(_KPROCESS *a1, unsigned __int64 *a2, _QW
       v5 = -1073741799;
     goto LABEL_25;
   }
-  v13 = *((unsigned int *)v11 + 7) | ((unsigned __int64)*((unsigned __int8 *)v11 + 33) << 32);
+  v13 = *(unsigned int *)(v11 + 28) | ((unsigned __int64)*(unsigned __int8 *)(v11 + 33) << 32);
   if ( !*a3 )
   {
     v9 = (v13 << 12) | 0xFFF;
     v10 |= 1u;
   }
-  v14 = *((_DWORD *)v11 + 12);
+  v14 = *(_DWORD *)(v11 + 48);
   if ( (v14 & 0x100000) != 0 || (v15 = v9 >> 12, v9 >> 12 > v13) )
   {
 LABEL_31:
     v5 = -1073741799;
     goto LABEL_24;
   }
-  v16 = **((_QWORD **)v11 + 9);
+  v16 = **(_QWORD **)(v11 + 72);
   v29 = v16;
   if ( *(_QWORD *)(v16 + 64) && (v14 & 0x70) != 0x20 )
   {
@@ -126,7 +126,7 @@ LABEL_16:
       {
         MiUnlockAndDereferenceVadShared(v12);
         if ( v10 >= 2 )
-          KiUnstackDetachProcess((__int64)v35, 0);
+          KiUnstackDetachProcess((__int64)v35, 0LL);
         v21 = (struct _FILE_OBJECT *)MiReferenceControlAreaFile(v16);
         v22 = v32;
         while ( 1 )
@@ -174,6 +174,6 @@ LABEL_24:
   MiUnlockAndDereferenceVadShared(v12);
 LABEL_25:
   if ( v10 >= 2 )
-    KiUnstackDetachProcess((__int64)v35, 0);
+    KiUnstackDetachProcess((__int64)v35, 0LL);
   return v5;
 }

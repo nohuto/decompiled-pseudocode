@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlStringExHandleFillBehindNullW @ 0x1800FC6A8
+ * XREFs of RtlStringExHandleFillBehindNullW @ 0x1800FC668
  * Callers:
  *     RtlStringCchPrintfExW @ 0x180067968 (RtlStringCchPrintfExW.c)
  * Callees:
- *     memset @ 0x1800A4780 (memset.c)
+ *     memset @ 0x1800A4740 (memset.c)
  */
 
 __int64 __fastcall RtlStringExHandleFillBehindNullW(__int64 a1, unsigned __int64 a2, unsigned __int8 a3)

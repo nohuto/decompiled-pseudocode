@@ -1,8 +1,8 @@
 /*
- * XREFs of RtlGuardIsValidStackPointer @ 0x180036734
+ * XREFs of RtlGuardIsValidStackPointer @ 0x180036724
  * Callers:
- *     RtlUnwindEx @ 0x180035340 (RtlUnwindEx.c)
- *     RtlGuardRestoreContext @ 0x180087040 (RtlGuardRestoreContext.c)
+ *     RtlUnwindEx @ 0x180035330 (RtlUnwindEx.c)
+ *     RtlGuardRestoreContext @ 0x180087030 (RtlGuardRestoreContext.c)
  * Callees:
  *     <none>
  */

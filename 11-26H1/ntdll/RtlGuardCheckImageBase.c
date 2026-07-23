@@ -1,32 +1,33 @@
 /*
- * XREFs of RtlGuardCheckImageBase @ 0x18004C3D0
+ * XREFs of RtlGuardCheckImageBase @ 0x180036950
  * Callers:
- *     LdrpHandleProtectedDelayload @ 0x1800C5420 (LdrpHandleProtectedDelayload.c)
- *     LdrpResolveProcedureAddress @ 0x1800C5A40 (LdrpResolveProcedureAddress.c)
+ *     LdrpHandleProtectedDelayload @ 0x1800C2BE0 (LdrpHandleProtectedDelayload.c)
+ *     LdrpResolveProcedureAddress @ 0x1800C3200 (LdrpResolveProcedureAddress.c)
  * Callees:
- *     RtlpxLookupFunctionTable @ 0x18004B2A0 (RtlpxLookupFunctionTable.c)
- *     LdrIsEnclaveAddress @ 0x180110A04 (LdrIsEnclaveAddress.c)
+ *     RtlpxLookupFunctionTable @ 0x180035820 (RtlpxLookupFunctionTable.c)
+ *     LdrIsEnclaveAddress @ 0x180110594 (LdrIsEnclaveAddress.c)
  */
 
-void __fastcall RtlGuardCheckImageBase(unsigned __int64 a1, char a2)
+void __fastcall RtlGuardCheckImageBase(PVOID BaseAddress, char a2)
 {
   __int128 v4; // [rsp+20h] [rbp-28h] BYREF
   __int64 v5; // [rsp+30h] [rbp-18h]
 
-  if ( qword_1801E3518 && (dword_1801E34FC & 1) == 0 )
+  if ( LdrSystemDllInitBlock.CfgBitMap && (LdrSystemDllInitBlock.Flags & 1) == 0 )
   {
     v5 = 0LL;
     v4 = 0LL;
-    if ( a1 < *((_QWORD *)&xmmword_1801E0450 + 1)
-      || a1 >= *((_QWORD *)&xmmword_1801E0450 + 1) + (unsigned __int64)(unsigned int)qword_1801E0460 )
+    if ( (unsigned __int64)BaseAddress < *((_QWORD *)&xmmword_1801DF450 + 1)
+      || (unsigned __int64)BaseAddress >= *((_QWORD *)&xmmword_1801DF450 + 1)
+                                        + (unsigned __int64)(unsigned int)qword_1801DF460 )
     {
-      RtlpxLookupFunctionTable(a1, (__int64)&v4);
+      RtlpxLookupFunctionTable(BaseAddress, (char **)&v4);
     }
     else
     {
-      v4 = xmmword_1801E0450;
+      v4 = xmmword_1801DF450;
     }
-    if ( *((_QWORD *)&v4 + 1) != a1 && (!a2 || !(unsigned __int8)LdrIsEnclaveAddress(a1)) )
+    if ( *((PVOID *)&v4 + 1) != BaseAddress && (!a2 || !(unsigned __int8)LdrIsEnclaveAddress(BaseAddress)) )
       __fastfail(0x18u);
   }
 }

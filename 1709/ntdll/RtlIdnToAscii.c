@@ -6,7 +6,21 @@
  *     RtlpNameprepAsciiWorker @ 0x18004E6E4 (RtlpNameprepAsciiWorker.c)
  */
 
-__int64 __fastcall RtlIdnToAscii(__int64 a1, __int64 a2)
+NTSTATUS __cdecl RtlIdnToAscii(
+        ULONG Flags,
+        PCWSTR SourceString,
+        LONG SourceStringLength,
+        PWSTR DestinationString,
+        PLONG DestinationStringLength)
 {
-  return RtlpNameprepAsciiWorker(a1, a2);
+  char v6; // [rsp+28h] [rbp-10h]
+
+  v6 = 1;
+  return RtlpNameprepAsciiWorker(
+           Flags,
+           SourceString,
+           SourceStringLength,
+           DestinationString,
+           DestinationStringLength,
+           v6);
 }

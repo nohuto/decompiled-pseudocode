@@ -10,20 +10,20 @@
  *     LdrpHandlePendingModuleReplaced @ 0x180067CB0 (LdrpHandlePendingModuleReplaced.c)
  */
 
-__int64 __fastcall LdrpFreeLoadContext(__int64 a1)
+LOGICAL __fastcall LdrpFreeLoadContext(PVOID BaseAddress)
 {
-  __int64 result; // rax
+  LOGICAL result; // eax
   __int64 i; // rdi
   __int64 v4; // rcx
   __int64 v5; // rax
 
-  *(_QWORD *)(*(_QWORD *)(a1 + 56) + 176LL) = 0LL;
-  result = LdrpHandlePendingModuleReplaced(a1);
-  if ( *(_QWORD *)(a1 + 88) )
+  *(_QWORD *)(*((_QWORD *)BaseAddress + 7) + 176LL) = 0LL;
+  result = LdrpHandlePendingModuleReplaced(BaseAddress);
+  if ( *((_QWORD *)BaseAddress + 11) )
   {
-    for ( i = 0LL; (unsigned int)i < *(_DWORD *)(a1 + 104); i = (unsigned int)(i + 1) )
+    for ( i = 0LL; (unsigned int)i < *((_DWORD *)BaseAddress + 26); i = (unsigned int)(i + 1) )
     {
-      v4 = *(_QWORD *)(*(_QWORD *)(a1 + 88) + 8 * i);
+      v4 = *(_QWORD *)(*((_QWORD *)BaseAddress + 11) + 8 * i);
       if ( v4 )
       {
         v5 = *(_QWORD *)(v4 + 176);
@@ -32,14 +32,14 @@ __int64 __fastcall LdrpFreeLoadContext(__int64 a1)
           if ( (*(_DWORD *)(v5 + 32) & 0x80000) == 0 && *(_QWORD *)(v5 + 56) != v4 )
           {
             *(_QWORD *)(v5 + 56) = v4;
-            LdrpFreeReplacedModule(v4);
+            LdrpFreeReplacedModule((PVOID *)v4);
           }
         }
       }
     }
-    result = RtlFreeHeap(LdrpHeap, 0, *(_QWORD *)(a1 + 88));
+    result = RtlFreeHeap(LdrpHeap, 0, *((PVOID *)BaseAddress + 11));
   }
-  if ( (*(_DWORD *)(a1 + 32) & 0x8000) != 0 )
-    return RtlFreeHeap(LdrpHeap, 0, a1);
+  if ( (*((_DWORD *)BaseAddress + 8) & 0x8000) != 0 )
+    return RtlFreeHeap(LdrpHeap, 0, BaseAddress);
   return result;
 }

@@ -1,12 +1,12 @@
 /*
- * XREFs of PopInitializeHighPerfPowerRequest @ 0x140A710FC
+ * XREFs of PopInitializeHighPerfPowerRequest @ 0x140A720FC
  * Callers:
- *     PoInitSystem @ 0x140A3F948 (PoInitSystem.c)
+ *     PoInitSystem @ 0x140A40948 (PoInitSystem.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
- *     PoDestroyReasonContext @ 0x140282BD8 (PoDestroyReasonContext.c)
- *     PoCaptureReasonContext @ 0x14028363C (PoCaptureReasonContext.c)
- *     PopCreateKernelPowerRequest @ 0x1407727C8 (PopCreateKernelPowerRequest.c)
+ *     RtlInitUnicodeString @ 0x14026A4C0 (RtlInitUnicodeString.c)
+ *     PoDestroyReasonContext @ 0x140270E84 (PoDestroyReasonContext.c)
+ *     PoCaptureReasonContext @ 0x14027184C (PoCaptureReasonContext.c)
+ *     PopCreateKernelPowerRequest @ 0x140772988 (PopCreateKernelPowerRequest.c)
  */
 
 __int64 PopInitializeHighPerfPowerRequest()
@@ -22,16 +22,16 @@ __int64 PopInitializeHighPerfPowerRequest()
 
   PpmHighPerfEndDpc = 275;
   *(_QWORD *)&PpmHighPerfEndTimer.Header.Lock = 8LL;
-  qword_140C24138 = (__int64)PpmHighPerfRequestExpiration;
+  qword_140C234D8 = (__int64)PpmHighPerfRequestExpiration;
   v0 = PpmHighPerfDuration;
   P = 0LL;
   PpmHighPerfEndTimer.Header.WaitListHead.Blink = &PpmHighPerfEndTimer.Header.WaitListHead;
   v1 = 4LL;
   PpmHighPerfEndTimer.Header.WaitListHead.Flink = &PpmHighPerfEndTimer.Header.WaitListHead;
   PpmHighPerfRequestLock = 0LL;
-  qword_140C24140 = 0LL;
-  qword_140C24158 = 0LL;
-  qword_140C24130 = 0LL;
+  qword_140C234E0 = 0LL;
+  qword_140C234F8 = 0LL;
+  qword_140C234D0 = 0LL;
   PpmHighPerfEndTimer.DueTime.QuadPart = 0LL;
   PpmHighPerfEndTimer.Period = 0;
   PpmHighPerfEndTimer.Processor = 0;

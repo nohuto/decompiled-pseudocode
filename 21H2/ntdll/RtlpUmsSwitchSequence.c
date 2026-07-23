@@ -1,5 +1,5 @@
 /*
- * XREFs of RtlpUmsSwitchSequence @ 0x1800A23F0
+ * XREFs of RtlpUmsSwitchSequence @ 0x1800A23B0
  * Callers:
  *     <none>
  * Callees:

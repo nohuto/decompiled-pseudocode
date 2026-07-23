@@ -1,16 +1,16 @@
 /*
- * XREFs of MmGetSectionInformation @ 0x140471C08
+ * XREFs of MmGetSectionInformation @ 0x140470AD8
  * Callers:
- *     NtQueryInformationProcess @ 0x140422590 (NtQueryInformationProcess.c)
- *     PspAllocateProcess @ 0x14046F030 (PspAllocateProcess.c)
- *     NtQuerySection @ 0x140471AE4 (NtQuerySection.c)
- *     AlpcpMapLegacyPortView @ 0x1404724E8 (AlpcpMapLegacyPortView.c)
- *     MiInitializeWowPeb @ 0x14051BDC4 (MiInitializeWowPeb.c)
- *     PspLocateSystemDll @ 0x140554680 (PspLocateSystemDll.c)
- *     DbgkpSendErrorMessage @ 0x14061A524 (DbgkpSendErrorMessage.c)
+ *     NtQueryInformationProcess @ 0x140421450 (NtQueryInformationProcess.c)
+ *     PspAllocateProcess @ 0x14046DF00 (PspAllocateProcess.c)
+ *     NtQuerySection @ 0x1404709B4 (NtQuerySection.c)
+ *     AlpcpMapLegacyPortView @ 0x1404713B8 (AlpcpMapLegacyPortView.c)
+ *     MiInitializeWowPeb @ 0x1404FF1B4 (MiInitializeWowPeb.c)
+ *     PspLocateSystemDll @ 0x140554BC0 (PspLocateSystemDll.c)
+ *     DbgkpSendErrorMessage @ 0x14061A5D8 (DbgkpSendErrorMessage.c)
  * Callees:
- *     MiSectionControlArea @ 0x14002C4D0 (MiSectionControlArea.c)
- *     MiRelocateAmount @ 0x14052762C (MiRelocateAmount.c)
+ *     MiSectionControlArea @ 0x14002C050 (MiSectionControlArea.c)
+ *     MiRelocateAmount @ 0x14050A68C (MiRelocateAmount.c)
  */
 
 __int64 __fastcall MmGetSectionInformation(__int64 a1, int a2, __int64 *a3)
@@ -74,7 +74,7 @@ __int64 __fastcall MmGetSectionInformation(__int64 a1, int a2, __int64 *a3)
       {
         v18 = *(unsigned __int16 *)(((unsigned __int64)v21 & 0xFFFFFFFFFFFFFFE0uLL) + 0x10);
         *(_QWORD *)(((unsigned __int64)v21 & 0xFFFFFFFFFFFFFFE0uLL) + 0x10) = v18;
-        *(_QWORD *)(((unsigned __int64)v21 & 0xFFFFFFFFFFFFFFE0uLL) + 0x10) = qword_140326960 | v18;
+        *(_QWORD *)(((unsigned __int64)v21 & 0xFFFFFFFFFFFFFFE0uLL) + 0x10) = qword_1403269A0 | v18;
         v13 = *(_OWORD *)(((unsigned __int64)v21 & 0xFFFFFFFFFFFFFFE0uLL) + 0x10);
       }
       *(_OWORD *)v7 = v13;
@@ -94,7 +94,7 @@ LABEL_14:
   if ( a2 == 2 )
   {
     if ( (v6[14] & 0x10000000) != 0 )
-      v17 += qword_140326960 - *(_QWORD *)(*(_QWORD *)v6 + 32LL);
+      v17 += qword_1403269A0 - *(_QWORD *)(*(_QWORD *)v6 + 32LL);
     *a3 = v17;
   }
   else

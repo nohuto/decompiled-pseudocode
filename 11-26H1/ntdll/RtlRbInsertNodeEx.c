@@ -1,56 +1,56 @@
 /*
- * XREFs of RtlRbInsertNodeEx @ 0x18006C700
+ * XREFs of RtlRbInsertNodeEx @ 0x18008CB50
  * Callers:
- *     RtlpHpSegFreeRangeInsert @ 0x18006AD78 (RtlpHpSegFreeRangeInsert.c)
- *     RtlpHpVsChunkFree @ 0x18006B040 (RtlpHpVsChunkFree.c)
- *     EtwpInsertRegistration @ 0x18006CFB0 (EtwpInsertRegistration.c)
- *     RtlpCreateWnfNameSubscription @ 0x18006E480 (RtlpCreateWnfNameSubscription.c)
- *     LdrpCheckForRetryLoading @ 0x180083B00 (LdrpCheckForRetryLoading.c)
- *     RtlpHpLargeAlloc @ 0x18008A18C (RtlpHpLargeAlloc.c)
- *     RtlpHpVaMgrFree @ 0x18008C844 (RtlpHpVaMgrFree.c)
- *     RtlpHpVsFreeChunkInsert @ 0x1800E797C (RtlpHpVsFreeChunkInsert.c)
- *     LdrpInsertModuleToIndexLockHeld @ 0x1800FC040 (LdrpInsertModuleToIndexLockHeld.c)
- *     EtwpInsertGuidEntry @ 0x180102FDC (EtwpInsertGuidEntry.c)
- *     RtlCompareExchangePointerMapping @ 0x180145910 (RtlCompareExchangePointerMapping.c)
- *     LdrpAddRedirectedFunction @ 0x18015DEAC (LdrpAddRedirectedFunction.c)
+ *     RtlpHpVaMgrFree @ 0x18006FC80 (RtlpHpVaMgrFree.c)
+ *     RtlpHpLargeAlloc @ 0x18006FE4C (RtlpHpLargeAlloc.c)
+ *     LdrpCheckForRetryLoading @ 0x18007AEA0 (LdrpCheckForRetryLoading.c)
+ *     RtlpHpSegFreeRangeInsert @ 0x18008B1C8 (RtlpHpSegFreeRangeInsert.c)
+ *     RtlpHpVsChunkFree @ 0x18008B490 (RtlpHpVsChunkFree.c)
+ *     EtwpInsertRegistration @ 0x18008D400 (EtwpInsertRegistration.c)
+ *     RtlpCreateWnfNameSubscription @ 0x18008E8D0 (RtlpCreateWnfNameSubscription.c)
+ *     RtlpHpVsFreeChunkInsert @ 0x1800E63DC (RtlpHpVsFreeChunkInsert.c)
+ *     LdrpInsertModuleToIndexLockHeld @ 0x1800FB790 (LdrpInsertModuleToIndexLockHeld.c)
+ *     EtwpInsertGuidEntry @ 0x18010235C (EtwpInsertGuidEntry.c)
+ *     RtlCompareExchangePointerMapping @ 0x1801457C0 (RtlCompareExchangePointerMapping.c)
+ *     LdrpAddRedirectedFunction @ 0x18015DDB0 (LdrpAddRedirectedFunction.c)
  * Callees:
- *     RtlpRbReportFatalError @ 0x1801417C8 (RtlpRbReportFatalError.c)
+ *     RtlpRbReportFatalError @ 0x1801416C8 (RtlpRbReportFatalError.c)
  */
 
-char __fastcall RtlRbInsertNodeEx(unsigned __int64 *a1, unsigned __int64 a2, bool a3, unsigned __int64 a4)
+BOOLEAN __cdecl RtlRbInsertNodeEx(PRTL_RB_TREE Tree, PRTL_BALANCED_NODE Parent, BOOLEAN Right, PRTL_BALANCED_NODE Node)
 {
-  unsigned __int64 v4; // rsi
+  _RTL_BALANCED_NODE *v4; // rsi
   unsigned __int64 v5; // rbx
   unsigned __int64 v6; // rdi
-  __int64 v8; // rax
+  unsigned __int64 v8; // rax
   unsigned __int64 v9; // rcx
   unsigned __int64 v10; // rdx
-  unsigned __int64 v11; // rcx
+  PRTL_BALANCED_NODE v11; // rcx
   unsigned __int64 v12; // rax
   char v13; // cl
-  unsigned __int64 v14; // rcx
-  char v15; // r12
+  _RTL_BALANCED_NODE *Min; // rcx
+  $7D93978C745EB1C2D28075BAF55422B4 v15; // r12
   unsigned __int64 v16; // r15
   char v17; // dl
   __int64 v18; // r9
   unsigned __int64 v19; // r11
-  BOOL v20; // r10d
+  int v20; // r10d
   BOOL v21; // r13d
   _BOOL8 v22; // rbp
   __int64 v23; // rax
   unsigned __int64 v24; // rcx
   int v25; // r12d
-  __int64 v26; // rcx
+  unsigned __int64 v26; // rcx
   __int64 v27; // rcx
   unsigned __int64 v28; // rcx
   unsigned __int64 v29; // rcx
-  __int64 v30; // rbp
-  __int64 v31; // rdx
+  unsigned __int64 v30; // rbp
+  unsigned __int64 v31; // rdx
   unsigned __int64 v32; // rcx
   unsigned __int64 v33; // rax
   unsigned __int64 v34; // rcx
-  unsigned __int64 v35; // rax
-  unsigned __int64 v36; // r9
+  _RTL_BALANCED_NODE *v35; // rax
+  unsigned __int64 Root; // r9
   _BOOL8 v37; // r13
   unsigned __int64 v38; // rcx
   int v39; // ebp
@@ -63,7 +63,7 @@ char __fastcall RtlRbInsertNodeEx(unsigned __int64 *a1, unsigned __int64 a2, boo
   unsigned __int64 v46; // rcx
   unsigned __int64 v47; // rcx
   unsigned __int64 v48; // rcx
-  unsigned int v49; // edx
+  BOOL v49; // edx
   unsigned __int64 v50; // rax
   BOOL v52; // [rsp+20h] [rbp-68h]
   BOOL v53; // [rsp+28h] [rbp-60h]
@@ -72,51 +72,50 @@ char __fastcall RtlRbInsertNodeEx(unsigned __int64 *a1, unsigned __int64 a2, boo
   _BOOL8 v56; // [rsp+40h] [rbp-48h]
   unsigned int v57; // [rsp+40h] [rbp-48h]
   unsigned __int64 v58; // [rsp+98h] [rbp+10h]
-  unsigned __int64 v59; // [rsp+A8h] [rbp+20h] BYREF
+  unsigned __int64 v59; // [rsp+A8h] [rbp+20h]
 
   v4 = 0LL;
-  v5 = a4;
-  *(_QWORD *)a4 = 0LL;
-  v6 = a2;
-  *(_QWORD *)(a4 + 8) = 0LL;
-  LOBYTE(v8) = a1[1] & 1;
-  v59 = 0LL;
-  if ( a2 )
+  v5 = (unsigned __int64)Node;
+  Node->Children[0] = 0LL;
+  v6 = (unsigned __int64)Parent;
+  Node->Children[1] = 0LL;
+  LOBYTE(v8) = *(_BYTE *)&Tree->0 & 1;
+  if ( Parent )
   {
-    v10 = a4 ^ a2;
-    v11 = v10;
+    v10 = (unsigned __int64)Node ^ (unsigned __int64)Parent;
+    v11 = (PRTL_BALANCED_NODE)v10;
     if ( !(_BYTE)v8 )
-      v11 = a4;
-    *(_QWORD *)(v6 + 8LL * a3) = v11;
+      v11 = Node;
+    *(_QWORD *)(v6 + 8LL * Right) = v11;
     v12 = v6;
-    if ( (a1[1] & 1) != 0 )
+    if ( (*(_BYTE *)&Tree->0 & 1) != 0 )
       v12 = v10;
     v8 = v12 | 1;
-    *(_QWORD *)(a4 + 16) = v8;
-    if ( !a3 )
+    Node->ParentValue = v8;
+    if ( !Right )
     {
-      v14 = a1[1];
-      if ( (v14 & 1) != 0 )
+      Min = Tree->Min;
+      if ( ((unsigned __int8)Min & 1) != 0 )
       {
-        if ( v14 == 1 )
+        if ( Min == (_RTL_BALANCED_NODE *)1 )
           goto LABEL_10;
-        v8 = v14 ^ ((unsigned __int64)a1 | 1);
+        v8 = (unsigned __int64)Min ^ ((unsigned __int64)Tree | 1);
       }
       else
       {
-        v8 = a1[1];
+        v8 = (unsigned __int64)Tree->Min;
       }
       if ( v6 == v8 )
       {
-        if ( (v14 & 1) != 0 )
+        if ( ((unsigned __int8)Min & 1) != 0 )
         {
-          a1[1] = a4 ^ (unsigned __int64)a1;
-          LOBYTE(v8) = a4 ^ (unsigned __int8)a1 | 1;
-          *((_BYTE *)a1 + 8) = v8;
+          Tree->Min = (_RTL_BALANCED_NODE *)((unsigned __int64)Node ^ (unsigned __int64)Tree);
+          LOBYTE(v8) = (unsigned __int8)Node ^ (unsigned __int8)Tree | 1;
+          Tree->0 = ($7D93978C745EB1C2D28075BAF55422B4)v8;
         }
         else
         {
-          a1[1] = a4;
+          Tree->Min = Node;
         }
       }
     }
@@ -126,10 +125,10 @@ LABEL_10:
       v13 = *(_BYTE *)(v6 + 16);
       if ( (v13 & 1) == 0 )
         return v8;
-      v15 = *((_BYTE *)a1 + 8);
+      v15 = Tree->0;
       v16 = *(_QWORD *)(v6 + 16) & 0xFFFFFFFFFFFFFFFCuLL;
-      v17 = v15 & 1;
-      if ( (v15 & 1) != 0 && v16 )
+      v17 = *(_BYTE *)&v15 & 1;
+      if ( (*(_BYTE *)&v15 & 1) != 0 && v16 )
       {
         v16 ^= v6;
         v19 = v16;
@@ -177,29 +176,29 @@ LABEL_20:
       if ( !v23 || (*(_BYTE *)(v23 + 16) & 1) == 0 )
       {
 LABEL_21:
-        if ( a3 != v20 )
+        if ( Right != v20 )
         {
           v24 = *(_QWORD *)(v5 + 16) & 0xFFFFFFFFFFFFFFFCuLL;
-          v25 = v15 & 1;
+          v25 = *(_BYTE *)&v15 & 1;
           if ( v25 && v24 )
             v24 ^= v5;
           if ( v24 != v6 )
-            RtlpRbReportFatalError(v24, v6, v5);
+            RtlpRbReportFatalError(v24, v6);
           v26 = *(_QWORD *)(v6 + 8 * v22);
           if ( v25 && v26 )
             v26 ^= v6;
           if ( v26 != v5 )
-            RtlpRbReportFatalError(v26, v5, v6);
+            RtlpRbReportFatalError(v26, v5);
           v27 = *(_QWORD *)(v16 + 8 * v54);
           if ( v25 && v27 )
             v27 ^= v16;
           if ( v27 != v6 )
-            RtlpRbReportFatalError(v27, v6, v16);
+            RtlpRbReportFatalError(v27, v6);
           v28 = *(_QWORD *)(v6 + 16) & 0xFFFFFFFFFFFFFFFCuLL;
           if ( v25 && v28 )
             v28 ^= v6;
           if ( v28 != v16 )
-            RtlpRbReportFatalError(v28, v16, v6);
+            RtlpRbReportFatalError(v28, v16);
           v29 = v58 ^ v5;
           if ( v25 )
           {
@@ -232,7 +231,7 @@ LABEL_39:
               if ( v25 && v32 )
                 v32 ^= v30;
               if ( v32 != v5 )
-                RtlpRbReportFatalError(v32, v5, v30);
+                RtlpRbReportFatalError(v32, v5);
               v33 = v6;
               if ( v25 )
                 v33 = v6 ^ v30;
@@ -261,30 +260,30 @@ LABEL_102:
           *(_QWORD *)(v6 + 16) = v34 | *(_DWORD *)(v6 + 16) & 3;
           v6 = v5;
         }
-        v35 = a1[1];
-        v36 = *a1;
-        if ( (v35 & 1) != 0 )
+        v35 = Tree->Min;
+        Root = (unsigned __int64)Tree->Root;
+        if ( ((unsigned __int8)v35 & 1) != 0 )
         {
-          if ( v36 )
-            v36 ^= (unsigned __int64)a1;
+          if ( Root )
+            Root ^= (unsigned __int64)Tree;
           else
-            v36 = 0LL;
+            Root = 0LL;
         }
-        v59 = v36;
+        v59 = Root;
         v37 = !v21;
         v38 = *(_QWORD *)(v6 + 16) & 0xFFFFFFFFFFFFFFFCuLL;
-        v39 = v35 & 1;
-        if ( (v35 & 1) != 0 && v38 )
+        v39 = (unsigned __int8)v35 & 1;
+        if ( ((unsigned __int8)v35 & 1) != 0 && v38 )
           v38 ^= v6;
         if ( v38 != v16 )
-          RtlpRbReportFatalError(v38, v16, v6);
+          RtlpRbReportFatalError(v38, v16);
         v40 = *(_QWORD *)(v16 + 8 * !v37);
-        if ( (v35 & 1) != 0 && v40 )
+        if ( ((unsigned __int8)v35 & 1) != 0 && v40 )
           v40 ^= v16;
         if ( v40 != v6 )
-          RtlpRbReportFatalError(v40, v6, v16);
+          RtlpRbReportFatalError(v40, v6);
         v41 = *(_QWORD *)(v16 + 16) & 0xFFFFFFFFFFFFFFFCuLL;
-        if ( (v35 & 1) != 0 )
+        if ( ((unsigned __int8)v35 & 1) != 0 )
         {
           if ( v41 )
           {
@@ -313,7 +312,7 @@ LABEL_58:
               if ( v39 && v43 )
                 v43 ^= v41;
               if ( v43 != v16 )
-                RtlpRbReportFatalError(v43, v16, v41);
+                RtlpRbReportFatalError(v43, v16);
               v44 = v6;
               if ( v39 )
                 v44 = v6 ^ v41;
@@ -322,8 +321,8 @@ LABEL_58:
             goto LABEL_67;
           }
         }
-        if ( v36 != v16 )
-          RtlpRbReportFatalError(v36, v16, &v59);
+        if ( Root != v16 )
+          RtlpRbReportFatalError(Root, v16);
         v59 = v6;
 LABEL_67:
         if ( v39 && v41 )
@@ -347,7 +346,7 @@ LABEL_71:
             if ( v39 && v46 )
               v46 ^= v45;
             if ( v46 != v6 )
-              RtlpRbReportFatalError(v46, v6, v45);
+              RtlpRbReportFatalError(v46, v6);
             v47 = v16;
             if ( v39 )
               v47 = v16 ^ v45;
@@ -371,18 +370,18 @@ LABEL_98:
         }
         v8 = v48 | *(_DWORD *)(v16 + 16) & 3;
         *(_QWORD *)(v16 + 16) = v8;
-        if ( (a1[1] & 1) != 0 )
+        if ( (*(_BYTE *)&Tree->0 & 1) != 0 )
         {
-          LOBYTE(v8) = (unsigned __int8)a1 ^ v59;
+          LOBYTE(v8) = (unsigned __int8)Tree ^ v59;
           if ( v59 )
-            v4 = (unsigned __int64)a1 ^ v59;
-          *a1 = v4;
+            v4 = (_RTL_BALANCED_NODE *)((unsigned __int64)Tree ^ v59);
+          Tree->Root = v4;
           *(_BYTE *)(v16 + 16) |= 1u;
           *(_BYTE *)(v6 + 16) &= ~1u;
         }
         else
         {
-          *a1 = v59;
+          Tree->Root = (_RTL_BALANCED_NODE *)v59;
           *(_BYTE *)(v16 + 16) |= 1u;
           *(_BYTE *)(v6 + 16) &= ~1u;
         }
@@ -393,7 +392,7 @@ LABEL_98:
       *(_BYTE *)(v23 + 16) &= ~1u;
       v8 = *(_QWORD *)(v16 + 16);
       v6 = v8 & 0xFFFFFFFFFFFFFFFCuLL;
-      if ( (a1[1] & 1) != 0 )
+      if ( (*(_BYTE *)&Tree->0 & 1) != 0 )
       {
         if ( !v6 )
           return v8;
@@ -403,23 +402,23 @@ LABEL_98:
         return v8;
       *(_BYTE *)(v16 + 16) = v8 | 1;
       v8 = *(_QWORD *)v6;
-      if ( (a1[1] & 1) != 0 && v8 )
+      if ( (*(_BYTE *)&Tree->0 & 1) != 0 && v8 )
         v8 ^= v6;
-      a3 = v16 != v8;
+      Right = v16 != v8;
     }
   }
-  v9 = a4 ^ (unsigned __int64)a1;
+  v9 = (unsigned __int64)Node ^ (unsigned __int64)Tree;
   if ( (_BYTE)v8 )
   {
-    *a1 = v9;
-    a1[1] = v9;
-    *((_BYTE *)a1 + 8) = v9 | 1;
+    Tree->Root = (_RTL_BALANCED_NODE *)v9;
+    Tree->Min = (_RTL_BALANCED_NODE *)v9;
+    Tree->0 = ($7D93978C745EB1C2D28075BAF55422B4)(v9 | 1);
   }
   else
   {
-    *a1 = a4;
-    a1[1] = a4;
+    Tree->Root = Node;
+    Tree->Min = Node;
   }
-  *(_QWORD *)(a4 + 16) = 0LL;
+  Node->ParentValue = 0LL;
   return v8;
 }

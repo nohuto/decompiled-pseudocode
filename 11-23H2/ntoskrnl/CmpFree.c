@@ -1,9 +1,9 @@
 /*
- * XREFs of CmpFree @ 0x140709900
+ * XREFs of CmpFree @ 0x140709B10
  * Callers:
  *     <none>
  * Callees:
- *     CmpReleaseGlobalQuota @ 0x140709928 (CmpReleaseGlobalQuota.c)
+ *     CmpReleaseGlobalQuota @ 0x140709B38 (CmpReleaseGlobalQuota.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

@@ -1,16 +1,16 @@
 /*
- * XREFs of HvlPhase1Initialize @ 0x1403880A4
+ * XREFs of HvlPhase1Initialize @ 0x140388284
  * Callers:
  *     InitBootProcessor @ 0x140B52774 (InitBootProcessor.c)
  * Callees:
- *     MmMapIoSpaceEx @ 0x1403359B0 (MmMapIoSpaceEx.c)
- *     KeRegisterBugCheckReasonCallback @ 0x140354A70 (KeRegisterBugCheckReasonCallback.c)
- *     HviIsAnyHypervisorPresent @ 0x140382850 (HviIsAnyHypervisorPresent.c)
- *     HvlConfigureMemoryZeroingOnReset @ 0x14053F54C (HvlConfigureMemoryZeroingOnReset.c)
- *     HvlpMapStatisticsPage @ 0x140541234 (HvlpMapStatisticsPage.c)
- *     HvlpSetupCachedHypercallPages @ 0x1405420DC (HvlpSetupCachedHypercallPages.c)
- *     HvlpInitializePowerStatistics @ 0x140546F4C (HvlpInitializePowerStatistics.c)
- *     HvlpInitializeHvCrashdump @ 0x140547FF4 (HvlpInitializeHvCrashdump.c)
+ *     MmMapIoSpaceEx @ 0x140335C40 (MmMapIoSpaceEx.c)
+ *     KeRegisterBugCheckReasonCallback @ 0x140354C10 (KeRegisterBugCheckReasonCallback.c)
+ *     HviIsAnyHypervisorPresent @ 0x1403829F0 (HviIsAnyHypervisorPresent.c)
+ *     HvlConfigureMemoryZeroingOnReset @ 0x14053FC0C (HvlConfigureMemoryZeroingOnReset.c)
+ *     HvlpMapStatisticsPage @ 0x1405418F4 (HvlpMapStatisticsPage.c)
+ *     HvlpSetupCachedHypercallPages @ 0x14054279C (HvlpSetupCachedHypercallPages.c)
+ *     HvlpInitializePowerStatistics @ 0x14054760C (HvlpInitializePowerStatistics.c)
+ *     HvlpInitializeHvCrashdump @ 0x1405486B4 (HvlpInitializeHvCrashdump.c)
  *     VslpIumPhase0Initialize @ 0x140B935CC (VslpIumPhase0Initialize.c)
  *     MmMarkHypercallPageRetpolineBit @ 0x140B99A6C (MmMarkHypercallPageRetpolineBit.c)
  */

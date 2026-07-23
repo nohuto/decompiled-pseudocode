@@ -1,20 +1,20 @@
 /*
- * XREFs of EtwpQueryProcessCommandLine @ 0x14066C858
+ * XREFs of EtwpQueryProcessCommandLine @ 0x14066DA18
  * Callers:
- *     SepLogUnmatchedSessionFlagImpersonationAttempt @ 0x14030005C (SepLogUnmatchedSessionFlagImpersonationAttempt.c)
- *     EtwTimLogRedirectionTrustPolicy @ 0x140582AF0 (EtwTimLogRedirectionTrustPolicy.c)
- *     EtwTraceAppStateChange @ 0x1405B2C80 (EtwTraceAppStateChange.c)
- *     EtwpBuildProcessEvent @ 0x14066CA2C (EtwpBuildProcessEvent.c)
- *     EtwQueryProcessTelemetryInfo @ 0x1406A4C80 (EtwQueryProcessTelemetryInfo.c)
- *     EtwpTimLogMitigationForProcess @ 0x1406BF19C (EtwpTimLogMitigationForProcess.c)
- *     EtwTimLogProhibitChildProcessCreation @ 0x1406D5BBC (EtwTimLogProhibitChildProcessCreation.c)
- *     EtwTimLogProhibitLowILImageMap @ 0x1408BCC80 (EtwTimLogProhibitLowILImageMap.c)
- *     EtwTimLogProhibitNonMicrosoftBinaries @ 0x1408BCFBC (EtwTimLogProhibitNonMicrosoftBinaries.c)
+ *     SepLogUnmatchedSessionFlagImpersonationAttempt @ 0x14030024C (SepLogUnmatchedSessionFlagImpersonationAttempt.c)
+ *     EtwTimLogRedirectionTrustPolicy @ 0x140583AF0 (EtwTimLogRedirectionTrustPolicy.c)
+ *     EtwTraceAppStateChange @ 0x1405B3C80 (EtwTraceAppStateChange.c)
+ *     EtwpBuildProcessEvent @ 0x14066DBEC (EtwpBuildProcessEvent.c)
+ *     EtwQueryProcessTelemetryInfo @ 0x1406A5F20 (EtwQueryProcessTelemetryInfo.c)
+ *     EtwpTimLogMitigationForProcess @ 0x1406C043C (EtwpTimLogMitigationForProcess.c)
+ *     EtwTimLogProhibitChildProcessCreation @ 0x1406D6E5C (EtwTimLogProhibitChildProcessCreation.c)
+ *     EtwTimLogProhibitLowILImageMap @ 0x1408BDF40 (EtwTimLogProhibitLowILImageMap.c)
+ *     EtwTimLogProhibitNonMicrosoftBinaries @ 0x1408BE27C (EtwTimLogProhibitNonMicrosoftBinaries.c)
  * Callees:
- *     memmove @ 0x1401D1540 (memmove.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     ExRaiseDatatypeMisalignment @ 0x1408D65C0 (ExRaiseDatatypeMisalignment.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408D7880 (ExRaiseDatatypeMisalignment.c)
  */
 
 __int64 __fastcall EtwpQueryProcessCommandLine(__int64 a1, __int64 a2)

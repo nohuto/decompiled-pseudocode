@@ -1,14 +1,14 @@
 /*
- * XREFs of RtlStringCbCopyNW @ 0x140123470
+ * XREFs of RtlStringCbCopyNW @ 0x1401239E0
  * Callers:
- *     PopDiagGetDriverName @ 0x140123438 (PopDiagGetDriverName.c)
- *     PiUEventSendDeviceInterfaceArrivalETWEvent @ 0x1404ECE6C (PiUEventSendDeviceInterfaceArrivalETWEvent.c)
- *     IopCheckIfNotNativeDriver @ 0x1406210F4 (IopCheckIfNotNativeDriver.c)
- *     AuthzBasepCopyoutClaimAttributeValues @ 0x1406C9D18 (AuthzBasepCopyoutClaimAttributeValues.c)
- *     AuthzBasepCopyoutClaimAttributes @ 0x1406C9F6C (AuthzBasepCopyoutClaimAttributes.c)
- *     LocalConvertSidToStringSidW @ 0x1406CB414 (LocalConvertSidToStringSidW.c)
+ *     PopDiagGetDriverName @ 0x1401239A8 (PopDiagGetDriverName.c)
+ *     PiUEventSendDeviceInterfaceArrivalETWEvent @ 0x1404CEFD8 (PiUEventSendDeviceInterfaceArrivalETWEvent.c)
+ *     IopCheckIfNotNativeDriver @ 0x1406211A8 (IopCheckIfNotNativeDriver.c)
+ *     AuthzBasepCopyoutClaimAttributeValues @ 0x1406C9E50 (AuthzBasepCopyoutClaimAttributeValues.c)
+ *     AuthzBasepCopyoutClaimAttributes @ 0x1406CA0A4 (AuthzBasepCopyoutClaimAttributes.c)
+ *     LocalConvertSidToStringSidW @ 0x1406CB54C (LocalConvertSidToStringSidW.c)
  * Callees:
- *     RtlStringCopyWorkerW @ 0x140085004 (RtlStringCopyWorkerW.c)
+ *     RtlStringCopyWorkerW_3 @ 0x14010B2B8 (RtlStringCopyWorkerW_3.c)
  */
 
 NTSTATUS __stdcall RtlStringCbCopyNW(NTSTRSAFE_PWSTR pszDest, size_t cbDest, STRSAFE_PCNZWCH pszSrc, size_t cbToCopy)
@@ -31,7 +31,7 @@ NTSTATUS __stdcall RtlStringCbCopyNW(NTSTRSAFE_PWSTR pszDest, size_t cbDest, STR
     }
     else
     {
-      return RtlStringCopyWorkerW(pszDest, v4, (size_t *)pszSrc, pszSrc, cchToCopy);
+      return RtlStringCopyWorkerW_3(pszDest, v4, (size_t *)pszSrc, pszSrc, cchToCopy);
     }
   }
   return v5;

@@ -1,29 +1,29 @@
 /*
- * XREFs of MmFreeLoaderBlock @ 0x1409C5164
+ * XREFs of MmFreeLoaderBlock @ 0x1409C6164
  * Callers:
- *     KeInitSystem @ 0x1409C4988 (KeInitSystem.c)
+ *     KeInitSystem @ 0x1409C5988 (KeInitSystem.c)
  * Callees:
  *     MiGetAnyMultiplexedVm @ 0x140028884 (MiGetAnyMultiplexedVm.c)
  *     MiPteInShadowRange @ 0x14003D740 (MiPteInShadowRange.c)
  *     MiSwizzleInvalidPte @ 0x14003D7C0 (MiSwizzleInvalidPte.c)
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
  *     MiUnlockWorkingSetShared @ 0x140046970 (MiUnlockWorkingSetShared.c)
- *     MiLockPageTableInternal @ 0x14006CA20 (MiLockPageTableInternal.c)
- *     MiFlushTbList @ 0x1400740C0 (MiFlushTbList.c)
- *     MiLockWorkingSetShared @ 0x140076050 (MiLockWorkingSetShared.c)
- *     MiGetWsleContents @ 0x140085F40 (MiGetWsleContents.c)
- *     MiInsertTbFlushEntry @ 0x1400B3AF0 (MiInsertTbFlushEntry.c)
- *     MiWriteWsle @ 0x1400DB198 (MiWriteWsle.c)
- *     MiUnlockPageTableInternal @ 0x140104A90 (MiUnlockPageTableInternal.c)
- *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
- *     MiMarkPfnTradable @ 0x14013D944 (MiMarkPfnTradable.c)
- *     MiDeleteBootRange @ 0x140181100 (MiDeleteBootRange.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     MmFreeBootRegistry @ 0x1407366D8 (MmFreeBootRegistry.c)
- *     MiFreeRegistryPageRange @ 0x1409C5664 (MiFreeRegistryPageRange.c)
+ *     MiLockPageTableInternal @ 0x14006CA10 (MiLockPageTableInternal.c)
+ *     MiFlushTbList @ 0x1400740B0 (MiFlushTbList.c)
+ *     MiLockWorkingSetShared @ 0x140076040 (MiLockWorkingSetShared.c)
+ *     MiGetWsleContents @ 0x140085F30 (MiGetWsleContents.c)
+ *     MiInsertTbFlushEntry @ 0x1400B3A30 (MiInsertTbFlushEntry.c)
+ *     MiWriteWsle @ 0x1400DB218 (MiWriteWsle.c)
+ *     MiUnlockPageTableInternal @ 0x140104B10 (MiUnlockPageTableInternal.c)
+ *     MiWritePteShadow @ 0x140120F40 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120FA0 (MiPteHasShadow.c)
+ *     MiMarkPfnTradable @ 0x14013DA44 (MiMarkPfnTradable.c)
+ *     MiDeleteBootRange @ 0x140181240 (MiDeleteBootRange.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     MmFreeBootRegistry @ 0x1407378C8 (MmFreeBootRegistry.c)
+ *     MiFreeRegistryPageRange @ 0x1409C6664 (MiFreeRegistryPageRange.c)
  */
 
 void MmFreeLoaderBlock()
@@ -192,7 +192,7 @@ LABEL_13:
             if ( (unsigned int)MiPteHasShadow() )
             {
               v41 = 1;
-              if ( !HIBYTE(word_14043A1AC) )
+              if ( !HIBYTE(word_14043B26C) )
               {
                 v47 = (v46 & 1) == 0;
                 goto LABEL_54;
@@ -239,9 +239,9 @@ LABEL_39:
         }
 LABEL_15:
         MiUnlockWorkingSetShared((__int64)v9, v10);
-        if ( _InterlockedCompareExchange64(&qword_14043AEC8, v8, 0LL) )
+        if ( _InterlockedCompareExchange64(&qword_14043BF88, v8, 0LL) )
         {
-          qword_14043AEC8 = v8;
+          qword_14043BF88 = v8;
           MmFreeBootRegistry();
         }
       }

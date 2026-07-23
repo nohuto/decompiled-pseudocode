@@ -1,19 +1,19 @@
 /*
- * XREFs of ExCallSessionCallBack @ 0x1407C5C90
+ * XREFs of ExCallSessionCallBack @ 0x1407C5F60
  * Callers:
- *     PsInvokeWin32Callout @ 0x1406AF850 (PsInvokeWin32Callout.c)
+ *     PsInvokeWin32Callout @ 0x1406AF880 (PsInvokeWin32Callout.c)
  * Callees:
  *     MmSessionGetWin32Callouts @ 0x140214EA0 (MmSessionGetWin32Callouts.c)
  *     ExReferenceCallBackBlock @ 0x140214EF0 (ExReferenceCallBackBlock.c)
  *     ExDereferenceCallBackBlock @ 0x140214FB0 (ExDereferenceCallBackBlock.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     MmGetSessionId @ 0x1402A3C40 (MmGetSessionId.c)
- *     MmGetSessionById @ 0x1402C1E30 (MmGetSessionById.c)
- *     MmDetachSession @ 0x1403562B0 (MmDetachSession.c)
- *     MmAttachSession @ 0x140356350 (MmAttachSession.c)
- *     MmGetNextSession @ 0x14035ECF0 (MmGetNextSession.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
+ *     ObfDereferenceObject @ 0x140231660 (ObfDereferenceObject.c)
+ *     MmGetSessionId @ 0x1402A3ED0 (MmGetSessionId.c)
+ *     MmGetSessionById @ 0x1402C20C0 (MmGetSessionById.c)
+ *     MmDetachSession @ 0x140356450 (MmDetachSession.c)
+ *     MmAttachSession @ 0x1403564F0 (MmAttachSession.c)
+ *     MmGetNextSession @ 0x14035EE90 (MmGetNextSession.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall ExCallSessionCallBack(unsigned int *a1, __int64 a2, __int64 a3, int *a4)
@@ -23,14 +23,14 @@ __int64 __fastcall ExCallSessionCallBack(unsigned int *a1, __int64 a2, __int64 a
   _KPROCESS *SessionById; // rax
   _KPROCESS *v9; // rsi
   int v10; // ebx
-  union _RTL_RUN_ONCE *v11; // r14
+  _RTL_RUN_ONCE *v11; // r14
   struct _EX_RUNDOWN_REF *v12; // rax
   struct _EX_RUNDOWN_REF *v13; // rbp
   _KPROCESS *NextSession; // rbx
   __int64 v16; // r15
   int SessionId; // r12d
   int v18; // esi
-  union _RTL_RUN_ONCE *Win32Callouts; // r14
+  _RTL_RUN_ONCE *Win32Callouts; // r14
   struct _EX_RUNDOWN_REF *v20; // rax
   struct _EX_RUNDOWN_REF *v21; // rbp
   $115DCDF994C6370D29323EAB0E0C9502 v23; // [rsp+30h] [rbp-88h] BYREF

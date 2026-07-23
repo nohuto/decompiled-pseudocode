@@ -1,15 +1,15 @@
 /*
- * XREFs of FsRtlGetSectorSizeInformation @ 0x140965DD0
+ * XREFs of FsRtlGetSectorSizeInformation @ 0x14094E860
  * Callers:
- *     RawQueryVolumeInformation @ 0x1409A2D04 (RawQueryVolumeInformation.c)
+ *     RawQueryVolumeInformation @ 0x1408ADF94 (RawQueryVolumeInformation.c)
  * Callees:
- *     IoBuildDeviceIoControlRequest @ 0x1402678C0 (IoBuildDeviceIoControlRequest.c)
- *     KeWaitForSingleObject @ 0x14033E960 (KeWaitForSingleObject.c)
- *     IofCallDriver @ 0x140374160 (IofCallDriver.c)
- *     KeInitializeEvent @ 0x140409D80 (KeInitializeEvent.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     FsRtlIssueDeviceIoControl @ 0x1409663E0 (FsRtlIssueDeviceIoControl.c)
+ *     IofCallDriver @ 0x14025CA20 (IofCallDriver.c)
+ *     IoBuildDeviceIoControlRequest @ 0x14025EEA0 (IoBuildDeviceIoControlRequest.c)
+ *     KeWaitForSingleObject @ 0x14031DE40 (KeWaitForSingleObject.c)
+ *     KeInitializeEvent @ 0x140402260 (KeInitializeEvent.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     FsRtlIssueDeviceIoControl @ 0x14094EE70 (FsRtlIssueDeviceIoControl.c)
  */
 
 __int64 __fastcall FsRtlGetSectorSizeInformation(PDEVICE_OBJECT DeviceObject, __int64 a2)

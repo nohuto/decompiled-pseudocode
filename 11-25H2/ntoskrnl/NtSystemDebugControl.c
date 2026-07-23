@@ -23,27 +23,33 @@
  *     ExFreePoolWithTag @ 0x140B62CD0 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall NtSystemDebugControl(int a1, __int64 a2, unsigned int a3, bool *a4, unsigned int Length, _DWORD *a6)
+NTSTATUS __cdecl NtSystemDebugControl(
+        SYSDBG_COMMAND Command,
+        PVOID InputBuffer,
+        ULONG InputBufferLength,
+        PVOID OutputBuffer,
+        ULONG OutputBufferLength,
+        PULONG ReturnLength)
 {
   KPROCESSOR_MODE PreviousMode; // r13
   int v12; // edi
   __int64 v13; // r13
-  int v14; // ebx
-  int v15; // ebx
-  int v16; // ebx
-  int v17; // ebx
+  __int32 v14; // ebx
+  __int32 v15; // ebx
+  __int32 v16; // ebx
+  __int32 v17; // ebx
   int v18; // ebx
   int v19; // ebx
-  int v20; // ebx
-  int v21; // ebx
-  int v22; // ebx
-  int v23; // ebx
+  __int32 v20; // ebx
+  __int32 v21; // ebx
+  __int32 v22; // ebx
+  __int32 v23; // ebx
   int v24; // ebx
   int v25; // ebx
-  int v26; // ebx
-  int v27; // ebx
-  int v28; // ebx
-  int v29; // ebx
+  __int32 v26; // ebx
+  __int32 v27; // ebx
+  __int32 v28; // ebx
+  __int32 v29; // ebx
   int v30; // ebx
   int v31; // ebx
   int v32; // ebx
@@ -53,10 +59,10 @@ __int64 __fastcall NtSystemDebugControl(int a1, __int64 a2, unsigned int a3, boo
   unsigned int v36; // r14d
   void *Pool2; // rbx
   int v38; // eax
-  int v39; // ebx
-  int v40; // ebx
-  int v41; // ebx
-  int v42; // ebx
+  __int32 v39; // ebx
+  __int32 v40; // ebx
+  __int32 v41; // ebx
+  __int32 v42; // ebx
   int v43; // ebx
   int v44; // ebx
   int v45; // ebx
@@ -72,7 +78,7 @@ __int64 __fastcall NtSystemDebugControl(int a1, __int64 a2, unsigned int a3, boo
   unsigned __int64 v55; // [rsp+88h] [rbp-90h]
   _BYTE v56[136]; // [rsp+90h] [rbp-88h] BYREF
 
-  LODWORD(v49) = Length;
+  LODWORD(v49) = OutputBufferLength;
   LODWORD(Size) = 0;
   v52 = 0LL;
   v53 = 0LL;
@@ -81,18 +87,21 @@ __int64 __fastcall NtSystemDebugControl(int a1, __int64 a2, unsigned int a3, boo
   memset_0(v56, 0, 0x48uLL);
   v50 = 0LL;
   P = 0LL;
-  if ( KdPitchDebugger && !KdLocalDebugEnabled && ((a1 - 29) & 0xFFFFFFF7) != 0 )
-    return 3221226324LL;
+  if ( KdPitchDebugger && !KdLocalDebugEnabled && ((Command - 29) & 0xFFFFFFF7) != 0 )
+    return -1073740972;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   v47 = PreviousMode;
-  if ( a1 != 38 && !SeSinglePrivilegeCheck(SeDebugPrivilege, PreviousMode) || PsIsCurrentThreadInServerSilo() )
-    return 3221225506LL;
+  if ( Command != SysDbgKdPullRemoteFile && !SeSinglePrivilegeCheck(SeDebugPrivilege, PreviousMode)
+    || PsIsCurrentThreadInServerSilo() )
+  {
+    return -1073741790;
+  }
   v12 = 0;
   if ( PreviousMode )
   {
-    if ( a3 )
+    if ( InputBufferLength )
     {
-      if ( (a2 & 3) != 0 )
+      if ( ((unsigned __int8)InputBuffer & 3) != 0 )
         ExRaiseDatatypeMisalignment();
       v13 = 0x7FFFFFFF0000LL;
     }
@@ -100,37 +109,37 @@ __int64 __fastcall NtSystemDebugControl(int a1, __int64 a2, unsigned int a3, boo
     {
       v13 = 0x7FFFFFFF0000LL;
     }
-    if ( Length )
-      ProbeForWrite(a4, Length, 4u);
-    if ( a6 )
+    if ( OutputBufferLength )
+      ProbeForWrite(OutputBuffer, OutputBufferLength, 4u);
+    if ( ReturnLength )
     {
-      if ( (unsigned __int64)a6 < 0x7FFFFFFF0000LL )
-        v13 = (__int64)a6;
+      if ( (unsigned __int64)ReturnLength < 0x7FFFFFFF0000LL )
+        v13 = (__int64)ReturnLength;
       *(_DWORD *)v13 = *(_DWORD *)v13;
     }
     PreviousMode = v47;
   }
-  if ( a1 > 19 )
+  if ( Command > SysDbgWriteBusData )
   {
-    if ( a1 <= 29 )
+    if ( Command <= SysDbgGetTriageDump )
     {
-      if ( a1 == 29 )
+      if ( Command == SysDbgGetTriageDump )
       {
-        if ( a3 == 56 && Length >= 0x40000 )
+        if ( InputBufferLength == 56 && OutputBufferLength >= 0x40000 )
         {
-          v52 = *(_OWORD *)a2;
-          v53 = *(_OWORD *)(a2 + 16);
-          v54 = *(_OWORD *)(a2 + 32);
-          v55 = *(_QWORD *)(a2 + 48);
+          v52 = *(_OWORD *)InputBuffer;
+          v53 = *((_OWORD *)InputBuffer + 1);
+          v54 = *((_OWORD *)InputBuffer + 2);
+          v55 = *((_QWORD *)InputBuffer + 6);
           if ( DWORD2(v54)
             || !HIDWORD(v54)
             || (v52 & 0xFFFFFFFE) != 0
             || 8 * (unsigned __int64)HIDWORD(v54) > 0xFFFFFFFF )
           {
-            return 3221225485LL;
+            return -1073741811;
           }
           v35 = 0x100000;
-          if ( Length <= 0x100000 )
+          if ( OutputBufferLength <= 0x100000 )
             v35 = (int)v49;
           v36 = v35;
           Pool2 = (void *)ExAllocatePool2(0x40uLL);
@@ -145,10 +154,10 @@ __int64 __fastcall NtSystemDebugControl(int a1, __int64 a2, unsigned int a3, boo
               v12 = v38;
               if ( v38 >= 0 )
               {
-                if ( (unsigned int)Size <= Length )
+                if ( (unsigned int)Size <= OutputBufferLength )
                 {
                   EtwTiLogSyscallUsage(v38, 0x19u);
-                  memmove(a4, Pool2, (unsigned int)Size);
+                  memmove(OutputBuffer, Pool2, (unsigned int)Size);
                 }
                 else
                 {
@@ -169,11 +178,11 @@ __int64 __fastcall NtSystemDebugControl(int a1, __int64 a2, unsigned int a3, boo
           }
           goto LABEL_119;
         }
-        return 3221225476LL;
+        return -1073741820;
       }
-      v26 = a1 - 20;
+      v26 = Command - 20;
       if ( !v26 )
-        return 3221225474LL;
+        return -1073741822;
       v27 = v26 - 1;
       if ( v27 )
       {
@@ -183,32 +192,32 @@ __int64 __fastcall NtSystemDebugControl(int a1, __int64 a2, unsigned int a3, boo
           v29 = v28 - 1;
           if ( !v29 )
           {
-            if ( Length == 1 )
+            if ( OutputBufferLength == 1 )
             {
-              *a4 = KdAutoEnableOnEvent;
+              *(_BYTE *)OutputBuffer = KdAutoEnableOnEvent;
               goto LABEL_119;
             }
-            return 3221225476LL;
+            return -1073741820;
           }
           v30 = v29 - 1;
           if ( !v30 )
           {
-            if ( a3 == 1 )
+            if ( InputBufferLength == 1 )
             {
-              KdAutoEnableOnEvent = *(_BYTE *)a2 != 0;
+              KdAutoEnableOnEvent = *(_BYTE *)InputBuffer != 0;
               goto LABEL_119;
             }
-            return 3221225476LL;
+            return -1073741820;
           }
           v31 = v30 - 1;
           if ( !v31 )
           {
-            if ( Length == 4 )
+            if ( OutputBufferLength == 4 )
             {
-              *(_DWORD *)a4 = KdPrintBufferSize;
+              *(_DWORD *)OutputBuffer = KdPrintBufferSize;
               goto LABEL_119;
             }
-            return 3221225476LL;
+            return -1073741820;
           }
           v32 = v31 - 1;
           if ( v32 )
@@ -218,23 +227,23 @@ __int64 __fastcall NtSystemDebugControl(int a1, __int64 a2, unsigned int a3, boo
             {
               if ( v33 != 1 )
                 goto LABEL_102;
-              if ( a3 == 1 )
+              if ( InputBufferLength == 1 )
               {
-                KdIgnoreUmExceptions = *(_BYTE *)a2 == 0;
+                KdIgnoreUmExceptions = *(_BYTE *)InputBuffer == 0;
                 goto LABEL_119;
               }
             }
-            else if ( Length == 1 )
+            else if ( OutputBufferLength == 1 )
             {
-              *a4 = KdIgnoreUmExceptions == 0;
+              *(_BYTE *)OutputBuffer = KdIgnoreUmExceptions == 0;
               goto LABEL_119;
             }
-            return 3221225476LL;
+            return -1073741820;
           }
-          if ( a3 != 4 )
-            return 3221225476LL;
+          if ( InputBufferLength != 4 )
+            return -1073741820;
           HIDWORD(Size) = 0;
-          v34 = KdSetDbgPrintBufferSize(*(_DWORD *)a2);
+          v34 = KdSetDbgPrintBufferSize(*(_DWORD *)InputBuffer);
         }
         else
         {
@@ -247,25 +256,25 @@ __int64 __fastcall NtSystemDebugControl(int a1, __int64 a2, unsigned int a3, boo
       }
       goto LABEL_71;
     }
-    v39 = a1 - 30;
+    v39 = Command - 30;
     if ( !v39 )
     {
-      if ( Length == 1 )
+      if ( OutputBufferLength == 1 )
       {
-        *a4 = KdBlockEnable;
+        *(_BYTE *)OutputBuffer = KdBlockEnable;
         goto LABEL_119;
       }
-      return 3221225476LL;
+      return -1073741820;
     }
     v40 = v39 - 1;
     if ( !v40 )
     {
-      if ( a3 == 1 )
+      if ( InputBufferLength == 1 )
       {
-        KdBlockEnable = *(_BYTE *)a2;
+        KdBlockEnable = *(_BYTE *)InputBuffer;
         goto LABEL_119;
       }
-      return 3221225476LL;
+      return -1073741820;
     }
     v41 = v40 - 1;
     if ( !v41 )
@@ -288,29 +297,29 @@ __int64 __fastcall NtSystemDebugControl(int a1, __int64 a2, unsigned int a3, boo
             v46 = v45 - 1;
             if ( !v46 )
             {
-              if ( !Length && ((a3 - 64) & 0xFFFFFFF7) == 0 )
+              if ( !OutputBufferLength && ((InputBufferLength - 64) & 0xFFFFFFF7) == 0 )
               {
-                memmove(v56, (const void *)a2, a3);
+                memmove(v56, InputBuffer, InputBufferLength);
                 v12 = DbgkCaptureLiveKernelDump((__int64)v56);
                 EtwTiLogSyscallUsage(v12, 0x1Au);
                 goto LABEL_119;
               }
-              return 3221225476LL;
+              return -1073741820;
             }
             if ( v46 != 1 )
               goto LABEL_102;
-            if ( a3 != 16 || Length )
-              return 3221225476LL;
-            v34 = ExpKdPullRemoteFileForUser((_OWORD *)a2);
+            if ( InputBufferLength != 16 || OutputBufferLength )
+              return -1073741820;
+            v34 = ExpKdPullRemoteFileForUser(InputBuffer);
 LABEL_71:
             v12 = v34;
             goto LABEL_119;
           }
           goto LABEL_110;
         }
-        if ( Length != 4 )
-          return 3221225476LL;
-        *(_DWORD *)a4 = KdUmAttachPid;
+        if ( OutputBufferLength != 4 )
+          return -1073741820;
+        *(_DWORD *)OutputBuffer = KdUmAttachPid;
         if ( KdResetUmAttachPid )
 LABEL_110:
           KdUmAttachPid = 0;
@@ -321,67 +330,67 @@ LABEL_104:
     }
     else
     {
-      if ( Length != 4 )
-        return 3221225476LL;
-      *(_DWORD *)a4 = KdUmBreakPid;
+      if ( OutputBufferLength != 4 )
+        return -1073741820;
+      *(_DWORD *)OutputBuffer = KdUmBreakPid;
       if ( !KdResetUmBreakPid )
         goto LABEL_104;
     }
     KdUmBreakPid = 0;
     goto LABEL_104;
   }
-  if ( a1 == 19 )
-    return 3221225474LL;
-  if ( a1 > 9 )
+  if ( Command == SysDbgWriteBusData )
+    return -1073741822;
+  if ( Command > SysDbgWriteVirtual )
   {
-    v20 = a1 - 10;
+    v20 = Command - 10;
     if ( !v20 )
-      return 3221225474LL;
+      return -1073741822;
     v21 = v20 - 1;
     if ( !v21 )
-      return 3221225474LL;
+      return -1073741822;
     v22 = v21 - 1;
     if ( !v22 )
-      return 3221225474LL;
+      return -1073741822;
     v23 = v22 - 1;
     if ( !v23 )
-      return 3221225474LL;
+      return -1073741822;
     v24 = v23 - 1;
     if ( !v24 )
-      return 3221225474LL;
+      return -1073741822;
     v25 = v24 - 1;
     if ( !v25 )
-      return 3221225474LL;
+      return -1073741822;
     v19 = v25 - 1;
     if ( !v19 )
-      return 3221225474LL;
+      return -1073741822;
     goto LABEL_44;
   }
-  if ( a1 == 9 )
-    return 3221225474LL;
-  if ( !a1 )
-    return 3221225474LL;
-  v14 = a1 - 1;
+  if ( Command == SysDbgWriteVirtual )
+    return -1073741822;
+  if ( Command == SysDbgQueryModuleInformation )
+    return -1073741822;
+  v14 = Command - 1;
   if ( !v14 )
-    return 3221225474LL;
+    return -1073741822;
   v15 = v14 - 1;
   if ( !v15 )
-    return 3221225474LL;
+    return -1073741822;
   v16 = v15 - 1;
   if ( !v16 )
-    return 3221225474LL;
+    return -1073741822;
   v17 = v16 - 1;
   if ( !v17 )
-    return 3221225474LL;
+    return -1073741822;
   v18 = v17 - 1;
   if ( !v18 )
-    return 3221225474LL;
+    return -1073741822;
   v19 = v18 - 1;
   if ( v19 )
   {
 LABEL_44:
     if ( (unsigned int)(v19 - 1) <= 1 )
-      return 3221225474LL;
+      return -1073741822;
 LABEL_102:
     v12 = -1073741821;
     goto LABEL_119;
@@ -391,7 +400,7 @@ LABEL_102:
   else
     v12 = -1073741823;
 LABEL_119:
-  if ( a6 )
-    *a6 = Size;
-  return (unsigned int)v12;
+  if ( ReturnLength )
+    *ReturnLength = Size;
+  return v12;
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of MiIsVaRangeAvailable @ 0x14042A590
+ * XREFs of MiIsVaRangeAvailable @ 0x140429460
  * Callers:
- *     MiMapViewOfImageSection @ 0x140429AC0 (MiMapViewOfImageSection.c)
+ *     MiMapViewOfImageSection @ 0x140428990 (MiMapViewOfImageSection.c)
  * Callees:
- *     MiCheckForConflictingVadExistence @ 0x140014318 (MiCheckForConflictingVadExistence.c)
+ *     MiCheckForConflictingVadExistence @ 0x140013E98 (MiCheckForConflictingVadExistence.c)
  */
 
 _BOOL8 __fastcall MiIsVaRangeAvailable(__int64 a1, unsigned __int64 a2, __int64 a3, unsigned __int64 a4)

@@ -40,7 +40,7 @@ ULONG __fastcall LocalConvertSDToStringSD_Rev1(
   void *v17; // rax
   int v18; // edx
   int v19; // r8d
-  unsigned __int16 v20; // bx
+  WORD v20; // bx
   char v21; // r14
   BOOLEAN v22; // cl
   PVOID v23; // rbx
@@ -76,10 +76,10 @@ ULONG __fastcall LocalConvertSDToStringSD_Rev1(
   PSID Owner; // [rsp+98h] [rbp-19h] BYREF
   PSID Group; // [rsp+A0h] [rbp-11h] BYREF
   PACL Dacl; // [rsp+A8h] [rbp-9h] BYREF
-  BOOLEAN OwnerDefaulted; // [rsp+100h] [rbp+4Fh] BYREF
+  ULONG OwnerDefaulted; // [rsp+100h] [rbp+4Fh] BYREF
   __int64 SaclPresent; // [rsp+108h] [rbp+57h] BYREF
   BOOLEAN DaclPresent; // [rsp+110h] [rbp+5Fh] BYREF
-  unsigned __int16 v60; // [rsp+118h] [rbp+67h] BYREF
+  WORD Control; // [rsp+118h] [rbp+67h] BYREF
 
   SaclPresent = a2;
   LODWORD(Size) = 0;
@@ -99,7 +99,7 @@ ULONG __fastcall LocalConvertSDToStringSD_Rev1(
   v46 = 0LL;
   v52 = 0LL;
   Src = 0LL;
-  v60 = 0;
+  Control = 0;
   v48 = 0LL;
   v47 = 0LL;
   if ( !a4 || !a6 )
@@ -107,28 +107,28 @@ ULONG __fastcall LocalConvertSDToStringSD_Rev1(
   v13 = a5;
   if ( (a5 & 1) != 0 )
   {
-    OwnerSecurityDescriptor = RtlGetOwnerSecurityDescriptor(a4, &Owner, &OwnerDefaulted);
+    OwnerSecurityDescriptor = RtlGetOwnerSecurityDescriptor(a4, &Owner, (PBOOLEAN)&OwnerDefaulted);
     if ( OwnerSecurityDescriptor < 0 )
       goto LABEL_94;
     v10 = Owner;
   }
   if ( (v13 & 2) != 0 )
   {
-    OwnerSecurityDescriptor = RtlGetGroupSecurityDescriptor(a4, &Group, &OwnerDefaulted);
+    OwnerSecurityDescriptor = RtlGetGroupSecurityDescriptor(a4, &Group, (PBOOLEAN)&OwnerDefaulted);
     if ( OwnerSecurityDescriptor < 0 )
       goto LABEL_94;
     v11 = Group;
   }
   if ( (v13 & 4) != 0 )
   {
-    OwnerSecurityDescriptor = RtlGetDaclSecurityDescriptor(a4, &DaclPresent, &Dacl, &OwnerDefaulted);
+    OwnerSecurityDescriptor = RtlGetDaclSecurityDescriptor(a4, &DaclPresent, &Dacl, (PBOOLEAN)&OwnerDefaulted);
     if ( OwnerSecurityDescriptor < 0 )
       goto LABEL_94;
   }
   v15 = v13 & 0x1F8;
   if ( v15 )
   {
-    SaclSecurityDescriptor = RtlGetSaclSecurityDescriptor(a4, (PBOOLEAN)&SaclPresent, &Sacl, &OwnerDefaulted);
+    SaclSecurityDescriptor = RtlGetSaclSecurityDescriptor(a4, (PBOOLEAN)&SaclPresent, &Sacl, (PBOOLEAN)&OwnerDefaulted);
     if ( SaclSecurityDescriptor < 0 )
       return RtlNtStatusToDosError(SaclSecurityDescriptor);
     v12 = Sacl;
@@ -149,7 +149,7 @@ ULONG __fastcall LocalConvertSDToStringSD_Rev1(
       }
     }
   }
-  OwnerSecurityDescriptor = RtlGetControlSecurityDescriptor(a4, &v60, &OwnerDefaulted);
+  OwnerSecurityDescriptor = RtlGetControlSecurityDescriptor(a4, &Control, &OwnerDefaulted);
   if ( OwnerSecurityDescriptor >= 0 )
   {
     if ( v10 )
@@ -164,10 +164,10 @@ ULONG __fastcall LocalConvertSDToStringSD_Rev1(
       if ( StringForSid )
         goto LABEL_74;
     }
-    v20 = v60;
-    if ( v60 )
+    v20 = Control;
+    if ( Control )
     {
-      StringForSid = LocalGetStringForControl(v60, 1LL, &v48);
+      StringForSid = LocalGetStringForControl(Control, 1LL, &v48);
       if ( StringForSid )
         goto LABEL_74;
       StringForSid = LocalGetStringForControl(v20, 2LL, &v47);

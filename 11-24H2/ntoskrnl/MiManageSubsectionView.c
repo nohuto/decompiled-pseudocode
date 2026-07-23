@@ -1,19 +1,19 @@
 /*
- * XREFs of MiManageSubsectionView @ 0x1402BAAB0
+ * XREFs of MiManageSubsectionView @ 0x1403621F0
  * Callers:
- *     MmMapViewInSystemCache @ 0x1402D5CA4 (MmMapViewInSystemCache.c)
- *     MmUnmapViewInSystemCache @ 0x1402F1760 (MmUnmapViewInSystemCache.c)
- *     MiDeleteVad @ 0x1408E5390 (MiDeleteVad.c)
- *     MiUnloadSystemImage @ 0x140A8AD84 (MiUnloadSystemImage.c)
- *     MiConstructLoaderEntry @ 0x140A92FE4 (MiConstructLoaderEntry.c)
+ *     MmUnmapViewInSystemCache @ 0x1402572A0 (MmUnmapViewInSystemCache.c)
+ *     MmMapViewInSystemCache @ 0x140356F24 (MmMapViewInSystemCache.c)
+ *     MiDeleteVad @ 0x140895840 (MiDeleteVad.c)
+ *     MiUnloadSystemImage @ 0x140A870C4 (MiUnloadSystemImage.c)
+ *     MiConstructLoaderEntry @ 0x140A8F794 (MiConstructLoaderEntry.c)
  * Callees:
- *     KiAbEntryFreeAndEnableInterrupts @ 0x14025CDA0 (KiAbEntryFreeAndEnableInterrupts.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14025E408 (KiRemoveSystemWorkPriorityKick.c)
- *     ExfTryToWakePushLock @ 0x14025F9A0 (ExfTryToWakePushLock.c)
- *     KiCheckForKernelApcDelivery @ 0x1402BB4D0 (KiCheckForKernelApcDelivery.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
+ *     KiAbEntryFreeAndEnableInterrupts @ 0x14028D3B0 (KiAbEntryFreeAndEnableInterrupts.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14028EA18 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExfTryToWakePushLock @ 0x14028FFB0 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     KiCheckForKernelApcDelivery @ 0x140362C10 (KiCheckForKernelApcDelivery.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall MiManageSubsectionView(__int64 *a1, _QWORD *a2, int a3)
@@ -21,9 +21,9 @@ __int64 __fastcall MiManageSubsectionView(__int64 *a1, _QWORD *a2, int a3)
   __int64 v3; // rbp
   struct _KTHREAD *CurrentThread; // rax
   __int64 v8; // rsi
-  __int64 v9; // rax
+  char *v9; // rax
   __int64 v10; // rdx
-  __int64 v11; // rdi
+  char *v11; // rdi
   int v12; // ebx
   int v13; // ebx
   __int64 v14; // rax
@@ -47,12 +47,12 @@ __int64 __fastcall MiManageSubsectionView(__int64 *a1, _QWORD *a2, int a3)
   CurrentThread = KeGetCurrentThread();
   v8 = *a1 + 104;
   --CurrentThread->SpecialApcDisable;
-  v9 = KeAbPreAcquire(v8, 0LL, 0LL);
+  v9 = (char *)KeAbPreAcquire(v8, 0LL);
   v11 = v9;
   if ( _interlockedbittestandset64((volatile signed __int32 *)v8, 0LL) )
-    ExfAcquirePushLockExclusiveEx(v8, v9, v8);
+    ExfAcquirePushLockExclusiveEx((unsigned __int64 *)v8, v9, v8);
   if ( v11 )
-    *(_BYTE *)(v11 + 10) = 1;
+    v11[10] = 1;
   if ( a3 == 4 )
   {
     if ( (*(_DWORD *)(v3 + 56) & 0x400) != 0 )
@@ -115,7 +115,7 @@ LABEL_13:
     if ( (v10 & 0x7FFFFFFFFFFFFFFCLL) == v19 && v21[26] && (v10 & 1) == 0 )
     {
       v21[26] = 0;
-      result = KiAbEntryFreeAndEnableInterrupts((__int64)(v21 + 16), (ULONG_PTR)v17, v8, 1, 0LL);
+      result = KiAbEntryFreeAndEnableInterrupts((__int64)(v21 + 16), (ULONG_PTR)v17, v8, 1LL, 0LL);
       goto LABEL_28;
     }
   }

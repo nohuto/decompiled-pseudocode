@@ -1,16 +1,16 @@
 /*
- * XREFs of ViDriverReApplyVerifierForAll @ 0x140C284F8
+ * XREFs of ViDriverReApplyVerifierForAll @ 0x140C2E500
  * Callers:
- *     VfDriverInitSuccess @ 0x140C282F0 (VfDriverInitSuccess.c)
+ *     VfDriverInitSuccess @ 0x140C2E2FC (VfDriverInitSuccess.c)
  * Callees:
- *     KeReleaseMutex @ 0x1403DD0F0 (KeReleaseMutex.c)
- *     MmReleaseLoadLock @ 0x1404A4B70 (MmReleaseLoadLock.c)
- *     MmAcquireLoadLock @ 0x1404AB9B0 (MmAcquireLoadLock.c)
- *     RtlEqualUnicodeString @ 0x14091F0E0 (RtlEqualUnicodeString.c)
- *     VfUtilIsProtectedDriver @ 0x140C219D8 (VfUtilIsProtectedDriver.c)
- *     VfThunkApplyDriverAddedThunks @ 0x140C35250 (VfThunkApplyDriverAddedThunks.c)
- *     VfDriverLock @ 0x140C46804 (VfDriverLock.c)
- *     VfSuspectDriversIsLoaded @ 0x140CDF3D8 (VfSuspectDriversIsLoaded.c)
+ *     KeReleaseMutex @ 0x1403E02E0 (KeReleaseMutex.c)
+ *     MmReleaseLoadLock @ 0x14049E200 (MmReleaseLoadLock.c)
+ *     MmAcquireLoadLock @ 0x1404A5040 (MmAcquireLoadLock.c)
+ *     RtlEqualUnicodeString @ 0x140979B40 (RtlEqualUnicodeString.c)
+ *     VfUtilIsProtectedDriver @ 0x140C279E8 (VfUtilIsProtectedDriver.c)
+ *     VfThunkApplyDriverAddedThunks @ 0x140C3B260 (VfThunkApplyDriverAddedThunks.c)
+ *     VfDriverLock @ 0x140C4C814 (VfDriverLock.c)
+ *     VfSuspectDriversIsLoaded @ 0x140CE5770 (VfSuspectDriversIsLoaded.c)
  */
 
 __int64 ViDriverReApplyVerifierForAll()

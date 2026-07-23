@@ -1,32 +1,32 @@
 /*
- * XREFs of RtlpCapabilityCheckSystemCapability @ 0x140A62BCC
+ * XREFs of RtlpCapabilityCheckSystemCapability @ 0x140A5B4CC
  * Callers:
- *     RtlCapabilityCheck @ 0x140A62840 (RtlCapabilityCheck.c)
+ *     RtlCapabilityCheck @ 0x140A5B140 (RtlCapabilityCheck.c)
  * Callees:
- *     RtlSubAuthoritySid @ 0x14044FDD0 (RtlSubAuthoritySid.c)
- *     RtlCheckTokenMembershipEx @ 0x140471840 (RtlCheckTokenMembershipEx.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     RtlpIsAppContainer @ 0x140781AFC (RtlpIsAppContainer.c)
- *     RtlCompareUnicodeStrings @ 0x140888920 (RtlCompareUnicodeStrings.c)
- *     RtlInitializeSid @ 0x1409E3B60 (RtlInitializeSid.c)
- *     RtlpGetPolicyValueForSystemCapability @ 0x140A62C5C (RtlpGetPolicyValueForSystemCapability.c)
- *     ExFreePool @ 0x140B72CB0 (ExFreePool.c)
+ *     RtlCheckTokenMembershipEx @ 0x1403B5770 (RtlCheckTokenMembershipEx.c)
+ *     RtlSubAuthoritySid @ 0x140445040 (RtlSubAuthoritySid.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     RtlpIsAppContainer @ 0x140781A2C (RtlpIsAppContainer.c)
+ *     RtlCompareUnicodeStrings @ 0x14088C7D0 (RtlCompareUnicodeStrings.c)
+ *     RtlInitializeSid @ 0x1409DE5C0 (RtlInitializeSid.c)
+ *     RtlpGetPolicyValueForSystemCapability @ 0x140A5B55C (RtlpGetPolicyValueForSystemCapability.c)
+ *     ExFreePool @ 0x140B74850 (ExFreePool.c)
  */
 
-__int64 __fastcall RtlpCapabilityCheckSystemCapability(HANDLE ExistingTokenHandle, const UNICODE_STRING *a2, _BYTE *a3)
+__int64 __fastcall RtlpCapabilityCheckSystemCapability(HANDLE TokenHandle, const UNICODE_STRING *a2, _BYTE *a3)
 {
   int PolicyValueForSystemCapability; // eax
   int IsAppContainer; // ebx
   SIZE_T v8; // rbx
-  char v9; // [rsp+30h] [rbp-40h] BYREF
+  BOOLEAN IsMember; // [rsp+30h] [rbp-40h] BYREF
   bool v10; // [rsp+31h] [rbp-3Fh] BYREF
-  struct _SID_IDENTIFIER_AUTHORITY IdentifierAuthority; // [rsp+34h] [rbp-3Ch] BYREF
+  _SID_IDENTIFIER_AUTHORITY IdentifierAuthority; // [rsp+34h] [rbp-3Ch] BYREF
   PVOID P[2]; // [rsp+40h] [rbp-30h] BYREF
   _BYTE Sid[16]; // [rsp+50h] [rbp-20h] BYREF
 
   *(_WORD *)&IdentifierAuthority.Value[4] = 1280;
   *(_DWORD *)IdentifierAuthority.Value = 0;
-  v9 = 0;
+  IsMember = 0;
   v10 = 0;
   *(_OWORD *)P = 0LL;
   PolicyValueForSystemCapability = RtlpGetPolicyValueForSystemCapability(a2, (PUNICODE_STRING)P);
@@ -56,12 +56,12 @@ __int64 __fastcall RtlpCapabilityCheckSystemCapability(HANDLE ExistingTokenHandl
       *RtlSubAuthoritySid(Sid, 0) = 32;
       *RtlSubAuthoritySid(Sid, 1u) = 583;
     }
-    IsAppContainer = RtlCheckTokenMembershipEx(ExistingTokenHandle, Sid, 2, &v9);
+    IsAppContainer = RtlCheckTokenMembershipEx(TokenHandle, Sid, 2u, &IsMember);
     if ( IsAppContainer >= 0 )
     {
-      if ( v9 )
+      if ( IsMember )
       {
-        IsAppContainer = RtlpIsAppContainer(ExistingTokenHandle, &v10);
+        IsAppContainer = RtlpIsAppContainer(TokenHandle, &v10);
         if ( IsAppContainer >= 0 && v10 )
           *a3 = 1;
       }

@@ -1,16 +1,16 @@
 /*
- * XREFs of ExReleaseAutoExpandPushLockExclusive @ 0x14025F390
+ * XREFs of ExReleaseAutoExpandPushLockExclusive @ 0x14028F9A0
  * Callers:
- *     MiPostInsertVad @ 0x14025EBE0 (MiPostInsertVad.c)
- *     MiUnlockLoaderEntry @ 0x1402C7468 (MiUnlockLoaderEntry.c)
- *     MiUnlockAweVadsExclusive @ 0x1404B3C74 (MiUnlockAweVadsExclusive.c)
- *     MiUnlockAwePagesExclusive @ 0x1406830AC (MiUnlockAwePagesExclusive.c)
+ *     MiUnlockAweVadsExclusive @ 0x14026783C (MiUnlockAweVadsExclusive.c)
+ *     MiPostInsertVad @ 0x14028F1F0 (MiPostInsertVad.c)
+ *     MiUnlockLoaderEntry @ 0x1402BBFE8 (MiUnlockLoaderEntry.c)
+ *     MiUnlockAwePagesExclusive @ 0x14068429C (MiUnlockAwePagesExclusive.c)
  * Callees:
- *     KiAbEntryFreeAndEnableInterrupts @ 0x14025CDA0 (KiAbEntryFreeAndEnableInterrupts.c)
- *     ExfReleasePushLock @ 0x14025E260 (ExfReleasePushLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14025E408 (KiRemoveSystemWorkPriorityKick.c)
- *     ExpReleaseFannedOutPushLockExclusive @ 0x14025F524 (ExpReleaseFannedOutPushLockExclusive.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
+ *     KiAbEntryFreeAndEnableInterrupts @ 0x14028D3B0 (KiAbEntryFreeAndEnableInterrupts.c)
+ *     ExfReleasePushLock @ 0x14028E870 (ExfReleasePushLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14028EA18 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExpReleaseFannedOutPushLockExclusive @ 0x14028FB34 (ExpReleaseFannedOutPushLockExclusive.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall ExReleaseAutoExpandPushLockExclusive(ULONG_PTR BugCheckParameter2, ULONG_PTR BugCheckParameter1)
@@ -66,7 +66,7 @@ __int64 __fastcall ExReleaseAutoExpandPushLockExclusive(ULONG_PTR BugCheckParame
         && (*(_QWORD *)v12 & 1) == 0 )
       {
         *(_BYTE *)(v12 + 10) = 0;
-        return KiAbEntryFreeAndEnableInterrupts(v12, (ULONG_PTR)CurrentThread, BugCheckParameter2, 1, 0LL);
+        return KiAbEntryFreeAndEnableInterrupts(v12, (ULONG_PTR)CurrentThread, BugCheckParameter2, 1LL, 0LL);
       }
     }
     result = *((unsigned int *)&CurrentThread->MiscFlags + 1);

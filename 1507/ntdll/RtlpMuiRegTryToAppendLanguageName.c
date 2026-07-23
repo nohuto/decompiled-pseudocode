@@ -21,16 +21,16 @@ __int64 __fastcall RtlpMuiRegTryToAppendLanguageName(
 {
   unsigned int v5; // ebx
   __int64 v10; // rbp
-  unsigned __int64 Heap; // r12
+  PVOID Heap; // r12
   __int16 v12; // ax
   unsigned int v13; // edi
-  UNICODE_STRING DestinationString; // [rsp+20h] [rbp-28h] BYREF
+  _UNICODE_STRING DestinationString; // [rsp+20h] [rbp-28h] BYREF
 
   v5 = 0;
   if ( !a2 || !a1 || !a3 )
     return 3221225485LL;
   v10 = *a3;
-  Heap = RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 8u, 170LL);
+  Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, 0xAAuLL);
   if ( Heap )
   {
     v12 = *(_WORD *)(a2 + 6);
@@ -61,7 +61,7 @@ __int64 __fastcall RtlpMuiRegTryToAppendLanguageName(
 LABEL_12:
         *a3 = v13;
 LABEL_13:
-        RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, Heap);
+        RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, Heap);
         return v5;
       }
     }

@@ -9,12 +9,7 @@
  *     ViThunkSnapSharedExports @ 0x140732320 (ViThunkSnapSharedExports.c)
  */
 
-__int64 __fastcall ViThunkCreateSharedExportInformation(
-        __int64 a1,
-        __int64 a2,
-        __int64 a3,
-        struct _RTL_BITMAP *a4,
-        void **a5)
+__int64 __fastcall ViThunkCreateSharedExportInformation(__int64 a1, __int64 a2, __int64 a3, _RTL_BITMAP *a4, void **a5)
 {
   unsigned int v9; // ebx
   ULONG v10; // eax

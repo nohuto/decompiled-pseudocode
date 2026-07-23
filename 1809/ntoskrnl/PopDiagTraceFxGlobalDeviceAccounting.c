@@ -1,11 +1,11 @@
 /*
- * XREFs of PopDiagTraceFxGlobalDeviceAccounting @ 0x1402E0F04
+ * XREFs of PopDiagTraceFxGlobalDeviceAccounting @ 0x1402E10F4
  * Callers:
- *     PopFxStopDeviceAccounting @ 0x1402D9D5C (PopFxStopDeviceAccounting.c)
+ *     PopFxStopDeviceAccounting @ 0x1402D9F4C (PopFxStopDeviceAccounting.c)
  * Callees:
  *     _TlgKeywordOn @ 0x140012A04 (_TlgKeywordOn.c)
  *     _TlgWrite @ 0x140012EE4 (_TlgWrite.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
  */
 
 void __fastcall PopDiagTraceFxGlobalDeviceAccounting(__int64 a1)
@@ -45,7 +45,7 @@ void __fastcall PopDiagTraceFxGlobalDeviceAccounting(__int64 a1)
       v15 = v2;
       v16 = 40LL;
       v18 = 8LL;
-      TlgWrite(&pCallbackContext, &unk_140370773, 0LL, 0LL, 7u, &pData);
+      TlgWrite(&pCallbackContext, &unk_140371993, 0LL, 0LL, 7u, &pData);
     }
   }
 }

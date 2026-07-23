@@ -1,10 +1,10 @@
 /*
- * XREFs of SshpSessionManagerInterruptTimeToSystemTime @ 0x1407E40FC
+ * XREFs of SshpSessionManagerInterruptTimeToSystemTime @ 0x1407E9550
  * Callers:
- *     SshSessionManagerTracePostSleepNotification @ 0x140B2FE08 (SshSessionManagerTracePostSleepNotification.c)
+ *     SshSessionManagerTracePostSleepNotification @ 0x140B31BE8 (SshSessionManagerTracePostSleepNotification.c)
  * Callees:
- *     SSHSupportQueryInterruptTime @ 0x1404E9278 (SSHSupportQueryInterruptTime.c)
- *     CmSiQuerySystemTime @ 0x1404F1700 (CmSiQuerySystemTime.c)
+ *     SSHSupportQueryInterruptTime @ 0x1404E2358 (SSHSupportQueryInterruptTime.c)
+ *     CmSiQuerySystemTime @ 0x1404EACE0 (CmSiQuerySystemTime.c)
  */
 
 __int64 SshpSessionManagerInterruptTimeToSystemTime()

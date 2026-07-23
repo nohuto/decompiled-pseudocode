@@ -1,20 +1,20 @@
 /*
- * XREFs of SepAppendAceToTokenDefaultDacl @ 0x140132D18
+ * XREFs of SepAppendAceToTokenDefaultDacl @ 0x140132DE8
  * Callers:
- *     NtCreateLowBoxToken @ 0x140654F70 (NtCreateLowBoxToken.c)
+ *     NtCreateLowBoxToken @ 0x140656130 (NtCreateLowBoxToken.c)
  * Callees:
  *     RtlFindAceBySid @ 0x1400160E0 (RtlFindAceBySid.c)
  *     RtlGetAce @ 0x140016260 (RtlGetAce.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     RtlQueryInformationAcl @ 0x1405C9890 (RtlQueryInformationAcl.c)
- *     RtlAddAce @ 0x1405CAE40 (RtlAddAce.c)
- *     RtlCreateAcl @ 0x1405CAF70 (RtlCreateAcl.c)
- *     RtlAddAccessAllowedAce @ 0x140655580 (RtlAddAccessAllowedAce.c)
- *     SepAppendDefaultDacl @ 0x1406C1DD8 (SepAppendDefaultDacl.c)
- *     SepFreeDefaultDacl @ 0x1406C1E38 (SepFreeDefaultDacl.c)
- *     SepExpandDynamic @ 0x1406C1E84 (SepExpandDynamic.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     RtlQueryInformationAcl @ 0x1405CA890 (RtlQueryInformationAcl.c)
+ *     RtlAddAce @ 0x1405CBE40 (RtlAddAce.c)
+ *     RtlCreateAcl @ 0x1405CBF70 (RtlCreateAcl.c)
+ *     RtlAddAccessAllowedAce @ 0x140656740 (RtlAddAccessAllowedAce.c)
+ *     SepAppendDefaultDacl @ 0x1406C3078 (SepAppendDefaultDacl.c)
+ *     SepFreeDefaultDacl @ 0x1406C30D8 (SepFreeDefaultDacl.c)
+ *     SepExpandDynamic @ 0x1406C3124 (SepExpandDynamic.c)
  */
 
 __int64 __fastcall SepAppendAceToTokenDefaultDacl(__int64 a1, __int64 a2)

@@ -1,13 +1,13 @@
 /*
- * XREFs of IoSaveBugCheckRecoveryStatus @ 0x140550ABC
+ * XREFs of IoSaveBugCheckRecoveryStatus @ 0x14055117C
  * Callers:
- *     KiSaveBugCheckRecoveryStatusMultipleBugChecks @ 0x14057B308 (KiSaveBugCheckRecoveryStatusMultipleBugChecks.c)
- *     KiSaveBugCheckRecoveryStatusPhase0 @ 0x14057B364 (KiSaveBugCheckRecoveryStatusPhase0.c)
- *     KiSaveBugCheckRecoveryStatusPhase1 @ 0x14057B3E8 (KiSaveBugCheckRecoveryStatusPhase1.c)
- *     KiSaveBugCheckRecoveryStatusPhase2 @ 0x14057B43C (KiSaveBugCheckRecoveryStatusPhase2.c)
+ *     KiSaveBugCheckRecoveryStatusMultipleBugChecks @ 0x14057B7F8 (KiSaveBugCheckRecoveryStatusMultipleBugChecks.c)
+ *     KiSaveBugCheckRecoveryStatusPhase0 @ 0x14057B854 (KiSaveBugCheckRecoveryStatusPhase0.c)
+ *     KiSaveBugCheckRecoveryStatusPhase1 @ 0x14057B8D8 (KiSaveBugCheckRecoveryStatusPhase1.c)
+ *     KiSaveBugCheckRecoveryStatusPhase2 @ 0x14057B92C (KiSaveBugCheckRecoveryStatusPhase2.c)
  * Callees:
- *     WheaLogInternalEvent @ 0x140380A50 (WheaLogInternalEvent.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     WheaLogInternalEvent @ 0x140380BF0 (WheaLogInternalEvent.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  */
 
 LONG __fastcall IoSaveBugCheckRecoveryStatus(int *a1)

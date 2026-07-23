@@ -1,11 +1,11 @@
 /*
- * XREFs of IopSetCopyInformationExtension @ 0x14028F96C
+ * XREFs of IopSetCopyInformationExtension @ 0x14028FBFC
  * Callers:
  *     IopAllocateAndPopulateWriteIrp @ 0x140224220 (IopAllocateAndPopulateWriteIrp.c)
- *     IopReadFile @ 0x14074C1C0 (IopReadFile.c)
+ *     IopReadFile @ 0x14074C3B0 (IopReadFile.c)
  * Callees:
- *     IopIrpHasValidCombinationOfExtensionTypes @ 0x14028F918 (IopIrpHasValidCombinationOfExtensionTypes.c)
- *     IopAllocateIrpExtension @ 0x14029080C (IopAllocateIrpExtension.c)
+ *     IopIrpHasValidCombinationOfExtensionTypes @ 0x14028FBA8 (IopIrpHasValidCombinationOfExtensionTypes.c)
+ *     IopAllocateIrpExtension @ 0x140290A9C (IopAllocateIrpExtension.c)
  */
 
 __int64 __fastcall IopSetCopyInformationExtension(__int64 a1, _OWORD *a2)

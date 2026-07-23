@@ -1,10 +1,10 @@
 /*
- * XREFs of _inc @ 0x14053E6CC
+ * XREFs of _inc @ 0x140540B50
  * Callers:
- *     ReadString @ 0x14053E3C0 (ReadString.c)
- *     _input_s @ 0x14053E6FC (_input_s.c)
+ *     ReadString @ 0x140540840 (ReadString.c)
+ *     _input_s @ 0x140540B80 (_input_s.c)
  * Callees:
- *     xHalTimerQueryRtcErrors @ 0x1405B8340 (xHalTimerQueryRtcErrors.c)
+ *     xHalTimerQueryRtcErrors @ 0x1405BABB0 (xHalTimerQueryRtcErrors.c)
  */
 
 __int64 __fastcall inc(__int64 a1)

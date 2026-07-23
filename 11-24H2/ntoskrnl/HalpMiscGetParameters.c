@@ -1,20 +1,20 @@
 /*
- * XREFs of HalpMiscGetParameters @ 0x140C0F650
+ * XREFs of HalpMiscGetParameters @ 0x140C11650
  * Callers:
- *     HalpMiscInitSystem @ 0x140B4D290 (HalpMiscInitSystem.c)
+ *     HalpMiscInitSystem @ 0x140B4F2D0 (HalpMiscInitSystem.c)
  * Callees:
- *     HalpInterruptModel @ 0x1403BAB3C (HalpInterruptModel.c)
- *     HalpGetCpuInfo @ 0x14048CB70 (HalpGetCpuInfo.c)
- *     HalpIsHvPresent @ 0x1404A5710 (HalpIsHvPresent.c)
- *     HalpIsMicrosoftCompatibleHvLoaded @ 0x1404A57AC (HalpIsMicrosoftCompatibleHvLoaded.c)
- *     HalpIsPartitionCpuManager @ 0x1404F79EC (HalpIsPartitionCpuManager.c)
- *     strstr @ 0x1404FD9B0 (strstr.c)
- *     atoi @ 0x1404FDBE0 (atoi.c)
- *     HalpInterruptForceClusterMode @ 0x1405422A8 (HalpInterruptForceClusterMode.c)
- *     HalpInterruptSetMsiOverride @ 0x140542A88 (HalpInterruptSetMsiOverride.c)
- *     HalpIsXboxNanovisorPresent @ 0x14054AC90 (HalpIsXboxNanovisorPresent.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     HalpProcIsSmtDisabled @ 0x140C0F514 (HalpProcIsSmtDisabled.c)
+ *     HalpInterruptModel @ 0x1403744A8 (HalpInterruptModel.c)
+ *     HalpGetCpuInfo @ 0x140487890 (HalpGetCpuInfo.c)
+ *     HalpIsHvPresent @ 0x1404A04A0 (HalpIsHvPresent.c)
+ *     HalpIsMicrosoftCompatibleHvLoaded @ 0x1404A053C (HalpIsMicrosoftCompatibleHvLoaded.c)
+ *     HalpIsPartitionCpuManager @ 0x1404F52CC (HalpIsPartitionCpuManager.c)
+ *     strstr @ 0x1404FB270 (strstr.c)
+ *     atoi @ 0x1404FB4A0 (atoi.c)
+ *     HalpInterruptForceClusterMode @ 0x14053FBF8 (HalpInterruptForceClusterMode.c)
+ *     HalpInterruptSetMsiOverride @ 0x1405403D8 (HalpInterruptSetMsiOverride.c)
+ *     HalpIsXboxNanovisorPresent @ 0x140548550 (HalpIsXboxNanovisorPresent.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     HalpProcIsSmtDisabled @ 0x140C11514 (HalpProcIsSmtDisabled.c)
  */
 
 char __fastcall HalpMiscGetParameters(__int64 a1)

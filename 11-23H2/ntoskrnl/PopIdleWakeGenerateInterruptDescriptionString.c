@@ -1,13 +1,13 @@
 /*
- * XREFs of PopIdleWakeGenerateInterruptDescriptionString @ 0x14099A5B8
+ * XREFs of PopIdleWakeGenerateInterruptDescriptionString @ 0x14099A7B8
  * Callers:
- *     PopIdleWakeGenerateDescriptionString @ 0x14099A39C (PopIdleWakeGenerateDescriptionString.c)
+ *     PopIdleWakeGenerateDescriptionString @ 0x14099A59C (PopIdleWakeGenerateDescriptionString.c)
  * Callees:
  *     RtlUnicodeStringCat @ 0x140208C9C (RtlUnicodeStringCat.c)
  *     RtlUnicodeStringValidateDestWorker @ 0x140208D74 (RtlUnicodeStringValidateDestWorker.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     MmEnumerateSystemImages @ 0x140820BD0 (MmEnumerateSystemImages.c)
- *     PopGenerateDeviceFriendlyName @ 0x140849204 (PopGenerateDeviceFriendlyName.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     MmEnumerateSystemImages @ 0x140820ED0 (MmEnumerateSystemImages.c)
+ *     PopGenerateDeviceFriendlyName @ 0x140849504 (PopGenerateDeviceFriendlyName.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
 

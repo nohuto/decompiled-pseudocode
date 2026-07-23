@@ -1,8 +1,8 @@
 /*
- * XREFs of MiGetNodeHugeRangeCounts @ 0x1405166F8
+ * XREFs of MiGetNodeHugeRangeCounts @ 0x140510168
  * Callers:
- *     MmFillEtwHugeIoSpaceInformation @ 0x1406E34E0 (MmFillEtwHugeIoSpaceInformation.c)
- *     MmManagePartitionMemoryInformation @ 0x140AB9F38 (MmManagePartitionMemoryInformation.c)
+ *     MmFillEtwHugeIoSpaceInformation @ 0x1406E818C (MmFillEtwHugeIoSpaceInformation.c)
+ *     MmManagePartitionMemoryInformation @ 0x140ABB3FC (MmManagePartitionMemoryInformation.c)
  * Callees:
  *     <none>
  */
@@ -21,7 +21,7 @@ unsigned __int64 __fastcall MiGetNodeHugeRangeCounts(
 
   v4 = 0LL;
   v5 = 0LL;
-  for ( i = 0; i < (unsigned __int8)byte_140E2D718; v5 += *(_QWORD *)(a1 + 8 * v7 + 13928) )
+  for ( i = 0; i < (unsigned __int8)byte_140E2D898; v5 += *(_QWORD *)(a1 + 8 * v7 + 13928) )
   {
     v7 = i++;
     v4 += *(_QWORD *)(a1 + 8 * v7 + 13912);

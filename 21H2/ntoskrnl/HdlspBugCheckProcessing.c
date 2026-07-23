@@ -1,15 +1,15 @@
 /*
- * XREFs of HdlspBugCheckProcessing @ 0x1409EED54
+ * XREFs of HdlspBugCheckProcessing @ 0x1409EFD54
  * Callers:
- *     HdlspDispatch @ 0x1409EEE80 (HdlspDispatch.c)
+ *     HdlspDispatch @ 0x1409EFE80 (HdlspDispatch.c)
  * Callees:
- *     KeStallExecutionProcessor @ 0x14022A880 (KeStallExecutionProcessor.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     _stricmp @ 0x1403D1DD0 (_stricmp.c)
- *     HalReturnToFirmware @ 0x1404BE1A0 (HalReturnToFirmware.c)
- *     HdlspGetLine @ 0x1409EF5F8 (HdlspGetLine.c)
- *     HdlspProcessDumpCommand @ 0x1409EFC18 (HdlspProcessDumpCommand.c)
- *     HdlspSendStringAtBaud @ 0x1409F0350 (HdlspSendStringAtBaud.c)
+ *     KeStallExecutionProcessor @ 0x1402CF130 (KeStallExecutionProcessor.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     _stricmp @ 0x1403D1F40 (_stricmp.c)
+ *     HalReturnToFirmware @ 0x1404BE3E0 (HalReturnToFirmware.c)
+ *     HdlspGetLine @ 0x1409F05F8 (HdlspGetLine.c)
+ *     HdlspProcessDumpCommand @ 0x1409F0C18 (HdlspProcessDumpCommand.c)
+ *     HdlspSendStringAtBaud @ 0x1409F1350 (HdlspSendStringAtBaud.c)
  */
 
 __int64 HdlspBugCheckProcessing()

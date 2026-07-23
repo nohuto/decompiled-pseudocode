@@ -1,12 +1,12 @@
 /*
- * XREFs of TtmiCloseEventQueue @ 0x140679E18
+ * XREFs of TtmiCloseEventQueue @ 0x140679EFC
  * Callers:
- *     TtmiWriteEventToAllQueues @ 0x140678DF0 (TtmiWriteEventToAllQueues.c)
+ *     TtmiWriteEventToAllQueues @ 0x140678ED4 (TtmiWriteEventToAllQueues.c)
  * Callees:
- *     KeSetEvent @ 0x1400562D0 (KeSetEvent.c)
- *     ExReleaseResourceLite @ 0x140068940 (ExReleaseResourceLite.c)
+ *     KeSetEvent @ 0x140055E50 (KeSetEvent.c)
+ *     ExReleaseResourceLite @ 0x1400684C0 (ExReleaseResourceLite.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
- *     TtmpAcquireQueueLock @ 0x14067A280 (TtmpAcquireQueueLock.c)
+ *     TtmpAcquireQueueLock @ 0x14067A364 (TtmpAcquireQueueLock.c)
  */
 
 __int64 __fastcall TtmiCloseEventQueue(__int64 a1)

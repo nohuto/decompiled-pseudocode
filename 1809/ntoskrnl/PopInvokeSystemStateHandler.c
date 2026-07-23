@@ -1,31 +1,31 @@
 /*
- * XREFs of PopInvokeSystemStateHandler @ 0x140568DB8
+ * XREFs of PopInvokeSystemStateHandler @ 0x140569DB8
  * Callers:
- *     PopEndMirroring @ 0x14056B600 (PopEndMirroring.c)
- *     PopTransitionToSleep @ 0x14056C0F0 (PopTransitionToSleep.c)
- *     PopShutdownSystem @ 0x14057E014 (PopShutdownSystem.c)
+ *     PopEndMirroring @ 0x14056C600 (PopEndMirroring.c)
+ *     PopTransitionToSleep @ 0x14056D0F0 (PopTransitionToSleep.c)
+ *     PopShutdownSystem @ 0x14057F014 (PopShutdownSystem.c)
  * Callees:
  *     KeInsertQueueDpc @ 0x140062190 (KeInsertQueueDpc.c)
- *     KeInitializeDpc @ 0x1400A56F0 (KeInitializeDpc.c)
- *     KeSetSystemGroupAffinityThread @ 0x1400D6E90 (KeSetSystemGroupAffinityThread.c)
- *     EtwTraceKernelEvent @ 0x1400F3710 (EtwTraceKernelEvent.c)
- *     VfIsVerifierEnabled @ 0x14013B9E0 (VfIsVerifierEnabled.c)
- *     KeRebaselineInterruptTime @ 0x140144648 (KeRebaselineInterruptTime.c)
- *     KeRebaselineSystemTime @ 0x140159A38 (KeRebaselineSystemTime.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
- *     DbgBreakPointWithStatus @ 0x1401C5350 (DbgBreakPointWithStatus.c)
- *     RtlpInterlockedPushEntrySList @ 0x1401C5410 (RtlpInterlockedPushEntrySList.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     PopIssueNextState @ 0x140569344 (PopIssueNextState.c)
- *     PopCheckpointSystemSleep @ 0x140569714 (PopCheckpointSystemSleep.c)
- *     MmInvalidateDumpAddresses @ 0x14056D630 (MmInvalidateDumpAddresses.c)
- *     MiConvertHiberPhasePages @ 0x14056DF80 (MiConvertHiberPhasePages.c)
- *     MiUpdateUserMappings @ 0x14056E028 (MiUpdateUserMappings.c)
- *     VfNotifyOfHibernate @ 0x14092BDCC (VfNotifyOfHibernate.c)
- *     BgLibraryInitialize @ 0x14094E81C (BgLibraryInitialize.c)
+ *     KeInitializeDpc @ 0x1400A5630 (KeInitializeDpc.c)
+ *     KeSetSystemGroupAffinityThread @ 0x1400D6F10 (KeSetSystemGroupAffinityThread.c)
+ *     EtwTraceKernelEvent @ 0x1400F3790 (EtwTraceKernelEvent.c)
+ *     VfIsVerifierEnabled @ 0x14013BAE0 (VfIsVerifierEnabled.c)
+ *     KeRebaselineInterruptTime @ 0x140144748 (KeRebaselineInterruptTime.c)
+ *     KeRebaselineSystemTime @ 0x140159B38 (KeRebaselineSystemTime.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
+ *     DbgBreakPointWithStatus @ 0x1401C54B0 (DbgBreakPointWithStatus.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1401C5570 (RtlpInterlockedPushEntrySList.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     PopIssueNextState @ 0x14056A344 (PopIssueNextState.c)
+ *     PopCheckpointSystemSleep @ 0x14056A714 (PopCheckpointSystemSleep.c)
+ *     MmInvalidateDumpAddresses @ 0x14056E630 (MmInvalidateDumpAddresses.c)
+ *     MiConvertHiberPhasePages @ 0x14056EF80 (MiConvertHiberPhasePages.c)
+ *     MiUpdateUserMappings @ 0x14056F028 (MiUpdateUserMappings.c)
+ *     VfNotifyOfHibernate @ 0x14092CDCC (VfNotifyOfHibernate.c)
+ *     BgLibraryInitialize @ 0x14094F81C (BgLibraryInitialize.c)
  */
 
 __int64 __fastcall PopInvokeSystemStateHandler(int a1, __int64 a2)
@@ -60,7 +60,7 @@ __int64 __fastcall PopInvokeSystemStateHandler(int a1, __int64 a2)
   int v31; // [rsp+FCh] [rbp-4h]
   _QWORD v32[2]; // [rsp+100h] [rbp+0h] BYREF
   _QWORD v33[2]; // [rsp+110h] [rbp+10h] BYREF
-  struct _SLIST_ENTRY v34[9]; // [rsp+120h] [rbp+20h] BYREF
+  _SLIST_ENTRY v34[9]; // [rsp+120h] [rbp+20h] BYREF
   _QWORD v35[3]; // [rsp+1B0h] [rbp+B0h] BYREF
 
   v2 = a1;
@@ -100,16 +100,16 @@ __int64 __fastcall PopInvokeSystemStateHandler(int a1, __int64 a2)
   if ( a2 )
   {
     PopHibernateSystemContext = DeferredContext[0];
-    qword_14043C538 = (__int64)v6;
-    qword_14043C550 = (__int64)&PopPowerStateNotifyHandler;
+    qword_14043D5F8 = (__int64)v6;
+    qword_14043D610 = (__int64)&PopPowerStateNotifyHandler;
     v8 = &PopHibernateSystemContext;
-    byte_14043C55C = BYTE4(DeferredContext[5]);
-    dword_14043C560 = DeferredContext[6];
-    qword_14043C540 = v7;
-    qword_14043C548 = v5;
-    dword_14043C558 = v2;
-    dword_14043C56C = KeNumberProcessors_0;
-    dword_14043C568 = DeferredContext[7];
+    byte_14043D61C = BYTE4(DeferredContext[5]);
+    dword_14043D620 = DeferredContext[6];
+    qword_14043D600 = v7;
+    qword_14043D608 = v5;
+    dword_14043D618 = v2;
+    dword_14043D62C = KeNumberProcessors_0;
+    dword_14043D628 = DeferredContext[7];
     RtlpInterlockedPushEntrySList(&SListHead, &v34[8]);
     CurrentIrql = v25;
   }
@@ -142,7 +142,7 @@ __int64 __fastcall PopInvokeSystemStateHandler(int a1, __int64 a2)
   }
   PopIssueNextState(v8, v34, 2LL);
   PopIssueNextState(v8, v34, 3LL);
-  if ( dword_140417720 == 4 )
+  if ( dword_1404187C0 == 4 )
   {
     PerformanceCounter.QuadPart = 0LL;
     v10 = 1000000LL * KeGetCurrentPrcb()->MHz;
@@ -152,7 +152,7 @@ __int64 __fastcall PopInvokeSystemStateHandler(int a1, __int64 a2)
     v10 = PopQpcFrequency;
     PerformanceCounter = KeQueryPerformanceCounter(0LL);
   }
-  if ( (xmmword_140541350 & 0x8000) != 0 )
+  if ( (xmmword_140542350 & 0x8000) != 0 )
   {
     v31 = 0;
     v29 = v33;
@@ -178,7 +178,7 @@ __int64 __fastcall PopInvokeSystemStateHandler(int a1, __int64 a2)
     *((_BYTE *)v8 + 44) = 1;
     PopIssueNextState(v8, v34, 12LL);
     if ( (_DWORD)v2 != 3 && (_DWORD)v2 != 6 )
-      off_1403FE608[0]();
+      off_1403FF608[0]();
     if ( a2 )
     {
       PopIssueNextState(v8, v34, 5LL);
@@ -191,7 +191,7 @@ __int64 __fastcall PopInvokeSystemStateHandler(int a1, __int64 a2)
     PopCheckpointSystemSleep(26LL);
     Next = (signed int)v34[7].Next;
     KeRebaselineInterruptTime();
-    off_1403FE5F8[0]();
+    off_1403FF5F8[0]();
     if ( a2 && Next == 1073742484 )
       PopIssueNextState(v8, v34, 7LL);
     PopIssueNextState(v8, v34, 8LL);
@@ -203,7 +203,7 @@ __int64 __fastcall PopInvokeSystemStateHandler(int a1, __int64 a2)
         PopIssueNextState(v8, v34, 9LL);
         PopCheckpointSystemSleep(32LL);
       }
-      MmInvalidateDumpAddresses(xmmword_140417848, 13LL);
+      MmInvalidateDumpAddresses(xmmword_1404188E8, 13LL);
       v13 = *(_QWORD *)(a2 + 304);
       if ( v13 )
         MmInvalidateDumpAddresses(v13, (unsigned int)(16 * *(_DWORD *)(a2 + 256)));
@@ -228,7 +228,7 @@ __int64 __fastcall PopInvokeSystemStateHandler(int a1, __int64 a2)
       PopFullWake = 0;
       PopPendingUserPresenceDuringSystemSleep = 0;
       PopPendingUserPresenceMonitorOnReason = 0;
-      dword_140417648 = 1;
+      dword_1404186C8 = 1;
       if ( PoResumeFromHibernate )
       {
         _InterlockedOr(&PopPendingUserPresenceDuringSystemSleep, 1u);
@@ -263,8 +263,8 @@ __int64 __fastcall PopInvokeSystemStateHandler(int a1, __int64 a2)
         goto LABEL_46;
       }
     }
-    v21 = qword_1404181E0 == 0;
-    *v8 = (__int64)&unk_1404181D8;
+    v21 = qword_1404192A0 == 0;
+    *v8 = (__int64)&unk_140419298;
     v8[3] = 0LL;
     if ( !v21 )
       PopIssueNextState(v8, v34, 6LL);
@@ -278,19 +278,19 @@ LABEL_46:
   PopIssueNextState(v8, v34, 13LL);
   if ( Next >= 0 )
   {
-    if ( dword_140417720 != 4 || PoResumeFromHibernate )
+    if ( dword_1404187C0 != 4 || PoResumeFromHibernate )
     {
       v15 = 0;
       v23 = KeQueryPerformanceCounter(0LL);
-      ((void (__fastcall *)(void *, __int64 *))off_1403FE3E0[0])(&unk_140417C88, &qword_140417C90);
+      ((void (__fastcall *)(void *, __int64 *))off_1403FF3E0[0])(&unk_140418D28, &qword_140418D30);
     }
     else
     {
       v15 = 1;
-      if ( !((unsigned __int8 (__fastcall *)(LARGE_INTEGER *, _QWORD))off_1403FE3E0[0])(&v23, 0LL) )
+      if ( !((unsigned __int8 (__fastcall *)(LARGE_INTEGER *, _QWORD))off_1403FF3E0[0])(&v23, 0LL) )
         v23.QuadPart = 0LL;
     }
-    if ( (xmmword_140541350 & 0x8000) != 0 )
+    if ( (xmmword_140542350 & 0x8000) != 0 )
     {
       v26 = v23;
       v32[1] = 8LL;
@@ -300,7 +300,7 @@ LABEL_46:
     if ( v15 )
     {
       v23.QuadPart = v23.QuadPart / (1000 * (unsigned __int64)KeGetCurrentPrcb()->MHz) * (PopQpcFrequency / 0x3E8uLL);
-      qword_140417B68 = v23.QuadPart - PerformanceCounter.QuadPart;
+      qword_140418C08 = v23.QuadPart - PerformanceCounter.QuadPart;
     }
   }
   PopIssueNextState(v8, v34, 14LL);
@@ -316,9 +316,9 @@ LABEL_46:
   }
   if ( a2 )
   {
-    if ( !byte_140417861 && Next == 1073742484 )
+    if ( !byte_140418901 && Next == 1073742484 )
     {
-      if ( byte_14043C508 )
+      if ( byte_14043D5C8 )
         BgLibraryInitialize(Address, 0LL);
     }
   }

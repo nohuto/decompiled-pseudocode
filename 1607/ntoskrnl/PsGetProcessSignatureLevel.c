@@ -1,5 +1,5 @@
 /*
- * XREFs of PsGetProcessSignatureLevel @ 0x14007DD34
+ * XREFs of PsGetProcessSignatureLevel @ 0x14007DDB4
  * Callers:
  *     <none>
  * Callees:

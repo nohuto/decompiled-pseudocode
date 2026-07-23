@@ -7,18 +7,18 @@
  *     RtlpHpSegHeapCreate @ 0x1800598B0 (RtlpHpSegHeapCreate.c)
  */
 
-__int64 RtlpHpMetadataHeapInit()
+__int64 __fastcall RtlpHpMetadataHeapInit(PRTL_RUN_ONCE a1, PVOID a2, PVOID *a3)
 {
-  __int64 v0; // rax
-  unsigned int v1; // ebx
+  void *v3; // rax
+  unsigned int v4; // ebx
 
-  v0 = RtlpHpSegHeapCreate(0, 0LL, 0LL);
-  RtlpHpMetadataHeap = v0;
-  if ( !v0 )
+  v3 = (void *)RtlpHpSegHeapCreate(0, 0LL, 0LL);
+  RtlpHpMetadataHeap = v3;
+  if ( !v3 )
     return 0;
-  v1 = 1;
-  RtlpMoveHeapBetweenLists(v0, 0, 1, 0);
+  v4 = 1;
+  RtlpMoveHeapBetweenLists((__int64)v3, 0, 1, 0);
   if ( !RtlpHpMetadataHeap )
     return 0;
-  return v1;
+  return v4;
 }

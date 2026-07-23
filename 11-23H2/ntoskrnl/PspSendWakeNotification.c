@@ -1,13 +1,13 @@
 /*
- * XREFs of PspSendWakeNotification @ 0x1407DA3A8
+ * XREFs of PspSendWakeNotification @ 0x1407DA678
  * Callers:
  *     PspChargeJobWakeCounter @ 0x1406A3A44 (PspChargeJobWakeCounter.c)
- *     PspDispatchWakeNotification @ 0x1407DA334 (PspDispatchWakeNotification.c)
+ *     PspDispatchWakeNotification @ 0x1407DA604 (PspDispatchWakeNotification.c)
  * Callees:
  *     PspRequestDeferredJobNotification @ 0x140200C90 (PspRequestDeferredJobNotification.c)
- *     ObfDereferenceObjectWithTag @ 0x14022F5B0 (ObfDereferenceObjectWithTag.c)
- *     ObfReferenceObjectWithTag @ 0x1402B68C0 (ObfReferenceObjectWithTag.c)
- *     EtwTraceWakeEvent @ 0x1409E5F18 (EtwTraceWakeEvent.c)
+ *     ObfDereferenceObjectWithTag @ 0x14022F6C0 (ObfDereferenceObjectWithTag.c)
+ *     ObfReferenceObjectWithTag @ 0x1402B6B50 (ObfReferenceObjectWithTag.c)
+ *     EtwTraceWakeEvent @ 0x1409E61A8 (EtwTraceWakeEvent.c)
  */
 
 char __fastcall PspSendWakeNotification(PVOID Object, unsigned int a2, _DWORD *a3, unsigned __int64 a4, char a5)

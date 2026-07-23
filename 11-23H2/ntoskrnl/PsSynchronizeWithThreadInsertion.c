@@ -1,11 +1,11 @@
 /*
- * XREFs of PsSynchronizeWithThreadInsertion @ 0x1409AE4F8
+ * XREFs of PsSynchronizeWithThreadInsertion @ 0x1409AE6F8
  * Callers:
- *     NtGetNextThread @ 0x1407DF010 (NtGetNextThread.c)
- *     DbgkpPostFakeThreadMessages @ 0x140937784 (DbgkpPostFakeThreadMessages.c)
+ *     NtGetNextThread @ 0x1407DF2E0 (NtGetNextThread.c)
+ *     DbgkpPostFakeThreadMessages @ 0x140937984 (DbgkpPostFakeThreadMessages.c)
  * Callees:
  *     ExfAcquireReleasePushLockExclusive @ 0x140201DF4 (ExfAcquireReleasePushLockExclusive.c)
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
+ *     KeLeaveCriticalRegionThread @ 0x14022F7F0 (KeLeaveCriticalRegionThread.c)
  */
 
 _QWORD *__fastcall PsSynchronizeWithThreadInsertion(__int64 a1, __int64 a2)

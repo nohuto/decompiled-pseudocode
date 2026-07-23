@@ -1,7 +1,7 @@
 /*
- * XREFs of PspUpdateJobPeakProcessMemory @ 0x1409EAD08
+ * XREFs of PspUpdateJobPeakProcessMemory @ 0x1409E55F8
  * Callers:
- *     PspFoldProcessAccountingIntoJob @ 0x1409EAB68 (PspFoldProcessAccountingIntoJob.c)
+ *     PspFoldProcessAccountingIntoJob @ 0x1409E5458 (PspFoldProcessAccountingIntoJob.c)
  * Callees:
  *     <none>
  */

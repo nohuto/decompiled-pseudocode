@@ -1,20 +1,20 @@
 /*
- * XREFs of MiIncreaseUsedPtesInPfn @ 0x14030B600
+ * XREFs of MiIncreaseUsedPtesInPfn @ 0x1402ED680
  * Callers:
- *     MiInitializePfn @ 0x1402D7680 (MiInitializePfn.c)
- *     MiHandleForkValidPrivatePte @ 0x14030ADC0 (MiHandleForkValidPrivatePte.c)
- *     MiHandleForkValidProtoPte @ 0x14030B310 (MiHandleForkValidProtoPte.c)
- *     MiHandleForkPagefilePte @ 0x14030CE54 (MiHandleForkPagefilePte.c)
- *     MiWriteUselessChildPte @ 0x14030D0DC (MiWriteUselessChildPte.c)
- *     MiDuplicateCloneLeaf @ 0x14030D374 (MiDuplicateCloneLeaf.c)
- *     MiBuildForkPageTable @ 0x14030DC5C (MiBuildForkPageTable.c)
- *     MiHandleForkTransitionPte @ 0x14030E420 (MiHandleForkTransitionPte.c)
- *     MiHandleForkProtoPte @ 0x14030EB98 (MiHandleForkProtoPte.c)
- *     MiHandleForkDemandZeroPte @ 0x14049AABC (MiHandleForkDemandZeroPte.c)
- *     MiWriteSharedDemandZeroPte @ 0x14049AC34 (MiWriteSharedDemandZeroPte.c)
- *     MiInitializeDummyPages @ 0x140CF32F0 (MiInitializeDummyPages.c)
- *     MxCreatePfnsForPtes @ 0x140CF6200 (MxCreatePfnsForPtes.c)
- *     MiFillGapPtes @ 0x140CF9690 (MiFillGapPtes.c)
+ *     MiInitializePfn @ 0x1402B9440 (MiInitializePfn.c)
+ *     MiHandleForkValidPrivatePte @ 0x1402ECE40 (MiHandleForkValidPrivatePte.c)
+ *     MiHandleForkValidProtoPte @ 0x1402ED390 (MiHandleForkValidProtoPte.c)
+ *     MiHandleForkPagefilePte @ 0x1402EEED4 (MiHandleForkPagefilePte.c)
+ *     MiWriteUselessChildPte @ 0x1402EF15C (MiWriteUselessChildPte.c)
+ *     MiDuplicateCloneLeaf @ 0x1402EF3F4 (MiDuplicateCloneLeaf.c)
+ *     MiBuildForkPageTable @ 0x1402EFCDC (MiBuildForkPageTable.c)
+ *     MiHandleForkTransitionPte @ 0x1402F04A0 (MiHandleForkTransitionPte.c)
+ *     MiHandleForkProtoPte @ 0x1402F0C18 (MiHandleForkProtoPte.c)
+ *     MiHandleForkDemandZeroPte @ 0x14049460C (MiHandleForkDemandZeroPte.c)
+ *     MiWriteSharedDemandZeroPte @ 0x140494784 (MiWriteSharedDemandZeroPte.c)
+ *     MiInitializeDummyPages @ 0x140CF9670 (MiInitializeDummyPages.c)
+ *     MxCreatePfnsForPtes @ 0x140CFC580 (MxCreatePfnsForPtes.c)
+ *     MiFillGapPtes @ 0x140CFFA10 (MiFillGapPtes.c)
  * Callees:
  *     <none>
  */

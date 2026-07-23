@@ -6,11 +6,11 @@
  *     <none>
  */
 
-__int64 ZwPulseEvent()
+NTSTATUS __cdecl ZwPulseEvent(HANDLE EventHandle, PLONG PreviousState)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 295LL;
+  result = 295;
   __asm { syscall; Low latency system call }
   return result;
 }

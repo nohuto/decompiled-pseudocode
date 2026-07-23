@@ -1,7 +1,7 @@
 /*
- * XREFs of MI_CHECK_SEGMENT @ 0x1404C439C
+ * XREFs of MI_CHECK_SEGMENT @ 0x1404BDC7C
  * Callers:
- *     MmExtendSection @ 0x140A58080 (MmExtendSection.c)
+ *     MmExtendSection @ 0x140A65600 (MmExtendSection.c)
  * Callees:
  *     <none>
  */

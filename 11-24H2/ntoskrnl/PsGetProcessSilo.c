@@ -1,10 +1,10 @@
 /*
- * XREFs of PsGetProcessSilo @ 0x14040EEC0
+ * XREFs of PsGetProcessSilo @ 0x1404070C0
  * Callers:
- *     PsIsProcessInAppSilo @ 0x1407721C0 (PsIsProcessInAppSilo.c)
- *     NtSetInformationThread @ 0x140911410 (NtSetInformationThread.c)
+ *     PsIsProcessInAppSilo @ 0x1407723E0 (PsIsProcessInAppSilo.c)
+ *     NtSetInformationThread @ 0x1408E8B60 (NtSetInformationThread.c)
  * Callees:
- *     PspGetJobSilo @ 0x14040EFB0 (PspGetJobSilo.c)
+ *     PspGetJobSilo @ 0x1404071B0 (PspGetJobSilo.c)
  */
 
 __int64 __fastcall PsGetProcessSilo(__int64 a1)

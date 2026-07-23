@@ -16,7 +16,7 @@ __int64 __fastcall SC_DISK::GetStoragePropertyPre(SC_DISK *this, enum _STORAGE_P
   {
     switch ( a2 )
     {
-      case StorageDeviceClusportProperty|StorageAdapterProperty:
+      case StorageAdapterCryptoProperty|StorageDeviceWriteCacheProperty:
         *a3 = 24;
         return v3;
       case StorageAdapterSerialNumberProperty:

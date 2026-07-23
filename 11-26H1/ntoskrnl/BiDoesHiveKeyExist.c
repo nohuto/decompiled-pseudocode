@@ -1,11 +1,11 @@
 /*
- * XREFs of BiDoesHiveKeyExist @ 0x140892D5C
+ * XREFs of BiDoesHiveKeyExist @ 0x14089915C
  * Callers:
- *     BiAddStoreFromFile @ 0x1409D35AC (BiAddStoreFromFile.c)
+ *     BiAddStoreFromFile @ 0x1409A458C (BiAddStoreFromFile.c)
  * Callees:
- *     wcschr @ 0x140537F60 (wcschr.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     BiOpenKeyNonBcd @ 0x1409D349C (BiOpenKeyNonBcd.c)
+ *     wcschr @ 0x14053A3E0 (wcschr.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     BiOpenKeyNonBcd @ 0x1409A447C (BiOpenKeyNonBcd.c)
  */
 
 bool __fastcall BiDoesHiveKeyExist(const wchar_t *a1)

@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlInterlockedSetClearRunEx @ 0x1402A4870
+ * XREFs of RtlInterlockedSetClearRunEx @ 0x1402A3DC0
  * Callers:
- *     MiAttemptCoalesce @ 0x1402A42E8 (MiAttemptCoalesce.c)
+ *     MiAttemptCoalesce @ 0x1402A3838 (MiAttemptCoalesce.c)
  * Callees:
  *     <none>
  */

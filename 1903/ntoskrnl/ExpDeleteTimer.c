@@ -109,7 +109,7 @@ LABEL_21:
   if ( v16 && ($6EAC78A6FCFADE0A5FA44F358736B38F *)v9->ApcState.ApcListHead[0].Flink != &v9->152 )
     KiCheckForKernelApcDelivery(1LL);
   if ( _interlockedbittestandset64((volatile signed __int32 *)&ExpWakeTimerLock, 0LL) )
-    ExfAcquirePushLockExclusiveEx(&ExpWakeTimerLock, v14, (ULONG_PTR)&ExpWakeTimerLock);
+    ExfAcquirePushLockExclusiveEx(&ExpWakeTimerLock, (_RTL_BALANCED_NODE *)v14, (ULONG_PTR)&ExpWakeTimerLock);
   if ( v14 )
     *(_BYTE *)(v14 + 26) |= 1u;
   Flink = p_WaitListHead->Flink;
@@ -148,7 +148,7 @@ LABEL_21:
         {
           *(_BYTE *)(v24 + 32) |= 2u;
           if ( *(__int64 *)(v24 + 32) < 0 )
-            KiAbEntryRemoveFromTree(v24);
+            KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)v24);
           v25 = *(_DWORD *)(v24 + 88) & 0x1FFFF;
           v26 = *(_DWORD *)(v24 + 88) & 0xFFFE0000;
           *(_BYTE *)(v24 + 25) &= ~1u;

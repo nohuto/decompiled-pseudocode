@@ -1,10 +1,10 @@
 /*
- * XREFs of PspSetMinimalProcessName @ 0x1408531D4
+ * XREFs of PspSetMinimalProcessName @ 0x1408534D4
  * Callers:
- *     PsCreateMinimalProcess @ 0x140852EAC (PsCreateMinimalProcess.c)
+ *     PsCreateMinimalProcess @ 0x1408531AC (PsCreateMinimalProcess.c)
  * Callees:
- *     memmove @ 0x140435700 (memmove.c)
- *     PspSetProcessShortName @ 0x1407CE3D8 (PspSetProcessShortName.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     PspSetProcessShortName @ 0x1407CE6A8 (PspSetProcessShortName.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

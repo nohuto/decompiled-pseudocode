@@ -1,14 +1,14 @@
 /*
- * XREFs of PfSnLogPageFaultCommon @ 0x14031B04C
+ * XREFs of PfSnLogPageFaultCommon @ 0x140325D9C
  * Callers:
- *     MiCompleteRestrictedImageFault @ 0x14031D0A0 (MiCompleteRestrictedImageFault.c)
- *     PfFileInfoNotify @ 0x14031D600 (PfFileInfoNotify.c)
- *     MiMakeSystemCacheRangeValid @ 0x14031EB90 (MiMakeSystemCacheRangeValid.c)
- *     PfSnLogPageFault @ 0x14035EB88 (PfSnLogPageFault.c)
+ *     PfSnLogPageFault @ 0x1402A3AB8 (PfSnLogPageFault.c)
+ *     MiCompleteRestrictedImageFault @ 0x140327DF0 (MiCompleteRestrictedImageFault.c)
+ *     PfFileInfoNotify @ 0x140328350 (PfFileInfoNotify.c)
+ *     MiMakeSystemCacheRangeValid @ 0x1403298E0 (MiMakeSystemCacheRangeValid.c)
  * Callees:
- *     PfSnTraceGetLogEntry @ 0x14031A890 (PfSnTraceGetLogEntry.c)
- *     PfSnCheckLogSequenceNumber @ 0x14031B174 (PfSnCheckLogSequenceNumber.c)
- *     PfSnGetFileInformation @ 0x14031BA90 (PfSnGetFileInformation.c)
+ *     PfSnTraceGetLogEntry @ 0x1403255E0 (PfSnTraceGetLogEntry.c)
+ *     PfSnCheckLogSequenceNumber @ 0x140325EC4 (PfSnCheckLogSequenceNumber.c)
+ *     PfSnGetFileInformation @ 0x1403267E0 (PfSnGetFileInformation.c)
  */
 
 __int64 __fastcall PfSnLogPageFaultCommon(__int64 a1, __int64 a2, unsigned __int64 a3, unsigned __int64 a4, char a5)

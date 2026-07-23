@@ -6,7 +6,7 @@
  *     DbgPrintEx @ 0x180051450 (DbgPrintEx.c)
  *     RtlpLocateActivationContextSectionForQuery @ 0x180079368 (RtlpLocateActivationContextSectionForQuery.c)
  *     RtlpCrackActivationContextStringSectionHeader @ 0x18007941C (RtlpCrackActivationContextStringSectionHeader.c)
- *     memmove @ 0x1800A44C0 (memmove.c)
+ *     memmove @ 0x1800A4480 (memmove.c)
  */
 
 __int64 __fastcall RtlpQueryInformationActivationContextDetailedInformation(
@@ -63,7 +63,7 @@ __int64 __fastcall RtlpQueryInformationActivationContextDetailedInformation(
     if ( (_DWORD)v13 == *((_DWORD *)v12 + 2) )
     {
       DbgPrintEx(
-        51,
+        0x33u,
         0,
         "SXS: %s() found activation context data at %p with assembly roster that has no root\n",
         "RtlpQueryInformationActivationContextDetailedInformation",

@@ -1,10 +1,10 @@
 /*
- * XREFs of RaspCreatePointList @ 0x1403548A0
+ * XREFs of RaspCreatePointList @ 0x140356648
  * Callers:
- *     RaspRasterize @ 0x1404AD80C (RaspRasterize.c)
+ *     RaspRasterize @ 0x1404A6E94 (RaspRasterize.c)
  * Callees:
- *     RaspAllocateMemory @ 0x140355970 (RaspAllocateMemory.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     RaspAllocateMemory @ 0x140357710 (RaspAllocateMemory.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall RaspCreatePointList(__int64 a1, _QWORD *a2, __int64 a3)

@@ -1,11 +1,11 @@
 /*
- * XREFs of CmpEnlistKeyBody @ 0x1408CEBD0
+ * XREFs of CmpEnlistKeyBody @ 0x1408D5180
  * Callers:
- *     CmpDoParseKey @ 0x1408CBC90 (CmpDoParseKey.c)
+ *     CmpDoParseKey @ 0x1408D2240 (CmpDoParseKey.c)
  * Callees:
- *     CmpLockKcbExclusive @ 0x1408CEB50 (CmpLockKcbExclusive.c)
- *     CmpIsKeyStackDeleted @ 0x1408CECF0 (CmpIsKeyStackDeleted.c)
- *     CmpUnlockKcb @ 0x140C582B0 (CmpUnlockKcb.c)
+ *     CmpLockKcbExclusive @ 0x1408D5100 (CmpLockKcbExclusive.c)
+ *     CmpIsKeyStackDeleted @ 0x1408D52A0 (CmpIsKeyStackDeleted.c)
+ *     CmpUnlockKcb @ 0x140C5E2B0 (CmpUnlockKcb.c)
  */
 
 __int64 __fastcall CmpEnlistKeyBody(signed __int64 a1, __int64 a2, __int64 a3, char a4, __int64 a5)

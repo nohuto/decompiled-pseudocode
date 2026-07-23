@@ -1,11 +1,11 @@
 /*
- * XREFs of KiInsertTimer2WithCollectionLockHeld @ 0x1403789C0
+ * XREFs of KiInsertTimer2WithCollectionLockHeld @ 0x14037A770
  * Callers:
- *     KiInsertTimer2 @ 0x140337730 (KiInsertTimer2.c)
- *     KeSetTimer2 @ 0x14037A500 (KeSetTimer2.c)
+ *     KiInsertTimer2 @ 0x1403397B0 (KiInsertTimer2.c)
+ *     KeSetTimer2 @ 0x14037C2B0 (KeSetTimer2.c)
  * Callees:
- *     RtlRbInsertNodeEx @ 0x1403774B0 (RtlRbInsertNodeEx.c)
- *     KiRemoveTimer2 @ 0x140378EB0 (KiRemoveTimer2.c)
+ *     RtlRbInsertNodeEx @ 0x140379260 (RtlRbInsertNodeEx.c)
+ *     KiRemoveTimer2 @ 0x14037AC60 (KiRemoveTimer2.c)
  */
 
 __int64 __fastcall KiInsertTimer2WithCollectionLockHeld(__int64 a1, char a2, _BYTE *a3, bool *a4)
@@ -17,19 +17,19 @@ __int64 __fastcall KiInsertTimer2WithCollectionLockHeld(__int64 a1, char a2, _BY
   int v10; // ebp
   __int64 v11; // rcx
   unsigned __int64 v12; // rdx
-  unsigned __int64 v13; // rsi
-  bool v14; // al
+  _RTL_RB_TREE *v13; // rsi
+  BOOLEAN v14; // al
   unsigned __int64 v15; // rax
   unsigned __int64 v16; // rax
-  __int64 v17; // rcx
+  _RTL_BALANCED_NODE *Min; // rcx
   __int64 v18; // rax
   char v19; // cl
-  unsigned __int64 *v20; // rsi
-  unsigned __int64 v21; // rdx
-  bool v22; // al
+  _RTL_RB_TREE *v20; // rsi
+  unsigned __int64 Root; // rdx
+  BOOLEAN v22; // al
   unsigned __int64 v23; // rax
   unsigned __int64 v24; // rax
-  unsigned __int64 v25; // rcx
+  _RTL_BALANCED_NODE *v25; // rcx
   __int64 v26; // rax
   signed __int32 *v28; // rdx
   bool v29; // al
@@ -52,12 +52,12 @@ __int64 __fastcall KiInsertTimer2WithCollectionLockHeld(__int64 a1, char a2, _BY
   *(_BYTE *)(a1 + 130) = v5 & 0xEF;
   v11 = v5 & 7;
   v12 = *((_QWORD *)&KiTimer2Collections + 3 * v11);
-  v13 = (unsigned __int64)&KiTimer2Collections + 24 * v11;
-  if ( (*(_QWORD *)(v13 + 8) & 1) == 0 )
+  v13 = (_RTL_RB_TREE *)((char *)&KiTimer2Collections + 24 * v11);
+  if ( ((__int64)v13->Min & 1) == 0 )
     goto LABEL_4;
   if ( v12 )
   {
-    v12 ^= v13;
+    v12 ^= (unsigned __int64)v13;
 LABEL_4:
     v14 = 0;
     if ( v12 )
@@ -67,7 +67,7 @@ LABEL_4:
         while ( *(_QWORD *)(a1 + 72) < *(_QWORD *)(v12 + 48) )
         {
           v15 = *(_QWORD *)v12;
-          if ( (*(_QWORD *)(v13 + 8) & 1) != 0 )
+          if ( ((__int64)v13->Min & 1) != 0 )
           {
             if ( !v15 )
               goto LABEL_66;
@@ -78,7 +78,7 @@ LABEL_4:
           v12 = v15;
         }
         v16 = *(_QWORD *)(v12 + 8);
-        if ( (*(_QWORD *)(v13 + 8) & 1) != 0 )
+        if ( ((__int64)v13->Min & 1) != 0 )
         {
           if ( !v16 )
             break;
@@ -95,23 +95,23 @@ LABEL_4:
 LABEL_66:
   v14 = 0;
 LABEL_16:
-  RtlRbInsertNodeEx(v13, v12, v14, a1 + 24);
-  v17 = *(_QWORD *)(v13 + 8);
-  if ( (v17 & 1) != 0 )
+  RtlRbInsertNodeEx(v13, (PRTL_BALANCED_NODE)v12, v14, (PRTL_BALANCED_NODE)(a1 + 24));
+  Min = v13->Min;
+  if ( ((unsigned __int8)Min & 1) != 0 )
   {
-    if ( v17 == 1 )
+    if ( Min == (_RTL_BALANCED_NODE *)1 )
       v18 = 0LL;
     else
-      v18 = v17 ^ (v13 | 1);
+      v18 = (unsigned __int64)Min ^ ((unsigned __int64)v13 | 1);
   }
   else
   {
-    v18 = *(_QWORD *)(v13 + 8);
+    v18 = (__int64)v13->Min;
   }
   if ( v18 == a1 + 24 )
   {
     v10 = 1;
-    *(_QWORD *)(v13 + 16) = *(_QWORD *)(a1 + 72);
+    v13[1].Root = *(_RTL_BALANCED_NODE **)(a1 + 72);
   }
   else
   {
@@ -125,42 +125,42 @@ LABEL_21:
     goto LABEL_39;
   }
   *(_BYTE *)(a1 + 131) = v19 & 0xEF;
-  v20 = (unsigned __int64 *)(0x140000000LL + 24LL * (v19 & 7) + 15887360);
-  v21 = *v20;
-  if ( (*(_QWORD *)(0x140000008LL + 24LL * (v19 & 7) + 15887360) & 1) == 0 )
+  v20 = (_RTL_RB_TREE *)(0x140000000LL + 24LL * (v19 & 7) + 15887776);
+  Root = (unsigned __int64)v20->Root;
+  if ( (*(_QWORD *)(0x140000008LL + 24LL * (v19 & 7) + 15887776) & 1) == 0 )
     goto LABEL_23;
-  if ( v21 )
+  if ( Root )
   {
-    v21 ^= (unsigned __int64)v20;
+    Root ^= (unsigned __int64)v20;
 LABEL_23:
     v22 = 0;
-    if ( v21 )
+    if ( Root )
     {
       while ( 1 )
       {
-        while ( *(_QWORD *)(a1 + 80) < *(_QWORD *)(v21 + 32) )
+        while ( *(_QWORD *)(a1 + 80) < *(_QWORD *)(Root + 32) )
         {
-          v23 = *(_QWORD *)v21;
-          if ( (*(_QWORD *)(0x140000008LL + 24LL * (v19 & 7) + 15887360) & 1) != 0 )
+          v23 = *(_QWORD *)Root;
+          if ( (*(_QWORD *)(0x140000008LL + 24LL * (v19 & 7) + 15887776) & 1) != 0 )
           {
             if ( !v23 )
               goto LABEL_64;
-            v23 ^= v21;
+            v23 ^= Root;
           }
           if ( !v23 )
             goto LABEL_64;
-          v21 = v23;
+          Root = v23;
         }
-        v24 = *(_QWORD *)(v21 + 8);
-        if ( (*(_QWORD *)(0x140000008LL + 24LL * (v19 & 7) + 15887360) & 1) != 0 )
+        v24 = *(_QWORD *)(Root + 8);
+        if ( (*(_QWORD *)(0x140000008LL + 24LL * (v19 & 7) + 15887776) & 1) != 0 )
         {
           if ( !v24 )
             break;
-          v24 ^= v21;
+          v24 ^= Root;
         }
         if ( !v24 )
           break;
-        v21 = v24;
+        Root = v24;
       }
       v22 = 1;
     }
@@ -169,23 +169,23 @@ LABEL_23:
 LABEL_64:
   v22 = 0;
 LABEL_33:
-  RtlRbInsertNodeEx((unsigned __int64)v20, v21, v22, a1 + 48);
-  v25 = v20[1];
-  if ( (v25 & 1) != 0 )
+  RtlRbInsertNodeEx(v20, (PRTL_BALANCED_NODE)Root, v22, (PRTL_BALANCED_NODE)(a1 + 48));
+  v25 = v20->Min;
+  if ( ((unsigned __int8)v25 & 1) != 0 )
   {
-    if ( v25 == 1 )
+    if ( v25 == (_RTL_BALANCED_NODE *)1 )
       v26 = 0LL;
     else
-      v26 = v25 ^ ((unsigned __int64)v20 | 1);
+      v26 = (unsigned __int64)v25 ^ ((unsigned __int64)v20 | 1);
   }
   else
   {
-    v26 = v20[1];
+    v26 = (__int64)v20->Min;
   }
   if ( v26 == a1 + 48 )
   {
     v9 = 1;
-    v20[2] = *(_QWORD *)(a1 + 80);
+    v20[1].Root = *(_RTL_BALANCED_NODE **)(a1 + 80);
   }
   v8 = a3;
   v10 |= v9;

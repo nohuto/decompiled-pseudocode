@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlpHpLfhSubsegmentCommitBlock @ 0x18003F7D0
+ * XREFs of RtlpHpLfhSubsegmentCommitBlock @ 0x18003F7C0
  * Callers:
- *     RtlpHpLfhSubsegmentAllocateBlock @ 0x180041C48 (RtlpHpLfhSubsegmentAllocateBlock.c)
+ *     RtlpHpLfhSubsegmentAllocateBlock @ 0x180041C38 (RtlpHpLfhSubsegmentAllocateBlock.c)
  * Callees:
- *     RtlReleaseSRWLockExclusive @ 0x18001C550 (RtlReleaseSRWLockExclusive.c)
- *     RtlpHpLfhSubsegmentIncBlockCounts @ 0x18003F8CC (RtlpHpLfhSubsegmentIncBlockCounts.c)
- *     RtlpHpLfhSubsegmentDecBlockCounts @ 0x18004C3A0 (RtlpHpLfhSubsegmentDecBlockCounts.c)
+ *     RtlReleaseSRWLockExclusive @ 0x18001C540 (RtlReleaseSRWLockExclusive.c)
+ *     RtlpHpLfhSubsegmentIncBlockCounts @ 0x18003F8BC (RtlpHpLfhSubsegmentIncBlockCounts.c)
+ *     RtlpHpLfhSubsegmentDecBlockCounts @ 0x18004C390 (RtlpHpLfhSubsegmentDecBlockCounts.c)
  *     _guard_dispatch_icall_nop @ 0x1800A9C80 (_guard_dispatch_icall_nop.c)
  */
 
@@ -57,7 +57,7 @@ __int64 __fastcall RtlpHpLfhSubsegmentCommitBlock(unsigned __int64 a1, __int64 a
       }
       v9 = 0;
     }
-    RtlReleaseSRWLockExclusive((volatile signed __int64 *)(a2 + 24));
+    RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(a2 + 24));
   }
   return (unsigned int)v9;
 }

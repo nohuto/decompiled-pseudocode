@@ -1,7 +1,7 @@
 /*
- * XREFs of PnpBusTypeGuidGet @ 0x140587F70
+ * XREFs of PnpBusTypeGuidGet @ 0x140588F70
  * Callers:
- *     IoGetDeviceProperty @ 0x1405876E0 (IoGetDeviceProperty.c)
+ *     IoGetDeviceProperty @ 0x1405886E0 (IoGetDeviceProperty.c)
  * Callees:
  *     KeReleaseGuardedMutex @ 0x140014E30 (KeReleaseGuardedMutex.c)
  *     ExAcquireFastMutex @ 0x14004E530 (ExAcquireFastMutex.c)

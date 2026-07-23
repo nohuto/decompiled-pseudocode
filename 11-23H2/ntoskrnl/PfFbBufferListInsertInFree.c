@@ -1,21 +1,21 @@
 /*
- * XREFs of PfFbBufferListInsertInFree @ 0x1402F5694
+ * XREFs of PfFbBufferListInsertInFree @ 0x1402F5924
  * Callers:
- *     PfTFullEventListAdd @ 0x1402F4DDC (PfTFullEventListAdd.c)
- *     PfFbBufferListAllocateTemporary @ 0x1402F5478 (PfFbBufferListAllocateTemporary.c)
- *     PfFbBufferListFlushStandby @ 0x1402F573C (PfFbBufferListFlushStandby.c)
- *     PfFbBufferListAllocate @ 0x1403A1730 (PfFbBufferListAllocate.c)
- *     PfpRepurposeNameLoggingTrace @ 0x14074ACAC (PfpRepurposeNameLoggingTrace.c)
- *     PfpFlushEventBuffers @ 0x14074ACDC (PfpFlushEventBuffers.c)
- *     PfTCleanup @ 0x14097F168 (PfTCleanup.c)
+ *     PfTFullEventListAdd @ 0x1402F506C (PfTFullEventListAdd.c)
+ *     PfFbBufferListAllocateTemporary @ 0x1402F5708 (PfFbBufferListAllocateTemporary.c)
+ *     PfFbBufferListFlushStandby @ 0x1402F59CC (PfFbBufferListFlushStandby.c)
+ *     PfFbBufferListAllocate @ 0x1403A1910 (PfFbBufferListAllocate.c)
+ *     PfpRepurposeNameLoggingTrace @ 0x14074AE9C (PfpRepurposeNameLoggingTrace.c)
+ *     PfpFlushEventBuffers @ 0x14074AECC (PfpFlushEventBuffers.c)
+ *     PfTCleanup @ 0x14097F368 (PfTCleanup.c)
  * Callees:
- *     ExReleaseRundownProtection_0 @ 0x14028B390 (ExReleaseRundownProtection_0.c)
- *     RtlpInterlockedPushEntrySList @ 0x140428EF0 (RtlpInterlockedPushEntrySList.c)
- *     memset @ 0x140435A00 (memset.c)
+ *     ExReleaseRundownProtection_0 @ 0x14028B620 (ExReleaseRundownProtection_0.c)
+ *     RtlpInterlockedPushEntrySList @ 0x140429280 (RtlpInterlockedPushEntrySList.c)
+ *     memset @ 0x140435E00 (memset.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 
-void __fastcall PfFbBufferListInsertInFree(_SLIST_ENTRY *RunRef, struct _SLIST_ENTRY *P, int a3, int a4, int a5)
+void __fastcall PfFbBufferListInsertInFree(_SLIST_ENTRY *RunRef, _SLIST_ENTRY *P, int a3, int a4, int a5)
 {
   _SLIST_ENTRY *v7; // r8
   __int64 Next_low; // rcx
@@ -28,7 +28,7 @@ void __fastcall PfFbBufferListInsertInFree(_SLIST_ENTRY *RunRef, struct _SLIST_E
   }
   else
   {
-    v7 = (struct _SLIST_ENTRY *)((char *)P + a3);
+    v7 = (_SLIST_ENTRY *)((char *)P + a3);
     P[1].Next = RunRef;
     P[2].Next = v7;
     Next_low = LODWORD(RunRef[5].Next);

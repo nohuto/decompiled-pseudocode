@@ -6,15 +6,24 @@
  *     EtwpEventWriteFull @ 0x180030348 (EtwpEventWriteFull.c)
  */
 
-__int64 __fastcall EtwEventWriteEx(
-        __int64 a1,
-        __int128 *a2,
-        __int64 a3,
-        int a4,
-        _GUID *a5,
-        __int128 *a6,
-        int a7,
-        __int64 a8)
+ULONG __cdecl EtwEventWriteEx(
+        REGHANDLE RegHandle,
+        PCEVENT_DESCRIPTOR EventDescriptor,
+        ULONG64 Filter,
+        ULONG Flags,
+        LPCGUID ActivityId,
+        LPCGUID RelatedActivityId,
+        ULONG UserDataCount,
+        PEVENT_DATA_DESCRIPTOR UserData)
 {
-  return EtwpEventWriteFull(a1, a2, a3, a4, 0, a5, a6, a7, a8);
+  return EtwpEventWriteFull(
+           RegHandle,
+           (__int128 *)EventDescriptor,
+           Filter,
+           Flags,
+           0,
+           (_GUID *)ActivityId,
+           (__int128 *)RelatedActivityId,
+           UserDataCount,
+           (__int64)UserData);
 }

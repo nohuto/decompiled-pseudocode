@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlpHpLargeAllocSizeInternal @ 0x18004F608
+ * XREFs of RtlpHpLargeAllocSizeInternal @ 0x18004F5F8
  * Callers:
- *     RtlpHpLargeAllocSize @ 0x18004F574 (RtlpHpLargeAllocSize.c)
+ *     RtlpHpLargeAllocSize @ 0x18004F564 (RtlpHpLargeAllocSize.c)
  *     RtlpHpLargeAllocReport @ 0x1800FBE44 (RtlpHpLargeAllocReport.c)
  * Callees:
  *     <none>

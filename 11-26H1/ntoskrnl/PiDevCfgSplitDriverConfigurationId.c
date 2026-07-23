@@ -1,15 +1,17 @@
 /*
- * XREFs of PiDevCfgSplitDriverConfigurationId @ 0x1407ABB48
+ * XREFs of PiDevCfgSplitDriverConfigurationId @ 0x1407AEB68
  * Callers:
- *     PiDevCfgCheckDeviceNeedsUpdate @ 0x1407A8DA0 (PiDevCfgCheckDeviceNeedsUpdate.c)
+ *     PiDevCfgCheckDeviceNeedsUpdate @ 0x1407AB950 (PiDevCfgCheckDeviceNeedsUpdate.c)
  * Callees:
- *     RtlTimeFieldsToTime @ 0x1404522E0 (RtlTimeFieldsToTime.c)
- *     __report_rangecheckfailure @ 0x140522044 (__report_rangecheckfailure.c)
- *     wcschr @ 0x140537F60 (wcschr.c)
- *     swscanf_s @ 0x14053C9F0 (swscanf_s.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
+ *     RtlTimeFieldsToTime @ 0x14044A410 (RtlTimeFieldsToTime.c)
+ *     __report_rangecheckfailure @ 0x1405246B0 (__report_rangecheckfailure.c)
+ *     wcschr @ 0x14053A3E0 (wcschr.c)
+ *     swscanf_s @ 0x14053EE70 (swscanf_s.c)
+ *     Feature_KernelPnP_CheckDriverIntegrity__private_IsEnabledDeviceUsageNoInline @ 0x1405DD9A8 (Feature_KernelPnP_CheckDriverIntegrity__private_IsEnabledDeviceUsageNoInline.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     PiDevCfgParseVersionString @ 0x1407ACFE8 (PiDevCfgParseVersionString.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall PiDevCfgSplitDriverConfigurationId(
@@ -34,7 +36,9 @@ __int64 __fastcall PiDevCfgSplitDriverConfigurationId(
   _WORD *v19; // r14
   wchar_t *v20; // rsi
   unsigned __int64 v21; // rbp
-  TIME_FIELDS TimeFields; // [rsp+30h] [rbp-58h] BYREF
+  int v22; // eax
+  const wchar_t *v23; // rcx
+  _TIME_FIELDS TimeFields; // [rsp+30h] [rbp-58h] BYREF
   wchar_t Srca[12]; // [rsp+40h] [rbp-48h] BYREF
 
   v7 = 0;
@@ -104,19 +108,28 @@ __int64 __fastcall PiDevCfgSplitDriverConfigurationId(
         return v7;
       if ( *v20 )
       {
-        if ( swscanf_s(
-               v20 + 1,
-               L"%hu.%hu.%hu.%hu",
-               (char *)a6 + 6,
-               (char *)a6 + 4,
-               (char *)a6 + 2,
-               a6,
-               *(_QWORD *)&TimeFields.Year,
-               *(_QWORD *)&TimeFields.Minute) == 4 )
+        v22 = Feature_KernelPnP_CheckDriverIntegrity__private_IsEnabledDeviceUsageNoInline();
+        v23 = v20 + 1;
+        if ( v22 )
+        {
+          if ( PiDevCfgParseVersionString(v23, 4, a6) )
+            return v7;
+        }
+        else if ( swscanf_s(
+                    v23,
+                    L"%hu.%hu.%hu.%hu",
+                    (char *)a6 + 6,
+                    (char *)a6 + 4,
+                    (char *)a6 + 2,
+                    a6,
+                    *(_QWORD *)&TimeFields.Year,
+                    *(_QWORD *)&TimeFields.Minute) == 4 )
+        {
           return v7;
+        }
         return (unsigned int)-1073741823;
       }
-LABEL_33:
+LABEL_35:
       *a6 = 0LL;
     }
   }
@@ -125,7 +138,7 @@ LABEL_33:
     if ( Time )
       Time->QuadPart = 0LL;
     if ( a6 )
-      goto LABEL_33;
+      goto LABEL_35;
   }
   return v7;
 }

@@ -14,6 +14,7 @@ void __fastcall LdrpAddNodeServiceTag(_DWORD *a1, int a2)
   _DWORD *Heap; // eax
   _DWORD *v6; // edi
   _DWORD *v7; // esi
+  SIZE_T v8; // [esp-4h] [ebp-14h]
 
   if ( a1[3] != -1 && (*(_BYTE *)(*a1 - 32) & 0x20) == 0 )
   {
@@ -22,7 +23,8 @@ void __fastcall LdrpAddNodeServiceTag(_DWORD *a1, int a2)
       if ( i[1] == a2 )
         return;
     }
-    Heap = (_DWORD *)RtlAllocateHeap(LdrpHeap, 0, 8);
+    LODWORD(v8) = 8;
+    Heap = RtlAllocateHeap(LdrpHeap, 0, v8);
     if ( Heap )
     {
       Heap[1] = a2;

@@ -1,19 +1,19 @@
 /*
- * XREFs of NtInitiatePowerAction @ 0x140530B04
+ * XREFs of NtInitiatePowerAction @ 0x140531044
  * Callers:
  *     PopCheckPowerSourceAfterRtcWakeTimerWorker @ 0x1403DF42C (PopCheckPowerSourceAfterRtcWakeTimerWorker.c)
- *     IopWarmEjectDevice @ 0x14064C5EC (IopWarmEjectDevice.c)
+ *     IopWarmEjectDevice @ 0x14064C6D0 (IopWarmEjectDevice.c)
  * Callees:
- *     KeInitializeEvent @ 0x14002DEA0 (KeInitializeEvent.c)
- *     KeWaitForSingleObject @ 0x14005C880 (KeWaitForSingleObject.c)
- *     PsIsCurrentThreadInServerSilo @ 0x1400C3CF0 (PsIsCurrentThreadInServerSilo.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     KeInitializeEvent @ 0x14002DA20 (KeInitializeEvent.c)
+ *     KeWaitForSingleObject @ 0x14005C400 (KeWaitForSingleObject.c)
+ *     PsIsCurrentThreadInServerSilo @ 0x1400C1B90 (PsIsCurrentThreadInServerSilo.c)
+ *     memset @ 0x140171AC0 (memset.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
  *     PopAcquirePolicyLock @ 0x1403C87E0 (PopAcquirePolicyLock.c)
  *     PopReleasePolicyLock @ 0x1403C8828 (PopReleasePolicyLock.c)
- *     SeSinglePrivilegeCheck @ 0x140413F70 (SeSinglePrivilegeCheck.c)
- *     PopExecutePowerAction @ 0x140530768 (PopExecutePowerAction.c)
+ *     SeSinglePrivilegeCheck @ 0x140412E30 (SeSinglePrivilegeCheck.c)
+ *     PopExecutePowerAction @ 0x140530CA8 (PopExecutePowerAction.c)
  */
 
 NTSTATUS __stdcall NtInitiatePowerAction(
@@ -84,7 +84,7 @@ NTSTATUS __stdcall NtInitiatePowerAction(
     if ( !v10[1].Header.WaitListHead.Flink )
       goto LABEL_20;
     Lock = KeWaitForSingleObject(v10, Suspended, 0, 1u, &Timeout);
-    if ( Lock == 258 && (byte_140303461 & 3) != 0 )
+    if ( Lock == 258 && (byte_1403033A1 & 3) != 0 )
       Lock = KeWaitForSingleObject(v10, Suspended, 0, 1u, 0LL);
     PopAcquirePolicyLock();
     v13 = *(struct _LIST_ENTRY **)p_WaitListHead;

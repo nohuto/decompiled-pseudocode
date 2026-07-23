@@ -1,11 +1,11 @@
 /*
- * XREFs of IopGetDeviceAttachmentBase @ 0x140302A1C
+ * XREFs of IopGetDeviceAttachmentBase @ 0x140302CAC
  * Callers:
- *     IopGetDevicePDO @ 0x1403029B8 (IopGetDevicePDO.c)
- *     IoGetDeviceAttachmentBaseRefWithTag @ 0x140302A88 (IoGetDeviceAttachmentBaseRefWithTag.c)
- *     IopCompleteUnloadOrDelete @ 0x140305300 (IopCompleteUnloadOrDelete.c)
- *     IopAttachDeviceToDeviceStackSafe @ 0x14035F914 (IopAttachDeviceToDeviceStackSafe.c)
- *     IopVerifyDriverObjectOnStack @ 0x1405565A8 (IopVerifyDriverObjectOnStack.c)
+ *     IopGetDevicePDO @ 0x140302C48 (IopGetDevicePDO.c)
+ *     IoGetDeviceAttachmentBaseRefWithTag @ 0x140302D18 (IoGetDeviceAttachmentBaseRefWithTag.c)
+ *     IopCompleteUnloadOrDelete @ 0x140305590 (IopCompleteUnloadOrDelete.c)
+ *     IopAttachDeviceToDeviceStackSafe @ 0x14035FAB4 (IopAttachDeviceToDeviceStackSafe.c)
+ *     IopVerifyDriverObjectOnStack @ 0x140556C68 (IopVerifyDriverObjectOnStack.c)
  * Callees:
  *     <none>
  */

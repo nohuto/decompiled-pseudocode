@@ -1,13 +1,13 @@
 /*
- * XREFs of IopCallBootDriverReinitializationRoutines @ 0x140CBE5BC
+ * XREFs of IopCallBootDriverReinitializationRoutines @ 0x140CC468C
  * Callers:
- *     IopInitializeBootDrivers @ 0x140CBF2A4 (IopInitializeBootDrivers.c)
+ *     IopInitializeBootDrivers @ 0x140CC5374 (IopInitializeBootDrivers.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     PnpDiagnosticTrace @ 0x140493DF8 (PnpDiagnosticTrace.c)
- *     IopInterlockedRemoveHeadList @ 0x1404E6F6C (IopInterlockedRemoveHeadList.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     PnpDiagnosticTrace @ 0x14048D948 (PnpDiagnosticTrace.c)
+ *     IopInterlockedRemoveHeadList @ 0x1404E0328 (IopInterlockedRemoveHeadList.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 char IopCallBootDriverReinitializationRoutines()
@@ -17,7 +17,7 @@ char IopCallBootDriverReinitializationRoutines()
 
   v0 = 0;
   PnpDiagnosticTrace(&KMPnPEvt_BootDriverReinit_Start, 0, 0LL);
-  v1 = IopInterlockedRemoveHeadList((_QWORD **)&IopSessionNotificationLock.WaitBlock[1].WaitListEntry.Blink);
+  v1 = IopInterlockedRemoveHeadList((_QWORD **)&IopBootDriverReinitializeQueueHead);
   if ( v1 )
   {
     v0 = 1;
@@ -28,7 +28,7 @@ char IopCallBootDriverReinitializationRoutines()
       guard_dispatch_icall_no_overrides(v1[2], v1[4]);
       ObfDereferenceObjectWithTag((PVOID)v1[2], 0x746C6644u);
       ExFreePoolWithTag(v1, 0);
-      v1 = IopInterlockedRemoveHeadList((_QWORD **)&IopSessionNotificationLock.WaitBlock[1].WaitListEntry.Blink);
+      v1 = IopInterlockedRemoveHeadList((_QWORD **)&IopBootDriverReinitializeQueueHead);
     }
     while ( v1 );
   }

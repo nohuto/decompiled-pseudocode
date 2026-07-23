@@ -1,11 +1,11 @@
 /*
- * XREFs of CmGetKeyFlags @ 0x140763E40
+ * XREFs of CmGetKeyFlags @ 0x140765030
  * Callers:
- *     CmQueryLayeredKey @ 0x14026BF18 (CmQueryLayeredKey.c)
- *     CmQueryKey @ 0x1405D6900 (CmQueryKey.c)
+ *     CmQueryLayeredKey @ 0x14026C108 (CmQueryLayeredKey.c)
+ *     CmQueryKey @ 0x1405D7900 (CmQueryKey.c)
  * Callees:
- *     CmEqualTrans @ 0x1405A94E8 (CmEqualTrans.c)
- *     CmListGetPrevElement @ 0x1406C05EC (CmListGetPrevElement.c)
+ *     CmEqualTrans @ 0x1405AA4E8 (CmEqualTrans.c)
+ *     CmListGetPrevElement @ 0x1406C188C (CmListGetPrevElement.c)
  */
 
 __int64 __fastcall CmGetKeyFlags(__int64 a1, __int64 a2)

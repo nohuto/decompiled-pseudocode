@@ -1,19 +1,19 @@
 /*
- * XREFs of PfSnReferenceProcessTrace @ 0x14031E2C0
+ * XREFs of PfSnReferenceProcessTrace @ 0x140329010
  * Callers:
- *     MiCompleteRestrictedImageFault @ 0x14031D0A0 (MiCompleteRestrictedImageFault.c)
- *     PfFileInfoNotify @ 0x14031D600 (PfFileInfoNotify.c)
- *     MiMakeSystemCacheRangeValid @ 0x14031EB90 (MiMakeSystemCacheRangeValid.c)
- *     PfSnLogPageFault @ 0x14035EB88 (PfSnLogPageFault.c)
- *     PfSnAsyncContextInitialize @ 0x1406B350C (PfSnAsyncContextInitialize.c)
- *     PfSnEndProcessTrace @ 0x1406BA3DC (PfSnEndProcessTrace.c)
- *     PfSnLogHelper @ 0x1406CC79C (PfSnLogHelper.c)
+ *     PfSnLogPageFault @ 0x1402A3AB8 (PfSnLogPageFault.c)
+ *     MiCompleteRestrictedImageFault @ 0x140327DF0 (MiCompleteRestrictedImageFault.c)
+ *     PfFileInfoNotify @ 0x140328350 (PfFileInfoNotify.c)
+ *     MiMakeSystemCacheRangeValid @ 0x1403298E0 (MiMakeSystemCacheRangeValid.c)
+ *     PfSnAsyncContextInitialize @ 0x1406126DC (PfSnAsyncContextInitialize.c)
+ *     PfSnEndProcessTrace @ 0x14061954C (PfSnEndProcessTrace.c)
+ *     PfSnLogHelper @ 0x14067B08C (PfSnLogHelper.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
- *     ExAcquireRundownProtection_0 @ 0x14027C9B0 (ExAcquireRundownProtection_0.c)
- *     KeSetEvent @ 0x1403435A0 (KeSetEvent.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
- *     ExAcquireRundownProtectionEx @ 0x140360A00 (ExAcquireRundownProtectionEx.c)
+ *     KxReleaseSpinLock @ 0x140212140 (KxReleaseSpinLock.c)
+ *     ExAcquireRundownProtection @ 0x14026A950 (ExAcquireRundownProtection.c)
+ *     ExAcquireRundownProtectionEx @ 0x1402A5900 (ExAcquireRundownProtectionEx.c)
+ *     KeSetEvent @ 0x14034E2F0 (KeSetEvent.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140362F80 (KeAcquireSpinLockRaiseToDpc.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
@@ -100,11 +100,11 @@ LABEL_30:
   else
   {
     v9 = 1;
-    v10 = KeAcquireSpinLockRaiseToDpc(&qword_140C50450);
+    v10 = KeAcquireSpinLockRaiseToDpc(&qword_140C50490);
     v3 = (struct _EX_RUNDOWN_REF *)(*(_QWORD *)(a1 + 1536) & 0xFFFFFFFFFFFFFFF0uLL);
     if ( v3 )
-      v9 = ExAcquireRundownProtection_0(v3 + 45);
-    KxReleaseSpinLock(&qword_140C50450);
+      v9 = ExAcquireRundownProtection(v3 + 45);
+    KxReleaseSpinLock(&qword_140C50490);
     if ( KiIrqlFlags )
     {
       if ( (KiIrqlFlags & 1) != 0 )

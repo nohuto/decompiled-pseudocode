@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlCompressBufferDeflateRaw @ 0x140624C30
+ * XREFs of RtlCompressBufferDeflateRaw @ 0x140627C80
  * Callers:
  *     <none>
  * Callees:
- *     RtlCompressBufferDeflateInternal @ 0x140624B28 (RtlCompressBufferDeflateInternal.c)
+ *     RtlCompressBufferDeflateInternal @ 0x140627B78 (RtlCompressBufferDeflateInternal.c)
  */
 
 __int64 __fastcall RtlCompressBufferDeflateRaw(

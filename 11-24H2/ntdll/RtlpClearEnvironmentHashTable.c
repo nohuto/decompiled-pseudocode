@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlpClearEnvironmentHashTable @ 0x180082B7C
+ * XREFs of RtlpClearEnvironmentHashTable @ 0x1800049FC
  * Callers:
- *     RtlSetEnvironmentVar @ 0x180083050 (RtlSetEnvironmentVar.c)
- *     RtlSetCurrentEnvironment @ 0x180112B10 (RtlSetCurrentEnvironment.c)
- *     RtlSetEnvironmentStrings @ 0x180112E80 (RtlSetEnvironmentStrings.c)
+ *     RtlSetEnvironmentVar @ 0x180004ED0 (RtlSetEnvironmentVar.c)
+ *     RtlSetCurrentEnvironment @ 0x18010DDD0 (RtlSetCurrentEnvironment.c)
+ *     RtlSetEnvironmentStrings @ 0x18010E140 (RtlSetEnvironmentStrings.c)
  * Callees:
- *     RtlFreeHeap @ 0x1800269F0 (RtlFreeHeap.c)
+ *     RtlFreeHeap @ 0x1800533F0 (RtlFreeHeap.c)
  */
 
 _QWORD *RtlpClearEnvironmentHashTable()
@@ -13,13 +13,13 @@ _QWORD *RtlpClearEnvironmentHashTable()
   _QWORD **v0; // rdi
   _QWORD *v1; // rbx
   _QWORD *result; // rax
-  unsigned __int64 v3; // r8
+  void *v3; // r8
   _QWORD *i; // rcx
 
   v0 = (_QWORD **)*((_QWORD *)&RtlpEnvironmentHashTable + 1);
-  *((_QWORD *)&xmmword_1801D2890 + 1) = 0LL;
+  *((_QWORD *)&xmmword_1801D1890 + 1) = 0LL;
   v1 = (_QWORD *)*((_QWORD *)&RtlpEnvironmentHashTable + 1);
-  LOBYTE(xmmword_1801D2890) = 0;
+  LOBYTE(xmmword_1801D1890) = 0;
   while ( v1 )
   {
     v1 = (_QWORD *)*v1;
@@ -29,7 +29,7 @@ LABEL_7:
     result = v1;
     if ( !v1 )
       return result;
-    v3 = (unsigned __int64)v1;
+    v3 = v1;
     for ( i = v0; (*i & 1) == 0; i = (_QWORD *)*i )
     {
       if ( (_QWORD *)*i == v1 )
@@ -43,7 +43,7 @@ LABEL_7:
     }
     v3 = 0LL;
 LABEL_12:
-    RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v3);
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v3);
   }
   ++v0;
   result = (_QWORD *)*((_QWORD *)&RtlpEnvironmentHashTable + 1);

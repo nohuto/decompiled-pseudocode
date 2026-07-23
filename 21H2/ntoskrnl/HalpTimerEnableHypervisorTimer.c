@@ -1,16 +1,16 @@
 /*
- * XREFs of HalpTimerEnableHypervisorTimer @ 0x14038698C
+ * XREFs of HalpTimerEnableHypervisorTimer @ 0x140386ADC
  * Callers:
- *     HalpTimerInitializeHypervisorTimer @ 0x1403A8104 (HalpTimerInitializeHypervisorTimer.c)
- *     HalpAcpiPostSleep @ 0x140995B2C (HalpAcpiPostSleep.c)
+ *     HalpTimerInitializeHypervisorTimer @ 0x1403A8E94 (HalpTimerInitializeHypervisorTimer.c)
+ *     HalpAcpiPostSleep @ 0x140996B2C (HalpAcpiPostSleep.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
- *     HalpAcquireHighLevelLock @ 0x140378F20 (HalpAcquireHighLevelLock.c)
- *     HalpInterruptGsiToLine @ 0x140378F5C (HalpInterruptGsiToLine.c)
- *     HalpInterruptSetLineState @ 0x1403A3AF8 (HalpInterruptSetLineState.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     KxReleaseSpinLock @ 0x140212140 (KxReleaseSpinLock.c)
+ *     HalpAcquireHighLevelLock @ 0x140378A70 (HalpAcquireHighLevelLock.c)
+ *     HalpInterruptGsiToLine @ 0x140378AAC (HalpInterruptGsiToLine.c)
+ *     HalpInterruptSetLineState @ 0x1403A3C48 (HalpInterruptSetLineState.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
  */
 
 void HalpTimerEnableHypervisorTimer()
@@ -106,6 +106,6 @@ void HalpTimerEnableHypervisorTimer()
       v2 = v8 < 0;
     }
     if ( !v2 )
-      ((void (*)(void))qword_140C4A1C8)();
+      ((void (*)(void))qword_140C4A208)();
   }
 }

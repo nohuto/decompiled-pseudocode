@@ -1,17 +1,17 @@
 /*
- * XREFs of PopRecordBatteryPercentage @ 0x140AADE44
+ * XREFs of PopRecordBatteryPercentage @ 0x140AA8EC4
  * Callers:
- *     PopBatteryApplyCompositeState @ 0x140A3AD08 (PopBatteryApplyCompositeState.c)
+ *     PopBatteryApplyCompositeState @ 0x140A304E8 (PopBatteryApplyCompositeState.c)
  * Callees:
- *     PopReleaseRwLock @ 0x1403B5EC8 (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x1404283D4 (PopAcquireRwLockExclusive.c)
- *     PopBsdHandleRequest @ 0x1404A8F44 (PopBsdHandleRequest.c)
+ *     PopReleaseRwLock @ 0x1402AE8FC (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x14041C564 (PopAcquireRwLockExclusive.c)
+ *     PopBsdHandleRequest @ 0x1404A3364 (PopBsdHandleRequest.c)
  */
 
 __int64 __fastcall PopRecordBatteryPercentage(char a1)
 {
-  PopAcquireRwLockExclusive(&PopBsdUpdateLock);
+  PopAcquireRwLockExclusive((unsigned __int64 *)&PopBsdUpdateLock);
   HIBYTE(PopBsdPowerTransition) = a1 & 0x7F | HIBYTE(PopBsdPowerTransition) & 0x80;
   PopBsdHandleRequest(1u);
-  return PopReleaseRwLock((signed __int64 *)&PopBsdUpdateLock);
+  return PopReleaseRwLock(&PopBsdUpdateLock);
 }

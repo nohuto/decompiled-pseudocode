@@ -1,5 +1,5 @@
 /*
- * XREFs of VerifierIoGetConfigurationInformation @ 0x14070C7BC
+ * XREFs of VerifierIoGetConfigurationInformation @ 0x14070C7EC
  * Callers:
  *     <none>
  * Callees:

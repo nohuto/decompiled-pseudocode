@@ -36,7 +36,7 @@ __int64 __fastcall SMKM_STORE_MGR<SM_TRAITS>::SmFeStoreEvictKeys(__int64 a1, uns
   struct _KTHREAD *v17; // rbx
   __int64 SessionId; // rdx
   unsigned __int8 v19; // r15
-  __int64 v20; // r8
+  unsigned int v20; // r8d
   int v21; // eax
   __int64 v22; // rcx
   _KLOCK_ENTRY *v23; // rdi
@@ -123,7 +123,7 @@ LABEL_10:
     SessionId = 0xFFFFFFFFLL;
   --v17->SpecialApcDisable;
   v19 = ++v17->AbAllocationRegionCount;
-  LODWORD(v20) = ((char)v17->AbEntrySummary | (char)v17->AbOrphanedEntrySummary) ^ 0x3F;
+  v20 = ((char)v17->AbEntrySummary | (char)v17->AbOrphanedEntrySummary) ^ 0x3F;
   while ( 1 )
   {
     v24 = !_BitScanReverse((unsigned int *)&v25, v20);
@@ -133,7 +133,7 @@ LABEL_10:
     v21 = 1 << v25;
     v22 = v25;
     v23 = &v17->LockEntries[v22];
-    v20 = ~v21 & (unsigned int)v20;
+    v20 &= ~v21;
     if ( (v23->AcquiredByte & 1) != 0
       && (*(_DWORD *)&v23->LockState.0 & 1) == 0
       && (*(_QWORD *)&v23->LockState.0 & 0x7FFFFFFFFFFFFFFCLL) == ((unsigned __int64)v9 & 0x7FFFFFFFFFFFFFFCLL)
@@ -153,7 +153,7 @@ LABEL_26:
   }
   v23->CrossThreadReleasableAndBusyByte |= 2u;
   if ( (__int64)v23->LockState.LockState < 0 )
-    KiAbEntryRemoveFromTree((__int64)&v17->LockEntries[v22], SessionId, v20);
+    KiAbEntryRemoveFromTree(&v17->LockEntries[v22].TreeNode, SessionId);
   v30 = 0;
   v30 = v23->BoostBitmap.AllFields & 0x1FFFF;
   v23->BoostBitmap.AllFields &= 0xFFFE0000;

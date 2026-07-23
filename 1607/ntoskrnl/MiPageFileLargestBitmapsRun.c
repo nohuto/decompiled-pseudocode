@@ -1,14 +1,14 @@
 /*
- * XREFs of MiPageFileLargestBitmapsRun @ 0x1400B6548
+ * XREFs of MiPageFileLargestBitmapsRun @ 0x1400B4370
  * Callers:
- *     MiGetKernelStackSwapSupport @ 0x1400B62C0 (MiGetKernelStackSwapSupport.c)
- *     MiFindFreePageFileSpace @ 0x1400B65FC (MiFindFreePageFileSpace.c)
- *     MiFindBestOutswapPagefile @ 0x1400B6EC0 (MiFindBestOutswapPagefile.c)
- *     MiTrimUnusedPageFileRegionsWorker @ 0x14010D37C (MiTrimUnusedPageFileRegionsWorker.c)
- *     MiGatherPagefilePages @ 0x140119444 (MiGatherPagefilePages.c)
+ *     MiGetKernelStackSwapSupport @ 0x1400B40E8 (MiGetKernelStackSwapSupport.c)
+ *     MiFindFreePageFileSpace @ 0x1400B4424 (MiFindFreePageFileSpace.c)
+ *     MiFindBestOutswapPagefile @ 0x1400B4CE8 (MiFindBestOutswapPagefile.c)
+ *     MiTrimUnusedPageFileRegionsWorker @ 0x14010D8E0 (MiTrimUnusedPageFileRegionsWorker.c)
+ *     MiGatherPagefilePages @ 0x1401199B4 (MiGatherPagefilePages.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLock @ 0x140012750 (KeReleaseInStackQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14001BD40 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x1400122D0 (KeReleaseInStackQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14001B8C0 (KeAcquireInStackQueuedSpinLock.c)
  */
 
 __int64 __fastcall MiPageFileLargestBitmapsRun(__int64 a1)

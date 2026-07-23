@@ -1,11 +1,11 @@
 /*
- * XREFs of PopPpmHeteroPolicyCallback @ 0x1407D3C00
+ * XREFs of PopPpmHeteroPolicyCallback @ 0x1407D3D70
  * Callers:
  *     <none>
  * Callees:
- *     PpmReleaseLock @ 0x14022AB00 (PpmReleaseLock.c)
- *     PpmAcquireLock @ 0x140281A74 (PpmAcquireLock.c)
- *     PpmReinitializeHeteroEngine @ 0x1407B9AE8 (PpmReinitializeHeteroEngine.c)
+ *     PpmAcquireLock @ 0x14026FCB4 (PpmAcquireLock.c)
+ *     PpmReleaseLock @ 0x1402CF3B0 (PpmReleaseLock.c)
+ *     PpmReinitializeHeteroEngine @ 0x1407BA278 (PpmReinitializeHeteroEngine.c)
  */
 
 __int64 __fastcall PopPpmHeteroPolicyCallback(_QWORD *a1, int *a2, int a3)

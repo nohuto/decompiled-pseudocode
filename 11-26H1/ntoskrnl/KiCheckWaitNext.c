@@ -1,18 +1,18 @@
 /*
- * XREFs of KiCheckWaitNext @ 0x1402200D0
+ * XREFs of KiCheckWaitNext @ 0x140221A60
  * Callers:
- *     KeWaitForSingleObject @ 0x140278560 (KeWaitForSingleObject.c)
- *     KeWaitForMultipleObjects @ 0x140396440 (KeWaitForMultipleObjects.c)
- *     KiWaitForAllObjects @ 0x1403C0E68 (KiWaitForAllObjects.c)
+ *     KeWaitForSingleObject @ 0x140277AD0 (KeWaitForSingleObject.c)
+ *     KeWaitForMultipleObjects @ 0x1403981C0 (KeWaitForMultipleObjects.c)
+ *     KiWaitForAllObjects @ 0x1403CAD68 (KiWaitForAllObjects.c)
  * Callees:
- *     RtlGetInterruptTimePrecise @ 0x140208110 (RtlGetInterruptTimePrecise.c)
- *     KeDisableInterrupts @ 0x1402BA170 (KeDisableInterrupts.c)
- *     KiSrcuReportQuiescent @ 0x1404628BC (KiSrcuReportQuiescent.c)
- *     KiRcuReportQuiescentState @ 0x1404D99B8 (KiRcuReportQuiescentState.c)
- *     KiRcuFlushCompleted @ 0x140503B7C (KiRcuFlushCompleted.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     KiSrcuFlushCompleted @ 0x14052EB44 (KiSrcuFlushCompleted.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14052FA20 (KiRemoveSystemWorkPriorityKick.c)
+ *     RtlGetInterruptTimePrecise @ 0x1402081F0 (RtlGetInterruptTimePrecise.c)
+ *     KeDisableInterrupts @ 0x140304E30 (KeDisableInterrupts.c)
+ *     KiSrcuReportQuiescent @ 0x14045B87C (KiSrcuReportQuiescent.c)
+ *     KiRcuReportQuiescentState @ 0x1404D3098 (KiRcuReportQuiescentState.c)
+ *     KiRcuFlushCompleted @ 0x1404FD44C (KiRcuFlushCompleted.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KiSrcuFlushCompleted @ 0x140531064 (KiSrcuFlushCompleted.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x140531F20 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall KiCheckWaitNext(__int64 a1, __int64 a2, char a3, _QWORD *a4, _DWORD *a5)
@@ -20,11 +20,11 @@ __int64 __fastcall KiCheckWaitNext(__int64 a1, __int64 a2, char a3, _QWORD *a4, 
   unsigned int v5; // ebx
   struct _KPRCB *CurrentPrcb; // rdi
   __int64 v12; // rax
-  __int64 InterruptTimePrecise; // rcx
-  __int64 v14; // rcx
+  LARGE_INTEGER InterruptTimePrecise; // rcx
+  LONGLONG v14; // rcx
   _DWORD *v15; // rax
   unsigned __int8 CurrentIrql; // di
-  struct _KTHREAD **v17; // rcx
+  unsigned __int64 *v17; // rcx
   char v18; // r8
   _LIST_ENTRY *AwaitingCompletion; // rax
   struct _LIST_ENTRY **p_Blink; // r13
@@ -42,7 +42,7 @@ __int64 __fastcall KiCheckWaitNext(__int64 a1, __int64 a2, char a3, _QWORD *a4, 
   signed __int32 v32; // eax
   signed __int32 v33; // ett
   signed __int32 v34[18]; // [rsp+0h] [rbp-48h] BYREF
-  unsigned __int64 v35; // [rsp+50h] [rbp+8h] BYREF
+  LARGE_INTEGER PerformanceCounter; // [rsp+50h] [rbp+8h] BYREF
 
   v5 = 0;
   if ( _bittestandreset((signed __int32 *)(a1 + 116), 2u) )
@@ -140,7 +140,7 @@ __int64 __fastcall KiCheckWaitNext(__int64 a1, __int64 a2, char a3, _QWORD *a4, 
       {
         CurrentPrcb->RcuData.GracePeriodNeeded = 0;
         _InterlockedOr(v34, 0);
-        CurrentPrcb->RcuData.GraceSequenceQuiescent = qword_140F24F28;
+        CurrentPrcb->RcuData.GraceSequenceQuiescent = (unsigned __int64)KiDpcCorralLock.WaitBlock[2].Thread;
       }
       if ( v23 )
       {
@@ -163,8 +163,8 @@ __int64 __fastcall KiCheckWaitNext(__int64 a1, __int64 a2, char a3, _QWORD *a4, 
     }
     if ( CurrentPrcb->RcuData.GraceSequenceQuiescent != CurrentPrcb->RcuData.GraceSequenceReported )
     {
-      v17 = &KiDpcCorralLock.WaitBlock[2].Thread + 4 * CurrentPrcb->Number;
-      if ( ((unsigned __int64)*v17 & (unsigned __int64)v17[1]->StackLimit) == 0 )
+      v17 = &KiDpcCorralLock.NpxState + 4 * CurrentPrcb->Number;
+      if ( (*v17 & *(_QWORD *)(v17[1] + 48)) == 0 )
       {
         if ( (unsigned int)KiRcuReportQuiescentState(v17, CurrentPrcb->RcuData.GraceSequenceQuiescent, 0LL) )
           KiRcuFlushCompleted(CurrentPrcb->RcuData.ExpediteReporting);
@@ -177,15 +177,15 @@ __int64 __fastcall KiCheckWaitNext(__int64 a1, __int64 a2, char a3, _QWORD *a4, 
     {
       if ( a3 )
       {
-        InterruptTimePrecise = RtlGetInterruptTimePrecise(&v35);
+        InterruptTimePrecise = RtlGetInterruptTimePrecise(&PerformanceCounter);
         v12 = MEMORY[0xFFFFF780000003B0];
       }
       else
       {
         v12 = MEMORY[0xFFFFF780000003B0];
-        InterruptTimePrecise = MEMORY[0xFFFFF78000000008];
+        InterruptTimePrecise.QuadPart = MEMORY[0xFFFFF78000000008];
       }
-      v14 = InterruptTimePrecise - v12;
+      v14 = InterruptTimePrecise.QuadPart - v12;
       v15 = a5;
       *a4 = v14 - *(_QWORD *)(a1 + 248) - *(_QWORD *)a2;
       *v15 = 2;

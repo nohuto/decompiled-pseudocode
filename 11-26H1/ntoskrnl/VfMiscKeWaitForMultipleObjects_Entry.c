@@ -1,9 +1,9 @@
 /*
- * XREFs of VfMiscKeWaitForMultipleObjects_Entry @ 0x140C46E80
+ * XREFs of VfMiscKeWaitForMultipleObjects_Entry @ 0x140C4CE90
  * Callers:
  *     <none>
  * Callees:
- *     ViMiscValidateKeWaitUsage @ 0x140C46EAC (ViMiscValidateKeWaitUsage.c)
+ *     ViMiscValidateKeWaitUsage @ 0x140C4CEBC (ViMiscValidateKeWaitUsage.c)
  */
 
 __int64 __fastcall VfMiscKeWaitForMultipleObjects_Entry(__int64 a1, __int64 a2, __int64 a3)

@@ -1,23 +1,23 @@
 /*
- * XREFs of PiIsDriverBlocked @ 0x1409C6E6C
+ * XREFs of PiIsDriverBlocked @ 0x1409BA914
  * Callers:
- *     PiLookupInDDB @ 0x1409C7A08 (PiLookupInDDB.c)
+ *     PiLookupInDDB @ 0x1409B8CAC (PiLookupInDDB.c)
  * Callees:
- *     VslGetNestedPageProtectionFlags @ 0x14027BE44 (VslGetNestedPageProtectionFlags.c)
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     KeIsKernelCetEnabled @ 0x1404566A0 (KeIsKernelCetEnabled.c)
- *     ExIsProcessorFeaturePresent @ 0x1404AA0C0 (ExIsProcessorFeaturePresent.c)
- *     wcsrchr @ 0x140500180 (wcsrchr.c)
- *     Feature_HvciScanHvptHandling__private_IsEnabledDeviceUsageNoInline @ 0x1405A67F4 (Feature_HvciScanHvptHandling__private_IsEnabledDeviceUsageNoInline.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     PnpLogEvent @ 0x140723460 (PnpLogEvent.c)
- *     PiIsHVCIEnabled @ 0x140724C54 (PiIsHVCIEnabled.c)
- *     PiNotifyCiDriverBlocked @ 0x140724CA0 (PiNotifyCiDriverBlocked.c)
- *     PnpTraceDriverBlocked @ 0x140732858 (PnpTraceDriverBlocked.c)
- *     SdbQueryDataEx @ 0x140802348 (SdbQueryDataEx.c)
- *     SdbReadEntryInformation @ 0x1408027F8 (SdbReadEntryInformation.c)
- *     SdbGetDatabaseMatch @ 0x1409595F0 (SdbGetDatabaseMatch.c)
- *     PiUpdateDriverDBCache @ 0x1409C5084 (PiUpdateDriverDBCache.c)
+ *     VslGetNestedPageProtectionFlags @ 0x1402313D4 (VslGetNestedPageProtectionFlags.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     KeIsKernelCetEnabled @ 0x14044B670 (KeIsKernelCetEnabled.c)
+ *     ExIsProcessorFeaturePresent @ 0x1404A4390 (ExIsProcessorFeaturePresent.c)
+ *     wcsrchr @ 0x1404FDA40 (wcsrchr.c)
+ *     Feature_HvciScanHvptHandling__private_IsEnabledDeviceUsageNoInline @ 0x1405A3728 (Feature_HvciScanHvptHandling__private_IsEnabledDeviceUsageNoInline.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     PnpLogEvent @ 0x140720FF0 (PnpLogEvent.c)
+ *     PiIsHVCIEnabled @ 0x1407227E4 (PiIsHVCIEnabled.c)
+ *     PiNotifyCiDriverBlocked @ 0x140722830 (PiNotifyCiDriverBlocked.c)
+ *     PnpTraceDriverBlocked @ 0x140730868 (PnpTraceDriverBlocked.c)
+ *     SdbQueryDataEx @ 0x140802A88 (SdbQueryDataEx.c)
+ *     SdbReadEntryInformation @ 0x140802F38 (SdbReadEntryInformation.c)
+ *     SdbGetDatabaseMatch @ 0x1409410B0 (SdbGetDatabaseMatch.c)
+ *     PiUpdateDriverDBCache @ 0x140A6C434 (PiUpdateDriverDBCache.c)
  */
 
 __int64 __fastcall PiIsDriverBlocked(__int64 a1, __int64 a2, __int64 a3, unsigned int a4, __int128 *a5)
@@ -37,8 +37,8 @@ __int64 __fastcall PiIsDriverBlocked(__int64 a1, __int64 a2, __int64 a3, unsigne
   int v20; // [rsp+44h] [rbp-4Dh] BYREF
   int v21; // [rsp+48h] [rbp-49h] BYREF
   UNICODE_STRING DestinationString; // [rsp+50h] [rbp-41h] BYREF
-  unsigned __int64 v23; // [rsp+60h] [rbp-31h]
-  __int128 v24[2]; // [rsp+68h] [rbp-29h] BYREF
+  __int64 v23; // [rsp+60h] [rbp-31h]
+  _OWORD v24[2]; // [rsp+68h] [rbp-29h] BYREF
   __int64 v25; // [rsp+88h] [rbp-9h]
 
   v19 = 0;

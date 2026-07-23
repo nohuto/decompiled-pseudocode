@@ -1,40 +1,40 @@
 /*
- * XREFs of CcInitializeBcbProfiler @ 0x14098E324
+ * XREFs of CcInitializeBcbProfiler @ 0x14098F324
  * Callers:
- *     CcInitializeCacheManager @ 0x1409B06D8 (CcInitializeCacheManager.c)
+ *     CcInitializeCacheManager @ 0x1409B16D8 (CcInitializeCacheManager.c)
  * Callees:
  *     KeSetCoalescableTimer @ 0x14001CDE0 (KeSetCoalescableTimer.c)
- *     RtlImageNtHeader @ 0x14009DAE0 (RtlImageNtHeader.c)
- *     RtlSectionTableFromVirtualAddress @ 0x1400F3450 (RtlSectionTableFromVirtualAddress.c)
- *     KeInitializeTimer @ 0x14012FF70 (KeInitializeTimer.c)
- *     RtlLookupFunctionTable @ 0x1401375E0 (RtlLookupFunctionTable.c)
- *     RtlpConvertFunctionEntry @ 0x140184F60 (RtlpConvertFunctionEntry.c)
- *     RtlpLookupPrimaryFunctionEntry @ 0x140184FF0 (RtlpLookupPrimaryFunctionEntry.c)
- *     strstr @ 0x140194EC0 (strstr.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     KiAreCodePatchesAllowed @ 0x1409D5BB0 (KiAreCodePatchesAllowed.c)
- *     KiGetLoadOptions @ 0x1409DF660 (KiGetLoadOptions.c)
+ *     RtlImageNtHeader @ 0x14009DA20 (RtlImageNtHeader.c)
+ *     RtlSectionTableFromVirtualAddress @ 0x1400F34D0 (RtlSectionTableFromVirtualAddress.c)
+ *     KeInitializeTimer @ 0x140130040 (KeInitializeTimer.c)
+ *     RtlLookupFunctionTable @ 0x1401376E0 (RtlLookupFunctionTable.c)
+ *     RtlpConvertFunctionEntry @ 0x1401850A0 (RtlpConvertFunctionEntry.c)
+ *     RtlpLookupPrimaryFunctionEntry @ 0x140185130 (RtlpLookupPrimaryFunctionEntry.c)
+ *     strstr @ 0x140195000 (strstr.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     KiAreCodePatchesAllowed @ 0x1409D6BB0 (KiAreCodePatchesAllowed.c)
+ *     KiGetLoadOptions @ 0x1409E0660 (KiGetLoadOptions.c)
  */
 
 char CcInitializeBcbProfiler()
 {
   struct _KTIMER *PoolWithTag; // rax
   const char *LoadOptions; // rax
-  PIMAGE_NT_HEADERS v2; // r9
+  _IMAGE_NT_HEADERS64 *v2; // r9
   unsigned __int64 v3; // rax
   void (__fastcall *v4)(__int64, __int64, __int64, __int64); // r8
   unsigned __int128 v5; // rax
   __int64 v6; // rsi
   unsigned __int64 v7; // rsi
   int v8; // eax
-  _DWORD *v9; // rbx
+  PIMAGE_SECTION_HEADER v9; // rbx
   unsigned int *v10; // r8
   unsigned int *v11; // rdi
   int v12; // r14d
-  unsigned int v13; // edx
+  unsigned int VirtualAddress; // edx
   unsigned int *v14; // r11
-  unsigned int v15; // ecx
+  unsigned int SizeOfRawData; // ecx
   unsigned int v16; // ecx
   unsigned int v17; // eax
   unsigned int *v18; // r9
@@ -155,13 +155,10 @@ char CcInitializeBcbProfiler()
       v8 = 0;
       v92 = v7;
       if ( v7 >= 0x32 )
-        LODWORD(v4) = (unsigned int)sub_140580010;
+        LODWORD(v4) = (unsigned int)sub_140581010;
       LOBYTE(v8) = v7 >= 0x32;
       v90 = v8;
-      v9 = (_DWORD *)RtlSectionTableFromVirtualAddress(
-                       (unsigned __int64)v2,
-                       0x140000000LL,
-                       (unsigned int)v4 - 0x40000000);
+      v9 = RtlSectionTableFromVirtualAddress(v2, (PVOID)0x140000000LL, (unsigned int)v4 - 0x40000000);
       v10 = (unsigned int *)RtlLookupFunctionTable((unsigned __int64)v9, v94, &v95);
       if ( !v10 || v95 < 0xC )
       {
@@ -172,17 +169,17 @@ LABEL_64:
       }
       v11 = 0LL;
       v12 = 0;
-      v13 = v9[3];
+      VirtualAddress = v9->VirtualAddress;
       v14 = &v10[3 * (v95 / 0xC)];
-      v15 = v9[4];
-      if ( v15 <= v9[2] )
-        v15 = v9[2];
-      v16 = v13 + v15;
+      SizeOfRawData = v9->SizeOfRawData;
+      if ( SizeOfRawData <= v9->Misc.PhysicalAddress )
+        SizeOfRawData = v9->Misc.PhysicalAddress;
+      v16 = VirtualAddress + SizeOfRawData;
       do
       {
         v17 = *v10;
         v18 = v11;
-        if ( *v10 >= v13 )
+        if ( *v10 >= VirtualAddress )
         {
           if ( v17 >= v16 )
             break;
@@ -430,7 +427,7 @@ LABEL_64:
           if ( v7 >= 0x32 )
           {
             *(_QWORD *)&Dpc[2].Processor = 0LL;
-            Dpc[3].Header.WaitListHead.Flink = (struct _LIST_ENTRY *)sub_140580010;
+            Dpc[3].Header.WaitListHead.Flink = (struct _LIST_ENTRY *)sub_140581010;
             Dpc[3].Header.WaitListHead.Blink = (struct _LIST_ENTRY *)Dpc;
           }
           v67 = __rdtsc();

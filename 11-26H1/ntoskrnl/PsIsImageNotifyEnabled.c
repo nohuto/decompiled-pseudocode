@@ -1,8 +1,8 @@
 /*
- * XREFs of PsIsImageNotifyEnabled @ 0x140AB4D00
+ * XREFs of PsIsImageNotifyEnabled @ 0x140AB60A0
  * Callers:
- *     MiAllocateImageVad @ 0x1409CD948 (MiAllocateImageVad.c)
- *     DbgkCreateThread @ 0x1409EAD24 (DbgkCreateThread.c)
+ *     MiAllocateImageVad @ 0x14099E928 (MiAllocateImageVad.c)
+ *     DbgkCreateThread @ 0x1409E74F4 (DbgkCreateThread.c)
  * Callees:
  *     <none>
  */

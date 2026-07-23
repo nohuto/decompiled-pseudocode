@@ -1,14 +1,20 @@
 /*
- * XREFs of ZwWriteRequestData @ 0x140723ED0
+ * XREFs of ZwWriteRequestData @ 0x140728AA0
  * Callers:
- *     DifZwWriteRequestDataWrapper @ 0x1406BFEE0 (DifZwWriteRequestDataWrapper.c)
+ *     DifZwWriteRequestDataWrapper @ 0x1406C3AC0 (DifZwWriteRequestDataWrapper.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwWriteRequestData(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwWriteRequestData(
+        HANDLE PortHandle,
+        PPORT_MESSAGE Message,
+        ULONG DataEntryIndex,
+        PVOID Buffer,
+        SIZE_T BufferSize,
+        PSIZE_T NumberOfBytesWritten)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(PortHandle);
 }

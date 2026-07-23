@@ -1,10 +1,10 @@
 /*
- * XREFs of EtwpTraceFltIo @ 0x1404680D0
+ * XREFs of EtwpTraceFltIo @ 0x1404684D0
  * Callers:
  *     <none>
  * Callees:
  *     EtwTraceKernelEvent @ 0x140211EDC (EtwTraceKernelEvent.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall EtwpTraceFltIo(__int64 a1, int a2, unsigned int a3, __int16 a4)

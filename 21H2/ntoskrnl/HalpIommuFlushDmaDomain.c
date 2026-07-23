@@ -1,14 +1,14 @@
 /*
- * XREFs of HalpIommuFlushDmaDomain @ 0x1404C9488
+ * XREFs of HalpIommuFlushDmaDomain @ 0x1404C96C8
  * Callers:
- *     HalpIommuDomainUnmapLogicalRange @ 0x1404C9334 (HalpIommuDomainUnmapLogicalRange.c)
- *     IommuMapIdentityRange @ 0x1404DA7D0 (IommuMapIdentityRange.c)
- *     IommuUnmapIdentityRange @ 0x1404DAC60 (IommuUnmapIdentityRange.c)
+ *     HalpIommuDomainUnmapLogicalRange @ 0x1404C9574 (HalpIommuDomainUnmapLogicalRange.c)
+ *     IommuMapIdentityRange @ 0x1404DAA10 (IommuMapIdentityRange.c)
+ *     IommuUnmapIdentityRange @ 0x1404DAEA0 (IommuUnmapIdentityRange.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KxReleaseSpinLock @ 0x140212140 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140362F80 (KeAcquireSpinLockRaiseToDpc.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     HalpIommuFlushDomainTB @ 0x1404CBE5C (HalpIommuFlushDomainTB.c)
+ *     HalpIommuFlushDomainTB @ 0x1404CC09C (HalpIommuFlushDomainTB.c)
  */
 
 char __fastcall HalpIommuFlushDmaDomain(_QWORD *a1, __int64 a2)

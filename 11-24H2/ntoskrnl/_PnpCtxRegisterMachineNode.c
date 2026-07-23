@@ -1,14 +1,14 @@
 /*
- * XREFs of _PnpCtxRegisterMachineNode @ 0x14081799C
+ * XREFs of _PnpCtxRegisterMachineNode @ 0x1408180DC
  * Callers:
- *     PiPnpRtlInit @ 0x140726C44 (PiPnpRtlInit.c)
- *     PiDrvDbRegisterNode @ 0x140738408 (PiDrvDbRegisterNode.c)
+ *     PiPnpRtlInit @ 0x1407247D4 (PiPnpRtlInit.c)
+ *     PiDrvDbRegisterNode @ 0x140736338 (PiDrvDbRegisterNode.c)
  * Callees:
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     _PnpCtxCreateNode @ 0x1408172AC (_PnpCtxCreateNode.c)
- *     _PnpCtxDestroyNode @ 0x140817430 (_PnpCtxDestroyNode.c)
- *     _PnpCtxFindNode @ 0x140817530 (_PnpCtxFindNode.c)
- *     _SysCtxGetTransaction @ 0x1408201B8 (_SysCtxGetTransaction.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     _PnpCtxCreateNode @ 0x1408179EC (_PnpCtxCreateNode.c)
+ *     _PnpCtxDestroyNode @ 0x140817B70 (_PnpCtxDestroyNode.c)
+ *     _PnpCtxFindNode @ 0x140817C70 (_PnpCtxFindNode.c)
+ *     _SysCtxGetTransaction @ 0x1408208F8 (_SysCtxGetTransaction.c)
  */
 
 __int64 __fastcall PnpCtxRegisterMachineNode(__int64 a1, const WCHAR *a2, int a3, __int64 a4, __int64 a5, void *a6)

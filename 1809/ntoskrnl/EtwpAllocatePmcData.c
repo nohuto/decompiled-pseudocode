@@ -1,12 +1,12 @@
 /*
- * XREFs of EtwpAllocatePmcData @ 0x1408BAA08
+ * XREFs of EtwpAllocatePmcData @ 0x1408BBCC8
  * Callers:
- *     EtwpUpdatePmcCounters @ 0x1408BBE40 (EtwpUpdatePmcCounters.c)
- *     EtwpUpdatePmcEvents @ 0x1408BBF64 (EtwpUpdatePmcEvents.c)
+ *     EtwpUpdatePmcCounters @ 0x1408BD100 (EtwpUpdatePmcCounters.c)
+ *     EtwpUpdatePmcEvents @ 0x1408BD224 (EtwpUpdatePmcEvents.c)
  * Callees:
- *     KeQueryMaximumProcessorCountEx @ 0x1400A6A80 (KeQueryMaximumProcessorCountEx.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
+ *     KeQueryMaximumProcessorCountEx @ 0x1400A69C0 (KeQueryMaximumProcessorCountEx.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall EtwpAllocatePmcData(__int64 a1)

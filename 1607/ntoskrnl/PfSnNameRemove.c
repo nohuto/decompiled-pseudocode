@@ -1,12 +1,12 @@
 /*
- * XREFs of PfSnNameRemove @ 0x140034A90
+ * XREFs of PfSnNameRemove @ 0x140034610
  * Callers:
- *     PfSnNameRemoveAll @ 0x1405117D4 (PfSnNameRemoveAll.c)
+ *     PfSnNameRemoveAll @ 0x1404F4BC4 (PfSnNameRemoveAll.c)
  * Callees:
- *     ExReleaseSpinLockExclusive @ 0x14002E9A0 (ExReleaseSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14002E9E0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusive @ 0x14002EB90 (ExAcquireSpinLockExclusive.c)
- *     RtlRbRemoveNode @ 0x140031320 (RtlRbRemoveNode.c)
+ *     ExReleaseSpinLockExclusive @ 0x14002E520 (ExReleaseSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14002E560 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusive @ 0x14002E710 (ExAcquireSpinLockExclusive.c)
+ *     RtlRbRemoveNode @ 0x140030EA0 (RtlRbRemoveNode.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  */
 
@@ -15,8 +15,8 @@ __int64 __fastcall PfSnNameRemove(__int64 a1, unsigned __int64 a2)
   volatile LONG *v2; // rbp
   unsigned int v4; // edi
   KIRQL v6; // r15
-  unsigned __int64 *i; // rbx
-  unsigned __int64 v8; // rcx
+  _RTL_BALANCED_NODE *i; // rbx
+  _RTL_BALANCED_NODE *v8; // rcx
   _QWORD *v10; // rcx
   unsigned __int64 v11; // rdx
   unsigned __int64 v12; // r8
@@ -24,7 +24,7 @@ __int64 __fastcall PfSnNameRemove(__int64 a1, unsigned __int64 a2)
   v2 = (volatile LONG *)(a1 + 576);
   v4 = 0;
   v6 = ExAcquireSpinLockExclusive((PEX_SPIN_LOCK)(a1 + 576));
-  for ( i = *(unsigned __int64 **)(a1 + 520); ; i = (unsigned __int64 *)i[1] )
+  for ( i = *(_RTL_BALANCED_NODE **)(a1 + 520); ; i = i->Children[1] )
   {
     while ( 1 )
     {
@@ -34,15 +34,15 @@ __int64 __fastcall PfSnNameRemove(__int64 a1, unsigned __int64 a2)
         __writecr8(v6);
         return v4;
       }
-      v8 = i[3];
-      if ( v8 <= a2 )
+      v8 = i[1].Children[0];
+      if ( (unsigned __int64)v8 <= a2 )
         break;
-      i = (unsigned __int64 *)*i;
+      i = i->Children[0];
     }
-    if ( v8 >= a2 )
+    if ( (unsigned __int64)v8 >= a2 )
       break;
   }
-  RtlRbRemoveNode((unsigned __int64 *)(a1 + 520), i);
+  RtlRbRemoveNode((PRTL_RB_TREE)(a1 + 520), i);
   ExReleaseSpinLockExclusive(v2, v6);
   v10 = (_QWORD *)(a1 + 488);
   v11 = 0LL;

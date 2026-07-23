@@ -1,18 +1,18 @@
 /*
- * XREFs of IoSetIoCompletionEx @ 0x1400C6330
+ * XREFs of IoSetIoCompletionEx @ 0x1400C6270
  * Callers:
- *     NtSetIoCompletionEx @ 0x140646330 (NtSetIoCompletionEx.c)
- *     PspSendReliableJobNotification @ 0x1406B96B8 (PspSendReliableJobNotification.c)
- *     PspNotificationPacketCallback @ 0x1406C27C0 (PspNotificationPacketCallback.c)
+ *     NtSetIoCompletionEx @ 0x140647350 (NtSetIoCompletionEx.c)
+ *     PspSendReliableJobNotification @ 0x1406BA958 (PspSendReliableJobNotification.c)
+ *     PspNotificationPacketCallback @ 0x1406C3A60 (PspNotificationPacketCallback.c)
  * Callees:
- *     KiWakeQueueWaiter @ 0x1400ACA10 (KiWakeQueueWaiter.c)
- *     KiExitDispatcher @ 0x1400C2F70 (KiExitDispatcher.c)
- *     KiWakeOtherQueueWaiters @ 0x1400CDC60 (KiWakeOtherQueueWaiters.c)
- *     KiAcquireKobjectLockSafe @ 0x1400FBE10 (KiAcquireKobjectLockSafe.c)
- *     KeInsertQueueEx @ 0x1400FD6A0 (KeInsertQueueEx.c)
- *     KeIsThreadRunning @ 0x14028DDA8 (KeIsThreadRunning.c)
- *     EtwTraceEnqueueWork @ 0x14030FD8C (EtwTraceEnqueueWork.c)
- *     IopAllocateMiniCompletionPacket @ 0x14068A8BC (IopAllocateMiniCompletionPacket.c)
+ *     KiWakeQueueWaiter @ 0x1400AC950 (KiWakeQueueWaiter.c)
+ *     KiExitDispatcher @ 0x1400C2EB0 (KiExitDispatcher.c)
+ *     KiWakeOtherQueueWaiters @ 0x1400CDCE0 (KiWakeOtherQueueWaiters.c)
+ *     KiAcquireKobjectLockSafe @ 0x1400FBE90 (KiAcquireKobjectLockSafe.c)
+ *     KeInsertQueueEx @ 0x1400FD720 (KeInsertQueueEx.c)
+ *     KeIsThreadRunning @ 0x14028DF98 (KeIsThreadRunning.c)
+ *     EtwTraceEnqueueWork @ 0x14030FF7C (EtwTraceEnqueueWork.c)
+ *     IopAllocateMiniCompletionPacket @ 0x14068BA7C (IopAllocateMiniCompletionPacket.c)
  */
 
 __int64 __fastcall IoSetIoCompletionEx(

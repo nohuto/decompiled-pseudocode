@@ -1,10 +1,10 @@
 /*
- * XREFs of CcShouldLazyWriteCacheMap @ 0x1400D5EE4
+ * XREFs of CcShouldLazyWriteCacheMap @ 0x1400D5F64
  * Callers:
- *     CcLazyWriteScan @ 0x1400D575C (CcLazyWriteScan.c)
+ *     CcLazyWriteScan @ 0x1400D57DC (CcLazyWriteScan.c)
  * Callees:
  *     CcCanIWriteStream @ 0x1400213FC (CcCanIWriteStream.c)
- *     CcGetPartition @ 0x1400AD030 (CcGetPartition.c)
+ *     CcGetPartition @ 0x1400ACF70 (CcGetPartition.c)
  */
 
 bool __fastcall CcShouldLazyWriteCacheMap(__int64 a1, __int64 a2, __int64 a3, int a4)

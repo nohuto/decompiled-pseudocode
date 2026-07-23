@@ -1,18 +1,18 @@
 /*
- * XREFs of ViCreateProcessCallbackInternal @ 0x140AD6254
+ * XREFs of ViCreateProcessCallbackInternal @ 0x140AD6244
  * Callers:
- *     ViCreateProcessCallback @ 0x140466480 (ViCreateProcessCallback.c)
+ *     ViCreateProcessCallback @ 0x140466880 (ViCreateProcessCallback.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14022F5B0 (ObfDereferenceObjectWithTag.c)
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250E80 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     PsLookupProcessByProcessId @ 0x1406FA370 (PsLookupProcessByProcessId.c)
- *     PsGetAllocatedFullProcessImageName @ 0x1407427A8 (PsGetAllocatedFullProcessImageName.c)
- *     RtlUpcaseUnicodeString @ 0x140773AF0 (RtlUpcaseUnicodeString.c)
+ *     ObfDereferenceObjectWithTag @ 0x14022F6C0 (ObfDereferenceObjectWithTag.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140250F40 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     PsLookupProcessByProcessId @ 0x1406FA580 (PsLookupProcessByProcessId.c)
+ *     PsGetAllocatedFullProcessImageName @ 0x140742998 (PsGetAllocatedFullProcessImageName.c)
+ *     RtlUpcaseUnicodeString @ 0x140773CE0 (RtlUpcaseUnicodeString.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
- *     ViFaultsGetBaseImageName @ 0x140AD6780 (ViFaultsGetBaseImageName.c)
- *     ViFaultsIsAppTarget @ 0x140AD6A30 (ViFaultsIsAppTarget.c)
+ *     ViFaultsGetBaseImageName @ 0x140AD6770 (ViFaultsGetBaseImageName.c)
+ *     ViFaultsIsAppTarget @ 0x140AD6A20 (ViFaultsIsAppTarget.c)
  */
 
 void __fastcall ViCreateProcessCallbackInternal(void *a1, char a2)
@@ -44,10 +44,13 @@ void __fastcall ViCreateProcessCallbackInternal(void *a1, char a2)
         if ( (unsigned int)ViFaultsIsAppTarget(&SourceString) )
           _InterlockedOr((volatile signed __int32 *)&v2[1].DirectoryTableBase, 0x10000u);
         KxReleaseSpinLock((volatile signed __int64 *)&ViFaultInjectionLock);
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
           CurrentIrql = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v3 <= 0xFu && CurrentIrql >= 2u )
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+            && CurrentIrql <= 0xFu
+            && (unsigned __int8)v3 <= 0xFu
+            && CurrentIrql >= 2u )
           {
             CurrentPrcb = KeGetCurrentPrcb();
             SchedulerAssist = CurrentPrcb->SchedulerAssist;

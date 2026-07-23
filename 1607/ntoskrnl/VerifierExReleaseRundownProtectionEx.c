@@ -1,5 +1,5 @@
 /*
- * XREFs of VerifierExReleaseRundownProtectionEx @ 0x14070C480
+ * XREFs of VerifierExReleaseRundownProtectionEx @ 0x14070C4B0
  * Callers:
  *     <none>
  * Callees:

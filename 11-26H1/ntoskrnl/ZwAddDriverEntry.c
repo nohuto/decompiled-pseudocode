@@ -1,14 +1,14 @@
 /*
- * XREFs of ZwAddDriverEntry @ 0x140724150
+ * XREFs of ZwAddDriverEntry @ 0x140728D20
  * Callers:
- *     DifZwAddDriverEntryWrapper @ 0x1406989D0 (DifZwAddDriverEntryWrapper.c)
+ *     DifZwAddDriverEntryWrapper @ 0x14069C5B0 (DifZwAddDriverEntryWrapper.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwAddDriverEntry(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwAddDriverEntry(PEFI_DRIVER_ENTRY DriverEntry, PULONG Id)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(DriverEntry);
 }

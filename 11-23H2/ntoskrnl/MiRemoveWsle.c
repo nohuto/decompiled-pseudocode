@@ -1,21 +1,21 @@
 /*
- * XREFs of MiRemoveWsle @ 0x14027B450
+ * XREFs of MiRemoveWsle @ 0x14027B6E0
  * Callers:
  *     MiCombineWithExisting @ 0x1402179B4 (MiCombineWithExisting.c)
- *     MiTerminateWsle @ 0x140274850 (MiTerminateWsle.c)
- *     MiTerminateWsleCluster @ 0x1402791A0 (MiTerminateWsleCluster.c)
- *     MiDeleteVa @ 0x14027A5C0 (MiDeleteVa.c)
+ *     MiTerminateWsle @ 0x140274AE0 (MiTerminateWsle.c)
+ *     MiTerminateWsleCluster @ 0x140279430 (MiTerminateWsleCluster.c)
+ *     MiDeleteVa @ 0x14027A850 (MiDeleteVa.c)
  * Callees:
  *     MiWriteValidPteVolatile @ 0x140217020 (MiWriteValidPteVolatile.c)
- *     KxReleaseQueuedSpinLock @ 0x140260360 (KxReleaseQueuedSpinLock.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1402712F0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiGetSystemRegionType @ 0x140284870 (MiGetSystemRegionType.c)
- *     KeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x14029CBD0 (KeAcquireInStackQueuedSpinLockAtDpcLevel.c)
- *     ExpWaitForSpinLockSharedAndAcquire @ 0x140316D70 (ExpWaitForSpinLockSharedAndAcquire.c)
- *     MiIsDriverPage @ 0x1403398C0 (MiIsDriverPage.c)
- *     ExpAcquireSpinLockSharedAtDpcLevelInstrumented @ 0x14046B4F2 (ExpAcquireSpinLockSharedAtDpcLevelInstrumented.c)
- *     ExpReleaseSpinLockSharedFromDpcLevelInstrumented @ 0x14060B0EC (ExpReleaseSpinLockSharedFromDpcLevelInstrumented.c)
- *     MiLogRemoveWsleEvent @ 0x14061C31C (MiLogRemoveWsleEvent.c)
+ *     KxReleaseQueuedSpinLock @ 0x1402605F0 (KxReleaseQueuedSpinLock.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140271580 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiGetSystemRegionType @ 0x140284B00 (MiGetSystemRegionType.c)
+ *     KeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x14029CE60 (KeAcquireInStackQueuedSpinLockAtDpcLevel.c)
+ *     ExpWaitForSpinLockSharedAndAcquire @ 0x140317000 (ExpWaitForSpinLockSharedAndAcquire.c)
+ *     MiIsDriverPage @ 0x140339B50 (MiIsDriverPage.c)
+ *     ExpAcquireSpinLockSharedAtDpcLevelInstrumented @ 0x14046B8F2 (ExpAcquireSpinLockSharedAtDpcLevelInstrumented.c)
+ *     ExpReleaseSpinLockSharedFromDpcLevelInstrumented @ 0x14060B63C (ExpReleaseSpinLockSharedFromDpcLevelInstrumented.c)
+ *     MiLogRemoveWsleEvent @ 0x14061C86C (MiLogRemoveWsleEvent.c)
  */
 
 char __fastcall MiRemoveWsle(__int64 a1, unsigned __int64 a2, __int64 a3, char a4, int a5, int a6)
@@ -99,7 +99,9 @@ LABEL_5:
   v13 = 1;
   if ( (*(_BYTE *)(a1 + 184) & 7) == 4 )
   {
-    if ( PsNtosImageBase && (v9 < PsNtosImageEnd && v9 >= PsNtosImageBase || v9 < PsHalImageEnd && v9 >= PsHalImageBase) )
+    if ( PsNtosImageBase
+      && (v9 < PsNtosImageEnd && v9 >= (unsigned __int64)PsNtosImageBase
+       || v9 < PsHalImageEnd && v9 >= (unsigned __int64)PsHalImageBase) )
     {
       _InterlockedExchangeAdd((volatile signed __int32 *)&xmmword_140C65950, -(int)v8);
     }

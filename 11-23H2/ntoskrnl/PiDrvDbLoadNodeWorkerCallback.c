@@ -1,20 +1,20 @@
 /*
- * XREFs of PiDrvDbLoadNodeWorkerCallback @ 0x140866F80
+ * XREFs of PiDrvDbLoadNodeWorkerCallback @ 0x1408671C0
  * Callers:
  *     <none>
  * Callees:
- *     KeSetEvent @ 0x14023C5E0 (KeSetEvent.c)
- *     PnpDiagnosticTraceObject @ 0x140322B80 (PnpDiagnosticTraceObject.c)
- *     PnpDiagnosticTraceObjectWithStatus @ 0x140365C48 (PnpDiagnosticTraceObjectWithStatus.c)
- *     ZwSetEvent @ 0x14041AF20 (ZwSetEvent.c)
- *     ZwClose @ 0x14041AF40 (ZwClose.c)
- *     ZwResetEvent @ 0x14041DE00 (ZwResetEvent.c)
- *     _SysCtxRegOpenKey @ 0x1406CED20 (_SysCtxRegOpenKey.c)
- *     _PnpGetObjectProperty @ 0x1406D01F0 (_PnpGetObjectProperty.c)
- *     _PnpSetObjectProperty @ 0x140796B7C (_PnpSetObjectProperty.c)
- *     PiDrvDbSetupNodeHive @ 0x140811978 (PiDrvDbSetupNodeHive.c)
- *     PiDrvDbUnloadHive @ 0x14086721C (PiDrvDbUnloadHive.c)
- *     PiDrvDbLoadHive @ 0x140867268 (PiDrvDbLoadHive.c)
+ *     KeSetEvent @ 0x14023C6B0 (KeSetEvent.c)
+ *     PnpDiagnosticTraceObject @ 0x140322E10 (PnpDiagnosticTraceObject.c)
+ *     PnpDiagnosticTraceObjectWithStatus @ 0x140365DE8 (PnpDiagnosticTraceObjectWithStatus.c)
+ *     ZwSetEvent @ 0x14041B2B0 (ZwSetEvent.c)
+ *     ZwClose @ 0x14041B2D0 (ZwClose.c)
+ *     ZwResetEvent @ 0x14041E190 (ZwResetEvent.c)
+ *     _SysCtxRegOpenKey @ 0x1406CED50 (_SysCtxRegOpenKey.c)
+ *     _PnpGetObjectProperty @ 0x1406D0220 (_PnpGetObjectProperty.c)
+ *     _PnpSetObjectProperty @ 0x140796D6C (_PnpSetObjectProperty.c)
+ *     PiDrvDbSetupNodeHive @ 0x140811C48 (PiDrvDbSetupNodeHive.c)
+ *     PiDrvDbUnloadHive @ 0x14086745C (PiDrvDbUnloadHive.c)
+ *     PiDrvDbLoadHive @ 0x1408674A8 (PiDrvDbLoadHive.c)
  */
 
 NTSTATUS __fastcall PiDrvDbLoadNodeWorkerCallback(__int64 a1)
@@ -142,7 +142,7 @@ NTSTATUS __fastcall PiDrvDbLoadNodeWorkerCallback(__int64 a1)
       }
     }
     ZwClose(Handle);
-    ZwResetEvent(*(_QWORD *)(a1 + 472), 0LL);
+    ZwResetEvent(*(HANDLE *)(a1 + 472), 0LL);
     v3 = PiDrvDbUnloadHive(a1 + 32, *(_QWORD *)(a1 + 472));
     if ( v3 == 259 )
     {

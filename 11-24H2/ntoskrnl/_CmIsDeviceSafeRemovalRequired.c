@@ -1,14 +1,14 @@
 /*
- * XREFs of _CmIsDeviceSafeRemovalRequired @ 0x1408BC37C
+ * XREFs of _CmIsDeviceSafeRemovalRequired @ 0x1408B9CCC
  * Callers:
- *     _CmGetDeviceMappedPropertyFromComposite @ 0x1409B4770 (_CmGetDeviceMappedPropertyFromComposite.c)
+ *     _CmGetDeviceMappedPropertyFromComposite @ 0x1409ABB00 (_CmGetDeviceMappedPropertyFromComposite.c)
  * Callees:
- *     StringExHandleOtherFlagsW @ 0x14041DE80 (StringExHandleOtherFlagsW.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     _CmGetDeviceStatus @ 0x1408BC8C8 (_CmGetDeviceStatus.c)
- *     _CmGetDeviceRegProp @ 0x1408C5BB0 (_CmGetDeviceRegProp.c)
- *     _PnpGetObjectProperty @ 0x1408CDFD0 (_PnpGetObjectProperty.c)
- *     _CmGetDeviceParent @ 0x140926998 (_CmGetDeviceParent.c)
+ *     StringExHandleOtherFlagsW @ 0x140412250 (StringExHandleOtherFlagsW.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     _CmGetDeviceStatus @ 0x1408BA218 (_CmGetDeviceStatus.c)
+ *     _CmGetDeviceRegProp @ 0x1408C35E0 (_CmGetDeviceRegProp.c)
+ *     _PnpGetObjectProperty @ 0x1408CB9C0 (_PnpGetObjectProperty.c)
+ *     _CmGetDeviceParent @ 0x140928AD8 (_CmGetDeviceParent.c)
  */
 
 bool __fastcall CmIsDeviceSafeRemovalRequired(__int64 a1, __int64 a2, int a3)

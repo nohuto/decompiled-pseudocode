@@ -1,10 +1,10 @@
 /*
- * XREFs of KeSignalCallDpcSynchronize @ 0x140294170
+ * XREFs of KeSignalCallDpcSynchronize @ 0x140294360
  * Callers:
- *     KiInitializeDynamicProcessorDpc @ 0x14057B260 (KiInitializeDynamicProcessorDpc.c)
- *     MiApplyImageHotPatchDpc @ 0x14057C730 (MiApplyImageHotPatchDpc.c)
+ *     KiInitializeDynamicProcessorDpc @ 0x14057C260 (KiInitializeDynamicProcessorDpc.c)
+ *     MiApplyImageHotPatchDpc @ 0x14057D730 (MiApplyImageHotPatchDpc.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
+ *     KeYieldProcessorEx @ 0x14006C9E0 (KeYieldProcessorEx.c)
  */
 
 __int64 __fastcall KeSignalCallDpcSynchronize(__int64 a1, __int64 a2, __int64 a3)

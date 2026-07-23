@@ -1,7 +1,7 @@
 /*
- * XREFs of MiSectionCreated @ 0x140092720
+ * XREFs of MiSectionCreated @ 0x140092660
  * Callers:
- *     MiCreateNewSection @ 0x14061B7E0 (MiCreateNewSection.c)
+ *     MiCreateNewSection @ 0x14061C7E0 (MiCreateNewSection.c)
  * Callees:
  *     MiInitializeTransitionPfn @ 0x140028D84 (MiInitializeTransitionPfn.c)
  *     MiReferenceControlAreaPfn @ 0x14002CA8C (MiReferenceControlAreaPfn.c)
@@ -10,11 +10,11 @@
  *     MiControlAreaUsingExtents @ 0x1400321B0 (MiControlAreaUsingExtents.c)
  *     MmAccessFault @ 0x140043DA0 (MmAccessFault.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
- *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x14007B720 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     ExAcquireSpinLockExclusive @ 0x1400BC4E0 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC660 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeYieldProcessorEx @ 0x14006C9E0 (KeYieldProcessorEx.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x14007B710 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     ExAcquireSpinLockExclusive @ 0x1400BC420 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC5A0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiSectionCreated(__int64 a1, __int64 a2, __int64 a3)
@@ -56,12 +56,12 @@ __int64 __fastcall MiSectionCreated(__int64 a1, __int64 a2, __int64 a3)
     v11 = *(_QWORD *)(v9 + 80);
   }
   *(_QWORD *)(a2 + 64) = *(_QWORD *)(v9 + 64);
-  ExAcquireSpinLockExclusiveAtDpcLevel(&dword_140438BC0);
+  ExAcquireSpinLockExclusiveAtDpcLevel(&dword_140439C80);
   v12 = *(__int64 **)(a1 + 40);
   if ( a3 )
   {
     v12[2] = a2;
-    ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140438BC0);
+    ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140439C80);
     ExReleaseSpinLockExclusiveFromDpcLevel(v10);
     ExReleaseSpinLockExclusiveFromDpcLevel(v3);
     if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && KeGetCurrentIrql() >= 2u && v7 < 2u )
@@ -96,7 +96,7 @@ __int64 __fastcall MiSectionCreated(__int64 a1, __int64 a2, __int64 a3)
   else
   {
     *v12 = a2;
-    ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140438BC0);
+    ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140439C80);
     ExReleaseSpinLockExclusiveFromDpcLevel(v10);
     *(_DWORD *)(a2 + 56) &= ~2u;
     ExReleaseSpinLockExclusiveFromDpcLevel(v3);

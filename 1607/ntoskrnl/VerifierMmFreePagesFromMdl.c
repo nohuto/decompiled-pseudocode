@@ -3,7 +3,7 @@
  * Callers:
  *     <none>
  * Callees:
- *     ViTargetAddToCounter @ 0x140710350 (ViTargetAddToCounter.c)
+ *     ViTargetAddToCounter @ 0x140710380 (ViTargetAddToCounter.c)
  *     ViMmValidateIrql @ 0x14071C928 (ViMmValidateIrql.c)
  */
 

@@ -1,8 +1,8 @@
 /*
- * XREFs of KiFindSubNodeForProcessorNumber @ 0x140376768
+ * XREFs of KiFindSubNodeForProcessorNumber @ 0x140376908
  * Callers:
- *     KiAssignProcessorNumberToPrcb @ 0x140376640 (KiAssignProcessorNumberToPrcb.c)
- *     KiFreeProcessorNumber @ 0x14057093C (KiFreeProcessorNumber.c)
+ *     KiAssignProcessorNumberToPrcb @ 0x1403767E0 (KiAssignProcessorNumberToPrcb.c)
+ *     KiFreeProcessorNumber @ 0x140570E7C (KiFreeProcessorNumber.c)
  * Callees:
  *     <none>
  */

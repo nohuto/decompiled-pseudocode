@@ -1,14 +1,14 @@
 /*
- * XREFs of DbgkpWerDeferredWriteRoutine @ 0x140889280
+ * XREFs of DbgkpWerDeferredWriteRoutine @ 0x1408893E0
  * Callers:
  *     <none>
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
- *     KiSetTimerEx @ 0x14025FD70 (KiSetTimerEx.c)
- *     KeCancelTimer @ 0x140260240 (KeCancelTimer.c)
- *     DbgPrintEx @ 0x14037F820 (DbgPrintEx.c)
- *     DbgkpWerCleanupContext @ 0x1408890A0 (DbgkpWerCleanupContext.c)
- *     IoWriteDeferredLiveDumpData @ 0x140896A20 (IoWriteDeferredLiveDumpData.c)
+ *     KiSetTimerEx @ 0x1402814E0 (KiSetTimerEx.c)
+ *     KeCancelTimer @ 0x1402819B0 (KeCancelTimer.c)
+ *     KeLeaveCriticalRegionThread @ 0x1402AB8C0 (KeLeaveCriticalRegionThread.c)
+ *     DbgPrintEx @ 0x14037F370 (DbgPrintEx.c)
+ *     DbgkpWerCleanupContext @ 0x140889200 (DbgkpWerCleanupContext.c)
+ *     IoWriteDeferredLiveDumpData @ 0x140896B80 (IoWriteDeferredLiveDumpData.c)
  */
 
 _QWORD *__fastcall DbgkpWerDeferredWriteRoutine(__int64 a1)
@@ -17,6 +17,9 @@ _QWORD *__fastcall DbgkpWerDeferredWriteRoutine(__int64 a1)
   struct _KTIMER *v3; // rbp
   int v4; // esi
   int v5; // eax
+  __int64 v6; // rdx
+  __int64 v7; // r8
+  __int64 v8; // r9
 
   DbgPrintEx(5u, 3u, "DBGK: DbgkpWerDeferredWriteRoutine entered, context 0x%p\n", (const void *)a1);
   CurrentThread = KeGetCurrentThread();
@@ -45,5 +48,5 @@ _QWORD *__fastcall DbgkpWerDeferredWriteRoutine(__int64 a1)
   }
   DbgkpWerCleanupContext(a1);
   _InterlockedExchange(&DbgkpBusy, 0);
-  return KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+  return KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v6, v7, v8);
 }

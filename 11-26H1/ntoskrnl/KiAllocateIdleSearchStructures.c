@@ -1,11 +1,11 @@
 /*
- * XREFs of KiAllocateIdleSearchStructures @ 0x1405E9C44
+ * XREFs of KiAllocateIdleSearchStructures @ 0x1405EC5B4
  * Callers:
- *     KiAllocateAndStartBootProcessorSchedulerStructures @ 0x1405E9AB4 (KiAllocateAndStartBootProcessorSchedulerStructures.c)
- *     KiAllocateProcessorSchedulerStructures @ 0x1405E9EDC (KiAllocateProcessorSchedulerStructures.c)
+ *     KiAllocateAndStartBootProcessorSchedulerStructures @ 0x1405EC424 (KiAllocateAndStartBootProcessorSchedulerStructures.c)
+ *     KiAllocateProcessorSchedulerStructures @ 0x1405EC84C (KiAllocateProcessorSchedulerStructures.c)
  * Callees:
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     ExAllocatePool3 @ 0x140C10010 (ExAllocatePool3.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     ExAllocatePool3 @ 0x140C16010 (ExAllocatePool3.c)
  */
 
 __int64 __fastcall KiAllocateIdleSearchStructures(__int64 a1)

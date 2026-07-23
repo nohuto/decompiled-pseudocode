@@ -1,17 +1,17 @@
 /*
- * XREFs of HvpApplyIncrementalLogFile @ 0x140806774
+ * XREFs of HvpApplyIncrementalLogFile @ 0x140807974
  * Callers:
- *     HvApplyLogFile @ 0x140806680 (HvApplyLogFile.c)
+ *     HvApplyLogFile @ 0x140807880 (HvApplyLogFile.c)
  * Callees:
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     SymCryptMarvin32 @ 0x1401AF044 (SymCryptMarvin32.c)
- *     CmpTraceHiveMountLogEntryApplied @ 0x1407EBF98 (CmpTraceHiveMountLogEntryApplied.c)
- *     HvpApplyLogEntryDataToFileBackedHive @ 0x1407F77F4 (HvpApplyLogEntryDataToFileBackedHive.c)
- *     HvpRecoverDataReadRoutine @ 0x1407F8180 (HvpRecoverDataReadRoutine.c)
- *     HvpIsLogEntryHeaderCoherent @ 0x140806C8C (HvpIsLogEntryHeaderCoherent.c)
- *     HvpIsMetadataArrayCoherent @ 0x140806D08 (HvpIsMetadataArrayCoherent.c)
- *     HvpReadLogEntryHeader @ 0x14080714C (HvpReadLogEntryHeader.c)
- *     HvpUpdateRecoveryVector @ 0x1408071A0 (HvpUpdateRecoveryVector.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     SymCryptMarvin32 @ 0x1401AF184 (SymCryptMarvin32.c)
+ *     CmpTraceHiveMountLogEntryApplied @ 0x1407ED198 (CmpTraceHiveMountLogEntryApplied.c)
+ *     HvpApplyLogEntryDataToFileBackedHive @ 0x1407F89F4 (HvpApplyLogEntryDataToFileBackedHive.c)
+ *     HvpRecoverDataReadRoutine @ 0x1407F9380 (HvpRecoverDataReadRoutine.c)
+ *     HvpIsLogEntryHeaderCoherent @ 0x140807E8C (HvpIsLogEntryHeaderCoherent.c)
+ *     HvpIsMetadataArrayCoherent @ 0x140807F08 (HvpIsMetadataArrayCoherent.c)
+ *     HvpReadLogEntryHeader @ 0x14080834C (HvpReadLogEntryHeader.c)
+ *     HvpUpdateRecoveryVector @ 0x1408083A0 (HvpUpdateRecoveryVector.c)
  */
 
 __int64 __fastcall HvpApplyIncrementalLogFile(

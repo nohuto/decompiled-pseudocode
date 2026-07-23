@@ -1,37 +1,37 @@
 /*
- * XREFs of RtlpHpFreeHeap @ 0x1402AC4C0
+ * XREFs of RtlpHpFreeHeap @ 0x1402AC750
  * Callers:
- *     RtlpHpAllocateHeap @ 0x14024D420 (RtlpHpAllocateHeap.c)
- *     ExAllocateHeapPool @ 0x1402AD2E0 (ExAllocateHeapPool.c)
- *     RtlpHpMetadataFree @ 0x14032405C (RtlpHpMetadataFree.c)
- *     ExpHpCompactionRoutine @ 0x140337AD0 (ExpHpCompactionRoutine.c)
- *     ExAllocateContiguousHeapPool @ 0x1403BA114 (ExAllocateContiguousHeapPool.c)
- *     ExGetBigPoolInfo @ 0x140606F50 (ExGetBigPoolInfo.c)
- *     ExPoolCleanupExpansionTable @ 0x1406072A8 (ExPoolCleanupExpansionTable.c)
- *     ExpFreeHeapSpecialPool @ 0x14060F0A8 (ExpFreeHeapSpecialPool.c)
+ *     RtlpHpAllocateHeap @ 0x14024D4F0 (RtlpHpAllocateHeap.c)
+ *     ExAllocateHeapPool @ 0x1402AD570 (ExAllocateHeapPool.c)
+ *     RtlpHpMetadataFree @ 0x1403242EC (RtlpHpMetadataFree.c)
+ *     ExpHpCompactionRoutine @ 0x140337D60 (ExpHpCompactionRoutine.c)
+ *     ExAllocateContiguousHeapPool @ 0x1403BA2F4 (ExAllocateContiguousHeapPool.c)
+ *     ExGetBigPoolInfo @ 0x1406074A0 (ExGetBigPoolInfo.c)
+ *     ExPoolCleanupExpansionTable @ 0x1406077F8 (ExPoolCleanupExpansionTable.c)
+ *     ExpFreeHeapSpecialPool @ 0x14060F5F8 (ExpFreeHeapSpecialPool.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  * Callees:
  *     RtlpHpAcquireQueuedLockExclusive @ 0x140207670 (RtlpHpAcquireQueuedLockExclusive.c)
- *     RtlpHpVsFreeChunkInsert @ 0x140249EA0 (RtlpHpVsFreeChunkInsert.c)
- *     RtlpHpVsChunkCoalesce @ 0x14024B1E0 (RtlpHpVsChunkCoalesce.c)
- *     RtlRbInsertNodeEx @ 0x14024CCC0 (RtlRbInsertNodeEx.c)
- *     RtlpHpSegPageRangeShrink @ 0x14024E6C0 (RtlpHpSegPageRangeShrink.c)
- *     RtlpHpVsChunkAlignSplit @ 0x14024EF90 (RtlpHpVsChunkAlignSplit.c)
- *     RtlpHpReleaseQueuedLockExclusive @ 0x140289BE0 (RtlpHpReleaseQueuedLockExclusive.c)
- *     RtlpHpLfhSubsegmentFreeBlock @ 0x140315CC0 (RtlpHpLfhSubsegmentFreeBlock.c)
- *     RtlCSparseBitmapBitmaskRead @ 0x14032378C (RtlCSparseBitmapBitmaskRead.c)
- *     RtlpHpLfhBucketUpdateStats @ 0x140323AC0 (RtlpHpLfhBucketUpdateStats.c)
- *     RtlpHpLargeFree @ 0x140323E6C (RtlpHpLargeFree.c)
- *     RtlpHpVsChunkComputeCost @ 0x1403340A0 (RtlpHpVsChunkComputeCost.c)
- *     RtlpHpVsSubsegmentCommitPages @ 0x1403372C0 (RtlpHpVsSubsegmentCommitPages.c)
- *     RtlpHpVsSubsegmentCleanup @ 0x140352578 (RtlpHpVsSubsegmentCleanup.c)
- *     RtlpHpVsSubsegmentFree @ 0x140356D4C (RtlpHpVsSubsegmentFree.c)
- *     RtlpInterlockedPushEntrySList @ 0x140428EF0 (RtlpInterlockedPushEntrySList.c)
- *     RtlpInterlockedFlushSList @ 0x140428F30 (RtlpInterlockedFlushSList.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     RtlpLogHeapFailure @ 0x1405B4ACC (RtlpLogHeapFailure.c)
- *     RtlpHpExtrasGet @ 0x1405B6520 (RtlpHpExtrasGet.c)
- *     RtlpHpSizeHeap @ 0x1405B67B8 (RtlpHpSizeHeap.c)
+ *     RtlpHpVsFreeChunkInsert @ 0x140249F70 (RtlpHpVsFreeChunkInsert.c)
+ *     RtlpHpVsChunkCoalesce @ 0x14024B2B0 (RtlpHpVsChunkCoalesce.c)
+ *     RtlRbInsertNodeEx @ 0x14024CD90 (RtlRbInsertNodeEx.c)
+ *     RtlpHpSegPageRangeShrink @ 0x14024E790 (RtlpHpSegPageRangeShrink.c)
+ *     RtlpHpVsChunkAlignSplit @ 0x14024F060 (RtlpHpVsChunkAlignSplit.c)
+ *     RtlpHpReleaseQueuedLockExclusive @ 0x140289E70 (RtlpHpReleaseQueuedLockExclusive.c)
+ *     RtlpHpLfhSubsegmentFreeBlock @ 0x140315F50 (RtlpHpLfhSubsegmentFreeBlock.c)
+ *     RtlCSparseBitmapBitmaskRead @ 0x140323A1C (RtlCSparseBitmapBitmaskRead.c)
+ *     RtlpHpLfhBucketUpdateStats @ 0x140323D50 (RtlpHpLfhBucketUpdateStats.c)
+ *     RtlpHpLargeFree @ 0x1403240FC (RtlpHpLargeFree.c)
+ *     RtlpHpVsChunkComputeCost @ 0x140334330 (RtlpHpVsChunkComputeCost.c)
+ *     RtlpHpVsSubsegmentCommitPages @ 0x140337550 (RtlpHpVsSubsegmentCommitPages.c)
+ *     RtlpHpVsSubsegmentCleanup @ 0x140352718 (RtlpHpVsSubsegmentCleanup.c)
+ *     RtlpHpVsSubsegmentFree @ 0x140356EEC (RtlpHpVsSubsegmentFree.c)
+ *     RtlpInterlockedPushEntrySList @ 0x140429280 (RtlpInterlockedPushEntrySList.c)
+ *     RtlpInterlockedFlushSList @ 0x1404292C0 (RtlpInterlockedFlushSList.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     RtlpLogHeapFailure @ 0x1405B503C (RtlpLogHeapFailure.c)
+ *     RtlpHpExtrasGet @ 0x1405B6A90 (RtlpHpExtrasGet.c)
+ *     RtlpHpSizeHeap @ 0x1405B6D28 (RtlpHpSizeHeap.c)
  */
 
 __int64 RtlpHpFreeHeap(_DWORD *a1, unsigned __int64 a2, int a3, ...)
@@ -57,29 +57,29 @@ __int64 RtlpHpFreeHeap(_DWORD *a1, unsigned __int64 a2, int a3, ...)
   int v24; // edx
   PSLIST_ENTRY v25; // rax
   unsigned int v26; // r15d
-  union _SLIST_HEADER *v27; // rcx
+  _SLIST_HEADER *v27; // rcx
   __int64 v28; // rcx
   _QWORD *v29; // r12
   _QWORD *v30; // r15
-  __int64 v31; // rdx
-  unsigned __int64 v32; // r12
-  unsigned __int64 v33; // rdi
+  unsigned __int64 v31; // rdx
+  __int64 v32; // r12
+  __int64 v33; // rdi
   unsigned __int64 v34; // rcx
   int v35; // ecx
   unsigned __int64 v36; // rdi
-  unsigned __int64 v37; // rax
+  __int64 v37; // rax
   __int64 v38; // r8
   __int64 v39; // r9
   unsigned __int64 v40; // rcx
   unsigned int v41; // r10d
   unsigned int v42; // r9d
   unsigned int v43; // r8d
-  _DWORD *v44; // rax
+  unsigned __int64 v44; // rax
   __int16 v45; // ax
   unsigned __int64 v46; // rcx
   __int64 v47; // rax
-  unsigned __int64 v48; // rdx
-  bool v49; // r8
+  __int64 v48; // rdx
+  BOOLEAN v49; // r8
   int v50; // ecx
   unsigned __int64 v51; // rax
   __int64 v52; // rcx
@@ -209,7 +209,7 @@ LABEL_30:
                       v71 = v26;
                       if ( (v24 & 4) != 0 && v26 < 0x1000 )
                       {
-                        v27 = (union _SLIST_HEADER *)(v22 + 64);
+                        v27 = (_SLIST_HEADER *)(v22 + 64);
                         if ( *(_WORD *)(v22 + 64) < 0x20u )
                         {
                           RtlpInterlockedPushEntrySList(v27, (PSLIST_ENTRY)(v23 + 16));
@@ -240,7 +240,7 @@ LABEL_71:
                       while ( 1 )
                       {
                         v31 = *(v30 - 2);
-                        v32 = (unsigned __int64)(v30 - 2);
+                        v32 = (__int64)(v30 - 2);
                         v30 = (_QWORD *)*v30;
                         v33 = v32;
                         v34 = (RtlpHpHeapGlobals ^ v32 ^ v31) >> 32;
@@ -252,7 +252,7 @@ LABEL_71:
                         if ( !(_WORD)v34 )
                           goto LABEL_116;
                         v33 = v32 - 16LL * (unsigned __int16)v34;
-                        v67 = (*(_QWORD *)v33 ^ RtlpHpHeapGlobals ^ v33) >> 32;
+                        v67 = (*(_QWORD *)v33 ^ RtlpHpHeapGlobals ^ (unsigned __int64)v33) >> 32;
                         if ( (v67 & 0xFF0000) != 0 )
                         {
                           v35 = (unsigned __int8)(RtlpHpHeapGlobals ^ *(_BYTE *)(v33 + 8) ^ v33);
@@ -282,7 +282,7 @@ LABEL_44:
                             v74 = 0;
                             for ( LODWORD(v75) = 0; ; LODWORD(v75) = v58 )
                             {
-                              v37 = RtlpHpVsChunkCoalesce(v22, v36, v32, &v74);
+                              v37 = RtlpHpVsChunkCoalesce((_RTL_RB_TREE *)v22, v36, v32, &v74);
                               v40 = v74;
                               v32 = v37;
                               if ( v74 == *(unsigned __int16 *)(v36 + 32) )
@@ -362,9 +362,9 @@ LABEL_44:
                             }
                             if ( (*(_DWORD *)(v22 + 176) & 1) != 0 && ((v32 + 32) & 0xFFF) != 0 )
                             {
-                              v44 = (_DWORD *)RtlpHpVsChunkAlignSplit(v40, v36, v32);
+                              v44 = RtlpHpVsChunkAlignSplit(v40, v36, v32);
                               if ( v44 )
-                                RtlpHpVsFreeChunkInsert((_QWORD *)v22, v36, v44);
+                                RtlpHpVsFreeChunkInsert((_RTL_RB_TREE *)v22, v36, v44);
                             }
                             v74 = 0;
                             v75 = 0LL;
@@ -428,7 +428,11 @@ LABEL_67:
                             v48 = 0LL;
                             v49 = 0;
 LABEL_69:
-                            RtlRbInsertNodeEx((unsigned __int64 *)(v22 + 16), v48, v49, v32 + 8);
+                            RtlRbInsertNodeEx(
+                              (PRTL_RB_TREE)(v22 + 16),
+                              (PRTL_BALANCED_NODE)v48,
+                              v49,
+                              (PRTL_BALANCED_NODE)(v32 + 8));
                             goto LABEL_70;
                           }
                           v68 = v32;

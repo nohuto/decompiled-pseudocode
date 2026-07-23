@@ -1,11 +1,11 @@
 /*
- * XREFs of MiWaitForSystemCacheViewFlush @ 0x1401391BC
+ * XREFs of MiWaitForSystemCacheViewFlush @ 0x1401392BC
  * Callers:
- *     MiReleaseSystemCacheView @ 0x1400795B0 (MiReleaseSystemCacheView.c)
- *     MiObtainSystemCacheView @ 0x1400AD220 (MiObtainSystemCacheView.c)
+ *     MiReleaseSystemCacheView @ 0x1400795A0 (MiReleaseSystemCacheView.c)
+ *     MiObtainSystemCacheView @ 0x1400AD160 (MiObtainSystemCacheView.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
- *     MiGetPteLink @ 0x1400AD7A4 (MiGetPteLink.c)
+ *     KeYieldProcessorEx @ 0x14006C9E0 (KeYieldProcessorEx.c)
+ *     MiGetPteLink @ 0x1400AD6E4 (MiGetPteLink.c)
  */
 
 unsigned __int64 __fastcall MiWaitForSystemCacheViewFlush(__int64 a1)

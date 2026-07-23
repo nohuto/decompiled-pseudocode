@@ -1,10 +1,10 @@
 /*
- * XREFs of NormBuffer__Insert @ 0x1405EF7A4
+ * XREFs of NormBuffer__Insert @ 0x1405ECD84
  * Callers:
- *     NormBuffer__Insert @ 0x1405EF7A4 (NormBuffer__Insert.c)
- *     NormBuffer__InsertAtBlockedLocation @ 0x1405EF870 (NormBuffer__InsertAtBlockedLocation.c)
+ *     NormBuffer__Insert @ 0x1405ECD84 (NormBuffer__Insert.c)
+ *     NormBuffer__InsertAtBlockedLocation @ 0x1405ECE50 (NormBuffer__InsertAtBlockedLocation.c)
  * Callees:
- *     NormBuffer__Insert @ 0x1405EF7A4 (NormBuffer__Insert.c)
+ *     NormBuffer__Insert @ 0x1405ECD84 (NormBuffer__Insert.c)
  */
 
 bool __fastcall NormBuffer__Insert(_QWORD *a1, int a2, __int16 *a3)

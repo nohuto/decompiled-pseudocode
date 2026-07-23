@@ -4,9 +4,9 @@
  *     VfDeadlockAcquireResource @ 0x140713510 (VfDeadlockAcquireResource.c)
  *     ViDeadlockAnalyze @ 0x140714A9C (ViDeadlockAnalyze.c)
  * Callees:
- *     KeQueryCurrentStackInformation @ 0x14004F3C0 (KeQueryCurrentStackInformation.c)
- *     KeGetCurrentStackPointer @ 0x14015DB50 (KeGetCurrentStackPointer.c)
- *     VfReportIssueWithOptions @ 0x140223544 (VfReportIssueWithOptions.c)
+ *     KeQueryCurrentStackInformation @ 0x14004EF40 (KeQueryCurrentStackInformation.c)
+ *     KeGetCurrentStackPointer @ 0x14015E0C0 (KeGetCurrentStackPointer.c)
+ *     VfReportIssueWithOptions @ 0x140223370 (VfReportIssueWithOptions.c)
  *     ViDeadlockAddParticipant @ 0x140714720 (ViDeadlockAddParticipant.c)
  *     ViDeadlockAnalyze @ 0x140714A9C (ViDeadlockAnalyze.c)
  *     ViDeadlockCertify @ 0x140714DAC (ViDeadlockCertify.c)

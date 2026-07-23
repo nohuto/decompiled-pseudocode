@@ -1,10 +1,10 @@
 /*
- * XREFs of MiProcessHotPatchUndoTable @ 0x140A3AF9C
+ * XREFs of MiProcessHotPatchUndoTable @ 0x140A3B24C
  * Callers:
- *     MiPrepareToHotPatchImage @ 0x140A3A908 (MiPrepareToHotPatchImage.c)
+ *     MiPrepareToHotPatchImage @ 0x140A3ABB8 (MiPrepareToHotPatchImage.c)
  * Callees:
- *     RtlClearBits @ 0x14022DA00 (RtlClearBits.c)
- *     RtlDetermineHotPatchUndoExtent @ 0x140A763BC (RtlDetermineHotPatchUndoExtent.c)
+ *     RtlClearBits @ 0x14022DB10 (RtlClearBits.c)
+ *     RtlDetermineHotPatchUndoExtent @ 0x140A7666C (RtlDetermineHotPatchUndoExtent.c)
  */
 
 void __fastcall MiProcessHotPatchUndoTable(__int64 a1, __int64 a2)

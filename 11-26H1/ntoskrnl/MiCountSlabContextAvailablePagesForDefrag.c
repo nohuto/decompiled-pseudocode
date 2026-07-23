@@ -1,5 +1,5 @@
 /*
- * XREFs of MiCountSlabContextAvailablePagesForDefrag @ 0x140706010
+ * XREFs of MiCountSlabContextAvailablePagesForDefrag @ 0x14070ACE0
  * Callers:
  *     <none>
  * Callees:

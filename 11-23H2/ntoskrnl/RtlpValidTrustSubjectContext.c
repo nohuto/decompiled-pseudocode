@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlpValidTrustSubjectContext @ 0x140334720
+ * XREFs of RtlpValidTrustSubjectContext @ 0x1403349B0
  * Callers:
- *     RtlpNewSecurityObject @ 0x14072A400 (RtlpNewSecurityObject.c)
- *     RtlpSetSecurityObject @ 0x14072BD70 (RtlpSetSecurityObject.c)
+ *     RtlpNewSecurityObject @ 0x14072A600 (RtlpNewSecurityObject.c)
+ *     RtlpSetSecurityObject @ 0x14072BF70 (RtlpSetSecurityObject.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall RtlpValidTrustSubjectContext(__int64 a1, __int64 a2, __int64 a3, _DWORD *a4)

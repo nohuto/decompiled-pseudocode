@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlIsPatchMachineApplicable @ 0x14082F36C
+ * XREFs of RtlIsPatchMachineApplicable @ 0x14082FB64
  * Callers:
- *     MiApplyHotPatchToDriver @ 0x1407F11D4 (MiApplyHotPatchToDriver.c)
- *     MiHotPatchProcess @ 0x1407F2D08 (MiHotPatchProcess.c)
- *     MiFindProcessImageHotPatchRecord @ 0x140A326F0 (MiFindProcessImageHotPatchRecord.c)
- *     MiFindHotPatchRecord @ 0x140A570A8 (MiFindHotPatchRecord.c)
+ *     MiApplyHotPatchToDriver @ 0x1407F17A4 (MiApplyHotPatchToDriver.c)
+ *     MiHotPatchProcess @ 0x1407F32D8 (MiHotPatchProcess.c)
+ *     MiFindProcessImageHotPatchRecord @ 0x140A26708 (MiFindProcessImageHotPatchRecord.c)
+ *     MiFindHotPatchRecord @ 0x140A4EF38 (MiFindHotPatchRecord.c)
  * Callees:
  *     <none>
  */

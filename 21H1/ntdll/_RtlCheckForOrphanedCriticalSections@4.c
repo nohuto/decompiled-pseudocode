@@ -6,7 +6,7 @@
  *     _RtlCheckHeldCriticalSections@8 @ 0x4B2E8510 (_RtlCheckHeldCriticalSections@8.c)
  */
 
-int __stdcall RtlCheckForOrphanedCriticalSections(HANDLE ThreadHandle)
+void __cdecl RtlCheckForOrphanedCriticalSections(HANDLE ThreadHandle)
 {
-  return RtlCheckHeldCriticalSections(ThreadHandle);
+  RtlCheckHeldCriticalSections(ThreadHandle);
 }

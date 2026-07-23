@@ -1,10 +1,10 @@
 /*
- * XREFs of MiReadyFlushMdlToWrite @ 0x14031C3A8
+ * XREFs of MiReadyFlushMdlToWrite @ 0x1403270F8
  * Callers:
- *     MiFlushSectionInternal @ 0x140219DB0 (MiFlushSectionInternal.c)
+ *     MiFlushSectionInternal @ 0x1402BE6B0 (MiFlushSectionInternal.c)
  * Callees:
- *     MiEndingOffsetWithLock @ 0x14031C790 (MiEndingOffsetWithLock.c)
- *     MiStartingOffset @ 0x14031E410 (MiStartingOffset.c)
+ *     MiEndingOffsetWithLock @ 0x1403274E0 (MiEndingOffsetWithLock.c)
+ *     MiStartingOffset @ 0x140329160 (MiStartingOffset.c)
  */
 
 __int64 __fastcall MiReadyFlushMdlToWrite(__int64 a1, __int64 a2, char a3)

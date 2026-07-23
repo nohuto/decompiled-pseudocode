@@ -1,19 +1,19 @@
 /*
- * XREFs of HalpIommuGetDomainId @ 0x1403A9810
+ * XREFs of HalpIommuGetDomainId @ 0x1403A99F0
  * Callers:
- *     HalpIommuAcquireNewDomain @ 0x1403A9794 (HalpIommuAcquireNewDomain.c)
- *     IommupDeviceEnableSvm @ 0x140933D34 (IommupDeviceEnableSvm.c)
+ *     HalpIommuAcquireNewDomain @ 0x1403A9974 (HalpIommuAcquireNewDomain.c)
+ *     IommupDeviceEnableSvm @ 0x140933F34 (IommupDeviceEnableSvm.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250E80 (KeAcquireSpinLockRaiseToDpc.c)
- *     RtlFindClearBitsAndSet @ 0x140295EA0 (RtlFindClearBitsAndSet.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140250F40 (KeAcquireSpinLockRaiseToDpc.c)
+ *     RtlFindClearBitsAndSet @ 0x140296130 (RtlFindClearBitsAndSet.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall HalpIommuGetDomainId(__int64 a1, ULONG *a2)
 {
   volatile signed __int64 *v3; // rdi
-  RTL_BITMAP *v4; // rbx
+  _RTL_BITMAP *v4; // rbx
   unsigned __int64 v5; // rsi
   ULONG ClearBitsAndSet; // eax
   unsigned int v7; // ebx
@@ -26,7 +26,7 @@ __int64 __fastcall HalpIommuGetDomainId(__int64 a1, ULONG *a2)
   if ( HalpHvIommu )
     return 3221225659LL;
   v3 = (volatile signed __int64 *)(a1 + 464);
-  v4 = (RTL_BITMAP *)(a1 + 472);
+  v4 = (_RTL_BITMAP *)(a1 + 472);
   v5 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(a1 + 464));
   ClearBitsAndSet = RtlFindClearBitsAndSet(v4, 1u, 0);
   v7 = 0;
@@ -34,10 +34,13 @@ __int64 __fastcall HalpIommuGetDomainId(__int64 a1, ULONG *a2)
     v7 = -1073741670;
   *a2 = ClearBitsAndSet;
   KxReleaseSpinLock(v3);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v5 <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
+      && (unsigned __int8)v5 <= 0xFu
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;

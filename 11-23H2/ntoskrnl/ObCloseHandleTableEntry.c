@@ -1,23 +1,23 @@
 /*
- * XREFs of ObCloseHandleTableEntry @ 0x14073FDC4
+ * XREFs of ObCloseHandleTableEntry @ 0x14073FFB4
  * Callers:
- *     ExSweepHandleTable @ 0x14073FC60 (ExSweepHandleTable.c)
+ *     ExSweepHandleTable @ 0x14073FE50 (ExSweepHandleTable.c)
  * Callees:
- *     KiStackAttachProcess @ 0x14022D600 (KiStackAttachProcess.c)
- *     KiUnstackDetachProcess @ 0x14022D9C0 (KiUnstackDetachProcess.c)
- *     ObfDereferenceObjectWithTag @ 0x14022F5B0 (ObfDereferenceObjectWithTag.c)
- *     ExGetHandlePointer @ 0x14022F740 (ExGetHandlePointer.c)
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     ExSweepSingleHandle @ 0x1402BEB18 (ExSweepSingleHandle.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     ExfUnblockPushLock @ 0x140412160 (ExfUnblockPushLock.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     KeRaiseUserException @ 0x140570E90 (KeRaiseUserException.c)
- *     ExDestroyHandle @ 0x14073FA9C (ExDestroyHandle.c)
- *     ObpDecrementHandleCount @ 0x14073FF54 (ObpDecrementHandleCount.c)
- *     SeCloseObjectAuditAlarm @ 0x1409CDFD0 (SeCloseObjectAuditAlarm.c)
- *     EtwpTraceHandle @ 0x1409E6B8C (EtwpTraceHandle.c)
+ *     KiStackAttachProcess @ 0x14022D710 (KiStackAttachProcess.c)
+ *     KiUnstackDetachProcess @ 0x14022DAD0 (KiUnstackDetachProcess.c)
+ *     ObfDereferenceObjectWithTag @ 0x14022F6C0 (ObfDereferenceObjectWithTag.c)
+ *     ExGetHandlePointer @ 0x14022F830 (ExGetHandlePointer.c)
+ *     KeLeaveCriticalRegion @ 0x140231550 (KeLeaveCriticalRegion.c)
+ *     ExSweepSingleHandle @ 0x1402BEDA8 (ExSweepSingleHandle.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     ExfUnblockPushLock @ 0x1404124A0 (ExfUnblockPushLock.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     KeRaiseUserException @ 0x1405713D0 (KeRaiseUserException.c)
+ *     ExDestroyHandle @ 0x14073FC8C (ExDestroyHandle.c)
+ *     ObpDecrementHandleCount @ 0x140740144 (ObpDecrementHandleCount.c)
+ *     SeCloseObjectAuditAlarm @ 0x1409CE1D0 (SeCloseObjectAuditAlarm.c)
+ *     EtwpTraceHandle @ 0x1409E6E1C (EtwpTraceHandle.c)
  */
 
 __int64 __fastcall ObCloseHandleTableEntry(__int64 a1, __int64 *a2, _KPROCESS *a3, ULONG_PTR a4, char a5, char a6)

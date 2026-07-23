@@ -1,12 +1,12 @@
 /*
- * XREFs of WmipProcessLegacyEtwCallback @ 0x140B22B78
+ * XREFs of WmipProcessLegacyEtwCallback @ 0x140B24F78
  * Callers:
- *     WmipLegacyEtwWorker @ 0x140B22A20 (WmipLegacyEtwWorker.c)
+ *     WmipLegacyEtwWorker @ 0x140B24E20 (WmipLegacyEtwWorker.c)
  * Callees:
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     WmipSendWmiIrp @ 0x140A0E708 (WmipSendWmiIrp.c)
- *     WmipUnreferenceEntry @ 0x140A0EF48 (WmipUnreferenceEntry.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     WmipSendWmiIrp @ 0x140A0D8E4 (WmipSendWmiIrp.c)
+ *     WmipUnreferenceEntry @ 0x140A0E124 (WmipUnreferenceEntry.c)
  */
 
 char __fastcall WmipProcessLegacyEtwCallback(__int64 a1, __int64 a2)

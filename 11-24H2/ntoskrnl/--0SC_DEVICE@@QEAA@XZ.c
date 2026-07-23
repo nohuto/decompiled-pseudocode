@@ -1,7 +1,7 @@
 /*
- * XREFs of ??0SC_DEVICE@@QEAA@XZ @ 0x14069E8F4
+ * XREFs of ??0SC_DEVICE@@QEAA@XZ @ 0x14069F98C
  * Callers:
- *     ??0SC_DISK@@QEAA@XZ @ 0x14069D488 (--0SC_DISK@@QEAA@XZ.c)
+ *     ??0SC_DISK@@QEAA@XZ @ 0x14069E51C (--0SC_DISK@@QEAA@XZ.c)
  * Callees:
  *     <none>
  */

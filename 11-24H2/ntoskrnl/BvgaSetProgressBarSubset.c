@@ -1,5 +1,5 @@
 /*
- * XREFs of BvgaSetProgressBarSubset @ 0x1405908C0
+ * XREFs of BvgaSetProgressBarSubset @ 0x14058D8E0
  * Callers:
  *     <none>
  * Callees:
@@ -12,7 +12,7 @@ __int64 __fastcall BvgaSetProgressBarSubset(int a1, int a2)
 
   BvgaProgressState = 100 * a1;
   result = (unsigned int)(100 * a2);
-  dword_140F8DC48 = a2 - a1;
-  dword_140F8DC44 = 100 * a2;
+  dword_140F8DE58 = a2 - a1;
+  dword_140F8DE54 = 100 * a2;
   return result;
 }

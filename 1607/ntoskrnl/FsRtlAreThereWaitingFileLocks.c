@@ -1,5 +1,5 @@
 /*
- * XREFs of FsRtlAreThereWaitingFileLocks @ 0x1401B8C08
+ * XREFs of FsRtlAreThereWaitingFileLocks @ 0x1401B884C
  * Callers:
  *     <none>
  * Callees:

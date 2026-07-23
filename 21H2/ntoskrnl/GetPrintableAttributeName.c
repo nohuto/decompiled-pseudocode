@@ -1,12 +1,12 @@
 /*
- * XREFs of GetPrintableAttributeName @ 0x1406733C0
+ * XREFs of GetPrintableAttributeName @ 0x1406685F0
  * Callers:
- *     LocalpGetStringForCondition @ 0x140672DF8 (LocalpGetStringForCondition.c)
+ *     LocalpGetStringForCondition @ 0x140668028 (LocalpGetStringForCondition.c)
  * Callees:
- *     memmove @ 0x140413F40 (memmove.c)
- *     SddlpAlloc @ 0x140674548 (SddlpAlloc.c)
- *     EncodeAttributeName @ 0x140926EC8 (EncodeAttributeName.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     SddlpAlloc @ 0x140669778 (SddlpAlloc.c)
+ *     EncodeAttributeName @ 0x140927028 (EncodeAttributeName.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall GetPrintableAttributeName(__int64 a1, int a2, char a3, _QWORD *a4, int *a5)

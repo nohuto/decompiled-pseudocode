@@ -1,10 +1,10 @@
 /*
- * XREFs of HvpValidateLoadedBin @ 0x140513FA8
+ * XREFs of HvpValidateLoadedBin @ 0x1404F7398
  * Callers:
- *     HvpMapHiveImageFromSystemCache @ 0x1401B72D8 (HvpMapHiveImageFromSystemCache.c)
- *     HvpMapHiveImage @ 0x140513C14 (HvpMapHiveImage.c)
- *     HvpRemapAndEnlistHiveBins @ 0x140514194 (HvpRemapAndEnlistHiveBins.c)
- *     HvpApplyLogEntry @ 0x140612610 (HvpApplyLogEntry.c)
+ *     HvpMapHiveImageFromSystemCache @ 0x1401B71BC (HvpMapHiveImageFromSystemCache.c)
+ *     HvpMapHiveImage @ 0x1404F7004 (HvpMapHiveImage.c)
+ *     HvpRemapAndEnlistHiveBins @ 0x1404F7584 (HvpRemapAndEnlistHiveBins.c)
+ *     HvpApplyLogEntry @ 0x1406126C4 (HvpApplyLogEntry.c)
  * Callees:
  *     <none>
  */

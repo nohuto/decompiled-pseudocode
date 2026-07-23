@@ -1,12 +1,12 @@
 /*
- * XREFs of MiMergeCalibrationResults @ 0x1406938F4
+ * XREFs of MiMergeCalibrationResults @ 0x1406949C4
  * Callers:
- *     MiZeroPageCalibrate @ 0x140693E8C (MiZeroPageCalibrate.c)
+ *     MiZeroPageCalibrate @ 0x140694F5C (MiZeroPageCalibrate.c)
  * Callees:
- *     MiReleaseSpinLockExclusive @ 0x14028EE30 (MiReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x14028F370 (ExAcquireSpinLockExclusive.c)
- *     MiIsCalibrationWorthwhile @ 0x1402D1A6C (MiIsCalibrationWorthwhile.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     MiReleaseSpinLockExclusive @ 0x14029EA30 (MiReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14029EF70 (ExAcquireSpinLockExclusive.c)
+ *     MiIsCalibrationWorthwhile @ 0x140490824 (MiIsCalibrationWorthwhile.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __fastcall MiMergeCalibrationResults(_QWORD *a1, __int64 a2, __int64 a3, __int64 a4, int a5)
@@ -27,7 +27,7 @@ void __fastcall MiMergeCalibrationResults(_QWORD *a1, __int64 a2, __int64 a3, __
   v5 = *(_DWORD *)a4;
   v6 = (_DWORD *)(a2 + 64);
   v11 = ExAcquireSpinLockExclusive((PEX_SPIN_LOCK)(a2 + 64));
-  if ( (unsigned int)MiIsCalibrationWorthwhile(a3, v5, *(_DWORD *)(*(_QWORD *)(*a1 + 176LL) + 56LL), 1) )
+  if ( (unsigned int)MiIsCalibrationWorthwhile(a3, v5, *(unsigned int *)(*(_QWORD *)(*a1 + 176LL) + 56LL), 1LL) )
   {
     v12 = a3 + 16;
     v13 = *(void **)(a3 + 48);

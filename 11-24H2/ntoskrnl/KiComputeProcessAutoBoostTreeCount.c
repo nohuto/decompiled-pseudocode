@@ -1,7 +1,7 @@
 /*
- * XREFs of KiComputeProcessAutoBoostTreeCount @ 0x1404B1B78
+ * XREFs of KiComputeProcessAutoBoostTreeCount @ 0x1404AC408
  * Callers:
- *     KeInitializeProcess @ 0x140A4EB18 (KeInitializeProcess.c)
+ *     KeInitializeProcess @ 0x140A45798 (KeInitializeProcess.c)
  * Callees:
  *     <none>
  */

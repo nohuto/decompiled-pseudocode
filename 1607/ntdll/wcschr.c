@@ -1,9 +1,9 @@
 /*
- * XREFs of wcschr @ 0x18009C590
+ * XREFs of wcschr @ 0x18009C580
  * Callers:
  *     LdrSetDllDirectory @ 0x180001540 (LdrSetDllDirectory.c)
- *     RtlGetExePath @ 0x180009210 (RtlGetExePath.c)
- *     RtlpGetDirPath @ 0x18000C598 (RtlpGetDirPath.c)
+ *     RtlGetExePath @ 0x180009200 (RtlGetExePath.c)
+ *     RtlpGetDirPath @ 0x18000C588 (RtlpGetDirPath.c)
  *     EtwpGenerateFileName @ 0x1800FDE14 (EtwpGenerateFileName.c)
  * Callees:
  *     <none>

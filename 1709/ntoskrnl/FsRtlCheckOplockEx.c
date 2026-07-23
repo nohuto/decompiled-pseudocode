@@ -550,7 +550,7 @@ LABEL_40:
                   KiCheckForKernelApcDelivery();
                 v24 = (volatile signed __int32 *)v50;
                 if ( !_interlockedbittestandreset((volatile signed __int32 *)v50, 0) )
-                  ExpAcquireFastMutexContended((ULONG_PTR)v24);
+                  ExpAcquireFastMutexContended((ULONG_PTR)v24, (PRTL_BALANCED_NODE)v22);
                 if ( v22 )
                   *(_BYTE *)(v22 + 26) |= 1u;
                 Options = (unsigned int)CurrentThread;

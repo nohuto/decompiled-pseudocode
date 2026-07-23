@@ -6,7 +6,7 @@
  *     <none>
  */
 
-__int64 __fastcall RtlGetTokenNamedObjectPath(__int64 a1, char a2, __int64 a3)
+NTSTATUS __cdecl RtlGetTokenNamedObjectPath(HANDLE TokenHandle, PSID Sid, PUNICODE_STRING ObjectPath)
 {
-  return RtlpGetTokenNamedObjectPath(a1, 0LL, a2 != 0, a3);
+  return RtlpGetTokenNamedObjectPath(TokenHandle);
 }

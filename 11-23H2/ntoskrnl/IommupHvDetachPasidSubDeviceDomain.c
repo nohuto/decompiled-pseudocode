@@ -1,9 +1,9 @@
 /*
- * XREFs of IommupHvDetachPasidSubDeviceDomain @ 0x14052498C
+ * XREFs of IommupHvDetachPasidSubDeviceDomain @ 0x140524EDC
  * Callers:
- *     IommupDomainDetachPasidDevice @ 0x14050E4B8 (IommupDomainDetachPasidDevice.c)
+ *     IommupDomainDetachPasidDevice @ 0x14050EA08 (IommupDomainDetachPasidDevice.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall IommupHvDetachPasidSubDeviceDomain(__int64 a1)

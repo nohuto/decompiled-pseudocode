@@ -1,9 +1,9 @@
 /*
- * XREFs of PnpIsRangeWithin @ 0x14055B56C
+ * XREFs of PnpIsRangeWithin @ 0x14055BAAC
  * Callers:
- *     PnpNeedToReleaseBootResources @ 0x14055B41C (PnpNeedToReleaseBootResources.c)
+ *     PnpNeedToReleaseBootResources @ 0x14055B95C (PnpNeedToReleaseBootResources.c)
  * Callees:
- *     RtlCmDecodeMemIoResource @ 0x1400B2110 (RtlCmDecodeMemIoResource.c)
+ *     RtlCmDecodeMemIoResource @ 0x1400B0050 (RtlCmDecodeMemIoResource.c)
  */
 
 __int64 __fastcall PnpIsRangeWithin(

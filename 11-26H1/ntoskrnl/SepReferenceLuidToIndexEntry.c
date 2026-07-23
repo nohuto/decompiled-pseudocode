@@ -1,8 +1,8 @@
 /*
- * XREFs of SepReferenceLuidToIndexEntry @ 0x1404834D0
+ * XREFs of SepReferenceLuidToIndexEntry @ 0x14047CE00
  * Callers:
- *     SepDuplicateToken @ 0x14092A5A0 (SepDuplicateToken.c)
- *     SepRefDerefLuidToIndexEntryIfNecessary @ 0x140A7AAA0 (SepRefDerefLuidToIndexEntryIfNecessary.c)
+ *     SepDuplicateToken @ 0x1409060B0 (SepDuplicateToken.c)
+ *     SepRefDerefLuidToIndexEntryIfNecessary @ 0x140A829E0 (SepRefDerefLuidToIndexEntryIfNecessary.c)
  * Callees:
  *     <none>
  */

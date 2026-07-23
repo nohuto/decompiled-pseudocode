@@ -13,11 +13,15 @@
  *     ObInsertObjectEx @ 0x140602150 (ObInsertObjectEx.c)
  */
 
-__int64 __fastcall NtCreateTimer(__int64 *a1, ACCESS_MASK a2, __int64 a3, TIMER_TYPE a4)
+NTSTATUS __cdecl NtCreateTimer(
+        PHANDLE TimerHandle,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        TIMER_TYPE TimerType)
 {
   char PreviousMode; // si
   __int64 v7; // rcx
-  int inserted; // ecx
+  NTSTATUS inserted; // ecx
   char *v9; // rbx
   __int64 v10; // r9
   KSPIN_LOCK *v11; // r13
@@ -35,22 +39,32 @@ __int64 __fastcall NtCreateTimer(__int64 *a1, ACCESS_MASK a2, __int64 a3, TIMER_
 
   DeferredContext = 0LL;
   v22 = 0LL;
-  if ( (unsigned int)a4 > SynchronizationTimer )
-    return 3221225714LL;
+  if ( (unsigned int)TimerType > SynchronizationTimer )
+    return -1073741582;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   if ( PreviousMode )
   {
     v7 = 0x7FFFFFFF0000LL;
-    if ( (unsigned __int64)a1 < 0x7FFFFFFF0000LL )
-      v7 = (__int64)a1;
+    if ( (unsigned __int64)TimerHandle < 0x7FFFFFFF0000LL )
+      v7 = (__int64)TimerHandle;
     *(_QWORD *)v7 = *(_QWORD *)v7;
   }
-  inserted = ObCreateObjectEx(PreviousMode, ExTimerObjectType, a3, PreviousMode, v20, 328, 0, 0, &DeferredContext, 0LL);
+  inserted = ObCreateObjectEx(
+               PreviousMode,
+               ExTimerObjectType,
+               (__int64)ObjectAttributes,
+               PreviousMode,
+               v20,
+               328,
+               0,
+               0,
+               &DeferredContext,
+               0LL);
   if ( inserted >= 0 )
   {
     v9 = (char *)DeferredContext;
     KeInitializeDpc((PRKDPC)((char *)DeferredContext + 160), (PKDEFERRED_ROUTINE)ExpTimerDpcRoutine, DeferredContext);
-    KeInitializeTimerEx((PKTIMER)v9, a4);
+    KeInitializeTimerEx((PKTIMER)v9, TimerType);
     v11 = (KSPIN_LOCK *)(v9 + 64);
     *((_QWORD *)v9 + 8) = 0LL;
     v9[304] = 0;
@@ -91,9 +105,9 @@ __int64 __fastcall NtCreateTimer(__int64 *a1, ACCESS_MASK a2, __int64 a3, TIMER_
         v9 = (char *)DeferredContext;
       }
     }
-    inserted = ObInsertObjectEx((PADAPTER_OBJECT)v9, 0LL, a2, 0, 0, 0LL, &v22);
+    inserted = ObInsertObjectEx((PADAPTER_OBJECT)v9, 0LL, DesiredAccess, 0, 0, 0LL, &v22);
     if ( inserted >= 0 )
-      *a1 = v22;
+      *TimerHandle = (HANDLE)v22;
   }
-  return (unsigned int)inserted;
+  return inserted;
 }

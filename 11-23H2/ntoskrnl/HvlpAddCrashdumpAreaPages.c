@@ -1,7 +1,7 @@
 /*
- * XREFs of HvlpAddCrashdumpAreaPages @ 0x140547C48
+ * XREFs of HvlpAddCrashdumpAreaPages @ 0x140548308
  * Callers:
- *     HvlAddSecurePagesCallbackRoutine @ 0x140547498 (HvlAddSecurePagesCallbackRoutine.c)
+ *     HvlAddSecurePagesCallbackRoutine @ 0x140547B58 (HvlAddSecurePagesCallbackRoutine.c)
  * Callees:
  *     <none>
  */

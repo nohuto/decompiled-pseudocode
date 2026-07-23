@@ -13,79 +13,74 @@
  *     memset @ 0x1800A16C0 (memset.c)
  */
 
-__int64 __fastcall RtlDeriveCapabilitySidsFromName(__int64 a1, __int64 a2, __int64 a3)
+NTSTATUS __cdecl RtlDeriveCapabilitySidsFromName(
+        PUNICODE_STRING UnicodeString,
+        PSID CapabilityGroupSid,
+        PSID CapabilitySid)
 {
-  __int64 v6; // r8
-  __int64 result; // rax
-  __int64 v8; // r8
-  __int128 v9; // xmm0
-  __int128 v10; // xmm1
-  unsigned int v11; // edi
-  unsigned int v12; // esi
-  __int64 v13; // r8
-  __int64 v14; // r8
-  __int128 v15; // xmm0
-  __int128 v16; // xmm1
-  UNICODE_STRING UnicodeString; // [rsp+20h] [rbp-69h] BYREF
-  _DWORD v18[28]; // [rsp+30h] [rbp-59h] BYREF
-  __int128 v19; // [rsp+A0h] [rbp+17h] BYREF
-  __int128 v20; // [rsp+B0h] [rbp+27h]
+  NTSTATUS result; // eax
+  __int128 v7; // xmm0
+  __int128 v8; // xmm1
+  unsigned int v9; // edi
+  unsigned int v10; // esi
+  __int128 v11; // xmm0
+  __int128 v12; // xmm1
+  _UNICODE_STRING DestinationString; // [rsp+20h] [rbp-69h] BYREF
+  _DWORD v14[28]; // [rsp+30h] [rbp-59h] BYREF
+  __int128 v15; // [rsp+A0h] [rbp+17h] BYREF
+  __int128 v16; // [rsp+B0h] [rbp+27h]
 
-  if ( !a1 || !a2 || !a3 )
+  if ( !UnicodeString || !CapabilityGroupSid || !CapabilitySid )
     __fastfail(5u);
-  memset((void *)a3, 0, 0x30uLL);
-  memset((void *)a2, 0, 0x2CuLL);
-  LOBYTE(v6) = 1;
-  result = RtlUpcaseUnicodeString(&UnicodeString, a1, v6);
-  if ( (int)result >= 0 )
+  memset(CapabilitySid, 0, 0x30uLL);
+  memset(CapabilityGroupSid, 0, 0x2CuLL);
+  result = RtlUpcaseUnicodeString(&DestinationString, UnicodeString, 1u);
+  if ( result >= 0 )
   {
-    v18[8] = 0;
-    v18[9] = 0;
-    v18[0] = 1779033703;
-    v18[1] = -1150833019;
-    v18[2] = 1013904242;
-    v18[3] = -1521486534;
-    v18[4] = 1359893119;
-    v18[5] = -1694144372;
-    v18[6] = 528734635;
-    v18[7] = 1541459225;
-    sub_180044954(v18, UnicodeString.Buffer, UnicodeString.Length);
-    sub_180044814(v18, &v19);
-    LOBYTE(v8) = 9;
-    RtlInitializeSid(a2, &unk_180114790, v8);
-    v9 = v19;
-    *(_DWORD *)(a2 + 8) = 32;
-    v10 = v20;
-    *(_OWORD *)(a2 + 12) = v9;
-    *(_OWORD *)(a2 + 28) = v10;
-    v11 = 0;
+    v14[8] = 0;
+    v14[9] = 0;
+    v14[0] = 1779033703;
+    v14[1] = -1150833019;
+    v14[2] = 1013904242;
+    v14[3] = -1521486534;
+    v14[4] = 1359893119;
+    v14[5] = -1694144372;
+    v14[6] = 528734635;
+    v14[7] = 1541459225;
+    sub_180044954(v14, DestinationString.Buffer, DestinationString.Length);
+    sub_180044814(v14, &v15);
+    RtlInitializeSid(CapabilityGroupSid, (PSID_IDENTIFIER_AUTHORITY)&stru_180114790, 9u);
+    v7 = v15;
+    *((_DWORD *)CapabilityGroupSid + 2) = 32;
+    v8 = v16;
+    *(_OWORD *)((char *)CapabilityGroupSid + 12) = v7;
+    *(_OWORD *)((char *)CapabilityGroupSid + 28) = v8;
+    v9 = 0;
     while ( 1 )
     {
-      v12 = v11 + 1;
-      if ( (unsigned __int8)RtlEqualUnicodeString(&UnicodeString, (char *)&unk_180110260 + 16 * v11, 0LL) )
+      v10 = v9 + 1;
+      if ( RtlEqualUnicodeString(&DestinationString, (PUNICODE_STRING)&unk_180110260 + v9, 0) )
         break;
-      ++v11;
-      if ( v12 >= 0xC )
+      ++v9;
+      if ( v10 >= 0xC )
         goto LABEL_8;
     }
-    LOBYTE(v13) = 2;
-    RtlInitializeSid(a3, &unk_180114628, v13);
-    *(_DWORD *)(a3 + 8) = 3;
-    *(_DWORD *)(a3 + 12) = v12;
+    RtlInitializeSid(CapabilitySid, (PSID_IDENTIFIER_AUTHORITY)&Source2, 2u);
+    *((_DWORD *)CapabilitySid + 2) = 3;
+    *((_DWORD *)CapabilitySid + 3) = v10;
 LABEL_8:
-    RtlFreeUnicodeString(&UnicodeString);
-    if ( v11 == 12 )
+    RtlFreeUnicodeString(&DestinationString);
+    if ( v9 == 12 )
     {
-      LOBYTE(v14) = 10;
-      RtlInitializeSid(a3, &unk_180114628, v14);
-      v15 = v19;
-      *(_DWORD *)(a3 + 8) = 3;
-      v16 = v20;
-      *(_DWORD *)(a3 + 12) = 1024;
-      *(_OWORD *)(a3 + 16) = v15;
-      *(_OWORD *)(a3 + 32) = v16;
+      RtlInitializeSid(CapabilitySid, (PSID_IDENTIFIER_AUTHORITY)&Source2, 0xAu);
+      v11 = v15;
+      *((_DWORD *)CapabilitySid + 2) = 3;
+      v12 = v16;
+      *((_DWORD *)CapabilitySid + 3) = 1024;
+      *((_OWORD *)CapabilitySid + 1) = v11;
+      *((_OWORD *)CapabilitySid + 2) = v12;
     }
-    return 0LL;
+    return 0;
   }
   return result;
 }

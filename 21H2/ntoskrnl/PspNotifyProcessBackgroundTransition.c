@@ -1,14 +1,14 @@
 /*
- * XREFs of PspNotifyProcessBackgroundTransition @ 0x1402F0C14
+ * XREFs of PspNotifyProcessBackgroundTransition @ 0x1402FB964
  * Callers:
- *     PspApplyJobChainLimitsToProcess @ 0x14060514C (PspApplyJobChainLimitsToProcess.c)
- *     PspSetProcessBackgroundCountCallback @ 0x1406C0050 (PspSetProcessBackgroundCountCallback.c)
+ *     PspSetProcessBackgroundCountCallback @ 0x14061EF60 (PspSetProcessBackgroundCountCallback.c)
+ *     PspApplyJobChainLimitsToProcess @ 0x1406F487C (PspApplyJobChainLimitsToProcess.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
- *     ExfReleasePushLockShared @ 0x1402F1470 (ExfReleasePushLockShared.c)
- *     KeAbProcessBaseIoPriorityChange @ 0x1402F7370 (KeAbProcessBaseIoPriorityChange.c)
- *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
- *     ExAcquirePushLockSharedEx @ 0x14034AB50 (ExAcquirePushLockSharedEx.c)
+ *     KeLeaveCriticalRegionThread @ 0x1402AB8C0 (KeLeaveCriticalRegionThread.c)
+ *     ExfReleasePushLockShared @ 0x1402FC1C0 (ExfReleasePushLockShared.c)
+ *     KeAbProcessBaseIoPriorityChange @ 0x1403020C0 (KeAbProcessBaseIoPriorityChange.c)
+ *     KeAbPostRelease @ 0x1403539D0 (KeAbPostRelease.c)
+ *     ExAcquirePushLockSharedEx @ 0x1403558A0 (ExAcquirePushLockSharedEx.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
@@ -21,12 +21,15 @@ _QWORD *__fastcall PspNotifyProcessBackgroundTransition(__int64 a1, int a2)
   __int64 *i; // rbx
   int v9; // r8d
   int v10; // edx
+  __int64 v11; // rdx
+  __int64 v12; // r8
+  __int64 v13; // r9
   _DWORD *SchedulerAssist; // r9
-  unsigned __int8 v13; // al
+  unsigned __int8 v16; // al
   struct _KPRCB *CurrentPrcb; // r9
-  _DWORD *v15; // r8
-  int v16; // eax
-  bool v17; // zf
+  _DWORD *v18; // r8
+  int v19; // eax
+  bool v20; // zf
 
   if ( a2 )
     _interlockedbittestandset((volatile signed __int32 *)(a1 + 1124), 0x14u);
@@ -66,15 +69,15 @@ _QWORD *__fastcall PspNotifyProcessBackgroundTransition(__int64 a1, int a2)
   {
     if ( (KiIrqlFlags & 1) != 0 )
     {
-      v13 = KeGetCurrentIrql();
-      if ( v13 <= 0xFu && CurrentIrql <= 0xFu && v13 >= 2u )
+      v16 = KeGetCurrentIrql();
+      if ( v16 <= 0xFu && CurrentIrql <= 0xFu && v16 >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
-        v15 = CurrentPrcb->SchedulerAssist;
-        v16 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
-        v17 = (v16 & v15[5]) == 0;
-        v15[5] &= v16;
-        if ( v17 )
+        v18 = CurrentPrcb->SchedulerAssist;
+        v19 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
+        v20 = (v19 & v18[5]) == 0;
+        v18[5] &= v19;
+        if ( v20 )
           KiRemoveSystemWorkPriorityKick(CurrentPrcb);
       }
     }
@@ -83,5 +86,5 @@ _QWORD *__fastcall PspNotifyProcessBackgroundTransition(__int64 a1, int a2)
   if ( _InterlockedCompareExchange64(v5, 0LL, 17LL) != 17 )
     ExfReleasePushLockShared(v5);
   KeAbPostRelease((ULONG_PTR)v5);
-  return KeLeaveCriticalRegionThread((__int64)CurrentThread);
+  return KeLeaveCriticalRegionThread((__int64)CurrentThread, v11, v12, v13);
 }

@@ -1,17 +1,17 @@
 /*
- * XREFs of KiResortScbQueue @ 0x1401171B0
+ * XREFs of KiResortScbQueue @ 0x140117220
  * Callers:
- *     KiComputeGroupSchedulingRank @ 0x1400D36A0 (KiComputeGroupSchedulingRank.c)
- *     KeSetSchedulingGroupRankBias @ 0x140116428 (KeSetSchedulingGroupRankBias.c)
- *     KiRecomputeGroupSchedulingRank @ 0x140116A00 (KiRecomputeGroupSchedulingRank.c)
- *     KiRemoveThreadFromScbQueue @ 0x140116E38 (KiRemoveThreadFromScbQueue.c)
- *     KiInsertNonMaxOverQuotaScb @ 0x14011703C (KiInsertNonMaxOverQuotaScb.c)
+ *     KiComputeGroupSchedulingRank @ 0x1400D3720 (KiComputeGroupSchedulingRank.c)
+ *     KeSetSchedulingGroupRankBias @ 0x140116498 (KeSetSchedulingGroupRankBias.c)
+ *     KiRecomputeGroupSchedulingRank @ 0x140116A70 (KiRecomputeGroupSchedulingRank.c)
+ *     KiRemoveThreadFromScbQueue @ 0x140116EA8 (KiRemoveThreadFromScbQueue.c)
+ *     KiInsertNonMaxOverQuotaScb @ 0x1401170AC (KiInsertNonMaxOverQuotaScb.c)
  * Callees:
- *     KiRemoveSchedulingGroupQueue @ 0x140116EE8 (KiRemoveSchedulingGroupQueue.c)
- *     KiInsertSchedulingGroupQueue @ 0x14011709C (KiInsertSchedulingGroupQueue.c)
+ *     KiRemoveSchedulingGroupQueue @ 0x140116F58 (KiRemoveSchedulingGroupQueue.c)
+ *     KiInsertSchedulingGroupQueue @ 0x14011710C (KiInsertSchedulingGroupQueue.c)
  */
 
-char __fastcall KiResortScbQueue(__int64 a1, __int64 a2, char a3)
+char __fastcall KiResortScbQueue(_RTL_RB_TREE *a1, __int64 a2, char a3)
 {
   unsigned __int64 *i; // rax
   unsigned __int64 v6; // rcx

@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlStringCbLengthW @ 0x18007054C
+ * XREFs of RtlStringCbLengthW @ 0x18007053C
  * Callers:
- *     RtlGetAppContainerNamedObjectPath @ 0x18000F010 (RtlGetAppContainerNamedObjectPath.c)
- *     RtlpMuiRegConfigNodePopulate @ 0x18007042C (RtlpMuiRegConfigNodePopulate.c)
- *     RtlpConvertAbsoluteToRelativeSecurityAttribute @ 0x1800E1B10 (RtlpConvertAbsoluteToRelativeSecurityAttribute.c)
- *     RtlpConvertRelativeToAbsoluteSecurityAttribute @ 0x1800E1E70 (RtlpConvertRelativeToAbsoluteSecurityAttribute.c)
- *     RtlpIsAttributeAceInSacl @ 0x1800E238C (RtlpIsAttributeAceInSacl.c)
- *     RtlpValidRelativeAttribute @ 0x1800E285C (RtlpValidRelativeAttribute.c)
+ *     RtlGetAppContainerNamedObjectPath @ 0x18000F000 (RtlGetAppContainerNamedObjectPath.c)
+ *     RtlpMuiRegConfigNodePopulate @ 0x18007041C (RtlpMuiRegConfigNodePopulate.c)
+ *     RtlpConvertAbsoluteToRelativeSecurityAttribute @ 0x1800E1BD0 (RtlpConvertAbsoluteToRelativeSecurityAttribute.c)
+ *     RtlpConvertRelativeToAbsoluteSecurityAttribute @ 0x1800E1F30 (RtlpConvertRelativeToAbsoluteSecurityAttribute.c)
+ *     RtlpIsAttributeAceInSacl @ 0x1800E244C (RtlpIsAttributeAceInSacl.c)
+ *     RtlpValidRelativeAttribute @ 0x1800E291C (RtlpValidRelativeAttribute.c)
  * Callees:
  *     <none>
  */

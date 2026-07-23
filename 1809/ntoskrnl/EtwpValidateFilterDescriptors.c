@@ -1,9 +1,9 @@
 /*
- * XREFs of EtwpValidateFilterDescriptors @ 0x1408C2654
+ * XREFs of EtwpValidateFilterDescriptors @ 0x1408C3914
  * Callers:
- *     EtwpValidateEnableNotification @ 0x140656A10 (EtwpValidateEnableNotification.c)
+ *     EtwpValidateEnableNotification @ 0x140657BD0 (EtwpValidateEnableNotification.c)
  * Callees:
- *     EtwpAllocateFilter @ 0x1408C175C (EtwpAllocateFilter.c)
+ *     EtwpAllocateFilter @ 0x1408C2A1C (EtwpAllocateFilter.c)
  */
 
 __int64 __fastcall EtwpValidateFilterDescriptors(_DWORD *a1, __int64 a2)

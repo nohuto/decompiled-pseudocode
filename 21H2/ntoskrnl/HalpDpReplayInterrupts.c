@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpDpReplayInterrupts @ 0x1409A89F0
+ * XREFs of HalpDpReplayInterrupts @ 0x1409A9920
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     HalpInterruptSetProblemEx @ 0x1404D1A88 (HalpInterruptSetProblemEx.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     HalpInterruptSetProblemEx @ 0x1404D1CC8 (HalpInterruptSetProblemEx.c)
  */
 
 __int64 __fastcall HalpDpReplayInterrupts(__int64 a1)

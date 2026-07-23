@@ -1,9 +1,9 @@
 /*
- * XREFs of CcFastCopyWrite @ 0x140537730
+ * XREFs of CcFastCopyWrite @ 0x140537C80
  * Callers:
  *     <none>
  * Callees:
- *     CcCopyWriteEx @ 0x1402C8D20 (CcCopyWriteEx.c)
+ *     CcCopyWriteEx @ 0x1402C8FB0 (CcCopyWriteEx.c)
  */
 
 void __stdcall CcFastCopyWrite(PFILE_OBJECT FileObject, ULONG FileOffset, ULONG Length, PVOID Buffer)

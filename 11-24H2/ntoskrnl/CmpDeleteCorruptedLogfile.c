@@ -1,20 +1,20 @@
 /*
- * XREFs of CmpDeleteCorruptedLogfile @ 0x1407E6620
+ * XREFs of CmpDeleteCorruptedLogfile @ 0x1407E6BF0
  * Callers:
- *     CmpInitCmRM @ 0x140AE4D94 (CmpInitCmRM.c)
- *     CmpStartCLFSLog @ 0x140AE5E28 (CmpStartCLFSLog.c)
+ *     CmpInitCmRM @ 0x140AE6674 (CmpInitCmRM.c)
+ *     CmpStartCLFSLog @ 0x140AE7708 (CmpStartCLFSLog.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140330CB0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     RtlAppendUnicodeStringToString @ 0x14040BBA0 (RtlAppendUnicodeStringToString.c)
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     _tlgKeywordOn @ 0x140426AF0 (_tlgKeywordOn.c)
- *     RtlUShortAdd @ 0x14046B240 (RtlUShortAdd.c)
- *     RtlUnicodeStringPrintf @ 0x140480894 (RtlUnicodeStringPrintf.c)
- *     CmpDeleteCorruptedFile @ 0x140668CA8 (CmpDeleteCorruptedFile.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402B92F0 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     RtlAppendUnicodeStringToString @ 0x140404080 (RtlAppendUnicodeStringToString.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     _tlgKeywordOn @ 0x14041A970 (_tlgKeywordOn.c)
+ *     RtlUShortAdd @ 0x140463CC0 (RtlUShortAdd.c)
+ *     RtlUnicodeStringPrintf @ 0x14047B368 (RtlUnicodeStringPrintf.c)
+ *     CmpDeleteCorruptedFile @ 0x140669E80 (CmpDeleteCorruptedFile.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall CmpDeleteCorruptedLogfile(
@@ -109,7 +109,7 @@ __int64 __fastcall CmpDeleteCorruptedLogfile(
   appended = RtlUShortAdd(DestinationString.MaximumLength, 2u, &DestinationString.MaximumLength);
   if ( appended < 0 )
     goto LABEL_15;
-  Pool2 = (wchar_t *)ExAllocatePool2(0x100uLL);
+  Pool2 = (wchar_t *)ExAllocatePool2(0x100uLL, DestinationString.MaximumLength, 0x20204D43u);
   DestinationString.Buffer = Pool2;
   if ( !Pool2 )
   {
@@ -128,7 +128,7 @@ LABEL_14:
     v9 = 0;
     goto LABEL_15;
   }
-  v17 = (wchar_t *)ExAllocatePool2(0x100uLL);
+  v17 = (wchar_t *)ExAllocatePool2(0x100uLL, v26.MaximumLength, 0x20204D43u);
   v26.Buffer = v17;
   if ( !v17 )
     goto LABEL_13;
@@ -139,7 +139,7 @@ LABEL_14:
   if ( appended < 0 )
     goto LABEL_14;
   MaximumLength = v29.MaximumLength;
-  v20 = (wchar_t *)ExAllocatePool2(0x100uLL);
+  v20 = (wchar_t *)ExAllocatePool2(0x100uLL, v29.MaximumLength, 0x20204D43u);
   v29.Buffer = v20;
   if ( !v20 )
   {
@@ -225,7 +225,7 @@ LABEL_49:
     v9 = v24;
   }
 LABEL_15:
-  if ( (unsigned int)dword_140E09EE8 > 5 && tlgKeywordOn((__int64)&dword_140E09EE8, 0x400000000000LL) )
+  if ( (unsigned int)dword_140E09F58 > 5 && tlgKeywordOn((__int64)&dword_140E09F58, 0x400000000000LL) )
   {
     v24 = appended;
     v38 = &v24;
@@ -252,8 +252,8 @@ LABEL_15:
     *(_QWORD *)&v34.Length = 0x1000000LL;
     v53 = 8LL;
     tlgWriteTransfer_EtwWriteTransfer(
-      (__int64)&dword_140E09EE8,
-      (unsigned __int8 *)byte_140055F29,
+      (__int64)&dword_140E09F58,
+      (unsigned __int8 *)byte_140056A23,
       0LL,
       0LL,
       0xAu,

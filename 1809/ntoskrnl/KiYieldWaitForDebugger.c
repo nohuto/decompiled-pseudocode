@@ -1,9 +1,9 @@
 /*
- * XREFs of KiYieldWaitForDebugger @ 0x1401B4328
+ * XREFs of KiYieldWaitForDebugger @ 0x1401B4468
  * Callers:
- *     KeBugCheck2 @ 0x140291190 (KeBugCheck2.c)
+ *     KeBugCheck2 @ 0x140291380 (KeBugCheck2.c)
  * Callees:
- *     KiCheckForFreezeExecution @ 0x14028D658 (KiCheckForFreezeExecution.c)
+ *     KiCheckForFreezeExecution @ 0x14028D848 (KiCheckForFreezeExecution.c)
  */
 
 void __noreturn KiYieldWaitForDebugger()

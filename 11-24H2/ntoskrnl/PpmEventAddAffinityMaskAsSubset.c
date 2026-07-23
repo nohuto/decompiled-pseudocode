@@ -1,21 +1,22 @@
 /*
- * XREFs of PpmEventAddAffinityMaskAsSubset @ 0x1405DD440
+ * XREFs of PpmEventAddAffinityMaskAsSubset @ 0x1405DA2C0
  * Callers:
- *     PpmEventAffinityMaskEx @ 0x1405DD5A0 (PpmEventAffinityMaskEx.c)
- *     PpmEventHgsActiveWorkloadClassEx @ 0x1405DD690 (PpmEventHgsActiveWorkloadClassEx.c)
- *     PpmEventHgsCoresUnparkedCountEx @ 0x1405DDA78 (PpmEventHgsCoresUnparkedCountEx.c)
- *     PpmEventParkNodeCapChangeEx @ 0x1405DDC00 (PpmEventParkNodeCapChangeEx.c)
- *     PpmEventParkNodeClassRecordedStatsEx @ 0x1405DDDC8 (PpmEventParkNodeClassRecordedStatsEx.c)
- *     PpmEventParkNodeParkHintChangedEx @ 0x1405DDF58 (PpmEventParkNodeParkHintChangedEx.c)
- *     PpmEventParkNodePreferenceEx @ 0x1405DE080 (PpmEventParkNodePreferenceEx.c)
- *     PpmEventParkNodeRecordedStatsEx @ 0x1405DE2A8 (PpmEventParkNodeRecordedStatsEx.c)
- *     PpmEventParkNodeRestrictionEx @ 0x1405DE51C (PpmEventParkNodeRestrictionEx.c)
- *     PpmEventTraceCoreParkingSelectionEx @ 0x1405DE820 (PpmEventTraceCoreParkingSelectionEx.c)
- *     PpmEventTraceHeteroDistributeUtilityEx @ 0x1405DEC14 (PpmEventTraceHeteroDistributeUtilityEx.c)
- *     PpmEventTraceHeteroResponseEx @ 0x1405DED44 (PpmEventTraceHeteroResponseEx.c)
- *     PpmEventTraceMultiClassHeteroResponseEx @ 0x1405DEFC0 (PpmEventTraceMultiClassHeteroResponseEx.c)
- *     PpmEventTraceSoftCoreParkingSelectionEx @ 0x1405DF2CC (PpmEventTraceSoftCoreParkingSelectionEx.c)
- *     PpmEventTraceParkNodeRundownEx @ 0x14076603C (PpmEventTraceParkNodeRundownEx.c)
+ *     PpmEventAffinityMaskEx @ 0x1405DA420 (PpmEventAffinityMaskEx.c)
+ *     PpmEventHgsActiveWorkloadClassEx @ 0x1405DA510 (PpmEventHgsActiveWorkloadClassEx.c)
+ *     PpmEventHgsCoresUnparkedCountEx @ 0x1405DA8F8 (PpmEventHgsCoresUnparkedCountEx.c)
+ *     PpmEventParkNodeCapChangeEx @ 0x1405DAA80 (PpmEventParkNodeCapChangeEx.c)
+ *     PpmEventParkNodeClassRecordedStatsEx @ 0x1405DAC48 (PpmEventParkNodeClassRecordedStatsEx.c)
+ *     PpmEventParkNodeParkHintChangedEx @ 0x1405DADD8 (PpmEventParkNodeParkHintChangedEx.c)
+ *     PpmEventParkNodePreferenceEx @ 0x1405DAF00 (PpmEventParkNodePreferenceEx.c)
+ *     PpmEventParkNodeRecordedStatsEx @ 0x1405DB128 (PpmEventParkNodeRecordedStatsEx.c)
+ *     PpmEventParkNodeRestrictionEx @ 0x1405DB39C (PpmEventParkNodeRestrictionEx.c)
+ *     PpmEventTraceCoreParkingSelectionEx @ 0x1405DB6A0 (PpmEventTraceCoreParkingSelectionEx.c)
+ *     PpmEventTraceHeteroDistributeUtilityEx @ 0x1405DBA94 (PpmEventTraceHeteroDistributeUtilityEx.c)
+ *     PpmEventTraceHeteroResponseEx @ 0x1405DBBC4 (PpmEventTraceHeteroResponseEx.c)
+ *     PpmEventTraceHeteroResponseExV1 @ 0x1405DBE40 (PpmEventTraceHeteroResponseExV1.c)
+ *     PpmEventTraceMultiClassHeteroResponseEx @ 0x1405DC0EC (PpmEventTraceMultiClassHeteroResponseEx.c)
+ *     PpmEventTraceSoftCoreParkingSelectionEx @ 0x1405DC3F8 (PpmEventTraceSoftCoreParkingSelectionEx.c)
+ *     PpmEventTraceParkNodeRundownEx @ 0x140765A0C (PpmEventTraceParkNodeRundownEx.c)
  * Callees:
  *     <none>
  */

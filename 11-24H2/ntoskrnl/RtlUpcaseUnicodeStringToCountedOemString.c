@@ -1,18 +1,18 @@
 /*
- * XREFs of RtlUpcaseUnicodeStringToCountedOemString @ 0x1408B0260
+ * XREFs of RtlUpcaseUnicodeStringToCountedOemString @ 0x1409064C0
  * Callers:
- *     DifRtlUpcaseUnicodeStringToCountedOemStringWrapper @ 0x14063ABC0 (DifRtlUpcaseUnicodeStringToCountedOemStringWrapper.c)
- *     RtlIsNameLegalDOS8Dot3 @ 0x1408AECC0 (RtlIsNameLegalDOS8Dot3.c)
+ *     DifRtlUpcaseUnicodeStringToCountedOemStringWrapper @ 0x140639180 (DifRtlUpcaseUnicodeStringToCountedOemStringWrapper.c)
+ *     RtlIsNameLegalDOS8Dot3 @ 0x140904F20 (RtlIsNameLegalDOS8Dot3.c)
  * Callees:
- *     UpcaseUnicodeToUTF8NHelper @ 0x140347308 (UpcaseUnicodeToUTF8NHelper.c)
- *     PsGetCurrentServerSiloGlobals @ 0x140347D10 (PsGetCurrentServerSiloGlobals.c)
- *     UpcaseUnicodeToSingleByteNHelper @ 0x140348330 (UpcaseUnicodeToSingleByteNHelper.c)
- *     UpcaseUnicodeToMultiByteNHelper @ 0x1404187C0 (UpcaseUnicodeToMultiByteNHelper.c)
- *     AllocateOrValidateCharStringBuffer @ 0x1404412E0 (AllocateOrValidateCharStringBuffer.c)
- *     RtlpDidUnicodeToOemWork @ 0x1408AEAC0 (RtlpDidUnicodeToOemWork.c)
- *     RtlpIsUtf8Process @ 0x1408AF8F0 (RtlpIsUtf8Process.c)
- *     RtlUnicodeToUTF8N @ 0x1408AF980 (RtlUnicodeToUTF8N.c)
- *     ExFreePool @ 0x140B72CB0 (ExFreePool.c)
+ *     UpcaseUnicodeToUTF8NHelper @ 0x140325D78 (UpcaseUnicodeToUTF8NHelper.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x140326710 (PsGetCurrentServerSiloGlobals.c)
+ *     UpcaseUnicodeToSingleByteNHelper @ 0x1403C1D70 (UpcaseUnicodeToSingleByteNHelper.c)
+ *     UpcaseUnicodeToMultiByteNHelper @ 0x140408570 (UpcaseUnicodeToMultiByteNHelper.c)
+ *     AllocateOrValidateCharStringBuffer @ 0x1404379D0 (AllocateOrValidateCharStringBuffer.c)
+ *     RtlpDidUnicodeToOemWork @ 0x140904D20 (RtlpDidUnicodeToOemWork.c)
+ *     RtlpIsUtf8Process @ 0x140905B50 (RtlpIsUtf8Process.c)
+ *     RtlUnicodeToUTF8N @ 0x140905BE0 (RtlUnicodeToUTF8N.c)
+ *     ExFreePool @ 0x140B74850 (ExFreePool.c)
  */
 
 NTSTATUS __stdcall RtlUpcaseUnicodeStringToCountedOemString(

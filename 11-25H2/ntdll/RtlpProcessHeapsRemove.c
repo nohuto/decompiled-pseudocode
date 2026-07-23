@@ -8,36 +8,35 @@
  *     RtlFreeHeap @ 0x180080DD0 (RtlFreeHeap.c)
  */
 
-struct _PEB *__fastcall RtlpProcessHeapsRemove(__int64 a1)
+int __fastcall RtlpProcessHeapsRemove(__int64 a1)
 {
-  struct _PEB *result; // rax
-  __int64 v3; // r9
-  _QWORD *v4; // r8
-  __int64 v5; // rcx
-  _QWORD *v6; // rax
+  struct _PEB *v1; // rax
+  _QWORD *v3; // r8
+  __int64 v4; // rcx
+  _QWORD *v5; // rax
 
-  result = NtCurrentPeb();
-  if ( result->ProcessHeap != (void *)a1 )
+  v1 = NtCurrentPeb();
+  if ( v1->ProcessHeap != (void *)a1 )
   {
-    RtlEnterCriticalSection((__int64)&RtlpProcessHeapsLock);
+    RtlEnterCriticalSection(&RtlpProcessHeapsLock);
     if ( *(_DWORD *)(a1 + 16) == -571548178 )
-      v4 = *(_QWORD **)(a1 + 56);
+      v3 = *(_QWORD **)(a1 + 56);
     else
-      v4 = *(_QWORD **)(a1 + 392);
-    if ( v4 )
+      v3 = *(_QWORD **)(a1 + 392);
+    if ( v3 )
     {
-      v5 = *v4;
-      if ( *(_QWORD **)(*v4 + 8LL) != v4 || (v6 = (_QWORD *)v4[1], (_QWORD *)*v6 != v4) )
+      v4 = *v3;
+      if ( *(_QWORD **)(*v3 + 8LL) != v3 || (v5 = (_QWORD *)v3[1], (_QWORD *)*v5 != v3) )
         __fastfail(3u);
-      *v6 = v5;
-      *(_QWORD *)(v5 + 8) = v6;
+      *v5 = v4;
+      *(_QWORD *)(v4 + 8) = v5;
       if ( *(_DWORD *)(a1 + 16) == -571548178 )
         *(_QWORD *)(a1 + 56) = 0LL;
       else
         *(_QWORD *)(a1 + 392) = 0LL;
-      RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, (__int64)v4, v3);
+      RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v3);
     }
-    return (struct _PEB *)RtlLeaveCriticalSection((__int64)&RtlpProcessHeapsLock);
+    LODWORD(v1) = RtlLeaveCriticalSection(&RtlpProcessHeapsLock);
   }
-  return result;
+  return (int)v1;
 }

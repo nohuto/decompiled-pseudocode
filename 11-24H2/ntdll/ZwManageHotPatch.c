@@ -1,12 +1,12 @@
 /*
- * XREFs of ZwManageHotPatch @ 0x180163FC0
+ * XREFs of ZwManageHotPatch @ 0x180162380
  * Callers:
- *     LdrpInitializeHotPatching @ 0x1800663E8 (LdrpInitializeHotPatching.c)
- *     LdrpLoadPatchedNtdll @ 0x180066450 (LdrpLoadPatchedNtdll.c)
- *     LdrpQueryCurrentPatch @ 0x1800665B8 (LdrpQueryCurrentPatch.c)
- *     LdrpMapDllPatchImage @ 0x18011446C (LdrpMapDllPatchImage.c)
- *     LdrpIsCurrentPatchLatest @ 0x18015EA6C (LdrpIsCurrentPatchLatest.c)
- *     LdrpApplyPatchImageCommon @ 0x18015FA04 (LdrpApplyPatchImageCommon.c)
+ *     LdrpInitializeHotPatching @ 0x1800AE5C8 (LdrpInitializeHotPatching.c)
+ *     LdrpLoadPatchedNtdll @ 0x1800AE630 (LdrpLoadPatchedNtdll.c)
+ *     LdrpQueryCurrentPatch @ 0x1800AE798 (LdrpQueryCurrentPatch.c)
+ *     LdrpMapDllPatchImage @ 0x18010F6BC (LdrpMapDllPatchImage.c)
+ *     LdrpIsCurrentPatchLatest @ 0x18015CE2C (LdrpIsCurrentPatchLatest.c)
+ *     LdrpApplyPatchImageCommon @ 0x18015DDC4 (LdrpApplyPatchImageCommon.c)
  * Callees:
  *     <none>
  */

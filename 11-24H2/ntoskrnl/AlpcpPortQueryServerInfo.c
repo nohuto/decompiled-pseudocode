@@ -1,24 +1,24 @@
 /*
- * XREFs of AlpcpPortQueryServerInfo @ 0x140741EA4
+ * XREFs of AlpcpPortQueryServerInfo @ 0x140740094
  * Callers:
- *     NtAlpcQueryInformation @ 0x1409AB170 (NtAlpcQueryInformation.c)
+ *     NtAlpcQueryInformation @ 0x140994E70 (NtAlpcQueryInformation.c)
  * Callees:
- *     ExfReleasePushLockShared @ 0x14025DE00 (ExfReleasePushLockShared.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     ObfDereferenceObjectWithTag @ 0x1403254A0 (ObfDereferenceObjectWithTag.c)
- *     ObfDereferenceObject @ 0x140325680 (ObfDereferenceObject.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     ObfReferenceObjectWithTag @ 0x1403403E0 (ObfReferenceObjectWithTag.c)
- *     ExfAcquirePushLockSharedEx @ 0x14034050C (ExfAcquirePushLockSharedEx.c)
- *     ObReferenceObjectSafe @ 0x14041D310 (ObReferenceObjectSafe.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     AlpcpGetPortNameInformation @ 0x140741DEC (AlpcpGetPortNameInformation.c)
- *     ObReferenceObjectByHandle @ 0x14084AF40 (ObReferenceObjectByHandle.c)
- *     AlpcpLockForCachedReferenceBlob @ 0x140890590 (AlpcpLockForCachedReferenceBlob.c)
- *     AlpcpUnlockMessage @ 0x140898D70 (AlpcpUnlockMessage.c)
- *     ExRaiseDatatypeMisalignment @ 0x14089B1F0 (ExRaiseDatatypeMisalignment.c)
- *     AlpcpReferenceMessageByWaitingThread @ 0x140A3A07C (AlpcpReferenceMessageByWaitingThread.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ExfReleasePushLockShared @ 0x14028E410 (ExfReleasePushLockShared.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CE030 (ObfDereferenceObjectWithTag.c)
+ *     ObfDereferenceObject @ 0x1402CE210 (ObfDereferenceObject.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     ObfReferenceObjectWithTag @ 0x14031F8C0 (ObfReferenceObjectWithTag.c)
+ *     ExfAcquirePushLockSharedEx @ 0x14031F9EC (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     ObReferenceObjectSafe @ 0x140411C00 (ObReferenceObjectSafe.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     AlpcpGetPortNameInformation @ 0x14073FFDC (AlpcpGetPortNameInformation.c)
+ *     ObReferenceObjectByHandle @ 0x140847200 (ObReferenceObjectByHandle.c)
+ *     AlpcpLockForCachedReferenceBlob @ 0x14089ED30 (AlpcpLockForCachedReferenceBlob.c)
+ *     AlpcpUnlockMessage @ 0x1408A1410 (AlpcpUnlockMessage.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408A3890 (ExRaiseDatatypeMisalignment.c)
+ *     AlpcpReferenceMessageByWaitingThread @ 0x140A2F6A8 (AlpcpReferenceMessageByWaitingThread.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 NTSTATUS __fastcall AlpcpPortQueryServerInfo(
@@ -37,12 +37,12 @@ NTSTATUS __fastcall AlpcpPortQueryServerInfo(
   __int64 v12; // rax
   __int64 *v13; // r12
   signed __int64 *v14; // r13
-  _QWORD *v15; // rdi
+  char *v15; // rdi
   __int64 v16; // rsi
   int v17; // eax
   __int64 v18; // r12
   signed __int64 *v19; // rdi
-  _QWORD *v20; // r13
+  char *v20; // r13
   _QWORD *v21; // r13
   unsigned int v22; // esi
   bool v23; // [rsp+30h] [rbp-78h]
@@ -109,11 +109,11 @@ NTSTATUS __fastcall AlpcpPortQueryServerInfo(
           if ( v13 )
           {
             v14 = v13 - 2;
-            v15 = KeAbPreAcquire((__int64)(v13 - 2), 0LL);
+            v15 = (char *)KeAbPreAcquire((__int64)(v13 - 2), 0LL);
             if ( _InterlockedCompareExchange64(v13 - 2, 17LL, 0LL) )
               ExfAcquirePushLockSharedEx(v13 - 2, 0, v15, (__int64)(v13 - 2));
             if ( v15 )
-              *((_BYTE *)v15 + 10) = 1;
+              v15[10] = 1;
             AlpcpUnlockMessage(BugCheckParameter2);
             BugCheckParameter2 = 0LL;
             v16 = *v13;
@@ -138,11 +138,11 @@ LABEL_29:
             KeAbPostRelease((ULONG_PTR)v14);
             if ( !v19 || !v16 )
               goto LABEL_48;
-            v20 = KeAbPreAcquire((__int64)(v19 + 44), 0LL);
+            v20 = (char *)KeAbPreAcquire((__int64)(v19 + 44), 0LL);
             if ( _InterlockedCompareExchange64(v19 + 44, 17LL, 0LL) )
               ExfAcquirePushLockSharedEx(v19 + 44, 0, v20, (__int64)(v19 + 44));
             if ( v20 )
-              *((_BYTE *)v20 + 10) = 1;
+              v20[10] = 1;
             v21 = 0LL;
             if ( (v19[3] & 1) == 0 )
               v21 = (_QWORD *)v19[3];

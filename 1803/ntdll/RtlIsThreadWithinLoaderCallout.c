@@ -6,7 +6,7 @@
  *     <none>
  */
 
-bool RtlIsThreadWithinLoaderCallout()
+BOOLEAN RtlIsThreadWithinLoaderCallout(void)
 {
-  return (HANDLE)qword_1801565C0 == NtCurrentTeb()->ClientId.UniqueThread;
+  return stru_1801565B0.OwningThread == NtCurrentTeb()->ClientId.UniqueThread;
 }

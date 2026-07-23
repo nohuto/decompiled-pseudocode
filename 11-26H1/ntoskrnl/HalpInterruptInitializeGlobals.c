@@ -1,7 +1,7 @@
 /*
- * XREFs of HalpInterruptInitializeGlobals @ 0x14057D470
+ * XREFs of HalpInterruptInitializeGlobals @ 0x14057F990
  * Callers:
- *     HalpInterruptInitSystem @ 0x140BEB450 (HalpInterruptInitSystem.c)
+ *     HalpInterruptInitSystem @ 0x140BF1450 (HalpInterruptInitSystem.c)
  * Callees:
  *     <none>
  */
@@ -12,7 +12,7 @@ ULONG_PTR *HalpInterruptInitializeGlobals()
 
   result = &HalpRegisteredInterruptControllers;
   HalpInterruptControllerCount = 0;
-  qword_140FBCD98 = (__int64)&HalpRegisteredInterruptControllers;
+  qword_140FBD138 = (__int64)&HalpRegisteredInterruptControllers;
   HalpRegisteredInterruptControllers = (ULONG_PTR)&HalpRegisteredInterruptControllers;
   HalpInterruptPreAllocatedHeapLock = 0LL;
   return result;

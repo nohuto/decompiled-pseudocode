@@ -14,7 +14,7 @@ void __fastcall MiCaptureImageExceptionValues(__int64 a1)
 {
   char *v1; // rbp
   PIMAGE_NT_HEADERS v3; // rax
-  struct _RTL_BITMAP *v4; // rdi
+  _RTL_BITMAP *v4; // rdi
   _DWORD *p_Signature; // r14
   unsigned int v6; // esi
   int v7; // edx
@@ -24,7 +24,7 @@ void __fastcall MiCaptureImageExceptionValues(__int64 a1)
 
   v1 = *(char **)(a1 + 48);
   v3 = RtlImageNtHeader(v1);
-  v4 = *(struct _RTL_BITMAP **)(a1 + 240);
+  v4 = *(_RTL_BITMAP **)(a1 + 240);
   p_Signature = &v3->Signature;
   v6 = *(_DWORD *)(a1 + 64) >> 12;
   v4->SizeOfBitMap = v6;

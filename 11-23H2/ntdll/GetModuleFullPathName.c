@@ -17,12 +17,12 @@ wchar_t *__fastcall GetModuleFullPathName(__int64 a1, char *a2)
   unsigned int Length; // ebx
   NTSTATUS v8; // eax
   UNICODE_STRING SourceString; // [rsp+20h] [rbp-28h] BYREF
-  STRING DestinationString; // [rsp+30h] [rbp-18h] BYREF
+  _STRING DestinationString; // [rsp+30h] [rbp-18h] BYREF
 
   DestinationString = 0LL;
   ProcessHeap = NtCurrentPeb()->ProcessHeap;
   *(_QWORD *)&SourceString.Length = 0LL;
-  result = (wchar_t *)RtlAllocateHeap((__int64)ProcessHeap, 8u, 520LL);
+  result = (wchar_t *)RtlAllocateHeap(ProcessHeap, 8u, 0x208uLL);
   SourceString.Buffer = result;
   if ( result )
   {
@@ -53,7 +53,7 @@ wchar_t *__fastcall GetModuleFullPathName(__int64 a1, char *a2)
         a2[DestinationString.Length] = 0;
       }
     }
-    RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, (__int64)SourceString.Buffer);
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, SourceString.Buffer);
     return (wchar_t *)Length;
   }
   return result;

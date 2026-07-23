@@ -6,11 +6,11 @@
  * Callees:
  *     ExpStampPoolWithQuotaProcess @ 0x1402080F4 (ExpStampPoolWithQuotaProcess.c)
  *     PsChargeProcessPoolQuota @ 0x1402081D0 (PsChargeProcessPoolQuota.c)
- *     ExGetHeapFromVA @ 0x1402AC3F0 (ExGetHeapFromVA.c)
- *     ExpAllocatePoolWithTagFromNode @ 0x1402AD250 (ExpAllocatePoolWithTagFromNode.c)
- *     ObfReferenceObjectWithTag @ 0x1402B68C0 (ObfReferenceObjectWithTag.c)
- *     RtlRaiseStatus @ 0x1403217B0 (RtlRaiseStatus.c)
- *     ExpHpIsSpecialPoolHeap @ 0x14046B7DA (ExpHpIsSpecialPoolHeap.c)
+ *     ExGetHeapFromVA @ 0x1402AC680 (ExGetHeapFromVA.c)
+ *     ExpAllocatePoolWithTagFromNode @ 0x1402AD4E0 (ExpAllocatePoolWithTagFromNode.c)
+ *     ObfReferenceObjectWithTag @ 0x1402B6B50 (ObfReferenceObjectWithTag.c)
+ *     RtlRaiseStatus @ 0x140321A40 (RtlRaiseStatus.c)
+ *     ExpHpIsSpecialPoolHeap @ 0x14046BBDA (ExpHpIsSpecialPoolHeap.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

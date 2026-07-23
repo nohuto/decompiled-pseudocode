@@ -1,16 +1,16 @@
 /*
- * XREFs of PiDevCfgConfigureSoftwareDevices @ 0x1409880EC
+ * XREFs of PiDevCfgConfigureSoftwareDevices @ 0x140A42818
  * Callers:
- *     PiDevCfgConfigureDeviceKeys @ 0x140988AF0 (PiDevCfgConfigureDeviceKeys.c)
+ *     PiDevCfgConfigureDeviceKeys @ 0x140A4321C (PiDevCfgConfigureDeviceKeys.c)
  * Callees:
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     ZwOpenKey @ 0x140723630 (ZwOpenKey.c)
- *     ZwEnumerateKey @ 0x140723A30 (ZwEnumerateKey.c)
- *     _PnpCtxRegCopyTree @ 0x140895F28 (_PnpCtxRegCopyTree.c)
- *     _PnpCtxRegDeleteTree @ 0x140A2D8F8 (_PnpCtxRegDeleteTree.c)
- *     IopCreateRegistryKeyEx @ 0x140AF90BC (IopCreateRegistryKeyEx.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     ZwOpenKey @ 0x140728200 (ZwOpenKey.c)
+ *     ZwEnumerateKey @ 0x140728600 (ZwEnumerateKey.c)
+ *     _PnpCtxRegCopyTree @ 0x14089C328 (_PnpCtxRegCopyTree.c)
+ *     _PnpCtxRegDeleteTree @ 0x140A3F304 (_PnpCtxRegDeleteTree.c)
+ *     IopCreateRegistryKeyEx @ 0x140AFB79C (IopCreateRegistryKeyEx.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PiDevCfgConfigureSoftwareDevices(__int64 a1, void *a2)
@@ -63,7 +63,7 @@ __int64 __fastcall PiDevCfgConfigureSoftwareDevices(__int64 a1, void *a2)
           if ( v4 < 0 )
             break;
           *((_WORD *)Pool2 + ((unsigned __int64)Pool2[3] >> 1) + 8) = 0;
-          PnpCtxRegDeleteTree(*(_QWORD *)&PiPnpRtlCtx, v6, Pool2 + 4);
+          PnpCtxRegDeleteTree(*(__int64 *)&PiPnpRtlCtx, (__int64)v6, (__int64)(Pool2 + 4));
           v4 = PnpCtxRegCopyTree(v9, (int)KeyHandle, (int)Pool2 + 16, (int)v6, (__int64)(Pool2 + 4));
           if ( v4 < 0 )
             goto LABEL_15;

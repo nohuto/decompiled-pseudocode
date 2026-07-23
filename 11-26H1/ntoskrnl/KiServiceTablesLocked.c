@@ -1,5 +1,5 @@
 /*
- * XREFs of KiServiceTablesLocked @ 0x140FFB010
+ * XREFs of KiServiceTablesLocked @ 0x140FFC010
  * Callers:
  *     <none>
  * Callees:

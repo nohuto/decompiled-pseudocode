@@ -1,10 +1,10 @@
 /*
- * XREFs of AlpcpInitializeMessageLog @ 0x14075D570
+ * XREFs of AlpcpInitializeMessageLog @ 0x14075E760
  * Callers:
- *     AlpcpInitSystem @ 0x14075D28C (AlpcpInitSystem.c)
+ *     AlpcpInitSystem @ 0x14075E47C (AlpcpInitSystem.c)
  * Callees:
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall AlpcpInitializeMessageLog(unsigned __int64 a1, unsigned __int64 a2)
@@ -25,11 +25,11 @@ __int64 __fastcall AlpcpInitializeMessageLog(unsigned __int64 a1, unsigned __int
 
   v2 = 0;
   AlpcpMessageLogLock = 0LL;
-  qword_14041AAF8 = (__int64)&AlpcpMessageLogListHead;
+  qword_14041BBA8 = (__int64)&AlpcpMessageLogListHead;
   AlpcpMessageLogListHead = (__int64)&AlpcpMessageLogListHead;
-  qword_14041AAE8 = (__int64)&AlpcpFreeMessageLogListHead;
+  qword_14041BBD8 = (__int64)&AlpcpFreeMessageLogListHead;
   AlpcpFreeMessageLogListHead = (__int64)&AlpcpFreeMessageLogListHead;
-  qword_14041AB18 = (__int64)&AlpcpFreeMessageSnapshotListHead;
+  qword_14041BBC8 = (__int64)&AlpcpFreeMessageSnapshotListHead;
   AlpcpFreeMessageSnapshotListHead = (__int64)&AlpcpFreeMessageSnapshotListHead;
   if ( !a1 || !a2 )
     return 0LL;
@@ -70,15 +70,15 @@ LABEL_11:
         v13 = &v8[64 * v12];
         *((_QWORD *)v13 + 7) = v13 + 48;
         *((_QWORD *)v13 + 6) = v13 + 48;
-        v14 = (char **)qword_14041AAE8;
-        if ( *(__int64 **)qword_14041AAE8 != &AlpcpFreeMessageLogListHead )
+        v14 = (char **)qword_14041BBD8;
+        if ( *(__int64 **)qword_14041BBD8 != &AlpcpFreeMessageLogListHead )
           break;
-        *((_QWORD *)v13 + 1) = qword_14041AAE8;
+        *((_QWORD *)v13 + 1) = qword_14041BBD8;
         ++v11;
         *(_QWORD *)v13 = &AlpcpFreeMessageLogListHead;
         *v14 = v13;
         v12 = v11;
-        qword_14041AAE8 = (__int64)v13;
+        qword_14041BBD8 = (__int64)v13;
         if ( v11 >= a1 )
           goto LABEL_17;
       }
@@ -91,15 +91,15 @@ LABEL_17:
       v15 = 0LL;
       while ( 1 )
       {
-        v16 = (char **)qword_14041AB18;
+        v16 = (char **)qword_14041BBC8;
         v17 = &v9[120 * v15];
-        if ( *(__int64 **)qword_14041AB18 != &AlpcpFreeMessageSnapshotListHead )
+        if ( *(__int64 **)qword_14041BBC8 != &AlpcpFreeMessageSnapshotListHead )
           break;
         *(_QWORD *)v17 = &AlpcpFreeMessageSnapshotListHead;
         ++v2;
         *((_QWORD *)v17 + 1) = v16;
         *v16 = v17;
-        qword_14041AB18 = (__int64)v17;
+        qword_14041BBC8 = (__int64)v17;
         v15 = v2;
         if ( v2 >= a2 )
           return 0LL;

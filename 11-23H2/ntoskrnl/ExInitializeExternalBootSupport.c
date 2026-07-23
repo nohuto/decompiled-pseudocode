@@ -12,7 +12,7 @@ __int64 ExInitializeExternalBootSupport()
 
   LOWORD(ExBootDevicesRemovedEvent.Header.Lock) = 1;
   ExNumMissingBootDevices = 0;
-  qword_140C2D708 = (__int64)&ExBootDeviceList;
+  qword_140C2D678 = (__int64)&ExBootDeviceList;
   ExBootDeviceList = (__int64)&ExBootDeviceList;
   ExBootDevicesRemovedEvent.Header.WaitListHead.Blink = &ExBootDevicesRemovedEvent.Header.WaitListHead;
   ExBootDevicesRemovedEvent.Header.WaitListHead.Flink = &ExBootDevicesRemovedEvent.Header.WaitListHead;

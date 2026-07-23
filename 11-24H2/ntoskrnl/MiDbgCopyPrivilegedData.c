@@ -1,11 +1,11 @@
 /*
- * XREFs of MiDbgCopyPrivilegedData @ 0x14067EC28
+ * XREFs of MiDbgCopyPrivilegedData @ 0x14067FE28
  * Callers:
- *     MiApplyDebuggerPatches @ 0x1404F6A1C (MiApplyDebuggerPatches.c)
- *     MiCopyToUntrustedMemory @ 0x14067E32C (MiCopyToUntrustedMemory.c)
+ *     MiApplyDebuggerPatches @ 0x1404F4300 (MiApplyDebuggerPatches.c)
+ *     MiCopyToUntrustedMemory @ 0x14067F52C (MiCopyToUntrustedMemory.c)
  * Callees:
- *     MiGetPhysicalAddress @ 0x140263560 (MiGetPhysicalAddress.c)
- *     VslWriteProtectedPage @ 0x14058EA9C (VslWriteProtectedPage.c)
+ *     MiGetPhysicalAddress @ 0x140292DD0 (MiGetPhysicalAddress.c)
+ *     VslWriteProtectedPage @ 0x14058BABC (VslWriteProtectedPage.c)
  */
 
 __int64 __fastcall MiDbgCopyPrivilegedData(__int64 a1, __int128 *a2, int a3, unsigned __int64 a4, unsigned int a5)

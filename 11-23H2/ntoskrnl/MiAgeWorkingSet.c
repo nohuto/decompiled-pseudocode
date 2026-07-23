@@ -1,20 +1,20 @@
 /*
- * XREFs of MiAgeWorkingSet @ 0x14025B770
+ * XREFs of MiAgeWorkingSet @ 0x14025BA00
  * Callers:
- *     MiTrimOrAgeWorkingSet @ 0x14025B4A0 (MiTrimOrAgeWorkingSet.c)
- *     MiForceAgeWorkingSet @ 0x1406348A0 (MiForceAgeWorkingSet.c)
+ *     MiTrimOrAgeWorkingSet @ 0x14025B730 (MiTrimOrAgeWorkingSet.c)
+ *     MiForceAgeWorkingSet @ 0x140634DF0 (MiForceAgeWorkingSet.c)
  * Callees:
  *     MiIsStoreProcess @ 0x140216D94 (MiIsStoreProcess.c)
- *     MiFillLogProcessInfo @ 0x14025B460 (MiFillLogProcessInfo.c)
- *     MiTbFlushType @ 0x14025BAAC (MiTbFlushType.c)
- *     MiGetAvailablePagesBelowPriority @ 0x14025BAD0 (MiGetAvailablePagesBelowPriority.c)
- *     MiComputeAgingAmount @ 0x14025BB20 (MiComputeAgingAmount.c)
- *     MiWalkPageTables @ 0x14025BD00 (MiWalkPageTables.c)
- *     MiAllocatePool @ 0x1402DF1A0 (MiAllocatePool.c)
- *     _tlgWriteEx_EtwWriteEx @ 0x140367F70 (_tlgWriteEx_EtwWriteEx.c)
- *     _tlgCreate1Sz_char @ 0x1403C431C (_tlgCreate1Sz_char.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memset @ 0x140435A00 (memset.c)
+ *     MiFillLogProcessInfo @ 0x14025B6F0 (MiFillLogProcessInfo.c)
+ *     MiTbFlushType @ 0x14025BD3C (MiTbFlushType.c)
+ *     MiGetAvailablePagesBelowPriority @ 0x14025BD60 (MiGetAvailablePagesBelowPriority.c)
+ *     MiComputeAgingAmount @ 0x14025BDB0 (MiComputeAgingAmount.c)
+ *     MiWalkPageTables @ 0x14025BF90 (MiWalkPageTables.c)
+ *     MiAllocatePool @ 0x1402DF430 (MiAllocatePool.c)
+ *     _tlgWriteEx_EtwWriteEx @ 0x140368110 (_tlgWriteEx_EtwWriteEx.c)
+ *     _tlgCreate1Sz_char @ 0x1403C44FC (_tlgCreate1Sz_char.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     memset @ 0x140435E00 (memset.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 
@@ -209,7 +209,7 @@ LABEL_44:
       v58 = 8LL;
       v36 = a3;
       v60 = 4LL;
-      tlgWriteEx_EtwWriteEx(v29, (int)&word_1400388F6, v28, 1, v30, v31, 0xAu, (__int64)v47);
+      tlgWriteEx_EtwWriteEx(v29, (int)&word_1400389DE, v28, 1, v30, v31, 0xAu, (__int64)v47);
     }
   }
   LOBYTE(v9) = v7 == 5;

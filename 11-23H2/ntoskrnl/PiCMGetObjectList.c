@@ -1,12 +1,12 @@
 /*
- * XREFs of PiCMGetObjectList @ 0x14086C5EC
+ * XREFs of PiCMGetObjectList @ 0x14086C82C
  * Callers:
- *     PiCMHandleIoctl @ 0x1406D0760 (PiCMHandleIoctl.c)
+ *     PiCMHandleIoctl @ 0x1406D0790 (PiCMHandleIoctl.c)
  * Callees:
- *     PiCMReturnBufferResultData @ 0x1406D060C (PiCMReturnBufferResultData.c)
- *     PiCMReleaseObjectInputData @ 0x14079A0D8 (PiCMReleaseObjectInputData.c)
- *     PiCMCaptureObjectInputData @ 0x14079A184 (PiCMCaptureObjectInputData.c)
- *     _PnpGetObjectList @ 0x14086C798 (_PnpGetObjectList.c)
+ *     PiCMReturnBufferResultData @ 0x1406D063C (PiCMReturnBufferResultData.c)
+ *     PiCMReleaseObjectInputData @ 0x14079A2C8 (PiCMReleaseObjectInputData.c)
+ *     PiCMCaptureObjectInputData @ 0x14079A374 (PiCMCaptureObjectInputData.c)
+ *     _PnpGetObjectList @ 0x14086C9D8 (_PnpGetObjectList.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

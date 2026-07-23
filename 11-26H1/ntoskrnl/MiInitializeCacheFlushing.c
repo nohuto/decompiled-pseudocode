@@ -1,25 +1,25 @@
 /*
- * XREFs of MiInitializeCacheFlushing @ 0x140CFF38C
+ * XREFs of MiInitializeCacheFlushing @ 0x140D0572C
  * Callers:
- *     MiInitSystem @ 0x140CF15C4 (MiInitSystem.c)
+ *     MiInitSystem @ 0x140CF7944 (MiInitSystem.c)
  * Callees:
- *     KeQueryPerformanceCounter @ 0x14021C3F0 (KeQueryPerformanceCounter.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     MiFlushCacheForAttributeChange @ 0x14024FAF0 (MiFlushCacheForAttributeChange.c)
- *     KeInvalidateAllCaches @ 0x14024FCE0 (KeInvalidateAllCaches.c)
- *     MiFlushEntireTbDueToAttributeChange @ 0x14024FD8C (MiFlushEntireTbDueToAttributeChange.c)
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     MiGetPage @ 0x1402866A0 (MiGetPage.c)
- *     MiReleaseFreshPageAtDpc @ 0x140295CA0 (MiReleaseFreshPageAtDpc.c)
- *     MiFinalizePageAttribute @ 0x1402D85E0 (MiFinalizePageAttribute.c)
- *     MiZeroPhysicalPage @ 0x1402D8B20 (MiZeroPhysicalPage.c)
- *     MiInitializePageColorBase @ 0x14036FE20 (MiInitializePageColorBase.c)
- *     ExAllocatePoolMm @ 0x1403985B0 (ExAllocatePoolMm.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     ZwQuerySystemInformation @ 0x140723AB0 (ZwQuerySystemInformation.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     KeQueryPerformanceCounter @ 0x14021DD80 (KeQueryPerformanceCounter.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     MiFlushCacheForAttributeChange @ 0x140251450 (MiFlushCacheForAttributeChange.c)
+ *     KeInvalidateAllCaches @ 0x140251640 (KeInvalidateAllCaches.c)
+ *     MiFlushEntireTbDueToAttributeChange @ 0x1402516EC (MiFlushEntireTbDueToAttributeChange.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     MiGetPage @ 0x140285C00 (MiGetPage.c)
+ *     MiReleaseFreshPageAtDpc @ 0x140295200 (MiReleaseFreshPageAtDpc.c)
+ *     MiFinalizePageAttribute @ 0x1402BA3A0 (MiFinalizePageAttribute.c)
+ *     MiZeroPhysicalPage @ 0x1402BA8E0 (MiZeroPhysicalPage.c)
+ *     MiInitializePageColorBase @ 0x140371BD0 (MiInitializePageColorBase.c)
+ *     ExAllocatePoolMm @ 0x14039A310 (ExAllocatePoolMm.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     ZwQuerySystemInformation @ 0x140728680 (ZwQuerySystemInformation.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 MiInitializeCacheFlushing()
@@ -48,12 +48,15 @@ __int64 MiInitializeCacheFlushing()
   LARGE_INTEGER PerformanceFrequency; // [rsp+20h] [rbp-50h] BYREF
   size_t Size; // [rsp+28h] [rbp-48h] BYREF
   __int128 v23; // [rsp+30h] [rbp-40h] BYREF
-  _OWORD v24[2]; // [rsp+40h] [rbp-30h] BYREF
+  _OWORD SystemInformation[2]; // [rsp+40h] [rbp-30h] BYREF
 
   v23 = 0LL;
-  memset(v24, 0, sizeof(v24));
-  if ( (int)ZwQuerySystemInformation(192LL, (__int64)v24) >= 0 && (BYTE8(v24[0]) & 1) != 0 )
-    byte_140E2D719 = 1;
+  memset(SystemInformation, 0, sizeof(SystemInformation));
+  if ( ZwQuerySystemInformation(SystemFlushInformation, SystemInformation, 0x20u, 0LL) >= 0
+    && (BYTE8(SystemInformation[0]) & 1) != 0 )
+  {
+    byte_140E2D899 = 1;
+  }
   MiInitializePageColorBase(0LL, 3, 0, (__int64)&v23);
   v0 = (unsigned __int8)_InterlockedExchangeAdd((volatile signed __int32 *)v23, 1u);
   result = MiGetPage((__int64)&MiSystemPartition, DWORD2(v23) & 0xFFFFFF00 | v0, 0);
@@ -105,8 +108,8 @@ __int64 MiInitializeCacheFlushing()
     v12 = Size >> 2;
     if ( Size >> 2 )
     {
-      v13 = dword_140E2D6F0;
-      if ( !dword_140E2D6F0 )
+      v13 = dword_140E2D870;
+      if ( !dword_140E2D870 )
         v13 = 256;
       Size = 3 * (v13 >> 2);
       PoolMm = (void *)ExAllocatePoolMm(
@@ -125,7 +128,7 @@ __int64 MiInitializeCacheFlushing()
           if ( PerformanceFrequency.QuadPart != 10000000 )
             v16.QuadPart = 10000000 * v16.QuadPart / PerformanceFrequency.QuadPart;
           _InterlockedOr(v20, 0);
-          ++dword_140E2D72C;
+          ++dword_140E2D8AC;
           KeInvalidateAllCaches();
           _InterlockedOr(v20, 0);
           PerformanceFrequency.QuadPart = 0LL;
@@ -144,7 +147,7 @@ __int64 MiInitializeCacheFlushing()
         v11 = v23;
         v19 = v3 & 0xFFFFFFFFFFFFFFFEuLL;
         v9 = v19 % v12;
-        dword_140E2D734 = v19 / v12;
+        dword_140E2D8B4 = v19 / v12;
       }
     }
     MiReleaseFreshPageAtDpc(v4, v9, v10);

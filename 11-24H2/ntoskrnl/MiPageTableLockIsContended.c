@@ -1,19 +1,19 @@
 /*
- * XREFs of MiPageTableLockIsContended @ 0x1403CFFE0
+ * XREFs of MiPageTableLockIsContended @ 0x140391410
  * Callers:
- *     NtUnlockVirtualMemory @ 0x1402333D0 (NtUnlockVirtualMemory.c)
- *     MiSharePages @ 0x1402FA880 (MiSharePages.c)
- *     MiReplaceRotateWithDemandZeroNoCopy @ 0x1403CE11C (MiReplaceRotateWithDemandZeroNoCopy.c)
- *     MiInsertViewOfPhysicalSection @ 0x1403CEF18 (MiInsertViewOfPhysicalSection.c)
- *     MiMapLockedPagesInUserSpaceHelper @ 0x1403CFA04 (MiMapLockedPagesInUserSpaceHelper.c)
- *     MiProbePacketContended @ 0x1403CFF40 (MiProbePacketContended.c)
- *     MiDecommitHardwareEnclavePages @ 0x1403D172C (MiDecommitHardwareEnclavePages.c)
- *     NtLockVirtualMemory @ 0x1403FD910 (NtLockVirtualMemory.c)
- *     MiCommitEnclavePages @ 0x140473ACC (MiCommitEnclavePages.c)
- *     MiAddPagesToEnclave @ 0x140473CEC (MiAddPagesToEnclave.c)
- *     MiProtectEnclavePages @ 0x1404CACEC (MiProtectEnclavePages.c)
- *     MiVadRangeIsIoSpace @ 0x1404CB498 (MiVadRangeIsIoSpace.c)
- *     MiScrubLargeMappedPage @ 0x14068D548 (MiScrubLargeMappedPage.c)
+ *     NtUnlockVirtualMemory @ 0x140213FA0 (NtUnlockVirtualMemory.c)
+ *     MiSharePages @ 0x140343830 (MiSharePages.c)
+ *     MiReplaceRotateWithDemandZeroNoCopy @ 0x14038E15C (MiReplaceRotateWithDemandZeroNoCopy.c)
+ *     MiMapLockedPagesInUserSpaceHelper @ 0x140390E28 (MiMapLockedPagesInUserSpaceHelper.c)
+ *     MiProbePacketContended @ 0x140391364 (MiProbePacketContended.c)
+ *     MiInsertViewOfPhysicalSection @ 0x1403C8524 (MiInsertViewOfPhysicalSection.c)
+ *     NtLockVirtualMemory @ 0x1403DBC30 (NtLockVirtualMemory.c)
+ *     MiDecommitHardwareEnclavePages @ 0x14046CF84 (MiDecommitHardwareEnclavePages.c)
+ *     MiCommitEnclavePages @ 0x14046D738 (MiCommitEnclavePages.c)
+ *     MiAddPagesToEnclave @ 0x14046D958 (MiAddPagesToEnclave.c)
+ *     MiProtectEnclavePages @ 0x1404C420C (MiProtectEnclavePages.c)
+ *     MiVadRangeIsIoSpace @ 0x1404C49B8 (MiVadRangeIsIoSpace.c)
+ *     MiScrubLargeMappedPage @ 0x14068E678 (MiScrubLargeMappedPage.c)
  * Callees:
  *     <none>
  */
@@ -63,7 +63,7 @@ __int64 __fastcall MiPageTableLockIsContended(__int64 a1, unsigned __int64 a2)
   {
     if ( (*(_DWORD *)(a1 + 184) & 0xF) != 0 && a2 >= 0xFFFFF6FB7DBED000uLL && a2 <= 0xFFFFF6FB7DBEDFFFuLL )
     {
-      return ((unsigned int)dword_140E2F0AC[(unsigned __int64)(2 * (unsigned int)((__int64)(a2 + 0x90482413000LL) >> 3)) >> 5] >> ((2 * ((__int64)(a2 + 0x90482413000LL) >> 3)) & 0x1F) >> 1) & 1;
+      return ((unsigned int)dword_140E2F1EC[(unsigned __int64)(2 * (unsigned int)((__int64)(a2 + 0x90482413000LL) >> 3)) >> 5] >> ((2 * ((__int64)(a2 + 0x90482413000LL) >> 3)) & 0x1F) >> 1) & 1;
     }
     else
     {

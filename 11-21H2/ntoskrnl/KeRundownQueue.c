@@ -3,10 +3,10 @@
  * Callers:
  *     <none>
  * Callees:
- *     KeRundownQueueEx @ 0x140234764 (KeRundownQueueEx.c)
+ *     sub_140234764 @ 0x140234764 (sub_140234764.c)
  */
 
 PLIST_ENTRY __stdcall KeRundownQueue(PRKQUEUE Queue)
 {
-  return (PLIST_ENTRY)KeRundownQueueEx(Queue);
+  return (PLIST_ENTRY)sub_140234764(Queue);
 }

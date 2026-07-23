@@ -1,9 +1,9 @@
 /*
- * XREFs of ExTryQueueWorkItem @ 0x1400D1700
+ * XREFs of ExTryQueueWorkItem @ 0x1400D1780
  * Callers:
- *     PopFxQueueWorkOrder @ 0x1401004B0 (PopFxQueueWorkOrder.c)
+ *     PopFxQueueWorkOrder @ 0x140100530 (PopFxQueueWorkOrder.c)
  * Callees:
- *     ExpTryQueueWorkItem @ 0x1400D172C (ExpTryQueueWorkItem.c)
+ *     ExpTryQueueWorkItem @ 0x1400D17AC (ExpTryQueueWorkItem.c)
  */
 
 __int64 __fastcall ExTryQueueWorkItem(__int64 a1, unsigned int a2)

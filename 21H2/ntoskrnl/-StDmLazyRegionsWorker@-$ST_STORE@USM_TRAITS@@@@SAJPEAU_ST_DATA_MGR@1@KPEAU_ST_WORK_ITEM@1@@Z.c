@@ -1,18 +1,18 @@
 /*
- * XREFs of ?StDmLazyRegionsWorker@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@KPEAU_ST_WORK_ITEM@1@@Z @ 0x14059BC10
+ * XREFs of ?StDmLazyRegionsWorker@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@KPEAU_ST_WORK_ITEM@1@@Z @ 0x14059BE40
  * Callers:
- *     ?StWorkItemProcess@?$ST_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_ST_WORK_ITEM@1@@Z @ 0x1402DA510 (-StWorkItemProcess@-$ST_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_ST_WORK_ITEM@1@@Z.c)
- *     ?StDmCleanup@?$ST_STORE@USM_TRAITS@@@@SAXPEAU_ST_DATA_MGR@1@K@Z @ 0x14035AFCC (-StDmCleanup@-$ST_STORE@USM_TRAITS@@@@SAXPEAU_ST_DATA_MGR@1@K@Z.c)
- *     ?StCompactionPerformEmergency@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@@Z @ 0x14059A2D8 (-StCompactionPerformEmergency@-$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@@Z.c)
+ *     ?StWorkItemProcess@?$ST_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_ST_WORK_ITEM@1@@Z @ 0x14028B860 (-StWorkItemProcess@-$ST_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_ST_WORK_ITEM@1@@Z.c)
+ *     ?StDmCleanup@?$ST_STORE@USM_TRAITS@@@@SAXPEAU_ST_DATA_MGR@1@K@Z @ 0x14029FD6C (-StDmCleanup@-$ST_STORE@USM_TRAITS@@@@SAXPEAU_ST_DATA_MGR@1@K@Z.c)
+ *     ?StCompactionPerformEmergency@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@@Z @ 0x14059A508 (-StCompactionPerformEmergency@-$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@@Z.c)
  * Callees:
- *     ?SmStReleaseVirtualRegion@?$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@KK@Z @ 0x1402AD0E8 (-SmStReleaseVirtualRegion@-$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@KK@Z.c)
- *     ?SmStIsRegionBusy@?$SMKM_STORE@USM_TRAITS@@@@SAKPEAU1@K@Z @ 0x1402AD21C (-SmStIsRegionBusy@-$SMKM_STORE@USM_TRAITS@@@@SAKPEAU1@K@Z.c)
- *     SmWorkQueueGetDepth @ 0x1402DDFEC (SmWorkQueueGetDepth.c)
- *     ?SmStMapRegion@?$SMKM_STORE@USM_TRAITS@@@@SAPEADPEAU1@KKKK@Z @ 0x1402DE760 (-SmStMapRegion@-$SMKM_STORE@USM_TRAITS@@@@SAPEADPEAU1@KKKK@Z.c)
- *     ?StDmLazyWorkItemQueue@?$ST_STORE@USM_TRAITS@@@@SAKPEAU_ST_DATA_MGR@1@PEAU_ST_WORK_ITEM@1@@Z @ 0x1402DF32C (-StDmLazyWorkItemQueue@-$ST_STORE@USM_TRAITS@@@@SAKPEAU_ST_DATA_MGR@1@PEAU_ST_WORK_ITEM@1@@Z.c)
- *     MiFreePagesFromMdl @ 0x1402FF4EC (MiFreePagesFromMdl.c)
- *     ?StDmIsCurrentRegion@?$ST_STORE@USM_TRAITS@@@@SAKPEAU_ST_DATA_MGR@1@K@Z @ 0x14059BBCC (-StDmIsCurrentRegion@-$ST_STORE@USM_TRAITS@@@@SAKPEAU_ST_DATA_MGR@1@K@Z.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ?SmStReleaseVirtualRegion@?$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@KK@Z @ 0x14022B444 (-SmStReleaseVirtualRegion@-$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@KK@Z.c)
+ *     ?SmStIsRegionBusy@?$SMKM_STORE@USM_TRAITS@@@@SAKPEAU1@K@Z @ 0x14022B578 (-SmStIsRegionBusy@-$SMKM_STORE@USM_TRAITS@@@@SAKPEAU1@K@Z.c)
+ *     SmWorkQueueGetDepth @ 0x14028F33C (SmWorkQueueGetDepth.c)
+ *     ?SmStMapRegion@?$SMKM_STORE@USM_TRAITS@@@@SAPEADPEAU1@KKKK@Z @ 0x14028FAB0 (-SmStMapRegion@-$SMKM_STORE@USM_TRAITS@@@@SAPEADPEAU1@KKKK@Z.c)
+ *     ?StDmLazyWorkItemQueue@?$ST_STORE@USM_TRAITS@@@@SAKPEAU_ST_DATA_MGR@1@PEAU_ST_WORK_ITEM@1@@Z @ 0x14029067C (-StDmLazyWorkItemQueue@-$ST_STORE@USM_TRAITS@@@@SAKPEAU_ST_DATA_MGR@1@PEAU_ST_WORK_ITEM@1@@Z.c)
+ *     MiFreePagesFromMdl @ 0x14030A23C (MiFreePagesFromMdl.c)
+ *     ?StDmIsCurrentRegion@?$ST_STORE@USM_TRAITS@@@@SAKPEAU_ST_DATA_MGR@1@K@Z @ 0x14059BDFC (-StDmIsCurrentRegion@-$ST_STORE@USM_TRAITS@@@@SAKPEAU_ST_DATA_MGR@1@K@Z.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall ST_STORE<SM_TRAITS>::StDmLazyRegionsWorker(__int64 a1, char a2, unsigned __int64 a3)
@@ -34,21 +34,20 @@ __int64 __fastcall ST_STORE<SM_TRAITS>::StDmLazyRegionsWorker(__int64 a1, char a
   unsigned int i; // eax
   unsigned int v20; // r13d
   __int64 v21; // r12
-  __int64 v22; // r8
-  __int64 v23; // rcx
-  int v24; // eax
-  __int64 v25; // rdi
-  void *v26; // rbx
-  __int64 v27; // rcx
-  int v28; // r9d
-  int v29; // edx
-  __int16 v30; // ax
-  int v32; // [rsp+80h] [rbp+8h]
-  char v33; // [rsp+88h] [rbp+10h]
-  int v34; // [rsp+98h] [rbp+20h]
+  __int64 v22; // rcx
+  int v23; // eax
+  __int64 v24; // rdi
+  void *v25; // rbx
+  __int64 v26; // rcx
+  int v27; // r9d
+  int v28; // edx
+  __int16 v29; // ax
+  int v31; // [rsp+80h] [rbp+8h]
+  char v32; // [rsp+88h] [rbp+10h]
+  int v33; // [rsp+98h] [rbp+20h]
 
   v4 = 0;
-  v32 = 0;
+  v31 = 0;
   v6 = 0;
   if ( a3 )
   {
@@ -57,7 +56,7 @@ __int64 __fastcall ST_STORE<SM_TRAITS>::StDmLazyRegionsWorker(__int64 a1, char a
   }
   v7 = 0;
   v8 = a2 & 1;
-  v33 = a2 & 1;
+  v32 = a2 & 1;
   do
   {
 LABEL_4:
@@ -65,7 +64,7 @@ LABEL_4:
     if ( v9 <= v7 )
     {
 LABEL_44:
-      v29 = 0;
+      v28 = 0;
       goto LABEL_45;
     }
     v10 = *(_QWORD *)(a1 + 848);
@@ -75,7 +74,7 @@ LABEL_44:
     if ( v13 != v12 )
     {
       v14 = v7 & 0x1F;
-      if ( (*v13 | *((_DWORD *)qword_140011C70 + v14)) == -1 )
+      if ( (*v13 | *((_DWORD *)qword_140012120 + v14)) == -1 )
       {
         v11 = v7 - v14 + 32;
         for ( ++v13; v13 < v12 && *v13 == -1; ++v13 )
@@ -91,7 +90,7 @@ LABEL_44:
     if ( v13 != v12 )
     {
       v16 = v11 & 0x1F;
-      if ( (*v13 & ~*((_DWORD *)qword_140011C70 + v16)) == 0 )
+      if ( (*v13 & ~*((_DWORD *)qword_140012120 + v16)) == 0 )
       {
         v15 = 32 - v16;
         if ( (_DWORD)v16 == 33 )
@@ -116,7 +115,7 @@ LABEL_44:
       ++i;
     }
 LABEL_25:
-    v4 = v32;
+    v4 = v31;
     v7 = v11;
     if ( !v15 )
       goto LABEL_44;
@@ -126,7 +125,7 @@ LABEL_25:
   v21 = 2LL * v11;
   while ( 1 )
   {
-    v34 = ++v6;
+    v33 = ++v6;
     if ( (v6 & 0xF) == 0
       && a3
       && (unsigned int)SmWorkQueueGetDepth(*(_DWORD **)(a1 + 800), *(_BYTE *)(*(_QWORD *)(a1 + 800) + 6022LL) == 0) )
@@ -135,59 +134,59 @@ LABEL_25:
     }
     if ( (unsigned int)ST_STORE<SM_TRAITS>::StDmIsCurrentRegion(a1, v7) != 8 )
       goto LABEL_40;
-    v23 = *(_QWORD *)(a1 + 800);
+    v22 = *(_QWORD *)(a1 + 800);
     if ( (*(_WORD *)(v21 + *(_QWORD *)(a1 + 1032)) & 0x1FFF) != 0 )
     {
-      if ( !SMKM_STORE<SM_TRAITS>::SmStIsRegionBusy(v23, v7)
-        || SMKM_STORE<SM_TRAITS>::SmStMapRegion(v27, v7, 0, v28, 8) != 3 )
+      if ( !SMKM_STORE<SM_TRAITS>::SmStIsRegionBusy(v22, v7)
+        || SMKM_STORE<SM_TRAITS>::SmStMapRegion(v26, v7, 0, v27, 8) != 3 )
       {
         goto LABEL_40;
       }
     }
     else
     {
-      if ( (*(_BYTE *)(v23 + 6021) & 4) != 0 )
+      if ( (*(_BYTE *)(v22 + 6021) & 4) != 0 )
       {
-        v24 = SMKM_STORE<SM_TRAITS>::SmStReleaseVirtualRegion(v23, v7, v8 | 2u);
+        v23 = SMKM_STORE<SM_TRAITS>::SmStReleaseVirtualRegion(v22, v7, v8 | 2u);
       }
       else
       {
-        v25 = *(_QWORD *)(v23 + 6216);
-        v26 = (void *)(*(_QWORD *)(v25 + 8LL * v7) & 0xFFFFFFFFFFFFFFF8uLL);
-        MiFreePagesFromMdl((ULONG_PTR)v26, 0, v22);
-        ExFreePoolWithTag(v26, 0);
-        *(_QWORD *)(v25 + 8LL * v7) = 0LL;
-        v6 = v34;
-        v8 = v33;
-        v24 = 0;
+        v24 = *(_QWORD *)(v22 + 6216);
+        v25 = (void *)(*(_QWORD *)(v24 + 8LL * v7) & 0xFFFFFFFFFFFFFFF8uLL);
+        MiFreePagesFromMdl((ULONG_PTR)v25, 0);
+        ExFreePoolWithTag(v25, 0);
+        *(_QWORD *)(v24 + 8LL * v7) = 0LL;
+        v6 = v33;
+        v8 = v32;
+        v23 = 0;
       }
-      if ( v24 >= 0 )
+      if ( v23 >= 0 )
       {
 LABEL_40:
-        v4 = v32;
+        v4 = v31;
         _bittestandset(*(signed __int32 **)(a1 + 848), v7);
         goto LABEL_41;
       }
     }
     v4 = 1;
-    v32 = 1;
+    v31 = 1;
 LABEL_41:
     ++v7;
     v21 += 2LL;
     if ( v7 >= v20 )
       goto LABEL_4;
   }
-  v29 = 1;
+  v28 = 1;
   v4 = 1;
 LABEL_45:
   if ( a3 )
   {
-    v30 = *(_WORD *)(a3 + 12) & 1;
-    if ( v30 || v4 )
+    v29 = *(_WORD *)(a3 + 12) & 1;
+    if ( v29 || v4 )
     {
-      if ( v29 )
+      if ( v28 )
         *(_WORD *)(a3 + 14) |= 1u;
-      if ( !v30 )
+      if ( !v29 )
         ST_STORE<SM_TRAITS>::StDmLazyWorkItemQueue(a1, a3);
     }
   }

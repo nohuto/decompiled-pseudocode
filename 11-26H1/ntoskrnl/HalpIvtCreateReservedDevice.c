@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpIvtCreateReservedDevice @ 0x1405AF660
+ * XREFs of HalpIvtCreateReservedDevice @ 0x1405B1E70
  * Callers:
- *     IvtEnumerateRmrrDevices @ 0x1405AF7B0 (IvtEnumerateRmrrDevices.c)
+ *     IvtEnumerateRmrrDevices @ 0x1405B1FC0 (IvtEnumerateRmrrDevices.c)
  * Callees:
- *     ExtEnvAllocateMemory @ 0x140597BA0 (ExtEnvAllocateMemory.c)
- *     ExtEnvFreeMemory @ 0x140597DF0 (ExtEnvFreeMemory.c)
- *     IvtDeleteDevice @ 0x1405AF530 (IvtDeleteDevice.c)
- *     DmrConvertDeviceScope @ 0x1405AFE88 (DmrConvertDeviceScope.c)
+ *     ExtEnvAllocateMemory @ 0x14059A320 (ExtEnvAllocateMemory.c)
+ *     ExtEnvFreeMemory @ 0x14059A570 (ExtEnvFreeMemory.c)
+ *     IvtDeleteDevice @ 0x1405B1D40 (IvtDeleteDevice.c)
+ *     DmrConvertDeviceScope @ 0x1405B2698 (DmrConvertDeviceScope.c)
  */
 
 unsigned __int64 __fastcall HalpIvtCreateReservedDevice(__int64 a1, __int64 a2)

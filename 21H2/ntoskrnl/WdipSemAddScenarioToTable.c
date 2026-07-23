@@ -1,10 +1,10 @@
 /*
- * XREFs of WdipSemAddScenarioToTable @ 0x14079A7D4
+ * XREFs of WdipSemAddScenarioToTable @ 0x14079A9D4
  * Callers:
- *     WdipSemLoadScenarioTable @ 0x140799978 (WdipSemLoadScenarioTable.c)
+ *     WdipSemLoadScenarioTable @ 0x140799B78 (WdipSemLoadScenarioTable.c)
  * Callees:
- *     WdipSemFreeScenario @ 0x14079A400 (WdipSemFreeScenario.c)
- *     WdipSemMergeScenarios @ 0x14079A8DC (WdipSemMergeScenarios.c)
+ *     WdipSemFreeScenario @ 0x14079A600 (WdipSemFreeScenario.c)
+ *     WdipSemMergeScenarios @ 0x14079AADC (WdipSemMergeScenarios.c)
  */
 
 __int64 __fastcall WdipSemAddScenarioToTable(__int64 a1)
@@ -19,7 +19,7 @@ __int64 __fastcall WdipSemAddScenarioToTable(__int64 a1)
   if ( a1 )
   {
     v3 = 0LL;
-    if ( dword_140C1A540 )
+    if ( dword_140C1A560 )
     {
       while ( 1 )
       {
@@ -31,7 +31,7 @@ __int64 __fastcall WdipSemAddScenarioToTable(__int64 a1)
         if ( !v6 && *(_WORD *)(v4 + 16) == *(_WORD *)(a1 + 16) )
           break;
         v3 = (unsigned int)(v3 + 1);
-        if ( (unsigned int)v3 >= dword_140C1A540 )
+        if ( (unsigned int)v3 >= dword_140C1A560 )
           goto LABEL_7;
       }
       v1 = WdipSemMergeScenarios(a1, WdipSemScenarioTable[v3]);
@@ -44,10 +44,10 @@ __int64 __fastcall WdipSemAddScenarioToTable(__int64 a1)
     else
     {
 LABEL_7:
-      if ( (unsigned int)dword_140C1A540 >= 0x40 )
+      if ( (unsigned int)dword_140C1A560 >= 0x40 )
         return (unsigned int)-1073741823;
       else
-        WdipSemScenarioTable[dword_140C1A540++] = a1;
+        WdipSemScenarioTable[dword_140C1A560++] = a1;
     }
   }
   else

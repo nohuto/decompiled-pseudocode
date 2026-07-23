@@ -15,8 +15,8 @@ void __fastcall PerfLogImageLoad(unsigned __int16 *a1, __int64 a2, int *a3)
   __int64 *v5; // r15
   int v6; // ecx
   int v7; // edx
-  unsigned __int64 v8; // rax
-  unsigned __int64 v9; // [rsp+50h] [rbp-128h] BYREF
+  PIMAGE_NT_HEADERS v8; // rax
+  PVOID v9; // [rsp+50h] [rbp-128h] BYREF
   __int64 v10; // [rsp+58h] [rbp-120h] BYREF
   int v11; // [rsp+60h] [rbp-118h] BYREF
   __int64 v12; // [rsp+64h] [rbp-114h] BYREF
@@ -58,7 +58,7 @@ void __fastcall PerfLogImageLoad(unsigned __int16 *a1, __int64 a2, int *a3)
           v6 = *(_DWORD *)(a2 + 464);
         else
           v6 = 0;
-        v9 = *((_QWORD *)a3 + 1);
+        v9 = (PVOID)*((_QWORD *)a3 + 1);
         v10 = *((_QWORD *)a3 + 3);
         v11 = v6;
         *(_WORD *)&v14[1] = 0;
@@ -70,9 +70,9 @@ void __fastcall PerfLogImageLoad(unsigned __int16 *a1, __int64 a2, int *a3)
         v8 = RtlImageNtHeader(v9);
         if ( v8 )
         {
-          LODWORD(v12) = *(_DWORD *)(v8 + 88);
-          HIDWORD(v12) = *(_DWORD *)(v8 + 8);
-          v15[0] = *(_QWORD *)(v8 + 48);
+          LODWORD(v12) = v8->OptionalHeader.CheckSum;
+          HIDWORD(v12) = v8->FileHeader.TimeDateStamp;
+          v15[0] = v8->OptionalHeader.ImageBase;
         }
         if ( EtwpHostSiloState != -4540 && (*(_DWORD *)(EtwpHostSiloState + 4540) & 4) != 0 )
         {

@@ -1,12 +1,12 @@
 /*
- * XREFs of MiMirrorNodeLargePages @ 0x14011246C
+ * XREFs of MiMirrorNodeLargePages @ 0x1401129DC
  * Callers:
  *     MmDuplicateMemory @ 0x1403C9918 (MmDuplicateMemory.c)
  * Callees:
- *     RtlClearBitsEx @ 0x140013C68 (RtlClearBitsEx.c)
- *     RtlSetBitsEx @ 0x1400179FC (RtlSetBitsEx.c)
- *     KeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x14001BCF0 (KeAcquireInStackQueuedSpinLockAtDpcLevel.c)
- *     KxReleaseQueuedSpinLock @ 0x140069570 (KxReleaseQueuedSpinLock.c)
+ *     RtlClearBitsEx @ 0x1400137E8 (RtlClearBitsEx.c)
+ *     RtlSetBitsEx @ 0x14001757C (RtlSetBitsEx.c)
+ *     KeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x14001B870 (KeAcquireInStackQueuedSpinLockAtDpcLevel.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400690F0 (KxReleaseQueuedSpinLock.c)
  */
 
 unsigned __int64 *__fastcall MiMirrorNodeLargePages(__int64 a1, int a2, __int64 a3)
@@ -37,13 +37,13 @@ unsigned __int64 *__fastcall MiMirrorNodeLargePages(__int64 a1, int a2, __int64 
   __int64 *v26; // [rsp+B0h] [rbp+8h]
   __int64 v29; // [rsp+C8h] [rbp+20h]
 
-  v3 = qword_140323570;
+  v3 = qword_1403235B0;
   v4 = a2;
   memset(&LockHandle, 0, sizeof(LockHandle));
   result = (unsigned __int64 *)(unsigned __int16)KeNumberNodes;
   CurrentIrql = 17;
-  v24 = qword_140323570 + 2184LL * (unsigned __int16)KeNumberNodes;
-  if ( qword_140323570 >= v24 )
+  v24 = qword_1403235B0 + 2184LL * (unsigned __int16)KeNumberNodes;
+  if ( qword_1403235B0 >= v24 )
     return result;
   do
   {
@@ -82,7 +82,7 @@ unsigned __int64 *__fastcall MiMirrorNodeLargePages(__int64 a1, int a2, __int64 
               v15 = v7;
               v16 = (__int64)(v13 + 0xB000000000LL) / 48;
               v17 = v16 & 0x1F;
-              v18 = (volatile signed __int32 *)(qword_140327080 + 4 * (v16 >> 5));
+              v18 = (volatile signed __int32 *)stru_1403270B8.Buffer + (v16 >> 5);
               if ( (v16 & 0x1F) + v7 > 0x20 )
               {
                 if ( (v16 & 0x1F) != 0 )
@@ -124,11 +124,11 @@ LABEL_23:
               {
                 if ( !*(_QWORD *)(a3 + 24) )
                   goto LABEL_25;
-                RtlClearBitsEx((__int64)&qword_140327068, (__int64)(v13 + 0xB000000000LL) / 48, v7);
+                RtlClearBitsEx((__int64)&stru_1403270A8, (__int64)(v13 + 0xB000000000LL) / 48, v7);
               }
               else
               {
-                RtlSetBitsEx((__int64)&qword_140327068, (__int64)(v13 + 0xB000000000LL) / 48, v7);
+                RtlSetBitsEx((__int64)&stru_1403270A8, (__int64)(v13 + 0xB000000000LL) / 48, v7);
               }
               v4 = a2;
 LABEL_25:

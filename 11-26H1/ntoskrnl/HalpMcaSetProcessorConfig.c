@@ -1,15 +1,15 @@
 /*
- * XREFs of HalpMcaSetProcessorConfig @ 0x140BE91B8
+ * XREFs of HalpMcaSetProcessorConfig @ 0x140BEF1B8
  * Callers:
- *     HalpMceInitProcessor @ 0x140C0A268 (HalpMceInitProcessor.c)
- *     HalpMcaResumeProcessorConfig @ 0x140C0A7E0 (HalpMcaResumeProcessorConfig.c)
+ *     HalpMceInitProcessor @ 0x140C10478 (HalpMceInitProcessor.c)
+ *     HalpMcaResumeProcessorConfig @ 0x140C109F0 (HalpMcaResumeProcessorConfig.c)
  * Callees:
- *     DbgPrintEx @ 0x140397530 (DbgPrintEx.c)
- *     HalpWheaWriteMsrControl @ 0x140453144 (HalpWheaWriteMsrControl.c)
- *     HalpWheaWriteMsrStatus @ 0x14045318C (HalpWheaWriteMsrStatus.c)
- *     HalpMcaProcessorBankConfig @ 0x140454AF8 (HalpMcaProcessorBankConfig.c)
- *     HalpIsLmceSupported @ 0x14052F944 (HalpIsLmceSupported.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     DbgPrintEx @ 0x1403992B0 (DbgPrintEx.c)
+ *     HalpWheaWriteMsrControl @ 0x14044B274 (HalpWheaWriteMsrControl.c)
+ *     HalpWheaWriteMsrStatus @ 0x14044B2BC (HalpWheaWriteMsrStatus.c)
+ *     HalpMcaProcessorBankConfig @ 0x14044CC28 (HalpMcaProcessorBankConfig.c)
+ *     HalpIsLmceSupported @ 0x140531E44 (HalpIsLmceSupported.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall HalpMcaSetProcessorConfig(__int64 a1, __int64 a2)

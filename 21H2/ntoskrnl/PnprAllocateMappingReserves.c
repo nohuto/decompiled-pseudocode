@@ -1,13 +1,13 @@
 /*
- * XREFs of PnprAllocateMappingReserves @ 0x1408AD17C
+ * XREFs of PnprAllocateMappingReserves @ 0x1408AD2DC
  * Callers:
- *     PnpReplacePartitionUnit @ 0x1408AC270 (PnpReplacePartitionUnit.c)
+ *     PnpReplacePartitionUnit @ 0x1408AC3D0 (PnpReplacePartitionUnit.c)
  * Callees:
- *     memset @ 0x140414200 (memset.c)
- *     PnprFreeMappingReserve @ 0x1408AD6D0 (PnprFreeMappingReserve.c)
- *     PnprInitializeMappingReserve @ 0x1408ADB54 (PnprInitializeMappingReserve.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     PnprFreeMappingReserve @ 0x1408AD830 (PnprFreeMappingReserve.c)
+ *     PnprInitializeMappingReserve @ 0x1408ADCB4 (PnprInitializeMappingReserve.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PnprAllocateMappingReserves(_QWORD *a1, _QWORD *a2, unsigned int a3)

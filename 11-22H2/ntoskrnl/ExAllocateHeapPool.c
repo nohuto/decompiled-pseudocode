@@ -36,7 +36,7 @@
 
 __int64 __fastcall ExAllocateHeapPool(unsigned int PoolType, unsigned __int64 a2, int a3, unsigned int a4, __int16 a5)
 {
-  struct _SLIST_ENTRY *v5; // r11
+  _SLIST_ENTRY *v5; // r11
   ULONG_PTR v6; // rdi
   unsigned int v7; // ebx
   unsigned __int64 v9; // rsi
@@ -100,7 +100,7 @@ __int64 __fastcall ExAllocateHeapPool(unsigned int PoolType, unsigned __int64 a2
   __int64 v68; // rcx
   unsigned int v69; // eax
   int v70; // eax
-  struct _SLIST_ENTRY *v71; // rdx
+  _SLIST_ENTRY *v71; // rdx
   ULONG v72; // eax
   int v73; // r11d
   __int64 v74; // rcx
@@ -132,8 +132,8 @@ __int64 __fastcall ExAllocateHeapPool(unsigned int PoolType, unsigned __int64 a2
   __int64 v100; // [rsp+48h] [rbp-79h]
   unsigned __int64 v101; // [rsp+50h] [rbp-71h]
   int v102; // [rsp+58h] [rbp-69h] BYREF
-  struct _SLIST_ENTRY **p_Next; // [rsp+60h] [rbp-61h] BYREF
-  struct _SLIST_ENTRY *v104; // [rsp+68h] [rbp-59h] BYREF
+  _SLIST_ENTRY **p_Next; // [rsp+60h] [rbp-61h] BYREF
+  _SLIST_ENTRY *v104; // [rsp+68h] [rbp-59h] BYREF
   __int64 v105; // [rsp+70h] [rbp-51h]
   __int64 v106; // [rsp+78h] [rbp-49h]
   __int64 v107; // [rsp+80h] [rbp-41h]
@@ -331,10 +331,13 @@ LABEL_102:
           }
           KxReleaseQueuedSpinLock((volatile signed __int64 **)&v109);
           OldIrql = v109.OldIrql;
-          if ( KiIrqlFlags )
+          if ( (_DWORD)KiIrqlFlags )
           {
             CurrentIrql = KeGetCurrentIrql();
-            if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v109.OldIrql <= 0xFu && CurrentIrql >= 2u )
+            if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+              && CurrentIrql <= 0xFu
+              && v109.OldIrql <= 0xFu
+              && CurrentIrql >= 2u )
             {
               CurrentPrcb = KeGetCurrentPrcb();
               SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -394,7 +397,7 @@ LABEL_102:
         {
           v32 = (unsigned __int64)p_Next;
           v71 = *p_Next;
-          p_Next = (struct _SLIST_ENTRY **)*p_Next;
+          p_Next = (_SLIST_ENTRY **)*p_Next;
           v72 = v70 - 1;
           if ( v72 )
             InterlockedPushListSList((PSLIST_HEADER)v50, v71, ListEnd, v72);
@@ -452,7 +455,7 @@ LABEL_136:
       v22 |= 8u;
       if ( (_WORD)v25 != 1 )
         goto LABEL_136;
-      if ( (int)((__int64 (__fastcall *)(__int64, _QWORD, __int64, struct _SLIST_ENTRY **))CLFS_LSN_NULL_EXT)(
+      if ( (int)((__int64 (__fastcall *)(__int64, _QWORD, __int64, _SLIST_ENTRY **))CLFS_LSN_NULL_EXT)(
                   v18,
                   0LL,
                   1LL,
@@ -631,10 +634,10 @@ LABEL_50:
         }
         KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
         v76 = LockHandle.OldIrql;
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
           v92 = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && v92 <= 0xFu && LockHandle.OldIrql <= 0xFu && v92 >= 2u )
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v92 <= 0xFu && LockHandle.OldIrql <= 0xFu && v92 >= 2u )
           {
             v93 = KeGetCurrentPrcb();
             v94 = v93->SchedulerAssist;
@@ -691,6 +694,6 @@ LABEL_61:
   }
 LABEL_192:
   if ( (v13 & 0x10) != 0 )
-    RtlRaiseStatus(3221225626LL);
+    RtlRaiseStatus(-1073741670);
   return v45;
 }

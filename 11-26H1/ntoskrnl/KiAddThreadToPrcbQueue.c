@@ -1,26 +1,26 @@
 /*
- * XREFs of KiAddThreadToPrcbQueue @ 0x1402BE9E0
+ * XREFs of KiAddThreadToPrcbQueue @ 0x1403096A0
  * Callers:
- *     KiDeferGroupSchedulingPreemption @ 0x14022FA60 (KiDeferGroupSchedulingPreemption.c)
- *     KiDeferredReadySingleThread @ 0x140231820 (KiDeferredReadySingleThread.c)
- *     KiGroupSchedulingGenerationEnd @ 0x140333210 (KiGroupSchedulingGenerationEnd.c)
- *     KiTransitionSchedulingGroupGeneration @ 0x140333BD0 (KiTransitionSchedulingGroupGeneration.c)
- *     ?KiMoveScbThreadsToNewReadylist@@YAXPEAU_KSCB@@0PEAU_KPRCB@@PEAU_SINGLE_LIST_ENTRY@@@Z @ 0x140445DC0 (-KiMoveScbThreadsToNewReadylist@@YAXPEAU_KSCB@@0PEAU_KPRCB@@PEAU_SINGLE_LIST_ENTRY@@@Z.c)
+ *     KiDeferGroupSchedulingPreemption @ 0x1402313F0 (KiDeferGroupSchedulingPreemption.c)
+ *     KiDeferredReadySingleThread @ 0x140233180 (KiDeferredReadySingleThread.c)
+ *     KiGroupSchedulingGenerationEnd @ 0x140335240 (KiGroupSchedulingGenerationEnd.c)
+ *     KiTransitionSchedulingGroupGeneration @ 0x140335C00 (KiTransitionSchedulingGroupGeneration.c)
+ *     ?KiMoveScbThreadsToNewReadylist@@YAXPEAU_KSCB@@0PEAU_KPRCB@@PEAU_SINGLE_LIST_ENTRY@@@Z @ 0x14043E8C0 (-KiMoveScbThreadsToNewReadylist@@YAXPEAU_KSCB@@0PEAU_KPRCB@@PEAU_SINGLE_LIST_ENTRY@@@Z.c)
  * Callees:
- *     KiIsThreadExemptFromForcePark @ 0x14022F9EC (KiIsThreadExemptFromForcePark.c)
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     KxWaitForLockOwnerShip @ 0x1402B29C0 (KxWaitForLockOwnerShip.c)
- *     KeWakeAddressAll @ 0x1402BA1F0 (KeWakeAddressAll.c)
- *     KxWaitForLockChainValid @ 0x1402BA360 (KxWaitForLockChainValid.c)
- *     HvlNotifyLongSpinWait @ 0x1402BBF00 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1402BC760 (KiCheckVpBackingLongSpinWaitHypercall.c)
- *     KiInsertQueueDpc @ 0x1402BD330 (KiInsertQueueDpc.c)
- *     KxReleaseSpinLock @ 0x1402BDEF0 (KxReleaseSpinLock.c)
- *     KiScheduleSoftParkElectionIfNecessary @ 0x1402BDF30 (KiScheduleSoftParkElectionIfNecessary.c)
- *     KxAcquireSpinLock @ 0x14032F2C0 (KxAcquireSpinLock.c)
- *     KiReadGuestSchedulerAssistPriority @ 0x1403C0494 (KiReadGuestSchedulerAssistPriority.c)
- *     KiArmForceParkDutyCyclingForLocalReadyQueue @ 0x140516424 (KiArmForceParkDutyCyclingForLocalReadyQueue.c)
- *     KiArmForceParkDutyCyclingForSharedReadyQueue @ 0x140529008 (KiArmForceParkDutyCyclingForSharedReadyQueue.c)
+ *     KiIsThreadExemptFromForcePark @ 0x14023137C (KiIsThreadExemptFromForcePark.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     KxWaitForLockOwnerShip @ 0x1402FD690 (KxWaitForLockOwnerShip.c)
+ *     KeWakeAddressAll @ 0x140304EB0 (KeWakeAddressAll.c)
+ *     KxWaitForLockChainValid @ 0x140305020 (KxWaitForLockChainValid.c)
+ *     HvlNotifyLongSpinWait @ 0x140306BC0 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140307420 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     KiInsertQueueDpc @ 0x140307FF0 (KiInsertQueueDpc.c)
+ *     KxReleaseSpinLock @ 0x140308BB0 (KxReleaseSpinLock.c)
+ *     KiScheduleSoftParkElectionIfNecessary @ 0x140308BF0 (KiScheduleSoftParkElectionIfNecessary.c)
+ *     KxAcquireSpinLock @ 0x1403312F0 (KxAcquireSpinLock.c)
+ *     KiReadGuestSchedulerAssistPriority @ 0x1403CA394 (KiReadGuestSchedulerAssistPriority.c)
+ *     KiArmForceParkDutyCyclingForLocalReadyQueue @ 0x14050FE94 (KiArmForceParkDutyCyclingForLocalReadyQueue.c)
+ *     KiArmForceParkDutyCyclingForSharedReadyQueue @ 0x14052B5F8 (KiArmForceParkDutyCyclingForSharedReadyQueue.c)
  */
 
 int *__fastcall KiAddThreadToPrcbQueue(__int64 a1, __int64 a2, __int64 a3, int a4, char a5, int *a6)
@@ -50,8 +50,8 @@ int *__fastcall KiAddThreadToPrcbQueue(__int64 a1, __int64 a2, __int64 a3, int a
   unsigned int v31; // esi
   __int64 v32; // rcx
   bool v33; // bl
-  void *volatile **v34; // rax
-  void *volatile ***v35; // rdx
+  _KERNEL_SHADOW_STACK_LIMIT **v34; // rax
+  _QWORD *ExtendedFeatureDisableMask; // rdx
   __int64 v36; // rax
   unsigned int v37; // ecx
   unsigned int v38; // eax
@@ -77,22 +77,22 @@ int *__fastcall KiAddThreadToPrcbQueue(__int64 a1, __int64 a2, __int64 a3, int a
     v33 = 0;
     if ( (unsigned int)KiReadGuestSchedulerAssistPriority(a2, 0LL) != *(_DWORD *)(a2 + 1024) )
     {
-      KxAcquireSpinLock((PKSPIN_LOCK)&KiSupervisorXStateFeaturesLock.SchedulerApc.ApcListEntry.Blink);
-      v34 = (void *volatile **)(a2 + 1008);
+      KxAcquireSpinLock((PKSPIN_LOCK)&KiSupervisorXStateFeaturesLock.WpsFeedback);
+      v34 = (_KERNEL_SHADOW_STACK_LIMIT **)(a2 + 1008);
       if ( *(_QWORD *)(a2 + 1008) == 1LL )
       {
-        v35 = *(void *volatile ****)&KiSupervisorXStateFeaturesLock.ReservedPreviousReadyTimeValue;
-        v33 = KiSupervisorXStateFeaturesLock.AbWaitObject == &KiSupervisorXStateFeaturesLock.AbWaitObject;
-        if ( **(struct _KTHREAD ***)&KiSupervisorXStateFeaturesLock.ReservedPreviousReadyTimeValue != (struct _KTHREAD *)&KiSupervisorXStateFeaturesLock.AbWaitObject )
+        ExtendedFeatureDisableMask = (_QWORD *)KiSupervisorXStateFeaturesLock.ExtendedFeatureDisableMask;
+        v33 = KiSupervisorXStateFeaturesLock.KernelShadowStackLimit.AllFields == (_QWORD)&KiSupervisorXStateFeaturesLock.KernelShadowStackLimit;
+        if ( *(struct _KTHREAD **)KiSupervisorXStateFeaturesLock.ExtendedFeatureDisableMask != (struct _KTHREAD *)&KiSupervisorXStateFeaturesLock.KernelShadowStackLimit )
           goto LABEL_15;
-        *v34 = &KiSupervisorXStateFeaturesLock.AbWaitObject;
-        *(_QWORD *)(a2 + 1016) = v35;
-        *v35 = v34;
-        *(_QWORD *)&KiSupervisorXStateFeaturesLock.ReservedPreviousReadyTimeValue = a2 + 1008;
+        *v34 = &KiSupervisorXStateFeaturesLock.KernelShadowStackLimit;
+        *(_QWORD *)(a2 + 1016) = ExtendedFeatureDisableMask;
+        *ExtendedFeatureDisableMask = v34;
+        KiSupervisorXStateFeaturesLock.ExtendedFeatureDisableMask = a2 + 1008;
       }
-      KxReleaseSpinLock((PKSPIN_LOCK)&KiSupervisorXStateFeaturesLock.SchedulerApc.ApcListEntry.Blink);
+      KxReleaseSpinLock((PKSPIN_LOCK)&KiSupervisorXStateFeaturesLock.WpsFeedback);
       if ( v33 )
-        KiInsertQueueDpc((ULONG_PTR)&KiSupervisorXStateFeaturesLock.1008, 0LL, 0LL, 0LL, 0);
+        KiInsertQueueDpc((ULONG_PTR)&KiSupervisorXStateFeaturesLock.Spare35[1], 0LL, 0LL, 0LL, 0);
     }
   }
   if ( (*(_DWORD *)(a2 + 120) & 0x2000) != 0 && (v10 = *(_QWORD *)(a1 + 36480)) != 0 )
@@ -193,8 +193,7 @@ LABEL_51:
         {
           if ( *(_QWORD *)(v15 + 792) > (unsigned __int64)(unsigned int)KeSoftParkedQueueThreshold )
           {
-            v45 = *(_QWORD *)(KiProcessorBlock[*((unsigned int *)&KiSupervisorXStateFeaturesLock.WaitBlock[2].Thread->Header.Lock
-                                               + 64 * (unsigned __int64)*(unsigned __int16 *)(v15 + 710)
+            v45 = *(_QWORD *)(KiProcessorBlock[*((unsigned int *)&KiSupervisorXStateFeaturesLock.SchedulerApc.ApcListEntry.Flink[16 * (unsigned __int64)*(unsigned __int16 *)(v15 + 710)].Flink
                                                + *(unsigned __int8 *)(v15 + 705))]
                             + 192);
             v43 = ~*(_QWORD *)(v45 + 80);

@@ -1,33 +1,34 @@
 /*
- * XREFs of PpmEventHgsContainmentGroupInfo @ 0x1405D916C
+ * XREFs of PpmEventHgsContainmentGroupInfo @ 0x1405D660C
  * Callers:
- *     PpmHeteroHgsRegisterContainmentGroups @ 0x1405D7408 (PpmHeteroHgsRegisterContainmentGroups.c)
- *     PpmEventTraceControlCallback @ 0x140ACA960 (PpmEventTraceControlCallback.c)
+ *     PpmHeteroHgsRegisterContainmentGroups @ 0x1405D49AC (PpmHeteroHgsRegisterContainmentGroups.c)
+ *     PpmEventTraceControlCallback @ 0x140AC8550 (PpmEventTraceControlCallback.c)
  * Callees:
- *     EtwWriteEx @ 0x140259680 (EtwWriteEx.c)
- *     EtwEventEnabled @ 0x1402A1BD0 (EtwEventEnabled.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     EtwWriteEx @ 0x140289C90 (EtwWriteEx.c)
+ *     EtwEventEnabled @ 0x1402D1300 (EtwEventEnabled.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __fastcall PpmEventHgsContainmentGroupInfo(__int64 a1, char a2)
 {
   const EVENT_DESCRIPTOR *v3; // rbx
   _DWORD *v4; // rsi
+  ULONG_PTR v5; // rdx
   char *Pool2; // rdi
-  int v6; // r11d
-  _QWORD *v7; // r8
+  int v7; // r11d
+  _QWORD *v8; // r8
   ULONG UserDataCount; // r9d
-  __int64 *v9; // r14
-  ULONGLONG v10; // r10
-  unsigned int v11; // ebp
-  _BYTE *v12; // rsi
-  __int64 v13; // rcx
+  __int64 *v10; // r14
+  ULONGLONG v11; // r10
+  unsigned int v12; // ebp
+  _BYTE *v13; // rsi
   __int64 v14; // rcx
-  __int64 v15; // rax
+  __int64 v15; // rcx
   __int64 v16; // rax
-  int v17; // [rsp+40h] [rbp-D8h] BYREF
+  __int64 v17; // rax
+  int v18; // [rsp+40h] [rbp-D8h] BYREF
   struct _EVENT_DATA_DESCRIPTOR UserData[10]; // [rsp+50h] [rbp-C8h] BYREF
 
   if ( (PpmHeteroHgsContainmentState & 4) != 0 )
@@ -39,48 +40,49 @@ void __fastcall PpmEventHgsContainmentGroupInfo(__int64 a1, char a2)
     {
       if ( EtwEventEnabled(PpmEtwHandle, v3) )
       {
-        v4 = *(_DWORD **)(a1 + 1272);
-        v17 = *v4;
-        Pool2 = (char *)ExAllocatePool2(0x40uLL);
+        v4 = *(_DWORD **)(a1 + 1280);
+        v5 = (unsigned int)(13 * *v4);
+        v18 = *v4;
+        Pool2 = (char *)ExAllocatePool2(0x40uLL, v5, 0x654D5050u);
         if ( Pool2 )
         {
           UserData[0].Reserved = 0;
-          UserData[0].Ptr = (ULONGLONG)&v17;
-          v6 = 0;
+          UserData[0].Ptr = (ULONGLONG)&v18;
+          v7 = 0;
           UserData[0].Size = 4;
-          v7 = Pool2 + 5;
+          v8 = Pool2 + 5;
           UserDataCount = 1;
-          v9 = (__int64 *)(v4 + 6);
-          v10 = (ULONGLONG)(Pool2 + 5);
-          v11 = 3;
-          v12 = v4 + 2;
+          v10 = (__int64 *)(v4 + 6);
+          v11 = (ULONGLONG)(Pool2 + 5);
+          v12 = 3;
+          v13 = v4 + 2;
           do
           {
-            *(_DWORD *)((char *)v7 - 5) = v6++;
-            v13 = UserDataCount;
+            *(_DWORD *)((char *)v8 - 5) = v7++;
+            v14 = UserDataCount;
             UserDataCount += 3;
-            *(&UserData[0].Reserved + 1 * v13) = 0;
-            UserData[v13].Ptr = v10 - 5;
-            UserData[v13].Size = 1;
-            v14 = v11 - 1;
-            *((_BYTE *)v7 - 1) = *v12;
-            v12 += 2;
             *(&UserData[0].Reserved + 1 * v14) = 0;
-            UserData[v14].Ptr = v10 - 1;
+            UserData[v14].Ptr = v11 - 5;
             UserData[v14].Size = 1;
-            v15 = *v9;
-            v9 += 33;
-            *v7 = v15;
-            v7 = (_QWORD *)((char *)v7 + 13);
-            v16 = v11;
-            v11 += 3;
-            v16 *= 2LL;
-            *(&UserData[0].Reserved + 2 * v16) = 0;
-            *(&UserData[0].Ptr + v16) = v10;
-            v10 += 13LL;
-            *(&UserData[0].Size + 2 * v16) = 8;
+            v15 = v12 - 1;
+            *((_BYTE *)v8 - 1) = *v13;
+            v13 += 2;
+            *(&UserData[0].Reserved + 1 * v15) = 0;
+            UserData[v15].Ptr = v11 - 1;
+            UserData[v15].Size = 1;
+            v16 = *v10;
+            v10 += 33;
+            *v8 = v16;
+            v8 = (_QWORD *)((char *)v8 + 13);
+            v17 = v12;
+            v12 += 3;
+            v17 *= 2LL;
+            *(&UserData[0].Reserved + 2 * v17) = 0;
+            *(&UserData[0].Ptr + v17) = v11;
+            v11 += 13LL;
+            *(&UserData[0].Size + 2 * v17) = 8;
           }
-          while ( v6 < 3 );
+          while ( v7 < 3 );
           EtwWriteEx(PpmEtwHandle, v3, 0LL, 0, 0LL, 0LL, UserDataCount, UserData);
           ExFreePoolWithTag(Pool2, 0x654D5050u);
         }

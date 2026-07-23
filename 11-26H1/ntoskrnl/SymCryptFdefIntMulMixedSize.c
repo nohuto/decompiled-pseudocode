@@ -1,11 +1,11 @@
 /*
- * XREFs of SymCryptFdefIntMulMixedSize @ 0x14056884C
+ * XREFs of SymCryptFdefIntMulMixedSize @ 0x140567A2C
  * Callers:
- *     SymCryptIntMulMixedSize @ 0x14055C37C (SymCryptIntMulMixedSize.c)
+ *     SymCryptIntMulMixedSize @ 0x14055E864 (SymCryptIntMulMixedSize.c)
  * Callees:
- *     xHalTimerWatchdogStop @ 0x1404D1DF0 (xHalTimerWatchdogStop.c)
- *     SymCryptWipe @ 0x140556458 (SymCryptWipe.c)
- *     SymCryptFdefRawMul @ 0x140568EE0 (SymCryptFdefRawMul.c)
+ *     xHalTimerWatchdogStop @ 0x1404CB9A0 (xHalTimerWatchdogStop.c)
+ *     SymCryptWipe @ 0x1405588E8 (SymCryptWipe.c)
+ *     SymCryptFdefRawMul @ 0x1405680C0 (SymCryptFdefRawMul.c)
  */
 
 __int64 __fastcall SymCryptFdefIntMulMixedSize(__int64 a1, __int64 a2, __int64 a3)

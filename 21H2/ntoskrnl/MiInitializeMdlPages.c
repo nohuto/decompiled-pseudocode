@@ -1,12 +1,12 @@
 /*
- * XREFs of MiInitializeMdlPages @ 0x1402E3564
+ * XREFs of MiInitializeMdlPages @ 0x1402948B4
  * Callers:
- *     MiAllocatePagesForMdl @ 0x1402E33F4 (MiAllocatePagesForMdl.c)
- *     MiReturnMdlExcess @ 0x1405341AC (MiReturnMdlExcess.c)
+ *     MiAllocatePagesForMdl @ 0x140294744 (MiAllocatePagesForMdl.c)
+ *     MiReturnMdlExcess @ 0x1405343EC (MiReturnMdlExcess.c)
  * Callees:
- *     KeShouldYieldProcessor @ 0x140293FD0 (KeShouldYieldProcessor.c)
- *     MiInitializeMdlLeafPfns @ 0x1402E36BC (MiInitializeMdlLeafPfns.c)
- *     MiSwizzleInvalidPte @ 0x140329F90 (MiSwizzleInvalidPte.c)
+ *     KeShouldYieldProcessor @ 0x140211F40 (KeShouldYieldProcessor.c)
+ *     MiInitializeMdlLeafPfns @ 0x140294A0C (MiInitializeMdlLeafPfns.c)
+ *     MiSwizzleInvalidPte @ 0x140334CE0 (MiSwizzleInvalidPte.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 

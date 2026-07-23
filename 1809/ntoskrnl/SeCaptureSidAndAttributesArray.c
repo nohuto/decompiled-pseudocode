@@ -1,22 +1,22 @@
 /*
- * XREFs of SeCaptureSidAndAttributesArray @ 0x1405BD0D0
+ * XREFs of SeCaptureSidAndAttributesArray @ 0x1405BE0D0
  * Callers:
- *     NtCreateTokenEx @ 0x1405BC550 (NtCreateTokenEx.c)
- *     SepSetTokenCapabilities @ 0x1405BCEA4 (SepSetTokenCapabilities.c)
- *     SepLengthSidAndAttributesArray @ 0x1405BD014 (SepLengthSidAndAttributesArray.c)
- *     SepCreateClaimAttributes @ 0x1405BD654 (SepCreateClaimAttributes.c)
- *     NtSetInformationToken @ 0x1405BDAA0 (NtSetInformationToken.c)
- *     NtCreateLowBoxToken @ 0x140654F70 (NtCreateLowBoxToken.c)
- *     NtAdjustGroupsToken @ 0x1406B58D0 (NtAdjustGroupsToken.c)
- *     NtFilterToken @ 0x1406C6B60 (NtFilterToken.c)
- *     SepDuplicateClaimAttributes @ 0x1408A3F20 (SepDuplicateClaimAttributes.c)
+ *     NtCreateTokenEx @ 0x1405BD550 (NtCreateTokenEx.c)
+ *     SepSetTokenCapabilities @ 0x1405BDEA4 (SepSetTokenCapabilities.c)
+ *     SepLengthSidAndAttributesArray @ 0x1405BE014 (SepLengthSidAndAttributesArray.c)
+ *     SepCreateClaimAttributes @ 0x1405BE654 (SepCreateClaimAttributes.c)
+ *     NtSetInformationToken @ 0x1405BEAA0 (NtSetInformationToken.c)
+ *     NtCreateLowBoxToken @ 0x140656130 (NtCreateLowBoxToken.c)
+ *     NtAdjustGroupsToken @ 0x1406B6B70 (NtAdjustGroupsToken.c)
+ *     NtFilterToken @ 0x1406C7E00 (NtFilterToken.c)
+ *     SepDuplicateClaimAttributes @ 0x1408A5180 (SepDuplicateClaimAttributes.c)
  * Callees:
  *     RtlLengthSid @ 0x1400162C0 (RtlLengthSid.c)
- *     memmove @ 0x1401D1540 (memmove.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     RtlValidSid @ 0x140631570 (RtlValidSid.c)
- *     ExRaiseDatatypeMisalignment @ 0x1408D65C0 (ExRaiseDatatypeMisalignment.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     RtlValidSid @ 0x140632590 (RtlValidSid.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408D7880 (ExRaiseDatatypeMisalignment.c)
  */
 
 __int64 __fastcall SeCaptureSidAndAttributesArray(

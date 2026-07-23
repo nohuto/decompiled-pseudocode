@@ -1,7 +1,7 @@
 /*
  * XREFs of RtlValidateHeap @ 0x18005F680
  * Callers:
- *     RtlValidateProcessHeaps @ 0x1800F3350 (RtlValidateProcessHeaps.c)
+ *     RtlValidateProcessHeaps @ 0x1800F3310 (RtlValidateProcessHeaps.c)
  * Callees:
  *     RtlpHpSizeHeap @ 0x1800243E0 (RtlpHpSizeHeap.c)
  *     RtlpHpConvertFlagsToSegmentFlags @ 0x1800246E0 (RtlpHpConvertFlagsToSegmentFlags.c)
@@ -13,91 +13,88 @@
  *     RtlLockHeap @ 0x18005F990 (RtlLockHeap.c)
  *     RtlUnlockHeap @ 0x18005FA30 (RtlUnlockHeap.c)
  *     RtlpCheckHeapSignature @ 0x18005FAC0 (RtlpCheckHeapSignature.c)
- *     _guard_dispatch_icall_nop @ 0x1800A1160 (_guard_dispatch_icall_nop.c)
- *     RtlpValidateHeap @ 0x1800FA614 (RtlpValidateHeap.c)
- *     RtlpLogHeapValidateEvent @ 0x18010A99C (RtlpLogHeapValidateEvent.c)
- *     RtlpHeapExceptionFilter @ 0x18010E0A4 (RtlpHeapExceptionFilter.c)
+ *     _guard_dispatch_icall_nop @ 0x1800A1120 (_guard_dispatch_icall_nop.c)
+ *     RtlpValidateHeap @ 0x1800FA5D4 (RtlpValidateHeap.c)
+ *     RtlpLogHeapValidateEvent @ 0x18010A95C (RtlpLogHeapValidateEvent.c)
+ *     RtlpHeapExceptionFilter @ 0x18010E064 (RtlpHeapExceptionFilter.c)
  */
 
-bool __fastcall RtlValidateHeap(__int64 a1, int a2, unsigned __int64 a3)
+BOOLEAN __cdecl RtlValidateHeap(PVOID HeapHandle, ULONG Flags, PVOID BaseAddress)
 {
   char v6; // r15
-  __int64 v7; // rdx
-  __int64 v8; // r8
-  unsigned __int64 v9; // rdx
-  char v10; // al
-  __int64 v11; // rcx
-  bool v13; // di
-  int v14; // r9d
-  int v15; // edx
-  int v16; // ecx
-  int v17; // r8d
-  char v18; // [rsp+20h] [rbp-28h]
+  char *v7; // rdx
+  BOOLEAN v8; // al
+  __int64 v9; // rcx
+  BOOLEAN v11; // di
+  int v12; // r9d
+  int v13; // edx
+  int v14; // ecx
+  int v15; // r8d
+  BOOLEAN v16; // [rsp+20h] [rbp-28h]
 
   v6 = 0;
-  if ( *(_DWORD *)(a1 + 16) == -571548178 )
+  if ( *((_DWORD *)HeapHandle + 4) == -571548178 )
   {
-    v13 = 1;
-    if ( (a2 & 1) == 0 )
-      RtlLockHeap(a1);
-    v14 = RtlpHpConvertFlagsToSegmentFlags(a2);
-    v15 = *(_DWORD *)(a1 + 220);
-    v16 = 0;
-    if ( v15 )
-      LOBYTE(v16) = v15 == LODWORD(NtCurrentTeb()->ClientId.UniqueThread);
-    v17 = v14 | 1;
-    if ( !v16 )
-      v17 = v14;
-    if ( a3 )
+    v11 = 1;
+    if ( (Flags & 1) == 0 )
+      RtlLockHeap(HeapHandle);
+    v12 = RtlpHpConvertFlagsToSegmentFlags(Flags);
+    v13 = *((_DWORD *)HeapHandle + 55);
+    v14 = 0;
+    if ( v13 )
+      LOBYTE(v14) = v13 == LODWORD(NtCurrentTeb()->ClientId.UniqueThread);
+    v15 = v12 | 1;
+    if ( !v14 )
+      v15 = v12;
+    if ( BaseAddress )
     {
       if ( (RtlpHpAppCompatFlags & 2) != 0 )
-        a3 -= *(_QWORD *)(a3 - 16);
-      v13 = RtlpHpSizeHeap(a1, a3, v17) != -1;
+        BaseAddress = (char *)BaseAddress - *((_QWORD *)BaseAddress - 2);
+      v11 = RtlpHpSizeHeap((__int64)HeapHandle, (unsigned __int64)BaseAddress, v15) != -1;
     }
-    if ( (a2 & 1) == 0 )
-      RtlUnlockHeap(a1);
-    return v13;
+    if ( (Flags & 1) == 0 )
+      RtlUnlockHeap(HeapHandle);
+    return v11;
   }
   else
   {
-    v18 = 0;
-    if ( (*(_DWORD *)(a1 + 116) & 0x1000000) != 0 )
+    v16 = 0;
+    if ( (*((_DWORD *)HeapHandle + 29) & 0x1000000) != 0 )
     {
-      v18 = ((__int64 (*)(void))qword_180166458)();
+      v16 = ((__int64 (*)(void))qword_180166458)();
     }
-    else if ( (unsigned __int8)RtlpCheckHeapSignature(a1, "RtlValidateHeap") )
+    else if ( (unsigned __int8)RtlpCheckHeapSignature(HeapHandle, "RtlValidateHeap") )
     {
-      if ( ((*(_BYTE *)(a1 + 116) | (unsigned __int8)a2) & 1) == 0 )
+      if ( ((*((_BYTE *)HeapHandle + 116) | (unsigned __int8)Flags) & 1) == 0 )
       {
-        RtlEnterCriticalSection(*(_QWORD *)(a1 + 352));
+        RtlEnterCriticalSection(*((PRTL_CRITICAL_SECTION *)HeapHandle + 44));
         v6 = 1;
       }
-      if ( a3 )
+      if ( BaseAddress )
       {
-        v9 = a3 - 16;
-        _m_prefetchw((const void *)(a3 - 16));
-        if ( *(_BYTE *)(a3 - 16 + 15) == 5 )
-          v9 -= 16LL * *(unsigned __int8 *)(v9 + 14);
-        v10 = RtlpValidateHeapEntry(a1, v9, "RtlValidateHeap");
+        v7 = (char *)BaseAddress - 16;
+        _m_prefetchw((char *)BaseAddress - 16);
+        if ( *((char *)BaseAddress - 1) == 5 )
+          v7 -= 16 * (unsigned __int8)v7[14];
+        v8 = RtlpValidateHeapEntry(HeapHandle, v7, "RtlValidateHeap");
       }
       else
       {
-        LOBYTE(v7) = 1;
-        v10 = RtlpValidateHeap(a1, v7);
+        v8 = RtlpValidateHeap((_DWORD)HeapHandle);
       }
-      v18 = v10;
+      v16 = v8;
     }
     if ( v6 )
-      RtlLeaveCriticalSection(*(_QWORD *)(a1 + 352), v7, v8);
-    if ( (unsigned int)RtlGetCurrentServiceSessionId() )
-      v11 = (__int64)NtCurrentPeb()->SharedData + 550;
+      RtlLeaveCriticalSection(*((PRTL_CRITICAL_SECTION *)HeapHandle + 44));
+    if ( RtlGetCurrentServiceSessionId() )
+      v9 = (__int64)NtCurrentPeb()->SharedData + 550;
     else
-      v11 = 2147353472LL;
-    if ( *(_BYTE *)v11 )
+      v9 = 2147353472LL;
+    if ( *(_BYTE *)v9 )
     {
       if ( (NtCurrentPeb()->TracingFlags & 1) != 0 )
-        RtlpLogHeapValidateEvent(a1);
+        RtlpLogHeapValidateEvent(HeapHandle);
     }
-    return v18;
+    return v16;
   }
 }

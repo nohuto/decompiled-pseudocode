@@ -1,9 +1,9 @@
 /*
- * XREFs of ViPacketNotificationCallback @ 0x140ADD1A0
+ * XREFs of ViPacketNotificationCallback @ 0x140ADD190
  * Callers:
  *     <none>
  * Callees:
- *     VfPacketFree @ 0x140ADD134 (VfPacketFree.c)
+ *     VfPacketFree @ 0x140ADD124 (VfPacketFree.c)
  */
 
 void __fastcall ViPacketNotificationCallback(_QWORD *a1, __int64 a2, int a3)

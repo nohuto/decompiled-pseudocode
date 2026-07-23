@@ -1,40 +1,40 @@
 /*
- * XREFs of MiAllocateWsle @ 0x1402D7F18
+ * XREFs of MiAllocateWsle @ 0x1402B9CD8
  * Callers:
- *     MiCompletePrivateZeroFault @ 0x1402D6770 (MiCompletePrivateZeroFault.c)
- *     MiCompleteProtoPteFault @ 0x1402D8E50 (MiCompleteProtoPteFault.c)
- *     MiMakeSystemCachePtesValid @ 0x1402E5F40 (MiMakeSystemCachePtesValid.c)
- *     MiResolveProtoCombine @ 0x1403089FC (MiResolveProtoCombine.c)
- *     MiBuildForkPageTable @ 0x14030DC5C (MiBuildForkPageTable.c)
- *     MiCompleteRestrictedImageFault @ 0x1403744A0 (MiCompleteRestrictedImageFault.c)
- *     MiIssueHardFault @ 0x14038D350 (MiIssueHardFault.c)
- *     MiResolveTransitionFault @ 0x1403A6F04 (MiResolveTransitionFault.c)
- *     MiMakeModifiedSystemCachePteValid @ 0x14048BB40 (MiMakeModifiedSystemCachePteValid.c)
- *     MiFinishLastForkPageTable @ 0x1404D069C (MiFinishLastForkPageTable.c)
- *     MiInitializeWorkingSetList @ 0x1404D3AF0 (MiInitializeWorkingSetList.c)
+ *     MiCompletePrivateZeroFault @ 0x1402B8530 (MiCompletePrivateZeroFault.c)
+ *     MiCompleteProtoPteFault @ 0x1402BAC10 (MiCompleteProtoPteFault.c)
+ *     MiMakeSystemCachePtesValid @ 0x1402C7F80 (MiMakeSystemCachePtesValid.c)
+ *     MiResolveProtoCombine @ 0x1402EAA7C (MiResolveProtoCombine.c)
+ *     MiBuildForkPageTable @ 0x1402EFCDC (MiBuildForkPageTable.c)
+ *     MiCompleteRestrictedImageFault @ 0x140376250 (MiCompleteRestrictedImageFault.c)
+ *     MiIssueHardFault @ 0x14038F100 (MiIssueHardFault.c)
+ *     MiResolveTransitionFault @ 0x1403A8C64 (MiResolveTransitionFault.c)
+ *     MiMakeModifiedSystemCachePteValid @ 0x140485680 (MiMakeModifiedSystemCachePteValid.c)
+ *     MiFinishLastForkPageTable @ 0x1404CA0CC (MiFinishLastForkPageTable.c)
+ *     MiInitializeWorkingSetList @ 0x1404CD360 (MiInitializeWorkingSetList.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     MiProcessWsInSwapFault @ 0x14029EFBC (MiProcessWsInSwapFault.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402DED10 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     MiAddWorkingSetEntries @ 0x1402EBAC0 (MiAddWorkingSetEntries.c)
- *     MiIsDecayPfn @ 0x1402F9850 (MiIsDecayPfn.c)
- *     MiGetPagePrivilege @ 0x1402F9878 (MiGetPagePrivilege.c)
- *     MiGetPfnSlabType @ 0x1402FDC40 (MiGetPfnSlabType.c)
- *     MiWritePteShadow @ 0x14031C28C (MiWritePteShadow.c)
- *     MiSanitizeShadowPxe @ 0x140342108 (MiSanitizeShadowPxe.c)
- *     MiGetEffectivePagePriorityThread @ 0x1403719B0 (MiGetEffectivePagePriorityThread.c)
- *     MiCompleteSecureProcessFault @ 0x14038AED0 (MiCompleteSecureProcessFault.c)
- *     MiMarkPfnVerified @ 0x14038C9E8 (MiMarkPfnVerified.c)
- *     MiIncrementVmFaultCount @ 0x14044D7E0 (MiIncrementVmFaultCount.c)
- *     MiLockSetPfnPriority @ 0x140457A10 (MiLockSetPfnPriority.c)
- *     MiUpdateSecurePte @ 0x1404B0E7C (MiUpdateSecurePte.c)
- *     MiFillVirtualFaultInfo @ 0x1404B2A04 (MiFillVirtualFaultInfo.c)
- *     MiLogAllocateWsleEvent @ 0x140515DFC (MiLogAllocateWsleEvent.c)
- *     MiGetVirtualFaultPageInfo @ 0x140525BB8 (MiGetVirtualFaultPageInfo.c)
- *     MiReplicatePteChange @ 0x140528570 (MiReplicatePteChange.c)
- *     MiPromoteVirtualizationFault @ 0x1406FF80C (MiPromoteVirtualizationFault.c)
- *     KdpSetOwedBreakpoints @ 0x140C175F0 (KdpSetOwedBreakpoints.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     MiProcessWsInSwapFault @ 0x14029E50C (MiProcessWsInSwapFault.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402C0B20 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     MiAddWorkingSetEntries @ 0x1402CDB00 (MiAddWorkingSetEntries.c)
+ *     MiIsDecayPfn @ 0x1402DB8D0 (MiIsDecayPfn.c)
+ *     MiGetPagePrivilege @ 0x1402DB8F8 (MiGetPagePrivilege.c)
+ *     MiGetPfnSlabType @ 0x1402DFCC0 (MiGetPfnSlabType.c)
+ *     MiWritePteShadow @ 0x14031E2BC (MiWritePteShadow.c)
+ *     MiSanitizeShadowPxe @ 0x140344188 (MiSanitizeShadowPxe.c)
+ *     MiGetEffectivePagePriorityThread @ 0x140373760 (MiGetEffectivePagePriorityThread.c)
+ *     MiCompleteSecureProcessFault @ 0x14038CC80 (MiCompleteSecureProcessFault.c)
+ *     MiMarkPfnVerified @ 0x14038E794 (MiMarkPfnVerified.c)
+ *     MiIncrementVmFaultCount @ 0x140445910 (MiIncrementVmFaultCount.c)
+ *     MiLockSetPfnPriority @ 0x14044F280 (MiLockSetPfnPriority.c)
+ *     MiUpdateSecurePte @ 0x1404AA50C (MiUpdateSecurePte.c)
+ *     MiFillVirtualFaultInfo @ 0x1404AC080 (MiFillVirtualFaultInfo.c)
+ *     MiLogAllocateWsleEvent @ 0x14050F86C (MiLogAllocateWsleEvent.c)
+ *     MiGetVirtualFaultPageInfo @ 0x140528228 (MiGetVirtualFaultPageInfo.c)
+ *     MiReplicatePteChange @ 0x14052ABE0 (MiReplicatePteChange.c)
+ *     MiPromoteVirtualizationFault @ 0x1407044DC (MiPromoteVirtualizationFault.c)
+ *     KdpSetOwedBreakpoints @ 0x140C1D5F0 (KdpSetOwedBreakpoints.c)
  */
 
 __int64 __fastcall MiAllocateWsle(__int64 a1, signed __int64 *a2, _QWORD *a3, char a4, __int64 a5, char a6, __int64 a7)
@@ -158,7 +158,7 @@ LABEL_24:
   if ( (*(_QWORD *)(v8 + 40) & 0x20000000000000LL) == 0
     && (((*(_DWORD *)(v8 + 32) >> 27) & (unsigned __int8)v16) == 0
      || v8 >= 0xFFFFDE0000000000uLL
-     && v8 < 48 * qword_140E2D7A0 - 0x21FFFFFFFFD0LL
+     && v8 < 48 * qword_140E2D920 - 0x21FFFFFFFFD0LL
      && !(unsigned int)MiIsDecayPfn((__int64)(v8 + 0x220000000000LL) / 48)
      && ((v22 & 0x70000) == 0x60000 || (unsigned int)MiGetPfnSlabType(v8) != 9)) )
   {
@@ -272,7 +272,7 @@ LABEL_82:
     && (v9 & 0xF) != 0 )
   {
     LOBYTE(v20) = v20 | 1;
-    ExAcquireSpinLockExclusiveAtDpcLevel(&dword_140E36080);
+    ExAcquireSpinLockExclusiveAtDpcLevel(&dword_140E36200);
     v29 = a2;
     v31 = v17;
     v46 = v17;
@@ -299,7 +299,7 @@ LABEL_89:
   if ( (v20 & 1) != 0 )
   {
     MiReplicatePteChange(v29, 1LL);
-    ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140E36080);
+    ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140E36200);
   }
   if ( CurrentPrcb )
     CurrentPrcb->MmFaultCompletionInfo = 0LL;

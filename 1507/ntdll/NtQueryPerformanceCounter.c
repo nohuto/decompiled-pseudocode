@@ -10,11 +10,11 @@
  *     <none>
  */
 
-__int64 NtQueryPerformanceCounter()
+NTSTATUS __cdecl NtQueryPerformanceCounter(PLARGE_INTEGER PerformanceCounter, PLARGE_INTEGER PerformanceFrequency)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 49LL;
+  result = 49;
   __asm { syscall; Low latency system call }
   return result;
 }

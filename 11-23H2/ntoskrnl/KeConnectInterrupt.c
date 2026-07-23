@@ -1,18 +1,18 @@
 /*
- * XREFs of KeConnectInterrupt @ 0x140320A54
+ * XREFs of KeConnectInterrupt @ 0x140320CE4
  * Callers:
- *     IopConnectInterrupt @ 0x14078E760 (IopConnectInterrupt.c)
+ *     IopConnectInterrupt @ 0x14078E950 (IopConnectInterrupt.c)
  * Callees:
- *     KeDisconnectInterrupt @ 0x14031F398 (KeDisconnectInterrupt.c)
- *     HalEnableInterrupt @ 0x140320730 (HalEnableInterrupt.c)
- *     KiConnectInterrupt @ 0x140320C8C (KiConnectInterrupt.c)
- *     KiIntSteerConnect @ 0x140320F2C (KiIntSteerConnect.c)
- *     KiIsInterruptTypeSecondary @ 0x140321340 (KiIsInterruptTypeSecondary.c)
- *     KiClearSystemPriority @ 0x140345FE0 (KiClearSystemPriority.c)
- *     KiSetSystemPriorityThread @ 0x140355ED0 (KiSetSystemPriorityThread.c)
- *     KiConnectSecondaryInterrupt @ 0x1403A2C8C (KiConnectSecondaryInterrupt.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     KiUnmaskSecondaryInterruptInternal @ 0x140571F18 (KiUnmaskSecondaryInterruptInternal.c)
+ *     KeDisconnectInterrupt @ 0x14031F628 (KeDisconnectInterrupt.c)
+ *     HalEnableInterrupt @ 0x1403209C0 (HalEnableInterrupt.c)
+ *     KiConnectInterrupt @ 0x140320F1C (KiConnectInterrupt.c)
+ *     KiIntSteerConnect @ 0x1403211BC (KiIntSteerConnect.c)
+ *     KiIsInterruptTypeSecondary @ 0x1403215D0 (KiIsInterruptTypeSecondary.c)
+ *     KiClearSystemPriority @ 0x140346270 (KiClearSystemPriority.c)
+ *     KiSetSystemPriorityThread @ 0x140356070 (KiSetSystemPriorityThread.c)
+ *     KiConnectSecondaryInterrupt @ 0x1403A2E6C (KiConnectSecondaryInterrupt.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     KiUnmaskSecondaryInterruptInternal @ 0x140572458 (KiUnmaskSecondaryInterruptInternal.c)
  */
 
 __int64 __fastcall KeConnectInterrupt(__int64 *a1, unsigned __int8 a2, __int64 a3)

@@ -1,11 +1,11 @@
 /*
- * XREFs of EtwpEventWriteTemplateBackingFile @ 0x140825688
+ * XREFs of EtwpEventWriteTemplateBackingFile @ 0x14082B8C8
  * Callers:
- *     EtwpRealtimeSaveBuffer @ 0x140A15B24 (EtwpRealtimeSaveBuffer.c)
- *     EtwpRealtimeRestoreState @ 0x140B5391C (EtwpRealtimeRestoreState.c)
+ *     EtwpRealtimeSaveBuffer @ 0x140A14D18 (EtwpRealtimeSaveBuffer.c)
+ *     EtwpRealtimeRestoreState @ 0x140B561BC (EtwpRealtimeRestoreState.c)
  * Callees:
- *     EtwWrite @ 0x140212EF0 (EtwWrite.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwWrite @ 0x140212FD0 (EtwWrite.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall EtwpEventWriteTemplateBackingFile(
@@ -35,5 +35,10 @@ NTSTATUS __fastcall EtwpEventWriteTemplateBackingFile(
   v10 = 2LL;
   v12 = 4LL;
   v14 = 4LL;
-  return EtwWrite(EtwpEventTracingProvRegHandle, &ETW_EVENT_BACKING_FILE_FULL, 0LL, 4u, &UserData);
+  return EtwWrite(
+           (REGHANDLE)stru_140F03830.SavedApcState.ApcListHead[0].Blink,
+           &ETW_EVENT_BACKING_FILE_FULL,
+           0LL,
+           4u,
+           &UserData);
 }

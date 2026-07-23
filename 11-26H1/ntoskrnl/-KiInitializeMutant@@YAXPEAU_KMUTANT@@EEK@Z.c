@@ -1,23 +1,23 @@
 /*
- * XREFs of ?KiInitializeMutant@@YAXPEAU_KMUTANT@@EEK@Z @ 0x1404A3A7C
+ * XREFs of ?KiInitializeMutant@@YAXPEAU_KMUTANT@@EEK@Z @ 0x14049D58C
  * Callers:
- *     KeInitializeMutant @ 0x1404A3A60 (KeInitializeMutant.c)
- *     NtdllRunOnceInitMuiCrits @ 0x140618810 (NtdllRunOnceInitMuiCrits.c)
- *     DifKeInitializeMutantWrapper @ 0x140661380 (DifKeInitializeMutantWrapper.c)
- *     DifKeInitializeMutexWrapper @ 0x1406614F0 (DifKeInitializeMutexWrapper.c)
- *     PnpInitializeDeviceEvents @ 0x140CC67FC (PnpInitializeDeviceEvents.c)
- *     ViInitSystemPhase0 @ 0x140CDEDA4 (ViInitSystemPhase0.c)
- *     WmipDriverEntry @ 0x140CE01C0 (WmipDriverEntry.c)
- *     EtwpInitialize @ 0x140CE08F4 (EtwpInitialize.c)
- *     EtwpInitializeRegistration @ 0x140CE1A0C (EtwpInitializeRegistration.c)
- *     ExpProfileInitialization @ 0x140CE744C (ExpProfileInitialization.c)
- *     sub_140D01E30 @ 0x140D01E30 (sub_140D01E30.c)
+ *     KeInitializeMutant @ 0x14049D570 (KeInitializeMutant.c)
+ *     NtdllRunOnceInitMuiCrits @ 0x14061B860 (NtdllRunOnceInitMuiCrits.c)
+ *     DifKeInitializeMutantWrapper @ 0x140664F60 (DifKeInitializeMutantWrapper.c)
+ *     DifKeInitializeMutexWrapper @ 0x1406650D0 (DifKeInitializeMutexWrapper.c)
+ *     PnpInitializeDeviceEvents @ 0x140CCC8EC (PnpInitializeDeviceEvents.c)
+ *     ViInitSystemPhase0 @ 0x140CE513C (ViInitSystemPhase0.c)
+ *     WmipDriverEntry @ 0x140CE6560 (WmipDriverEntry.c)
+ *     EtwpInitialize @ 0x140CE6C94 (EtwpInitialize.c)
+ *     EtwpInitializeRegistration @ 0x140CE7DAC (EtwpInitializeRegistration.c)
+ *     ExpProfileInitialization @ 0x140CED694 (ExpProfileInitialization.c)
+ *     sub_140D081D0 @ 0x140D081D0 (sub_140D081D0.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     ?KiAbpSetEntryValue@AutoBoost@@YAXPECEEK@Z @ 0x140444460 (-KiAbpSetEntryValue@AutoBoost@@YAXPECEEK@Z.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     ?KiAbpSetEntryValue@AutoBoost@@YAXPECEEK@Z @ 0x14043CF70 (-KiAbpSetEntryValue@AutoBoost@@YAXPECEEK@Z.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 void __fastcall KiInitializeMutant(struct _KMUTANT *a1, __int64 a2, unsigned __int8 a3, struct _KLOCK_ENTRIES *a4)

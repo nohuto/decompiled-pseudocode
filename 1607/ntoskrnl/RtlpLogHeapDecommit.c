@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlpLogHeapDecommit @ 0x140219074
+ * XREFs of RtlpLogHeapDecommit @ 0x140218EA0
  * Callers:
- *     RtlpDeCommitFreeBlock @ 0x140093070 (RtlpDeCommitFreeBlock.c)
+ *     RtlpDeCommitFreeBlock @ 0x140092870 (RtlpDeCommitFreeBlock.c)
  * Callees:
- *     EtwTraceKernelEvent @ 0x140014190 (EtwTraceKernelEvent.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
+ *     EtwTraceKernelEvent @ 0x140013D10 (EtwTraceKernelEvent.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall RtlpLogHeapDecommit(__int64 a1, __int64 a2, __int64 a3, unsigned int a4)

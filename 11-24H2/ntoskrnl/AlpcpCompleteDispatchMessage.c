@@ -1,36 +1,36 @@
 /*
- * XREFs of AlpcpCompleteDispatchMessage @ 0x1408912A0
+ * XREFs of AlpcpCompleteDispatchMessage @ 0x14089A890
  * Callers:
- *     AlpcpDispatchCloseMessage @ 0x14088CEEC (AlpcpDispatchCloseMessage.c)
- *     AlpcpDispatchConnectionRequest @ 0x14088D0AC (AlpcpDispatchConnectionRequest.c)
- *     AlpcpDispatchNewMessage @ 0x140890E80 (AlpcpDispatchNewMessage.c)
- *     AlpcpDispatchReplyToPort @ 0x140892910 (AlpcpDispatchReplyToPort.c)
+ *     AlpcpDispatchCloseMessage @ 0x14089016C (AlpcpDispatchCloseMessage.c)
+ *     AlpcpDispatchConnectionRequest @ 0x14089032C (AlpcpDispatchConnectionRequest.c)
+ *     AlpcpDispatchNewMessage @ 0x14089A470 (AlpcpDispatchNewMessage.c)
+ *     AlpcpDispatchReplyToPort @ 0x14089BF40 (AlpcpDispatchReplyToPort.c)
  * Callees:
- *     ExNotifyCallback @ 0x14024D520 (ExNotifyCallback.c)
- *     ExfReleasePushLockShared @ 0x14025DE00 (ExfReleasePushLockShared.c)
- *     ExfTryToWakePushLock @ 0x14025F9A0 (ExfTryToWakePushLock.c)
- *     KeSetEvent @ 0x1402725A0 (KeSetEvent.c)
- *     KeReleaseSemaphoreEx @ 0x1402A1600 (KeReleaseSemaphoreEx.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     ObfDereferenceObject @ 0x140325680 (ObfDereferenceObject.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     AlpcpQueueIoCompletionPort @ 0x1403BCF10 (AlpcpQueueIoCompletionPort.c)
- *     PsGetProcessInheritedFromUniqueProcessId @ 0x1404563A0 (PsGetProcessInheritedFromUniqueProcessId.c)
- *     AlpcpReleaseDirectAttribute @ 0x14046ABC0 (AlpcpReleaseDirectAttribute.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     AlpcpLogWaitForReply @ 0x140742AB0 (AlpcpLogWaitForReply.c)
- *     AlpcpInsertMessagePendingQueue @ 0x14088AD40 (AlpcpInsertMessagePendingQueue.c)
- *     AlpcpGetDataFromUserVaSafe @ 0x14088AE18 (AlpcpGetDataFromUserVaSafe.c)
- *     AlpcpGetDataFromMessage @ 0x14088AE68 (AlpcpGetDataFromMessage.c)
- *     PspChargeProcessWakeCounter @ 0x14088FD70 (PspChargeProcessWakeCounter.c)
- *     AlpcpCaptureMessageDataSafe @ 0x140892480 (AlpcpCaptureMessageDataSafe.c)
- *     AlpcpExposeViewAttributeInSenderContext @ 0x1408926D0 (AlpcpExposeViewAttributeInSenderContext.c)
- *     AlpcpLogReceiveMessage @ 0x1408928A0 (AlpcpLogReceiveMessage.c)
- *     AlpcpExposeAttributes @ 0x1408980D0 (AlpcpExposeAttributes.c)
- *     AlpcpUnlockMessage @ 0x140898D70 (AlpcpUnlockMessage.c)
- *     AlpcpAllocateFromBitmap @ 0x1409B2130 (AlpcpAllocateFromBitmap.c)
- *     AlpcpLogSendMessage @ 0x140AA9904 (AlpcpLogSendMessage.c)
+ *     KeSetEvent @ 0x140227B30 (KeSetEvent.c)
+ *     ExNotifyCallback @ 0x14027DB30 (ExNotifyCallback.c)
+ *     ExfReleasePushLockShared @ 0x14028E410 (ExfReleasePushLockShared.c)
+ *     ExfTryToWakePushLock @ 0x14028FFB0 (ExfTryToWakePushLock.c)
+ *     ObfDereferenceObject @ 0x1402CE210 (ObfDereferenceObject.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     KeReleaseSemaphoreEx @ 0x1403AB4BC (KeReleaseSemaphoreEx.c)
+ *     AlpcpQueueIoCompletionPort @ 0x1403ABBA0 (AlpcpQueueIoCompletionPort.c)
+ *     PsGetProcessInheritedFromUniqueProcessId @ 0x14044B370 (PsGetProcessInheritedFromUniqueProcessId.c)
+ *     AlpcpReleaseDirectAttribute @ 0x140463550 (AlpcpReleaseDirectAttribute.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     AlpcpLogWaitForReply @ 0x1407409E0 (AlpcpLogWaitForReply.c)
+ *     PspChargeProcessWakeCounter @ 0x1408999A0 (PspChargeProcessWakeCounter.c)
+ *     AlpcpCaptureMessageDataSafe @ 0x14089BA70 (AlpcpCaptureMessageDataSafe.c)
+ *     AlpcpExposeViewAttributeInSenderContext @ 0x14089BCC0 (AlpcpExposeViewAttributeInSenderContext.c)
+ *     AlpcpLogReceiveMessage @ 0x14089BECC (AlpcpLogReceiveMessage.c)
+ *     AlpcpExposeAttributes @ 0x1408A0770 (AlpcpExposeAttributes.c)
+ *     AlpcpUnlockMessage @ 0x1408A1410 (AlpcpUnlockMessage.c)
+ *     AlpcpGetDataFromUserVaSafe @ 0x1409908B4 (AlpcpGetDataFromUserVaSafe.c)
+ *     AlpcpGetDataFromMessage @ 0x140990904 (AlpcpGetDataFromMessage.c)
+ *     AlpcpInsertMessagePendingQueue @ 0x1409942F0 (AlpcpInsertMessagePendingQueue.c)
+ *     AlpcpAllocateFromBitmap @ 0x1409A97F0 (AlpcpAllocateFromBitmap.c)
+ *     AlpcpLogSendMessage @ 0x140AA49B4 (AlpcpLogSendMessage.c)
  */
 
 LONG_PTR __fastcall AlpcpCompleteDispatchMessage(__int64 a1)
@@ -47,24 +47,24 @@ LONG_PTR __fastcall AlpcpCompleteDispatchMessage(__int64 a1)
   __int64 v11; // rbx
   int v12; // edi
   unsigned int v13; // r12d
-  __int64 v14; // rax
+  unsigned __int64 v14; // rax
   volatile signed __int32 **v15; // rdi
   volatile signed __int64 *v16; // r12
-  _QWORD *v17; // rax
-  _QWORD *v18; // r15
+  char *v17; // rax
+  char *v18; // r15
   volatile signed __int32 *v19; // r15
   unsigned int v20; // edx
   int v21; // ecx
   bool v22; // zf
   __int64 v23; // rcx
   volatile signed __int32 **v24; // rax
-  _QWORD *v25; // rax
-  _QWORD *v26; // rbx
+  char *v25; // rax
+  char *v26; // rbx
   int v27; // eax
   char v28; // r12
   __int64 v29; // r15
-  _QWORD *v30; // rax
-  _QWORD *v31; // r15
+  char *v30; // rax
+  char *v31; // r15
   int v32; // eax
   char v33; // di
   LONG_PTR result; // rax
@@ -100,17 +100,17 @@ LONG_PTR __fastcall AlpcpCompleteDispatchMessage(__int64 a1)
   unsigned __int64 v64; // rdi
   unsigned __int64 v65; // rax
   unsigned __int64 *v66; // rdi
-  _QWORD *v67; // rax
+  char *v67; // rax
   unsigned __int64 v68; // r8
   unsigned __int64 v69; // rdi
   signed __int64 v70; // rax
   volatile signed __int64 *v71; // rcx
   int v72; // edx
-  _QWORD *v73; // rax
-  _QWORD *v74; // r15
+  char *v73; // rax
+  char *v74; // r15
   int v75; // eax
   unsigned int v76; // edi
-  __int64 v77; // rax
+  unsigned __int64 v77; // rax
   unsigned __int64 v78; // rcx
   unsigned __int64 v79; // rdx
   unsigned __int64 v80; // r10
@@ -152,7 +152,7 @@ LONG_PTR __fastcall AlpcpCompleteDispatchMessage(__int64 a1)
   int v116; // [rsp+6Ch] [rbp-7Ch]
   __int64 v117; // [rsp+70h] [rbp-78h]
   size_t v118; // [rsp+70h] [rbp-78h]
-  _QWORD *v119; // [rsp+70h] [rbp-78h]
+  char *v119; // [rsp+70h] [rbp-78h]
   int v120; // [rsp+78h] [rbp-70h]
   __int64 v121; // [rsp+80h] [rbp-68h]
   unsigned __int64 v122; // [rsp+88h] [rbp-60h]
@@ -201,7 +201,7 @@ LONG_PTR __fastcall AlpcpCompleteDispatchMessage(__int64 a1)
           }
           v13 = *(_DWORD *)(v4 + 264);
           if ( PsGetProcessInheritedFromUniqueProcessId(*(_QWORD *)(v2 + 24)) )
-            v14 = PspChargeProcessWakeCounter(v11, v12, 2, v13, 1, 1, 0LL);
+            v14 = PspChargeProcessWakeCounter(v11, v12, 2u, v13, 1, 1, 0LL);
           else
             v14 = 0LL;
           v3 = v127;
@@ -215,7 +215,7 @@ LONG_PTR __fastcall AlpcpCompleteDispatchMessage(__int64 a1)
         {
           v76 = *(_DWORD *)(v4 + 264);
           if ( PsGetProcessInheritedFromUniqueProcessId(v11) )
-            v77 = PspChargeProcessWakeCounter(v11, 0, 6, v76, 1, 1, 0LL);
+            v77 = PspChargeProcessWakeCounter(v11, 0, 6u, v76, 1, 1, 0LL);
           else
             v77 = 0LL;
           *(_QWORD *)(v4 + 216) = v77;
@@ -229,12 +229,12 @@ LONG_PTR __fastcall AlpcpCompleteDispatchMessage(__int64 a1)
     if ( *v15 != (volatile signed __int32 *)v15 )
     {
       v16 = (volatile signed __int64 *)(v2 + 224);
-      v17 = KeAbPreAcquire(v2 + 224, 0LL);
+      v17 = (char *)KeAbPreAcquire(v2 + 224, 0LL);
       v18 = v17;
       if ( _interlockedbittestandset64((volatile signed __int32 *)(v2 + 224), 0LL) )
-        ExfAcquirePushLockExclusiveEx((unsigned __int64 *)(v2 + 224), (__int64)v17, v2 + 224);
+        ExfAcquirePushLockExclusiveEx((unsigned __int64 *)(v2 + 224), v17, v2 + 224);
       if ( v18 )
-        *((_BYTE *)v18 + 10) = 1;
+        v18[10] = 1;
       v19 = *v15;
       if ( *v15 != (volatile signed __int32 *)v15 )
       {
@@ -408,7 +408,7 @@ LABEL_107:
               *(_DWORD *)(v56 + 20) = *(_DWORD *)(v4 + 272);
               if ( (*(_DWORD *)(v2 + 256) & 0x1000) != 0 )
                 *(_WORD *)(v56 + 4) = v90 & 0xC00F;
-              AlpcpGetDataFromMessage(v4, (char *)(v56 + 24));
+              AlpcpGetDataFromMessage(v4, v56 + 24);
             }
             else
             {
@@ -422,7 +422,7 @@ LABEL_107:
               v123 = v56 + 40;
               if ( *(_QWORD *)(v4 + 176) )
               {
-                AlpcpGetDataFromUserVaSafe(v4, (void *)(v56 + 40));
+                AlpcpGetDataFromUserVaSafe(v4, v56 + 40);
               }
               else
               {
@@ -468,15 +468,15 @@ LABEL_107:
               if ( v65 >= v64 )
                 goto LABEL_159;
               v66 = (unsigned __int64 *)(*(_QWORD *)(v2 + 360) + 24LL);
-              v67 = KeAbPreAcquire((__int64)v66, 0LL);
+              v67 = (char *)KeAbPreAcquire((__int64)v66, 0LL);
               v119 = v67;
               if ( _interlockedbittestandset64((volatile signed __int32 *)v66, 0LL) )
               {
-                ExfAcquirePushLockExclusiveEx(v66, (__int64)v67, (__int64)v66);
+                ExfAcquirePushLockExclusiveEx(v66, v67, (__int64)v66);
                 v67 = v119;
               }
               if ( v67 )
-                *((_BYTE *)v67 + 10) = 1;
+                v67[10] = 1;
               v68 = *(_QWORD *)(v111 + 64);
               if ( ((unsigned int)v68 & (unsigned int)(v68 >> 24) & 0xFFFFFF) == 0xFFFFFFLL )
               {
@@ -535,12 +535,12 @@ LABEL_130:
                   {
                     *(_WORD *)(v4 + 244) |= 0x2000u;
                     ++*(_WORD *)(v4 - 30);
-                    v73 = KeAbPreAcquire(v2 + 176, 0LL);
+                    v73 = (char *)KeAbPreAcquire(v2 + 176, 0LL);
                     v74 = v73;
                     if ( _interlockedbittestandset64((volatile signed __int32 *)(v2 + 176), 0LL) )
-                      ExfAcquirePushLockExclusiveEx((unsigned __int64 *)(v2 + 176), (__int64)v73, v2 + 176);
+                      ExfAcquirePushLockExclusiveEx((unsigned __int64 *)(v2 + 176), v73, v2 + 176);
                     if ( v74 )
-                      *((_BYTE *)v74 + 10) = 1;
+                      v74[10] = 1;
                     v75 = *(_DWORD *)(v4 + 40);
                     *(_QWORD *)(v4 + 16) = v2;
                     *(_DWORD *)(v4 + 40) = v75 & 0xFFFFFF83 | (4 * (*(_BYTE *)(v2 + 416) & 6)) & 0xFB | 3;
@@ -613,12 +613,12 @@ LABEL_60:
                   if ( *(_QWORD *)(v4 + 144) )
                     AlpcpExposeViewAttributeInSenderContext(v2, v4);
                   ++*(_WORD *)(v4 - 30);
-                  v30 = KeAbPreAcquire(v2 + 136, 0LL);
+                  v30 = (char *)KeAbPreAcquire(v2 + 136, 0LL);
                   v31 = v30;
                   if ( _interlockedbittestandset64((volatile signed __int32 *)(v2 + 136), 0LL) )
-                    ExfAcquirePushLockExclusiveEx((unsigned __int64 *)(v2 + 136), (__int64)v30, v2 + 136);
+                    ExfAcquirePushLockExclusiveEx((unsigned __int64 *)(v2 + 136), v30, v2 + 136);
                   if ( v31 )
-                    *((_BYTE *)v31 + 10) = 1;
+                    v31[10] = 1;
                   v32 = *(_DWORD *)(v4 + 40);
                   *(_QWORD *)(v4 + 16) = v2;
                   *(_DWORD *)(v4 + 40) = v32 & 0xFFFFFF81 | (4 * (*(_BYTE *)(v2 + 416) & 6)) & 0xF9 | 1;
@@ -746,12 +746,12 @@ LABEL_175:
   if ( *(_QWORD *)(v4 + 144) )
     AlpcpExposeViewAttributeInSenderContext(v2, v4);
   ++*(_WORD *)(v4 - 30);
-  v25 = KeAbPreAcquire(v2 + 200, 0LL);
+  v25 = (char *)KeAbPreAcquire(v2 + 200, 0LL);
   v26 = v25;
   if ( _interlockedbittestandset64((volatile signed __int32 *)(v2 + 200), 0LL) )
-    ExfAcquirePushLockExclusiveEx((unsigned __int64 *)(v2 + 200), (__int64)v25, v2 + 200);
+    ExfAcquirePushLockExclusiveEx((unsigned __int64 *)(v2 + 200), v25, v2 + 200);
   if ( v26 )
-    *((_BYTE *)v26 + 10) = 1;
+    v26[10] = 1;
   v27 = *(_DWORD *)(v4 + 40);
   *(_QWORD *)(v4 + 16) = v2;
   *(_DWORD *)(v4 + 40) = v27 & 0xFFFFFF84 | (4 * (*(_DWORD *)(v2 + 416) & 6)) | 4;

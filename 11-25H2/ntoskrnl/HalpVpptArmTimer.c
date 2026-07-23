@@ -14,13 +14,13 @@ __int64 __fastcall HalpVpptArmTimer(__int64 *a1, int a2, __int64 a3)
   __int64 v6; // rdi
   __int64 v7; // rbp
   int v8; // esi
-  __int64 InterruptTimePrecise; // rax
+  LARGE_INTEGER InterruptTimePrecise; // rax
   int *v10; // rcx
   int *i; // rdx
   __int64 v12; // rax
   __int64 *v14; // rcx
   __int64 **v15; // rax
-  unsigned __int64 v16; // [rsp+50h] [rbp+8h] BYREF
+  LARGE_INTEGER PerformanceCounter; // [rsp+50h] [rbp+8h] BYREF
 
   if ( ((a2 - 1) & 0xFFFFFFFD) != 0 )
     return 3221225659LL;
@@ -47,15 +47,15 @@ __int64 __fastcall HalpVpptArmTimer(__int64 *a1, int a2, __int64 a3)
     *v15 = v14;
     v14[1] = (__int64)v15;
   }
-  InterruptTimePrecise = RtlGetInterruptTimePrecise(&v16);
+  InterruptTimePrecise = RtlGetInterruptTimePrecise(&PerformanceCounter);
   v10 = &HalpVpptQueue;
   if ( a2 != 3 )
     v6 = a3;
-  a1[4] = InterruptTimePrecise + a3;
+  a1[4] = InterruptTimePrecise.QuadPart + a3;
   a1[5] = v6;
   for ( i = *(int **)&HalpVpptQueue; i != &HalpVpptQueue; i = *(int **)i )
   {
-    if ( (unsigned __int64)(InterruptTimePrecise + a3) < *((_QWORD *)i + 4) )
+    if ( (unsigned __int64)(InterruptTimePrecise.QuadPart + a3) < *((_QWORD *)i + 4) )
       break;
     v10 = i;
   }

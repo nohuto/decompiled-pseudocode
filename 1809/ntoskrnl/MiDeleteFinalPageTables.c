@@ -1,22 +1,22 @@
 /*
- * XREFs of MiDeleteFinalPageTables @ 0x1400918B8
+ * XREFs of MiDeleteFinalPageTables @ 0x1400917F8
  * Callers:
- *     MmDeleteProcessAddressSpace @ 0x140608AD0 (MmDeleteProcessAddressSpace.c)
+ *     MmDeleteProcessAddressSpace @ 0x140609AD0 (MmDeleteProcessAddressSpace.c)
  * Callees:
  *     KiStackAttachProcess @ 0x140016DB0 (KiStackAttachProcess.c)
  *     KiUnstackDetachProcess @ 0x140017190 (KiUnstackDetachProcess.c)
  *     MiDeleteVirtualAddresses @ 0x140026134 (MiDeleteVirtualAddresses.c)
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
- *     MiDeleteProcessShadow @ 0x1400686D0 (MiDeleteProcessShadow.c)
- *     UNLOCK_ADDRESS_SPACE @ 0x140078294 (UNLOCK_ADDRESS_SPACE.c)
- *     MiDeleteTopLevelPage @ 0x140091A20 (MiDeleteTopLevelPage.c)
- *     KeFlushProcessTb @ 0x140091B94 (KeFlushProcessTb.c)
- *     MiUnlinkProcessFromSession @ 0x140091BB4 (MiUnlinkProcessFromSession.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     MiDeleteVadBitmap @ 0x140608CFC (MiDeleteVadBitmap.c)
+ *     MiDeleteProcessShadow @ 0x1400686C0 (MiDeleteProcessShadow.c)
+ *     UNLOCK_ADDRESS_SPACE @ 0x140078284 (UNLOCK_ADDRESS_SPACE.c)
+ *     MiDeleteTopLevelPage @ 0x140091960 (MiDeleteTopLevelPage.c)
+ *     KeFlushProcessTb @ 0x140091AD4 (KeFlushProcessTb.c)
+ *     MiUnlinkProcessFromSession @ 0x140091AF4 (MiUnlinkProcessFromSession.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     MiDeleteVadBitmap @ 0x140609CFC (MiDeleteVadBitmap.c)
  */
 
 __int64 __fastcall MiDeleteFinalPageTables(_KPROCESS *BugCheckParameter1)
@@ -39,8 +39,8 @@ __int64 __fastcall MiDeleteFinalPageTables(_KPROCESS *BugCheckParameter1)
   {
     if ( i )
     {
-      v5 = qword_14043A008;
-      if ( !qword_14043A008 )
+      v5 = qword_14043B0C8;
+      if ( !qword_14043B0C8 )
         continue;
     }
     else

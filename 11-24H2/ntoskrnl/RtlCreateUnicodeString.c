@@ -1,37 +1,37 @@
 /*
- * XREFs of RtlCreateUnicodeString @ 0x140833010
+ * XREFs of RtlCreateUnicodeString @ 0x1409D2A00
  * Callers:
- *     DifRtlCreateUnicodeStringWrapper @ 0x1406397C0 (DifRtlCreateUnicodeStringWrapper.c)
- *     IopCopyBootLogRegistryToFile @ 0x140711E7C (IopCopyBootLogRegistryToFile.c)
- *     PiDevCfgQueryIncludedDriverNode @ 0x14072AC78 (PiDevCfgQueryIncludedDriverNode.c)
- *     PiDrvDbCreateNode @ 0x1407368AC (PiDrvDbCreateNode.c)
- *     PiDrvDbResolveNodeFilePaths @ 0x140739154 (PiDrvDbResolveNodeFilePaths.c)
- *     EtwStartAutoLogger @ 0x1407ADDF8 (EtwStartAutoLogger.c)
- *     EtwpQueryRegistryCallback @ 0x1407AF540 (EtwpQueryRegistryCallback.c)
- *     EtwpSavePersistedLogger @ 0x1407AFE60 (EtwpSavePersistedLogger.c)
- *     CmpCreateHwProfileFriendlyName @ 0x1407D3860 (CmpCreateHwProfileFriendlyName.c)
- *     AslPathWildcardFindFirst @ 0x14080A0A4 (AslPathWildcardFindFirst.c)
- *     _PnpCtxCreateNode @ 0x1408172AC (_PnpCtxCreateNode.c)
- *     DrvDbSetDriverDatabaseMappedProperty @ 0x1408226F4 (DrvDbSetDriverDatabaseMappedProperty.c)
- *     DrvDbCreateDatabaseNode @ 0x140823A00 (DrvDbCreateDatabaseNode.c)
- *     PiDevCfgQueryDeviceMigrationNode @ 0x140831268 (PiDevCfgQueryDeviceMigrationNode.c)
- *     EtwpStartLogger @ 0x140831694 (EtwpStartLogger.c)
- *     EtwpCaptureString @ 0x140832F00 (EtwpCaptureString.c)
- *     RtlConvertSidToUnicodeString @ 0x140865350 (RtlConvertSidToUnicodeString.c)
- *     PiDevCfgQueryDriverNode @ 0x140996564 (PiDevCfgQueryDriverNode.c)
- *     PiGetDefaultMessageString @ 0x1409C8444 (PiGetDefaultMessageString.c)
- *     EtwpRealtimeCreateLogfile @ 0x1409D8F3C (EtwpRealtimeCreateLogfile.c)
- *     PiDevCfgResolveVariable @ 0x140A6A668 (PiDevCfgResolveVariable.c)
- *     PipGenerateContainerID @ 0x140A7063C (PipGenerateContainerID.c)
- *     PiDevCfgLogDeviceConfigured @ 0x140A98C04 (PiDevCfgLogDeviceConfigured.c)
- *     PiCreateDriverSwDeviceCallback @ 0x140AA3320 (PiCreateDriverSwDeviceCallback.c)
- *     PipInitDeviceOverrideCache @ 0x140C210A8 (PipInitDeviceOverrideCache.c)
- *     CmpOpenSystemDriverHiveContext @ 0x140C631D0 (CmpOpenSystemDriverHiveContext.c)
+ *     DifRtlCreateUnicodeStringWrapper @ 0x140637D80 (DifRtlCreateUnicodeStringWrapper.c)
+ *     IopCopyBootLogRegistryToFile @ 0x14070FA0C (IopCopyBootLogRegistryToFile.c)
+ *     PiDevCfgQueryIncludedDriverNode @ 0x140728A48 (PiDevCfgQueryIncludedDriverNode.c)
+ *     PiDrvDbCreateNode @ 0x1407347DC (PiDrvDbCreateNode.c)
+ *     PiDrvDbResolveNodeFilePaths @ 0x140737084 (PiDrvDbResolveNodeFilePaths.c)
+ *     EtwStartAutoLogger @ 0x1407AE248 (EtwStartAutoLogger.c)
+ *     EtwpQueryRegistryCallback @ 0x1407AF990 (EtwpQueryRegistryCallback.c)
+ *     EtwpSavePersistedLogger @ 0x1407B02B0 (EtwpSavePersistedLogger.c)
+ *     CmpCreateHwProfileFriendlyName @ 0x1407D3D50 (CmpCreateHwProfileFriendlyName.c)
+ *     AslPathWildcardFindFirst @ 0x14080A7E4 (AslPathWildcardFindFirst.c)
+ *     _PnpCtxCreateNode @ 0x1408179EC (_PnpCtxCreateNode.c)
+ *     DrvDbSetDriverDatabaseMappedProperty @ 0x140822E34 (DrvDbSetDriverDatabaseMappedProperty.c)
+ *     DrvDbCreateDatabaseNode @ 0x140824140 (DrvDbCreateDatabaseNode.c)
+ *     RtlConvertSidToUnicodeString @ 0x140869960 (RtlConvertSidToUnicodeString.c)
+ *     PiGetDefaultMessageString @ 0x1409B8860 (PiGetDefaultMessageString.c)
+ *     EtwpStartLogger @ 0x1409D017C (EtwpStartLogger.c)
+ *     PiDevCfgQueryDeviceMigrationNode @ 0x1409D1CC4 (PiDevCfgQueryDeviceMigrationNode.c)
+ *     EtwpCaptureString @ 0x1409D28F8 (EtwpCaptureString.c)
+ *     EtwpRealtimeCreateLogfile @ 0x1409D3A4C (EtwpRealtimeCreateLogfile.c)
+ *     PiDevCfgResolveVariable @ 0x140A63A18 (PiDevCfgResolveVariable.c)
+ *     PipGenerateContainerID @ 0x140A69ACC (PipGenerateContainerID.c)
+ *     PiCreateDriverSwDeviceCallback @ 0x140A9E6B0 (PiCreateDriverSwDeviceCallback.c)
+ *     PiDevCfgLogDeviceConfigured @ 0x140ABF650 (PiDevCfgLogDeviceConfigured.c)
+ *     PiDevCfgQueryDriverNode @ 0x140AC0A0C (PiDevCfgQueryDriverNode.c)
+ *     PipInitDeviceOverrideCache @ 0x140C230E8 (PipInitDeviceOverrideCache.c)
+ *     CmpOpenSystemDriverHiveContext @ 0x140C6534C (CmpOpenSystemDriverHiveContext.c)
  * Callees:
- *     wcslen @ 0x1404FFED0 (wcslen.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePool @ 0x140B72CB0 (ExFreePool.c)
+ *     wcslen @ 0x1404FD790 (wcslen.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePool @ 0x140B74850 (ExFreePool.c)
  */
 
 BOOLEAN __stdcall RtlCreateUnicodeString(PUNICODE_STRING DestinationString, PCWSTR SourceString)
@@ -44,7 +44,7 @@ BOOLEAN __stdcall RtlCreateUnicodeString(PUNICODE_STRING DestinationString, PCWS
   v5 = 2 * v4 + 2;
   if ( (unsigned int)(2 * v4 + 1) > 0xFFFD )
     return 0;
-  Pool2 = (wchar_t *)ExAllocatePool2(0x100uLL);
+  Pool2 = (wchar_t *)ExAllocatePool2(0x100uLL, v5, 0x67727453u);
   DestinationString->Buffer = Pool2;
   if ( !Pool2 )
     return 0;

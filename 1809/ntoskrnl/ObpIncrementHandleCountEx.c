@@ -1,12 +1,12 @@
 /*
- * XREFs of ObpIncrementHandleCountEx @ 0x1405E35F0
+ * XREFs of ObpIncrementHandleCountEx @ 0x1405E45F0
  * Callers:
- *     ObpInsertOrLocateNamedObject @ 0x1405C85A8 (ObpInsertOrLocateNamedObject.c)
- *     ObDuplicateObject @ 0x1405D0B70 (ObDuplicateObject.c)
- *     ObpCreateHandle @ 0x1405E12B0 (ObpCreateHandle.c)
- *     ObCompleteObjectDuplication @ 0x140612FA0 (ObCompleteObjectDuplication.c)
- *     ObInheritObjectHandle @ 0x1406969A4 (ObInheritObjectHandle.c)
- *     ObCaptureObjectStateForDuplication @ 0x1406A5928 (ObCaptureObjectStateForDuplication.c)
+ *     ObpInsertOrLocateNamedObject @ 0x1405C95A8 (ObpInsertOrLocateNamedObject.c)
+ *     ObDuplicateObject @ 0x1405D1B70 (ObDuplicateObject.c)
+ *     ObpCreateHandle @ 0x1405E22B0 (ObpCreateHandle.c)
+ *     ObCompleteObjectDuplication @ 0x140613FA0 (ObCompleteObjectDuplication.c)
+ *     ObInheritObjectHandle @ 0x140697B64 (ObInheritObjectHandle.c)
+ *     ObCaptureObjectStateForDuplication @ 0x1406A6BC8 (ObCaptureObjectStateForDuplication.c)
  * Callees:
  *     PsDetachSiloFromCurrentThread @ 0x14000FBB0 (PsDetachSiloFromCurrentThread.c)
  *     PsAttachSiloToCurrentThread @ 0x14000FBD0 (PsAttachSiloToCurrentThread.c)
@@ -18,15 +18,15 @@
  *     KiLeaveGuardedRegionUnsafe @ 0x14004F090 (KiLeaveGuardedRegionUnsafe.c)
  *     ExReleasePushLockEx @ 0x14004F160 (ExReleasePushLockEx.c)
  *     KeLeaveCriticalRegion @ 0x14004F410 (KeLeaveCriticalRegion.c)
- *     PspReturnQuota @ 0x1400BE9D0 (PspReturnQuota.c)
- *     OBJECT_HEADER_TO_PROCESS_INFO @ 0x14013A7E0 (OBJECT_HEADER_TO_PROCESS_INFO.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     ObpDeleteNameCheck @ 0x1405A9740 (ObpDeleteNameCheck.c)
- *     SeComputeQuotaInformationSize @ 0x1405C9BB0 (SeComputeQuotaInformationSize.c)
- *     PsReturnSharedPoolQuota @ 0x1405CACA8 (PsReturnSharedPoolQuota.c)
- *     ObpLockHandleDataBaseEntry @ 0x140697C70 (ObpLockHandleDataBaseEntry.c)
- *     ObpUnlockHandleDatabaseEntry @ 0x1408618AC (ObpUnlockHandleDatabaseEntry.c)
+ *     PspReturnQuota @ 0x1400BE910 (PspReturnQuota.c)
+ *     OBJECT_HEADER_TO_PROCESS_INFO @ 0x14013A8E0 (OBJECT_HEADER_TO_PROCESS_INFO.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     ObpDeleteNameCheck @ 0x1405AA740 (ObpDeleteNameCheck.c)
+ *     SeComputeQuotaInformationSize @ 0x1405CABB0 (SeComputeQuotaInformationSize.c)
+ *     PsReturnSharedPoolQuota @ 0x1405CBCA8 (PsReturnSharedPoolQuota.c)
+ *     ObpLockHandleDataBaseEntry @ 0x140698E30 (ObpLockHandleDataBaseEntry.c)
+ *     ObpUnlockHandleDatabaseEntry @ 0x140862B0C (ObpUnlockHandleDatabaseEntry.c)
  */
 
 __int64 __fastcall ObpIncrementHandleCountEx(

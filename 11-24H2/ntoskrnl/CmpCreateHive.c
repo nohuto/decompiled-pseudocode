@@ -1,53 +1,53 @@
 /*
- * XREFs of CmpCreateHive @ 0x14092F538
+ * XREFs of CmpCreateHive @ 0x140931678
  * Callers:
- *     CmRestoreKey @ 0x1407CCF24 (CmRestoreKey.c)
- *     CmpCreateTemporaryHive @ 0x1407CE548 (CmpCreateTemporaryHive.c)
- *     CmpLoadHiveVolatile @ 0x1407CE610 (CmpLoadHiveVolatile.c)
- *     CmpRefreshHive @ 0x1407CEAF0 (CmpRefreshHive.c)
- *     CmpHiveCachePopulateHiveEntryThread @ 0x1407E5970 (CmpHiveCachePopulateHiveEntryThread.c)
- *     CmpInitHiveFromFile @ 0x14092EC1C (CmpInitHiveFromFile.c)
- *     CmInitSystem1 @ 0x140C44EC0 (CmInitSystem1.c)
- *     CmpInitializePreloadedHive @ 0x140C47560 (CmpInitializePreloadedHive.c)
- *     CmpInitializeSystemHive @ 0x140C47C88 (CmpInitializeSystemHive.c)
+ *     CmRestoreKey @ 0x1407CD414 (CmRestoreKey.c)
+ *     CmpCreateTemporaryHive @ 0x1407CEA38 (CmpCreateTemporaryHive.c)
+ *     CmpLoadHiveVolatile @ 0x1407CEB00 (CmpLoadHiveVolatile.c)
+ *     CmpRefreshHive @ 0x1407CEFE0 (CmpRefreshHive.c)
+ *     CmpHiveCachePopulateHiveEntryThread @ 0x1407E5F40 (CmpHiveCachePopulateHiveEntryThread.c)
+ *     CmpInitHiveFromFile @ 0x140930D5C (CmpInitHiveFromFile.c)
+ *     CmInitSystem1 @ 0x140C47010 (CmInitSystem1.c)
+ *     CmpInitializePreloadedHive @ 0x140C496B0 (CmpInitializePreloadedHive.c)
+ *     CmpInitializeSystemHive @ 0x140C49DD8 (CmpInitializeSystemHive.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140330CB0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgKeywordOn @ 0x140426AF0 (_tlgKeywordOn.c)
- *     CmpRecheckHiveVolumePolicy @ 0x1404648A0 (CmpRecheckHiveVolumePolicy.c)
- *     SetFailureLocation @ 0x1404649E0 (SetFailureLocation.c)
- *     CmpAdjustFileCFSafety @ 0x1404B2D88 (CmpAdjustFileCFSafety.c)
- *     CmpAllocateForNonPagedHive @ 0x1404CF960 (CmpAllocateForNonPagedHive.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ZwSetInformationObject @ 0x1406A6F90 (ZwSetInformationObject.c)
- *     CmpLogHiveInitializeEvent @ 0x1407D62FC (CmpLogHiveInitializeEvent.c)
- *     ObDuplicateObject @ 0x14083FFB0 (ObDuplicateObject.c)
- *     CmpUnlockHiveList @ 0x140844354 (CmpUnlockHiveList.c)
- *     HvUnlockHiveFlusherShared @ 0x14086A604 (HvUnlockHiveFlusherShared.c)
- *     HvLockHiveFlusherShared @ 0x14087DD28 (HvLockHiveFlusherShared.c)
- *     CmpAllocate @ 0x14087F0C0 (CmpAllocate.c)
- *     HvLockHiveWriter @ 0x140882A38 (HvLockHiveWriter.c)
- *     HvUnlockHiveWriter @ 0x140882E28 (HvUnlockHiveWriter.c)
- *     CmpGetVolumeClusterSize @ 0x140930B1C (CmpGetVolumeClusterSize.c)
- *     CmpHiveInitialize @ 0x140930F30 (CmpHiveInitialize.c)
- *     CmpReorganizeHive @ 0x1409310B0 (CmpReorganizeHive.c)
- *     HvMarkBaseBlockDirty @ 0x140931488 (HvMarkBaseBlockDirty.c)
- *     HvHiveStartMemoryBacked @ 0x1409314FC (HvHiveStartMemoryBacked.c)
- *     CmpVolumeManagerGetContextForFile @ 0x140966DB8 (CmpVolumeManagerGetContextForFile.c)
- *     CmpDestroyHive @ 0x14097C14C (CmpDestroyHive.c)
- *     HvHiveStartFileBacked @ 0x14097F464 (HvHiveStartFileBacked.c)
- *     CmpVolumeContextCanHiveSectionBeExtended @ 0x140A46274 (CmpVolumeContextCanHiveSectionBeExtended.c)
- *     CmpVolumeContextMustHiveFilePagesBeKeptLocal @ 0x140A462C0 (CmpVolumeContextMustHiveFilePagesBeKeptLocal.c)
- *     HvCheckAndUpdateHiveBackupTimeStamp @ 0x140A54E28 (HvCheckAndUpdateHiveBackupTimeStamp.c)
- *     CmpLockHiveListExclusive @ 0x140A5B428 (CmpLockHiveListExclusive.c)
- *     CmCheckRegistry @ 0x140AE33E0 (CmCheckRegistry.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
- *     CmpAcquireShutdownRundown @ 0x140BB9400 (CmpAcquireShutdownRundown.c)
- *     CmpReleaseShutdownRundown @ 0x140BB9880 (CmpReleaseShutdownRundown.c)
- *     CmpAttachToRegistryProcess @ 0x140BB98E0 (CmpAttachToRegistryProcess.c)
- *     CmpDetachFromRegistryProcess @ 0x140BB9920 (CmpDetachFromRegistryProcess.c)
- *     CmpLockRegistry @ 0x140BB9E60 (CmpLockRegistry.c)
- *     CmpUnlockRegistry @ 0x140BB9F50 (CmpUnlockRegistry.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402B92F0 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x14041A970 (_tlgKeywordOn.c)
+ *     CmpRecheckHiveVolumePolicy @ 0x14045AFD0 (CmpRecheckHiveVolumePolicy.c)
+ *     SetFailureLocation @ 0x14045B110 (SetFailureLocation.c)
+ *     CmpAdjustFileCFSafety @ 0x1404AD590 (CmpAdjustFileCFSafety.c)
+ *     CmpAllocateForNonPagedHive @ 0x1404C8A10 (CmpAllocateForNonPagedHive.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ZwSetInformationObject @ 0x1406A7F30 (ZwSetInformationObject.c)
+ *     CmpLogHiveInitializeEvent @ 0x1407D6870 (CmpLogHiveInitializeEvent.c)
+ *     ObDuplicateObject @ 0x14083C270 (ObDuplicateObject.c)
+ *     CmpUnlockHiveList @ 0x140840614 (CmpUnlockHiveList.c)
+ *     HvUnlockHiveFlusherShared @ 0x14086E934 (HvUnlockHiveFlusherShared.c)
+ *     HvLockHiveFlusherShared @ 0x140881BD8 (HvLockHiveFlusherShared.c)
+ *     CmpAllocate @ 0x140882F70 (CmpAllocate.c)
+ *     HvLockHiveWriter @ 0x1408868E8 (HvLockHiveWriter.c)
+ *     HvUnlockHiveWriter @ 0x140886CD8 (HvUnlockHiveWriter.c)
+ *     CmpGetVolumeClusterSize @ 0x140932C5C (CmpGetVolumeClusterSize.c)
+ *     CmpHiveInitialize @ 0x140933070 (CmpHiveInitialize.c)
+ *     CmpReorganizeHive @ 0x1409331F0 (CmpReorganizeHive.c)
+ *     HvMarkBaseBlockDirty @ 0x1409335C8 (HvMarkBaseBlockDirty.c)
+ *     HvHiveStartMemoryBacked @ 0x14093363C (HvHiveStartMemoryBacked.c)
+ *     CmpVolumeManagerGetContextForFile @ 0x14094F848 (CmpVolumeManagerGetContextForFile.c)
+ *     CmpDestroyHive @ 0x14096495C (CmpDestroyHive.c)
+ *     HvHiveStartFileBacked @ 0x140967C74 (HvHiveStartFileBacked.c)
+ *     CmpVolumeContextCanHiveSectionBeExtended @ 0x140A3BF34 (CmpVolumeContextCanHiveSectionBeExtended.c)
+ *     CmpVolumeContextMustHiveFilePagesBeKeptLocal @ 0x140A3BF80 (CmpVolumeContextMustHiveFilePagesBeKeptLocal.c)
+ *     HvCheckAndUpdateHiveBackupTimeStamp @ 0x140A4CD78 (HvCheckAndUpdateHiveBackupTimeStamp.c)
+ *     CmpLockHiveListExclusive @ 0x140A52D38 (CmpLockHiveListExclusive.c)
+ *     CmCheckRegistry @ 0x140AE4CC0 (CmCheckRegistry.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
+ *     CmpAcquireShutdownRundown @ 0x140BBB400 (CmpAcquireShutdownRundown.c)
+ *     CmpReleaseShutdownRundown @ 0x140BBB880 (CmpReleaseShutdownRundown.c)
+ *     CmpAttachToRegistryProcess @ 0x140BBB8E0 (CmpAttachToRegistryProcess.c)
+ *     CmpDetachFromRegistryProcess @ 0x140BBB920 (CmpDetachFromRegistryProcess.c)
+ *     CmpLockRegistry @ 0x140BBBE60 (CmpLockRegistry.c)
+ *     CmpUnlockRegistry @ 0x140BBBF50 (CmpUnlockRegistry.c)
  */
 
 __int64 __fastcall CmpCreateHive(
@@ -89,10 +89,10 @@ __int64 __fastcall CmpCreateHive(
   _QWORD *v35; // rbx
   ULONG_PTR *v36; // rax
   int v38; // eax
-  __int64 v39; // rcx
+  void *v39; // rcx
   void *v40; // rdx
   void *v41; // rdx
-  __int64 v42; // rcx
+  void *v42; // rcx
   void *v43; // rdx
   __int64 *v44; // r13
   char CanHiveSectionBeExtended; // al
@@ -103,8 +103,8 @@ __int64 __fastcall CmpCreateHive(
   __int64 v50; // rax
   __int64 v51; // rax
   _QWORD *v52; // rax
-  __int64 v53; // rcx
-  __int64 v54; // rcx
+  void *v53; // rcx
+  void *v54; // rcx
   int v55; // r8d
   int v56; // edx
   int v57; // r9d
@@ -112,7 +112,7 @@ __int64 __fastcall CmpCreateHive(
   int v59; // [rsp+20h] [rbp-E0h]
   int v60; // [rsp+20h] [rbp-E0h]
   int v61; // [rsp+30h] [rbp-D0h]
-  __int16 v62; // [rsp+80h] [rbp-80h] BYREF
+  _WORD ObjectInformation[2]; // [rsp+80h] [rbp-80h] BYREF
   char v63; // [rsp+84h] [rbp-7Ch]
   char v64; // [rsp+85h] [rbp-7Bh]
   int v65; // [rsp+88h] [rbp-78h] BYREF
@@ -134,7 +134,7 @@ __int64 __fastcall CmpCreateHive(
   struct _EVENT_DATA_DESCRIPTOR v81; // [rsp+150h] [rbp+50h] BYREF
   int *v82; // [rsp+170h] [rbp+70h]
   __int64 v83; // [rsp+178h] [rbp+78h]
-  __int16 *v84; // [rsp+180h] [rbp+80h]
+  _WORD *v84; // [rsp+180h] [rbp+80h]
   __int64 v85; // [rsp+188h] [rbp+88h]
   int *v86; // [rsp+190h] [rbp+90h]
   __int64 v87; // [rsp+198h] [rbp+98h]
@@ -254,16 +254,16 @@ LABEL_13:
       }
     }
   }
-  Pool2 = (void *)ExAllocatePool2(0x40uLL);
+  Pool2 = (void *)ExAllocatePool2(0x40uLL, 0x20uLL, 0x35394D43u);
   if ( !Pool2 )
   {
     ContextForFile = -1073741801;
     goto LABEL_96;
   }
   if ( (v14 & 0x2000000) != 0 )
-    v20 = CmpAllocateForNonPagedHive(0x12D8u, 0);
+    v20 = CmpAllocateForNonPagedHive(0x12D8u, 0, 0x30314D43u);
   else
-    v20 = CmpAllocate(4824LL, 0);
+    v20 = CmpAllocate(4824LL, 0, 0x30314D43u);
   v21 = v20;
   if ( v20 )
   {
@@ -283,9 +283,9 @@ LABEL_13:
                          0);
       if ( ContextForFile < 0 )
         goto LABEL_43;
-      v39 = *(_QWORD *)(v21 + 1544);
-      v62 = 256;
-      ZwSetInformationObject(v39, 4LL);
+      v39 = *(void **)(v21 + 1544);
+      ObjectInformation[0] = 256;
+      ZwSetInformationObject(v39, ObjectHandleFlagInformation, ObjectInformation, 2u);
     }
     v40 = (void *)a6[3];
     if ( v40 )
@@ -301,9 +301,9 @@ LABEL_13:
                          0);
       if ( ContextForFile < 0 )
         goto LABEL_43;
-      v53 = *(_QWORD *)(v21 + 1560);
-      v62 = 256;
-      ZwSetInformationObject(v53, 4LL);
+      v53 = *(void **)(v21 + 1560);
+      ObjectInformation[0] = 256;
+      ZwSetInformationObject(v53, ObjectHandleFlagInformation, ObjectInformation, 2u);
     }
     if ( v65 == 1 )
     {
@@ -330,9 +330,9 @@ LABEL_13:
                            0);
         if ( ContextForFile < 0 )
           goto LABEL_43;
-        v42 = *(_QWORD *)(v21 + 1576);
-        v62 = 256;
-        ZwSetInformationObject(v42, 4LL);
+        v42 = *(void **)(v21 + 1576);
+        ObjectInformation[0] = 256;
+        ZwSetInformationObject(v42, ObjectHandleFlagInformation, ObjectInformation, 2u);
       }
       v43 = (void *)a6[2];
       if ( !v43 )
@@ -342,9 +342,9 @@ LABEL_13:
     ContextForFile = ObDuplicateObject((__int64)PsInitialSystemProcess, v43, 0LL, v44, 0, 512, 2, 0);
     if ( ContextForFile < 0 )
       goto LABEL_43;
-    v54 = *v44;
-    v62 = 256;
-    ZwSetInformationObject(v54, 4LL);
+    v54 = (void *)*v44;
+    ObjectInformation[0] = 256;
+    ZwSetInformationObject(v54, ObjectHandleFlagInformation, ObjectInformation, 2u);
 LABEL_21:
     if ( (a8 & 0x8000000) != 0 )
       *(_DWORD *)(v21 + 4112) |= 0x80u;
@@ -464,14 +464,14 @@ LABEL_43:
         ContextForFile = started;
         if ( started == -2147483606 )
         {
-          if ( (unsigned int)dword_140E09EE8 > 5 )
+          if ( (unsigned int)dword_140E09F58 > 5 )
           {
             ContextForFile = 0;
-            if ( tlgKeywordOn((__int64)&dword_140E09EE8, 0x400000000000LL) )
+            if ( tlgKeywordOn((__int64)&dword_140E09F58, 0x400000000000LL) )
             {
               v65 = v55;
               v82 = &v65;
-              v84 = &v62;
+              v84 = ObjectInformation;
               v56 = *(unsigned __int16 *)(a13 + 8);
               v57 = *(unsigned __int16 *)(a13 + 10);
               v90 = a13 + 8;
@@ -484,7 +484,7 @@ LABEL_43:
               v102 = a13 + 396;
               v105 = &v69;
               LOWORD(v67) = v58;
-              v62 = v56;
+              ObjectInformation[0] = v56;
               LOWORD(v66) = v57;
               v95 = a13 + 10;
               v100 = a13 + 394;
@@ -503,8 +503,8 @@ LABEL_43:
               v69 = 0x1000000LL;
               v106 = 8LL;
               tlgWriteTransfer_EtwWriteTransfer(
-                (__int64)&dword_140E09EE8,
-                (unsigned __int8 *)byte_140055513,
+                (__int64)&dword_140E09F58,
+                (unsigned __int8 *)byte_140055F0D,
                 0LL,
                 0LL,
                 0xDu,
@@ -548,13 +548,13 @@ LABEL_39:
             else
             {
               CmpLockHiveListExclusive(v34);
-              v52 = (_QWORD *)qword_140FD8D08;
-              if ( *(__int64 **)qword_140FD8D08 != &CmpHiveListHead )
+              v52 = (_QWORD *)qword_140FD9D18;
+              if ( *(__int64 **)qword_140FD9D18 != &CmpHiveListHead )
                 __fastfail(3u);
               *v35 = &CmpHiveListHead;
               *(_QWORD *)(v21 + 1616) = v52;
               *v52 = v35;
-              qword_140FD8D08 = v21 + 1608;
+              qword_140FD9D18 = v21 + 1608;
               CmpUnlockHiveList();
               CmpRecheckHiveVolumePolicy(v21);
             }

@@ -14,30 +14,24 @@
  *     LdrpUnloadNode @ 0x1800526F0 (LdrpUnloadNode.c)
  */
 
-__int64 __fastcall LdrpDecrementModuleLoadCountEx(
-        __int64 a1,
-        unsigned __int64 a2,
-        unsigned __int64 a3,
-        unsigned __int64 a4)
+__int64 __fastcall LdrpDecrementModuleLoadCountEx(__int64 a1, int a2)
 {
-  int v4; // edi
-  __int64 v6; // rbx
-  unsigned int v7; // edi
-  __int64 v8; // rcx
-  int v10; // [rsp+38h] [rbp+10h] BYREF
+  __int64 v4; // rbx
+  unsigned int v5; // edi
+  __int64 v6; // rcx
+  int v8; // [rsp+38h] [rbp+10h] BYREF
 
-  v4 = a2;
-  if ( (_DWORD)a2 && *(_DWORD *)(*(_QWORD *)(a1 + 152) + 24LL) == 1 )
+  if ( a2 && *(_DWORD *)(*(_QWORD *)(a1 + 152) + 24LL) == 1 )
     return 3221226029LL;
-  RtlAcquireSRWLockExclusive((unsigned __int64)&LdrpModuleDatatableLock, a2, a3, a4);
-  v6 = *(_QWORD *)(a1 + 152);
-  v7 = LdrpDecrementNodeLoadCountLockHeld(v6, v4, &v10);
+  RtlAcquireSRWLockExclusive(&LdrpModuleDatatableLock);
+  v4 = *(_QWORD *)(a1 + 152);
+  v5 = LdrpDecrementNodeLoadCountLockHeld(v4, a2, &v8);
   RtlReleaseSRWLockExclusive(&LdrpModuleDatatableLock);
-  if ( v10 )
+  if ( v8 )
   {
     LdrpAcquireLoaderLock();
-    LdrpUnloadNode(v6);
-    LdrpReleaseLoaderLock(v8, 8, 0);
+    LdrpUnloadNode(v4);
+    LdrpReleaseLoaderLock(v6, 8, 0);
   }
-  return v7;
+  return v5;
 }

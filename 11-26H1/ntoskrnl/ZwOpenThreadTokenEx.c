@@ -1,16 +1,15 @@
 /*
- * XREFs of ZwOpenThreadTokenEx @ 0x1407239D0
+ * XREFs of ZwOpenThreadTokenEx @ 0x1407285A0
  * Callers:
- *     DifZwOpenThreadTokenExWrapper @ 0x1406ADAA0 (DifZwOpenThreadTokenExWrapper.c)
- *     RtlpIsAppContainer @ 0x14080491C (RtlpIsAppContainer.c)
- *     BiOpenEffectiveToken @ 0x1409D1F90 (BiOpenEffectiveToken.c)
- *     RtlpOpenThreadToken @ 0x1409D23D4 (RtlpOpenThreadToken.c)
- *     _SysCtxOpenEffectiveToken @ 0x140A2CBB4 (_SysCtxOpenEffectiveToken.c)
+ *     DifZwOpenThreadTokenExWrapper @ 0x1406B1680 (DifZwOpenThreadTokenExWrapper.c)
+ *     RtlpIsAppContainer @ 0x14080A3BC (RtlpIsAppContainer.c)
+ *     BiOpenEffectiveToken @ 0x1409A2F70 (BiOpenEffectiveToken.c)
+ *     RtlpOpenThreadToken @ 0x1409A33B4 (RtlpOpenThreadToken.c)
+ *     _SysCtxOpenEffectiveToken @ 0x140A3EE08 (_SysCtxOpenEffectiveToken.c)
  * Callees:
  *     <none>
  */
 
-// local variable allocation has failed, the output may be wrong!
 NTSTATUS __stdcall ZwOpenThreadTokenEx(
         HANDLE ThreadHandle,
         ACCESS_MASK DesiredAccess,
@@ -20,5 +19,5 @@ NTSTATUS __stdcall ZwOpenThreadTokenEx(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(ThreadHandle, *(_QWORD *)&DesiredAccess);
+  return KiServiceInternal(ThreadHandle);
 }

@@ -39,7 +39,7 @@ __int64 __fastcall MiDecrementCombinedPteEx(int a1, __int64 a2, int a3)
   _InterlockedExchangeAdd(v4 + 98, 0xFFFFFFFF);
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     LODWORD(v10) = 4;
@@ -48,10 +48,10 @@ __int64 __fastcall MiDecrementCombinedPteEx(int a1, __int64 a2, int a3)
     SchedulerAssist[5] |= v10;
   }
   v7 = MiDecrementCloneBlock(v5, a1, a2, a3, (__int64)&v16);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v11 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v11 <= 0xFu && CurrentIrql <= 0xFu && v11 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v11 <= 0xFu && CurrentIrql <= 0xFu && v11 >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       v13 = CurrentPrcb->SchedulerAssist;

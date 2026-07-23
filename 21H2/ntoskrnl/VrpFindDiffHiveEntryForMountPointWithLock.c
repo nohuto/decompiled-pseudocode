@@ -4,8 +4,8 @@
  *     VrpUnloadDifferencingHive @ 0x1405D6264 (VrpUnloadDifferencingHive.c)
  *     VrpFindOrCreateDiffHiveEntryForMountPoint @ 0x1405D6690 (VrpFindOrCreateDiffHiveEntryForMountPoint.c)
  * Callees:
- *     RtlEqualUnicodeString @ 0x140601410 (RtlEqualUnicodeString.c)
- *     RtlUpcaseUnicodeChar @ 0x140601D90 (RtlUpcaseUnicodeChar.c)
+ *     RtlEqualUnicodeString @ 0x1406F0B70 (RtlEqualUnicodeString.c)
+ *     RtlUpcaseUnicodeChar @ 0x1406F14F0 (RtlUpcaseUnicodeChar.c)
  */
 
 __int64 __fastcall VrpFindDiffHiveEntryForMountPointWithLock(PCUNICODE_STRING String1)
@@ -33,12 +33,12 @@ __int64 __fastcall VrpFindDiffHiveEntryForMountPointWithLock(PCUNICODE_STRING St
     v12 = RtlUpcaseUnicodeChar(*Buffer++);
     v5 = HIBYTE(v12) + 37 * ((unsigned __int8)v12 + 37 * v5);
   }
-  v7 = -1LL << (dword_140C47964 & 0x1F);
+  v7 = -1LL << (dword_140C479E4 & 0x1F);
   v8 = v5 & v7;
-  if ( (unsigned int)dword_140C47964 >> 5 )
+  if ( (unsigned int)dword_140C479E4 >> 5 )
   {
     v13 = v5 & v7;
-    v9 = qword_140C47968
+    v9 = qword_140C479E8
        + 8LL
        * ((37
          * (BYTE6(v13)
@@ -47,7 +47,7 @@ __int64 __fastcall VrpFindDiffHiveEntryForMountPointWithLock(PCUNICODE_STRING St
            + 37
            * (BYTE4(v13)
             + 37 * (BYTE3(v13) + 37 * (BYTE2(v13) + 37 * (BYTE1(v13) + 37 * ((unsigned __int8)v8 + 11623883)))))))
-         + HIBYTE(v13)) & (((unsigned int)dword_140C47964 >> 5) - 1));
+         + HIBYTE(v13)) & (((unsigned int)dword_140C479E4 >> 5) - 1));
     while ( 1 )
     {
       v9 = *(_QWORD *)v9;

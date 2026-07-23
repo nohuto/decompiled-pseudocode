@@ -1,12 +1,12 @@
 /*
- * XREFs of EmonInitializeProfilingBSP @ 0x14055BA58
+ * XREFs of EmonInitializeProfilingBSP @ 0x140559688
  * Callers:
- *     EmonInitializeProfilingEnhanced @ 0x140B4EED0 (EmonInitializeProfilingEnhanced.c)
+ *     EmonInitializeProfilingEnhanced @ 0x140B50F20 (EmonInitializeProfilingEnhanced.c)
  * Callees:
- *     HalpQueryMaximumRegisteredProcessorCount @ 0x140541F70 (HalpQueryMaximumRegisteredProcessorCount.c)
- *     EmonAllocateCounters @ 0x14055ACAC (EmonAllocateCounters.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     EmonInitializePebs @ 0x140B4EDE0 (EmonInitializePebs.c)
+ *     HalpQueryMaximumRegisteredProcessorCount @ 0x14053F86C (HalpQueryMaximumRegisteredProcessorCount.c)
+ *     EmonAllocateCounters @ 0x1405588DC (EmonAllocateCounters.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     EmonInitializePebs @ 0x140B50E30 (EmonInitializePebs.c)
  */
 
 __int64 __fastcall EmonInitializeProfilingBSP(char a1)
@@ -63,8 +63,8 @@ __int64 __fastcall EmonInitializeProfilingBSP(char a1)
   HalpProfileSourceDescriptorListLock = 0LL;
   EmonReservedResourcesLock = 0LL;
   HalpProfileIntervalLimits = (__int64)EmonProfileIntervalLimits;
-  qword_140FC1E88 = (__int64)&HalpProfileSourceDescriptorListHead;
-  qword_140F8F028 = (__int64)&EmonReservedResourcesList;
+  qword_140FC20E8 = (__int64)&HalpProfileSourceDescriptorListHead;
+  qword_140F8F228 = (__int64)&EmonReservedResourcesList;
   v14 = 0LL;
   EmonReservedResourcesList = (__int64)&EmonReservedResourcesList;
   HalpProfileSourceDescriptorListHead = (__int64)&HalpProfileSourceDescriptorListHead;
@@ -74,14 +74,14 @@ __int64 __fastcall EmonInitializeProfilingBSP(char a1)
     if ( !*((_BYTE *)&EmonProfileSourceDescriptorTable + 320 * v14 + 29) )
     {
       v16 = (_QWORD *)((char *)&EmonProfileSourceDescriptorTable + v15 + 8);
-      v15 = qword_140FC1E88;
-      if ( *(__int64 **)qword_140FC1E88 != &HalpProfileSourceDescriptorListHead )
+      v15 = qword_140FC20E8;
+      if ( *(__int64 **)qword_140FC20E8 != &HalpProfileSourceDescriptorListHead )
         __fastfail(3u);
       ++HalpProfileSourceDescriptorCount;
       *v16 = &HalpProfileSourceDescriptorListHead;
       v16[1] = v15;
       *(_QWORD *)v15 = v16;
-      qword_140FC1E88 = (__int64)v16;
+      qword_140FC20E8 = (__int64)v16;
     }
     v14 = (unsigned int)(v14 + 1);
   }

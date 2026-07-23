@@ -10,7 +10,7 @@
  *     _LdrpFindLoadedDllByNameLockHeld@20 @ 0x4B2CDF40 (_LdrpFindLoadedDllByNameLockHeld@20.c)
  */
 
-signed int __fastcall LdrpFindExistingModule(unsigned __int16 *a1, int a2, char a3, int a4, int **a5)
+signed int __fastcall LdrpFindExistingModule(unsigned __int16 *a1, _UNICODE_STRING *a2, char a3, int a4, int **a5)
 {
   signed int LoadedDllByNameLockHeld; // esi
 

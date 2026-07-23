@@ -11,7 +11,7 @@
  */
 
 __int64 __fastcall SeQuerySigningPolicyWorker(
-        PACCESS_TOKEN Token,
+        HANDLE TokenHandle,
         unsigned __int16 *a2,
         char a3,
         unsigned __int8 a4,
@@ -23,10 +23,11 @@ __int64 __fastcall SeQuerySigningPolicyWorker(
   _BYTE *v12; // rax
   unsigned __int8 v13; // dl
   char v14; // dl
-  _BYTE v15[8]; // [rsp+40h] [rbp-10h] BYREF
+  unsigned __int64 *v15; // [rsp+38h] [rbp-18h]
+  _BYTE v16[8]; // [rsp+40h] [rbp-10h] BYREF
   PVOID TokenInformation; // [rsp+48h] [rbp-8h] BYREF
 
-  if ( (unsigned __int8)SeSecurityAttributePresent(Token, &PspPackagedAppClaim) )
+  if ( (unsigned __int8)SeSecurityAttributePresent(TokenHandle, &PspPackagedAppClaim) )
   {
     if ( (a3 & 1) != 0 )
     {
@@ -35,7 +36,7 @@ __int64 __fastcall SeQuerySigningPolicyWorker(
       *a7 = 18;
       return 0;
     }
-    PackageClaims = RtlQueryPackageClaims((int)Token, 0LL, 0LL, 0LL, 0LL, 0LL);
+    PackageClaims = RtlQueryPackageClaims(TokenHandle, 0LL, 0LL, 0LL, 0LL, 0LL, (PPS_PKG_CLAIM)&TokenInformation, v15);
     if ( PackageClaims < 0 )
       return (unsigned int)PackageClaims;
     if ( BYTE2(TokenInformation) > 6uLL )
@@ -66,7 +67,7 @@ LABEL_33:
   if ( a2 && SepIsNgenImage(a2) )
   {
     LODWORD(TokenInformation) = 0;
-    PackageClaims = SeQueryInformationToken(Token, TokenIsAppContainer, &TokenInformation);
+    PackageClaims = SeQueryInformationToken(TokenHandle, TokenIsAppContainer, &TokenInformation);
     if ( PackageClaims < 0 )
       return (unsigned int)PackageClaims;
     if ( (a3 & 1) != 0 )
@@ -81,12 +82,12 @@ LABEL_33:
     }
     if ( !(_DWORD)TokenInformation )
       goto LABEL_12;
-    PackageClaims = SepIsLockedDown(v15);
+    PackageClaims = SepIsLockedDown(v16);
     if ( PackageClaims < 0 )
       return (unsigned int)PackageClaims;
     *a5 = 8;
     v12 = a6;
-    if ( v15[0] )
+    if ( v16[0] )
     {
 LABEL_20:
       *v12 = 6;

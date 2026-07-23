@@ -1,14 +1,14 @@
 /*
- * XREFs of KiAddProcessorToGroupSchedulingDatabase @ 0x1409AFC94
+ * XREFs of KiAddProcessorToGroupSchedulingDatabase @ 0x1409B0BC4
  * Callers:
- *     KiStartDynamicProcessor @ 0x1408BA678 (KiStartDynamicProcessor.c)
+ *     KiStartDynamicProcessor @ 0x1408BA7D8 (KiStartDynamicProcessor.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLock @ 0x14022D600 (KeReleaseInStackQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14022EE10 (KeAcquireInStackQueuedSpinLock.c)
- *     KeYieldProcessorEx @ 0x14024B280 (KeYieldProcessorEx.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x1402D1E50 (KeReleaseInStackQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402D3660 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeYieldProcessorEx @ 0x1402EFAD0 (KeYieldProcessorEx.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     KiAddProcessorToGroupSchedulingList @ 0x1405237CC (KiAddProcessorToGroupSchedulingList.c)
- *     KiInitializeProcessorGroupSchedulingData @ 0x140523868 (KiInitializeProcessorGroupSchedulingData.c)
+ *     KiAddProcessorToGroupSchedulingList @ 0x140523A0C (KiAddProcessorToGroupSchedulingList.c)
+ *     KiInitializeProcessorGroupSchedulingData @ 0x140523AA8 (KiInitializeProcessorGroupSchedulingData.c)
  */
 
 void __fastcall KiAddProcessorToGroupSchedulingDatabase(__int64 a1)

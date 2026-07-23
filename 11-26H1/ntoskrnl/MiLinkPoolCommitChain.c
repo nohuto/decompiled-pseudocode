@@ -1,20 +1,20 @@
 /*
- * XREFs of MiLinkPoolCommitChain @ 0x140365560
+ * XREFs of MiLinkPoolCommitChain @ 0x140367300
  * Callers:
- *     MiCommitPoolMemory @ 0x140364AE0 (MiCommitPoolMemory.c)
+ *     MiCommitPoolMemory @ 0x140366880 (MiCommitPoolMemory.c)
  * Callees:
- *     MiMakeDemandZeroPte @ 0x14028B2D0 (MiMakeDemandZeroPte.c)
- *     MiGetContainingPageTable @ 0x1402D9BF0 (MiGetContainingPageTable.c)
- *     MiMakeValidPte @ 0x1402DA020 (MiMakeValidPte.c)
- *     MiFlushTbAsNeeded @ 0x14035FD40 (MiFlushTbAsNeeded.c)
- *     MiMakeLinkedListPte @ 0x140365844 (MiMakeLinkedListPte.c)
- *     MiUnlinkPageChainHead @ 0x140365EF0 (MiUnlinkPageChainHead.c)
- *     MiIncreaseUsedPtes @ 0x140365F20 (MiIncreaseUsedPtes.c)
- *     MiUpdateLargePageBitMap @ 0x1403C5418 (MiUpdateLargePageBitMap.c)
- *     MiIsPoolPteInUse @ 0x14044F950 (MiIsPoolPteInUse.c)
- *     MiLockAndIncrementShareCount @ 0x1404D14B8 (MiLockAndIncrementShareCount.c)
- *     MiInitializeLargeNonPagedPoolLeafFrames @ 0x1404D9628 (MiInitializeLargeNonPagedPoolLeafFrames.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
+ *     MiMakeDemandZeroPte @ 0x14028A830 (MiMakeDemandZeroPte.c)
+ *     MiGetContainingPageTable @ 0x1402BB9B0 (MiGetContainingPageTable.c)
+ *     MiMakeValidPte @ 0x1402BBDE0 (MiMakeValidPte.c)
+ *     MiFlushTbAsNeeded @ 0x140361AE0 (MiFlushTbAsNeeded.c)
+ *     MiMakeLinkedListPte @ 0x1403675E4 (MiMakeLinkedListPte.c)
+ *     MiUnlinkPageChainHead @ 0x140367C90 (MiUnlinkPageChainHead.c)
+ *     MiIncreaseUsedPtes @ 0x140367CC0 (MiIncreaseUsedPtes.c)
+ *     MiUpdateLargePageBitMap @ 0x1403CF324 (MiUpdateLargePageBitMap.c)
+ *     MiIsPoolPteInUse @ 0x140447A80 (MiIsPoolPteInUse.c)
+ *     MiLockAndIncrementShareCount @ 0x1404CAEE8 (MiLockAndIncrementShareCount.c)
+ *     MiInitializeLargeNonPagedPoolLeafFrames @ 0x1404D2D08 (MiInitializeLargeNonPagedPoolLeafFrames.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
  */
 
 char __fastcall MiLinkPoolCommitChain(__int64 a1, ULONG_PTR a2)

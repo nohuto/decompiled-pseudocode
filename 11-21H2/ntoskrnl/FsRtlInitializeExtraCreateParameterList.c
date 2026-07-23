@@ -12,10 +12,10 @@ NTSTATUS __stdcall FsRtlInitializeExtraCreateParameterList(PECP_LIST EcpList)
 
   if ( !EcpList )
     return -1073741811;
-  EcpList->Flags = 0;
-  EcpList->EcpList.Blink = &EcpList->EcpList;
-  EcpList->EcpList.Flink = &EcpList->EcpList;
+  *((_DWORD *)EcpList + 1) = 0;
+  *((_QWORD *)EcpList + 2) = (char *)EcpList + 8;
+  *((_QWORD *)EcpList + 1) = (char *)EcpList + 8;
   result = 0;
-  EcpList->Signature = 1282433861;
+  *(_DWORD *)EcpList = 1282433861;
   return result;
 }

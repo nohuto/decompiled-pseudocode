@@ -1,11 +1,11 @@
 /*
- * XREFs of HalpTimerResetProfileAdjustment @ 0x140549F30
+ * XREFs of HalpTimerResetProfileAdjustment @ 0x1405477F0
  * Callers:
- *     HalCalibratePerformanceCounter @ 0x14053A440 (HalCalibratePerformanceCounter.c)
- *     HalpTimerNotifyProcessorFreeze @ 0x14053B580 (HalpTimerNotifyProcessorFreeze.c)
- *     HalProcessorIdle @ 0x1406A5AA0 (HalProcessorIdle.c)
+ *     HalCalibratePerformanceCounter @ 0x140537C80 (HalCalibratePerformanceCounter.c)
+ *     HalpTimerNotifyProcessorFreeze @ 0x140538DC0 (HalpTimerNotifyProcessorFreeze.c)
+ *     HalProcessorIdle @ 0x1406A6AA0 (HalProcessorIdle.c)
  * Callees:
- *     HalpDisableInterrupts @ 0x140320790 (HalpDisableInterrupts.c)
+ *     HalpDisableInterrupts @ 0x1402C9320 (HalpDisableInterrupts.c)
  */
 
 bool HalpTimerResetProfileAdjustment()

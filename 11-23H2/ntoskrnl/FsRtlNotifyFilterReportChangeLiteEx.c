@@ -1,21 +1,21 @@
 /*
  * XREFs of FsRtlNotifyFilterReportChangeLiteEx @ 0x14068A3A0
  * Callers:
- *     FsRtlNotifyFilterReportChangeLite @ 0x140940070 (FsRtlNotifyFilterReportChangeLite.c)
+ *     FsRtlNotifyFilterReportChangeLite @ 0x140940270 (FsRtlNotifyFilterReportChangeLite.c)
  * Callees:
  *     PsChargePoolQuota @ 0x140207F00 (PsChargePoolQuota.c)
  *     PsReturnProcessPagedPoolQuota @ 0x1402085B0 (PsReturnProcessPagedPoolQuota.c)
- *     RtlUIntAdd @ 0x1402504DC (RtlUIntAdd.c)
- *     MmMapLockedPagesSpecifyCache @ 0x14027CF60 (MmMapLockedPagesSpecifyCache.c)
- *     ExReleaseFastMutexUnsafe @ 0x1403025F0 (ExReleaseFastMutexUnsafe.c)
- *     ExAcquireFastMutexUnsafe @ 0x140302660 (ExAcquireFastMutexUnsafe.c)
- *     FsRtlIsNtstatusExpected @ 0x140359D00 (FsRtlIsNtstatusExpected.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     memmove @ 0x140435700 (memmove.c)
- *     memset @ 0x140435A00 (memset.c)
+ *     RtlUIntAdd @ 0x1402505AC (RtlUIntAdd.c)
+ *     MmMapLockedPagesSpecifyCache @ 0x14027D1F0 (MmMapLockedPagesSpecifyCache.c)
+ *     ExReleaseFastMutexUnsafe @ 0x140302880 (ExReleaseFastMutexUnsafe.c)
+ *     ExAcquireFastMutexUnsafe @ 0x1403028F0 (ExAcquireFastMutexUnsafe.c)
+ *     FsRtlIsNtstatusExpected @ 0x140359EA0 (FsRtlIsNtstatusExpected.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     memset @ 0x140435E00 (memset.c)
  *     FsRtlNotifyCompleteIrpList @ 0x14068A9F0 (FsRtlNotifyCompleteIrpList.c)
- *     FsRtlNotifyInitializeSync @ 0x1407C4F00 (FsRtlNotifyInitializeSync.c)
- *     FsRtlNotifyUninitializeSync @ 0x140873590 (FsRtlNotifyUninitializeSync.c)
+ *     FsRtlNotifyInitializeSync @ 0x1407C51D0 (FsRtlNotifyInitializeSync.c)
+ *     FsRtlNotifyUninitializeSync @ 0x1408737D0 (FsRtlNotifyUninitializeSync.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

@@ -13,73 +13,73 @@
  *     ExRaiseDatatypeMisalignment @ 0x140673350 (ExRaiseDatatypeMisalignment.c)
  */
 
-__int64 __fastcall NtAlpcCreateSectionView(HANDLE Handle, int a2, ULONG64 a3)
+NTSTATUS __cdecl NtAlpcCreateSectionView(HANDLE PortHandle, ULONG Flags, PALPC_DATA_VIEW_ATTR ViewAttributes)
 {
   struct _KTHREAD *CurrentThread; // rax
   char PreviousMode; // si
   _BYTE *v7; // rcx
-  int v8; // ebx
+  NTSTATUS v8; // ebx
   unsigned __int64 *v9; // r15
   void *v10; // r14
   ULONG_PTR v11; // rsi
   PVOID Object[2]; // [rsp+30h] [rbp-48h] BYREF
-  __int128 v14; // [rsp+40h] [rbp-38h]
-  __int128 v15; // [rsp+50h] [rbp-28h]
+  _ALPC_DATA_VIEW_ATTR v14; // [rsp+40h] [rbp-38h]
   ULONG_PTR BugCheckParameter2; // [rsp+98h] [rbp+20h] BYREF
 
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
-  if ( a2 )
+  if ( Flags )
     goto LABEL_23;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   if ( PreviousMode )
   {
-    if ( (a3 & 3) != 0 )
+    if ( ((unsigned __int8)ViewAttributes & 3) != 0 )
       ExRaiseDatatypeMisalignment();
-    v7 = (_BYTE *)a3;
-    if ( a3 >= MmUserProbeAddress )
+    v7 = ViewAttributes;
+    if ( (unsigned __int64)ViewAttributes >= MmUserProbeAddress )
       v7 = (_BYTE *)MmUserProbeAddress;
     *v7 = *v7;
     v7[31] = v7[31];
-    v14 = *(_OWORD *)a3;
-    v15 = *(_OWORD *)(a3 + 16);
+    v14 = *ViewAttributes;
   }
   else
   {
-    v14 = *(_OWORD *)a3;
-    v15 = *(_OWORD *)(a3 + 16);
+    v14 = *ViewAttributes;
   }
-  if ( (_DWORD)v14 || (_QWORD)v15 )
+  if ( v14.Flags || v14.ViewBase )
   {
 LABEL_23:
     v8 = -1073741811;
   }
   else
   {
-    v8 = ObReferenceObjectByHandle(Handle, 1u, AlpcPortObjectType, KeGetCurrentThread()->PreviousMode, Object, 0LL);
+    v8 = ObReferenceObjectByHandle(PortHandle, 1u, AlpcPortObjectType, KeGetCurrentThread()->PreviousMode, Object, 0LL);
     if ( v8 >= 0 )
     {
       v9 = (unsigned __int64 *)Object[0];
-      v10 = (void *)AlpcReferenceBlobByHandle(*((_QWORD *)Object[0] + 2) + 40LL, SDWORD2(v14), AlpcSectionType);
+      v10 = (void *)AlpcReferenceBlobByHandle(
+                      *((_QWORD *)Object[0] + 2) + 40LL,
+                      (int)v14.SectionHandle,
+                      AlpcSectionType);
       Object[1] = v10;
       if ( v10 )
       {
-        v8 = AlpcpCreateSectionView((ULONG_PTR)v10, v9, 0LL, *((__int64 *)&v15 + 1), &BugCheckParameter2);
+        v8 = AlpcpCreateSectionView((ULONG_PTR)v10, v9, 0LL, v14.ViewSize, &BugCheckParameter2);
         if ( v8 >= 0 )
         {
           if ( PreviousMode )
           {
             v11 = BugCheckParameter2;
-            *(_QWORD *)(a3 + 16) = *(_QWORD *)(BugCheckParameter2 + 40);
-            *(_QWORD *)(a3 + 24) = *(_QWORD *)(v11 + 48);
+            ViewAttributes->ViewBase = *(PVOID *)(BugCheckParameter2 + 40);
+            ViewAttributes->ViewSize = *(_QWORD *)(v11 + 48);
             if ( v8 < 0 )
               AlpcpDeleteView(v11);
           }
           else
           {
             v11 = BugCheckParameter2;
-            *(_QWORD *)(a3 + 16) = *(_QWORD *)(BugCheckParameter2 + 40);
-            *(_QWORD *)(a3 + 24) = *(_QWORD *)(v11 + 48);
+            ViewAttributes->ViewBase = *(PVOID *)(BugCheckParameter2 + 40);
+            ViewAttributes->ViewSize = *(_QWORD *)(v11 + 48);
           }
           AlpcpDereferenceBlobEx(v11, 1);
         }
@@ -93,5 +93,5 @@ LABEL_23:
     }
   }
   KeLeaveCriticalRegion();
-  return (unsigned int)v8;
+  return v8;
 }

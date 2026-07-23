@@ -1,11 +1,11 @@
 /*
- * XREFs of HalpDeleteSecondaryIcEntry @ 0x140519CEC
+ * XREFs of HalpDeleteSecondaryIcEntry @ 0x14051A23C
  * Callers:
- *     HalpUnregisterSecondaryIcInterface @ 0x14051A540 (HalpUnregisterSecondaryIcInterface.c)
+ *     HalpUnregisterSecondaryIcInterface @ 0x14051AA90 (HalpUnregisterSecondaryIcInterface.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14022F5B0 (ObfDereferenceObjectWithTag.c)
- *     HalpAcquireSecondaryIcEntryExclusive @ 0x140519C08 (HalpAcquireSecondaryIcEntryExclusive.c)
- *     HalpReleaseSecondaryIcEntryExclusive @ 0x14051A498 (HalpReleaseSecondaryIcEntryExclusive.c)
+ *     ObfDereferenceObjectWithTag @ 0x14022F6C0 (ObfDereferenceObjectWithTag.c)
+ *     HalpAcquireSecondaryIcEntryExclusive @ 0x14051A158 (HalpAcquireSecondaryIcEntryExclusive.c)
+ *     HalpReleaseSecondaryIcEntryExclusive @ 0x14051A9E8 (HalpReleaseSecondaryIcEntryExclusive.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

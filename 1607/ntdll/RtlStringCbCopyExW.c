@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlStringCbCopyExW @ 0x18005C6A0
+ * XREFs of RtlStringCbCopyExW @ 0x18005C690
  * Callers:
- *     RtlFormatMessageEx @ 0x18005C730 (RtlFormatMessageEx.c)
+ *     RtlFormatMessageEx @ 0x18005C720 (RtlFormatMessageEx.c)
  * Callees:
  *     <none>
  */

@@ -1,9 +1,9 @@
 /*
- * XREFs of EtwpTiFillTokenIdentity @ 0x140A80558
+ * XREFs of EtwpTiFillTokenIdentity @ 0x140A7AFB8
  * Callers:
- *     EtwTiLogImpersonateClient @ 0x140910DC8 (EtwTiLogImpersonateClient.c)
+ *     EtwTiLogImpersonateClient @ 0x1408E8518 (EtwTiLogImpersonateClient.c)
  * Callees:
- *     RtlLengthSid @ 0x140456300 (RtlLengthSid.c)
+ *     RtlLengthSid @ 0x14044B2D0 (RtlLengthSid.c)
  */
 
 __int64 __fastcall EtwpTiFillTokenIdentity(__int64 a1, __int64 a2)
@@ -50,7 +50,7 @@ __int64 __fastcall EtwpTiFillTokenIdentity(__int64 a1, __int64 a2)
   *(_QWORD *)(a1 + 104) = 4LL;
   if ( v9 )
   {
-    *(_QWORD *)(a1 + 96) = &qword_14001C178;
+    *(_QWORD *)(a1 + 96) = &qword_14001C388;
     v10 = *(void **)(*(_QWORD *)(a2 + 8) + 40LL);
     v11 = RtlLengthSid(v10);
     v12 = 144LL;
@@ -66,7 +66,7 @@ __int64 __fastcall EtwpTiFillTokenIdentity(__int64 a1, __int64 a2)
   else
   {
     v12 = 128LL;
-    *(_QWORD *)(a1 + 96) = &qword_14001C180;
+    *(_QWORD *)(a1 + 96) = &qword_14001C390;
     v14 = 176LL;
     v13 = 112LL;
     v15 = 144LL;

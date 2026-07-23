@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpSetShutdownResetHandler @ 0x140544D18
+ * XREFs of HalpSetShutdownResetHandler @ 0x1405425D8
  * Callers:
- *     HalpKsrCallbackRoutine @ 0x140702E60 (HalpKsrCallbackRoutine.c)
+ *     HalpKsrCallbackRoutine @ 0x140700AA0 (HalpKsrCallbackRoutine.c)
  * Callees:
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ZwPowerInformation @ 0x1406A6FF0 (ZwPowerInformation.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ZwPowerInformation @ 0x1406A7F90 (ZwPowerInformation.c)
  */
 
 NTSTATUS __fastcall HalpSetShutdownResetHandler(__int64 a1)

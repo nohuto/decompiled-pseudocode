@@ -1,41 +1,41 @@
 /*
- * XREFs of IoCaptureLiveDump @ 0x14051255C
+ * XREFs of IoCaptureLiveDump @ 0x14050BFCC
  * Callers:
- *     DbgkCaptureLiveKernelDump @ 0x1405B4278 (DbgkCaptureLiveKernelDump.c)
- *     DbgkpWerCaptureLiveFullDump @ 0x140B3F37C (DbgkpWerCaptureLiveFullDump.c)
+ *     DbgkCaptureLiveKernelDump @ 0x1405B6A88 (DbgkCaptureLiveKernelDump.c)
+ *     DbgkpWerCaptureLiveFullDump @ 0x140B413AC (DbgkpWerCaptureLiveFullDump.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212E30 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     KeQueryPerformanceCounter @ 0x14021C3F0 (KeQueryPerformanceCounter.c)
- *     ExReleaseRundownProtection_0 @ 0x140266240 (ExReleaseRundownProtection_0.c)
- *     ExAcquireResourceExclusiveLite @ 0x140275200 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x1402B4CF0 (ExReleaseResourceLite.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     IopLiveDumpWriteDumpFile @ 0x140343D08 (IopLiveDumpWriteDumpFile.c)
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     _tlgKeywordOn @ 0x14044F850 (_tlgKeywordOn.c)
- *     EtwActivityIdControl @ 0x140466BF0 (EtwActivityIdControl.c)
- *     ExGetExtensionTable @ 0x14049B7B0 (ExGetExtensionTable.c)
- *     IopLiveDumpGetMillisecondCounter @ 0x1404E48C0 (IopLiveDumpGetMillisecondCounter.c)
- *     SecureDump_GetSecureDumpSettings @ 0x140518534 (SecureDump_GetSecureDumpSettings.c)
- *     IopLiveDumpIsTracingEnabled @ 0x14052F2C8 (IopLiveDumpIsTracingEnabled.c)
- *     IopLiveDumpAllocAndInitResources @ 0x1405CC998 (IopLiveDumpAllocAndInitResources.c)
- *     IopLiveDumpCaptureDumpStart @ 0x1405CE660 (IopLiveDumpCaptureDumpStart.c)
- *     IopLiveDumpCaptureMemoryPages @ 0x1405CE6D0 (IopLiveDumpCaptureMemoryPages.c)
- *     IopLiveDumpInitRegistrySettings @ 0x1405CFF50 (IopLiveDumpInitRegistrySettings.c)
- *     IopLiveDumpOpenVMMemoryPartition @ 0x1405D0C1C (IopLiveDumpOpenVMMemoryPartition.c)
- *     IopLiveDumpReleaseResources @ 0x1405D164C (IopLiveDumpReleaseResources.c)
- *     IopLiveDumpTraceDumpFileWriteEnd @ 0x1405D21E4 (IopLiveDumpTraceDumpFileWriteEnd.c)
- *     IopLiveDumpTraceInterfaceEnd @ 0x1405D236C (IopLiveDumpTraceInterfaceEnd.c)
- *     IopLiveDumpValidateParameters @ 0x1405D2DBC (IopLiveDumpValidateParameters.c)
- *     IopLiveDumpWriteDumpFileWithExtraPages @ 0x1405D304C (IopLiveDumpWriteDumpFileWithExtraPages.c)
- *     IopLiveDumpTraceIoCaptureLiveDumpEntry @ 0x1405D7B48 (IopLiveDumpTraceIoCaptureLiveDumpEntry.c)
- *     IopLiveDumpTraceNoArgs @ 0x1405D7BE8 (IopLiveDumpTraceNoArgs.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     IoCreateNotificationEvent @ 0x140B00140 (IoCreateNotificationEvent.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212F10 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     KeQueryPerformanceCounter @ 0x14021DD80 (KeQueryPerformanceCounter.c)
+ *     ExReleaseRundownProtection_0 @ 0x1402657B0 (ExReleaseRundownProtection_0.c)
+ *     ExAcquireResourceExclusiveLite @ 0x140274770 (ExAcquireResourceExclusiveLite.c)
+ *     ExReleaseResourceLite @ 0x1402FF9C0 (ExReleaseResourceLite.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     IopLiveDumpWriteDumpFile @ 0x140345D88 (IopLiveDumpWriteDumpFile.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     _tlgKeywordOn @ 0x140447980 (_tlgKeywordOn.c)
+ *     EtwActivityIdControl @ 0x140460340 (EtwActivityIdControl.c)
+ *     ExGetExtensionTable @ 0x140495300 (ExGetExtensionTable.c)
+ *     IopLiveDumpGetMillisecondCounter @ 0x1404DDE60 (IopLiveDumpGetMillisecondCounter.c)
+ *     SecureDump_GetSecureDumpSettings @ 0x140511FA4 (SecureDump_GetSecureDumpSettings.c)
+ *     IopLiveDumpIsTracingEnabled @ 0x1405317E8 (IopLiveDumpIsTracingEnabled.c)
+ *     IopLiveDumpAllocAndInitResources @ 0x1405CF1A8 (IopLiveDumpAllocAndInitResources.c)
+ *     IopLiveDumpCaptureDumpStart @ 0x1405D0E70 (IopLiveDumpCaptureDumpStart.c)
+ *     IopLiveDumpCaptureMemoryPages @ 0x1405D0EE0 (IopLiveDumpCaptureMemoryPages.c)
+ *     IopLiveDumpInitRegistrySettings @ 0x1405D2760 (IopLiveDumpInitRegistrySettings.c)
+ *     IopLiveDumpOpenVMMemoryPartition @ 0x1405D3420 (IopLiveDumpOpenVMMemoryPartition.c)
+ *     IopLiveDumpReleaseResources @ 0x1405D3E34 (IopLiveDumpReleaseResources.c)
+ *     IopLiveDumpTraceDumpFileWriteEnd @ 0x1405D49D4 (IopLiveDumpTraceDumpFileWriteEnd.c)
+ *     IopLiveDumpTraceInterfaceEnd @ 0x1405D4B5C (IopLiveDumpTraceInterfaceEnd.c)
+ *     IopLiveDumpValidateParameters @ 0x1405D55AC (IopLiveDumpValidateParameters.c)
+ *     IopLiveDumpWriteDumpFileWithExtraPages @ 0x1405D583C (IopLiveDumpWriteDumpFileWithExtraPages.c)
+ *     IopLiveDumpTraceIoCaptureLiveDumpEntry @ 0x1405DA340 (IopLiveDumpTraceIoCaptureLiveDumpEntry.c)
+ *     IopLiveDumpTraceNoArgs @ 0x1405DA3E0 (IopLiveDumpTraceNoArgs.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     IoCreateNotificationEvent @ 0x140B01E70 (IoCreateNotificationEvent.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall IoCaptureLiveDump(
@@ -49,7 +49,7 @@ __int64 __fastcall IoCaptureLiveDump(
 {
   HANDLE v7; // rdi
   void *v8; // rsi
-  unsigned __int64 Blink; // r13
+  unsigned __int64 v9; // r13
   unsigned int *Pool2; // rbx
   struct _KTHREAD *CurrentThread; // rax
   __int64 v12; // rdx
@@ -134,7 +134,7 @@ __int64 __fastcall IoCaptureLiveDump(
   v50 = a4;
   v8 = 0LL;
   v49 = a3;
-  Blink = 0LL;
+  v9 = 0LL;
   v48 = a2;
   Pool2 = 0LL;
   v45 = a1;
@@ -172,7 +172,7 @@ LABEL_38:
       if ( IptInterface )
       {
         guard_dispatch_icall_no_overrides(0LL, v12);
-        ExReleaseRundownProtection_0((PEX_RUNDOWN_REF)(Blink + 88));
+        ExReleaseRundownProtection_0((PEX_RUNDOWN_REF)(v9 + 88));
         IptInterface = 0LL;
       }
       if ( Handle )
@@ -230,7 +230,7 @@ LABEL_38:
                 v61 = &v43;
                 tlgWriteTransfer_EtwWriteTransfer(
                   (__int64)&dword_140E06D90,
-                  (unsigned __int8 *)&byte_1400471B7,
+                  (unsigned __int8 *)word_140047F82,
                   (const GUID *)(Pool2 + 242),
                   (const GUID *)(Pool2 + 238),
                   5u,
@@ -297,7 +297,7 @@ LABEL_38:
         }
         tlgWriteTransfer_EtwWriteTransfer(
           (__int64)&dword_140E06D90,
-          (unsigned __int8 *)&qword_140047210,
+          (unsigned __int8 *)&dword_140047E7C,
           v35,
           v34,
           0xEu,
@@ -315,10 +315,10 @@ LABEL_38:
       }
       return (unsigned int)SecureDumpSettings;
     }
-    Blink = (unsigned __int64)KiSupervisorXStateFeaturesLock.Header.WaitListHead.Blink;
-    if ( KiSupervisorXStateFeaturesLock.Header.WaitListHead.Blink )
+    v9 = KiSupervisorStateExtensionHost;
+    if ( KiSupervisorStateExtensionHost )
     {
-      IptInterface = ExGetExtensionTable((struct _EX_RUNDOWN_REF *)KiSupervisorXStateFeaturesLock.Header.WaitListHead.Blink);
+      IptInterface = ExGetExtensionTable((struct _EX_RUNDOWN_REF *)KiSupervisorStateExtensionHost);
       if ( IptInterface )
       {
         LOBYTE(v17) = 1;
@@ -326,11 +326,11 @@ LABEL_38:
         if ( !(unsigned __int8)guard_dispatch_icall_no_overrides(v19, v18) )
         {
           guard_dispatch_icall_no_overrides(0LL, v20);
-          ExReleaseRundownProtection_0((PEX_RUNDOWN_REF)(Blink + 88));
+          ExReleaseRundownProtection_0((PEX_RUNDOWN_REF)(v9 + 88));
           IptInterface = 0LL;
         }
       }
-      Blink &= -(__int64)(IptInterface != 0);
+      v9 &= -(__int64)(IptInterface != 0);
     }
     if ( (*(_DWORD *)(a6 + 24) & 0x10) != 0 )
     {
@@ -386,7 +386,7 @@ LABEL_38:
           v58 = 8LL;
           tlgWriteTransfer_EtwWriteTransfer(
             (__int64)&dword_140E06D90,
-            (unsigned __int8 *)&dword_140047184,
+            (unsigned __int8 *)byte_140047E49,
             (const GUID *)(Pool2 + 242),
             (const GUID *)(Pool2 + 238),
             3u,

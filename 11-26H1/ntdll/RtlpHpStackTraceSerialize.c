@@ -1,14 +1,14 @@
 /*
- * XREFs of RtlpHpStackTraceSerialize @ 0x1801223E0
+ * XREFs of RtlpHpStackTraceSerialize @ 0x180122180
  * Callers:
- *     RtlQueryHeapInformation @ 0x180091560 (RtlQueryHeapInformation.c)
+ *     RtlQueryHeapInformation @ 0x180076310 (RtlQueryHeapInformation.c)
  * Callees:
- *     RtlReleaseSRWLockShared @ 0x18002D9F0 (RtlReleaseSRWLockShared.c)
- *     RtlAcquireSRWLockShared @ 0x18004C610 (RtlAcquireSRWLockShared.c)
- *     RtlpEnumProcessHeaps @ 0x180091420 (RtlpEnumProcessHeaps.c)
- *     RtlpHpStackTraceSerializeRemote @ 0x18014FE10 (RtlpHpStackTraceSerializeRemote.c)
- *     RtlStackDbContextSerialize @ 0x18015AEA0 (RtlStackDbContextSerialize.c)
- *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x180170020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
+ *     RtlReleaseSRWLockShared @ 0x180018AF0 (RtlReleaseSRWLockShared.c)
+ *     RtlAcquireSRWLockShared @ 0x180036B90 (RtlAcquireSRWLockShared.c)
+ *     RtlpEnumProcessHeaps @ 0x180076180 (RtlpEnumProcessHeaps.c)
+ *     RtlpHpStackTraceSerializeRemote @ 0x18014FCC0 (RtlpHpStackTraceSerializeRemote.c)
+ *     RtlStackDbContextSerialize @ 0x18015AD70 (RtlStackDbContextSerialize.c)
+ *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x18016F020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
  */
 
 __int64 __fastcall RtlpHpStackTraceSerialize(__int64 a1, __int64 a2, _QWORD *a3)
@@ -21,10 +21,10 @@ __int64 __fastcall RtlpHpStackTraceSerialize(__int64 a1, __int64 a2, _QWORD *a3)
     if ( *(_QWORD *)(a1 + 8) == -1LL )
     {
       RtlAcquireSRWLockShared(&RtlpHpStackTrackingContext);
-      if ( (dword_1801C7858 & 1) != 0 && (dword_1801C7858 & 2) != 0 )
+      if ( (dword_1801C68A8 & 1) != 0 && (dword_1801C68A8 & 2) != 0 )
       {
         *(_BYTE *)(a1 + 33) |= 1u;
-        v5 = RtlStackDbContextSerialize(&qword_1801C7860, *(_QWORD *)(a1 + 16), *(_QWORD *)(a1 + 24));
+        v5 = RtlStackDbContextSerialize(&qword_1801C68B0, *(_QWORD *)(a1 + 16), *(_QWORD *)(a1 + 24));
         if ( v5 >= 0 )
         {
           v5 = RtlpEnumProcessHeaps(

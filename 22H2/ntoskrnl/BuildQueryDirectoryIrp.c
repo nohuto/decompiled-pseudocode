@@ -45,7 +45,7 @@ __int64 __fastcall BuildQueryDirectoryIrp(
 {
   void *v16; // rdi
   struct _KTHREAD *CurrentThread; // r10
-  unsigned __int8 v18; // r12
+  KPROCESSOR_MODE PreviousMode; // r12
   unsigned int v19; // edx
   __int64 v20; // rcx
   ULONG v22; // r8d
@@ -55,7 +55,7 @@ __int64 __fastcall BuildQueryDirectoryIrp(
   int v26; // ebx
   PADAPTER_OBJECT v27; // rdi
   struct _DMA_ADAPTER *v28; // r14
-  bool v29; // r15
+  char v29; // r15
   struct _KTHREAD *v30; // rax
   PADAPTER_OBJECT v31; // rbx
   __int64 v32; // rax
@@ -88,9 +88,9 @@ __int64 __fastcall BuildQueryDirectoryIrp(
   P = 0LL;
   CurrentThread = KeGetCurrentThread();
   v47 = CurrentThread;
-  v18 = CurrentThread->$6BEBF485330D18E60173AA6D991B35AC::gap0[10];
-  LOBYTE(Irp->Type) = v18;
-  if ( v18 )
+  PreviousMode = CurrentThread->PreviousMode;
+  LOBYTE(Irp->Type) = PreviousMode;
+  if ( PreviousMode )
   {
     v19 = 0;
     v20 = a5;
@@ -151,7 +151,7 @@ LABEL_18:
   if ( !a10 )
     goto LABEL_39;
   v48 = 0LL;
-  if ( v18 )
+  if ( PreviousMode )
   {
     a1 = 0x7FFFFFFF0000LL;
     if ( (unsigned __int64)a10 < 0x7FFFFFFF0000LL )
@@ -170,13 +170,13 @@ LABEL_18:
   v24 = v48;
   if ( (_WORD)v48 )
   {
-    if ( v18 )
+    if ( PreviousMode )
     {
       a1 = (unsigned __int64)v23 + (unsigned __int16)v48;
       if ( a1 > 0x7FFFFFFF0000LL || a1 < (unsigned __int64)v23 )
         MEMORY[0x7FFFFFFF0000] = 0;
       if ( (unsigned __int16)v48 >= 0x200u )
-        RtlRaiseStatus(0xC000000D);
+        RtlRaiseStatus(-1073741811);
     }
     PoolWithQuota = (UNICODE_STRING *)IopVerifierExAllocatePoolWithQuota(a1, (unsigned __int16)v48 + 16LL);
     P = PoolWithQuota;
@@ -191,7 +191,7 @@ LABEL_18:
 LABEL_39:
     PoolWithQuota = (UNICODE_STRING *)P;
   }
-  v26 = IopReferenceFileObject(v16, 1u, v18, (PVOID *)&DmaAdapter, 0LL);
+  v26 = IopReferenceFileObject(v16, 1u, PreviousMode, (PVOID *)&DmaAdapter, 0LL);
   if ( v26 < 0 )
   {
     if ( PoolWithQuota )
@@ -210,7 +210,7 @@ LABEL_39:
   if ( a2 )
   {
     Object = 0LL;
-    v26 = ObReferenceObjectByHandle(a2, 2u, (POBJECT_TYPE)ExEventObjectType, v18, &Object, 0LL);
+    v26 = ObReferenceObjectByHandle(a2, 2u, (POBJECT_TYPE)ExEventObjectType, PreviousMode, &Object, 0LL);
     v28 = (struct _DMA_ADAPTER *)Object;
     v45 = (PADAPTER_OBJECT)Object;
     if ( v26 < 0 )
@@ -234,12 +234,12 @@ LABEL_84:
     v30 = KeGetCurrentThread();
     --v30->KernelApcDisable;
     v31 = DmaAdapter;
-    v32 = KeAbPreAcquire((ULONG_PTR)&DmaAdapter[8], 0LL, 0LL);
+    v32 = KeAbPreAcquire((ULONG_PTR)&DmaAdapter[8], 0LL, 0);
     LOBYTE(a11) = 0;
     if ( _InterlockedExchange((volatile __int32 *)(&v31[7].Size + 1), 1) )
     {
       v27 = DmaAdapter;
-      v26 = IopWaitAndAcquireFileObjectLock((volatile signed __int32 *)DmaAdapter, v18, v29, v32, &a11);
+      v26 = IopWaitAndAcquireFileObjectLock((volatile signed __int32 *)DmaAdapter, PreviousMode, v29, v32, &a11);
     }
     else
     {
@@ -264,7 +264,7 @@ LABEL_84:
   else
   {
     *a12 = 0;
-    if ( v18 )
+    if ( PreviousMode )
       IopMarkApcRoutineIfAsynchronousIo32((unsigned int **)&a5, &v51, 0);
   }
   if ( (*(_DWORD *)&Irp->Type & 0x4000000) == 0 )
@@ -279,7 +279,7 @@ LABEL_84:
     *a14 = v34;
     v34->Tail.Overlay.OriginalFileObject = (PFILE_OBJECT)v27;
     v34->Tail.Overlay.Thread = v47;
-    v34->RequestorMode = v18;
+    v34->RequestorMode = PreviousMode;
     v34->UserEvent = (PKEVENT)v28;
     v34->UserIosb = (PIO_STATUS_BLOCK)a5;
     v34->Overlay.AllocationSize.QuadPart = v51;
@@ -307,10 +307,10 @@ LABEL_84:
         LODWORD(v39) = Length;
         Mdl = IoAllocateMdl((PVOID)Address, Length, 0, 1u, v36);
         if ( !Mdl )
-          RtlRaiseStatus(0xC000009A);
+          RtlRaiseStatus(-1073741670);
         IopProbeAndLockPages_2(
           (__int64)Mdl,
-          v18,
+          PreviousMode,
           v42,
           (__int64)RelatedDeviceObject,
           CurrentStackLocation[-1].MajorFunction);

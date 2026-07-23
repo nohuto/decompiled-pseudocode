@@ -8,27 +8,27 @@
  *     _RtlSetProcessDebugInformation@12 @ 0x4B337540 (_RtlSetProcessDebugInformation@12.c)
  */
 
-void __stdcall __noreturn RtlpSetProcessDebugInformationRemote(_DWORD *a1)
+void __stdcall __noreturn RtlpSetProcessDebugInformationRemote(PRTL_DEBUG_INFORMATION Buffer)
 {
   int v1; // ecx
-  int v2; // eax
-  int v3; // eax
-  int v4; // eax
-  int v5; // esi
+  PRTL_PROCESS_MODULES Modules; // eax
+  int OffsetFree_high; // eax
+  NTSTATUS v4; // eax
+  NTSTATUS v5; // esi
 
-  v1 = a1[3];
+  v1 = *((_DWORD *)&Buffer->ViewBaseTarget + 1);
   if ( v1 )
   {
-    v2 = a1[18];
-    if ( v2 )
-      a1[18] = v2 - v1;
-    v3 = a1[13];
-    if ( v3 )
-      a1[13] = v3 - v1;
+    Modules = Buffer->Modules;
+    if ( Modules )
+      Buffer->Modules = (PRTL_PROCESS_MODULES)((char *)Modules - v1);
+    OffsetFree_high = HIDWORD(Buffer->OffsetFree);
+    if ( OffsetFree_high )
+      HIDWORD(Buffer->OffsetFree) = OffsetFree_high - v1;
   }
-  v4 = RtlSetProcessDebugInformation(NtCurrentTeb()->ClientId.UniqueProcess, a1[8], (int)a1);
-  a1[2] = 0;
+  v4 = RtlSetProcessDebugInformation(NtCurrentTeb()->ClientId.UniqueProcess, (ULONG)Buffer->TargetProcessId, Buffer);
+  Buffer->ViewBaseTarget = 0;
   v5 = v4;
-  NtUnmapViewOfSection(-1, (int)a1);
+  NtUnmapViewOfSection((HANDLE)0xFFFFFFFF, Buffer);
   RtlExitUserThread(v5);
 }

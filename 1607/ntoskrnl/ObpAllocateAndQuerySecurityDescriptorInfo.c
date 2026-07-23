@@ -1,8 +1,8 @@
 /*
- * XREFs of ObpAllocateAndQuerySecurityDescriptorInfo @ 0x140521130
+ * XREFs of ObpAllocateAndQuerySecurityDescriptorInfo @ 0x140504198
  * Callers:
- *     ObpCreateHandle @ 0x140419C20 (ObpCreateHandle.c)
- *     NtSetSecurityObject @ 0x140520B3C (NtSetSecurityObject.c)
+ *     ObpCreateHandle @ 0x140418AE0 (ObpCreateHandle.c)
+ *     NtSetSecurityObject @ 0x140503BA4 (NtSetSecurityObject.c)
  * Callees:
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)

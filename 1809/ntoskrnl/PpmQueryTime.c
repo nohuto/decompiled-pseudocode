@@ -1,8 +1,8 @@
 /*
- * XREFs of PpmQueryTime @ 0x14011F860
+ * XREFs of PpmQueryTime @ 0x14011F8D0
  * Callers:
- *     PpmIdleInitializeConcurrency @ 0x14074FD04 (PpmIdleInitializeConcurrency.c)
- *     PopPdcIdleResiliencyCallback @ 0x14086F268 (PopPdcIdleResiliencyCallback.c)
+ *     PpmIdleInitializeConcurrency @ 0x140750EF4 (PpmIdleInitializeConcurrency.c)
+ *     PopPdcIdleResiliencyCallback @ 0x1408704C8 (PopPdcIdleResiliencyCallback.c)
  * Callees:
  *     <none>
  */

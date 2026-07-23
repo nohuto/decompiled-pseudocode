@@ -9,18 +9,18 @@
  *     __security_check_cookie @ 0x180166F50 (__security_check_cookie.c)
  */
 
-__int64 __fastcall UcpFindOrCreateTelemetryRecord(__int64 a1)
+_QWORD *__fastcall UcpFindOrCreateTelemetryRecord(__int64 a1)
 {
   __int64 v1; // r9
-  __int64 v3; // rcx
+  _QWORD *v3; // rcx
   __int64 v4; // r9
   __int64 v5; // rcx
   __int64 v6; // r8
-  __int64 TelemetryRecord; // rax
+  _QWORD *TelemetryRecord; // rax
   __int64 v9; // rdx
   _QWORD *v10; // rax
   __int64 v11; // [rsp+30h] [rbp-48h] BYREF
-  char v12[32]; // [rsp+38h] [rbp-40h] BYREF
+  _EVENT_DATA_DESCRIPTOR v12; // [rsp+38h] [rbp-40h] BYREF
   __int64 *v13; // [rsp+58h] [rbp-20h]
   int v14; // [rsp+60h] [rbp-18h]
   int v15; // [rsp+64h] [rbp-14h]
@@ -34,7 +34,7 @@ __int64 __fastcall UcpFindOrCreateTelemetryRecord(__int64 a1)
       && *(_DWORD *)(v1 + 28) == *(_DWORD *)(a1 + 12)
       && *(_DWORD *)(v1 + 32) == *(_DWORD *)(a1 + 16) )
     {
-      v3 = v1 - 32;
+      v3 = (_QWORD *)(v1 - 32);
       break;
     }
     v1 = *(_QWORD *)v1;
@@ -49,7 +49,7 @@ __int64 __fastcall UcpFindOrCreateTelemetryRecord(__int64 a1)
     if ( TelemetryRecord )
     {
       v9 = UcpTriggeredList;
-      v10 = (_QWORD *)(TelemetryRecord + 32);
+      v10 = TelemetryRecord + 4;
       if ( *(__int64 **)(UcpTriggeredList + 8) != &UcpTriggeredList )
         __fastfail(3u);
       *v10 = UcpTriggeredList;
@@ -69,7 +69,7 @@ __int64 __fastcall UcpFindOrCreateTelemetryRecord(__int64 a1)
         v13 = &v11;
         v11 = v4;
         v14 = 8;
-        tlgWriteTransfer_EtwEventWriteTransfer(v5, byte_1801A44CA, v6, v4, 3, (__int64)v12);
+        tlgWriteTransfer_EtwEventWriteTransfer(v5, (unsigned __int8 *)dword_1801A44CA, v6, v4, 3u, &v12);
         LODWORD(v4) = UcpTriggeredNodeCount;
       }
     }

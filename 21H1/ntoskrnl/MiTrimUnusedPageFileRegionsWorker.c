@@ -54,7 +54,7 @@ void __fastcall MiTrimUnusedPageFileRegionsWorker(__int64 a1)
   unsigned int v21; // edx
   bool v22; // zf
   __int64 v23; // rcx
-  unsigned __int64 v24; // rsi
+  __int64 v24; // rsi
   __int64 v25; // rdx
   __int64 v26; // rdx
   __int64 v27; // rcx
@@ -204,7 +204,7 @@ void __fastcall MiTrimUnusedPageFileRegionsWorker(__int64 a1)
       Event.Header.LockNV = v23;
       if ( v22 )
         break;
-      v24 = (unsigned __int64)&v19->LockEntries[v23];
+      v24 = (__int64)&v19->LockEntries[v23];
       v21 &= ~(1 << v23);
       if ( (*(_BYTE *)(v24 + 26) & 1) != 0
         && (*(_DWORD *)(v24 + 32) & 1) == 0
@@ -218,12 +218,12 @@ void __fastcall MiTrimUnusedPageFileRegionsWorker(__int64 a1)
           {
             *(_BYTE *)(v24 + 32) |= 2u;
             if ( *(__int64 *)(v24 + 32) < 0 )
-              KiAbEntryRemoveFromTree(v24);
+              KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)v24);
             Event.Header.SignalState = *(_DWORD *)(v24 + 88) & 0x1FFFF;
             *(_DWORD *)(v24 + 88) &= 0xFFFE0000;
             *(_BYTE *)(v24 + 25) &= ~1u;
             *(_QWORD *)(v24 + 32) = 0LL;
-            v25 = (__int64)(v24 - (unsigned __int64)v19->LockEntries) / 96;
+            v25 = (signed __int64)(v24 - (unsigned __int64)v19->LockEntries) / 96;
             if ( (_BYTE)v31 == 1 )
               v19->AbEntrySummary |= 1 << v25;
             else

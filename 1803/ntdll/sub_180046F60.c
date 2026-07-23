@@ -21,22 +21,22 @@
 
 __int64 __fastcall sub_180046F60(__int64 a1, char a2, int a3)
 {
-  unsigned int v5; // esi
+  unsigned __int32 v5; // esi
   __int64 v6; // rcx
   int v8; // r9d
   __int64 v9; // rcx
 
-  v5 = RtlLeaveCriticalSection((__int64)&off_1801565B0);
+  v5 = RtlLeaveCriticalSection(&stru_1801565B0);
   if ( a3 < 0 )
     sub_180043B30(a3, 162, a2, 0LL);
-  if ( (unsigned int)RtlGetCurrentServiceSessionId() )
-    v6 = (__int64)NtCurrentPeb()->HotpatchInformation + 554;
+  if ( RtlGetCurrentServiceSessionId() )
+    v6 = (__int64)&NtCurrentPeb()->SharedData->UserModeGlobalLogger[2];
   else
     v6 = 2147353476LL;
   if ( *(_BYTE *)v6 && (NtCurrentPeb()->TracingFlags & 4) != 0 )
   {
-    if ( (unsigned int)RtlGetCurrentServiceSessionId() )
-      v9 = (__int64)NtCurrentPeb()->HotpatchInformation + 555;
+    if ( RtlGetCurrentServiceSessionId() )
+      v9 = (__int64)&NtCurrentPeb()->SharedData->UserModeGlobalLogger[2] + 1;
     else
       v9 = 2147353477LL;
     if ( (*(_BYTE *)v9 & 0x20) != 0 )

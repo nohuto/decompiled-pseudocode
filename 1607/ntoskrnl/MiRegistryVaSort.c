@@ -1,5 +1,5 @@
 /*
- * XREFs of MiRegistryVaSort @ 0x1405631D0
+ * XREFs of MiRegistryVaSort @ 0x140563710
  * Callers:
  *     <none>
  * Callees:

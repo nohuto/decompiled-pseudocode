@@ -21,40 +21,33 @@
 
 __int64 __fastcall sub_18001A028(__int64 a1, char a2, int a3)
 {
-  __int64 v5; // rdx
-  unsigned int v6; // esi
-  __int64 v7; // r8
-  __int64 v8; // r9
-  __int64 v9; // rcx
-  __int64 v10; // rdx
-  __int64 v11; // r8
-  __int64 v12; // r9
-  __int64 v13; // rcx
-  int v15; // r9d
-  __int64 v16; // rcx
+  unsigned __int32 v5; // esi
+  __int64 v6; // r8
+  __int64 v7; // rcx
+  int v9; // r9d
+  __int64 v10; // rcx
 
-  v6 = RtlLeaveCriticalSection(&off_1801555A8);
-  v9 = (unsigned int)~a3;
+  v5 = RtlLeaveCriticalSection(&stru_1801555A8);
   if ( a3 < 0 )
   {
-    LOBYTE(v7) = a2;
-    sub_180084734((unsigned int)a3, 5282LL, v7, 0LL);
+    LOBYTE(v6) = a2;
+    sub_180084734((unsigned int)a3, 5282LL, v6, 0LL);
   }
-  if ( (unsigned int)RtlGetCurrentServiceSessionId(v9, v5, v7, v8) )
-    v13 = (__int64)NtCurrentPeb()->HotpatchInformation + 554;
+  if ( RtlGetCurrentServiceSessionId() )
+    v7 = (__int64)&NtCurrentPeb()->SharedData->UserModeGlobalLogger[2];
   else
-    v13 = 2147353476LL;
-  if ( *(_BYTE *)v13 && (NtCurrentPeb()->TracingFlags & 4) != 0 )
+    v7 = 2147353476LL;
+  if ( *(_BYTE *)v7 && (NtCurrentPeb()->TracingFlags & 4) != 0 )
   {
-    if ( (unsigned int)RtlGetCurrentServiceSessionId(v13, v10, v11, v12) )
-      v16 = (__int64)NtCurrentPeb()->HotpatchInformation + 555;
+    if ( RtlGetCurrentServiceSessionId() )
+      v10 = (__int64)&NtCurrentPeb()->SharedData->UserModeGlobalLogger[2] + 1;
     else
-      v16 = 2147353477LL;
-    if ( (*(_BYTE *)v16 & 0x20) != 0 )
+      v10 = 2147353477LL;
+    if ( (*(_BYTE *)v10 & 0x20) != 0 )
     {
-      LOBYTE(v15) = a2;
-      sub_1800D62F0(5282, 0, 0, v15, 0LL, 0LL);
+      LOBYTE(v9) = a2;
+      sub_1800D62F0(5282, 0, 0, v9, 0LL, 0LL);
     }
   }
-  return v6;
+  return v5;
 }

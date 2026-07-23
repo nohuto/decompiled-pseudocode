@@ -1,11 +1,11 @@
 /*
- * XREFs of MiTransferPageFileOwnership @ 0x1402C63E0
+ * XREFs of MiTransferPageFileOwnership @ 0x1402697C8
  * Callers:
- *     MiBuildForkPte @ 0x1402C53E8 (MiBuildForkPte.c)
- *     MiCombineInitialInstance @ 0x14036C3E0 (MiCombineInitialInstance.c)
- *     MiHandleForkTransitionPte @ 0x14036D640 (MiHandleForkTransitionPte.c)
+ *     MiHandleForkTransitionPte @ 0x1402678C4 (MiHandleForkTransitionPte.c)
+ *     MiBuildForkPte @ 0x1402687D0 (MiBuildForkPte.c)
+ *     MiCombineInitialInstance @ 0x140294F94 (MiCombineInitialInstance.c)
  * Callees:
- *     MiUpdatePageFileBlockOwner @ 0x1404889B8 (MiUpdatePageFileBlockOwner.c)
+ *     MiUpdatePageFileBlockOwner @ 0x140269EDC (MiUpdatePageFileBlockOwner.c)
  */
 
 char __fastcall MiTransferPageFileOwnership(__int64 a1, __int64 a2)
@@ -20,13 +20,13 @@ char __fastcall MiTransferPageFileOwnership(__int64 a1, __int64 a2)
     result = (unsigned __int8)*(_DWORD *)(a1 + 16) >> 2;
     if ( (*(_DWORD *)(a1 + 16) & 4) != 0 )
     {
-      v5 = *((_QWORD *)qword_140E2FF88 + ((*(_QWORD *)(a1 + 40) >> 43) & 0x3FFLL));
+      v5 = *((_QWORD *)qword_140E300C8 + ((*(_QWORD *)(a1 + 40) >> 43) & 0x3FFLL));
       v6 = *(_QWORD *)(a1 + 16);
       v7 = *(_QWORD *)(a1 + 16);
-      if ( qword_140E2DB80 )
+      if ( qword_140E2DCC0 )
       {
         if ( (v7 & 0x10) == 0 )
-          v7 &= ~qword_140E2DB80;
+          v7 &= ~qword_140E2DCC0;
       }
       return MiUpdatePageFileBlockOwner(
                *(_QWORD *)(v5 + 8LL * ((unsigned __int16)v6 >> 12) + 18528),

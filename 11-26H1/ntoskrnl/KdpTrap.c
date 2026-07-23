@@ -1,14 +1,14 @@
 /*
- * XREFs of KdpTrap @ 0x140C17A90
+ * XREFs of KdpTrap @ 0x140C1DA90
  * Callers:
- *     KdTrap @ 0x14045DB30 (KdTrap.c)
- *     KdpStub @ 0x14045DB70 (KdpStub.c)
+ *     KdTrap @ 0x1404576D0 (KdTrap.c)
+ *     KdpStub @ 0x140457710 (KdpStub.c)
  * Callees:
- *     KdpReport @ 0x140508AB4 (KdpReport.c)
- *     KdpCommandString @ 0x140C15C54 (KdpCommandString.c)
- *     KdpPrint @ 0x140C15D30 (KdpPrint.c)
- *     KdpPrompt @ 0x140C15EBC (KdpPrompt.c)
- *     KdpSymbol @ 0x140C16018 (KdpSymbol.c)
+ *     KdpReport @ 0x14050255C (KdpReport.c)
+ *     KdpCommandString @ 0x140C1BC54 (KdpCommandString.c)
+ *     KdpPrint @ 0x140C1BD30 (KdpPrint.c)
+ *     KdpPrompt @ 0x140C1BEBC (KdpPrompt.c)
+ *     KdpSymbol @ 0x140C1C018 (KdpSymbol.c)
  */
 
 char __fastcall KdpTrap(__int64 a1, __int64 a2, __int64 a3, __int64 a4, char a5, char a6)

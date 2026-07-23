@@ -141,10 +141,10 @@ LABEL_14:
           goto LABEL_36;
       }
       ExReleaseSpinLockExclusiveFromDpcLevel(v17);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         CurrentIrql = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
           && (unsigned __int8)CurrentIrql <= 0xFu
           && (unsigned __int8)v18 <= 0xFu
           && (unsigned __int8)CurrentIrql >= 2u )
@@ -178,10 +178,10 @@ LABEL_14:
   {
 LABEL_36:
     ExReleaseSpinLockExclusiveFromDpcLevel(v17);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v27 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v27 <= 0xFu && (unsigned __int8)v18 <= 0xFu && v27 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v27 <= 0xFu && (unsigned __int8)v18 <= 0xFu && v27 >= 2u )
       {
         v28 = KeGetCurrentPrcb();
         v29 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v18 + 1));

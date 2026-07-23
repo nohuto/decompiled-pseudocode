@@ -1,17 +1,17 @@
 /*
- * XREFs of RtlpHeapAddListEntry @ 0x18004C2F4
+ * XREFs of RtlpHeapAddListEntry @ 0x18004C2E4
  * Callers:
- *     RtlpAllocateHeap @ 0x180025060 (RtlpAllocateHeap.c)
- *     RtlpFindAndCommitPages @ 0x180028400 (RtlpFindAndCommitPages.c)
- *     RtlpFreeHeap @ 0x180049370 (RtlpFreeHeap.c)
- *     RtlpCreateSplitBlock @ 0x18004BF00 (RtlpCreateSplitBlock.c)
- *     RtlpPopulateListIndex @ 0x18004CB3C (RtlpPopulateListIndex.c)
- *     RtlpUpdateUCRIndexInsert @ 0x18004D0D4 (RtlpUpdateUCRIndexInsert.c)
- *     RtlpInitializeUCRIndex @ 0x1800883E8 (RtlpInitializeUCRIndex.c)
- *     RtlZeroHeap @ 0x1800EBC50 (RtlZeroHeap.c)
+ *     RtlpAllocateHeap @ 0x180025050 (RtlpAllocateHeap.c)
+ *     RtlpFindAndCommitPages @ 0x1800283F0 (RtlpFindAndCommitPages.c)
+ *     RtlpFreeHeap @ 0x180049360 (RtlpFreeHeap.c)
+ *     RtlpCreateSplitBlock @ 0x18004BEF0 (RtlpCreateSplitBlock.c)
+ *     RtlpPopulateListIndex @ 0x18004CB2C (RtlpPopulateListIndex.c)
+ *     RtlpUpdateUCRIndexInsert @ 0x18004D0C4 (RtlpUpdateUCRIndexInsert.c)
+ *     RtlpInitializeUCRIndex @ 0x1800883D8 (RtlpInitializeUCRIndex.c)
+ *     RtlZeroHeap @ 0x1800EBD10 (RtlZeroHeap.c)
  *     RtlpValidateHeapSegment @ 0x1800FB6A0 (RtlpValidateHeapSegment.c)
  * Callees:
- *     RtlpHeapListCompare @ 0x18004C414 (RtlpHeapListCompare.c)
+ *     RtlpHeapListCompare @ 0x18004C404 (RtlpHeapListCompare.c)
  */
 
 __int64 __fastcall RtlpHeapAddListEntry(__int64 a1, __int64 a2, char a3, __int64 a4, int a5, __int64 a6)

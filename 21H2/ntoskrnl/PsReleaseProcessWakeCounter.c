@@ -1,21 +1,21 @@
 /*
- * XREFs of PsReleaseProcessWakeCounter @ 0x1405DE9D0
+ * XREFs of PsReleaseProcessWakeCounter @ 0x1406CE130
  * Callers:
- *     AlpcMessageCleanupProcedure @ 0x1405DE260 (AlpcMessageCleanupProcedure.c)
- *     AlpcpAcceptConnectPort @ 0x1405E103C (AlpcpAcceptConnectPort.c)
- *     AlpcpCancelMessagesByRequestor @ 0x1405E2A50 (AlpcpCancelMessagesByRequestor.c)
- *     AlpcpCancelMessage @ 0x1405E301C (AlpcpCancelMessage.c)
- *     AlpcpSendMessage @ 0x1405E4800 (AlpcpSendMessage.c)
- *     PopUpdatePowerRequestProcessWakeCounter @ 0x14067BC50 (PopUpdatePowerRequestProcessWakeCounter.c)
- *     EtwpReleaseQueueEntry @ 0x1406E491C (EtwpReleaseQueueEntry.c)
- *     PspCloseActivityReference @ 0x140734B00 (PspCloseActivityReference.c)
- *     PopClearSpecialRequest @ 0x1408E17FC (PopClearSpecialRequest.c)
- *     PopSetSpecialRequest @ 0x1408E1BAC (PopSetSpecialRequest.c)
+ *     PopUpdatePowerRequestProcessWakeCounter @ 0x14066F390 (PopUpdatePowerRequestProcessWakeCounter.c)
+ *     EtwpReleaseQueueEntry @ 0x1406BBBFC (EtwpReleaseQueueEntry.c)
+ *     AlpcMessageCleanupProcedure @ 0x1406CD9C0 (AlpcMessageCleanupProcedure.c)
+ *     AlpcpAcceptConnectPort @ 0x1406D079C (AlpcpAcceptConnectPort.c)
+ *     AlpcpCancelMessagesByRequestor @ 0x1406D21B0 (AlpcpCancelMessagesByRequestor.c)
+ *     AlpcpCancelMessage @ 0x1406D277C (AlpcpCancelMessage.c)
+ *     AlpcpSendMessage @ 0x1406D3F60 (AlpcpSendMessage.c)
+ *     PspCloseActivityReference @ 0x140734CC0 (PspCloseActivityReference.c)
+ *     PopClearSpecialRequest @ 0x1408E195C (PopClearSpecialRequest.c)
+ *     PopSetSpecialRequest @ 0x1408E1D0C (PopSetSpecialRequest.c)
  * Callees:
- *     PspChargeProcessWakeCounter @ 0x1405E6B10 (PspChargeProcessWakeCounter.c)
+ *     PspChargeProcessWakeCounter @ 0x1406D6270 (PspChargeProcessWakeCounter.c)
  */
 
 __int64 __fastcall PsReleaseProcessWakeCounter(__int64 a1)
 {
-  return PspChargeProcessWakeCounter((PVOID)(a1 & 0xFFFFFFFFFFFFFFF8uLL), -1, 1, 0LL);
+  return PspChargeProcessWakeCounter(a1 & 0xFFFFFFFFFFFFFFF8uLL, -1, 1, 0LL);
 }

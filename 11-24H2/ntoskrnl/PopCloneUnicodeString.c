@@ -1,12 +1,12 @@
 /*
- * XREFs of PopCloneUnicodeString @ 0x140A8C164
+ * XREFs of PopCloneUnicodeString @ 0x140A88654
  * Callers:
- *     PopQueryMostRecentWakeSourceInfo @ 0x1407514F0 (PopQueryMostRecentWakeSourceInfo.c)
- *     PopDirectedDripsDiagCreateDeviceDescription @ 0x140764194 (PopDirectedDripsDiagCreateDeviceDescription.c)
+ *     PopQueryMostRecentWakeSourceInfo @ 0x14074F810 (PopQueryMostRecentWakeSourceInfo.c)
+ *     PopDirectedDripsDiagCreateDeviceDescription @ 0x140763B64 (PopDirectedDripsDiagCreateDeviceDescription.c)
  * Callees:
- *     RtlUnicodeStringCopy @ 0x1403E4550 (RtlUnicodeStringCopy.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     RtlUnicodeStringCopy @ 0x1403D20F0 (RtlUnicodeStringCopy.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PopCloneUnicodeString(PCUNICODE_STRING SourceString, PUNICODE_STRING DestinationString)
@@ -34,7 +34,7 @@ __int64 __fastcall PopCloneUnicodeString(PCUNICODE_STRING SourceString, PUNICODE
         v9 = 2 * v8;
       if ( v9 < 0xFFFF )
       {
-        Pool2 = (wchar_t *)ExAllocatePool2(0x100uLL);
+        Pool2 = (wchar_t *)ExAllocatePool2(0x100uLL, v9, 0x67696450u);
         v11 = Pool2;
         if ( Pool2 )
         {

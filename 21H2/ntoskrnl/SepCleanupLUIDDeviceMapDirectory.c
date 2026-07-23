@@ -1,50 +1,50 @@
 /*
- * XREFs of SepCleanupLUIDDeviceMapDirectory @ 0x1406A5914
+ * XREFs of SepCleanupLUIDDeviceMapDirectory @ 0x140603544
  * Callers:
- *     SepDeReferenceLogonSession @ 0x1406A5640 (SepDeReferenceLogonSession.c)
- *     SepDeleteLogonSessionTrack @ 0x14077A670 (SepDeleteLogonSessionTrack.c)
+ *     SepDeReferenceLogonSession @ 0x140603270 (SepDeReferenceLogonSession.c)
+ *     SepDeleteLogonSessionTrack @ 0x14077A830 (SepDeleteLogonSessionTrack.c)
  * Callees:
- *     KiUnstackDetachProcess @ 0x140207000 (KiUnstackDetachProcess.c)
- *     KiStackAttachProcess @ 0x14025C2E0 (KiStackAttachProcess.c)
- *     PsDetachSiloFromCurrentThread @ 0x140264010 (PsDetachSiloFromCurrentThread.c)
- *     PsAttachSiloToCurrentThread @ 0x140264030 (PsAttachSiloToCurrentThread.c)
- *     PsGetServerSiloServiceSessionId @ 0x140264460 (PsGetServerSiloServiceSessionId.c)
- *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
- *     ObReferenceObjectSafeWithTag @ 0x140348AA0 (ObReferenceObjectSafeWithTag.c)
- *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     wcscmp @ 0x1403D3F40 (wcscmp.c)
- *     swprintf_s @ 0x1403D68F0 (swprintf_s.c)
- *     ZwClose @ 0x1403FA580 (ZwClose.c)
- *     ZwOpenDirectoryObject @ 0x1403FAEA0 (ZwOpenDirectoryObject.c)
- *     ZwMakeTemporaryObject @ 0x1403FC5A0 (ZwMakeTemporaryObject.c)
- *     ZwOpenSymbolicLinkObject @ 0x1403FC960 (ZwOpenSymbolicLinkObject.c)
- *     ZwQueryDirectoryObject @ 0x1403FCC20 (ZwQueryDirectoryObject.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     RtlInitUnicodeString @ 0x14026A4C0 (RtlInitUnicodeString.c)
+ *     PsDetachSiloFromCurrentThread @ 0x14026D070 (PsDetachSiloFromCurrentThread.c)
+ *     PsAttachSiloToCurrentThread @ 0x14026D090 (PsAttachSiloToCurrentThread.c)
+ *     KiStackAttachProcess @ 0x14027D850 (KiStackAttachProcess.c)
+ *     PsGetServerSiloServiceSessionId @ 0x14027E130 (PsGetServerSiloServiceSessionId.c)
+ *     KiUnstackDetachProcess @ 0x1402AB900 (KiUnstackDetachProcess.c)
+ *     ObReferenceObjectSafeWithTag @ 0x1403537F0 (ObReferenceObjectSafeWithTag.c)
+ *     ObfDereferenceObjectWithTag @ 0x140355E90 (ObfDereferenceObjectWithTag.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     wcscmp @ 0x1403D40B0 (wcscmp.c)
+ *     swprintf_s @ 0x1403D6A60 (swprintf_s.c)
+ *     ZwClose @ 0x1403FA760 (ZwClose.c)
+ *     ZwOpenDirectoryObject @ 0x1403FB080 (ZwOpenDirectoryObject.c)
+ *     ZwMakeTemporaryObject @ 0x1403FC780 (ZwMakeTemporaryObject.c)
+ *     ZwOpenSymbolicLinkObject @ 0x1403FCB40 (ZwOpenSymbolicLinkObject.c)
+ *     ZwQueryDirectoryObject @ 0x1403FCE00 (ZwQueryDirectoryObject.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall SepCleanupLUIDDeviceMapDirectory(_DWORD *a1, struct _LIST_ENTRY *a2)
 {
   UNICODE_STRING *v4; // rbx
   unsigned int v5; // r13d
-  _DWORD *v6; // r9
-  char v7; // r12
+  char v6; // r12
   unsigned int ServerSiloServiceSessionId; // eax
-  struct _LIST_ENTRY *v9; // rsi
-  NTSTATUS v10; // edi
+  struct _LIST_ENTRY *v8; // rsi
+  NTSTATUS v9; // edi
   HANDLE *PoolWithTag; // r14
+  unsigned int RestartScan; // r15d
   __int64 v12; // rdi
-  int v13; // r12d
-  int DirectoryObject; // esi
-  unsigned int v15; // r15d
-  HANDLE *v16; // rsi
-  HANDLE *v18; // rsi
-  char v19; // [rsp+40h] [rbp-C0h]
-  int NumberOfBytes_4; // [rsp+48h] [rbp-B8h]
+  SIZE_T v13; // r12
+  NTSTATUS v14; // esi
+  HANDLE *v15; // rsi
+  HANDLE *v17; // rsi
+  char v18; // [rsp+40h] [rbp-C0h]
+  ULONG ReturnLength; // [rsp+44h] [rbp-BCh] BYREF
+  ULONG Length; // [rsp+48h] [rbp-B8h]
   HANDLE DirectoryHandle; // [rsp+50h] [rbp-B0h] BYREF
   HANDLE LinkHandle; // [rsp+58h] [rbp-A8h] BYREF
-  int v23; // [rsp+60h] [rbp-A0h]
+  ULONG Context; // [rsp+60h] [rbp-A0h] BYREF
   struct _LIST_ENTRY *v24; // [rsp+68h] [rbp-98h]
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+70h] [rbp-90h] BYREF
   UNICODE_STRING DestinationString; // [rsp+A0h] [rbp-60h] BYREF
@@ -55,20 +55,21 @@ __int64 __fastcall SepCleanupLUIDDeviceMapDirectory(_DWORD *a1, struct _LIST_ENT
   *(&ObjectAttributes.Attributes + 1) = 0;
   LinkHandle = 0LL;
   v4 = 0LL;
-  v23 = 0;
+  Context = 0;
   v5 = 100;
-  NumberOfBytes_4 = 0;
+  ReturnLength = 0;
   DirectoryHandle = 0LL;
+  Length = 0;
   DestinationString = 0LL;
   memset(v27, 0, sizeof(v27));
   if ( !a1 )
     return 3221225485LL;
-  v19 = ObReferenceObjectSafeWithTag((__int64)KeGetCurrentThread()->ApcState.Process);
-  v7 = v19;
-  if ( v19 )
+  v18 = ObReferenceObjectSafeWithTag((__int64)KeGetCurrentThread()->ApcState.Process);
+  v6 = v18;
+  if ( v18 )
     ObfDereferenceObjectWithTag(KeGetCurrentThread()->ApcState.Process, 0x4D526553u);
   else
-    KiStackAttachProcess(PsInitialSystemProcess, 0LL, (__int64)v27, v6);
+    KiStackAttachProcess(PsInitialSystemProcess, 0, (__int64)v27);
   ServerSiloServiceSessionId = PsGetServerSiloServiceSessionId((__int64)a2);
   swprintf_s(Dst, 0x40uLL, L"\\Sessions\\%d\\DosDevices\\%08x-%08x", ServerSiloServiceSessionId, a1[1], *a1);
   RtlInitUnicodeString(&DestinationString, Dst);
@@ -78,14 +79,14 @@ __int64 __fastcall SepCleanupLUIDDeviceMapDirectory(_DWORD *a1, struct _LIST_ENT
   *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
   ObjectAttributes.Attributes = 576;
   v24 = PsAttachSiloToCurrentThread(a2);
-  v9 = v24;
-  v10 = ZwOpenDirectoryObject(&DirectoryHandle, 1u, &ObjectAttributes);
-  if ( v10 < 0 )
+  v8 = v24;
+  v9 = ZwOpenDirectoryObject(&DirectoryHandle, 1u, &ObjectAttributes);
+  if ( v9 < 0 )
   {
-    PsDetachSiloFromCurrentThread(v9);
-    if ( !v19 )
-      KiUnstackDetachProcess((__int64)v27, 0);
-    return (unsigned int)v10;
+    PsDetachSiloFromCurrentThread(v8);
+    if ( !v18 )
+      KiUnstackDetachProcess((__int64)v27, 0LL);
+    return (unsigned int)v9;
   }
   else
   {
@@ -93,28 +94,29 @@ __int64 __fastcall SepCleanupLUIDDeviceMapDirectory(_DWORD *a1, struct _LIST_ENT
     if ( PoolWithTag )
     {
 LABEL_6:
+      LOBYTE(RestartScan) = 1;
       v12 = 0LL;
       while ( 1 )
       {
-        v13 = NumberOfBytes_4;
+        LODWORD(v13) = Length;
         do
         {
-          DirectoryObject = ZwQueryDirectoryObject((__int64)DirectoryHandle, (__int64)v4);
-          if ( DirectoryObject == -1073741789 )
+          v14 = ZwQueryDirectoryObject(DirectoryHandle, v4, v13, 1u, RestartScan, &Context, &ReturnLength);
+          if ( v14 == -1073741789 )
           {
-            v13 = 0;
+            v13 = ReturnLength;
             if ( v4 )
               ExFreePoolWithTag(v4, 0);
-            v4 = (UNICODE_STRING *)ExAllocatePoolWithTag(PagedPool, 0LL, 0x62446553u);
+            v4 = (UNICODE_STRING *)ExAllocatePoolWithTag(PagedPool, v13, 0x62446553u);
             if ( !v4 )
-              DirectoryObject = -1073741670;
+              v14 = -1073741670;
           }
         }
-        while ( DirectoryObject == -1073741789 );
-        v15 = 0;
-        NumberOfBytes_4 = v13;
-        v7 = v19;
-        if ( DirectoryObject < 0 )
+        while ( v14 == -1073741789 );
+        RestartScan = 0;
+        Length = v13;
+        v6 = v18;
+        if ( v14 < 0 )
           break;
         if ( !wcscmp(v4[1].Buffer, L"SymbolicLink") )
         {
@@ -122,10 +124,10 @@ LABEL_6:
           {
             if ( (_DWORD)v12 )
             {
-              v18 = PoolWithTag;
+              v17 = PoolWithTag;
               do
               {
-                ZwClose(*v18++);
+                ZwClose(*v17++);
                 --v12;
               }
               while ( v12 );
@@ -135,7 +137,7 @@ LABEL_6:
             PoolWithTag = (HANDLE *)ExAllocatePoolWithTag(PagedPool, 8LL * v5, 0x61486553u);
             if ( !PoolWithTag )
             {
-              v9 = v24;
+              v8 = v24;
               goto LABEL_44;
             }
             goto LABEL_6;
@@ -159,14 +161,14 @@ LABEL_6:
           }
         }
       }
-      if ( DirectoryObject != -2147483622 )
-        v15 = DirectoryObject;
+      if ( v14 != -2147483622 )
+        RestartScan = v14;
       if ( (_DWORD)v12 )
       {
-        v16 = PoolWithTag;
+        v15 = PoolWithTag;
         do
         {
-          ZwClose(*v16++);
+          ZwClose(*v15++);
           --v12;
         }
         while ( v12 );
@@ -177,9 +179,9 @@ LABEL_6:
       if ( DirectoryHandle )
         ZwClose(DirectoryHandle);
       PsDetachSiloFromCurrentThread(v24);
-      if ( !v19 )
-        KiUnstackDetachProcess((__int64)v27, 0);
-      return v15;
+      if ( !v18 )
+        KiUnstackDetachProcess((__int64)v27, 0LL);
+      return RestartScan;
     }
     else
     {
@@ -187,9 +189,9 @@ LABEL_44:
       ZwClose(DirectoryHandle);
       if ( v4 )
         ExFreePoolWithTag(v4, 0);
-      PsDetachSiloFromCurrentThread(v9);
-      if ( !v7 )
-        KiUnstackDetachProcess((__int64)v27, 0);
+      PsDetachSiloFromCurrentThread(v8);
+      if ( !v6 )
+        KiUnstackDetachProcess((__int64)v27, 0LL);
       return 3221225495LL;
     }
   }

@@ -6,11 +6,16 @@
  *     <none>
  */
 
-__int64 ZwSetSystemEnvironmentValueEx()
+NTSTATUS __cdecl ZwSetSystemEnvironmentValueEx(
+        PUNICODE_STRING VariableName,
+        PCGUID VendorGuid,
+        PVOID Value,
+        ULONG ValueLength,
+        ULONG Attributes)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 397LL;
+  result = 397;
   __asm { syscall; Low latency system call }
   return result;
 }

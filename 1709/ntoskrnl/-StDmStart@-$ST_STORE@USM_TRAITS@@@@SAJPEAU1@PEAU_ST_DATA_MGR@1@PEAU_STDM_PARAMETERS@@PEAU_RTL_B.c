@@ -82,7 +82,7 @@ NTSTATUS __fastcall ST_STORE<SM_TRAITS>::StDmStart(__int64 a1, __int64 a2, int *
   memset(v18, 0, sizeof(v18));
   if ( (*a3 & 8) != 0 )
   {
-    result = ZwQuerySystemInformation(SystemLoadGdiDriverInSystemSpaceInformation|0x80, SystemInformation, 0x38u, 0LL);
+    result = ZwQuerySystemInformation(SystemMemoryUsageInformation, SystemInformation, 0x38u, 0LL);
     if ( result < 0 )
       return result;
     if ( SystemInformation[0] >> 21 >= 0x10uLL )

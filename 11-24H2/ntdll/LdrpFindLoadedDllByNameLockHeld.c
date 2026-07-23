@@ -1,10 +1,10 @@
 /*
- * XREFs of LdrpFindLoadedDllByNameLockHeld @ 0x180073C10
+ * XREFs of LdrpFindLoadedDllByNameLockHeld @ 0x1800904F0
  * Callers:
- *     LdrpMapDllWithSectionHandle @ 0x180072B70 (LdrpMapDllWithSectionHandle.c)
- *     LdrpLoadKnownDll @ 0x180074A60 (LdrpLoadKnownDll.c)
- *     LdrpMapDllSearchPath @ 0x180074F30 (LdrpMapDllSearchPath.c)
- *     LdrpFindExistingModule @ 0x180076630 (LdrpFindExistingModule.c)
+ *     LdrpMapDllWithSectionHandle @ 0x18008F450 (LdrpMapDllWithSectionHandle.c)
+ *     LdrpLoadKnownDll @ 0x180091340 (LdrpLoadKnownDll.c)
+ *     LdrpMapDllSearchPath @ 0x180091810 (LdrpMapDllSearchPath.c)
+ *     LdrpFindExistingModule @ 0x180092F10 (LdrpFindExistingModule.c)
  * Callees:
  *     <none>
  */
@@ -64,14 +64,14 @@ __int64 __fastcall LdrpFindLoadedDllByNameLockHeld(
               {
                 if ( (unsigned int)v16 > 0x7A )
                 {
-                  if ( qword_1801CD038 && (unsigned __int16)v16 >= 0xC0u )
-                    LOWORD(v16) = *(_WORD *)(qword_1801CD038
+                  if ( qword_1801CC038 && (unsigned __int16)v16 >= 0xC0u )
+                    LOWORD(v16) = *(_WORD *)(qword_1801CC038
                                            + 2
                                            * ((v16 & 0xF)
-                                            + *(unsigned __int16 *)(qword_1801CD038
+                                            + *(unsigned __int16 *)(qword_1801CC038
                                                                   + 2LL
                                                                   * (((unsigned __int8)v16 >> 4)
-                                                                   + (unsigned int)*(unsigned __int16 *)(qword_1801CD038 + 2 * (v16 >> 8))))))
+                                                                   + (unsigned int)*(unsigned __int16 *)(qword_1801CC038 + 2 * (v16 >> 8))))))
                                 + v16;
                 }
                 else
@@ -83,16 +83,16 @@ __int64 __fastcall LdrpFindLoadedDllByNameLockHeld(
               {
                 if ( (unsigned int)v17 > 0x7A )
                 {
-                  if ( qword_1801CD038 )
+                  if ( qword_1801CC038 )
                   {
                     if ( (unsigned __int16)v17 >= 0xC0u )
-                      LOWORD(v17) = *(_WORD *)(qword_1801CD038
+                      LOWORD(v17) = *(_WORD *)(qword_1801CC038
                                              + 2
                                              * ((v17 & 0xF)
-                                              + *(unsigned __int16 *)(qword_1801CD038
+                                              + *(unsigned __int16 *)(qword_1801CC038
                                                                     + 2LL
                                                                     * (((unsigned __int8)v17 >> 4)
-                                                                     + (unsigned int)*(unsigned __int16 *)(qword_1801CD038 + 2 * (v17 >> 8))))))
+                                                                     + (unsigned int)*(unsigned __int16 *)(qword_1801CC038 + 2 * (v17 >> 8))))))
                                   + v17;
                   }
                 }
@@ -133,14 +133,14 @@ LABEL_24:
               {
                 if ( (unsigned int)v24 > 0x7A )
                 {
-                  if ( qword_1801CD038 && (unsigned __int16)v24 >= 0xC0u )
-                    LOWORD(v24) = *(_WORD *)(qword_1801CD038
+                  if ( qword_1801CC038 && (unsigned __int16)v24 >= 0xC0u )
+                    LOWORD(v24) = *(_WORD *)(qword_1801CC038
                                            + 2
                                            * ((v24 & 0xF)
-                                            + *(unsigned __int16 *)(qword_1801CD038
+                                            + *(unsigned __int16 *)(qword_1801CC038
                                                                   + 2LL
                                                                   * (((unsigned __int8)v24 >> 4)
-                                                                   + (unsigned int)*(unsigned __int16 *)(qword_1801CD038 + 2 * (v24 >> 8))))))
+                                                                   + (unsigned int)*(unsigned __int16 *)(qword_1801CC038 + 2 * (v24 >> 8))))))
                                 + v24;
                 }
                 else
@@ -152,14 +152,14 @@ LABEL_24:
               {
                 if ( (unsigned int)v25 > 0x7A )
                 {
-                  if ( qword_1801CD038 && (unsigned __int16)v25 >= 0xC0u )
-                    LOWORD(v25) = *(_WORD *)(qword_1801CD038
+                  if ( qword_1801CC038 && (unsigned __int16)v25 >= 0xC0u )
+                    LOWORD(v25) = *(_WORD *)(qword_1801CC038
                                            + 2
                                            * ((v25 & 0xF)
-                                            + *(unsigned __int16 *)(qword_1801CD038
+                                            + *(unsigned __int16 *)(qword_1801CC038
                                                                   + 2LL
                                                                   * (((unsigned __int8)v25 >> 4)
-                                                                   + (unsigned int)*(unsigned __int16 *)(qword_1801CD038 + 2 * (v25 >> 8))))))
+                                                                   + (unsigned int)*(unsigned __int16 *)(qword_1801CC038 + 2 * (v25 >> 8))))))
                                 + v25;
                 }
                 else

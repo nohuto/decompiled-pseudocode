@@ -1,15 +1,15 @@
 /*
- * XREFs of MmLockPhysicalPagesByVa @ 0x1406EA82C
+ * XREFs of MmLockPhysicalPagesByVa @ 0x1406EF4CC
  * Callers:
- *     VmpPinMemoryRanges @ 0x1406C1F74 (VmpPinMemoryRanges.c)
+ *     VmpPinMemoryRanges @ 0x1406C5B54 (VmpPinMemoryRanges.c)
  * Callees:
- *     MiUnlockAndDereferenceVad @ 0x14027F600 (MiUnlockAndDereferenceVad.c)
- *     MiProbeAndLockPrepare @ 0x1402E5470 (MiProbeAndLockPrepare.c)
- *     MiProbeAndLockPacket @ 0x1402EE280 (MiProbeAndLockPacket.c)
- *     MiProbeAndLockComplete @ 0x1403A0050 (MiProbeAndLockComplete.c)
- *     MiObtainReferencedSecureVad @ 0x1404E4F18 (MiObtainReferencedSecureVad.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     MiTransformVadSecure @ 0x140A9BD84 (MiTransformVadSecure.c)
+ *     MiUnlockAndDereferenceVad @ 0x14027EB70 (MiUnlockAndDereferenceVad.c)
+ *     MiProbeAndLockPrepare @ 0x1402C74B0 (MiProbeAndLockPrepare.c)
+ *     MiProbeAndLockPacket @ 0x1402D0300 (MiProbeAndLockPacket.c)
+ *     MiProbeAndLockComplete @ 0x1403A1DB0 (MiProbeAndLockComplete.c)
+ *     MiObtainReferencedSecureVad @ 0x1404DE4B8 (MiObtainReferencedSecureVad.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     MiTransformVadSecure @ 0x140A9E8F4 (MiTransformVadSecure.c)
  */
 
 __int64 __fastcall MmLockPhysicalPagesByVa(__int64 a1, __int64 a2, unsigned __int64 a3, int a4)

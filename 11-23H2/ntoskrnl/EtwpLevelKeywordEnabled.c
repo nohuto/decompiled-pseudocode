@@ -1,14 +1,14 @@
 /*
- * XREFs of EtwpLevelKeywordEnabled @ 0x140258520
+ * XREFs of EtwpLevelKeywordEnabled @ 0x1402585E0
  * Callers:
- *     EtwWriteEx @ 0x1402581E0 (EtwWriteEx.c)
- *     EtwEventEnabled @ 0x140258420 (EtwEventEnabled.c)
- *     EtwTraceThreadWorkOnBehalfUpdate @ 0x1402584B0 (EtwTraceThreadWorkOnBehalfUpdate.c)
- *     KeInsertQueueApc @ 0x1402CC640 (KeInsertQueueApc.c)
- *     EtwProviderEnabled @ 0x140304190 (EtwProviderEnabled.c)
- *     EtwpFailLogging @ 0x1403664CC (EtwpFailLogging.c)
- *     EtwpDiskProvTraceDisk @ 0x1405FDA48 (EtwpDiskProvTraceDisk.c)
- *     EtwWriteString @ 0x1405FEE40 (EtwWriteString.c)
+ *     EtwWriteEx @ 0x1402582A0 (EtwWriteEx.c)
+ *     EtwEventEnabled @ 0x1402584E0 (EtwEventEnabled.c)
+ *     EtwTraceThreadWorkOnBehalfUpdate @ 0x140258570 (EtwTraceThreadWorkOnBehalfUpdate.c)
+ *     KeInsertQueueApc @ 0x1402CC8D0 (KeInsertQueueApc.c)
+ *     EtwProviderEnabled @ 0x140304420 (EtwProviderEnabled.c)
+ *     EtwpFailLogging @ 0x14036666C (EtwpFailLogging.c)
+ *     EtwpDiskProvTraceDisk @ 0x1405FDFB8 (EtwpDiskProvTraceDisk.c)
+ *     EtwWriteString @ 0x1405FF3B0 (EtwWriteString.c)
  * Callees:
  *     <none>
  */

@@ -1,14 +1,14 @@
 /*
- * XREFs of BiGetPhysicalDiskNumber @ 0x1408927E8
+ * XREFs of BiGetPhysicalDiskNumber @ 0x140898BE8
  * Callers:
- *     BiGetPhysicalDriveName @ 0x1408928E0 (BiGetPhysicalDriveName.c)
- *     BiResolveLocate @ 0x140892F3C (BiResolveLocate.c)
+ *     BiGetPhysicalDriveName @ 0x140898CE0 (BiGetPhysicalDriveName.c)
+ *     BiResolveLocate @ 0x14089933C (BiResolveLocate.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     ZwOpenFile @ 0x140723A50 (ZwOpenFile.c)
- *     BiGetVolumeDiskExtentsInformation @ 0x14089297C (BiGetVolumeDiskExtentsInformation.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     ZwOpenFile @ 0x140728620 (ZwOpenFile.c)
+ *     BiGetVolumeDiskExtentsInformation @ 0x140898D7C (BiGetVolumeDiskExtentsInformation.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall BiGetPhysicalDiskNumber(PCWSTR SourceString, _DWORD *a2)

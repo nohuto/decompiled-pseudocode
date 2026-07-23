@@ -1,8 +1,8 @@
 /*
- * XREFs of RtlFindNextForwardRunClearEx @ 0x140434530
+ * XREFs of RtlFindNextForwardRunClearEx @ 0x1404277B0
  * Callers:
- *     MmQueryMemoryRanges @ 0x1407EB410 (MmQueryMemoryRanges.c)
- *     MiDeleteAweInfoPages @ 0x1407F96E0 (MiDeleteAweInfoPages.c)
+ *     MmQueryMemoryRanges @ 0x1407EB9E0 (MmQueryMemoryRanges.c)
+ *     MiDeleteAweInfoPages @ 0x1407F9E50 (MiDeleteAweInfoPages.c)
  * Callees:
  *     <none>
  */

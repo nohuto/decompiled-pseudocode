@@ -3,9 +3,9 @@
  * Callers:
  *     KiInitializeBootStructures @ 0x1403D4E7C (KiInitializeBootStructures.c)
  * Callees:
- *     HvlpTryConfigureInterface @ 0x14014AEC4 (HvlpTryConfigureInterface.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     HvlpGetVpRegisterSelfFast @ 0x14023CDE0 (HvlpGetVpRegisterSelfFast.c)
+ *     HvlpTryConfigureInterface @ 0x14014B434 (HvlpTryConfigureInterface.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     HvlpGetVpRegisterSelfFast @ 0x14023CCC4 (HvlpGetVpRegisterSelfFast.c)
  */
 
 __int64 __fastcall HvlEnableVsmCalls(__int64 a1)

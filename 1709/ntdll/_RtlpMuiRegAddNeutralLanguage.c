@@ -15,11 +15,11 @@ __int64 __fastcall RtlpMuiRegAddNeutralLanguage(__int64 a1, __int64 a2, const WC
 {
   unsigned __int8 v4; // al
   int v6; // r14d
-  __int64 v7; // rsi
-  __int64 v8; // rax
-  int ParentLocaleName; // ebx
+  wchar_t *v7; // rsi
+  wchar_t *v8; // rax
+  NTSTATUS LanguageSpec; // ebx
   int v10; // r9d
-  int v12; // [rsp+38h] [rbp-8h]
+  _UNICODE_STRING ParentLocaleName; // [rsp+30h] [rbp-10h] BYREF
   unsigned __int8 v13; // [rsp+70h] [rbp+30h] BYREF
   __int16 v14; // [rsp+88h] [rbp+48h] BYREF
 
@@ -30,18 +30,19 @@ __int64 __fastcall RtlpMuiRegAddNeutralLanguage(__int64 a1, __int64 a2, const WC
   v7 = 0LL;
   if ( a1 && a2 )
   {
-    v8 = MuiRegAllocArray(a1, 85LL);
+    v8 = (wchar_t *)MuiRegAllocArray(a1, 85LL);
     v7 = v8;
     if ( !v8 )
     {
-      ParentLocaleName = -1073741801;
+      LanguageSpec = -1073741801;
       goto LABEL_18;
     }
-    v12 = v8;
-    ParentLocaleName = RtlGetParentLocaleName(a3);
-    if ( ParentLocaleName < 0
-      || (ParentLocaleName = RtlpMuiRegGetLanguageSpec(v6, v12, (unsigned int)&v13, v10, (__int64)&v14),
-          ParentLocaleName < 0) )
+    ParentLocaleName.Buffer = v8;
+    *(_DWORD *)&ParentLocaleName.Length = 11141120;
+    LanguageSpec = RtlGetParentLocaleName(a3, &ParentLocaleName, 6u, 0);
+    if ( LanguageSpec < 0
+      || (LanguageSpec = RtlpMuiRegGetLanguageSpec(v6, ParentLocaleName.Buffer, (unsigned int)&v13, v10, (__int64)&v14),
+          LanguageSpec < 0) )
     {
       v4 = 0;
       v14 = 0;
@@ -54,28 +55,28 @@ __int64 __fastcall RtlpMuiRegAddNeutralLanguage(__int64 a1, __int64 a2, const WC
   }
   else
   {
-    ParentLocaleName = -1073741811;
+    LanguageSpec = -1073741811;
   }
   if ( v7 )
   {
-    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0LL, v7);
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v7);
     v4 = v13;
   }
   if ( !v4 )
   {
-    if ( ParentLocaleName >= 0 )
-      ParentLocaleName = -1073741823;
+    if ( LanguageSpec >= 0 )
+      LanguageSpec = -1073741823;
     goto LABEL_18;
   }
-  if ( ParentLocaleName < 0 )
+  if ( LanguageSpec < 0 )
   {
 LABEL_18:
     *(_WORD *)(a2 + 10) = 0;
     *(_WORD *)(a2 + 8) &= 0x3FFFu;
-    return (unsigned int)ParentLocaleName;
+    return (unsigned int)LanguageSpec;
   }
   *(_WORD *)(a2 + 8) &= 0x3FFFu;
   *(_WORD *)(a2 + 8) |= v4 << 14;
   *(_WORD *)(a2 + 10) = v14;
-  return (unsigned int)ParentLocaleName;
+  return (unsigned int)LanguageSpec;
 }

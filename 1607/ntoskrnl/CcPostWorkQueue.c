@@ -1,15 +1,15 @@
 /*
- * XREFs of CcPostWorkQueue @ 0x1400714A8
+ * XREFs of CcPostWorkQueue @ 0x140071028
  * Callers:
- *     CcNotifyOfMappedWrite @ 0x14002078C (CcNotifyOfMappedWrite.c)
- *     CcScheduleReadAheadEx @ 0x14006EE10 (CcScheduleReadAheadEx.c)
- *     CcLazyWriteScan @ 0x140070CA0 (CcLazyWriteScan.c)
- *     CcQueueLazyWriteScanThread @ 0x14013FDAC (CcQueueLazyWriteScanThread.c)
+ *     CcNotifyOfMappedWrite @ 0x14002030C (CcNotifyOfMappedWrite.c)
+ *     CcScheduleReadAheadEx @ 0x14006E990 (CcScheduleReadAheadEx.c)
+ *     CcLazyWriteScan @ 0x140070820 (CcLazyWriteScan.c)
+ *     CcQueueLazyWriteScanThread @ 0x14014031C (CcQueueLazyWriteScanThread.c)
  * Callees:
- *     ExQueueWorkItem @ 0x14005FE5C (ExQueueWorkItem.c)
- *     CcPerfLogWorkItemEnqueue @ 0x14006B848 (CcPerfLogWorkItemEnqueue.c)
- *     KeAcquireQueuedSpinLock @ 0x1400E8D30 (KeAcquireQueuedSpinLock.c)
- *     KeReleaseQueuedSpinLock @ 0x1400E8DA0 (KeReleaseQueuedSpinLock.c)
+ *     ExQueueWorkItem @ 0x14005F9DC (ExQueueWorkItem.c)
+ *     CcPerfLogWorkItemEnqueue @ 0x14006B3C8 (CcPerfLogWorkItemEnqueue.c)
+ *     KeAcquireQueuedSpinLock @ 0x1400E6BD0 (KeAcquireQueuedSpinLock.c)
+ *     KeReleaseQueuedSpinLock @ 0x1400E6C40 (KeReleaseQueuedSpinLock.c)
  */
 
 void __fastcall CcPostWorkQueue(__int64 a1, __int64 *a2)
@@ -28,7 +28,7 @@ void __fastcall CcPostWorkQueue(__int64 a1, __int64 *a2)
   if ( *(_BYTE *)(a1 + 120) != 3
     || (__int64 *)CcRegularWorkQueue == &CcRegularWorkQueue
     || CcGlobalDirtyPageStatistics < (unsigned __int64)CcGlobalDirtyPageThresholds >> 2
-    && (unsigned __int64)CcGlobalDirtyPageStatistics <= *(_QWORD *)(*(_QWORD *)qword_140326FF8 + 6464LL) >> 1 )
+    && (unsigned __int64)CcGlobalDirtyPageStatistics <= *(_QWORD *)(*(_QWORD *)qword_140327038 + 6464LL) >> 1 )
   {
     v6 = CcMaxNumberOfWriteBehindThreads;
   }

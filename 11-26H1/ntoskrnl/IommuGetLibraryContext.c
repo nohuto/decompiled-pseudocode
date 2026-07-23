@@ -1,12 +1,12 @@
 /*
- * XREFs of IommuGetLibraryContext @ 0x14059C4B0
+ * XREFs of IommuGetLibraryContext @ 0x14059EC30
  * Callers:
- *     IommupPasidDeviceCreate @ 0x140588434 (IommupPasidDeviceCreate.c)
+ *     IommupPasidDeviceCreate @ 0x14058AAEC (IommupPasidDeviceCreate.c)
  * Callees:
- *     HalpMmAllocCtxAlloc @ 0x140357FFC (HalpMmAllocCtxAlloc.c)
- *     HalpMmAllocCtxFree @ 0x140359004 (HalpMmAllocCtxFree.c)
- *     IommupGetSystemContext @ 0x14059CF00 (IommupGetSystemContext.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     HalpMmAllocCtxAlloc @ 0x140359D9C (HalpMmAllocCtxAlloc.c)
+ *     HalpMmAllocCtxFree @ 0x14035ADA4 (HalpMmAllocCtxFree.c)
+ *     IommupGetSystemContext @ 0x14059F680 (IommupGetSystemContext.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall IommuGetLibraryContext(int a1, unsigned int a2, char a3, _QWORD *a4)

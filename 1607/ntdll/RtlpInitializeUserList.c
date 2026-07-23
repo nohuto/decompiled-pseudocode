@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlpInitializeUserList @ 0x180010CE4
+ * XREFs of RtlpInitializeUserList @ 0x180010CD4
  * Callers:
- *     RtlSetThreadPreferredUILanguages @ 0x180013860 (RtlSetThreadPreferredUILanguages.c)
+ *     RtlSetThreadPreferredUILanguages @ 0x180013850 (RtlSetThreadPreferredUILanguages.c)
  * Callees:
- *     InitializeUserOrMachineLangList @ 0x180070A08 (InitializeUserOrMachineLangList.c)
- *     RtlpLoadLanguageConfigList @ 0x1800710C4 (RtlpLoadLanguageConfigList.c)
- *     RtlpUpdateTEBLanguage @ 0x180080EA4 (RtlpUpdateTEBLanguage.c)
+ *     InitializeUserOrMachineLangList @ 0x1800709F8 (InitializeUserOrMachineLangList.c)
+ *     RtlpLoadLanguageConfigList @ 0x1800710B4 (RtlpLoadLanguageConfigList.c)
+ *     RtlpUpdateTEBLanguage @ 0x180080E94 (RtlpUpdateTEBLanguage.c)
  */
 
 __int64 __fastcall RtlpInitializeUserList(__int64 a1)

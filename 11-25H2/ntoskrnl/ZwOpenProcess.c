@@ -9,7 +9,6 @@
  *     <none>
  */
 
-// local variable allocation has failed, the output may be wrong!
 NTSTATUS __stdcall ZwOpenProcess(
         PHANDLE ProcessHandle,
         ACCESS_MASK DesiredAccess,
@@ -18,5 +17,5 @@ NTSTATUS __stdcall ZwOpenProcess(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(ProcessHandle, *(_QWORD *)&DesiredAccess);
+  return KiServiceInternal(ProcessHandle);
 }

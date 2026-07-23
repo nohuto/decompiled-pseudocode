@@ -1,15 +1,15 @@
 /*
- * XREFs of KiMonitorCacheErrata @ 0x14029A490
+ * XREFs of KiMonitorCacheErrata @ 0x14029A680
  * Callers:
  *     <none>
  * Callees:
  *     ObReferenceObjectSafeWithTag @ 0x1400514C0 (ObReferenceObjectSafeWithTag.c)
- *     ObDereferenceObjectDeferDeleteWithTag @ 0x1400BF9B0 (ObDereferenceObjectDeferDeleteWithTag.c)
- *     KiReleaseThreadLockSafe @ 0x14010C410 (KiReleaseThreadLockSafe.c)
- *     KiTryToAcquireThreadLock @ 0x140115180 (KiTryToAcquireThreadLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     KiTryToAcquirePrcbLock @ 0x14028F6FC (KiTryToAcquirePrcbLock.c)
- *     MmReadProcessPageTables @ 0x1402BB89C (MmReadProcessPageTables.c)
+ *     ObDereferenceObjectDeferDeleteWithTag @ 0x1400BF8F0 (ObDereferenceObjectDeferDeleteWithTag.c)
+ *     KiReleaseThreadLockSafe @ 0x14010C490 (KiReleaseThreadLockSafe.c)
+ *     KiTryToAcquireThreadLock @ 0x1401151F0 (KiTryToAcquireThreadLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiTryToAcquirePrcbLock @ 0x14028F8EC (KiTryToAcquirePrcbLock.c)
+ *     MmReadProcessPageTables @ 0x1402BBA8C (MmReadProcessPageTables.c)
  */
 
 __int64 KiMonitorCacheErrata()

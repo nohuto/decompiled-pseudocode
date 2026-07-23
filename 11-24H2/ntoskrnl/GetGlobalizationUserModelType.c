@@ -1,24 +1,24 @@
 /*
- * XREFs of GetGlobalizationUserModelType @ 0x14065ABAC
+ * XREFs of GetGlobalizationUserModelType @ 0x1406592CC
  * Callers:
- *     OpenGlobalizationUserSettingsKey @ 0x1404CB300 (OpenGlobalizationUserSettingsKey.c)
+ *     OpenGlobalizationUserSettingsKey @ 0x1404C4820 (OpenGlobalizationUserSettingsKey.c)
  * Callees:
- *     RtlIsMultiUsersInSessionSku @ 0x140780E40 (RtlIsMultiUsersInSessionSku.c)
- *     RtlIsMultiSessionSku @ 0x1409113D0 (RtlIsMultiSessionSku.c)
+ *     RtlIsMultiUsersInSessionSku @ 0x140780D70 (RtlIsMultiUsersInSessionSku.c)
+ *     RtlIsMultiSessionSku @ 0x1408E8B20 (RtlIsMultiSessionSku.c)
  */
 
 __int64 GetGlobalizationUserModelType()
 {
   __int64 result; // rax
 
-  result = (unsigned int)dword_140EEECE8;
-  if ( !dword_140EEECE8 )
+  result = (unsigned int)dword_140EEEEF0;
+  if ( !dword_140EEEEF0 )
   {
-    if ( (unsigned __int8)RtlIsMultiSessionSku() )
+    if ( RtlIsMultiSessionSku() )
       result = 1LL;
     else
-      result = (unsigned int)((unsigned __int8)RtlIsMultiUsersInSessionSku() != 0) + 2;
-    dword_140EEECE8 = result;
+      result = (unsigned int)(RtlIsMultiUsersInSessionSku() != 0) + 2;
+    dword_140EEEEF0 = result;
   }
   return result;
 }

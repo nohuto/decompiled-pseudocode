@@ -1,10 +1,10 @@
 /*
- * XREFs of CancelTimerCallbacksAndDeleteTimer @ 0x14023CD64
+ * XREFs of CancelTimerCallbacksAndDeleteTimer @ 0x14023CC48
  * Callers:
- *     TlgRegisterAggregateProviderEx @ 0x1401495F4 (TlgRegisterAggregateProviderEx.c)
+ *     TlgRegisterAggregateProviderEx @ 0x140149B64 (TlgRegisterAggregateProviderEx.c)
  * Callees:
- *     KeWaitForSingleObject @ 0x14005C880 (KeWaitForSingleObject.c)
- *     ExDeleteTimer @ 0x140130A78 (ExDeleteTimer.c)
+ *     KeWaitForSingleObject @ 0x14005C400 (KeWaitForSingleObject.c)
+ *     ExDeleteTimer @ 0x140130FE8 (ExDeleteTimer.c)
  */
 
 char __fastcall CancelTimerCallbacksAndDeleteTimer(__int64 a1)

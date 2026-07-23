@@ -1,10 +1,10 @@
 /*
- * XREFs of ViPtLogPoolTrace @ 0x140BA7474
+ * XREFs of ViPtLogPoolTrace @ 0x140BA9474
  * Callers:
- *     ViPtLogPoolTraceWrapper @ 0x140B82100 (ViPtLogPoolTraceWrapper.c)
+ *     ViPtLogPoolTraceWrapper @ 0x140B84104 (ViPtLogPoolTraceWrapper.c)
  * Callees:
- *     ExReleaseRundownProtection_0 @ 0x140245670 (ExReleaseRundownProtection_0.c)
- *     ExAcquireRundownProtection @ 0x1402792A0 (ExAcquireRundownProtection.c)
+ *     ExReleaseRundownProtection_0 @ 0x14020DE50 (ExReleaseRundownProtection_0.c)
+ *     ExAcquireRundownProtection_0 @ 0x14022E830 (ExAcquireRundownProtection_0.c)
  */
 
 void __fastcall ViPtLogPoolTrace(_OWORD *a1)
@@ -13,7 +13,7 @@ void __fastcall ViPtLogPoolTrace(_OWORD *a1)
   _OWORD *v3; // rdx
   __int128 v4; // xmm1
 
-  if ( ExAcquireRundownProtection(&ViPtUnloadRundown) )
+  if ( ExAcquireRundownProtection_0(&ViPtUnloadRundown) )
   {
     if ( VfPoolTraces )
     {

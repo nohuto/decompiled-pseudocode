@@ -1,12 +1,12 @@
 /*
- * XREFs of PopDiagTraceFirmwareS3Stats @ 0x140AA7BB0
+ * XREFs of PopDiagTraceFirmwareS3Stats @ 0x140AA7A20
  * Callers:
- *     PopTransitionSystemPowerStateEx @ 0x140AA90F0 (PopTransitionSystemPowerStateEx.c)
+ *     PopTransitionSystemPowerStateEx @ 0x140AA8F60 (PopTransitionSystemPowerStateEx.c)
  * Callees:
- *     RtlULongLongMult @ 0x14022CE2C (RtlULongLongMult.c)
- *     EtwWriteEx @ 0x1402581E0 (EtwWriteEx.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
+ *     RtlULongLongMult @ 0x14022CF3C (RtlULongLongMult.c)
+ *     EtwWriteEx @ 0x1402582A0 (EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
@@ -75,11 +75,11 @@ void PopDiagTraceFirmwareS3Stats()
               v12 = 4LL;
               v14 = 4LL;
               EtwWriteEx(PopDiagHandle, &POP_ETW_EVENT_S3FWSTATS_RESUME, 0LL, 1u, 0LL, 0LL, 3u, &UserData);
-              if ( !qword_140C3D308 )
+              if ( !qword_140C3D2C8 )
               {
                 RtlULongLongMult((unsigned int)ullMultiplicand, PopQpcFrequency, &pullResult);
                 pullResult /= 0x3E8uLL;
-                qword_140C3D308 = pullResult;
+                qword_140C3D2C8 = pullResult;
               }
             }
           }

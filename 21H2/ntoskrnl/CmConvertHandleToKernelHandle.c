@@ -1,13 +1,13 @@
 /*
- * XREFs of CmConvertHandleToKernelHandle @ 0x14066F224
+ * XREFs of CmConvertHandleToKernelHandle @ 0x140665704
  * Callers:
- *     CmLoadDifferencingKey @ 0x14066E58C (CmLoadDifferencingKey.c)
- *     CmUnloadKey @ 0x140719C78 (CmUnloadKey.c)
- *     NtSaveMergedKeys @ 0x1408697A0 (NtSaveMergedKeys.c)
+ *     CmUnloadKey @ 0x1405DF54C (CmUnloadKey.c)
+ *     CmLoadDifferencingKey @ 0x140664A6C (CmLoadDifferencingKey.c)
+ *     NtSaveMergedKeys @ 0x140869900 (NtSaveMergedKeys.c)
  * Callees:
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     ObReferenceObjectByHandle @ 0x1406F0BC0 (ObReferenceObjectByHandle.c)
- *     ObOpenObjectByPointer @ 0x140706880 (ObOpenObjectByPointer.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     ObReferenceObjectByHandle @ 0x140707FA0 (ObReferenceObjectByHandle.c)
+ *     ObOpenObjectByPointer @ 0x14071DC60 (ObOpenObjectByPointer.c)
  */
 
 __int64 __fastcall CmConvertHandleToKernelHandle(

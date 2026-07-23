@@ -1,18 +1,18 @@
 /*
- * XREFs of IopMountBootLayerCallout @ 0x140CBDC50
+ * XREFs of IopMountBootLayerCallout @ 0x140CC3D20
  * Callers:
  *     <none>
  * Callees:
- *     HeadlessKernelAddLogEntry @ 0x1404EDA18 (HeadlessKernelAddLogEntry.c)
- *     PnpBootDeviceWait @ 0x1405D85A4 (PnpBootDeviceWait.c)
- *     RtlDuplicateUnicodeString @ 0x14091E750 (RtlDuplicateUnicodeString.c)
- *     IopCreateArcNamesDisk @ 0x140CBCBA4 (IopCreateArcNamesDisk.c)
- *     PnpWaitForDevicesToStart @ 0x140CC39C8 (PnpWaitForDevicesToStart.c)
- *     IopMountCimfsLayer @ 0x140D0336C (IopMountCimfsLayer.c)
- *     IopMountCompositeLayer @ 0x140D034D4 (IopMountCompositeLayer.c)
- *     SbpAddTransportToInstance @ 0x140D0360C (SbpAddTransportToInstance.c)
- *     SbpStartLanman @ 0x140D037F8 (SbpStartLanman.c)
- *     SbpWaitForVmbus @ 0x140D03BD0 (SbpWaitForVmbus.c)
+ *     HeadlessKernelAddLogEntry @ 0x1404E6FF8 (HeadlessKernelAddLogEntry.c)
+ *     PnpBootDeviceWait @ 0x1405DADA4 (PnpBootDeviceWait.c)
+ *     RtlDuplicateUnicodeString @ 0x1409791B0 (RtlDuplicateUnicodeString.c)
+ *     IopCreateArcNamesDisk @ 0x140CC2C1C (IopCreateArcNamesDisk.c)
+ *     PnpWaitForDevicesToStart @ 0x140CC9A9C (PnpWaitForDevicesToStart.c)
+ *     IopMountCimfsLayer @ 0x140D0970C (IopMountCimfsLayer.c)
+ *     IopMountCompositeLayer @ 0x140D09874 (IopMountCompositeLayer.c)
+ *     SbpAddTransportToInstance @ 0x140D098DC (SbpAddTransportToInstance.c)
+ *     SbpStartLanman @ 0x140D09AC8 (SbpStartLanman.c)
+ *     SbpWaitForVmbus @ 0x140D09EA0 (SbpWaitForVmbus.c)
  */
 
 void __fastcall IopMountBootLayerCallout(_QWORD *Parameter)

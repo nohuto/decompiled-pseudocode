@@ -1,31 +1,31 @@
 /*
- * XREFs of MiQueryProcessActivePatches @ 0x140874330
+ * XREFs of MiQueryProcessActivePatches @ 0x14087A690
  * Callers:
- *     NtManageHotPatch @ 0x140A993D0 (NtManageHotPatch.c)
+ *     NtManageHotPatch @ 0x140A9D550 (NtManageHotPatch.c)
  * Callees:
- *     KiUnstackDetachProcess @ 0x1402307C0 (KiUnstackDetachProcess.c)
- *     KiStackAttachProcess @ 0x140247880 (KiStackAttachProcess.c)
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     ExReleaseRundownProtection_0 @ 0x140266240 (ExReleaseRundownProtection_0.c)
- *     ExfAcquirePushLockSharedEx @ 0x140277CC0 (ExfAcquirePushLockSharedEx.c)
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     ExfReleasePushLockShared @ 0x140278BD0 (ExfReleasePushLockShared.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     KiCheckForKernelApcDelivery @ 0x14027DB80 (KiCheckForKernelApcDelivery.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     ExAcquireRundownProtection_0 @ 0x1402F0590 (ExAcquireRundownProtection_0.c)
- *     ExAllocatePoolMm @ 0x1403985B0 (ExAllocatePoolMm.c)
- *     MmGetCurrentProcessorColor @ 0x14044ADC0 (MmGetCurrentProcessorColor.c)
- *     MmReleaseLoadLock @ 0x1404A4B70 (MmReleaseLoadLock.c)
- *     MmAcquireLoadLock @ 0x1404AB9B0 (MmAcquireLoadLock.c)
- *     MiGetBaseLoaderPortion @ 0x1404F5130 (MiGetBaseLoaderPortion.c)
- *     VslQueryActiveSecurePatches @ 0x1405C38F0 (VslQueryActiveSecurePatches.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     MiFillActivePatchesQueryBuffer @ 0x14086FB74 (MiFillActivePatchesQueryBuffer.c)
- *     MiGetProcessHotPatchContext @ 0x14086FFF8 (MiGetProcessHotPatchContext.c)
- *     MiIsActiveSystemHotPatch @ 0x140870D14 (MiIsActiveSystemHotPatch.c)
- *     ObpReferenceObjectByHandleWithTag @ 0x1408FA680 (ObpReferenceObjectByHandleWithTag.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     KiUnstackDetachProcess @ 0x140232120 (KiUnstackDetachProcess.c)
+ *     KiStackAttachProcess @ 0x1402491E0 (KiStackAttachProcess.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     ExReleaseRundownProtection_0 @ 0x1402657B0 (ExReleaseRundownProtection_0.c)
+ *     ExfAcquirePushLockSharedEx @ 0x140277230 (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     ExfReleasePushLockShared @ 0x140278140 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     KiCheckForKernelApcDelivery @ 0x14027D0F0 (KiCheckForKernelApcDelivery.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     ExAcquireRundownProtection_0 @ 0x1402D2610 (ExAcquireRundownProtection_0.c)
+ *     ExAllocatePoolMm @ 0x14039A310 (ExAllocatePoolMm.c)
+ *     MmGetCurrentProcessorColor @ 0x140442EF0 (MmGetCurrentProcessorColor.c)
+ *     MmReleaseLoadLock @ 0x14049E200 (MmReleaseLoadLock.c)
+ *     MmAcquireLoadLock @ 0x1404A5040 (MmAcquireLoadLock.c)
+ *     MiGetBaseLoaderPortion @ 0x1404EE710 (MiGetBaseLoaderPortion.c)
+ *     VslQueryActiveSecurePatches @ 0x1405C6160 (VslQueryActiveSecurePatches.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     MiFillActivePatchesQueryBuffer @ 0x140875ED8 (MiFillActivePatchesQueryBuffer.c)
+ *     MiGetProcessHotPatchContext @ 0x140876358 (MiGetProcessHotPatchContext.c)
+ *     MiIsActiveSystemHotPatch @ 0x140877074 (MiIsActiveSystemHotPatch.c)
+ *     ObpReferenceObjectByHandleWithTag @ 0x14092A610 (ObpReferenceObjectByHandleWithTag.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall MiQueryProcessActivePatches(
@@ -218,7 +218,7 @@ __int64 __fastcall MiQueryProcessActivePatches(
     v14 = 8;
     v71 = 8;
     Lock = MmAcquireLoadLock();
-    v16 = (_QWORD *)qword_140E36550;
+    v16 = (_QWORD *)qword_140E366D0;
     CurrentThread = Lock;
     while ( v16 )
     {
@@ -441,7 +441,7 @@ LABEL_83:
       ExfReleasePushLockShared(v63 + 2);
     KeAbPostRelease((unsigned __int64)(v63 + 2));
     v66 = v62->SpecialApcDisable++ == -1;
-    if ( v66 && ($7A85BAF4F1FA08634C1C4A3E45B775B3 *)v62->ApcState.ApcListHead[0].Flink != &v62->152 )
+    if ( v66 && ($241382875694CED3D471BC5892DE3337 *)v62->ApcState.ApcListHead[0].Flink != &v62->152 )
       KiCheckForKernelApcDelivery(v65, v64);
   }
   if ( (v14 & 4) != 0 )

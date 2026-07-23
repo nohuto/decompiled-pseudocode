@@ -1,14 +1,14 @@
 /*
- * XREFs of MiFreeMdlPageRun @ 0x1402FFCF8
+ * XREFs of MiFreeMdlPageRun @ 0x14030AA48
  * Callers:
- *     MiFreePagesFromMdl @ 0x1402FF4EC (MiFreePagesFromMdl.c)
- *     MiDeleteAweInfoPages @ 0x1408D5E8C (MiDeleteAweInfoPages.c)
- *     MiAllocatePartitionPhysicalPages @ 0x1408DA978 (MiAllocatePartitionPhysicalPages.c)
- *     MiFreePartitionPageRun @ 0x1408DB034 (MiFreePartitionPageRun.c)
+ *     MiFreePagesFromMdl @ 0x14030A23C (MiFreePagesFromMdl.c)
+ *     MiDeleteAweInfoPages @ 0x1408D5FEC (MiDeleteAweInfoPages.c)
+ *     MiAllocatePartitionPhysicalPages @ 0x1408DAAD8 (MiAllocatePartitionPhysicalPages.c)
+ *     MiFreePartitionPageRun @ 0x1408DB194 (MiFreePartitionPageRun.c)
  * Callees:
- *     MiFreeLargePageMemory @ 0x1402FE654 (MiFreeLargePageMemory.c)
- *     MiFreeSmallPageFromMdl @ 0x1402FFEA4 (MiFreeSmallPageFromMdl.c)
- *     MiUpdateLargePageBitMap @ 0x140300090 (MiUpdateLargePageBitMap.c)
+ *     MiFreeLargePageMemory @ 0x1403093A4 (MiFreeLargePageMemory.c)
+ *     MiFreeSmallPageFromMdl @ 0x14030ABF4 (MiFreeSmallPageFromMdl.c)
+ *     MiUpdateLargePageBitMap @ 0x14030ADE0 (MiUpdateLargePageBitMap.c)
  *     MiResidentPageDangleFree @ 0x1403F7094 (MiResidentPageDangleFree.c)
  */
 
@@ -35,7 +35,7 @@ LABEL_10:
       {
         v3 = BugCheckParameter2 & 0xFFFFFFFFFFFFFE00uLL;
         MiUpdateLargePageBitMap(
-          *(_QWORD *)(qword_140C4E648 + 8 * ((*(_QWORD *)(48 * BugCheckParameter2 - 0x57FFFFFFFD8LL) >> 39) & 0x3FFLL)),
+          *(_QWORD *)(qword_140C4E688 + 8 * ((*(_QWORD *)(48 * BugCheckParameter2 - 0x57FFFFFFFD8LL) >> 39) & 0x3FFLL)),
           BugCheckParameter2 & 0xFFFFFE00,
           512,
           0,

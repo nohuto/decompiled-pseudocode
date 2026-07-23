@@ -12,33 +12,33 @@
  *     @__security_check_cookie@4 @ 0x4B2F4B20 (@__security_check_cookie@4.c)
  */
 
-void *__stdcall RtlSetThreadSubProcessTag(void *a1)
+PVOID __cdecl RtlSetThreadSubProcessTag(PVOID SubProcessTag)
 {
   struct _TEB *v1; // eax
-  void *SubProcessTag; // edi
+  PVOID v2; // edi
   int v3; // esi
   int v4; // eax
-  char v6[6]; // [esp+10h] [ebp-34h] BYREF
+  _BYTE Fields[6]; // [esp+10h] [ebp-34h] BYREF
   __int16 v7; // [esp+16h] [ebp-2Eh]
-  void *v8; // [esp+30h] [ebp-14h]
-  void *v9; // [esp+34h] [ebp-10h]
+  PVOID v8; // [esp+30h] [ebp-14h]
+  PVOID v9; // [esp+34h] [ebp-10h]
 
   v1 = NtCurrentTeb();
-  SubProcessTag = v1->SubProcessTag;
-  v1->SubProcessTag = a1;
+  v2 = v1->SubProcessTag;
+  v1->SubProcessTag = SubProcessTag;
   v3 = 2147353488;
   if ( RtlGetCurrentServiceSessionId() )
     v4 = (int)NtCurrentPeb()->SharedData + 566;
   else
     v4 = 2147353488;
-  if ( *(_BYTE *)v4 && a1 != SubProcessTag )
+  if ( *(_BYTE *)v4 && SubProcessTag != v2 )
   {
-    v8 = SubProcessTag;
+    v8 = v2;
     v7 = 1349;
-    v9 = a1;
+    v9 = SubProcessTag;
     if ( RtlGetCurrentServiceSessionId() )
       v3 = (int)NtCurrentPeb()->SharedData + 566;
-    NtTraceEvent(*(unsigned __int8 *)v3, 1026, 8, v6);
+    NtTraceEvent((HANDLE)*(unsigned __int8 *)v3, 0x402u, 8u, Fields);
   }
-  return SubProcessTag;
+  return v2;
 }

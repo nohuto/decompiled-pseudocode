@@ -1,5 +1,5 @@
 /*
- * XREFs of WdHwpWriteRegisterUShort @ 0x140372210
+ * XREFs of WdHwpWriteRegisterUShort @ 0x1403723B0
  * Callers:
  *     <none>
  * Callees:

@@ -1,17 +1,17 @@
 /*
- * XREFs of DifNtWaitForDebugEventWrapper @ 0x140690FF0
+ * XREFs of DifNtWaitForDebugEventWrapper @ 0x140694BD0
  * Callers:
  *     <none>
  * Callees:
- *     DifGetReturnAddressForWrappers @ 0x140260EA4 (DifGetReturnAddressForWrappers.c)
- *     ExReleaseRundownProtection_0 @ 0x140266240 (ExReleaseRundownProtection_0.c)
- *     ExAcquireRundownProtection_0 @ 0x1402F0590 (ExAcquireRundownProtection_0.c)
- *     DifGetAPIThunkContextById @ 0x1404C17A4 (DifGetAPIThunkContextById.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     NtWaitForDebugEvent @ 0x140AE94E0 (NtWaitForDebugEvent.c)
+ *     DifGetReturnAddressForWrappers @ 0x14026040C (DifGetReturnAddressForWrappers.c)
+ *     ExReleaseRundownProtection_0 @ 0x1402657B0 (ExReleaseRundownProtection_0.c)
+ *     ExAcquireRundownProtection_0 @ 0x1402D2610 (ExAcquireRundownProtection_0.c)
+ *     DifGetAPIThunkContextById @ 0x1404BAFF4 (DifGetAPIThunkContextById.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     NtWaitForDebugEvent @ 0x140AEBFD0 (NtWaitForDebugEvent.c)
  */
 
-__int64 __fastcall DifNtWaitForDebugEventWrapper(void *a1, char a2, __int64 a3, __int64 a4)
+__int64 __fastcall DifNtWaitForDebugEventWrapper(void *a1, BOOLEAN a2, LARGE_INTEGER *a3, _DBGUI_WAIT_STATE_CHANGE *a4)
 {
   __int128 *APIThunkContextById; // rax
   __int64 v8; // rdx
@@ -61,7 +61,7 @@ __int64 __fastcall DifNtWaitForDebugEventWrapper(void *a1, char a2, __int64 a3, 
         ExReleaseRundownProtection_0(&DifRebootlessRundown);
     }
   }
-  DWORD2(v20) = NtWaitForDebugEvent(a1);
+  DWORD2(v20) = NtWaitForDebugEvent(a1, a2, a3, a4);
   if ( v9 )
   {
     if ( (v14 = 0, !VfDifRunningWithoutReboot) && (VfOptionFlags & 0x800) == 0

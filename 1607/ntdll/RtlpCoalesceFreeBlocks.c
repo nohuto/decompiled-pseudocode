@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlpCoalesceFreeBlocks @ 0x18004B4AC
+ * XREFs of RtlpCoalesceFreeBlocks @ 0x18004B49C
  * Callers:
- *     RtlpDeCommitFreeBlock @ 0x18004A810 (RtlpDeCommitFreeBlock.c)
- *     RtlpCoalesceHeap @ 0x180090B44 (RtlpCoalesceHeap.c)
+ *     RtlpDeCommitFreeBlock @ 0x18004A800 (RtlpDeCommitFreeBlock.c)
+ *     RtlpCoalesceHeap @ 0x180090B34 (RtlpCoalesceHeap.c)
  * Callees:
- *     RtlpCommitBlock @ 0x180028B34 (RtlpCommitBlock.c)
- *     RtlpDeCommitFreeBlock @ 0x18004A810 (RtlpDeCommitFreeBlock.c)
- *     DbgPrint @ 0x18005C3E0 (DbgPrint.c)
+ *     RtlpCommitBlock @ 0x180028B24 (RtlpCommitBlock.c)
+ *     RtlpDeCommitFreeBlock @ 0x18004A800 (RtlpDeCommitFreeBlock.c)
+ *     DbgPrint @ 0x18005C3D0 (DbgPrint.c)
  *     RtlpLogHeapFailure @ 0x1800A5E64 (RtlpLogHeapFailure.c)
  *     RtlCompareMemoryUlong @ 0x1800AA730 (RtlCompareMemoryUlong.c)
  *     RtlpAnalyzeHeapFailure @ 0x1800F79F4 (RtlpAnalyzeHeapFailure.c)
@@ -69,10 +69,10 @@ __int64 __fastcall RtlpCoalesceFreeBlocks(__int64 a1, __int64 a2, _QWORD *a3, ch
   _QWORD *v58; // r11
   __int64 v59; // r13
   char v60; // al
-  unsigned __int64 v61; // rdi
-  __int64 v62; // r15
-  unsigned __int64 v63; // rdi
-  __int64 v64; // r14
+  SIZE_T v61; // rdi
+  SIZE_T v62; // r15
+  SIZE_T v63; // rdi
+  SIZE_T v64; // r14
   _QWORD *v65; // r8
   __int64 v66; // rax
   __int64 v67; // r9
@@ -89,10 +89,10 @@ __int64 __fastcall RtlpCoalesceFreeBlocks(__int64 a1, __int64 a2, _QWORD *a3, ch
   _QWORD *v78; // r9
   __int64 v79; // r13
   char v80; // al
-  unsigned __int64 v81; // rbx
-  __int64 v82; // r12
-  unsigned __int64 v83; // rbx
-  __int64 v84; // r12
+  SIZE_T v81; // rbx
+  SIZE_T v82; // r12
+  SIZE_T v83; // rbx
+  SIZE_T v84; // r12
   __int64 *v85; // [rsp+30h] [rbp-49h]
   __int64 *v86; // [rsp+30h] [rbp-49h]
   __int64 *v87; // [rsp+30h] [rbp-49h]
@@ -214,7 +214,7 @@ LABEL_92:
 LABEL_111:
     *v87 = v100;
     *(_QWORD *)(v100 + 8) = v87;
-    if ( (*(_BYTE *)(v6 + 10) & 8) == 0 || RtlpCommitBlock(a1, v6) )
+    if ( (*(_BYTE *)(v6 + 10) & 8) == 0 || RtlpCommitBlock((PVOID)a1, v6) )
     {
       v60 = *(_BYTE *)(v6 + 10);
       if ( (v60 & 4) != 0 )
@@ -222,7 +222,7 @@ LABEL_111:
         v61 = 16LL * *(unsigned __int16 *)(v6 + 8) - 32;
         if ( (v60 & 2) != 0 && v61 > 4 )
           v61 = 16LL * *(unsigned __int16 *)(v6 + 8) - 36;
-        v62 = RtlCompareMemoryUlong(v6 + 32, v61, 4277075694LL);
+        v62 = RtlCompareMemoryUlong((PVOID)(v6 + 32), v61, 0xFEEEFEEE);
         if ( v62 != v61 )
         {
           if ( NtCurrentPeb()->Ldr )
@@ -328,7 +328,7 @@ LABEL_44:
 LABEL_45:
   *v86 = v99;
   *(_QWORD *)(v99 + 8) = v86;
-  if ( (*(_BYTE *)(v7 + 10) & 8) == 0 || RtlpCommitBlock(a1, v7) )
+  if ( (*(_BYTE *)(v7 + 10) & 8) == 0 || RtlpCommitBlock((PVOID)a1, v7) )
   {
     v34 = *(_BYTE *)(v7 + 10);
     if ( (v34 & 4) != 0 )
@@ -336,7 +336,7 @@ LABEL_45:
       v63 = 16LL * *(unsigned __int16 *)(v7 + 8) - 32;
       if ( (v34 & 2) != 0 && v63 > 4 )
         v63 = 16LL * *(unsigned __int16 *)(v7 + 8) - 36;
-      v64 = RtlCompareMemoryUlong(v7 + 32, v63, 4277075694LL);
+      v64 = RtlCompareMemoryUlong((PVOID)(v7 + 32), v63, 0xFEEEFEEE);
       if ( v64 != v63 )
       {
         if ( NtCurrentPeb()->Ldr )
@@ -453,7 +453,7 @@ LABEL_144:
 LABEL_163:
             *v88 = v101;
             *(_QWORD *)(v101 + 8) = v88;
-            if ( (*(_BYTE *)(v6 + 10) & 8) == 0 || RtlpCommitBlock(a1, v6) )
+            if ( (*(_BYTE *)(v6 + 10) & 8) == 0 || RtlpCommitBlock((PVOID)a1, v6) )
             {
               v80 = *(_BYTE *)(v6 + 10);
               if ( (v80 & 4) != 0 )
@@ -461,7 +461,7 @@ LABEL_163:
                 v81 = 16LL * *(unsigned __int16 *)(v6 + 8) - 32;
                 if ( (v80 & 2) != 0 && v81 > 4 )
                   v81 = 16LL * *(unsigned __int16 *)(v6 + 8) - 36;
-                v82 = RtlCompareMemoryUlong(v6 + 32, v81, 4277075694LL);
+                v82 = RtlCompareMemoryUlong((PVOID)(v6 + 32), v81, 0xFEEEFEEE);
                 if ( v82 != v81 )
                 {
                   if ( NtCurrentPeb()->Ldr )
@@ -570,7 +570,7 @@ LABEL_55:
 LABEL_72:
       *v85 = v98;
       *(_QWORD *)(v98 + 8) = v85;
-      if ( (*(_BYTE *)(v10 + 10) & 8) == 0 || RtlpCommitBlock(a1, v10) )
+      if ( (*(_BYTE *)(v10 + 10) & 8) == 0 || RtlpCommitBlock((PVOID)a1, v10) )
       {
         v44 = *(_BYTE *)(v10 + 10);
         if ( (v44 & 4) != 0 )
@@ -578,7 +578,7 @@ LABEL_72:
           v83 = 16LL * *(unsigned __int16 *)(v10 + 8) - 32;
           if ( (v44 & 2) != 0 && v83 > 4 )
             v83 = 16LL * *(unsigned __int16 *)(v10 + 8) - 36;
-          v84 = RtlCompareMemoryUlong(v10 + 32, v83, 4277075694LL);
+          v84 = RtlCompareMemoryUlong((PVOID)(v10 + 32), v83, 0xFEEEFEEE);
           if ( v84 != v83 )
           {
             if ( NtCurrentPeb()->Ldr )

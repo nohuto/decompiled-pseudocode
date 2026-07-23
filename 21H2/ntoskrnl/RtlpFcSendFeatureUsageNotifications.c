@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpFcSendFeatureUsageNotifications @ 0x140919AE8
+ * XREFs of RtlpFcSendFeatureUsageNotifications @ 0x140919C48
  * Callers:
- *     CmFcpManagerDrainUsageNotifications @ 0x1407CABF0 (CmFcpManagerDrainUsageNotifications.c)
+ *     CmFcpManagerDrainUsageNotifications @ 0x1407CAF10 (CmFcpManagerDrainUsageNotifications.c)
  * Callees:
- *     RtlpFcNotifyFeatureUsageTarget @ 0x140919988 (RtlpFcNotifyFeatureUsageTarget.c)
+ *     RtlpFcNotifyFeatureUsageTarget @ 0x140919AE8 (RtlpFcNotifyFeatureUsageTarget.c)
  */
 
 __int64 __fastcall RtlpFcSendFeatureUsageNotifications(__int64 a1, unsigned int *a2, __int64 a3)
@@ -23,7 +23,7 @@ __int64 __fastcall RtlpFcSendFeatureUsageNotifications(__int64 a1, unsigned int 
         && LOWORD(a2[v7 + 2]) == *(_WORD *)(a1 + 4)
         && ((a2[v7 + 2] & 0x10000) == 0 || (*(_BYTE *)(a1 + 6) & 1) != 0) )
       {
-        v8 = RtlpFcNotifyFeatureUsageTarget(a1, &a2[v7 + 3]);
+        v8 = RtlpFcNotifyFeatureUsageTarget(a1, (WNF_STATE_NAME *)&a2[v7 + 3]);
         if ( v8 >= 0 )
           v5 = v8;
       }

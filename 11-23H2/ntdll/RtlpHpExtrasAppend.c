@@ -1,5 +1,5 @@
 /*
- * XREFs of RtlpHpExtrasAppend @ 0x1801231B0
+ * XREFs of RtlpHpExtrasAppend @ 0x180123180
  * Callers:
  *     RtlpHpAllocateHeap @ 0x180066CD8 (RtlpHpAllocateHeap.c)
  * Callees:

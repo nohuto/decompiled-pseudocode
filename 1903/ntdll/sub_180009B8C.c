@@ -41,7 +41,7 @@ __int16 __fastcall sub_180009B8C(_QWORD *a1, _QWORD *a2, char a3, char a4, char 
   v6 = NtCurrentPeb();
   if ( v6->ProcessHeap )
   {
-    LOWORD(v6) = RtlRunOnceExecuteOnce(&unk_1801663F0, sub_180083E40, 0LL, 0LL);
+    LOWORD(v6) = RtlRunOnceExecuteOnce(&stru_1801663F0, sub_180083E40, 0LL, 0LL);
     if ( a1 )
     {
       if ( a2 )
@@ -78,7 +78,7 @@ __int16 __fastcall sub_180009B8C(_QWORD *a1, _QWORD *a2, char a3, char a4, char 
                   v29 = 1;
                   v32 = 1;
                   v35 = 1;
-                  sub_18008935C(v11, (unsigned int)&unk_18012BCE3, v12, v13, 7, (__int64)v21);
+                  sub_18008935C(v11, (int)&dword_18012BCE3, v12, v13, 7u, (PEVENT_DATA_DESCRIPTOR)v21);
                 }
                 LOWORD(v6) = word_180162738;
                 word_180162738 = 100;

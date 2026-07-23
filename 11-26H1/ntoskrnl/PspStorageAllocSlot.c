@@ -1,19 +1,19 @@
 /*
- * XREFs of PspStorageAllocSlot @ 0x1407FF9E4
+ * XREFs of PspStorageAllocSlot @ 0x140805414
  * Callers:
- *     PsAllocSiloContextSlot @ 0x1407EE600 (PsAllocSiloContextSlot.c)
- *     PsRegisterSiloMonitor @ 0x1407FBB20 (PsRegisterSiloMonitor.c)
- *     CmpInitSiloSupport @ 0x140854C64 (CmpInitSiloSupport.c)
- *     VRegSetup @ 0x1408A5210 (VRegSetup.c)
- *     PspInitializeSiloStructures @ 0x140CD8CA4 (PspInitializeSiloStructures.c)
+ *     PsAllocSiloContextSlot @ 0x1407F4160 (PsAllocSiloContextSlot.c)
+ *     PsRegisterSiloMonitor @ 0x140801550 (PsRegisterSiloMonitor.c)
+ *     CmpInitSiloSupport @ 0x14085AF74 (CmpInitSiloSupport.c)
+ *     VRegSetup @ 0x1408AB680 (VRegSetup.c)
+ *     PspInitializeSiloStructures @ 0x140CDF024 (PspInitializeSiloStructures.c)
  * Callees:
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     ExfTryToWakePushLock @ 0x1403170A0 (ExfTryToWakePushLock.c)
- *     RtlFindClearBitsAndSet @ 0x1403586A0 (RtlFindClearBitsAndSet.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     ExfTryToWakePushLock @ 0x1403190D0 (ExfTryToWakePushLock.c)
+ *     RtlFindClearBitsAndSet @ 0x14035A440 (RtlFindClearBitsAndSet.c)
  */
 
 __int64 __fastcall PspStorageAllocSlot(ULONG *a1, __int64 a2, __int64 a3, struct _KLOCK_ENTRIES *a4)
@@ -44,10 +44,10 @@ __int64 __fastcall PspStorageAllocSlot(ULONG *a1, __int64 a2, __int64 a3, struct
     else
       *((_BYTE *)v10 + 10) = 1;
   }
-  ClearBitsAndSet = RtlFindClearBitsAndSet((PRTL_BITMAP)&KiSystemServiceTraceCallbackLock.StackBase, 1u, 0);
+  ClearBitsAndSet = RtlFindClearBitsAndSet((PRTL_BITMAP)&KiSystemServiceTraceCallbackLock.InitialStack, 1u, 0);
   if ( ClearBitsAndSet == -1 )
   {
-    ClearBitsAndSet = RtlFindClearBitsAndSet((PRTL_BITMAP)&KiSystemServiceTraceCallbackLock.InitialStack, 1u, 0);
+    ClearBitsAndSet = RtlFindClearBitsAndSet((PRTL_BITMAP)&KiSystemServiceTraceCallbackLock.StackBase, 1u, 0);
     if ( ClearBitsAndSet == -1 )
       v6 = -1073741670;
     else

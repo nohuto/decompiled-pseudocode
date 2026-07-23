@@ -1,14 +1,14 @@
 /*
- * XREFs of RtlpTraceDatabaseReleaseLock @ 0x1406200F8
+ * XREFs of RtlpTraceDatabaseReleaseLock @ 0x140623148
  * Callers:
- *     RtlTraceDatabaseAdd @ 0x14061FA20 (RtlTraceDatabaseAdd.c)
- *     RtlTraceDatabaseEnumerate @ 0x14061FC60 (RtlTraceDatabaseEnumerate.c)
- *     RtlTraceDatabaseFind @ 0x14061FD30 (RtlTraceDatabaseFind.c)
- *     RtlTraceDatabaseUnlock @ 0x14061FDC0 (RtlTraceDatabaseUnlock.c)
- *     RtlTraceDatabaseValidate @ 0x14061FDE0 (RtlTraceDatabaseValidate.c)
+ *     RtlTraceDatabaseAdd @ 0x140622A70 (RtlTraceDatabaseAdd.c)
+ *     RtlTraceDatabaseEnumerate @ 0x140622CB0 (RtlTraceDatabaseEnumerate.c)
+ *     RtlTraceDatabaseFind @ 0x140622D80 (RtlTraceDatabaseFind.c)
+ *     RtlTraceDatabaseUnlock @ 0x140622E10 (RtlTraceDatabaseUnlock.c)
+ *     RtlTraceDatabaseValidate @ 0x140622E30 (RtlTraceDatabaseValidate.c)
  * Callees:
- *     KeReleaseGuardedMutex @ 0x140278D40 (KeReleaseGuardedMutex.c)
- *     KeReleaseSpinLock @ 0x1402BE860 (KeReleaseSpinLock.c)
+ *     KeReleaseGuardedMutex @ 0x1402782B0 (KeReleaseGuardedMutex.c)
+ *     KeReleaseSpinLock @ 0x140309520 (KeReleaseSpinLock.c)
  */
 
 char __fastcall RtlpTraceDatabaseReleaseLock(__int64 a1)

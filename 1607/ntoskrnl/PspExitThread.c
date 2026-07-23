@@ -1,62 +1,62 @@
 /*
- * XREFs of PspExitThread @ 0x14051611C
+ * XREFs of PspExitThread @ 0x1404F950C
  * Callers:
- *     NtTerminateProcess @ 0x140507D84 (NtTerminateProcess.c)
- *     KiSchedulerApcTerminate @ 0x140509A00 (KiSchedulerApcTerminate.c)
- *     PspTerminateThreadByPointer @ 0x140509A30 (PspTerminateThreadByPointer.c)
+ *     NtTerminateProcess @ 0x1404EAD14 (NtTerminateProcess.c)
+ *     KiSchedulerApcTerminate @ 0x1404EC990 (KiSchedulerApcTerminate.c)
+ *     PspTerminateThreadByPointer @ 0x1404EC9C0 (PspTerminateThreadByPointer.c)
  * Callees:
- *     ObFastDereferenceObject @ 0x14000F690 (ObFastDereferenceObject.c)
- *     PsGetProcessServerSilo @ 0x1400136A0 (PsGetProcessServerSilo.c)
- *     MmSessionGetWin32Callouts @ 0x140013F00 (MmSessionGetWin32Callouts.c)
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     MmUnlockPages @ 0x140051A80 (MmUnlockPages.c)
- *     KeWaitForSingleObject @ 0x14005C880 (KeWaitForSingleObject.c)
- *     KeLeaveCriticalRegionThread @ 0x14006A0A0 (KeLeaveCriticalRegionThread.c)
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
- *     ObfDereferenceObjectWithTag @ 0x14006ACD0 (ObfDereferenceObjectWithTag.c)
- *     ExWaitForRundownProtectionRelease @ 0x140074D34 (ExWaitForRundownProtectionRelease.c)
- *     PspLockProcessExclusive @ 0x140088FB8 (PspLockProcessExclusive.c)
- *     ObReferenceObjectSafe @ 0x14008C540 (ObReferenceObjectSafe.c)
- *     ExfAcquireReleasePushLockExclusive @ 0x1400AA9EC (ExfAcquireReleasePushLockExclusive.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1400C8070 (ExfAcquirePushLockExclusiveEx.c)
- *     KeForceResumeProcess @ 0x1400C8E70 (KeForceResumeProcess.c)
- *     KeDelayExecutionThread @ 0x1400D0580 (KeDelayExecutionThread.c)
- *     KeSetThreadChargeOnlySchedulingGroup @ 0x1400D2A60 (KeSetThreadChargeOnlySchedulingGroup.c)
- *     PspRevertContainerImpersonation @ 0x1400D3D20 (PspRevertContainerImpersonation.c)
- *     ExTimerRundown @ 0x1400F0A4C (ExTimerRundown.c)
- *     KeQuerySystemTimeUnsafe @ 0x1400F2020 (KeQuerySystemTimeUnsafe.c)
- *     KeQuerySystemTimePrecise @ 0x1400F2100 (KeQuerySystemTimePrecise.c)
- *     PspUnlockProcessExclusive @ 0x1400F22D8 (PspUnlockProcessExclusive.c)
- *     KiRundownMutants @ 0x1400F2320 (KiRundownMutants.c)
- *     KeTerminateThread @ 0x1400F2454 (KeTerminateThread.c)
- *     ZwFreeVirtualMemory @ 0x14015A040 (ZwFreeVirtualMemory.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
- *     KeUnsecureThread @ 0x1401D305C (KeUnsecureThread.c)
+ *     ObFastDereferenceObject @ 0x14000F210 (ObFastDereferenceObject.c)
+ *     PsGetProcessServerSilo @ 0x140013220 (PsGetProcessServerSilo.c)
+ *     MmSessionGetWin32Callouts @ 0x140013A80 (MmSessionGetWin32Callouts.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     MmUnlockPages @ 0x140051600 (MmUnlockPages.c)
+ *     KeWaitForSingleObject @ 0x14005C400 (KeWaitForSingleObject.c)
+ *     KeLeaveCriticalRegionThread @ 0x140069C20 (KeLeaveCriticalRegionThread.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
+ *     ObfDereferenceObjectWithTag @ 0x14006A850 (ObfDereferenceObjectWithTag.c)
+ *     ExWaitForRundownProtectionRelease @ 0x140074DB4 (ExWaitForRundownProtectionRelease.c)
+ *     ObReferenceObjectSafe @ 0x14008BCA0 (ObReferenceObjectSafe.c)
+ *     ExfAcquireReleasePushLockExclusive @ 0x1400A8F6C (ExfAcquireReleasePushLockExclusive.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1400C5F10 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeForceResumeProcess @ 0x1400C6D10 (KeForceResumeProcess.c)
+ *     KeDelayExecutionThread @ 0x1400CE420 (KeDelayExecutionThread.c)
+ *     KeSetThreadChargeOnlySchedulingGroup @ 0x1400D0900 (KeSetThreadChargeOnlySchedulingGroup.c)
+ *     PspRevertContainerImpersonation @ 0x1400D1BC0 (PspRevertContainerImpersonation.c)
+ *     ExTimerRundown @ 0x1400EE89C (ExTimerRundown.c)
+ *     KeQuerySystemTimeUnsafe @ 0x1400EFE70 (KeQuerySystemTimeUnsafe.c)
+ *     KeQuerySystemTimePrecise @ 0x1400EFF50 (KeQuerySystemTimePrecise.c)
+ *     PspUnlockProcessExclusive @ 0x1400F0128 (PspUnlockProcessExclusive.c)
+ *     KiRundownMutants @ 0x1400F0170 (KiRundownMutants.c)
+ *     KeTerminateThread @ 0x1400F02A4 (KeTerminateThread.c)
+ *     PspLockProcessExclusive @ 0x14010D1A8 (PspLockProcessExclusive.c)
+ *     ZwFreeVirtualMemory @ 0x14015A5B0 (ZwFreeVirtualMemory.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
+ *     KeUnsecureThread @ 0x1401D2E88 (KeUnsecureThread.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
- *     PsReferencePrimaryToken @ 0x140418C20 (PsReferencePrimaryToken.c)
- *     ExCallCallBack @ 0x140428DC0 (ExCallCallBack.c)
- *     PspCallThreadNotifyRoutines @ 0x140429110 (PspCallThreadNotifyRoutines.c)
- *     EtwTraceThread @ 0x14045A914 (EtwTraceThread.c)
- *     PspRundownSingleProcess @ 0x14045E0C0 (PspRundownSingleProcess.c)
- *     PspClearProcessThreadCidRefs @ 0x14045ED5C (PspClearProcessThreadCidRefs.c)
- *     SeAuditingWithTokenForSubcategory @ 0x140460524 (SeAuditingWithTokenForSubcategory.c)
- *     PspExitProcess @ 0x140460564 (PspExitProcess.c)
- *     ExWnfExitProcess @ 0x140460ECC (ExWnfExitProcess.c)
- *     LpcExitProcess @ 0x140460F24 (LpcExitProcess.c)
- *     PspEmptyPropertySet @ 0x1404A2008 (PspEmptyPropertySet.c)
- *     LpcRequestPort @ 0x1404C105C (LpcRequestPort.c)
- *     IoCancelThreadIo @ 0x1404CC524 (IoCancelThreadIo.c)
- *     MmDeleteTeb @ 0x1404CD424 (MmDeleteTeb.c)
- *     PsCaptureExceptionPort @ 0x140509690 (PsCaptureExceptionPort.c)
- *     KeRundownApcQueues @ 0x14050BA4C (KeRundownApcQueues.c)
- *     ObCloseHandle @ 0x14050C73C (ObCloseHandle.c)
- *     CmNotifyRunDown @ 0x1405152B8 (CmNotifyRunDown.c)
- *     PoDeletePowerRequest @ 0x14051E37C (PoDeletePowerRequest.c)
- *     DbgkExitProcess @ 0x14061AB60 (DbgkExitProcess.c)
- *     DbgkExitThread @ 0x14061AC08 (DbgkExitThread.c)
- *     PspUmsUnInitThread @ 0x14067F6FC (PspUmsUnInitThread.c)
- *     PspCatchCriticalBreak @ 0x14067FBF8 (PspCatchCriticalBreak.c)
- *     SeAuditProcessExit @ 0x14068E394 (SeAuditProcessExit.c)
+ *     PsReferencePrimaryToken @ 0x140417AE0 (PsReferencePrimaryToken.c)
+ *     ExCallCallBack @ 0x140427C90 (ExCallCallBack.c)
+ *     PspCallThreadNotifyRoutines @ 0x140427FE0 (PspCallThreadNotifyRoutines.c)
+ *     EtwTraceThread @ 0x1404597E4 (EtwTraceThread.c)
+ *     PspRundownSingleProcess @ 0x14045CF90 (PspRundownSingleProcess.c)
+ *     PspClearProcessThreadCidRefs @ 0x14045DC2C (PspClearProcessThreadCidRefs.c)
+ *     SeAuditingWithTokenForSubcategory @ 0x14045F3F4 (SeAuditingWithTokenForSubcategory.c)
+ *     PspExitProcess @ 0x14045F434 (PspExitProcess.c)
+ *     ExWnfExitProcess @ 0x14045FD9C (ExWnfExitProcess.c)
+ *     LpcExitProcess @ 0x14045FDF4 (LpcExitProcess.c)
+ *     LpcRequestPort @ 0x1404ACD8C (LpcRequestPort.c)
+ *     IoCancelThreadIo @ 0x1404B1F50 (IoCancelThreadIo.c)
+ *     MmDeleteTeb @ 0x1404B2E50 (MmDeleteTeb.c)
+ *     PsCaptureExceptionPort @ 0x1404EC620 (PsCaptureExceptionPort.c)
+ *     KeRundownApcQueues @ 0x1404EE9DC (KeRundownApcQueues.c)
+ *     ObCloseHandle @ 0x1404EF6CC (ObCloseHandle.c)
+ *     CmNotifyRunDown @ 0x1404F86A8 (CmNotifyRunDown.c)
+ *     PoDeletePowerRequest @ 0x1405013E4 (PoDeletePowerRequest.c)
+ *     PspEmptyPropertySet @ 0x14051A414 (PspEmptyPropertySet.c)
+ *     DbgkExitProcess @ 0x14061AC14 (DbgkExitProcess.c)
+ *     DbgkExitThread @ 0x14061ACBC (DbgkExitThread.c)
+ *     PspUmsUnInitThread @ 0x14067F7E0 (PspUmsUnInitThread.c)
+ *     PspCatchCriticalBreak @ 0x14067FCDC (PspCatchCriticalBreak.c)
+ *     SeAuditProcessExit @ 0x14068E478 (SeAuditProcessExit.c)
  */
 
 __int64 __fastcall PspExitThread(unsigned int a1)
@@ -80,10 +80,10 @@ __int64 __fastcall PspExitThread(unsigned int a1)
   LIST_ENTRY *p_WaitListHead; // rbx
   PVOID Object; // rcx
   void *v21; // rcx
-  union _RTL_RUN_ONCE *Win32Callouts; // rax
+  _RTL_RUN_ONCE *Win32Callouts; // rax
   _QWORD *v23; // rbx
   _QWORD *v24; // r12
-  union _RTL_RUN_ONCE *v25; // rax
+  _RTL_RUN_ONCE *v25; // rax
   PACCESS_TOKEN v26; // rbx
   void *v27; // rcx
   int v28; // eax
@@ -113,7 +113,7 @@ __int64 __fastcall PspExitThread(unsigned int a1)
     ObfDereferenceObjectWithTag(CurrentThread[1].SListFaultAddress, 0x79517350u);
     CurrentThread[1].SListFaultAddress = 0LL;
   }
-  PspEmptyPropertySet(&CurrentThread[1].WaitBlock[1].SparePtr);
+  PspEmptyPropertySet(&CurrentThread[1].WaitBlockFill11[88]);
   PspRevertContainerImpersonation((__int64)CurrentThread);
   ExWaitForRundownProtectionRelease((PEX_RUNDOWN_REF)&CurrentThread[1].WaitStatus);
   Blink = CurrentThread[1].ApcState.ApcListHead[1].Blink;
@@ -310,7 +310,7 @@ __int64 __fastcall PspExitThread(unsigned int a1)
   }
   p_WaitListHead = &CurrentThread[1].Header.WaitListHead;
   if ( KeQuerySystemTimeUnsafe() )
-    KeQuerySystemTimePrecise((__int64 *)&CurrentThread[1].Header.WaitListHead);
+    KeQuerySystemTimePrecise((LARGE_INTEGER *)&CurrentThread[1].Header.WaitListHead);
   else
     p_WaitListHead->Flink = (struct _LIST_ENTRY *)MEMORY[0xFFFFF78000000014];
   if ( v15 )

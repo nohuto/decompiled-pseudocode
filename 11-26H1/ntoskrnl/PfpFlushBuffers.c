@@ -1,21 +1,21 @@
 /*
- * XREFs of PfpFlushBuffers @ 0x140A05BE0
+ * XREFs of PfpFlushBuffers @ 0x1409F13D0
  * Callers:
- *     PfTLoggingWorker @ 0x140A05840 (PfTLoggingWorker.c)
+ *     PfTLoggingWorker @ 0x1409F1030 (PfTLoggingWorker.c)
  * Callees:
- *     MmFreeAccessPfnBuffer @ 0x1404A3E88 (MmFreeAccessPfnBuffer.c)
- *     PfpPartitionToParent @ 0x1404D5F40 (PfpPartitionToParent.c)
- *     PfpReturnAccessBuffer @ 0x1404D94E0 (PfpReturnAccessBuffer.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     RtlpInterlockedFlushSList @ 0x140730D10 (RtlpInterlockedFlushSList.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     PfpFlushEventBuffers @ 0x140A05AD0 (PfpFlushEventBuffers.c)
- *     PfpLogPageAccess @ 0x140A05F80 (PfpLogPageAccess.c)
- *     PfpCopyEvent @ 0x140A06640 (PfpCopyEvent.c)
- *     PfTReplaceCurrentBuffer @ 0x140A06878 (PfTReplaceCurrentBuffer.c)
+ *     MmFreeAccessPfnBuffer @ 0x14049D998 (MmFreeAccessPfnBuffer.c)
+ *     PfpPartitionToParent @ 0x1404CF710 (PfpPartitionToParent.c)
+ *     PfpReturnAccessBuffer @ 0x1404D2BC0 (PfpReturnAccessBuffer.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     RtlpInterlockedFlushSList @ 0x1407358E0 (RtlpInterlockedFlushSList.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     PfpFlushEventBuffers @ 0x1409F12C0 (PfpFlushEventBuffers.c)
+ *     PfpLogPageAccess @ 0x1409F1770 (PfpLogPageAccess.c)
+ *     PfpCopyEvent @ 0x1409F1E30 (PfpCopyEvent.c)
+ *     PfTReplaceCurrentBuffer @ 0x1409F2068 (PfTReplaceCurrentBuffer.c)
  */
 
-char __fastcall PfpFlushBuffers(union _SLIST_HEADER *a1)
+char __fastcall PfpFlushBuffers(_SLIST_HEADER *a1)
 {
   _QWORD *v2; // rbx
   char *v3; // rdi
@@ -74,11 +74,11 @@ char __fastcall PfpFlushBuffers(union _SLIST_HEADER *a1)
     *(_QWORD *)&v35[4] = 0LL;
     v8 = MEMORY[0xFFFFF78000000004] * HIDWORD(*(_QWORD *)(v7 + 24));
     v9 = (MEMORY[0xFFFFF78000000004] * (unsigned __int64)(unsigned int)*(_QWORD *)(v7 + 24)) >> 24;
-    HIDWORD(v34) = HIDWORD(stru_140E66B30.WriteOperationCount)
+    HIDWORD(v34) = HIDWORD(stru_140E66D40.WriteOperationCount)
                  + ((((MEMORY[0xFFFFF78000000004] * HIDWORD(*(_QWORD *)(v7 + 16))) << 8)
                    + ((MEMORY[0xFFFFF78000000004] * (unsigned __int64)(unsigned int)*(_QWORD *)(v7 + 16)) >> 24)) >> 10);
     v33 = HIDWORD(v34);
-    *(_QWORD *)v35 = HIDWORD(stru_140E66B30.WriteOperationCount) + (unsigned int)(((v8 << 8) + v9) >> 10);
+    *(_QWORD *)v35 = HIDWORD(stru_140E66D40.WriteOperationCount) + (unsigned int)(((v8 << 8) + v9) >> 10);
     v32 = 163851LL;
     PfpCopyEvent(a1, &v32);
     if ( *(int *)(v7 + 8) > 1
@@ -128,7 +128,7 @@ LABEL_27:
       v23 = HIDWORD(*(_QWORD *)(v7 + 24));
       v31 = 0;
       v29 = 147463LL;
-      v30 = HIDWORD(stru_140E66B30.WriteOperationCount)
+      v30 = HIDWORD(stru_140E66D40.WriteOperationCount)
           + ((((MEMORY[0xFFFFF78000000004] * v23) << 8) + (((unsigned __int64)MEMORY[0xFFFFF78000000004] * v22) >> 24)) >> 10);
       PfpCopyEvent(a1, &v29);
       MmFreeAccessPfnBuffer((_QWORD *)v7, 0);

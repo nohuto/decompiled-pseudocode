@@ -1,23 +1,23 @@
 /*
- * XREFs of PopFxUnregisterDevice @ 0x140A74BB4
+ * XREFs of PopFxUnregisterDevice @ 0x140A6EED4
  * Callers:
- *     PoFxUnregisterDevice @ 0x140A74850 (PoFxUnregisterDevice.c)
- *     PopFxUnregisterDeviceOrWait @ 0x140A74A30 (PopFxUnregisterDeviceOrWait.c)
+ *     PoFxUnregisterDevice @ 0x140A6EB70 (PoFxUnregisterDevice.c)
+ *     PopFxUnregisterDeviceOrWait @ 0x140A6ED50 (PopFxUnregisterDeviceOrWait.c)
  * Callees:
- *     KeSetEvent @ 0x1402725A0 (KeSetEvent.c)
- *     KeWaitForSingleObject @ 0x14033E960 (KeWaitForSingleObject.c)
- *     PoFxActivateComponent @ 0x1403B6160 (PoFxActivateComponent.c)
- *     IoReleaseRemoveLockAndWaitEx @ 0x1404A7950 (IoReleaseRemoveLockAndWaitEx.c)
- *     PopFxAssignDeviceToDevNode @ 0x1404B8C0C (PopFxAssignDeviceToDevNode.c)
- *     PopFxDestroyDeviceDpm @ 0x1404D9358 (PopFxDestroyDeviceDpm.c)
- *     PopPlUnregisterDevice @ 0x1404D9A00 (PopPlUnregisterDevice.c)
- *     PopFxComponentRelationsCleanup @ 0x1405D0A1C (PopFxComponentRelationsCleanup.c)
- *     PopFxDeviceRelationsCleanup @ 0x1405D0EBC (PopFxDeviceRelationsCleanup.c)
- *     PopFxRemoveDevice @ 0x1405D1DE4 (PopFxRemoveDevice.c)
- *     PopPluginUnregisterDevice @ 0x1405D25F0 (PopPluginUnregisterDevice.c)
- *     PopDiagTraceFxDeviceUnregistration @ 0x1407563DC (PopDiagTraceFxDeviceUnregistration.c)
- *     PopPepUnregisterDevice @ 0x140A74D78 (PopPepUnregisterDevice.c)
- *     PopSystemIrpCompletion @ 0x140B6F8E0 (PopSystemIrpCompletion.c)
+ *     KeSetEvent @ 0x140227B30 (KeSetEvent.c)
+ *     PoFxActivateComponent @ 0x1402AE460 (PoFxActivateComponent.c)
+ *     KeWaitForSingleObject @ 0x14031DE40 (KeWaitForSingleObject.c)
+ *     IoReleaseRemoveLockAndWaitEx @ 0x1404A2380 (IoReleaseRemoveLockAndWaitEx.c)
+ *     PopFxAssignDeviceToDevNode @ 0x1404B38C8 (PopFxAssignDeviceToDevNode.c)
+ *     PopFxDestroyDeviceDpm @ 0x1404D27A8 (PopFxDestroyDeviceDpm.c)
+ *     PopPlUnregisterDevice @ 0x1404D347C (PopPlUnregisterDevice.c)
+ *     PopFxComponentRelationsCleanup @ 0x1405CE13C (PopFxComponentRelationsCleanup.c)
+ *     PopFxDeviceRelationsCleanup @ 0x1405CE5DC (PopFxDeviceRelationsCleanup.c)
+ *     PopFxRemoveDevice @ 0x1405CF504 (PopFxRemoveDevice.c)
+ *     PopPluginUnregisterDevice @ 0x1405CFD10 (PopPluginUnregisterDevice.c)
+ *     PopDiagTraceFxDeviceUnregistration @ 0x14075485C (PopDiagTraceFxDeviceUnregistration.c)
+ *     PopPepUnregisterDevice @ 0x140A6F098 (PopPepUnregisterDevice.c)
+ *     PopSystemIrpCompletion @ 0x140B71950 (PopSystemIrpCompletion.c)
  */
 
 __int64 __fastcall PopFxUnregisterDevice(ULONG_PTR BugCheckParameter2)
@@ -30,9 +30,7 @@ __int64 __fastcall PopFxUnregisterDevice(ULONG_PTR BugCheckParameter2)
   signed __int32 v7; // eax
   signed __int32 v8; // ett
   unsigned int k; // esi
-  __int64 v10; // r8
-  __int64 v11; // r9
-  ULONG_PTR v12; // rcx
+  ULONG_PTR v10; // rcx
   __int64 result; // rax
 
   if ( (*(_DWORD *)(BugCheckParameter2 + 864) & 1) == 0 )
@@ -89,9 +87,9 @@ __int64 __fastcall PopFxUnregisterDevice(ULONG_PTR BugCheckParameter2)
       PopFxComponentRelationsCleanup(*(_QWORD *)(*(_QWORD *)(BugCheckParameter2 + 872) + 8LL * k));
   }
   PopPepUnregisterDevice(*(PVOID *)(BugCheckParameter2 + 56));
-  v12 = *(_QWORD *)(BugCheckParameter2 + 64);
-  if ( v12 )
-    PopPluginUnregisterDevice(v12, *(_QWORD *)(BugCheckParameter2 + 72), v10, v11);
+  v10 = *(_QWORD *)(BugCheckParameter2 + 64);
+  if ( v10 )
+    PopPluginUnregisterDevice(v10, *(_QWORD *)(BugCheckParameter2 + 72));
   PopPlUnregisterDevice(BugCheckParameter2);
   if ( v5 )
     KeSetEvent(v5 + 4, 0, 0);

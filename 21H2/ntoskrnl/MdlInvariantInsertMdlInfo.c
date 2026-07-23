@@ -1,10 +1,10 @@
 /*
- * XREFs of MdlInvariantInsertMdlInfo @ 0x1405A1458
+ * XREFs of MdlInvariantInsertMdlInfo @ 0x1405A1688
  * Callers:
- *     MdlInvariantPreProcessing1 @ 0x1405A1798 (MdlInvariantPreProcessing1.c)
+ *     MdlInvariantPreProcessing1 @ 0x1405A19C8 (MdlInvariantPreProcessing1.c)
  * Callees:
- *     memset @ 0x140414200 (memset.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall MdlInvariantInsertMdlInfo(__int64 a1, _OWORD *a2)

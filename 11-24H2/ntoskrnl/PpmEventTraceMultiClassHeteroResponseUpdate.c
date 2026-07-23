@@ -1,16 +1,16 @@
 /*
- * XREFs of PpmEventTraceMultiClassHeteroResponseUpdate @ 0x1404ED1C8
+ * XREFs of PpmEventTraceMultiClassHeteroResponseUpdate @ 0x1404E49EC
  * Callers:
- *     PpmHeteroComputeMultiClassUnparkCount @ 0x140422584 (PpmHeteroComputeMultiClassUnparkCount.c)
- *     PpmCheckComputeMultiClassHeteroResponse @ 0x140422A90 (PpmCheckComputeMultiClassHeteroResponse.c)
- *     PpmCheckComputeMultiClassHeteroResponseEx @ 0x1405DFBD4 (PpmCheckComputeMultiClassHeteroResponseEx.c)
- *     PpmHeteroComputeMultiClassUnparkCountEx @ 0x1405E0230 (PpmHeteroComputeMultiClassUnparkCountEx.c)
+ *     PpmHeteroComputeMultiClassUnparkCount @ 0x140416434 (PpmHeteroComputeMultiClassUnparkCount.c)
+ *     PpmCheckComputeMultiClassHeteroResponse @ 0x140416940 (PpmCheckComputeMultiClassHeteroResponse.c)
+ *     PpmCheckComputeMultiClassHeteroResponseEx @ 0x1405DD1F4 (PpmCheckComputeMultiClassHeteroResponseEx.c)
+ *     PpmHeteroComputeMultiClassUnparkCountEx @ 0x1405DD850 (PpmHeteroComputeMultiClassUnparkCountEx.c)
  * Callees:
- *     EtwWriteEx @ 0x140259680 (EtwWriteEx.c)
- *     EtwEventEnabled @ 0x1402A1BD0 (EtwEventEnabled.c)
- *     Feature_PpmParkEx__private_IsEnabledDeviceUsageNoInline @ 0x1405B4FB0 (Feature_PpmParkEx__private_IsEnabledDeviceUsageNoInline.c)
- *     PpmEventTraceMultiClassHeteroResponseUpdateEx @ 0x1405DF1C8 (PpmEventTraceMultiClassHeteroResponseUpdateEx.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     EtwWriteEx @ 0x140289C90 (EtwWriteEx.c)
+ *     EtwEventEnabled @ 0x1402D1300 (EtwEventEnabled.c)
+ *     Feature_PpmParkEx__private_IsEnabledDeviceUsageNoInline @ 0x1405B2224 (Feature_PpmParkEx__private_IsEnabledDeviceUsageNoInline.c)
+ *     PpmEventTraceMultiClassHeteroResponseUpdateEx @ 0x1405DC2F4 (PpmEventTraceMultiClassHeteroResponseUpdateEx.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 BOOLEAN __fastcall PpmEventTraceMultiClassHeteroResponseUpdate(__int64 a1, char *a2, __int64 a3, __int64 a4)

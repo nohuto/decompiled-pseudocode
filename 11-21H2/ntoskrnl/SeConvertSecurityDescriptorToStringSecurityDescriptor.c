@@ -1,13 +1,13 @@
 /*
  * XREFs of SeConvertSecurityDescriptorToStringSecurityDescriptor @ 0x140206FA0
  * Callers:
- *     AdtpBuildAccessReasonAuditStringInternal @ 0x14064B9D8 (AdtpBuildAccessReasonAuditStringInternal.c)
- *     AstLogDeviceSDDLUpdated @ 0x140675814 (AstLogDeviceSDDLUpdated.c)
- *     CmpLogHiveFileInaccessible @ 0x1406D2D00 (CmpLogHiveFileInaccessible.c)
- *     AdtpBuildSecurityDescriptorUnicodeString @ 0x140A1B7E4 (AdtpBuildSecurityDescriptorUnicodeString.c)
+ *     sub_14064B9D8 @ 0x14064B9D8 (sub_14064B9D8.c)
+ *     sub_140675814 @ 0x140675814 (sub_140675814.c)
+ *     sub_1406D2D00 @ 0x1406D2D00 (sub_1406D2D00.c)
+ *     sub_140A1B7E4 @ 0x140A1B7E4 (sub_140A1B7E4.c)
  * Callees:
- *     LocalConvertSDToStringSD_Rev1 @ 0x140676314 (LocalConvertSDToStringSD_Rev1.c)
- *     SddlpAlloc @ 0x14067757C (SddlpAlloc.c)
+ *     sub_140676314 @ 0x140676314 (sub_140676314.c)
+ *     sub_14067757C @ 0x14067757C (sub_14067757C.c)
  */
 
 __int64 __fastcall SeConvertSecurityDescriptorToStringSecurityDescriptor(
@@ -29,7 +29,7 @@ LABEL_3:
     {
       if ( (_DWORD)a2 == 1 )
       {
-        result = LocalConvertSDToStringSD_Rev1(a1, a2, a3, a1, a3, a4, a5);
+        result = sub_140676314(a1, a2, a3, a1, a3, a4, a5);
         if ( (int)result <= 0 )
           return result;
       }
@@ -49,7 +49,7 @@ LABEL_9:
       goto LABEL_9;
     goto LABEL_3;
   }
-  v8 = (_WORD *)SddlpAlloc(2uLL);
+  v8 = (_WORD *)sub_14067757C(2uLL);
   *a4 = v8;
   if ( v8 )
   {

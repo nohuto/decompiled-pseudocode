@@ -1,20 +1,20 @@
 /*
- * XREFs of KiSetFeatureBits @ 0x140BF74E8
+ * XREFs of KiSetFeatureBits @ 0x140BFD4E8
  * Callers:
- *     KiInitializeBootStructures @ 0x140BF5890 (KiInitializeBootStructures.c)
+ *     KiInitializeBootStructures @ 0x140BFB890 (KiInitializeBootStructures.c)
  * Callees:
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     HalIsHyperThreadingEnabled @ 0x14057D110 (HalIsHyperThreadingEnabled.c)
- *     HvlSetApicVirtualizationAvailable @ 0x1405B90A0 (HvlSetApicVirtualizationAvailable.c)
- *     HvlSetHardwareMbecAvailable @ 0x1405B90B0 (HvlSetHardwareMbecAvailable.c)
- *     KiApplyProcessorErrata @ 0x1405F487C (KiApplyProcessorErrata.c)
- *     KiGetProcessorSignature @ 0x1405F6C6C (KiGetProcessorSignature.c)
- *     KiSetProcessorSignature @ 0x1405F6C84 (KiSetProcessorSignature.c)
- *     KiDetectKvaLeakage @ 0x1405F7100 (KiDetectKvaLeakage.c)
- *     KiComputeTopologyConstants @ 0x1405FBA98 (KiComputeTopologyConstants.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     KiInitializeHresetSupport @ 0x140BF5E80 (KiInitializeHresetSupport.c)
- *     KdInitSystem @ 0x140C12B60 (KdInitSystem.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     HalIsHyperThreadingEnabled @ 0x14057F630 (HalIsHyperThreadingEnabled.c)
+ *     HvlSetApicVirtualizationAvailable @ 0x1405BB910 (HvlSetApicVirtualizationAvailable.c)
+ *     HvlSetHardwareMbecAvailable @ 0x1405BB920 (HvlSetHardwareMbecAvailable.c)
+ *     KiApplyProcessorErrata @ 0x1405F723C (KiApplyProcessorErrata.c)
+ *     KiGetProcessorSignature @ 0x1405F962C (KiGetProcessorSignature.c)
+ *     KiSetProcessorSignature @ 0x1405F9644 (KiSetProcessorSignature.c)
+ *     KiDetectKvaLeakage @ 0x1405F9AC0 (KiDetectKvaLeakage.c)
+ *     KiComputeTopologyConstants @ 0x1405FE4E8 (KiComputeTopologyConstants.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     KiInitializeHresetSupport @ 0x140BFBE80 (KiInitializeHresetSupport.c)
+ *     KdInitSystem @ 0x140C18B60 (KdInitSystem.c)
  */
 
 __int64 __fastcall KiSetFeatureBits(__int64 a1)
@@ -288,11 +288,11 @@ LABEL_46:
     || (v52 & 0x100000) == 0
     || (v39 & 0x2000) == 0
     || (v53 & 1) == 0
-    || LODWORD(KsepShimDbLock.InGlobalForegroundList) )
+    || HIDWORD(KsepShimDbLock.KernelWaitTime) )
   {
     if ( !*(_DWORD *)(a1 + 36) )
       KdInitSystem(0LL, KeLoaderBlock_0);
-    KeBugCheckEx(0x5Du, v41, v52, v53, LODWORD(KsepShimDbLock.InGlobalForegroundList));
+    KeBugCheckEx(0x5Du, v41, v52, v53, HIDWORD(KsepShimDbLock.KernelWaitTime));
   }
   v56 = *(_QWORD *)(a1 + 36832) | 0x20113DFELL;
   if ( (*(_QWORD *)(a1 + 36832) & 0x400000000LL) != 0 )
@@ -345,7 +345,7 @@ LABEL_46:
   v69 = v68 | 0x20;
   if ( (v65 & 0x20) == 0 )
     v69 = v68;
-  _InterlockedOr((_DWORD *)&stru_140FC01F0.UserAffinity + 1, v69);
+  _InterlockedOr((_DWORD *)&stru_140FC11F0.UserAffinity + 1, v69);
   v70 = *(_BYTE *)(a1 + 141);
   if ( v70 == 1 )
   {

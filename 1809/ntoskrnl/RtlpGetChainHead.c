@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpGetChainHead @ 0x1400D9DDC
+ * XREFs of RtlpGetChainHead @ 0x1400D9E5C
  * Callers:
- *     RtlpPopulateContext @ 0x1400D9D40 (RtlpPopulateContext.c)
- *     RtlContractHashTable @ 0x1400DA2F0 (RtlContractHashTable.c)
- *     RtlExpandHashTable @ 0x1400DA6D0 (RtlExpandHashTable.c)
+ *     RtlpPopulateContext @ 0x1400D9DC0 (RtlpPopulateContext.c)
+ *     RtlContractHashTable @ 0x1400DA370 (RtlContractHashTable.c)
+ *     RtlExpandHashTable @ 0x1400DA750 (RtlExpandHashTable.c)
  * Callees:
  *     <none>
  */

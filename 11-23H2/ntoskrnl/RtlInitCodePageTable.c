@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlInitCodePageTable @ 0x1408212D0
+ * XREFs of RtlInitCodePageTable @ 0x1408215D0
  * Callers:
- *     RtlpInitCodePageTables @ 0x140821158 (RtlpInitCodePageTables.c)
+ *     RtlpInitCodePageTables @ 0x140821458 (RtlpInitCodePageTables.c)
  * Callees:
  *     <none>
  */
@@ -20,7 +20,7 @@ void __stdcall RtlInitCodePageTable(PUSHORT TableBase, PCPTABLEINFO CodePageTabl
   v2 = 0LL;
   if ( !TableBase || TableBase[1] == 0xFDE9 )
   {
-    *CodePageTable = (struct _CPTABLEINFO)Utf8TableInfo;
+    *CodePageTable = (_CPTABLEINFO)Utf8TableInfo;
   }
   else
   {

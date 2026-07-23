@@ -1,9 +1,9 @@
 /*
- * XREFs of FindNodeOrParent_0 @ 0x1400C5D5C
+ * XREFs of FindNodeOrParent_0 @ 0x1400C3BFC
  * Callers:
- *     RtlDeleteElementGenericTable @ 0x1400C5704 (RtlDeleteElementGenericTable.c)
- *     RtlInsertElementGenericTable @ 0x1400C5780 (RtlInsertElementGenericTable.c)
- *     RtlLookupElementGenericTableFull @ 0x140213D34 (RtlLookupElementGenericTableFull.c)
+ *     RtlDeleteElementGenericTable @ 0x1400C35A4 (RtlDeleteElementGenericTable.c)
+ *     RtlInsertElementGenericTable @ 0x1400C3620 (RtlInsertElementGenericTable.c)
+ *     RtlLookupElementGenericTableFull @ 0x140213B60 (RtlLookupElementGenericTableFull.c)
  * Callees:
  *     <none>
  */

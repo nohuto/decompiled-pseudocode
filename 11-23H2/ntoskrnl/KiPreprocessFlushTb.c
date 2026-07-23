@@ -1,12 +1,12 @@
 /*
- * XREFs of KiPreprocessFlushTb @ 0x1402EB29C
+ * XREFs of KiPreprocessFlushTb @ 0x1402EB52C
  * Callers:
- *     KeFlushSingleTb @ 0x1402EB0C4 (KeFlushSingleTb.c)
- *     KeFlushMultipleRangeTb @ 0x1403903B4 (KeFlushMultipleRangeTb.c)
+ *     KeFlushSingleTb @ 0x1402EB354 (KeFlushSingleTb.c)
+ *     KeFlushMultipleRangeTb @ 0x140390594 (KeFlushMultipleRangeTb.c)
  * Callees:
- *     KiAffinityContainsProcessorsOtherThanSelf @ 0x14034EDB0 (KiAffinityContainsProcessorsOtherThanSelf.c)
- *     KiIsFlushEntire @ 0x14046059C (KiIsFlushEntire.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiAffinityContainsProcessorsOtherThanSelf @ 0x14034EF50 (KiAffinityContainsProcessorsOtherThanSelf.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     KiIsFlushEntire @ 0x14046099C (KiIsFlushEntire.c)
  */
 
 char __fastcall KiPreprocessFlushTb(char a1, unsigned int a2, int a3, _BYTE *a4, unsigned __int8 *a5)
@@ -52,7 +52,7 @@ LABEL_9:
   _InterlockedOr(v18, 0);
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(0xCuLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     if ( CurrentIrql == 12 )
@@ -69,10 +69,10 @@ LABEL_9:
                        &CurrentThread->ApcState.Process->ActiveProcessors) )
   {
     v12 = *a5;
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v13 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v13 <= 0xFu && (unsigned __int8)v12 <= 0xFu && v13 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v13 <= 0xFu && (unsigned __int8)v12 <= 0xFu && v13 >= 2u )
       {
         v14 = KeGetCurrentPrcb();
         v15 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v12 + 1));

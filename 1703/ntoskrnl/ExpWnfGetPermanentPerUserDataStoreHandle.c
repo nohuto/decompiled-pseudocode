@@ -11,9 +11,9 @@
  *     RtlLengthSidAsUnicodeString @ 0x1404C25CC (RtlLengthSidAsUnicodeString.c)
  */
 
-__int64 __fastcall ExpWnfGetPermanentPerUserDataStoreHandle(unsigned __int8 *Sid, PHANDLE KeyHandle)
+NTSTATUS __fastcall ExpWnfGetPermanentPerUserDataStoreHandle(PSID Sid, PHANDLE KeyHandle)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
   unsigned __int16 v5; // si
   unsigned __int16 v6; // r14
   wchar_t *PoolWithTag; // rax
@@ -22,14 +22,14 @@ __int64 __fastcall ExpWnfGetPermanentPerUserDataStoreHandle(unsigned __int8 *Sid
   UNICODE_STRING Destination; // [rsp+40h] [rbp-19h] BYREF
   UNICODE_STRING UnicodeString; // [rsp+50h] [rbp-9h] BYREF
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+60h] [rbp+7h] BYREF
-  int v13; // [rsp+D0h] [rbp+77h] BYREF
+  ULONG StringLength; // [rsp+D0h] [rbp+77h] BYREF
 
-  result = RtlLengthSidAsUnicodeString(Sid, &v13);
-  if ( (int)result >= 0 )
+  result = RtlLengthSidAsUnicodeString(Sid, &StringLength);
+  if ( result >= 0 )
   {
-    v5 = v13;
-    v6 = v13 + 82;
-    PoolWithTag = (wchar_t *)ExAllocatePoolWithTag(PagedPool, (unsigned int)(v13 + 82), 0x20666E57u);
+    v5 = StringLength;
+    v6 = StringLength + 82;
+    PoolWithTag = (wchar_t *)ExAllocatePoolWithTag(PagedPool, StringLength + 82, 0x20666E57u);
     v8 = PoolWithTag;
     if ( PoolWithTag )
     {
@@ -53,11 +53,11 @@ __int64 __fastcall ExpWnfGetPermanentPerUserDataStoreHandle(unsigned __int8 *Sid
         v9 = ZwCreateKey(KeyHandle, 0xF003Fu, &ObjectAttributes, 0, 0LL, 0, 0LL);
       }
       ExFreePoolWithTag(v8, 0x20666E57u);
-      return (unsigned int)v9;
+      return v9;
     }
     else
     {
-      return 3221225626LL;
+      return -1073741670;
     }
   }
   return result;

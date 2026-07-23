@@ -6,11 +6,11 @@
  *     <none>
  */
 
-unsigned __int64 __fastcall RtlNumberOfSetBitsUlongPtr(unsigned __int64 a1)
+ULONG __cdecl RtlNumberOfSetBitsUlongPtr(ULONG_PTR Target)
 {
-  unsigned __int64 v1; // rdx
+  ULONG_PTR v1; // rdx
 
-  v1 = ((a1 - ((a1 >> 1) & 0x5555555555555555LL)) & 0x3333333333333333LL)
-     + (((a1 - ((a1 >> 1) & 0x5555555555555555LL)) >> 2) & 0x3333333333333333LL);
+  v1 = ((Target - ((Target >> 1) & 0x5555555555555555LL)) & 0x3333333333333333LL)
+     + (((Target - ((Target >> 1) & 0x5555555555555555LL)) >> 2) & 0x3333333333333333LL);
   return (0x101010101010101LL * ((v1 + (v1 >> 4)) & 0xF0F0F0F0F0F0F0FLL)) >> 56;
 }

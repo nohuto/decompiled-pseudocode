@@ -1,22 +1,22 @@
 /*
- * XREFs of RtlpPushPageDescriptor @ 0x1800F82C8
+ * XREFs of RtlpPushPageDescriptor @ 0x1800F8288
  * Callers:
- *     RtlpLeakCallbackRoutine @ 0x1800F8150 (RtlpLeakCallbackRoutine.c)
- *     RtlpReadProcessHeaps @ 0x1800F8430 (RtlpReadProcessHeaps.c)
+ *     RtlpLeakCallbackRoutine @ 0x1800F8110 (RtlpLeakCallbackRoutine.c)
+ *     RtlpReadProcessHeaps @ 0x1800F83F0 (RtlpReadProcessHeaps.c)
  * Callees:
  *     RtlAllocateHeap @ 0x18002A9A0 (RtlAllocateHeap.c)
  *     DbgPrint @ 0x180051AC0 (DbgPrint.c)
- *     memmove @ 0x1800A44C0 (memmove.c)
- *     RtlpGetBlockInfo @ 0x1800F7F0C (RtlpGetBlockInfo.c)
- *     RtlpSetBlockInfo @ 0x1800F885C (RtlpSetBlockInfo.c)
+ *     memmove @ 0x1800A4480 (memmove.c)
+ *     RtlpGetBlockInfo @ 0x1800F7ECC (RtlpGetBlockInfo.c)
+ *     RtlpSetBlockInfo @ 0x1800F881C (RtlpSetBlockInfo.c)
  */
 
 char __fastcall RtlpPushPageDescriptor(__int64 a1, __int64 a2)
 {
   __int64 v3; // r14
   const void *BlockInfo; // rax
-  __int64 Heap; // rax
-  __int64 v7; // rsi
+  _DWORD *Heap; // rax
+  _DWORD *v7; // rsi
   __int64 v8; // rbp
   __int64 v9; // rdi
   __int64 v10; // rbx
@@ -40,13 +40,13 @@ char __fastcall RtlpPushPageDescriptor(__int64 a1, __int64 a2)
     return 0;
   }
   v8 = RtlpLDNumBlocks;
-  v9 = Heap + 24;
+  v9 = (__int64)(Heap + 6);
   v10 = RtlpCrtHeapAddress;
   v11 = RtlpTempBlocks;
-  *(_DWORD *)Heap = 2;
-  *(_DWORD *)(Heap + 16) = v8;
-  *(_QWORD *)(Heap + 8) = v10;
-  memmove((void *)(Heap + 24), v11, 40 * v8);
+  *Heap = 2;
+  Heap[4] = v8;
+  *((_QWORD *)Heap + 1) = v10;
+  memmove(Heap + 6, v11, 40 * v8);
   if ( v10 != RtlpLeakHeapAddress )
   {
     v12 = 0;

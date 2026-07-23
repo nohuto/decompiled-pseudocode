@@ -1,10 +1,10 @@
 /*
- * XREFs of EtwRegisterCounters @ 0x1405535A4
+ * XREFs of EtwRegisterCounters @ 0x140553AE4
  * Callers:
- *     ExpPcwHostCallback @ 0x140553680 (ExpPcwHostCallback.c)
+ *     ExpPcwHostCallback @ 0x140553BC0 (ExpPcwHostCallback.c)
  * Callees:
- *     memset @ 0x1401715C0 (memset.c)
- *     PcwRegister @ 0x1405538AC (PcwRegister.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     PcwRegister @ 0x140553DEC (PcwRegister.c)
  */
 
 NTSTATUS EtwRegisterCounters()

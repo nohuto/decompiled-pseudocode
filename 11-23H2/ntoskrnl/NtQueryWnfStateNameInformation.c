@@ -1,25 +1,30 @@
 /*
- * XREFs of NtQueryWnfStateNameInformation @ 0x1407CD360
+ * XREFs of NtQueryWnfStateNameInformation @ 0x1407CD630
  * Callers:
  *     <none>
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExReleaseRundownProtection_0 @ 0x14028B390 (ExReleaseRundownProtection_0.c)
- *     ExpWnfLookupPermanentName @ 0x14071096C (ExpWnfLookupPermanentName.c)
- *     ExpCaptureWnfStateName @ 0x14071308C (ExpCaptureWnfStateName.c)
- *     ExpWnfReleaseCapturedScopeInstanceId @ 0x14071313C (ExpWnfReleaseCapturedScopeInstanceId.c)
- *     ExpWnfLookupNameInstance @ 0x140713190 (ExpWnfLookupNameInstance.c)
- *     ExpWnfCaptureScopeInstanceId @ 0x14071328C (ExpWnfCaptureScopeInstanceId.c)
- *     ExpWnfResolveScopeInstance @ 0x140713368 (ExpWnfResolveScopeInstance.c)
- *     ExpWnfCheckCallerAccess @ 0x140713834 (ExpWnfCheckCallerAccess.c)
- *     ProbeForWrite @ 0x140729380 (ProbeForWrite.c)
- *     ExpWnfCheckCrossScopeAccess @ 0x1407E37B4 (ExpWnfCheckCrossScopeAccess.c)
+ *     KeLeaveCriticalRegionThread @ 0x14022F7F0 (KeLeaveCriticalRegionThread.c)
+ *     ExReleaseRundownProtection_0 @ 0x14028B620 (ExReleaseRundownProtection_0.c)
+ *     ExpWnfLookupPermanentName @ 0x140710B7C (ExpWnfLookupPermanentName.c)
+ *     ExpCaptureWnfStateName @ 0x14071329C (ExpCaptureWnfStateName.c)
+ *     ExpWnfReleaseCapturedScopeInstanceId @ 0x14071334C (ExpWnfReleaseCapturedScopeInstanceId.c)
+ *     ExpWnfLookupNameInstance @ 0x1407133A0 (ExpWnfLookupNameInstance.c)
+ *     ExpWnfCaptureScopeInstanceId @ 0x14071349C (ExpWnfCaptureScopeInstanceId.c)
+ *     ExpWnfResolveScopeInstance @ 0x140713578 (ExpWnfResolveScopeInstance.c)
+ *     ExpWnfCheckCallerAccess @ 0x140713A44 (ExpWnfCheckCallerAccess.c)
+ *     ProbeForWrite @ 0x140729580 (ProbeForWrite.c)
+ *     ExpWnfCheckCrossScopeAccess @ 0x1407E3A84 (ExpWnfCheckCrossScopeAccess.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall NtQueryWnfStateNameInformation(__int64 *a1, int a2, char *a3, int *a4, unsigned int Length)
+NTSTATUS __cdecl NtQueryWnfStateNameInformation(
+        PCWNF_STATE_NAME StateName,
+        WNF_STATE_NAME_INFORMATION NameInfoClass,
+        const void *ExplicitScope,
+        PVOID InfoBuffer,
+        ULONG InfoBufferSize)
 {
-  int *v5; // rsi
+  _DWORD *v5; // rsi
   struct _KTHREAD *CurrentThread; // rax
   char PreviousMode; // r15
   int v10; // eax
@@ -33,7 +38,7 @@ __int64 __fastcall NtQueryWnfStateNameInformation(__int64 *a1, int a2, char *a3,
   PEPROCESS Process; // rdx
   int v19; // ecx
   void *v20; // rcx
-  unsigned int v22; // [rsp+30h] [rbp-98h]
+  NTSTATUS v22; // [rsp+30h] [rbp-98h]
   int v23; // [rsp+38h] [rbp-90h]
   int v24; // [rsp+3Ch] [rbp-8Ch]
   __int64 v25; // [rsp+40h] [rbp-88h] BYREF
@@ -45,7 +50,7 @@ __int64 __fastcall NtQueryWnfStateNameInformation(__int64 *a1, int a2, char *a3,
   unsigned __int64 v31; // [rsp+70h] [rbp-58h]
   PVOID v32[7]; // [rsp+90h] [rbp-38h] BYREF
 
-  v5 = a4;
+  v5 = InfoBuffer;
   v26 = 0LL;
   Sid = 0LL;
   CurrentThread = KeGetCurrentThread();
@@ -56,7 +61,7 @@ __int64 __fastcall NtQueryWnfStateNameInformation(__int64 *a1, int a2, char *a3,
   v25 = 0LL;
   v23 = 0;
   *(_OWORD *)v32 = 0LL;
-  v10 = ExpCaptureWnfStateName(a1, &v26, PreviousMode);
+  v10 = ExpCaptureWnfStateName((__int64 *)StateName, &v26, PreviousMode);
   v22 = v10;
   if ( v10 >= 0 )
   {
@@ -65,40 +70,40 @@ __int64 __fastcall NtQueryWnfStateNameInformation(__int64 *a1, int a2, char *a3,
     v31 = (v26 >> 6) & 0xF;
     v23 = (v26 >> 6) & 0xF;
     LOBYTE(v11) = PreviousMode;
-    v10 = ExpWnfCaptureScopeInstanceId(v23, a3, v11, (__int64)&Sid, (__int64)v32);
+    v10 = ExpWnfCaptureScopeInstanceId(v23, (char *)ExplicitScope, v11, (__int64)&Sid, (__int64)v32);
     v22 = v10;
     if ( v10 >= 0 )
     {
-      if ( a2 && (unsigned int)(a2 - 1) > 1 )
+      if ( NameInfoClass && (unsigned int)(NameInfoClass - 1) > 1 )
       {
         v10 = -1073741821;
         v22 = -1073741821;
       }
       else
       {
-        if ( Length >= 4 )
+        if ( InfoBufferSize >= 4 )
         {
           if ( PreviousMode )
-            ProbeForWrite(v5, Length, 4u);
+            ProbeForWrite(v5, InfoBufferSize, 4u);
           v13 = 1;
-          if ( a2 )
+          if ( NameInfoClass )
           {
             v24 = 0;
           }
           else
           {
             v24 = 1;
-            if ( a3 )
+            if ( ExplicitScope )
             {
               v10 = -1073741811;
               v22 = -1073741811;
               goto LABEL_52;
             }
           }
-          if ( PreviousMode && a2 )
+          if ( PreviousMode && NameInfoClass )
           {
             v14 = 0;
-            if ( a3 )
+            if ( ExplicitScope )
             {
               v10 = ExpWnfCheckCrossScopeAccess(v12);
               v22 = v10;
@@ -111,7 +116,7 @@ __int64 __fastcall NtQueryWnfStateNameInformation(__int64 *a1, int a2, char *a3,
             v14 = 1;
           }
           v15 = 0;
-          if ( !v14 && (unsigned int)(a2 - 1) <= 1 )
+          if ( !v14 && (unsigned int)(NameInfoClass - 1) <= 1 )
             v15 = 2;
           v16 = 0LL;
           if ( PreviousMode )
@@ -151,9 +156,9 @@ __int64 __fastcall NtQueryWnfStateNameInformation(__int64 *a1, int a2, char *a3,
             if ( v14 )
             {
 LABEL_29:
-              if ( a2 )
+              if ( NameInfoClass )
               {
-                if ( a2 == 1 )
+                if ( NameInfoClass == WnfInfoSubscribersPresent )
                 {
                   if ( v25 && *(_DWORD *)(v25 + 160) )
                     goto LABEL_36;
@@ -165,10 +170,10 @@ LABEL_29:
                 v13 = 0;
               }
 LABEL_36:
-              *a4 = v13;
+              *(_DWORD *)InfoBuffer = v13;
               v10 = 0;
               v22 = 0;
-              v5 = a4;
+              v5 = InfoBuffer;
               goto LABEL_37;
             }
             v20 = (void *)*((_QWORD *)P + 2);
@@ -178,7 +183,7 @@ LABEL_36:
           if ( v10 >= 0 )
             goto LABEL_29;
 LABEL_52:
-          v5 = a4;
+          v5 = InfoBuffer;
           goto LABEL_37;
         }
         v10 = -1073741811;
@@ -187,7 +192,7 @@ LABEL_52:
     }
   }
 LABEL_37:
-  if ( v10 == -1073741772 && !a2 )
+  if ( v10 == -1073741772 && NameInfoClass == WnfInfoStateNameExist )
   {
     *v5 = 0;
     v22 = 0;

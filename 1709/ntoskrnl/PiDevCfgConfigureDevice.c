@@ -90,7 +90,7 @@ __int64 __fastcall PiDevCfgConfigureDevice(__int64 a1, __int64 a2, __int64 a3, i
   const WCHAR *v51; // r8
   __int64 v52; // rax
   __int64 v53; // rax
-  PVOID v54; // [rsp+20h] [rbp-E0h]
+  PGUID Guid; // [rsp+20h] [rbp-E0h]
   int v55; // [rsp+28h] [rbp-D8h]
   int v56; // [rsp+28h] [rbp-D8h]
   int v57; // [rsp+28h] [rbp-D8h]
@@ -565,7 +565,7 @@ LABEL_43:
           a2,
           (_QWORD *)((a3 + 224) & -(__int64)(a3 != 0)),
           (__int64)Handle,
-          (_QWORD *)((unsigned __int64)&Source2 & -(__int64)(v70 != 0)));
+          (PGUID)((unsigned __int64)&Source2 & -(__int64)(v70 != 0)));
         if ( *(_QWORD *)&PiPnpRtlCtx && **(_QWORD **)&PiPnpRtlCtx )
           v48 = *(_QWORD *)(**(_QWORD **)&PiPnpRtlCtx + 8LL);
         else
@@ -834,10 +834,10 @@ LABEL_71:
                   goto LABEL_137;
                 v23 = *(unsigned __int16 *)(a3 + 124);
                 v56 = *(unsigned __int16 *)(a3 + 120);
-                LODWORD(v54) = *(unsigned __int16 *)(a3 + 122);
+                LODWORD(Guid) = *(unsigned __int16 *)(a3 + 122);
                 v24 = (unsigned __int16)HIWORD(*(_DWORD *)(a3 + 124));
                 v105.Length = 0;
-                DriverConfiguration = RtlUnicodeStringPrintf(&v105, L"%u.%u.%u.%u", v24, v23, v54);
+                DriverConfiguration = RtlUnicodeStringPrintf(&v105, L"%u.%u.%u.%u", v24, v23, Guid);
                 if ( DriverConfiguration < 0 )
                   goto LABEL_137;
                 DriverConfiguration = PiDevCfgSetObjectProperty(

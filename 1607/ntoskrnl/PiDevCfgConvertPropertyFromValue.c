@@ -1,11 +1,11 @@
 /*
- * XREFs of PiDevCfgConvertPropertyFromValue @ 0x140636008
+ * XREFs of PiDevCfgConvertPropertyFromValue @ 0x1406360BC
  * Callers:
- *     PiDevCfgCopyDeviceKey @ 0x140636298 (PiDevCfgCopyDeviceKey.c)
+ *     PiDevCfgCopyDeviceKey @ 0x14063634C (PiDevCfgCopyDeviceKey.c)
  * Callees:
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     RtlGUIDFromString @ 0x1404FB370 (RtlGUIDFromString.c)
+ *     RtlGUIDFromString @ 0x1404DE2FC (RtlGUIDFromString.c)
  */
 
 __int64 __fastcall PiDevCfgConvertPropertyFromValue(

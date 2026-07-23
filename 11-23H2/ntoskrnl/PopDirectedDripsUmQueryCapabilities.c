@@ -1,9 +1,9 @@
 /*
- * XREFs of PopDirectedDripsUmQueryCapabilities @ 0x14099FA10
+ * XREFs of PopDirectedDripsUmQueryCapabilities @ 0x14099FC10
  * Callers:
- *     PopDirectedDripsUmPowerInformationInternal @ 0x14099F980 (PopDirectedDripsUmPowerInformationInternal.c)
+ *     PopDirectedDripsUmPowerInformationInternal @ 0x14099FB80 (PopDirectedDripsUmPowerInformationInternal.c)
  * Callees:
- *     PopDirectedDripsQueryMitigationStatus @ 0x1408856F0 (PopDirectedDripsQueryMitigationStatus.c)
+ *     PopDirectedDripsQueryMitigationStatus @ 0x140885930 (PopDirectedDripsQueryMitigationStatus.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
 

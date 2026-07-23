@@ -1,18 +1,18 @@
 /*
- * XREFs of CmpUnlockHashEntry @ 0x140A345F0
+ * XREFs of CmpUnlockHashEntry @ 0x140A4F550
  * Callers:
- *     CmpDrainDelayDerefContext @ 0x140446E30 (CmpDrainDelayDerefContext.c)
- *     CmpDoParseKey @ 0x1408CBC90 (CmpDoParseKey.c)
- *     CmpWalkOneLevel @ 0x1408D5620 (CmpWalkOneLevel.c)
+ *     CmpDrainDelayDerefContext @ 0x14043F920 (CmpDrainDelayDerefContext.c)
+ *     CmpDoParseKey @ 0x1408D2240 (CmpDoParseKey.c)
+ *     CmpWalkOneLevel @ 0x1408DBBE0 (CmpWalkOneLevel.c)
  * Callees:
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     ExfReleasePushLock @ 0x1402E3120 (ExfReleasePushLock.c)
- *     CmpDeleteKcbCache @ 0x1408C8450 (CmpDeleteKcbCache.c)
- *     CmpLockHiveListExclusive @ 0x1408C84C8 (CmpLockHiveListExclusive.c)
- *     CmpReleaseGlobalQuota @ 0x1408C8530 (CmpReleaseGlobalQuota.c)
- *     HvFreeDirtyData @ 0x1408C8574 (HvFreeDirtyData.c)
- *     CmpUnlockHiveList @ 0x1408C8634 (CmpUnlockHiveList.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ExfReleasePushLock @ 0x14021B220 (ExfReleasePushLock.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     CmpDeleteKcbCache @ 0x1408CEA04 (CmpDeleteKcbCache.c)
+ *     CmpLockHiveListExclusive @ 0x1408CEA7C (CmpLockHiveListExclusive.c)
+ *     CmpReleaseGlobalQuota @ 0x1408CEAE4 (CmpReleaseGlobalQuota.c)
+ *     HvFreeDirtyData @ 0x1408CEB28 (HvFreeDirtyData.c)
+ *     CmpUnlockHiveList @ 0x1408CEBE8 (CmpUnlockHiveList.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __fastcall CmpUnlockHashEntry(char *P, unsigned int a2)

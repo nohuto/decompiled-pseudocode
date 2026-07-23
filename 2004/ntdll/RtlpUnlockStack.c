@@ -6,7 +6,7 @@
  *     ZwUnlockVirtualMemory @ 0x1800A0760 (ZwUnlockVirtualMemory.c)
  */
 
-__int64 RtlpUnlockStack()
+NTSTATUS RtlpUnlockStack()
 {
   struct _TEB *v0; // rdx
   __int64 v1; // rax
@@ -17,5 +17,5 @@ __int64 RtlpUnlockStack()
   v1 = (char *)v0->NtTib.StackBase - ((char *)v0->DeallocationStack + v0->GuaranteedStackBytes + 20480);
   v4 = (__int64)v0->DeallocationStack + v0->GuaranteedStackBytes + 20480;
   v3 = v1;
-  return ZwUnlockVirtualMemory(-1LL, &v4, &v3, 1LL);
+  return ZwUnlockVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, (PVOID *)&v4, (PSIZE_T)&v3, 1u);
 }

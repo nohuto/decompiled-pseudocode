@@ -14,7 +14,7 @@ NTSTATUS __stdcall NtQueryInformationEnlistment(
         ULONG EnlistmentInformationLength,
         PULONG ReturnLength)
 {
-  return __imp_NtQueryInformationEnlistment(
+  return NtQueryInformationEnlistment_0(
            EnlistmentHandle,
            EnlistmentInformationClass,
            EnlistmentInformation,

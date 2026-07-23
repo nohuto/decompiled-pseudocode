@@ -3,7 +3,7 @@
  * Callers:
  *     <none>
  * Callees:
- *     xHalTimerWatchdogStop @ 0x1403A7020 (xHalTimerWatchdogStop.c)
+ *     __misaligned_access @ 0x1403A7020 (__misaligned_access.c)
  */
 
 errno_t __cdecl makepath_s(
@@ -23,7 +23,7 @@ errno_t __cdecl makepath_s(
 
   if ( !PathResult || !SizeInWords )
   {
-    xHalTimerWatchdogStop();
+    _misaligned_access();
     return 22;
   }
   v7 = 0LL;
@@ -93,7 +93,7 @@ LABEL_25:
     }
 LABEL_29:
     *PathResult = 0;
-    xHalTimerWatchdogStop();
+    _misaligned_access();
     return 34;
   }
 LABEL_28:

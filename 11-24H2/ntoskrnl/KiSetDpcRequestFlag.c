@@ -1,10 +1,10 @@
 /*
- * XREFs of KiSetDpcRequestFlag @ 0x14029DD10
+ * XREFs of KiSetDpcRequestFlag @ 0x1402AC800
  * Callers:
- *     KiInsertQueueDpc @ 0x140254310 (KiInsertQueueDpc.c)
- *     KiUpdateRunTime @ 0x14029BDF0 (KiUpdateRunTime.c)
- *     KiCheckForTimerExpiration @ 0x14029CAE0 (KiCheckForTimerExpiration.c)
- *     KiRequestTimer2Expiration @ 0x14041B550 (KiRequestTimer2Expiration.c)
+ *     KiInsertQueueDpc @ 0x140284920 (KiInsertQueueDpc.c)
+ *     KiUpdateRunTime @ 0x1402AA8E0 (KiUpdateRunTime.c)
+ *     KiCheckForTimerExpiration @ 0x1402AB5D0 (KiCheckForTimerExpiration.c)
+ *     KiRequestTimer2Expiration @ 0x14040F090 (KiRequestTimer2Expiration.c)
  * Callees:
  *     <none>
  */

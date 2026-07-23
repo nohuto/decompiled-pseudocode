@@ -14,37 +14,32 @@
  *     ZwCreateFile @ 0x1800A5B60 (ZwCreateFile.c)
  */
 
-__int64 __fastcall LdrpMapResourceFile(__int64 a1, __int128 *a2, char a3, HANDLE *a4, _QWORD *a5, _QWORD *a6)
+__int64 __fastcall LdrpMapResourceFile(__int64 a1, _UNICODE_STRING *a2, char a3, HANDLE *a4, PVOID *a5, ULONG_PTR *a6)
 {
-  _QWORD *v9; // r15
-  __int64 v10; // rax
-  int v11; // ebx
-  int v13; // edi
-  __int128 v14; // xmm0
-  unsigned __int64 v15; // rsi
-  __int64 v16; // rax
-  __int64 v17; // rax
+  PVOID *v9; // r15
+  PIMAGE_NT_HEADERS v10; // rax
+  NTSTATUS v11; // ebx
+  ULONG v13; // edi
+  _UNICODE_STRING v14; // xmm0
+  unsigned __int16 *Buffer; // rsi
+  HANDLE ContainingDirectory; // rax
+  PIMAGE_NT_HEADERS v17; // rax
   int v18; // ecx
-  _QWORD *v19; // rcx
-  HANDLE v20; // [rsp+60h] [rbp-69h] BYREF
-  __int64 v21; // [rsp+68h] [rbp-61h] BYREF
-  __int64 v22; // [rsp+70h] [rbp-59h] BYREF
-  __int64 v23; // [rsp+78h] [rbp-51h] BYREF
-  __int128 v24; // [rsp+80h] [rbp-49h] BYREF
-  __int128 v25; // [rsp+90h] [rbp-39h] BYREF
-  __int64 v26; // [rsp+A0h] [rbp-29h]
-  int v27; // [rsp+B0h] [rbp-19h] BYREF
-  __int64 v28; // [rsp+B8h] [rbp-11h]
-  __int128 *v29; // [rsp+C0h] [rbp-9h]
-  int v30; // [rsp+C8h] [rbp-1h]
-  __int128 v31; // [rsp+D0h] [rbp+7h]
-  _BYTE v32[16]; // [rsp+E0h] [rbp+17h] BYREF
+  ULONG_PTR *v19; // rcx
+  HANDLE SectionHandle; // [rsp+60h] [rbp-69h] BYREF
+  PVOID BaseAddress; // [rsp+68h] [rbp-61h] BYREF
+  ULONG_PTR ViewSize; // [rsp+70h] [rbp-59h] BYREF
+  LARGE_INTEGER SectionOffset; // [rsp+78h] [rbp-51h] BYREF
+  _UNICODE_STRING NtFileName; // [rsp+80h] [rbp-49h] BYREF
+  _RTL_RELATIVE_NAME_U RelativeName; // [rsp+90h] [rbp-39h] BYREF
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+B0h] [rbp-19h] BYREF
+  _IO_STATUS_BLOCK IoStatusBlock; // [rsp+E0h] [rbp+17h] BYREF
   HANDLE Handle; // [rsp+120h] [rbp+57h] BYREF
 
   Handle = 0LL;
-  v20 = 0LL;
-  v21 = 0LL;
-  v22 = 0LL;
+  SectionHandle = 0LL;
+  BaseAddress = 0LL;
+  ViewSize = 0LL;
   if ( a1 )
   {
     if ( a2 )
@@ -52,68 +47,78 @@ __int64 __fastcall LdrpMapResourceFile(__int64 a1, __int128 *a2, char a3, HANDLE
       v9 = a5;
       if ( a5 )
       {
-        v10 = RtlImageNtHeader(a1 & 0xFFFFFFFFFFFFFFFCuLL);
+        v10 = RtlImageNtHeader((PVOID)(a1 & 0xFFFFFFFFFFFFFFFCuLL));
         if ( !v10 )
         {
           v11 = -1073741701;
           goto LABEL_6;
         }
-        v13 = *(_WORD *)(v10 + 72) < 6u ? 8 : 2;
+        v13 = v10->OptionalHeader.MajorSubsystemVersion < 6u ? 8 : 2;
         if ( a3 )
         {
           v14 = *a2;
-          v15 = 0LL;
-          v26 = 0LL;
-          v27 = 48;
-          v24 = v14;
+          Buffer = 0LL;
+          RelativeName.ContainingDirectory = 0LL;
+          ObjectAttributes.Length = 48;
+          NtFileName = v14;
         }
         else
         {
-          v11 = RtlDosPathNameToRelativeNtPathName_U_WithStatus(*((_QWORD *)a2 + 1), (__int64)&v24, 0LL, (__int64)&v25);
+          v11 = RtlDosPathNameToRelativeNtPathName_U_WithStatus(a2->Buffer, &NtFileName, 0LL, &RelativeName);
           if ( v11 < 0 )
             goto LABEL_6;
-          v15 = *((_QWORD *)&v24 + 1);
-          if ( (_WORD)v25 )
+          Buffer = NtFileName.Buffer;
+          if ( RelativeName.RelativeName.Length )
           {
-            v16 = v26;
-            v24 = v25;
+            ContainingDirectory = RelativeName.ContainingDirectory;
+            NtFileName = RelativeName.RelativeName;
           }
           else
           {
-            v16 = 0LL;
-            v26 = 0LL;
+            ContainingDirectory = 0LL;
+            RelativeName.ContainingDirectory = 0LL;
           }
-          v27 = 48;
-          v28 = v16;
-          if ( v15 )
+          ObjectAttributes.Length = 48;
+          ObjectAttributes.RootDirectory = ContainingDirectory;
+          if ( Buffer )
             goto LABEL_19;
         }
-        v28 = 0LL;
+        ObjectAttributes.RootDirectory = 0LL;
 LABEL_19:
-        v30 = 64;
-        v29 = &v24;
-        v31 = 0LL;
-        v11 = ZwCreateFile(&Handle, 2148532352LL, &v27, v32, 0LL, 0, 5, 1, 0, 0LL, 0);
-        if ( v15 )
+        ObjectAttributes.Attributes = 64;
+        ObjectAttributes.ObjectName = &NtFileName;
+        *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+        v11 = ZwCreateFile(&Handle, 0x80100080, &ObjectAttributes, &IoStatusBlock, 0LL, 0, 5u, 1u, 0, 0LL, 0);
+        if ( Buffer )
         {
-          RtlReleaseRelativeName(&v25);
-          RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v15);
+          RtlReleaseRelativeName(&RelativeName);
+          RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, Buffer);
         }
         if ( v11 >= 0 )
         {
-          v11 = NtCreateSection(&v20, 983045LL, 0LL);
+          v11 = NtCreateSection(&SectionHandle, 0xF0005u, 0LL, 0LL, v13, 0x8000000u, Handle);
           if ( v11 >= 0 )
           {
-            v23 = 0LL;
-            v11 = ZwMapViewOfSection(v20, -1LL, &v21, 0LL, 0LL, &v23, &v22, 1, 0, v13);
-            if ( v20 )
+            SectionOffset.QuadPart = 0LL;
+            v11 = ZwMapViewOfSection(
+                    SectionHandle,
+                    (HANDLE)0xFFFFFFFFFFFFFFFFLL,
+                    &BaseAddress,
+                    0LL,
+                    0LL,
+                    &SectionOffset,
+                    &ViewSize,
+                    ViewShare,
+                    0,
+                    v13);
+            if ( SectionHandle )
             {
-              NtClose(v20);
-              v20 = 0LL;
+              NtClose(SectionHandle);
+              SectionHandle = 0LL;
             }
             if ( v11 >= 0 )
             {
-              v17 = RtlImageNtHeader(v21);
+              v17 = RtlImageNtHeader(BaseAddress);
               v18 = v11;
               if ( !v17 )
                 v18 = -1073741701;
@@ -121,9 +126,9 @@ LABEL_19:
               if ( v18 >= 0 )
               {
                 v19 = a6;
-                *v9 = v21;
+                *v9 = BaseAddress;
                 if ( v19 )
-                  *v19 = v22;
+                  *v19 = ViewSize;
                 if ( a4 )
                 {
                   *a4 = Handle;
@@ -143,8 +148,8 @@ LABEL_6:
           NtClose(Handle);
           Handle = 0LL;
         }
-        if ( v21 )
-          NtUnmapViewOfSection(-1LL, v21);
+        if ( BaseAddress )
+          NtUnmapViewOfSection((HANDLE)0xFFFFFFFFFFFFFFFFLL, BaseAddress);
         return (unsigned int)v11;
       }
     }

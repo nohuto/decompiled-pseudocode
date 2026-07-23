@@ -16,7 +16,7 @@ char __fastcall RtlpIsNameInExpressionPrivate(unsigned __int16 *a1, unsigned __i
   unsigned __int16 v4; // bx
   unsigned __int16 *v7; // r12
   unsigned __int16 *v8; // r8
-  unsigned __int64 v9; // r10
+  void *v9; // r10
   unsigned __int16 v10; // r14
   __m128i v12; // xmm0
   unsigned __int16 v13; // r9
@@ -36,7 +36,7 @@ char __fastcall RtlpIsNameInExpressionPrivate(unsigned __int16 *a1, unsigned __i
   char v28; // dl
   __int16 v29; // bp
   __int16 v30; // r12
-  char *Heap; // rax
+  _OWORD *Heap; // rax
   __int128 v32; // xmm1
   char *v33; // rcx
   char *v34; // rax
@@ -57,7 +57,7 @@ char __fastcall RtlpIsNameInExpressionPrivate(unsigned __int16 *a1, unsigned __i
   unsigned int v51; // [rsp+40h] [rbp-B8h]
   char *v52; // [rsp+48h] [rbp-B0h]
   int v53; // [rsp+50h] [rbp-A8h]
-  _QWORD v55[2]; // [rsp+60h] [rbp-98h] BYREF
+  _UNICODE_STRING Expression; // [rsp+60h] [rbp-98h] BYREF
   __int64 v56; // [rsp+70h] [rbp-88h]
   _WORD v57[16]; // [rsp+80h] [rbp-78h] BYREF
   char v58; // [rsp+A0h] [rbp-58h] BYREF
@@ -79,10 +79,10 @@ char __fastcall RtlpIsNameInExpressionPrivate(unsigned __int16 *a1, unsigned __i
   if ( **((_WORD **)a1 + 1) != 42 )
     goto LABEL_17;
   v12 = *(__m128i *)a1;
-  v55[0] = v12.m128i_i64[0];
-  LOWORD(v55[0]) = v12.m128i_i16[0] - 2;
-  v55[1] = _mm_srli_si128(v12, 8).m128i_u64[0] + 2;
-  if ( RtlDoesNameContainWildCards((unsigned __int16 *)v55) )
+  *(_QWORD *)&Expression.Length = v12.m128i_i64[0];
+  Expression.Length = v12.m128i_i16[0] - 2;
+  Expression.Buffer = (unsigned __int16 *)(_mm_srli_si128(v12, 8).m128i_u64[0] + 2);
+  if ( RtlDoesNameContainWildCards(&Expression) )
   {
     v8 = a1;
 LABEL_17:
@@ -134,17 +134,17 @@ LABEL_18:
         if ( (unsigned int)v25 >= 0xE && !v9 )
         {
           v53 = *v8 >> 1;
-          Heap = (char *)RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, 8LL * (unsigned int)(v53 + 1));
-          v9 = (unsigned __int64)Heap;
+          Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, 8LL * (unsigned int)(v53 + 1));
+          v9 = Heap;
           if ( !Heap )
             RtlRaiseStatus(-1073741801);
           v8 = a1;
           v21 = v49;
-          *(_OWORD *)Heap = *(_OWORD *)v19;
+          *Heap = *(_OWORD *)v19;
           v32 = *((_OWORD *)v19 + 1);
-          v19 = Heap;
-          v33 = &Heap[2 * (2 * v53 + 2)];
-          *((_OWORD *)Heap + 1) = v32;
+          v19 = (char *)Heap;
+          v33 = (char *)Heap + 2 * (unsigned int)(2 * v53 + 2);
+          Heap[1] = v32;
           v34 = v52;
           v18 = v33;
           v52 = v33;
@@ -261,13 +261,13 @@ LABEL_52:
 LABEL_75:
           v43 = *(_WORD *)&v18[2 * (v20 - 1)];
           if ( v9 )
-            RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v9);
+            RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v9);
           return v43 == v22;
         }
         goto LABEL_18;
       }
       if ( v9 )
-        RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v9);
+        RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v9);
       return 0;
     }
     if ( !v44 )

@@ -1,24 +1,24 @@
 /*
- * XREFs of VfIsVerifierEnabled @ 0x140293980
+ * XREFs of VfIsVerifierEnabled @ 0x140293C10
  * Callers:
- *     IopLoadUnloadDriver @ 0x1407CEE50 (IopLoadUnloadDriver.c)
- *     PipDmgGetDriverDmarCompatLevel @ 0x1408437FC (PipDmgGetDriverDmarCompatLevel.c)
- *     KsepPatchDriverImportsTable @ 0x14085E744 (KsepPatchDriverImportsTable.c)
- *     PopDripsWatchdogTakeAction @ 0x1409A11AC (PopDripsWatchdogTakeAction.c)
- *     MmAddVerifierSpecialThunks @ 0x140A2D430 (MmAddVerifierSpecialThunks.c)
- *     IoShutdownSystem @ 0x140A99B34 (IoShutdownSystem.c)
- *     PopMarkComponentsBootPhase @ 0x140AA360C (PopMarkComponentsBootPhase.c)
- *     PopInvokeSystemStateHandler @ 0x140AA859C (PopInvokeSystemStateHandler.c)
+ *     IopLoadUnloadDriver @ 0x1407CF120 (IopLoadUnloadDriver.c)
+ *     PipDmgGetDriverDmarCompatLevel @ 0x140843AFC (PipDmgGetDriverDmarCompatLevel.c)
+ *     KsepPatchDriverImportsTable @ 0x14085E984 (KsepPatchDriverImportsTable.c)
+ *     PopDripsWatchdogTakeAction @ 0x1409A13AC (PopDripsWatchdogTakeAction.c)
+ *     MmAddVerifierSpecialThunks @ 0x140A2D6E0 (MmAddVerifierSpecialThunks.c)
+ *     IoShutdownSystem @ 0x140A999A4 (IoShutdownSystem.c)
+ *     PopMarkComponentsBootPhase @ 0x140AA347C (PopMarkComponentsBootPhase.c)
+ *     PopInvokeSystemStateHandler @ 0x140AA840C (PopInvokeSystemStateHandler.c)
  *     KdExitDebugger @ 0x140AB0008 (KdExitDebugger.c)
  *     KdEnterDebugger @ 0x140AB0144 (KdEnterDebugger.c)
- *     VfDriverUnloadImage @ 0x140ABCED4 (VfDriverUnloadImage.c)
- *     MmIsVerifierEnabled @ 0x140ABD2C0 (MmIsVerifierEnabled.c)
- *     MmIsDriverSuspectForVerifier @ 0x140AC2090 (MmIsDriverSuspectForVerifier.c)
- *     ViThunkFindSharedExports @ 0x140ADBAF0 (ViThunkFindSharedExports.c)
- *     ViThunkGetWdmThunk @ 0x140ADBBF4 (ViThunkGetWdmThunk.c)
- *     ViThunkHookExportAddress @ 0x140ADBC78 (ViThunkHookExportAddress.c)
- *     ViThunkReplaceIatEntryForWdmThunk @ 0x140ADC078 (ViThunkReplaceIatEntryForWdmThunk.c)
- *     ViThunkReplaceSharedExports @ 0x140ADC138 (ViThunkReplaceSharedExports.c)
+ *     VfDriverUnloadImage @ 0x140ABCEC4 (VfDriverUnloadImage.c)
+ *     MmIsVerifierEnabled @ 0x140ABD2B0 (MmIsVerifierEnabled.c)
+ *     MmIsDriverSuspectForVerifier @ 0x140AC2080 (MmIsDriverSuspectForVerifier.c)
+ *     ViThunkFindSharedExports @ 0x140ADBAE0 (ViThunkFindSharedExports.c)
+ *     ViThunkGetWdmThunk @ 0x140ADBBE4 (ViThunkGetWdmThunk.c)
+ *     ViThunkHookExportAddress @ 0x140ADBC68 (ViThunkHookExportAddress.c)
+ *     ViThunkReplaceIatEntryForWdmThunk @ 0x140ADC068 (ViThunkReplaceIatEntryForWdmThunk.c)
+ *     ViThunkReplaceSharedExports @ 0x140ADC128 (ViThunkReplaceSharedExports.c)
  * Callees:
  *     <none>
  */

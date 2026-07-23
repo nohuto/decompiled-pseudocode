@@ -1,15 +1,15 @@
 /*
- * XREFs of KeSynchronizeAddressPolicy @ 0x14012DC48
+ * XREFs of KeSynchronizeAddressPolicy @ 0x14012DD18
  * Callers:
- *     PspDisablePrimaryTokenExchange @ 0x1405F7498 (PspDisablePrimaryTokenExchange.c)
+ *     PspDisablePrimaryTokenExchange @ 0x1405F8498 (PspDisablePrimaryTokenExchange.c)
  * Callees:
- *     KiIpiSendPacket @ 0x1400ED104 (KiIpiSendPacket.c)
- *     KeCountSetBitsAffinityEx @ 0x1400ED940 (KeCountSetBitsAffinityEx.c)
- *     KeRemoveProcessorAffinityEx @ 0x1400EDA70 (KeRemoveProcessorAffinityEx.c)
- *     KeCopyAffinityEx @ 0x1400EDAB0 (KeCopyAffinityEx.c)
- *     KiSynchronizeAddressPolicyTarget @ 0x14012DD50 (KiSynchronizeAddressPolicyTarget.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiIpiSendPacket @ 0x1400ED184 (KiIpiSendPacket.c)
+ *     KeCountSetBitsAffinityEx @ 0x1400ED9C0 (KeCountSetBitsAffinityEx.c)
+ *     KeRemoveProcessorAffinityEx @ 0x1400EDAF0 (KeRemoveProcessorAffinityEx.c)
+ *     KeCopyAffinityEx @ 0x1400EDB30 (KeCopyAffinityEx.c)
+ *     KiSynchronizeAddressPolicyTarget @ 0x14012DE20 (KiSynchronizeAddressPolicyTarget.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 void __fastcall KeSynchronizeAddressPolicy(__int64 a1)

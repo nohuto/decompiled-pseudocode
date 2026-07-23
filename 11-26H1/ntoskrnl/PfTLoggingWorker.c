@@ -1,16 +1,16 @@
 /*
- * XREFs of PfTLoggingWorker @ 0x140A05840
+ * XREFs of PfTLoggingWorker @ 0x1409F1030
  * Callers:
  *     <none>
  * Callees:
- *     KeDelayExecutionThread @ 0x140244840 (KeDelayExecutionThread.c)
- *     KeSetEvent @ 0x1402DE9C0 (KeSetEvent.c)
- *     KeResetEvent @ 0x140395BB0 (KeResetEvent.c)
- *     KeWaitForMultipleObjects @ 0x140396440 (KeWaitForMultipleObjects.c)
- *     KeSetBasePriorityThread @ 0x140528B30 (KeSetBasePriorityThread.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     PfpFlushBuffers @ 0x140A05BE0 (PfpFlushBuffers.c)
- *     PfTGenerateTrace @ 0x140A06960 (PfTGenerateTrace.c)
+ *     KeDelayExecutionThread @ 0x1402461A0 (KeDelayExecutionThread.c)
+ *     KeSetEvent @ 0x1402C0780 (KeSetEvent.c)
+ *     KeResetEvent @ 0x140397930 (KeResetEvent.c)
+ *     KeWaitForMultipleObjects @ 0x1403981C0 (KeWaitForMultipleObjects.c)
+ *     KeSetBasePriorityThread @ 0x14052B1A0 (KeSetBasePriorityThread.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     PfpFlushBuffers @ 0x1409F13D0 (PfpFlushBuffers.c)
+ *     PfTGenerateTrace @ 0x1409F2150 (PfTGenerateTrace.c)
  */
 
 LONG __fastcall PfTLoggingWorker(__int64 a1)

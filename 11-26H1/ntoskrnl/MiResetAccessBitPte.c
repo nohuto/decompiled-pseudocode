@@ -1,19 +1,19 @@
 /*
- * XREFs of MiResetAccessBitPte @ 0x14029C890
+ * XREFs of MiResetAccessBitPte @ 0x14029BDF0
  * Callers:
  *     <none>
  * Callees:
- *     MiAcquirePrcbAgeTrimLists @ 0x14029CE20 (MiAcquirePrcbAgeTrimLists.c)
- *     MiSetVaAgeListEx @ 0x14029D300 (MiSetVaAgeListEx.c)
- *     MiIsDecayPfn @ 0x1402F9850 (MiIsDecayPfn.c)
- *     MiGetPagePrivilege @ 0x1402F9878 (MiGetPagePrivilege.c)
- *     MiGetPfnSlabType @ 0x1402FDC40 (MiGetPfnSlabType.c)
- *     MiDemoteCombinedPte @ 0x1402FE120 (MiDemoteCombinedPte.c)
- *     MiClearPteAccessed @ 0x1402FF9B0 (MiClearPteAccessed.c)
- *     MiPteHasShadow @ 0x1403011E0 (MiPteHasShadow.c)
- *     MiReadPteShadow @ 0x140314FF0 (MiReadPteShadow.c)
- *     MiLogPageAccess @ 0x140320930 (MiLogPageAccess.c)
- *     MiIsPageTableLocked @ 0x14048060C (MiIsPageTableLocked.c)
+ *     MiAcquirePrcbAgeTrimLists @ 0x14029C380 (MiAcquirePrcbAgeTrimLists.c)
+ *     MiSetVaAgeListEx @ 0x14029C850 (MiSetVaAgeListEx.c)
+ *     MiIsDecayPfn @ 0x1402DB8D0 (MiIsDecayPfn.c)
+ *     MiGetPagePrivilege @ 0x1402DB8F8 (MiGetPagePrivilege.c)
+ *     MiGetPfnSlabType @ 0x1402DFCC0 (MiGetPfnSlabType.c)
+ *     MiDemoteCombinedPte @ 0x1402E01A0 (MiDemoteCombinedPte.c)
+ *     MiClearPteAccessed @ 0x1402E1A30 (MiClearPteAccessed.c)
+ *     MiPteHasShadow @ 0x1402E3260 (MiPteHasShadow.c)
+ *     MiReadPteShadow @ 0x140317020 (MiReadPteShadow.c)
+ *     MiLogPageAccess @ 0x140322960 (MiLogPageAccess.c)
+ *     MiIsPageTableLocked @ 0x140479F4C (MiIsPageTableLocked.c)
  */
 
 __int64 __fastcall MiResetAccessBitPte(__int64 a1, unsigned __int64 a2, __int64 a3)
@@ -155,14 +155,14 @@ LABEL_8:
         && ((v31 = *(_DWORD *)(v11 + 32), (*(_QWORD *)(v11 + 40) & 0x20000000000000LL) == 0)
          && ((*(_DWORD *)(v11 + 32) & 0x8000000) == 0
           || v11 >= 0xFFFFDE0000000000uLL
-          && v11 < 48 * qword_140E2D7A0 - 0x21FFFFFFFFD0LL
+          && v11 < 48 * qword_140E2D920 - 0x21FFFFFFFFD0LL
           && !(unsigned int)MiIsDecayPfn(v10 / 48)
           && ((v31 & 0x70000) == 0x60000 || (unsigned int)MiGetPfnSlabType(v10 - 0x220000000000LL) != 9))
           ? (v32 = HIBYTE(v31) & 7)
           : (v32 = v17),
             (*(_DWORD *)(v5 + 184) & 0xF) == 1
           ? (v33 = &MiSystemPartition)
-          : (v33 = *(ULONG **)(stru_140E2EB88.ThreadLock + 8LL * *(unsigned __int16 *)(v5 + 174))),
+          : (v33 = *(ULONG **)(stru_140E2ED08.ThreadLock + 8LL * *(unsigned __int16 *)(v5 + 174))),
             v32 < v33[4540]) )
       {
         v8 = 0;

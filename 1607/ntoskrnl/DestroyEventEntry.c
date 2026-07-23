@@ -1,8 +1,8 @@
 /*
- * XREFs of DestroyEventEntry @ 0x1400AF218
+ * XREFs of DestroyEventEntry @ 0x1400AD780
  * Callers:
- *     InsertEventEntryInLookUpTable @ 0x14009EF40 (InsertEventEntryInLookUpTable.c)
- *     FlushEventEntryList @ 0x1400AF188 (FlushEventEntryList.c)
+ *     InsertEventEntryInLookUpTable @ 0x140085234 (InsertEventEntryInLookUpTable.c)
+ *     FlushEventEntryList @ 0x1400AD6F0 (FlushEventEntryList.c)
  * Callees:
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  */

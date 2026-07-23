@@ -1,14 +1,14 @@
 /*
- * XREFs of EtwpPreInitializeSiloState @ 0x140826E00
+ * XREFs of EtwpPreInitializeSiloState @ 0x14082D040
  * Callers:
- *     PspInitializeServerSiloDeferred @ 0x1407EF070 (PspInitializeServerSiloDeferred.c)
- *     EtwpInitialize @ 0x140CE08F4 (EtwpInitialize.c)
+ *     PspInitializeServerSiloDeferred @ 0x1407F4BD0 (PspInitializeServerSiloDeferred.c)
+ *     EtwpInitialize @ 0x140CE6C94 (EtwpInitialize.c)
  * Callees:
- *     PsGetServerSiloGlobals @ 0x140216B70 (PsGetServerSiloGlobals.c)
- *     KeInitializeMutex @ 0x1404B26F0 (KeInitializeMutex.c)
- *     EtwpCleanupSiloState @ 0x1408251F0 (EtwpCleanupSiloState.c)
- *     ExAllocateCacheAwareRundownProtection @ 0x140A362F0 (ExAllocateCacheAwareRundownProtection.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
+ *     PsGetServerSiloGlobals @ 0x140216EA0 (PsGetServerSiloGlobals.c)
+ *     KeInitializeMutex @ 0x1404ABC00 (KeInitializeMutex.c)
+ *     EtwpCleanupSiloState @ 0x14082B430 (EtwpCleanupSiloState.c)
+ *     ExAllocateCacheAwareRundownProtection @ 0x14091B070 (ExAllocateCacheAwareRundownProtection.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall EtwpPreInitializeSiloState(__int64 a1, unsigned int a2)
@@ -83,7 +83,7 @@ __int64 __fastcall EtwpPreInitializeSiloState(__int64 a1, unsigned int a2)
     while ( v13 );
     v6[86] = 0LL;
     v6[84] = (__int64)v6;
-    *((_OWORD *)v6 + 4) = SecurityProviderGuid;
+    *((GUID *)v6 + 4) = SecurityProviderGuid;
     *((_QWORD *)PsGetServerSiloGlobals(a1) + 104) = v6;
   }
   else

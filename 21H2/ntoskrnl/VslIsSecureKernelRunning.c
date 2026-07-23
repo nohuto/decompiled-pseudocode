@@ -1,10 +1,10 @@
 /*
- * XREFs of VslIsSecureKernelRunning @ 0x1402D3F0C
+ * XREFs of VslIsSecureKernelRunning @ 0x14025217C
  * Callers:
- *     ExpQuerySystemInformation @ 0x140651070 (ExpQuerySystemInformation.c)
- *     IopLiveDumpAllocAndInitResources @ 0x140896BBC (IopLiveDumpAllocAndInitResources.c)
- *     IopLiveDumpFreeDumpBuffers @ 0x140898020 (IopLiveDumpFreeDumpBuffers.c)
- *     IopLiveDumpCaptureMemoryPages @ 0x1409AB964 (IopLiveDumpCaptureMemoryPages.c)
+ *     ExpQuerySystemInformation @ 0x140645E90 (ExpQuerySystemInformation.c)
+ *     IopLiveDumpAllocAndInitResources @ 0x140896D1C (IopLiveDumpAllocAndInitResources.c)
+ *     IopLiveDumpFreeDumpBuffers @ 0x140898180 (IopLiveDumpFreeDumpBuffers.c)
+ *     IopLiveDumpCaptureMemoryPages @ 0x1409AC894 (IopLiveDumpCaptureMemoryPages.c)
  * Callees:
  *     <none>
  */

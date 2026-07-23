@@ -1,13 +1,12 @@
 /*
- * XREFs of ZwCreateTimer @ 0x140724D50
+ * XREFs of ZwCreateTimer @ 0x140729920
  * Callers:
- *     DifZwCreateTimerWrapper @ 0x1406A2790 (DifZwCreateTimerWrapper.c)
- *     DbgkpWerInitializeDeferredLiveDump @ 0x140B3F65C (DbgkpWerInitializeDeferredLiveDump.c)
+ *     DifZwCreateTimerWrapper @ 0x1406A6370 (DifZwCreateTimerWrapper.c)
+ *     DbgkpWerInitializeDeferredLiveDump @ 0x140B4168C (DbgkpWerInitializeDeferredLiveDump.c)
  * Callees:
  *     <none>
  */
 
-// local variable allocation has failed, the output may be wrong!
 NTSTATUS __stdcall ZwCreateTimer(
         PHANDLE TimerHandle,
         ACCESS_MASK DesiredAccess,
@@ -16,5 +15,5 @@ NTSTATUS __stdcall ZwCreateTimer(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(TimerHandle, *(_QWORD *)&DesiredAccess);
+  return KiServiceInternal(TimerHandle);
 }

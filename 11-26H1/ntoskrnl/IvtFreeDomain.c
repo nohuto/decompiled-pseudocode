@@ -1,13 +1,13 @@
 /*
- * XREFs of IvtFreeDomain @ 0x1405A6550
+ * XREFs of IvtFreeDomain @ 0x1405A8D60
  * Callers:
  *     <none>
  * Callees:
- *     KeReleaseSpinLock @ 0x1402BE860 (KeReleaseSpinLock.c)
- *     HalpReleaseHighLevelLock @ 0x1402C4DEC (HalpReleaseHighLevelLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14032F300 (KeAcquireSpinLockRaiseToDpc.c)
- *     HalpAcquireHighLevelLock @ 0x140426EEC (HalpAcquireHighLevelLock.c)
- *     ExtEnvCriticalFailure @ 0x14052DC00 (ExtEnvCriticalFailure.c)
+ *     KeReleaseSpinLock @ 0x140309520 (KeReleaseSpinLock.c)
+ *     HalpReleaseHighLevelLock @ 0x14030FAAC (HalpReleaseHighLevelLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140331330 (KeAcquireSpinLockRaiseToDpc.c)
+ *     HalpAcquireHighLevelLock @ 0x140433FFC (HalpAcquireHighLevelLock.c)
+ *     ExtEnvCriticalFailure @ 0x140530120 (ExtEnvCriticalFailure.c)
  */
 
 void __fastcall IvtFreeDomain(ULONG_PTR a1, ULONG_PTR a2)

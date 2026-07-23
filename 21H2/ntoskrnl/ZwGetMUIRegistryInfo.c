@@ -1,14 +1,15 @@
 /*
- * XREFs of ZwGetMUIRegistryInfo @ 0x1403FC280
+ * XREFs of ZwGetMUIRegistryInfo @ 0x1403FC460
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwGetMUIRegistryInfo(__int64 a1, __int64 a2)
+// local variable allocation has failed, the output may be wrong!
+NTSTATUS __cdecl ZwGetMUIRegistryInfo(ULONG Flags, PULONG DataSize, PVOID Data)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(*(_QWORD *)&Flags);
 }

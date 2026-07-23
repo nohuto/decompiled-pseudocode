@@ -10,39 +10,42 @@
  *     __SEH_prolog4 @ 0x4B307AC4 (__SEH_prolog4.c)
  */
 
-unsigned int __stdcall RtlDowncaseUnicodeString(int a1, unsigned __int16 *a2, char a3)
+NTSTATUS __cdecl RtlDowncaseUnicodeString(
+        PUNICODE_STRING DestinationString,
+        PUNICODE_STRING SourceString,
+        BOOLEAN AllocateDestinationString)
 {
-  unsigned __int16 v3; // ax
-  int v4; // ecx
-  unsigned int result; // eax
+  unsigned __int16 Length; // ax
+  wchar_t *Buffer; // ecx
+  NTSTATUS result; // eax
   unsigned int i; // edi
-  __int16 v7; // ax
-  int StringRoutine; // eax
-  unsigned int v9; // [esp+14h] [ebp-20h]
+  wchar_t v7; // ax
+  wchar_t *StringRoutine; // eax
+  NTSTATUS v9; // [esp+14h] [ebp-20h]
 
-  v3 = *a2;
-  v4 = *a2;
-  if ( a3 )
+  Length = SourceString->Length;
+  Buffer = (wchar_t *)SourceString->Length;
+  if ( AllocateDestinationString )
   {
-    *(_WORD *)(a1 + 2) = v3;
-    StringRoutine = NtdllpAllocateStringRoutine(v4);
-    *(_DWORD *)(a1 + 4) = StringRoutine;
+    DestinationString->MaximumLength = Length;
+    StringRoutine = (wchar_t *)NtdllpAllocateStringRoutine(Buffer);
+    DestinationString->Buffer = StringRoutine;
     if ( !StringRoutine )
       return -1073741801;
-    v4 = *a2;
+    Buffer = (wchar_t *)SourceString->Length;
   }
-  else if ( v3 > *(_WORD *)(a1 + 2) )
+  else if ( Length > DestinationString->MaximumLength )
   {
     return -2147483643;
   }
-  result = (unsigned __int16)v4 >> 1;
+  result = (unsigned __int16)Buffer >> 1;
   v9 = result;
   for ( i = 0; i < result; ++i )
   {
-    LOWORD(v4) = *(_WORD *)(*((_DWORD *)a2 + 1) + 2 * i);
-    v7 = NLS_DOWNCASE(v4);
-    v4 = *(_DWORD *)(a1 + 4);
-    *(_WORD *)(v4 + 2 * i) = v7;
+    LOWORD(Buffer) = SourceString->Buffer[i];
+    v7 = NLS_DOWNCASE(Buffer);
+    Buffer = DestinationString->Buffer;
+    Buffer[i] = v7;
     result = v9;
   }
   return result;

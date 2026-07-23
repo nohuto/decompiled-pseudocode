@@ -1,12 +1,12 @@
 /*
- * XREFs of PopUserPresentSet @ 0x1400B4DC8
+ * XREFs of PopUserPresentSet @ 0x1400B2C00
  * Callers:
- *     PopSetSystemState @ 0x1400B4D8C (PopSetSystemState.c)
+ *     PopSetSystemState @ 0x1400B2BC4 (PopSetSystemState.c)
  * Callees:
- *     PopResetIdleTime @ 0x140007F48 (PopResetIdleTime.c)
- *     PopSetNotificationWork @ 0x140008A40 (PopSetNotificationWork.c)
- *     KeSetEvent @ 0x1400562D0 (KeSetEvent.c)
- *     ExQueueWorkItem @ 0x14005FE5C (ExQueueWorkItem.c)
+ *     PopResetIdleTime @ 0x140007ABC (PopResetIdleTime.c)
+ *     PopSetNotificationWork @ 0x1400085B4 (PopSetNotificationWork.c)
+ *     KeSetEvent @ 0x140055E50 (KeSetEvent.c)
+ *     ExQueueWorkItem @ 0x14005F9DC (ExQueueWorkItem.c)
  */
 
 void __fastcall PopUserPresentSet(int a1)
@@ -16,7 +16,7 @@ void __fastcall PopUserPresentSet(int a1)
 
   v1 = (void *)a1;
   v2 = _InterlockedExchange(&PopUserPresentSetStatus, 1);
-  if ( _InterlockedCompareExchange(&dword_140303E14, 0, 0) )
+  if ( _InterlockedCompareExchange(&dword_140303D54, 0, 0) )
   {
     if ( !v2 )
     {

@@ -1,13 +1,13 @@
 /*
- * XREFs of PopDiagTraceAdaptiveBootOverridePrepared @ 0x1407D27B0
+ * XREFs of PopDiagTraceAdaptiveBootOverridePrepared @ 0x1407D581C
  * Callers:
- *     PopAdaptivePersistSystemInitatedRebootState @ 0x140610A68 (PopAdaptivePersistSystemInitatedRebootState.c)
+ *     PopAdaptivePersistSystemInitatedRebootState @ 0x140613D24 (PopAdaptivePersistSystemInitatedRebootState.c)
  * Callees:
- *     EtwEventEnabled @ 0x140212D90 (EtwEventEnabled.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212E30 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     EtwWrite @ 0x140212EF0 (EtwWrite.c)
- *     _tlgKeywordOn @ 0x14044F850 (_tlgKeywordOn.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x140212E70 (EtwEventEnabled.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212F10 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     EtwWrite @ 0x140212FD0 (EtwWrite.c)
+ *     _tlgKeywordOn @ 0x140447980 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 char __fastcall PopDiagTraceAdaptiveBootOverridePrepared(int a1, char a2, int a3)
@@ -40,11 +40,9 @@ char __fastcall PopDiagTraceAdaptiveBootOverridePrepared(int a1, char a2, int a3
   v27 = a3;
   v26 = a1;
   v7 = 0;
-  if ( byte_140E67628 )
+  if ( PopDiagHandleRegistered )
   {
-    LOBYTE(v3) = EtwEventEnabled(
-                   *(REGHANDLE *)&PopSleepstudySessionLock.PriorityFloorCounts[16],
-                   &POP_ETW_EVENT_SYSTEM_INITIATED_REBOOT_PREPARE);
+    LOBYTE(v3) = EtwEventEnabled(PopDiagHandle, &POP_ETW_EVENT_SYSTEM_INITIATED_REBOOT_PREPARE);
     if ( (_BYTE)v3 )
     {
       *(_QWORD *)&UserData.Size = 4LL;
@@ -54,17 +52,12 @@ char __fastcall PopDiagTraceAdaptiveBootOverridePrepared(int a1, char a2, int a3
       UserData.Ptr = (ULONGLONG)&v26;
       v12 = &v7;
       v14 = &v27;
-      LOBYTE(v3) = EtwWrite(
-                     *(REGHANDLE *)&PopSleepstudySessionLock.PriorityFloorCounts[16],
-                     &POP_ETW_EVENT_SYSTEM_INITIATED_REBOOT_PREPARE,
-                     0LL,
-                     3u,
-                     &UserData);
+      LOBYTE(v3) = EtwWrite(PopDiagHandle, &POP_ETW_EVENT_SYSTEM_INITIATED_REBOOT_PREPARE, 0LL, 3u, &UserData);
     }
   }
-  if ( (unsigned int)dword_140E07598 > 5 )
+  if ( (unsigned int)dword_140E07560 > 5 )
   {
-    LOBYTE(v3) = tlgKeywordOn((__int64)&dword_140E07598, 0x400000000000LL);
+    LOBYTE(v3) = tlgKeywordOn((__int64)&dword_140E07560, 0x400000000000LL);
     if ( (_BYTE)v3 )
     {
       v8 = v26;
@@ -80,8 +73,8 @@ char __fastcall PopDiagTraceAdaptiveBootOverridePrepared(int a1, char a2, int a3
       v10 = 0x1000000LL;
       v24 = 8LL;
       LOBYTE(v3) = tlgWriteTransfer_EtwWriteTransfer(
-                     (__int64)&dword_140E07598,
-                     (unsigned __int8 *)byte_14004D075,
+                     (__int64)&dword_140E07560,
+                     (unsigned __int8 *)byte_14004D503,
                      0LL,
                      0LL,
                      6u,

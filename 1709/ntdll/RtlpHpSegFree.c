@@ -25,7 +25,7 @@ __int64 __fastcall RtlpHpSegFree(__int64 a1, unsigned __int64 a2, unsigned int a
   __int64 v12; // rcx
   __int64 v14; // rcx
   __int64 v15; // r8
-  unsigned int v16; // [rsp+58h] [rbp+20h] BYREF
+  __int64 v16; // [rsp+58h] [rbp+20h] BYREF
 
   v6 = RtlpHpSegDescriptorValidate(a1, a2);
   v7 = v6;
@@ -36,7 +36,7 @@ __int64 __fastcall RtlpHpSegFree(__int64 a1, unsigned __int64 a2, unsigned int a
     {
       RtlpHpSegPageRangeShrink(a1, v6, 0, a3);
       v9 = 1;
-      if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+      if ( RtlGetCurrentServiceSessionId() )
         v14 = (__int64)NtCurrentPeb()->SharedData + 550;
       else
         v14 = 2147353472LL;
@@ -50,13 +50,13 @@ __int64 __fastcall RtlpHpSegFree(__int64 a1, unsigned __int64 a2, unsigned int a
     {
       if ( (*(_BYTE *)(v6 + 24) & 4) != 0 )
       {
-        v9 = RtlpHpLfhSubsegmentFreeBlock(*(_QWORD *)(a1 + 80), v8, a2, a3);
+        v9 = RtlpHpLfhSubsegmentFreeBlock(*(_RTL_SRWLOCK **)(a1 + 80), v8, a2, a3);
       }
       else
       {
-        v9 = RtlpHpVsContextFree(*(_QWORD *)(a1 + 88), v8, a2, a3, &v16);
-        if ( v9 && v16 <= 0x3FF0 )
-          RtlpHpLfhBucketUpdateStats(*(_QWORD *)(a1 + 80), v16, 0LL);
+        v9 = RtlpHpVsContextFree(*(PRTL_SRWLOCK *)(a1 + 88), v8, a2, a3, &v16);
+        if ( v9 && (unsigned int)v16 <= 0x3FF0 )
+          RtlpHpLfhBucketUpdateStats(*(_QWORD *)(a1 + 80), (unsigned int)v16, 0LL);
       }
       SharedData = NtCurrentPeb()->SharedData;
       if ( SharedData && *SharedData )

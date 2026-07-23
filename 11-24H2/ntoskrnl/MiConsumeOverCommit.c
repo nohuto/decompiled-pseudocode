@@ -1,11 +1,11 @@
 /*
- * XREFs of MiConsumeOverCommit @ 0x1404AA12C
+ * XREFs of MiConsumeOverCommit @ 0x1404A43FC
  * Callers:
- *     MiChargeCommit @ 0x140211450 (MiChargeCommit.c)
+ *     MiChargeCommit @ 0x14033A7B0 (MiChargeCommit.c)
  * Callees:
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140210170 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     MiReleaseSpinLockExclusive @ 0x14028EE30 (MiReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x14028F370 (ExAcquireSpinLockExclusive.c)
+ *     MiReleaseSpinLockExclusive @ 0x14029EA30 (MiReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14029EF70 (ExAcquireSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1403394D0 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
  */
 
 __int64 __fastcall MiConsumeOverCommit(_QWORD *a1, __int64 a2, __int64 a3)

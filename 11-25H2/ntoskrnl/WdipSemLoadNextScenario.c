@@ -262,6 +262,6 @@ LABEL_17:
   if ( v36 )
     ZwClose(v36);
   if ( v6 )
-    WdipSemFastFree(0, (struct _SLIST_ENTRY *)v6);
+    WdipSemFastFree(0, (_SLIST_ENTRY *)v6);
   return (unsigned int)v8;
 }

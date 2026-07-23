@@ -1,5 +1,5 @@
 /*
- * XREFs of MiIdealClusterPage @ 0x1402C6C14
+ * XREFs of MiIdealClusterPage @ 0x1402C6E04
  * Callers:
  *     MiHandleTransitionFault @ 0x14003B680 (MiHandleTransitionFault.c)
  * Callees:
@@ -17,20 +17,20 @@
  *     MiRemoveLockedPageChargeAndDecRef @ 0x140030B20 (MiRemoveLockedPageChargeAndDecRef.c)
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
  *     MiGetProtoPteAddress @ 0x140042770 (MiGetProtoPteAddress.c)
- *     MiReturnCommit @ 0x140065D40 (MiReturnCommit.c)
- *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
- *     MiFindContiguousPages @ 0x14009A110 (MiFindContiguousPages.c)
- *     MiPageToNode @ 0x14009D010 (MiPageToNode.c)
- *     MiCopyPage @ 0x1400B1C50 (MiCopyPage.c)
- *     MiReleaseFreshPage @ 0x1400E1004 (MiReleaseFreshPage.c)
- *     MiReleaseNonPagedResources @ 0x1400E18E8 (MiReleaseNonPagedResources.c)
- *     MiReturnPfnReferenceCount @ 0x14013B7B0 (MiReturnPfnReferenceCount.c)
- *     MiAcquireNonPagedResources @ 0x14013DA2C (MiAcquireNonPagedResources.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     memcmp @ 0x140196200 (memcmp.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     MiArePageContentsZero @ 0x1402BF768 (MiArePageContentsZero.c)
- *     MiSwapHardFaultPage @ 0x1402CFF5C (MiSwapHardFaultPage.c)
+ *     MiReturnCommit @ 0x140065D30 (MiReturnCommit.c)
+ *     KeYieldProcessorEx @ 0x14006C9E0 (KeYieldProcessorEx.c)
+ *     MiFindContiguousPages @ 0x14009A050 (MiFindContiguousPages.c)
+ *     MiPageToNode @ 0x14009CF50 (MiPageToNode.c)
+ *     MiCopyPage @ 0x1400B1B90 (MiCopyPage.c)
+ *     MiReleaseFreshPage @ 0x1400E1084 (MiReleaseFreshPage.c)
+ *     MiReleaseNonPagedResources @ 0x1400E1968 (MiReleaseNonPagedResources.c)
+ *     MiReturnPfnReferenceCount @ 0x14013B8B0 (MiReturnPfnReferenceCount.c)
+ *     MiAcquireNonPagedResources @ 0x14013DB2C (MiAcquireNonPagedResources.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     memcmp @ 0x140196340 (memcmp.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiArePageContentsZero @ 0x1402BF958 (MiArePageContentsZero.c)
+ *     MiSwapHardFaultPage @ 0x1402D014C (MiSwapHardFaultPage.c)
  */
 
 volatile signed __int32 *__fastcall MiIdealClusterPage(
@@ -167,7 +167,7 @@ volatile signed __int32 *__fastcall MiIdealClusterPage(
       return v7;
     v19 = *(unsigned __int16 *)(v12 + 174);
   }
-  v21 = *(_QWORD *)(qword_14043A748 + 8 * v19);
+  v21 = *(_QWORD *)(qword_14043B808 + 8 * v19);
   v22 = a3 - 8 * v15;
   v79 = v21;
   do
@@ -210,7 +210,7 @@ LABEL_24:
       {
         MiInitializePageColorBase(v74, (*(_DWORD *)(v75 + 48) >> 8) & 0x3F, (__int64)&v88);
         v37 = v90;
-        v38 = v90 >> byte_14043A049;
+        v38 = v90 >> byte_14043B109;
         v39 = _InterlockedExchangeAdd(v88, v36);
         LODWORD(v72) = (unsigned __int16)(v89 & v39) | v37;
         v9 = v36;
@@ -230,7 +230,7 @@ LABEL_31:
     goto LABEL_31;
   v38 = MiPageToNode(v32, 0);
   LOBYTE(v36) = 1;
-  LODWORD(v72) = dword_14043A088 & v32;
+  LODWORD(v72) = dword_14043B148 & v32;
 LABEL_34:
   v68 = v38;
   *(_BYTE *)(*(_QWORD *)(v21 + 16) + 1984LL * v38 + 851) = v36;
@@ -277,7 +277,7 @@ LABEL_34:
         if ( (MiFlags & 0x80u) != 0 )
         {
           v69 = v52;
-          if ( (++dword_14043A86C & MmPageValidationFrequency) == 0 )
+          if ( (++dword_14043B92C & MmPageValidationFrequency) == 0 )
           {
             MiArePageContentsZero(v51, 1LL);
             v53 = v52;

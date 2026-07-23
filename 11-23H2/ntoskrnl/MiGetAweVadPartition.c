@@ -1,11 +1,11 @@
 /*
- * XREFs of MiGetAweVadPartition @ 0x14064A960
+ * XREFs of MiGetAweVadPartition @ 0x14064AEB0
  * Callers:
- *     MiQueryAddressState @ 0x140271C00 (MiQueryAddressState.c)
- *     MmQueryVirtualMemory @ 0x1406F8350 (MmQueryVirtualMemory.c)
+ *     MiQueryAddressState @ 0x140271E90 (MiQueryAddressState.c)
+ *     MmQueryVirtualMemory @ 0x1406F8560 (MmQueryVirtualMemory.c)
  * Callees:
- *     MiLocateLockedVadEvent @ 0x14030B424 (MiLocateLockedVadEvent.c)
- *     MiGetAweInfoPartition @ 0x14064A858 (MiGetAweInfoPartition.c)
+ *     MiLocateLockedVadEvent @ 0x14030B6B4 (MiLocateLockedVadEvent.c)
+ *     MiGetAweInfoPartition @ 0x14064ADA8 (MiGetAweInfoPartition.c)
  */
 
 __int64 __fastcall MiGetAweVadPartition(__int64 a1)

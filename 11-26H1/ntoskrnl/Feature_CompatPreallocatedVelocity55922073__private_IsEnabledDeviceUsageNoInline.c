@@ -1,9 +1,9 @@
 /*
- * XREFs of Feature_CompatPreallocatedVelocity55922073__private_IsEnabledDeviceUsageNoInline @ 0x140713EF0
+ * XREFs of Feature_CompatPreallocatedVelocity55922073__private_IsEnabledDeviceUsageNoInline @ 0x140718BE0
  * Callers:
- *     SdbpGetVelocityState @ 0x140884A20 (SdbpGetVelocityState.c)
+ *     SdbpGetVelocityState @ 0x14088AE20 (SdbpGetVelocityState.c)
  * Callees:
- *     Feature_CompatPreallocatedVelocity55922073__private_IsEnabledFallback @ 0x140713F2C (Feature_CompatPreallocatedVelocity55922073__private_IsEnabledFallback.c)
+ *     Feature_CompatPreallocatedVelocity55922073__private_IsEnabledFallback @ 0x140718C1C (Feature_CompatPreallocatedVelocity55922073__private_IsEnabledFallback.c)
  */
 
 __int64 Feature_CompatPreallocatedVelocity55922073__private_IsEnabledDeviceUsageNoInline()

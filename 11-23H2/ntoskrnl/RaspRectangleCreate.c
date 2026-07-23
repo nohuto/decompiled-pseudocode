@@ -1,11 +1,11 @@
 /*
- * XREFs of RaspRectangleCreate @ 0x140386CD4
+ * XREFs of RaspRectangleCreate @ 0x140386EB4
  * Callers:
- *     BgpRasPrintGlyph @ 0x140385724 (BgpRasPrintGlyph.c)
- *     RaspScanConvert @ 0x140386240 (RaspScanConvert.c)
+ *     BgpRasPrintGlyph @ 0x140385904 (BgpRasPrintGlyph.c)
+ *     RaspScanConvert @ 0x140386420 (RaspScanConvert.c)
  * Callees:
- *     RaspAllocateMemory @ 0x1403875CC (RaspAllocateMemory.c)
- *     BgpGxInitializeRectangle @ 0x14038779C (BgpGxInitializeRectangle.c)
+ *     RaspAllocateMemory @ 0x1403877AC (RaspAllocateMemory.c)
+ *     BgpGxInitializeRectangle @ 0x14038797C (BgpGxInitializeRectangle.c)
  */
 
 __int64 __fastcall RaspRectangleCreate(_DWORD *a1, unsigned int a2, _QWORD *a3)

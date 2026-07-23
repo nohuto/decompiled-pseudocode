@@ -1,20 +1,20 @@
 /*
- * XREFs of EtwpApplyEventNameFilter @ 0x1404EFD50
+ * XREFs of EtwpApplyEventNameFilter @ 0x1404ED680
  * Callers:
- *     EtwpEventWriteFull @ 0x140328590 (EtwpEventWriteFull.c)
- *     EtwpWriteUserEvent @ 0x140920F90 (EtwpWriteUserEvent.c)
+ *     EtwpEventWriteFull @ 0x140326D30 (EtwpEventWriteFull.c)
+ *     EtwpWriteUserEvent @ 0x140AD78A0 (EtwpWriteUserEvent.c)
  * Callees:
- *     EtwpIsEventNameFilterEnabled @ 0x14032A760 (EtwpIsEventNameFilterEnabled.c)
- *     EtwpEventNameFilterSearch @ 0x1404033B0 (EtwpEventNameFilterSearch.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
- *     strnlen @ 0x1404FF8C0 (strnlen.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     _alloca_probe @ 0x1406B3C80 (_alloca_probe.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     ExRaiseDatatypeMisalignment @ 0x14089B1F0 (ExRaiseDatatypeMisalignment.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     EtwpEventNameFilterSearch @ 0x1403FD9B0 (EtwpEventNameFilterSearch.c)
+ *     EtwpIsEventNameFilterEnabled @ 0x1404EDA40 (EtwpIsEventNameFilterEnabled.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     strnlen @ 0x1404FD180 (strnlen.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     _alloca_probe @ 0x1406B4C20 (_alloca_probe.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408A3890 (ExRaiseDatatypeMisalignment.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 _BOOL8 __fastcall EtwpApplyEventNameFilter(
@@ -142,7 +142,7 @@ _BOOL8 __fastcall EtwpApplyEventNameFilter(
     }
     else
     {
-      Pool2 = (char *)ExAllocatePool2(0x42uLL);
+      Pool2 = (char *)ExAllocatePool2(0x42uLL, LODWORD(Src[1]), 0x74777445u);
       v11 = Pool2;
       v35 = Pool2;
       if ( !Pool2 )
@@ -178,7 +178,7 @@ LABEL_28:
     {
       if ( v17 > 2u )
         v23 = v17;
-      if ( EtwpIsEventNameFilterEnabled(v39, v38, v23, a7, a8, a9) )
+      if ( (unsigned __int8)EtwpIsEventNameFilterEnabled(v39, v38, v23, a7, a8, a9) )
       {
         v27 = *((unsigned int *)v36 + 2);
         v11 = v35;

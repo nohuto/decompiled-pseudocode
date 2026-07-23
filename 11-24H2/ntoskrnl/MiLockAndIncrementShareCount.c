@@ -1,11 +1,11 @@
 /*
- * XREFs of MiLockAndIncrementShareCount @ 0x140490CB4
+ * XREFs of MiLockAndIncrementShareCount @ 0x14048B2F4
  * Callers:
- *     MiLinkPoolCommitChain @ 0x14023F6A0 (MiLinkPoolCommitChain.c)
- *     MiMapKernelScp @ 0x1404F25A8 (MiMapKernelScp.c)
+ *     MiLinkPoolCommitChain @ 0x1402077F0 (MiLinkPoolCommitChain.c)
+ *     MiMapKernelScp @ 0x1404F0048 (MiMapKernelScp.c)
  * Callees:
- *     HvlNotifyLongSpinWait @ 0x140293260 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140293290 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     HvlNotifyLongSpinWait @ 0x1402A2E60 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1402A2E90 (KiCheckVpBackingLongSpinWaitHypercall.c)
  */
 
 __int64 __fastcall MiLockAndIncrementShareCount(__int64 a1)

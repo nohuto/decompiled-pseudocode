@@ -1,10 +1,10 @@
 /*
- * XREFs of DbgkpGetServerSiloState @ 0x140A7EBE8
+ * XREFs of DbgkpGetServerSiloState @ 0x140A78398
  * Callers:
- *     DbgkInitialize @ 0x140C16074 (DbgkInitialize.c)
- *     DbgkpInitializePhase0 @ 0x140C160F8 (DbgkpInitializePhase0.c)
+ *     DbgkInitialize @ 0x140C18074 (DbgkInitialize.c)
+ *     DbgkpInitializePhase0 @ 0x140C180F8 (DbgkpInitializePhase0.c)
  * Callees:
- *     PsGetServerSiloGlobals @ 0x140349380 (PsGetServerSiloGlobals.c)
+ *     PsGetServerSiloGlobals @ 0x1403C2DC0 (PsGetServerSiloGlobals.c)
  */
 
 char *__fastcall DbgkpGetServerSiloState(__int64 a1)

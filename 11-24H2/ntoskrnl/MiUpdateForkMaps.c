@@ -1,17 +1,17 @@
 /*
- * XREFs of MiUpdateForkMaps @ 0x140A6680C
+ * XREFs of MiUpdateForkMaps @ 0x140A5F5F0
  * Callers:
- *     MiCloneVads @ 0x1402C4DAC (MiCloneVads.c)
+ *     MiCloneVads @ 0x140268194 (MiCloneVads.c)
  * Callees:
- *     MiGetUltraMapping @ 0x14020CE50 (MiGetUltraMapping.c)
- *     MiCheckLinearProtectedPteAccessedBit @ 0x140232A20 (MiCheckLinearProtectedPteAccessedBit.c)
- *     MiMakeValidPte @ 0x1402383C0 (MiMakeValidPte.c)
- *     MI_IS_PHYSICAL_ADDRESS @ 0x1402637E0 (MI_IS_PHYSICAL_ADDRESS.c)
- *     MiMapSinglePage @ 0x140314164 (MiMapSinglePage.c)
- *     MiFillPteHierarchy @ 0x1403A9BF0 (MiFillPteHierarchy.c)
- *     MiGetPteAddress @ 0x140437550 (MiGetPteAddress.c)
- *     MiBuildForkPageTable @ 0x1404A304C (MiBuildForkPageTable.c)
- *     MiDoneWithThisPageGetAnother @ 0x140A66AF0 (MiDoneWithThisPageGetAnother.c)
+ *     MiCheckLinearProtectedPteAccessedBit @ 0x140203550 (MiCheckLinearProtectedPteAccessedBit.c)
+ *     MiMakeValidPte @ 0x140212550 (MiMakeValidPte.c)
+ *     MI_IS_PHYSICAL_ADDRESS @ 0x140293050 (MI_IS_PHYSICAL_ADDRESS.c)
+ *     MiGetUltraMapping @ 0x1403361B0 (MiGetUltraMapping.c)
+ *     MiFillPteHierarchy @ 0x140398880 (MiFillPteHierarchy.c)
+ *     MiMapSinglePage @ 0x1403F14B0 (MiMapSinglePage.c)
+ *     MiGetPteAddress @ 0x140429FD0 (MiGetPteAddress.c)
+ *     MiBuildForkPageTable @ 0x14049DFAC (MiBuildForkPageTable.c)
+ *     MiDoneWithThisPageGetAnother @ 0x140A5F8D4 (MiDoneWithThisPageGetAnother.c)
  */
 
 unsigned __int64 __fastcall MiUpdateForkMaps(__int64 *a1, unsigned __int64 a2, _QWORD *a3, __int64 a4)
@@ -103,7 +103,7 @@ unsigned __int64 __fastcall MiUpdateForkMaps(__int64 *a1, unsigned __int64 a2, _
             && (ValidPte & 0x20) == 0
             && (unsigned __int64)v18 >= MiGetPteAddress(0xFFFF800000000000uLL) )
           {
-            MiCheckLinearProtectedPteAccessedBit((ULONG_PTR)v18, v20, 128);
+            MiCheckLinearProtectedPteAccessedBit((ULONG_PTR)v18, v20, 128LL);
           }
           *v18 = v20;
         }
@@ -115,12 +115,12 @@ unsigned __int64 __fastcall MiUpdateForkMaps(__int64 *a1, unsigned __int64 a2, _
         v22 = *v21;
         if ( *v21 )
         {
-          if ( (v22 & 1) == 0 && qword_140E2DB80 )
+          if ( (v22 & 1) == 0 && qword_140E2DCC0 )
           {
             if ( (v22 & 0x10) != 0 )
               v22 &= ~0x10uLL;
             else
-              v22 &= ~qword_140E2DB80;
+              v22 &= ~qword_140E2DCC0;
           }
           v12 = (v22 >> 12) & 0xFFFFFFFFFFLL;
         }
@@ -151,7 +151,7 @@ unsigned __int64 __fastcall MiUpdateForkMaps(__int64 *a1, unsigned __int64 a2, _
           && (v32 & 0x20) == 0
           && (unsigned __int64)v31 >= MiGetPteAddress(0xFFFF800000000000uLL) )
         {
-          MiCheckLinearProtectedPteAccessedBit((ULONG_PTR)v31, v33, 128);
+          MiCheckLinearProtectedPteAccessedBit((ULONG_PTR)v31, v33, 128LL);
         }
         *v31 = v33;
       }

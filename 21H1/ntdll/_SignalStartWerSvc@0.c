@@ -11,14 +11,17 @@
 int __stdcall SignalStartWerSvc()
 {
   int v0; // esi
-  int v2[5]; // [esp+10h] [ebp-18h] BYREF
-  int v3; // [esp+24h] [ebp-4h] BYREF
+  EVENT_DESCRIPTOR EventDescriptor; // [esp+10h] [ebp-18h] BYREF
+  int InfoBuffer; // [esp+24h] [ebp-4h] BYREF
 
   v0 = 0;
-  if ( NtQueryWnfStateNameInformation((int)WNF_WER_SERVICE_START, 1, 0, (int)&v3, 4) >= 0 && v3 )
-    v0 = NtUpdateWnfStateData((int)WNF_WER_SERVICE_START, 0, 0, 0, 0, 0, 0) >= 0;
-  memset(v2, 0, 16);
-  if ( !EtwEventWriteNoRegistration((int)`SignalStartWerSvc'::`2'::WerSvcTriggerGuid, v2, 0, 0) )
+  if ( NtQueryWnfStateNameInformation(&WNF_WER_SERVICE_START, WnfInfoSubscribersPresent, 0, &InfoBuffer, 4u) >= 0
+    && InfoBuffer )
+  {
+    v0 = NtUpdateWnfStateData(&WNF_WER_SERVICE_START, 0, 0, 0, 0, 0, 0) >= 0;
+  }
+  memset(&EventDescriptor, 0, sizeof(EventDescriptor));
+  if ( !EtwEventWriteNoRegistration(&`SignalStartWerSvc'::`2'::WerSvcTriggerGuid, &EventDescriptor, 0, 0) )
     ++v0;
   return v0 != 0 ? 0 : -1073741696;
 }

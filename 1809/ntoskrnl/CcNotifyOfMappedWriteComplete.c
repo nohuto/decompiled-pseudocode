@@ -1,18 +1,18 @@
 /*
- * XREFs of CcNotifyOfMappedWriteComplete @ 0x140138CF8
+ * XREFs of CcNotifyOfMappedWriteComplete @ 0x140138DF8
  * Callers:
  *     MiWriteComplete @ 0x140021DE0 (MiWriteComplete.c)
  * Callees:
  *     CcReleaseByteRangeFromWrite @ 0x1400207F4 (CcReleaseByteRangeFromWrite.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14007DE90 (KeAcquireInStackQueuedSpinLock.c)
- *     CcDecrementOpenCount @ 0x1400ACFA0 (CcDecrementOpenCount.c)
- *     CcGetPartition @ 0x1400AD030 (CcGetPartition.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
- *     MmGetControlAreaPartition @ 0x1400E8880 (MmGetControlAreaPartition.c)
- *     CcIsFatalWriteError @ 0x14012D9B0 (CcIsFatalWriteError.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
- *     CcPostDeferredWrites @ 0x1402699B0 (CcPostDeferredWrites.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14007DE80 (KeAcquireInStackQueuedSpinLock.c)
+ *     CcDecrementOpenCount @ 0x1400ACEE0 (CcDecrementOpenCount.c)
+ *     CcGetPartition @ 0x1400ACF70 (CcGetPartition.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC6A0 (KxReleaseQueuedSpinLock.c)
+ *     MmGetControlAreaPartition @ 0x1400E8900 (MmGetControlAreaPartition.c)
+ *     CcIsFatalWriteError @ 0x14012DA80 (CcIsFatalWriteError.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
+ *     CcPostDeferredWrites @ 0x140269BA0 (CcPostDeferredWrites.c)
  */
 
 __int64 __fastcall CcNotifyOfMappedWriteComplete(__int64 a1, __int64 a2, __int64 a3, NTSTATUS a4)

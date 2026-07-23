@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlGetCurrentServiceSessionId @ 0x1400764A0
+ * XREFs of RtlGetCurrentServiceSessionId @ 0x140076520
  * Callers:
- *     CmpDoParseKey @ 0x140453D10 (CmpDoParseKey.c)
- *     RtlGetConsoleSessionForegroundProcessId @ 0x1406890AC (RtlGetConsoleSessionForegroundProcessId.c)
+ *     CmpDoParseKey @ 0x140452BE0 (CmpDoParseKey.c)
+ *     RtlGetConsoleSessionForegroundProcessId @ 0x140689190 (RtlGetConsoleSessionForegroundProcessId.c)
  * Callees:
- *     PsGetServerSiloGlobals @ 0x1400766B0 (PsGetServerSiloGlobals.c)
+ *     PsGetServerSiloGlobals @ 0x140076730 (PsGetServerSiloGlobals.c)
  */
 
-__int64 RtlGetCurrentServiceSessionId()
+ULONG RtlGetCurrentServiceSessionId(void)
 {
-  return *(unsigned int *)(PsGetServerSiloGlobals(-1LL) + 1008);
+  return *(_DWORD *)(PsGetServerSiloGlobals(-1LL) + 1008);
 }

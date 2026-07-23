@@ -153,7 +153,7 @@ __int64 __fastcall IopLiveDumpEndMirroringCallback(int a1)
             else
             {
               IoFillDumpHeader(
-                *(_DWORD **)(v1 + 560),
+                *(_NT_PRODUCT_TYPE **)(v1 + 560),
                 6,
                 *(_DWORD *)v1,
                 *(_QWORD *)(v1 + 8),

@@ -1,21 +1,21 @@
 /*
- * XREFs of PnprInitiateReplaceOperation @ 0x140BF1744
+ * XREFs of PnprInitiateReplaceOperation @ 0x140BF7744
  * Callers:
- *     PnpReplacePartitionUnit @ 0x1407ADDC0 (PnpReplacePartitionUnit.c)
+ *     PnpReplacePartitionUnit @ 0x1407B0E20 (PnpReplacePartitionUnit.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     KeWaitForSingleObject @ 0x140278560 (KeWaitForSingleObject.c)
- *     KeSetEvent @ 0x1402DE9C0 (KeSetEvent.c)
- *     ExQueueWorkItem @ 0x140381C70 (ExQueueWorkItem.c)
- *     KeInitializeEvent @ 0x140466F30 (KeInitializeEvent.c)
- *     PnprCompleteWake @ 0x1405DBC4C (PnprCompleteWake.c)
- *     PnprQuiesce @ 0x1405DBDC8 (PnprQuiesce.c)
- *     PnprSwap @ 0x1405DBE70 (PnprSwap.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     PnprReplaceStart @ 0x1407B0104 (PnprReplaceStart.c)
- *     PnprWakeProcessors @ 0x140BF2DAC (PnprWakeProcessors.c)
- *     MmDuplicateMemory @ 0x140C0CEE0 (MmDuplicateMemory.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KeWaitForSingleObject @ 0x140277AD0 (KeWaitForSingleObject.c)
+ *     KeSetEvent @ 0x1402C0780 (KeSetEvent.c)
+ *     ExQueueWorkItem @ 0x140383A20 (ExQueueWorkItem.c)
+ *     KeInitializeEvent @ 0x140460680 (KeInitializeEvent.c)
+ *     PnprCompleteWake @ 0x1405DE4FC (PnprCompleteWake.c)
+ *     PnprQuiesce @ 0x1405DE678 (PnprQuiesce.c)
+ *     PnprSwap @ 0x1405DE720 (PnprSwap.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     PnprReplaceStart @ 0x1407B3164 (PnprReplaceStart.c)
+ *     PnprWakeProcessors @ 0x140BF8DAC (PnprWakeProcessors.c)
+ *     MmDuplicateMemory @ 0x140C130F0 (MmDuplicateMemory.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
  */
 
 __int64 PnprInitiateReplaceOperation()
@@ -67,7 +67,7 @@ __int64 PnprInitiateReplaceOperation()
       v4 = -1073741670;
       v5 = *(_DWORD *)(PnprContext + 33288);
       if ( !v5 )
-        v5 = 1656;
+        v5 = 1514;
       v6 = *(_DWORD *)(PnprContext + 33292);
       *(_DWORD *)(PnprContext + 33288) = v5;
       if ( !v6 )
@@ -87,7 +87,7 @@ LABEL_7:
     v3 = PnprContext;
     v8 = *(_DWORD *)(PnprContext + 33288);
     if ( !v8 )
-      v8 = 1671;
+      v8 = 1529;
     v6 = *(_DWORD *)(PnprContext + 33292);
     *(_DWORD *)(PnprContext + 33288) = v8;
     if ( !v6 )
@@ -114,10 +114,10 @@ LABEL_7:
   if ( v4 < 0 )
   {
     v10 = PnprContext;
-    v3 = 1739LL;
+    v3 = 1597LL;
     v11 = *(_DWORD *)(PnprContext + 33288);
     if ( !v11 )
-      v11 = 1739;
+      v11 = 1597;
     *(_DWORD *)(PnprContext + 33288) = v11;
     v12 = *(_DWORD *)(v10 + 33292);
     if ( !v12 )
@@ -132,10 +132,10 @@ LABEL_26:
     if ( v4 < 0 )
     {
       v19 = PnprContext;
-      v3 = 1772LL;
+      v3 = 1630LL;
       v20 = *(_DWORD *)(PnprContext + 33288);
       if ( !v20 )
-        v20 = 1772;
+        v20 = 1630;
       *(_DWORD *)(PnprContext + 33288) = v20;
       v21 = *(_DWORD *)(v19 + 33292);
       if ( !v21 )
@@ -152,7 +152,7 @@ LABEL_26:
         v16 = PnprContext;
         v17 = *(_DWORD *)(PnprContext + 33288);
         if ( !v17 )
-          v17 = 1762;
+          v17 = 1620;
         *(_DWORD *)(PnprContext + 33288) = v17;
         v18 = *(_DWORD *)(v16 + 33292);
         if ( !v18 )

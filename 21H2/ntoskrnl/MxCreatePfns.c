@@ -1,15 +1,15 @@
 /*
- * XREFs of MxCreatePfns @ 0x140A56C60
+ * XREFs of MxCreatePfns @ 0x140A57C60
  * Callers:
- *     MiInitializePfnsForValidMappings @ 0x140A5668C (MiInitializePfnsForValidMappings.c)
- *     MxCreatePfns @ 0x140A56C60 (MxCreatePfns.c)
+ *     MiInitializePfnsForValidMappings @ 0x140A5768C (MiInitializePfnsForValidMappings.c)
+ *     MxCreatePfns @ 0x140A57C60 (MxCreatePfns.c)
  * Callees:
- *     MiWriteValidPteNewProtection @ 0x14030FA00 (MiWriteValidPteNewProtection.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x14032DEC0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiPteInShadowRange @ 0x140348AF0 (MiPteInShadowRange.c)
- *     MxCreatePfns @ 0x140A56C60 (MxCreatePfns.c)
- *     MxCreatePfn @ 0x140A56F34 (MxCreatePfn.c)
- *     MiIsRegularMemory @ 0x140A57070 (MiIsRegularMemory.c)
+ *     MiWriteValidPteNewProtection @ 0x14031A750 (MiWriteValidPteNewProtection.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140338C10 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiPteInShadowRange @ 0x140353840 (MiPteInShadowRange.c)
+ *     MxCreatePfns @ 0x140A57C60 (MxCreatePfns.c)
+ *     MxCreatePfn @ 0x140A57F34 (MxCreatePfn.c)
+ *     MiIsRegularMemory @ 0x140A58070 (MiIsRegularMemory.c)
  */
 
 void __fastcall MxCreatePfns(unsigned __int64 a1, unsigned __int64 a2, int a3, __int64 a4)
@@ -100,7 +100,7 @@ void __fastcall MxCreatePfns(unsigned __int64 a1, unsigned __int64 a2, int a3, _
           if ( (v19 & 0x42) == 0 )
             v20 = v19;
           v21 = v19 | 0x800;
-          v22 = ((unsigned __int16)((unsigned __int8)word_140C4E008 << 8) ^ v20) & 0x100;
+          v22 = ((unsigned __int16)((unsigned __int8)word_140C4E048 << 8) ^ v20) & 0x100;
           if ( (v19 & 0x42) == 0 )
             v21 = v19;
           v23 = v21 ^ v22;
@@ -122,7 +122,7 @@ void __fastcall MxCreatePfns(unsigned __int64 a1, unsigned __int64 a2, int a3, _
           if ( (v14 & 0x42) == 0 )
             v15 = v14;
           v16 = v14 | 0x800;
-          v17 = ((unsigned __int16)((unsigned __int8)word_140C4E008 << 8) ^ v15) & 0x100;
+          v17 = ((unsigned __int16)((unsigned __int8)word_140C4E048 << 8) ^ v15) & 0x100;
           if ( (v14 & 0x42) == 0 )
             v16 = v14;
           v18 = v16 ^ v17;

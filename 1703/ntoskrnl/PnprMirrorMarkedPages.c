@@ -20,7 +20,7 @@ __int64 __fastcall PnprMirrorMarkedPages()
   __int64 (__fastcall *v3)(_QWORD, _QWORD, unsigned __int64); // r13
   bool v4; // r12
   __int64 v5; // rax
-  struct _RTL_BITMAP *v6; // rdi
+  _RTL_BITMAP *v6; // rdi
   ULONG i; // eax
   ULONG v8; // esi
   ULONG v9; // esi
@@ -40,10 +40,10 @@ __int64 __fastcall PnprMirrorMarkedPages()
     do
     {
       v5 = v2 + 152;
-      v6 = *(struct _RTL_BITMAP **)(v2 + 152);
+      v6 = *(_RTL_BITMAP **)(v2 + 152);
       while ( 2 )
       {
-        if ( v6 != (struct _RTL_BITMAP *)v5 )
+        if ( v6 != (_RTL_BITMAP *)v5 )
         {
           KeAcquireInStackQueuedSpinLockAtDpcLevel((PKSPIN_LOCK)(v2 + 168), &LockHandle);
           for ( i = RtlFindFirstRunClear(v6 + 2, &StartingIndex);
@@ -85,7 +85,7 @@ __int64 __fastcall PnprMirrorMarkedPages()
           v2 = PnprContext;
           if ( *(_DWORD *)(PnprContext + 200) != 3 )
           {
-            v6 = *(struct _RTL_BITMAP **)&v6->SizeOfBitMap;
+            v6 = *(_RTL_BITMAP **)&v6->SizeOfBitMap;
             v5 = PnprContext + 152;
             continue;
           }

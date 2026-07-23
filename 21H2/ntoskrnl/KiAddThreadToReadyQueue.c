@@ -1,14 +1,14 @@
 /*
- * XREFs of KiAddThreadToReadyQueue @ 0x14051EEF4
+ * XREFs of KiAddThreadToReadyQueue @ 0x14051F134
  * Callers:
- *     KiSelectNextThread @ 0x14025708C (KiSelectNextThread.c)
+ *     KiSelectNextThread @ 0x1402785FC (KiSelectNextThread.c)
  * Callees:
- *     KiGetThreadEffectiveRankNonZero @ 0x14024D500 (KiGetThreadEffectiveRankNonZero.c)
- *     KiAddThreadToPrcbQueue @ 0x14029C210 (KiAddThreadToPrcbQueue.c)
- *     KiAddThreadToScbQueue @ 0x1402EBCF4 (KiAddThreadToScbQueue.c)
+ *     KiAddThreadToPrcbQueue @ 0x140214370 (KiAddThreadToPrcbQueue.c)
+ *     KiAddThreadToScbQueue @ 0x14029D044 (KiAddThreadToScbQueue.c)
+ *     KiGetThreadEffectiveRankNonZero @ 0x1402F1D50 (KiGetThreadEffectiveRankNonZero.c)
  */
 
-__int64 __fastcall KiAddThreadToReadyQueue(__int64 a1, __int64 a2, __int64 a3, char a4, unsigned int a5)
+__int64 __fastcall KiAddThreadToReadyQueue(__int64 a1, __int64 a2, __int64 a3, char a4, int a5)
 {
   char v5; // r10
   __int64 v7; // rbx
@@ -36,5 +36,5 @@ __int64 __fastcall KiAddThreadToReadyQueue(__int64 a1, __int64 a2, __int64 a3, c
       return KiAddThreadToScbQueue(a1, v7, a3, a5);
     v5 = v11;
   }
-  return KiAddThreadToPrcbQueue(a1, a3, (unsigned int)*(char *)(a3 + 195), a5, v5);
+  return KiAddThreadToPrcbQueue(a1, a3, *(char *)(a3 + 195), a5, v5);
 }

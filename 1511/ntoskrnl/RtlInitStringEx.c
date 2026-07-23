@@ -7,7 +7,7 @@
  */
 
 // attributes: thunk
-NTSTATUS __stdcall RtlInitStringEx(PANSI_STRING DestinationString, PCSZ SourceString)
+NTSTATUS __cdecl RtlInitStringEx(PSTRING DestinationString, PCSZ SourceString)
 {
   return RtlInitAnsiStringEx(DestinationString, SourceString);
 }

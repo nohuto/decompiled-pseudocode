@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlStringCchLengthW @ 0x180040BCC
+ * XREFs of RtlStringCchLengthW @ 0x180040BBC
  * Callers:
- *     RtlpCheckMuiMultiStringSafe @ 0x180010648 (RtlpCheckMuiMultiStringSafe.c)
- *     LdrpMultiSZCchLength @ 0x1800106C0 (LdrpMultiSZCchLength.c)
- *     RtlGetParentLocaleName @ 0x18003E5F0 (RtlGetParentLocaleName.c)
- *     RtlpLangNameInMultiSzString_Size @ 0x18003E708 (RtlpLangNameInMultiSzString_Size.c)
- *     RtlpNameprepAsciiWorker @ 0x180055E84 (RtlpNameprepAsciiWorker.c)
- *     RtlIdnToUnicode @ 0x180056690 (RtlIdnToUnicode.c)
- *     RtlpValidAttribute @ 0x1800E2574 (RtlpValidAttribute.c)
+ *     RtlpCheckMuiMultiStringSafe @ 0x180010638 (RtlpCheckMuiMultiStringSafe.c)
+ *     LdrpMultiSZCchLength @ 0x1800106B0 (LdrpMultiSZCchLength.c)
+ *     RtlGetParentLocaleName @ 0x18003E5E0 (RtlGetParentLocaleName.c)
+ *     RtlpLangNameInMultiSzString_Size @ 0x18003E6F8 (RtlpLangNameInMultiSzString_Size.c)
+ *     RtlpNameprepAsciiWorker @ 0x180055E74 (RtlpNameprepAsciiWorker.c)
+ *     RtlIdnToUnicode @ 0x180056680 (RtlIdnToUnicode.c)
+ *     RtlpValidAttribute @ 0x1800E2634 (RtlpValidAttribute.c)
  * Callees:
  *     <none>
  */

@@ -1,22 +1,22 @@
 /*
- * XREFs of KiSoftParkElectionUnparkProcessor @ 0x14022ACC4
+ * XREFs of KiSoftParkElectionUnparkProcessor @ 0x14022C654
  * Callers:
- *     KiSoftParkElectionDpcRoutine @ 0x14022A460 (KiSoftParkElectionDpcRoutine.c)
+ *     KiSoftParkElectionDpcRoutine @ 0x14022BDF0 (KiSoftParkElectionDpcRoutine.c)
  * Callees:
- *     KiAdjustReadyQueueScanOwnerOnParkingChange @ 0x14022AB98 (KiAdjustReadyQueueScanOwnerOnParkingChange.c)
- *     KiSearchForNewThreadsForRescheduleContext @ 0x14022CBE0 (KiSearchForNewThreadsForRescheduleContext.c)
- *     ?KiCommitRescheduleContextEntry@@YAEPEAU_KI_RESCHEDULE_CONTEXT_ENTRY@@PEAU_KPRCB@@KPEAU_SINGLE_LIST_ENTRY@@@Z @ 0x14023F140 (-KiCommitRescheduleContextEntry@@YAEPEAU_KI_RESCHEDULE_CONTEXT_ENTRY@@PEAU_KPRCB@@KPEAU_SINGLE_L.c)
- *     KeAddProcessorAffinityEx @ 0x140246720 (KeAddProcessorAffinityEx.c)
- *     EtwTraceScheduleThread @ 0x1402467D0 (EtwTraceScheduleThread.c)
- *     HvlNotifyLongSpinWait @ 0x1402BBF00 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1402BC760 (KiCheckVpBackingLongSpinWaitHypercall.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402DED10 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     KiStartRescheduleContext @ 0x14032F5E0 (KiStartRescheduleContext.c)
- *     KiUpdateThreadPriority @ 0x14037EAA0 (KiUpdateThreadPriority.c)
- *     EtwTraceXSchedulerPriorityKickSend @ 0x140527744 (EtwTraceXSchedulerPriorityKickSend.c)
- *     EtwTraceParkTransition @ 0x1406C4C6C (EtwTraceParkTransition.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     KiAdjustReadyQueueScanOwnerOnParkingChange @ 0x14022C528 (KiAdjustReadyQueueScanOwnerOnParkingChange.c)
+ *     KiSearchForNewThreadsForRescheduleContext @ 0x14022E570 (KiSearchForNewThreadsForRescheduleContext.c)
+ *     ?KiCommitRescheduleContextEntry@@YAEPEAU_KI_RESCHEDULE_CONTEXT_ENTRY@@PEAU_KPRCB@@KPEAU_SINGLE_LIST_ENTRY@@@Z @ 0x140240AA0 (-KiCommitRescheduleContextEntry@@YAEPEAU_KI_RESCHEDULE_CONTEXT_ENTRY@@PEAU_KPRCB@@KPEAU_SINGLE_L.c)
+ *     KeAddProcessorAffinityEx @ 0x140248080 (KeAddProcessorAffinityEx.c)
+ *     EtwTraceScheduleThread @ 0x140248130 (EtwTraceScheduleThread.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402C0B20 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     HvlNotifyLongSpinWait @ 0x140306BC0 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140307420 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     KiStartRescheduleContext @ 0x140331610 (KiStartRescheduleContext.c)
+ *     KiUpdateThreadPriority @ 0x140380850 (KiUpdateThreadPriority.c)
+ *     EtwTraceXSchedulerPriorityKickSend @ 0x140529DB4 (EtwTraceXSchedulerPriorityKickSend.c)
+ *     EtwTraceParkTransition @ 0x1406C88AC (EtwTraceParkTransition.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 void __fastcall KiSoftParkElectionUnparkProcessor(
@@ -157,7 +157,7 @@ LABEL_11:
       KiSearchForNewThreadsForRescheduleContext(StaticRescheduleContext, v5);
       v6 = 0;
       v21 = 0LL;
-      v22 = (DWORD1(xmmword_140FBFC10) >> 9) & 2;
+      v22 = (DWORD1(xmmword_140FC0C10) >> 9) & 2;
       if ( StaticRescheduleContext->ProcessorCount )
       {
         v44 = 0;
@@ -223,7 +223,7 @@ LABEL_19:
         if ( SingleTargetIndex == Prcb->Number )
           goto LABEL_34;
         a1->DeferredDispatchInterrupts.TargetType = 2;
-        v34 = *(_DWORD *)(*(_QWORD *)&KiSupervisorXStateFeaturesLock.WaitBlockFill11[112] + 4LL * SingleTargetIndex);
+        v34 = *((_DWORD *)&KiSupervisorXStateFeaturesLock.SchedulerApc.Thread->Header.Lock + SingleTargetIndex);
         v26 = (unsigned __int64 *)(v34 & 0x3F);
         v35 = v34 >> 6;
         if ( a1->DeferredDispatchInterrupts.MultipleTargetAffinity.Count <= (unsigned int)v35 )
@@ -271,7 +271,7 @@ LABEL_34:
                 if ( v41 )
                   LODWORD(Number) = (unsigned __int8)HvlpVirtualProcessorMapping[2 * Number + 1] | ((unsigned __int8)HvlpVirtualProcessorMapping[2 * Number] << 6);
                 v42[2] = Number;
-                if ( (BYTE4(xmmword_140FBFC10) & 0x20) != 0 )
+                if ( (BYTE4(xmmword_140FC0C10) & 0x20) != 0 )
                   EtwTraceXSchedulerPriorityKickSend(Prcb->Number, 2LL, v26);
                 __writemsr(0x400000C2u, (unsigned int)Number);
               }
@@ -317,7 +317,7 @@ LABEL_72:
     }
   }
 LABEL_44:
-  if ( (WORD2(xmmword_140FBFC10) & 0x2000) != 0 )
+  if ( (WORD2(xmmword_140FC0C10) & 0x2000) != 0 )
   {
     if ( v50 )
     {

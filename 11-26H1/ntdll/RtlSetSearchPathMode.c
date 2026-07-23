@@ -1,66 +1,65 @@
 /*
- * XREFs of RtlSetSearchPathMode @ 0x1800E5ED0
+ * XREFs of RtlSetSearchPathMode @ 0x1800E40E0
  * Callers:
  *     <none>
  * Callees:
- *     RtlAcquireSRWLockExclusive @ 0x18003F4D0 (RtlAcquireSRWLockExclusive.c)
- *     RtlReleaseSRWLockExclusive @ 0x18003FAA0 (RtlReleaseSRWLockExclusive.c)
- *     RtlFreeHeap_0 @ 0x18003FD10 (RtlFreeHeap_0.c)
+ *     RtlAcquireSRWLockExclusive @ 0x180029A40 (RtlAcquireSRWLockExclusive.c)
+ *     RtlReleaseSRWLockExclusive @ 0x18002A010 (RtlReleaseSRWLockExclusive.c)
+ *     RtlFreeHeap_0 @ 0x18002A280 (RtlFreeHeap_0.c)
  */
 
-__int64 __fastcall RtlSetSearchPathMode(int a1, __int64 a2)
+NTSTATUS __cdecl RtlSetSearchPathMode(ULONG Flags)
 {
-  int v3; // eax
-  int v4; // esi
-  int v5; // esi
-  __int64 v6; // rdx
-  __int64 v7; // rdi
+  ULONG v2; // eax
+  ULONG v3; // esi
+  NTSTATUS v4; // esi
+  _QWORD *v5; // rdi
 
-  if ( (a1 & 0xFFFE7FFE) != 0 )
-    return 3221225485LL;
-  v3 = a1 & 0x10000;
-  if ( (a1 & 1) == 0 )
+  if ( (Flags & 0xFFFE7FFE) != 0 )
+    return -1073741811;
+  v2 = Flags & 0x10000;
+  if ( (Flags & 1) == 0 )
   {
-    if ( v3 )
+    if ( v2 )
     {
-      v4 = a1 & 0x8000;
-      if ( (a1 & 0x8000) == 0 )
+      v3 = Flags & 0x8000;
+      if ( (Flags & 0x8000) == 0 )
         goto LABEL_5;
     }
-    return 3221225485LL;
+    return -1073741811;
   }
-  if ( v3 )
-    return 3221225485LL;
-  v4 = a1 & 0x8000;
+  if ( v2 )
+    return -1073741811;
+  v3 = Flags & 0x8000;
 LABEL_5:
-  RtlAcquireSRWLockExclusive(&qword_1801CB310, a2);
-  if ( (RtlpSearchPathMode & 0x8000) == 0 || v4 )
+  RtlAcquireSRWLockExclusive(&stru_1801CA360);
+  if ( (RtlpSearchPathMode & 0x8000) == 0 || v3 )
   {
-    RtlpSearchPathMode = a1;
-    v5 = 0;
+    RtlpSearchPathMode = Flags;
+    v4 = 0;
   }
   else
   {
-    v5 = -1073741790;
+    v4 = -1073741790;
   }
-  RtlReleaseSRWLockExclusive(&qword_1801CB310);
-  if ( v5 >= 0 )
+  RtlReleaseSRWLockExclusive(&stru_1801CA360);
+  if ( v4 >= 0 )
   {
-    RtlAcquireSRWLockExclusive(&RtlpCachedPathLock, v6);
-    v7 = RtlpSearchPath;
+    RtlAcquireSRWLockExclusive(&RtlpCachedPathLock);
+    v5 = (_QWORD *)RtlpSearchPath;
     RtlpSearchPath = 0LL;
-    if ( v7 )
+    if ( v5 )
     {
-      if ( (*(_QWORD *)(v7 + 80))-- != 1LL )
-        v7 = 0LL;
+      if ( v5[10]-- != 1LL )
+        v5 = 0LL;
     }
     else
     {
-      v7 = 0LL;
+      v5 = 0LL;
     }
     RtlReleaseSRWLockExclusive(&RtlpCachedPathLock);
-    if ( v7 )
-      RtlFreeHeap_0();
+    if ( v5 )
+      RtlFreeHeap_0(NtCurrentPeb()->ProcessHeap, 0, v5);
   }
-  return (unsigned int)v5;
+  return v4;
 }

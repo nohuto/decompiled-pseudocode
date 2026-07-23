@@ -6,9 +6,12 @@
  *     <none>
  */
 
-__int64 ZwMapUserPhysicalPagesScatter()
+NTSTATUS __cdecl ZwMapUserPhysicalPagesScatter(
+        PVOID *VirtualAddresses,
+        ULONG_PTR NumberOfPages,
+        PULONG_PTR UserPfnArray)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal();
+  return KiServiceInternal(VirtualAddresses);
 }

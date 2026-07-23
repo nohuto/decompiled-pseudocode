@@ -1,10 +1,10 @@
 /*
- * XREFs of IoAddThreadStackToDump @ 0x1405A0220
+ * XREFs of IoAddThreadStackToDump @ 0x14059D150
  * Callers:
  *     <none>
  * Callees:
- *     IopAddStackSegmentKernelShadowStackToDump @ 0x1405A0894 (IopAddStackSegmentKernelShadowStackToDump.c)
- *     MmAddRangeToCrashDump @ 0x140677990 (MmAddRangeToCrashDump.c)
+ *     IopAddStackSegmentKernelShadowStackToDump @ 0x14059D7C4 (IopAddStackSegmentKernelShadowStackToDump.c)
+ *     MmAddRangeToCrashDump @ 0x140678B70 (MmAddRangeToCrashDump.c)
  */
 
 void __fastcall IoAddThreadStackToDump(__int64 a1, _QWORD *a2, __int64 a3)

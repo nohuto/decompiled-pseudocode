@@ -10,7 +10,7 @@
  *     KiRemoveSystemWorkPriorityKick @ 0x1401BF308 (KiRemoveSystemWorkPriorityKick.c)
  */
 
-__int64 __fastcall MiGetPrototypePteRanges(unsigned __int64 a1, struct _RTL_BITMAP *a2)
+__int64 __fastcall MiGetPrototypePteRanges(unsigned __int64 a1, _RTL_BITMAP *a2)
 {
   unsigned __int64 v3; // r12
   unsigned int v5; // r14d

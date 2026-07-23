@@ -1,23 +1,23 @@
 /*
- * XREFs of MiDereferencePerSessionProtos @ 0x1406C8FB0
+ * XREFs of MiDereferencePerSessionProtos @ 0x1406CA250
  * Callers:
  *     MiRemoveFromSystemSpace @ 0x140026F90 (MiRemoveFromSystemSpace.c)
  *     MiInsertInSystemSpace @ 0x1400273C0 (MiInsertInSystemSpace.c)
- *     MiDeleteVad @ 0x140065E10 (MiDeleteVad.c)
- *     MiFinishCreateSection @ 0x1405DE0B0 (MiFinishCreateSection.c)
- *     MiSectionDelete @ 0x1405F0440 (MiSectionDelete.c)
- *     MiMapViewOfImageSection @ 0x1405F3660 (MiMapViewOfImageSection.c)
- *     MiUnloadSystemImage @ 0x140651AA4 (MiUnloadSystemImage.c)
- *     MiValidateSectionCreate @ 0x140652E10 (MiValidateSectionCreate.c)
- *     MiMapSystemImage @ 0x1406820E4 (MiMapSystemImage.c)
- *     MiDeletePartialCloneVads @ 0x14085E4C8 (MiDeletePartialCloneVads.c)
+ *     MiDeleteVad @ 0x140065E00 (MiDeleteVad.c)
+ *     MiFinishCreateSection @ 0x1405DF0B0 (MiFinishCreateSection.c)
+ *     MiSectionDelete @ 0x1405F1440 (MiSectionDelete.c)
+ *     MiMapViewOfImageSection @ 0x1405F4660 (MiMapViewOfImageSection.c)
+ *     MiUnloadSystemImage @ 0x140652C64 (MiUnloadSystemImage.c)
+ *     MiValidateSectionCreate @ 0x140653FD0 (MiValidateSectionCreate.c)
+ *     MiMapSystemImage @ 0x1406832A4 (MiMapSystemImage.c)
+ *     MiDeletePartialCloneVads @ 0x14085F728 (MiDeletePartialCloneVads.c)
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     KiLeaveGuardedRegionUnsafe @ 0x14004F090 (KiLeaveGuardedRegionUnsafe.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     MiDereferenceSubsectionProtos @ 0x1406C9060 (MiDereferenceSubsectionProtos.c)
- *     MiFreeSubsectionProtos @ 0x1406C93F0 (MiFreeSubsectionProtos.c)
+ *     ExfTryToWakePushLock @ 0x140091500 (ExfTryToWakePushLock.c)
+ *     MiDereferenceSubsectionProtos @ 0x1406CA300 (MiDereferenceSubsectionProtos.c)
+ *     MiFreeSubsectionProtos @ 0x1406CA690 (MiFreeSubsectionProtos.c)
  */
 
 __int64 __fastcall MiDereferencePerSessionProtos(__int64 *a1, unsigned int a2)

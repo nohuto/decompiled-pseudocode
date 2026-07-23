@@ -1,40 +1,40 @@
 /*
- * XREFs of RtlDebugCreateTagHeap @ 0x180146E14
+ * XREFs of RtlDebugCreateTagHeap @ 0x180146CC4
  * Callers:
- *     RtlCreateTagHeap @ 0x1800CB280 (RtlCreateTagHeap.c)
+ *     RtlCreateTagHeap @ 0x1800C89F0 (RtlCreateTagHeap.c)
  * Callees:
- *     RtlpCheckHeapSignature @ 0x180014E10 (RtlpCheckHeapSignature.c)
- *     RtlpValidateHeap @ 0x180014EB8 (RtlpValidateHeap.c)
- *     RtlpValidateHeapHeaders @ 0x180015508 (RtlpValidateHeapHeaders.c)
- *     RtlNtStatusToDosErrorNoTeb @ 0x180019AA0 (RtlNtStatusToDosErrorNoTeb.c)
- *     RtlEnterCriticalSection @ 0x180048D70 (RtlEnterCriticalSection.c)
- *     RtlLeaveCriticalSection @ 0x18004A3E0 (RtlLeaveCriticalSection.c)
- *     RtlCreateTagHeap @ 0x1800CB280 (RtlCreateTagHeap.c)
- *     RtlpHeapExceptionFilter @ 0x180100D78 (RtlpHeapExceptionFilter.c)
+ *     RtlNtStatusToDosErrorNoTeb @ 0x180004B80 (RtlNtStatusToDosErrorNoTeb.c)
+ *     RtlEnterCriticalSection @ 0x1800332F0 (RtlEnterCriticalSection.c)
+ *     RtlLeaveCriticalSection @ 0x180034960 (RtlLeaveCriticalSection.c)
+ *     RtlpCheckHeapSignature @ 0x180060540 (RtlpCheckHeapSignature.c)
+ *     RtlpValidateHeap @ 0x1800605E8 (RtlpValidateHeap.c)
+ *     RtlpValidateHeapHeaders @ 0x180060C38 (RtlpValidateHeapHeaders.c)
+ *     RtlCreateTagHeap @ 0x1800C89F0 (RtlCreateTagHeap.c)
+ *     RtlpHeapExceptionFilter @ 0x1801004C8 (RtlpHeapExceptionFilter.c)
  */
 
-__int64 __fastcall RtlDebugCreateTagHeap(_QWORD *Src, int a2, __int64 a3, _WORD *a4)
+__int64 __fastcall RtlDebugCreateTagHeap(unsigned __int64 a1, int a2, WCHAR *a3, WCHAR *a4)
 {
   char v8; // si
-  unsigned int TagHeap; // r14d
-  int v10; // edi
+  ULONG TagHeap; // r14d
+  ULONG v10; // edi
 
   v8 = 0;
   TagHeap = 0;
-  if ( RtlpCheckHeapSignature(Src, "RtlCreateTagHeap") )
+  if ( RtlpCheckHeapSignature((_DWORD *)a1, "RtlCreateTagHeap") )
   {
-    v10 = *((_DWORD *)Src + 29) | 0x10000000 | a2;
+    v10 = *(_DWORD *)(a1 + 116) | 0x10000000 | a2;
     if ( (v10 & 1) == 0 )
     {
-      RtlEnterCriticalSection(Src[44]);
+      RtlEnterCriticalSection(*(PRTL_CRITICAL_SECTION *)(a1 + 352));
       v8 = 1;
       v10 |= 1u;
     }
-    if ( RtlpValidateHeap((__int64)Src, 0) )
-      TagHeap = RtlCreateTagHeap(Src, v10, a3, a4);
-    RtlpValidateHeapHeaders(Src, 1);
+    if ( RtlpValidateHeap(a1, 0) )
+      TagHeap = RtlCreateTagHeap((PVOID)a1, v10, a3, a4);
+    RtlpValidateHeapHeaders((char *)a1, 1);
   }
   if ( v8 )
-    RtlLeaveCriticalSection(Src[44]);
+    RtlLeaveCriticalSection(*(PRTL_CRITICAL_SECTION *)(a1 + 352));
   return TagHeap;
 }

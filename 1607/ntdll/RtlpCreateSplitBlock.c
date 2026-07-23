@@ -1,16 +1,16 @@
 /*
- * XREFs of RtlpCreateSplitBlock @ 0x18004BF00
+ * XREFs of RtlpCreateSplitBlock @ 0x18004BEF0
  * Callers:
- *     RtlpReAllocateHeap @ 0x1800211D0 (RtlpReAllocateHeap.c)
- *     RtlpGrowBlockInPlace @ 0x18004C470 (RtlpGrowBlockInPlace.c)
+ *     RtlpReAllocateHeap @ 0x1800211C0 (RtlpReAllocateHeap.c)
+ *     RtlpGrowBlockInPlace @ 0x18004C460 (RtlpGrowBlockInPlace.c)
  * Callees:
- *     RtlpHeapRemoveListEntry @ 0x1800289EC (RtlpHeapRemoveListEntry.c)
- *     RtlpCommitBlock @ 0x180028B34 (RtlpCommitBlock.c)
- *     RtlpDeCommitFreeBlock @ 0x18004A810 (RtlpDeCommitFreeBlock.c)
- *     RtlpInsertFreeBlock @ 0x18004AE00 (RtlpInsertFreeBlock.c)
- *     RtlpFindEntry @ 0x18004BE88 (RtlpFindEntry.c)
- *     RtlpHeapAddListEntry @ 0x18004C2F4 (RtlpHeapAddListEntry.c)
- *     DbgPrint @ 0x18005C3E0 (DbgPrint.c)
+ *     RtlpHeapRemoveListEntry @ 0x1800289DC (RtlpHeapRemoveListEntry.c)
+ *     RtlpCommitBlock @ 0x180028B24 (RtlpCommitBlock.c)
+ *     RtlpDeCommitFreeBlock @ 0x18004A800 (RtlpDeCommitFreeBlock.c)
+ *     RtlpInsertFreeBlock @ 0x18004ADF0 (RtlpInsertFreeBlock.c)
+ *     RtlpFindEntry @ 0x18004BE78 (RtlpFindEntry.c)
+ *     RtlpHeapAddListEntry @ 0x18004C2E4 (RtlpHeapAddListEntry.c)
+ *     DbgPrint @ 0x18005C3D0 (DbgPrint.c)
  *     RtlpLogHeapFailure @ 0x1800A5E64 (RtlpLogHeapFailure.c)
  *     RtlCompareMemoryUlong @ 0x1800AA730 (RtlCompareMemoryUlong.c)
  *     RtlpAnalyzeHeapFailure @ 0x1800F79F4 (RtlpAnalyzeHeapFailure.c)
@@ -60,8 +60,8 @@ char __fastcall RtlpCreateSplitBlock(
   unsigned __int64 i; // rax
   __int64 *v42; // rax
   char v43; // al
-  unsigned __int64 v44; // r14
-  __int64 v45; // r12
+  SIZE_T v44; // r14
+  SIZE_T v45; // r12
   _DWORD *v46; // r8
   unsigned __int64 v47; // rdx
   __int64 *v48; // rdi
@@ -321,7 +321,7 @@ LABEL_16:
       }
       *v12 = v14;
       *(_QWORD *)(v14 + 8) = v12;
-      if ( (*(_BYTE *)(v11 + 10) & 8) == 0 || RtlpCommitBlock(a1, a3 + 16 * a7) )
+      if ( (*(_BYTE *)(v11 + 10) & 8) == 0 || RtlpCommitBlock((PVOID)a1, a3 + 16 * a7) )
       {
         if ( a5 )
         {
@@ -331,7 +331,7 @@ LABEL_16:
             v44 = 16LL * *(unsigned __int16 *)(v11 + 8) - 32;
             if ( (v43 & 2) != 0 && v44 > 4 )
               v44 = 16LL * *(unsigned __int16 *)(v11 + 8) - 36;
-            v45 = RtlCompareMemoryUlong(v11 + 32, v44, 4277075694LL);
+            v45 = RtlCompareMemoryUlong((PVOID)(v11 + 32), v44, 0xFEEEFEEE);
             if ( v45 != v44 )
             {
               if ( NtCurrentPeb()->Ldr )

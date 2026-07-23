@@ -1,9 +1,9 @@
 /*
- * XREFs of PpmPerfApplyLatencyHints @ 0x1404B5F60
+ * XREFs of PpmPerfApplyLatencyHints @ 0x1404AF3B0
  * Callers:
  *     <none>
  * Callees:
- *     PpmPerfApplyLatencyHint @ 0x1405253B8 (PpmPerfApplyLatencyHint.c)
+ *     PpmPerfApplyLatencyHint @ 0x140527A28 (PpmPerfApplyLatencyHint.c)
  */
 
 __int64 PpmPerfApplyLatencyHints()
@@ -12,7 +12,7 @@ __int64 PpmPerfApplyLatencyHints()
   __int64 result; // rax
   unsigned int j; // edi
 
-  if ( *(_DWORD *)&PopSleepstudySessionLock.WaitRegister.Flags )
+  if ( PpmCheckLatencyBoostActive )
   {
     for ( i = *(PBOOLEAN *)((char *)&Mm64BitPhysicalAddress + 2);
           i != (PBOOLEAN)((char *)&Mm64BitPhysicalAddress + 2);

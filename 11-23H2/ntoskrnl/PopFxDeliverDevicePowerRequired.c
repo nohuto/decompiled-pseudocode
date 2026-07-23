@@ -1,13 +1,13 @@
 /*
- * XREFs of PopFxDeliverDevicePowerRequired @ 0x14036DFAC
+ * XREFs of PopFxDeliverDevicePowerRequired @ 0x14036E14C
  * Callers:
- *     PopFxProcessWork @ 0x140312634 (PopFxProcessWork.c)
- *     PopFxIdleTimeoutDpcRoutine @ 0x14036BF90 (PopFxIdleTimeoutDpcRoutine.c)
- *     PopFxDeviceWork @ 0x140589F70 (PopFxDeviceWork.c)
+ *     PopFxProcessWork @ 0x1403128C4 (PopFxProcessWork.c)
+ *     PopFxIdleTimeoutDpcRoutine @ 0x14036C130 (PopFxIdleTimeoutDpcRoutine.c)
+ *     PopFxDeviceWork @ 0x14058A460 (PopFxDeviceWork.c)
  * Callees:
- *     PopFxCompleteDevicePowerRequired @ 0x140310AE0 (PopFxCompleteDevicePowerRequired.c)
- *     PopDiagTraceFxDevicePowerRequirement @ 0x140312A50 (PopDiagTraceFxDevicePowerRequirement.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
+ *     PopFxCompleteDevicePowerRequired @ 0x140310D70 (PopFxCompleteDevicePowerRequired.c)
+ *     PopDiagTraceFxDevicePowerRequirement @ 0x140312CE0 (PopDiagTraceFxDevicePowerRequirement.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
  */
 
 char __fastcall PopFxDeliverDevicePowerRequired(ULONG_PTR BugCheckParameter2, __int64 a2)

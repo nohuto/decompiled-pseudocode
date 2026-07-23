@@ -1,10 +1,10 @@
 /*
- * XREFs of IoGetInitiatorProcess @ 0x14036E630
+ * XREFs of IoGetInitiatorProcess @ 0x14036E7D0
  * Callers:
  *     IopCheckInitiatorHint @ 0x1402118B0 (IopCheckInitiatorHint.c)
- *     IoIsInitiator32bitProcess @ 0x1403B67F0 (IoIsInitiator32bitProcess.c)
+ *     IoIsInitiator32bitProcess @ 0x1403B69D0 (IoIsInitiator32bitProcess.c)
  * Callees:
- *     IopGetFileObjectExtension @ 0x14030169C (IopGetFileObjectExtension.c)
+ *     IopGetFileObjectExtension @ 0x14030192C (IopGetFileObjectExtension.c)
  */
 
 __int64 __fastcall IoGetInitiatorProcess(__int64 a1)

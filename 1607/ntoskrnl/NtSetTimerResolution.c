@@ -1,16 +1,16 @@
 /*
- * XREFs of NtSetTimerResolution @ 0x1403E9CD4
+ * XREFs of NtSetTimerResolution @ 0x1403EB304
  * Callers:
  *     <none>
  * Callees:
- *     ExpUpdateTimerResolution @ 0x140006F0C (ExpUpdateTimerResolution.c)
- *     ExReleaseResourceLite @ 0x140068940 (ExReleaseResourceLite.c)
- *     KeLeaveCriticalRegion @ 0x140069D00 (KeLeaveCriticalRegion.c)
- *     ExpInsertTimerResolutionEntry @ 0x1400B521C (ExpInsertTimerResolutionEntry.c)
+ *     ExpUpdateTimerResolution @ 0x14000707C (ExpUpdateTimerResolution.c)
+ *     ExReleaseResourceLite @ 0x1400684C0 (ExReleaseResourceLite.c)
+ *     KeLeaveCriticalRegion @ 0x140069880 (KeLeaveCriticalRegion.c)
+ *     ExpInsertTimerResolutionEntry @ 0x1400B3054 (ExpInsertTimerResolutionEntry.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
- *     PoTraceSystemTimerResolution @ 0x1403E9EB0 (PoTraceSystemTimerResolution.c)
- *     ExAcquireTimeRefreshLock @ 0x1403EA8B0 (ExAcquireTimeRefreshLock.c)
- *     PoDiagCaptureUsermodeStack @ 0x1404F0600 (PoDiagCaptureUsermodeStack.c)
+ *     PoTraceSystemTimerResolution @ 0x1403EB4E0 (PoTraceSystemTimerResolution.c)
+ *     ExAcquireTimeRefreshLock @ 0x1403EBEE0 (ExAcquireTimeRefreshLock.c)
+ *     PoDiagCaptureUsermodeStack @ 0x1404D26F4 (PoDiagCaptureUsermodeStack.c)
  */
 
 NTSTATUS __stdcall NtSetTimerResolution(ULONG RequestedResolution, BOOLEAN SetOrUnset, PULONG ActualResolution)

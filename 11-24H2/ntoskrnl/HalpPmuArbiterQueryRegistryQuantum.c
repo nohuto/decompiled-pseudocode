@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpPmuArbiterQueryRegistryQuantum @ 0x1406FE324
+ * XREFs of HalpPmuArbiterQueryRegistryQuantum @ 0x1406FBF64
  * Callers:
- *     HalpHwPerfCntInitSystem @ 0x140B4C570 (HalpHwPerfCntInitSystem.c)
+ *     HalpHwPerfCntInitSystem @ 0x140B4E5B0 (HalpHwPerfCntInitSystem.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     MmGetSystemRoutineAddress @ 0x1408B0D70 (MmGetSystemRoutineAddress.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     MmGetSystemRoutineAddress @ 0x140906FD0 (MmGetSystemRoutineAddress.c)
  */
 
 __int64 HalpPmuArbiterQueryRegistryQuantum()
@@ -29,12 +29,12 @@ __int64 HalpPmuArbiterQueryRegistryQuantum()
   DestinationString = 0LL;
   RtlInitUnicodeString(&DestinationString, L"RtlQueryRegistryValuesEx");
   MmGetSystemRoutineAddress(&DestinationString);
-  result = guard_dispatch_icall_no_overrides(2LL, L"HAL\\PMU", v2, 0LL);
+  result = guard_dispatch_icall_no_overrides(2LL, L"HAL\\PMU");
   if ( (int)result >= 0 )
   {
     result = v7;
     if ( v7 )
-      dword_140FC1E00 = v7;
+      dword_140FC2060 = v7;
   }
   return result;
 }

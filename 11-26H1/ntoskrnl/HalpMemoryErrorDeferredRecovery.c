@@ -1,16 +1,16 @@
 /*
- * XREFs of HalpMemoryErrorDeferredRecovery @ 0x14058F17C
+ * XREFs of HalpMemoryErrorDeferredRecovery @ 0x1405918FC
  * Callers:
- *     HalpHvMceConsumedMemoryErrorRecovery @ 0x140585138 (HalpHvMceConsumedMemoryErrorRecovery.c)
- *     HalpMceRecovery @ 0x14058E590 (HalpMceRecovery.c)
- *     HalpMceRecoveryNotRequiredIntel @ 0x14058EACC (HalpMceRecoveryNotRequiredIntel.c)
- *     HalpGenericErrorSourceRecovery @ 0x14058EED0 (HalpGenericErrorSourceRecovery.c)
+ *     HalpHvMceConsumedMemoryErrorRecovery @ 0x140587658 (HalpHvMceConsumedMemoryErrorRecovery.c)
+ *     HalpMceRecovery @ 0x140590D10 (HalpMceRecovery.c)
+ *     HalpMceRecoveryNotRequiredIntel @ 0x14059124C (HalpMceRecoveryNotRequiredIntel.c)
+ *     HalpGenericErrorSourceRecovery @ 0x140591650 (HalpGenericErrorSourceRecovery.c)
  * Callees:
- *     HalpHvSetMachineCheckRecoveryState @ 0x140585DF8 (HalpHvSetMachineCheckRecoveryState.c)
- *     HalpAcquireDrsPool @ 0x14058ED6C (HalpAcquireDrsPool.c)
- *     HalpFreeDrsPool @ 0x14058EE9C (HalpFreeDrsPool.c)
- *     WheaRequestDeferredRecovery @ 0x1406D6D20 (WheaRequestDeferredRecovery.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     HalpHvSetMachineCheckRecoveryState @ 0x140588318 (HalpHvSetMachineCheckRecoveryState.c)
+ *     HalpAcquireDrsPool @ 0x1405914EC (HalpAcquireDrsPool.c)
+ *     HalpFreeDrsPool @ 0x14059161C (HalpFreeDrsPool.c)
+ *     WheaRequestDeferredRecovery @ 0x1406DAE00 (WheaRequestDeferredRecovery.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall HalpMemoryErrorDeferredRecovery(
@@ -36,7 +36,7 @@ __int64 __fastcall HalpMemoryErrorDeferredRecovery(
     {
       if ( !a4 )
       {
-        if ( !qword_140FBB0C0 )
+        if ( !qword_140FBB460 )
         {
           v15 = -1073741823;
           goto LABEL_11;

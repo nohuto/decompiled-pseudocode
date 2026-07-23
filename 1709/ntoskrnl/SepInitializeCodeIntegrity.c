@@ -33,5 +33,5 @@ __int64 SepInitializeCodeIntegrity()
     if ( KeLoaderBlock_0 )
       v1 = KeLoaderBlock_0 + 48;
   }
-  return CiInitialize(v0, v1, &SeCiCallbacks, SeCiPrivateApis);
+  return CiInitialize(v0, v1, &SeCiCallbacks, &SeCiPrivateApis);
 }

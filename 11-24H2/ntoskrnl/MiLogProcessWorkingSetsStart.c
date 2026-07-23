@@ -1,10 +1,10 @@
 /*
- * XREFs of MiLogProcessWorkingSetsStart @ 0x14047DFC8
+ * XREFs of MiLogProcessWorkingSetsStart @ 0x1402F3A90
  * Callers:
- *     MiProcessWorkingSets @ 0x140378690 (MiProcessWorkingSets.c)
+ *     MiProcessWorkingSets @ 0x1402F2D10 (MiProcessWorkingSets.c)
  * Callees:
- *     _tlgWriteEx_EtwWriteEx @ 0x1404A083C (_tlgWriteEx_EtwWriteEx.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     _tlgWriteEx_EtwWriteEx @ 0x14049AEBC (_tlgWriteEx_EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 void __fastcall MiLogProcessWorkingSetsStart(_QWORD *a1, __int64 a2, int a3)
@@ -56,14 +56,14 @@ void __fastcall MiLogProcessWorkingSetsStart(_QWORD *a1, __int64 a2, int a3)
   int v48; // [rsp+138h] [rbp+38h]
   int v49; // [rsp+13Ch] [rbp+3Ch]
 
-  if ( *(_QWORD *)&qword_140E37518 )
+  if ( *(_QWORD *)&qword_140E37658 )
   {
     v3 = a1[2424];
     v4 = a1[2200];
     v5 = a1[2452];
-    if ( **(_DWORD **)&qword_140E37518 > 5u
-      && (*(_BYTE *)(*(_QWORD *)&qword_140E37518 + 16LL) & 1) != 0
-      && (*(_QWORD *)(*(_QWORD *)&qword_140E37518 + 24LL) & 1LL) == *(_QWORD *)(*(_QWORD *)&qword_140E37518 + 24LL) )
+    if ( **(_DWORD **)&qword_140E37658 > 5u
+      && (*(_BYTE *)(*(_QWORD *)&qword_140E37658 + 16LL) & 1) != 0
+      && (*(_QWORD *)(*(_QWORD *)&qword_140E37658 + 24LL) & 1LL) == *(_QWORD *)(*(_QWORD *)&qword_140E37658 + 24LL) )
     {
       v7 = *(unsigned __int16 *)a1;
       v22 = 0;
@@ -106,7 +106,7 @@ void __fastcall MiLogProcessWorkingSetsStart(_QWORD *a1, __int64 a2, int a3)
       v13 = a3;
       v18 = v3;
       v19 = v5;
-      tlgWriteEx_EtwWriteEx(qword_140E37518, (int)&byte_140056889, a3, 1, v8, v9, 0xCu, (__int64)v20);
+      tlgWriteEx_EtwWriteEx(qword_140E37658, (int)&unk_140057200, a3, 1, v8, v9, 0xCu, (__int64)v20);
     }
   }
 }

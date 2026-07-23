@@ -6,11 +6,15 @@
  *     <none>
  */
 
-__int64 NtSetInformationSymbolicLink()
+NTSTATUS __cdecl NtSetInformationSymbolicLink(
+        HANDLE LinkHandle,
+        SYMBOLIC_LINK_INFO_CLASS SymbolicLinkInformationClass,
+        PVOID SymbolicLinkInformation,
+        ULONG SymbolicLinkInformationLength)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 382LL;
+  result = 382;
   __asm { syscall; Low latency system call }
   return result;
 }

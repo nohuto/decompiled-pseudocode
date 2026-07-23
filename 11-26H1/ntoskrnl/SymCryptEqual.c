@@ -1,8 +1,8 @@
 /*
- * XREFs of SymCryptEqual @ 0x140568374
+ * XREFs of SymCryptEqual @ 0x140567554
  * Callers:
- *     SymCryptRsaPkcs1CheckSignaturePadding @ 0x14055BF28 (SymCryptRsaPkcs1CheckSignaturePadding.c)
- *     SymCryptMlDsaVerifyEx @ 0x14055DDF0 (SymCryptMlDsaVerifyEx.c)
+ *     SymCryptRsaPkcs1CheckSignaturePadding @ 0x14055E410 (SymCryptRsaPkcs1CheckSignaturePadding.c)
+ *     SymCryptMlDsaVerifyEx @ 0x140560308 (SymCryptMlDsaVerifyEx.c)
  * Callees:
  *     <none>
  */

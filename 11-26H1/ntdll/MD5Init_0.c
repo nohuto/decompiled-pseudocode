@@ -1,11 +1,11 @@
 /*
- * XREFs of MD5Init_0 @ 0x18010FDB8
+ * XREFs of MD5Init_0 @ 0x18010F948
  * Callers:
- *     RtlpMD5Init @ 0x18013B590 (RtlpMD5Init.c)
+ *     RtlpMD5Init @ 0x18013B300 (RtlpMD5Init.c)
  * Callees:
- *     SymCryptWipeAsm @ 0x180137990 (SymCryptWipeAsm.c)
- *     __security_check_cookie @ 0x180162C90 (__security_check_cookie.c)
- *     memset$thunk$772440563353939046 @ 0x180170030 (memset$thunk$772440563353939046.c)
+ *     SymCryptWipeAsm @ 0x180137700 (SymCryptWipeAsm.c)
+ *     __security_check_cookie @ 0x180162B90 (__security_check_cookie.c)
+ *     memset$thunk$772440563353939046 @ 0x18016F030 (memset$thunk$772440563353939046.c)
  */
 
 __int64 __fastcall MD5Init_0(__int64 a1)
@@ -26,8 +26,8 @@ __int64 __fastcall MD5Init_0(__int64 a1)
   memset_thunk_772440563353939046(v6, 0, 0x6CuLL);
   SymCryptWipeAsm(v6, 112LL);
   v2 = v10;
-  v13 = xmmword_180178968;
-  *(_OWORD *)(a1 + 8) = xmmword_180178968;
+  v13 = xmmword_1801767C8;
+  *(_OWORD *)(a1 + 8) = xmmword_1801767C8;
   v8 = 0LL;
   *(_OWORD *)(a1 + 24) = v9;
   v6[0] = 0;

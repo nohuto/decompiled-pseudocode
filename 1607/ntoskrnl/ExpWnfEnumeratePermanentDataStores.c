@@ -1,9 +1,9 @@
 /*
- * XREFs of ExpWnfEnumeratePermanentDataStores @ 0x1406BA364
+ * XREFs of ExpWnfEnumeratePermanentDataStores @ 0x1406BA49C
  * Callers:
- *     ExpWnfDeletePermanentStateData @ 0x1406BA198 (ExpWnfDeletePermanentStateData.c)
+ *     ExpWnfDeletePermanentStateData @ 0x1406BA2D0 (ExpWnfDeletePermanentStateData.c)
  * Callees:
- *     ExpWnfGetPermanentDataStoreHandleByScopeId @ 0x14057FC78 (ExpWnfGetPermanentDataStoreHandleByScopeId.c)
+ *     ExpWnfGetPermanentDataStoreHandleByScopeId @ 0x140580124 (ExpWnfGetPermanentDataStoreHandleByScopeId.c)
  */
 
 NTSTATUS __fastcall ExpWnfEnumeratePermanentDataStores(int a1, void *a2, __int64 a3, HANDLE *KeyHandle)

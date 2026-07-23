@@ -1,21 +1,21 @@
 /*
- * XREFs of CmpDoFileSetSizeEx @ 0x140980EB4
+ * XREFs of CmpDoFileSetSizeEx @ 0x1409696C4
  * Callers:
- *     CmShutdownSystem2 @ 0x140667BF4 (CmShutdownSystem2.c)
- *     CmpLoadHiveThread @ 0x1407CB060 (CmpLoadHiveThread.c)
- *     CmpMountPreloadedHives @ 0x1407CBE38 (CmpMountPreloadedHives.c)
- *     HvTruncateAllLogFilesIfRequired @ 0x14097C070 (HvTruncateAllLogFilesIfRequired.c)
- *     HvTruncateCurrentLogFileIfRequired @ 0x14097C720 (HvTruncateCurrentLogFileIfRequired.c)
- *     CmpCompleteUnloadKey @ 0x14097CB58 (CmpCompleteUnloadKey.c)
- *     HvWriteLogFile @ 0x14098041C (HvWriteLogFile.c)
- *     HvpAddBin @ 0x140980584 (HvpAddBin.c)
- *     HvWriteExternal @ 0x140A6D050 (HvWriteExternal.c)
- *     HvpPerformLogFileRecovery @ 0x140AB060C (HvpPerformLogFileRecovery.c)
+ *     CmShutdownSystem2 @ 0x1406664E4 (CmShutdownSystem2.c)
+ *     CmpLoadHiveThread @ 0x1407CB550 (CmpLoadHiveThread.c)
+ *     CmpMountPreloadedHives @ 0x1407CC328 (CmpMountPreloadedHives.c)
+ *     HvTruncateAllLogFilesIfRequired @ 0x140964880 (HvTruncateAllLogFilesIfRequired.c)
+ *     HvTruncateCurrentLogFileIfRequired @ 0x140964F30 (HvTruncateCurrentLogFileIfRequired.c)
+ *     CmpCompleteUnloadKey @ 0x140965368 (CmpCompleteUnloadKey.c)
+ *     HvWriteLogFile @ 0x140968C2C (HvWriteLogFile.c)
+ *     HvpAddBin @ 0x140968D94 (HvpAddBin.c)
+ *     HvWriteExternal @ 0x140A66710 (HvWriteExternal.c)
+ *     HvpPerformLogFileRecovery @ 0x140AAB57C (HvpPerformLogFileRecovery.c)
  * Callees:
- *     IoSetThreadHardErrorMode @ 0x14045D2F0 (IoSetThreadHardErrorMode.c)
- *     ZwSetInformationFile @ 0x1406A68F0 (ZwSetInformationFile.c)
- *     HvpLogTypeToLogArrayIndex @ 0x140981264 (HvpLogTypeToLogArrayIndex.c)
- *     CmpAdjustRequestedFileSize @ 0x140A67F74 (CmpAdjustRequestedFileSize.c)
+ *     IoSetThreadHardErrorMode @ 0x1404523B0 (IoSetThreadHardErrorMode.c)
+ *     ZwSetInformationFile @ 0x1406A7890 (ZwSetInformationFile.c)
+ *     HvpLogTypeToLogArrayIndex @ 0x140969A74 (HvpLogTypeToLogArrayIndex.c)
+ *     CmpAdjustRequestedFileSize @ 0x140A61474 (CmpAdjustRequestedFileSize.c)
  */
 
 __int64 __fastcall CmpDoFileSetSizeEx(__int64 a1, __int64 a2, unsigned __int64 a3, char a4)
@@ -76,8 +76,8 @@ __int64 __fastcall CmpDoFileSetSizeEx(__int64 a1, __int64 a2, unsigned __int64 a
   else
   {
     CmRegistryIODebug = 3;
-    qword_140FD8ED0 = (__int64)v6;
-    dword_140FD8ED8 = v11;
+    qword_140FD9EE0 = (__int64)v6;
+    dword_140FD9EE8 = v11;
   }
   IoSetThreadHardErrorMode(v10);
   return v14;

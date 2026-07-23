@@ -11,49 +11,49 @@
  *     HvpViewMapTouchPages @ 0x140692C58 (HvpViewMapTouchPages.c)
  */
 
-__int64 __fastcall HvpViewMapMakeViewRangeValid(__int64 a1, _QWORD *a2, __int64 a3, __int64 a4, char a5)
+__int64 __fastcall HvpViewMapMakeViewRangeValid(ULONG_PTR a1, _QWORD *a2, __int64 a3, __int64 a4, char a5)
 {
   __int64 v5; // r14
-  unsigned __int64 v6; // rdi
-  __int64 v7; // r14
-  int v12; // esi
-  __int64 v13; // rcx
+  SIZE_T v6; // rdi
+  void *v7; // r14
+  NTSTATUS v12; // esi
+  ULONG_PTR v13; // rcx
   char v14; // r13
-  __int64 v15; // rcx
+  ULONG_PTR v15; // rcx
   __int64 i; // r8
   unsigned __int64 v17; // rdx
   char v18; // cl
   __int64 v19; // rax
   char v21; // cl
   __int64 v22; // r8
-  int v23; // [rsp+60h] [rbp+8h] BYREF
+  __int64 v23; // [rsp+60h] [rbp+8h] BYREF
 
   v5 = a2[7] - a2[3];
   v6 = a4 - a3;
-  v23 = 0;
-  v7 = a3 + v5;
-  v12 = CmSiProtectViewOfSection(a1, *(__int64 **)(a1 + 24), v7, a4 - a3, 2u, (__int64)&v23);
+  LODWORD(v23) = 0;
+  v7 = (void *)(a3 + v5);
+  v12 = CmSiProtectViewOfSection(a1, *(void ***)(a1 + 24), v7, a4 - a3, 2u, (ULONG *)&v23);
   if ( v12 >= 0 )
   {
-    CmSiPrefetchVirtualMemoryRange(*(__int64 **)(a1 + 24), v7, v6);
+    CmSiPrefetchVirtualMemoryRange(*(void ***)(a1 + 24), v7, v6);
     v14 = 0;
     if ( (*(_DWORD *)(a1 + 32) & 2) != 0 )
     {
-      if ( a5 && (int)CmSiLockViewOfSection(v13, *(__int64 **)(a1 + 24), v7, v6) >= 0 )
+      if ( a5 && CmSiLockViewOfSection(v13, *(void ***)(a1 + 24), v7, v6) >= 0 )
       {
         v14 = 1;
         a2[8] += v6 >> 12;
         *(_DWORD *)(a1 + 32) |= 4u;
         goto LABEL_8;
       }
-      v12 = CmSiProtectViewOfSection(v13, *(__int64 **)(a1 + 24), v7, v6, 8u, (__int64)&v23);
+      v12 = CmSiProtectViewOfSection(v13, *(void ***)(a1 + 24), v7, v6, 8u, (ULONG *)&v23);
       if ( v12 >= 0 )
       {
         LOBYTE(v22) = 1;
         v12 = HvpViewMapTouchPages(v7, v6, v22);
         if ( v12 >= 0 )
         {
-          CmSiProtectViewOfSection(v15, *(__int64 **)(a1 + 24), v7, v6, 2u, (__int64)&v23);
+          CmSiProtectViewOfSection(v15, *(void ***)(a1 + 24), v7, v6, 2u, (ULONG *)&v23);
           goto LABEL_8;
         }
       }
@@ -97,7 +97,7 @@ LABEL_8:
         return 0;
       }
     }
-    CmSiProtectViewOfSection(v15, *(__int64 **)(a1 + 24), v7, v6, 0x80000001, (__int64)&v23);
+    CmSiProtectViewOfSection(v15, *(void ***)(a1 + 24), v7, v6, 0x80000001, (ULONG *)&v23);
   }
   return (unsigned int)v12;
 }

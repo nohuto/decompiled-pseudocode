@@ -1,14 +1,14 @@
 /*
- * XREFs of VfDeleteResource @ 0x140C406AC
+ * XREFs of VfDeleteResource @ 0x140C466BC
  * Callers:
- *     VfMiscExDeleteResourceLite_Entry @ 0x140C3C8B0 (VfMiscExDeleteResourceLite_Entry.c)
+ *     VfMiscExDeleteResourceLite_Entry @ 0x140C428C0 (VfMiscExDeleteResourceLite_Entry.c)
  * Callees:
- *     VfAvlFreeNodeNoLock @ 0x1403B7710 (VfAvlFreeNodeNoLock.c)
- *     VfAvlDeleteTreeNode @ 0x1403B7A64 (VfAvlDeleteTreeNode.c)
- *     VfAvlLookupTreeNode @ 0x1403B7E8C (VfAvlLookupTreeNode.c)
- *     VfAvlCleanupLockContext @ 0x1403B84FC (VfAvlCleanupLockContext.c)
- *     VfAvlInitializeLockContext @ 0x1404DCB40 (VfAvlInitializeLockContext.c)
- *     CarReportRuleViolationFromNt @ 0x140C2BF1C (CarReportRuleViolationFromNt.c)
+ *     VfAvlFreeNodeNoLock @ 0x1403C1610 (VfAvlFreeNodeNoLock.c)
+ *     VfAvlDeleteTreeNode @ 0x1403C1964 (VfAvlDeleteTreeNode.c)
+ *     VfAvlLookupTreeNode @ 0x1403C1D8C (VfAvlLookupTreeNode.c)
+ *     VfAvlCleanupLockContext @ 0x1403C23FC (VfAvlCleanupLockContext.c)
+ *     VfAvlInitializeLockContext @ 0x1404D6220 (VfAvlInitializeLockContext.c)
+ *     CarReportRuleViolationFromNt @ 0x140C31F2C (CarReportRuleViolationFromNt.c)
  */
 
 void __fastcall VfDeleteResource(ULONG_PTR BugCheckParameter2, __int64 a2)
@@ -19,7 +19,7 @@ void __fastcall VfDeleteResource(ULONG_PTR BugCheckParameter2, __int64 a2)
 
   v5 = 0LL;
   v6 = 0LL;
-  if ( ViResourceInitialized && qword_140FF0058 )
+  if ( ViResourceInitialized && qword_140FF1058 )
   {
     v4 = 0LL;
     VfAvlInitializeLockContext((__int64)&v5, 0);

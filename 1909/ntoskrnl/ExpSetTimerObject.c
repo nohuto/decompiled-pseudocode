@@ -118,13 +118,13 @@ __int64 __fastcall ExpSetTimerObject(
   _QWORD *v74; // rcx
   signed __int64 v75; // rax
   struct _KTHREAD *v76; // rsi
-  __int64 v77; // rdx
-  ULONG_PTR v78; // r11
-  unsigned int v79; // r10d
-  unsigned __int8 v80; // r12
-  __int64 v81; // r14
-  unsigned int v82; // r8d
-  __int64 v83; // rcx
+  ULONG_PTR v77; // r11
+  unsigned int v78; // r10d
+  unsigned __int8 v79; // r12
+  __int64 v80; // r14
+  unsigned int v81; // r8d
+  __int64 v82; // rcx
+  __int64 v83; // rdx
   int v84; // ecx
   unsigned __int8 v85; // r13
   __int64 v86; // rdx
@@ -1029,67 +1029,67 @@ LABEL_42:
     v76 = KeGetCurrentThread();
     if ( (unsigned int)MiGetSystemRegionType(&ExpWakeTimerLock, v42, v13, a4) == 1 )
     {
-      v79 = MmGetSessionIdEx(v76->ApcState.Process);
-      v78 = (ULONG_PTR)&ExpWakeTimerLock;
+      v78 = MmGetSessionIdEx(v76->ApcState.Process);
+      v77 = (ULONG_PTR)&ExpWakeTimerLock;
     }
     else
     {
-      v79 = -1;
+      v78 = -1;
     }
     --v76->SpecialApcDisable;
-    v80 = ++v76->AbAllocationRegionCount;
-    v81 = 0LL;
-    v82 = ((char)v76->AbEntrySummary | (char)v76->AbOrphanedEntrySummary) ^ 0x3F;
-    v71 = !_BitScanReverse((unsigned int *)&v83, v82);
-    v160 = v83;
+    v79 = ++v76->AbAllocationRegionCount;
+    v80 = 0LL;
+    v81 = ((char)v76->AbEntrySummary | (char)v76->AbOrphanedEntrySummary) ^ 0x3F;
+    v71 = !_BitScanReverse((unsigned int *)&v82, v81);
+    v160 = v82;
     if ( !v71 )
     {
       while ( 1 )
       {
-        v82 &= ~(1 << v83);
-        v77 = (__int64)&v76->LockEntries[v83];
-        if ( (*(_BYTE *)(v77 + 26) & 1) != 0
-          && (*(_DWORD *)(v77 + 32) & 1) == 0
-          && (*(_QWORD *)(v77 + 32) & 0x7FFFFFFFFFFFFFFCLL) == (v78 & 0x7FFFFFFFFFFFFFFCLL)
-          && *(_DWORD *)(v77 + 40) == v79 )
+        v81 &= ~(1 << v82);
+        v83 = (__int64)&v76->LockEntries[v82];
+        if ( (*(_BYTE *)(v83 + 26) & 1) != 0
+          && (*(_DWORD *)(v83 + 32) & 1) == 0
+          && (*(_QWORD *)(v83 + 32) & 0x7FFFFFFFFFFFFFFCLL) == (v77 & 0x7FFFFFFFFFFFFFFCLL)
+          && *(_DWORD *)(v83 + 40) == v78 )
         {
-          *(_BYTE *)(v77 + 26) &= ~1u;
-          if ( *(_QWORD *)(v77 + 32) )
+          *(_BYTE *)(v83 + 26) &= ~1u;
+          if ( *(_QWORD *)(v83 + 32) )
             break;
         }
-        v71 = !_BitScanReverse((unsigned int *)&v83, v82);
-        v160 = v83;
+        v71 = !_BitScanReverse((unsigned int *)&v82, v81);
+        v160 = v82;
         if ( v71 )
           goto LABEL_120;
       }
-      v81 = (__int64)&v76->LockEntries[v83];
+      v80 = (__int64)&v76->LockEntries[v82];
     }
 LABEL_120:
-    if ( v81 )
+    if ( v80 )
     {
-      *(_BYTE *)(v81 + 32) |= 2u;
-      if ( *(__int64 *)(v81 + 32) < 0 )
+      *(_BYTE *)(v80 + 32) |= 2u;
+      if ( *(__int64 *)(v80 + 32) < 0 )
       {
-        KiAbEntryRemoveFromTree(v81, v77);
-        v78 = (ULONG_PTR)&ExpWakeTimerLock;
+        KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)v80);
+        v77 = (ULONG_PTR)&ExpWakeTimerLock;
       }
-      v84 = *(_DWORD *)(v81 + 88);
+      v84 = *(_DWORD *)(v80 + 88);
       v149 = v84 & 0x1FFFF;
-      *(_DWORD *)(v81 + 88) = v84 & 0xFFFE0000;
-      *(_BYTE *)(v81 + 25) &= ~1u;
-      *(_QWORD *)(v81 + 32) = 0LL;
-      v85 = 1 << ((v81 - (__int64)v76 - 800) / 96);
-      if ( v80 == 1 )
+      *(_DWORD *)(v80 + 88) = v84 & 0xFFFE0000;
+      *(_BYTE *)(v80 + 25) &= ~1u;
+      *(_QWORD *)(v80 + 32) = 0LL;
+      v85 = 1 << ((v80 - (__int64)v76 - 800) / 96);
+      if ( v79 == 1 )
         v76->AbEntrySummary |= v85;
       else
         _InterlockedOr8((volatile signed __int8 *)&v76->AbOrphanedEntrySummary, v85);
     }
     else if ( (*((_DWORD *)&v76->0 + 1) & 0x10000) == 0 )
     {
-      KeBugCheckEx(0x162u, (ULONG_PTR)v76, v78, v79, 0LL);
+      KeBugCheckEx(0x162u, (ULONG_PTR)v76, v77, v78, 0LL);
     }
     --v76->AbAllocationRegionCount;
-    KiAbThreadRemoveBoosts(v76, v78, &v149);
+    KiAbThreadRemoveBoosts(v76, v77, &v149);
     v71 = v76->SpecialApcDisable++ == -1;
     if ( v71 && ($C6908ADE9723D0A04AF8EE82D8D15C40 *)v76->ApcState.ApcListHead[0].Flink != &v76->152 )
       KiCheckForKernelApcDelivery();

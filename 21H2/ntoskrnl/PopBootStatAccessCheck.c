@@ -1,18 +1,18 @@
 /*
- * XREFs of PopBootStatAccessCheck @ 0x1407C141C
+ * XREFs of PopBootStatAccessCheck @ 0x1407C193C
  * Callers:
- *     PopBootStatSet @ 0x14077F268 (PopBootStatSet.c)
- *     PopBootStatGet @ 0x1407C1130 (PopBootStatGet.c)
- *     PopBootStatCheckIntegrity @ 0x1408F22F4 (PopBootStatCheckIntegrity.c)
- *     PopBootStatRestoreDefaults @ 0x1408F2538 (PopBootStatRestoreDefaults.c)
+ *     PopBootStatSet @ 0x14077F428 (PopBootStatSet.c)
+ *     PopBootStatGet @ 0x1407C1650 (PopBootStatGet.c)
+ *     PopBootStatCheckIntegrity @ 0x1408F2454 (PopBootStatCheckIntegrity.c)
+ *     PopBootStatRestoreDefaults @ 0x1408F2698 (PopBootStatRestoreDefaults.c)
  * Callees:
- *     SeAccessCheck @ 0x140206760 (SeAccessCheck.c)
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     SeCaptureSubjectContext @ 0x140655B30 (SeCaptureSubjectContext.c)
- *     SeReleaseSubjectContext @ 0x1406568F0 (SeReleaseSubjectContext.c)
- *     ObReleaseObjectSecurity @ 0x14065F410 (ObReleaseObjectSecurity.c)
- *     ObpGetObjectSecurity @ 0x14065F800 (ObpGetObjectSecurity.c)
- *     ObReferenceObjectByHandle @ 0x1406F0BC0 (ObReferenceObjectByHandle.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     SeAccessCheck @ 0x1402AB090 (SeAccessCheck.c)
+ *     SeCaptureSubjectContext @ 0x14064A950 (SeCaptureSubjectContext.c)
+ *     SeReleaseSubjectContext @ 0x14064B710 (SeReleaseSubjectContext.c)
+ *     ObReleaseObjectSecurity @ 0x140654230 (ObReleaseObjectSecurity.c)
+ *     ObpGetObjectSecurity @ 0x140654620 (ObpGetObjectSecurity.c)
+ *     ObReferenceObjectByHandle @ 0x140707FA0 (ObReferenceObjectByHandle.c)
  */
 
 int __fastcall PopBootStatAccessCheck(void *a1, KPROCESSOR_MODE a2, ACCESS_MASK a3)

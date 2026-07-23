@@ -14,10 +14,10 @@
  *     RtlGetCurrentServiceSessionId @ 0x180027780 (RtlGetCurrentServiceSessionId.c)
  */
 
-__int64 RtlGetSuiteMask()
+ULONG RtlGetSuiteMask(void)
 {
-  if ( (unsigned int)RtlGetCurrentServiceSessionId() )
-    return *((unsigned int *)NtCurrentPeb()->SharedData + 5);
+  if ( RtlGetCurrentServiceSessionId() )
+    return *((_DWORD *)NtCurrentPeb()->SharedData + 5);
   else
     return MEMORY[0x7FFE02D0];
 }

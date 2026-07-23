@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlpDestroyHeapSegment @ 0x140915E04
+ * XREFs of RtlpDestroyHeapSegment @ 0x140915F64
  * Callers:
- *     RtlDestroyHeap @ 0x140772B30 (RtlDestroyHeap.c)
+ *     RtlDestroyHeap @ 0x140772CF0 (RtlDestroyHeap.c)
  * Callees:
- *     ZwFreeVirtualMemory @ 0x1403FA760 (ZwFreeVirtualMemory.c)
- *     RtlpLogHeapFailure @ 0x14059356C (RtlpLogHeapFailure.c)
+ *     ZwFreeVirtualMemory @ 0x1403FA940 (ZwFreeVirtualMemory.c)
+ *     RtlpLogHeapFailure @ 0x14059379C (RtlpLogHeapFailure.c)
  */
 
 NTSTATUS __fastcall RtlpDestroyHeapSegment(__int64 a1)

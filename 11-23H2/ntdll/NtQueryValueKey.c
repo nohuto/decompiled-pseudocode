@@ -39,21 +39,27 @@
  *     RtlpQueryEafPlusModuleList @ 0x1800EF7F0 (RtlpQueryEafPlusModuleList.c)
  *     RtlpGetBootStatusPathFromRegistry @ 0x1800FAD90 (RtlpGetBootStatusPathFromRegistry.c)
  *     RtlpHpOverrideGCInterval @ 0x180100C58 (RtlpHpOverrideGCInterval.c)
- *     RtlpGetUserLocaleName @ 0x18010B184 (RtlpGetUserLocaleName.c)
- *     RtlpIsCustomLocale @ 0x18010B264 (RtlpIsCustomLocale.c)
- *     RtlOsDeploymentState @ 0x1801100C0 (RtlOsDeploymentState.c)
- *     RtlQueryValidationRunlevel @ 0x180110200 (RtlQueryValidationRunlevel.c)
- *     _RtlpMuiRegPopulateBaseLanguages @ 0x1801154B0 (_RtlpMuiRegPopulateBaseLanguages.c)
- *     OpenGlobalizationUserSettingsKey_ForSingleUserModel @ 0x18012EBC4 (OpenGlobalizationUserSettingsKey_ForSingleUserModel.c)
+ *     RtlpGetUserLocaleName @ 0x18010B154 (RtlpGetUserLocaleName.c)
+ *     RtlpIsCustomLocale @ 0x18010B234 (RtlpIsCustomLocale.c)
+ *     RtlOsDeploymentState @ 0x180110090 (RtlOsDeploymentState.c)
+ *     RtlQueryValidationRunlevel @ 0x1801101D0 (RtlQueryValidationRunlevel.c)
+ *     _RtlpMuiRegPopulateBaseLanguages @ 0x180115480 (_RtlpMuiRegPopulateBaseLanguages.c)
+ *     OpenGlobalizationUserSettingsKey_ForSingleUserModel @ 0x18012EBF0 (OpenGlobalizationUserSettingsKey_ForSingleUserModel.c)
  * Callees:
  *     <none>
  */
 
-__int64 NtQueryValueKey()
+NTSTATUS __cdecl NtQueryValueKey(
+        HANDLE KeyHandle,
+        PUNICODE_STRING ValueName,
+        KEY_VALUE_INFORMATION_CLASS KeyValueInformationClass,
+        PVOID KeyValueInformation,
+        ULONG Length,
+        PULONG ResultLength)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 23LL;
+  result = 23;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

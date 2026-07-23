@@ -1,38 +1,39 @@
 /*
- * XREFs of LdrpReleaseLoaderLock @ 0x180004E10
+ * XREFs of LdrpReleaseLoaderLock @ 0x180031810
  * Callers:
- *     LdrEnumerateLoadedModules @ 0x180001F90 (LdrEnumerateLoadedModules.c)
- *     LdrUnlockLoaderLock @ 0x180003D60 (LdrUnlockLoaderLock.c)
- *     RtlExitUserProcess @ 0x180004320 (RtlExitUserProcess.c)
- *     LdrShutdownThread @ 0x1800045E0 (LdrShutdownThread.c)
- *     LdrpPrepareModuleForExecution @ 0x180004BA4 (LdrpPrepareModuleForExecution.c)
- *     LdrpInitializeThread @ 0x180012810 (LdrpInitializeThread.c)
- *     LdrInitShimEngineDynamic @ 0x180064C50 (LdrInitShimEngineDynamic.c)
- *     LdrpInitializeProcess @ 0x180066D74 (LdrpInitializeProcess.c)
- *     LdrQueryModuleInfoLocalLoaderUnlock @ 0x1800B2410 (LdrQueryModuleInfoLocalLoaderUnlock.c)
- *     LdrpInitializeImportRedirection @ 0x1800FA988 (LdrpInitializeImportRedirection.c)
- *     LdrpCompleteProcessCloning @ 0x180160B48 (LdrpCompleteProcessCloning.c)
+ *     LdrpPrepareModuleForExecution @ 0x1800315A4 (LdrpPrepareModuleForExecution.c)
+ *     LdrpInitializeThread @ 0x18003F210 (LdrpInitializeThread.c)
+ *     LdrQueryModuleInfoLocalLoaderUnlock @ 0x18007ECB0 (LdrQueryModuleInfoLocalLoaderUnlock.c)
+ *     LdrEnumerateLoadedModules @ 0x1800AAC50 (LdrEnumerateLoadedModules.c)
+ *     RtlExitUserProcess @ 0x1800AAE10 (RtlExitUserProcess.c)
+ *     LdrShutdownThread @ 0x1800AB0D0 (LdrShutdownThread.c)
+ *     LdrInitShimEngineDynamic @ 0x1800ACB80 (LdrInitShimEngineDynamic.c)
+ *     LdrpInitializeProcess @ 0x1800AEF54 (LdrpInitializeProcess.c)
+ *     LdrUnlockLoaderLock @ 0x1800F22A0 (LdrUnlockLoaderLock.c)
+ *     LdrpInitializeImportRedirection @ 0x1800F56E8 (LdrpInitializeImportRedirection.c)
+ *     LdrpCompleteProcessCloning @ 0x18015EF08 (LdrpCompleteProcessCloning.c)
  * Callees:
- *     RtlLeaveCriticalSection @ 0x1800149F0 (RtlLeaveCriticalSection.c)
- *     RtlGetCurrentServiceSessionId @ 0x180055A20 (RtlGetCurrentServiceSessionId.c)
- *     LdrpLogEtwEvent @ 0x18009B2F0 (LdrpLogEtwEvent.c)
+ *     LdrpLogEtwEvent @ 0x180030140 (LdrpLogEtwEvent.c)
+ *     RtlLeaveCriticalSection @ 0x1800413F0 (RtlLeaveCriticalSection.c)
+ *     RtlGetCurrentServiceSessionId @ 0x18006B600 (RtlGetCurrentServiceSessionId.c)
  */
 
-__int64 __fastcall LdrpReleaseLoaderLock(__int64 a1, unsigned __int8 a2, int a3)
+__int64 __fastcall LdrpReleaseLoaderLock(__int64 a1, char a2, int a3)
 {
+  __int64 v3; // rsi
   __int64 v5; // rbp
-  unsigned int v6; // edi
+  unsigned __int32 v6; // edi
   __int64 v7; // rbx
   _DWORD *SharedData; // rdx
   __int64 v9; // rcx
   _DWORD *v10; // rcx
-  int v12; // r8d
-  char *v13; // rcx
+  char *v12; // rcx
 
+  v3 = a3;
   v5 = 2147353477LL;
   v6 = RtlLeaveCriticalSection(&LdrpLoaderLock);
   v7 = 2147353476LL;
-  if ( a3 < 0 )
+  if ( (int)v3 < 0 )
   {
     SharedData = NtCurrentPeb()->SharedData;
     if ( SharedData && *SharedData )
@@ -41,14 +42,9 @@ __int64 __fastcall LdrpReleaseLoaderLock(__int64 a1, unsigned __int8 a2, int a3)
       v9 = 2147353476LL;
     if ( *(_BYTE *)v9 && (NtCurrentPeb()->TracingFlags & 4) != 0 )
     {
-      v13 = (unsigned int)RtlGetCurrentServiceSessionId()
-          ? (char *)NtCurrentPeb()->SharedData + 555
-          : (char *)2147353477;
-      if ( (*v13 & 0x20) != 0 )
-      {
-        LOBYTE(v12) = -94;
-        LdrpLogEtwEvent(5284, a3, v12, a2, 0LL, 0LL);
-      }
+      v12 = RtlGetCurrentServiceSessionId() ? (char *)NtCurrentPeb()->SharedData + 555 : (char *)2147353477;
+      if ( (*v12 & 0x20) != 0 )
+        LdrpLogEtwEvent(5284, v3, 162, a2, 0LL, 0LL);
     }
   }
   v10 = NtCurrentPeb()->SharedData;
@@ -56,10 +52,10 @@ __int64 __fastcall LdrpReleaseLoaderLock(__int64 a1, unsigned __int8 a2, int a3)
     v7 = (__int64)NtCurrentPeb()->SharedData + 554;
   if ( *(_BYTE *)v7 && (NtCurrentPeb()->TracingFlags & 4) != 0 )
   {
-    if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+    if ( RtlGetCurrentServiceSessionId() )
       v5 = (__int64)NtCurrentPeb()->SharedData + 555;
     if ( (*(_BYTE *)v5 & 0x20) != 0 )
-      LdrpLogEtwEvent(5282, 0, 0, a2, 0LL, 0LL);
+      LdrpLogEtwEvent(5282, 0LL, 0, a2, 0LL, 0LL);
   }
   return v6;
 }

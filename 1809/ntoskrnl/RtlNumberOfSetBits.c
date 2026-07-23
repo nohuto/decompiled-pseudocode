@@ -2,25 +2,25 @@
  * XREFs of RtlNumberOfSetBits @ 0x14000F440
  * Callers:
  *     RtlNumberOfClearBits @ 0x14000F420 (RtlNumberOfClearBits.c)
- *     ?StStart@?$ST_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_ST_CREATE_PARAMS@@@Z @ 0x1400E2BA0 (-StStart@-$ST_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_ST_CREATE_PARAMS@@@Z.c)
- *     ?StDmCleanup@?$ST_STORE@USM_TRAITS@@@@SAXPEAU_ST_DATA_MGR@1@K@Z @ 0x14011DA84 (-StDmCleanup@-$ST_STORE@USM_TRAITS@@@@SAXPEAU_ST_DATA_MGR@1@K@Z.c)
- *     ?StGetStatsWorker@?$ST_STORE@USM_TRAITS@@@@SAJPEAU1@W4_ST_STATS_LEVEL@@PEAU_ST_STATS@@PEAK@Z @ 0x140134DE4 (-StGetStatsWorker@-$ST_STORE@USM_TRAITS@@@@SAJPEAU1@W4_ST_STATS_LEVEL@@PEAU_ST_STATS@@PEAK@Z.c)
- *     HvpAddBin @ 0x1405A39BC (HvpAddBin.c)
- *     HvpGenerateLogEntry @ 0x1405A7860 (HvpGenerateLogEntry.c)
- *     PspQueryRateControlHistory @ 0x1405A7F5C (PspQueryRateControlHistory.c)
- *     HvFreeHivePartial @ 0x1405A8240 (HvFreeHivePartial.c)
- *     CmpFlushHive @ 0x1405B2F54 (CmpFlushHive.c)
- *     SepAddLuidToIndexEntry @ 0x14064EFAC (SepAddLuidToIndexEntry.c)
- *     SepGetLowBoxNumberEntry @ 0x14065C240 (SepGetLowBoxNumberEntry.c)
- *     HvWriteHivePrimaryFile @ 0x1406B8338 (HvWriteHivePrimaryFile.c)
- *     PopEvaluateGlobalUserStatus @ 0x1406DCA98 (PopEvaluateGlobalUserStatus.c)
- *     MiReleaseDriverPtes @ 0x14070E03C (MiReleaseDriverPtes.c)
- *     CmpMountPreloadedHives @ 0x1407357E0 (CmpMountPreloadedHives.c)
- *     CmpLoadHiveThread @ 0x140735B30 (CmpLoadHiveThread.c)
- *     HvpPerformLogFileRecovery @ 0x1407F7B60 (HvpPerformLogFileRecovery.c)
- *     HvFoldBackUnreconciledData @ 0x1407FAD28 (HvFoldBackUnreconciledData.c)
- *     HvpApplyLegacyLogFile @ 0x140806990 (HvpApplyLegacyLogFile.c)
- *     EtwQueryPerformanceTraceInformation @ 0x1408B9360 (EtwQueryPerformanceTraceInformation.c)
+ *     ?StStart@?$ST_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_ST_CREATE_PARAMS@@@Z @ 0x1400E2C20 (-StStart@-$ST_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_ST_CREATE_PARAMS@@@Z.c)
+ *     ?StDmCleanup@?$ST_STORE@USM_TRAITS@@@@SAXPEAU_ST_DATA_MGR@1@K@Z @ 0x14011DAF4 (-StDmCleanup@-$ST_STORE@USM_TRAITS@@@@SAXPEAU_ST_DATA_MGR@1@K@Z.c)
+ *     ?StGetStatsWorker@?$ST_STORE@USM_TRAITS@@@@SAJPEAU1@W4_ST_STATS_LEVEL@@PEAU_ST_STATS@@PEAK@Z @ 0x140134EB4 (-StGetStatsWorker@-$ST_STORE@USM_TRAITS@@@@SAJPEAU1@W4_ST_STATS_LEVEL@@PEAU_ST_STATS@@PEAK@Z.c)
+ *     HvpAddBin @ 0x1405A49BC (HvpAddBin.c)
+ *     HvpGenerateLogEntry @ 0x1405A8860 (HvpGenerateLogEntry.c)
+ *     PspQueryRateControlHistory @ 0x1405A8F5C (PspQueryRateControlHistory.c)
+ *     HvFreeHivePartial @ 0x1405A9240 (HvFreeHivePartial.c)
+ *     CmpFlushHive @ 0x1405B3F54 (CmpFlushHive.c)
+ *     SepAddLuidToIndexEntry @ 0x14065016C (SepAddLuidToIndexEntry.c)
+ *     SepGetLowBoxNumberEntry @ 0x14065D400 (SepGetLowBoxNumberEntry.c)
+ *     HvWriteHivePrimaryFile @ 0x1406B95D8 (HvWriteHivePrimaryFile.c)
+ *     PopEvaluateGlobalUserStatus @ 0x1406DDD38 (PopEvaluateGlobalUserStatus.c)
+ *     MiReleaseDriverPtes @ 0x14070F2DC (MiReleaseDriverPtes.c)
+ *     CmpMountPreloadedHives @ 0x1407369D0 (CmpMountPreloadedHives.c)
+ *     CmpLoadHiveThread @ 0x140736D20 (CmpLoadHiveThread.c)
+ *     HvpPerformLogFileRecovery @ 0x1407F8D60 (HvpPerformLogFileRecovery.c)
+ *     HvFoldBackUnreconciledData @ 0x1407FBF28 (HvFoldBackUnreconciledData.c)
+ *     HvpApplyLegacyLogFile @ 0x140807B90 (HvpApplyLegacyLogFile.c)
+ *     EtwQueryPerformanceTraceInformation @ 0x1408BA620 (EtwQueryPerformanceTraceInformation.c)
  * Callees:
  *     <none>
  */
@@ -72,7 +72,7 @@ ULONG __stdcall RtlNumberOfSetBits(PRTL_BITMAP BitMapHeader)
     v13 = *(_BYTE *)Buffer;
     Buffer = (unsigned int *)((char *)Buffer + 1);
     if ( i == v7 - 1 && v5 )
-      v13 &= byte_140362158[SizeOfBitMap & 7];
+      v13 &= byte_1403630E8[SizeOfBitMap & 7];
     ++i;
     v1 += RtlpBitsClearTotal[(unsigned __int8)~v13];
   }
@@ -99,7 +99,7 @@ ULONG __stdcall RtlNumberOfSetBits(PRTL_BITMAP BitMapHeader)
     v18 = *(_BYTE *)Buffer;
     Buffer = (unsigned int *)((char *)Buffer + 1);
     if ( i == v7 - 1 && v5 )
-      v18 &= byte_140362158[SizeOfBitMap & 7];
+      v18 &= byte_1403630E8[SizeOfBitMap & 7];
     ++i;
     v1 += RtlpBitsClearTotal[(unsigned __int8)~v18];
   }

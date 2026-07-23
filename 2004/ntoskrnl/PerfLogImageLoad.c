@@ -14,13 +14,13 @@ void __fastcall PerfLogImageLoad(unsigned __int16 *a1, __int64 a2, int *a3)
 {
   int v5; // ecx
   int v6; // edx
-  __int64 v7; // rax
-  __int64 v8[2]; // [rsp+40h] [rbp-98h] BYREF
+  PIMAGE_NT_HEADERS v7; // rax
+  PVOID v8[2]; // [rsp+40h] [rbp-98h] BYREF
   int v9; // [rsp+50h] [rbp-88h]
   __int64 v10; // [rsp+54h] [rbp-84h]
   char v11; // [rsp+5Ch] [rbp-7Ch]
   _BYTE v12[3]; // [rsp+5Dh] [rbp-7Bh]
-  __int64 v13; // [rsp+60h] [rbp-78h]
+  unsigned __int64 ImageBase; // [rsp+60h] [rbp-78h]
   __int64 v14; // [rsp+68h] [rbp-70h]
   __int64 v15; // [rsp+70h] [rbp-68h]
   __int64 v16; // [rsp+78h] [rbp-60h]
@@ -38,23 +38,23 @@ void __fastcall PerfLogImageLoad(unsigned __int16 *a1, __int64 a2, int *a3)
       v5 = *(_DWORD *)(a2 + 1088);
     else
       v5 = 0;
-    v8[0] = *((_QWORD *)a3 + 1);
-    v8[1] = *((_QWORD *)a3 + 3);
+    v8[0] = *((PVOID *)a3 + 1);
+    v8[1] = *((PVOID *)a3 + 3);
     v9 = v5;
     *(_WORD *)&v12[1] = 0;
     v14 = 0LL;
     v15 = 0LL;
     v10 = 0LL;
-    v13 = 0LL;
+    ImageBase = 0LL;
     v6 = *a3;
     v11 = ((unsigned int)*a3 >> 12) & 0xF;
     *(_WORD *)v12 = BYTE2(v6) & 7;
     v7 = RtlImageNtHeader(v8[0]);
     if ( v7 )
     {
-      LODWORD(v10) = *(_DWORD *)(v7 + 88);
-      HIDWORD(v10) = *(_DWORD *)(v7 + 8);
-      v13 = *(_QWORD *)(v7 + 48);
+      LODWORD(v10) = v7->OptionalHeader.CheckSum;
+      HIDWORD(v10) = v7->FileHeader.TimeDateStamp;
+      ImageBase = v7->OptionalHeader.ImageBase;
     }
     if ( EtwpHostSiloState != -4516 && (*(_DWORD *)(EtwpHostSiloState + 4516) & 4) != 0 )
       EtwpPsProvTraceImage(a1, v8, 5121LL, 0LL);

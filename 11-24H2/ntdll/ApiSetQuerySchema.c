@@ -1,5 +1,5 @@
 /*
- * XREFs of ApiSetQuerySchema @ 0x18015E350
+ * XREFs of ApiSetQuerySchema @ 0x18015C710
  * Callers:
  *     <none>
  * Callees:

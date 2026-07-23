@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpIommuEarlyFaultDpcRoutine @ 0x140553CA0
+ * XREFs of HalpIommuEarlyFaultDpcRoutine @ 0x1405515E0
  * Callers:
  *     <none>
  * Callees:
- *     HalpIommuLogEarlyFault @ 0x140554200 (HalpIommuLogEarlyFault.c)
+ *     HalpIommuLogEarlyFault @ 0x140551B40 (HalpIommuLogEarlyFault.c)
  */
 
 void __fastcall HalpIommuEarlyFaultDpcRoutine(

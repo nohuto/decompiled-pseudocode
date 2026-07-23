@@ -1,52 +1,44 @@
 /*
- * XREFs of LdrAddRefDll @ 0x180039C20
+ * XREFs of LdrAddRefDll @ 0x180039C10
  * Callers:
- *     TppAlpcpExecuteCallback @ 0x18001D460 (TppAlpcpExecuteCallback.c)
- *     TppWorkpExecuteCallback @ 0x180020650 (TppWorkpExecuteCallback.c)
- *     RtlQueueWorkItem @ 0x180039CF0 (RtlQueueWorkItem.c)
- *     TppExecuteWaitCallback @ 0x18003AD54 (TppExecuteWaitCallback.c)
- *     TppWorkCallbackPrologRelease @ 0x18003AFD0 (TppWorkCallbackPrologRelease.c)
- *     TppIopExecuteCallback @ 0x18003B1A0 (TppIopExecuteCallback.c)
- *     TppJobpExecuteCallback @ 0x180084260 (TppJobpExecuteCallback.c)
+ *     TppAlpcpExecuteCallback @ 0x18001D450 (TppAlpcpExecuteCallback.c)
+ *     TppWorkpExecuteCallback @ 0x180020640 (TppWorkpExecuteCallback.c)
+ *     RtlQueueWorkItem @ 0x180039CE0 (RtlQueueWorkItem.c)
+ *     TppExecuteWaitCallback @ 0x18003AD44 (TppExecuteWaitCallback.c)
+ *     TppWorkCallbackPrologRelease @ 0x18003AFC0 (TppWorkCallbackPrologRelease.c)
+ *     TppIopExecuteCallback @ 0x18003B190 (TppIopExecuteCallback.c)
+ *     TppJobpExecuteCallback @ 0x180084250 (TppJobpExecuteCallback.c)
  * Callees:
- *     LdrpFindLoadedDllByHandle @ 0x180031C50 (LdrpFindLoadedDllByHandle.c)
- *     LdrpDereferenceModule @ 0x180032238 (LdrpDereferenceModule.c)
- *     LdrpIncrementModuleLoadCount @ 0x180039C90 (LdrpIncrementModuleLoadCount.c)
- *     LdrpPinModule @ 0x18007E418 (LdrpPinModule.c)
+ *     LdrpFindLoadedDllByHandle @ 0x180031C40 (LdrpFindLoadedDllByHandle.c)
+ *     LdrpDereferenceModule @ 0x180032228 (LdrpDereferenceModule.c)
+ *     LdrpIncrementModuleLoadCount @ 0x180039C80 (LdrpIncrementModuleLoadCount.c)
+ *     LdrpPinModule @ 0x18007E408 (LdrpPinModule.c)
  */
 
-__int64 __fastcall LdrAddRefDll(int a1, __int64 a2, __int64 a3, __int64 a4)
+NTSTATUS __cdecl LdrAddRefDll(ULONG Flags, PVOID DllHandle)
 {
-  char v4; // di
-  int LoadedDllByHandle; // ebx
-  bool v6; // zf
-  __int64 v7; // rdi
-  int Count; // eax
-  char *v9; // rdx
-  __int64 v10; // r8
-  __int64 v11; // r9
-  int v13; // [rsp+30h] [rbp+8h] BYREF
-  __int64 v14; // [rsp+40h] [rbp+18h] BYREF
+  char v2; // di
+  NTSTATUS LoadedDllByHandle; // ebx
+  bool v4; // zf
+  char *v5; // rdi
+  NTSTATUS Count; // eax
+  int v8; // [rsp+30h] [rbp+8h] BYREF
+  PVOID BaseAddress; // [rsp+40h] [rbp+18h] BYREF
 
-  v4 = a1;
-  if ( (a1 & 0xFFFFFFFE) != 0 )
+  v2 = Flags;
+  if ( (Flags & 0xFFFFFFFE) != 0 )
+    return -1073741811;
+  LoadedDllByHandle = LdrpFindLoadedDllByHandle((__int64)DllHandle, (__int64 *)&BaseAddress, &v8);
+  if ( LoadedDllByHandle >= 0 )
   {
-    return (unsigned int)-1073741811;
+    v4 = (v2 & 1) == 0;
+    v5 = (char *)BaseAddress;
+    if ( v4 )
+      Count = LdrpIncrementModuleLoadCount(BaseAddress);
+    else
+      Count = LdrpPinModule(BaseAddress);
+    LoadedDllByHandle = Count;
+    LdrpDereferenceModule(v5);
   }
-  else
-  {
-    LoadedDllByHandle = LdrpFindLoadedDllByHandle(a2, (char *)&v14, &v13, a4);
-    if ( LoadedDllByHandle >= 0 )
-    {
-      v6 = (v4 & 1) == 0;
-      v7 = v14;
-      if ( v6 )
-        Count = LdrpIncrementModuleLoadCount(v14);
-      else
-        Count = LdrpPinModule(v14);
-      LoadedDllByHandle = Count;
-      LdrpDereferenceModule(v7, v9, v10, v11);
-    }
-  }
-  return (unsigned int)LoadedDllByHandle;
+  return LoadedDllByHandle;
 }

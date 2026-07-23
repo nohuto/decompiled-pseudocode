@@ -1,11 +1,11 @@
 /*
- * XREFs of FsRtlpTieringHeatEventsControlCallbackV2 @ 0x1405B7D80
+ * XREFs of FsRtlpTieringHeatEventsControlCallbackV2 @ 0x1405BA5F0
  * Callers:
  *     <none>
  * Callees:
- *     ExAcquireResourceSharedLite @ 0x1402B3C80 (ExAcquireResourceSharedLite.c)
- *     ExReleaseResourceLite @ 0x1402B4CF0 (ExReleaseResourceLite.c)
- *     McTemplateK0jq_EtwWriteTransfer @ 0x1405B7EA4 (McTemplateK0jq_EtwWriteTransfer.c)
+ *     ExAcquireResourceSharedLite @ 0x1402FE950 (ExAcquireResourceSharedLite.c)
+ *     ExReleaseResourceLite @ 0x1402FF9C0 (ExReleaseResourceLite.c)
+ *     McTemplateK0jq_EtwWriteTransfer @ 0x1405BA714 (McTemplateK0jq_EtwWriteTransfer.c)
  */
 
 void __fastcall FsRtlpTieringHeatEventsControlCallbackV2(
@@ -26,7 +26,7 @@ void __fastcall FsRtlpTieringHeatEventsControlCallbackV2(
   int v13; // eax
   int v14; // eax
   __int64 v15; // rdx
-  unsigned int *i; // rbx
+  __int64 i; // rbx
 
   if ( CallbackContext && ControlCode == 1 )
   {
@@ -51,14 +51,14 @@ void __fastcall FsRtlpTieringHeatEventsControlCallbackV2(
         v14 = ~v11 & v13;
       *v12 = v14;
     }
-    ExAcquireResourceSharedLite((PERESOURCE)&VslpReservedTransferLock.ForegroundLossTime, 1u);
-    for ( i = *(unsigned int **)&VslpReservedTransferLock.PriorityFloorSummary;
-          i != &VslpReservedTransferLock.PriorityFloorSummary;
-          i = *(unsigned int **)i )
+    ExAcquireResourceSharedLite((PERESOURCE)&VslpReservedTransferLock.ReadTransferCount, 1u);
+    for ( i = VslpReservedTransferLock.WriteOperationCount;
+          (__int64 *)i != &VslpReservedTransferLock.WriteOperationCount;
+          i = *(_QWORD *)i )
     {
-      if ( (VslpReservedTransferLock.PriorityFloorCounts[24] & 1) != 0 )
-        McTemplateK0jq_EtwWriteTransfer(&MS_StorageTiering_Provider_Context, v15, 0LL, i + 5, i[9]);
+      if ( (VslpReservedTransferLock.ReadOperationCount & 1) != 0 )
+        McTemplateK0jq_EtwWriteTransfer(&MS_StorageTiering_Provider_Context, v15, 0LL, i + 20, *(_DWORD *)(i + 36));
     }
-    ExReleaseResourceLite((PERESOURCE)&VslpReservedTransferLock.ForegroundLossTime);
+    ExReleaseResourceLite((PERESOURCE)&VslpReservedTransferLock.ReadTransferCount);
   }
 }

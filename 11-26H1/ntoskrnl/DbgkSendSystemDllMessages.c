@@ -1,24 +1,24 @@
 /*
- * XREFs of DbgkSendSystemDllMessages @ 0x140B51ED8
+ * XREFs of DbgkSendSystemDllMessages @ 0x140B54778
  * Callers:
- *     DbgkpPostFakeThreadMessages @ 0x1409556F0 (DbgkpPostFakeThreadMessages.c)
- *     DbgkCreateThread @ 0x1409EAD24 (DbgkCreateThread.c)
+ *     DbgkpPostFakeThreadMessages @ 0x140949760 (DbgkpPostFakeThreadMessages.c)
+ *     DbgkCreateThread @ 0x1409E74F4 (DbgkCreateThread.c)
  * Callees:
- *     KiUnstackDetachProcess @ 0x1402307C0 (KiUnstackDetachProcess.c)
- *     KiStackAttachProcess @ 0x140247880 (KiStackAttachProcess.c)
- *     RtlStringCbCopyW @ 0x140430A90 (RtlStringCbCopyW.c)
- *     RtlImageNtHeader @ 0x1404696C0 (RtlImageNtHeader.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     ZwOpenFile @ 0x140723A50 (ZwOpenFile.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     RtlCopyToUser @ 0x14077F284 (RtlCopyToUser.c)
- *     RtlReadULongFromUser @ 0x14077F590 (RtlReadULongFromUser.c)
- *     RtlWriteULong64ToUser @ 0x14077F758 (RtlWriteULong64ToUser.c)
- *     DbgkpSendApiMessage @ 0x1409534DC (DbgkpSendApiMessage.c)
- *     DbgkpQueueMessage @ 0x140953A1C (DbgkpQueueMessage.c)
- *     PsWow64GetProcessNtdllType @ 0x1409EA77C (PsWow64GetProcessNtdllType.c)
- *     PsQuerySystemDllInfo @ 0x1409EBB38 (PsQuerySystemDllInfo.c)
- *     ObCloseHandle @ 0x140A00740 (ObCloseHandle.c)
+ *     KiUnstackDetachProcess @ 0x140232120 (KiUnstackDetachProcess.c)
+ *     KiStackAttachProcess @ 0x1402491E0 (KiStackAttachProcess.c)
+ *     RtlStringCbCopyW @ 0x14041DAC0 (RtlStringCbCopyW.c)
+ *     RtlImageNtHeader @ 0x140462E40 (RtlImageNtHeader.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     ZwOpenFile @ 0x140728620 (ZwOpenFile.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     RtlCopyToUser @ 0x140781D84 (RtlCopyToUser.c)
+ *     RtlReadULongFromUser @ 0x140782090 (RtlReadULongFromUser.c)
+ *     RtlWriteULong64ToUser @ 0x140782258 (RtlWriteULong64ToUser.c)
+ *     ObCloseHandle @ 0x14091D2C0 (ObCloseHandle.c)
+ *     DbgkpSendApiMessage @ 0x1409CEE1C (DbgkpSendApiMessage.c)
+ *     DbgkpQueueMessage @ 0x1409CF35C (DbgkpQueueMessage.c)
+ *     PsWow64GetProcessNtdllType @ 0x1409E6F4C (PsWow64GetProcessNtdllType.c)
+ *     PsQuerySystemDllInfo @ 0x1409E8308 (PsQuerySystemDllInfo.c)
  */
 
 void __fastcall DbgkSendSystemDllMessages(char *a1, struct _KEVENT *a2, _DWORD *a3)
@@ -30,12 +30,12 @@ void __fastcall DbgkSendSystemDllMessages(char *a1, struct _KEVENT *a2, _DWORD *
   _DWORD *SystemDllInfo; // rax
   _DWORD *v9; // rdi
   _QWORD *Teb; // r13
-  unsigned __int64 v11; // rax
-  _DWORD *v12; // rax
+  void *v11; // rax
+  PIMAGE_NT_HEADERS v12; // rax
   struct _KTHREAD *CurrentThread; // r13
   char v14; // [rsp+30h] [rbp-338h]
-  unsigned __int64 v16; // [rsp+58h] [rbp-310h]
-  _DWORD *v17; // [rsp+58h] [rbp-310h]
+  PVOID BaseOfImage; // [rsp+58h] [rbp-310h]
+  PIMAGE_NT_HEADERS BaseOfImagea; // [rsp+58h] [rbp-310h]
   _DWORD *v18; // [rsp+80h] [rbp-2E8h]
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+98h] [rbp-2D0h] BYREF
   struct _IO_STATUS_BLOCK IoStatusBlock; // [rsp+C8h] [rbp-2A0h] BYREF
@@ -65,25 +65,25 @@ void __fastcall DbgkSendSystemDllMessages(char *a1, struct _KEVENT *a2, _DWORD *
       *(_OWORD *)v6 = 0LL;
       *((_OWORD *)v6 + 1) = 0LL;
       Teb = 0LL;
-      v11 = *((_QWORD *)v9 + 3);
-      v16 = v11;
+      v11 = (void *)*((_QWORD *)v9 + 3);
+      BaseOfImage = v11;
       *((_QWORD *)v6 + 1) = v11;
       if ( a1 && i )
       {
         v14 = 1;
         KiStackAttachProcess(Process, 0, (__int64)v23);
-        v11 = v16;
+        v11 = BaseOfImage;
       }
       else
       {
         v14 = 0;
       }
       v12 = RtlImageNtHeader(v11);
-      v17 = v12;
+      BaseOfImagea = v12;
       if ( v12 )
       {
-        v6[4] = RtlReadULongFromUser(v12 + 3);
-        v6[5] = RtlReadULongFromUser(v17 + 4);
+        v6[4] = RtlReadULongFromUser(&v12->FileHeader.PointerToSymbolTable);
+        v6[5] = RtlReadULongFromUser(&BaseOfImagea->FileHeader.NumberOfSymbols);
       }
       if ( !a1 )
       {

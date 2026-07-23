@@ -1,17 +1,17 @@
 /*
- * XREFs of MiZeroPageWorkMapping @ 0x140121324
+ * XREFs of MiZeroPageWorkMapping @ 0x1401213F4
  * Callers:
- *     MiPageListCollision @ 0x1401212C4 (MiPageListCollision.c)
- *     MiReleaseLargeZeroingVa @ 0x1402C1C60 (MiReleaseLargeZeroingVa.c)
+ *     MiPageListCollision @ 0x140121394 (MiPageListCollision.c)
+ *     MiReleaseLargeZeroingVa @ 0x1402C1E50 (MiReleaseLargeZeroingVa.c)
  * Callees:
  *     MiPteInShadowRange @ 0x14003D740 (MiPteInShadowRange.c)
- *     MiFlushTbList @ 0x1400740C0 (MiFlushTbList.c)
- *     MiInsertTbFlushEntry @ 0x1400B3AF0 (MiInsertTbFlushEntry.c)
- *     MiVaIsUltra @ 0x1400EA5F4 (MiVaIsUltra.c)
- *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
- *     MiInsertLargeTbFlushEntry @ 0x140121484 (MiInsertLargeTbFlushEntry.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     MiFlushTbList @ 0x1400740B0 (MiFlushTbList.c)
+ *     MiInsertTbFlushEntry @ 0x1400B3A30 (MiInsertTbFlushEntry.c)
+ *     MiVaIsUltra @ 0x1400EA674 (MiVaIsUltra.c)
+ *     MiWritePteShadow @ 0x140120F40 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120FA0 (MiPteHasShadow.c)
+ *     MiInsertLargeTbFlushEntry @ 0x140121554 (MiInsertLargeTbFlushEntry.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
  */
 
 void __fastcall MiZeroPageWorkMapping(unsigned int a1, __int64 a2, char a3)

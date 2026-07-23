@@ -1,13 +1,13 @@
 /*
- * XREFs of CmpTraceHiveMountBaseFileMounted @ 0x1405A5128
+ * XREFs of CmpTraceHiveMountBaseFileMounted @ 0x1405A6128
  * Callers:
- *     HvLoadHive @ 0x1405A4C9C (HvLoadHive.c)
+ *     HvLoadHive @ 0x1405A5C9C (HvLoadHive.c)
  * Callees:
  *     EtwEventEnabled @ 0x14005B2D0 (EtwEventEnabled.c)
- *     EtwWrite @ 0x1400CAD20 (EtwWrite.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     RtlFreeAnsiString @ 0x140623790 (RtlFreeAnsiString.c)
- *     CmpQueryNameString @ 0x140683654 (CmpQueryNameString.c)
+ *     EtwWrite @ 0x1400CAE00 (EtwWrite.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     RtlFreeAnsiString @ 0x140624790 (RtlFreeAnsiString.c)
+ *     CmpQueryNameString @ 0x140684814 (CmpQueryNameString.c)
  */
 
 void __fastcall CmpTraceHiveMountBaseFileMounted(__int64 a1, int a2)

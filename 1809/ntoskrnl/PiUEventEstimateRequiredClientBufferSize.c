@@ -1,7 +1,7 @@
 /*
  * XREFs of PiUEventEstimateRequiredClientBufferSize @ 0x140006544
  * Callers:
- *     PiUEventNotifyClientPendingEvent @ 0x14058FA24 (PiUEventNotifyClientPendingEvent.c)
+ *     PiUEventNotifyClientPendingEvent @ 0x140590A24 (PiUEventNotifyClientPendingEvent.c)
  * Callees:
  *     <none>
  */

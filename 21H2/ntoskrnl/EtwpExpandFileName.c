@@ -1,15 +1,15 @@
 /*
- * XREFs of EtwpExpandFileName @ 0x140681A58
+ * XREFs of EtwpExpandFileName @ 0x1405DCA98
  * Callers:
- *     EtwpRealtimeCreateLogfile @ 0x140681844 (EtwpRealtimeCreateLogfile.c)
- *     EtwpCreateLogFile @ 0x1406DFAAC (EtwpCreateLogFile.c)
+ *     EtwpRealtimeCreateLogfile @ 0x1405DC884 (EtwpRealtimeCreateLogfile.c)
+ *     EtwpCreateLogFile @ 0x1406B6D8C (EtwpCreateLogFile.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
- *     RtlStringCbPrintfW @ 0x14027EB50 (RtlStringCbPrintfW.c)
- *     PsGetCurrentServerSiloGlobals @ 0x140362150 (PsGetCurrentServerSiloGlobals.c)
- *     RtlFreeAnsiString @ 0x140602CB0 (RtlFreeAnsiString.c)
- *     RtlCompareUnicodeStrings @ 0x140681C90 (RtlCompareUnicodeStrings.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     RtlInitUnicodeString @ 0x14026A4C0 (RtlInitUnicodeString.c)
+ *     RtlStringCbPrintfW @ 0x14026CAF0 (RtlStringCbPrintfW.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x1402F6FB0 (PsGetCurrentServerSiloGlobals.c)
+ *     RtlCompareUnicodeStrings @ 0x1405DCCD0 (RtlCompareUnicodeStrings.c)
+ *     RtlFreeAnsiString @ 0x14063DA40 (RtlFreeAnsiString.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall EtwpExpandFileName(char a1, UNICODE_STRING *a2, unsigned int a3, unsigned __int16 *a4)
@@ -109,7 +109,7 @@ __int64 __fastcall EtwpExpandFileName(char a1, UNICODE_STRING *a2, unsigned int 
         if ( v7 )
           v24 = (const wchar_t *)*((_QWORD *)a4 + 1);
         else
-          v24 = &word_1407D7BA0;
+          v24 = &word_1407D7CE0;
         v25 = PsGetCurrentServerSiloGlobals(v22, v21);
         v26 = RtlStringCbPrintfW(v23, v19, L"%ws%ws%ws", v25[135], &a2->Buffer[v35], v24);
       }
@@ -119,7 +119,7 @@ __int64 __fastcall EtwpExpandFileName(char a1, UNICODE_STRING *a2, unsigned int 
       if ( v7 )
         v33 = (const wchar_t *)*((_QWORD *)a4 + 1);
       else
-        v33 = &word_1407D7BA0;
+        v33 = &word_1407D7CE0;
       v26 = RtlStringCbPrintfW(PoolWithTag, v19, L"%ws%ws", a2->Buffer, v33);
     }
     else

@@ -1,17 +1,17 @@
 /*
- * XREFs of EtwTimLogProhibitChildProcessCreation @ 0x14072F834
+ * XREFs of EtwTimLogProhibitChildProcessCreation @ 0x14072FA00
  * Callers:
- *     SeSubProcessToken @ 0x140603B5C (SeSubProcessToken.c)
+ *     SeSubProcessToken @ 0x1406F328C (SeSubProcessToken.c)
  * Callees:
- *     EtwWrite @ 0x14025DC90 (EtwWrite.c)
- *     EtwpTiFillProcessIdentity @ 0x14025F604 (EtwpTiFillProcessIdentity.c)
- *     EtwpTiFillThreadIdentity @ 0x14025F884 (EtwpTiFillThreadIdentity.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14025FAE0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgKeywordOn @ 0x1402605BC (_tlgKeywordOn.c)
- *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     EtwpQueryProcessCommandLine @ 0x140602968 (EtwpQueryProcessCommandLine.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     RtlInitUnicodeString @ 0x14026A4C0 (RtlInitUnicodeString.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14027E1A4 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     EtwpTiFillThreadIdentity @ 0x14027E480 (EtwpTiFillThreadIdentity.c)
+ *     EtwpTiFillProcessIdentity @ 0x14027E4B8 (EtwpTiFillProcessIdentity.c)
+ *     EtwWrite @ 0x14027F7C0 (EtwWrite.c)
+ *     _tlgKeywordOn @ 0x1402864F4 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     EtwpQueryProcessCommandLine @ 0x1406F20C8 (EtwpQueryProcessCommandLine.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 void __fastcall EtwTimLogProhibitChildProcessCreation(int a1, __int64 a2, UNICODE_STRING *a3, UNICODE_STRING *a4)
@@ -159,7 +159,7 @@ void __fastcall EtwTimLogProhibitChildProcessCreation(int a1, __int64 a2, UNICOD
     v82 = v35;
     tlgWriteTransfer_EtwWriteTransfer(
       (__int64)&dword_140C02BB8,
-      (unsigned __int8 *)&unk_14002D300,
+      (unsigned __int8 *)&unk_14002D3C0,
       0LL,
       0LL,
       0xAu,
@@ -281,7 +281,7 @@ void __fastcall EtwTimLogProhibitChildProcessCreation(int a1, __int64 a2, UNICOD
     v67[1] = 0;
     tlgWriteTransfer_EtwWriteTransfer(
       (__int64)&dword_140C02BF0,
-      (unsigned __int8 *)byte_14002D370,
+      (unsigned __int8 *)byte_14002D50B,
       0LL,
       0LL,
       0xCu,

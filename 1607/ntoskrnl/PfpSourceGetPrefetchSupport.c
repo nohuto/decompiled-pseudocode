@@ -1,16 +1,16 @@
 /*
- * XREFs of PfpSourceGetPrefetchSupport @ 0x140533638
+ * XREFs of PfpSourceGetPrefetchSupport @ 0x140533B78
  * Callers:
- *     PfpPrefetchPrivatePages @ 0x1405333EC (PfpPrefetchPrivatePages.c)
+ *     PfpPrefetchPrivatePages @ 0x14053392C (PfpPrefetchPrivatePages.c)
  * Callees:
- *     RtlStringCbPrintfW @ 0x14000C1D4 (RtlStringCbPrintfW.c)
- *     RtlInitUnicodeString @ 0x14002DC60 (RtlInitUnicodeString.c)
- *     ObfDereferenceObjectWithTag @ 0x14006ACD0 (ObfDereferenceObjectWithTag.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     NtOpenProcess @ 0x1404206D0 (NtOpenProcess.c)
- *     ObReferenceObjectByHandleWithTag @ 0x140425420 (ObReferenceObjectByHandleWithTag.c)
- *     NtClose @ 0x14050B0E0 (NtClose.c)
- *     NtOpenSession @ 0x14052D874 (NtOpenSession.c)
+ *     RtlStringCbPrintfW @ 0x14000BD54 (RtlStringCbPrintfW.c)
+ *     RtlInitUnicodeString @ 0x14002D7E0 (RtlInitUnicodeString.c)
+ *     ObfDereferenceObjectWithTag @ 0x14006A850 (ObfDereferenceObjectWithTag.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     NtOpenProcess @ 0x14041F590 (NtOpenProcess.c)
+ *     ObReferenceObjectByHandleWithTag @ 0x1404242E0 (ObReferenceObjectByHandleWithTag.c)
+ *     NtClose @ 0x1404EE070 (NtClose.c)
+ *     NtOpenSession @ 0x14052DDB4 (NtOpenSession.c)
  */
 
 __int64 __fastcall PfpSourceGetPrefetchSupport(int *a1, __int64 a2)
@@ -21,7 +21,7 @@ __int64 __fastcall PfpSourceGetPrefetchSupport(int *a1, __int64 a2)
   int v6; // ecx
   int v8; // ecx
   unsigned __int64 v9; // rax
-  int v10; // edi
+  NTSTATUS v10; // edi
   NTSTATUS v11; // eax
   __int64 v12; // rdx
   PVOID Object; // [rsp+40h] [rbp-89h] BYREF
@@ -54,7 +54,7 @@ __int64 __fastcall PfpSourceGetPrefetchSupport(int *a1, __int64 a2)
     ObjectAttributes.Length = 48;
     ObjectAttributes.Attributes = 512;
     *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
-    v10 = NtOpenSession(&ClientId, 0xF0003u, (__int64)&ObjectAttributes);
+    v10 = NtOpenSession(&ClientId.UniqueProcess, 0xF0003u, &ObjectAttributes);
     if ( v10 < 0 )
     {
       UniqueProcess = ClientId.UniqueProcess;

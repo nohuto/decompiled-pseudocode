@@ -1,5 +1,5 @@
 /*
- * XREFs of HalpChannelMpnIdSort @ 0x140A8DA20
+ * XREFs of HalpChannelMpnIdSort @ 0x140A8EA20
  * Callers:
  *     <none>
  * Callees:

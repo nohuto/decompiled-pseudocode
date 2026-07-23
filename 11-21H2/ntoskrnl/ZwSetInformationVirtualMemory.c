@@ -1,15 +1,22 @@
 /*
  * XREFs of ZwSetInformationVirtualMemory @ 0x14041EC80
  * Callers:
- *     CmSiPrefetchVirtualMemoryRange @ 0x14020B5BC (CmSiPrefetchVirtualMemoryRange.c)
- *     RtlDisableXfgOnTarget @ 0x1405EEA98 (RtlDisableXfgOnTarget.c)
+ *     sub_14020B5BC @ 0x14020B5BC (sub_14020B5BC.c)
+ *     sub_1405EEA98 @ 0x1405EEA98 (sub_1405EEA98.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwSetInformationVirtualMemory(__int64 a1, __int64 a2)
+// local variable allocation has failed, the output may be wrong!
+NTSTATUS __cdecl ZwSetInformationVirtualMemory(
+        HANDLE ProcessHandle,
+        VIRTUAL_MEMORY_INFORMATION_CLASS VmInformationClass,
+        ULONG_PTR NumberOfEntries,
+        PMEMORY_RANGE_ENTRY VirtualAddresses,
+        PVOID VmInformation,
+        ULONG VmInformationLength)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return sub_140433F80(ProcessHandle, *(_QWORD *)&VmInformationClass);
 }

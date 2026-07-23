@@ -1,26 +1,26 @@
 /*
- * XREFs of PiCMDeleteDeviceWorker @ 0x1407B0854
+ * XREFs of PiCMDeleteDeviceWorker @ 0x1407B38B4
  * Callers:
- *     PiCMDeleteDevice @ 0x140773A24 (PiCMDeleteDevice.c)
- *     PiSwIrpCleanup @ 0x140A7AF04 (PiSwIrpCleanup.c)
+ *     PiCMDeleteDevice @ 0x140776A24 (PiCMDeleteDevice.c)
+ *     PiSwIrpCleanup @ 0x140A8C048 (PiSwIrpCleanup.c)
  * Callees:
- *     ExAcquireResourceExclusiveLite @ 0x140275200 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x1402B4CF0 (ExReleaseResourceLite.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     RtlInitUnicodeStringEx @ 0x14045D040 (RtlInitUnicodeStringEx.c)
- *     PnpSetDeviceInstancePropertyChangeEventFromDeviceInstance @ 0x1404C2EA8 (PnpSetDeviceInstancePropertyChangeEventFromDeviceInstance.c)
- *     ZwPlugPlayControl @ 0x140725BB0 (ZwPlugPlayControl.c)
- *     _CmDeleteDevice @ 0x14089690C (_CmDeleteDevice.c)
- *     PpDeviceRegistration @ 0x140912C9C (PpDeviceRegistration.c)
- *     _CmValidateDeviceName @ 0x14098CC00 (_CmValidateDeviceName.c)
- *     _CmIsRootDevice @ 0x140991F84 (_CmIsRootDevice.c)
- *     _CmGetDeviceStatus @ 0x14099522C (_CmGetDeviceStatus.c)
- *     PiPnpRtlBeginOperation @ 0x1409A7AC8 (PiPnpRtlBeginOperation.c)
- *     PiPnpRtlEndOperation @ 0x1409A7CB4 (PiPnpRtlEndOperation.c)
- *     _CmIsRootEnumeratedDevice @ 0x1409DC040 (_CmIsRootEnumeratedDevice.c)
- *     PpDevNodeLockTree @ 0x140A88424 (PpDevNodeLockTree.c)
- *     PpDevNodeUnlockTree @ 0x140A921A4 (PpDevNodeUnlockTree.c)
- *     PiQueueDeviceRequest @ 0x140B60570 (PiQueueDeviceRequest.c)
+ *     ExAcquireResourceExclusiveLite @ 0x140274770 (ExAcquireResourceExclusiveLite.c)
+ *     ExReleaseResourceLite @ 0x1402FF9C0 (ExReleaseResourceLite.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     RtlInitUnicodeStringEx @ 0x140456BE0 (RtlInitUnicodeStringEx.c)
+ *     PnpSetDeviceInstancePropertyChangeEventFromDeviceInstance @ 0x1404BC6F8 (PnpSetDeviceInstancePropertyChangeEventFromDeviceInstance.c)
+ *     ZwPlugPlayControl @ 0x14072A780 (ZwPlugPlayControl.c)
+ *     _CmDeleteDevice @ 0x14089CD0C (_CmDeleteDevice.c)
+ *     _CmValidateDeviceName @ 0x14094D660 (_CmValidateDeviceName.c)
+ *     _CmIsRootDevice @ 0x1409529E4 (_CmIsRootDevice.c)
+ *     _CmGetDeviceStatus @ 0x140955C8C (_CmGetDeviceStatus.c)
+ *     PiPnpRtlBeginOperation @ 0x140968528 (PiPnpRtlBeginOperation.c)
+ *     PiPnpRtlEndOperation @ 0x140968708 (PiPnpRtlEndOperation.c)
+ *     PpDeviceRegistration @ 0x1409B4D7C (PpDeviceRegistration.c)
+ *     _CmIsRootEnumeratedDevice @ 0x140A19290 (_CmIsRootEnumeratedDevice.c)
+ *     PpDevNodeLockTree @ 0x140A8F554 (PpDevNodeLockTree.c)
+ *     PpDevNodeUnlockTree @ 0x140A96CF4 (PpDevNodeUnlockTree.c)
+ *     PiQueueDeviceRequest @ 0x140B63610 (PiQueueDeviceRequest.c)
  */
 
 __int64 __fastcall PiCMDeleteDeviceWorker(PCWSTR SourceString)
@@ -34,7 +34,7 @@ __int64 __fastcall PiCMDeleteDeviceWorker(PCWSTR SourceString)
   PVOID P; // [rsp+40h] [rbp-9h] BYREF
   UNICODE_STRING DestinationString; // [rsp+48h] [rbp-1h] BYREF
   UNICODE_STRING v11; // [rsp+58h] [rbp+Fh] BYREF
-  UNICODE_STRING v12; // [rsp+68h] [rbp+1Fh] BYREF
+  UNICODE_STRING PnPControlData; // [rsp+68h] [rbp+1Fh] BYREF
   __int128 v13; // [rsp+78h] [rbp+2Fh]
   __int64 v14; // [rsp+88h] [rbp+3Fh]
   int v15; // [rsp+B8h] [rbp+6Fh] BYREF
@@ -46,7 +46,7 @@ __int64 __fastcall PiCMDeleteDeviceWorker(PCWSTR SourceString)
   v14 = 0LL;
   DestinationString = 0LL;
   P = 0LL;
-  v12 = 0LL;
+  PnPControlData = 0LL;
   v16 = 0;
   v13 = 0LL;
   v11 = 0LL;
@@ -81,10 +81,10 @@ __int64 __fastcall PiCMDeleteDeviceWorker(PCWSTR SourceString)
         PpDevNodeUnlockTree(3LL);
         if ( inited >= 0 )
         {
-          if ( RtlInitUnicodeStringEx(&v12, SourceString) >= 0 )
+          if ( RtlInitUnicodeStringEx(&PnPControlData, SourceString) >= 0 )
           {
             *(_QWORD *)&v13 = 0x4000000000001LL;
-            ZwPlugPlayControl(14LL, (__int64)&v12);
+            ZwPlugPlayControl(PlugPlayControlDeviceStatus, &PnPControlData, 0x28u);
           }
 LABEL_18:
           if ( RtlInitUnicodeStringEx(&v11, SourceString) >= 0 )

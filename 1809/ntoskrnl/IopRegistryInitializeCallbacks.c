@@ -1,12 +1,12 @@
 /*
- * XREFs of IopRegistryInitializeCallbacks @ 0x14074B6A8
+ * XREFs of IopRegistryInitializeCallbacks @ 0x14074C898
  * Callers:
- *     IoInitSystem @ 0x1409D2354 (IoInitSystem.c)
+ *     IoInitSystem @ 0x1409D3354 (IoInitSystem.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
- *     ZwNotifyChangeKey @ 0x1401BA3F0 (ZwNotifyChangeKey.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     IopRegistryOpenDeepestPath @ 0x14074B8B0 (IopRegistryOpenDeepestPath.c)
+ *     RtlInitUnicodeString @ 0x1400B99D0 (RtlInitUnicodeString.c)
+ *     ZwNotifyChangeKey @ 0x1401BA550 (ZwNotifyChangeKey.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     IopRegistryOpenDeepestPath @ 0x14074CAA0 (IopRegistryOpenDeepestPath.c)
  */
 
 __int64 IopRegistryInitializeCallbacks()
@@ -21,7 +21,7 @@ __int64 IopRegistryInitializeCallbacks()
   v0 = 0;
   v1 = &IopRegistryRegisteredCallbacks;
   v6 = 0;
-  if ( off_1404006A0 )
+  if ( off_1404016A0 )
   {
     v2 = 0LL;
     do

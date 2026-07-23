@@ -1,9 +1,9 @@
 /*
- * XREFs of HalMatchAcpiFADTBootArch @ 0x14053CE80
+ * XREFs of HalMatchAcpiFADTBootArch @ 0x14053A780
  * Callers:
  *     <none>
  * Callees:
- *     HalpAcpiGetTable @ 0x140478488 (HalpAcpiGetTable.c)
+ *     HalpAcpiGetTable @ 0x14045F918 (HalpAcpiGetTable.c)
  */
 
 __int64 __fastcall HalMatchAcpiFADTBootArch(__int64 a1, __int64 a2, __int64 a3, __int64 a4, _DWORD *a5, int a6)
@@ -16,7 +16,7 @@ __int64 __fastcall HalMatchAcpiFADTBootArch(__int64 a1, __int64 a2, __int64 a3, 
   {
     if ( *a5 )
     {
-      Table = HalpAcpiGetTable(0LL, 1346584902, 0LL, 0LL);
+      Table = HalpAcpiGetTable(0LL, 1346584902, 0, 0);
       if ( Table )
       {
         if ( (*a5 & *(unsigned __int16 *)(Table + 109)) == *a5 )

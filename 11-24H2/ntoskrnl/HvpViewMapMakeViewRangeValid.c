@@ -1,49 +1,49 @@
 /*
- * XREFs of HvpViewMapMakeViewRangeValid @ 0x140980000
+ * XREFs of HvpViewMapMakeViewRangeValid @ 0x140968810
  * Callers:
- *     HvpViewMapCreateViewsForRegion @ 0x14097F77C (HvpViewMapCreateViewsForRegion.c)
- *     HvpViewMapExtendStorage @ 0x14097FB04 (HvpViewMapExtendStorage.c)
- *     HvpViewMapPromoteRangeToMapping @ 0x1409826CC (HvpViewMapPromoteRangeToMapping.c)
+ *     HvpViewMapCreateViewsForRegion @ 0x140967F8C (HvpViewMapCreateViewsForRegion.c)
+ *     HvpViewMapExtendStorage @ 0x140968314 (HvpViewMapExtendStorage.c)
+ *     HvpViewMapPromoteRangeToMapping @ 0x14096AEDC (HvpViewMapPromoteRangeToMapping.c)
  * Callees:
- *     CmSiProtectViewOfSection @ 0x14046A844 (CmSiProtectViewOfSection.c)
- *     CmSiPrefetchVirtualMemoryRange @ 0x140488BFC (CmSiPrefetchVirtualMemoryRange.c)
- *     HvpViewMapTouchPages @ 0x14097FFAC (HvpViewMapTouchPages.c)
- *     HvpViewMapAcquireChargesAndLockViewPages @ 0x140980280 (HvpViewMapAcquireChargesAndLockViewPages.c)
+ *     CmSiProtectViewOfSection @ 0x1404631DC (CmSiProtectViewOfSection.c)
+ *     CmSiPrefetchVirtualMemoryRange @ 0x140483CEC (CmSiPrefetchVirtualMemoryRange.c)
+ *     HvpViewMapTouchPages @ 0x1409687BC (HvpViewMapTouchPages.c)
+ *     HvpViewMapAcquireChargesAndLockViewPages @ 0x140968A90 (HvpViewMapAcquireChargesAndLockViewPages.c)
  */
 
-__int64 __fastcall HvpViewMapMakeViewRangeValid(__int64 a1, _QWORD *a2, __int64 a3, __int64 a4, char a5)
+__int64 __fastcall HvpViewMapMakeViewRangeValid(ULONG_PTR a1, _QWORD *a2, __int64 a3, __int64 a4, char a5)
 {
-  __int64 **v5; // r13
+  void ***v5; // r13
   __int64 v6; // rbp
-  unsigned __int64 v7; // rdi
+  SIZE_T v7; // rdi
   _BYTE *v8; // rbp
   int v13; // esi
-  __int64 v14; // rcx
+  ULONG_PTR v14; // rcx
   _DWORD *v15; // r12
-  __int64 **v16; // r12
+  void ***v16; // r12
   _DWORD *v17; // r9
   char v18; // al
   _DWORD *v19; // r10
   int v20; // eax
-  __int64 v21; // rcx
+  ULONG_PTR v21; // rcx
   __int64 v22; // rcx
   unsigned __int64 v23; // rdx
   char v24; // r8
   __int64 v25; // rax
   unsigned __int64 v27; // rdx
   char v28; // r8
-  int v30; // [rsp+90h] [rbp+18h] BYREF
+  __int64 v30; // [rsp+90h] [rbp+18h] BYREF
   _DWORD *v31; // [rsp+98h] [rbp+20h]
 
-  v5 = (__int64 **)(a1 + 24);
+  v5 = (void ***)(a1 + 24);
   v6 = a2[7] - a2[3];
-  v30 = 0;
+  LODWORD(v30) = 0;
   v7 = a4 - a3;
   v8 = (_BYTE *)(a3 + v6);
-  v13 = CmSiProtectViewOfSection(a1, *(__int64 **)(a1 + 24), (__int64)v8, a4 - a3, 2u, (__int64)&v30);
+  v13 = CmSiProtectViewOfSection(a1, *(void ***)(a1 + 24), v8, a4 - a3, 2u, (ULONG *)&v30);
   if ( v13 >= 0 )
   {
-    CmSiPrefetchVirtualMemoryRange(*v5, (__int64)v8, v7);
+    CmSiPrefetchVirtualMemoryRange(*v5, v8, v7);
     v15 = (_DWORD *)(a1 + 32);
     v31 = v15;
     if ( (*v15 & 2) != 0 )
@@ -61,15 +61,15 @@ LABEL_6:
           v19 = (_DWORD *)(a1 + 32);
           goto LABEL_9;
         }
-        v16 = (__int64 **)(a1 + 24);
+        v16 = (void ***)(a1 + 24);
       }
-      v13 = CmSiProtectViewOfSection(v14, *v5, (__int64)v8, v7, 8u, (__int64)&v30);
+      v13 = CmSiProtectViewOfSection(v14, *v5, v8, v7, 8u, (ULONG *)&v30);
       if ( v13 >= 0 )
       {
         v13 = HvpViewMapTouchPages(v8, v7, 1);
         if ( v13 >= 0 )
         {
-          CmSiProtectViewOfSection(v21, *v5, (__int64)v8, v7, 2u, (__int64)&v30);
+          CmSiProtectViewOfSection(v21, *v5, v8, v7, 2u, (ULONG *)&v30);
           v18 = 0;
           v17 = v31;
           goto LABEL_6;
@@ -136,7 +136,7 @@ LABEL_9:
         return 0;
       }
     }
-    CmSiProtectViewOfSection(v21, *v16, (__int64)v8, v7, 0x80000001, (__int64)&v30);
+    CmSiProtectViewOfSection(v21, *v16, v8, v7, 0x80000001, (ULONG *)&v30);
   }
   return (unsigned int)v13;
 }

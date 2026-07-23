@@ -1,18 +1,18 @@
 /*
- * XREFs of EtwpRealtimeDisconnectConsumer @ 0x140A71974
+ * XREFs of EtwpRealtimeDisconnectConsumer @ 0x140AB2BB4
  * Callers:
- *     EtwpCloseRealTimeConnectionObject @ 0x14082FF70 (EtwpCloseRealTimeConnectionObject.c)
- *     EtwpRealtimeDisconnectConsumerByHandle @ 0x140A71908 (EtwpRealtimeDisconnectConsumerByHandle.c)
+ *     EtwpCloseRealTimeConnectionObject @ 0x1408361B0 (EtwpCloseRealTimeConnectionObject.c)
+ *     EtwpRealtimeDisconnectConsumerByHandle @ 0x140AB2B48 (EtwpRealtimeDisconnectConsumerByHandle.c)
  * Callees:
- *     ExReleaseRundownProtectionCacheAwareEx @ 0x140257080 (ExReleaseRundownProtectionCacheAwareEx.c)
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     ExfReleasePushLock @ 0x1402E3120 (ExfReleasePushLock.c)
- *     KeReleaseMutex @ 0x1403DD0F0 (KeReleaseMutex.c)
- *     EtwpAcquireLoggerContextByLoggerId @ 0x14091EFC0 (EtwpAcquireLoggerContextByLoggerId.c)
- *     EtwpSynchronizeWithLogger @ 0x140A6FD00 (EtwpSynchronizeWithLogger.c)
+ *     ExfReleasePushLock @ 0x14021B220 (ExfReleasePushLock.c)
+ *     ExReleaseRundownProtectionCacheAwareEx @ 0x140258A10 (ExReleaseRundownProtectionCacheAwareEx.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     KeReleaseMutex @ 0x1403E02E0 (KeReleaseMutex.c)
+ *     EtwpAcquireLoggerContextByLoggerId @ 0x140979A20 (EtwpAcquireLoggerContextByLoggerId.c)
+ *     EtwpSynchronizeWithLogger @ 0x140AB31F8 (EtwpSynchronizeWithLogger.c)
  */
 
 __int64 __fastcall EtwpRealtimeDisconnectConsumer(__int64 a1)
@@ -64,8 +64,8 @@ __int64 __fastcall EtwpRealtimeDisconnectConsumer(__int64 a1)
         ExfReleasePushLock((_QWORD *)v6 + 86);
       }
       KeAbPostRelease((unsigned __int64)(v6 + 172));
-      v2 = EtwpSynchronizeWithLogger((__int64)v6, 0x10u);
-      EtwpSynchronizeWithLogger((__int64)v6, 4u);
+      v2 = EtwpSynchronizeWithLogger(v6, 16LL);
+      EtwpSynchronizeWithLogger(v6, 4LL);
       KeReleaseMutex((PRKMUTEX)(v6 + 158), 0);
       ExReleaseRundownProtectionCacheAwareEx(
         *(PEX_RUNDOWN_REF_CACHE_AWARE *)(*(_QWORD *)(*((_QWORD *)v6 + 170) + 704LL) + 8LL * *v6),

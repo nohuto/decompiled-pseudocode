@@ -1,23 +1,24 @@
 /*
- * XREFs of RtlQueryPerformanceCounter @ 0x18000E5E0
+ * XREFs of RtlQueryPerformanceCounter @ 0x180059D10
  * Callers:
- *     RtlCapabilityCheck @ 0x18000DFF0 (RtlCapabilityCheck.c)
- *     EtwpWriteToPrivateBuffers @ 0x18000F710 (EtwpWriteToPrivateBuffers.c)
- *     EtwpReserveTraceBuffer @ 0x180011230 (EtwpReserveTraceBuffer.c)
- *     EtwpInitLoggerContext @ 0x180077550 (EtwpInitLoggerContext.c)
- *     RtlGetMultiTimePrecise @ 0x180077A60 (RtlGetMultiTimePrecise.c)
- *     PssNtCaptureSnapshot @ 0x1800B4D70 (PssNtCaptureSnapshot.c)
- *     RtlDelayExecution @ 0x1800BCA00 (RtlDelayExecution.c)
- *     PsspSampleCounters @ 0x18010E2B0 (PsspSampleCounters.c)
+ *     RtlCapabilityCheck @ 0x180059720 (RtlCapabilityCheck.c)
+ *     EtwpWriteToPrivateBuffers @ 0x18005AE40 (EtwpWriteToPrivateBuffers.c)
+ *     EtwpReserveTraceBuffer @ 0x18005C960 (EtwpReserveTraceBuffer.c)
+ *     EtwpInitLoggerContext @ 0x180065D70 (EtwpInitLoggerContext.c)
+ *     RtlGetMultiTimePrecise @ 0x180066280 (RtlGetMultiTimePrecise.c)
+ *     PssNtCaptureSnapshot @ 0x1800B2290 (PssNtCaptureSnapshot.c)
+ *     RtlDelayExecution @ 0x1800B9F30 (RtlDelayExecution.c)
+ *     PsspSampleCounters @ 0x18010DE00 (PsspSampleCounters.c)
  * Callees:
- *     NtQueryPerformanceCounter @ 0x18015F560 (NtQueryPerformanceCounter.c)
+ *     NtQueryPerformanceCounter @ 0x18015F460 (NtQueryPerformanceCounter.c)
  */
 
-__int64 __fastcall RtlQueryPerformanceCounter(_QWORD *a1, __int64 a2)
+LOGICAL __cdecl RtlQueryPerformanceCounter(PLARGE_INTEGER PerformanceCounter)
 {
-  unsigned __int64 v2; // rax
+  unsigned __int64 v1; // rax
+  __int64 v2; // rdx
   unsigned __int64 v5; // rdx
-  __int64 v6; // [rsp+40h] [rbp+18h] BYREF
+  LARGE_INTEGER PerformanceCountera; // [rsp+40h] [rbp+18h] BYREF
 
   if ( (MEMORY[0x7FFE03C6] & 1) == 0 )
     goto LABEL_2;
@@ -26,9 +27,9 @@ __int64 __fastcall RtlQueryPerformanceCounter(_QWORD *a1, __int64 a2)
     if ( !RtlpHypervisorSharedUserVa || !*(_DWORD *)RtlpHypervisorSharedUserVa )
     {
 LABEL_2:
-      NtQueryPerformanceCounter(&v6, 0LL);
-      *a1 = v6;
-      return 1LL;
+      NtQueryPerformanceCounter(&PerformanceCountera, 0LL);
+      *PerformanceCounter = PerformanceCountera;
+      return 1;
     }
     if ( MEMORY[0x7FFE03C6] >= 0 )
     {
@@ -40,22 +41,22 @@ LABEL_2:
       {
         _mm_mfence();
       }
-      v2 = __rdtsc();
-      LODWORD(a2) = HIDWORD(v2);
+      v1 = __rdtsc();
+      LODWORD(v2) = HIDWORD(v1);
+      v1 = (unsigned int)v1;
       v2 = (unsigned int)v2;
-      a2 = (unsigned int)a2;
     }
     else
     {
       __asm { rdtscp }
     }
     v5 = *(_QWORD *)(RtlpHypervisorSharedUserVa + 16)
-       + (((v2 | (a2 << 32)) * (unsigned __int128)*(unsigned __int64 *)(RtlpHypervisorSharedUserVa + 8)) >> 64);
+       + (((v1 | (v2 << 32)) * (unsigned __int128)*(unsigned __int64 *)(RtlpHypervisorSharedUserVa + 8)) >> 64);
   }
   else if ( MEMORY[0x7FFE03C6] < 0 )
   {
     __asm { rdtscp }
-    v5 = v2 | (a2 << 32);
+    v5 = v1 | (v2 << 32);
   }
   else
   {
@@ -69,6 +70,6 @@ LABEL_2:
     }
     v5 = __rdtsc();
   }
-  *a1 = v5 + MEMORY[0x7FFE03B8];
-  return 1LL;
+  PerformanceCounter->QuadPart = v5 + MEMORY[0x7FFE03B8];
+  return 1;
 }

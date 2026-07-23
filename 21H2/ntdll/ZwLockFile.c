@@ -1,16 +1,26 @@
 /*
- * XREFs of ZwLockFile @ 0x18009F790
+ * XREFs of ZwLockFile @ 0x18009F750
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 ZwLockFile()
+NTSTATUS __cdecl ZwLockFile(
+        HANDLE FileHandle,
+        HANDLE Event,
+        PIO_APC_ROUTINE ApcRoutine,
+        PVOID ApcContext,
+        PIO_STATUS_BLOCK IoStatusBlock,
+        PLARGE_INTEGER ByteOffset,
+        PLARGE_INTEGER Length,
+        ULONG Key,
+        BOOLEAN FailImmediately,
+        BOOLEAN ExclusiveLock)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 267LL;
+  result = 267;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

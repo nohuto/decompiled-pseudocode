@@ -17,192 +17,193 @@
  *     _LdrpHashAsciizString@4 @ 0x4B334A36 (_LdrpHashAsciizString@4.c)
  */
 
-int __fastcall LdrpAddRedirectedFunction(int a1, int a2, int a3)
+int __fastcall LdrpAddRedirectedFunction(int a1, _RTL_BALANCED_NODE *a2, int a3)
 {
   int inited; // ebx
-  _WORD *v5; // ebx
+  wchar_t *Buffer; // ebx
   int v6; // eax
   int v7; // eax
-  unsigned int v8; // esi
+  _RTL_BALANCED_NODE *Root; // esi
   int v9; // edi
   int v10; // eax
-  unsigned int v11; // eax
-  int Heap; // eax
-  _DWORD *v13; // edx
-  void *v14; // edi
+  _RTL_BALANCED_NODE *v11; // eax
+  _RTL_BALANCED_NODE *Heap; // eax
+  _RTL_BALANCED_NODE *v13; // edx
+  _RTL_BALANCED_NODE *v14; // edi
   int v15; // eax
-  int v16; // esi
+  PRTL_BALANCED_NODE v16; // esi
   int v17; // ecx
-  void *v18; // edx
-  int v19; // esi
+  _RTL_BALANCED_NODE *v18; // edx
+  _RTL_BALANCED_NODE *v19; // esi
   int v20; // edi
-  int v21; // ebx
-  int v22; // eax
-  const char *v24; // [esp-4h] [ebp-260h]
-  _DWORD v25[5]; // [esp+10h] [ebp-24Ch] BYREF
-  STRING DestinationString; // [esp+24h] [ebp-238h] BYREF
-  int v27; // [esp+2Ch] [ebp-230h]
-  int v28; // [esp+30h] [ebp-22Ch]
-  int v29; // [esp+34h] [ebp-228h]
-  int v30; // [esp+38h] [ebp-224h]
-  BOOL v31; // [esp+3Ch] [ebp-220h] BYREF
-  int v32; // [esp+40h] [ebp-21Ch] BYREF
-  _WORD *v33; // [esp+44h] [ebp-218h]
-  _WORD v34[128]; // [esp+48h] [ebp-214h] BYREF
-  int v35; // [esp+148h] [ebp-114h] BYREF
-  void *Src; // [esp+14Ch] [ebp-110h]
+  _RTL_BALANCED_NODE *v21; // ebx
+  _RTL_BALANCED_NODE *v22; // eax
+  SIZE_T v24; // [esp-4h] [ebp-260h]
+  const CHAR *v25; // [esp-4h] [ebp-260h]
+  size_t v26; // [esp-4h] [ebp-260h]
+  _DWORD v27[5]; // [esp+10h] [ebp-24Ch] BYREF
+  _STRING DestinationString; // [esp+24h] [ebp-238h] BYREF
+  _RTL_BALANCED_NODE *v29; // [esp+2Ch] [ebp-230h]
+  _RTL_BALANCED_NODE *v30; // [esp+30h] [ebp-22Ch]
+  int v31; // [esp+34h] [ebp-228h]
+  PRTL_BALANCED_NODE Node; // [esp+38h] [ebp-224h]
+  BOOLEAN Right[4]; // [esp+3Ch] [ebp-220h] BYREF
+  _UNICODE_STRING OriginalName; // [esp+40h] [ebp-21Ch] BYREF
+  _WORD v35[128]; // [esp+48h] [ebp-214h] BYREF
+  _UNICODE_STRING SystemPath; // [esp+148h] [ebp-114h] BYREF
   _WORD v37[130]; // [esp+150h] [ebp-10Ch] BYREF
 
-  v28 = a2;
-  Src = v37;
+  v30 = a2;
+  SystemPath.Buffer = v37;
   v37[0] = 0;
-  v29 = a1;
-  v33 = v34;
-  v24 = *(const char **)a1;
-  v34[0] = 0;
-  v35 = 0x1000000;
-  v32 = 0x1000000;
-  inited = RtlInitAnsiStringEx(&DestinationString, v24);
+  v31 = a1;
+  OriginalName.Buffer = v35;
+  v25 = *(const CHAR **)a1;
+  v35[0] = 0;
+  *(_DWORD *)&SystemPath.Length = 0x1000000;
+  *(_DWORD *)&OriginalName.Length = 0x1000000;
+  inited = RtlInitAnsiStringEx(&DestinationString, v25);
   if ( inited >= 0 )
   {
-    inited = LdrpAppendAnsiStringToFilenameBuffer((unsigned __int16 *)&v32, &DestinationString);
+    inited = LdrpAppendAnsiStringToFilenameBuffer(&OriginalName.Length, &DestinationString);
     if ( inited >= 0 )
     {
-      v31 = 0;
-      inited = LdrpPreprocessDllName((unsigned __int16 *)&v32, (unsigned __int16 *)&v35, 0, &v31);
+      *(_DWORD *)Right = 0;
+      inited = LdrpPreprocessDllName(&OriginalName, &SystemPath, 0, (int *)Right);
       DestinationString.Buffer = (char *)inited;
       if ( inited >= 0 )
       {
-        v25[3] = v35;
-        v5 = Src;
-        v25[4] = Src;
-        if ( (v31 & 0x20) == 0 )
+        *(_UNICODE_STRING *)&v27[3] = SystemPath;
+        Buffer = SystemPath.Buffer;
+        if ( (Right[0] & 0x20) == 0 )
         {
-          v5 = (char *)Src + (unsigned __int16)v35 - 2;
-          if ( v5 >= Src )
+          Buffer = (wchar_t *)((char *)SystemPath.Buffer + SystemPath.Length - 2);
+          if ( Buffer >= SystemPath.Buffer )
           {
             while ( 1 )
             {
-              v6 = (unsigned __int16)*v5;
+              v6 = *Buffer;
               if ( v6 == 92 || v6 == 47 )
                 break;
-              if ( --v5 < Src )
+              if ( --Buffer < SystemPath.Buffer )
                 goto LABEL_11;
             }
-            ++v5;
+            ++Buffer;
           }
 LABEL_11:
-          RtlInitUnicodeStringEx((int)&v25[3], v5);
+          RtlInitUnicodeStringEx((PUNICODE_STRING)&v27[3], (PCWSTR)Buffer);
         }
-        v25[2] = *(_DWORD *)(a1 + 4);
-        v25[0] = LdrpHashAsciizString();
-        v7 = LdrpHashUnicodeString(&v25[3]);
-        v8 = LdrpRedirectionTree;
-        v25[1] = v7;
-        if ( (dword_4B3A6714 & 1) != 0 )
+        v27[2] = *(_DWORD *)(a1 + 4);
+        v27[0] = LdrpHashAsciizString();
+        v7 = LdrpHashUnicodeString(&v27[3]);
+        Root = LdrpRedirectionTree.Root;
+        v27[1] = v7;
+        if ( (*(_BYTE *)&LdrpRedirectionTree.0 & 1) != 0 )
         {
-          if ( LdrpRedirectionTree )
-            v8 = (unsigned int)&LdrpRedirectionTree ^ LdrpRedirectionTree;
+          if ( LdrpRedirectionTree.Root )
+            Root = (_RTL_BALANCED_NODE *)((unsigned int)&LdrpRedirectionTree ^ (unsigned int)LdrpRedirectionTree.Root);
           else
-            v8 = 0;
+            Root = 0;
         }
-        v9 = dword_4B3A6714 & 1;
-        if ( !v8 )
+        v9 = *(_BYTE *)&LdrpRedirectionTree.0 & 1;
+        if ( !Root )
           goto LABEL_29;
         do
         {
-          v10 = LdrpCompareRedirectedFunction(v25, v8);
+          v10 = LdrpCompareRedirectedFunction(v27, Root);
           if ( v10 >= 0 )
           {
             if ( v10 <= 0 )
               break;
-            v11 = *(_DWORD *)(v8 + 4);
+            v11 = Root->Children[1];
           }
           else
           {
-            v11 = *(_DWORD *)v8;
+            v11 = Root->Children[0];
           }
           if ( v9 && v11 )
-            v8 ^= v11;
+            Root = (_RTL_BALANCED_NODE *)((unsigned int)v11 ^ (unsigned int)Root);
           else
-            v8 = v11;
+            Root = v11;
         }
-        while ( v8 );
-        if ( v8 && !LdrpRedirectionByFunctionCalloutFunc )
+        while ( Root );
+        if ( Root && !LdrpRedirectionByFunctionCalloutFunc )
         {
           inited = -1073739509;
         }
         else
         {
 LABEL_29:
-          Heap = RtlAllocateHeap(LdrpHeap, NtdllBaseTag + 0x40000, LOWORD(v25[3]) + 42);
-          v13 = (_DWORD *)Heap;
-          v30 = Heap;
+          LODWORD(v24) = LOWORD(v27[3]) + 42;
+          Heap = (_RTL_BALANCED_NODE *)RtlAllocateHeap(LdrpHeap, NtdllBaseTag + 0x40000, v24);
+          v13 = Heap;
+          Node = Heap;
           if ( Heap )
           {
-            v14 = (void *)(Heap + 12);
-            v27 = Heap + 12;
-            v15 = v29;
-            qmemcpy(v14, v25, 0x14u);
-            v16 = v30;
-            v13[8] = *(_DWORD *)(v15 + 8);
-            v17 = *(unsigned __int16 *)(v16 + 24);
-            v13[9] = v28;
-            v18 = v13 + 10;
-            *(_DWORD *)(v16 + 28) = v18;
-            *(_WORD *)(v16 + 26) = v17 + 2;
-            memcpy(v18, v5, v17 + 2);
-            v19 = LdrpRedirectionTree;
-            if ( (dword_4B3A6714 & 1) != 0 )
+            v14 = Heap + 1;
+            v29 = Heap + 1;
+            v15 = v31;
+            qmemcpy(v14, v27, 0x14u);
+            v16 = Node;
+            v13[2].ParentValue = *(_DWORD *)(v15 + 8);
+            v17 = LOWORD(v16[2].Children[0]);
+            v13[3].Children[0] = v30;
+            v18 = (_RTL_BALANCED_NODE *)((char *)v13 + 40);
+            v16[2].Children[1] = v18;
+            LODWORD(v26) = v17 + 2;
+            HIWORD(v16[2].Left) = v17 + 2;
+            memcpy(v18, Buffer, v26);
+            v19 = LdrpRedirectionTree.Root;
+            if ( (*(_BYTE *)&LdrpRedirectionTree.0 & 1) != 0 )
             {
-              if ( LdrpRedirectionTree )
-                v19 = (unsigned int)&LdrpRedirectionTree ^ LdrpRedirectionTree;
+              if ( LdrpRedirectionTree.Root )
+                v19 = (_RTL_BALANCED_NODE *)((unsigned int)&LdrpRedirectionTree ^ (unsigned int)LdrpRedirectionTree.Root);
               else
                 v19 = 0;
             }
-            v20 = dword_4B3A6714 & 1;
-            LOBYTE(v31) = 0;
+            v20 = *(_BYTE *)&LdrpRedirectionTree.0 & 1;
+            Right[0] = 0;
             if ( v19 )
             {
-              v21 = v27;
+              v21 = v29;
               while ( 1 )
               {
                 if ( (int)LdrpCompareRedirectedFunction(v21, v19) < 0 )
                 {
-                  v22 = *(_DWORD *)v19;
+                  v22 = v19->Children[0];
                   if ( v20 )
                   {
                     if ( !v22 )
                       goto LABEL_48;
-                    v22 ^= v19;
+                    v22 = (_RTL_BALANCED_NODE *)((unsigned int)v19 ^ (unsigned int)v22);
                   }
                   if ( !v22 )
                   {
 LABEL_48:
-                    LOBYTE(v31) = 0;
+                    Right[0] = 0;
                     break;
                   }
                 }
                 else
                 {
-                  v22 = *(_DWORD *)(v19 + 4);
+                  v22 = v19->Children[1];
                   if ( v20 )
                   {
                     if ( !v22 )
                       goto LABEL_42;
-                    v22 ^= v19;
+                    v22 = (_RTL_BALANCED_NODE *)((unsigned int)v19 ^ (unsigned int)v22);
                   }
                   if ( !v22 )
                   {
 LABEL_42:
-                    LOBYTE(v31) = 1;
+                    Right[0] = 1;
                     break;
                   }
                 }
                 v19 = v22;
               }
             }
-            RtlRbInsertNodeEx(&LdrpRedirectionTree, v19, v31, v30);
+            RtlRbInsertNodeEx(&LdrpRedirectionTree, v19, Right[0], Node);
             inited = (int)DestinationString.Buffer;
           }
           else
@@ -213,12 +214,12 @@ LABEL_42:
       }
     }
   }
-  if ( v37 != Src )
-    RtlDeleteBoundaryDescriptor((int)Src);
-  v35 = 0x1000000;
-  Src = v37;
+  if ( v37 != SystemPath.Buffer )
+    RtlDeleteBoundaryDescriptor((POBJECT_BOUNDARY_DESCRIPTOR)SystemPath.Buffer);
+  *(_DWORD *)&SystemPath.Length = 0x1000000;
+  SystemPath.Buffer = v37;
   v37[0] = 0;
-  if ( v34 != v33 )
-    RtlDeleteBoundaryDescriptor((int)v33);
+  if ( v35 != OriginalName.Buffer )
+    RtlDeleteBoundaryDescriptor((POBJECT_BOUNDARY_DESCRIPTOR)OriginalName.Buffer);
   return inited;
 }

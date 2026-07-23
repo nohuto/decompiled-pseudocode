@@ -1,14 +1,14 @@
 /*
- * XREFs of RtlUpcaseUnicodeToMultiByteN @ 0x1408AF4F0
+ * XREFs of RtlUpcaseUnicodeToMultiByteN @ 0x140905750
  * Callers:
- *     toupper @ 0x1404FFBA0 (toupper.c)
- *     RtlUpcaseUnicodeStringToAnsiString @ 0x14077D1A0 (RtlUpcaseUnicodeStringToAnsiString.c)
+ *     toupper @ 0x1404FD460 (toupper.c)
+ *     RtlUpcaseUnicodeStringToAnsiString @ 0x14077D0D0 (RtlUpcaseUnicodeStringToAnsiString.c)
  * Callees:
- *     UpcaseUnicodeToUTF8NHelper @ 0x140347308 (UpcaseUnicodeToUTF8NHelper.c)
- *     PsGetCurrentServerSiloGlobals @ 0x140347D10 (PsGetCurrentServerSiloGlobals.c)
- *     UpcaseUnicodeToSingleByteNHelper @ 0x140348330 (UpcaseUnicodeToSingleByteNHelper.c)
- *     UpcaseUnicodeToMultiByteNHelper @ 0x1404187C0 (UpcaseUnicodeToMultiByteNHelper.c)
- *     RtlpIsUtf8Process @ 0x1408AF8F0 (RtlpIsUtf8Process.c)
+ *     UpcaseUnicodeToUTF8NHelper @ 0x140325D78 (UpcaseUnicodeToUTF8NHelper.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x140326710 (PsGetCurrentServerSiloGlobals.c)
+ *     UpcaseUnicodeToSingleByteNHelper @ 0x1403C1D70 (UpcaseUnicodeToSingleByteNHelper.c)
+ *     UpcaseUnicodeToMultiByteNHelper @ 0x140408570 (UpcaseUnicodeToMultiByteNHelper.c)
+ *     RtlpIsUtf8Process @ 0x140905B50 (RtlpIsUtf8Process.c)
  */
 
 NTSTATUS __stdcall RtlUpcaseUnicodeToMultiByteN(

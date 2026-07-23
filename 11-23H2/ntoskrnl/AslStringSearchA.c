@@ -1,7 +1,7 @@
 /*
- * XREFs of AslStringSearchA @ 0x140A53ECC
+ * XREFs of AslStringSearchA @ 0x140A5417C
  * Callers:
- *     SdbpCheckMatchingTextEntry @ 0x140A4FF54 (SdbpCheckMatchingTextEntry.c)
+ *     SdbpCheckMatchingTextEntry @ 0x140A50204 (SdbpCheckMatchingTextEntry.c)
  * Callees:
  *     <none>
  */

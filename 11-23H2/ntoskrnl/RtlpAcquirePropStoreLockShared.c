@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlpAcquirePropStoreLockShared @ 0x1405AAD24
+ * XREFs of RtlpAcquirePropStoreLockShared @ 0x1405AB294
  * Callers:
- *     RtlQueryPointerMapping @ 0x1405AA7F0 (RtlQueryPointerMapping.c)
- *     RtlQueryPropertyStore @ 0x1405AA930 (RtlQueryPropertyStore.c)
+ *     RtlQueryPointerMapping @ 0x1405AAD60 (RtlQueryPointerMapping.c)
+ *     RtlQueryPropertyStore @ 0x1405AAEA0 (RtlQueryPropertyStore.c)
  * Callees:
- *     ExAcquireSpinLockSharedAtDpcLevel @ 0x14025AD10 (ExAcquireSpinLockSharedAtDpcLevel.c)
+ *     ExAcquireSpinLockSharedAtDpcLevel @ 0x14025AFA0 (ExAcquireSpinLockSharedAtDpcLevel.c)
  */
 
 unsigned __int8 __fastcall RtlpAcquirePropStoreLockShared(PEX_SPIN_LOCK SpinLock)
@@ -15,7 +15,7 @@ unsigned __int8 __fastcall RtlpAcquirePropStoreLockShared(PEX_SPIN_LOCK SpinLock
 
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(0xFuLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     if ( CurrentIrql == 15 )

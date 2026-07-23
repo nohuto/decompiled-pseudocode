@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlpHpSegMgrVaCtxInsert @ 0x14034FC34
+ * XREFs of RtlpHpSegMgrVaCtxInsert @ 0x140351CB4
  * Callers:
- *     RtlpHpSegMgrAllocate @ 0x14034F948 (RtlpHpSegMgrAllocate.c)
+ *     RtlpHpSegMgrAllocate @ 0x1403519C8 (RtlpHpSegMgrAllocate.c)
  * Callees:
- *     RtlpHpVaMgrCtxQuery @ 0x140350620 (RtlpHpVaMgrCtxQuery.c)
- *     RtlpHpSegMgrLock @ 0x1404C457C (RtlpHpSegMgrLock.c)
- *     RtlpHpSegMgrUnlock @ 0x1404C879C (RtlpHpSegMgrUnlock.c)
+ *     RtlpHpVaMgrCtxQuery @ 0x1403526A0 (RtlpHpVaMgrCtxQuery.c)
+ *     RtlpHpSegMgrLock @ 0x1404BDE5C (RtlpHpSegMgrLock.c)
+ *     RtlpHpSegMgrUnlock @ 0x1404C24DC (RtlpHpSegMgrUnlock.c)
  */
 
 __int64 __fastcall RtlpHpSegMgrVaCtxInsert(__int64 a1, __int64 a2)
@@ -20,7 +20,7 @@ __int64 __fastcall RtlpHpSegMgrVaCtxInsert(__int64 a1, __int64 a2)
 
   v9 = 0LL;
   v10 = 0LL;
-  RtlpHpVaMgrCtxQuery(&ExpUuidLock.FirstArgument, a2, &v9);
+  RtlpHpVaMgrCtxQuery(&ExpUuidLock.TrapFrame, a2, &v9);
   v3 = (unsigned __int16 *)v10;
   v4 = *(_WORD *)v10;
   *(_WORD *)v10 ^= (*(_WORD *)v10 ^ (*(_WORD *)v10 + 1)) & 0x7FF;

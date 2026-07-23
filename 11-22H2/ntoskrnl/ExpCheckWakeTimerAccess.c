@@ -32,7 +32,7 @@ __int64 __fastcall ExpCheckWakeTimerAccess(char a1)
     (__int64)&ExTimerObjectType->TypeInfo.GenericMapping,
     1,
     &v4,
-    (int *)&v3);
+    (NTSTATUS *)&v3);
   SeReleaseSubjectContext(&SubjectContext);
   return v3;
 }

@@ -1,11 +1,11 @@
 /*
- * XREFs of NormalizationList__Lock @ 0x1406263D0
+ * XREFs of NormalizationList__Lock @ 0x140629420
  * Callers:
- *     RtlpGetNormalization @ 0x14080F254 (RtlpGetNormalization.c)
+ *     RtlpGetNormalization @ 0x140814CE4 (RtlpGetNormalization.c)
  * Callees:
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ?KiAbpSetEntryValue@AutoBoost@@YAXPECEEK@Z @ 0x140444460 (-KiAbpSetEntryValue@AutoBoost@@YAXPECEEK@Z.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ?KiAbpSetEntryValue@AutoBoost@@YAXPECEEK@Z @ 0x14043CF70 (-KiAbpSetEntryValue@AutoBoost@@YAXPECEEK@Z.c)
  */
 
 void __fastcall NormalizationList__Lock(__int64 a1, __int64 a2, __int64 a3, struct _KLOCK_ENTRIES *a4)

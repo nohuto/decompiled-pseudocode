@@ -1,12 +1,12 @@
 /*
- * XREFs of PpmParkRecordNodeStatistics @ 0x14041EFE0
+ * XREFs of PpmParkRecordNodeStatistics @ 0x140416820
  * Callers:
- *     PpmCheckRecordAllUtility @ 0x140211EE0 (PpmCheckRecordAllUtility.c)
+ *     PpmCheckRecordAllUtility @ 0x140211FC0 (PpmCheckRecordAllUtility.c)
  * Callees:
- *     PpmPerfRecordMostActiveWorkloadClass @ 0x14041F2F4 (PpmPerfRecordMostActiveWorkloadClass.c)
- *     PpmEventParkNodeRecordedStats @ 0x14041F52C (PpmEventParkNodeRecordedStats.c)
- *     PpmParkComputeSnapStatistics @ 0x140421140 (PpmParkComputeSnapStatistics.c)
- *     PpmEventParkNodeClassRecordedStats @ 0x140527C0C (PpmEventParkNodeClassRecordedStats.c)
+ *     PpmPerfRecordMostActiveWorkloadClass @ 0x140416B34 (PpmPerfRecordMostActiveWorkloadClass.c)
+ *     PpmEventParkNodeRecordedStats @ 0x140416D6C (PpmEventParkNodeRecordedStats.c)
+ *     PpmParkComputeSnapStatistics @ 0x140418980 (PpmParkComputeSnapStatistics.c)
+ *     PpmEventParkNodeClassRecordedStats @ 0x14052A27C (PpmEventParkNodeClassRecordedStats.c)
  */
 
 __int64 PpmParkRecordNodeStatistics()
@@ -45,17 +45,17 @@ __int64 PpmParkRecordNodeStatistics()
   unsigned __int16 v31; // [rsp+90h] [rbp+18h]
 
   LODWORD(v0) = (_DWORD)PpmCurrentProfile;
-  result = dword_140F106CC;
+  result = SHIDWORD(PpmIdlePolicyLock.PropagateBoostsEntry.Next);
   v2 = 0;
-  v3 = *(_DWORD *)&PopSleepstudySessionLock.ApcStateFill[4];
-  v4 = 89LL * dword_140F106CC;
+  v3 = PpmCheckMakeupCount;
+  v4 = 712LL * SHIDWORD(PpmIdlePolicyLock.PropagateBoostsEntry.Next);
   v31 = 0;
-  v5 = BYTE6(PpmCurrentProfile[v4 + 32]);
-  v6 = PpmCurrentProfile[v4 + 33];
+  v5 = *((_BYTE *)PpmCurrentProfile + v4 + 262);
+  v6 = *((_BYTE *)PpmCurrentProfile + v4 + 264);
   v30 = v5;
-  for ( i = v6; v2 < PopModernStandbyStateNotify.SystemCallNumber; v31 = v2 )
+  for ( i = v6; v2 < (unsigned int)PpmParkNumNodes; v31 = v2 )
   {
-    v7 = *(_QWORD *)((char *)&PopModernStandbyStateNotify.116 + 4) + 1264LL * v2;
+    v7 = PpmParkNodes + 1264LL * v2;
     v8 = *(_QWORD *)(v7 + 1104) - *(_QWORD *)(v7 + 1112);
     if ( v3 )
     {

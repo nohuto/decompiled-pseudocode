@@ -1,12 +1,12 @@
 /*
- * XREFs of KsepDsEventDriverUnload @ 0x1402A0D20
+ * XREFs of KsepDsEventDriverUnload @ 0x1402A0F10
  * Callers:
- *     KseDsCallbackHookDriverUnload @ 0x1402A00F0 (KseDsCallbackHookDriverUnload.c)
- *     KseDsHookDriverUntargeted @ 0x1402A04A0 (KseDsHookDriverUntargeted.c)
+ *     KseDsCallbackHookDriverUnload @ 0x1402A02E0 (KseDsCallbackHookDriverUnload.c)
+ *     KseDsHookDriverUntargeted @ 0x1402A0690 (KseDsHookDriverUntargeted.c)
  * Callees:
  *     EtwEventEnabled @ 0x14005B2D0 (EtwEventEnabled.c)
- *     EtwWriteEx @ 0x1400CAD60 (EtwWriteEx.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     EtwWriteEx @ 0x1400CAE40 (EtwWriteEx.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
  */
 
 void __fastcall KsepDsEventDriverUnload(__int64 a1, __int64 a2)

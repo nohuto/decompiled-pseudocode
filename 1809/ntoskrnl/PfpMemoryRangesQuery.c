@@ -1,11 +1,11 @@
 /*
- * XREFs of PfpMemoryRangesQuery @ 0x140141980
+ * XREFs of PfpMemoryRangesQuery @ 0x140141A80
  * Callers:
- *     PfQuerySuperfetchInformation @ 0x140629AD0 (PfQuerySuperfetchInformation.c)
+ *     PfQuerySuperfetchInformation @ 0x14062AAF0 (PfQuerySuperfetchInformation.c)
  * Callees:
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     ProbeForWrite @ 0x140629A60 (ProbeForWrite.c)
- *     MmGetPhysicalMemoryRangesEx2 @ 0x1406DADA4 (MmGetPhysicalMemoryRangesEx2.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     ProbeForWrite @ 0x14062AA80 (ProbeForWrite.c)
+ *     MmGetPhysicalMemoryRangesEx2 @ 0x1406DC044 (MmGetPhysicalMemoryRangesEx2.c)
  */
 
 __int64 __fastcall PfpMemoryRangesQuery(__int64 a1, char a2, _DWORD *a3)

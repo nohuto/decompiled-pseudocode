@@ -1,7 +1,7 @@
 /*
- * XREFs of WmipFindGuid @ 0x1406CC434
+ * XREFs of WmipFindGuid @ 0x1406CD6D4
  * Callers:
- *     IoWMISystemControl @ 0x1406CC0FC (IoWMISystemControl.c)
+ *     IoWMISystemControl @ 0x1406CD39C (IoWMISystemControl.c)
  * Callees:
  *     <none>
  */

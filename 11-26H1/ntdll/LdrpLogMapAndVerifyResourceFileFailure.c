@@ -1,27 +1,27 @@
 /*
- * XREFs of LdrpLogMapAndVerifyResourceFileFailure @ 0x180070918
+ * XREFs of LdrpLogMapAndVerifyResourceFileFailure @ 0x180090D68
  * Callers:
- *     LdrLoadAlternateResourceModuleEx @ 0x180030230 (LdrLoadAlternateResourceModuleEx.c)
+ *     LdrLoadAlternateResourceModuleEx @ 0x18001B390 (LdrLoadAlternateResourceModuleEx.c)
  * Callees:
- *     _tlgWriteTransfer_EtwEventWriteTransfer @ 0x18006A8B0 (_tlgWriteTransfer_EtwEventWriteTransfer.c)
- *     RtlRunOnceExecuteOnce @ 0x18006EED0 (RtlRunOnceExecuteOnce.c)
- *     __security_check_cookie @ 0x180162C90 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwEventWriteTransfer @ 0x18008AD00 (_tlgWriteTransfer_EtwEventWriteTransfer.c)
+ *     RtlRunOnceExecuteOnce @ 0x18008F320 (RtlRunOnceExecuteOnce.c)
+ *     __security_check_cookie @ 0x180162B90 (__security_check_cookie.c)
  */
 
-__int64 __fastcall LdrpLogMapAndVerifyResourceFileFailure(
+NTSTATUS __fastcall LdrpLogMapAndVerifyResourceFileFailure(
         int a1,
         unsigned __int16 *a2,
         char a3,
         int a4,
         unsigned __int16 *a5)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
   __int64 v10; // r9
   char v11; // [rsp+38h] [rbp-81h] BYREF
   int v12; // [rsp+3Ch] [rbp-7Dh] BYREF
   int v13; // [rsp+40h] [rbp-79h] BYREF
   __int64 v14; // [rsp+48h] [rbp-71h] BYREF
-  _BYTE v15[32]; // [rsp+58h] [rbp-61h] BYREF
+  _EVENT_DATA_DESCRIPTOR v15; // [rsp+58h] [rbp-61h] BYREF
   __int64 *v16; // [rsp+78h] [rbp-41h]
   __int64 v17; // [rsp+80h] [rbp-39h]
   int *v18; // [rsp+88h] [rbp-31h]
@@ -39,15 +39,11 @@ __int64 __fastcall LdrpLogMapAndVerifyResourceFileFailure(
   __int64 v30; // [rsp+E8h] [rbp+2Fh]
   _DWORD v31[2]; // [rsp+F0h] [rbp+37h] BYREF
 
-  result = RtlRunOnceExecuteOnce(
-             &qword_1801CB578,
-             (unsigned int (__fastcall *)(volatile signed __int64 *, __int64, unsigned __int64 *))LdrpResReportResourceAccessInternalInitOnce,
-             0LL,
-             0LL);
-  if ( (int)result >= 0 && (unsigned int)dword_1801C5990 > 5 && (qword_1801C59A0 & 0x200000000000LL) != 0 )
+  result = RtlRunOnceExecuteOnce(&stru_1801CA5C8, LdrpResReportResourceAccessInternalInitOnce, 0LL, 0LL);
+  if ( result >= 0 && (unsigned int)dword_1801C4990 > 5 && (qword_1801C49A0 & 0x200000000000LL) != 0 )
   {
-    result = qword_1801C59A8 & 0x200000000000LL;
-    if ( (qword_1801C59A8 & 0x200000000000LL) == qword_1801C59A8 )
+    result = 0;
+    if ( (qword_1801C49A8 & 0x200000000000LL) == qword_1801C49A8 )
     {
       v16 = &v14;
       v14 = 0x1000000LL;
@@ -72,12 +68,12 @@ __int64 __fastcall LdrpLogMapAndVerifyResourceFileFailure(
       v29 = 2LL;
       v31[1] = 0;
       return tlgWriteTransfer_EtwEventWriteTransfer(
-               (__int64)&dword_1801C5990,
-               byte_18019C3F9,
+               (__int64)&dword_1801C4990,
+               (unsigned __int8 *)dword_18019B411,
                0LL,
                v10,
-               10,
-               (__int64)v15);
+               0xAu,
+               &v15);
     }
   }
   return result;

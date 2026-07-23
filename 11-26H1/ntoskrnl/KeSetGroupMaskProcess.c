@@ -1,7 +1,7 @@
 /*
- * XREFs of KeSetGroupMaskProcess @ 0x1404D81E0
+ * XREFs of KeSetGroupMaskProcess @ 0x1404D19B0
  * Callers:
- *     KeInitializeProcess @ 0x140963BE4 (KeInitializeProcess.c)
+ *     KeInitializeProcess @ 0x140B58704 (KeInitializeProcess.c)
  * Callees:
  *     <none>
  */

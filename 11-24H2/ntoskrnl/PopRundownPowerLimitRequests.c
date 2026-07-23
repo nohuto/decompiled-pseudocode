@@ -1,12 +1,12 @@
 /*
- * XREFs of PopRundownPowerLimitRequests @ 0x140A38A64
+ * XREFs of PopRundownPowerLimitRequests @ 0x140A2DB24
  * Callers:
- *     PopDiagTraceControlCallback @ 0x140A37E50 (PopDiagTraceControlCallback.c)
+ *     PopDiagTraceControlCallback @ 0x140A2CF10 (PopDiagTraceControlCallback.c)
  * Callees:
- *     PopReleaseRwLock @ 0x1403B5EC8 (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x1404283D4 (PopAcquireRwLockExclusive.c)
- *     PopDiagTracePowerLimitExtension @ 0x14075706C (PopDiagTracePowerLimitExtension.c)
- *     PopDiagTracePowerLimitRequest @ 0x140757400 (PopDiagTracePowerLimitRequest.c)
+ *     PopReleaseRwLock @ 0x1402AE8FC (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x14041C564 (PopAcquireRwLockExclusive.c)
+ *     PopDiagTracePowerLimitExtension @ 0x1407554EC (PopDiagTracePowerLimitExtension.c)
+ *     PopDiagTracePowerLimitRequest @ 0x140755880 (PopDiagTracePowerLimitRequest.c)
  */
 
 __int64 PopRundownPowerLimitRequests()
@@ -14,7 +14,7 @@ __int64 PopRundownPowerLimitRequests()
   __int64 i; // rbx
   __int64 j; // rdi
 
-  PopAcquireRwLockExclusive(&PopPowerLimitExtensionLock);
+  PopAcquireRwLockExclusive((unsigned __int64 *)&PopPowerLimitExtensionLock);
   for ( i = PopPowerLimitExtensionList; (__int64 *)i != &PopPowerLimitExtensionList; i = *(_QWORD *)i )
   {
     if ( *(_BYTE *)(i + 48) )
@@ -29,5 +29,5 @@ __int64 PopRundownPowerLimitRequests()
       PopReleaseRwLock((signed __int64 *)(i + 32));
     }
   }
-  return PopReleaseRwLock((signed __int64 *)&PopPowerLimitExtensionLock);
+  return PopReleaseRwLock(&PopPowerLimitExtensionLock);
 }

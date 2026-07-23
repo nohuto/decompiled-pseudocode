@@ -1,5 +1,5 @@
 /*
- * XREFs of KeQueryTypeEvent @ 0x140444770
+ * XREFs of KeQueryTypeEvent @ 0x14043CA30
  * Callers:
  *     <none>
  * Callees:

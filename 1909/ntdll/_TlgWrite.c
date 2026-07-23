@@ -29,17 +29,16 @@ TLG_STATUS __stdcall TlgWrite(
         UINT32 cData,
         EVENT_DATA_DESCRIPTOR *pData)
 {
-  _DWORD v7[2]; // [rsp+30h] [rbp-18h] BYREF
-  __int64 v8; // [rsp+38h] [rbp-10h]
+  EVENT_DESCRIPTOR EventDescriptor; // [rsp+30h] [rbp-18h] BYREF
 
-  v7[0] = *(unsigned __int8 *)pEventMetadata << 24;
-  v7[1] = *(unsigned __int16 *)((char *)pEventMetadata + 1);
-  v8 = *(_QWORD *)((char *)pEventMetadata + 3);
+  *(_DWORD *)&EventDescriptor.Id = *(unsigned __int8 *)pEventMetadata << 24;
+  *(_DWORD *)&EventDescriptor.Level = *(unsigned __int16 *)((char *)pEventMetadata + 1);
+  EventDescriptor.Keyword = *(_QWORD *)((char *)pEventMetadata + 3);
   pData->Ptr = *((_QWORD *)hProvider + 1);
   pData->Size = **((unsigned __int16 **)hProvider + 1);
   pData[1].Ptr = (unsigned __int64)pEventMetadata + 11;
   pData->Reserved = 2;
   pData[1].Size = *(unsigned __int16 *)((char *)pEventMetadata + 11);
   pData[1].Reserved = 1;
-  return EtwEventWriteTransfer(*((_QWORD *)hProvider + 4), (int)v7, 0LL, 0LL, cData, (__int64)pData);
+  return EtwEventWriteTransfer(*((_QWORD *)hProvider + 4), &EventDescriptor, 0LL, 0LL, cData, pData);
 }

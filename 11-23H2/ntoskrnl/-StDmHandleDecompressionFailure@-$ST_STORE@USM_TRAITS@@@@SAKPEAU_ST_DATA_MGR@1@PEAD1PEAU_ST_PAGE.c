@@ -1,28 +1,28 @@
 /*
- * XREFs of ?StDmHandleDecompressionFailure@?$ST_STORE@USM_TRAITS@@@@SAKPEAU_ST_DATA_MGR@1@PEAD1PEAU_ST_PAGE_LOCATION@1@PEAU_STDM_READ_CONTEXT@1@@Z @ 0x1405C5F84
+ * XREFs of ?StDmHandleDecompressionFailure@?$ST_STORE@USM_TRAITS@@@@SAKPEAU_ST_DATA_MGR@1@PEAD1PEAU_ST_PAGE_LOCATION@1@PEAU_STDM_READ_CONTEXT@1@@Z @ 0x1405C64F4
  * Callers:
- *     ?StDmPageError@?$ST_STORE@USM_TRAITS@@@@SAKPEAU_ST_DATA_MGR@1@PEAD1PEAU_ST_PAGE_LOCATION@1@PEAU_STDM_READ_CONTEXT@1@J@Z @ 0x1405C6794 (-StDmPageError@-$ST_STORE@USM_TRAITS@@@@SAKPEAU_ST_DATA_MGR@1@PEAD1PEAU_ST_PAGE_LOCATION@1@PEAU_.c)
+ *     ?StDmPageError@?$ST_STORE@USM_TRAITS@@@@SAKPEAU_ST_DATA_MGR@1@PEAD1PEAU_ST_PAGE_LOCATION@1@PEAU_STDM_READ_CONTEXT@1@J@Z @ 0x1405C6D04 (-StDmPageError@-$ST_STORE@USM_TRAITS@@@@SAKPEAU_ST_DATA_MGR@1@PEAD1PEAU_ST_PAGE_LOCATION@1@PEAU_.c)
  * Callees:
- *     ExAcquirePushLockSharedEx @ 0x140230D90 (ExAcquirePushLockSharedEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfReleasePushLockShared @ 0x1402BD860 (ExfReleasePushLockShared.c)
- *     RtlDecompressBufferEx @ 0x1402F5980 (RtlDecompressBufferEx.c)
- *     KiCheckForKernelApcDelivery @ 0x14030F820 (KiCheckForKernelApcDelivery.c)
- *     ?BTreeSearchResultCleanup@?$B_TREE@T_SM_PAGE_KEY@@U_ST_PAGE_ENTRY@?$ST_STORE@USM_TRAITS@@@@$0BAAA@UNP_CONTEXT@@U?$B_TREE_KEY_COMPARATOR@T_SM_PAGE_KEY@@@@@@SAXPEAU1@PEAUSEARCH_RESULT@1@K@Z @ 0x1403458B4 (-BTreeSearchResultCleanup@-$B_TREE@T_SM_PAGE_KEY@@U_ST_PAGE_ENTRY@-$ST_STORE@USM_TRAITS@@@@$0BAA.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     memmove @ 0x140435700 (memmove.c)
- *     ?ST_PAGE_RECORD_GET@?$ST_STORE@USM_TRAITS@@@@SAPEAU_ST_PAGE_RECORD@1@PEAU_ST_DATA_MGR@1@PEAU_ST_PAGE_ENTRY@1@@Z @ 0x140464B96 (-ST_PAGE_RECORD_GET@-$ST_STORE@USM_TRAITS@@@@SAPEAU_ST_PAGE_RECORD@1@PEAU_ST_DATA_MGR@1@PEAU_ST_.c)
- *     ?BTreeSearchKey@?$B_TREE@T_SM_PAGE_KEY@@U_ST_PAGE_ENTRY@?$ST_STORE@USM_TRAITS@@@@$0BAAA@UNP_CONTEXT@@U?$B_TREE_KEY_COMPARATOR@T_SM_PAGE_KEY@@@@@@SAJPEAU1@T_SM_PAGE_KEY@@PEAUSEARCH_RESULT@1@@Z @ 0x1405BD30C (-BTreeSearchKey@-$B_TREE@T_SM_PAGE_KEY@@U_ST_PAGE_ENTRY@-$ST_STORE@USM_TRAITS@@@@$0BAAA@UNP_CONT.c)
- *     SmFixSingleBitCorruption @ 0x1405CA044 (SmFixSingleBitCorruption.c)
- *     SmHpChunkUnprotect @ 0x1405CA654 (SmHpChunkUnprotect.c)
- *     SmPrepareForFatalPageError @ 0x1405CD804 (SmPrepareForFatalPageError.c)
- *     MmStoreLogCorruptionFixed @ 0x14065D124 (MmStoreLogCorruptionFixed.c)
+ *     ExAcquirePushLockSharedEx @ 0x140230E80 (ExAcquirePushLockSharedEx.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     ExfReleasePushLockShared @ 0x1402BDAF0 (ExfReleasePushLockShared.c)
+ *     RtlDecompressBufferEx @ 0x1402F5C10 (RtlDecompressBufferEx.c)
+ *     KiCheckForKernelApcDelivery @ 0x14030FAB0 (KiCheckForKernelApcDelivery.c)
+ *     ?BTreeSearchResultCleanup@?$B_TREE@T_SM_PAGE_KEY@@U_ST_PAGE_ENTRY@?$ST_STORE@USM_TRAITS@@@@$0BAAA@UNP_CONTEXT@@U?$B_TREE_KEY_COMPARATOR@T_SM_PAGE_KEY@@@@@@SAXPEAU1@PEAUSEARCH_RESULT@1@K@Z @ 0x140345B44 (-BTreeSearchResultCleanup@-$B_TREE@T_SM_PAGE_KEY@@U_ST_PAGE_ENTRY@-$ST_STORE@USM_TRAITS@@@@$0BAA.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     ?ST_PAGE_RECORD_GET@?$ST_STORE@USM_TRAITS@@@@SAPEAU_ST_PAGE_RECORD@1@PEAU_ST_DATA_MGR@1@PEAU_ST_PAGE_ENTRY@1@@Z @ 0x140464F96 (-ST_PAGE_RECORD_GET@-$ST_STORE@USM_TRAITS@@@@SAPEAU_ST_PAGE_RECORD@1@PEAU_ST_DATA_MGR@1@PEAU_ST_.c)
+ *     ?BTreeSearchKey@?$B_TREE@T_SM_PAGE_KEY@@U_ST_PAGE_ENTRY@?$ST_STORE@USM_TRAITS@@@@$0BAAA@UNP_CONTEXT@@U?$B_TREE_KEY_COMPARATOR@T_SM_PAGE_KEY@@@@@@SAJPEAU1@T_SM_PAGE_KEY@@PEAUSEARCH_RESULT@1@@Z @ 0x1405BD87C (-BTreeSearchKey@-$B_TREE@T_SM_PAGE_KEY@@U_ST_PAGE_ENTRY@-$ST_STORE@USM_TRAITS@@@@$0BAAA@UNP_CONT.c)
+ *     SmFixSingleBitCorruption @ 0x1405CA5B4 (SmFixSingleBitCorruption.c)
+ *     SmHpChunkUnprotect @ 0x1405CABC4 (SmHpChunkUnprotect.c)
+ *     SmPrepareForFatalPageError @ 0x1405CDD74 (SmPrepareForFatalPageError.c)
+ *     MmStoreLogCorruptionFixed @ 0x14065D674 (MmStoreLogCorruptionFixed.c)
  */
 
 __int64 __fastcall ST_STORE<SM_TRAITS>::StDmHandleDecompressionFailure(
         __int64 a1,
         char *a2,
-        void *a3,
+        UCHAR *a3,
         ULONG_PTR a4,
         __int64 a5)
 {
@@ -43,25 +43,25 @@ __int64 __fastcall ST_STORE<SM_TRAITS>::StDmHandleDecompressionFailure(
   bool v22; // zf
   void *v23; // r14
   char fixed; // al
-  __int64 v25; // rax
-  PVOID v26; // r13
+  void *WorkSpace; // rax
+  PUCHAR BaseAddress; // r13
   __int64 v27; // rdx
   struct _KTHREAD *v28; // rax
   ULONG_PTR v29; // rcx
   __int128 v31; // [rsp+40h] [rbp-38h] BYREF
   __int128 v32; // [rsp+50h] [rbp-28h]
   __int64 v33; // [rsp+60h] [rbp-18h]
-  int v34; // [rsp+C0h] [rbp+48h] BYREF
+  ULONG FinalUncompressedSize; // [rsp+C0h] [rbp+48h] BYREF
   int v35; // [rsp+C8h] [rbp+50h]
-  PVOID BaseAddress; // [rsp+D0h] [rbp+58h]
+  PUCHAR UncompressedBuffer; // [rsp+D0h] [rbp+58h]
   char *v37; // [rsp+D8h] [rbp+60h]
 
-  BaseAddress = a3;
+  UncompressedBuffer = a3;
   v5 = a5;
   v8 = *(_DWORD *)a4 >> *(_DWORD *)(a1 + 812);
   v9 = (unsigned int)(16 * (*(_DWORD *)a4 & *(_DWORD *)(a1 + 808)));
   v32 = 0LL;
-  v34 = 0;
+  FinalUncompressedSize = 0;
   v35 = v8;
   v37 = &a2[-v9];
   DWORD2(v32) = -1;
@@ -124,17 +124,17 @@ LABEL_15:
     v16 = fixed & 1;
     if ( (fixed & 1) != 0 )
     {
-      v25 = *(_QWORD *)(v5 + 16);
-      v26 = BaseAddress;
-      if ( (int)RtlDecompressBufferEx(
-                  *(_WORD *)(a1 + 992),
-                  (__int64)BaseAddress,
-                  0x1000u,
-                  (__int64)v23,
-                  *(unsigned __int16 *)(a4 + 4),
-                  (__int64)&v34,
-                  v25) >= 0
-        && v34 == 4096 )
+      WorkSpace = *(void **)(v5 + 16);
+      BaseAddress = UncompressedBuffer;
+      if ( RtlDecompressBufferEx(
+             *(_WORD *)(a1 + 992),
+             UncompressedBuffer,
+             0x1000u,
+             (PUCHAR)v23,
+             *(unsigned __int16 *)(a4 + 4),
+             &FinalUncompressedSize,
+             WorkSpace) >= 0
+        && FinalUncompressedSize == 4096 )
       {
         _InterlockedAdd((volatile signed __int32 *)(a1 + 1928), 1u);
         v27 = *(unsigned __int16 *)(a4 + 4);
@@ -145,7 +145,7 @@ LABEL_15:
     }
     else
     {
-      v26 = BaseAddress;
+      BaseAddress = UncompressedBuffer;
     }
     v28 = KeGetCurrentThread();
     v29 = *(_QWORD *)(a1 + 800) + 6024LL;
@@ -161,7 +161,7 @@ LABEL_15:
         *(unsigned __int16 *)(a1 + 992),
         *(_DWORD *)(a4 + 8),
         (int)a2,
-        v26);
+        BaseAddress);
   }
   else
   {
@@ -173,7 +173,7 @@ LABEL_15:
       *(unsigned __int16 *)(a1 + 992),
       *(_DWORD *)(a4 + 8),
       (int)a2,
-      BaseAddress);
+      UncompressedBuffer);
     SmHpChunkUnprotect(a1 + 192, v12, v16 + 2);
   }
   return v16 >> 1;

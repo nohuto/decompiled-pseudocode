@@ -1,13 +1,13 @@
 /*
- * XREFs of PopUpdateExternalDisplayState @ 0x1407624B8
+ * XREFs of PopUpdateExternalDisplayState @ 0x1407636A8
  * Callers:
- *     PopPowerInformationInternal @ 0x14058DF30 (PopPowerInformationInternal.c)
+ *     PopPowerInformationInternal @ 0x14058EF30 (PopPowerInformationInternal.c)
  * Callees:
  *     _TlgWrite @ 0x140012EE4 (_TlgWrite.c)
- *     PopQueueWorkItem @ 0x140138CC8 (PopQueueWorkItem.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     PopReleasePolicyLock @ 0x140565370 (PopReleasePolicyLock.c)
- *     PopAcquirePolicyLock @ 0x140565690 (PopAcquirePolicyLock.c)
+ *     PopQueueWorkItem @ 0x140138DC8 (PopQueueWorkItem.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     PopReleasePolicyLock @ 0x140566370 (PopReleasePolicyLock.c)
+ *     PopAcquirePolicyLock @ 0x140566690 (PopAcquirePolicyLock.c)
  */
 
 __int64 __fastcall PopUpdateExternalDisplayState(char a1)
@@ -26,7 +26,7 @@ __int64 __fastcall PopUpdateExternalDisplayState(char a1)
     v5 = &v3;
     v3 = a1;
     v6 = 1;
-    TlgWrite(&pCallbackContext, &unk_14036FFE2, 0LL, 0LL, 3u, &pData);
+    TlgWrite(&pCallbackContext, &unk_140371047, 0LL, 0LL, 3u, &pData);
   }
   PopQueueWorkItem((__int64)&PopExternalMonitorUpdatedWorkItem, DelayedWorkQueue);
   return PopReleasePolicyLock();

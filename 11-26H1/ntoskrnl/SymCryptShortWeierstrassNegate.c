@@ -1,11 +1,11 @@
 /*
- * XREFs of SymCryptShortWeierstrassNegate @ 0x140567BD0
+ * XREFs of SymCryptShortWeierstrassNegate @ 0x140575840
  * Callers:
  *     <none>
  * Callees:
- *     SymCryptModElementCreate @ 0x14055C584 (SymCryptModElementCreate.c)
- *     SymCryptModElementMaskedCopy @ 0x14055C600 (SymCryptModElementMaskedCopy.c)
- *     SymCryptModNeg @ 0x14055C868 (SymCryptModNeg.c)
+ *     SymCryptModElementCreate @ 0x14055EA6C (SymCryptModElementCreate.c)
+ *     SymCryptModElementMaskedCopy @ 0x14055EAE8 (SymCryptModElementMaskedCopy.c)
+ *     SymCryptModNeg @ 0x14055ED50 (SymCryptModNeg.c)
  */
 
 __int64 __fastcall SymCryptShortWeierstrassNegate(__int64 a1)

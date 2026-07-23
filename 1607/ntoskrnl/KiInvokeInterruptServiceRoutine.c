@@ -1,17 +1,17 @@
 /*
- * XREFs of KiInvokeInterruptServiceRoutine @ 0x1401D8994
+ * XREFs of KiInvokeInterruptServiceRoutine @ 0x1401D87C0
  * Callers:
- *     KiInterruptDispatchCommon @ 0x1401D8668 (KiInterruptDispatchCommon.c)
+ *     KiInterruptDispatchCommon @ 0x1401D8494 (KiInterruptDispatchCommon.c)
  * Callees:
- *     KiSetTimerEx @ 0x140006E00 (KiSetTimerEx.c)
- *     KiCallInterruptServiceRoutine @ 0x14000C2E0 (KiCallInterruptServiceRoutine.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x140055FA0 (KiLeaveCriticalRegionUnsafe.c)
- *     KeSetEvent @ 0x1400562D0 (KeSetEvent.c)
- *     EtwGetKernelTraceTimestamp @ 0x140059D50 (EtwGetKernelTraceTimestamp.c)
- *     KeWaitForSingleObject @ 0x14005C880 (KeWaitForSingleObject.c)
- *     PerfInfoLogInterrupt @ 0x140090D90 (PerfInfoLogInterrupt.c)
- *     KeCancelTimer @ 0x1400C3480 (KeCancelTimer.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
+ *     KiSetTimerEx @ 0x140006F70 (KiSetTimerEx.c)
+ *     KiCallInterruptServiceRoutine @ 0x14000BE60 (KiCallInterruptServiceRoutine.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140055B20 (KiLeaveCriticalRegionUnsafe.c)
+ *     KeSetEvent @ 0x140055E50 (KeSetEvent.c)
+ *     EtwGetKernelTraceTimestamp @ 0x1400598D0 (EtwGetKernelTraceTimestamp.c)
+ *     KeWaitForSingleObject @ 0x14005C400 (KeWaitForSingleObject.c)
+ *     PerfInfoLogInterrupt @ 0x1400904F0 (PerfInfoLogInterrupt.c)
+ *     KeCancelTimer @ 0x1400C1310 (KeCancelTimer.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
  */
 
 bool __fastcall KiInvokeInterruptServiceRoutine(__int64 a1, unsigned __int8 a2, int a3)

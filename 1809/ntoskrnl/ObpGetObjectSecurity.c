@@ -1,24 +1,24 @@
 /*
- * XREFs of ObpGetObjectSecurity @ 0x1405C9580
+ * XREFs of ObpGetObjectSecurity @ 0x1405CA580
  * Callers:
- *     ObCheckObjectAccess @ 0x1405958F0 (ObCheckObjectAccess.c)
- *     ObCheckCreateObjectAccess @ 0x1405C83B0 (ObCheckCreateObjectAccess.c)
- *     ObpInsertOrLocateNamedObject @ 0x1405C85A8 (ObpInsertOrLocateNamedObject.c)
- *     ObpCheckObjectReference @ 0x1405C9050 (ObpCheckObjectReference.c)
- *     SepAppendAceToTokenObjectAcl @ 0x1405C9190 (SepAppendAceToTokenObjectAcl.c)
- *     MiAllowImageMap @ 0x1405F48B8 (MiAllowImageMap.c)
- *     PspAllocateAndQueryNotificationChannel @ 0x1406ACB04 (PspAllocateAndQueryNotificationChannel.c)
- *     ObGetObjectSecurity @ 0x140700F30 (ObGetObjectSecurity.c)
- *     PopBootStatAccessCheck @ 0x140753370 (PopBootStatAccessCheck.c)
- *     ObpCheckTraverseAccess @ 0x140861924 (ObpCheckTraverseAccess.c)
- *     PspCheckJobAccessState @ 0x140889968 (PspCheckJobAccessState.c)
- *     EtwpCheckCurrentUserProcessAccess @ 0x1408C2FC0 (EtwpCheckCurrentUserProcessAccess.c)
+ *     ObCheckObjectAccess @ 0x1405968F0 (ObCheckObjectAccess.c)
+ *     ObCheckCreateObjectAccess @ 0x1405C93B0 (ObCheckCreateObjectAccess.c)
+ *     ObpInsertOrLocateNamedObject @ 0x1405C95A8 (ObpInsertOrLocateNamedObject.c)
+ *     ObpCheckObjectReference @ 0x1405CA050 (ObpCheckObjectReference.c)
+ *     SepAppendAceToTokenObjectAcl @ 0x1405CA190 (SepAppendAceToTokenObjectAcl.c)
+ *     MiAllowImageMap @ 0x1405F58B8 (MiAllowImageMap.c)
+ *     PspAllocateAndQueryNotificationChannel @ 0x1406ADDA4 (PspAllocateAndQueryNotificationChannel.c)
+ *     ObGetObjectSecurity @ 0x1407021D0 (ObGetObjectSecurity.c)
+ *     PopBootStatAccessCheck @ 0x140754560 (PopBootStatAccessCheck.c)
+ *     ObpCheckTraverseAccess @ 0x140862B84 (ObpCheckTraverseAccess.c)
+ *     PspCheckJobAccessState @ 0x14088ABC8 (PspCheckJobAccessState.c)
+ *     EtwpCheckCurrentUserProcessAccess @ 0x1408C4280 (EtwpCheckCurrentUserProcessAccess.c)
  * Callees:
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     ObpReferenceSecurityDescriptor @ 0x1405C9750 (ObpReferenceSecurityDescriptor.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     ObpReferenceSecurityDescriptor @ 0x1405CA750 (ObpReferenceSecurityDescriptor.c)
  */
 
 __int64 __fastcall ObpGetObjectSecurity(__int64 a1, PVOID *a2, _BYTE *a3, char a4)

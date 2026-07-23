@@ -62,7 +62,7 @@ NTSTATUS __stdcall NtWriteFile(
   ULONG *v26; // r12
   ULONG Flags; // eax
   struct _KTHREAD *v28; // rax
-  __int64 v29; // rax
+  PRTL_BALANCED_NODE v29; // rax
   __int64 v30; // r9
   struct _IRP *MasterIrp; // rbx
   char v32; // bl
@@ -233,7 +233,7 @@ LABEL_41:
     else
     {
       if ( v29 )
-        *(_BYTE *)(v29 + 26) |= 1u;
+        BYTE2(v29[1].Left) |= 1u;
       v12 = FileObject;
       ObfReferenceObject(FileObject);
       v11 = 0;

@@ -1,9 +1,9 @@
 /*
- * XREFs of NormBuffer__SortBeforeSameClass @ 0x1800FFCF4
+ * XREFs of NormBuffer__SortBeforeSameClass @ 0x1800FFCB4
  * Callers:
- *     NormBuffer__AppendAndSortDecomposed @ 0x1800FF684 (NormBuffer__AppendAndSortDecomposed.c)
+ *     NormBuffer__AppendAndSortDecomposed @ 0x1800FF644 (NormBuffer__AppendAndSortDecomposed.c)
  * Callees:
- *     NormBuffer__GetCurrentOutputChar @ 0x1800FF71C (NormBuffer__GetCurrentOutputChar.c)
+ *     NormBuffer__GetCurrentOutputChar @ 0x1800FF6DC (NormBuffer__GetCurrentOutputChar.c)
  */
 
 __int64 __fastcall NormBuffer__SortBeforeSameClass(_QWORD *a1, unsigned __int8 a2)

@@ -6,9 +6,9 @@
  *     RtlpWalkFrameChain @ 0x180052760 (RtlpWalkFrameChain.c)
  *     RtlpMergeContextXState @ 0x180072570 (RtlpMergeContextXState.c)
  *     RtlpPopUserShadowStack @ 0x18007E2A0 (RtlpPopUserShadowStack.c)
- *     RtlLocateExtendedFeature @ 0x1800F5DB0 (RtlLocateExtendedFeature.c)
+ *     RtlLocateExtendedFeature @ 0x1800F5D70 (RtlLocateExtendedFeature.c)
  * Callees:
- *     RtlpLocateXStateChunk @ 0x1800F6428 (RtlpLocateXStateChunk.c)
+ *     RtlpLocateXStateChunk @ 0x1800F63E8 (RtlpLocateXStateChunk.c)
  */
 
 __int64 __fastcall RtlLocateExtendedFeature2(__int64 a1, int a2, __int64 a3, _DWORD *a4)

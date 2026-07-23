@@ -128,7 +128,7 @@ __int64 __fastcall PipInitComputerIds(__int64 a1)
   UNICODE_STRING *v101; // [rsp+D0h] [rbp-38h]
   _QWORD v102[4]; // [rsp+D8h] [rbp-30h] BYREF
   UNICODE_STRING UnicodeString[8]; // [rsp+F8h] [rbp-10h] BYREF
-  unsigned int v104[60]; // [rsp+178h] [rbp+70h] BYREF
+  _OWORD v104[15]; // [rsp+178h] [rbp+70h] BYREF
   wchar_t SourceString; // [rsp+268h] [rbp+160h] BYREF
   wchar_t pszDest[8]; // [rsp+270h] [rbp+168h] BYREF
 
@@ -379,7 +379,7 @@ __int64 __fastcall PipInitComputerIds(__int64 a1)
     v101 = &UnicodeString[4];
     v102[0] = &UnicodeString[5];
     v102[1] = &DestinationString;
-    v39 = PipCreateComputerId(v38, v34, &v98, 6LL, &v104[4 * v4]);
+    v39 = PipCreateComputerId(v38, v34, &v98, 6LL, &v104[v4]);
     v40 = v4 + 1;
     v5 = v39;
     if ( v39 < 0 )
@@ -389,7 +389,7 @@ __int64 __fastcall PipInitComputerIds(__int64 a1)
     v100 = &UnicodeString[4];
     v101 = &UnicodeString[5];
     v102[0] = &DestinationString;
-    v41 = PipCreateComputerId(v38, v34, &v98, 5LL, &v104[4 * v40]);
+    v41 = PipCreateComputerId(v38, v34, &v98, 5LL, &v104[v40]);
     v4 = v40 + 1;
     v5 = v41;
     if ( v41 < 0 )
@@ -430,7 +430,7 @@ __int64 __fastcall PipInitComputerIds(__int64 a1)
             --v72;
           }
           while ( v72 );
-          v74 = PipCreateComputerId(v38, v34, &v98, 6LL, &v104[4 * v4++]);
+          v74 = PipCreateComputerId(v38, v34, &v98, 6LL, &v104[v4++]);
           v5 = v74;
           if ( v74 < 0 )
             goto LABEL_106;
@@ -447,7 +447,7 @@ __int64 __fastcall PipInitComputerIds(__int64 a1)
         --v42;
       }
       while ( v42 );
-      v45 = PipCreateComputerId(v38, v34, &v98, 4LL, &v104[4 * v4++]);
+      v45 = PipCreateComputerId(v38, v34, &v98, 4LL, &v104[v4++]);
       v5 = v45;
       if ( v45 < 0 )
         goto LABEL_106;
@@ -455,7 +455,7 @@ __int64 __fastcall PipInitComputerIds(__int64 a1)
     v98 = UnicodeString;
     v99 = &UnicodeString[1];
     v100 = &UnicodeString[2];
-    v46 = PipCreateComputerId(v38, v34, &v98, 3LL, &v104[4 * v4++]);
+    v46 = PipCreateComputerId(v38, v34, &v98, 3LL, &v104[v4++]);
     v5 = v46;
     if ( v46 < 0 )
       goto LABEL_106;
@@ -480,7 +480,7 @@ __int64 __fastcall PipInitComputerIds(__int64 a1)
           --v75;
         }
         while ( v75 );
-        v78 = PipCreateComputerId(v38, v34, &v98, 4LL, &v104[4 * v4++]);
+        v78 = PipCreateComputerId(v38, v34, &v98, 4LL, &v104[v4++]);
         v5 = v78;
         if ( v78 < 0 )
           goto LABEL_106;
@@ -488,7 +488,7 @@ __int64 __fastcall PipInitComputerIds(__int64 a1)
     }
     v98 = UnicodeString;
     v99 = &UnicodeString[3];
-    v47 = PipCreateComputerId(v38, v34, &v98, 2LL, &v104[4 * v4++]);
+    v47 = PipCreateComputerId(v38, v34, &v98, 2LL, &v104[v4++]);
     v5 = v47;
     if ( v47 < 0 )
       goto LABEL_106;
@@ -506,7 +506,7 @@ __int64 __fastcall PipInitComputerIds(__int64 a1)
         v99 = &UnicodeString[2];
         v100 = &UnicodeString[6];
         v101 = &UnicodeString[7];
-        v79 = PipCreateComputerId(v38, v34, &v98, 4LL, &v104[4 * v4++]);
+        v79 = PipCreateComputerId(v38, v34, &v98, 4LL, &v104[v4++]);
         v5 = v79;
         if ( v79 < 0 )
           goto LABEL_106;
@@ -514,7 +514,7 @@ __int64 __fastcall PipInitComputerIds(__int64 a1)
     }
     v98 = UnicodeString;
     v99 = &UnicodeString[2];
-    v48 = PipCreateComputerId(v38, v34, &v98, 2LL, &v104[4 * v4++]);
+    v48 = PipCreateComputerId(v38, v34, &v98, 2LL, &v104[v4++]);
     v5 = v48;
     if ( v48 < 0 )
       goto LABEL_106;
@@ -539,7 +539,7 @@ __int64 __fastcall PipInitComputerIds(__int64 a1)
           --v80;
         }
         while ( v80 );
-        v83 = PipCreateComputerId(v38, v34, &v98, 4LL, &v104[4 * v4++]);
+        v83 = PipCreateComputerId(v38, v34, &v98, 4LL, &v104[v4++]);
         v5 = v83;
         if ( v83 < 0 )
           goto LABEL_106;
@@ -547,7 +547,7 @@ __int64 __fastcall PipInitComputerIds(__int64 a1)
     }
     v98 = UnicodeString;
     v99 = &UnicodeString[1];
-    v84 = PipCreateComputerId(v38, v34, &v98, 2LL, &v104[4 * v4++]);
+    v84 = PipCreateComputerId(v38, v34, &v98, 2LL, &v104[v4++]);
     v5 = v84;
     if ( v84 < 0 )
       goto LABEL_106;
@@ -563,7 +563,7 @@ __int64 __fastcall PipInitComputerIds(__int64 a1)
     RtlInitUnicodeString(&v97, &SourceString);
     v98 = UnicodeString;
     v99 = &v97;
-    v49 = PipCreateComputerId(v38, 0LL, &v98, 2LL, &v104[4 * v4++]);
+    v49 = PipCreateComputerId(v38, 0LL, &v98, 2LL, &v104[v4++]);
     v5 = v49;
     if ( v49 < 0 )
       goto LABEL_106;
@@ -584,13 +584,13 @@ __int64 __fastcall PipInitComputerIds(__int64 a1)
     --v9;
   }
   while ( v9 );
-  v87 = PipCreateComputerId(v38, 0LL, &v98, 3LL, &v104[4 * v4++]);
+  v87 = PipCreateComputerId(v38, 0LL, &v98, 3LL, &v104[v4++]);
   v5 = v87;
   if ( v87 >= 0 )
   {
 LABEL_178:
     v98 = UnicodeString;
-    v50 = PipCreateComputerId(v38, 0LL, &v98, 1LL, &v104[4 * v4++]);
+    v50 = PipCreateComputerId(v38, 0LL, &v98, 1LL, &v104[v4++]);
     v5 = v50;
     if ( v50 >= 0 )
     {
@@ -664,7 +664,7 @@ LABEL_83:
             }
             if ( v5 < 0 )
               break;
-            v5 = RtlStringFromGUIDEx(&v104[4 * v54], (__int64)&ValueName, 0);
+            v5 = RtlStringFromGUIDEx((PGUID)&v104[v54], &ValueName, 0);
             if ( v5 < 0 )
               break;
             v5 = RtlUpcaseUnicodeString(&ValueName, &ValueName, 0);

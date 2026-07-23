@@ -1,23 +1,22 @@
 /*
- * XREFs of KiSuspendThread @ 0x140338B00
+ * XREFs of KiSuspendThread @ 0x1402DE060
  * Callers:
- *     KiFreezeSingleThread @ 0x1404635BC (KiFreezeSingleThread.c)
- *     KeSuspendThread @ 0x140483128 (KeSuspendThread.c)
- *     KiAdjustThreadTimer @ 0x1405C259C (KiAdjustThreadTimer.c)
+ *     KiFreezeSingleThread @ 0x1402DD7D8 (KiFreezeSingleThread.c)
+ *     KeSuspendThread @ 0x14047E25C (KeSuspendThread.c)
+ *     KiAdjustThreadTimer @ 0x1405BFB6C (KiAdjustThreadTimer.c)
  * Callees:
- *     KiDecrementProcessStackCount @ 0x1402699D0 (KiDecrementProcessStackCount.c)
- *     HvlNotifyLongSpinWait @ 0x140293260 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140293290 (KiCheckVpBackingLongSpinWaitHypercall.c)
- *     KiSignalThreadForApc @ 0x140296870 (KiSignalThreadForApc.c)
- *     KiAcquireKobjectLockSafe @ 0x14031E740 (KiAcquireKobjectLockSafe.c)
- *     KiSignalThread @ 0x140324240 (KiSignalThread.c)
- *     KiInsertQueueApc @ 0x1403377A0 (KiInsertQueueApc.c)
- *     KiCancelTimer @ 0x1403E3B40 (KiCancelTimer.c)
+ *     KiDecrementProcessStackCount @ 0x14021EF60 (KiDecrementProcessStackCount.c)
+ *     HvlNotifyLongSpinWait @ 0x1402A2E60 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1402A2E90 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     KiAcquireKobjectLockSafe @ 0x1402C72D0 (KiAcquireKobjectLockSafe.c)
+ *     KiSignalThread @ 0x1402CCDD0 (KiSignalThread.c)
+ *     KiCancelTimer @ 0x1402DC730 (KiCancelTimer.c)
+ *     KiSignalThreadForApc @ 0x1402DD8B0 (KiSignalThreadForApc.c)
+ *     KiInsertQueueApc @ 0x1402DF8C0 (KiInsertQueueApc.c)
  */
 
 char __fastcall KiSuspendThread(__int64 a1, __int64 a2)
 {
-  __int64 v2; // r14
   char v3; // si
   unsigned int v4; // edi
   int v6; // eax
@@ -34,7 +33,6 @@ char __fastcall KiSuspendThread(__int64 a1, __int64 a2)
   unsigned __int64 v17; // rsi
   unsigned __int64 v18; // rcx
 
-  v2 = a2;
   v3 = 0;
   v4 = 0;
   while ( _interlockedbittestandset64((volatile signed __int32 *)(a1 + 64), 0LL) )
@@ -75,7 +73,7 @@ char __fastcall KiSuspendThread(__int64 a1, __int64 a2)
         || *(_BYTE *)(*(_QWORD *)(a1 + 208) + 17LL) != 5 && *(_BYTE *)(*(_QWORD *)(a1 + 208) + 16LL) != 1 )
       {
         if ( v3 )
-          KiSignalThreadForApc(v2, a1 + 648, 2, 0);
+          KiSignalThreadForApc(a2, a1 + 648, 2, 0);
       }
       else
       {
@@ -96,9 +94,8 @@ char __fastcall KiSuspendThread(__int64 a1, __int64 a2)
             KiAcquireKobjectLockSafe(v14);
             if ( *(_BYTE *)v9 == 4 )
             {
-              a2 = v9 - 17;
               v15 = *(_QWORD *)(v9 - 17);
-              if ( *(_QWORD *)(v15 + 8) != v9 - 17 || (v16 = *(_QWORD **)(v9 - 9), *v16 != a2) )
+              if ( *(_QWORD *)(v15 + 8) != v9 - 17 || (v16 = *(_QWORD **)(v9 - 9), *v16 != v9 - 17) )
                 __fastfail(3u);
               *v16 = v15;
               *(_QWORD *)(v15 + 8) = v16;
@@ -111,9 +108,8 @@ char __fastcall KiSuspendThread(__int64 a1, __int64 a2)
         while ( v9 - 17 != v10 );
         if ( (*(_DWORD *)(a1 + 116) & 0x200) != 0 )
         {
-          LOBYTE(a2) = 1;
           v17 = MEMORY[0xFFFFF78000000008];
-          if ( (unsigned __int8)KiCancelTimer(a1 + 256, a2) )
+          if ( (unsigned __int8)KiCancelTimer(a1 + 256, 1) )
           {
             v18 = *(_QWORD *)(a1 + 280);
             if ( v18 <= v17 )
@@ -164,7 +160,7 @@ char __fastcall KiSuspendThread(__int64 a1, __int64 a2)
         *(_DWORD *)(a1 + 116) = (*(_DWORD *)(a1 + 116) & 0xFFFDFFFF ^ ((*(_DWORD *)(a1 + 116) & 0x200) << 8)) & 0xFFFFFDFF;
         *(_BYTE *)(a1 + 112) = v12;
         if ( (v12 & 0x20) != 0 )
-          KiSignalThread(v2, a1, 256LL, 0LL);
+          KiSignalThread(a2, a1, 256LL, 0LL);
       }
     }
     v3 = 1;

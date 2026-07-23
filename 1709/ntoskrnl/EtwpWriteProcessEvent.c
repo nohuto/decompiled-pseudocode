@@ -24,7 +24,7 @@ void __fastcall EtwpWriteProcessEvent(
 {
   char v6; // bp
   __int64 v11; // [rsp+60h] [rbp-148h] BYREF
-  STRING AnsiString; // [rsp+68h] [rbp-140h] BYREF
+  _STRING AnsiString; // [rsp+68h] [rbp-140h] BYREF
   $709EDFC2F9E0D4565D6AA3C4377BC643 v13; // [rsp+A0h] [rbp-108h] BYREF
   __int64 v14[18]; // [rsp+D0h] [rbp-D8h] BYREF
 

@@ -1,12 +1,12 @@
 /*
- * XREFs of ExpConvertExclusiveToSharedLite @ 0x1402B224C
+ * XREFs of ExpConvertExclusiveToSharedLite @ 0x1402303FC
  * Callers:
- *     ExConvertExclusiveToSharedLite @ 0x1402B21C0 (ExConvertExclusiveToSharedLite.c)
+ *     ExConvertExclusiveToSharedLite @ 0x140230370 (ExConvertExclusiveToSharedLite.c)
  * Callees:
- *     KeAcquireInStackQueuedSpinLock @ 0x14022EE10 (KeAcquireInStackQueuedSpinLock.c)
- *     ExpApplyPriorityBoost @ 0x14022F000 (ExpApplyPriorityBoost.c)
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     KeWakeWaitChain @ 0x1402BA75C (KeWakeWaitChain.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402042B0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KeWakeWaitChain @ 0x14023896C (KeWakeWaitChain.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402D3660 (KeAcquireInStackQueuedSpinLock.c)
+ *     ExpApplyPriorityBoost @ 0x1402D3850 (ExpApplyPriorityBoost.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
@@ -57,7 +57,7 @@ __int64 __fastcall ExpConvertExclusiveToSharedLite(__int64 a1)
   __writecr8(OldIrql);
   result = KeWakeWaitChain(&v13, 0LL, 0LL);
   if ( v2 && v4 )
-    result = ExpApplyPriorityBoost(a1, 65280, (__int64)KeGetCurrentThread());
+    result = ExpApplyPriorityBoost(a1, 65280LL, KeGetCurrentThread());
   __incgsdword(0x8674u);
   return result;
 }

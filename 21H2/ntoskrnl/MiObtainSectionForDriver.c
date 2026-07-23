@@ -1,17 +1,17 @@
 /*
- * XREFs of MiObtainSectionForDriver @ 0x14075C358
+ * XREFs of MiObtainSectionForDriver @ 0x14075C518
  * Callers:
- *     MmLoadSystemImageEx @ 0x14075BAFC (MmLoadSystemImageEx.c)
- *     MiApplyHotPatchToLoadedDriver @ 0x1408C91F8 (MiApplyHotPatchToLoadedDriver.c)
+ *     MmLoadSystemImageEx @ 0x14075BCBC (MmLoadSystemImageEx.c)
+ *     MiApplyHotPatchToLoadedDriver @ 0x1408C9358 (MiApplyHotPatchToLoadedDriver.c)
  * Callees:
- *     MiSectionControlArea @ 0x140315260 (MiSectionControlArea.c)
- *     ObDereferenceObjectDeferDelete @ 0x140343540 (ObDereferenceObjectDeferDelete.c)
- *     MiGetSystemRegionType @ 0x14034A950 (MiGetSystemRegionType.c)
- *     RtlEqualUnicodeString @ 0x140601410 (RtlEqualUnicodeString.c)
- *     MmReleaseLoadLock @ 0x1406D1110 (MmReleaseLoadLock.c)
- *     MmAcquireLoadLock @ 0x1406D1170 (MmAcquireLoadLock.c)
- *     MiAllocateTempLoaderEntry @ 0x14075DBF8 (MiAllocateTempLoaderEntry.c)
- *     MiCreateSectionForDriver @ 0x14075DC48 (MiCreateSectionForDriver.c)
+ *     MiSectionControlArea @ 0x14031FFB0 (MiSectionControlArea.c)
+ *     ObDereferenceObjectDeferDelete @ 0x14034E290 (ObDereferenceObjectDeferDelete.c)
+ *     MiGetSystemRegionType @ 0x1403556A0 (MiGetSystemRegionType.c)
+ *     MmReleaseLoadLock @ 0x1406A83F0 (MmReleaseLoadLock.c)
+ *     MmAcquireLoadLock @ 0x1406A8450 (MmAcquireLoadLock.c)
+ *     RtlEqualUnicodeString @ 0x1406F0B70 (RtlEqualUnicodeString.c)
+ *     MiAllocateTempLoaderEntry @ 0x14075DDB8 (MiAllocateTempLoaderEntry.c)
+ *     MiCreateSectionForDriver @ 0x14075DE08 (MiCreateSectionForDriver.c)
  */
 
 __int64 __fastcall MiObtainSectionForDriver(

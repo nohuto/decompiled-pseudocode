@@ -1,13 +1,13 @@
 /*
- * XREFs of KiConnectInterrupt @ 0x140424570
+ * XREFs of KiConnectInterrupt @ 0x140431660
  * Callers:
- *     KeConnectInterrupt @ 0x140424368 (KeConnectInterrupt.c)
+ *     KeConnectInterrupt @ 0x140431458 (KeConnectInterrupt.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     KeRevertToUserGroupAffinityThread @ 0x14037C490 (KeRevertToUserGroupAffinityThread.c)
- *     KiInsertInterruptObjectOrdered @ 0x140423508 (KiInsertInterruptObjectOrdered.c)
- *     KiAcquireInterruptConnectLock @ 0x14042372C (KiAcquireInterruptConnectLock.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KeRevertToUserGroupAffinityThread @ 0x14037E240 (KeRevertToUserGroupAffinityThread.c)
+ *     KiInsertInterruptObjectOrdered @ 0x1404305F8 (KiInsertInterruptObjectOrdered.c)
+ *     KiAcquireInterruptConnectLock @ 0x14043081C (KiAcquireInterruptConnectLock.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall KiConnectInterrupt(__int64 a1)
@@ -27,7 +27,7 @@ __int64 __fastcall KiConnectInterrupt(__int64 a1)
   __int64 v15; // r10
   unsigned __int8 v16[8]; // [rsp+20h] [rbp-48h] BYREF
   __int64 v17; // [rsp+28h] [rbp-40h]
-  struct _GROUP_AFFINITY PreviousAffinity; // [rsp+30h] [rbp-38h] BYREF
+  _GROUP_AFFINITY PreviousAffinity; // [rsp+30h] [rbp-38h] BYREF
 
   v1 = *(unsigned int *)(a1 + 88);
   v2 = 0;

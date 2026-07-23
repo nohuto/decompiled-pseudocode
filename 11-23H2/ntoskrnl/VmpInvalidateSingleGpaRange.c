@@ -1,9 +1,9 @@
 /*
- * XREFs of VmpInvalidateSingleGpaRange @ 0x140466CC8
+ * XREFs of VmpInvalidateSingleGpaRange @ 0x1404670C8
  * Callers:
- *     VmpProcessInvalidateSlat @ 0x1405FAA64 (VmpProcessInvalidateSlat.c)
+ *     VmpProcessInvalidateSlat @ 0x1405FAFD4 (VmpProcessInvalidateSlat.c)
  * Callees:
- *     HvlMapGpaPages @ 0x140679040 (HvlMapGpaPages.c)
+ *     HvlMapGpaPages @ 0x140679590 (HvlMapGpaPages.c)
  */
 
 __int64 __fastcall VmpInvalidateSingleGpaRange(int a1, int a2, __int64 a3, char a4)

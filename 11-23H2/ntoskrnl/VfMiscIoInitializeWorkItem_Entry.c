@@ -1,13 +1,13 @@
 /*
- * XREFs of VfMiscIoInitializeWorkItem_Entry @ 0x140ADFD30
+ * XREFs of VfMiscIoInitializeWorkItem_Entry @ 0x140ADFD20
  * Callers:
  *     <none>
  * Callees:
- *     MmIsSessionAddress @ 0x1402BC7E0 (MmIsSessionAddress.c)
- *     IoSizeofWorkItem @ 0x140364360 (IoSizeofWorkItem.c)
- *     MmIsNonPagedSystemAddressValid @ 0x14046BB80 (MmIsNonPagedSystemAddressValid.c)
- *     VfMiscCheckKernelAddress @ 0x1405D2498 (VfMiscCheckKernelAddress.c)
- *     VerifierBugCheckIfAppropriate @ 0x140ACD2B4 (VerifierBugCheckIfAppropriate.c)
+ *     MmIsSessionAddress @ 0x1402BCA70 (MmIsSessionAddress.c)
+ *     IoSizeofWorkItem @ 0x140364500 (IoSizeofWorkItem.c)
+ *     MmIsNonPagedSystemAddressValid @ 0x14046BF80 (MmIsNonPagedSystemAddressValid.c)
+ *     VfMiscCheckKernelAddress @ 0x1405D2A08 (VfMiscCheckKernelAddress.c)
+ *     VerifierBugCheckIfAppropriate @ 0x140ACD2A4 (VerifierBugCheckIfAppropriate.c)
  */
 
 BOOLEAN __fastcall VfMiscIoInitializeWorkItem_Entry(__int64 a1)

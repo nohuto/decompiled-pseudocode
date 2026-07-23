@@ -1,14 +1,14 @@
 /*
- * XREFs of CmpPostApcRunDown @ 0x140A0F720
+ * XREFs of CmpPostApcRunDown @ 0x140A0F9D0
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     KeSetEvent @ 0x14023C5E0 (KeSetEvent.c)
- *     DbgPrint @ 0x14032A6F0 (DbgPrint.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     CmpFreeSubordinatePost @ 0x1407678DC (CmpFreeSubordinatePost.c)
- *     CmpFreePostBlock @ 0x140768350 (CmpFreePostBlock.c)
+ *     ObfDereferenceObject @ 0x140231660 (ObfDereferenceObject.c)
+ *     KeSetEvent @ 0x14023C6B0 (KeSetEvent.c)
+ *     DbgPrint @ 0x14032A980 (DbgPrint.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     CmpFreeSubordinatePost @ 0x140767ACC (CmpFreeSubordinatePost.c)
+ *     CmpFreePostBlock @ 0x140768540 (CmpFreePostBlock.c)
  */
 
 __int64 __fastcall CmpPostApcRunDown(__int64 a1)
@@ -79,10 +79,10 @@ __int64 __fastcall CmpPostApcRunDown(__int64 a1)
   *(_QWORD *)(v9 + 8) = v10;
   CmpFreeSubordinatePost((__int64)v2);
   CmpFreePostBlock(v2);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v11 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v11 <= 0xFu && CurrentIrql <= 0xFu && v11 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v11 <= 0xFu && CurrentIrql <= 0xFu && v11 >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;

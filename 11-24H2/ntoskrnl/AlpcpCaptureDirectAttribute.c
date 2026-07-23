@@ -1,9 +1,9 @@
 /*
- * XREFs of AlpcpCaptureDirectAttribute @ 0x1409FFFB0
+ * XREFs of AlpcpCaptureDirectAttribute @ 0x1409F9818
  * Callers:
- *     AlpcpCaptureAttributes @ 0x14088F7F0 (AlpcpCaptureAttributes.c)
+ *     AlpcpCaptureAttributes @ 0x140899420 (AlpcpCaptureAttributes.c)
  * Callees:
- *     ObReferenceObjectByHandle @ 0x14084AF40 (ObReferenceObjectByHandle.c)
+ *     ObReferenceObjectByHandle @ 0x140847200 (ObReferenceObjectByHandle.c)
  */
 
 __int64 __fastcall AlpcpCaptureDirectAttribute(unsigned __int64 *a1, void *a2, __int64 a3, int a4, int a5)

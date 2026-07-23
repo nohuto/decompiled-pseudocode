@@ -29,7 +29,7 @@ int __fastcall LdrpReleaseTlsEntry(int a1, _DWORD *a2)
       __fastfail(3u);
     *v7 = v6;
     *(_DWORD *)(v6 + 4) = v7;
-    *((_BYTE *)dword_4B3A5C94 + (v5[9] >> 3)) &= ~(1 << (v5[9] & 7));
+    *((_BYTE *)LdrpTlsBitmap.Buffer + (v5[9] >> 3)) &= ~(1 << (v5[9] & 7));
   }
   if ( !a2 )
     RtlReleaseSRWLockExclusive(&LdrpTlsLock);

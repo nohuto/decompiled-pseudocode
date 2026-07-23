@@ -1,11 +1,11 @@
 /*
- * XREFs of VfFaultsAddAllTags @ 0x140C344D0
+ * XREFs of VfFaultsAddAllTags @ 0x140C3A4E0
  * Callers:
- *     VfRlrsVolatileConfigUpdate @ 0x140648604 (VfRlrsVolatileConfigUpdate.c)
- *     VfFaultsInitPhase0 @ 0x140C34584 (VfFaultsInitPhase0.c)
- *     VfFaultsSetParameters @ 0x140C34AA4 (VfFaultsSetParameters.c)
+ *     VfRlrsVolatileConfigUpdate @ 0x14064C1E4 (VfRlrsVolatileConfigUpdate.c)
+ *     VfFaultsInitPhase0 @ 0x140C3A594 (VfFaultsInitPhase0.c)
+ *     VfFaultsSetParameters @ 0x140C3AAB4 (VfFaultsSetParameters.c)
  * Callees:
- *     ViFaultsAddTagNoDuplicates @ 0x140C34D9C (ViFaultsAddTagNoDuplicates.c)
+ *     ViFaultsAddTagNoDuplicates @ 0x140C3ADAC (ViFaultsAddTagNoDuplicates.c)
  */
 
 __int64 __fastcall VfFaultsAddAllTags(unsigned __int16 *a1, int a2)

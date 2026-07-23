@@ -1,19 +1,19 @@
 /*
- * XREFs of IopWriteFile @ 0x1406B6DD0
+ * XREFs of IopWriteFile @ 0x1406B6F80
  * Callers:
- *     NtWriteFile @ 0x1406B6A20 (NtWriteFile.c)
- *     IopIoRingDispatchWrite @ 0x140949C64 (IopIoRingDispatchWrite.c)
+ *     NtWriteFile @ 0x1406B6BD0 (NtWriteFile.c)
+ *     IopIoRingDispatchWrite @ 0x140949E64 (IopIoRingDispatchWrite.c)
  * Callees:
  *     MmIsDriverVerifying @ 0x14020A570 (MmIsDriverVerifying.c)
  *     IopValidateAndGetWriteParameters @ 0x140223D30 (IopValidateAndGetWriteParameters.c)
  *     IopAllocateAndPopulateWriteIrp @ 0x140224220 (IopAllocateAndPopulateWriteIrp.c)
- *     IopReleaseFileObjectLock @ 0x1402314E0 (IopReleaseFileObjectLock.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     KeSetEvent @ 0x14023C5E0 (KeSetEvent.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     IopSynchronousServiceTail @ 0x1406E3E90 (IopSynchronousServiceTail.c)
- *     VfFastIoCheckState @ 0x140ACB234 (VfFastIoCheckState.c)
- *     VfFastIoSnapState @ 0x140ACB30C (VfFastIoSnapState.c)
+ *     IopReleaseFileObjectLock @ 0x1402315D0 (IopReleaseFileObjectLock.c)
+ *     ObfDereferenceObject @ 0x140231660 (ObfDereferenceObject.c)
+ *     KeSetEvent @ 0x14023C6B0 (KeSetEvent.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     IopSynchronousServiceTail @ 0x1406E3EC0 (IopSynchronousServiceTail.c)
+ *     VfFastIoCheckState @ 0x140ACB224 (VfFastIoCheckState.c)
+ *     VfFastIoSnapState @ 0x140ACB2FC (VfFastIoSnapState.c)
  */
 
 __int64 __fastcall IopWriteFile(
@@ -37,120 +37,121 @@ __int64 __fastcall IopWriteFile(
   __int64 v17; // r12
   unsigned int v18; // r13d
   __int64 result; // rax
-  __int64 v20; // r9
-  __int64 v21; // rdi
-  __int64 v22; // rcx
-  __int64 (__fastcall *v23)(_QWORD *, __int64 *, _QWORD, __int64, _DWORD, __int64, __int128 *, __int64); // r14
-  char v24; // di
+  _DWORD *v20; // r8
+  __int64 v21; // r9
+  __int64 v22; // rdi
+  __int64 v23; // rcx
+  __int64 (__fastcall *v24)(_QWORD *, __int64 *, _QWORD, __int64, _DWORD, __int64, __int128 *, __int64); // r14
+  char v25; // di
   struct _KTHREAD *CurrentThread; // rax
-  struct _KTHREAD *v26; // rcx
-  unsigned __int64 v27; // rax
-  PRKEVENT v28; // rcx
-  int v29; // [rsp+20h] [rbp-F8h]
-  int v30; // [rsp+28h] [rbp-F0h]
-  __int128 v31; // [rsp+50h] [rbp-C8h] BYREF
-  struct _KTHREAD *v32; // [rsp+60h] [rbp-B8h] BYREF
-  __int16 v33; // [rsp+68h] [rbp-B0h]
-  unsigned __int8 v34; // [rsp+6Ah] [rbp-AEh]
-  int v35; // [rsp+6Bh] [rbp-ADh]
-  char v36; // [rsp+6Fh] [rbp-A9h]
-  _QWORD *v37; // [rsp+70h] [rbp-A8h]
-  __int64 v38; // [rsp+78h] [rbp-A0h]
+  struct _KTHREAD *v27; // rcx
+  unsigned __int64 v28; // rax
+  PRKEVENT v29; // rcx
+  int v30; // [rsp+20h] [rbp-F8h]
+  int v31; // [rsp+28h] [rbp-F0h]
+  __int128 v32; // [rsp+50h] [rbp-C8h] BYREF
+  struct _KTHREAD *v33; // [rsp+60h] [rbp-B8h] BYREF
+  __int16 v34; // [rsp+68h] [rbp-B0h]
+  unsigned __int8 v35; // [rsp+6Ah] [rbp-AEh]
+  int v36; // [rsp+6Bh] [rbp-ADh]
+  char v37; // [rsp+6Fh] [rbp-A9h]
+  _QWORD *v38; // [rsp+70h] [rbp-A8h]
+  __int64 v39; // [rsp+78h] [rbp-A0h]
   PRKEVENT Event; // [rsp+80h] [rbp-98h]
-  __int64 v40; // [rsp+88h] [rbp-90h]
-  __int64 v41; // [rsp+90h] [rbp-88h]
-  __int64 v42; // [rsp+98h] [rbp-80h]
-  __int64 v43; // [rsp+A0h] [rbp-78h]
-  int v44; // [rsp+A8h] [rbp-70h]
-  int v45; // [rsp+ACh] [rbp-6Ch]
-  __int64 v46; // [rsp+B0h] [rbp-68h] BYREF
-  __int64 v47; // [rsp+B8h] [rbp-60h]
-  __int64 v48; // [rsp+C0h] [rbp-58h]
-  __int64 v49; // [rsp+C8h] [rbp-50h]
-  int v50; // [rsp+D0h] [rbp-48h]
-  int v51; // [rsp+D4h] [rbp-44h]
-  __int64 v52; // [rsp+D8h] [rbp-40h]
-  __int64 v53; // [rsp+E0h] [rbp-38h]
-  IRP *v54; // [rsp+130h] [rbp+18h] BYREF
+  __int64 v41; // [rsp+88h] [rbp-90h]
+  __int64 v42; // [rsp+90h] [rbp-88h]
+  __int64 v43; // [rsp+98h] [rbp-80h]
+  __int64 v44; // [rsp+A0h] [rbp-78h]
+  int v45; // [rsp+A8h] [rbp-70h]
+  int v46; // [rsp+ACh] [rbp-6Ch]
+  __int64 v47; // [rsp+B0h] [rbp-68h] BYREF
+  __int64 v48; // [rsp+B8h] [rbp-60h]
+  __int64 v49; // [rsp+C0h] [rbp-58h]
+  __int64 v50; // [rsp+C8h] [rbp-50h]
+  int v51; // [rsp+D0h] [rbp-48h]
+  int v52; // [rsp+D4h] [rbp-44h]
+  __int64 v53; // [rsp+D8h] [rbp-40h]
+  __int64 v54; // [rsp+E0h] [rbp-38h]
+  IRP *v55; // [rsp+130h] [rbp+18h] BYREF
 
-  v35 = 0;
   v36 = 0;
-  v45 = 0;
-  v47 = 0LL;
-  v51 = 0;
+  v37 = 0;
+  v46 = 0;
+  v48 = 0LL;
+  v52 = 0;
   v15 = 0LL;
-  v54 = 0LL;
-  v32 = 0LL;
-  v33 = 0;
-  v34 = 1;
-  v37 = Object;
-  v38 = 0LL;
+  v55 = 0LL;
+  v33 = 0LL;
+  v34 = 0;
+  v35 = 1;
+  v38 = Object;
+  v39 = 0LL;
   Event = 0LL;
-  v40 = a3;
-  v41 = a4;
+  v41 = a3;
+  v42 = a4;
   v16 = a5;
-  v42 = (__int64)a5;
+  v43 = (__int64)a5;
   v17 = a6;
-  v43 = a6;
+  v44 = a6;
   v18 = a7;
-  v44 = a7;
-  v46 = 0LL;
-  v48 = a11;
-  v49 = a12;
-  v50 = a13;
-  v52 = a14;
-  v53 = 0LL;
-  result = IopValidateAndGetWriteParameters(&v32, a2, a8, a9, a10);
+  v45 = a7;
+  v47 = 0LL;
+  v49 = a11;
+  v50 = a12;
+  v51 = a13;
+  v53 = a14;
+  v54 = 0LL;
+  result = IopValidateAndGetWriteParameters(&v33, a2, a8, a9, a10);
   if ( (int)result >= 0 )
   {
-    if ( !HIBYTE(v33) || !Object[6] )
+    if ( !HIBYTE(v34) || !Object[6] )
       goto LABEL_16;
-    v21 = v38;
-    v22 = *(_QWORD *)(*(_QWORD *)(v38 + 8) + 80LL);
-    v31 = 0LL;
-    v23 = *(__int64 (__fastcall **)(_QWORD *, __int64 *, _QWORD, __int64, _DWORD, __int64, __int128 *, __int64))(v22 + 24);
-    if ( (MmVerifierData & 0x10) != 0 && MmIsDriverVerifying(*(struct _DRIVER_OBJECT **)(v38 + 8)) )
+    v22 = v39;
+    v23 = *(_QWORD *)(*(_QWORD *)(v39 + 8) + 80LL);
+    v32 = 0LL;
+    v24 = *(__int64 (__fastcall **)(_QWORD *, __int64 *, _QWORD, __int64, _DWORD, __int64, __int128 *, __int64))(v23 + 24);
+    if ( (MmVerifierData & 0x10) != 0 && MmIsDriverVerifying(*(struct _DRIVER_OBJECT **)(v39 + 8)) )
     {
       v15 = (void *)VfFastIoSnapState();
-      v21 = v38;
+      v22 = v39;
     }
-    LOBYTE(v20) = 1;
-    v24 = v23(Object, &v46, v18, v20, v47, v17, &v31, v21);
+    LOBYTE(v21) = 1;
+    v25 = v24(Object, &v47, v18, v21, v48, v17, &v32, v22);
     if ( v15 )
       VfFastIoCheckState(v15);
-    if ( v24 && !(_DWORD)v31 )
+    if ( v25 && !(_DWORD)v32 )
     {
       CurrentThread = KeGetCurrentThread();
       ++CurrentThread->WriteOperationCount;
       __incgsdword(0x2EE0u);
-      v26 = KeGetCurrentThread();
-      v27 = DWORD2(v31);
-      v26->WriteTransferCount += DWORD2(v31);
-      __addgsqword(0x2EF0u, v27);
-      *v16 = v31;
-      v28 = Event;
+      v27 = KeGetCurrentThread();
+      v28 = DWORD2(v32);
+      v27->WriteTransferCount += DWORD2(v32);
+      __addgsqword(0x2EF0u, v28);
+      *v16 = v32;
+      v29 = Event;
       if ( Event )
       {
         if ( (Object[10] & 0x8000000) == 0 )
         {
           KeSetEvent(Event, 0, 0);
-          v28 = Event;
+          v29 = Event;
         }
-        ObfDereferenceObject(v28);
+        ObfDereferenceObject(v29);
       }
       IopReleaseFileObjectLock((volatile __int32 *)Object);
       ObfDereferenceObject(Object);
-      return (unsigned int)v31;
+      return (unsigned int)v32;
     }
     else
     {
 LABEL_16:
-      result = IopAllocateAndPopulateWriteIrp((__int64)&v32, &v54);
+      result = IopAllocateAndPopulateWriteIrp((__int64)&v33, &v55, v20);
       if ( (int)result >= 0 )
       {
-        LOBYTE(v30) = HIBYTE(v33);
-        LOBYTE(v29) = v33;
-        return IopSynchronousServiceTail(v38, v54, Object, v34, v29, v30, 1);
+        LOBYTE(v31) = HIBYTE(v34);
+        LOBYTE(v30) = v34;
+        return IopSynchronousServiceTail(v39, v55, Object, v35, v30, v31, 1);
       }
     }
   }

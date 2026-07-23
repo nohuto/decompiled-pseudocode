@@ -1,15 +1,15 @@
 /*
- * XREFs of MiGetPteMappingSet @ 0x14020CA90
+ * XREFs of MiGetPteMappingSet @ 0x140335DF0
  * Callers:
- *     MiCopyPage @ 0x1402254C0 (MiCopyPage.c)
- *     MiSlowRotateCopy @ 0x1406783E4 (MiSlowRotateCopy.c)
- *     MiCopyFilePage @ 0x14067A640 (MiCopyFilePage.c)
- *     MiFillPageWithImageExtentContents @ 0x14067ACF4 (MiFillPageWithImageExtentContents.c)
- *     MiCopyMemoryPagefileData @ 0x14068E320 (MiCopyMemoryPagefileData.c)
+ *     MiCopyPage @ 0x140252870 (MiCopyPage.c)
+ *     MiSlowRotateCopy @ 0x140679570 (MiSlowRotateCopy.c)
+ *     MiCopyFilePage @ 0x14067B820 (MiCopyFilePage.c)
+ *     MiFillPageWithImageExtentContents @ 0x14067BED4 (MiFillPageWithImageExtentContents.c)
+ *     MiCopyMemoryPagefileData @ 0x14068F450 (MiCopyMemoryPagefileData.c)
  * Callees:
- *     MiGetUltraMapping @ 0x14020CE50 (MiGetUltraMapping.c)
- *     MiCreatePteCopyList @ 0x14047E49C (MiCreatePteCopyList.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     MiGetUltraMapping @ 0x1403361B0 (MiGetUltraMapping.c)
+ *     MiCreatePteCopyList @ 0x14047968C (MiCreatePteCopyList.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 unsigned __int64 __fastcall MiGetPteMappingSet(int a1, __int64 a2, __int64 a3)
@@ -23,7 +23,7 @@ unsigned __int64 __fastcall MiGetPteMappingSet(int a1, __int64 a2, __int64 a3)
     CurrentIrql = KeGetCurrentIrql();
     __writecr8(2uLL);
     if ( KiIrqlFlags )
-      KiRaiseIrqlProcessIrqlFlags(CurrentIrql, 2LL, a3);
+      KiRaiseIrqlProcessIrqlFlags(CurrentIrql, 2LL);
     *(_BYTE *)(a3 + 8) = CurrentIrql;
     MmInternal = KeGetCurrentPrcb()->MmInternal;
     result = (((unsigned __int64)MiGetUltraMapping(MmInternal + 13, 3LL, a2, 4LL) >> 9) & 0x7FFFFFFFF8LL)

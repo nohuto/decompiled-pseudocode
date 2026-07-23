@@ -1,20 +1,20 @@
 /*
- * XREFs of PopConnectToPolicyDevice @ 0x14075A3DC
+ * XREFs of PopConnectToPolicyDevice @ 0x140758ACC
  * Callers:
- *     PopNotifyPolicyDevice @ 0x14075A6B0 (PopNotifyPolicyDevice.c)
- *     PopPolicyDeviceTargetChange @ 0x14075AB60 (PopPolicyDeviceTargetChange.c)
+ *     PopNotifyPolicyDevice @ 0x140758DA0 (PopNotifyPolicyDevice.c)
+ *     PopPolicyDeviceTargetChange @ 0x140759250 (PopPolicyDeviceTargetChange.c)
  * Callees:
- *     IoFreeIrp @ 0x14031A520 (IoFreeIrp.c)
- *     ObfDereferenceObjectWithTag @ 0x1403254A0 (ObfDereferenceObjectWithTag.c)
- *     IoAllocateIrp @ 0x1403724A0 (IoAllocateIrp.c)
- *     RtlCopyUnicodeString @ 0x1403FFE80 (RtlCopyUnicodeString.c)
- *     Feature_EE_MPTF_Functionality__private_IsEnabledDeviceUsageNoInline @ 0x1404F96CC (Feature_EE_MPTF_Functionality__private_IsEnabledDeviceUsageNoInline.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     PopGetPolicyDeviceObject @ 0x14075A584 (PopGetPolicyDeviceObject.c)
- *     RtlCompareUnicodeStrings @ 0x140888920 (RtlCompareUnicodeStrings.c)
- *     IoRegisterPlugPlayNotification @ 0x1409ED860 (IoRegisterPlugPlayNotification.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     IoAllocateIrp @ 0x14025AD60 (IoAllocateIrp.c)
+ *     IoFreeIrp @ 0x1402C30B0 (IoFreeIrp.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CE030 (ObfDereferenceObjectWithTag.c)
+ *     RtlCopyUnicodeString @ 0x1403FA370 (RtlCopyUnicodeString.c)
+ *     Feature_EE_MPTF_Functionality__private_IsEnabledDeviceUsageNoInline @ 0x1404F6FAC (Feature_EE_MPTF_Functionality__private_IsEnabledDeviceUsageNoInline.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     PopGetPolicyDeviceObject @ 0x140758C74 (PopGetPolicyDeviceObject.c)
+ *     RtlCompareUnicodeStrings @ 0x14088C7D0 (RtlCompareUnicodeStrings.c)
+ *     IoRegisterPlugPlayNotification @ 0x1409EB2A0 (IoRegisterPlugPlayNotification.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __fastcall PopConnectToPolicyDevice(int a1, const UNICODE_STRING *a2)
@@ -29,10 +29,8 @@ void __fastcall PopConnectToPolicyDevice(int a1, const UNICODE_STRING *a2)
   PVOID v11; // rbp
   IRP *v12; // r14
   __int64 v13; // rdx
-  __int64 v14; // r8
-  __int64 v15; // r9
-  __int64 v16; // rax
-  UNICODE_STRING **v17; // rdx
+  __int64 v14; // rax
+  UNICODE_STRING **v15; // rdx
   PVOID EventCategoryData; // [rsp+70h] [rbp+18h] BYREF
 
   EventCategoryData = 0LL;
@@ -49,7 +47,7 @@ void __fastcall PopConnectToPolicyDevice(int a1, const UNICODE_STRING *a2)
             1u) )
       return;
   }
-  Pool2 = (UNICODE_STRING *)ExAllocatePool2(0x40uLL);
+  Pool2 = (UNICODE_STRING *)ExAllocatePool2(0x40uLL, *v4 + a2->Length, v4[1]);
   Context = Pool2;
   if ( !Pool2 )
     return;
@@ -86,15 +84,15 @@ LABEL_15:
   }
   *(_QWORD *)&Context[3].Length = v9;
   Context[3].Buffer = (wchar_t *)v12;
-  guard_dispatch_icall_no_overrides(Context, v13, v14, v15);
-  v16 = *((_QWORD *)v4 + 1);
-  v17 = *(UNICODE_STRING ***)(v16 + 8);
-  if ( *v17 != (UNICODE_STRING *)v16 )
+  guard_dispatch_icall_no_overrides(Context, v13);
+  v14 = *((_QWORD *)v4 + 1);
+  v15 = *(UNICODE_STRING ***)(v14 + 8);
+  if ( *v15 != (UNICODE_STRING *)v14 )
     __fastfail(3u);
-  *(_QWORD *)&Context->Length = v16;
-  Context->Buffer = (wchar_t *)v17;
-  *v17 = Context;
-  *(_QWORD *)(v16 + 8) = Context;
+  *(_QWORD *)&Context->Length = v14;
+  Context->Buffer = (wchar_t *)v15;
+  *v15 = Context;
+  *(_QWORD *)(v14 + 8) = Context;
   Context = 0LL;
 LABEL_16:
   if ( v11 )

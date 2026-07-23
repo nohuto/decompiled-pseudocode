@@ -1,10 +1,10 @@
 /*
- * XREFs of ?SlotAllocate@?$RTL_BINARY_ARRAY@URTLP_FLS_CALLBACK_ENTRY@@$03$03@@SAKPEAU1@@Z @ 0x1403A60B4
+ * XREFs of ?SlotAllocate@?$RTL_BINARY_ARRAY@URTLP_FLS_CALLBACK_ENTRY@@$03$03@@SAKPEAU1@@Z @ 0x1403A6294
  * Callers:
- *     RtlpFlsAlloc @ 0x14084C090 (RtlpFlsAlloc.c)
+ *     RtlpFlsAlloc @ 0x14084C390 (RtlpFlsAlloc.c)
  * Callees:
- *     RtlpFlsHeapAlloc @ 0x1407BD8BC (RtlpFlsHeapAlloc.c)
- *     CmSiRWLockInitialize @ 0x14080E150 (CmSiRWLockInitialize.c)
+ *     RtlpFlsHeapAlloc @ 0x1407BDB8C (RtlpFlsHeapAlloc.c)
+ *     CmSiRWLockInitialize @ 0x14080E420 (CmSiRWLockInitialize.c)
  */
 
 __int64 __fastcall RTL_BINARY_ARRAY<RTLP_FLS_CALLBACK_ENTRY,4,4>::SlotAllocate(unsigned int **a1)
@@ -15,8 +15,8 @@ __int64 __fastcall RTL_BINARY_ARRAY<RTLP_FLS_CALLBACK_ENTRY,4,4>::SlotAllocate(u
   unsigned int i; // edx
   unsigned int v6; // ebx
   _OWORD *v8; // rax
-  union _RTL_RUN_ONCE *v9; // rdx
-  union _RTL_RUN_ONCE *v10; // rdx
+  _RTL_RUN_ONCE *v9; // rdx
+  _RTL_RUN_ONCE *v10; // rdx
   __int64 v11; // r9
 
   v2 = 4;
@@ -35,7 +35,7 @@ __int64 __fastcall RTL_BINARY_ARRAY<RTLP_FLS_CALLBACK_ENTRY,4,4>::SlotAllocate(u
       v8[2] = 0LL;
       if ( v4 )
       {
-        v9 = (union _RTL_RUN_ONCE *)(v8 + 2);
+        v9 = (_RTL_RUN_ONCE *)(v8 + 2);
         do
         {
           CmSiRWLockInitialize(v9 - 3);

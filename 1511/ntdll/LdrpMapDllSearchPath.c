@@ -28,43 +28,47 @@ __int64 __fastcall LdrpMapDllSearchPath(__int64 a1)
   int v5; // eax
   int LoadedDllByNameLockHeld; // edi
   int v7; // ebx
-  _BYTE *v8; // rdx
-  int v9; // eax
-  __int128 v10; // xmm1
-  bool v11; // zf
-  char v13; // [rsp+58h] [rbp-B0h] BYREF
-  unsigned int v14; // [rsp+5Ch] [rbp-ACh] BYREF
-  _BYTE v15[24]; // [rsp+60h] [rbp-A8h] BYREF
-  __int128 v16; // [rsp+78h] [rbp-90h] BYREF
-  _QWORD v17[2]; // [rsp+88h] [rbp-80h] BYREF
-  UNICODE_STRING v18; // [rsp+98h] [rbp-70h] BYREF
-  _WORD v19[128]; // [rsp+A8h] [rbp-60h] BYREF
+  int v8; // r8d
+  _UNICODE_STRING *v9; // rdx
+  int v10; // eax
+  _UNICODE_STRING v11; // xmm1
+  bool v12; // zf
+  char v14; // [rsp+58h] [rbp-B0h] BYREF
+  unsigned int v15; // [rsp+5Ch] [rbp-ACh] BYREF
+  __int64 v16; // [rsp+60h] [rbp-A8h] BYREF
+  _UNICODE_STRING v17; // [rsp+68h] [rbp-A0h] BYREF
+  _UNICODE_STRING String1_8; // [rsp+78h] [rbp-90h] BYREF
+  _QWORD v19[2]; // [rsp+88h] [rbp-80h] BYREF
+  _UNICODE_STRING v20; // [rsp+98h] [rbp-70h] BYREF
+  _WORD v21[128]; // [rsp+A8h] [rbp-60h] BYREF
 
   v1 = *(_QWORD *)(a1 + 48);
-  memset(v15, 0, sizeof(v15));
-  v17[0] = 0LL;
-  v17[1] = 0LL;
+  v16 = 0LL;
+  v19[0] = 0LL;
+  v19[1] = 0LL;
   v3 = 0LL;
-  v13 = 0;
-  v18.Buffer = v19;
-  v4 = 0;
-  *(_DWORD *)&v18.Length = 0x1000000;
-  v19[0] = 0;
   v14 = 0;
+  v20.Buffer = v21;
+  v4 = 0;
+  *(_DWORD *)&v20.Length = 0x1000000;
+  *(_QWORD *)&v17.Length = 0LL;
+  v17.Buffer = 0LL;
+  v21[0] = 0;
+  v15 = 0;
   while ( 1 )
   {
     v5 = LdrpSearchPath(
            a1,
            *(_QWORD *)(a1 + 16),
            (*(unsigned __int8 *)(a1 + 24) >> 3) & 1,
-           (unsigned int)v17,
-           (__int64)&v18,
-           (__int64)&v16,
-           (__int64)&v15[8],
-           (__int64)&v13,
-           (__int64)&v14);
+           (unsigned int)v19,
+           (__int64)&v20,
+           (__int64)&String1_8,
+           (__int64)&v17,
+           (__int64)&v14,
+           (__int64)&v15);
     LoadedDllByNameLockHeld = v5;
-    if ( v13 )
+    if ( v14 )
       *(_DWORD *)(v1 + 104) |= 1u;
     if ( v5 == -1073741515 )
       break;
@@ -72,63 +76,59 @@ __int64 __fastcall LdrpMapDllSearchPath(__int64 a1)
       goto LABEL_7;
 LABEL_10:
     v4 = 1;
-    LoadedDllByNameLockHeld = LdrpAppCompatRedirect(a1, (__int64)&v15[8], (int)&v16, (__int64)&v18, 0LL, v5);
+    LoadedDllByNameLockHeld = LdrpAppCompatRedirect(a1, (__int64)&v17, (__int64)&String1_8, (__int64)&v20, 0LL, v5);
     if ( LoadedDllByNameLockHeld < 0 )
       goto LABEL_7;
     if ( (*(_DWORD *)(a1 + 24) & 0x10000) != 0 )
-      v14 |= 1u;
-    v7 = LdrpHashUnicodeString(&v16);
+      v15 |= 1u;
+    v7 = LdrpHashUnicodeString(&String1_8);
     RtlAcquireSRWLockExclusive(&LdrpModuleDatatableLock);
     LdrpRemoveDataTableEntry((__int64 *)v1);
-    v8 = &v15[8];
-    if ( (*(_DWORD *)(a1 + 24) & 0x20) != 0 )
-      v8 = 0LL;
-    LoadedDllByNameLockHeld = LdrpFindLoadedDllByNameLockHeld(
-                                (__int64)&v16,
-                                (__int64)v8,
-                                *(unsigned int *)(a1 + 24),
-                                (volatile signed __int32 **)v15,
-                                v7);
+    v8 = *(_DWORD *)(a1 + 24);
+    v9 = &v17;
+    if ( (v8 & 0x20) != 0 )
+      v9 = 0LL;
+    LoadedDllByNameLockHeld = LdrpFindLoadedDllByNameLockHeld(&String1_8, v9, v8, &v16, v7);
     if ( LoadedDllByNameLockHeld != -1073741515 )
     {
-      v3 = *(_QWORD *)v15;
+      v3 = v16;
       goto LABEL_25;
     }
     if ( (*(_BYTE *)(a1 + 24) & 8) == 0 )
     {
-      v3 = *(_QWORD *)v15;
+      v3 = v16;
 LABEL_22:
       LdrpFreeUnicodeString(v1 + 72);
-      v10 = v16;
-      *(_OWORD *)(v1 + 72) = *(_OWORD *)&v15[8];
-      *(_OWORD *)(v1 + 88) = v10;
-      v11 = (*(_BYTE *)(a1 + 24) & 0x20) == 0;
-      *(_QWORD *)&v15[8] = 0LL;
-      *(_QWORD *)&v15[16] = 0LL;
-      if ( !v11 )
+      v11 = String1_8;
+      *(_UNICODE_STRING *)(v1 + 72) = v17;
+      *(_UNICODE_STRING *)(v1 + 88) = v11;
+      v12 = (*(_BYTE *)(a1 + 24) & 0x20) == 0;
+      *(_QWORD *)&v17.Length = 0LL;
+      v17.Buffer = 0LL;
+      if ( !v12 )
         LdrpInsertDataTableEntry(v1);
       goto LABEL_25;
     }
-    v9 = LdrpFindLoadedDllByNameLockHeld(0LL, (__int64)&v15[8], 0LL, (volatile signed __int32 **)v15, v7);
-    v3 = *(_QWORD *)v15;
-    LoadedDllByNameLockHeld = v9;
-    if ( v9 >= 0 )
-      *(_DWORD *)(*(_QWORD *)v15 + 104LL) |= 1u;
-    if ( v9 == -1073741515 )
+    v10 = LdrpFindLoadedDllByNameLockHeld(0LL, &v17, 0, &v16, v7);
+    v3 = v16;
+    LoadedDllByNameLockHeld = v10;
+    if ( v10 >= 0 )
+      *(_DWORD *)(v16 + 104) |= 1u;
+    if ( v10 == -1073741515 )
       goto LABEL_22;
 LABEL_25:
     RtlReleaseSRWLockExclusive(&LdrpModuleDatatableLock);
     if ( LoadedDllByNameLockHeld != -1073741515 )
       goto LABEL_7;
-    LoadedDllByNameLockHeld = LdrpMapDllNtFileName(a1, &v18);
+    LoadedDllByNameLockHeld = LdrpMapDllNtFileName(a1, &v20);
     if ( LoadedDllByNameLockHeld != 1073741838 )
       goto LABEL_7;
-    if ( v19 != v18.Buffer )
+    if ( v21 != v20.Buffer )
       NtdllpFreeStringRoutine();
-    *(_DWORD *)&v18.Length = 0x1000000;
-    v18.Buffer = v19;
-    v19[0] = 0;
-    LdrpFreeUnicodeString(&v15[8]);
+    *(_DWORD *)&v20.Length = 0x1000000;
+    v20.Buffer = v21;
+    v21[0] = 0;
+    LdrpFreeUnicodeString(&v17);
   }
   if ( !v4 )
     goto LABEL_10;
@@ -140,13 +140,13 @@ LABEL_7:
   }
   else if ( LdrpIsSecurityEtwLoggingEnabled() )
   {
-    LdrpLogEtwDllSearchResults(v14, a1);
+    LdrpLogEtwDllSearchResults(v15, a1);
   }
-  if ( v19 != v18.Buffer )
+  if ( v21 != v20.Buffer )
     NtdllpFreeStringRoutine();
-  *(_DWORD *)&v18.Length = 0x1000000;
-  v18.Buffer = v19;
-  v19[0] = 0;
-  LdrpFreeUnicodeString(&v15[8]);
+  *(_DWORD *)&v20.Length = 0x1000000;
+  v20.Buffer = v21;
+  v21[0] = 0;
+  LdrpFreeUnicodeString(&v17);
   return (unsigned int)LoadedDllByNameLockHeld;
 }

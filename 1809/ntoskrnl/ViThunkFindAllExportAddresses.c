@@ -1,9 +1,9 @@
 /*
- * XREFs of ViThunkFindAllExportAddresses @ 0x1409B77F0
+ * XREFs of ViThunkFindAllExportAddresses @ 0x1409B87F0
  * Callers:
- *     VfThunkFindExportAddressAllTables @ 0x1409B7754 (VfThunkFindExportAddressAllTables.c)
+ *     VfThunkFindExportAddressAllTables @ 0x1409B8754 (VfThunkFindExportAddressAllTables.c)
  * Callees:
- *     ViThunkFindExportAddress @ 0x1409B788C (ViThunkFindExportAddress.c)
+ *     ViThunkFindExportAddress @ 0x1409B888C (ViThunkFindExportAddress.c)
  */
 
 __int64 __fastcall ViThunkFindAllExportAddresses(__int64 a1, __int64 *a2, __int64 a3, __int64 a4)

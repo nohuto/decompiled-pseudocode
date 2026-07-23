@@ -1,21 +1,17 @@
 /*
- * XREFs of KeSynchronizeUmsThread @ 0x1408BD688
+ * XREFs of KeSynchronizeUmsThread @ 0x1408BD7E8
  * Callers:
- *     PspRundownUmsThreadForApcDelivery @ 0x14090EBCC (PspRundownUmsThreadForApcDelivery.c)
+ *     PspRundownUmsThreadForApcDelivery @ 0x14090ED2C (PspRundownUmsThreadForApcDelivery.c)
  * Callees:
- *     KeInsertQueue @ 0x1402CCD30 (KeInsertQueue.c)
- *     KiLeaveGuardedRegionUnsafe @ 0x14034AD90 (KiLeaveGuardedRegionUnsafe.c)
- *     KiSwapToUmsThreadContinue @ 0x140526520 (KiSwapToUmsThreadContinue.c)
- *     KiCopyUchToStagingArea @ 0x1408BEED8 (KiCopyUchToStagingArea.c)
+ *     KeInsertQueue @ 0x14029EAA0 (KeInsertQueue.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x140355AE0 (KiLeaveGuardedRegionUnsafe.c)
+ *     KiSwapToUmsThreadContinue @ 0x140526760 (KiSwapToUmsThreadContinue.c)
+ *     KiCopyUchToStagingArea @ 0x1408BF038 (KiCopyUchToStagingArea.c)
  */
 
 char __fastcall KeSynchronizeUmsThread(__int64 a1, char a2)
 {
   __int64 v2; // rbx
-  __int64 v5; // rdx
-  __int64 v6; // rcx
-  __int64 v7; // r8
-  _DWORD *v8; // r9
 
   v2 = *(_QWORD *)(a1 + 496);
   if ( a2 )
@@ -29,6 +25,6 @@ char __fastcall KeSynchronizeUmsThread(__int64 a1, char a2)
   {
     KiCopyUchToStagingArea(a1, *(_QWORD *)(v2 + 72));
     *(_QWORD *)(v2 + 72) = 0LL;
-    return KiSwapToUmsThreadContinue(v6, v5, v7, v8);
+    return KiSwapToUmsThreadContinue();
   }
 }

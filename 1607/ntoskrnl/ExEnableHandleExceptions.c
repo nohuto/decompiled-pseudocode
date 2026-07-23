@@ -1,11 +1,11 @@
 /*
- * XREFs of ExEnableHandleExceptions @ 0x1404D41B4
+ * XREFs of ExEnableHandleExceptions @ 0x1404B7C54
  * Callers:
- *     NtSetInformationProcess @ 0x140425A10 (NtSetInformationProcess.c)
- *     PspApplyMitigationOptions @ 0x140471E18 (PspApplyMitigationOptions.c)
+ *     NtSetInformationProcess @ 0x1404248E0 (NtSetInformationProcess.c)
+ *     PspApplyMitigationOptions @ 0x140470CE8 (PspApplyMitigationOptions.c)
  * Callees:
- *     ExpUnlockHandleTableExclusive @ 0x1400A8A44 (ExpUnlockHandleTableExclusive.c)
- *     ExpLockHandleTableExclusive @ 0x1400A8A84 (ExpLockHandleTableExclusive.c)
+ *     ExpUnlockHandleTableExclusive @ 0x1400A6FC4 (ExpUnlockHandleTableExclusive.c)
+ *     ExpLockHandleTableExclusive @ 0x1400A7004 (ExpLockHandleTableExclusive.c)
  */
 
 bool __fastcall ExEnableHandleExceptions(__int64 a1, char a2)

@@ -62,7 +62,7 @@ _BOOL8 __fastcall KeSetTimer2(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
   char v8; // r12
   __int64 CurrentIrql; // rcx
   char v10; // r13
-  unsigned __int64 InterruptTimePrecise; // rax
+  LARGE_INTEGER InterruptTimePrecise; // rax
   unsigned __int64 v12; // rdi
   __int64 v13; // rsi
   __int64 v14; // rax
@@ -78,7 +78,7 @@ _BOOL8 __fastcall KeSetTimer2(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
   __int64 v25; // r9
   char v26; // r8
   char v27; // dl
-  __int64 SystemTimePrecise; // rdx
+  LARGE_INTEGER SystemTimePrecise; // rdx
   __int64 v29; // rax
   signed __int32 v30; // r8d
   unsigned __int8 v31; // cl
@@ -89,9 +89,9 @@ _BOOL8 __fastcall KeSetTimer2(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
   bool v36; // [rsp+70h] [rbp+8h] BYREF
   char v37; // [rsp+78h] [rbp+10h] BYREF
   __int64 v38; // [rsp+80h] [rbp+18h]
-  __int64 v39; // [rsp+88h] [rbp+20h] BYREF
+  LARGE_INTEGER PerformanceCounter; // [rsp+88h] [rbp+20h] BYREF
 
-  v39 = 0LL;
+  PerformanceCounter.QuadPart = 0LL;
   v5 = a3;
   v6 = a2;
   if ( a3 && a3 < (unsigned int)KeMinimumIncrement )
@@ -100,7 +100,7 @@ _BOOL8 __fastcall KeSetTimer2(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
   CurrentIrql = KeGetCurrentIrql();
   v38 = CurrentIrql;
   __writecr8(2uLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && (unsigned __int8)CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && (unsigned __int8)CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     if ( (_BYTE)CurrentIrql == 2 )
@@ -116,18 +116,18 @@ _BOOL8 __fastcall KeSetTimer2(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
     if ( (v8 & 4) != 0 )
       SystemTimePrecise = RtlGetSystemTimePrecise();
     else
-      SystemTimePrecise = MEMORY[0xFFFFF78000000014];
+      SystemTimePrecise.QuadPart = MEMORY[0xFFFFF78000000014];
     v29 = 0LL;
-    if ( v6 > SystemTimePrecise )
-      v29 = SystemTimePrecise - v6;
+    if ( v6 > SystemTimePrecise.QuadPart )
+      v29 = SystemTimePrecise.QuadPart - v6;
     v6 = v29;
   }
   if ( (v8 & 4) != 0 )
-    InterruptTimePrecise = RtlGetInterruptTimePrecise(&v39);
+    InterruptTimePrecise = RtlGetInterruptTimePrecise(&PerformanceCounter);
   else
-    InterruptTimePrecise = MEMORY[0xFFFFF78000000008];
-  v12 = InterruptTimePrecise - v6;
-  if ( InterruptTimePrecise >= v6 || v12 == -1LL )
+    InterruptTimePrecise.QuadPart = MEMORY[0xFFFFF78000000008];
+  v12 = InterruptTimePrecise.QuadPart - v6;
+  if ( InterruptTimePrecise.QuadPart >= (unsigned __int64)v6 || v12 == -1LL )
     v12 = -2LL;
   v13 = v12;
   if ( a4 && *(_BYTE *)(a1 + 130) != 21 )
@@ -247,10 +247,10 @@ LABEL_51:
   }
 LABEL_30:
   v22 = v38;
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v31 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v31 <= 0xFu && (unsigned __int8)v38 <= 0xFu && v31 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v31 <= 0xFu && (unsigned __int8)v38 <= 0xFu && v31 >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       v33 = CurrentPrcb->SchedulerAssist;

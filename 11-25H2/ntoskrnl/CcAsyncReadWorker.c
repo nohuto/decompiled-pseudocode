@@ -228,7 +228,7 @@ LABEL_77:
       {
 LABEL_43:
         CcCompleteAsyncRead(NextWorkQueueEntry);
-        CcFreeWorkQueueEntry((struct _SLIST_ENTRY *)NextWorkQueueEntry);
+        CcFreeWorkQueueEntry((_SLIST_ENTRY *)NextWorkQueueEntry);
       }
       else
       {
@@ -266,7 +266,7 @@ LABEL_44:
           if ( *(_DWORD *)(*(_QWORD *)(v43 + 16) + 528LL) == 1 && *(_DWORD *)(v43 + 40) <= 0x20000u )
           {
             CcCompleteAsyncRead(v43);
-            CcFreeWorkQueueEntry((struct _SLIST_ENTRY *)v43);
+            CcFreeWorkQueueEntry((_SLIST_ENTRY *)v43);
           }
           else
           {

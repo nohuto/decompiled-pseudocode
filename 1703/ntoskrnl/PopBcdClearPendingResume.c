@@ -10,24 +10,24 @@
  *     BcdCloseObject @ 0x14058B28C (BcdCloseObject.c)
  */
 
-__int64 __fastcall PopBcdClearPendingResume(__int64 a1)
+NTSTATUS __fastcall PopBcdClearPendingResume(HANDLE BcdStoreHandle)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
   int v3; // ebx
-  HANDLE Handle; // [rsp+38h] [rbp+10h] BYREF
+  HANDLE BcdObjectHandle; // [rsp+38h] [rbp+10h] BYREF
 
-  result = BcdOpenObject(a1, &GUID_WINDOWS_BOOTMGR, &Handle);
-  if ( (int)result >= 0 )
+  result = BcdOpenObject(BcdStoreHandle, &GUID_WINDOWS_BOOTMGR, &BcdObjectHandle);
+  if ( result >= 0 )
   {
-    v3 = BiDeleteElement(Handle, 637534213LL);
+    v3 = BiDeleteElement(BcdObjectHandle, 637534213LL);
     if ( v3 >= 0 )
     {
-      v3 = BiDeleteElement(Handle, 637534245LL);
+      v3 = BiDeleteElement(BcdObjectHandle, 637534245LL);
       if ( v3 >= 0 )
-        BcdFlushStore(a1);
+        BcdFlushStore(BcdStoreHandle);
     }
-    BcdCloseObject(Handle);
-    return (unsigned int)v3;
+    BcdCloseObject(BcdObjectHandle);
+    return v3;
   }
   return result;
 }

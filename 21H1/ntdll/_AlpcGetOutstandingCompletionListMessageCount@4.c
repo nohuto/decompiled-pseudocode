@@ -6,7 +6,7 @@
  *     <none>
  */
 
-int __stdcall AlpcGetOutstandingCompletionListMessageCount(int a1)
+ULONG __cdecl AlpcGetOutstandingCompletionListMessageCount(PVOID CompletionList)
 {
-  return *(_DWORD *)(a1 + 128) - *(_DWORD *)(a1 + 192);
+  return *((_DWORD *)CompletionList + 32) - *((_DWORD *)CompletionList + 48);
 }

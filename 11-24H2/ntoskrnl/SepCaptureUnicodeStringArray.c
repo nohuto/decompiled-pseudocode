@@ -1,17 +1,17 @@
 /*
- * XREFs of SepCaptureUnicodeStringArray @ 0x1408890B0
+ * XREFs of SepCaptureUnicodeStringArray @ 0x14088CF60
  * Callers:
- *     SepCaptureTokenSecurityAttributesInformation @ 0x1408880F8 (SepCaptureTokenSecurityAttributesInformation.c)
- *     NtQuerySecurityAttributesToken @ 0x140888DC0 (NtQuerySecurityAttributesToken.c)
- *     NtQuerySecurityPolicy @ 0x140889550 (NtQuerySecurityPolicy.c)
- *     NtSetCachedSigningLevel2 @ 0x140889860 (NtSetCachedSigningLevel2.c)
+ *     SepCaptureTokenSecurityAttributesInformation @ 0x14088BFA8 (SepCaptureTokenSecurityAttributesInformation.c)
+ *     NtQuerySecurityAttributesToken @ 0x14088CC70 (NtQuerySecurityAttributesToken.c)
+ *     NtQuerySecurityPolicy @ 0x14088D400 (NtQuerySecurityPolicy.c)
+ *     NtSetCachedSigningLevel2 @ 0x14088D710 (NtSetCachedSigningLevel2.c)
  * Callees:
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     SeCaptureUnicodeStringStructures @ 0x140889350 (SeCaptureUnicodeStringStructures.c)
- *     SepReleaseUnicodeStringArray @ 0x1408894A0 (SepReleaseUnicodeStringArray.c)
- *     ExRaiseDatatypeMisalignment @ 0x14089B1F0 (ExRaiseDatatypeMisalignment.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     SeCaptureUnicodeStringStructures @ 0x14088D200 (SeCaptureUnicodeStringStructures.c)
+ *     SepReleaseUnicodeStringArray @ 0x14088D350 (SepReleaseUnicodeStringArray.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408A3890 (ExRaiseDatatypeMisalignment.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall SepCaptureUnicodeStringArray(__int64 a1, unsigned int a2, __int64 a3, _QWORD *a4)
@@ -21,12 +21,12 @@ __int64 __fastcall SepCaptureUnicodeStringArray(__int64 a1, unsigned int a2, __i
   unsigned int v6; // ebx
   __int64 result; // rax
   __int64 v8; // r14
-  unsigned int v9; // edx
+  ULONG_PTR v9; // rdx
   unsigned int v10; // r8d
   unsigned __int16 *v11; // r15
   unsigned int v12; // r9d
   unsigned int v13; // ecx
-  int v14; // eax
+  unsigned int v14; // eax
   unsigned int v15; // esi
   _QWORD *Pool2; // rax
   _QWORD *v17; // rsi
@@ -65,7 +65,7 @@ __int64 __fastcall SepCaptureUnicodeStringArray(__int64 a1, unsigned int a2, __i
       SepReleaseUnicodeStringArray(Src, v4);
       return 3221225621LL;
     }
-    v9 = (v8 + 1) & 0xFFFFFFFE;
+    v9 = ((_DWORD)v8 + 1) & 0xFFFFFFFE;
     v10 = 0;
     v11 = (unsigned __int16 *)Src;
     while ( 1 )
@@ -75,7 +75,7 @@ __int64 __fastcall SepCaptureUnicodeStringArray(__int64 a1, unsigned int a2, __i
         break;
       v13 = v9 + *((unsigned __int16 *)Src + 8 * v10);
       v14 = -1;
-      if ( v13 >= v9 )
+      if ( v13 >= (unsigned int)v9 )
         v14 = v9 + *((unsigned __int16 *)Src + 8 * v10);
       v9 = v14;
       v15 = v13 < v12 ? 0xC0000095 : 0;
@@ -86,7 +86,7 @@ __int64 __fastcall SepCaptureUnicodeStringArray(__int64 a1, unsigned int a2, __i
       }
       ++v10;
     }
-    Pool2 = (_QWORD *)ExAllocatePool2(0x100uLL);
+    Pool2 = (_QWORD *)ExAllocatePool2(0x100uLL, v9, 0x74416553u);
     v17 = Pool2;
     if ( !Pool2 )
     {

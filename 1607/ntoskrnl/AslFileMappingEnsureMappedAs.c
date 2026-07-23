@@ -1,13 +1,13 @@
 /*
- * XREFs of AslFileMappingEnsureMappedAs @ 0x1406C5910
+ * XREFs of AslFileMappingEnsureMappedAs @ 0x1406C5A48
  * Callers:
- *     SdbOpenDatabaseEx @ 0x1406C1624 (SdbOpenDatabaseEx.c)
- *     SdbpCheckMatchingTextEntry @ 0x1406C2AE8 (SdbpCheckMatchingTextEntry.c)
- *     AslpFileGetChecksumAttributes @ 0x1406C7100 (AslpFileGetChecksumAttributes.c)
+ *     SdbOpenDatabaseEx @ 0x1406C175C (SdbOpenDatabaseEx.c)
+ *     SdbpCheckMatchingTextEntry @ 0x1406C2C20 (SdbpCheckMatchingTextEntry.c)
+ *     AslpFileGetChecksumAttributes @ 0x1406C7238 (AslpFileGetChecksumAttributes.c)
  * Callees:
- *     RtlFileMapMapView @ 0x140233920 (RtlFileMapMapView.c)
- *     AslpFileMappingGetFileKind @ 0x140571414 (AslpFileMappingGetFileKind.c)
- *     AslLogCallPrintf @ 0x1406C5804 (AslLogCallPrintf.c)
+ *     RtlFileMapMapView @ 0x14023374C (RtlFileMapMapView.c)
+ *     AslpFileMappingGetFileKind @ 0x140571954 (AslpFileMappingGetFileKind.c)
+ *     AslLogCallPrintf @ 0x1406C593C (AslLogCallPrintf.c)
  */
 
 __int64 __fastcall AslFileMappingEnsureMappedAs(__int64 a1)
@@ -16,8 +16,7 @@ __int64 __fastcall AslFileMappingEnsureMappedAs(__int64 a1)
   int *v3; // rsi
   _QWORD *v4; // rbp
   int v5; // eax
-  unsigned int v6; // edi
-  int FileKind; // eax
+  int FileKind; // edi
 
   if ( *(_DWORD *)(a1 + 592) )
   {
@@ -36,7 +35,7 @@ __int64 __fastcall AslFileMappingEnsureMappedAs(__int64 a1)
     {
       v4 = (_QWORD *)(a1 + 520);
       v5 = RtlFileMapMapView(a1 + 520, 0);
-      v6 = v5;
+      FileKind = v5;
       if ( v5 >= 0 )
       {
         if ( *(_BYTE *)(a1 + 571) )
@@ -46,16 +45,9 @@ __int64 __fastcall AslFileMappingEnsureMappedAs(__int64 a1)
         else
         {
           FileKind = AslpFileMappingGetFileKind(v4, v3);
-          v6 = FileKind;
           if ( FileKind < 0 )
           {
-            AslLogCallPrintf(
-              1LL,
-              (unsigned int)"AslFileMappingEnsureMappedAs",
-              503,
-              (unsigned int)"AslpFileMappingGetFileKind failed %S [%x]",
-              a1,
-              FileKind);
+            AslLogCallPrintf(1LL);
             *v3 = 3;
           }
         }
@@ -64,7 +56,7 @@ __int64 __fastcall AslFileMappingEnsureMappedAs(__int64 a1)
       {
         return 0;
       }
-      return v6;
+      return (unsigned int)FileKind;
     }
   }
   return result;

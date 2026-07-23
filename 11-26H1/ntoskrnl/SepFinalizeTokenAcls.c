@@ -1,18 +1,19 @@
 /*
- * XREFs of SepFinalizeTokenAcls @ 0x140926FDC
+ * XREFs of SepFinalizeTokenAcls @ 0x140902AEC
  * Callers:
- *     SepCreateTokenEx @ 0x14025F384 (SepCreateTokenEx.c)
- *     SeFilterToken @ 0x1408109E0 (SeFilterToken.c)
- *     NtCreateLowBoxToken @ 0x1408140F0 (NtCreateLowBoxToken.c)
- *     NtDuplicateToken @ 0x1408EB8C0 (NtDuplicateToken.c)
- *     PsImpersonateClient @ 0x140928820 (PsImpersonateClient.c)
- *     SepCreateClientSecurityEx @ 0x14092A140 (SepCreateClientSecurityEx.c)
- *     SeSubProcessToken @ 0x140A2B26C (SeSubProcessToken.c)
- *     NtFilterToken @ 0x140A45140 (NtFilterToken.c)
- *     SepCopyAnonymousTokenAndSetSilo @ 0x140AB2F6C (SepCopyAnonymousTokenAndSetSilo.c)
+ *     SepCreateTokenEx @ 0x140405564 (SepCreateTokenEx.c)
+ *     SepCreateAppContainerToken @ 0x14063EAD8 (SepCreateAppContainerToken.c)
+ *     SeFilterToken @ 0x140816470 (SeFilterToken.c)
+ *     NtCreateLowBoxToken @ 0x140819F50 (NtCreateLowBoxToken.c)
+ *     NtDuplicateToken @ 0x1408F1E80 (NtDuplicateToken.c)
+ *     PsImpersonateClient @ 0x140904330 (PsImpersonateClient.c)
+ *     SepCreateClientSecurityEx @ 0x140905C50 (SepCreateClientSecurityEx.c)
+ *     NtFilterToken @ 0x1409E32D0 (NtFilterToken.c)
+ *     SepCopyAnonymousTokenAndSetSilo @ 0x140AB430C (SepCopyAnonymousTokenAndSetSilo.c)
+ *     SeSubProcessToken @ 0x140B84D74 (SeSubProcessToken.c)
  * Callees:
- *     SepSetProcessTrustLabelAceForToken @ 0x140260160 (SepSetProcessTrustLabelAceForToken.c)
- *     SepAppendAceToTokenObjectAcl @ 0x140927020 (SepAppendAceToTokenObjectAcl.c)
+ *     SepSetProcessTrustLabelAceForToken @ 0x140406340 (SepSetProcessTrustLabelAceForToken.c)
+ *     SepAppendAceToTokenObjectAcl @ 0x140902B30 (SepAppendAceToTokenObjectAcl.c)
  */
 
 NTSTATUS __fastcall SepFinalizeTokenAcls(_QWORD *Object)

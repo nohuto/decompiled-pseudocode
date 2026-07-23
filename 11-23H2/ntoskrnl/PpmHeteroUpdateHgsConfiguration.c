@@ -1,19 +1,19 @@
 /*
- * XREFs of PpmHeteroUpdateHgsConfiguration @ 0x140393334
+ * XREFs of PpmHeteroUpdateHgsConfiguration @ 0x140393514
  * Callers:
- *     PopInitializeHeteroProcessors @ 0x14082CE90 (PopInitializeHeteroProcessors.c)
+ *     PopInitializeHeteroProcessors @ 0x14082D190 (PopInitializeHeteroProcessors.c)
  * Callees:
- *     KiAndAffinityEx @ 0x140252440 (KiAndAffinityEx.c)
- *     KiCopyAffinityEx @ 0x1402545C0 (KiCopyAffinityEx.c)
- *     KeIsEmptyAffinityEx @ 0x140255170 (KeIsEmptyAffinityEx.c)
- *     KeEnumerateNextProcessor @ 0x1402572B0 (KeEnumerateNextProcessor.c)
- *     KeGetPrcb @ 0x140257330 (KeGetPrcb.c)
- *     KeCheckProcessorAffinityEx @ 0x140257360 (KeCheckProcessorAffinityEx.c)
- *     KeAddProcessorAffinityEx @ 0x1402573A0 (KeAddProcessorAffinityEx.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memset @ 0x140435A00 (memset.c)
- *     PpmEventHgsHardwareTable @ 0x14059A2EC (PpmEventHgsHardwareTable.c)
- *     PPmHeteroHgsUpdateOrderValue @ 0x14059E4DC (PPmHeteroHgsUpdateOrderValue.c)
+ *     KiAndAffinityEx @ 0x140252500 (KiAndAffinityEx.c)
+ *     KiCopyAffinityEx @ 0x140254680 (KiCopyAffinityEx.c)
+ *     KeIsEmptyAffinityEx @ 0x140255230 (KeIsEmptyAffinityEx.c)
+ *     KeEnumerateNextProcessor @ 0x140257370 (KeEnumerateNextProcessor.c)
+ *     KeGetPrcb @ 0x1402573F0 (KeGetPrcb.c)
+ *     KeCheckProcessorAffinityEx @ 0x140257420 (KeCheckProcessorAffinityEx.c)
+ *     KeAddProcessorAffinityEx @ 0x140257460 (KeAddProcessorAffinityEx.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     PpmEventHgsHardwareTable @ 0x14059A7DC (PpmEventHgsHardwareTable.c)
+ *     PPmHeteroHgsUpdateOrderValue @ 0x14059E9CC (PPmHeteroHgsUpdateOrderValue.c)
  */
 
 char PpmHeteroUpdateHgsConfiguration()
@@ -75,7 +75,7 @@ char PpmHeteroUpdateHgsConfiguration()
           memset(&v22[1], 0, 0x104uLL);
           v21[0] = 2097153;
           memset(&v21[1], 0, 0x104uLL);
-          v14 = qword_140C0BE68[0];
+          v14 = qword_140C0BE78[0];
           v15 = 0;
           v13 = (unsigned __int16 *)&PpmCheckRegistered;
           while ( !(unsigned int)KeEnumerateNextProcessor(&v11, &v13) )
@@ -103,7 +103,7 @@ char PpmHeteroUpdateHgsConfiguration()
           KiAndAffinityEx((unsigned __int16 *)v20, (unsigned __int16 *)v19, v21, HIWORD(v21[0]));
           KiAndAffinityEx((unsigned __int16 *)v18, (unsigned __int16 *)v21, v18, HIWORD(v18[0]));
         }
-        v14 = qword_140C0BE68[0];
+        v14 = qword_140C0BE78[0];
         v15 = 0;
         v13 = (unsigned __int16 *)&PpmCheckRegistered;
         while ( !(unsigned int)KeEnumerateNextProcessor(&v11, &v13) )

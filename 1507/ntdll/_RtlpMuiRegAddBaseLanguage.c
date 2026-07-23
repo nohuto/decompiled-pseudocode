@@ -43,7 +43,7 @@ __int64 __fastcall RtlpMuiRegAddBaseLanguage(__int64 a1, _WORD *a2, unsigned int
   __int64 v35; // [rsp+58h] [rbp-49h]
   signed int v36; // [rsp+60h] [rbp-41h]
   _WORD *v37; // [rsp+68h] [rbp-39h]
-  UNICODE_STRING DestinationString; // [rsp+70h] [rbp-31h] BYREF
+  _UNICODE_STRING DestinationString; // [rsp+70h] [rbp-31h] BYREF
   _WORD v39[2]; // [rsp+80h] [rbp-21h] BYREF
   __int16 v40; // [rsp+84h] [rbp-1Dh]
   __int16 v41; // [rsp+86h] [rbp-1Bh]

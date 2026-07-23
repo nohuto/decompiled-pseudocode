@@ -1,12 +1,12 @@
 /*
- * XREFs of SepCreateImpersonationTokenDacl @ 0x14065B8D0
+ * XREFs of SepCreateImpersonationTokenDacl @ 0x1406506F0
  * Callers:
- *     NtOpenThreadTokenEx @ 0x140705F00 (NtOpenThreadTokenEx.c)
+ *     NtOpenThreadTokenEx @ 0x14071D2E0 (NtOpenThreadTokenEx.c)
  * Callees:
- *     RtlEqualSid @ 0x14027C9E0 (RtlEqualSid.c)
- *     RtlpAddKnownAce @ 0x14065C460 (RtlpAddKnownAce.c)
- *     RtlCreateAcl @ 0x140660570 (RtlCreateAcl.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     RtlEqualSid @ 0x14026A980 (RtlEqualSid.c)
+ *     RtlpAddKnownAce @ 0x140651280 (RtlpAddKnownAce.c)
+ *     RtlCreateAcl @ 0x140655390 (RtlCreateAcl.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall SepCreateImpersonationTokenDacl(__int64 a1, __int64 a2, ACL **a3)
@@ -32,7 +32,7 @@ __int64 __fastcall SepCreateImpersonationTokenDacl(__int64 a1, __int64 a2, ACL *
       + v8[1]
       + *((unsigned __int8 *)SeLocalSystemSid + 1)
       + *((unsigned __int8 *)SeAliasAdminsSid + 1)
-      + *((unsigned __int8 *)SeRestrictedSid + 1))
+      + *(unsigned __int8 *)(*(_QWORD *)&SeRestrictedSid + 1LL))
      + 88;
   if ( v4 )
     v9 += 4 * v4[1] + 16;
@@ -48,16 +48,16 @@ __int64 __fastcall SepCreateImpersonationTokenDacl(__int64 a1, __int64 a2, ACL *
   if ( PoolWithTag )
   {
     RtlCreateAcl(PoolWithTag, v9, 2u);
-    RtlpAddKnownAce((int)v11, 2, 0, 983551, Src, 0);
-    RtlpAddKnownAce((int)v11, 2, 0, 983551, v8, 0);
-    RtlpAddKnownAce((int)v11, 2, 0, 983551, SeAliasAdminsSid, 0);
-    RtlpAddKnownAce((int)v11, 2, 0, 983551, SeLocalSystemSid, 0);
+    RtlpAddKnownAce(v11, Src, 0);
+    RtlpAddKnownAce(v11, v8, 0);
+    RtlpAddKnownAce(v11, SeAliasAdminsSid, 0);
+    RtlpAddKnownAce(v11, SeLocalSystemSid, 0);
     if ( v4 )
-      RtlpAddKnownAce((int)v11, 2, 0, 983551, v4, 0);
+      RtlpAddKnownAce(v11, v4, 0);
     if ( v5 )
-      RtlpAddKnownAce((int)v11, 2, 0, 983551, v5, 0);
+      RtlpAddKnownAce(v11, v5, 0);
     if ( *(_QWORD *)(a2 + 160) || *(_QWORD *)(a1 + 160) )
-      RtlpAddKnownAce((int)v11, 2, 0, 983551, SeRestrictedSid, 0);
+      RtlpAddKnownAce(v11, *(void **)&SeRestrictedSid, 0);
     *a3 = v11;
     return 0LL;
   }

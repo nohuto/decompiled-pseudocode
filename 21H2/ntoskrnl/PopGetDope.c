@@ -1,18 +1,18 @@
 /*
- * XREFs of PopGetDope @ 0x140399D04
+ * XREFs of PopGetDope @ 0x140399E54
  * Callers:
- *     PoRegisterDeviceForIdleDetection @ 0x140361200 (PoRegisterDeviceForIdleDetection.c)
- *     PoVolumeDevice @ 0x14078028C (PoVolumeDevice.c)
- *     PopAssociateThermalRequest @ 0x140790A20 (PopAssociateThermalRequest.c)
- *     PopDeactiveThermalRequest @ 0x1408E2BE8 (PopDeactiveThermalRequest.c)
- *     PopOrphanCoolingExtension @ 0x1408E2E98 (PopOrphanCoolingExtension.c)
+ *     PoRegisterDeviceForIdleDetection @ 0x1402A6260 (PoRegisterDeviceForIdleDetection.c)
+ *     PoVolumeDevice @ 0x14078044C (PoVolumeDevice.c)
+ *     PopAssociateThermalRequest @ 0x140791FD0 (PopAssociateThermalRequest.c)
+ *     PopDeactiveThermalRequest @ 0x1408E2D48 (PopDeactiveThermalRequest.c)
+ *     PopOrphanCoolingExtension @ 0x1408E2FF8 (PopOrphanCoolingExtension.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KxReleaseSpinLock @ 0x140212140 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140362F80 (KeAcquireSpinLockRaiseToDpc.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     memset @ 0x140414200 (memset.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PopGetDope(__int64 a1)

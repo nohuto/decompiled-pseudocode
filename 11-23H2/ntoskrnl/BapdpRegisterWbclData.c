@@ -3,8 +3,8 @@
  * Callers:
  *     BootApplicationPersistentDataProcess @ 0x140B4F454 (BootApplicationPersistentDataProcess.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     BapdRegisterSiData @ 0x140A91A2C (BapdRegisterSiData.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     BapdRegisterSiData @ 0x140A918AC (BapdRegisterSiData.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  *     BapdpQueryData @ 0x140B4FC2C (BapdpQueryData.c)

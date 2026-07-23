@@ -1,9 +1,9 @@
 /*
- * XREFs of HvpViewMapAcquireChargesForPinnedPages @ 0x14060FEC0
+ * XREFs of HvpViewMapAcquireChargesForPinnedPages @ 0x14060FF74
  * Callers:
- *     HvpViewMapPinForFileOffset @ 0x1401B68C8 (HvpViewMapPinForFileOffset.c)
+ *     HvpViewMapPinForFileOffset @ 0x1401B67AC (HvpViewMapPinForFileOffset.c)
  * Callees:
- *     MmChargeResources @ 0x140003D14 (MmChargeResources.c)
+ *     MmChargeResources @ 0x140003E88 (MmChargeResources.c)
  */
 
 char __fastcall HvpViewMapAcquireChargesForPinnedPages(__int64 a1, unsigned int a2)

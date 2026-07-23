@@ -1,12 +1,12 @@
 /*
- * XREFs of HvlIterateSecurePagesForHibernation @ 0x1405BF1A0
+ * XREFs of HvlIterateSecurePagesForHibernation @ 0x1405C1A10
  * Callers:
- *     PopWriteSecurePages @ 0x1406074F4 (PopWriteSecurePages.c)
+ *     PopWriteSecurePages @ 0x14060A050 (PopWriteSecurePages.c)
  * Callees:
- *     HvlpEndSecurePageListIteration @ 0x1405C2188 (HvlpEndSecurePageListIteration.c)
- *     HvlpStartSecurePageListIteration @ 0x1405C2484 (HvlpStartSecurePageListIteration.c)
- *     VslGetSecurePageList @ 0x1405C2FCC (VslGetSecurePageList.c)
- *     PopWriteSecurePagesCallback @ 0x1406075A4 (PopWriteSecurePagesCallback.c)
+ *     HvlpEndSecurePageListIteration @ 0x1405C49F8 (HvlpEndSecurePageListIteration.c)
+ *     HvlpStartSecurePageListIteration @ 0x1405C4CF4 (HvlpStartSecurePageListIteration.c)
+ *     VslGetSecurePageList @ 0x1405C583C (VslGetSecurePageList.c)
+ *     PopWriteSecurePagesCallback @ 0x14060A100 (PopWriteSecurePagesCallback.c)
  */
 
 __int64 __fastcall HvlIterateSecurePagesForHibernation(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
@@ -26,10 +26,10 @@ __int64 __fastcall HvlIterateSecurePagesForHibernation(__int64 a1, __int64 a2, _
   result = HvlpStartSecurePageListIteration(
              0LL,
              3LL,
-             &VslpReservedTransferLock.QueueListEntry.Blink[256],
-             (char *)&VslpReservedTransferLock.QueueListEntry.Blink[256]
-           + ((VslpReservedTransferLock.NextProcessor - 2) << 12),
-             (VslpReservedTransferLock.NextProcessor - 2) << 12,
+             &VslpReservedTransferLock.Affinity[15].StaticBitmap[16],
+             (char *)&VslpReservedTransferLock.Affinity[15].StaticBitmap[16]
+           + (unsigned int)((*(_DWORD *)&VslpReservedTransferLock.AffinityPrimaryGroup - 2) << 12),
+             (*(_DWORD *)&VslpReservedTransferLock.AffinityPrimaryGroup - 2) << 12,
              v12);
   if ( (int)result >= 0 )
   {

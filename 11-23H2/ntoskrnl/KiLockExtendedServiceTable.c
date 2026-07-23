@@ -1,17 +1,17 @@
 /*
- * XREFs of KiLockExtendedServiceTable @ 0x1403E3878
+ * XREFs of KiLockExtendedServiceTable @ 0x1403E3A58
  * Callers:
- *     KiLockServiceTable @ 0x14034BED0 (KiLockServiceTable.c)
+ *     KiLockServiceTable @ 0x14034C070 (KiLockServiceTable.c)
  * Callees:
  *     RtlImageNtHeader @ 0x140214B30 (RtlImageNtHeader.c)
- *     RtlCaptureImageExceptionValues @ 0x140290984 (RtlCaptureImageExceptionValues.c)
- *     MmGetSessionIdEx @ 0x1402A1720 (MmGetSessionIdEx.c)
- *     RtlpConvertFunctionEntry @ 0x1402A6650 (RtlpConvertFunctionEntry.c)
- *     MmIsSessionAddress @ 0x1402BC7E0 (MmIsSessionAddress.c)
- *     PsGetCurrentProcess @ 0x140317770 (PsGetCurrentProcess.c)
- *     RtlPcToFileHeader @ 0x1403C4040 (RtlPcToFileHeader.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     memset @ 0x140435A00 (memset.c)
+ *     RtlCaptureImageExceptionValues @ 0x140290C14 (RtlCaptureImageExceptionValues.c)
+ *     MmGetSessionIdEx @ 0x1402A19B0 (MmGetSessionIdEx.c)
+ *     RtlpConvertFunctionEntry @ 0x1402A68E0 (RtlpConvertFunctionEntry.c)
+ *     MmIsSessionAddress @ 0x1402BCA70 (MmIsSessionAddress.c)
+ *     PsGetCurrentProcess @ 0x140317A00 (PsGetCurrentProcess.c)
+ *     RtlPcToFileHeader @ 0x1403C4220 (RtlPcToFileHeader.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
+ *     memset @ 0x140435E00 (memset.c)
  */
 
 __int64 __fastcall KiLockExtendedServiceTable(ULONG_PTR BugCheckParameter1, ULONG_PTR a2, unsigned int a3, int a4)
@@ -55,10 +55,10 @@ __int64 __fastcall KiLockExtendedServiceTable(ULONG_PTR BugCheckParameter1, ULON
   PVOID *v40; // rdx
   ULONG_PTR v41; // r8
   __int64 v42; // rax
-  __int64 v43; // rcx
+  void *v43; // rcx
   char v44; // r13
-  __int64 v45; // rax
-  __int64 v46; // r10
+  PIMAGE_NT_HEADERS v45; // rax
+  char *v46; // r10
   int v47; // r11d
   int v48; // eax
   int v49; // r9d
@@ -83,10 +83,10 @@ __int64 __fastcall KiLockExtendedServiceTable(ULONG_PTR BugCheckParameter1, ULON
   char v68; // al
   unsigned int v69; // r9d
   char v70; // r14
-  _QWORD *v71; // r12
+  char *v71; // r12
   _QWORD *v72; // r11
-  unsigned __int64 v73; // rcx
-  const char *v74; // rax
+  char *v73; // rcx
+  const char *i; // rax
   ULONG_PTR v75; // r8
   unsigned int v76; // r15d
   __int64 v77; // rax
@@ -100,14 +100,14 @@ __int64 __fastcall KiLockExtendedServiceTable(ULONG_PTR BugCheckParameter1, ULON
   unsigned __int64 v85; // rax
   __int64 v86; // rax
   int v87; // r8d
-  __int64 v88; // rdx
-  unsigned __int64 v89; // r13
-  __int64 v90; // rcx
-  __int64 v91; // rax
-  __int64 v92; // r12
-  __int64 v93; // r15
+  PIMAGE_NT_HEADERS v88; // rdx
+  char *v89; // r13
+  __int64 Size; // rcx
+  __int64 VirtualAddress; // rax
+  char *v92; // r12
+  char *v93; // r15
   __int64 v94; // rax
-  unsigned __int64 v95; // r14
+  char *v95; // r14
   __int64 v96; // rax
   __int64 *v97; // rcx
   unsigned __int64 v98; // r14
@@ -137,9 +137,9 @@ __int64 __fastcall KiLockExtendedServiceTable(ULONG_PTR BugCheckParameter1, ULON
   __int64 v122; // rax
   unsigned __int64 v123; // rax
   signed __int32 v125[6]; // [rsp+8h] [rbp-D9h] BYREF
-  __int64 v126; // [rsp+38h] [rbp-A9h]
+  PIMAGE_NT_HEADERS v126; // [rsp+38h] [rbp-A9h]
   __int64 v127; // [rsp+40h] [rbp-A1h] BYREF
-  __int64 v128; // [rsp+48h] [rbp-99h] BYREF
+  PVOID BaseOfImage; // [rsp+48h] [rbp-99h] BYREF
   __int64 v129; // [rsp+50h] [rbp-91h]
   unsigned __int64 v130; // [rsp+58h] [rbp-89h]
   __int64 v131; // [rsp+60h] [rbp-81h]
@@ -320,8 +320,8 @@ LABEL_142:
     qword_140C0E140[0] = (__int64)v40[6];
     v131 = 0LL;
 LABEL_42:
-    v43 = qword_140C0E140[v42];
-    v128 = v43;
+    v43 = (void *)qword_140C0E140[v42];
+    BaseOfImage = v43;
     if ( !v43 )
       goto LABEL_110;
     v44 = v39 & 0x3F;
@@ -330,29 +330,29 @@ LABEL_42:
     v126 = v45;
     if ( !v45 )
       KeBugCheckEx(0x43u, BugCheckParameter1, a2, BugCheckParameter3, 1uLL);
-    v46 = v45 + *(unsigned __int16 *)(v45 + 20) + 24LL;
-    v130 = v46 + 40LL * *(unsigned __int16 *)(v45 + 6);
+    v46 = (char *)&v45->OptionalHeader + v45->FileHeader.SizeOfOptionalHeader;
+    v130 = (unsigned __int64)&v46[40 * v45->FileHeader.NumberOfSections];
     while ( 1 )
     {
       v47 = 0;
-      if ( (*(_DWORD *)(v46 + 36) & 0x2000000) != 0 )
+      if ( (*((_DWORD *)v46 + 9) & 0x2000000) != 0 )
         goto LABEL_73;
       v48 = *(_DWORD *)v46;
       if ( *(_DWORD *)v46 == 1414090313 )
         break;
       if ( v48 != 1162297680 )
         goto LABEL_48;
-      v53 = *(_WORD *)(v46 + 4);
+      v53 = *((_WORD *)v46 + 2);
       if ( v53 != 30839 && v53 != 29303 && v53 != 30583 )
       {
 LABEL_50:
         v49 = 7;
         v50 = VfExcludeSections[0];
         v134 = *(_OWORD *)VfExcludeSections;
-        v135 = *(_OWORD *)off_140C094B8;
+        v135 = *(_OWORD *)off_140C094A8;
         while ( 1 )
         {
-          v51 = v50[v46 - (unsigned __int64)VfExcludeSections[0]];
+          v51 = v50[v46 - VfExcludeSections[0]];
           v52 = *v50++;
           if ( v51 != v52 )
             break;
@@ -361,7 +361,7 @@ LABEL_50:
         }
         v54 = (char *)*((_QWORD *)&v134 + 1);
         v55 = 8;
-        v56 = (char *)v46;
+        v56 = v46;
         while ( 1 )
         {
           v57 = *(_QWORD *)v56;
@@ -391,7 +391,7 @@ LABEL_66:
         v62 = 4;
         while ( 1 )
         {
-          v63 = v61[v46 - (_QWORD)v135];
+          v63 = v46[(_QWORD)v61 - v135];
           v64 = *v61++;
           if ( v63 != v64 )
             break;
@@ -402,7 +402,7 @@ LABEL_66:
         v66 = 6;
         do
         {
-          v67 = v65[v46 - *((_QWORD *)&v135 + 1)];
+          v67 = v46[(_QWORD)v65 - *((_QWORD *)&v135 + 1)];
           v68 = *v65++;
           if ( v67 != v68 )
             goto LABEL_74;
@@ -412,27 +412,19 @@ LABEL_66:
 LABEL_73:
       v47 = 1;
 LABEL_74:
-      v69 = *(_DWORD *)(v46 + 16);
-      if ( *(int *)(v46 + 36) < 0 )
+      v69 = *((_DWORD *)v46 + 4);
+      if ( *((int *)v46 + 9) < 0 )
         v47 = 1;
       if ( !v47 )
       {
         v70 = v44;
-        if ( v69 <= *(_DWORD *)(v46 + 8) )
-          v69 = *(_DWORD *)(v46 + 8);
-        v71 = (_QWORD *)(v128 + *(unsigned int *)(v46 + 12));
+        if ( v69 <= *((_DWORD *)v46 + 2) )
+          v69 = *((_DWORD *)v46 + 2);
+        v71 = (char *)BaseOfImage + *((unsigned int *)v46 + 3);
         v72 = v71;
-        v73 = (unsigned __int64)v71 + v69;
-        v74 = (const char *)v71;
-        if ( (unsigned __int64)v71 < v73 )
-        {
-          do
-          {
-            _mm_prefetch(v74, 0);
-            v74 += 64;
-          }
-          while ( (unsigned __int64)v74 < v73 );
-        }
+        v73 = &v71[v69];
+        for ( i = v71; i < v73; i += 64 )
+          _mm_prefetch(i, 0);
         v75 = v39;
         v76 = v69 >> 7;
         if ( v69 >> 7 )
@@ -450,7 +442,7 @@ LABEL_74:
               --v77;
             }
             while ( v77 );
-            v81 = __ROL8__(v39 ^ ((char *)v72 - (char *)v71), 17) ^ v39 ^ ((char *)v72 - (char *)v71);
+            v81 = __ROL8__(v39 ^ ((char *)v72 - v71), 17) ^ v39 ^ ((char *)v72 - v71);
             v142 = (v81 * (unsigned __int128)0x7010008004002001uLL) >> 64;
             v82 = v70 ^ v142 ^ v81;
             v70 = 1;
@@ -482,44 +474,44 @@ LABEL_74:
         }
         v39 = v75;
       }
-      v46 += 40LL;
-      if ( v46 == v130 )
+      v46 += 40;
+      if ( v46 == (char *)v130 )
       {
         v87 = v146;
         if ( !v146 )
         {
           v88 = v126;
-          v89 = v128;
-          v90 = *(unsigned int *)(v126 + 148);
-          if ( (unsigned int)v90 >= 0x14 )
+          v89 = (char *)BaseOfImage;
+          Size = v126->OptionalHeader.DataDirectory[1].Size;
+          if ( (unsigned int)Size >= 0x14 )
           {
-            v91 = *(unsigned int *)(v126 + 144);
-            v92 = v91 + v90 + v128;
-            v93 = v91 + v128;
-            if ( v91 + v128 != v92 )
+            VirtualAddress = v126->OptionalHeader.DataDirectory[1].VirtualAddress;
+            v92 = (char *)BaseOfImage + Size + VirtualAddress;
+            v93 = (char *)BaseOfImage + VirtualAddress;
+            if ( (char *)BaseOfImage + VirtualAddress != v92 )
             {
               do
               {
-                if ( !*(_DWORD *)(v93 + 12) )
+                if ( !*((_DWORD *)v93 + 3) )
                   break;
-                v94 = *(unsigned int *)(v93 + 16);
+                v94 = *((unsigned int *)v93 + 4);
                 if ( !(_DWORD)v94 )
                   break;
-                v95 = *(_QWORD *)(v94 + v89);
-                if ( v95 && (v95 < v89 || v95 >= v89 + *(unsigned int *)(v88 + 80)) )
+                v95 = *(char **)&v89[v94];
+                if ( v95 && (v95 < v89 || v95 >= &v89[v88->OptionalHeader.SizeOfImage]) )
                 {
-                  if ( MmIsSessionAddress(v95) )
+                  if ( MmIsSessionAddress((__int64)v95) )
                   {
-                    RtlPcToFileHeader(v95, &v128);
-                    if ( v128 )
+                    RtlPcToFileHeader(v95, &BaseOfImage);
+                    if ( BaseOfImage )
                     {
                       v96 = 0LL;
                       v97 = qword_140C0E140;
-                      while ( *v97 != v128 )
+                      while ( (PVOID)*v97 != BaseOfImage )
                       {
                         if ( !*v97 )
                         {
-                          qword_140C0E140[v96] = v128;
+                          qword_140C0E140[v96] = (__int64)BaseOfImage;
                           break;
                         }
                         v96 = (unsigned int)(v96 + 1);
@@ -535,7 +527,7 @@ LABEL_74:
                   }
                   v88 = v126;
                 }
-                v93 += 20LL;
+                v93 += 20;
               }
               while ( v93 != v92 );
               v87 = 0;
@@ -561,18 +553,18 @@ LABEL_110:
         goto LABEL_42;
       }
     }
-    if ( *(_DWORD *)(v46 + 4) == 1195525195 )
+    if ( *((_DWORD *)v46 + 1) == 1195525195 )
       goto LABEL_73;
 LABEL_48:
-    if ( v48 != 1095914053 || *(_WORD *)(v46 + 4) != 16724 )
+    if ( v48 != 1095914053 || *((_WORD *)v46 + 2) != 16724 )
       goto LABEL_50;
     goto LABEL_73;
   }
   v98 = (unsigned __int64)&qword_140C0E050;
   v99 = (unsigned __int64)&qword_140C0E050 & 0x3F;
   v130 = (unsigned __int64)&qword_140C0E050 & 0x3F;
-  RtlImageNtHeader(0x140000000LL);
-  RtlCaptureImageExceptionValues(0x40000000, &v136, &v127);
+  RtlImageNtHeader((PVOID)0x140000000LL);
+  RtlCaptureImageExceptionValues((void *)0x140000000LL, &v136, (ULONG *)&v127);
   v100 = v136;
   v101 = 0x140000000uLL;
   LODWORD(v127) = (unsigned int)v127 / 0xC;

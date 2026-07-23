@@ -30,9 +30,9 @@ char *__fastcall ExpSaPageGroupDescriptorAllocate(__int64 a1, char a2)
   POOL_TYPE v6; // r14d
   char *result; // rax
   char *v8; // rsi
-  unsigned __int64 v9; // rax
+  PRTL_BALANCED_NODE v9; // rax
   signed __int8 v10; // cf
-  unsigned __int64 v11; // rbx
+  PRTL_BALANCED_NODE v11; // rbx
   int v12; // eax
   unsigned int SessionId; // r15d
   unsigned int v14; // ecx
@@ -87,9 +87,12 @@ char *__fastcall ExpSaPageGroupDescriptorAllocate(__int64 a1, char a2)
     v10 = _interlockedbittestandset64((volatile signed __int32 *)&ExSaPageGroupDescriptorArrayLock, 0LL);
     v11 = v9;
     if ( v10 )
-      ExfAcquirePushLockExclusiveEx(&ExSaPageGroupDescriptorArrayLock, v9, (__int16 *)&ExSaPageGroupDescriptorArrayLock);
+      ExfAcquirePushLockExclusiveEx(
+        &ExSaPageGroupDescriptorArrayLock,
+        (__int64)v9,
+        (__int16 *)&ExSaPageGroupDescriptorArrayLock);
     if ( v11 )
-      *(_BYTE *)(v11 + 26) |= 1u;
+      BYTE2(v11[1].Left) |= 1u;
     v12 = ExpSaBinaryArrayInsert(ExSaPageGroupDescriptorArray, v8);
     SessionId = -1;
     *((_DWORD *)v8 + 8) = v12;
@@ -198,7 +201,7 @@ LABEL_47:
           {
             v29->CrossThreadReleasableAndBusyByte |= 2u;
             if ( (__int64)v29->LockState.LockState < 0 )
-              KiAbEntryRemoveFromTree((__int64)&CurrentThread->LockEntries[v28]);
+              KiAbEntryRemoveFromTree(&CurrentThread->LockEntries[v28].TreeNode);
             v38 = 0;
             v38 = v29->BoostBitmap.AllFields & 0x1FFFF;
             v29->BoostBitmap.AllFields &= 0xFFFE0000;

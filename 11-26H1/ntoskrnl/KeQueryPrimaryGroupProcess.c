@@ -1,11 +1,11 @@
 /*
- * XREFs of KeQueryPrimaryGroupProcess @ 0x140462F48
+ * XREFs of KeQueryPrimaryGroupProcess @ 0x14045BF08
  * Callers:
- *     NtSetInformationThread @ 0x140A833F0 (NtSetInformationThread.c)
- *     NtSetInformationProcess @ 0x140B72B10 (NtSetInformationProcess.c)
+ *     NtSetInformationThread @ 0x14094C4F0 (NtSetInformationThread.c)
+ *     NtSetInformationProcess @ 0x140B781E0 (NtSetInformationProcess.c)
  * Callees:
- *     KiAcquireProcessLockShared @ 0x140463000 (KiAcquireProcessLockShared.c)
- *     KiReleaseProcessLockShared @ 0x1404630A4 (KiReleaseProcessLockShared.c)
+ *     KiAcquireProcessLockShared @ 0x14045BFC0 (KiAcquireProcessLockShared.c)
+ *     KiReleaseProcessLockShared @ 0x14045C064 (KiReleaseProcessLockShared.c)
  */
 
 __int64 __fastcall KeQueryPrimaryGroupProcess(__int64 a1, _WORD *a2)

@@ -1,11 +1,11 @@
 /*
- * XREFs of AslpFileLargeMapDelete @ 0x140A59CB8
+ * XREFs of AslpFileLargeMapDelete @ 0x140A59F68
  * Callers:
- *     AslpFileLargeEnsureLargeFileMapping @ 0x140A594C8 (AslpFileLargeEnsureLargeFileMapping.c)
- *     AslpFileLargeMapCreate @ 0x140A59A40 (AslpFileLargeMapCreate.c)
+ *     AslpFileLargeEnsureLargeFileMapping @ 0x140A59778 (AslpFileLargeEnsureLargeFileMapping.c)
+ *     AslpFileLargeMapCreate @ 0x140A59CF0 (AslpFileLargeMapCreate.c)
  * Callees:
- *     ZwClose @ 0x14041AF40 (ZwClose.c)
- *     AslpFilePartialViewFree @ 0x140A59D18 (AslpFilePartialViewFree.c)
+ *     ZwClose @ 0x14041B2D0 (ZwClose.c)
+ *     AslpFilePartialViewFree @ 0x140A59FC8 (AslpFilePartialViewFree.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

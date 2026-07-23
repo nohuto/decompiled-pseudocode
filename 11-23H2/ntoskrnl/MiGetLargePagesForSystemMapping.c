@@ -1,14 +1,14 @@
 /*
- * XREFs of MiGetLargePagesForSystemMapping @ 0x140A322C4
+ * XREFs of MiGetLargePagesForSystemMapping @ 0x140A32574
  * Callers:
  *     MiMakeZeroedPageTablesEx @ 0x140214310 (MiMakeZeroedPageTablesEx.c)
  * Callees:
- *     MiReturnCommit @ 0x1402DC250 (MiReturnCommit.c)
- *     MiGetPteAddress @ 0x1402DE00C (MiGetPteAddress.c)
- *     MiObtainSystemCharges @ 0x1402E4250 (MiObtainSystemCharges.c)
- *     MiAllocateLargeZeroPages @ 0x1402E77E0 (MiAllocateLargeZeroPages.c)
- *     MiReturnSystemCharges @ 0x1403409F8 (MiReturnSystemCharges.c)
- *     MiThreadIdealNode @ 0x140617808 (MiThreadIdealNode.c)
+ *     MiReturnCommit @ 0x1402DC4E0 (MiReturnCommit.c)
+ *     MiGetPteAddress @ 0x1402DE29C (MiGetPteAddress.c)
+ *     MiObtainSystemCharges @ 0x1402E44E0 (MiObtainSystemCharges.c)
+ *     MiAllocateLargeZeroPages @ 0x1402E7A70 (MiAllocateLargeZeroPages.c)
+ *     MiReturnSystemCharges @ 0x140340C88 (MiReturnSystemCharges.c)
+ *     MiThreadIdealNode @ 0x140617D58 (MiThreadIdealNode.c)
  */
 
 __int64 __fastcall MiGetLargePagesForSystemMapping(__int64 a1, unsigned __int64 a2)

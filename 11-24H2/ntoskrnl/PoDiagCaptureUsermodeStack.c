@@ -1,11 +1,11 @@
 /*
- * XREFs of PoDiagCaptureUsermodeStack @ 0x1409B2070
+ * XREFs of PoDiagCaptureUsermodeStack @ 0x1409A93C0
  * Callers:
- *     NtSetTimerResolution @ 0x1409B1920 (NtSetTimerResolution.c)
+ *     NtSetTimerResolution @ 0x1409A8C70 (NtSetTimerResolution.c)
  * Callees:
- *     RtlWalkFrameChain @ 0x14027DB70 (RtlWalkFrameChain.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     RtlWalkFrameChain @ 0x140233100 (RtlWalkFrameChain.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 _DWORD *PoDiagCaptureUsermodeStack()
@@ -14,7 +14,7 @@ _DWORD *PoDiagCaptureUsermodeStack()
   _DWORD *v1; // rbx
   ULONG v2; // eax
 
-  Pool2 = ExAllocatePool2(0x100uLL);
+  Pool2 = ExAllocatePool2(0x100uLL, 0x108uLL, 0x50455654u);
   v1 = (_DWORD *)Pool2;
   if ( Pool2 )
   {

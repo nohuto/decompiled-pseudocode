@@ -1,23 +1,23 @@
 /*
- * XREFs of _PnpDeviceRaisePropertyChangeEventWorker @ 0x14090D72C
+ * XREFs of _PnpDeviceRaisePropertyChangeEventWorker @ 0x1409AF85C
  * Callers:
- *     _PnpRaiseNtPlugPlayDevicePropertyChangeEvent @ 0x14090D4E8 (_PnpRaiseNtPlugPlayDevicePropertyChangeEvent.c)
- *     _PnpObjectRaisePropertyChangeEvent @ 0x14090D610 (_PnpObjectRaisePropertyChangeEvent.c)
- *     _CmAddDeviceToContainerWorker @ 0x140AE82D0 (_CmAddDeviceToContainerWorker.c)
- *     _CmRemoveDeviceFromContainerWorker @ 0x140B1D980 (_CmRemoveDeviceFromContainerWorker.c)
+ *     _PnpRaiseNtPlugPlayDevicePropertyChangeEvent @ 0x1409AF618 (_PnpRaiseNtPlugPlayDevicePropertyChangeEvent.c)
+ *     _PnpObjectRaisePropertyChangeEvent @ 0x1409AF740 (_PnpObjectRaisePropertyChangeEvent.c)
+ *     _CmAddDeviceToContainerWorker @ 0x140AE6180 (_CmAddDeviceToContainerWorker.c)
+ *     _CmRemoveDeviceFromContainerWorker @ 0x140B1FA04 (_CmRemoveDeviceFromContainerWorker.c)
  * Callees:
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     RtlCompareMemory @ 0x140730D90 (RtlCompareMemory.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     _PnpStringFromGuid @ 0x14090F21C (_PnpStringFromGuid.c)
- *     _PnpGetObjectProperty @ 0x14099E300 (_PnpGetObjectProperty.c)
- *     _CmGetMatchingFilteredDeviceInterfaceList @ 0x140A8AF9C (_CmGetMatchingFilteredDeviceInterfaceList.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     RtlCompareMemory @ 0x140735960 (RtlCompareMemory.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     _PnpGetObjectProperty @ 0x14095ED60 (_PnpGetObjectProperty.c)
+ *     _PnpStringFromGuid @ 0x1409B134C (_PnpStringFromGuid.c)
+ *     _CmGetMatchingFilteredDeviceInterfaceList @ 0x1409B7DBC (_CmGetMatchingFilteredDeviceInterfaceList.c)
  */
 
 char __fastcall PnpDeviceRaisePropertyChangeEventWorker(
         __int64 a1,
         __int64 a2,
-        __int64 a3,
+        char *a3,
         __int64 a4,
         __int64 a5,
         __int64 a6)
@@ -52,7 +52,7 @@ char __fastcall PnpDeviceRaisePropertyChangeEventWorker(
   _BYTE v38[24]; // [rsp+68h] [rbp-98h]
   __int64 v39; // [rsp+80h] [rbp-80h]
   int v40; // [rsp+88h] [rbp-78h] BYREF
-  __int64 v41; // [rsp+90h] [rbp-70h]
+  char *v41; // [rsp+90h] [rbp-70h]
   __int128 v42; // [rsp+98h] [rbp-68h] BYREF
   __int128 v43; // [rsp+A8h] [rbp-58h]
   __int128 Source2; // [rsp+B8h] [rbp-48h] BYREF
@@ -107,7 +107,7 @@ LABEL_3:
   *(_QWORD *)&v38[8] = a4;
   *(_QWORD *)&v38[16] = a5;
   guard_dispatch_icall_no_overrides(a1, a2);
-  v11 = &qword_1400011D8;
+  v11 = &qword_140001DE8;
   v12 = 14LL;
   do
   {
@@ -141,12 +141,12 @@ LABEL_14:
   {
     for ( j = 0LL; ; j = (unsigned int)(j + 1) )
     {
-      if ( (unsigned int)j >= LODWORD((&off_140001170)[3 * v16 + 1]) )
+      if ( (unsigned int)j >= LODWORD((&off_140001D80)[3 * v16 + 1]) )
       {
         v16 = (unsigned int)(v16 + 1);
         goto LABEL_14;
       }
-      v18 = (&off_140001170)[3 * v16][j];
+      v18 = (&off_140001D80)[3 * v16][j];
       if ( *(_DWORD *)(a5 + 16) == v18->pid )
       {
         v26 = *(_QWORD *)a5 - *(_QWORD *)&v18->fmtid.Data1;
@@ -168,16 +168,16 @@ LABEL_14:
                        v41,
                        0LL,
                        (__int64)&DEVPKEY_Device_ContainerId,
-                       (__int64)&v40,
+                       &v40,
                        (__int64)&Source2,
-                       16,
+                       0x10u,
                        (__int64)&v37,
                        0);
     if ( ObjectProperty == -1073741275 || ObjectProperty == -1073741772 )
       goto LABEL_23;
     if ( ObjectProperty < 0 )
       goto LABEL_71;
-    if ( RtlCompareMemory(qword_140013A60, &Source2, 0x10uLL) == 16 )
+    if ( RtlCompareMemory(qword_140014D70, &Source2, 0x10uLL) == 16 )
       goto LABEL_23;
     if ( (int)PnpStringFromGuid(&Source2, v45) < 0 )
     {
@@ -193,7 +193,7 @@ LABEL_71:
     }
     if ( !v19 )
       goto LABEL_23;
-    v30 = &qword_140001178;
+    v30 = &qword_140001D88;
     *(_OWORD *)v38 = 0LL;
     v31 = 3LL;
     do
@@ -231,12 +231,12 @@ LABEL_24:
   {
     for ( m = 0LL; ; m = (unsigned int)(m + 1) )
     {
-      if ( (unsigned int)m >= LODWORD((&off_1400011B8)[3 * v22 + 1]) )
+      if ( (unsigned int)m >= LODWORD((&off_140001DC8)[3 * v22 + 1]) )
       {
         v22 = 1LL;
         goto LABEL_24;
       }
-      v24 = (&off_1400011B8)[3 * v22][m];
+      v24 = (&off_140001DC8)[3 * v22][m];
       if ( *(_DWORD *)(a5 + 16) == v24->pid )
       {
         v27 = *(_QWORD *)a5 - *(_QWORD *)&v24->fmtid.Data1;
@@ -255,7 +255,7 @@ LABEL_24:
     if ( (_BYTE)MatchingFilteredDeviceInterfaceList )
     {
       *((_QWORD *)&v42 + 1) = a5;
-      *(_QWORD *)&v43 = &off_1400011B8;
+      *(_QWORD *)&v43 = &off_140001DC8;
       DWORD2(v43) = 1;
     }
     MatchingFilteredDeviceInterfaceList = CmGetMatchingFilteredDeviceInterfaceList(

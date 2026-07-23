@@ -1,27 +1,27 @@
 /*
- * XREFs of PopFxRegisterDevice @ 0x14074E950
+ * XREFs of PopFxRegisterDevice @ 0x14074CC80
  * Callers:
- *     PoFxEnableDStateReporting @ 0x14074D470 (PoFxEnableDStateReporting.c)
- *     PoFxRegisterDevice @ 0x14074D710 (PoFxRegisterDevice.c)
- *     PoFxRegisterPrimaryDevice @ 0x14074D9F0 (PoFxRegisterPrimaryDevice.c)
+ *     PoFxEnableDStateReporting @ 0x14074B7A0 (PoFxEnableDStateReporting.c)
+ *     PoFxRegisterDevice @ 0x14074BA40 (PoFxRegisterDevice.c)
+ *     PoFxRegisterPrimaryDevice @ 0x14074BD20 (PoFxRegisterPrimaryDevice.c)
  * Callees:
- *     IoGetDeviceAttachmentBaseRefWithTag @ 0x1402D4B68 (IoGetDeviceAttachmentBaseRefWithTag.c)
- *     IoGetAttachedDeviceReferenceWithTag @ 0x1402D6794 (IoGetAttachedDeviceReferenceWithTag.c)
- *     ObfDereferenceObjectWithTag @ 0x1403254A0 (ObfDereferenceObjectWithTag.c)
- *     ObfReferenceObjectWithTag @ 0x1403403E0 (ObfReferenceObjectWithTag.c)
- *     PopFxDereferenceDevice @ 0x140376880 (PopFxDereferenceDevice.c)
- *     PopFxBugCheck @ 0x140377108 (PopFxBugCheck.c)
- *     PopFxIdleComponent @ 0x1403B4888 (PopFxIdleComponent.c)
- *     PopFxActivateComponent @ 0x1403B61EC (PopFxActivateComponent.c)
- *     PopFxInsertDevice @ 0x1404AEE90 (PopFxInsertDevice.c)
- *     PopFxAssignDeviceToDevNode @ 0x1404B8C0C (PopFxAssignDeviceToDevNode.c)
- *     PopFxGetParentFxDevice @ 0x1405D13FC (PopFxGetParentFxDevice.c)
- *     PopFxInsertDeviceRelation @ 0x1405D1540 (PopFxInsertDeviceRelation.c)
- *     PopFxRegisterDeviceWorker @ 0x14074EBF0 (PopFxRegisterDeviceWorker.c)
- *     PopFxTraceDeviceRegistration @ 0x140A58DFC (PopFxTraceDeviceRegistration.c)
- *     PopGenerateDeviceFriendlyName @ 0x140A81B2C (PopGenerateDeviceFriendlyName.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     PopFxActivateComponent @ 0x1402AE4EC (PopFxActivateComponent.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CE030 (ObfDereferenceObjectWithTag.c)
+ *     ObfReferenceObjectWithTag @ 0x14031F8C0 (ObfReferenceObjectWithTag.c)
+ *     IoGetDeviceAttachmentBaseRefWithTag @ 0x140355DE8 (IoGetDeviceAttachmentBaseRefWithTag.c)
+ *     IoGetAttachedDeviceReferenceWithTag @ 0x140357A14 (IoGetAttachedDeviceReferenceWithTag.c)
+ *     PopFxDereferenceDevice @ 0x1403A7F58 (PopFxDereferenceDevice.c)
+ *     PopFxIdleComponent @ 0x1403A8D58 (PopFxIdleComponent.c)
+ *     PopFxBugCheck @ 0x1403A9948 (PopFxBugCheck.c)
+ *     PopFxInsertDevice @ 0x1404A9868 (PopFxInsertDevice.c)
+ *     PopFxAssignDeviceToDevNode @ 0x1404B38C8 (PopFxAssignDeviceToDevNode.c)
+ *     PopFxGetParentFxDevice @ 0x1405CEB1C (PopFxGetParentFxDevice.c)
+ *     PopFxInsertDeviceRelation @ 0x1405CEC60 (PopFxInsertDeviceRelation.c)
+ *     PopFxRegisterDeviceWorker @ 0x14074CF20 (PopFxRegisterDeviceWorker.c)
+ *     PopFxTraceDeviceRegistration @ 0x140A505AC (PopFxTraceDeviceRegistration.c)
+ *     PopGenerateDeviceFriendlyName @ 0x140A7C424 (PopGenerateDeviceFriendlyName.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PopFxRegisterDevice(_QWORD *Object, int a2, int a3, int a4, __int64 a5, __int64 a6, _QWORD *a7)
@@ -71,8 +71,8 @@ __int64 __fastcall PopFxRegisterDevice(_QWORD *Object, int a2, int a3, int a4, _
         if ( !ParentFxDevice
           || (v18 = *(_DWORD *)(ParentFxDevice + 952), v18 == -1)
           || (v9 = *(_QWORD *)(*(_QWORD *)(v17 + 872) + 8LL * v18),
-              PopFxActivateComponent(v17, v9, 1),
-              (Pool2 = (void *)ExAllocatePool2(0x40uLL)) != 0LL) )
+              PopFxActivateComponent(v17, v9, 1LL, 0),
+              (Pool2 = (void *)ExAllocatePool2(0x40uLL, 0x48uLL, 0x4D584650u)) != 0LL) )
         {
           v11 = PopFxRegisterDeviceWorker(
                   v13[18],

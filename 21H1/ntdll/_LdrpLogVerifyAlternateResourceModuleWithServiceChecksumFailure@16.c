@@ -15,11 +15,11 @@ char __fastcall LdrpLogVerifyAlternateResourceModuleWithServiceChecksumFailure(
         int a3,
         int a4)
 {
-  int v6; // eax
+  NTSTATUS v6; // eax
   _DWORD v8[2]; // [esp+10h] [ebp-A8h] BYREF
   __int16 v9; // [esp+18h] [ebp-A0h] BYREF
   __int16 v10; // [esp+1Ch] [ebp-9Ch] BYREF
-  _BYTE v11[32]; // [esp+20h] [ebp-98h] BYREF
+  _EVENT_DATA_DESCRIPTOR UserData; // [esp+20h] [ebp-98h] BYREF
   _DWORD *v12; // [esp+40h] [ebp-78h]
   int v13; // [esp+44h] [ebp-74h]
   int v14; // [esp+48h] [ebp-70h]
@@ -32,11 +32,7 @@ char __fastcall LdrpLogVerifyAlternateResourceModuleWithServiceChecksumFailure(
   int v21; // [esp+64h] [ebp-54h]
   _DWORD v22[19]; // [esp+68h] [ebp-50h] BYREF
 
-  v6 = RtlRunOnceExecuteOnce(
-         (int)&unk_4B3A6670,
-         (int (__stdcall *)(int, int, int))LdrpResReportResourceAccessInternalInitOnce,
-         0,
-         0);
+  v6 = RtlRunOnceExecuteOnce(&stru_4B3A6670, (PRTL_RUN_ONCE_INIT_FN)LdrpResReportResourceAccessInternalInitOnce, 0, 0);
   if ( v6 >= 0 && (unsigned int)dword_4B3A3318 > 5 )
   {
     LOBYTE(v6) = _tlgKeywordOn(&dword_4B3A3318, 0x200000000000LL);
@@ -74,7 +70,7 @@ char __fastcall LdrpLogVerifyAlternateResourceModuleWithServiceChecksumFailure(
       v22[13] = 0;
       v22[15] = 0;
       v22[17] = 0;
-      LOBYTE(v6) = _tlgWriteTransfer_EtwEventWriteTransfer(4, 4, 9, v11);
+      LOBYTE(v6) = _tlgWriteTransfer_EtwEventWriteTransfer(4, 4, 9u, &UserData);
     }
   }
   return v6;

@@ -1,13 +1,13 @@
 /*
- * XREFs of VmpProcessContextLockShared @ 0x1405A49D4
+ * XREFs of VmpProcessContextLockShared @ 0x1405A4C04
  * Callers:
- *     VmColdPagesHint @ 0x1405A27D0 (VmColdPagesHint.c)
- *     VmpAccessFaultBatch @ 0x1405A2B6C (VmpAccessFaultBatch.c)
- *     VmpPrefetchVirtualAddresses @ 0x1405A4584 (VmpPrefetchVirtualAddresses.c)
- *     VmpQueryAccessedState @ 0x1405A4BEC (VmpQueryAccessedState.c)
- *     VmpSplitMemoryRange @ 0x1405A5144 (VmpSplitMemoryRange.c)
+ *     VmColdPagesHint @ 0x1405A2A00 (VmColdPagesHint.c)
+ *     VmpAccessFaultBatch @ 0x1405A2D9C (VmpAccessFaultBatch.c)
+ *     VmpPrefetchVirtualAddresses @ 0x1405A47B4 (VmpPrefetchVirtualAddresses.c)
+ *     VmpQueryAccessedState @ 0x1405A4E1C (VmpQueryAccessedState.c)
+ *     VmpSplitMemoryRange @ 0x1405A5374 (VmpSplitMemoryRange.c)
  * Callees:
- *     ExAcquireSpinLockSharedAtDpcLevel @ 0x14031C8D0 (ExAcquireSpinLockSharedAtDpcLevel.c)
+ *     ExAcquireSpinLockSharedAtDpcLevel @ 0x140327620 (ExAcquireSpinLockSharedAtDpcLevel.c)
  */
 
 __int64 __fastcall VmpProcessContextLockShared(PEX_SPIN_LOCK SpinLock)

@@ -2,7 +2,7 @@
  * XREFs of sub_140AD0CE4 @ 0x140AD0CE4
  * Callers:
  *     sub_1403ED150 @ 0x1403ED150 (sub_1403ED150.c)
- *     FsRtlMdlReadCompleteDevEx @ 0x140AB9010 (FsRtlMdlReadCompleteDevEx.c)
+ *     sub_140AB9010 @ 0x140AB9010 (sub_140AB9010.c)
  *     sub_140ACD048 @ 0x140ACD048 (sub_140ACD048.c)
  *     sub_140AD7DE4 @ 0x140AD7DE4 (sub_140AD7DE4.c)
  * Callees:
@@ -26,7 +26,7 @@ __int64 __fastcall sub_140AD0CE4(__int64 a1, unsigned __int64 a2)
   if ( a1 )
     v3 = *(_QWORD *)(a1 + 1464);
   else
-    v3 = MmPteBase;
+    v3 = qword_140D05410;
   v4 = v12;
   v5 = v3 + ((a2 >> 9) & 0x7FFFFFFFF8LL);
   v6 = 4LL;
@@ -36,7 +36,7 @@ __int64 __fastcall sub_140AD0CE4(__int64 a1, unsigned __int64 a2)
     if ( a1 )
       v7 = *(_QWORD *)(a1 + 1464);
     else
-      v7 = MmPteBase;
+      v7 = qword_140D05410;
     ++v4;
     v5 = v7 + ((v5 >> 9) & 0x7FFFFFFFF8LL);
     --v6;

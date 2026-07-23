@@ -10,7 +10,7 @@
 
 __int64 __fastcall sub_18009BDD4(__int64 a1, unsigned __int64 a2)
 {
-  void *SubProcessTag; // rax
+  PVOID SubProcessTag; // rax
   __int64 v4; // rcx
   __int64 result; // rax
   __int64 v6; // r8
@@ -29,7 +29,7 @@ __int64 __fastcall sub_18009BDD4(__int64 a1, unsigned __int64 a2)
   SubProcessTag = NtCurrentTeb()->SubProcessTag;
   *(_QWORD *)&v16 = SubProcessTag;
   v4 = (__int64)SubProcessTag - qword_1801663F8;
-  if ( SubProcessTag == (void *)qword_1801663F8 )
+  if ( SubProcessTag == (PVOID)qword_1801663F8 )
     v4 = *((_QWORD *)&v16 + 1) - qword_180166400;
   if ( !v4 )
     return 0LL;
@@ -66,7 +66,7 @@ __int64 __fastcall sub_18009BDD4(__int64 a1, unsigned __int64 a2)
     --v10;
   }
   while ( v10 );
-  v14 = sub_18004EE4C((__int64)&qword_180163B40, (__int64)&v16, v13 + 37 * v12);
+  v14 = sub_18004EE4C((__int64)&Parameter, (__int64)&v16, v13 + 37 * v12);
   if ( v14 )
   {
     v15 = _InterlockedExchangeAdd64((volatile signed __int64 *)(v14 + 32), a2);

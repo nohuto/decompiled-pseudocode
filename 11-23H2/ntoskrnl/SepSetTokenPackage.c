@@ -1,13 +1,13 @@
 /*
- * XREFs of SepSetTokenPackage @ 0x140714D60
+ * XREFs of SepSetTokenPackage @ 0x140714F70
  * Callers:
- *     SepGetAnonymousToken @ 0x1403711F8 (SepGetAnonymousToken.c)
- *     SepDuplicateToken @ 0x140729B80 (SepDuplicateToken.c)
- *     SepFilterToken @ 0x1407F1C00 (SepFilterToken.c)
- *     NtCreateLowBoxToken @ 0x1407F2540 (NtCreateLowBoxToken.c)
+ *     SepGetAnonymousToken @ 0x140371398 (SepGetAnonymousToken.c)
+ *     SepDuplicateToken @ 0x140729D80 (SepDuplicateToken.c)
+ *     SepFilterToken @ 0x1407F1ED0 (SepFilterToken.c)
+ *     NtCreateLowBoxToken @ 0x1407F2810 (NtCreateLowBoxToken.c)
  * Callees:
- *     RtlCopySid @ 0x140714F70 (RtlCopySid.c)
- *     RtlIsParentOfChildAppContainer @ 0x1409BC298 (RtlIsParentOfChildAppContainer.c)
+ *     RtlCopySid @ 0x140715180 (RtlCopySid.c)
+ *     RtlIsParentOfChildAppContainer @ 0x1409BC498 (RtlIsParentOfChildAppContainer.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
@@ -21,7 +21,7 @@ __int64 __fastcall SepSetTokenPackage(__int64 a1, unsigned __int8 *a2)
   void *v8; // rcx
 
   v4 = *(void **)(a1 + 784);
-  if ( v4 && !(unsigned __int8)RtlIsParentOfChildAppContainer(v4, a2) )
+  if ( v4 && !RtlIsParentOfChildAppContainer(v4, a2) )
     return 3221225506LL;
   v5 = (4 * a2[1] + 11) & 0xFFFFFFFC;
   Pool2 = (void *)ExAllocatePool2(256LL, v5, 1767073107LL);

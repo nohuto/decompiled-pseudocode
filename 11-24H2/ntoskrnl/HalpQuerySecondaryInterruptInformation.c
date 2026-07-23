@@ -1,7 +1,7 @@
 /*
- * XREFs of HalpQuerySecondaryInterruptInformation @ 0x140700D0C
+ * XREFs of HalpQuerySecondaryInterruptInformation @ 0x1406FE94C
  * Callers:
- *     HaliQuerySystemInformation @ 0x140B6B760 (HaliQuerySystemInformation.c)
+ *     HaliQuerySystemInformation @ 0x140B6CB90 (HaliQuerySystemInformation.c)
  * Callees:
  *     <none>
  */

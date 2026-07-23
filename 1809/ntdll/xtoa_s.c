@@ -1,10 +1,10 @@
 /*
- * XREFs of xtoa_s @ 0x18009A140
+ * XREFs of xtoa_s @ 0x18009A150
  * Callers:
- *     _itoa_s @ 0x180099FA0 (_itoa_s.c)
- *     _ultoa_s @ 0x180099FF0 (_ultoa_s.c)
+ *     _itoa_s @ 0x180099FB0 (_itoa_s.c)
+ *     _ultoa_s @ 0x18009A000 (_ultoa_s.c)
  * Callees:
- *     _invalid_parameter @ 0x18008FDE8 (_invalid_parameter.c)
+ *     _invalid_parameter @ 0x18008FDF8 (_invalid_parameter.c)
  */
 
 __int64 __fastcall xtoa_s(unsigned int a1, char *a2, unsigned __int64 a3, unsigned int a4, int a5)

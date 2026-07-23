@@ -1,24 +1,24 @@
 /*
- * XREFs of MiTrimSharedPage @ 0x140478A54
+ * XREFs of MiTrimSharedPage @ 0x1404723B4
  * Callers:
- *     MiTradePage @ 0x140291970 (MiTradePage.c)
- *     MiWalkImageReleasePage @ 0x1402CC6DC (MiWalkImageReleasePage.c)
- *     MiFileOnlyPfnMarkedBad @ 0x1406F9B58 (MiFileOnlyPfnMarkedBad.c)
+ *     MiTradePage @ 0x140290ED0 (MiTradePage.c)
+ *     MiWalkImageReleasePage @ 0x1402AE49C (MiWalkImageReleasePage.c)
+ *     MiFileOnlyPfnMarkedBad @ 0x1406FE828 (MiFileOnlyPfnMarkedBad.c)
  * Callees:
- *     ExReleaseSpinLockExclusive @ 0x14021AA80 (ExReleaseSpinLockExclusive.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     ExAcquireSpinLockExclusive @ 0x140249CD0 (ExAcquireSpinLockExclusive.c)
- *     MiReleaseControlAreaWaiters @ 0x1402733E0 (MiReleaseControlAreaWaiters.c)
- *     MiGetSubsectionFromPte @ 0x1402836C0 (MiGetSubsectionFromPte.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402DED10 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     MiReferenceSubsection @ 0x14030BFE0 (MiReferenceSubsection.c)
- *     MiTrimSection @ 0x1404651E0 (MiTrimSection.c)
- *     MiDecrementModifiedWriteCount @ 0x140469350 (MiDecrementModifiedWriteCount.c)
- *     MiClusterVadFull @ 0x14046E460 (MiClusterVadFull.c)
- *     MiDecrementSubsection @ 0x140473D20 (MiDecrementSubsection.c)
- *     MiReferencePfBackedSection @ 0x1404D1764 (MiReferencePfBackedSection.c)
- *     MiIncrementModifiedWriteCount @ 0x1404F6374 (MiIncrementModifiedWriteCount.c)
+ *     ExReleaseSpinLockExclusive @ 0x14021C410 (ExReleaseSpinLockExclusive.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024B630 (ExAcquireSpinLockExclusive.c)
+ *     MiReleaseControlAreaWaiters @ 0x140272950 (MiReleaseControlAreaWaiters.c)
+ *     MiGetSubsectionFromPte @ 0x140282C30 (MiGetSubsectionFromPte.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402C0B20 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     MiReferenceSubsection @ 0x1402EE060 (MiReferenceSubsection.c)
+ *     MiTrimSection @ 0x14045E1A0 (MiTrimSection.c)
+ *     MiDecrementModifiedWriteCount @ 0x140462920 (MiDecrementModifiedWriteCount.c)
+ *     MiClusterVadFull @ 0x140467BE0 (MiClusterVadFull.c)
+ *     MiDecrementSubsection @ 0x14046D4A0 (MiDecrementSubsection.c)
+ *     MiReferencePfBackedSection @ 0x1404CB310 (MiReferencePfBackedSection.c)
+ *     MiIncrementModifiedWriteCount @ 0x1404EF980 (MiIncrementModifiedWriteCount.c)
  */
 
 __int64 __fastcall MiTrimSharedPage(__int64 a1, unsigned __int8 a2, unsigned int a3)
@@ -102,7 +102,7 @@ LABEL_23:
             KiLowerIrqlProcessIrqlFlags(KeGetCurrentIrql(), v6);
           __writecr8(v6);
         }
-        _InterlockedIncrement(&dword_140EF8D3C);
+        _InterlockedIncrement(&dword_140EF909C);
         return 1LL;
       }
       v20 = MiGetSubsectionFromPte(*(_QWORD *)(a1 + 16));
@@ -156,13 +156,13 @@ LABEL_16:
   v20 = (__int64)v23;
   if ( !v23 )
   {
-    _InterlockedIncrement(&dword_140EF8D40);
+    _InterlockedIncrement(&dword_140EF90A0);
     return 1LL;
   }
   v15 = *v23;
   if ( v11 && *(int *)(v15 + 56) < 0 && (unsigned int)MiClusterVadFull(a1, 16LL, (__int64)v23) )
   {
-    _InterlockedIncrement(&dword_140EF8D14);
+    _InterlockedIncrement(&dword_140EF9074);
     v24 = MiDecrementModifiedWriteCount(v15, 0);
     if ( v24 )
       MiReleaseControlAreaWaiters(v24, v25, v26);
@@ -181,20 +181,20 @@ LABEL_34:
   {
     v22 = MiTrimSection(v38, 0LL, v21);
     if ( v22 || (*(_DWORD *)(a1 + 32) & 0x70000) == 0x60000 )
-      _InterlockedIncrement(&dword_140EF8D50);
+      _InterlockedIncrement(&dword_140EF90B0);
     else
-      _InterlockedIncrement(&dword_140EF8C9C);
+      _InterlockedIncrement(&dword_140EF8FFC);
   }
   v27 = *(_DWORD *)(v15 + 56);
   if ( v22 )
   {
     if ( (v27 & 0x20) != 0 )
     {
-      v28 = (volatile signed __int32 *)&unk_140EF8D44;
+      v28 = (volatile signed __int32 *)&unk_140EF90A4;
       goto LABEL_60;
     }
-    v28 = (volatile signed __int32 *)&unk_140EF8D48;
-    v29 = (volatile signed __int32 *)&unk_140EF8D4C;
+    v28 = (volatile signed __int32 *)&unk_140EF90A8;
+    v29 = (volatile signed __int32 *)&unk_140EF90AC;
 LABEL_58:
     if ( (v27 & 0x80u) == 0 )
       v28 = v29;
@@ -202,11 +202,11 @@ LABEL_58:
   }
   if ( (v27 & 0x20) == 0 )
   {
-    v28 = (volatile signed __int32 *)&unk_140EF8C98;
-    v29 = (volatile signed __int32 *)&unk_140EF8CA0;
+    v28 = (volatile signed __int32 *)&unk_140EF8FF8;
+    v29 = (volatile signed __int32 *)&unk_140EF9000;
     goto LABEL_58;
   }
-  v28 = (volatile signed __int32 *)&unk_140EF8C94;
+  v28 = (volatile signed __int32 *)&unk_140EF8FF4;
 LABEL_60:
   _InterlockedIncrement(v28);
   if ( v5 )
@@ -243,9 +243,9 @@ LABEL_60:
     MiReleaseControlAreaWaiters(v33, v32, v35);
   if ( (*(_DWORD *)(a1 + 32) & 0x70000) != 0x60000 )
   {
-    _InterlockedIncrement(&dword_140EF8C8C);
+    _InterlockedIncrement(&dword_140EF8FEC);
     return 2LL;
   }
-  _InterlockedIncrement(&dword_140EF8D54);
+  _InterlockedIncrement(&dword_140EF90B4);
   return 1LL;
 }

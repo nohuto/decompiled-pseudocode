@@ -1,22 +1,22 @@
 /*
- * XREFs of ExUnregisterCallback @ 0x14036E6A0
+ * XREFs of ExUnregisterCallback @ 0x14036E840
  * Callers:
- *     IopCleanupNotifications @ 0x1403ABDC8 (IopCleanupNotifications.c)
- *     DifExUnregisterCallbackWrapper @ 0x1405DA030 (DifExUnregisterCallbackWrapper.c)
- *     KeRegisterProcessorChangeCallback @ 0x140822690 (KeRegisterProcessorChangeCallback.c)
- *     IoRegisterContainerNotification @ 0x1409481D0 (IoRegisterContainerNotification.c)
- *     IoUnregisterContainerNotification @ 0x140948410 (IoUnregisterContainerNotification.c)
- *     KeDeregisterProcessorChangeCallback @ 0x1409746E0 (KeDeregisterProcessorChangeCallback.c)
- *     SeUnregisterImageVerificationCallback @ 0x1409C8CE0 (SeUnregisterImageVerificationCallback.c)
+ *     IopCleanupNotifications @ 0x1403ABFA8 (IopCleanupNotifications.c)
+ *     DifExUnregisterCallbackWrapper @ 0x1405DA5A0 (DifExUnregisterCallbackWrapper.c)
+ *     KeRegisterProcessorChangeCallback @ 0x140822990 (KeRegisterProcessorChangeCallback.c)
+ *     IoRegisterContainerNotification @ 0x1409483D0 (IoRegisterContainerNotification.c)
+ *     IoUnregisterContainerNotification @ 0x140948610 (IoUnregisterContainerNotification.c)
+ *     KeDeregisterProcessorChangeCallback @ 0x1409748E0 (KeDeregisterProcessorChangeCallback.c)
+ *     SeUnregisterImageVerificationCallback @ 0x1409C8EE0 (SeUnregisterImageVerificationCallback.c)
  *     PopUmpoInitializeMonitorChannel @ 0x140B711D4 (PopUmpoInitializeMonitorChannel.c)
  *     IoUnregisterBootDriverCallback @ 0x140B75F40 (IoUnregisterBootDriverCallback.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     KeWaitForSingleObject @ 0x140243CE0 (KeWaitForSingleObject.c)
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250E80 (KeAcquireSpinLockRaiseToDpc.c)
- *     KeResetEvent @ 0x1402AF940 (KeResetEvent.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     ObfDereferenceObject @ 0x140231660 (ObfDereferenceObject.c)
+ *     KeWaitForSingleObject @ 0x140243DB0 (KeWaitForSingleObject.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140250F40 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KeResetEvent @ 0x1402AFE30 (KeResetEvent.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 
@@ -46,10 +46,10 @@ void __stdcall ExUnregisterCallback(PVOID CallbackRegistration)
     *((_BYTE *)CallbackRegistration + 44) = 1;
     KeResetEvent(&ExpCallbackEvent);
     KxReleaseSpinLock((volatile signed __int64 *)v1 + 1);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v4 <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v4 <= 0xFu && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -70,10 +70,10 @@ void __stdcall ExUnregisterCallback(PVOID CallbackRegistration)
   *v6 = v5;
   v5[1] = v6;
   KxReleaseSpinLock((volatile signed __int64 *)v1 + 1);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v12 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v12 <= 0xFu && v4 <= 0xFu && v12 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v12 <= 0xFu && v4 <= 0xFu && v12 >= 2u )
     {
       v13 = KeGetCurrentPrcb();
       v14 = v13->SchedulerAssist;

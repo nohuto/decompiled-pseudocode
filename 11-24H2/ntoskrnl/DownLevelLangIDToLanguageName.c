@@ -1,18 +1,18 @@
 /*
- * XREFs of DownLevelLangIDToLanguageName @ 0x1404B167C
+ * XREFs of DownLevelLangIDToLanguageName @ 0x1404ABF0C
  * Callers:
- *     LdrpResSearchResourceMappedFile @ 0x14044E290 (LdrpResSearchResourceMappedFile.c)
- *     LdrLoadAlternateResourceModuleEx @ 0x14044EDC4 (LdrLoadAlternateResourceModuleEx.c)
- *     PnpGetDeviceInterfacePropertyData @ 0x1408B5D94 (PnpGetDeviceInterfacePropertyData.c)
- *     LdrResSearchResource @ 0x140908A90 (LdrResSearchResource.c)
- *     ExpSetPendingUILanguage @ 0x140A70D00 (ExpSetPendingUILanguage.c)
- *     PnpGetDeviceInstancePropertyData @ 0x140AB1650 (PnpGetDeviceInstancePropertyData.c)
- *     RtlLCIDToCultureName @ 0x140ABA1E0 (RtlLCIDToCultureName.c)
- *     CmSelectQualifiedInstallLanguage @ 0x140C48474 (CmSelectQualifiedInstallLanguage.c)
+ *     LdrLoadAlternateResourceModuleEx @ 0x1402DCE08 (LdrLoadAlternateResourceModuleEx.c)
+ *     LdrpResSearchResourceMappedFile @ 0x14044EAD4 (LdrpResSearchResourceMappedFile.c)
+ *     PnpGetDeviceInterfacePropertyData @ 0x1408B3704 (PnpGetDeviceInterfacePropertyData.c)
+ *     LdrResSearchResource @ 0x1408E01B0 (LdrResSearchResource.c)
+ *     ExpSetPendingUILanguage @ 0x140A6A190 (ExpSetPendingUILanguage.c)
+ *     PnpGetDeviceInstancePropertyData @ 0x140AAC5C0 (PnpGetDeviceInstancePropertyData.c)
+ *     RtlLCIDToCultureName @ 0x140AB5200 (RtlLCIDToCultureName.c)
+ *     CmSelectQualifiedInstallLanguage @ 0x140C4A598 (CmSelectQualifiedInstallLanguage.c)
  * Callees:
- *     ?IsNeutralLanguageItem@@YAHPEBUCultureDataType@@@Z @ 0x1404C1500 (-IsNeutralLanguageItem@@YAHPEBUCultureDataType@@@Z.c)
- *     ?StringCchCopyNW@@YAJPEAG_KPEBG1@Z @ 0x1404C7080 (-StringCchCopyNW@@YAJPEAG_KPEBG1@Z.c)
- *     bsearch @ 0x1404FE760 (bsearch.c)
+ *     ?IsNeutralLanguageItem@@YAHPEBUCultureDataType@@@Z @ 0x1404BCAF0 (-IsNeutralLanguageItem@@YAHPEBUCultureDataType@@@Z.c)
+ *     ?StringCchCopyNW@@YAJPEAG_KPEBG1@Z @ 0x1404C04E0 (-StringCchCopyNW@@YAJPEAG_KPEBG1@Z.c)
+ *     bsearch @ 0x1404FC020 (bsearch.c)
  */
 
 __int64 __fastcall DownLevelLangIDToLanguageName(__int16 a1, unsigned __int16 *a2, int a3, int a4)

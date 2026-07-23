@@ -1,12 +1,12 @@
 /*
- * XREFs of LpcSendWaitReceivePort @ 0x140A30450
+ * XREFs of LpcSendWaitReceivePort @ 0x140A24F40
  * Callers:
- *     DbgkpSendApiMessageLpc @ 0x140A3020C (DbgkpSendApiMessageLpc.c)
- *     ExpRaiseHardError @ 0x140A4E894 (ExpRaiseHardError.c)
- *     IopSendMessageToTrackService @ 0x140AA825C (IopSendMessageToTrackService.c)
+ *     DbgkpSendApiMessageLpc @ 0x140A24CFC (DbgkpSendApiMessageLpc.c)
+ *     ExpRaiseHardError @ 0x140A45514 (ExpRaiseHardError.c)
+ *     IopSendMessageToTrackService @ 0x140AA335C (IopSendMessageToTrackService.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     AlpcpProcessSynchronousRequest @ 0x140A304CC (AlpcpProcessSynchronousRequest.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     AlpcpProcessSynchronousRequest @ 0x140A24FBC (AlpcpProcessSynchronousRequest.c)
  */
 
 __int64 __fastcall LpcSendWaitReceivePort(int a1, int a2, int a3, __int64 a4, __int64 a5, __int64 a6)

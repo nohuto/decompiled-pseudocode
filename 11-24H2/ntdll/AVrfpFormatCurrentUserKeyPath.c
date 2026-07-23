@@ -1,26 +1,26 @@
 /*
- * XREFs of AVrfpFormatCurrentUserKeyPath @ 0x18011D604
+ * XREFs of AVrfpFormatCurrentUserKeyPath @ 0x18011B834
  * Callers:
- *     AVrfOpenCurrentUserImageFileOptionsKey @ 0x18008A6A4 (AVrfOpenCurrentUserImageFileOptionsKey.c)
+ *     AVrfOpenCurrentUserImageFileOptionsKey @ 0x1800A6164 (AVrfOpenCurrentUserImageFileOptionsKey.c)
  * Callees:
- *     RtlAppendUnicodeStringToString @ 0x180075AB0 (RtlAppendUnicodeStringToString.c)
- *     RtlAppendUnicodeToString @ 0x1800B2BB0 (RtlAppendUnicodeToString.c)
- *     AVrfpAppendCurrentUserSid @ 0x18011040C (AVrfpAppendCurrentUserSid.c)
+ *     RtlAppendUnicodeToString @ 0x18007F450 (RtlAppendUnicodeToString.c)
+ *     RtlAppendUnicodeStringToString @ 0x180092390 (RtlAppendUnicodeStringToString.c)
+ *     AVrfpAppendCurrentUserSid @ 0x18010B6CC (AVrfpAppendCurrentUserSid.c)
  */
 
-int __fastcall AVrfpFormatCurrentUserKeyPath(__int64 a1)
+int __fastcall AVrfpFormatCurrentUserKeyPath(PUNICODE_STRING Destination)
 {
   int result; // eax
 
-  *(_OWORD *)a1 = 0LL;
-  *(_WORD *)(a1 + 2) = 1252;
-  *(_QWORD *)(a1 + 8) = &AVrfpCurrentUserKeyPath;
-  result = RtlAppendUnicodeToString((unsigned __int16 *)a1, L"\\REGISTRY\\USER\\");
+  *Destination = 0LL;
+  Destination->MaximumLength = 1252;
+  Destination->Buffer = (wchar_t *)&AVrfpCurrentUserKeyPath;
+  result = RtlAppendUnicodeToString(Destination, L"\\REGISTRY\\USER\\");
   if ( result >= 0 )
   {
-    result = AVrfpAppendCurrentUserSid((unsigned __int16 *)a1);
+    result = AVrfpAppendCurrentUserSid(&Destination->Length);
     if ( result >= 0 )
-      return RtlAppendUnicodeStringToString((unsigned __int16 *)a1, &qword_180174760);
+      return RtlAppendUnicodeStringToString(Destination, &stru_180173760);
   }
   return result;
 }

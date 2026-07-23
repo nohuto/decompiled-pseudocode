@@ -1,65 +1,65 @@
 /*
- * XREFs of PspJobIoRateVolumeEntryRemove @ 0x1402EA580
+ * XREFs of PspJobIoRateVolumeEntryRemove @ 0x1402EA770
  * Callers:
- *     PspSetJobIoRateControlForVolume @ 0x14088A214 (PspSetJobIoRateControlForVolume.c)
+ *     PspSetJobIoRateControlForVolume @ 0x14088B474 (PspSetJobIoRateControlForVolume.c)
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x1400BC4E0 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC660 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     RtlRbRemoveNode @ 0x1400BDDF0 (RtlRbRemoveNode.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     MiLockTrackerCompare @ 0x1402A83D0 (MiLockTrackerCompare.c)
+ *     ExAcquireSpinLockExclusive @ 0x1400BC420 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC5A0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     RtlRbRemoveNode @ 0x1400BDD30 (RtlRbRemoveNode.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiLockTrackerCompare @ 0x1402A85C0 (MiLockTrackerCompare.c)
  */
 
-unsigned __int64 __fastcall PspJobIoRateVolumeEntryRemove(__int64 a1, unsigned __int64 a2)
+__int64 __fastcall PspJobIoRateVolumeEntryRemove(__int64 a1, unsigned __int64 a2)
 {
   volatile LONG *v2; // r15
-  __int64 v4; // rsi
-  unsigned __int64 v5; // r14
+  _RTL_RB_TREE *v4; // rsi
+  __int64 v5; // r14
   KIRQL v6; // al
-  unsigned __int64 v7; // rbx
+  __int64 Root; // rbx
   KIRQL v8; // bp
-  unsigned __int64 v9; // rax
+  _RTL_BALANCED_NODE *Min; // rax
   int v10; // edi
   int v11; // eax
-  unsigned __int64 v12; // rax
+  __int64 v12; // rax
   struct _KPRCB *CurrentPrcb; // rcx
 
   v2 = (volatile LONG *)(a1 + 1440);
-  v4 = a1 + 1448;
+  v4 = (_RTL_RB_TREE *)(a1 + 1448);
   v5 = 0LL;
   v6 = ExAcquireSpinLockExclusive((PEX_SPIN_LOCK)(a1 + 1440));
-  v7 = *(_QWORD *)v4;
+  Root = (__int64)v4->Root;
   v8 = v6;
-  v9 = *(_QWORD *)(v4 + 8);
-  if ( (v9 & 1) != 0 && v7 )
-    v7 ^= v4;
-  v10 = v9 & 1;
-  if ( v7 )
+  Min = v4->Min;
+  if ( ((unsigned __int8)Min & 1) != 0 && Root )
+    Root ^= (unsigned __int64)v4;
+  v10 = (unsigned __int8)Min & 1;
+  if ( Root )
   {
     do
     {
-      v11 = MiLockTrackerCompare(a2, v7);
+      v11 = MiLockTrackerCompare(a2, Root);
       if ( v11 >= 0 )
       {
         if ( v11 <= 0 )
           break;
-        v12 = *(_QWORD *)(v7 + 8);
+        v12 = *(_QWORD *)(Root + 8);
       }
       else
       {
-        v12 = *(_QWORD *)v7;
+        v12 = *(_QWORD *)Root;
       }
       if ( v10 && v12 )
-        v7 ^= v12;
+        Root ^= v12;
       else
-        v7 = v12;
+        Root = v12;
     }
-    while ( v7 );
-    if ( v7 )
+    while ( Root );
+    if ( Root )
     {
-      RtlRbRemoveNode(v4, v7);
-      *(_QWORD *)(v7 + 16) = -1LL;
-      v5 = v7;
+      RtlRbRemoveNode(v4, (PRTL_BALANCED_NODE)Root);
+      *(_QWORD *)(Root + 16) = -1LL;
+      v5 = Root;
     }
   }
   ExReleaseSpinLockExclusiveFromDpcLevel(v2);

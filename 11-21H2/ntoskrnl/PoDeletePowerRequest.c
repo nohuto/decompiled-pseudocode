@@ -4,11 +4,11 @@
  *     PoUnregisterSystemState @ 0x140202100 (PoUnregisterSystemState.c)
  * Callees:
  *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
- *     PopPowerRequestHandleClose @ 0x14036A100 (PopPowerRequestHandleClose.c)
+ *     sub_14036A100 @ 0x14036A100 (sub_14036A100.c)
  */
 
 void __stdcall PoDeletePowerRequest(PVOID PowerRequest)
 {
-  PopPowerRequestHandleClose(PowerRequest);
+  sub_14036A100(PowerRequest);
   ObfDereferenceObject(PowerRequest);
 }

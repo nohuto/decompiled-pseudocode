@@ -1,14 +1,14 @@
 /*
- * XREFs of PopEnforceResiliencyScenarios @ 0x140994238
+ * XREFs of PopEnforceResiliencyScenarios @ 0x140994438
  * Callers:
- *     NtPowerInformation @ 0x140783F20 (NtPowerInformation.c)
- *     PopTransitionSystemPowerStateEx @ 0x140AA90F0 (PopTransitionSystemPowerStateEx.c)
+ *     NtPowerInformation @ 0x140784110 (NtPowerInformation.c)
+ *     PopTransitionSystemPowerStateEx @ 0x140AA8F60 (PopTransitionSystemPowerStateEx.c)
  * Callees:
- *     PpmReleaseLock @ 0x14032C280 (PpmReleaseLock.c)
- *     PpmAcquireLock @ 0x14032C2D0 (PpmAcquireLock.c)
- *     PoFxSendSystemLatencyUpdate @ 0x14032C330 (PoFxSendSystemLatencyUpdate.c)
- *     PopEnsureCoalescingWorkerWillRun @ 0x14058DA00 (PopEnsureCoalescingWorkerWillRun.c)
- *     PopEnforceDeepSleep @ 0x140994184 (PopEnforceDeepSleep.c)
+ *     PpmReleaseLock @ 0x14032C510 (PpmReleaseLock.c)
+ *     PpmAcquireLock @ 0x14032C560 (PpmAcquireLock.c)
+ *     PoFxSendSystemLatencyUpdate @ 0x14032C5C0 (PoFxSendSystemLatencyUpdate.c)
+ *     PopEnsureCoalescingWorkerWillRun @ 0x14058DEF0 (PopEnsureCoalescingWorkerWillRun.c)
+ *     PopEnforceDeepSleep @ 0x140994384 (PopEnforceDeepSleep.c)
  */
 
 void __fastcall PopEnforceResiliencyScenarios(int *a1)

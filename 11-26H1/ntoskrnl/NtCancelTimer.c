@@ -1,31 +1,31 @@
 /*
- * XREFs of NtCancelTimer @ 0x1406CF780
+ * XREFs of NtCancelTimer @ 0x1406D37B0
  * Callers:
- *     DifNtCancelTimerWrapper @ 0x14066E780 (DifNtCancelTimerWrapper.c)
+ *     DifNtCancelTimerWrapper @ 0x140672360 (DifNtCancelTimerWrapper.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402BA1B0 (KiLeaveCriticalRegionUnsafe.c)
- *     KeReleaseSpinLock @ 0x1402BE860 (KeReleaseSpinLock.c)
- *     ExfTryToWakePushLock @ 0x1403170A0 (ExfTryToWakePushLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14032F300 (KeAcquireSpinLockRaiseToDpc.c)
- *     ExpSetTimerObject2 @ 0x1403A9988 (ExpSetTimerObject2.c)
- *     ?KiAbpSetEntryValue@AutoBoost@@YAXPECEEK@Z @ 0x140444460 (-KiAbpSetEntryValue@AutoBoost@@YAXPECEEK@Z.c)
- *     ObDereferenceObjectExWithTag2 @ 0x14047F848 (ObDereferenceObjectExWithTag2.c)
- *     PoDestroyReasonContext @ 0x14050A3C0 (PoDestroyReasonContext.c)
- *     ExpCancelTimer @ 0x1406CECB0 (ExpCancelTimer.c)
- *     RtlReadUCharFromUser @ 0x14077F51C (RtlReadUCharFromUser.c)
- *     RtlWriteUCharToUser @ 0x14077F710 (RtlWriteUCharToUser.c)
- *     ObReferenceObjectByHandleWithTag @ 0x1408F9EF0 (ObReferenceObjectByHandleWithTag.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140304E70 (KiLeaveCriticalRegionUnsafe.c)
+ *     KeReleaseSpinLock @ 0x140309520 (KeReleaseSpinLock.c)
+ *     ExfTryToWakePushLock @ 0x1403190D0 (ExfTryToWakePushLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140331330 (KeAcquireSpinLockRaiseToDpc.c)
+ *     ExpSetTimerObject2 @ 0x1403B3598 (ExpSetTimerObject2.c)
+ *     ?KiAbpSetEntryValue@AutoBoost@@YAXPECEEK@Z @ 0x14043CF70 (-KiAbpSetEntryValue@AutoBoost@@YAXPECEEK@Z.c)
+ *     ObDereferenceObjectExWithTag2 @ 0x1404791B8 (ObDereferenceObjectExWithTag2.c)
+ *     PoDestroyReasonContext @ 0x140503E30 (PoDestroyReasonContext.c)
+ *     ExpCancelTimer @ 0x1406D2CE0 (ExpCancelTimer.c)
+ *     RtlReadUCharFromUser @ 0x14078201C (RtlReadUCharFromUser.c)
+ *     RtlWriteUCharToUser @ 0x140782210 (RtlWriteUCharToUser.c)
+ *     ObReferenceObjectByHandleWithTag @ 0x140929E80 (ObReferenceObjectByHandleWithTag.c)
  */
 
-__int64 __fastcall NtCancelTimer(HANDLE Handle, _BYTE *a2)
+NTSTATUS __cdecl NtCancelTimer(HANDLE TimerHandle, PBOOLEAN CurrentState)
 {
   KPROCESSOR_MODE PreviousMode; // bl
   __int64 v5; // rdx
-  int v6; // r14d
+  NTSTATUS v6; // r14d
   _QWORD *v7; // rsi
   struct _OBJECT_TYPE *v8; // rcx
   KIRQL v9; // al
@@ -51,12 +51,12 @@ __int64 __fastcall NtCancelTimer(HANDLE Handle, _BYTE *a2)
   v21[0] = 0;
   v22[0] = 0;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
-  if ( a2 && PreviousMode )
+  if ( CurrentState && PreviousMode )
   {
-    LOBYTE(v5) = RtlReadUCharFromUser(a2);
-    RtlWriteUCharToUser(a2, v5);
+    LOBYTE(v5) = RtlReadUCharFromUser(CurrentState);
+    RtlWriteUCharToUser(CurrentState, v5);
   }
-  v6 = ObReferenceObjectByHandleWithTag(Handle, 2u, 0LL, PreviousMode, 0x634E6954u, &Object, 0LL);
+  v6 = ObReferenceObjectByHandleWithTag(TimerHandle, 2u, 0LL, PreviousMode, 0x634E6954u, &Object, 0LL);
   v22[1] = v6;
   v7 = Object;
   if ( v6 >= 0 )
@@ -64,7 +64,7 @@ __int64 __fastcall NtCancelTimer(HANDLE Handle, _BYTE *a2)
     v8 = (struct _OBJECT_TYPE *)ObTypeIndexTable[(unsigned __int8)ObHeaderCookie ^ (unsigned __int8)*((char *)Object - 24) ^ (unsigned __int64)(unsigned __int8)((unsigned __int16)((_WORD)Object - 48) >> 8)];
     if ( v8 == ExpIRTimerObjectType )
     {
-      if ( a2 )
+      if ( CurrentState )
         v6 = -1073741811;
       else
         v6 = ExpSetTimerObject2((__int64)Object, 0LL, 0LL, 0LL);
@@ -81,17 +81,13 @@ __int64 __fastcall NtCancelTimer(HANDLE Handle, _BYTE *a2)
         KeReleaseSpinLock(v7 + 8, v9);
         CurrentThread = KeGetCurrentThread();
         --CurrentThread->KernelApcDisable;
-        v12 = (AutoBoost *)KeAbPreAcquire((__int64)&ExSaPageGroupDescriptorArrayLock.KernelWaitTime, 0LL, 0LL, v11);
+        v12 = (AutoBoost *)KeAbPreAcquire((__int64)&ExSaPageGroupDescriptorArrayLock.1008, 0LL, 0LL, v11);
         v14 = v12;
-        if ( _interlockedbittestandset64(
-               (volatile signed __int32 *)&ExSaPageGroupDescriptorArrayLock.KernelWaitTime,
-               0LL) )
-        {
+        if ( _interlockedbittestandset64((volatile signed __int32 *)&ExSaPageGroupDescriptorArrayLock.1008, 0LL) )
           ExfAcquirePushLockExclusiveEx(
-            &ExSaPageGroupDescriptorArrayLock.KernelWaitTime,
+            (unsigned __int64 *)&ExSaPageGroupDescriptorArrayLock.1008,
             v12,
-            (__int64)&ExSaPageGroupDescriptorArrayLock.KernelWaitTime);
-        }
+            (__int64)&ExSaPageGroupDescriptorArrayLock.1008);
         if ( v14 )
         {
           if ( (KiAbpGlobalState & 1) != 0 )
@@ -126,14 +122,14 @@ __int64 __fastcall NtCancelTimer(HANDLE Handle, _BYTE *a2)
           *v16 = 0LL;
         }
         if ( (_InterlockedExchangeAdd64(
-                (volatile signed __int64 *)&ExSaPageGroupDescriptorArrayLock.KernelWaitTime,
+                (volatile signed __int64 *)&ExSaPageGroupDescriptorArrayLock.GlobalUpdateVpThreadPriorityListEntry.Flink,
                 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-          ExfTryToWakePushLock((volatile signed __int64 *)&ExSaPageGroupDescriptorArrayLock.KernelWaitTime);
-        KeAbPostRelease((unsigned __int64)&ExSaPageGroupDescriptorArrayLock.KernelWaitTime);
+          ExfTryToWakePushLock((volatile signed __int64 *)&ExSaPageGroupDescriptorArrayLock.1008);
+        KeAbPostRelease((unsigned __int64)&ExSaPageGroupDescriptorArrayLock.1008);
         KiLeaveCriticalRegionUnsafe((__int64)CurrentThread, v19);
       }
-      if ( a2 )
-        *a2 = *((_DWORD *)v7 + 1);
+      if ( CurrentState )
+        *CurrentState = *((_DWORD *)v7 + 1);
       if ( v10 )
         PoDestroyReasonContext(v10);
       if ( v21[0] > 0 )
@@ -148,5 +144,5 @@ __int64 __fastcall NtCancelTimer(HANDLE Handle, _BYTE *a2)
   }
   if ( v7 )
     ObfDereferenceObjectWithTag(v7, 0x634E6954u);
-  return (unsigned int)v6;
+  return v6;
 }

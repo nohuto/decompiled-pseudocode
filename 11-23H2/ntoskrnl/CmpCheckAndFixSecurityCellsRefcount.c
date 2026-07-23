@@ -1,15 +1,15 @@
 /*
- * XREFs of CmpCheckAndFixSecurityCellsRefcount @ 0x1407D12C8
+ * XREFs of CmpCheckAndFixSecurityCellsRefcount @ 0x1407D1598
  * Callers:
- *     CmpCheckRegistry2 @ 0x1406DFAD0 (CmpCheckRegistry2.c)
+ *     CmpCheckRegistry2 @ 0x1406DFB00 (CmpCheckRegistry2.c)
  * Callees:
- *     CmpRemoveSecurityCellList @ 0x140361EEC (CmpRemoveSecurityCellList.c)
- *     HvpGetCellPaged @ 0x1406E0150 (HvpGetCellPaged.c)
- *     HvpReleaseCellPaged @ 0x1406E0260 (HvpReleaseCellPaged.c)
- *     HvFreeCell @ 0x14070ABE0 (HvFreeCell.c)
- *     HvpReleaseCellFlat @ 0x1407D9470 (HvpReleaseCellFlat.c)
- *     HvpGetCellFlat @ 0x1407FD9F0 (HvpGetCellFlat.c)
- *     HvMarkCellDirty @ 0x1408ABCF6 (HvMarkCellDirty.c)
+ *     CmpRemoveSecurityCellList @ 0x14036208C (CmpRemoveSecurityCellList.c)
+ *     HvpGetCellPaged @ 0x1406E0180 (HvpGetCellPaged.c)
+ *     HvpReleaseCellPaged @ 0x1406E0290 (HvpReleaseCellPaged.c)
+ *     HvFreeCell @ 0x14070ADF0 (HvFreeCell.c)
+ *     HvpReleaseCellFlat @ 0x1407D9740 (HvpReleaseCellFlat.c)
+ *     HvpGetCellFlat @ 0x1407FDCC0 (HvpGetCellFlat.c)
+ *     HvMarkCellDirty @ 0x1408ABF46 (HvMarkCellDirty.c)
  *     HvpGetBinContextInitialize @ 0x140AF5200 (HvpGetBinContextInitialize.c)
  */
 

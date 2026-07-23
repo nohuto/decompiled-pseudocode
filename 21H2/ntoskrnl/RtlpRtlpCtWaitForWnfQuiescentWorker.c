@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlpRtlpCtWaitForWnfQuiescentWorker @ 0x1409196B0
+ * XREFs of RtlpRtlpCtWaitForWnfQuiescentWorker @ 0x140919810
  * Callers:
  *     <none>
  * Callees:
- *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
- *     RtlpCtContextFree @ 0x14091947C (RtlpCtContextFree.c)
+ *     KeWaitForSingleObject @ 0x1403504C0 (KeWaitForSingleObject.c)
+ *     RtlpCtContextFree @ 0x1409195DC (RtlpCtContextFree.c)
  */
 
 void __fastcall RtlpRtlpCtWaitForWnfQuiescentWorker(PVOID *P)

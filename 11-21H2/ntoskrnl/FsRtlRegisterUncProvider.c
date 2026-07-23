@@ -3,7 +3,7 @@
  * Callers:
  *     <none>
  * Callees:
- *     FsRtlpRegisterUncProvider @ 0x1408567A8 (FsRtlpRegisterUncProvider.c)
+ *     sub_1408567A8 @ 0x1408567A8 (sub_1408567A8.c)
  */
 
 NTSTATUS __stdcall FsRtlRegisterUncProvider(
@@ -16,5 +16,5 @@ NTSTATUS __stdcall FsRtlRegisterUncProvider(
   v4 = 16777224LL;
   if ( MailslotsSupported )
     HIDWORD(v4) |= 1u;
-  return FsRtlpRegisterUncProvider((__int64)RedirectorDeviceName, 0LL, (__int64)&v4, MupHandle);
+  return sub_1408567A8((__int64)RedirectorDeviceName, 0LL, (__int64)&v4, MupHandle);
 }

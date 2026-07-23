@@ -1,15 +1,15 @@
 /*
- * XREFs of PsspWalkInfoClass_PSS_WALK_HANDLES @ 0x1800C4F20
+ * XREFs of PsspWalkInfoClass_PSS_WALK_HANDLES @ 0x1800BCAE0
  * Callers:
- *     PssNtWalkSnapshot @ 0x1800C4A50 (PssNtWalkSnapshot.c)
+ *     PssNtWalkSnapshot @ 0x1800BC610 (PssNtWalkSnapshot.c)
  * Callees:
- *     ZwMapViewOfSection @ 0x180162190 (ZwMapViewOfSection.c)
- *     memset$thunk$772440563353939046 @ 0x180172030 (memset$thunk$772440563353939046.c)
+ *     ZwMapViewOfSection @ 0x180160550 (ZwMapViewOfSection.c)
+ *     memset$thunk$772440563353939046 @ 0x180171030 (memset$thunk$772440563353939046.c)
  */
 
-__int64 __fastcall PsspWalkInfoClass_PSS_WALK_HANDLES(__int64 a1, _QWORD *a2, _DWORD *a3)
+NTSTATUS __fastcall PsspWalkInfoClass_PSS_WALK_HANDLES(__int64 a1, __int64 a2, _DWORD *a3)
 {
-  __int64 v4; // rcx
+  void *v4; // rcx
   unsigned __int64 v7; // r14
   unsigned __int64 v8; // rbx
   unsigned int v9; // edx
@@ -20,28 +20,38 @@ __int64 __fastcall PsspWalkInfoClass_PSS_WALK_HANDLES(__int64 a1, _QWORD *a2, _D
   __int64 v14; // rax
   unsigned int v15; // edx
   int v16; // ecx
-  __int64 result; // rax
-  __int64 v18; // [rsp+60h] [rbp+8h] BYREF
+  NTSTATUS result; // eax
+  ULONG_PTR ViewSize; // [rsp+60h] [rbp+8h] BYREF
 
-  v18 = 0LL;
-  v4 = *(_QWORD *)(a1 + 976);
+  ViewSize = 0LL;
+  v4 = *(void **)(a1 + 976);
   if ( !v4 )
-    return 3221226021LL;
+    return -1073741275;
   if ( !a2 )
-    return 3221225485LL;
-  if ( !*a2 )
+    return -1073741811;
+  if ( !*(_QWORD *)a2 )
   {
-    result = ZwMapViewOfSection(v4, -1LL, a2, 0LL, 0LL, 0LL, &v18, 1, 0, 2);
-    if ( (int)result < 0 )
+    result = ZwMapViewOfSection(
+               v4,
+               (HANDLE)0xFFFFFFFFFFFFFFFFLL,
+               (PVOID *)a2,
+               0LL,
+               0LL,
+               0LL,
+               &ViewSize,
+               ViewShare,
+               0,
+               2u);
+    if ( result < 0 )
       return result;
-    a2[1] = 0LL;
+    *(_QWORD *)(a2 + 8) = 0LL;
   }
-  v7 = a2[1];
+  v7 = *(_QWORD *)(a2 + 8);
   if ( v7 >= *(_QWORD *)(a1 + 968) )
-    return 2147483674LL;
+    return -2147483622;
   if ( !a3 )
-    return 261LL;
-  v8 = v7 + *a2;
+    return 261;
+  v8 = v7 + *(_QWORD *)a2;
   memset_thunk_772440563353939046(a3, 0, 0x48uLL);
   v9 = 16;
   *a3 = *(_DWORD *)v8;
@@ -78,6 +88,6 @@ __int64 __fastcall PsspWalkInfoClass_PSS_WALK_HANDLES(__int64 a1, _QWORD *a2, _D
     *((_QWORD *)a3 + 8) = v8 + v15;
     v9 = v16 + v15;
   }
-  a2[1] = v7 + v9;
-  return 0LL;
+  *(_QWORD *)(a2 + 8) = v7 + v9;
+  return 0;
 }

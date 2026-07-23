@@ -1,23 +1,23 @@
 /*
- * XREFs of LsaDeregisterLogonProcess @ 0x14091C4D0
+ * XREFs of LsaDeregisterLogonProcess @ 0x14091C630
  * Callers:
  *     <none>
  * Callees:
- *     ExReleaseExtensionTable @ 0x14029F2DC (ExReleaseExtensionTable.c)
- *     ExGetExtensionTable @ 0x14029F2F8 (ExGetExtensionTable.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     ExReleaseExtensionTable @ 0x14021C83C (ExReleaseExtensionTable.c)
+ *     ExGetExtensionTable @ 0x14021C858 (ExGetExtensionTable.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
  */
 
-__int64 __fastcall LsaDeregisterLogonProcess(__int64 a1)
+NTSTATUS __cdecl LsaDeregisterLogonProcess(HANDLE LsaHandle)
 {
-  unsigned int v2; // ebx
+  NTSTATUS v2; // ebx
   unsigned __int64 ExtensionTable; // rax
 
   v2 = -1073741822;
   ExtensionTable = ExGetExtensionTable((struct _EX_RUNDOWN_REF *)SepAuthExtensionHost);
   if ( ExtensionTable )
   {
-    v2 = (*(__int64 (__fastcall **)(__int64))(ExtensionTable + 8))(a1);
+    v2 = (*(__int64 (__fastcall **)(HANDLE))(ExtensionTable + 8))(LsaHandle);
     ExReleaseExtensionTable((struct _EX_RUNDOWN_REF *)SepAuthExtensionHost);
   }
   return v2;

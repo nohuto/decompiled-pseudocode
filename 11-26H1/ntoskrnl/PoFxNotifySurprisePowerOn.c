@@ -1,12 +1,12 @@
 /*
- * XREFs of PoFxNotifySurprisePowerOn @ 0x1403B7410
+ * XREFs of PoFxNotifySurprisePowerOn @ 0x1403C1310
  * Callers:
- *     DifPoFxNotifySurprisePowerOnWrapper @ 0x140693470 (DifPoFxNotifySurprisePowerOnWrapper.c)
+ *     DifPoFxNotifySurprisePowerOnWrapper @ 0x140697050 (DifPoFxNotifySurprisePowerOnWrapper.c)
  * Callees:
- *     PopFxDereferenceDevice @ 0x1403B61F4 (PopFxDereferenceDevice.c)
- *     PopFxLockDevice @ 0x1403B74A4 (PopFxLockDevice.c)
- *     PopPepSurprisePowerOn @ 0x1403B755C (PopPepSurprisePowerOn.c)
- *     PopDirectedDripsStartDisengageTimer @ 0x140603B60 (PopDirectedDripsStartDisengageTimer.c)
+ *     PopFxDereferenceDevice @ 0x1403C00F4 (PopFxDereferenceDevice.c)
+ *     PopFxLockDevice @ 0x1403C13A4 (PopFxLockDevice.c)
+ *     PopPepSurprisePowerOn @ 0x1403C145C (PopPepSurprisePowerOn.c)
+ *     PopDirectedDripsStartDisengageTimer @ 0x140606610 (PopDirectedDripsStartDisengageTimer.c)
  */
 
 int __fastcall PoFxNotifySurprisePowerOn(__int64 a1, __int64 a2, __int64 a3)

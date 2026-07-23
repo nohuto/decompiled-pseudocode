@@ -1,21 +1,21 @@
 /*
- * XREFs of MmAllocateSecureKernelPages @ 0x1402C2E4C
+ * XREFs of MmAllocateSecureKernelPages @ 0x1402C303C
  * Callers:
- *     PspIumAllocatePartitionState @ 0x1402EB508 (PspIumAllocatePartitionState.c)
- *     PspIumAllocatePhysicalPages @ 0x1402EB64C (PspIumAllocatePhysicalPages.c)
+ *     PspIumAllocatePartitionState @ 0x1402EB6F8 (PspIumAllocatePartitionState.c)
+ *     PspIumAllocatePhysicalPages @ 0x1402EB83C (PspIumAllocatePhysicalPages.c)
  * Callees:
  *     MmAllocatePartitionNodePagesForMdlEx @ 0x140010F40 (MmAllocatePartitionNodePagesForMdlEx.c)
  *     MiInitializeMdlPfn @ 0x1400113B8 (MiInitializeMdlPfn.c)
  *     MiPartitionObjectToPartition @ 0x140011CE4 (MiPartitionObjectToPartition.c)
  *     MiLockPageInline @ 0x14002CE40 (MiLockPageInline.c)
- *     MiMakeProtectionMask @ 0x1400744A0 (MiMakeProtectionMask.c)
- *     PsDereferencePartition @ 0x140090CC0 (PsDereferencePartition.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     MiGetSlabPage @ 0x1402C29DC (MiGetSlabPage.c)
- *     MiReplenishSlabAllocator @ 0x1402C2CB4 (MiReplenishSlabAllocator.c)
- *     MmFreeSecureKernelPages @ 0x1402C3134 (MmFreeSecureKernelPages.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
+ *     MiMakeProtectionMask @ 0x140074490 (MiMakeProtectionMask.c)
+ *     PsDereferencePartition @ 0x140090C00 (PsDereferencePartition.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiGetSlabPage @ 0x1402C2BCC (MiGetSlabPage.c)
+ *     MiReplenishSlabAllocator @ 0x1402C2EA4 (MiReplenishSlabAllocator.c)
+ *     MmFreeSecureKernelPages @ 0x1402C3324 (MmFreeSecureKernelPages.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
  */
 
 ULONG_PTR *__fastcall MmAllocateSecureKernelPages(ULONG_PTR **a1, __int64 a2, unsigned int a3, int a4, _DWORD *a5)
@@ -41,7 +41,7 @@ ULONG_PTR *__fastcall MmAllocateSecureKernelPages(ULONG_PTR **a1, __int64 a2, un
   unsigned __int8 v24; // [rsp+40h] [rbp-58h]
   char v25[3]; // [rsp+41h] [rbp-57h] BYREF
   int v26; // [rsp+44h] [rbp-54h]
-  unsigned __int64 v27; // [rsp+48h] [rbp-50h] BYREF
+  __int64 v27; // [rsp+48h] [rbp-50h] BYREF
   __int64 *v28; // [rsp+50h] [rbp-48h]
   _QWORD *v29; // [rsp+58h] [rbp-40h]
 
@@ -72,7 +72,7 @@ ULONG_PTR *__fastcall MmAllocateSecureKernelPages(ULONG_PTR **a1, __int64 a2, un
         v17 = v15;
         do
         {
-          SlabPage = MiGetSlabPage(v9, v16, (__int64 *)&v27);
+          SlabPage = MiGetSlabPage(v9, v16, &v27);
           *v13 = SlabPage;
           if ( SlabPage == -1 )
           {

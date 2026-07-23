@@ -76,7 +76,7 @@ __int64 __fastcall MiStoreWriteModifiedPages(__int64 a1)
   struct _KPRCB *v36; // r10
   _DWORD *v37; // r9
   int v38; // eax
-  struct _SLIST_ENTRY *Pool; // rdi
+  _SLIST_ENTRY *Pool; // rdi
   unsigned int v40; // ebx
   int v41; // eax
   int v42; // edi
@@ -282,10 +282,13 @@ LABEL_42:
       if ( (_BYTE)v12 != 17 )
       {
         _InterlockedAnd64((volatile signed __int64 *)(v13 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
           CurrentIrql = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v12 <= 0xFu && CurrentIrql >= 2u )
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+            && CurrentIrql <= 0xFu
+            && (unsigned __int8)v12 <= 0xFu
+            && CurrentIrql >= 2u )
           {
             CurrentPrcb = KeGetCurrentPrcb();
             SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -319,10 +322,10 @@ LABEL_51:
       Object = (_SLIST_ENTRY *)v100;
     }
     _InterlockedAnd64((volatile signed __int64 *)(v13 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v35 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v35 <= 0xFu && (unsigned __int8)v12 <= 0xFu && v35 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v35 <= 0xFu && (unsigned __int8)v12 <= 0xFu && v35 >= 2u )
       {
         v36 = KeGetCurrentPrcb();
         v37 = v36->SchedulerAssist;
@@ -339,7 +342,7 @@ LABEL_51:
     Pool = P;
     if ( !P )
     {
-      Pool = (struct _SLIST_ENTRY *)MiAllocatePool(64, 0x80uLL, 0x57536D4Du);
+      Pool = (_SLIST_ENTRY *)MiAllocatePool(64, 0x80uLL, 0x57536D4Du);
       P = Pool;
       if ( !Pool )
       {
@@ -381,10 +384,10 @@ LABEL_51:
       --*(_QWORD *)(v92 + 24);
       MiUpdatePagefilePeakUsage(v92);
       ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(v92 + 232));
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v46 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v46 <= 0xFu && (unsigned __int8)v44 <= 0xFu && v46 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v46 <= 0xFu && (unsigned __int8)v44 <= 0xFu && v46 >= 2u )
         {
           v47 = KeGetCurrentPrcb();
           v48 = v47->SchedulerAssist;
@@ -402,7 +405,7 @@ LABEL_51:
       v51 = v50;
       *(_QWORD *)(v13 + 16) = MiTransferSoftwarePte(*(_QWORD *)(v13 + 16), v92, v24, 1);
       _InterlockedAnd64((volatile signed __int64 *)(v13 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v53 = KeGetCurrentIrql();
         v54 = v52;
@@ -575,10 +578,10 @@ LABEL_135:
         v86 = (unsigned __int8)MiLockPageInline(v85);
         *(_BYTE *)(v85 + 34) |= 0x10u;
         _InterlockedAnd64((volatile signed __int64 *)(v85 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
           v87 = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && v87 <= 0xFu && (unsigned __int8)v86 <= 0xFu && v87 >= 2u )
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v87 <= 0xFu && (unsigned __int8)v86 <= 0xFu && v87 >= 2u )
           {
             v88 = KeGetCurrentPrcb();
             v89 = v88->SchedulerAssist;

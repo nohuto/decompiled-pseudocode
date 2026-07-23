@@ -57,7 +57,7 @@ BOOLEAN __stdcall CcCanIWrite(PFILE_OBJECT FileObject, ULONG BytesToWrite, BOOLE
   _DWORD *v27; // rdx
   __int64 v28; // rax
   struct _KPRCB *v29; // rcx
-  struct _LIST_ENTRY *v30; // rdi
+  _LIST_ENTRY *v30; // rdi
   char v31; // di
   int v32; // r13d
   unsigned int v33; // r13d
@@ -103,7 +103,7 @@ BOOLEAN __stdcall CcCanIWrite(PFILE_OBJECT FileObject, ULONG BytesToWrite, BOOLE
   int v74; // [rsp+A0h] [rbp-29h]
   PFILE_OBJECT v75; // [rsp+A8h] [rbp-21h]
   ULONG v76; // [rsp+B0h] [rbp-19h]
-  struct _LIST_ENTRY ListEntry; // [rsp+B8h] [rbp-11h] BYREF
+  _LIST_ENTRY ListEntry; // [rsp+B8h] [rbp-11h] BYREF
   __int16 *p_Object; // [rsp+C8h] [rbp-1h]
   __int64 v79; // [rsp+E8h] [rbp+1Fh]
   void *retaddr; // [rsp+128h] [rbp+5Fh]
@@ -285,7 +285,7 @@ LABEL_26:
 LABEL_28:
   if ( !v5 )
   {
-    v30 = (struct _LIST_ENTRY *)(v19 + 744);
+    v30 = (_LIST_ENTRY *)(v19 + 744);
     if ( v30->Flink != v30 )
       goto LABEL_127;
   }
@@ -449,7 +449,7 @@ LABEL_118:
   }
 LABEL_60:
   v5 = Retrying;
-  v30 = (struct _LIST_ENTRY *)(v19 + 744);
+  v30 = (_LIST_ENTRY *)(v19 + 744);
   v6 = v81;
 LABEL_127:
   if ( (xmmword_14044C2D0 & 0x20000) != 0 )

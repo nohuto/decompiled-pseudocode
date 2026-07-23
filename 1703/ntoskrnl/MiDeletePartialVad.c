@@ -80,8 +80,8 @@ __int64 __fastcall MiDeletePartialVad(_DWORD *Src, unsigned __int64 a2, unsigned
   int SystemRegionType; // eax
   ULONG_PTR BugCheckParameter4; // r10
   int v37; // r11d
-  __int64 v38; // r8
-  __int64 v39; // rdx
+  unsigned int v38; // r8d
+  unsigned int v39; // edx
   __int64 v40; // r9
   bool v41; // zf
   __int64 v42; // rcx
@@ -472,12 +472,12 @@ LABEL_9:
   }
   else
   {
-    v38 = 0xFFFFFFFFLL;
+    v38 = -1;
   }
   --v34->SpecialApcDisable;
   v34->AbAllocationRegionCount += v37;
   AbAllocationRegionCount = v34->AbAllocationRegionCount;
-  LODWORD(v39) = ((char)v34->AbEntrySummary | (char)v34->AbOrphanedEntrySummary) ^ 0x3F;
+  v39 = ((char)v34->AbEntrySummary | (char)v34->AbOrphanedEntrySummary) ^ 0x3F;
   v40 = v33 & 0x7FFFFFFFFFFFFFFCLL;
   v41 = !_BitScanReverse((unsigned int *)&v42, v39);
   v92 = v42;
@@ -485,18 +485,18 @@ LABEL_9:
   {
 LABEL_62:
     if ( (*((_DWORD *)&v34->0 + 1) & 0x8000) == 0 )
-      KeBugCheckEx(0x162u, (ULONG_PTR)v34, v33, (unsigned int)v38, BugCheckParameter4);
+      KeBugCheckEx(0x162u, (ULONG_PTR)v34, v33, v38, BugCheckParameter4);
   }
   else
   {
     while ( 1 )
     {
       v43 = (__int64)&v34->LockEntries[v42];
-      v39 = ~(v37 << v42) & (unsigned int)v39;
+      v39 &= ~(v37 << v42);
       if ( ((unsigned __int8)v37 & *(_BYTE *)(v43 + 26)) != 0
         && ((unsigned __int8)*(_DWORD *)(v43 + 32) & (unsigned __int8)v37) == 0
         && (*(_QWORD *)(v43 + 32) & 0x7FFFFFFFFFFFFFFCLL) == v40
-        && *(_DWORD *)(v43 + 40) == (_DWORD)v38 )
+        && *(_DWORD *)(v43 + 40) == v38 )
       {
         *(_BYTE *)(v43 + 26) &= ~1u;
         if ( *(_QWORD *)(v43 + 32) )
@@ -516,7 +516,7 @@ LABEL_61:
     *(_BYTE *)(v43 + 32) |= 2u;
     if ( ((*(__int64 *)(v43 + 32) < 0) & (unsigned __int8)v37) != 0 )
     {
-      KiAbEntryRemoveFromTree(v43, v39, v38);
+      KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)v43);
       BugCheckParameter4 = 0LL;
       LOBYTE(v37) = 1;
     }

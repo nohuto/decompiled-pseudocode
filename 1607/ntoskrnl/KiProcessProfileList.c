@@ -1,7 +1,7 @@
 /*
- * XREFs of KiProcessProfileList @ 0x1401D708C
+ * XREFs of KiProcessProfileList @ 0x1401D6EB8
  * Callers:
- *     KeProfileInterruptWithSource @ 0x1401D6D00 (KeProfileInterruptWithSource.c)
+ *     KeProfileInterruptWithSource @ 0x1401D6B2C (KeProfileInterruptWithSource.c)
  * Callees:
  *     <none>
  */

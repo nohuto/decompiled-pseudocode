@@ -15,9 +15,9 @@ __int64 __fastcall sub_180027DD0(__int64 a1)
   if ( (_DWORD)result == 1 )
   {
     v2 = **(__int64 (***)(void))(a1 + 8);
-    if ( v2 == sub_180059040 )
+    if ( (char *)v2 == (char *)sub_180059040 )
     {
-      return sub_180059040();
+      return sub_180059040((PVOID)a1);
     }
     else if ( v2 == sub_18007CAB0 )
     {

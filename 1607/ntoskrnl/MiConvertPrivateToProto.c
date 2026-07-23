@@ -1,48 +1,48 @@
 /*
- * XREFs of MiConvertPrivateToProto @ 0x1401F8908
+ * XREFs of MiConvertPrivateToProto @ 0x1401F8734
  * Callers:
- *     MiSharePages @ 0x1401FA8E4 (MiSharePages.c)
+ *     MiSharePages @ 0x1401FA710 (MiSharePages.c)
  * Callees:
- *     MiIdentifyPfn @ 0x14000FC90 (MiIdentifyPfn.c)
- *     MI_WSLE_LOG_ACCESS @ 0x140016E5C (MI_WSLE_LOG_ACCESS.c)
- *     MiReleasePageFileInfo @ 0x14001A280 (MiReleasePageFileInfo.c)
- *     MiUnmapPageInHyperSpaceWorker @ 0x14001DBA0 (MiUnmapPageInHyperSpaceWorker.c)
- *     MiFinalizePageAttribute @ 0x14002375C (MiFinalizePageAttribute.c)
- *     MiLockLeafPage @ 0x14002EA50 (MiLockLeafPage.c)
- *     MiLockPageAtDpcInline @ 0x14002EB30 (MiLockPageAtDpcInline.c)
- *     MiMapPageInHyperSpaceWorker @ 0x140034990 (MiMapPageInHyperSpaceWorker.c)
- *     MiRemoveWsle @ 0x140046F10 (MiRemoveWsle.c)
- *     MiGetSharedWorkingSetList @ 0x140047070 (MiGetSharedWorkingSetList.c)
- *     MiUnlockProtoPoolPage @ 0x14004C4E0 (MiUnlockProtoPoolPage.c)
- *     MiReturnCommit @ 0x14004E500 (MiReturnCommit.c)
- *     MiLockProtoPoolPage @ 0x14004ED80 (MiLockProtoPoolPage.c)
- *     MiReturnResidentAvailable @ 0x14004F1E0 (MiReturnResidentAvailable.c)
- *     EtwpLogKernelEvent @ 0x140059740 (EtwpLogKernelEvent.c)
- *     MiPartitionIdToPointer @ 0x1400680A0 (MiPartitionIdToPointer.c)
- *     MiCapturePageFileInfoInline @ 0x140098320 (MiCapturePageFileInfoInline.c)
- *     MiLockNestedPageAtDpcInline @ 0x14009E2E0 (MiLockNestedPageAtDpcInline.c)
- *     MI_IS_PTE_IN_WS_SWAP_SET @ 0x14009E3AC (MI_IS_PTE_IN_WS_SWAP_SET.c)
- *     MiUpdatePfnPriority @ 0x1400BDCE0 (MiUpdatePfnPriority.c)
- *     MiUpdateWorkingSetPrivateSize @ 0x1400BDD70 (MiUpdateWorkingSetPrivateSize.c)
- *     MI_MAKE_PROTECT_WRITE_COPY @ 0x1400BDD9C (MI_MAKE_PROTECT_WRITE_COPY.c)
- *     IS_PTE_NOT_DEMAND_ZERO @ 0x1400BDED4 (IS_PTE_NOT_DEMAND_ZERO.c)
- *     MiInsertTbFlushEntry @ 0x1400E0240 (MiInsertTbFlushEntry.c)
- *     MiReleaseWsle @ 0x1400E2430 (MiReleaseWsle.c)
- *     MiDecrementShareCount @ 0x1400E50A0 (MiDecrementShareCount.c)
- *     MiGetPfnPriority @ 0x1400E67A4 (MiGetPfnPriority.c)
- *     MiCopyPfnEntry @ 0x140107B40 (MiCopyPfnEntry.c)
- *     MI_WRITE_INVALID_PTE_TB_FLUSH_NEEDED @ 0x14010D140 (MI_WRITE_INVALID_PTE_TB_FLUSH_NEEDED.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     MiPteInShadowRange @ 0x1401EF3B8 (MiPteInShadowRange.c)
- *     MiWritePteShadow @ 0x1401EF658 (MiWritePteShadow.c)
- *     MI_GET_PFN_FROM_PTE @ 0x1401F2594 (MI_GET_PFN_FROM_PTE.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1401F25D0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiGetContainingPageTable @ 0x1401F25F0 (MiGetContainingPageTable.c)
- *     MiMakePrototypePteDirect @ 0x1401F2758 (MiMakePrototypePteDirect.c)
- *     MiComparePages @ 0x1401F8780 (MiComparePages.c)
- *     MiFillCombinePage @ 0x1401F9B68 (MiFillCombinePage.c)
- *     MiResolveProtoCombine @ 0x1401FA48C (MiResolveProtoCombine.c)
+ *     MiIdentifyPfn @ 0x14000F810 (MiIdentifyPfn.c)
+ *     MI_WSLE_LOG_ACCESS @ 0x1400169DC (MI_WSLE_LOG_ACCESS.c)
+ *     MiReleasePageFileInfo @ 0x140019E00 (MiReleasePageFileInfo.c)
+ *     MiUnmapPageInHyperSpaceWorker @ 0x14001D720 (MiUnmapPageInHyperSpaceWorker.c)
+ *     MiFinalizePageAttribute @ 0x1400232DC (MiFinalizePageAttribute.c)
+ *     MiLockLeafPage @ 0x14002E5D0 (MiLockLeafPage.c)
+ *     MiLockPageAtDpcInline @ 0x14002E6B0 (MiLockPageAtDpcInline.c)
+ *     MiMapPageInHyperSpaceWorker @ 0x140034510 (MiMapPageInHyperSpaceWorker.c)
+ *     MiRemoveWsle @ 0x140046A90 (MiRemoveWsle.c)
+ *     MiGetSharedWorkingSetList @ 0x140046BF0 (MiGetSharedWorkingSetList.c)
+ *     MiUnlockProtoPoolPage @ 0x14004C060 (MiUnlockProtoPoolPage.c)
+ *     MiReturnCommit @ 0x14004E080 (MiReturnCommit.c)
+ *     MiLockProtoPoolPage @ 0x14004E900 (MiLockProtoPoolPage.c)
+ *     MiReturnResidentAvailable @ 0x14004ED60 (MiReturnResidentAvailable.c)
+ *     EtwpLogKernelEvent @ 0x1400592C0 (EtwpLogKernelEvent.c)
+ *     MiPartitionIdToPointer @ 0x140067C20 (MiPartitionIdToPointer.c)
+ *     MiCapturePageFileInfoInline @ 0x140097B20 (MiCapturePageFileInfoInline.c)
+ *     MiLockNestedPageAtDpcInline @ 0x14009DAE0 (MiLockNestedPageAtDpcInline.c)
+ *     MI_IS_PTE_IN_WS_SWAP_SET @ 0x14009DBAC (MI_IS_PTE_IN_WS_SWAP_SET.c)
+ *     MiUpdatePfnPriority @ 0x1400BBB70 (MiUpdatePfnPriority.c)
+ *     MiUpdateWorkingSetPrivateSize @ 0x1400BBC00 (MiUpdateWorkingSetPrivateSize.c)
+ *     MI_MAKE_PROTECT_WRITE_COPY @ 0x1400BBC2C (MI_MAKE_PROTECT_WRITE_COPY.c)
+ *     IS_PTE_NOT_DEMAND_ZERO @ 0x1400BBD64 (IS_PTE_NOT_DEMAND_ZERO.c)
+ *     MiInsertTbFlushEntry @ 0x1400DE0E0 (MiInsertTbFlushEntry.c)
+ *     MiReleaseWsle @ 0x1400E02D0 (MiReleaseWsle.c)
+ *     MiDecrementShareCount @ 0x1400E2F40 (MiDecrementShareCount.c)
+ *     MiGetPfnPriority @ 0x1400E4644 (MiGetPfnPriority.c)
+ *     MiCopyPfnEntry @ 0x1401058C0 (MiCopyPfnEntry.c)
+ *     MI_WRITE_INVALID_PTE_TB_FLUSH_NEEDED @ 0x14010D6A4 (MI_WRITE_INVALID_PTE_TB_FLUSH_NEEDED.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     MiPteInShadowRange @ 0x1401EF1E4 (MiPteInShadowRange.c)
+ *     MiWritePteShadow @ 0x1401EF484 (MiWritePteShadow.c)
+ *     MI_GET_PFN_FROM_PTE @ 0x1401F23C0 (MI_GET_PFN_FROM_PTE.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1401F23FC (MI_READ_PTE_LOCK_FREE.c)
+ *     MiGetContainingPageTable @ 0x1401F241C (MiGetContainingPageTable.c)
+ *     MiMakePrototypePteDirect @ 0x1401F2584 (MiMakePrototypePteDirect.c)
+ *     MiComparePages @ 0x1401F85AC (MiComparePages.c)
+ *     MiFillCombinePage @ 0x1401F9994 (MiFillCombinePage.c)
+ *     MiResolveProtoCombine @ 0x1401FA2B8 (MiResolveProtoCombine.c)
  */
 
 __m128i *__fastcall MiConvertPrivateToProto(
@@ -152,7 +152,7 @@ __m128i *__fastcall MiConvertPrivateToProto(
           return 0LL;
         v43 = v8->m128i_i64[0];
         v44 = v62;
-        if ( dword_140327188 )
+        if ( dword_1403271C8 )
           MI_WSLE_LOG_ACCESS(
             a1,
             (_DWORD *)(SharedWorkingSetList[10] + v43 * *((unsigned int *)SharedWorkingSetList + 8)),
@@ -198,7 +198,7 @@ __m128i *__fastcall MiConvertPrivateToProto(
   v67 = a3 & 0x7FFFFFFFFFFFFFFFLL;
   ContainingPageTable = MiGetContainingPageTable(a3);
   v63 = 48 * ContainingPageTable - 0x58000000000LL;
-  v56 = v64 != (__int64 *)&unk_140326E18;
+  v56 = v64 != (__int64 *)&unk_140326E58;
   MiLockPageAtDpcInline((__int64)v8);
   if ( (v8[1].m128i_i64[1] & 0x3FFFFFFFFFFFFFFFLL) != 1 || v8[2].m128i_i16[0] != 1 )
   {
@@ -299,7 +299,7 @@ LABEL_22:
     else
       _InterlockedExchangeAdd64((volatile signed __int64 *)(v35 + 6528), 1uLL);
     MiReturnCommit(v35, 1uLL);
-    _InterlockedExchangeAdd64(&qword_1403278E8, 0xFFFFFFFFFFFFFFFFuLL);
+    _InterlockedExchangeAdd64(&qword_140327928, 0xFFFFFFFFFFFFFFFFuLL);
   }
   if ( (*(_BYTE *)(a1 + 184) & 7) == 0 )
   {

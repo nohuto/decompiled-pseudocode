@@ -1,38 +1,40 @@
 /*
- * XREFs of EtwpAllocatePayloadFilterData @ 0x1407B38CC
+ * XREFs of EtwpAllocatePayloadFilterData @ 0x1407B3D1C
  * Callers:
- *     EtwpAllocateFilter @ 0x1409F33DC (EtwpAllocateFilter.c)
+ *     EtwpAllocateFilter @ 0x1409E773C (EtwpAllocateFilter.c)
  * Callees:
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     EtwpValidatePayloadFilter @ 0x1407B3B0C (EtwpValidatePayloadFilter.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     EtwpValidatePayloadFilter @ 0x1407B3F5C (EtwpValidatePayloadFilter.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall EtwpAllocatePayloadFilterData(__int64 a1, __int64 a2, _QWORD *a3)
 {
   __int64 result; // rax
-  unsigned int v6; // esi
+  unsigned int v6; // ebx
+  unsigned int v7; // esi
   _DWORD *Pool2; // rax
-  _DWORD *v8; // rbx
-  size_t v9; // r8
-  const void *v10; // rdx
+  _DWORD *v9; // rbx
+  size_t v10; // r8
+  const void *v11; // rdx
 
   if ( *a3 )
     return 3221225485LL;
-  result = EtwpValidatePayloadFilter(a1, *(_QWORD *)a2, *(unsigned int *)(a2 + 8));
-  v6 = result;
+  v6 = *(_DWORD *)(a2 + 8);
+  result = EtwpValidatePayloadFilter(a1, *(_QWORD *)a2, v6);
+  v7 = result;
   if ( (int)result >= 0 )
   {
-    Pool2 = (_DWORD *)ExAllocatePool2(0x40uLL);
-    v8 = Pool2;
+    Pool2 = (_DWORD *)ExAllocatePool2(0x40uLL, v6 + 8, 0x46777445u);
+    v9 = Pool2;
     if ( Pool2 )
     {
-      v9 = *(unsigned int *)(a2 + 8);
-      v10 = *(const void **)a2;
+      v10 = *(unsigned int *)(a2 + 8);
+      v11 = *(const void **)a2;
       *Pool2 = 1;
-      memmove(Pool2 + 2, v10, v9);
-      result = v6;
-      *a3 = v8;
+      memmove(Pool2 + 2, v11, v10);
+      result = v7;
+      *a3 = v9;
     }
     else
     {

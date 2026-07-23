@@ -1,19 +1,19 @@
 /*
- * XREFs of IopGetSetSpecificExtension @ 0x140301568
+ * XREFs of IopGetSetSpecificExtension @ 0x1403017F8
  * Callers:
  *     IopCheckInitiatorHint @ 0x1402118B0 (IopCheckInitiatorHint.c)
- *     IopSetLockOperationProcess @ 0x14030176C (IopSetLockOperationProcess.c)
- *     IopGetSetStreamIdentifier @ 0x1405576DC (IopGetSetStreamIdentifier.c)
- *     IopAdjustFileObjectKeepAliveCount @ 0x14055846C (IopAdjustFileObjectKeepAliveCount.c)
- *     IopParseDevice @ 0x14072CD50 (IopParseDevice.c)
- *     IopRetrieveTransactionParameters @ 0x140730700 (IopRetrieveTransactionParameters.c)
- *     IopAllocateFoExtensionsOnCreate @ 0x140767940 (IopAllocateFoExtensionsOnCreate.c)
- *     IoCreateStreamFileObjectEx2 @ 0x140767CE0 (IoCreateStreamFileObjectEx2.c)
- *     IoCopyDeviceObjectHint @ 0x140947100 (IoCopyDeviceObjectHint.c)
+ *     IopSetLockOperationProcess @ 0x1403019FC (IopSetLockOperationProcess.c)
+ *     IopGetSetStreamIdentifier @ 0x140557D9C (IopGetSetStreamIdentifier.c)
+ *     IopAdjustFileObjectKeepAliveCount @ 0x140558B2C (IopAdjustFileObjectKeepAliveCount.c)
+ *     IopParseDevice @ 0x14072CF50 (IopParseDevice.c)
+ *     IopRetrieveTransactionParameters @ 0x1407308F0 (IopRetrieveTransactionParameters.c)
+ *     IopAllocateFoExtensionsOnCreate @ 0x140767B30 (IopAllocateFoExtensionsOnCreate.c)
+ *     IoCreateStreamFileObjectEx2 @ 0x140767ED0 (IoCreateStreamFileObjectEx2.c)
+ *     IoCopyDeviceObjectHint @ 0x140947300 (IoCopyDeviceObjectHint.c)
  * Callees:
- *     IopAllocateFileObjectExtension @ 0x140250D50 (IopAllocateFileObjectExtension.c)
- *     IopGetFileObjectExtension @ 0x14030169C (IopGetFileObjectExtension.c)
- *     IopSetTypeSpecificFoExtension @ 0x140302850 (IopSetTypeSpecificFoExtension.c)
+ *     IopAllocateFileObjectExtension @ 0x140250E10 (IopAllocateFileObjectExtension.c)
+ *     IopGetFileObjectExtension @ 0x14030192C (IopGetFileObjectExtension.c)
+ *     IopSetTypeSpecificFoExtension @ 0x140302AE0 (IopSetTypeSpecificFoExtension.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

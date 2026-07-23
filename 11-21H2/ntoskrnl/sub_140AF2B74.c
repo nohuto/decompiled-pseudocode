@@ -3,7 +3,7 @@
  * Callers:
  *     sub_140AD7DE4 @ 0x140AD7DE4 (sub_140AD7DE4.c)
  * Callees:
- *     KiErrata671Present @ 0x140AD2200 (KiErrata671Present.c)
+ *     sub_140AD2200 @ 0x140AD2200 (sub_140AD2200.c)
  */
 
 __int64 sub_140AF2B74()
@@ -19,11 +19,11 @@ __int64 sub_140AF2B74()
   __writecr8(0xFuLL);
   v1 = __readcr0();
   __writecr0(v1 & 0xFFFFFFFFFFFEFFFFuLL);
-  v2 = *((_BYTE *)KiErrata671Present + 2);
-  *((_BYTE *)KiErrata671Present + 2) = -61;
-  v3 = KiErrata671Present();
-  if ( *((_BYTE *)KiErrata671Present + 2) != v2 )
-    *((_BYTE *)KiErrata671Present + 2) = v2;
+  v2 = *((_BYTE *)sub_140AD2200 + 2);
+  *((_BYTE *)sub_140AD2200 + 2) = -61;
+  v3 = sub_140AD2200();
+  if ( *((_BYTE *)sub_140AD2200 + 2) != v2 )
+    *((_BYTE *)sub_140AD2200 + 2) = v2;
   __writecr0(v1);
   __writecr8(v5);
   return v3;

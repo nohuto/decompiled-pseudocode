@@ -15,31 +15,31 @@
  *     RtlpGetNtProductTypeFromRegistry @ 0x140A85BE4 (RtlpGetNtProductTypeFromRegistry.c)
  */
 
-bool __fastcall RtlGetNtProductType(_DWORD *a1)
+BOOLEAN __cdecl RtlGetNtProductType(PNT_PRODUCT_TYPE NtProductType)
 {
-  int Flink; // eax
-  bool result; // al
+  _NT_PRODUCT_TYPE Flink; // eax
+  BOOLEAN result; // al
 
   if ( (unsigned __int8)PsIsCurrentThreadInServerSilo() )
   {
-    Flink = (int)PsGetCurrentServerSiloGlobals()[80].Blink[1].Flink;
+    Flink = (_NT_PRODUCT_TYPE)PsGetCurrentServerSiloGlobals()[80].Blink[1].Flink;
     goto LABEL_4;
   }
   if ( MEMORY[0xFFFFF78000000268] )
   {
     Flink = MEMORY[0xFFFFF78000000264];
 LABEL_4:
-    *a1 = Flink;
+    *NtProductType = Flink;
     return 1;
   }
   if ( KeGetCurrentIrql() > 1u )
   {
     result = 0;
 LABEL_11:
-    *a1 = 1;
+    *NtProductType = NtProductWinNt;
     return result;
   }
-  result = (int)RtlpGetNtProductTypeFromRegistry(a1) >= 0;
+  result = (int)RtlpGetNtProductTypeFromRegistry(NtProductType) >= 0;
   if ( !result )
     goto LABEL_11;
   return result;

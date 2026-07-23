@@ -58,7 +58,7 @@ __int64 __fastcall ExpAllocatePoolWithTagFromNode(POOL_TYPE a1, ULONG_PTR a2, UL
       KeBugCheckEx(0x41u, a2, (unsigned int)v13[17], (unsigned int)v13[21] + (unsigned int)v13[23], 0LL);
     }
     if ( (a1 & 0x10) != 0 )
-      RtlRaiseStatus(3221225626LL);
+      RtlRaiseStatus(-1073741670);
     return 0LL;
   }
   return result;

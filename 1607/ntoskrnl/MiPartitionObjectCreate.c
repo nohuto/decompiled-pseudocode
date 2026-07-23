@@ -1,11 +1,11 @@
 /*
- * XREFs of MiPartitionObjectCreate @ 0x140552E68
+ * XREFs of MiPartitionObjectCreate @ 0x1405533A8
  * Callers:
- *     MiCreatePartition @ 0x1406601A8 (MiCreatePartition.c)
+ *     MiCreatePartition @ 0x14066028C (MiCreatePartition.c)
  *     MiSystemPartitionObjectCreate @ 0x1407A13BC (MiSystemPartitionObjectCreate.c)
  * Callees:
- *     ObInsertObject @ 0x140471424 (ObInsertObject.c)
- *     ObCreateObject @ 0x14047181C (ObCreateObject.c)
+ *     ObInsertObject @ 0x1404702F4 (ObInsertObject.c)
+ *     ObCreateObject @ 0x1404706EC (ObCreateObject.c)
  */
 
 int __fastcall MiPartitionObjectCreate(__int64 a1, __int64 a2, ACCESS_MASK a3, char a4, _QWORD *a5)

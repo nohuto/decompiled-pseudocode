@@ -1,13 +1,13 @@
 /*
- * XREFs of MiCheckSystemNxFault @ 0x1400E9488
+ * XREFs of MiCheckSystemNxFault @ 0x1400E9508
  * Callers:
- *     MiValidFault @ 0x1400B6DF0 (MiValidFault.c)
- *     MiSystemFault @ 0x1400E8900 (MiSystemFault.c)
- *     MiCheckSystemPageTables @ 0x1400E9320 (MiCheckSystemPageTables.c)
- *     MiRaisedIrqlFault @ 0x140129128 (MiRaisedIrqlFault.c)
- *     MiLargePageFault @ 0x1402BC3D8 (MiLargePageFault.c)
+ *     MiValidFault @ 0x1400B6D30 (MiValidFault.c)
+ *     MiSystemFault @ 0x1400E8980 (MiSystemFault.c)
+ *     MiCheckSystemPageTables @ 0x1400E93A0 (MiCheckSystemPageTables.c)
+ *     MiRaisedIrqlFault @ 0x1401291F8 (MiRaisedIrqlFault.c)
+ *     MiLargePageFault @ 0x1402BC5C8 (MiLargePageFault.c)
  * Callees:
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
  */
 
 _BOOL8 __fastcall MiCheckSystemNxFault(__int64 a1, signed __int64 a2, unsigned int a3)

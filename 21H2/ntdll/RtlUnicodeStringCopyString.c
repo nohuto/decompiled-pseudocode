@@ -1,5 +1,5 @@
 /*
- * XREFs of RtlUnicodeStringCopyString @ 0x1800CC6C8
+ * XREFs of RtlUnicodeStringCopyString @ 0x1800CC688
  * Callers:
  *     RtlGetFullPathName_Ustr @ 0x18001B430 (RtlGetFullPathName_Ustr.c)
  * Callees:

@@ -1,16 +1,16 @@
 /*
- * XREFs of CmpLightWeightPrepareAddKeyUoW @ 0x14087F3B4
+ * XREFs of CmpLightWeightPrepareAddKeyUoW @ 0x14087F514
  * Callers:
- *     CmpProcessLightWeightUOW @ 0x1406A3E64 (CmpProcessLightWeightUOW.c)
+ *     CmpProcessLightWeightUOW @ 0x1405E1934 (CmpProcessLightWeightUOW.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     CmpAddSubKeyToList @ 0x140669DA0 (CmpAddSubKeyToList.c)
- *     CmpFreeKeyByCell @ 0x14066B280 (CmpFreeKeyByCell.c)
- *     HvAllocateCell @ 0x140709404 (HvAllocateCell.c)
- *     CmpCopyKeyPartial @ 0x14076F88C (CmpCopyKeyPartial.c)
- *     HvMarkCellDirty @ 0x14087BCE8 (HvMarkCellDirty.c)
- *     CmpLightWeightCleanupModifyKeyDataUoW @ 0x14087EAC4 (CmpLightWeightCleanupModifyKeyDataUoW.c)
- *     CmpLightWeightCreateModificationData @ 0x14087F20C (CmpLightWeightCreateModificationData.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     CmpAddSubKeyToList @ 0x14065EBC0 (CmpAddSubKeyToList.c)
+ *     CmpFreeKeyByCell @ 0x1406600A0 (CmpFreeKeyByCell.c)
+ *     HvAllocateCell @ 0x1407207E4 (HvAllocateCell.c)
+ *     CmpCopyKeyPartial @ 0x14076FA4C (CmpCopyKeyPartial.c)
+ *     HvMarkCellDirty @ 0x14087BE48 (HvMarkCellDirty.c)
+ *     CmpLightWeightCleanupModifyKeyDataUoW @ 0x14087EC24 (CmpLightWeightCleanupModifyKeyDataUoW.c)
+ *     CmpLightWeightCreateModificationData @ 0x14087F36C (CmpLightWeightCreateModificationData.c)
  */
 
 __int64 __fastcall CmpLightWeightPrepareAddKeyUoW(__int64 a1, __int64 a2, __int64 a3, struct _LOOKASIDE_LIST_EX *a4)

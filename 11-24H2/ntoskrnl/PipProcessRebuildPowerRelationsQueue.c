@@ -1,22 +1,22 @@
 /*
- * XREFs of PipProcessRebuildPowerRelationsQueue @ 0x140A0F244
+ * XREFs of PipProcessRebuildPowerRelationsQueue @ 0x1409BD654
  * Callers:
- *     IoResolveDependency @ 0x1404B9270 (IoResolveDependency.c)
- *     IoDuplicateDependency @ 0x14071E100 (IoDuplicateDependency.c)
- *     IoSetDependency @ 0x14071E2C0 (IoSetDependency.c)
- *     PnpNewDeviceNodeDependencyCheck @ 0x140A0ECA8 (PnpNewDeviceNodeDependencyCheck.c)
- *     PnpDeleteAllDependencyRelations @ 0x140A0F124 (PnpDeleteAllDependencyRelations.c)
- *     PnpSurpriseRemovedDeviceNodeDependencyCheck @ 0x140A10C98 (PnpSurpriseRemovedDeviceNodeDependencyCheck.c)
+ *     IoResolveDependency @ 0x1404B4110 (IoResolveDependency.c)
+ *     IoDuplicateDependency @ 0x14071BC90 (IoDuplicateDependency.c)
+ *     IoSetDependency @ 0x14071BE50 (IoSetDependency.c)
+ *     PnpNewDeviceNodeDependencyCheck @ 0x1409BD0AC (PnpNewDeviceNodeDependencyCheck.c)
+ *     PnpDeleteAllDependencyRelations @ 0x1409BD534 (PnpDeleteAllDependencyRelations.c)
+ *     PnpSurpriseRemovedDeviceNodeDependencyCheck @ 0x1409BF0A8 (PnpSurpriseRemovedDeviceNodeDependencyCheck.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x1403254A0 (ObfDereferenceObjectWithTag.c)
- *     PnpAcquirePowerRelationsQueueLock @ 0x1404AEDD8 (PnpAcquirePowerRelationsQueueLock.c)
- *     PnpReleasePowerRelationsQueueLock @ 0x1404B4398 (PnpReleasePowerRelationsQueueLock.c)
- *     PipCheckIfAllProvidersHaveDevnodes @ 0x1406F6910 (PipCheckIfAllProvidersHaveDevnodes.c)
- *     PnpAcquireDependencyRelationsLock @ 0x140A0F188 (PnpAcquireDependencyRelationsLock.c)
- *     PnpReleaseDependencyRelationsLock @ 0x140A0F814 (PnpReleaseDependencyRelationsLock.c)
- *     PipIsDeviceReadyForPowerRelations @ 0x140A0FBEC (PipIsDeviceReadyForPowerRelations.c)
- *     PiQueryPowerRelations @ 0x140A8C2C8 (PiQueryPowerRelations.c)
- *     PipDereferenceDependencyNode @ 0x140AB54A0 (PipDereferenceDependencyNode.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CE030 (ObfDereferenceObjectWithTag.c)
+ *     PnpAcquirePowerRelationsQueueLock @ 0x1404A97B0 (PnpAcquirePowerRelationsQueueLock.c)
+ *     PnpReleasePowerRelationsQueueLock @ 0x1404AEBE4 (PnpReleasePowerRelationsQueueLock.c)
+ *     PipCheckIfAllProvidersHaveDevnodes @ 0x1406F4910 (PipCheckIfAllProvidersHaveDevnodes.c)
+ *     PnpAcquireDependencyRelationsLock @ 0x1409BD598 (PnpAcquireDependencyRelationsLock.c)
+ *     PnpReleaseDependencyRelationsLock @ 0x1409BDC24 (PnpReleaseDependencyRelationsLock.c)
+ *     PipIsDeviceReadyForPowerRelations @ 0x1409BDFFC (PipIsDeviceReadyForPowerRelations.c)
+ *     PiQueryPowerRelations @ 0x140A887F8 (PiQueryPowerRelations.c)
+ *     PipDereferenceDependencyNode @ 0x140AAF930 (PipDereferenceDependencyNode.c)
  */
 
 __int64 __fastcall PipProcessRebuildPowerRelationsQueue()

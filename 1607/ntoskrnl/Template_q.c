@@ -1,12 +1,12 @@
 /*
- * XREFs of Template_q @ 0x1401D0D4C
+ * XREFs of Template_q @ 0x1401D0B78
  * Callers:
- *     PiCMGetDeviceIdList @ 0x1404DD06C (PiCMGetDeviceIdList.c)
- *     PiCMGetDeviceInterfaceList @ 0x1404F5F30 (PiCMGetDeviceInterfaceList.c)
- *     PnpCallAddDevice @ 0x140543674 (PnpCallAddDevice.c)
+ *     PiCMGetDeviceIdList @ 0x1404C0670 (PiCMGetDeviceIdList.c)
+ *     PiCMGetDeviceInterfaceList @ 0x1404D8EBC (PiCMGetDeviceInterfaceList.c)
+ *     PnpCallAddDevice @ 0x140543BB4 (PnpCallAddDevice.c)
  * Callees:
- *     EtwWrite @ 0x140013320 (EtwWrite.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
+ *     EtwWrite @ 0x140012EA0 (EtwWrite.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall Template_q(__int64 a1, const EVENT_DESCRIPTOR *a2, __int64 a3, int a4)

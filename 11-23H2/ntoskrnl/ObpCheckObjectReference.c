@@ -1,15 +1,15 @@
 /*
- * XREFs of ObpCheckObjectReference @ 0x1406C2F6C
+ * XREFs of ObpCheckObjectReference @ 0x1406C2F9C
  * Callers:
- *     ObReferenceObjectByName @ 0x1406C2C50 (ObReferenceObjectByName.c)
- *     ObReferenceObjectByNameEx @ 0x14071535C (ObReferenceObjectByNameEx.c)
+ *     ObReferenceObjectByName @ 0x1406C2C80 (ObReferenceObjectByName.c)
+ *     ObReferenceObjectByNameEx @ 0x140715568 (ObReferenceObjectByNameEx.c)
  * Callees:
- *     SeAccessCheck @ 0x140231650 (SeAccessCheck.c)
- *     ObReleaseObjectSecurityEx @ 0x1406C30B0 (ObReleaseObjectSecurityEx.c)
- *     SeUnlockSubjectContext @ 0x1406C3130 (SeUnlockSubjectContext.c)
- *     SeLockSubjectContext @ 0x1406C3170 (SeLockSubjectContext.c)
- *     SeObjectReferenceAuditAlarm @ 0x1406C31D0 (SeObjectReferenceAuditAlarm.c)
- *     ObpGetObjectSecurity @ 0x140736220 (ObpGetObjectSecurity.c)
+ *     SeAccessCheck @ 0x140231720 (SeAccessCheck.c)
+ *     ObReleaseObjectSecurityEx @ 0x1406C30E0 (ObReleaseObjectSecurityEx.c)
+ *     SeUnlockSubjectContext @ 0x1406C3160 (SeUnlockSubjectContext.c)
+ *     SeLockSubjectContext @ 0x1406C31A0 (SeLockSubjectContext.c)
+ *     SeObjectReferenceAuditAlarm @ 0x1406C3200 (SeObjectReferenceAuditAlarm.c)
+ *     ObpGetObjectSecurity @ 0x140736410 (ObpGetObjectSecurity.c)
  */
 
 BOOLEAN __fastcall ObpCheckObjectReference(__int64 a1, __int64 a2, char a3, __int64 a4, PNTSTATUS AccessStatus)

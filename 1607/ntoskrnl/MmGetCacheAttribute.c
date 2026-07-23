@@ -1,10 +1,10 @@
 /*
- * XREFs of MmGetCacheAttribute @ 0x1401E445C
+ * XREFs of MmGetCacheAttribute @ 0x1401E4288
  * Callers:
  *     <none>
  * Callees:
- *     MiIsPfnInline @ 0x140030920 (MiIsPfnInline.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
+ *     MiIsPfnInline @ 0x1400304A0 (MiIsPfnInline.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall MmGetCacheAttribute(unsigned __int64 a1)

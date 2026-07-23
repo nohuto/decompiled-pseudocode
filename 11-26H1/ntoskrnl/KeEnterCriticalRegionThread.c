@@ -1,5 +1,5 @@
 /*
- * XREFs of KeEnterCriticalRegionThread @ 0x14044E760
+ * XREFs of KeEnterCriticalRegionThread @ 0x140446890
  * Callers:
  *     <none>
  * Callees:

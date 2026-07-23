@@ -1,31 +1,31 @@
 /*
- * XREFs of _CmGetDeviceMappedPropertyFromComposite @ 0x14063C7AC
+ * XREFs of _CmGetDeviceMappedPropertyFromComposite @ 0x1406315BC
  * Callers:
- *     _CmGetDeviceMappedProperty @ 0x14063C5AC (_CmGetDeviceMappedProperty.c)
- *     _CmGetDeviceMappedPropertyKeys @ 0x14072D9CC (_CmGetDeviceMappedPropertyKeys.c)
+ *     _CmGetDeviceMappedProperty @ 0x1406313BC (_CmGetDeviceMappedProperty.c)
+ *     _CmGetDeviceMappedPropertyKeys @ 0x14072DE7C (_CmGetDeviceMappedPropertyKeys.c)
  * Callees:
- *     RtlUnalignedStringCchLengthW @ 0x1402659E4 (RtlUnalignedStringCchLengthW.c)
- *     RtlInitUnicodeStringEx @ 0x140265AF0 (RtlInitUnicodeStringEx.c)
- *     RtlStringCbCopyExW @ 0x1402C2960 (RtlStringCbCopyExW.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     memcmp @ 0x1403D29E0 (memcmp.c)
- *     wcscmp @ 0x1403D3F40 (wcscmp.c)
- *     ZwClose @ 0x1403FA580 (ZwClose.c)
- *     _PnpGetObjectProperty @ 0x140637B7C (_PnpGetObjectProperty.c)
- *     _CmGetDeviceRegProp @ 0x14064146C (_CmGetDeviceRegProp.c)
- *     _CmOpenDeviceRegKey @ 0x140641B70 (_CmOpenDeviceRegKey.c)
- *     RtlGUIDFromString @ 0x140644870 (RtlGUIDFromString.c)
- *     _CmGetDeviceStatus @ 0x1406A0340 (_CmGetDeviceStatus.c)
- *     _NtPlugPlayGetDeviceStatus @ 0x1406A0450 (_NtPlugPlayGetDeviceStatus.c)
- *     _CmGetDeviceParent @ 0x1406B09D4 (_CmGetDeviceParent.c)
- *     _PnpMultiSzGetLen @ 0x1406B2BFC (_PnpMultiSzGetLen.c)
- *     _NtPlugPlayGetDeviceProperty @ 0x1406BCD54 (_NtPlugPlayGetDeviceProperty.c)
- *     _CmGetDeviceCompoundFilters @ 0x140735698 (_CmGetDeviceCompoundFilters.c)
- *     _CmGetDeviceContainerIdFromBase @ 0x14075A97C (_CmGetDeviceContainerIdFromBase.c)
- *     _CmIsDeviceSafeRemovalRequired @ 0x14076A918 (_CmIsDeviceSafeRemovalRequired.c)
- *     _CmGetDeviceRelationsList @ 0x140976FE8 (_CmGetDeviceRelationsList.c)
- *     _CmGetDeviceChildren @ 0x140979D9C (_CmGetDeviceChildren.c)
- *     _CmGetDeviceSiblings @ 0x14097A784 (_CmGetDeviceSiblings.c)
+ *     RtlStringCbCopyExW @ 0x140240E00 (RtlStringCbCopyExW.c)
+ *     RtlUnalignedStringCchLengthW @ 0x140253984 (RtlUnalignedStringCchLengthW.c)
+ *     RtlInitUnicodeStringEx @ 0x140253A90 (RtlInitUnicodeStringEx.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     memcmp @ 0x1403D2B50 (memcmp.c)
+ *     wcscmp @ 0x1403D40B0 (wcscmp.c)
+ *     ZwClose @ 0x1403FA760 (ZwClose.c)
+ *     _CmGetDeviceStatus @ 0x1405FF680 (_CmGetDeviceStatus.c)
+ *     _NtPlugPlayGetDeviceStatus @ 0x1405FF790 (_NtPlugPlayGetDeviceStatus.c)
+ *     _CmGetDeviceParent @ 0x14060F984 (_CmGetDeviceParent.c)
+ *     _PnpMultiSzGetLen @ 0x140611CBC (_PnpMultiSzGetLen.c)
+ *     _NtPlugPlayGetDeviceProperty @ 0x14061BED0 (_NtPlugPlayGetDeviceProperty.c)
+ *     _PnpGetObjectProperty @ 0x14062C98C (_PnpGetObjectProperty.c)
+ *     _CmGetDeviceRegProp @ 0x14063627C (_CmGetDeviceRegProp.c)
+ *     _CmOpenDeviceRegKey @ 0x140636980 (_CmOpenDeviceRegKey.c)
+ *     RtlGUIDFromString @ 0x140639680 (RtlGUIDFromString.c)
+ *     _CmGetDeviceCompoundFilters @ 0x140735858 (_CmGetDeviceCompoundFilters.c)
+ *     _CmGetDeviceContainerIdFromBase @ 0x14075AB3C (_CmGetDeviceContainerIdFromBase.c)
+ *     _CmIsDeviceSafeRemovalRequired @ 0x14076AAD8 (_CmIsDeviceSafeRemovalRequired.c)
+ *     _CmGetDeviceRelationsList @ 0x1409771C8 (_CmGetDeviceRelationsList.c)
+ *     _CmGetDeviceChildren @ 0x140979F7C (_CmGetDeviceChildren.c)
+ *     _CmGetDeviceSiblings @ 0x14097A964 (_CmGetDeviceSiblings.c)
  */
 
 __int64 __fastcall CmGetDeviceMappedPropertyFromComposite(
@@ -62,7 +62,7 @@ __int64 __fastcall CmGetDeviceMappedPropertyFromComposite(
   _DWORD *v31; // r11
   __int64 v32; // rax
   __int64 v33; // rax
-  int v34; // ecx
+  __int64 v34; // rcx
   int v35; // eax
   int v36; // eax
   __int64 v37; // rax
@@ -119,22 +119,23 @@ __int64 __fastcall CmGetDeviceMappedPropertyFromComposite(
   __int64 v88; // rax
   __int64 v89; // rax
   bool v90; // zf
-  char v91[8]; // [rsp+60h] [rbp-A0h] BYREF
+  unsigned int v91; // [rsp+30h] [rbp-D0h]
+  char v92[8]; // [rsp+60h] [rbp-A0h] BYREF
   NTSTRSAFE_PCWSTR pszSrc; // [rsp+68h] [rbp-98h]
-  __int64 v93; // [rsp+70h] [rbp-90h]
-  int v94; // [rsp+78h] [rbp-88h] BYREF
-  unsigned int v95; // [rsp+7Ch] [rbp-84h] BYREF
-  int v96; // [rsp+80h] [rbp-80h] BYREF
-  int v97; // [rsp+84h] [rbp-7Ch] BYREF
-  unsigned int v98; // [rsp+88h] [rbp-78h] BYREF
-  unsigned int v99; // [rsp+8Ch] [rbp-74h] BYREF
-  unsigned int v100; // [rsp+90h] [rbp-70h]
-  __int64 v101; // [rsp+98h] [rbp-68h]
+  __int64 v94; // [rsp+70h] [rbp-90h]
+  int v95; // [rsp+78h] [rbp-88h] BYREF
+  unsigned int v96; // [rsp+7Ch] [rbp-84h] BYREF
+  int v97; // [rsp+80h] [rbp-80h] BYREF
+  int v98; // [rsp+84h] [rbp-7Ch] BYREF
+  unsigned int v99; // [rsp+88h] [rbp-78h] BYREF
+  unsigned int v100; // [rsp+8Ch] [rbp-74h] BYREF
+  unsigned int v101; // [rsp+90h] [rbp-70h]
+  __int64 v102; // [rsp+98h] [rbp-68h]
   UNICODE_STRING DestinationString; // [rsp+A0h] [rbp-60h] BYREF
-  _DWORD *v103; // [rsp+B0h] [rbp-50h]
-  unsigned int v104; // [rsp+B8h] [rbp-48h] BYREF
-  int v105; // [rsp+BCh] [rbp-44h] BYREF
-  int v106; // [rsp+C0h] [rbp-40h] BYREF
+  _DWORD *v104; // [rsp+B0h] [rbp-50h]
+  unsigned int v105; // [rsp+B8h] [rbp-48h] BYREF
+  int v106; // [rsp+BCh] [rbp-44h] BYREF
+  int v107; // [rsp+C0h] [rbp-40h] BYREF
   size_t pcchLength; // [rsp+C8h] [rbp-38h] BYREF
   HANDLE Handle; // [rsp+D0h] [rbp-30h] BYREF
   __int128 Buf2; // [rsp+D8h] [rbp-28h] BYREF
@@ -145,24 +146,24 @@ __int64 __fastcall CmGetDeviceMappedPropertyFromComposite(
   v9 = a8;
   v10 = a6;
   pszSrc = a2;
-  v101 = a3;
+  v102 = a3;
   v12 = a9;
   v13 = a1;
-  v93 = a1;
+  v94 = a1;
   DeviceStatus = 0;
-  v103 = a5;
-  v98 = 0;
-  v104 = 0;
-  v94 = 0;
-  v95 = 0;
-  v96 = 0;
+  v104 = a5;
   v99 = 0;
   v105 = 0;
+  v95 = 0;
+  v96 = 0;
+  v97 = 0;
+  v100 = 0;
+  v106 = 0;
   pcchLength = 0LL;
   Handle = 0LL;
-  v97 = 0;
-  v106 = 0;
-  v91[0] = 0;
+  v98 = 0;
+  v107 = 0;
+  v92[0] = 0;
   DestinationString = 0LL;
   Buf2 = 0LL;
   Buf1 = 0LL;
@@ -170,7 +171,7 @@ __int64 __fastcall CmGetDeviceMappedPropertyFromComposite(
     return (unsigned int)-1073741811;
   *a5 = 0;
   *v9 = 0;
-  v100 = v12 & 0xFFFF0000;
+  v101 = v12 & 0xFFFF0000;
   if ( a6 )
   {
     v15 = a7;
@@ -192,23 +193,23 @@ __int64 __fastcall CmGetDeviceMappedPropertyFromComposite(
         v43 = *(_QWORD *)(a4 + 8) - *(_QWORD *)DEVPKEY_NAME.fmtid.Data4;
       if ( !v43 )
       {
-        v44 = v101;
+        v44 = v102;
         ObjectProperty = PnpGetObjectProperty(
                            a1,
                            (__int64)a2,
                            1LL,
-                           v101,
+                           v102,
                            0LL,
                            (__int64)&DEVPKEY_Device_FriendlyName,
                            (__int64)a5,
                            (__int64)v10,
                            v15,
-                           (__int64)&v94,
+                           (__int64)&v95,
                            v12 & 0xFFFF0000);
         DeviceStatus = ObjectProperty;
         if ( !ObjectProperty || ObjectProperty == -1073741789 )
         {
-          *v9 = v94;
+          *v9 = v95;
         }
         else if ( ObjectProperty == -1073741275 )
         {
@@ -221,15 +222,15 @@ __int64 __fastcall CmGetDeviceMappedPropertyFromComposite(
                   v46,
                   0LL,
                   (__int64)&DEVPKEY_Device_DeviceDesc,
-                  (__int64)v103,
+                  (__int64)v104,
                   (__int64)v10,
                   a7,
-                  (__int64)&v94,
-                  v100);
+                  (__int64)&v95,
+                  v101);
           DeviceStatus = v47;
           if ( !v47 || v47 == -1073741789 )
           {
-            *v9 = v94;
+            *v9 = v95;
           }
           else if ( v47 == -1073741275 )
           {
@@ -244,8 +245,8 @@ __int64 __fastcall CmGetDeviceMappedPropertyFromComposite(
         v77 = *(_QWORD *)(a4 + 8) - *(_QWORD *)DEVPKEY_Device_Siblings.fmtid.Data4;
       if ( v77 )
         return (unsigned int)DeviceStatus;
-      v95 = v15 >> 1;
-      DeviceSiblings = CmGetDeviceSiblings(a1, a2, v10, &v95);
+      v96 = v15 >> 1;
+      DeviceSiblings = CmGetDeviceSiblings(a1, a2, v10, &v96);
       goto LABEL_244;
     case 0x100u:
       v30 = *(_QWORD *)a4 - *(_QWORD *)&DEVPKEY_Device_InstanceId.fmtid.Data1;
@@ -264,7 +265,7 @@ __int64 __fastcall CmGetDeviceMappedPropertyFromComposite(
       DeviceStatus = RtlStringCbCopyExW(v10, (unsigned int)*v9, pszSrc, 0LL, 0LL, 0x900u);
       if ( DeviceStatus >= 0 )
         goto LABEL_31;
-      v79 = v103;
+      v79 = v104;
       goto LABEL_219;
     case 2u:
       v22 = *(_QWORD *)a4 - *(_QWORD *)&DEVPKEY_Device_DevNodeStatus.fmtid.Data1;
@@ -282,11 +283,11 @@ __int64 __fastcall CmGetDeviceMappedPropertyFromComposite(
     if ( !v54 )
     {
 LABEL_40:
-      DeviceStatus = CmGetDeviceStatus(v13, (_DWORD)a2, v101, (unsigned int)&v96, (__int64)&v99, (__int64)&v98);
+      DeviceStatus = CmGetDeviceStatus(v13, a2, v102, &v97, &v100, &v99, v91);
       if ( DeviceStatus < 0 )
         goto LABEL_30;
       v23 = *(_DWORD *)(a4 + 16);
-      v24 = v96;
+      v24 = v97;
       if ( v23 == 2 )
       {
         v25 = *(_QWORD *)a4 - *(_QWORD *)&DEVPKEY_Device_DevNodeStatus.fmtid.Data1;
@@ -308,11 +309,11 @@ LABEL_45:
       else
       {
 LABEL_151:
-        if ( (v96 & 0x400) == 0 )
+        if ( (v97 & 0x400) == 0 )
           return (unsigned int)-1073741275;
         v26 = 24;
       }
-      v27 = v103;
+      v27 = v104;
       *v9 = 4;
       *v27 = v26;
       if ( a7 < *v9 )
@@ -325,25 +326,25 @@ LABEL_151:
         if ( !v76 )
         {
           if ( (int)PnpGetObjectProperty(
-                      v93,
+                      v94,
                       (__int64)pszSrc,
                       1LL,
-                      v101,
+                      v102,
                       0LL,
                       (__int64)DEVPKEY_Device_ProblemStatusOverride,
-                      (__int64)&v97,
-                      (__int64)&v104,
+                      (__int64)&v98,
+                      (__int64)&v105,
                       4,
-                      (__int64)&v94,
-                      v100) >= 0
-            && v97 == 24 )
+                      (__int64)&v95,
+                      v101) >= 0
+            && v98 == 24 )
           {
-            v80 = v98;
-            if ( v94 == 4 )
-              v80 = v104;
-            v98 = v80;
+            v80 = v99;
+            if ( v95 == 4 )
+              v80 = v105;
+            v99 = v80;
           }
-          v24 = v96;
+          v24 = v97;
         }
       }
       v28 = *(_DWORD *)(a4 + 16);
@@ -365,13 +366,13 @@ LABEL_151:
           v59 = *(_QWORD *)(a4 + 8) - *(_QWORD *)DEVPKEY_Device_ProblemCode.fmtid.Data4;
         if ( !v59 )
         {
-          v60 = (v24 & 0x400) != 0 ? v99 : 0;
+          v60 = (v24 & 0x400) != 0 ? v100 : 0;
 LABEL_158:
           *(_DWORD *)v10 = v60;
           goto LABEL_53;
         }
       }
-      v60 = v98;
+      v60 = v99;
       goto LABEL_158;
     }
   }
@@ -398,9 +399,9 @@ LABEL_158:
           v49 = *(_QWORD *)(a4 + 8) - *(_QWORD *)DEVPKEY_Device_InLocalMachineContainer.fmtid.Data4;
         if ( v49 )
           return (unsigned int)DeviceStatus;
-        v13 = v93;
-        v50 = v101;
-        v51 = v93;
+        v13 = v94;
+        v50 = v102;
+        v51 = v94;
         *a5 = 17;
         *v9 = 1;
         DeviceStatus = PnpGetObjectProperty(
@@ -410,10 +411,10 @@ LABEL_158:
                          v50,
                          0LL,
                          (__int64)&DEVPKEY_Device_ContainerId,
-                         (__int64)&v97,
+                         (__int64)&v98,
                          (__int64)&Buf2,
                          16,
-                         (__int64)&v94,
+                         (__int64)&v95,
                          v12 & 0xFFFF0000);
         if ( DeviceStatus < 0 )
           goto LABEL_30;
@@ -424,11 +425,11 @@ LABEL_158:
                          0LL,
                          0LL,
                          (__int64)&DEVPKEY_Device_BaseContainerId,
-                         (__int64)&v97,
+                         (__int64)&v98,
                          (__int64)&Buf1,
                          16,
-                         (__int64)&v94,
-                         v100);
+                         (__int64)&v95,
+                         v101);
         if ( DeviceStatus < 0 )
           goto LABEL_30;
         if ( a7 >= *v9 )
@@ -454,17 +455,12 @@ LABEL_158:
         *a5 = 17;
         if ( v15 < *v9 )
           return (unsigned int)-1073741789;
-        LODWORD(v13) = v93;
+        v13 = v94;
         DeviceStatus = RtlInitUnicodeStringEx(&DestinationString, a2);
         if ( DeviceStatus < 0 )
           goto LABEL_30;
         *(_BYTE *)v10 = 0;
-        v42 = NtPlugPlayGetDeviceStatus(
-                v13,
-                (unsigned int)&DestinationString,
-                (unsigned int)&v96,
-                (unsigned int)&v99,
-                (__int64)&v98);
+        v42 = NtPlugPlayGetDeviceStatus(v13, (__int64)&DestinationString, (__int64)&v97, (__int64)&v100, (__int64)&v99);
         DeviceStatus = v42;
         if ( v42 != -1073741810 )
         {
@@ -487,25 +483,25 @@ LABEL_101:
       {
         v17 = 16;
 LABEL_234:
-        DeviceRelationsList = CmGetDeviceRelationsList(v93, (_DWORD)a2, v17, 0, 0, (__int64)&v95);
+        DeviceRelationsList = CmGetDeviceRelationsList(v94, (_DWORD)a2, v17, 0, 0, (__int64)&v96);
         DeviceStatus = DeviceRelationsList;
         if ( DeviceRelationsList == -1073741772 || !DeviceRelationsList )
           return (unsigned int)-1073741275;
         if ( DeviceRelationsList != -1073741789 )
         {
-          LODWORD(v13) = v93;
+          LODWORD(v13) = v94;
           goto LABEL_30;
         }
-        v79 = v103;
-        *v9 = 2 * v95;
+        v79 = v104;
+        *v9 = 2 * v96;
         v84 = a7;
         *v79 = 8210;
         if ( v84 < *v9 )
           return (unsigned int)-1073741789;
         v19 = (int)pszSrc;
         v85 = v17;
-        LODWORD(v13) = v93;
-        DeviceStatus = CmGetDeviceRelationsList(v93, (_DWORD)pszSrc, v85, (_DWORD)v10, v84 >> 1, (__int64)&v95);
+        LODWORD(v13) = v94;
+        DeviceStatus = CmGetDeviceRelationsList(v94, (_DWORD)pszSrc, v85, (_DWORD)v10, v84 >> 1, (__int64)&v96);
         if ( !DeviceStatus )
         {
           *v9 = 2 * PnpMultiSzGetLen(v10);
@@ -528,49 +524,44 @@ LABEL_219:
       DeviceStatus = RtlInitUnicodeStringEx(&DestinationString, a2);
       if ( DeviceStatus >= 0 )
       {
-        v34 = v93;
+        v34 = v94;
         *(_BYTE *)v10 = 0;
-        v35 = NtPlugPlayGetDeviceStatus(
-                v34,
-                (unsigned int)&DestinationString,
-                (unsigned int)&v96,
-                (unsigned int)&v99,
-                (__int64)&v98);
+        v35 = NtPlugPlayGetDeviceStatus(v34, (__int64)&DestinationString, (__int64)&v97, (__int64)&v100, (__int64)&v99);
         DeviceStatus = v35;
         if ( v35 == -1073741810 )
           return 0;
         if ( v35 >= 0 )
         {
-          if ( (v96 & 0x8000) == 0 )
+          if ( (v97 & 0x8000) == 0 )
           {
-            if ( (v96 & 0x400) == 0 || v99 <= 0x1D && (v74 = 591396864, _bittest(&v74, v99)) )
+            if ( (v97 & 0x400) == 0 || v100 <= 0x1D && (v74 = 591396864, _bittest(&v74, v100)) )
             {
               v19 = (int)pszSrc;
-              if ( (v96 & 8) == 0 )
+              if ( (v97 & 8) == 0 )
               {
-                LODWORD(v13) = v93;
+                LODWORD(v13) = v94;
                 v36 = PnpGetObjectProperty(
-                        v93,
+                        v94,
                         (__int64)pszSrc,
                         1LL,
-                        v101,
+                        v102,
                         0LL,
                         (__int64)&DEVPKEY_Device_Capabilities,
-                        (__int64)&v97,
-                        (__int64)&v105,
+                        (__int64)&v98,
+                        (__int64)&v106,
                         4,
-                        (__int64)&v94,
-                        v100);
+                        (__int64)&v95,
+                        v101);
                 DeviceStatus = v36;
                 if ( v36 == -1073741275 )
                   return 0;
                 if ( v36 < 0 )
                   goto LABEL_31;
-                if ( (v105 & 0x40) != 0 )
+                if ( (v106 & 0x40) != 0 )
                   *(_BYTE *)v10 = -1;
               }
 LABEL_54:
-              LODWORD(v13) = v93;
+              LODWORD(v13) = v94;
               goto LABEL_31;
             }
           }
@@ -609,15 +600,15 @@ LABEL_53:
           return (unsigned int)DeviceStatus;
         *a5 = 7;
         *v9 = 4;
-        LODWORD(v13) = v93;
+        LODWORD(v13) = v94;
         DeviceStatus = RtlInitUnicodeStringEx(&DestinationString, a2);
         if ( DeviceStatus < 0 )
           goto LABEL_30;
         DeviceProperty = NtPlugPlayGetDeviceProperty(
-                           v93,
-                           (unsigned int)&DestinationString,
-                           13,
-                           (_DWORD)v10,
+                           v94,
+                           (__int64)&DestinationString,
+                           0xDu,
+                           (__int64)v10,
                            v15,
                            (__int64)&a7);
 LABEL_145:
@@ -626,14 +617,14 @@ LABEL_145:
           return (unsigned int)-1073741275;
         goto LABEL_30;
       }
-      LODWORD(v13) = v93;
-      v95 = v15 >> 1;
-      DeviceParent = CmGetDeviceParent(v93, a2, v10, &v95);
+      LODWORD(v13) = v94;
+      v96 = v15 >> 1;
+      DeviceParent = CmGetDeviceParent(v94, a2, v10, &v96);
       DeviceStatus = DeviceParent;
       if ( DeviceParent && DeviceParent != -1073741789 )
         goto LABEL_30;
-      v65 = v103;
-      *v9 = 2 * v95;
+      v65 = v104;
+      *v9 = 2 * v96;
       *v65 = 18;
       goto LABEL_178;
     case 9u:
@@ -642,15 +633,15 @@ LABEL_145:
         v86 = *(_QWORD *)(a4 + 8) - *(_QWORD *)DEVPKEY_Device_Children.fmtid.Data4;
       if ( v86 )
         return (unsigned int)DeviceStatus;
-      LODWORD(v13) = v93;
-      v95 = v15 >> 1;
-      DeviceSiblings = CmGetDeviceChildren(v93, a2, v10, &v95);
+      LODWORD(v13) = v94;
+      v96 = v15 >> 1;
+      DeviceSiblings = CmGetDeviceChildren(v94, a2, v10, &v96);
 LABEL_244:
       DeviceStatus = DeviceSiblings;
       if ( DeviceSiblings != -1073741789 && DeviceSiblings )
         goto LABEL_30;
-      v87 = v103;
-      *v9 = 2 * v95;
+      v87 = v104;
+      *v9 = 2 * v96;
       *v87 = 8210;
 LABEL_178:
       if ( a7 >= *v9 )
@@ -666,7 +657,7 @@ LABEL_178:
         *a5 = 17;
         if ( v15 >= *v9 )
         {
-          *(_BYTE *)v10 = -((unsigned __int8)CmIsDeviceSafeRemovalRequired(v93, a2, v101) != 0);
+          *(_BYTE *)v10 = -((unsigned __int8)CmIsDeviceSafeRemovalRequired(v94, a2, v102) != 0);
           return (unsigned int)DeviceStatus;
         }
         return (unsigned int)-1073741789;
@@ -676,14 +667,14 @@ LABEL_178:
         v38 = *(_QWORD *)(a4 + 8) - *(_QWORD *)DEVPKEY_Device_ContainerId.fmtid.Data4;
       if ( v38 )
         return (unsigned int)DeviceStatus;
-      v13 = v93;
-      v94 = 78;
-      DeviceStatus = CmGetDeviceRegProp(v93, (_DWORD)a2, v101, 37, (__int64)&v106, (__int64)Str2, (__int64)&v94, v12);
+      v13 = v94;
+      v95 = 78;
+      DeviceStatus = CmGetDeviceRegProp(v94, (_DWORD)a2, v102, 37, (__int64)&v107, (__int64)Str2, (__int64)&v95, v12);
       if ( DeviceStatus < 0 )
         goto LABEL_30;
       if ( wcscmp(L"{00000000-0000-0000-0000-000000000000}", Str2) )
       {
-        v39 = v103;
+        v39 = v104;
         *v9 = 16;
         *v39 = 13;
         if ( a7 >= *v9 )
@@ -711,24 +702,19 @@ LABEL_178:
       *v9 = 1;
       if ( !v15 )
         return (unsigned int)-1073741789;
-      v13 = v93;
+      v13 = v94;
       DeviceStatus = RtlInitUnicodeStringEx(&DestinationString, a2);
       if ( DeviceStatus < 0 )
         goto LABEL_30;
       *(_BYTE *)v10 = 0;
-      v62 = NtPlugPlayGetDeviceStatus(
-              v13,
-              (unsigned int)&DestinationString,
-              (unsigned int)&v96,
-              (unsigned int)&v99,
-              (__int64)&v98);
+      v62 = NtPlugPlayGetDeviceStatus(v13, (__int64)&DestinationString, (__int64)&v97, (__int64)&v100, (__int64)&v99);
       DeviceStatus = v62;
       if ( v62 != -1073741810 )
       {
         if ( v62 >= 0 )
         {
           v19 = (int)pszSrc;
-          if ( (v96 & 0x2000000) != 0 )
+          if ( (v97 & 0x2000000) != 0 )
             goto LABEL_31;
           v63 = PnpGetObjectProperty(
                   v13,
@@ -737,15 +723,15 @@ LABEL_178:
                   0LL,
                   0LL,
                   (__int64)&DEVPKEY_Device_PresenceNotForDevice,
-                  (__int64)&v97,
-                  (__int64)v91,
+                  (__int64)&v98,
+                  (__int64)v92,
                   1,
-                  (__int64)&v94,
-                  v100);
+                  (__int64)&v95,
+                  v101);
           DeviceStatus = v63;
           if ( v63 >= 0 )
           {
-            if ( v97 == 17 && v91[0] == -1 )
+            if ( v98 == 17 && v92[0] == -1 )
               goto LABEL_31;
           }
           else
@@ -769,21 +755,16 @@ LABEL_178:
       *v9 = 1;
       if ( !v15 )
         return (unsigned int)-1073741789;
-      LODWORD(v13) = v93;
+      v13 = v94;
       DeviceStatus = RtlInitUnicodeStringEx(&DestinationString, a2);
       if ( DeviceStatus < 0 )
         goto LABEL_30;
       *(_BYTE *)v10 = 0;
-      v53 = NtPlugPlayGetDeviceStatus(
-              v13,
-              (unsigned int)&DestinationString,
-              (unsigned int)&v96,
-              (unsigned int)&v99,
-              (__int64)&v98);
+      v53 = NtPlugPlayGetDeviceStatus(v13, (__int64)&DestinationString, (__int64)&v97, (__int64)&v100, (__int64)&v99);
       DeviceStatus = v53;
       if ( v53 != -1073741810 )
       {
-        if ( v53 >= 0 && ((v96 & 0x100) != 0 || (v96 & 0x400) != 0 && v99 == 14) )
+        if ( v53 >= 0 && ((v97 & 0x100) != 0 || (v97 & 0x400) != 0 && v100 == 14) )
           *(_BYTE *)v10 = -1;
         goto LABEL_30;
       }
@@ -795,15 +776,15 @@ LABEL_178:
       if ( v73 )
         return (unsigned int)DeviceStatus;
       *a5 = 8210;
-      LODWORD(v13) = v93;
+      LODWORD(v13) = v94;
       DeviceStatus = RtlInitUnicodeStringEx(&DestinationString, a2);
       if ( DeviceStatus < 0 )
         goto LABEL_30;
       DeviceProperty = NtPlugPlayGetDeviceProperty(
-                         v93,
-                         (unsigned int)&DestinationString,
-                         14,
-                         (_DWORD)v10,
+                         v94,
+                         (__int64)&DestinationString,
+                         0xEu,
+                         (__int64)v10,
                          v15,
                          (__int64)v9);
       goto LABEL_145;
@@ -814,15 +795,15 @@ LABEL_178:
       if ( v88 )
         return (unsigned int)DeviceStatus;
       *a5 = 8210;
-      LODWORD(v13) = v93;
+      LODWORD(v13) = v94;
       DeviceStatus = RtlInitUnicodeStringEx(&DestinationString, a2);
       if ( DeviceStatus < 0 )
         goto LABEL_30;
       DeviceProperty = NtPlugPlayGetDeviceProperty(
-                         v93,
-                         (unsigned int)&DestinationString,
-                         15,
-                         (_DWORD)v10,
+                         v94,
+                         (__int64)&DestinationString,
+                         0xFu,
+                         (__int64)v10,
                          v15,
                          (__int64)v9);
       goto LABEL_145;
@@ -833,15 +814,15 @@ LABEL_178:
       if ( v89 )
         return (unsigned int)DeviceStatus;
       *a5 = 8210;
-      LODWORD(v13) = v93;
+      LODWORD(v13) = v94;
       DeviceStatus = RtlInitUnicodeStringEx(&DestinationString, a2);
       if ( DeviceStatus < 0 )
         goto LABEL_30;
       DeviceProperty = NtPlugPlayGetDeviceProperty(
-                         v93,
-                         (unsigned int)&DestinationString,
-                         16,
-                         (_DWORD)v10,
+                         v94,
+                         (__int64)&DestinationString,
+                         0x10u,
+                         (__int64)v10,
                          v15,
                          (__int64)v9);
       goto LABEL_145;
@@ -864,8 +845,8 @@ LABEL_28:
       if ( v18 )
         return (unsigned int)DeviceStatus;
     }
-    LODWORD(v13) = v93;
-    DeviceStatus = CmGetDeviceCompoundFilters(v93, (__int64)a5, (__int64)v10, v15, (__int64)v9);
+    LODWORD(v13) = v94;
+    DeviceStatus = CmGetDeviceCompoundFilters(v94, (__int64)a5, (__int64)v10, v15, (__int64)v9);
     goto LABEL_30;
   }
   v66 = *(_QWORD *)a4 - DEVPKEY_Device_OmitFromSystemSpec;
@@ -877,10 +858,10 @@ LABEL_28:
   *v9 = 1;
   if ( !v15 )
     return (unsigned int)-1073741789;
-  v67 = v101;
-  v13 = v93;
-  v68 = v101;
-  v69 = v93;
+  v67 = v102;
+  v13 = v94;
+  v68 = v102;
+  v69 = v94;
   *(_BYTE *)v10 = 0;
   v70 = PnpGetObjectProperty(
           v69,
@@ -889,10 +870,10 @@ LABEL_28:
           v68,
           0LL,
           (__int64)DEVPKEY_Device_UpdateWithUngroupedDrivers,
-          (__int64)&v97,
-          (__int64)v91,
+          (__int64)&v98,
+          (__int64)v92,
           1,
-          (__int64)&v94,
+          (__int64)&v95,
           v12 & 0xFFFF0000);
   DeviceStatus = v70;
   if ( v70 < 0 )
@@ -903,10 +884,10 @@ LABEL_30:
     v19 = (int)pszSrc;
     goto LABEL_31;
   }
-  if ( v97 == 17 && v94 == 1 )
+  if ( v98 == 17 && v95 == 1 )
   {
     v19 = (int)pszSrc;
-    v90 = v91[0] == 0;
+    v90 = v92[0] == 0;
     goto LABEL_265;
   }
 LABEL_186:
@@ -919,11 +900,11 @@ LABEL_186:
           v71,
           0LL,
           (__int64)DEVPKEY_Device_DriverInGroup,
-          (__int64)&v97,
-          (__int64)v91,
+          (__int64)&v98,
+          (__int64)v92,
           1,
-          (__int64)&v94,
-          v100);
+          (__int64)&v95,
+          v101);
   DeviceStatus = v72;
   if ( v72 < 0 )
   {
@@ -931,9 +912,9 @@ LABEL_186:
       DeviceStatus = 0;
     goto LABEL_31;
   }
-  if ( v97 == 17 && v94 == 1 )
+  if ( v98 == 17 && v95 == 1 )
   {
-    v90 = v91[0] == -1;
+    v90 = v92[0] == -1;
 LABEL_265:
     if ( !v90 )
       goto LABEL_31;

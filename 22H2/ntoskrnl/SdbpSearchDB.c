@@ -17,7 +17,7 @@
  *     SdbpFindNextNamedTag @ 0x140966120 (SdbpFindNextNamedTag.c)
  */
 
-__int64 __fastcall SdbpSearchDB(int a1, union _RTL_RUN_ONCE *a2, __int64 a3, __int64 a4, unsigned int *a5, int a6)
+__int64 __fastcall SdbpSearchDB(int a1, _RTL_RUN_ONCE *a2, __int64 a3, __int64 a4, unsigned int *a5, int a6)
 {
   unsigned int *v6; // r15
   unsigned int v9; // edi

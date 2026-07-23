@@ -1,12 +1,12 @@
 /*
- * XREFs of _CmGetDeclarativeFilterList @ 0x14081E55C
+ * XREFs of _CmGetDeclarativeFilterList @ 0x14081EC9C
  * Callers:
- *     _CmGetInstallerClassCompoundFiltersWorker @ 0x14081E810 (_CmGetInstallerClassCompoundFiltersWorker.c)
- *     _CmGetDeviceCompoundFiltersWorker @ 0x140A80898 (_CmGetDeviceCompoundFiltersWorker.c)
+ *     _CmGetInstallerClassCompoundFiltersWorker @ 0x14081EF50 (_CmGetInstallerClassCompoundFiltersWorker.c)
+ *     _CmGetDeviceCompoundFiltersWorker @ 0x140A7B2F8 (_CmGetDeviceCompoundFiltersWorker.c)
  * Callees:
- *     _wcsicmp @ 0x1404FE3B0 (_wcsicmp.c)
- *     _CmAppendDeclarativeDefaultFilters @ 0x14081DD9C (_CmAppendDeclarativeDefaultFilters.c)
- *     _CmAppendDeclarativeFilterLevel @ 0x14081DE84 (_CmAppendDeclarativeFilterLevel.c)
+ *     _wcsicmp @ 0x1404FBC70 (_wcsicmp.c)
+ *     _CmAppendDeclarativeDefaultFilters @ 0x14081E4DC (_CmAppendDeclarativeDefaultFilters.c)
+ *     _CmAppendDeclarativeFilterLevel @ 0x14081E5C4 (_CmAppendDeclarativeFilterLevel.c)
  */
 
 __int64 __fastcall CmGetDeclarativeFilterList(

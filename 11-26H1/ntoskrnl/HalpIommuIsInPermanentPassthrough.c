@@ -1,8 +1,8 @@
 /*
- * XREFs of HalpIommuIsInPermanentPassthrough @ 0x140530BDC
+ * XREFs of HalpIommuIsInPermanentPassthrough @ 0x1405330DC
  * Callers:
- *     HalpIommuJoinDmaDomain @ 0x14058DCF4 (HalpIommuJoinDmaDomain.c)
- *     HalpIommuLeaveDmaDomain @ 0x14058DE4C (HalpIommuLeaveDmaDomain.c)
+ *     HalpIommuJoinDmaDomain @ 0x140590474 (HalpIommuJoinDmaDomain.c)
+ *     HalpIommuLeaveDmaDomain @ 0x1405905CC (HalpIommuLeaveDmaDomain.c)
  * Callees:
  *     <none>
  */

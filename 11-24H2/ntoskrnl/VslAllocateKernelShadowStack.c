@@ -1,12 +1,12 @@
 /*
- * XREFs of VslAllocateKernelShadowStack @ 0x140A43FE4
+ * XREFs of VslAllocateKernelShadowStack @ 0x140A39874
  * Callers:
- *     MiAllocateKernelStackPages @ 0x14039F96C (MiAllocateKernelStackPages.c)
+ *     MiAllocateKernelStackPages @ 0x14021639C (MiAllocateKernelStackPages.c)
  * Callees:
- *     VslpEnterIumSecureMode @ 0x140265D90 (VslpEnterIumSecureMode.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     VslpEnterIumSecureMode @ 0x1403AADB0 (VslpEnterIumSecureMode.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 __int64 __fastcall VslAllocateKernelShadowStack(
@@ -31,7 +31,7 @@ __int64 __fastcall VslAllocateKernelShadowStack(
   v13 = __PAIR64__(a5, a2);
   v14 = a3;
   memmove(v15, a4, 8LL * a5);
-  result = VslpEnterIumSecureMode(2u, 230LL, 0, (__int64)v11);
+  result = VslpEnterIumSecureMode(2u, 0xE6u, 0, (__int64)v11);
   if ( (int)result >= 0 )
     *a6 = v13;
   return result;

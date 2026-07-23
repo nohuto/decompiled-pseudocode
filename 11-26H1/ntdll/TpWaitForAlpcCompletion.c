@@ -1,25 +1,22 @@
 /*
- * XREFs of TpWaitForAlpcCompletion @ 0x1800C97B0
+ * XREFs of TpWaitForAlpcCompletion @ 0x1800C6F30
  * Callers:
  *     <none>
  * Callees:
- *     TppBarrierAdjust @ 0x18002D290 (TppBarrierAdjust.c)
- *     TppAlpcpValidateAlpc @ 0x1800C99AC (TppAlpcpValidateAlpc.c)
- *     ZwAlpcQueryInformation @ 0x180160090 (ZwAlpcQueryInformation.c)
+ *     TppBarrierAdjust @ 0x180018390 (TppBarrierAdjust.c)
+ *     TppAlpcpValidateAlpc @ 0x1800C712C (TppAlpcpValidateAlpc.c)
+ *     ZwAlpcQueryInformation @ 0x18015FF90 (ZwAlpcQueryInformation.c)
  */
 
-struct _TEB *__fastcall TpWaitForAlpcCompletion(__int64 a1)
+void __cdecl TpWaitForAlpcCompletion(PTP_ALPC Alpc)
 {
-  struct _TEB *result; // rax
-  int v3; // [rsp+48h] [rbp+10h] BYREF
+  int PortInformation; // [rsp+48h] [rbp+10h] BYREF
 
-  result = (struct _TEB *)TppAlpcpValidateAlpc(a1, 0LL, 0LL);
-  if ( (_DWORD)result )
+  if ( (unsigned int)TppAlpcpValidateAlpc(Alpc, 0LL, 0LL) )
   {
-    v3 = *(_DWORD *)(a1 + 280);
-    if ( v3 )
-      ZwAlpcQueryInformation(*(_QWORD *)(a1 + 272), 11LL, &v3);
-    return TppBarrierAdjust((signed __int64 *)(a1 + 128), 0, 1);
+    PortInformation = Alpc->DeferredSendCount;
+    if ( PortInformation )
+      ZwAlpcQueryInformation(Alpc->AlpcPort, AlpcWaitForPortReferences, &PortInformation, 4u, 0LL);
+    TppBarrierAdjust((_RTL_SRWLOCK *)&Alpc->CleanupGroupMember.CallbackBarrier, 0, 1);
   }
-  return result;
 }

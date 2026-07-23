@@ -1,17 +1,17 @@
 /*
- * XREFs of PipProcessStartPhase2 @ 0x140B0AC1C
+ * XREFs of PipProcessStartPhase2 @ 0x140B0C368
  * Callers:
- *     PipProcessDevNodeTree @ 0x14090C86C (PipProcessDevNodeTree.c)
+ *     PipProcessDevNodeTree @ 0x1409AE99C (PipProcessDevNodeTree.c)
  * Callees:
- *     McTemplateK0dz_EtwWriteTransfer @ 0x14049F904 (McTemplateK0dz_EtwWriteTransfer.c)
- *     PipSetDevNodeState @ 0x1404D2858 (PipSetDevNodeState.c)
- *     IoRequestDeviceEject @ 0x1405D9220 (IoRequestDeviceEject.c)
- *     PnpUpdateRebootRequiredReason @ 0x1407A4B70 (PnpUpdateRebootRequiredReason.c)
- *     PpProfileCancelHardwareProfileTransition @ 0x1407AD270 (PpProfileCancelHardwareProfileTransition.c)
- *     PpProfileCommitTransitioningDock @ 0x1407AD3A4 (PpProfileCommitTransitioningDock.c)
- *     PnpRequestDeviceRemoval @ 0x14091493C (PnpRequestDeviceRemoval.c)
- *     IopDoDeferredSetInterfaceState @ 0x140B0AD24 (IopDoDeferredSetInterfaceState.c)
- *     IopAllocateLegacyBootResources @ 0x140CC53B8 (IopAllocateLegacyBootResources.c)
+ *     McTemplateK0dz_EtwWriteTransfer @ 0x140499454 (McTemplateK0dz_EtwWriteTransfer.c)
+ *     PipSetDevNodeState @ 0x1404CC0D0 (PipSetDevNodeState.c)
+ *     IoRequestDeviceEject @ 0x1405DBA20 (IoRequestDeviceEject.c)
+ *     PnpUpdateRebootRequiredReason @ 0x1407A76B0 (PnpUpdateRebootRequiredReason.c)
+ *     PpProfileCancelHardwareProfileTransition @ 0x1407B02D0 (PpProfileCancelHardwareProfileTransition.c)
+ *     PpProfileCommitTransitioningDock @ 0x1407B0404 (PpProfileCommitTransitioningDock.c)
+ *     PnpRequestDeviceRemoval @ 0x14096F3A8 (PnpRequestDeviceRemoval.c)
+ *     IopDoDeferredSetInterfaceState @ 0x140B0C470 (IopDoDeferredSetInterfaceState.c)
+ *     IopAllocateLegacyBootResources @ 0x140CCB498 (IopAllocateLegacyBootResources.c)
  */
 
 __int64 __fastcall PipProcessStartPhase2(__int64 a1, __int64 a2, __int64 a3)
@@ -21,7 +21,7 @@ __int64 __fastcall PipProcessStartPhase2(__int64 a1, __int64 a2, __int64 a3)
   int v7; // esi
   int v8; // eax
 
-  if ( (byte_140EF3DCB & 0x20) != 0 )
+  if ( (byte_140EF412B & 0x20) != 0 )
     McTemplateK0dz_EtwWriteTransfer(
       a1,
       (const EVENT_DESCRIPTOR *)KMPnPEvt_ProcessDeviceStart_Start,
@@ -68,7 +68,7 @@ LABEL_5:
   if ( *(_DWORD *)(a1 + 568) )
     IoRequestDeviceEject(*(PDEVICE_OBJECT *)(a1 + 32));
 LABEL_7:
-  if ( (byte_140EF3DCB & 0x20) != 0 )
+  if ( (byte_140EF412B & 0x20) != 0 )
     McTemplateK0dz_EtwWriteTransfer(
       *(_QWORD *)(a1 + 48),
       (const EVENT_DESCRIPTOR *)KMPnPEvt_ProcessDeviceStart_Stop,

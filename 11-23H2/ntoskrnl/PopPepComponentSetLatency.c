@@ -1,15 +1,15 @@
 /*
- * XREFs of PopPepComponentSetLatency @ 0x14035B570
+ * XREFs of PopPepComponentSetLatency @ 0x14035B710
  * Callers:
- *     PoFxSetComponentLatency @ 0x14035B4C0 (PoFxSetComponentLatency.c)
+ *     PoFxSetComponentLatency @ 0x14035B660 (PoFxSetComponentLatency.c)
  * Callees:
- *     PopPepUpdateIdleState @ 0x1403109B8 (PopPepUpdateIdleState.c)
- *     PopPepCountReadyActivities @ 0x140313A54 (PopPepCountReadyActivities.c)
- *     PopPepRequestWork @ 0x140313AA0 (PopPepRequestWork.c)
- *     PopPepReleaseActivityLink @ 0x140313AE4 (PopPepReleaseActivityLink.c)
- *     PopPepLockActivityLink @ 0x140313B68 (PopPepLockActivityLink.c)
- *     PopPepPromoteActivities @ 0x140313C60 (PopPepPromoteActivities.c)
- *     PopPepComponentGetLatencyIdleState @ 0x14035B660 (PopPepComponentGetLatencyIdleState.c)
+ *     PopPepUpdateIdleState @ 0x140310C48 (PopPepUpdateIdleState.c)
+ *     PopPepCountReadyActivities @ 0x140313CE4 (PopPepCountReadyActivities.c)
+ *     PopPepRequestWork @ 0x140313D30 (PopPepRequestWork.c)
+ *     PopPepReleaseActivityLink @ 0x140313D74 (PopPepReleaseActivityLink.c)
+ *     PopPepLockActivityLink @ 0x140313DF8 (PopPepLockActivityLink.c)
+ *     PopPepPromoteActivities @ 0x140313EF0 (PopPepPromoteActivities.c)
+ *     PopPepComponentGetLatencyIdleState @ 0x14035B800 (PopPepComponentGetLatencyIdleState.c)
  */
 
 void __fastcall PopPepComponentSetLatency(unsigned int *a1, int a2, __int64 a3)

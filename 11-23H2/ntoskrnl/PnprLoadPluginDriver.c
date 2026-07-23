@@ -1,14 +1,14 @@
 /*
- * XREFs of PnprLoadPluginDriver @ 0x140966568
+ * XREFs of PnprLoadPluginDriver @ 0x140966768
  * Callers:
- *     PnpReplacePartitionUnit @ 0x140964AF0 (PnpReplacePartitionUnit.c)
+ *     PnpReplacePartitionUnit @ 0x140964CF0 (PnpReplacePartitionUnit.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1B0 (RtlInitUnicodeString.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     memset @ 0x140435A00 (memset.c)
+ *     RtlInitUnicodeString @ 0x14022E2C0 (RtlInitUnicodeString.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     memset @ 0x140435E00 (memset.c)
  *     MmUnloadSystemImage @ 0x140696020 (MmUnloadSystemImage.c)
- *     MmLoadSystemImage @ 0x140703490 (MmLoadSystemImage.c)
- *     PnprGetPluginDriverImagePath @ 0x140965E38 (PnprGetPluginDriverImagePath.c)
+ *     MmLoadSystemImage @ 0x1407036A0 (MmLoadSystemImage.c)
+ *     PnprGetPluginDriverImagePath @ 0x140966038 (PnprGetPluginDriverImagePath.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

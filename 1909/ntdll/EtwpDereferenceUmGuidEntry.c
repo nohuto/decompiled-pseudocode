@@ -12,24 +12,24 @@
  *     RtlFreeHeap @ 0x180040690 (RtlFreeHeap.c)
  */
 
-__int64 __fastcall EtwpDereferenceUmGuidEntry(__int64 a1)
+LOGICAL __fastcall EtwpDereferenceUmGuidEntry(__int64 BaseAddress)
 {
-  __int64 result; // rax
-  __int64 v3; // r8
+  LOGICAL result; // eax
+  void *v3; // r8
 
-  result = (unsigned int)_InterlockedExchangeAdd((volatile signed __int32 *)(a1 + 52), 0xFFFFFFFF);
-  if ( (_DWORD)result == 1 )
+  result = _InterlockedExchangeAdd((volatile signed __int32 *)(BaseAddress + 52), 0xFFFFFFFF);
+  if ( result == 1 )
   {
-    EtwpAcquireGuidEntryExclusive(a1);
+    EtwpAcquireGuidEntryExclusive(BaseAddress);
     RtlAcquireSRWLockExclusive(&EtwpProvLock);
-    RtlRbRemoveNode(&EtwpGuidEntryTable, a1);
+    RtlRbRemoveNode(&EtwpGuidEntryTable, (PRTL_BALANCED_NODE)BaseAddress);
     RtlReleaseSRWLockExclusive(&EtwpProvLock);
-    *(_DWORD *)(a1 + 48) = 0;
-    RtlReleaseSRWLockExclusive(a1 + 40);
-    v3 = *(_QWORD *)(a1 + 168);
+    *(_DWORD *)(BaseAddress + 48) = 0;
+    RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(BaseAddress + 40));
+    v3 = *(void **)(BaseAddress + 168);
     if ( v3 )
-      RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0LL, v3);
-    return RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0LL, a1);
+      RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v3);
+    return RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, (PVOID)BaseAddress);
   }
   return result;
 }

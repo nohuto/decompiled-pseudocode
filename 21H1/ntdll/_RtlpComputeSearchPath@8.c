@@ -11,13 +11,27 @@
 int __stdcall RtlpComputeSearchPath(int a1, int a2)
 {
   unsigned int EnvironmentVersion; // edi
+  int v3; // esi
+  int IsEnabled; // eax
   int result; // eax
 
   EnvironmentVersion = NtCurrentPeb()->ProcessParameters->EnvironmentVersion;
-  if ( (RtlpSearchPathMode & 1) == 0 && (RtlpSearchPathMode & 0x10000) == 0 && !dword_4B3A67DC )
-    RtlpLookupCurDirSetting(&dword_4B3A67DC);
-  Feature_SearchPackagePaths__private_IsEnabled();
-  result = RtlpComputePath(0, 0);
+  if ( (RtlpSearchPathMode & 1) != 0 )
+  {
+    v3 = 1;
+  }
+  else if ( (RtlpSearchPathMode & 0x10000) != 0 )
+  {
+    v3 = 0;
+  }
+  else
+  {
+    v3 = dword_4B3A67DC;
+    if ( !dword_4B3A67DC )
+      v3 = RtlpLookupCurDirSetting((PUNICODE_STRING)&stru_4B281738, (int)&dword_4B3A67DC);
+  }
+  IsEnabled = Feature_SearchPackagePaths__private_IsEnabled();
+  result = RtlpComputePath(&dword_4B286E20[5 * v3], (IsEnabled != 0) + 4, 0, 0);
   if ( result )
   {
     *(_DWORD *)(result + 56) = EnvironmentVersion;

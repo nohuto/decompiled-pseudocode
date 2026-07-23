@@ -20,180 +20,175 @@
 
 __int64 __fastcall sub_180051D04(int a1, _DWORD *a2, _DWORD *a3, __int64 a4)
 {
-  bool v5; // cf
-  __int64 v7; // r15
-  unsigned int v8; // r12d
-  int v9; // eax
-  unsigned __int64 v10; // rcx
-  int v11; // ecx
-  int v12; // eax
+  __int64 v6; // r15
+  unsigned int v7; // r12d
+  int v8; // eax
+  unsigned __int64 v9; // rcx
+  int v10; // ecx
+  int v11; // eax
   __int64 result; // rax
-  unsigned int NumberOfProcessors; // r8d
-  __int64 v15; // r14
-  __int64 v16; // rax
-  __int64 v17; // r9
-  __int64 v18; // rdi
-  NTSTATUS v19; // eax
-  __int64 v20; // rdx
-  int v21; // ecx
+  __int64 NumberOfProcessors; // r8
+  __int64 v14; // r14
+  __int64 v15; // rax
+  __int64 v16; // r9
+  __int64 v17; // rdi
+  NTSTATUS v18; // eax
+  __int64 v19; // rdx
+  int v20; // ecx
   ULONG LastErrorValue; // esi
-  __int64 v23; // r14
-  __int64 v24; // r15
+  __int64 v22; // r14
   __int64 EtwThread; // rax
-  unsigned int v26; // edx
-  NTSTATUS v27; // eax
-  ULONG v28; // eax
-  __int64 v29; // rcx
-  __int64 v30; // [rsp+30h] [rbp-10h] BYREF
-  __int64 v31; // [rsp+38h] [rbp-8h] BYREF
-  int v32; // [rsp+80h] [rbp+40h] BYREF
-  _DWORD *v33; // [rsp+88h] [rbp+48h]
-  unsigned int v34; // [rsp+98h] [rbp+58h] BYREF
+  unsigned int v24; // edx
+  NTSTATUS v25; // eax
+  ULONG v26; // eax
+  void *v27; // rcx
+  __int64 v28; // [rsp+30h] [rbp-10h]
+  __int64 v29; // [rsp+38h] [rbp-8h] BYREF
+  int v30; // [rsp+80h] [rbp+40h] BYREF
+  _DWORD *v31; // [rsp+88h] [rbp+48h]
+  unsigned int v32; // [rsp+98h] [rbp+58h] BYREF
 
-  v33 = a2;
-  v32 = a1;
-  v5 = *(_DWORD *)a4 < 0xB0u;
-  v30 = 0LL;
-  v7 = 0LL;
-  v8 = 0;
-  if ( v5 )
+  v31 = a2;
+  v30 = a1;
+  v6 = 0LL;
+  v7 = 0;
+  if ( *(_DWORD *)a4 < 0xB0u )
     return 87LL;
   *(_QWORD *)(a4 + 152) = a4 + 176;
-  v9 = *(_DWORD *)(a4 + 64);
+  v8 = *(_DWORD *)(a4 + 64);
   *(_QWORD *)(a4 + 136) = *(unsigned __int16 *)(a4 + 146) + a4 + 176;
-  if ( (v9 & 0x40B) != 0 )
+  if ( (v8 & 0x40B) != 0 )
   {
-    v10 = (v9 & 0x40B) - (((unsigned __int64)(v9 & 0x40B) >> 1) & 0x5555555555555555LL);
+    v9 = (v8 & 0x40B) - (((unsigned __int64)(v8 & 0x40B) >> 1) & 0x5555555555555555LL);
     if ( (0x101010101010101LL
-        * (((v10 & 0x3333333333333333LL)
-          + ((v10 >> 2) & 0x3333333333333333LL)
-          + (((v10 & 0x3333333333333333LL) + ((v10 >> 2) & 0x3333333333333333LL)) >> 4)) & 0xF0F0F0F0F0F0F0FLL)) >> 56 == 1 )
+        * (((v9 & 0x3333333333333333LL)
+          + ((v9 >> 2) & 0x3333333333333333LL)
+          + (((v9 & 0x3333333333333333LL) + ((v9 >> 2) & 0x3333333333333333LL)) >> 4)) & 0xF0F0F0F0F0F0F0FLL)) >> 56 == 1 )
       goto LABEL_4;
     return 87LL;
   }
-  *(_DWORD *)(a4 + 64) = v9 | 1;
+  *(_DWORD *)(a4 + 64) = v8 | 1;
 LABEL_4:
-  v11 = *(_DWORD *)(a4 + 64);
-  if ( (v11 & 0x2000000) != 0
-    || (v11 & 0x400) != 0 && (*(_WORD *)(a4 + 128) || *(_DWORD *)(a4 + 68) || *(_DWORD *)(a4 + 76)) )
+  v10 = *(_DWORD *)(a4 + 64);
+  if ( (v10 & 0x2000000) != 0
+    || (v10 & 0x400) != 0 && (*(_WORD *)(a4 + 128) || *(_DWORD *)(a4 + 68) || *(_DWORD *)(a4 + 76)) )
   {
     return 87LL;
   }
-  v12 = *(_DWORD *)(a4 + 76);
-  if ( v12 )
+  v11 = *(_DWORD *)(a4 + 76);
+  if ( v11 )
   {
-    if ( *(_DWORD *)(a4 + 68) || v12 < 0 )
+    if ( *(_DWORD *)(a4 + 68) || v11 < 0 )
       return 87LL;
   }
-  if ( (v11 & 6) == 6
+  if ( (v10 & 6) == 6
     || (*(_DWORD *)(a4 + 64) & 0xC000) == 0xC000
-    || (v11 & 0x4000000) != 0 && ((v11 & 2) != 0 || (v11 & 4) != 0 || (v11 & 0x20) != 0 || (v11 & 0x400) != 0) )
+    || (v10 & 0x4000000) != 0 && ((v10 & 2) != 0 || (v10 & 4) != 0 || (v10 & 0x20) != 0 || (v10 & 0x400) != 0) )
   {
     return 87LL;
   }
-  if ( !(unsigned int)sub_180053EE0(a4 + 144, &v30) )
+  if ( !(unsigned int)sub_180053EE0((PUNICODE_STRING)(a4 + 144)) )
   {
-    _InterlockedDecrement((volatile signed __int32 *)(qword_1801593C0 + 16LL * *(unsigned int *)(v30 + 20) + 8));
+    _InterlockedDecrement((volatile signed __int32 *)(qword_1801593C0 + 16LL * MEMORY[0x14] + 8));
     return 183LL;
   }
-  result = sub_180053DF8(a4, &v34);
+  result = sub_180053DF8(a4, &v32);
   if ( !(_DWORD)result )
   {
     if ( (*(_DWORD *)(a4 + 64) & 0x10000) != 0 )
     {
-      v26 = (*(unsigned __int16 *)(a4 + 130) + *(unsigned __int16 *)(a4 + 146) + 183) & 0xFFFFFFF8;
-      v8 = *(_DWORD *)a4 - v26;
-      v7 = a4 + v26;
-      NumberOfProcessors = -1;
+      v24 = (*(unsigned __int16 *)(a4 + 130) + *(unsigned __int16 *)(a4 + 146) + 183) & 0xFFFFFFF8;
+      v7 = *(_DWORD *)a4 - v24;
+      v6 = a4 + v24;
+      NumberOfProcessors = 0xFFFFFFFFLL;
     }
     else if ( (*(_DWORD *)(a4 + 64) & 0x10000000) != 0 )
     {
-      NumberOfProcessors = 1;
+      NumberOfProcessors = 1LL;
     }
     else
     {
       NumberOfProcessors = NtCurrentPeb()->NumberOfProcessors;
     }
-    v15 = v34;
-    v16 = sub_18005395C(a4, v34, NumberOfProcessors, v7, v8);
-    v30 = v16;
-    v18 = v16;
-    if ( !v16 )
+    v14 = v32;
+    v15 = sub_18005395C(a4, v32, NumberOfProcessors, v6, v7);
+    v28 = v15;
+    v17 = v15;
+    if ( !v15 )
     {
-      _InterlockedDecrement((volatile signed __int32 *)(qword_1801593C0 + 16 * v15 + 8));
+      _InterlockedDecrement((volatile signed __int32 *)(qword_1801593C0 + 16 * v14 + 8));
       return 8LL;
     }
-    if ( (*(_DWORD *)(v16 + 324) & 0x4000000) != 0 )
+    if ( (*(_DWORD *)(v15 + 324) & 0x4000000) != 0 )
     {
-      v27 = sub_180004B3C(v16);
-      if ( v27 )
+      v25 = sub_180004B3C(v15);
+      if ( v25 )
       {
-        v28 = RtlNtStatusToDosError(v27);
-        LastErrorValue = v28;
-        if ( v28 )
+        v26 = RtlNtStatusToDosError(v25);
+        LastErrorValue = v26;
+        if ( v26 )
           goto LABEL_59;
       }
     }
-    if ( (*(_DWORD *)(v18 + 324) & 0x400) == 0 )
+    if ( (*(_DWORD *)(v17 + 324) & 0x400) == 0 )
     {
-      LOBYTE(v17) = (*(_DWORD *)(v18 + 324) & 4) != 0;
-      v19 = sub_1800531B0(v18, v7, v8, v17);
-      if ( v19 )
+      LOBYTE(v16) = (*(_DWORD *)(v17 + 324) & 4) != 0;
+      v18 = sub_1800531B0(v17, v6, v7, v16);
+      if ( v18 )
       {
-        LastErrorValue = RtlNtStatusToDosError(v19);
+        LastErrorValue = RtlNtStatusToDosError(v18);
         if ( LastErrorValue )
           goto LABEL_59;
       }
     }
-    v20 = *(unsigned int *)(v18 + 208);
-    v21 = 0xFFFF;
-    if ( (unsigned __int64)(v20 - 72) < 0xFFFF )
-      v21 = v20 - 72;
-    *(_DWORD *)(v18 + 212) = v21 & 0xFFFFFFF8;
-    LastErrorValue = sub_180052EDC(v18);
+    v19 = *(unsigned int *)(v17 + 208);
+    v20 = 0xFFFF;
+    if ( (unsigned __int64)(v19 - 72) < 0xFFFF )
+      v20 = v19 - 72;
+    *(_DWORD *)(v17 + 212) = v20 & 0xFFFFFFF8;
+    LastErrorValue = sub_180052EDC(v17);
     if ( LastErrorValue )
       goto LABEL_59;
-    if ( (*(_DWORD *)(v18 + 324) & 0x20000) == 0 )
+    if ( (*(_DWORD *)(v17 + 324) & 0x20000) == 0 )
     {
-      LastErrorValue = sub_180104D24(*(unsigned __int16 *)(v18 + 20), &v31, &v32);
+      LastErrorValue = sub_180104D24(*(unsigned __int16 *)(v17 + 20), &v29, &v30);
       if ( LastErrorValue )
         goto LABEL_59;
-      *(_QWORD *)(v18 + 528) = v31;
+      *(_QWORD *)(v17 + 528) = v29;
     }
-    v23 = 2 * v15;
-    _InterlockedIncrement((volatile signed __int32 *)(qword_1801593C0 + 8 * v23 + 8));
-    v24 = v30;
-    if ( (*(_DWORD *)(v18 + 324) & 0x400) == 0 )
+    v22 = 2 * v14;
+    _InterlockedIncrement((volatile signed __int32 *)(qword_1801593C0 + 8 * v22 + 8));
+    if ( (*(_DWORD *)(v17 + 324) & 0x400) == 0 )
     {
-      EtwThread = EtwpCreateEtwThread(sub_180051300, v30);
+      EtwThread = EtwpCreateEtwThread(sub_180051300, v28);
       if ( !EtwThread )
       {
         LastErrorValue = NtCurrentTeb()->LastErrorValue;
         goto LABEL_27;
       }
-      *(_QWORD *)(v24 + 32) = EtwThread;
+      *(_QWORD *)(v28 + 32) = EtwThread;
     }
-    sub_180052BC4(a4, v24, &v32);
-    _InterlockedExchange64((volatile __int64 *)(qword_1801593C0 + 8 * v23), v24);
-    sub_18005203C(v30, 5LL, 0LL);
+    sub_180052BC4(a4, v28, &v30);
+    _InterlockedExchange64((volatile __int64 *)(qword_1801593C0 + 8 * v22), v28);
+    sub_18005203C(v28, 5LL, 0LL);
 LABEL_27:
-    _InterlockedDecrement((volatile signed __int32 *)(qword_1801593C0 + 8 * v23 + 8));
+    _InterlockedDecrement((volatile signed __int32 *)(qword_1801593C0 + 8 * v22 + 8));
     if ( !LastErrorValue )
     {
-      *v33 = *(_DWORD *)a4;
+      *v31 = *(_DWORD *)a4;
       *a3 = *(_DWORD *)a4;
       return LastErrorValue;
     }
-    v18 = v30;
+    v17 = v28;
 LABEL_59:
-    v29 = *(_QWORD *)(a4 + 88);
-    if ( v29 )
+    v27 = *(void **)(a4 + 88);
+    if ( v27 )
     {
-      ZwClose(v29);
+      ZwClose(v27);
       *(_QWORD *)(a4 + 88) = 0LL;
-      *(_QWORD *)(v18 + 144) = 0LL;
+      *(_QWORD *)(v17 + 144) = 0LL;
     }
-    sub_1800076D8(v18);
+    sub_1800076D8((unsigned int *)v17);
     return LastErrorValue;
   }
   return result;

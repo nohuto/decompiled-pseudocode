@@ -1,18 +1,18 @@
 /*
- * XREFs of PpmCheckReInit @ 0x14056A1B4
+ * XREFs of PpmCheckReInit @ 0x14056A6F4
  * Callers:
- *     PopIntSteerSetMode @ 0x140143630 (PopIntSteerSetMode.c)
- *     PpmParkSetLpiCap @ 0x14020E108 (PpmParkSetLpiCap.c)
- *     PpmRegisterPerfStates @ 0x140569588 (PpmRegisterPerfStates.c)
- *     PpmCheckInitProcessors @ 0x140569DD0 (PpmCheckInitProcessors.c)
- *     PpmReapplyPerfPolicy @ 0x140569F90 (PpmReapplyPerfPolicy.c)
+ *     PopIntSteerSetMode @ 0x140143BA0 (PopIntSteerSetMode.c)
+ *     PpmParkSetLpiCap @ 0x14020DF34 (PpmParkSetLpiCap.c)
+ *     PpmRegisterPerfStates @ 0x140569AC8 (PpmRegisterPerfStates.c)
+ *     PpmCheckInitProcessors @ 0x14056A310 (PpmCheckInitProcessors.c)
+ *     PpmReapplyPerfPolicy @ 0x14056A4D0 (PpmReapplyPerfPolicy.c)
  * Callees:
- *     KeIsEmptyAffinityEx @ 0x1400D4810 (KeIsEmptyAffinityEx.c)
- *     PpmCheckArmPeriod @ 0x140143DC4 (PpmCheckArmPeriod.c)
- *     PopInterruptSteeringEnabled @ 0x140143E58 (PopInterruptSteeringEnabled.c)
- *     PpmParkUpdateConcurrencyTracking @ 0x14056A2D8 (PpmParkUpdateConcurrencyTracking.c)
- *     PpmParkParkingAvailable @ 0x14056A3DC (PpmParkParkingAvailable.c)
- *     PpmPerfResetHistoryAll @ 0x14056AC20 (PpmPerfResetHistoryAll.c)
+ *     KeIsEmptyAffinityEx @ 0x1400D26B0 (KeIsEmptyAffinityEx.c)
+ *     PpmCheckArmPeriod @ 0x140144334 (PpmCheckArmPeriod.c)
+ *     PopInterruptSteeringEnabled @ 0x1401443C8 (PopInterruptSteeringEnabled.c)
+ *     PpmParkUpdateConcurrencyTracking @ 0x14056A818 (PpmParkUpdateConcurrencyTracking.c)
+ *     PpmParkParkingAvailable @ 0x14056A91C (PpmParkParkingAvailable.c)
+ *     PpmPerfResetHistoryAll @ 0x14056B160 (PpmPerfResetHistoryAll.c)
  */
 
 __int64 (__fastcall ***PpmCheckReInit())()
@@ -29,7 +29,7 @@ __int64 (__fastcall ***PpmCheckReInit())()
 
   v0 = PpmCurrentProfile;
   v1 = 0;
-  v2 = 174LL * dword_140303E0C;
+  v2 = 174LL * dword_140303D4C;
   v3 = 0;
   if ( !(unsigned int)KeIsEmptyAffinityEx(PpmPerfStatesRegistered) )
   {

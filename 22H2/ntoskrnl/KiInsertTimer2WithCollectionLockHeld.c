@@ -12,41 +12,39 @@ __int64 __fastcall KiInsertTimer2WithCollectionLockHeld(__int64 a1, char a2, _BY
 {
   char v6; // cl
   char v7; // bp
-  __int64 v8; // rdx
-  unsigned __int8 v9; // r15
-  int v11; // r14d
-  int v12; // edi
-  __int64 v13; // rcx
-  __int64 v14; // rax
-  unsigned __int64 v15; // rdx
-  unsigned __int64 *v16; // rdi
-  bool v17; // r8
-  int v18; // r9d
-  unsigned __int64 v19; // rax
-  unsigned __int64 v20; // rax
-  __int64 v21; // rcx
-  char v22; // cl
-  unsigned __int64 *v23; // rsi
-  __int64 v24; // rax
-  unsigned __int64 v25; // rdx
-  bool v26; // r8
-  int v27; // ecx
-  unsigned __int64 v28; // rax
-  unsigned __int64 v29; // rcx
-  __int64 v30; // rax
-  bool v32; // dl
-  signed __int32 *v33; // r8
-  signed __int32 v34; // eax
-  signed __int32 v35; // ett
-  signed __int32 v36[8]; // [rsp+0h] [rbp-48h] BYREF
+  unsigned __int8 v8; // r15
+  int v10; // r14d
+  int v11; // edi
+  __int64 v12; // rcx
+  __int64 v13; // rax
+  unsigned __int64 v14; // rdx
+  _RTL_RB_TREE *v15; // rdi
+  BOOLEAN v16; // r8
+  int v17; // r9d
+  unsigned __int64 v18; // rax
+  _RTL_BALANCED_NODE *Min; // rax
+  __int64 v20; // rcx
+  char v21; // cl
+  _RTL_RB_TREE *v22; // rsi
+  __int64 v23; // rax
+  unsigned __int64 Root; // rdx
+  BOOLEAN v25; // r8
+  int v26; // ecx
+  unsigned __int64 v27; // rax
+  _RTL_BALANCED_NODE *v28; // rcx
+  __int64 v29; // rax
+  bool v31; // dl
+  signed __int32 *v32; // r8
+  signed __int32 v33; // eax
+  signed __int32 v34; // ett
+  signed __int32 v35[8]; // [rsp+0h] [rbp-48h] BYREF
 
   v6 = *(_BYTE *)(a1 + 130);
   v7 = a2;
-  v8 = 0x140000000uLL;
-  v9 = 1;
-  v11 = 0;
+  v8 = 1;
+  v10 = 0;
   *a3 = 0;
-  v12 = 0;
+  v11 = 0;
   *a4 = 0;
   if ( v6 == 21 || (v6 & 0x20) != 0 && *(_QWORD *)(a1 + 72) == *(_QWORD *)(a1 + 80) )
   {
@@ -55,192 +53,191 @@ __int64 __fastcall KiInsertTimer2WithCollectionLockHeld(__int64 a1, char a2, _BY
   else
   {
     *(_BYTE *)(a1 + 130) = v6 & 0xEF;
-    v13 = 3LL * (v6 & 7);
-    v14 = KiTimer2Collections[v13 + 1];
-    v15 = KiTimer2Collections[v13];
-    v16 = &KiTimer2Collections[v13];
-    if ( (v14 & 1) != 0 )
+    v12 = 3LL * (v6 & 7);
+    v13 = KiTimer2Collections[v12 + 1];
+    v14 = KiTimer2Collections[v12];
+    v15 = (_RTL_RB_TREE *)&KiTimer2Collections[v12];
+    if ( (v13 & 1) != 0 )
     {
-      if ( v15 )
-        v15 ^= (unsigned __int64)v16;
+      if ( v14 )
+        v14 ^= (unsigned __int64)v15;
       else
-        v15 = 0LL;
+        v14 = 0LL;
     }
-    v17 = 0;
-    v18 = v14 & 1;
-    if ( v15 )
+    v16 = 0;
+    v17 = v13 & 1;
+    if ( v14 )
     {
       while ( 1 )
       {
-        if ( *(_QWORD *)(a1 + 72) < *(_QWORD *)(v15 + 48) )
+        if ( *(_QWORD *)(a1 + 72) < *(_QWORD *)(v14 + 48) )
         {
-          v19 = *(_QWORD *)v15;
-          if ( v18 )
+          v18 = *(_QWORD *)v14;
+          if ( v17 )
           {
-            if ( !v19 )
+            if ( !v18 )
               break;
-            v19 ^= v15;
+            v18 ^= v14;
           }
-          if ( !v19 )
+          if ( !v18 )
             break;
         }
         else
         {
-          v19 = *(_QWORD *)(v15 + 8);
-          if ( v18 )
+          v18 = *(_QWORD *)(v14 + 8);
+          if ( v17 )
           {
-            if ( !v19 )
+            if ( !v18 )
               goto LABEL_20;
-            v19 ^= v15;
+            v18 ^= v14;
           }
-          if ( !v19 )
+          if ( !v18 )
           {
 LABEL_20:
-            v17 = 1;
+            v16 = 1;
             break;
           }
         }
-        v15 = v19;
+        v14 = v18;
       }
     }
-    RtlRbInsertNodeEx(v16, v15, v17, a1 + 24);
-    v20 = v16[1];
-    if ( (v20 & 1) != 0 )
+    RtlRbInsertNodeEx(v15, (PRTL_BALANCED_NODE)v14, v16, (PRTL_BALANCED_NODE)(a1 + 24));
+    Min = v15->Min;
+    if ( ((unsigned __int8)Min & 1) != 0 )
     {
-      if ( v20 == 1 )
-        v21 = 0LL;
+      if ( Min == (_RTL_BALANCED_NODE *)1 )
+        v20 = 0LL;
       else
-        v21 = v20 ^ ((unsigned __int64)v16 | 1);
+        v20 = (unsigned __int64)Min ^ ((unsigned __int64)v15 | 1);
     }
     else
     {
-      v21 = v16[1];
+      v20 = (__int64)v15->Min;
     }
-    if ( v21 == a1 + 24 )
+    if ( v20 == a1 + 24 )
     {
-      v16[2] = *(_QWORD *)(a1 + 72);
-      v12 = 1;
+      v15[1].Root = *(_RTL_BALANCED_NODE **)(a1 + 72);
+      v11 = 1;
     }
     else
     {
-      v12 = 0;
+      v11 = 0;
     }
-    v8 = 0x140000000uLL;
   }
-  v22 = *(_BYTE *)(a1 + 131);
+  v21 = *(_BYTE *)(a1 + 131);
   if ( *(_QWORD *)(a1 + 80) == -1LL )
   {
-    *(_BYTE *)(a1 + 131) = v22 | 0x10;
+    *(_BYTE *)(a1 + 131) = v21 | 0x10;
   }
   else
   {
-    *(_BYTE *)(a1 + 131) = v22 & 0xEF;
-    v23 = (unsigned __int64 *)(0x140000000LL + 24LL * (v22 & 7) + 12786912);
-    v24 = *(_QWORD *)(0x140000008LL + 24LL * (v22 & 7) + 12786912);
-    v25 = *v23;
-    if ( (v24 & 1) != 0 )
+    *(_BYTE *)(a1 + 131) = v21 & 0xEF;
+    v22 = (_RTL_RB_TREE *)(0x140000000LL + 24LL * (v21 & 7) + 12786912);
+    v23 = *(_QWORD *)(0x140000008LL + 24LL * (v21 & 7) + 12786912);
+    Root = (unsigned __int64)v22->Root;
+    if ( (v23 & 1) != 0 )
     {
-      if ( v25 )
-        v25 ^= (unsigned __int64)v23;
+      if ( Root )
+        Root ^= (unsigned __int64)v22;
       else
-        v25 = 0LL;
+        Root = 0LL;
     }
-    v26 = 0;
-    v27 = v24 & 1;
-    if ( v25 )
+    v25 = 0;
+    v26 = v23 & 1;
+    if ( Root )
     {
       while ( 1 )
       {
-        if ( *(_QWORD *)(a1 + 80) < *(_QWORD *)(v25 + 32) )
+        if ( *(_QWORD *)(a1 + 80) < *(_QWORD *)(Root + 32) )
         {
-          v28 = *(_QWORD *)v25;
-          if ( v27 )
+          v27 = *(_QWORD *)Root;
+          if ( v26 )
           {
-            if ( !v28 )
-              goto LABEL_41;
-            v28 ^= v25;
+            if ( !v27 )
+              goto LABEL_40;
+            v27 ^= Root;
           }
-          if ( !v28 )
+          if ( !v27 )
           {
-LABEL_41:
-            v26 = 0;
+LABEL_40:
+            v25 = 0;
             break;
           }
         }
         else
         {
-          v28 = *(_QWORD *)(v25 + 8);
-          if ( v27 )
+          v27 = *(_QWORD *)(Root + 8);
+          if ( v26 )
           {
-            if ( !v28 )
-              goto LABEL_64;
-            v28 ^= v25;
+            if ( !v27 )
+              goto LABEL_63;
+            v27 ^= Root;
           }
-          if ( !v28 )
+          if ( !v27 )
           {
-LABEL_64:
-            v26 = 1;
+LABEL_63:
+            v25 = 1;
             break;
           }
         }
-        v25 = v28;
+        Root = v27;
       }
     }
-    RtlRbInsertNodeEx(v23, v25, v26, a1 + 48);
-    v29 = v23[1];
-    if ( (v29 & 1) != 0 )
+    RtlRbInsertNodeEx(v22, (PRTL_BALANCED_NODE)Root, v25, (PRTL_BALANCED_NODE)(a1 + 48));
+    v28 = v22->Min;
+    if ( ((unsigned __int8)v28 & 1) != 0 )
     {
-      if ( v29 == 1 )
-        v30 = 0LL;
+      if ( v28 == (_RTL_BALANCED_NODE *)1 )
+        v29 = 0LL;
       else
-        v30 = v29 ^ ((unsigned __int64)v23 | 1);
+        v29 = (unsigned __int64)v28 ^ ((unsigned __int64)v22 | 1);
     }
     else
     {
-      v30 = v23[1];
+      v29 = (__int64)v22->Min;
     }
-    if ( v30 == a1 + 48 )
+    if ( v29 == a1 + 48 )
     {
-      v11 = 1;
-      v23[2] = *(_QWORD *)(a1 + 80);
+      v10 = 1;
+      v22[1].Root = *(_RTL_BALANCED_NODE **)(a1 + 80);
     }
     v7 = a2;
-    v12 |= v11;
+    v11 |= v10;
   }
-  if ( v12 )
+  if ( v11 )
   {
     if ( (unsigned __int64)KiNextTimer2DueTime > *(_QWORD *)(a1 + 72) )
     {
       KiNextTimer2DueTime = *(_QWORD *)(a1 + 72);
-      _InterlockedOr(v36, 0);
+      _InterlockedOr(v35, 0);
     }
     if ( *(_QWORD *)(a1 + 72) <= MEMORY[0xFFFFF78000000008] )
     {
       *a3 = 1;
       if ( !v7 )
       {
-        KiRemoveTimer2(a1, v8, (__int64)a3);
-        v9 = 0;
+        KiRemoveTimer2(a1);
+        v8 = 0;
       }
     }
   }
   if ( (*(_BYTE *)(a1 + 129) & 4) != 0 && _InterlockedIncrement(&KiHrTimerActiveCount) == 1 )
   {
-    v32 = 0;
-    v33 = *(signed __int32 **)(KiProcessorBlock[(unsigned int)KiClockTimerOwner] + 33976);
-    if ( v33 && (KiVelocityFlags & 0x40) != 0 )
+    v31 = 0;
+    v32 = *(signed __int32 **)(KiProcessorBlock[(unsigned int)KiClockTimerOwner] + 33976);
+    if ( v32 && (KiVelocityFlags & 0x40) != 0 )
     {
-      _m_prefetchw(v33);
-      v34 = *v33;
+      _m_prefetchw(v32);
+      v33 = *v32;
       do
       {
-        v35 = v34;
-        v34 = _InterlockedCompareExchange(v33, v34 | 0x80000, v34);
+        v34 = v33;
+        v33 = _InterlockedCompareExchange(v32, v33 | 0x80000, v33);
       }
-      while ( v35 != v34 );
-      v32 = (v34 & 0x80000) == 0;
+      while ( v34 != v33 );
+      v31 = (v33 & 0x80000) == 0;
     }
-    *a4 = v32;
+    *a4 = v31;
   }
-  return v9;
+  return v8;
 }

@@ -1,11 +1,11 @@
 /*
- * XREFs of VerifierPortIoAllocateIrp @ 0x140ACB0D0
+ * XREFs of VerifierPortIoAllocateIrp @ 0x140ACB0C0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     VerifierBugCheckIfAppropriate @ 0x140ACD2B4 (VerifierBugCheckIfAppropriate.c)
- *     VfFaultsInjectResourceFailure @ 0x140AD5FDC (VfFaultsInjectResourceFailure.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     VerifierBugCheckIfAppropriate @ 0x140ACD2A4 (VerifierBugCheckIfAppropriate.c)
+ *     VfFaultsInjectResourceFailure @ 0x140AD5FCC (VfFaultsInjectResourceFailure.c)
  */
 
 __int64 __fastcall VerifierPortIoAllocateIrp(char a1, char a2, __int64 a3)

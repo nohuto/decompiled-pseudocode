@@ -1,17 +1,17 @@
 /*
- * XREFs of ExpPcwDisabledStatus @ 0x140A69904
+ * XREFs of ExpPcwDisabledStatus @ 0x140A768D4
  * Callers:
- *     ExProcessCounterSetCallback @ 0x140969300 (ExProcessCounterSetCallback.c)
- *     FsRtlAddDiskIOCounterInstance @ 0x140A67C98 (FsRtlAddDiskIOCounterInstance.c)
- *     KiSynchCounterSetCallback @ 0x140A67DA0 (KiSynchCounterSetCallback.c)
- *     KiSynchNumaCounterSetCallback @ 0x140A67EF0 (KiSynchNumaCounterSetCallback.c)
- *     ExProcessorCounterSetCallback @ 0x140A68560 (ExProcessorCounterSetCallback.c)
- *     EtwpEventTracingCounterSetCallback @ 0x140A693C0 (EtwpEventTracingCounterSetCallback.c)
- *     PcwAddInstance @ 0x140A69670 (PcwAddInstance.c)
- *     PcwCreateInstance @ 0x140A69810 (PcwCreateInstance.c)
- *     PcwRegister @ 0x140A698A0 (PcwRegister.c)
+ *     ExProcessCounterSetCallback @ 0x14091D960 (ExProcessCounterSetCallback.c)
+ *     FsRtlAddDiskIOCounterInstance @ 0x140A74C68 (FsRtlAddDiskIOCounterInstance.c)
+ *     KiSynchCounterSetCallback @ 0x140A74D70 (KiSynchCounterSetCallback.c)
+ *     KiSynchNumaCounterSetCallback @ 0x140A74EC0 (KiSynchNumaCounterSetCallback.c)
+ *     ExProcessorCounterSetCallback @ 0x140A75530 (ExProcessorCounterSetCallback.c)
+ *     EtwpEventTracingCounterSetCallback @ 0x140A76390 (EtwpEventTracingCounterSetCallback.c)
+ *     PcwAddInstance @ 0x140A76640 (PcwAddInstance.c)
+ *     PcwCreateInstance @ 0x140A767E0 (PcwCreateInstance.c)
+ *     PcwRegister @ 0x140A76870 (PcwRegister.c)
  * Callees:
- *     RtlpQueryRegistryValues @ 0x140A10F94 (RtlpQueryRegistryValues.c)
+ *     RtlpQueryRegistryValues @ 0x140A10184 (RtlpQueryRegistryValues.c)
  */
 
 __int64 ExpPcwDisabledStatus()

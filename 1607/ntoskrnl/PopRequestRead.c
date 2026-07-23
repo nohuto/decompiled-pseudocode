@@ -4,9 +4,9 @@
  *     PopRestoreHiberContext @ 0x1403CDA38 (PopRestoreHiberContext.c)
  *     PopDecompressCallback @ 0x1403CE5D4 (PopDecompressCallback.c)
  * Callees:
- *     MmGetPhysicalAddress @ 0x14002500C (MmGetPhysicalAddress.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
- *     PopInternalAddToDumpFile @ 0x1401FF078 (PopInternalAddToDumpFile.c)
+ *     MmGetPhysicalAddress @ 0x140024B8C (MmGetPhysicalAddress.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
+ *     PopInternalAddToDumpFile @ 0x1401FEEA4 (PopInternalAddToDumpFile.c)
  *     ProducerConsumerBufferComplete @ 0x1403CE50C (ProducerConsumerBufferComplete.c)
  *     ProducerGetBuffer @ 0x1403CE93C (ProducerGetBuffer.c)
  *     PopGetIoLocation @ 0x1403CE9D4 (PopGetIoLocation.c)
@@ -67,14 +67,14 @@ void __fastcall PopRequestRead(ULONG_PTR BugCheckParameter3, __int64 a2, unsigne
           *(_QWORD *)(BugCheckParameter3 + 392),
           *(_QWORD *)(BugCheckParameter3 + 368));
         v20 = __rdtsc();
-        qword_1403039D8 += v20 - *(_QWORD *)(BugCheckParameter3 + 344);
+        qword_140303918 += v20 - *(_QWORD *)(BugCheckParameter3 + 344);
         ProducerConsumerBufferComplete(
           v5,
           v5 + 32,
           *(_QWORD *)(BugCheckParameter3 + 392),
           *(_DWORD *)(BugCheckParameter3 + 368));
         v21 = __rdtsc();
-        qword_140303A08 += (((unsigned __int64)HIDWORD(v21) << 32) | (unsigned int)v21) - v20;
+        qword_140303948 += (((unsigned __int64)HIDWORD(v21) << 32) | (unsigned int)v21) - v20;
         v22 = *(_QWORD *)(BugCheckParameter3 + 368);
         v23 = *(_QWORD *)(BugCheckParameter3 + 408) == v22;
         *(_QWORD *)(BugCheckParameter3 + 408) -= v22;
@@ -87,7 +87,7 @@ void __fastcall PopRequestRead(ULONG_PTR BugCheckParameter3, __int64 a2, unsigne
         *(_DWORD *)(BugCheckParameter3 + 336) = 0;
         continue;
       }
-      ++qword_1403039E8;
+      ++qword_140303928;
       v16 = __rdtsc();
       v17 = (*(__int64 (__fastcall **)(__int64, ULONG_PTR, __int64))(*(_QWORD *)(BugCheckParameter3 + 168) + 160LL))(
               2LL,
@@ -102,7 +102,7 @@ void __fastcall PopRequestRead(ULONG_PTR BugCheckParameter3, __int64 a2, unsigne
         KeBugCheckEx(0xA0u, 0x10AuLL, 0xAuLL, BugCheckParameter3, BugCheckParameter4);
       }
       v19 = __rdtsc();
-      qword_140303A00 += (((unsigned __int64)HIDWORD(v19) << 32) | (unsigned int)v19) - v16;
+      qword_140303940 += (((unsigned __int64)HIDWORD(v19) << 32) | (unsigned int)v19) - v16;
       if ( (_DWORD)BugCheckParameter4 == 259 )
         return;
     }
@@ -172,7 +172,7 @@ LABEL_33:
         KeBugCheckEx(0xA0u, 0x10AuLL, 0xAuLL, BugCheckParameter3, v28);
       }
       v29 = __rdtsc();
-      qword_140303A00 += (((unsigned __int64)HIDWORD(v29) << 32) | (unsigned int)v29)
+      qword_140303940 += (((unsigned __int64)HIDWORD(v29) << 32) | (unsigned int)v29)
                        - *(_QWORD *)(BugCheckParameter3 + 344);
       v30 = *(_QWORD *)(BugCheckParameter3 + 408);
       *(_QWORD *)(BugCheckParameter3 + 360) = v13;

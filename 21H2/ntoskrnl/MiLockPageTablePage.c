@@ -1,15 +1,15 @@
 /*
- * XREFs of MiLockPageTablePage @ 0x140209DF0
+ * XREFs of MiLockPageTablePage @ 0x1402AE6F0
  * Callers:
- *     MiProbeLockFrame @ 0x14020ACD0 (MiProbeLockFrame.c)
- *     NtLockVirtualMemory @ 0x140270060 (NtLockVirtualMemory.c)
- *     MiLockPageTableRange @ 0x1402C8C5C (MiLockPageTableRange.c)
- *     MiBuildForkPte @ 0x1405582BC (MiBuildForkPte.c)
+ *     MiLockPageTableRange @ 0x1402474BC (MiLockPageTableRange.c)
+ *     NtLockVirtualMemory @ 0x14025E000 (NtLockVirtualMemory.c)
+ *     MiProbeLockFrame @ 0x1402AF5D0 (MiProbeLockFrame.c)
+ *     MiBuildForkPte @ 0x1405584FC (MiBuildForkPte.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x14024B280 (KeYieldProcessorEx.c)
- *     MiReleasePageFileInfo @ 0x140267CB0 (MiReleasePageFileInfo.c)
- *     MiCapturePageFileInfoInline @ 0x1402A2CF0 (MiCapturePageFileInfoInline.c)
- *     MiChargePartitionResidentAvailable @ 0x1402B0CC8 (MiChargePartitionResidentAvailable.c)
+ *     MiCapturePageFileInfoInline @ 0x140220130 (MiCapturePageFileInfoInline.c)
+ *     MiChargePartitionResidentAvailable @ 0x14022F028 (MiChargePartitionResidentAvailable.c)
+ *     MiReleasePageFileInfo @ 0x140255C50 (MiReleasePageFileInfo.c)
+ *     KeYieldProcessorEx @ 0x1402EFAD0 (KeYieldProcessorEx.c)
  */
 
 __int64 __fastcall MiLockPageTablePage(__int64 a1, int a2)
@@ -32,7 +32,7 @@ __int64 __fastcall MiLockPageTablePage(__int64 a1, int a2)
   __int64 v18; // rdx
   signed __int32 v19; // eax
   char v21; // r9
-  __int64 v22; // rax
+  unsigned __int64 v22; // rax
   char v23; // r8
   unsigned __int64 v24; // rdi
   struct _KPRCB *v25; // r8
@@ -90,7 +90,7 @@ LABEL_17:
       if ( !a2 )
         v8 = 4LL;
     }
-    v9 = *(_QWORD *)(qword_140C4E648 + 8 * ((*(_QWORD *)(v4 + 40) >> 39) & 0x3FFLL));
+    v9 = *(_QWORD *)(qword_140C4E688 + 8 * ((*(_QWORD *)(v4 + 40) >> 39) & 0x3FFLL));
     if ( (ULONG_PTR *)v9 == &MiSystemPartition )
     {
       CurrentPrcb = KeGetCurrentPrcb();
@@ -113,7 +113,7 @@ LABEL_17:
         while ( v8 <= v12 );
       }
     }
-    if ( !(unsigned int)MiChargePartitionResidentAvailable(v9, v8, 512LL, 0x7FFFFFFFFFFFFFFFLL) )
+    if ( !(unsigned int)MiChargePartitionResidentAvailable(v9, v8, 512LL) )
       return 0LL;
 LABEL_27:
     for ( i = 0; ; ++i )
@@ -195,14 +195,14 @@ LABEL_54:
         v23 = *(_BYTE *)(v4 + 34);
         if ( (*(_DWORD *)(v4 + 16) & 0x400LL) == 0 && (v21 & 8) == 0 )
         {
-          v22 = MiCapturePageFileInfoInline(v4 + 16, 1LL, 0LL);
+          v22 = MiCapturePageFileInfoInline((unsigned __int64 *)(v4 + 16), 1, 0);
           v23 = *(_BYTE *)(v4 + 34);
         }
         *(_BYTE *)(v4 + 34) = v23 | 0x10;
       }
       _InterlockedAnd64((volatile signed __int64 *)(v4 + 24), 0x7FFFFFFFFFFFFFFFuLL);
       if ( v22 )
-        MiReleasePageFileInfo(v9, v22, 1LL);
+        MiReleasePageFileInfo(v9, v22, 1);
       v4 = 48 * (*(_QWORD *)(v4 + 40) & 0xFFFFFFFFFLL) - 0x58000000000LL;
     }
     _InterlockedAnd64((volatile signed __int64 *)(v4 + 24), 0x7FFFFFFFFFFFFFFFuLL);

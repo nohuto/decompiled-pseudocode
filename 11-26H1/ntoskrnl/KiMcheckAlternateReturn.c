@@ -1,22 +1,22 @@
 /*
- * XREFs of KiMcheckAlternateReturn @ 0x1405FCD70
+ * XREFs of KiMcheckAlternateReturn @ 0x1405FF7C0
  * Callers:
- *     KxMcheckAlternateReturn @ 0x140738800 (KxMcheckAlternateReturn.c)
+ *     KxMcheckAlternateReturn @ 0x14073D400 (KxMcheckAlternateReturn.c)
  * Callees:
- *     KeStallExecutionProcessor @ 0x14037BEF0 (KeStallExecutionProcessor.c)
- *     WheapGetErrorSource @ 0x1403DE1E0 (WheapGetErrorSource.c)
- *     WheaLogInternalEvent @ 0x1403DFEC0 (WheaLogInternalEvent.c)
- *     WheaGetErrPacketFromErrRecord @ 0x14058ECC4 (WheaGetErrPacketFromErrRecord.c)
- *     KiAltContextWorkQueueAddItem @ 0x1405FCC08 (KiAltContextWorkQueueAddItem.c)
- *     WheaRecoveryBugCheck @ 0x1406D4B50 (WheaRecoveryBugCheck.c)
- *     WheaGetCurrentProcessName @ 0x1406D5CF0 (WheaGetCurrentProcessName.c)
- *     WheaProcessWaitingETWEvents @ 0x1406D71B0 (WheaProcessWaitingETWEvents.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memcmp @ 0x14073D750 (memcmp.c)
- *     WheaAttemptPhysicalPageOffline @ 0x1408480E0 (WheaAttemptPhysicalPageOffline.c)
- *     WheaTerminateProcess @ 0x140848620 (WheaTerminateProcess.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     KeStallExecutionProcessor @ 0x14037DCA0 (KeStallExecutionProcessor.c)
+ *     WheapGetErrorSource @ 0x1403E13D0 (WheapGetErrorSource.c)
+ *     WheaLogInternalEvent @ 0x1403E30B0 (WheaLogInternalEvent.c)
+ *     WheaGetErrPacketFromErrRecord @ 0x140591444 (WheaGetErrPacketFromErrRecord.c)
+ *     KiAltContextWorkQueueAddItem @ 0x1405FF658 (KiAltContextWorkQueueAddItem.c)
+ *     WheaRecoveryBugCheck @ 0x1406D8C30 (WheaRecoveryBugCheck.c)
+ *     WheaGetCurrentProcessName @ 0x1406D9DD0 (WheaGetCurrentProcessName.c)
+ *     WheaProcessWaitingETWEvents @ 0x1406DB340 (WheaProcessWaitingETWEvents.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memcmp @ 0x140742350 (memcmp.c)
+ *     WheaAttemptPhysicalPageOffline @ 0x14084E3B0 (WheaAttemptPhysicalPageOffline.c)
+ *     WheaTerminateProcess @ 0x14084E8F0 (WheaTerminateProcess.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 char __fastcall KiMcheckAlternateReturn(__int64 a1)
@@ -133,7 +133,7 @@ LABEL_34:
     goto LABEL_35;
   }
   v18 = 0;
-  while ( _InterlockedCompareExchange(&dword_140E66800[12 * v18], 1, 0) )
+  while ( _InterlockedCompareExchange(&dword_140E66A10[12 * v18], 1, 0) )
   {
     if ( ++v18 >= 0x10u )
     {

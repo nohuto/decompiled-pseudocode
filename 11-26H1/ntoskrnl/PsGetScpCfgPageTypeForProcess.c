@@ -1,8 +1,8 @@
 /*
- * XREFs of PsGetScpCfgPageTypeForProcess @ 0x140A9B7C8
+ * XREFs of PsGetScpCfgPageTypeForProcess @ 0x1409E530C
  * Callers:
- *     MiMapImageScpCfgPages @ 0x14036A450 (MiMapImageScpCfgPages.c)
- *     PspGetScpCfgFunctions @ 0x140A9B720 (PspGetScpCfgFunctions.c)
+ *     MiMapImageScpCfgPages @ 0x14036C1F0 (MiMapImageScpCfgPages.c)
+ *     PspGetScpCfgFunctions @ 0x1409E5264 (PspGetScpCfgFunctions.c)
  * Callees:
  *     <none>
  */
@@ -14,7 +14,7 @@ __int64 __fastcall PsGetScpCfgPageTypeForProcess(__int64 a1, __int64 a2, char a3
   int v5; // eax
 
   v3 = *(_QWORD *)(*(_QWORD *)(a1 + 1040) + 1384LL);
-  v4 = qword_140E2D648 == v3 || !v3;
+  v4 = qword_140E2D7C8 == v3 || !v3;
   if ( !a3 )
     return 0LL;
   if ( v4 )

@@ -1,15 +1,15 @@
 /*
- * XREFs of KeInvalidateRangeAllCaches @ 0x14047A650
+ * XREFs of KeInvalidateRangeAllCaches @ 0x140475CD0
  * Callers:
- *     KiFlushRangeAllCaches @ 0x1405BCD60 (KiFlushRangeAllCaches.c)
- *     MiPersistMemory @ 0x14067B8F0 (MiPersistMemory.c)
+ *     KiFlushRangeAllCaches @ 0x1405BA390 (KiFlushRangeAllCaches.c)
+ *     MiPersistMemory @ 0x14067CAD0 (MiPersistMemory.c)
  * Callees:
- *     KiIpiWaitForRequestBarrier @ 0x1402916C0 (KiIpiWaitForRequestBarrier.c)
- *     KiIpiSendRequest @ 0x1402928D0 (KiIpiSendRequest.c)
- *     KeInvalidateRangeAllCachesNoIpi @ 0x1403AEA10 (KeInvalidateRangeAllCachesNoIpi.c)
- *     KeInvalidateAllCaches @ 0x1403AEA80 (KeInvalidateAllCaches.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KiIpiWaitForRequestBarrier @ 0x1402A12C0 (KiIpiWaitForRequestBarrier.c)
+ *     KiIpiSendRequest @ 0x1402A24D0 (KiIpiSendRequest.c)
+ *     KeInvalidateRangeAllCachesNoIpi @ 0x14039D220 (KeInvalidateRangeAllCachesNoIpi.c)
+ *     KeInvalidateAllCaches @ 0x14039D290 (KeInvalidateAllCaches.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 void __stdcall KeInvalidateRangeAllCaches(PVOID BaseAddress, ULONG Length)
@@ -18,6 +18,9 @@ void __stdcall KeInvalidateRangeAllCaches(PVOID BaseAddress, ULONG Length)
   unsigned __int8 CurrentIrql; // bl
   struct _KPRCB *CurrentPrcb; // rsi
   __int64 v6; // rdx
+  __int64 v7; // rdx
+  __int64 v8; // r8
+  __int64 v9; // r9
 
   v3 = BaseAddress;
   if ( Length >= KiLargestCacheSize )
@@ -38,7 +41,7 @@ void __stdcall KeInvalidateRangeAllCaches(PVOID BaseAddress, ULONG Length)
     if ( (unsigned int)KeNumberProcessors_0 > 1 )
     {
       KiIpiSendRequest((__int64)CurrentPrcb, 1, 0LL, 0LL, 7LL);
-      KiIpiWaitForRequestBarrier((__int64)CurrentPrcb);
+      KiIpiWaitForRequestBarrier((__int64)CurrentPrcb, v7, v8, v9);
     }
     if ( KiIrqlFlags )
     {

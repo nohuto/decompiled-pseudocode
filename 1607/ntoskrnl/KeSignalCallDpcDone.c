@@ -1,5 +1,5 @@
 /*
- * XREFs of KeSignalCallDpcDone @ 0x1400B3964
+ * XREFs of KeSignalCallDpcDone @ 0x1400B17E4
  * Callers:
  *     <none>
  * Callees:

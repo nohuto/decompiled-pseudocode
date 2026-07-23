@@ -1,12 +1,12 @@
 /*
- * XREFs of MiMapHotPatchImageInSystemSpace @ 0x140872E78
+ * XREFs of MiMapHotPatchImageInSystemSpace @ 0x1408791D8
  * Callers:
- *     MiPrepareToHotPatchImage @ 0x1408735EC (MiPrepareToHotPatchImage.c)
+ *     MiPrepareToHotPatchImage @ 0x14087994C (MiPrepareToHotPatchImage.c)
  * Callees:
- *     MiReservePtes @ 0x14035DE50 (MiReservePtes.c)
- *     MiFillSystemPtes @ 0x14035F448 (MiFillSystemPtes.c)
- *     IoFreeMdl @ 0x14039F190 (IoFreeMdl.c)
- *     IoAllocateMdl @ 0x14040BA40 (IoAllocateMdl.c)
+ *     MiReservePtes @ 0x14035FBF0 (MiReservePtes.c)
+ *     MiFillSystemPtes @ 0x1403611E8 (MiFillSystemPtes.c)
+ *     IoFreeMdl @ 0x1403A0EF0 (IoFreeMdl.c)
+ *     IoAllocateMdl @ 0x1404046D0 (IoAllocateMdl.c)
  */
 
 __int64 __fastcall MiMapHotPatchImageInSystemSpace(_QWORD *a1)
@@ -42,15 +42,15 @@ __int64 __fastcall MiMapHotPatchImageInSystemSpace(_QWORD *a1)
     v10 = (unsigned __int64)&Mdl[1] + 8 * (unsigned int)v4;
     if ( (unsigned __int64)&Mdl[1] > v10 )
       v8 = 0LL;
-    if ( v8 >= 2 && (v7 > (struct _MDL *)&qword_140E35FF8 || (char *)v7 + 8 * v8 - 8 < (char *)&qword_140E35FF8) )
+    if ( v8 >= 2 && (v7 > (struct _MDL *)&qword_140E36178 || (char *)v7 + 8 * v8 - 8 < (char *)&qword_140E36178) )
     {
       v8 = 8 * (v8 & 0xFFFFFFFFFFFFFFFEuLL);
-      memset64(v9, qword_140E35FF8, v8 >> 3);
+      memset64(v9, qword_140E36178, v8 >> 3);
       v9 = (struct _MDL *)((char *)v9 + v8);
     }
     while ( (unsigned __int64)v9 < v10 )
     {
-      v9->Next = (struct _MDL *)qword_140E35FF8;
+      v9->Next = (struct _MDL *)qword_140E36178;
       v9 = (struct _MDL *)((char *)v9 + 8);
     }
     for ( i = (__int64 *)a1[7]; i; i = (__int64 *)*i )
@@ -71,7 +71,7 @@ __int64 __fastcall MiMapHotPatchImageInSystemSpace(_QWORD *a1)
         while ( v14 );
       }
     }
-    v16 = MiReservePtes((__int64)&stru_140E36558.WaitBlockList, v4, v8, v10);
+    v16 = MiReservePtes((__int64)&stru_140E366D8.WaitBlockList, v4, v8, v10);
     if ( v16 )
     {
       MiFillSystemPtes((_QWORD *)v16, (unsigned int)v4, (__int64)v7, 4u, 2, &v18);

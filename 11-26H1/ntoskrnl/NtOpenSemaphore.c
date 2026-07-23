@@ -1,39 +1,50 @@
 /*
- * XREFs of NtOpenSemaphore @ 0x140AC8C90
+ * XREFs of NtOpenSemaphore @ 0x140ACA880
  * Callers:
- *     DifNtOpenSemaphoreWrapper @ 0x14067EE20 (DifNtOpenSemaphoreWrapper.c)
+ *     DifNtOpenSemaphoreWrapper @ 0x140682A00 (DifNtOpenSemaphoreWrapper.c)
  * Callees:
- *     PsGetCurrentSilo @ 0x14041BBC0 (PsGetCurrentSilo.c)
- *     RtlReadULong64FromUser @ 0x14077F554 (RtlReadULong64FromUser.c)
- *     RtlWriteULong64ToUser @ 0x14077F758 (RtlWriteULong64ToUser.c)
- *     ObOpenObjectByNameEx @ 0x1408FCDF0 (ObOpenObjectByNameEx.c)
+ *     PsGetCurrentSilo @ 0x140413410 (PsGetCurrentSilo.c)
+ *     RtlReadULong64FromUser @ 0x140782054 (RtlReadULong64FromUser.c)
+ *     RtlWriteULong64ToUser @ 0x140782258 (RtlWriteULong64ToUser.c)
+ *     ObOpenObjectByNameEx @ 0x14092CD80 (ObOpenObjectByNameEx.c)
  */
 
-__int64 __fastcall NtOpenSemaphore(_QWORD *a1, int a2, __int64 a3)
+NTSTATUS __cdecl NtOpenSemaphore(
+        PHANDLE SemaphoreHandle,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes)
 {
   char PreviousMode; // si
   POBJECT_TYPE *v7; // rbx
   struct _LIST_ENTRY *CurrentSilo; // rax
-  int v9; // ebx
+  NTSTATUS v9; // ebx
   __int64 ULong64FromUser; // rax
-  __int64 v12[4]; // [rsp+48h] [rbp-20h] BYREF
+  void *v12; // [rsp+48h] [rbp-20h] BYREF
 
-  v12[0] = 0LL;
+  v12 = 0LL;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   if ( PreviousMode )
   {
-    ULong64FromUser = RtlReadULong64FromUser(a1);
-    RtlWriteULong64ToUser(a1, ULong64FromUser);
+    ULong64FromUser = RtlReadULong64FromUser(SemaphoreHandle);
+    RtlWriteULong64ToUser(SemaphoreHandle, ULong64FromUser);
   }
   v7 = ExSemaphoreObjectType;
   CurrentSilo = PsGetCurrentSilo();
-  v9 = ObOpenObjectByNameEx(a3, (__int64)v7, PreviousMode, 0LL, a2, 0LL, (__int64)CurrentSilo, v12);
+  v9 = ObOpenObjectByNameEx(
+         (__int64)ObjectAttributes,
+         (__int64)v7,
+         PreviousMode,
+         0LL,
+         DesiredAccess,
+         0LL,
+         (__int64)CurrentSilo,
+         &v12);
   if ( v9 >= 0 )
   {
     if ( PreviousMode )
-      RtlWriteULong64ToUser(a1, v12[0]);
+      RtlWriteULong64ToUser(SemaphoreHandle, (__int64)v12);
     else
-      *a1 = v12[0];
+      *SemaphoreHandle = v12;
   }
-  return (unsigned int)v9;
+  return v9;
 }

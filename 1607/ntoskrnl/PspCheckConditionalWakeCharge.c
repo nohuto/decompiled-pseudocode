@@ -1,10 +1,10 @@
 /*
- * XREFs of PspCheckConditionalWakeCharge @ 0x1404F1C44
+ * XREFs of PspCheckConditionalWakeCharge @ 0x1404D43D8
  * Callers:
- *     AlpcpCompleteDispatchMessage @ 0x14044B990 (AlpcpCompleteDispatchMessage.c)
- *     PsChargeProcessWakeCounter @ 0x14051E1B0 (PsChargeProcessWakeCounter.c)
+ *     AlpcpCompleteDispatchMessage @ 0x14044A860 (AlpcpCompleteDispatchMessage.c)
+ *     PsChargeProcessWakeCounter @ 0x140501218 (PsChargeProcessWakeCounter.c)
  * Callees:
- *     PspIsProcessInJob @ 0x1404F287C (PspIsProcessInJob.c)
+ *     PspIsProcessInJob @ 0x1404D5808 (PspIsProcessInJob.c)
  */
 
 char __fastcall PspCheckConditionalWakeCharge(__int64 a1, __int64 a2, __int64 a3)

@@ -1,13 +1,13 @@
 /*
- * XREFs of PiSwCloseDescendants @ 0x1406ED318
+ * XREFs of PiSwCloseDescendants @ 0x1406EE5B8
  * Callers:
- *     PiSwIrpCleanup @ 0x1406D8A48 (PiSwIrpCleanup.c)
- *     PiSwProcessParentRemoveIrp @ 0x1406ED238 (PiSwProcessParentRemoveIrp.c)
- *     PiSwCloseDescendants @ 0x1406ED318 (PiSwCloseDescendants.c)
+ *     PiSwIrpCleanup @ 0x1406D9CE8 (PiSwIrpCleanup.c)
+ *     PiSwProcessParentRemoveIrp @ 0x1406EE4D8 (PiSwProcessParentRemoveIrp.c)
+ *     PiSwCloseDescendants @ 0x1406EE5B8 (PiSwCloseDescendants.c)
  * Callees:
- *     PiSwCloseDevice @ 0x1406D9110 (PiSwCloseDevice.c)
- *     PiSwFindBusRelations @ 0x1406E8140 (PiSwFindBusRelations.c)
- *     PiSwCloseDescendants @ 0x1406ED318 (PiSwCloseDescendants.c)
+ *     PiSwCloseDevice @ 0x1406DA3B0 (PiSwCloseDevice.c)
+ *     PiSwFindBusRelations @ 0x1406E93E0 (PiSwFindBusRelations.c)
+ *     PiSwCloseDescendants @ 0x1406EE5B8 (PiSwCloseDescendants.c)
  */
 
 void __fastcall PiSwCloseDescendants(__int128 *a1)

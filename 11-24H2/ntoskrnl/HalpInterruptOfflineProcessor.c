@@ -1,38 +1,34 @@
 /*
- * XREFs of HalpInterruptOfflineProcessor @ 0x140562090
+ * XREFs of HalpInterruptOfflineProcessor @ 0x14055FCC0
  * Callers:
- *     HalpDpOfflineProcessorForReplace @ 0x140B4F7D0 (HalpDpOfflineProcessorForReplace.c)
+ *     HalpDpOfflineProcessorForReplace @ 0x140B51820 (HalpDpOfflineProcessorForReplace.c)
  * Callees:
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
  */
 
-void __fastcall __noreturn HalpInterruptOfflineProcessor(
-        volatile signed __int32 *a1,
-        __int64 a2,
-        __int64 a3,
-        __int64 a4)
+void __fastcall __noreturn HalpInterruptOfflineProcessor(volatile signed __int32 *a1)
 {
-  ULONG_PTR v4; // rdi
+  ULONG_PTR v1; // rdi
   unsigned __int8 CurrentIrql; // cl
-  __int64 v7; // rcx
-  __int128 v8; // [rsp+20h] [rbp-28h] BYREF
-  __int64 v9; // [rsp+30h] [rbp-18h]
+  __int64 v4; // rcx
+  __int128 v5; // [rsp+20h] [rbp-28h] BYREF
+  __int64 v6; // [rsp+30h] [rbp-18h]
 
-  v4 = HalpInterruptController;
-  LODWORD(v9) = 0;
-  v8 = 0LL;
+  v1 = HalpInterruptController;
+  LODWORD(v6) = 0;
+  v5 = 0LL;
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(0xFuLL);
-  if ( KiIrqlFlags != (unsigned __int8)v9 )
+  if ( KiIrqlFlags != (unsigned __int8)v6 )
     KiRaiseIrqlProcessIrqlFlags(CurrentIrql, 15);
-  if ( *(_QWORD *)(v4 + 80) )
+  if ( *(_QWORD *)(v1 + 80) )
   {
-    v9 = 0LL;
-    v7 = *(_QWORD *)(v4 + 16);
-    v8 = 0LL;
-    LODWORD(v8) = 4;
-    guard_dispatch_icall_no_overrides(v7, &v8, a3, a4);
+    v6 = 0LL;
+    v4 = *(_QWORD *)(v1 + 16);
+    v5 = 0LL;
+    LODWORD(v5) = 4;
+    guard_dispatch_icall_no_overrides(v4, &v5);
   }
   _InterlockedDecrement(&HalpInterruptProcessorsStarted);
   _InterlockedIncrement(a1);

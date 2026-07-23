@@ -1,12 +1,12 @@
 /*
- * XREFs of PoDiagTraceIRTimerSleepStudyRundown @ 0x1404F8504
+ * XREFs of PoDiagTraceIRTimerSleepStudyRundown @ 0x1404F1B14
  * Callers:
- *     ExStopRecordingIRTimerExpiries @ 0x140B190AC (ExStopRecordingIRTimerExpiries.c)
+ *     ExStopRecordingIRTimerExpiries @ 0x140B1B4F4 (ExStopRecordingIRTimerExpiries.c)
  * Callees:
- *     EtwEventEnabled @ 0x140212D90 (EtwEventEnabled.c)
- *     EtwWriteEx @ 0x140212F70 (EtwWriteEx.c)
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x140212E70 (EtwEventEnabled.c)
+ *     EtwWriteEx @ 0x140213050 (EtwWriteEx.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 char __fastcall PoDiagTraceIRTimerSleepStudyRundown(int a1, __int16 a2, const WCHAR *a3)
@@ -27,11 +27,9 @@ char __fastcall PoDiagTraceIRTimerSleepStudyRundown(int a1, __int16 a2, const WC
   v15 = a2;
   v14 = a1;
   DestinationString = 0LL;
-  if ( byte_140E67628 )
+  if ( PopDiagHandleRegistered )
   {
-    LOBYTE(v3) = EtwEventEnabled(
-                   *(REGHANDLE *)&PopSleepstudySessionLock.PriorityFloorCounts[16],
-                   &POP_ETW_DEEP_SLEEP_IR_TIMER_DATA);
+    LOBYTE(v3) = EtwEventEnabled(PopDiagHandle, &POP_ETW_DEEP_SLEEP_IR_TIMER_DATA);
     if ( (_BYTE)v3 )
     {
       RtlInitUnicodeString(&DestinationString, a3);
@@ -42,15 +40,7 @@ char __fastcall PoDiagTraceIRTimerSleepStudyRundown(int a1, __int16 a2, const WC
       Length = DestinationString.Length;
       v9 = 2LL;
       v12 = 0;
-      LOBYTE(v3) = EtwWriteEx(
-                     *(REGHANDLE *)&PopSleepstudySessionLock.PriorityFloorCounts[16],
-                     &POP_ETW_DEEP_SLEEP_IR_TIMER_DATA,
-                     0LL,
-                     0,
-                     0LL,
-                     0LL,
-                     3u,
-                     &UserData);
+      LOBYTE(v3) = EtwWriteEx(PopDiagHandle, &POP_ETW_DEEP_SLEEP_IR_TIMER_DATA, 0LL, 0, 0LL, 0LL, 3u, &UserData);
     }
   }
   return (char)v3;

@@ -1,10 +1,10 @@
 /*
- * XREFs of Feature_AutoCleanupClfsLogfiles__private_IsEnabledDeviceUsageNoInline @ 0x140512098
+ * XREFs of Feature_AutoCleanupClfsLogfiles__private_IsEnabledDeviceUsageNoInline @ 0x14050BB08
  * Callers:
- *     CmpStartCLFSLog @ 0x140863388 (CmpStartCLFSLog.c)
- *     CmpInitCmRM @ 0x140A75780 (CmpInitCmRM.c)
+ *     CmpStartCLFSLog @ 0x140869768 (CmpStartCLFSLog.c)
+ *     CmpInitCmRM @ 0x140A7E4A0 (CmpInitCmRM.c)
  * Callees:
- *     Feature_AutoCleanupClfsLogfiles__private_IsEnabledFallback @ 0x140532DF4 (Feature_AutoCleanupClfsLogfiles__private_IsEnabledFallback.c)
+ *     Feature_AutoCleanupClfsLogfiles__private_IsEnabledFallback @ 0x140535294 (Feature_AutoCleanupClfsLogfiles__private_IsEnabledFallback.c)
  */
 
 __int64 Feature_AutoCleanupClfsLogfiles__private_IsEnabledDeviceUsageNoInline()

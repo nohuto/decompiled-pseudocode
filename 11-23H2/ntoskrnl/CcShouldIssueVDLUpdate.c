@@ -1,7 +1,7 @@
 /*
- * XREFs of CcShouldIssueVDLUpdate @ 0x14029B3A0
+ * XREFs of CcShouldIssueVDLUpdate @ 0x14029B630
  * Callers:
- *     CcWriteBehindPostProcess @ 0x14029B038 (CcWriteBehindPostProcess.c)
+ *     CcWriteBehindPostProcess @ 0x14029B2C8 (CcWriteBehindPostProcess.c)
  * Callees:
  *     <none>
  */

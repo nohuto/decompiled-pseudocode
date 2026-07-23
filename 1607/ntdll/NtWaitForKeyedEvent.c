@@ -1,16 +1,20 @@
 /*
  * XREFs of NtWaitForKeyedEvent @ 0x1800A9BD0
  * Callers:
- *     RtlpRunOnceWaitForInit @ 0x180088258 (RtlpRunOnceWaitForInit.c)
+ *     RtlpRunOnceWaitForInit @ 0x180088248 (RtlpRunOnceWaitForInit.c)
  * Callees:
  *     <none>
  */
 
-__int64 NtWaitForKeyedEvent()
+NTSTATUS __cdecl NtWaitForKeyedEvent(
+        HANDLE KeyedEventHandle,
+        PVOID KeyValue,
+        BOOLEAN Alertable,
+        PLARGE_INTEGER Timeout)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 446LL;
+  result = 446;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

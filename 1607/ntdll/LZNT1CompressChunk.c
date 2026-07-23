@@ -1,9 +1,9 @@
 /*
- * XREFs of LZNT1CompressChunk @ 0x18008E5F0
+ * XREFs of LZNT1CompressChunk @ 0x18008E5E0
  * Callers:
- *     RtlCompressBufferLZNT1 @ 0x18008E500 (RtlCompressBufferLZNT1.c)
+ *     RtlCompressBufferLZNT1 @ 0x18008E4F0 (RtlCompressBufferLZNT1.c)
  * Callees:
- *     LZNT1FindMatchStandard @ 0x18008E8D0 (LZNT1FindMatchStandard.c)
+ *     LZNT1FindMatchStandard @ 0x18008E8C0 (LZNT1FindMatchStandard.c)
  *     _guard_dispatch_icall_nop @ 0x1800A9C80 (_guard_dispatch_icall_nop.c)
  *     memmove @ 0x1800AC980 (memmove.c)
  */

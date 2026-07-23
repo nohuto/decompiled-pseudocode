@@ -74,12 +74,12 @@ NTSTATUS __stdcall NtQueryVolumeInformationFile(
   int v41; // eax
   struct _KEVENT *Pool2; // rax
   _BYTE *v43; // r14
-  int DriverPathInformation; // eax
+  NTSTATUS DriverPathInformation; // eax
   char v45; // [rsp+40h] [rbp-78h] BYREF
   unsigned __int8 v46; // [rsp+41h] [rbp-77h]
   bool v47; // [rsp+42h] [rbp-76h]
   PVOID Object; // [rsp+48h] [rbp-70h] BYREF
-  int v49; // [rsp+50h] [rbp-68h]
+  NTSTATUS v49; // [rsp+50h] [rbp-68h]
   ULONG_PTR BugCheckParameter2; // [rsp+58h] [rbp-60h]
   PVOID P; // [rsp+60h] [rbp-58h]
   _BYTE *v52; // [rsp+68h] [rbp-50h]

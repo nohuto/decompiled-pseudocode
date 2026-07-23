@@ -148,7 +148,7 @@ __int64 __fastcall PspAllocateProcess(
   void *v41; // rcx
   int v42; // r12d
   __int16 v43; // r11
-  unsigned int v44; // r10d
+  ULONG v44; // r10d
   KPROCESSOR_MODE v45; // al
   __int64 v46; // rax
   __int64 v47; // r12
@@ -281,7 +281,7 @@ __int64 __fastcall PspAllocateProcess(
   HANDLE Handle; // [rsp+168h] [rbp-6D0h] BYREF
   HANDLE KeyHandle; // [rsp+170h] [rbp-6C8h] BYREF
   __int64 v177; // [rsp+178h] [rbp-6C0h] BYREF
-  PVOID v178; // [rsp+180h] [rbp-6B8h] BYREF
+  PVOID StatePointer; // [rsp+180h] [rbp-6B8h] BYREF
   PVOID P; // [rsp+188h] [rbp-6B0h]
   __int128 v180; // [rsp+190h] [rbp-6A8h] BYREF
   __int64 v181; // [rsp+1A0h] [rbp-698h]
@@ -330,7 +330,7 @@ __int64 __fastcall PspAllocateProcess(
   _OWORD v224[3]; // [rsp+430h] [rbp-408h] BYREF
   struct _KAFFINITY_EX v225; // [rsp+460h] [rbp-3D8h] BYREF
   _DWORD v226[136]; // [rsp+570h] [rbp-2C8h] BYREF
-  _DWORD v227[8]; // [rsp+790h] [rbp-A8h] BYREF
+  ULONG Privilege[8]; // [rsp+790h] [rbp-A8h] BYREF
   _OWORD v228[4]; // [rsp+7B0h] [rbp-88h] BYREF
 
   v162 = a3;
@@ -441,7 +441,7 @@ LABEL_8:
   v221 = 0LL;
   v222 = 0LL;
   v223 = 0LL;
-  v178 = 0LL;
+  StatePointer = 0LL;
   v19 = 2112;
   v163 = 0;
   v186 = 0LL;
@@ -809,26 +809,26 @@ LABEL_83:
             {
               if ( v17 && (*(_DWORD *)(v17 + 8) & 0x100LL) != 0 && *(_BYTE *)(v17 + 2) == 4 )
               {
-                v227[0] = 14;
+                Privilege[0] = 14;
                 v44 = 1;
               }
               v104 = a12;
               if ( a12 )
-                v227[v44++] = 3;
+                Privilege[v44++] = 3;
               if ( (v42 & 0x30) != 0 )
-                v227[v44++] = 4;
+                Privilege[v44++] = 4;
               if ( (v42 & 0x80u) != 0 )
               {
                 IsSessionLeaderProcess = PspIsSessionLeaderProcess(Process);
                 v104 = a12;
                 if ( !IsSessionLeaderProcess )
-                  v227[v44++] = 10;
+                  Privilege[v44++] = 10;
               }
               if ( (v42 & 0x8400) != 0 )
-                v227[v44++] = 7;
+                Privilege[v44++] = 7;
               if ( v44 )
               {
-                v106 = (int)RtlAcquirePrivilege(v227, v44, v104 != 0, &v178) < 0;
+                v106 = RtlAcquirePrivilege(Privilege, v44, v104 != 0, &StatePointer) < 0;
                 v45 = a2;
                 if ( !v106 )
                   v18 |= 0x400u;
@@ -1246,7 +1246,7 @@ LABEL_285:
                   {
 LABEL_152:
                     if ( (v18 & 0x400) != 0 )
-                      RtlReleasePrivilege((__int64 *)v178);
+                      RtlReleasePrivilege(StatePointer);
                     if ( *((_WORD *)v27 + 886) == 332 )
                       *((_DWORD *)v27 + 34) |= 1u;
                     if ( (v18 & 0x80u) != 0 )
@@ -1468,7 +1468,7 @@ LABEL_215:
                     }
 LABEL_177:
                     if ( (v18 & 0x400) != 0 )
-                      RtlReleasePrivilege((__int64 *)v178);
+                      RtlReleasePrivilege(StatePointer);
                     goto LABEL_198;
                   }
                   *((_QWORD *)v27 + 86) = *(_QWORD *)(v70 + 688);

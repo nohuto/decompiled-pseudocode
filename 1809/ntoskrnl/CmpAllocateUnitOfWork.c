@@ -1,18 +1,18 @@
 /*
- * XREFs of CmpAllocateUnitOfWork @ 0x1406C769C
+ * XREFs of CmpAllocateUnitOfWork @ 0x1406C893C
  * Callers:
- *     CmpUndoDeleteKeyForTransEx @ 0x140581354 (CmpUndoDeleteKeyForTransEx.c)
- *     CmDeleteKey @ 0x1405A9DD8 (CmDeleteKey.c)
- *     CmpCreateChild @ 0x1405AB7A4 (CmpCreateChild.c)
- *     CmDeleteValueKey @ 0x1405B6634 (CmDeleteValueKey.c)
- *     CmpSetKeySecurity @ 0x1405B8548 (CmpSetKeySecurity.c)
- *     CmSetValueKey @ 0x1405CBE28 (CmSetValueKey.c)
- *     CmRenameKey @ 0x1407EDAF4 (CmRenameKey.c)
- *     CmSetKeyFlags @ 0x1407EF41C (CmSetKeyFlags.c)
- *     CmSetLastWriteTimeKey @ 0x1407EF8AC (CmSetLastWriteTimeKey.c)
+ *     CmpUndoDeleteKeyForTransEx @ 0x140582354 (CmpUndoDeleteKeyForTransEx.c)
+ *     CmDeleteKey @ 0x1405AADD8 (CmDeleteKey.c)
+ *     CmpCreateChild @ 0x1405AC7A4 (CmpCreateChild.c)
+ *     CmDeleteValueKey @ 0x1405B7634 (CmDeleteValueKey.c)
+ *     CmpSetKeySecurity @ 0x1405B9548 (CmpSetKeySecurity.c)
+ *     CmSetValueKey @ 0x1405CCE28 (CmSetValueKey.c)
+ *     CmRenameKey @ 0x1407EECF4 (CmRenameKey.c)
+ *     CmSetKeyFlags @ 0x1407F061C (CmSetKeyFlags.c)
+ *     CmSetLastWriteTimeKey @ 0x1407F0AAC (CmSetLastWriteTimeKey.c)
  * Callees:
- *     memset @ 0x1401D1880 (memset.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
  */
 
 _QWORD *CmpAllocateUnitOfWork()

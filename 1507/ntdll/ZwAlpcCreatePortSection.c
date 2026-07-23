@@ -6,11 +6,17 @@
  *     <none>
  */
 
-__int64 ZwAlpcCreatePortSection()
+NTSTATUS __cdecl ZwAlpcCreatePortSection(
+        HANDLE PortHandle,
+        ULONG Flags,
+        HANDLE SectionHandle,
+        SIZE_T SectionSize,
+        PALPC_HANDLE AlpcSectionHandle,
+        PSIZE_T ActualSectionSize)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 120LL;
+  result = 120;
   __asm { syscall; Low latency system call }
   return result;
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of MiReadPteShadow @ 0x1401EF3E0
+ * XREFs of MiReadPteShadow @ 0x1401EF20C
  * Callers:
- *     MI_READ_PTE_LOCK_FREE @ 0x1401F25D0 (MI_READ_PTE_LOCK_FREE.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1401F23FC (MI_READ_PTE_LOCK_FREE.c)
  * Callees:
- *     MiPteHasShadow @ 0x1401EF38C (MiPteHasShadow.c)
+ *     MiPteHasShadow @ 0x1401EF1B8 (MiPteHasShadow.c)
  */
 
 __int64 __fastcall MiReadPteShadow(__int64 a1, __int64 a2)

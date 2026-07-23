@@ -17,10 +17,10 @@
  *     AlpcpCaptureIdMessage @ 0x140688420 (AlpcpCaptureIdMessage.c)
  */
 
-__int64 __fastcall NtAlpcImpersonateClientContainerOfPort(HANDLE Handle, __int64 a2, int a3)
+NTSTATUS __cdecl NtAlpcImpersonateClientContainerOfPort(HANDLE PortHandle, PPORT_MESSAGE Message, ULONG Flags)
 {
   struct _KTHREAD *CurrentThread; // rax
-  int v5; // edi
+  NTSTATUS v5; // edi
   KPROCESSOR_MODE PreviousMode; // r9
   __int64 v7; // r9
   struct _KTHREAD *v8; // r14
@@ -45,16 +45,16 @@ __int64 __fastcall NtAlpcImpersonateClientContainerOfPort(HANDLE Handle, __int64
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
   DmaAdapter = 0LL;
-  if ( a3 )
+  if ( Flags )
   {
     v5 = -1073741811;
   }
   else
   {
-    AlpcpCaptureIdMessage(a2, &v21, &v20);
+    AlpcpCaptureIdMessage((__int64)Message, &v21, &v20);
     PreviousMode = KeGetCurrentThread()->PreviousMode;
     Object = 0LL;
-    v5 = ObReferenceObjectByHandle(Handle, 0x20000u, AlpcPortObjectType, PreviousMode, &Object, 0LL);
+    v5 = ObReferenceObjectByHandle(PortHandle, 0x20000u, AlpcPortObjectType, PreviousMode, &Object, 0LL);
     DmaAdapter = (PADAPTER_OBJECT)Object;
     if ( v5 >= 0 )
     {
@@ -119,5 +119,5 @@ __int64 __fastcall NtAlpcImpersonateClientContainerOfPort(HANDLE Handle, __int64
   if ( DmaAdapter )
     HalPutDmaAdapter(DmaAdapter);
   KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
-  return (unsigned int)v5;
+  return v5;
 }

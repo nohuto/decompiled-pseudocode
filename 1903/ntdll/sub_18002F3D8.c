@@ -18,21 +18,20 @@ __int64 __fastcall sub_18002F3D8(__int64 a1, unsigned int a2)
 {
   __int64 v4; // rbx
   unsigned int v5; // edi
-  __int64 v6; // rcx
-  __int64 v8; // rcx
-  int v9; // [rsp+38h] [rbp+10h] BYREF
+  __int64 v7; // rcx
+  int v8; // [rsp+38h] [rbp+10h] BYREF
 
   if ( a2 && *(_DWORD *)(*(_QWORD *)(a1 + 152) + 24LL) == 1 )
     return 3221226029LL;
-  RtlAcquireSRWLockExclusive(&qword_1801660B0);
+  RtlAcquireSRWLockExclusive(&stru_1801660B0);
   v4 = *(_QWORD *)(a1 + 152);
-  v5 = sub_18002F464(v4, a2, &v9);
-  RtlReleaseSRWLockExclusive(&qword_1801660B0);
-  if ( v9 )
+  v5 = sub_18002F464(v4, a2, &v8);
+  RtlReleaseSRWLockExclusive(&stru_1801660B0);
+  if ( v8 )
   {
-    sub_18002D7BC(v6);
+    sub_18002D7BC();
     sub_18002ECFC(v4);
-    sub_18002D75C(v8, 8, 0);
+    sub_18002D75C(v7, 8, 0);
   }
   return v5;
 }

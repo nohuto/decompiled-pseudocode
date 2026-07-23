@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlpAtomMapAtomToHandleEntry @ 0x1800AEA2C
+ * XREFs of RtlpAtomMapAtomToHandleEntry @ 0x18007B20C
  * Callers:
- *     RtlLookupAtomInAtomTable @ 0x1800329C0 (RtlLookupAtomInAtomTable.c)
- *     RtlDeleteAtomFromAtomTable @ 0x1800AE4B0 (RtlDeleteAtomFromAtomTable.c)
- *     RtlAddAtomToAtomTableEx @ 0x1800AE554 (RtlAddAtomToAtomTableEx.c)
- *     RtlpFreeAllAtom @ 0x1800AED80 (RtlpFreeAllAtom.c)
- *     RtlQueryAtomInAtomTable @ 0x1801191C0 (RtlQueryAtomInAtomTable.c)
- *     RtlPinAtomInAtomTable @ 0x18013C0C0 (RtlPinAtomInAtomTable.c)
+ *     RtlLookupAtomInAtomTable @ 0x180013A80 (RtlLookupAtomInAtomTable.c)
+ *     RtlQueryAtomInAtomTable @ 0x18007AA70 (RtlQueryAtomInAtomTable.c)
+ *     RtlDeleteAtomFromAtomTable @ 0x18007AC90 (RtlDeleteAtomFromAtomTable.c)
+ *     RtlAddAtomToAtomTableEx @ 0x18007AD34 (RtlAddAtomToAtomTableEx.c)
+ *     RtlpFreeAllAtom @ 0x18007B560 (RtlpFreeAllAtom.c)
+ *     RtlPinAtomInAtomTable @ 0x18013A2B0 (RtlPinAtomInAtomTable.c)
  * Callees:
  *     <none>
  */

@@ -1,11 +1,11 @@
 /*
- * XREFs of BgDisplayString @ 0x140AF11B8
+ * XREFs of BgDisplayString @ 0x140AF11C8
  * Callers:
- *     BgkDrawText @ 0x140AF100C (BgkDrawText.c)
+ *     BgkDrawText @ 0x140AF101C (BgkDrawText.c)
  * Callees:
- *     BgpFwReleaseLock @ 0x140385660 (BgpFwReleaseLock.c)
- *     BgpFwAcquireLock @ 0x1403856B0 (BgpFwAcquireLock.c)
- *     BgpTxtDisplayString @ 0x140AF27A0 (BgpTxtDisplayString.c)
+ *     BgpFwReleaseLock @ 0x140385840 (BgpFwReleaseLock.c)
+ *     BgpFwAcquireLock @ 0x140385890 (BgpFwAcquireLock.c)
+ *     BgpTxtDisplayString @ 0x140AF27B0 (BgpTxtDisplayString.c)
  */
 
 __int64 __fastcall BgDisplayString(int a1)

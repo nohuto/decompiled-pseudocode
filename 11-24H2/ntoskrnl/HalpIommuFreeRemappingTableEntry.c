@@ -1,32 +1,32 @@
 /*
- * XREFs of HalpIommuFreeRemappingTableEntry @ 0x14054DF38
+ * XREFs of HalpIommuFreeRemappingTableEntry @ 0x14054B7E4
  * Callers:
- *     HalpIrtFreeIndex @ 0x1407016B0 (HalpIrtFreeIndex.c)
+ *     HalpIrtFreeIndex @ 0x1406FF2F0 (HalpIrtFreeIndex.c)
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
  */
 
-__int64 __fastcall HalpIommuFreeRemappingTableEntry(unsigned int a1, unsigned int a2, __int64 a3, __int64 a4)
+__int64 __fastcall HalpIommuFreeRemappingTableEntry(unsigned int a1)
 {
-  ULONG_PTR *v4; // rbx
-  unsigned int v7; // r8d
-  ULONG_PTR *v8; // rcx
+  ULONG_PTR *v1; // rbx
+  unsigned int v3; // r8d
+  ULONG_PTR *v4; // rcx
 
-  v4 = (ULONG_PTR *)HalpIommuList;
-  v7 = 0;
-  while ( v4 != &HalpIommuList )
+  v1 = (ULONG_PTR *)HalpIommuList;
+  v3 = 0;
+  while ( v1 != &HalpIommuList )
   {
-    v8 = v4;
-    v4 = (ULONG_PTR *)*v4;
-    if ( (v8[59] & 0x40) != 0 )
+    v4 = v1;
+    v1 = (ULONG_PTR *)*v1;
+    if ( (v4[59] & 0x40) != 0 )
     {
-      if ( v8[21] )
+      if ( v4[21] )
       {
-        v7 = guard_dispatch_icall_no_overrides(v8[2], a1, a2, a4);
-        if ( v7 != -1073741594 )
+        v3 = guard_dispatch_icall_no_overrides(v4[2], a1);
+        if ( v3 != -1073741594 )
           break;
       }
     }
   }
-  return v7;
+  return v3;
 }

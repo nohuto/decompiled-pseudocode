@@ -1,8 +1,8 @@
 /*
- * XREFs of ?IsEqualGUID@@YAHAEBU_GUID@@0@Z @ 0x14013B4F0
+ * XREFs of ?IsEqualGUID@@YAHAEBU_GUID@@0@Z @ 0x14013B5F0
  * Callers:
- *     ?Initialize@SC_DISK@@UEAAJXZ @ 0x140168790 (-Initialize@SC_DISK@@UEAAJXZ.c)
- *     ?ReadPartitionTable@SC_GPT@@QEAAJPEAPEAVSC_DISK_LAYOUT@@@Z @ 0x14032A094 (-ReadPartitionTable@SC_GPT@@QEAAJPEAPEAVSC_DISK_LAYOUT@@@Z.c)
+ *     ?Initialize@SC_DISK@@UEAAJXZ @ 0x140168890 (-Initialize@SC_DISK@@UEAAJXZ.c)
+ *     ?ReadPartitionTable@SC_GPT@@QEAAJPEAPEAVSC_DISK_LAYOUT@@@Z @ 0x14032A284 (-ReadPartitionTable@SC_GPT@@QEAAJPEAPEAVSC_DISK_LAYOUT@@@Z.c)
  * Callees:
  *     <none>
  */

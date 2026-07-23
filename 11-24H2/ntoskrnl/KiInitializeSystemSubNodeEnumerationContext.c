@@ -1,14 +1,14 @@
 /*
- * XREFs of KiInitializeSystemSubNodeEnumerationContext @ 0x140439854
+ * XREFs of KiInitializeSystemSubNodeEnumerationContext @ 0x14042C414
  * Callers:
- *     KiRemoveForceParkedProcessorsFromAffinity @ 0x1404387E0 (KiRemoveForceParkedProcessorsFromAffinity.c)
- *     KeConfigureHeteroProcessors @ 0x140438880 (KeConfigureHeteroProcessors.c)
- *     KiGetNumberOfActiveSubNodes @ 0x1404397E8 (KiGetNumberOfActiveSubNodes.c)
- *     KiChooseTargetProcessor @ 0x1404E7710 (KiChooseTargetProcessor.c)
- *     KiConfigureCooperativeIdleSearchContextTargets @ 0x1405B6868 (KiConfigureCooperativeIdleSearchContextTargets.c)
- *     KiGetNextClockOwner @ 0x1405BA1EC (KiGetNextClockOwner.c)
+ *     KiRemoveForceParkedProcessorsFromAffinity @ 0x14042B3A0 (KiRemoveForceParkedProcessorsFromAffinity.c)
+ *     KeConfigureHeteroProcessors @ 0x14042B440 (KeConfigureHeteroProcessors.c)
+ *     KiGetNumberOfActiveSubNodes @ 0x14042C3A8 (KiGetNumberOfActiveSubNodes.c)
+ *     KiChooseTargetProcessor @ 0x1404DE410 (KiChooseTargetProcessor.c)
+ *     KiConfigureCooperativeIdleSearchContextTargets @ 0x1405B3B28 (KiConfigureCooperativeIdleSearchContextTargets.c)
+ *     KiGetNextClockOwner @ 0x1405B781C (KiGetNextClockOwner.c)
  * Callees:
- *     RtlCopyVolatileMemory @ 0x1406B5CF0 (RtlCopyVolatileMemory.c)
+ *     RtlCopyVolatileMemory @ 0x1406B6C90 (RtlCopyVolatileMemory.c)
  */
 
 void *__fastcall KiInitializeSystemSubNodeEnumerationContext(__int64 a1, __int16 a2)
@@ -30,7 +30,7 @@ void *__fastcall KiInitializeSystemSubNodeEnumerationContext(__int64 a1, __int16
     *(_DWORD *)(a1 + 4) = 1;
     if ( v5 == 1 )
       goto LABEL_8;
-    v2 = *(unsigned int *)(qword_140E2DAD0 + 4LL * (v5 * (unsigned int)(unsigned __int16)v2 + 1));
+    v2 = *(unsigned int *)(qword_140E2DC10 + 4LL * (v5 * (unsigned int)(unsigned __int16)v2 + 1));
   }
   else
   {

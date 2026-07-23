@@ -104,7 +104,7 @@ __int64 __fastcall EmpParseInfDatabase(__int64 a1, unsigned int a2)
         {
           v16->CrossThreadReleasableAndBusyByte |= 2u;
           if ( (__int64)v16->LockState.LockState < 0 )
-            KiAbEntryRemoveFromTree((__int64)&CurrentThread->LockEntries[v15]);
+            KiAbEntryRemoveFromTree(&CurrentThread->LockEntries[v15].TreeNode);
           v17 = v16->BoostBitmap.AllFields & 0x1FFFF;
           v18 = v16->BoostBitmap.AllFields & 0xFFFE0000;
           v16->ThreadLocalFlags &= ~1u;

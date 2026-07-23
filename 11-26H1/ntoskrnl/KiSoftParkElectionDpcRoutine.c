@@ -1,18 +1,18 @@
 /*
- * XREFs of KiSoftParkElectionDpcRoutine @ 0x14022A460
+ * XREFs of KiSoftParkElectionDpcRoutine @ 0x14022BDF0
  * Callers:
  *     <none>
  * Callees:
- *     KiShouldSoftParkElectionBePerformed @ 0x14022A630 (KiShouldSoftParkElectionBePerformed.c)
- *     KiPerformSoftParkElection @ 0x14022A694 (KiPerformSoftParkElection.c)
- *     KiSoftParkElectionUnparkProcessor @ 0x14022ACC4 (KiSoftParkElectionUnparkProcessor.c)
- *     KiFlushSoftwareInterruptBatch @ 0x1402436D0 (KiFlushSoftwareInterruptBatch.c)
- *     HvlNotifyLongSpinWait @ 0x1402BBF00 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1402BC760 (KiCheckVpBackingLongSpinWaitHypercall.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402DED10 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     KiProcessDeferredReadyList @ 0x14037C920 (KiProcessDeferredReadyList.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     KiShouldSoftParkElectionBePerformed @ 0x14022BFC0 (KiShouldSoftParkElectionBePerformed.c)
+ *     KiPerformSoftParkElection @ 0x14022C024 (KiPerformSoftParkElection.c)
+ *     KiSoftParkElectionUnparkProcessor @ 0x14022C654 (KiSoftParkElectionUnparkProcessor.c)
+ *     KiFlushSoftwareInterruptBatch @ 0x140245030 (KiFlushSoftwareInterruptBatch.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402C0B20 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     HvlNotifyLongSpinWait @ 0x140306BC0 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140307420 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     KiProcessDeferredReadyList @ 0x14037E6D0 (KiProcessDeferredReadyList.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 void __fastcall KiSoftParkElectionDpcRoutine(__int64 a1, __int64 a2)
@@ -33,8 +33,7 @@ void __fastcall KiSoftParkElectionDpcRoutine(__int64 a1, __int64 a2)
   v2 = *(unsigned __int16 *)(a2 + 710);
   v14[0] = 0LL;
   CurrentPrcb = KeGetCurrentPrcb();
-  v5 = *(_QWORD *)(KiProcessorBlock[*((unsigned int *)&KiSupervisorXStateFeaturesLock.WaitBlock[2].Thread->Header.Lock
-                                    + 64 * v2
+  v5 = *(_QWORD *)(KiProcessorBlock[*((unsigned int *)&KiSupervisorXStateFeaturesLock.SchedulerApc.ApcListEntry.Flink[16 * v2].Flink
                                     + *(unsigned __int8 *)(a2 + 705))]
                  + 192);
   ExAcquireSpinLockExclusiveAtDpcLevel((PEX_SPIN_LOCK)(v5 + 120));

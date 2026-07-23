@@ -29,8 +29,8 @@ PSLIST_ENTRY __fastcall SmHwAcceleratorPartitionMgrGetDescriptor(__int64 a1, cha
   __int64 *v10; // rsi
   unsigned int NextNode; // eax
   int v12; // r13d
-  union _SLIST_HEADER **v13; // r14
-  union _SLIST_HEADER *i; // r12
+  _SLIST_HEADER **v13; // r14
+  _SLIST_HEADER *i; // r12
   PSLIST_ENTRY v15; // rax
   _DWORD *v16; // rsi
   struct _KTHREAD *v17; // rax
@@ -49,7 +49,7 @@ PSLIST_ENTRY __fastcall SmHwAcceleratorPartitionMgrGetDescriptor(__int64 a1, cha
   int v30; // [rsp+38h] [rbp-39h] BYREF
   LARGE_INTEGER Timeout; // [rsp+40h] [rbp-31h] BYREF
   ULONG_PTR BugCheckParameter2; // [rsp+48h] [rbp-29h]
-  struct _SLIST_ENTRY *v33; // [rsp+50h] [rbp-21h]
+  _SLIST_ENTRY *v33; // [rsp+50h] [rbp-21h]
   __int64 v34; // [rsp+58h] [rbp-19h]
   __int128 Object; // [rsp+68h] [rbp-9h] BYREF
   _OWORD v36[5]; // [rsp+78h] [rbp+7h] BYREF
@@ -84,15 +84,15 @@ LABEL_8:
   v30 = 0;
   v12 = 1;
 LABEL_10:
-  v13 = (union _SLIST_HEADER **)(v34 + 16LL * NextNode);
-  for ( i = *v13; ; i = (union _SLIST_HEADER *)i->Alignment )
+  v13 = (_SLIST_HEADER **)(v34 + 16LL * NextNode);
+  for ( i = *v13; ; i = (_SLIST_HEADER *)i->Alignment )
   {
-    if ( i == (union _SLIST_HEADER *)v13 )
+    if ( i == (_SLIST_HEADER *)v13 )
     {
       if ( (a2 & 4) == 0 )
       {
         NextNode = MmGetNextNode(a3, &v30);
-        if ( *v13 != (union _SLIST_HEADER *)v13 )
+        if ( *v13 != (_SLIST_HEADER *)v13 )
           v12 = 0;
         if ( NextNode != -1 )
           goto LABEL_10;

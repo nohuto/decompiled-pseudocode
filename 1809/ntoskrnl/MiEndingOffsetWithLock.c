@@ -3,15 +3,15 @@
  * Callers:
  *     MiFinishMdlForMappedFileFault @ 0x14002CB18 (MiFinishMdlForMappedFileFault.c)
  *     MiReadyFlushMdlToWrite @ 0x14002DBD0 (MiReadyFlushMdlToWrite.c)
- *     MiViewMayContainPage @ 0x1400EAE00 (MiViewMayContainPage.c)
- *     MiPfPrepareReadList @ 0x1405DFDE0 (MiPfPrepareReadList.c)
- *     MiPfPrepareSequentialReadList @ 0x1405EBA20 (MiPfPrepareSequentialReadList.c)
- *     MiPfAllocateMdls @ 0x1406982A0 (MiPfAllocateMdls.c)
+ *     MiViewMayContainPage @ 0x1400EAE80 (MiViewMayContainPage.c)
+ *     MiPfPrepareReadList @ 0x1405E0DE0 (MiPfPrepareReadList.c)
+ *     MiPfPrepareSequentialReadList @ 0x1405ECA20 (MiPfPrepareSequentialReadList.c)
+ *     MiPfAllocateMdls @ 0x140699460 (MiPfAllocateMdls.c)
  * Callees:
  *     MiEndingOffset @ 0x140031090 (MiEndingOffset.c)
- *     ExAcquireSpinLockShared @ 0x14009D7C0 (ExAcquireSpinLockShared.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     ExpReleaseSpinLockSharedFromDpcLevelInstrumented @ 0x14031C2A4 (ExpReleaseSpinLockSharedFromDpcLevelInstrumented.c)
+ *     ExAcquireSpinLockShared @ 0x14009D700 (ExAcquireSpinLockShared.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExpReleaseSpinLockSharedFromDpcLevelInstrumented @ 0x14031C494 (ExpReleaseSpinLockSharedFromDpcLevelInstrumented.c)
  */
 
 __int64 __fastcall MiEndingOffsetWithLock(__int64 *a1)

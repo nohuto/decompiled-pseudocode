@@ -1,9 +1,9 @@
 /*
- * XREFs of KseSkipDriverUnloadCallbackHookDriverUnload @ 0x140582590
+ * XREFs of KseSkipDriverUnloadCallbackHookDriverUnload @ 0x140582A80
  * Callers:
  *     <none>
  * Callees:
- *     KsepSkipDriverUnloadEventDriverUnload @ 0x1405826EC (KsepSkipDriverUnloadEventDriverUnload.c)
+ *     KsepSkipDriverUnloadEventDriverUnload @ 0x140582BDC (KsepSkipDriverUnloadEventDriverUnload.c)
  */
 
 __int64 __fastcall KseSkipDriverUnloadCallbackHookDriverUnload(__int64 a1)

@@ -1,15 +1,15 @@
 /*
- * XREFs of PfSnDeactivateTrace @ 0x1402F521C
+ * XREFs of PfSnDeactivateTrace @ 0x1402F54AC
  * Callers:
- *     PfSnEndTrace @ 0x14074A848 (PfSnEndTrace.c)
+ *     PfSnEndTrace @ 0x14074AA38 (PfSnEndTrace.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250E80 (KeAcquireSpinLockRaiseToDpc.c)
- *     ExReleaseRundownProtection_0 @ 0x14028B390 (ExReleaseRundownProtection_0.c)
- *     PfSnRemoveProcessTrace @ 0x1402F52FC (PfSnRemoveProcessTrace.c)
- *     PfSnCancelTraceTimer @ 0x1402F53A8 (PfSnCancelTraceTimer.c)
- *     ExWaitForRundownProtectionRelease @ 0x14030A340 (ExWaitForRundownProtectionRelease.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140250F40 (KeAcquireSpinLockRaiseToDpc.c)
+ *     ExReleaseRundownProtection_0 @ 0x14028B620 (ExReleaseRundownProtection_0.c)
+ *     PfSnRemoveProcessTrace @ 0x1402F558C (PfSnRemoveProcessTrace.c)
+ *     PfSnCancelTraceTimer @ 0x1402F5638 (PfSnCancelTraceTimer.c)
+ *     ExWaitForRundownProtectionRelease @ 0x14030A5D0 (ExWaitForRundownProtectionRelease.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall PfSnDeactivateTrace(struct _EX_RUNDOWN_REF *a1)
@@ -30,10 +30,13 @@ __int64 __fastcall PfSnDeactivateTrace(struct _EX_RUNDOWN_REF *a1)
 
   v2 = KeAcquireSpinLockRaiseToDpc(&qword_140C6A610);
   KxReleaseSpinLock((volatile signed __int64 *)&qword_140C6A610);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v2 <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
+      && (unsigned __int8)v2 <= 0xFu
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -58,10 +61,10 @@ __int64 __fastcall PfSnDeactivateTrace(struct _EX_RUNDOWN_REF *a1)
   *v5 = (struct _EX_RUNDOWN_REF *)Count;
   *(_QWORD *)(Count + 8) = v5;
   KxReleaseSpinLock((volatile signed __int64 *)&qword_140C6A610);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v12 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v12 <= 0xFu && (unsigned __int8)v3 <= 0xFu && v12 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v12 <= 0xFu && (unsigned __int8)v3 <= 0xFu && v12 >= 2u )
     {
       v13 = KeGetCurrentPrcb();
       v14 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v3 + 1));

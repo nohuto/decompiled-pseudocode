@@ -3,8 +3,8 @@
  * Callers:
  *     CcGetVirtualAddressIfMapped @ 0x14002037C (CcGetVirtualAddressIfMapped.c)
  *     CcGetVacbMiss @ 0x1400216E0 (CcGetVacbMiss.c)
- *     CcGetNumberOfMappedPages @ 0x140166AB0 (CcGetNumberOfMappedPages.c)
- *     CcUnmapInactiveViewsInternal @ 0x14026AAAC (CcUnmapInactiveViewsInternal.c)
+ *     CcGetNumberOfMappedPages @ 0x140166BB0 (CcGetNumberOfMappedPages.c)
+ *     CcUnmapInactiveViewsInternal @ 0x14026AC9C (CcUnmapInactiveViewsInternal.c)
  * Callees:
  *     <none>
  */

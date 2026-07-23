@@ -1,16 +1,16 @@
 /*
- * XREFs of BgkSetVirtualFrameBuffer @ 0x1403B6630
+ * XREFs of BgkSetVirtualFrameBuffer @ 0x1403B6810
  * Callers:
  *     <none>
  * Callees:
- *     memmove @ 0x140435700 (memmove.c)
- *     memset @ 0x140435A00 (memset.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     memset @ 0x140435E00 (memset.c)
  *     BgSetFrameBufferAccess @ 0x140AEC008 (BgSetFrameBufferAccess.c)
  *     BgGetDisplayContext @ 0x140AEC028 (BgGetDisplayContext.c)
- *     BgAcquireSpinLock @ 0x140AF1180 (BgAcquireSpinLock.c)
- *     BgConvertResources @ 0x140AF1198 (BgConvertResources.c)
- *     BgGetIsColorOverridden @ 0x140AF12B8 (BgGetIsColorOverridden.c)
- *     BgReleaseSpinLock @ 0x140AF137C (BgReleaseSpinLock.c)
+ *     BgAcquireSpinLock @ 0x140AF1190 (BgAcquireSpinLock.c)
+ *     BgConvertResources @ 0x140AF11A8 (BgConvertResources.c)
+ *     BgGetIsColorOverridden @ 0x140AF12C8 (BgGetIsColorOverridden.c)
+ *     BgReleaseSpinLock @ 0x140AF138C (BgReleaseSpinLock.c)
  */
 
 __int64 __fastcall BgkSetVirtualFrameBuffer(__int64 a1, __int64 (__fastcall *a2)(_QWORD, _QWORD, _QWORD))

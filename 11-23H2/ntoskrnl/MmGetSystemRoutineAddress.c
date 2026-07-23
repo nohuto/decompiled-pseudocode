@@ -1,23 +1,23 @@
 /*
- * XREFs of MmGetSystemRoutineAddress @ 0x140756870
+ * XREFs of MmGetSystemRoutineAddress @ 0x140756A60
  * Callers:
- *     HalMcFinishMicrocode @ 0x1403B0E04 (HalMcFinishMicrocode.c)
- *     HalpCmciLoadThresholdConfiguration @ 0x1403B0FC0 (HalpCmciLoadThresholdConfiguration.c)
- *     HalpMcEnumerateAndSetPatchConfig @ 0x14051B5D0 (HalpMcEnumerateAndSetPatchConfig.c)
- *     HalpMcGetLoadConfiguration @ 0x14051B9E4 (HalpMcGetLoadConfiguration.c)
+ *     HalMcFinishMicrocode @ 0x1403B0FE4 (HalMcFinishMicrocode.c)
+ *     HalpCmciLoadThresholdConfiguration @ 0x1403B11A0 (HalpCmciLoadThresholdConfiguration.c)
+ *     HalpMcEnumerateAndSetPatchConfig @ 0x14051BB20 (HalpMcEnumerateAndSetPatchConfig.c)
+ *     HalpMcGetLoadConfiguration @ 0x14051BF34 (HalpMcGetLoadConfiguration.c)
  * Callees:
- *     KeDelayExecutionThread @ 0x140246810 (KeDelayExecutionThread.c)
- *     MiMarkKernelCfgTarget @ 0x1402F7A50 (MiMarkKernelCfgTarget.c)
- *     RtlFindExportedRoutineByName @ 0x1406AD3F0 (RtlFindExportedRoutineByName.c)
- *     RtlFreeAnsiString @ 0x140756840 (RtlFreeAnsiString.c)
- *     RtlUnicodeStringToAnsiString @ 0x140758680 (RtlUnicodeStringToAnsiString.c)
+ *     KeDelayExecutionThread @ 0x1402468E0 (KeDelayExecutionThread.c)
+ *     MiMarkKernelCfgTarget @ 0x1402F7CE0 (MiMarkKernelCfgTarget.c)
+ *     RtlFindExportedRoutineByName @ 0x1406AD420 (RtlFindExportedRoutineByName.c)
+ *     RtlFreeAnsiString @ 0x140756A30 (RtlFreeAnsiString.c)
+ *     RtlUnicodeStringToAnsiString @ 0x140758870 (RtlUnicodeStringToAnsiString.c)
  */
 
 PVOID __stdcall MmGetSystemRoutineAddress(PUNICODE_STRING SystemRoutineName)
 {
   NTSTATUS i; // eax
-  void *ExportedRoutineByName; // rbx
-  STRING DestinationString; // [rsp+20h] [rbp-18h] BYREF
+  PVOID ExportedRoutineByName; // rbx
+  _STRING DestinationString; // [rsp+20h] [rbp-18h] BYREF
 
   DestinationString = 0LL;
   for ( i = RtlUnicodeStringToAnsiString(&DestinationString, SystemRoutineName, 1u);
@@ -26,9 +26,9 @@ PVOID __stdcall MmGetSystemRoutineAddress(PUNICODE_STRING SystemRoutineName)
   {
     KeDelayExecutionThread(0, 0, (PLARGE_INTEGER)&MiShortTime);
   }
-  ExportedRoutineByName = (void *)RtlFindExportedRoutineByName(PsNtosImageBase, DestinationString.Buffer);
+  ExportedRoutineByName = RtlFindExportedRoutineByName(PsNtosImageBase, DestinationString.Buffer);
   if ( !ExportedRoutineByName )
-    ExportedRoutineByName = (void *)RtlFindExportedRoutineByName(PsHalImageBase, DestinationString.Buffer);
+    ExportedRoutineByName = RtlFindExportedRoutineByName(PsHalImageBase, DestinationString.Buffer);
   RtlFreeAnsiString(&DestinationString);
   if ( ExportedRoutineByName && (int)MiMarkKernelCfgTarget() < 0 )
     return 0LL;

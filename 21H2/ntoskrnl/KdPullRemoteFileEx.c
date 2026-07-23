@@ -1,16 +1,16 @@
 /*
- * XREFs of KdPullRemoteFileEx @ 0x1409B6780
+ * XREFs of KdPullRemoteFileEx @ 0x1409B7780
  * Callers:
- *     KdPullRemoteFile @ 0x1409B6724 (KdPullRemoteFile.c)
+ *     KdPullRemoteFile @ 0x1409B7724 (KdPullRemoteFile.c)
  * Callees:
- *     DbgPrintEx @ 0x14037F820 (DbgPrintEx.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     memmove @ 0x140413F40 (memmove.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
- *     KdpCloseRemoteFile @ 0x1409B6970 (KdpCloseRemoteFile.c)
- *     KdpCreateRemoteFile @ 0x1409B6BD0 (KdpCreateRemoteFile.c)
- *     KdpReadRemoteFile @ 0x1409B6DFC (KdpReadRemoteFile.c)
+ *     DbgPrintEx @ 0x14037F370 (DbgPrintEx.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
+ *     KdpCloseRemoteFile @ 0x1409B7970 (KdpCloseRemoteFile.c)
+ *     KdpCreateRemoteFile @ 0x1409B7BD0 (KdpCreateRemoteFile.c)
+ *     KdpReadRemoteFile @ 0x1409B7DFC (KdpReadRemoteFile.c)
  */
 
 __int64 __fastcall KdPullRemoteFileEx(

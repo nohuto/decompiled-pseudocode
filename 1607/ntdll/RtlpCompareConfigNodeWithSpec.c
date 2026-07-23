@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpCompareConfigNodeWithSpec @ 0x180089044
+ * XREFs of RtlpCompareConfigNodeWithSpec @ 0x180089034
  * Callers:
- *     LdrpGetMUILangConfigNode @ 0x1800890E8 (LdrpGetMUILangConfigNode.c)
+ *     LdrpGetMUILangConfigNode @ 0x1800890D8 (LdrpGetMUILangConfigNode.c)
  * Callees:
- *     RtlpMuiRegGetLanginfoTypeNSpec @ 0x1800891B0 (RtlpMuiRegGetLanginfoTypeNSpec.c)
+ *     RtlpMuiRegGetLanginfoTypeNSpec @ 0x1800891A0 (RtlpMuiRegGetLanginfoTypeNSpec.c)
  */
 
 char __fastcall RtlpCompareConfigNodeWithSpec(__int64 a1, int a2, __int16 a3, __int16 *a4)

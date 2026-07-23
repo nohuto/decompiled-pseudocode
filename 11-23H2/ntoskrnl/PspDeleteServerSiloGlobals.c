@@ -1,20 +1,20 @@
 /*
- * XREFs of PspDeleteServerSiloGlobals @ 0x1409ACE90
+ * XREFs of PspDeleteServerSiloGlobals @ 0x1409AD090
  * Callers:
- *     PspConvertSiloToServerSilo @ 0x1409ACBE4 (PspConvertSiloToServerSilo.c)
- *     PspDeleteSilo @ 0x1409AD05C (PspDeleteSilo.c)
+ *     PspConvertSiloToServerSilo @ 0x1409ACDE4 (PspConvertSiloToServerSilo.c)
+ *     PspDeleteSilo @ 0x1409AD25C (PspDeleteSilo.c)
  * Callees:
  *     MiRemoveFromSystemSpace @ 0x140213780 (MiRemoveFromSystemSpace.c)
- *     ObfDereferenceObjectWithTag @ 0x14022F5B0 (ObfDereferenceObjectWithTag.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     KeSetEvent @ 0x14023C5E0 (KeSetEvent.c)
- *     ZwClose @ 0x14041AF40 (ZwClose.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     ExpDeleteSiloState @ 0x140608F80 (ExpDeleteSiloState.c)
- *     RtlFreeUnicodeString @ 0x14076F3D0 (RtlFreeUnicodeString.c)
- *     ObCleanupSiloState @ 0x14097ADD0 (ObCleanupSiloState.c)
- *     EtwCleanupSiloState @ 0x1409E1CC0 (EtwCleanupSiloState.c)
- *     ExWnfCleanupServerSiloState @ 0x140A06070 (ExWnfCleanupServerSiloState.c)
+ *     ObfDereferenceObjectWithTag @ 0x14022F6C0 (ObfDereferenceObjectWithTag.c)
+ *     ObfDereferenceObject @ 0x140231660 (ObfDereferenceObject.c)
+ *     KeSetEvent @ 0x14023C6B0 (KeSetEvent.c)
+ *     ZwClose @ 0x14041B2D0 (ZwClose.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
+ *     ExpDeleteSiloState @ 0x1406094D0 (ExpDeleteSiloState.c)
+ *     RtlFreeUnicodeString @ 0x14076F5C0 (RtlFreeUnicodeString.c)
+ *     ObCleanupSiloState @ 0x14097AFD0 (ObCleanupSiloState.c)
+ *     EtwCleanupSiloState @ 0x1409E1F50 (EtwCleanupSiloState.c)
+ *     ExWnfCleanupServerSiloState @ 0x140A06300 (ExWnfCleanupServerSiloState.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

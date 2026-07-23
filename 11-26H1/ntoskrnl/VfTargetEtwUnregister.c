@@ -1,13 +1,13 @@
 /*
- * XREFs of VfTargetEtwUnregister @ 0x140C29248
+ * XREFs of VfTargetEtwUnregister @ 0x140C2F258
  * Callers:
- *     VerifierEtwUnregister @ 0x140C40380 (VerifierEtwUnregister.c)
+ *     VerifierEtwUnregister @ 0x140C46390 (VerifierEtwUnregister.c)
  * Callees:
- *     VfAvlLookupTreeNode @ 0x1403B7E8C (VfAvlLookupTreeNode.c)
- *     VfAvlCleanupLockContext @ 0x1403B84FC (VfAvlCleanupLockContext.c)
- *     VfAvlInitializeLockContext @ 0x1404DCB40 (VfAvlInitializeLockContext.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
- *     CarReportRuleViolationFromNt @ 0x140C2BF1C (CarReportRuleViolationFromNt.c)
+ *     VfAvlLookupTreeNode @ 0x1403C1D8C (VfAvlLookupTreeNode.c)
+ *     VfAvlCleanupLockContext @ 0x1403C23FC (VfAvlCleanupLockContext.c)
+ *     VfAvlInitializeLockContext @ 0x1404D6220 (VfAvlInitializeLockContext.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
+ *     CarReportRuleViolationFromNt @ 0x140C31F2C (CarReportRuleViolationFromNt.c)
  */
 
 void __fastcall VfTargetEtwUnregister(__int64 a1, unsigned __int64 a2)
@@ -49,7 +49,7 @@ void __fastcall VfTargetEtwUnregister(__int64 a1, unsigned __int64 a2)
             goto LABEL_16;
           }
         }
-        if ( !dword_140F08700 && (*(_DWORD *)(v7 + 32) & 1) == 0 && (MmVerifierData & 0x800) != 0 )
+        if ( !dword_140F08AA0 && (*(_DWORD *)(v7 + 32) & 1) == 0 && (MmVerifierData & 0x800) != 0 )
           CarReportRuleViolationFromNt(0xC4u, 0xDCuLL, 0LL, 0LL, 0LL, 11, a2);
       }
     }

@@ -1,71 +1,64 @@
 /*
- * XREFs of RtlDetectHeapLeaks @ 0x18010A5F0
+ * XREFs of RtlDetectHeapLeaks @ 0x180022B90
  * Callers:
- *     LdrShutdownProcess @ 0x180002B70 (LdrShutdownProcess.c)
+ *     LdrShutdownProcess @ 0x1800ABBC0 (LdrShutdownProcess.c)
  * Callees:
- *     DbgPrint @ 0x18002FC00 (DbgPrint.c)
- *     RtlpScanProcessVirtualMemory @ 0x180040460 (RtlpScanProcessVirtualMemory.c)
- *     RtlDestroyHeap @ 0x18008F580 (RtlDestroyHeap.c)
- *     RtlpCreateHeap @ 0x1800A7550 (RtlpCreateHeap.c)
- *     RtlpInitializeLeakDetection @ 0x18010A7C8 (RtlpInitializeLeakDetection.c)
- *     RtlpReadProcessHeaps @ 0x18010A86C (RtlpReadProcessHeaps.c)
+ *     DbgPrint @ 0x18000F790 (DbgPrint.c)
+ *     RtlpScanProcessVirtualMemory @ 0x180020D90 (RtlpScanProcessVirtualMemory.c)
+ *     RtlpInitializeLeakDetection @ 0x180022D68 (RtlpInitializeLeakDetection.c)
+ *     RtlpCreateHeap @ 0x1800248B0 (RtlpCreateHeap.c)
+ *     RtlDestroyHeap @ 0x1800280C0 (RtlDestroyHeap.c)
+ *     RtlpReadProcessHeaps @ 0x180112AC0 (RtlpReadProcessHeaps.c)
  */
 
-struct _PEB *RtlDetectHeapLeaks()
+void RtlDetectHeapLeaks(void)
 {
-  struct _PEB *result; // rax
-  struct _PEB *v1; // rax
+  struct _PEB *v0; // rax
 
-  result = NtCurrentPeb();
-  if ( (result->NtGlobalFlag & 0x100) == 0 )
+  if ( (NtCurrentPeb()->NtGlobalFlag & 0x100) == 0
+    && (NtCurrentPeb()->NtGlobalFlag & 0x2000000) == 0
+    && (*((_QWORD *)&xmmword_1801D3000 + 1) || (RtlpShutdownProcessFlags & 3) != 0) )
   {
-    result = NtCurrentPeb();
-    if ( (result->NtGlobalFlag & 0x2000000) == 0
-      && (*((_QWORD *)&xmmword_1801D4000 + 1) || (RtlpShutdownProcessFlags & 3) != 0) )
+    RtlpLeaksCount = 0;
+    RtlpLeakHeap = (PVOID)RtlpCreateHeap(3, 0, 0, 0, 0LL, 0LL, 0);
+    if ( RtlpLeakHeap )
     {
-      RtlpLeaksCount = 0;
-      result = (struct _PEB *)RtlpCreateHeap(3, 0LL, 0LL, 0LL, 0LL, 0LL, 0);
-      RtlpLeakHeap = (__int64)result;
-      if ( result )
+      if ( NtCurrentPeb()->Ldr )
+        DbgPrint("HEAP[%wZ]: ", &NtCurrentPeb()->Ldr->InLoadOrderModuleList.Flink[5].Blink);
+      else
+        DbgPrint("HEAP: ");
+      DbgPrint("Inspecting leaks at process shutdown ...\n");
+      if ( (unsigned __int8)RtlpInitializeLeakDetection() )
       {
-        if ( NtCurrentPeb()->Ldr )
-          DbgPrint("HEAP[%wZ]: ", &NtCurrentPeb()->Ldr->InLoadOrderModuleList.Flink[5].Blink);
-        else
-          DbgPrint("HEAP: ");
-        DbgPrint("Inspecting leaks at process shutdown ...\n");
-        if ( (unsigned __int8)RtlpInitializeLeakDetection() )
+        RtlpLeakHeapAddress = (__int64)RtlpLeakHeap;
+        RtlpReadProcessHeaps();
+        RtlpScanProcessVirtualMemory();
+        RtlDestroyHeap(RtlpLeakHeap);
+        RtlpLeakHeap = 0LL;
+        v0 = NtCurrentPeb();
+        if ( RtlpLeaksCount )
         {
-          RtlpLeakHeapAddress = RtlpLeakHeap;
-          RtlpReadProcessHeaps();
-          RtlpScanProcessVirtualMemory();
-          RtlDestroyHeap(RtlpLeakHeap);
-          RtlpLeakHeap = 0LL;
-          v1 = NtCurrentPeb();
-          if ( RtlpLeaksCount )
-          {
-            if ( v1->Ldr )
-              DbgPrint("HEAP[%wZ]: ", &NtCurrentPeb()->Ldr->InLoadOrderModuleList.Flink[5].Blink);
-            else
-              DbgPrint("HEAP: ");
-            result = (struct _PEB *)DbgPrint("%ld leaks detected.\n", RtlpLeaksCount);
-            if ( (RtlpShutdownProcessFlags & 2) != 0 )
-              __debugbreak();
-          }
+          if ( v0->Ldr )
+            DbgPrint("HEAP[%wZ]: ", &NtCurrentPeb()->Ldr->InLoadOrderModuleList.Flink[5].Blink);
           else
-          {
-            if ( v1->Ldr )
-              DbgPrint("HEAP[%wZ]: ", &NtCurrentPeb()->Ldr->InLoadOrderModuleList.Flink[5].Blink);
-            else
-              DbgPrint("HEAP: ");
-            return (struct _PEB *)DbgPrint("No leaks detected.\n");
-          }
+            DbgPrint("HEAP: ");
+          DbgPrint("%ld leaks detected.\n", RtlpLeaksCount);
+          if ( (RtlpShutdownProcessFlags & 2) != 0 )
+            __debugbreak();
         }
         else
         {
-          return (struct _PEB *)RtlDestroyHeap(RtlpLeakHeap);
+          if ( v0->Ldr )
+            DbgPrint("HEAP[%wZ]: ", &NtCurrentPeb()->Ldr->InLoadOrderModuleList.Flink[5].Blink);
+          else
+            DbgPrint("HEAP: ");
+          DbgPrint("No leaks detected.\n");
         }
+      }
+      else
+      {
+        RtlDestroyHeap(RtlpLeakHeap);
       }
     }
   }
-  return result;
 }

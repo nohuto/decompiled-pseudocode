@@ -1,18 +1,18 @@
 /*
- * XREFs of MiDecayPfnFullyInitialized @ 0x14033EDB4
+ * XREFs of MiDecayPfnFullyInitialized @ 0x14033F044
  * Callers:
- *     MiDeleteVaTail @ 0x140279120 (MiDeleteVaTail.c)
- *     MiFinishHardFault @ 0x1402D9300 (MiFinishHardFault.c)
- *     MiWalkEntireImage @ 0x1402DAFE0 (MiWalkEntireImage.c)
+ *     MiDeleteVaTail @ 0x1402793B0 (MiDeleteVaTail.c)
+ *     MiFinishHardFault @ 0x1402D9590 (MiFinishHardFault.c)
+ *     MiWalkEntireImage @ 0x1402DB270 (MiWalkEntireImage.c)
  * Callees:
- *     MiUnlinkPageFromListEx @ 0x140266630 (MiUnlinkPageFromListEx.c)
- *     MiAcquirePageListLock @ 0x1402673A0 (MiAcquirePageListLock.c)
- *     MiReleasePageListLock @ 0x1402DDAD0 (MiReleasePageListLock.c)
- *     MiLockPageInline @ 0x1402EF680 (MiLockPageInline.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     RtlpInterlockedPushEntrySList @ 0x140428EF0 (RtlpInterlockedPushEntrySList.c)
- *     memset @ 0x140435A00 (memset.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiUnlinkPageFromListEx @ 0x1402668C0 (MiUnlinkPageFromListEx.c)
+ *     MiAcquirePageListLock @ 0x140267630 (MiAcquirePageListLock.c)
+ *     MiReleasePageListLock @ 0x1402DDD60 (MiReleasePageListLock.c)
+ *     MiLockPageInline @ 0x1402EF910 (MiLockPageInline.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     RtlpInterlockedPushEntrySList @ 0x140429280 (RtlpInterlockedPushEntrySList.c)
+ *     memset @ 0x140435E00 (memset.c)
  */
 
 __int64 __fastcall MiDecayPfnFullyInitialized(ULONG_PTR BugCheckParameter2)
@@ -52,10 +52,10 @@ __int64 __fastcall MiDecayPfnFullyInitialized(ULONG_PTR BugCheckParameter2)
   }
   result = 0x7FFFFFFFFFFFFFFFLL;
   _InterlockedAnd64((volatile signed __int64 *)(BugCheckParameter2 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     result = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
       && (unsigned __int8)result <= 0xFu
       && (unsigned __int8)v4 <= 0xFu
       && (unsigned __int8)result >= 2u )

@@ -43,7 +43,7 @@ __int64 __fastcall MiObtainSessionVa(unsigned int a1)
   unsigned int v23; // r8d
   bool v24; // zf
   __int64 v25; // rcx
-  unsigned __int64 v26; // rdi
+  __int64 v26; // rdi
   __int64 v27; // rdx
   __int64 v28; // rcx
   __int64 v30; // rcx
@@ -71,7 +71,7 @@ __int64 __fastcall MiObtainSessionVa(unsigned int a1)
   unsigned __int8 v52; // r14
   unsigned int v53; // r8d
   __int64 v54; // rcx
-  unsigned __int64 v55; // rdi
+  __int64 v55; // rdi
   __int64 v56; // rdx
   __int64 v57; // rcx
   unsigned __int64 v58; // [rsp+30h] [rbp-48h]
@@ -340,7 +340,7 @@ LABEL_13:
       v24 = !_BitScanReverse((unsigned int *)&v54, v53);
       if ( v24 )
         goto LABEL_118;
-      v55 = (unsigned __int64)&v50->LockEntries[v54];
+      v55 = (__int64)&v50->LockEntries[v54];
       v53 &= ~(1 << v54);
       if ( (*(_BYTE *)(v55 + 26) & 1) != 0
         && (*(_DWORD *)(v55 + 32) & 1) == 0
@@ -361,12 +361,12 @@ LABEL_118:
     }
     *(_BYTE *)(v55 + 32) |= 2u;
     if ( *(__int64 *)(v55 + 32) < 0 )
-      KiAbEntryRemoveFromTree(v55);
+      KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)v55);
     v69 = *(_DWORD *)(v55 + 88) & 0x1FFFF;
     *(_DWORD *)(v55 + 88) &= 0xFFFE0000;
     *(_BYTE *)(v55 + 25) &= ~1u;
     *(_QWORD *)(v55 + 32) = 0LL;
-    v56 = (__int64)(v55 - (unsigned __int64)v50->LockEntries) / 96;
+    v56 = (signed __int64)(v55 - (unsigned __int64)v50->LockEntries) / 96;
     if ( v52 == 1 )
       v50->AbEntrySummary |= 1 << v56;
     else
@@ -401,7 +401,7 @@ LABEL_130:
     v70 = v25;
     if ( v24 )
       break;
-    v26 = (unsigned __int64)&v20->LockEntries[v25];
+    v26 = (__int64)&v20->LockEntries[v25];
     v23 &= ~(1 << v25);
     if ( (*(_BYTE *)(v26 + 26) & 1) != 0
       && (*(_DWORD *)(v26 + 32) & 1) == 0
@@ -415,12 +415,12 @@ LABEL_130:
         {
           *(_BYTE *)(v26 + 32) |= 2u;
           if ( *(__int64 *)(v26 + 32) < 0 )
-            KiAbEntryRemoveFromTree(v26);
+            KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)v26);
           v60 = *(_DWORD *)(v26 + 88) & 0x1FFFF;
           *(_DWORD *)(v26 + 88) &= 0xFFFE0000;
           *(_BYTE *)(v26 + 25) &= ~1u;
           *(_QWORD *)(v26 + 32) = 0LL;
-          v27 = (__int64)(v26 - (unsigned __int64)v20->LockEntries) / 96;
+          v27 = (signed __int64)(v26 - (unsigned __int64)v20->LockEntries) / 96;
           if ( v22 == 1 )
             v20->AbEntrySummary |= 1 << v27;
           else

@@ -1,8 +1,8 @@
 /*
- * XREFs of KeSetAutoAlignmentProcess @ 0x1406760EC
+ * XREFs of KeSetAutoAlignmentProcess @ 0x1406772AC
  * Callers:
- *     NtSetInformationProcess @ 0x140671C40 (NtSetInformationProcess.c)
- *     PspSetProcessDefaultHardErrorMode @ 0x1406759E0 (PspSetProcessDefaultHardErrorMode.c)
+ *     NtSetInformationProcess @ 0x140672E00 (NtSetInformationProcess.c)
+ *     PspSetProcessDefaultHardErrorMode @ 0x140676BA0 (PspSetProcessDefaultHardErrorMode.c)
  * Callees:
  *     <none>
  */

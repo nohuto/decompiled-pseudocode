@@ -1,16 +1,16 @@
 /*
- * XREFs of KeInsertPriQueue @ 0x1403814C0
+ * XREFs of KeInsertPriQueue @ 0x140383270
  * Callers:
  *     ExpTryQueueWorkItem @ 0x1402020DC (ExpTryQueueWorkItem.c)
- *     ExpQueueWorkItem @ 0x140381D74 (ExpQueueWorkItem.c)
- *     ExTryQueueWorkItem @ 0x140382070 (ExTryQueueWorkItem.c)
+ *     ExpQueueWorkItem @ 0x140383B24 (ExpQueueWorkItem.c)
+ *     ExTryQueueWorkItem @ 0x140383E20 (ExTryQueueWorkItem.c)
  * Callees:
- *     KiExitDispatcher @ 0x140246C20 (KiExitDispatcher.c)
- *     KiAcquireKobjectLockSafe @ 0x140277760 (KiAcquireKobjectLockSafe.c)
- *     KiWakePriQueueWaiter @ 0x140380910 (KiWakePriQueueWaiter.c)
- *     EtwTracePriQEnqueueWork @ 0x1403816B8 (EtwTracePriQEnqueueWork.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     EtwTracePriQEnqueueFailed @ 0x1405310EC (EtwTracePriQEnqueueFailed.c)
+ *     KiExitDispatcher @ 0x140248580 (KiExitDispatcher.c)
+ *     KiAcquireKobjectLockSafe @ 0x140276CD0 (KiAcquireKobjectLockSafe.c)
+ *     KiWakePriQueueWaiter @ 0x1403826C0 (KiWakePriQueueWaiter.c)
+ *     EtwTracePriQEnqueueWork @ 0x140383468 (EtwTracePriQEnqueueWork.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     EtwTracePriQEnqueueFailed @ 0x1405335EC (EtwTracePriQEnqueueFailed.c)
  */
 
 __int64 __fastcall KeInsertPriQueue(__int64 a1, __int64 a2, __int64 a3, __int64 a4, char a5)

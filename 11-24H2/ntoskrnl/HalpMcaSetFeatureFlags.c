@@ -1,11 +1,11 @@
 /*
- * XREFs of HalpMcaSetFeatureFlags @ 0x140B4C414
+ * XREFs of HalpMcaSetFeatureFlags @ 0x140B4E454
  * Callers:
- *     HalpInitializeMce @ 0x140B4BBE4 (HalpInitializeMce.c)
+ *     HalpInitializeMce @ 0x140B4DC24 (HalpInitializeMce.c)
  * Callees:
- *     HalpGetCpuVendor @ 0x14047D5E4 (HalpGetCpuVendor.c)
- *     HalpCpuID @ 0x140498980 (HalpCpuID.c)
- *     HalpIsCmciImplemented @ 0x140B4C2F4 (HalpIsCmciImplemented.c)
+ *     HalpGetCpuVendor @ 0x140478774 (HalpGetCpuVendor.c)
+ *     HalpCpuID @ 0x1404932E0 (HalpCpuID.c)
+ *     HalpIsCmciImplemented @ 0x140B4E334 (HalpIsCmciImplemented.c)
  */
 
 char HalpMcaSetFeatureFlags()

@@ -10,7 +10,7 @@
 __int64 __fastcall PopEtGetProcessVersionInfo(__int64 a1, __int64 a2)
 {
   int v3; // ebx
-  ULONGLONG ProcessSectionBaseAddress; // rax
+  unsigned __int64 ProcessSectionBaseAddress; // rax
   unsigned int *v5; // rcx
   __int64 v7; // rcx
   _QWORD v8[3]; // [rsp+48h] [rbp-20h] BYREF

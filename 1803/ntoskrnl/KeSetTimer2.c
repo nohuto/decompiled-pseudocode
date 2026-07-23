@@ -50,7 +50,7 @@ _BOOL8 __fastcall KeSetTimer2(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
   __int64 v6; // rbp
   bool v8; // si
   char v9; // r13
-  unsigned __int64 InterruptTimePrecise; // rax
+  LARGE_INTEGER InterruptTimePrecise; // rax
   unsigned __int64 v11; // rdi
   __int64 v12; // r15
   __int64 v13; // rax
@@ -59,13 +59,13 @@ _BOOL8 __fastcall KeSetTimer2(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
   char v16; // al
   volatile signed __int32 v17; // edx
   signed __int32 v18; // eax
-  __int64 SystemTimePrecise; // rdx
+  LARGE_INTEGER SystemTimePrecise; // rdx
   __int64 v21; // rax
   signed __int32 v22; // r8d
   char v23; // [rsp+70h] [rbp+8h] BYREF
   char v24; // [rsp+78h] [rbp+10h] BYREF
   __int64 CurrentIrql; // [rsp+80h] [rbp+18h]
-  LARGE_INTEGER v26; // [rsp+88h] [rbp+20h] BYREF
+  LARGE_INTEGER PerformanceCounter; // [rsp+88h] [rbp+20h] BYREF
 
   v5 = a3;
   v6 = a2;
@@ -81,18 +81,18 @@ _BOOL8 __fastcall KeSetTimer2(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
     if ( v8 )
       SystemTimePrecise = RtlGetSystemTimePrecise();
     else
-      SystemTimePrecise = MEMORY[0xFFFFF78000000014];
+      SystemTimePrecise.QuadPart = MEMORY[0xFFFFF78000000014];
     v21 = 0LL;
-    if ( v6 > SystemTimePrecise )
-      v21 = SystemTimePrecise - v6;
+    if ( v6 > SystemTimePrecise.QuadPart )
+      v21 = SystemTimePrecise.QuadPart - v6;
     v6 = v21;
   }
   if ( v8 )
-    InterruptTimePrecise = RtlGetInterruptTimePrecise(&v26);
+    InterruptTimePrecise = RtlGetInterruptTimePrecise(&PerformanceCounter);
   else
-    InterruptTimePrecise = MEMORY[0xFFFFF78000000008];
-  v11 = InterruptTimePrecise - v6;
-  if ( InterruptTimePrecise >= v6 || v11 == -1LL )
+    InterruptTimePrecise.QuadPart = MEMORY[0xFFFFF78000000008];
+  v11 = InterruptTimePrecise.QuadPart - v6;
+  if ( InterruptTimePrecise.QuadPart >= (unsigned __int64)v6 || v11 == -1LL )
     v11 = -2LL;
   v12 = v11;
   if ( a4 && *(_BYTE *)(a1 + 130) != 20 )

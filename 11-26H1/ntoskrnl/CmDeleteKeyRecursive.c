@@ -1,19 +1,19 @@
 /*
- * XREFs of CmDeleteKeyRecursive @ 0x1408514B8
+ * XREFs of CmDeleteKeyRecursive @ 0x1408577C8
  * Callers:
- *     CmDeleteKeyRecursive @ 0x1408514B8 (CmDeleteKeyRecursive.c)
- *     CmpMoveBiosAliasTable @ 0x140853680 (CmpMoveBiosAliasTable.c)
- *     CmpCreateHardwareProfiles @ 0x140CE9D78 (CmpCreateHardwareProfiles.c)
+ *     CmDeleteKeyRecursive @ 0x1408577C8 (CmDeleteKeyRecursive.c)
+ *     CmpMoveBiosAliasTable @ 0x140859990 (CmpMoveBiosAliasTable.c)
+ *     CmpCreateHardwareProfiles @ 0x140CF0118 (CmpCreateHardwareProfiles.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     wcscpy_s @ 0x14053CB00 (wcscpy_s.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     ZwOpenKey @ 0x140723630 (ZwOpenKey.c)
- *     ZwEnumerateKey @ 0x140723A30 (ZwEnumerateKey.c)
- *     ZwDeleteKey @ 0x140724F70 (ZwDeleteKey.c)
- *     CmDeleteKeyRecursive @ 0x1408514B8 (CmDeleteKeyRecursive.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     wcscpy_s @ 0x14053EF80 (wcscpy_s.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     ZwOpenKey @ 0x140728200 (ZwOpenKey.c)
+ *     ZwEnumerateKey @ 0x140728600 (ZwEnumerateKey.c)
+ *     ZwDeleteKey @ 0x140729B40 (ZwDeleteKey.c)
+ *     CmDeleteKeyRecursive @ 0x1408577C8 (CmDeleteKeyRecursive.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 NTSTATUS __fastcall CmDeleteKeyRecursive(void *a1, const WCHAR *a2, __int64 a3, int a4, ULONG ResultLength)

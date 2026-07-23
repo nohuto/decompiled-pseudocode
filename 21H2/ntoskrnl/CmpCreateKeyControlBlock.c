@@ -1,36 +1,36 @@
 /*
- * XREFs of CmpCreateKeyControlBlock @ 0x1405EF650
+ * XREFs of CmpCreateKeyControlBlock @ 0x1406DEDB0
  * Callers:
- *     CmpWalkOneLevel @ 0x1405F63C0 (CmpWalkOneLevel.c)
- *     CmpDoParseKey @ 0x1406F9170 (CmpDoParseKey.c)
- *     CmRenameKey @ 0x14086CA04 (CmRenameKey.c)
- *     CmpCreateRegistryRoot @ 0x140A5AED4 (CmpCreateRegistryRoot.c)
+ *     CmpWalkOneLevel @ 0x1406E5B20 (CmpWalkOneLevel.c)
+ *     CmpDoParseKey @ 0x140710550 (CmpDoParseKey.c)
+ *     CmRenameKey @ 0x14086CB64 (CmRenameKey.c)
+ *     CmpCreateRegistryRoot @ 0x140A5BED4 (CmpCreateRegistryRoot.c)
  * Callees:
- *     CmpFindSecurityCellCacheIndex @ 0x140206EB0 (CmpFindSecurityCellCacheIndex.c)
- *     KeAbPostReleaseEx @ 0x14028DE10 (KeAbPostReleaseEx.c)
- *     ExfReleasePushLockShared @ 0x1402F1470 (ExfReleasePushLockShared.c)
- *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
- *     KeAbPreAcquire @ 0x14034A230 (KeAbPreAcquire.c)
- *     ExAcquirePushLockSharedEx @ 0x14034AB50 (ExAcquirePushLockSharedEx.c)
- *     ExReleasePushLockEx @ 0x14034AE90 (ExReleasePushLockEx.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     KeAbPostReleaseEx @ 0x14020AFB0 (KeAbPostReleaseEx.c)
+ *     CmpFindSecurityCellCacheIndex @ 0x1402AB7E0 (CmpFindSecurityCellCacheIndex.c)
+ *     ExfReleasePushLockShared @ 0x1402FC1C0 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x1403539D0 (KeAbPostRelease.c)
+ *     KeAbPreAcquire @ 0x140354F80 (KeAbPreAcquire.c)
+ *     ExAcquirePushLockSharedEx @ 0x1403558A0 (ExAcquirePushLockSharedEx.c)
+ *     ExReleasePushLockEx @ 0x140355BE0 (ExReleasePushLockEx.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
  *     CmpCreateLayerLink @ 0x1405D8378 (CmpCreateLayerLink.c)
- *     CmpLockKcbExclusive @ 0x1405EC35C (CmpLockKcbExclusive.c)
- *     CmpKeyNodeNeedsAccessBitUpdate @ 0x1405EE808 (CmpKeyNodeNeedsAccessBitUpdate.c)
- *     CmpReferenceKeyControlBlockUnsafe @ 0x1405EF620 (CmpReferenceKeyControlBlockUnsafe.c)
- *     CmpFindKcbInHashEntryByName @ 0x1405EFB44 (CmpFindKcbInHashEntryByName.c)
- *     CmpGetNameControlBlock @ 0x1405EFC10 (CmpGetNameControlBlock.c)
- *     CmpDereferenceNameControlBlockWithLock @ 0x1405EFEA0 (CmpDereferenceNameControlBlockWithLock.c)
- *     CmpAllocateKeyControlBlock @ 0x1405EFFAC (CmpAllocateKeyControlBlock.c)
- *     CmpKeyFullNameLength @ 0x1405F3480 (CmpKeyFullNameLength.c)
- *     CmpUpdateKeyNodeAccessBits @ 0x1406662E0 (CmpUpdateKeyNodeAccessBits.c)
- *     CmpReferenceKeyControlBlockLockNotHeld @ 0x1406BCD00 (CmpReferenceKeyControlBlockLockNotHeld.c)
- *     CmpTryToLockKcbExclusive @ 0x1406BFD74 (CmpTryToLockKcbExclusive.c)
- *     CmpUnlockKcb @ 0x1406F2B40 (CmpUnlockKcb.c)
- *     CmpFreeKeyControlBlock @ 0x140719B20 (CmpFreeKeyControlBlock.c)
- *     CmpDereferenceKeyControlBlockUnsafe @ 0x14071D94C (CmpDereferenceKeyControlBlockUnsafe.c)
- *     CmpEtwDumpKcb @ 0x14086A678 (CmpEtwDumpKcb.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     CmpReferenceKeyControlBlockLockNotHeld @ 0x1405DF144 (CmpReferenceKeyControlBlockLockNotHeld.c)
+ *     CmpFreeKeyControlBlock @ 0x1405E0C60 (CmpFreeKeyControlBlock.c)
+ *     CmpTryToLockKcbExclusive @ 0x14061EC84 (CmpTryToLockKcbExclusive.c)
+ *     CmpUpdateKeyNodeAccessBits @ 0x14065B100 (CmpUpdateKeyNodeAccessBits.c)
+ *     CmpDereferenceKeyControlBlockUnsafe @ 0x1406643E8 (CmpDereferenceKeyControlBlockUnsafe.c)
+ *     CmpLockKcbExclusive @ 0x1406DBABC (CmpLockKcbExclusive.c)
+ *     CmpKeyNodeNeedsAccessBitUpdate @ 0x1406DDF68 (CmpKeyNodeNeedsAccessBitUpdate.c)
+ *     CmpReferenceKeyControlBlockUnsafe @ 0x1406DED80 (CmpReferenceKeyControlBlockUnsafe.c)
+ *     CmpFindKcbInHashEntryByName @ 0x1406DF2A4 (CmpFindKcbInHashEntryByName.c)
+ *     CmpGetNameControlBlock @ 0x1406DF370 (CmpGetNameControlBlock.c)
+ *     CmpDereferenceNameControlBlockWithLock @ 0x1406DF600 (CmpDereferenceNameControlBlockWithLock.c)
+ *     CmpAllocateKeyControlBlock @ 0x1406DF70C (CmpAllocateKeyControlBlock.c)
+ *     CmpKeyFullNameLength @ 0x1406E2BE0 (CmpKeyFullNameLength.c)
+ *     CmpUnlockKcb @ 0x140709F20 (CmpUnlockKcb.c)
+ *     CmpEtwDumpKcb @ 0x14086A7D8 (CmpEtwDumpKcb.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 __int64 CmpCreateKeyControlBlock(__int64 a1, int a2, __int64 a3, ULONG_PTR a4, char a5, unsigned __int16 *a6, ...)
@@ -50,7 +50,7 @@ __int64 CmpCreateKeyControlBlock(__int64 a1, int a2, __int64 a3, ULONG_PTR a4, c
   __int64 v21; // rbx
   __int64 v22; // rcx
   int v23; // eax
-  ULONG_PTR v24; // rax
+  PRTL_BALANCED_NODE v24; // rax
   int v25; // ebp
   char v26; // r12
   __int64 v27; // rbx
@@ -149,7 +149,7 @@ __int64 CmpCreateKeyControlBlock(__int64 a1, int a2, __int64 a3, ULONG_PTR a4, c
               *(_QWORD *)(v16 + 32),
               *(unsigned int *)(v16 + 40),
               v38);
-      CmpUpdateKeyNodeAccessBits(*(_QWORD *)(v16 + 32), v21, *(unsigned int *)(v16 + 40));
+      CmpUpdateKeyNodeAccessBits(*(_QWORD *)(v16 + 32), v21, *(_DWORD *)(v16 + 40));
       v34 = *(_QWORD *)(v16 + 32);
       if ( _InterlockedCompareExchange64((volatile signed __int64 *)(v34 + 72), 0LL, 17LL) != 17 )
         ExfReleasePushLockShared((signed __int64 *)(v34 + 72));
@@ -172,12 +172,12 @@ __int64 CmpCreateKeyControlBlock(__int64 a1, int a2, __int64 a3, ULONG_PTR a4, c
     if ( _interlockedbittestandset64((volatile signed __int32 *)(v16 + 48), 0LL) )
     {
       if ( v24 )
-        KeAbPostReleaseEx(v16 + 48, v24);
+        KeAbPostReleaseEx(v16 + 48, (ULONG_PTR)v24);
     }
     else
     {
       if ( v24 )
-        *(_BYTE *)(v24 + 26) |= 1u;
+        BYTE2(v24[1].Left) |= 1u;
       *(_QWORD *)(v16 + 56) = KeGetCurrentThread();
     }
     v25 = *(_DWORD *)(v21 + 44);
@@ -215,7 +215,7 @@ LABEL_44:
     if ( v36 )
       CmpDereferenceNameControlBlockWithLock(v36);
     if ( *(_QWORD *)(v16 + 72) )
-      CmpDereferenceKeyControlBlockUnsafe(a3);
+      CmpDereferenceKeyControlBlockUnsafe((volatile signed __int64 *)a3);
     v37 = *(void **)(v16 + 192);
     if ( v37 )
       ExFreePoolWithTag(v37, 0);

@@ -1,207 +1,168 @@
 /*
- * XREFs of BiCreateBootEntry @ 0x140814BFC
+ * XREFs of BiCreateBootEntry @ 0x14081533C
  * Callers:
- *     BiCreateEfiEntry @ 0x140814FB0 (BiCreateEfiEntry.c)
+ *     BiCreateEfiEntry @ 0x1408156F0 (BiCreateEfiEntry.c)
  * Callees:
- *     swprintf_s @ 0x140502E50 (swprintf_s.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     BiLogMessage @ 0x1409BE7F8 (BiLogMessage.c)
- *     BiGetKeyName @ 0x1409BEDA8 (BiGetKeyName.c)
- *     BiGetElement @ 0x1409BFBB8 (BiGetElement.c)
- *     BiTranslateFilePath @ 0x1409C0B6C (BiTranslateFilePath.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     swprintf_s @ 0x140500710 (swprintf_s.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     BiLogMessage @ 0x1409A4E48 (BiLogMessage.c)
+ *     BiGetKeyName @ 0x1409A53F8 (BiGetKeyName.c)
+ *     BiGetElement @ 0x1409A6208 (BiGetElement.c)
+ *     BiTranslateFilePath @ 0x1409A71BC (BiTranslateFilePath.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall BiCreateBootEntry(__int64 a1, void **a2)
+__int64 __fastcall BiCreateBootEntry(HANDLE BcdObjectHandle, _QWORD *a2)
 {
-  _DWORD *v2; // rdi
-  void *v3; // rsi
-  unsigned int *v4; // r14
-  void *v5; // r12
-  _DWORD *Pool2; // r15
+  void *v2; // r12
+  _FILE_PATH *Pool2; // r15
   int Element; // eax
-  int v9; // ebx
-  int v10; // eax
-  int v11; // eax
-  __int64 v12; // r13
-  __int64 v13; // rax
-  int v14; // edx
-  __int64 v15; // rax
-  size_t v16; // rbx
-  unsigned int v17; // eax
+  int v6; // ebx
+  int v7; // eax
+  int v8; // eax
+  __int64 v9; // r13
+  __int64 v10; // rax
+  unsigned int v11; // edx
+  __int64 v12; // rax
+  size_t v13; // rbx
+  unsigned int v14; // eax
   int KeyName; // eax
-  int v19; // ebx
-  int v20; // r8d
-  unsigned int v21; // ecx
-  _DWORD *v22; // rax
-  _DWORD *v23; // rdx
-  size_t v24; // r8
-  int v25; // eax
-  int v26; // ecx
-  __int64 v27; // rax
-  char *v28; // rbx
-  char *v29; // rax
-  _DWORD *v31; // [rsp+30h] [rbp-38h] BYREF
-  int v32; // [rsp+38h] [rbp-30h] BYREF
-  void *v33; // [rsp+40h] [rbp-28h] BYREF
-  void *Src; // [rsp+48h] [rbp-20h] BYREF
-  void *v35; // [rsp+50h] [rbp-18h] BYREF
-  PVOID P[2]; // [rsp+58h] [rbp-10h] BYREF
-  size_t v39; // [rsp+C0h] [rbp+58h] BYREF
-  size_t Size; // [rsp+C8h] [rbp+60h] BYREF
+  char *v16; // rax
+  _DWORD *v17; // rdx
+  __int64 v18; // rax
+  char *v19; // rax
+  ULONG v21; // [rsp+30h] [rbp-38h]
+  int v22; // [rsp+30h] [rbp-38h]
+  unsigned int v23; // [rsp+38h] [rbp-30h]
+  char *v24; // [rsp+40h] [rbp-28h]
+  void *v25; // [rsp+50h] [rbp-18h] BYREF
+  PVOID P; // [rsp+58h] [rbp-10h]
+  unsigned int Size; // [rsp+C8h] [rbp+60h]
+  unsigned int Sizea; // [rsp+C8h] [rbp+60h]
 
-  LODWORD(v39) = 0;
-  LODWORD(Size) = 0;
-  v32 = 0;
+  P = 0LL;
   v2 = 0LL;
-  P[0] = 0LL;
-  v3 = 0LL;
-  v31 = 0LL;
-  v4 = 0LL;
-  Src = 0LL;
-  v5 = 0LL;
-  v33 = 0LL;
   Pool2 = 0LL;
-  v35 = 0LL;
-  Element = BiGetElement(a1, 301989892LL, P, &v39);
-  v9 = Element;
+  v25 = 0LL;
+  Element = BiGetElement(BcdObjectHandle, 0x12000004u);
+  v6 = Element;
   if ( Element < 0 )
   {
     BiLogMessage(
       4LL,
       L"BiCreateBootEntry: Could not retrieve BCD Object application description. Status: %x",
       (unsigned int)Element);
-    goto LABEL_25;
+    goto LABEL_24;
   }
-  v10 = BiGetElement(a1, 285212673LL, &v31, &Size);
-  v9 = v10;
-  if ( v10 < 0 )
+  v7 = BiGetElement(BcdObjectHandle, 0x11000001u);
+  v6 = v7;
+  if ( v7 < 0 )
   {
     BiLogMessage(
       4LL,
       L"BiCreateBootEntry: Could not retrieve BCD Object application device. Status: %x",
-      (unsigned int)v10);
-    v2 = v31;
-    goto LABEL_25;
+      (unsigned int)v7);
+    goto LABEL_24;
   }
-  v11 = BiGetElement(a1, 301989890LL, &Src, &v32);
-  v9 = v11;
-  if ( v11 < 0 )
+  v8 = BiGetElement(BcdObjectHandle, 0x12000002u);
+  v6 = v8;
+  if ( v8 < 0 )
   {
     BiLogMessage(
       4LL,
       L"BiCreateBootEntry: Could not retrieve BCD Object application path. Status: %x",
-      (unsigned int)v11);
-    v2 = v31;
-    v3 = Src;
-    goto LABEL_25;
-  }
-  v2 = v31;
-  v3 = Src;
-  if ( *v31 != 2 )
-  {
-    v9 = -1073741637;
-    goto LABEL_25;
-  }
-  v12 = -1LL;
-  v13 = -1LL;
-  do
-    ++v13;
-  while ( *((_WORD *)Src + v13) );
-  v14 = 2 * v13 + 2;
-  v15 = -1LL;
-  LODWORD(Size) = v14;
-  do
-    ++v15;
-  while ( *((_WORD *)v31 + v15 + 10) );
-  v16 = (unsigned int)(2 * v15 + 2);
-  v17 = v14 + v16;
-  if ( v14 + (int)v16 < (unsigned int)v16 || v17 + 12 < v17 )
+      (unsigned int)v8);
     goto LABEL_24;
-  v31 = (_DWORD *)(v17 + 12);
-  Pool2 = (_DWORD *)ExAllocatePool2(0x102uLL);
-  if ( !Pool2 )
-  {
-LABEL_16:
-    v9 = -1073741670;
-    goto LABEL_25;
   }
-  Pool2[1] = (_DWORD)v31;
-  *Pool2 = 1;
-  Pool2[2] = 3;
-  memmove(Pool2 + 3, v2 + 5, v16);
-  memmove((char *)Pool2 + v16 + 12, v3, (unsigned int)Size);
-  v9 = BiTranslateFilePath(Pool2, 4LL, &v33);
-  if ( v9 < 0 || (KeyName = BiGetKeyName(a1, &v35), v5 = v35, v9 = KeyName, KeyName < 0) )
+  if ( MEMORY[0] != 2 )
   {
-    v4 = (unsigned int *)v33;
-    goto LABEL_25;
+    v6 = -1073741637;
+    goto LABEL_24;
   }
+  v9 = -1LL;
+  v10 = -1LL;
+  do
+    ++v10;
+  while ( *(_WORD *)(2 * v10) );
+  v11 = 2 * v10 + 2;
+  v12 = -1LL;
+  Size = v11;
   do
     ++v12;
-  while ( *((_WORD *)v35 + v12) );
-  v4 = (unsigned int *)v33;
-  LODWORD(v31) = (2 * v12 + 45) & 0xFFFFFFFC;
-  v19 = (_DWORD)v31 + 16;
-  LODWORD(Src) = (_DWORD)v31 + 16;
-  v20 = *((_DWORD *)v33 + 1);
-  v21 = ((_DWORD)v31 + 47) & 0xFFFFFFFC;
-  LODWORD(v35) = v21;
-  if ( (unsigned int)v39 + v21 + v20 + 4 < (unsigned int)v39 )
+  while ( *(_WORD *)(2 * v12 + 0x14) );
+  v13 = (unsigned int)(2 * v12 + 2);
+  v14 = v11 + v13;
+  if ( v11 + (unsigned int)v13 < (unsigned int)v13 || v14 + 12 < v14 )
   {
-LABEL_24:
-    v9 = -1073741675;
+    v6 = -1073741675;
   }
   else
   {
-    LODWORD(Size) = (v21 + v39 + 3) & 0xFFFFFFFC;
-    v32 = v20 + Size;
-    v22 = (_DWORD *)ExAllocatePool2(0x102uLL);
-    v33 = v22;
-    v23 = v22;
-    if ( !v22 )
-      goto LABEL_16;
-    v22[2] = -1;
-    v24 = (unsigned int)v39;
-    *v22 = 1;
-    v25 = v32;
-    v23[3] = 1;
-    v26 = Size;
-    v23[1] = v25;
-    v27 = (unsigned int)v35;
-    v23[5] = v26;
-    v23[4] = v27;
-    v23[6] = v19;
-    memmove((char *)v23 + v27, P[0], v24);
-    v28 = (char *)v33;
-    memmove((char *)v33 + (unsigned int)Size, v4, v4[1]);
-    v28 += 28;
-    *(_QWORD *)v28 = 0x53574F444E4957LL;
-    *((_DWORD *)v28 + 3) = (_DWORD)Src;
-    *((_DWORD *)v28 + 4) = (_DWORD)v31;
-    *((_DWORD *)v28 + 2) = 1;
-    swprintf_s((wchar_t *)v28 + 10, (unsigned int)v12 + 11LL, L"%s%s", L"BCDOBJECT=", v5);
-    v29 = &v28[*((unsigned int *)v28 + 4)];
-    v9 = 0;
-    *(_DWORD *)v29 = 1;
-    *((_DWORD *)v29 + 1) = 16;
-    *((_DWORD *)v29 + 2) = 4;
-    *((_DWORD *)v29 + 3) = 327551;
-    *a2 = v33;
+    v21 = v14 + 12;
+    Pool2 = (_FILE_PATH *)ExAllocatePool2(0x102uLL, v14 + 12, 0x4B444342u);
+    if ( !Pool2 )
+    {
+LABEL_16:
+      v6 = -1073741670;
+      goto LABEL_24;
+    }
+    Pool2->Length = v21;
+    Pool2->Version = 1;
+    Pool2->Type = 3;
+    memmove(Pool2->FilePath, (const void *)0x14, v13);
+    memmove(&Pool2->FilePath[v13], 0LL, Size);
+    v6 = BiTranslateFilePath(Pool2, 4u);
+    if ( v6 >= 0 )
+    {
+      KeyName = BiGetKeyName(BcdObjectHandle, &v25);
+      v2 = v25;
+      v6 = KeyName;
+      if ( KeyName >= 0 )
+      {
+        do
+          ++v9;
+        while ( *((_WORD *)v25 + v9) );
+        v22 = (2 * v9 + 45) & 0xFFFFFFFC;
+        LODWORD(v25) = (v22 + 47) & 0xFFFFFFFC;
+        Sizea = ((_DWORD)v25 + 3) & 0xFFFFFFFC;
+        v23 = MEMORY[4] + Sizea;
+        v16 = (char *)ExAllocatePool2(0x102uLL, MEMORY[4] + Sizea, 0x4B444342u);
+        v24 = v16;
+        v17 = v16;
+        if ( !v16 )
+          goto LABEL_16;
+        *((_DWORD *)v16 + 2) = -1;
+        *(_DWORD *)v16 = 1;
+        *((_DWORD *)v16 + 3) = 1;
+        *((_DWORD *)v16 + 1) = v23;
+        v18 = (unsigned int)v25;
+        v17[5] = Sizea;
+        v17[4] = v18;
+        v17[6] = v22 + 16;
+        memmove((char *)v17 + v18, P, 0LL);
+        memmove(&v24[Sizea], 0LL, MEMORY[4]);
+        *(_QWORD *)(v24 + 28) = 0x53574F444E4957LL;
+        *((_DWORD *)v24 + 10) = v22 + 16;
+        *((_DWORD *)v24 + 11) = v22;
+        *((_DWORD *)v24 + 9) = 1;
+        swprintf_s((wchar_t *)v24 + 24, (unsigned int)v9 + 11LL, L"%s%s", L"BCDOBJECT=", v2);
+        v19 = &v24[*((unsigned int *)v24 + 11) + 28];
+        v6 = 0;
+        *(_DWORD *)v19 = 1;
+        *((_DWORD *)v19 + 1) = 16;
+        *((_DWORD *)v19 + 2) = 4;
+        *((_DWORD *)v19 + 3) = 327551;
+        *a2 = v24;
+      }
+    }
   }
-LABEL_25:
-  if ( P[0] )
-    ExFreePoolWithTag(P[0], 0x4B444342u);
+LABEL_24:
+  if ( P )
+    ExFreePoolWithTag(P, 0x4B444342u);
   if ( v2 )
     ExFreePoolWithTag(v2, 0x4B444342u);
-  if ( v3 )
-    ExFreePoolWithTag(v3, 0x4B444342u);
-  if ( v4 )
-    ExFreePoolWithTag(v4, 0x4B444342u);
-  if ( v5 )
-    ExFreePoolWithTag(v5, 0x4B444342u);
   if ( Pool2 )
     ExFreePoolWithTag(Pool2, 0x4B444342u);
-  return (unsigned int)v9;
+  return (unsigned int)v6;
 }

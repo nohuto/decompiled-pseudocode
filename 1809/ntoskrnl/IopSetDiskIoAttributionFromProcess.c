@@ -1,11 +1,11 @@
 /*
- * XREFs of IopSetDiskIoAttributionFromProcess @ 0x1400DF0B4
+ * XREFs of IopSetDiskIoAttributionFromProcess @ 0x1400DF134
  * Callers:
- *     IoSetDiskIoAttributionFromThread @ 0x1400DEBC0 (IoSetDiskIoAttributionFromThread.c)
- *     IoSetIoAttributionIrp @ 0x140283890 (IoSetIoAttributionIrp.c)
+ *     IoSetDiskIoAttributionFromThread @ 0x1400DEC40 (IoSetDiskIoAttributionFromThread.c)
+ *     IoSetIoAttributionIrp @ 0x140283A80 (IoSetIoAttributionIrp.c)
  * Callees:
- *     IopReferenceIoAttributionFromProcess @ 0x1400DF248 (IopReferenceIoAttributionFromProcess.c)
- *     IopSetDiskIoAttributionExtension @ 0x1400DF570 (IopSetDiskIoAttributionExtension.c)
+ *     IopReferenceIoAttributionFromProcess @ 0x1400DF2C8 (IopReferenceIoAttributionFromProcess.c)
+ *     IopSetDiskIoAttributionExtension @ 0x1400DF5F0 (IopSetDiskIoAttributionExtension.c)
  */
 
 __int64 __fastcall IopSetDiskIoAttributionFromProcess(__int64 a1, __int64 a2)

@@ -1,14 +1,14 @@
 /*
- * XREFs of HalpInterruptMaskAcpi @ 0x140C08BC0
+ * XREFs of HalpInterruptMaskAcpi @ 0x140C0EDD0
  * Callers:
- *     HalpDispatchSystemStateTransition @ 0x1404FEE50 (HalpDispatchSystemStateTransition.c)
+ *     HalpDispatchSystemStateTransition @ 0x1404F8640 (HalpDispatchSystemStateTransition.c)
  * Callees:
- *     HalpInterruptSetLineStateInternal @ 0x14032DC5C (HalpInterruptSetLineStateInternal.c)
- *     HalpInterruptApplyOverrides @ 0x140426138 (HalpInterruptApplyOverrides.c)
- *     HalpInterruptFindLines @ 0x1404265EC (HalpInterruptFindLines.c)
- *     HalpInterruptLookupController @ 0x140426C98 (HalpInterruptLookupController.c)
- *     HalpInterruptSetProblemEx @ 0x14042A15C (HalpInterruptSetProblemEx.c)
- *     HalpInterruptPicLine @ 0x1404F1D7C (HalpInterruptPicLine.c)
+ *     HalpInterruptSetLineStateInternal @ 0x14032FC8C (HalpInterruptSetLineStateInternal.c)
+ *     HalpInterruptApplyOverrides @ 0x140433248 (HalpInterruptApplyOverrides.c)
+ *     HalpInterruptFindLines @ 0x1404336FC (HalpInterruptFindLines.c)
+ *     HalpInterruptLookupController @ 0x140433DA8 (HalpInterruptLookupController.c)
+ *     HalpInterruptSetProblemEx @ 0x140436244 (HalpInterruptSetProblemEx.c)
+ *     HalpInterruptPicLine @ 0x1404EB35C (HalpInterruptPicLine.c)
  */
 
 __int64 __fastcall HalpInterruptMaskAcpi(char a1)
@@ -21,7 +21,7 @@ __int64 __fastcall HalpInterruptMaskAcpi(char a1)
   __int64 v8; // [rsp+50h] [rbp+18h] BYREF
 
   v8 = 0LL;
-  HalpInterruptPicLine(&v8, HIWORD(HalpDeviceBlockUnblockPushLock.IdealProcessor));
+  HalpInterruptPicLine(&v8, HIWORD(HalpDeviceBlockUnblockPushLock.UserAffinity));
   HalpInterruptApplyOverrides((int *)&v8, 0LL, 0LL);
   Lines = HalpInterruptFindLines((unsigned int *)&v8);
   if ( !Lines )

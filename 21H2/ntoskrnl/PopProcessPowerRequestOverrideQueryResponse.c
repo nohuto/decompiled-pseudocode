@@ -1,20 +1,20 @@
 /*
- * XREFs of PopProcessPowerRequestOverrideQueryResponse @ 0x140282C34
+ * XREFs of PopProcessPowerRequestOverrideQueryResponse @ 0x140270EE0
  * Callers:
- *     PopUmpoProcessPowerMessage @ 0x14067A644 (PopUmpoProcessPowerMessage.c)
+ *     PopUmpoProcessPowerMessage @ 0x14066DD84 (PopUmpoProcessPowerMessage.c)
  * Callees:
- *     ObfReferenceObjectWithTag @ 0x1402056A0 (ObfReferenceObjectWithTag.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14022EE10 (KeAcquireInStackQueuedSpinLock.c)
- *     PopQueuePowerRequestCallbacks @ 0x1402824F8 (PopQueuePowerRequestCallbacks.c)
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402042B0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     PopQueuePowerRequestCallbacks @ 0x140270738 (PopQueuePowerRequestCallbacks.c)
+ *     ObfReferenceObjectWithTag @ 0x1402A9FE0 (ObfReferenceObjectWithTag.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402D3660 (KeAcquireInStackQueuedSpinLock.c)
+ *     ObfDereferenceObjectWithTag @ 0x140355E90 (ObfDereferenceObjectWithTag.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     PopAcquirePowerRequestPushLock @ 0x14067B148 (PopAcquirePowerRequestPushLock.c)
- *     PopReleasePowerRequestPushLock @ 0x14067C12C (PopReleasePowerRequestPushLock.c)
- *     PopPowerRequestFindEntryById @ 0x14067C508 (PopPowerRequestFindEntryById.c)
- *     PopProcessDisplayRequiredChange @ 0x14067CD44 (PopProcessDisplayRequiredChange.c)
- *     PopNotifyUserPowerRequestAction @ 0x1408E1A68 (PopNotifyUserPowerRequestAction.c)
+ *     PopAcquirePowerRequestPushLock @ 0x14066E888 (PopAcquirePowerRequestPushLock.c)
+ *     PopReleasePowerRequestPushLock @ 0x14066F86C (PopReleasePowerRequestPushLock.c)
+ *     PopPowerRequestFindEntryById @ 0x140670048 (PopPowerRequestFindEntryById.c)
+ *     PopProcessDisplayRequiredChange @ 0x140670990 (PopProcessDisplayRequiredChange.c)
+ *     PopNotifyUserPowerRequestAction @ 0x1408E1BC8 (PopNotifyUserPowerRequestAction.c)
  */
 
 LONG_PTR __fastcall PopProcessPowerRequestOverrideQueryResponse(unsigned int *a1)

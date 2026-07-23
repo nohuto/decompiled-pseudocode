@@ -1,11 +1,11 @@
 /*
- * XREFs of IopLiveDumpTraceOpenVMMemoryPartitionFailure @ 0x14055B398
+ * XREFs of IopLiveDumpTraceOpenVMMemoryPartitionFailure @ 0x14055BA58
  * Callers:
- *     IopLiveDumpOpenVMMemoryPartition @ 0x140559ED8 (IopLiveDumpOpenVMMemoryPartition.c)
+ *     IopLiveDumpOpenVMMemoryPartition @ 0x14055A598 (IopLiveDumpOpenVMMemoryPartition.c)
  * Callees:
- *     EtwWriteEx @ 0x1402581E0 (EtwWriteEx.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     IopLiveDumpIsTracingEnabled @ 0x140559D90 (IopLiveDumpIsTracingEnabled.c)
+ *     EtwWriteEx @ 0x1402582A0 (EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     IopLiveDumpIsTracingEnabled @ 0x14055A450 (IopLiveDumpIsTracingEnabled.c)
  */
 
 char __fastcall IopLiveDumpTraceOpenVMMemoryPartitionFailure(int a1)

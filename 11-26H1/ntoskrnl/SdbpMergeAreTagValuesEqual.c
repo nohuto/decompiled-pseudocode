@@ -1,15 +1,15 @@
 /*
- * XREFs of SdbpMergeAreTagValuesEqual @ 0x140887BB0
+ * XREFs of SdbpMergeAreTagValuesEqual @ 0x14088DFAC
  * Callers:
- *     SdbMergeIsEntryUpdated @ 0x1408877E4 (SdbMergeIsEntryUpdated.c)
+ *     SdbMergeIsEntryUpdated @ 0x14088DBE0 (SdbMergeIsEntryUpdated.c)
  * Callees:
- *     toupper @ 0x140537D60 (toupper.c)
- *     RtlCompareMemory @ 0x140730D90 (RtlCompareMemory.c)
- *     SdbpGetMappedTagData @ 0x1409E7A4C (SdbpGetMappedTagData.c)
- *     SdbGetStringTagPtr @ 0x1409E7DF4 (SdbGetStringTagPtr.c)
- *     SdbGetTagDataSize @ 0x1409E81F0 (SdbGetTagDataSize.c)
- *     SdbGetTagFromTagID @ 0x1409E8584 (SdbGetTagFromTagID.c)
- *     AslLogCallPrintf @ 0x1409E8884 (AslLogCallPrintf.c)
+ *     toupper @ 0x14053A1E0 (toupper.c)
+ *     RtlCompareMemory @ 0x140735960 (RtlCompareMemory.c)
+ *     SdbpGetMappedTagData @ 0x1409D4464 (SdbpGetMappedTagData.c)
+ *     SdbGetStringTagPtr @ 0x1409D4804 (SdbGetStringTagPtr.c)
+ *     SdbGetTagDataSize @ 0x1409D4C00 (SdbGetTagDataSize.c)
+ *     SdbGetTagFromTagID @ 0x1409D4F94 (SdbGetTagFromTagID.c)
+ *     AslLogCallPrintf @ 0x1409D5294 (AslLogCallPrintf.c)
  */
 
 __int64 __fastcall SdbpMergeAreTagValuesEqual(__int64 a1, __int64 a2, __int64 a3, __int64 a4)

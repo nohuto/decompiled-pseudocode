@@ -2,15 +2,15 @@
  * XREFs of MiPartitionObjectToPartition @ 0x140011CE4
  * Callers:
  *     MmAllocatePartitionNodePagesForMdlEx @ 0x140010F40 (MmAllocatePartitionNodePagesForMdlEx.c)
- *     MmAllocateNonChargedSecurePages @ 0x1402AA30C (MmAllocateNonChargedSecurePages.c)
- *     MmFreeNonChargedSecurePages @ 0x1402AA4B8 (MmFreeNonChargedSecurePages.c)
- *     MmAllocateSecureKernelPages @ 0x1402C2E4C (MmAllocateSecureKernelPages.c)
- *     MmGetPageFileInformation @ 0x1406CB1A4 (MmGetPageFileInformation.c)
- *     MmGetPhysicalMemoryRangesEx2 @ 0x1406DADA4 (MmGetPhysicalMemoryRangesEx2.c)
- *     MmGetPhysicalMemoryRangesEx @ 0x14075B680 (MmGetPhysicalMemoryRangesEx.c)
+ *     MmAllocateNonChargedSecurePages @ 0x1402AA4FC (MmAllocateNonChargedSecurePages.c)
+ *     MmFreeNonChargedSecurePages @ 0x1402AA6A8 (MmFreeNonChargedSecurePages.c)
+ *     MmAllocateSecureKernelPages @ 0x1402C303C (MmAllocateSecureKernelPages.c)
+ *     MmGetPageFileInformation @ 0x1406CC444 (MmGetPageFileInformation.c)
+ *     MmGetPhysicalMemoryRangesEx2 @ 0x1406DC044 (MmGetPhysicalMemoryRangesEx2.c)
+ *     MmGetPhysicalMemoryRangesEx @ 0x14075C870 (MmGetPhysicalMemoryRangesEx.c)
  * Callees:
- *     PsReferencePartitionSafe @ 0x140090CE8 (PsReferencePartitionSafe.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     PsReferencePartitionSafe @ 0x140090C28 (PsReferencePartitionSafe.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
  */
 
 ULONG_PTR *__fastcall MiPartitionObjectToPartition(ULONG_PTR **BugCheckParameter2, char a2, _BYTE *a3)
@@ -26,7 +26,7 @@ ULONG_PTR *__fastcall MiPartitionObjectToPartition(ULONG_PTR **BugCheckParameter
   {
     if ( BugCheckParameter2 == (ULONG_PTR **)-1LL )
     {
-      v7 = *(ULONG_PTR **)(qword_14043A748
+      v7 = *(ULONG_PTR **)(qword_14043B808
                          + 8LL * *((unsigned __int16 *)&KeGetCurrentThread()->ApcState.Process[1].SecureState.Flags + 3));
     }
     else

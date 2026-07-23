@@ -1,7 +1,7 @@
 /*
- * XREFs of MmStoreReleaseResidentAvailableForRead @ 0x14065D448
+ * XREFs of MmStoreReleaseResidentAvailableForRead @ 0x14065D998
  * Callers:
- *     SmPartitionCleanup @ 0x1409D6BB8 (SmPartitionCleanup.c)
+ *     SmPartitionCleanup @ 0x1409D6DB8 (SmPartitionCleanup.c)
  * Callees:
  *     <none>
  */

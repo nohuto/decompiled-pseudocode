@@ -1,14 +1,14 @@
 /*
- * XREFs of PpmHeteroRestrictToFavoredClass @ 0x14042BAD8
+ * XREFs of PpmHeteroRestrictToFavoredClass @ 0x1404201A8
  * Callers:
- *     PpmParkComputeUnparkMask @ 0x14025D7A0 (PpmParkComputeUnparkMask.c)
+ *     PpmParkComputeUnparkMask @ 0x14025E0F0 (PpmParkComputeUnparkMask.c)
  * Callees:
- *     KeAddProcessorAffinityEx @ 0x140246720 (KeAddProcessorAffinityEx.c)
- *     ?RtlpCopyAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z @ 0x1402518B0 (-RtlpCopyAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z.c)
- *     KeGetPrcb @ 0x1402916D0 (KeGetPrcb.c)
- *     KeCheckProcessorAffinityEx @ 0x14042D260 (KeCheckProcessorAffinityEx.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     KeAddProcessorAffinityEx @ 0x140248080 (KeAddProcessorAffinityEx.c)
+ *     ?RtlpCopyAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z @ 0x140253210 (-RtlpCopyAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z.c)
+ *     KeGetPrcb @ 0x140290C30 (KeGetPrcb.c)
+ *     KeCheckProcessorAffinityEx @ 0x140421930 (KeCheckProcessorAffinityEx.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 unsigned __int8 *__fastcall PpmHeteroRestrictToFavoredClass(
@@ -99,17 +99,16 @@ LABEL_8:
     {
       _BitScanForward64(&v18, v15);
       v15 &= ~(1LL << v18);
-      v19 = *((_DWORD *)&KiSupervisorXStateFeaturesLock.WaitBlock[2].Thread->Header.Lock
-            + 64 * v17
+      v19 = *((_DWORD *)&KiSupervisorXStateFeaturesLock.SchedulerApc.ApcListEntry.Flink[16 * v17].Flink
             + (unsigned __int8)v18);
       Prcb = KeGetPrcb(v19);
       if ( PpmHeteroHgsParkingEnabled )
       {
-        v21 = v47 + PpmHeteroWorkloadClasses * v19;
+        v21 = v47 + (unsigned int)PpmHeteroWorkloadClasses * v19;
         if ( v14 )
-          v22 = *(_BYTE *)(PpmHeteroCapability + 4 * v21 + 25);
+          v22 = *(_BYTE *)(PpmHeteroCapability + 4 * v21 + 49);
         else
-          v22 = *(_BYTE *)(PpmHeteroCapability + 4 * v21 + 24);
+          v22 = *(_BYTE *)(PpmHeteroCapability + 4 * v21 + 48);
       }
       else if ( v14 )
       {
@@ -141,19 +140,19 @@ LABEL_8:
       _BitScanForward64(&v26, i);
       v27 = v24 << 6;
       i &= ~(1LL << v26);
-      v28 = *((unsigned int *)&KiSupervisorXStateFeaturesLock.WaitBlock[2].Thread->Header.Lock
+      v28 = *((unsigned int *)&KiSupervisorXStateFeaturesLock.SchedulerApc.ApcListEntry.Flink->Flink
             + (unsigned int)(unsigned __int8)v26
             + v27);
-      v29 = KeGetPrcb(*((_DWORD *)&KiSupervisorXStateFeaturesLock.WaitBlock[2].Thread->Header.Lock
+      v29 = KeGetPrcb(*((_DWORD *)&KiSupervisorXStateFeaturesLock.SchedulerApc.ApcListEntry.Flink->Flink
                       + (unsigned int)(unsigned __int8)v26
                       + v27));
       if ( PpmHeteroHgsParkingEnabled )
       {
         v30 = (unsigned int)(v47 + PpmHeteroWorkloadClasses * v28);
         if ( v14 )
-          v31 = *(_BYTE *)(PpmHeteroCapability + 4 * v30 + 25);
+          v31 = *(_BYTE *)(PpmHeteroCapability + 4 * v30 + 49);
         else
-          v31 = *(_BYTE *)(PpmHeteroCapability + 4 * v30 + 24);
+          v31 = *(_BYTE *)(PpmHeteroCapability + 4 * v30 + 48);
       }
       else if ( v14 )
       {
@@ -171,8 +170,8 @@ LABEL_8:
         v23 = (_WORD *)a9;
         if ( v32 )
         {
-          v33 = *(_DWORD *)(*(_QWORD *)&KiSupervisorXStateFeaturesLock.WaitBlockFill11[112] + 4 * v28) & 0x3F;
-          v34 = *(_DWORD *)(*(_QWORD *)&KiSupervisorXStateFeaturesLock.WaitBlockFill11[112] + 4 * v28) >> 6;
+          v33 = *(&KiSupervisorXStateFeaturesLock.SchedulerApc.Thread->Header.LockNV + v28) & 0x3F;
+          v34 = (unsigned int)*(&KiSupervisorXStateFeaturesLock.SchedulerApc.Thread->Header.LockNV + v28) >> 6;
           if ( v50.Count > (unsigned int)v34 )
             goto LABEL_32;
           if ( v50.Size > (unsigned int)v34 )
@@ -210,10 +209,9 @@ LABEL_32:
       }
       _BitScanForward64(&v43, v41);
       v41 &= ~(1LL << v43);
-      v48 = *((_DWORD *)&KiSupervisorXStateFeaturesLock.WaitBlock[2].Thread->Header.Lock
-            + 64 * (unsigned __int16)v42
+      v48 = *((_DWORD *)&KiSupervisorXStateFeaturesLock.SchedulerApc.ApcListEntry.Flink[16 * (unsigned __int16)v42].Flink
             + (unsigned __int8)v43);
-      v44 = *(unsigned __int8 *)(*(_QWORD *)(KeGetPrcb(v48) + 35456) + 4LL);
+      v44 = *(unsigned __int8 *)(*(_QWORD *)(KeGetPrcb(v48) + 35456) + 8LL);
       if ( v38 == -1 )
         break;
       v45 = v37;

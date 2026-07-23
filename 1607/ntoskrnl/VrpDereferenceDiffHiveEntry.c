@@ -1,11 +1,11 @@
 /*
- * XREFs of VrpDereferenceDiffHiveEntry @ 0x140616FDC
+ * XREFs of VrpDereferenceDiffHiveEntry @ 0x140617090
  * Callers:
- *     VrpLoadDifferencingHive @ 0x140617474 (VrpLoadDifferencingHive.c)
- *     VrpUnloadDifferencingHive @ 0x140617878 (VrpUnloadDifferencingHive.c)
+ *     VrpLoadDifferencingHive @ 0x140617528 (VrpLoadDifferencingHive.c)
+ *     VrpUnloadDifferencingHive @ 0x14061792C (VrpUnloadDifferencingHive.c)
  * Callees:
- *     VrpDereferenceDiffHiveEntryWithLock @ 0x140617028 (VrpDereferenceDiffHiveEntryWithLock.c)
- *     VrpLockDiffHiveTableExclusive @ 0x140617778 (VrpLockDiffHiveTableExclusive.c)
+ *     VrpDereferenceDiffHiveEntryWithLock @ 0x1406170DC (VrpDereferenceDiffHiveEntryWithLock.c)
+ *     VrpLockDiffHiveTableExclusive @ 0x14061782C (VrpLockDiffHiveTableExclusive.c)
  */
 
 __int64 __fastcall VrpDereferenceDiffHiveEntry(_QWORD *P)

@@ -1,12 +1,12 @@
 /*
- * XREFs of MiIncrementZeroEngineThread @ 0x1405017CC
+ * XREFs of MiIncrementZeroEngineThread @ 0x1404FAFBC
  * Callers:
- *     MiWakeAllZeroingThreads @ 0x14050DB8C (MiWakeAllZeroingThreads.c)
- *     MiInsertNewZeroThread @ 0x1405161C8 (MiInsertNewZeroThread.c)
- *     MiAddZeroingThread @ 0x14051F7F0 (MiAddZeroingThread.c)
+ *     MiWakeAllZeroingThreads @ 0x1405075FC (MiWakeAllZeroingThreads.c)
+ *     MiInsertNewZeroThread @ 0x14050FC38 (MiInsertNewZeroThread.c)
+ *     MiAddZeroingThread @ 0x140521E94 (MiAddZeroingThread.c)
  * Callees:
- *     KeSetEvent @ 0x1402DE9C0 (KeSetEvent.c)
- *     MiUpdateBackgroundZeroingActive @ 0x14051FD0C (MiUpdateBackgroundZeroingActive.c)
+ *     KeSetEvent @ 0x1402C0780 (KeSetEvent.c)
+ *     MiUpdateBackgroundZeroingActive @ 0x1405223B0 (MiUpdateBackgroundZeroingActive.c)
  */
 
 LONG __fastcall MiIncrementZeroEngineThread(__int64 a1, int a2)

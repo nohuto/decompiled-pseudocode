@@ -8,10 +8,10 @@
  *     RtlpHpVirtReAllocateHeap @ 0x1800EBA84 (RtlpHpVirtReAllocateHeap.c)
  */
 
-__int64 __fastcall RtlpHpReAllocWithExceptionProtection(__int64 a1, int a2, unsigned __int64 a3, unsigned __int64 a4)
+__int64 __fastcall RtlpHpReAllocWithExceptionProtection(void *a1, int a2, unsigned __int64 a3, unsigned __int64 a4)
 {
   if ( (RtlpHpHeapFeatures & 2) != 0 )
-    return RtlpHpVirtReAllocateHeap();
+    return RtlpHpVirtReAllocateHeap(a1);
   else
-    return RtlpReAllocateHeapInternal(a1, a2, a3, a4);
+    return RtlpReAllocateHeapInternal((unsigned __int16 *)a1, a2, a3, a4);
 }

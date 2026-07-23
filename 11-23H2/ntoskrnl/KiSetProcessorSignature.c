@@ -1,12 +1,12 @@
 /*
- * XREFs of KiSetProcessorSignature @ 0x140A8E554
+ * XREFs of KiSetProcessorSignature @ 0x140A8E3CC
  * Callers:
  *     KiInitializeBootStructures @ 0x140A8B590 (KiInitializeBootStructures.c)
  *     KiSetFeatureBits @ 0x140A8D4C4 (KiSetFeatureBits.c)
  * Callees:
- *     KeGetPrcb @ 0x140257330 (KeGetPrcb.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
+ *     KeGetPrcb @ 0x1402573F0 (KeGetPrcb.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
  *     KdInitSystem @ 0x140AB1040 (KdInitSystem.c)
  *     KiPublishProcessorFeatures @ 0x140B75228 (KiPublishProcessorFeatures.c)
  */
@@ -68,7 +68,7 @@ __int64 __fastcall KiSetProcessorSignature(__int64 a1, unsigned int a2)
   v18 = (unsigned __int8 *)(a1 + 141);
   v53 = (unsigned __int8 *)(a1 + 141);
   v19 = (int *)(a1 + 36);
-  v20 = qword_140014A58;
+  v20 = qword_140014A48;
   v21 = _RAX;
   do
   {
@@ -281,7 +281,7 @@ LABEL_78:
     }
   }
   v46 = a1;
-  *(_DWORD *)(a1 + 1740) = dword_140022C80[5 * v42];
+  *(_DWORD *)(a1 + 1740) = dword_140022D00[5 * v42];
 LABEL_84:
   v47 = *v19;
   if ( *v19 )

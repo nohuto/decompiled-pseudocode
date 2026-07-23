@@ -1,19 +1,19 @@
 /*
- * XREFs of PsReferencePartitionByHandle @ 0x140692204
+ * XREFs of PsReferencePartitionByHandle @ 0x14067CE44
  * Callers:
- *     EtwpSetPartitionContext @ 0x1405B0AA0 (EtwpSetPartitionContext.c)
- *     MmAllocateVirtualMemory @ 0x1405F94E0 (MmAllocateVirtualMemory.c)
- *     NtAllocateVirtualMemory @ 0x1405FA740 (NtAllocateVirtualMemory.c)
- *     NtManagePartition @ 0x140691E80 (NtManagePartition.c)
- *     MiAllocateVirtualMemoryCommon @ 0x1406944E8 (MiAllocateVirtualMemoryCommon.c)
- *     MiInitializeCreateSectionPacket @ 0x140705930 (MiInitializeCreateSectionPacket.c)
- *     IopSetFileMemoryPartitionInformation @ 0x1408942EC (IopSetFileMemoryPartitionInformation.c)
- *     PspSetJobMemoryPartition @ 0x14090953C (PspSetJobMemoryPartition.c)
- *     NtCreatePartition @ 0x14090CD70 (NtCreatePartition.c)
+ *     EtwpSetPartitionContext @ 0x1405B0CD0 (EtwpSetPartitionContext.c)
+ *     MiAllocateVirtualMemoryCommon @ 0x1405F3A38 (MiAllocateVirtualMemoryCommon.c)
+ *     NtManagePartition @ 0x14067CAC0 (NtManagePartition.c)
+ *     MmAllocateVirtualMemory @ 0x1406E8C40 (MmAllocateVirtualMemory.c)
+ *     NtAllocateVirtualMemory @ 0x1406E9EA0 (NtAllocateVirtualMemory.c)
+ *     MiInitializeCreateSectionPacket @ 0x14071CD10 (MiInitializeCreateSectionPacket.c)
+ *     IopSetFileMemoryPartitionInformation @ 0x14089444C (IopSetFileMemoryPartitionInformation.c)
+ *     PspSetJobMemoryPartition @ 0x14090969C (PspSetJobMemoryPartition.c)
+ *     NtCreatePartition @ 0x14090CED0 (NtCreatePartition.c)
  * Callees:
- *     PsReferencePartitionSafe @ 0x1402AC004 (PsReferencePartitionSafe.c)
- *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
- *     ObpReferenceObjectByHandleWithTag @ 0x1406F0C00 (ObpReferenceObjectByHandleWithTag.c)
+ *     PsReferencePartitionSafe @ 0x1402745B0 (PsReferencePartitionSafe.c)
+ *     ObfDereferenceObjectWithTag @ 0x140355E90 (ObfDereferenceObjectWithTag.c)
+ *     ObpReferenceObjectByHandleWithTag @ 0x140707FE0 (ObpReferenceObjectByHandleWithTag.c)
  */
 
 __int64 __fastcall PsReferencePartitionByHandle(ULONG_PTR a1, __int64 a2, __int64 a3, ULONG Tag, _QWORD *a5)

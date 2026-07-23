@@ -1,21 +1,21 @@
 /*
- * XREFs of EtwpReserveTraceBuffer @ 0x1400D68F0
+ * XREFs of EtwpReserveTraceBuffer @ 0x1400D4790
  * Callers:
- *     EtwpLogKernelEvent @ 0x140059740 (EtwpLogKernelEvent.c)
- *     EtwpLogSystemEventUnsafe @ 0x14007394C (EtwpLogSystemEventUnsafe.c)
- *     EtwpEventWriteFull @ 0x140073CE0 (EtwpEventWriteFull.c)
- *     EtwpTraceMessageVa @ 0x1400D5D90 (EtwpTraceMessageVa.c)
- *     EtwTraceContextSwap @ 0x1400D6460 (EtwTraceContextSwap.c)
- *     EtwTraceEvent @ 0x14022528C (EtwTraceEvent.c)
- *     EtwTraceRaw @ 0x1402256C4 (EtwTraceRaw.c)
- *     EtwpReserveWithPebsIndex @ 0x140226D88 (EtwpReserveWithPebsIndex.c)
- *     EtwpReserveWithPmcCounters @ 0x140226E18 (EtwpReserveWithPmcCounters.c)
- *     EtwpWriteUserEvent @ 0x140510920 (EtwpWriteUserEvent.c)
+ *     EtwpLogKernelEvent @ 0x1400592C0 (EtwpLogKernelEvent.c)
+ *     EtwpLogSystemEventUnsafe @ 0x1400734CC (EtwpLogSystemEventUnsafe.c)
+ *     EtwpEventWriteFull @ 0x140073860 (EtwpEventWriteFull.c)
+ *     EtwpTraceMessageVa @ 0x1400D3C30 (EtwpTraceMessageVa.c)
+ *     EtwTraceContextSwap @ 0x1400D4300 (EtwTraceContextSwap.c)
+ *     EtwTraceEvent @ 0x1402250B8 (EtwTraceEvent.c)
+ *     EtwTraceRaw @ 0x1402254F0 (EtwTraceRaw.c)
+ *     EtwpReserveWithPebsIndex @ 0x140226BB4 (EtwpReserveWithPebsIndex.c)
+ *     EtwpReserveWithPmcCounters @ 0x140226C44 (EtwpReserveWithPmcCounters.c)
+ *     EtwpWriteUserEvent @ 0x1404F38B0 (EtwpWriteUserEvent.c)
  * Callees:
- *     EtwpUpdateEventsLostCount @ 0x1400AA15C (EtwpUpdateEventsLostCount.c)
- *     EtwpLockBufferList @ 0x1400EB6C0 (EtwpLockBufferList.c)
- *     EtwpUnlockBufferList @ 0x1400ED370 (EtwpUnlockBufferList.c)
- *     EtwpSwitchBuffer @ 0x1400ED3E0 (EtwpSwitchBuffer.c)
+ *     EtwpUpdateEventsLostCount @ 0x1400A86DC (EtwpUpdateEventsLostCount.c)
+ *     EtwpLockBufferList @ 0x1400E9530 (EtwpLockBufferList.c)
+ *     EtwpUnlockBufferList @ 0x1400EB1E0 (EtwpUnlockBufferList.c)
+ *     EtwpSwitchBuffer @ 0x1400EB250 (EtwpSwitchBuffer.c)
  */
 
 unsigned __int64 __fastcall EtwpReserveTraceBuffer(unsigned int *a1, unsigned int a2, __int64 a3, _QWORD *a4, int a5)

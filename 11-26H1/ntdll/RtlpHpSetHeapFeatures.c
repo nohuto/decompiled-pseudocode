@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpHpSetHeapFeatures @ 0x180145214
+ * XREFs of RtlpHpSetHeapFeatures @ 0x1801450C4
  * Callers:
- *     RtlSetGlobalHeapFeatures @ 0x180144518 (RtlSetGlobalHeapFeatures.c)
+ *     RtlSetGlobalHeapFeatures @ 0x180144408 (RtlSetGlobalHeapFeatures.c)
  * Callees:
- *     RtlpHpPgSamplingProcessInitialize @ 0x18011D254 (RtlpHpPgSamplingProcessInitialize.c)
+ *     RtlpHpPgSamplingProcessInitialize @ 0x18011D004 (RtlpHpPgSamplingProcessInitialize.c)
  */
 
 void __fastcall RtlpHpSetHeapFeatures(__int64 a1, int *a2)

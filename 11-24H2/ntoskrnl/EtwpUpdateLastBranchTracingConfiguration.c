@@ -1,42 +1,40 @@
 /*
- * XREFs of EtwpUpdateLastBranchTracingConfiguration @ 0x1407B19EC
+ * XREFs of EtwpUpdateLastBranchTracingConfiguration @ 0x1407B1E3C
  * Callers:
- *     EtwSetPerformanceTraceInformation @ 0x140A440A4 (EtwSetPerformanceTraceInformation.c)
+ *     EtwSetPerformanceTraceInformation @ 0x140A39934 (EtwSetPerformanceTraceInformation.c)
  * Callees:
- *     EtwpUpdateLastBranchTracingHalState @ 0x140651824 (EtwpUpdateLastBranchTracingHalState.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     EtwpAllocateLbrData @ 0x1407B184C (EtwpAllocateLbrData.c)
+ *     EtwpUpdateLastBranchTracingHalState @ 0x14064FF24 (EtwpUpdateLastBranchTracingHalState.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     EtwpAllocateLbrData @ 0x1407B1C9C (EtwpAllocateLbrData.c)
  */
 
-__int64 __fastcall EtwpUpdateLastBranchTracingConfiguration(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+__int64 __fastcall EtwpUpdateLastBranchTracingConfiguration(__int64 a1, __int64 a2)
 {
-  unsigned __int32 v4; // edi
+  unsigned __int32 v2; // edi
   __int64 result; // rax
-  volatile __int32 *v7; // rax
-  __int64 v8; // rcx
-  __int64 v9; // r8
-  __int64 v10; // r9
+  volatile __int32 *v5; // rax
+  __int64 v6; // rcx
 
-  v4 = a2;
+  v2 = a2;
   if ( !EtwpLastBranchSupportedOptions )
     return 3221225659LL;
   if ( (~EtwpLastBranchSupportedOptions & (unsigned int)a2) != 0 || (a2 & 3) == 3 )
     return 3221225485LL;
   if ( *(_QWORD *)(a1 + 1072) || (result = EtwpAllocateLbrData(a1), (int)result >= 0) )
   {
-    v7 = *(volatile __int32 **)(a1 + 1072);
-    v8 = *(unsigned int *)v7;
-    if ( (_DWORD)v8 )
+    v5 = *(volatile __int32 **)(a1 + 1072);
+    v6 = *(unsigned int *)v5;
+    if ( (_DWORD)v6 )
     {
-      guard_dispatch_icall_no_overrides(v8, a2, a3, a4);
+      guard_dispatch_icall_no_overrides(v6, a2);
       **(_DWORD **)(a1 + 1072) = 0;
-      _InterlockedExchange((volatile __int32 *)(*(_QWORD *)(a1 + 1072) + 4LL), v4);
-      return guard_dispatch_icall_no_overrides(v4, *(_QWORD *)(a1 + 1072), v9, v10);
+      _InterlockedExchange((volatile __int32 *)(*(_QWORD *)(a1 + 1072) + 4LL), v2);
+      return guard_dispatch_icall_no_overrides(v2, *(_QWORD *)(a1 + 1072));
     }
     else
     {
-      _InterlockedExchange(v7 + 1, v4);
-      return EtwpUpdateLastBranchTracingHalState(a1, a2, a3, a4);
+      _InterlockedExchange(v5 + 1, v2);
+      return EtwpUpdateLastBranchTracingHalState(a1);
     }
   }
   return result;

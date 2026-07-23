@@ -1,24 +1,25 @@
 /*
- * XREFs of RtlWalkHeap @ 0x180047770
+ * XREFs of RtlWalkHeap @ 0x18005E150
  * Callers:
  *     <none>
  * Callees:
- *     RtlpEnsureSegHeapLockedForWalk @ 0x180047D44 (RtlpEnsureSegHeapLockedForWalk.c)
+ *     RtlpEnsureSegHeapLockedForWalk @ 0x18005E200 (RtlpEnsureSegHeapLockedForWalk.c)
  */
 
-__int64 __fastcall RtlWalkHeap(__int64 a1, __int64 a2, __int64 a3)
+NTSTATUS __cdecl RtlWalkHeap(PVOID HeapHandle, PRTL_HEAP_WALK_ENTRY Entry)
 {
+  char v4; // r8
   __int64 v6; // r8
 
-  if ( *(_DWORD *)(a1 + 16) == -571548178 )
+  if ( *((_DWORD *)HeapHandle + 4) == -571548178 )
   {
     RtlpEnsureSegHeapLockedForWalk();
     LOBYTE(v6) = 1;
-    return RtlpHpHeapWalk(a1, a2, v6);
+    return RtlpHpHeapWalk((__int64)HeapHandle, (__int64 *)Entry, v6);
   }
   else
   {
-    LOBYTE(a3) = 1;
-    return RtlpWalkHeap(a1, a2, a3);
+    v4 = 1;
+    return RtlpWalkHeap(HeapHandle, Entry, v4);
   }
 }

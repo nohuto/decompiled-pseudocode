@@ -1,11 +1,11 @@
 /*
- * XREFs of MiPfnToStandbyLookaside @ 0x1402CBFB0
+ * XREFs of MiPfnToStandbyLookaside @ 0x1402ADD70
  * Callers:
- *     MiRebuildStandbyLookasideList @ 0x1402CB3C4 (MiRebuildStandbyLookasideList.c)
- *     MiExclusiveInsertPfnChainInList @ 0x1402CC408 (MiExclusiveInsertPfnChainInList.c)
+ *     MiRebuildStandbyLookasideList @ 0x1402AD184 (MiRebuildStandbyLookasideList.c)
+ *     MiExclusiveInsertPfnChainInList @ 0x1402AE1C8 (MiExclusiveInsertPfnChainInList.c)
  * Callees:
- *     MiSearchChannelTable @ 0x1402CBEE8 (MiSearchChannelTable.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
+ *     MiSearchChannelTable @ 0x1402ADCA8 (MiSearchChannelTable.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall MiPfnToStandbyLookaside(ULONG_PTR BugCheckParameter2, int *a2, __int64 a3, __int64 *a4)
@@ -36,13 +36,13 @@ __int64 __fastcall MiPfnToStandbyLookaside(ULONG_PTR BugCheckParameter2, int *a2
   {
     v10 = *a2;
   }
-  else if ( BugCheckParameter2 < qword_140E347B0 || BugCheckParameter2 >= qword_140E347B0 + 2048 )
+  else if ( BugCheckParameter2 < qword_140E34930 || BugCheckParameter2 >= qword_140E34930 + 2048 )
   {
-    if ( byte_140E3BD26 )
+    if ( byte_140E3BEA6 )
     {
       v9 = (unsigned __int64)(v4 / 48) >> 9;
-      if ( *(_BYTE *)(qword_140E3D0C0 + 2 * v9) )
-        v10 = *(unsigned __int8 *)(qword_140E3D0C0 + 2 * v9) - 1;
+      if ( *(_BYTE *)(qword_140E3D240 + 2 * v9) )
+        v10 = *(unsigned __int8 *)(qword_140E3D240 + 2 * v9) - 1;
       else
         v10 = 9;
     }
@@ -56,11 +56,11 @@ __int64 __fastcall MiPfnToStandbyLookaside(ULONG_PTR BugCheckParameter2, int *a2
     v10 = 9;
   }
   a4[1] = v8;
-  *a4 = *(_QWORD *)(stru_140E2EB88.ThreadLock + 8 * ((*(_QWORD *)(v8 + 40) >> 43) & 0x3FFLL));
-  v11 = dword_140E2D684;
-  if ( dword_140E2D680 > (unsigned int)dword_140E2D684
-    || (v12 = (char *)qword_140E2D6E0 + 16 * dword_140E2D680, BugCheckParameter2 < *(_QWORD *)v12)
-    || dword_140E2D680 != dword_140E2D684 && BugCheckParameter2 >= *((_QWORD *)v12 + 2) )
+  *a4 = *(_QWORD *)(stru_140E2ED08.ThreadLock + 8 * ((*(_QWORD *)(v8 + 40) >> 43) & 0x3FFLL));
+  v11 = dword_140E2D804;
+  if ( dword_140E2D800 > (unsigned int)dword_140E2D804
+    || (v12 = (char *)qword_140E2D860 + 16 * dword_140E2D800, BugCheckParameter2 < *(_QWORD *)v12)
+    || dword_140E2D800 != dword_140E2D804 && BugCheckParameter2 >= *((_QWORD *)v12 + 2) )
   {
     for ( i = 0; ; i = v21 + 1 )
     {
@@ -70,17 +70,17 @@ __int64 __fastcall MiPfnToStandbyLookaside(ULONG_PTR BugCheckParameter2, int *a2
           KeBugCheckEx(0x1Au, 0x5180uLL, BugCheckParameter2, 0LL, 0LL);
         v21 = (i + v11) >> 1;
         v22 = 16LL * v21;
-        v12 = (char *)qword_140E2D6E0 + v22;
-        if ( BugCheckParameter2 >= *(_QWORD *)((char *)qword_140E2D6E0 + v22) )
+        v12 = (char *)qword_140E2D860 + v22;
+        if ( BugCheckParameter2 >= *(_QWORD *)((char *)qword_140E2D860 + v22) )
           break;
         if ( !v21 )
-          KeBugCheckEx(0x1Au, 0x5180uLL, BugCheckParameter2, (ULONG_PTR)qword_140E2D6E0 + v22, 0LL);
+          KeBugCheckEx(0x1Au, 0x5180uLL, BugCheckParameter2, (ULONG_PTR)qword_140E2D860 + v22, 0LL);
         v11 = v21 - 1;
       }
-      if ( v21 == dword_140E2D684 || BugCheckParameter2 < *((_QWORD *)v12 + 2) )
+      if ( v21 == dword_140E2D804 || BugCheckParameter2 < *((_QWORD *)v12 + 2) )
         break;
     }
-    dword_140E2D680 = (i + v11) >> 1;
+    dword_140E2D800 = (i + v11) >> 1;
   }
   *((_DWORD *)a4 + 6) = *((_DWORD *)v12 + 2);
   if ( a3 )
@@ -100,16 +100,16 @@ LABEL_12:
     }
     if ( v8 < 0xFFFFDE0000000000uLL )
       goto LABEL_47;
-    if ( v8 >= 48 * qword_140E2D7A0 - 0x21FFFFFFFFD0LL )
+    if ( v8 >= 48 * qword_140E2D920 - 0x21FFFFFFFFD0LL )
       goto LABEL_47;
     v24 = v4 / 48;
-    if ( v4 / 48 >= qword_140E347B0 && v24 < qword_140E347B0 + 2048 )
+    if ( v4 / 48 >= qword_140E34930 && v24 < qword_140E34930 + 2048 )
       goto LABEL_47;
     if ( (v13 & 0x70000) == 0x60000 )
       goto LABEL_12;
-    if ( byte_140E3BD26 && (v25 = v24 >> 9, *(_BYTE *)(qword_140E3D0C0 + 2 * v25)) )
+    if ( byte_140E3BEA6 && (v25 = v24 >> 9, *(_BYTE *)(qword_140E3D240 + 2 * v25)) )
     {
-      if ( *(_BYTE *)(qword_140E3D0C0 + 2 * v25) != 10 )
+      if ( *(_BYTE *)(qword_140E3D240 + 2 * v25) != 10 )
         goto LABEL_12;
       v14 = 5;
     }
@@ -121,7 +121,7 @@ LABEL_47:
   }
 LABEL_13:
   *((_DWORD *)a4 + 7) = v14;
-  if ( qword_140E2D6E8 )
+  if ( qword_140E2D868 )
     LOBYTE(result) = *((_BYTE *)MiSearchChannelTable(BugCheckParameter2) + 12);
   else
     LOBYTE(result) = 0;
@@ -134,7 +134,7 @@ LABEL_13:
   if ( v10 < 9 )
   {
     if ( v10 == 8 )
-      v23 = *(_BYTE *)(qword_140E3D0C0 + 2 * ((unsigned __int64)(v4 / 48) >> 9) + 1) & 0x7F;
+      v23 = *(_BYTE *)(qword_140E3D240 + 2 * ((unsigned __int64)(v4 / 48) >> 9) + 1) & 0x7F;
     else
       v23 = 0;
     *((_BYTE *)a4 + 40) = v23;

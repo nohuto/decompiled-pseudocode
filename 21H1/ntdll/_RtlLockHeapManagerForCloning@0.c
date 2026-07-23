@@ -19,15 +19,15 @@ int __stdcall RtlLockHeapManagerForCloning()
   unsigned int v2; // ebx
   void **ProcessHeaps; // eax
   void *v4; // esi
-  volatile signed __int32 *v6; // eax
+  _RTL_SRWLOCK *v6; // eax
   int v7; // [esp+10h] [ebp-20h]
   struct _PEB *v8; // [esp+14h] [ebp-1Ch]
-  _DWORD v9[3]; // [esp+18h] [ebp-18h] BYREF
+  LARGE_INTEGER DelayInterval; // [esp+18h] [ebp-18h] BYREF
   char v10[12]; // [esp+24h] [ebp-Ch] BYREF
 
   v0 = NtCurrentPeb();
   v8 = v0;
-  RtlEnterCriticalSection((int)&RtlpProcessHeapsListLock);
+  RtlEnterCriticalSection(&RtlpProcessHeapsListLock);
   RtlpCSparseBitmapLock(v10);
   v1 = 0;
   v2 = 0;
@@ -44,12 +44,11 @@ int __stdcall RtlLockHeapManagerForCloning()
       }
       else if ( (*((_BYTE *)v4 + 64) & 1) == 0 )
       {
-        v9[1] = -1;
         v7 = 0;
-        v9[0] = -250000;
-        while ( !RtlTryEnterCriticalSection(*((_DWORD *)v4 + 50)) )
+        DelayInterval.QuadPart = -250000LL;
+        while ( !RtlTryEnterCriticalSection(*((PRTL_CRITICAL_SECTION *)v4 + 50)) )
         {
-          ZwDelayExecution(0, (int)v9);
+          ZwDelayExecution(0, &DelayInterval);
           if ( (unsigned int)++v7 >= 0x64 )
           {
             v1 = -1073741420;
@@ -58,7 +57,7 @@ int __stdcall RtlLockHeapManagerForCloning()
           }
         }
         if ( *((_BYTE *)v4 + 234) == 2 )
-          v6 = (volatile signed __int32 *)*((_DWORD *)v4 + 57);
+          v6 = (_RTL_SRWLOCK *)*((_DWORD *)v4 + 57);
         else
           v6 = 0;
         if ( v6 )

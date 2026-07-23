@@ -1,12 +1,12 @@
 /*
- * XREFs of MiGetSlabRepurposedStandbyListWorker @ 0x1402C9C98
+ * XREFs of MiGetSlabRepurposedStandbyListWorker @ 0x1402ABA58
  * Callers:
- *     MiGetSlabAllocatorRepurposedStandbyList @ 0x1402C9B5C (MiGetSlabAllocatorRepurposedStandbyList.c)
+ *     MiGetSlabAllocatorRepurposedStandbyList @ 0x1402AB91C (MiGetSlabAllocatorRepurposedStandbyList.c)
  * Callees:
- *     MI_SET_SLAB_STANDBY_PAGE_SLAB_ENTRY @ 0x1402C9DFC (MI_SET_SLAB_STANDBY_PAGE_SLAB_ENTRY.c)
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402DC6D0 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     ExAcquireSpinLockSharedAtDpcLevel @ 0x1402EDFB0 (ExAcquireSpinLockSharedAtDpcLevel.c)
- *     MiUpdateSlabTypeAvailablePages @ 0x14036A0D8 (MiUpdateSlabTypeAvailablePages.c)
+ *     MI_SET_SLAB_STANDBY_PAGE_SLAB_ENTRY @ 0x1402ABBBC (MI_SET_SLAB_STANDBY_PAGE_SLAB_ENTRY.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402BE490 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     ExAcquireSpinLockSharedAtDpcLevel @ 0x1402D0030 (ExAcquireSpinLockSharedAtDpcLevel.c)
+ *     MiUpdateSlabTypeAvailablePages @ 0x14036BE78 (MiUpdateSlabTypeAvailablePages.c)
  */
 
 __int64 __fastcall MiGetSlabRepurposedStandbyListWorker(__int64 a1, __int64 a2)

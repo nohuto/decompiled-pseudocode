@@ -1,16 +1,16 @@
 /*
- * XREFs of PfSnLogScenarioDecision @ 0x140960FAC
+ * XREFs of PfSnLogScenarioDecision @ 0x140948A6C
  * Callers:
- *     PfSnBeginAppLaunch @ 0x140960934 (PfSnBeginAppLaunch.c)
- *     PfSnBeginScenario @ 0x140960CB0 (PfSnBeginScenario.c)
+ *     PfSnBeginAppLaunch @ 0x1409483F4 (PfSnBeginAppLaunch.c)
+ *     PfSnBeginScenario @ 0x140948770 (PfSnBeginScenario.c)
  * Callees:
- *     EtwEventEnabled @ 0x1402A1BD0 (EtwEventEnabled.c)
- *     _tlgCreate1Sz_wchar_t @ 0x140330A30 (_tlgCreate1Sz_wchar_t.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140330CB0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     EtwWrite @ 0x14041C1B0 (EtwWrite.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     EtwQueryProcessTelemetryInfo @ 0x14094B234 (EtwQueryProcessTelemetryInfo.c)
+ *     _tlgCreate1Sz_wchar_t @ 0x1402B92A8 (_tlgCreate1Sz_wchar_t.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402B92F0 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     EtwEventEnabled @ 0x1402D1300 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x14040FFB0 (EtwWrite.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     EtwQueryProcessTelemetryInfo @ 0x1408EF7A4 (EtwQueryProcessTelemetryInfo.c)
  */
 
 char __fastcall PfSnLogScenarioDecision(
@@ -95,7 +95,7 @@ char __fastcall PfSnLogScenarioDecision(
   v21 = 0;
   v22 = 0;
   v28 = 0;
-  if ( qword_140E67108 && EtwEventEnabled(qword_140E67108, &PfSnEvt_ScenarioDecision_Info) )
+  if ( qword_140E67258 && EtwEventEnabled(qword_140E67258, &PfSnEvt_ScenarioDecision_Info) )
   {
     v16 = -1LL;
     do
@@ -129,7 +129,7 @@ char __fastcall PfSnLogScenarioDecision(
     v28 = v17;
     v55 = 4LL;
     v54 = &v28;
-    EtwWrite(qword_140E67108, &PfSnEvt_ScenarioDecision_Info, 0LL, 9u, &UserData);
+    EtwWrite(qword_140E67258, &PfSnEvt_ScenarioDecision_Info, 0LL, 9u, &UserData);
   }
   ProcessTelemetryInfo = EtwQueryProcessTelemetryInfo(BugCheckParameter1, v33, 0x60uLL, 0, 0LL);
   v15 = 0;
@@ -173,7 +173,7 @@ char __fastcall PfSnLogScenarioDecision(
       v71 = 8LL;
       LOBYTE(ProcessTelemetryInfo) = tlgWriteTransfer_EtwWriteTransfer(
                                        (__int64)&dword_140E074B8,
-                                       (unsigned __int8 *)byte_14004831D,
+                                       (unsigned __int8 *)byte_1400487A9,
                                        0LL,
                                        0LL,
                                        0xAu,

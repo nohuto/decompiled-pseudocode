@@ -1,8 +1,8 @@
 /*
- * XREFs of CcGetPrivateVolumeCacheMapFromFileObject @ 0x14046600C
+ * XREFs of CcGetPrivateVolumeCacheMapFromFileObject @ 0x14045DA00
  * Callers:
- *     CcCanIWrite @ 0x1404DBAA0 (CcCanIWrite.c)
- *     CcDeferWrite @ 0x14057B140 (CcDeferWrite.c)
+ *     CcCanIWrite @ 0x1404D54C0 (CcCanIWrite.c)
+ *     CcDeferWrite @ 0x1405785D0 (CcDeferWrite.c)
  * Callees:
  *     <none>
  */

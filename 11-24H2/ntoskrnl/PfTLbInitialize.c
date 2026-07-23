@@ -1,9 +1,9 @@
 /*
- * XREFs of PfTLbInitialize @ 0x140A5A924
+ * XREFs of PfTLbInitialize @ 0x140A521E4
  * Callers:
- *     PfTAllocateBuffers @ 0x14074646C (PfTAllocateBuffers.c)
+ *     PfTAllocateBuffers @ 0x14074475C (PfTAllocateBuffers.c)
  * Callees:
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 __int64 __fastcall PfTLbInitialize(_QWORD *a1, unsigned int a2, int a3)

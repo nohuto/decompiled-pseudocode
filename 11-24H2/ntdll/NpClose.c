@@ -1,7 +1,7 @@
 /*
- * XREFs of NpClose @ 0x180161810
+ * XREFs of NpClose @ 0x18015FBD0
  * Callers:
- *     LdrpLoadPatchedNtdll @ 0x180066450 (LdrpLoadPatchedNtdll.c)
+ *     LdrpLoadPatchedNtdll @ 0x1800AE630 (LdrpLoadPatchedNtdll.c)
  * Callees:
  *     <none>
  */

@@ -1,9 +1,9 @@
 /*
- * XREFs of MiGetNumberOfCachedPtes @ 0x1400F0454
+ * XREFs of MiGetNumberOfCachedPtes @ 0x1400F04D4
  * Callers:
- *     MiPteBinsNeedTrimming @ 0x1400F0400 (MiPteBinsNeedTrimming.c)
- *     MmGetNumberOfFreeSystemPtes @ 0x1400F0D4C (MmGetNumberOfFreeSystemPtes.c)
- *     MiGetSystemPteStatistics @ 0x14085BFF4 (MiGetSystemPteStatistics.c)
+ *     MiPteBinsNeedTrimming @ 0x1400F0480 (MiPteBinsNeedTrimming.c)
+ *     MmGetNumberOfFreeSystemPtes @ 0x1400F0DCC (MmGetNumberOfFreeSystemPtes.c)
+ *     MiGetSystemPteStatistics @ 0x14085D254 (MiGetSystemPteStatistics.c)
  * Callees:
  *     <none>
  */

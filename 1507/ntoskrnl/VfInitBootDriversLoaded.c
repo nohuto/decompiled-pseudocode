@@ -40,7 +40,11 @@ char __fastcall VfInitBootDriversLoaded(__int64 a1)
   _InterlockedExchange(&ViAvlInitialized, 1);
   if ( !VfSafeMode )
   {
-    if ( (int)VfAvlInitializeTree(ViTargetDriversAvl, 0LL, 56, (RTL_AVL_FREE_ROUTINE *)ViTargetDelayFreeAvlNode) < 0 )
+    if ( (int)VfAvlInitializeTree(
+                ViTargetDriversAvl,
+                0LL,
+                56,
+                (void (__cdecl *)(_RTL_AVL_TABLE *, PVOID))ViTargetDelayFreeAvlNode) < 0 )
     {
       _InterlockedExchange(&ViTargetAllocationFailures, 1);
     }

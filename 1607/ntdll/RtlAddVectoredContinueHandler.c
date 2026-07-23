@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlAddVectoredContinueHandler @ 0x180090C50
+ * XREFs of RtlAddVectoredContinueHandler @ 0x180090C40
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-char *__fastcall RtlAddVectoredContinueHandler(int a1, __int64 a2)
+PVOID __cdecl RtlAddVectoredContinueHandler(ULONG First, PVECTORED_EXCEPTION_HANDLER Handler)
 {
-  return RtlpAddVectoredHandler(a1, a2, 1u);
+  return RtlpAddVectoredHandler(First, Handler, 1u);
 }

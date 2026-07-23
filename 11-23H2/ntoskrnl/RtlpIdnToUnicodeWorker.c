@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlpIdnToUnicodeWorker @ 0x1405AFC50
+ * XREFs of RtlpIdnToUnicodeWorker @ 0x1405B01C0
  * Callers:
- *     RtlIdnToUnicode @ 0x1409BF3A0 (RtlIdnToUnicode.c)
+ *     RtlIdnToUnicode @ 0x1409BF5A0 (RtlIdnToUnicode.c)
  * Callees:
- *     RtlStringCchLengthW @ 0x14022C640 (RtlStringCchLengthW.c)
- *     memmove @ 0x140435700 (memmove.c)
- *     punycode_decode @ 0x1409BF6A0 (punycode_decode.c)
- *     RtlIsNormalizedString @ 0x1409C1BC0 (RtlIsNormalizedString.c)
+ *     RtlStringCchLengthW @ 0x14022C750 (RtlStringCchLengthW.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     punycode_decode @ 0x1409BF8A0 (punycode_decode.c)
+ *     RtlIsNormalizedString @ 0x1409C1DC0 (RtlIsNormalizedString.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

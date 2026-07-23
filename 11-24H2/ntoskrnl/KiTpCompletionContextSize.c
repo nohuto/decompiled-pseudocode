@@ -1,10 +1,10 @@
 /*
- * XREFs of KiTpCompletionContextSize @ 0x14073E0BC
+ * XREFs of KiTpCompletionContextSize @ 0x14073BFEC
  * Callers:
- *     KeMarkDynamicTracingHiberPhase @ 0x1405C94E0 (KeMarkDynamicTracingHiberPhase.c)
- *     KeSetTracepoint @ 0x14073D6A0 (KeSetTracepoint.c)
+ *     KeMarkDynamicTracingHiberPhase @ 0x1405C6C10 (KeMarkDynamicTracingHiberPhase.c)
+ *     KeSetTracepoint @ 0x14073B5D0 (KeSetTracepoint.c)
  * Callees:
- *     RtlIcCompletionContextSize @ 0x140BB70D8 (RtlIcCompletionContextSize.c)
+ *     RtlIcCompletionContextSize @ 0x140BB90D8 (RtlIcCompletionContextSize.c)
  */
 
 __int64 KiTpCompletionContextSize()

@@ -1,11 +1,11 @@
 /*
- * XREFs of IoApplyPriorityInfoThread @ 0x140070BA4
+ * XREFs of IoApplyPriorityInfoThread @ 0x140070724
  * Callers:
  *     <none>
  * Callees:
- *     PsSetPagePriorityThread @ 0x140070C40 (PsSetPagePriorityThread.c)
- *     PsSetIoPriorityThread @ 0x140072110 (PsSetIoPriorityThread.c)
- *     KeSetActualBasePriorityThread @ 0x1400D2840 (KeSetActualBasePriorityThread.c)
+ *     PsSetPagePriorityThread @ 0x1400707C0 (PsSetPagePriorityThread.c)
+ *     PsSetIoPriorityThread @ 0x140071C90 (PsSetIoPriorityThread.c)
+ *     KeSetActualBasePriorityThread @ 0x1400D06E0 (KeSetActualBasePriorityThread.c)
  */
 
 NTSTATUS __stdcall IoApplyPriorityInfoThread(

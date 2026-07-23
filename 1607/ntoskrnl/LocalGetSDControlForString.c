@@ -1,9 +1,9 @@
 /*
- * XREFs of LocalGetSDControlForString @ 0x1406CB618
+ * XREFs of LocalGetSDControlForString @ 0x1406CB750
  * Callers:
- *     LocalConvertStringSDToSD_Rev1 @ 0x1404D67F8 (LocalConvertStringSDToSD_Rev1.c)
+ *     LocalConvertStringSDToSD_Rev1 @ 0x1404B9DFC (LocalConvertStringSDToSD_Rev1.c)
  * Callees:
- *     _wcsnicmp @ 0x14014D8A0 (_wcsnicmp.c)
+ *     _wcsnicmp @ 0x14014DE10 (_wcsnicmp.c)
  */
 
 __int64 __fastcall LocalGetSDControlForString(wchar_t *Str1, int a2, _WORD *a3, wchar_t **a4)

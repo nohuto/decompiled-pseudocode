@@ -14,7 +14,7 @@
 __int64 __fastcall AslRegistryBuildUserPath(PUNICODE_STRING Destination, PCWSTR Source)
 {
   __int64 v4; // rcx
-  int v5; // ebx
+  NTSTATUS v5; // ebx
   __int64 v6; // rax
   unsigned __int16 v7; // ax
   wchar_t *v8; // rax

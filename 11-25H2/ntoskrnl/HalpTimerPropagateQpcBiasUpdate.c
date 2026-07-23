@@ -18,7 +18,7 @@ void __fastcall HalpTimerPropagateQpcBiasUpdate(__int64 a1, __int64 a2)
   unsigned __int64 v6; // rcx
   unsigned __int64 v7; // rax
   __int64 v8; // r11
-  unsigned __int64 v9; // [rsp+30h] [rbp+8h] BYREF
+  unsigned __int64 Buffer; // [rsp+30h] [rbp+8h] BYREF
 
   if ( a1 == HalpPerformanceCounter )
   {
@@ -39,15 +39,15 @@ void __fastcall HalpTimerPropagateQpcBiasUpdate(__int64 a1, __int64 a2)
         v7 = HalpTimerScaleCounter(v6, v5, 10000000LL);
         if ( v8 < 0 )
           v7 = -(__int64)v7;
-        v9 = v7;
-        RtlSetSystemGlobalData(18LL, &v9);
+        Buffer = v7;
+        RtlSetSystemGlobalData(GlobalDataIdQpcData, &Buffer, 8u);
       }
     }
     v3 = *(_DWORD *)(a1 + 228);
     if ( v3 == 8 || v3 == 11 )
     {
-      v9 = *(_QWORD *)(a1 + 208);
-      *(_QWORD *)(MmWriteableSharedUserData + 952) = v9;
+      Buffer = *(_QWORD *)(a1 + 208);
+      *(_QWORD *)(MmWriteableSharedUserData + 952) = Buffer;
     }
   }
 }

@@ -1,12 +1,12 @@
 /*
- * XREFs of FsRtlPrivateInitializeFileLock @ 0x1402491EC
+ * XREFs of FsRtlPrivateInitializeFileLock @ 0x1402E342C
  * Callers:
- *     FsRtlPrivateLock @ 0x140248460 (FsRtlPrivateLock.c)
+ *     FsRtlPrivateLock @ 0x1402E26A0 (FsRtlPrivateLock.c)
  * Callees:
- *     ExAllocateFromNPagedLookasideList @ 0x140248B90 (ExAllocateFromNPagedLookasideList.c)
- *     RtlRaiseStatus @ 0x140280B30 (RtlRaiseStatus.c)
- *     KeReleaseGuardedMutex @ 0x14031E470 (KeReleaseGuardedMutex.c)
- *     ExAcquireFastMutex @ 0x14033E850 (ExAcquireFastMutex.c)
+ *     RtlRaiseStatus @ 0x1402360C0 (RtlRaiseStatus.c)
+ *     KeReleaseGuardedMutex @ 0x1402C7000 (KeReleaseGuardedMutex.c)
+ *     ExAllocateFromNPagedLookasideList @ 0x1402E2DD0 (ExAllocateFromNPagedLookasideList.c)
+ *     ExAcquireFastMutex @ 0x14031DD30 (ExAcquireFastMutex.c)
  */
 
 char __fastcall FsRtlPrivateInitializeFileLock(_QWORD *a1, char a2)
@@ -37,7 +37,7 @@ LABEL_4:
     goto LABEL_7;
   }
   if ( !a2 )
-    RtlRaiseStatus(3221225626LL);
+    RtlRaiseStatus(-1073741670);
 LABEL_7:
   KeReleaseGuardedMutex(&FsRtlCreateLockInfo);
   return v4;

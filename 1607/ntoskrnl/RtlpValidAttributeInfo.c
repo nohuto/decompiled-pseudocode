@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpValidAttributeInfo @ 0x14068506C
+ * XREFs of RtlpValidAttributeInfo @ 0x140685150
  * Callers:
- *     RtlAddResourceAttributeAce @ 0x140684700 (RtlAddResourceAttributeAce.c)
+ *     RtlAddResourceAttributeAce @ 0x1406847E4 (RtlAddResourceAttributeAce.c)
  * Callees:
- *     RtlpValidAttribute @ 0x140684EF4 (RtlpValidAttribute.c)
+ *     RtlpValidAttribute @ 0x140684FD8 (RtlpValidAttribute.c)
  */
 
 char __fastcall RtlpValidAttributeInfo(__int64 a1)

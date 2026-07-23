@@ -1,15 +1,15 @@
 /*
- * XREFs of BiCreateVhdRamdiskBootDevice @ 0x1408138C8
+ * XREFs of BiCreateVhdRamdiskBootDevice @ 0x140814008
  * Callers:
- *     BiCreatePartitionDevice @ 0x14081344C (BiCreatePartitionDevice.c)
+ *     BiCreatePartitionDevice @ 0x140813B8C (BiCreatePartitionDevice.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     ZwDeviceIoControlFile @ 0x1406A64F0 (ZwDeviceIoControlFile.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     ZwOpenFile @ 0x1406A6A70 (ZwOpenFile.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     ZwDeviceIoControlFile @ 0x1406A7490 (ZwDeviceIoControlFile.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     ZwOpenFile @ 0x1406A7A10 (ZwOpenFile.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall BiCreateVhdRamdiskBootDevice(__int64 a1, _QWORD *a2)
@@ -58,7 +58,7 @@ __int64 __fastcall BiCreateVhdRamdiskBootDevice(__int64 a1, _QWORD *a2)
         while ( *(_WORD *)(a1 + 2 * v5 + 106) );
         v6 = 2 * v5 + 2;
         v7 = 2 * v5 + 106;
-        Pool2 = (char *)ExAllocatePool2(0x102uLL);
+        Pool2 = (char *)ExAllocatePool2(0x102uLL, v7, 0x4B444342u);
         v9 = Pool2;
         if ( Pool2 )
         {

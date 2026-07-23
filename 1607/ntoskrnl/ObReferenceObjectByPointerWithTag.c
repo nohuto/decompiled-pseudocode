@@ -1,10 +1,10 @@
 /*
- * XREFs of ObReferenceObjectByPointerWithTag @ 0x140013580
+ * XREFs of ObReferenceObjectByPointerWithTag @ 0x140013100
  * Callers:
- *     ObOpenObjectByPointer @ 0x1404203C0 (ObOpenObjectByPointer.c)
+ *     ObOpenObjectByPointer @ 0x14041F280 (ObOpenObjectByPointer.c)
  * Callees:
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
- *     ObpPushStackInfo @ 0x1401FEDC0 (ObpPushStackInfo.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
+ *     ObpPushStackInfo @ 0x1401FEBEC (ObpPushStackInfo.c)
  */
 
 NTSTATUS __stdcall ObReferenceObjectByPointerWithTag(

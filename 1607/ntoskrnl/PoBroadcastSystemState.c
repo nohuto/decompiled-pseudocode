@@ -5,16 +5,16 @@
  *     PnprQuiesceDevices @ 0x1403DC3D4 (PnprQuiesceDevices.c)
  *     PnprWakeDevices @ 0x1403DCE3C (PnprWakeDevices.c)
  * Callees:
- *     EtwTraceKernelEvent @ 0x140014190 (EtwTraceKernelEvent.c)
- *     DbgPrint @ 0x140081B44 (DbgPrint.c)
- *     PopDiagTraceEventNoPayload @ 0x1400B06CC (PopDiagTraceEventNoPayload.c)
- *     KeDelayExecutionThread @ 0x1400D0580 (KeDelayExecutionThread.c)
- *     PopMapInternalActionToIrpAction @ 0x1401144F0 (PopMapInternalActionToIrpAction.c)
- *     PopFxIdleDevicesFromSx @ 0x140124E84 (PopFxIdleDevicesFromSx.c)
- *     PopFxActivateDevicesForSx @ 0x140124F70 (PopFxActivateDevicesForSx.c)
- *     IoConfigureCrashDump @ 0x140142EA0 (IoConfigureCrashDump.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
+ *     EtwTraceKernelEvent @ 0x140013D10 (EtwTraceKernelEvent.c)
+ *     DbgPrint @ 0x140084CC8 (DbgPrint.c)
+ *     PopDiagTraceEventNoPayload @ 0x1400AE73C (PopDiagTraceEventNoPayload.c)
+ *     KeDelayExecutionThread @ 0x1400CE420 (KeDelayExecutionThread.c)
+ *     PopMapInternalActionToIrpAction @ 0x140114A60 (PopMapInternalActionToIrpAction.c)
+ *     PopFxIdleDevicesFromSx @ 0x1401253F4 (PopFxIdleDevicesFromSx.c)
+ *     PopFxActivateDevicesForSx @ 0x1401254E0 (PopFxActivateDevicesForSx.c)
+ *     IoConfigureCrashDump @ 0x140143410 (IoConfigureCrashDump.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
  *     PopCheckpointSystemSleep @ 0x1403CEBA4 (PopCheckpointSystemSleep.c)
  *     PopDiagTraceDevicesLevel @ 0x1403CF0BC (PopDiagTraceDevicesLevel.c)
  *     PopWakeDeviceList @ 0x1403CF194 (PopWakeDeviceList.c)
@@ -23,16 +23,16 @@
  *     PopHandleWakeSources @ 0x1403D0AEC (PopHandleWakeSources.c)
  *     PopBootLoaderSiData @ 0x1403D2484 (PopBootLoaderSiData.c)
  *     MmShutdownSystem @ 0x1403DEC00 (MmShutdownSystem.c)
- *     ExAcquireTimeRefreshLock @ 0x1403EA8B0 (ExAcquireTimeRefreshLock.c)
- *     ExReleaseTimeRefreshLock @ 0x1404D08F4 (ExReleaseTimeRefreshLock.c)
- *     EmPowerPagingEnabled @ 0x1405303F0 (EmPowerPagingEnabled.c)
- *     PopDiagTraceDevicesSuspend @ 0x1405304A8 (PopDiagTraceDevicesSuspend.c)
- *     WmiAcquireSmbiosLockExclusive @ 0x14053488C (WmiAcquireSmbiosLockExclusive.c)
- *     WmiReleaseSmbiosLockExclusive @ 0x1405348AC (WmiReleaseSmbiosLockExclusive.c)
- *     PopUpdateSmbiosData @ 0x1405348D0 (PopUpdateSmbiosData.c)
- *     PopDiagTraceDevicesWakeEnd @ 0x1405349C0 (PopDiagTraceDevicesWakeEnd.c)
- *     IoNotifyPowerOperationVetoed @ 0x14062BAA4 (IoNotifyPowerOperationVetoed.c)
- *     ObShutdownSystem @ 0x1406655DC (ObShutdownSystem.c)
+ *     ExAcquireTimeRefreshLock @ 0x1403EBEE0 (ExAcquireTimeRefreshLock.c)
+ *     ExReleaseTimeRefreshLock @ 0x1404B4394 (ExReleaseTimeRefreshLock.c)
+ *     EmPowerPagingEnabled @ 0x140530930 (EmPowerPagingEnabled.c)
+ *     PopDiagTraceDevicesSuspend @ 0x1405309E8 (PopDiagTraceDevicesSuspend.c)
+ *     WmiAcquireSmbiosLockExclusive @ 0x140534DCC (WmiAcquireSmbiosLockExclusive.c)
+ *     WmiReleaseSmbiosLockExclusive @ 0x140534DEC (WmiReleaseSmbiosLockExclusive.c)
+ *     PopUpdateSmbiosData @ 0x140534E10 (PopUpdateSmbiosData.c)
+ *     PopDiagTraceDevicesWakeEnd @ 0x140534F00 (PopDiagTraceDevicesWakeEnd.c)
+ *     IoNotifyPowerOperationVetoed @ 0x14062BB58 (IoNotifyPowerOperationVetoed.c)
+ *     ObShutdownSystem @ 0x1406656C0 (ObShutdownSystem.c)
  *     BgDisplayFade @ 0x140725814 (BgDisplayFade.c)
  */
 
@@ -73,8 +73,8 @@ __int64 __fastcall PoBroadcastSystemState(__int64 a1, __int64 a2, __int64 a3, __
   _QWORD v38[2]; // [rsp+58h] [rbp-18h] BYREF
 
   v4 = *(_BYTE *)(a1 + 25);
-  v6 = (char *)qword_1403033F0;
-  *(_BYTE *)qword_1403033F0 = *(_BYTE *)(a1 + 26);
+  v6 = (char *)qword_140303330;
+  *(_BYTE *)qword_140303330 = *(_BYTE *)(a1 + 26);
   *((_DWORD *)v6 + 1) = *(_DWORD *)(a1 + 4);
   *((_DWORD *)v6 + 110) = 0;
   *((_QWORD *)v6 + 56) = 0LL;
@@ -94,7 +94,7 @@ __int64 __fastcall PoBroadcastSystemState(__int64 a1, __int64 a2, __int64 a3, __
     v8 = (WORD2(PopCurrentBroadcast) ^ (unsigned __int16)((unsigned __int16)*(_DWORD *)(a1 + 4) << 12)) & 0xF000u ^ HIDWORD(PopCurrentBroadcast);
   }
   HIDWORD(PopCurrentBroadcast) = v8;
-  LODWORD(qword_1403033E8) = *(_DWORD *)(a1 + 16);
+  LODWORD(qword_140303328) = *(_DWORD *)(a1 + 16);
   LOBYTE(PopCurrentBroadcast) = 1;
   if ( (xmmword_1403AA2D0 & 0x8000) != 0 )
   {
@@ -144,7 +144,7 @@ LABEL_30:
       v11 = 14;
     PopCheckpointSystemSleep(v11);
     v14 = *(_DWORD *)(a1 + 16);
-    if ( v14 != 4 || !PopShutdownPowerOffPolicy && !qword_140303490 )
+    if ( v14 != 4 || !PopShutdownPowerOffPolicy && !qword_1403033D0 )
       v9 = 0;
     if ( (unsigned int)(v14 - 2) <= 1 && *v6 == 2 )
       PopFxActivateDevicesForSx(1u);
@@ -158,7 +158,7 @@ LABEL_30:
       {
         if ( v15 == 1 && *(_BYTE *)(a1 + 26) == 2 )
         {
-          if ( dword_140303488 == 5 )
+          if ( dword_1403033C8 == 5 )
             WmiAcquireSmbiosLockExclusive();
           EmPowerPagingEnabled(0LL);
           _InterlockedExchange(&PopPagingEnabled, 0);
@@ -229,7 +229,7 @@ LABEL_31:
     if ( *(_BYTE *)(a1 + 26) == 2 )
     {
       PopDiagTraceEventNoPayload(&POP_ETW_EVENT_DEVICESWAKE);
-      qword_140303878 = KeQueryPerformanceCounter(0LL).QuadPart;
+      qword_1403037B8 = KeQueryPerformanceCounter(0LL).QuadPart;
     }
     v22 = 0;
     v23 = v6 + 64;
@@ -237,13 +237,13 @@ LABEL_31:
     {
       if ( PoResumeFromHibernate && !v22 )
       {
-        if ( byte_1403035C0 )
-          qword_140303A30 = KeQueryPerformanceCounter(0LL).QuadPart;
-        if ( byte_1403289A0 )
+        if ( byte_140303500 )
+          qword_140303970 = KeQueryPerformanceCounter(0LL).QuadPart;
+        if ( byte_1403289E0 )
         {
           BgDisplayFade(v8);
-          byte_140328CD2 = 0;
-          byte_140328CD0 = 0;
+          byte_140328D12 = 0;
+          byte_140328D10 = 0;
         }
       }
       LOBYTE(a3) = *v6;
@@ -262,14 +262,14 @@ LABEL_31:
         }
         if ( PoResumeFromHibernate )
         {
-          v26 = qword_1403034A0;
-          if ( qword_1403034A0 )
+          v26 = qword_1403033E0;
+          if ( qword_1403033E0 )
           {
-            v8 = *(_QWORD *)(qword_1403034A0 + 216);
+            v8 = *(_QWORD *)(qword_1403033E0 + 216);
             if ( v8 )
             {
-              PopBootLoaderSiData(v8, *(unsigned int *)(qword_1403034A0 + 224));
-              v26 = qword_1403034A0;
+              PopBootLoaderSiData(v8, *(unsigned int *)(qword_1403033E0 + 224));
+              v26 = qword_1403033E0;
             }
           }
           v27 = *(_QWORD *)(v26 + 200);
@@ -277,7 +277,7 @@ LABEL_31:
           LOBYTE(v8) = *(_BYTE *)(v27 + 964);
           PopUpdateSmbiosData(v8, v25, *(unsigned int *)(v27 + 960), *(_QWORD *)(v27 + 952));
         }
-        if ( dword_140303488 == 5 )
+        if ( dword_1403033C8 == 5 )
           WmiReleaseSmbiosLockExclusive();
         LOBYTE(v8) = 1;
         EmPowerPagingEnabled(v8);
@@ -297,7 +297,7 @@ LABEL_31:
     if ( *(_BYTE *)(a1 + 26) == 2 )
     {
       PopFxIdleDevicesFromSx();
-      qword_140303880 = KeQueryPerformanceCounter(0LL).QuadPart;
+      qword_1403037C0 = KeQueryPerformanceCounter(0LL).QuadPart;
       PopDiagTraceDevicesWakeEnd();
       PopCheckpointSystemSleep(36);
       PopHandleWakeSources();

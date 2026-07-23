@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpInterruptReinitializeThisProcessor @ 0x14037B2B0
+ * XREFs of HalpInterruptReinitializeThisProcessor @ 0x14037B450
  * Callers:
- *     HalpInitializeInterruptsPn @ 0x14037D15C (HalpInitializeInterruptsPn.c)
- *     HalpPostSleepMP @ 0x140A96FA8 (HalpPostSleepMP.c)
- *     HalpDpPostReplaceInitialization @ 0x140A975F4 (HalpDpPostReplaceInitialization.c)
+ *     HalpInitializeInterruptsPn @ 0x14037D2FC (HalpInitializeInterruptsPn.c)
+ *     HalpPostSleepMP @ 0x140A96E18 (HalpPostSleepMP.c)
+ *     HalpDpPostReplaceInitialization @ 0x140A97464 (HalpDpPostReplaceInitialization.c)
  * Callees:
- *     HalpInterruptInitializeLocalUnit @ 0x14037BA50 (HalpInterruptInitializeLocalUnit.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
+ *     HalpInterruptInitializeLocalUnit @ 0x14037BBF0 (HalpInterruptInitializeLocalUnit.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
  */
 
 __int64 HalpInterruptReinitializeThisProcessor()

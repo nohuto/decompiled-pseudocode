@@ -1,10 +1,10 @@
 /*
- * XREFs of ExUpdateOsPfnInRegistry @ 0x14094D3F0
+ * XREFs of ExUpdateOsPfnInRegistry @ 0x14094D5C0
  * Callers:
  *     <none>
  * Callees:
- *     PsGetCurrentServerSiloGlobals @ 0x140362150 (PsGetCurrentServerSiloGlobals.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x1402F6FB0 (PsGetCurrentServerSiloGlobals.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall ExUpdateOsPfnInRegistry(__int64 a1, __int64 a2, unsigned int a3, __int64 a4)

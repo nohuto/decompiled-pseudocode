@@ -1,10 +1,10 @@
 /*
- * XREFs of LdrpCMFAddToStanbyQueue @ 0x1800DBF68
+ * XREFs of LdrpCMFAddToStanbyQueue @ 0x1800DC028
  * Callers:
- *     LdrpUnmapCMFSegmentIfUnreferenced @ 0x1800DC978 (LdrpUnmapCMFSegmentIfUnreferenced.c)
+ *     LdrpUnmapCMFSegmentIfUnreferenced @ 0x1800DCA38 (LdrpUnmapCMFSegmentIfUnreferenced.c)
  * Callees:
- *     LdrpCMFRemoveFromStandbyQueue @ 0x18008A244 (LdrpCMFRemoveFromStandbyQueue.c)
- *     LdrpUnmapCMFSegment @ 0x1800DC948 (LdrpUnmapCMFSegment.c)
+ *     LdrpCMFRemoveFromStandbyQueue @ 0x18008A234 (LdrpCMFRemoveFromStandbyQueue.c)
+ *     LdrpUnmapCMFSegment @ 0x1800DCA08 (LdrpUnmapCMFSegment.c)
  */
 
 char __fastcall LdrpCMFAddToStanbyQueue(int a1)

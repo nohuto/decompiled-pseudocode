@@ -1,13 +1,13 @@
 /*
- * XREFs of HvlUpdatePerformanceStateCountersForLp @ 0x140445850
+ * XREFs of HvlUpdatePerformanceStateCountersForLp @ 0x14043DA00
  * Callers:
- *     PpmCheckSnapAllDeliveredPerformance @ 0x140351B20 (PpmCheckSnapAllDeliveredPerformance.c)
+ *     PpmCheckSnapAllDeliveredPerformance @ 0x1402AF8B0 (PpmCheckSnapAllDeliveredPerformance.c)
  * Callees:
- *     HvlpHvToNtStatus @ 0x1403AE3F8 (HvlpHvToNtStatus.c)
- *     EtwGetKernelTraceTimestamp @ 0x1403C00A0 (EtwGetKernelTraceTimestamp.c)
- *     HvcallpNoHypervisorPresent @ 0x1404AD690 (HvcallpNoHypervisorPresent.c)
- *     EtwTraceHvHypercall @ 0x1404CDEEC (EtwTraceHvHypercall.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     HvlpHvToNtStatus @ 0x14039CC08 (HvlpHvToNtStatus.c)
+ *     EtwGetKernelTraceTimestamp @ 0x1403AEC60 (EtwGetKernelTraceTimestamp.c)
+ *     HvcallpNoHypervisorPresent @ 0x1404A7D70 (HvcallpNoHypervisorPresent.c)
+ *     EtwTraceHvHypercall @ 0x1404C72BC (EtwTraceHvHypercall.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 __int64 HvlUpdatePerformanceStateCountersForLp()
@@ -18,7 +18,7 @@ __int64 HvlUpdatePerformanceStateCountersForLp()
   _OWORD v4[2]; // [rsp+28h] [rbp-30h] BYREF
 
   memset(v4, 0, sizeof(v4));
-  if ( (BYTE4(xmmword_140FC5B10) & 0x10) != 0 )
+  if ( (BYTE4(xmmword_140FC6B50) & 0x10) != 0 )
   {
     v0 = 1;
     EtwGetKernelTraceTimestamp((LARGE_INTEGER *)v4, 0xA0000010);

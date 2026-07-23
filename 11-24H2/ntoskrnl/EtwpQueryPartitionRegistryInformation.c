@@ -1,20 +1,20 @@
 /*
- * XREFs of EtwpQueryPartitionRegistryInformation @ 0x14064CC6C
+ * XREFs of EtwpQueryPartitionRegistryInformation @ 0x14064B27C
  * Callers:
- *     EtwpContainerStateWnfCallback @ 0x14064C730 (EtwpContainerStateWnfCallback.c)
- *     EtwpInitializeSiloState @ 0x1407A815C (EtwpInitializeSiloState.c)
+ *     EtwpContainerStateWnfCallback @ 0x14064AD40 (EtwpContainerStateWnfCallback.c)
+ *     EtwpInitializeSiloState @ 0x1407A829C (EtwpInitializeSiloState.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     StringToGuidNoBrackets @ 0x14064D31C (StringToGuidNoBrackets.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     ZwOpenKey @ 0x1406A6650 (ZwOpenKey.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     RtlFreeAnsiString @ 0x1408A4990 (RtlFreeAnsiString.c)
- *     RtlUnicodeToUTF8N @ 0x1408AF980 (RtlUnicodeToUTF8N.c)
- *     RtlQueryRegistryValuesEx @ 0x1409CC2F0 (RtlQueryRegistryValuesEx.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     StringToGuidNoBrackets @ 0x14064B92C (StringToGuidNoBrackets.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     ZwOpenKey @ 0x1406A75F0 (ZwOpenKey.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     RtlFreeAnsiString @ 0x1408B69C0 (RtlFreeAnsiString.c)
+ *     RtlUnicodeToUTF8N @ 0x140905BE0 (RtlUnicodeToUTF8N.c)
+ *     RtlQueryRegistryValuesEx @ 0x1409B4D70 (RtlQueryRegistryValuesEx.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall EtwpQueryPartitionRegistryInformation(
@@ -25,7 +25,7 @@ __int64 __fastcall EtwpQueryPartitionRegistryInformation(
         _QWORD *a5,
         GUID *a6)
 {
-  NTSTATUS RegistryValues; // ebx
+  NTSTATUS v10; // ebx
   ULONG v11; // ebx
   CHAR *Pool2; // rax
   NTSTATUS v13; // eax
@@ -42,18 +42,17 @@ __int64 __fastcall EtwpQueryPartitionRegistryInformation(
   PCWCH *v25; // [rsp+B8h] [rbp-48h]
   int v26; // [rsp+C0h] [rbp-40h] BYREF
   UNICODE_STRING *p_UnicodeString; // [rsp+C8h] [rbp-38h]
-  _QWORD v28[4]; // [rsp+E0h] [rbp-20h] BYREF
-  int v29; // [rsp+100h] [rbp+0h]
-  void *v30; // [rsp+118h] [rbp+18h]
-  const wchar_t *v31; // [rsp+128h] [rbp+28h]
-  int *v32; // [rsp+130h] [rbp+30h]
-  int v33; // [rsp+138h] [rbp+38h]
-  _WORD *v34; // [rsp+140h] [rbp+40h]
-  void *v35; // [rsp+150h] [rbp+50h]
-  const wchar_t *v36; // [rsp+160h] [rbp+60h]
-  int *v37; // [rsp+168h] [rbp+68h]
-  int v38; // [rsp+170h] [rbp+70h]
-  _WORD *v39; // [rsp+178h] [rbp+78h]
+  _RTL_QUERY_REGISTRY_TABLE QueryTable; // [rsp+E0h] [rbp-20h] BYREF
+  void *v29; // [rsp+118h] [rbp+18h]
+  const wchar_t *v30; // [rsp+128h] [rbp+28h]
+  int *v31; // [rsp+130h] [rbp+30h]
+  int v32; // [rsp+138h] [rbp+38h]
+  _WORD *v33; // [rsp+140h] [rbp+40h]
+  void *v34; // [rsp+150h] [rbp+50h]
+  const wchar_t *v35; // [rsp+160h] [rbp+60h]
+  int *v36; // [rsp+168h] [rbp+68h]
+  int v37; // [rsp+170h] [rbp+70h]
+  _WORD *v38; // [rsp+178h] [rbp+78h]
 
   KeyHandle = 0LL;
   *(&ObjectAttributes.Length + 1) = 0;
@@ -70,32 +69,32 @@ __int64 __fastcall EtwpQueryPartitionRegistryInformation(
   ObjectAttributes.RootDirectory = 0LL;
   ObjectAttributes.Attributes = 576;
   *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
-  RegistryValues = ZwOpenKey(&KeyHandle, 0x20019u, &ObjectAttributes);
-  if ( RegistryValues >= 0 )
+  v10 = ZwOpenKey(&KeyHandle, 0x20019u, &ObjectAttributes);
+  if ( v10 >= 0 )
   {
-    memset_0(v28, 0, 0xE0uLL);
+    memset_0(&QueryTable, 0, 0xE0uLL);
     v23 = a4;
-    v33 = 1;
-    v28[0] = &EtwpQueryRegistryCallback;
-    v28[3] = &v22;
-    v30 = &EtwpQueryRegistryCallback;
-    v28[2] = L"ContainerType";
+    v32 = 1;
+    QueryTable.QueryRoutine = (int (__fastcall *)(wchar_t *, unsigned int, void *, unsigned int, void *, void *))&EtwpQueryRegistryCallback;
+    QueryTable.EntryContext = &v22;
+    v29 = &EtwpQueryRegistryCallback;
+    QueryTable.Name = L"ContainerType";
     v24 = 1;
-    v29 = 4;
+    QueryTable.DefaultType = 4;
     v22 = 4;
-    v32 = &v24;
-    v31 = L"ContainerId";
-    v34 = v15;
+    v31 = &v24;
+    v30 = L"ContainerId";
+    v33 = v15;
     v25 = UnicodeStringSource;
-    v37 = &v26;
-    v36 = L"ContainerCorrelationId";
-    v39 = v15;
-    v35 = &EtwpQueryRegistryCallback;
-    v38 = 1;
+    v36 = &v26;
+    v35 = L"ContainerCorrelationId";
+    v38 = v15;
+    v34 = &EtwpQueryRegistryCallback;
+    v37 = 1;
     v26 = 1;
     p_UnicodeString = &UnicodeString;
-    RegistryValues = RtlQueryRegistryValuesEx(0x40000000LL, KeyHandle, v28, 0LL, 0LL);
-    if ( RegistryValues >= 0 )
+    v10 = RtlQueryRegistryValuesEx(0x40000000u, (PCWSTR)KeyHandle, &QueryTable, 0LL, 0LL);
+    if ( v10 >= 0 )
     {
       *a5 = 0LL;
       if ( (unsigned int)StringToGuidNoBrackets(UnicodeStringSource, a1) )
@@ -110,7 +109,7 @@ __int64 __fastcall EtwpQueryPartitionRegistryInformation(
         v11 = UTF8StringActualByteCount;
         if ( UTF8StringActualByteCount < 0xFFFF )
         {
-          Pool2 = (CHAR *)ExAllocatePool2(0x48uLL);
+          Pool2 = (CHAR *)ExAllocatePool2(0x48uLL, UTF8StringActualByteCount, 0x61777445u);
           *a2 = Pool2;
           if ( Pool2 )
           {
@@ -132,10 +131,10 @@ __int64 __fastcall EtwpQueryPartitionRegistryInformation(
           }
         }
       }
-      RegistryValues = StringToGuidNoBrackets(&UnicodeString, a6);
-      if ( RegistryValues )
+      v10 = StringToGuidNoBrackets(&UnicodeString, a6);
+      if ( v10 )
       {
-        RegistryValues = 0;
+        v10 = 0;
         *a6 = CPER_EMPTY_GUID;
       }
     }
@@ -144,5 +143,5 @@ __int64 __fastcall EtwpQueryPartitionRegistryInformation(
     ZwClose(KeyHandle);
   RtlFreeAnsiString((PUNICODE_STRING)UnicodeStringSource);
   RtlFreeAnsiString(&UnicodeString);
-  return (unsigned int)RegistryValues;
+  return (unsigned int)v10;
 }

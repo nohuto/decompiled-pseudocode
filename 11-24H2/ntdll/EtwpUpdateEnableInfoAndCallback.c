@@ -1,23 +1,23 @@
 /*
- * XREFs of EtwpUpdateEnableInfoAndCallback @ 0x18001E990
+ * XREFs of EtwpUpdateEnableInfoAndCallback @ 0x18004B390
  * Callers:
- *     EtwpRegisterProvider @ 0x18001DD30 (EtwpRegisterProvider.c)
- *     EtwDeliverDataBlock @ 0x18001E150 (EtwDeliverDataBlock.c)
- *     EtwpProcessNotification @ 0x180020790 (EtwpProcessNotification.c)
- *     EtwpDisableTraceProviders @ 0x18008BE84 (EtwpDisableTraceProviders.c)
- *     EtwpSetProviderTraits @ 0x1800E8690 (EtwpSetProviderTraits.c)
+ *     EtwpRegisterProvider @ 0x18004A730 (EtwpRegisterProvider.c)
+ *     EtwDeliverDataBlock @ 0x18004AB50 (EtwDeliverDataBlock.c)
+ *     EtwpProcessNotification @ 0x18004D190 (EtwpProcessNotification.c)
+ *     EtwpDisableTraceProviders @ 0x1800A7944 (EtwpDisableTraceProviders.c)
+ *     EtwpSetProviderTraits @ 0x1800E3D80 (EtwpSetProviderTraits.c)
  * Callees:
- *     EtwpFindGuidEntry @ 0x18001DBB0 (EtwpFindGuidEntry.c)
- *     EtwpEventApiCallback @ 0x18001EC50 (EtwpEventApiCallback.c)
- *     EtwpGetUmProcessImageInfo @ 0x18003E8EC (EtwpGetUmProcessImageInfo.c)
- *     RtlReleaseSRWLockExclusive @ 0x1800567B0 (RtlReleaseSRWLockExclusive.c)
- *     EtwpRegisterGuidsApiCallback @ 0x1800F1524 (EtwpRegisterGuidsApiCallback.c)
- *     EtwpUpdatePrivateEnableInfo @ 0x1800F9C4C (EtwpUpdatePrivateEnableInfo.c)
- *     EtwpIsPrivateLoggerOn @ 0x180108E7C (EtwpIsPrivateLoggerOn.c)
- *     EtwpDereferenceUmGuidEntry @ 0x18010ABC0 (EtwpDereferenceUmGuidEntry.c)
- *     EtwpAcquireGuidEntryExclusive @ 0x18010AC5C (EtwpAcquireGuidEntryExclusive.c)
- *     EtwpAllocateUmGuidEntry @ 0x18010C304 (EtwpAllocateUmGuidEntry.c)
- *     EtwpReferenceUmGuidEntry @ 0x18010D65C (EtwpReferenceUmGuidEntry.c)
+ *     EtwpGetUmProcessImageInfo @ 0x18001EB6C (EtwpGetUmProcessImageInfo.c)
+ *     EtwpFindGuidEntry @ 0x18004A5B0 (EtwpFindGuidEntry.c)
+ *     EtwpEventApiCallback @ 0x18004B650 (EtwpEventApiCallback.c)
+ *     RtlReleaseSRWLockExclusive @ 0x18006C390 (RtlReleaseSRWLockExclusive.c)
+ *     EtwpRegisterGuidsApiCallback @ 0x1800EC1A4 (EtwpRegisterGuidsApiCallback.c)
+ *     EtwpUpdatePrivateEnableInfo @ 0x1800F49AC (EtwpUpdatePrivateEnableInfo.c)
+ *     EtwpIsPrivateLoggerOn @ 0x180103DAC (EtwpIsPrivateLoggerOn.c)
+ *     EtwpDereferenceUmGuidEntry @ 0x180105730 (EtwpDereferenceUmGuidEntry.c)
+ *     EtwpAcquireGuidEntryExclusive @ 0x1801057CC (EtwpAcquireGuidEntryExclusive.c)
+ *     EtwpAllocateUmGuidEntry @ 0x180106CD4 (EtwpAllocateUmGuidEntry.c)
+ *     EtwpReferenceUmGuidEntry @ 0x18010853C (EtwpReferenceUmGuidEntry.c)
  */
 
 void __fastcall EtwpUpdateEnableInfoAndCallback(__int64 a1, __int64 a2)
@@ -27,7 +27,7 @@ void __fastcall EtwpUpdateEnableInfoAndCallback(__int64 a1, __int64 a2)
   _QWORD *GuidEntry; // r15
   char v5; // r14
   __int64 i; // r12
-  _QWORD *v9; // r8
+  __int64 v9; // r8
   char v10; // r9
   __int64 v11; // rdx
   _QWORD *v12; // r8
@@ -55,33 +55,33 @@ LABEL_6:
   }
   if ( *(__int16 *)(a2 + 78) >= 0 )
   {
-    v9 = (_QWORD *)(a1 + 96);
+    v9 = a1 + 96;
 LABEL_4:
-    v3 = *((_BYTE *)v9 + 20);
-    *v9 = *(_QWORD *)(a2 + 96);
-    v9[1] = *(_QWORD *)(a2 + 88);
-    *((_BYTE *)v9 + 21) = *(_BYTE *)(a2 + 76);
-    *((_DWORD *)v9 + 4) = *(_DWORD *)(a2 + 80);
-    *((_BYTE *)v9 + 20) = v2 != 0;
+    v3 = *(_BYTE *)(v9 + 20);
+    *(_QWORD *)v9 = *(_QWORD *)(a2 + 96);
+    *(_QWORD *)(v9 + 8) = *(_QWORD *)(a2 + 88);
+    *(_BYTE *)(v9 + 21) = *(_BYTE *)(a2 + 76);
+    *(_DWORD *)(v9 + 16) = *(_DWORD *)(a2 + 80);
+    *(_BYTE *)(v9 + 20) = v2 != 0;
     if ( *(__int16 *)(a2 + 78) < 0 )
     {
       if ( (unsigned int)i < 4 )
       {
         v13 = 3 * ((unsigned int)i + 5LL);
         *(_OWORD *)(a1 + 8 * v13) = *(_OWORD *)v9;
-        *(_QWORD *)(a1 + 8 * v13 + 16) = v9[2];
+        *(_QWORD *)(a1 + 8 * v13 + 16) = *(_QWORD *)(v9 + 16);
       }
       EtwpUpdatePrivateEnableInfo(a1);
       v14 = *(_WORD *)(a1 + 86);
       if ( (v14 & 0x3FFF) == 2 || v14 < 0 )
-        EtwpGetUmProcessImageInfo(*(unsigned __int16 *)(a2 + 78), a1);
+        EtwpGetUmProcessImageInfo(*(_WORD *)(a2 + 78), a1);
     }
     if ( v5 )
     {
       *((_DWORD *)GuidEntry + 12) = 0;
-      RtlReleaseSRWLockExclusive(GuidEntry + 5);
+      RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)GuidEntry + 5);
       if ( (unsigned int)i < 4 && !v2 )
-        EtwpDereferenceUmGuidEntry(GuidEntry);
+        EtwpDereferenceUmGuidEntry((PRTL_BALANCED_NODE)GuidEntry);
     }
     goto LABEL_6;
   }
@@ -110,7 +110,7 @@ LABEL_4:
       if ( *((_BYTE *)v12 + 76) && *((_BYTE *)v12 + 78) == v10 )
       {
         LODWORD(i) = v11;
-        v9 = v12 + 7;
+        v9 = (__int64)(v12 + 7);
         if ( v9 )
           goto LABEL_4;
         break;
@@ -138,7 +138,7 @@ LABEL_4:
         v16 = a1 + 24 * j;
         if ( *(_BYTE *)(v16 + 140) && *(_BYTE *)(v16 + 142) == v10 )
         {
-          v9 = (_QWORD *)(v16 + 120);
+          v9 = v16 + 120;
           if ( v9 )
             goto LABEL_4;
           break;
@@ -146,6 +146,6 @@ LABEL_4:
       }
     }
     *((_DWORD *)GuidEntry + 12) = 0;
-    RtlReleaseSRWLockExclusive(GuidEntry + 5);
+    RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)GuidEntry + 5);
   }
 }

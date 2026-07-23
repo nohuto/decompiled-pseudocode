@@ -1,12 +1,12 @@
 /*
- * XREFs of MiReturnExcessPoolCommit @ 0x140286598
+ * XREFs of MiReturnExcessPoolCommit @ 0x140286828
  * Callers:
- *     MiCommitPoolMemory @ 0x140285E30 (MiCommitPoolMemory.c)
+ *     MiCommitPoolMemory @ 0x1402860C0 (MiCommitPoolMemory.c)
  * Callees:
- *     MiReturnCommit @ 0x1402DC250 (MiReturnCommit.c)
- *     MiReturnPhysicalPoolPages @ 0x1403404FC (MiReturnPhysicalPoolPages.c)
- *     MiReturnPoolCharges @ 0x140340768 (MiReturnPoolCharges.c)
- *     MiFreeLargePageChain @ 0x14064F11C (MiFreeLargePageChain.c)
+ *     MiReturnCommit @ 0x1402DC4E0 (MiReturnCommit.c)
+ *     MiReturnPhysicalPoolPages @ 0x14034078C (MiReturnPhysicalPoolPages.c)
+ *     MiReturnPoolCharges @ 0x1403409F8 (MiReturnPoolCharges.c)
+ *     MiFreeLargePageChain @ 0x14064F66C (MiFreeLargePageChain.c)
  */
 
 __int64 __fastcall MiReturnExcessPoolCommit(__int64 a1)

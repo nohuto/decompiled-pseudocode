@@ -1,8 +1,8 @@
 /*
- * XREFs of HalpUpdateConfigurationFromMsct @ 0x140CB26E4
+ * XREFs of HalpUpdateConfigurationFromMsct @ 0x140CB8724
  * Callers:
- *     HalpGetNumaProcMemoryCount @ 0x140CB1440 (HalpGetNumaProcMemoryCount.c)
- *     HalpNumaInitializeStaticConfiguration @ 0x140CB19FC (HalpNumaInitializeStaticConfiguration.c)
+ *     HalpGetNumaProcMemoryCount @ 0x140CB7480 (HalpGetNumaProcMemoryCount.c)
+ *     HalpNumaInitializeStaticConfiguration @ 0x140CB7A3C (HalpNumaInitializeStaticConfiguration.c)
  * Callees:
  *     <none>
  */

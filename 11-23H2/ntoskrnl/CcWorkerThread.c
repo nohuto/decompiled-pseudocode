@@ -1,32 +1,32 @@
 /*
- * XREFs of CcWorkerThread @ 0x140298940
+ * XREFs of CcWorkerThread @ 0x140298BD0
  * Callers:
  *     <none>
  * Callees:
  *     EtwTraceKernelEvent @ 0x140211EDC (EtwTraceKernelEvent.c)
- *     KeSetEvent @ 0x14023C5E0 (KeSetEvent.c)
- *     KxReleaseQueuedSpinLock @ 0x140260360 (KxReleaseQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140260E60 (KeAcquireInStackQueuedSpinLock.c)
- *     CcShouldWorkOnThisQueue @ 0x1402988C0 (CcShouldWorkOnThisQueue.c)
- *     CcFindNextWorkQueueEntry @ 0x1402997EC (CcFindNextWorkQueueEntry.c)
- *     CcLazyWriteScanVolume @ 0x14029A600 (CcLazyWriteScanVolume.c)
- *     CcWriteBehind @ 0x14029B558 (CcWriteBehind.c)
- *     CcIsWriteBehindThreadpoolAtLowPriority @ 0x14029BC14 (CcIsWriteBehindThreadpoolAtLowPriority.c)
- *     CcFreeWorkQueueEntry @ 0x14029C390 (CcFreeWorkQueueEntry.c)
- *     CcDereferencePartition @ 0x14029C430 (CcDereferencePartition.c)
- *     ExQueueWorkItemToPartition @ 0x1402B959C (ExQueueWorkItemToPartition.c)
- *     CcPerformReadAhead @ 0x14030EA20 (CcPerformReadAhead.c)
- *     CcPerfLogWorkItemEnqueue @ 0x140395554 (CcPerfLogWorkItemEnqueue.c)
- *     CcNotifyWriteBehindVolume @ 0x1403C1DBC (CcNotifyWriteBehindVolume.c)
- *     CcReEngageWorkerThreads @ 0x1403D47C8 (CcReEngageWorkerThreads.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     CcDebugExceptionFilter @ 0x14040FB08 (CcDebugExceptionFilter.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     memset @ 0x140435A00 (memset.c)
- *     CcLazyWriteScan @ 0x140535F6C (CcLazyWriteScan.c)
- *     CcLogExtraWBThreadAction @ 0x1405368C8 (CcLogExtraWBThreadAction.c)
- *     CcOkToAddWriteBehindThread @ 0x140536B98 (CcOkToAddWriteBehindThread.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeSetEvent @ 0x14023C6B0 (KeSetEvent.c)
+ *     KxReleaseQueuedSpinLock @ 0x1402605F0 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402610F0 (KeAcquireInStackQueuedSpinLock.c)
+ *     CcShouldWorkOnThisQueue @ 0x140298B50 (CcShouldWorkOnThisQueue.c)
+ *     CcFindNextWorkQueueEntry @ 0x140299A7C (CcFindNextWorkQueueEntry.c)
+ *     CcLazyWriteScanVolume @ 0x14029A890 (CcLazyWriteScanVolume.c)
+ *     CcWriteBehind @ 0x14029B7E8 (CcWriteBehind.c)
+ *     CcIsWriteBehindThreadpoolAtLowPriority @ 0x14029BEA4 (CcIsWriteBehindThreadpoolAtLowPriority.c)
+ *     CcFreeWorkQueueEntry @ 0x14029C620 (CcFreeWorkQueueEntry.c)
+ *     CcDereferencePartition @ 0x14029C6C0 (CcDereferencePartition.c)
+ *     ExQueueWorkItemToPartition @ 0x1402B982C (ExQueueWorkItemToPartition.c)
+ *     CcPerformReadAhead @ 0x14030ECB0 (CcPerformReadAhead.c)
+ *     CcPerfLogWorkItemEnqueue @ 0x140395734 (CcPerfLogWorkItemEnqueue.c)
+ *     CcNotifyWriteBehindVolume @ 0x1403C1F9C (CcNotifyWriteBehindVolume.c)
+ *     CcReEngageWorkerThreads @ 0x1403D49A8 (CcReEngageWorkerThreads.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     CcDebugExceptionFilter @ 0x14040FCE8 (CcDebugExceptionFilter.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     CcLazyWriteScan @ 0x1405364BC (CcLazyWriteScan.c)
+ *     CcLogExtraWBThreadAction @ 0x140536E18 (CcLogExtraWBThreadAction.c)
+ *     CcOkToAddWriteBehindThread @ 0x1405370E8 (CcOkToAddWriteBehindThread.c)
  */
 
 __int64 __fastcall CcWorkerThread(__int64 a1)
@@ -284,10 +284,13 @@ LABEL_19:
     _InterlockedIncrement(v27);
     KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
     OldIrql = LockHandle.OldIrql;
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && LockHandle.OldIrql <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+        && CurrentIrql <= 0xFu
+        && LockHandle.OldIrql <= 0xFu
+        && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -411,10 +414,10 @@ LABEL_104:
   }
   KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
   v41 = LockHandle.OldIrql;
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v42 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v42 <= 0xFu && LockHandle.OldIrql <= 0xFu && v42 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v42 <= 0xFu && LockHandle.OldIrql <= 0xFu && v42 >= 2u )
     {
       v43 = KeGetCurrentPrcb();
       v44 = v43->SchedulerAssist;
@@ -436,10 +439,10 @@ LABEL_104:
     CcNotifyWriteBehindVolume(v7, 32LL);
     KxReleaseQueuedSpinLock((volatile signed __int64 **)&v75);
     v46 = v75.OldIrql;
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v47 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v47 <= 0xFu && v75.OldIrql <= 0xFu && v47 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v47 <= 0xFu && v75.OldIrql <= 0xFu && v47 >= 2u )
       {
         v48 = KeGetCurrentPrcb();
         v49 = v48->SchedulerAssist;

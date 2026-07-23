@@ -15,7 +15,7 @@ _QWORD *__fastcall sub_18009BB3C(__int64 a1, unsigned int a2)
 
   v3 = a2;
   v4 = 1 << (a2 + 4);
-  Heap = (_QWORD *)RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, 8 * v4 + 8);
+  Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, 8 * v4 + 8);
   if ( Heap )
   {
     *Heap = 0LL;

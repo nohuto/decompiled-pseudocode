@@ -1,20 +1,20 @@
 /*
- * XREFs of RtlpMuiRegTryToAppendLangId @ 0x1800387C0
+ * XREFs of RtlpMuiRegTryToAppendLangId @ 0x180018A40
  * Callers:
- *     RtlpMuiRegGetFallbackLanguagesAsMultiSZ @ 0x180116B00 (RtlpMuiRegGetFallbackLanguagesAsMultiSZ.c)
+ *     RtlpMuiRegGetFallbackLanguagesAsMultiSZ @ 0x1800CB4CC (RtlpMuiRegGetFallbackLanguagesAsMultiSZ.c)
  * Callees:
- *     RtlCultureNameToLCID @ 0x1800330E0 (RtlCultureNameToLCID.c)
- *     RtlIntegerToUnicode @ 0x1800390E0 (RtlIntegerToUnicode.c)
- *     RtlpLangNameInMultiSzString_Size @ 0x180039430 (RtlpLangNameInMultiSzString_Size.c)
- *     wcslen @ 0x1801277D0 (wcslen.c)
- *     __security_check_cookie @ 0x1801659C0 (__security_check_cookie.c)
- *     memmove @ 0x180167400 (memmove.c)
+ *     RtlCultureNameToLCID @ 0x1800141A0 (RtlCultureNameToLCID.c)
+ *     RtlIntegerToUnicode @ 0x180019360 (RtlIntegerToUnicode.c)
+ *     RtlpLangNameInMultiSzString_Size @ 0x1800196B0 (RtlpLangNameInMultiSzString_Size.c)
+ *     wcslen @ 0x180125A00 (wcslen.c)
+ *     __security_check_cookie @ 0x180163D80 (__security_check_cookie.c)
+ *     memmove @ 0x1801657C0 (memmove.c)
  */
 
 __int64 __fastcall RtlpMuiRegTryToAppendLangId(__int64 a1, __int64 a2, unsigned int *a3, wchar_t *a4, unsigned int a5)
 {
   __int64 v7; // rsi
-  unsigned int v8; // ebx
+  DWORD v8; // ebx
   unsigned int v9; // r14d
   size_t v10; // rax
   unsigned __int16 v11; // bp
@@ -22,16 +22,16 @@ __int64 __fastcall RtlpMuiRegTryToAppendLangId(__int64 a1, __int64 a2, unsigned 
   unsigned int v13; // ebx
   __int64 v15; // rax
   __int64 v16; // r8
-  const wchar_t *v17; // rcx
+  wchar_t *v17; // rcx
   size_t v18; // rax
-  unsigned int v19; // [rsp+20h] [rbp-78h] BYREF
-  _QWORD v20[2]; // [rsp+28h] [rbp-70h] BYREF
+  DWORD Lcid; // [rsp+20h] [rbp-78h] BYREF
+  _UNICODE_STRING v20; // [rsp+28h] [rbp-70h] BYREF
   wchar_t String[4]; // [rsp+38h] [rbp-60h] BYREF
   __int16 v22; // [rsp+40h] [rbp-58h]
 
   *(_QWORD *)String = 0LL;
   v22 = 0;
-  v19 = 0;
+  Lcid = 0;
   if ( a2 && a1 && a3 )
   {
     v7 = *a3;
@@ -45,20 +45,20 @@ __int64 __fastcall RtlpMuiRegTryToAppendLangId(__int64 a1, __int64 a2, unsigned 
       if ( (__int16)v15 <= 0 )
         return (unsigned int)-1073741595;
       v16 = *(_QWORD *)(a1 + 32);
-      v20[0] = 0LL;
-      v17 = (const wchar_t *)(*(_QWORD *)(v16 + 24) + 2LL * *(__int16 *)(*(_QWORD *)(v16 + 16) + 2 * v15));
-      v20[1] = v17;
+      *(_QWORD *)&v20.Length = 0LL;
+      v17 = (wchar_t *)(*(_QWORD *)(v16 + 24) + 2LL * *(__int16 *)(*(_QWORD *)(v16 + 16) + 2 * v15));
+      v20.Buffer = v17;
       if ( v17 )
       {
         v18 = 2 * wcslen(v17);
         if ( v18 >= 0xFFFE )
           LOWORD(v18) = -4;
-        LOWORD(v20[0]) = v18;
-        WORD1(v20[0]) = v18 + 2;
+        v20.Length = v18;
+        v20.MaximumLength = v18 + 2;
       }
-      if ( !RtlCultureNameToLCID((unsigned __int16 *)v20, (int *)&v19) )
+      if ( !RtlCultureNameToLCID(&v20, &Lcid) )
         return (unsigned int)-1073741811;
-      v8 = v19;
+      v8 = Lcid;
     }
     v9 = RtlIntegerToUnicode(v8, 16LL, 4294967292LL, String);
     if ( (v9 & 0x80000000) != 0 )

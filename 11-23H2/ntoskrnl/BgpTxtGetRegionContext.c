@@ -3,7 +3,7 @@
  * Callers:
  *     AnFwDisplayFade @ 0x140AEC9E8 (AnFwDisplayFade.c)
  * Callees:
- *     BgpFwAllocateMemory @ 0x14038762C (BgpFwAllocateMemory.c)
+ *     BgpFwAllocateMemory @ 0x14038780C (BgpFwAllocateMemory.c)
  *     BgpFoGetFontHandle @ 0x140AEDBC4 (BgpFoGetFontHandle.c)
  */
 

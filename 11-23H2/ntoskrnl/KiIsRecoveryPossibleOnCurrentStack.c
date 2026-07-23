@@ -1,7 +1,7 @@
 /*
- * XREFs of KiIsRecoveryPossibleOnCurrentStack @ 0x14057B154
+ * XREFs of KiIsRecoveryPossibleOnCurrentStack @ 0x14057B644
  * Callers:
- *     KiAttemptBugcheckRecovery @ 0x14057A42C (KiAttemptBugcheckRecovery.c)
+ *     KiAttemptBugcheckRecovery @ 0x14057A91C (KiAttemptBugcheckRecovery.c)
  * Callees:
  *     <none>
  */

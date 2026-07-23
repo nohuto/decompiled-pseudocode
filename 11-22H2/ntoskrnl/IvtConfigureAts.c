@@ -40,7 +40,7 @@ __int64 __fastcall IvtConfigureAts(__int64 a1, unsigned __int64 a2, __int64 a3, 
   {
     CurrentIrql = KeGetCurrentIrql();
     __writecr8(0xFuLL);
-    if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+    if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
     {
       SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
       if ( CurrentIrql == 15 )
@@ -54,10 +54,10 @@ __int64 __fastcall IvtConfigureAts(__int64 a1, unsigned __int64 a2, __int64 a3, 
     v19 = v4;
     IvtUpdateScalableModeContextEntry(a1, (unsigned int)&v19, v18, v6 + 2, 0);
     KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v12 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v12 <= 0xFu && CurrentIrql <= 0xFu && v12 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v12 <= 0xFu && CurrentIrql <= 0xFu && v12 >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         v14 = CurrentPrcb->SchedulerAssist;

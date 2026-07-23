@@ -1,5 +1,5 @@
 /*
- * XREFs of HalpPicInitializeIoUnit @ 0x1403B3610
+ * XREFs of HalpPicInitializeIoUnit @ 0x1403B37F0
  * Callers:
  *     <none>
  * Callees:

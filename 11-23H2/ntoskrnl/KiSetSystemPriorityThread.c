@@ -1,18 +1,18 @@
 /*
- * XREFs of KiSetSystemPriorityThread @ 0x140355ED0
+ * XREFs of KiSetSystemPriorityThread @ 0x140356070
  * Callers:
- *     MiZeroInParallel @ 0x140304230 (MiZeroInParallel.c)
- *     KeDisconnectInterrupt @ 0x14031F398 (KeDisconnectInterrupt.c)
- *     KeConnectInterrupt @ 0x140320A54 (KeConnectInterrupt.c)
- *     PpmAcquireLock @ 0x14032C2D0 (PpmAcquireLock.c)
- *     PpmTryAcquireLock @ 0x14036D9F8 (PpmTryAcquireLock.c)
- *     KeSetSystemPriorityThread @ 0x140576CB0 (KeSetSystemPriorityThread.c)
- *     MiDemoteSlabEntries @ 0x1406567B4 (MiDemoteSlabEntries.c)
+ *     MiZeroInParallel @ 0x1403044C0 (MiZeroInParallel.c)
+ *     KeDisconnectInterrupt @ 0x14031F628 (KeDisconnectInterrupt.c)
+ *     KeConnectInterrupt @ 0x140320CE4 (KeConnectInterrupt.c)
+ *     PpmAcquireLock @ 0x14032C560 (PpmAcquireLock.c)
+ *     PpmTryAcquireLock @ 0x14036DB98 (PpmTryAcquireLock.c)
+ *     KeSetSystemPriorityThread @ 0x1405771A0 (KeSetSystemPriorityThread.c)
+ *     MiDemoteSlabEntries @ 0x140656D04 (MiDemoteSlabEntries.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x140242E40 (KeYieldProcessorEx.c)
- *     KiSetPriorityThread @ 0x1402B05D0 (KiSetPriorityThread.c)
- *     KiProcessDeferredReadyList @ 0x1402B0E70 (KiProcessDeferredReadyList.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
+ *     KeYieldProcessorEx @ 0x140242F10 (KeYieldProcessorEx.c)
+ *     KiSetPriorityThread @ 0x1402B0860 (KiSetPriorityThread.c)
+ *     KiProcessDeferredReadyList @ 0x1402B1100 (KiProcessDeferredReadyList.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
  */
 
 char __fastcall KiSetSystemPriorityThread(ULONG_PTR BugCheckParameter1, int a2, int a3)
@@ -31,7 +31,7 @@ char __fastcall KiSetSystemPriorityThread(ULONG_PTR BugCheckParameter1, int a2, 
   v11 = 0LL;
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     LODWORD(v10) = 4;

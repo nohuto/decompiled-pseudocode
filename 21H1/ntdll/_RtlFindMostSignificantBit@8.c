@@ -6,50 +6,48 @@
  *     __aullshr @ 0x4B2F6840 (__aullshr.c)
  */
 
-int __stdcall RtlFindMostSignificantBit(__int64 a1)
+CCHAR __cdecl RtlFindMostSignificantBit(ULONGLONG Set)
 {
   unsigned __int64 v1; // rax
-  int v2; // ebx
+  char v2; // bl
 
-  HIDWORD(v1) = HIDWORD(a1);
+  HIDWORD(v1) = HIDWORD(Set);
   v2 = 0;
-  if ( HIDWORD(a1) )
+  if ( HIDWORD(Set) )
   {
-    if ( (a1 & 0xFFFF000000000000uLL) != 0 )
+    if ( (Set & 0xFFFF000000000000uLL) != 0 )
     {
-      v2 = HIDWORD(a1) & 0xFF000000;
-      if ( (a1 & 0xFF00000000000000uLL) != 0 )
-        LOBYTE(v2) = 56;
+      if ( (Set & 0xFF00000000000000uLL) != 0 )
+        v2 = 56;
       else
         v2 = 48;
     }
+    else if ( (Set & 0xFF0000000000LL) != 0 )
+    {
+      v2 = 40;
+    }
     else
     {
-      v2 = WORD2(a1) & 0xFF00;
-      if ( (a1 & 0xFF0000000000LL) != 0 )
-        LOBYTE(v2) = 40;
-      else
-        v2 = 32;
+      v2 = 32;
     }
-    goto LABEL_5;
   }
-  if ( (a1 & 0xFFFF0000) != 0 )
+  else if ( (Set & 0xFFFF0000) != 0 )
   {
-    if ( (a1 & 0xFF000000) != 0 )
-      LOBYTE(v2) = 24;
+    if ( (Set & 0xFF000000) != 0 )
+      v2 = 24;
     else
-      LOBYTE(v2) = 16;
-    goto LABEL_5;
+      v2 = 16;
   }
-  if ( (a1 & 0xFF00) != 0 )
+  else if ( (Set & 0xFF00) != 0 )
   {
-    LOBYTE(v2) = 8;
-LABEL_5:
-    LODWORD(v1) = a1;
-    LOBYTE(v2) = v2 - RtlpBitsClearHigh[(unsigned __int8)(v1 >> v2)];
-    return v2 + 7;
+    v2 = 8;
   }
-  if ( a1 )
-    goto LABEL_5;
-  return 255;
+  else if ( !Set )
+  {
+    LOBYTE(v1) = -1;
+    return v1;
+  }
+  LODWORD(v1) = Set;
+  LOBYTE(v1) = v2 - RtlpBitsClearHigh[(unsigned __int8)(v1 >> v2)] + 7;
+  return v1;
 }

@@ -1,23 +1,23 @@
 /*
- * XREFs of PspShutdownCsrProcess @ 0x1408875F4
+ * XREFs of PspShutdownCsrProcess @ 0x140888854
  * Callers:
- *     PspTerminateSiloSubsystemProcesses @ 0x140887D14 (PspTerminateSiloSubsystemProcesses.c)
+ *     PspTerminateSiloSubsystemProcesses @ 0x140888F74 (PspTerminateSiloSubsystemProcesses.c)
  * Callees:
  *     PsDetachSiloFromCurrentThread @ 0x14000FBB0 (PsDetachSiloFromCurrentThread.c)
  *     PsAttachSiloToCurrentThread @ 0x14000FBD0 (PsAttachSiloToCurrentThread.c)
  *     KiStackAttachProcess @ 0x140016DB0 (KiStackAttachProcess.c)
  *     KiUnstackDetachProcess @ 0x140017190 (KiUnstackDetachProcess.c)
- *     RtlStringCchPrintfW @ 0x1400923A8 (RtlStringCchPrintfW.c)
- *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     ZwWaitForSingleObject @ 0x1401B8210 (ZwWaitForSingleObject.c)
- *     ZwSetEvent @ 0x1401B8350 (ZwSetEvent.c)
- *     ZwClose @ 0x1401B8370 (ZwClose.c)
- *     ZwOpenEvent @ 0x1401B8990 (ZwOpenEvent.c)
- *     ZwCreateEvent @ 0x1401B8A90 (ZwCreateEvent.c)
- *     PsInvokeWin32Callout @ 0x1405F4E90 (PsInvokeWin32Callout.c)
- *     PsTerminateProcess @ 0x1406C98D4 (PsTerminateProcess.c)
- *     PspWaitForUsermodeExit @ 0x14088B868 (PspWaitForUsermodeExit.c)
+ *     RtlStringCchPrintfW @ 0x1400922E8 (RtlStringCchPrintfW.c)
+ *     RtlInitUnicodeString @ 0x1400B99D0 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     ZwWaitForSingleObject @ 0x1401B8370 (ZwWaitForSingleObject.c)
+ *     ZwSetEvent @ 0x1401B84B0 (ZwSetEvent.c)
+ *     ZwClose @ 0x1401B84D0 (ZwClose.c)
+ *     ZwOpenEvent @ 0x1401B8AF0 (ZwOpenEvent.c)
+ *     ZwCreateEvent @ 0x1401B8BF0 (ZwCreateEvent.c)
+ *     PsInvokeWin32Callout @ 0x1405F5E90 (PsInvokeWin32Callout.c)
+ *     PsTerminateProcess @ 0x1406CAB74 (PsTerminateProcess.c)
+ *     PspWaitForUsermodeExit @ 0x14088CAC8 (PspWaitForUsermodeExit.c)
  */
 
 __int64 __fastcall PspShutdownCsrProcess(struct _LIST_ENTRY *a1, unsigned int a2, _KPROCESS *a3)

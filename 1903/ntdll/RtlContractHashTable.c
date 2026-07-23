@@ -7,11 +7,11 @@
  *     sub_180067480 @ 0x180067480 (sub_180067480.c)
  */
 
-char __fastcall RtlContractHashTable(__int64 a1)
+BOOLEAN __cdecl RtlContractHashTable(PRTL_DYNAMIC_HASH_TABLE HashTable)
 {
-  int v1; // edx
-  int v4; // eax
-  int v5; // eax
+  ULONG TableSize; // edx
+  ULONG Pivot; // eax
+  ULONG DivisorMask; // eax
   _QWORD *v6; // r9
   _QWORD *v7; // r10
   _QWORD *i; // rdx
@@ -22,28 +22,28 @@ char __fastcall RtlContractHashTable(__int64 a1)
   unsigned int v13; // edx
   unsigned int v14; // ecx
   __int64 v15; // r8
-  _QWORD *v16; // rsi
+  PVOID *Directory; // rsi
   __int64 v17; // rbx
 
-  v1 = *(_DWORD *)(a1 + 8);
-  if ( v1 == 128 || *(_DWORD *)(a1 + 28) )
+  TableSize = HashTable->TableSize;
+  if ( TableSize == 128 || HashTable->NumEnumerators )
     return 0;
-  v4 = *(_DWORD *)(a1 + 12);
-  if ( v4 )
+  Pivot = HashTable->Pivot;
+  if ( Pivot )
   {
-    v5 = v4 - 1;
+    DivisorMask = Pivot - 1;
   }
   else
   {
-    *(_DWORD *)(a1 + 16) >>= 1;
-    v5 = *(_DWORD *)(a1 + 16);
+    HashTable->DivisorMask >>= 1;
+    DivisorMask = HashTable->DivisorMask;
   }
-  *(_DWORD *)(a1 + 12) = v5;
-  sub_180067480(a1, v1 - 1);
-  v7 = (_QWORD *)sub_180067480(a1, *(_DWORD *)(a1 + 12));
-  --*(_DWORD *)(a1 + 8);
+  HashTable->Pivot = DivisorMask;
+  sub_180067480((__int64)HashTable, TableSize - 1);
+  v7 = (_QWORD *)sub_180067480((__int64)HashTable, HashTable->Pivot);
+  --HashTable->TableSize;
   if ( (_QWORD *)*v6 != v6 && (_QWORD *)*v7 != v7 )
-    --*(_DWORD *)(a1 + 24);
+    --HashTable->NonEmptyBuckets;
   for ( i = v7; ; *i = v9 )
   {
     v9 = (_QWORD *)*v6;
@@ -70,19 +70,19 @@ LABEL_19:
     v9[1] = i;
     v12[1] = v9;
   }
-  v13 = *(_DWORD *)(a1 + 8) + 128;
+  v13 = HashTable->TableSize + 128;
   _BitScanReverse(&v14, v13);
   v15 = v14 - 7;
   if ( 1 << v14 == v13 )
   {
-    v16 = *(_QWORD **)(a1 + 32);
+    Directory = (PVOID *)HashTable->Directory;
     v17 = (unsigned int)v15;
-    RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v16[v15]);
-    v16[v17] = 0LL;
-    if ( *(_DWORD *)(a1 + 8) == 128 )
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, Directory[v15]);
+    Directory[v17] = 0LL;
+    if ( HashTable->TableSize == 128 )
     {
-      *(_QWORD *)(a1 + 32) = *v16;
-      RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, (__int64)v16);
+      HashTable->Directory = *Directory;
+      RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, Directory);
     }
   }
   return 1;

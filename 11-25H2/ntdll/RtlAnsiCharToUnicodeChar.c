@@ -9,133 +9,133 @@
  *     RtlUTF8ToUnicodeN @ 0x18004B290 (RtlUTF8ToUnicodeN.c)
  */
 
-__int64 __fastcall RtlAnsiCharToUnicodeChar(char **a1)
+WCHAR __cdecl RtlAnsiCharToUnicodeChar(PUCHAR *SourceCharacter)
 {
   int v2; // edx
-  char *v3; // r9
-  char v4; // al
-  unsigned int v5; // edi
-  __int16 v6; // ax
-  __int64 *v7; // rsi
-  __int16 v8; // cx
-  __int64 v9; // r11
-  __int64 v10; // r14
-  unsigned __int16 *v11; // r8
-  unsigned int v12; // r10d
+  const CHAR *v3; // r9
+  UCHAR v4; // al
+  ULONG UTF8StringByteCount; // edi
+  unsigned __int16 CodePage; // ax
+  unsigned __int16 **p_MultiByteTable; // rsi
+  unsigned __int16 DBCSCodePage; // cx
+  unsigned __int16 *MultiByteTable; // r11
+  unsigned __int16 *DBCSOffsets; // r14
+  WCHAR *p_UnicodeStringDestination; // r8
+  ULONG v12; // r10d
   __int64 v13; // r8
-  unsigned __int16 *v14; // rdx
+  WCHAR *v14; // rdx
   __int64 v15; // rax
   __int64 v17; // rcx
   __int64 v18; // rax
   unsigned __int8 *v19; // r9
   signed __int32 v20[8]; // [rsp+0h] [rbp-48h] BYREF
-  unsigned __int16 v21; // [rsp+50h] [rbp+8h] BYREF
-  int v22; // [rsp+58h] [rbp+10h] BYREF
+  WCHAR UnicodeStringDestination; // [rsp+50h] [rbp+8h] BYREF
+  ULONG UnicodeStringActualByteCount; // [rsp+58h] [rbp+10h] BYREF
 
-  v21 = 32;
+  UnicodeStringDestination = 32;
   _InterlockedOr(v20, 0);
   v2 = 1;
-  if ( word_1801CEFD0 != -535 && GlobalRtlNlsState != -535 )
+  if ( CodePageTable.CodePage != 0xFDE9 && GlobalRtlNlsState.CodePage != 0xFDE9 )
   {
     _InterlockedOr(v20, 0);
-    v3 = *a1;
-    if ( *(_WORD *)(qword_1801CF020 + 2LL * (unsigned __int8)**a1) )
+    v3 = (const CHAR *)*SourceCharacter;
+    if ( *(_WORD *)(qword_1801CF020 + 2LL * **SourceCharacter) )
     {
-      v5 = 2;
+      UTF8StringByteCount = 2;
       goto LABEL_6;
     }
     goto LABEL_18;
   }
-  v3 = *a1;
-  v4 = **a1;
-  if ( (unsigned __int8)v4 < 0xC0u )
+  v3 = (const CHAR *)*SourceCharacter;
+  v4 = **SourceCharacter;
+  if ( v4 < 0xC0u )
   {
 LABEL_18:
-    v5 = 1;
+    UTF8StringByteCount = 1;
     goto LABEL_6;
   }
-  if ( (unsigned __int8)v4 < 0xE0u )
+  if ( v4 < 0xE0u )
   {
-    v5 = 2;
+    UTF8StringByteCount = 2;
   }
-  else if ( (unsigned __int8)v4 >= 0xF0u )
+  else if ( v4 >= 0xF0u )
   {
-    v5 = 1;
-    if ( (unsigned __int8)v4 < 0xF8u )
-      v5 = 4;
+    UTF8StringByteCount = 1;
+    if ( v4 < 0xF8u )
+      UTF8StringByteCount = 4;
   }
   else
   {
-    v5 = 3;
+    UTF8StringByteCount = 3;
   }
 LABEL_6:
   _InterlockedOr(v20, 0);
-  if ( word_1801CEFD0 == -535 || GlobalRtlNlsState == -535 )
+  if ( CodePageTable.CodePage == 0xFDE9 || GlobalRtlNlsState.CodePage == 0xFDE9 )
   {
-    v6 = Utf8TableInfo;
-    v7 = (__int64 *)&xmmword_1801CF070;
-    v8 = WORD6(Utf8TableInfo);
-    v9 = xmmword_1801CF070;
-    v10 = qword_1801CF088;
+    CodePage = LOWORD(Utf8TableInfo.m512_f32[0]);
+    p_MultiByteTable = (unsigned __int16 **)&Utf8TableInfo.m512_f32[8];
+    DBCSCodePage = LOWORD(Utf8TableInfo.m512_f32[3]);
+    MultiByteTable = *(unsigned __int16 **)&Utf8TableInfo.m512_f32[8];
+    DBCSOffsets = *(unsigned __int16 **)&Utf8TableInfo.m512_f32[14];
   }
   else
   {
     _InterlockedOr(v20, 0);
-    v6 = GlobalRtlNlsState;
-    v7 = &qword_1801CEFB0;
-    v8 = word_1801CEF9C;
-    v9 = qword_1801CEFB0;
-    v10 = qword_1801CEFC8;
+    CodePage = GlobalRtlNlsState.CodePage;
+    p_MultiByteTable = &GlobalRtlNlsState.MultiByteTable;
+    DBCSCodePage = GlobalRtlNlsState.DBCSCodePage;
+    MultiByteTable = GlobalRtlNlsState.MultiByteTable;
+    DBCSOffsets = GlobalRtlNlsState.DBCSOffsets;
   }
-  v11 = &v21;
-  v12 = v5;
-  if ( v6 == -535 )
+  p_UnicodeStringDestination = &UnicodeStringDestination;
+  v12 = UTF8StringByteCount;
+  if ( CodePage == 0xFDE9 )
   {
-    RtlUTF8ToUnicodeN(&v21, 2u, &v22, v3, v5);
+    RtlUTF8ToUnicodeN(&UnicodeStringDestination, 2u, &UnicodeStringActualByteCount, v3, UTF8StringByteCount);
   }
-  else if ( v8 )
+  else if ( DBCSCodePage )
   {
     while ( v2 && v12 )
     {
       --v2;
       --v12;
-      v17 = 2LL * (unsigned __int8)*v3;
-      v18 = *(unsigned __int16 *)(v17 + v10);
+      v17 = *(unsigned __int8 *)v3;
+      v18 = DBCSOffsets[v17];
       if ( (_WORD)v18 )
       {
         if ( !v12 )
         {
-          *v11 = 0;
+          *p_UnicodeStringDestination = 0;
           break;
         }
         v19 = (unsigned __int8 *)(v3 + 1);
         --v12;
-        *v11++ = *(_WORD *)(v10 + 2 * (*v19 + v18));
-        v3 = (char *)(v19 + 1);
+        *p_UnicodeStringDestination++ = DBCSOffsets[*v19 + v18];
+        v3 = (const CHAR *)(v19 + 1);
       }
       else
       {
-        *v11++ = *(_WORD *)(v17 + *v7);
+        *p_UnicodeStringDestination++ = (*p_MultiByteTable)[v17];
         ++v3;
       }
     }
   }
   else
   {
-    v13 = v5;
-    if ( v5 > 1 )
+    v13 = UTF8StringByteCount;
+    if ( UTF8StringByteCount > 1 )
       v13 = 1LL;
-    v14 = &v21;
+    v14 = &UnicodeStringDestination;
     do
     {
-      v15 = (unsigned __int8)*v3;
+      v15 = *(unsigned __int8 *)v3;
       ++v14;
       ++v3;
-      *(v14 - 1) = *(_WORD *)(v9 + 2 * v15);
+      *(v14 - 1) = MultiByteTable[v15];
       --v13;
     }
     while ( v13 );
   }
-  *a1 += v5;
-  return v21;
+  *SourceCharacter += UTF8StringByteCount;
+  return UnicodeStringDestination;
 }

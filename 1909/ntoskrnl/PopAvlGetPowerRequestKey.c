@@ -17,7 +17,7 @@ __int64 __fastcall PopAvlGetPowerRequestKey(__int64 a1, UNICODE_STRING *a2)
   UNICODE_STRING *p_DestinationString; // rdx
   const WCHAR *v8; // rdx
   UNICODE_STRING DestinationString; // [rsp+20h] [rbp-28h] BYREF
-  STRING SourceString; // [rsp+30h] [rbp-18h] BYREF
+  ANSI_STRING SourceString; // [rsp+30h] [rbp-18h] BYREF
 
   *(_QWORD *)&SourceString.Length = 0LL;
   SourceString.Buffer = 0LL;

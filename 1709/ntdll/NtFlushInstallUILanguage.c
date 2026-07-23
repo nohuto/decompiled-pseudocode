@@ -8,11 +8,11 @@
  *     <none>
  */
 
-__int64 NtFlushInstallUILanguage()
+NTSTATUS __cdecl NtFlushInstallUILanguage(LANGID InstallUILanguage, ULONG SetComittedFlag)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 223LL;
+  result = 223;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

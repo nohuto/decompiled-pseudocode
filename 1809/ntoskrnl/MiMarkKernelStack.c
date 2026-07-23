@@ -1,11 +1,11 @@
 /*
- * XREFs of MiMarkKernelStack @ 0x14017E780
+ * XREFs of MiMarkKernelStack @ 0x14017E8C0
  * Callers:
- *     MiMarkBootKernelStack @ 0x1409B6464 (MiMarkBootKernelStack.c)
+ *     MiMarkBootKernelStack @ 0x1409B7464 (MiMarkBootKernelStack.c)
  * Callees:
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
- *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
- *     MiSetPfnKernelStack @ 0x14013D900 (MiSetPfnKernelStack.c)
+ *     KeYieldProcessorEx @ 0x14006C9E0 (KeYieldProcessorEx.c)
+ *     MiSetPfnKernelStack @ 0x14013DA00 (MiSetPfnKernelStack.c)
  */
 
 __int64 __fastcall MiMarkKernelStack(unsigned __int64 a1, unsigned __int64 a2)

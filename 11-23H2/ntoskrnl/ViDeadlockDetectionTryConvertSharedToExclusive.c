@@ -1,10 +1,10 @@
 /*
- * XREFs of ViDeadlockDetectionTryConvertSharedToExclusive @ 0x1405D17D8
+ * XREFs of ViDeadlockDetectionTryConvertSharedToExclusive @ 0x1405D1D48
  * Callers:
- *     ViDeadlockRemoveMemoryRangeResources @ 0x1405D1828 (ViDeadlockRemoveMemoryRangeResources.c)
- *     ViDeadlockRemoveMemoryRangeThreads @ 0x1405D1988 (ViDeadlockRemoveMemoryRangeThreads.c)
+ *     ViDeadlockRemoveMemoryRangeResources @ 0x1405D1D98 (ViDeadlockRemoveMemoryRangeResources.c)
+ *     ViDeadlockRemoveMemoryRangeThreads @ 0x1405D1EF8 (ViDeadlockRemoveMemoryRangeThreads.c)
  * Callees:
- *     ExTryConvertSharedSpinLockExclusive @ 0x1403C7730 (ExTryConvertSharedSpinLockExclusive.c)
+ *     ExTryConvertSharedSpinLockExclusive @ 0x1403C7910 (ExTryConvertSharedSpinLockExclusive.c)
  */
 
 LOGICAL ViDeadlockDetectionTryConvertSharedToExclusive()

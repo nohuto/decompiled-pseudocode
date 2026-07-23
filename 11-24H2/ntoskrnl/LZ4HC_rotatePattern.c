@@ -1,7 +1,7 @@
 /*
- * XREFs of LZ4HC_rotatePattern @ 0x1406017D8
+ * XREFs of LZ4HC_rotatePattern @ 0x1405FEE18
  * Callers:
- *     LZ4HC_compress_generic_dictCtx @ 0x1405F9AC4 (LZ4HC_compress_generic_dictCtx.c)
+ *     LZ4HC_compress_generic_dictCtx @ 0x1405F7104 (LZ4HC_compress_generic_dictCtx.c)
  * Callees:
  *     <none>
  */

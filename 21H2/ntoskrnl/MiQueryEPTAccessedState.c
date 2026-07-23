@@ -1,15 +1,15 @@
 /*
- * XREFs of MiQueryEPTAccessedState @ 0x14053BA00
+ * XREFs of MiQueryEPTAccessedState @ 0x14053BC40
  * Callers:
- *     MiAgeWorkingSetTail @ 0x14022E460 (MiAgeWorkingSetTail.c)
- *     MiTrimWorkingSetTail @ 0x140267250 (MiTrimWorkingSetTail.c)
- *     MiResetAccessBitsTail @ 0x14039D580 (MiResetAccessBitsTail.c)
- *     MiSimpleAgeWorkingSetTail @ 0x14053BFD0 (MiSimpleAgeWorkingSetTail.c)
- *     MiUpdateOldWorkingSetPagesTail @ 0x14053C780 (MiUpdateOldWorkingSetPagesTail.c)
+ *     MiTrimWorkingSetTail @ 0x1402551F0 (MiTrimWorkingSetTail.c)
+ *     MiAgeWorkingSetTail @ 0x1402D2CB0 (MiAgeWorkingSetTail.c)
+ *     MiResetAccessBitsTail @ 0x14039D6D0 (MiResetAccessBitsTail.c)
+ *     MiSimpleAgeWorkingSetTail @ 0x14053C210 (MiSimpleAgeWorkingSetTail.c)
+ *     MiUpdateOldWorkingSetPagesTail @ 0x14053C9C0 (MiUpdateOldWorkingSetPagesTail.c)
  * Callees:
- *     MiReleaseWalkLocks @ 0x1402AA590 (MiReleaseWalkLocks.c)
- *     MiReacquireWalkLocks @ 0x1405306E0 (MiReacquireWalkLocks.c)
- *     VmpQueryAccessedState @ 0x1405A4BEC (VmpQueryAccessedState.c)
+ *     MiReleaseWalkLocks @ 0x1402286D0 (MiReleaseWalkLocks.c)
+ *     MiReacquireWalkLocks @ 0x140530920 (MiReacquireWalkLocks.c)
+ *     VmpQueryAccessedState @ 0x1405A4E1C (VmpQueryAccessedState.c)
  */
 
 __int64 __fastcall MiQueryEPTAccessedState(__int64 a1, _DWORD *a2)

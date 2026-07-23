@@ -1,14 +1,14 @@
 /*
- * XREFs of ArbpGetRegistryValue @ 0x140706A24
+ * XREFs of ArbpGetRegistryValue @ 0x1407045E4
  * Callers:
- *     ArbAddInaccessibleAllocationRange @ 0x1407047B0 (ArbAddInaccessibleAllocationRange.c)
- *     ArbBuildAssignmentOrdering @ 0x140704D3C (ArbBuildAssignmentOrdering.c)
- *     ArbRegReadMmConfigRanges @ 0x1407060AC (ArbRegReadMmConfigRanges.c)
+ *     ArbAddInaccessibleAllocationRange @ 0x140702370 (ArbAddInaccessibleAllocationRange.c)
+ *     ArbBuildAssignmentOrdering @ 0x1407028FC (ArbBuildAssignmentOrdering.c)
+ *     ArbRegReadMmConfigRanges @ 0x140703C6C (ArbRegReadMmConfigRanges.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     ZwQueryValueKey @ 0x1406A66F0 (ZwQueryValueKey.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     ZwQueryValueKey @ 0x1406A7690 (ZwQueryValueKey.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall ArbpGetRegistryValue(HANDLE KeyHandle, const WCHAR *a2, _QWORD *a3)
@@ -26,7 +26,7 @@ __int64 __fastcall ArbpGetRegistryValue(HANDLE KeyHandle, const WCHAR *a2, _QWOR
   v5 = ZwQueryValueKey(KeyHandle, &ValueName, KeyValueFullInformationAlign64, 0LL, 0, &ResultLength);
   if ( v5 != -2147483643 && v5 != -1073741789 )
     return 3221225473LL;
-  Pool2 = (void *)ExAllocatePool2(0x100uLL);
+  Pool2 = (void *)ExAllocatePool2(0x100uLL, ResultLength, 0x4D627241u);
   v8 = Pool2;
   if ( !Pool2 )
     return 3221225626LL;

@@ -1,15 +1,15 @@
 /*
- * XREFs of HvlSetHpetConfig @ 0x1405459A0
+ * XREFs of HvlSetHpetConfig @ 0x140546060
  * Callers:
  *     <none>
  * Callees:
- *     HvcallInitiateHypercall @ 0x1403CD360 (HvcallInitiateHypercall.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memset @ 0x140435A00 (memset.c)
- *     HvlpHvStatusIsInsufficientMemory @ 0x14045F4EE (HvlpHvStatusIsInsufficientMemory.c)
- *     HvlpHandleInsufficientMemory @ 0x14053FE48 (HvlpHandleInsufficientMemory.c)
- *     HvlpAcquireHypercallPage @ 0x1405407B0 (HvlpAcquireHypercallPage.c)
- *     HvlpReleaseHypercallPage @ 0x140541400 (HvlpReleaseHypercallPage.c)
+ *     HvcallInitiateHypercall @ 0x1403CD540 (HvcallInitiateHypercall.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     HvlpHvStatusIsInsufficientMemory @ 0x14045F8EE (HvlpHvStatusIsInsufficientMemory.c)
+ *     HvlpHandleInsufficientMemory @ 0x140540508 (HvlpHandleInsufficientMemory.c)
+ *     HvlpAcquireHypercallPage @ 0x140540E70 (HvlpAcquireHypercallPage.c)
+ *     HvlpReleaseHypercallPage @ 0x140541AC0 (HvlpReleaseHypercallPage.c)
  */
 
 __int64 __fastcall HvlSetHpetConfig(ULONG a1, PHYSICAL_ADDRESS a2, char a3, _OWORD *a4)

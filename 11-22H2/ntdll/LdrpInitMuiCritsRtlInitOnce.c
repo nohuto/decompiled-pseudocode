@@ -9,14 +9,10 @@
  *     RtlRunOnceExecuteOnce @ 0x180032A30 (RtlRunOnceExecuteOnce.c)
  */
 
-__int64 LdrpInitMuiCritsRtlInitOnce()
+NTSTATUS LdrpInitMuiCritsRtlInitOnce()
 {
-  void *v1; // [rsp+38h] [rbp+10h] BYREF
+  _RTL_CRITICAL_SECTION *Parameter; // [rsp+38h] [rbp+10h] BYREF
 
-  v1 = &LoadAsDataCrits;
-  return RtlRunOnceExecuteOnce(
-           &LdrpInitOnceLoadAsDataCrits,
-           (unsigned int (__fastcall *)(volatile signed __int64 *, __int64, unsigned __int64 *))NtdllRunOnceInitMuiCrits,
-           (__int64)&v1,
-           0LL);
+  Parameter = &LoadAsDataCrits;
+  return RtlRunOnceExecuteOnce(&LdrpInitOnceLoadAsDataCrits, NtdllRunOnceInitMuiCrits, &Parameter, 0LL);
 }

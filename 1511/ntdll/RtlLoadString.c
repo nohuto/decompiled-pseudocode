@@ -10,90 +10,100 @@
  *     __security_check_cookie @ 0x180095840 (__security_check_cookie.c)
  */
 
-__int64 __fastcall RtlLoadString(
-        unsigned __int64 a1,
-        unsigned __int16 a2,
-        const WCHAR *a3,
-        int a4,
-        _QWORD *a5,
-        _WORD *a6,
-        void *a7,
-        __int64 a8)
+NTSTATUS __cdecl RtlLoadString(
+        PVOID DllHandle,
+        ULONG StringId,
+        PCWSTR StringLanguage,
+        ULONG Flags,
+        PCWSTR *ReturnString,
+        PUSHORT ReturnStringLen,
+        PWSTR ReturnLanguageName,
+        PULONG ReturnLanguageLen)
 {
   unsigned int v8; // r10d
+  unsigned __int16 v9; // r12
   bool v11; // di
-  int v13; // edx
+  NTSTATUS v13; // edx
   unsigned __int16 v14; // cx
   int v15; // ebx
-  __int16 v16; // r8
-  unsigned __int64 v17; // [rsp+40h] [rbp-78h] BYREF
+  USHORT v16; // r8
+  DWORD lcid[2]; // [rsp+40h] [rbp-78h] BYREF
   __int64 v18; // [rsp+48h] [rbp-70h] BYREF
   __int64 v19; // [rsp+50h] [rbp-68h] BYREF
-  _QWORD *v20; // [rsp+58h] [rbp-60h]
-  _QWORD v21[4]; // [rsp+60h] [rbp-58h] BYREF
+  PCWSTR *v20; // [rsp+58h] [rbp-60h]
+  _QWORD Src[4]; // [rsp+60h] [rbp-58h] BYREF
 
-  v8 = (unsigned int)a3;
-  v20 = a5;
+  v8 = (unsigned int)StringLanguage;
+  v9 = StringId;
+  v20 = ReturnString;
   v18 = 0LL;
-  v11 = (a4 & 1) == 0;
-  if ( a1 && a5 && (a4 & 0xFFFFFFFE) == 0 )
+  v11 = (Flags & 1) == 0;
+  if ( DllHandle && ReturnString && (Flags & 0xFFFFFFFE) == 0 )
   {
-    if ( (a4 & 1) != 0 && (a7 || a8) )
-      return 3221225659LL;
-    if ( (unsigned int)a3 > 0xFFFF )
+    if ( (Flags & 1) != 0 && (ReturnLanguageName || ReturnLanguageLen) )
+      return -1073741637;
+    if ( (unsigned int)StringLanguage > 0xFFFF )
     {
-      if ( *a3 )
+      if ( *StringLanguage )
       {
-        if ( (int)RtlLocaleNameToLcid(a3, (int *)&v17, 3) < 0 )
-          return 3221225485LL;
-        v8 = (unsigned __int16)v17;
-        LODWORD(v17) = (unsigned __int16)v17;
+        if ( RtlLocaleNameToLcid(StringLanguage, lcid, 3u) < 0 )
+          return -1073741811;
+        v8 = LOWORD(lcid[0]);
+        lcid[0] = LOWORD(lcid[0]);
       }
       else
       {
         v8 = 0;
-        LODWORD(v17) = 0;
+        lcid[0] = 0;
       }
     }
-    v21[0] = 6LL;
-    v21[1] = (a2 >> 4) + 1;
-    v21[2] = v8;
-    v21[3] = a2;
-    v17 = 0LL;
+    Src[0] = 6LL;
+    Src[1] = (v9 >> 4) + 1;
+    Src[2] = v8;
+    Src[3] = v9;
+    *(_QWORD *)lcid = 0LL;
     if ( v11 )
     {
-      v13 = LdrResSearchResource(a1, v21, 4u, 1u, (__int64)&v18, (__int64 *)&v17, a7, a8);
-      if ( v13 >= 0 && v17 > 0xFFFF )
+      v13 = LdrResSearchResource(
+              (WCHAR *)DllHandle,
+              Src,
+              4u,
+              1u,
+              (__int64)&v18,
+              (SIZE_T *)lcid,
+              ReturnLanguageName,
+              (__int64)ReturnLanguageLen);
+      if ( v13 >= 0 && *(_QWORD *)lcid > 0xFFFFuLL )
         v13 = -1073741701;
     }
     else
     {
-      v13 = LdrpSearchResourceSection_U(a1, (__int64)v21, 4LL, 1u, &v19);
+      v13 = LdrpSearchResourceSection_U(DllHandle, (__int64)Src, 4LL, 1u, (__int64)&v19);
       if ( v13 < 0 )
-        return (unsigned int)v13;
-      v13 = LdrpAccessResourceData(a1, v19, &v18, 0LL);
+        return v13;
+      v13 = LdrpAccessResourceData(DllHandle);
     }
     if ( v13 >= 0 && v18 )
     {
       v14 = 0;
-      v15 = a2 & 0xF;
-      v17 >>= 1;
+      v15 = v9 & 0xF;
+      *(_QWORD *)lcid >>= 1;
       do
       {
         v16 = *(_WORD *)(v18 + 2LL * v14);
         v14 += v16 + 1;
-        if ( v11 && v14 > v17 )
-          return (unsigned int)-1073741701;
+        if ( v11 && (unsigned __int64)v14 > *(_QWORD *)lcid )
+          return -1073741701;
         --v15;
       }
       while ( v15 >= 0 );
       if ( v14 && v16 )
         v14 -= v16;
-      *v20 = v18 + 2LL * v14;
-      if ( a6 )
-        *a6 = v16;
+      *v20 = (PCWSTR)(v18 + 2LL * v14);
+      if ( ReturnStringLen )
+        *ReturnStringLen = v16;
     }
-    return (unsigned int)v13;
+    return v13;
   }
-  return 3221225485LL;
+  return -1073741811;
 }

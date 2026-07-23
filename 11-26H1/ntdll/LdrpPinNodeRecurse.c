@@ -1,10 +1,10 @@
 /*
- * XREFs of LdrpPinNodeRecurse @ 0x1801198C0
+ * XREFs of LdrpPinNodeRecurse @ 0x180119670
  * Callers:
- *     LdrpPinModule @ 0x1800C64AC (LdrpPinModule.c)
- *     LdrpPinNodeRecurse @ 0x1801198C0 (LdrpPinNodeRecurse.c)
+ *     LdrpPinModule @ 0x1800C3C6C (LdrpPinModule.c)
+ *     LdrpPinNodeRecurse @ 0x180119670 (LdrpPinNodeRecurse.c)
  * Callees:
- *     LdrpPinNodeRecurse @ 0x1801198C0 (LdrpPinNodeRecurse.c)
+ *     LdrpPinNodeRecurse @ 0x180119670 (LdrpPinNodeRecurse.c)
  */
 
 __int64 __fastcall LdrpPinNodeRecurse(__int64 a1)

@@ -1,14 +1,15 @@
 /*
- * XREFs of ZwQueryDebugFilterState @ 0x140725D90
+ * XREFs of ZwQueryDebugFilterState @ 0x14072A960
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwQueryDebugFilterState(__int64 a1, __int64 a2)
+// local variable allocation has failed, the output may be wrong!
+NTSTATUS __cdecl ZwQueryDebugFilterState(ULONG ComponentId, ULONG Level)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(*(_QWORD *)&ComponentId);
 }

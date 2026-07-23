@@ -1,12 +1,12 @@
 /*
- * XREFs of WheapGetErrorSourceFunction @ 0x1403BAF90
+ * XREFs of WheapGetErrorSourceFunction @ 0x1403BB100
  * Callers:
- *     WheapCallErrorSourceInitialize @ 0x1403BAE50 (WheapCallErrorSourceInitialize.c)
- *     WheapCallErrorSourceCorrect @ 0x1403BAF50 (WheapCallErrorSourceCorrect.c)
- *     WheapReportBootError @ 0x1405BAEC4 (WheapReportBootError.c)
- *     WheapAttemptArchitecturalErrorRecovery @ 0x1405BB7D8 (WheapAttemptArchitecturalErrorRecovery.c)
- *     WheapFillOutErrorRecord @ 0x1405BBA2C (WheapFillOutErrorRecord.c)
- *     WheapCallErrorSourceUninitialize @ 0x1405BCCA0 (WheapCallErrorSourceUninitialize.c)
+ *     WheapCallErrorSourceInitialize @ 0x1403BAFC0 (WheapCallErrorSourceInitialize.c)
+ *     WheapCallErrorSourceCorrect @ 0x1403BB0C0 (WheapCallErrorSourceCorrect.c)
+ *     WheapReportBootError @ 0x1405BB0F4 (WheapReportBootError.c)
+ *     WheapAttemptArchitecturalErrorRecovery @ 0x1405BBA08 (WheapAttemptArchitecturalErrorRecovery.c)
+ *     WheapFillOutErrorRecord @ 0x1405BBC5C (WheapFillOutErrorRecord.c)
+ *     WheapCallErrorSourceUninitialize @ 0x1405BCED0 (WheapCallErrorSourceUninitialize.c)
  * Callees:
  *     <none>
  */

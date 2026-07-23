@@ -1,14 +1,14 @@
 /*
- * XREFs of PopPowerRequestUnrevokeRequests @ 0x1403AACE0
+ * XREFs of PopPowerRequestUnrevokeRequests @ 0x1403AAEC0
  * Callers:
- *     PopPowerRequestHandleExecutionEnablementUpdate @ 0x1408554C4 (PopPowerRequestHandleExecutionEnablementUpdate.c)
- *     PopPowerRequestNotifyTtmSessionInitialized @ 0x140981750 (PopPowerRequestNotifyTtmSessionInitialized.c)
+ *     PopPowerRequestHandleExecutionEnablementUpdate @ 0x1408557C4 (PopPowerRequestHandleExecutionEnablementUpdate.c)
+ *     PopPowerRequestNotifyTtmSessionInitialized @ 0x140981950 (PopPowerRequestNotifyTtmSessionInitialized.c)
  * Callees:
- *     KxReleaseQueuedSpinLock @ 0x140260360 (KxReleaseQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140260E60 (KeAcquireInStackQueuedSpinLock.c)
- *     PopQueueWorkItem @ 0x14032CCE4 (PopQueueWorkItem.c)
- *     PopPowerRequestEvaluatePendingRequestStatus @ 0x14032CD14 (PopPowerRequestEvaluatePendingRequestStatus.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseQueuedSpinLock @ 0x1402605F0 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402610F0 (KeAcquireInStackQueuedSpinLock.c)
+ *     PopQueueWorkItem @ 0x14032CF74 (PopQueueWorkItem.c)
+ *     PopPowerRequestEvaluatePendingRequestStatus @ 0x14032CFA4 (PopPowerRequestEvaluatePendingRequestStatus.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall PopPowerRequestUnrevokeRequests(int a1)
@@ -42,10 +42,13 @@ __int64 __fastcall PopPowerRequestUnrevokeRequests(int a1)
   KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
   result = (unsigned int)KiIrqlFlags;
   OldIrql = LockHandle.OldIrql;
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && LockHandle.OldIrql <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
+      && LockHandle.OldIrql <= 0xFu
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;

@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlWow64GetCpuAreaEnabledFeatures @ 0x1409E6328
+ * XREFs of RtlWow64GetCpuAreaEnabledFeatures @ 0x1409E0BB8
  * Callers:
- *     PspWow64SetContextThread @ 0x140913174 (PspWow64SetContextThread.c)
- *     PspWow64GetContextThread @ 0x1409A90C0 (PspWow64GetContextThread.c)
- *     PspWow64SetupCpuArea @ 0x1409E5F70 (PspWow64SetupCpuArea.c)
- *     PspWow64InitThread @ 0x1409E600C (PspWow64InitThread.c)
- *     PspWow64ReadOrWriteThreadCpuArea @ 0x140AD198C (PspWow64ReadOrWriteThreadCpuArea.c)
+ *     PspWow64SetContextThread @ 0x1408EA8C4 (PspWow64SetContextThread.c)
+ *     PspWow64GetContextThread @ 0x140992510 (PspWow64GetContextThread.c)
+ *     PspWow64SetupCpuArea @ 0x1409E0800 (PspWow64SetupCpuArea.c)
+ *     PspWow64InitThread @ 0x1409E089C (PspWow64InitThread.c)
+ *     PspWow64ReadOrWriteThreadCpuArea @ 0x140ACFCF8 (PspWow64ReadOrWriteThreadCpuArea.c)
  * Callees:
- *     RtlpRemoveArchDisallowedXStateFeatures @ 0x140464F6C (RtlpRemoveArchDisallowedXStateFeatures.c)
+ *     RtlpRemoveArchDisallowedXStateFeatures @ 0x14045B69C (RtlpRemoveArchDisallowedXStateFeatures.c)
  */
 
 unsigned __int64 __fastcall RtlWow64GetCpuAreaEnabledFeatures(int *a1)

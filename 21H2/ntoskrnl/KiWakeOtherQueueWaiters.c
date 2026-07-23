@@ -1,47 +1,47 @@
 /*
- * XREFs of KiWakeOtherQueueWaiters @ 0x140243310
+ * XREFs of KiWakeOtherQueueWaiters @ 0x1402E7B60
  * Callers:
- *     KeRegisterObjectNotification @ 0x140202F18 (KeRegisterObjectNotification.c)
- *     NtWaitForWorkViaWorkerFactory @ 0x140203150 (NtWaitForWorkViaWorkerFactory.c)
- *     NtAssociateWaitCompletionPacket @ 0x140229620 (NtAssociateWaitCompletionPacket.c)
- *     NtReleaseWorkerFactoryWorker @ 0x140242B70 (NtReleaseWorkerFactoryWorker.c)
- *     IopfCompleteRequest @ 0x1402434C0 (IopfCompleteRequest.c)
- *     IoSetIoCompletionEx2 @ 0x140246230 (IoSetIoCompletionEx2.c)
- *     KiTimerWaitTest @ 0x140247DF0 (KiTimerWaitTest.c)
- *     KiExpireTimer2 @ 0x14024B5C0 (KiExpireTimer2.c)
- *     KeSetProcess @ 0x140251D1C (KeSetProcess.c)
- *     KeReleaseSemaphoreEx @ 0x1402631F0 (KeReleaseSemaphoreEx.c)
- *     KePulseEvent @ 0x140271AC0 (KePulseEvent.c)
- *     KiRundownMutants @ 0x140277650 (KiRundownMutants.c)
- *     KeTerminateThread @ 0x1402784F0 (KeTerminateThread.c)
- *     KiResumeThread @ 0x1402798D0 (KiResumeThread.c)
- *     IoSetIoCompletionEx @ 0x14028FFC0 (IoSetIoCompletionEx.c)
- *     KeInsertQueueEx @ 0x1402901A0 (KeInsertQueueEx.c)
- *     KeReleaseSemaphore @ 0x14029AC70 (KeReleaseSemaphore.c)
- *     KeRundownQueueCommon @ 0x1402A9DDC (KeRundownQueueCommon.c)
- *     KeDeleteMutant @ 0x1402AA058 (KeDeleteMutant.c)
- *     KeWakeWaitChain @ 0x1402BA75C (KeWakeWaitChain.c)
- *     KiInsertQueueInternal @ 0x1402BCED8 (KiInsertQueueInternal.c)
- *     KeSignalGate @ 0x1402C2B70 (KeSignalGate.c)
- *     KeInsertQueue @ 0x1402CCD30 (KeInsertQueue.c)
- *     KeSetEventBoostPriorityEx @ 0x1402F1788 (KeSetEventBoostPriorityEx.c)
- *     CcUnpinFileDataEx @ 0x1402F4630 (CcUnpinFileDataEx.c)
- *     KeReleaseMutant @ 0x1403424B0 (KeReleaseMutant.c)
- *     KeSetEvent @ 0x1403435A0 (KeSetEvent.c)
- *     ExpReleaseResourceSharedForThreadLite @ 0x14034B5C0 (ExpReleaseResourceSharedForThreadLite.c)
- *     ExpReleaseResourceExclusiveForThreadLite @ 0x14034D1C0 (ExpReleaseResourceExclusiveForThreadLite.c)
- *     KeInsertHeadQueue @ 0x14051AF80 (KeInsertHeadQueue.c)
+ *     IoSetIoCompletionEx @ 0x14020DF30 (IoSetIoCompletionEx.c)
+ *     KeInsertQueueEx @ 0x14020E110 (KeInsertQueueEx.c)
+ *     KeReleaseSemaphore @ 0x140212600 (KeReleaseSemaphore.c)
+ *     KeRundownQueueCommon @ 0x140227F1C (KeRundownQueueCommon.c)
+ *     KeDeleteMutant @ 0x140228198 (KeDeleteMutant.c)
+ *     KeWakeWaitChain @ 0x14023896C (KeWakeWaitChain.c)
+ *     KiInsertQueueInternal @ 0x14023B588 (KiInsertQueueInternal.c)
+ *     KeSignalGate @ 0x140241090 (KeSignalGate.c)
+ *     KePulseEvent @ 0x14025FA60 (KePulseEvent.c)
+ *     KiRundownMutants @ 0x1402655F0 (KiRundownMutants.c)
+ *     KeTerminateThread @ 0x140266490 (KeTerminateThread.c)
+ *     KiResumeThread @ 0x140267870 (KiResumeThread.c)
+ *     KeReleaseSemaphoreEx @ 0x140284630 (KeReleaseSemaphoreEx.c)
+ *     KeInsertQueue @ 0x14029EAA0 (KeInsertQueue.c)
+ *     KeRegisterObjectNotification @ 0x1402A7858 (KeRegisterObjectNotification.c)
+ *     NtWaitForWorkViaWorkerFactory @ 0x1402A7A90 (NtWaitForWorkViaWorkerFactory.c)
+ *     NtAssociateWaitCompletionPacket @ 0x1402CDF20 (NtAssociateWaitCompletionPacket.c)
+ *     NtReleaseWorkerFactoryWorker @ 0x1402E73C0 (NtReleaseWorkerFactoryWorker.c)
+ *     IopfCompleteRequest @ 0x1402E7D10 (IopfCompleteRequest.c)
+ *     IoSetIoCompletionEx2 @ 0x1402EAA80 (IoSetIoCompletionEx2.c)
+ *     KiTimerWaitTest @ 0x1402EC640 (KiTimerWaitTest.c)
+ *     KiExpireTimer2 @ 0x1402EFE10 (KiExpireTimer2.c)
+ *     KeSetProcess @ 0x1402F652C (KeSetProcess.c)
+ *     KeSetEventBoostPriorityEx @ 0x1402FC4D8 (KeSetEventBoostPriorityEx.c)
+ *     CcUnpinFileDataEx @ 0x1402FF380 (CcUnpinFileDataEx.c)
+ *     KeReleaseMutant @ 0x14034D200 (KeReleaseMutant.c)
+ *     KeSetEvent @ 0x14034E2F0 (KeSetEvent.c)
+ *     ExpReleaseResourceSharedForThreadLite @ 0x140356310 (ExpReleaseResourceSharedForThreadLite.c)
+ *     ExpReleaseResourceExclusiveForThreadLite @ 0x140357F10 (ExpReleaseResourceExclusiveForThreadLite.c)
+ *     KeInsertHeadQueue @ 0x14051B1C0 (KeInsertHeadQueue.c)
  * Callees:
- *     KiSignalThread @ 0x1402464A0 (KiSignalThread.c)
- *     KeYieldProcessorEx @ 0x14024B280 (KeYieldProcessorEx.c)
- *     KiInsertQueueInternal @ 0x1402BCED8 (KiInsertQueueInternal.c)
+ *     KiInsertQueueInternal @ 0x14023B588 (KiInsertQueueInternal.c)
+ *     KiSignalThread @ 0x1402EACF0 (KiSignalThread.c)
+ *     KeYieldProcessorEx @ 0x1402EFAD0 (KeYieldProcessorEx.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall KiWakeOtherQueueWaiters(__int64 a1, __int64 a2)
 {
-  _QWORD *v2; // rdi
-  _QWORD *v5; // rbx
+  __int64 *v2; // rdi
+  __int64 *v5; // rbx
   __int64 result; // rax
   __int64 v7; // rax
   struct _KPRCB *CurrentPrcb; // r13
@@ -59,16 +59,16 @@ __int64 __fastcall KiWakeOtherQueueWaiters(__int64 a1, __int64 a2)
   int v20; // eax
   int v21; // [rsp+58h] [rbp+10h] BYREF
 
-  v2 = *(_QWORD **)(a2 + 16);
+  v2 = *(__int64 **)(a2 + 16);
   do
   {
     v5 = v2;
-    v2 = (_QWORD *)v2[1];
+    v2 = (__int64 *)v2[1];
     result = *((unsigned __int8 *)v5 + 16);
     if ( (_BYTE)result == 2 )
     {
       v14 = *v5;
-      if ( *(_QWORD **)(*v5 + 8LL) != v5 || (_QWORD *)*v2 != v5 )
+      if ( *(__int64 **)(*v5 + 8) != v5 || (__int64 *)*v2 != v5 )
         goto LABEL_21;
       *v2 = v14;
       *(_QWORD *)(v14 + 8) = v2;
@@ -80,7 +80,7 @@ __int64 __fastcall KiWakeOtherQueueWaiters(__int64 a1, __int64 a2)
       if ( (_BYTE)result != 1 )
         return result;
       v7 = *v5;
-      if ( *(_QWORD **)(*v5 + 8LL) != v5 || (_QWORD *)*v2 != v5 )
+      if ( *(__int64 **)(*v5 + 8) != v5 || (__int64 *)*v2 != v5 )
 LABEL_21:
         __fastfail(3u);
       *v2 = v7;
@@ -145,6 +145,6 @@ LABEL_24:
     }
     result = a2 + 8;
   }
-  while ( v2 != (_QWORD *)(a2 + 8) );
+  while ( v2 != (__int64 *)(a2 + 8) );
   return result;
 }

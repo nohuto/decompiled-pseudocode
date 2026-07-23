@@ -1,19 +1,19 @@
 /*
- * XREFs of KeMaskInterrupt @ 0x1401240A0
+ * XREFs of KeMaskInterrupt @ 0x140124610
  * Callers:
- *     IopMaskInterrupt @ 0x140123DD0 (IopMaskInterrupt.c)
- *     KeDisconnectInterrupt @ 0x140123E5C (KeDisconnectInterrupt.c)
+ *     IopMaskInterrupt @ 0x140124340 (IopMaskInterrupt.c)
+ *     KeDisconnectInterrupt @ 0x1401243CC (KeDisconnectInterrupt.c)
  * Callees:
- *     KeGetProcessorNumberFromIndex @ 0x1400722E8 (KeGetProcessorNumberFromIndex.c)
- *     KeRemoveQueueDpcEx @ 0x140085D28 (KeRemoveQueueDpcEx.c)
- *     KeSetTargetProcessorDpcEx @ 0x1400B2CB8 (KeSetTargetProcessorDpcEx.c)
- *     KiInsertQueueDpc @ 0x1400D82C0 (KiInsertQueueDpc.c)
- *     KiMaskInterruptInternal @ 0x1401241BC (KiMaskInterruptInternal.c)
- *     KiReleaseInterruptConnectLock @ 0x14012D2AC (KiReleaseInterruptConnectLock.c)
- *     KiAcquireInterruptConnectLock @ 0x14012D2BC (KiAcquireInterruptConnectLock.c)
- *     KiIsInterruptTypeSecondary @ 0x14012D8E0 (KiIsInterruptTypeSecondary.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     KiMaskSecondaryInterruptInternal @ 0x1401D5DD0 (KiMaskSecondaryInterruptInternal.c)
+ *     KeGetProcessorNumberFromIndex @ 0x140071E68 (KeGetProcessorNumberFromIndex.c)
+ *     KeRemoveQueueDpcEx @ 0x140087618 (KeRemoveQueueDpcEx.c)
+ *     KeSetTargetProcessorDpcEx @ 0x1400B0C04 (KeSetTargetProcessorDpcEx.c)
+ *     KiInsertQueueDpc @ 0x1400D6160 (KiInsertQueueDpc.c)
+ *     KiMaskInterruptInternal @ 0x14012472C (KiMaskInterruptInternal.c)
+ *     KiReleaseInterruptConnectLock @ 0x14012D81C (KiReleaseInterruptConnectLock.c)
+ *     KiAcquireInterruptConnectLock @ 0x14012D82C (KiAcquireInterruptConnectLock.c)
+ *     KiIsInterruptTypeSecondary @ 0x14012DE50 (KiIsInterruptTypeSecondary.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     KiMaskSecondaryInterruptInternal @ 0x1401D5BFC (KiMaskSecondaryInterruptInternal.c)
  */
 
 __int64 __fastcall KeMaskInterrupt(__int64 *a1, unsigned __int8 a2, __int64 a3, struct _KDPC *a4)
@@ -32,7 +32,7 @@ __int64 __fastcall KeMaskInterrupt(__int64 *a1, unsigned __int8 a2, __int64 a3, 
   __int64 v20; // rcx
   unsigned __int8 v21[4]; // [rsp+30h] [rbp-68h] BYREF
   unsigned int v22; // [rsp+34h] [rbp-64h] BYREF
-  struct _PROCESSOR_NUMBER ProcNumber; // [rsp+38h] [rbp-60h] BYREF
+  _PROCESSOR_NUMBER ProcNumber; // [rsp+38h] [rbp-60h] BYREF
   _BYTE v24[16]; // [rsp+40h] [rbp-58h] BYREF
 
   IsInterruptTypeSecondary = KiIsInterruptTypeSecondary(a3);

@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpAcpiSetupPmRegisterLegacy @ 0x140A65080
+ * XREFs of HalpAcpiSetupPmRegisterLegacy @ 0x140A66080
  * Callers:
- *     HalpAcpiInitializePmRegisters @ 0x140A64ED8 (HalpAcpiInitializePmRegisters.c)
+ *     HalpAcpiInitializePmRegisters @ 0x140A65ED8 (HalpAcpiInitializePmRegisters.c)
  * Callees:
- *     HalpAcpiSetupPmRegister @ 0x140A650DC (HalpAcpiSetupPmRegister.c)
+ *     HalpAcpiSetupPmRegister @ 0x140A660DC (HalpAcpiSetupPmRegister.c)
  */
 
 __int64 __fastcall HalpAcpiSetupPmRegisterLegacy(__int64 a1, int a2, __int64 a3, unsigned int a4)

@@ -1,10 +1,10 @@
 /*
- * XREFs of SshSessionManagerTracePreSleepNotification @ 0x1409A1AE0
+ * XREFs of SshSessionManagerTracePreSleepNotification @ 0x1409A1CE0
  * Callers:
- *     PopDiagTracePreSleepNotification @ 0x140991348 (PopDiagTracePreSleepNotification.c)
+ *     PopDiagTracePreSleepNotification @ 0x140991548 (PopDiagTracePreSleepNotification.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     SshpSessionManagerSendControlEvent @ 0x1408741A8 (SshpSessionManagerSendControlEvent.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     SshpSessionManagerSendControlEvent @ 0x1408743E8 (SshpSessionManagerSendControlEvent.c)
  */
 
 signed __int32 __fastcall SshSessionManagerTracePreSleepNotification(int a1, int a2, int a3, int a4, char a5)

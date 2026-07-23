@@ -1,19 +1,19 @@
 /*
- * XREFs of MiGetTopLevelPfn @ 0x140228010
+ * XREFs of MiGetTopLevelPfn @ 0x1402FB290
  * Callers:
- *     MiGetPagePrivilege @ 0x14021CE30 (MiGetPagePrivilege.c)
- *     MiLockStealUserVm @ 0x140227A3C (MiLockStealUserVm.c)
- *     MiStoreCheckCandidatePage @ 0x140229014 (MiStoreCheckCandidatePage.c)
- *     MiRestoreTransitionPte @ 0x140271094 (MiRestoreTransitionPte.c)
- *     MiIdentifyPfn @ 0x140307510 (MiIdentifyPfn.c)
- *     MiRecheckCombineVm @ 0x1403140D4 (MiRecheckCombineVm.c)
- *     MiCapturePfnVm @ 0x14045B3C4 (MiCapturePfnVm.c)
- *     MiStoreDiscardPoisonedPage @ 0x14068BF88 (MiStoreDiscardPoisonedPage.c)
+ *     MiRestoreTransitionPte @ 0x140226624 (MiRestoreTransitionPte.c)
+ *     MiGetPagePrivilege @ 0x140249B80 (MiGetPagePrivilege.c)
+ *     MiLockStealUserVm @ 0x14025539C (MiLockStealUserVm.c)
+ *     MiStoreCheckCandidatePage @ 0x1402FC214 (MiStoreCheckCandidatePage.c)
+ *     MiIdentifyPfn @ 0x1403113F0 (MiIdentifyPfn.c)
+ *     MiRecheckCombineVm @ 0x1403F1420 (MiRecheckCombineVm.c)
+ *     MiCapturePfnVm @ 0x1404507C4 (MiCapturePfnVm.c)
+ *     MiStoreDiscardPoisonedPage @ 0x14068D0B8 (MiStoreDiscardPoisonedPage.c)
  * Callees:
- *     HvlNotifyLongSpinWait @ 0x140293260 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140293290 (KiCheckVpBackingLongSpinWaitHypercall.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     HvlNotifyLongSpinWait @ 0x1402A2E60 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1402A2E90 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 __int64 __fastcall MiGetTopLevelPfn(ULONG_PTR BugCheckParameter2)
@@ -50,7 +50,7 @@ __int64 __fastcall MiGetTopLevelPfn(ULONG_PTR BugCheckParameter2)
       {
         if ( (++v7 & HvlLongSpinCountMask) == 0
           && (HvlEnlightenments & 0x40) != 0
-          && (unsigned __int8)KiCheckVpBackingLongSpinWaitHypercall(v6) )
+          && KiCheckVpBackingLongSpinWaitHypercall() )
         {
           HvlNotifyLongSpinWait(v7);
         }

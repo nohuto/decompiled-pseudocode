@@ -1,11 +1,11 @@
 /*
- * XREFs of ArbPruneOrdering @ 0x140705B6C
+ * XREFs of ArbPruneOrdering @ 0x14070372C
  * Callers:
- *     ArbBuildAssignmentOrdering @ 0x140704D3C (ArbBuildAssignmentOrdering.c)
+ *     ArbBuildAssignmentOrdering @ 0x1407028FC (ArbBuildAssignmentOrdering.c)
  * Callees:
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall ArbPruneOrdering(unsigned __int16 *a1, unsigned __int64 a2, unsigned __int64 a3)
@@ -26,7 +26,7 @@ __int64 __fastcall ArbPruneOrdering(unsigned __int16 *a1, unsigned __int64 a2, u
 
   if ( a3 < a2 )
     return (unsigned int)-1073741811;
-  Pool2 = (char *)ExAllocatePool2(0x100uLL);
+  Pool2 = (char *)ExAllocatePool2(0x100uLL, 32LL * *a1 + 16, 0x4C627241u);
   if ( !Pool2 )
     return (unsigned int)-1073741670;
   v8 = *a1;
@@ -73,7 +73,7 @@ LABEL_17:
   {
     if ( (unsigned __int16)v15 > a1[1] )
     {
-      v16 = ExAllocatePool2(0x100uLL);
+      v16 = ExAllocatePool2(0x100uLL, 16LL * (unsigned __int16)v15, 0x4C627241u);
       if ( !v16 )
       {
         v6 = -1073741670;

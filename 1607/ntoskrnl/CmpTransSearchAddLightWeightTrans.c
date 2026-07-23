@@ -1,17 +1,17 @@
 /*
- * XREFs of CmpTransSearchAddLightWeightTrans @ 0x1403FDAD8
+ * XREFs of CmpTransSearchAddLightWeightTrans @ 0x1403FC998
  * Callers:
- *     CmpTransSearchAddTransFromKeyBody @ 0x1403FCB8C (CmpTransSearchAddTransFromKeyBody.c)
- *     CmpTransSearchAddTransFromHive @ 0x1404DEC44 (CmpTransSearchAddTransFromHive.c)
+ *     CmpTransSearchAddTransFromKeyBody @ 0x1403FBA4C (CmpTransSearchAddTransFromKeyBody.c)
+ *     CmpTransSearchAddTransFromHive @ 0x1404C2248 (CmpTransSearchAddTransFromHive.c)
  * Callees:
- *     KiLeaveCriticalRegionUnsafe @ 0x140055FA0 (KiLeaveCriticalRegionUnsafe.c)
- *     ExAcquireFastMutexUnsafe @ 0x1400F05A0 (ExAcquireFastMutexUnsafe.c)
- *     ExReleaseFastMutexUnsafe @ 0x1400F0700 (ExReleaseFastMutexUnsafe.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140055B20 (KiLeaveCriticalRegionUnsafe.c)
+ *     ExAcquireFastMutexUnsafe @ 0x1400EE420 (ExAcquireFastMutexUnsafe.c)
+ *     ExReleaseFastMutexUnsafe @ 0x1400EE580 (ExReleaseFastMutexUnsafe.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
- *     CmpBindHiveToTrans @ 0x1403FF08C (CmpBindHiveToTrans.c)
- *     CmpTransReferenceTransaction @ 0x1403FF0D8 (CmpTransReferenceTransaction.c)
- *     CmpTransDereferenceTransaction @ 0x1403FF128 (CmpTransDereferenceTransaction.c)
- *     CmpTransAllocateTrans @ 0x1404EDB60 (CmpTransAllocateTrans.c)
+ *     CmpBindHiveToTrans @ 0x1403FDF4C (CmpBindHiveToTrans.c)
+ *     CmpTransReferenceTransaction @ 0x1403FDF98 (CmpTransReferenceTransaction.c)
+ *     CmpTransDereferenceTransaction @ 0x1403FDFE8 (CmpTransDereferenceTransaction.c)
+ *     CmpTransAllocateTrans @ 0x1404CFC84 (CmpTransAllocateTrans.c)
  */
 
 __int64 __fastcall CmpTransSearchAddLightWeightTrans(__int64 a1, __int64 a2, int a3, __int64 *a4)
@@ -79,13 +79,13 @@ LABEL_20:
           return v10;
         }
         *(_DWORD *)(v17 + 48) = 128;
-        v18 = (__int64 *)qword_140322908;
-        if ( *(__int64 **)qword_140322908 != &CmpLightTransactionList )
+        v18 = (__int64 *)qword_140322928;
+        if ( *(__int64 **)qword_140322928 != &CmpLightTransactionList )
           __fastfail(3u);
         *(_QWORD *)v17 = &CmpLightTransactionList;
         *(_QWORD *)(v17 + 8) = v18;
         *v18 = v17;
-        qword_140322908 = v17;
+        qword_140322928 = v17;
         ExReleaseFastMutexUnsafe(&CmpTransactionListLock);
         KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread(), v19, v20, v21);
         *a4 = v17;

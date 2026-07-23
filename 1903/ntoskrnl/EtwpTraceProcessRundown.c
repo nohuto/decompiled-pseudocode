@@ -22,7 +22,7 @@ __int64 __fastcall EtwpTraceProcessRundown(PEPROCESS Process, __int64 a2, __int1
   PVOID P; // [rsp+80h] [rbp-80h] BYREF
   UNICODE_STRING UnicodeString; // [rsp+88h] [rbp-78h] BYREF
   _BYTE v17[40]; // [rsp+98h] [rbp-68h] BYREF
-  int v18[104]; // [rsp+C0h] [rbp-40h] BYREF
+  __int64 v18[52]; // [rsp+C0h] [rbp-40h] BYREF
   __int64 v19[18]; // [rsp+260h] [rbp+160h] BYREF
 
   *(_QWORD *)&UnicodeString.Length = 0LL;
@@ -43,7 +43,7 @@ __int64 __fastcall EtwpTraceProcessRundown(PEPROCESS Process, __int64 a2, __int1
     &v14,
     (__int64)v19,
     (unsigned int *)&v10,
-    v18,
+    (PSIZE_T)v18,
     (PANSI_STRING)&UnicodeString,
     v11,
     &P);

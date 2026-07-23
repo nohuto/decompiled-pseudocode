@@ -10,7 +10,7 @@
  *     KiChargeSchedulingGroupCycleTime @ 0x14020A34C (KiChargeSchedulingGroupCycleTime.c)
  */
 
-void __fastcall KiRecomputeGroupSchedulingRank(__int64 a1, __int64 a2, __int64 a3)
+void __fastcall KiRecomputeGroupSchedulingRank(__int64 a1, __int64 a2, _RTL_RB_TREE *a3)
 {
   unsigned __int64 v6; // r8
   unsigned __int64 v7; // r10
@@ -28,7 +28,7 @@ void __fastcall KiRecomputeGroupSchedulingRank(__int64 a1, __int64 a2, __int64 a
   __int64 v19; // rcx
   __int64 *v20; // rdi
   __int64 v21; // rax
-  unsigned __int64 *v22; // rax
+  _RTL_RB_TREE *v22; // rax
 
   if ( *(__int64 *)(a1 + 32) > 0 )
     KiChargeSchedulingGroupCycleTime(a1, a2);
@@ -97,15 +97,15 @@ LABEL_28:
         v20 = (__int64 *)(v19 + 392);
         v21 = *(_QWORD *)(v19 + 392);
         if ( v21 )
-          v22 = (unsigned __int64 *)(v21 + 376);
+          v22 = (_RTL_RB_TREE *)(v21 + 376);
         else
-          v22 = (unsigned __int64 *)(a3 + 22768);
+          v22 = a3 + 1423;
         *(_BYTE *)(v19 + 112) &= ~1u;
-        RtlRbRemoveNode(v22, (unsigned __int64 *)(v19 + 88));
+        RtlRbRemoveNode(v22, (PRTL_BALANCED_NODE)(v19 + 88));
         v19 = *v20;
       }
       while ( *v20 && (*(_BYTE *)(v19 + 112) & 1) != 0 && !*(_QWORD *)(v19 + 376) && !*(_WORD *)(v19 + 114) );
-      KiInsertSchedulingGroupQueue(a3, a2, 0LL);
+      KiInsertSchedulingGroupQueue(a3, a2, 0);
     }
   }
 }

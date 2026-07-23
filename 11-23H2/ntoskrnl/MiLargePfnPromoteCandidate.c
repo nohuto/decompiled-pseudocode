@@ -1,8 +1,8 @@
 /*
- * XREFs of MiLargePfnPromoteCandidate @ 0x140333370
+ * XREFs of MiLargePfnPromoteCandidate @ 0x140333600
  * Callers:
- *     MiCoalesceFreeLargePages @ 0x140332DC0 (MiCoalesceFreeLargePages.c)
- *     MiChangePageAttributeLargeFreeZeroPage @ 0x14064EAA4 (MiChangePageAttributeLargeFreeZeroPage.c)
+ *     MiCoalesceFreeLargePages @ 0x140333050 (MiCoalesceFreeLargePages.c)
+ *     MiChangePageAttributeLargeFreeZeroPage @ 0x14064EFF4 (MiChangePageAttributeLargeFreeZeroPage.c)
  * Callees:
  *     <none>
  */

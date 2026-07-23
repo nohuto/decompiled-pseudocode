@@ -1,14 +1,14 @@
 /*
- * XREFs of MiInitializePteInfo @ 0x140C59DC0
+ * XREFs of MiInitializePteInfo @ 0x140C5BF50
  * Callers:
- *     MiInitializeSystemSpaceMap @ 0x140C54128 (MiInitializeSystemSpaceMap.c)
- *     MiInitializeKernelStacks @ 0x140C57458 (MiInitializeKernelStacks.c)
- *     MiInitializeNonCachedMappingRegion @ 0x140C59D18 (MiInitializeNonCachedMappingRegion.c)
- *     MiInitializeSystemPtes @ 0x140C59F78 (MiInitializeSystemPtes.c)
+ *     MiInitializeSystemSpaceMap @ 0x140C562B8 (MiInitializeSystemSpaceMap.c)
+ *     MiInitializeKernelStacks @ 0x140C595E8 (MiInitializeKernelStacks.c)
+ *     MiInitializeNonCachedMappingRegion @ 0x140C5BEA8 (MiInitializeNonCachedMappingRegion.c)
+ *     MiInitializeSystemPtes @ 0x140C5C108 (MiInitializeSystemPtes.c)
  * Callees:
- *     MiReleasePtes @ 0x14028DDA0 (MiReleasePtes.c)
- *     MiReservePtes @ 0x14028FF10 (MiReservePtes.c)
- *     MiInitializeDynamicBitmap @ 0x1406794B8 (MiInitializeDynamicBitmap.c)
+ *     MiReleasePtes @ 0x14029D9A0 (MiReleasePtes.c)
+ *     MiReservePtes @ 0x14029FB10 (MiReservePtes.c)
+ *     MiInitializeDynamicBitmap @ 0x14067A698 (MiInitializeDynamicBitmap.c)
  */
 
 __int64 __fastcall MiInitializePteInfo(
@@ -31,12 +31,12 @@ __int64 __fastcall MiInitializePteInfo(
   v11 = (a7 + (a6 >> 12) - 1) / a7;
   v12 = ((((v11 + 7) >> 3) + 4095) & 0xFFFFFFFFFFFFF000uLL) >> 12;
   v13 = 0LL;
-  v14 = (dword_140FC41FC & 2) != 0 ? 3 : 1;
+  v14 = (dword_140FC51FC & 2) != 0 ? 3 : 1;
   if ( !a3 )
   {
-    if ( (dword_140FC41FC & 2) != 0 )
+    if ( (dword_140FC51FC & 2) != 0 )
     {
-      v13 = MiReservePtes((__int64)&qword_140E37568, (int)v12 * v14);
+      v13 = MiReservePtes((__int64)&qword_140E376A8, (int)v12 * v14);
       if ( v13 )
       {
 LABEL_6:
@@ -45,7 +45,7 @@ LABEL_6:
       }
       v14 = 1;
     }
-    v13 = MiReservePtes((__int64)&qword_140E37568, v12);
+    v13 = MiReservePtes((__int64)&qword_140E376A8, v12);
     if ( !v13 )
       return 0LL;
     goto LABEL_6;
@@ -54,7 +54,7 @@ LABEL_7:
   if ( !(unsigned int)MiInitializeDynamicBitmap(a1, v8, v11, a4) )
   {
     if ( v13 )
-      MiReleasePtes((__int64)&qword_140E37568, (_QWORD *)v13, v12);
+      MiReleasePtes((__int64)&qword_140E376A8, (_QWORD *)v13, v12);
     return 0LL;
   }
   *(_DWORD *)(a1 + 40) = 0;

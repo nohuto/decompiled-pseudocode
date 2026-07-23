@@ -1,16 +1,16 @@
 /*
- * XREFs of IopLiveDumpUncorralProcessors @ 0x1405D2C0C
+ * XREFs of IopLiveDumpUncorralProcessors @ 0x1405D53FC
  * Callers:
- *     IopLiveDumpCaptureMemoryPages @ 0x1405CE6D0 (IopLiveDumpCaptureMemoryPages.c)
- *     IopLiveDumpCollectPages @ 0x1405CE958 (IopLiveDumpCollectPages.c)
- *     IopLiveDumpEstimateMemoryPages @ 0x1405CF098 (IopLiveDumpEstimateMemoryPages.c)
+ *     IopLiveDumpCaptureMemoryPages @ 0x1405D0EE0 (IopLiveDumpCaptureMemoryPages.c)
+ *     IopLiveDumpCollectPages @ 0x1405D1168 (IopLiveDumpCollectPages.c)
+ *     IopLiveDumpEstimateMemoryPages @ 0x1405D18A8 (IopLiveDumpEstimateMemoryPages.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     KeRevertToUserGroupAffinityThread @ 0x14037C490 (KeRevertToUserGroupAffinityThread.c)
- *     IopLiveDumpIsTracingEnabled @ 0x14052F2C8 (IopLiveDumpIsTracingEnabled.c)
- *     IopLiveDumpInitiateCorralStateChange @ 0x1405D010C (IopLiveDumpInitiateCorralStateChange.c)
- *     IopLiveDumpTraceUncorralProcessorsDuration @ 0x1405D2A4C (IopLiveDumpTraceUncorralProcessorsDuration.c)
- *     IopLiveDumpTraceNoArgs @ 0x1405D7BE8 (IopLiveDumpTraceNoArgs.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KeRevertToUserGroupAffinityThread @ 0x14037E240 (KeRevertToUserGroupAffinityThread.c)
+ *     IopLiveDumpIsTracingEnabled @ 0x1405317E8 (IopLiveDumpIsTracingEnabled.c)
+ *     IopLiveDumpInitiateCorralStateChange @ 0x1405D291C (IopLiveDumpInitiateCorralStateChange.c)
+ *     IopLiveDumpTraceUncorralProcessorsDuration @ 0x1405D523C (IopLiveDumpTraceUncorralProcessorsDuration.c)
+ *     IopLiveDumpTraceNoArgs @ 0x1405DA3E0 (IopLiveDumpTraceNoArgs.c)
  */
 
 char __fastcall IopLiveDumpUncorralProcessors(__int64 a1, char a2, __int64 a3, __int64 a4)
@@ -40,7 +40,7 @@ char __fastcall IopLiveDumpUncorralProcessors(__int64 a1, char a2, __int64 a3, _
     IopLiveDumpInitiateCorralStateChange(a1, 6, &v15, v9);
     v5 = v15;
   }
-  LOBYTE(stru_140F10828.WriteOperationCount) = 0;
+  PoAllProcIntrDisabled = 0;
   IopLiveDumpInitiateCorralStateChange(a1, -1, &v14, v9);
   KeRevertToUserGroupAffinityThread((PGROUP_AFFINITY)(a1 + 96));
   if ( a2 || (*(_DWORD *)(v4 + 40) & 0x20) != 0 )

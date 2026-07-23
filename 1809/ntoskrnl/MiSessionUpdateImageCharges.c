@@ -1,11 +1,11 @@
 /*
- * XREFs of MiSessionUpdateImageCharges @ 0x1401733A8
+ * XREFs of MiSessionUpdateImageCharges @ 0x1401734A8
  * Callers:
- *     MiDriverLoadSucceeded @ 0x140681BE4 (MiDriverLoadSucceeded.c)
+ *     MiDriverLoadSucceeded @ 0x140682DA4 (MiDriverLoadSucceeded.c)
  * Callees:
- *     MiReturnCommit @ 0x140065D40 (MiReturnCommit.c)
- *     MiSessionLookupImage @ 0x14009DBC8 (MiSessionLookupImage.c)
- *     MiCountSystemImageCommitment @ 0x14017343C (MiCountSystemImageCommitment.c)
+ *     MiReturnCommit @ 0x140065D30 (MiReturnCommit.c)
+ *     MiSessionLookupImage @ 0x14009DB08 (MiSessionLookupImage.c)
+ *     MiCountSystemImageCommitment @ 0x14017353C (MiCountSystemImageCommitment.c)
  */
 
 __int64 __fastcall MiSessionUpdateImageCharges(__int64 a1)
@@ -22,7 +22,7 @@ __int64 __fastcall MiSessionUpdateImageCharges(__int64 a1)
   if ( v4 )
   {
     v5 = KeGetCurrentThread()->ApcState.Process[1].ActiveProcessors.Bitmap[2];
-    MiReturnCommit(*(_QWORD *)(qword_14043A748 + 8LL * *(unsigned __int16 *)(v5 + 3182)), v4);
+    MiReturnCommit(*(_QWORD *)(qword_14043B808 + 8LL * *(unsigned __int16 *)(v5 + 3182)), v4);
     v1[9] = v3;
     _InterlockedExchangeAdd64((volatile signed __int64 *)(v5 + 48), -(__int64)v4);
   }

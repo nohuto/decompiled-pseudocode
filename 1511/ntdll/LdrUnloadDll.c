@@ -19,23 +19,23 @@
  *     LdrpFindLoadedDllByHandle @ 0x180032760 (LdrpFindLoadedDllByHandle.c)
  */
 
-__int64 __fastcall LdrUnloadDll(__int64 a1)
+NTSTATUS __cdecl LdrUnloadDll(PVOID DllHandle)
 {
-  int LoadedDllByHandle; // ebx
-  __int64 v2; // rdi
+  NTSTATUS LoadedDllByHandle; // ebx
+  PVOID v2; // rdi
   char v3; // si
   __int64 v5; // [rsp+38h] [rbp+10h] BYREF
-  __int64 v6; // [rsp+40h] [rbp+18h] BYREF
+  PVOID BaseAddress; // [rsp+40h] [rbp+18h] BYREF
 
   LoadedDllByHandle = 0;
   if ( !byte_180145248 )
   {
-    LoadedDllByHandle = LdrpFindLoadedDllByHandle(a1, &v6, &v5);
+    LoadedDllByHandle = LdrpFindLoadedDllByHandle(DllHandle, &BaseAddress, &v5);
     if ( LoadedDllByHandle >= 0 )
     {
-      v2 = v6;
+      v2 = BaseAddress;
       v3 = 1;
-      LoadedDllByHandle = LdrpDecrementModuleLoadCountEx(v6, 1LL);
+      LoadedDllByHandle = LdrpDecrementModuleLoadCountEx(BaseAddress, 1LL);
       if ( LoadedDllByHandle == -1073741267 )
       {
         if ( (NtCurrentTeb()->SameTebFlags & 0x1000) == 0 )
@@ -43,8 +43,8 @@ __int64 __fastcall LdrUnloadDll(__int64 a1)
           v3 = 0;
           LdrpDrainWorkQueue(0LL);
         }
-        v2 = v6;
-        LdrpDecrementModuleLoadCountEx(v6, 0LL);
+        v2 = BaseAddress;
+        LdrpDecrementModuleLoadCountEx(BaseAddress, 0LL);
         if ( !v3 )
           LdrpDropLastInProgressCount();
         LoadedDllByHandle = 0;
@@ -52,5 +52,5 @@ __int64 __fastcall LdrUnloadDll(__int64 a1)
       LdrpDereferenceModule(v2);
     }
   }
-  return (unsigned int)LoadedDllByHandle;
+  return LoadedDllByHandle;
 }

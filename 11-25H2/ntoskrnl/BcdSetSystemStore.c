@@ -8,9 +8,9 @@
  *     BiLogMessage @ 0x140A26990 (BiLogMessage.c)
  */
 
-__int64 __fastcall BcdSetSystemStore(__int64 a1)
+__int64 __fastcall BcdSetSystemStore(void *a1)
 {
-  int v2; // eax
+  NTSTATUS v2; // eax
   __int64 v3; // rdx
   unsigned int v4; // r8d
   __int64 result; // rax

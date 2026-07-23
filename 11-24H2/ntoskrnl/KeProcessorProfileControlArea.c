@@ -1,13 +1,13 @@
 /*
- * XREFs of KeProcessorProfileControlArea @ 0x1405B07FC
+ * XREFs of KeProcessorProfileControlArea @ 0x1405AD76C
  * Callers:
- *     NtSetSystemInformation @ 0x140AE1300 (NtSetSystemInformation.c)
+ *     NtSetSystemInformation @ 0x140AE2BE0 (NtSetSystemInformation.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
- *     KiIsIntelPebsSupported @ 0x1405B763C (KiIsIntelPebsSupported.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KiIsIntelPebsSupported @ 0x1405B4C0C (KiIsIntelPebsSupported.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall KeProcessorProfileControlArea(__int64 a1, int a2, char a3)
@@ -27,7 +27,7 @@ __int64 __fastcall KeProcessorProfileControlArea(__int64 a1, int a2, char a3)
   Pool2 = 0LL;
   if ( v5 )
   {
-    Pool2 = (char *)ExAllocatePool2(0x48uLL);
+    Pool2 = (char *)ExAllocatePool2(0x48uLL, 0xA0uLL, 0x41435050u);
     if ( !Pool2 )
     {
       *(_QWORD *)a1 = 0LL;

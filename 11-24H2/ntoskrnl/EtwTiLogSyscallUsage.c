@@ -1,22 +1,22 @@
 /*
- * XREFs of EtwTiLogSyscallUsage @ 0x140934948
+ * XREFs of EtwTiLogSyscallUsage @ 0x1408F7468
  * Callers:
- *     PfSetSuperfetchInformation @ 0x140932C24 (PfSetSuperfetchInformation.c)
- *     PfQuerySuperfetchInformation @ 0x140933148 (PfQuerySuperfetchInformation.c)
- *     NtSystemDebugControl @ 0x140A571F0 (NtSystemDebugControl.c)
- *     ExpQuerySystemInformation @ 0x140ADC240 (ExpQuerySystemInformation.c)
+ *     PfSetSuperfetchInformation @ 0x1408F573C (PfSetSuperfetchInformation.c)
+ *     PfQuerySuperfetchInformation @ 0x1408F5C60 (PfQuerySuperfetchInformation.c)
+ *     NtSystemDebugControl @ 0x140A4F080 (NtSystemDebugControl.c)
+ *     ExpQuerySystemInformation @ 0x140ADDAE0 (ExpQuerySystemInformation.c)
  * Callees:
- *     EtwEventEnabled @ 0x1402A1BD0 (EtwEventEnabled.c)
- *     PsReferencePrimaryTokenWithTag @ 0x14033FFF0 (PsReferencePrimaryTokenWithTag.c)
- *     ObFastDereferenceObject @ 0x140356880 (ObFastDereferenceObject.c)
- *     EtwProviderEnabled @ 0x1403D47F0 (EtwProviderEnabled.c)
- *     EtwpTiFillProcessIdentity @ 0x1403D4B94 (EtwpTiFillProcessIdentity.c)
- *     PsGetSessionId @ 0x1403D5E10 (PsGetSessionId.c)
- *     EtwWrite @ 0x14041C1B0 (EtwWrite.c)
- *     EtwpTiFillThreadIdentity @ 0x140467AC0 (EtwpTiFillThreadIdentity.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     SeTokenIsAdmin @ 0x1408E91E0 (SeTokenIsAdmin.c)
- *     RtlIsSandboxedToken @ 0x14090C230 (RtlIsSandboxedToken.c)
+ *     EtwProviderEnabled @ 0x140262770 (EtwProviderEnabled.c)
+ *     EtwpTiFillProcessIdentity @ 0x1402633C0 (EtwpTiFillProcessIdentity.c)
+ *     EtwEventEnabled @ 0x1402D1300 (EtwEventEnabled.c)
+ *     PsReferencePrimaryTokenWithTag @ 0x14031F4D0 (PsReferencePrimaryTokenWithTag.c)
+ *     ObFastDereferenceObject @ 0x140324D60 (ObFastDereferenceObject.c)
+ *     PsGetSessionId @ 0x1403C1560 (PsGetSessionId.c)
+ *     EtwWrite @ 0x14040FFB0 (EtwWrite.c)
+ *     EtwpTiFillThreadIdentity @ 0x14045F510 (EtwpTiFillThreadIdentity.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     SeTokenIsAdmin @ 0x14085AA10 (SeTokenIsAdmin.c)
+ *     RtlIsSandboxedToken @ 0x1408E3950 (RtlIsSandboxedToken.c)
  */
 
 char __fastcall EtwTiLogSyscallUsage(int a1, unsigned int a2)

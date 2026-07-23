@@ -27,18 +27,18 @@ int __thiscall RtlpSubscribeWnfStateChangeNotificationInternal(
         int a8,
         int a9)
 {
-  _DWORD *SerializationGroup; // edi
-  int WnfUserSubscription; // esi
-  _DWORD v12[2]; // [esp+10h] [ebp-8h] BYREF
+  char *SerializationGroup; // edi
+  NTSTATUS WnfUserSubscription; // esi
+  int v12[2]; // [esp+10h] [ebp-8h] BYREF
 
-  v12[0] = this;
+  v12[0] = (int)this;
   SerializationGroup = 0;
   if ( byte_4B3A5DA8 )
     return -1073741558;
-  WnfUserSubscription = RtlRunOnceExecuteOnce(&unk_4B3A67C0, RtlpInitializeWnf, 0, 0);
+  WnfUserSubscription = RtlRunOnceExecuteOnce(&RunOnce, (PRTL_RUN_ONCE_INIT_FN)RtlpInitializeWnf, 0, 0);
   if ( WnfUserSubscription >= 0 )
   {
-    if ( !a5 || (SerializationGroup = RtlpCreateSerializationGroup(a5)) != 0 )
+    if ( !a5 || (SerializationGroup = (char *)RtlpCreateSerializationGroup(a5)) != 0 )
     {
       WnfUserSubscription = RtlpCreateWnfUserSubscription(a2, a3, SerializationGroup, a6, a7);
       if ( WnfUserSubscription >= 0 )
@@ -52,12 +52,12 @@ int __thiscall RtlpSubscribeWnfStateChangeNotificationInternal(
           if ( WnfUserSubscription < 0 )
           {
             *(_DWORD *)v12[0] = 0;
-            RtlpRemoveUserSubFromNameSub(v12);
+            RtlpRemoveUserSubFromNameSub(MEMORY[0xC], 0, (int)v12);
           }
         }
       }
       if ( SerializationGroup )
-        RtlpDecrementWnfSerializationGroup((int)SerializationGroup);
+        RtlpDecrementWnfSerializationGroup(SerializationGroup);
     }
     else
     {

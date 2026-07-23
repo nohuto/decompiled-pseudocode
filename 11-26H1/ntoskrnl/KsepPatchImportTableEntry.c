@@ -1,11 +1,11 @@
 /*
- * XREFs of KsepPatchImportTableEntry @ 0x1407BDD24
+ * XREFs of KsepPatchImportTableEntry @ 0x1407C0D84
  * Callers:
- *     KsepPatchDriverImportsTable @ 0x1407BDB88 (KsepPatchDriverImportsTable.c)
+ *     KsepPatchDriverImportsTable @ 0x1407C0BE8 (KsepPatchDriverImportsTable.c)
  * Callees:
- *     MmLockLoadedDataTableEntry @ 0x1404C3C10 (MmLockLoadedDataTableEntry.c)
- *     MmUnlockLoadedDataTableEntry @ 0x14051E3A8 (MmUnlockLoadedDataTableEntry.c)
- *     MmReplaceImportEntry @ 0x1406E7088 (MmReplaceImportEntry.c)
+ *     MmLockLoadedDataTableEntry @ 0x1404BD460 (MmLockLoadedDataTableEntry.c)
+ *     MmUnlockLoadedDataTableEntry @ 0x1405209B8 (MmUnlockLoadedDataTableEntry.c)
+ *     MmReplaceImportEntry @ 0x1406EBD38 (MmReplaceImportEntry.c)
  */
 
 __int64 __fastcall KsepPatchImportTableEntry(__int64 a1, _QWORD *a2, unsigned int a3, __int64 a4, ULONG_PTR a5)

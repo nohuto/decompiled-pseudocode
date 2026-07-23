@@ -19,11 +19,11 @@ __int64 __fastcall MiObtainRelocationBits(PRTL_BITMAP *a1, unsigned __int16 a2, 
   ULONG v6; // r13d
   ULONG ClearBitsAndSet; // eax
   ULONG v9; // ebp
-  struct _RTL_BITMAP *v10; // rcx
+  _RTL_BITMAP *v10; // rcx
   ULONG v12; // r15d
   ULONG started; // eax
   ULONG v14; // r14d
-  struct _RTL_BITMAP *v15; // rcx
+  _RTL_BITMAP *v15; // rcx
 
   CurrentThread = KeGetCurrentThread();
   v6 = a2;

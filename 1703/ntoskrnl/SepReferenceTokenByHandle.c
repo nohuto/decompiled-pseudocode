@@ -27,17 +27,15 @@ __int64 __fastcall SepReferenceTokenByHandle(
   bool v11; // zf
   unsigned int CurrentThread; // ecx
   void *v13; // rax
-  __int64 v14; // rax
-  __int64 v15; // rdx
-  __int64 v16; // r8
-  void *v17; // r9
+  void *v14; // rax
+  void *v15; // r9
+  void *v16; // r10
+  __int64 v17; // r11
   __int64 v18; // r10
-  __int64 v19; // r11
-  __int64 v20; // r10
-  int v21; // [rsp+30h] [rbp-18h] BYREF
-  int v22; // [rsp+34h] [rbp-14h] BYREF
+  int v19; // [rsp+30h] [rbp-18h] BYREF
+  int v20; // [rsp+34h] [rbp-14h] BYREF
   PVOID Object; // [rsp+38h] [rbp-10h] BYREF
-  char v24; // [rsp+50h] [rbp+8h] BYREF
+  char v22; // [rsp+50h] [rbp+8h] BYREF
 
   v6 = a5;
   v7 = a6;
@@ -66,49 +64,49 @@ __int64 __fastcall SepReferenceTokenByHandle(
   {
     v13 = (void *)PsReferenceEffectiveToken(
                     CurrentThread,
-                    (unsigned int)&v22,
+                    (unsigned int)&v20,
                     (unsigned int)&a6,
-                    (unsigned int)&v21,
+                    (unsigned int)&v19,
                     (__int64)&a5);
-    if ( v22 == 2 && !v21 )
+    if ( v20 == 2 && !v19 )
       goto LABEL_14;
 LABEL_8:
     *v6 = 0;
     *v7 = 0LL;
-    v14 = SepSidFromProcessProtection(&a5);
-    if ( v14 && !(unsigned __int8)RtlIsValidProcessTrustLabelSid(v14, v15, v16, v17) )
+    v14 = (void *)SepSidFromProcessProtection(&a5);
+    if ( v14 && !RtlIsValidProcessTrustLabelSid(v14) )
       goto LABEL_25;
-    if ( v18 )
+    if ( v16 )
     {
-      if ( !(unsigned __int8)RtlIsValidProcessTrustLabelSid(v18, v15, v16, v17) )
+      if ( !RtlIsValidProcessTrustLabelSid(v16) )
         goto LABEL_25;
-      if ( v19 )
+      if ( v17 )
       {
-        if ( *(_DWORD *)(v19 + 8) >= *(_DWORD *)(v20 + 8) && *(_DWORD *)(v19 + 12) >= *(_DWORD *)(v20 + 12) )
+        if ( *(_DWORD *)(v17 + 8) >= *(_DWORD *)(v18 + 8) && *(_DWORD *)(v17 + 12) >= *(_DWORD *)(v18 + 12) )
           goto LABEL_10;
         goto LABEL_25;
       }
-      if ( *(_DWORD *)(v20 + 8) )
+      if ( *(_DWORD *)(v18 + 8) )
       {
 LABEL_25:
         *v6 = 1;
-        *v7 = v19;
+        *v7 = v17;
       }
     }
 LABEL_10:
-    *a4 = v17;
+    *a4 = v15;
     return v8;
   }
   v13 = (void *)PsReferenceImpersonationTokenEx(
                   CurrentThread,
                   0,
-                  (unsigned int)&v24,
+                  (unsigned int)&v22,
                   (unsigned int)&a6,
-                  (__int64)&v21,
+                  (__int64)&v19,
                   (__int64)&a5);
   if ( v13 )
   {
-    if ( !v21 )
+    if ( !v19 )
     {
 LABEL_14:
       ObfDereferenceObjectWithTag(v13, 0x746C6644u);

@@ -1,11 +1,11 @@
 /*
- * XREFs of PopPreCriticalBatteryNotify @ 0x1407D58A0
+ * XREFs of PopPreCriticalBatteryNotify @ 0x1407D8A50
  * Callers:
  *     <none>
  * Callees:
- *     PopPowerAggregatorForceSessionSwitch @ 0x1407D69C0 (PopPowerAggregatorForceSessionSwitch.c)
- *     PopAcquirePolicyLock @ 0x140C04BF0 (PopAcquirePolicyLock.c)
- *     PopReleasePolicyLock @ 0x140C04C40 (PopReleasePolicyLock.c)
+ *     PopPowerAggregatorForceSessionSwitch @ 0x1407D9B50 (PopPowerAggregatorForceSessionSwitch.c)
+ *     PopAcquirePolicyLock @ 0x140C0AE00 (PopAcquirePolicyLock.c)
+ *     PopReleasePolicyLock @ 0x140C0AE50 (PopReleasePolicyLock.c)
  */
 
 __int64 __fastcall PopPreCriticalBatteryNotify(__int64 a1, __int64 a2)

@@ -13,37 +13,34 @@
 __int64 __fastcall RtlpComputeDllPath(__int64 a1)
 {
   unsigned __int64 EnvironmentVersion; // rsi
-  unsigned __int64 v3; // rdx
-  unsigned __int64 v4; // r8
-  unsigned __int64 v5; // r9
-  unsigned int v6; // ebx
-  __int64 v7; // rbx
-  int v8; // eax
+  unsigned int v3; // ebx
+  __int64 v4; // rbx
+  int v5; // eax
 
   EnvironmentVersion = NtCurrentPeb()->ProcessParameters->EnvironmentVersion;
-  v6 = 4;
+  v3 = 4;
   if ( (unsigned int)Feature_SearchPackagePaths__private_IsEnabledDeviceUsage() )
-    v6 = 5;
-  if ( *((_QWORD *)&LdrpDllDirectory + 1) )
+    v3 = 5;
+  if ( LdrpDllDirectory.Buffer )
   {
-    RtlAcquireSRWLockShared(&LdrpDllDirectoryLock, v3, v4, v5);
-    if ( *((_QWORD *)&LdrpDllDirectory + 1) )
+    RtlAcquireSRWLockShared(&LdrpDllDirectoryLock);
+    if ( LdrpDllDirectory.Buffer )
     {
-      v7 = RtlpComputePath(&unk_1801264FC, v6, a1, 0LL);
+      v4 = RtlpComputePath(&unk_1801264FC, v3, a1, 0LL);
       RtlReleaseSRWLockShared(&LdrpDllDirectoryLock);
       goto LABEL_10;
     }
     RtlReleaseSRWLockShared(&LdrpDllDirectoryLock);
   }
-  v8 = dword_18016D4F8;
+  v5 = dword_18016D4F8;
   if ( !dword_18016D4F8 )
-    v8 = RtlpLookupCurDirSetting(L"\"$", 1LL, &dword_18016D4F8);
-  v7 = RtlpComputePath((char *)&unk_1801264C0 + 20 * v8, v6, a1, 0LL);
+    v5 = RtlpLookupCurDirSetting((PUNICODE_STRING)&stru_18011DB50);
+  v4 = RtlpComputePath((char *)&unk_1801264C0 + 20 * v5, v3, a1, 0LL);
 LABEL_10:
-  if ( v7 )
+  if ( v4 )
   {
-    *(_QWORD *)(v7 + 88) = EnvironmentVersion;
-    *(_BYTE *)(v7 + 116) = 0;
+    *(_QWORD *)(v4 + 88) = EnvironmentVersion;
+    *(_BYTE *)(v4 + 116) = 0;
   }
-  return v7;
+  return v4;
 }

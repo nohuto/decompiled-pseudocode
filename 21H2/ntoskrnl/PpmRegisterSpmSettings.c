@@ -1,18 +1,18 @@
 /*
- * XREFs of PpmRegisterSpmSettings @ 0x1408F60F0
+ * XREFs of PpmRegisterSpmSettings @ 0x1408F6250
  * Callers:
  *     <none>
  * Callees:
- *     PpmReleaseLock @ 0x14022AB00 (PpmReleaseLock.c)
- *     PpmAcquireLock @ 0x140281A74 (PpmAcquireLock.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     ZwClose @ 0x1403FA580 (ZwClose.c)
- *     RtlpQueryRegistryValues @ 0x140640A68 (RtlpQueryRegistryValues.c)
- *     PpmEnableProfile @ 0x1407C5C14 (PpmEnableProfile.c)
- *     PpmAllocateQueryTable @ 0x1408F5A60 (PpmAllocateQueryTable.c)
- *     PpmOpenRegistryKey @ 0x1408F5DB4 (PpmOpenRegistryKey.c)
- *     PpmProcessSettingsFromQueryTable @ 0x1408F5ED8 (PpmProcessSettingsFromQueryTable.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     PpmAcquireLock @ 0x14026FCB4 (PpmAcquireLock.c)
+ *     PpmReleaseLock @ 0x1402CF3B0 (PpmReleaseLock.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     ZwClose @ 0x1403FA760 (ZwClose.c)
+ *     RtlpQueryRegistryValues @ 0x140635878 (RtlpQueryRegistryValues.c)
+ *     PpmEnableProfile @ 0x1407C6134 (PpmEnableProfile.c)
+ *     PpmAllocateQueryTable @ 0x1408F5BC0 (PpmAllocateQueryTable.c)
+ *     PpmOpenRegistryKey @ 0x1408F5F14 (PpmOpenRegistryKey.c)
+ *     PpmProcessSettingsFromQueryTable @ 0x1408F6038 (PpmProcessSettingsFromQueryTable.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PpmRegisterSpmSettings(void *a1)

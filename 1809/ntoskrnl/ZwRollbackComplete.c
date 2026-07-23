@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwRollbackComplete @ 0x1401BB050
+ * XREFs of ZwRollbackComplete @ 0x1401BB1B0
  * Callers:
  *     <none>
  * Callees:
@@ -8,9 +8,7 @@
 
 NTSTATUS __stdcall ZwRollbackComplete(HANDLE EnlistmentHandle, PLARGE_INTEGER TmVirtualClock)
 {
-  __int64 v2; // r8
-
   _disable();
   __readeflags();
-  return KiServiceInternal(EnlistmentHandle, TmVirtualClock, v2);
+  return KiServiceInternal(EnlistmentHandle);
 }

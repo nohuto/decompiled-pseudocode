@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlInterlockedOr32ToUser @ 0x14077F458
+ * XREFs of RtlInterlockedOr32ToUser @ 0x140781F58
  * Callers:
- *     PspTrySetProcessPebThrottlingFlags @ 0x1407F14B0 (PspTrySetProcessPebThrottlingFlags.c)
- *     PspApplyWorkingSetLimitsToProcess @ 0x140B003D8 (PspApplyWorkingSetLimitsToProcess.c)
+ *     PspTrySetProcessPebThrottlingFlags @ 0x1407F7010 (PspTrySetProcessPebThrottlingFlags.c)
+ *     PspApplyWorkingSetLimitsToProcess @ 0x140B02108 (PspApplyWorkingSetLimitsToProcess.c)
  * Callees:
- *     ProbeForRead @ 0x1408EF880 (ProbeForRead.c)
+ *     ProbeForRead @ 0x1408F5E40 (ProbeForRead.c)
  */
 
 __int64 __fastcall RtlInterlockedOr32ToUser(volatile void *a1, unsigned int a2)

@@ -28,7 +28,7 @@ int __fastcall EtwpEnumerateKeyProviders(
   int v12; // r13d
   int v13; // ebx
   unsigned __int64 v14; // rax
-  RTL_AVL_TABLE *v15; // rcx
+  _RTL_AVL_TABLE *v15; // rcx
   const WCHAR *v16; // rdx
   __int64 ValueData; // [rsp+30h] [rbp-50h] BYREF
   HANDLE KeyHandle; // [rsp+38h] [rbp-48h] BYREF

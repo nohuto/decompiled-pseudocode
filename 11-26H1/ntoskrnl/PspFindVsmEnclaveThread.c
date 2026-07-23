@@ -1,9 +1,9 @@
 /*
- * XREFs of PspFindVsmEnclaveThread @ 0x140ACA4D0
+ * XREFs of PspFindVsmEnclaveThread @ 0x140ACC5E0
  * Callers:
- *     PsAdjustBasicEnclaveThreadList @ 0x140616A40 (PsAdjustBasicEnclaveThreadList.c)
- *     PsLoadVsmEnclaveData @ 0x140616BD8 (PsLoadVsmEnclaveData.c)
- *     PsCallEnclave @ 0x1407FE1F0 (PsCallEnclave.c)
+ *     PsAdjustBasicEnclaveThreadList @ 0x140619A30 (PsAdjustBasicEnclaveThreadList.c)
+ *     PsLoadVsmEnclaveData @ 0x140619BC8 (PsLoadVsmEnclaveData.c)
+ *     PsCallEnclave @ 0x140803C20 (PsCallEnclave.c)
  * Callees:
  *     <none>
  */

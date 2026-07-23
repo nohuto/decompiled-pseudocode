@@ -1,35 +1,35 @@
 /*
- * XREFs of AuthzBasepInitializeResourceClaimsFromSacl @ 0x14048B6E4
+ * XREFs of AuthzBasepInitializeResourceClaimsFromSacl @ 0x140485224
  * Callers:
- *     SeAccessCheckByType @ 0x1402AAD98 (SeAccessCheckByType.c)
- *     SepMaximumAccessCheckEx @ 0x1402ACD9C (SepMaximumAccessCheckEx.c)
- *     SepCommonAccessCheckEx @ 0x1402AD130 (SepCommonAccessCheckEx.c)
- *     SepNormalAccessCheckEx @ 0x1402AF210 (SepNormalAccessCheckEx.c)
- *     SepNormalAccessCheck @ 0x1402B0BC0 (SepNormalAccessCheck.c)
- *     SepMaximumAccessCheck @ 0x1402B1890 (SepMaximumAccessCheck.c)
- *     SeAccessCheckWithHint @ 0x1402B63B0 (SeAccessCheckWithHint.c)
- *     SepFilterCheck @ 0x1402B7790 (SepFilterCheck.c)
- *     SepAccessCheckAndAuditAlarm @ 0x1409F55D0 (SepAccessCheckAndAuditAlarm.c)
- *     SepExamineSaclEx @ 0x1409F7C30 (SepExamineSaclEx.c)
- *     SeExamineSacl @ 0x1409F8430 (SeExamineSacl.c)
+ *     SeAccessCheckWithHint @ 0x140301070 (SeAccessCheckWithHint.c)
+ *     SepFilterCheck @ 0x140302450 (SepFilterCheck.c)
+ *     SeAccessCheckByType @ 0x1403AC1E8 (SeAccessCheckByType.c)
+ *     SepCommonAccessCheckEx @ 0x1403AD570 (SepCommonAccessCheckEx.c)
+ *     SepMaximumAccessCheck @ 0x14051A140 (SepMaximumAccessCheck.c)
+ *     SepMaximumAccessCheckEx @ 0x14051B700 (SepMaximumAccessCheckEx.c)
+ *     SepNormalAccessCheck @ 0x14051BF40 (SepNormalAccessCheck.c)
+ *     SepNormalAccessCheckEx @ 0x14051D0B0 (SepNormalAccessCheckEx.c)
+ *     SepAccessCheckAndAuditAlarm @ 0x140A5E120 (SepAccessCheckAndAuditAlarm.c)
+ *     SepExamineSaclEx @ 0x140A60770 (SepExamineSaclEx.c)
+ *     SeExamineSacl @ 0x140A60F70 (SeExamineSacl.c)
  * Callees:
- *     AuthzBasepMemAlloc @ 0x1403CAE50 (AuthzBasepMemAlloc.c)
- *     AuthzBasepSetSecurityAttributesToken @ 0x1403CB2B8 (AuthzBasepSetSecurityAttributesToken.c)
- *     AuthzBasepQuerySecurityAttributesToken @ 0x1403CC900 (AuthzBasepQuerySecurityAttributesToken.c)
- *     AuthzBasepFreeSecurityAttributesList @ 0x1403CF030 (AuthzBasepFreeSecurityAttributesList.c)
- *     AuthzBasepConvertRelativeToAbsoluteTokenAttribute @ 0x1404F0C10 (AuthzBasepConvertRelativeToAbsoluteTokenAttribute.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     AuthzBasepFreeSecurityAttributesList @ 0x1402FBB30 (AuthzBasepFreeSecurityAttributesList.c)
+ *     AuthzBasepSetSecurityAttributesToken @ 0x1403AFD64 (AuthzBasepSetSecurityAttributesToken.c)
+ *     AuthzBasepQuerySecurityAttributesToken @ 0x1403B1220 (AuthzBasepQuerySecurityAttributesToken.c)
+ *     AuthzBasepMemAlloc @ 0x1403B24D0 (AuthzBasepMemAlloc.c)
+ *     AuthzBasepConvertRelativeToAbsoluteTokenAttribute @ 0x1404EA1F0 (AuthzBasepConvertRelativeToAbsoluteTokenAttribute.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall AuthzBasepInitializeResourceClaimsFromSacl(__int64 a1, __int64 *a2)
+__int64 __fastcall AuthzBasepInitializeResourceClaimsFromSacl(__int64 a1, _QWORD *a2)
 {
   int v2; // ebx
   __int64 v3; // r13
   _BYTE *v4; // rdi
   _DWORD *Pool2; // rax
-  __int64 v6; // rsi
+  _DWORD *v6; // rsi
   __int64 v7; // r14
   _QWORD *v8; // rax
   unsigned int v9; // r15d
@@ -41,7 +41,7 @@ __int64 __fastcall AuthzBasepInitializeResourceClaimsFromSacl(__int64 a1, __int6
   __int64 v16; // [rsp+34h] [rbp-CCh] BYREF
   __int64 v17; // [rsp+40h] [rbp-C0h]
   __int128 v18; // [rsp+48h] [rbp-B8h] BYREF
-  __int64 *v19; // [rsp+58h] [rbp-A8h]
+  _QWORD *v19; // [rsp+58h] [rbp-A8h]
   _BYTE P[256]; // [rsp+60h] [rbp-A0h] BYREF
 
   v2 = 0;
@@ -53,7 +53,7 @@ __int64 __fastcall AuthzBasepInitializeResourceClaimsFromSacl(__int64 a1, __int6
   v4 = P;
   v15 = 256;
   Pool2 = (_DWORD *)ExAllocatePool2(KeGetCurrentIrql() < 2u ? 256LL : 64LL);
-  v6 = (__int64)Pool2;
+  v6 = Pool2;
   if ( Pool2 )
   {
     *Pool2 = 0;
@@ -62,9 +62,9 @@ __int64 __fastcall AuthzBasepInitializeResourceClaimsFromSacl(__int64 a1, __int6
     v9 = 0;
     v8[1] = v8;
     *v8 = v8;
-    *(_DWORD *)(v6 + 24) = 0;
-    *(_QWORD *)(v6 + 40) = v6 + 32;
-    *(_QWORD *)(v6 + 32) = v6 + 32;
+    v6[6] = 0;
+    *((_QWORD *)v6 + 5) = v6 + 8;
+    *((_QWORD *)v6 + 4) = v6 + 8;
     while ( v9 < *(unsigned __int16 *)(v3 + 4) )
     {
       if ( v4 && v4 != P )
@@ -96,7 +96,7 @@ __int64 __fastcall AuthzBasepInitializeResourceClaimsFromSacl(__int64 a1, __int6
         LOWORD(v18) = 1;
         DWORD1(v18) = 1;
         LODWORD(Size) = 0;
-        v13 = AuthzBasepQuerySecurityAttributesToken((unsigned int *)v6, (__int64)v4, 1u, 0LL, Size, &v16);
+        v13 = AuthzBasepQuerySecurityAttributesToken(v6, (__int64)v4, 1u, 0LL, Size, &v16);
         v2 = v13;
         if ( v13 == -1073741789 || v13 == -1073741275 )
         {
@@ -125,8 +125,8 @@ __int64 __fastcall AuthzBasepInitializeResourceClaimsFromSacl(__int64 a1, __int6
       return (unsigned int)v2;
     }
 LABEL_16:
-    AuthzBasepFreeSecurityAttributesList((_DWORD *)v6);
-    ExFreePoolWithTag((PVOID)v6, 0);
+    AuthzBasepFreeSecurityAttributesList(v6);
+    ExFreePoolWithTag(v6, 0);
   }
   else
   {

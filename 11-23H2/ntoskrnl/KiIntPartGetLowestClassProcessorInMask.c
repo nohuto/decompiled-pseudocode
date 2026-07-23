@@ -3,12 +3,12 @@
  * Callers:
  *     KiIntSteerCalculateDistribution @ 0x140221690 (KiIntSteerCalculateDistribution.c)
  *     KiIntSteerGetNextProcessorTarget @ 0x140221B74 (KiIntSteerGetNextProcessorTarget.c)
- *     PpmParkSteerInterrupts @ 0x140256A20 (PpmParkSteerInterrupts.c)
- *     KiIntSteerChooseInitialTargetProcessors @ 0x140320130 (KiIntSteerChooseInitialTargetProcessors.c)
- *     KiIntSteerCalculateFallbackDistribution @ 0x140579EDC (KiIntSteerCalculateFallbackDistribution.c)
+ *     PpmParkSteerInterrupts @ 0x140256AE0 (PpmParkSteerInterrupts.c)
+ *     KiIntSteerChooseInitialTargetProcessors @ 0x1403203C0 (KiIntSteerChooseInitialTargetProcessors.c)
+ *     KiIntSteerCalculateFallbackDistribution @ 0x14057A3CC (KiIntSteerCalculateFallbackDistribution.c)
  * Callees:
  *     KeFindFirstSetRightGroupAffinity @ 0x140221CF0 (KeFindFirstSetRightGroupAffinity.c)
- *     KeFindFirstSetLeftGroupAffinity @ 0x140355730 (KeFindFirstSetLeftGroupAffinity.c)
+ *     KeFindFirstSetLeftGroupAffinity @ 0x1403558D0 (KeFindFirstSetLeftGroupAffinity.c)
  */
 
 __int64 __fastcall KiIntPartGetLowestClassProcessorInMask(__int64 *a1)

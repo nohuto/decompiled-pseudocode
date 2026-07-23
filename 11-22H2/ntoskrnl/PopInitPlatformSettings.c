@@ -14,31 +14,33 @@
 
 __int64 PopInitPlatformSettings()
 {
-  int SystemInformation; // eax
-  int v1; // ebx
+  NTSTATUS v0; // eax
+  NTSTATUS v1; // ebx
   _DWORD *Pool2; // rax
   _BYTE *v3; // rdi
   char v4; // al
   int v5; // eax
   int v7; // edx
-  _DWORD v8[6]; // [rsp+38h] [rbp-28h] BYREF
+  ULONG ReturnLength; // [rsp+30h] [rbp-30h] BYREF
+  _DWORD SystemInformation[6]; // [rsp+38h] [rbp-28h] BYREF
 
-  v8[4] = 0;
-  v8[3] = 0;
-  v8[0] = 1094930505;
-  v8[1] = 1;
-  v8[2] = 1346584902;
-  SystemInformation = ZwQuerySystemInformation(76LL, (__int64)v8);
-  v1 = SystemInformation;
-  if ( SystemInformation != -1073741789 )
+  SystemInformation[4] = 0;
+  SystemInformation[3] = 0;
+  ReturnLength = 0;
+  SystemInformation[0] = 1094930505;
+  SystemInformation[1] = 1;
+  SystemInformation[2] = 1346584902;
+  v0 = ZwQuerySystemInformation(SystemFirmwareTableInformation, SystemInformation, 0x14u, &ReturnLength);
+  v1 = v0;
+  if ( v0 != -1073741789 )
   {
     v3 = 0LL;
-    if ( SystemInformation >= 0 )
+    if ( v0 >= 0 )
       goto LABEL_22;
 LABEL_26:
     KeBugCheckEx(0xA0u, 0xEuLL, v1, 0LL, 0LL);
   }
-  Pool2 = (_DWORD *)ExAllocatePool2(256LL, 0LL, 0x206D654Du);
+  Pool2 = (_DWORD *)ExAllocatePool2(256LL, ReturnLength, 0x206D654Du);
   v3 = Pool2;
   if ( !Pool2 )
   {
@@ -48,8 +50,8 @@ LABEL_26:
   *Pool2 = 1094930505;
   Pool2[1] = 1;
   Pool2[2] = 1346584902;
-  Pool2[3] = -16;
-  v1 = ZwQuerySystemInformation(76LL, (__int64)Pool2);
+  Pool2[3] = ReturnLength - 16;
+  v1 = ZwQuerySystemInformation(SystemFirmwareTableInformation, Pool2, ReturnLength, &ReturnLength);
   if ( v1 < 0 )
     goto LABEL_26;
   if ( v3[24] >= 3u )
@@ -74,7 +76,7 @@ LABEL_26:
   v4 = PopPlatformAoAc;
   if ( PopPlatformAoAc )
   {
-    if ( !(_DWORD)InitSafeBootMode && !InitIsWinPEMode && !PopModernStandbyDisabled )
+    if ( !InitSafeBootMode && !InitIsWinPEMode && !PopModernStandbyDisabled )
       goto LABEL_16;
   }
   else

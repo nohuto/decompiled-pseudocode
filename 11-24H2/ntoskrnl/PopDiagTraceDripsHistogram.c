@@ -1,11 +1,11 @@
 /*
- * XREFs of PopDiagTraceDripsHistogram @ 0x14032D990
+ * XREFs of PopDiagTraceDripsHistogram @ 0x1402B6170
  * Callers:
- *     PpmSnapDripsAccountingSnapshot @ 0x14032D84C (PpmSnapDripsAccountingSnapshot.c)
+ *     PpmSnapDripsAccountingSnapshot @ 0x1402B6090 (PpmSnapDripsAccountingSnapshot.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140330CB0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgKeywordOn @ 0x140426AF0 (_tlgKeywordOn.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402B92F0 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x14041A970 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 __int64 __fastcall PopDiagTraceDripsHistogram(__int64 a1, unsigned __int64 a2, __int64 a3, __int64 a4, _QWORD *a5)
@@ -70,7 +70,7 @@ __int64 __fastcall PopDiagTraceDripsHistogram(__int64 a1, unsigned __int64 a2, _
     v8 = v6;
     if ( (_BYTE)v6 )
     {
-      v10 = &unk_140FC4738;
+      v10 = &unk_140FC5748;
       v11 = 0;
       v12 = 26LL;
       do
@@ -95,9 +95,9 @@ __int64 __fastcall PopDiagTraceDripsHistogram(__int64 a1, unsigned __int64 a2, _
         --v14;
       }
       while ( v14 );
-      if ( (unsigned int)dword_140E076F0 > 5 )
+      if ( (unsigned int)dword_140E07680 > 5 )
       {
-        *(_QWORD *)&v6 = tlgKeywordOn(&dword_140E076F0, 0x400000000000LL);
+        *(_QWORD *)&v6 = tlgKeywordOn(&dword_140E07680, 0x400000000000LL);
         if ( (_BYTE)v6 )
         {
           v23 = a1;
@@ -121,7 +121,7 @@ __int64 __fastcall PopDiagTraceDripsHistogram(__int64 a1, unsigned __int64 a2, _
           v44 = 1LL;
           v46 = 1LL;
           v48 = 1LL;
-          *(_QWORD *)&v6 = tlgWriteTransfer_EtwWriteTransfer(&dword_140E076F0, &word_14004A516, 0LL, 0LL, 9, v34);
+          *(_QWORD *)&v6 = tlgWriteTransfer_EtwWriteTransfer(&dword_140E07680, byte_14004AC53, 0LL, 0LL, 9, v34);
         }
       }
     }

@@ -1,10 +1,10 @@
 /*
- * XREFs of VerifierMmMapIoSpaceEx @ 0x1409449D0
+ * XREFs of VerifierMmMapIoSpaceEx @ 0x1409459D0
  * Callers:
  *     <none>
  * Callees:
- *     MmMapIoSpaceEx @ 0x1400E5D60 (MmMapIoSpaceEx.c)
- *     VfCheckPageProtection @ 0x140927548 (VfCheckPageProtection.c)
+ *     MmMapIoSpaceEx @ 0x1400E5DE0 (MmMapIoSpaceEx.c)
+ *     VfCheckPageProtection @ 0x140928548 (VfCheckPageProtection.c)
  */
 
 __int64 __fastcall VerifierMmMapIoSpaceEx(__int64 a1, __int64 a2, unsigned int a3)

@@ -32,7 +32,7 @@ void __fastcall BapdpProcessVsmKeyBlobs(int a1)
   int Data; // eax
   PVOID v10; // rax
   __int64 v11; // rsi
-  bool IsStateSeparationEnabled; // al
+  BOOLEAN IsStateSeparationEnabled; // al
   __int64 v13; // rdx
   WCHAR *v14; // rcx
   WCHAR v15; // ax

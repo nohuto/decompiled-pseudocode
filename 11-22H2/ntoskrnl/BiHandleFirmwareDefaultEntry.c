@@ -24,13 +24,13 @@ __int64 __fastcall BiHandleFirmwareDefaultEntry(__int64 a1, void *a2, PVOID *a3,
   _DWORD *Pool2; // rax
   _DWORD *v17; // rsi
   int v19; // [rsp+20h] [rbp-28h] BYREF
-  unsigned int v20; // [rsp+24h] [rbp-24h] BYREF
+  ULONG v20; // [rsp+24h] [rbp-24h] BYREF
   PVOID P[4]; // [rsp+28h] [rbp-20h] BYREF
 
   v19 = 0;
   v20 = 0;
   P[0] = 0LL;
-  Element = BiGetElement((__int64)a2, 0x23000003u, P, &v20);
+  Element = BiGetElement(a2, 0x23000003u, P, &v20);
   v9 = Element;
   if ( Element == -1073741275 )
   {

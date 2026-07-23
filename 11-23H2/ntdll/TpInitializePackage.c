@@ -4,20 +4,20 @@
  *     LdrpInitializeProcess @ 0x1800DDBD0 (LdrpInitializeProcess.c)
  * Callees:
  *     RtlCreateTagHeap @ 0x180080060 (RtlCreateTagHeap.c)
- *     TppQueryMaximumGroupCount @ 0x1800A07E8 (TppQueryMaximumGroupCount.c)
+ *     TppQueryMaximumGroupCount @ 0x1800A07A8 (TppQueryMaximumGroupCount.c)
  *     NtQuerySystemInformation @ 0x1800A1570 (NtQuerySystemInformation.c)
  */
 
 NTSTATUS TpInitializePackage()
 {
-  int TagHeap; // eax
+  ULONG TagHeap; // eax
   NTSTATUS result; // eax
   unsigned __int16 MaximumGroupCount; // ax
   struct _PEB *v3; // rax
   _DWORD SystemInformation[262]; // [rsp+20h] [rbp-418h] BYREF
   ULONG ReturnLength; // [rsp+440h] [rbp+8h] BYREF
 
-  TagHeap = RtlCreateTagHeap(NtCurrentPeb()->ProcessHeap);
+  TagHeap = RtlCreateTagHeap(NtCurrentPeb()->ProcessHeap, 0, (PWSTR)L"Threadpool!", (PWSTR)L"Cleanup Group");
   ReturnLength = 0;
   TppHeapTag = TagHeap;
   result = NtQuerySystemInformation(SystemNumaProcessorMap, SystemInformation, 0x408u, &ReturnLength);

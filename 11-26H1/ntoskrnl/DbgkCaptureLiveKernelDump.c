@@ -1,23 +1,23 @@
 /*
- * XREFs of DbgkCaptureLiveKernelDump @ 0x1405B4278
+ * XREFs of DbgkCaptureLiveKernelDump @ 0x1405B6A88
  * Callers:
- *     NtSystemDebugControl @ 0x1408459A0 (NtSystemDebugControl.c)
+ *     NtSystemDebugControl @ 0x14084A9E0 (NtSystemDebugControl.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     DbgPrintEx @ 0x140397530 (DbgPrintEx.c)
- *     IoCaptureLiveDump @ 0x14051255C (IoCaptureLiveDump.c)
- *     RtlCopyFromUser @ 0x140533E38 (RtlCopyFromUser.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     ZwQueryInformationFile @ 0x140723610 (ZwQueryInformationFile.c)
- *     RtlCopyVolatileMemory @ 0x140733080 (RtlCopyVolatileMemory.c)
- *     DbgkpWerAllocatePool @ 0x14077B34C (DbgkpWerAllocatePool.c)
- *     RtlReadULongFromUser @ 0x14077F590 (RtlReadULongFromUser.c)
- *     DbgkpWerFreePool @ 0x14078C400 (DbgkpWerFreePool.c)
- *     ObReferenceObjectByHandleWithTag @ 0x1408F9EF0 (ObReferenceObjectByHandleWithTag.c)
- *     ObOpenObjectByPointerWithTag @ 0x140AE2EE0 (ObOpenObjectByPointerWithTag.c)
- *     DbgkpWerIsFullLiveDumpDisabled @ 0x140B420DC (DbgkpWerIsFullLiveDumpDisabled.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     DbgPrintEx @ 0x1403992B0 (DbgPrintEx.c)
+ *     IoCaptureLiveDump @ 0x14050BFCC (IoCaptureLiveDump.c)
+ *     RtlCopyFromUser @ 0x1405362B8 (RtlCopyFromUser.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     ZwQueryInformationFile @ 0x1407281E0 (ZwQueryInformationFile.c)
+ *     RtlCopyVolatileMemory @ 0x140737C50 (RtlCopyVolatileMemory.c)
+ *     DbgkpWerAllocatePool @ 0x14077DF8C (DbgkpWerAllocatePool.c)
+ *     RtlReadULongFromUser @ 0x140782090 (RtlReadULongFromUser.c)
+ *     DbgkpWerFreePool @ 0x14078EF30 (DbgkpWerFreePool.c)
+ *     ObReferenceObjectByHandleWithTag @ 0x140929E80 (ObReferenceObjectByHandleWithTag.c)
+ *     ObOpenObjectByPointerWithTag @ 0x140AE0A60 (ObOpenObjectByPointerWithTag.c)
+ *     DbgkpWerIsFullLiveDumpDisabled @ 0x140B43FCC (DbgkpWerIsFullLiveDumpDisabled.c)
  */
 
 __int64 __fastcall DbgkCaptureLiveKernelDump(__int64 a1)
@@ -67,7 +67,7 @@ __int64 __fastcall DbgkCaptureLiveKernelDump(__int64 a1)
   FileHandle = 0LL;
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
-  if ( _InterlockedExchange((volatile __int32 *)&EmpParseLock.ReadyTime, 1) == 1 )
+  if ( _InterlockedExchange((volatile __int32 *)&EmpParseLock.TrapFrame, 1) == 1 )
   {
     KeLeaveCriticalRegion();
     return 3221226029LL;
@@ -234,7 +234,7 @@ LABEL_51:
     ObfDereferenceObjectWithTag(v4, 0x57676244u);
   if ( v8 )
     DbgkpWerFreePool(v8);
-  _InterlockedExchange((volatile __int32 *)&EmpParseLock.ReadyTime, 0);
+  _InterlockedExchange((volatile __int32 *)&EmpParseLock.TrapFrame, 0);
   KeLeaveCriticalRegion();
   return Status;
 }

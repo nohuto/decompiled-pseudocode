@@ -1,7 +1,7 @@
 /*
- * XREFs of HalpMcStagingWriteData @ 0x140593CBC
+ * XREFs of HalpMcStagingWriteData @ 0x14059643C
  * Callers:
- *     HalpMcStagingIssueLoadVerify @ 0x140593B74 (HalpMcStagingIssueLoadVerify.c)
+ *     HalpMcStagingIssueLoadVerify @ 0x1405962F4 (HalpMcStagingIssueLoadVerify.c)
  * Callees:
  *     <none>
  */

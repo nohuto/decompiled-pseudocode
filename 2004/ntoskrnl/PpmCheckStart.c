@@ -20,7 +20,7 @@ __int64 __fastcall PpmCheckStart(int a1)
   int v5; // edx
   int v6; // [rsp+40h] [rbp-58h] BYREF
   __int64 v7; // [rsp+48h] [rbp-50h] BYREF
-  _BYTE v8[8]; // [rsp+50h] [rbp-48h] BYREF
+  LARGE_INTEGER PerformanceCounter; // [rsp+50h] [rbp-48h] BYREF
   struct _EVENT_DATA_DESCRIPTOR UserData; // [rsp+58h] [rbp-40h] BYREF
   __int64 *v10; // [rsp+68h] [rbp-30h]
   __int64 v11; // [rsp+70h] [rbp-28h]
@@ -29,7 +29,7 @@ __int64 __fastcall PpmCheckStart(int a1)
 
   v1 = a1;
   PpmCheckCurrentPipelineId = a1;
-  PpmCheckTime = RtlGetInterruptTimePrecise(v8);
+  PpmCheckTime = RtlGetInterruptTimePrecise(&PerformanceCounter).QuadPart;
   v2 = 0;
   v7 = PpmCheckLastExecutionTime;
   v6 = v1;

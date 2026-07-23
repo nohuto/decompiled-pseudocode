@@ -1,10 +1,10 @@
 /*
- * XREFs of IopMarkPagesForDpcData @ 0x1405A0CA0
+ * XREFs of IopMarkPagesForDpcData @ 0x14059DBD0
  * Callers:
- *     IopAddMiniDumpPagesToPartialKernelDump @ 0x1405A0708 (IopAddMiniDumpPagesToPartialKernelDump.c)
+ *     IopAddMiniDumpPagesToPartialKernelDump @ 0x14059D638 (IopAddMiniDumpPagesToPartialKernelDump.c)
  * Callees:
- *     MmIsAddressValidEx @ 0x140262FC0 (MmIsAddressValidEx.c)
- *     MmAddRangeToCrashDump @ 0x140677990 (MmAddRangeToCrashDump.c)
+ *     MmIsAddressValidEx @ 0x140244560 (MmIsAddressValidEx.c)
+ *     MmAddRangeToCrashDump @ 0x140678B70 (MmAddRangeToCrashDump.c)
  */
 
 __int64 __fastcall IopMarkPagesForDpcData(__int64 a1)

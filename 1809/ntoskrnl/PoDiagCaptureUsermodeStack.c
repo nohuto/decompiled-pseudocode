@@ -1,12 +1,12 @@
 /*
- * XREFs of PoDiagCaptureUsermodeStack @ 0x1406D02C4
+ * XREFs of PoDiagCaptureUsermodeStack @ 0x1406D1564
  * Callers:
- *     NtSetTimerResolution @ 0x140663B70 (NtSetTimerResolution.c)
+ *     NtSetTimerResolution @ 0x140664D30 (NtSetTimerResolution.c)
  * Callees:
- *     RtlWalkFrameChain @ 0x1400CCBD0 (RtlWalkFrameChain.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
+ *     RtlWalkFrameChain @ 0x1400CCC50 (RtlWalkFrameChain.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
  */
 
 PVOID *PoDiagCaptureUsermodeStack()

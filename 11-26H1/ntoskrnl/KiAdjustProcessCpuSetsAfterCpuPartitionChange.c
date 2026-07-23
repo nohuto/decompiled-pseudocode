@@ -1,12 +1,12 @@
 /*
- * XREFs of KiAdjustProcessCpuSetsAfterCpuPartitionChange @ 0x1405F4024
+ * XREFs of KiAdjustProcessCpuSetsAfterCpuPartitionChange @ 0x1405F69E4
  * Callers:
- *     KeAssignCpuPartitionsToProcess @ 0x1405F35E0 (KeAssignCpuPartitionsToProcess.c)
- *     KeCpuPartitionMoveCpus @ 0x1405F3880 (KeCpuPartitionMoveCpus.c)
+ *     KeAssignCpuPartitionsToProcess @ 0x1405F5FA0 (KeAssignCpuPartitionsToProcess.c)
+ *     KeCpuPartitionMoveCpus @ 0x1405F6240 (KeCpuPartitionMoveCpus.c)
  * Callees:
- *     KeSetCpuSetsProcess @ 0x14052D934 (KeSetCpuSetsProcess.c)
- *     KeQueryCpuPartitionAffinity @ 0x1405F3D38 (KeQueryCpuPartitionAffinity.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     KeSetCpuSetsProcess @ 0x14052FE54 (KeSetCpuSetsProcess.c)
+ *     KeQueryCpuPartitionAffinity @ 0x1405F66F8 (KeQueryCpuPartitionAffinity.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall KiAdjustProcessCpuSetsAfterCpuPartitionChange(

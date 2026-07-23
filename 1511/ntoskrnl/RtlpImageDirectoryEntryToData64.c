@@ -7,33 +7,33 @@
  */
 
 __int64 __fastcall RtlpImageDirectoryEntryToData64(
-        unsigned __int64 a1,
+        char *BaseOfImage,
         char a2,
         unsigned __int16 a3,
-        _DWORD *a4,
-        __int64 a5,
-        __int64 *a6)
+        unsigned int *a4,
+        PIMAGE_NT_HEADERS NtHeaders,
+        _QWORD *a6)
 {
-  __int64 v7; // rcx
-  __int64 v9; // rax
+  __int64 VirtualAddress; // rcx
+  PVOID v9; // rax
 
-  if ( (unsigned int)a3 >= *(_DWORD *)(a5 + 132) )
+  if ( a3 >= NtHeaders->OptionalHeader.NumberOfRvaAndSizes )
     return 3221225485LL;
-  v7 = *(unsigned int *)(a5 + 8LL * a3 + 136);
-  if ( !(_DWORD)v7 )
+  VirtualAddress = NtHeaders->OptionalHeader.DataDirectory[a3].VirtualAddress;
+  if ( !(_DWORD)VirtualAddress )
     return 3221225474LL;
-  if ( a1 < (unsigned __int64)MmHighestUserAddress && a1 + v7 >= (unsigned __int64)MmHighestUserAddress )
+  if ( BaseOfImage < MmHighestUserAddress && &BaseOfImage[VirtualAddress] >= MmHighestUserAddress )
     return 3221225485LL;
-  *a4 = *(_DWORD *)(a5 + 8LL * a3 + 140);
-  if ( a2 || (unsigned int)v7 < *(_DWORD *)(a5 + 84) )
+  *a4 = NtHeaders->OptionalHeader.DataDirectory[a3].Size;
+  if ( a2 || (unsigned int)VirtualAddress < NtHeaders->OptionalHeader.SizeOfHeaders )
   {
-    *a6 = a1 + v7;
+    *a6 = &BaseOfImage[VirtualAddress];
     return 0LL;
   }
   else
   {
-    v9 = RtlAddressInSectionTable(a5, a1, (unsigned int)v7);
+    v9 = RtlAddressInSectionTable(NtHeaders, BaseOfImage, VirtualAddress);
     *a6 = v9;
-    return v9 == 0 ? 0xC000000D : 0;
+    return v9 == 0LL ? 0xC000000D : 0;
   }
 }

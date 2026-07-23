@@ -1,13 +1,13 @@
 /*
- * XREFs of ExSetTimerResolution @ 0x14041D420
+ * XREFs of ExSetTimerResolution @ 0x140410F10
  * Callers:
- *     PspReadDfssConfigurationValues @ 0x1405E4BB8 (PspReadDfssConfigurationValues.c)
- *     DifExSetTimerResolutionWrapper @ 0x1406210D0 (DifExSetTimerResolutionWrapper.c)
+ *     PspReadDfssConfigurationValues @ 0x1405E20E0 (PspReadDfssConfigurationValues.c)
+ *     DifExSetTimerResolutionWrapper @ 0x14061F690 (DifExSetTimerResolutionWrapper.c)
  * Callees:
- *     KeReleaseSpinLock @ 0x14024DD30 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140254B20 (KeAcquireSpinLockRaiseToDpc.c)
- *     PoTraceSystemTimerResolutionKernel @ 0x1402A18F4 (PoTraceSystemTimerResolutionKernel.c)
- *     ExpUpdateTimerResolution @ 0x14041D4F0 (ExpUpdateTimerResolution.c)
+ *     KeReleaseSpinLock @ 0x14027E340 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140285130 (KeAcquireSpinLockRaiseToDpc.c)
+ *     PoTraceSystemTimerResolutionKernel @ 0x140410FE0 (PoTraceSystemTimerResolutionKernel.c)
+ *     ExpUpdateTimerResolution @ 0x1404110E0 (ExpUpdateTimerResolution.c)
  */
 
 ULONG __stdcall ExSetTimerResolution(ULONG DesiredTime, BOOLEAN SetResolution)
@@ -19,7 +19,7 @@ ULONG __stdcall ExSetTimerResolution(ULONG DesiredTime, BOOLEAN SetResolution)
   bool v9; // zf
   KIRQL v10; // [rsp+38h] [rbp+10h] BYREF
 
-  PoTraceSystemTimerResolutionKernel(SetResolution != 0 ? DesiredTime : 0, 1381258053LL, 0);
+  PoTraceSystemTimerResolutionKernel(SetResolution != 0 ? DesiredTime : 0, 1381258053LL, 0LL);
   v4 = KeAcquireSpinLockRaiseToDpc(&ExpKernelResolutionLock);
   v6 = KeNonHrTimeIncrement;
   v7 = 0LL;

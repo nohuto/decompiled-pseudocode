@@ -1,18 +1,18 @@
 /*
- * XREFs of MmCallDllInitialize @ 0x14071B6FC
+ * XREFs of MmCallDllInitialize @ 0x14071C99C
  * Callers:
- *     MiLoadImportDll @ 0x14071B658 (MiLoadImportDll.c)
- *     PipInitializeDriverDependentDLLs @ 0x1409CAB40 (PipInitializeDriverDependentDLLs.c)
+ *     MiLoadImportDll @ 0x14071C8F8 (MiLoadImportDll.c)
+ *     PipInitializeDriverDependentDLLs @ 0x1409CBB40 (PipInitializeDriverDependentDLLs.c)
  * Callees:
  *     RtlAppendUnicodeToString @ 0x140015E00 (RtlAppendUnicodeToString.c)
- *     RtlAppendUnicodeStringToString @ 0x1400F51D0 (RtlAppendUnicodeStringToString.c)
- *     wcschr @ 0x1401976D0 (wcschr.c)
- *     memmove @ 0x1401D1540 (memmove.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     RtlFindExportedRoutineByName @ 0x140678EC0 (RtlFindExportedRoutineByName.c)
- *     VfDriverInitStarting @ 0x14092137C (VfDriverInitStarting.c)
- *     VfDriverInitSuccess @ 0x140921628 (VfDriverInitSuccess.c)
+ *     RtlAppendUnicodeStringToString @ 0x1400F5250 (RtlAppendUnicodeStringToString.c)
+ *     wcschr @ 0x140197810 (wcschr.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     RtlFindExportedRoutineByName @ 0x14067A080 (RtlFindExportedRoutineByName.c)
+ *     VfDriverInitStarting @ 0x14092237C (VfDriverInitStarting.c)
+ *     VfDriverInitSuccess @ 0x140922628 (VfDriverInitSuccess.c)
  */
 
 __int64 __fastcall MmCallDllInitialize(__int64 a1, __int64 a2)
@@ -32,7 +32,7 @@ __int64 __fastcall MmCallDllInitialize(__int64 a1, __int64 a2)
   UNICODE_STRING Destination; // [rsp+20h] [rbp-20h] BYREF
   UNICODE_STRING Source; // [rsp+30h] [rbp-10h] BYREF
 
-  result = (__int64)RtlFindExportedRoutineByName(*(char **)(a1 + 48), "DllInitialize");
+  result = (__int64)RtlFindExportedRoutineByName(*(PVOID *)(a1 + 48), "DllInitialize");
   v5 = (__int64 (__fastcall *)(UNICODE_STRING *))result;
   if ( result )
   {
@@ -84,7 +84,7 @@ __int64 __fastcall MmCallDllInitialize(__int64 a1, __int64 a2)
             inited = VfDriverInitStarting(v13);
             v15 = v5(&Destination);
             ExFreePoolWithTag(Destination.Buffer, 0);
-            if ( v15 >= 0 && !byte_140438ECC )
+            if ( v15 >= 0 && !byte_140439F8C )
               VfDriverInitSuccess(inited, a2);
             return (unsigned int)v15;
           }

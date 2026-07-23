@@ -1,10 +1,10 @@
 /*
- * XREFs of IommupDeviceGetPasidSettings @ 0x140829494
+ * XREFs of IommupDeviceGetPasidSettings @ 0x140829794
  * Callers:
- *     HalpIommuCreateDevice @ 0x140829048 (HalpIommuCreateDevice.c)
- *     IommupDeviceEnablePasidTaggedDma @ 0x140829364 (IommupDeviceEnablePasidTaggedDma.c)
+ *     HalpIommuCreateDevice @ 0x140829348 (HalpIommuCreateDevice.c)
+ *     IommupDeviceEnablePasidTaggedDma @ 0x140829664 (IommupDeviceEnablePasidTaggedDma.c)
  * Callees:
- *     IommupGetDeviceCreationConfigEntry @ 0x140526BEC (IommupGetDeviceCreationConfigEntry.c)
+ *     IommupGetDeviceCreationConfigEntry @ 0x14052713C (IommupGetDeviceCreationConfigEntry.c)
  */
 
 __int64 __fastcall IommupDeviceGetPasidSettings(__int64 *a1, char *a2, char *a3, _BYTE *a4)

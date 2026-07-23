@@ -1,9 +1,9 @@
 /*
- * XREFs of MiCheckDemandZeroClusterEligibility @ 0x14044F6A0
+ * XREFs of MiCheckDemandZeroClusterEligibility @ 0x1404477D0
  * Callers:
- *     MiResolvePrivateZeroFault @ 0x1402D5420 (MiResolvePrivateZeroFault.c)
+ *     MiResolvePrivateZeroFault @ 0x1402B71E0 (MiResolvePrivateZeroFault.c)
  * Callees:
- *     MiReadPteShadow @ 0x140314FF0 (MiReadPteShadow.c)
+ *     MiReadPteShadow @ 0x140317020 (MiReadPteShadow.c)
  */
 
 __int64 __fastcall MiCheckDemandZeroClusterEligibility(unsigned __int64 a1, unsigned __int64 a2, int a3)
@@ -32,8 +32,8 @@ __int64 __fastcall MiCheckDemandZeroClusterEligibility(unsigned __int64 a1, unsi
         if ( (PteShadow & 1) != 0 )
           return (__int64)((__int64)v7 - v5) >> 3;
         v9 = PteShadow;
-        if ( qword_140E2D740 && (PteShadow & 0x10) == 0 )
-          v9 = PteShadow & qword_140E2D748;
+        if ( qword_140E2D8C0 && (PteShadow & 0x10) == 0 )
+          v9 = PteShadow & qword_140E2D8C8;
         if ( (v9 & 0x400) != 0 || (v9 & 0x800) != 0 || (v9 & 8) != 0 )
           return (__int64)((__int64)v7 - v5) >> 3;
         v10 = ((PteShadow >> 5) & 0x1F) == v3;

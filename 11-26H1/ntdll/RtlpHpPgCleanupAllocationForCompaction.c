@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlpHpPgCleanupAllocationForCompaction @ 0x180101CBC
+ * XREFs of RtlpHpPgCleanupAllocationForCompaction @ 0x18010140C
  * Callers:
- *     RtlpHpSegContextCompact @ 0x180016214 (RtlpHpSegContextCompact.c)
+ *     RtlpHpSegContextCompact @ 0x180061944 (RtlpHpSegContextCompact.c)
  * Callees:
- *     RtlpHpEnvProtectVA @ 0x180102378 (RtlpHpEnvProtectVA.c)
- *     RtlpLogHeapFailure @ 0x1801217EC (RtlpLogHeapFailure.c)
- *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x180170020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
+ *     RtlpHpEnvProtectVA @ 0x180101AC8 (RtlpHpEnvProtectVA.c)
+ *     RtlpLogHeapFailure @ 0x180121588 (RtlpLogHeapFailure.c)
+ *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x18016F020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
  */
 
 __int64 __fastcall RtlpHpPgCleanupAllocationForCompaction(__int64 a1, __int64 a2, __int64 a3)

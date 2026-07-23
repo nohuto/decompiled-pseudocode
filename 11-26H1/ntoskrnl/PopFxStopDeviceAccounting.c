@@ -1,22 +1,22 @@
 /*
- * XREFs of PopFxStopDeviceAccounting @ 0x14042B348
+ * XREFs of PopFxStopDeviceAccounting @ 0x1404227BC
  * Callers:
- *     PopCaptureSleepStudyStatistics @ 0x14042AB54 (PopCaptureSleepStudyStatistics.c)
+ *     PopCaptureSleepStudyStatistics @ 0x140421FC8 (PopCaptureSleepStudyStatistics.c)
  * Callees:
- *     ExfAcquirePushLockSharedEx @ 0x140277CC0 (ExfAcquirePushLockSharedEx.c)
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     ExfReleasePushLockShared @ 0x140278BD0 (ExfReleasePushLockShared.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     KeReleaseSpinLock @ 0x1402BE860 (KeReleaseSpinLock.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14032F300 (KeAcquireSpinLockRaiseToDpc.c)
- *     PopFxPauseDeviceAccounting @ 0x1403949DC (PopFxPauseDeviceAccounting.c)
- *     PopDiagTraceFxDeviceAccounting @ 0x14042B748 (PopDiagTraceFxDeviceAccounting.c)
- *     PopDiagTraceFxGlobalDeviceAccounting @ 0x1404EB10C (PopDiagTraceFxGlobalDeviceAccounting.c)
- *     wcslen @ 0x1405380A0 (wcslen.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     PopDiagTraceFxComponentAccounting @ 0x140AF7950 (PopDiagTraceFxComponentAccounting.c)
+ *     ExfAcquirePushLockSharedEx @ 0x140277230 (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     ExfReleasePushLockShared @ 0x140278140 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     KeReleaseSpinLock @ 0x140309520 (KeReleaseSpinLock.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140331330 (KeAcquireSpinLockRaiseToDpc.c)
+ *     PopFxPauseDeviceAccounting @ 0x14039675C (PopFxPauseDeviceAccounting.c)
+ *     PopDiagTraceFxDeviceAccounting @ 0x140422BBC (PopDiagTraceFxDeviceAccounting.c)
+ *     PopDiagTraceFxGlobalDeviceAccounting @ 0x1404E46EC (PopDiagTraceFxGlobalDeviceAccounting.c)
+ *     wcslen @ 0x14053A520 (wcslen.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     PopDiagTraceFxComponentAccounting @ 0x140AF9FF0 (PopDiagTraceFxComponentAccounting.c)
  */
 
 __int64 __fastcall PopFxStopDeviceAccounting(unsigned __int64 a1)
@@ -30,8 +30,8 @@ __int64 __fastcall PopFxStopDeviceAccounting(unsigned __int64 a1)
   char v7; // r14
   struct _KTHREAD *CurrentThread; // rax
   LegacyAutoBoost *v9; // rbx
-  ULONG_PTR i; // rbx
-  __int64 v11; // r12
+  KSPIN_LOCK *i; // rbx
+  KSPIN_LOCK v11; // r12
   __int128 *v12; // r13
   KIRQL v13; // al
   char v14; // si
@@ -52,25 +52,29 @@ __int64 __fastcall PopFxStopDeviceAccounting(unsigned __int64 a1)
   __int128 v29; // [rsp+98h] [rbp-70h]
   __int128 v30; // [rsp+A8h] [rbp-60h]
   _OWORD v31[2]; // [rsp+B8h] [rbp-50h] BYREF
-  PVOID SparePtr; // [rsp+D8h] [rbp-30h]
+  PVOID NormalContext; // [rsp+D8h] [rbp-30h]
   _OWORD v33[2]; // [rsp+E0h] [rbp-28h] BYREF
   struct _LIST_ENTRY *Flink; // [rsp+100h] [rbp-8h]
 
   v23 = a1;
   v1 = a1;
   memset_0(&v25, 0, 0x60uLL);
-  result = LODWORD(stru_140E66FF0.SchedulerAssistLastYieldBoostTime);
+  result = (unsigned int)dword_140E676E0;
   v7 = 0;
   v24 = 0LL;
-  if ( LODWORD(stru_140E66FF0.SchedulerAssistLastYieldBoostTime) )
+  if ( dword_140E676E0 )
   {
-    if ( LODWORD(stru_140E66FF0.SchedulerAssistLastYieldBoostTime) == 1 )
+    if ( dword_140E676E0 == 1 )
       PopFxPauseDeviceAccounting(v3, v2, v4, v5);
     CurrentThread = KeGetCurrentThread();
     --CurrentThread->KernelApcDisable;
-    v9 = (LegacyAutoBoost *)KeAbPreAcquire((__int64)&qword_140F123D0, 0LL, 0LL, v5);
-    if ( _InterlockedCompareExchange64((volatile signed __int64 *)&qword_140F123D0, 17LL, 0LL) )
-      ExfAcquirePushLockSharedEx((signed __int64 *)&qword_140F123D0.Header.Lock, 0, v9, &qword_140F123D0);
+    v9 = (LegacyAutoBoost *)KeAbPreAcquire((__int64)&PopFxBlockingDeviceListLock.Teb, 0LL, 0LL, v5);
+    if ( _InterlockedCompareExchange64((volatile signed __int64 *)&PopFxBlockingDeviceListLock.Teb, 17LL, 0LL) )
+      ExfAcquirePushLockSharedEx(
+        (signed __int64 *)&PopFxBlockingDeviceListLock.Teb,
+        0,
+        v9,
+        (struct _KTHREAD *)&PopFxBlockingDeviceListLock.Teb);
     if ( v9 )
     {
       if ( (KiAbpGlobalState & 1) != 0 )
@@ -78,14 +82,16 @@ __int64 __fastcall PopFxStopDeviceAccounting(unsigned __int64 a1)
       else
         *((_BYTE *)v9 + 10) = 1;
     }
-    for ( i = qword_140F123E0; (ULONG_PTR *)i != &qword_140F123E0; i = *(_QWORD *)i )
+    for ( i = *(KSPIN_LOCK **)&PopFxBlockingDeviceListLock.ForegroundLossTime;
+          i != (KSPIN_LOCK *)&PopFxBlockingDeviceListLock.ForegroundLossTime;
+          i = (KSPIN_LOCK *)*i )
     {
-      v11 = *(_QWORD *)(i + 48);
+      v11 = i[6];
       if ( v11 )
       {
-        if ( *(_QWORD *)(i + 1240) )
+        if ( i[155] )
         {
-          LODWORD(v12) = i + 1232;
+          LODWORD(v12) = (_DWORD)i + 1232;
         }
         else
         {
@@ -98,23 +104,23 @@ __int64 __fastcall PopFxStopDeviceAccounting(unsigned __int64 a1)
           LOWORD(v24) = v21;
           WORD1(v24) = v21 + 2;
         }
-        v13 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(i + 640));
-        if ( *(_DWORD *)(i + 656) )
+        v13 = KeAcquireSpinLockRaiseToDpc(i + 80);
+        if ( *((_DWORD *)i + 164) )
         {
           v7 = 1;
-          v25 = *(_OWORD *)(i + 672);
-          v26 = *(_OWORD *)(i + 688);
-          v27 = *(_OWORD *)(i + 704);
-          v28 = *(_OWORD *)(i + 720);
-          v29 = *(_OWORD *)(i + 736);
-          v30 = *(_OWORD *)(i + 752);
-          v14 = *(_DWORD *)(i + 652) < 5u;
+          v25 = *((_OWORD *)i + 42);
+          v26 = *((_OWORD *)i + 43);
+          v27 = *((_OWORD *)i + 44);
+          v28 = *((_OWORD *)i + 45);
+          v29 = *((_OWORD *)i + 46);
+          v30 = *((_OWORD *)i + 47);
+          v14 = *((_DWORD *)i + 163) < 5u;
         }
         else
         {
           v14 = 0;
         }
-        KeReleaseSpinLock((PKSPIN_LOCK)(i + 640), v13);
+        KeReleaseSpinLock(i + 80, v13);
         if ( v7 )
         {
           if ( v1 < 0x23C34600 || (unsigned __int64)v25 < 0x989680 )
@@ -122,9 +128,9 @@ __int64 __fastcall PopFxStopDeviceAccounting(unsigned __int64 a1)
           PopDiagTraceFxDeviceAccounting(v11, (unsigned int)&v25, (_DWORD)v12, v25, v14);
         }
         v7 = 0;
-        for ( j = 0; j < *(_DWORD *)(i + 868); v7 = 0 )
+        for ( j = 0; j < *((_DWORD *)i + 217); v7 = 0 )
         {
-          v22 = *(_QWORD *)(*(_QWORD *)(i + 872) + 8LL * j);
+          v22 = *(_QWORD *)(i[109] + 8LL * j);
           v16 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(v22 + 200));
           if ( *(_DWORD *)(v22 + 216) )
           {
@@ -154,19 +160,19 @@ __int64 __fastcall PopFxStopDeviceAccounting(unsigned __int64 a1)
         }
       }
     }
-    if ( _InterlockedCompareExchange64((volatile signed __int64 *)&qword_140F123D0, 0LL, 17LL) != 17 )
-      ExfReleasePushLockShared((signed __int64 *)&qword_140F123D0.Header.Lock);
-    KeAbPostRelease((unsigned __int64)&qword_140F123D0);
+    if ( _InterlockedCompareExchange64((volatile signed __int64 *)&PopFxBlockingDeviceListLock.Teb, 0LL, 17LL) != 17 )
+      ExfReleasePushLockShared((signed __int64 *)&PopFxBlockingDeviceListLock.Teb);
+    KeAbPostRelease((unsigned __int64)&PopFxBlockingDeviceListLock.Teb);
     KeLeaveCriticalRegion();
-    v19 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)&stru_140F12420.320);
-    v20 = *(_OWORD *)&stru_140F12420.WaitBlockFill11[48];
-    v33[0] = *(_OWORD *)&stru_140F12420.WaitBlockFill11[64];
-    v33[1] = *(_OWORD *)&stru_140F12420.WaitBlockFill11[80];
-    Flink = stru_140F12420.WaitBlock[2].WaitListEntry.Flink;
-    v31[0] = *(_OWORD *)&stru_140F12420.WaitBlockFill11[104];
-    v31[1] = *(_OWORD *)&stru_140F12420.WaitBlockFill11[120];
-    SparePtr = stru_140F12420.WaitBlock[2].SparePtr;
-    KeReleaseSpinLock((PKSPIN_LOCK)&stru_140F12420.320, v19);
+    v19 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)&PopFxBlockingDeviceListLock.Timer.Header.WaitListHead);
+    v20 = *(_OWORD *)&PopFxBlockingDeviceListLock.SavedApcStateFill[16];
+    v33[0] = *(_OWORD *)&PopFxBlockingDeviceListLock.SavedApcStateFill[32];
+    v33[1] = *(_OWORD *)&PopFxBlockingDeviceListLock.SchedulerApc.Type;
+    Flink = PopFxBlockingDeviceListLock.SchedulerApc.ApcListEntry.Flink;
+    v31[0] = *(_OWORD *)&PopFxBlockingDeviceListLock.SchedulerApcFill5[24];
+    v31[1] = *(_OWORD *)&PopFxBlockingDeviceListLock.SchedulerApcFill5[40];
+    NormalContext = PopFxBlockingDeviceListLock.SchedulerApc.NormalContext;
+    KeReleaseSpinLock((PKSPIN_LOCK)&PopFxBlockingDeviceListLock.Timer.Header.WaitListHead, v19);
     return PopDiagTraceFxGlobalDeviceAccounting(v20, *((_QWORD *)&v20 + 1), v33, v31);
   }
   return result;

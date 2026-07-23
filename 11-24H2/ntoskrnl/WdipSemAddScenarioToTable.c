@@ -1,10 +1,10 @@
 /*
- * XREFs of WdipSemAddScenarioToTable @ 0x1407A0D00
+ * XREFs of WdipSemAddScenarioToTable @ 0x1407A0E10
  * Callers:
- *     WdipSemLoadScenarioTable @ 0x1407A1B08 (WdipSemLoadScenarioTable.c)
+ *     WdipSemLoadScenarioTable @ 0x1407A1C18 (WdipSemLoadScenarioTable.c)
  * Callees:
- *     WdipSemMergeScenarios @ 0x1407A2088 (WdipSemMergeScenarios.c)
- *     WdipSemFreeScenario @ 0x1407A2890 (WdipSemFreeScenario.c)
+ *     WdipSemMergeScenarios @ 0x1407A2198 (WdipSemMergeScenarios.c)
+ *     WdipSemFreeScenario @ 0x1407A29A0 (WdipSemFreeScenario.c)
  */
 
 __int64 __fastcall WdipSemAddScenarioToTable(__int64 a1)
@@ -20,10 +20,10 @@ __int64 __fastcall WdipSemAddScenarioToTable(__int64 a1)
   {
     for ( i = 0LL; ; i = (unsigned int)(i + 1) )
     {
-      if ( (unsigned int)i >= dword_140EFFAA0 )
+      if ( (unsigned int)i >= dword_140EFFD60 )
       {
-        if ( (unsigned int)dword_140EFFAA0 < 0x40 )
-          WdipSemScenarioTable[dword_140EFFAA0++] = a1;
+        if ( (unsigned int)dword_140EFFD60 < 0x40 )
+          WdipSemScenarioTable[dword_140EFFD60++] = a1;
         else
           return (unsigned int)-1073741823;
         return (unsigned int)v1;

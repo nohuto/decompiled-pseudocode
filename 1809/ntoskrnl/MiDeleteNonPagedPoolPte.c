@@ -1,21 +1,21 @@
 /*
- * XREFs of MiDeleteNonPagedPoolPte @ 0x1401115B0
+ * XREFs of MiDeleteNonPagedPoolPte @ 0x140111620
  * Callers:
  *     <none>
  * Callees:
  *     MiPteInShadowRange @ 0x14003D740 (MiPteInShadowRange.c)
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
- *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
- *     MiGetLeafVa @ 0x140076410 (MiGetLeafVa.c)
- *     MiGetContainingPageTable @ 0x140079850 (MiGetContainingPageTable.c)
- *     MiEvictPageTableLock @ 0x1400983A0 (MiEvictPageTableLock.c)
- *     MiInsertTbFlushEntry @ 0x1400B3AF0 (MiInsertTbFlushEntry.c)
- *     MiInitializeTbFlushStamps @ 0x14011187C (MiInitializeTbFlushStamps.c)
- *     MiInsertRecursiveTbFlushEntries @ 0x1401118E8 (MiInsertRecursiveTbFlushEntries.c)
- *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
- *     MiDecommitLargePoolVa @ 0x14015B2E0 (MiDecommitLargePoolVa.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     KeYieldProcessorEx @ 0x14006C9E0 (KeYieldProcessorEx.c)
+ *     MiGetLeafVa @ 0x140076400 (MiGetLeafVa.c)
+ *     MiGetContainingPageTable @ 0x140079840 (MiGetContainingPageTable.c)
+ *     MiEvictPageTableLock @ 0x1400982E0 (MiEvictPageTableLock.c)
+ *     MiInsertTbFlushEntry @ 0x1400B3A30 (MiInsertTbFlushEntry.c)
+ *     MiInitializeTbFlushStamps @ 0x1401118EC (MiInitializeTbFlushStamps.c)
+ *     MiInsertRecursiveTbFlushEntries @ 0x140111958 (MiInsertRecursiveTbFlushEntries.c)
+ *     MiWritePteShadow @ 0x140120F40 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120FA0 (MiPteHasShadow.c)
+ *     MiDecommitLargePoolVa @ 0x14015B3E0 (MiDecommitLargePoolVa.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall MiDeleteNonPagedPoolPte(__int64 a1, unsigned __int64 a2, int a3)
@@ -76,7 +76,7 @@ __int64 __fastcall MiDeleteNonPagedPoolPte(__int64 a1, unsigned __int64 a2, int 
     if ( a3 == 1 )
     {
       if ( (*(_QWORD *)(v12 + 24) & 0x3FFFFFFFFFFFFFFFLL) != 1
-        || !(unsigned int)MiEvictPageTableLock((__int64)&unk_14043B5D0, a2, ZeroPte, 0) )
+        || !(unsigned int)MiEvictPageTableLock((__int64)&unk_14043C690, a2, ZeroPte, 0) )
       {
         return 0LL;
       }
@@ -87,7 +87,7 @@ __int64 __fastcall MiDeleteNonPagedPoolPte(__int64 a1, unsigned __int64 a2, int 
     {
       if ( (unsigned int)MiPteHasShadow(0xFFFFFFFFFLL, ZeroPte) )
       {
-        if ( !HIBYTE(word_14043A1AC) && (v13 & 1) != 0 )
+        if ( !HIBYTE(word_14043B26C) && (v13 & 1) != 0 )
           v13 |= 0x8000000000000000uLL;
         *(_QWORD *)a2 = v13;
         MiWritePteShadow(a2);
@@ -130,7 +130,7 @@ LABEL_10:
         {
           if ( (unsigned int)MiPteHasShadow(v16, v27) )
           {
-            if ( !HIBYTE(word_14043A1AC) && (v17 & 1) != 0 )
+            if ( !HIBYTE(word_14043B26C) && (v17 & 1) != 0 )
               v17 |= 0x8000000000000000uLL;
             *(_QWORD *)a2 = v17;
             MiWritePteShadow(a2);
@@ -146,8 +146,8 @@ LABEL_10:
       }
 LABEL_17:
       v18 = v27;
-      if ( qword_14043A0C0 && (v27 & 0x10) == 0 )
-        v18 = v27 & ~qword_14043A0C0;
+      if ( qword_14043B180 && (v27 & 0x10) == 0 )
+        v18 = v27 & ~qword_14043B180;
       if ( (v18 & 0xFFFFFFFF00000000uLL) == 0 )
         MiInsertTbFlushEntry(v10, (__int64)(a2 << 25) >> 16, 1LL, 0);
       return 0LL;

@@ -1,19 +1,19 @@
 /*
- * XREFs of KiUpdateSpeculationControl @ 0x1402BB280
+ * XREFs of KiUpdateSpeculationControl @ 0x140305F40
  * Callers:
- *     KiOptimizeSpecCtrlSettingsWorker @ 0x1405F2470 (KiOptimizeSpecCtrlSettingsWorker.c)
- *     SwapContext @ 0x14072FFB0 (SwapContext.c)
+ *     KiOptimizeSpecCtrlSettingsWorker @ 0x1405F4E30 (KiOptimizeSpecCtrlSettingsWorker.c)
+ *     SwapContext @ 0x140734B80 (SwapContext.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     HvlNotifyLongSpinWait @ 0x1402BBF00 (HvlNotifyLongSpinWait.c)
- *     KiIpiSendRequest @ 0x140329ED0 (KiIpiSendRequest.c)
- *     KiUpdateStibpPairing @ 0x140402530 (KiUpdateStibpPairing.c)
- *     KiUpdateSpecCtrlEnhancedIBRS @ 0x14042FBD0 (KiUpdateSpecCtrlEnhancedIBRS.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14052FA20 (KiRemoveSystemWorkPriorityKick.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     KiFlushCurrentRsb @ 0x14073D180 (KiFlushCurrentRsb.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     HvlNotifyLongSpinWait @ 0x140306BC0 (HvlNotifyLongSpinWait.c)
+ *     KiIpiSendRequest @ 0x14032BF00 (KiIpiSendRequest.c)
+ *     KiUpdateStibpPairing @ 0x1403F42E0 (KiUpdateStibpPairing.c)
+ *     KiUpdateSpecCtrlEnhancedIBRS @ 0x14041CC00 (KiUpdateSpecCtrlEnhancedIBRS.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x140531F20 (KiRemoveSystemWorkPriorityKick.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     KiFlushCurrentRsb @ 0x140741D80 (KiFlushCurrentRsb.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 void __fastcall KiUpdateSpeculationControl(__int64 a1)
@@ -82,7 +82,7 @@ void __fastcall KiUpdateSpeculationControl(__int64 a1)
 
   CurrentPrcb = KeGetCurrentPrcb();
   v3 = KiSpeculationFeatures;
-  v59 = qword_140FBFC68;
+  v59 = qword_140FC0C68;
   if ( (KiSpeculationFeatures & 0x1000000000LL) == 0 )
     return;
   _disable();
@@ -475,10 +475,9 @@ LABEL_34:
   }
   v61 = 2097153LL;
   memset_0(v62, 0, 0x100uLL);
-  v22 = *(_DWORD *)(*(_QWORD *)&KiSupervisorXStateFeaturesLock.WaitBlockFill11[112] + 4LL
-                                                                                    * CurrentPrcb->PairPrcb->Number) & 0x3F;
-  v23 = *(_DWORD *)(*(_QWORD *)&KiSupervisorXStateFeaturesLock.WaitBlockFill11[112] + 4LL
-                                                                                    * CurrentPrcb->PairPrcb->Number) >> 6;
+  v22 = *(&KiSupervisorXStateFeaturesLock.SchedulerApc.Thread->Header.LockNV + CurrentPrcb->PairPrcb->Number) & 0x3F;
+  v23 = (unsigned int)*(&KiSupervisorXStateFeaturesLock.SchedulerApc.Thread->Header.LockNV
+                      + CurrentPrcb->PairPrcb->Number) >> 6;
   if ( (_DWORD)v23 )
   {
     if ( WORD1(v61) <= (unsigned int)v23 )

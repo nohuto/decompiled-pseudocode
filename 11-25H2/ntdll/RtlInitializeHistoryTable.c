@@ -8,7 +8,7 @@
  *     RtlpFunctionAddressTableEntry @ 0x1800F3A7C (RtlpFunctionAddressTableEntry.c)
  */
 
-__int64 RtlInitializeHistoryTable()
+void RtlInitializeHistoryTable()
 {
   unsigned int i; // ebx
   void (__stdcall *v1)(PEXCEPTION_RECORD); // rax
@@ -39,5 +39,5 @@ __int64 RtlInitializeHistoryTable()
       qword_1801E9350 = v5;
   }
   RtlpUnwindHistoryTable[0] = i;
-  return LdrProtectMrdata(1);
+  LdrProtectMrdata(1);
 }

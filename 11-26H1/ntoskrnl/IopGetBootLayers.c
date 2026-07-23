@@ -1,7 +1,7 @@
 /*
- * XREFs of IopGetBootLayers @ 0x140CBD398
+ * XREFs of IopGetBootLayers @ 0x140CC346C
  * Callers:
- *     IoGetBootLayers @ 0x140793D20 (IoGetBootLayers.c)
+ *     IoGetBootLayers @ 0x140796850 (IoGetBootLayers.c)
  * Callees:
  *     <none>
  */

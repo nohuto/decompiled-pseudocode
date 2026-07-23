@@ -1,10 +1,10 @@
 /*
- * XREFs of PerfInfoLogSysCallEntry @ 0x1402277C8
+ * XREFs of PerfInfoLogSysCallEntry @ 0x1402275F4
  * Callers:
- *     KiSystemCall64 @ 0x14016F000 (KiSystemCall64.c)
+ *     KiSystemCall64 @ 0x14016F500 (KiSystemCall64.c)
  * Callees:
- *     EtwTraceKernelEvent @ 0x140014190 (EtwTraceKernelEvent.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
+ *     EtwTraceKernelEvent @ 0x140013D10 (EtwTraceKernelEvent.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall PerfInfoLogSysCallEntry(__int64 a1)

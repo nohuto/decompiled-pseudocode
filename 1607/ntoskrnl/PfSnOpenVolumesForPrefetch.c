@@ -1,23 +1,23 @@
 /*
- * XREFs of PfSnOpenVolumesForPrefetch @ 0x1404F4E8C
+ * XREFs of PfSnOpenVolumesForPrefetch @ 0x1404D7E18
  * Callers:
- *     PfSnAsyncPrefetchWorker @ 0x1404F4AF8 (PfSnAsyncPrefetchWorker.c)
+ *     PfSnAsyncPrefetchWorker @ 0x1404D7A84 (PfSnAsyncPrefetchWorker.c)
  * Callees:
- *     RtlStringCbPrintfW @ 0x14000C1D4 (RtlStringCbPrintfW.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     RtlStringCbPrintfW @ 0x14000BD54 (RtlStringCbPrintfW.c)
+ *     memset @ 0x140171AC0 (memset.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     NtCreateEvent @ 0x14041EDE0 (NtCreateEvent.c)
- *     PfSnQueryVolumeInfo @ 0x1404F54AC (PfSnQueryVolumeInfo.c)
- *     PfSnIsVolumeMounted @ 0x1404F55F0 (PfSnIsVolumeMounted.c)
- *     PfMetadataRecordIsEqual @ 0x1404F56F8 (PfMetadataRecordIsEqual.c)
- *     PfSnLogOpenVolumesForPrefetch @ 0x1404F5710 (PfSnLogOpenVolumesForPrefetch.c)
- *     PfSnVolumeCheckSeekPenalty @ 0x1404F57A8 (PfSnVolumeCheckSeekPenalty.c)
- *     IopGetDeviceInterfaces @ 0x1404F69DC (IopGetDeviceInterfaces.c)
- *     PfpOpenHandleClose @ 0x14050A308 (PfpOpenHandleClose.c)
- *     PfpOpenHandleCreate @ 0x14050A388 (PfpOpenHandleCreate.c)
- *     NtClose @ 0x14050B0E0 (NtClose.c)
- *     PfSnVolumeCheckIsSdBus @ 0x140669CEC (PfSnVolumeCheckIsSdBus.c)
+ *     NtCreateEvent @ 0x14041DCA0 (NtCreateEvent.c)
+ *     PfSnQueryVolumeInfo @ 0x1404D8438 (PfSnQueryVolumeInfo.c)
+ *     PfSnIsVolumeMounted @ 0x1404D857C (PfSnIsVolumeMounted.c)
+ *     PfMetadataRecordIsEqual @ 0x1404D8684 (PfMetadataRecordIsEqual.c)
+ *     PfSnLogOpenVolumesForPrefetch @ 0x1404D869C (PfSnLogOpenVolumesForPrefetch.c)
+ *     PfSnVolumeCheckSeekPenalty @ 0x1404D8734 (PfSnVolumeCheckSeekPenalty.c)
+ *     IopGetDeviceInterfaces @ 0x1404D9968 (IopGetDeviceInterfaces.c)
+ *     PfpOpenHandleClose @ 0x1404ED298 (PfpOpenHandleClose.c)
+ *     PfpOpenHandleCreate @ 0x1404ED318 (PfpOpenHandleCreate.c)
+ *     NtClose @ 0x1404EE070 (NtClose.c)
+ *     PfSnVolumeCheckIsSdBus @ 0x140669DD0 (PfSnVolumeCheckIsSdBus.c)
  */
 
 __int64 __fastcall PfSnOpenVolumesForPrefetch(__int64 *a1, _DWORD *a2)

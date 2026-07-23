@@ -51,7 +51,7 @@ __int64 __fastcall ExpWnfAllocateNextPersistentNameSequence(struct _LIST_ENTRY *
   NameStoreRegistryRoot = ExpWnfGetNameStoreRegistryRoot(1LL, (volatile signed __int64 *)&KeyHandle);
   if ( NameStoreRegistryRoot < 0 )
     goto LABEL_22;
-  v14 = KeAbPreAcquire((ULONG_PTR)(v9 + 32), 0LL, 0LL);
+  v14 = KeAbPreAcquire((ULONG_PTR)(v9 + 32), 0LL, 0);
   v15 = v14;
   if ( _interlockedbittestandset64((volatile signed __int32 *)v9 + 8, 0LL) )
     ExfAcquirePushLockExclusiveEx((unsigned __int64 *)v9 + 4, v14, (ULONG_PTR)(v9 + 32));
@@ -87,7 +87,7 @@ LABEL_8:
       }
       if ( !v3 )
       {
-        v16 = KeAbPreAcquire((ULONG_PTR)(v9 + 32), 0LL, 0LL);
+        v16 = KeAbPreAcquire((ULONG_PTR)(v9 + 32), 0LL, 0);
         v17 = v16;
         if ( _interlockedbittestandset64((volatile signed __int32 *)v9 + 8, 0LL) )
           ExfAcquirePushLockExclusiveEx((unsigned __int64 *)v9 + 4, v16, (ULONG_PTR)(v9 + 32));

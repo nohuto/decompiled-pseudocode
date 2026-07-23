@@ -1,15 +1,15 @@
 /*
- * XREFs of WheapInitErrorReportDeviceDriver @ 0x140611928
+ * XREFs of WheapInitErrorReportDeviceDriver @ 0x140611E78
  * Callers:
- *     WheaCreateHwErrorReportDeviceDriver @ 0x140611210 (WheaCreateHwErrorReportDeviceDriver.c)
+ *     WheaCreateHwErrorReportDeviceDriver @ 0x140611760 (WheaCreateHwErrorReportDeviceDriver.c)
  * Callees:
- *     WheaLogInternalEvent @ 0x140380A50 (WheaLogInternalEvent.c)
- *     RtlStringCchCopyA @ 0x1403C342C (RtlStringCchCopyA.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memset @ 0x140435A00 (memset.c)
- *     WheapGetErrorSource @ 0x140610E98 (WheapGetErrorSource.c)
- *     WheapErrDescIsDeviceDriver @ 0x1406117C0 (WheapErrDescIsDeviceDriver.c)
- *     WheapGetPreallocatedPacketBuffer @ 0x140611870 (WheapGetPreallocatedPacketBuffer.c)
+ *     WheaLogInternalEvent @ 0x140380BF0 (WheaLogInternalEvent.c)
+ *     RtlStringCchCopyA @ 0x1403C360C (RtlStringCchCopyA.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     WheapGetErrorSource @ 0x1406113E8 (WheapGetErrorSource.c)
+ *     WheapErrDescIsDeviceDriver @ 0x140611D10 (WheapErrDescIsDeviceDriver.c)
+ *     WheapGetPreallocatedPacketBuffer @ 0x140611DC0 (WheapGetPreallocatedPacketBuffer.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

@@ -1,17 +1,17 @@
 /*
- * XREFs of PnpGetDeviceInterfacePropertyData @ 0x1408B5D94
+ * XREFs of PnpGetDeviceInterfacePropertyData @ 0x1408B3704
  * Callers:
- *     IoGetDeviceInterfacePropertyData @ 0x1408B5D50 (IoGetDeviceInterfacePropertyData.c)
+ *     IoGetDeviceInterfacePropertyData @ 0x1408B36C0 (IoGetDeviceInterfacePropertyData.c)
  * Callees:
- *     DbgPrint @ 0x1402CB260 (DbgPrint.c)
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     DownLevelLangIDToLanguageName @ 0x1404B167C (DownLevelLangIDToLanguageName.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     PnpUnicodeStringToWstrFree @ 0x1408B7510 (PnpUnicodeStringToWstrFree.c)
- *     _PnpGetObjectProperty @ 0x1408CDFD0 (_PnpGetObjectProperty.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     DbgPrint @ 0x140274290 (DbgPrint.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     DownLevelLangIDToLanguageName @ 0x1404ABF0C (DownLevelLangIDToLanguageName.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     PnpUnicodeStringToWstrFree @ 0x1408B4E80 (PnpUnicodeStringToWstrFree.c)
+ *     _PnpGetObjectProperty @ 0x1408CB9C0 (_PnpGetObjectProperty.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall PnpGetDeviceInterfacePropertyData(
@@ -48,9 +48,9 @@ __int64 __fastcall PnpGetDeviceInterfacePropertyData(
     if ( a3 == 4096 )
       return (unsigned int)-1073741823;
     DbgPrint("!!! RTLMUI: Reusing LocaleBuffer !!!");
-    if ( (int)DownLevelLangIDToLanguageName(a3, &word_140E62280, 64, 2) <= 0 )
+    if ( (int)DownLevelLangIDToLanguageName(a3, word_140E623D0, 64, 2) <= 0 )
       return (unsigned int)-1073741823;
-    RtlInitUnicodeString(&DestinationString, &word_140E62280);
+    RtlInitUnicodeString(&DestinationString, word_140E623D0);
     Buffer = DestinationString.Buffer;
   }
   else
@@ -78,7 +78,7 @@ __int64 __fastcall PnpGetDeviceInterfacePropertyData(
       {
         goto LABEL_26;
       }
-      Pool2 = (_WORD *)ExAllocatePool2(0x100uLL);
+      Pool2 = (_WORD *)ExAllocatePool2(0x100uLL, v15 + 2, 0x75737050u);
       v17 = Pool2;
       if ( Pool2 )
       {
@@ -98,7 +98,7 @@ LABEL_26:
         v11 = (_WORD *)*((_QWORD *)a1 + 1);
         goto LABEL_16;
       }
-      v20 = (_WORD *)ExAllocatePool2(0x100uLL);
+      v20 = (_WORD *)ExAllocatePool2(0x100uLL, 2uLL, 0x75737050u);
       if ( v20 )
       {
         *v20 = 0;

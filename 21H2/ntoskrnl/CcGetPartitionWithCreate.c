@@ -1,18 +1,18 @@
 /*
- * XREFs of CcGetPartitionWithCreate @ 0x1402BAEB0
+ * XREFs of CcGetPartitionWithCreate @ 0x1402390C0
  * Callers:
- *     CcInitializeCacheMapEx @ 0x14022E5C0 (CcInitializeCacheMapEx.c)
+ *     CcInitializeCacheMapEx @ 0x1402D2E10 (CcInitializeCacheMapEx.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14022EE10 (KeAcquireInStackQueuedSpinLock.c)
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     PsDereferencePartition @ 0x1402ABFDC (PsDereferencePartition.c)
- *     PsReferencePartitionSafe @ 0x1402AC004 (PsReferencePartitionSafe.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
- *     CcCreatePartition @ 0x1403C2910 (CcCreatePartition.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402042B0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KxReleaseSpinLock @ 0x140212140 (KxReleaseSpinLock.c)
+ *     PsDereferencePartition @ 0x140274588 (PsDereferencePartition.c)
+ *     PsReferencePartitionSafe @ 0x1402745B0 (PsReferencePartitionSafe.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402D3660 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140362F80 (KeAcquireSpinLockRaiseToDpc.c)
+ *     CcCreatePartition @ 0x1403C2D40 (CcCreatePartition.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
- *     CcDeletePartition @ 0x1404EBC80 (CcDeletePartition.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
+ *     CcDeletePartition @ 0x1404EBEC0 (CcDeletePartition.c)
  */
 
 _BYTE *__fastcall CcGetPartitionWithCreate(__int64 a1)
@@ -54,7 +54,7 @@ _BYTE *__fastcall CcGetPartitionWithCreate(__int64 a1)
       ++CcPartitionCount;
       *(_QWORD *)(a1 + 8) = v1;
       v1[965] = 1;
-      if ( PsReferencePartitionSafe(a1) )
+      if ( (unsigned __int8)PsReferencePartitionSafe(a1) )
         PsDereferencePartition(a1);
       else
         v1[966] = 1;

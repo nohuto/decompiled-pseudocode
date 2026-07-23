@@ -1,16 +1,16 @@
 /*
- * XREFs of NtSetThreadExecutionState @ 0x180162730
+ * XREFs of NtSetThreadExecutionState @ 0x180162630
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 NtSetThreadExecutionState()
+NTSTATUS __cdecl NtSetThreadExecutionState(EXECUTION_STATE NewFlags, EXECUTION_STATE *PreviousFlags)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 448LL;
+  result = 448;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

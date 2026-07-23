@@ -1,10 +1,10 @@
 /*
  * XREFs of RtlEnumerateEntryHashTable @ 0x140206880
  * Callers:
- *     SepCleanupMarkedForDeletionEntries @ 0x140206780 (SepCleanupMarkedForDeletionEntries.c)
+ *     sub_140206780 @ 0x140206780 (sub_140206780.c)
  *     RtlWeaklyEnumerateEntryHashTable @ 0x14045F160 (RtlWeaklyEnumerateEntryHashTable.c)
- *     SepFindMatchingLowBoxNumberEntries @ 0x1409CEBD4 (SepFindMatchingLowBoxNumberEntries.c)
- *     SepRmDestroyCapTable @ 0x1409CF8D8 (SepRmDestroyCapTable.c)
+ *     sub_1409CEBD4 @ 0x1409CEBD4 (sub_1409CEBD4.c)
+ *     sub_1409CF8D8 @ 0x1409CF8D8 (sub_1409CF8D8.c)
  * Callees:
  *     <none>
  */
@@ -13,20 +13,20 @@ PRTL_DYNAMIC_HASH_TABLE_ENTRY __stdcall RtlEnumerateEntryHashTable(
         PRTL_DYNAMIC_HASH_TABLE HashTable,
         PRTL_DYNAMIC_HASH_TABLE_ENUMERATOR Enumerator)
 {
-  unsigned int BucketIndex; // ebx
-  unsigned int TableSize; // r11d
-  unsigned int v6; // r8d
+  ULONG BucketIndex; // ebx
+  ULONG TableSize; // r11d
+  ULONG v6; // r8d
   unsigned int i; // r10d
   _QWORD *Directory; // rdx
   unsigned int v9; // ecx
   unsigned int v10; // r9d
-  _LIST_ENTRY *ChainHead; // rax
+  PLIST_ENTRY ChainHead; // rax
   PRTL_DYNAMIC_HASH_TABLE_ENUMERATOR v12; // rdx
-  struct _RTL_DYNAMIC_HASH_TABLE_ENTRY *Flink; // rdx
+  _RTL_DYNAMIC_HASH_TABLE_ENTRY *Flink; // rdx
   PRTL_DYNAMIC_HASH_TABLE_ENTRY result; // rax
   struct _LIST_ENTRY *v15; // rcx
   struct _LIST_ENTRY *Blink; // r9
-  _LIST_ENTRY *v17; // rcx
+  PLIST_ENTRY v17; // rcx
   struct _LIST_ENTRY *v18; // rax
 
   BucketIndex = Enumerator->BucketIndex;
@@ -54,11 +54,11 @@ PRTL_DYNAMIC_HASH_TABLE_ENTRY __stdcall RtlEnumerateEntryHashTable(
         v10 = i ^ (1 << v9);
         Directory = (_QWORD *)Directory[v9 - 7];
       }
-      ChainHead = (_LIST_ENTRY *)&Directory[2 * v10];
+      ChainHead = (PLIST_ENTRY)&Directory[2 * v10];
       v12 = (PRTL_DYNAMIC_HASH_TABLE_ENUMERATOR)ChainHead;
     }
-    Flink = (struct _RTL_DYNAMIC_HASH_TABLE_ENTRY *)v12->HashEntry.Linkage.Flink;
-    if ( Flink != (struct _RTL_DYNAMIC_HASH_TABLE_ENTRY *)ChainHead )
+    Flink = (_RTL_DYNAMIC_HASH_TABLE_ENTRY *)v12->HashEntry.Linkage.Flink;
+    if ( Flink != (_RTL_DYNAMIC_HASH_TABLE_ENTRY *)ChainHead )
       break;
 LABEL_8:
     if ( ++v6 >= TableSize )
@@ -66,8 +66,8 @@ LABEL_8:
   }
   while ( !Flink->Signature )
   {
-    Flink = (struct _RTL_DYNAMIC_HASH_TABLE_ENTRY *)Flink->Linkage.Flink;
-    if ( Flink == (struct _RTL_DYNAMIC_HASH_TABLE_ENTRY *)ChainHead )
+    Flink = (_RTL_DYNAMIC_HASH_TABLE_ENTRY *)Flink->Linkage.Flink;
+    if ( Flink == (_RTL_DYNAMIC_HASH_TABLE_ENTRY *)ChainHead )
       goto LABEL_8;
   }
   v15 = Enumerator->HashEntry.Linkage.Flink;
@@ -89,7 +89,7 @@ LABEL_8:
   Enumerator->BucketIndex = v6;
   Enumerator->ChainHead = ChainHead;
   v18 = Flink->Linkage.Flink;
-  if ( (struct _RTL_DYNAMIC_HASH_TABLE_ENTRY *)Flink->Linkage.Flink->Blink != Flink )
+  if ( (_RTL_DYNAMIC_HASH_TABLE_ENTRY *)Flink->Linkage.Flink->Blink != Flink )
 LABEL_22:
     __fastfail(3u);
   Enumerator->HashEntry.Linkage.Flink = v18;

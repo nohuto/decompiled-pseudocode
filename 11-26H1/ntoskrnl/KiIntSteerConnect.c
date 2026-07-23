@@ -1,19 +1,19 @@
 /*
- * XREFs of KiIntSteerConnect @ 0x140424BD8
+ * XREFs of KiIntSteerConnect @ 0x140431CC8
  * Callers:
- *     KeConnectInterrupt @ 0x140424368 (KeConnectInterrupt.c)
+ *     KeConnectInterrupt @ 0x140431458 (KeConnectInterrupt.c)
  * Callees:
- *     KeReleaseSpinLock @ 0x1402BE860 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14032F300 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiIntSteerLogState @ 0x140423C40 (KiIntSteerLogState.c)
- *     KiIntSteerGetLineInformation @ 0x140424FF4 (KiIntSteerGetLineInformation.c)
- *     KiIntSteerChooseInitialTargetProcessors @ 0x14042508C (KiIntSteerChooseInitialTargetProcessors.c)
- *     KiIntSteerSetDestination @ 0x140425B98 (KiIntSteerSetDestination.c)
- *     KiIntSteerUpdateDeviceInterruptMask @ 0x140425C60 (KiIntSteerUpdateDeviceInterruptMask.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     EtwRegister @ 0x14093BDE0 (EtwRegister.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     KeReleaseSpinLock @ 0x140309520 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140331330 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiIntSteerLogState @ 0x140430D30 (KiIntSteerLogState.c)
+ *     KiIntSteerGetLineInformation @ 0x1404320E4 (KiIntSteerGetLineInformation.c)
+ *     KiIntSteerChooseInitialTargetProcessors @ 0x14043217C (KiIntSteerChooseInitialTargetProcessors.c)
+ *     KiIntSteerSetDestination @ 0x140432CA8 (KiIntSteerSetDestination.c)
+ *     KiIntSteerUpdateDeviceInterruptMask @ 0x140432D70 (KiIntSteerUpdateDeviceInterruptMask.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     EtwRegister @ 0x140917980 (EtwRegister.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall KiIntSteerConnect(_QWORD *a1, unsigned int a2, __int64 a3, _BYTE *a4, __int64 a5)
@@ -26,14 +26,14 @@ __int64 __fastcall KiIntSteerConnect(_QWORD *a1, unsigned int a2, __int64 a3, _B
   _QWORD *v12; // rcx
   __int64 v13; // rdx
   _QWORD *v14; // rax
-  unsigned __int64 *i; // rbx
+  __int64 *i; // rbx
   int v16; // r9d
   int v17; // r14d
   int v18; // eax
   __int16 v19; // cx
-  unsigned __int64 v20; // rax
+  __int64 v20; // rax
   __int16 v21; // cx
-  unsigned __int64 **v22; // rax
+  __int64 **v22; // rax
   _QWORD *v23; // rbx
   _QWORD *v24; // rax
   int v26; // eax
@@ -100,11 +100,11 @@ __int64 __fastcall KiIntSteerConnect(_QWORD *a1, unsigned int a2, __int64 a3, _B
       }
       while ( v13 );
     }
-    NewIrql[0] = KeAcquireSpinLockRaiseToDpc(&KiIntTrackSpinlock);
+    NewIrql[0] = KeAcquireSpinLockRaiseToDpc(&KsepShimDbLock.InGlobalUpdateVpThreadPriorityList);
     if ( *(_DWORD *)a3 )
     {
 LABEL_9:
-      i = (unsigned __int64 *)ExAllocatePool2(0x40uLL);
+      i = (__int64 *)ExAllocatePool2(0x40uLL);
       if ( i )
       {
         v17 = KiIntSteerChooseInitialTargetProcessors((_DWORD)a1, v5, a3, v16, v11, (__int64)&v34, (__int64)&v33);
@@ -112,8 +112,8 @@ LABEL_9:
         {
           memset_0(i, 0, 0xE0uLL);
           v18 = v32;
-          i[3] = (unsigned __int64)(i + 2);
-          i[2] = (unsigned __int64)(i + 2);
+          i[3] = (__int64)(i + 2);
+          i[2] = (__int64)(i + 2);
           *((_DWORD *)i + 8) = v18;
           *((_BYTE *)i + 132) = 0;
           i[19] = 0LL;
@@ -136,15 +136,15 @@ LABEL_9:
           i[15] = *(_QWORD *)(a3 + 80);
           if ( v6 )
             i[25] = *(_QWORD *)(*a1 + 272LL);
-          v22 = (unsigned __int64 **)KsepShimDbLock.Spare35[1];
-          if ( *(struct _KTHREAD **)KsepShimDbLock.Spare35[1] != (struct _KTHREAD *)KsepShimDbLock.Spare35 )
+          v22 = (__int64 **)qword_140F14EC8;
+          if ( *(__int64 **)qword_140F14EC8 != &KiIntTrackRootList )
 LABEL_18:
             __fastfail(3u);
-          *i = (unsigned __int64)KsepShimDbLock.Spare35;
-          i[1] = (unsigned __int64)v22;
+          *i = (__int64)&KiIntTrackRootList;
+          i[1] = (__int64)v22;
           *v22 = i;
-          ++LODWORD(KsepShimDbLock.ExtendedFeatureDisableMask);
-          KsepShimDbLock.Spare35[1] = (unsigned __int64)i;
+          ++KiIntTrackRootCount;
+          qword_140F14EC8 = (__int64)i;
           KiIntSteerUpdateDeviceInterruptMask(i + 20, 0LL);
           if ( *((_DWORD *)i + 32) )
           {
@@ -163,12 +163,12 @@ LABEL_18:
       }
       ExFreePoolWithTag(v10, 0x6B725449u);
 LABEL_21:
-      KeReleaseSpinLock(&KiIntTrackSpinlock, NewIrql[0]);
+      KeReleaseSpinLock(&KsepShimDbLock.InGlobalUpdateVpThreadPriorityList, NewIrql[0]);
       return (unsigned int)v17;
     }
-    for ( i = (unsigned __int64 *)KsepShimDbLock.Spare35[0]; ; i = (unsigned __int64 *)*i )
+    for ( i = (__int64 *)KiIntTrackRootList; ; i = (__int64 *)*i )
     {
-      if ( i == KsepShimDbLock.Spare35 )
+      if ( i == &KiIntTrackRootList )
         goto LABEL_9;
       v26 = *((_DWORD *)i + 8);
       if ( v26 == v32 && v26 != -1 )

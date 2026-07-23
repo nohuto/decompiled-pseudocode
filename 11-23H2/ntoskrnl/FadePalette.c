@@ -1,7 +1,7 @@
 /*
- * XREFs of FadePalette @ 0x14054E72C
+ * XREFs of FadePalette @ 0x14054EDEC
  * Callers:
- *     RotBarUpdate @ 0x14054E96C (RotBarUpdate.c)
+ *     RotBarUpdate @ 0x14054F02C (RotBarUpdate.c)
  * Callees:
  *     <none>
  */

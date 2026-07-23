@@ -1,7 +1,7 @@
 /*
- * XREFs of SshpSessionManagerNormalizeLogHeader @ 0x140B3B490
+ * XREFs of SshpSessionManagerNormalizeLogHeader @ 0x140B3D710
  * Callers:
- *     SshpSessionManagerFlushControlEventBufferWorker @ 0x140AFC980 (SshpSessionManagerFlushControlEventBufferWorker.c)
+ *     SshpSessionManagerFlushControlEventBufferWorker @ 0x140AFE4F0 (SshpSessionManagerFlushControlEventBufferWorker.c)
  * Callees:
  *     <none>
  */

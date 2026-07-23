@@ -1,26 +1,26 @@
 /*
- * XREFs of PopApplyPolicy @ 0x140944018
+ * XREFs of PopApplyPolicy @ 0x1409BF988
  * Callers:
- *     PopVideoPowerSettingCallback @ 0x1404FF380 (PopVideoPowerSettingCallback.c)
- *     PopConsoleLockPowerSettingCallback @ 0x1407CC810 (PopConsoleLockPowerSettingCallback.c)
- *     PopPowerButtonSettingCallback @ 0x1407CCAC0 (PopPowerButtonSettingCallback.c)
- *     PopResetCurrentPolicies @ 0x140943130 (PopResetCurrentPolicies.c)
- *     PopBatteryUpdateAlarms @ 0x140943228 (PopBatteryUpdateAlarms.c)
- *     PopSleepPowerSettingCallback @ 0x140943AD0 (PopSleepPowerSettingCallback.c)
- *     PopHardDiskPowerSettingCallback @ 0x140943EA0 (PopHardDiskPowerSettingCallback.c)
- *     NtPowerInformation @ 0x1409DE3E0 (NtPowerInformation.c)
+ *     PopVideoPowerSettingCallback @ 0x1404F8B70 (PopVideoPowerSettingCallback.c)
+ *     PopConsoleLockPowerSettingCallback @ 0x1407CF8B0 (PopConsoleLockPowerSettingCallback.c)
+ *     PopPowerButtonSettingCallback @ 0x1407CFB60 (PopPowerButtonSettingCallback.c)
+ *     PopResetCurrentPolicies @ 0x1409BEAA8 (PopResetCurrentPolicies.c)
+ *     PopBatteryUpdateAlarms @ 0x1409BEBA0 (PopBatteryUpdateAlarms.c)
+ *     PopSleepPowerSettingCallback @ 0x1409BF440 (PopSleepPowerSettingCallback.c)
+ *     PopHardDiskPowerSettingCallback @ 0x1409BF810 (PopHardDiskPowerSettingCallback.c)
+ *     NtPowerInformation @ 0x140A1B510 (NtPowerInformation.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     PopSetNotificationWork @ 0x1404385A0 (PopSetNotificationWork.c)
- *     PopOpenPowerKey @ 0x1404E7CA4 (PopOpenPowerKey.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     ZwSetValueKey @ 0x140723FF0 (ZwSetValueKey.c)
- *     memcmp @ 0x14073D750 (memcmp.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     PopResetCBTriggers @ 0x1407D9D18 (PopResetCBTriggers.c)
- *     PopVerifySystemPowerPolicy @ 0x1409442F4 (PopVerifySystemPowerPolicy.c)
- *     PopUpdateSystemIdleContext @ 0x140945524 (PopUpdateSystemIdleContext.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     PopSetNotificationWork @ 0x1404274C0 (PopSetNotificationWork.c)
+ *     PopOpenPowerKey @ 0x1404E1064 (PopOpenPowerKey.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     ZwSetValueKey @ 0x140728BC0 (ZwSetValueKey.c)
+ *     memcmp @ 0x140742350 (memcmp.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     PopResetCBTriggers @ 0x1407DDCB8 (PopResetCBTriggers.c)
+ *     PopVerifySystemPowerPolicy @ 0x1409BFC64 (PopVerifySystemPowerPolicy.c)
+ *     PopUpdateSystemIdleContext @ 0x1409C0E94 (PopUpdateSystemIdleContext.c)
  */
 
 __int64 __fastcall PopApplyPolicy(char a1, char a2, _OWORD *a3, unsigned int a4)
@@ -41,7 +41,7 @@ __int64 __fastcall PopApplyPolicy(char a1, char a2, _OWORD *a3, unsigned int a4)
   __int128 v21; // xmm0
   __int64 result; // rax
   int v23; // ebx
-  _QWORD *v24; // rdi
+  __int64 WriteOperationCount; // rdi
   char v25; // r14
   __int64 i; // r8
   __int64 v27; // rcx
@@ -109,8 +109,8 @@ __int64 __fastcall PopApplyPolicy(char a1, char a2, _OWORD *a3, unsigned int a4)
   v23 = result;
   if ( (int)result >= 0 )
   {
-    v24 = qword_140F105C0;
-    if ( !memcmp(Buf1, qword_140F105C0, 0xE8uLL) && !a1 )
+    WriteOperationCount = PpmIdlePolicyLock.WriteOperationCount;
+    if ( !memcmp(Buf1, (const void *)PpmIdlePolicyLock.WriteOperationCount, 0xE8uLL) && !a1 )
     {
       return 0LL;
     }
@@ -119,12 +119,12 @@ __int64 __fastcall PopApplyPolicy(char a1, char a2, _OWORD *a3, unsigned int a4)
       v25 = 0;
       for ( i = 0LL; (unsigned int)i < 4; i = (unsigned int)(i + 1) )
       {
-        v27 = *((_QWORD *)&v47[-1] + 3 * i) - v24[3 * i + 12];
+        v27 = *((_QWORD *)&v47[-1] + 3 * i) - *(_QWORD *)(WriteOperationCount + 24 * i + 96);
         if ( !v27 )
         {
-          v27 = *((_QWORD *)&v46 + 3 * i + 1) - v24[3 * i + 13];
+          v27 = *((_QWORD *)&v46 + 3 * i + 1) - *(_QWORD *)(WriteOperationCount + 24 * i + 104);
           if ( !v27 )
-            v27 = *((_QWORD *)v47 + 3 * i) - v24[3 * i + 14];
+            v27 = *((_QWORD *)v47 + 3 * i) - *(_QWORD *)(WriteOperationCount + 24 * i + 112);
         }
         if ( v27 )
         {
@@ -132,9 +132,9 @@ __int64 __fastcall PopApplyPolicy(char a1, char a2, _OWORD *a3, unsigned int a4)
           break;
         }
       }
-      v28 = qword_140F105C0;
+      v28 = (_OWORD *)PpmIdlePolicyLock.WriteOperationCount;
       v29 = Buf1[1];
-      *(_OWORD *)qword_140F105C0 = Buf1[0];
+      *(_OWORD *)PpmIdlePolicyLock.WriteOperationCount = Buf1[0];
       v30 = Buf1[2];
       v28[1] = v29;
       v31 = Buf1[3];

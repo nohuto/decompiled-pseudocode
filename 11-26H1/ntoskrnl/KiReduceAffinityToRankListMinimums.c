@@ -1,8 +1,8 @@
 /*
- * XREFs of KiReduceAffinityToRankListMinimums @ 0x140229B30
+ * XREFs of KiReduceAffinityToRankListMinimums @ 0x14022B4C0
  * Callers:
- *     KiPerformSoftParkElection @ 0x14022A694 (KiPerformSoftParkElection.c)
- *     KiChooseTargetProcessor @ 0x140235760 (KiChooseTargetProcessor.c)
+ *     KiPerformSoftParkElection @ 0x14022C024 (KiPerformSoftParkElection.c)
+ *     KiChooseTargetProcessor @ 0x1402370C0 (KiChooseTargetProcessor.c)
  * Callees:
  *     <none>
  */

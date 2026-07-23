@@ -16,7 +16,7 @@ __int64 __fastcall HalpDmaAllocateReservedMappingArray(__int64 a1, unsigned int 
   __int64 v4; // rdx
   unsigned int v5; // ebx
   __int64 v6; // rdi
-  struct _SLIST_ENTRY *ReservedMapping; // rax
+  _SLIST_ENTRY *ReservedMapping; // rax
   __int64 v8; // rax
 
   if ( ((unsigned __int8)&stru_140D18DA0 & 0xF) != 0 )
@@ -33,7 +33,7 @@ __int64 __fastcall HalpDmaAllocateReservedMappingArray(__int64 a1, unsigned int 
       v6 = 0LL;
       do
       {
-        ReservedMapping = (struct _SLIST_ENTRY *)HalpDmaAllocateReservedMapping(v3);
+        ReservedMapping = (_SLIST_ENTRY *)HalpDmaAllocateReservedMapping(v3);
         v4 = qword_140C70C98;
         *(_QWORD *)(v6 + qword_140C70C98) = ReservedMapping;
         if ( !ReservedMapping )

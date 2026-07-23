@@ -1,9 +1,9 @@
 /*
- * XREFs of PoFxQueryCurrentComponentPerfState @ 0x1405D0370
+ * XREFs of PoFxQueryCurrentComponentPerfState @ 0x1405CDA90
  * Callers:
  *     <none>
  * Callees:
- *     PopFxQueryCurrentComponentPerfState @ 0x1405D196C (PopFxQueryCurrentComponentPerfState.c)
+ *     PopFxQueryCurrentComponentPerfState @ 0x1405CF08C (PopFxQueryCurrentComponentPerfState.c)
  */
 
 __int64 __fastcall PoFxQueryCurrentComponentPerfState(__int64 a1, int a2, unsigned int a3, int a4, __int64 a5)

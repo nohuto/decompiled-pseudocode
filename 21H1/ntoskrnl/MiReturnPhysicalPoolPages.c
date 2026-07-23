@@ -24,7 +24,7 @@ void __fastcall MiReturnPhysicalPoolPages(unsigned __int64 a1, char a2)
   unsigned __int64 v7; // r15
   unsigned __int64 v8; // rsi
   unsigned __int64 v9; // rcx
-  union _SLIST_HEADER *v10; // rbx
+  _SLIST_HEADER *v10; // rbx
   unsigned __int64 OldIrql; // rbx
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10

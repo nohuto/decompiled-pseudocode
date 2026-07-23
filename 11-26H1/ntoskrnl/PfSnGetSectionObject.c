@@ -1,21 +1,21 @@
 /*
- * XREFs of PfSnGetSectionObject @ 0x1409B9738
+ * XREFs of PfSnGetSectionObject @ 0x14098A718
  * Callers:
- *     PfSnPopulateReadList @ 0x1409B9120 (PfSnPopulateReadList.c)
+ *     PfSnPopulateReadList @ 0x14098A100 (PfSnPopulateReadList.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     PfpFileCheckAttributesForPrefetch @ 0x1404A6EE0 (PfpFileCheckAttributesForPrefetch.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     IopXxxControlFile @ 0x1408F5EA0 (IopXxxControlFile.c)
- *     ObReferenceObjectByHandle @ 0x1408F9550 (ObReferenceObjectByHandle.c)
- *     NtClose @ 0x1408F9F30 (NtClose.c)
- *     NtWaitForSingleObject @ 0x1408FA270 (NtWaitForSingleObject.c)
- *     NtResetEvent @ 0x1409B8AC0 (NtResetEvent.c)
- *     IopQueryXxxInformation @ 0x1409B8C10 (IopQueryXxxInformation.c)
- *     MiCreateSectionCommon @ 0x1409B9D9C (MiCreateSectionCommon.c)
- *     PfpOpenHandleCreate @ 0x1409BAE10 (PfpOpenHandleCreate.c)
- *     PfSnIsSectionPrefetchedAfterPhase @ 0x140A9220C (PfSnIsSectionPrefetchedAfterPhase.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     PfpFileCheckAttributesForPrefetch @ 0x1404A0570 (PfpFileCheckAttributesForPrefetch.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     IopXxxControlFile @ 0x140925E30 (IopXxxControlFile.c)
+ *     ObReferenceObjectByHandle @ 0x1409294E0 (ObReferenceObjectByHandle.c)
+ *     NtClose @ 0x140929EC0 (NtClose.c)
+ *     NtWaitForSingleObject @ 0x14092A200 (NtWaitForSingleObject.c)
+ *     NtResetEvent @ 0x140989AA0 (NtResetEvent.c)
+ *     IopQueryXxxInformation @ 0x140989BF0 (IopQueryXxxInformation.c)
+ *     MiCreateSectionCommon @ 0x14098AD7C (MiCreateSectionCommon.c)
+ *     PfpOpenHandleCreate @ 0x14098BDF0 (PfpOpenHandleCreate.c)
+ *     PfSnIsSectionPrefetchedAfterPhase @ 0x140A96D5C (PfSnIsSectionPrefetchedAfterPhase.c)
  */
 
 __int64 __fastcall PfSnGetSectionObject(
@@ -26,7 +26,7 @@ __int64 __fastcall PfSnGetSectionObject(
         unsigned int a5,
         unsigned int a6,
         int a7,
-        HANDLE a8,
+        HANDLE EventHandle,
         _QWORD *a9,
         _BYTE *a10)
 {
@@ -59,11 +59,11 @@ __int64 __fastcall PfSnGetSectionObject(
   int v39; // edx
   size_t Size; // [rsp+38h] [rbp-C8h]
   volatile void *Address; // [rsp+40h] [rbp-C0h]
-  PVOID Object; // [rsp+60h] [rbp-A0h] BYREF
+  HANDLE Handle; // [rsp+60h] [rbp-A0h] BYREF
   __int64 v43[2]; // [rsp+68h] [rbp-98h] BYREF
   int v44; // [rsp+78h] [rbp-88h]
   __int64 v45; // [rsp+80h] [rbp-80h] BYREF
-  HANDLE Handle; // [rsp+88h] [rbp-78h] BYREF
+  HANDLE v46; // [rsp+88h] [rbp-78h] BYREF
   __m256i BugCheckParameter2; // [rsp+90h] [rbp-70h] BYREF
   __int64 v48; // [rsp+B0h] [rbp-50h]
   _OWORD v49[2]; // [rsp+B8h] [rbp-48h] BYREF
@@ -89,11 +89,11 @@ __int64 __fastcall PfSnGetSectionObject(
   v17 = a7 != 0 ? 285212672 : 0x4000000;
   v45 = 0LL;
   Src = 0LL;
-  Handle = 0LL;
+  v46 = 0LL;
   *(_OWORD *)v51 = 0LL;
   v48 = a2;
   v52 = 0LL;
-  Object = a8;
+  Handle = EventHandle;
   v43[0] = 0LL;
   memset(&BugCheckParameter2, 0, 24);
   BugCheckParameter2.m256i_i64[3] = 0x200000000LL;
@@ -117,10 +117,10 @@ __int64 __fastcall PfSnGetSectionObject(
       v21 = *(void **)(a2 + 32);
       *((_QWORD *)&Src + 1) = a1[12] & 7 | (8 * (*((_DWORD *)a1 + 25) & 7 | 8u));
       *(_OWORD *)v43 = 0LL;
-      NtResetEvent(a8, 0LL);
+      NtResetEvent(EventHandle, 0LL);
       LODWORD(Size) = 24;
-      if ( (unsigned int)IopXxxControlFile(v21, Object, 0LL, 0LL, v43, 0x90120u, (unsigned int *)&Src, Size, 0LL, 0, 0) == 259 )
-        NtWaitForSingleObject((int)Object, 0, 0LL);
+      if ( (unsigned int)IopXxxControlFile(v21, Handle, 0LL, 0LL, v43, 0x90120u, (unsigned int *)&Src, Size, 0LL, 0, 0) == 259 )
+        NtWaitForSingleObject(Handle, 0, 0LL);
       a2 = v48;
       DWORD1(Src) = 1;
     }
@@ -139,7 +139,7 @@ __int64 __fastcall PfSnGetSectionObject(
     v43[0] = BugCheckParameter2.m256i_i64[0];
     SectionCommon = PfpFileCheckAttributesForPrefetch(
                       (void *)BugCheckParameter2.m256i_i64[0],
-                      (((stru_140E66B30.AbCompletedIoQoSBoostCount & 0x10) == 0) << 14) + 4864);
+                      (((stru_140E66D40.AbCompletedIoQoSBoostCount & 0x10) == 0) << 14) + 4864);
     if ( SectionCommon < 0 )
     {
       v14 = BugCheckParameter2.m256i_i64[3];
@@ -154,7 +154,7 @@ __int64 __fastcall PfSnGetSectionObject(
                   8,
                   0,
                   (__int64)&v45,
-                  &Object,
+                  &Handle,
                   1) >= 0 )
       {
         v23 = (unsigned int)_InterlockedExchangeAdd((volatile signed __int32 *)a1 + 30, 1u);
@@ -198,7 +198,7 @@ LABEL_16:
         v49[0] = v11;
         LODWORD(Address) = 0;
         SectionCommon = MiCreateSectionCommon(
-                          (int)&Handle,
+                          (int)&v46,
                           5,
                           (int)v51,
                           0,
@@ -211,19 +211,19 @@ LABEL_16:
                           KeGetCurrentThread()->PreviousMode);
         if ( SectionCommon >= 0 )
         {
-          Object = 0LL;
-          SectionCommon = ObReferenceObjectByHandle(Handle, 5u, MmSectionObjectType, 0, &Object, 0LL);
+          Handle = 0LL;
+          SectionCommon = ObReferenceObjectByHandle(v46, 5u, MmSectionObjectType, 0, &Handle, 0LL);
           if ( SectionCommon < 0 )
           {
-            if ( Object )
-              ObfDereferenceObject(Object);
+            if ( Handle )
+              ObfDereferenceObject(Handle);
             goto LABEL_32;
           }
           v27 = a5;
           SectionCommon = 0;
           if ( a7 )
           {
-            *(_QWORD *)(v19 + v18 + 32) = Object;
+            *(_QWORD *)(v19 + v18 + 32) = Handle;
             v28 = !_BitScanReverse(&v37, (*(_DWORD *)(a4 + 20) >> 8) & 0x7F);
             if ( !v28 )
             {
@@ -234,7 +234,7 @@ LABEL_16:
             *(_DWORD *)(v19 + v18 + 48) |= 1u;
             goto LABEL_22;
           }
-          *(_QWORD *)(v19 + v18 + 40) = Object;
+          *(_QWORD *)(v19 + v18 + 40) = Handle;
           v28 = !_BitScanReverse(&v29, (*(_DWORD *)(a4 + 20) >> 1) & 0x7F);
           if ( v28 || (_BitScanReverse(&v30, a5), v29 <= v30) )
           {
@@ -280,9 +280,9 @@ LABEL_23:
   v14 = BugCheckParameter2.m256i_i64[3];
   v43[0] = BugCheckParameter2.m256i_i64[0];
 LABEL_33:
-  if ( Handle )
+  if ( v46 )
   {
-    NtClose(Handle);
+    NtClose(v46);
     v15 = v43[0];
   }
 LABEL_35:

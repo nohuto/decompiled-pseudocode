@@ -20,18 +20,18 @@
 
 __int64 __fastcall TppPoolpReferenceGlobalPool(
         volatile signed __int32 **a1,
-        volatile signed __int32 *a2,
+        _RTL_SRWLOCK *a2,
         volatile signed __int32 **a3)
 {
   char v6; // si
   __int64 result; // rax
-  __int64 v8; // rsi
-  __int64 v9; // rdx
-  int v10; // edx
-  int v11; // edx
+  PTP_POOL v8; // rsi
+  ULONG v9; // edx
+  unsigned int SelectedCpuSetCount; // edx
+  unsigned int v11; // edx
   __int64 v12; // rdx
-  int v13; // [rsp+20h] [rbp-28h]
-  __int64 v14; // [rsp+68h] [rbp+20h] BYREF
+  NTSTATUS v13; // [rsp+20h] [rbp-28h]
+  PTP_POOL Pool; // [rsp+68h] [rbp+20h] BYREF
 
   if ( !a3 || !a1 || !a2 || NtCurrentPeb()->Ldr->ShutdownInProgress )
   {
@@ -52,7 +52,7 @@ __int64 __fastcall TppPoolpReferenceGlobalPool(
     if ( v6 )
       return 0LL;
   }
-  v14 = 0LL;
+  Pool = 0LL;
   if ( NtCurrentPeb()->Ldr->ShutdownInProgress )
   {
     TppRaiseInvalidParameter();
@@ -60,7 +60,7 @@ __int64 __fastcall TppPoolpReferenceGlobalPool(
   }
   else
   {
-    result = TpAllocPoolInternal(&v14, 0);
+    result = TpAllocPoolInternal(&Pool, 0);
   }
   v13 = result;
   if ( (int)result >= 0 )
@@ -69,27 +69,27 @@ __int64 __fastcall TppPoolpReferenceGlobalPool(
     if ( *a1 )
     {
       _InterlockedIncrement(*a1);
-      v8 = v14;
+      v8 = Pool;
     }
     else
     {
-      v8 = v14;
+      v8 = Pool;
       if ( a1 == (volatile signed __int32 **)&TppPoolpGlobalPool )
       {
         if ( TppPoolpGlobalPoolMaxThreads )
         {
-          TpSetPoolMaxThreads(v14, (unsigned int)TppPoolpGlobalPoolMaxThreads);
+          TpSetPoolMaxThreads(Pool, TppPoolpGlobalPoolMaxThreads);
         }
         else
         {
-          v9 = (unsigned int)TppPoolpGlobalPoolMaxThreadsOverride;
+          v9 = TppPoolpGlobalPoolMaxThreadsOverride;
           if ( !TppPoolpGlobalPoolMaxThreadsOverride )
           {
-            if ( !v14 || (v10 = *(_DWORD *)(v14 + 440), v8 = v14, !v10) )
-              v10 = MEMORY[0x7FFE03C0];
-            v9 = (unsigned int)(8 * v10);
-            if ( (unsigned int)v9 < 0x300 )
-              v9 = 768LL;
+            if ( !Pool || (SelectedCpuSetCount = Pool->SelectedCpuSetCount, v8 = Pool, !SelectedCpuSetCount) )
+              SelectedCpuSetCount = MEMORY[0x7FFE03C0];
+            v9 = 8 * SelectedCpuSetCount;
+            if ( v9 < 0x300 )
+              v9 = 768;
           }
           TpSetPoolMaxThreads(v8, v9);
           if ( TppPoolpGlobalPoolMaxThreadsOverride )
@@ -98,9 +98,9 @@ __int64 __fastcall TppPoolpReferenceGlobalPool(
           }
           else
           {
-            if ( !v8 || (v11 = *(_DWORD *)(v8 + 440), v8 = v14, !v11) )
+            if ( !v8 || (v11 = v8->SelectedCpuSetCount, v8 = Pool, !v11) )
               v11 = MEMORY[0x7FFE03C0];
-            v12 = (unsigned int)(4 * v11);
+            v12 = 4 * v11;
             if ( (unsigned int)v12 < 0x180 )
               v12 = 384LL;
           }
@@ -108,24 +108,24 @@ __int64 __fastcall TppPoolpReferenceGlobalPool(
         }
         if ( TppPoolpGlobalPoolStackSize )
         {
-          v13 = TpSetPoolStackInformation(v8);
+          v13 = TpSetPoolStackInformation(v8, TppPoolpGlobalPoolStackSize);
           if ( v13 < 0 )
             goto LABEL_40;
         }
       }
       else if ( a1 == (volatile signed __int32 **)&TppPoolpSerializedPool )
       {
-        TpSetPoolMaxThreads(v14, 1LL);
-        v13 = TpSetPoolMinThreads(v8, 1LL);
+        TpSetPoolMaxThreads(Pool, 1u);
+        v13 = TpSetPoolMinThreads(v8, 1u);
         if ( v13 < 0 )
           goto LABEL_40;
       }
-      *a1 = (volatile signed __int32 *)v8;
+      *a1 = &v8->Refcount.Refcount;
       v8 = 0LL;
-      v14 = 0LL;
+      Pool = 0LL;
     }
 LABEL_40:
-    RtlReleaseSRWLockExclusive((volatile signed __int64 *)a2);
+    RtlReleaseSRWLockExclusive(a2);
     if ( v8 )
       TpReleasePool(v8);
     if ( v13 >= 0 )

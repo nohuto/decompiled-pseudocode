@@ -1,16 +1,16 @@
 /*
- * XREFs of MmSecureVirtualMemoryEx @ 0x1409EA790
+ * XREFs of MmSecureVirtualMemoryEx @ 0x1409E5080
  * Callers:
- *     VmpSecureMemoryForPin @ 0x14079F704 (VmpSecureMemoryForPin.c)
- *     MmSecureVirtualMemory @ 0x1409EA760 (MmSecureVirtualMemory.c)
- *     VmSecureBackingMemory @ 0x140A9ADB0 (VmSecureBackingMemory.c)
+ *     VmpSecureMemoryForPin @ 0x14079F814 (VmpSecureMemoryForPin.c)
+ *     MmSecureVirtualMemory @ 0x1409E5050 (MmSecureVirtualMemory.c)
+ *     VmSecureBackingMemory @ 0x140A96320 (VmSecureBackingMemory.c)
  * Callees:
- *     MiUnlockAndDereferenceVad @ 0x1402BAFA0 (MiUnlockAndDereferenceVad.c)
- *     MiObtainReferencedVadEx @ 0x1402FBE30 (MiObtainReferencedVadEx.c)
- *     MiSecureVad @ 0x1409EA8FC (MiSecureVad.c)
+ *     MiObtainReferencedVadEx @ 0x140344D30 (MiObtainReferencedVadEx.c)
+ *     MiUnlockAndDereferenceVad @ 0x1403626E0 (MiUnlockAndDereferenceVad.c)
+ *     MiSecureVad @ 0x1409E51EC (MiSecureVad.c)
  */
 
-__int64 __fastcall MmSecureVirtualMemoryEx(unsigned __int64 a1, __int64 a2, unsigned int a3, int a4)
+__int64 __fastcall MmSecureVirtualMemoryEx(unsigned __int64 a1, __int64 a2, unsigned int a3, __int64 a4)
 {
   char v4; // r15
   int v6; // esi
@@ -42,7 +42,7 @@ __int64 __fastcall MmSecureVirtualMemoryEx(unsigned __int64 a1, __int64 a2, unsi
         v10 = a1;
       if ( v10 <= 0x7FFFFFFEFFFFLL && ((a3 - 1) & 0xFFFFFFFC) == 0 && a3 != 3 )
       {
-        v11 = MiObtainReferencedVadEx(a1 & 0xFFFFFFFFFFFFF000uLL, 0LL, &v16);
+        v11 = MiObtainReferencedVadEx(a1 & 0xFFFFFFFFFFFFF000uLL, 0LL, &v16, a4);
         v12 = (void *)v11;
         if ( v11 )
         {
@@ -59,7 +59,7 @@ __int64 __fastcall MmSecureVirtualMemoryEx(unsigned __int64 a1, __int64 a2, unsi
             v16 = MiSecureVad(v11, v7, v6, v13, v4, (__int64)v15);
             MiUnlockAndDereferenceVad(v12);
             if ( v16 >= 0 )
-              return v15[0] ^ qword_140E2DA80 ^ (__int64)KeGetCurrentThread()->ApcState.Process;
+              return v15[0] ^ qword_140E2DBC0 ^ (__int64)KeGetCurrentThread()->ApcState.Process;
           }
         }
       }

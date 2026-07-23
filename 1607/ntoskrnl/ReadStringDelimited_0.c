@@ -1,12 +1,12 @@
 /*
- * XREFs of ReadStringDelimited_0 @ 0x1401557E4
+ * XREFs of ReadStringDelimited_0 @ 0x140155D54
  * Callers:
- *     _winput_s @ 0x140155A7C (_winput_s.c)
+ *     _winput_s @ 0x140155FEC (_winput_s.c)
  * Callees:
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     ReadString_0 @ 0x1401555AC (ReadString_0.c)
- *     __chkstk @ 0x140167650 (__chkstk.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     ReadString_0 @ 0x140155B1C (ReadString_0.c)
+ *     __chkstk @ 0x140167BC0 (__chkstk.c)
+ *     memset @ 0x140171AC0 (memset.c)
  */
 
 __int64 __fastcall ReadStringDelimited_0(

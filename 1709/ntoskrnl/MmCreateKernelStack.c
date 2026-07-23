@@ -38,7 +38,7 @@ __int64 __fastcall MmCreateKernelStack(unsigned int a1, unsigned __int16 a2, uns
   ULONG_PTR BugCheckParameter4; // rax
   __int64 v14; // r15
   __int64 i; // rbx
-  union _SLIST_HEADER *v16; // rdi
+  _SLIST_HEADER *v16; // rdi
   __int16 Alignment; // r14
   unsigned __int8 CurrentIrql; // r13
   PSLIST_ENTRY v19; // rax

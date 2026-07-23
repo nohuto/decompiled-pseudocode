@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwPrivilegeCheck @ 0x1800A28F0
+ * XREFs of ZwPrivilegeCheck @ 0x1800A2910
  * Callers:
  *     RtlpNewSecurityObject @ 0x1800428C0 (RtlpNewSecurityObject.c)
  *     RtlpValidOwnerSubjectContext @ 0x18006E2FC (RtlpValidOwnerSubjectContext.c)
@@ -9,11 +9,11 @@
  *     <none>
  */
 
-__int64 ZwPrivilegeCheck()
+NTSTATUS __cdecl ZwPrivilegeCheck(HANDLE ClientToken, PPRIVILEGE_SET RequiredPrivileges, PBOOLEAN Result)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 305LL;
+  result = 305;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

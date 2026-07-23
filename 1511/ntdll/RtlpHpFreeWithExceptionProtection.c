@@ -10,86 +10,83 @@
  *     RtlpHeapExceptionFilter @ 0x1800E3178 (RtlpHeapExceptionFilter.c)
  */
 
-__int64 __fastcall RtlpHpFreeWithExceptionProtection(int a1, int a2, int a3)
+__int64 __fastcall RtlpHpFreeWithExceptionProtection(void *a1)
 {
-  unsigned int v3; // ebx
-  unsigned __int16 v4; // r15
-  __int64 v5; // rdi
-  int v6; // r12d
-  _QWORD *v7; // r14
-  signed __int64 v8; // rax
-  signed __int64 v9; // rtt
-  int *v10; // r10
-  unsigned __int8 *v11; // r8
-  __int64 v12; // r9
-  __int64 v13; // rdx
-  _QWORD *v14; // rdx
-  _QWORD *v15; // rcx
-  __int64 v17; // [rsp+40h] [rbp-58h] BYREF
-  __int64 v18; // [rsp+48h] [rbp-50h] BYREF
-  __int64 v19; // [rsp+50h] [rbp-48h]
-  _QWORD *v20; // [rsp+58h] [rbp-40h]
-  int *v21; // [rsp+60h] [rbp-38h]
-  _QWORD *v22; // [rsp+68h] [rbp-30h]
-  _QWORD *v23; // [rsp+70h] [rbp-28h]
-  __int64 v24; // [rsp+B8h] [rbp+20h] BYREF
+  unsigned int v1; // ebx
+  unsigned __int16 v2; // r15
+  __int64 v3; // rdi
+  int v4; // r12d
+  _QWORD *v5; // r14
+  signed __int64 v6; // rax
+  signed __int64 v7; // rtt
+  int *v8; // r10
+  unsigned __int8 *v9; // r8
+  __int64 v10; // r9
+  __int64 v11; // rdx
+  _QWORD *v12; // rdx
+  _QWORD *v13; // rcx
+  __int64 v15; // [rsp+40h] [rbp-58h]
+  __int64 v16; // [rsp+48h] [rbp-50h] BYREF
+  __int64 v17; // [rsp+50h] [rbp-48h]
+  _QWORD *v18; // [rsp+58h] [rbp-40h]
+  int *v19; // [rsp+60h] [rbp-38h]
+  _QWORD *v20; // [rsp+68h] [rbp-30h]
+  _QWORD *v21; // [rsp+70h] [rbp-28h]
+  __int64 v22; // [rsp+B8h] [rbp+20h] BYREF
 
   if ( (RtlpHpHeapFeatures & 2) != 0 )
   {
-    v3 = RtlpFreeHeapInternal(a1, a2, a3, (unsigned int)&v17, (__int64)&v24);
-    if ( v3 )
+    v1 = RtlpFreeHeapInternal(a1, (__int64)&v22);
+    if ( v1 )
     {
-      v4 = v24;
-      if ( (_WORD)v24 )
+      v2 = v22;
+      if ( (_WORD)v22 )
       {
-        v5 = v17;
-        if ( !v17 )
+        v3 = v15;
+        if ( !v15 )
+          v3 = 16LL;
+        v4 = 0;
+        v5 = *(_QWORD **)(qword_180143898 + 8LL * (unsigned __int16)v22 - 8);
+        v6 = v5[4];
+        while ( v6 != v3 )
         {
-          v5 = 16LL;
-          v17 = 16LL;
-        }
-        v6 = 0;
-        v7 = *(_QWORD **)(qword_180143898 + 8LL * (unsigned __int16)v24 - 8);
-        v8 = v7[4];
-        while ( v8 != v5 )
-        {
-          v9 = v8;
-          v8 = _InterlockedCompareExchange64(v7 + 4, v8 - v5, v8);
-          if ( v9 == v8 )
+          v7 = v6;
+          v6 = _InterlockedCompareExchange64(v5 + 4, v6 - v3, v6);
+          if ( v7 == v6 )
             goto LABEL_9;
         }
-        v6 = 1;
+        v4 = 1;
         RtlAcquireSRWLockExclusive(&RtlpHpTagContext);
-        if ( _InterlockedExchangeAdd64(v7 + 4, -v5) == v5 )
+        if ( _InterlockedExchangeAdd64(v5 + 4, -v3) == v3 )
         {
-          *(_QWORD *)(qword_180143898 + 8LL * v4 - 8) = 0LL;
-          v10 = &dword_180143888;
-          v21 = &dword_180143888;
-          v22 = v7;
-          v18 = v7[1] & (-1LL << (dword_18014388C & 0x1F));
-          v11 = (unsigned __int8 *)&v18;
-          v12 = 8LL;
-          v19 = 8LL;
-          v13 = 314159LL;
-          v24 = 314159LL;
-          while ( v12 >= 8 )
+          *(_QWORD *)(qword_180143898 + 8LL * v2 - 8) = 0LL;
+          v8 = &dword_180143888;
+          v19 = &dword_180143888;
+          v20 = v5;
+          v16 = v5[1] & (-1LL << (dword_18014388C & 0x1F));
+          v9 = (unsigned __int8 *)&v16;
+          v10 = 8LL;
+          v17 = 8LL;
+          v11 = 314159LL;
+          v22 = 314159LL;
+          while ( v10 >= 8 )
           {
-            v24 = *v11 + 37 * v13;
-            v24 = 37 * v24 + v11[1];
-            v24 = 37 * v24 + v11[2];
-            v24 = 37 * v24 + v11[3];
-            v24 = 37 * v24 + v11[4];
-            v24 = 37 * v24 + v11[5];
-            v24 = 37 * v24 + v11[6];
-            v13 = 37 * v24 + v11[7];
-            v24 = v13;
-            v11 += 8;
-            v12 -= 8LL;
-            v19 = v12;
+            v22 = *v9 + 37 * v11;
+            v22 = 37 * v22 + v9[1];
+            v22 = 37 * v22 + v9[2];
+            v22 = 37 * v22 + v9[3];
+            v22 = 37 * v22 + v9[4];
+            v22 = 37 * v22 + v9[5];
+            v22 = 37 * v22 + v9[6];
+            v11 = 37 * v22 + v9[7];
+            v22 = v11;
+            v9 += 8;
+            v10 -= 8LL;
+            v17 = v10;
           }
-          if ( v12 >= 1 )
+          if ( v10 >= 1 )
           {
-            switch ( (int)v12 )
+            switch ( (int)v10 )
             {
               case 1:
                 goto LABEL_32;
@@ -104,73 +101,73 @@ __int64 __fastcall RtlpHpFreeWithExceptionProtection(int a1, int a2, int a3)
               case 6:
                 goto LABEL_27;
               case 7:
-                v13 = *v11 + 37 * v13;
-                v24 = v13;
-                ++v11;
+                v11 = *v9 + 37 * v11;
+                v22 = v11;
+                ++v9;
 LABEL_27:
-                v13 = *v11 + 37 * v13;
-                v24 = v13;
-                ++v11;
+                v11 = *v9 + 37 * v11;
+                v22 = v11;
+                ++v9;
 LABEL_28:
-                v13 = *v11 + 37 * v13;
-                v24 = v13;
-                ++v11;
+                v11 = *v9 + 37 * v11;
+                v22 = v11;
+                ++v9;
 LABEL_29:
-                v13 = *v11 + 37 * v13;
-                v24 = v13;
-                ++v11;
+                v11 = *v9 + 37 * v11;
+                v22 = v11;
+                ++v9;
 LABEL_30:
-                v13 = *v11 + 37 * v13;
-                v24 = v13;
-                ++v11;
+                v11 = *v9 + 37 * v11;
+                v22 = v11;
+                ++v9;
 LABEL_31:
-                v13 = *v11 + 37 * v13;
-                v24 = v13;
-                ++v11;
+                v11 = *v9 + 37 * v11;
+                v22 = v11;
+                ++v9;
 LABEL_32:
-                v13 = *v11 + 37 * v13;
-                v24 = v13;
+                v11 = *v9 + 37 * v11;
+                v22 = v11;
                 break;
             }
           }
-          v14 = (_QWORD *)(*((_QWORD *)&dword_180143888 + 1)
-                         + 8LL * ((unsigned int)v13 & (((unsigned int)dword_18014388C >> 5) - 1)));
-          v23 = v14;
-          v15 = v7;
-          v20 = v7;
-          if ( (*v7 & 0x8000000000000002uLL) == 0x8000000000000002uLL )
+          v12 = (_QWORD *)(*((_QWORD *)&dword_180143888 + 1)
+                         + 8LL * ((unsigned int)v11 & (((unsigned int)dword_18014388C >> 5) - 1)));
+          v21 = v12;
+          v13 = v5;
+          v18 = v5;
+          if ( (*v5 & 0x8000000000000002uLL) == 0x8000000000000002uLL )
           {
-            v14 = v23;
-            v10 = v21;
-            v15 = v20;
+            v12 = v21;
+            v8 = v19;
+            v13 = v18;
           }
-          while ( (*v14 & 1) == 0 )
+          while ( (*v12 & 1) == 0 )
           {
-            if ( (_QWORD *)*v14 == v15 )
+            if ( (_QWORD *)*v12 == v13 )
             {
-              *v14 = *v15;
-              --*v10;
-              *v15 |= 0x8000000000000002uLL;
-              v22 = v14;
+              *v12 = *v13;
+              --*v8;
+              *v13 |= 0x8000000000000002uLL;
+              v20 = v12;
               break;
             }
-            v14 = (_QWORD *)*v14;
+            v12 = (_QWORD *)*v12;
           }
-          word_1801438A0 = v4 - 1;
+          word_1801438A0 = v2 - 1;
           --word_1801438A2;
           RtlReleaseSRWLockExclusive(&RtlpHpTagContext);
-          v6 = 0;
-          RtlpHpMetadataFree(v7);
+          v4 = 0;
+          RtlpHpMetadataFree(v5);
         }
 LABEL_9:
-        if ( v6 )
+        if ( v4 )
           RtlReleaseSRWLockExclusive(&RtlpHpTagContext);
       }
     }
   }
   else
   {
-    return (unsigned int)RtlpFreeHeapInternal(a1, a2, a3, 0, 0LL);
+    return (unsigned int)RtlpFreeHeapInternal(a1, 0LL);
   }
-  return v3;
+  return v1;
 }

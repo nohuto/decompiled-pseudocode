@@ -9,42 +9,50 @@
  *     NtdllpAllocateStringRoutine @ 0x18006DAA0 (NtdllpAllocateStringRoutine.c)
  */
 
-__int64 __fastcall RtlUpcaseUnicodeStringToAnsiString(unsigned __int16 *a1, PWCH *a2, char a3)
+NTSTATUS __cdecl RtlUpcaseUnicodeStringToAnsiString(
+        PANSI_STRING DestinationString,
+        PUNICODE_STRING SourceString,
+        BOOLEAN AllocateDestinationString)
 {
-  unsigned int v5; // eax
-  __int64 StringRoutine; // rax
-  int v8; // edi
-  unsigned int v9; // [rsp+78h] [rbp+20h] BYREF
+  unsigned int v6; // eax
+  char *StringRoutine; // rax
+  int v9; // edi
+  ULONG BytesInMultiByteString; // [rsp+78h] [rbp+20h] BYREF
 
-  v5 = RtlxUnicodeStringToOemSize(a2);
-  if ( v5 > 0xFFFF )
-    return 3221225712LL;
-  *a1 = v5 - 1;
-  if ( a3 )
+  v6 = RtlxUnicodeStringToOemSize((PWCH *)SourceString);
+  if ( v6 > 0xFFFF )
+    return -1073741584;
+  DestinationString->Length = v6 - 1;
+  if ( AllocateDestinationString )
   {
-    a1[1] = v5;
-    StringRoutine = NtdllpAllocateStringRoutine(v5);
-    *((_QWORD *)a1 + 1) = StringRoutine;
+    DestinationString->MaximumLength = v6;
+    StringRoutine = (char *)NtdllpAllocateStringRoutine(v6);
+    DestinationString->Buffer = StringRoutine;
     if ( !StringRoutine )
-      return 3221225495LL;
+      return -1073741801;
   }
-  else if ( (unsigned __int16)(v5 - 1) >= a1[1] )
+  else if ( (unsigned __int16)(v6 - 1) >= DestinationString->MaximumLength )
   {
-    return 2147483653LL;
+    return -2147483643;
   }
-  v8 = RtlUpcaseUnicodeToMultiByteN(*((_QWORD *)a1 + 1), *a1, (__int64)&v9);
-  if ( v8 >= 0 )
+  v9 = RtlUpcaseUnicodeToMultiByteN(
+         DestinationString->Buffer,
+         DestinationString->Length,
+         &BytesInMultiByteString,
+         SourceString->Buffer,
+         SourceString->Length);
+  if ( v9 >= 0 )
   {
-    *(_BYTE *)(v9 + *((_QWORD *)a1 + 1)) = 0;
-    v8 = 0;
+    DestinationString->Buffer[BytesInMultiByteString] = 0;
+    v9 = 0;
   }
-  if ( v8 < 0 )
+  if ( v9 < 0 )
   {
-    if ( a3 )
+    if ( AllocateDestinationString )
     {
-      NtdllpFreeStringRoutine(*((_QWORD *)a1 + 1));
-      *((_QWORD *)a1 + 1) = 0LL;
+      NtdllpFreeStringRoutine(DestinationString->Buffer);
+      DestinationString->Buffer = 0LL;
     }
   }
-  return (unsigned int)v8;
+  return v9;
 }

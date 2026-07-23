@@ -22,16 +22,16 @@
  *     RtlSetOwnerSecurityDescriptor @ 0x1406801B0 (RtlSetOwnerSecurityDescriptor.c)
  */
 
-__int64 __fastcall RtlCheckTokenCapability(HANDLE ExistingTokenHandle, PSID Sid, _BYTE *a3)
+NTSTATUS __cdecl RtlCheckTokenCapability(HANDLE TokenHandle, PSID CapabilitySidToCheck, PBOOLEAN HasCapability)
 {
-  NTSTATUS v6; // ebx
+  int v6; // ebx
   char v7; // al
-  NTSTATUS v8; // edi
-  HANDLE TokenHandle; // [rsp+60h] [rbp-A0h] BYREF
+  int v8; // edi
+  HANDLE TokenHandlea; // [rsp+60h] [rbp-A0h] BYREF
   ULONG ReturnLength; // [rsp+68h] [rbp-98h] BYREF
-  NTSTATUS v12; // [rsp+6Ch] [rbp-94h] BYREF
+  int v12; // [rsp+6Ch] [rbp-94h] BYREF
   int v13; // [rsp+70h] [rbp-90h] BYREF
-  HANDLE ExistingTokenHandlea; // [rsp+78h] [rbp-88h] BYREF
+  HANDLE ExistingTokenHandle; // [rsp+78h] [rbp-88h] BYREF
   PVOID Object; // [rsp+80h] [rbp-80h] BYREF
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+88h] [rbp-78h] BYREF
   char *v17; // [rsp+B8h] [rbp-48h] BYREF
@@ -44,7 +44,7 @@ __int64 __fastcall RtlCheckTokenCapability(HANDLE ExistingTokenHandle, PSID Sid,
   char v24; // [rsp+220h] [rbp+120h] BYREF
 
   memset(Acl, 0, sizeof(Acl));
-  TokenHandle = 0LL;
+  TokenHandlea = 0LL;
   memset(&ObjectAttributes, 0, sizeof(ObjectAttributes));
   v21 = 0LL;
   v22 = 0;
@@ -52,13 +52,13 @@ __int64 __fastcall RtlCheckTokenCapability(HANDLE ExistingTokenHandle, PSID Sid,
   memset(TokenInformation, 0, 0x58uLL);
   v18[0] = 0LL;
   v18[1] = 0LL;
-  *a3 = 0;
-  if ( !(unsigned __int8)RtlIsCapabilitySid(Sid) )
+  *HasCapability = 0;
+  if ( !RtlIsCapabilitySid(CapabilitySidToCheck) )
   {
     v6 = -1073741811;
     goto LABEL_18;
   }
-  if ( ExistingTokenHandle )
+  if ( TokenHandle )
   {
     ObjectAttributes.RootDirectory = 0LL;
     ObjectAttributes.ObjectName = 0LL;
@@ -68,23 +68,23 @@ __int64 __fastcall RtlCheckTokenCapability(HANDLE ExistingTokenHandle, PSID Sid,
     ObjectAttributes.Attributes = 512;
     v21 = 0x20000000CLL;
     LOWORD(v22) = 1;
-    v6 = ZwDuplicateToken(ExistingTokenHandle, 8u, &ObjectAttributes, 0, TokenImpersonation, &TokenHandle);
+    v6 = ZwDuplicateToken(TokenHandle, 8u, &ObjectAttributes, 0, TokenImpersonation, &TokenHandlea);
     if ( v6 < 0 )
       goto LABEL_18;
-    ExistingTokenHandle = 0LL;
+    TokenHandle = 0LL;
 LABEL_10:
     ReturnLength = 88;
-    ZwQueryInformationToken(TokenHandle, TokenUser, TokenInformation, 0x58u, &ReturnLength);
+    ZwQueryInformationToken(TokenHandlea, TokenUser, TokenInformation, 0x58u, &ReturnLength);
     RtlCreateSecurityDescriptor(SecurityDescriptor, 1u);
     RtlSetOwnerSecurityDescriptor(SecurityDescriptor, TokenInformation[0], 0);
     RtlSetGroupSecurityDescriptor(SecurityDescriptor, TokenInformation[0], 0);
     RtlCreateAcl(Acl, 0xA0u, 2u);
     RtlAddAccessAllowedAce(Acl, 2u, 0x10001u, TokenInformation[0]);
-    RtlAddAccessAllowedAce(Acl, 2u, 0x10001u, Sid);
+    RtlAddAccessAllowedAce(Acl, 2u, 0x10001u, CapabilitySidToCheck);
     RtlSetDaclSecurityDescriptor(SecurityDescriptor, 1u, Acl, 0);
     v17 = &v24;
     v18[3] = KeGetCurrentThread()->ApcState.Process[1].Header.WaitListHead.Flink;
-    v6 = ObReferenceObjectByHandle(TokenHandle, 8u, (POBJECT_TYPE)SeTokenObjectType, 0, &Object, 0LL);
+    v6 = ObReferenceObjectByHandle(TokenHandlea, 8u, (POBJECT_TYPE)SeTokenObjectType, 0, &Object, 0LL);
     v18[2] = Object;
     if ( v6 >= 0 )
     {
@@ -108,20 +108,20 @@ LABEL_10:
       if ( v6 >= 0 )
       {
         if ( !v8 && v13 == 65537 )
-          *a3 = 1;
+          *HasCapability = 1;
         v6 = 0;
 LABEL_18:
-        if ( ExistingTokenHandle )
-          return (unsigned int)v6;
+        if ( TokenHandle )
+          return v6;
         goto LABEL_19;
       }
     }
     goto LABEL_19;
   }
-  v6 = ZwOpenThreadTokenEx((HANDLE)0xFFFFFFFFFFFFFFFELL, 8u, 1u, 0x200u, &TokenHandle);
+  v6 = ZwOpenThreadTokenEx((HANDLE)0xFFFFFFFFFFFFFFFELL, 8u, 1u, 0x200u, &TokenHandlea);
   if ( v6 == -1073741700 )
   {
-    v6 = ZwOpenProcessTokenEx((HANDLE)0xFFFFFFFFFFFFFFFFLL, 0xAu, 0x200u, &ExistingTokenHandlea);
+    v6 = ZwOpenProcessTokenEx((HANDLE)0xFFFFFFFFFFFFFFFFLL, 0xAu, 0x200u, &ExistingTokenHandle);
     if ( v6 < 0 )
       goto LABEL_19;
     ObjectAttributes.RootDirectory = 0LL;
@@ -132,13 +132,13 @@ LABEL_18:
     ObjectAttributes.Attributes = 512;
     v21 = 0x20000000CLL;
     LOWORD(v22) = 1;
-    v6 = ZwDuplicateToken(ExistingTokenHandlea, 8u, &ObjectAttributes, 0, TokenImpersonation, &TokenHandle);
-    ZwClose(ExistingTokenHandlea);
+    v6 = ZwDuplicateToken(ExistingTokenHandle, 8u, &ObjectAttributes, 0, TokenImpersonation, &TokenHandlea);
+    ZwClose(ExistingTokenHandle);
   }
   if ( v6 >= 0 )
     goto LABEL_10;
 LABEL_19:
-  if ( TokenHandle )
-    ZwClose(TokenHandle);
-  return (unsigned int)v6;
+  if ( TokenHandlea )
+    ZwClose(TokenHandlea);
+  return v6;
 }

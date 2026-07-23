@@ -24,14 +24,14 @@
  *     ExFreePoolWithTag @ 0x140B62CD0 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall BiBuildIdentifierList(__int64 a1, __int64 a2, _QWORD *a3)
+__int64 __fastcall BiBuildIdentifierList(HANDLE BcdStoreHandle, __int64 a2, _QWORD *a3)
 {
   int v3; // r14d
   PCWSTR *v6; // rsi
   int v7; // ebx
   PCWSTR *v8; // r13
   ULONG i; // r15d
-  __int64 v10; // rsi
+  HANDLE v10; // rsi
   int v11; // r14d
   __int64 Pool2; // rax
   __int64 v13; // rbx
@@ -73,7 +73,7 @@ __int64 __fastcall BiBuildIdentifierList(__int64 a1, __int64 a2, _QWORD *a3)
   __int64 v50; // rcx
   _QWORD *v51; // rax
   _QWORD *v52; // rax
-  __int16 v53[2]; // [rsp+20h] [rbp-79h] BYREF
+  __int16 Buffer[2]; // [rsp+20h] [rbp-79h] BYREF
   unsigned int v54; // [rsp+24h] [rbp-75h] BYREF
   _QWORD *v55; // [rsp+28h] [rbp-71h] BYREF
   __int64 *v56; // [rsp+30h] [rbp-69h]
@@ -84,8 +84,8 @@ __int64 __fastcall BiBuildIdentifierList(__int64 a1, __int64 a2, _QWORD *a3)
   PCWSTR *v61; // [rsp+58h] [rbp-41h] BYREF
   ULONG v62; // [rsp+60h] [rbp-39h] BYREF
   void *v63; // [rsp+68h] [rbp-31h] BYREF
-  int v64; // [rsp+70h] [rbp-29h] BYREF
-  __int64 v65; // [rsp+78h] [rbp-21h] BYREF
+  ULONG BufferSize; // [rsp+70h] [rbp-29h] BYREF
+  HANDLE BcdObjectHandle; // [rsp+78h] [rbp-21h] BYREF
   __int64 v66; // [rsp+80h] [rbp-19h] BYREF
   PVOID P; // [rsp+88h] [rbp-11h] BYREF
   PVOID v68; // [rsp+90h] [rbp-9h] BYREF
@@ -101,9 +101,9 @@ __int64 __fastcall BiBuildIdentifierList(__int64 a1, __int64 a2, _QWORD *a3)
   v59 = &v59;
   v66 = 0LL;
   v58 = &v57;
-  v65 = 0LL;
+  BcdObjectHandle = 0LL;
   v57 = &v57;
-  v53[0] = 0;
+  Buffer[0] = 0;
   v56 = (__int64 *)&v55;
   v62 = 0;
   v55 = &v55;
@@ -113,7 +113,7 @@ __int64 __fastcall BiBuildIdentifierList(__int64 a1, __int64 a2, _QWORD *a3)
   DestinationString = 0LL;
   v63 = 0LL;
   v61 = 0LL;
-  v7 = BiOpenKey(a1, L"Objects", 0x20019u, &v63);
+  v7 = BiOpenKey((__int64)BcdStoreHandle, L"Objects", 0x20019u, &v63);
   if ( v7 < 0 )
     goto LABEL_55;
   v7 = BiEnumerateSubKeys(v63, &v61, &v62);
@@ -123,10 +123,11 @@ __int64 __fastcall BiBuildIdentifierList(__int64 a1, __int64 a2, _QWORD *a3)
   for ( i = 0; i < v62; ++i )
   {
     RtlInitUnicodeString(&DestinationString, v8[i]);
-    if ( RtlGUIDFromString(&DestinationString, &Guid) >= 0 && (int)BcdOpenObject(a1, &Guid.Data1, &v65) >= 0 )
+    if ( RtlGUIDFromString(&DestinationString, &Guid) >= 0
+      && BcdOpenObject(BcdStoreHandle, &Guid, &BcdObjectHandle) >= 0 )
     {
-      v10 = v65;
-      if ( (int)BiGetObjectDescription(v65, &v66) >= 0 )
+      v10 = BcdObjectHandle;
+      if ( (int)BiGetObjectDescription((__int64)BcdObjectHandle, &v66) >= 0 )
       {
         if ( (HIDWORD(v66) & 0xF0000000) != 0x10000000
           || (HIDWORD(v66) & 0xF00000) != 0x100000
@@ -174,9 +175,9 @@ LABEL_36:
           *v32 = v13;
           v60 = (__int64 *)v13;
         }
-        v64 = 2;
+        BufferSize = 2;
         v3 = 0;
-        if ( (int)BcdGetElementData(v10, 0x16000082u, (__int64)v53, &v64) >= 0 && LOBYTE(v53[0]) )
+        if ( BcdGetElementData(v10, 0x16000082u, Buffer, &BufferSize) >= 0 && LOBYTE(Buffer[0]) )
           *(_DWORD *)(v13 + 48) |= 0x10u;
         if ( (int)BiGetSavedBootEntry(v10, &P) >= 0 )
         {

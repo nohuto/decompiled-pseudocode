@@ -6,11 +6,25 @@
  *     <none>
  */
 
-__int64 NtCreateNamedPipeFile()
+NTSTATUS __cdecl NtCreateNamedPipeFile(
+        PHANDLE FileHandle,
+        ULONG DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        PIO_STATUS_BLOCK IoStatusBlock,
+        ULONG ShareAccess,
+        ULONG CreateDisposition,
+        ULONG CreateOptions,
+        ULONG NamedPipeType,
+        ULONG ReadMode,
+        ULONG CompletionMode,
+        ULONG MaximumInstances,
+        ULONG InboundQuota,
+        ULONG OutboundQuota,
+        PLARGE_INTEGER DefaultTimeout)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 169LL;
+  result = 169;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

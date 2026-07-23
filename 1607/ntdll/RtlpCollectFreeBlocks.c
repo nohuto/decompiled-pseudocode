@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlpCollectFreeBlocks @ 0x180028BF4
+ * XREFs of RtlpCollectFreeBlocks @ 0x180028BE4
  * Callers:
- *     RtlpDeCommitFreeBlock @ 0x18004A810 (RtlpDeCommitFreeBlock.c)
- *     RtlpFlushHeap @ 0x18004E5D8 (RtlpFlushHeap.c)
+ *     RtlpDeCommitFreeBlock @ 0x18004A800 (RtlpDeCommitFreeBlock.c)
+ *     RtlpFlushHeap @ 0x18004E5C8 (RtlpFlushHeap.c)
  * Callees:
- *     RtlpDecommitBlock @ 0x180028CB4 (RtlpDecommitBlock.c)
+ *     RtlpDecommitBlock @ 0x180028CA4 (RtlpDecommitBlock.c)
  *     RtlpAnalyzeHeapFailure @ 0x1800F79F4 (RtlpAnalyzeHeapFailure.c)
  */
 
@@ -45,7 +45,7 @@ __int64 __fastcall RtlpCollectFreeBlocks(__int64 a1)
     }
     else
     {
-      result = RtlpDecommitBlock(a1, i - 16);
+      result = RtlpDecommitBlock(a1);
     }
   }
   return result;

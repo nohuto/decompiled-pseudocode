@@ -1,23 +1,27 @@
 /*
- * XREFs of ExTryAcquirePushLockExclusiveEx @ 0x140205430
+ * XREFs of ExTryAcquirePushLockExclusiveEx @ 0x1402A9D70
  * Callers:
  *     <none>
  * Callees:
- *     KiCheckForKernelApcDelivery @ 0x14024A6E0 (KiCheckForKernelApcDelivery.c)
- *     KeAbPostReleaseEx @ 0x14028DE10 (KeAbPostReleaseEx.c)
- *     KiAbThreadRemoveBoosts @ 0x14034AD00 (KiAbThreadRemoveBoosts.c)
- *     MmGetSessionIdEx @ 0x14034AE60 (MmGetSessionIdEx.c)
- *     EtwTraceAutoBoostEntryExhaustion @ 0x1403F921C (EtwTraceAutoBoostEntryExhaustion.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
+ *     KeAbPostReleaseEx @ 0x14020AFB0 (KeAbPostReleaseEx.c)
+ *     KiCheckForKernelApcDelivery @ 0x1402EEF30 (KiCheckForKernelApcDelivery.c)
+ *     KiAbThreadRemoveBoosts @ 0x140355A50 (KiAbThreadRemoveBoosts.c)
+ *     MmGetSessionIdEx @ 0x140355BB0 (MmGetSessionIdEx.c)
+ *     EtwTraceAutoBoostEntryExhaustion @ 0x1403F9348 (EtwTraceAutoBoostEntryExhaustion.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
  */
 
 char __fastcall ExTryAcquirePushLockExclusiveEx(ULONG_PTR BugCheckParameter2, ULONG_PTR BugCheckParameter1)
 {
-  __int64 v2; // rdi
+  ULONG_PTR v2; // rdi
   struct _KTHREAD *CurrentThread; // rbx
-  bool v5; // zf
-  __int64 v7; // rax
-  char v8; // cl
+  __int64 v5; // rdx
+  __int64 v6; // rcx
+  __int64 v7; // r8
+  __int64 v8; // r9
+  bool v9; // zf
+  __int64 v11; // rax
+  char v12; // cl
   int SessionId; // eax
   unsigned __int8 AbOrphanedEntrySummary; // al
 
@@ -30,8 +34,8 @@ char __fastcall ExTryAcquirePushLockExclusiveEx(ULONG_PTR BugCheckParameter2, UL
     --CurrentThread->SpecialApcDisable;
     if ( ++CurrentThread->AbAllocationRegionCount != 1 )
       goto LABEL_4;
-    LOBYTE(v7) = CurrentThread->AbEntrySummary;
-    if ( !(_BYTE)v7 )
+    LOBYTE(v11) = CurrentThread->AbEntrySummary;
+    if ( !(_BYTE)v11 )
     {
       if ( !CurrentThread->AbOrphanedEntrySummary )
       {
@@ -41,7 +45,7 @@ LABEL_14:
         if ( v2 )
         {
           if ( BugCheckParameter2 >= 0xFFFF800000000000uLL
-            && byte_140C4F9C8[((BugCheckParameter2 >> 39) & 0x1FF) - 256] == 1 )
+            && byte_140C4FA08[((BugCheckParameter2 >> 39) & 0x1FF) - 256] == 1 )
           {
             SessionId = MmGetSessionIdEx(CurrentThread->ApcState.Process);
           }
@@ -54,11 +58,11 @@ LABEL_14:
 LABEL_5:
           --CurrentThread->AbAllocationRegionCount;
           KiAbThreadRemoveBoosts((ULONG_PTR)CurrentThread);
-          v5 = CurrentThread->SpecialApcDisable++ == -1;
-          if ( v5
+          v9 = CurrentThread->SpecialApcDisable++ == -1;
+          if ( v9
             && ($C459BD0D405E8E46662177FB3D0A143F *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
           {
-            KiCheckForKernelApcDelivery();
+            KiCheckForKernelApcDelivery(v6, v5, v7, v8);
           }
           goto LABEL_8;
         }
@@ -68,19 +72,19 @@ LABEL_4:
       }
       AbOrphanedEntrySummary = CurrentThread->AbOrphanedEntrySummary;
       CurrentThread->AbOrphanedEntrySummary = 0;
-      LOBYTE(v7) = CurrentThread->AbEntrySummary | AbOrphanedEntrySummary;
+      LOBYTE(v11) = CurrentThread->AbEntrySummary | AbOrphanedEntrySummary;
     }
-    v8 = v7;
-    _BitScanForward((unsigned int *)&v7, (unsigned __int8)v7);
-    CurrentThread->AbEntrySummary = v8 & ~(1 << v7);
-    v2 = (__int64)&CurrentThread->LockEntries[v7];
+    v12 = v11;
+    _BitScanForward((unsigned int *)&v11, (unsigned __int8)v11);
+    CurrentThread->AbEntrySummary = v12 & ~(1 << v11);
+    v2 = (ULONG_PTR)&CurrentThread->LockEntries[v11];
     goto LABEL_14;
   }
 LABEL_8:
   if ( _interlockedbittestandset64((volatile signed __int32 *)BugCheckParameter2, 0LL) )
   {
     if ( v2 )
-      KeAbPostReleaseEx(BugCheckParameter2);
+      KeAbPostReleaseEx(BugCheckParameter2, v2);
     return 0;
   }
   else

@@ -1,21 +1,21 @@
 /*
- * XREFs of BiConvertBootEnvironmentDeviceToNt @ 0x140B4AF80
+ * XREFs of BiConvertBootEnvironmentDeviceToNt @ 0x140B4CD10
  * Callers:
- *     BiVerifyBootPartition @ 0x140B2C830 (BiVerifyBootPartition.c)
- *     BiConvertBootEnvironmentDeviceToElement @ 0x140B4AF34 (BiConvertBootEnvironmentDeviceToElement.c)
- *     BiConvertBootEnvironmentDeviceToNt @ 0x140B4AF80 (BiConvertBootEnvironmentDeviceToNt.c)
+ *     BiVerifyBootPartition @ 0x140B2E8B0 (BiVerifyBootPartition.c)
+ *     BiConvertBootEnvironmentDeviceToElement @ 0x140B4CCC4 (BiConvertBootEnvironmentDeviceToElement.c)
+ *     BiConvertBootEnvironmentDeviceToNt @ 0x140B4CD10 (BiConvertBootEnvironmentDeviceToNt.c)
  * Callees:
- *     strcpy_s @ 0x14053C650 (strcpy_s.c)
- *     wcscpy_s @ 0x14053CB00 (wcscpy_s.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     BiConvertBootEnvironmentDeviceToUnknown @ 0x140891758 (BiConvertBootEnvironmentDeviceToUnknown.c)
- *     BiGetNtPartitionPath @ 0x1408923BC (BiGetNtPartitionPath.c)
- *     BiIsBootRamdisk @ 0x140892A7C (BiIsBootRamdisk.c)
- *     BiVerifyBootPartition @ 0x140B2C830 (BiVerifyBootPartition.c)
- *     BiConvertBootEnvironmentDeviceToNt @ 0x140B4AF80 (BiConvertBootEnvironmentDeviceToNt.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     strcpy_s @ 0x14053EAD0 (strcpy_s.c)
+ *     wcscpy_s @ 0x14053EF80 (wcscpy_s.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     BiConvertBootEnvironmentDeviceToUnknown @ 0x140897B54 (BiConvertBootEnvironmentDeviceToUnknown.c)
+ *     BiGetNtPartitionPath @ 0x1408987B8 (BiGetNtPartitionPath.c)
+ *     BiIsBootRamdisk @ 0x140898E7C (BiIsBootRamdisk.c)
+ *     BiVerifyBootPartition @ 0x140B2E8B0 (BiVerifyBootPartition.c)
+ *     BiConvertBootEnvironmentDeviceToNt @ 0x140B4CD10 (BiConvertBootEnvironmentDeviceToNt.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall BiConvertBootEnvironmentDeviceToNt(int *a1, int a2, __int16 a3, PVOID *a4, _DWORD *a5)

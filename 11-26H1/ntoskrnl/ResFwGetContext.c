@@ -1,10 +1,10 @@
 /*
- * XREFs of ResFwGetContext @ 0x140C50D8C
+ * XREFs of ResFwGetContext @ 0x140C56D8C
  * Callers:
- *     BgGetContext @ 0x140C4F9EC (BgGetContext.c)
+ *     BgGetContext @ 0x140C559EC (BgGetContext.c)
  * Callees:
- *     MmAllocatePagesForMdlEx @ 0x140348200 (MmAllocatePagesForMdlEx.c)
- *     MmMapLockedPagesSpecifyCache @ 0x14035D330 (MmMapLockedPagesSpecifyCache.c)
+ *     MmAllocatePagesForMdlEx @ 0x14034A280 (MmAllocatePagesForMdlEx.c)
+ *     MmMapLockedPagesSpecifyCache @ 0x14035F0D0 (MmMapLockedPagesSpecifyCache.c)
  */
 
 __int64 __fastcall ResFwGetContext(_QWORD *a1)
@@ -56,8 +56,8 @@ __int64 __fastcall ResFwGetContext(_QWORD *a1)
   *((_DWORD *)Object + 6) = MappedSystemVa != 0LL ? v7 + v6 : 0;
   *((_DWORD *)Object + 62) = MappedSystemVa != 0LL ? v6 : 0;
   Object[30] = v1;
-  WheapPfaLock.SavedApcState.Process = (_KPROCESS *)gLoadedDiffHivesLock.NpxState;
-  WheapPfaLock.SavedApcState.ApcListHead[1].Blink = gLoadedDiffHivesLock.SavedApcState.ApcListHead[0].Flink;
+  WheapPfaLock.SchedulerApc.SystemArgument2 = (PVOID)gLoadedDiffHivesLock.NpxState;
+  WheapPfaLock.SchedulerApc.SystemArgument1 = gLoadedDiffHivesLock.SavedApcState.ApcListHead[0].Flink;
   result = 0LL;
   *a1 = Object;
   return result;

@@ -6,7 +6,7 @@
  *     RtlGetVersion @ 0x1406D9C70 (RtlGetVersion.c)
  */
 
-NTSTATUS __fastcall Win81RtlGetVersion(struct _OSVERSIONINFOW *a1)
+NTSTATUS __fastcall Win81RtlGetVersion(_OSVERSIONINFOW *a1)
 {
   NTSTATUS result; // eax
 

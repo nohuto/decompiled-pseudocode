@@ -1,5 +1,5 @@
 /*
- * XREFs of _wcsrev @ 0x1405367E0
+ * XREFs of _wcsrev @ 0x140538C60
  * Callers:
  *     <none>
  * Callees:

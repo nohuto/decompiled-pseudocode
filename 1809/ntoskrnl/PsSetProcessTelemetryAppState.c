@@ -1,19 +1,19 @@
 /*
- * XREFs of PsSetProcessTelemetryAppState @ 0x1405B1974
+ * XREFs of PsSetProcessTelemetryAppState @ 0x1405B2974
  * Callers:
- *     PsFreezeProcess @ 0x140588E24 (PsFreezeProcess.c)
- *     PspExitProcess @ 0x140608E0C (PspExitProcess.c)
- *     PsThawProcess @ 0x14067E304 (PsThawProcess.c)
- *     PsSetProcessFaultInformation @ 0x1406E1DA0 (PsSetProcessFaultInformation.c)
- *     EtwpPsProvProcessEnumCallback @ 0x1408BF880 (EtwpPsProvProcessEnumCallback.c)
+ *     PsFreezeProcess @ 0x140589E24 (PsFreezeProcess.c)
+ *     PspExitProcess @ 0x140609E0C (PspExitProcess.c)
+ *     PsThawProcess @ 0x14067F4C4 (PsThawProcess.c)
+ *     PsSetProcessFaultInformation @ 0x1406E3040 (PsSetProcessFaultInformation.c)
+ *     EtwpPsProvProcessEnumCallback @ 0x1408C0B40 (EtwpPsProvProcessEnumCallback.c)
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     KeLeaveCriticalRegionThread @ 0x140051600 (KeLeaveCriticalRegionThread.c)
- *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     PsGetProcessDeepFreezeStats @ 0x1405B2334 (PsGetProcessDeepFreezeStats.c)
- *     EtwTraceAppStateChange @ 0x1405B2C80 (EtwTraceAppStateChange.c)
+ *     ExfTryToWakePushLock @ 0x140091500 (ExfTryToWakePushLock.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     PsGetProcessDeepFreezeStats @ 0x1405B3334 (PsGetProcessDeepFreezeStats.c)
+ *     EtwTraceAppStateChange @ 0x1405B3C80 (EtwTraceAppStateChange.c)
  */
 
 __int64 __fastcall PsSetProcessTelemetryAppState(ULONG_PTR BugCheckParameter1, int a2)

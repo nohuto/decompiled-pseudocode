@@ -6,7 +6,7 @@
  *     <none>
  */
 
-int __stdcall sub_4B2F4E64(int a1, int a2)
+int __stdcall sub_4B2F4E64(_CONTEXT *a1, int a2)
 {
   return KiUserExceptionDispatcher(a1, a2);
 }

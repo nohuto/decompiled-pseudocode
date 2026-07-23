@@ -1,19 +1,19 @@
 /*
- * XREFs of WheapPfaMemoryCheck @ 0x1406BB4C4
+ * XREFs of WheapPfaMemoryCheck @ 0x1406BB5FC
  * Callers:
- *     WheapPredictiveFailureAnalysis @ 0x1406BB948 (WheapPredictiveFailureAnalysis.c)
+ *     WheapPredictiveFailureAnalysis @ 0x1406BBA80 (WheapPredictiveFailureAnalysis.c)
  * Callees:
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     MmGetPageBadStatus @ 0x1401E22AC (MmGetPageBadStatus.c)
- *     WheapSqmDwordCommon @ 0x140231C30 (WheapSqmDwordCommon.c)
- *     WheapSqmIncrementDword @ 0x140231CC4 (WheapSqmIncrementDword.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     MmGetPageBadStatus @ 0x1401E20D8 (MmGetPageBadStatus.c)
+ *     WheapSqmDwordCommon @ 0x140231A5C (WheapSqmDwordCommon.c)
+ *     WheapSqmIncrementDword @ 0x140231AF0 (WheapSqmIncrementDword.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     WheaAttemptPhysicalPageOffline @ 0x1406BA518 (WheaAttemptPhysicalPageOffline.c)
- *     WheapSqmCollectWheaPolicyTelemetry @ 0x1406BAEB8 (WheapSqmCollectWheaPolicyTelemetry.c)
- *     WheapPfaRetireExpiredMemoryEntries @ 0x1406BB818 (WheapPfaRetireExpiredMemoryEntries.c)
- *     WheapSqmAddToStream @ 0x1406BBB7C (WheapSqmAddToStream.c)
+ *     WheaAttemptPhysicalPageOffline @ 0x1406BA650 (WheaAttemptPhysicalPageOffline.c)
+ *     WheapSqmCollectWheaPolicyTelemetry @ 0x1406BAFF0 (WheapSqmCollectWheaPolicyTelemetry.c)
+ *     WheapPfaRetireExpiredMemoryEntries @ 0x1406BB950 (WheapPfaRetireExpiredMemoryEntries.c)
+ *     WheapSqmAddToStream @ 0x1406BBCB4 (WheapSqmAddToStream.c)
  */
 
 void __fastcall WheapPfaMemoryCheck(__int64 a1, __int64 a2)

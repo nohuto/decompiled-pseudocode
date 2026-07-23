@@ -28,8 +28,6 @@ char __fastcall KeCancelTimer2(__int64 a1)
   char v4; // si
   __int64 v5; // rbp
   unsigned __int8 CurrentIrql; // r15
-  __int64 v7; // rdx
-  __int64 v8; // r8
 
   v1 = 0;
   v2 = 0;
@@ -49,7 +47,7 @@ char __fastcall KeCancelTimer2(__int64 a1)
   {
     if ( (unsigned __int8)KiAcquireTimer2CollectionLockIfInserted(a1) )
     {
-      KiRemoveTimer2(a1, v7, v8);
+      KiRemoveTimer2(a1);
       KxReleaseSpinLock(&KiTimer2CollectionLock);
     }
     else

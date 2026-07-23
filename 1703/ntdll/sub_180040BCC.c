@@ -16,22 +16,22 @@ char sub_180040BCC()
   int v1; // eax
   __int64 v2; // r8
   struct _TEB *v3; // rcx
-  int SpareUlong0; // eax
+  int WowTebOffset; // eax
   struct _TEB *v5; // rdx
   __int64 v6; // rax
   bool v7; // zf
   struct _TEB *v8; // rcx
   __int64 v9; // rax
-  unsigned int MuiImpersonation; // eax
+  ULONG MuiImpersonation; // eax
   struct _TEB *v12; // rcx
   int v13; // eax
   struct _TEB *v14; // rdx
   __int64 v15; // rax
   struct _TEB *v16; // rcx
   __int64 v17; // rax
-  int ThreadPreferredUILanguages; // eax
-  int v19; // [rsp+30h] [rbp+8h] BYREF
-  char v20; // [rsp+38h] [rbp+10h] BYREF
+  NTSTATUS ThreadPreferredUILanguages; // eax
+  ULONG ReturnLength; // [rsp+30h] [rbp+8h] BYREF
+  ULONG NumberOfLanguages; // [rsp+38h] [rbp+10h] BYREF
   __int64 v21; // [rsp+40h] [rbp+18h] BYREF
 
   v0 = 1;
@@ -49,16 +49,16 @@ char sub_180040BCC()
       && NtCurrentTeb()->MuiGeneration == *(_DWORD *)(v2 + 16) )
     {
       v3 = NtCurrentTeb();
-      SpareUlong0 = v3->SpareUlong0;
-      if ( SpareUlong0 < 0 )
-        LODWORD(v3) = SpareUlong0 + (_DWORD)v3;
+      WowTebOffset = v3->WowTebOffset;
+      if ( WowTebOffset < 0 )
+        LODWORD(v3) = WowTebOffset + (_DWORD)v3;
       v5 = NtCurrentTeb();
-      v6 = (int)v5->SpareUlong0;
+      v6 = v5->WowTebOffset;
       if ( (int)v6 < 0 )
         v5 = (struct _TEB *)((char *)v5 + v6);
       v7 = (_DWORD)v3 == LODWORD(v5->NtTib.SubSystemTib);
       v8 = NtCurrentTeb();
-      v9 = (int)v8->SpareUlong0;
+      v9 = v8->WowTebOffset;
       if ( v7 )
       {
         if ( (int)v9 < 0 )
@@ -76,16 +76,16 @@ char sub_180040BCC()
       if ( *(_WORD *)(*(_QWORD *)(v2 + 24) + 6LL) == 1 )
       {
         v12 = NtCurrentTeb();
-        v13 = v12->SpareUlong0;
+        v13 = v12->WowTebOffset;
         if ( v13 < 0 )
           LODWORD(v12) = v13 + (_DWORD)v12;
         v14 = NtCurrentTeb();
-        v15 = (int)v14->SpareUlong0;
+        v15 = v14->WowTebOffset;
         if ( (int)v15 < 0 )
           v14 = (struct _TEB *)((char *)v14 + v15);
         v7 = (_DWORD)v12 == LODWORD(v14->NtTib.SubSystemTib);
         v16 = NtCurrentTeb();
-        v17 = (int)v16->SpareUlong0;
+        v17 = v16->WowTebOffset;
         if ( v7 )
         {
           if ( (int)v17 < 0 )
@@ -106,8 +106,8 @@ char sub_180040BCC()
       *((_DWORD *)NtCurrentTeb()->MergedPrefLanguages + 10) = *((_DWORD *)NtCurrentTeb()->MergedPrefLanguages + 10) | 0x80;
     }
 LABEL_30:
-    v19 = 0;
-    ThreadPreferredUILanguages = RtlGetThreadPreferredUILanguages(48, (struct _TEB *)&v20, 0LL, &v19);
+    ReturnLength = 0;
+    ThreadPreferredUILanguages = RtlGetThreadPreferredUILanguages(0x30u, &NumberOfLanguages, 0LL, &ReturnLength);
     if ( (int)(ThreadPreferredUILanguages + 0x80000000) >= 0 && ThreadPreferredUILanguages != -1073741789
       || !NtCurrentTeb()->MergedPrefLanguages )
     {

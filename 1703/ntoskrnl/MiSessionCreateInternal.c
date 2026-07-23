@@ -39,8 +39,8 @@ __int64 __fastcall MiSessionCreateInternal(ULONG_PTR *a1)
   ULONG ClearBitsAndSet; // ebp
   int v6; // ecx
   unsigned int v7; // esi
-  struct _RTL_BITMAP *PoolWithTag; // rax
-  struct _RTL_BITMAP *v9; // r14
+  _RTL_BITMAP *PoolWithTag; // rax
+  _RTL_BITMAP *v9; // r14
   unsigned __int64 v10; // r8
   ULONG_PTR v11; // rax
   _QWORD *v12; // r14
@@ -54,7 +54,7 @@ __int64 __fastcall MiSessionCreateInternal(ULONG_PTR *a1)
   void *CurrentServerSilo; // rax
   __int64 v22; // [rsp+30h] [rbp-68h] BYREF
   __int64 v23; // [rsp+38h] [rbp-60h]
-  LARGE_INTEGER v24; // [rsp+40h] [rbp-58h] BYREF
+  LARGE_INTEGER PerformanceCounter; // [rsp+40h] [rbp-58h] BYREF
   _QWORD v25[2]; // [rsp+48h] [rbp-50h] BYREF
   __int64 v26; // [rsp+58h] [rbp-40h] BYREF
   ULONG v27; // [rsp+60h] [rbp-38h]
@@ -73,7 +73,7 @@ __int64 __fastcall MiSessionCreateInternal(ULONG_PTR *a1)
     if ( v7 > 0x7FFFF )
       v7 = 0x7FFFF;
     LOBYTE(v6) = (v7 & 0x3F) != 0;
-    PoolWithTag = (struct _RTL_BITMAP *)ExAllocatePoolWithTag(PagedPool, 8 * ((v7 >> 6) + v6) + 16, 0x20206D4Du);
+    PoolWithTag = (_RTL_BITMAP *)ExAllocatePoolWithTag(PagedPool, 8 * ((v7 >> 6) + v6) + 16, 0x20206D4Du);
     v9 = PoolWithTag;
     if ( !PoolWithTag )
       goto LABEL_19;
@@ -108,7 +108,7 @@ __int64 __fastcall MiSessionCreateInternal(ULONG_PTR *a1)
         *(_DWORD *)(v13 + 112) = v15;
         *(_DWORD *)v13 = 1;
         *(_DWORD *)(v13 + 8) = ClearBitsAndSet;
-        *(_QWORD *)(v13 + 8184) = KeQueryInterruptTimePrecise(&v24);
+        *(LARGE_INTEGER *)(v13 + 8184) = KeQueryInterruptTimePrecise(&PerformanceCounter);
         PdeAddress = MiGetPdeAddress(v2);
         v22 = MI_READ_PTE_LOCK_FREE(PdeAddress);
         *(_QWORD *)(v13 + 32) = ((unsigned __int64)MI_READ_PTE_LOCK_FREE((unsigned __int64)&v22) >> 12) & 0xFFFFFFFFFLL;

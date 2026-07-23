@@ -1,13 +1,13 @@
 /*
- * XREFs of CmpLightWeightCommitDeleteValueKeyUoW @ 0x14073293C
+ * XREFs of CmpLightWeightCommitDeleteValueKeyUoW @ 0x140732AFC
  * Callers:
- *     CmpProcessLightWeightUOW @ 0x1406A3E64 (CmpProcessLightWeightUOW.c)
+ *     CmpProcessLightWeightUOW @ 0x1405E1934 (CmpProcessLightWeightUOW.c)
  * Callees:
- *     CmpFreeTransientPoolWithTag @ 0x140206FA8 (CmpFreeTransientPoolWithTag.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     CmpCleanUpKcbCachedSymlink @ 0x1405EE830 (CmpCleanUpKcbCachedSymlink.c)
- *     CmpFreeValue @ 0x14066B438 (CmpFreeValue.c)
- *     CmpLightWeightCleanupSetValueKeyUoW @ 0x1406A4210 (CmpLightWeightCleanupSetValueKeyUoW.c)
+ *     CmpFreeTransientPoolWithTag @ 0x1402483A4 (CmpFreeTransientPoolWithTag.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     CmpLightWeightCleanupSetValueKeyUoW @ 0x1405E1CE0 (CmpLightWeightCleanupSetValueKeyUoW.c)
+ *     CmpFreeValue @ 0x140660258 (CmpFreeValue.c)
+ *     CmpCleanUpKcbCachedSymlink @ 0x1406DDF90 (CmpCleanUpKcbCachedSymlink.c)
  */
 
 __int64 __fastcall CmpLightWeightCommitDeleteValueKeyUoW(__int64 a1, _QWORD *a2)

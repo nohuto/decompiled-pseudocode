@@ -1,51 +1,51 @@
 /*
- * XREFs of KeInitSystem @ 0x140CC82B8
+ * XREFs of KeInitSystem @ 0x140CCE3A8
  * Callers:
- *     InitBootProcessor @ 0x140CAA7CC (InitBootProcessor.c)
- *     Phase1InitializationDiscard @ 0x140CABD00 (Phase1InitializationDiscard.c)
- *     Phase1InitializationIoReady @ 0x140CAD020 (Phase1InitializationIoReady.c)
- *     IoInitSystemPreDrivers @ 0x140CBACA0 (IoInitSystemPreDrivers.c)
+ *     InitBootProcessor @ 0x140CB07CC (InitBootProcessor.c)
+ *     Phase1InitializationDiscard @ 0x140CB1D40 (Phase1InitializationDiscard.c)
+ *     Phase1InitializationIoReady @ 0x140CB3060 (Phase1InitializationIoReady.c)
+ *     IoInitSystemPreDrivers @ 0x140CC0D18 (IoInitSystemPreDrivers.c)
  * Callees:
- *     KeQueryActiveProcessorCountEx @ 0x140211EA0 (KeQueryActiveProcessorCountEx.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212E30 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     KeExpandKernelStackAndCalloutEx @ 0x140263890 (KeExpandKernelStackAndCalloutEx.c)
- *     ExReleaseFastMutexUnsafe @ 0x140276140 (ExReleaseFastMutexUnsafe.c)
- *     KeGetPrcb @ 0x1402916D0 (KeGetPrcb.c)
- *     ExAcquireFastMutexUnsafe @ 0x1403FC2F0 (ExAcquireFastMutexUnsafe.c)
- *     KeEnumerateNextProcessor @ 0x14043BC70 (KeEnumerateNextProcessor.c)
- *     _tlgKeywordOn @ 0x14044F850 (_tlgKeywordOn.c)
- *     KeGetTopologySiblingGroupAffinityForProcessor @ 0x14048AD58 (KeGetTopologySiblingGroupAffinityForProcessor.c)
- *     KiAvailableCpusSubscriptionQueueWorkItem @ 0x1404E01D0 (KiAvailableCpusSubscriptionQueueWorkItem.c)
- *     HviIsAnyHypervisorPresent @ 0x1404E63D0 (HviIsAnyHypervisorPresent.c)
- *     KiDetectTsx @ 0x14052B7F8 (KiDetectTsx.c)
- *     KeInitializeCatRegisters @ 0x14052DCD8 (KeInitializeCatRegisters.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     SymCryptInitEnvWindowsKernelmodeWin8_1nLater @ 0x1405532EC (SymCryptInitEnvWindowsKernelmodeWin8_1nLater.c)
- *     KdEncodeDataBlock @ 0x1405E3774 (KdEncodeDataBlock.c)
- *     KeRelaxTimingConstraints @ 0x1405E8DE0 (KeRelaxTimingConstraints.c)
- *     KiApplyDpcVerificationScaleSettings @ 0x1405EA234 (KiApplyDpcVerificationScaleSettings.c)
- *     KiInitializeNormalPriorityAntiStarvationPolicies @ 0x1405EB4A0 (KiInitializeNormalPriorityAntiStarvationPolicies.c)
- *     KiInitMachineDependent @ 0x1405F4994 (KiInitMachineDependent.c)
- *     KiInitializeIdealProcessorRebalancer @ 0x1405F4B78 (KiInitializeIdealProcessorRebalancer.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     KiStartDpcThread @ 0x1407B98EC (KiStartDpcThread.c)
- *     KiInitializeSingleDpcRuntimeHistoryHashTable @ 0x1407BB738 (KiInitializeSingleDpcRuntimeHistoryHashTable.c)
- *     TraceLoggingRegisterEx_EtwRegister_EtwSetInformation @ 0x14093BE80 (TraceLoggingRegisterEx_EtwRegister_EtwSetInformation.c)
- *     KeInitializeTimerTable @ 0x140B24A18 (KeInitializeTimerTable.c)
- *     KiInitializeProcessor @ 0x140BF3FD4 (KiInitializeProcessor.c)
- *     KeFreeInitializationCode @ 0x140C80CCC (KeFreeInitializationCode.c)
- *     KiComputeDispatchInterruptCost @ 0x140CC90C0 (KiComputeDispatchInterruptCost.c)
- *     KiComputeNumaCosts @ 0x140CC93EC (KiComputeNumaCosts.c)
- *     KiInitDpcThresholds @ 0x140CC9C0C (KiInitDpcThresholds.c)
- *     KiInitializeVelocity @ 0x140CCA1CC (KiInitializeVelocity.c)
- *     KiRegisterTraceLoggingProvider @ 0x140CCA354 (KiRegisterTraceLoggingProvider.c)
- *     KiInitSupervisorStateExtensionHost @ 0x140CCA3AC (KiInitSupervisorStateExtensionHost.c)
- *     KiInitializeReservedCpuSets @ 0x140CCB790 (KiInitializeReservedCpuSets.c)
- *     KiEpfInitialize @ 0x140CCB9E4 (KiEpfInitialize.c)
- *     KiIntSteerInit @ 0x140CCBB80 (KiIntSteerInit.c)
- *     KiInitDynamicTraceSupport @ 0x140CCBD70 (KiInitDynamicTraceSupport.c)
- *     MmFreeLoaderBlock @ 0x140CF220C (MmFreeLoaderBlock.c)
- *     KiRcuSystemInitialize @ 0x140D09E14 (KiRcuSystemInitialize.c)
+ *     KeQueryActiveProcessorCountEx @ 0x140211F80 (KeQueryActiveProcessorCountEx.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212F10 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     KeExpandKernelStackAndCalloutEx @ 0x140262E00 (KeExpandKernelStackAndCalloutEx.c)
+ *     ExReleaseFastMutexUnsafe @ 0x1402756B0 (ExReleaseFastMutexUnsafe.c)
+ *     KeGetPrcb @ 0x140290C30 (KeGetPrcb.c)
+ *     ExAcquireFastMutexUnsafe @ 0x1403F8AE0 (ExAcquireFastMutexUnsafe.c)
+ *     KeEnumerateNextProcessor @ 0x14042E520 (KeEnumerateNextProcessor.c)
+ *     _tlgKeywordOn @ 0x140447980 (_tlgKeywordOn.c)
+ *     KeGetTopologySiblingGroupAffinityForProcessor @ 0x140484898 (KeGetTopologySiblingGroupAffinityForProcessor.c)
+ *     KiAvailableCpusSubscriptionQueueWorkItem @ 0x1404D98B0 (KiAvailableCpusSubscriptionQueueWorkItem.c)
+ *     HviIsAnyHypervisorPresent @ 0x1404DF970 (HviIsAnyHypervisorPresent.c)
+ *     KiDetectTsx @ 0x14052DD18 (KiDetectTsx.c)
+ *     KeInitializeCatRegisters @ 0x1405301F8 (KeInitializeCatRegisters.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     SymCryptInitEnvWindowsKernelmodeWin8_1nLater @ 0x14055577C (SymCryptInitEnvWindowsKernelmodeWin8_1nLater.c)
+ *     KdEncodeDataBlock @ 0x1405E60E4 (KdEncodeDataBlock.c)
+ *     KeRelaxTimingConstraints @ 0x1405EB750 (KeRelaxTimingConstraints.c)
+ *     KiApplyDpcVerificationScaleSettings @ 0x1405ECBA4 (KiApplyDpcVerificationScaleSettings.c)
+ *     KiInitializeNormalPriorityAntiStarvationPolicies @ 0x1405EDE10 (KiInitializeNormalPriorityAntiStarvationPolicies.c)
+ *     KiInitMachineDependent @ 0x1405F7354 (KiInitMachineDependent.c)
+ *     KiInitializeIdealProcessorRebalancer @ 0x1405F7538 (KiInitializeIdealProcessorRebalancer.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     KiStartDpcThread @ 0x1407BC94C (KiStartDpcThread.c)
+ *     KiInitializeSingleDpcRuntimeHistoryHashTable @ 0x1407BE798 (KiInitializeSingleDpcRuntimeHistoryHashTable.c)
+ *     TraceLoggingRegisterEx_EtwRegister_EtwSetInformation @ 0x140917A20 (TraceLoggingRegisterEx_EtwRegister_EtwSetInformation.c)
+ *     KeInitializeTimerTable @ 0x140B26EB8 (KeInitializeTimerTable.c)
+ *     KiInitializeProcessor @ 0x140BF9FD4 (KiInitializeProcessor.c)
+ *     KeFreeInitializationCode @ 0x140C86CCC (KeFreeInitializationCode.c)
+ *     KiComputeDispatchInterruptCost @ 0x140CCF150 (KiComputeDispatchInterruptCost.c)
+ *     KiComputeNumaCosts @ 0x140CCF47C (KiComputeNumaCosts.c)
+ *     KiInitDpcThresholds @ 0x140CCFCF4 (KiInitDpcThresholds.c)
+ *     KiInitializeVelocity @ 0x140CD02B4 (KiInitializeVelocity.c)
+ *     KiRegisterTraceLoggingProvider @ 0x140CD0434 (KiRegisterTraceLoggingProvider.c)
+ *     KiInitSupervisorStateExtensionHost @ 0x140CD048C (KiInitSupervisorStateExtensionHost.c)
+ *     KiInitializeReservedCpuSets @ 0x140CD18F0 (KiInitializeReservedCpuSets.c)
+ *     KiEpfInitialize @ 0x140CD1B44 (KiEpfInitialize.c)
+ *     KiIntSteerInit @ 0x140CD1CE0 (KiIntSteerInit.c)
+ *     KiInitDynamicTraceSupport @ 0x140CD1ED0 (KiInitDynamicTraceSupport.c)
+ *     MmFreeLoaderBlock @ 0x140CF858C (MmFreeLoaderBlock.c)
+ *     KiRcuSystemInitialize @ 0x140D100E4 (KiRcuSystemInitialize.c)
  */
 
 char __fastcall KeInitSystem(int a1)
@@ -97,10 +97,10 @@ char __fastcall KeInitSystem(int a1)
   {
     case 0:
       CurrentPrcb = KeGetCurrentPrcb();
-      if ( (unsigned int)(*(_DWORD *)&KiSupervisorXStateFeaturesLock.WaitBlockFill11[128] - 1) <= 0xFFFE )
+      if ( (unsigned int)(*(_DWORD *)&KiSupervisorXStateFeaturesLock.SchedulerApcFill5[24] - 1) <= 0xFFFE )
       {
-        KiMaximumSubNodeSize = *(_WORD *)&KiSupervisorXStateFeaturesLock.WaitBlockFill11[128];
-        if ( *(unsigned __int16 *)&KiSupervisorXStateFeaturesLock.WaitBlockFill11[128] > (unsigned int)KiMaximumGroupSize )
+        KiMaximumSubNodeSize = *(_WORD *)&KiSupervisorXStateFeaturesLock.SchedulerApcFill5[24];
+        if ( *(unsigned __int16 *)&KiSupervisorXStateFeaturesLock.SchedulerApcFill5[24] > (unsigned int)KiMaximumGroupSize )
           KiMaximumSubNodeSize = KiMaximumGroupSize;
       }
       if ( (KeFeatureBits2 & 0x8000) != 0 && KiDisableTsx && (CurrentPrcb->MsrIa32TsxCtrl & 3) != 3 )
@@ -147,14 +147,11 @@ LABEL_16:
     case 1:
       KiInitDynamicTraceSupport();
       ActiveProcessorCount = KeQueryActiveProcessorCountEx(0xFFFFu);
-      v7 = (unsigned int)KeMaximumIncrement;
+      v7 = KeMaximumIncrement;
       v8 = ActiveProcessorCount;
       *(_QWORD *)&KiDpcWatchdogConfigurationLock.Header.Lock = 0LL;
-      v9 = (ActiveProcessorCount + (KeMaximumIncrement + 29999999) / (unsigned int)KeMaximumIncrement - 1)
-         % ActiveProcessorCount;
-      KiClockKeepAliveCycle = (ActiveProcessorCount
-                             + (KeMaximumIncrement + 29999999) / (unsigned int)KeMaximumIncrement
-                             - 1)
+      v9 = (ActiveProcessorCount + (KeMaximumIncrement + 29999999) / KeMaximumIncrement - 1) % ActiveProcessorCount;
+      KiClockKeepAliveCycle = (ActiveProcessorCount + (KeMaximumIncrement + 29999999) / KeMaximumIncrement - 1)
                             / ActiveProcessorCount;
       if ( KiForceBugcheckForDpcWatchdog || !HviIsAnyHypervisorPresent() )
       {
@@ -181,8 +178,8 @@ LABEL_32:
         }
         if ( !(unsigned __int8)KiComputeNumaCosts() || (int)KiComputeDispatchInterruptCost() < 0 )
           return 0;
-        *((_QWORD *)&v33 + 1) = *($353D57E818BB6F967B4B818D974CF463 *)((char *)&stru_140FC01F0.116 + 4);
-        *(_QWORD *)&v33 = &stru_140FC01F0.WaitRegister;
+        *((_QWORD *)&v33 + 1) = *($C9C4F79064DE35237E3F199A7D1BD3E1 *)((char *)&stru_140FC11F0.116 + 4);
+        *(_QWORD *)&v33 = &stru_140FC11F0.WaitRegister;
         v35 = 0;
         v36 = 0;
         LODWORD(v31) = 0;
@@ -196,15 +193,15 @@ LABEL_32:
         if ( (_BYTE)KiKernelCetEnabled )
         {
           LOBYTE(KiKernelCetLogging) = 1;
-          dword_140FC1318 = 10;
+          dword_140FC2318 = 10;
         }
-        SymCryptInitEnvWindowsKernelmodeWin8_1nLater(0x670009u);
+        SymCryptInitEnvWindowsKernelmodeWin8_1nLater(0x67000Cu);
         KiIntSteerInit(1LL);
         KiInitSupervisorStateExtensionHost();
         if ( !KiInitMachineDependent() )
           return 0;
         v16 = *(unsigned int *)(KiProcessorBlock[0] + 68);
-        v17 = v16 * (unsigned __int64)(unsigned int)KeMaximumIncrement / 0xA;
+        v17 = v16 * (unsigned __int64)KeMaximumIncrement / 0xA;
         KiShortExecutionCycles = v17 / 0xF0;
         v18 = v17 / 3;
         KiCyclesPerClockQuantum = v17 / 3;
@@ -227,35 +224,35 @@ LABEL_32:
           KiLongDpcQueueThreshold = 2;
         v21 = *(unsigned int *)(KiProcessorBlock[0] + 68);
         KiLongDpcRuntimeThresholdCycles = v19 * *(_DWORD *)(KiProcessorBlock[0] + 68);
-        qword_140FBE3F8 = (unsigned int)dword_140FBE3F4 * v21;
-        v22 = dword_140FBE1F8;
-        qword_140FBE408 = (unsigned int)dword_140FBE400 * (unsigned __int64)*(unsigned int *)(KiProcessorBlock[0] + 68);
-        if ( (unsigned int)dword_140FBE1F8 < 0x1F4 )
+        qword_140FBF3F8 = (unsigned int)dword_140FBF3F4 * v21;
+        v22 = dword_140FBF1F0;
+        qword_140FBF408 = (unsigned int)dword_140FBF400 * (unsigned __int64)*(unsigned int *)(KiProcessorBlock[0] + 68);
+        if ( (unsigned int)dword_140FBF1F0 < 0x1F4 )
         {
           v22 = 500;
-          dword_140FBE1F8 = 500;
+          dword_140FBF1F0 = 500;
         }
         if ( v22 > 0x989680 )
-          dword_140FBE1F8 = 10000000;
-        v23 = dword_140FBE1F4;
-        if ( (unsigned int)dword_140FBE1F4 < 0x3E8 )
+          dword_140FBF1F0 = 10000000;
+        v23 = dword_140FBF1EC;
+        if ( (unsigned int)dword_140FBF1EC < 0x3E8 )
         {
           v23 = 1000;
-          dword_140FBE1F4 = 1000;
+          dword_140FBF1EC = 1000;
         }
         if ( v23 > 0x7270E00 )
-          dword_140FBE1F4 = 120000000;
+          dword_140FBF1EC = 120000000;
         KdEncodeDataBlock();
         v24 = KeExpandKernelStackAndCalloutEx(KiVerifyScopesExecute, 0LL, 0xC000uLL, 1u, 0LL);
         if ( v24 < 0 )
           KeBugCheckEx(0x32u, v24, 0x5356694BuLL, 0LL, 0LL);
         KiInitializeIdealProcessorRebalancer();
-        *(_DWORD *)&KsepShimDbLock.WaitBlockFill11[124] = 268288;
-        *(_DWORD *)KsepShimDbLock.PriorityFloorCounts = 275;
-        *(_QWORD *)&KsepShimDbLock.PriorityFloorCounts[24] = KiPristineTriageDumpAllocationWorker;
-        *(_QWORD *)&KsepShimDbLock.PriorityFloorSummary = 0LL;
-        KsepShimDbLock.GlobalForegroundListEntry.Flink = 0LL;
-        *(_QWORD *)&KsepShimDbLock.PriorityFloorCounts[16] = 0LL;
+        KsepShimDbLock.UserTime = 268288;
+        LODWORD(KsepShimDbLock.MutantListHead.Flink) = 275;
+        KsepShimDbLock.SchedulerSharedSystemSlot = KiPristineTriageDumpAllocationWorker;
+        KsepShimDbLock.PropagateBoostsEntry.Next = 0LL;
+        *(_QWORD *)&KsepShimDbLock.PriorityFloorCounts[8] = 0LL;
+        *(_QWORD *)&KsepShimDbLock.AbWaitEntryCount = 0LL;
         KiAvailableCpusSubscriptionQueueWorkItem((PWORK_QUEUE_ITEM)(KiSystemCpuPartition + 40));
         return 1;
       }
@@ -282,10 +279,10 @@ LABEL_31:
       goto LABEL_31;
     case 2:
       KiRegisterTraceLoggingProvider();
-      TraceLoggingRegisterEx_EtwRegister_EtwSetInformation((__int64)&dword_140E06F58, 0LL, 0LL);
+      TraceLoggingRegisterEx_EtwRegister_EtwSetInformation((__int64)&dword_140E06F90, 0LL, 0LL);
       if ( KiDisablePointerParameterAlignmentValidation
-        && (unsigned int)dword_140E06F90 > 5
-        && tlgKeywordOn((__int64)&dword_140E06F90, 0x400000000000LL) )
+        && (unsigned int)dword_140E06F58 > 5
+        && tlgKeywordOn((__int64)&dword_140E06F58, 0x400000000000LL) )
       {
         LODWORD(v31) = v25;
         v39 = 4LL;
@@ -294,8 +291,8 @@ LABEL_31:
         v40 = &v32;
         v41 = 8LL;
         tlgWriteTransfer_EtwWriteTransfer(
-          (__int64)&dword_140E06F90,
-          (unsigned __int8 *)&byte_14005AD4F,
+          (__int64)&dword_140E06F58,
+          (unsigned __int8 *)word_14005BD42,
           0LL,
           0LL,
           4u,
@@ -310,7 +307,7 @@ LABEL_31:
         KeGetTopologySiblingGroupAffinityForProcessor(v27, 5, &v33);
         if ( v28 != (_QWORD)v33 )
         {
-          if ( (unsigned int)dword_140E06F90 > 5 && tlgKeywordOn((__int64)&dword_140E06F90, 0x400000000000LL) )
+          if ( (unsigned int)dword_140E06F58 > 5 && tlgKeywordOn((__int64)&dword_140E06F58, 0x400000000000LL) )
           {
             v32 = v30;
             v38 = &v32;
@@ -322,8 +319,8 @@ LABEL_31:
             *(_QWORD *)&v33 = 0x1000000LL;
             v43 = 8LL;
             tlgWriteTransfer_EtwWriteTransfer(
-              (__int64)&dword_140E06F90,
-              (unsigned __int8 *)byte_14005AD01,
+              (__int64)&dword_140E06F58,
+              (unsigned __int8 *)&dword_14005BCF4,
               0LL,
               0LL,
               5u,
@@ -337,10 +334,10 @@ LABEL_31:
       KiInitializeReservedCpuSets();
       break;
     default:
-      ExAcquireFastMutexUnsafe((PFAST_MUTEX)&KiSupervisorXStateFeaturesLock.WaitBlockFill11[144]);
+      ExAcquireFastMutexUnsafe((PFAST_MUTEX)&KiSupervisorXStateFeaturesLock.SchedulerApcFill5[56]);
       MmFreeLoaderBlock();
       KeLoaderBlock_0 = 0LL;
-      ExReleaseFastMutexUnsafe((PFAST_MUTEX)&KiSupervisorXStateFeaturesLock.WaitBlockFill11[144]);
+      ExReleaseFastMutexUnsafe((PFAST_MUTEX)&KiSupervisorXStateFeaturesLock.SchedulerApcFill5[56]);
       KiInitializeNormalPriorityAntiStarvationPolicies();
       if ( KiForceBugcheckForDpcWatchdog || !HviIsAnyHypervisorPresent() )
         KeEnableWatchdogTimeout = 1;

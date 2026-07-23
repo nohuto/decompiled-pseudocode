@@ -1,26 +1,26 @@
 /*
- * XREFs of LdrpBuildForwarderLink @ 0x1800DF720
+ * XREFs of LdrpBuildForwarderLink @ 0x1800DA890
  * Callers:
- *     LdrpLoadDllInternal @ 0x18000B460 (LdrpLoadDllInternal.c)
+ *     LdrpLoadDllInternal @ 0x180037E60 (LdrpLoadDllInternal.c)
  * Callees:
- *     RtlAllocateHeap @ 0x180011260 (RtlAllocateHeap.c)
- *     RtlpAcquireSRWLockExclusiveContended @ 0x18004A470 (RtlpAcquireSRWLockExclusiveContended.c)
- *     RtlReleaseSRWLockExclusive @ 0x1800567B0 (RtlReleaseSRWLockExclusive.c)
+ *     RtlAllocateHeap @ 0x18003DC60 (RtlAllocateHeap.c)
+ *     RtlpAcquireSRWLockExclusiveContended @ 0x180060050 (RtlpAcquireSRWLockExclusiveContended.c)
+ *     RtlReleaseSRWLockExclusive @ 0x18006C390 (RtlReleaseSRWLockExclusive.c)
  */
 
-__int64 __fastcall LdrpBuildForwarderLink(__int64 a1, unsigned __int64 i, __int64 a3, unsigned __int64 a4)
+__int64 __fastcall LdrpBuildForwarderLink(__int64 a1, unsigned __int64 i, __int64 a3, char *a4)
 {
   unsigned int v4; // edi
   unsigned __int64 v5; // rsi
-  _QWORD *SchedulerSharedDataSlot; // r8
-  _QWORD *v8; // rcx
+  char *SchedulerSharedDataSlot; // r8
+  char *v8; // rcx
   __int64 v10; // rbp
   __int64 v11; // rbx
   int v12; // r8d
   _QWORD *v14; // rcx
   _QWORD *v15; // rax
-  __int64 Heap; // rax
-  __int64 *v17; // rdx
+  char *Heap; // rax
+  _QWORD *v17; // rdx
   _QWORD *v18; // rdx
   _QWORD *v19; // r8
   int v20; // edx
@@ -29,16 +29,16 @@ __int64 __fastcall LdrpBuildForwarderLink(__int64 a1, unsigned __int64 i, __int6
   v5 = i;
   if ( a1 )
   {
-    SchedulerSharedDataSlot = NtCurrentTeb()->SchedulerSharedDataSlot;
+    SchedulerSharedDataSlot = (char *)NtCurrentTeb()->SchedulerSharedDataSlot;
     if ( SchedulerSharedDataSlot )
     {
       for ( i = 0LL; (unsigned int)i < 8; i = (unsigned int)(i + 1) )
       {
-        v8 = &SchedulerSharedDataSlot[(unsigned int)i];
-        if ( !*v8 )
+        v8 = &SchedulerSharedDataSlot[8 * (unsigned int)i];
+        if ( !*(_QWORD *)v8 )
         {
           if ( v8 )
-            *v8 = &LdrpModuleDatatableLock;
+            *(_QWORD *)v8 = &LdrpModuleDatatableLock;
           break;
         }
       }
@@ -56,11 +56,11 @@ __int64 __fastcall LdrpBuildForwarderLink(__int64 a1, unsigned __int64 i, __int6
         if ( !v14 )
         {
 LABEL_23:
-          Heap = RtlAllocateHeap(LdrpHeap, NtdllBaseTag + 2359296, 0x20uLL);
+          Heap = (char *)RtlAllocateHeap(LdrpHeap, NtdllBaseTag + 2359296, 0x20uLL);
           if ( Heap )
           {
-            *(_DWORD *)(Heap + 24) |= 1u;
-            v17 = *(__int64 **)(v10 + 40);
+            *((_DWORD *)Heap + 6) |= 1u;
+            v17 = *(_QWORD **)(v10 + 40);
             if ( v17 )
             {
               *(_QWORD *)Heap = *v17;
@@ -71,8 +71,8 @@ LABEL_23:
               *(_QWORD *)Heap = Heap;
             }
             *(_QWORD *)(v10 + 40) = Heap;
-            v18 = (_QWORD *)(Heap + 16);
-            *(_QWORD *)(Heap + 8) = v11;
+            v18 = Heap + 16;
+            *((_QWORD *)Heap + 1) = v11;
             v19 = *(_QWORD **)(v11 + 48);
             if ( v19 )
             {
@@ -84,10 +84,10 @@ LABEL_23:
               *v18 = v18;
             }
             *(_QWORD *)(v11 + 48) = v18;
-            v20 = *(_DWORD *)(Heap + 24);
-            *(_QWORD *)(Heap + 24) = v10;
+            v20 = *((_DWORD *)Heap + 6);
+            *((_QWORD *)Heap + 3) = v10;
             if ( (v20 & 1) != 0 )
-              *(_DWORD *)(Heap + 24) = v10 ^ ((unsigned __int8)v20 ^ (unsigned __int8)v10) & 1;
+              *((_DWORD *)Heap + 6) = v10 ^ ((unsigned __int8)v20 ^ (unsigned __int8)v10) & 1;
           }
           else
           {

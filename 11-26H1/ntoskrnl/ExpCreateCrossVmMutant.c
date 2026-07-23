@@ -1,11 +1,11 @@
 /*
- * XREFs of ExpCreateCrossVmMutant @ 0x140846188
+ * XREFs of ExpCreateCrossVmMutant @ 0x14084C3E0
  * Callers:
- *     NtCreateCrossVmMutant @ 0x140841F90 (NtCreateCrossVmMutant.c)
+ *     NtCreateCrossVmMutant @ 0x140847FC0 (NtCreateCrossVmMutant.c)
  * Callees:
- *     ExReleaseExtensionTable @ 0x14048FC18 (ExReleaseExtensionTable.c)
- *     ExGetExtensionTable @ 0x14049B7B0 (ExGetExtensionTable.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     ExReleaseExtensionTable @ 0x1404896C4 (ExReleaseExtensionTable.c)
+ *     ExGetExtensionTable @ 0x140495300 (ExGetExtensionTable.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall ExpCreateCrossVmMutant(_QWORD *a1, unsigned int a2, __int64 a3, __int64 a4, __int64 a5, __int64 a6)

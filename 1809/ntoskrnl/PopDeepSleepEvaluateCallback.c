@@ -1,16 +1,16 @@
 /*
- * XREFs of PopDeepSleepEvaluateCallback @ 0x1402E3810
+ * XREFs of PopDeepSleepEvaluateCallback @ 0x1402E3A00
  * Callers:
  *     <none>
  * Callees:
  *     PoFxSendSystemLatencyUpdate @ 0x140005DA8 (PoFxSendSystemLatencyUpdate.c)
  *     PpmAcquireLock @ 0x140006020 (PpmAcquireLock.c)
- *     KxReleaseSpinLock @ 0x1400630E0 (KxReleaseSpinLock.c)
- *     PpmReleaseLock @ 0x14008BC30 (PpmReleaseLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14008CF40 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     PopDiagTraceIdleResiliencyEnd @ 0x1402E1440 (PopDiagTraceIdleResiliencyEnd.c)
- *     PopDiagTraceIdleResiliencyStart @ 0x1402E14F0 (PopDiagTraceIdleResiliencyStart.c)
+ *     KxReleaseSpinLock @ 0x1400630D0 (KxReleaseSpinLock.c)
+ *     PpmReleaseLock @ 0x14008BC20 (PpmReleaseLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14008CE80 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     PopDiagTraceIdleResiliencyEnd @ 0x1402E1630 (PopDiagTraceIdleResiliencyEnd.c)
+ *     PopDiagTraceIdleResiliencyStart @ 0x1402E16E0 (PopDiagTraceIdleResiliencyStart.c)
  */
 
 __int64 PopDeepSleepEvaluateCallback()

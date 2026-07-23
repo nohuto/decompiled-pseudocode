@@ -1,11 +1,11 @@
 /*
- * XREFs of VslFreeSecureImageIat @ 0x1404FE7E8
+ * XREFs of VslFreeSecureImageIat @ 0x1404FE768
  * Callers:
- *     MiFreeRetpolineImportInfo @ 0x1407CDF54 (MiFreeRetpolineImportInfo.c)
+ *     MiFreeRetpolineImportInfo @ 0x1407CE0C4 (MiFreeRetpolineImportInfo.c)
  * Callees:
- *     VslpEnterIumSecureMode @ 0x140262C90 (VslpEnterIumSecureMode.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     memset @ 0x140414200 (memset.c)
+ *     VslpEnterIumSecureMode @ 0x1402840D0 (VslpEnterIumSecureMode.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     memset @ 0x140414300 (memset.c)
  */
 
 NTSTATUS __fastcall VslFreeSecureImageIat(__int64 a1)

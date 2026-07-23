@@ -1,11 +1,11 @@
 /*
- * XREFs of CarDoLiveDump @ 0x1405D59D0
+ * XREFs of CarDoLiveDump @ 0x1405D5F40
  * Callers:
- *     CarWriteLivedump @ 0x1405D5CA0 (CarWriteLivedump.c)
+ *     CarWriteLivedump @ 0x1405D6210 (CarWriteLivedump.c)
  * Callees:
- *     ExQueueWorkItem @ 0x1402B7C30 (ExQueueWorkItem.c)
- *     DifiDbgPrint @ 0x1405D5644 (DifiDbgPrint.c)
- *     CarLiveDump @ 0x1405D5A90 (CarLiveDump.c)
+ *     ExQueueWorkItem @ 0x1402B7EC0 (ExQueueWorkItem.c)
+ *     DifiDbgPrint @ 0x1405D5BB4 (DifiDbgPrint.c)
+ *     CarLiveDump @ 0x1405D6000 (CarLiveDump.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
 
@@ -18,11 +18,11 @@ __int64 __fastcall CarDoLiveDump(__int64 a1, unsigned int a2, __int64 a3, __int6
   v5 = 0;
   if ( !a1 )
     return 3221225485LL;
-  qword_140C34F28 = a2;
-  qword_140C34F40 = a5;
+  qword_140C34EC8 = a2;
+  qword_140C34EE0 = a5;
   CarLiveDumpData = a1;
-  qword_140C34F30 = a3;
-  qword_140C34F38 = a4;
+  qword_140C34ED0 = a3;
+  qword_140C34ED8 = a4;
   v7 = *(const char **)(a1 + 1112);
   if ( v7 )
     DifiDbgPrint("Driver Verifier: Livedump scheduled with Error Code: 0x%X Error Message: '%s'\n", a2, v7);

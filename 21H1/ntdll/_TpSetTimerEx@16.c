@@ -17,45 +17,46 @@
  *     _RtlpHpAppCompatDontChangePolicy@0 @ 0x4B2ED850 (_RtlpHpAppCompatDontChangePolicy@0.c)
  */
 
-int __stdcall TpSetTimerEx(int a1, _DWORD *a2, int a3, int a4)
+NTSTATUS __cdecl TpSetTimerEx(PTP_TIMER Timer, PLARGE_INTEGER DueTime, ULONG Period, ULONG WindowLength)
 {
-  bool v4; // bl
+  PLARGE_INTEGER v4; // ebx
   unsigned __int8 v5; // cl
-  int v7; // [esp+10h] [ebp-8h]
+  _RTL_SRWLOCK *v7; // [esp+10h] [ebp-8h]
   unsigned __int8 v8; // [esp+17h] [ebp-1h]
 
-  if ( TppTimerpValidateTimer(a2 != 0) )
+  v4 = DueTime;
+  if ( TppTimerpValidateTimer(DueTime != 0) )
   {
-    v4 = a2 != 0;
-    v7 = *(_DWORD *)(a1 + 92) + 64;
-    RtlAcquireSRWLockExclusive(a1 + 144);
-    v5 = TppCancelTimer(a2 != 0);
+    LOBYTE(v4) = DueTime != 0;
+    v7 = (_RTL_SRWLOCK *)(*((_DWORD *)Timer + 23) + 64);
+    RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)Timer + 36);
+    v5 = TppCancelTimer(Timer, v7, v4);
     v8 = v5;
-    if ( a2 && *(_BYTE *)(a1 + 223) )
+    if ( DueTime && *((_BYTE *)Timer + 223) )
     {
-      RtlReleaseSRWLockExclusive(a1 + 144);
+      RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)Timer + 36);
       v5 = v8;
-      v4 = 0;
+      LOBYTE(v4) = 0;
     }
     if ( !v5 )
     {
-      if ( !v4 )
+      if ( !(_BYTE)v4 )
         return v5;
-      if ( TpIsTimerSet(a1) )
+      if ( TpIsTimerSet(Timer) )
         goto LABEL_11;
-      _InterlockedIncrement((volatile signed __int32 *)a1);
+      _InterlockedIncrement((volatile signed __int32 *)Timer);
       v5 = v8;
     }
-    if ( !v4 )
+    if ( !(_BYTE)v4 )
     {
-      if ( !v5 || _InterlockedExchangeAdd((volatile signed __int32 *)a1, 0xFFFFFFFF) )
+      if ( !v5 || _InterlockedExchangeAdd((volatile signed __int32 *)Timer, 0xFFFFFFFF) )
         return v5;
-      (**(void (__thiscall ***)(_DWORD, int))(a1 + 4))(**(_DWORD **)(a1 + 4), a1);
+      (**((void (__thiscall ***)(_DWORD, PTP_TIMER))Timer + 1))(**((_DWORD **)Timer + 1), Timer);
       return v8;
     }
-    TppSetTimer(a1, v7, a2, a3, a4);
+    TppSetTimer((int)Timer, v7, DueTime, Period, WindowLength);
 LABEL_11:
-    RtlReleaseSRWLockExclusive(a1 + 144);
+    RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)Timer + 36);
     return v8;
   }
   return 0;

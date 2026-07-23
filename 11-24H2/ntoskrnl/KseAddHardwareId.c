@@ -1,19 +1,19 @@
 /*
- * XREFs of KseAddHardwareId @ 0x14095A8A0
+ * XREFs of KseAddHardwareId @ 0x140942360
  * Callers:
- *     PiProcessNewDeviceNode @ 0x140A7C564 (PiProcessNewDeviceNode.c)
+ *     PiProcessNewDeviceNode @ 0x140A76864 (PiProcessNewDeviceNode.c)
  * Callees:
- *     KsepDebugPrint @ 0x1402CA2D8 (KsepDebugPrint.c)
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     KsepLogError @ 0x14048E6F8 (KsepLogError.c)
- *     KsepPoolAllocatePaged @ 0x1404A03F0 (KsepPoolAllocatePaged.c)
- *     KsepPoolFreePaged @ 0x1404A6F94 (KsepPoolFreePaged.c)
- *     KsepCacheLock @ 0x1408BB520 (KsepCacheLock.c)
- *     KsepCacheLookup @ 0x14095B438 (KsepCacheLookup.c)
- *     KsepCacheUnlock @ 0x14095B51C (KsepCacheUnlock.c)
- *     KsepStringFree @ 0x14095B694 (KsepStringFree.c)
- *     KsepStringDuplicate @ 0x14095CB04 (KsepStringDuplicate.c)
- *     KsepCacheInsert @ 0x140AA046C (KsepCacheInsert.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     KsepLogError @ 0x140488B28 (KsepLogError.c)
+ *     KsepPoolAllocatePaged @ 0x14049AA70 (KsepPoolAllocatePaged.c)
+ *     KsepPoolFreePaged @ 0x1404A18F4 (KsepPoolFreePaged.c)
+ *     KsepDebugPrint @ 0x1404CC7D8 (KsepDebugPrint.c)
+ *     KsepCacheLock @ 0x1408B8ED0 (KsepCacheLock.c)
+ *     KsepCacheLookup @ 0x140942EF8 (KsepCacheLookup.c)
+ *     KsepCacheUnlock @ 0x140942FDC (KsepCacheUnlock.c)
+ *     KsepStringFree @ 0x140943154 (KsepStringFree.c)
+ *     KsepStringDuplicate @ 0x1409445C4 (KsepStringDuplicate.c)
+ *     KsepCacheInsert @ 0x140A9B7FC (KsepCacheInsert.c)
  */
 
 __int64 __fastcall KseAddHardwareId(PCWSTR SourceString)
@@ -27,11 +27,11 @@ __int64 __fastcall KseAddHardwareId(PCWSTR SourceString)
   UNICODE_STRING DestinationString; // [rsp+40h] [rbp-28h] BYREF
   int v10; // [rsp+50h] [rbp-18h]
 
-  v1 = (unsigned __int64 *)qword_140E66B30;
+  v1 = (unsigned __int64 *)qword_140E66C60;
   v10 = 0;
   memset(v8, 0, sizeof(v8));
   DestinationString = 0LL;
-  if ( dword_140E66AE4 != 2 )
+  if ( dword_140E66C14 != 2 )
   {
     v7 = ((unsigned __int8)_InterlockedExchangeAdd(&KsepHistoryErrorsIndex, 1u) + 1) & 0x3F;
     KsepHistoryErrors[2 * v7 + 1] = -1073741823;

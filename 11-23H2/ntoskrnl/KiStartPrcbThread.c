@@ -1,15 +1,15 @@
 /*
- * XREFs of KiStartPrcbThread @ 0x140382A20
+ * XREFs of KiStartPrcbThread @ 0x140382BC0
  * Callers:
- *     KiCompleteBootProcessorContextInitialization @ 0x140376E6C (KiCompleteBootProcessorContextInitialization.c)
- *     KiStartPrcbThreads @ 0x1403828B0 (KiStartPrcbThreads.c)
- *     KiStartIdleThread @ 0x140382914 (KiStartIdleThread.c)
+ *     KiCompleteBootProcessorContextInitialization @ 0x14037700C (KiCompleteBootProcessorContextInitialization.c)
+ *     KiStartPrcbThreads @ 0x140382A50 (KiStartPrcbThreads.c)
+ *     KiStartIdleThread @ 0x140382AB4 (KiStartIdleThread.c)
  * Callees:
- *     KiCopyAffinityEx @ 0x1402545C0 (KiCopyAffinityEx.c)
- *     KeAddProcessorAffinityEx @ 0x1402573A0 (KeAddProcessorAffinityEx.c)
- *     KeStartThread @ 0x1402BE0D8 (KeStartThread.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memset @ 0x140435A00 (memset.c)
+ *     KiCopyAffinityEx @ 0x140254680 (KiCopyAffinityEx.c)
+ *     KeAddProcessorAffinityEx @ 0x140257460 (KeAddProcessorAffinityEx.c)
+ *     KeStartThread @ 0x1402BE368 (KeStartThread.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     memset @ 0x140435E00 (memset.c)
  */
 
 _QWORD *__fastcall KiStartPrcbThread(__int64 a1, __int64 a2)

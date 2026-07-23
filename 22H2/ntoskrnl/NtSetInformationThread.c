@@ -106,7 +106,7 @@ NTSTATUS __stdcall NtSetInformationThread(
   unsigned __int64 v39; // rsi
   PVOID v40; // rbx
   _QWORD *v41; // r14
-  struct _PROCESSOR_NUMBER v42; // eax
+  _PROCESSOR_NUMBER v42; // eax
   unsigned __int64 v43; // rcx
   unsigned __int64 v44; // rdx
   unsigned __int16 v45; // di
@@ -173,7 +173,7 @@ NTSTATUS __stdcall NtSetInformationThread(
   char v107; // [rsp+4Ch] [rbp-22Ch]
   char v108; // [rsp+4Dh] [rbp-22Bh]
   bool v109; // [rsp+4Eh] [rbp-22Ah]
-  struct _PROCESSOR_NUMBER v110; // [rsp+54h] [rbp-224h] BYREF
+  _PROCESSOR_NUMBER v110; // [rsp+54h] [rbp-224h] BYREF
   char v111; // [rsp+58h] [rbp-220h]
   LONG Increment; // [rsp+5Ch] [rbp-21Ch]
   PVOID v113; // [rsp+60h] [rbp-218h] BYREF
@@ -234,8 +234,8 @@ NTSTATUS __stdcall NtSetInformationThread(
   v9 = CurrentThread->$6BEBF485330D18E60173AA6D991B35AC::gap0[10];
   if ( v9 )
   {
-    if ( ThreadInformationClass >= (ThreadSuspendCount|ThreadAffinityMask)
-      && ThreadInformationClass < (ThreadCounterProfiling|ThreadIsIoPending)
+    if ( ThreadInformationClass >= ThreadSelectedCpuSets
+      && ThreadInformationClass < ThreadManageWritesToExecutableMemory
       || ThreadInformationClass < ThreadEnableAlignmentFaultFixup && ThreadInformationClass >= ThreadImpersonationToken )
     {
 LABEL_4:
@@ -250,8 +250,8 @@ LABEL_4:
         case ThreadGroupInformation:
         case ThreadUmsInformation:
         case ThreadCpuAccountingInformation:
-        case ThreadCpuAccountingInformation|ThreadAffinityMask:
-        case ThreadCounterProfiling|ThreadIsIoPending:
+        case ThreadNameInformation:
+        case ThreadManageWritesToExecutableMemory:
           v11 = 7LL;
           v10 = 3;
           break;
@@ -279,7 +279,7 @@ LABEL_4:
   {
     v10 = 3;
   }
-  if ( ThreadInformationClass == (ThreadCounterProfiling|ThreadAmILastThread) )
+  if ( ThreadInformationClass == ThreadWorkOnBehalfTicket )
   {
     if ( ThreadHandle == (HANDLE)-2LL )
     {
@@ -861,7 +861,7 @@ LABEL_42:
       case ThreadIdealProcessorEx:
         if ( ThreadInformationLength != 4 )
           return -1073741820;
-        v110 = *(struct _PROCESSOR_NUMBER *)ThreadInformation;
+        v110 = *(_PROCESSOR_NUMBER *)ThreadInformation;
         result = ObReferenceObjectByHandleWithTag(
                    ThreadHandle,
                    0x20u,
@@ -878,7 +878,7 @@ LABEL_42:
         {
           if ( (*((_DWORD *)v32 + 29) & 0x400) == 0 )
             PspWriteTebIdealProcessor(CurrentThread, v32);
-          *(struct _PROCESSOR_NUMBER *)v5 = v110;
+          *(_PROCESSOR_NUMBER *)v5 = v110;
         }
         goto LABEL_42;
       case ThreadCpuAccountingInformation:
@@ -913,7 +913,7 @@ LABEL_42:
         }
         CurrentThread[1].ApcState.ApcListHead[1].Flink = v7;
         return 0;
-      case ThreadCounterProfiling|ThreadAffinityMask:
+      case ThreadHeterogeneousCpuPolicy:
         if ( ThreadInformationLength != 4 )
           return -1073741820;
         v94 = MEMORY[4];
@@ -932,7 +932,7 @@ LABEL_42:
           return v18;
         KeSetUserHeteroCpuPolicyThread((__int64)Object, v94);
         goto LABEL_28;
-      case ThreadCpuAccountingInformation|ThreadAffinityMask:
+      case ThreadNameInformation:
         v108 = 0;
         v41 = 0LL;
         v115 = 0LL;
@@ -957,7 +957,7 @@ LABEL_42:
             v138 = 0LL;
             if ( v5 >= 0x7FFFFFFF0000LL )
               v5 = 0x7FFFFFFF0000LL;
-            v42 = *(struct _PROCESSOR_NUMBER *)v5;
+            v42 = *(_PROCESSOR_NUMBER *)v5;
             LODWORD(v138) = v42;
             v43 = *(_QWORD *)(v5 + 8);
             *((_QWORD *)&v138 + 1) = v43;
@@ -1022,7 +1022,7 @@ LABEL_88:
         if ( v41 )
           ExFreePoolWithTag(v41, 0x6D4E6854u);
         return v18;
-      case ThreadSuspendCount|ThreadAffinityMask:
+      case ThreadSelectedCpuSets:
         if ( (ThreadInformationLength & 7) != 0 || ThreadInformationLength > 0xA0 )
           return -1073741820;
         memmove(v146, ThreadInformation, ThreadInformationLength);
@@ -1057,7 +1057,7 @@ LABEL_88:
           return -1073741811;
         _InterlockedAnd((volatile signed __int32 *)&CurrentThread[1].SwapListEntry + 2, 0xFFFBFFFF);
         return 0;
-      case ThreadDynamicCodePolicyInfo|ThreadTimes:
+      case ThreadExplicitCaseSensitivity:
         if ( ThreadInformationLength != 4 )
           return -1073741820;
         v95 = *(_DWORD *)ThreadInformation;
@@ -1066,7 +1066,9 @@ LABEL_88:
           goto LABEL_287;
         if ( !SeSinglePrivilegeCheck(SeDebugPrivilege, v9) )
           return -1073741727;
-        if ( !RtlTestProtectedAccess(BYTE2(CurrentThread->Process[2].Header.WaitListHead.Flink), 0x51u) )
+        if ( !RtlTestProtectedAccess(
+                (PS_PROTECTION)SBYTE2(CurrentThread->Process[2].Header.WaitListHead.Flink),
+                (PS_PROTECTION)81) )
           return -1073741790;
         v6 = Handle;
 LABEL_287:
@@ -1083,7 +1085,7 @@ LABEL_220:
           return v106;
         }
         return result;
-      case ThreadDynamicCodePolicyInfo|ThreadAffinityMask:
+      case ThreadDbgkWerReportActive:
         if ( ThreadInformationLength != 4 )
           return -1073741820;
         v96 = *(_DWORD *)ThreadInformation;
@@ -1104,7 +1106,7 @@ LABEL_220:
         else
           _InterlockedAnd((volatile signed __int32 *)Object + 324, 0xFFDFFFFF);
         goto LABEL_220;
-      case ThreadSubsystemInformation|ThreadPriority:
+      case ThreadAttachContainer:
         if ( ThreadHandle != (HANDLE)-2LL )
           return -1073741811;
         if ( ThreadInformationLength != 8 )
@@ -1151,9 +1153,9 @@ LABEL_50:
           return 0;
         }
         break;
-      case ThreadCounterProfiling|ThreadIsIoPending:
+      case ThreadManageWritesToExecutableMemory:
         return -1073741637;
-      case ThreadIdealProcessorEx|ThreadIsIoPending:
+      case ThreadPowerThrottlingState:
         if ( ThreadInformationLength != 12 )
           return -1073741820;
         v137 = *(_QWORD *)ThreadInformation;
@@ -1181,7 +1183,7 @@ LABEL_50:
           return result;
         PspSetThreadPpmPolicy(Object, v10);
         goto LABEL_48;
-      case ThreadCpuAccountingInformation|ThreadIsIoPending:
+      case ThreadWorkloadClass:
         if ( ThreadHandle != (HANDLE)-2LL || v9 )
           return -1073741790;
         if ( ThreadInformationLength != 4 )

@@ -1,11 +1,11 @@
 /*
- * XREFs of MiFreePhysicalRange @ 0x140682480
+ * XREFs of MiFreePhysicalRange @ 0x140683670
  * Callers:
- *     MiFreePhysicalPageChain @ 0x1403CCA3C (MiFreePhysicalPageChain.c)
- *     MiFreeAwePagesFromMdl @ 0x140682134 (MiFreeAwePagesFromMdl.c)
- *     MiFreeContiguousLargePageRun @ 0x1406821E4 (MiFreeContiguousLargePageRun.c)
+ *     MiFreePhysicalPageChain @ 0x140266C0C (MiFreePhysicalPageChain.c)
+ *     MiFreeAwePagesFromMdl @ 0x140683324 (MiFreeAwePagesFromMdl.c)
+ *     MiFreeContiguousLargePageRun @ 0x1406833D4 (MiFreeContiguousLargePageRun.c)
  * Callees:
- *     MmFreeMemoryRanges @ 0x1407EB390 (MmFreeMemoryRanges.c)
+ *     MmFreeMemoryRanges @ 0x1407EB960 (MmFreeMemoryRanges.c)
  */
 
 __int64 __fastcall MiFreePhysicalRange(__int64 a1, __int64 a2)

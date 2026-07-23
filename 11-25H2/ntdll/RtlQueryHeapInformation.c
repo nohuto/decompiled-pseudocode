@@ -12,103 +12,108 @@
  *     RtlpHpStackTraceSerialize @ 0x180120A28 (RtlpHpStackTraceSerialize.c)
  */
 
-__int64 __fastcall RtlQueryHeapInformation(__int64 a1, int a2, _QWORD *a3, unsigned __int64 a4, _QWORD *a5)
+NTSTATUS __cdecl RtlQueryHeapInformation(
+        PVOID HeapHandle,
+        HEAP_INFORMATION_CLASS HeapInformationClass,
+        PVOID HeapInformation,
+        SIZE_T HeapInformationLength,
+        PSIZE_T ReturnLength)
 {
   int v6; // eax
 
-  if ( a2 )
+  if ( HeapInformationClass )
   {
-    if ( a2 > 4 )
+    if ( HeapInformationClass > 4 )
     {
-      if ( a2 != 7 )
+      if ( HeapInformationClass != HeapTag )
       {
-        if ( a2 == 5 )
-          return RtlpHpStackTraceSerialize(a3, a4, a5);
-        return 3221225485LL;
+        if ( HeapInformationClass == 5 )
+          return RtlpHpStackTraceSerialize(HeapInformation, HeapInformationLength, ReturnLength);
+        return -1073741811;
       }
-      if ( !a1 || !a3 || *(_DWORD *)(a1 + 16) != -571548178 )
-        return 3221225485LL;
-      if ( a5 )
-        *a5 = 8LL;
-      if ( a4 == 8 )
+      if ( !HeapHandle || !HeapInformation || *((_DWORD *)HeapHandle + 4) != -571548178 )
+        return -1073741811;
+      if ( ReturnLength )
+        *ReturnLength = 8LL;
+      if ( HeapInformationLength == 8 )
       {
-        *a3 = *(_QWORD *)(a1 + 104);
-        return 0LL;
+        *(_QWORD *)HeapInformation = *((_QWORD *)HeapHandle + 13);
+        return 0;
       }
       else
       {
-        return 3221225485LL;
+        return -1073741811;
       }
     }
     else
     {
-      if ( a2 == 4 )
-        return RtlpHpTagQueryTags(a3);
-      if ( a2 != 1 )
+      if ( HeapInformationClass == 4 )
+        return RtlpHpTagQueryTags(HeapInformation);
+      if ( HeapInformationClass != HeapEnableTerminationOnCorruption )
       {
-        if ( a2 == -2147483647 )
+        if ( HeapInformationClass == -2147483647 )
         {
-          if ( a4 >= 8 )
+          if ( HeapInformationLength >= 8 )
           {
-            *a3 = &RtlpHeapFailureInfo;
-            if ( a5 )
-              *a5 = 8LL;
-            return 0LL;
+            *(_QWORD *)HeapInformation = &RtlpHeapFailureInfo;
+            if ( ReturnLength )
+              *ReturnLength = 8LL;
+            return 0;
           }
           else
           {
-            if ( a5 )
-              *a5 = 8LL;
-            return 3221225507LL;
+            if ( ReturnLength )
+              *ReturnLength = 8LL;
+            return -1073741789;
           }
         }
-        if ( a2 == 2 )
+        if ( HeapInformationClass == 2 )
         {
-          if ( a4 >= 0x58 )
-            return RtlpQueryExtendedHeapInformation((__int64)a3, a4, a5);
+          if ( HeapInformationLength >= 0x58 )
+            return RtlpQueryExtendedHeapInformation((__int64)HeapInformation, HeapInformationLength, ReturnLength);
           else
-            return 3221225485LL;
+            return -1073741811;
         }
-        return 3221225485LL;
+        return -1073741811;
       }
-      if ( a5 )
-        *a5 = 4LL;
-      if ( a4 >= 4 )
+      if ( ReturnLength )
+        *ReturnLength = 4LL;
+      if ( HeapInformationLength >= 4 )
       {
-        *(_DWORD *)a3 = RtlpDisableBreakOnFailureCookie == 0;
-        return 0LL;
+        *(_DWORD *)HeapInformation = RtlpDisableBreakOnFailureCookie == 0;
+        return 0;
       }
       else
       {
-        return 3221225507LL;
+        return -1073741789;
       }
     }
   }
   else
   {
-    v6 = *(_DWORD *)(a1 + 16);
-    if ( v6 == -571548178 || (*(_DWORD *)(a1 + 116) & 0x1000000) == 0 )
+    v6 = *((_DWORD *)HeapHandle + 4);
+    if ( v6 == -571548178 || (*((_DWORD *)HeapHandle + 29) & 0x1000000) == 0 )
     {
-      if ( a4 < 4 )
+      if ( HeapInformationLength < 4 )
       {
-        if ( a5 )
-          *a5 = 4LL;
-        return 3221225507LL;
+        if ( ReturnLength )
+          *ReturnLength = 4LL;
+        return -1073741789;
       }
       else
       {
         if ( v6 == -571548178 )
-          *(_DWORD *)a3 = 2;
+          *(_DWORD *)HeapInformation = 2;
         else
-          *(_DWORD *)a3 = *(unsigned __int8 *)(a1 + 419);
-        if ( a5 )
-          *a5 = 4LL;
-        return 0LL;
+          *(_DWORD *)HeapInformation = *((unsigned __int8 *)HeapHandle + 419);
+        if ( ReturnLength )
+          *ReturnLength = 4LL;
+        return 0;
       }
     }
     else
     {
-      return 3221225474LL;
+      return -1073741822;
     }
   }
 }

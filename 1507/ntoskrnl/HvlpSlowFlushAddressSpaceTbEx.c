@@ -14,11 +14,11 @@ PSLIST_ENTRY __fastcall HvlpSlowFlushAddressSpaceTbEx(__int64 a1, unsigned __int
 {
   char v5; // r14
   char v6; // bp
-  union _SLIST_HEADER *CurrentPrcb; // rdi
+  _SLIST_HEADER *CurrentPrcb; // rdi
   _QWORD *p_Next; // rbx
   PHYSICAL_ADDRESS Next; // rsi
   PSLIST_ENTRY v10; // rax
-  struct _SLIST_ENTRY *v11; // r15
+  _SLIST_ENTRY *v11; // r15
   PHYSICAL_ADDRESS PhysicalAddress; // rax
   unsigned int v13; // ecx
   int v14; // r12d
@@ -40,15 +40,15 @@ PSLIST_ENTRY __fastcall HvlpSlowFlushAddressSpaceTbEx(__int64 a1, unsigned __int
   unsigned int v30; // [rsp+34h] [rbp-124h]
   unsigned int v31; // [rsp+38h] [rbp-120h]
   char v32; // [rsp+3Ch] [rbp-11Ch]
-  union _SLIST_HEADER *v33; // [rsp+48h] [rbp-110h]
-  struct _SLIST_ENTRY *v34; // [rsp+50h] [rbp-108h]
+  _SLIST_HEADER *v33; // [rsp+48h] [rbp-110h]
+  _SLIST_ENTRY *v34; // [rsp+50h] [rbp-108h]
   _BYTE v35[7]; // [rsp+60h] [rbp-F8h] BYREF
   _BYTE v36[153]; // [rsp+BFh] [rbp-99h] BYREF
 
   v28 = a2;
   if ( (HvlpFlags & 0x10) != 0 )
   {
-    CurrentPrcb = (union _SLIST_HEADER *)KeGetCurrentPrcb();
+    CurrentPrcb = (_SLIST_HEADER *)KeGetCurrentPrcb();
     v10 = RtlpInterlockedPopEntrySList(CurrentPrcb + 1535);
     p_Next = &v10->Next;
     if ( v10 )

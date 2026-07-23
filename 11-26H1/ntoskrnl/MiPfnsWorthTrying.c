@@ -1,24 +1,24 @@
 /*
- * XREFs of MiPfnsWorthTrying @ 0x140290D20
+ * XREFs of MiPfnsWorthTrying @ 0x140290280
  * Callers:
- *     MiFindContiguousPagesInOptimizedCandidates @ 0x14028EB58 (MiFindContiguousPagesInOptimizedCandidates.c)
- *     MiRebuildLargePage @ 0x14028FF24 (MiRebuildLargePage.c)
- *     MiFindContiguousPagesNode @ 0x1402904F0 (MiFindContiguousPagesNode.c)
- *     MiDefragmentSlabWorker @ 0x1407063E4 (MiDefragmentSlabWorker.c)
- *     MmIdentifyPhysicalMemory @ 0x140868394 (MmIdentifyPhysicalMemory.c)
- *     MiScrubNode @ 0x140AC642C (MiScrubNode.c)
- *     MmRelocatePfnList @ 0x140B6D1F4 (MmRelocatePfnList.c)
+ *     MiFindContiguousPagesInOptimizedCandidates @ 0x14028E0B8 (MiFindContiguousPagesInOptimizedCandidates.c)
+ *     MiRebuildLargePage @ 0x14028F484 (MiRebuildLargePage.c)
+ *     MiFindContiguousPagesNode @ 0x14028FA50 (MiFindContiguousPagesNode.c)
+ *     MiDefragmentSlabWorker @ 0x14070B0B4 (MiDefragmentSlabWorker.c)
+ *     MmIdentifyPhysicalMemory @ 0x14086E774 (MmIdentifyPhysicalMemory.c)
+ *     MiScrubNode @ 0x140AC8020 (MiScrubNode.c)
+ *     MmRelocatePfnList @ 0x140B705C4 (MmRelocatePfnList.c)
  * Callees:
- *     MiIsPageOnBadList @ 0x14028F9D0 (MiIsPageOnBadList.c)
- *     MiActivePageClaimCandidate @ 0x1402923F0 (MiActivePageClaimCandidate.c)
- *     MiGetPfnPageSizeIndexUnsynchronized @ 0x1402F0BC0 (MiGetPfnPageSizeIndexUnsynchronized.c)
- *     MiGetPfnSlabType @ 0x1402FDC40 (MiGetPfnSlabType.c)
- *     MiRequestIoPageMdlCacheRelease @ 0x140411798 (MiRequestIoPageMdlCacheRelease.c)
- *     MiExpandPageSkipRange @ 0x14042DF80 (MiExpandPageSkipRange.c)
- *     MiFindNextLowerLargePageCandidate @ 0x14042E03C (MiFindNextLowerLargePageCandidate.c)
- *     MiClusterVadFull @ 0x14046E460 (MiClusterVadFull.c)
- *     MiExpandWrongPartitionSkipRange @ 0x140526CB4 (MiExpandWrongPartitionSkipRange.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     MiIsPageOnBadList @ 0x14028EF30 (MiIsPageOnBadList.c)
+ *     MiActivePageClaimCandidate @ 0x140291950 (MiActivePageClaimCandidate.c)
+ *     MiGetPfnPageSizeIndexUnsynchronized @ 0x1402D2C40 (MiGetPfnPageSizeIndexUnsynchronized.c)
+ *     MiGetPfnSlabType @ 0x1402DFCC0 (MiGetPfnSlabType.c)
+ *     MiRequestIoPageMdlCacheRelease @ 0x140410EB8 (MiRequestIoPageMdlCacheRelease.c)
+ *     MiExpandPageSkipRange @ 0x14041AE90 (MiExpandPageSkipRange.c)
+ *     MiFindNextLowerLargePageCandidate @ 0x14041AF4C (MiFindNextLowerLargePageCandidate.c)
+ *     MiClusterVadFull @ 0x140467BE0 (MiClusterVadFull.c)
+ *     MiExpandWrongPartitionSkipRange @ 0x140529324 (MiExpandWrongPartitionSkipRange.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall MiPfnsWorthTrying(__int16 *a1, unsigned __int64 a2, __int64 a3, unsigned int a4, _DWORD *a5)
@@ -79,7 +79,7 @@ __int64 __fastcall MiPfnsWorthTrying(__int16 *a1, unsigned __int64 a2, __int64 a
       if ( ((*(_QWORD *)(a2 + 40) >> 43) & 0x3FF) != v10 )
       {
         result = MiExpandWrongPartitionSkipRange(a2, v12, a4);
-        _InterlockedIncrement(&dword_140EF8EE0);
+        _InterlockedIncrement(&dword_140EF9240);
         return result;
       }
       v14 = 3;
@@ -104,19 +104,19 @@ __int64 __fastcall MiPfnsWorthTrying(__int16 *a1, unsigned __int64 a2, __int64 a
         break;
       if ( MiIsPageOnBadList(a2) )
       {
-        _InterlockedIncrement(&dword_140EF8EEC);
+        _InterlockedIncrement(&dword_140EF924C);
         v32 = v12 - a2;
       }
       else if ( *(_QWORD *)(a2 + 8) == -8LL )
       {
-        _InterlockedIncrement(&dword_140EF8EF0);
+        _InterlockedIncrement(&dword_140EF9250);
         v32 = v12 - a2;
       }
       else
       {
         if ( (a4 & 0x410000) == 0x410000 || (unsigned int)MiGetPfnSlabType(v31) == 9 )
           goto LABEL_59;
-        _InterlockedIncrement(&dword_140EF8F5C);
+        _InterlockedIncrement(&dword_140EF92BC);
         v32 = v12 - 48 * (((__int64)(a2 + 0x220000000000LL) / 48) & 0xFFFFFFFFFFFFFE00uLL) + 0x220000000000LL;
       }
       if ( v32 / 48 )
@@ -137,10 +137,10 @@ LABEL_62:
                 ++v33;
                 goto LABEL_62;
               }
-              if ( (PVOID)((__int64)(a2 + 0x220000000000LL) / 48) == *(&qword_140E36000 + 7 * v33 + i) )
+              if ( (PVOID)((__int64)(a2 + 0x220000000000LL) / 48) == *(&qword_140E36180 + 7 * v33 + i) )
                 break;
             }
-            _InterlockedIncrement(&dword_140EF8F90);
+            _InterlockedIncrement(&dword_140EF92F0);
 LABEL_12:
             v18 = v12 - a2;
             return v18 / 48;
@@ -156,7 +156,7 @@ LABEL_69:
         if ( (a4 & 0x2000000) != 0 )
         {
 LABEL_71:
-          _InterlockedIncrement(&dword_140EF8F74);
+          _InterlockedIncrement(&dword_140EF92D4);
           v18 = v12 - 48 * (v35 & -(__int64)v36) + 0x220000000000LL;
           return v18 / 48;
         }
@@ -192,7 +192,7 @@ LABEL_71:
           || (*(_QWORD *)a2 & 1) == 0 )
         {
 LABEL_101:
-          _InterlockedIncrement(&dword_140EF8F6C);
+          _InterlockedIncrement(&dword_140EF92CC);
           goto LABEL_12;
         }
         v20 = a2 + 0x220000000000LL;
@@ -209,7 +209,7 @@ LABEL_24:
     }
     if ( *(int *)(a2 + 32) < 0 )
     {
-      _InterlockedIncrement(&dword_140EF8F70);
+      _InterlockedIncrement(&dword_140EF92D0);
       goto LABEL_12;
     }
     v20 = a2 + 0x220000000000LL;
@@ -217,12 +217,12 @@ LABEL_24:
     v22 = a4 & 0x410000;
     if ( v16 > 4 )
       break;
-    if ( byte_140E3BD26
+    if ( byte_140E3BEA6
       && v22 != 4259840
-      && *(_BYTE *)(qword_140E3D0C0 + 2 * (v21 >> 9))
-      && *(_BYTE *)(qword_140E3D0C0 + 2 * (v21 >> 9)) != 10 )
+      && *(_BYTE *)(qword_140E3D240 + 2 * (v21 >> 9))
+      && *(_BYTE *)(qword_140E3D240 + 2 * (v21 >> 9)) != 10 )
     {
-      _InterlockedIncrement(&dword_140EF8F60);
+      _InterlockedIncrement(&dword_140EF92C0);
       v18 = v12 - 48 * (v21 & 0xFFFFFFFFFFFFFE00uLL) + 0x220000000000LL;
       return v18 / 48;
     }
@@ -232,7 +232,7 @@ LABEL_24:
       if ( (unsigned __int16)*(_DWORD *)(a2 + 32) )
       {
 LABEL_47:
-        _InterlockedIncrement(&dword_140EF8EF4);
+        _InterlockedIncrement(&dword_140EF9254);
         goto LABEL_12;
       }
     }
@@ -267,7 +267,7 @@ LABEL_16:
           break;
         }
       }
-      _InterlockedIncrement(&dword_140EF8EE8);
+      _InterlockedIncrement(&dword_140EF9248);
       v18 = v12 - 48 * (v21 & -MiPageSizes[j]) + 0x220000000000LL;
       return v18 / 48;
     }
@@ -276,7 +276,7 @@ LABEL_34:
   v17 = 2;
   if ( v16 != 6 )
   {
-    _InterlockedIncrement(&dword_140EF8EF8);
+    _InterlockedIncrement(&dword_140EF9258);
     goto LABEL_12;
   }
   if ( ((*(_QWORD *)(a2 + 40) >> 60) & 7) == 2 )
@@ -287,7 +287,7 @@ LABEL_34:
     {
       if ( 8 * (*(_QWORD *)a2 & 0xFFFFFFFFFFELL | 0xFFFFF00000000000uLL) == -32LL )
       {
-        _InterlockedIncrement(&dword_140EF8EFC);
+        _InterlockedIncrement(&dword_140EF925C);
         goto LABEL_12;
       }
     }
@@ -315,7 +315,7 @@ LABEL_40:
         v25 = (__int64)(v12 - a2) / 48;
         if ( v25 >= v24 && (unsigned int)MiClusterVadFull(a2, v24, 0LL) )
         {
-          v26 = (volatile signed __int32 *)&unk_140EF8FA4;
+          v26 = (volatile signed __int32 *)&unk_140EF9304;
           goto LABEL_50;
         }
 LABEL_51:
@@ -333,17 +333,17 @@ LABEL_52:
         NextLowerLargePageCandidate = MiFindNextLowerLargePageCandidate(v8, ~(active - 1) & (v20 / 48));
         if ( NextLowerLargePageCandidate < v29 )
         {
-          _InterlockedIncrement(&dword_140EF8EE8);
+          _InterlockedIncrement(&dword_140EF9248);
           return v30 - NextLowerLargePageCandidate;
         }
-        _InterlockedIncrement(&dword_140EF8EE4);
+        _InterlockedIncrement(&dword_140EF9244);
       }
       return v30 - v29;
     }
     if ( (a4 & 8) != 0 )
     {
 LABEL_98:
-      _InterlockedIncrement(&dword_140EF8F00);
+      _InterlockedIncrement(&dword_140EF9260);
       goto LABEL_12;
     }
     goto LABEL_24;
@@ -353,13 +353,13 @@ LABEL_98:
     if ( (*(_QWORD *)(a2 + 24) & 0x3FFFFFFFFFFFFFFFuLL) <= 1 || (a4 & 0x8000000) != 0 )
       goto LABEL_52;
     v25 = (__int64)(v12 - a2) / 48;
-    v26 = (volatile signed __int32 *)&unk_140EF8F04;
+    v26 = (volatile signed __int32 *)&unk_140EF9264;
   }
   else
   {
     *v9 |= 2u;
     v25 = (__int64)(v12 - a2) / 48;
-    v26 = &dword_140EF8F50;
+    v26 = &dword_140EF92B0;
   }
 LABEL_50:
   _InterlockedIncrement(v26);

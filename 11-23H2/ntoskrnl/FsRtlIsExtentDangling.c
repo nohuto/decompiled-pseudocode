@@ -1,9 +1,9 @@
 /*
- * XREFs of FsRtlIsExtentDangling @ 0x14093ED00
+ * XREFs of FsRtlIsExtentDangling @ 0x14093EF00
  * Callers:
  *     <none>
  * Callees:
- *     MiIsExtentDangling @ 0x140A33F44 (MiIsExtentDangling.c)
+ *     MiIsExtentDangling @ 0x140A341F4 (MiIsExtentDangling.c)
  */
 
 __int64 __fastcall FsRtlIsExtentDangling(__int64 a1, __int64 a2)

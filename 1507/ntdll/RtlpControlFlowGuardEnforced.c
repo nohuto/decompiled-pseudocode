@@ -8,5 +8,5 @@
 
 _BOOL8 RtlpControlFlowGuardEnforced()
 {
-  return qword_1801572F0 != 0;
+  return LdrSystemDllInitBlock.Wow64SharedInformation[9] != 0;
 }

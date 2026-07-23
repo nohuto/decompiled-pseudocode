@@ -1,12 +1,12 @@
 /*
- * XREFs of DifIoDeleteSymbolicLinkWrapper @ 0x1405DEDE0
+ * XREFs of DifIoDeleteSymbolicLinkWrapper @ 0x1405DF350
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     DifGetAPIThunkContextById @ 0x1404664BE (DifGetAPIThunkContextById.c)
- *     DifGetReturnAddressForWrappers @ 0x1405F88C4 (DifGetReturnAddressForWrappers.c)
- *     IoDeleteSymbolicLink @ 0x140873C80 (IoDeleteSymbolicLink.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     DifGetAPIThunkContextById @ 0x1404668BE (DifGetAPIThunkContextById.c)
+ *     DifGetReturnAddressForWrappers @ 0x1405F8E34 (DifGetReturnAddressForWrappers.c)
+ *     IoDeleteSymbolicLink @ 0x140873EC0 (IoDeleteSymbolicLink.c)
  */
 
 NTSTATUS __fastcall DifIoDeleteSymbolicLinkWrapper(PUNICODE_STRING SymbolicLinkName)

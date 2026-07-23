@@ -1,40 +1,40 @@
 /*
- * XREFs of MiMoveDirtyBitsToPfns @ 0x140074A40
+ * XREFs of MiMoveDirtyBitsToPfns @ 0x140074A30
  * Callers:
- *     MiBeginHoldingDirtyFaults @ 0x1402B91C0 (MiBeginHoldingDirtyFaults.c)
- *     NtResetWriteWatch @ 0x1405EE780 (NtResetWriteWatch.c)
- *     MiProcessVaRangesInfoClass @ 0x1406BCC38 (MiProcessVaRangesInfoClass.c)
+ *     MiBeginHoldingDirtyFaults @ 0x1402B93B0 (MiBeginHoldingDirtyFaults.c)
+ *     NtResetWriteWatch @ 0x1405EF780 (NtResetWriteWatch.c)
+ *     MiProcessVaRangesInfoClass @ 0x1406BDED8 (MiProcessVaRangesInfoClass.c)
  * Callees:
  *     MiGetAnyMultiplexedVm @ 0x140028884 (MiGetAnyMultiplexedVm.c)
  *     MiReleasePageFileInfo @ 0x14002A628 (MiReleasePageFileInfo.c)
  *     MiFastLockLeafPageTable @ 0x140045BC0 (MiFastLockLeafPageTable.c)
  *     MiUnlockWorkingSetShared @ 0x140046970 (MiUnlockWorkingSetShared.c)
  *     MiCheckProcessShadow @ 0x140046A70 (MiCheckProcessShadow.c)
- *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
- *     MiWalkPageTables @ 0x14006E940 (MiWalkPageTables.c)
- *     MiFlushTbList @ 0x1400740C0 (MiFlushTbList.c)
- *     KeFlushTb @ 0x1400755B0 (KeFlushTb.c)
- *     KeFlushMultipleRangeTb @ 0x140075BB0 (KeFlushMultipleRangeTb.c)
- *     MiLockWorkingSetShared @ 0x140076050 (MiLockWorkingSetShared.c)
- *     MiGetWsleContents @ 0x140085F40 (MiGetWsleContents.c)
- *     MiWorkingSetIsContended @ 0x1400992A0 (MiWorkingSetIsContended.c)
- *     ExpWaitForSpinLockSharedAndAcquire @ 0x1400E77A0 (ExpWaitForSpinLockSharedAndAcquire.c)
- *     KeShouldYieldProcessor @ 0x1400F9CE0 (KeShouldYieldProcessor.c)
- *     MiUnlockPageTableInternal @ 0x140104A90 (MiUnlockPageTableInternal.c)
- *     MiCompressTbFlushList @ 0x140113AA0 (MiCompressTbFlushList.c)
- *     MiCapturePageFileInfoInline @ 0x140119DD0 (MiCapturePageFileInfoInline.c)
- *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
- *     MiUnlockVadCore @ 0x140125768 (MiUnlockVadCore.c)
- *     MiPreUnlockWorkingSetShared @ 0x140130C48 (MiPreUnlockWorkingSetShared.c)
- *     KeFlushMultipleRangeCurrentTb @ 0x140173C9C (KeFlushMultipleRangeCurrentTb.c)
- *     KeFlushCurrentTbOnly @ 0x140173E00 (KeFlushCurrentTbOnly.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     qsort @ 0x1401962E0 (qsort.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     ExpAcquireSpinLockSharedAtDpcLevelInstrumented @ 0x14031C164 (ExpAcquireSpinLockSharedAtDpcLevelInstrumented.c)
- *     ExpReleaseSpinLockSharedFromDpcLevelInstrumented @ 0x14031C2A4 (ExpReleaseSpinLockSharedFromDpcLevelInstrumented.c)
+ *     KeYieldProcessorEx @ 0x14006C9E0 (KeYieldProcessorEx.c)
+ *     MiWalkPageTables @ 0x14006E930 (MiWalkPageTables.c)
+ *     MiFlushTbList @ 0x1400740B0 (MiFlushTbList.c)
+ *     KeFlushTb @ 0x1400755A0 (KeFlushTb.c)
+ *     KeFlushMultipleRangeTb @ 0x140075BA0 (KeFlushMultipleRangeTb.c)
+ *     MiLockWorkingSetShared @ 0x140076040 (MiLockWorkingSetShared.c)
+ *     MiGetWsleContents @ 0x140085F30 (MiGetWsleContents.c)
+ *     MiWorkingSetIsContended @ 0x1400991E0 (MiWorkingSetIsContended.c)
+ *     ExpWaitForSpinLockSharedAndAcquire @ 0x1400E7820 (ExpWaitForSpinLockSharedAndAcquire.c)
+ *     KeShouldYieldProcessor @ 0x1400F9D60 (KeShouldYieldProcessor.c)
+ *     MiUnlockPageTableInternal @ 0x140104B10 (MiUnlockPageTableInternal.c)
+ *     MiCompressTbFlushList @ 0x140113B10 (MiCompressTbFlushList.c)
+ *     MiCapturePageFileInfoInline @ 0x140119E40 (MiCapturePageFileInfoInline.c)
+ *     MiWritePteShadow @ 0x140120F40 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120FA0 (MiPteHasShadow.c)
+ *     MiUnlockVadCore @ 0x140125838 (MiUnlockVadCore.c)
+ *     MiPreUnlockWorkingSetShared @ 0x140130D18 (MiPreUnlockWorkingSetShared.c)
+ *     KeFlushMultipleRangeCurrentTb @ 0x140173D9C (KeFlushMultipleRangeCurrentTb.c)
+ *     KeFlushCurrentTbOnly @ 0x140173F00 (KeFlushCurrentTbOnly.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     qsort @ 0x140196420 (qsort.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     ExpAcquireSpinLockSharedAtDpcLevelInstrumented @ 0x14031C354 (ExpAcquireSpinLockSharedAtDpcLevelInstrumented.c)
+ *     ExpReleaseSpinLockSharedFromDpcLevelInstrumented @ 0x14031C494 (ExpReleaseSpinLockSharedFromDpcLevelInstrumented.c)
  */
 
 __int64 __fastcall MiMoveDirtyBitsToPfns(unsigned __int64 a1, unsigned __int64 a2, __int64 a3, __int64 a4)
@@ -167,7 +167,7 @@ __int64 __fastcall MiMoveDirtyBitsToPfns(unsigned __int64 a1, unsigned __int64 a
     v96 = 8LL;
   }
   v102 = 20LL;
-  v12 = &dword_14043B700;
+  v12 = &dword_14043C7C0;
   v100 = 1;
   v101 = 0;
   v103 = 0LL;
@@ -184,7 +184,7 @@ __int64 __fastcall MiMoveDirtyBitsToPfns(unsigned __int64 a1, unsigned __int64 a
   else
   {
     if ( v13 == 2 )
-      v14 = &dword_14043B700;
+      v14 = &dword_14043C7C0;
     else
       v14 = (LONG *)(v10 + 96);
     v15 = KeGetCurrentIrql();
@@ -278,7 +278,7 @@ __int64 __fastcall MiMoveDirtyBitsToPfns(unsigned __int64 a1, unsigned __int64 a
       while ( v22 >= 0xFFFFF68000000000uLL );
       v10 = v97;
     }
-    if ( v22 < 0xFFFF800000000000uLL || v22 >= qword_14043BAC0 && v22 <= qword_14043A530 )
+    if ( v22 < 0xFFFF800000000000uLL || v22 >= qword_14043CB80 && v22 <= qword_14043B5F0 )
       AnyMultiplexedVm = (char *)&KeGetCurrentThread()->ApcState.Process[1].IdealNode[12];
     else
       AnyMultiplexedVm = MiGetAnyMultiplexedVm(1);
@@ -356,7 +356,7 @@ __int64 __fastcall MiMoveDirtyBitsToPfns(unsigned __int64 a1, unsigned __int64 a
         {
           if ( (_DWORD)v33 )
           {
-            *v34++ &= byte_140362158[v33];
+            *v34++ &= byte_1403630E8[v33];
             v30 -= (unsigned int)(8 - v33);
           }
           if ( v30 > 8 )
@@ -367,11 +367,11 @@ __int64 __fastcall MiMoveDirtyBitsToPfns(unsigned __int64 a1, unsigned __int64 a
           }
           if ( !v30 )
             goto LABEL_37;
-          v35 = byte_140360D38[v30];
+          v35 = byte_140361CC8[v30];
         }
         else
         {
-          v35 = ~(byte_140362158[v30] << v33);
+          v35 = ~(byte_1403630E8[v30] << v33);
         }
         *v34 &= v35;
 LABEL_37:
@@ -482,7 +482,7 @@ LABEL_37:
         {
           if ( (unsigned int)MiPteHasShadow(0x7000000000000000LL, v52) )
           {
-            if ( !HIBYTE(word_14043A1AC) && (v52 & 1) != 0 )
+            if ( !HIBYTE(word_14043B26C) && (v52 & 1) != 0 )
               v52 |= 0x8000000000000000uLL;
             *(_QWORD *)v8 = v52;
             MiWritePteShadow(v8);
@@ -581,7 +581,7 @@ LABEL_84:
               }
               *(_BYTE *)(v51 + 34) = v59 | 0x10;
               if ( v60 )
-                v58 = *(struct _KEVENT **)(qword_14043A748 + 8 * ((*(_QWORD *)(v51 + 40) >> 40) & 0x3FFLL));
+                v58 = *(struct _KEVENT **)(qword_14043B808 + 8 * ((*(_QWORD *)(v51 + 40) >> 40) & 0x3FFLL));
             }
             _InterlockedAnd64((volatile signed __int64 *)(v51 + 24), 0x7FFFFFFFFFFFFFFFuLL);
             if ( v60 )
@@ -632,13 +632,13 @@ LABEL_48:
   }
   v4 = v87;
 LABEL_53:
-  v12 = &dword_14043B700;
+  v12 = &dword_14043C7C0;
 LABEL_54:
   v39 = HIDWORD(v102);
   if ( HIDWORD(v102) )
   {
     v63 = v101;
-    v64 = qword_14043A110;
+    v64 = qword_14043B1D0;
     v65 = v100;
     if ( (v101 & 2) != 0 )
     {

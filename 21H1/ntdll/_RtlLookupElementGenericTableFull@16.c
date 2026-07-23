@@ -7,14 +7,18 @@
  *     _RtlSplay@4 @ 0x4B2E8250 (_RtlSplay@4.c)
  */
 
-int __stdcall RtlLookupElementGenericTableFull(_DWORD *a1, int a2, _DWORD *a3, _DWORD *a4)
+PVOID __cdecl RtlLookupElementGenericTableFull(
+        PRTL_GENERIC_TABLE Table,
+        PVOID Buffer,
+        PVOID *NodeOrParent,
+        TABLE_SEARCH_RESULT *SearchResult)
 {
-  int NodeOrParent; // eax
+  TABLE_SEARCH_RESULT v4; // eax
 
-  NodeOrParent = FindNodeOrParent(a3);
-  *a4 = NodeOrParent;
-  if ( NodeOrParent != 1 )
+  v4 = FindNodeOrParent(NodeOrParent);
+  *SearchResult = v4;
+  if ( v4 != TableFoundNode )
     return 0;
-  *a1 = RtlSplay(*a3);
-  return *a3 + 24;
+  Table->TableRoot = RtlSplay((PRTL_SPLAY_LINKS)*NodeOrParent);
+  return (char *)*NodeOrParent + 24;
 }

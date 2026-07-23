@@ -17,10 +17,13 @@
  *     _memmove @ 0x4B2F8BF0 (_memmove.c)
  */
 
-int __stdcall RtlCopySid(unsigned int a1, void *a2, unsigned __int8 *Src)
+NTSTATUS __cdecl RtlCopySid(ULONG DestinationSidLength, PSID DestinationSid, PSID SourceSid)
 {
-  if ( 4 * (unsigned int)Src[1] + 8 > a1 )
+  size_t _FFFFFFFC; // [esp-4h] [ebp-4h]
+
+  if ( 4 * (unsigned int)*((unsigned __int8 *)SourceSid + 1) + 8 > DestinationSidLength )
     return -1073741789;
-  memmove(a2, Src, 4 * Src[1] + 8);
+  LODWORD(_FFFFFFFC) = 4 * *((unsigned __int8 *)SourceSid + 1) + 8;
+  memmove(DestinationSid, SourceSid, _FFFFFFFC);
   return 0;
 }

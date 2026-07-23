@@ -1,7 +1,7 @@
 /*
- * XREFs of MiGetValidAweProtection @ 0x1404D3AEC
+ * XREFs of MiGetValidAweProtection @ 0x1404CCCF0
  * Callers:
- *     MiGetWorkingSetInfoList @ 0x1403032B0 (MiGetWorkingSetInfoList.c)
+ *     MiGetWorkingSetInfoList @ 0x14030D190 (MiGetWorkingSetInfoList.c)
  * Callees:
  *     <none>
  */

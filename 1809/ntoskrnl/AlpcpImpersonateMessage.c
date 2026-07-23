@@ -1,17 +1,17 @@
 /*
- * XREFs of AlpcpImpersonateMessage @ 0x1406378A0
+ * XREFs of AlpcpImpersonateMessage @ 0x1406388C0
  * Callers:
- *     NtAlpcImpersonateClientOfPort @ 0x140637740 (NtAlpcImpersonateClientOfPort.c)
+ *     NtAlpcImpersonateClientOfPort @ 0x140638760 (NtAlpcImpersonateClientOfPort.c)
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     SeCreateClientSecurityEx @ 0x140631CE0 (SeCreateClientSecurityEx.c)
- *     PsImpersonateClient @ 0x140637B70 (PsImpersonateClient.c)
- *     SeCreateClientSecurity @ 0x1406491D0 (SeCreateClientSecurity.c)
- *     AlpcpReferenceConnectedPort @ 0x14068ED34 (AlpcpReferenceConnectedPort.c)
+ *     ExfTryToWakePushLock @ 0x140091500 (ExfTryToWakePushLock.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     SeCreateClientSecurityEx @ 0x140632D00 (SeCreateClientSecurityEx.c)
+ *     PsImpersonateClient @ 0x140638B90 (PsImpersonateClient.c)
+ *     SeCreateClientSecurity @ 0x14064A390 (SeCreateClientSecurity.c)
+ *     AlpcpReferenceConnectedPort @ 0x14068FEF4 (AlpcpReferenceConnectedPort.c)
  */
 
 __int64 __fastcall AlpcpImpersonateMessage(__int64 a1, __int64 a2, int a3, int a4, SECURITY_IMPERSONATION_LEVEL a5)

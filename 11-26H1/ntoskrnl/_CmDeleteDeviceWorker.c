@@ -1,26 +1,26 @@
 /*
- * XREFs of _CmDeleteDeviceWorker @ 0x140A8A2C4
+ * XREFs of _CmDeleteDeviceWorker @ 0x1409B70E4
  * Callers:
- *     _CmDeleteDevice @ 0x14089690C (_CmDeleteDevice.c)
+ *     _CmDeleteDevice @ 0x14089CD0C (_CmDeleteDevice.c)
  * Callees:
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     _CmRaiseDeleteEvent @ 0x140774BCC (_CmRaiseDeleteEvent.c)
- *     _CmRemoveDeviceFromContainer @ 0x140898054 (_CmRemoveDeviceFromContainer.c)
- *     _CmRemovePanelDevice @ 0x14089AD24 (_CmRemovePanelDevice.c)
- *     _CmGetDeviceContainerIdFromBase @ 0x140909B98 (_CmGetDeviceContainerIdFromBase.c)
- *     _CmGetDeviceRegProp @ 0x140996210 (_CmGetDeviceRegProp.c)
- *     _CmOpenDeviceRegKey @ 0x140996B50 (_CmOpenDeviceRegKey.c)
- *     _PnpGetObjectProperty @ 0x14099E300 (_PnpGetObjectProperty.c)
- *     _PnpSetObjectProperty @ 0x1409DBEB0 (_PnpSetObjectProperty.c)
- *     _CmDeleteDeviceRegKey @ 0x140A8A734 (_CmDeleteDeviceRegKey.c)
- *     _CmGetMatchingDeviceList @ 0x140A8A7DC (_CmGetMatchingDeviceList.c)
- *     _CmGetMatchingFilteredDeviceInterfaceList @ 0x140A8AF9C (_CmGetMatchingFilteredDeviceInterfaceList.c)
- *     _CmDeleteDeviceInterface @ 0x140A8B64C (_CmDeleteDeviceInterface.c)
- *     _CmSetDeviceMappedProperty @ 0x140AAFB8C (_CmSetDeviceMappedProperty.c)
- *     _CmGetDeviceMappedPropertyKeys @ 0x140AE2F14 (_CmGetDeviceMappedPropertyKeys.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     _CmRaiseDeleteEvent @ 0x140777BCC (_CmRaiseDeleteEvent.c)
+ *     _CmRemoveDeviceFromContainer @ 0x14089E454 (_CmRemoveDeviceFromContainer.c)
+ *     _CmRemovePanelDevice @ 0x1408A1124 (_CmRemovePanelDevice.c)
+ *     _CmGetDeviceRegProp @ 0x140956C70 (_CmGetDeviceRegProp.c)
+ *     _CmOpenDeviceRegKey @ 0x1409575B0 (_CmOpenDeviceRegKey.c)
+ *     _PnpGetObjectProperty @ 0x14095ED60 (_PnpGetObjectProperty.c)
+ *     _CmGetDeviceContainerIdFromBase @ 0x1409AC150 (_CmGetDeviceContainerIdFromBase.c)
+ *     _CmDeleteDeviceRegKey @ 0x1409B7554 (_CmDeleteDeviceRegKey.c)
+ *     _CmGetMatchingDeviceList @ 0x1409B75FC (_CmGetMatchingDeviceList.c)
+ *     _CmGetMatchingFilteredDeviceInterfaceList @ 0x1409B7DBC (_CmGetMatchingFilteredDeviceInterfaceList.c)
+ *     _CmDeleteDeviceInterface @ 0x1409B846C (_CmDeleteDeviceInterface.c)
+ *     _PnpSetObjectProperty @ 0x140A19100 (_PnpSetObjectProperty.c)
+ *     _CmSetDeviceMappedProperty @ 0x140AAD7DC (_CmSetDeviceMappedProperty.c)
+ *     _CmGetDeviceMappedPropertyKeys @ 0x140AE0A94 (_CmGetDeviceMappedPropertyKeys.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall CmDeleteDeviceWorker(_QWORD *a1, __int64 a2, __int16 a3)
@@ -223,10 +223,9 @@ LABEL_14:
                         for ( j = v16; *j; j += v25 + 1 )
                         {
                           PnpSetObjectProperty(
-                            (__int64)a1,
-                            (__int64)j,
+                            (_DWORD)a1,
+                            (_DWORD)j,
                             1,
-                            0LL,
                             0LL,
                             (__int64)DEVPKEY_Device_LastKnownParent,
                             0,
@@ -250,7 +249,7 @@ LABEL_14:
                           v21 = 0LL;
                           goto LABEL_26;
                         }
-                        DeviceContainerIdFromBase = CmDeleteDeviceRegKey(a1, a2, *v20);
+                        DeviceContainerIdFromBase = CmDeleteDeviceRegKey(a1, a2, *v20, 0LL);
                         if ( DeviceContainerIdFromBase )
                         {
                           if ( DeviceContainerIdFromBase != -1073741772
@@ -317,7 +316,7 @@ LABEL_26:
                             break;
                           }
                         }
-                        DeviceContainerIdFromBase = CmDeleteDeviceRegKey(a1, a2, 16LL);
+                        DeviceContainerIdFromBase = CmDeleteDeviceRegKey(a1, a2, 16LL, 0LL);
                         if ( DeviceContainerIdFromBase >= 0 )
                           CmRaiseDeleteEvent((__int64)a1, a2, 1u);
                       }

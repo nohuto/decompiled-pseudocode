@@ -1,18 +1,18 @@
 /*
- * XREFs of FsRtlFastUnlockSingleExclusive @ 0x1402C18D0
+ * XREFs of FsRtlFastUnlockSingleExclusive @ 0x14030C590
  * Callers:
- *     FsRtlPrivateRemoveLock @ 0x1405174BC (FsRtlPrivateRemoveLock.c)
+ *     FsRtlPrivateRemoveLock @ 0x140510F2C (FsRtlPrivateRemoveLock.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     KxReleaseSpinLock @ 0x1402BDEF0 (KxReleaseSpinLock.c)
- *     KiReleaseSpinLockInstrumented @ 0x1402BDFEC (KiReleaseSpinLockInstrumented.c)
- *     RtlDelete @ 0x1402BF430 (RtlDelete.c)
- *     FsRtlPrivateResetLowestLockOffset @ 0x1402BF4D4 (FsRtlPrivateResetLowestLockOffset.c)
- *     FsRtlPrivateCheckWaitingLocks @ 0x1402BFAE8 (FsRtlPrivateCheckWaitingLocks.c)
- *     RtlRealSuccessor @ 0x1402C1830 (RtlRealSuccessor.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14032F300 (KeAcquireSpinLockRaiseToDpc.c)
- *     RtlpInterlockedPushEntrySList @ 0x140730CD0 (RtlpInterlockedPushEntrySList.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KxReleaseSpinLock @ 0x140308BB0 (KxReleaseSpinLock.c)
+ *     KiReleaseSpinLockInstrumented @ 0x140308CAC (KiReleaseSpinLockInstrumented.c)
+ *     RtlDelete @ 0x14030A0F0 (RtlDelete.c)
+ *     FsRtlPrivateResetLowestLockOffset @ 0x14030A194 (FsRtlPrivateResetLowestLockOffset.c)
+ *     FsRtlPrivateCheckWaitingLocks @ 0x14030A7AC (FsRtlPrivateCheckWaitingLocks.c)
+ *     RtlRealSuccessor @ 0x14030C4F0 (RtlRealSuccessor.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140331330 (KeAcquireSpinLockRaiseToDpc.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1407358A0 (RtlpInterlockedPushEntrySList.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall FsRtlFastUnlockSingleExclusive(
@@ -28,16 +28,16 @@ __int64 __fastcall FsRtlFastUnlockSingleExclusive(
 {
   _RTL_SPLAY_LINKS *v9; // rbx
   KIRQL v13; // al
-  RTL_SPLAY_LINKS *v14; // rcx
+  _RTL_SPLAY_LINKS *v14; // rcx
   unsigned __int64 v15; // rsi
   unsigned __int64 v17; // rax
   PRTL_SPLAY_LINKS v18; // r14
   _RTL_SPLAY_LINKS *RightChild; // rdx
-  RTL_SPLAY_LINKS *v20; // r10
+  _RTL_SPLAY_LINKS *v20; // r10
   _RTL_SPLAY_LINKS *Parent; // r9
   bool v22; // zf
   _RTL_SPLAY_LINKS *v23; // rcx
-  RTL_SPLAY_LINKS *v24; // r12
+  _RTL_SPLAY_LINKS *v24; // r12
   __int64 v25; // rdx
   __int64 v26; // r8
   __int64 v27; // r8
@@ -47,11 +47,11 @@ __int64 __fastcall FsRtlFastUnlockSingleExclusive(
 
   v9 = *a3;
   v13 = KeAcquireSpinLockRaiseToDpc(a1 + 3);
-  v14 = (RTL_SPLAY_LINKS *)a1[5];
+  v14 = (_RTL_SPLAY_LINKS *)a1[5];
   v15 = v13;
   if ( !v14 )
   {
-    if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+    if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || PopHibernateInProgress )
       _InterlockedAnd64(a1 + 3, 0LL);
     else
       KiReleaseSpinLockInstrumented(a1 + 3, retaddr);
@@ -140,14 +140,14 @@ LABEL_43:
     guard_dispatch_icall_no_overrides(a7, &v18[1], v27);
     LOBYTE(v15) = KeAcquireSpinLockRaiseToDpc(a1 + 3);
   }
-  ++dword_140E1149C;
-  if ( LOWORD(FsRtlExclusiveLockLookasideList.Alignment) < (unsigned __int16)word_140E11490 )
+  ++dword_140E1155C;
+  if ( LOWORD(FsRtlExclusiveLockLookasideList.Alignment) < (unsigned __int16)word_140E11550 )
   {
     RtlpInterlockedPushEntrySList(&FsRtlExclusiveLockLookasideList, (PSLIST_ENTRY)v18);
   }
   else
   {
-    ++dword_140E114A0;
+    ++dword_140E11560;
     guard_dispatch_icall_no_overrides(v18, v25, v26);
   }
   if ( a9 && a1[6] )

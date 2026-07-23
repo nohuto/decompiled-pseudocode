@@ -1,39 +1,39 @@
 /*
- * XREFs of MiPrivateFixup @ 0x14010B3F0
+ * XREFs of MiPrivateFixup @ 0x140109170
  * Callers:
- *     MiCompleteProtoPteFault @ 0x140039AF0 (MiCompleteProtoPteFault.c)
+ *     MiCompleteProtoPteFault @ 0x140039670 (MiCompleteProtoPteFault.c)
  * Callees:
  *     MiWaitForForkToComplete @ 0x1400018F0 (MiWaitForForkToComplete.c)
- *     KiLeaveGuardedRegionUnsafe @ 0x140013B70 (KiLeaveGuardedRegionUnsafe.c)
- *     MiLockPageInline @ 0x140022E70 (MiLockPageInline.c)
- *     MiIsFaultPteIntact @ 0x140025C60 (MiIsFaultPteIntact.c)
- *     MiDereferenceControlAreaProbe @ 0x140026784 (MiDereferenceControlAreaProbe.c)
- *     MiGetEffectivePagePriorityThread @ 0x140026DB4 (MiGetEffectivePagePriorityThread.c)
- *     MiObtainFaultCharges @ 0x14002B530 (MiObtainFaultCharges.c)
- *     MiUnlockWorkingSetExclusive @ 0x14002E930 (MiUnlockWorkingSetExclusive.c)
- *     MiGetSharedVm @ 0x14002EA30 (MiGetSharedVm.c)
- *     ExAcquireSpinLockExclusive @ 0x14002EB90 (ExAcquireSpinLockExclusive.c)
- *     MiMakeValidKernelPte @ 0x140034D10 (MiMakeValidKernelPte.c)
- *     MiGetPage @ 0x14003DA50 (MiGetPage.c)
- *     MiRemoveLockedPageChargeAndDecRef @ 0x14004E740 (MiRemoveLockedPageChargeAndDecRef.c)
- *     MiAddLockedPageCharge @ 0x14004F188 (MiAddLockedPageCharge.c)
- *     MiReleasePtes @ 0x1400516D0 (MiReleasePtes.c)
- *     KeSetEvent @ 0x1400562D0 (KeSetEvent.c)
- *     MiInsertPageInFreeOrZeroedList @ 0x1400671C0 (MiInsertPageInFreeOrZeroedList.c)
- *     MiPartitionIdToPointer @ 0x1400680A0 (MiPartitionIdToPointer.c)
- *     MiReleaseFreshPage @ 0x1400AC5F4 (MiReleaseFreshPage.c)
- *     MiReturnFaultCharges @ 0x1400B2F88 (MiReturnFaultCharges.c)
- *     MiFreeInPageSupportBlock @ 0x1400C63A0 (MiFreeInPageSupportBlock.c)
- *     MiReservePtes @ 0x1400DDB50 (MiReservePtes.c)
- *     MiCopyPage @ 0x1400E3260 (MiCopyPage.c)
- *     MiInitializeReadInProgressPfn @ 0x1400E5B30 (MiInitializeReadInProgressPfn.c)
- *     MiGetInPageSupportBlock @ 0x1400E7520 (MiGetInPageSupportBlock.c)
- *     MiMakeProtectionPfnCompatible @ 0x14010A608 (MiMakeProtectionPfnCompatible.c)
- *     MiPteInShadowRange @ 0x1401EF3B8 (MiPteInShadowRange.c)
- *     MiWritePteShadow @ 0x1401EF658 (MiWritePteShadow.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1401F25D0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiRelocateImagePfn @ 0x140447780 (MiRelocateImagePfn.c)
- *     MiAllocateDriverPage @ 0x140526790 (MiAllocateDriverPage.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x1400136F0 (KiLeaveGuardedRegionUnsafe.c)
+ *     MiLockPageInline @ 0x1400229F0 (MiLockPageInline.c)
+ *     MiIsFaultPteIntact @ 0x1400257E0 (MiIsFaultPteIntact.c)
+ *     MiDereferenceControlAreaProbe @ 0x140026304 (MiDereferenceControlAreaProbe.c)
+ *     MiGetEffectivePagePriorityThread @ 0x140026934 (MiGetEffectivePagePriorityThread.c)
+ *     MiObtainFaultCharges @ 0x14002B0B0 (MiObtainFaultCharges.c)
+ *     MiUnlockWorkingSetExclusive @ 0x14002E4B0 (MiUnlockWorkingSetExclusive.c)
+ *     MiGetSharedVm @ 0x14002E5B0 (MiGetSharedVm.c)
+ *     ExAcquireSpinLockExclusive @ 0x14002E710 (ExAcquireSpinLockExclusive.c)
+ *     MiMakeValidKernelPte @ 0x140034890 (MiMakeValidKernelPte.c)
+ *     MiGetPage @ 0x14003D5D0 (MiGetPage.c)
+ *     MiRemoveLockedPageChargeAndDecRef @ 0x14004E2C0 (MiRemoveLockedPageChargeAndDecRef.c)
+ *     MiAddLockedPageCharge @ 0x14004ED08 (MiAddLockedPageCharge.c)
+ *     MiReleasePtes @ 0x140051250 (MiReleasePtes.c)
+ *     KeSetEvent @ 0x140055E50 (KeSetEvent.c)
+ *     MiInsertPageInFreeOrZeroedList @ 0x140066D40 (MiInsertPageInFreeOrZeroedList.c)
+ *     MiPartitionIdToPointer @ 0x140067C20 (MiPartitionIdToPointer.c)
+ *     MiReleaseFreshPage @ 0x1400AAB5C (MiReleaseFreshPage.c)
+ *     MiReturnFaultCharges @ 0x1400B0E08 (MiReturnFaultCharges.c)
+ *     MiFreeInPageSupportBlock @ 0x1400C4240 (MiFreeInPageSupportBlock.c)
+ *     MiReservePtes @ 0x1400DB9F0 (MiReservePtes.c)
+ *     MiCopyPage @ 0x1400E1100 (MiCopyPage.c)
+ *     MiInitializeReadInProgressPfn @ 0x1400E39D0 (MiInitializeReadInProgressPfn.c)
+ *     MiGetInPageSupportBlock @ 0x1400E53C0 (MiGetInPageSupportBlock.c)
+ *     MiMakeProtectionPfnCompatible @ 0x140108388 (MiMakeProtectionPfnCompatible.c)
+ *     MiPteInShadowRange @ 0x1401EF1E4 (MiPteInShadowRange.c)
+ *     MiWritePteShadow @ 0x1401EF484 (MiWritePteShadow.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1401F23FC (MI_READ_PTE_LOCK_FREE.c)
+ *     MiRelocateImagePfn @ 0x140446650 (MiRelocateImagePfn.c)
+ *     MiAllocateDriverPage @ 0x1405097F0 (MiAllocateDriverPage.c)
  */
 
 __int64 __fastcall MiPrivateFixup(
@@ -114,7 +114,7 @@ __int64 __fastcall MiPrivateFixup(
   }
   else
   {
-    v19 = MiReservePtes((__int64)&qword_140327870, 1uLL, v15);
+    v19 = MiReservePtes((__int64)&qword_1403278B0, 1uLL, v15);
     if ( !v19 )
       return 3221225626LL;
   }
@@ -127,7 +127,7 @@ __int64 __fastcall MiPrivateFixup(
   {
     Page = MiGetPage(
              (__int64)v14,
-             dword_1403269F8 & v20 | (((*(_QWORD *)(a3 + 40) >> 36) & 3) << byte_1403269D8) | (((*(_QWORD *)(a3 + 40) >> 58) & 0x3F) << byte_1403269C9),
+             dword_140326A38 & v20 | (((*(_QWORD *)(a3 + 40) >> 36) & 3) << byte_140326A18) | (((*(_QWORD *)(a3 + 40) >> 58) & 0x3F) << byte_140326A09),
              0);
     v22 = Page;
     if ( Page == -1 )
@@ -153,7 +153,7 @@ LABEL_16:
         MiReleaseFreshPage(48 * v22 - 0x58000000000LL);
       MiReturnFaultCharges((__int64)v14, 1uLL, 2);
       if ( v19 )
-        MiReleasePtes((__int64)&qword_140327870, v19, 1u);
+        MiReleasePtes((__int64)&qword_1403278B0, v19, 1u);
       return v24;
     }
     v9 = a6;
@@ -163,7 +163,7 @@ LABEL_16:
   if ( !v26 )
   {
     if ( v19 )
-      MiReleasePtes((__int64)&qword_140327870, v19, 1u);
+      MiReleasePtes((__int64)&qword_1403278B0, v19, 1u);
     v27 = MiLockPageInline(48 * v22 - 0x58000000000LL);
     v28 = 1;
     if ( *(_QWORD *)(v25 + 16) )
@@ -210,7 +210,7 @@ LABEL_16:
       v39 = a1;
       MiRelocateImagePfn(a1, (__int64)(v19 << 25) >> 16, v56, v38);
     }
-    MiReleasePtes((__int64)&qword_140327870, v19, 1u);
+    MiReleasePtes((__int64)&qword_1403278B0, v19, 1u);
   }
   else
   {

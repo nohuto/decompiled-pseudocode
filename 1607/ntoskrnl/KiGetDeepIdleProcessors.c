@@ -1,11 +1,11 @@
 /*
- * XREFs of KiGetDeepIdleProcessors @ 0x140084278
+ * XREFs of KiGetDeepIdleProcessors @ 0x1400823D8
  * Callers:
- *     KeFlushQueuedDpcs @ 0x1400841B4 (KeFlushQueuedDpcs.c)
- *     KeRemoveQueueDpcEx @ 0x140085D28 (KeRemoveQueueDpcEx.c)
+ *     KeFlushQueuedDpcs @ 0x140082314 (KeFlushQueuedDpcs.c)
+ *     KeRemoveQueueDpcEx @ 0x140087618 (KeRemoveQueueDpcEx.c)
  * Callees:
- *     PoCopyDeepIdleMask @ 0x14007D9D0 (PoCopyDeepIdleMask.c)
- *     KeComplementAffinityEx @ 0x1400D6D30 (KeComplementAffinityEx.c)
+ *     PoCopyDeepIdleMask @ 0x14007DA50 (PoCopyDeepIdleMask.c)
+ *     KeComplementAffinityEx @ 0x1400D4BD0 (KeComplementAffinityEx.c)
  */
 
 __int64 __fastcall KiGetDeepIdleProcessors(_DWORD *a1, __int16 *a2)

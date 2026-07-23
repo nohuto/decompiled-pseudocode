@@ -169,7 +169,7 @@ unsigned __int8 __fastcall KeSetSchedulingGroupRankBias(__int64 a1, __int64 a2, 
             goto LABEL_57;
           }
 LABEL_58:
-          KiRemoveSchedulingGroupQueue(v9, v10, 1);
+          KiRemoveSchedulingGroupQueue((_RTL_RB_TREE *)v9, v10, 1);
         }
         else
         {

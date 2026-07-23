@@ -1,65 +1,69 @@
 /*
- * XREFs of TpSetDefaultPoolStackInformation @ 0x180065C20
+ * XREFs of TpSetDefaultPoolStackInformation @ 0x180086070
  * Callers:
  *     <none>
  * Callees:
- *     RtlAcquireSRWLockExclusive @ 0x18003F4D0 (RtlAcquireSRWLockExclusive.c)
- *     RtlReleaseSRWLockExclusive @ 0x18003FAA0 (RtlReleaseSRWLockExclusive.c)
- *     RtlAllocateHeap_0 @ 0x1800439E0 (RtlAllocateHeap_0.c)
- *     TppPoolpDereferenceGlobalPool @ 0x18004EAA0 (TppPoolpDereferenceGlobalPool.c)
- *     TpSetPoolStackInformation @ 0x180065BF0 (TpSetPoolStackInformation.c)
- *     TpPoolReferenceExistingGlobalPool @ 0x18006745C (TpPoolReferenceExistingGlobalPool.c)
+ *     RtlAcquireSRWLockExclusive @ 0x180029A40 (RtlAcquireSRWLockExclusive.c)
+ *     RtlReleaseSRWLockExclusive @ 0x18002A010 (RtlReleaseSRWLockExclusive.c)
+ *     RtlAllocateHeap_0 @ 0x18002DF50 (RtlAllocateHeap_0.c)
+ *     TppPoolpDereferenceGlobalPool @ 0x180039020 (TppPoolpDereferenceGlobalPool.c)
+ *     TpSetPoolStackInformation @ 0x180086040 (TpSetPoolStackInformation.c)
+ *     TpPoolReferenceExistingGlobalPool @ 0x1800878AC (TpPoolReferenceExistingGlobalPool.c)
  */
 
-__int64 __fastcall TpSetDefaultPoolStackInformation(_QWORD *a1, __int64 a2)
+__int64 __fastcall TpSetDefaultPoolStackInformation(SIZE_T *a1)
 {
-  char v3; // si
-  int v4; // ebx
-  __int64 v5; // rcx
-  _QWORD *Heap_0; // rax
-  unsigned __int64 v7; // rcx
-  __int64 v8; // rax
+  char v2; // si
+  NTSTATUS v3; // ebx
+  PTP_POOL_STACK_INFORMATION v4; // rcx
+  PTP_POOL_STACK_INFORMATION Heap_0; // rax
+  SIZE_T v6; // rcx
+  _TP_POOL *v7; // rax
 
+  v2 = 0;
   v3 = 0;
-  v4 = 0;
   if ( !a1 )
     return 3221225485LL;
-  v5 = TppPoolpGlobalPoolStackSize;
+  v4 = TppPoolpGlobalPoolStackSize;
   if ( !TppPoolpGlobalPoolStackSize
-    || *(_QWORD *)(TppPoolpGlobalPoolStackSize + 8) < a1[1]
-    || *(_QWORD *)TppPoolpGlobalPoolStackSize < *a1 )
+    || TppPoolpGlobalPoolStackSize->StackCommit < a1[1]
+    || TppPoolpGlobalPoolStackSize->StackReserve < *a1 )
   {
-    RtlAcquireSRWLockExclusive(&TppPoolpGlobalPoolLock, a2);
-    Heap_0 = (_QWORD *)TppPoolpGlobalPoolStackSize;
+    RtlAcquireSRWLockExclusive(&TppPoolpGlobalPoolLock);
+    Heap_0 = TppPoolpGlobalPoolStackSize;
     if ( TppPoolpGlobalPoolStackSize
-      || (Heap_0 = (_QWORD *)RtlAllocateHeap_0(), (TppPoolpGlobalPoolStackSize = (__int64)Heap_0) != 0) )
+      || (Heap_0 = (PTP_POOL_STACK_INFORMATION)RtlAllocateHeap_0(
+                                                 NtCurrentPeb()->ProcessHeap,
+                                                 (TppHeapTag + 786432) | 8,
+                                                 0x10uLL),
+          (TppPoolpGlobalPoolStackSize = Heap_0) != 0LL) )
     {
-      v7 = a1[1];
-      if ( Heap_0[1] < v7 )
+      v6 = a1[1];
+      if ( Heap_0->StackCommit < v6 )
       {
-        Heap_0[1] = v7;
-        v3 = 1;
+        Heap_0->StackCommit = v6;
+        v2 = 1;
       }
-      if ( *Heap_0 < *a1 )
+      if ( Heap_0->StackReserve < *a1 )
       {
-        *Heap_0 = *a1;
-        v3 = 1;
+        Heap_0->StackReserve = *a1;
+        v2 = 1;
       }
     }
     else
     {
-      v4 = -1073741801;
+      v3 = -1073741801;
     }
     RtlReleaseSRWLockExclusive(&TppPoolpGlobalPoolLock);
   }
-  if ( v4 >= 0 && v3 )
+  if ( v3 >= 0 && v2 )
   {
-    v8 = TpPoolReferenceExistingGlobalPool(v5);
-    if ( v8 )
+    v7 = (_TP_POOL *)TpPoolReferenceExistingGlobalPool(v4);
+    if ( v7 )
     {
-      v4 = TpSetPoolStackInformation(v8, TppPoolpGlobalPoolStackSize);
+      v3 = TpSetPoolStackInformation(v7, TppPoolpGlobalPoolStackSize);
       TppPoolpDereferenceGlobalPool((const void **)&TppPoolpGlobalPool, &TppPoolpGlobalPoolLock);
     }
   }
-  return (unsigned int)v4;
+  return (unsigned int)v3;
 }

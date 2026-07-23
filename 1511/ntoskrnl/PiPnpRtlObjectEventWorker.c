@@ -52,7 +52,7 @@ void __fastcall PiPnpRtlObjectEventWorker(wchar_t *a1, unsigned int a2, int a3, 
   const wchar_t *v25; // rdx
   _DWORD *PoolWithTag; // rax
   _DWORD *v27; // rbx
-  struct _RTL_AVL_TABLE *v28; // rcx
+  _RTL_AVL_TABLE *v28; // rcx
   int v29; // eax
   __int64 v30; // rcx
   char v31; // si
@@ -208,7 +208,7 @@ LABEL_19:
             if ( PoolWithTag )
             {
               memmove(PoolWithTag, Src, 32LL * *((unsigned int *)Src + 19) + 80);
-              v28 = (struct _RTL_AVL_TABLE *)((char *)P + 24);
+              v28 = (_RTL_AVL_TABLE *)((char *)P + 24);
               v27[18] *= 2;
               *(_QWORD *)RtlLookupElementGenericTableAvl(v28, &Src) = v27;
               ExFreePoolWithTag(Src, 0x41706E50u);

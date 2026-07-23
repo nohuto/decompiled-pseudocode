@@ -1,17 +1,17 @@
 /*
- * XREFs of PiCMSetRegistryProperty @ 0x140838EA4
+ * XREFs of PiCMSetRegistryProperty @ 0x14083A104
  * Callers:
- *     PiCMHandleIoctl @ 0x1405974F0 (PiCMHandleIoctl.c)
+ *     PiCMHandleIoctl @ 0x1405984F0 (PiCMHandleIoctl.c)
  * Callees:
  *     RtlInitUnicodeStringEx @ 0x140015EB0 (RtlInitUnicodeStringEx.c)
- *     PnpSetDeviceInstancePropertyChangeEventFromDeviceInstance @ 0x14016A208 (PnpSetDeviceInstancePropertyChangeEventFromDeviceInstance.c)
- *     PiCMConvertRegistryProperty @ 0x140594E34 (PiCMConvertRegistryProperty.c)
- *     PiCMCaptureRegistryPropertyInputData @ 0x140595154 (PiCMCaptureRegistryPropertyInputData.c)
- *     PiCMReleaseRegistryPropertyInputData @ 0x14059530C (PiCMReleaseRegistryPropertyInputData.c)
- *     PiCMReturnBasicResultData @ 0x14059F60C (PiCMReturnBasicResultData.c)
- *     PiPnpRtlSetDeviceRegProperty @ 0x1406F694C (PiPnpRtlSetDeviceRegProperty.c)
- *     PiAuDoesClientHaveAccess @ 0x1406FF78C (PiAuDoesClientHaveAccess.c)
- *     _CmSetInstallerClassRegProp @ 0x1408F83E8 (_CmSetInstallerClassRegProp.c)
+ *     PnpSetDeviceInstancePropertyChangeEventFromDeviceInstance @ 0x14016A308 (PnpSetDeviceInstancePropertyChangeEventFromDeviceInstance.c)
+ *     PiCMConvertRegistryProperty @ 0x140595E34 (PiCMConvertRegistryProperty.c)
+ *     PiCMCaptureRegistryPropertyInputData @ 0x140596154 (PiCMCaptureRegistryPropertyInputData.c)
+ *     PiCMReleaseRegistryPropertyInputData @ 0x14059630C (PiCMReleaseRegistryPropertyInputData.c)
+ *     PiCMReturnBasicResultData @ 0x1405A060C (PiCMReturnBasicResultData.c)
+ *     PiPnpRtlSetDeviceRegProperty @ 0x1406F7BEC (PiPnpRtlSetDeviceRegProperty.c)
+ *     PiAuDoesClientHaveAccess @ 0x140700A2C (PiAuDoesClientHaveAccess.c)
+ *     _CmSetInstallerClassRegProp @ 0x1408F96A8 (_CmSetInstallerClassRegProp.c)
  */
 
 __int64 __fastcall PiCMSetRegistryProperty(

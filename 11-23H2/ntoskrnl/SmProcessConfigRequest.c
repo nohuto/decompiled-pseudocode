@@ -1,15 +1,15 @@
 /*
- * XREFs of SmProcessConfigRequest @ 0x14085BB0C
+ * XREFs of SmProcessConfigRequest @ 0x14085BD4C
  * Callers:
- *     SmSetStoreInformation @ 0x1407E7D74 (SmSetStoreInformation.c)
+ *     SmSetStoreInformation @ 0x1407E8044 (SmSetStoreInformation.c)
  * Callees:
- *     PsDereferencePartition @ 0x1402F9C4C (PsDereferencePartition.c)
- *     SmpGetProcessPartition @ 0x140344A80 (SmpGetProcessPartition.c)
- *     SmCreatePartition @ 0x140706428 (SmCreatePartition.c)
- *     SeSinglePrivilegeCheck @ 0x140737B00 (SeSinglePrivilegeCheck.c)
- *     PsReferencePartitionByHandle @ 0x14076003C (PsReferencePartitionByHandle.c)
- *     SmpSystemStoreCreate @ 0x14085BC80 (SmpSystemStoreCreate.c)
- *     ExRaiseDatatypeMisalignment @ 0x140A00B60 (ExRaiseDatatypeMisalignment.c)
+ *     PsDereferencePartition @ 0x1402F9EDC (PsDereferencePartition.c)
+ *     SmpGetProcessPartition @ 0x140344D10 (SmpGetProcessPartition.c)
+ *     SmCreatePartition @ 0x140706638 (SmCreatePartition.c)
+ *     SeSinglePrivilegeCheck @ 0x140737CF0 (SeSinglePrivilegeCheck.c)
+ *     PsReferencePartitionByHandle @ 0x14076022C (PsReferencePartitionByHandle.c)
+ *     SmpSystemStoreCreate @ 0x14085BEC0 (SmpSystemStoreCreate.c)
+ *     ExRaiseDatatypeMisalignment @ 0x140A00DF0 (ExRaiseDatatypeMisalignment.c)
  */
 
 __int64 __fastcall SmProcessConfigRequest(unsigned __int64 a1, int a2, KPROCESSOR_MODE a3)

@@ -6,12 +6,14 @@
  *     <none>
  */
 
-int __stdcall AlpcGetCompletionListMessageAttributes(int a1, int a2)
+PALPC_MESSAGE_ATTRIBUTES __cdecl AlpcGetCompletionListMessageAttributes(PVOID CompletionList, PPORT_MESSAGE Message)
 {
   int v3; // eax
 
-  if ( !*(_DWORD *)(a1 + 36) )
+  if ( !*((_DWORD *)CompletionList + 9) )
     return 0;
-  v3 = ((_BYTE)a2 + (unsigned __int8)*(_WORD *)(a2 + 2)) & 3;
-  return a2 + *(unsigned __int16 *)(a2 + 2) + (v3 != 0 ? 4 - v3 : 0);
+  v3 = ((_BYTE)Message + (unsigned __int8)Message->u1.s1.TotalLength) & 3;
+  return (PALPC_MESSAGE_ATTRIBUTES)((char *)Message
+                                  + (unsigned __int16)Message->u1.s1.TotalLength
+                                  + (v3 != 0 ? 4 - v3 : 0));
 }

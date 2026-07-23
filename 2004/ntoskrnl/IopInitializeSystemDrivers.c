@@ -51,7 +51,7 @@ __int64 IopInitializeSystemDrivers()
   UnicodeString = 0LL;
   PnpDiagnosticTrace(&KMPnPEvt_SystemStart_Start, 0, 0LL);
   IsManufacturingModeEnabled = ExIsManufacturingModeEnabled();
-  SystemDriverList = CmGetSystemDriverList((unsigned __int64)qword_140C195B0 & -(__int64)(IsManufacturingModeEnabled != 0));
+  SystemDriverList = CmGetSystemDriverList((unsigned __int64)Data & -(__int64)(IsManufacturingModeEnabled != 0));
   v2 = SystemDriverList;
   if ( SystemDriverList )
   {

@@ -15,31 +15,32 @@
  *     memset @ 0x1800A16C0 (memset.c)
  */
 
-void __fastcall sub_1800273D0(__int64 a1, void *SubProcessTag, __int64 a3, __int64 a4)
+void __fastcall sub_1800273D0(__int64 a1, PVOID SubProcessTag, __int64 a3, __int64 a4)
 {
   __int64 v5; // rcx
   __int64 v6; // rax
   struct _TEB *v7; // rax
   __int64 v8; // rdi
-  _DWORD *HotpatchInformation; // rcx
+  PSILO_USER_SHARED_DATA SharedData; // rcx
   __int64 v10; // r8
-  __int64 v11; // [rsp+30h] [rbp-D0h] BYREF
+  __int64 ThreadInformation; // [rsp+30h] [rbp-D0h] BYREF
   __int64 v12; // [rsp+38h] [rbp-C8h] BYREF
   EXCEPTION_RECORD ExceptionRecord; // [rsp+40h] [rbp-C0h] BYREF
-  _BYTE v14[6]; // [rsp+E0h] [rbp-20h] BYREF
+  _BYTE Fields[6]; // [rsp+E0h] [rbp-20h] BYREF
   __int16 v15; // [rsp+E6h] [rbp-1Ah]
   int v16; // [rsp+100h] [rbp+0h]
   int v17; // [rsp+104h] [rbp+4h]
 
   if ( a1 )
   {
-    NtCurrentTeb()->ActivityId = *(struct _GUID *)(a1 + 232);
-    v11 = 0LL;
-    v5 = (__int64)NtCurrentTeb()->SystemReserved1[53];
-    if ( v5 && (int)ZwSetInformationThread(-2LL, 44LL, &v11) >= 0 )
+    NtCurrentTeb()->ActivityId = *(GUID *)(a1 + 232);
+    ThreadInformation = 0LL;
+    v5 = *(_QWORD *)NtCurrentTeb()->WorkingOnBehalfTicket;
+    if ( v5
+      && ZwSetInformationThread((HANDLE)0xFFFFFFFFFFFFFFFELL, ThreadWorkOnBehalfTicket, &ThreadInformation, 8u) >= 0 )
     {
       v5 = (__int64)NtCurrentTeb();
-      *(_QWORD *)(v5 + 696) = v11;
+      *(_QWORD *)(v5 + 696) = ThreadInformation;
     }
     if ( (*(_BYTE *)(a1 + 76) & 1) != 0 && (*(_BYTE *)(a1 + 104) & 1) == 0 )
     {
@@ -52,9 +53,9 @@ void __fastcall sub_1800273D0(__int64 a1, void *SubProcessTag, __int64 a3, __int
       v8 = 2147353488LL;
       SubProcessTag = v7->SubProcessTag;
       v7->SubProcessTag = 0LL;
-      HotpatchInformation = NtCurrentPeb()->HotpatchInformation;
-      if ( HotpatchInformation && *HotpatchInformation )
-        v5 = (__int64)NtCurrentPeb()->HotpatchInformation + 566;
+      SharedData = NtCurrentPeb()->SharedData;
+      if ( SharedData && SharedData->ServiceSessionId )
+        v5 = (__int64)&NtCurrentPeb()->SharedData->UserModeGlobalLogger[8];
       else
         v5 = 2147353488LL;
       if ( *(_BYTE *)v5 && SubProcessTag )
@@ -62,9 +63,9 @@ void __fastcall sub_1800273D0(__int64 a1, void *SubProcessTag, __int64 a3, __int
         v16 = (int)SubProcessTag;
         v15 = 1349;
         v17 = 0;
-        if ( (unsigned int)RtlGetCurrentServiceSessionId() )
-          v8 = (__int64)NtCurrentPeb()->HotpatchInformation + 566;
-        ZwTraceEvent(*(unsigned __int8 *)v8, 1026LL, 8LL, v14);
+        if ( RtlGetCurrentServiceSessionId() )
+          v8 = (__int64)&NtCurrentPeb()->SharedData->UserModeGlobalLogger[8];
+        ZwTraceEvent((HANDLE)*(unsigned __int8 *)v8, 0x402u, 8u, Fields);
       }
       *(_QWORD *)(a1 + 80) = 0LL;
     }
@@ -80,17 +81,17 @@ void __fastcall sub_1800273D0(__int64 a1, void *SubProcessTag, __int64 a3, __int
         ExceptionRecord.NumberParameters = 2;
         RtlRaiseException(&ExceptionRecord);
         v12 = 0LL;
-        ZwSetInformationThread(-2LL, 5LL, &v12);
+        ZwSetInformationThread((HANDLE)0xFFFFFFFFFFFFFFFELL, ThreadImpersonationToken, &v12, 8u);
       }
       v10 = *(unsigned int *)(a1 + 104);
       if ( (v10 & 0x10) == 0 && (unsigned __int8)sub_180028310(v5, SubProcessTag, v10, a4) )
       {
         DbgPrintEx(
-          84,
+          0x54u,
           0,
-          (int)"ThreadPool: callback %p(%p) returned with a transaction uncleared\n",
-          *(_QWORD *)(a1 + 88),
-          *(_QWORD *)(a1 + 96));
+          "ThreadPool: callback %p(%p) returned with a transaction uncleared\n",
+          *(const void **)(a1 + 88),
+          *(const void **)(a1 + 96));
         memset(&ExceptionRecord, 0, sizeof(ExceptionRecord));
         ExceptionRecord.ExceptionCode = -1073740003;
         ExceptionRecord.NumberParameters = 0;
@@ -100,11 +101,11 @@ void __fastcall sub_1800273D0(__int64 a1, void *SubProcessTag, __int64 a3, __int
       if ( (v10 & 0x20) == 0 && NtCurrentPeb()->LoaderLock->OwningThread == NtCurrentTeb()->ClientId.UniqueThread )
       {
         DbgPrintEx(
-          84,
+          0x54u,
           0,
-          (int)"ThreadPool: callback %p(%p) returned with the loader lock held\n",
-          *(_QWORD *)(a1 + 88),
-          *(_QWORD *)(a1 + 96));
+          "ThreadPool: callback %p(%p) returned with the loader lock held\n",
+          *(const void **)(a1 + 88),
+          *(const void **)(a1 + 96));
         memset(&ExceptionRecord, 0, sizeof(ExceptionRecord));
         ExceptionRecord.ExceptionCode = -1073740002;
         ExceptionRecord.NumberParameters = 0;
@@ -114,11 +115,11 @@ void __fastcall sub_1800273D0(__int64 a1, void *SubProcessTag, __int64 a3, __int
       if ( (v10 & 0x40) == 0 && NtCurrentTeb()->PreferredLanguages )
       {
         DbgPrintEx(
-          84,
+          0x54u,
           0,
-          (int)"ThreadPool: callback %p(%p) returned with preferred languages set\n",
-          *(_QWORD *)(a1 + 88),
-          *(_QWORD *)(a1 + 96));
+          "ThreadPool: callback %p(%p) returned with preferred languages set\n",
+          *(const void **)(a1 + 88),
+          *(const void **)(a1 + 96));
         memset(&ExceptionRecord, 0, sizeof(ExceptionRecord));
         ExceptionRecord.ExceptionCode = -1073740001;
         ExceptionRecord.NumberParameters = 0;
@@ -130,11 +131,11 @@ void __fastcall sub_1800273D0(__int64 a1, void *SubProcessTag, __int64 a3, __int
         if ( NtCurrentTeb()->SavedPriorityState )
         {
           DbgPrintEx(
-            84,
+            0x54u,
             0,
-            (int)"ThreadPool: callback %p(%p) returned with background priorities set\n",
-            *(_QWORD *)(a1 + 88),
-            *(_QWORD *)(a1 + 96));
+            "ThreadPool: callback %p(%p) returned with background priorities set\n",
+            *(const void **)(a1 + 88),
+            *(const void **)(a1 + 96));
           memset(&ExceptionRecord, 0, sizeof(ExceptionRecord));
           ExceptionRecord.ExceptionCode = -1073740000;
           ExceptionRecord.NumberParameters = 0;

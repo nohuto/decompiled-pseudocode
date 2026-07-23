@@ -3,8 +3,8 @@
  * Callers:
  *     KsepSdbUnmapFromMemory @ 0x1406950AC (KsepSdbUnmapFromMemory.c)
  *     PiReleaseDDB @ 0x14069576C (PiReleaseDDB.c)
- *     PpReleaseBootDDB @ 0x140843934 (PpReleaseBootDDB.c)
- *     KsepSdbBootRelease @ 0x140843B74 (KsepSdbBootRelease.c)
+ *     PpReleaseBootDDB @ 0x140843C34 (PpReleaseBootDDB.c)
+ *     KsepSdbBootRelease @ 0x140843E74 (KsepSdbBootRelease.c)
  * Callees:
  *     SdbpCleanupLocalDatabaseSupport @ 0x1406956BC (SdbpCleanupLocalDatabaseSupport.c)
  *     AslLogCallPrintf @ 0x1406956FC (AslLogCallPrintf.c)

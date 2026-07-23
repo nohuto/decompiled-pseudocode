@@ -1,34 +1,34 @@
 /*
- * XREFs of ExDeleteResourceLite @ 0x1402A8DC0
+ * XREFs of ExDeleteResourceLite @ 0x1402A9050
  * Callers:
  *     PspJobDelete @ 0x140207000 (PspJobDelete.c)
- *     CcUnpinFileDataEx @ 0x14025D810 (CcUnpinFileDataEx.c)
- *     CcDeallocateBcb @ 0x1402F3F50 (CcDeallocateBcb.c)
- *     DifExDeleteResourceLiteWrapper @ 0x1405D8560 (DifExDeleteResourceLiteWrapper.c)
+ *     CcUnpinFileDataEx @ 0x14025DAA0 (CcUnpinFileDataEx.c)
+ *     CcDeallocateBcb @ 0x1402F41E0 (CcDeallocateBcb.c)
+ *     DifExDeleteResourceLiteWrapper @ 0x1405D8AD0 (DifExDeleteResourceLiteWrapper.c)
  *     CmpInitCmRM @ 0x14068571C (CmpInitCmRM.c)
- *     SepTokenDeleteMethod @ 0x140729590 (SepTokenDeleteMethod.c)
- *     PnpDereferenceNotify @ 0x14078F428 (PnpDereferenceNotify.c)
- *     RtlCreateHeap @ 0x1407D9080 (RtlCreateHeap.c)
- *     CmpDelayFreeRMWorker @ 0x1407E8EB0 (CmpDelayFreeRMWorker.c)
- *     RtlDestroyHeap @ 0x1407E9230 (RtlDestroyHeap.c)
- *     DrvDbOpenContext @ 0x140812A40 (DrvDbOpenContext.c)
- *     MUIInitializeResourceLock @ 0x14085F5BC (MUIInitializeResourceLock.c)
- *     PiDrvDbDestroyNode @ 0x14096FE2C (PiDrvDbDestroyNode.c)
- *     TtmpDeleteQueue @ 0x1409AC460 (TtmpDeleteQueue.c)
- *     _PnpCtxCloseMachine @ 0x140A60770 (_PnpCtxCloseMachine.c)
- *     DrvDbDestroyDatabaseNode @ 0x140A6D950 (DrvDbDestroyDatabaseNode.c)
+ *     SepTokenDeleteMethod @ 0x140729790 (SepTokenDeleteMethod.c)
+ *     PnpDereferenceNotify @ 0x14078F618 (PnpDereferenceNotify.c)
+ *     RtlCreateHeap @ 0x1407D9350 (RtlCreateHeap.c)
+ *     CmpDelayFreeRMWorker @ 0x1407E9180 (CmpDelayFreeRMWorker.c)
+ *     RtlDestroyHeap @ 0x1407E9500 (RtlDestroyHeap.c)
+ *     DrvDbOpenContext @ 0x140812D10 (DrvDbOpenContext.c)
+ *     MUIInitializeResourceLock @ 0x14085F7FC (MUIInitializeResourceLock.c)
+ *     PiDrvDbDestroyNode @ 0x14097002C (PiDrvDbDestroyNode.c)
+ *     TtmpDeleteQueue @ 0x1409AC660 (TtmpDeleteQueue.c)
+ *     _PnpCtxCloseMachine @ 0x140A60A20 (_PnpCtxCloseMachine.c)
+ *     DrvDbDestroyDatabaseNode @ 0x140A6DC00 (DrvDbDestroyDatabaseNode.c)
  * Callees:
  *     ExpWaitForSpinLockExclusiveAndAcquire @ 0x140207740 (ExpWaitForSpinLockExclusiveAndAcquire.c)
- *     PsBoostThreadIoEx @ 0x14022FF50 (PsBoostThreadIoEx.c)
- *     KeYieldProcessorEx @ 0x140242E40 (KeYieldProcessorEx.c)
- *     ExpOwnerEntryToThread @ 0x1402A8B88 (ExpOwnerEntryToThread.c)
- *     ObDereferenceObjectDeferDeleteWithTag @ 0x1402A8CE0 (ObDereferenceObjectDeferDeleteWithTag.c)
- *     PsBoostThreadIoQoS @ 0x14031A70C (PsBoostThreadIoQoS.c)
- *     ExpResourceEnforcesOwnershipTransfer @ 0x14031A744 (ExpResourceEnforcesOwnershipTransfer.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x14046B438 (ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x14060B0BC (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
+ *     PsBoostThreadIoEx @ 0x140230040 (PsBoostThreadIoEx.c)
+ *     KeYieldProcessorEx @ 0x140242F10 (KeYieldProcessorEx.c)
+ *     ExpOwnerEntryToThread @ 0x1402A8E18 (ExpOwnerEntryToThread.c)
+ *     ObDereferenceObjectDeferDeleteWithTag @ 0x1402A8F70 (ObDereferenceObjectDeferDeleteWithTag.c)
+ *     PsBoostThreadIoQoS @ 0x14031A99C (PsBoostThreadIoQoS.c)
+ *     ExpResourceEnforcesOwnershipTransfer @ 0x14031A9D4 (ExpResourceEnforcesOwnershipTransfer.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
+ *     ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x14046B838 (ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented.c)
+ *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x14060B60C (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 
@@ -70,7 +70,7 @@ LABEL_3:
   __incgsdword(0x8A60u);
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     if ( CurrentIrql == 2 )
@@ -105,10 +105,10 @@ LABEL_3:
     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented(&ExpResourceSpinLock, retaddr);
   else
     ExpResourceSpinLock = 0;
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v9 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v9 <= 0xFu && CurrentIrql <= 0xFu && v9 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v9 <= 0xFu && CurrentIrql <= 0xFu && v9 >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       v11 = CurrentPrcb->SchedulerAssist;

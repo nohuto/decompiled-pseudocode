@@ -1,21 +1,21 @@
 /*
- * XREFs of EtwpCovSampCaptureReleaseToLookaside @ 0x140316E50
+ * XREFs of EtwpCovSampCaptureReleaseToLookaside @ 0x140317040
  * Callers:
- *     EtwpCovSampCaptureApc @ 0x1403161B0 (EtwpCovSampCaptureApc.c)
- *     EtwpCovSampCaptureApcRelease @ 0x1403162C0 (EtwpCovSampCaptureApcRelease.c)
- *     EtwpCovSampCaptureBufferQueue @ 0x140316460 (EtwpCovSampCaptureBufferQueue.c)
- *     EtwpCovSampCaptureBufferRelease @ 0x140316528 (EtwpCovSampCaptureBufferRelease.c)
- *     EtwpCovSampCaptureCancelApcs @ 0x140316544 (EtwpCovSampCaptureCancelApcs.c)
- *     EtwpCovSampCaptureQueueApc @ 0x140316B2C (EtwpCovSampCaptureQueueApc.c)
- *     EtwpCovSampCaptureSample @ 0x140316EC4 (EtwpCovSampCaptureSample.c)
- *     EtwpCovSampLookasidePop @ 0x1403171D4 (EtwpCovSampLookasidePop.c)
- *     EtwpCovSampCaptureWorkerThread @ 0x1408C44F0 (EtwpCovSampCaptureWorkerThread.c)
+ *     EtwpCovSampCaptureApc @ 0x1403163A0 (EtwpCovSampCaptureApc.c)
+ *     EtwpCovSampCaptureApcRelease @ 0x1403164B0 (EtwpCovSampCaptureApcRelease.c)
+ *     EtwpCovSampCaptureBufferQueue @ 0x140316650 (EtwpCovSampCaptureBufferQueue.c)
+ *     EtwpCovSampCaptureBufferRelease @ 0x140316718 (EtwpCovSampCaptureBufferRelease.c)
+ *     EtwpCovSampCaptureCancelApcs @ 0x140316734 (EtwpCovSampCaptureCancelApcs.c)
+ *     EtwpCovSampCaptureQueueApc @ 0x140316D1C (EtwpCovSampCaptureQueueApc.c)
+ *     EtwpCovSampCaptureSample @ 0x1403170B4 (EtwpCovSampCaptureSample.c)
+ *     EtwpCovSampLookasidePop @ 0x1403173C4 (EtwpCovSampLookasidePop.c)
+ *     EtwpCovSampCaptureWorkerThread @ 0x1408C57B0 (EtwpCovSampCaptureWorkerThread.c)
  * Callees:
  *     KeInsertQueueDpc @ 0x140062190 (KeInsertQueueDpc.c)
- *     RtlpInterlockedPushEntrySList @ 0x1401C5410 (RtlpInterlockedPushEntrySList.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1401C5570 (RtlpInterlockedPushEntrySList.c)
  */
 
-char __fastcall EtwpCovSampCaptureReleaseToLookaside(__int64 a1, __int64 a2, struct _SLIST_ENTRY *a3)
+char __fastcall EtwpCovSampCaptureReleaseToLookaside(__int64 a1, __int64 a2, _SLIST_ENTRY *a3)
 {
   __int64 v4; // rbx
   unsigned __int32 v6; // eax

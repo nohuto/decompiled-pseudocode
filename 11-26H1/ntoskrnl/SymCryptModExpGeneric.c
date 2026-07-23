@@ -1,10 +1,10 @@
 /*
- * XREFs of SymCryptModExpGeneric @ 0x140570FD4
+ * XREFs of SymCryptModExpGeneric @ 0x1405701B4
  * Callers:
- *     SymCryptModExp @ 0x14055C7AC (SymCryptModExp.c)
+ *     SymCryptModExp @ 0x14055EC94 (SymCryptModExp.c)
  * Callees:
- *     SymCryptModExpSquareAndMultiply32 @ 0x140571040 (SymCryptModExpSquareAndMultiply32.c)
- *     SymCryptModExpWindowed @ 0x14057116C (SymCryptModExpWindowed.c)
+ *     SymCryptModExpSquareAndMultiply32 @ 0x140570220 (SymCryptModExpSquareAndMultiply32.c)
+ *     SymCryptModExpWindowed @ 0x14057034C (SymCryptModExpWindowed.c)
  */
 
 __int64 __fastcall SymCryptModExpGeneric(

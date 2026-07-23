@@ -1,10 +1,10 @@
 /*
- * XREFs of KeBlockEnclavePage @ 0x140570398
+ * XREFs of KeBlockEnclavePage @ 0x1405708D8
  * Callers:
- *     MiDecommitHardwareEnclavePages @ 0x1406474E0 (MiDecommitHardwareEnclavePages.c)
+ *     MiDecommitHardwareEnclavePages @ 0x140647A30 (MiDecommitHardwareEnclavePages.c)
  * Callees:
- *     KiEncls @ 0x14041FC80 (KiEncls.c)
- *     KiEnclsStatus @ 0x140570718 (KiEnclsStatus.c)
+ *     KiEncls @ 0x140420010 (KiEncls.c)
+ *     KiEnclsStatus @ 0x140570C58 (KiEnclsStatus.c)
  */
 
 __int64 KeBlockEnclavePage()

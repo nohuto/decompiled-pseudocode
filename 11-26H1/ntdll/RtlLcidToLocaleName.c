@@ -1,25 +1,30 @@
 /*
- * XREFs of RtlLcidToLocaleName @ 0x180005EB0
+ * XREFs of RtlLcidToLocaleName @ 0x1800515E0
  * Callers:
- *     _RtlpMuiRegAddNeutralToInstalled @ 0x1800024D0 (_RtlpMuiRegAddNeutralToInstalled.c)
- *     LdrpGetParentLangId @ 0x180002608 (LdrpGetParentLangId.c)
- *     LdrLoadAlternateResourceModuleEx @ 0x180030230 (LdrLoadAlternateResourceModuleEx.c)
- *     LdrpQuerySxSMUIFile @ 0x180032478 (LdrpQuerySxSMUIFile.c)
- *     LdrpResSearchResourceMappedFile @ 0x1800A80C0 (LdrpResSearchResourceMappedFile.c)
- *     LdrpResSearchResourceHandle @ 0x1800AA63C (LdrpResSearchResourceHandle.c)
- *     LdrResSearchResource @ 0x1800AB1B0 (LdrResSearchResource.c)
+ *     LdrLoadAlternateResourceModuleEx @ 0x18001B390 (LdrLoadAlternateResourceModuleEx.c)
+ *     LdrpQuerySxSMUIFile @ 0x18001D5D8 (LdrpQuerySxSMUIFile.c)
+ *     _RtlpMuiRegAddNeutralToInstalled @ 0x18004DC00 (_RtlpMuiRegAddNeutralToInstalled.c)
+ *     LdrpGetParentLangId @ 0x18004DD38 (LdrpGetParentLangId.c)
+ *     LdrpResSearchResourceMappedFile @ 0x1800A71F0 (LdrpResSearchResourceMappedFile.c)
+ *     LdrpResSearchResourceHandle @ 0x1800A976C (LdrpResSearchResourceHandle.c)
+ *     LdrResSearchResource @ 0x1800AA2E0 (LdrResSearchResource.c)
  * Callees:
- *     RtlpGetUserLocaleName @ 0x180001200 (RtlpGetUserLocaleName.c)
- *     RtlpLoadNlsData @ 0x180004A18 (RtlpLoadNlsData.c)
- *     RtlpInitUnicodeStringUsingBuffer @ 0x180006140 (RtlpInitUnicodeStringUsingBuffer.c)
- *     RtlpGetUserOrMachineUILanguage4NLS @ 0x180112ED0 (RtlpGetUserOrMachineUILanguage4NLS.c)
- *     __security_check_cookie @ 0x180162C90 (__security_check_cookie.c)
+ *     RtlpGetUserLocaleName @ 0x18004C938 (RtlpGetUserLocaleName.c)
+ *     RtlpLoadNlsData @ 0x180050148 (RtlpLoadNlsData.c)
+ *     RtlpInitUnicodeStringUsingBuffer @ 0x180051870 (RtlpInitUnicodeStringUsingBuffer.c)
+ *     RtlpGetUserOrMachineUILanguage4NLS @ 0x180112980 (RtlpGetUserOrMachineUILanguage4NLS.c)
+ *     __security_check_cookie @ 0x180162B90 (__security_check_cookie.c)
  */
 
-__int64 __fastcall RtlLcidToLocaleName(int a1, __int64 a2, int a3, unsigned __int8 a4)
+// local variable allocation has failed, the output may be wrong!
+NTSTATUS __cdecl RtlLcidToLocaleName(
+        LCID lcid,
+        PUNICODE_STRING LocaleName,
+        ULONG Flags,
+        BOOLEAN AllocateDestinationString)
 {
   char v5; // bp
-  int v7; // ebx
+  LCID v7; // ebx
   __int64 v8; // r11
   int v9; // r8d
   int v10; // eax
@@ -33,34 +38,38 @@ __int64 __fastcall RtlLcidToLocaleName(int a1, __int64 a2, int a3, unsigned __in
   _WORD *v18; // rax
   __int64 v19; // rcx
   __int64 v21; // [rsp+20h] [rbp-E8h] BYREF
-  UNICODE_STRING DestinationString; // [rsp+28h] [rbp-E0h] BYREF
+  _UNICODE_STRING DestinationString; // [rsp+28h] [rbp-E0h] BYREF
   _BYTE v23[176]; // [rsp+40h] [rbp-C8h] BYREF
 
   v21 = 85LL;
-  v5 = a3;
-  v7 = a1;
+  v5 = Flags;
+  v7 = lcid;
   DestinationString = 0LL;
-  if ( (a1 & 0xFFFFEFFF) == 0 )
-    return 3221225711LL;
-  if ( a2 )
+  if ( (lcid & 0xFFFFEFFF) == 0 )
+    return -1073741585;
+  if ( LocaleName )
   {
-    if ( (a3 & 0xFFFFFFFD) != 0 )
-      return 3221225713LL;
-    if ( a4 || *(_QWORD *)(a2 + 8) )
+    if ( (Flags & 0xFFFFFFFD) != 0 )
+      return -1073741583;
+    if ( AllocateDestinationString || LocaleName->Buffer )
     {
-      if ( a1 == 5120 )
+      if ( lcid == 5120 )
       {
         if ( (int)RtlpGetUserOrMachineUILanguage4NLS(1LL, v23, &v21) >= 0 )
-          return RtlpInitUnicodeStringUsingBuffer(a4, v23, (unsigned int)v21, a2);
+          return RtlpInitUnicodeStringUsingBuffer(AllocateDestinationString, v23, (unsigned int)v21, LocaleName);
       }
       else
       {
-        if ( ((a1 - 1024) & 0xFFFFF7FF) != 0 )
+        if ( ((lcid - 1024) & 0xFFFFF7FF) != 0 )
         {
           v8 = pTblPtrs;
           if ( pTblPtrs )
             goto LABEL_9;
-          if ( RtlpLoadNlsData() )
+          if ( RtlpLoadNlsData(
+                 *(__int64 *)&lcid,
+                 (__int64)LocaleName,
+                 *(__int64 *)&Flags,
+                 (ULONG *)AllocateDestinationString) )
           {
             v8 = pTblPtrs;
 LABEL_9:
@@ -80,7 +89,7 @@ LABEL_9:
               if ( v7 == *(_DWORD *)(v14 + v13) )
               {
                 if ( v12 < 0 )
-                  return 3221225711LL;
+                  return -1073741585;
                 if ( (v5 & 2) == 0 )
                 {
                   _mm_lfence();
@@ -88,13 +97,13 @@ LABEL_9:
                                  * *(unsigned __int16 *)(*(_QWORD *)(pTblPtrs + 16) + v13 + 4)
                                  + *(_QWORD *)(pTblPtrs + 8)
                                  + 24LL) & 1) == 0 )
-                    return 3221225711LL;
+                    return -1073741585;
                 }
                 _mm_lfence();
                 v16 = *(unsigned __int16 *)(*(_QWORD *)(pTblPtrs + 16) + v13 + 6);
                 v17 = *(_QWORD *)(pTblPtrs + 32) + 2LL + 2 * v16;
                 if ( !v17 )
-                  return 3221225473LL;
+                  return -1073741823;
                 v18 = (_WORD *)(*(_QWORD *)(pTblPtrs + 32) + 2LL + 2 * v16);
                 v19 = 84LL;
                 while ( *v18 )
@@ -103,10 +112,10 @@ LABEL_9:
                   if ( !--v19 )
                   {
                     v21 = 0LL;
-                    return 3221225473LL;
+                    return -1073741823;
                   }
                 }
-                return RtlpInitUnicodeStringUsingBuffer(a4, v17, 84 - v19, a2);
+                return RtlpInitUnicodeStringUsingBuffer(AllocateDestinationString, v17, 84 - v19, LocaleName);
               }
               if ( v15 >= 0 )
                 v9 = v12 + 1;
@@ -114,17 +123,21 @@ LABEL_9:
               if ( v15 >= 0 )
                 v10 = v11;
             }
-            return 3221225711LL;
+            return -1073741585;
           }
-          return 3221225473LL;
+          return -1073741823;
         }
         DestinationString.Buffer = (wchar_t *)v23;
         DestinationString.MaximumLength = 170;
         if ( (int)RtlpGetUserLocaleName(&DestinationString) >= 0 )
-          return RtlpInitUnicodeStringUsingBuffer(a4, DestinationString.Buffer, DestinationString.Length >> 1, a2);
+          return RtlpInitUnicodeStringUsingBuffer(
+                   AllocateDestinationString,
+                   DestinationString.Buffer,
+                   DestinationString.Length >> 1,
+                   LocaleName);
       }
-      return 3221225473LL;
+      return -1073741823;
     }
   }
-  return 3221225712LL;
+  return -1073741584;
 }

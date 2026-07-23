@@ -16,7 +16,7 @@
 void IopInitializeInMemoryDumpData()
 {
   __int64 v0; // rdi
-  int v1; // eax
+  NTSTATUS v1; // eax
   int v2; // ecx
   PVOID *v3; // rsi
   bool v4; // r12
@@ -31,15 +31,24 @@ void IopInitializeInMemoryDumpData()
   unsigned __int64 v13; // rax
   int v14; // eax
   __int128 v15; // [rsp+30h] [rbp-40h]
+  _BYTE Data[8]; // [rsp+48h] [rbp-28h] BYREF
+  int v17; // [rsp+50h] [rbp-20h]
+  int v18; // [rsp+54h] [rbp-1Ch]
+  int v19; // [rsp+58h] [rbp-18h]
+  int v20; // [rsp+5Ch] [rbp-14h]
 
   v0 = 2LL;
+  v17 = 2012912317;
+  v18 = 1295123289;
+  v19 = -198680387;
+  v20 = 1266192359;
   *(_QWORD *)&v15 = 0x302E4594353594B3LL;
   *((_QWORD *)&v15 + 1) = 0xB50211F197DACBD4uLL;
   if ( _InterlockedExchange(InMemData, 1) != 1 )
   {
     dword_14036E504 = 0;
     dword_14036E4F0 = 0;
-    v1 = ZwFilterBootOption(1LL, 270532611LL, 637534368LL);
+    v1 = ZwFilterBootOption(FilterBootOptionOperationSetElement, 0x10200003u, 0x260000A0u, Data, 1u);
     v2 = 9088;
     v3 = (PVOID *)&unk_14036E4D8;
     v4 = v1 >= 0;

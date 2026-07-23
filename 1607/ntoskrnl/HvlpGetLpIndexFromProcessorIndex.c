@@ -1,10 +1,10 @@
 /*
- * XREFs of HvlpGetLpIndexFromProcessorIndex @ 0x1401BB92C
+ * XREFs of HvlpGetLpIndexFromProcessorIndex @ 0x1401BB810
  * Callers:
- *     PpmScaleIdleStateValues @ 0x14012F6B0 (PpmScaleIdleStateValues.c)
- *     HvlEnlightenProcessor @ 0x140139B58 (HvlEnlightenProcessor.c)
- *     HvlRegisterPerfFeedbackCounters @ 0x1401BF48C (HvlRegisterPerfFeedbackCounters.c)
- *     HvlSetPlatformIdleState @ 0x1401BF508 (HvlSetPlatformIdleState.c)
+ *     PpmScaleIdleStateValues @ 0x14012FC20 (PpmScaleIdleStateValues.c)
+ *     HvlEnlightenProcessor @ 0x14013A0C8 (HvlEnlightenProcessor.c)
+ *     HvlRegisterPerfFeedbackCounters @ 0x1401BF370 (HvlRegisterPerfFeedbackCounters.c)
+ *     HvlSetPlatformIdleState @ 0x1401BF3EC (HvlSetPlatformIdleState.c)
  * Callees:
  *     <none>
  */

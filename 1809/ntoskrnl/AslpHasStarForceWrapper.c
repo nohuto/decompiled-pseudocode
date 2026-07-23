@@ -1,9 +1,9 @@
 /*
- * XREFs of AslpHasStarForceWrapper @ 0x1408EDA38
+ * XREFs of AslpHasStarForceWrapper @ 0x1408EECF8
  * Callers:
- *     AslpFileGetExeWrapper @ 0x1408ECA9C (AslpFileGetExeWrapper.c)
+ *     AslpFileGetExeWrapper @ 0x1408EDD5C (AslpFileGetExeWrapper.c)
  * Callees:
- *     strncmp @ 0x140194E00 (strncmp.c)
+ *     strncmp @ 0x140194F40 (strncmp.c)
  */
 
 __int64 __fastcall AslpHasStarForceWrapper(__int64 a1)

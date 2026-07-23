@@ -1,7 +1,7 @@
 /*
- * XREFs of IoSizeofWorkItem @ 0x14012DB20
+ * XREFs of IoSizeofWorkItem @ 0x14012DBF0
  * Callers:
- *     VerifierIoInitializeWorkItem @ 0x140928C40 (VerifierIoInitializeWorkItem.c)
+ *     VerifierIoInitializeWorkItem @ 0x140929C40 (VerifierIoInitializeWorkItem.c)
  * Callees:
  *     <none>
  */

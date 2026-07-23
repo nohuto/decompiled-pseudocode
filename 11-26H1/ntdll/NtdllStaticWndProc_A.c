@@ -1,5 +1,5 @@
 /*
- * XREFs of NtdllStaticWndProc_A @ 0x18015ED40
+ * XREFs of NtdllStaticWndProc_A @ 0x18015EC40
  * Callers:
  *     <none>
  * Callees:
@@ -9,5 +9,5 @@
 // attributes: thunk
 void __noreturn NtdllStaticWndProc_A()
 {
-  off_1801E01B0();
+  off_1801DF1B0();
 }

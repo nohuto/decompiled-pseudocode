@@ -1,48 +1,48 @@
 /*
- * XREFs of PopSstDiagInitializeResumeTimer @ 0x140B661C8
+ * XREFs of PopSstDiagInitializeResumeTimer @ 0x140B68308
  * Callers:
- *     PopHandleNextState @ 0x140B65E10 (PopHandleNextState.c)
+ *     PopHandleNextState @ 0x140B67F50 (PopHandleNextState.c)
  * Callees:
- *     PpmConvertTime @ 0x14032D070 (PpmConvertTime.c)
- *     KeQueryPerformanceCounter @ 0x14034FA10 (KeQueryPerformanceCounter.c)
- *     HvlQueryHypervisorTscAdjustment @ 0x140582F2C (HvlQueryHypervisorTscAdjustment.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
+ *     KeQueryPerformanceCounter @ 0x14036DEF0 (KeQueryPerformanceCounter.c)
+ *     PpmConvertTime @ 0x140437380 (PpmConvertTime.c)
+ *     HvlQueryHypervisorTscAdjustment @ 0x1405802AC (HvlQueryHypervisorTscAdjustment.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
  */
 
-unsigned __int64 __fastcall PopSstDiagInitializeResumeTimer(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+unsigned __int64 PopSstDiagInitializeResumeTimer()
 {
-  __int64 v4; // rbx
-  unsigned __int64 v5; // rbp
-  char v6; // si
+  __int64 v0; // rbx
+  unsigned __int64 v1; // rbp
+  char v2; // si
   LARGE_INTEGER PerformanceCounter; // rdi
-  __int64 v8; // rdi
+  __int64 v4; // rdi
   __int64 HypervisorTscAdjustment; // rax
   unsigned __int64 result; // rax
-  _QWORD v11[3]; // [rsp+20h] [rbp-18h] BYREF
-  unsigned __int64 v12; // [rsp+40h] [rbp+8h] BYREF
+  _QWORD v7[3]; // [rsp+20h] [rbp-18h] BYREF
+  unsigned __int64 v8; // [rsp+40h] [rbp+8h] BYREF
 
-  v4 = 0LL;
-  v12 = 0LL;
-  v11[0] = 0LL;
-  v5 = 1000000LL * KeGetCurrentPrcb()->MHz;
-  v6 = guard_dispatch_icall_no_overrides(&v12, v11, a3, a4);
+  v0 = 0LL;
+  v8 = 0LL;
+  v7[0] = 0LL;
+  v1 = 1000000LL * KeGetCurrentPrcb()->MHz;
+  v2 = guard_dispatch_icall_no_overrides(&v8, v7);
   if ( PoResumeFromHibernate )
   {
-    v6 = 1;
-    v12 = PopSstDiagResumeClock;
+    v2 = 1;
+    v8 = PopSstDiagResumeClock;
   }
   PerformanceCounter = KeQueryPerformanceCounter(0LL);
-  v8 = PerformanceCounter.QuadPart - PpmConvertTime(__rdtsc() - v11[0] - v12, v5, PopQpcFrequency);
-  if ( v6 )
+  v4 = PerformanceCounter.QuadPart - PpmConvertTime(__rdtsc() - v7[0] - v8, v1, PopQpcFrequency);
+  if ( v2 )
   {
     HypervisorTscAdjustment = HvlQueryHypervisorTscAdjustment();
-    v12 -= HypervisorTscAdjustment;
-    v4 = HypervisorTscAdjustment;
-    v8 -= PpmConvertTime(v12, v5, PopQpcFrequency);
+    v8 -= HypervisorTscAdjustment;
+    v0 = HypervisorTscAdjustment;
+    v4 -= PpmConvertTime(v8, v1, PopQpcFrequency);
   }
-  result = v12;
-  qword_140F06968 = v4;
-  PopSstDiagResumeClock = v12;
-  qword_140F06970 = v8;
+  result = v8;
+  qword_140F06C88 = v0;
+  PopSstDiagResumeClock = v8;
+  qword_140F06C90 = v4;
   return result;
 }

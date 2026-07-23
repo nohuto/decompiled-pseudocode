@@ -1,14 +1,14 @@
 /*
- * XREFs of ZwAlpcImpersonateClientContainerOfPort @ 0x1406A74F0
+ * XREFs of ZwAlpcImpersonateClientContainerOfPort @ 0x1406A8490
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwAlpcImpersonateClientContainerOfPort(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwAlpcImpersonateClientContainerOfPort(HANDLE PortHandle, PPORT_MESSAGE Message, ULONG Flags)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(PortHandle);
 }

@@ -1,14 +1,14 @@
 /*
- * XREFs of RtlCSparseBitmapFindBitSetCapped @ 0x140350720
+ * XREFs of RtlCSparseBitmapFindBitSetCapped @ 0x1403527A0
  * Callers:
- *     RtlpHpSegMgrCommit @ 0x14034EB50 (RtlpHpSegMgrCommit.c)
- *     RtlpHpQueryVA @ 0x1403504C0 (RtlpHpQueryVA.c)
- *     RtlSparseArrayElementAllocated @ 0x1403505B8 (RtlSparseArrayElementAllocated.c)
- *     RtlpHpVaMgrCtxQuery @ 0x140350620 (RtlpHpVaMgrCtxQuery.c)
- *     RtlSparseArrayElementFindCapped @ 0x14052F41C (RtlSparseArrayElementFindCapped.c)
+ *     RtlpHpSegMgrCommit @ 0x140350BD0 (RtlpHpSegMgrCommit.c)
+ *     RtlpHpQueryVA @ 0x140352540 (RtlpHpQueryVA.c)
+ *     RtlSparseArrayElementAllocated @ 0x140352638 (RtlSparseArrayElementAllocated.c)
+ *     RtlpHpVaMgrCtxQuery @ 0x1403526A0 (RtlpHpVaMgrCtxQuery.c)
+ *     RtlSparseArrayElementFindCapped @ 0x14053193C (RtlSparseArrayElementFindCapped.c)
  * Callees:
- *     RtlLengthCurrentClearRunForwardEx @ 0x140351BF0 (RtlLengthCurrentClearRunForwardEx.c)
- *     RtlLengthCurrentClearRunBackwardEx @ 0x140352410 (RtlLengthCurrentClearRunBackwardEx.c)
+ *     RtlLengthCurrentClearRunForwardEx @ 0x140353C70 (RtlLengthCurrentClearRunForwardEx.c)
+ *     RtlLengthCurrentClearRunBackwardEx @ 0x140354494 (RtlLengthCurrentClearRunBackwardEx.c)
  */
 
 __int64 __fastcall RtlCSparseBitmapFindBitSetCapped(__int64 a1, unsigned __int64 a2, __int64 a3)

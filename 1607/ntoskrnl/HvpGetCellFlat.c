@@ -1,9 +1,9 @@
 /*
- * XREFs of HvpGetCellFlat @ 0x14060689C
+ * XREFs of HvpGetCellFlat @ 0x140606950
  * Callers:
  *     <none>
  * Callees:
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall HvpGetCellFlat(ULONG_PTR BugCheckParameter3, unsigned int a2, unsigned int *a3)

@@ -1,5 +1,5 @@
 /*
- * XREFs of RtlNormalizeSecurityDescriptor @ 0x1800E6810
+ * XREFs of RtlNormalizeSecurityDescriptor @ 0x1800E67D0
  * Callers:
  *     <none>
  * Callees:
@@ -7,20 +7,25 @@
  *     RtlAllocateHeap @ 0x18002A9A0 (RtlAllocateHeap.c)
  *     RtlValidSecurityDescriptor @ 0x1800711F0 (RtlValidSecurityDescriptor.c)
  *     RtlLengthSecurityDescriptor @ 0x180072420 (RtlLengthSecurityDescriptor.c)
- *     RtlCompareMemory @ 0x1800A1FF0 (RtlCompareMemory.c)
- *     memmove @ 0x1800A44C0 (memmove.c)
- *     memset @ 0x1800A4780 (memset.c)
- *     RtlIsZeroMemory @ 0x1800FF430 (RtlIsZeroMemory.c)
+ *     RtlCompareMemory @ 0x1800A1FB0 (RtlCompareMemory.c)
+ *     memmove @ 0x1800A4480 (memmove.c)
+ *     memset @ 0x1800A4740 (memset.c)
+ *     RtlIsZeroMemory @ 0x1800FF3F0 (RtlIsZeroMemory.c)
  */
 
-char __fastcall RtlNormalizeSecurityDescriptor(__int64 *a1, unsigned int a2, __int64 *a3, unsigned int *a4, char a5)
+BOOLEAN __cdecl RtlNormalizeSecurityDescriptor(
+        PSECURITY_DESCRIPTOR *SecurityDescriptor,
+        ULONG SecurityDescriptorLength,
+        PSECURITY_DESCRIPTOR *NewSecurityDescriptor,
+        PULONG NewSecurityDescriptorLength,
+        BOOLEAN CheckOnly)
 {
-  __int64 v5; // rdi
-  unsigned int v6; // r15d
-  __int64 v7; // rbx
-  __int64 Heap; // rsi
-  char v10; // r13
-  unsigned int v11; // ebx
+  _DWORD *v5; // rdi
+  ULONG v6; // r15d
+  SIZE_T v7; // rbx
+  _DWORD *Heap; // rsi
+  BOOLEAN v10; // r13
+  ULONG v11; // ebx
   unsigned int v12; // r12d
   unsigned int v13; // r10d
   __int64 v14; // r8
@@ -47,7 +52,7 @@ char __fastcall RtlNormalizeSecurityDescriptor(__int64 *a1, unsigned int a2, __i
   unsigned int v35; // eax
   unsigned __int8 *v36; // rdx
   unsigned int v37; // r14d
-  __int64 *v38; // rax
+  PSECURITY_DESCRIPTOR *v38; // rax
   char v40; // [rsp+20h] [rbp-78h]
   unsigned int v41; // [rsp+24h] [rbp-74h]
   unsigned int v42; // [rsp+28h] [rbp-70h]
@@ -58,31 +63,31 @@ char __fastcall RtlNormalizeSecurityDescriptor(__int64 *a1, unsigned int a2, __i
   _QWORD *v47; // [rsp+38h] [rbp-60h]
   char v49; // [rsp+A8h] [rbp+10h]
 
-  v5 = *a1;
+  v5 = *SecurityDescriptor;
   v6 = 0;
-  v7 = a2;
+  v7 = SecurityDescriptorLength;
   Heap = 0LL;
   v47 = 0LL;
   v40 = 0;
   v10 = 0;
   v49 = 0;
-  if ( !RtlValidSecurityDescriptor(*a1) || (unsigned int)v7 < (unsigned int)RtlLengthSecurityDescriptor(v5) )
+  if ( !RtlValidSecurityDescriptor(*SecurityDescriptor) || (unsigned int)v7 < RtlLengthSecurityDescriptor(v5) )
     return 0;
-  if ( !a5 )
+  if ( !CheckOnly )
   {
-    if ( a3 )
+    if ( NewSecurityDescriptor )
     {
-      Heap = *a3;
-      if ( *a3 )
+      Heap = *NewSecurityDescriptor;
+      if ( *NewSecurityDescriptor )
         goto LABEL_8;
     }
-    Heap = RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, NtdllBaseTag + 1310720, v7);
+    Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, NtdllBaseTag + 1310720, v7);
     if ( Heap )
     {
       v40 = 1;
 LABEL_8:
       *(_OWORD *)Heap = *(_OWORD *)v5;
-      *(_DWORD *)(Heap + 16) = *(_DWORD *)(v5 + 16);
+      Heap[4] = v5[4];
       goto LABEL_9;
     }
     return 0;
@@ -94,26 +99,26 @@ LABEL_9:
   while ( 1 )
   {
     if ( v12 == 1 )
-      v13 = *(_DWORD *)(v5 + 12);
+      v13 = v5[3];
     else
-      v13 = *(_DWORD *)(v5 + 16);
+      v13 = v5[4];
     v45 = v13;
     if ( !v13 )
       goto LABEL_67;
     v14 = v13;
-    if ( v12 != 1 || *(_WORD *)(v13 + v5 + 4) )
+    if ( v12 != 1 || *(_WORD *)((char *)v5 + v13 + 4) )
       v6 = v11;
     v15 = 0;
     if ( v6 != v13 )
     {
       v10 = 1;
       v49 = 1;
-      if ( a5 )
+      if ( CheckOnly )
         goto LABEL_90;
       if ( v12 == 1 )
-        *(_DWORD *)(Heap + 12) = v6;
+        Heap[3] = v6;
       else
-        *(_DWORD *)(Heap + 16) = v6;
+        Heap[4] = v6;
     }
     if ( v6 )
       break;
@@ -123,58 +128,58 @@ LABEL_67:
     v46 = ++v12;
     if ( v12 > 2 )
     {
-      v32 = *(_DWORD *)(v5 + 4);
+      v32 = v5[1];
       if ( v11 != v32 )
       {
         v10 = 1;
-        if ( a5 )
+        if ( CheckOnly )
           goto LABEL_90;
-        *(_DWORD *)(Heap + 4) = v11;
-        v32 = *(_DWORD *)(v5 + 4);
+        Heap[1] = v11;
+        v32 = v5[1];
       }
-      v33 = (unsigned __int8 *)(v5 + v32);
+      v33 = (unsigned __int8 *)v5 + v32;
       v34 = 4 * v33[1] + 8;
-      if ( !a5 )
-        memmove((void *)(Heap + *(unsigned int *)(Heap + 4)), v33, v34);
-      v35 = *(_DWORD *)(v5 + 8);
+      if ( !CheckOnly )
+        memmove((char *)Heap + (unsigned int)Heap[1], v33, v34);
+      v35 = v5[2];
       v11 += v34;
       if ( !v35 )
         goto LABEL_81;
       if ( v11 == v35 )
       {
 LABEL_77:
-        v36 = (unsigned __int8 *)(v5 + v35);
+        v36 = (unsigned __int8 *)v5 + v35;
         v37 = 4 * v36[1] + 8;
-        if ( !a5 )
-          memmove((void *)(Heap + *(unsigned int *)(Heap + 8)), v36, v37);
+        if ( !CheckOnly )
+          memmove((char *)Heap + (unsigned int)Heap[2], v36, v37);
         v11 += v37;
         goto LABEL_81;
       }
       v10 = 1;
-      if ( !a5 )
+      if ( !CheckOnly )
       {
-        *(_DWORD *)(Heap + 8) = v11;
-        v35 = *(_DWORD *)(v5 + 8);
+        Heap[2] = v11;
+        v35 = v5[2];
         goto LABEL_77;
       }
 LABEL_90:
       if ( v40 )
-        RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, Heap);
+        RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, Heap);
       return v10;
     }
   }
-  if ( a5 )
+  if ( CheckOnly )
   {
     v16 = v47;
   }
   else
   {
-    v16 = (_QWORD *)(Heap + v6);
+    v16 = (_QWORD *)((char *)Heap + v6);
     v47 = v16;
-    *v16 = *(_QWORD *)(v13 + v5);
+    *v16 = *(_QWORD *)((char *)v5 + v13);
   }
-  v17 = *(_WORD *)(v13 + v5 + 4);
-  v18 = v13 + v5 + 8;
+  v17 = *(_WORD *)((char *)v5 + v13 + 4);
+  v18 = (__int64)v5 + v13 + 8;
   v41 = 0;
   v11 += 8;
   v42 = 0;
@@ -185,7 +190,7 @@ LABEL_90:
 LABEL_42:
     v26 = (v11 + 3) & 0xFFFFFFFC;
     v27 = v26 - v6;
-    if ( v26 - v6 == *(unsigned __int16 *)(v14 + v5 + 2) )
+    if ( v26 - v6 == *(unsigned __int16 *)((char *)v5 + v14 + 2) )
     {
       v28 = v47;
     }
@@ -193,24 +198,24 @@ LABEL_42:
     {
       v10 = 1;
       v49 = 1;
-      if ( a5 )
+      if ( CheckOnly )
         goto LABEL_90;
       v28 = v47;
       *((_WORD *)v47 + 1) = v27;
-      v17 = *(_WORD *)(v14 + v5 + 4);
+      v17 = *(_WORD *)((char *)v5 + v14 + 4);
     }
     if ( v19 != v17 )
       *((_WORD *)v28 + 2) = v19;
     if ( v11 != v26 )
     {
-      if ( v6 == v13 && v27 == *(unsigned __int16 *)(v14 + v5 + 2) )
+      if ( v6 == v13 && v27 == *(unsigned __int16 *)((char *)v5 + v14 + 2) )
       {
         v6 = 0;
-        if ( !(unsigned __int8)RtlIsZeroMemory(v5 + v11, v26 - v11) )
+        if ( !RtlIsZeroMemory((char *)v5 + v11, v26 - v11) )
         {
           v10 = 1;
           v49 = 1;
-          if ( a5 )
+          if ( CheckOnly )
             goto LABEL_90;
         }
       }
@@ -218,8 +223,8 @@ LABEL_42:
       {
         v6 = 0;
       }
-      if ( !a5 )
-        memset((void *)(Heap + v11), 0, v26 - v11);
+      if ( !CheckOnly )
+        memset((char *)Heap + v11, 0, v26 - v11);
       v11 = (v11 + 3) & 0xFFFFFFFC;
       goto LABEL_67;
     }
@@ -230,13 +235,13 @@ LABEL_42:
     if ( *(_BYTE *)v20 )
       goto LABEL_37;
     v21 = 0;
-    if ( a5 )
+    if ( CheckOnly )
       break;
     v29 = v16 + 1;
     if ( !v19 )
     {
 LABEL_38:
-      memmove((void *)(Heap + v11), v20, v20[1]);
+      memmove((char *)Heap + v11, v20, v20[1]);
       v19 = v41;
       goto LABEL_39;
     }
@@ -263,7 +268,7 @@ LABEL_38:
       goto LABEL_40;
     }
 LABEL_37:
-    if ( !a5 )
+    if ( !CheckOnly )
       goto LABEL_38;
 LABEL_39:
     v25 = v20[1];
@@ -276,8 +281,8 @@ LABEL_40:
     v15 = v42 + 1;
     v20 = (unsigned __int16 *)((char *)v20 + (unsigned __int16)v25);
     v42 = v15;
-    v17 = *(_WORD *)(v45 + v5 + 4);
-    v18 = v45 + 8LL + v5;
+    v17 = *(_WORD *)((char *)v5 + v45 + 4);
+    v18 = (__int64)v5 + v45 + 8;
     if ( v15 >= v17 )
     {
       v10 = v49;
@@ -313,19 +318,19 @@ LABEL_36:
   }
   v10 = 1;
 LABEL_81:
-  if ( !v10 || a5 )
+  if ( !v10 || CheckOnly )
     goto LABEL_90;
-  v38 = a3;
-  if ( !a3 )
+  v38 = NewSecurityDescriptor;
+  if ( !NewSecurityDescriptor )
   {
-    RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v5);
-    v38 = a1;
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v5);
+    v38 = SecurityDescriptor;
     goto LABEL_87;
   }
   if ( v40 )
 LABEL_87:
     *v38 = Heap;
-  if ( a4 )
-    *a4 = v11;
+  if ( NewSecurityDescriptorLength )
+    *NewSecurityDescriptorLength = v11;
   return v10;
 }

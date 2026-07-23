@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpAllocPhysicalMemoryInternal @ 0x140D08A70
+ * XREFs of HalpAllocPhysicalMemoryInternal @ 0x140D0ED40
  * Callers:
- *     HalpAllocPhysicalMemoryEx @ 0x140D08980 (HalpAllocPhysicalMemoryEx.c)
+ *     HalpAllocPhysicalMemoryEx @ 0x140D0EC50 (HalpAllocPhysicalMemoryEx.c)
  * Callees:
- *     HalpAllocPhysicalMemoryFromDescriptor @ 0x140CAE204 (HalpAllocPhysicalMemoryFromDescriptor.c)
+ *     HalpAllocPhysicalMemoryFromDescriptor @ 0x140CB4244 (HalpAllocPhysicalMemoryFromDescriptor.c)
  */
 
 unsigned __int64 __fastcall HalpAllocPhysicalMemoryInternal(__int64 a1, _QWORD *a2, unsigned int a3, unsigned int a4)
@@ -20,7 +20,7 @@ unsigned __int64 __fastcall HalpAllocPhysicalMemoryInternal(__int64 a1, _QWORD *
   _QWORD *v13; // rsi
   __int64 v14; // r11
   char *v15; // r9
-  int WaitBlockList; // r8d
+  int v16; // r8d
   unsigned __int64 v17; // rdx
   __int64 v18; // r11
   _QWORD *v19; // rcx
@@ -36,7 +36,7 @@ unsigned __int64 __fastcall HalpAllocPhysicalMemoryInternal(__int64 a1, _QWORD *
   unsigned int v30; // [rsp+88h] [rbp+20h]
 
   v30 = a4;
-  if ( LODWORD(HalpPmuArbiter.WaitBlockList) + 2 <= (unsigned int)HalpAllocationDescriptorArraySize
+  if ( *(_DWORD *)&HalpPmuArbiter.ApcStateFill[40] + 2 <= (unsigned int)HalpAllocationDescriptorArraySize
     || HalpDescriptorPoolLow )
   {
     v4 = -1LL;
@@ -46,7 +46,7 @@ unsigned __int64 __fastcall HalpAllocPhysicalMemoryInternal(__int64 a1, _QWORD *
     v27 = a3;
     if ( v4 >= a3 )
     {
-      if ( HalpDeviceBlockUnblockPushLock.WaitBlockFill5[48] && v4 - a3 >= 0x100 )
+      if ( BYTE2(HalpDeviceBlockUnblockPushLock.Timer.DueTime.u.LowPart) && v4 - a3 >= 0x100 )
         v5 = 256LL;
       v6 = (_QWORD *)(a1 + 32);
       v7 = 0LL;
@@ -81,13 +81,13 @@ unsigned __int64 __fastcall HalpAllocPhysicalMemoryInternal(__int64 a1, _QWORD *
           }
           else
           {
-            WaitBlockList = (int)HalpPmuArbiter.WaitBlockList;
-            v15 = (char *)HalpAllocationDescriptorArray + 48 * LODWORD(HalpPmuArbiter.WaitBlockList);
+            v16 = *(_DWORD *)&HalpPmuArbiter.ApcStateFill[40];
+            v15 = (char *)HalpAllocationDescriptorArray + 48 * *(unsigned int *)&HalpPmuArbiter.ApcStateFill[40];
             *((_QWORD *)v15 + 5) = v27;
             v17 = v9 + *v13;
             *((_DWORD *)v15 + 6) = 26;
             *((_QWORD *)v15 + 4) = v17;
-            LODWORD(HalpPmuArbiter.WaitBlockList) = WaitBlockList + 1;
+            *(_DWORD *)&HalpPmuArbiter.ApcStateFill[40] = v16 + 1;
           }
           v18 = v7[5] - v27;
           if ( v9 )
@@ -95,8 +95,8 @@ unsigned __int64 __fastcall HalpAllocPhysicalMemoryInternal(__int64 a1, _QWORD *
             v23 = v18 - v9;
             if ( v23 )
             {
-              v24 = (char *)HalpAllocationDescriptorArray + 48 * LODWORD(HalpPmuArbiter.WaitBlockList);
-              ++LODWORD(HalpPmuArbiter.WaitBlockList);
+              v24 = (char *)HalpAllocationDescriptorArray + 48 * *(unsigned int *)&HalpPmuArbiter.ApcStateFill[40];
+              ++*(_DWORD *)&HalpPmuArbiter.ApcStateFill[40];
               *((_QWORD *)v24 + 5) = v23;
               v22 = a3;
               *((_QWORD *)v24 + 4) = v9 + *v13 + a3;

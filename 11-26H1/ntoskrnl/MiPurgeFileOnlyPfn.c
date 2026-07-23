@@ -1,18 +1,18 @@
 /*
- * XREFs of MiPurgeFileOnlyPfn @ 0x1404CBA94
+ * XREFs of MiPurgeFileOnlyPfn @ 0x1404C54C4
  * Callers:
- *     MiInsertPageInList @ 0x1402DDC40 (MiInsertPageInList.c)
- *     MiPurgeSubsection @ 0x140422170 (MiPurgeSubsection.c)
- *     MiFileOnlyPfnMarkedBad @ 0x1406F9B58 (MiFileOnlyPfnMarkedBad.c)
+ *     MiInsertPageInList @ 0x1402BFA00 (MiInsertPageInList.c)
+ *     MiPurgeSubsection @ 0x1404199B0 (MiPurgeSubsection.c)
+ *     MiFileOnlyPfnMarkedBad @ 0x1406FE828 (MiFileOnlyPfnMarkedBad.c)
  * Callees:
- *     MiGetSubsectionFromPte @ 0x1402836C0 (MiGetSubsectionFromPte.c)
- *     MiMapPageInHyperSpaceWorker @ 0x140287EE0 (MiMapPageInHyperSpaceWorker.c)
- *     MiInsertPageInFreeOrZeroedList @ 0x1402DCDD0 (MiInsertPageInFreeOrZeroedList.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402DED10 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     MiRestoreTransitionPte @ 0x1402F8F60 (MiRestoreTransitionPte.c)
- *     MiUnmapPageInHyperSpaceWorker @ 0x14040DF60 (MiUnmapPageInHyperSpaceWorker.c)
- *     MiPersistVa @ 0x1406FAB8C (MiPersistVa.c)
+ *     MiGetSubsectionFromPte @ 0x140282C30 (MiGetSubsectionFromPte.c)
+ *     MiMapPageInHyperSpaceWorker @ 0x140287440 (MiMapPageInHyperSpaceWorker.c)
+ *     MiInsertPageInFreeOrZeroedList @ 0x1402BEB90 (MiInsertPageInFreeOrZeroedList.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402C0B20 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     MiRestoreTransitionPte @ 0x1402DAFE0 (MiRestoreTransitionPte.c)
+ *     MiUnmapPageInHyperSpaceWorker @ 0x14042AE90 (MiUnmapPageInHyperSpaceWorker.c)
+ *     MiPersistVa @ 0x1406FF85C (MiPersistVa.c)
  */
 
 void __fastcall MiPurgeFileOnlyPfn(ULONG_PTR a1, char a2)
@@ -24,7 +24,7 @@ void __fastcall MiPurgeFileOnlyPfn(ULONG_PTR a1, char a2)
   __int64 v8; // rbx
   __int64 *v9; // rcx
 
-  if ( (*(_BYTE *)(a1 + 34) & 0x10) != 0 && *(int *)(a1 + 32) >= 0 && byte_140E2D719 == *(int *)(a1 + 32) < 0 )
+  if ( (*(_BYTE *)(a1 + 34) & 0x10) != 0 && *(int *)(a1 + 32) >= 0 && byte_140E2D899 == *(int *)(a1 + 32) < 0 )
   {
     v4 = (__int64)((unsigned __int128)((__int64)(a1 + 0x220000000000LL) * (__int128)0x2AAAAAAAAAAAAAABLL) >> 64) >> 3;
     v5 = MiMapPageInHyperSpaceWorker((v4 >> 63) + v4, 0LL, 0x80000000);

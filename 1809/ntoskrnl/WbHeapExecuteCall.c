@@ -1,18 +1,18 @@
 /*
- * XREFs of WbHeapExecuteCall @ 0x140624ABC
+ * XREFs of WbHeapExecuteCall @ 0x140625ADC
  * Callers:
- *     WbDispatchOperation @ 0x140625364 (WbDispatchOperation.c)
+ *     WbDispatchOperation @ 0x140626384 (WbDispatchOperation.c)
  * Callees:
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     WbValidateHeapExecuteCallArguments @ 0x14062415C (WbValidateHeapExecuteCallArguments.c)
- *     WbGetTrapFrame @ 0x14062444C (WbGetTrapFrame.c)
- *     sub_1406244D4 @ 0x1406244D4 (sub_1406244D4.c)
- *     sub_1406245D0 @ 0x1406245D0 (sub_1406245D0.c)
- *     WbSetTrapFrame @ 0x140624794 (WbSetTrapFrame.c)
- *     WbGetHeapExecutedBlock @ 0x14062490C (WbGetHeapExecutedBlock.c)
- *     sub_140624A54 @ 0x140624A54 (sub_140624A54.c)
- *     WbGetWarbirdThread @ 0x14062502C (WbGetWarbirdThread.c)
- *     sub_140625200 @ 0x140625200 (sub_140625200.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     WbValidateHeapExecuteCallArguments @ 0x14062517C (WbValidateHeapExecuteCallArguments.c)
+ *     WbGetTrapFrame @ 0x14062546C (WbGetTrapFrame.c)
+ *     sub_1406254F4 @ 0x1406254F4 (sub_1406254F4.c)
+ *     sub_1406255F0 @ 0x1406255F0 (sub_1406255F0.c)
+ *     WbSetTrapFrame @ 0x1406257B4 (WbSetTrapFrame.c)
+ *     WbGetHeapExecutedBlock @ 0x14062592C (WbGetHeapExecutedBlock.c)
+ *     sub_140625A74 @ 0x140625A74 (sub_140625A74.c)
+ *     WbGetWarbirdThread @ 0x14062604C (WbGetWarbirdThread.c)
+ *     sub_140626220 @ 0x140626220 (sub_140626220.c)
  */
 
 __int64 __fastcall WbHeapExecuteCall(__int64 a1, _QWORD *a2, char *a3, unsigned int a4)
@@ -47,10 +47,10 @@ __int64 __fastcall WbHeapExecuteCall(__int64 a1, _QWORD *a2, char *a3, unsigned 
         HeapExecutedBlock = WbGetTrapFrame(v18, (__int64)&v20);
         if ( HeapExecutedBlock >= 0 )
         {
-          HeapExecutedBlock = sub_1406244D4(v18, (__int64)v19, v21, v20, v22);
+          HeapExecutedBlock = sub_1406254F4(v18, (__int64)v19, v21, v20, v22);
           if ( HeapExecutedBlock >= 0 )
           {
-            HeapExecutedBlock = sub_1406245D0((__int64)v23, (__int64)v19, &v20, a2, a3, a4);
+            HeapExecutedBlock = sub_1406255F0((__int64)v23, (__int64)v19, &v20, a2, a3, a4);
             if ( HeapExecutedBlock >= 0 )
             {
               v10 = KeGetCurrentThread()->ApcState.Process[1].ActiveProcessors.Bitmap[7];
@@ -102,7 +102,7 @@ LABEL_8:
     }
   }
 LABEL_11:
-  sub_140625200(a1, v18);
-  sub_140624A54(a1, (__int64)v19);
+  sub_140626220(a1, v18);
+  sub_140625A74(a1, (__int64)v19);
   return (unsigned int)HeapExecutedBlock;
 }

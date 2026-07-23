@@ -32,10 +32,13 @@ __int64 __fastcall MiGetSystemPage(__int64 a1, __int64 a2)
   v6 = (unsigned __int8)MiLockPageInline(v5);
   *(_QWORD *)(v5 + 24) &= 0xC000000000000000uLL;
   _InterlockedAnd64((volatile signed __int64 *)(v5 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v6 <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
+      && (unsigned __int8)v6 <= 0xFu
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       v10 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v6 + 1));

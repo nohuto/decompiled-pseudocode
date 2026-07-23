@@ -1,15 +1,15 @@
 /*
- * XREFs of VmAccessFault @ 0x140223D14
+ * XREFs of VmAccessFault @ 0x140223B40
  * Callers:
  *     <none>
  * Callees:
- *     ExAcquireSpinLockSharedAtDpcLevel @ 0x14001DD60 (ExAcquireSpinLockSharedAtDpcLevel.c)
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1400EA3E0 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     VmpFaultEntryInsert @ 0x140223E88 (VmpFaultEntryInsert.c)
- *     VmpFaultEntryRemove @ 0x140223F20 (VmpFaultEntryRemove.c)
- *     VmpProcessUpdateSlat @ 0x140224544 (VmpProcessUpdateSlat.c)
- *     MmVirtualAccessFault @ 0x14065BF34 (MmVirtualAccessFault.c)
+ *     ExAcquireSpinLockSharedAtDpcLevel @ 0x14001D8E0 (ExAcquireSpinLockSharedAtDpcLevel.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1400E8250 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     VmpFaultEntryInsert @ 0x140223CB4 (VmpFaultEntryInsert.c)
+ *     VmpFaultEntryRemove @ 0x140223D4C (VmpFaultEntryRemove.c)
+ *     VmpProcessUpdateSlat @ 0x140224370 (VmpProcessUpdateSlat.c)
+ *     MmVirtualAccessFault @ 0x14065C018 (MmVirtualAccessFault.c)
  */
 
 __int64 __fastcall VmAccessFault(unsigned __int64 a1, unsigned __int64 a2, unsigned int a3, __int64 a4)

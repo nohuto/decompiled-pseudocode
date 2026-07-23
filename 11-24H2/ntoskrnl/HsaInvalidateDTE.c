@@ -1,10 +1,10 @@
 /*
- * XREFs of HsaInvalidateDTE @ 0x140573364
+ * XREFs of HsaInvalidateDTE @ 0x1405707F4
  * Callers:
- *     HsaUpdateDeviceTableEntry @ 0x1404465C4 (HsaUpdateDeviceTableEntry.c)
+ *     HsaUpdateDeviceTableEntry @ 0x14043E974 (HsaUpdateDeviceTableEntry.c)
  * Callees:
- *     HsaIommuWaitCommand @ 0x140446368 (HsaIommuWaitCommand.c)
- *     HsaIommuSendCommand @ 0x14044639C (HsaIommuSendCommand.c)
+ *     HsaIommuWaitCommand @ 0x14043E718 (HsaIommuWaitCommand.c)
+ *     HsaIommuSendCommand @ 0x14043E74C (HsaIommuSendCommand.c)
  */
 
 __int64 __fastcall HsaInvalidateDTE(__int64 *a1, unsigned __int16 a2, unsigned int a3)

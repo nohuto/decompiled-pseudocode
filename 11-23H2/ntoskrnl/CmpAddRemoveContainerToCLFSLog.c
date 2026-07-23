@@ -1,22 +1,22 @@
 /*
- * XREFs of CmpAddRemoveContainerToCLFSLog @ 0x140873344
+ * XREFs of CmpAddRemoveContainerToCLFSLog @ 0x140873584
  * Callers:
- *     CmpStartCLFSLog @ 0x140873038 (CmpStartCLFSLog.c)
- *     CmpAddRemoveRMLogContainer @ 0x140A1E850 (CmpAddRemoveRMLogContainer.c)
+ *     CmpStartCLFSLog @ 0x140873278 (CmpStartCLFSLog.c)
+ *     CmpAddRemoveRMLogContainer @ 0x140A1EB00 (CmpAddRemoveRMLogContainer.c)
  * Callees:
  *     RtlAppendUnicodeStringToString @ 0x140208A00 (RtlAppendUnicodeStringToString.c)
  *     _tlgKeywordOn @ 0x140212E64 (_tlgKeywordOn.c)
- *     KiStackAttachProcess @ 0x14022D600 (KiStackAttachProcess.c)
- *     KiUnstackDetachProcess @ 0x14022D9C0 (KiUnstackDetachProcess.c)
- *     RtlInitUnicodeString @ 0x14022E1B0 (RtlInitUnicodeString.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6B24 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     RtlInitAnsiString @ 0x1402F6C50 (RtlInitAnsiString.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     sprintf_s @ 0x1403DF720 (sprintf_s.c)
- *     PsDisableImpersonation @ 0x14071E3F0 (PsDisableImpersonation.c)
- *     PsRestoreImpersonation @ 0x14071E530 (PsRestoreImpersonation.c)
- *     RtlFreeUnicodeString @ 0x14076F3D0 (RtlFreeUnicodeString.c)
- *     RtlAnsiStringToUnicodeString @ 0x140773C00 (RtlAnsiStringToUnicodeString.c)
+ *     KiStackAttachProcess @ 0x14022D710 (KiStackAttachProcess.c)
+ *     KiUnstackDetachProcess @ 0x14022DAD0 (KiUnstackDetachProcess.c)
+ *     RtlInitUnicodeString @ 0x14022E2C0 (RtlInitUnicodeString.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6DB4 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     RtlInitAnsiString @ 0x1402F6EE0 (RtlInitAnsiString.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     sprintf_s @ 0x1403DF900 (sprintf_s.c)
+ *     PsDisableImpersonation @ 0x14071E5F0 (PsDisableImpersonation.c)
+ *     PsRestoreImpersonation @ 0x14071E730 (PsRestoreImpersonation.c)
+ *     RtlFreeUnicodeString @ 0x14076F5C0 (RtlFreeUnicodeString.c)
+ *     RtlAnsiStringToUnicodeString @ 0x140773DF0 (RtlAnsiStringToUnicodeString.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
@@ -37,7 +37,7 @@ __int64 __fastcall CmpAddRemoveContainerToCLFSLog(
   NTSTATUS v16; // [rsp+48h] [rbp-B8h] BYREF
   UNICODE_STRING DestinationString; // [rsp+50h] [rbp-B0h] BYREF
   STRING SourceString; // [rsp+60h] [rbp-A0h] BYREF
-  struct _SE_IMPERSONATION_STATE ImpersonationState; // [rsp+70h] [rbp-90h] BYREF
+  _SE_IMPERSONATION_STATE ImpersonationState; // [rsp+70h] [rbp-90h] BYREF
   $115DCDF994C6370D29323EAB0E0C9502 v20; // [rsp+80h] [rbp-80h] BYREF
   struct _EVENT_DATA_DESCRIPTOR v21; // [rsp+B0h] [rbp-50h] BYREF
   char *v22; // [rsp+D0h] [rbp-30h]
@@ -80,9 +80,9 @@ __int64 __fastcall CmpAddRemoveContainerToCLFSLog(
     if ( v12 )
       PsRestoreImpersonation(KeGetCurrentThread(), &ImpersonationState);
   }
-  if ( (unsigned int)dword_140C043C8 > 5 )
+  if ( (unsigned int)dword_140C04390 > 5 )
   {
-    if ( tlgKeywordOn((__int64)&dword_140C043C8, 1LL) )
+    if ( tlgKeywordOn((__int64)&dword_140C04390, 1LL) )
     {
       v24 = 0;
       v27 = 0;
@@ -99,8 +99,8 @@ __int64 __fastcall CmpAddRemoveContainerToCLFSLog(
       v26 = 4;
       v29 = 2;
       tlgWriteTransfer_EtwWriteTransfer(
-        (__int64)&dword_140C043C8,
-        (unsigned __int8 *)&dword_14003817C,
+        (__int64)&dword_140C04390,
+        (unsigned __int8 *)&dword_140038264,
         0LL,
         0LL,
         6u,

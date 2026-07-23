@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpErrataInitSystem @ 0x140BEB1F0
+ * XREFs of HalpErrataInitSystem @ 0x140BF11F0
  * Callers:
  *     <none>
  * Callees:
- *     HalpUsbLegacyScanBusForHandoff @ 0x14059A438 (HalpUsbLegacyScanBusForHandoff.c)
- *     HalpErrataApplyPerProcessor @ 0x140C0CBC0 (HalpErrataApplyPerProcessor.c)
- *     HalpErrataInitDiscard @ 0x140CAF28C (HalpErrataInitDiscard.c)
- *     HalpInitChipHacks @ 0x140CB3C08 (HalpInitChipHacks.c)
+ *     HalpUsbLegacyScanBusForHandoff @ 0x14059CBB8 (HalpUsbLegacyScanBusForHandoff.c)
+ *     HalpErrataApplyPerProcessor @ 0x140C12DD0 (HalpErrataApplyPerProcessor.c)
+ *     HalpErrataInitDiscard @ 0x140CB52CC (HalpErrataInitDiscard.c)
+ *     HalpInitChipHacks @ 0x140CB9C48 (HalpInitChipHacks.c)
  */
 
 __int64 __fastcall HalpErrataInitSystem(int a1, __int64 a2, __int64 a3)

@@ -1,19 +1,19 @@
 /*
- * XREFs of KiReadyOutSwappedThreads @ 0x14037B7C4
+ * XREFs of KiReadyOutSwappedThreads @ 0x14037D574
  * Callers:
- *     KiInSwapProcesses @ 0x14048C2D4 (KiInSwapProcesses.c)
- *     KiOutSwapProcesses @ 0x14049A3E4 (KiOutSwapProcesses.c)
+ *     KiInSwapProcesses @ 0x140485E14 (KiInSwapProcesses.c)
+ *     KiOutSwapProcesses @ 0x140493F34 (KiOutSwapProcesses.c)
  * Callees:
- *     EtwTraceReadyThread @ 0x140218760 (EtwTraceReadyThread.c)
- *     KiEnterDeferredReadyState @ 0x14022E6D0 (KiEnterDeferredReadyState.c)
- *     KiDeferredReadySingleThread @ 0x140231820 (KiDeferredReadySingleThread.c)
- *     KiFlushSoftwareInterruptBatch @ 0x1402436D0 (KiFlushSoftwareInterruptBatch.c)
- *     KiAcquireKobjectLockSafe @ 0x140277760 (KiAcquireKobjectLockSafe.c)
- *     HvlNotifyLongSpinWait @ 0x1402BBF00 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1402BC760 (KiCheckVpBackingLongSpinWaitHypercall.c)
- *     KiRequestProcessInSwap @ 0x1402C6AEC (KiRequestProcessInSwap.c)
- *     KeSetEvent @ 0x1402DE9C0 (KeSetEvent.c)
- *     KiCheckForThreadDispatch @ 0x14037CA70 (KiCheckForThreadDispatch.c)
+ *     EtwTraceReadyThread @ 0x140218A90 (EtwTraceReadyThread.c)
+ *     KiEnterDeferredReadyState @ 0x140230060 (KiEnterDeferredReadyState.c)
+ *     KiDeferredReadySingleThread @ 0x140233180 (KiDeferredReadySingleThread.c)
+ *     KiFlushSoftwareInterruptBatch @ 0x140245030 (KiFlushSoftwareInterruptBatch.c)
+ *     KiAcquireKobjectLockSafe @ 0x140276CD0 (KiAcquireKobjectLockSafe.c)
+ *     KeSetEvent @ 0x1402C0780 (KeSetEvent.c)
+ *     HvlNotifyLongSpinWait @ 0x140306BC0 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140307420 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     KiRequestProcessInSwap @ 0x14031178C (KiRequestProcessInSwap.c)
+ *     KiCheckForThreadDispatch @ 0x14037E820 (KiCheckForThreadDispatch.c)
  */
 
 __int64 __fastcall KiReadyOutSwappedThreads(_QWORD *a1, char a2)
@@ -116,20 +116,17 @@ LABEL_23:
       _interlockedbittestandreset((volatile signed __int32 *)(v6 + 120), 0x14u);
       *(_BYTE *)(v6 + 388) = 6;
       v19 = (signed __int64 *)(v6 + 216);
-      _m_prefetchw(&KiSupervisorXStateFeaturesLock.UserAffinityPrimaryGroup);
-      v20 = *(_QWORD *)&KiSupervisorXStateFeaturesLock.UserAffinityPrimaryGroup;
+      _m_prefetchw(&qword_140F26B70);
+      v20 = qword_140F26B70;
       do
       {
         *v19 = v20;
         v21 = v20;
-        v20 = _InterlockedCompareExchange64(
-                (volatile signed __int64 *)&KiSupervisorXStateFeaturesLock.UserAffinityPrimaryGroup,
-                (signed __int64)v19,
-                v20);
+        v20 = _InterlockedCompareExchange64(&qword_140F26B70, (signed __int64)v19, v20);
       }
       while ( v20 != v21 );
       if ( !v20 )
-        KeSetEvent((PRKEVENT)&KiSupervisorXStateFeaturesLock.StackLimit, 10, 0);
+        KeSetEvent((PRKEVENT)&KiSupervisorXStateFeaturesLock.Timer.TimerListEntry, 10, 0);
     }
   }
   while ( v5 != a1 );

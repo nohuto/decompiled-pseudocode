@@ -9,38 +9,38 @@
  *     sub_1800DF864 @ 0x1800DF864 (sub_1800DF864.c)
  */
 
-unsigned __int64 sub_1800DF250()
+void sub_1800DF250()
 {
-  unsigned __int64 v0; // rdi
+  unsigned __int64 Ptr; // rdi
   int v1; // esi
-  __int64 v2; // rcx
-  __int64 *v3; // rbx
+  _RTL_SRWLOCK *v2; // rcx
+  _RTL_SRWLOCK *v3; // rbx
 
-  v0 = 0LL;
+  Ptr = 0LL;
   v1 = 0;
-  RtlAcquireSRWLockShared((volatile signed __int64 *)(qword_18015C008 + 8));
-  v2 = qword_18015C008;
-  v3 = *(__int64 **)(qword_18015C008 + 16);
-  if ( v3 != (__int64 *)(qword_18015C008 + 16) )
+  RtlAcquireSRWLockShared((PRTL_SRWLOCK)(qword_18015C008 + 8));
+  v2 = (_RTL_SRWLOCK *)qword_18015C008;
+  v3 = *(_RTL_SRWLOCK **)(qword_18015C008 + 16);
+  if ( v3 != (_RTL_SRWLOCK *)(qword_18015C008 + 16) )
   {
     do
     {
       RtlAcquireSRWLockShared(v3 + 3);
-      if ( *((_DWORD *)v3 + 24) == 2 && (!v0 || v3[13] < v0) )
+      if ( LODWORD(v3[12].Ptr) == 2 && (!Ptr || v3[13].Ptr < (PVOID)Ptr) )
       {
-        v0 = v3[13];
+        Ptr = (unsigned __int64)v3[13].Ptr;
         v1 = 1;
       }
       RtlReleaseSRWLockShared(v3 + 3);
-      v2 = qword_18015C008;
-      v3 = (__int64 *)*v3;
+      v2 = (_RTL_SRWLOCK *)qword_18015C008;
+      v3 = (_RTL_SRWLOCK *)v3->Ptr;
     }
-    while ( v3 != (__int64 *)(qword_18015C008 + 16) );
+    while ( v3 != (_RTL_SRWLOCK *)(qword_18015C008 + 16) );
     if ( v1 )
     {
-      sub_1800DF864(v0);
-      v2 = qword_18015C008;
+      sub_1800DF864(Ptr);
+      v2 = (_RTL_SRWLOCK *)qword_18015C008;
     }
   }
-  return RtlReleaseSRWLockShared((volatile signed __int64 *)(v2 + 8));
+  RtlReleaseSRWLockShared(v2 + 1);
 }

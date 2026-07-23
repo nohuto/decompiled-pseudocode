@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpEnableSecondaryInterrupt @ 0x1406FB490
+ * XREFs of HalpEnableSecondaryInterrupt @ 0x1406F90D0
  * Callers:
- *     HalEnableInterrupt @ 0x1403B7D10 (HalEnableInterrupt.c)
+ *     HalEnableInterrupt @ 0x1402B3DD0 (HalEnableInterrupt.c)
  * Callees:
- *     HalpFindSecondaryIcEntry @ 0x1403B9DDC (HalpFindSecondaryIcEntry.c)
- *     HalpReleaseSecondaryIcEntryShared @ 0x14047ECEC (HalpReleaseSecondaryIcEntryShared.c)
- *     HalpCheckInterruptType @ 0x1404FA72C (HalpCheckInterruptType.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
+ *     HalpFindSecondaryIcEntry @ 0x1403727AC (HalpFindSecondaryIcEntry.c)
+ *     HalpReleaseSecondaryIcEntryShared @ 0x1403754EC (HalpReleaseSecondaryIcEntryShared.c)
+ *     HalpCheckInterruptType @ 0x1404F800C (HalpCheckInterruptType.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall HalpEnableSecondaryInterrupt(_DWORD *a1)
@@ -33,11 +33,7 @@ __int64 __fastcall HalpEnableSecondaryInterrupt(_DWORD *a1)
         *(_DWORD *)(SecondaryIcEntry + 8 * v6) = a1[5];
         *(_DWORD *)(SecondaryIcEntry + 8 * v7 + 168) = a1[3];
         *(_BYTE *)(SecondaryIcEntry + 8 * v7 + 172) = 1;
-        v2 = guard_dispatch_icall_no_overrides(
-               *(_QWORD *)(SecondaryIcEntry + 32),
-               v3,
-               (unsigned int)a1[6],
-               (unsigned int)a1[5]);
+        v2 = guard_dispatch_icall_no_overrides(*(_QWORD *)(SecondaryIcEntry + 32), v3);
         if ( v2 < 0 )
         {
           *(_DWORD *)(v5 + 8 * v7 + 168) |= 0x80000000;

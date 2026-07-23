@@ -17,7 +17,7 @@ NTSTATUS __stdcall SeAssignSecurity(
         PGENERIC_MAPPING GenericMapping,
         POOL_TYPE PoolType)
 {
-  unsigned int v7; // r10d
+  int v7; // r10d
 
   v7 = 0;
   if ( ParentDescriptor )

@@ -1,7 +1,7 @@
 /*
- * XREFs of MD4Transform @ 0x18010FF7C
+ * XREFs of MD4Transform @ 0x18010FF3C
  * Callers:
- *     MD4Update @ 0x180110510 (MD4Update.c)
+ *     MD4Update @ 0x1801104D0 (MD4Update.c)
  * Callees:
  *     <none>
  */

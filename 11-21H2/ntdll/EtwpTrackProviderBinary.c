@@ -18,39 +18,37 @@ __int64 __fastcall EtwpTrackProviderBinary(unsigned __int64 a1)
   __int64 v3; // rsi
   unsigned __int64 v4; // rbx
   NTSTATUS v5; // eax
-  unsigned __int64 v6; // rdx
-  unsigned __int64 v7; // r8
-  unsigned __int64 v8; // r9
-  ULONG v9; // edi
+  unsigned __int32 v6; // edi
   int UniqueThread; // r8d
-  __int64 v12; // [rsp+60h] [rbp+18h] BYREF
+  ULONG ReturnLength; // [rsp+58h] [rbp+10h] BYREF
+  __int64 InputBuffer; // [rsp+60h] [rbp+18h] BYREF
 
   v2 = ProviderHandleLookup(a1, (unsigned int)a1);
   v3 = v2;
   if ( !v2 || (v4 = HIDWORD(a1), !(_WORD)v4) || (_WORD)v4 != *(_WORD *)(v2 + 96) )
   {
-    v9 = 6;
+    v6 = 6;
     goto LABEL_9;
   }
-  v12 = *(_QWORD *)(v2 + 88);
-  v5 = NtTraceControl(26LL, &v12, 8LL);
+  InputBuffer = *(_QWORD *)(v2 + 88);
+  v5 = NtTraceControl(EtwTrackBinaryCode, &InputBuffer, 8u, 0LL, 0, &ReturnLength);
   if ( v5 )
   {
-    v9 = RtlNtStatusToDosError(v5);
-    if ( !v9 )
+    v6 = RtlNtStatusToDosError(v5);
+    if ( !v6 )
       goto LABEL_7;
 LABEL_9:
-    RtlSetLastWin32Error(v9);
-    return v9;
+    RtlSetLastWin32Error(v6);
+    return v6;
   }
-  v9 = 0;
+  v6 = 0;
 LABEL_7:
-  RtlAcquireSRWLockExclusive(v3 + 64, v6, v7, v8);
+  RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)(v3 + 64));
   UniqueThread = (int)NtCurrentTeb()->ClientId.UniqueThread;
   *(_WORD *)(v3 + 98) |= 0x8000u;
   *(_DWORD *)(v3 + 80) = UniqueThread;
   EtwpTrackRegBinaryInfo(v3);
   *(_DWORD *)(v3 + 80) = 0;
-  RtlReleaseSRWLockExclusive((volatile signed __int64 *)(v3 + 64));
-  return v9;
+  RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(v3 + 64));
+  return v6;
 }

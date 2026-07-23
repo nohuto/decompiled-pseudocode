@@ -1,11 +1,11 @@
 /*
- * XREFs of MiMakeSpaceForConductorListZeroThread @ 0x1407FF6D0
+ * XREFs of MiMakeSpaceForConductorListZeroThread @ 0x1407FFE14
  * Callers:
- *     MiInsertNewZeroThread @ 0x14068F930 (MiInsertNewZeroThread.c)
+ *     MiInsertNewZeroThread @ 0x140690A00 (MiInsertNewZeroThread.c)
  * Callees:
- *     MiAllocatePool @ 0x1402ACA70 (MiAllocatePool.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     MiAllocatePool @ 0x140277450 (MiAllocatePool.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall MiMakeSpaceForConductorListZeroThread(__int64 a1, __int64 *a2)

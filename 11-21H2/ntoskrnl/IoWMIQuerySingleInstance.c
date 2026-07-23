@@ -5,7 +5,7 @@
  * Callees:
  *     memmove @ 0x140435B40 (memmove.c)
  *     memset @ 0x140435E00 (memset.c)
- *     WmipQuerySetExecuteSI @ 0x14078362C (WmipQuerySetExecuteSI.c)
+ *     sub_14078362C @ 0x14078362C (sub_14078362C.c)
  *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140A6E910 (ExAllocatePoolWithTag.c)
  */
@@ -19,7 +19,7 @@ NTSTATUS __stdcall IoWMIQuerySingleInstance(
   ULONG v5; // ebp
   unsigned int v6; // edi
   _DWORD *PoolWithTag; // rbx
-  NTSTATUS SetExecuteSI; // edi
+  NTSTATUS v11; // edi
   int v12; // eax
   __int64 v14; // [rsp+78h] [rbp+10h] BYREF
 
@@ -43,33 +43,33 @@ NTSTATUS __stdcall IoWMIQuerySingleInstance(
   *((_WORD *)PoolWithTag + 32) = InstanceName->Length;
   memmove((char *)PoolWithTag + 66, InstanceName->Buffer, InstanceName->Length);
   LODWORD(v14) = *PoolWithTag;
-  SetExecuteSI = WmipQuerySetExecuteSI(DataBlockObject, 0LL, 0, 1u, (__int64)PoolWithTag, v5, (unsigned int *)&v14);
-  if ( SetExecuteSI < 0 )
+  v11 = sub_14078362C(DataBlockObject, 0LL, 0, 1u, (__int64)PoolWithTag, v5, (unsigned int *)&v14);
+  if ( v11 < 0 )
   {
 LABEL_10:
     if ( PoolWithTag == OutBuffer )
-      return SetExecuteSI;
+      return v11;
 LABEL_11:
     ExFreePoolWithTag(PoolWithTag, 0);
-    return SetExecuteSI;
+    return v11;
   }
   v12 = PoolWithTag[11];
   if ( (v12 & 0x100) != 0 )
   {
-    SetExecuteSI = -1073741637;
+    v11 = -1073741637;
     goto LABEL_10;
   }
   if ( (v12 & 0x20) != 0 )
   {
-    SetExecuteSI = -1073741789;
+    v11 = -1073741789;
     *InOutBufferSize = PoolWithTag[12];
     goto LABEL_10;
   }
   *InOutBufferSize = v14;
   if ( PoolWithTag != OutBuffer )
   {
-    SetExecuteSI = -1073741789;
+    v11 = -1073741789;
     goto LABEL_11;
   }
-  return SetExecuteSI;
+  return v11;
 }

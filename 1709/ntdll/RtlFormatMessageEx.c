@@ -9,32 +9,32 @@
  *     memmove @ 0x1800A6940 (memmove.c)
  */
 
-__int64 __fastcall RtlFormatMessageEx(
-        __int16 *a1,
-        unsigned int a2,
-        char a3,
-        char a4,
-        char a5,
-        __int64 *a6,
-        __int16 *a7,
-        unsigned int a8,
-        __int64 a9,
-        __int64 a10)
+NTSTATUS __cdecl RtlFormatMessageEx(
+        PWSTR MessageFormat,
+        ULONG MaximumWidth,
+        BOOLEAN IgnoreInserts,
+        BOOLEAN ArgumentsAreAnsi,
+        BOOLEAN ArgumentsAreAnArray,
+        va_list *Arguments,
+        PWSTR Buffer,
+        ULONG Length,
+        PULONG ReturnLength,
+        PPARSE_MESSAGE_CONTEXT ParseContext)
 {
-  __int64 v10; // r10
-  char v11; // r12
-  __int64 *v12; // r11
+  PPARSE_MESSAGE_CONTEXT v10; // r10
+  BOOLEAN v11; // r12
+  va_list *v12; // r11
   __int64 v13; // r8
-  int v14; // r14d
-  unsigned __int64 v15; // r9
-  unsigned int v16; // r15d
-  __int16 *v17; // rdi
-  __int16 *v18; // rsi
-  __int16 *v19; // rbx
-  __int16 v20; // ax
-  _DWORD *v21; // rdx
-  unsigned __int16 v23; // cx
-  __int16 *v24; // rdx
+  signed int v14; // r14d
+  PWSTR v15; // r9
+  ULONG cwSavColumn; // r15d
+  PWSTR v17; // rdi
+  WCHAR *v18; // rsi
+  PWSTR v19; // rbx
+  WCHAR v20; // ax
+  PULONG v21; // rdx
+  WCHAR v23; // cx
+  PWSTR v24; // rdx
   __int64 v25; // rdx
   int v26; // r15d
   int v27; // r12d
@@ -47,17 +47,17 @@ __int64 __fastcall RtlFormatMessageEx(
   __int64 v34; // rcx
   __int64 v35; // rax
   char *v36; // rcx
-  __int64 v37; // r9
-  __int64 v38; // r8
+  va_list v37; // r9
+  va_list v38; // r8
   int v39; // eax
   __int64 v40; // rax
-  __int16 *v41; // rbx
+  _WORD *v41; // rbx
   __int16 v42; // cx
-  __int64 v43; // rax
+  PWSTR v43; // rax
   __int64 v44; // rcx
   __int64 v45; // rdi
   __int64 v46; // rsi
-  __int64 v47; // rax
+  SIZE_T iwDstSpace; // rax
   int v48; // ecx
   int v49; // r15d
   unsigned int v50; // eax
@@ -80,74 +80,74 @@ __int64 __fastcall RtlFormatMessageEx(
   __int64 v67; // rax
   __int64 v68; // rax
   unsigned int v69; // r12d
-  __int16 *v70; // rdx
+  WCHAR *v70; // rdx
   __int16 v71; // ax
-  __int16 *v72; // rcx
+  WCHAR *v72; // rcx
   __int64 v73; // rax
   __int64 v74; // rdi
   _WORD *v75; // rsi
   _WORD *v76; // rdi
   __int64 v77; // [rsp+30h] [rbp-D0h]
-  __int16 *v80; // [rsp+58h] [rbp-A8h]
+  WCHAR *v80; // [rsp+58h] [rbp-A8h]
   unsigned int v81; // [rsp+68h] [rbp-98h]
-  unsigned int v82; // [rsp+70h] [rbp-90h]
-  __int64 *v83; // [rsp+78h] [rbp-88h]
+  ULONG v82; // [rsp+70h] [rbp-90h]
+  va_list *v83; // [rsp+78h] [rbp-88h]
   char *v85; // [rsp+88h] [rbp-78h] BYREF
   __int64 v86; // [rsp+90h] [rbp-70h] BYREF
   unsigned int v87; // [rsp+98h] [rbp-68h]
-  __int64 v88; // [rsp+A0h] [rbp-60h]
-  __int16 *v89; // [rsp+A8h] [rbp-58h]
-  __int16 *v90; // [rsp+B0h] [rbp-50h]
-  __int64 v91; // [rsp+B8h] [rbp-48h]
+  PWSTR v88; // [rsp+A0h] [rbp-60h]
+  PWSTR v89; // [rsp+A8h] [rbp-58h]
+  PWSTR v90; // [rsp+B0h] [rbp-50h]
+  PULONG v91; // [rsp+B8h] [rbp-48h]
   _QWORD v92[200]; // [rsp+C0h] [rbp-40h]
   unsigned __int16 v93; // [rsp+700h] [rbp+600h] BYREF
   _WORD v94[30]; // [rsp+702h] [rbp+602h] BYREF
   char v95; // [rsp+73Eh] [rbp+63Eh] BYREF
 
-  v10 = a10;
-  v11 = a3;
-  v12 = a6;
-  v13 = a2;
-  v14 = a8 >> 1;
-  v15 = (unsigned __int64)a7;
-  v91 = a9;
-  v90 = a1;
-  v83 = a6;
-  v88 = (__int64)a7;
+  v10 = ParseContext;
+  v11 = IgnoreInserts;
+  v12 = Arguments;
+  v13 = MaximumWidth;
+  v14 = Length >> 1;
+  v15 = Buffer;
+  v91 = ReturnLength;
+  v90 = MessageFormat;
+  v83 = Arguments;
+  v88 = Buffer;
   v81 = 0;
-  if ( a10 && (*(_DWORD *)a10 & 1) != 0 )
+  if ( ParseContext && (ParseContext->fFlags & 1) != 0 )
   {
-    v16 = *(_DWORD *)(a10 + 4);
-    *(_DWORD *)a10 &= ~1u;
-    v82 = v16;
-    v19 = &a1[*(_QWORD *)(a10 + 8)];
-    a1 = v19;
+    cwSavColumn = ParseContext->cwSavColumn;
+    ParseContext->fFlags &= ~1u;
+    v82 = cwSavColumn;
+    v19 = &MessageFormat[ParseContext->iwSrc];
+    MessageFormat = v19;
     v80 = v19;
-    v17 = &a7[*(_QWORD *)(a10 + 16)];
-    v47 = *(_QWORD *)(a10 + 24);
-    if ( v47 == -1 )
+    v17 = &Buffer[ParseContext->iwDst];
+    iwDstSpace = ParseContext->iwDstSpace;
+    if ( iwDstSpace == -1LL )
       v18 = 0LL;
     else
-      v18 = &a7[v47];
-    v14 -= *(_DWORD *)(a10 + 16);
-    if ( !a5 && a6 )
-      *a6 = *(_QWORD *)(a10 + 32);
-    if ( (*(_DWORD *)a10 & 2) != 0 )
+      v18 = &Buffer[iwDstSpace];
+    v14 -= LODWORD(ParseContext->iwDst);
+    if ( !ArgumentsAreAnArray && Arguments )
+      *Arguments = ParseContext->lpvArgStart;
+    if ( (ParseContext->fFlags & 2) != 0 )
     {
-      *(_DWORD *)a10 &= ~2u;
+      ParseContext->fFlags &= ~2u;
       goto LABEL_148;
     }
   }
   else
   {
-    v16 = 0;
-    v17 = a7;
+    cwSavColumn = 0;
+    v17 = Buffer;
     v18 = 0LL;
     v82 = 0;
-    v19 = a1;
-    v80 = a1;
-    if ( !a5 && a6 && a10 )
-      *(_QWORD *)(a10 + 32) = *a6;
+    v19 = MessageFormat;
+    v80 = MessageFormat;
+    if ( !ArgumentsAreAnArray && Arguments && ParseContext )
+      ParseContext->lpvArgStart = *Arguments;
   }
   while ( 1 )
   {
@@ -183,26 +183,26 @@ LABEL_9:
         if ( v20 == 32 )
           v18 = v17;
         ++v17;
-        ++v16;
+        ++cwSavColumn;
         goto LABEL_13;
       }
       v14 -= 2;
       if ( v14 < 0 )
         goto LABEL_65;
-      v16 = 0;
+      cwSavColumn = 0;
       *(_DWORD *)v17 = 655373;
       v82 = 0;
       v17 += 2;
       v80 = v19;
       v18 = 0LL;
-      a1 = v19;
+      MessageFormat = v19;
     }
     v23 = v19[1];
     v24 = v17;
     v89 = v17;
     if ( (unsigned __int16)(v23 - 49) > 8u )
       break;
-    v25 = (unsigned __int16)v19[2];
+    v25 = v19[2];
     v19 += 2;
     v26 = v23 - 48;
     if ( (unsigned __int16)(v25 - 48) <= 9u )
@@ -210,17 +210,17 @@ LABEL_9:
       v48 = 5 * v26;
       ++v19;
       v49 = (unsigned __int16)v25 - 48;
-      v25 = (unsigned __int16)*v19;
+      v25 = *v19;
       v26 = v49 + 2 * v48;
       if ( (unsigned __int16)(v25 - 48) <= 9u )
       {
         v58 = 5 * v26;
         ++v19;
         v59 = (unsigned __int16)v25 - 48;
-        v25 = (unsigned __int16)*v19;
+        v25 = *v19;
         v26 = v59 + 2 * v58;
         if ( (unsigned __int16)(v25 - 48) <= 9u )
-          return 3221225485LL;
+          return -1073741811;
       }
     }
     v27 = v26;
@@ -256,7 +256,7 @@ LABEL_9:
           if ( *v41 == 33 )
             goto LABEL_51;
         }
-        return 3221225485LL;
+        return -1073741811;
       }
 LABEL_51:
       v19 = v41 + 1;
@@ -270,7 +270,7 @@ LABEL_51:
       v30 = v87;
       v12 = v83;
     }
-    if ( a3 )
+    if ( IgnoreInserts )
     {
       if ( v32 == 1 )
         goto LABEL_54;
@@ -303,8 +303,8 @@ LABEL_54:
       goto LABEL_39;
     }
     if ( !v12 || v30 + (unsigned int)v29 >= 0xC8 )
-      return 3221225485LL;
-    if ( a4 )
+      return -1073741811;
+    if ( ArgumentsAreAnsi )
     {
       v51 = *((_WORD *)v31 - 1);
       v52 = v31 - 2;
@@ -382,14 +382,14 @@ LABEL_32:
       do
       {
         v34 = v33;
-        if ( a5 )
+        if ( ArgumentsAreAnArray )
         {
-          v35 = *v12++;
+          v35 = (__int64)*v12++;
         }
         else
         {
-          *v12 += 8LL;
-          v35 = *(_QWORD *)(*v12 - 8);
+          *v12 += 8;
+          v35 = *((_QWORD *)*v12 - 1);
         }
         ++v33;
         v92[v34] = v35;
@@ -404,7 +404,7 @@ LABEL_32:
     v38 = 0LL;
     if ( v30 )
     {
-      if ( a5 )
+      if ( ArgumentsAreAnArray )
       {
         v37 = *v12;
         v67 = v33++;
@@ -415,12 +415,12 @@ LABEL_32:
       }
       else
       {
-        *v12 += 8LL;
-        v37 = *(_QWORD *)(*v12 - 8);
+        *v12 += 8;
+        v37 = (va_list)*((_QWORD *)*v12 - 1);
       }
       if ( v30 > 1 )
       {
-        if ( a5 )
+        if ( ArgumentsAreAnArray )
         {
           v38 = *v12;
           v68 = v33;
@@ -429,8 +429,8 @@ LABEL_32:
         }
         else
         {
-          *v12 += 8LL;
-          v38 = *(_QWORD *)(*v12 - 8);
+          *v12 += 8;
+          v38 = (va_list)*((_QWORD *)*v12 - 1);
           v68 = v33;
           v69 = v33 + 1;
         }
@@ -440,35 +440,35 @@ LABEL_32:
     }
     v39 = RtlStringCchPrintfExW((_DWORD)v17, v14, (unsigned int)&v86, 0, 0, (__int64)&v93, v36, v37, v38);
 LABEL_39:
-    v16 = v82;
+    cwSavColumn = v82;
     if ( v39 < 0 || (v40 = (v86 - (__int64)v17) >> 1, v14 -= v40, v14 < 0) )
     {
 LABEL_64:
-      a1 = v80;
+      MessageFormat = v80;
       goto LABEL_65;
     }
     v24 = v89;
-    v13 = a2;
+    v13 = MaximumWidth;
     v15 = v88;
     v12 = v83;
-    v11 = a3;
+    v11 = IgnoreInserts;
     v17 += (int)v40;
 LABEL_42:
     if ( v24 )
     {
-      v16 += v17 - v24;
+      cwSavColumn += v17 - v24;
       goto LABEL_13;
     }
 LABEL_63:
     v18 = 0LL;
-    v16 = 0;
+    cwSavColumn = 0;
 LABEL_13:
-    v82 = v16;
+    v82 = cwSavColumn;
     v80 = v19;
-    a1 = v19;
-    if ( (unsigned int)(v13 - 1) <= 0xFFFFFFFD && v16 >= (unsigned int)v13 )
+    MessageFormat = v19;
+    if ( (unsigned int)(v13 - 1) <= 0xFFFFFFFD && cwSavColumn >= (unsigned int)v13 )
     {
-      v10 = a10;
+      v10 = ParseContext;
 LABEL_148:
       if ( v18 )
       {
@@ -480,7 +480,7 @@ LABEL_148:
           ++v70;
         }
         while ( v70 != v17 );
-        if ( (unsigned __int64)v18 > v15 )
+        if ( v18 > v15 )
         {
           do
           {
@@ -490,8 +490,8 @@ LABEL_148:
               break;
             --v18;
           }
-          while ( (unsigned __int64)v72 > v15 );
-          a1 = v80;
+          while ( v72 > v15 );
+          MessageFormat = v80;
         }
         v73 = v70 - v18;
         if ( (_DWORD)v73 == 1 )
@@ -504,11 +504,11 @@ LABEL_148:
           v14 = v73 + v14 - 2;
         }
         v74 = v17 - v70;
-        v16 = v74;
+        cwSavColumn = v74;
         v82 = v74;
         memmove(v18 + 2, v70, 2 * v74);
-        a1 = v80;
-        v13 = a2;
+        MessageFormat = v80;
+        v13 = MaximumWidth;
         v15 = v88;
         v12 = v83;
         *v18 = 13;
@@ -524,12 +524,12 @@ LABEL_148:
 LABEL_160:
           if ( v10 )
           {
-            *(_DWORD *)v10 |= 2u;
+            v10->fFlags |= 2u;
             goto LABEL_66;
           }
-          return 2147483653LL;
+          return -2147483643;
         }
-        v16 = 0;
+        cwSavColumn = 0;
         *v17 = 13;
         v76 = v17 + 1;
         v82 = 0;
@@ -544,7 +544,7 @@ LABEL_160:
     switch ( v23 )
     {
       case 0u:
-        return 3221225485LL;
+        return -1073741811;
       case 0x72u:
         if ( --v14 < 0 )
           goto LABEL_64;
@@ -562,10 +562,10 @@ LABEL_160:
       case 0x74u:
         if ( --v14 < 0 )
           goto LABEL_64;
-        if ( (v16 & 7) != 0 )
-          v16 = (v16 + 7) & 0xFFFFFFF8;
+        if ( (cwSavColumn & 7) != 0 )
+          cwSavColumn = (cwSavColumn + 7) & 0xFFFFFFF8;
         else
-          v16 += 8;
+          cwSavColumn += 8;
         v18 = v17;
         *v17 = 9;
         break;
@@ -596,33 +596,33 @@ LABEL_96:
     ++v17;
     goto LABEL_96;
   }
-  a1 = v80;
+  MessageFormat = v80;
 LABEL_16:
   if ( v14 < 1 )
   {
 LABEL_65:
-    v10 = a10;
+    v10 = ParseContext;
 LABEL_66:
     if ( v10 )
     {
       v43 = v88;
-      v44 = a1 - v90;
-      v45 = ((__int64)v17 - v88) >> 1;
-      *(_DWORD *)(v10 + 4) = v16;
-      *(_QWORD *)(v10 + 8) = v44;
-      *(_QWORD *)(v10 + 16) = v45;
+      v44 = MessageFormat - v90;
+      v45 = v17 - v88;
+      v10->cwSavColumn = cwSavColumn;
+      v10->iwSrc = v44;
+      v10->iwDst = v45;
       if ( v18 )
-        v46 = ((__int64)v18 - v43) >> 1;
+        v46 = v18 - v43;
       else
         v46 = -1LL;
-      *(_DWORD *)v10 |= 1u;
-      *(_QWORD *)(v10 + 24) = v46;
+      v10->fFlags |= 1u;
+      v10->iwDstSpace = v46;
     }
-    return 2147483653LL;
+    return -2147483643;
   }
-  v21 = (_DWORD *)v91;
+  v21 = v91;
   *v17 = 0;
   if ( v21 )
-    *v21 = 2 * ((__int64)((__int64)v17 - v15 + 2) >> 1);
-  return 0LL;
+    *v21 = 2 * (((char *)v17 - (char *)v15 + 2) >> 1);
+  return 0;
 }

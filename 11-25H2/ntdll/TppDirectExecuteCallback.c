@@ -13,66 +13,68 @@
  *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x180174020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
  */
 
-__int64 __fastcall TppDirectExecuteCallback(_QWORD *a1, __int64 a2)
+void __fastcall TppDirectExecuteCallback(_TP_CALLBACK_INSTANCE *Io, _RTL_SRWLOCK *a2)
 {
-  _QWORD *v4; // rbx
-  _QWORD *v5; // rax
-  __int64 v6; // rcx
-  volatile signed __int64 *v7; // rcx
-  __int64 result; // rax
-  __int64 (__fastcall *v9)(_QWORD *, __int64, _QWORD, __int128 *); // rax
-  __int128 v10; // [rsp+30h] [rbp-28h]
-  __int128 v11; // [rsp+40h] [rbp-18h] BYREF
+  _RTL_SRWLOCK *Value; // rbx
+  unsigned __int64 *v5; // rax
+  unsigned __int64 v6; // rcx
+  _RTL_SRWLOCK *v7; // rcx
+  __int64 (__fastcall *v8)(PTP_CALLBACK_INSTANCE); // rax
+  __int128 v9; // [rsp+30h] [rbp-28h]
+  __int128 v10; // [rsp+40h] [rbp-18h] BYREF
 
-  v11 = 0LL;
-  RtlAcquireSRWLockExclusive((volatile signed __int32 *)(a2 + 32));
-  v4 = *(_QWORD **)(a2 + 40);
-  v5 = (_QWORD *)(a2 + 40);
-  if ( v4 == (_QWORD *)(a2 + 40) )
+  v10 = 0LL;
+  RtlAcquireSRWLockExclusive(a2 + 4);
+  Value = (_RTL_SRWLOCK *)a2[5].Value;
+  v5 = (unsigned __int64 *)&a2[5];
+  if ( Value == &a2[5] )
   {
-    v4 = 0LL;
+    Value = 0LL;
   }
   else
   {
-    if ( (_QWORD *)v4[1] != v5 || (v6 = *v4, *(_QWORD **)(*v4 + 8LL) != v4) )
+    if ( (unsigned __int64 *)Value[1].Value != v5 || (v6 = Value->Value, *(_RTL_SRWLOCK **)(Value->Value + 8) != Value) )
       __fastfail(3u);
     *v5 = v6;
     *(_QWORD *)(v6 + 8) = v5;
   }
-  v7 = (volatile signed __int64 *)(a2 + 32);
-  if ( (_QWORD *)*v5 == v5 )
+  v7 = a2 + 4;
+  if ( (unsigned __int64 *)*v5 == v5 )
   {
-    result = RtlReleaseSRWLockExclusive(v7);
+    RtlReleaseSRWLockExclusive(v7);
   }
   else
   {
     RtlReleaseSRWLockExclusive(v7);
-    result = TpPostTask(a2, a1[16], 1LL);
+    TpPostTask(a2, Io->Pool, 1LL);
   }
-  if ( v4 )
+  if ( Value )
   {
-    v10 = *((_OWORD *)v4 - 2);
-    v11 = *((_OWORD *)v4 - 1);
+    v9 = *(_OWORD *)&Value[-4].0;
+    v10 = *(_OWORD *)&Value[-2].0;
     TppFreeDirectParams();
-    a1[11] = *(_QWORD *)(a2 + 56);
-    a1[12] = a2;
-    v9 = *(__int64 (__fastcall **)(_QWORD *, __int64, _QWORD, __int128 *))(a2 + 56);
-    if ( (char *)v9 == (char *)TppWaitCompletion )
+    Io->Callback = a2[7].Ptr;
+    Io->Context = a2;
+    v8 = (__int64 (__fastcall *)(PTP_CALLBACK_INSTANCE))a2[7].Value;
+    if ( v8 == TppWaitCompletion )
     {
-      return TppWaitCompletion(a1, a2, *((_QWORD *)&v10 + 1), &v11);
+      TppWaitCompletion(Io);
     }
-    else if ( (char *)v9 == (char *)TppAlpcpExecuteCallback )
+    else if ( (char *)v8 == (char *)TppAlpcpExecuteCallback )
     {
-      return TppAlpcpExecuteCallback(a1, a2, *((_QWORD *)&v10 + 1), &v11);
+      TppAlpcpExecuteCallback(Io, a2, *((_QWORD *)&v9 + 1), &v10);
     }
-    else if ( (char *)v9 == (char *)TppIopExecuteCallback )
+    else if ( (char *)v8 == (char *)TppIopExecuteCallback )
     {
-      return TppIopExecuteCallback(a1, a2, *((_QWORD *)&v10 + 1), &v11);
+      TppIopExecuteCallback((PTP_IO)Io);
     }
     else
     {
-      return v9(a1, a2, *((_QWORD *)&v10 + 1), &v11);
+      ((void (__fastcall *)(_TP_CALLBACK_INSTANCE *, _RTL_SRWLOCK *, _QWORD, __int128 *))v8)(
+        Io,
+        a2,
+        *((_QWORD *)&v9 + 1),
+        &v10);
     }
   }
-  return result;
 }

@@ -1,20 +1,20 @@
 /*
- * XREFs of AlpcpDeleteBlob @ 0x140618BF4
+ * XREFs of AlpcpDeleteBlob @ 0x140619BF4
  * Callers:
- *     NtAlpcCreateSecurityContext @ 0x140617600 (NtAlpcCreateSecurityContext.c)
- *     AlpcpCaptureSecurityAttributeInternal @ 0x140618274 (AlpcpCaptureSecurityAttributeInternal.c)
- *     AlpcpDeleteView @ 0x140618AC0 (AlpcpDeleteView.c)
- *     NtAlpcDeleteSecurityContext @ 0x140618B00 (NtAlpcDeleteSecurityContext.c)
- *     AlpcpFlushResourcesPort @ 0x140619228 (AlpcpFlushResourcesPort.c)
- *     NtAlpcCreatePortSection @ 0x14061B620 (NtAlpcCreatePortSection.c)
- *     NtAlpcDeletePortSection @ 0x14061C3E0 (NtAlpcDeletePortSection.c)
- *     AlpcpMapLegacyPortView @ 0x14061CCE4 (AlpcpMapLegacyPortView.c)
- *     NtAlpcDeleteResourceReserve @ 0x14084B090 (NtAlpcDeleteResourceReserve.c)
+ *     NtAlpcCreateSecurityContext @ 0x140618600 (NtAlpcCreateSecurityContext.c)
+ *     AlpcpCaptureSecurityAttributeInternal @ 0x140619274 (AlpcpCaptureSecurityAttributeInternal.c)
+ *     AlpcpDeleteView @ 0x140619AC0 (AlpcpDeleteView.c)
+ *     NtAlpcDeleteSecurityContext @ 0x140619B00 (NtAlpcDeleteSecurityContext.c)
+ *     AlpcpFlushResourcesPort @ 0x14061A228 (AlpcpFlushResourcesPort.c)
+ *     NtAlpcCreatePortSection @ 0x14061C620 (NtAlpcCreatePortSection.c)
+ *     NtAlpcDeletePortSection @ 0x14061D3E0 (NtAlpcDeletePortSection.c)
+ *     AlpcpMapLegacyPortView @ 0x14061DCE4 (AlpcpMapLegacyPortView.c)
+ *     NtAlpcDeleteResourceReserve @ 0x14084C2F0 (NtAlpcDeleteResourceReserve.c)
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     ExfTryToWakePushLock @ 0x140091500 (ExfTryToWakePushLock.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
  */
 
 char __fastcall AlpcpDeleteBlob(__int64 a1)

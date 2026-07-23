@@ -1,7 +1,7 @@
 /*
- * XREFs of KeIsKernelCetAuditModeEnabled @ 0x1403B6608
+ * XREFs of KeIsKernelCetAuditModeEnabled @ 0x1403B67E8
  * Callers:
- *     ExpQuerySystemInformation @ 0x140726850 (ExpQuerySystemInformation.c)
+ *     ExpQuerySystemInformation @ 0x140726A50 (ExpQuerySystemInformation.c)
  * Callees:
  *     <none>
  */

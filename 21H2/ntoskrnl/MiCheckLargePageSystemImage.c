@@ -1,11 +1,11 @@
 /*
- * XREFs of MiCheckLargePageSystemImage @ 0x140A67DE0
+ * XREFs of MiCheckLargePageSystemImage @ 0x140A68DE0
  * Callers:
- *     MiCheckLargePageOk @ 0x140A67C78 (MiCheckLargePageOk.c)
+ *     MiCheckLargePageOk @ 0x140A68C78 (MiCheckLargePageOk.c)
  * Callees:
- *     MI_READ_PTE_LOCK_FREE @ 0x14032DEC0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiPteInShadowRange @ 0x140348AF0 (MiPteInShadowRange.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140338C10 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiPteInShadowRange @ 0x140353840 (MiPteInShadowRange.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
  */
 
 ULONG_PTR __fastcall MiCheckLargePageSystemImage(ULONG_PTR BugCheckParameter2, __int64 a2)

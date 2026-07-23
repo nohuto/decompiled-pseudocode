@@ -1,7 +1,7 @@
 /*
- * XREFs of MiCheckHintedPageFileSpace @ 0x140124958
+ * XREFs of MiCheckHintedPageFileSpace @ 0x140124A28
  * Callers:
- *     MiFindFreePageFileSpace @ 0x14012413C (MiFindFreePageFileSpace.c)
+ *     MiFindFreePageFileSpace @ 0x14012420C (MiFindFreePageFileSpace.c)
  * Callees:
  *     RtlLengthCurrentClearRunForward @ 0x14002AD00 (RtlLengthCurrentClearRunForward.c)
  */

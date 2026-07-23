@@ -1,12 +1,12 @@
 /*
- * XREFs of PnpFinalizeVetoedRemove @ 0x140B5E9D4
+ * XREFs of PnpFinalizeVetoedRemove @ 0x140B61B54
  * Callers:
- *     PnpProcessQueryRemoveAndEject @ 0x140911B30 (PnpProcessQueryRemoveAndEject.c)
- *     PiCheckRemovalPreconditions @ 0x140912850 (PiCheckRemovalPreconditions.c)
- *     PiProcessQueryAndCancelRemoval @ 0x1409135AC (PiProcessQueryAndCancelRemoval.c)
+ *     PnpProcessQueryRemoveAndEject @ 0x1409B3C10 (PnpProcessQueryRemoveAndEject.c)
+ *     PiCheckRemovalPreconditions @ 0x1409B4930 (PiCheckRemovalPreconditions.c)
+ *     PiProcessQueryAndCancelRemoval @ 0x1409B568C (PiProcessQueryAndCancelRemoval.c)
  * Callees:
- *     RtlCopyUnicodeString @ 0x140419A90 (RtlCopyUnicodeString.c)
- *     McTemplateK0zqz_EtwWriteTransfer @ 0x1405DBA1C (McTemplateK0zqz_EtwWriteTransfer.c)
+ *     RtlCopyUnicodeString @ 0x14040DFC0 (RtlCopyUnicodeString.c)
+ *     McTemplateK0zqz_EtwWriteTransfer @ 0x1405DE2CC (McTemplateK0zqz_EtwWriteTransfer.c)
  */
 
 NTSTATUS __fastcall PnpFinalizeVetoedRemove(__int64 a1, __int64 a2, UNICODE_STRING *a3)
@@ -53,7 +53,7 @@ NTSTATUS __fastcall PnpFinalizeVetoedRemove(__int64 a1, __int64 a2, UNICODE_STRI
     }
   }
 LABEL_14:
-  if ( (byte_140EF3DCC & 4) != 0 )
+  if ( (byte_140EF412C & 4) != 0 )
   {
     v11 = *(_QWORD *)(a1 + 160);
     if ( v11 )

@@ -2,10 +2,10 @@
  * XREFs of MiChargeCrossPartitionSharedPage @ 0x140217824
  * Callers:
  *     MiReferenceCloneProto @ 0x140217788 (MiReferenceCloneProto.c)
- *     MiCombineInitialInstance @ 0x1402EC690 (MiCombineInitialInstance.c)
+ *     MiCombineInitialInstance @ 0x1402EC920 (MiCombineInitialInstance.c)
  * Callees:
- *     MiReturnCommit @ 0x1402DC250 (MiReturnCommit.c)
- *     MiGetCrossPartitionCloneCharges @ 0x14066480C (MiGetCrossPartitionCloneCharges.c)
+ *     MiReturnCommit @ 0x1402DC4E0 (MiReturnCommit.c)
+ *     MiGetCrossPartitionCloneCharges @ 0x140664D5C (MiGetCrossPartitionCloneCharges.c)
  */
 
 __int64 __fastcall MiChargeCrossPartitionSharedPage(__int64 a1, __int64 a2, __int64 a3, int a4)

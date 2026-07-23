@@ -1,13 +1,13 @@
 /*
- * XREFs of MiFreeLargeInitializationCodePages @ 0x1403BD280
+ * XREFs of MiFreeLargeInitializationCodePages @ 0x1403BD3F0
  * Callers:
- *     MiFreeInitializationCode @ 0x14075EC6C (MiFreeInitializationCode.c)
+ *     MiFreeInitializationCode @ 0x14075EE2C (MiFreeInitializationCode.c)
  * Callees:
- *     MiLockPageInline @ 0x1402FFE30 (MiLockPageInline.c)
- *     MiIsPfnFromSlabAllocation @ 0x140302EF0 (MiIsPfnFromSlabAllocation.c)
- *     MiReturnFreeZeroPage @ 0x140303050 (MiReturnFreeZeroPage.c)
- *     MiSetOriginalPtePfnFromFreeList @ 0x140329F30 (MiSetOriginalPtePfnFromFreeList.c)
- *     MiAddExpansionNonPagedPool @ 0x1403B6234 (MiAddExpansionNonPagedPool.c)
+ *     MiLockPageInline @ 0x14030AB80 (MiLockPageInline.c)
+ *     MiIsPfnFromSlabAllocation @ 0x14030DC40 (MiIsPfnFromSlabAllocation.c)
+ *     MiReturnFreeZeroPage @ 0x14030DDA0 (MiReturnFreeZeroPage.c)
+ *     MiSetOriginalPtePfnFromFreeList @ 0x140334C80 (MiSetOriginalPtePfnFromFreeList.c)
+ *     MiAddExpansionNonPagedPool @ 0x1403B63A4 (MiAddExpansionNonPagedPool.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 

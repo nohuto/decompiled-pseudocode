@@ -12,66 +12,72 @@
  *     _memcmp @ 0x4B2F8860 (_memcmp.c)
  */
 
-_DWORD *__thiscall EtwpFindGuidEntry(void *this)
+_RTL_BALANCED_NODE *__thiscall EtwpFindGuidEntry(void *this)
 {
-  unsigned int v1; // esi
+  int Root; // esi
   int v2; // ebx
-  _DWORD *v3; // edi
+  _RTL_BALANCED_NODE *v3; // edi
   int v4; // eax
-  unsigned int v5; // eax
-  _DWORD **v7; // eax
-  _DWORD *v8; // ecx
-  _DWORD *i; // ecx
+  int v5; // eax
+  _RTL_BALANCED_NODE *v7; // eax
+  _RTL_BALANCED_NODE *v8; // ecx
+  _RTL_BALANCED_NODE *i; // ecx
+  size_t v10; // [esp-4h] [ebp-14h]
 
   RtlAcquireSRWLockExclusive(&EtwpProvLock);
-  v1 = EtwpGuidEntryTable;
-  if ( (dword_4B3A68A8 & 1) != 0 && EtwpGuidEntryTable )
-    v1 = (unsigned int)&EtwpGuidEntryTable ^ EtwpGuidEntryTable;
-  v2 = dword_4B3A68A8 & 1;
+  Root = (int)EtwpGuidEntryTable.Root;
+  if ( (*(_BYTE *)&EtwpGuidEntryTable.0 & 1) != 0 && EtwpGuidEntryTable.Root )
+    Root = (unsigned int)&EtwpGuidEntryTable ^ (unsigned int)EtwpGuidEntryTable.Root;
+  v2 = *(_BYTE *)&EtwpGuidEntryTable.0 & 1;
   v3 = 0;
-  while ( v1 )
+  while ( Root )
   {
-    v4 = EtwpGuidEntryCompare(this, v1);
+    v4 = EtwpGuidEntryCompare(this, Root);
     if ( v4 < 0 )
       goto LABEL_10;
     if ( v4 <= 0 )
     {
-      v3 = (_DWORD *)v1;
+      v3 = (_RTL_BALANCED_NODE *)Root;
 LABEL_10:
-      v5 = *(_DWORD *)v1;
+      v5 = *(_DWORD *)Root;
       goto LABEL_11;
     }
-    v5 = *(_DWORD *)(v1 + 4);
+    v5 = *(_DWORD *)(Root + 4);
 LABEL_11:
     if ( v2 && v5 )
-      v1 ^= v5;
+      Root ^= v5;
     else
-      v1 = v5;
+      Root = v5;
   }
   if ( v3 )
   {
     while ( !(unsigned __int8)EtwpReferenceUmGuidEntry(v3) )
     {
-      v7 = (_DWORD **)v3[1];
+      v7 = v3->Children[1];
       v8 = v3;
       if ( v7 )
       {
-        v3 = (_DWORD *)v3[1];
-        for ( i = *v7; i; i = (_DWORD *)*i )
+        v3 = v3->Children[1];
+        for ( i = v7->Children[0]; i; i = i->Children[0] )
           v3 = i;
       }
       else
       {
         while ( 1 )
         {
-          v3 = (_DWORD *)(v3[2] & 0xFFFFFFFC);
-          if ( !v3 || (_DWORD *)*v3 == v8 )
+          v3 = (_RTL_BALANCED_NODE *)(v3->ParentValue & 0xFFFFFFFC);
+          if ( !v3 || v3->Children[0] == v8 )
             break;
           v8 = v3;
         }
       }
-      if ( !v3 || memcmp(this, v3 + 3, 0x10u) )
-        goto LABEL_16;
+      if ( v3 )
+      {
+        LODWORD(v10) = 16;
+        if ( !memcmp(this, &v3[1], v10) )
+          continue;
+      }
+      goto LABEL_16;
     }
   }
   else

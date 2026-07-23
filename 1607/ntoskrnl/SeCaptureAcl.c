@@ -1,14 +1,14 @@
 /*
- * XREFs of SeCaptureAcl @ 0x14047ABEC
+ * XREFs of SeCaptureAcl @ 0x140479ABC
  * Callers:
- *     NtCreateTokenEx @ 0x140477BDC (NtCreateTokenEx.c)
- *     NtSetInformationToken @ 0x1404797D0 (NtSetInformationToken.c)
+ *     NtCreateTokenEx @ 0x140476AAC (NtCreateTokenEx.c)
+ *     NtSetInformationToken @ 0x1404786A0 (NtSetInformationToken.c)
  * Callees:
- *     memmove @ 0x140171280 (memmove.c)
+ *     memmove @ 0x140171780 (memmove.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     SepCheckAcl @ 0x14047ACF4 (SepCheckAcl.c)
- *     ExRaiseDatatypeMisalignment @ 0x1406B6058 (ExRaiseDatatypeMisalignment.c)
+ *     SepCheckAcl @ 0x140479BC4 (SepCheckAcl.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1406B6190 (ExRaiseDatatypeMisalignment.c)
  */
 
 __int64 __fastcall SeCaptureAcl(

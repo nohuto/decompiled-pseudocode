@@ -8,33 +8,31 @@
  *     RtlpTpIoDllProcessUnloads @ 0x18010F914 (RtlpTpIoDllProcessUnloads.c)
  */
 
-__int64 __fastcall RtlpTpIoDllUnloaded(__int64 a1)
+void __fastcall RtlpTpIoDllUnloaded(__int64 a1)
 {
-  __int64 v2; // r8
-  unsigned __int64 v3; // rcx
-  __int64 result; // rax
+  PRTL_SPLAY_LINKS v2; // r8
+  unsigned __int64 Parent; // rcx
 
   if ( (*(_BYTE *)a1 & 1) == 0 )
   {
-    RtlAcquireSRWLockExclusive((volatile signed __int32 *)&RtlpTpIoTreeLock);
+    RtlAcquireSRWLockExclusive(&RtlpTpIoTreeLock);
     v2 = RtlpTpIoTree;
     while ( v2 )
     {
-      v3 = *(_QWORD *)(v2 - 96);
-      if ( v3 < *(_QWORD *)(a1 + 24) )
+      Parent = (unsigned __int64)v2[-4].Parent;
+      if ( Parent < *(_QWORD *)(a1 + 24) )
         goto LABEL_5;
-      if ( v3 < *(_QWORD *)(a1 + 24) + (unsigned __int64)*(unsigned int *)(a1 + 32) )
+      if ( Parent < *(_QWORD *)(a1 + 24) + (unsigned __int64)*(unsigned int *)(a1 + 32) )
       {
         RtlpTpIoDllProcessUnloads(a1);
-        return RtlReleaseSRWLockExclusive(&RtlpTpIoTreeLock);
+        break;
       }
-      if ( v3 < *(_QWORD *)(a1 + 24) )
+      if ( Parent < *(_QWORD *)(a1 + 24) )
 LABEL_5:
-        v2 = *(_QWORD *)(v2 + 16);
+        v2 = v2->RightChild;
       else
-        v2 = *(_QWORD *)(v2 + 8);
+        v2 = v2->LeftChild;
     }
-    return RtlReleaseSRWLockExclusive(&RtlpTpIoTreeLock);
+    RtlReleaseSRWLockExclusive(&RtlpTpIoTreeLock);
   }
-  return result;
 }

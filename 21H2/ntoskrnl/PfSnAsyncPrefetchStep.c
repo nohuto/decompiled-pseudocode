@@ -1,10 +1,10 @@
 /*
- * XREFs of PfSnAsyncPrefetchStep @ 0x1406C66A4
+ * XREFs of PfSnAsyncPrefetchStep @ 0x140674F94
  * Callers:
- *     PfSnAsyncPrefetchWorker @ 0x1406C62F0 (PfSnAsyncPrefetchWorker.c)
+ *     PfSnAsyncPrefetchWorker @ 0x140674BE0 (PfSnAsyncPrefetchWorker.c)
  * Callees:
- *     PfSnPrefetchSections @ 0x1406C6724 (PfSnPrefetchSections.c)
- *     PfSnPrefetchMetadata @ 0x1406C8184 (PfSnPrefetchMetadata.c)
+ *     PfSnPrefetchSections @ 0x140675014 (PfSnPrefetchSections.c)
+ *     PfSnPrefetchMetadata @ 0x140676A74 (PfSnPrefetchMetadata.c)
  */
 
 __int64 __fastcall PfSnAsyncPrefetchStep(__int64 a1, int a2, int a3)

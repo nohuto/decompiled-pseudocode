@@ -12,82 +12,93 @@
  *     LdrpTraceLoadMUIDll @ 0x1800ED41C (LdrpTraceLoadMUIDll.c)
  */
 
-__int64 __fastcall LdrResRelease(wchar_t *String2, PCWSTR SourceString, int a3)
+__int64 __fastcall LdrResRelease(PVOID InitModule, PCWSTR SourceString, ULONG Flags)
 {
   __int64 v6; // r14
   __int64 v7; // rcx
-  int v9; // eax
-  unsigned int v10; // edi
-  wchar_t *v11; // rdi
-  int v12; // [rsp+20h] [rbp-58h] BYREF
-  const wchar_t *v13; // [rsp+28h] [rbp-50h]
-  int v14; // [rsp+30h] [rbp-48h] BYREF
-  const wchar_t *v15; // [rsp+38h] [rbp-40h]
-  UNICODE_STRING DestinationString; // [rsp+40h] [rbp-38h] BYREF
-  int v17; // [rsp+80h] [rbp+8h] BYREF
-  wchar_t *v18; // [rsp+98h] [rbp+20h] BYREF
+  __int64 v8; // rsi
+  __int64 v9; // rcx
+  NTSTATUS v11; // eax
+  unsigned __int32 v12; // edi
+  unsigned __int64 v13; // rdi
+  int v14; // [rsp+20h] [rbp-58h] BYREF
+  const wchar_t *v15; // [rsp+28h] [rbp-50h]
+  int v16; // [rsp+30h] [rbp-48h] BYREF
+  const wchar_t *v17; // [rsp+38h] [rbp-40h]
+  _UNICODE_STRING DestinationString; // [rsp+40h] [rbp-38h] BYREF
+  DWORD Lcid; // [rsp+80h] [rbp+8h] BYREF
+  PVOID BaseModule; // [rsp+98h] [rbp+20h] BYREF
 
-  v12 = 2621478;
-  v13 = L"LdrResRelease Enter";
-  v14 = 2490404;
-  v15 = L"LdrResRelease Exit";
+  v14 = 2621478;
+  v15 = L"LdrResRelease Enter";
+  v16 = 2490404;
+  v17 = L"LdrResRelease Exit";
   v6 = 2147353477LL;
-  if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+  if ( RtlGetCurrentServiceSessionId() )
     v7 = (__int64)NtCurrentPeb()->SharedData + 555;
   else
     v7 = 2147353477LL;
   if ( (*(_BYTE *)v7 & 1) != 0 )
   {
-    RtlGetCurrentServiceSessionId();
-    LdrpTraceLoadMUIDll((unsigned __int16 *)&v12);
+    v8 = 2147353476LL;
+    if ( RtlGetCurrentServiceSessionId() )
+      v9 = (__int64)NtCurrentPeb()->SharedData + 554;
+    else
+      v9 = 2147353476LL;
+    LdrpTraceLoadMUIDll((unsigned __int16 *)&v14, *(unsigned __int8 *)v9);
   }
-  if ( !String2 )
+  else
+  {
+    v8 = 2147353476LL;
+  }
+  if ( !InitModule )
     return 3221225485LL;
-  v18 = 0LL;
-  if ( (a3 & 0x8800) == 0x8800 )
+  BaseModule = 0LL;
+  if ( (Flags & 0x8800) == 0x8800 )
     return 0LL;
   if ( (unsigned __int64)SourceString >= 0x10000 )
   {
     if ( *SourceString )
     {
       RtlInitUnicodeString(&DestinationString, SourceString);
-      if ( !RtlCultureNameToLCID(&DestinationString.Length, &v17) )
+      if ( !RtlCultureNameToLCID(&DestinationString, &Lcid) )
         return 3221225485LL;
     }
     else
     {
-      v17 = 0;
+      Lcid = 0;
     }
-    LOWORD(SourceString) = v17;
+    LOWORD(SourceString) = Lcid;
   }
-  if ( (a3 & 0xC00) != 0 )
+  if ( (Flags & 0xC00) != 0 )
   {
-    v9 = LdrRemoveLoadAsDataTable(String2, &v18, 0LL, a3);
-    v10 = v9;
-    if ( v9 < 0 )
+    v11 = LdrRemoveLoadAsDataTable(InitModule, &BaseModule, 0LL, Flags);
+    v12 = v11;
+    if ( v11 < 0 )
     {
-      if ( v9 != -1073740024 && v9 != -1073741511 )
-        goto LABEL_26;
-      goto LABEL_25;
+      if ( v11 != -1073740024 && v11 != -1073741511 )
+        goto LABEL_30;
+      goto LABEL_29;
     }
   }
   else
   {
-    v18 = String2;
+    BaseModule = InitModule;
   }
-  v11 = v18;
-  LdrUnloadAlternateResourceModuleEx((__int64)v18, (__int16)SourceString);
-  if ( (a3 & 0xC00) != 0 && v11 )
-    NtUnmapViewOfSection();
-LABEL_25:
-  v10 = 0;
-LABEL_26:
-  if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+  v13 = (unsigned __int64)BaseModule;
+  LdrUnloadAlternateResourceModuleEx(BaseModule, (unsigned __int16)SourceString);
+  if ( (Flags & 0xC00) != 0 && v13 )
+    NtUnmapViewOfSection((HANDLE)0xFFFFFFFFFFFFFFFFLL, (PVOID)(v13 & 0xFFFFFFFFFFFFFFFCuLL));
+LABEL_29:
+  v12 = 0;
+LABEL_30:
+  if ( RtlGetCurrentServiceSessionId() )
     v6 = (__int64)NtCurrentPeb()->SharedData + 555;
   if ( (*(_BYTE *)v6 & 1) != 0 )
   {
-    RtlGetCurrentServiceSessionId();
-    LdrpTraceLoadMUIDll((unsigned __int16 *)&v14);
+    if ( RtlGetCurrentServiceSessionId() )
+      v8 = (__int64)NtCurrentPeb()->SharedData + 554;
+    LdrpTraceLoadMUIDll((unsigned __int16 *)&v16, *(unsigned __int8 *)v8);
   }
-  return v10;
+  return v12;
 }

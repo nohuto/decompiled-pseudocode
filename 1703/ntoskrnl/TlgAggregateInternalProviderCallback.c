@@ -21,7 +21,7 @@ void __fastcall TlgAggregateInternalProviderCallback(
 
   if ( ControlCode == 2 && MatchAnyKeyword == 32 )
   {
-    v4 = (_KLOCK_ENTRY *)KeAbPreAcquire((ULONG_PTR)&qword_14036F560, 0LL, 1LL);
+    v4 = (_KLOCK_ENTRY *)KeAbPreAcquire((ULONG_PTR)&qword_14036F560, 0LL, 1);
     if ( _interlockedbittestandset64((volatile signed __int32 *)&qword_14036F560, 0LL) )
     {
       if ( v4 )

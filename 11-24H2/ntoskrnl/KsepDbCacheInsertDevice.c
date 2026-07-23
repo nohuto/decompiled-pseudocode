@@ -1,15 +1,15 @@
 /*
- * XREFs of KsepDbCacheInsertDevice @ 0x14073E384
+ * XREFs of KsepDbCacheInsertDevice @ 0x14073C2B4
  * Callers:
- *     KseQueryDeviceDataList @ 0x14095A9E0 (KseQueryDeviceDataList.c)
- *     KseQueryDeviceData @ 0x14095C660 (KseQueryDeviceData.c)
+ *     KseQueryDeviceDataList @ 0x1409424A0 (KseQueryDeviceDataList.c)
+ *     KseQueryDeviceData @ 0x140944120 (KseQueryDeviceData.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     KsepCacheLock @ 0x1408BB520 (KsepCacheLock.c)
- *     KsepCacheLookup @ 0x14095B438 (KsepCacheLookup.c)
- *     KsepCacheUnlock @ 0x14095B51C (KsepCacheUnlock.c)
- *     KsepCacheInsert @ 0x140AA046C (KsepCacheInsert.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     KsepCacheLock @ 0x1408B8ED0 (KsepCacheLock.c)
+ *     KsepCacheLookup @ 0x140942EF8 (KsepCacheLookup.c)
+ *     KsepCacheUnlock @ 0x140942FDC (KsepCacheUnlock.c)
+ *     KsepCacheInsert @ 0x140A9B7FC (KsepCacheInsert.c)
  */
 
 __int64 __fastcall KsepDbCacheInsertDevice(PCWSTR SourceString, __int64 a2)
@@ -22,13 +22,13 @@ __int64 __fastcall KsepDbCacheInsertDevice(PCWSTR SourceString, __int64 a2)
   v7 = 0;
   v4 = -1073741811;
   memset_0(v6, 0, 0x44uLL);
-  KsepCacheLock(qword_140E66B28);
+  KsepCacheLock(qword_140E66C58);
   RtlInitUnicodeString(&DestinationString, SourceString);
-  if ( !KsepCacheLookup(qword_140E66B28, v6) )
+  if ( !KsepCacheLookup(qword_140E66C58, v6) )
   {
-    KsepCacheInsert(qword_140E66B28, a2);
+    KsepCacheInsert(qword_140E66C58, a2);
     v4 = 0;
   }
-  KsepCacheUnlock(qword_140E66B28);
+  KsepCacheUnlock(qword_140E66C58);
   return v4;
 }

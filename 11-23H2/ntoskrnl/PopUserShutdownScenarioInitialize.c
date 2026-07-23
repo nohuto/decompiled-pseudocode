@@ -3,8 +3,8 @@
  * Callers:
  *     PoInitSystem @ 0x140B50BBC (PoInitSystem.c)
  * Callees:
- *     Feature_DisableAutoUserShutdownTimeout__private_ReportDeviceUsage @ 0x1404112C4 (Feature_DisableAutoUserShutdownTimeout__private_ReportDeviceUsage.c)
- *     PdcTaskClientRegister @ 0x140822050 (PdcTaskClientRegister.c)
+ *     Feature_DisableAutoUserShutdownTimeout__private_ReportDeviceUsage @ 0x1404114D0 (Feature_DisableAutoUserShutdownTimeout__private_ReportDeviceUsage.c)
+ *     PdcTaskClientRegister @ 0x140822350 (PdcTaskClientRegister.c)
  */
 
 __int64 __fastcall PopUserShutdownScenarioInitialize(int a1)

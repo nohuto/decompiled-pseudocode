@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpBuddyAllocatorCleanUp @ 0x140574820
+ * XREFs of HalpBuddyAllocatorCleanUp @ 0x140571CB0
  * Callers:
  *     <none>
  * Callees:
- *     HalpMmAllocCtxFree @ 0x14037CBAC (HalpMmAllocCtxFree.c)
- *     HalpBuddyAllocatorDeleteSubtree @ 0x1403AC040 (HalpBuddyAllocatorDeleteSubtree.c)
+ *     HalpMmAllocCtxFree @ 0x1402EA1C8 (HalpMmAllocCtxFree.c)
+ *     HalpBuddyAllocatorDeleteSubtree @ 0x14039A750 (HalpBuddyAllocatorDeleteSubtree.c)
  */
 
 void __fastcall HalpBuddyAllocatorCleanUp(__int64 a1)

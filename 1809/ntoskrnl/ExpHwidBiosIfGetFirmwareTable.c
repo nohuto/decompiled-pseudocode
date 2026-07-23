@@ -1,12 +1,12 @@
 /*
- * XREFs of ExpHwidBiosIfGetFirmwareTable @ 0x1405871AC
+ * XREFs of ExpHwidBiosIfGetFirmwareTable @ 0x1405881AC
  * Callers:
- *     sub_140585B00 @ 0x140585B00 (sub_140585B00.c)
+ *     sub_140586B00 @ 0x140586B00 (sub_140586B00.c)
  * Callees:
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     ZwQuerySystemInformation @ 0x1401B8850 (ZwQuerySystemInformation.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     ZwQuerySystemInformation @ 0x1401B89B0 (ZwQuerySystemInformation.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall ExpHwidBiosIfGetFirmwareTable(__int64 a1, __int64 a2, char a3, ULONG *a4, _QWORD *a5)

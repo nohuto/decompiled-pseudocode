@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpTscAdvSynchReadTimeStamp @ 0x14039D428
+ * XREFs of HalpTscAdvSynchReadTimeStamp @ 0x14039D578
  * Callers:
- *     HalpTscAdvSynchLeader @ 0x14039CC94 (HalpTscAdvSynchLeader.c)
+ *     HalpTscAdvSynchLeader @ 0x14039CDE4 (HalpTscAdvSynchLeader.c)
  * Callees:
- *     HalpProcessorFence @ 0x1403F9CC0 (HalpProcessorFence.c)
+ *     HalpProcessorFence @ 0x1403F9EA0 (HalpProcessorFence.c)
  */
 
 unsigned __int64 __fastcall HalpTscAdvSynchReadTimeStamp(unsigned int a1)

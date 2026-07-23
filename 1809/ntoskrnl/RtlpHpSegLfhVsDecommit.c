@@ -4,7 +4,7 @@
  *     <none>
  * Callees:
  *     RtlpHpSegPageRangeCommit @ 0x14000C594 (RtlpHpSegPageRangeCommit.c)
- *     RtlpHpScheduleCompaction @ 0x14031EEB4 (RtlpHpScheduleCompaction.c)
+ *     RtlpHpScheduleCompaction @ 0x14031F0A4 (RtlpHpScheduleCompaction.c)
  */
 
 __int64 __fastcall RtlpHpSegLfhVsDecommit(__int64 a1, unsigned __int64 a2, unsigned int a3)

@@ -1,8 +1,8 @@
 /*
- * XREFs of PopDirectedDripsDiagInsertErrorRecord @ 0x14099E1F0
+ * XREFs of PopDirectedDripsDiagInsertErrorRecord @ 0x14099E3F0
  * Callers:
- *     PopDirectedDripsDiagTraceBroadcastFailureDevice @ 0x14099F0BC (PopDirectedDripsDiagTraceBroadcastFailureDevice.c)
- *     PopDirectedDripsDiagTraceProblemDevice @ 0x14099F43C (PopDirectedDripsDiagTraceProblemDevice.c)
+ *     PopDirectedDripsDiagTraceBroadcastFailureDevice @ 0x14099F2BC (PopDirectedDripsDiagTraceBroadcastFailureDevice.c)
+ *     PopDirectedDripsDiagTraceProblemDevice @ 0x14099F63C (PopDirectedDripsDiagTraceProblemDevice.c)
  * Callees:
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

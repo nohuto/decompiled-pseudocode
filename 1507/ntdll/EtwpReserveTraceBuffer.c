@@ -10,7 +10,7 @@
  *     RtlQueryPerformanceCounter @ 0x180059550 (RtlQueryPerformanceCounter.c)
  */
 
-__int64 __fastcall EtwpReserveTraceBuffer(__int64 a1, unsigned int a2, unsigned int a3, _QWORD *a4, _QWORD *a5)
+__int64 __fastcall EtwpReserveTraceBuffer(__int64 a1, unsigned int a2, unsigned int a3, LARGE_INTEGER *a4, _QWORD *a5)
 {
   unsigned int v6; // esi
   unsigned int v8; // r14d
@@ -45,11 +45,11 @@ __int64 __fastcall EtwpReserveTraceBuffer(__int64 a1, unsigned int a2, unsigned 
             {
               if ( *(_DWORD *)(a1 + 16) == 2 )
               {
-                *a4 = MEMORY[0x7FFE0014];
+                a4->QuadPart = MEMORY[0x7FFE0014];
               }
               else if ( *(_DWORD *)(a1 + 16) == 3 )
               {
-                *a4 = __rdtsc();
+                a4->QuadPart = __rdtsc();
               }
               else
               {

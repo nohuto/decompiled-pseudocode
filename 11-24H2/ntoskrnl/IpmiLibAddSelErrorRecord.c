@@ -1,11 +1,11 @@
 /*
- * XREFs of IpmiLibAddSelErrorRecord @ 0x14069FD7C
+ * XREFs of IpmiLibAddSelErrorRecord @ 0x1406A0E80
  * Callers:
- *     WheaSelLogError @ 0x14065B3D8 (WheaSelLogError.c)
+ *     WheaSelLogError @ 0x140659AF8 (WheaSelLogError.c)
  * Callees:
- *     IpmiHwContextInitialized @ 0x14069F66C (IpmiHwContextInitialized.c)
- *     IpmiLibAddSelRecord @ 0x14069FE08 (IpmiLibAddSelRecord.c)
- *     IpmiLibpAddSelRawData @ 0x14069FEA0 (IpmiLibpAddSelRawData.c)
+ *     IpmiHwContextInitialized @ 0x1406A0770 (IpmiHwContextInitialized.c)
+ *     IpmiLibAddSelRecord @ 0x1406A0F0C (IpmiLibAddSelRecord.c)
+ *     IpmiLibpAddSelRawData @ 0x1406A0FA4 (IpmiLibpAddSelRawData.c)
  */
 
 __int64 __fastcall IpmiLibAddSelErrorRecord(__int64 a1, __int64 a2, __int64 a3, __int64 a4)

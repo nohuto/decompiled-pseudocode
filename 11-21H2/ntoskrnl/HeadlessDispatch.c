@@ -1,24 +1,24 @@
 /*
  * XREFs of HeadlessDispatch @ 0x1403C2310
  * Callers:
- *     BgkDisplayStringEx @ 0x140551414 (BgkDisplayStringEx.c)
- *     BvgaDisplayString @ 0x1405518C0 (BvgaDisplayString.c)
- *     BvgaSetTextColor @ 0x140551B80 (BvgaSetTextColor.c)
- *     BvgaSolidColorFill @ 0x140551BE0 (BvgaSolidColorFill.c)
- *     KiBugCheckDebugBreak @ 0x1405672C0 (KiBugCheckDebugBreak.c)
- *     KiDisplayBlueScreen @ 0x140567874 (KiDisplayBlueScreen.c)
- *     KiHeadlessDisplayString @ 0x140567D6C (KiHeadlessDisplayString.c)
- *     EtwpInitializeActivityIdSeed @ 0x140829EEC (EtwpInitializeActivityIdSeed.c)
+ *     sub_140551414 @ 0x140551414 (sub_140551414.c)
+ *     sub_1405518C0 @ 0x1405518C0 (sub_1405518C0.c)
+ *     sub_140551B80 @ 0x140551B80 (sub_140551B80.c)
+ *     sub_140551BE0 @ 0x140551BE0 (sub_140551BE0.c)
+ *     sub_1405672C0 @ 0x1405672C0 (sub_1405672C0.c)
+ *     sub_140567874 @ 0x140567874 (sub_140567874.c)
+ *     sub_140567D6C @ 0x140567D6C (sub_140567D6C.c)
+ *     sub_140829EEC @ 0x140829EEC (sub_140829EEC.c)
  * Callees:
  *     memset @ 0x140435E00 (memset.c)
- *     HdlspDispatch @ 0x140AA8ED0 (HdlspDispatch.c)
+ *     sub_140AA8ED0 @ 0x140AA8ED0 (sub_140AA8ED0.c)
  */
 
 __int64 __fastcall HeadlessDispatch(__int64 a1, __int64 a2, __int64 a3, void *a4, size_t *a5)
 {
   int v6; // eax
 
-  if ( !HeadlessGlobals || !HeadlessGlobals[1] )
+  if ( !qword_140D01468 || !qword_140D01468[1] )
   {
     if ( (_DWORD)a1 == 21 || (_DWORD)a1 == 1 )
       return 3221225473LL;
@@ -34,5 +34,5 @@ __int64 __fastcall HeadlessDispatch(__int64 a1, __int64 a2, __int64 a3, void *a4
     }
     return 0LL;
   }
-  return HdlspDispatch(a1);
+  return sub_140AA8ED0(a1);
 }

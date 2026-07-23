@@ -1,14 +1,14 @@
 /*
- * XREFs of CmpNotifyChangeKey @ 0x1407674F0
+ * XREFs of CmpNotifyChangeKey @ 0x1407676E0
  * Callers:
- *     NtNotifyChangeMultipleKeys @ 0x140766B30 (NtNotifyChangeMultipleKeys.c)
+ *     NtNotifyChangeMultipleKeys @ 0x140766D20 (NtNotifyChangeMultipleKeys.c)
  * Callees:
  *     EtwTraceKernelEvent @ 0x140211EDC (EtwTraceKernelEvent.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     SeCaptureSubjectContext @ 0x140737C70 (SeCaptureSubjectContext.c)
- *     CmpPostNotify @ 0x140766860 (CmpPostNotify.c)
- *     CmpFreePostBlock @ 0x140768350 (CmpFreePostBlock.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     SeCaptureSubjectContext @ 0x140737E60 (SeCaptureSubjectContext.c)
+ *     CmpPostNotify @ 0x140766A50 (CmpPostNotify.c)
+ *     CmpFreePostBlock @ 0x140768540 (CmpFreePostBlock.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  *     CmpIsKeyDeletedForKeyBody @ 0x140AF52F0 (CmpIsKeyDeletedForKeyBody.c)
  */
@@ -160,10 +160,10 @@ LABEL_8:
         *v30 = (__int64 *)v27;
         SListFaultAddress[1] = (__int64)v27;
 LABEL_26:
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
           v31 = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && v31 <= 0xFu && CurrentIrql <= 0xFu && v31 >= 2u )
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v31 <= 0xFu && CurrentIrql <= 0xFu && v31 >= 2u )
           {
             CurrentPrcb = KeGetCurrentPrcb();
             SListFaultAddress = (__int64 *)(-1LL << (CurrentIrql + 1));

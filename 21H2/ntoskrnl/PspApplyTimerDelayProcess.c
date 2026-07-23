@@ -1,12 +1,12 @@
 /*
- * XREFs of PspApplyTimerDelayProcess @ 0x140581EE8
+ * XREFs of PspApplyTimerDelayProcess @ 0x140582118
  * Callers:
- *     PspTimerDelayProcess @ 0x140582770 (PspTimerDelayProcess.c)
- *     PspTimerDelayWorkerRoutine @ 0x1405827E0 (PspTimerDelayWorkerRoutine.c)
+ *     PspTimerDelayProcess @ 0x1405829A0 (PspTimerDelayProcess.c)
+ *     PspTimerDelayWorkerRoutine @ 0x140582A10 (PspTimerDelayWorkerRoutine.c)
  * Callees:
- *     KiLeaveGuardedRegionUnsafe @ 0x14034AD90 (KiLeaveGuardedRegionUnsafe.c)
- *     PspSetProcessTimerDelayForKTimers @ 0x140582468 (PspSetProcessTimerDelayForKTimers.c)
- *     PspSetProcessTimerDelayForWin32 @ 0x1405826AC (PspSetProcessTimerDelayForWin32.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x140355AE0 (KiLeaveGuardedRegionUnsafe.c)
+ *     PspSetProcessTimerDelayForKTimers @ 0x140582698 (PspSetProcessTimerDelayForKTimers.c)
+ *     PspSetProcessTimerDelayForWin32 @ 0x1405828DC (PspSetProcessTimerDelayForWin32.c)
  */
 
 __int64 __fastcall PspApplyTimerDelayProcess(__int64 a1, _DWORD *a2, __int64 a3)

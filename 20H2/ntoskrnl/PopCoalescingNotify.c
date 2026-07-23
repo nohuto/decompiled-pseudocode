@@ -23,7 +23,7 @@ __int64 __fastcall PopCoalescingNotify(int a1)
     KeCancelTimer(&PopCoalescingTimer);
     PopCoalescingState |= 4u;
     PopEnsureCoalescingWorkerWillRun();
-    PopPrintEx(3LL, (__int64)"PopCoalescing: FLUSH notification sent.\n");
+    PopPrintEx(3u, (__int64)"PopCoalescing: FLUSH notification sent.\n");
     PopDiagTraceEventNoPayload(&POP_ETW_IO_COALESCING_FLUSH);
     PopCoalescingLastFlushTime = MEMORY[0xFFFFF78000000008];
     PopCoalescingSetTimer();

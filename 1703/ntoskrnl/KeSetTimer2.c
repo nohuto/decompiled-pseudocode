@@ -42,7 +42,7 @@ _BOOL8 __fastcall KeSetTimer2(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
   __int64 v6; // rbp
   bool v8; // si
   char v9; // r13
-  unsigned __int64 InterruptTimePrecise; // rax
+  LARGE_INTEGER InterruptTimePrecise; // rax
   unsigned __int64 v11; // rdi
   __int64 v12; // r15
   __int64 v13; // rax
@@ -52,15 +52,13 @@ _BOOL8 __fastcall KeSetTimer2(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
   char v17; // al
   volatile signed __int32 v18; // edx
   signed __int32 v19; // eax
-  __int64 v21; // rdx
-  __int64 v22; // r8
-  __int64 SystemTimePrecise; // rax
-  signed __int32 v24; // edx
+  LARGE_INTEGER SystemTimePrecise; // rax
+  signed __int32 v22; // edx
   void *retaddr; // [rsp+68h] [rbp+0h]
-  char v26; // [rsp+70h] [rbp+8h] BYREF
-  int v27; // [rsp+78h] [rbp+10h] BYREF
+  char v24; // [rsp+70h] [rbp+8h] BYREF
+  int v25; // [rsp+78h] [rbp+10h] BYREF
   __int64 CurrentIrql; // [rsp+80h] [rbp+18h]
-  LARGE_INTEGER v29; // [rsp+88h] [rbp+20h] BYREF
+  LARGE_INTEGER PerformanceCounter; // [rsp+88h] [rbp+20h] BYREF
 
   v5 = a3;
   v6 = a2;
@@ -74,20 +72,20 @@ _BOOL8 __fastcall KeSetTimer2(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
   {
     v9 = 1;
     if ( v8 )
-      SystemTimePrecise = RtlGetSystemTimePrecise(0LL, a2, a3, a4);
+      SystemTimePrecise = RtlGetSystemTimePrecise();
     else
-      SystemTimePrecise = MEMORY[0xFFFFF78000000014];
-    if ( v6 > SystemTimePrecise )
-      v6 = SystemTimePrecise - v6;
+      SystemTimePrecise.QuadPart = MEMORY[0xFFFFF78000000014];
+    if ( v6 > SystemTimePrecise.QuadPart )
+      v6 = SystemTimePrecise.QuadPart - v6;
     else
       v6 = 0LL;
   }
   if ( v8 )
-    InterruptTimePrecise = RtlGetInterruptTimePrecise(&v29);
+    InterruptTimePrecise = RtlGetInterruptTimePrecise(&PerformanceCounter);
   else
-    InterruptTimePrecise = MEMORY[0xFFFFF78000000008];
-  v11 = InterruptTimePrecise - v6;
-  if ( InterruptTimePrecise >= v6 || v11 == -1LL )
+    InterruptTimePrecise.QuadPart = MEMORY[0xFFFFF78000000008];
+  v11 = InterruptTimePrecise.QuadPart - v6;
+  if ( InterruptTimePrecise.QuadPart >= (unsigned __int64)v6 || v11 == -1LL )
     v11 = -2LL;
   v12 = v11;
   if ( a4 && *(_BYTE *)(a1 + 130) != 20 )
@@ -105,13 +103,13 @@ _BOOL8 __fastcall KeSetTimer2(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
     }
   }
   v14 = 0;
-  v27 = 0;
-  v26 = 0;
+  v25 = 0;
+  v24 = 0;
   v15 = 1;
   while ( _interlockedbittestandset((volatile signed __int32 *)a1, 7u) )
   {
     do
-      KeYieldProcessorEx(&v27);
+      KeYieldProcessorEx(&v25);
     while ( (*(_DWORD *)a1 & 0x80u) != 0 );
   }
   if ( (*(_BYTE *)(a1 + 1) & 0x20) != 0 )
@@ -124,7 +122,7 @@ _BOOL8 __fastcall KeSetTimer2(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
       KxAcquireSpinLock(&KiTimer2CollectionLock);
       if ( (*(_BYTE *)(a1 + 1) & 1) != 0 )
       {
-        KiRemoveTimer2(a1, v21, v22);
+        KiRemoveTimer2(a1);
         KxReleaseSpinLock(&KiTimer2CollectionLock);
         v14 = 1;
 LABEL_18:
@@ -136,7 +134,7 @@ LABEL_18:
         if ( v15 == 1 )
         {
           KxAcquireSpinLock(&KiTimer2CollectionLock);
-          KiInsertTimer2WithCollectionLockHeld(a1, 1LL, &v26);
+          KiInsertTimer2WithCollectionLockHeld(a1, 1LL, &v24);
         }
         if ( (DWORD2(PerfGlobalGroupMask) & 0x20000) != 0 )
         {
@@ -153,10 +151,10 @@ LABEL_18:
           {
             do
             {
-              v24 = v19;
+              v22 = v19;
               v19 = _InterlockedCompareExchange((volatile signed __int32 *)a1, (v15 << 8) | v19 & 0xFFFFF07F, v19);
             }
-            while ( v24 != v19 );
+            while ( v22 != v19 );
           }
           if ( v15 == 1 )
           {
@@ -168,7 +166,7 @@ LABEL_18:
         }
         if ( KiForceIdleDisabled || KiForceIdleState != 4 )
         {
-          if ( v26 )
+          if ( v24 )
           {
             KiRequestTimer2Expiration();
           }

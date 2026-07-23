@@ -1,15 +1,15 @@
 /*
- * XREFs of ZwAlpcDisconnectPort @ 0x14041BDE0
+ * XREFs of ZwAlpcDisconnectPort @ 0x14041C170
  * Callers:
  *     CmFcpManagerPublishFeatureUsageDataBuffers @ 0x1406800EC (CmFcpManagerPublishFeatureUsageDataBuffers.c)
- *     DbgkRegisterErrorPort @ 0x140939914 (DbgkRegisterErrorPort.c)
+ *     DbgkRegisterErrorPort @ 0x140939B14 (DbgkRegisterErrorPort.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwAlpcDisconnectPort(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwAlpcDisconnectPort(HANDLE PortHandle, ULONG Flags)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(PortHandle);
 }

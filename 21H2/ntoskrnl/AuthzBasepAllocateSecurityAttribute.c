@@ -1,12 +1,12 @@
 /*
- * XREFs of AuthzBasepAllocateSecurityAttribute @ 0x140356350
+ * XREFs of AuthzBasepAllocateSecurityAttribute @ 0x1403610A0
  * Callers:
- *     AuthzBasepAddSecurityAttribute @ 0x140250C38 (AuthzBasepAddSecurityAttribute.c)
- *     AuthzBasepDuplicateSecurityAttributes @ 0x1403560E0 (AuthzBasepDuplicateSecurityAttributes.c)
+ *     AuthzBasepAddSecurityAttribute @ 0x1402F5448 (AuthzBasepAddSecurityAttribute.c)
+ *     AuthzBasepDuplicateSecurityAttributes @ 0x140360E30 (AuthzBasepDuplicateSecurityAttributes.c)
  * Callees:
- *     memmove @ 0x140413F40 (memmove.c)
- *     memset @ 0x140414200 (memset.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 _WORD *__fastcall AuthzBasepAllocateSecurityAttribute(unsigned __int16 *a1)

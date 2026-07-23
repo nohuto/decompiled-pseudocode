@@ -1,24 +1,24 @@
 /*
- * XREFs of FsRtlpRemoveAndCompleteRHIrp @ 0x1402FD670
+ * XREFs of FsRtlpRemoveAndCompleteRHIrp @ 0x1402FD900
  * Callers:
- *     FsRtlpOplockBreakByCacheFlags @ 0x1402FE830 (FsRtlpOplockBreakByCacheFlags.c)
- *     FsRtlpOplockCleanup @ 0x140300F14 (FsRtlpOplockCleanup.c)
- *     FsRtlpRequestShareableOplock @ 0x140301920 (FsRtlpRequestShareableOplock.c)
- *     FsRtlUninitializeOplock @ 0x14034C630 (FsRtlUninitializeOplock.c)
- *     FsRtlpCancelOplockRHIrp @ 0x140360BC0 (FsRtlpCancelOplockRHIrp.c)
- *     FsRtlpRequestExclusiveOplock @ 0x1403BFC24 (FsRtlpRequestExclusiveOplock.c)
+ *     FsRtlpOplockBreakByCacheFlags @ 0x1402FEAC0 (FsRtlpOplockBreakByCacheFlags.c)
+ *     FsRtlpOplockCleanup @ 0x1403011A4 (FsRtlpOplockCleanup.c)
+ *     FsRtlpRequestShareableOplock @ 0x140301BB0 (FsRtlpRequestShareableOplock.c)
+ *     FsRtlUninitializeOplock @ 0x14034C7D0 (FsRtlUninitializeOplock.c)
+ *     FsRtlpCancelOplockRHIrp @ 0x140360D60 (FsRtlpCancelOplockRHIrp.c)
+ *     FsRtlpRequestExclusiveOplock @ 0x1403BFE04 (FsRtlpRequestExclusiveOplock.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14022F5B0 (ObfDereferenceObjectWithTag.c)
- *     KeAcquireQueuedSpinLock @ 0x1402A0760 (KeAcquireQueuedSpinLock.c)
- *     IofCompleteRequest @ 0x1402C9980 (IofCompleteRequest.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6B24 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     FsRtlpClearOwner @ 0x1402FD62C (FsRtlpClearOwner.c)
- *     FsRtlpOplockDequeueRH @ 0x140301520 (FsRtlpOplockDequeueRH.c)
- *     FsRtlpOplockEnqueueRH @ 0x140302464 (FsRtlpOplockEnqueueRH.c)
- *     KeReleaseQueuedSpinLock @ 0x140302810 (KeReleaseQueuedSpinLock.c)
- *     FsRtlpModifyThreadPriorities @ 0x140358C84 (FsRtlpModifyThreadPriorities.c)
- *     FsRtlpOplockSendModernAppTermination @ 0x14035C258 (FsRtlpOplockSendModernAppTermination.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     ObfDereferenceObjectWithTag @ 0x14022F6C0 (ObfDereferenceObjectWithTag.c)
+ *     KeAcquireQueuedSpinLock @ 0x1402A09F0 (KeAcquireQueuedSpinLock.c)
+ *     IofCompleteRequest @ 0x1402C9C10 (IofCompleteRequest.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6DB4 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     FsRtlpClearOwner @ 0x1402FD8BC (FsRtlpClearOwner.c)
+ *     FsRtlpOplockDequeueRH @ 0x1403017B0 (FsRtlpOplockDequeueRH.c)
+ *     FsRtlpOplockEnqueueRH @ 0x1403026F4 (FsRtlpOplockEnqueueRH.c)
+ *     KeReleaseQueuedSpinLock @ 0x140302AA0 (KeReleaseQueuedSpinLock.c)
+ *     FsRtlpModifyThreadPriorities @ 0x140358E24 (FsRtlpModifyThreadPriorities.c)
+ *     FsRtlpOplockSendModernAppTermination @ 0x14035C3F8 (FsRtlpOplockSendModernAppTermination.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 
@@ -85,7 +85,7 @@ char __fastcall FsRtlpRemoveAndCompleteRHIrp(
     v23[0] = a2;
     v36 = 8LL;
     v38 = 4LL;
-    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140C03768, (unsigned __int8 *)word_14002A12A, 0LL, 0LL, 9u, v24);
+    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140C03768, (unsigned __int8 *)byte_14002A39B, 0LL, 0LL, 9u, v24);
   }
   v12 = *(_QWORD *)(P + 16);
   *(_QWORD *)(P + 16) = 0LL;
@@ -147,7 +147,7 @@ char __fastcall FsRtlpRemoveAndCompleteRHIrp(
     v18 = v10;
     v23[0] = a2;
     v28 = 8LL;
-    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140C03768, (unsigned __int8 *)word_14002A26A, 0LL, 0LL, 5u, v24);
+    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140C03768, (unsigned __int8 *)&word_14002A25E, 0LL, 0LL, 5u, v24);
   }
   return v14;
 }

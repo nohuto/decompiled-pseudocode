@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpSfiTimerArm @ 0x1404D5770
+ * XREFs of HalpSfiTimerArm @ 0x1404D59B0
  * Callers:
  *     <none>
  * Callees:
- *     KeStallExecutionProcessor @ 0x14022A880 (KeStallExecutionProcessor.c)
- *     HalSetTimerProblem @ 0x1404D5600 (HalSetTimerProblem.c)
+ *     KeStallExecutionProcessor @ 0x1402CF130 (KeStallExecutionProcessor.c)
+ *     HalSetTimerProblem @ 0x1404D5840 (HalSetTimerProblem.c)
  */
 
 __int64 __fastcall HalpSfiTimerArm(__int64 a1, int a2, unsigned __int64 a3)

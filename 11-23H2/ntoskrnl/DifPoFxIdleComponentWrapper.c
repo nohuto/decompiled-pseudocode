@@ -1,12 +1,12 @@
 /*
- * XREFs of DifPoFxIdleComponentWrapper @ 0x1405E95A0
+ * XREFs of DifPoFxIdleComponentWrapper @ 0x1405E9B10
  * Callers:
  *     <none>
  * Callees:
- *     PoFxIdleComponent @ 0x140312F80 (PoFxIdleComponent.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     DifGetAPIThunkContextById @ 0x1404664BE (DifGetAPIThunkContextById.c)
- *     DifGetReturnAddressForWrappers @ 0x1405F88C4 (DifGetReturnAddressForWrappers.c)
+ *     PoFxIdleComponent @ 0x140313210 (PoFxIdleComponent.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     DifGetAPIThunkContextById @ 0x1404668BE (DifGetAPIThunkContextById.c)
+ *     DifGetReturnAddressForWrappers @ 0x1405F8E34 (DifGetReturnAddressForWrappers.c)
  */
 
 __int64 __fastcall DifPoFxIdleComponentWrapper(ULONG_PTR a1, unsigned int a2, unsigned int a3)

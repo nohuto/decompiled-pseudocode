@@ -1,9 +1,9 @@
 /*
- * XREFs of KeInitializeDeviceQueue @ 0x1404ED660
+ * XREFs of KeInitializeDeviceQueue @ 0x1404E6C40
  * Callers:
- *     HalpDmaAllocateChildAdapterV2 @ 0x140783D5C (HalpDmaAllocateChildAdapterV2.c)
- *     IoCreateController @ 0x140796180 (IoCreateController.c)
- *     IoCreateDevice @ 0x1409FEBC0 (IoCreateDevice.c)
+ *     HalpDmaAllocateChildAdapterV2 @ 0x140786890 (HalpDmaAllocateChildAdapterV2.c)
+ *     IoCreateController @ 0x140798CB0 (IoCreateController.c)
+ *     IoCreateDevice @ 0x14091B9C0 (IoCreateDevice.c)
  * Callees:
  *     <none>
  */

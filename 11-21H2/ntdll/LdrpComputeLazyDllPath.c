@@ -9,29 +9,29 @@
  *     LdrpLogInternal @ 0x18003F290 (LdrpLogInternal.c)
  */
 
-__int64 __fastcall LdrpComputeLazyDllPath(__int64 a1, unsigned __int64 a2, unsigned __int64 a3, unsigned __int64 a4)
+__int64 __fastcall LdrpComputeLazyDllPath(__int64 a1)
 {
-  unsigned int v5; // edi
+  unsigned int v2; // edi
   int DllPath; // eax
-  __int64 v7; // rcx
-  __int64 v8; // rax
-  __int64 v10; // [rsp+50h] [rbp+8h] BYREF
-  __int64 v11; // [rsp+58h] [rbp+10h] BYREF
-  __int64 v12; // [rsp+60h] [rbp+18h] BYREF
+  __int64 v4; // rcx
+  __int64 v5; // rax
+  __int64 v7; // [rsp+50h] [rbp+8h] BYREF
+  __int64 v8; // [rsp+58h] [rbp+10h] BYREF
+  __int64 v9; // [rsp+60h] [rbp+18h] BYREF
 
-  v5 = 0;
-  RtlAcquireSRWLockExclusive((unsigned __int64)&LdrpPathLock, a2, a3, a4);
+  v2 = 0;
+  RtlAcquireSRWLockExclusive(&LdrpPathLock);
   if ( !*(_QWORD *)a1 )
   {
     DllPath = LdrpGetDllPath(
-                *(_QWORD *)(a1 + 32),
+                *(PCWSTR *)(a1 + 32),
                 *(_DWORD *)(a1 + 24),
-                &v10,
-                &v11,
+                &v7,
+                &v8,
                 (_DWORD *)(a1 + 120),
                 (_OWORD *)(a1 + 40),
-                &v12);
-    v5 = DllPath;
+                &v9);
+    v2 = DllPath;
     if ( DllPath < 0 )
     {
       LdrpLogInternal(
@@ -44,21 +44,21 @@ __int64 __fastcall LdrpComputeLazyDllPath(__int64 a1, unsigned __int64 a2, unsig
     }
     else
     {
-      v7 = v10;
-      *(_QWORD *)(a1 + 8) = v11;
-      v8 = v12;
+      v4 = v7;
+      *(_QWORD *)(a1 + 8) = v8;
+      v5 = v9;
       *(_BYTE *)(a1 + 124) = 1;
-      *(_QWORD *)a1 = v7;
-      *(_QWORD *)(a1 + 16) = v8;
-      if ( v8 )
+      *(_QWORD *)a1 = v4;
+      *(_QWORD *)(a1 + 16) = v5;
+      if ( v5 )
         LdrpLogInternal(
           (unsigned int)"minkernel\\ntdll\\ldrutil.c",
           1497,
           (__int64)"LdrpComputeLazyDllPath",
           2u,
           "Packaged DLL search path computed. Package Dirs: %ws, DllPath: %ws\n",
-          v8,
-          v7);
+          v5,
+          v4);
       else
         LdrpLogInternal(
           (unsigned int)"minkernel\\ntdll\\ldrutil.c",
@@ -66,9 +66,9 @@ __int64 __fastcall LdrpComputeLazyDllPath(__int64 a1, unsigned __int64 a2, unsig
           (__int64)"LdrpComputeLazyDllPath",
           2u,
           "DLL search path computed: %ws\n",
-          v7);
+          v4);
     }
   }
   RtlReleaseSRWLockExclusive(&LdrpPathLock);
-  return v5;
+  return v2;
 }

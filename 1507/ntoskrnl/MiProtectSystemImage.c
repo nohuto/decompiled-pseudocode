@@ -53,7 +53,7 @@ char __fastcall MiProtectSystemImage(__int64 a1)
   ULONG_PTR v40; // [rsp+30h] [rbp-88h]
   char *v41; // [rsp+38h] [rbp-80h]
   ULONG_PTR v42; // [rsp+40h] [rbp-78h]
-  struct _IMAGE_NT_HEADERS64 *v44; // [rsp+50h] [rbp-68h]
+  _IMAGE_NT_HEADERS64 *v44; // [rsp+50h] [rbp-68h]
   _BYTE v45[36]; // [rsp+58h] [rbp-60h] BYREF
   int v46; // [rsp+7Ch] [rbp-3Ch]
 

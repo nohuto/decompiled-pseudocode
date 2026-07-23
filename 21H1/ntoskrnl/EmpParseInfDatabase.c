@@ -33,7 +33,7 @@ __int64 __fastcall EmpParseInfDatabase(__int64 a1, unsigned int a2)
   unsigned int v11; // r8d
   bool v12; // zf
   __int64 v13; // rcx
-  unsigned __int64 v14; // rsi
+  __int64 v14; // rsi
   int v15; // eax
   unsigned int v16; // ecx
   __int64 v17; // rdx
@@ -89,7 +89,7 @@ __int64 __fastcall EmpParseInfDatabase(__int64 a1, unsigned int a2)
     v12 = !_BitScanReverse((unsigned int *)&v13, v11);
     if ( v12 )
       break;
-    v14 = (unsigned __int64)&CurrentThread->LockEntries[v13];
+    v14 = (__int64)&CurrentThread->LockEntries[v13];
     v11 &= ~(1 << v13);
     if ( (*(_BYTE *)(v14 + 26) & 1) != 0
       && (*(_DWORD *)(v14 + 32) & 1) == 0
@@ -103,14 +103,14 @@ __int64 __fastcall EmpParseInfDatabase(__int64 a1, unsigned int a2)
         {
           *(_BYTE *)(v14 + 32) |= 2u;
           if ( *(__int64 *)(v14 + 32) < 0 )
-            KiAbEntryRemoveFromTree(v14);
+            KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)v14);
           v15 = *(_DWORD *)(v14 + 88) & 0x1FFFF;
           v16 = *(_DWORD *)(v14 + 88) & 0xFFFE0000;
           *(_BYTE *)(v14 + 25) &= ~1u;
           v24 = v15;
           *(_DWORD *)(v14 + 88) = v16;
           *(_QWORD *)(v14 + 32) = 0LL;
-          v17 = (__int64)(v14 - (unsigned __int64)CurrentThread->LockEntries) / 96;
+          v17 = (signed __int64)(v14 - (unsigned __int64)CurrentThread->LockEntries) / 96;
           if ( v10 == 1 )
             CurrentThread->AbEntrySummary |= 1 << v17;
           else

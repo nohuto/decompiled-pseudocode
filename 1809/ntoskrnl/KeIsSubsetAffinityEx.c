@@ -1,11 +1,11 @@
 /*
- * XREFs of KeIsSubsetAffinityEx @ 0x14028E3D0
+ * XREFs of KeIsSubsetAffinityEx @ 0x14028E5C0
  * Callers:
  *     <none>
  * Callees:
- *     KeAndAffinityEx @ 0x1400DC700 (KeAndAffinityEx.c)
- *     KeIsEqualAffinityEx @ 0x14018A2F0 (KeIsEqualAffinityEx.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     KeAndAffinityEx @ 0x1400DC780 (KeAndAffinityEx.c)
+ *     KeIsEqualAffinityEx @ 0x14018A430 (KeIsEqualAffinityEx.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
  */
 
 __int64 __fastcall KeIsSubsetAffinityEx(unsigned __int16 *a1, unsigned __int16 *a2)

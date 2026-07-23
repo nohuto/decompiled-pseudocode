@@ -5,7 +5,7 @@
  * Callees:
  *     RtlGetNtSystemRoot @ 0x180026CC0 (RtlGetNtSystemRoot.c)
  *     IsProgramFilesPath @ 0x18005483C (IsProgramFilesPath.c)
- *     _wcsnicmp @ 0x180091A20 (_wcsnicmp.c)
+ *     _wcsnicmp @ 0x180091A30 (_wcsnicmp.c)
  */
 
 __int64 __fastcall IsOverlaySupportedPath(wchar_t *String1, size_t *a2, const wchar_t **a3)
@@ -16,7 +16,7 @@ __int64 __fastcall IsOverlaySupportedPath(wchar_t *String1, size_t *a2, const wc
 
   *a3 = 0LL;
   *a2 = 0LL;
-  NtSystemRoot = (const wchar_t *)RtlGetNtSystemRoot();
+  NtSystemRoot = RtlGetNtSystemRoot();
   v7 = -1LL;
   do
     ++v7;

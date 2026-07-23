@@ -1,5 +1,5 @@
 /*
- * XREFs of IoSizeOfIrpEx @ 0x140506360
+ * XREFs of IoSizeOfIrpEx @ 0x1405062E0
  * Callers:
  *     <none>
  * Callees:

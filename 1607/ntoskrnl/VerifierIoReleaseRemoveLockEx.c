@@ -1,9 +1,9 @@
 /*
- * XREFs of VerifierIoReleaseRemoveLockEx @ 0x14070DD74
+ * XREFs of VerifierIoReleaseRemoveLockEx @ 0x14070DDA4
  * Callers:
  *     <none>
  * Callees:
- *     ViRemLockFindSurrogate @ 0x14070DF48 (ViRemLockFindSurrogate.c)
+ *     ViRemLockFindSurrogate @ 0x14070DF78 (ViRemLockFindSurrogate.c)
  */
 
 __int64 __fastcall VerifierIoReleaseRemoveLockEx(__int64 a1, __int64 a2, unsigned int a3)

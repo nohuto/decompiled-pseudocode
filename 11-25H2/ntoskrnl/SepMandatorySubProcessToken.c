@@ -15,12 +15,12 @@
  *     ExFreePoolWithTag @ 0x140B62CD0 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall SepMandatorySubProcessToken(_DWORD *Token, __int64 a2, __int64 a3, char **a4)
+__int64 __fastcall SepMandatorySubProcessToken(_DWORD *Token, __int64 a2, __int64 a3, _QWORD *a4)
 {
   unsigned int v4; // r14d
-  char **v5; // r15
+  _QWORD *v5; // r15
   int v6; // eax
-  int SecurityObject; // ebx
+  NTSTATUS SecurityObject; // ebx
   void *v10; // r12
   _BYTE *v11; // rdi
   __int16 v12; // ax
@@ -29,24 +29,24 @@ __int64 __fastcall SepMandatorySubProcessToken(_DWORD *Token, __int64 a2, __int6
   _BYTE *v15; // rcx
   unsigned int i; // edx
   _BYTE *Pool2; // rax
-  char *v19; // r14
-  char **TokenIntegrity; // rax
-  char **v21; // r15
+  unsigned __int8 *v19; // r14
+  PSID *TokenIntegrity; // rax
+  PSID *v21; // r15
   int v22; // eax
   int v23; // ecx
-  char *v24; // rax
+  PSID v24; // rax
   int v25; // eax
   unsigned int v26; // ecx
   int v27; // eax
   unsigned int v28; // eax
   __int64 v29; // rax
-  char **v30; // r8
+  _QWORD *v30; // r8
   __int64 v31; // rcx
   __int64 v32; // rdx
   int v33; // eax
-  char **v34; // r8
+  __int64 *v34; // r8
   __int64 v35; // r11
-  char *v36; // r9
+  __int64 v36; // r9
   int v37; // ecx
   __int64 v38; // r10
   int v39; // edx
@@ -57,10 +57,10 @@ __int64 __fastcall SepMandatorySubProcessToken(_DWORD *Token, __int64 a2, __int6
   unsigned int v44; // ecx
   int v45; // eax
   unsigned int v46; // eax
-  char v47[4]; // [rsp+30h] [rbp-99h] BYREF
+  BOOLEAN Dominates[4]; // [rsp+30h] [rbp-99h] BYREF
   int v48; // [rsp+34h] [rbp-95h] BYREF
   void *v49; // [rsp+38h] [rbp-91h] BYREF
-  char **v50; // [rsp+40h] [rbp-89h]
+  _QWORD *v50; // [rsp+40h] [rbp-89h]
   _BYTE SecurityDescriptor[128]; // [rsp+50h] [rbp-79h] BYREF
 
   v4 = 0;
@@ -69,7 +69,7 @@ __int64 __fastcall SepMandatorySubProcessToken(_DWORD *Token, __int64 a2, __int6
   v5 = a4;
   v6 = *(_DWORD *)(a3 + 1532);
   v49 = 0LL;
-  v47[0] = 0;
+  Dominates[0] = 0;
   SecurityObject = 0;
   v10 = 0LL;
   v11 = 0LL;
@@ -109,16 +109,16 @@ LABEL_12:
                 if ( !v15 )
                   goto LABEL_18;
                 v19 = v15 + 8;
-                TokenIntegrity = (char **)SepLocateTokenIntegrity(a2);
+                TokenIntegrity = (PSID *)SepLocateTokenIntegrity(a2);
                 v21 = TokenIntegrity;
                 if ( !TokenIntegrity )
                   goto LABEL_46;
-                SecurityObject = RtlSidDominates(*TokenIntegrity, v19, v47);
+                SecurityObject = RtlSidDominates(*TokenIntegrity, v19, Dominates);
                 if ( SecurityObject < 0 )
                   goto LABEL_20;
-                if ( v47[0] )
+                if ( Dominates[0] )
                 {
-                  v22 = (unsigned __int8)v19[1];
+                  v22 = v19[1];
                   if ( (_BYTE)v22 )
                     v23 = *(_DWORD *)&v19[4 * (v22 - 1) + 8];
                   else
@@ -127,7 +127,7 @@ LABEL_12:
                   v24 = *v21;
                   v5 = v50;
                   *v50 = v24;
-                  v25 = (unsigned __int8)v19[1];
+                  v25 = v19[1];
                   if ( (_BYTE)v25 )
                   {
                     v26 = *(_DWORD *)&v19[4 * (v25 - 1) + 8];
@@ -177,7 +177,7 @@ LABEL_18:
       {
         *(_DWORD *)(a2 + 200) &= ~0x1000u;
         v29 = SepLocateTokenIntegrity(a2);
-        v30 = (char **)v29;
+        v30 = (_QWORD *)v29;
         if ( v29 )
         {
           v31 = *(_QWORD *)(*(_QWORD *)(a2 + 216) + 48LL);
@@ -187,9 +187,9 @@ LABEL_18:
             if ( v35 )
             {
               v36 = *v34;
-              v37 = (unsigned __int8)(*v34)[1];
+              v37 = *(unsigned __int8 *)(*v34 + 1);
               if ( (_BYTE)v37 )
-                v4 = *(_DWORD *)&v36[4 * (v37 - 1) + 8];
+                v4 = *(_DWORD *)(v36 + 4LL * (unsigned int)(v37 - 1) + 8);
               v38 = *(_QWORD *)v35;
               v39 = *(unsigned __int8 *)(*(_QWORD *)v35 + 1LL);
               v40 = (unsigned int)(v39 - 1);
@@ -202,7 +202,7 @@ LABEL_18:
                 v42 = 0;
                 if ( (_BYTE)v39 )
                   v42 = *(_DWORD *)(v38 + 4 * v40 + 8);
-                *((_DWORD *)v36 + 2) = v42;
+                *(_DWORD *)(v36 + 8) = v42;
                 *v5 = *v34;
                 v43 = *(unsigned __int8 *)(*(_QWORD *)v35 + 1LL);
                 if ( (_BYTE)v43 )

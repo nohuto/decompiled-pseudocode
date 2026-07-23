@@ -1,12 +1,12 @@
 /*
- * XREFs of _PnpCtxRegEnumKey @ 0x1406D70F0
+ * XREFs of _PnpCtxRegEnumKey @ 0x1406D7228
  * Callers:
- *     _CmGetDeviceContainerIdFromBase @ 0x140486454 (_CmGetDeviceContainerIdFromBase.c)
- *     PiDqDeleteUserObjectFromLoadedHives @ 0x140631668 (PiDqDeleteUserObjectFromLoadedHives.c)
- *     PiCMDeleteDeviceKey @ 0x140646FBC (PiCMDeleteDeviceKey.c)
- *     PiCMEnumerateSubKeys @ 0x140647664 (PiCMEnumerateSubKeys.c)
- *     _CmEnumDevicesInContainerWithCallbackWorker @ 0x1406DA104 (_CmEnumDevicesInContainerWithCallbackWorker.c)
- *     _PnpGetGenericStorePropertyKeys @ 0x1406DC208 (_PnpGetGenericStorePropertyKeys.c)
+ *     _CmGetDeviceContainerIdFromBase @ 0x140513264 (_CmGetDeviceContainerIdFromBase.c)
+ *     PiDqDeleteUserObjectFromLoadedHives @ 0x14063171C (PiDqDeleteUserObjectFromLoadedHives.c)
+ *     PiCMDeleteDeviceKey @ 0x1406470A0 (PiCMDeleteDeviceKey.c)
+ *     PiCMEnumerateSubKeys @ 0x140647748 (PiCMEnumerateSubKeys.c)
+ *     _CmEnumDevicesInContainerWithCallbackWorker @ 0x1406DA23C (_CmEnumDevicesInContainerWithCallbackWorker.c)
+ *     _PnpGetGenericStorePropertyKeys @ 0x1406DC340 (_PnpGetGenericStorePropertyKeys.c)
  *     PipHardwareConfigExists @ 0x1407CEBD0 (PipHardwareConfigExists.c)
  *     PipCommitPendingOsExtensionResource @ 0x1407CF148 (PipCommitPendingOsExtensionResource.c)
  *     PipCommitPendingService @ 0x1407CF348 (PipCommitPendingService.c)

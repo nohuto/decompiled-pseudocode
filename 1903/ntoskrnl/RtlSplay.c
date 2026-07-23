@@ -22,7 +22,7 @@
 PRTL_SPLAY_LINKS __stdcall RtlSplay(PRTL_SPLAY_LINKS Links)
 {
   _RTL_SPLAY_LINKS *i; // r8
-  struct _RTL_SPLAY_LINKS *LeftChild; // rax
+  _RTL_SPLAY_LINKS *LeftChild; // rax
   _RTL_SPLAY_LINKS *Parent; // r9
   _RTL_SPLAY_LINKS *v5; // rax
   _RTL_SPLAY_LINKS *v6; // rax

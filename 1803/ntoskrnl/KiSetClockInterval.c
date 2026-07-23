@@ -13,64 +13,63 @@
 
 __int64 __fastcall KiSetClockInterval(unsigned int a1, char a2, __int64 a3)
 {
-  __int64 v3; // rbx
-  unsigned __int64 v6; // rdx
-  unsigned __int64 v7; // rax
-  unsigned int v8; // esi
+  unsigned __int64 Root; // rdx
+  BOOLEAN v7; // r8
+  unsigned __int64 v8; // rax
+  unsigned int v9; // esi
 
-  v3 = a3;
   if ( *(_BYTE *)(a3 + 24) )
-    RtlRbRemoveNode(&KiClockIntervalRequests, a3);
-  *(_DWORD *)(v3 + 28) = a1;
-  v6 = KiClockIntervalRequests;
-  if ( (qword_1403E4B50 & 1) != 0 && KiClockIntervalRequests )
-    v6 = (unsigned __int64)&KiClockIntervalRequests ^ KiClockIntervalRequests;
-  LOBYTE(a3) = 0;
-  if ( v6 )
+    RtlRbRemoveNode(&KiClockIntervalRequests, (PRTL_BALANCED_NODE)a3);
+  *(_DWORD *)(a3 + 28) = a1;
+  Root = (unsigned __int64)KiClockIntervalRequests.Root;
+  if ( (*(_BYTE *)&KiClockIntervalRequests.0 & 1) != 0 && KiClockIntervalRequests.Root )
+    Root = (unsigned __int64)&KiClockIntervalRequests ^ (unsigned __int64)KiClockIntervalRequests.Root;
+  v7 = 0;
+  if ( Root )
   {
     while ( 1 )
     {
-      if ( a1 < *(_DWORD *)(v6 + 28) )
+      if ( a1 < *(_DWORD *)(Root + 28) )
       {
-        v7 = *(_QWORD *)v6;
-        if ( (qword_1403E4B50 & 1) != 0 )
+        v8 = *(_QWORD *)Root;
+        if ( (*(_BYTE *)&KiClockIntervalRequests.0 & 1) != 0 )
         {
-          if ( !v7 )
+          if ( !v8 )
             goto LABEL_18;
-          v7 ^= v6;
+          v8 ^= Root;
         }
-        if ( !v7 )
+        if ( !v8 )
         {
 LABEL_18:
-          LOBYTE(a3) = 0;
+          v7 = 0;
           break;
         }
       }
       else
       {
-        v7 = *(_QWORD *)(v6 + 8);
-        if ( (qword_1403E4B50 & 1) != 0 )
+        v8 = *(_QWORD *)(Root + 8);
+        if ( (*(_BYTE *)&KiClockIntervalRequests.0 & 1) != 0 )
         {
-          if ( !v7 )
+          if ( !v8 )
             goto LABEL_12;
-          v7 ^= v6;
+          v8 ^= Root;
         }
-        if ( !v7 )
+        if ( !v8 )
         {
 LABEL_12:
-          LOBYTE(a3) = 1;
+          v7 = 1;
           break;
         }
       }
-      v6 = v7;
+      Root = v8;
     }
   }
-  RtlRbInsertNodeEx(&KiClockIntervalRequests, v6, a3, v3);
-  *(_BYTE *)(v3 + 24) = 1;
-  v8 = KiSetClockIntervalToMinimumRequested();
+  RtlRbInsertNodeEx(&KiClockIntervalRequests, (PRTL_BALANCED_NODE)Root, v7, (PRTL_BALANCED_NODE)a3);
+  *(_BYTE *)(a3 + 24) = 1;
+  v9 = KiSetClockIntervalToMinimumRequested();
   if ( a2 )
     KeNonHrTimeIncrement = a1;
-  if ( *(_DWORD *)(v3 + 32) )
+  if ( *(_DWORD *)(a3 + 32) )
     PoTraceSystemTimerResolutionKernel(a1);
-  return v8;
+  return v9;
 }

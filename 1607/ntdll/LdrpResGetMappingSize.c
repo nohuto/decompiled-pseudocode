@@ -1,39 +1,39 @@
 /*
- * XREFs of LdrpResGetMappingSize @ 0x180039860
+ * XREFs of LdrpResGetMappingSize @ 0x180039850
  * Callers:
- *     LdrpSearchResourceSection_U @ 0x1800303A8 (LdrpSearchResourceSection_U.c)
- *     LdrpResSearchResourceMappedFile @ 0x180037A78 (LdrpResSearchResourceMappedFile.c)
- *     LdrResSearchResource @ 0x180039310 (LdrResSearchResource.c)
- *     LdrResGetRCConfig @ 0x18003A820 (LdrResGetRCConfig.c)
+ *     LdrpSearchResourceSection_U @ 0x180030398 (LdrpSearchResourceSection_U.c)
+ *     LdrpResSearchResourceMappedFile @ 0x180037A68 (LdrpResSearchResourceMappedFile.c)
+ *     LdrResSearchResource @ 0x180039300 (LdrResSearchResource.c)
+ *     LdrResGetRCConfig @ 0x18003A810 (LdrResGetRCConfig.c)
  * Callees:
- *     LdrpGetFileSizeFromLoadAsDataTable @ 0x1800302B4 (LdrpGetFileSizeFromLoadAsDataTable.c)
- *     RtlImageNtHeaderEx @ 0x1800348B0 (RtlImageNtHeaderEx.c)
+ *     LdrpGetFileSizeFromLoadAsDataTable @ 0x1800302A4 (LdrpGetFileSizeFromLoadAsDataTable.c)
+ *     RtlImageNtHeaderEx @ 0x1800348A0 (RtlImageNtHeaderEx.c)
  *     ZwQueryVirtualMemory @ 0x1800A6880 (ZwQueryVirtualMemory.c)
- *     LdrpTraceLoadMUIDll @ 0x1800DC874 (LdrpTraceLoadMUIDll.c)
+ *     LdrpTraceLoadMUIDll @ 0x1800DC934 (LdrpTraceLoadMUIDll.c)
  */
 
 __int64 __fastcall LdrpResGetMappingSize(__int64 a1, unsigned __int64 *a2, int a3, char a4)
 {
   unsigned __int64 v7; // r12
   unsigned __int64 FileSizeFromLoadAsDataTable; // rdi
-  int VirtualMemory; // ebx
-  unsigned __int64 v10; // rsi
+  NTSTATUS VirtualMemory; // ebx
+  unsigned __int64 SizeOfImage; // rsi
   bool v11; // r15
-  _QWORD v13[2]; // [rsp+40h] [rbp-68h] BYREF
+  PVOID BaseAddress[2]; // [rsp+40h] [rbp-68h] BYREF
   int v14; // [rsp+50h] [rbp-58h] BYREF
   const wchar_t *v15; // [rsp+58h] [rbp-50h]
-  _BYTE v16[16]; // [rsp+60h] [rbp-48h] BYREF
+  _BYTE MemoryInformation[16]; // [rsp+60h] [rbp-48h] BYREF
   unsigned __int64 v17; // [rsp+70h] [rbp-38h]
-  __int64 v18; // [rsp+B0h] [rbp+8h] BYREF
+  PIMAGE_NT_HEADERS OutHeaders; // [rsp+B0h] [rbp+8h] BYREF
   char v19; // [rsp+C8h] [rbp+20h]
 
   v19 = a4;
-  LODWORD(v13[0]) = 3670070;
-  v13[1] = L"LdrpResGetMappingSize Enter";
+  LODWORD(BaseAddress[0]) = 3670070;
+  BaseAddress[1] = L"LdrpResGetMappingSize Enter";
   v14 = 3538996;
   v15 = L"LdrpResGetMappingSize Exit";
   if ( (MEMORY[0x7FFE0385] & 1) != 0 )
-    LdrpTraceLoadMUIDll(v13, MEMORY[0x7FFE0384]);
+    LdrpTraceLoadMUIDll(BaseAddress, MEMORY[0x7FFE0384]);
   if ( a1 && a2 )
   {
     v7 = 0LL;
@@ -47,27 +47,27 @@ __int64 __fastcall LdrpResGetMappingSize(__int64 a1, unsigned __int64 *a2, int a
       v7 = *a2;
     *a2 = 0LL;
     FileSizeFromLoadAsDataTable = 0LL;
-    v10 = 0LL;
+    SizeOfImage = 0LL;
     v11 = 0;
     if ( (a3 & 0x100) != 0 )
       v11 = (a1 & 1) == 0;
-    v13[0] = a1 & 0xFFFFFFFFFFFFFFFCuLL;
-    VirtualMemory = RtlImageNtHeaderEx(1, a1 & 0xFFFFFFFFFFFFFFFCuLL, 0LL, &v18);
+    BaseAddress[0] = (PVOID)(a1 & 0xFFFFFFFFFFFFFFFCuLL);
+    VirtualMemory = RtlImageNtHeaderEx(1u, (PVOID)(a1 & 0xFFFFFFFFFFFFFFFCuLL), 0LL, &OutHeaders);
     if ( VirtualMemory >= 0 )
     {
-      if ( *(_WORD *)(v18 + 24) == 267 || *(_WORD *)(v18 + 24) == 523 )
+      if ( OutHeaders->OptionalHeader.Magic == 267 || OutHeaders->OptionalHeader.Magic == 523 )
       {
-        v10 = *(unsigned int *)(v18 + 80);
+        SizeOfImage = OutHeaders->OptionalHeader.SizeOfImage;
       }
       else
       {
-        v10 = 0LL;
+        SizeOfImage = 0LL;
         VirtualMemory = -1073741701;
       }
     }
     if ( VirtualMemory < 0 )
       return (unsigned int)VirtualMemory;
-    if ( !v11 || !v10 )
+    if ( !v11 || !SizeOfImage )
     {
       if ( !v19 )
         FileSizeFromLoadAsDataTable = LdrpGetFileSizeFromLoadAsDataTable(a1);
@@ -77,11 +77,17 @@ __int64 __fastcall LdrpResGetMappingSize(__int64 a1, unsigned __int64 *a2, int a
       }
       else
       {
-        VirtualMemory = ZwQueryVirtualMemory(-1LL, v13[0], 3LL, v16);
+        VirtualMemory = ZwQueryVirtualMemory(
+                          (HANDLE)0xFFFFFFFFFFFFFFFFLL,
+                          BaseAddress[0],
+                          MemoryRegionInformation,
+                          MemoryInformation,
+                          0x20uLL,
+                          0LL);
         if ( VirtualMemory >= 0 )
           FileSizeFromLoadAsDataTable = v17;
       }
-      if ( FileSizeFromLoadAsDataTable || !v10 )
+      if ( FileSizeFromLoadAsDataTable || !SizeOfImage )
       {
 LABEL_30:
         if ( VirtualMemory < 0 )
@@ -100,7 +106,7 @@ LABEL_31:
       }
       VirtualMemory = 0;
     }
-    FileSizeFromLoadAsDataTable = v10;
+    FileSizeFromLoadAsDataTable = SizeOfImage;
     goto LABEL_30;
   }
   return 3221225485LL;

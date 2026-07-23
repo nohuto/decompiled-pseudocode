@@ -1,11 +1,11 @@
 /*
- * XREFs of MiUpdateSlabContextSlabSize @ 0x140707AA4
+ * XREFs of MiUpdateSlabContextSlabSize @ 0x14070C774
  * Callers:
- *     MmManagePartitionUpdateAttributes @ 0x14087D548 (MmManagePartitionUpdateAttributes.c)
+ *     MmManagePartitionUpdateAttributes @ 0x140883948 (MmManagePartitionUpdateAttributes.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     MiEnumerateSlabAllocatorsEx @ 0x1404A0C04 (MiEnumerateSlabAllocatorsEx.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     MiEnumerateSlabAllocatorsEx @ 0x14049A754 (MiEnumerateSlabAllocatorsEx.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 __int64 __fastcall MiUpdateSlabContextSlabSize(__int64 a1, __int64 a2, unsigned int a3)

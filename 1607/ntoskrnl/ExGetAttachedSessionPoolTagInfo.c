@@ -1,9 +1,9 @@
 /*
- * XREFs of ExGetAttachedSessionPoolTagInfo @ 0x1404992C8
+ * XREFs of ExGetAttachedSessionPoolTagInfo @ 0x140499D58
  * Callers:
- *     ExGetSessionPoolTagInformation @ 0x1404990F4 (ExGetSessionPoolTagInformation.c)
+ *     ExGetSessionPoolTagInformation @ 0x140499B84 (ExGetSessionPoolTagInformation.c)
  * Callees:
- *     ExGetSessionPoolTagInfo @ 0x14008672C (ExGetSessionPoolTagInfo.c)
+ *     ExGetSessionPoolTagInfo @ 0x14008801C (ExGetSessionPoolTagInfo.c)
  */
 
 __int64 __fastcall ExGetAttachedSessionPoolTagInfo(__int64 a1, unsigned int a2, _DWORD *a3, int a4)

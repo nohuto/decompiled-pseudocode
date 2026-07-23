@@ -147,7 +147,7 @@ LABEL_25:
   {
     v16 = v8 & 0x1F;
     LOBYTE(v17) = 1;
-    v10 = qword_14036C978 + 4 * (v8 >> 5);
+    v10 = (signed __int64)stru_14036C970.Buffer + 4 * (v8 >> 5);
     if ( v16 + 1 <= 0x20 )
     {
       v18 = 1 << v16;

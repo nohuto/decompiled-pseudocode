@@ -1,21 +1,26 @@
 /*
- * XREFs of NtQuerySemaphore @ 0x140B47AD0
+ * XREFs of NtQuerySemaphore @ 0x140B49860
  * Callers:
- *     DifNtQuerySemaphoreWrapper @ 0x140685860 (DifNtQuerySemaphoreWrapper.c)
+ *     DifNtQuerySemaphoreWrapper @ 0x140689440 (DifNtQuerySemaphoreWrapper.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     RtlReadULongFromUser @ 0x14077F590 (RtlReadULongFromUser.c)
- *     RtlWriteULongToUser @ 0x14077F7A0 (RtlWriteULongToUser.c)
- *     ProbeForWrite @ 0x1408F5D00 (ProbeForWrite.c)
- *     ObReferenceObjectByHandle @ 0x1408F9550 (ObReferenceObjectByHandle.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     RtlReadULongFromUser @ 0x140782090 (RtlReadULongFromUser.c)
+ *     RtlWriteULongToUser @ 0x1407822A0 (RtlWriteULongToUser.c)
+ *     ProbeForWrite @ 0x140925C90 (ProbeForWrite.c)
+ *     ObReferenceObjectByHandle @ 0x1409294E0 (ObReferenceObjectByHandle.c)
  */
 
-__int64 __fastcall NtQuerySemaphore(HANDLE Handle, int a2, int *a3, int a4, unsigned int *a5)
+NTSTATUS __cdecl NtQuerySemaphore(
+        HANDLE SemaphoreHandle,
+        SEMAPHORE_INFORMATION_CLASS SemaphoreInformationClass,
+        PVOID SemaphoreInformation,
+        ULONG SemaphoreInformationLength,
+        PULONG ReturnLength)
 {
   KPROCESSOR_MODE PreviousMode; // di
-  unsigned int *v10; // rbx
+  PULONG v10; // rbx
   int ULongFromUser; // eax
-  NTSTATUS v13; // esi
+  int v13; // esi
   int v14; // r15d
   int v15; // r12d
   PVOID Object; // [rsp+40h] [rbp-28h] BYREF
@@ -23,37 +28,37 @@ __int64 __fastcall NtQuerySemaphore(HANDLE Handle, int a2, int *a3, int a4, unsi
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   if ( PreviousMode )
   {
-    ProbeForWrite(a3, 8uLL, 4u);
-    v10 = a5;
-    if ( a5 )
+    ProbeForWrite(SemaphoreInformation, 8uLL, 4u);
+    v10 = ReturnLength;
+    if ( ReturnLength )
     {
-      ULongFromUser = RtlReadULongFromUser(a5);
-      RtlWriteULongToUser(a5, ULongFromUser);
+      ULongFromUser = RtlReadULongFromUser(ReturnLength);
+      RtlWriteULongToUser(ReturnLength, ULongFromUser);
     }
   }
   else
   {
-    v10 = a5;
+    v10 = ReturnLength;
   }
-  if ( a2 )
-    return 3221225475LL;
-  if ( a4 != 8 )
-    return 3221225476LL;
+  if ( SemaphoreInformationClass )
+    return -1073741821;
+  if ( SemaphoreInformationLength != 8 )
+    return -1073741820;
   Object = 0LL;
-  v13 = ObReferenceObjectByHandle(Handle, 1u, (POBJECT_TYPE)ExSemaphoreObjectType, PreviousMode, &Object, 0LL);
+  v13 = ObReferenceObjectByHandle(SemaphoreHandle, 1u, (POBJECT_TYPE)ExSemaphoreObjectType, PreviousMode, &Object, 0LL);
   if ( v13 >= 0 )
   {
     v14 = *((_DWORD *)Object + 1);
     v15 = *((_DWORD *)Object + 6);
     ObfDereferenceObject(Object);
     if ( PreviousMode )
-      RtlWriteULongToUser(a3, v14);
+      RtlWriteULongToUser(SemaphoreInformation, v14);
     else
-      *a3 = v14;
+      *(_DWORD *)SemaphoreInformation = v14;
     if ( PreviousMode )
-      RtlWriteULongToUser(a3 + 1, v15);
+      RtlWriteULongToUser((_DWORD *)SemaphoreInformation + 1, v15);
     else
-      a3[1] = v15;
+      *((_DWORD *)SemaphoreInformation + 1) = v15;
     if ( v10 )
     {
       if ( PreviousMode )
@@ -62,5 +67,5 @@ __int64 __fastcall NtQuerySemaphore(HANDLE Handle, int a2, int *a3, int a4, unsi
         *v10 = 8;
     }
   }
-  return (unsigned int)v13;
+  return v13;
 }

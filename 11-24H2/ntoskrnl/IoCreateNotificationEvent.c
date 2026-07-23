@@ -1,13 +1,13 @@
 /*
- * XREFs of IoCreateNotificationEvent @ 0x140A69020
+ * XREFs of IoCreateNotificationEvent @ 0x140A623D0
  * Callers:
- *     IoCaptureLiveDump @ 0x1404E6068 (IoCaptureLiveDump.c)
- *     HvlPhase2Initialize @ 0x140582B80 (HvlPhase2Initialize.c)
- *     DifIoCreateNotificationEventWrapper @ 0x1406274F0 (DifIoCreateNotificationEventWrapper.c)
+ *     IoCaptureLiveDump @ 0x1404DC764 (IoCaptureLiveDump.c)
+ *     HvlPhase2Initialize @ 0x14057FF00 (HvlPhase2Initialize.c)
+ *     DifIoCreateNotificationEventWrapper @ 0x140625AB0 (DifIoCreateNotificationEventWrapper.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140325680 (ObfDereferenceObject.c)
- *     ZwCreateEvent @ 0x1406A6D10 (ZwCreateEvent.c)
- *     ObReferenceObjectByHandle @ 0x14084AF40 (ObReferenceObjectByHandle.c)
+ *     ObfDereferenceObject @ 0x1402CE210 (ObfDereferenceObject.c)
+ *     ZwCreateEvent @ 0x1406A7CB0 (ZwCreateEvent.c)
+ *     ObReferenceObjectByHandle @ 0x140847200 (ObReferenceObjectByHandle.c)
  */
 
 PKEVENT __stdcall IoCreateNotificationEvent(PUNICODE_STRING EventName, PHANDLE EventHandle)

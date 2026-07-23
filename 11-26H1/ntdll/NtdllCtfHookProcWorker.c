@@ -1,5 +1,5 @@
 /*
- * XREFs of NtdllCtfHookProcWorker @ 0x18015EF20
+ * XREFs of NtdllCtfHookProcWorker @ 0x18015EE20
  * Callers:
  *     <none>
  * Callees:
@@ -9,5 +9,5 @@
 // attributes: thunk
 void __noreturn NtdllCtfHookProcWorker()
 {
-  off_1801E0310();
+  off_1801DF310();
 }

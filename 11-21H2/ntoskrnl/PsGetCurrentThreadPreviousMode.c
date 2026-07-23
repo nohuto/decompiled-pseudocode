@@ -8,5 +8,5 @@
 
 char PsGetCurrentThreadPreviousMode()
 {
-  return KeGetCurrentThread()->PreviousMode;
+  return *((_BYTE *)KeGetCurrentThread() + 562);
 }

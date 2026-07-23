@@ -1,20 +1,20 @@
 /*
- * XREFs of KiNormalPriorityReadyScan @ 0x140251B60
+ * XREFs of KiNormalPriorityReadyScan @ 0x140282170
  * Callers:
- *     KiRetireDpcList @ 0x140251EB0 (KiRetireDpcList.c)
+ *     KiRetireDpcList @ 0x1402824C0 (KiRetireDpcList.c)
  * Callees:
- *     KiAcquirePrcbLocksForIsolationUnit @ 0x140293190 (KiAcquirePrcbLocksForIsolationUnit.c)
- *     KiRemoveThreadFromReadyQueue @ 0x14030D494 (KiRemoveThreadFromReadyQueue.c)
- *     KiReadGuestSchedulerAssistPriority @ 0x14030EBE4 (KiReadGuestSchedulerAssistPriority.c)
- *     KiDeferredReadyThread @ 0x1403386A0 (KiDeferredReadyThread.c)
- *     KiSetPriorityBoost @ 0x140338930 (KiSetPriorityBoost.c)
- *     KiReleasePrcbLocksForIsolationUnit @ 0x140339330 (KiReleasePrcbLocksForIsolationUnit.c)
- *     KiInsertDeferredReadyList @ 0x1403CBE30 (KiInsertDeferredReadyList.c)
- *     KeYieldProcessorEx @ 0x1403F9C60 (KeYieldProcessorEx.c)
- *     KiShouldScanSharedReadyQueue @ 0x14045FF4C (KiShouldScanSharedReadyQueue.c)
- *     KiScanSharedReadyThreads @ 0x1404657E0 (KiScanSharedReadyThreads.c)
- *     KiShouldScanLocalReadyQueue @ 0x140469A40 (KiShouldScanLocalReadyQueue.c)
- *     EtwTraceAntiStarvationBoost @ 0x14064D430 (EtwTraceAntiStarvationBoost.c)
+ *     KiAcquirePrcbLocksForIsolationUnit @ 0x1402A2D90 (KiAcquirePrcbLocksForIsolationUnit.c)
+ *     KiReadGuestSchedulerAssistPriority @ 0x1402D8644 (KiReadGuestSchedulerAssistPriority.c)
+ *     KiRemoveThreadFromReadyQueue @ 0x1402D8C40 (KiRemoveThreadFromReadyQueue.c)
+ *     KiDeferredReadyThread @ 0x1402DFBE0 (KiDeferredReadyThread.c)
+ *     KiSetPriorityBoost @ 0x1402DFE70 (KiSetPriorityBoost.c)
+ *     KiReleasePrcbLocksForIsolationUnit @ 0x140318810 (KiReleasePrcbLocksForIsolationUnit.c)
+ *     KiInsertDeferredReadyList @ 0x1403BC660 (KiInsertDeferredReadyList.c)
+ *     KeYieldProcessorEx @ 0x1403EFB70 (KeYieldProcessorEx.c)
+ *     KiShouldScanSharedReadyQueue @ 0x140454E2C (KiShouldScanSharedReadyQueue.c)
+ *     KiScanSharedReadyThreads @ 0x14045BDC8 (KiScanSharedReadyThreads.c)
+ *     KiShouldScanLocalReadyQueue @ 0x140462854 (KiShouldScanLocalReadyQueue.c)
+ *     EtwTraceAntiStarvationBoost @ 0x14064BA40 (EtwTraceAntiStarvationBoost.c)
  */
 
 __int64 __fastcall KiNormalPriorityReadyScan(_DWORD *a1)
@@ -27,8 +27,8 @@ __int64 __fastcall KiNormalPriorityReadyScan(_DWORD *a1)
   int v7; // edi
   int v8; // ecx
   _DWORD *v9; // r9
-  __int64 v10; // r8
-  int v11; // edx
+  int v10; // edx
+  __int64 v11; // r8
   unsigned int v12; // edi
   unsigned int v13; // eax
   int v14; // edi
@@ -81,16 +81,16 @@ __int64 __fastcall KiNormalPriorityReadyScan(_DWORD *a1)
     {
       v8 = a1[8441];
       v9 = a1 + 8464;
-      v10 = 16LL;
       v38 = 0LL;
-      v11 = KiNormalPriorityBoostMaximumThreadReadyCount;
+      v10 = KiNormalPriorityBoostMaximumThreadReadyCount;
+      v11 = (unsigned int)KiPriorityBoostMaximumThreadScanCount;
       v40 = 0LL;
-      v35 = v8;
       v36 = KiCyclesPerClockQuantum * KiNormalPriorityBoostingPeriodMultiplier;
       v43 = MEMORY[0xFFFFF78000000320] - KiNormalPriorityBoostReadyTimeTicks;
       v12 = __ROR4__(v7, v8);
+      v35 = v8;
       v42 = KiNormalPriorityBoostMaximumThreadReadyCount;
-      v41 = 16;
+      v41 = KiPriorityBoostMaximumThreadScanCount;
       do
       {
         _BitScanForward(&v13, v12);
@@ -111,9 +111,9 @@ __int64 __fastcall KiNormalPriorityReadyScan(_DWORD *a1)
           v17 = (_QWORD *)*v17;
           if ( !v21 )
           {
-            GuestSchedulerAssistPriority = KiReadGuestSchedulerAssistPriority(v18, 0LL, v10, v20);
-            v11 = v42;
-            LODWORD(v10) = v41;
+            GuestSchedulerAssistPriority = KiReadGuestSchedulerAssistPriority(v18, 0LL, v11, v20);
+            v10 = v42;
+            LODWORD(v11) = v41;
             v19 = GuestSchedulerAssistPriority != *((_DWORD *)v18 + 256);
             v20 = v39;
           }
@@ -122,24 +122,24 @@ __int64 __fastcall KiNormalPriorityReadyScan(_DWORD *a1)
           {
             KiRemoveThreadFromReadyQueue(a1, v20, v15);
             KiInsertDeferredReadyList(&v38, v18);
-            v11 = v42;
-            LODWORD(v10) = v41;
+            v10 = v42;
+            LODWORD(v11) = v41;
             if ( v23 > 0 )
-              v11 = --v42;
+              v10 = --v42;
           }
-          v10 = (unsigned int)(v10 - 1);
-          v41 = v10;
+          v11 = (unsigned int)(v11 - 1);
+          v41 = v11;
         }
-        while ( v17 != v16 && v11 && (_DWORD)v10 );
+        while ( v17 != v16 && v10 && (_DWORD)v11 );
         v12 = v34;
         if ( !v34 )
           break;
-        if ( !v11 )
+        if ( !v10 )
           break;
         LOBYTE(v8) = v35;
         v9 = a1 + 8464;
       }
-      while ( (_DWORD)v10 );
+      while ( (_DWORD)v11 );
       v24 = v38;
       if ( v38 )
       {
@@ -171,10 +171,10 @@ __int64 __fastcall KiNormalPriorityReadyScan(_DWORD *a1)
         }
         while ( v24 );
         KiAcquirePrcbLocksForIsolationUnit(a1, 1LL, &v32);
-        LODWORD(v10) = v41;
+        LODWORD(v11) = v41;
         v15 = v37;
       }
-      if ( (_DWORD)v10 && v42 )
+      if ( (_DWORD)v11 && v42 )
       {
         v30 = 8;
       }

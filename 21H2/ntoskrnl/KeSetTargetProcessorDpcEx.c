@@ -1,12 +1,12 @@
 /*
- * XREFs of KeSetTargetProcessorDpcEx @ 0x1402D1640
+ * XREFs of KeSetTargetProcessorDpcEx @ 0x14024FAD0
  * Callers:
- *     KeMaskInterrupt @ 0x140376F40 (KeMaskInterrupt.c)
- *     HalpHvInitMcaPcrContext @ 0x1403C54F0 (HalpHvInitMcaPcrContext.c)
- *     KeSetTargetProcessorDpc @ 0x140519D70 (KeSetTargetProcessorDpc.c)
- *     HalpMcaInitializePcrContext @ 0x1409A023C (HalpMcaInitializePcrContext.c)
+ *     KeMaskInterrupt @ 0x140376A90 (KeMaskInterrupt.c)
+ *     HalpHvInitMcaPcrContext @ 0x1403C5920 (HalpHvInitMcaPcrContext.c)
+ *     KeSetTargetProcessorDpc @ 0x140519FB0 (KeSetTargetProcessorDpc.c)
+ *     HalpMcaInitializePcrContext @ 0x1409A116C (HalpMcaInitializePcrContext.c)
  * Callees:
- *     KeGetProcessorIndexFromNumber @ 0x14027BE80 (KeGetProcessorIndexFromNumber.c)
+ *     KeGetProcessorIndexFromNumber @ 0x140269E20 (KeGetProcessorIndexFromNumber.c)
  */
 
 NTSTATUS __stdcall KeSetTargetProcessorDpcEx(PKDPC Dpc, PPROCESSOR_NUMBER ProcNumber)

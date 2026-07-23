@@ -1,34 +1,32 @@
 /*
- * XREFs of PspWow64GetContextThread @ 0x1409A90C0
+ * XREFs of PspWow64GetContextThread @ 0x140992510
  * Callers:
- *     WbGetWowTrapFrame @ 0x140800AF0 (WbGetWowTrapFrame.c)
- *     WbSetWowTrapFrame @ 0x1408FE6DC (WbSetWowTrapFrame.c)
- *     NtQueryInformationThread @ 0x1409A7C80 (NtQueryInformationThread.c)
+ *     WbGetWowTrapFrame @ 0x140801230 (WbGetWowTrapFrame.c)
+ *     WbSetWowTrapFrame @ 0x140920FBC (WbSetWowTrapFrame.c)
+ *     NtQueryInformationThread @ 0x1409910D0 (NtQueryInformationThread.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     RtlInitializeExtendedContext2 @ 0x14027FCB0 (RtlInitializeExtendedContext2.c)
- *     RtlGetExtendedContextLength2 @ 0x14027FF40 (RtlGetExtendedContextLength2.c)
- *     PsMultiResumeThread @ 0x14046086C (PsMultiResumeThread.c)
- *     Feature_3952555321__private_IsEnabledDeviceUsageNoInline @ 0x1405E6EA0 (Feature_3952555321__private_IsEnabledDeviceUsageNoInline.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     _alloca_probe @ 0x1406B3C80 (_alloca_probe.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     PspWow64ReadOrWriteThreadCpuAreaOld @ 0x14077A5B0 (PspWow64ReadOrWriteThreadCpuAreaOld.c)
- *     PsWow64GetProcessMachine @ 0x1408FB0E0 (PsWow64GetProcessMachine.c)
- *     PspGetContextThreadInternal @ 0x1408FD570 (PspGetContextThreadInternal.c)
- *     RtlpWriteExtendedContext @ 0x1408FD85C (RtlpWriteExtendedContext.c)
- *     RtlCopyContext @ 0x1408FE830 (RtlCopyContext.c)
- *     RtlpReadExtendedContext @ 0x1408FF0C0 (RtlpReadExtendedContext.c)
- *     PsSuspendThread @ 0x14093A4F0 (PsSuspendThread.c)
- *     RtlpWow64SanitizeContextFlags @ 0x1409E6274 (RtlpWow64SanitizeContextFlags.c)
- *     RtlWow64GetCpuAreaEnabledFeatures @ 0x1409E6328 (RtlWow64GetCpuAreaEnabledFeatures.c)
- *     RtlpWow64CtxFromAmd64 @ 0x140A004D0 (RtlpWow64CtxFromAmd64.c)
- *     PspWow64ReadOrWriteThreadCpuArea @ 0x140AD198C (PspWow64ReadOrWriteThreadCpuArea.c)
+ *     RtlInitializeExtendedContext2 @ 0x140235240 (RtlInitializeExtendedContext2.c)
+ *     RtlGetExtendedContextLength2 @ 0x1402354D0 (RtlGetExtendedContextLength2.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     PsMultiResumeThread @ 0x140455D04 (PsMultiResumeThread.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     _alloca_probe @ 0x1406B4C20 (_alloca_probe.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     PsWow64GetProcessMachine @ 0x14091D9C0 (PsWow64GetProcessMachine.c)
+ *     PspGetContextThreadInternal @ 0x14091FE50 (PspGetContextThreadInternal.c)
+ *     RtlpWriteExtendedContext @ 0x14092013C (RtlpWriteExtendedContext.c)
+ *     RtlCopyContext @ 0x140921110 (RtlCopyContext.c)
+ *     RtlpReadExtendedContext @ 0x1409219A0 (RtlpReadExtendedContext.c)
+ *     RtlpWow64SanitizeContextFlags @ 0x1409E0B04 (RtlpWow64SanitizeContextFlags.c)
+ *     RtlWow64GetCpuAreaEnabledFeatures @ 0x1409E0BB8 (RtlWow64GetCpuAreaEnabledFeatures.c)
+ *     RtlpWow64CtxFromAmd64 @ 0x1409FD4A8 (RtlpWow64CtxFromAmd64.c)
+ *     PsSuspendThread @ 0x140A0CF10 (PsSuspendThread.c)
+ *     PspWow64ReadOrWriteThreadCpuArea @ 0x140ACFCF8 (PspWow64ReadOrWriteThreadCpuArea.c)
  */
 
 __int64 __fastcall PspWow64GetContextThread(
         __int64 a1,
-        unsigned int *a2,
+        unsigned __int64 a2,
         int a3,
         char a4,
         __int64 a5,
@@ -54,131 +52,123 @@ __int64 __fastcall PspWow64GetContextThread(
 {
   int ExtendedContextLength2; // ebx
   __int64 v28; // rdx
-  __int64 CpuAreaEnabledFeatures; // r13
+  ULONG64 CpuAreaEnabledFeatures; // r14
   __int64 v30; // rax
   unsigned __int64 v31; // rax
   void *v32; // rsp
-  bool *v33; // r12
+  _CONTEXT *v33; // r15
   __int64 v34; // rcx
-  int v35; // r15d
+  int v35; // r12d
   unsigned __int64 v36; // rcx
   unsigned __int64 v37; // rcx
   void *v38; // rsp
   void *v39; // rsp
   struct _KTHREAD *CurrentThread; // rax
-  __int64 v41; // rcx
-  int v42; // ebx
+  ULONG v41; // ecx
+  ULONG v42; // ebx
   unsigned __int64 v43; // rcx
   unsigned __int64 v44; // rcx
   void *v45; // rsp
   void *v46; // rsp
-  __int64 v47; // rax
-  int v48; // eax
-  unsigned int v49; // r14d
-  int v50; // eax
-  __int64 v51; // rcx
-  int v52; // r14d
-  int v53; // edx
-  int IsEnabledDeviceUsageNoInline; // eax
-  int v55; // eax
-  size_t Size; // [rsp+20h] [rbp-30h]
-  size_t Sizea; // [rsp+20h] [rbp-30h]
-  int v59; // [rsp+28h] [rbp-28h]
-  int v60; // [rsp+28h] [rbp-28h]
-  bool v61; // [rsp+50h] [rbp+0h] BYREF
-  char v62; // [rsp+51h] [rbp+1h]
-  char v63; // [rsp+52h] [rbp+2h]
-  unsigned int v64; // [rsp+54h] [rbp+4h] BYREF
-  unsigned int v65; // [rsp+58h] [rbp+8h] BYREF
-  char v66; // [rsp+5Ch] [rbp+Ch]
-  __int64 v67; // [rsp+60h] [rbp+10h] BYREF
-  ULONG_PTR BugCheckParameter1; // [rsp+68h] [rbp+18h]
-  unsigned int *v69; // [rsp+70h] [rbp+20h] BYREF
-  __int64 v70; // [rsp+78h] [rbp+28h] BYREF
-  int v71; // [rsp+80h] [rbp+30h]
-  bool *v72; // [rsp+88h] [rbp+38h]
-  __int64 v73; // [rsp+90h] [rbp+40h]
-  unsigned int *v74; // [rsp+98h] [rbp+48h]
-  __int64 v75; // [rsp+A0h] [rbp+50h] BYREF
-  _OWORD v76[2]; // [rsp+A8h] [rbp+58h] BYREF
+  ULONG64 v47; // rax
+  unsigned int v48; // r14d
+  NTSTATUS v49; // eax
+  __int64 P1Home_low; // rcx
+  int v51; // r12d
+  int v52; // edx
+  int v54; // [rsp+28h] [rbp-28h]
+  int v55; // [rsp+28h] [rbp-28h]
+  char v56; // [rsp+50h] [rbp+0h] BYREF
+  char v57; // [rsp+51h] [rbp+1h]
+  char v58; // [rsp+52h] [rbp+2h]
+  ULONG v59; // [rsp+54h] [rbp+4h] BYREF
+  ULONG ContextLength; // [rsp+58h] [rbp+8h] BYREF
+  char v61; // [rsp+5Ch] [rbp+Ch]
+  __int64 v62; // [rsp+60h] [rbp+10h] BYREF
+  PCONTEXT_EX ContextEx; // [rsp+68h] [rbp+18h] BYREF
+  PCONTEXT_EX v64; // [rsp+70h] [rbp+20h] BYREF
+  int v65; // [rsp+78h] [rbp+28h]
+  char *v66; // [rsp+80h] [rbp+30h]
+  ULONG_PTR BugCheckParameter1; // [rsp+88h] [rbp+38h]
+  __int64 v68; // [rsp+90h] [rbp+40h]
+  unsigned __int64 v69; // [rsp+98h] [rbp+48h]
+  PCONTEXT_EX v70; // [rsp+A0h] [rbp+50h] BYREF
+  _OWORD v71[2]; // [rsp+A8h] [rbp+58h] BYREF
 
-  v66 = a4;
-  v74 = a2;
-  v73 = a1;
-  v63 = 0;
+  v61 = a4;
+  v69 = a2;
+  v68 = a1;
+  v58 = 0;
   if ( a3 != 716 )
   {
     ExtendedContextLength2 = -1073741820;
-    goto LABEL_56;
+    goto LABEL_50;
   }
   BugCheckParameter1 = *(_QWORD *)(a1 + 544);
   if ( (unsigned __int16)PsWow64GetProcessMachine(BugCheckParameter1) != 332 )
   {
     ExtendedContextLength2 = -1073741811;
-    goto LABEL_56;
+    goto LABEL_50;
   }
-  v64 = 0x10000;
-  CpuAreaEnabledFeatures = RtlWow64GetCpuAreaEnabledFeatures(&v64);
+  v59 = 0x10000;
+  CpuAreaEnabledFeatures = RtlWow64GetCpuAreaEnabledFeatures(&v59);
   if ( a4 )
   {
     v30 = 0x7FFFFFFF0000LL;
-    if ( (unsigned __int64)a2 < 0x7FFFFFFF0000LL )
-      v30 = (__int64)a2;
-    v64 = *(_DWORD *)v30;
+    if ( a2 < 0x7FFFFFFF0000LL )
+      v30 = a2;
+    v59 = *(_DWORD *)v30;
   }
   else
   {
-    v64 = *a2;
+    v59 = *(_DWORD *)a2;
   }
   LOBYTE(v28) = a4;
-  ExtendedContextLength2 = RtlpWow64SanitizeContextFlags(&v64, v28);
+  ExtendedContextLength2 = RtlpWow64SanitizeContextFlags(&v59, v28);
   if ( ExtendedContextLength2 >= 0 )
   {
-    v65 = 0;
-    v69 = 0LL;
-    memset(v76, 0, sizeof(v76));
+    ContextLength = 0;
+    ContextEx = 0LL;
+    memset(v71, 0, sizeof(v71));
     if ( a4 )
     {
-      ExtendedContextLength2 = RtlGetExtendedContextLength2(v64, &v65, CpuAreaEnabledFeatures);
+      ExtendedContextLength2 = RtlGetExtendedContextLength2(v59, &ContextLength, CpuAreaEnabledFeatures);
       if ( ExtendedContextLength2 < 0 )
-        goto LABEL_56;
-      v31 = v65 + 15LL;
-      if ( v31 <= v65 )
+        goto LABEL_50;
+      v31 = ContextLength + 15LL;
+      if ( v31 <= ContextLength )
         v31 = 0xFFFFFFFFFFFFFF0LL;
       v32 = alloca(v31 & 0xFFFFFFFFFFFFFFF0uLL);
-      v33 = &v61;
-      memset_0(&v61, 0, v65);
-      ExtendedContextLength2 = RtlInitializeExtendedContext2((__int64)&v61, v64, &v69, CpuAreaEnabledFeatures);
+      v33 = (_CONTEXT *)&v56;
+      memset_0(&v56, 0, ContextLength);
+      ExtendedContextLength2 = RtlInitializeExtendedContext2((PCONTEXT)&v56, v59, &ContextEx, CpuAreaEnabledFeatures);
       if ( ExtendedContextLength2 < 0 )
-        goto LABEL_56;
-      ExtendedContextLength2 = RtlpReadExtendedContext(v34, 0, (__int64)v69, v64, (__int64)a2, v76);
+        goto LABEL_50;
+      ExtendedContextLength2 = RtlpReadExtendedContext(v34, 0, (__int64)ContextEx, v59, a2, v71);
       if ( ExtendedContextLength2 < 0 )
-        goto LABEL_56;
+        goto LABEL_50;
     }
     else
     {
-      v33 = (bool *)a2;
-      v69 = a2 + 179;
+      v33 = (_CONTEXT *)a2;
+      ContextEx = (PCONTEXT_EX)(a2 + 716);
     }
     v35 = CpuAreaEnabledFeatures != 0 ? 0x40 : 0;
-    v65 = 0;
-    ExtendedContextLength2 = RtlGetExtendedContextLength2(
-                               (unsigned int)(v35 + 1074790431),
-                               &v65,
-                               CpuAreaEnabledFeatures);
+    ContextLength = 0;
+    ExtendedContextLength2 = RtlGetExtendedContextLength2(v35 + 1074790431, &ContextLength, CpuAreaEnabledFeatures);
     if ( ExtendedContextLength2 >= 0 )
     {
-      v36 = v65 + 15LL;
-      if ( v36 <= v65 )
+      v36 = ContextLength + 15LL;
+      if ( v36 <= ContextLength )
         v36 = 0xFFFFFFFFFFFFFF0LL;
       v37 = v36 & 0xFFFFFFFFFFFFFFF0uLL;
       v38 = alloca(v37);
       v39 = alloca(v37);
-      v72 = &v61;
+      v66 = &v56;
       ExtendedContextLength2 = RtlInitializeExtendedContext2(
-                                 (__int64)&v61,
+                                 (PCONTEXT)&v56,
                                  v35 + 1074790431,
-                                 &v70,
+                                 &v64,
                                  CpuAreaEnabledFeatures);
       if ( ExtendedContextLength2 >= 0 )
       {
@@ -189,112 +179,97 @@ __int64 __fastcall PspWow64GetContextThread(
           if ( (int)PsSuspendThread(a1, 0LL) < 0 )
             KeLeaveCriticalRegion();
           else
-            v63 = 1;
+            v58 = 1;
         }
-        ExtendedContextLength2 = PspGetContextThreadInternal(a1, (__int64)v72, 0, 1, 1);
+        ExtendedContextLength2 = PspGetContextThreadInternal(a1, (__int64)&v56, 0, 1, 1);
         if ( ExtendedContextLength2 >= 0 )
         {
-          v41 = 65599LL;
+          v41 = 65599;
           if ( CpuAreaEnabledFeatures )
-            v41 = 65663LL;
-          LODWORD(v70) = v41;
-          v65 = 0;
-          ExtendedContextLength2 = RtlGetExtendedContextLength2(v41, &v65, CpuAreaEnabledFeatures);
+            v41 = 65663;
+          LODWORD(v64) = v41;
+          ContextLength = 0;
+          ExtendedContextLength2 = RtlGetExtendedContextLength2(v41, &ContextLength, CpuAreaEnabledFeatures);
           if ( ExtendedContextLength2 >= 0 )
           {
-            v61 = 0;
-            LODWORD(v67) = 0;
-            v42 = v65;
-            v43 = v65 + 15LL;
-            if ( v43 <= v65 )
+            v56 = 0;
+            LODWORD(v62) = 0;
+            v42 = ContextLength;
+            v43 = ContextLength + 15LL;
+            if ( v43 <= ContextLength )
               v43 = 0xFFFFFFFFFFFFFF0LL;
             v44 = v43 & 0xFFFFFFFFFFFFFFF0uLL;
             v45 = alloca(v44);
             v46 = alloca(v44);
-            if ( (unsigned int)Feature_3952555321__private_IsEnabledDeviceUsageNoInline() )
+            v47 = RtlWow64GetCpuAreaEnabledFeatures(&v64);
+            RtlInitializeExtendedContext2((PCONTEXT)&v56, (ULONG)v64, &v70, v47);
+            ExtendedContextLength2 = PspWow64ReadOrWriteThreadCpuArea(
+                                       BugCheckParameter1,
+                                       v42,
+                                       v54,
+                                       (__int64)&v62,
+                                       (__int64)&v56);
+            if ( ExtendedContextLength2 >= 0 )
             {
-              v47 = RtlWow64GetCpuAreaEnabledFeatures(&v70);
-              RtlInitializeExtendedContext2((__int64)&v61, v70, &v75, v47);
-              v48 = PspWow64ReadOrWriteThreadCpuArea(BugCheckParameter1, v42, v59, (__int64)&v67, (__int64)&v61);
-            }
-            else
-            {
-              LODWORD(Size) = v42;
-              v48 = PspWow64ReadOrWriteThreadCpuAreaOld(
-                      (_KPROCESS *)BugCheckParameter1,
-                      a1,
-                      1,
-                      &v61,
-                      Size,
-                      v59,
-                      &v67,
-                      &v61);
-            }
-            ExtendedContextLength2 = v48;
-            if ( v48 >= 0 )
-            {
-              v62 = 0;
-              if ( v61 )
+              v57 = 0;
+              if ( v56 )
               {
-                v49 = v64;
-                v50 = RtlCopyContext((__int64)v33, v64, (__int64)&v61);
-LABEL_48:
-                ExtendedContextLength2 = v50;
-                if ( v50 < 0 )
-                  goto LABEL_56;
-                goto LABEL_49;
+                v48 = v59;
+                v49 = RtlCopyContext(v33, v59, (PCONTEXT)&v56);
+LABEL_45:
+                ExtendedContextLength2 = v49;
+                if ( v49 < 0 )
+                  goto LABEL_50;
+                goto LABEL_46;
               }
-              if ( *((_WORD *)v72 + 28) == 35 )
+              if ( (_WORD)BugCheckParameter1 == 35 )
               {
-                v49 = v64;
-                v50 = RtlpWow64CtxFromAmd64(v64, v72, v33);
-                goto LABEL_48;
+                v48 = v59;
+                v49 = RtlpWow64CtxFromAmd64(v59, &v56, v33);
+                goto LABEL_45;
               }
-              v52 = v67;
-              if ( (v67 & 1) == 0 )
+              v51 = v62;
+              if ( (v62 & 1) == 0 )
               {
-                ExtendedContextLength2 = RtlpWow64CtxFromAmd64(CpuAreaEnabledFeatures != 0 ? 65656 : 65592, v72, &v61);
+                ExtendedContextLength2 = RtlpWow64CtxFromAmd64(CpuAreaEnabledFeatures != 0 ? 65656 : 65592, v66, &v56);
                 if ( ExtendedContextLength2 < 0 )
-                  goto LABEL_56;
+                  goto LABEL_50;
                 memset_0((char *)&a24 + 4, 0, 0x60uLL);
-                LODWORD(v67) = v52 | 1;
-                v62 = 1;
+                LODWORD(v62) = v51 | 1;
+                v57 = 1;
               }
-              v49 = v64;
-              ExtendedContextLength2 = RtlCopyContext((__int64)v33, v64, (__int64)&v61);
+              v48 = v59;
+              ExtendedContextLength2 = RtlCopyContext(v33, v59, (PCONTEXT)&v56);
               if ( ExtendedContextLength2 >= 0 )
               {
-                if ( (v49 & 0x40000000) != 0 )
+                if ( (v48 & 0x40000000) != 0 )
                 {
-                  v51 = *(unsigned int *)v33;
-                  *(_DWORD *)v33 &= 0x67FFFFFFu;
-                  v53 = *((_DWORD *)v72 + 12) ^ (v51 ^ *((_DWORD *)v72 + 12)) & 0x67FFFFFF;
-                  *(_DWORD *)v33 = v53;
-                  if ( (v53 & 0x18000000) == 0 )
-                    *(_DWORD *)v33 = v53 | 0x88000000;
+                  P1Home_low = LODWORD(v33->P1Home);
+                  LODWORD(v33->P1Home) &= 0x67FFFFFFu;
+                  v52 = *((_DWORD *)v66 + 12) ^ (P1Home_low ^ *((_DWORD *)v66 + 12)) & 0x67FFFFFF;
+                  LODWORD(v33->P1Home) = v52;
+                  if ( (v52 & 0x18000000) == 0 )
+                    LODWORD(v33->P1Home) = v52 | 0x88000000;
                 }
-LABEL_49:
-                if ( !v62
-                  || ((IsEnabledDeviceUsageNoInline = Feature_3952555321__private_IsEnabledDeviceUsageNoInline(),
-                       LODWORD(Sizea) = v65,
-                       !IsEnabledDeviceUsageNoInline)
-                    ? (v55 = PspWow64ReadOrWriteThreadCpuAreaOld(
-                               (_KPROCESS *)BugCheckParameter1,
-                               a1,
-                               0,
-                               &v61,
-                               Sizea,
-                               v60,
-                               &v67,
-                               0LL))
-                    : (v55 = PspWow64ReadOrWriteThreadCpuArea(BugCheckParameter1, v65, v60, (__int64)&v67, 0LL)),
-                      ExtendedContextLength2 = v55,
-                      v55 >= 0) )
+LABEL_46:
+                if ( !v57
+                  || (ExtendedContextLength2 = PspWow64ReadOrWriteThreadCpuArea(
+                                                 BugCheckParameter1,
+                                                 ContextLength,
+                                                 v55,
+                                                 (__int64)&v62,
+                                                 0LL),
+                      ExtendedContextLength2 >= 0) )
                 {
-                  if ( v66 )
+                  if ( v61 )
                   {
-                    ExtendedContextLength2 = RtlpWriteExtendedContext(v51, (__int64)(v74 + 179), v76, v49, (__int64)v69);
-                    v71 = ExtendedContextLength2;
+                    ExtendedContextLength2 = RtlpWriteExtendedContext(
+                                               P1Home_low,
+                                               v69 + 716,
+                                               v71,
+                                               v48,
+                                               (__int64)ContextEx);
+                    v65 = ExtendedContextLength2;
                   }
                 }
               }
@@ -304,8 +279,8 @@ LABEL_49:
       }
     }
   }
-LABEL_56:
-  if ( v63 )
+LABEL_50:
+  if ( v58 )
   {
     PsMultiResumeThread(a1, 0LL, 1u);
     KeLeaveCriticalRegion();

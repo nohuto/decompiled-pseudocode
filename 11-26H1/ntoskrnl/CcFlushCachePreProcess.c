@@ -1,27 +1,27 @@
 /*
- * XREFs of CcFlushCachePreProcess @ 0x1403991C8
+ * XREFs of CcFlushCachePreProcess @ 0x14039AF28
  * Callers:
- *     CcWriteBehindInternal @ 0x140384680 (CcWriteBehindInternal.c)
- *     CcWriteBehindAsync @ 0x140385C44 (CcWriteBehindAsync.c)
- *     CcFlushCachePriv @ 0x140398300 (CcFlushCachePriv.c)
- *     CcAsyncLazywriteWorkerMulti @ 0x1404BB630 (CcAsyncLazywriteWorkerMulti.c)
+ *     CcWriteBehindInternal @ 0x140386430 (CcWriteBehindInternal.c)
+ *     CcWriteBehindAsync @ 0x1403879F4 (CcWriteBehindAsync.c)
+ *     CcFlushCachePriv @ 0x14039A060 (CcFlushCachePriv.c)
+ *     CcAsyncLazywriteWorkerMulti @ 0x1404B4E10 (CcAsyncLazywriteWorkerMulti.c)
  * Callees:
- *     KeQueryPerformanceCounter @ 0x14021C3F0 (KeQueryPerformanceCounter.c)
- *     KeRcuReadUnlock @ 0x1402206B0 (KeRcuReadUnlock.c)
- *     KxWaitForLockOwnerShip @ 0x1402B29C0 (KxWaitForLockOwnerShip.c)
- *     KiAcquireQueuedSpinLockInstrumented @ 0x1402B4830 (KiAcquireQueuedSpinLockInstrumented.c)
- *     KeReleaseInStackQueuedSpinLock @ 0x1402B98C0 (KeReleaseInStackQueuedSpinLock.c)
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402B9F90 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     KeRcuReadLock @ 0x140384590 (KeRcuReadLock.c)
- *     MmFlushSection @ 0x14039AA40 (MmFlushSection.c)
- *     CcUnmapVacbArray @ 0x14039AEF0 (CcUnmapVacbArray.c)
- *     CcPerfLogFlushCache @ 0x1404A36A8 (CcPerfLogFlushCache.c)
- *     CcPerfLogFlushSection @ 0x1404AA1C8 (CcPerfLogFlushSection.c)
- *     CcSerializeWithLazyWriter @ 0x1404EA200 (CcSerializeWithLazyWriter.c)
- *     CcBoostLowPriorityWorkerThread @ 0x1404F13AC (CcBoostLowPriorityWorkerThread.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     CcSetTelemetryPeriodicTimer @ 0x140B5F268 (CcSetTelemetryPeriodicTimer.c)
+ *     KeQueryPerformanceCounter @ 0x14021DD80 (KeQueryPerformanceCounter.c)
+ *     KeRcuReadUnlock @ 0x140222040 (KeRcuReadUnlock.c)
+ *     KxWaitForLockOwnerShip @ 0x1402FD690 (KxWaitForLockOwnerShip.c)
+ *     KiAcquireQueuedSpinLockInstrumented @ 0x1402FF500 (KiAcquireQueuedSpinLockInstrumented.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x140304580 (KeReleaseInStackQueuedSpinLock.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140304C50 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KeRcuReadLock @ 0x140386340 (KeRcuReadLock.c)
+ *     MmFlushSection @ 0x14039C7A0 (MmFlushSection.c)
+ *     CcUnmapVacbArray @ 0x14039CC50 (CcUnmapVacbArray.c)
+ *     CcPerfLogFlushCache @ 0x14049D1B8 (CcPerfLogFlushCache.c)
+ *     CcPerfLogFlushSection @ 0x1404A3858 (CcPerfLogFlushSection.c)
+ *     CcSerializeWithLazyWriter @ 0x1404E35B0 (CcSerializeWithLazyWriter.c)
+ *     CcBoostLowPriorityWorkerThread @ 0x1404EA98C (CcBoostLowPriorityWorkerThread.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     CcSetTelemetryPeriodicTimer @ 0x140B623E8 (CcSetTelemetryPeriodicTimer.c)
  */
 
 char __fastcall CcFlushCachePreProcess(__int64 a1)
@@ -71,22 +71,22 @@ char __fastcall CcFlushCachePreProcess(__int64 a1)
     v28 = *(struct _KTHREAD **)(a1 + 96);
     if ( v28 )
     {
-      if ( v28 != (struct _KTHREAD *)&EmpParseLock.ForegroundLossTime )
+      if ( v28 != (struct _KTHREAD *)&EmpParseLock.InGlobalForegroundList )
         KeBugCheckEx(0x34u, 0x16C2uLL, 0xFFFFFFFFC0000420uLL, 0LL, 0LL);
     }
   }
-  ++EmpParseLock.WaitBlock[0].Thread;
-  if ( !BYTE1(EmpParseLock.Timer.DueTime.LowPart)
-    && !HIDWORD(EmpParseLock.AffinityVersion)
-    && LOBYTE(EmpParseLock.WaitListEntry.Flink)
-    && !LODWORD(EmpParseLock.AffinityVersion) )
+  ++EmpParseLock.WaitBlock[0].Object;
+  if ( !BYTE1(EmpParseLock.Timer.TimerListEntry.Flink)
+    && !HIDWORD(EmpParseLock.Affinity)
+    && *((_BYTE *)&EmpParseLock.SwapListEntry + 8)
+    && !LODWORD(EmpParseLock.Affinity) )
   {
-    CcSetTelemetryPeriodicTimer((LARGE_INTEGER)EmpParseLock.RelativeTimerBias);
+    CcSetTelemetryPeriodicTimer(*(LARGE_INTEGER *)&EmpParseLock.Timer.Header.Lock);
   }
   *v1 = 0;
   v8 = *(struct _KTHREAD **)(a1 + 96);
   *(_QWORD *)(a1 + 152) = 0LL;
-  if ( v8 == (struct _KTHREAD *)&EmpParseLock.ForegroundLossTime )
+  if ( v8 == (struct _KTHREAD *)&EmpParseLock.InGlobalForegroundList )
   {
     *(_QWORD *)(a1 + 176) = *((_QWORD *)v1 + 1);
     *v1 = -2147483626;
@@ -99,7 +99,7 @@ LABEL_13:
   *(_DWORD *)(a1 + 56) = v9;
   if ( v3 )
     *(_DWORD *)(a1 + 56) = v9 | 0x10;
-  if ( v8 == (struct _KTHREAD *)&EmpParseLock.AbCompletedIoQoSBoostCount )
+  if ( v8 == (struct _KTHREAD *)&EmpParseLock.880 )
   {
     *(_BYTE *)(a1 + 138) = 1;
     goto LABEL_13;
@@ -120,7 +120,7 @@ LABEL_14:
     KiRaiseIrqlProcessIrqlFlags(v12, v10);
   }
   v30.OldIrql = CurrentIrql;
-  if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+  if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || PopHibernateInProgress )
   {
     v14 = _InterlockedExchange64((volatile __int64 *)&CcMasterLock, (__int64)&v30);
     if ( v14 )
@@ -140,7 +140,7 @@ LABEL_14:
     *(_QWORD *)(a1 + 8) = v7;
     LockHandle.LockQueue.Next = 0LL;
     LockHandle.LockQueue.Lock = (unsigned __int64 *volatile)(v6 + 768);
-    if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+    if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || PopHibernateInProgress )
     {
       v16 = _InterlockedExchange64((volatile __int64 *)(v6 + 768), (__int64)&LockHandle);
       if ( v16 )
@@ -217,7 +217,7 @@ LABEL_109:
   KeRcuReadUnlock();
   if ( v15 && (*(_DWORD *)(v15 + 152) & 0x40000000) != 0 )
     *(_BYTE *)(a1 + 134) = 1;
-  if ( (xmmword_140FBFC10 & 0x20000) != 0 )
+  if ( (xmmword_140FC0C10 & 0x20000) != 0 )
     CcPerfLogFlushCache(
       *(_QWORD *)(a1 + 176),
       v15,
@@ -250,7 +250,7 @@ LABEL_45:
   {
 LABEL_93:
     *(_BYTE *)(a1 + 135) = 1;
-    if ( (xmmword_140FBFC10 & 0x20000) != 0 )
+    if ( (xmmword_140FC0C10 & 0x20000) != 0 )
       CcPerfLogFlushSection(*(_QWORD *)(a1 + 176), v15, *(_QWORD *)(a1 + 96), v2, *(_DWORD *)(a1 + 56));
     if ( v15 )
       CcUnmapVacbArray(v15, *(_QWORD *)(a1 + 96), v2, 0, 0, 0);

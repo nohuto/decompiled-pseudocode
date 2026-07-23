@@ -1,15 +1,15 @@
 /*
- * XREFs of HsaUpdateRemappingTableEntry @ 0x1404E48C0
+ * XREFs of HsaUpdateRemappingTableEntry @ 0x1404E4B00
  * Callers:
  *     <none>
  * Callees:
- *     RtlClearBits @ 0x140206E00 (RtlClearBits.c)
- *     RtlSetBits @ 0x140358F70 (RtlSetBits.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
- *     ExtEnvCriticalFailure @ 0x1404D539C (ExtEnvCriticalFailure.c)
- *     HsaGetDeviceAperture @ 0x1404E3784 (HsaGetDeviceAperture.c)
- *     HsaUpdateInterruptDestination @ 0x1404E4658 (HsaUpdateInterruptDestination.c)
+ *     RtlClearBits @ 0x1402AB730 (RtlClearBits.c)
+ *     RtlSetBits @ 0x140363CC0 (RtlSetBits.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
+ *     ExtEnvCriticalFailure @ 0x1404D55DC (ExtEnvCriticalFailure.c)
+ *     HsaGetDeviceAperture @ 0x1404E39C4 (HsaGetDeviceAperture.c)
+ *     HsaUpdateInterruptDestination @ 0x1404E4898 (HsaUpdateInterruptDestination.c)
  */
 
 char __fastcall HsaUpdateRemappingTableEntry(__int64 a1, char a2, unsigned int a3, _DWORD *a4)
@@ -19,7 +19,7 @@ char __fastcall HsaUpdateRemappingTableEntry(__int64 a1, char a2, unsigned int a
   __int64 DeviceAperture; // rax
   __int64 v9; // rcx
   __int128 *v10; // rsi
-  RTL_BITMAP *v11; // rcx
+  _RTL_BITMAP *v11; // rcx
   ULONG_PTR v12; // rdi
   int v13; // edx
   __int64 v15; // rax
@@ -48,7 +48,7 @@ char __fastcall HsaUpdateRemappingTableEntry(__int64 a1, char a2, unsigned int a
   {
     v10 = &HsaSharedRemappingTable;
   }
-  v11 = (RTL_BITMAP *)((char *)v10 + 24);
+  v11 = (_RTL_BITMAP *)((char *)v10 + 24);
   if ( a2 )
     RtlSetBits(v11, v5, 1u);
   else

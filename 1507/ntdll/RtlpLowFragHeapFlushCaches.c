@@ -96,7 +96,7 @@ LABEL_8:
           v16 = 983040LL;
         v17 = v16 + WORD1(v15->ImageBaseAddress);
         v3 += v17;
-        result = (struct _PEB *)RtlpFreeUserBlockToHeap(*(_QWORD *)(a1 + 24), v15);
+        result = (struct _PEB *)RtlpFreeUserBlockToHeap(*(PVOID *)(a1 + 24), v15);
         ++v11;
         if ( MEMORY[0x7FFE0380] )
         {

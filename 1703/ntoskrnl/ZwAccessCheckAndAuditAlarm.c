@@ -21,5 +21,5 @@ NTSTATUS __stdcall ZwAccessCheckAndAuditAlarm(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(SubsystemName, HandleId, ObjectTypeName);
+  return KiServiceInternal(SubsystemName);
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of AuthzBasepGetInternalSecurityAttributesCopyoutBufferSize @ 0x1407F4128
+ * XREFs of AuthzBasepGetInternalSecurityAttributesCopyoutBufferSize @ 0x1407F43F8
  * Callers:
- *     AuthzBasepQueryInternalSecurityAttributesToken @ 0x1407F409C (AuthzBasepQueryInternalSecurityAttributesToken.c)
+ *     AuthzBasepQueryInternalSecurityAttributesToken @ 0x1407F436C (AuthzBasepQueryInternalSecurityAttributesToken.c)
  * Callees:
- *     AuthzBasepGetInternalSecurityAttributeValueCopyoutBufferSize @ 0x140370D3C (AuthzBasepGetInternalSecurityAttributeValueCopyoutBufferSize.c)
+ *     AuthzBasepGetInternalSecurityAttributeValueCopyoutBufferSize @ 0x140370EDC (AuthzBasepGetInternalSecurityAttributeValueCopyoutBufferSize.c)
  */
 
 __int64 __fastcall AuthzBasepGetInternalSecurityAttributesCopyoutBufferSize(unsigned int *a1, unsigned int *a2)

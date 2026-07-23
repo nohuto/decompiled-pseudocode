@@ -1,7 +1,7 @@
 /*
- * XREFs of PsTransferProcessQuotaToSharedQuota @ 0x140126B34
+ * XREFs of PsTransferProcessQuotaToSharedQuota @ 0x1401270A4
  * Callers:
- *     AlpcpTransferQuotaMessage @ 0x140409210 (AlpcpTransferQuotaMessage.c)
+ *     AlpcpTransferQuotaMessage @ 0x1404080D0 (AlpcpTransferQuotaMessage.c)
  * Callees:
  *     <none>
  */

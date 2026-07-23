@@ -1,10 +1,10 @@
 /*
- * XREFs of PopPowerRequestCallbackExecutionRequired @ 0x1407A66D0
+ * XREFs of PopPowerRequestCallbackExecutionRequired @ 0x1407A68C0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     PopCheckResiliencyScenarios @ 0x140700E80 (PopCheckResiliencyScenarios.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     PopCheckResiliencyScenarios @ 0x140701090 (PopCheckResiliencyScenarios.c)
  *     PopReleasePolicyLock @ 0x140A87BA4 (PopReleasePolicyLock.c)
  *     PopAcquirePolicyLock @ 0x140A87BE4 (PopAcquirePolicyLock.c)
  */
@@ -15,9 +15,6 @@ __int64 __fastcall PopPowerRequestCallbackExecutionRequired(__int64 a1, int a2, 
   int v5; // ebx
   char v6; // al
   int v7; // eax
-  __int64 v8; // rdx
-  __int64 v9; // rcx
-  __int64 v10; // r8
 
   if ( a2 == 3 )
   {
@@ -42,12 +39,12 @@ __int64 __fastcall PopPowerRequestCallbackExecutionRequired(__int64 a1, int a2, 
 LABEL_7:
   PopAcquirePolicyLock(a1);
   if ( a3 )
-    v7 = v5 | dword_140C3CD24;
+    v7 = v5 | dword_140C3CCC4;
   else
-    v7 = ~v5 & dword_140C3CD24;
-  dword_140C3CD24 = v7;
+    v7 = ~v5 & dword_140C3CCC4;
+  dword_140C3CCC4 = v7;
   if ( !v7 )
-    dword_140C3CD40 = dword_140C3CD08;
+    dword_140C3CCE0 = dword_140C3CCA8;
   PopCheckResiliencyScenarios();
-  return PopReleasePolicyLock(v9, v8, v10);
+  return PopReleasePolicyLock();
 }

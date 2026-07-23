@@ -1,11 +1,11 @@
 /*
- * XREFs of PiDevCfgResetDeviceKeyCallback @ 0x1407AAFA0
+ * XREFs of PiDevCfgResetDeviceKeyCallback @ 0x1407ADFC0
  * Callers:
  *     <none>
  * Callees:
- *     _wcsicmp @ 0x140536570 (_wcsicmp.c)
- *     PiDevCfgCopyDeviceProperties @ 0x140779A34 (PiDevCfgCopyDeviceProperties.c)
- *     PiDevCfgCopyDeviceKeys @ 0x14098C464 (PiDevCfgCopyDeviceKeys.c)
+ *     _wcsicmp @ 0x1405389F0 (_wcsicmp.c)
+ *     PiDevCfgCopyDeviceProperties @ 0x14077C964 (PiDevCfgCopyDeviceProperties.c)
+ *     PiDevCfgCopyDeviceKeys @ 0x140A47944 (PiDevCfgCopyDeviceKeys.c)
  */
 
 __int64 __fastcall PiDevCfgResetDeviceKeyCallback(__int64 a1, __int64 a2, __int64 a3, __int64 a4, void *a5, __int64 a6)

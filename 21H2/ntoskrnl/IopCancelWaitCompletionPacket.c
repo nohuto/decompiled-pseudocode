@@ -1,14 +1,14 @@
 /*
- * XREFs of IopCancelWaitCompletionPacket @ 0x140202CF0
+ * XREFs of IopCancelWaitCompletionPacket @ 0x1402A7634
  * Callers:
- *     NtCancelWaitCompletionPacket @ 0x140202A60 (NtCancelWaitCompletionPacket.c)
- *     IopCloseWaitCompletionPacket @ 0x140359B90 (IopCloseWaitCompletionPacket.c)
+ *     NtCancelWaitCompletionPacket @ 0x1402A73F0 (NtCancelWaitCompletionPacket.c)
+ *     IopCloseWaitCompletionPacket @ 0x1403648E0 (IopCloseWaitCompletionPacket.c)
  * Callees:
- *     KeDeregisterObjectNotification @ 0x140202E60 (KeDeregisterObjectNotification.c)
- *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
- *     KeRemoveQueueEntry @ 0x1402C3E10 (KeRemoveQueueEntry.c)
- *     ObpGetWaitObject @ 0x1403456F0 (ObpGetWaitObject.c)
- *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
+ *     KxReleaseSpinLock @ 0x140212140 (KxReleaseSpinLock.c)
+ *     KeRemoveQueueEntry @ 0x140242390 (KeRemoveQueueEntry.c)
+ *     KeDeregisterObjectNotification @ 0x1402A77A0 (KeDeregisterObjectNotification.c)
+ *     ObpGetWaitObject @ 0x140350440 (ObpGetWaitObject.c)
+ *     ObfDereferenceObjectWithTag @ 0x140355E90 (ObfDereferenceObjectWithTag.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
@@ -32,9 +32,9 @@ char __fastcall IopCancelWaitCompletionPacket(_QWORD *Object, char a2, unsigned 
   v8 = 0LL;
   if ( WaitObject != &ObpDefaultObject )
     v8 = WaitObject;
-  v9 = KeDeregisterObjectNotification(v8, Object);
+  v9 = KeDeregisterObjectNotification(v8);
   v10 = (void *)Object[11];
-  if ( !v9 && (!a2 || !(unsigned __int8)KeRemoveQueueEntry(Object[11], Object)) )
+  if ( !v9 && (!a2 || !KeRemoveQueueEntry(Object[11], Object)) )
     return 0;
   Object[11] = 0LL;
   *((_BYTE *)Object + 104) = 0;

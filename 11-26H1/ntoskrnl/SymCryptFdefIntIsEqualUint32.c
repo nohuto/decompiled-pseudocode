@@ -1,9 +1,9 @@
 /*
- * XREFs of SymCryptFdefIntIsEqualUint32 @ 0x140570CB4
+ * XREFs of SymCryptFdefIntIsEqualUint32 @ 0x14056FE94
  * Callers:
- *     SymCryptIntIsEqualUint32 @ 0x14055C334 (SymCryptIntIsEqualUint32.c)
+ *     SymCryptIntIsEqualUint32 @ 0x14055E81C (SymCryptIntIsEqualUint32.c)
  * Callees:
- *     SymCryptFdefRawIsEqualUint32 @ 0x140570E60 (SymCryptFdefRawIsEqualUint32.c)
+ *     SymCryptFdefRawIsEqualUint32 @ 0x140570040 (SymCryptFdefRawIsEqualUint32.c)
  */
 
 __int64 __fastcall SymCryptFdefIntIsEqualUint32(__int64 a1, unsigned int a2)

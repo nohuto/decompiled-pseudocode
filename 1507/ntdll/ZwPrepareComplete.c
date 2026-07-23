@@ -6,11 +6,11 @@
  *     <none>
  */
 
-__int64 ZwPrepareComplete()
+NTSTATUS __cdecl ZwPrepareComplete(HANDLE EnlistmentHandle, PLARGE_INTEGER TmVirtualClock)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 288LL;
+  result = 288;
   __asm { syscall; Low latency system call }
   return result;
 }

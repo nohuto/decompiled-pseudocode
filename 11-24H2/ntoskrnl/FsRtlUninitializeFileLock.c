@@ -1,40 +1,40 @@
 /*
- * XREFs of FsRtlUninitializeFileLock @ 0x1403DF750
+ * XREFs of FsRtlUninitializeFileLock @ 0x1403BF440
  * Callers:
- *     FsRtlFreeFileLock @ 0x1403DF720 (FsRtlFreeFileLock.c)
+ *     FsRtlFreeFileLock @ 0x1403BF410 (FsRtlFreeFileLock.c)
  * Callees:
- *     ExFreeToNPagedLookasideList @ 0x14024A9C0 (ExFreeToNPagedLookasideList.c)
- *     RtlDeleteNoSplay @ 0x14024AE90 (RtlDeleteNoSplay.c)
- *     KeReleaseSpinLock @ 0x14024DD30 (KeReleaseSpinLock.c)
- *     KxAcquireSpinLock @ 0x140254AE0 (KxAcquireSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140254B20 (KeAcquireSpinLockRaiseToDpc.c)
- *     KxReleaseSpinLock @ 0x140279CC0 (KxReleaseSpinLock.c)
- *     KeAcquireQueuedSpinLock @ 0x1402D6AF0 (KeAcquireQueuedSpinLock.c)
- *     KeReleaseQueuedSpinLock @ 0x140322C90 (KeReleaseQueuedSpinLock.c)
- *     FsRtlCompleteLockIrpReal @ 0x1403DBA48 (FsRtlCompleteLockIrpReal.c)
+ *     KxReleaseSpinLock @ 0x14022F250 (KxReleaseSpinLock.c)
+ *     KeReleaseSpinLock @ 0x14027E340 (KeReleaseSpinLock.c)
+ *     KxAcquireSpinLock @ 0x1402850F0 (KxAcquireSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140285130 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KeReleaseQueuedSpinLock @ 0x1402CB820 (KeReleaseQueuedSpinLock.c)
+ *     ExFreeToNPagedLookasideList @ 0x1402E4C00 (ExFreeToNPagedLookasideList.c)
+ *     RtlDeleteNoSplay @ 0x1402E50D0 (RtlDeleteNoSplay.c)
+ *     KeAcquireQueuedSpinLock @ 0x140357D70 (KeAcquireQueuedSpinLock.c)
+ *     FsRtlCompleteLockIrpReal @ 0x1403CCD18 (FsRtlCompleteLockIrpReal.c)
  */
 
 void __stdcall FsRtlUninitializeFileLock(PFILE_LOCK FileLock)
 {
   char *LockInformation; // rbx
   KIRQL v3; // r12
-  RTL_SPLAY_LINKS **v4; // r14
-  RTL_SPLAY_LINKS *v5; // rdi
+  _RTL_SPLAY_LINKS **v4; // r14
+  _RTL_SPLAY_LINKS *v5; // rdi
   PRTL_SPLAY_LINKS *v6; // rsi
   PRTL_SPLAY_LINKS v7; // rdi
   _QWORD *i; // rdi
-  RTL_SPLAY_LINKS *v9; // rsi
+  _RTL_SPLAY_LINKS *v9; // rsi
   _RTL_SPLAY_LINKS *Parent; // rdx
   __int64 v11; // rsi
   KIRQL v12; // dl
-  int v13; // [rsp+60h] [rbp+8h] BYREF
+  char v13; // [rsp+60h] [rbp+8h] BYREF
 
   LockInformation = (char *)FileLock->LockInformation;
   if ( LockInformation )
   {
     v3 = KeAcquireSpinLockRaiseToDpc(&FsRtlFileLockCancelCollideLock);
     KxAcquireSpinLock((PKSPIN_LOCK)LockInformation + 3);
-    v4 = (RTL_SPLAY_LINKS **)(LockInformation + 32);
+    v4 = (_RTL_SPLAY_LINKS **)(LockInformation + 32);
     while ( 1 )
     {
       v5 = *v4;
@@ -47,10 +47,10 @@ void __stdcall FsRtlUninitializeFileLock(PFILE_LOCK FileLock)
         if ( !v9->Parent )
           break;
         v9->Parent = Parent->Parent;
-        ExFreeToNPagedLookasideList(&FsRtlSharedLockLookasideList, Parent);
+        ExFreeToNPagedLookasideList((PNPAGED_LOOKASIDE_LIST)&FsRtlSharedLockLookasideList, Parent);
       }
       RtlDeleteNoSplay(v5, (PRTL_SPLAY_LINKS *)LockInformation + 4);
-      ExFreeToNPagedLookasideList(&FsRtlLockTreeNodeLookasideList, &v5[-1]);
+      ExFreeToNPagedLookasideList((PNPAGED_LOOKASIDE_LIST)&FsRtlLockTreeNodeLookasideList, &v5[-1]);
     }
     v6 = (PRTL_SPLAY_LINKS *)(LockInformation + 40);
     while ( 1 )
@@ -80,7 +80,7 @@ void __stdcall FsRtlUninitializeFileLock(PFILE_LOCK FileLock)
         KeReleaseQueuedSpinLock(7uLL, v12);
         KeReleaseSpinLock(&FsRtlFileLockCancelCollideLock, v3);
         *(_QWORD *)(v11 + 56) = 0LL;
-        FsRtlCompleteLockIrpReal(*((_QWORD *)LockInformation + 1), i[2], (IRP *)v11, -1073741698, &v13, 0LL);
+        FsRtlCompleteLockIrpReal(*((_QWORD *)LockInformation + 1), i[2], v11, 3221225598LL, &v13, 0LL);
         ExFreeToNPagedLookasideList(&FsRtlWaitingLockLookasideList, i);
         v3 = KeAcquireSpinLockRaiseToDpc(&FsRtlFileLockCancelCollideLock);
       }

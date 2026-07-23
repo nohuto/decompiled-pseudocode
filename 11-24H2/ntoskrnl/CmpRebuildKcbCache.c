@@ -1,18 +1,18 @@
 /*
- * XREFs of CmpRebuildKcbCache @ 0x14087B4A8
+ * XREFs of CmpRebuildKcbCache @ 0x14087F358
  * Callers:
- *     CmpSaveBootControlSet @ 0x1407CC764 (CmpSaveBootControlSet.c)
- *     CmpRefreshHive @ 0x1407CEAF0 (CmpRefreshHive.c)
- *     CmpCloneHwProfile @ 0x1407D305C (CmpCloneHwProfile.c)
- *     CmpSyncKcbCacheForHive @ 0x1407DBE60 (CmpSyncKcbCacheForHive.c)
- *     CmpCommitDiscardReplacePost @ 0x140870A94 (CmpCommitDiscardReplacePost.c)
- *     CmpTransMgrFreeVolatileData @ 0x14087B284 (CmpTransMgrFreeVolatileData.c)
+ *     CmpSaveBootControlSet @ 0x1407CCC54 (CmpSaveBootControlSet.c)
+ *     CmpRefreshHive @ 0x1407CEFE0 (CmpRefreshHive.c)
+ *     CmpCloneHwProfile @ 0x1407D354C (CmpCloneHwProfile.c)
+ *     CmpSyncKcbCacheForHive @ 0x1407DC3B0 (CmpSyncKcbCacheForHive.c)
+ *     CmpCommitDiscardReplacePost @ 0x140874DC4 (CmpCommitDiscardReplacePost.c)
+ *     CmpTransMgrFreeVolatileData @ 0x14087F134 (CmpTransMgrFreeVolatileData.c)
  * Callees:
- *     HvpGetCellFlat @ 0x140874470 (HvpGetCellFlat.c)
- *     HvpGetCellPaged @ 0x1408744C0 (HvpGetCellPaged.c)
- *     HvpReleaseCellPaged @ 0x140875760 (HvpReleaseCellPaged.c)
- *     CmpRebuildKcbCacheFromNode @ 0x14087C024 (CmpRebuildKcbCacheFromNode.c)
- *     HvpReleaseCellFlat @ 0x140884BB0 (HvpReleaseCellFlat.c)
+ *     HvpGetCellFlat @ 0x1408787A0 (HvpGetCellFlat.c)
+ *     HvpGetCellPaged @ 0x1408787F0 (HvpGetCellPaged.c)
+ *     HvpReleaseCellPaged @ 0x140879A90 (HvpReleaseCellPaged.c)
+ *     CmpRebuildKcbCacheFromNode @ 0x14087FED4 (CmpRebuildKcbCacheFromNode.c)
+ *     HvpReleaseCellFlat @ 0x140888A60 (HvpReleaseCellFlat.c)
  */
 
 char __fastcall CmpRebuildKcbCache(ULONG_PTR BugCheckParameter3)

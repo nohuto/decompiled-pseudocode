@@ -43,7 +43,7 @@ __int64 __fastcall FlushLookUpTableBucket(__int64 a1, unsigned int a2)
   unsigned __int8 v21; // bp
   unsigned int v22; // edx
   __int64 v23; // rcx
-  unsigned __int64 v24; // rsi
+  __int64 v24; // rsi
   int v25; // eax
   unsigned int v26; // ecx
   __int64 v27; // rdx
@@ -158,7 +158,7 @@ LABEL_9:
     v38 = v23;
     if ( v15 )
       break;
-    v24 = (unsigned __int64)&v20->LockEntries[v23];
+    v24 = (__int64)&v20->LockEntries[v23];
     v22 &= ~(1 << v23);
     if ( (*(_BYTE *)(v24 + 26) & 1) != 0
       && (*(_DWORD *)(v24 + 32) & 1) == 0
@@ -172,14 +172,14 @@ LABEL_9:
         {
           *(_BYTE *)(v24 + 32) |= 2u;
           if ( *(__int64 *)(v24 + 32) < 0 )
-            KiAbEntryRemoveFromTree(v24);
+            KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)v24);
           v25 = *(_DWORD *)(v24 + 88) & 0x1FFFF;
           v26 = *(_DWORD *)(v24 + 88) & 0xFFFE0000;
           *(_BYTE *)(v24 + 25) &= ~1u;
           v37 = v25;
           *(_DWORD *)(v24 + 88) = v26;
           *(_QWORD *)(v24 + 32) = 0LL;
-          v27 = (__int64)(v24 - (unsigned __int64)v20->LockEntries) / 96;
+          v27 = (signed __int64)(v24 - (unsigned __int64)v20->LockEntries) / 96;
           if ( v21 == 1 )
             v20->AbEntrySummary |= 1 << v27;
           else

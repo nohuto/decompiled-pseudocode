@@ -1,26 +1,26 @@
 /*
- * XREFs of DifNtAlpcSendWaitReceivePortWrapper @ 0x14066D660
+ * XREFs of DifNtAlpcSendWaitReceivePortWrapper @ 0x140671240
  * Callers:
  *     <none>
  * Callees:
- *     DifGetReturnAddressForWrappers @ 0x140260EA4 (DifGetReturnAddressForWrappers.c)
- *     ExReleaseRundownProtection_0 @ 0x140266240 (ExReleaseRundownProtection_0.c)
- *     ExAcquireRundownProtection_0 @ 0x1402F0590 (ExAcquireRundownProtection_0.c)
- *     DifGetAPIThunkContextById @ 0x1404C17A4 (DifGetAPIThunkContextById.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     NtAlpcSendWaitReceivePort @ 0x1408F9100 (NtAlpcSendWaitReceivePort.c)
+ *     DifGetReturnAddressForWrappers @ 0x14026040C (DifGetReturnAddressForWrappers.c)
+ *     ExReleaseRundownProtection_0 @ 0x1402657B0 (ExReleaseRundownProtection_0.c)
+ *     ExAcquireRundownProtection_0 @ 0x1402D2610 (ExAcquireRundownProtection_0.c)
+ *     DifGetAPIThunkContextById @ 0x1404BAFF4 (DifGetAPIThunkContextById.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     NtAlpcSendWaitReceivePort @ 0x140929090 (NtAlpcSendWaitReceivePort.c)
  */
 
 __int64 __fastcall DifNtAlpcSendWaitReceivePortWrapper(
-        __int64 a1,
-        int a2,
-        __int64 a3,
-        __int64 a4,
-        volatile void *Address,
-        __int64 a6,
-        __int64 a7,
-        __int64 a8)
+        void *a1,
+        ULONG a2,
+        _PORT_MESSAGE *a3,
+        _ALPC_MESSAGE_ATTRIBUTES *a4,
+        _PORT_MESSAGE *ReceiveMessage,
+        ULONG_PTR *BufferLength,
+        _ALPC_MESSAGE_ATTRIBUTES *ReceiveMessageAttributes,
+        LARGE_INTEGER *Timeout)
 {
   __int128 *APIThunkContextById; // rax
   __int64 v12; // rdx
@@ -33,8 +33,8 @@ __int64 __fastcall DifNtAlpcSendWaitReceivePortWrapper(
   BOOLEAN v19; // di
   __int128 *j; // rbx
   _QWORD v22[7]; // [rsp+48h] [rbp-39h] BYREF
-  int v23; // [rsp+80h] [rbp-1h]
-  __int64 v24; // [rsp+88h] [rbp+7h]
+  ULONG v23; // [rsp+80h] [rbp-1h]
+  void *v24; // [rsp+88h] [rbp+7h]
   unsigned int v25; // [rsp+90h] [rbp+Fh]
   void *retaddr; // [rsp+C0h] [rbp+3Fh]
 
@@ -58,10 +58,10 @@ __int64 __fastcall DifNtAlpcSendWaitReceivePortWrapper(
 LABEL_7:
   v16 = 0;
   v24 = a1;
-  v22[4] = Address;
-  v22[3] = a6;
-  v22[2] = a7;
-  v22[1] = a8;
+  v22[4] = ReceiveMessage;
+  v22[3] = BufferLength;
+  v22[2] = ReceiveMessageAttributes;
+  v22[1] = Timeout;
   v23 = a2;
   v22[6] = a3;
   v22[5] = a4;
@@ -77,7 +77,7 @@ LABEL_7:
       ExReleaseRundownProtection_0(&DifRebootlessRundown);
   }
 LABEL_17:
-  v25 = NtAlpcSendWaitReceivePort(a1, a2, a3, a4, Address, a6, a7, a8);
+  v25 = NtAlpcSendWaitReceivePort(a1, a2, a3, a4, ReceiveMessage, BufferLength, ReceiveMessageAttributes, Timeout);
   if ( v13 )
   {
     if ( (v19 = 0, !VfDifRunningWithoutReboot) && (VfOptionFlags & 0x800) == 0

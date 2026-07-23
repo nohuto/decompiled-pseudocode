@@ -28,18 +28,19 @@ char __fastcall PopCheckAndHandleThermalConditions(__int64 a1)
   char v5; // dl
   char result; // al
   __int64 v7; // rdx
-  __int64 v8; // rcx
-  __int64 v9; // r8
-  __int64 v10; // rdx
-  __int64 v11; // rcx
-  __int64 v12; // r8
-  char v13; // al
-  int v14; // eax
-  char v15; // al
-  char v16; // bl
-  unsigned __int64 v17; // [rsp+30h] [rbp-38h] BYREF
-  int v18; // [rsp+38h] [rbp-30h]
-  _QWORD v19[4]; // [rsp+40h] [rbp-28h] BYREF
+  __int64 v8; // r8
+  __int64 v9; // rdx
+  __int64 v10; // r8
+  __int64 v11; // rdx
+  __int64 v12; // rcx
+  __int64 v13; // r8
+  char v14; // al
+  int v15; // eax
+  char v16; // al
+  char v17; // bl
+  unsigned __int64 v18; // [rsp+30h] [rbp-38h] BYREF
+  int v19; // [rsp+38h] [rbp-30h]
+  _QWORD v20[4]; // [rsp+40h] [rbp-28h] BYREF
 
   v1 = *(_QWORD *)(a1 + 48);
   v2 = 0;
@@ -64,16 +65,16 @@ char __fastcall PopCheckAndHandleThermalConditions(__int64 a1)
   PopAcquirePolicyLock();
   if ( v3 )
   {
-    if ( byte_1402DDF66 && byte_1402DDF68 && (v8 = 2LL, byte_1402DDF76 == 2) )
+    if ( byte_1402DDF66 && byte_1402DDF68 && byte_1402DDF76 == 2 )
     {
       PopThermalHibernateInitiated = 1;
-      PopThermalStandbyEndTracking(2LL, v7, v9);
-      v17 = 0xC000000400000003uLL;
-      v19[0] = 0x8000000001LL;
-      v18 = 0;
-      v19[1] = 0LL;
-      v19[2] = 0LL;
-      PopExecutePowerAction((unsigned int)v19, 0, (unsigned int)&v17, 5, 1);
+      PopThermalStandbyEndTracking(2LL, v7, v8);
+      v18 = 0xC000000400000003uLL;
+      v20[0] = 0x8000000001LL;
+      v19 = 0;
+      v20[1] = 0LL;
+      v20[2] = 0LL;
+      PopExecutePowerAction((unsigned int)v20, 0, (unsigned int)&v18, 5, 1);
     }
     else
     {
@@ -85,13 +86,13 @@ char __fastcall PopCheckAndHandleThermalConditions(__int64 a1)
     PopThermalWriteShutdownToRegistry();
     if ( !PopThermalCriticalShutdownInitiated )
     {
-      PopThermalStandbyEndTracking(3LL, v7, v9);
+      PopThermalStandbyEndTracking(3LL, v9, v10);
       PopThermalCriticalShutdownInitiated = 1;
       if ( PopThermalCriticalShutdownEnabled )
         PopCriticalShutdown();
     }
   }
-  PopReleasePolicyLock(v8, v7, v9);
+  PopReleasePolicyLock();
 LABEL_4:
   v5 = *(_BYTE *)(a1 + 356) != 0;
   if ( *(_BYTE *)(a1 + 73) != v5 )
@@ -104,49 +105,49 @@ LABEL_4:
   {
     PopDiagTraceThermalStateChange(*(PDEVICE_OBJECT *)(a1 + 48));
     PopAcquirePolicyLock();
-    v13 = *(_BYTE *)(a1 + 343);
-    *(_BYTE *)(a1 + 72) = v13;
-    if ( v13 )
+    v14 = *(_BYTE *)(a1 + 343);
+    *(_BYTE *)(a1 + 72) = v14;
+    if ( v14 )
     {
-      v14 = dword_1402DD944 + 1;
-      dword_1402DD944 = v14;
-      if ( v14 == 1 )
+      v15 = dword_1402DD944 + 1;
+      dword_1402DD944 = v15;
+      if ( v15 == 1 )
       {
         byte_1402DD94C = 1;
         ++dword_1402DD948;
         PopTraceCr3Tripped();
-        v14 = dword_1402DD944;
+        v15 = dword_1402DD944;
       }
     }
     else
     {
-      v14 = --dword_1402DD944;
+      v15 = --dword_1402DD944;
     }
-    if ( v14 )
+    if ( v15 )
     {
-      v15 = HIBYTE(PopSystemThermalInfo);
-      v16 = 1;
+      v16 = HIBYTE(PopSystemThermalInfo);
+      v17 = 1;
     }
     else
     {
-      v16 = 0;
-      PopThermalStandbyEndTracking(0LL, v10, v12);
+      v17 = 0;
+      PopThermalStandbyEndTracking(0LL, v11, v13);
       PopTraceCr3Mitigated((unsigned int)dword_1402DD948);
-      v15 = HIBYTE(PopSystemThermalInfo);
+      v16 = HIBYTE(PopSystemThermalInfo);
       if ( HIBYTE(PopSystemThermalInfo) )
       {
         PopThermalStandbyNotify(0LL);
         HIBYTE(PopSystemThermalInfo) = 0;
-        return PopReleasePolicyLock(v11, v10, v12);
+        return PopReleasePolicyLock();
       }
     }
-    if ( !v3 && v16 && (_BYTE)PopSystemThermalInfo && !v15 )
+    if ( !v3 && v17 && (_BYTE)PopSystemThermalInfo && !v16 )
     {
-      LOBYTE(v11) = 1;
-      PopThermalStandbyNotify(v11);
+      LOBYTE(v12) = 1;
+      PopThermalStandbyNotify(v12);
       PopSystemThermalInfo = 256;
     }
-    return PopReleasePolicyLock(v11, v10, v12);
+    return PopReleasePolicyLock();
   }
   return result;
 }

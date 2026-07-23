@@ -7,14 +7,14 @@
  *     RtlCompareUnicodeStrings @ 0x180014950 (RtlCompareUnicodeStrings.c)
  */
 
-__int64 __fastcall ApiSetpSearchForSectionIndex_V7(__int64 a1, unsigned int *a2, _WORD *a3, unsigned __int16 a4)
+__int64 __fastcall ApiSetpSearchForSectionIndex_V7(__int64 a1, unsigned int *a2, const WCHAR *a3, unsigned __int16 a4)
 {
-  unsigned __int64 v4; // r13
+  SIZE_T v4; // r13
   unsigned int v6; // edx
-  _WORD *v7; // r12
-  unsigned __int8 *v9; // r11
+  const WCHAR *v7; // r12
+  const WCHAR *v9; // r11
   int v10; // edi
-  int v11; // r10d
+  LONG v11; // r10d
   __int64 v12; // r8
   unsigned __int8 v13; // al
   unsigned int v14; // eax
@@ -36,7 +36,7 @@ __int64 __fastcall ApiSetpSearchForSectionIndex_V7(__int64 a1, unsigned int *a2,
   v4 = a4;
   v6 = 0;
   v7 = a3;
-  v9 = (unsigned __int8 *)a3;
+  v9 = a3;
   v10 = a4;
   v11 = 1;
   if ( a4 )
@@ -44,10 +44,10 @@ __int64 __fastcall ApiSetpSearchForSectionIndex_V7(__int64 a1, unsigned int *a2,
     v12 = a4;
     do
     {
-      v13 = *v9;
-      if ( *v9 >= 0x41u && v13 <= 0x5Au )
+      v13 = *(_BYTE *)v9;
+      if ( *(_BYTE *)v9 >= 0x41u && v13 <= 0x5Au )
         v13 += 32;
-      v9 += 2;
+      ++v9;
       v6 = v6 * *((unsigned __int16 *)a2 + 4) + v13;
       --v12;
     }
@@ -87,9 +87,9 @@ LABEL_13:
     v11 = RtlCompareUnicodeStrings(
             v7,
             v4,
-            a1 + v25 + *(unsigned int *)(a1 + 16) - v17,
+            (PCWCH)(a1 + v25 + *(unsigned int *)(a1 + 16) - v17),
             *(unsigned __int16 *)(v23 + a1 + 4),
-            1);
+            1u);
   }
   else
   {

@@ -1,14 +1,14 @@
 /*
- * XREFs of MiQueuePinDriverAddressLog @ 0x14024CA14
+ * XREFs of MiQueuePinDriverAddressLog @ 0x14024E374
  * Callers:
- *     MmBuildMdlForNonPagedPool @ 0x14024C4E0 (MmBuildMdlForNonPagedPool.c)
- *     MiGetVirtualAddressState @ 0x14024D274 (MiGetVirtualAddressState.c)
- *     MiGetContainingPageTable @ 0x1402D9BF0 (MiGetContainingPageTable.c)
+ *     MmBuildMdlForNonPagedPool @ 0x14024DE40 (MmBuildMdlForNonPagedPool.c)
+ *     MiGetVirtualAddressState @ 0x14024EBD4 (MiGetVirtualAddressState.c)
+ *     MiGetContainingPageTable @ 0x1402BB9B0 (MiGetContainingPageTable.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     RtlInterlockedSetClearRun @ 0x140357CF0 (RtlInterlockedSetClearRun.c)
- *     RtlFindClearBits @ 0x140358780 (RtlFindClearBits.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     RtlInterlockedSetClearRun @ 0x140359A90 (RtlInterlockedSetClearRun.c)
+ *     RtlFindClearBits @ 0x14035A520 (RtlFindClearBits.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 void __fastcall MiQueuePinDriverAddressLog(__int64 a1, __int64 a2, unsigned int a3)
@@ -30,9 +30,7 @@ void __fastcall MiQueuePinDriverAddressLog(__int64 a1, __int64 a2, unsigned int 
 
   v3 = a2;
   v4 = a3;
-  if ( !LOBYTE(stru_140F10828.WriteOperationCount)
-    && ((__int64)KiDpcWatchdogConfigurationLock.StackLimit & 3) == 0
-    && !KdEnteredDebugger )
+  if ( !PoAllProcIntrDisabled && ((__int64)KiDpcWatchdogConfigurationLock.InitialStack & 3) == 0 && !KdEnteredDebugger )
   {
     CurrentIrql = KeGetCurrentIrql();
     if ( CurrentIrql < 2u )
@@ -47,7 +45,7 @@ void __fastcall MiQueuePinDriverAddressLog(__int64 a1, __int64 a2, unsigned int 
       }
     }
     LODWORD(v8) = -1;
-    if ( (word_140EF8C12 & 1) != 0 )
+    if ( (word_140EF8F72 & 1) != 0 )
     {
       while ( 1 )
       {
@@ -103,7 +101,7 @@ void __fastcall MiQueuePinDriverAddressLog(__int64 a1, __int64 a2, unsigned int 
               LODWORD(v17) = v13 | 0x10;
             v15 = ((unsigned __int64)v3 >> 12) & 0xFFFFFFFFFFLL;
             if ( (MiFlags & 0x80000000) != 0
-              && v15 <= qword_140E2D7A0
+              && v15 <= qword_140E2D920
               && ((*(_QWORD *)(48 * v15 - 0x21FFFFFFFFD8LL) >> 54) & 1) != 0
               && (unsigned __int16)*(_DWORD *)(48 * v15 - 0x21FFFFFFFFE0LL) > 1u )
             {
@@ -119,9 +117,9 @@ void __fastcall MiQueuePinDriverAddressLog(__int64 a1, __int64 a2, unsigned int 
         }
       }
     }
-    v16 = (char *)&unk_140EF8BB8;
+    v16 = (char *)&unk_140EF8F18;
     if ( !(_BYTE)KdDebuggerEnabled )
-      v16 = (char *)&unk_140EF8BB0;
+      v16 = (char *)&unk_140EF8F10;
     _InterlockedAdd((volatile signed __int32 *)&v16[32 * v4 + (CurrentIrql > 2u ? 0x10 : 0)], 1u);
 LABEL_34:
     if ( CurrentIrql < 2u )

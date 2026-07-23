@@ -14,88 +14,90 @@
  *     _RtlpTpIoAlloc@12 @ 0x4B3855A8 (_RtlpTpIoAlloc@12.c)
  */
 
-int __fastcall RtlpTpIoAlloc(int *a1, int a2, int a3)
+NTSTATUS __fastcall RtlpTpIoAlloc(unsigned __int8 **a1, int a2, HANDLE FileHandle)
 {
-  int Heap; // esi
+  unsigned __int8 *Heap; // esi
   int v5; // ecx
   char v6; // dl
-  volatile signed __int32 *v7; // eax
-  volatile signed __int32 *v10; // [esp+18h] [ebp-24h] BYREF
-  int v11; // [esp+1Ch] [ebp-20h]
-  int v12; // [esp+20h] [ebp-1Ch]
+  int v7; // eax
+  SIZE_T v9; // [esp-4h] [ebp-40h]
+  int v11; // [esp+18h] [ebp-24h] BYREF
+  unsigned __int8 *v12; // [esp+1Ch] [ebp-20h]
+  NTSTATUS v13; // [esp+20h] [ebp-1Ch]
   CPPEH_RECORD ms_exc; // [esp+24h] [ebp-18h]
 
-  v10 = 0;
-  v12 = -1073741823;
   v11 = 0;
+  v13 = -1073741823;
+  v12 = 0;
   ms_exc.registration.TryLevel = 0;
-  Heap = RtlAllocateHeap((int)NtCurrentPeb()->ProcessHeap, 8, 108);
-  v11 = Heap;
+  LODWORD(v9) = 108;
+  Heap = (unsigned __int8 *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, v9);
+  v12 = Heap;
   if ( Heap )
   {
-    v12 = TppPoolpReferenceGlobalPool(
+    v13 = TppPoolpReferenceGlobalPool(
             (volatile signed __int32 **)&TppPoolpGlobalPool,
-            (int)&TppPoolpGlobalPoolLock,
-            &v10);
-    if ( v12 >= 0 )
+            &TppPoolpGlobalPoolLock,
+            (volatile signed __int32 **)&v11);
+    if ( v13 >= 0 )
     {
       *(_DWORD *)Heap = a2;
-      *(_DWORD *)(Heap + 36) = RtlpTpIoCallback;
-      if ( v10 )
+      *((_DWORD *)Heap + 9) = RtlpTpIoCallback;
+      if ( v11 )
       {
-        TppGetCurrentThreadNumaNode(v10, (_DWORD *)(Heap + 40), (unsigned __int8 *)(Heap + 44));
-        v5 = *(_DWORD *)(Heap + 40);
-        v6 = *(_BYTE *)(Heap + 44);
+        TppGetCurrentThreadNumaNode((_RTL_SRWLOCK *)v11, (_DWORD *)Heap + 10, Heap + 44);
+        v5 = *((_DWORD *)Heap + 10);
+        v6 = Heap[44];
       }
       else
       {
-        *(_DWORD *)(Heap + 40) = 0;
-        *(_BYTE *)(Heap + 44) = 0;
+        *((_DWORD *)Heap + 10) = 0;
+        Heap[44] = 0;
         v5 = 0;
         v6 = 0;
       }
-      *(_DWORD *)(Heap + 24) = 0;
-      *(_DWORD *)(Heap + 32) = Heap + 28;
-      *(_DWORD *)(Heap + 28) = Heap + 28;
-      *(_DWORD *)(Heap + 4) = TppDirectTaskVFuncs;
-      *(_DWORD *)(Heap + 8) = v5;
-      *(_BYTE *)(Heap + 12) = v6;
-      v7 = v10;
-      *(_DWORD *)(Heap + 48) = v10;
-      v12 = TpBindFileToDirect(a3, Heap + 4, (int)v7);
-      if ( v12 >= 0 )
+      *((_DWORD *)Heap + 6) = 0;
+      *((_DWORD *)Heap + 8) = Heap + 28;
+      *((_DWORD *)Heap + 7) = Heap + 28;
+      *((_DWORD *)Heap + 1) = TppDirectTaskVFuncs;
+      *((_DWORD *)Heap + 2) = v5;
+      Heap[12] = v6;
+      v7 = v11;
+      *((_DWORD *)Heap + 12) = v11;
+      v13 = TpBindFileToDirect(FileHandle, (int)(Heap + 4), v7);
+      if ( v13 >= 0 )
       {
-        ++*(_DWORD *)(Heap + 52);
-        *(_DWORD *)(Heap + 56) = Heap + 56;
-        *(_DWORD *)(Heap + 60) = 0;
-        *(_DWORD *)(Heap + 64) = 0;
+        ++*((_DWORD *)Heap + 13);
+        *((_DWORD *)Heap + 14) = Heap + 56;
+        *((_DWORD *)Heap + 15) = 0;
+        *((_DWORD *)Heap + 16) = 0;
         *a1 = Heap;
-        v12 = 0;
+        v13 = 0;
       }
     }
   }
   else
   {
-    v12 = -1073741801;
+    v13 = -1073741801;
   }
   ms_exc.registration.TryLevel = -2;
-  if ( v12 < 0 )
+  if ( v13 < 0 )
   {
-    if ( v10 )
+    if ( v11 )
     {
-      if ( v10 != (volatile signed __int32 *)TppPoolpGlobalPool || NtCurrentPeb()->Ldr->ShutdownInProgress )
+      if ( v11 != TppPoolpGlobalPool || NtCurrentPeb()->Ldr->ShutdownInProgress )
       {
         if ( !NtCurrentPeb()->Ldr->ShutdownInProgress )
           TppRaiseInvalidParameter();
       }
       else
       {
-        TppPoolpDereferenceGlobalPool((signed __int32 **)&TppPoolpGlobalPool, (int)&TppPoolpGlobalPoolLock);
+        TppPoolpDereferenceGlobalPool((signed __int32 **)&TppPoolpGlobalPool, &TppPoolpGlobalPoolLock);
       }
-      Heap = v11;
+      Heap = v12;
     }
     if ( Heap )
-      RtlFreeHeap((int)NtCurrentPeb()->ProcessHeap, 0, Heap);
+      RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, Heap);
   }
-  return v12;
+  return v13;
 }

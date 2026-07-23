@@ -1,14 +1,14 @@
 /*
- * XREFs of EtwTiLogMapExecView @ 0x140AC862C
+ * XREFs of EtwTiLogMapExecView @ 0x140ACA21C
  * Callers:
- *     MiMapViewOfSectionExCommon @ 0x1409F1570 (MiMapViewOfSectionExCommon.c)
+ *     MiMapViewOfSectionExCommon @ 0x1409EDD40 (MiMapViewOfSectionExCommon.c)
  * Callees:
- *     EtwEventEnabled @ 0x140212D90 (EtwEventEnabled.c)
- *     EtwWrite @ 0x140212EF0 (EtwWrite.c)
- *     EtwProviderEnabled @ 0x1402563E0 (EtwProviderEnabled.c)
- *     EtwpTiFillProcessIdentity @ 0x140257DB0 (EtwpTiFillProcessIdentity.c)
- *     EtwpTiFillThreadIdentity @ 0x1404A21B8 (EtwpTiFillThreadIdentity.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x140212E70 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x140212FD0 (EtwWrite.c)
+ *     EtwProviderEnabled @ 0x140257D70 (EtwProviderEnabled.c)
+ *     EtwpTiFillProcessIdentity @ 0x140259590 (EtwpTiFillProcessIdentity.c)
+ *     EtwpTiFillThreadIdentity @ 0x14049BCE8 (EtwpTiFillThreadIdentity.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 BOOLEAN EtwTiLogMapExecView(__int64 a1, char a2, ...)
@@ -49,15 +49,15 @@ BOOLEAN EtwTiLogMapExecView(__int64 a1, char a2, ...)
   v25 = va_arg(va2, _QWORD);
   va_copy(va3, va2);
   v27 = va_arg(va3, _QWORD);
-  result = EtwProviderEnabled(*(REGHANDLE *)&EtwpSecurityLock.AbWaitEntryCount, 0, 0xF00uLL);
+  result = EtwProviderEnabled(EtwThreatIntProvRegHandle, 0, 0xF00uLL);
   if ( result )
   {
     v5 = 0LL;
     Process = KeGetCurrentThread()->ApcState.Process;
     if ( Process == (_KPROCESS *)a1 )
       v5 = 8LL;
-    v7 = *(const EVENT_DESCRIPTOR **)((char *)off_140001CA8 + (a2 != 0 ? 0 : 0x10) + v5);
-    result = EtwEventEnabled(*(REGHANDLE *)&EtwpSecurityLock.AbWaitEntryCount, v7);
+    v7 = *(const EVENT_DESCRIPTOR **)((char *)off_1400019F0 + (a2 != 0 ? 0 : 0x10) + v5);
+    result = EtwEventEnabled(EtwThreatIntProvRegHandle, v7);
     if ( result )
     {
       v8 = EtwpTiFillProcessIdentity(UserData, (__int64)Process, &v20);
@@ -78,7 +78,7 @@ BOOLEAN EtwTiLogMapExecView(__int64 a1, char a2, ...)
       *((_QWORD *)&UserData[0].Size + v17) = 4LL;
       v18 = v14;
       UserData[v18].Ptr = (ULONGLONG)va3;
-      v19 = *(_QWORD *)&EtwpSecurityLock.AbWaitEntryCount;
+      v19 = EtwThreatIntProvRegHandle;
       *(_QWORD *)&UserData[v18].Size = 4LL;
       return EtwWrite(v19, v7, 0LL, v14 + 1, UserData);
     }

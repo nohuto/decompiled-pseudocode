@@ -1,11 +1,11 @@
 /*
- * XREFs of IoNotifyDump @ 0x140591C60
+ * XREFs of IoNotifyDump @ 0x14058EC80
  * Callers:
- *     IoShutdownSystem @ 0x140B5374C (IoShutdownSystem.c)
- *     PopRestoreHiberContext @ 0x140B662BC (PopRestoreHiberContext.c)
- *     PopSaveHiberContext @ 0x140B6EC80 (PopSaveHiberContext.c)
+ *     IoShutdownSystem @ 0x140B5579C (IoShutdownSystem.c)
+ *     PopRestoreHiberContext @ 0x140B683FC (PopRestoreHiberContext.c)
+ *     PopSaveHiberContext @ 0x140B70CF0 (PopSaveHiberContext.c)
  * Callees:
- *     IoNotifyDumpEx @ 0x140591C78 (IoNotifyDumpEx.c)
+ *     IoNotifyDumpEx @ 0x14058EC98 (IoNotifyDumpEx.c)
  */
 
 __int64 __fastcall IoNotifyDump(__int64 a1, __int64 a2)

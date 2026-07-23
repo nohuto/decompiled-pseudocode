@@ -1,10 +1,10 @@
 /*
- * XREFs of IoGetStackSizeWithoutRedirectionBias @ 0x1405CAFC0
+ * XREFs of IoGetStackSizeWithoutRedirectionBias @ 0x1405CD890
  * Callers:
  *     <none>
  * Callees:
- *     KeAcquireQueuedSpinLock @ 0x1402B4690 (KeAcquireQueuedSpinLock.c)
- *     KeReleaseQueuedSpinLock @ 0x1402E2650 (KeReleaseQueuedSpinLock.c)
+ *     KeReleaseQueuedSpinLock @ 0x1402C4710 (KeReleaseQueuedSpinLock.c)
+ *     KeAcquireQueuedSpinLock @ 0x1402FF360 (KeAcquireQueuedSpinLock.c)
  */
 
 char __fastcall IoGetStackSizeWithoutRedirectionBias(__int64 a1, _BYTE *a2)

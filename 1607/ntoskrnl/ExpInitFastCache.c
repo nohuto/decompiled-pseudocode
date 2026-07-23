@@ -3,24 +3,24 @@
  * Callers:
  *     ExInitLicenseData @ 0x1407B505C (ExInitLicenseData.c)
  * Callees:
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x140055FA0 (KiLeaveCriticalRegionUnsafe.c)
- *     ObfDereferenceObjectWithTag @ 0x14006ACD0 (ObfDereferenceObjectWithTag.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     ExpLicUpdateChecksum @ 0x14008606C (ExpLicUpdateChecksum.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1400C8070 (ExfAcquirePushLockExclusiveEx.c)
- *     ExfTryToWakePushLock @ 0x1400C8738 (ExfTryToWakePushLock.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140055B20 (KiLeaveCriticalRegionUnsafe.c)
+ *     ObfDereferenceObjectWithTag @ 0x14006A850 (ObfDereferenceObjectWithTag.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     ExpLicUpdateChecksum @ 0x14008795C (ExpLicUpdateChecksum.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1400C5F10 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfTryToWakePushLock @ 0x1400C65D8 (ExfTryToWakePushLock.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     NtDeleteValueKey @ 0x1403FA9B8 (NtDeleteValueKey.c)
- *     NtOpenKey @ 0x140415458 (NtOpenKey.c)
- *     NtQueryValueKey @ 0x14043B880 (NtQueryValueKey.c)
- *     NtClose @ 0x14050B0E0 (NtClose.c)
- *     MmUnmapViewInSystemSpace @ 0x140525E34 (MmUnmapViewInSystemSpace.c)
- *     ExpObtainFastCacheKeyBody @ 0x14057A65C (ExpObtainFastCacheKeyBody.c)
- *     sub_1406AF784 @ 0x1406AF784 (sub_1406AF784.c)
- *     ExpTriggerFastCacheReeval @ 0x1406AFB08 (ExpTriggerFastCacheReeval.c)
+ *     NtDeleteValueKey @ 0x1403F9878 (NtDeleteValueKey.c)
+ *     NtOpenKey @ 0x140414318 (NtOpenKey.c)
+ *     NtQueryValueKey @ 0x14043A750 (NtQueryValueKey.c)
+ *     NtClose @ 0x1404EE070 (NtClose.c)
+ *     MmUnmapViewInSystemSpace @ 0x140508E94 (MmUnmapViewInSystemSpace.c)
+ *     ExpObtainFastCacheKeyBody @ 0x14057AB9C (ExpObtainFastCacheKeyBody.c)
+ *     sub_1406AF8BC @ 0x1406AF8BC (sub_1406AF8BC.c)
+ *     ExpTriggerFastCacheReeval @ 0x1406AFC40 (ExpTriggerFastCacheReeval.c)
  *     sub_1407D22C0 @ 0x1407D22C0 (sub_1407D22C0.c)
  */
 
@@ -84,7 +84,7 @@ int ExpInitFastCache()
   ExpFastCacheLock = 0LL;
   ExpFastCacheUpdateLock = 0LL;
   v0 = 1;
-  if ( NtOpenKey(&KeyHandle, 1u, (POBJECT_ATTRIBUTES)&stru_1406EA7B0) >= 0 )
+  if ( NtOpenKey(&KeyHandle, 1u, (POBJECT_ATTRIBUTES)&stru_1406EA8E0) >= 0 )
   {
     v28 = KeyHandle;
     if ( NtQueryValueKey(
@@ -131,7 +131,7 @@ int ExpInitFastCache()
     }
     NtClose(v28);
   }
-  if ( NtOpenKey(&KeyHandle, 1u, (POBJECT_ATTRIBUTES)&stru_1406EA780) >= 0 )
+  if ( NtOpenKey(&KeyHandle, 1u, (POBJECT_ATTRIBUTES)&stru_1406EA8B0) >= 0 )
   {
     if ( NtQueryValueKey(
            KeyHandle,
@@ -149,7 +149,7 @@ int ExpInitFastCache()
     }
     NtClose(KeyHandle);
   }
-  v1 = NtOpenKey(&KeyHandle, 1u, (POBJECT_ATTRIBUTES)&stru_1406EA810);
+  v1 = NtOpenKey(&KeyHandle, 1u, (POBJECT_ATTRIBUTES)&stru_1406EA940);
   v43 = 0LL;
   v44 = 0LL;
   v41 = 0LL;
@@ -158,7 +158,7 @@ int ExpInitFastCache()
   v2 = KeyHandle;
   if ( NtQueryValueKey(
          KeyHandle,
-         (PUNICODE_STRING)&stru_1406E9948,
+         (PUNICODE_STRING)&stru_1406E9A78,
          KeyValuePartialInformation,
          KeyValueInformation,
          0x28u,
@@ -189,7 +189,7 @@ LABEL_6:
     ExfAcquirePushLockExclusiveEx(&ExpFastCacheUpdateLock, v5, (ULONG_PTR)&ExpFastCacheUpdateLock);
   if ( v7 )
     v7[26] |= 1u;
-  ExpObtainFastCacheKeyBody((UNICODE_STRING *)&stru_1406E9958, (PVOID *)&qword_140747E48);
+  ExpObtainFastCacheKeyBody((UNICODE_STRING *)&stru_1406E9A88, (PVOID *)&qword_140747E48);
   if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&ExpFastCacheUpdateLock, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
     ExfTryToWakePushLock((volatile signed __int64 *)&ExpFastCacheUpdateLock);
   KeAbPostRelease((ULONG_PTR)&ExpFastCacheUpdateLock);
@@ -215,7 +215,7 @@ LABEL_6:
       v15 = KeyHandle;
       v16 = NtQueryValueKey(
               KeyHandle,
-              (PUNICODE_STRING)&stru_1406E97E0,
+              (PUNICODE_STRING)&stru_1406E9910,
               KeyValuePartialInformation,
               0LL,
               0,
@@ -232,7 +232,7 @@ LABEL_6:
       }
       if ( v0 )
       {
-        NtDeleteValueKey(v15, (PUNICODE_STRING)&stru_1406E97E0);
+        NtDeleteValueKey(v15, (PUNICODE_STRING)&stru_1406E9910);
 LABEL_18:
         NtClose(v15);
         goto LABEL_19;
@@ -251,7 +251,7 @@ LABEL_18:
       v32 = PoolWithTag + 4;
       if ( NtQueryValueKey(
              v15,
-             (PUNICODE_STRING)&stru_1406E97E0,
+             (PUNICODE_STRING)&stru_1406E9910,
              KeyValuePartialInformation,
              PoolWithTag + 4,
              ResultLength - 4,
@@ -306,7 +306,7 @@ LABEL_19:
       result = v44;
       if ( v44 != v41 )
       {
-        sub_1406AF784(8507);
+        sub_1406AF8BC(8507);
         v33 = &unk_1407474A0;
         v34 = (UNICODE_STRING *)&unk_1407474C8;
         do
@@ -339,7 +339,7 @@ LABEL_19:
           result = NtOpenKey(&KeyHandle, 2u, &ObjectAttributes);
           if ( result >= 0 )
           {
-            NtDeleteValueKey(KeyHandle, (PUNICODE_STRING)&stru_1406E97E0);
+            NtDeleteValueKey(KeyHandle, (PUNICODE_STRING)&stru_1406E9910);
             result = NtClose(KeyHandle);
           }
           v34 = (UNICODE_STRING *)((char *)v34 + 72);

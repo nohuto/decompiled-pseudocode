@@ -1,11 +1,11 @@
 /*
- * XREFs of MiClearRangeInPartitionTree @ 0x14065921C
+ * XREFs of MiClearRangeInPartitionTree @ 0x14065976C
  * Callers:
- *     MiAddMdlToPartitionTree @ 0x140658A30 (MiAddMdlToPartitionTree.c)
+ *     MiAddMdlToPartitionTree @ 0x140658F80 (MiAddMdlToPartitionTree.c)
  * Callees:
- *     RtlAvlRemoveNode @ 0x14028AF50 (RtlAvlRemoveNode.c)
- *     RtlClearBitsEx @ 0x14028BB20 (RtlClearBitsEx.c)
- *     MiDeletePartitionPageNode @ 0x1406593C8 (MiDeletePartitionPageNode.c)
+ *     RtlAvlRemoveNode @ 0x14028B1E0 (RtlAvlRemoveNode.c)
+ *     RtlClearBitsEx @ 0x14028BDB0 (RtlClearBitsEx.c)
+ *     MiDeletePartitionPageNode @ 0x140659918 (MiDeletePartitionPageNode.c)
  */
 
 void __fastcall MiClearRangeInPartitionTree(unsigned __int64 *a1, __int64 a2, unsigned __int64 a3)

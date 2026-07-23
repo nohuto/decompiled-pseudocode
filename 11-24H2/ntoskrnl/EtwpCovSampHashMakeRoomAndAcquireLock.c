@@ -1,68 +1,65 @@
 /*
- * XREFs of EtwpCovSampHashMakeRoomAndAcquireLock @ 0x140ADA720
+ * XREFs of EtwpCovSampHashMakeRoomAndAcquireLock @ 0x140ADBF60
  * Callers:
- *     EtwpCovSampContextAddSamples @ 0x140900C90 (EtwpCovSampContextAddSamples.c)
+ *     EtwpCovSampContextAddSamples @ 0x140923570 (EtwpCovSampContextAddSamples.c)
  * Callees:
- *     KiLeaveCriticalRegionUnsafe @ 0x1402595C0 (KiLeaveCriticalRegionUnsafe.c)
- *     ExfTryToWakePushLock @ 0x14025F9A0 (ExfTryToWakePushLock.c)
- *     KeSetEvent @ 0x1402725A0 (KeSetEvent.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     EtwpCovSampHashLookupInTable @ 0x1409D33D0 (EtwpCovSampHashLookupInTable.c)
- *     EtwpCoverageSamplerAllocateTable @ 0x140A5CEB4 (EtwpCoverageSamplerAllocateTable.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     KeSetEvent @ 0x140227B30 (KeSetEvent.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140289BD0 (KiLeaveCriticalRegionUnsafe.c)
+ *     ExfTryToWakePushLock @ 0x14028FFB0 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     EtwpCovSampHashLookupInTable @ 0x1409C3200 (EtwpCovSampHashLookupInTable.c)
+ *     EtwpCoverageSamplerAllocateTable @ 0x140A546D4 (EtwpCoverageSamplerAllocateTable.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall EtwpCovSampHashMakeRoomAndAcquireLock(ULONG_PTR BugCheckParameter2, int a2, _QWORD *a3)
 {
   struct _KTHREAD *CurrentThread; // rax
   _QWORD *Table; // r15
-  _QWORD *v8; // rax
-  _QWORD *v9; // rdi
+  char *v8; // rax
+  char *v9; // rdi
   unsigned int v10; // ebp
   __int64 v11; // rcx
   unsigned int v12; // edx
   unsigned int v13; // ecx
   unsigned int v14; // esi
   unsigned int v15; // ecx
-  __int64 v16; // rdx
-  __int64 v17; // r8
-  __int64 v18; // r9
-  void *v19; // rcx
-  struct _KTHREAD *v20; // rax
-  _QWORD *v21; // rax
-  _QWORD *v22; // rdi
-  __int64 *v23; // rdi
-  unsigned int v24; // r8d
-  __int64 *v25; // rcx
-  __int64 **v26; // rax
-  _QWORD *v27; // rdx
-  _QWORD *v28; // rax
-  unsigned int v29; // esi
-  __int64 v30; // rax
-  _QWORD *v31; // r14
-  struct _KTHREAD *v33; // rax
-  _QWORD *v34; // rax
-  _QWORD *v35; // rdi
-  __int64 v36; // rax
-  unsigned int v37; // ecx
-  unsigned int v38; // edx
+  void *v16; // rcx
+  struct _KTHREAD *v17; // rax
+  char *v18; // rax
+  char *v19; // rdi
+  __int64 *v20; // rdi
+  unsigned int v21; // r8d
+  __int64 *v22; // rcx
+  __int64 **v23; // rax
+  _QWORD *v24; // rdx
+  _QWORD *v25; // rax
+  unsigned int v26; // esi
+  __int64 v27; // rax
+  _QWORD *v28; // r14
+  struct _KTHREAD *v30; // rax
+  char *v31; // rax
+  char *v32; // rdi
+  __int64 v33; // rax
+  unsigned int v34; // ecx
+  unsigned int v35; // edx
   __int64 result; // rax
-  unsigned int v40; // eax
-  _QWORD *v41; // rcx
-  _QWORD *v42; // [rsp+50h] [rbp+8h] BYREF
+  unsigned int v37; // eax
+  _QWORD *v38; // rcx
+  _QWORD *v39; // [rsp+50h] [rbp+8h] BYREF
 
   CurrentThread = KeGetCurrentThread();
-  v42 = 0LL;
+  v39 = 0LL;
   --CurrentThread->KernelApcDisable;
   Table = 0LL;
-  v8 = KeAbPreAcquire(BugCheckParameter2, 0LL);
+  v8 = (char *)KeAbPreAcquire(BugCheckParameter2, 0LL);
   v9 = v8;
   if ( _interlockedbittestandset64((volatile signed __int32 *)BugCheckParameter2, 0LL) )
-    ExfAcquirePushLockExclusiveEx((unsigned __int64 *)BugCheckParameter2, (__int64)v8, BugCheckParameter2);
+    ExfAcquirePushLockExclusiveEx((unsigned __int64 *)BugCheckParameter2, v8, BugCheckParameter2);
   if ( v9 )
-    *((_BYTE *)v9 + 10) = 1;
+    v9[10] = 1;
   v10 = 0;
   *(_QWORD *)(BugCheckParameter2 + 8) = KeGetCurrentThread();
   v11 = *(_QWORD *)(BugCheckParameter2 + 1664);
@@ -93,13 +90,13 @@ __int64 __fastcall EtwpCovSampHashMakeRoomAndAcquireLock(ULONG_PTR BugCheckParam
       if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)BugCheckParameter2, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
         ExfTryToWakePushLock((volatile signed __int64 *)BugCheckParameter2);
       KeAbPostRelease(BugCheckParameter2);
-      KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread(), v16, v17, v18);
+      KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
       if ( Table )
       {
-        v19 = (void *)Table[3];
-        if ( v19 )
+        v16 = (void *)Table[3];
+        if ( v16 )
         {
-          ExFreePoolWithTag(v19, 0x56777445u);
+          ExFreePoolWithTag(v16, 0x56777445u);
           Table[3] = 0LL;
         }
         ExFreePoolWithTag(Table, 0x56777445u);
@@ -107,54 +104,54 @@ __int64 __fastcall EtwpCovSampHashMakeRoomAndAcquireLock(ULONG_PTR BugCheckParam
       Table = EtwpCoverageSamplerAllocateTable(v14);
       if ( !Table )
         goto LABEL_41;
-      v20 = KeGetCurrentThread();
-      --v20->KernelApcDisable;
-      v21 = KeAbPreAcquire(BugCheckParameter2, 0LL);
-      v22 = v21;
+      v17 = KeGetCurrentThread();
+      --v17->KernelApcDisable;
+      v18 = (char *)KeAbPreAcquire(BugCheckParameter2, 0LL);
+      v19 = v18;
       if ( _interlockedbittestandset64((volatile signed __int32 *)BugCheckParameter2, 0LL) )
-        ExfAcquirePushLockExclusiveEx((unsigned __int64 *)BugCheckParameter2, (__int64)v21, BugCheckParameter2);
-      if ( v22 )
-        *((_BYTE *)v22 + 10) = 1;
+        ExfAcquirePushLockExclusiveEx((unsigned __int64 *)BugCheckParameter2, v18, BugCheckParameter2);
+      if ( v19 )
+        v19[10] = 1;
       *(_QWORD *)(BugCheckParameter2 + 8) = KeGetCurrentThread();
-      v23 = *(__int64 **)(BugCheckParameter2 + 1664);
-      v24 = *((_DWORD *)v23 + 5);
-      if ( a2 + *((_DWORD *)v23 + 4) < (7 * v24) >> 3 )
+      v20 = *(__int64 **)(BugCheckParameter2 + 1664);
+      v21 = *((_DWORD *)v20 + 5);
+      if ( a2 + *((_DWORD *)v20 + 4) < (7 * v21) >> 3 )
         goto LABEL_40;
-      if ( v24 >= v14 )
+      if ( v21 >= v14 )
         break;
       *(_QWORD *)(BugCheckParameter2 + 1664) = Table;
-      Table = v23;
-      v25 = (__int64 *)*v23;
-      if ( *(__int64 **)(*v23 + 8) != v23 )
+      Table = v20;
+      v22 = (__int64 *)*v20;
+      if ( *(__int64 **)(*v20 + 8) != v20 )
         goto LABEL_52;
-      v26 = (__int64 **)v23[1];
-      if ( *v26 != v23 )
+      v23 = (__int64 **)v20[1];
+      if ( *v23 != v20 )
         goto LABEL_52;
-      *v26 = v25;
-      v25[1] = (__int64)v26;
-      v27 = *(_QWORD **)(BugCheckParameter2 + 1688);
-      v28 = *(_QWORD **)(BugCheckParameter2 + 1664);
-      if ( *v27 != BugCheckParameter2 + 1680 )
+      *v23 = v22;
+      v22[1] = (__int64)v23;
+      v24 = *(_QWORD **)(BugCheckParameter2 + 1688);
+      v25 = *(_QWORD **)(BugCheckParameter2 + 1664);
+      if ( *v24 != BugCheckParameter2 + 1680 )
         goto LABEL_52;
-      *v28 = BugCheckParameter2 + 1680;
-      v29 = 0;
-      v28[1] = v27;
-      *v27 = v28;
-      *(_QWORD *)(BugCheckParameter2 + 1688) = v28;
-      for ( *(_DWORD *)(*(_QWORD *)(BugCheckParameter2 + 1664) + 16LL) = *((_DWORD *)v23 + 4);
-            v29 < *((_DWORD *)v23 + 5);
-            ++v29 )
+      *v25 = BugCheckParameter2 + 1680;
+      v26 = 0;
+      v25[1] = v24;
+      *v24 = v25;
+      *(_QWORD *)(BugCheckParameter2 + 1688) = v25;
+      for ( *(_DWORD *)(*(_QWORD *)(BugCheckParameter2 + 1664) + 16LL) = *((_DWORD *)v20 + 4);
+            v26 < *((_DWORD *)v20 + 5);
+            ++v26 )
       {
-        v30 = v23[3];
-        v31 = (_QWORD *)(v30 + 8LL * v29);
-        if ( *v31 )
+        v27 = v20[3];
+        v28 = (_QWORD *)(v27 + 8LL * v26);
+        if ( *v28 )
         {
           EtwpCovSampHashLookupInTable(
             *(_QWORD *)(BugCheckParameter2 + 1664),
-            (unsigned __int8 *)(v30 + 8LL * v29),
-            &v42);
-          *v42 = *v31;
-          if ( (*((_DWORD *)v23 + 4))-- == 1 )
+            (unsigned __int8 *)(v27 + 8LL * v26),
+            &v39);
+          *v39 = *v28;
+          if ( (*((_DWORD *)v20 + 4))-- == 1 )
             break;
         }
       }
@@ -171,22 +168,22 @@ LABEL_39:
         goto LABEL_41;
       goto LABEL_40;
     }
-    v40 = *(_DWORD *)(BugCheckParameter2 + 1696);
-    if ( v40 >= *(_DWORD *)(BugCheckParameter2 + 44) )
+    v37 = *(_DWORD *)(BugCheckParameter2 + 1696);
+    if ( v37 >= *(_DWORD *)(BugCheckParameter2 + 44) )
     {
 LABEL_40:
       *a3 = Table;
       goto LABEL_41;
     }
     *(_QWORD *)(BugCheckParameter2 + 1664) = Table;
-    *(_DWORD *)(BugCheckParameter2 + 1696) = v40 + 1;
-    v41 = *(_QWORD **)(BugCheckParameter2 + 1688);
-    if ( *v41 != BugCheckParameter2 + 1680 )
+    *(_DWORD *)(BugCheckParameter2 + 1696) = v37 + 1;
+    v38 = *(_QWORD **)(BugCheckParameter2 + 1688);
+    if ( *v38 != BugCheckParameter2 + 1680 )
 LABEL_52:
       __fastfail(3u);
     *Table = BugCheckParameter2 + 1680;
-    Table[1] = v41;
-    *v41 = Table;
+    Table[1] = v38;
+    *v38 = Table;
     *(_QWORD *)(BugCheckParameter2 + 1688) = Table;
     if ( *(_DWORD *)(BugCheckParameter2 + 1696) == 2 )
       KeSetEvent(*(PRKEVENT *)(BugCheckParameter2 + 1672), 0, 0);
@@ -194,21 +191,21 @@ LABEL_52:
 LABEL_41:
   if ( *(struct _KTHREAD **)(BugCheckParameter2 + 8) != KeGetCurrentThread() )
   {
-    v33 = KeGetCurrentThread();
-    --v33->KernelApcDisable;
-    v34 = KeAbPreAcquire(BugCheckParameter2, 0LL);
-    v35 = v34;
+    v30 = KeGetCurrentThread();
+    --v30->KernelApcDisable;
+    v31 = (char *)KeAbPreAcquire(BugCheckParameter2, 0LL);
+    v32 = v31;
     if ( _interlockedbittestandset64((volatile signed __int32 *)BugCheckParameter2, 0LL) )
-      ExfAcquirePushLockExclusiveEx((unsigned __int64 *)BugCheckParameter2, (__int64)v34, BugCheckParameter2);
-    if ( v35 )
-      *((_BYTE *)v35 + 10) = 1;
+      ExfAcquirePushLockExclusiveEx((unsigned __int64 *)BugCheckParameter2, v31, BugCheckParameter2);
+    if ( v32 )
+      v32[10] = 1;
     *(_QWORD *)(BugCheckParameter2 + 8) = KeGetCurrentThread();
   }
-  v36 = *(_QWORD *)(BugCheckParameter2 + 1664);
-  v37 = *(_DWORD *)(v36 + 16);
-  v38 = (unsigned int)(7 * *(_DWORD *)(v36 + 20)) >> 3;
-  result = v38 - v37;
-  if ( v38 <= v37 )
+  v33 = *(_QWORD *)(BugCheckParameter2 + 1664);
+  v34 = *(_DWORD *)(v33 + 16);
+  v35 = (unsigned int)(7 * *(_DWORD *)(v33 + 20)) >> 3;
+  result = v35 - v34;
+  if ( v35 <= v34 )
     return 0LL;
   return result;
 }

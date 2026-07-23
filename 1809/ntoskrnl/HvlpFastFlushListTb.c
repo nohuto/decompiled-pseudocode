@@ -1,12 +1,12 @@
 /*
- * XREFs of HvlpFastFlushListTb @ 0x140279920
+ * XREFs of HvlpFastFlushListTb @ 0x140279B10
  * Callers:
- *     HvlpFlushRangeListTb @ 0x140279B24 (HvlpFlushRangeListTb.c)
+ *     HvlpFlushRangeListTb @ 0x140279D14 (HvlpFlushRangeListTb.c)
  * Callees:
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     HvcallpExtendedFastHypercall @ 0x1401C7290 (HvcallpExtendedFastHypercall.c)
- *     HvlpCopyFlushVaList @ 0x1402796F8 (HvlpCopyFlushVaList.c)
- *     VslFastFlushSecureRangeList @ 0x14027AE38 (VslFastFlushSecureRangeList.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     HvcallpExtendedFastHypercall @ 0x1401C73F0 (HvcallpExtendedFastHypercall.c)
+ *     HvlpCopyFlushVaList @ 0x1402798E8 (HvlpCopyFlushVaList.c)
+ *     VslFastFlushSecureRangeList @ 0x14027B028 (VslFastFlushSecureRangeList.c)
  */
 
 __int64 __fastcall HvlpFastFlushListTb(__int128 *a1, char a2, char a3, unsigned int a4, unsigned __int64 *a5, int a6)

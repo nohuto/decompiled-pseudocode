@@ -1,22 +1,22 @@
 /*
- * XREFs of HalFreeCommonBufferV3 @ 0x140589E20
+ * XREFs of HalFreeCommonBufferV3 @ 0x14058C550
  * Callers:
  *     <none>
  * Callees:
- *     MmUnmapLockedPages @ 0x140281690 (MmUnmapLockedPages.c)
- *     HalpPopCommonBufferEntry @ 0x140344374 (HalpPopCommonBufferEntry.c)
- *     HalpDmaDereferenceDomainObject @ 0x1403444A8 (HalpDmaDereferenceDomainObject.c)
- *     MmFreeContiguousMemory @ 0x140344580 (MmFreeContiguousMemory.c)
- *     MiFreePagesFromMdl @ 0x1403454C0 (MiFreePagesFromMdl.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     HalpDmaCvmMakeContiguousVirtualBufferPrivate @ 0x140782EFC (HalpDmaCvmMakeContiguousVirtualBufferPrivate.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     MmUnmapLockedPages @ 0x140280C00 (MmUnmapLockedPages.c)
+ *     HalpPopCommonBufferEntry @ 0x1403463F4 (HalpPopCommonBufferEntry.c)
+ *     HalpDmaDereferenceDomainObject @ 0x140346528 (HalpDmaDereferenceDomainObject.c)
+ *     MmFreeContiguousMemory @ 0x140346600 (MmFreeContiguousMemory.c)
+ *     MiFreePagesFromMdl @ 0x140347540 (MiFreePagesFromMdl.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     HalpDmaCvmMakeContiguousVirtualBufferPrivate @ 0x140785A30 (HalpDmaCvmMakeContiguousVirtualBufferPrivate.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
-unsigned __int64 __fastcall HalFreeCommonBufferV3(__int64 a1, unsigned int a2, __int64 a3, unsigned __int64 a4)
+unsigned __int64 __fastcall HalFreeCommonBufferV3(__int64 a1, unsigned int a2, __int64 a3, _RTL_BALANCED_NODE *a4)
 {
   __int64 v4; // r14
-  void *v5; // r15
+  _RTL_BALANCED_NODE *v5; // r15
   SIZE_T v6; // r13
   bool v8; // di
   unsigned __int64 result; // rax
@@ -26,7 +26,7 @@ unsigned __int64 __fastcall HalFreeCommonBufferV3(__int64 a1, unsigned int a2, _
   int ContiguousVirtualBufferPrivate; // eax
 
   v4 = *(_QWORD *)(a1 + 512);
-  v5 = (void *)a4;
+  v5 = a4;
   v6 = a2;
   v8 = 0;
   result = HalpPopCommonBufferEntry(a4, v4);
@@ -59,7 +59,7 @@ LABEL_5:
     }
     else if ( !HalpDmaCvmConfiguration
            || (ContiguousVirtualBufferPrivate = HalpDmaCvmMakeContiguousVirtualBufferPrivate(v5, v6),
-               v5 = (void *)v10[4],
+               v5 = (_RTL_BALANCED_NODE *)v10[4],
                ContiguousVirtualBufferPrivate >= 0) )
     {
       MmFreeContiguousMemory(v5);

@@ -14,10 +14,10 @@
  *     RtlInstallFunctionTableCallback @ 0x18006F2B0 (RtlInstallFunctionTableCallback.c)
  *     RtlAddFunctionTable @ 0x18006F5E0 (RtlAddFunctionTable.c)
  *     RtlAddGrowableFunctionTable @ 0x18006F8F0 (RtlAddGrowableFunctionTable.c)
- *     RtlGuardCheckImageBase @ 0x180078EC4 (RtlGuardCheckImageBase.c)
- *     RtlSetProtectedPolicy @ 0x180083730 (RtlSetProtectedPolicy.c)
- *     RtlpAddVectoredHandler @ 0x180084200 (RtlpAddVectoredHandler.c)
- *     RtlpRemoveVectoredHandler @ 0x180085520 (RtlpRemoveVectoredHandler.c)
+ *     RtlGuardCheckImageBase @ 0x180078ED4 (RtlGuardCheckImageBase.c)
+ *     RtlSetProtectedPolicy @ 0x180083740 (RtlSetProtectedPolicy.c)
+ *     RtlpAddVectoredHandler @ 0x180084210 (RtlpAddVectoredHandler.c)
+ *     RtlpRemoveVectoredHandler @ 0x180085530 (RtlpRemoveVectoredHandler.c)
  *     LdrpInitializeExecutionOptions @ 0x1800D30E0 (LdrpInitializeExecutionOptions.c)
  *     RtlRemoteCall @ 0x1800FB0D0 (RtlRemoteCall.c)
  *     RtlpFreeReadOnlyHeap @ 0x180106E40 (RtlpFreeReadOnlyHeap.c)
@@ -25,14 +25,14 @@
  *     <none>
  */
 
-__int64 LdrControlFlowGuardEnforced()
+BOOLEAN LdrControlFlowGuardEnforced(void)
 {
-  __int64 result; // rax
+  BOOLEAN result; // al
 
-  if ( !qword_1801783A0 )
-    return 0LL;
-  result = 1LL;
-  if ( (byte_18017838C & 1) != 0 )
-    return 0LL;
+  if ( !LdrSystemDllInitBlock.CfgBitMap )
+    return 0;
+  result = 1;
+  if ( (LdrSystemDllInitBlock.Flags & 1) != 0 )
+    return 0;
   return result;
 }

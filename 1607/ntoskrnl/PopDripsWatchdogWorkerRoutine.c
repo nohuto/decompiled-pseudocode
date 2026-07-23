@@ -1,19 +1,19 @@
 /*
- * XREFs of PopDripsWatchdogWorkerRoutine @ 0x1406754AC
+ * XREFs of PopDripsWatchdogWorkerRoutine @ 0x140675590
  * Callers:
  *     <none>
  * Callees:
- *     PopDeepSleepEnabled @ 0x140009CB8 (PopDeepSleepEnabled.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x140055FA0 (KiLeaveCriticalRegionUnsafe.c)
- *     ExReleaseResourceLite @ 0x140068940 (ExReleaseResourceLite.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     PopAccumulateNonActivatedCpuTime @ 0x140207030 (PopAccumulateNonActivatedCpuTime.c)
- *     PopBatteryCapacityToRate @ 0x1402075C4 (PopBatteryCapacityToRate.c)
- *     PpmConvertTimeTo @ 0x14020A734 (PpmConvertTimeTo.c)
- *     PopAcquireDripsWatchdogLock @ 0x140675074 (PopAcquireDripsWatchdogLock.c)
- *     PopDeepSleepWatchdogTakeAction @ 0x14067513C (PopDeepSleepWatchdogTakeAction.c)
- *     PopDripsWatchdogTakeAction @ 0x140675208 (PopDripsWatchdogTakeAction.c)
- *     PopSetDripsWatchdog @ 0x1406756C4 (PopSetDripsWatchdog.c)
+ *     PopDeepSleepEnabled @ 0x140009838 (PopDeepSleepEnabled.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140055B20 (KiLeaveCriticalRegionUnsafe.c)
+ *     ExReleaseResourceLite @ 0x1400684C0 (ExReleaseResourceLite.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     PopAccumulateNonActivatedCpuTime @ 0x140206E5C (PopAccumulateNonActivatedCpuTime.c)
+ *     PopBatteryCapacityToRate @ 0x1402073F0 (PopBatteryCapacityToRate.c)
+ *     PpmConvertTimeTo @ 0x14020A560 (PpmConvertTimeTo.c)
+ *     PopAcquireDripsWatchdogLock @ 0x140675158 (PopAcquireDripsWatchdogLock.c)
+ *     PopDeepSleepWatchdogTakeAction @ 0x140675220 (PopDeepSleepWatchdogTakeAction.c)
+ *     PopDripsWatchdogTakeAction @ 0x1406752EC (PopDripsWatchdogTakeAction.c)
+ *     PopSetDripsWatchdog @ 0x1406757A8 (PopSetDripsWatchdog.c)
  */
 
 char __fastcall PopDripsWatchdogWorkerRoutine(__int64 a1)
@@ -41,7 +41,7 @@ char __fastcall PopDripsWatchdogWorkerRoutine(__int64 a1)
   int v23; // [rsp+40h] [rbp-10h]
 
   PopAcquireDripsWatchdogLock();
-  if ( qword_140329B60 )
+  if ( qword_140329BA0 )
   {
     v6 = *(_DWORD *)(a1 + 100);
     v7 = *(_BYTE *)(a1 + 4);
@@ -66,10 +66,10 @@ char __fastcall PopDripsWatchdogWorkerRoutine(__int64 a1)
     if ( !v10 )
     {
       v12 = 1000LL * (unsigned int)v11;
-      if ( !v12 || (unk_1403036B4 & 0x40000000) != 0 || (v13 = *(_DWORD *)(a1 + 16), unk_1403036A4 >= v13) )
+      if ( !v12 || (unk_1403035F4 & 0x40000000) != 0 || (v13 = *(_DWORD *)(a1 + 16), unk_1403035E4 >= v13) )
         v14 = 0;
       else
-        v14 = PopBatteryCapacityToRate(v13 - unk_1403036A4, v12);
+        v14 = PopBatteryCapacityToRate(v13 - unk_1403035E4, v12);
       HIDWORD(v22) = v14;
     }
     PopAccumulateNonActivatedCpuTime(0, (_QWORD *)(a1 + 64), (_QWORD *)(a1 + 72));
@@ -79,7 +79,7 @@ char __fastcall PopDripsWatchdogWorkerRoutine(__int64 a1)
       *(_DWORD *)(a1 + 8) = v19;
       *(_QWORD *)(a1 + 24) = *(_QWORD *)(a1 + 88);
       *(_QWORD *)(a1 + 32) = v9;
-      *(_DWORD *)(a1 + 16) = unk_1403036A4;
+      *(_DWORD *)(a1 + 16) = unk_1403035E4;
     }
     if ( v8 )
     {
@@ -89,9 +89,9 @@ char __fastcall PopDripsWatchdogWorkerRoutine(__int64 a1)
     *(_QWORD *)(a1 + 48) = v9;
     PopSetDripsWatchdog();
     _InterlockedExchange((volatile __int32 *)(a1 + 376), 0);
-    ExReleaseResourceLite(&stru_140329B98);
+    ExReleaseResourceLite(&stru_140329BD8);
     KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread(), v15, v16, v17);
-    LOBYTE(v23) = byte_1403288EC & 1;
+    LOBYTE(v23) = byte_14032892C & 1;
     v5 = 100 * HIDWORD(v21) / (unsigned int)v21;
     LODWORD(v22) = v5;
     if ( v10 )
@@ -100,14 +100,14 @@ char __fastcall PopDripsWatchdogWorkerRoutine(__int64 a1)
       if ( (_BYTE)v5 && !v8 )
         LOBYTE(v5) = PopDeepSleepWatchdogTakeAction((__int64)&v20, v7);
     }
-    else if ( !qword_140328898 )
+    else if ( !qword_1403288D8 )
     {
       LOBYTE(v5) = PopDripsWatchdogTakeAction((int *)&v20, v7);
     }
   }
   else
   {
-    ExReleaseResourceLite(&stru_140329B98);
+    ExReleaseResourceLite(&stru_140329BD8);
     LOBYTE(v5) = KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread(), v2, v3, v4);
   }
   return v5;

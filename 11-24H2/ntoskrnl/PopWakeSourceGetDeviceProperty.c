@@ -1,11 +1,11 @@
 /*
- * XREFs of PopWakeSourceGetDeviceProperty @ 0x1407518C8
+ * XREFs of PopWakeSourceGetDeviceProperty @ 0x14074FBE8
  * Callers:
- *     PopProcessWakeSourceWork @ 0x140B6CA78 (PopProcessWakeSourceWork.c)
+ *     PopProcessWakeSourceWork @ 0x140B6E318 (PopProcessWakeSourceWork.c)
  * Callees:
- *     IoGetDeviceProperty @ 0x1408BCAC0 (IoGetDeviceProperty.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     IoGetDeviceProperty @ 0x1408BA410 (IoGetDeviceProperty.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __fastcall PopWakeSourceGetDeviceProperty(__int64 a1, DEVICE_REGISTRY_PROPERTY a2, struct _DEVICE_OBJECT *a3)
@@ -17,7 +17,7 @@ void __fastcall PopWakeSourceGetDeviceProperty(__int64 a1, DEVICE_REGISTRY_PROPE
   BufferLength = 0;
   if ( IoGetDeviceProperty(a3, a2, 0, 0LL, &BufferLength) == -1073741789 )
   {
-    Pool2 = (void *)ExAllocatePool2(0x100uLL);
+    Pool2 = (void *)ExAllocatePool2(0x100uLL, BufferLength, 0x206D654Du);
     if ( Pool2 )
     {
       if ( IoGetDeviceProperty(a3, a2, BufferLength, Pool2, &BufferLength) < 0 )

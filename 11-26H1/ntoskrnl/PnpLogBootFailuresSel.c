@@ -1,12 +1,12 @@
 /*
- * XREFs of PnpLogBootFailuresSel @ 0x1405DA220
+ * XREFs of PnpLogBootFailuresSel @ 0x1405DCA20
  * Callers:
- *     PnpBootDeviceWait @ 0x1405D85A4 (PnpBootDeviceWait.c)
+ *     PnpBootDeviceWait @ 0x1405DADA4 (PnpBootDeviceWait.c)
  * Callees:
- *     EnterWheaIpmiContextLock @ 0x1406D4278 (EnterWheaIpmiContextLock.c)
- *     LeaveWheaIpmiContextLock @ 0x1406D4364 (LeaveWheaIpmiContextLock.c)
- *     WheaSelLogCheckPoint @ 0x1406D43A4 (WheaSelLogCheckPoint.c)
- *     IpmiLibAddSelErrorRecord @ 0x14071D64C (IpmiLibAddSelErrorRecord.c)
+ *     EnterWheaIpmiContextLock @ 0x1406D82F8 (EnterWheaIpmiContextLock.c)
+ *     LeaveWheaIpmiContextLock @ 0x1406D83E4 (LeaveWheaIpmiContextLock.c)
+ *     WheaSelLogCheckPoint @ 0x1406D8424 (WheaSelLogCheckPoint.c)
+ *     IpmiLibAddSelErrorRecord @ 0x1407222DC (IpmiLibAddSelErrorRecord.c)
  */
 
 PVOID PnpLogBootFailuresSel()

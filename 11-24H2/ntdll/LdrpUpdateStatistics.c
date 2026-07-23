@@ -1,9 +1,9 @@
 /*
- * XREFs of LdrpUpdateStatistics @ 0x180022B6C
+ * XREFs of LdrpUpdateStatistics @ 0x18004F56C
  * Callers:
- *     LdrpDrainWorkQueue @ 0x180003E20 (LdrpDrainWorkQueue.c)
- *     TppWorkpExecuteCallback @ 0x180022BB0 (TppWorkpExecuteCallback.c)
- *     LdrpWorkCallback @ 0x1800EAD70 (LdrpWorkCallback.c)
+ *     TppWorkpExecuteCallback @ 0x18004F5B0 (TppWorkpExecuteCallback.c)
+ *     LdrpDrainWorkQueue @ 0x1800AB680 (LdrpDrainWorkQueue.c)
+ *     LdrpWorkCallback @ 0x1800E6AB0 (LdrpWorkCallback.c)
  * Callees:
  *     <none>
  */
@@ -16,8 +16,8 @@ struct _TEB *LdrpUpdateStatistics()
     LdrpStatistics = LdrpWorkInProgress;
   result = NtCurrentTeb();
   if ( (result->SameTebFlags & 0x2000) != 0 )
-    ++dword_1801D2664;
+    ++dword_1801D1654;
   else
-    ++dword_1801D2668;
+    ++dword_1801D1658;
   return result;
 }

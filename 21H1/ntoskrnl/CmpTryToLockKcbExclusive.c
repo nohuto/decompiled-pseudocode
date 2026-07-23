@@ -16,7 +16,7 @@ char __fastcall CmpTryToLockKcbExclusive(__int64 a1)
 
   v1 = (volatile signed __int32 *)(a1 + 48);
   v3 = 1;
-  v4 = KeAbPreAcquire(a1 + 48, 0LL, 1LL);
+  v4 = KeAbPreAcquire(a1 + 48, 0LL, 1);
   if ( _interlockedbittestandset64(v1, 0LL) )
   {
     if ( v4 )

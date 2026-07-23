@@ -1,14 +1,14 @@
 /*
- * XREFs of RtlUnicodeToMultiByteSize @ 0x1800B18B0
+ * XREFs of RtlUnicodeToMultiByteSize @ 0x18007E150
  * Callers:
- *     RtlUnicodeStringToOemString @ 0x1800AF9B0 (RtlUnicodeStringToOemString.c)
- *     RtlUpcaseUnicodeStringToOemString @ 0x1800D4300 (RtlUpcaseUnicodeStringToOemString.c)
- *     wcstombs @ 0x180128270 (wcstombs.c)
- *     RtlUnicodeStringToCountedOemString @ 0x18013C290 (RtlUnicodeStringToCountedOemString.c)
- *     RtlUpcaseUnicodeStringToAnsiString @ 0x18013C3A0 (RtlUpcaseUnicodeStringToAnsiString.c)
- *     RtlUpcaseUnicodeStringToCountedOemString @ 0x18013C490 (RtlUpcaseUnicodeStringToCountedOemString.c)
+ *     RtlUnicodeStringToOemString @ 0x18007C250 (RtlUnicodeStringToOemString.c)
+ *     RtlUpcaseUnicodeStringToOemString @ 0x1800CF670 (RtlUpcaseUnicodeStringToOemString.c)
+ *     wcstombs @ 0x1801264A0 (wcstombs.c)
+ *     RtlUnicodeStringToCountedOemString @ 0x18013A480 (RtlUnicodeStringToCountedOemString.c)
+ *     RtlUpcaseUnicodeStringToAnsiString @ 0x18013A590 (RtlUpcaseUnicodeStringToAnsiString.c)
+ *     RtlUpcaseUnicodeStringToCountedOemString @ 0x18013A680 (RtlUpcaseUnicodeStringToCountedOemString.c)
  * Callees:
- *     RtlUnicodeToUTF8N @ 0x1800B1E90 (RtlUnicodeToUTF8N.c)
+ *     RtlUnicodeToUTF8N @ 0x18007E730 (RtlUnicodeToUTF8N.c)
  */
 
 NTSTATUS __stdcall RtlUnicodeToMultiByteSize(
@@ -22,11 +22,11 @@ NTSTATUS __stdcall RtlUnicodeToMultiByteSize(
   signed __int32 v7[8]; // [rsp+0h] [rbp-38h] BYREF
 
   _InterlockedOr(v7, 0);
-  if ( word_1801CCFD0 == -535 || GlobalRtlNlsState == -535 )
+  if ( CodePageTable.CodePage == 0xFDE9 || GlobalRtlNlsState.CodePage == 0xFDE9 )
   {
     if ( BytesInUnicodeString )
     {
-      RtlUnicodeToUTF8N(0, 0, (_DWORD)BytesInMultiByteString, (_DWORD)UnicodeString, BytesInUnicodeString);
+      RtlUnicodeToUTF8N(0LL, 0, BytesInMultiByteString, UnicodeString, BytesInUnicodeString);
       return 0;
     }
     *BytesInMultiByteString = 0;
@@ -36,7 +36,7 @@ NTSTATUS __stdcall RtlUnicodeToMultiByteSize(
   {
     _InterlockedOr(v7, 0);
     v3 = 0;
-    if ( !word_1801CCF9C )
+    if ( !GlobalRtlNlsState.DBCSCodePage )
     {
       v3 = BytesInUnicodeString >> 1;
 LABEL_5:
@@ -49,7 +49,7 @@ LABEL_5:
     do
     {
       v6 = *UnicodeString++;
-      v3 += (HIBYTE(*(_WORD *)(qword_1801CCFB8 + 2 * v6)) != 0) + 1;
+      v3 += (HIBYTE(*((_WORD *)GlobalRtlNlsState.WideCharTable + v6)) != 0) + 1;
       --v5;
     }
     while ( v5 );

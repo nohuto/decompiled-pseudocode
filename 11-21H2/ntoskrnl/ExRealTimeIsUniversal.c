@@ -1,12 +1,12 @@
 /*
  * XREFs of ExRealTimeIsUniversal @ 0x14022D4B0
  * Callers:
- *     HalpUtcTimeToAcpiRealTime @ 0x1409082EC (HalpUtcTimeToAcpiRealTime.c)
+ *     sub_1409082EC @ 0x1409082EC (sub_1409082EC.c)
  * Callees:
  *     <none>
  */
 
 bool ExRealTimeIsUniversal()
 {
-  return ExpRealTimeIsUniversal != 0;
+  return dword_140D01460 != 0;
 }

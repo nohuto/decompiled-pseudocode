@@ -1,12 +1,12 @@
 /*
- * XREFs of KiIntSteerCallbackRecordTriageCallback @ 0x1405C42A0
+ * XREFs of KiIntSteerCallbackRecordTriageCallback @ 0x1405C18C0
  * Callers:
  *     <none>
  * Callees:
- *     IoAddTriageDumpDataBlock @ 0x1403F2880 (IoAddTriageDumpDataBlock.c)
- *     KiIntSteerCallbackRecordTriageCallbackInterruptObject @ 0x1405C43A0 (KiIntSteerCallbackRecordTriageCallbackInterruptObject.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     IoAddTriageDumpDataBlock @ 0x1403E65A0 (IoAddTriageDumpDataBlock.c)
+ *     KiIntSteerCallbackRecordTriageCallbackInterruptObject @ 0x1405C19C0 (KiIntSteerCallbackRecordTriageCallbackInterruptObject.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 void __fastcall KiIntSteerCallbackRecordTriageCallback(

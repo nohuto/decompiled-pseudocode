@@ -1,10 +1,10 @@
 /*
- * XREFs of PiDaDispatch @ 0x14048B098
+ * XREFs of PiDaDispatch @ 0x14048B5FC
  * Callers:
  *     <none>
  * Callees:
- *     IofCompleteRequest @ 0x140053560 (IofCompleteRequest.c)
- *     PiDqDispatch @ 0x14048B160 (PiDqDispatch.c)
+ *     IofCompleteRequest @ 0x1400530E0 (IofCompleteRequest.c)
+ *     PiDqDispatch @ 0x14048B6C4 (PiDqDispatch.c)
  */
 
 __int64 __fastcall PiDaDispatch(__int64 a1, IRP *a2)
@@ -68,5 +68,5 @@ LABEL_15:
     a2 = v3;
     v5 = 3LL * (_QWORD)v10;
   }
-  return ((unsigned int (__fastcall *)(__int64, IRP *, IRP *))*(&funcs_14048B0D4 + v5))(a1, a2, v3);
+  return ((unsigned int (__fastcall *)(__int64, IRP *, IRP *))*(&funcs_14048B638 + v5))(a1, a2, v3);
 }

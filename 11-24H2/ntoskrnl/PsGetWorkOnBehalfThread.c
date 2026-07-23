@@ -1,13 +1,13 @@
 /*
- * XREFs of PsGetWorkOnBehalfThread @ 0x140432F80
+ * XREFs of PsGetWorkOnBehalfThread @ 0x1404250C0
  * Callers:
- *     NtAlpcImpersonateClientContainerOfPort @ 0x1407418D0 (NtAlpcImpersonateClientContainerOfPort.c)
- *     NtQueryInformationThread @ 0x1409A7C80 (NtQueryInformationThread.c)
- *     AlpcpCaptureWorkOnBehalfAttribute @ 0x1409C4310 (AlpcpCaptureWorkOnBehalfAttribute.c)
+ *     NtAlpcImpersonateClientContainerOfPort @ 0x14073F800 (NtAlpcImpersonateClientContainerOfPort.c)
+ *     NtQueryInformationThread @ 0x1409910D0 (NtQueryInformationThread.c)
+ *     AlpcpCaptureWorkOnBehalfAttribute @ 0x1409C1630 (AlpcpCaptureWorkOnBehalfAttribute.c)
  * Callees:
- *     ExReleaseSpinLockShared @ 0x140246D40 (ExReleaseSpinLockShared.c)
- *     ExAcquireSpinLockShared @ 0x14031A1A0 (ExAcquireSpinLockShared.c)
- *     ObfReferenceObjectWithTag @ 0x1403403E0 (ObfReferenceObjectWithTag.c)
+ *     ExReleaseSpinLockShared @ 0x1402195E0 (ExReleaseSpinLockShared.c)
+ *     ExAcquireSpinLockShared @ 0x1402C2D30 (ExAcquireSpinLockShared.c)
+ *     ObfReferenceObjectWithTag @ 0x14031F8C0 (ObfReferenceObjectWithTag.c)
  */
 
 PVOID __fastcall PsGetWorkOnBehalfThread(struct _KTHREAD *a1, _DWORD *a2)

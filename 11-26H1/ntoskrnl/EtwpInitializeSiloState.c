@@ -1,26 +1,26 @@
 /*
- * XREFs of EtwpInitializeSiloState @ 0x140826150
+ * XREFs of EtwpInitializeSiloState @ 0x14082C390
  * Callers:
- *     PspInitializeServerSiloDeferred @ 0x1407EF070 (PspInitializeServerSiloDeferred.c)
- *     EtwpInitialize @ 0x140CE08F4 (EtwpInitialize.c)
+ *     PspInitializeServerSiloDeferred @ 0x1407F4BD0 (PspInitializeServerSiloDeferred.c)
+ *     EtwpInitialize @ 0x140CE6C94 (EtwpInitialize.c)
  * Callees:
- *     PsGetServerSiloGlobals @ 0x140216B70 (PsGetServerSiloGlobals.c)
- *     KeQueryPerformanceCounter @ 0x14021C3F0 (KeQueryPerformanceCounter.c)
- *     KeQueryMaximumProcessorCountEx @ 0x1402767B0 (KeQueryMaximumProcessorCountEx.c)
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     ExfReleasePushLock @ 0x1402E3120 (ExfReleasePushLock.c)
- *     PsAttachSiloToCurrentThread @ 0x14046CE80 (PsAttachSiloToCurrentThread.c)
- *     PsIsHostSilo @ 0x14046E630 (PsIsHostSilo.c)
- *     PsDetachSiloFromCurrentThread @ 0x140476400 (PsDetachSiloFromCurrentThread.c)
- *     EtwpQueryPartitionRegistryInformation @ 0x1406C3DB8 (EtwpQueryPartitionRegistryInformation.c)
- *     EtwpQuerySiloRegistrySettings @ 0x1406C4078 (EtwpQuerySiloRegistrySettings.c)
- *     EtwpInitializeAutoLoggers @ 0x14082DCE0 (EtwpInitializeAutoLoggers.c)
- *     ExSubscribeWnfStateChange @ 0x140948A90 (ExSubscribeWnfStateChange.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
+ *     PsGetServerSiloGlobals @ 0x140216EA0 (PsGetServerSiloGlobals.c)
+ *     ExfReleasePushLock @ 0x14021B220 (ExfReleasePushLock.c)
+ *     KeQueryPerformanceCounter @ 0x14021DD80 (KeQueryPerformanceCounter.c)
+ *     KeQueryMaximumProcessorCountEx @ 0x140275D20 (KeQueryMaximumProcessorCountEx.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     PsAttachSiloToCurrentThread @ 0x140466600 (PsAttachSiloToCurrentThread.c)
+ *     PsIsHostSilo @ 0x140467DB0 (PsIsHostSilo.c)
+ *     PsDetachSiloFromCurrentThread @ 0x14046FB80 (PsDetachSiloFromCurrentThread.c)
+ *     EtwpQueryPartitionRegistryInformation @ 0x1406C79F8 (EtwpQueryPartitionRegistryInformation.c)
+ *     EtwpQuerySiloRegistrySettings @ 0x1406C7CB8 (EtwpQuerySiloRegistrySettings.c)
+ *     EtwpInitializeAutoLoggers @ 0x140833F20 (EtwpInitializeAutoLoggers.c)
+ *     ExSubscribeWnfStateChange @ 0x1409C4400 (ExSubscribeWnfStateChange.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall EtwpInitializeSiloState(struct _LIST_ENTRY *a1, __int64 a2)
@@ -100,17 +100,17 @@ __int64 __fastcall EtwpInitializeSiloState(struct _LIST_ENTRY *a1, __int64 a2)
   v16 = PsAttachSiloToCurrentThread(a1);
   EtwpQuerySiloRegistrySettings(v4);
   EtwpQueryPartitionRegistryInformation(
-    (_OWORD *)(v4 + 4448),
+    (GUID *)(v4 + 4448),
     (PVOID *)(v4 + 4488),
     (_WORD *)(v4 + 4496),
     (_DWORD *)(v4 + 4500),
     (_QWORD *)(v4 + 4480),
-    (_OWORD *)(v4 + 4464));
+    (GUID *)(v4 + 4464));
   if ( IsHostSilo )
-    qword_140FFB918 = KeQueryPerformanceCounter(0LL).QuadPart;
+    qword_140FFC918 = KeQueryPerformanceCounter(0LL).QuadPart;
   EtwpInitializeAutoLoggers(a2);
   if ( IsHostSilo )
-    qword_140FFB920 = KeQueryPerformanceCounter(0LL).QuadPart;
+    qword_140FFC920 = KeQueryPerformanceCounter(0LL).QuadPart;
   PsDetachSiloFromCurrentThread(v16);
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;

@@ -1,20 +1,20 @@
 /*
- * XREFs of AlpcMessageDestroyProcedure @ 0x140448980
+ * XREFs of AlpcMessageDestroyProcedure @ 0x140447850
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
- *     ObfDereferenceObjectWithTag @ 0x14006ACD0 (ObfDereferenceObjectWithTag.c)
- *     AlpcpReleaseDirectAttribute @ 0x1400A97D0 (AlpcpReleaseDirectAttribute.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
+ *     ObfDereferenceObjectWithTag @ 0x14006A850 (ObfDereferenceObjectWithTag.c)
+ *     AlpcpReleaseDirectAttribute @ 0x1400A7D50 (AlpcpReleaseDirectAttribute.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
- *     AlpcpDereferenceBlobEx @ 0x14040C274 (AlpcpDereferenceBlobEx.c)
- *     PsReleaseProcessWakeCounter @ 0x140468620 (PsReleaseProcessWakeCounter.c)
- *     PsReturnSharedPoolQuota @ 0x1404A5FD0 (PsReturnSharedPoolQuota.c)
- *     AlpcpReleaseAttributes @ 0x1404B55C8 (AlpcpReleaseAttributes.c)
- *     AlpcpReleaseViewAttribute @ 0x1404B5BFC (AlpcpReleaseViewAttribute.c)
- *     AlpcpReleasePagedPoolQuota @ 0x1404C0EB0 (AlpcpReleasePagedPoolQuota.c)
- *     AlpcpClearOwnerPortMessageUnsafe @ 0x1404EDE64 (AlpcpClearOwnerPortMessageUnsafe.c)
- *     AlpcpEnterFreeEventMessageLog @ 0x140654E40 (AlpcpEnterFreeEventMessageLog.c)
+ *     AlpcpDereferenceBlobEx @ 0x14040B134 (AlpcpDereferenceBlobEx.c)
+ *     PsReleaseProcessWakeCounter @ 0x1404674F0 (PsReleaseProcessWakeCounter.c)
+ *     AlpcpReleaseAttributes @ 0x14049F9A8 (AlpcpReleaseAttributes.c)
+ *     AlpcpReleaseViewAttribute @ 0x14049FFDC (AlpcpReleaseViewAttribute.c)
+ *     AlpcpReleasePagedPoolQuota @ 0x1404ACBE0 (AlpcpReleasePagedPoolQuota.c)
+ *     AlpcpClearOwnerPortMessageUnsafe @ 0x1404CFF30 (AlpcpClearOwnerPortMessageUnsafe.c)
+ *     PsReturnSharedPoolQuota @ 0x14051E3D0 (PsReturnSharedPoolQuota.c)
+ *     AlpcpEnterFreeEventMessageLog @ 0x140654F24 (AlpcpEnterFreeEventMessageLog.c)
  */
 
 __int64 __fastcall AlpcMessageDestroyProcedure(__int64 a1)

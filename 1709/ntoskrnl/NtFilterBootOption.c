@@ -12,78 +12,87 @@
  *     SepSecureBootValidateBcdDataAgainstBcdRule @ 0x14072FFF0 (SepSecureBootValidateBcdDataAgainstBcdRule.c)
  */
 
-__int64 __fastcall NtFilterBootOption(unsigned int a1, int a2, unsigned int a3, _BYTE *a4, size_t Size)
+NTSTATUS __cdecl NtFilterBootOption(
+        FILTER_BOOT_OPTION_OPERATION FilterOperation,
+        ULONG ObjectType,
+        ULONG ElementType,
+        PVOID Data,
+        ULONG DataSize)
 {
-  int v6; // esi
-  int v8; // edi
-  unsigned int v9; // r15d
+  ULONG v6; // esi
+  NTSTATUS v8; // edi
+  ULONG v9; // r15d
   int v10; // eax
   int v11; // eax
-  unsigned int v12; // r9d
-  unsigned __int16 v13; // r12
-  int v14; // eax
-  __int64 v15; // r10
-  __int16 v16; // cx
-  int v18; // [rsp+24h] [rbp-54h]
+  PVOID v12; // rsi
+  unsigned int v13; // r9d
+  unsigned __int16 v14; // r12
+  int v15; // eax
+  __int64 v16; // r10
+  __int16 v17; // cx
+  BOOLEAN IsMember[4]; // [rsp+20h] [rbp-58h] BYREF
+  int v20; // [rsp+24h] [rbp-54h]
   PVOID P; // [rsp+28h] [rbp-50h]
-  _BYTE v20[72]; // [rsp+30h] [rbp-48h] BYREF
+  _BYTE v22[72]; // [rsp+30h] [rbp-48h] BYREF
 
-  v6 = a2;
+  v6 = ObjectType;
   P = 0LL;
-  if ( !SeSinglePrivilegeCheck(SeTcbPrivilege, KeGetCurrentThread()->PreviousMode) )
+  IsMember[0] = SeSinglePrivilegeCheck(SeTcbPrivilege, KeGetCurrentThread()->PreviousMode);
+  if ( !IsMember[0] && (RtlCheckTokenMembership(0LL, SeAliasAdminsSid, IsMember) < 0 || !IsMember[0]) )
   {
-    RtlCheckTokenMembership(0LL, SeAliasAdminsSid);
     v8 = -1073741790;
-    goto LABEL_54;
+    goto LABEL_56;
   }
   if ( !qword_1403A3388 )
   {
     v8 = -2143092730;
-    goto LABEL_54;
+    goto LABEL_56;
   }
-  if ( a1 )
+  if ( FilterOperation )
   {
-    if ( a1 == 1 )
+    if ( FilterOperation == FilterBootOptionOperationSetElement )
     {
       if ( v6 )
       {
-        if ( a3 )
+        if ( ElementType )
         {
-          if ( a4 )
+          if ( Data )
           {
-            v9 = Size;
-            if ( (_DWORD)Size )
+            v9 = DataSize;
+            if ( DataSize )
             {
               v11 = dword_1403A8070;
-              if ( !_bittest(&v11, HIBYTE(a3) & 0xF) )
+              if ( !_bittest(&v11, HIBYTE(ElementType) & 0xF) )
               {
-LABEL_20:
+LABEL_22:
                 v8 = 0;
-                goto LABEL_54;
+                goto LABEL_56;
               }
               if ( KeGetCurrentThread()->PreviousMode )
               {
-                if ( (unsigned __int64)&a4[(unsigned int)Size] > 0x7FFFFFFF0000LL || &a4[(unsigned int)Size] < a4 )
+                if ( (unsigned __int64)Data + DataSize > 0x7FFFFFFF0000LL || (char *)Data + DataSize < Data )
                   MEMORY[0x7FFFFFFF0000] = 0;
-                if ( (unsigned int)Size > 8 )
+                if ( DataSize > 8 )
                 {
-                  P = ExAllocatePoolWithTag(PagedPool, (unsigned int)Size, 0x62536553u);
+                  P = ExAllocatePoolWithTag(PagedPool, DataSize, 0x62536553u);
                   if ( !P )
                   {
                     v8 = -1073741801;
-                    goto LABEL_54;
+                    v20 = -1073741801;
+                    goto LABEL_56;
                   }
-                  memmove(P, a4, (unsigned int)Size);
-                  a4 = P;
-                  v6 = a2;
+                  v12 = P;
+                  memmove(P, Data, DataSize);
+                  Data = v12;
+                  v6 = ObjectType;
                 }
                 else
                 {
-                  memmove(v20, a4, (unsigned int)Size);
-                  a4 = v20;
+                  memmove(v22, Data, DataSize);
+                  Data = v22;
                 }
               }
-              goto LABEL_30;
+              goto LABEL_32;
             }
           }
         }
@@ -91,83 +100,83 @@ LABEL_20:
     }
     else
     {
-      if ( a1 != 2 )
+      if ( FilterOperation != FilterBootOptionOperationDeleteElement )
       {
         v8 = -1073741585;
-        goto LABEL_54;
+        goto LABEL_56;
       }
       if ( v6 )
       {
-        if ( a3 )
+        if ( ElementType )
         {
-          if ( !a4 )
+          if ( !Data )
           {
-            v9 = Size;
-            if ( !(_DWORD)Size )
+            v9 = DataSize;
+            if ( !DataSize )
             {
               v10 = dword_1403A8070;
-              if ( !_bittest(&v10, HIBYTE(a3) & 0xF) )
-                goto LABEL_20;
-LABEL_30:
-              v12 = 0;
-              v13 = *((_WORD *)qword_1403A3388 + 18);
+              if ( !_bittest(&v10, HIBYTE(ElementType) & 0xF) )
+                goto LABEL_22;
+LABEL_32:
+              v13 = 0;
+              v14 = *((_WORD *)qword_1403A3388 + 18);
               v8 = 0;
-              if ( v13 )
+              if ( v14 )
               {
                 while ( 1 )
                 {
-                  if ( *(_DWORD *)(qword_1403A8068 + 12LL * v12 + 4) == a3 )
+                  if ( *(_DWORD *)(qword_1403A8068 + 12LL * v13 + 4) == ElementType )
                   {
-                    v14 = *(_DWORD *)(qword_1403A8068 + 12LL * v12);
-                    if ( !v14 || v14 == v6 )
+                    v15 = *(_DWORD *)(qword_1403A8068 + 12LL * v13);
+                    if ( !v15 || v15 == v6 )
                     {
-                      v15 = *(unsigned int *)(qword_1403A8068 + 12LL * v12 + 8);
-                      v16 = *(_WORD *)(v15 + qword_1403A8078);
-                      if ( ((v16 & 0x20) == 0 || (dword_14038D6FC & 4) != 0)
-                        && ((v16 & 0x40) == 0 || (dword_14038D6FC & 0x10) != 0) )
+                      v16 = *(unsigned int *)(qword_1403A8068 + 12LL * v13 + 8);
+                      v17 = *(_WORD *)(v16 + qword_1403A8078);
+                      if ( ((v17 & 0x20) == 0 || (dword_14038D6FC & 4) != 0)
+                        && ((v17 & 0x40) == 0 || (dword_14038D6FC & 0x10) != 0) )
                       {
                         break;
                       }
                     }
                   }
-                  if ( ++v12 >= v13 )
-                    goto LABEL_20;
+                  if ( ++v13 >= v14 )
+                    goto LABEL_22;
                 }
-                if ( a1 == 1 )
+                if ( FilterOperation == FilterBootOptionOperationSetElement )
                 {
-                  v8 = SepSecureBootValidateBcdDataAgainstBcdRule(qword_1403A8068 + 12LL * v12, a4, v9);
+                  v8 = SepSecureBootValidateBcdDataAgainstBcdRule(qword_1403A8068 + 12LL * v13, Data, v9);
                 }
                 else
                 {
                   v8 = 0;
-                  if ( (v16 & 0x1F) != 8 || *(_WORD *)(v15 + qword_1403A8078 + 2) )
+                  if ( (v17 & 0x1F) != 8 || *(_WORD *)(v16 + qword_1403A8078 + 2) )
                     v8 = -1069350910;
                 }
               }
-              goto LABEL_54;
+              goto LABEL_56;
             }
           }
         }
       }
     }
-LABEL_53:
+LABEL_55:
     v8 = -1073741811;
-    goto LABEL_54;
+    goto LABEL_56;
   }
-  if ( v6 || a3 || a4 || (_DWORD)Size )
-    goto LABEL_53;
-  v18 = 0;
+  if ( v6 || ElementType || Data || DataSize )
+    goto LABEL_55;
+  v20 = 0;
   if ( !_InterlockedCompareExchange(&dword_1403A8060, 0, 0) )
   {
-    v8 = SepSecureBootCorrectBcd(a1);
-    v18 = v8;
+    v8 = SepSecureBootCorrectBcd((unsigned int)FilterOperation);
+    v20 = v8;
     if ( v8 < 0 )
-      goto LABEL_54;
+      goto LABEL_56;
     _InterlockedExchange(&dword_1403A8060, 1);
   }
-  v8 = v18;
-LABEL_54:
+  v8 = v20;
+LABEL_56:
   if ( P )
     ExFreePoolWithTag(P, 0x62536553u);
-  return (unsigned int)v8;
+  return v8;
 }

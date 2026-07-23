@@ -1,12 +1,12 @@
 /*
- * XREFs of PopAdaptiveStandbyCheckHibernateReserveAction @ 0x140760948
+ * XREFs of PopAdaptiveStandbyCheckHibernateReserveAction @ 0x14075FAF4
  * Callers:
- *     PopAdaptiveStandbyHandleBatteryUpdate @ 0x140761118 (PopAdaptiveStandbyHandleBatteryUpdate.c)
+ *     PopAdaptiveStandbyHandleBatteryUpdate @ 0x140760484 (PopAdaptiveStandbyHandleBatteryUpdate.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140330CB0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgKeywordOn @ 0x140426AF0 (_tlgKeywordOn.c)
- *     IoGetActivityIdThread @ 0x14043F3F0 (IoGetActivityIdThread.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402B92F0 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x14041A970 (_tlgKeywordOn.c)
+ *     IoGetActivityIdThread @ 0x140435520 (IoGetActivityIdThread.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 unsigned __int8 __fastcall PopAdaptiveStandbyCheckHibernateReserveAction(__int64 a1, unsigned int *a2, int *a3)
@@ -66,7 +66,7 @@ LABEL_3:
     *a3 = 5;
     goto LABEL_17;
   }
-  if ( *(_BYTE *)(a1 + 176) )
+  if ( *(_BYTE *)(a1 + 196) )
   {
     v7 = 12;
     goto LABEL_3;
@@ -100,7 +100,7 @@ LABEL_3:
     *a3 = 8;
   }
 LABEL_17:
-  if ( (unsigned int)dword_140E08258 > 5 && tlgKeywordOn((__int64)&dword_140E08258, 0x400000000000LL) )
+  if ( (unsigned int)dword_140E08218 > 5 && tlgKeywordOn((__int64)&dword_140E08218, 0x400000000000LL) )
   {
     v23 = *a2;
     v27 = &v23;
@@ -114,7 +114,7 @@ LABEL_17:
     v21 = v6;
     v37 = &v21;
     v39 = &v22;
-    v24 = *(_QWORD *)(a1 + 224);
+    v24 = *(_QWORD *)(a1 + 240);
     v41 = &v24;
     v43 = &v25;
     v28 = 8LL;
@@ -131,8 +131,8 @@ LABEL_17:
     v44 = 8LL;
     ActivityIdThread = IoGetActivityIdThread();
     tlgWriteTransfer_EtwWriteTransfer(
-      (__int64)&dword_140E08258,
-      (unsigned __int8 *)byte_14004DC53,
+      (__int64)&dword_140E08218,
+      (unsigned __int8 *)byte_14004E3D1,
       (const GUID *)ActivityIdThread,
       0LL,
       0xBu,

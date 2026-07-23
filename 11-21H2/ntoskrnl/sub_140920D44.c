@@ -1,0 +1,82 @@
+/*
+ * XREFs of sub_140920D44 @ 0x140920D44
+ * Callers:
+ *     sub_140914324 @ 0x140914324 (sub_140914324.c)
+ * Callees:
+ *     Allocate @ 0x14024AC60 (Allocate.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     sub_14069F130 @ 0x14069F130 (sub_14069F130.c)
+ *     sub_14071BC64 @ 0x14071BC64 (sub_14071BC64.c)
+ *     sub_140721CE0 @ 0x140721CE0 (sub_140721CE0.c)
+ */
+
+__int64 __fastcall sub_140920D44(__int64 a1, __int64 a2, int a3, struct _LOOKASIDE_LIST_EX *a4, _QWORD *a5)
+{
+  int v5; // r15d
+  unsigned int v7; // esi
+  char v8; // bp
+  SIZE_T v10; // rdx
+  char *v11; // rax
+  char *v12; // rdi
+  __int16 v13; // bp
+  __int64 v14; // rsi
+  _QWORD *v15; // r14
+  unsigned __int64 v16; // r12
+  __int16 v17; // dx
+  __int64 v18; // rbx
+  _DWORD *v19; // rcx
+  __int64 v20; // rdx
+  unsigned __int64 v21; // r12
+
+  v5 = *(__int16 *)(a1 + 2);
+  v7 = 0;
+  v8 = (char)a4;
+  v10 = 24LL * (v5 + 1) + 8;
+  if ( (_BYTE)a4 )
+    v11 = (char *)Allocate(PagedPool, v10, 0x36374D43u, a4);
+  else
+    v11 = (char *)Allocate(PagedPool, v10, 0x37374D43u, a4);
+  v12 = v11;
+  if ( v11 )
+  {
+    memset(v11, 0, 24LL * (v5 + 1) + 8);
+    v12[2] = v8;
+    v13 = 0;
+    *((_DWORD *)v12 + 1) = a3;
+    *(_WORD *)v12 = v5;
+    if ( (v5 & 0x8000u) == 0 )
+    {
+      v14 = a2;
+      v15 = v12 + 8;
+      do
+      {
+        v16 = sub_14069F130(v14, v13);
+        v18 = sub_140721CE0(a1, v17);
+        sub_14071BC64((volatile signed __int64 *)v18);
+        v19 = v15 + 2;
+        v20 = 2LL;
+        v15[1] = v18;
+        v21 = v16 - (_QWORD)v15;
+        *v15 = *(_QWORD *)(v18 + 304);
+        do
+        {
+          *v19 = *(_DWORD *)((char *)v19 + v21 + 8);
+          ++v19;
+          --v20;
+        }
+        while ( v20 );
+        ++v13;
+        v15 += 3;
+        v14 = a2;
+      }
+      while ( v13 <= (__int16)v5 );
+      v7 = 0;
+    }
+    *a5 = v12;
+  }
+  else
+  {
+    return (unsigned int)-1073741670;
+  }
+  return v7;
+}

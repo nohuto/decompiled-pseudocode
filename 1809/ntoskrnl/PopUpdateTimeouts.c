@@ -1,14 +1,14 @@
 /*
- * XREFs of PopUpdateTimeouts @ 0x1406DC800
+ * XREFs of PopUpdateTimeouts @ 0x1406DDAA0
  * Callers:
- *     PopConsoleSessionPassiveInput @ 0x1406DC3A0 (PopConsoleSessionPassiveInput.c)
- *     PopConsoleSessionActiveInput @ 0x1406DC420 (PopConsoleSessionActiveInput.c)
- *     PopActiveLockScreenPowerRequest @ 0x140878C00 (PopActiveLockScreenPowerRequest.c)
- *     PopSessionWinlogonNotification @ 0x140878FFC (PopSessionWinlogonNotification.c)
+ *     PopConsoleSessionPassiveInput @ 0x1406DD640 (PopConsoleSessionPassiveInput.c)
+ *     PopConsoleSessionActiveInput @ 0x1406DD6C0 (PopConsoleSessionActiveInput.c)
+ *     PopActiveLockScreenPowerRequest @ 0x140879E60 (PopActiveLockScreenPowerRequest.c)
+ *     PopSessionWinlogonNotification @ 0x14087A25C (PopSessionWinlogonNotification.c)
  * Callees:
- *     PopPrintEx @ 0x14014242C (PopPrintEx.c)
- *     PopDiagTraceInputTimeout @ 0x1406DC8FC (PopDiagTraceInputTimeout.c)
- *     PopDiagTraceDisplayTimeout @ 0x1406DCBFC (PopDiagTraceDisplayTimeout.c)
+ *     PopPrintEx @ 0x14014252C (PopPrintEx.c)
+ *     PopDiagTraceInputTimeout @ 0x1406DDB9C (PopDiagTraceInputTimeout.c)
+ *     PopDiagTraceDisplayTimeout @ 0x1406DDE9C (PopDiagTraceDisplayTimeout.c)
  */
 
 char __fastcall PopUpdateTimeouts(int a1, unsigned int *a2, unsigned int *a3)
@@ -30,7 +30,7 @@ char __fastcall PopUpdateTimeouts(int a1, unsigned int *a2, unsigned int *a3)
   {
     v8 = "Zeroed";
     if ( !*((_BYTE *)a3 + 5) )
-      v8 = (const char *)qword_14076BC20;
+      v8 = (const char *)qword_14076CE10;
   }
   else
   {
@@ -41,16 +41,16 @@ char __fastcall PopUpdateTimeouts(int a1, unsigned int *a2, unsigned int *a3)
   {
     v10 = "Computed";
     if ( !*((_BYTE *)a3 + 4) )
-      v10 = (const char *)qword_14076BC20;
+      v10 = (const char *)qword_14076CE10;
   }
   else
   {
     v10 = "NULL";
   }
   if ( !*((_BYTE *)a2 + 5) )
-    v7 = (const char *)qword_14076BC20;
+    v7 = (const char *)qword_14076CE10;
   if ( !*((_BYTE *)a2 + 4) )
-    v9 = (const char *)qword_14076BC20;
+    v9 = (const char *)qword_14076CE10;
   PopPrintEx(
     3u,
     "PopAdaptive: Console session %u timeouts: %s%s Display:%u,: %s%sInput:%u\n",
@@ -61,18 +61,18 @@ char __fastcall PopUpdateTimeouts(int a1, unsigned int *a2, unsigned int *a3)
     v10,
     v8,
     v6);
-  qword_14040FDAC = *(_QWORD *)a2;
-  v11 = HIDWORD(qword_14040FDAC);
+  qword_140410E2C = *(_QWORD *)a2;
+  v11 = HIDWORD(qword_140410E2C);
   if ( a3 )
   {
-    qword_14040FDA4 = *(_QWORD *)a3;
+    qword_140410E24 = *(_QWORD *)a3;
     PopDiagTraceInputTimeout(*a3, *((unsigned __int8 *)a3 + 5), *((unsigned __int8 *)a3 + 4));
     LOBYTE(v11) = *((_BYTE *)a2 + 4);
   }
   if ( (_BYTE)v11 )
   {
     LOBYTE(v11) = MEMORY[0xFFFFF78000000320];
-    dword_14040FDBC = (MEMORY[0xFFFFF78000000320] * (unsigned __int64)MEMORY[0xFFFFF78000000004]) >> 24;
+    dword_140410E3C = (MEMORY[0xFFFFF78000000320] * (unsigned __int64)MEMORY[0xFFFFF78000000004]) >> 24;
   }
   return v11;
 }

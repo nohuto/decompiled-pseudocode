@@ -1,8 +1,8 @@
 /*
- * XREFs of RtlDetermineHotPatchUndoExtent @ 0x14091AE50
+ * XREFs of RtlDetermineHotPatchUndoExtent @ 0x14091AFB0
  * Callers:
- *     MiLockHotPatchUndoPages @ 0x1408CB234 (MiLockHotPatchUndoPages.c)
- *     MiProcessHotPatchUndoTable @ 0x1408CDB74 (MiProcessHotPatchUndoTable.c)
+ *     MiLockHotPatchUndoPages @ 0x1408CB394 (MiLockHotPatchUndoPages.c)
+ *     MiProcessHotPatchUndoTable @ 0x1408CDCD4 (MiProcessHotPatchUndoTable.c)
  * Callees:
  *     <none>
  */

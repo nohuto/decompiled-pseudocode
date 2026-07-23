@@ -1,14 +1,14 @@
 /*
- * XREFs of RtlpIsAppContainer @ 0x1409BD28C
+ * XREFs of RtlpIsAppContainer @ 0x1409BD48C
  * Callers:
- *     RtlpCapabilityCheckSystemCapability @ 0x1407EEF20 (RtlpCapabilityCheckSystemCapability.c)
+ *     RtlpCapabilityCheckSystemCapability @ 0x1407EF1F0 (RtlpCapabilityCheckSystemCapability.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     ZwClose @ 0x14041AF40 (ZwClose.c)
- *     ZwOpenThreadTokenEx @ 0x14041B340 (ZwOpenThreadTokenEx.c)
- *     ZwOpenProcessTokenEx @ 0x14041B360 (ZwOpenProcessTokenEx.c)
- *     ZwDuplicateToken @ 0x14041B5A0 (ZwDuplicateToken.c)
- *     SeQueryInformationToken @ 0x1407196A0 (SeQueryInformationToken.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     ZwClose @ 0x14041B2D0 (ZwClose.c)
+ *     ZwOpenThreadTokenEx @ 0x14041B6D0 (ZwOpenThreadTokenEx.c)
+ *     ZwOpenProcessTokenEx @ 0x14041B6F0 (ZwOpenProcessTokenEx.c)
+ *     ZwDuplicateToken @ 0x14041B930 (ZwDuplicateToken.c)
+ *     SeQueryInformationToken @ 0x1407198A0 (SeQueryInformationToken.c)
  */
 
 __int64 __fastcall RtlpIsAppContainer(HANDLE a1, bool *a2)

@@ -1,8 +1,8 @@
 /*
- * XREFs of RtlpHpSegLfhVsFree @ 0x18004C910
+ * XREFs of RtlpHpSegLfhVsFree @ 0x18004C900
  * Callers:
- *     RtlpHpVsContextFree @ 0x18001CC40 (RtlpHpVsContextFree.c)
- *     RtlpHpLfhBucketAddSubsegment @ 0x18004BCB4 (RtlpHpLfhBucketAddSubsegment.c)
+ *     RtlpHpVsContextFree @ 0x18001CC30 (RtlpHpVsContextFree.c)
+ *     RtlpHpLfhBucketAddSubsegment @ 0x18004BCA4 (RtlpHpLfhBucketAddSubsegment.c)
  * Callees:
  *     <none>
  */

@@ -1,11 +1,11 @@
 /*
- * XREFs of IopSetDeviceSecurityDescriptors @ 0x14070D4D0
+ * XREFs of IopSetDeviceSecurityDescriptors @ 0x14070E770
  * Callers:
- *     IopGetSetSecurityObject @ 0x1406990D0 (IopGetSetSecurityObject.c)
+ *     IopGetSetSecurityObject @ 0x14069A290 (IopGetSetSecurityObject.c)
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
  *     ObfReferenceObject @ 0x14004E220 (ObfReferenceObject.c)
- *     IopSetDeviceSecurityDescriptor @ 0x140699538 (IopSetDeviceSecurityDescriptor.c)
+ *     IopSetDeviceSecurityDescriptor @ 0x14069A6F8 (IopSetDeviceSecurityDescriptor.c)
  */
 
 __int64 __fastcall IopSetDeviceSecurityDescriptors(

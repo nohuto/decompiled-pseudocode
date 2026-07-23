@@ -3,7 +3,7 @@
  * Callers:
  *     KdpPrompt @ 0x140AB54E8 (KdpPrompt.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  *     KdpCopyMemoryChunks @ 0x140AB02A4 (KdpCopyMemoryChunks.c)
  */
 

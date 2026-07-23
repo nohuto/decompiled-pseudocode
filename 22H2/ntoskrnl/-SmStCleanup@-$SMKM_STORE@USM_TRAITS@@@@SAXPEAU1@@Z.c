@@ -43,7 +43,7 @@ __int64 __fastcall SMKM_STORE<SM_TRAITS>::SmStCleanup(__int64 a1)
   unsigned int v10; // r8d
   bool v11; // zf
   __int64 v12; // rcx
-  unsigned __int64 v13; // rsi
+  __int64 v13; // rsi
   __int64 v14; // rdx
   __int64 v15; // rcx
   char v16; // al
@@ -116,7 +116,7 @@ __int64 __fastcall SMKM_STORE<SM_TRAITS>::SmStCleanup(__int64 a1)
       v11 = !_BitScanReverse((unsigned int *)&v12, v10);
       if ( v11 )
         break;
-      v13 = (unsigned __int64)&v7->LockEntries[v12];
+      v13 = (__int64)&v7->LockEntries[v12];
       v10 &= ~(1 << v12);
       if ( (*(_BYTE *)(v13 + 26) & 1) != 0
         && (*(_DWORD *)(v13 + 32) & 1) == 0
@@ -130,12 +130,12 @@ __int64 __fastcall SMKM_STORE<SM_TRAITS>::SmStCleanup(__int64 a1)
           {
             *(_BYTE *)(v13 + 32) |= 2u;
             if ( *(__int64 *)(v13 + 32) < 0 )
-              KiAbEntryRemoveFromTree(v13);
+              KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)v13);
             v22 = *(_DWORD *)(v13 + 88) & 0x1FFFF;
             *(_DWORD *)(v13 + 88) &= 0xFFFE0000;
             *(_BYTE *)(v13 + 25) &= ~1u;
             *(_QWORD *)(v13 + 32) = 0LL;
-            v14 = (__int64)(v13 - (unsigned __int64)v7->LockEntries) / 96;
+            v14 = (signed __int64)(v13 - (unsigned __int64)v7->LockEntries) / 96;
             if ( v9 == 1 )
               v7->AbEntrySummary |= 1 << v14;
             else

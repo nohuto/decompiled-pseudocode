@@ -1,18 +1,18 @@
 /*
- * XREFs of MiIncrementLargeSubsections @ 0x1406FA404
+ * XREFs of MiIncrementLargeSubsections @ 0x1406FF0D4
  * Callers:
- *     MiReferenceDataSubsections @ 0x14033F1DC (MiReferenceDataSubsections.c)
- *     MiCloneLargeFileOnlyVad @ 0x14086CE70 (MiCloneLargeFileOnlyVad.c)
- *     MiAllocateDataVad @ 0x1409C49A0 (MiAllocateDataVad.c)
+ *     MiReferenceDataSubsections @ 0x14034125C (MiReferenceDataSubsections.c)
+ *     MiCloneLargeFileOnlyVad @ 0x140873250 (MiCloneLargeFileOnlyVad.c)
+ *     MiAllocateDataVad @ 0x140995980 (MiAllocateDataVad.c)
  * Callees:
- *     ExReleaseSpinLockExclusive @ 0x14021AA80 (ExReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x140249CD0 (ExAcquireSpinLockExclusive.c)
- *     MiReleaseControlAreaWaiters @ 0x1402733E0 (MiReleaseControlAreaWaiters.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KeWaitForGate @ 0x1403C26D0 (KeWaitForGate.c)
- *     MiBuildWakeList @ 0x140477360 (MiBuildWakeList.c)
- *     MiDecrementLargeSubsections @ 0x140505D08 (MiDecrementLargeSubsections.c)
- *     MiEnableLargeSubsection @ 0x1406F99BC (MiEnableLargeSubsection.c)
+ *     ExReleaseSpinLockExclusive @ 0x14021C410 (ExReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024B630 (ExAcquireSpinLockExclusive.c)
+ *     MiReleaseControlAreaWaiters @ 0x140272950 (MiReleaseControlAreaWaiters.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KeWaitForGate @ 0x1403CC5D0 (KeWaitForGate.c)
+ *     MiBuildWakeList @ 0x140470AE0 (MiBuildWakeList.c)
+ *     MiDecrementLargeSubsections @ 0x1404FF5B8 (MiDecrementLargeSubsections.c)
+ *     MiEnableLargeSubsection @ 0x1406FE68C (MiEnableLargeSubsection.c)
  */
 
 __int64 __fastcall MiIncrementLargeSubsections(__int64 *a1, unsigned __int64 a2)

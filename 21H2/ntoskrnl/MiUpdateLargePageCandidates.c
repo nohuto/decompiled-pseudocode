@@ -1,8 +1,8 @@
 /*
- * XREFs of MiUpdateLargePageCandidates @ 0x1402FF000
+ * XREFs of MiUpdateLargePageCandidates @ 0x140309D50
  * Callers:
- *     MiInsertLargePageInNodeList @ 0x1402FEA50 (MiInsertLargePageInNodeList.c)
- *     MiInitializeRebuildCandidateCounts @ 0x140A68014 (MiInitializeRebuildCandidateCounts.c)
+ *     MiInsertLargePageInNodeList @ 0x1403097A0 (MiInsertLargePageInNodeList.c)
+ *     MiInitializeRebuildCandidateCounts @ 0x140A69014 (MiInitializeRebuildCandidateCounts.c)
  * Callees:
  *     <none>
  */
@@ -14,7 +14,7 @@ __int64 __fastcall MiUpdateLargePageCandidates(unsigned __int64 a1, int a2, __in
   unsigned __int64 v6; // rax
   unsigned __int64 v7; // r10
 
-  v4 = *(_QWORD *)(qword_140C4E648 + 8 * ((*(_QWORD *)(48 * a1 - 0x57FFFFFFFD8LL) >> 39) & 0x3FFLL));
+  v4 = *(_QWORD *)(qword_140C4E688 + 8 * ((*(_QWORD *)(48 * a1 - 0x57FFFFFFFD8LL) >> 39) & 0x3FFLL));
   if ( !*(_BYTE *)(v4 + 4830) )
     return 0LL;
   if ( a2 == 2 )

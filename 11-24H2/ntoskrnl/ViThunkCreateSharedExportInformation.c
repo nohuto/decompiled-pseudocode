@@ -1,25 +1,25 @@
 /*
- * XREFs of ViThunkCreateSharedExportInformation @ 0x140BA638C
+ * XREFs of ViThunkCreateSharedExportInformation @ 0x140BA838C
  * Callers:
- *     VfThunkAddTargetNotify @ 0x140BA64F4 (VfThunkAddTargetNotify.c)
+ *     VfThunkAddTargetNotify @ 0x140BA84F4 (VfThunkAddTargetNotify.c)
  * Callees:
- *     RtlNumberOfClearBits @ 0x14042B450 (RtlNumberOfClearBits.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ViThunkSnapSharedExports @ 0x140BA643C (ViThunkSnapSharedExports.c)
- *     ViThunkFreeSharedThunksArray @ 0x140BA65A0 (ViThunkFreeSharedThunksArray.c)
+ *     RtlNumberOfClearBits @ 0x140377850 (RtlNumberOfClearBits.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ViThunkSnapSharedExports @ 0x140BA843C (ViThunkSnapSharedExports.c)
+ *     ViThunkFreeSharedThunksArray @ 0x140BA85A0 (ViThunkFreeSharedThunksArray.c)
  */
 
 __int64 __fastcall ViThunkCreateSharedExportInformation(
         __int64 a1,
         __int64 a2,
         __int64 a3,
-        RTL_BITMAP *a4,
-        ULONG_PTR *a5)
+        _RTL_BITMAP *a4,
+        __int64 *a5)
 {
   unsigned int v8; // ebx
   ULONG v9; // eax
   ULONG v10; // esi
-  ULONG_PTR Pool2; // rax
+  __int64 Pool2; // rax
 
   v8 = 1;
   v9 = RtlNumberOfClearBits(a4);

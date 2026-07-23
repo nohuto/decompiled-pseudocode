@@ -1,9 +1,9 @@
 /*
- * XREFs of MiSanitizePage @ 0x1400E63D4
+ * XREFs of MiSanitizePage @ 0x1400E6454
  * Callers:
- *     MmRotatePhysicalView @ 0x14066B910 (MmRotatePhysicalView.c)
- *     MiMapLockedPagesInUserSpace @ 0x140695B24 (MiMapLockedPagesInUserSpace.c)
- *     MiMapViewOfPhysicalSection @ 0x1407544A0 (MiMapViewOfPhysicalSection.c)
+ *     MmRotatePhysicalView @ 0x14066CAD0 (MmRotatePhysicalView.c)
+ *     MiMapLockedPagesInUserSpace @ 0x140696CE4 (MiMapLockedPagesInUserSpace.c)
+ *     MiMapViewOfPhysicalSection @ 0x140755690 (MiMapViewOfPhysicalSection.c)
  * Callees:
  *     <none>
  */

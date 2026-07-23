@@ -1,12 +1,12 @@
 /*
- * XREFs of PopSqmThermalZoneEnumeration @ 0x140676B78
+ * XREFs of PopSqmThermalZoneEnumeration @ 0x140676C5C
  * Callers:
- *     PopDiagTraceThermalZoneEnumeration @ 0x140146F70 (PopDiagTraceThermalZoneEnumeration.c)
+ *     PopDiagTraceThermalZoneEnumeration @ 0x1401474E0 (PopDiagTraceThermalZoneEnumeration.c)
  * Callees:
- *     _TlgWrite @ 0x14000A598 (_TlgWrite.c)
- *     _TlgKeywordOn @ 0x140088D98 (_TlgKeywordOn.c)
- *     _TlgCreateWsz @ 0x140133CE4 (_TlgCreateWsz.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
+ *     _TlgWrite @ 0x14000A118 (_TlgWrite.c)
+ *     _TlgKeywordOn @ 0x14010CF88 (_TlgKeywordOn.c)
+ *     _TlgCreateWsz @ 0x140134254 (_TlgCreateWsz.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
  */
 
 char __fastcall PopSqmThermalZoneEnumeration(
@@ -68,9 +68,9 @@ char __fastcall PopSqmThermalZoneEnumeration(
   struct _EVENT_DATA_DESCRIPTOR v56; // [rsp+120h] [rbp+20h] BYREF
 
   v11 = *(_QWORD *)(a2 + 8);
-  if ( pCallbackContext.LevelPlus1 > 5 )
+  if ( hProvider.LevelPlus1 > 5 )
   {
-    LOBYTE(v11) = TlgKeywordOn(&pCallbackContext, 0x400000000000uLL);
+    LOBYTE(v11) = TlgKeywordOn(&hProvider, 0x400000000000uLL);
     if ( (_BYTE)v11 )
     {
       v15 = *(const WCHAR **)(a1 + 8);
@@ -112,7 +112,7 @@ char __fastcall PopSqmThermalZoneEnumeration(
       v54 = 4;
       v53 = &v26;
       TlgCreateWsz(&v56, v16);
-      LOBYTE(v11) = TlgWrite(&pCallbackContext, &unk_14027D3D0, 0LL, 0LL, 0xDu, &pData);
+      LOBYTE(v11) = TlgWrite(&hProvider, &unk_14027D4D0, 0LL, 0LL, 0xDu, &pData);
     }
   }
   return v11;

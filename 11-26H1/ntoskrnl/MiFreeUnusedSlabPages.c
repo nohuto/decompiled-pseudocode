@@ -1,18 +1,18 @@
 /*
- * XREFs of MiFreeUnusedSlabPages @ 0x1402A7510
+ * XREFs of MiFreeUnusedSlabPages @ 0x1402A6920
  * Callers:
- *     MiPartitionPeriodicTick @ 0x1402A703C (MiPartitionPeriodicTick.c)
+ *     MiPartitionPeriodicTick @ 0x1402A6458 (MiPartitionPeriodicTick.c)
  * Callees:
- *     MiGetSlabCurrentTime @ 0x1402073A0 (MiGetSlabCurrentTime.c)
- *     MiFreeSlabEntries @ 0x1402A76DC (MiFreeSlabEntries.c)
- *     MiSlabUpdateRecentFailure @ 0x1402A7900 (MiSlabUpdateRecentFailure.c)
- *     MiCheckMdlSlabFragmentation @ 0x1402A793C (MiCheckMdlSlabFragmentation.c)
- *     KeGenericCallDpcEx @ 0x1403C2284 (KeGenericCallDpcEx.c)
- *     MiSlabDemotionLowMemoryConditionUpdate @ 0x1403E5C8C (MiSlabDemotionLowMemoryConditionUpdate.c)
- *     MiDemoteSlabEntries @ 0x140506A84 (MiDemoteSlabEntries.c)
- *     MiLogSlabEntriesDemote @ 0x140508C70 (MiLogSlabEntriesDemote.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     MiGetSlabCurrentTime @ 0x140207480 (MiGetSlabCurrentTime.c)
+ *     MiFreeSlabEntries @ 0x1402A6AEC (MiFreeSlabEntries.c)
+ *     MiSlabUpdateRecentFailure @ 0x1402A6D10 (MiSlabUpdateRecentFailure.c)
+ *     MiCheckMdlSlabFragmentation @ 0x1402A6D4C (MiCheckMdlSlabFragmentation.c)
+ *     KeGenericCallDpcEx @ 0x1403CC184 (KeGenericCallDpcEx.c)
+ *     MiSlabDemotionLowMemoryConditionUpdate @ 0x1403E8E7C (MiSlabDemotionLowMemoryConditionUpdate.c)
+ *     MiDemoteSlabEntries @ 0x140500334 (MiDemoteSlabEntries.c)
+ *     MiLogSlabEntriesDemote @ 0x140502720 (MiLogSlabEntriesDemote.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 unsigned __int64 __fastcall MiFreeUnusedSlabPages(_QWORD *a1)

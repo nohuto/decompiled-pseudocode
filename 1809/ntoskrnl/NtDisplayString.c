@@ -1,13 +1,13 @@
 /*
- * XREFs of NtDisplayString @ 0x1408CDA20
+ * XREFs of NtDisplayString @ 0x1408CECE0
  * Callers:
  *     <none>
  * Callees:
- *     memmove @ 0x1401D1540 (memmove.c)
- *     BgkDisplayStringEx @ 0x14027DB44 (BgkDisplayStringEx.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     SeSinglePrivilegeCheck @ 0x140612160 (SeSinglePrivilegeCheck.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     BgkDisplayStringEx @ 0x14027DD34 (BgkDisplayStringEx.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     SeSinglePrivilegeCheck @ 0x140613160 (SeSinglePrivilegeCheck.c)
  */
 
 NTSTATUS __stdcall NtDisplayString(PUNICODE_STRING DisplayString)

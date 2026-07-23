@@ -1,11 +1,11 @@
 /*
- * XREFs of _sinput_s @ 0x18012FA9C
+ * XREFs of _sinput_s @ 0x18012DCCC
  * Callers:
- *     _snscanf_s @ 0x18012CE20 (_snscanf_s.c)
- *     sscanf_s @ 0x18012D8E0 (sscanf_s.c)
+ *     _snscanf_s @ 0x18012B050 (_snscanf_s.c)
+ *     sscanf_s @ 0x18012BB10 (sscanf_s.c)
  * Callees:
- *     _invalid_parameter @ 0x180120778 (_invalid_parameter.c)
- *     _input_s @ 0x18012F1F4 (_input_s.c)
+ *     _invalid_parameter @ 0x18011E9A8 (_invalid_parameter.c)
+ *     _input_s @ 0x18012D424 (_input_s.c)
  */
 
 __int64 __fastcall sinput_s(char *a1, unsigned __int64 a2, unsigned __int8 *a3, _BYTE **a4)

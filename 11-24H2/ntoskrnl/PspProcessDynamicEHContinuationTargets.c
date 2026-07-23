@@ -1,22 +1,22 @@
 /*
- * XREFs of PspProcessDynamicEHContinuationTargets @ 0x140774CF8
+ * XREFs of PspProcessDynamicEHContinuationTargets @ 0x140774F18
  * Callers:
- *     NtSetInformationProcess @ 0x140947500 (NtSetInformationProcess.c)
+ *     NtSetInformationProcess @ 0x1408EBA70 (NtSetInformationProcess.c)
  * Callees:
- *     ExReleaseRundownProtection_0 @ 0x140245670 (ExReleaseRundownProtection_0.c)
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     ExfTryToWakePushLock @ 0x14025F9A0 (ExfTryToWakePushLock.c)
- *     RtlAvlRemoveNode @ 0x140260BC0 (RtlAvlRemoveNode.c)
- *     ExAcquireRundownProtection @ 0x1402792A0 (ExAcquireRundownProtection.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     KiStackAttachProcess @ 0x1403209E0 (KiStackAttachProcess.c)
- *     KiUnstackDetachProcess @ 0x140321EC0 (KiUnstackDetachProcess.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     RtlAddDynamicEHContinuationTarget @ 0x140787568 (RtlAddDynamicEHContinuationTarget.c)
- *     RtlpDynamicEHContinuationTargetsTreeCompare @ 0x140A2FF90 (RtlpDynamicEHContinuationTargetsTreeCompare.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ExReleaseRundownProtection_0 @ 0x14020DE50 (ExReleaseRundownProtection_0.c)
+ *     ExAcquireRundownProtection_0 @ 0x14022E830 (ExAcquireRundownProtection_0.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     ExfTryToWakePushLock @ 0x14028FFB0 (ExfTryToWakePushLock.c)
+ *     RtlAvlRemoveNode @ 0x1402911D0 (RtlAvlRemoveNode.c)
+ *     KiStackAttachProcess @ 0x1402C9570 (KiStackAttachProcess.c)
+ *     KiUnstackDetachProcess @ 0x1402CAA50 (KiUnstackDetachProcess.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     RtlAddDynamicEHContinuationTarget @ 0x140787498 (RtlAddDynamicEHContinuationTarget.c)
+ *     RtlpDynamicEHContinuationTargetsTreeCompare @ 0x140A249D0 (RtlpDynamicEHContinuationTargetsTreeCompare.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PspProcessDynamicEHContinuationTargets(
@@ -33,34 +33,36 @@ __int64 __fastcall PspProcessDynamicEHContinuationTargets(
   char v10; // bl
   unsigned int v11; // ecx
   unsigned int v12; // r13d
-  _QWORD *v13; // rax
-  _QWORD *v14; // rsi
+  char *v13; // rax
+  char *v14; // rsi
   __int64 v15; // r14
   __int64 v16; // rbp
   __int64 v17; // r13
   _QWORD *v18; // rsi
   int v19; // eax
   char v20; // bl
-  int v22; // [rsp+20h] [rbp-98h]
-  unsigned int v23; // [rsp+24h] [rbp-94h]
+  __int64 v21; // r8
+  __int64 v22; // r9
+  int v24; // [rsp+20h] [rbp-98h]
+  unsigned int v25; // [rsp+24h] [rbp-94h]
   struct _KTHREAD *CurrentThread; // [rsp+28h] [rbp-90h]
   struct _EX_RUNDOWN_REF *RunRef; // [rsp+38h] [rbp-80h]
-  _OWORD v28[3]; // [rsp+48h] [rbp-70h] BYREF
+  _OWORD v30[3]; // [rsp+48h] [rbp-70h] BYREF
 
-  memset(v28, 0, sizeof(v28));
+  memset(v30, 0, sizeof(v30));
   v5 = 0LL;
   v6 = a3;
   v7 = a2;
   CurrentThread = KeGetCurrentThread();
-  v22 = 0;
+  v24 = 0;
   Process = CurrentThread->ApcState.Process;
   --CurrentThread->KernelApcDisable;
   RunRef = (struct _EX_RUNDOWN_REF *)(BugCheckParameter1 + 488);
-  if ( ExAcquireRundownProtection((PEX_RUNDOWN_REF)(BugCheckParameter1 + 488)) )
+  if ( ExAcquireRundownProtection_0((PEX_RUNDOWN_REF)(BugCheckParameter1 + 488)) )
   {
     v10 = 2;
     v11 = 0;
-    v23 = v6;
+    v25 = v6;
     v12 = v6;
     while ( v11 < v6 )
     {
@@ -90,18 +92,15 @@ LABEL_47:
     }
     if ( (_KPROCESS *)BugCheckParameter1 != Process )
     {
-      KiStackAttachProcess((_KPROCESS *)BugCheckParameter1, 0, (__int64)v28);
+      KiStackAttachProcess((_KPROCESS *)BugCheckParameter1, 0, (__int64)v30);
       v10 = 3;
     }
-    v13 = KeAbPreAcquire(BugCheckParameter1 + 1928, 0LL);
+    v13 = (char *)KeAbPreAcquire(BugCheckParameter1 + 1928, 0LL);
     v14 = v13;
     if ( _interlockedbittestandset64((volatile signed __int32 *)(BugCheckParameter1 + 1928), 0LL) )
-      ExfAcquirePushLockExclusiveEx(
-        (unsigned __int64 *)(BugCheckParameter1 + 1928),
-        (__int64)v13,
-        BugCheckParameter1 + 1928);
+      ExfAcquirePushLockExclusiveEx((unsigned __int64 *)(BugCheckParameter1 + 1928), v13, BugCheckParameter1 + 1928);
     if ( v14 )
-      *((_BYTE *)v14 + 10) = 1;
+      v14[10] = 1;
     while ( (unsigned int)v5 < v12 )
     {
       if ( (*(_DWORD *)(&CurrentThread[1].SwapListEntry + 1) & 1) != 0 )
@@ -144,16 +143,16 @@ LABEL_47:
         {
           v9 = -1073741275;
 LABEL_36:
-          LODWORD(v5) = v22;
+          LODWORD(v5) = v24;
           goto LABEL_40;
         }
         RtlAvlRemoveNode((unsigned __int64 *)(BugCheckParameter1 + 1920), (__int64)v18);
         ExFreePoolWithTag(v18, 0);
       }
       v7 = a2;
-      v12 = v23;
+      v12 = v25;
       *(_QWORD *)(a2 + 8 * v15 + 8) = v16 | 2;
-      v5 = (unsigned int)++v22;
+      v5 = (unsigned int)++v24;
     }
     v9 = 0;
 LABEL_40:
@@ -162,7 +161,7 @@ LABEL_40:
       ExfTryToWakePushLock((volatile signed __int64 *)(BugCheckParameter1 + 1928));
     KeAbPostRelease(BugCheckParameter1 + 1928);
     if ( (v20 & 1) != 0 )
-      KiUnstackDetachProcess((__int64)v28, 0);
+      KiUnstackDetachProcess((__int64)v30, 0, v21, v22);
     if ( (v20 & 2) != 0 )
       goto LABEL_47;
   }

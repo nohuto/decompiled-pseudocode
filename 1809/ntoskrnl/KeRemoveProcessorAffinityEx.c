@@ -1,22 +1,22 @@
 /*
- * XREFs of KeRemoveProcessorAffinityEx @ 0x1400EDA70
+ * XREFs of KeRemoveProcessorAffinityEx @ 0x1400EDAF0
  * Callers:
  *     PpmIdleExecuteTransition @ 0x14005DC80 (PpmIdleExecuteTransition.c)
- *     KxFlushSingleTb @ 0x1400ECEC0 (KxFlushSingleTb.c)
- *     KeFlushProcessWriteBuffers @ 0x1400ECFF8 (KeFlushProcessWriteBuffers.c)
- *     KxFlushNonGlobalTb @ 0x1400ED220 (KxFlushNonGlobalTb.c)
- *     KiCheckKeepAlive @ 0x1400ED9E8 (KiCheckKeepAlive.c)
- *     PpmParkUnblockIdle @ 0x140122300 (PpmParkUnblockIdle.c)
- *     KeSynchronizeAddressPolicy @ 0x14012DC48 (KeSynchronizeAddressPolicy.c)
- *     KeSynchronizeSecurityDomain @ 0x14013843C (KeSynchronizeSecurityDomain.c)
- *     PpmPerfApplyProcessorStates @ 0x140175190 (PpmPerfApplyProcessorStates.c)
- *     KxFlushEntireTb @ 0x140187858 (KxFlushEntireTb.c)
- *     KeBugCheck2 @ 0x140291190 (KeBugCheck2.c)
- *     KeFreezeExecution @ 0x140296FC8 (KeFreezeExecution.c)
- *     KiSendFreeze @ 0x1402979B0 (KiSendFreeze.c)
- *     PpmUnlockProcessors @ 0x1402D5F90 (PpmUnlockProcessors.c)
- *     PnprQuiesceProcessors @ 0x14057A720 (PnprQuiesceProcessors.c)
- *     EtwpGetMicroarchitecturalPmcAffinity @ 0x1408BB47C (EtwpGetMicroarchitecturalPmcAffinity.c)
+ *     KxFlushSingleTb @ 0x1400ECF40 (KxFlushSingleTb.c)
+ *     KeFlushProcessWriteBuffers @ 0x1400ED078 (KeFlushProcessWriteBuffers.c)
+ *     KxFlushNonGlobalTb @ 0x1400ED2A0 (KxFlushNonGlobalTb.c)
+ *     KiCheckKeepAlive @ 0x1400EDA68 (KiCheckKeepAlive.c)
+ *     PpmParkUnblockIdle @ 0x1401223D0 (PpmParkUnblockIdle.c)
+ *     KeSynchronizeAddressPolicy @ 0x14012DD18 (KeSynchronizeAddressPolicy.c)
+ *     KeSynchronizeSecurityDomain @ 0x14013853C (KeSynchronizeSecurityDomain.c)
+ *     PpmPerfApplyProcessorStates @ 0x140175290 (PpmPerfApplyProcessorStates.c)
+ *     KxFlushEntireTb @ 0x140187998 (KxFlushEntireTb.c)
+ *     KeBugCheck2 @ 0x140291380 (KeBugCheck2.c)
+ *     KeFreezeExecution @ 0x1402971B8 (KeFreezeExecution.c)
+ *     KiSendFreeze @ 0x140297BA0 (KiSendFreeze.c)
+ *     PpmUnlockProcessors @ 0x1402D6180 (PpmUnlockProcessors.c)
+ *     PnprQuiesceProcessors @ 0x14057B720 (PnprQuiesceProcessors.c)
+ *     EtwpGetMicroarchitecturalPmcAffinity @ 0x1408BC73C (EtwpGetMicroarchitecturalPmcAffinity.c)
  * Callees:
  *     <none>
  */

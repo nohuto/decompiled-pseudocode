@@ -1,15 +1,15 @@
 /*
  * XREFs of BgkpUnlockBgfxCodeSection @ 0x140AEF590
  * Callers:
- *     BgkNotifyDisplayOwnershipChange @ 0x1403ADB80 (BgkNotifyDisplayOwnershipChange.c)
- *     BgkResumeFinished @ 0x140A99A38 (BgkResumeFinished.c)
- *     BgkResumePrepare @ 0x140A99A74 (BgkResumePrepare.c)
+ *     BgkNotifyDisplayOwnershipChange @ 0x1403ADD60 (BgkNotifyDisplayOwnershipChange.c)
+ *     BgkResumeFinished @ 0x140A998A8 (BgkResumeFinished.c)
+ *     BgkResumePrepare @ 0x140A998E4 (BgkResumePrepare.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     MmUnlockPagableImageSection @ 0x14025A440 (MmUnlockPagableImageSection.c)
- *     ExfTryToWakePushLock @ 0x1402BD960 (ExfTryToWakePushLock.c)
+ *     KeLeaveCriticalRegionThread @ 0x14022F7F0 (KeLeaveCriticalRegionThread.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140231120 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     MmUnlockPagableImageSection @ 0x14025A6D0 (MmUnlockPagableImageSection.c)
+ *     ExfTryToWakePushLock @ 0x1402BDBF0 (ExfTryToWakePushLock.c)
  */
 
 _QWORD *BgkpUnlockBgfxCodeSection()

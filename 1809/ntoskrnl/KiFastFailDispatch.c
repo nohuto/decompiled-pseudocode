@@ -1,20 +1,20 @@
 /*
- * XREFs of KiFastFailDispatch @ 0x1401D02C0
+ * XREFs of KiFastFailDispatch @ 0x1401D03C0
  * Callers:
- *     KiBoundFault @ 0x1401C9240 (KiBoundFault.c)
- *     KiControlProtectionFault @ 0x1401CDA40 (KiControlProtectionFault.c)
- *     KiRaiseSecurityCheckFailure @ 0x1401CE040 (KiRaiseSecurityCheckFailure.c)
+ *     KiBoundFault @ 0x1401C9340 (KiBoundFault.c)
+ *     KiControlProtectionFault @ 0x1401CDB40 (KiControlProtectionFault.c)
+ *     KiRaiseSecurityCheckFailure @ 0x1401CE140 (KiRaiseSecurityCheckFailure.c)
  * Callees:
- *     KiDispatchException @ 0x1400A2F50 (KiDispatchException.c)
- *     KiUpdateStibpPairing @ 0x1400F8BF0 (KiUpdateStibpPairing.c)
- *     KiRestoreDebugRegisterState @ 0x1401BC090 (KiRestoreDebugRegisterState.c)
- *     KiRestoreSetContextState @ 0x1401BCD60 (KiRestoreSetContextState.c)
- *     KiInitiateUserApc @ 0x1401C1080 (KiInitiateUserApc.c)
- *     KiBugCheckDispatch @ 0x1401CFE00 (KiBugCheckDispatch.c)
- *     KiFastFailDispatch @ 0x1401D02C0 (KiFastFailDispatch.c)
- *     KiUmsExceptionEntry @ 0x1401D0F40 (KiUmsExceptionEntry.c)
- *     KiUmsExit @ 0x1401D1000 (KiUmsExit.c)
- *     KiCopyCounters @ 0x140295EC0 (KiCopyCounters.c)
+ *     KiDispatchException @ 0x1400A2E90 (KiDispatchException.c)
+ *     KiUpdateStibpPairing @ 0x1400F8C70 (KiUpdateStibpPairing.c)
+ *     KiRestoreDebugRegisterState @ 0x1401BC1F0 (KiRestoreDebugRegisterState.c)
+ *     KiRestoreSetContextState @ 0x1401BCEC0 (KiRestoreSetContextState.c)
+ *     KiInitiateUserApc @ 0x1401C11E0 (KiInitiateUserApc.c)
+ *     KiBugCheckDispatch @ 0x1401CFF00 (KiBugCheckDispatch.c)
+ *     KiFastFailDispatch @ 0x1401D03C0 (KiFastFailDispatch.c)
+ *     KiUmsExceptionEntry @ 0x1401D1040 (KiUmsExceptionEntry.c)
+ *     KiUmsExit @ 0x1401D1100 (KiUmsExit.c)
+ *     KiCopyCounters @ 0x1402960B0 (KiCopyCounters.c)
  */
 
 // positive sp value has been detected, the output may be wrong!
@@ -74,7 +74,7 @@ __int64 __fastcall KiFastFailDispatch(int a1, unsigned int a2, void *a3, unsigne
   __int64 v59; // [rsp-220h] [rbp-3F8h]
   __int64 v60; // [rsp-218h] [rbp-3F0h]
   __int64 v61; // [rsp-210h] [rbp-3E8h]
-  struct _EXCEPTION_RECORD v62; // [rsp-200h] [rbp-3D8h] BYREF
+  EXCEPTION_RECORD v62; // [rsp-200h] [rbp-3D8h] BYREF
   __int64 v63; // [rsp-168h] [rbp-340h]
   __int64 v64; // [rsp-160h] [rbp-338h]
   __int64 v65; // [rsp-158h] [rbp-330h]
@@ -210,38 +210,38 @@ __int64 __fastcall KiFastFailDispatch(int a1, unsigned int a2, void *a3, unsigne
   v33 = _bittestandreset16(MK_FP(__GS__, 2144LL), 5u);
   if ( v33 )
   {
-    v62.ExceptionAddress = &loc_1401D0530;
-    v77 = 0x1401D0647LL;
-    v76 = 0x1401D063ELL;
-    v75 = 0x1401D0635LL;
-    v74 = 0x1401D062CLL;
-    v73 = 0x1401D0623LL;
-    v72 = 0x1401D061ALL;
-    v71 = 0x1401D0611LL;
-    v70 = 0x1401D0608LL;
-    v69 = 0x1401D05FFLL;
-    v68 = 0x1401D05F6LL;
-    v67 = 0x1401D05EDLL;
-    v66 = 0x1401D05E4LL;
-    v65 = 0x1401D05DBLL;
-    v64 = 0x1401D05D2LL;
-    v63 = 0x1401D05C9LL;
-    v62.ExceptionInformation[14] = 0x1401D05C0LL;
-    v62.ExceptionInformation[13] = 0x1401D05B7LL;
-    v62.ExceptionInformation[12] = 0x1401D05AELL;
-    v62.ExceptionInformation[11] = 0x1401D05A5LL;
-    v62.ExceptionInformation[10] = 0x1401D059CLL;
-    v62.ExceptionInformation[9] = 0x1401D0593LL;
-    v62.ExceptionInformation[8] = 0x1401D058ALL;
-    v62.ExceptionInformation[7] = 0x1401D0581LL;
-    v62.ExceptionInformation[6] = 0x1401D0578LL;
-    v62.ExceptionInformation[5] = 0x1401D056FLL;
-    v62.ExceptionInformation[4] = 0x1401D0566LL;
-    v62.ExceptionInformation[3] = 0x1401D055DLL;
-    v62.ExceptionInformation[2] = 0x1401D0554LL;
-    v62.ExceptionInformation[1] = 0x1401D054BLL;
-    v62.ExceptionInformation[0] = 0x1401D0542LL;
-    *(_QWORD *)&v62.NumberParameters = 0x1401D0539LL;
+    v62.ExceptionAddress = &loc_1401D0630;
+    v77 = 0x1401D0747LL;
+    v76 = 0x1401D073ELL;
+    v75 = 0x1401D0735LL;
+    v74 = 0x1401D072CLL;
+    v73 = 0x1401D0723LL;
+    v72 = 0x1401D071ALL;
+    v71 = 0x1401D0711LL;
+    v70 = 0x1401D0708LL;
+    v69 = 0x1401D06FFLL;
+    v68 = 0x1401D06F6LL;
+    v67 = 0x1401D06EDLL;
+    v66 = 0x1401D06E4LL;
+    v65 = 0x1401D06DBLL;
+    v64 = 0x1401D06D2LL;
+    v63 = 0x1401D06C9LL;
+    v62.ExceptionInformation[14] = 0x1401D06C0LL;
+    v62.ExceptionInformation[13] = 0x1401D06B7LL;
+    v62.ExceptionInformation[12] = 0x1401D06AELL;
+    v62.ExceptionInformation[11] = 0x1401D06A5LL;
+    v62.ExceptionInformation[10] = 0x1401D069CLL;
+    v62.ExceptionInformation[9] = 0x1401D0693LL;
+    v62.ExceptionInformation[8] = 0x1401D068ALL;
+    v62.ExceptionInformation[7] = 0x1401D0681LL;
+    v62.ExceptionInformation[6] = 0x1401D0678LL;
+    v62.ExceptionInformation[5] = 0x1401D066FLL;
+    v62.ExceptionInformation[4] = 0x1401D0666LL;
+    v62.ExceptionInformation[3] = 0x1401D065DLL;
+    v62.ExceptionInformation[2] = 0x1401D0654LL;
+    v62.ExceptionInformation[1] = 0x1401D064BLL;
+    v62.ExceptionInformation[0] = 0x1401D0642LL;
+    *(_QWORD *)&v62.NumberParameters = 0x1401D0639LL;
   }
   if ( (KiKvaShadow & 1) == 0 )
   {

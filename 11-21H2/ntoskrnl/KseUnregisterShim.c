@@ -4,14 +4,14 @@
  *     <none>
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x1402AC910 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x1402AFC00 (KeAbPostRelease.c)
- *     KsepPoolFreePaged @ 0x1402D8494 (KsepPoolFreePaged.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402F9540 (KiLeaveCriticalRegionUnsafe.c)
+ *     sub_1402AFC00 @ 0x1402AFC00 (sub_1402AFC00.c)
+ *     sub_1402D8494 @ 0x1402D8494 (sub_1402D8494.c)
+ *     sub_1402F9540 @ 0x1402F9540 (sub_1402F9540.c)
  *     ExfTryToWakePushLock @ 0x140359F40 (ExfTryToWakePushLock.c)
- *     KsepLogError @ 0x140368C88 (KsepLogError.c)
- *     KsepLogInfo @ 0x1403C09C8 (KsepLogInfo.c)
- *     KsepDebugPrint @ 0x14057D738 (KsepDebugPrint.c)
- *     KsepIsShimRegistered @ 0x140825C20 (KsepIsShimRegistered.c)
+ *     sub_140368C88 @ 0x140368C88 (sub_140368C88.c)
+ *     sub_1403C09C8 @ 0x1403C09C8 (sub_1403C09C8.c)
+ *     sub_14057D738 @ 0x14057D738 (sub_14057D738.c)
+ *     sub_140825C20 @ 0x140825C20 (sub_140825C20.c)
  */
 
 __int64 __fastcall KseUnregisterShim(__int64 a1)
@@ -35,24 +35,24 @@ __int64 __fastcall KseUnregisterShim(__int64 a1)
     return 3221225473LL;
   CurrentThread = KeGetCurrentThread();
   v4 = 0;
-  --CurrentThread->KernelApcDisable;
+  --*((_WORD *)CurrentThread + 242);
   ExAcquirePushLockExclusiveEx((ULONG_PTR)&qword_140C54F20, 0LL);
-  if ( (unsigned int)KsepIsShimRegistered((__int64)&KseEngine, *(_QWORD **)(a1 + 8), v5, &v13) )
+  if ( (unsigned int)sub_140825C20((__int64)&dword_140C54EF0, *(_QWORD **)(a1 + 8), v5, &v13) )
   {
     if ( *((_DWORD *)v13 + 6) )
     {
       v6 = -1073741790;
       v7 = v13;
-      v8 = ((unsigned __int8)_InterlockedExchangeAdd(&KsepHistoryErrorsIndex, 1u) + 1) & 0x3F;
+      v8 = ((unsigned __int8)_InterlockedExchangeAdd(&dword_140C2A200, 1u) + 1) & 0x3F;
       dword_140C2A224[2 * v8] = -1073741790;
-      KsepHistoryErrors[2 * v8] = 131453;
-      if ( (KsepDebugFlag & 2) != 0 )
-        KsepDebugPrint(
+      dword_140C2A220[2 * v8] = 131453;
+      if ( (dword_140D04880 & 2) != 0 )
+        sub_14057D738(
           3LL,
           "KSE: Ending shim [0x%08X] unregistration. Shim object [0x%08X] ref count is not 0.\n",
           **(_DWORD **)(a1 + 8),
           (_DWORD)v7);
-      KsepLogError(
+      sub_140368C88(
         3LL,
         (__int64)"KSE: Ending shim [0x%08X] unregistration. Shim object [0x%08X] ref count is not 0.\n",
         **(_DWORD **)(a1 + 8),
@@ -67,30 +67,30 @@ __int64 __fastcall KseUnregisterShim(__int64 a1)
       *v10 = v9;
       v9[1] = v10;
       v4 = 1;
-      v11 = ((unsigned __int8)_InterlockedExchangeAdd(&KsepHistoryMessagesIndex, 1u) + 1) & 0x3F;
-      HIDWORD(KsepHistoryMessages[v11]) = 0;
-      LODWORD(KsepHistoryMessages[v11]) = 131470;
-      if ( (KsepDebugFlag & 1) != 0 )
-        KsepDebugPrint(3LL, "KSE: Succeeded shim [0x%08X] unregistration.\n", **(_DWORD **)(a1 + 8));
-      KsepLogInfo(3, "KSE: Succeeded shim [0x%08X] unregistration.\n", **(_DWORD **)(a1 + 8));
+      v11 = ((unsigned __int8)_InterlockedExchangeAdd(&dword_140C2A420, 1u) + 1) & 0x3F;
+      HIDWORD(qword_140C2A440[v11]) = 0;
+      LODWORD(qword_140C2A440[v11]) = 131470;
+      if ( (dword_140D04880 & 1) != 0 )
+        sub_14057D738(3LL, "KSE: Succeeded shim [0x%08X] unregistration.\n", **(_DWORD **)(a1 + 8));
+      sub_1403C09C8(3);
       v6 = 0;
     }
   }
   else
   {
     v6 = -1073741772;
-    v12 = ((unsigned __int8)_InterlockedExchangeAdd(&KsepHistoryErrorsIndex, 1u) + 1) & 0x3F;
+    v12 = ((unsigned __int8)_InterlockedExchangeAdd(&dword_140C2A200, 1u) + 1) & 0x3F;
     dword_140C2A224[2 * v12] = -1073741772;
-    KsepHistoryErrors[2 * v12] = 131482;
-    if ( (KsepDebugFlag & 2) != 0 )
-      KsepDebugPrint(3LL, "KSE: Failed shim [0x%08X] unregistration. Shim not found.\n", **(_DWORD **)(a1 + 8));
-    KsepLogError(3LL, (__int64)"KSE: Failed shim [0x%08X] unregistration. Shim not found.\n", **(_DWORD **)(a1 + 8));
+    dword_140C2A220[2 * v12] = 131482;
+    if ( (dword_140D04880 & 2) != 0 )
+      sub_14057D738(3LL, "KSE: Failed shim [0x%08X] unregistration. Shim not found.\n", **(_DWORD **)(a1 + 8));
+    sub_140368C88(3LL, (__int64)"KSE: Failed shim [0x%08X] unregistration. Shim not found.\n", **(_DWORD **)(a1 + 8));
   }
   if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_140C54F20, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
     ExfTryToWakePushLock(&qword_140C54F20);
-  KeAbPostRelease((ULONG_PTR)&qword_140C54F20);
-  KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
+  sub_1402AFC00((ULONG_PTR)&qword_140C54F20);
+  sub_1402F9540((__int64)KeGetCurrentThread());
   if ( v4 )
-    KsepPoolFreePaged(v13);
+    sub_1402D8494(v13);
   return v6;
 }

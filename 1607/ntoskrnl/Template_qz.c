@@ -1,15 +1,15 @@
 /*
- * XREFs of Template_qz @ 0x1401D0DAC
+ * XREFs of Template_qz @ 0x1401D0BD8
  * Callers:
- *     PipProcessStartPhase3 @ 0x1403EEA60 (PipProcessStartPhase3.c)
- *     PipProcessStartPhase1 @ 0x1404C7974 (PipProcessStartPhase1.c)
- *     PipProcessStartPhase2 @ 0x1404E7068 (PipProcessStartPhase2.c)
- *     PiCMQueryRemove @ 0x140648028 (PiCMQueryRemove.c)
- *     PipProcessRestartPhase1 @ 0x14064DEDC (PipProcessRestartPhase1.c)
- *     PipProcessRestartPhase2 @ 0x14064DF9C (PipProcessRestartPhase2.c)
+ *     PipProcessStartPhase1 @ 0x1404846CC (PipProcessStartPhase1.c)
+ *     PipProcessStartPhase3 @ 0x140488964 (PipProcessStartPhase3.c)
+ *     PipProcessStartPhase2 @ 0x14050CFC4 (PipProcessStartPhase2.c)
+ *     PiCMQueryRemove @ 0x14064810C (PiCMQueryRemove.c)
+ *     PipProcessRestartPhase1 @ 0x14064DFC0 (PipProcessRestartPhase1.c)
+ *     PipProcessRestartPhase2 @ 0x14064E080 (PipProcessRestartPhase2.c)
  * Callees:
- *     EtwWrite @ 0x140013320 (EtwWrite.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
+ *     EtwWrite @ 0x140012EA0 (EtwWrite.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall Template_qz(__int64 a1, const EVENT_DESCRIPTOR *a2, __int64 a3, int a4, const wchar_t *a5)

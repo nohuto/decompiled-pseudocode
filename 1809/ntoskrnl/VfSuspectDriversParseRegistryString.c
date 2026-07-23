@@ -1,13 +1,13 @@
 /*
- * XREFs of VfSuspectDriversParseRegistryString @ 0x1409F8948
+ * XREFs of VfSuspectDriversParseRegistryString @ 0x1409F9948
  * Callers:
- *     VfInitBootDriversLoaded @ 0x1409B7610 (VfInitBootDriversLoaded.c)
+ *     VfInitBootDriversLoaded @ 0x1409B8610 (VfInitBootDriversLoaded.c)
  * Callees:
- *     VfDriverLock @ 0x1409216E0 (VfDriverLock.c)
- *     VfDriverUnlock @ 0x140928154 (VfDriverUnlock.c)
- *     VfSuspectDriversAllocateEntry @ 0x1409374B4 (VfSuspectDriversAllocateEntry.c)
- *     VfSuspectDriversInsert @ 0x140937770 (VfSuspectDriversInsert.c)
- *     VfSuspectExcludedDriversAllocateEntry @ 0x140937D20 (VfSuspectExcludedDriversAllocateEntry.c)
+ *     VfDriverLock @ 0x1409226E0 (VfDriverLock.c)
+ *     VfDriverUnlock @ 0x140929154 (VfDriverUnlock.c)
+ *     VfSuspectDriversAllocateEntry @ 0x1409384B4 (VfSuspectDriversAllocateEntry.c)
+ *     VfSuspectDriversInsert @ 0x140938770 (VfSuspectDriversInsert.c)
+ *     VfSuspectExcludedDriversAllocateEntry @ 0x140938D20 (VfSuspectExcludedDriversAllocateEntry.c)
  */
 
 int VfSuspectDriversParseRegistryString()
@@ -112,13 +112,13 @@ LABEL_27:
       if ( Entry )
       {
         VfDriverLock();
-        v11 = (_QWORD *)qword_14040D2A8;
-        if ( *(__int64 **)qword_14040D2A8 != &VfExcludedDriversList )
+        v11 = (_QWORD *)qword_14040E2F8;
+        if ( *(__int64 **)qword_14040E2F8 != &VfExcludedDriversList )
           __fastfail(3u);
         *v10 = &VfExcludedDriversList;
         v10[1] = v11;
         *v11 = v10;
-        qword_14040D2A8 = (__int64)v10;
+        qword_14040E2F8 = (__int64)v10;
         goto LABEL_27;
       }
     }

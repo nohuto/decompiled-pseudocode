@@ -1,10 +1,10 @@
 /*
- * XREFs of ZwDuplicateObject @ 0x1800A0A60
+ * XREFs of ZwDuplicateObject @ 0x1800A0A80
  * Callers:
  *     TpCheckTerminateWorker @ 0x18005A950 (TpCheckTerminateWorker.c)
  *     RtlReportSilentProcessExit @ 0x18006D060 (RtlReportSilentProcessExit.c)
- *     RtlQueryProcessDebugInformation @ 0x18007D750 (RtlQueryProcessDebugInformation.c)
- *     TppPoolUpdateTrimmedWorker @ 0x18007F628 (TppPoolUpdateTrimmedWorker.c)
+ *     RtlQueryProcessDebugInformation @ 0x18007D760 (RtlQueryProcessDebugInformation.c)
+ *     TppPoolUpdateTrimmedWorker @ 0x18007F638 (TppPoolUpdateTrimmedWorker.c)
  *     RtlCreateProcessReflection @ 0x1800D7C30 (RtlCreateProcessReflection.c)
  *     RtlpProcessReflectionStartup @ 0x1800D81D0 (RtlpProcessReflectionStartup.c)
  *     RtlWow64SuspendThread @ 0x1800DD780 (RtlWow64SuspendThread.c)
@@ -16,16 +16,23 @@
  *     PssNtFreeRemoteSnapshot @ 0x180111FE0 (PssNtFreeRemoteSnapshot.c)
  *     PsspWalkHandleTable @ 0x1801137F0 (PsspWalkHandleTable.c)
  *     PsspDuplicateSnapshotLocalToRemote @ 0x180114174 (PsspDuplicateSnapshotLocalToRemote.c)
- *     PsspDuplicateSnapshotRemoteToRemote @ 0x180114744 (PsspDuplicateSnapshotRemoteToRemote.c)
+ *     PsspDuplicateSnapshotRemoteToRemote @ 0x18011470C (PsspDuplicateSnapshotRemoteToRemote.c)
  * Callees:
  *     <none>
  */
 
-__int64 ZwDuplicateObject()
+NTSTATUS __cdecl ZwDuplicateObject(
+        HANDLE SourceProcessHandle,
+        HANDLE SourceHandle,
+        HANDLE TargetProcessHandle,
+        PHANDLE TargetHandle,
+        ACCESS_MASK DesiredAccess,
+        ULONG HandleAttributes,
+        ULONG Options)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 60LL;
+  result = 60;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

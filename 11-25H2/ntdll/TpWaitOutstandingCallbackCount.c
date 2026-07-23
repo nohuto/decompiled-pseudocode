@@ -8,26 +8,26 @@
  *     TppRaiseInvalidParameter @ 0x18003EEE4 (TppRaiseInvalidParameter.c)
  */
 
-__int64 __fastcall TpWaitOutstandingCallbackCount(__int64 a1, __int64 a2, __int64 a3)
+__int64 __fastcall TpWaitOutstandingCallbackCount(__int64 a1)
 {
-  int v3; // eax
-  volatile signed __int64 *v5; // rdi
-  unsigned int v6; // ebx
+  int v1; // eax
+  _RTL_SRWLOCK *v3; // rdi
+  unsigned int v4; // ebx
   _PEB_LDR_DATA *Ldr; // rcx
 
-  v3 = *(_DWORD *)(a1 + 168);
-  if ( (v3 & 0x10000) != 0
-    || (v3 & 0x20000) != 0
+  v1 = *(_DWORD *)(a1 + 168);
+  if ( (v1 & 0x10000) != 0
+    || (v1 & 0x20000) != 0
     || *(__int64 (__fastcall ***)())(a1 + 8) != TppWaitpCleanupGroupMemberVFuncs
     || NtCurrentPeb()->Ldr->ShutdownInProgress )
   {
     Ldr = NtCurrentPeb()->Ldr;
     if ( !Ldr->ShutdownInProgress )
-      TppRaiseInvalidParameter(Ldr, a2, a3);
+      TppRaiseInvalidParameter(Ldr);
   }
-  v5 = (volatile signed __int64 *)(a1 + 240);
-  RtlAcquireSRWLockExclusive((volatile signed __int32 *)(a1 + 240));
-  v6 = *(_DWORD *)(a1 + 56);
-  RtlReleaseSRWLockExclusive(v5);
-  return v6;
+  v3 = (_RTL_SRWLOCK *)(a1 + 240);
+  RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)(a1 + 240));
+  v4 = *(_DWORD *)(a1 + 56);
+  RtlReleaseSRWLockExclusive(v3);
+  return v4;
 }

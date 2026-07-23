@@ -1,14 +1,14 @@
 /*
- * XREFs of VfAfterCallDriver @ 0x140B8DA94
+ * XREFs of VfAfterCallDriver @ 0x140B8FA94
  * Callers:
- *     IovpCallDriverWithStackBuffer @ 0x140B82950 (IovpCallDriverWithStackBuffer.c)
- *     IovCallDriver @ 0x140BA7D40 (IovCallDriver.c)
+ *     IovpCallDriverWithStackBuffer @ 0x140B84950 (IovpCallDriverWithStackBuffer.c)
+ *     IovCallDriver @ 0x140BA9D40 (IovCallDriver.c)
  * Callees:
- *     KeAcquireSpinLockRaiseToDpc @ 0x140254B20 (KeAcquireSpinLockRaiseToDpc.c)
- *     KeAreInterruptsEnabled @ 0x140257E20 (KeAreInterruptsEnabled.c)
- *     VfBugCheckNoStackUsage @ 0x140611F88 (VfBugCheckNoStackUsage.c)
- *     ViErrorReport1 @ 0x140612574 (ViErrorReport1.c)
- *     IovpCallDriver2 @ 0x140B8D280 (IovpCallDriver2.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140285130 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KeAreInterruptsEnabled @ 0x140288430 (KeAreInterruptsEnabled.c)
+ *     VfBugCheckNoStackUsage @ 0x140610548 (VfBugCheckNoStackUsage.c)
+ *     ViErrorReport1 @ 0x140610B34 (ViErrorReport1.c)
+ *     IovpCallDriver2 @ 0x140B8F280 (IovpCallDriver2.c)
  */
 
 void __fastcall VfAfterCallDriver(__int64 a1, int *a2)
@@ -28,14 +28,14 @@ void __fastcall VfAfterCallDriver(__int64 a1, int *a2)
       *(_BYTE *)(a1 + 157) = KeAcquireSpinLockRaiseToDpc(&VfBugcheckTmpDataLock);
       BugCheckParameter1 = 193LL;
       *(_QWORD *)&VfBugcheckTmpData = 196LL;
-      qword_140FFCA40 = *(_QWORD *)(a1 + 48);
-      *(_OWORD *)&xmmword_140FFCA48 = 0LL;
+      qword_140FFDA40 = *(_QWORD *)(a1 + 48);
+      *(_OWORD *)&xmmword_140FFDA48 = 0LL;
       goto LABEL_9;
     }
     if ( *(_BYTE *)(a1 + 156) != KeGetCurrentIrql() && !_bittest((const signed __int32 *)&VfRuleClasses, 0x16u) )
     {
       *(_BYTE *)(a1 + 157) = KeAcquireSpinLockRaiseToDpc(&VfBugcheckTmpDataLock);
-      qword_140FFCA40 = *(_QWORD *)(a1 + 48);
+      qword_140FFDA40 = *(_QWORD *)(a1 + 48);
       *(_QWORD *)&VfBugcheckTmpData = 201LL;
       BugCheckParameter1 = 18LL;
       do
@@ -61,10 +61,10 @@ LABEL_9:
         --v7;
       }
       while ( v7 );
-      qword_140FFCA40 = *(_QWORD *)(a1 + 48);
+      qword_140FFDA40 = *(_QWORD *)(a1 + 48);
       CombinedApcDisable = KeGetCurrentThread()->CombinedApcDisable;
-      *(&xmmword_140FFCA48 + 1) = *(unsigned int *)(a1 + 188);
-      xmmword_140FFCA48 = CombinedApcDisable;
+      *(&xmmword_140FFDA48 + 1) = *(unsigned int *)(a1 + 188);
+      xmmword_140FFDA48 = CombinedApcDisable;
       VfBugCheckNoStackUsage();
     }
     v9 = (_DWORD *)(a1 + 152);

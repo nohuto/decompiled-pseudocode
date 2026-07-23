@@ -1,22 +1,22 @@
 /*
- * XREFs of RtlActivateActivationContextUnsafeFast @ 0x1800703A0
+ * XREFs of RtlActivateActivationContextUnsafeFast @ 0x18008CC80
  * Callers:
- *     LdrShutdownProcess @ 0x180002B70 (LdrShutdownProcess.c)
- *     LdrShutdownThread @ 0x1800045E0 (LdrShutdownThread.c)
- *     LdrpInitializeThread @ 0x180012810 (LdrpInitializeThread.c)
- *     TppCleanupGroupMemberCallbackProlog @ 0x18001F970 (TppCleanupGroupMemberCallbackProlog.c)
- *     TppWorkCallbackPrologRelease @ 0x1800222C0 (TppWorkCallbackPrologRelease.c)
- *     TppAlpcpExecuteCallback @ 0x1800258C0 (TppAlpcpExecuteCallback.c)
- *     LdrLoadAlternateResourceModuleEx @ 0x18005FF20 (LdrLoadAlternateResourceModuleEx.c)
- *     LdrpInitializeProcess @ 0x180066D74 (LdrpInitializeProcess.c)
- *     RtlpTpWorkCallback @ 0x18006F790 (RtlpTpWorkCallback.c)
- *     LdrpInitializeNode @ 0x18006FB00 (LdrpInitializeNode.c)
- *     RtlDispatchAPC @ 0x18006FE60 (RtlDispatchAPC.c)
- *     LdrpQuerySxSMUIFile @ 0x1800D11A0 (LdrpQuerySxSMUIFile.c)
- *     LdrpProcessDetachNode @ 0x1800E3114 (LdrpProcessDetachNode.c)
+ *     LdrpInitializeThread @ 0x18003F210 (LdrpInitializeThread.c)
+ *     TppCleanupGroupMemberCallbackProlog @ 0x18004C370 (TppCleanupGroupMemberCallbackProlog.c)
+ *     TppWorkCallbackPrologRelease @ 0x18004ECC0 (TppWorkCallbackPrologRelease.c)
+ *     TppAlpcpExecuteCallback @ 0x1800522C0 (TppAlpcpExecuteCallback.c)
+ *     LdrLoadAlternateResourceModuleEx @ 0x180075B00 (LdrLoadAlternateResourceModuleEx.c)
+ *     RtlpTpWorkCallback @ 0x18008C070 (RtlpTpWorkCallback.c)
+ *     LdrpInitializeNode @ 0x18008C3E0 (LdrpInitializeNode.c)
+ *     RtlDispatchAPC @ 0x18008C740 (RtlDispatchAPC.c)
+ *     LdrpQuerySxSMUIFile @ 0x18009A09C (LdrpQuerySxSMUIFile.c)
+ *     LdrShutdownThread @ 0x1800AB0D0 (LdrShutdownThread.c)
+ *     LdrShutdownProcess @ 0x1800ABBC0 (LdrShutdownProcess.c)
+ *     LdrpInitializeProcess @ 0x1800AEF54 (LdrpInitializeProcess.c)
+ *     LdrpProcessDetachNode @ 0x1800DE6E4 (LdrpProcessDetachNode.c)
  * Callees:
- *     RtlRaiseException @ 0x180070510 (RtlRaiseException.c)
- *     __security_check_cookie @ 0x1801659C0 (__security_check_cookie.c)
+ *     RtlRaiseException @ 0x18008CDF0 (RtlRaiseException.c)
+ *     __security_check_cookie @ 0x180163D80 (__security_check_cookie.c)
  */
 
 void __fastcall RtlActivateActivationContextUnsafeFast(__int64 a1, __int64 a2)

@@ -53,7 +53,7 @@ NTSTATUS __stdcall NtFlushKey(HANDLE KeyHandle)
   v2 = 0LL;
   memset(v22, 0, sizeof(v22));
   if ( CmpTraceRoutine )
-    EtwGetKernelTraceTimestamp(v22, (char *)0x20000);
+    EtwGetKernelTraceTimestamp(v22, 0x20000u);
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
   if ( ExAcquireRundownProtection((PEX_RUNDOWN_REF)&CmpShutdownRundown) )

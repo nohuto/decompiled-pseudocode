@@ -1,10 +1,10 @@
 /*
- * XREFs of PeriodicCaptureStateTimerCallback @ 0x14082D480
+ * XREFs of PeriodicCaptureStateTimerCallback @ 0x1408336C0
  * Callers:
  *     <none>
  * Callees:
- *     ExAcquireRundownProtectionCacheAwareEx @ 0x140218100 (ExAcquireRundownProtectionCacheAwareEx.c)
- *     ExQueueWorkItem @ 0x140381C70 (ExQueueWorkItem.c)
+ *     ExAcquireRundownProtectionCacheAwareEx @ 0x140218430 (ExAcquireRundownProtectionCacheAwareEx.c)
+ *     ExQueueWorkItem @ 0x140383A20 (ExQueueWorkItem.c)
  */
 
 void __fastcall PeriodicCaptureStateTimerCallback(__int64 a1, unsigned int *a2)

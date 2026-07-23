@@ -1,11 +1,11 @@
 /*
- * XREFs of KseSkipDriverUnloadInitialize @ 0x140A687DC
+ * XREFs of KseSkipDriverUnloadInitialize @ 0x140A697DC
  * Callers:
- *     KseInitialize @ 0x140A3C89C (KseInitialize.c)
+ *     KseInitialize @ 0x140A3D89C (KseInitialize.c)
  * Callees:
- *     KsepLogError @ 0x140371F74 (KsepLogError.c)
- *     KsepDebugPrint @ 0x140526EE8 (KsepDebugPrint.c)
- *     KseRegisterShim @ 0x1407BD420 (KseRegisterShim.c)
+ *     KsepLogError @ 0x140371AC4 (KsepLogError.c)
+ *     KsepDebugPrint @ 0x140527128 (KsepDebugPrint.c)
+ *     KseRegisterShim @ 0x1407BDBB0 (KseRegisterShim.c)
  */
 
 void KseSkipDriverUnloadInitialize()

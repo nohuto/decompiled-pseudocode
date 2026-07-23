@@ -1,10 +1,10 @@
 /*
- * XREFs of MiUnloadSystemImageSoftWsles @ 0x14070FD78
+ * XREFs of MiUnloadSystemImageSoftWsles @ 0x140714A74
  * Callers:
- *     MiUnloadSystemImage @ 0x140AC76E8 (MiUnloadSystemImage.c)
+ *     MiUnloadSystemImage @ 0x140AC92D8 (MiUnloadSystemImage.c)
  * Callees:
- *     MiGetAnyMultiplexedVm @ 0x140457870 (MiGetAnyMultiplexedVm.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     MiGetAnyMultiplexedVm @ 0x14044F0E0 (MiGetAnyMultiplexedVm.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 char *MiUnloadSystemImageSoftWsles()
@@ -21,9 +21,9 @@ char *MiUnloadSystemImageSoftWsles()
   AnyMultiplexedVm = MiGetAnyMultiplexedVm(1);
   v3 = ((v2 << 25 >> 16) & 0xFFFFFFFFF000uLL) >> 12;
   v4 = (*((_DWORD *)AnyMultiplexedVm + 46) & 0xF) == 0;
-  result = (char *)(qword_140E37C30 + 0x8000000000LL);
+  result = (char *)(qword_140E37DB0 + 0x8000000000LL);
   if ( !v4 )
-    result = (char *)qword_140E37C30;
+    result = (char *)qword_140E37DB0;
   v6 = &result[v3];
   if ( v1 )
   {

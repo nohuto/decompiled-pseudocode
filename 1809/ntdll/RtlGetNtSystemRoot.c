@@ -6,7 +6,7 @@
  *     RtlpAssemblyStorageMapResolutionDefaultCallback @ 0x180033050 (RtlpAssemblyStorageMapResolutionDefaultCallback.c)
  *     RtlQueryResourcePolicy @ 0x180062630 (RtlQueryResourcePolicy.c)
  *     LdrpGetModuleName @ 0x18006A6E8 (LdrpGetModuleName.c)
- *     RtlpDiskSpeedInitialize @ 0x18008E820 (RtlpDiskSpeedInitialize.c)
+ *     RtlpDiskSpeedInitialize @ 0x18008E830 (RtlpDiskSpeedInitialize.c)
  *     CsrpLocalSetupForSecureProcess @ 0x1800CD524 (CsrpLocalSetupForSecureProcess.c)
  *     LdrpInitializeProcess @ 0x1800D3FB4 (LdrpInitializeProcess.c)
  *     AVrfpLoadAndInitializeProvider @ 0x1800DC17C (AVrfpLoadAndInitializeProvider.c)
@@ -14,10 +14,10 @@
  *     RtlGetCurrentServiceSessionId @ 0x180018440 (RtlGetCurrentServiceSessionId.c)
  */
 
-__int64 RtlGetNtSystemRoot()
+PWSTR RtlGetNtSystemRoot(void)
 {
-  if ( (unsigned int)RtlGetCurrentServiceSessionId() )
-    return (__int64)NtCurrentPeb()->SharedData + 30;
+  if ( RtlGetCurrentServiceSessionId() )
+    return (PWSTR)((char *)NtCurrentPeb()->SharedData + 30);
   else
-    return 2147352624LL;
+    return (PWSTR)2147352624;
 }

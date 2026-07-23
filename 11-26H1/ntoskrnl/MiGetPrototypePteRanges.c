@@ -1,12 +1,12 @@
 /*
- * XREFs of MiGetPrototypePteRanges @ 0x14044BB34
+ * XREFs of MiGetPrototypePteRanges @ 0x140443C58
  * Callers:
- *     MiReplacePageOfProtoPool @ 0x14044B400 (MiReplacePageOfProtoPool.c)
+ *     MiReplacePageOfProtoPool @ 0x140443530 (MiReplacePageOfProtoPool.c)
  * Callees:
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402DC6D0 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     ExAcquireSpinLockSharedAtDpcLevel @ 0x1402EDFB0 (ExAcquireSpinLockSharedAtDpcLevel.c)
- *     RtlSetBitsEx @ 0x14036F510 (RtlSetBitsEx.c)
- *     MiObtainProtoBaseFromNode @ 0x14044BE20 (MiObtainProtoBaseFromNode.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402BE490 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     ExAcquireSpinLockSharedAtDpcLevel @ 0x1402D0030 (ExAcquireSpinLockSharedAtDpcLevel.c)
+ *     RtlSetBitsEx @ 0x1403712C0 (RtlSetBitsEx.c)
+ *     MiObtainProtoBaseFromNode @ 0x140443F40 (MiObtainProtoBaseFromNode.c)
  */
 
 __int64 __fastcall MiGetPrototypePteRanges(unsigned __int64 a1, __int64 a2)
@@ -40,8 +40,8 @@ __int64 __fastcall MiGetPrototypePteRanges(unsigned __int64 a1, __int64 a2)
   v29 = 0LL;
   v3 = a1 + 4096;
   v5 = 1;
-  ExAcquireSpinLockSharedAtDpcLevel((PEX_SPIN_LOCK)&stru_140E2D150.CurrentRunTime);
-  CycleTime = stru_140E2D150.CycleTime;
+  ExAcquireSpinLockSharedAtDpcLevel((PEX_SPIN_LOCK)&stru_140E2D2D0.CurrentRunTime);
+  CycleTime = stru_140E2D2D0.CycleTime;
   while ( CycleTime )
   {
     v7 = 0LL;
@@ -214,6 +214,6 @@ LABEL_30:
       }
     }
   }
-  ExReleaseSpinLockSharedFromDpcLevel((PEX_SPIN_LOCK)&stru_140E2D150.CurrentRunTime);
+  ExReleaseSpinLockSharedFromDpcLevel((PEX_SPIN_LOCK)&stru_140E2D2D0.CurrentRunTime);
   return v5;
 }

@@ -1,17 +1,17 @@
 /*
- * XREFs of ExpReleaseFastResourceExclusive @ 0x1403CB3B4
+ * XREFs of ExpReleaseFastResourceExclusive @ 0x1403CB594
  * Callers:
- *     ExReleaseFastResource @ 0x1403CAE50 (ExReleaseFastResource.c)
- *     ExReleaseFastResourceExclusive @ 0x140609FD0 (ExReleaseFastResourceExclusive.c)
- *     ExReleaseFastResourceShared @ 0x14060A120 (ExReleaseFastResourceShared.c)
+ *     ExReleaseFastResource @ 0x1403CB030 (ExReleaseFastResource.c)
+ *     ExReleaseFastResourceExclusive @ 0x14060A520 (ExReleaseFastResourceExclusive.c)
+ *     ExReleaseFastResourceShared @ 0x14060A670 (ExReleaseFastResourceShared.c)
  * Callees:
- *     KxReleaseQueuedSpinLock @ 0x140260360 (KxReleaseQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x14029CBD0 (KeAcquireInStackQueuedSpinLockAtDpcLevel.c)
- *     KeAbPostReleaseEx @ 0x1402BD4F0 (KeAbPostReleaseEx.c)
- *     ExpRotateFastOwnerEntrySublistHead @ 0x1403CADAC (ExpRotateFastOwnerEntrySublistHead.c)
- *     ExpCommitWakeResourceExclusive @ 0x1403CB5F0 (ExpCommitWakeResourceExclusive.c)
- *     ExpPrepareToWakeResourceExclusive @ 0x1403CB62C (ExpPrepareToWakeResourceExclusive.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseQueuedSpinLock @ 0x1402605F0 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x14029CE60 (KeAcquireInStackQueuedSpinLockAtDpcLevel.c)
+ *     KeAbPostReleaseEx @ 0x1402BD780 (KeAbPostReleaseEx.c)
+ *     ExpRotateFastOwnerEntrySublistHead @ 0x1403CAF8C (ExpRotateFastOwnerEntrySublistHead.c)
+ *     ExpCommitWakeResourceExclusive @ 0x1403CB7D0 (ExpCommitWakeResourceExclusive.c)
+ *     ExpPrepareToWakeResourceExclusive @ 0x1403CB80C (ExpPrepareToWakeResourceExclusive.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall ExpReleaseFastResourceExclusive(ULONG_PTR BugCheckParameter2, __int64 a2)
@@ -55,7 +55,7 @@ __int64 __fastcall ExpReleaseFastResourceExclusive(ULONG_PTR BugCheckParameter2,
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
   v5 = LockHandle.OldIrql + 1;
-  if ( KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & (unsigned __int8)v5) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & (unsigned __int8)v5) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     LODWORD(v19) = 4;
@@ -96,7 +96,7 @@ __int64 __fastcall ExpReleaseFastResourceExclusive(ULONG_PTR BugCheckParameter2,
           *(_QWORD *)(a2 + 8) = 0LL;
           *v6 = 0LL;
           *(_QWORD *)(a2 + 48) = 0LL;
-          if ( KiIrqlFlags )
+          if ( (_DWORD)KiIrqlFlags )
           {
             v27 = KeGetCurrentIrql();
             if ( ((unsigned __int8)KiIrqlFlags & (unsigned __int8)v5) != 0
@@ -143,7 +143,7 @@ LABEL_25:
   *(_QWORD *)(v20 + 8) = v21;
   *(_QWORD *)a2 = 0LL;
   *(_QWORD *)(a2 + 8) = 0LL;
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v22 = KeGetCurrentIrql();
     if ( ((unsigned __int8)KiIrqlFlags & (unsigned __int8)v5) != 0 && v22 <= 0xFu && CurrentIrql <= 0xFu && v22 >= 2u )

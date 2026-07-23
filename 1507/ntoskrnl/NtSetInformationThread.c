@@ -184,7 +184,7 @@ LABEL_4:
     v10 = 1;
     goto LABEL_5;
   }
-  if ( ThreadInformationClass >= ThreadEventPair_Reusable && ThreadInformationClass < ThreadIoPriority )
+  if ( ThreadInformationClass >= ThreadEventPair && ThreadInformationClass < ThreadIoPriority )
   {
 LABEL_12:
     v9 = 4;
@@ -192,19 +192,19 @@ LABEL_12:
   }
   switch ( ThreadInformationClass )
   {
-    case 2:
-    case 22:
-    case 24:
+    case ThreadPriority:
+    case ThreadIoPriority:
+    case ThreadPagePriority:
       v9 = 4;
       goto LABEL_4;
-    case 7:
-    case 32:
+    case ThreadEnableAlignmentFaultFixup:
+    case ThreadCounterProfiling:
       v10 = 1;
       v9 = 1;
       break;
-    case 30:
-    case 31:
-    case 34:
+    case ThreadGroupInformation:
+    case ThreadUmsInformation:
+    case ThreadCpuAccountingInformation:
       goto LABEL_3;
     default:
       goto LABEL_12;
@@ -355,7 +355,7 @@ LABEL_55:
     }
     switch ( ThreadInformationClass )
     {
-      case 2:
+      case ThreadPriority:
         if ( ThreadInformationLength != 4 )
           return -1073741820;
         v54 = *(_DWORD *)v5;
@@ -385,7 +385,7 @@ LABEL_55:
 LABEL_110:
         v31 = Object;
         goto LABEL_55;
-      case 3:
+      case ThreadBasePriority:
         if ( ThreadInformationLength != 4 )
           return -1073741820;
         v48 = *(_DWORD *)v5;
@@ -434,7 +434,7 @@ LABEL_35:
         v33 = Object;
         KeSetBasePriorityThread((PKTHREAD)Object, v53);
         goto LABEL_63;
-      case 7:
+      case ThreadEnableAlignmentFaultFixup:
         if ( ThreadInformationLength != 1 )
           return -1073741820;
         v81 = *(_BYTE *)v5;
@@ -454,9 +454,9 @@ LABEL_35:
         else
           _interlockedbittestandreset((volatile signed __int32 *)Object + 30, 0);
         goto LABEL_110;
-      case 9:
+      case ThreadQuerySetWin32StartAddress:
         return -1073741811;
-      case 10:
+      case ThreadZeroTlsCell:
         if ( ThreadInformationLength != 4 )
           return -1073741820;
         v97 = *(_DWORD *)v5;
@@ -541,7 +541,7 @@ LABEL_35:
           }
         }
         return v23;
-      case 14:
+      case ThreadPriorityBoost:
         if ( ThreadInformationLength != 4 )
           return -1073741820;
         v78 = *(_DWORD *)v5;
@@ -564,9 +564,9 @@ LABEL_35:
           return v79;
         }
         return result;
-      case 15:
+      case ThreadSetTlsArrayAddress:
         return -1073741822;
-      case 17:
+      case ThreadHideFromDebugger:
         if ( ThreadInformationLength )
           return -1073741820;
         result = ObReferenceObjectByHandleWithTag(
@@ -582,7 +582,7 @@ LABEL_35:
           return result;
         _InterlockedOr((volatile signed __int32 *)Object + 431, 4u);
         goto LABEL_157;
-      case 18:
+      case ThreadBreakOnTermination:
         if ( ThreadInformationLength != 4 )
           return -1073741820;
         v77 = *(_DWORD *)v5;
@@ -604,7 +604,7 @@ LABEL_35:
         else
           _InterlockedAnd((volatile signed __int32 *)Object + 431, 0xFFFFFFDF);
         goto LABEL_110;
-      case 19:
+      case ThreadSwitchLegacyState:
         result = ObReferenceObjectByHandleWithTag(
                    ThreadHandle,
                    0x20u,
@@ -618,7 +618,7 @@ LABEL_35:
         v31 = Object;
         *((_QWORD *)Object + 74) = MEMORY[0xFFFFF780000003D8] | 3LL;
         goto LABEL_55;
-      case 22:
+      case ThreadIoPriority:
         if ( ((ThreadInformationLength - 4) & 0xFFFFFFFB) != 0 )
           return -1073741820;
         if ( ThreadInformationLength == 4 )
@@ -675,7 +675,7 @@ LABEL_35:
           KeAbProcessBaseIoPriorityChange((__int64)v62, v60, v61);
         v31 = v62;
         goto LABEL_55;
-      case 25:
+      case ThreadActualBasePriority:
         if ( ThreadInformationLength != 4 )
           return -1073741820;
         v32 = *(_DWORD *)v5;
@@ -705,7 +705,7 @@ LABEL_35:
           v13 = -1073741727;
         }
         goto LABEL_63;
-      case 29:
+      case ThreadWow64Context:
         result = ObReferenceObjectByHandleWithTag(
                    ThreadHandle,
                    0x10u,
@@ -736,7 +736,7 @@ LABEL_157:
           ObfDereferenceObjectWithTag(Object, 0x79517350u);
           return -1073741749;
         }
-      case 30:
+      case ThreadGroupInformation:
         if ( ThreadInformationLength != 16 )
           return -1073741820;
         v115 = *(_OWORD *)v5;
@@ -794,7 +794,7 @@ LABEL_157:
           return v65;
         }
         return result;
-      case 31:
+      case ThreadUmsInformation:
         if ( ThreadInformationLength != 24 )
           return -1073741820;
         v111 = *(_OWORD *)v5;
@@ -825,7 +825,7 @@ LABEL_157:
         if ( (_DWORD)v111 != 2 )
           return -1073741811;
         return PspDetachThreadFromUmsCompletionList(v86);
-      case 32:
+      case ThreadCounterProfiling:
         if ( ThreadInformationLength != 24 )
           return -1073741820;
         v101 = *(_OWORD *)v5;
@@ -863,7 +863,7 @@ LABEL_157:
           return v85;
         }
         return result;
-      case 33:
+      case ThreadIdealProcessorEx:
         if ( ThreadInformationLength != 4 )
           return -1073741820;
         v94 = *(_DWORD *)v5;
@@ -886,7 +886,7 @@ LABEL_157:
           *(_DWORD *)v5 = v94;
         }
         goto LABEL_63;
-      case 34:
+      case ThreadCpuAccountingInformation:
         if ( ThreadHandle != (HANDLE)-2LL )
           return -1073741811;
         if ( ThreadInformationLength != 8 )
@@ -919,7 +919,7 @@ LABEL_157:
           CurrentThread[1].SListFaultAddress = 0LL;
         }
         return 0;
-      case 36:
+      case ThreadHeterogeneousCpuPolicy:
         if ( ThreadInformationLength != 4 )
           return -1073741820;
         v90 = MEMORY[4];
@@ -939,7 +939,7 @@ LABEL_157:
         KeSetUserHeteroCpuPolicyThread((__int64)Object, v90);
         ObfDereferenceObjectWithTag(Object, 0x79517350u);
         return v23;
-      case 39:
+      case ThreadSelectedCpuSets:
         if ( (ThreadInformationLength & 7) != 0 || ThreadInformationLength > 0xA0 )
           return -1073741820;
         memmove(v116, (const void *)v5, ThreadInformationLength);

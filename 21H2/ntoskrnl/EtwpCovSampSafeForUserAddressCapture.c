@@ -1,10 +1,10 @@
 /*
- * XREFs of EtwpCovSampSafeForUserAddressCapture @ 0x1405AF7DC
+ * XREFs of EtwpCovSampSafeForUserAddressCapture @ 0x1405AFA0C
  * Callers:
- *     EtwpCovSampCaptureApc @ 0x1405AE420 (EtwpCovSampCaptureApc.c)
- *     EtwpCovSampCaptureSample @ 0x1405AF1D8 (EtwpCovSampCaptureSample.c)
+ *     EtwpCovSampCaptureApc @ 0x1405AE650 (EtwpCovSampCaptureApc.c)
+ *     EtwpCovSampCaptureSample @ 0x1405AF408 (EtwpCovSampCaptureSample.c)
  * Callees:
- *     MmCanThreadFault @ 0x14025F510 (MmCanThreadFault.c)
+ *     MmCanThreadFault @ 0x140281228 (MmCanThreadFault.c)
  */
 
 __int64 __fastcall EtwpCovSampSafeForUserAddressCapture(int a1, BOOL *a2)

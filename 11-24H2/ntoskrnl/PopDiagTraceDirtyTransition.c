@@ -1,15 +1,15 @@
 /*
- * XREFs of PopDiagTraceDirtyTransition @ 0x140C2F2D0
+ * XREFs of PopDiagTraceDirtyTransition @ 0x140C313F0
  * Callers:
- *     PopCheckShutdownMarker @ 0x140C2D6B4 (PopCheckShutdownMarker.c)
+ *     PopCheckShutdownMarker @ 0x140C2F7D4 (PopCheckShutdownMarker.c)
  * Callees:
- *     EtwWriteEx @ 0x140259680 (EtwWriteEx.c)
- *     EtwEventEnabled @ 0x1402A1BD0 (EtwEventEnabled.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140330CB0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgKeywordOn @ 0x140426AF0 (_tlgKeywordOn.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     SshSessionManagerTraceDirtyTransition @ 0x140766F9C (SshSessionManagerTraceDirtyTransition.c)
- *     PopPotsLogDirtyPowerTransition @ 0x140C33A38 (PopPotsLogDirtyPowerTransition.c)
+ *     EtwWriteEx @ 0x140289C90 (EtwWriteEx.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402B92F0 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     EtwEventEnabled @ 0x1402D1300 (EtwEventEnabled.c)
+ *     _tlgKeywordOn @ 0x14041A970 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     SshSessionManagerTraceDirtyTransition @ 0x1407669D0 (SshSessionManagerTraceDirtyTransition.c)
+ *     PopPotsLogDirtyPowerTransition @ 0x140C35B78 (PopPotsLogDirtyPowerTransition.c)
  */
 
 char PopDiagTraceDirtyTransition()
@@ -315,15 +315,15 @@ char PopDiagTraceDirtyTransition()
   int *v298; // [rsp+798h] [rbp+690h]
   __int64 v299; // [rsp+7A0h] [rbp+698h]
 
-  v71 = (*(unsigned __int8 *)(qword_140E671A8 + 1) >> 4) & 1;
-  v68 = (*(unsigned __int8 *)(qword_140E671A0 + 8) >> 1) & 1;
-  v27 = *(_BYTE *)(qword_140E671A0 + 11) >> 6;
-  v70 = (*(unsigned __int8 *)(qword_140E671A0 + 14) >> 5) & 1;
-  v26 = *(_BYTE *)(qword_140E671A0 + 14) & 0xF;
-  v67 = *(unsigned __int8 *)(qword_140E671A0 + 8) >> 4;
-  v25 = *(_BYTE *)(qword_140E671A8 + 24);
-  v69 = *(unsigned __int16 *)(qword_140E671A0 + 12);
-  PopPotsLogDirtyPowerTransition(v67, (unsigned int)dword_140E671C4, (unsigned int)dword_140E67170);
+  v71 = (*(unsigned __int8 *)(qword_140E67388 + 1) >> 4) & 1;
+  v68 = (*(unsigned __int8 *)(qword_140E67380 + 8) >> 1) & 1;
+  v27 = *(_BYTE *)(qword_140E67380 + 11) >> 6;
+  v70 = (*(unsigned __int8 *)(qword_140E67380 + 14) >> 5) & 1;
+  v26 = *(_BYTE *)(qword_140E67380 + 14) & 0xF;
+  v67 = *(unsigned __int8 *)(qword_140E67380 + 8) >> 4;
+  v25 = *(_BYTE *)(qword_140E67388 + 24);
+  v69 = *(unsigned __int16 *)(qword_140E67380 + 12);
+  PopPotsLogDirtyPowerTransition(v67, (unsigned int)dword_140E673A4, (unsigned int)dword_140E67350);
   result = SshSessionManagerTraceDirtyTransition();
   if ( PopDiagHandleRegistered )
   {
@@ -331,8 +331,8 @@ char PopDiagTraceDirtyTransition()
     if ( result )
     {
       *(_QWORD *)&UserData.Size = 4LL;
-      UserData.Ptr = (ULONGLONG)&dword_140E67170;
-      v1 = &qword_140E67178;
+      UserData.Ptr = (ULONGLONG)&dword_140E67350;
+      v1 = &qword_140E67358;
       v2 = &v267;
       v3 = 4LL;
       do
@@ -344,22 +344,22 @@ char PopDiagTraceDirtyTransition()
       }
       while ( v3 );
       v268 = &v67;
-      v270 = qword_140E671A0;
+      v270 = qword_140E67380;
       v269 = 4LL;
-      v272 = &dword_140E671C4;
-      v274 = &byte_140E671B0;
+      v272 = &dword_140E673A4;
+      v274 = &byte_140E67390;
       v276 = &v68;
       v278 = &v69;
       v280 = &v25;
-      v282 = &dword_140E67198;
+      v282 = &dword_140E67378;
       v284 = &v26;
-      v286 = qword_140E671A8 + 24;
+      v286 = qword_140E67388 + 24;
       v288 = &v70;
       v290 = &v71;
-      v292 = qword_140E671A8 + 3;
-      v294 = qword_140E671A8 + 4;
+      v292 = qword_140E67388 + 3;
+      v294 = qword_140E67388 + 4;
       v296 = &v27;
-      v298 = &dword_140E67238;
+      v298 = &dword_140E67418;
       v271 = 8LL;
       v273 = 4LL;
       v275 = 1LL;
@@ -390,21 +390,21 @@ char PopDiagTraceDirtyTransition()
         {
           v28 = PopDirtyTransitionDiagInfo;
           v108 = &v28;
-          v72 = dword_140E67168;
+          v72 = dword_140E67348;
           v110 = &v72;
-          v73 = dword_140E6716C;
+          v73 = dword_140E6734C;
           v112 = &v73;
-          v99 = (unsigned int)dword_140E67170;
+          v99 = (unsigned int)dword_140E67350;
           v114 = &v99;
-          v100 = qword_140E67178;
+          v100 = qword_140E67358;
           v116 = &v100;
-          v101 = qword_140E67180;
+          v101 = qword_140E67360;
           v118 = &v101;
-          v102 = qword_140E67188;
+          v102 = qword_140E67368;
           v120 = &v102;
-          v103 = qword_140E67190;
+          v103 = qword_140E67370;
           v122 = &v103;
-          v74 = dword_140E67198;
+          v74 = dword_140E67378;
           v124 = &v74;
           v109 = 1LL;
           v111 = 4LL;
@@ -415,164 +415,164 @@ char PopDiagTraceDirtyTransition()
           v121 = 8LL;
           v123 = 8LL;
           v125 = 4LL;
-          v8 = ~*(_BYTE *)(qword_140E671A0 + 15);
+          v8 = ~*(_BYTE *)(qword_140E67380 + 15);
           v127 = 1LL;
           v29 = v8 >> 7;
           v126 = &v29;
-          v30 = *(_BYTE *)(qword_140E671A0 + 11) >> 6;
+          v30 = *(_BYTE *)(qword_140E67380 + 11) >> 6;
           v128 = &v30;
           v129 = 1LL;
-          v31 = *(_BYTE *)(qword_140E671A0 + 14) >> 6;
+          v31 = *(_BYTE *)(qword_140E67380 + 14) >> 6;
           v130 = &v31;
           v131 = 1LL;
-          v9 = *(_BYTE *)(qword_140E671A0 + 15) & 0x7F;
+          v9 = *(_BYTE *)(qword_140E67380 + 15) & 0x7F;
           v133 = 1LL;
           v32 = v9;
           v132 = &v32;
-          v33 = *(_BYTE *)(qword_140E671A0 + 10) >> 6;
+          v33 = *(_BYTE *)(qword_140E67380 + 10) >> 6;
           v134 = &v33;
           v135 = 1LL;
-          v34 = *(_BYTE *)(qword_140E671A0 + 8) & 1;
+          v34 = *(_BYTE *)(qword_140E67380 + 8) & 1;
           v136 = &v34;
           v137 = 1LL;
-          v10 = (*(_BYTE *)(qword_140E671A0 + 14) & 0x10) != 0;
+          v10 = (*(_BYTE *)(qword_140E67380 + 14) & 0x10) != 0;
           v139 = 1LL;
           v35 = v10;
           v138 = &v35;
-          v11 = *(_BYTE *)(qword_140E671A8 + 1) & 1;
+          v11 = *(_BYTE *)(qword_140E67388 + 1) & 1;
           v141 = 1LL;
           v36 = v11;
           v140 = &v36;
-          v12 = (*(_BYTE *)(qword_140E671A8 + 1) & 2) != 0;
+          v12 = (*(_BYTE *)(qword_140E67388 + 1) & 2) != 0;
           v143 = 1LL;
           v37 = v12;
           v142 = &v37;
-          v13 = (*(_BYTE *)(qword_140E671A8 + 1) & 0x10) != 0;
+          v13 = (*(_BYTE *)(qword_140E67388 + 1) & 0x10) != 0;
           v145 = 1LL;
           v38 = v13;
           v144 = &v38;
-          v39 = *(_BYTE *)(qword_140E671A8 + 3);
+          v39 = *(_BYTE *)(qword_140E67388 + 3);
           v146 = &v39;
           v147 = 1LL;
-          v40 = *(_BYTE *)(qword_140E671A8 + 4);
+          v40 = *(_BYTE *)(qword_140E67388 + 4);
           v148 = &v40;
           v149 = 1LL;
-          v75 = *(_DWORD *)(qword_140E671A0 + 28);
+          v75 = *(_DWORD *)(qword_140E67380 + 28);
           v150 = &v75;
           v76 = v67;
           v152 = &v76;
           v151 = 4LL;
           v153 = 4LL;
-          v63 = *(_WORD *)(qword_140E671A0 + 12);
+          v63 = *(_WORD *)(qword_140E67380 + 12);
           v154 = &v63;
           v155 = 2LL;
-          v14 = (*(_BYTE *)(qword_140E671A0 + 8) & 4) != 0;
+          v14 = (*(_BYTE *)(qword_140E67380 + 8) & 4) != 0;
           v157 = 1LL;
           v41 = v14;
           v156 = &v41;
-          v15 = (*(_BYTE *)(qword_140E671A0 + 8) & 8) != 0;
+          v15 = (*(_BYTE *)(qword_140E67380 + 8) & 8) != 0;
           v159 = 1LL;
           v42 = v15;
           v158 = &v42;
-          v43 = *(_BYTE *)qword_140E671A8;
+          v43 = *(_BYTE *)qword_140E67388;
           v160 = &v43;
           v161 = 1LL;
-          v16 = (*(_BYTE *)(qword_140E671A0 + 8) & 2) != 0;
+          v16 = (*(_BYTE *)(qword_140E67380 + 8) & 2) != 0;
           v163 = 1LL;
           v44 = v16;
           v162 = &v44;
-          v104 = *(_QWORD *)(qword_140E671A8 + 24);
+          v104 = *(_QWORD *)(qword_140E67388 + 24);
           v164 = &v104;
           v165 = 8LL;
-          v17 = *(_BYTE *)(qword_140E671A8 + 23) & 0xF;
+          v17 = *(_BYTE *)(qword_140E67388 + 23) & 0xF;
           v167 = 1LL;
           v45 = v17;
           v166 = &v45;
-          v18 = *(_BYTE *)(qword_140E671A0 + 10) & 0x3F;
+          v18 = *(_BYTE *)(qword_140E67380 + 10) & 0x3F;
           v169 = 1LL;
           v46 = v18;
           v168 = &v46;
-          v47 = *(_BYTE *)(qword_140E671A8 + 23) >> 4;
+          v47 = *(_BYTE *)(qword_140E67388 + 23) >> 4;
           v170 = &v47;
           v171 = 1LL;
-          v19 = *(_BYTE *)(qword_140E671A0 + 11) & 0x3F;
+          v19 = *(_BYTE *)(qword_140E67380 + 11) & 0x3F;
           v173 = 1LL;
           v48 = v19;
           v172 = &v48;
-          v176 = qword_140E671A0 + 16;
-          v174 = qword_140E671A0;
+          v176 = qword_140E67380 + 16;
+          v174 = qword_140E67380;
           v175 = 8LL;
           v177 = 8LL;
-          v77 = *(_DWORD *)(qword_140E671A0 + 24);
+          v77 = *(_DWORD *)(qword_140E67380 + 24);
           v178 = &v77;
           v179 = 4LL;
-          v49 = *(_BYTE *)(qword_140E671A8 + 2);
+          v49 = *(_BYTE *)(qword_140E67388 + 2);
           v180 = &v49;
           v181 = 1LL;
-          v20 = *(_BYTE *)(qword_140E671A0 + 14) & 0xF;
+          v20 = *(_BYTE *)(qword_140E67380 + 14) & 0xF;
           v183 = 1LL;
           v50 = v20;
           v182 = &v50;
-          v21 = (*(_BYTE *)(qword_140E671A8 + 1) >> 2) & 3;
+          v21 = (*(_BYTE *)(qword_140E67388 + 1) >> 2) & 3;
           v185 = 1LL;
           v51 = v21;
           v184 = &v51;
-          v64 = *(_WORD *)(qword_140E671B8 + 12);
+          v64 = *(_WORD *)(qword_140E67398 + 12);
           v186 = &v64;
           v187 = 2LL;
-          v188 = qword_140E671B8;
+          v188 = qword_140E67398;
           v189 = 8LL;
-          LOWORD(v65) = *(_WORD *)(qword_140E671B8 + 44);
+          LOWORD(v65) = *(_WORD *)(qword_140E67398 + 44);
           v190 = &v65;
-          v192 = qword_140E671B8 + 32;
+          v192 = qword_140E67398 + 32;
           v191 = 2LL;
           v193 = 8LL;
-          v78 = *(_DWORD *)(qword_140E671B8 + 8);
+          v78 = *(_DWORD *)(qword_140E67398 + 8);
           v194 = &v78;
           v195 = 4LL;
-          v79 = *(_DWORD *)(qword_140E671B8 + 40);
+          v79 = *(_DWORD *)(qword_140E67398 + 40);
           v196 = &v79;
           v197 = 4LL;
-          LOWORD(v66) = *(_WORD *)(qword_140E671B8 + 46);
+          LOWORD(v66) = *(_WORD *)(qword_140E67398 + 46);
           v198 = &v66;
           v199 = 2LL;
-          v22 = (*(_BYTE *)(qword_140E671B8 + 15) & 2) != 0;
+          v22 = (*(_BYTE *)(qword_140E67398 + 15) & 2) != 0;
           v201 = 1LL;
           v52 = v22;
           v200 = &v52;
-          v23 = *(_BYTE *)(qword_140E671B8 + 15) & 1;
+          v23 = *(_BYTE *)(qword_140E67398 + 15) & 1;
           v203 = 1LL;
           v53 = v23;
           v202 = &v53;
-          v54 = *(_BYTE *)(qword_140E671B8 + 14);
+          v54 = *(_BYTE *)(qword_140E67398 + 14);
           v204 = &v54;
           v205 = 1LL;
-          v55 = *(_BYTE *)(qword_140E671B8 + 48);
+          v55 = *(_BYTE *)(qword_140E67398 + 48);
           v206 = &v55;
           v207 = 1LL;
-          v80 = *(_DWORD *)(qword_140E671B8 + 52);
+          v80 = *(_DWORD *)(qword_140E67398 + 52);
           v208 = &v80;
           v209 = 4LL;
-          v81 = *(_DWORD *)(qword_140E671B8 + 56);
+          v81 = *(_DWORD *)(qword_140E67398 + 56);
           v210 = &v81;
           v211 = 4LL;
-          v82 = *(_DWORD *)(qword_140E671B8 + 60);
+          v82 = *(_DWORD *)(qword_140E67398 + 60);
           v212 = &v82;
           v213 = 4LL;
-          v24 = (*(_BYTE *)(qword_140E671B8 + 15) & 4) != 0;
+          v24 = (*(_BYTE *)(qword_140E67398 + 15) & 4) != 0;
           v215 = 1LL;
           v56 = v24;
           v214 = &v56;
-          v216 = qword_140E671B8 + 16;
-          v83 = dword_140E671C4;
+          v216 = qword_140E67398 + 16;
+          v83 = dword_140E673A4;
           v218 = &v83;
-          v84 = dword_140E671C0;
+          v84 = dword_140E673A0;
           v220 = &v84;
-          v57 = byte_140E671D8;
+          v57 = byte_140E673B8;
           v222 = &v57;
-          v85 = dword_140E671E8;
+          v85 = dword_140E673C8;
           v224 = &v85;
-          v86 = dword_140E671EC;
+          v86 = dword_140E673CC;
           v226 = &v86;
           v217 = 16LL;
           v219 = 4LL;
@@ -580,29 +580,29 @@ char PopDiagTraceDirtyTransition()
           v223 = 1LL;
           v225 = 4LL;
           v227 = 4LL;
-          v87 = dword_140E671F0;
+          v87 = dword_140E673D0;
           v228 = &v87;
-          v58 = dword_140E67220 != 0;
-          v88 = dword_140E671FC;
+          v58 = dword_140E67400 != 0;
+          v88 = dword_140E673DC;
           v230 = &v88;
-          v59 = dword_140E67224 != 0;
-          v89 = dword_140E671F4;
+          v59 = dword_140E67404 != 0;
+          v89 = dword_140E673D4;
           v232 = &v89;
-          v90 = dword_140E671F8;
+          v90 = dword_140E673D8;
           v234 = &v90;
-          v105 = qword_140E67200;
+          v105 = qword_140E673E0;
           v236 = &v105;
-          v91 = dword_140E67210;
+          v91 = dword_140E673F0;
           v238 = &v91;
-          v92 = dword_140E67214;
+          v92 = dword_140E673F4;
           v240 = &v92;
-          v93 = dword_140E67218;
+          v93 = dword_140E673F8;
           v242 = &v93;
-          v94 = dword_140E67208;
+          v94 = dword_140E673E8;
           v244 = &v94;
           v246 = &v58;
           v248 = &v59;
-          v95 = dword_140E67228;
+          v95 = dword_140E67408;
           v250 = &v95;
           v229 = 4LL;
           v231 = 4LL;
@@ -616,28 +616,28 @@ char PopDiagTraceDirtyTransition()
           v247 = 1LL;
           v249 = 1LL;
           v251 = 4LL;
-          v60 = *(_BYTE *)qword_140E67230;
+          v60 = *(_BYTE *)qword_140E67410;
           v252 = &v60;
           v253 = 1LL;
-          v61 = *(_BYTE *)(qword_140E67230 + 8);
+          v61 = *(_BYTE *)(qword_140E67410 + 8);
           v254 = &v61;
           v255 = 1LL;
-          v96 = *(_DWORD *)(qword_140E67230 + 16);
+          v96 = *(_DWORD *)(qword_140E67410 + 16);
           v256 = &v96;
           v257 = 4LL;
-          v62 = *(_BYTE *)(qword_140E67230 + 9);
+          v62 = *(_BYTE *)(qword_140E67410 + 9);
           v258 = &v62;
           v259 = 1LL;
-          v97 = *(_DWORD *)(qword_140E67230 + 20);
+          v97 = *(_DWORD *)(qword_140E67410 + 20);
           v261 = 4LL;
           v260 = &v97;
-          v98 = dword_140E67238;
+          v98 = dword_140E67418;
           v263 = 4LL;
           v262 = &v98;
           v264 = &v106;
           v106 = 0x1000000LL;
           v265 = 8LL;
-          return tlgWriteTransfer_EtwWriteTransfer(v7, (unsigned __int8 *)byte_14004AD99, 0LL, 0LL, 0x51u, &v107);
+          return tlgWriteTransfer_EtwWriteTransfer(v7, (unsigned __int8 *)&byte_14004B107, 0LL, 0LL, 0x51u, &v107);
         }
       }
     }

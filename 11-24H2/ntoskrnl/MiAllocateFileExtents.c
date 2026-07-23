@@ -1,34 +1,34 @@
 /*
- * XREFs of MiAllocateFileExtents @ 0x140AA5B84
+ * XREFs of MiAllocateFileExtents @ 0x140AA0BF4
  * Callers:
- *     MiAddViewsForSection @ 0x14020DA70 (MiAddViewsForSection.c)
- *     MiCreatePrototypePtes @ 0x140261F58 (MiCreatePrototypePtes.c)
- *     MiRefillPurgedExtents @ 0x14036F3FC (MiRefillPurgedExtents.c)
- *     MiFaultGetFileExtents @ 0x14036F4C8 (MiFaultGetFileExtents.c)
- *     MiInitializeCachedExtentWalker @ 0x1404BF028 (MiInitializeCachedExtentWalker.c)
- *     MiUpdateActiveSubsection @ 0x140678F84 (MiUpdateActiveSubsection.c)
- *     MiInitializeImageExtents @ 0x1407F0358 (MiInitializeImageExtents.c)
+ *     MiCreatePrototypePtes @ 0x1402751A4 (MiCreatePrototypePtes.c)
+ *     MiAddViewsForSection @ 0x140336DD0 (MiAddViewsForSection.c)
+ *     MiFaultGetFileExtents @ 0x140426C40 (MiFaultGetFileExtents.c)
+ *     MiRefillPurgedExtents @ 0x1404276E4 (MiRefillPurgedExtents.c)
+ *     MiInitializeCachedExtentWalker @ 0x1404BA55C (MiInitializeCachedExtentWalker.c)
+ *     MiUpdateActiveSubsection @ 0x14067A164 (MiUpdateActiveSubsection.c)
+ *     MiInitializeImageExtents @ 0x1407F0928 (MiInitializeImageExtents.c)
  * Callees:
- *     MiStartingOffset @ 0x140244020 (MiStartingOffset.c)
- *     MiReferenceControlAreaFile @ 0x1402464D0 (MiReferenceControlAreaFile.c)
- *     MiUpdateSystemProtoPtesTree @ 0x14026047C (MiUpdateSystemProtoPtesTree.c)
- *     MiAllocatePool @ 0x1402ACA70 (MiAllocatePool.c)
- *     MiEndingOffset @ 0x140314E58 (MiEndingOffset.c)
- *     MiDereferenceControlAreaFile @ 0x14042C500 (MiDereferenceControlAreaFile.c)
- *     MiSetSubsectionBase @ 0x140491CC8 (MiSetSubsectionBase.c)
- *     MiSubsectionProtosCreated @ 0x1404CFC98 (MiSubsectionProtosCreated.c)
- *     FsRtlGetFileExtents @ 0x14057F7E0 (FsRtlGetFileExtents.c)
- *     MiChangingSubsectionProtos @ 0x14067A42C (MiChangingSubsectionProtos.c)
- *     MiEliminateStaleExtents @ 0x14067A858 (MiEliminateStaleExtents.c)
- *     MiInsertCopyExtents @ 0x14067B2F0 (MiInsertCopyExtents.c)
- *     MiMergeCopyExtents @ 0x14067B6F4 (MiMergeCopyExtents.c)
- *     MiUnlinkSubsectionWaitBlock @ 0x14067BD8C (MiUnlinkSubsectionWaitBlock.c)
- *     MiReplaceSystemProtoPtesNode @ 0x140692E48 (MiReplaceSystemProtoPtesNode.c)
- *     MiNewPfnsSuitable @ 0x1407E9C94 (MiNewPfnsSuitable.c)
- *     MiConvertRunsToPages @ 0x1407EFF38 (MiConvertRunsToPages.c)
- *     MiCreateFileOnlyPfns @ 0x1407F0124 (MiCreateFileOnlyPfns.c)
- *     MiDeleteFileExtentList @ 0x1407F02DC (MiDeleteFileExtentList.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     MiStartingOffset @ 0x14020C7B0 (MiStartingOffset.c)
+ *     MiAllocatePool @ 0x140277450 (MiAllocatePool.c)
+ *     MiUpdateSystemProtoPtesTree @ 0x140290A8C (MiUpdateSystemProtoPtesTree.c)
+ *     MiEndingOffset @ 0x1403F2438 (MiEndingOffset.c)
+ *     MiReferenceControlAreaFile @ 0x14041CAA0 (MiReferenceControlAreaFile.c)
+ *     MiDereferenceControlAreaFile @ 0x14041F2B0 (MiDereferenceControlAreaFile.c)
+ *     MiSetSubsectionBase @ 0x14048CB68 (MiSetSubsectionBase.c)
+ *     MiSubsectionProtosCreated @ 0x1404C8D48 (MiSubsectionProtosCreated.c)
+ *     FsRtlGetFileExtents @ 0x14057CC20 (FsRtlGetFileExtents.c)
+ *     MiChangingSubsectionProtos @ 0x14067B60C (MiChangingSubsectionProtos.c)
+ *     MiEliminateStaleExtents @ 0x14067BA38 (MiEliminateStaleExtents.c)
+ *     MiInsertCopyExtents @ 0x14067C4D0 (MiInsertCopyExtents.c)
+ *     MiMergeCopyExtents @ 0x14067C8D4 (MiMergeCopyExtents.c)
+ *     MiUnlinkSubsectionWaitBlock @ 0x14067CF6C (MiUnlinkSubsectionWaitBlock.c)
+ *     MiReplaceSystemProtoPtesNode @ 0x140693F18 (MiReplaceSystemProtoPtesNode.c)
+ *     MiNewPfnsSuitable @ 0x1407EA264 (MiNewPfnsSuitable.c)
+ *     MiConvertRunsToPages @ 0x1407F0508 (MiConvertRunsToPages.c)
+ *     MiCreateFileOnlyPfns @ 0x1407F06F4 (MiCreateFileOnlyPfns.c)
+ *     MiDeleteFileExtentList @ 0x1407F08AC (MiDeleteFileExtentList.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall MiAllocateFileExtents(
@@ -36,7 +36,7 @@ __int64 __fastcall MiAllocateFileExtents(
         unsigned int a2,
         ULONG_PTR a3,
         int a4,
-        char a5,
+        unsigned int a5,
         unsigned int a6)
 {
   unsigned __int64 v7; // r9
@@ -137,7 +137,7 @@ LABEL_2:
       v11 = (v11 + 4095) & 0xFFFFFFFFFFFFF000uLL;
       if ( v45 != 1 || (*(_DWORD *)(v10 + 56) & 2) == 0 )
       {
-        LODWORD(v35) = MiChangingSubsectionProtos((__int64 *)BugCheckParameter2, a5 | 8u, (__int64)v40);
+        LODWORD(v35) = MiChangingSubsectionProtos((__int64 *)BugCheckParameter2, a5 | 8, (__int64)v40);
         if ( (v35 & 0x80000000) != 0LL )
         {
           MiDereferenceControlAreaFile(v10, (signed __int64)v14);
@@ -199,7 +199,7 @@ LABEL_36:
                 if ( (*(_BYTE *)(v10 + 62) & 0xC) == 8 )
                   goto LABEL_36;
 LABEL_43:
-                FileOnlyPfns = MiChangingSubsectionProtos((__int64 *)BugCheckParameter2, a5 | 0x10u, (__int64)v40);
+                FileOnlyPfns = MiChangingSubsectionProtos((__int64 *)BugCheckParameter2, a5 | 0x10, (__int64)v40);
                 if ( FileOnlyPfns < 0 )
                 {
                   ExFreePoolWithTag(v17, 0);

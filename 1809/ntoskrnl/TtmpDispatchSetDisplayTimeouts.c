@@ -1,14 +1,14 @@
 /*
- * XREFs of TtmpDispatchSetDisplayTimeouts @ 0x140882180
+ * XREFs of TtmpDispatchSetDisplayTimeouts @ 0x1408833E0
  * Callers:
- *     TtmDispatchApi @ 0x140881700 (TtmDispatchApi.c)
+ *     TtmDispatchApi @ 0x140882960 (TtmDispatchApi.c)
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
  *     KeLeaveCriticalRegion @ 0x14004F410 (KeLeaveCriticalRegion.c)
  *     ExReleaseResourceLite @ 0x14004F590 (ExReleaseResourceLite.c)
- *     TtmiLogError @ 0x1407616DC (TtmiLogError.c)
- *     TtmiTerminalSetDisplayTimeouts @ 0x14087EEC8 (TtmiTerminalSetDisplayTimeouts.c)
- *     TtmpAcquireSessionFromTerminalHandle @ 0x140881988 (TtmpAcquireSessionFromTerminalHandle.c)
+ *     TtmiLogError @ 0x1407628CC (TtmiLogError.c)
+ *     TtmiTerminalSetDisplayTimeouts @ 0x140880128 (TtmiTerminalSetDisplayTimeouts.c)
+ *     TtmpAcquireSessionFromTerminalHandle @ 0x140882BE8 (TtmpAcquireSessionFromTerminalHandle.c)
  */
 
 __int64 __fastcall TtmpDispatchSetDisplayTimeouts(__int64 a1)

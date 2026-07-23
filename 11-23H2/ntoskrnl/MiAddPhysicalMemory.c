@@ -1,36 +1,36 @@
 /*
- * XREFs of MiAddPhysicalMemory @ 0x140A2B6C8
+ * XREFs of MiAddPhysicalMemory @ 0x140A2B978
  * Callers:
- *     MiAddPhysicalMemoryChunks @ 0x140A2BE8C (MiAddPhysicalMemoryChunks.c)
- *     MiCreateFileOnlyPfns @ 0x140A33C48 (MiCreateFileOnlyPfns.c)
+ *     MiAddPhysicalMemoryChunks @ 0x140A2C13C (MiAddPhysicalMemoryChunks.c)
+ *     MiCreateFileOnlyPfns @ 0x140A33EF8 (MiCreateFileOnlyPfns.c)
  * Callees:
  *     KePulseEvent @ 0x1402206A0 (KePulseEvent.c)
- *     MiUpdateLargePageBitMap @ 0x1402E890C (MiUpdateLargePageBitMap.c)
- *     MiLockDynamicMemoryShared @ 0x1403463D4 (MiLockDynamicMemoryShared.c)
- *     MiUnlockDynamicMemoryShared @ 0x140346780 (MiUnlockDynamicMemoryShared.c)
- *     MiReferencePageRuns @ 0x1403576E0 (MiReferencePageRuns.c)
- *     MiDereferencePageRuns @ 0x140357BC8 (MiDereferencePageRuns.c)
- *     MiDescribePageRun @ 0x14037548C (MiDescribePageRun.c)
- *     MiComputeNodeMemory @ 0x1403AC99C (MiComputeNodeMemory.c)
- *     ZwUpdateWnfStateData @ 0x14041E920 (ZwUpdateWnfStateData.c)
- *     KeConfigureDynamicMemory @ 0x14056EB7C (KeConfigureDynamicMemory.c)
- *     MiEnableNewPfns @ 0x14061A960 (MiEnableNewPfns.c)
- *     MiLockDynamicMemoryExclusive @ 0x14061B5A4 (MiLockDynamicMemoryExclusive.c)
- *     MiLogAddPhysicalMemory @ 0x14061B90C (MiLogAddPhysicalMemory.c)
- *     MiPerformMemoryChange @ 0x14061BAC4 (MiPerformMemoryChange.c)
- *     MiUnlockDynamicMemoryExclusive @ 0x14061BFAC (MiUnlockDynamicMemoryExclusive.c)
- *     MiHotRemoveHugeRange @ 0x1406200D4 (MiHotRemoveHugeRange.c)
- *     MiIsAnyPartOfRangeInHugePfn @ 0x1406212E0 (MiIsAnyPartOfRangeInHugePfn.c)
- *     MiDeleteExtentPfns @ 0x14063CA60 (MiDeleteExtentPfns.c)
- *     MiAddRangeToPartitionTree @ 0x140658B1C (MiAddRangeToPartitionTree.c)
- *     MiDeletePartitionPageNodes @ 0x1406593F4 (MiDeletePartitionPageNodes.c)
- *     MiInsertPartitionPages @ 0x14065A480 (MiInsertPartitionPages.c)
- *     MiSplitPfnBitMapsForPartitionHierarchy @ 0x14065B5A0 (MiSplitPfnBitMapsForPartitionHierarchy.c)
- *     MiSplitPfnBitMaps @ 0x14081C5C8 (MiSplitPfnBitMaps.c)
- *     MiConfigureMemoryInsertion @ 0x140A2C408 (MiConfigureMemoryInsertion.c)
- *     MiMapNewPfns @ 0x140A2C910 (MiMapNewPfns.c)
- *     MiSplitMirrorBitMap @ 0x140A2F094 (MiSplitMirrorBitMap.c)
- *     MiIsExtentDangling @ 0x140A33F44 (MiIsExtentDangling.c)
+ *     MiUpdateLargePageBitMap @ 0x1402E8B9C (MiUpdateLargePageBitMap.c)
+ *     MiLockDynamicMemoryShared @ 0x140346664 (MiLockDynamicMemoryShared.c)
+ *     MiUnlockDynamicMemoryShared @ 0x140346A10 (MiUnlockDynamicMemoryShared.c)
+ *     MiReferencePageRuns @ 0x140357880 (MiReferencePageRuns.c)
+ *     MiDereferencePageRuns @ 0x140357D68 (MiDereferencePageRuns.c)
+ *     MiDescribePageRun @ 0x14037562C (MiDescribePageRun.c)
+ *     MiComputeNodeMemory @ 0x1403ACB7C (MiComputeNodeMemory.c)
+ *     ZwUpdateWnfStateData @ 0x14041ECB0 (ZwUpdateWnfStateData.c)
+ *     KeConfigureDynamicMemory @ 0x14056F0BC (KeConfigureDynamicMemory.c)
+ *     MiEnableNewPfns @ 0x14061AEB0 (MiEnableNewPfns.c)
+ *     MiLockDynamicMemoryExclusive @ 0x14061BAF4 (MiLockDynamicMemoryExclusive.c)
+ *     MiLogAddPhysicalMemory @ 0x14061BE5C (MiLogAddPhysicalMemory.c)
+ *     MiPerformMemoryChange @ 0x14061C014 (MiPerformMemoryChange.c)
+ *     MiUnlockDynamicMemoryExclusive @ 0x14061C4FC (MiUnlockDynamicMemoryExclusive.c)
+ *     MiHotRemoveHugeRange @ 0x140620624 (MiHotRemoveHugeRange.c)
+ *     MiIsAnyPartOfRangeInHugePfn @ 0x140621830 (MiIsAnyPartOfRangeInHugePfn.c)
+ *     MiDeleteExtentPfns @ 0x14063CFB0 (MiDeleteExtentPfns.c)
+ *     MiAddRangeToPartitionTree @ 0x14065906C (MiAddRangeToPartitionTree.c)
+ *     MiDeletePartitionPageNodes @ 0x140659944 (MiDeletePartitionPageNodes.c)
+ *     MiInsertPartitionPages @ 0x14065A9D0 (MiInsertPartitionPages.c)
+ *     MiSplitPfnBitMapsForPartitionHierarchy @ 0x14065BAF0 (MiSplitPfnBitMapsForPartitionHierarchy.c)
+ *     MiSplitPfnBitMaps @ 0x14081C898 (MiSplitPfnBitMaps.c)
+ *     MiConfigureMemoryInsertion @ 0x140A2C6B8 (MiConfigureMemoryInsertion.c)
+ *     MiMapNewPfns @ 0x140A2CBC0 (MiMapNewPfns.c)
+ *     MiSplitMirrorBitMap @ 0x140A2F344 (MiSplitMirrorBitMap.c)
+ *     MiIsExtentDangling @ 0x140A341F4 (MiIsExtentDangling.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 
@@ -263,7 +263,7 @@ LABEL_93:
           if ( (v7 & 0x80) == 0 )
             MiEnableNewPfns((volatile signed __int64 *)a1, v12, v13, v7);
           if ( stru_140C672E8.Header.SignalState && ((unsigned __int8)MiFlags & 0x30u) >= 0x20 )
-            ZwUpdateWnfStateData((__int64)&WNF_MM_PHYSICAL_MEMORY_CHANGE, 0LL);
+            ZwUpdateWnfStateData(&WNF_MM_PHYSICAL_MEMORY_CHANGE, 0LL, 0, 0LL, 0LL, 0, 0);
           KePulseEvent(qword_140C6B5A0, 0, 0);
         }
         v10 = 0;

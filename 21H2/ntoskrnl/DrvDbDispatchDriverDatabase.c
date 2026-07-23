@@ -1,17 +1,17 @@
 /*
- * XREFs of DrvDbDispatchDriverDatabase @ 0x14063BE70
+ * XREFs of DrvDbDispatchDriverDatabase @ 0x140630C80
  * Callers:
  *     <none>
  * Callees:
- *     DrvDbFindDatabaseNode @ 0x14060258C (DrvDbFindDatabaseNode.c)
- *     _PnpCtxGetObjectContext @ 0x14063C148 (_PnpCtxGetObjectContext.c)
- *     DrvDbGetDriverDatabaseList @ 0x14063C174 (DrvDbGetDriverDatabaseList.c)
- *     DrvDbSetDriverDatabaseMappedProperty @ 0x14072DDF8 (DrvDbSetDriverDatabaseMappedProperty.c)
- *     DrvDbGetDriverDatabaseMappedProperty @ 0x140735830 (DrvDbGetDriverDatabaseMappedProperty.c)
- *     DrvDbOpenDriverDatabaseRegKey @ 0x140735A04 (DrvDbOpenDriverDatabaseRegKey.c)
- *     DrvDbGetDriverDatabaseMappedPropertyKeys @ 0x14097D3A4 (DrvDbGetDriverDatabaseMappedPropertyKeys.c)
- *     DrvDbValidateDriverDatabaseName @ 0x14097E74C (DrvDbValidateDriverDatabaseName.c)
- *     DrvDbDestroyDatabaseNode @ 0x14097E86C (DrvDbDestroyDatabaseNode.c)
+ *     _PnpCtxGetObjectContext @ 0x140630F58 (_PnpCtxGetObjectContext.c)
+ *     DrvDbGetDriverDatabaseList @ 0x140630F84 (DrvDbGetDriverDatabaseList.c)
+ *     DrvDbFindDatabaseNode @ 0x1406F1CEC (DrvDbFindDatabaseNode.c)
+ *     DrvDbSetDriverDatabaseMappedProperty @ 0x14072E2A8 (DrvDbSetDriverDatabaseMappedProperty.c)
+ *     DrvDbGetDriverDatabaseMappedProperty @ 0x1407359F0 (DrvDbGetDriverDatabaseMappedProperty.c)
+ *     DrvDbOpenDriverDatabaseRegKey @ 0x140735BC4 (DrvDbOpenDriverDatabaseRegKey.c)
+ *     DrvDbGetDriverDatabaseMappedPropertyKeys @ 0x14097D584 (DrvDbGetDriverDatabaseMappedPropertyKeys.c)
+ *     DrvDbValidateDriverDatabaseName @ 0x14097E92C (DrvDbValidateDriverDatabaseName.c)
+ *     DrvDbDestroyDatabaseNode @ 0x14097EA4C (DrvDbDestroyDatabaseNode.c)
  */
 
 __int64 __fastcall DrvDbDispatchDriverDatabase(__int64 a1, __int64 a2, unsigned int a3, __int64 a4, unsigned int *a5)
@@ -20,7 +20,7 @@ __int64 __fastcall DrvDbDispatchDriverDatabase(__int64 a1, __int64 a2, unsigned 
   __int64 v6; // rcx
   __int64 v7; // r9
   int v8; // r10d
-  const WCHAR *v9; // r11
+  __int64 v9; // r11
   unsigned int v10; // r8d
   int v11; // r10d
   int v12; // r10d
@@ -30,7 +30,7 @@ __int64 __fastcall DrvDbDispatchDriverDatabase(__int64 a1, __int64 a2, unsigned 
   int v18; // r10d
   int v19; // r10d
   int DatabaseNode; // eax
-  const UNICODE_STRING *v21; // [rsp+40h] [rbp-10h] BYREF
+  __int64 v21; // [rsp+40h] [rbp-10h] BYREF
   __int64 v22; // [rsp+48h] [rbp-8h] BYREF
 
   v22 = 0LL;
@@ -90,7 +90,7 @@ __int64 __fastcall DrvDbDispatchDriverDatabase(__int64 a1, __int64 a2, unsigned 
         {
           return (unsigned int)DrvDbGetDriverDatabaseMappedPropertyKeys(
                                  v22,
-                                 (_DWORD)v9,
+                                 v9,
                                  *(_QWORD *)a5,
                                  *((_QWORD *)a5 + 3),
                                  a5[8],
@@ -115,7 +115,7 @@ __int64 __fastcall DrvDbDispatchDriverDatabase(__int64 a1, __int64 a2, unsigned 
       v10 = DatabaseNode;
       if ( DatabaseNode < 0 )
         return v10;
-      if ( ((__int64)v21[3].Buffer & 0x10) == 0 )
+      if ( (*(_DWORD *)(v21 + 56) & 0x10) == 0 )
         return (unsigned int)-1073741790;
       return (unsigned int)DrvDbDestroyDatabaseNode(v22, v21, (unsigned int)DatabaseNode);
     }

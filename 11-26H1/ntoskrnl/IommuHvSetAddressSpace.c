@@ -1,10 +1,10 @@
 /*
- * XREFs of IommuHvSetAddressSpace @ 0x14059D7F0
+ * XREFs of IommuHvSetAddressSpace @ 0x14059FF70
  * Callers:
- *     IommuDisableDevicePasid @ 0x14059B9F0 (IommuDisableDevicePasid.c)
+ *     IommuDisableDevicePasid @ 0x14059E170 (IommuDisableDevicePasid.c)
  * Callees:
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall IommuHvSetAddressSpace(__int64 a1, ULONG_PTR a2)

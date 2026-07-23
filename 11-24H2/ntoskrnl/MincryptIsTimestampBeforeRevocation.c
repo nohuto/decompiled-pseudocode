@@ -1,10 +1,10 @@
 /*
- * XREFs of MincryptIsTimestampBeforeRevocation @ 0x140825D58
+ * XREFs of MincryptIsTimestampBeforeRevocation @ 0x140826528
  * Callers:
- *     MinCrypK_VerifySignedDataKModeEx @ 0x140826868 (MinCrypK_VerifySignedDataKModeEx.c)
+ *     MinCrypK_VerifySignedDataKModeEx @ 0x140827038 (MinCrypK_VerifySignedDataKModeEx.c)
  * Callees:
- *     I_MinCryptIsCertificateHashRevokedV2 @ 0x14069F110 (I_MinCryptIsCertificateHashRevokedV2.c)
- *     I_MinCryptIsTimestampSignerTrusted @ 0x1408259F4 (I_MinCryptIsTimestampSignerTrusted.c)
+ *     I_MinCryptIsCertificateHashRevokedV2 @ 0x1406A0214 (I_MinCryptIsCertificateHashRevokedV2.c)
+ *     I_MinCryptIsTimestampSignerTrusted @ 0x1408261C4 (I_MinCryptIsTimestampSignerTrusted.c)
  */
 
 __int64 __fastcall MincryptIsTimestampBeforeRevocation(__int64 a1, _QWORD *a2, __int64 a3)

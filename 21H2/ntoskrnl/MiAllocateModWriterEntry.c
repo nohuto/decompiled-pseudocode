@@ -1,13 +1,13 @@
 /*
- * XREFs of MiAllocateModWriterEntry @ 0x14025A558
+ * XREFs of MiAllocateModWriterEntry @ 0x14027BAC8
  * Callers:
- *     MiMappedPageWriter @ 0x1403B7730 (MiMappedPageWriter.c)
- *     MiAllocateMappedWriterMdls @ 0x1403CC350 (MiAllocateMappedWriterMdls.c)
- *     MiCreatePagefile @ 0x1407B7250 (MiCreatePagefile.c)
+ *     MiMappedPageWriter @ 0x1403B78A0 (MiMappedPageWriter.c)
+ *     MiAllocateMappedWriterMdls @ 0x1403CC4C0 (MiAllocateMappedWriterMdls.c)
+ *     MiCreatePagefile @ 0x1407B7770 (MiCreatePagefile.c)
  * Callees:
- *     MiChargeForWriteInProgressPage @ 0x14025A5C4 (MiChargeForWriteInProgressPage.c)
- *     MiAllocatePool @ 0x14025AD70 (MiAllocatePool.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     MiChargeForWriteInProgressPage @ 0x14027BB34 (MiChargeForWriteInProgressPage.c)
+ *     MiAllocatePool @ 0x14027C2E0 (MiAllocatePool.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 void *__fastcall MiAllocateModWriterEntry(__int64 a1, __int64 a2, int a3, __int64 a4)

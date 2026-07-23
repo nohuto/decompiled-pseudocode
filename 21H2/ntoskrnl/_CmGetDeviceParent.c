@@ -1,21 +1,21 @@
 /*
- * XREFs of _CmGetDeviceParent @ 0x1406B09D4
+ * XREFs of _CmGetDeviceParent @ 0x14060F984
  * Callers:
- *     _CmGetDeviceMappedPropertyFromComposite @ 0x14063C7AC (_CmGetDeviceMappedPropertyFromComposite.c)
- *     PiCMGetRelatedDeviceInstance @ 0x1407687E4 (PiCMGetRelatedDeviceInstance.c)
- *     _CmIsDeviceSafeRemovalRequired @ 0x14076A918 (_CmIsDeviceSafeRemovalRequired.c)
- *     _CmGetParentDeviceContainerId @ 0x1407D0884 (_CmGetParentDeviceContainerId.c)
- *     _CmGetDeviceSiblings @ 0x14097A784 (_CmGetDeviceSiblings.c)
+ *     _CmGetDeviceMappedPropertyFromComposite @ 0x1406315BC (_CmGetDeviceMappedPropertyFromComposite.c)
+ *     PiCMGetRelatedDeviceInstance @ 0x1407689A4 (PiCMGetRelatedDeviceInstance.c)
+ *     _CmIsDeviceSafeRemovalRequired @ 0x14076AAD8 (_CmIsDeviceSafeRemovalRequired.c)
+ *     _CmGetParentDeviceContainerId @ 0x1407D09F4 (_CmGetParentDeviceContainerId.c)
+ *     _CmGetDeviceSiblings @ 0x14097A964 (_CmGetDeviceSiblings.c)
  * Callees:
- *     RtlStringCchCopyExW @ 0x140265430 (RtlStringCchCopyExW.c)
- *     RtlInitUnicodeStringEx @ 0x140265AF0 (RtlInitUnicodeStringEx.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     _PnpGetObjectProperty @ 0x140637B7C (_PnpGetObjectProperty.c)
- *     _CmIsRootDevice @ 0x1406B0B44 (_CmIsRootDevice.c)
- *     _NtPlugPlayGetDeviceRelatedDevice @ 0x1406B0B88 (_NtPlugPlayGetDeviceRelatedDevice.c)
+ *     RtlStringCchCopyExW @ 0x140253448 (RtlStringCchCopyExW.c)
+ *     RtlInitUnicodeStringEx @ 0x140253A90 (RtlInitUnicodeStringEx.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     _CmIsRootDevice @ 0x14060FAF4 (_CmIsRootDevice.c)
+ *     _NtPlugPlayGetDeviceRelatedDevice @ 0x14060FB38 (_NtPlugPlayGetDeviceRelatedDevice.c)
+ *     _PnpGetObjectProperty @ 0x14062C98C (_PnpGetObjectProperty.c)
  */
 
-int __fastcall CmGetDeviceParent(__int64 a1, const WCHAR *a2, wchar_t *a3, unsigned int *a4)
+int __fastcall CmGetDeviceParent(int a1, const WCHAR *a2, wchar_t *a3, unsigned int *a4)
 {
   size_t v4; // rdi
   int result; // eax
@@ -41,9 +41,9 @@ int __fastcall CmGetDeviceParent(__int64 a1, const WCHAR *a2, wchar_t *a3, unsig
     {
       result = PnpGetObjectProperty(
                  a1,
-                 (__int64)a2,
-                 1LL,
-                 0LL,
+                 (_DWORD)a2,
+                 1,
+                 0,
                  0LL,
                  (__int64)DEVPKEY_Device_LastKnownParent,
                  (__int64)&v13,

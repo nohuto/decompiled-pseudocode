@@ -1,12 +1,12 @@
 /*
- * XREFs of PopAccumulateNonDripsIdleCpuTime @ 0x14042D634
+ * XREFs of PopAccumulateNonDripsIdleCpuTime @ 0x140421D04
  * Callers:
- *     PopUpdateNonAttributedCpuTimeReference @ 0x14042D038 (PopUpdateNonAttributedCpuTimeReference.c)
+ *     PopUpdateNonAttributedCpuTimeReference @ 0x140421708 (PopUpdateNonAttributedCpuTimeReference.c)
  * Callees:
- *     KeReleaseSpinLock @ 0x1402BE860 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14032F300 (KeAcquireSpinLockRaiseToDpc.c)
- *     PpmParkGetParkNode @ 0x14042D7D4 (PpmParkGetParkNode.c)
- *     PpmIdleSnapConcurrencyIdleTime @ 0x14042D820 (PpmIdleSnapConcurrencyIdleTime.c)
+ *     KeReleaseSpinLock @ 0x140309520 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140331330 (KeAcquireSpinLockRaiseToDpc.c)
+ *     PpmParkGetParkNode @ 0x140421EA4 (PpmParkGetParkNode.c)
+ *     PpmIdleSnapConcurrencyIdleTime @ 0x140421EF0 (PpmIdleSnapConcurrencyIdleTime.c)
  */
 
 void __fastcall PopAccumulateNonDripsIdleCpuTime(char a1, _QWORD *a2, _QWORD *a3, _QWORD *a4)
@@ -20,11 +20,11 @@ void __fastcall PopAccumulateNonDripsIdleCpuTime(char a1, _QWORD *a2, _QWORD *a3
   unsigned __int64 v14; // rax
   unsigned __int64 v15; // rcx
 
-  v4 = (unsigned int)dword_140E27100;
-  if ( PpmPlatformStates && dword_140E27100 != -1 )
+  v4 = (unsigned int)dword_140E27240;
+  if ( PpmPlatformStates && dword_140E27240 != -1 )
   {
     v9 = *(_QWORD *)(PpmPlatformStates + 48);
-    v10 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)&stru_140F10070.SchedulerAssistYieldCounter);
+    v10 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)&PpmIdlePolicyLock.StateSaveArea);
     ParkNode = PpmParkGetParkNode(0LL);
     if ( ParkNode )
     {
@@ -32,7 +32,7 @@ void __fastcall PopAccumulateNonDripsIdleCpuTime(char a1, _QWORD *a2, _QWORD *a3
       if ( v12 )
         PpmIdleSnapConcurrencyIdleTime(v12);
     }
-    KeReleaseSpinLock((PKSPIN_LOCK)&stru_140F10070.SchedulerAssistYieldCounter, v10);
+    KeReleaseSpinLock((PKSPIN_LOCK)&PpmIdlePolicyLock.StateSaveArea, v10);
     v13 = *(_QWORD *)(1032 * v4 + v9 + 72);
     if ( !a1 )
     {

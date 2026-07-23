@@ -1,12 +1,12 @@
 /*
- * XREFs of RawShutdown @ 0x14088F7D0
+ * XREFs of RawShutdown @ 0x140890A30
  * Callers:
  *     <none>
  * Callees:
- *     IofCompleteRequest @ 0x1400C10C0 (IofCompleteRequest.c)
- *     IoDeleteDevice @ 0x1400DAAE0 (IoDeleteDevice.c)
- *     RawScanDeletedList @ 0x1405A2620 (RawScanDeletedList.c)
- *     IoUnregisterFileSystem @ 0x140706BA0 (IoUnregisterFileSystem.c)
+ *     IofCompleteRequest @ 0x1400C1000 (IofCompleteRequest.c)
+ *     IoDeleteDevice @ 0x1400DAB60 (IoDeleteDevice.c)
+ *     RawScanDeletedList @ 0x1405A3620 (RawScanDeletedList.c)
+ *     IoUnregisterFileSystem @ 0x140707E40 (IoUnregisterFileSystem.c)
  */
 
 __int64 __fastcall RawShutdown(__int64 a1, IRP *a2)

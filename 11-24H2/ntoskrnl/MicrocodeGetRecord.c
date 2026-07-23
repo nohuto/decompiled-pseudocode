@@ -1,15 +1,15 @@
 /*
- * XREFs of MicrocodeGetRecord @ 0x1406644E0
+ * XREFs of MicrocodeGetRecord @ 0x140662DD0
  * Callers:
- *     PrExtGetRecord @ 0x140664168 (PrExtGetRecord.c)
+ *     PrExtGetRecord @ 0x140662A58 (PrExtGetRecord.c)
  * Callees:
- *     Feature_Microcode_Client_CD__private_IsEnabledDeviceUsageNoInline @ 0x140663E98 (Feature_Microcode_Client_CD__private_IsEnabledDeviceUsageNoInline.c)
- *     IntelMicrocodeMetaDataCheck @ 0x140664E30 (IntelMicrocodeMetaDataCheck.c)
- *     DrpGetRecord @ 0x140665030 (DrpGetRecord.c)
- *     DrpGetRecordCount @ 0x14066506C (DrpGetRecordCount.c)
- *     DrpGetSectionAtIndex @ 0x140665098 (DrpGetSectionAtIndex.c)
- *     AMDMicrocodeMetaDataCheck @ 0x1406651D8 (AMDMicrocodeMetaDataCheck.c)
- *     AMDMicrocodeRecordSizeCheck @ 0x1406652D0 (AMDMicrocodeRecordSizeCheck.c)
+ *     Feature_Microcode_Client_CD__private_IsEnabledDeviceUsageNoInline @ 0x140662788 (Feature_Microcode_Client_CD__private_IsEnabledDeviceUsageNoInline.c)
+ *     IntelMicrocodeMetaDataCheck @ 0x140663720 (IntelMicrocodeMetaDataCheck.c)
+ *     DrpGetRecord @ 0x140663920 (DrpGetRecord.c)
+ *     DrpGetRecordCount @ 0x14066395C (DrpGetRecordCount.c)
+ *     DrpGetSectionAtIndex @ 0x140663988 (DrpGetSectionAtIndex.c)
+ *     AMDMicrocodeMetaDataCheck @ 0x140663AC8 (AMDMicrocodeMetaDataCheck.c)
+ *     AMDMicrocodeRecordSizeCheck @ 0x140663BC0 (AMDMicrocodeRecordSizeCheck.c)
  */
 
 __int64 __fastcall MicrocodeGetRecord(
@@ -92,9 +92,9 @@ LABEL_27:
           v20 = *((_QWORD *)v15 + 2);
           *a4 = v16;
           *a5 = v20;
-          HIDWORD(xmmword_140EF7830) = v15[2];
-          LOBYTE(qword_140EF7840) = 1;
-          *a6 = HIDWORD(xmmword_140EF7830);
+          HIDWORD(xmmword_140EF7AF0) = v15[2];
+          LOBYTE(qword_140EF7B00) = 1;
+          *a6 = HIDWORD(xmmword_140EF7AF0);
           return 0LL;
         }
         v19 = *(_BYTE *)(v16 + 4);
@@ -168,6 +168,6 @@ LABEL_17:
   *a6 = v6;
   if ( !v7 )
     return 3221226021LL;
-  HIDWORD(xmmword_140EF7830) = v6;
+  HIDWORD(xmmword_140EF7AF0) = v6;
   return 0LL;
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of ViGenericDumpIrpStack @ 0x140B83EF0
+ * XREFs of ViGenericDumpIrpStack @ 0x140B85EF0
  * Callers:
  *     <none>
  * Callees:
- *     VfUtilDbgPrint @ 0x14061029C (VfUtilDbgPrint.c)
+ *     VfUtilDbgPrint @ 0x14060E85C (VfUtilDbgPrint.c)
  */
 
 __int64 __fastcall ViGenericDumpIrpStack(unsigned __int8 *a1)

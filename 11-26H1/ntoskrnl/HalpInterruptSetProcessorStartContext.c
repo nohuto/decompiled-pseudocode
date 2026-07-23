@@ -1,11 +1,11 @@
 /*
- * XREFs of HalpInterruptSetProcessorStartContext @ 0x14057CD40
+ * XREFs of HalpInterruptSetProcessorStartContext @ 0x14057F260
  * Callers:
- *     HalpSetupRealModeResume @ 0x140722F80 (HalpSetupRealModeResume.c)
- *     HalpInterruptStartProcessor @ 0x140BEA190 (HalpInterruptStartProcessor.c)
+ *     HalpSetupRealModeResume @ 0x140727B50 (HalpSetupRealModeResume.c)
+ *     HalpInterruptStartProcessor @ 0x140BF0190 (HalpInterruptStartProcessor.c)
  * Callees:
- *     memmove @ 0x14073D480 (memmove.c)
- *     KeForceEnableNx @ 0x140BF52A0 (KeForceEnableNx.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     KeForceEnableNx @ 0x140BFB2A0 (KeForceEnableNx.c)
  */
 
 __int64 __fastcall HalpInterruptSetProcessorStartContext(__int64 a1, const void *a2, char a3)
@@ -22,6 +22,6 @@ __int64 __fastcall HalpInterruptSetProcessorStartContext(__int64 a1, const void 
   if ( a3 )
     *((_QWORD *)HalpInterruptGlobalStartupBlock + 17) = HalpBlkTiledMemoryMapPa;
   else
-    *((_QWORD *)HalpInterruptGlobalStartupBlock + 17) = HIDWORD(HalpDeviceBlockUnblockPushLock.QueueListEntry.Blink);
+    *((_QWORD *)HalpInterruptGlobalStartupBlock + 17) = HIDWORD(HalpDeviceBlockUnblockPushLock.Spare18);
   return 0LL;
 }

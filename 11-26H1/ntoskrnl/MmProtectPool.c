@@ -1,23 +1,23 @@
 /*
- * XREFs of MmProtectPool @ 0x14024E084
+ * XREFs of MmProtectPool @ 0x14024F9E4
  * Callers:
- *     ExProtectPoolEx @ 0x14024CE7C (ExProtectPoolEx.c)
- *     RtlpHpEnvProtectVA @ 0x14063905C (RtlpHpEnvProtectVA.c)
+ *     ExProtectPoolEx @ 0x14024E7DC (ExProtectPoolEx.c)
+ *     RtlpHpEnvProtectVA @ 0x14063C06C (RtlpHpEnvProtectVA.c)
  * Callees:
- *     MiFindLargeMapping @ 0x14024F05C (MiFindLargeMapping.c)
- *     MiProtectNonPagedPool @ 0x14024F130 (MiProtectNonPagedPool.c)
- *     MiGetSystemRegionType @ 0x140264F40 (MiGetSystemRegionType.c)
- *     MiLockPageTableInternal @ 0x1402B34E0 (MiLockPageTableInternal.c)
- *     MiUnlockPageTableInternal @ 0x1402D13E0 (MiUnlockPageTableInternal.c)
- *     MiUnlockWorkingSetShared @ 0x1402EB6C0 (MiUnlockWorkingSetShared.c)
- *     MiLockWorkingSetShared @ 0x1402EDD60 (MiLockWorkingSetShared.c)
- *     MiFlushTbList @ 0x140329040 (MiFlushTbList.c)
- *     MiReleaseProcessorFlushList @ 0x1403613C0 (MiReleaseProcessorFlushList.c)
- *     MiMakeProtectionMask @ 0x140364A40 (MiMakeProtectionMask.c)
- *     MiCopyOnWrite @ 0x14036AD38 (MiCopyOnWrite.c)
- *     MmAccessFault @ 0x1403A2390 (MmAccessFault.c)
- *     MiCopyOnWriteCheckConditions @ 0x1403A2E0C (MiCopyOnWriteCheckConditions.c)
- *     MiProtectPagedPool @ 0x1404B84A4 (MiProtectPagedPool.c)
+ *     MiFindLargeMapping @ 0x1402509BC (MiFindLargeMapping.c)
+ *     MiProtectNonPagedPool @ 0x140250A90 (MiProtectNonPagedPool.c)
+ *     MiGetSystemRegionType @ 0x1402644B0 (MiGetSystemRegionType.c)
+ *     MiUnlockPageTableInternal @ 0x1402B31A0 (MiUnlockPageTableInternal.c)
+ *     MiUnlockWorkingSetShared @ 0x1402CD700 (MiUnlockWorkingSetShared.c)
+ *     MiLockWorkingSetShared @ 0x1402CFDE0 (MiLockWorkingSetShared.c)
+ *     MiLockPageTableInternal @ 0x1402FE1B0 (MiLockPageTableInternal.c)
+ *     MiFlushTbList @ 0x14032B070 (MiFlushTbList.c)
+ *     MiReleaseProcessorFlushList @ 0x140363160 (MiReleaseProcessorFlushList.c)
+ *     MiMakeProtectionMask @ 0x1403667E0 (MiMakeProtectionMask.c)
+ *     MiCopyOnWrite @ 0x14036CAD8 (MiCopyOnWrite.c)
+ *     MmAccessFault @ 0x1403A40F0 (MmAccessFault.c)
+ *     MiCopyOnWriteCheckConditions @ 0x1403A4B6C (MiCopyOnWriteCheckConditions.c)
+ *     MiProtectPagedPool @ 0x1404B1CD4 (MiProtectPagedPool.c)
  */
 
 __int64 __fastcall MmProtectPool(unsigned __int64 a1, __int64 a2, unsigned int a3)
@@ -50,7 +50,7 @@ __int64 __fastcall MmProtectPool(unsigned __int64 a1, __int64 a2, unsigned int a
   v6 = a1 + v4 - 1;
   v7 = ((a1 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
   SystemRegionType = MiGetSystemRegionType(a1);
-  v9 = &unk_140E37080;
+  v9 = &unk_140E37200;
   if ( SystemRegionType == 5 )
   {
     v10 = 0;
@@ -59,7 +59,7 @@ __int64 __fastcall MmProtectPool(unsigned __int64 a1, __int64 a2, unsigned int a
   if ( SystemRegionType != 4 || (unsigned int)MiFindLargeMapping(a1, v6) )
     return 0LL;
   v10 = 1;
-  v9 = &unk_140E37440;
+  v9 = &unk_140E375C0;
 LABEL_8:
   v23 = v10;
   v11 = 0LL;

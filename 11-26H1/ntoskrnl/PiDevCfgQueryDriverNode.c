@@ -1,119 +1,138 @@
 /*
- * XREFs of PiDevCfgQueryDriverNode @ 0x140AD009C
+ * XREFs of PiDevCfgQueryDriverNode @ 0x140B72708
  * Callers:
- *     PiDevCfgFindDeviceDriver @ 0x140ACF544 (PiDevCfgFindDeviceDriver.c)
+ *     PiDevCfgFindDeviceDriver @ 0x140AE6D34 (PiDevCfgFindDeviceDriver.c)
  * Callees:
- *     PnpDuplicateUnicodeString @ 0x1404F5F44 (PnpDuplicateUnicodeString.c)
- *     PnpRegistryValueExists @ 0x14050587C (PnpRegistryValueExists.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     PipCheckComputerSupported @ 0x14079B714 (PipCheckComputerSupported.c)
- *     _PnpOpenObjectRegKey @ 0x14099E110 (_PnpOpenObjectRegKey.c)
- *     RtlFreeAnsiString @ 0x140A007C0 (RtlFreeAnsiString.c)
- *     RtlpQueryRegistryValues @ 0x140A10F94 (RtlpQueryRegistryValues.c)
- *     RtlCreateUnicodeString @ 0x140A70410 (RtlCreateUnicodeString.c)
- *     IopOpenRegistryKeyEx @ 0x140AA8B70 (IopOpenRegistryKeyEx.c)
- *     PiDevCfgFreeDriverNode @ 0x140ACF14C (PiDevCfgFreeDriverNode.c)
- *     PiDevCfgGetDriverPackageId @ 0x140AD296C (PiDevCfgGetDriverPackageId.c)
- *     PiDevCfgQueryObjectProperties @ 0x140AD2A4C (PiDevCfgQueryObjectProperties.c)
- *     PiDevCfgOpenDriverConfiguration @ 0x140B2CB20 (PiDevCfgOpenDriverConfiguration.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     PnpDuplicateUnicodeString @ 0x1404EF504 (PnpDuplicateUnicodeString.c)
+ *     PnpRegistryValueExists @ 0x1404FF12C (PnpRegistryValueExists.c)
+ *     Feature_KernelPnP_CheckDriverIntegrity__private_IsEnabledDeviceUsageNoInline @ 0x1405DD9A8 (Feature_KernelPnP_CheckDriverIntegrity__private_IsEnabledDeviceUsageNoInline.c)
+ *     Feature_KernelPnP_LogBlockedDrivers__private_IsEnabledDeviceUsageNoInline @ 0x1405DDA04 (Feature_KernelPnP_LogBlockedDrivers__private_IsEnabledDeviceUsageNoInline.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     PipCheckComputerSupported @ 0x14079E254 (PipCheckComputerSupported.c)
+ *     PiDevCfgEnforceDriverPolicy @ 0x1407AC4C8 (PiDevCfgEnforceDriverPolicy.c)
+ *     _PnpOpenObjectRegKey @ 0x14095EB70 (_PnpOpenObjectRegKey.c)
+ *     IopOpenRegistryKeyEx @ 0x1409DC0A0 (IopOpenRegistryKeyEx.c)
+ *     RtlpQueryRegistryValues @ 0x140A10184 (RtlpQueryRegistryValues.c)
+ *     RtlFreeAnsiString @ 0x140A169F0 (RtlFreeAnsiString.c)
+ *     RtlCreateUnicodeString @ 0x140A478B0 (RtlCreateUnicodeString.c)
+ *     PiDevCfgFreeDriverNode @ 0x140AE6B84 (PiDevCfgFreeDriverNode.c)
+ *     PiDevCfgGetDriverPackageId @ 0x140AE9CA0 (PiDevCfgGetDriverPackageId.c)
+ *     PiDevCfgQueryObjectProperties @ 0x140AE9D80 (PiDevCfgQueryObjectProperties.c)
+ *     PiDevCfgOpenDriverConfiguration @ 0x140B2EBA0 (PiDevCfgOpenDriverConfiguration.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall PiDevCfgQueryDriverNode(PCWSTR SourceString, PCWSTR a2, int a3, int a4, char a5, __int64 *a6)
+__int64 __fastcall PiDevCfgQueryDriverNode(
+        PCWSTR SourceString,
+        PCWSTR a2,
+        int a3,
+        int a4,
+        char a5,
+        int *a6,
+        __int64 *a7)
 {
+  int v8; // r12d
   wchar_t *i; // rsi
   int DriverPackageId; // ebx
-  int v10; // ecx
-  __int64 v11; // rax
-  __int64 Pool2; // rax
-  __int64 v13; // rdi
-  _QWORD *v14; // rax
+  __int64 v12; // rcx
+  __int64 v13; // rax
+  __int64 Pool2; // rdi
   PVOID *v16; // rsi
   int v17; // ecx
-  int v18; // ecx
+  __int64 v18; // rcx
   char v19; // al
-  NTSTATUS v20; // eax
-  NTSTATUS v21; // eax
-  __int64 v22; // rdx
-  int v23; // eax
-  int v24; // ecx
-  char v25; // al
-  ULONG v26; // [rsp+20h] [rbp-E0h]
-  char v27; // [rsp+40h] [rbp-C0h] BYREF
-  char v28; // [rsp+41h] [rbp-BFh] BYREF
-  char v29; // [rsp+42h] [rbp-BEh] BYREF
+  char v20; // al
+  unsigned __int64 v21; // r8
+  int v22; // eax
+  NTSTATUS v23; // eax
+  NTSTATUS v24; // eax
+  const WCHAR *v25; // rdx
+  int v26; // eax
+  __int64 v27; // rcx
+  char v28; // al
+  ULONG v29; // [rsp+20h] [rbp-E0h]
+  char v30; // [rsp+40h] [rbp-C0h] BYREF
+  char v31; // [rsp+41h] [rbp-BFh] BYREF
+  char v32; // [rsp+42h] [rbp-BEh] BYREF
+  char v33; // [rsp+43h] [rbp-BDh] BYREF
   HANDLE Handle; // [rsp+48h] [rbp-B8h] BYREF
-  int v31; // [rsp+50h] [rbp-B0h] BYREF
-  HANDLE v32; // [rsp+58h] [rbp-A8h] BYREF
-  HANDLE v33; // [rsp+60h] [rbp-A0h] BYREF
-  UNICODE_STRING UnicodeString; // [rsp+68h] [rbp-98h] BYREF
-  UNICODE_STRING v35; // [rsp+78h] [rbp-88h] BYREF
-  int v36; // [rsp+88h] [rbp-78h]
-  int v37; // [rsp+8Ch] [rbp-74h]
-  HANDLE v38; // [rsp+90h] [rbp-70h] BYREF
-  UNICODE_STRING v39; // [rsp+98h] [rbp-68h] BYREF
-  __int64 *v40; // [rsp+A8h] [rbp-58h]
-  ULONG v41[2]; // [rsp+B0h] [rbp-50h] BYREF
-  int v42; // [rsp+B8h] [rbp-48h]
-  char *v43; // [rsp+C0h] [rbp-40h]
-  int v44; // [rsp+C8h] [rbp-38h]
-  int v45; // [rsp+D0h] [rbp-30h]
-  __int64 *v46; // [rsp+D8h] [rbp-28h]
-  int v47; // [rsp+E0h] [rbp-20h]
-  UNICODE_STRING *v48; // [rsp+E8h] [rbp-18h]
-  int v49; // [rsp+F0h] [rbp-10h]
-  int v50; // [rsp+F4h] [rbp-Ch]
-  int v51; // [rsp+F8h] [rbp-8h]
-  const int *v52; // [rsp+100h] [rbp+0h]
-  int v53; // [rsp+108h] [rbp+8h]
-  int *v54; // [rsp+110h] [rbp+10h]
-  int v55; // [rsp+118h] [rbp+18h]
-  int v56; // [rsp+120h] [rbp+20h]
-  __int64 *v57; // [rsp+128h] [rbp+28h]
-  int v58; // [rsp+130h] [rbp+30h]
-  __int64 v59; // [rsp+138h] [rbp+38h]
-  int v60; // [rsp+140h] [rbp+40h]
-  int v61; // [rsp+148h] [rbp+48h]
-  __int64 *v62; // [rsp+150h] [rbp+50h]
-  int v63; // [rsp+158h] [rbp+58h]
-  __int64 v64; // [rsp+160h] [rbp+60h]
-  unsigned int v65; // [rsp+168h] [rbp+68h]
-  int v66; // [rsp+16Ch] [rbp+6Ch]
-  int v67; // [rsp+170h] [rbp+70h]
-  int v68[2]; // [rsp+180h] [rbp+80h] BYREF
-  int v69; // [rsp+188h] [rbp+88h]
-  const wchar_t *v70; // [rsp+190h] [rbp+90h]
-  __int64 v71; // [rsp+198h] [rbp+98h]
-  int v72; // [rsp+1A0h] [rbp+A0h]
-  __int64 (__fastcall *v73)(__int64, int, _QWORD *, int, int, _QWORD *); // [rsp+1B8h] [rbp+B8h]
-  const wchar_t *v74; // [rsp+1C8h] [rbp+C8h]
-  __int64 v75; // [rsp+1D0h] [rbp+D0h]
-  int v76; // [rsp+1F8h] [rbp+F8h]
-  const wchar_t *v77; // [rsp+200h] [rbp+100h]
-  __int64 v78; // [rsp+208h] [rbp+108h]
-  int v79; // [rsp+210h] [rbp+110h]
+  int v35; // [rsp+50h] [rbp-B0h] BYREF
+  int v36; // [rsp+54h] [rbp-ACh] BYREF
+  HANDLE v37; // [rsp+58h] [rbp-A8h] BYREF
+  UNICODE_STRING UnicodeString; // [rsp+60h] [rbp-A0h] BYREF
+  HANDLE v39; // [rsp+70h] [rbp-90h] BYREF
+  UNICODE_STRING v40; // [rsp+78h] [rbp-88h] BYREF
+  int v41; // [rsp+88h] [rbp-78h]
+  int v42; // [rsp+8Ch] [rbp-74h]
+  __int64 v43; // [rsp+90h] [rbp-70h] BYREF
+  HANDLE v44; // [rsp+98h] [rbp-68h] BYREF
+  UNICODE_STRING v45; // [rsp+A0h] [rbp-60h] BYREF
+  __int64 *v46; // [rsp+B0h] [rbp-50h]
+  ULONG v47[2]; // [rsp+C0h] [rbp-40h] BYREF
+  int v48; // [rsp+C8h] [rbp-38h]
+  char *v49; // [rsp+D0h] [rbp-30h]
+  int v50; // [rsp+D8h] [rbp-28h]
+  int v51; // [rsp+E0h] [rbp-20h]
+  __int64 *v52; // [rsp+E8h] [rbp-18h]
+  int v53; // [rsp+F0h] [rbp-10h]
+  UNICODE_STRING *v54; // [rsp+F8h] [rbp-8h]
+  int v55; // [rsp+100h] [rbp+0h]
+  int v56; // [rsp+104h] [rbp+4h]
+  int v57; // [rsp+108h] [rbp+8h]
+  __int64 *v58; // [rsp+110h] [rbp+10h]
+  int v59; // [rsp+118h] [rbp+18h]
+  __int64 *v60; // [rsp+120h] [rbp+20h]
+  int v61; // [rsp+128h] [rbp+28h]
+  int v62; // [rsp+130h] [rbp+30h]
+  __int64 *v63; // [rsp+138h] [rbp+38h]
+  int v64; // [rsp+140h] [rbp+40h]
+  __int64 v65; // [rsp+148h] [rbp+48h]
+  int v66; // [rsp+150h] [rbp+50h]
+  int v67; // [rsp+158h] [rbp+58h]
+  __int64 *v68; // [rsp+160h] [rbp+60h]
+  int v69; // [rsp+168h] [rbp+68h]
+  __int64 v70; // [rsp+170h] [rbp+70h]
+  unsigned int v71; // [rsp+178h] [rbp+78h]
+  int v72; // [rsp+17Ch] [rbp+7Ch]
+  int v73; // [rsp+180h] [rbp+80h]
+  int v74[2]; // [rsp+190h] [rbp+90h] BYREF
+  int v75; // [rsp+198h] [rbp+98h]
+  const wchar_t *v76; // [rsp+1A0h] [rbp+A0h]
+  __int64 v77; // [rsp+1A8h] [rbp+A8h]
+  int v78; // [rsp+1B0h] [rbp+B0h]
+  __int64 (__fastcall *v79)(__int64, int, _QWORD *, int, int, _QWORD *); // [rsp+1C8h] [rbp+C8h]
+  const wchar_t *v80; // [rsp+1D8h] [rbp+D8h]
+  __int64 v81; // [rsp+1E0h] [rbp+E0h]
+  int v82; // [rsp+208h] [rbp+108h]
+  const wchar_t *v83; // [rsp+210h] [rbp+110h]
+  __int64 v84; // [rsp+218h] [rbp+118h]
+  int v85; // [rsp+220h] [rbp+120h]
 
-  v40 = a6;
+  v46 = a7;
   *(_QWORD *)&UnicodeString.Length = 0LL;
+  v8 = -1;
   UnicodeString.Buffer = 0LL;
   Handle = 0LL;
+  v33 = 0;
+  *(_QWORD *)&v45.Length = 0LL;
   i = 0LL;
-  v29 = 0;
-  *(_QWORD *)&v39.Length = 0LL;
-  v39.Buffer = 0LL;
-  v27 = 0;
-  v28 = 0;
-  v35 = 0LL;
-  v38 = 0LL;
-  v33 = 0LL;
-  v32 = 0LL;
-  v36 = a4;
-  v37 = a3;
-  v31 = -16777216;
-  DriverPackageId = PiDevCfgGetDriverPackageId(SourceString, &UnicodeString);
+  v45.Buffer = 0LL;
+  v31 = 0;
+  v36 = -1;
+  v43 = -1LL;
+  v30 = 0;
+  v32 = 0;
+  v40 = 0LL;
+  v44 = 0LL;
+  v39 = 0LL;
+  v37 = 0LL;
+  v41 = a4;
+  v42 = a3;
+  v35 = -16777216;
+  DriverPackageId = PiDevCfgGetDriverPackageId((__int64)SourceString, (__int64)&UnicodeString);
   if ( DriverPackageId >= 0 )
   {
     DriverPackageId = PnpOpenObjectRegKey(
@@ -125,33 +144,39 @@ __int64 __fastcall PiDevCfgQueryDriverNode(PCWSTR SourceString, PCWSTR a2, int a
                         (__int64)&Handle);
     if ( DriverPackageId >= 0 )
     {
-      memset_0(v41, 0, 0xC8uLL);
-      *(_QWORD *)v41 = DEVPKEY_DriverPackage_Invalidated;
-      v43 = &v29;
-      v46 = DEVPKEY_DriverPackage_TargetComputerIds;
-      v48 = &v39;
-      v42 = 17;
-      v44 = 1;
-      v47 = 8210;
-      v50 = 6;
-      DriverPackageId = PiDevCfgQueryObjectProperties(v10, UnicodeString.Buffer, 8, (_DWORD)Handle, (__int64)v41, 2);
+      memset_0(v47, 0, 0xC8uLL);
+      *(_QWORD *)v47 = DEVPKEY_DriverPackage_Invalidated;
+      v49 = &v33;
+      v52 = DEVPKEY_DriverPackage_TargetComputerIds;
+      v54 = &v45;
+      v48 = 17;
+      v50 = 1;
+      v53 = 8210;
+      v56 = 6;
+      DriverPackageId = PiDevCfgQueryObjectProperties(
+                          v12,
+                          (__int64)UnicodeString.Buffer,
+                          8,
+                          (char *)Handle,
+                          (__int64)v47,
+                          2u);
       if ( DriverPackageId >= 0 )
       {
-        if ( v45 >= 0 && v29 == -1 )
+        if ( v51 >= 0 && v33 == -1 )
         {
           DriverPackageId = -1073741738;
-          goto LABEL_24;
+          goto LABEL_26;
         }
-        if ( v51 >= 0 && v39.Buffer && v39.Length > 2u )
+        if ( v57 >= 0 && v45.Buffer && v45.Length > 2u )
         {
-          for ( i = v39.Buffer; *i; i += v11 + 1 )
+          for ( i = v45.Buffer; *i; i += v13 + 1 )
           {
             if ( PipCheckComputerSupported(i) )
               break;
-            v11 = -1LL;
+            v13 = -1LL;
             do
-              ++v11;
-            while ( i[v11] );
+              ++v13;
+            while ( i[v13] );
           }
           if ( !*i )
             goto LABEL_16;
@@ -160,70 +185,77 @@ __int64 __fastcall PiDevCfgQueryDriverNode(PCWSTR SourceString, PCWSTR a2, int a
         {
 LABEL_16:
           DriverPackageId = -1073740764;
-          goto LABEL_24;
+          goto LABEL_26;
         }
         Pool2 = ExAllocatePool2(0x100uLL);
-        v13 = Pool2;
         if ( !Pool2 )
         {
           DriverPackageId = -1073741670;
-          goto LABEL_24;
+          goto LABEL_26;
         }
-        v14 = (_QWORD *)(Pool2 + 224);
-        v14[1] = v14;
-        *v14 = v14;
-        *(_QWORD *)(v13 + 216) = v13 + 208;
-        *(_QWORD *)(v13 + 208) = v13 + 208;
-        *(_QWORD *)(v13 + 392) = v13 + 384;
-        *(_QWORD *)(v13 + 384) = v13 + 384;
-        if ( RtlCreateUnicodeString((PUNICODE_STRING)(v13 + 40), SourceString)
-          && PnpDuplicateUnicodeString(v13 + 56, (__int64)&UnicodeString)
-          && RtlCreateUnicodeString((PUNICODE_STRING)(v13 + 72), a2)
-          && (!i || RtlCreateUnicodeString((PUNICODE_STRING)(v13 + 128), i)) )
+        if ( !(unsigned int)Feature_KernelPnP_LogBlockedDrivers__private_IsEnabledDeviceUsageNoInline() )
         {
-          memset_0(v41, 0, 0xC8uLL);
-          *(_QWORD *)v41 = DEVPKEY_DriverPackage_DriverDate;
-          v42 = 16;
-          v44 = 8;
-          v46 = DEVPKEY_DriverPackage_DriverVersion;
-          v49 = 8;
-          v16 = (PVOID *)(v13 + 144);
-          v48 = (UNICODE_STRING *)(v13 + 120);
-          v43 = (char *)(v13 + 112);
-          v52 = &DEVPKEY_DriverPackage_SignerScore;
-          v54 = &v31;
-          v57 = DEVPKEY_DriverPackage_ExtensionId;
-          v62 = DEVPKEY_DriverPackage_ExtensionContractIds;
-          v66 = 2;
-          v47 = 9;
-          v53 = 7;
-          v55 = 4;
-          v58 = 13;
-          v59 = v13 + 188;
-          v60 = 16;
-          v63 = 4109;
-          v64 = v13 + 144;
-          DriverPackageId = PiDevCfgQueryObjectProperties(16, UnicodeString.Buffer, 8, (_DWORD)Handle, (__int64)v41, 5);
+          *(_QWORD *)(Pool2 + 232) = Pool2 + 224;
+          *(_QWORD *)(Pool2 + 224) = Pool2 + 224;
+        }
+        *(_QWORD *)(Pool2 + 216) = Pool2 + 208;
+        *(_QWORD *)(Pool2 + 208) = Pool2 + 208;
+        *(_QWORD *)(Pool2 + 392) = Pool2 + 384;
+        *(_QWORD *)(Pool2 + 384) = Pool2 + 384;
+        if ( RtlCreateUnicodeString((PUNICODE_STRING)(Pool2 + 40), SourceString)
+          && PnpDuplicateUnicodeString(Pool2 + 56, (__int64)&UnicodeString)
+          && RtlCreateUnicodeString((PUNICODE_STRING)(Pool2 + 72), a2)
+          && (!i || RtlCreateUnicodeString((PUNICODE_STRING)(Pool2 + 128), i)) )
+        {
+          memset_0(v47, 0, 0xC8uLL);
+          *(_QWORD *)v47 = DEVPKEY_DriverPackage_DriverDate;
+          v48 = 16;
+          v52 = DEVPKEY_DriverPackage_DriverVersion;
+          v49 = (char *)(Pool2 + 112);
+          v54 = (UNICODE_STRING *)(Pool2 + 120);
+          v50 = 8;
+          v58 = (__int64 *)&DEVPKEY_DriverPackage_SignerScore;
+          v16 = (PVOID *)(Pool2 + 144);
+          v55 = 8;
+          v60 = (__int64 *)&v35;
+          v63 = DEVPKEY_DriverPackage_ExtensionId;
+          v68 = DEVPKEY_DriverPackage_ExtensionContractIds;
+          v53 = 9;
+          v59 = 7;
+          v61 = 4;
+          v64 = 13;
+          v65 = Pool2 + 188;
+          v66 = 16;
+          v69 = 4109;
+          v70 = Pool2 + 144;
+          v72 = 2;
+          DriverPackageId = PiDevCfgQueryObjectProperties(
+                              16LL,
+                              (__int64)UnicodeString.Buffer,
+                              8,
+                              (char *)Handle,
+                              (__int64)v47,
+                              5u);
           if ( DriverPackageId >= 0 )
           {
-            if ( v45 < 0 )
-              *(_QWORD *)(v13 + 112) = 0LL;
             if ( v51 < 0 )
-              *(_QWORD *)(v13 + 120) = 0LL;
-            if ( v56 < 0 )
-              v31 = -16777216;
-            if ( v61 < 0 )
-              *(_OWORD *)(v13 + 188) = 0LL;
-            if ( v67 >= 0 )
+              *(_QWORD *)(Pool2 + 112) = 0LL;
+            if ( v57 < 0 )
+              *(_QWORD *)(Pool2 + 120) = 0LL;
+            if ( v62 < 0 )
+              v35 = -16777216;
+            if ( v67 < 0 )
+              *(_OWORD *)(Pool2 + 188) = 0LL;
+            if ( v73 >= 0 )
             {
-              if ( (v65 & 0xF) != 0 )
+              if ( (v71 & 0xF) != 0 )
               {
                 ExFreePoolWithTag(*v16, 0);
                 *v16 = 0LL;
               }
               else
               {
-                *(_DWORD *)(v13 + 152) = v65 >> 4;
+                *(_DWORD *)(Pool2 + 152) = v71 >> 4;
               }
             }
             else
@@ -233,139 +265,194 @@ LABEL_16:
             if ( (a5 & 4) != 0 )
               v17 = -1;
             else
-              v17 = (unsigned __int16)v37 | v36 & 0xFF0000 | v31 & ((a5 & 1) != 0 ? -268435456 : -16777216);
-            *(_DWORD *)(v13 + 108) = v17;
+              v17 = (unsigned __int16)v42 | v41 & 0xFF0000 | v35 & ((a5 & 1) != 0 ? -268435456 : -16777216);
+            *(_DWORD *)(Pool2 + 108) = v17;
             if ( (a5 & 2) != 0 )
             {
-              memset_0(v41, 0, 0xC8uLL);
-              *(_QWORD *)v41 = DEVPKEY_DriverPackage_F6;
-              v43 = &v27;
-              v42 = 17;
-              v44 = 1;
+              memset_0(v47, 0, 0xC8uLL);
+              *(_QWORD *)v47 = DEVPKEY_DriverPackage_F6;
+              v49 = &v30;
+              v48 = 17;
+              v50 = 1;
               DriverPackageId = PiDevCfgQueryObjectProperties(
                                   v18,
-                                  UnicodeString.Buffer,
+                                  (__int64)UnicodeString.Buffer,
                                   8,
-                                  (_DWORD)Handle,
-                                  (__int64)v41,
-                                  1);
+                                  (char *)Handle,
+                                  (__int64)v47,
+                                  1u);
               if ( DriverPackageId < 0 )
-                goto LABEL_23;
-              if ( v45 >= 0 )
+                goto LABEL_25;
+              if ( v51 >= 0 )
               {
-                v19 = v27;
+                v19 = v30;
               }
               else
               {
                 v19 = 0;
-                v27 = 0;
+                v30 = 0;
               }
               if ( v19 == -1 )
-                *(_DWORD *)(v13 + 184) |= 2u;
+                *(_DWORD *)(Pool2 + 184) |= 2u;
             }
-            *(_DWORD *)&v35.Length = 1572886;
-            v35.Buffer = L"Descriptors";
-            v20 = IopOpenRegistryKeyEx(&v38, Handle, &v35, 0x20019u);
-            DriverPackageId = v20;
-            if ( v20 == -1073741772 )
-              goto LABEL_64;
-            if ( v20 < 0 )
-              goto LABEL_23;
-            v21 = IopOpenRegistryKeyEx(&v33, v38, (UNICODE_STRING *)(v13 + 72), 0x20019u);
-            DriverPackageId = v21;
-            if ( v21 == -1073741772 )
+            if ( (unsigned int)Feature_KernelPnP_CheckDriverIntegrity__private_IsEnabledDeviceUsageNoInline()
+              && a6
+              && (*a6 & 2) != 0 )
             {
-LABEL_64:
+              memset_0(v47, 0, 0xC8uLL);
+              *(_QWORD *)v47 = &DEVPKEY_DriverPackage_Inbox;
+              v49 = &v31;
+              v52 = DEVPKEY_DriverPackage_CatalogAttributes;
+              v54 = (UNICODE_STRING *)&v36;
+              v58 = DEVPKEY_DriverPackage_CertificationVersion;
+              v60 = &v43;
+              v48 = 17;
+              v50 = 1;
+              v53 = 7;
+              v55 = 4;
+              v59 = 9;
+              v61 = 8;
+              DriverPackageId = PiDevCfgQueryObjectProperties(
+                                  8LL,
+                                  (__int64)UnicodeString.Buffer,
+                                  8,
+                                  (char *)Handle,
+                                  (__int64)v47,
+                                  3u);
+              if ( DriverPackageId < 0 )
+                goto LABEL_25;
+              if ( v51 >= 0 )
+              {
+                v20 = v31;
+              }
+              else
+              {
+                v20 = 0;
+                v31 = 0;
+              }
+              if ( v57 >= 0 )
+                v8 = v36;
+              else
+                v36 = -1;
+              if ( v62 >= 0 )
+              {
+                v21 = v43;
+              }
+              else
+              {
+                v21 = -1LL;
+                v43 = -1LL;
+              }
+              v22 = PiDevCfgEnforceDriverPolicy(a6, v8, v21, v20 == -1);
+              if ( v22 < 0 )
+              {
+                *(_DWORD *)(Pool2 + 184) |= 0x200u;
+                *(_DWORD *)(Pool2 + 448) = v22;
+              }
+            }
+            *(_DWORD *)&v40.Length = 1572886;
+            v40.Buffer = L"Descriptors";
+            v23 = IopOpenRegistryKeyEx(&v44, Handle, &v40, 0x20019u);
+            DriverPackageId = v23;
+            if ( v23 == -1073741772 )
+              goto LABEL_81;
+            if ( v23 < 0 )
+              goto LABEL_25;
+            v24 = IopOpenRegistryKeyEx(&v39, v44, (UNICODE_STRING *)(Pool2 + 72), 0x20019u);
+            DriverPackageId = v24;
+            if ( v24 == -1073741772 )
+            {
+LABEL_81:
               DriverPackageId = 0;
             }
             else
             {
-              if ( v21 < 0 )
-                goto LABEL_23;
-              memset_0(v68, 0, 0xE0uLL);
-              v70 = L"Configuration";
-              v72 = 0x1000000;
-              v71 = v13 + 88;
-              v69 = 288;
-              DriverPackageId = RtlpQueryRegistryValues(3221225472LL, (const WCHAR *)v33, (__int64)v68, 0LL, v26, 1);
+              if ( v24 < 0 )
+                goto LABEL_25;
+              memset_0(v74, 0, 0xE0uLL);
+              v76 = L"Configuration";
+              v78 = 0x1000000;
+              v77 = Pool2 + 88;
+              v75 = 288;
+              DriverPackageId = RtlpQueryRegistryValues(3221225472LL, (const WCHAR *)v39, (__int64)v74, 0LL, v29, 1);
               if ( DriverPackageId < 0 )
-                goto LABEL_23;
-              if ( !*(_WORD *)(v13 + 88) && *(_QWORD *)(v13 + 96) )
-                RtlFreeAnsiString((PUNICODE_STRING)(v13 + 88));
+                goto LABEL_25;
+              if ( !*(_WORD *)(Pool2 + 88) && *(_QWORD *)(Pool2 + 96) )
+                RtlFreeAnsiString((PUNICODE_STRING)(Pool2 + 88));
             }
-            v22 = *(_QWORD *)(v13 + 96);
-            if ( v22 )
+            v25 = *(const WCHAR **)(Pool2 + 96);
+            if ( v25 )
             {
-              v23 = PiDevCfgOpenDriverConfiguration(Handle, v22, &v32);
-              DriverPackageId = v23;
-              if ( v23 == -1073741772 )
+              v26 = PiDevCfgOpenDriverConfiguration(Handle, v25, &v37);
+              DriverPackageId = v26;
+              if ( v26 == -1073741772 )
               {
                 DriverPackageId = 0;
               }
               else
               {
-                if ( v23 < 0 )
-                  goto LABEL_23;
-                memset_0(v68, 0, 0xE0uLL);
-                *(_QWORD *)v68 = PiDevCfgQueryDriverVersionValueCallback;
-                v70 = L"DriverDate";
-                v73 = PiDevCfgQueryDriverVersionValueCallback;
-                v74 = L"DriverVersion";
-                v71 = v13 + 112;
-                v75 = v13 + 120;
-                v79 = 117440512;
-                v77 = L"ExcludeIds";
-                v78 = v13 + 160;
-                v76 = 304;
-                DriverPackageId = RtlpQueryRegistryValues(3221225472LL, (const WCHAR *)v32, (__int64)v68, 0LL, v26, 1);
+                if ( v26 < 0 )
+                  goto LABEL_25;
+                memset_0(v74, 0, 0xE0uLL);
+                v77 = Pool2 + 112;
+                *(_QWORD *)v74 = PiDevCfgQueryDriverVersionValueCallback;
+                v76 = L"DriverDate";
+                v79 = PiDevCfgQueryDriverVersionValueCallback;
+                v80 = L"DriverVersion";
+                v85 = 117440512;
+                v81 = Pool2 + 120;
+                v84 = Pool2 + 160;
+                v83 = L"ExcludeIds";
+                v82 = 304;
+                DriverPackageId = RtlpQueryRegistryValues(3221225472LL, (const WCHAR *)v37, (__int64)v74, 0LL, v29, 1);
                 if ( DriverPackageId < 0 )
-                  goto LABEL_23;
-                if ( *(_WORD *)(v13 + 160) <= 2u && *(_QWORD *)(v13 + 168) )
-                  RtlFreeAnsiString((PUNICODE_STRING)(v13 + 160));
+                  goto LABEL_25;
+                if ( *(_WORD *)(Pool2 + 160) <= 2u && *(_QWORD *)(Pool2 + 168) )
+                  RtlFreeAnsiString((PUNICODE_STRING)(Pool2 + 160));
               }
             }
             if ( !PnpBootMode )
-              goto LABEL_89;
-            *(_DWORD *)&v35.Length = 1572886;
-            v35.Buffer = L"ConfigFlags";
-            if ( !v32 || !PnpRegistryValueExists(v32, &v35) )
-              *(_DWORD *)(v13 + 184) |= 4u;
-            if ( (*(_DWORD *)(v13 + 184) & 0x24) != 0 )
-              goto LABEL_89;
-            memset_0(v41, 0, 0xC8uLL);
-            *(_QWORD *)v41 = DEVPKEY_DriverPackage_NeedsReconfig;
-            v43 = &v28;
-            v42 = 17;
-            v44 = 1;
+              goto LABEL_106;
+            *(_DWORD *)&v40.Length = 1572886;
+            v40.Buffer = L"ConfigFlags";
+            if ( !v37 || !PnpRegistryValueExists(v37, &v40) )
+              *(_DWORD *)(Pool2 + 184) |= 4u;
+            if ( (*(_DWORD *)(Pool2 + 184) & 0x24) != 0 )
+              goto LABEL_106;
+            memset_0(v47, 0, 0xC8uLL);
+            *(_QWORD *)v47 = DEVPKEY_DriverPackage_NeedsReconfig;
+            v49 = &v32;
+            v48 = 17;
+            v50 = 1;
             DriverPackageId = PiDevCfgQueryObjectProperties(
-                                v24,
-                                UnicodeString.Buffer,
+                                v27,
+                                (__int64)UnicodeString.Buffer,
                                 8,
-                                (_DWORD)Handle,
-                                (__int64)v41,
-                                1);
+                                (char *)Handle,
+                                (__int64)v47,
+                                1u);
             if ( DriverPackageId >= 0 )
             {
-              if ( v45 >= 0 )
+              if ( v51 >= 0 )
               {
-                v25 = v28;
+                v28 = v32;
               }
               else
               {
-                v25 = 0;
                 v28 = 0;
+                v32 = 0;
               }
-              if ( v25 == -1 )
-                *(_DWORD *)(v13 + 184) |= 4u;
-LABEL_89:
-              *(_QWORD *)(v13 + 16) = Handle;
-              *(_QWORD *)(v13 + 24) = v33;
-              *(_QWORD *)(v13 + 32) = v32;
+              if ( v28 == -1 )
+                *(_DWORD *)(Pool2 + 184) |= 4u;
+LABEL_106:
+              *(_QWORD *)(Pool2 + 16) = Handle;
+              *(_QWORD *)(Pool2 + 24) = v39;
+              *(_QWORD *)(Pool2 + 32) = v37;
               Handle = 0LL;
-              v33 = 0LL;
-              v32 = 0LL;
-              *v40 = v13;
-              goto LABEL_24;
+              v39 = 0LL;
+              v37 = 0LL;
+              *v46 = Pool2;
+              goto LABEL_26;
             }
           }
         }
@@ -373,21 +460,21 @@ LABEL_89:
         {
           DriverPackageId = -1073741670;
         }
-LABEL_23:
-        PiDevCfgFreeDriverNode(v13);
+LABEL_25:
+        PiDevCfgFreeDriverNode(Pool2);
       }
     }
   }
-LABEL_24:
+LABEL_26:
   if ( Handle )
     ZwClose(Handle);
-  if ( v33 )
-    ZwClose(v33);
-  if ( v38 )
-    ZwClose(v38);
-  if ( v32 )
-    ZwClose(v32);
+  if ( v39 )
+    ZwClose(v39);
+  if ( v44 )
+    ZwClose(v44);
+  if ( v37 )
+    ZwClose(v37);
   RtlFreeAnsiString(&UnicodeString);
-  RtlFreeAnsiString(&v39);
+  RtlFreeAnsiString(&v45);
   return (unsigned int)DriverPackageId;
 }

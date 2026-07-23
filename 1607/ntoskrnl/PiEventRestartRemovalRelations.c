@@ -1,12 +1,12 @@
 /*
- * XREFs of PiEventRestartRemovalRelations @ 0x140580604
+ * XREFs of PiEventRestartRemovalRelations @ 0x140580AB0
  * Callers:
- *     PnpProcessQueryRemoveAndEject @ 0x1404C41D8 (PnpProcessQueryRemoveAndEject.c)
+ *     PnpProcessQueryRemoveAndEject @ 0x140484DD0 (PnpProcessQueryRemoveAndEject.c)
  * Callees:
- *     IopQueryDeviceState @ 0x1403F1338 (IopQueryDeviceState.c)
- *     IopEnumerateRelations @ 0x1404C5848 (IopEnumerateRelations.c)
- *     PipClearDevNodeProblem @ 0x1404C5E0C (PipClearDevNodeProblem.c)
- *     PnpRestartDeviceNode @ 0x14062DC88 (PnpRestartDeviceNode.c)
+ *     IopQueryDeviceState @ 0x1403F01FC (IopQueryDeviceState.c)
+ *     PipClearDevNodeProblem @ 0x1404844A0 (PipClearDevNodeProblem.c)
+ *     IopEnumerateRelations @ 0x140485C7C (IopEnumerateRelations.c)
+ *     PnpRestartDeviceNode @ 0x14062DD3C (PnpRestartDeviceNode.c)
  */
 
 bool __fastcall PiEventRestartRemovalRelations(__int64 a1, __int64 a2, __int64 a3)

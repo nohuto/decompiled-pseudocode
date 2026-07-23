@@ -13,7 +13,7 @@
  *     RtlpHpLargeAllocGetMetadata @ 0x18006F598 (RtlpHpLargeAllocGetMetadata.c)
  */
 
-__int64 __fastcall RtlpHpLargeAllocSize(__int64 a1, char *a2, __int64 a3, __int64 a4)
+__int64 __fastcall RtlpHpLargeAllocSize(_RTL_SRWLOCK *a1, __int64 a2, char a3, __int64 a4)
 {
   int v6; // esi
   __int64 Metadata; // rax
@@ -22,13 +22,13 @@ __int64 __fastcall RtlpHpLargeAllocSize(__int64 a1, char *a2, __int64 a3, __int6
 
   v6 = a3 & 1;
   if ( (a3 & 1) == 0 )
-    RtlAcquireSRWLockShared((volatile signed __int64 *)(a1 + 72), a2, a3, a4);
+    RtlAcquireSRWLockShared(a1 + 9);
   Metadata = RtlpHpLargeAllocGetMetadata(a1);
   if ( Metadata )
     v9 = RtlpHpLargeAllocSizeInternal(v8, Metadata, a4);
   else
     v9 = -1LL;
   if ( !v6 )
-    RtlReleaseSRWLockShared((volatile signed __int64 *)(a1 + 72));
+    RtlReleaseSRWLockShared(a1 + 9);
   return v9;
 }

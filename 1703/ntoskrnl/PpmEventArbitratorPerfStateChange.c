@@ -14,14 +14,14 @@ BOOLEAN __fastcall PpmEventArbitratorPerfStateChange(__int64 a1, int a2, int a3)
   __int64 v3; // rbx
   REGHANDLE v5; // rdi
   BOOLEAN result; // al
-  struct _PROCESSOR_NUMBER ProcNumber; // [rsp+48h] [rbp-C0h] BYREF
+  _PROCESSOR_NUMBER ProcNumber; // [rsp+48h] [rbp-C0h] BYREF
   int v8; // [rsp+4Ch] [rbp-BCh] BYREF
   int v9; // [rsp+50h] [rbp-B8h] BYREF
   int v10; // [rsp+54h] [rbp-B4h] BYREF
   struct _EVENT_DATA_DESCRIPTOR UserData; // [rsp+58h] [rbp-B0h] BYREF
   int *v12; // [rsp+68h] [rbp-A0h]
   __int64 v13; // [rsp+70h] [rbp-98h]
-  struct _PROCESSOR_NUMBER *p_ProcNumber; // [rsp+78h] [rbp-90h]
+  _PROCESSOR_NUMBER *p_ProcNumber; // [rsp+78h] [rbp-90h]
   __int64 v15; // [rsp+80h] [rbp-88h]
   unsigned __int8 *p_Number; // [rsp+88h] [rbp-80h]
   __int64 v17; // [rsp+90h] [rbp-78h]

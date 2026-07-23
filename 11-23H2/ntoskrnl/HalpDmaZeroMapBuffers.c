@@ -1,14 +1,14 @@
 /*
- * XREFs of HalpDmaZeroMapBuffers @ 0x140511890
+ * XREFs of HalpDmaZeroMapBuffers @ 0x140511DE0
  * Callers:
- *     HalpMapTransferV2 @ 0x14045D3A4 (HalpMapTransferV2.c)
- *     HalpMapTransferV3 @ 0x14051513C (HalpMapTransferV3.c)
+ *     HalpMapTransferV2 @ 0x14045D7A4 (HalpMapTransferV2.c)
+ *     HalpMapTransferV3 @ 0x14051568C (HalpMapTransferV3.c)
  * Callees:
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     memset @ 0x140435A00 (memset.c)
- *     HalpDmaAcquireBufferMappings @ 0x14045BD64 (HalpDmaAcquireBufferMappings.c)
- *     HalpDmaReleaseBufferMappings @ 0x14045C7D8 (HalpDmaReleaseBufferMappings.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     HalpDmaAcquireBufferMappings @ 0x14045C164 (HalpDmaAcquireBufferMappings.c)
+ *     HalpDmaReleaseBufferMappings @ 0x14045CBD8 (HalpDmaReleaseBufferMappings.c)
  */
 
 void __fastcall HalpDmaZeroMapBuffers(__int64 a1, _QWORD *a2, unsigned int a3, unsigned int a4)
@@ -47,7 +47,7 @@ void __fastcall HalpDmaZeroMapBuffers(__int64 a1, _QWORD *a2, unsigned int a3, u
     {
       CurrentIrql = KeGetCurrentIrql();
       __writecr8(2uLL);
-      if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+      if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
       {
         SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
         LODWORD(v13) = 4;
@@ -86,10 +86,10 @@ void __fastcall HalpDmaZeroMapBuffers(__int64 a1, _QWORD *a2, unsigned int a3, u
     HalpDmaReleaseBufferMappings(v10, (__int64)a2, v9, (__int64)v21);
   if ( v8 )
   {
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v16 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v16 <= 0xFu && CurrentIrql <= 0xFu && v16 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v16 <= 0xFu && CurrentIrql <= 0xFu && v16 >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         v18 = CurrentPrcb->SchedulerAssist;
@@ -97,7 +97,7 @@ void __fastcall HalpDmaZeroMapBuffers(__int64 a1, _QWORD *a2, unsigned int a3, u
         v20 = (v19 & v18[5]) == 0;
         v18[5] &= v19;
         if ( v20 )
-          KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+          KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
       }
     }
     __writecr8(CurrentIrql);

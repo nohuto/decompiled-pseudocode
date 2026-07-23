@@ -3,7 +3,7 @@
  * Callers:
  *     CmpSortDriverList @ 0x1407AF920 (CmpSortDriverList.c)
  * Callees:
- *     RtlEqualUnicodeString @ 0x14040F720 (RtlEqualUnicodeString.c)
+ *     RtlEqualUnicodeString @ 0x14040E5E0 (RtlEqualUnicodeString.c)
  *     CmpSortByTag @ 0x1407AFC5C (CmpSortByTag.c)
  */
 

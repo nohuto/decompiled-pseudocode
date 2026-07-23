@@ -1,11 +1,11 @@
 /*
- * XREFs of NormBuffer__IsBlocked @ 0x1405EF89C
+ * XREFs of NormBuffer__IsBlocked @ 0x1405ECE7C
  * Callers:
- *     Normalization__NormalizeCharacter @ 0x1407864E4 (Normalization__NormalizeCharacter.c)
+ *     Normalization__NormalizeCharacter @ 0x140786414 (Normalization__NormalizeCharacter.c)
  * Callees:
- *     NormBuffer__GetCurrentOutputChar @ 0x1405EF6C0 (NormBuffer__GetCurrentOutputChar.c)
- *     Normalization__PageLookup @ 0x140786D20 (Normalization__PageLookup.c)
- *     Normalization__TableLookup @ 0x140786D38 (Normalization__TableLookup.c)
+ *     NormBuffer__GetCurrentOutputChar @ 0x1405ECCA0 (NormBuffer__GetCurrentOutputChar.c)
+ *     Normalization__PageLookup @ 0x140786C50 (Normalization__PageLookup.c)
+ *     Normalization__TableLookup @ 0x140786C68 (Normalization__TableLookup.c)
  */
 
 bool __fastcall NormBuffer__IsBlocked(_QWORD *a1)

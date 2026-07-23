@@ -1,19 +1,19 @@
 /*
- * XREFs of PpmIdleUpdateSystemLatencyLimit @ 0x14028FBF0
+ * XREFs of PpmIdleUpdateSystemLatencyLimit @ 0x14028F150
  * Callers:
- *     PoFxSendSystemLatencyUpdate @ 0x140394368 (PoFxSendSystemLatencyUpdate.c)
+ *     PoFxSendSystemLatencyUpdate @ 0x1403960E8 (PoFxSendSystemLatencyUpdate.c)
  * Callees:
- *     RtlSubtractAffinityEx @ 0x14025B408 (RtlSubtractAffinityEx.c)
- *     PpmIdleUpdateProcessorLatencyLimit @ 0x14028FA08 (PpmIdleUpdateProcessorLatencyLimit.c)
- *     KeGetPrcb @ 0x1402916D0 (KeGetPrcb.c)
- *     PpmReleaseLock @ 0x14037AFBC (PpmReleaseLock.c)
- *     PpmAcquireLock @ 0x140394F80 (PpmAcquireLock.c)
- *     HalRequestIpi @ 0x1403EC520 (HalRequestIpi.c)
- *     PopAcquireRwLockShared @ 0x140436298 (PopAcquireRwLockShared.c)
- *     PopReleaseRwLock @ 0x14043630C (PopReleaseRwLock.c)
- *     PpmEventAffinityMask @ 0x14060DE10 (PpmEventAffinityMask.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     PopReleaseRwLock @ 0x14021B1A8 (PopReleaseRwLock.c)
+ *     RtlSubtractAffinityEx @ 0x14025CBE8 (RtlSubtractAffinityEx.c)
+ *     PpmIdleUpdateProcessorLatencyLimit @ 0x14028EF68 (PpmIdleUpdateProcessorLatencyLimit.c)
+ *     KeGetPrcb @ 0x140290C30 (KeGetPrcb.c)
+ *     HalRequestIpi @ 0x1402F9560 (HalRequestIpi.c)
+ *     PpmReleaseLock @ 0x14037CD6C (PpmReleaseLock.c)
+ *     PpmAcquireLock @ 0x140396D00 (PpmAcquireLock.c)
+ *     PopAcquireRwLockShared @ 0x140424A28 (PopAcquireRwLockShared.c)
+ *     PpmEventAffinityMask @ 0x140610F10 (PpmEventAffinityMask.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall PpmIdleUpdateSystemLatencyLimit(int a1)
@@ -42,10 +42,10 @@ __int64 __fastcall PpmIdleUpdateSystemLatencyLimit(int a1)
   memset_0(&v17.8, 0, sizeof(v17.8));
   v15 = 2097153LL;
   memset_0(v16, 0, 0x100uLL);
-  PpmAcquireLock(&stru_140F10070.SchedulerAssistLastYieldBoostTime);
-  PopAcquireRwLockShared(&stru_140F10070.1136);
+  PpmAcquireLock(&PpmIdlePolicyLock.ThreadLock);
+  PopAcquireRwLockShared(&PpmIdlePolicyLock);
   PpmIdleUnparkedLatencyLimit = v2;
-  RtlSubtractAffinityEx((struct _KAFFINITY_EX *)&stru_140FC01F0.WaitRegister, &PpmPerfCoreParkingMask, (__int64)&v15);
+  RtlSubtractAffinityEx((struct _KAFFINITY_EX *)&stru_140FC11F0.WaitRegister, &PpmPerfCoreParkingMask, (__int64)&v15);
   v1 = v16[0];
   LOWORD(v2) = 0;
   while ( 1 )
@@ -54,8 +54,7 @@ __int64 __fastcall PpmIdleUpdateSystemLatencyLimit(int a1)
     {
       _BitScanForward64(&v3, v1);
       v1 &= ~(1LL << v3);
-      Prcb = (struct _KPRCB *)KeGetPrcb(*((unsigned int *)&KiSupervisorXStateFeaturesLock.WaitBlock[2].Thread->Header.Lock
-                                        + 64 * (unsigned __int16)v2
+      Prcb = (struct _KPRCB *)KeGetPrcb(*((unsigned int *)&KiSupervisorXStateFeaturesLock.SchedulerApc.ApcListEntry.Flink[16 * (unsigned __int16)v2].Flink
                                         + (unsigned int)(unsigned __int8)v3));
       PpmIdleUpdateProcessorLatencyLimit(Prcb, &v17);
     }
@@ -72,8 +71,7 @@ __int64 __fastcall PpmIdleUpdateSystemLatencyLimit(int a1)
     {
       _BitScanForward64(&v7, v5);
       v5 &= ~(1LL << v7);
-      v8 = (struct _KPRCB *)KeGetPrcb(*((unsigned int *)&KiSupervisorXStateFeaturesLock.WaitBlock[2].Thread->Header.Lock
-                                      + 64 * (unsigned __int16)v6
+      v8 = (struct _KPRCB *)KeGetPrcb(*((unsigned int *)&KiSupervisorXStateFeaturesLock.SchedulerApc.ApcListEntry.Flink[16 * (unsigned __int16)v6].Flink
                                       + (unsigned int)(unsigned __int8)v7));
       PpmIdleUpdateProcessorLatencyLimit(v8, &v17);
     }
@@ -91,8 +89,7 @@ __int64 __fastcall PpmIdleUpdateSystemLatencyLimit(int a1)
     {
       _BitScanForward64(&v11, v9);
       v9 &= ~(1LL << v11);
-      v12 = (struct _KPRCB *)KeGetPrcb(*((unsigned int *)&KiSupervisorXStateFeaturesLock.WaitBlock[2].Thread->Header.Lock
-                                       + 64 * (unsigned __int16)v10
+      v12 = (struct _KPRCB *)KeGetPrcb(*((unsigned int *)&KiSupervisorXStateFeaturesLock.SchedulerApc.ApcListEntry.Flink[16 * (unsigned __int16)v10].Flink
                                        + (unsigned int)(unsigned __int8)v11));
       PpmIdleUpdateProcessorLatencyLimit(v12, &v17);
     }
@@ -110,6 +107,6 @@ __int64 __fastcall PpmIdleUpdateSystemLatencyLimit(int a1)
       break;
     }
   }
-  PopReleaseRwLock((struct _KTHREAD *)&stru_140F10070.1136);
-  return PpmReleaseLock(&stru_140F10070.SchedulerAssistLastYieldBoostTime);
+  PopReleaseRwLock(&PpmIdlePolicyLock);
+  return PpmReleaseLock(&PpmIdlePolicyLock.ThreadLock);
 }

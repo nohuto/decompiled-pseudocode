@@ -17,65 +17,76 @@
  *     RtlpHeapTrkGenerateHashRandoms @ 0x1800E16EC (RtlpHeapTrkGenerateHashRandoms.c)
  */
 
-__int64 __fastcall RtlHeapTrkInitialize(void *a1)
+NTSTATUS __fastcall RtlHeapTrkInitialize(void *a1)
 {
-  __int64 result; // rax
-  __int64 v3; // rdx
-  __int64 v4; // r8
-  __int64 v5; // r9
-  __int64 Heap; // rax
-  __int64 v7; // rax
-  _QWORD *v8; // rdx
-  __int64 v9; // r10
-  __int64 v10; // r9
-  __int64 v11; // r8
-  char *v12; // rcx
-  _QWORD *v13; // rax
-  _QWORD v14[11]; // [rsp+58h] [rbp-1h] BYREF
-  int v15; // [rsp+C0h] [rbp+67h] BYREF
-  __int64 v16; // [rsp+C8h] [rbp+6Fh]
-  __int64 v17; // [rsp+D0h] [rbp+77h] BYREF
-  __int64 v18; // [rsp+D8h] [rbp+7Fh]
+  NTSTATUS result; // eax
+  PVOID Heap; // rax
+  char *v4; // rax
+  _QWORD *v5; // rdx
+  __int64 v6; // r10
+  __int64 v7; // r9
+  char *v8; // r8
+  char *v9; // rcx
+  _QWORD *v10; // rax
+  LARGE_INTEGER PerformanceCounter; // [rsp+50h] [rbp-9h] BYREF
+  _QWORD v12[11]; // [rsp+58h] [rbp-1h] BYREF
+  int HeapInformation; // [rsp+C0h] [rbp+67h] BYREF
+  PVOID BaseAddress; // [rsp+C8h] [rbp+6Fh] BYREF
+  LARGE_INTEGER SectionOffset; // [rsp+D0h] [rbp+77h] BYREF
+  ULONG_PTR ViewSize; // [rsp+D8h] [rbp+7Fh] BYREF
 
-  v18 = 0x10000LL;
-  v16 = 0LL;
-  v17 = 0LL;
-  if ( Handle )
-    return 3221225473LL;
-  if ( !a1 || (int)ZwMapViewOfSection() < 0 )
-    return 3221225485LL;
-  if ( *(_QWORD *)v16 < 0x400uLL )
-    return 3221225507LL;
-  if ( *(_DWORD *)(v16 + 52) > 0x40u
-    || *(_DWORD *)(v16 + 56) > 2u
-    || !*(_QWORD *)(v16 + 8)
-    || *(_QWORD *)(v16 + 8) == -1LL
-    || !*(_QWORD *)(v16 + 16)
-    || *(_QWORD *)(v16 + 16) == -1LL
-    || !*(_QWORD *)(v16 + 24)
-    || *(_QWORD *)(v16 + 24) == -1LL )
+  ViewSize = 0x10000LL;
+  BaseAddress = 0LL;
+  SectionOffset.QuadPart = 0LL;
+  if ( SectionHandle )
+    return -1073741823;
+  if ( !a1
+    || ZwMapViewOfSection(
+         a1,
+         (HANDLE)0xFFFFFFFFFFFFFFFFLL,
+         &BaseAddress,
+         0LL,
+         0LL,
+         &SectionOffset,
+         &ViewSize,
+         ViewShare,
+         0,
+         4u) < 0 )
   {
-    return 3221225485LL;
+    return -1073741811;
   }
-  result = NtQueryPerformanceCounter();
-  if ( (int)result >= 0 )
+  if ( *(_QWORD *)BaseAddress < 0x400uLL )
+    return -1073741789;
+  if ( *((_DWORD *)BaseAddress + 13) > 0x40u
+    || *((_DWORD *)BaseAddress + 14) > 2u
+    || !*((_QWORD *)BaseAddress + 1)
+    || *((_QWORD *)BaseAddress + 1) == -1LL
+    || !*((_QWORD *)BaseAddress + 2)
+    || *((_QWORD *)BaseAddress + 2) == -1LL
+    || !*((_QWORD *)BaseAddress + 3)
+    || *((_QWORD *)BaseAddress + 3) == -1LL )
   {
-    if ( !qword_1801476D8 )
-      return 3221225473LL;
-    dword_1801485EC = *(_DWORD *)(v16 + 56);
-    RtlpHeapTrkGenerateHashRandoms((unsigned int)dword_1801485EC, v3, v4, v5, 0LL, &v17);
+    return -1073741811;
+  }
+  result = NtQueryPerformanceCounter(&PerformanceCounter, &PerformanceFrequency);
+  if ( result >= 0 )
+  {
+    if ( !PerformanceFrequency.QuadPart )
+      return -1073741823;
+    dword_1801485EC = *((_DWORD *)BaseAddress + 14);
+    RtlpHeapTrkGenerateHashRandoms();
     Heap = RtlCreateHeap(
-             *(_DWORD *)(v16 + 52) == 0 ? 2 : 0,
+             *((_DWORD *)BaseAddress + 13) == 0 ? 2 : 0,
              0LL,
-             (unsigned int)(*(_DWORD *)(v16 + 52) << 20),
+             (unsigned int)(*((_DWORD *)BaseAddress + 13) << 20),
              0LL,
              0LL,
              0LL);
-    qword_1801486F8 = Heap;
+    HeapHandle = Heap;
     if ( !Heap )
-      return 3221225473LL;
-    v15 = 2;
-    RtlSetHeapInformation(Heap, 0, &v15, 4uLL);
+      return -1073741823;
+    HeapInformation = 2;
+    RtlSetHeapInformation(Heap, HeapCompatibilityInformation, &HeapInformation, 4uLL);
     dword_1801486E0 = NtCurrentPeb()->NumberOfProcessors;
     if ( !(unsigned __int8)RtlpHeapTrkAllocCacheAligned(
                              &qword_1801476D0,
@@ -87,40 +98,40 @@ __int64 __fastcall RtlHeapTrkInitialize(void *a1)
       goto LABEL_27;
     if ( !(unsigned __int8)RtlpHeapTrkAllocCacheAligned(&qword_1801486A0, &qword_1801486B0, 8LL, 16LL) )
       goto LABEL_27;
-    qword_1801485F0 = RtlAllocateHeap(qword_1801486F8, 0, 126704LL);
+    qword_1801485F0 = (__int64)RtlAllocateHeap(HeapHandle, 0, 0x1EEF0uLL);
     if ( !qword_1801485F0 )
       goto LABEL_27;
-    v7 = RtlAllocateHeap(qword_1801486F8, 0, 126704LL);
-    qword_1801485E0 = v7;
-    if ( !v7 )
+    v4 = (char *)RtlAllocateHeap(HeapHandle, 0, 0x1EEF0uLL);
+    qword_1801485E0 = (__int64)v4;
+    if ( !v4 )
       goto LABEL_27;
-    v8 = (_QWORD *)qword_1801485F0;
-    v9 = 7919LL;
-    Handle = a1;
-    v10 = qword_1801485F0 - v7;
+    v5 = (_QWORD *)qword_1801485F0;
+    v6 = 7919LL;
+    SectionHandle = a1;
+    v7 = qword_1801485F0 - (_QWORD)v4;
     dword_1801485E8 = 0;
-    v11 = v7 - qword_1801485F0;
+    v8 = &v4[-qword_1801485F0];
     do
     {
-      v12 = (char *)v8 + v11;
-      *v8 = v8;
-      *(_QWORD *)&v12[v10 + 8] = v8;
-      v13 = (_QWORD *)((char *)v8 + v11);
-      v8 += 2;
-      *((_QWORD *)v12 + 1) = v13;
-      *v13 = v13;
-      --v9;
+      v9 = (char *)v5 + (_QWORD)v8;
+      *v5 = v5;
+      *(_QWORD *)&v9[v7 + 8] = v5;
+      v10 = (_QWORD *)((char *)v5 + (_QWORD)v8);
+      v5 += 2;
+      *((_QWORD *)v9 + 1) = v10;
+      *v10 = v10;
+      --v6;
     }
-    while ( v9 );
-    memset(v14, 0, 0x30uLL);
-    LOWORD(v14[1]) = 0;
-    v14[0] = RtlpHeapTrkInterceptor;
-    v14[5] = RtlpHeapTrkLeakCallback;
-    if ( (int)RtlSetHeapDebuggingInformation(0LL, (__int64)v14) < 0 )
+    while ( v6 );
+    memset(v12, 0, 0x30uLL);
+    LOWORD(v12[1]) = 0;
+    v12[0] = RtlpHeapTrkInterceptor;
+    v12[5] = RtlpHeapTrkLeakCallback;
+    if ( (int)RtlSetHeapDebuggingInformation(0LL, (__int64)v12) < 0 )
     {
 LABEL_27:
-      RtlDestroyHeap(qword_1801486F8);
-      qword_1801486F8 = 0LL;
+      RtlDestroyHeap(HeapHandle);
+      HeapHandle = 0LL;
       qword_180148690 = 0LL;
       qword_1801485F0 = 0LL;
       qword_180148698 = 0LL;
@@ -128,17 +139,17 @@ LABEL_27:
       qword_1801485E0 = 0LL;
       qword_1801486A0 = 0LL;
       qword_1801486B0 = 0LL;
-      if ( v16 )
-        NtUnmapViewOfSection();
-      if ( Handle )
+      if ( BaseAddress )
+        NtUnmapViewOfSection((HANDLE)0xFFFFFFFFFFFFFFFFLL, BaseAddress);
+      if ( SectionHandle )
       {
-        NtClose(Handle);
-        Handle = 0LL;
+        NtClose(SectionHandle);
+        SectionHandle = 0LL;
       }
-      return 3221225473LL;
+      return -1073741823;
     }
-    NtUnmapViewOfSection();
-    return 0LL;
+    NtUnmapViewOfSection((HANDLE)0xFFFFFFFFFFFFFFFFLL, BaseAddress);
+    return 0;
   }
   return result;
 }

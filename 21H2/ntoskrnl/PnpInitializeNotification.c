@@ -1,7 +1,7 @@
 /*
- * XREFs of PnpInitializeNotification @ 0x140A53618
+ * XREFs of PnpInitializeNotification @ 0x140A54618
  * Callers:
- *     IopInitializePlugPlayServices @ 0x140A52280 (IopInitializePlugPlayServices.c)
+ *     IopInitializePlugPlayServices @ 0x140A53280 (IopInitializePlugPlayServices.c)
  * Callees:
  *     <none>
  */

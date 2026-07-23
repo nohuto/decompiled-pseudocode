@@ -1,12 +1,12 @@
 /*
- * XREFs of MiReadyLargeAwePageForFree @ 0x14064BC58
+ * XREFs of MiReadyLargeAwePageForFree @ 0x14064C1A8
  * Callers:
- *     MiFreeAwePagesFromMdl @ 0x140649D10 (MiFreeAwePagesFromMdl.c)
- *     MiFreePhysicalPageChain @ 0x14064A170 (MiFreePhysicalPageChain.c)
+ *     MiFreeAwePagesFromMdl @ 0x14064A260 (MiFreeAwePagesFromMdl.c)
+ *     MiFreePhysicalPageChain @ 0x14064A6C0 (MiFreePhysicalPageChain.c)
  * Callees:
- *     MiLockPageInline @ 0x1402EF680 (MiLockPageInline.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     MiClearAweLargePageMetadata @ 0x1406495E8 (MiClearAweLargePageMetadata.c)
+ *     MiLockPageInline @ 0x1402EF910 (MiLockPageInline.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     MiClearAweLargePageMetadata @ 0x140649B38 (MiClearAweLargePageMetadata.c)
  */
 
 __int64 __fastcall MiReadyLargeAwePageForFree(__int64 a1)
@@ -25,10 +25,10 @@ __int64 __fastcall MiReadyLargeAwePageForFree(__int64 a1)
   *(_QWORD *)(a1 + 16) = 0LL;
   *(_QWORD *)(a1 + 24) = v3 ^ ((v3 + 1) ^ v3) & 0x3FFFFFFFFFFFFFFFLL;
   _InterlockedAnd64((volatile signed __int64 *)(a1 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     result = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
       && (unsigned __int8)result <= 0xFu
       && (unsigned __int8)v2 <= 0xFu
       && (unsigned __int8)result >= 2u )

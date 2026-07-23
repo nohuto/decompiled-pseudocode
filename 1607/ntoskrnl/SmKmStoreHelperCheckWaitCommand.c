@@ -1,8 +1,8 @@
 /*
- * XREFs of SmKmStoreHelperCheckWaitCommand @ 0x140003C80
+ * XREFs of SmKmStoreHelperCheckWaitCommand @ 0x140003DF4
  * Callers:
- *     SmKmStoreHelperSendCommand @ 0x140003C0C (SmKmStoreHelperSendCommand.c)
- *     ?SmStCheckLockInProgressRegionComplete@?$SMKM_STORE@USM_TRAITS@@@@SAKPEAU1@PEAT_SM_VIRTUAL_REGION@@K@Z @ 0x14012015C (-SmStCheckLockInProgressRegionComplete@-$SMKM_STORE@USM_TRAITS@@@@SAKPEAU1@PEAT_SM_VIRTUAL_REGIO.c)
+ *     SmKmStoreHelperSendCommand @ 0x140003D80 (SmKmStoreHelperSendCommand.c)
+ *     ?SmStCheckLockInProgressRegionComplete@?$SMKM_STORE@USM_TRAITS@@@@SAKPEAU1@PEAT_SM_VIRTUAL_REGION@@K@Z @ 0x1401206CC (-SmStCheckLockInProgressRegionComplete@-$SMKM_STORE@USM_TRAITS@@@@SAKPEAU1@PEAT_SM_VIRTUAL_REGIO.c)
  * Callees:
  *     <none>
  */

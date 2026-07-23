@@ -1,113 +1,113 @@
 /*
- * XREFs of IoInitSystemPreDrivers @ 0x140CBACA0
+ * XREFs of IoInitSystemPreDrivers @ 0x140CC0D18
  * Callers:
- *     IoInitSystem @ 0x140CBAC00 (IoInitSystem.c)
+ *     IoInitSystem @ 0x140CC0C78 (IoInitSystem.c)
  * Callees:
- *     KeQueryActiveProcessorCountEx @ 0x140211EA0 (KeQueryActiveProcessorCountEx.c)
- *     MmDeterminePoolType @ 0x1402609A0 (MmDeterminePoolType.c)
- *     ExpAddResourceToSystemResourceList @ 0x140260A5C (ExpAddResourceToSystemResourceList.c)
- *     RtlStdLogStackTrace @ 0x140260BE8 (RtlStdLogStackTrace.c)
- *     RtlpStdGetRecordedStackTraceIndex @ 0x140260C74 (RtlpStdGetRecordedStackTraceIndex.c)
- *     RtlStdReleaseStackTrace @ 0x140260D48 (RtlStdReleaseStackTrace.c)
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     KeReleaseSpinLock @ 0x1402BE860 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14032F300 (KeAcquireSpinLockRaiseToDpc.c)
- *     ExQueueWorkItem @ 0x140381C70 (ExQueueWorkItem.c)
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     _tlgKeywordOn @ 0x14044F850 (_tlgKeywordOn.c)
- *     RtlGetNtProductType @ 0x140450F70 (RtlGetNtProductType.c)
- *     MiLogBadMapper @ 0x140459AC0 (MiLogBadMapper.c)
- *     ExInitializeNPagedLookasideListInternal @ 0x140498C60 (ExInitializeNPagedLookasideListInternal.c)
- *     KeInitializeQueue @ 0x1404CBEC0 (KeInitializeQueue.c)
- *     HeadlessKernelAddLogEntry @ 0x1404EDA18 (HeadlessKernelAddLogEntry.c)
- *     Feature_IoMgr_FileObject_Process_FastRef__private_IsEnabledDeviceUsageNoInline @ 0x1404F4824 (Feature_IoMgr_FileObject_Process_FastRef__private_IsEnabledDeviceUsageNoInline.c)
- *     PerfLogExecutiveResourceInitialize @ 0x1405263E4 (PerfLogExecutiveResourceInitialize.c)
- *     ExpTraceLogBadResourceAddress @ 0x14052D790 (ExpTraceLogBadResourceAddress.c)
- *     KeBugCheck @ 0x140533990 (KeBugCheck.c)
- *     McGenEventRegister_EtwRegister @ 0x1405B3298 (McGenEventRegister_EtwRegister.c)
- *     HvlPhase2Initialize @ 0x1405B8B08 (HvlPhase2Initialize.c)
- *     VslpIumPhase4Initialize @ 0x1405C45E4 (VslpIumPhase4Initialize.c)
- *     IopInitDumpCapsuleSupport @ 0x1405C99A8 (IopInitDumpCapsuleSupport.c)
- *     IopRemoveDumpCapsuleSupport @ 0x1405C9C6C (IopRemoveDumpCapsuleSupport.c)
- *     Feature_IoMgr_Force_TransferCount_Update_Thread__private_IsEnabledDeviceUsageNoInline @ 0x1405CA53C (Feature_IoMgr_Force_TransferCount_Update_Thread__private_IsEnabledDeviceUsageNoInline.c)
- *     McTemplateK0_EtwWriteTransfer @ 0x1405CA5D0 (McTemplateK0_EtwWriteTransfer.c)
- *     McTemplateK0q_EtwWriteTransfer @ 0x1405CA614 (McTemplateK0q_EtwWriteTransfer.c)
- *     IoInitializeLiveDump @ 0x1405CC0D4 (IoInitializeLiveDump.c)
- *     IopLiveDumpTraceDumpDisabledOnBoot @ 0x1405D20FC (IopLiveDumpTraceDumpDisabledOnBoot.c)
- *     IopInitializeSystemVariableService @ 0x1405D3A98 (IopInitializeSystemVariableService.c)
- *     SecureDump_PrepareForInit @ 0x1405D6CBC (SecureDump_PrepareForInit.c)
- *     SecureDump_ProvisionCrashDumpKey @ 0x1405D6F10 (SecureDump_ProvisionCrashDumpKey.c)
- *     KeOptimizeSpecCtrlSettings @ 0x1405F1948 (KeOptimizeSpecCtrlSettings.c)
- *     WheaSelLogCheckPoint @ 0x1406D43A4 (WheaSelLogCheckPoint.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     ZwOpenKey @ 0x140723630 (ZwOpenKey.c)
- *     ZwOpenFile @ 0x140723A50 (ZwOpenFile.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     TlgRegisterAggregateProvider @ 0x14077B9B0 (TlgRegisterAggregateProvider.c)
- *     FsRtlInitExtraCreateParameterLookasideList @ 0x14078D880 (FsRtlInitExtraCreateParameterLookasideList.c)
- *     IopDumpTraceForceDumpDisabled @ 0x140793468 (IopDumpTraceForceDumpDisabled.c)
- *     IopInitializeBugCheckDriverData @ 0x140793560 (IopInitializeBugCheckDriverData.c)
- *     IopInitializeDumpPolicySettings @ 0x140793844 (IopInitializeDumpPolicySettings.c)
- *     IopInitializeTriageDumpData @ 0x140793B40 (IopInitializeTriageDumpData.c)
- *     IopTraceCrashDumpDisabledOnBoot @ 0x140793C1C (IopTraceCrashDumpDisabledOnBoot.c)
- *     IoInitializeProcessor @ 0x140793D48 (IoInitializeProcessor.c)
- *     IopQueryProcessorInitValues @ 0x140794008 (IopQueryProcessorInitValues.c)
- *     AstInitializeBloomFilter @ 0x14079B44C (AstInitializeBloomFilter.c)
- *     IopCreatePassiveInterruptRealtimeThreads @ 0x1407A3A98 (IopCreatePassiveInterruptRealtimeThreads.c)
- *     IopQueryPassiveInterruptRegistryOptions @ 0x1407A3BE4 (IopQueryPassiveInterruptRegistryOptions.c)
- *     PpPagePathAssign @ 0x1407A3F60 (PpPagePathAssign.c)
- *     PsLocateSystemDlls @ 0x1407EE038 (PsLocateSystemDlls.c)
- *     SeAuditBootConfiguration @ 0x14081232C (SeAuditBootConfiguration.c)
- *     EtwInitialize @ 0x140824718 (EtwInitialize.c)
- *     EtwTraceLeapSecondDataParseFailure @ 0x1408278B0 (EtwTraceLeapSecondDataParseFailure.c)
- *     EtwTraceLeapSecondDataUpdate @ 0x140827988 (EtwTraceLeapSecondDataUpdate.c)
- *     ExRegisterHost @ 0x140840A68 (ExRegisterHost.c)
- *     CmIsStateSeparationDevModeEnabled @ 0x14084E488 (CmIsStateSeparationDevModeEnabled.c)
- *     NtCreateEvent @ 0x1408EF8C0 (NtCreateEvent.c)
- *     NtQueryValueKey @ 0x1408F2A10 (NtQueryValueKey.c)
- *     ObReferenceObjectByHandle @ 0x1408F9550 (ObReferenceObjectByHandle.c)
- *     EtwRegister @ 0x14093BDE0 (EtwRegister.c)
- *     TraceLoggingRegisterEx_EtwRegister_EtwSetInformation @ 0x14093BE80 (TraceLoggingRegisterEx_EtwRegister_EtwSetInformation.c)
- *     ObCloseHandle @ 0x140A00740 (ObCloseHandle.c)
- *     RtlIsStateSeparationEnabled @ 0x140AF47C0 (RtlIsStateSeparationEnabled.c)
- *     EtwWriteStartScenario @ 0x140B456A0 (EtwWriteStartScenario.c)
- *     TlgRegisterAggregateProviderEx @ 0x140B6E47C (TlgRegisterAggregateProviderEx.c)
- *     PfSnBeginBootPhase @ 0x140BF8FAC (PfSnBeginBootPhase.c)
- *     BapdRecordFirmwareBootStats @ 0x140C07A44 (BapdRecordFirmwareBootStats.c)
- *     ExInitializeSystemLookasideList @ 0x140C0D4C0 (ExInitializeSystemLookasideList.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     SmInitSystem @ 0x140C7F2E8 (SmInitSystem.c)
- *     BootApplicationPersistentDataProcess @ 0x140C7FBB0 (BootApplicationPersistentDataProcess.c)
- *     VslRegisterIumPowerCallbacks @ 0x140CB99FC (VslRegisterIumPowerCallbacks.c)
- *     IopCreateRootDirectories @ 0x140CBCD38 (IopCreateRootDirectories.c)
- *     IopInitCrashDumpDuringSysInit @ 0x140CBD3BC (IopInitCrashDumpDuringSysInit.c)
- *     IopInitializeReserveIrps @ 0x140CBD6C0 (IopInitializeReserveIrps.c)
- *     IopReassignSystemRoot @ 0x140CBDDA4 (IopReassignSystemRoot.c)
- *     IopStoreArcInformation @ 0x140CBDF98 (IopStoreArcInformation.c)
- *     IopInitializeSessionNotifications @ 0x140CBEDFC (IopInitializeSessionNotifications.c)
- *     IopProtectSystemPartition @ 0x140CBF198 (IopProtectSystemPartition.c)
- *     IopInitializeBootDrivers @ 0x140CBF2A4 (IopInitializeBootDrivers.c)
- *     IopInitializePlugPlayServices @ 0x140CBFDA0 (IopInitializePlugPlayServices.c)
- *     PnpMarkHalDeviceNode @ 0x140CC3950 (PnpMarkHalDeviceNode.c)
- *     PpLastGoodDoBootProcessing @ 0x140CC4CEC (PpLastGoodDoBootProcessing.c)
- *     KeInitSystem @ 0x140CC82B8 (KeInitSystem.c)
- *     KseInitialize @ 0x140CCCEE0 (KseInitialize.c)
- *     PoInitDriverServices @ 0x140CCE614 (PoInitDriverServices.c)
- *     PoInitSystem @ 0x140CCE870 (PoInitSystem.c)
- *     PsInitializeSyscallProviders @ 0x140CD7910 (PsInitializeSyscallProviders.c)
- *     WMIInitialize @ 0x140CDFE78 (WMIInitialize.c)
- *     KitpInitAitSampleRate @ 0x140CE6D90 (KitpInitAitSampleRate.c)
- *     WheaInitialize @ 0x140CE7AB8 (WheaInitialize.c)
- *     MmInitializeImageViewExtension @ 0x140CFA084 (MmInitializeImageViewExtension.c)
- *     MmRegisterHotPatches @ 0x140CFBBA4 (MmRegisterHotPatches.c)
+ *     KeQueryActiveProcessorCountEx @ 0x140211F80 (KeQueryActiveProcessorCountEx.c)
+ *     MmDeterminePoolType @ 0x14021A220 (MmDeterminePoolType.c)
+ *     ExpAddResourceToSystemResourceList @ 0x14021B4EC (ExpAddResourceToSystemResourceList.c)
+ *     RtlStdLogStackTrace @ 0x140260150 (RtlStdLogStackTrace.c)
+ *     RtlpStdGetRecordedStackTraceIndex @ 0x1402601DC (RtlpStdGetRecordedStackTraceIndex.c)
+ *     RtlStdReleaseStackTrace @ 0x1402602B0 (RtlStdReleaseStackTrace.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     KeReleaseSpinLock @ 0x140309520 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140331330 (KeAcquireSpinLockRaiseToDpc.c)
+ *     ExQueueWorkItem @ 0x140383A20 (ExQueueWorkItem.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     _tlgKeywordOn @ 0x140447980 (_tlgKeywordOn.c)
+ *     RtlGetNtProductType @ 0x1404490A0 (RtlGetNtProductType.c)
+ *     MiLogBadMapper @ 0x140451340 (MiLogBadMapper.c)
+ *     ExInitializeNPagedLookasideListInternal @ 0x1404927B0 (ExInitializeNPagedLookasideListInternal.c)
+ *     KeInitializeQueue @ 0x1404C58F0 (KeInitializeQueue.c)
+ *     HeadlessKernelAddLogEntry @ 0x1404E6FF8 (HeadlessKernelAddLogEntry.c)
+ *     Feature_IoMgr_FileObject_Process_FastRef__private_IsEnabledDeviceUsageNoInline @ 0x1404EDE04 (Feature_IoMgr_FileObject_Process_FastRef__private_IsEnabledDeviceUsageNoInline.c)
+ *     PerfLogExecutiveResourceInitialize @ 0x140528A54 (PerfLogExecutiveResourceInitialize.c)
+ *     ExpTraceLogBadResourceAddress @ 0x14052FCB0 (ExpTraceLogBadResourceAddress.c)
+ *     KeBugCheck @ 0x140535E10 (KeBugCheck.c)
+ *     McGenEventRegister_EtwRegister @ 0x1405B5AA8 (McGenEventRegister_EtwRegister.c)
+ *     HvlPhase2Initialize @ 0x1405BB378 (HvlPhase2Initialize.c)
+ *     VslpIumPhase4Initialize @ 0x1405C6E54 (VslpIumPhase4Initialize.c)
+ *     IopInitDumpCapsuleSupport @ 0x1405CC278 (IopInitDumpCapsuleSupport.c)
+ *     IopRemoveDumpCapsuleSupport @ 0x1405CC53C (IopRemoveDumpCapsuleSupport.c)
+ *     Feature_IoMgr_Force_TransferCount_Update_Thread__private_IsEnabledDeviceUsageNoInline @ 0x1405CCE0C (Feature_IoMgr_Force_TransferCount_Update_Thread__private_IsEnabledDeviceUsageNoInline.c)
+ *     McTemplateK0_EtwWriteTransfer @ 0x1405CCEA0 (McTemplateK0_EtwWriteTransfer.c)
+ *     McTemplateK0q_EtwWriteTransfer @ 0x1405CCEE4 (McTemplateK0q_EtwWriteTransfer.c)
+ *     IoInitializeLiveDump @ 0x1405CE8E8 (IoInitializeLiveDump.c)
+ *     IopLiveDumpTraceDumpDisabledOnBoot @ 0x1405D48EC (IopLiveDumpTraceDumpDisabledOnBoot.c)
+ *     IopInitializeSystemVariableService @ 0x1405D6288 (IopInitializeSystemVariableService.c)
+ *     SecureDump_PrepareForInit @ 0x1405D94AC (SecureDump_PrepareForInit.c)
+ *     SecureDump_ProvisionCrashDumpKey @ 0x1405D9700 (SecureDump_ProvisionCrashDumpKey.c)
+ *     KeOptimizeSpecCtrlSettings @ 0x1405F4308 (KeOptimizeSpecCtrlSettings.c)
+ *     WheaSelLogCheckPoint @ 0x1406D8424 (WheaSelLogCheckPoint.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     ZwOpenKey @ 0x140728200 (ZwOpenKey.c)
+ *     ZwOpenFile @ 0x140728620 (ZwOpenFile.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     TlgRegisterAggregateProvider @ 0x14077E5F0 (TlgRegisterAggregateProvider.c)
+ *     FsRtlInitExtraCreateParameterLookasideList @ 0x1407903B0 (FsRtlInitExtraCreateParameterLookasideList.c)
+ *     IopDumpTraceForceDumpDisabled @ 0x140795F98 (IopDumpTraceForceDumpDisabled.c)
+ *     IopInitializeBugCheckDriverData @ 0x140796090 (IopInitializeBugCheckDriverData.c)
+ *     IopInitializeDumpPolicySettings @ 0x140796374 (IopInitializeDumpPolicySettings.c)
+ *     IopInitializeTriageDumpData @ 0x140796670 (IopInitializeTriageDumpData.c)
+ *     IopTraceCrashDumpDisabledOnBoot @ 0x14079674C (IopTraceCrashDumpDisabledOnBoot.c)
+ *     IoInitializeProcessor @ 0x140796878 (IoInitializeProcessor.c)
+ *     IopQueryProcessorInitValues @ 0x140796B38 (IopQueryProcessorInitValues.c)
+ *     AstInitializeBloomFilter @ 0x14079DF8C (AstInitializeBloomFilter.c)
+ *     IopCreatePassiveInterruptRealtimeThreads @ 0x1407A65D8 (IopCreatePassiveInterruptRealtimeThreads.c)
+ *     IopQueryPassiveInterruptRegistryOptions @ 0x1407A6724 (IopQueryPassiveInterruptRegistryOptions.c)
+ *     PpPagePathAssign @ 0x1407A6AA0 (PpPagePathAssign.c)
+ *     PsLocateSystemDlls @ 0x1407F3B98 (PsLocateSystemDlls.c)
+ *     SeAuditBootConfiguration @ 0x14081818C (SeAuditBootConfiguration.c)
+ *     EtwInitialize @ 0x14082A958 (EtwInitialize.c)
+ *     EtwTraceLeapSecondDataParseFailure @ 0x14082DAF0 (EtwTraceLeapSecondDataParseFailure.c)
+ *     EtwTraceLeapSecondDataUpdate @ 0x14082DBC8 (EtwTraceLeapSecondDataUpdate.c)
+ *     ExRegisterHost @ 0x140846CA8 (ExRegisterHost.c)
+ *     CmIsStateSeparationDevModeEnabled @ 0x140854798 (CmIsStateSeparationDevModeEnabled.c)
+ *     NtCreateEvent @ 0x1408F5E80 (NtCreateEvent.c)
+ *     NtQueryValueKey @ 0x1408F8FD0 (NtQueryValueKey.c)
+ *     EtwRegister @ 0x140917980 (EtwRegister.c)
+ *     TraceLoggingRegisterEx_EtwRegister_EtwSetInformation @ 0x140917A20 (TraceLoggingRegisterEx_EtwRegister_EtwSetInformation.c)
+ *     ObCloseHandle @ 0x14091D2C0 (ObCloseHandle.c)
+ *     ObReferenceObjectByHandle @ 0x1409294E0 (ObReferenceObjectByHandle.c)
+ *     RtlIsStateSeparationEnabled @ 0x140AF6E60 (RtlIsStateSeparationEnabled.c)
+ *     EtwWriteStartScenario @ 0x140B476D0 (EtwWriteStartScenario.c)
+ *     TlgRegisterAggregateProviderEx @ 0x140B7192C (TlgRegisterAggregateProviderEx.c)
+ *     PfSnBeginBootPhase @ 0x140BFEFAC (PfSnBeginBootPhase.c)
+ *     BapdRecordFirmwareBootStats @ 0x140C0DC54 (BapdRecordFirmwareBootStats.c)
+ *     ExInitializeSystemLookasideList @ 0x140C136D0 (ExInitializeSystemLookasideList.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     SmInitSystem @ 0x140C852E8 (SmInitSystem.c)
+ *     BootApplicationPersistentDataProcess @ 0x140C85BB0 (BootApplicationPersistentDataProcess.c)
+ *     VslRegisterIumPowerCallbacks @ 0x140CBFA3C (VslRegisterIumPowerCallbacks.c)
+ *     IopCreateRootDirectories @ 0x140CC2DB0 (IopCreateRootDirectories.c)
+ *     IopInitCrashDumpDuringSysInit @ 0x140CC3490 (IopInitCrashDumpDuringSysInit.c)
+ *     IopInitializeReserveIrps @ 0x140CC3790 (IopInitializeReserveIrps.c)
+ *     IopReassignSystemRoot @ 0x140CC3E74 (IopReassignSystemRoot.c)
+ *     IopStoreArcInformation @ 0x140CC4068 (IopStoreArcInformation.c)
+ *     IopInitializeSessionNotifications @ 0x140CC4ECC (IopInitializeSessionNotifications.c)
+ *     IopProtectSystemPartition @ 0x140CC5268 (IopProtectSystemPartition.c)
+ *     IopInitializeBootDrivers @ 0x140CC5374 (IopInitializeBootDrivers.c)
+ *     IopInitializePlugPlayServices @ 0x140CC5E70 (IopInitializePlugPlayServices.c)
+ *     PnpMarkHalDeviceNode @ 0x140CC9A24 (PnpMarkHalDeviceNode.c)
+ *     PpLastGoodDoBootProcessing @ 0x140CCADCC (PpLastGoodDoBootProcessing.c)
+ *     KeInitSystem @ 0x140CCE3A8 (KeInitSystem.c)
+ *     KseInitialize @ 0x140CD3040 (KseInitialize.c)
+ *     PoInitDriverServices @ 0x140CD4774 (PoInitDriverServices.c)
+ *     PoInitSystem @ 0x140CD49D0 (PoInitSystem.c)
+ *     PsInitializeSyscallProviders @ 0x140CDDC90 (PsInitializeSyscallProviders.c)
+ *     WMIInitialize @ 0x140CE6210 (WMIInitialize.c)
+ *     KitpInitAitSampleRate @ 0x140CED130 (KitpInitAitSampleRate.c)
+ *     WheaInitialize @ 0x140CEDE58 (WheaInitialize.c)
+ *     MmInitializeImageViewExtension @ 0x140D00404 (MmInitializeImageViewExtension.c)
+ *     MmRegisterHotPatches @ 0x140D01F24 (MmRegisterHotPatches.c)
  */
 
-int __fastcall IoInitSystemPreDrivers(__int64 a1)
+int __fastcall IoInitSystemPreDrivers(_QWORD *Context)
 {
   __int64 v1; // rax
   int v3; // r14d
-  KSPIN_LOCK *p_Policy; // rbx
+  KSPIN_LOCK *v4; // rbx
   unsigned __int16 v5; // si
   unsigned __int16 *v6; // rax
   __int64 *v7; // r15
@@ -140,7 +140,7 @@ int __fastcall IoInitSystemPreDrivers(__int64 a1)
   int result; // eax
   unsigned int v35; // eax
   bool v36; // al
-  int v37; // ebx
+  NTSTATUS v37; // ebx
   __int64 v38; // rdx
   __int64 v39; // rcx
   bool IsStateSeparationDevModeEnabled; // bl
@@ -156,74 +156,72 @@ int __fastcall IoInitSystemPreDrivers(__int64 a1)
   void *v50; // rcx
   __int64 v51; // rcx
   __int64 v52; // rdx
-  __int64 v53; // rdx
   int inited; // eax
-  __int64 v55; // rdx
-  __int64 v56; // rcx
-  __int64 v57; // r8
-  unsigned int v58; // ebx
-  __int64 v59; // r8
-  __int64 v60; // rdx
-  __int64 v61; // r8
-  struct _KLOCK_ENTRIES *v62; // r9
-  int v63; // eax
-  __int64 v64; // r8
-  signed int v65; // ebx
-  ULONG v66; // ebx
+  __int64 v54; // rdx
+  __int64 v55; // rcx
+  __int64 v56; // r8
+  unsigned int v57; // ebx
+  __int64 v58; // r8
+  __int64 v59; // rdx
+  __int64 v60; // r8
+  struct _KLOCK_ENTRIES *v61; // r9
+  int v62; // eax
+  __int64 v63; // r8
+  signed int v64; // ebx
+  ULONG v65; // ebx
   int SystemDlls; // eax
-  int v68; // r15d
-  __int64 v69; // r8
-  PVOID *Object; // [rsp+20h] [rbp-118h]
-  _BYTE v71[8]; // [rsp+40h] [rbp-F8h] BYREF
+  int v67; // r15d
+  __int64 v68; // r8
+  _BYTE v69[8]; // [rsp+40h] [rbp-F8h] BYREF
   HANDLE KeyHandle; // [rsp+48h] [rbp-F0h] BYREF
-  __int64 v73; // [rsp+50h] [rbp-E8h] BYREF
-  PVOID v74[2]; // [rsp+58h] [rbp-E0h] BYREF
-  __int128 v75; // [rsp+68h] [rbp-D0h]
+  ULONG ResultLength; // [rsp+50h] [rbp-E8h] BYREF
+  PVOID Object[2]; // [rsp+58h] [rbp-E0h] BYREF
+  __int128 v73; // [rsp+68h] [rbp-D0h]
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+78h] [rbp-C0h] BYREF
   UNICODE_STRING DestinationString; // [rsp+A8h] [rbp-90h] BYREF
-  _QWORD v78[2]; // [rsp+B8h] [rbp-80h] BYREF
-  __int64 v79; // [rsp+C8h] [rbp-70h] BYREF
-  _QWORD v80[5]; // [rsp+D0h] [rbp-68h] BYREF
+  _QWORD v76[2]; // [rsp+B8h] [rbp-80h] BYREF
+  __int64 v77; // [rsp+C8h] [rbp-70h] BYREF
+  _QWORD v78[5]; // [rsp+D0h] [rbp-68h] BYREF
   struct _IO_STATUS_BLOCK IoStatusBlock; // [rsp+F8h] [rbp-40h] BYREF
   unsigned __int64 retaddr; // [rsp+138h] [rbp+0h]
 
-  v78[0] = 0x1000000LL;
+  v76[0] = 0x1000000LL;
   *(&ObjectAttributes.Length + 1) = 0;
-  v78[1] = IoInitSystem_deviceNameBuffer;
-  v1 = *(_QWORD *)(a1 + 240);
-  v79 = 0LL;
+  v76[1] = IoInitSystem_deviceNameBuffer;
+  v1 = Context[30];
+  v77 = 0LL;
   DestinationString = 0LL;
   *(&ObjectAttributes.Attributes + 1) = 0;
   KeyHandle = 0LL;
   IoStatusBlock = 0LL;
   v3 = *(_DWORD *)(v1 + 132) & 0x80000;
-  v71[0] = 0;
-  *(_OWORD *)v74 = 0LL;
-  v75 = 0LL;
-  if ( (unsigned __int64)&IopSessionNotificationLock.ApcState.ApcListHead[1] < 0xFFFF800000000000uLL
-    || MmDeterminePoolType((unsigned __int64)&IopSessionNotificationLock.ApcState.ApcListHead[1]) == 256 )
+  v69[0] = 0;
+  *(_OWORD *)Object = 0LL;
+  v73 = 0LL;
+  if ( (unsigned __int64)&IopDriverLoadResource < 0xFFFF800000000000uLL
+    || MmDeterminePoolType((unsigned __int64)&IopDriverLoadResource) == 256 )
   {
-    ExpTraceLogBadResourceAddress((unsigned __int64)&IopSessionNotificationLock.ApcState.ApcListHead[1], retaddr);
+    ExpTraceLogBadResourceAddress((unsigned __int64)&IopDriverLoadResource, retaddr);
   }
-  memset_0(&IopSessionNotificationLock.ApcStateFill[32], 0, 0x50uLL);
-  IopSessionNotificationLock.ApcState.ApcListHead[1].Blink = &IopSessionNotificationLock.ApcState.ApcListHead[1];
-  IopSessionNotificationLock.ApcState.ApcListHead[1].Flink = &IopSessionNotificationLock.ApcState.ApcListHead[1];
-  IopSessionNotificationLock.WaitStatus = 0LL;
-  IopSessionNotificationLock.WaitBlockList = 0LL;
-  IopSessionNotificationLock.Timer.Header.WaitListHead.Flink = 0LL;
+  memset_0(&IopDriverLoadResource.OwnerTable, 0, 0x50uLL);
+  IopDriverLoadResource.SystemResourcesList.Blink = (struct _LIST_ENTRY *)&IopDriverLoadResource;
+  IopDriverLoadResource.SystemResourcesList.Flink = (struct _LIST_ENTRY *)&IopDriverLoadResource;
+  IopDriverLoadResource.SharedWaiters = 0LL;
+  IopDriverLoadResource.ExclusiveWaiters = 0LL;
+  IopDriverLoadResource.SpinLock = 0LL;
   if ( (NtGlobalFlag & 0x2000) != 0 )
   {
-    p_Policy = (KSPIN_LOCK *)&NormalizationListLock.SchedulingGroup->Policy;
-    if ( NormalizationListLock.SchedulingGroup )
+    v4 = *(KSPIN_LOCK **)&NormalizationListLock.WaitRegister.Flags;
+    if ( *(_QWORD *)&NormalizationListLock.WaitRegister.Flags )
     {
-      v6 = (unsigned __int16 *)RtlStdLogStackTrace((PKSPIN_LOCK)&NormalizationListLock.SchedulingGroup->Policy, 1);
+      v6 = (unsigned __int16 *)RtlStdLogStackTrace(*(PKSPIN_LOCK *)&NormalizationListLock.WaitRegister.Flags, 1);
       v7 = (__int64 *)v6;
       if ( v6 )
       {
-        RecordedStackTraceIndex = RtlpStdGetRecordedStackTraceIndex(p_Policy, v6);
+        RecordedStackTraceIndex = RtlpStdGetRecordedStackTraceIndex(v4, v6);
         v5 = RecordedStackTraceIndex;
         if ( !RecordedStackTraceIndex )
-          RtlStdReleaseStackTrace((__int64)p_Policy, v7);
+          RtlStdReleaseStackTrace((__int64)v4, v7);
       }
       else
       {
@@ -234,33 +232,34 @@ int __fastcall IoInitSystemPreDrivers(__int64 a1)
     {
       v5 = 0;
     }
-    *(_QWORD *)&IopSessionNotificationLock.Timer.Header.Lock = v5;
+    IopDriverLoadResource.CreatorBackTraceIndex = v5;
   }
   else
   {
-    *(_QWORD *)&IopSessionNotificationLock.Timer.Header.Lock = 0LL;
+    IopDriverLoadResource.CreatorBackTraceIndex = 0LL;
   }
-  HIDWORD(IopSessionNotificationLock.RelativeTimerBias) = -1;
-  ExpAddResourceToSystemResourceList((struct _SINGLE_LIST_ENTRY *)&IopSessionNotificationLock.ApcStateFill[16]);
+  HIDWORD(IopDriverLoadResource.Reserved2) = -1;
+  ExpAddResourceToSystemResourceList((_KSWAPPABLE_PAGE *)&IopDriverLoadResource);
   __incgsdword(0x9098u);
   if ( (DWORD1(PerfGlobalGroupMask[0]) & 0x20000) != 0 )
-    PerfLogExecutiveResourceInitialize(65544, (__int64)&IopSessionNotificationLock.ApcState.ApcListHead[1], 0, 0);
-  if ( (unsigned __int64)&IopSessionNotificationLock.SavedApcState.ApcListHead[1] < 0xFFFF800000000000uLL
-    || MmDeterminePoolType((unsigned __int64)&IopSessionNotificationLock.SavedApcState.ApcListHead[1]) == 256 )
+    PerfLogExecutiveResourceInitialize(65544, (__int64)&IopDriverLoadResource, 0, 0);
+  if ( (unsigned __int64)&IopDatabaseResource < 0xFFFF800000000000uLL
+    || MmDeterminePoolType((unsigned __int64)&IopDatabaseResource) == 256 )
   {
-    ExpTraceLogBadResourceAddress((unsigned __int64)&IopSessionNotificationLock.SavedApcState.ApcListHead[1], retaddr);
+    ExpTraceLogBadResourceAddress((unsigned __int64)&IopDatabaseResource, retaddr);
   }
-  memset_0(&IopSessionNotificationLock.SavedApcStateFill[32], 0, 0x50uLL);
-  IopSessionNotificationLock.SavedApcState.ApcListHead[1].Blink = &IopSessionNotificationLock.SavedApcState.ApcListHead[1];
-  IopSessionNotificationLock.SavedApcState.ApcListHead[1].Flink = &IopSessionNotificationLock.SavedApcState.ApcListHead[1];
-  *(_OWORD *)&IopSessionNotificationLock.SchedulerApc.Type = 0uLL;
-  IopSessionNotificationLock.SchedulerApc.SystemArgument1 = 0LL;
+  memset_0(&IopDatabaseResource.OwnerTable, 0, 0x50uLL);
+  IopDatabaseResource.SystemResourcesList.Blink = (struct _LIST_ENTRY *)&IopDatabaseResource;
+  IopDatabaseResource.SystemResourcesList.Flink = (struct _LIST_ENTRY *)&IopDatabaseResource;
+  IopDatabaseResource.SharedWaiters = 0LL;
+  IopDatabaseResource.ExclusiveWaiters = 0LL;
+  IopDatabaseResource.SpinLock = 0LL;
   if ( (NtGlobalFlag & 0x2000) != 0 )
   {
-    v9 = (KSPIN_LOCK *)&NormalizationListLock.SchedulingGroup->Policy;
-    if ( NormalizationListLock.SchedulingGroup )
+    v9 = *(KSPIN_LOCK **)&NormalizationListLock.WaitRegister.Flags;
+    if ( *(_QWORD *)&NormalizationListLock.WaitRegister.Flags )
     {
-      v11 = (unsigned __int16 *)RtlStdLogStackTrace((PKSPIN_LOCK)&NormalizationListLock.SchedulingGroup->Policy, 1);
+      v11 = (unsigned __int16 *)RtlStdLogStackTrace(*(PKSPIN_LOCK *)&NormalizationListLock.WaitRegister.Flags, 1);
       v12 = (__int64 *)v11;
       if ( v11 )
       {
@@ -278,34 +277,34 @@ int __fastcall IoInitSystemPreDrivers(__int64 a1)
     {
       v10 = 0;
     }
-    IopSessionNotificationLock.SchedulerApc.NormalContext = (PVOID)v10;
+    IopDatabaseResource.CreatorBackTraceIndex = v10;
   }
   else
   {
-    IopSessionNotificationLock.SchedulerApc.NormalContext = 0LL;
+    IopDatabaseResource.CreatorBackTraceIndex = 0LL;
   }
-  *(_DWORD *)&IopSessionNotificationLock.SchedulerApcFill5[52] = -1;
-  ExpAddResourceToSystemResourceList((struct _SINGLE_LIST_ENTRY *)&IopSessionNotificationLock.SavedApcStateFill[16]);
+  HIDWORD(IopDatabaseResource.Reserved2) = -1;
+  ExpAddResourceToSystemResourceList((_KSWAPPABLE_PAGE *)&IopDatabaseResource);
   __incgsdword(0x9098u);
   if ( (DWORD1(PerfGlobalGroupMask[0]) & 0x20000) != 0 )
-    PerfLogExecutiveResourceInitialize(65544, (__int64)&IopSessionNotificationLock.SavedApcState.ApcListHead[1], 0, 0);
-  if ( (unsigned __int64)&IopSessionNotificationLock.WaitBlock[3].Thread < 0xFFFF800000000000uLL
-    || MmDeterminePoolType((unsigned __int64)&IopSessionNotificationLock.WaitBlock[3].Thread) == 256 )
+    PerfLogExecutiveResourceInitialize(65544, (__int64)&IopDatabaseResource, 0, 0);
+  if ( (unsigned __int64)&IopSecurityResource < 0xFFFF800000000000uLL
+    || MmDeterminePoolType((unsigned __int64)&IopSecurityResource) == 256 )
   {
-    ExpTraceLogBadResourceAddress((unsigned __int64)&IopSessionNotificationLock.WaitBlock[3].Thread, retaddr);
+    ExpTraceLogBadResourceAddress((unsigned __int64)&IopSecurityResource, retaddr);
   }
-  memset_0(&IopSessionNotificationLock.LastXStateSaveDebugInfo, 0, 0x50uLL);
-  IopSessionNotificationLock.Spare18 = (unsigned __int64)&IopSessionNotificationLock.WaitBlock[3].Thread;
-  IopSessionNotificationLock.WaitBlock[3].Thread = (struct _KTHREAD *)&IopSessionNotificationLock.WaitBlockFill11[168];
-  IopSessionNotificationLock.QueueListEntry.Flink = 0LL;
-  IopSessionNotificationLock.QueueListEntry.Blink = 0LL;
-  *(_QWORD *)&IopSessionNotificationLock.AffinityPrimaryGroup = 0LL;
+  memset_0(&IopSecurityResource.OwnerTable, 0, 0x50uLL);
+  IopSecurityResource.SystemResourcesList.Blink = (struct _LIST_ENTRY *)&IopSecurityResource;
+  IopSecurityResource.SystemResourcesList.Flink = (struct _LIST_ENTRY *)&IopSecurityResource;
+  IopSecurityResource.SharedWaiters = 0LL;
+  IopSecurityResource.ExclusiveWaiters = 0LL;
+  IopSecurityResource.SpinLock = 0LL;
   if ( (NtGlobalFlag & 0x2000) != 0 )
   {
-    v14 = (KSPIN_LOCK *)&NormalizationListLock.SchedulingGroup->Policy;
-    if ( NormalizationListLock.SchedulingGroup )
+    v14 = *(KSPIN_LOCK **)&NormalizationListLock.WaitRegister.Flags;
+    if ( *(_QWORD *)&NormalizationListLock.WaitRegister.Flags )
     {
-      v16 = (unsigned __int16 *)RtlStdLogStackTrace((PKSPIN_LOCK)&NormalizationListLock.SchedulingGroup->Policy, 1);
+      v16 = (unsigned __int16 *)RtlStdLogStackTrace(*(PKSPIN_LOCK *)&NormalizationListLock.WaitRegister.Flags, 1);
       v17 = (__int64 *)v16;
       if ( v16 )
       {
@@ -323,17 +322,17 @@ int __fastcall IoInitSystemPreDrivers(__int64 a1)
     {
       v15 = 0;
     }
-    IopSessionNotificationLock.Affinity = (_KAFFINITY_EX *)v15;
+    IopSecurityResource.CreatorBackTraceIndex = v15;
   }
   else
   {
-    IopSessionNotificationLock.Affinity = 0LL;
+    IopSecurityResource.CreatorBackTraceIndex = 0LL;
   }
-  HIDWORD(IopSessionNotificationLock.AffinityVersion) = -1;
-  ExpAddResourceToSystemResourceList((struct _SINGLE_LIST_ENTRY *)&IopSessionNotificationLock.WaitBlockFill11[168]);
+  HIDWORD(IopSecurityResource.Reserved2) = -1;
+  ExpAddResourceToSystemResourceList((_KSWAPPABLE_PAGE *)&IopSecurityResource);
   __incgsdword(0x9098u);
   if ( (DWORD1(PerfGlobalGroupMask[0]) & 0x20000) != 0 )
-    PerfLogExecutiveResourceInitialize(65544, (__int64)&IopSessionNotificationLock.WaitBlock[3].Thread, 0, 0);
+    PerfLogExecutiveResourceInitialize(65544, (__int64)&IopSecurityResource, 0, 0);
   if ( (unsigned __int64)&IopCrashDumpLock < 0xFFFF800000000000uLL
     || MmDeterminePoolType((unsigned __int64)&IopCrashDumpLock) == 256 )
   {
@@ -347,10 +346,10 @@ int __fastcall IoInitSystemPreDrivers(__int64 a1)
   IopCrashDumpLock.SpinLock = 0LL;
   if ( (NtGlobalFlag & 0x2000) != 0 )
   {
-    v19 = (KSPIN_LOCK *)&NormalizationListLock.SchedulingGroup->Policy;
-    if ( NormalizationListLock.SchedulingGroup )
+    v19 = *(KSPIN_LOCK **)&NormalizationListLock.WaitRegister.Flags;
+    if ( *(_QWORD *)&NormalizationListLock.WaitRegister.Flags )
     {
-      v21 = (unsigned __int16 *)RtlStdLogStackTrace((PKSPIN_LOCK)&NormalizationListLock.SchedulingGroup->Policy, 1);
+      v21 = (unsigned __int16 *)RtlStdLogStackTrace(*(PKSPIN_LOCK *)&NormalizationListLock.WaitRegister.Flags, 1);
       v22 = (__int64 *)v21;
       if ( v21 )
       {
@@ -375,7 +374,7 @@ int __fastcall IoInitSystemPreDrivers(__int64 a1)
     IopCrashDumpLock.CreatorBackTraceIndex = 0LL;
   }
   HIDWORD(IopCrashDumpLock.Reserved2) = -1;
-  ExpAddResourceToSystemResourceList((struct _SINGLE_LIST_ENTRY *)&IopCrashDumpLock);
+  ExpAddResourceToSystemResourceList((_KSWAPPABLE_PAGE *)&IopCrashDumpLock);
   __incgsdword(0x9098u);
   if ( (DWORD1(PerfGlobalGroupMask[0]) & 0x20000) != 0 )
     PerfLogExecutiveResourceInitialize(65544, (__int64)&IopCrashDumpLock, 0, 0);
@@ -392,10 +391,10 @@ int __fastcall IoInitSystemPreDrivers(__int64 a1)
   IopLiveDumpLock.SpinLock = 0LL;
   if ( (NtGlobalFlag & 0x2000) != 0 )
   {
-    v24 = (KSPIN_LOCK *)&NormalizationListLock.SchedulingGroup->Policy;
-    if ( NormalizationListLock.SchedulingGroup )
+    v24 = *(KSPIN_LOCK **)&NormalizationListLock.WaitRegister.Flags;
+    if ( *(_QWORD *)&NormalizationListLock.WaitRegister.Flags )
     {
-      v26 = (unsigned __int16 *)RtlStdLogStackTrace((PKSPIN_LOCK)&NormalizationListLock.SchedulingGroup->Policy, 1);
+      v26 = (unsigned __int16 *)RtlStdLogStackTrace(*(PKSPIN_LOCK *)&NormalizationListLock.WaitRegister.Flags, 1);
       v27 = (__int64 *)v26;
       if ( v26 )
       {
@@ -420,7 +419,7 @@ int __fastcall IoInitSystemPreDrivers(__int64 a1)
     IopLiveDumpLock.CreatorBackTraceIndex = 0LL;
   }
   HIDWORD(IopLiveDumpLock.Reserved2) = -1;
-  ExpAddResourceToSystemResourceList((struct _SINGLE_LIST_ENTRY *)&IopLiveDumpLock);
+  ExpAddResourceToSystemResourceList((_KSWAPPABLE_PAGE *)&IopLiveDumpLock);
   __incgsdword(0x9098u);
   if ( (DWORD1(PerfGlobalGroupMask[0]) & 0x20000) != 0 )
     PerfLogExecutiveResourceInitialize(65544, (__int64)&IopLiveDumpLock, 0, 0);
@@ -431,98 +430,97 @@ int __fastcall IoInitSystemPreDrivers(__int64 a1)
     if ( Pool2 )
       Pool2[51] = 0LL;
   }
-  IopSessionNotificationLock.WaitBlock[2].SparePtr = 0LL;
-  IopSessionNotificationLock.WaitBlock[2].Object = &IopSessionNotificationLock.WaitBlockFill11[120];
-  IopSessionNotificationLock.WaitBlock[2].Thread = (struct _KTHREAD *)&IopSessionNotificationLock.WaitBlockFill11[120];
-  *(_QWORD *)&IopSessionNotificationLock.WaitBlockFill11[112] = &IopSessionNotificationLock.WaitBlock[2].WaitListEntry.Blink;
-  IopSessionNotificationLock.WaitBlock[2].WaitListEntry.Blink = (struct _LIST_ENTRY *)&IopSessionNotificationLock.WaitBlockFill11[104];
-  IopSessionNotificationLock.WaitBlock[2].WaitListEntry.Flink = (struct _LIST_ENTRY *)&IopSessionNotificationLock.WaitBlockFill11[88];
-  IopSessionNotificationLock.WaitBlock[1].SparePtr = &IopSessionNotificationLock.WaitBlockFill11[88];
-  IopSessionNotificationLock.WaitBlock[1].Object = &IopSessionNotificationLock.WaitBlockFill11[72];
-  IopSessionNotificationLock.WaitBlock[1].Thread = (struct _KTHREAD *)&IopSessionNotificationLock.WaitBlockFill11[72];
-  *(_QWORD *)&IopSessionNotificationLock.WaitBlockFill11[64] = &IopSessionNotificationLock.WaitBlock[1].WaitListEntry.Blink;
-  IopSessionNotificationLock.WaitBlock[1].WaitListEntry.Blink = (struct _LIST_ENTRY *)&IopSessionNotificationLock.WaitBlockFill11[56];
-  IopSessionNotificationLock.WaitBlock[1].WaitListEntry.Flink = (struct _LIST_ENTRY *)&IopSessionNotificationLock.WaitBlockFill11[40];
-  IopSessionNotificationLock.WaitBlock[0].SparePtr = &IopSessionNotificationLock.WaitBlockFill11[40];
-  IopSessionNotificationLock.WaitBlock[0].Object = &IopSessionNotificationLock.WaitBlockFill11[24];
-  IopSessionNotificationLock.WaitBlock[0].Thread = (struct _KTHREAD *)&IopSessionNotificationLock.WaitBlockFill11[24];
-  *(_QWORD *)&IopSessionNotificationLock.WaitBlockFill11[16] = &IopSessionNotificationLock.WaitBlock[0].WaitListEntry.Blink;
-  IopSessionNotificationLock.WaitBlock[0].WaitListEntry.Blink = (struct _LIST_ENTRY *)&IopSessionNotificationLock.WaitBlockFill10[8];
-  IopSessionNotificationLock.WaitBlock[0].WaitListEntry.Flink = (struct _LIST_ENTRY *)&IopSessionNotificationLock.Timer.Processor;
-  *(_QWORD *)&IopSessionNotificationLock.Timer.Processor = &IopSessionNotificationLock.Timer.Processor;
-  IopSessionNotificationLock.Timer.Dpc = (_KDPC *)&IopSessionNotificationLock.Timer.TimerListEntry.Blink;
-  IopSessionNotificationLock.Timer.TimerListEntry.Blink = (struct _LIST_ENTRY *)&IopSessionNotificationLock.Timer.TimerListEntry.Blink;
-  IopSessionNotificationLock.Timer.DueTime.QuadPart = 0LL;
+  IopFilesystemDatabaseShutdownRundown.Count = 0LL;
+  qword_140F85358 = (__int64)&IopDiskFileSystemQueueHead;
+  IopDiskFileSystemQueueHead = (__int64)&IopDiskFileSystemQueueHead;
+  qword_140F85368 = (__int64)&IopCdRomFileSystemQueueHead;
+  IopCdRomFileSystemQueueHead = (__int64)&IopCdRomFileSystemQueueHead;
+  qword_140F85378 = (__int64)&IopTapeFileSystemQueueHead;
+  IopTapeFileSystemQueueHead = (__int64)&IopTapeFileSystemQueueHead;
+  qword_140F85388 = (__int64)&IopNetworkFileSystemQueueHead;
+  IopNetworkFileSystemQueueHead = (__int64)&IopNetworkFileSystemQueueHead;
+  qword_140F85398 = (__int64)&IopBootDriverReinitializeQueueHead;
+  IopBootDriverReinitializeQueueHead = (__int64)&IopBootDriverReinitializeQueueHead;
+  qword_140F853B8 = (__int64)&IopDriverReinitializeQueueHead;
+  IopDriverReinitializeQueueHead = (__int64)&IopDriverReinitializeQueueHead;
+  qword_140F853C8 = (__int64)&IopNotifyShutdownQueueHead;
+  IopNotifyShutdownQueueHead = &IopNotifyShutdownQueueHead;
+  qword_140F853D8 = (__int64)&IopNotifyLastChanceShutdownQueueHead;
+  IopNotifyLastChanceShutdownQueueHead = &IopNotifyLastChanceShutdownQueueHead;
+  qword_140F853E8 = (__int64)&IopFsNotifyChangeQueueHead;
+  IopFsNotifyChangeQueueHead = &IopFsNotifyChangeQueueHead;
+  qword_140F853F8 = (__int64)&IopPerfIoTrackingListHead;
+  IopPerfIoTrackingListHead = (__int64)&IopPerfIoTrackingListHead;
+  *(_QWORD *)&IopPerfIoTrackingLock.Header.Lock = 0LL;
   IoStatisticsLock = 0LL;
-  IopSessionNotificationLock.SuspendEvent.Header.WaitListHead.Flink = 0LL;
-  *(_OWORD *)&IopSessionNotificationLock.SchedulerApcFill5[80] = 0LL;
+  IopPerfIoTrackingLock.Header.WaitListHead.Flink = 0LL;
+  *(_OWORD *)&IopPerfIoTrackingLock.Header.WaitListHead.Blink = 0LL;
   if ( (unsigned int)Feature_IoMgr_FileObject_Process_FastRef__private_IsEnabledDeviceUsageNoInline() )
-    LODWORD(IopSessionNotificationLock.SuspendEvent.Header.WaitListHead.Blink) |= 1u;
+    LODWORD(IopPerfIoTrackingLock.QuantumTarget) |= 1u;
   if ( (unsigned int)Feature_IoMgr_Force_TransferCount_Update_Thread__private_IsEnabledDeviceUsageNoInline() )
-    LODWORD(IopSessionNotificationLock.SuspendEvent.Header.WaitListHead.Blink) |= 2u;
-  HIDWORD(IopSessionNotificationLock.SuspendEvent.Header.WaitListHead.Blink) = 0;
-  LODWORD(IopSessionNotificationLock.Timer.Header.WaitListHead.Blink) = 0;
+    LODWORD(IopPerfIoTrackingLock.QuantumTarget) |= 2u;
+  *(_DWORD *)&IopPerfIoTrackingLock.UserAffinityPrimaryGroup = 0;
+  IopIrpStackProfilerFlags = 0;
   v30 = __rdtsc() >> 4;
   v31 = 0;
-  LODWORD(IopSessionNotificationLock.AutoBoostThreadState) = v30 % 0x64 + 10;
-  if ( !HIDWORD(IopSessionNotificationLock.SchedulerSharedSwappablePage) )
+  *(_DWORD *)&IopPerfIoTrackingLock.SharedComputeUnitsUsed = v30 % 0x64 + 10;
+  if ( !LODWORD(IopPerfIoTrackingLock.AffinityVersion) )
   {
-    HIDWORD(IopSessionNotificationLock.SchedulerSharedSwappablePage) = 14;
+    LODWORD(IopPerfIoTrackingLock.AffinityVersion) = 14;
     v31 = 1;
-    LODWORD(IopSessionNotificationLock.Timer.Header.WaitListHead.Blink) = 1;
+    IopIrpStackProfilerFlags = 1;
   }
-  if ( !LODWORD(IopSessionNotificationLock.SchedulerSharedSwappablePage) )
+  if ( !HIDWORD(IopPerfIoTrackingLock.AffinityVersion) )
   {
-    LODWORD(IopSessionNotificationLock.SchedulerSharedSwappablePage) = 4;
-    LODWORD(IopSessionNotificationLock.Timer.Header.WaitListHead.Blink) = v31 | 2;
+    HIDWORD(IopPerfIoTrackingLock.AffinityVersion) = 4;
+    IopIrpStackProfilerFlags = v31 | 2;
   }
   if ( (unsigned int)(IopIrpCompletionTimeoutInSeconds - 2) > 0x12A )
     IopIrpCompletionTimeoutInSeconds = 300;
-  IopQueryProcessorInitValues((__int64)v74);
-  ExInitializeSystemLookasideList((__int64)&IopCompletionLookasideList, 512, 56, 544236361, SHIWORD(v74[0]));
-  ExInitializeSystemLookasideList((__int64)&IopLargeIrpLookasideList, 512, SDWORD1(v75), 1819308617, SWORD2(v74[0]));
-  ExInitializeSystemLookasideList((__int64)&IopMediumIrpLookasideList, 512, v75, 1836085833, SWORD1(v74[0]));
+  IopQueryProcessorInitValues((__int64)Object);
+  ExInitializeSystemLookasideList((__int64)&IopCompletionLookasideList, 512, 56, 544236361, SHIWORD(Object[0]));
+  ExInitializeSystemLookasideList((__int64)&IopLargeIrpLookasideList, 512, SDWORD1(v73), 1819308617, SWORD2(Object[0]));
+  ExInitializeSystemLookasideList((__int64)&IopMediumIrpLookasideList, 512, v73, 1836085833, SWORD1(Object[0]));
   ExInitializeSystemLookasideList(
     (__int64)&IopSmallIrpLookasideList,
     512,
-    SHIDWORD(v74[1]),
+    SHIDWORD(Object[1]),
     1936749129,
-    (__int16)v74[0]);
-  ExInitializeSystemLookasideList((__int64)&IopMdlLookasideList, 512, SDWORD2(v75), 543974477, (__int16)v74[1]);
+    (__int16)Object[0]);
+  ExInitializeSystemLookasideList((__int64)&IopMdlLookasideList, 512, SDWORD2(v73), 543974477, (__int16)Object[1]);
   ExInitializeNPagedLookasideListInternal((__int64)&IopSafeCompletionLookasideList, 0LL, 0LL, 512, 32, 1934978889, 0, 0);
   FsRtlInitExtraCreateParameterLookasideList(&IopSymlinkInfoLookasideList, 0, 0x11EuLL, 0x69536F49u);
   ExInitializeNPagedLookasideListInternal((__int64)&IopOplockFoExtLookasideList, 0LL, 0LL, 512, 48, 1950576719, 0, 0);
-  LODWORD(v73) = 0;
+  ResultLength = 0;
   ActiveProcessorCount = KeQueryActiveProcessorCountEx(0xFFFFu);
   if ( ActiveProcessorCount )
   {
     v33 = 0LL;
     do
     {
-      IoInitializeProcessor(KiProcessorBlock[v33], v74);
-      v33 = (unsigned int)(v73 + 1);
-      LODWORD(v73) = v33;
+      IoInitializeProcessor(KiProcessorBlock[v33], Object);
+      v33 = ResultLength + 1;
+      ResultLength = v33;
     }
     while ( (unsigned int)v33 < ActiveProcessorCount );
   }
   IopErrorLogLock = 0LL;
-  *(_QWORD *)&IopSessionNotificationLock.ResourceIndex = &IopSessionNotificationLock.IptSaveArea;
-  IopSessionNotificationLock.IptSaveArea = &IopSessionNotificationLock.IptSaveArea;
+  *(_QWORD *)&IopPerfIoTrackingLock.AffinityPrimaryGroup = &IopPerfIoTrackingLock.Affinity;
+  IopPerfIoTrackingLock.Affinity = (_KAFFINITY_EX *)&IopPerfIoTrackingLock.Affinity;
   if ( !(unsigned __int8)IopInitializeReserveIrps() )
   {
     LODWORD(IopInitFailCode) = 1;
     return -1073741823;
   }
-  if ( ((__int64)IopSessionNotificationLock.Timer.Header.WaitListHead.Blink & 3) != 0 )
+  if ( (IopIrpStackProfilerFlags & 3) != 0 )
   {
-    *(_DWORD *)&IopSessionNotificationLock.PriorityFloorCounts[20] = 400;
-    IopSessionNotificationLock.SchedulerSharedSystemSlot = IopIrpStackProfilerDpcRoutine;
-    LODWORD(IopSessionNotificationLock.Timer.Header.WaitListHead.Blink) |= 4u;
-    *(_DWORD *)&IopSessionNotificationLock.PriorityFloorCounts[16] = 2000;
-    LODWORD(IopSessionNotificationLock.MutantListHead.Flink) = 275;
-    IopSessionNotificationLock.PropagateBoostsEntry.Next = 0LL;
-    *(_QWORD *)&IopSessionNotificationLock.PriorityFloorCounts[8] = 0LL;
-    *(_QWORD *)&IopSessionNotificationLock.AbWaitEntryCount = 0LL;
+    IopPerfIoTrackingLock.Timer.TimerListEntry.Blink = (struct _LIST_ENTRY *)0x7D000000190LL;
+    IopPerfIoTrackingLock.WaitBlock[0].Thread = (struct _KTHREAD *)IopIrpStackProfilerDpcRoutine;
+    IopIrpStackProfilerFlags |= 4u;
+    LODWORD(IopPerfIoTrackingLock.WaitBlock[0].WaitListEntry.Flink) = 275;
+    IopPerfIoTrackingLock.WaitBlock[0].Object = 0LL;
+    IopPerfIoTrackingLock.WaitBlock[1].WaitListEntry.Blink = 0LL;
+    *(_QWORD *)&IopPerfIoTrackingLock.WaitBlockFill11[16] = 0LL;
   }
   v35 = IopDiskIoAttributionBaseIoSize;
   if ( (unsigned int)IopDiskIoAttributionBaseIoSize >= 0x400000 )
@@ -533,7 +531,7 @@ int __fastcall IoInitSystemPreDrivers(__int64 a1)
   if ( v35 <= 0x1000 )
     IopDiskIoAttributionBaseIoSize = 4096;
   ObjectAttributes.Length = 48;
-  ObjectAttributes.ObjectName = (PUNICODE_STRING)KiSystemServiceTraceCallbackLock.TracingPrivate;
+  ObjectAttributes.ObjectName = (PUNICODE_STRING)&KiSystemServiceTraceCallbackLock.PriorityFloorCounts[16];
   ObjectAttributes.RootDirectory = 0LL;
   ObjectAttributes.Attributes = 576;
   *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
@@ -544,58 +542,57 @@ int __fastcall IoInitSystemPreDrivers(__int64 a1)
   else
   {
     RtlInitUnicodeString(&DestinationString, L"Start");
-    LODWORD(Object) = 32;
-    v36 = (int)NtQueryValueKey(
-                 KeyHandle,
-                 (unsigned int *)&DestinationString.Length,
-                 2LL,
-                 (unsigned __int64)IoInitSystem_valueBuffer,
-                 (size_t)Object,
-                 (unsigned int *)&v73) < 0
-       || dword_140FFB9EC != 4
-       || dword_140FFB9F4 == 4;
+    v36 = NtQueryValueKey(
+            KeyHandle,
+            &DestinationString,
+            KeyValuePartialInformation,
+            IoInitSystem_valueBuffer,
+            0x20u,
+            &ResultLength) < 0
+       || dword_140FFC9EC != 4
+       || dword_140FFC9F4 == 4;
     IopErrorLogDisabledThisBoot = v36;
     ObCloseHandle(KeyHandle, 0);
   }
-  *(_QWORD *)&qword_140F85400.Header.Lock = 9LL;
-  IopTimerQueueHead.Blink = &IopTimerQueueHead;
-  IopTimerQueueHead.Flink = &IopTimerQueueHead;
-  unk_140F85458 = IopTimerDispatch;
-  unk_140F85460 = &IopTimerCount;
-  qword_140F85410 = (__int64)&qword_140F85408;
-  qword_140F85408 = (__int64)&qword_140F85408;
-  qword_140F853E8 = (__int64)&qword_140F853E0;
-  qword_140F853E0 = (__int64)&qword_140F853E0;
-  qword_140F85390 = (__int64)IopHardErrorThread;
-  qword_140F853A8 = (__int64)&qword_140F853A0;
-  qword_140F853A0 = (__int64)&qword_140F853A0;
-  qword_140F853C8 = (__int64)&qword_140F853C0;
-  qword_140F853C0 = (__int64)&qword_140F853C0;
+  *(_QWORD *)&IopPerfIoTrackingLock.WaitBlockFill11[160] = 9LL;
+  IopPerfIoTrackingLock.WaitBlock[1].Thread = (struct _KTHREAD *)&IopPerfIoTrackingLock.WaitBlockFill11[64];
+  *(_QWORD *)&IopPerfIoTrackingLock.WaitBlockFill11[64] = &IopPerfIoTrackingLock.WaitBlockFill11[64];
+  IopPerfIoTrackingLock.WaitBlock[2].Thread = (struct _KTHREAD *)IopTimerDispatch;
+  IopPerfIoTrackingLock.WaitBlock[2].Object = &IopPerfIoTrackingLock.WaitBlockFill11[80];
+  IopPerfIoTrackingLock.Spare18 = (unsigned __int64)&IopPerfIoTrackingLock.WaitBlock[3].Thread;
+  IopPerfIoTrackingLock.WaitBlock[3].Thread = (struct _KTHREAD *)&IopPerfIoTrackingLock.WaitBlockFill11[168];
+  IopPerfIoTrackingLock.UserAffinity = (_KAFFINITY_EX *)&IopPerfIoTrackingLock.Process;
+  IopPerfIoTrackingLock.Process = (_KPROCESS *)&IopPerfIoTrackingLock.Process;
+  IopPerfIoTrackingLock.SavedApcState.ApcListHead[1].Blink = (struct _LIST_ENTRY *)IopHardErrorThread;
+  *(_QWORD *)&IopPerfIoTrackingLock.SchedulerApc.Type = &IopPerfIoTrackingLock.SavedApcStateFill[40];
+  *(_QWORD *)&IopPerfIoTrackingLock.SavedApcStateFill[40] = &IopPerfIoTrackingLock.SavedApcStateFill[40];
+  IopPerfIoTrackingLock.SchedulerApc.Reserved[0] = &IopPerfIoTrackingLock.SchedulerApcFill5[24];
+  IopPerfIoTrackingLock.SchedulerApc.ApcListEntry.Blink = (struct _LIST_ENTRY *)&IopPerfIoTrackingLock.SchedulerApcFill5[24];
   IopTimerLock = 0LL;
-  dword_140F85440.TargetInfoAsUlong = 275;
-  unk_140F85478 = 0LL;
-  unk_140F85450 = 0LL;
-  qword_140F85418 = 0LL;
-  dword_140F8543C = 0;
-  word_140F85438 = 0;
-  byte_140F8543B = 0;
-  qword_140F85398 = 0LL;
-  qword_140F85380.List.Flink = 0LL;
-  qword_140F853B0 = 0LL;
-  byte_140F853B8.Header.Type = 5;
-  byte_140F853BA = 8;
-  dword_140F853BC = 0;
-  dword_140F853D0 = 0x7FFFFFFF;
-  byte_140F853D8 = 0;
+  *(_DWORD *)&IopPerfIoTrackingLock.WaitBlockFill11[96] = 275;
+  IopPerfIoTrackingLock.WaitBlock[3].WaitListEntry.Blink = 0LL;
+  *(_QWORD *)&IopPerfIoTrackingLock.WaitBlockFill11[112] = 0LL;
+  IopPerfIoTrackingLock.LastXStateSaveDebugInfo = 0LL;
+  IopPerfIoTrackingLock.QueuePriority = 0;
+  LOWORD(IopPerfIoTrackingLock.NextProcessor) = 0;
+  *((_BYTE *)&IopPerfIoTrackingLock.1 + 3) = 0;
+  IopPerfIoTrackingLock.SavedApcState.Process = 0LL;
+  IopPerfIoTrackingLock.SavedApcState.ApcListHead[0].Blink = 0LL;
+  IopPerfIoTrackingLock.SchedulerApc.Thread = 0LL;
+  IopPerfIoTrackingLock.SchedulerApcFill3[16] = 5;
+  IopPerfIoTrackingLock.SchedulerApcFill3[18] = 8;
+  *(_DWORD *)&IopPerfIoTrackingLock.SchedulerApcFill5[20] = 0;
+  *(_DWORD *)&IopPerfIoTrackingLock.SchedulerApcFill5[40] = 0x7FFFFFFF;
+  IopPerfIoTrackingLock.SchedulerApcFill3[48] = 0;
   if ( (unsigned int)(IopKeepAliveTimeMs - 1000) > 0x2328 )
     IopKeepAliveTimeMs = 5000;
-  IopSessionNotificationLock.Padding[1] = 0LL;
-  IopSessionNotificationLock.Padding[0] = (unsigned __int64)IopKeepAliveWorker;
-  *(_QWORD *)&IopSessionNotificationLock.SchedulerAssistYieldCounter = 0LL;
-  IopSessionNotificationLock.Padding[3] = (unsigned __int64)&IopSessionNotificationLock.Padding[2];
-  IopSessionNotificationLock.Padding[2] = (unsigned __int64)&IopSessionNotificationLock.Padding[2];
-  IopSessionNotificationLock.Padding[4] = 0LL;
-  byte_140F85358 = 0;
+  *(_QWORD *)&IopPerfIoTrackingLock.SchedulerApcFill5[80] = 0LL;
+  IopPerfIoTrackingLock.SchedulerApc.SystemArgument2 = IopKeepAliveWorker;
+  IopPerfIoTrackingLock.SchedulerApc.NormalContext = 0LL;
+  IopPerfIoTrackingLock.SuspendEvent.Header.WaitListHead.Flink = (struct _LIST_ENTRY *)&IopPerfIoTrackingLock.SuspendEvent;
+  *(_QWORD *)&IopPerfIoTrackingLock.SuspendEvent.Header.Lock = &IopPerfIoTrackingLock.SuspendEvent;
+  IopPerfIoTrackingLock.SuspendEvent.Header.WaitListHead.Blink = 0LL;
+  IopPerfIoTrackingLock.AbWaitEntryCount = 0;
   IopErrorLogSessionPending = 1;
   RtlInitUnicodeString(&DestinationString, L"\\Security\\TRKWKS_EVENT");
   ObjectAttributes.Length = 48;
@@ -603,31 +600,31 @@ int __fastcall IoInitSystemPreDrivers(__int64 a1)
   ObjectAttributes.RootDirectory = 0LL;
   ObjectAttributes.Attributes = 528;
   *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
-  v37 = NtCreateEvent(&KeyHandle, 0x1F0003u, (__int64)&ObjectAttributes, NotificationEvent, 0);
+  v37 = NtCreateEvent(&KeyHandle, 0x1F0003u, &ObjectAttributes, NotificationEvent, 0);
   if ( v37 < 0 )
   {
     HeadlessKernelAddLogEntry();
     LODWORD(IopInitFailCode) = 26;
     return v37;
   }
-  v74[0] = 0LL;
-  ObReferenceObjectByHandle(KeyHandle, 0, (POBJECT_TYPE)ExEventObjectType, 0, v74, 0LL);
-  PspSiloMonitorLock.ExtendedFeatureDisableMask = (unsigned __int64)v74[0];
-  IopMountCompletionEvent.Header.WaitListHead.Blink = &IopMountCompletionEvent.Header.WaitListHead;
-  IopMountCompletionEvent.Header.WaitListHead.Flink = &IopMountCompletionEvent.Header.WaitListHead;
-  stru_140F85500.Header.WaitListHead.Blink = &stru_140F85500.Header.WaitListHead;
-  stru_140F85500.Header.WaitListHead.Flink = &stru_140F85500.Header.WaitListHead;
-  IopLinkTrackingPortObject.Header.WaitListHead.Blink = &IopLinkTrackingPortObject.Header.WaitListHead;
-  IopLinkTrackingPortObject.Header.WaitListHead.Flink = &IopLinkTrackingPortObject.Header.WaitListHead;
-  LOWORD(IopMountCompletionEvent.Header.Lock) = 0;
-  IopMountCompletionEvent.Header.Size = 6;
-  IopMountCompletionEvent.Header.SignalState = 0;
-  LOWORD(stru_140F85500.Header.Lock) = 0;
-  stru_140F85500.Header.Size = 6;
-  stru_140F85500.Header.SignalState = 0;
-  LOWORD(IopLinkTrackingPortObject.Header.Lock) = 1;
-  IopLinkTrackingPortObject.Header.Size = 6;
-  IopLinkTrackingPortObject.Header.SignalState = 1;
+  Object[0] = 0LL;
+  ObReferenceObjectByHandle(KeyHandle, 0, (POBJECT_TYPE)ExEventObjectType, 0, Object, 0LL);
+  PspSiloMonitorLock.ExtendedFeatureDisableMask = (unsigned __int64)Object[0];
+  *(_QWORD *)&IopPerfIoTrackingLock.PriorityFloorCounts[24] = &IopPerfIoTrackingLock.PriorityFloorCounts[16];
+  *(_QWORD *)&IopPerfIoTrackingLock.PriorityFloorCounts[16] = &IopPerfIoTrackingLock.PriorityFloorCounts[16];
+  IopPerfIoTrackingLock.OtherOperationCount = (__int64)&IopPerfIoTrackingLock.WriteOperationCount;
+  IopPerfIoTrackingLock.WriteOperationCount = (__int64)&IopPerfIoTrackingLock.WriteOperationCount;
+  IopPerfIoTrackingLock.QueuedScb = (_KSCB *)&IopPerfIoTrackingLock.OtherTransferCount;
+  IopPerfIoTrackingLock.OtherTransferCount = (__int64)&IopPerfIoTrackingLock.OtherTransferCount;
+  *(_WORD *)&IopPerfIoTrackingLock.PriorityFloorCounts[8] = 0;
+  IopPerfIoTrackingLock.PriorityFloorCounts[10] = 6;
+  *(_DWORD *)&IopPerfIoTrackingLock.PriorityFloorCounts[12] = 0;
+  LOWORD(IopPerfIoTrackingLock.ReadOperationCount) = 0;
+  BYTE2(IopPerfIoTrackingLock.ReadOperationCount) = 6;
+  HIDWORD(IopPerfIoTrackingLock.ReadOperationCount) = 0;
+  LOWORD(IopPerfIoTrackingLock.WriteTransferCount) = 1;
+  BYTE2(IopPerfIoTrackingLock.WriteTransferCount) = 6;
+  HIDWORD(IopPerfIoTrackingLock.WriteTransferCount) = 1;
   ObCloseHandle(KeyHandle, 0);
   if ( !(unsigned __int8)IopCreateRootDirectories() )
   {
@@ -641,7 +638,7 @@ int __fastcall IoInitSystemPreDrivers(__int64 a1)
     LODWORD(IopInitFailCode) = 15;
     return result;
   }
-  v37 = IopInitializePlugPlayServices(a1, 0LL);
+  v37 = IopInitializePlugPlayServices(Context, 0LL);
   if ( v37 < 0 )
   {
     HeadlessKernelAddLogEntry();
@@ -650,11 +647,11 @@ int __fastcall IoInitSystemPreDrivers(__int64 a1)
   }
   if ( v3 )
     WheaSelLogCheckPoint(8u, 1u);
-  KseInitialize(a1, 0LL);
+  KseInitialize(Context, 0LL);
   PoInitDriverServices();
   guard_dispatch_icall_no_overrides(v39, v38);
   PnpMarkHalDeviceNode(0LL);
-  if ( !(unsigned __int8)WMIInitialize(0LL, a1) )
+  if ( !(unsigned __int8)WMIInitialize(0LL, Context) )
   {
     LODWORD(IopInitFailCode) = 18;
     return -1073741823;
@@ -670,8 +667,8 @@ int __fastcall IoInitSystemPreDrivers(__int64 a1)
     LODWORD(IopInitFailCode) = 19;
     return result;
   }
-  LODWORD(v74[0]) = 0;
-  if ( RtlGetNtProductType(v74) && LODWORD(v74[0]) == 1 )
+  LODWORD(Object[0]) = 0;
+  if ( RtlGetNtProductType((PNT_PRODUCT_TYPE)Object) && LODWORD(Object[0]) == 1 )
   {
     AstIsActive = 1;
     v43 = ExAllocatePool2(256LL, 0x1000uLL, 0x6E446341u);
@@ -686,8 +683,8 @@ int __fastcall IoInitSystemPreDrivers(__int64 a1)
   {
     AstIsActive = 0;
   }
-  EtwInitialize(1u, a1);
-  result = EtwRegister(&IoTraceProvider, (PETWENABLECALLBACK)IopEtwEnableCallback, 0LL, &IoTraceHandle);
+  EtwInitialize(1u, (__int64)Context);
+  result = EtwRegister(&IoTraceProvider, (PETWENABLECALLBACK)IopEtwEnableCallback, 0LL, &IopPerfIoTrackingLock.NpxState);
   if ( result >= 0 )
   {
     result = McGenEventRegister_EtwRegister(
@@ -700,11 +697,11 @@ int __fastcall IoInitSystemPreDrivers(__int64 a1)
       result = TlgRegisterAggregateProviderEx((__int64)&unk_140E09FE8, (__int64)MiTracingEnabledCallback, 0LL);
       if ( result >= 0 )
       {
-        stru_140E36558.FirstArgument = &unk_140E09FE8;
-        if ( *(_DWORD *)&stru_140E2EB88.SchedulerApcFill5[76]
-          && stru_140E36558.FirstArgument
-          && *(_DWORD *)stru_140E36558.FirstArgument
-          && tlgKeywordOn((__int64)stru_140E36558.FirstArgument, 0x400000000080LL) )
+        stru_140E366D8.FirstArgument = &unk_140E09FE8;
+        if ( *(_DWORD *)&stru_140E2ED08.SchedulerApcFill5[76]
+          && stru_140E366D8.FirstArgument
+          && *(_DWORD *)stru_140E366D8.FirstArgument
+          && tlgKeywordOn((__int64)stru_140E366D8.FirstArgument, 0x400000000080LL) )
         {
           MiLogBadMapper(v47, 0LL, -1, 0LL);
         }
@@ -712,14 +709,14 @@ int __fastcall IoInitSystemPreDrivers(__int64 a1)
         TraceLoggingRegisterEx_EtwRegister_EtwSetInformation((__int64)&dword_140E06CD8, 0LL, 0LL);
         IopInitializeDumpPolicySettings(1);
         TlgRegisterAggregateProvider((__int64)&dword_140E06D58);
-        SeAuditBootConfiguration(*(_QWORD *)(*(_QWORD *)(a1 + 240) + 2880LL));
+        SeAuditBootConfiguration(*(_QWORD *)(Context[30] + 2880LL));
         BootApplicationPersistentDataProcess(1);
         KdInitialize(2LL, 0LL, &KdpContext);
         KeInitSystem(2LL);
         if ( !IopErrorLogDisabledThisBoot )
         {
           v49 = KeAcquireSpinLockRaiseToDpc(&IopErrorLogLock);
-          if ( IopSessionNotificationLock.IptSaveArea == &IopSessionNotificationLock.IptSaveArea )
+          if ( (_KAFFINITY_EX **)IopPerfIoTrackingLock.Affinity == &IopPerfIoTrackingLock.Affinity )
           {
             IopErrorLogSessionPending = 0;
           }
@@ -736,40 +733,40 @@ int __fastcall IoInitSystemPreDrivers(__int64 a1)
           WheaSelLogCheckPoint(8u, 3u);
         if ( (Microsoft_Windows_Kernel_IOEnableBits & 0x10) != 0 )
           McTemplateK0q_EtwWriteTransfer(IoMgrProvider_Context, (const EVENT_DESCRIPTOR *)WheaInitializeStart, v48, 0);
-        WheaInitialize(a1, 0LL);
+        WheaInitialize(Context, 0LL);
         if ( (Microsoft_Windows_Kernel_IOEnableBits & 0x10) != 0 )
           McTemplateK0_EtwWriteTransfer(IoMgrProvider_Context, (const EVENT_DESCRIPTOR *)WheaInitializeStop);
         if ( v3 )
           WheaSelLogCheckPoint(8u, 4u);
-        result = IopStoreArcInformation(a1);
+        result = IopStoreArcInformation(Context);
         if ( result >= 0 )
         {
-          v37 = IopInitializePlugPlayServices(a1, 1LL);
+          v37 = IopInitializePlugPlayServices(Context, 1LL);
           if ( v37 < 0 )
           {
             HeadlessKernelAddLogEntry();
             LODWORD(IopInitFailCode) = 5;
             return v37;
           }
-          memset_0(&IoStatusBlockRangeTable, 0, sizeof(IoStatusBlockRangeTable));
-          IoStatusBlockRangeTable.BalancedRoot.Parent = (_RTL_BALANCED_LINKS *)&IoStatusBlockRangeTable;
-          IoStatusBlockRangeTable.CompareRoutine = (_RTL_GENERIC_COMPARE_RESULTS (__fastcall *)(_RTL_AVL_TABLE *, void *, void *))IopCompareIosbRanges;
-          IoStatusBlockRangeTable.TableContext = 0LL;
-          IoStatusBlockRangeTable.AllocateRoutine = (void *(__fastcall *)(_RTL_AVL_TABLE *, unsigned int))IopAllocateGenericTableEntry;
-          IoStatusBlockRangeTableLock.Count = 1;
-          IoStatusBlockRangeTable.FreeRoutine = (void (__fastcall *)(_RTL_AVL_TABLE *, void *))IopFreeGenericTableEntry;
-          IoStatusBlockRangeTableLock.Event.Header.WaitListHead.Blink = &IoStatusBlockRangeTableLock.Event.Header.WaitListHead;
-          IoStatusBlockRangeTableLock.Event.Header.WaitListHead.Flink = &IoStatusBlockRangeTableLock.Event.Header.WaitListHead;
-          IoStatusBlockRangeTableLock.Owner = 0LL;
-          IoStatusBlockRangeTableLock.Contention = 0;
-          LOWORD(IoStatusBlockRangeTableLock.Event.Header.Lock) = 1;
-          IoStatusBlockRangeTableLock.Event.Header.Size = 6;
-          IoStatusBlockRangeTableLock.Event.Header.SignalState = 0;
-          KitpInitAitSampleRate(a1);
+          memset_0(IopPerfIoTrackingLock.TracingPrivate, 0, 0x68uLL);
+          IopPerfIoTrackingLock.TracingPrivate[0] = (unsigned __int64)IopPerfIoTrackingLock.TracingPrivate;
+          IopPerfIoTrackingLock.KernelShadowStack = IopCompareIosbRanges;
+          IopPerfIoTrackingLock.KernelShadowStackLimit.AllFields = 0LL;
+          IopPerfIoTrackingLock.KernelShadowStackInitial = IopAllocateGenericTableEntry;
+          LODWORD(IopPerfIoTrackingLock.Spare35[1]) = 1;
+          IopPerfIoTrackingLock.KernelShadowStackBase = IopFreeGenericTableEntry;
+          IopPerfIoTrackingLock.SchedulerSharedSwappablePage = (_KSWAPPABLE_PAGE *)&IopPerfIoTrackingLock.ResourceIndex;
+          *(_QWORD *)&IopPerfIoTrackingLock.ResourceIndex = &IopPerfIoTrackingLock.ResourceIndex;
+          *(_QWORD *)&IopPerfIoTrackingLock.Spare36 = 0LL;
+          LODWORD(IopPerfIoTrackingLock.SystemAffinityTokenListHead.Next) = 0;
+          LOWORD(IopPerfIoTrackingLock.IptSaveArea) = 1;
+          BYTE2(IopPerfIoTrackingLock.IptSaveArea) = 6;
+          HIDWORD(IopPerfIoTrackingLock.IptSaveArea) = 0;
+          KitpInitAitSampleRate(Context);
           if ( EtwRegister(&MS_Windows_AIT_Provider, 0LL, 0LL, (PREGHANDLE)&ExpUuidLock.Header.WaitListHead) < 0 )
             ExpUuidLock.Header.WaitListHead.Flink = 0LL;
-          KseInitialize(a1, 1LL);
-          result = HvlPhase2Initialize(a1);
+          KseInitialize(Context, 1LL);
+          result = HvlPhase2Initialize((__int64)Context);
           if ( result >= 0 )
           {
             if ( v3 )
@@ -789,22 +786,22 @@ int __fastcall IoInitSystemPreDrivers(__int64 a1)
                 0,
                 0LL);
             LOWORD(ActiveConnectListLock.Header.Lock) = 1;
-            qword_140F849E8 = (__int64)&ActiveConnectList;
+            qword_140F84D88 = (__int64)&ActiveConnectList;
             ActiveConnectList = (__int64)&ActiveConnectList;
             ActiveConnectListLock.Header.WaitListHead.Blink = &ActiveConnectListLock.Header.WaitListHead;
             ActiveConnectListLock.Header.WaitListHead.Flink = &ActiveConnectListLock.Header.WaitListHead;
             ActiveConnectListLock.Header.Size = 6;
             ActiveConnectListLock.Header.SignalState = 1;
             IopQueryPassiveInterruptRegistryOptions();
-            qword_140F849B8 = (__int64)&PassiveInterruptList;
+            qword_140F84D58 = (__int64)&PassiveInterruptList;
             PassiveInterruptList = (__int64)&PassiveInterruptList;
             PassiveInterruptListLock = 0LL;
             KeInitializeQueue(&PassiveInterruptRealtimeWorkQueue, (unsigned __int8)PassiveInterruptRealtimeWorkerCount);
             result = IopCreatePassiveInterruptRealtimeThreads(v50);
             if ( result >= 0 )
             {
-              SecureDump_PrepareForInit(v51, v71);
-              if ( ForceDumpDisabled || v71[0] || !AllowCrashDump )
+              SecureDump_PrepareForInit(v51, v69);
+              if ( ForceDumpDisabled || v69[0] || !AllowCrashDump )
                 CapsuleDumpAllowed = 0;
               else
                 IopInitDumpCapsuleSupport();
@@ -814,46 +811,45 @@ int __fastcall IoInitSystemPreDrivers(__int64 a1)
                 EtwTraceLeapSecondDataParseFailure(SHIDWORD(PspSiloMonitorLock.KernelStack));
               EtwTraceLeapSecondDataUpdate(
                 0,
-                ExpSysDbgLock.ApcState.Process->Header.Type,
-                ExpSysDbgLock.ApcState.Process->Header.SignalState,
+                (unsigned __int8)ExpSysDbgLock.WaitBlockList->WaitListEntry.Flink,
+                HIDWORD(ExpSysDbgLock.WaitBlockList->WaitListEntry.Flink),
                 0);
-              v80[0] = 65542LL;
-              v74[1] = &IopIoRateHostTable;
-              v80[2] = 512LL;
-              v80[1] = v74;
-              LODWORD(v74[0]) = 1;
-              v80[3] = 0LL;
-              v80[4] = 0LL;
-              if ( (int)ExRegisterHost(&IopSessionNotificationLock.SListFaultAddress, v52, (unsigned __int16 *)v80) < 0 )
-                IopSessionNotificationLock.SListFaultAddress = 0LL;
+              v78[0] = 65542LL;
+              Object[1] = &IopIoRateHostTable;
+              v78[2] = 512LL;
+              v78[1] = Object;
+              LODWORD(Object[0]) = 1;
+              v78[3] = 0LL;
+              v78[4] = 0LL;
+              if ( (int)ExRegisterHost(&IopIoRateExtensionHost, v52, (unsigned __int16 *)v78) < 0 )
+                IopIoRateExtensionHost = 0LL;
               *(_QWORD *)&PsAltSystemCallRegistrationLock.Header.Lock = 0LL;
-              stru_140FC01F0.QueueListEntry.Blink = (struct _LIST_ENTRY *)PsPicoAltSystemCallDispatch;
+              stru_140FC11F0.QueueListEntry.Blink = (struct _LIST_ENTRY *)PsPicoAltSystemCallDispatch;
               IopReportBugCheckProgress = (__int64)HalSetEnvironmentVariableEx;
-              if ( (*(_DWORD *)(a1 + 264) & 2) != 0 )
+              if ( (Context[33] & 2) != 0 )
                 IopReportBugCheckProgress = (__int64)VslReportBugCheckProgress;
               if ( v3 )
                 WheaSelLogCheckPoint(8u, 0x206u);
-              if ( (*(_DWORD *)(*(_QWORD *)(a1 + 240) + 132LL) & 0x100000) != 0 )
+              if ( (*(_DWORD *)(Context[30] + 132LL) & 0x100000) != 0 )
               {
                 if ( (Microsoft_Windows_Kernel_IOEnableBits & 0x10) != 0 )
                   McTemplateK0_EtwWriteTransfer(
                     IoMgrProvider_Context,
                     (const EVENT_DESCRIPTOR *)CrashDumpInitializeStart);
-                LOBYTE(v53) = 1;
-                inited = IopInitCrashDumpDuringSysInit(a1, v53);
-                v58 = inited;
+                inited = IopInitCrashDumpDuringSysInit(Context);
+                v57 = inited;
                 if ( (Microsoft_Windows_Kernel_IOEnableBits & 0x10) != 0 )
                   McTemplateK0q_EtwWriteTransfer(
                     IoMgrProvider_Context,
                     (const EVENT_DESCRIPTOR *)CrashDumpInitializeStop,
-                    v57,
+                    v56,
                     inited);
                 if ( v3 )
-                  WheaSelLogCheckPoint(0x4Fu, v58);
-                if ( ExpSysDbgLock.SavedApcState.ApcListHead[1].Flink )
-                  guard_dispatch_icall_no_overrides(v56, v55);
+                  WheaSelLogCheckPoint(0x4Fu, v57);
+                if ( ExpSysDbgLock.SchedulerApc.ApcListEntry.Blink )
+                  guard_dispatch_icall_no_overrides(v55, v54);
               }
-              v37 = IopInitializeBootDrivers(a1, &v79);
+              v37 = IopInitializeBootDrivers(Context, &v77);
               if ( v37 < 0 )
               {
                 HeadlessKernelAddLogEntry();
@@ -865,7 +861,7 @@ int __fastcall IoInitSystemPreDrivers(__int64 a1)
                 WheaSelLogCheckPoint(8u, 0x306u);
               if ( (Microsoft_Windows_Kernel_IOEnableBits & 8) != 0 )
                 McTemplateK0_EtwWriteTransfer(IoMgrProvider_Context, (const EVENT_DESCRIPTOR *)LoadBootHotPatchesStart);
-              v37 = MmRegisterHotPatches(a1);
+              v37 = MmRegisterHotPatches(Context);
               if ( (Microsoft_Windows_Kernel_IOEnableBits & 8) != 0 )
                 McTemplateK0_EtwWriteTransfer(IoMgrProvider_Context, (const EVENT_DESCRIPTOR *)LoadBootHotPatchesStop);
               if ( v37 < 0 )
@@ -873,12 +869,12 @@ int __fastcall IoInitSystemPreDrivers(__int64 a1)
                 LODWORD(IopInitFailCode) = 21;
                 return v37;
               }
-              if ( !(unsigned __int8)PoInitSystem(2LL, a1, v59) )
+              if ( !(unsigned __int8)PoInitSystem(2LL, Context, v58) )
                 KeBugCheck(0xA0u);
               if ( v3 )
                 WheaSelLogCheckPoint(8u, 7u);
-              SmInitSystem(2, v60, v61, v62);
-              EtwInitialize(2u, a1);
+              SmInitSystem(2, v59, v60, v61);
+              EtwInitialize(2u, (__int64)Context);
               VslRegisterIumPowerCallbacks();
               IopInitializeSystemVariableService();
               SecureDump_ProvisionCrashDumpKey();
@@ -893,17 +889,17 @@ int __fastcall IoInitSystemPreDrivers(__int64 a1)
               if ( (Microsoft_Windows_Kernel_IOEnableBits & 0x10) != 0 )
                 McTemplateK0_EtwWriteTransfer(IoMgrProvider_Context, (const EVENT_DESCRIPTOR *)CrashDumpInitializeStart);
               WheaSelLogCheckPoint(0x53u, 0);
-              v63 = IopInitCrashDumpDuringSysInit(a1, 0LL);
-              v65 = v63;
+              v62 = IopInitCrashDumpDuringSysInit(Context);
+              v64 = v62;
               if ( (Microsoft_Windows_Kernel_IOEnableBits & 0x10) != 0 )
                 McTemplateK0q_EtwWriteTransfer(
                   IoMgrProvider_Context,
                   (const EVENT_DESCRIPTOR *)CrashDumpInitializeStop,
-                  v64,
-                  v63);
+                  v63,
+                  v62);
               if ( v3 )
-                WheaSelLogCheckPoint(0x50u, v65);
-              if ( v65 < 0 )
+                WheaSelLogCheckPoint(0x50u, v64);
+              if ( v64 < 0 )
               {
                 if ( !AllowCrashDump )
                   IopTraceCrashDumpDisabledOnBoot();
@@ -915,22 +911,22 @@ int __fastcall IoInitSystemPreDrivers(__int64 a1)
               if ( !RtlIsStateSeparationEnabled() )
                 PpLastGoodDoBootProcessing();
               CimfsCheckIntegrity();
-              v66 = NtGlobalFlag;
+              v65 = NtGlobalFlag;
               NtGlobalFlag |= 0x40000u;
               SystemDlls = PsLocateSystemDlls();
-              NtGlobalFlag = v66;
-              v68 = SystemDlls;
+              NtGlobalFlag = v65;
+              v67 = SystemDlls;
               if ( SystemDlls >= 0 )
               {
                 MmInitializeImageViewExtension(1LL);
                 PfSnBeginBootPhase(0);
-                if ( !(unsigned __int8)IopReassignSystemRoot(a1, v78) )
+                if ( !(unsigned __int8)IopReassignSystemRoot(Context, v76) )
                 {
                   HeadlessKernelAddLogEntry();
                   LODWORD(IopInitFailCode) = 9;
                   return -1073741823;
                 }
-                if ( !(unsigned __int8)IopProtectSystemPartition(a1) )
+                if ( !(unsigned __int8)IopProtectSystemPartition(Context) )
                 {
                   HeadlessKernelAddLogEntry();
                   LODWORD(IopInitFailCode) = 10;
@@ -943,11 +939,11 @@ int __fastcall IoInitSystemPreDrivers(__int64 a1)
                 *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
                 if ( ZwOpenFile(&KeyHandle, 0x80000000, &ObjectAttributes, &IoStatusBlock, 1u, 0) >= 0 )
                 {
-                  v74[0] = 0LL;
-                  if ( ObReferenceObjectByHandle(KeyHandle, 0x80u, 0LL, 0, v74, 0LL) >= 0 )
+                  Object[0] = 0LL;
+                  if ( ObReferenceObjectByHandle(KeyHandle, 0x80u, 0LL, 0, Object, 0LL) >= 0 )
                   {
-                    PpPagePathAssign((struct _FILE_OBJECT *)v74[0]);
-                    ObfDereferenceObjectWithTag(v74[0], 0x746C6644u);
+                    PpPagePathAssign((struct _FILE_OBJECT *)Object[0]);
+                    ObfDereferenceObjectWithTag(Object[0], 0x746C6644u);
                   }
                   ZwClose(KeyHandle);
                 }
@@ -962,9 +958,9 @@ int __fastcall IoInitSystemPreDrivers(__int64 a1)
                   McTemplateK0q_EtwWriteTransfer(
                     IoMgrProvider_Context,
                     (const EVENT_DESCRIPTOR *)WheaInitializeStart,
-                    v69,
+                    v68,
                     1);
-                WheaInitialize(a1, 1LL);
+                WheaInitialize(Context, 1LL);
                 if ( (Microsoft_Windows_Kernel_IOEnableBits & 0x10) != 0 )
                   McTemplateK0_EtwWriteTransfer(IoMgrProvider_Context, (const EVENT_DESCRIPTOR *)WheaInitializeStop);
                 if ( v3 )
@@ -974,7 +970,7 @@ int __fastcall IoInitSystemPreDrivers(__int64 a1)
               else
               {
                 HeadlessKernelAddLogEntry();
-                result = v68;
+                result = v67;
                 LODWORD(IopInitFailCode) = 7;
               }
             }

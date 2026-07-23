@@ -14,47 +14,47 @@
  *     ExFreePoolWithTag @ 0x140B62CD0 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall BiQueryBootEntryOrder(_QWORD *a1, _DWORD *a2)
+__int64 __fastcall BiQueryBootEntryOrder(ULONG **a1, ULONG *a2)
 {
-  void *v2; // rdi
-  int BootEntryOrder; // ebx
-  __int64 Pool2; // rax
-  int v8; // [rsp+50h] [rbp+18h] BYREF
+  ULONG *v2; // rdi
+  NTSTATUS v5; // ebx
+  ULONG *Pool2; // rax
+  ULONG Count; // [rsp+50h] [rbp+18h] BYREF
   __int64 v9; // [rsp+58h] [rbp+20h] BYREF
 
   v9 = 0LL;
   v2 = 0LL;
-  v8 = 0;
-  BootEntryOrder = BiAcquirePrivilege(22LL, &v9);
-  if ( BootEntryOrder >= 0 )
+  Count = 0;
+  v5 = BiAcquirePrivilege(22LL, &v9);
+  if ( v5 >= 0 )
   {
-    BootEntryOrder = ZwQueryBootEntryOrder(0LL, (__int64)&v8);
-    if ( BootEntryOrder != -1073741789 )
+    v5 = ZwQueryBootEntryOrder(0LL, &Count);
+    if ( v5 != -1073741789 )
       goto LABEL_6;
-    Pool2 = ExAllocatePool2(0x102uLL);
-    v2 = (void *)Pool2;
+    Pool2 = (ULONG *)ExAllocatePool2(0x102uLL);
+    v2 = Pool2;
     if ( !Pool2 )
     {
-      BootEntryOrder = -1073741670;
+      v5 = -1073741670;
 LABEL_10:
       BiReleasePrivilege(&v9);
-      return (unsigned int)BootEntryOrder;
+      return (unsigned int)v5;
     }
-    BootEntryOrder = ZwQueryBootEntryOrder(Pool2, (__int64)&v8);
-    if ( BootEntryOrder < 0 )
+    v5 = ZwQueryBootEntryOrder(Pool2, &Count);
+    if ( v5 < 0 )
     {
 LABEL_6:
-      BiLogMessage(4LL, L"Failed to query boot entry order. Status: %x", (unsigned int)BootEntryOrder);
-      if ( BootEntryOrder < 0 )
+      BiLogMessage(4LL, L"Failed to query boot entry order. Status: %x", (unsigned int)v5);
+      if ( v5 < 0 )
       {
         if ( v2 )
           ExFreePoolWithTag(v2, 0x4B444342u);
         goto LABEL_10;
       }
     }
-    *a2 = v8;
+    *a2 = Count;
     *a1 = v2;
     goto LABEL_10;
   }
-  return (unsigned int)BootEntryOrder;
+  return (unsigned int)v5;
 }

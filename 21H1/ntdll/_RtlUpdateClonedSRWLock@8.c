@@ -6,11 +6,7 @@
  *     <none>
  */
 
-_DWORD *__stdcall RtlUpdateClonedSRWLock(_DWORD *a1, int a2)
+void __cdecl RtlUpdateClonedSRWLock(PRTL_SRWLOCK SRWLock, LOGICAL Shared)
 {
-  _DWORD *result; // eax
-
-  result = a1;
-  *a1 = a2 != 0 ? 17 : 1;
-  return result;
+  SRWLock->Value = Shared != 0 ? 17 : 1;
 }

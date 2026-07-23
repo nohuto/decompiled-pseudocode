@@ -9,7 +9,7 @@
  *     RtlpEnsureLiveDeadListsInitialized @ 0x1800D26A8 (RtlpEnsureLiveDeadListsInitialized.c)
  */
 
-__int64 __fastcall RtlpMoveActCtxToFreeList(__int64 a1)
+NTSTATUS __fastcall RtlpMoveActCtxToFreeList(__int64 a1)
 {
   __int64 v2; // r8
   _QWORD *v3; // rdx
@@ -19,7 +19,7 @@ __int64 __fastcall RtlpMoveActCtxToFreeList(__int64 a1)
   __int64 **v7; // rdx
 
   RtlpEnsureLiveDeadListsInitialized();
-  RtlEnterCriticalSection((__int64)NtCurrentPeb()->FastPebLock);
+  RtlEnterCriticalSection(NtCurrentPeb()->FastPebLock);
   v2 = *(_QWORD *)(a1 + 8);
   v3 = *(_QWORD **)(a1 + 16);
   if ( *(_QWORD *)(v2 + 8) != a1 + 8 || *v3 != a1 + 8 )
@@ -56,5 +56,5 @@ __int64 __fastcall RtlpMoveActCtxToFreeList(__int64 a1)
   {
     RtlpFreeActivationContext(a1);
   }
-  return RtlLeaveCriticalSection((__int64)NtCurrentPeb()->FastPebLock);
+  return RtlLeaveCriticalSection(NtCurrentPeb()->FastPebLock);
 }

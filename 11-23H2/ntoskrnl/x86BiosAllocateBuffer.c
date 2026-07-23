@@ -1,5 +1,5 @@
 /*
- * XREFs of x86BiosAllocateBuffer @ 0x1403AD7F0
+ * XREFs of x86BiosAllocateBuffer @ 0x1403AD9D0
  * Callers:
  *     <none>
  * Callees:

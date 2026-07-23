@@ -15,38 +15,38 @@
  *     sub_1800F43B4 @ 0x1800F43B4 (sub_1800F43B4.c)
  */
 
-__int64 __fastcall sub_180068000(int a1, wchar_t *a2, __int64 a3, void *a4, int *a5, char a6)
+__int64 __fastcall sub_180068000(int a1, WCHAR *a2, __int64 a3, void *a4, int *a5, char a6)
 {
-  int v6; // ebx
+  LONG v6; // ebx
   void *v7; // r15
   int v8; // edi
   int v10; // r14d
   bool v11; // dl
   char v12; // r13
   __int64 v13; // r8
-  wchar_t *v14; // rdx
+  WCHAR *v14; // rdx
   __int64 result; // rax
   int v16; // eax
-  wchar_t *v17; // r9
-  int v18; // ecx
-  int v19; // eax
+  WCHAR *v17; // r9
+  LONG v18; // ecx
+  NTSTATUS v19; // eax
   unsigned int v20; // ecx
-  wchar_t v21; // dx
-  wchar_t v22; // ax
+  WCHAR v21; // dx
+  WCHAR v22; // ax
   __int64 v23; // rdx
   __int64 v24; // rcx
   __int64 v25; // r8
-  int v26; // edi
-  int v27; // eax
-  int v28; // eax
+  LONG v26; // edi
+  LONG v27; // eax
+  NTSTATUS v28; // eax
   bool v29; // cc
   unsigned __int64 v30; // rax
   char v31; // [rsp+30h] [rbp-D0h]
   bool v32; // [rsp+31h] [rbp-CFh]
-  int v33; // [rsp+34h] [rbp-CCh] BYREF
+  LONG DestinationStringLength; // [rsp+34h] [rbp-CCh] BYREF
   __int64 v34; // [rsp+38h] [rbp-C8h] BYREF
   int v35; // [rsp+40h] [rbp-C0h]
-  wchar_t String1[512]; // [rsp+50h] [rbp-B0h] BYREF
+  WCHAR DestinationString[512]; // [rsp+50h] [rbp-B0h] BYREF
   wchar_t Src[520]; // [rsp+450h] [rbp+350h] BYREF
 
   v6 = 0;
@@ -65,15 +65,15 @@ __int64 __fastcall sub_180068000(int a1, wchar_t *a2, __int64 a3, void *a4, int 
     return 3221225485LL;
   v31 = 0;
   v35 = a1 & 1;
-  v33 = a1 & 4;
-  v11 = v33 != 0;
+  DestinationStringLength = a1 & 4;
+  v11 = DestinationStringLength != 0;
   v12 = (a1 & 2) != 0;
-  v32 = v33 != 0;
+  v32 = DestinationStringLength != 0;
   if ( (_DWORD)a3 == -1 )
   {
     if ( (int)sub_180035D8C(a2, 0x7FFFFFFFuLL, &v34) >= 0 )
     {
-      v11 = v33 != 0;
+      v11 = DestinationStringLength != 0;
       v8 = v34 + 1;
       goto LABEL_9;
     }
@@ -90,23 +90,23 @@ LABEL_9:
   if ( !(unsigned __int8)sub_180068274(a2, (unsigned int)v8, a3, a4) )
   {
     v16 = 0;
-    v17 = String1;
+    v17 = DestinationString;
     v18 = 511;
-    if ( v33 )
+    if ( DestinationStringLength )
     {
-      v27 = sub_1800F43B4(a2, (unsigned int)v8, v13, String1);
+      v27 = sub_1800F43B4(a2, (unsigned int)v8, v13, DestinationString);
       LODWORD(v34) = v27;
       if ( !v27 )
         goto LABEL_38;
-      v33 = 511;
-      v28 = RtlNormalizeString(1, (_DWORD)a2, v27, (unsigned int)String1, (__int64)&v33);
-      v6 = v33;
+      DestinationStringLength = 511;
+      v28 = RtlNormalizeString(1u, a2, v27, DestinationString, &DestinationStringLength);
+      v6 = DestinationStringLength;
       v20 = v28;
-      if ( v28 < 0 || !v33 )
+      if ( v28 < 0 || !DestinationStringLength )
       {
         if ( !v28 || v28 == -1073741789 || v28 == -1073740009 )
           goto LABEL_49;
-        v29 = v33 <= 0;
+        v29 = DestinationStringLength <= 0;
 LABEL_48:
         if ( v29 )
         {
@@ -119,15 +119,15 @@ LABEL_49:
         goto LABEL_50;
       }
       v16 = v34;
-      v17 = &String1[v33];
-      v18 = 511 - v33;
+      v17 = &DestinationString[DestinationStringLength];
+      v18 = 511 - DestinationStringLength;
     }
     if ( v16 >= v8 )
     {
 LABEL_30:
       if ( v6 > 0 )
       {
-        v21 = String1[v6 - 1];
+        v21 = DestinationString[v6 - 1];
         if ( v21 == 46 )
         {
           v22 = a2[v8 - 1];
@@ -137,10 +137,10 @@ LABEL_30:
         if ( !v21 )
           goto LABEL_38;
       }
-      v33 = 515;
-      result = sub_180067ACC(String1, v6, Src, &v33, v32, v12);
-      v26 = v33;
-      if ( !v33 )
+      DestinationStringLength = 515;
+      result = sub_180067ACC(DestinationString, v6, Src, &DestinationStringLength, v32, v12);
+      v26 = DestinationStringLength;
+      if ( !DestinationStringLength )
       {
 LABEL_35:
         *a5 = 0;
@@ -155,25 +155,25 @@ LABEL_35:
           v30 = v6++;
           if ( v30 >= 511 )
             _report_rangecheckfailure(v24, v23, v25, 0LL);
-          String1[v30] = 0;
+          DestinationString[v30] = 0;
         }
         if ( !v7 || !v10 )
           goto LABEL_21;
         if ( v6 <= v10 )
         {
-          v14 = String1;
+          v14 = DestinationString;
           goto LABEL_20;
         }
         goto LABEL_79;
       }
       if ( !v31 )
         goto LABEL_64;
-      if ( (unsigned __int64)v33 < 0x203 )
+      if ( (unsigned __int64)DestinationStringLength < 0x203 )
       {
-        v26 = v33 + 1;
-        if ( (unsigned __int64)(2LL * v33) >= 0x406 )
+        v26 = DestinationStringLength + 1;
+        if ( (unsigned __int64)(2LL * DestinationStringLength) >= 0x406 )
           _report_rangecheckfailure(v24, v23, v25, 0LL);
-        Src[v33] = 0;
+        Src[DestinationStringLength] = 0;
 LABEL_64:
         if ( v7 && v10 )
         {
@@ -192,22 +192,17 @@ LABEL_38:
       result = 3221227286LL;
       goto LABEL_35;
     }
-    v33 = v18;
-    v19 = RtlNormalizeString(
-            (((unsigned __int8)v35 ^ 1u) << 8) + 13,
-            (int)a2 + 2 * v16,
-            v8 - v16,
-            (_DWORD)v17,
-            (__int64)&v33);
+    DestinationStringLength = v18;
+    v19 = RtlNormalizeString((((unsigned __int8)v35 ^ 1) << 8) + 13, &a2[v16], v8 - v16, v17, &DestinationStringLength);
     v20 = v19;
-    if ( v19 >= 0 && v33 )
+    if ( v19 >= 0 && DestinationStringLength )
     {
-      v6 += v33;
+      v6 += DestinationStringLength;
       goto LABEL_30;
     }
     if ( !v19 || v19 == -1073741789 || v19 == -1073740009 )
       goto LABEL_49;
-    v29 = v33 <= 0;
+    v29 = DestinationStringLength <= 0;
     goto LABEL_48;
   }
   if ( v8 )

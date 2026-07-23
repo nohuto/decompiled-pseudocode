@@ -1,14 +1,14 @@
 /*
- * XREFs of LocalGetSidForString @ 0x1404D722C
+ * XREFs of LocalGetSidForString @ 0x1404BA830
  * Callers:
- *     LocalConvertStringSDToSD_Rev1 @ 0x1404D67F8 (LocalConvertStringSDToSD_Rev1.c)
- *     LocalGetAclForString @ 0x1404D6D44 (LocalGetAclForString.c)
- *     GetOperandValue @ 0x1406CCF20 (GetOperandValue.c)
- *     LocalGetRelativeAttributeForString @ 0x1406CE88C (LocalGetRelativeAttributeForString.c)
+ *     LocalConvertStringSDToSD_Rev1 @ 0x1404B9DFC (LocalConvertStringSDToSD_Rev1.c)
+ *     LocalGetAclForString @ 0x1404BA348 (LocalGetAclForString.c)
+ *     GetOperandValue @ 0x1406CD058 (GetOperandValue.c)
+ *     LocalGetRelativeAttributeForString @ 0x1406CE9C4 (LocalGetRelativeAttributeForString.c)
  * Callees:
- *     RtlNtStatusToDosError @ 0x1404BAE20 (RtlNtStatusToDosError.c)
- *     LookupSidInTable @ 0x1404D72E0 (LookupSidInTable.c)
- *     LocalpConvertStringSidToSid @ 0x1406CB8F8 (LocalpConvertStringSidToSid.c)
+ *     RtlNtStatusToDosError @ 0x1404A6B50 (RtlNtStatusToDosError.c)
+ *     LookupSidInTable @ 0x1404BA8E4 (LookupSidInTable.c)
+ *     LocalpConvertStringSidToSid @ 0x1406CBA30 (LocalpConvertStringSidToSid.c)
  */
 
 __int64 __fastcall LocalGetSidForString(

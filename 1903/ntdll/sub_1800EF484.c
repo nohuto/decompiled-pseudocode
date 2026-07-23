@@ -10,29 +10,29 @@
  *     sub_1800F1080 @ 0x1800F1080 (sub_1800F1080.c)
  */
 
-__int64 __fastcall sub_1800EF484(__int64 a1, __int64 a2)
+__int64 __fastcall sub_1800EF484(_DWORD *HeapHandle, __int64 a2)
 {
-  __int64 v5; // rax
-  unsigned int v6; // ebx
+  __int64 v4; // rax
+  unsigned int v5; // ebx
 
-  if ( a1 )
+  if ( HeapHandle )
   {
-    if ( (*(_DWORD *)(a1 + 116) & 0x1000000) != 0 )
+    if ( (HeapHandle[29] & 0x1000000) != 0 )
     {
       return 3221225474LL;
     }
     else
     {
-      RtlEnterCriticalSection((__int64)&unk_180163BE0);
-      v5 = 28LL;
-      if ( *(_DWORD *)(a1 + 16) != -571548178 )
-        v5 = 208LL;
-      if ( *(_WORD *)(v5 + a1) == 0xFFFF )
-        v6 = -1073741811;
+      RtlEnterCriticalSection(&stru_180163BE0);
+      v4 = 7LL;
+      if ( HeapHandle[4] != -571548178 )
+        v4 = 52LL;
+      if ( LOWORD(HeapHandle[v4]) == 0xFFFF )
+        v5 = -1073741811;
       else
-        v6 = sub_1800F1080(a1, a2);
-      RtlLeaveCriticalSection((__int64)&unk_180163BE0);
-      return v6;
+        v5 = sub_1800F1080(HeapHandle);
+      RtlLeaveCriticalSection(&stru_180163BE0);
+      return v5;
     }
   }
   else

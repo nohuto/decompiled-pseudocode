@@ -1,11 +1,11 @@
 /*
- * XREFs of Feature_IoInvalidateDeviceState_Unconditional__private_ReportDeviceUsage @ 0x1404829C4
+ * XREFs of Feature_IoInvalidateDeviceState_Unconditional__private_ReportDeviceUsage @ 0x14047C334
  * Callers:
- *     IoInvalidateDeviceState @ 0x1404824A0 (IoInvalidateDeviceState.c)
- *     PiProcessRequeryDeviceState @ 0x14090E8A4 (PiProcessRequeryDeviceState.c)
+ *     IoInvalidateDeviceState @ 0x14047BE10 (IoInvalidateDeviceState.c)
+ *     PiProcessRequeryDeviceState @ 0x1409B09D4 (PiProcessRequeryDeviceState.c)
  * Callees:
- *     wil_details_FeatureReporting_ReportUsageToService @ 0x14052D25C (wil_details_FeatureReporting_ReportUsageToService.c)
- *     wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath @ 0x140532A10 (wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath.c)
+ *     wil_details_FeatureReporting_ReportUsageToService @ 0x14052F77C (wil_details_FeatureReporting_ReportUsageToService.c)
+ *     wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath @ 0x140534EB0 (wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath.c)
  */
 
 __int64 Feature_IoInvalidateDeviceState_Unconditional__private_ReportDeviceUsage()

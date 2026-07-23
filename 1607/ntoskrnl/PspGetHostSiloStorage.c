@@ -1,7 +1,7 @@
 /*
- * XREFs of PspGetHostSiloStorage @ 0x14017192C
+ * XREFs of PspGetHostSiloStorage @ 0x140171E28
  * Callers:
- *     PsUnregisterSiloMonitor @ 0x140681064 (PsUnregisterSiloMonitor.c)
+ *     PsUnregisterSiloMonitor @ 0x140681148 (PsUnregisterSiloMonitor.c)
  * Callees:
  *     <none>
  */

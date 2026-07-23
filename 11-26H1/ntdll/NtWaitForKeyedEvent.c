@@ -1,16 +1,20 @@
 /*
- * XREFs of NtWaitForKeyedEvent @ 0x180162BF0
+ * XREFs of NtWaitForKeyedEvent @ 0x180162AF0
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 NtWaitForKeyedEvent()
+NTSTATUS __cdecl NtWaitForKeyedEvent(
+        HANDLE KeyedEventHandle,
+        PVOID KeyValue,
+        BOOLEAN Alertable,
+        PLARGE_INTEGER Timeout)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 486LL;
+  result = 486;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

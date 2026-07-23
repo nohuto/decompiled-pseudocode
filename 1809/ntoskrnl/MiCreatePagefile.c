@@ -1,21 +1,21 @@
 /*
- * XREFs of MiCreatePagefile @ 0x14074CB20
+ * XREFs of MiCreatePagefile @ 0x14074DD10
  * Callers:
- *     MmStoreRegister @ 0x14074BD2C (MmStoreRegister.c)
- *     MiCreatePagingFile @ 0x14074BFB8 (MiCreatePagingFile.c)
+ *     MmStoreRegister @ 0x14074CF1C (MmStoreRegister.c)
+ *     MiCreatePagingFile @ 0x14074D1A8 (MiCreatePagingFile.c)
  * Callees:
  *     RtlClearBits @ 0x140017890 (RtlClearBits.c)
  *     MiAllocateModWriterEntry @ 0x140029B74 (MiAllocateModWriterEntry.c)
  *     RtlSetAllBits @ 0x14002BDF0 (RtlSetAllBits.c)
- *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
- *     InitializeSListHead @ 0x1400F3180 (InitializeSListHead.c)
- *     MiInitializePagefileBitmapsCache @ 0x140188224 (MiInitializePagefileBitmapsCache.c)
- *     MiReservePageHash @ 0x1401883A8 (MiReservePageHash.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     MiCreatePageFileSpaceBitmaps @ 0x14074CE08 (MiCreatePageFileSpaceBitmaps.c)
- *     MiDeletePagefile @ 0x1408530F0 (MiDeletePagefile.c)
+ *     RtlInitUnicodeString @ 0x1400B99D0 (RtlInitUnicodeString.c)
+ *     InitializeSListHead @ 0x1400F3200 (InitializeSListHead.c)
+ *     MiInitializePagefileBitmapsCache @ 0x140188364 (MiInitializePagefileBitmapsCache.c)
+ *     MiReservePageHash @ 0x1401884E8 (MiReservePageHash.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     MiCreatePageFileSpaceBitmaps @ 0x14074DFF8 (MiCreatePageFileSpaceBitmaps.c)
+ *     MiDeletePagefile @ 0x140854350 (MiDeletePagefile.c)
  */
 
 _QWORD *__fastcall MiCreatePagefile(
@@ -54,8 +54,8 @@ _QWORD *__fastcall MiCreatePagefile(
   v13[28] = a3;
   *v13 = a4;
   v13[2] = a4;
-  *((_DWORD *)v13 + 31) = dword_14054018C;
-  *((_DWORD *)v13 + 34) = 4 * dword_14054018C;
+  *((_DWORD *)v13 + 31) = dword_14054118C;
+  *((_DWORD *)v13 + 34) = 4 * dword_14054118C;
   v13[32] = a1;
   v13[29] = 0LL;
   InitializeSListHead((PSLIST_HEADER)v13 + 5);
@@ -91,7 +91,7 @@ LABEL_20:
     v16 = 0;
     while ( 1 )
     {
-      ModWriterEntry = MiAllocateModWriterEntry(a1, (unsigned int)dword_14054018C, 0);
+      ModWriterEntry = MiAllocateModWriterEntry(a1, (unsigned int)dword_14054118C, 0);
       v18 = ModWriterEntry;
       if ( !ModWriterEntry )
         goto LABEL_38;

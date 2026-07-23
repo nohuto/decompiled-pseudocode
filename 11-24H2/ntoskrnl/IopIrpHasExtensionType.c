@@ -1,14 +1,14 @@
 /*
- * XREFs of IopIrpHasExtensionType @ 0x1403F51A0
+ * XREFs of IopIrpHasExtensionType @ 0x1403E8190
  * Callers:
- *     IoReuseIrp @ 0x14031A320 (IoReuseIrp.c)
- *     IoMakeAssociatedIrpPriv @ 0x140374CE8 (IoMakeAssociatedIrpPriv.c)
- *     IopPerfCompleteRequest @ 0x1403DC6BC (IopPerfCompleteRequest.c)
- *     IoClearAdapterCryptoEngineExtension @ 0x140597410 (IoClearAdapterCryptoEngineExtension.c)
- *     IoClearFsTrackOffsetState @ 0x140597460 (IoClearFsTrackOffsetState.c)
- *     IoGetAdapterCryptoEngineExtension @ 0x1405974A0 (IoGetAdapterCryptoEngineExtension.c)
- *     IoSetFsZeroingOffset @ 0x140597540 (IoSetFsZeroingOffset.c)
- *     IoSetFsZeroingOffsetRequired @ 0x140597580 (IoSetFsZeroingOffsetRequired.c)
+ *     IoMakeAssociatedIrpPriv @ 0x14025D5A8 (IoMakeAssociatedIrpPriv.c)
+ *     IoReuseIrp @ 0x1402C2EB0 (IoReuseIrp.c)
+ *     IopPerfCompleteRequest @ 0x1403CB914 (IopPerfCompleteRequest.c)
+ *     IoClearAdapterCryptoEngineExtension @ 0x140594390 (IoClearAdapterCryptoEngineExtension.c)
+ *     IoClearFsTrackOffsetState @ 0x1405943E0 (IoClearFsTrackOffsetState.c)
+ *     IoGetAdapterCryptoEngineExtension @ 0x140594420 (IoGetAdapterCryptoEngineExtension.c)
+ *     IoSetFsZeroingOffset @ 0x1405944C0 (IoSetFsZeroingOffset.c)
+ *     IoSetFsZeroingOffsetRequired @ 0x140594500 (IoSetFsZeroingOffsetRequired.c)
  * Callees:
  *     <none>
  */

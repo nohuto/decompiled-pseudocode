@@ -1,14 +1,14 @@
 /*
- * XREFs of IoRegisterIoTracking @ 0x140948F70
+ * XREFs of IoRegisterIoTracking @ 0x140949170
  * Callers:
  *     <none>
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1402BD960 (ExfTryToWakePushLock.c)
- *     KiCheckForKernelApcDelivery @ 0x14030F820 (KiCheckForKernelApcDelivery.c)
- *     IopIrpExtensionControl @ 0x140555930 (IopIrpExtensionControl.c)
- *     IoPerfInit @ 0x140558ED8 (IoPerfInit.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140231120 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     ExfTryToWakePushLock @ 0x1402BDBF0 (ExfTryToWakePushLock.c)
+ *     KiCheckForKernelApcDelivery @ 0x14030FAB0 (KiCheckForKernelApcDelivery.c)
+ *     IopIrpExtensionControl @ 0x140555FF0 (IopIrpExtensionControl.c)
+ *     IoPerfInit @ 0x140559598 (IoPerfInit.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
 

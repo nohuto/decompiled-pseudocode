@@ -1,25 +1,25 @@
 /*
- * XREFs of KeFreeXStateContext @ 0x140406E58
+ * XREFs of KeFreeXStateContext @ 0x1403FF338
  * Callers:
- *     KeRestoreExtendedAndSupervisorState @ 0x140406C00 (KeRestoreExtendedAndSupervisorState.c)
- *     VfCtxInit @ 0x140BA1D84 (VfCtxInit.c)
+ *     KeRestoreExtendedAndSupervisorState @ 0x1403FF0E0 (KeRestoreExtendedAndSupervisorState.c)
+ *     VfCtxInit @ 0x140BA3D84 (VfCtxInit.c)
  * Callees:
- *     RtlpInterlockedPushEntrySList @ 0x1406B38D0 (RtlpInterlockedPushEntrySList.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     ExFreePool @ 0x140B72CB0 (ExFreePool.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1406B4870 (RtlpInterlockedPushEntrySList.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     ExFreePool @ 0x140B74850 (ExFreePool.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
-void __fastcall KeFreeXStateContext(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+void __fastcall KeFreeXStateContext(__int64 a1)
 {
-  struct _SLIST_ENTRY *v4; // r8
+  _SLIST_ENTRY *v1; // r8
   struct _KPRCB *CurrentPrcb; // rdx
   _GENERAL_LOOKASIDE *P; // rcx
 
   if ( a1 )
   {
-    v4 = *(struct _SLIST_ENTRY **)(a1 + 24);
-    if ( v4 )
+    v1 = *(_SLIST_ENTRY **)(a1 + 24);
+    if ( v1 )
     {
       if ( (*(_BYTE *)(a1 + 12) & 1) != 0 )
       {
@@ -32,15 +32,15 @@ void __fastcall KeFreeXStateContext(__int64 a1, __int64 a2, __int64 a3, __int64 
               ++P->TotalFrees,
               LOWORD(P->ListHead.Alignment) < P->Depth) )
         {
-          RtlpInterlockedPushEntrySList(&P->ListHead, v4);
+          RtlpInterlockedPushEntrySList(&P->ListHead, v1);
         }
         else
         {
           ++P->FreeMisses;
           if ( (void (__stdcall *)(PVOID))P->FreeEx == ExFreePool )
-            ExFreePool(v4);
+            ExFreePool(v1);
           else
-            guard_dispatch_icall_no_overrides(v4, CurrentPrcb, v4, a4);
+            guard_dispatch_icall_no_overrides(v1, CurrentPrcb);
         }
       }
       else

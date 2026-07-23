@@ -1,109 +1,86 @@
 /*
- * XREFs of EtwpProviderArrivalCallback @ 0x140838564
+ * XREFs of EtwpProviderArrivalCallback @ 0x140A3B8FC
  * Callers:
- *     EtwpTrackProviderBinary @ 0x1408338BC (EtwpTrackProviderBinary.c)
- *     EtwpAddRegEntryToGroup @ 0x140839260 (EtwpAddRegEntryToGroup.c)
- *     EtwpEnableGuid @ 0x14083B040 (EtwpEnableGuid.c)
- *     EtwpTrackProviderRegistration @ 0x14083DAD0 (EtwpTrackProviderRegistration.c)
- *     EtwpTrackGuidEntryRegistrations @ 0x140A45B44 (EtwpTrackGuidEntryRegistrations.c)
+ *     EtwpTrackProviderBinaryKm @ 0x1407AA9F0 (EtwpTrackProviderBinaryKm.c)
+ *     EtwpTrackProviderBinaryOld @ 0x1407AAC88 (EtwpTrackProviderBinaryOld.c)
+ *     EtwpTrackProviderRegistration @ 0x14083A130 (EtwpTrackProviderRegistration.c)
+ *     EtwpTrackGuidEntryRegistrations @ 0x140A3B628 (EtwpTrackGuidEntryRegistrations.c)
+ *     EtwpEnableGuid @ 0x140A3EA20 (EtwpEnableGuid.c)
+ *     EtwpAddRegEntryToGroup @ 0x140AD9390 (EtwpAddRegEntryToGroup.c)
  * Callees:
- *     EtwEventEnabled @ 0x1402A1BD0 (EtwEventEnabled.c)
- *     MmLockLoadedDataTableEntryShared @ 0x1402C85E8 (MmLockLoadedDataTableEntryShared.c)
- *     RtlCopyUnicodeString @ 0x1403FFE80 (RtlCopyUnicodeString.c)
- *     MmUnlockLoadedDataTableEntryShared @ 0x1404B4344 (MmUnlockLoadedDataTableEntryShared.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     EtwpEventWriteDebugLookupFailed @ 0x1407A71C8 (EtwpEventWriteDebugLookupFailed.c)
- *     EtwpSendDbgId @ 0x1407ACCC0 (EtwpSendDbgId.c)
- *     EtwpTrackDebugIdForSession @ 0x140837480 (EtwpTrackDebugIdForSession.c)
- *     EtwpLocateDbgIdForRegEntry @ 0x1408375D4 (EtwpLocateDbgIdForRegEntry.c)
- *     MmGetFileNameForAddress @ 0x140838768 (MmGetFileNameForAddress.c)
- *     EtwpTrackBinaryForSession @ 0x140838890 (EtwpTrackBinaryForSession.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     EtwEventEnabled @ 0x1402D1300 (EtwEventEnabled.c)
+ *     Feature_ModernWpp__private_IsEnabledDeviceUsageNoInline @ 0x14064D73C (Feature_ModernWpp__private_IsEnabledDeviceUsageNoInline.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     EtwpEventWriteDebugLookupFailed @ 0x1407A7308 (EtwpEventWriteDebugLookupFailed.c)
+ *     EtwpSendDbgId @ 0x1407AD190 (EtwpSendDbgId.c)
+ *     EtwpTrackDebugIdForSession @ 0x1409F7A5C (EtwpTrackDebugIdForSession.c)
+ *     EtwpTrackBinaryForSession @ 0x1409F8C88 (EtwpTrackBinaryForSession.c)
+ *     EtwpLocateDbgIdForRegEntry @ 0x1409F91A0 (EtwpLocateDbgIdForRegEntry.c)
+ *     MmGetFileNameForAddress @ 0x140A15B1C (MmGetFileNameForAddress.c)
+ *     RtlPcToFilePath @ 0x140A15C50 (RtlPcToFilePath.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall EtwpProviderArrivalCallback(__int64 a1, char a2, __int64 a3)
+__int64 __fastcall EtwpProviderArrivalCallback(__int64 a1, char a2, __int64 a3, __int64 a4)
 {
-  __int64 v4; // rcx
-  int v7; // ebx
-  wchar_t *Buffer; // r14
+  unsigned __int64 v5; // rcx
+  unsigned int v8; // edi
   int FileNameForAddress; // eax
-  int v11; // eax
+  NTSTATUS v11; // eax
   _BYTE *v12; // r14
   __int64 v13; // rdx
   __int64 v14; // rcx
   __int64 v15; // r8
-  __int64 v16; // rax
-  __int64 v17; // rbx
-  unsigned int v18; // [rsp+30h] [rbp-D0h] BYREF
-  UNICODE_STRING v19; // [rsp+38h] [rbp-C8h] BYREF
-  _BYTE v20[512]; // [rsp+50h] [rbp-B0h] BYREF
+  unsigned int v16; // [rsp+30h] [rbp-D0h] BYREF
+  UNICODE_STRING v17; // [rsp+38h] [rbp-C8h] BYREF
+  _BYTE v18[512]; // [rsp+50h] [rbp-B0h] BYREF
 
-  v4 = *(_QWORD *)(a3 + 88);
-  *(_DWORD *)(&v19.MaximumLength + 1) = 0;
-  v7 = 0;
-  if ( !v4 )
+  v5 = *(_QWORD *)(a3 + 88);
+  *(_DWORD *)(&v17.MaximumLength + 1) = 0;
+  v8 = 0;
+  if ( !v5 )
     return 3221225793LL;
   if ( (*(_BYTE *)(a3 + 98) & 0x10) != 0 || (*(_DWORD *)(a1 + 816) & 0x2000000) != 0 )
   {
-    *(_DWORD *)&v19.Length = 0x2000000;
-    Buffer = (wchar_t *)v20;
-    v19.Buffer = (wchar_t *)v20;
+    *(_DWORD *)&v17.Length = 0x2000000;
+    v17.Buffer = (wchar_t *)v18;
     if ( a2 )
-    {
-      FileNameForAddress = MmGetFileNameForAddress(v4, &v19);
-      Buffer = v19.Buffer;
-      v7 = FileNameForAddress;
-    }
+      FileNameForAddress = MmGetFileNameForAddress(v5, (__int64)&v17, a3, a4);
     else
-    {
-      v16 = MmLockLoadedDataTableEntryShared(v4);
-      v17 = v16;
-      if ( v16 )
-      {
-        RtlCopyUnicodeString(&v19, (PCUNICODE_STRING)(v16 + 72));
-        MmUnlockLoadedDataTableEntryShared(v17);
-        Buffer = v19.Buffer;
-        v7 = 0;
-LABEL_7:
-        EtwpTrackBinaryForSession(a1, &v19, *(_QWORD *)(a3 + 32) + 40LL);
-LABEL_8:
-        if ( Buffer != (wchar_t *)v20 )
-          ExFreePoolWithTag(Buffer, 0);
-        goto LABEL_10;
-      }
-      v7 = -1073741275;
-    }
-    if ( v7 < 0 )
-      goto LABEL_8;
-    goto LABEL_7;
+      FileNameForAddress = RtlPcToFilePath(v5, &v17);
+    v8 = FileNameForAddress;
+    if ( FileNameForAddress >= 0 )
+      EtwpTrackBinaryForSession(a1, (const void **)&v17, (_QWORD *)(*(_QWORD *)(a3 + 32) + 40LL));
+    if ( (_BYTE *)v17.Buffer != v18 )
+      ExFreePoolWithTag(v17.Buffer, 0);
   }
-LABEL_10:
-  if ( (*(_BYTE *)(a3 + 98) & 8) == 0 )
-    return (unsigned int)v7;
-  if ( (*(_DWORD *)(a1 + 12) & 0x80u) == 0 )
+  if ( (*(_BYTE *)(a3 + 98) & 8) != 0
+    || (unsigned int)Feature_ModernWpp__private_IsEnabledDeviceUsageNoInline()
+    && _bittest16((const signed __int16 *)(a3 + 98), 0xAu) )
   {
-    v18 = 512;
-    *(_QWORD *)&v19.Length = v20;
-    v11 = EtwpLocateDbgIdForRegEntry(a2, a3, (struct _MDL **)&v19, &v18);
-    v12 = *(_BYTE **)&v19.Length;
-    v7 = v11;
+    if ( (*(_DWORD *)(a1 + 12) & 0x80u) != 0 )
+      return 3221225659LL;
+    v16 = 512;
+    *(_QWORD *)&v17.Length = v18;
+    v11 = EtwpLocateDbgIdForRegEntry(a2, a3, (struct _MDL **)&v17, &v16);
+    v12 = *(_BYTE **)&v17.Length;
+    v8 = v11;
     if ( v11 < 0 )
     {
       if ( EtwEventEnabled(EtwpEventTracingProvRegHandle, &ETW_EVENT_DEBUG_LOOKUP_FAILED) )
-        EtwpEventWriteDebugLookupFailed(v14, v13, v15, a3, a1, v7);
+        EtwpEventWriteDebugLookupFailed(v14, v13, v15, a3, a1, v8);
     }
     else
     {
-      EtwpTrackDebugIdForSession(a1, *(const void **)&v19.Length, v18);
+      EtwpTrackDebugIdForSession(a1, *(const void **)&v17.Length, v16);
       if ( (*(_DWORD *)(a1 + 12) & 0x80000) != 0
         && (!(_BYTE)KdDebuggerNotPresent && !KdPitchDebugger || KdEventLoggingPresent) )
       {
         EtwpSendDbgId(a1);
       }
     }
-    if ( v12 != v20 )
+    if ( v12 != v18 )
       ExFreePoolWithTag(v12, 0);
-    return (unsigned int)v7;
   }
-  return 3221225659LL;
+  return v8;
 }

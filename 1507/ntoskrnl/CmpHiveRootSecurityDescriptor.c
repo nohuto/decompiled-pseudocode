@@ -43,7 +43,7 @@ ACL *CmpHiveRootSecurityDescriptor()
   NTSTATUS v17; // [rsp+80h] [rbp+48h]
   _BYTE *v18; // [rsp+88h] [rbp+50h] BYREF
   size_t IdentifierAuthority; // [rsp+90h] [rbp+58h] BYREF
-  struct _SID_IDENTIFIER_AUTHORITY v20; // [rsp+98h] [rbp+60h] BYREF
+  _SID_IDENTIFIER_AUTHORITY v20; // [rsp+98h] [rbp+60h] BYREF
 
   WORD2(IdentifierAuthority) = 256;
   LODWORD(IdentifierAuthority) = 0;

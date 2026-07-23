@@ -1,11 +1,11 @@
 /*
- * XREFs of KsepDsEventDevicePowerCompleted @ 0x1405FED28
+ * XREFs of KsepDsEventDevicePowerCompleted @ 0x140601778
  * Callers:
- *     KseDsCompletionHookForPowerDevice @ 0x1405FE7A0 (KseDsCompletionHookForPowerDevice.c)
+ *     KseDsCompletionHookForPowerDevice @ 0x1406011F0 (KseDsCompletionHookForPowerDevice.c)
  * Callees:
- *     EtwEventEnabled @ 0x140212D90 (EtwEventEnabled.c)
- *     EtwWriteEx @ 0x140212F70 (EtwWriteEx.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x140212E70 (EtwEventEnabled.c)
+ *     EtwWriteEx @ 0x140213050 (EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 char __fastcall KsepDsEventDevicePowerCompleted(__int64 a1, __int64 a2, __int64 a3, int a4)
@@ -29,9 +29,9 @@ char __fastcall KsepDsEventDevicePowerCompleted(__int64 a1, __int64 a2, __int64 
   v16 = a3;
   v15 = a2;
   v14 = a1;
-  if ( stru_140E66B30.StackLimit )
+  if ( stru_140E66D40.StackLimit )
   {
-    LOBYTE(v4) = EtwEventEnabled((REGHANDLE)stru_140E66B30.StackLimit, &KseDsEventDevicePowerCompleted);
+    LOBYTE(v4) = EtwEventEnabled((REGHANDLE)stru_140E66D40.StackLimit, &KseDsEventDevicePowerCompleted);
     if ( (_BYTE)v4 )
     {
       *(_QWORD *)&UserData.Size = 8LL;
@@ -43,7 +43,7 @@ char __fastcall KsepDsEventDevicePowerCompleted(__int64 a1, __int64 a2, __int64 
       v9 = &v16;
       v11 = &v17;
       LOBYTE(v4) = EtwWriteEx(
-                     (REGHANDLE)stru_140E66B30.StackLimit,
+                     (REGHANDLE)stru_140E66D40.StackLimit,
                      &KseDsEventDevicePowerCompleted,
                      0LL,
                      0,

@@ -1,15 +1,15 @@
 /*
- * XREFs of MiCaptureProtectionFromProto @ 0x1401F01E0
+ * XREFs of MiCaptureProtectionFromProto @ 0x1401F000C
  * Callers:
- *     MiGetPageProtection @ 0x1400BD710 (MiGetPageProtection.c)
+ *     MiGetPageProtection @ 0x1400BB5A0 (MiGetPageProtection.c)
  * Callees:
- *     MiLockPageInline @ 0x140022E70 (MiLockPageInline.c)
- *     MiRemoveLockedPageChargeAndDecRef @ 0x14004E740 (MiRemoveLockedPageChargeAndDecRef.c)
- *     MiMakeProtoAddressValid @ 0x1400B78A4 (MiMakeProtoAddressValid.c)
- *     MiCaptureProtectionFromLockedProto @ 0x1400BDBD8 (MiCaptureProtectionFromLockedProto.c)
- *     MI_GET_PROTECTION_FROM_SOFT_PROTOTYPE_PTE @ 0x1401F25B8 (MI_GET_PROTECTION_FROM_SOFT_PROTOTYPE_PTE.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1401F25D0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiInvalidPteConforms @ 0x1401F26C4 (MiInvalidPteConforms.c)
+ *     MiLockPageInline @ 0x1400229F0 (MiLockPageInline.c)
+ *     MiRemoveLockedPageChargeAndDecRef @ 0x14004E2C0 (MiRemoveLockedPageChargeAndDecRef.c)
+ *     MiMakeProtoAddressValid @ 0x1400B573C (MiMakeProtoAddressValid.c)
+ *     MiCaptureProtectionFromLockedProto @ 0x1400BBA68 (MiCaptureProtectionFromLockedProto.c)
+ *     MI_GET_PROTECTION_FROM_SOFT_PROTOTYPE_PTE @ 0x1401F23E4 (MI_GET_PROTECTION_FROM_SOFT_PROTOTYPE_PTE.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1401F23FC (MI_READ_PTE_LOCK_FREE.c)
+ *     MiInvalidPteConforms @ 0x1401F24F0 (MiInvalidPteConforms.c)
  */
 
 __int64 __fastcall MiCaptureProtectionFromProto(unsigned __int64 a1)

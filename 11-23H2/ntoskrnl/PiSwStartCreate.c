@@ -1,14 +1,14 @@
 /*
- * XREFs of PiSwStartCreate @ 0x1408194A8
+ * XREFs of PiSwStartCreate @ 0x140819778
  * Callers:
- *     PiCreateDriverSwDeviceCallback @ 0x14081A5F0 (PiCreateDriverSwDeviceCallback.c)
+ *     PiCreateDriverSwDeviceCallback @ 0x14081A8C0 (PiCreateDriverSwDeviceCallback.c)
  *     PipInitComputerIds @ 0x140B3A22C (PipInitComputerIds.c)
  * Callees:
- *     memset @ 0x140435A00 (memset.c)
- *     McTemplateK0zzz_EtwWriteTransfer @ 0x140563C60 (McTemplateK0zzz_EtwWriteTransfer.c)
- *     McTemplateK0zzzd_EtwWriteTransfer @ 0x140563D88 (McTemplateK0zzzd_EtwWriteTransfer.c)
- *     PiSwIrpStartCreateWorker @ 0x14081904C (PiSwIrpStartCreateWorker.c)
- *     PnpGetMultiSzLength @ 0x140819758 (PnpGetMultiSzLength.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     McTemplateK0zzz_EtwWriteTransfer @ 0x140564320 (McTemplateK0zzz_EtwWriteTransfer.c)
+ *     McTemplateK0zzzd_EtwWriteTransfer @ 0x140564448 (McTemplateK0zzzd_EtwWriteTransfer.c)
+ *     PiSwIrpStartCreateWorker @ 0x14081931C (PiSwIrpStartCreateWorker.c)
+ *     PnpGetMultiSzLength @ 0x140819A28 (PnpGetMultiSzLength.c)
  */
 
 __int64 __fastcall PiSwStartCreate(

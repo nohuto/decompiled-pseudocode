@@ -1,15 +1,15 @@
 /*
- * XREFs of EtwpAccessCheck @ 0x140931F90
+ * XREFs of EtwpAccessCheck @ 0x14090DB60
  * Callers:
- *     NtTraceEvent @ 0x140411E40 (NtTraceEvent.c)
- *     EtwpCheckGuidAccess @ 0x1409207F8 (EtwpCheckGuidAccess.c)
- *     EtwpNotifyGuid @ 0x140938434 (EtwpNotifyGuid.c)
- *     EtwpCheckCurrentUserProcessAccess @ 0x14093B234 (EtwpCheckCurrentUserProcessAccess.c)
- *     EtwpStartLogger @ 0x140A6E1B4 (EtwpStartLogger.c)
+ *     NtTraceEvent @ 0x1404067D0 (NtTraceEvent.c)
+ *     EtwpCheckGuidAccess @ 0x1408FC30C (EtwpCheckGuidAccess.c)
+ *     EtwpNotifyGuid @ 0x140913FD4 (EtwpNotifyGuid.c)
+ *     EtwpCheckCurrentUserProcessAccess @ 0x140916DD4 (EtwpCheckCurrentUserProcessAccess.c)
+ *     EtwpStartLogger @ 0x140AB0F2C (EtwpStartLogger.c)
  * Callees:
- *     SeAccessCheck @ 0x1402B6340 (SeAccessCheck.c)
- *     SeReleaseSubjectContext @ 0x1408CB2E0 (SeReleaseSubjectContext.c)
- *     SeCaptureSubjectContext @ 0x140933620 (SeCaptureSubjectContext.c)
+ *     SeAccessCheck @ 0x140301000 (SeAccessCheck.c)
+ *     SeReleaseSubjectContext @ 0x1408D1890 (SeReleaseSubjectContext.c)
+ *     SeCaptureSubjectContext @ 0x14090F1D0 (SeCaptureSubjectContext.c)
  */
 
 __int64 __fastcall EtwpAccessCheck(

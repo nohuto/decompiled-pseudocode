@@ -1,13 +1,13 @@
 /*
- * XREFs of PipHardwareConfigExists @ 0x140A9023C
+ * XREFs of PipHardwareConfigExists @ 0x140A9123C
  * Callers:
- *     PipHardwareConfigInit @ 0x140A512F4 (PipHardwareConfigInit.c)
+ *     PipHardwareConfigInit @ 0x140A522F4 (PipHardwareConfigInit.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     ZwClose @ 0x1403FA580 (ZwClose.c)
- *     _PnpCtxRegOpenKey @ 0x14064081C (_PnpCtxRegOpenKey.c)
- *     _PnpCtxRegQueryValue @ 0x1406BADC4 (_PnpCtxRegQueryValue.c)
- *     _PnpCtxRegEnumKey @ 0x1407C3C44 (_PnpCtxRegEnumKey.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     ZwClose @ 0x1403FA760 (ZwClose.c)
+ *     _PnpCtxRegQueryValue @ 0x14061A094 (_PnpCtxRegQueryValue.c)
+ *     _PnpCtxRegOpenKey @ 0x14063562C (_PnpCtxRegOpenKey.c)
+ *     _PnpCtxRegEnumKey @ 0x1407C4164 (_PnpCtxRegEnumKey.c)
  */
 
 char __fastcall PipHardwareConfigExists(void *a1, int a2)
@@ -35,7 +35,7 @@ char __fastcall PipHardwareConfigExists(void *a1, int a2)
     if ( (int)PnpCtxRegOpenKey(0LL, (int)a1, (int)v12, 0, 1, (__int64)Handle) >= 0 )
     {
       v8 = 4;
-      if ( (int)PnpCtxRegQueryValue((__int64)a1, Handle[0], L"Id", &v9, &v10, &v8) >= 0
+      if ( (int)PnpCtxRegQueryValue((__int64)a1, Handle[0], (__int64)L"Id", (__int64)&v9, (__int64)&v10, (__int64)&v8) >= 0
         && v9 == 4
         && v8 == 4
         && (_DWORD)v10 == a2 )

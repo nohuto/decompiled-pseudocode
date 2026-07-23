@@ -1,17 +1,17 @@
 /*
- * XREFs of LdrpInitializeNode @ 0x180072384
+ * XREFs of LdrpInitializeNode @ 0x180072374
  * Callers:
- *     LdrpInitializeGraphRecurse @ 0x1800722B8 (LdrpInitializeGraphRecurse.c)
- *     LdrpLoadShimEngine @ 0x18007DCE0 (LdrpLoadShimEngine.c)
+ *     LdrpInitializeGraphRecurse @ 0x1800722A8 (LdrpInitializeGraphRecurse.c)
+ *     LdrpLoadShimEngine @ 0x18007DCD0 (LdrpLoadShimEngine.c)
  * Callees:
- *     RtlReportException @ 0x180006A80 (RtlReportException.c)
- *     LdrpCallTlsInitializers @ 0x180012548 (LdrpCallTlsInitializers.c)
- *     LdrpLogDllState @ 0x180015E20 (LdrpLogDllState.c)
- *     RtlActivateActivationContextUnsafeFast @ 0x180016370 (RtlActivateActivationContextUnsafeFast.c)
- *     RtlDeactivateActivationContextUnsafeFast @ 0x180018750 (RtlDeactivateActivationContextUnsafeFast.c)
- *     LdrpCallInitRoutine @ 0x1800188C4 (LdrpCallInitRoutine.c)
+ *     RtlReportException @ 0x180006A70 (RtlReportException.c)
+ *     LdrpCallTlsInitializers @ 0x180012538 (LdrpCallTlsInitializers.c)
+ *     LdrpLogDllState @ 0x180015E10 (LdrpLogDllState.c)
+ *     RtlActivateActivationContextUnsafeFast @ 0x180016360 (RtlActivateActivationContextUnsafeFast.c)
+ *     RtlDeactivateActivationContextUnsafeFast @ 0x180018740 (RtlDeactivateActivationContextUnsafeFast.c)
+ *     LdrpCallInitRoutine @ 0x1800188B4 (LdrpCallInitRoutine.c)
  *     memset @ 0x1800ACCC0 (memset.c)
- *     LdrpLogDbgPrint @ 0x1800D057C (LdrpLogDbgPrint.c)
+ *     LdrpLogDbgPrint @ 0x1800D063C (LdrpLogDbgPrint.c)
  */
 
 __int64 __fastcall LdrpInitializeNode(__int64 a1)

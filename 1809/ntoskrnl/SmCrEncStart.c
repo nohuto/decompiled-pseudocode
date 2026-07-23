@@ -1,16 +1,16 @@
 /*
- * XREFs of SmCrEncStart @ 0x1408AE6F8
+ * XREFs of SmCrEncStart @ 0x1408AF958
  * Callers:
- *     ?StStart@?$ST_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_ST_CREATE_PARAMS@@@Z @ 0x1400E2BA0 (-StStart@-$ST_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_ST_CREATE_PARAMS@@@Z.c)
+ *     ?StStart@?$ST_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_ST_CREATE_PARAMS@@@Z @ 0x1400E2C20 (-StStart@-$ST_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_ST_CREATE_PARAMS@@@Z.c)
  * Callees:
- *     SmAlloc @ 0x1400E4B54 (SmAlloc.c)
- *     memmove @ 0x1401D1540 (memmove.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     SmCrGenRandom @ 0x140309618 (SmCrGenRandom.c)
- *     BCryptGetProperty @ 0x140691264 (BCryptGetProperty.c)
- *     BCryptOpenAlgorithmProvider @ 0x14073C080 (BCryptOpenAlgorithmProvider.c)
- *     BCryptGenerateSymmetricKey @ 0x14089B954 (BCryptGenerateSymmetricKey.c)
- *     BCryptSetProperty @ 0x14089BA7C (BCryptSetProperty.c)
+ *     SmAlloc @ 0x1400E4BD4 (SmAlloc.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     SmCrGenRandom @ 0x140309808 (SmCrGenRandom.c)
+ *     BCryptGetProperty @ 0x140692424 (BCryptGetProperty.c)
+ *     BCryptOpenAlgorithmProvider @ 0x14073D270 (BCryptOpenAlgorithmProvider.c)
+ *     BCryptGenerateSymmetricKey @ 0x14089CBB4 (BCryptGenerateSymmetricKey.c)
+ *     BCryptSetProperty @ 0x14089CCDC (BCryptSetProperty.c)
  */
 
 NTSTATUS __fastcall SmCrEncStart(__int64 a1, const void *a2, unsigned int a3, ULONG a4)

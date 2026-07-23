@@ -1,13 +1,13 @@
 /*
- * XREFs of IopHardErrorThread @ 0x140819F60
+ * XREFs of IopHardErrorThread @ 0x14081B160
  * Callers:
  *     <none>
  * Callees:
  *     KeWaitForSingleObject @ 0x140054880 (KeWaitForSingleObject.c)
- *     IopCheckHardErrorEmpty @ 0x14027E978 (IopCheckHardErrorEmpty.c)
- *     IopRemoveHardErrorPacket @ 0x14027F3D4 (IopRemoveHardErrorPacket.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     ExRaiseHardError @ 0x1408D65E0 (ExRaiseHardError.c)
+ *     IopCheckHardErrorEmpty @ 0x14027EB68 (IopCheckHardErrorEmpty.c)
+ *     IopRemoveHardErrorPacket @ 0x14027F5C4 (IopRemoveHardErrorPacket.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     ExRaiseHardError @ 0x1408D78A0 (ExRaiseHardError.c)
  */
 
 void IopHardErrorThread()

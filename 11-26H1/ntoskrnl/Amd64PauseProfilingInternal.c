@@ -1,7 +1,7 @@
 /*
- * XREFs of Amd64PauseProfilingInternal @ 0x1405A49F0
+ * XREFs of Amd64PauseProfilingInternal @ 0x1405A7200
  * Callers:
- *     Amd64PauseProfiling @ 0x1405A49D0 (Amd64PauseProfiling.c)
+ *     Amd64PauseProfiling @ 0x1405A71E0 (Amd64PauseProfiling.c)
  * Callees:
  *     <none>
  */
@@ -38,7 +38,7 @@ LABEL_15:
         if ( *(_DWORD *)v5 != 101 )
         {
 LABEL_14:
-          v9 = *((_DWORD *)&xmmword_140F87600 + (unsigned int)(v6 + v3));
+          v9 = *((_DWORD *)&xmmword_140F879E0 + (unsigned int)(v6 + v3));
           result = __readmsr(v9) & 0xFFFFFFFFFFBFFFFFuLL;
           __writemsr(v9, result);
           goto LABEL_15;

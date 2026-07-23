@@ -1,18 +1,18 @@
 /*
- * XREFs of MiMakeLargePageTable @ 0x1404F8168
+ * XREFs of MiMakeLargePageTable @ 0x1404F5A48
  * Callers:
- *     MiCreateSystemPageTable @ 0x140395350 (MiCreateSystemPageTable.c)
+ *     MiCreateSystemPageTable @ 0x14038EDA0 (MiCreateSystemPageTable.c)
  * Callees:
- *     MiCheckLinearProtectedPteAccessedBit @ 0x140232A20 (MiCheckLinearProtectedPteAccessedBit.c)
- *     MiMakeValidPte @ 0x1402383C0 (MiMakeValidPte.c)
- *     MiIncreaseUsedPtes @ 0x14028A180 (MiIncreaseUsedPtes.c)
- *     MiGetLeafVa @ 0x1402DEE20 (MiGetLeafVa.c)
- *     MiMakeDemandZeroPte @ 0x1402E3CC0 (MiMakeDemandZeroPte.c)
- *     MiSetPfnContainingFrame @ 0x1402E6800 (MiSetPfnContainingFrame.c)
- *     MiGetContainingPageTable @ 0x1402ECE30 (MiGetContainingPageTable.c)
- *     MiTransformValidPteInPlace @ 0x14039404C (MiTransformValidPteInPlace.c)
- *     KeYieldProcessorEx @ 0x1403F9C60 (KeYieldProcessorEx.c)
- *     MiDemotePfnListChain @ 0x14069234C (MiDemotePfnListChain.c)
+ *     MiCheckLinearProtectedPteAccessedBit @ 0x140203550 (MiCheckLinearProtectedPteAccessedBit.c)
+ *     MiMakeValidPte @ 0x140212550 (MiMakeValidPte.c)
+ *     MiGetLeafVa @ 0x140240700 (MiGetLeafVa.c)
+ *     MiIncreaseUsedPtes @ 0x140299D80 (MiIncreaseUsedPtes.c)
+ *     MiSetPfnContainingFrame @ 0x140347E40 (MiSetPfnContainingFrame.c)
+ *     MiGetContainingPageTable @ 0x14034E470 (MiGetContainingPageTable.c)
+ *     MiTransformValidPteInPlace @ 0x14038D668 (MiTransformValidPteInPlace.c)
+ *     MiMakeDemandZeroPte @ 0x140392C40 (MiMakeDemandZeroPte.c)
+ *     KeYieldProcessorEx @ 0x1403EFB70 (KeYieldProcessorEx.c)
+ *     MiDemotePfnListChain @ 0x14069341C (MiDemotePfnListChain.c)
  */
 
 __int64 __fastcall MiMakeLargePageTable(__int64 a1, unsigned __int64 a2, int a3)
@@ -122,7 +122,7 @@ __int64 __fastcall MiMakeLargePageTable(__int64 a1, unsigned __int64 a2, int a3)
           {
             v19 = 0x4000000000LL;
             if ( (unsigned __int64)v6 >= 0xFFFFF6C000000000uLL )
-              MiCheckLinearProtectedPteAccessedBit((ULONG_PTR)v6, ValidPte, 128);
+              MiCheckLinearProtectedPteAccessedBit((ULONG_PTR)v6, ValidPte, 128LL);
           }
         }
         *v6 = ValidPte;
@@ -150,7 +150,7 @@ __int64 __fastcall MiMakeLargePageTable(__int64 a1, unsigned __int64 a2, int a3)
       *(_QWORD *)(v17 + 24) = (v26 + v22) ^ (v26 ^ (v26 + v22)) & 0xC000000000000000uLL;
     }
     if ( v20 )
-      MiIncreaseUsedPtes(v19, a2, v20, 3);
+      MiIncreaseUsedPtes(v19, a2, v20, 3LL);
     _InterlockedAnd64((volatile signed __int64 *)(v17 + 24), 0x7FFFFFFFFFFFFFFFuLL);
   }
   result = 1LL;

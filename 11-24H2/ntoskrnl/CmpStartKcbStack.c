@@ -1,13 +1,13 @@
 /*
- * XREFs of CmpStartKcbStack @ 0x14086DDF0
+ * XREFs of CmpStartKcbStack @ 0x140872120
  * Callers:
- *     CmpDoBuildVirtualStack @ 0x1407DB5E4 (CmpDoBuildVirtualStack.c)
- *     CmpPartialPromoteSubkeys @ 0x1407E3D00 (CmpPartialPromoteSubkeys.c)
- *     CmpDoParseKey @ 0x14086E7B0 (CmpDoParseKey.c)
- *     CmpSubtreeEnumeratorStart @ 0x140915340 (CmpSubtreeEnumeratorStart.c)
- *     CmpPromoteKey @ 0x1409880D8 (CmpPromoteKey.c)
+ *     CmpDoBuildVirtualStack @ 0x1407DBB34 (CmpDoBuildVirtualStack.c)
+ *     CmpPartialPromoteSubkeys @ 0x1407E4250 (CmpPartialPromoteSubkeys.c)
+ *     CmpDoParseKey @ 0x140872AE0 (CmpDoParseKey.c)
+ *     CmpSubtreeEnumeratorStart @ 0x140908DB0 (CmpSubtreeEnumeratorStart.c)
+ *     CmpPromoteKey @ 0x1409708BC (CmpPromoteKey.c)
  * Callees:
- *     CmpAllocatePool @ 0x1403E1834 (CmpAllocatePool.c)
+ *     CmpAllocatePool @ 0x1403C9EA4 (CmpAllocatePool.c)
  */
 
 __int64 __fastcall CmpStartKcbStack(__int64 a1, __int16 a2)
@@ -18,7 +18,7 @@ __int64 __fastcall CmpStartKcbStack(__int64 a1, __int16 a2)
   Pool = 0LL;
   if ( a2 > 1 )
   {
-    Pool = CmpAllocatePool(0x100uLL);
+    Pool = CmpAllocatePool(0x100uLL, 8LL * (unsigned int)(a2 - 1), 0x35364D43u);
     if ( !Pool )
       return 3221225626LL;
   }

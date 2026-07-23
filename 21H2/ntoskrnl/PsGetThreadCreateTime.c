@@ -1,5 +1,5 @@
 /*
- * XREFs of PsGetThreadCreateTime @ 0x1405813C0
+ * XREFs of PsGetThreadCreateTime @ 0x140581600
  * Callers:
  *     <none>
  * Callees:

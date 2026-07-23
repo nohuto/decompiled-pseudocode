@@ -1,9 +1,9 @@
 /*
- * XREFs of wil_details_StagingConfig_AreAnyFeaturesConfigured @ 0x1404EF844
+ * XREFs of wil_details_StagingConfig_AreAnyFeaturesConfigured @ 0x14050894C
  * Callers:
- *     wil_StagingConfig_QueryFeatureState @ 0x1406C3240 (wil_StagingConfig_QueryFeatureState.c)
+ *     wil_StagingConfig_QueryFeatureState @ 0x140621ED0 (wil_StagingConfig_QueryFeatureState.c)
  * Callees:
- *     wil_details_StagingConfigFeature_HasUniqueState @ 0x1404EF804 (wil_details_StagingConfigFeature_HasUniqueState.c)
+ *     wil_details_StagingConfigFeature_HasUniqueState @ 0x14050890C (wil_details_StagingConfigFeature_HasUniqueState.c)
  */
 
 __int64 __fastcall wil_details_StagingConfig_AreAnyFeaturesConfigured(__int64 a1)

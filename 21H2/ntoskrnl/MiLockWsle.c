@@ -1,9 +1,9 @@
 /*
- * XREFs of MiLockWsle @ 0x140270EB0
+ * XREFs of MiLockWsle @ 0x14025EE50
  * Callers:
- *     NtLockVirtualMemory @ 0x140270060 (NtLockVirtualMemory.c)
+ *     NtLockVirtualMemory @ 0x14025E000 (NtLockVirtualMemory.c)
  * Callees:
- *     MiSetVaAgeList @ 0x14032D6B0 (MiSetVaAgeList.c)
+ *     MiSetVaAgeList @ 0x140338400 (MiSetVaAgeList.c)
  */
 
 _BOOL8 __fastcall MiLockWsle(__int64 a1, __int64 a2, __int64 a3, __int64 a4)

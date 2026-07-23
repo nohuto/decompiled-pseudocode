@@ -9,45 +9,42 @@
  */
 
 NTSTATUS __fastcall RtlpImageDirectoryEntryToDataEx(
-        unsigned __int64 BaseAddress,
+        unsigned __int64 BaseOfImage,
         char a2,
         unsigned __int16 a3,
-        _DWORD *a4,
-        __int64 *a5)
+        unsigned int *a4,
+        _QWORD *a5)
 {
-  __int64 *v5; // rsi
+  _QWORD *v5; // rsi
   PVOID v6; // rbx
   char v9; // di
   NTSTATUS result; // eax
   unsigned __int16 Magic; // ax
-  int v12; // edx
   PIMAGE_NT_HEADERS NtHeader; // [rsp+50h] [rbp+8h] BYREF
 
   v5 = a5;
-  v6 = (PVOID)BaseAddress;
+  v6 = (PVOID)BaseOfImage;
   NtHeader = 0LL;
   v9 = a2;
   *a5 = 0LL;
-  if ( (BaseAddress & 3) != 0 )
+  if ( (BaseOfImage & 3) != 0 )
   {
     v9 = a2;
-    if ( (BaseAddress & 1) != 0 )
+    if ( (BaseOfImage & 1) != 0 )
       v9 = 0;
-    v6 = (PVOID)(BaseAddress & 0xFFFFFFFFFFFFFFFCuLL);
+    v6 = (PVOID)(BaseOfImage & 0xFFFFFFFFFFFFFFFCuLL);
   }
   result = RtlImageNtHeaderEx(1u, v6, 0LL, &NtHeader);
   if ( NtHeader )
   {
     Magic = NtHeader->OptionalHeader.Magic;
-    v12 = 267;
     if ( Magic == 267 )
     {
-      LOBYTE(v12) = v9;
-      return RtlpImageDirectoryEntryToData32((_DWORD)v6, v12, a3, (_DWORD)a4, (__int64)NtHeader, (__int64)v5);
+      return RtlpImageDirectoryEntryToData32(v6, NtHeader, (__int64)v5);
     }
     else if ( Magic == 523 )
     {
-      return RtlpImageDirectoryEntryToData64((unsigned __int64)v6, v9, a3, a4, (__int64)NtHeader, v5);
+      return RtlpImageDirectoryEntryToData64((char *)v6, v9, a3, a4, NtHeader, v5);
     }
     else
     {

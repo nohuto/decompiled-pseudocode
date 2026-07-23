@@ -1,22 +1,22 @@
 /*
- * XREFs of BiQueryBootOptions @ 0x1408F43B8
+ * XREFs of BiQueryBootOptions @ 0x1408F5678
  * Callers:
- *     BiBindEfiBootManager @ 0x1408F1F6C (BiBindEfiBootManager.c)
- *     BiExportEfiBootManager @ 0x1408F3688 (BiExportEfiBootManager.c)
+ *     BiBindEfiBootManager @ 0x1408F322C (BiBindEfiBootManager.c)
+ *     BiExportEfiBootManager @ 0x1408F4948 (BiExportEfiBootManager.c)
  * Callees:
- *     ZwQueryBootOptions @ 0x1401BA8B0 (ZwQueryBootOptions.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     BiReleasePrivilege @ 0x1407114A4 (BiReleasePrivilege.c)
- *     BiAcquirePrivilege @ 0x1407114F4 (BiAcquirePrivilege.c)
- *     BiLogMessage @ 0x1407140B4 (BiLogMessage.c)
+ *     ZwQueryBootOptions @ 0x1401BAA10 (ZwQueryBootOptions.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     BiReleasePrivilege @ 0x140712744 (BiReleasePrivilege.c)
+ *     BiAcquirePrivilege @ 0x140712794 (BiAcquirePrivilege.c)
+ *     BiLogMessage @ 0x140715354 (BiLogMessage.c)
  */
 
-__int64 __fastcall BiQueryBootOptions(struct _BOOT_OPTIONS **a1, ULONG *a2)
+__int64 __fastcall BiQueryBootOptions(_BOOT_OPTIONS **a1, ULONG *a2)
 {
-  struct _BOOT_OPTIONS *v2; // rdi
-  int v5; // ebx
-  struct _BOOT_OPTIONS *PoolWithTag; // rax
+  _BOOT_OPTIONS *v2; // rdi
+  NTSTATUS v5; // ebx
+  _BOOT_OPTIONS *PoolWithTag; // rax
   ULONG BootOptionsLength; // [rsp+40h] [rbp+8h] BYREF
   unsigned int v9; // [rsp+48h] [rbp+10h] BYREF
 
@@ -30,7 +30,7 @@ __int64 __fastcall BiQueryBootOptions(struct _BOOT_OPTIONS **a1, ULONG *a2)
     v5 = ZwQueryBootOptions(0LL, &BootOptionsLength);
     if ( v5 != -1073741789 )
       goto LABEL_6;
-    PoolWithTag = (struct _BOOT_OPTIONS *)ExAllocatePoolWithTag(PagedPool, BootOptionsLength, 0x4B444342u);
+    PoolWithTag = (_BOOT_OPTIONS *)ExAllocatePoolWithTag(PagedPool, BootOptionsLength, 0x4B444342u);
     v2 = PoolWithTag;
     if ( !PoolWithTag )
     {

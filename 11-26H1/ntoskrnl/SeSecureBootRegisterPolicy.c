@@ -1,14 +1,14 @@
 /*
- * XREFs of SeSecureBootRegisterPolicy @ 0x140CDDE10
+ * XREFs of SeSecureBootRegisterPolicy @ 0x140CE41A8
  * Callers:
- *     SeCodeIntegrityInitializePolicy @ 0x140CDCFD4 (SeCodeIntegrityInitializePolicy.c)
+ *     SeCodeIntegrityInitializePolicy @ 0x140CE336C (SeCodeIntegrityInitializePolicy.c)
  * Callees:
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
- *     SepSecureBootCheckForUpdates @ 0x140CDE0A4 (SepSecureBootCheckForUpdates.c)
- *     SepSecureBootSetRegistryKey @ 0x140CDE1B0 (SepSecureBootSetRegistryKey.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
+ *     SepSecureBootCheckForUpdates @ 0x140CE443C (SepSecureBootCheckForUpdates.c)
+ *     SepSecureBootSetRegistryKey @ 0x140CE4548 (SepSecureBootSetRegistryKey.c)
  */
 
 __int64 __fastcall SeSecureBootRegisterPolicy(ULONG_PTR BugCheckParameter2, ULONG_PTR BugCheckParameter3)
@@ -17,8 +17,8 @@ __int64 __fastcall SeSecureBootRegisterPolicy(ULONG_PTR BugCheckParameter2, ULON
   unsigned int v4; // r8d
   unsigned int v5; // ecx
   _WORD *v6; // rsi
-  _WORD *Pool2; // rax
-  _WORD *v8; // rbx
+  char *Pool2; // rax
+  char *v8; // rbx
   int v9; // ebx
   unsigned int v10; // ecx
   __int64 v11; // r8
@@ -49,16 +49,16 @@ __int64 __fastcall SeSecureBootRegisterPolicy(ULONG_PTR BugCheckParameter2, ULON
     goto LABEL_36;
   }
   v6 = 0LL;
-  *(_OWORD *)&RtlpBootStatHandleLock.SchedulerApc.Type = *(_OWORD *)BugCheckParameter2;
-  RtlpBootStatHandleLock.SchedulerApc.ApcListEntry.Flink = *(struct _LIST_ENTRY **)(BugCheckParameter2 + 16);
+  *(_OWORD *)&RtlpBootStatHandleLock.SchedulerApcFill5[16] = *(_OWORD *)BugCheckParameter2;
+  RtlpBootStatHandleLock.SchedulerApc.Reserved[0] = *(PVOID *)(BugCheckParameter2 + 16);
   if ( *(_DWORD *)(BugCheckParameter2 + 12) )
     v6 = (_WORD *)(BugCheckParameter2 + *(unsigned int *)(BugCheckParameter2 + 8));
   SepSecureBootSetRegistryKey(v6);
-  if ( (RtlpBootStatHandleLock.SchedulerApcFill3[4] & 8) != 0 )
+  if ( (RtlpBootStatHandleLock.SchedulerApcFill3[20] & 8) != 0 )
     SepSecureBootCheckForUpdates();
   if ( v6 )
   {
-    Pool2 = (_WORD *)ExAllocatePool2(64LL, *(unsigned int *)(BugCheckParameter2 + 12), 0x62536553u);
+    Pool2 = (char *)ExAllocatePool2(64LL, *(unsigned int *)(BugCheckParameter2 + 12), 0x62536553u);
     v8 = Pool2;
     if ( !Pool2 )
     {
@@ -67,19 +67,17 @@ LABEL_14:
       goto LABEL_37;
     }
     memmove(Pool2, v6, *(unsigned int *)(BugCheckParameter2 + 12));
-    *(_QWORD *)&RtlpBootStatHandleLock.SavedApcStateFill[40] = v8;
+    RtlpBootStatHandleLock.SchedulerApc.Reserved[1] = v8;
     if ( !v6[18] && !v6[19] )
       return 0LL;
-    RtlpBootStatHandleLock.SchedulerApc.ApcListEntry.Blink = (struct _LIST_ENTRY *)((char *)v8
-                                                                                  + *((unsigned int *)v8 + 13)
-                                                                                  + 60);
-    v10 = (unsigned __int16)v8[18];
+    RtlpBootStatHandleLock.SchedulerApc.Reserved[2] = &v8[*((unsigned int *)v8 + 13) + 60];
+    v10 = *((unsigned __int16 *)v8 + 18);
     if ( (_WORD)v10 )
     {
-      RtlpBootStatHandleLock.SchedulerApc.Reserved[2] = (char *)v8 + *((unsigned int *)v8 + 10) + 60;
+      RtlpBootStatHandleLock.SchedulerApc.SystemArgument1 = &v8[*((unsigned int *)v8 + 10) + 60];
       v11 = v10;
-      v12 = (char *)RtlpBootStatHandleLock.SchedulerApc.Reserved[2] + 4;
-      v13 = *(_DWORD *)&RtlpBootStatHandleLock.SchedulerApcFill5[56];
+      v12 = (char *)RtlpBootStatHandleLock.SchedulerApc.SystemArgument1 + 4;
+      v13 = *(_DWORD *)&RtlpBootStatHandleLock.SchedulerApcFill5[72];
       do
       {
         v14 = v12[3];
@@ -88,10 +86,10 @@ LABEL_14:
         --v11;
       }
       while ( v11 );
-      *(_DWORD *)&RtlpBootStatHandleLock.SchedulerApcFill5[56] = v13;
+      *(_DWORD *)&RtlpBootStatHandleLock.SchedulerApcFill5[72] = v13;
     }
-    if ( v8[19] )
-      RtlpBootStatHandleLock.SchedulerApc.Reserved[0] = (char *)v8 + *((unsigned int *)v8 + 11) + 60;
+    if ( *((_WORD *)v8 + 19) )
+      RtlpBootStatHandleLock.SchedulerApc.NormalContext = &v8[*((unsigned int *)v8 + 11) + 60];
     if ( *(_DWORD *)BugCheckParameter2 < 2u )
       return 0LL;
     v15 = *(unsigned int *)(BugCheckParameter2 + 20);
@@ -123,8 +121,8 @@ LABEL_14:
             if ( v23 <= 0xFFFFFFFF && v22 >= (unsigned int)v23 )
             {
               *((_QWORD *)v18 + 2) = (char *)v18 + (unsigned int)v20 + 24;
-              LODWORD(SepRmCapTableLock.IoSelfBoostsEntry.Next) = *(_DWORD *)(BugCheckParameter2 + 20);
-              *(_QWORD *)SepRmCapTableLock.PriorityFloorCounts = v18;
+              *(_DWORD *)&SepRmCapTableLock.PriorityFloorCounts[24] = *(_DWORD *)(BugCheckParameter2 + 20);
+              *(_QWORD *)&SepRmCapTableLock.PriorityFloorSummary = v18;
               return 0LL;
             }
           }
@@ -134,10 +132,10 @@ LABEL_14:
 LABEL_36:
     v9 = -1069350909;
 LABEL_37:
-    if ( *(_QWORD *)&RtlpBootStatHandleLock.SavedApcStateFill[40] )
+    if ( RtlpBootStatHandleLock.SchedulerApc.Reserved[1] )
     {
-      ExFreePoolWithTag(*(PVOID *)&RtlpBootStatHandleLock.SavedApcStateFill[40], 0);
-      *(_QWORD *)&RtlpBootStatHandleLock.SavedApcStateFill[40] = 0LL;
+      ExFreePoolWithTag(RtlpBootStatHandleLock.SchedulerApc.Reserved[1], 0);
+      RtlpBootStatHandleLock.SchedulerApc.Reserved[1] = 0LL;
     }
     KeBugCheckEx(0x145u, v9, BugCheckParameter2, v2, 0LL);
   }

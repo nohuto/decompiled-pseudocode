@@ -1,9 +1,9 @@
 /*
- * XREFs of KeGetTbSize @ 0x140CCB080
+ * XREFs of KeGetTbSize @ 0x140CD1160
  * Callers:
- *     MiInitializeTbFlushing @ 0x140CFF7F0 (MiInitializeTbFlushing.c)
+ *     MiInitializeTbFlushing @ 0x140D05B90 (MiInitializeTbFlushing.c)
  * Callees:
- *     KiGetTbLeafInfo @ 0x140CCB1EC (KiGetTbLeafInfo.c)
+ *     KiGetTbLeafInfo @ 0x140CD12CC (KiGetTbLeafInfo.c)
  */
 
 __int64 KeGetTbSize()

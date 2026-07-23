@@ -6,7 +6,9 @@
  *     _RtlpFcUpdateUsageSubscriptions@12 @ 0x4B3698AF (_RtlpFcUpdateUsageSubscriptions@12.c)
  */
 
-int __stdcall RtlUnsubscribeFromFeatureUsageNotifications(int a1, int a2)
+NTSTATUS __cdecl RtlUnsubscribeFromFeatureUsageNotifications(
+        PRTL_FEATURE_USAGE_SUBSCRIPTION_DETAILS SubscriptionDetails,
+        SIZE_T SubscriptionCount)
 {
   return RtlpFcUpdateUsageSubscriptions(1);
 }

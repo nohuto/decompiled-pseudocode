@@ -1,14 +1,15 @@
 /*
- * XREFs of ZwSetDefaultLocale @ 0x14041E0C0
+ * XREFs of ZwSetDefaultLocale @ 0x14041E450
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwSetDefaultLocale(__int64 a1, __int64 a2)
+// local variable allocation has failed, the output may be wrong!
+NTSTATUS __cdecl ZwSetDefaultLocale(BOOLEAN UserProfile, LCID DefaultLocaleId)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(UserProfile);
 }

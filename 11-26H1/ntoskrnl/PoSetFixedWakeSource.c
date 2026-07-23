@@ -1,5 +1,5 @@
 /*
- * XREFs of PoSetFixedWakeSource @ 0x140BE95A0
+ * XREFs of PoSetFixedWakeSource @ 0x140BEF5A0
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 void __fastcall PoSetFixedWakeSource(int a1)
 {
-  LODWORD(stru_140F11D08.Timer.TimerListEntry.Blink) |= a1;
+  PopFixedWakeSourceMask |= a1;
 }

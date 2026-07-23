@@ -1,19 +1,19 @@
 /*
- * XREFs of HalSetRealTimeClock @ 0x1404FEC10
+ * XREFs of HalSetRealTimeClock @ 0x1404FF160
  * Callers:
- *     ExpRefreshSystemTime @ 0x14083EAF4 (ExpRefreshSystemTime.c)
- *     NtSetSystemTime @ 0x1409F8290 (NtSetSystemTime.c)
- *     ExpSetSystemTime @ 0x140AAAC64 (ExpSetSystemTime.c)
+ *     ExpRefreshSystemTime @ 0x14083EDF4 (ExpRefreshSystemTime.c)
+ *     NtSetSystemTime @ 0x1409F8520 (NtSetSystemTime.c)
+ *     ExpSetSystemTime @ 0x140AAAAD4 (ExpSetSystemTime.c)
  *     GetBootSystemTime @ 0x140B7333C (GetBootSystemTime.c)
  * Callees:
- *     ExLocalTimeToSystemTime @ 0x14033B2A0 (ExLocalTimeToSystemTime.c)
- *     RtlpTimeFieldsToTimeNoLeapSeconds @ 0x14033B3E0 (RtlpTimeFieldsToTimeNoLeapSeconds.c)
- *     HalpSetVirtualRtc @ 0x14033B5F0 (HalpSetVirtualRtc.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     HalEfiSetTime @ 0x14050D2E0 (HalEfiSetTime.c)
- *     HalpWriteCmosTime @ 0x14051582C (HalpWriteCmosTime.c)
- *     HalpSetAcpiRealTimeClock @ 0x140932F18 (HalpSetAcpiRealTimeClock.c)
- *     HalpUtcTimeToAcpiRealTime @ 0x140933018 (HalpUtcTimeToAcpiRealTime.c)
+ *     ExLocalTimeToSystemTime @ 0x14033B530 (ExLocalTimeToSystemTime.c)
+ *     RtlpTimeFieldsToTimeNoLeapSeconds @ 0x14033B670 (RtlpTimeFieldsToTimeNoLeapSeconds.c)
+ *     HalpSetVirtualRtc @ 0x14033B880 (HalpSetVirtualRtc.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     HalEfiSetTime @ 0x14050D830 (HalEfiSetTime.c)
+ *     HalpWriteCmosTime @ 0x140515D7C (HalpWriteCmosTime.c)
+ *     HalpSetAcpiRealTimeClock @ 0x140933118 (HalpSetAcpiRealTimeClock.c)
+ *     HalpUtcTimeToAcpiRealTime @ 0x140933218 (HalpUtcTimeToAcpiRealTime.c)
  */
 
 char __fastcall HalSetRealTimeClock(__int16 *a1)
@@ -109,7 +109,7 @@ LABEL_17:
   }
   if ( v11 >= 0 )
     v8 = 1;
-  v12 = HalpSetVirtualRtc((__int64 *)&LocalTime);
+  v12 = HalpSetVirtualRtc(&LocalTime);
   v13 = v8;
   if ( v12 )
     return 1;

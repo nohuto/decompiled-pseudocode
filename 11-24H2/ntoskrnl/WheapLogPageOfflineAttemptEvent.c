@@ -1,12 +1,12 @@
 /*
- * XREFs of WheapLogPageOfflineAttemptEvent @ 0x1407C8590
+ * XREFs of WheapLogPageOfflineAttemptEvent @ 0x1407C8A78
  * Callers:
- *     WheaAttemptRowOffline @ 0x14065CB10 (WheaAttemptRowOffline.c)
- *     WheapAttemptPhysicalPageOffline @ 0x1407C791C (WheapAttemptPhysicalPageOffline.c)
+ *     WheaAttemptRowOffline @ 0x14065B230 (WheaAttemptRowOffline.c)
+ *     WheapAttemptPhysicalPageOffline @ 0x1407C7DBC (WheapAttemptPhysicalPageOffline.c)
  * Callees:
- *     EtwWrite @ 0x14041C1B0 (EtwWrite.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     WheapTrackPendingPage @ 0x1407C9634 (WheapTrackPendingPage.c)
+ *     EtwWrite @ 0x14040FFB0 (EtwWrite.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     WheapTrackPendingPage @ 0x1407C9B24 (WheapTrackPendingPage.c)
  */
 
 NTSTATUS __fastcall WheapLogPageOfflineAttemptEvent(__int64 a1, char a2, char a3, char a4, char a5)
@@ -43,5 +43,5 @@ NTSTATUS __fastcall WheapLogPageOfflineAttemptEvent(__int64 a1, char a2, char a3
   v18 = &v11;
   v20 = &v12;
   v12 = a4 != 0;
-  return EtwWrite(WheapEtwHandle, &EVENT_WHEA_MEMORY_OFFLINE, 0LL, 5u, &UserData);
+  return EtwWrite((REGHANDLE)WheapDispatchPtr.Dpc.DpcData, &EVENT_WHEA_MEMORY_OFFLINE, 0LL, 5u, &UserData);
 }

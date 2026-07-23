@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlPopulateHpatEntry @ 0x14067AE74
+ * XREFs of RtlPopulateHpatEntry @ 0x14067B3C4
  * Callers:
- *     RtlApplyHotPatch @ 0x140AAD770 (RtlApplyHotPatch.c)
+ *     RtlApplyHotPatch @ 0x140AAD5E0 (RtlApplyHotPatch.c)
  * Callees:
  *     <none>
  */

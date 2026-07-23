@@ -1,13 +1,13 @@
 /*
- * XREFs of MiInitializeZeroingDomains @ 0x1407FF580
+ * XREFs of MiInitializeZeroingDomains @ 0x1407FFCC4
  * Callers:
- *     MiAbsorbPossibleEngineChanges @ 0x14068F0A4 (MiAbsorbPossibleEngineChanges.c)
+ *     MiAbsorbPossibleEngineChanges @ 0x140690174 (MiAbsorbPossibleEngineChanges.c)
  * Callees:
- *     KeFindFirstSetRightGroupAffinity @ 0x1403B4C70 (KeFindFirstSetRightGroupAffinity.c)
- *     MiGetProcessorDomain @ 0x1404D9CA8 (MiGetProcessorDomain.c)
- *     MiGetEngineType @ 0x1404F8630 (MiGetEngineType.c)
- *     MiGetNodeBaseDomain @ 0x140685A00 (MiGetNodeBaseDomain.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
+ *     KeFindFirstSetRightGroupAffinity @ 0x140371000 (KeFindFirstSetRightGroupAffinity.c)
+ *     MiGetProcessorDomain @ 0x1404D3724 (MiGetProcessorDomain.c)
+ *     MiGetEngineType @ 0x1404F5F10 (MiGetEngineType.c)
+ *     MiGetNodeBaseDomain @ 0x140686B30 (MiGetNodeBaseDomain.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
  */
 
 __int64 __fastcall MiInitializeZeroingDomains(__int64 a1, int a2)

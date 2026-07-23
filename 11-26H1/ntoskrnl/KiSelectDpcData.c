@@ -1,7 +1,7 @@
 /*
- * XREFs of KiSelectDpcData @ 0x140462270
+ * XREFs of KiSelectDpcData @ 0x14045B230
  * Callers:
- *     KeRemoveQueueDpcEx @ 0x140423370 (KeRemoveQueueDpcEx.c)
+ *     KeRemoveQueueDpcEx @ 0x140430460 (KeRemoveQueueDpcEx.c)
  * Callees:
  *     <none>
  */

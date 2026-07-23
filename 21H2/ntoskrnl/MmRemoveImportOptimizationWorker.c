@@ -1,12 +1,12 @@
 /*
- * XREFs of MmRemoveImportOptimizationWorker @ 0x140544810
+ * XREFs of MmRemoveImportOptimizationWorker @ 0x140544A50
  * Callers:
  *     <none>
  * Callees:
- *     KeYieldProcessorEx @ 0x14024B280 (KeYieldProcessorEx.c)
- *     MiApplyRetpolineFixups @ 0x14029C6A4 (MiApplyRetpolineFixups.c)
+ *     MiApplyRetpolineFixups @ 0x140214824 (MiApplyRetpolineFixups.c)
+ *     KeYieldProcessorEx @ 0x1402EFAD0 (KeYieldProcessorEx.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     KeIsNmiCallbackRegistered @ 0x140514240 (KeIsNmiCallbackRegistered.c)
+ *     KeIsNmiCallbackRegistered @ 0x140514480 (KeIsNmiCallbackRegistered.c)
  */
 
 __int64 __fastcall MmRemoveImportOptimizationWorker(

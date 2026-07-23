@@ -3,7 +3,7 @@
  * Callers:
  *     IntPartCreate @ 0x140B4E724 (IntPartCreate.c)
  * Callees:
- *     IntPartCriticalFailure @ 0x1405749F4 (IntPartCriticalFailure.c)
+ *     IntPartCriticalFailure @ 0x140574F34 (IntPartCriticalFailure.c)
  *     IntpAddNextProcessorToPartition @ 0x140B4EC04 (IntpAddNextProcessorToPartition.c)
  */
 

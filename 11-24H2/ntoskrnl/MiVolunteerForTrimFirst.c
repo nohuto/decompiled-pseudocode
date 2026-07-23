@@ -1,11 +1,11 @@
 /*
- * XREFs of MiVolunteerForTrimFirst @ 0x140231CFC
+ * XREFs of MiVolunteerForTrimFirst @ 0x140303BB0
  * Callers:
- *     MiSetVaAgeList @ 0x140230FB0 (MiSetVaAgeList.c)
- *     MiRemoveWsleList @ 0x140231F70 (MiRemoveWsleList.c)
+ *     MiRemoveWsleList @ 0x140303100 (MiRemoveWsleList.c)
+ *     MiSetVaAgeList @ 0x140304F30 (MiSetVaAgeList.c)
  * Callees:
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14020FA40 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140210170 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140338DA0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1403394D0 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
  */
 
 void __fastcall MiVolunteerForTrimFirst(__int64 a1, __int64 a2)
@@ -21,7 +21,7 @@ void __fastcall MiVolunteerForTrimFirst(__int64 a1, __int64 a2)
   __int64 *v10; // rcx
   __int64 **v11; // rcx
 
-  v2 = (_QWORD *)*((_QWORD *)qword_140E2FF88 + *(unsigned __int16 *)(a1 + 174));
+  v2 = (_QWORD *)*((_QWORD *)qword_140E300C8 + *(unsigned __int16 *)(a1 + 174));
   v3 = v2[2200];
   if ( *(_QWORD *)(a1 + 96) >= *(_QWORD *)(v3 + 56) )
   {
@@ -45,7 +45,7 @@ void __fastcall MiVolunteerForTrimFirst(__int64 a1, __int64 a2)
   }
   if ( v5 != v4 )
   {
-    ExAcquireSpinLockExclusiveAtDpcLevel(&dword_140E373C0);
+    ExAcquireSpinLockExclusiveAtDpcLevel(&SpinLock);
     if ( *(_BYTE *)(v3 + 53) || (v7 = *v4) == 0 )
     {
       *(_BYTE *)(v3 + 54) = 1;
@@ -79,6 +79,6 @@ LABEL_12:
         v2[2202] = v4;
       }
     }
-    ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140E373C0);
+    ExReleaseSpinLockExclusiveFromDpcLevel(&SpinLock);
   }
 }

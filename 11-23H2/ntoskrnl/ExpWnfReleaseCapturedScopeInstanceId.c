@@ -1,14 +1,14 @@
 /*
- * XREFs of ExpWnfReleaseCapturedScopeInstanceId @ 0x14071313C
+ * XREFs of ExpWnfReleaseCapturedScopeInstanceId @ 0x14071334C
  * Callers:
- *     ExpNtUpdateWnfStateData @ 0x14071229C (ExpNtUpdateWnfStateData.c)
- *     NtQueryWnfStateData @ 0x140712C50 (NtQueryWnfStateData.c)
- *     NtQueryWnfStateNameInformation @ 0x1407CD360 (NtQueryWnfStateNameInformation.c)
- *     ExpNtDeleteWnfStateData @ 0x14085BE6C (ExpNtDeleteWnfStateData.c)
+ *     ExpNtUpdateWnfStateData @ 0x1407124AC (ExpNtUpdateWnfStateData.c)
+ *     NtQueryWnfStateData @ 0x140712E60 (NtQueryWnfStateData.c)
+ *     NtQueryWnfStateNameInformation @ 0x1407CD630 (NtQueryWnfStateNameInformation.c)
+ *     ExpNtDeleteWnfStateData @ 0x14085C0AC (ExpNtDeleteWnfStateData.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14022F5B0 (ObfDereferenceObjectWithTag.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     SeReleaseSid @ 0x1406BB2A4 (SeReleaseSid.c)
+ *     ObfDereferenceObjectWithTag @ 0x14022F6C0 (ObfDereferenceObjectWithTag.c)
+ *     ObfDereferenceObject @ 0x140231660 (ObfDereferenceObject.c)
+ *     SeReleaseSid @ 0x1406BB2D4 (SeReleaseSid.c)
  */
 
 void __fastcall ExpWnfReleaseCapturedScopeInstanceId(int a1, PVOID *a2, char a3)

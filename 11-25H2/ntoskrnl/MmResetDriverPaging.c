@@ -17,11 +17,11 @@ void __stdcall MmResetDriverPaging(PVOID AddressWithinSection)
 {
   __int64 v2; // rax
   __int64 v3; // rsi
-  unsigned __int64 v4; // rbp
-  unsigned __int64 v5; // rbx
-  __int64 v6; // rcx
-  unsigned __int64 v7; // rdi
-  int v8; // ebx
+  void *v4; // rbp
+  PIMAGE_NT_HEADERS v5; // rbx
+  __int64 SizeOfOptionalHeader; // rcx
+  _IMAGE_OPTIONAL_HEADER64 *p_OptionalHeader; // rdi
+  int NumberOfSections; // ebx
   _DWORD *i; // rdi
   unsigned int v10; // edx
   __int64 v11; // r9
@@ -38,21 +38,21 @@ void __stdcall MmResetDriverPaging(PVOID AddressWithinSection)
     {
       if ( (dword_140FC41E4 & 1) == 0 )
       {
-        v4 = *(_QWORD *)(v2 + 48);
+        v4 = *(void **)(v2 + 48);
         v5 = RtlImageNtHeader(v4);
         MiCancelPhase0Locking(v3);
-        v6 = *(unsigned __int16 *)(v5 + 20);
-        v7 = v5 + 24;
-        v8 = *(unsigned __int16 *)(v5 + 6);
-        for ( i = (_DWORD *)(v6 + v7); v8; --v8 )
+        SizeOfOptionalHeader = v5->FileHeader.SizeOfOptionalHeader;
+        p_OptionalHeader = &v5->OptionalHeader;
+        NumberOfSections = v5->FileHeader.NumberOfSections;
+        for ( i = (_DWORD *)((char *)&p_OptionalHeader->Magic + SizeOfOptionalHeader); NumberOfSections; --NumberOfSections )
         {
           if ( (i[9] & 0x2000000) == 0 && !(unsigned int)MmImageSectionPagable(i) )
           {
             v10 = i[4];
             if ( v10 < i[2] )
               v10 = i[2];
-            MiGetPteAddress(v4 + i[3] + v10 - 1);
-            PteAddress = (volatile signed __int64 *)MiGetPteAddress(v11 + v4);
+            MiGetPteAddress((unsigned __int64)v4 + i[3] + v10 - 1);
+            PteAddress = (volatile signed __int64 *)MiGetPteAddress((unsigned __int64)v4 + v11);
             MiLockCode(v3, PteAddress, v13, 2);
           }
           i += 10;

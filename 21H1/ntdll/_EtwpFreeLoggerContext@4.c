@@ -15,77 +15,76 @@
  *     _EtwpShutdownCompression@4 @ 0x4B383186 (_EtwpShutdownCompression@4.c)
  */
 
-int __thiscall EtwpFreeLoggerContext(void *this)
+LOGICAL __thiscall EtwpFreeLoggerContext(char *BaseAddress)
 {
-  int v1; // esi
-  _DWORD *v2; // edi
-  _DWORD *v3; // edi
-  _DWORD *v5; // ebx
-  int v6; // [esp-4h] [ebp-2Ch]
-  int v7; // [esp-4h] [ebp-2Ch]
-  _DWORD v8[3]; // [esp+10h] [ebp-18h] BYREF
-  _DWORD *v9; // [esp+1Ch] [ebp-Ch]
-  int v10; // [esp+20h] [ebp-8h]
-  int v11; // [esp+24h] [ebp-4h] BYREF
+  char *v1; // esi
+  char *v2; // edi
+  char *v3; // edi
+  char *v5; // ebx
+  char *v6; // [esp-4h] [ebp-2Ch]
+  char *v7; // [esp-4h] [ebp-2Ch]
+  LARGE_INTEGER DelayInterval; // [esp+10h] [ebp-18h] BYREF
+  PVOID BaseAddressa; // [esp+1Ch] [ebp-Ch]
+  char *v10; // [esp+20h] [ebp-8h]
+  ULONG_PTR RegionSize; // [esp+24h] [ebp-4h] BYREF
 
-  v8[1] = -1;
-  v1 = (int)this;
-  v8[0] = -3000000;
-  v10 = (int)this;
-  while ( *(int *)(EtwpLoggerArray + 8 * *(_DWORD *)(v1 + 20) + 4) > 1 )
-    ZwDelayExecution(0, v8);
-  if ( (*(_DWORD *)(v1 + 212) & 0x4000000) != 0 )
+  v1 = BaseAddress;
+  DelayInterval.QuadPart = -3000000LL;
+  v10 = BaseAddress;
+  while ( *(int *)(EtwpLoggerArray + 8 * *((_DWORD *)v1 + 5) + 4) > 1 )
+    ZwDelayExecution(0, &DelayInterval);
+  if ( (*((_DWORD *)v1 + 53) & 0x4000000) != 0 )
     EtwpShutdownCompression(v1);
-  if ( *(_DWORD *)(v1 + 304) )
+  if ( *((_DWORD *)v1 + 76) )
   {
-    v11 = 0;
-    NtFreeVirtualMemory(-1, v1 + 304, &v11, 0x8000);
+    LODWORD(RegionSize) = 0;
+    NtFreeVirtualMemory((HANDLE)0xFFFFFFFF, (PVOID *)v1 + 76, &RegionSize, 0x8000u);
   }
-  NtClose(*(HANDLE *)(v1 + 100));
-  NtClose(*(HANDLE *)(v1 + 96));
-  RtlDeleteCriticalSection((int *)(v1 + 72));
-  if ( *(_DWORD *)(v1 + 112) )
+  NtClose(*((HANDLE *)v1 + 25));
+  NtClose(*((HANDLE *)v1 + 24));
+  RtlDeleteCriticalSection((PRTL_CRITICAL_SECTION)v1 + 3);
+  if ( *((_DWORD *)v1 + 28) )
     RtlFreeAnsiString((PUNICODE_STRING)(v1 + 108));
-  if ( *(_DWORD *)(v1 + 120) )
+  if ( *((_DWORD *)v1 + 30) )
     RtlFreeAnsiString((PUNICODE_STRING)(v1 + 116));
-  if ( *(_DWORD *)(v1 + 128) )
+  if ( *((_DWORD *)v1 + 32) )
     RtlFreeAnsiString((PUNICODE_STRING)(v1 + 124));
-  v2 = *(_DWORD **)(v1 + 332);
-  while ( v2 != (_DWORD *)(v1 + 332) )
+  v2 = (char *)*((_DWORD *)v1 + 83);
+  while ( v2 != v1 + 332 )
   {
-    v6 = (int)v2;
-    v2 = (_DWORD *)*v2;
-    RtlFreeHeap((int)NtCurrentPeb()->ProcessHeap, 0, v6);
+    v6 = v2;
+    v2 = *(char **)v2;
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v6);
   }
-  v3 = *(_DWORD **)(v1 + 340);
-  while ( v3 != (_DWORD *)(v1 + 340) )
+  v3 = (char *)*((_DWORD *)v1 + 85);
+  while ( v3 != v1 + 340 )
   {
-    v9 = v3;
-    v5 = (_DWORD *)v3[3];
-    if ( v5 != v3 + 3 )
+    BaseAddressa = v3;
+    v5 = (char *)*((_DWORD *)v3 + 3);
+    if ( v5 != v3 + 12 )
     {
       do
       {
-        v7 = (int)v5;
-        v5 = (_DWORD *)*v5;
-        RtlFreeHeap((int)NtCurrentPeb()->ProcessHeap, 0, v7);
+        v7 = v5;
+        v5 = *(char **)v5;
+        RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v7);
       }
-      while ( v5 != v3 + 3 );
+      while ( v5 != v3 + 12 );
       v1 = v10;
     }
-    v3 = (_DWORD *)*v3;
-    RtlFreeHeap((int)NtCurrentPeb()->ProcessHeap, 0, (int)v9);
+    v3 = *(char **)v3;
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, BaseAddressa);
   }
-  if ( *(_DWORD *)(v1 + 356) )
-    RtlFreeHeap((int)NtCurrentPeb()->ProcessHeap, 0, *(_DWORD *)(v1 + 356));
-  if ( *(_DWORD *)(v1 + 360) )
-    RtlFreeHeap((int)NtCurrentPeb()->ProcessHeap, 0, *(_DWORD *)(v1 + 360));
-  if ( *(_DWORD *)(v1 + 368) )
-    RtlFreeHeap((int)NtCurrentPeb()->ProcessHeap, 0, *(_DWORD *)(v1 + 368));
-  if ( *(_DWORD *)(v1 + 376) )
-    RtlFreeHeap((int)NtCurrentPeb()->ProcessHeap, 0, *(_DWORD *)(v1 + 376));
+  if ( *((_DWORD *)v1 + 89) )
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, *((PVOID *)v1 + 89));
+  if ( *((_DWORD *)v1 + 90) )
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, *((PVOID *)v1 + 90));
+  if ( *((_DWORD *)v1 + 92) )
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, *((PVOID *)v1 + 92));
+  if ( *((_DWORD *)v1 + 94) )
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, *((PVOID *)v1 + 94));
   EtwpFreeStreamIndexMap(v1);
-  _InterlockedExchange((volatile __int32 *)(EtwpLoggerArray + 8 * *(_DWORD *)(v1 + 20)), 1);
-  _InterlockedDecrement((volatile signed __int32 *)(EtwpLoggerArray + 8 * *(_DWORD *)(v1 + 20) + 4));
-  return RtlFreeHeap((int)NtCurrentPeb()->ProcessHeap, 0, v1);
+  _InterlockedExchange((volatile __int32 *)(EtwpLoggerArray + 8 * *((_DWORD *)v1 + 5)), 1);
+  _InterlockedDecrement((volatile signed __int32 *)(EtwpLoggerArray + 8 * *((_DWORD *)v1 + 5) + 4));
+  return RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v1);
 }

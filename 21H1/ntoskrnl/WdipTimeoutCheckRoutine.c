@@ -51,5 +51,5 @@ _BOOL8 WdipTimeoutCheckRoutine()
   v3 = WdipSemOneSecond * (WdipSemTimeoutValue / 0xAu);
   ExReleasePushLockEx((ULONG_PTR)&WdipSemPushLock, 0LL);
   KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v4, v5, v6);
-  return ExSetTimer(WdipTimeoutTimer, v3, 0LL, &WdipTimeoutTimerParameters);
+  return ExSetTimer(WdipTimeoutTimer, v3, 0LL, (__int64)&WdipTimeoutTimerParameters);
 }

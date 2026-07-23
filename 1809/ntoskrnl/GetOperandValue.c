@@ -1,25 +1,25 @@
 /*
- * XREFs of GetOperandValue @ 0x1408A7838
+ * XREFs of GetOperandValue @ 0x1408A8A98
  * Callers:
- *     GetOperandValue @ 0x1408A7838 (GetOperandValue.c)
- *     LocalGetConditionForString @ 0x1408A8BCC (LocalGetConditionForString.c)
+ *     GetOperandValue @ 0x1408A8A98 (GetOperandValue.c)
+ *     LocalGetConditionForString @ 0x1408A9E2C (LocalGetConditionForString.c)
  * Callees:
  *     RtlLengthSid @ 0x1400162C0 (RtlLengthSid.c)
- *     _wcsnicmp @ 0x140195A70 (_wcsnicmp.c)
- *     wcstoxq @ 0x140198148 (wcstoxq.c)
- *     memmove @ 0x1401D1540 (memmove.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     LocalGetSidForString @ 0x1406B02AC (LocalGetSidForString.c)
- *     SddlpAlloc @ 0x1406B0574 (SddlpAlloc.c)
- *     SddlpReAlloc @ 0x1408A6C78 (SddlpReAlloc.c)
- *     FreeOperandValue @ 0x1408A7338 (FreeOperandValue.c)
- *     GetAttributeName @ 0x1408A7370 (GetAttributeName.c)
- *     GetBinaryOperandLen @ 0x1408A75C8 (GetBinaryOperandLen.c)
- *     GetDigitFromChar @ 0x1408A76B0 (GetDigitFromChar.c)
- *     GetNextNoneWhiteSpace @ 0x1408A77BC (GetNextNoneWhiteSpace.c)
- *     GetOperandValue @ 0x1408A7838 (GetOperandValue.c)
- *     GetStringOperandValue @ 0x1408A8948 (GetStringOperandValue.c)
- *     IsValueSizeFixed @ 0x1408A8BA0 (IsValueSizeFixed.c)
+ *     _wcsnicmp @ 0x140195BB0 (_wcsnicmp.c)
+ *     wcstoxq @ 0x140198288 (wcstoxq.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     LocalGetSidForString @ 0x1406B154C (LocalGetSidForString.c)
+ *     SddlpAlloc @ 0x1406B1814 (SddlpAlloc.c)
+ *     SddlpReAlloc @ 0x1408A7ED8 (SddlpReAlloc.c)
+ *     FreeOperandValue @ 0x1408A8598 (FreeOperandValue.c)
+ *     GetAttributeName @ 0x1408A85D0 (GetAttributeName.c)
+ *     GetBinaryOperandLen @ 0x1408A8828 (GetBinaryOperandLen.c)
+ *     GetDigitFromChar @ 0x1408A8910 (GetDigitFromChar.c)
+ *     GetNextNoneWhiteSpace @ 0x1408A8A1C (GetNextNoneWhiteSpace.c)
+ *     GetOperandValue @ 0x1408A8A98 (GetOperandValue.c)
+ *     GetStringOperandValue @ 0x1408A9BA8 (GetStringOperandValue.c)
+ *     IsValueSizeFixed @ 0x1408A9E00 (IsValueSizeFixed.c)
  */
 
 __int64 __fastcall GetOperandValue(

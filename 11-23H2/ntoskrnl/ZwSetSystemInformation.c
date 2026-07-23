@@ -1,21 +1,25 @@
 /*
- * XREFs of ZwSetSystemInformation @ 0x14041E480
+ * XREFs of ZwSetSystemInformation @ 0x14041E810
  * Callers:
- *     SmKmStoreTerminateWorker @ 0x1405CBB60 (SmKmStoreTerminateWorker.c)
- *     DifZwSetSystemInformationWrapper @ 0x1405F7810 (DifZwSetSystemInformationWrapper.c)
- *     NtSetSystemInformation @ 0x14075EE30 (NtSetSystemInformation.c)
- *     SmStoreCreate @ 0x1409D7A1C (SmStoreCreate.c)
- *     SmStoreDelete @ 0x1409D7B24 (SmStoreDelete.c)
- *     SmStoreResize @ 0x1409D7D10 (SmStoreResize.c)
- *     IoShutdownSystem @ 0x140A99B34 (IoShutdownSystem.c)
+ *     SmKmStoreTerminateWorker @ 0x1405CC0D0 (SmKmStoreTerminateWorker.c)
+ *     DifZwSetSystemInformationWrapper @ 0x1405F7D80 (DifZwSetSystemInformationWrapper.c)
+ *     NtSetSystemInformation @ 0x14075F020 (NtSetSystemInformation.c)
+ *     SmStoreCreate @ 0x1409D7C1C (SmStoreCreate.c)
+ *     SmStoreDelete @ 0x1409D7D24 (SmStoreDelete.c)
+ *     SmStoreResize @ 0x1409D7F10 (SmStoreResize.c)
+ *     IoShutdownSystem @ 0x140A999A4 (IoShutdownSystem.c)
  *     KitpInitAitSampleRate @ 0x140B721AC (KitpInitAitSampleRate.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwSetSystemInformation(__int64 a1, __int64 a2)
+// local variable allocation has failed, the output may be wrong!
+NTSTATUS __cdecl ZwSetSystemInformation(
+        SYSTEM_INFORMATION_CLASS SystemInformationClass,
+        PVOID SystemInformation,
+        ULONG SystemInformationLength)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(*(_QWORD *)&SystemInformationClass);
 }

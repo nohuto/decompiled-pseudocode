@@ -8,18 +8,15 @@
  *     ZwAlpcQueryInformation @ 0x18009FF00 (ZwAlpcQueryInformation.c)
  */
 
-__int64 __fastcall TpWaitForAlpcCompletion(__int64 a1)
+void __cdecl TpWaitForAlpcCompletion(PTP_ALPC Alpc)
 {
-  __int64 result; // rax
-  int v3; // [rsp+48h] [rbp+10h] BYREF
+  int PortInformation; // [rsp+48h] [rbp+10h] BYREF
 
-  result = TppAlpcpValidateAlpc((_PEB_LDR_DATA *)a1, 0LL, 0LL);
-  if ( (_DWORD)result )
+  if ( (unsigned int)TppAlpcpValidateAlpc((_PEB_LDR_DATA *)Alpc, 0LL, 0LL) )
   {
-    v3 = *(_DWORD *)(a1 + 280);
-    if ( v3 )
-      ZwAlpcQueryInformation(*(_QWORD *)(a1 + 272), 11LL, &v3);
-    return TppBarrierAdjust(a1 + 128, 0LL, 1LL);
+    PortInformation = *((_DWORD *)Alpc + 70);
+    if ( PortInformation )
+      ZwAlpcQueryInformation(*((HANDLE *)Alpc + 34), AlpcWaitForPortReferences, &PortInformation, 4u, 0LL);
+    TppBarrierAdjust((char *)Alpc + 128, 0LL, 1LL);
   }
-  return result;
 }

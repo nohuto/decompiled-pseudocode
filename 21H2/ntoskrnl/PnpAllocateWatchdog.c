@@ -1,12 +1,12 @@
 /*
- * XREFs of PnpAllocateWatchdog @ 0x140280324
+ * XREFs of PnpAllocateWatchdog @ 0x14026E564
  * Callers:
- *     PnpEnableWatchdog @ 0x140677554 (PnpEnableWatchdog.c)
+ *     PnpEnableWatchdog @ 0x14066AC94 (PnpEnableWatchdog.c)
  * Callees:
- *     PnpQueryWatchdogTimeout @ 0x1402803B8 (PnpQueryWatchdogTimeout.c)
- *     PnpWatchdogTimerAllocate @ 0x140677630 (PnpWatchdogTimerAllocate.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     PnpQueryWatchdogTimeout @ 0x14026E5F8 (PnpQueryWatchdogTimeout.c)
+ *     PnpWatchdogTimerAllocate @ 0x14066AD70 (PnpWatchdogTimerAllocate.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 _QWORD *PnpAllocateWatchdog()

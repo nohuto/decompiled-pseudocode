@@ -1,9 +1,9 @@
 /*
- * XREFs of KiAttemptFastRemoveQueue @ 0x1402BC264
+ * XREFs of KiAttemptFastRemoveQueue @ 0x14023A7C8
  * Callers:
- *     KeRemoveQueueEx @ 0x1402047D0 (KeRemoveQueueEx.c)
+ *     KeRemoveQueueEx @ 0x1402A9110 (KeRemoveQueueEx.c)
  * Callees:
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall KiAttemptFastRemoveQueue(ULONG_PTR BugCheckParameter2, __int64 a2, unsigned int a3)

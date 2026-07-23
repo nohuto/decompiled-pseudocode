@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlCreateRvaList @ 0x140A17660
+ * XREFs of RtlCreateRvaList @ 0x140A20C94
  * Callers:
- *     MiParseImageLoadConfig @ 0x1409CC9F0 (MiParseImageLoadConfig.c)
+ *     MiParseImageLoadConfig @ 0x14099D9D0 (MiParseImageLoadConfig.c)
  * Callees:
- *     memmove @ 0x14073D480 (memmove.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     RtlpCompressRvaList @ 0x140A17820 (RtlpCompressRvaList.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     RtlpCompressRvaList @ 0x140A20E50 (RtlpCompressRvaList.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall RtlCreateRvaList(

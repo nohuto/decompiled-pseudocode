@@ -1,13 +1,13 @@
 /*
- * XREFs of CmpDumpKeyBodyList @ 0x1407DAC40
+ * XREFs of CmpDumpKeyBodyList @ 0x1407DB190
  * Callers:
- *     CmpFreeAllMemory @ 0x1407D51F0 (CmpFreeAllMemory.c)
- *     CmpSearchAndCountWorker @ 0x1407DB2A0 (CmpSearchAndCountWorker.c)
- *     CmpSearchForOpenSubKeys @ 0x140ABB5C8 (CmpSearchForOpenSubKeys.c)
+ *     CmpFreeAllMemory @ 0x1407D56E0 (CmpFreeAllMemory.c)
+ *     CmpSearchAndCountWorker @ 0x1407DB7F0 (CmpSearchAndCountWorker.c)
+ *     CmpSearchForOpenSubKeys @ 0x140AB65E8 (CmpSearchForOpenSubKeys.c)
  * Callees:
- *     CmpFreeTransientPoolWithTag @ 0x140441FC0 (CmpFreeTransientPoolWithTag.c)
- *     CmpDumpOneKeyBody @ 0x1407DAD7C (CmpDumpOneKeyBody.c)
- *     CmpConstructName @ 0x1408763E0 (CmpConstructName.c)
+ *     CmpFreeTransientPoolWithTag @ 0x140438B90 (CmpFreeTransientPoolWithTag.c)
+ *     CmpDumpOneKeyBody @ 0x1407DB2CC (CmpDumpOneKeyBody.c)
+ *     CmpConstructName @ 0x14087A710 (CmpConstructName.c)
  */
 
 void __fastcall CmpDumpKeyBodyList(_QWORD *a1, _DWORD *a2, __int64 a3)

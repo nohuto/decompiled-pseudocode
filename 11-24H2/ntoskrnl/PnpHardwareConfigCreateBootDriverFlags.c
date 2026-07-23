@@ -1,20 +1,20 @@
 /*
- * XREFs of PnpHardwareConfigCreateBootDriverFlags @ 0x14071A708
+ * XREFs of PnpHardwareConfigCreateBootDriverFlags @ 0x140718298
  * Callers:
- *     IopMarkBootPartition @ 0x140C1CD70 (IopMarkBootPartition.c)
+ *     IopMarkBootPartition @ 0x140C1EDB0 (IopMarkBootPartition.c)
  * Callees:
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ZwWaitForSingleObject @ 0x1406A6490 (ZwWaitForSingleObject.c)
- *     ZwDeviceIoControlFile @ 0x1406A64F0 (ZwDeviceIoControlFile.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     ZwCreateEvent @ 0x1406A6D10 (ZwCreateEvent.c)
- *     ZwResetEvent @ 0x1406A94F0 (ZwResetEvent.c)
- *     _PnpCtxRegQueryValue @ 0x1408BC774 (_PnpCtxRegQueryValue.c)
- *     _PnpCtxRegOpenKey @ 0x1408C7AFC (_PnpCtxRegOpenKey.c)
- *     _PnpCtxRegSetValue @ 0x140993B14 (_PnpCtxRegSetValue.c)
- *     PipHardwareConfigOpenKey @ 0x140ABF208 (PipHardwareConfigOpenKey.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ZwWaitForSingleObject @ 0x1406A7430 (ZwWaitForSingleObject.c)
+ *     ZwDeviceIoControlFile @ 0x1406A7490 (ZwDeviceIoControlFile.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     ZwCreateEvent @ 0x1406A7CB0 (ZwCreateEvent.c)
+ *     ZwResetEvent @ 0x1406AA490 (ZwResetEvent.c)
+ *     _PnpCtxRegQueryValue @ 0x1408BA0C4 (_PnpCtxRegQueryValue.c)
+ *     _PnpCtxRegOpenKey @ 0x1408C552C (_PnpCtxRegOpenKey.c)
+ *     _PnpCtxRegSetValue @ 0x14097EB54 (_PnpCtxRegSetValue.c)
+ *     PipHardwareConfigOpenKey @ 0x140ABA270 (PipHardwareConfigOpenKey.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PnpHardwareConfigCreateBootDriverFlags(__int64 a1, void *a2)
@@ -91,13 +91,13 @@ __int64 __fastcall PnpHardwareConfigCreateBootDriverFlags(__int64 a1, void *a2)
         }
         if ( Status >= 0 )
         {
-          Pool2 = (unsigned int *)ExAllocatePool2(0x100uLL);
+          Pool2 = (unsigned int *)ExAllocatePool2(0x100uLL, OutputBuffer[1], 0x6E697050u);
           if ( !Pool2 )
           {
             Status = -1073741670;
             goto LABEL_39;
           }
-          ZwResetEvent((__int64)EventHandle, 0LL);
+          ZwResetEvent(EventHandle, 0LL);
           Status = ZwDeviceIoControlFile(
                      a2,
                      EventHandle,

@@ -102,7 +102,7 @@ void __fastcall IopCloseFile(__int64 a1, struct _FILE_OBJECT *a2, __int64 a3, __
         {
           CurrentThread = KeGetCurrentThread();
           --CurrentThread->KernelApcDisable;
-          v15 = KeAbPreAcquire((ULONG_PTR)&a2->Lock, 0LL, 0LL);
+          v15 = KeAbPreAcquire((ULONG_PTR)&a2->Lock, 0LL, 0);
           if ( !_InterlockedExchange((volatile __int32 *)&a2->Busy, 1) )
             break;
           if ( !(unsigned int)IopWaitAndAcquireFileObjectLock((volatile signed __int32 *)&a2->Type, 0, 0, v15, &v38) )
@@ -170,7 +170,7 @@ LABEL_14:
           {
             v28 = KeGetCurrentThread();
             --v28->KernelApcDisable;
-            v29 = KeAbPreAcquire((ULONG_PTR)&a2->Lock, 0LL, 0LL);
+            v29 = KeAbPreAcquire((ULONG_PTR)&a2->Lock, 0LL, 0);
             if ( !_InterlockedExchange((volatile __int32 *)&a2->Busy, 1) )
               break;
             if ( !(unsigned int)IopWaitAndAcquireFileObjectLock((volatile signed __int32 *)&a2->Type, 0, 0, v29, &v41) )

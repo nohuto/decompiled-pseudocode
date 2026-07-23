@@ -1,16 +1,16 @@
 /*
- * XREFs of PopBatteryRemove @ 0x1407D7E20
+ * XREFs of PopBatteryRemove @ 0x1407DB440
  * Callers:
  *     <none>
  * Callees:
- *     KeWaitForSingleObject @ 0x140278560 (KeWaitForSingleObject.c)
- *     PopReleaseRwLock @ 0x14043630C (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x140436378 (PopAcquireRwLockExclusive.c)
- *     IoCancelIrp @ 0x14049B940 (IoCancelIrp.c)
- *     PopBatteryQueueWork @ 0x1404E0BBC (PopBatteryQueueWork.c)
- *     PopChangeCapability @ 0x140943114 (PopChangeCapability.c)
- *     PopAcquirePolicyLock @ 0x140C04BF0 (PopAcquirePolicyLock.c)
- *     PopReleasePolicyLock @ 0x140C04C40 (PopReleasePolicyLock.c)
+ *     PopReleaseRwLock @ 0x14021B1A8 (PopReleaseRwLock.c)
+ *     KeWaitForSingleObject @ 0x140277AD0 (KeWaitForSingleObject.c)
+ *     PopAcquireRwLockExclusive @ 0x140425310 (PopAcquireRwLockExclusive.c)
+ *     IoCancelIrp @ 0x140495490 (IoCancelIrp.c)
+ *     PopBatteryQueueWork @ 0x1404DA29C (PopBatteryQueueWork.c)
+ *     PopChangeCapability @ 0x1409BEA8C (PopChangeCapability.c)
+ *     PopAcquirePolicyLock @ 0x140C0AE00 (PopAcquirePolicyLock.c)
+ *     PopReleasePolicyLock @ 0x140C0AE50 (PopReleasePolicyLock.c)
  */
 
 __int64 __fastcall PopBatteryRemove(__int64 a1)
@@ -32,7 +32,7 @@ __int64 __fastcall PopBatteryRemove(__int64 a1)
 
   IoCancelIrp(*(PIRP *)(a1 + 56));
   KeWaitForSingleObject((PVOID)(a1 + 80), Executive, 0, 0, 0LL);
-  PopAcquireRwLockExclusive((unsigned __int64 *)&qword_140F0FE60, v2, v3, v4);
+  PopAcquireRwLockExclusive((unsigned __int64 *)&PopCB, v2, v3, v4);
   v5 = (__int64 *)(a1 + 64);
   v6 = *v5;
   if ( *v5 )
@@ -42,17 +42,17 @@ __int64 __fastcall PopBatteryRemove(__int64 a1)
     *v7 = (__int64 *)v6;
     *(_QWORD *)(v6 + 8) = v7;
     *v5 = 0LL;
-    --dword_140F0FE74;
-    ++dword_140F0FEEC;
-    byte_140F0FE78 = 1;
+    --dword_140F10634;
+    ++dword_140F106AC;
+    byte_140F10638 = 1;
     PopBatteryQueueWork(3u);
   }
   PopBatteryQueueWork(8u);
-  result = PopReleaseRwLock((struct _KTHREAD *)&qword_140F0FE60);
-  if ( !--dword_140F0FE70 )
+  result = PopReleaseRwLock((struct _KTHREAD *)&PopCB);
+  if ( !--dword_140F10630 )
   {
     PopAcquirePolicyLock(v10, v9);
-    PopChangeCapability(&stru_140F10828.WaitBlockFill11[54], 0LL);
+    PopChangeCapability((char *)&PpmIdlePolicyLock.Padding[4] + 6, 0LL);
     return PopReleasePolicyLock(v12, v11, v13, v14, Timeout);
   }
   return result;

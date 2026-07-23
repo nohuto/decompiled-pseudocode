@@ -1,8 +1,8 @@
 /*
- * XREFs of HalpTimerWatchdogWakeSetDueTime @ 0x1404F57DC
+ * XREFs of HalpTimerWatchdogWakeSetDueTime @ 0x1404EED9C
  * Callers:
- *     HalpTimerWatchdogResetCountdown @ 0x1404F5780 (HalpTimerWatchdogResetCountdown.c)
- *     HalpTimerWatchdogStart @ 0x140585590 (HalpTimerWatchdogStart.c)
+ *     HalpTimerWatchdogResetCountdown @ 0x1404EED40 (HalpTimerWatchdogResetCountdown.c)
+ *     HalpTimerWatchdogStart @ 0x140587AB0 (HalpTimerWatchdogStart.c)
  * Callees:
  *     <none>
  */

@@ -1,11 +1,11 @@
 /*
- * XREFs of FsRtlInitializeBaseMcbEx @ 0x140202C50
+ * XREFs of FsRtlInitializeBaseMcbEx @ 0x1402A75D0
  * Callers:
- *     FsRtlInitializeBaseMcb @ 0x140202C30 (FsRtlInitializeBaseMcb.c)
- *     FsRtlInitializeLargeMcb @ 0x14029B890 (FsRtlInitializeLargeMcb.c)
+ *     FsRtlInitializeLargeMcb @ 0x140213220 (FsRtlInitializeLargeMcb.c)
+ *     FsRtlInitializeBaseMcb @ 0x1402A75B0 (FsRtlInitializeBaseMcb.c)
  * Callees:
- *     ExAllocateFromNPagedLookasideList @ 0x140202CB4 (ExAllocateFromNPagedLookasideList.c)
- *     RtlRaiseStatus @ 0x14029AF80 (RtlRaiseStatus.c)
+ *     RtlRaiseStatus @ 0x140212910 (RtlRaiseStatus.c)
+ *     ExAllocateFromNPagedLookasideList @ 0x140213400 (ExAllocateFromNPagedLookasideList.c)
  */
 
 BOOLEAN __stdcall FsRtlInitializeBaseMcbEx(PBASE_MCB Mcb, POOL_TYPE PoolType, USHORT Flags)
@@ -30,7 +30,7 @@ BOOLEAN __stdcall FsRtlInitializeBaseMcbEx(PBASE_MCB Mcb, POOL_TYPE PoolType, US
   else
   {
     if ( (v3 & 1) != 0 )
-      RtlRaiseStatus(3221225626LL);
+      RtlRaiseStatus(-1073741670);
     return 0;
   }
 }

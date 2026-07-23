@@ -21,16 +21,16 @@ __int64 __fastcall RtlpHpLfhSubsegmentCreate(__int64 a1, __int64 a2, __int64 a3)
   unsigned int v9; // ecx
   unsigned __int64 v10; // rax
   int SubSegmentBlockCount; // eax
-  unsigned __int64 v12; // r8
+  unsigned int v12; // r8d
   int v13; // edx
-  unsigned __int64 v14; // r9
-  unsigned __int64 v15; // rdx
-  int v16; // eax
-  unsigned int v17; // ecx
-  unsigned int v18; // eax
-  char v19; // cl
-  unsigned int v20; // edi
-  unsigned int v21; // eax
+  unsigned int v14; // r9d
+  unsigned int v15; // eax
+  unsigned int v16; // ecx
+  unsigned int v17; // eax
+  char v18; // cl
+  unsigned int v19; // edi
+  unsigned int v20; // eax
+  unsigned int v21; // edx
   unsigned int v22; // eax
   int v23; // r15d
   __int64 v24; // r14
@@ -72,46 +72,45 @@ __int64 __fastcall RtlpHpLfhSubsegmentCreate(__int64 a1, __int64 a2, __int64 a3)
                            (unsigned int)v10,
                            a3,
                            *(_QWORD *)(a2 + 64) != 0LL);
-  v12 = (unsigned int)(v7 * SubSegmentBlockCount);
+  v12 = v7 * SubSegmentBlockCount;
   v13 = (8 * (((unsigned __int64)(unsigned int)(2 * SubSegmentBlockCount) + 63) >> 6) + 63) & 0xFFFFFFF0;
-  v14 = v13 + 2 * ((unsigned int)(v13 + v12 + 4095) >> 12);
-  v15 = 12LL;
-  v16 = v14 + v12;
-  if ( (unsigned int)(v14 + v12) >= 0xF0000 )
-    v16 = 983040;
-  _BitScanReverse(&v17, v16 - 1);
-  v35 = v17;
-  v18 = v17 + 1;
-  if ( v17 + 1 <= 7 )
+  v14 = v13 + 2 * ((unsigned int)(v13 + v7 * SubSegmentBlockCount + 4095) >> 12);
+  v15 = v14 + v7 * SubSegmentBlockCount;
+  if ( v15 >= 0xF0000 )
+    v15 = 983040;
+  _BitScanReverse(&v16, v15 - 1);
+  v35 = v16;
+  v17 = v16 + 1;
+  if ( v16 + 1 <= 7 )
   {
-    v18 = 7;
+    v17 = 7;
   }
   else
   {
-    v19 = 18;
-    if ( v18 >= 0x12 )
+    v18 = 18;
+    if ( v17 >= 0x12 )
       goto LABEL_13;
   }
-  v19 = v18;
-  if ( v18 <= 0xC )
-    v19 = 12;
+  v18 = v17;
+  if ( v17 <= 0xC )
+    v18 = 12;
 LABEL_13:
-  v20 = 1 << v19;
-  if ( (v3 & 8) != 0 && (unsigned int)v14 <= (unsigned int)v12 >> 6 )
+  v19 = 1 << v18;
+  if ( (v3 & 8) != 0 && v14 <= v12 >> 6 )
   {
-    v21 = RtlpCalculateSubsegmentSizeIndex((unsigned int)v12);
-    if ( v21 <= (unsigned int)v15 )
-      LOBYTE(v21) = v15;
-    v22 = 1 << v21;
-    if ( v20 > v22 )
-      v20 = v22;
+    v20 = RtlpCalculateSubsegmentSizeIndex(v12);
+    if ( v20 <= v21 )
+      LOBYTE(v20) = v21;
+    v22 = 1 << v20;
+    if ( v19 > v22 )
+      v19 = v22;
   }
   v23 = v4 & 1;
   if ( (v4 & 1) == 0 )
-    RtlAcquireSRWLockShared((volatile signed __int64 *)(a1 + 72), v15, v12, v14);
+    RtlAcquireSRWLockShared((PRTL_SRWLOCK)(a1 + 72));
   v24 = ((__int64 (__fastcall *)(_QWORD, _QWORD, _QWORD, char *, char *))(a1 ^ RtlpHpHeapGlobals ^ *(_QWORD *)(a1 + 8)))(
           *(_QWORD *)a1,
-          v20,
+          v19,
           v4,
           &v33,
           v31);
@@ -120,14 +119,14 @@ LABEL_13:
     if ( v8 && (RtlpHpLfhPerfFlags & 2) != 0 || (v33 & 1) != 0 )
     {
       v25 = v32;
-      v26 = v20;
+      v26 = v19;
     }
     else
     {
       v25 = v32;
       if ( (RtlpHpAppCompatFlags & 4) != 0 )
       {
-        v26 = v20;
+        v26 = v19;
       }
       else
       {
@@ -139,8 +138,8 @@ LABEL_13:
         }
         if ( v26 <= 0x1000 )
           v26 = 4096;
-        if ( v26 >= v20 )
-          v26 = v20;
+        if ( v26 >= v19 )
+          v26 = v19;
       }
     }
     if ( ((int (__fastcall *)(_QWORD, __int64, _QWORD))(a1 ^ RtlpHpHeapGlobals ^ *(_QWORD *)(a1 + 24)))(
@@ -152,12 +151,12 @@ LABEL_13:
       ((void (__fastcall *)(_QWORD, __int64, _QWORD, _QWORD))(a1 ^ RtlpHpHeapGlobals ^ *(_QWORD *)(a1 + 16)))(
         *(_QWORD *)a1,
         v24,
-        v20,
+        v19,
         v34);
     }
     else
     {
-      RtlpHpLfhSubsegmentInitialize(v24, v20, v26, v25, a1);
+      RtlpHpLfhSubsegmentInitialize(v24, v19, v26, v25, a1);
       _InterlockedIncrement64((volatile signed __int64 *)(a2 + 64));
       _InterlockedExchangeAdd64((volatile signed __int64 *)(a2 + 56), *(unsigned __int16 *)(v24 + 34));
       v28 = v24;
@@ -168,6 +167,6 @@ LABEL_13:
     v28 = 0LL;
   }
   if ( !v23 )
-    RtlReleaseSRWLockShared((volatile signed __int64 *)(a1 + 72));
+    RtlReleaseSRWLockShared((PRTL_SRWLOCK)(a1 + 72));
   return v28;
 }

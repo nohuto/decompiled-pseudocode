@@ -1,7 +1,7 @@
 /*
- * XREFs of TppPHDelete @ 0x1800E3BF0
+ * XREFs of TppPHDelete @ 0x1800DF1C0
  * Callers:
- *     TppWaitCompletion @ 0x18001FE00 (TppWaitCompletion.c)
+ *     TppWaitCompletion @ 0x18004C800 (TppWaitCompletion.c)
  * Callees:
  *     <none>
  */

@@ -1,9 +1,9 @@
 /*
- * XREFs of HalEnumerateEnvironmentVariablesEx @ 0x1405047C0
+ * XREFs of HalEnumerateEnvironmentVariablesEx @ 0x140504D10
  * Callers:
  *     <none>
  * Callees:
- *     HalpEnumerateEnvironmentVariablesWithFilter @ 0x14039C740 (HalpEnumerateEnvironmentVariablesWithFilter.c)
+ *     HalpEnumerateEnvironmentVariablesWithFilter @ 0x14039C920 (HalpEnumerateEnvironmentVariablesWithFilter.c)
  */
 
 __int64 __fastcall HalEnumerateEnvironmentVariablesEx(int a1, unsigned __int64 a2, _DWORD *a3)

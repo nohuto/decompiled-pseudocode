@@ -44,7 +44,7 @@ __int64 __fastcall RtlpHpReallocComputeSizes(__int64 a1, unsigned __int64 a2, __
   }
   else
   {
-    v27 = RtlCSparseBitmapBitmaskRead(&unk_180166A70, 2 * ((a2 - qword_180166A68) >> 20));
+    v27 = RtlCSparseBitmapBitmaskRead(&BaseAddress, 2 * ((a2 - qword_180166A68) >> 20));
     if ( !v27 )
       goto LABEL_31;
     v10 = v27 - 1;

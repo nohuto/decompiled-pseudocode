@@ -17,11 +17,12 @@ int __cdecl ReadString(char a1, int a2, int *a3, _DWORD *a4, _DWORD *a5, int a6,
   int *v11; // edx
   unsigned __int8 v12; // al
   _WORD *v13; // eax
-  _WORD *v15; // [esp+14h] [ebp-10h]
+  size_t v15; // [esp-4h] [ebp-28h]
+  _WORD *v16; // [esp+14h] [ebp-10h]
   char SrcCh[4]; // [esp+1Ch] [ebp-8h] BYREF
   wchar_t DstCh; // [esp+20h] [ebp-4h] BYREF
 
-  v15 = (_WORD *)*a5;
+  v16 = (_WORD *)*a5;
   DstCh = 0;
   --*a4;
   if ( *a3 != -1 )
@@ -52,7 +53,7 @@ int __cdecl ReadString(char a1, int a2, int *a3, _DWORD *a4, _DWORD *a5, int a6,
     }
     if ( (a1 & 4) != 0 )
     {
-      v15 = (_WORD *)((char *)v15 + 1);
+      v16 = (_WORD *)((char *)v16 + 1);
     }
     else
     {
@@ -65,8 +66,9 @@ int __cdecl ReadString(char a1, int a2, int *a3, _DWORD *a4, _DWORD *a5, int a6,
           ++*a4;
           SrcCh[1] = inc(Stream);
         }
+        LODWORD(v15) = __mb_cur_max;
         DstCh = 63;
-        mbtowc(&DstCh, SrcCh, __mb_cur_max);
+        mbtowc(&DstCh, SrcCh, v15);
         *(_WORD *)*a5 = DstCh;
         *a5 += 2;
       }
@@ -76,7 +78,7 @@ int __cdecl ReadString(char a1, int a2, int *a3, _DWORD *a4, _DWORD *a5, int a6,
       }
     }
   }
-  if ( v15 == (_WORD *)*a5 )
+  if ( v16 == (_WORD *)*a5 )
     return -1;
   if ( (a1 & 4) == 0 )
   {

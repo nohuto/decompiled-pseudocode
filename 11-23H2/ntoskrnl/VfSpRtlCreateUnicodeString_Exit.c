@@ -1,9 +1,9 @@
 /*
- * XREFs of VfSpRtlCreateUnicodeString_Exit @ 0x140AE8750
+ * XREFs of VfSpRtlCreateUnicodeString_Exit @ 0x140AE8740
  * Callers:
  *     <none>
  * Callees:
- *     ViSpRtlReplaceStringBuffer @ 0x140AE87A4 (ViSpRtlReplaceStringBuffer.c)
+ *     ViSpRtlReplaceStringBuffer @ 0x140AE8794 (ViSpRtlReplaceStringBuffer.c)
  */
 
 __int64 __fastcall VfSpRtlCreateUnicodeString_Exit(__int64 a1)

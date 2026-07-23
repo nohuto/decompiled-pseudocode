@@ -1,11 +1,11 @@
 /*
- * XREFs of MiGetZeroingContext @ 0x14042DCB0
+ * XREFs of MiGetZeroingContext @ 0x14041F9E0
  * Callers:
- *     MiBackgroundZeroLocalPages @ 0x14020A480 (MiBackgroundZeroLocalPages.c)
- *     MiTryZeroMemory @ 0x14020BD20 (MiTryZeroMemory.c)
- *     MiZeroVaToActiveEntry @ 0x14042DC28 (MiZeroVaToActiveEntry.c)
- *     MiMirrorDiscardTreePageContents @ 0x1404F54BC (MiMirrorDiscardTreePageContents.c)
- *     MiFailInProgressZeroing @ 0x14068F7F0 (MiFailInProgressZeroing.c)
+ *     MiTryZeroMemory @ 0x140331A60 (MiTryZeroMemory.c)
+ *     MiBackgroundZeroLocalPages @ 0x140332260 (MiBackgroundZeroLocalPages.c)
+ *     MiZeroVaToActiveEntry @ 0x14041F958 (MiZeroVaToActiveEntry.c)
+ *     MiMirrorDiscardTreePageContents @ 0x1404F2DBC (MiMirrorDiscardTreePageContents.c)
+ *     MiFailInProgressZeroing @ 0x1406908C0 (MiFailInProgressZeroing.c)
  * Callees:
  *     <none>
  */

@@ -1,23 +1,23 @@
 /*
- * XREFs of ExSystemExceptionFilter @ 0x1404BBBFC
+ * XREFs of ExSystemExceptionFilter @ 0x1404A792C
  * Callers:
- *     ExpGetSystemBasicInformation @ 0x14000F344 (ExpGetSystemBasicInformation.c)
- *     NtGetWriteWatch @ 0x140014EF0 (NtGetWriteWatch.c)
- *     NtWaitForWorkViaWorkerFactory @ 0x14005E910 (NtWaitForWorkViaWorkerFactory.c)
- *     ExpGetSystemProcessorInformation @ 0x140085EDC (ExpGetSystemProcessorInformation.c)
- *     ExpGetSystemEmulationBasicInformation @ 0x1400A9218 (ExpGetSystemEmulationBasicInformation.c)
- *     PsWow64GetSupportedArchitectures @ 0x1400F7170 (PsWow64GetSupportedArchitectures.c)
- *     NtSetInformationWorkerFactory @ 0x1400F7C10 (NtSetInformationWorkerFactory.c)
- *     NtShutdownWorkerFactory @ 0x1400F9F94 (NtShutdownWorkerFactory.c)
- *     KeGetAffinitizedInterruptsInfo @ 0x1401DA468 (KeGetAffinitizedInterruptsInfo.c)
- *     SeQueryTrustedPlatformModuleInformation @ 0x14021A7E4 (SeQueryTrustedPlatformModuleInformation.c)
- *     EtwpApplyPayloadFilterInternal @ 0x14022B614 (EtwpApplyPayloadFilterInternal.c)
- *     EtwpApplyPredicate @ 0x14022BE8C (EtwpApplyPredicate.c)
- *     EtwpGetFieldValue @ 0x14022C3DC (EtwpGetFieldValue.c)
- *     EtwpGetSignedFieldValue @ 0x14022C440 (EtwpGetSignedFieldValue.c)
- *     NtQueryInformationWorkerFactory @ 0x14022F8E4 (NtQueryInformationWorkerFactory.c)
- *     ExpQuerySystemInformation @ 0x140415620 (ExpQuerySystemInformation.c)
- *     NtQueryInformationProcess @ 0x140422590 (NtQueryInformationProcess.c)
+ *     ExpGetSystemBasicInformation @ 0x14000EEC4 (ExpGetSystemBasicInformation.c)
+ *     NtGetWriteWatch @ 0x140014A70 (NtGetWriteWatch.c)
+ *     NtWaitForWorkViaWorkerFactory @ 0x14005E490 (NtWaitForWorkViaWorkerFactory.c)
+ *     ExpGetSystemProcessorInformation @ 0x1400877CC (ExpGetSystemProcessorInformation.c)
+ *     ExpGetSystemEmulationBasicInformation @ 0x1400A7798 (ExpGetSystemEmulationBasicInformation.c)
+ *     PsWow64GetSupportedArchitectures @ 0x1400F4FB0 (PsWow64GetSupportedArchitectures.c)
+ *     NtSetInformationWorkerFactory @ 0x1400F5A50 (NtSetInformationWorkerFactory.c)
+ *     NtShutdownWorkerFactory @ 0x1400F7D20 (NtShutdownWorkerFactory.c)
+ *     KeGetAffinitizedInterruptsInfo @ 0x1401DA294 (KeGetAffinitizedInterruptsInfo.c)
+ *     SeQueryTrustedPlatformModuleInformation @ 0x14021A610 (SeQueryTrustedPlatformModuleInformation.c)
+ *     EtwpApplyPayloadFilterInternal @ 0x14022B440 (EtwpApplyPayloadFilterInternal.c)
+ *     EtwpApplyPredicate @ 0x14022BCB8 (EtwpApplyPredicate.c)
+ *     EtwpGetFieldValue @ 0x14022C208 (EtwpGetFieldValue.c)
+ *     EtwpGetSignedFieldValue @ 0x14022C26C (EtwpGetSignedFieldValue.c)
+ *     NtQueryInformationWorkerFactory @ 0x14022F710 (NtQueryInformationWorkerFactory.c)
+ *     ExpQuerySystemInformation @ 0x1404144E0 (ExpQuerySystemInformation.c)
+ *     NtQueryInformationProcess @ 0x140421450 (NtQueryInformationProcess.c)
  * Callees:
  *     <none>
  */

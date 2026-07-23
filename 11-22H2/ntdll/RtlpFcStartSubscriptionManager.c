@@ -8,25 +8,20 @@
  *     __security_check_cookie @ 0x18008E790 (__security_check_cookie.c)
  */
 
-__int64 RtlpFcStartSubscriptionManager()
+NTSTATUS RtlpFcStartSubscriptionManager()
 {
-  __int64 result; // rax
-  int v1; // [rsp+50h] [rbp-28h] BYREF
-  __int128 v2; // [rsp+58h] [rbp-20h] BYREF
+  NTSTATUS result; // eax
+  ULONG ChangeStamp; // [rsp+50h] [rbp-28h] BYREF
+  _WNF_TYPE_ID TypeId; // [rsp+58h] [rbp-20h] BYREF
 
-  v2 = RtlpFcWnfTypeId;
-  result = RtlQueryWnfStateData(
-             (unsigned int)&v1,
-             WNF_CMFC_FEATURE_CONFIGURATION_CHANGED,
-             (unsigned int)RtlpFcNoopCallback,
-             0,
-             (__int64)&v2);
-  if ( (int)result >= 0 )
+  TypeId = (_WNF_TYPE_ID)RtlpFcWnfTypeId;
+  result = RtlQueryWnfStateData(&ChangeStamp, WNF_CMFC_FEATURE_CONFIGURATION_CHANGED, RtlpFcNoopCallback, 0LL, &TypeId);
+  if ( result >= 0 )
     return RtlpSubscribeWnfStateChangeNotificationInternal(
              (unsigned int)&unk_180182EA8,
-             WNF_CMFC_FEATURE_CONFIGURATION_CHANGED,
-             v1,
-             (unsigned int)RtlpFcWnfCallback,
+             WNF_CMFC_FEATURE_CONFIGURATION_CHANGED.Data[0],
+             ChangeStamp,
+             (unsigned int)&RtlpFcWnfCallback,
              (__int64)&RtlpFcProcessManager,
              0LL,
              0,

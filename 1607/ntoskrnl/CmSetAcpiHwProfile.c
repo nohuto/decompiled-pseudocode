@@ -1,25 +1,25 @@
 /*
- * XREFs of CmSetAcpiHwProfile @ 0x14055B9E8
+ * XREFs of CmSetAcpiHwProfile @ 0x14055BF28
  * Callers:
- *     IopExecuteHardwareProfileChange @ 0x14064CDDC (IopExecuteHardwareProfileChange.c)
+ *     IopExecuteHardwareProfileChange @ 0x14064CEC0 (IopExecuteHardwareProfileChange.c)
  *     CmpCreateControlSet @ 0x1407AC02C (CmpCreateControlSet.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14002DC60 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     swprintf_s @ 0x140151960 (swprintf_s.c)
- *     ZwClose @ 0x140159E60 (ZwClose.c)
- *     ZwOpenKey @ 0x140159EC0 (ZwOpenKey.c)
- *     ZwQueryValueKey @ 0x140159F60 (ZwQueryValueKey.c)
- *     ZwCreateKey @ 0x14015A020 (ZwCreateKey.c)
- *     ZwSetValueKey @ 0x14015A880 (ZwSetValueKey.c)
- *     memmove @ 0x140171280 (memmove.c)
+ *     RtlInitUnicodeString @ 0x14002D7E0 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     swprintf_s @ 0x140151F20 (swprintf_s.c)
+ *     ZwClose @ 0x14015A3D0 (ZwClose.c)
+ *     ZwOpenKey @ 0x14015A430 (ZwOpenKey.c)
+ *     ZwQueryValueKey @ 0x14015A4D0 (ZwQueryValueKey.c)
+ *     ZwCreateKey @ 0x14015A590 (ZwCreateKey.c)
+ *     ZwSetValueKey @ 0x14015ADF0 (ZwSetValueKey.c)
+ *     memmove @ 0x140171780 (memmove.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     CmpFilterAcpiDockingState @ 0x14055BED4 (CmpFilterAcpiDockingState.c)
- *     CmpGetAcpiProfileInformation @ 0x14055C098 (CmpGetAcpiProfileInformation.c)
- *     CmpAddAcpiAliasEntry @ 0x140606F54 (CmpAddAcpiAliasEntry.c)
- *     CmpCloneHwProfile @ 0x1406071B0 (CmpCloneHwProfile.c)
- *     CmpMoveBiosAliasTable @ 0x140607BC4 (CmpMoveBiosAliasTable.c)
+ *     CmpFilterAcpiDockingState @ 0x14055C414 (CmpFilterAcpiDockingState.c)
+ *     CmpGetAcpiProfileInformation @ 0x14055C5D8 (CmpGetAcpiProfileInformation.c)
+ *     CmpAddAcpiAliasEntry @ 0x140607008 (CmpAddAcpiAliasEntry.c)
+ *     CmpCloneHwProfile @ 0x140607264 (CmpCloneHwProfile.c)
+ *     CmpMoveBiosAliasTable @ 0x140607C78 (CmpMoveBiosAliasTable.c)
  */
 
 __int64 __fastcall CmSetAcpiHwProfile(

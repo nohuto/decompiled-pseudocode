@@ -11,11 +11,13 @@ errno_t __cdecl _wcsupr_s(wchar_t *String, size_t Size)
 {
   wchar_t *v2; // esi
   wchar_t v4; // cx
+  size_t v5; // [esp-4h] [ebp-8h]
 
   v2 = String;
   if ( !String )
     goto LABEL_2;
-  if ( wcsnlen(String, Size) >= Size )
+  LODWORD(v5) = Size;
+  if ( (unsigned int)wcsnlen(String, v5) >= (unsigned int)Size )
   {
     *String = 0;
 LABEL_2:

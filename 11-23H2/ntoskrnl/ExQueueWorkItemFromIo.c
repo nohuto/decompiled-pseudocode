@@ -1,13 +1,13 @@
 /*
- * XREFs of ExQueueWorkItemFromIo @ 0x1402B7620
+ * XREFs of ExQueueWorkItemFromIo @ 0x1402B78B0
  * Callers:
- *     IoQueueWorkItemEx @ 0x1402B93D0 (IoQueueWorkItemEx.c)
- *     IoQueueWorkItem @ 0x1402B9520 (IoQueueWorkItem.c)
- *     PnpDeviceCompletionRequestDestroy @ 0x140322A04 (PnpDeviceCompletionRequestDestroy.c)
+ *     IoQueueWorkItemEx @ 0x1402B9660 (IoQueueWorkItemEx.c)
+ *     IoQueueWorkItem @ 0x1402B97B0 (IoQueueWorkItem.c)
+ *     PnpDeviceCompletionRequestDestroy @ 0x140322C94 (PnpDeviceCompletionRequestDestroy.c)
  * Callees:
- *     ExpQueueWorkItem @ 0x1402B76A0 (ExpQueueWorkItem.c)
- *     ExpValidateWorkItem @ 0x1402B7E80 (ExpValidateWorkItem.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
+ *     ExpQueueWorkItem @ 0x1402B7930 (ExpQueueWorkItem.c)
+ *     ExpValidateWorkItem @ 0x1402B8110 (ExpValidateWorkItem.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall ExQueueWorkItemFromIo(ULONG_PTR BugCheckParameter2, int a2)

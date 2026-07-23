@@ -1,13 +1,13 @@
 /*
- * XREFs of _PnpGetObjectPropertyWorker @ 0x1406D0384
+ * XREFs of _PnpGetObjectPropertyWorker @ 0x1406D03B4
  * Callers:
- *     _PnpGetObjectProperty @ 0x1406D01F0 (_PnpGetObjectProperty.c)
+ *     _PnpGetObjectProperty @ 0x1406D0220 (_PnpGetObjectProperty.c)
  * Callees:
- *     ZwClose @ 0x14041AF40 (ZwClose.c)
- *     _PnpGetGenericStoreProperty @ 0x1406CDA00 (_PnpGetGenericStoreProperty.c)
- *     _PnpOpenObjectRegKey @ 0x1406CF960 (_PnpOpenObjectRegKey.c)
- *     _PnpGetMappedPropertyDispatch @ 0x1406D0514 (_PnpGetMappedPropertyDispatch.c)
- *     _PnpValidatePropertyData @ 0x140796EB8 (_PnpValidatePropertyData.c)
+ *     ZwClose @ 0x14041B2D0 (ZwClose.c)
+ *     _PnpGetGenericStoreProperty @ 0x1406CDA30 (_PnpGetGenericStoreProperty.c)
+ *     _PnpOpenObjectRegKey @ 0x1406CF990 (_PnpOpenObjectRegKey.c)
+ *     _PnpGetMappedPropertyDispatch @ 0x1406D0544 (_PnpGetMappedPropertyDispatch.c)
+ *     _PnpValidatePropertyData @ 0x1407970A8 (_PnpValidatePropertyData.c)
  */
 
 __int64 __fastcall PnpGetObjectPropertyWorker(

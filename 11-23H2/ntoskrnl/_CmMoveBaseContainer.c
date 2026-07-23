@@ -1,11 +1,11 @@
 /*
- * XREFs of _CmMoveBaseContainer @ 0x140A64558
+ * XREFs of _CmMoveBaseContainer @ 0x140A64808
  * Callers:
- *     PiDcHandleCustomDeviceEvent @ 0x1407DAE9C (PiDcHandleCustomDeviceEvent.c)
+ *     PiDcHandleCustomDeviceEvent @ 0x1407DB16C (PiDcHandleCustomDeviceEvent.c)
  * Callees:
- *     _CmAddDeviceToContainer @ 0x14079B778 (_CmAddDeviceToContainer.c)
- *     _CmGetDevicesInBaseContainerList @ 0x140A642C4 (_CmGetDevicesInBaseContainerList.c)
- *     _CmRemoveDeviceFromContainer @ 0x140A6463C (_CmRemoveDeviceFromContainer.c)
+ *     _CmAddDeviceToContainer @ 0x14079B968 (_CmAddDeviceToContainer.c)
+ *     _CmGetDevicesInBaseContainerList @ 0x140A64574 (_CmGetDevicesInBaseContainerList.c)
+ *     _CmRemoveDeviceFromContainer @ 0x140A648EC (_CmRemoveDeviceFromContainer.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

@@ -1,27 +1,27 @@
 /*
- * XREFs of TppTimerpStopCallbackGeneration @ 0x180102CD0
+ * XREFs of TppTimerpStopCallbackGeneration @ 0x180102050
  * Callers:
  *     <none>
  * Callees:
- *     RtlAcquireSRWLockExclusive @ 0x18003F4D0 (RtlAcquireSRWLockExclusive.c)
- *     TppCancelTimer @ 0x1800686D0 (TppCancelTimer.c)
- *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x180170020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
+ *     RtlAcquireSRWLockExclusive @ 0x180029A40 (RtlAcquireSRWLockExclusive.c)
+ *     TppCancelTimer @ 0x180088B20 (TppCancelTimer.c)
+ *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x18016F020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
  */
 
-char __fastcall TppTimerpStopCallbackGeneration(__int64 a1, __int64 a2)
+char __fastcall TppTimerpStopCallbackGeneration(__int64 a1)
 {
-  __int64 v3; // rdx
-  signed __int32 v4; // eax
+  _RTL_SRWLOCK *v2; // rdx
+  signed __int32 v3; // eax
 
-  RtlAcquireSRWLockExclusive((volatile signed __int64 *)(a1 + 240), a2);
-  v3 = *(_QWORD *)(a1 + 144);
+  RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)(a1 + 240));
+  v2 = *(_RTL_SRWLOCK **)(a1 + 144);
   ++*(_BYTE *)(a1 + 355);
-  LOBYTE(v4) = TppCancelTimer(a1, (volatile signed __int64 *)(v3 + 112), 0);
-  if ( (_BYTE)v4 )
+  LOBYTE(v3) = TppCancelTimer(a1, v2 + 14, 0);
+  if ( (_BYTE)v3 )
   {
-    v4 = _InterlockedExchangeAdd((volatile signed __int32 *)a1, 0xFFFFFFFF);
-    if ( v4 == 1 )
-      LOBYTE(v4) = (**(__int64 (__fastcall ***)(__int64))(a1 + 8))(a1);
+    v3 = _InterlockedExchangeAdd((volatile signed __int32 *)a1, 0xFFFFFFFF);
+    if ( v3 == 1 )
+      LOBYTE(v3) = (**(__int64 (__fastcall ***)(__int64))(a1 + 8))(a1);
   }
-  return v4;
+  return v3;
 }

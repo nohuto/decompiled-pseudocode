@@ -1,18 +1,18 @@
 /*
- * XREFs of MiMapMemoryDumpMdl @ 0x14049BB2C
+ * XREFs of MiMapMemoryDumpMdl @ 0x14049665C
  * Callers:
- *     MmMapMemoryDumpMdl @ 0x14049BAF0 (MmMapMemoryDumpMdl.c)
- *     MmMapMemoryDumpMdlEx2 @ 0x1404F8788 (MmMapMemoryDumpMdlEx2.c)
- *     MmMapMemoryDumpMdlEx @ 0x140677E10 (MmMapMemoryDumpMdlEx.c)
+ *     MmMapMemoryDumpMdl @ 0x140496620 (MmMapMemoryDumpMdl.c)
+ *     MmMapMemoryDumpMdlEx2 @ 0x1404F6068 (MmMapMemoryDumpMdlEx2.c)
+ *     MmMapMemoryDumpMdlEx @ 0x140678FF0 (MmMapMemoryDumpMdlEx.c)
  * Callees:
- *     MiCheckLinearProtectedPteAccessedBit @ 0x140232A20 (MiCheckLinearProtectedPteAccessedBit.c)
- *     MiInitializeTbFlushList @ 0x140233BB0 (MiInitializeTbFlushList.c)
- *     MiMakeValidPte @ 0x1402383C0 (MiMakeValidPte.c)
- *     MiInsertTbFlushEntry @ 0x1402432E0 (MiInsertTbFlushEntry.c)
- *     MiFlushTbList @ 0x140291730 (MiFlushTbList.c)
- *     MiMakeProtectionPfnCompatible @ 0x140313770 (MiMakeProtectionPfnCompatible.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     MiCheckLinearProtectedPteAccessedBit @ 0x140203550 (MiCheckLinearProtectedPteAccessedBit.c)
+ *     MiMakeValidPte @ 0x140212550 (MiMakeValidPte.c)
+ *     MiInsertTbFlushEntry @ 0x1402137F0 (MiInsertTbFlushEntry.c)
+ *     MiInitializeTbFlushList @ 0x140214780 (MiInitializeTbFlushList.c)
+ *     MiFlushTbList @ 0x1402A1330 (MiFlushTbList.c)
+ *     MiMakeProtectionPfnCompatible @ 0x1403F26B0 (MiMakeProtectionPfnCompatible.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 unsigned __int64 __fastcall MiMapMemoryDumpMdl(unsigned __int64 a1, __int64 a2, __int64 a3, char a4)
@@ -41,7 +41,7 @@ unsigned __int64 __fastcall MiMapMemoryDumpMdl(unsigned __int64 a1, __int64 a2, 
   v9 = (ULONG_PTR *)(((a1 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL);
   v10 = a1 & 0xFFFFFFFFFFFFF000uLL;
   v11 = v9;
-  MiInitializeTbFlushList((__int64)v21, (__int64)&unk_140E38100, 20, 9, 1);
+  MiInitializeTbFlushList((__int64)v21, (__int64)&unk_140E38240, 20, 9, 1);
   do
   {
     if ( *v11 )
@@ -90,7 +90,7 @@ unsigned __int64 __fastcall MiMapMemoryDumpMdl(unsigned __int64 a1, __int64 a2, 
       {
         result = 0xFFFFF6C000000000uLL;
         if ( (unsigned __int64)v9 >= 0xFFFFF6C000000000uLL )
-          result = MiCheckLinearProtectedPteAccessedBit((ULONG_PTR)v9, v19, 128);
+          result = MiCheckLinearProtectedPteAccessedBit((ULONG_PTR)v9, v19, 128LL);
       }
       *v9++ = v19;
       --v15;

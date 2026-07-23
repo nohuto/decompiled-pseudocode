@@ -1,11 +1,11 @@
 /*
- * XREFs of MiTradePageMarkedFreeZero @ 0x14028E304
+ * XREFs of MiTradePageMarkedFreeZero @ 0x14028D864
  * Callers:
- *     MiTradePage @ 0x140291970 (MiTradePage.c)
+ *     MiTradePage @ 0x140290ED0 (MiTradePage.c)
  * Callees:
- *     MiUnlinkFreeOrZeroedPage @ 0x14028C8F4 (MiUnlinkFreeOrZeroedPage.c)
- *     MiDemoteLargeFreePage @ 0x140434410 (MiDemoteLargeFreePage.c)
- *     MiLargeFreePageToMdl @ 0x1404CF258 (MiLargeFreePageToMdl.c)
+ *     MiUnlinkFreeOrZeroedPage @ 0x14028BE54 (MiUnlinkFreeOrZeroedPage.c)
+ *     MiDemoteLargeFreePage @ 0x14042B4F0 (MiDemoteLargeFreePage.c)
+ *     MiLargeFreePageToMdl @ 0x1404C8C88 (MiLargeFreePageToMdl.c)
  */
 
 __int64 __fastcall MiTradePageMarkedFreeZero(__int64 a1, __int64 a2)
@@ -33,7 +33,7 @@ __int64 __fastcall MiTradePageMarkedFreeZero(__int64 a1, __int64 a2)
       result = MiUnlinkFreeOrZeroedPage(v7, 0LL, 0x100u);
       if ( !(_DWORD)result )
       {
-        _InterlockedIncrement(&dword_140EF8DBC);
+        _InterlockedIncrement(&dword_140EF911C);
         *(_DWORD *)(a1 + 56) = 1;
         return result;
       }
@@ -52,7 +52,7 @@ __int64 __fastcall MiTradePageMarkedFreeZero(__int64 a1, __int64 a2)
       LOBYTE(v11) = *(_BYTE *)(a1 + 8);
       result = MiLargeFreePageToMdl(v7, v11);
       *(_BYTE *)(a1 + 8) = 17;
-      _InterlockedAdd(&dword_140EF8D70, v10);
+      _InterlockedAdd(&dword_140EF90D0, v10);
       *(_QWORD *)(a1 + 48) = v10;
 LABEL_7:
       *(_DWORD *)(a1 + 56) = 0;
@@ -69,7 +69,7 @@ LABEL_7:
     v8 = v3 & 0x400000;
 LABEL_4:
     *(_QWORD *)(a1 + 48) = 1LL;
-    _InterlockedIncrement(&dword_140EF8D70);
+    _InterlockedIncrement(&dword_140EF90D0);
     if ( !v8 )
     {
       v9 = *(_QWORD *)(a2 + 56);

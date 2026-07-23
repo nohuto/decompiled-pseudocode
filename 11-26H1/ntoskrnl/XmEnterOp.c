@@ -1,10 +1,10 @@
 /*
- * XREFs of XmEnterOp @ 0x1405AD810
+ * XREFs of XmEnterOp @ 0x1405B0020
  * Callers:
  *     <none>
  * Callees:
- *     XmPushStack @ 0x1404A834C (XmPushStack.c)
- *     longjmp @ 0x140533940 (longjmp.c)
+ *     XmPushStack @ 0x1404A19DC (XmPushStack.c)
+ *     longjmp @ 0x140535DC0 (longjmp.c)
  */
 
 __int64 __fastcall XmEnterOp(__int64 a1)

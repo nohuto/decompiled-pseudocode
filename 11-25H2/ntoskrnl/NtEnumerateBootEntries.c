@@ -24,21 +24,21 @@
  *     ExFreePoolWithTag @ 0x140B62CD0 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall NtEnumerateBootEntries(unsigned __int64 Address, _DWORD *a2)
+NTSTATUS __cdecl NtEnumerateBootEntries(PVOID Buffer, PULONG BufferLength)
 {
-  _DWORD *v2; // r12
+  PULONG v2; // r12
   __int64 v4; // r8
   KPROCESSOR_MODE v5; // si
   unsigned int v6; // ebx
   __int64 v7; // rcx
-  __int64 result; // rax
+  NTSTATUS result; // eax
   int *v9; // r14
-  int v10; // r13d
+  NTSTATUS v10; // r13d
   struct _KTHREAD *v11; // rax
   __int64 Pool2; // rax
   unsigned int *v13; // r15
   unsigned int v14; // esi
-  int v15; // edi
+  NTSTATUS v15; // edi
   unsigned int *v16; // r12
   char *v17; // rsi
   __int64 v18; // rdx
@@ -92,15 +92,15 @@ __int64 __fastcall NtEnumerateBootEntries(unsigned __int64 Address, _DWORD *a2)
   struct _KTHREAD *CurrentThread; // [rsp+C8h] [rbp-40h]
   char v68; // [rsp+120h] [rbp+18h]
 
-  v2 = a2;
+  v2 = BufferLength;
   v57 = 0LL;
   P = 0LL;
   if ( dword_140EFE810 != 2 )
-    return 3221225474LL;
-  if ( (Address & 0xFFFFFFFFFFFFFFFCuLL) != Address )
-    return 3221225485LL;
+    return -1073741822;
+  if ( (PVOID)((unsigned __int64)Buffer & 0xFFFFFFFFFFFFFFFCuLL) != Buffer )
+    return -1073741811;
   if ( PsIsCurrentThreadInServerSilo() )
-    return 3221225474LL;
+    return -1073741822;
   CurrentThread = KeGetCurrentThread();
   v5 = CurrentThread->PreviousMode;
   PreviousMode = v5;
@@ -110,20 +110,20 @@ __int64 __fastcall NtEnumerateBootEntries(unsigned __int64 Address, _DWORD *a2)
     if ( (unsigned __int64)v2 < 0x7FFFFFFF0000LL )
       v7 = (__int64)v2;
     *(_DWORD *)v7 = *(_DWORD *)v7;
-    v6 = Address != 0 ? *v2 : 0;
+    v6 = Buffer != 0LL ? *v2 : 0;
     v50 = v6;
     if ( v6 )
-      ProbeForWrite((volatile void *)Address, v6, 4u);
+      ProbeForWrite(Buffer, v6, 4u);
     v5 = PreviousMode;
     if ( !SeSinglePrivilegeCheck(SeSystemEnvironmentPrivilege, PreviousMode) )
-      return 3221225569LL;
+      return -1073741727;
   }
   else
   {
-    v6 = Address != 0 ? *v2 : 0;
+    v6 = Buffer != 0LL ? *v2 : 0;
     v50 = v6;
   }
-  if ( !v6 || (LOBYTE(v4) = v5, result = ExLockUserBuffer(Address, v6, v4, 1LL, &v57, &P), (int)result >= 0) )
+  if ( !v6 || (LOBYTE(v4) = v5, result = ExLockUserBuffer(Buffer, v6, v4, 1LL, &v57, &P), result >= 0) )
   {
     v9 = (int *)v57;
     v49 = v6 != 0;
@@ -325,7 +325,7 @@ __int64 __fastcall NtEnumerateBootEntries(unsigned __int64 Address, _DWORD *a2)
         v16 = (unsigned int *)((char *)v16 + v43);
         v17 = v65;
       }
-      v2 = a2;
+      v2 = BufferLength;
       v10 = v47;
       if ( v56 )
         *v56 = 0;
@@ -337,7 +337,7 @@ __int64 __fastcall NtEnumerateBootEntries(unsigned __int64 Address, _DWORD *a2)
     if ( v15 >= 0 )
       v15 = v10;
     *v2 = (_DWORD)v9 - (_DWORD)v57;
-    return (unsigned int)v15;
+    return v15;
   }
   return result;
 }

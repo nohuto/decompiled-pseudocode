@@ -1,11 +1,11 @@
 /*
- * XREFs of MiInsertProcessVads @ 0x140679B64
+ * XREFs of MiInsertProcessVads @ 0x14067AD24
  * Callers:
- *     MmInitializeProcessAddressSpace @ 0x1406798B8 (MmInitializeProcessAddressSpace.c)
- *     MmInitializeHandBuiltProcess2 @ 0x140760620 (MmInitializeHandBuiltProcess2.c)
+ *     MmInitializeProcessAddressSpace @ 0x14067AA78 (MmInitializeProcessAddressSpace.c)
+ *     MmInitializeHandBuiltProcess2 @ 0x140761810 (MmInitializeHandBuiltProcess2.c)
  * Callees:
- *     MiGetWsAndInsertVad @ 0x140063E20 (MiGetWsAndInsertVad.c)
- *     MiInsertVadCharges @ 0x1405F1E60 (MiInsertVadCharges.c)
+ *     MiGetWsAndInsertVad @ 0x140063E10 (MiGetWsAndInsertVad.c)
+ *     MiInsertVadCharges @ 0x1405F2E60 (MiInsertVadCharges.c)
  */
 
 __int64 __fastcall MiInsertProcessVads(struct _KPROCESS *a1, _QWORD **a2)

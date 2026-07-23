@@ -1,10 +1,10 @@
 /*
- * XREFs of MmWriteTriageInformation @ 0x1406F6D20
+ * XREFs of MmWriteTriageInformation @ 0x1406FB990
  * Callers:
- *     IoFillTriageDumpBuffer @ 0x1405C6994 (IoFillTriageDumpBuffer.c)
+ *     IoFillTriageDumpBuffer @ 0x1405C9264 (IoFillTriageDumpBuffer.c)
  * Callees:
- *     RtlGetNtProductType @ 0x140450F70 (RtlGetNtProductType.c)
- *     ExVerifySuite @ 0x1405277D0 (ExVerifySuite.c)
+ *     RtlGetNtProductType @ 0x1404490A0 (RtlGetNtProductType.c)
+ *     ExVerifySuite @ 0x140529E40 (ExVerifySuite.c)
  */
 
 __int64 __fastcall MmWriteTriageInformation(__int64 a1)
@@ -26,18 +26,18 @@ __int64 __fastcall MmWriteTriageInformation(__int64 a1)
   v1 = MmSpecialPoolTag;
   v3 = VerifierTriageActionTaken;
   v14 = 0;
-  RtlGetNtProductType(&v14);
+  RtlGetNtProductType((PNT_PRODUCT_TYPE)&v14);
   if ( v14 != 1 || ExVerifySuite(EmbeddedNT) || ExVerifySuite(EmbeddedRestricted) || ExVerifySuite(SecurityAppliance) )
     v3 |= 0x80000000;
   v4 = MiFlags;
-  v5 = qword_140E2C588;
-  Process = stru_140E36558.ApcState.Process;
-  v7 = qword_140E3D700;
-  v8 = qword_140E3C000;
-  v9 = qword_140E3C008;
+  v5 = qword_140E2C708;
+  Process = stru_140E366D8.ApcState.Process;
+  v7 = qword_140E3D880;
+  v8 = qword_140E3C180;
+  v9 = qword_140E3C188;
   v10 = MmVerifierData;
-  v11 = *(_QWORD *)&stru_140E36558.ApcStateFill[40];
-  WaitStatus = stru_140E36558.WaitStatus;
+  v11 = *(_QWORD *)&stru_140E366D8.ApcStateFill[40];
+  WaitStatus = stru_140E366D8.WaitStatus;
   *(_DWORD *)a1 = 1;
   *(_DWORD *)(a1 + 4) = 80;
   *(_DWORD *)(a1 + 8) = v1;

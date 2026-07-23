@@ -1,10 +1,10 @@
 /*
- * XREFs of MiRequestIoPageMdlCacheRelease @ 0x1403D6FEC
+ * XREFs of MiRequestIoPageMdlCacheRelease @ 0x1403D71CC
  * Callers:
- *     MiPfnsWorthTrying @ 0x1403BB694 (MiPfnsWorthTrying.c)
- *     MiActivePageClaimCandidate @ 0x1403BBBF8 (MiActivePageClaimCandidate.c)
+ *     MiPfnsWorthTrying @ 0x1403BB874 (MiPfnsWorthTrying.c)
+ *     MiActivePageClaimCandidate @ 0x1403BBDD8 (MiActivePageClaimCandidate.c)
  * Callees:
- *     IoTryReleasePage @ 0x14055EA84 (IoTryReleasePage.c)
+ *     IoTryReleasePage @ 0x14055F144 (IoTryReleasePage.c)
  */
 
 __int64 __fastcall MiRequestIoPageMdlCacheRelease(__int64 a1)

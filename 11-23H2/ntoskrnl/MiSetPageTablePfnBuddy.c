@@ -1,17 +1,17 @@
 /*
- * XREFs of MiSetPageTablePfnBuddy @ 0x14029251C
+ * XREFs of MiSetPageTablePfnBuddy @ 0x1402927AC
  * Callers:
- *     MiInitializeSystemPageTable @ 0x1402E45A8 (MiInitializeSystemPageTable.c)
- *     KiInSwapProcesses @ 0x14034D08C (KiInSwapProcesses.c)
- *     MiCreatePfnTemplate @ 0x140375554 (MiCreatePfnTemplate.c)
- *     MiMakeOutswappedPageResident @ 0x14061856C (MiMakeOutswappedPageResident.c)
- *     MiAllocateTopLevelPage @ 0x140706194 (MiAllocateTopLevelPage.c)
+ *     MiInitializeSystemPageTable @ 0x1402E4838 (MiInitializeSystemPageTable.c)
+ *     KiInSwapProcesses @ 0x14034D22C (KiInSwapProcesses.c)
+ *     MiCreatePfnTemplate @ 0x1403756F4 (MiCreatePfnTemplate.c)
+ *     MiMakeOutswappedPageResident @ 0x140618ABC (MiMakeOutswappedPageResident.c)
+ *     MiAllocateTopLevelPage @ 0x1407063A4 (MiAllocateTopLevelPage.c)
  *     MiInitializeBootProcess @ 0x140B43C94 (MiInitializeBootProcess.c)
  *     MiInitSystem @ 0x140B44518 (MiInitSystem.c)
  *     MxInsertEnclaveBootPages @ 0x140B99E40 (MxInsertEnclaveBootPages.c)
  * Callees:
- *     MiLockPageInline @ 0x1402EF680 (MiLockPageInline.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiLockPageInline @ 0x1402EF910 (MiLockPageInline.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiSetPageTablePfnBuddy(__int64 a1, __int64 a2, int a3)
@@ -33,10 +33,10 @@ __int64 __fastcall MiSetPageTablePfnBuddy(__int64 a1, __int64 a2, int a3)
   if ( v5 != 17 )
   {
     _InterlockedAnd64((volatile signed __int64 *)(a1 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v5 <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v5 <= 0xFu && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;

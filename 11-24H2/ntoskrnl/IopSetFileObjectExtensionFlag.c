@@ -1,16 +1,16 @@
 /*
- * XREFs of IopSetFileObjectExtensionFlag @ 0x140434650
+ * XREFs of IopSetFileObjectExtensionFlag @ 0x1404278D0
  * Callers:
- *     IopCheckInitiatorHint @ 0x1404503E8 (IopCheckInitiatorHint.c)
- *     IopCheckHandleForRevocation @ 0x1405972F0 (IopCheckHandleForRevocation.c)
- *     IoRegisterContainerNotification @ 0x140715330 (IoRegisterContainerNotification.c)
- *     IopAllocRealFileObject @ 0x14089A9B0 (IopAllocRealFileObject.c)
- *     IopParseDevice @ 0x14089F880 (IopParseDevice.c)
- *     IopXxxControlFile @ 0x1408C1970 (IopXxxControlFile.c)
- *     IoSetFileObjectIgnoreSharing @ 0x140A59B20 (IoSetFileObjectIgnoreSharing.c)
+ *     IopCheckInitiatorHint @ 0x140445658 (IopCheckInitiatorHint.c)
+ *     IopCheckHandleForRevocation @ 0x140594270 (IopCheckHandleForRevocation.c)
+ *     IoRegisterContainerNotification @ 0x140712EC0 (IoRegisterContainerNotification.c)
+ *     IopAllocRealFileObject @ 0x1408A3050 (IopAllocRealFileObject.c)
+ *     IopParseDevice @ 0x1408A7F20 (IopParseDevice.c)
+ *     IopXxxControlFile @ 0x1408BF330 (IopXxxControlFile.c)
+ *     IoSetFileObjectIgnoreSharing @ 0x140A513E0 (IoSetFileObjectIgnoreSharing.c)
  * Callees:
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall IopSetFileObjectExtensionFlag(__int64 a1, unsigned int a2)
@@ -24,7 +24,7 @@ __int64 __fastcall IopSetFileObjectExtensionFlag(__int64 a1, unsigned int a2)
   v3 = a2 & 4;
   if ( Pool2 )
   {
-    if ( Pool2 != (volatile signed __int32 *)qword_140014770 )
+    if ( Pool2 != (volatile signed __int32 *)&qword_1400145A0 )
     {
 LABEL_3:
       _InterlockedOr(Pool2, a2);
@@ -35,10 +35,10 @@ LABEL_3:
   else
   {
     v7 = 0;
-    Pool2 = (volatile signed __int32 *)ExAllocatePool2(0x40uLL);
+    Pool2 = (volatile signed __int32 *)ExAllocatePool2(0x40uLL, 0x60uLL, 0x45466F49u);
     if ( !Pool2 )
     {
-      v8 = qword_140014770;
+      v8 = &qword_1400145A0;
       v7 = -1073741670;
       if ( !v3 )
         v8 = 0LL;
@@ -48,7 +48,7 @@ LABEL_3:
     {
       if ( Pool2 )
       {
-        if ( Pool2 != (volatile signed __int32 *)qword_140014770 )
+        if ( Pool2 != (volatile signed __int32 *)&qword_1400145A0 )
           ExFreePoolWithTag((PVOID)Pool2, 0);
       }
       Pool2 = *(volatile signed __int32 **)(a1 + 208);

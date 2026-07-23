@@ -1,84 +1,86 @@
 /*
- * XREFs of PsDispatchIumService @ 0x14048D020
+ * XREFs of PsDispatchIumService @ 0x1404E66B4
  * Callers:
- *     VslpEnterIumSecureMode @ 0x140265D90 (VslpEnterIumSecureMode.c)
+ *     VslpEnterIumSecureMode @ 0x1403AADB0 (VslpEnterIumSecureMode.c)
  * Callees:
- *     KeWaitForAlertByThreadId @ 0x14020765C (KeWaitForAlertByThreadId.c)
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     EtwWriteEx @ 0x140259680 (EtwWriteEx.c)
- *     IoFreeMdl @ 0x140267750 (IoFreeMdl.c)
- *     MmUnlockPages @ 0x140267F30 (MmUnlockPages.c)
- *     KeSetEvent @ 0x1402725A0 (KeSetEvent.c)
- *     MmUnmapLockedPages @ 0x14028D9C0 (MmUnmapLockedPages.c)
- *     MmMapLockedPagesSpecifyCache @ 0x14028F9F0 (MmMapLockedPagesSpecifyCache.c)
- *     DbgPrintEx @ 0x1402CB2F0 (DbgPrintEx.c)
- *     KiStackAttachProcess @ 0x1403209E0 (KiStackAttachProcess.c)
- *     KiUnstackDetachProcess @ 0x140321EC0 (KiUnstackDetachProcess.c)
- *     ObfDereferenceObjectWithTag @ 0x1403254A0 (ObfDereferenceObjectWithTag.c)
- *     ExQueueWorkItem @ 0x140325850 (ExQueueWorkItem.c)
- *     KeAlertThreadByThreadIdEx @ 0x140338518 (KeAlertThreadByThreadIdEx.c)
- *     PspIumFreePhysicalPages @ 0x14040F384 (PspIumFreePhysicalPages.c)
- *     MmLockLoadedModuleListExclusive @ 0x14042CA30 (MmLockLoadedModuleListExclusive.c)
- *     MmUnlockLoadedModuleListExclusive @ 0x14042CA74 (MmUnlockLoadedModuleListExclusive.c)
- *     DbgkPostModuleMessage @ 0x140485670 (DbgkPostModuleMessage.c)
- *     PspIumReplenishPartitionPages @ 0x14049D824 (PspIumReplenishPartitionPages.c)
- *     VslAllocatePool @ 0x1404B0800 (VslAllocatePool.c)
- *     VslFreePoolTransferObject @ 0x1404B9180 (VslFreePoolTransferObject.c)
- *     PspMapView @ 0x1404BC73C (PspMapView.c)
- *     HvlpDepositPages @ 0x140584134 (HvlpDepositPages.c)
- *     VslHandleKsrCall @ 0x14058D56C (VslHandleKsrCall.c)
- *     PspIumAlertMultipleThreadByThreadId @ 0x1405E6164 (PspIumAlertMultipleThreadByThreadId.c)
- *     PspIumAllocatePartitionState @ 0x1405E61E8 (PspIumAllocatePartitionState.c)
- *     PspIumAllocatePhysicalPages @ 0x1405E63B4 (PspIumAllocatePhysicalPages.c)
- *     PspIumAllocateSecurePool @ 0x1405E64D8 (PspIumAllocateSecurePool.c)
- *     PspIumFreePartitionState @ 0x1405E6704 (PspIumFreePartitionState.c)
- *     PsAdjustBasicEnclaveThreadList @ 0x1405E6A10 (PsAdjustBasicEnclaveThreadList.c)
- *     MmFreeSecurePoolMemory @ 0x14067CCC0 (MmFreeSecurePoolMemory.c)
- *     MmMapDriverTablePage @ 0x14067D94C (MmMapDriverTablePage.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ZwTerminateProcess @ 0x1406A6990 (ZwTerminateProcess.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     PspIumGetSystemData @ 0x14077A898 (PspIumGetSystemData.c)
- *     PspIumVerifyParentSd @ 0x14077A8D4 (PspIumVerifyParentSd.c)
- *     PsTerminateVsmEnclave @ 0x14077B634 (PsTerminateVsmEnclave.c)
- *     MmCommitHotPatchTable @ 0x1407F5F98 (MmCommitHotPatchTable.c)
- *     MmInsertSecureImageActivePatch @ 0x1407F6080 (MmInsertSecureImageActivePatch.c)
- *     MmPrepareImagePagesForHotPatch @ 0x1407F6184 (MmPrepareImagePagesForHotPatch.c)
- *     MmRemoveSecureImageActivePatch @ 0x1407F62A8 (MmRemoveSecureImageActivePatch.c)
- *     MmGetSectionStrongImageReference @ 0x1407FB42C (MmGetSectionStrongImageReference.c)
- *     DbgkMapViewOfSection @ 0x140897F08 (DbgkMapViewOfSection.c)
- *     PspTerminateThreadByPointer @ 0x1408A7CB0 (PspTerminateThreadByPointer.c)
- *     MmFreeVirtualMemory @ 0x1408DB8A0 (MmFreeVirtualMemory.c)
- *     MmProtectVirtualMemory @ 0x1408DCA30 (MmProtectVirtualMemory.c)
- *     MmUnmapViewOfSection @ 0x1408E4C50 (MmUnmapViewOfSection.c)
- *     DbgkForwardException @ 0x140938C20 (DbgkForwardException.c)
- *     DbgkpSuspendProcess @ 0x140939394 (DbgkpSuspendProcess.c)
- *     DbgkpResumeProcess @ 0x14093A32C (DbgkpResumeProcess.c)
- *     DbgkpSendErrorMessage @ 0x14093A900 (DbgkpSendErrorMessage.c)
- *     MmAllocateVirtualMemory @ 0x1409E14D0 (MmAllocateVirtualMemory.c)
- *     PspIumResolveVirtualFault @ 0x1409F7A88 (PspIumResolveVirtualFault.c)
- *     EtwUnregister @ 0x140A00060 (EtwUnregister.c)
- *     EtwRegister @ 0x140A574E0 (EtwRegister.c)
- *     MmUnmapProtectedKernelPageRange @ 0x140A8B784 (MmUnmapProtectedKernelPageRange.c)
- *     MmMapProtectedKernelPage @ 0x140AA1E4C (MmMapProtectedKernelPage.c)
- *     EtwSetInformation @ 0x140AA4AB0 (EtwSetInformation.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
- *     MmUpdateSlabRangeType @ 0x140C596EC (MmUpdateSlabRangeType.c)
+ *     KeSetEvent @ 0x140227B30 (KeSetEvent.c)
+ *     IoFreeMdl @ 0x14025ED30 (IoFreeMdl.c)
+ *     MmUnlockPages @ 0x14025F510 (MmUnlockPages.c)
+ *     DbgPrintEx @ 0x140275B40 (DbgPrintEx.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     EtwWriteEx @ 0x140289C90 (EtwWriteEx.c)
+ *     MmUnmapLockedPages @ 0x14029D5C0 (MmUnmapLockedPages.c)
+ *     MmMapLockedPagesSpecifyCache @ 0x14029F5F0 (MmMapLockedPagesSpecifyCache.c)
+ *     KiStackAttachProcess @ 0x1402C9570 (KiStackAttachProcess.c)
+ *     KiUnstackDetachProcess @ 0x1402CAA50 (KiUnstackDetachProcess.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CE030 (ObfDereferenceObjectWithTag.c)
+ *     ExQueueWorkItem @ 0x1402CE3E0 (ExQueueWorkItem.c)
+ *     KeAlertThreadByThreadIdEx @ 0x1402DE598 (KeAlertThreadByThreadIdEx.c)
+ *     MmLockLoadedModuleListExclusive @ 0x1402EE530 (MmLockLoadedModuleListExclusive.c)
+ *     MmUnlockLoadedModuleListExclusive @ 0x1402EE574 (MmUnlockLoadedModuleListExclusive.c)
+ *     KeWaitForAlertByThreadId @ 0x14032EC3C (KeWaitForAlertByThreadId.c)
+ *     PspIumFreePhysicalPages @ 0x140432FA8 (PspIumFreePhysicalPages.c)
+ *     DbgkPostModuleMessage @ 0x140480C54 (DbgkPostModuleMessage.c)
+ *     PspIumReplenishPartitionPages @ 0x140498624 (PspIumReplenishPartitionPages.c)
+ *     VslAllocatePool @ 0x1404AB090 (VslAllocatePool.c)
+ *     VslFreePoolTransferObject @ 0x1404B4020 (VslFreePoolTransferObject.c)
+ *     PspMapView @ 0x1404B78A4 (PspMapView.c)
+ *     HvlpDepositPages @ 0x1405814B4 (HvlpDepositPages.c)
+ *     VslHandleKsrCall @ 0x14058A85C (VslHandleKsrCall.c)
+ *     PspIumAlertMultipleThreadByThreadId @ 0x1405E3764 (PspIumAlertMultipleThreadByThreadId.c)
+ *     PspIumAllocatePartitionState @ 0x1405E37E8 (PspIumAllocatePartitionState.c)
+ *     PspIumAllocatePhysicalPages @ 0x1405E39B4 (PspIumAllocatePhysicalPages.c)
+ *     PspIumAllocateSecurePool @ 0x1405E3AD8 (PspIumAllocateSecurePool.c)
+ *     PspIumFreePartitionState @ 0x1405E3D04 (PspIumFreePartitionState.c)
+ *     PsAdjustBasicEnclaveThreadList @ 0x1405E4010 (PsAdjustBasicEnclaveThreadList.c)
+ *     MmFreeSecurePoolMemory @ 0x14067DEA0 (MmFreeSecurePoolMemory.c)
+ *     MmMapDriverTablePage @ 0x14067EB4C (MmMapDriverTablePage.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ZwTerminateProcess @ 0x1406A7930 (ZwTerminateProcess.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     PspIumGetSystemData @ 0x14077A748 (PspIumGetSystemData.c)
+ *     PspIumVerifyParentSd @ 0x14077A784 (PspIumVerifyParentSd.c)
+ *     PsTerminateVsmEnclave @ 0x14077B4E4 (PsTerminateVsmEnclave.c)
+ *     MmCommitHotPatchTable @ 0x1407F6688 (MmCommitHotPatchTable.c)
+ *     MmCreateSectionForHotpatch @ 0x1407F6770 (MmCreateSectionForHotpatch.c)
+ *     MmInsertSecureImageActivePatch @ 0x1407F67F4 (MmInsertSecureImageActivePatch.c)
+ *     MmPrepareImagePagesForHotPatch @ 0x1407F68F8 (MmPrepareImagePagesForHotPatch.c)
+ *     MmRemoveSecureImageActivePatch @ 0x1407F6A1C (MmRemoveSecureImageActivePatch.c)
+ *     MmGetSectionStrongImageReference @ 0x1407FBB9C (MmGetSectionStrongImageReference.c)
+ *     MmUnmapViewOfSection @ 0x140896C60 (MmUnmapViewOfSection.c)
+ *     DbgkMapViewOfSection @ 0x1408A05A8 (DbgkMapViewOfSection.c)
+ *     ObCloseHandle @ 0x1408AB1B0 (ObCloseHandle.c)
+ *     MmFreeVirtualMemory @ 0x1408D9AD0 (MmFreeVirtualMemory.c)
+ *     MmProtectVirtualMemory @ 0x1408DAC60 (MmProtectVirtualMemory.c)
+ *     DbgkForwardException @ 0x1408F32F0 (DbgkForwardException.c)
+ *     DbgkpSuspendProcess @ 0x1408F3A64 (DbgkpSuspendProcess.c)
+ *     PspTerminateThreadByPointer @ 0x1408FDF10 (PspTerminateThreadByPointer.c)
+ *     MmAllocateVirtualMemory @ 0x1409DB280 (MmAllocateVirtualMemory.c)
+ *     DbgkpSendErrorMessage @ 0x1409E93F0 (DbgkpSendErrorMessage.c)
+ *     EtwRegister @ 0x1409EA180 (EtwRegister.c)
+ *     PspIumResolveVirtualFault @ 0x1409F03F8 (PspIumResolveVirtualFault.c)
+ *     EtwUnregister @ 0x140A52EC0 (EtwUnregister.c)
+ *     DbgkpResumeProcess @ 0x140A5A3B4 (DbgkpResumeProcess.c)
+ *     MmUnmapProtectedKernelPageRange @ 0x140A87C74 (MmUnmapProtectedKernelPageRange.c)
+ *     MmMapProtectedKernelPage @ 0x140A9D1DC (MmMapProtectedKernelPage.c)
+ *     EtwSetInformation @ 0x140AD9290 (EtwSetInformation.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
+ *     MmUpdateSlabRangeType @ 0x140C5B87C (MmUpdateSlabRangeType.c)
  */
 
-void __fastcall PsDispatchIumService(ULONGLONG a1, __int64 a2, __int64 a3, __int64 a4)
+void __fastcall PsDispatchIumService(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
-  ETWENABLECALLBACK *RelatedActivityId; // rsi
+  GUID *RelatedActivityId; // rsi
   unsigned int v6; // ecx
   unsigned int v7; // ecx
   unsigned int v8; // ecx
   unsigned int v9; // ecx
   unsigned int v10; // ecx
   unsigned int v11; // ecx
+  __int64 v12; // rax
   int PartitionState; // eax
-  unsigned int v13; // ecx
   unsigned int v14; // ecx
   unsigned int v15; // ecx
   unsigned int v16; // ecx
@@ -86,73 +88,86 @@ void __fastcall PsDispatchIumService(ULONGLONG a1, __int64 a2, __int64 a3, __int
   unsigned int v18; // ecx
   _KPROCESS *v19; // r14
   _KPROCESS *v20; // rcx
-  int v21; // ecx
-  __int128 *v22; // r9
-  unsigned __int64 v23; // rax
   int VirtualMemory; // eax
-  int v25; // ebx
-  _KPROCESS *v26; // rcx
-  __int64 v27; // rax
-  unsigned int v28; // ecx
+  __int64 v22; // r8
+  __int64 v23; // r9
+  _KPROCESS *v24; // rcx
+  int v25; // ecx
+  __int128 *v26; // r9
+  unsigned __int64 v27; // rax
+  int v28; // ebx
   struct _KTHREAD *CurrentThread; // rax
-  struct _MDL *v30; // rcx
-  unsigned int v31; // ecx
-  unsigned int v32; // ecx
-  _KPROCESS *v33; // rbx
-  _KPROCESS *Process; // rsi
+  _KPROCESS *v30; // rbx
+  _KPROCESS *v31; // rcx
+  int v32; // esi
+  __int64 v33; // r8
+  __int64 v34; // r9
   unsigned int v35; // ecx
   unsigned int v36; // ecx
   unsigned int v37; // ecx
   unsigned int v38; // ecx
   unsigned int v39; // ecx
-  unsigned int v40; // ecx
-  unsigned int v41; // ecx
-  unsigned int v42; // ecx
-  unsigned int v43; // ecx
-  void *v44; // r8
-  _KPROCESS *v45; // rbx
-  _KPROCESS *v46; // rcx
-  int v47; // esi
-  unsigned int v48; // ecx
-  unsigned int v49; // ecx
-  unsigned int v50; // ecx
-  unsigned int v51; // ecx
-  int SecurePool; // eax
-  int v53; // ecx
+  void *v40; // r8
+  __int64 v41; // rcx
   const GUID *ActivityId; // rcx
+  unsigned int v43; // ecx
+  unsigned int v44; // ecx
+  unsigned int v45; // ecx
+  unsigned int v46; // ecx
+  void *v47; // rcx
+  int SecurePool; // eax
+  int v49; // ecx
+  __int64 Pool2; // rax
+  __int64 v51; // rbx
+  __int64 v52; // rax
+  unsigned int v53; // ecx
+  unsigned int v54; // ecx
   unsigned int v55; // ecx
   unsigned int v56; // ecx
   unsigned int v57; // ecx
-  unsigned int v58; // ecx
-  unsigned int v59; // ecx
-  __int64 v60; // rdx
-  __int64 v61; // rcx
-  struct _MDL *v62; // rbx
-  __int64 Pool2; // rax
-  __int64 v64; // rbx
-  unsigned int v65; // ecx
-  unsigned int v66; // ecx
-  unsigned int v67; // ecx
-  unsigned int v68; // ecx
-  int v69; // eax
+  __int64 v58; // rdx
+  __int64 v59; // rcx
+  struct _MDL *v60; // rbx
+  unsigned int v61; // ecx
+  unsigned int v62; // ecx
+  unsigned int v63; // ecx
+  unsigned int v64; // ecx
+  _KPROCESS *v65; // rbx
+  _KPROCESS *Process; // rsi
+  int v67; // eax
+  __int64 v68; // r8
+  __int64 v69; // r9
   __int64 v70; // r14
-  ULONGLONG RegHandle; // [rsp+60h] [rbp-1E8h] BYREF
-  __int128 v72; // [rsp+68h] [rbp-1E0h] BYREF
-  __int128 v73; // [rsp+78h] [rbp-1D0h] BYREF
-  __int64 v74; // [rsp+88h] [rbp-1C0h]
-  _OWORD v75[3]; // [rsp+90h] [rbp-1B8h] BYREF
-  _BYTE v76[272]; // [rsp+C0h] [rbp-188h] BYREF
-  _OWORD v77[5]; // [rsp+1D0h] [rbp-78h] BYREF
-  __int64 v78; // [rsp+220h] [rbp-28h]
-  int v79; // [rsp+228h] [rbp-20h]
-  __int16 v80; // [rsp+22Ch] [rbp-1Ch]
-  char v81; // [rsp+22Eh] [rbp-1Ah]
+  unsigned int v71; // ecx
+  unsigned int v72; // ecx
+  unsigned int v73; // ecx
+  unsigned int v74; // ecx
+  unsigned int v75; // ecx
+  unsigned int v76; // ecx
+  unsigned int v77; // ecx
+  unsigned int v78; // ecx
+  unsigned int v79; // ecx
+  char v80; // r14
+  __int64 v81; // rdx
+  int SectionForHotpatch; // ebx
+  ULONGLONG RegHandle; // [rsp+60h] [rbp-1F8h] BYREF
+  __int64 v84; // [rsp+68h] [rbp-1F0h] BYREF
+  __int128 v85; // [rsp+70h] [rbp-1E8h] BYREF
+  __int128 v86; // [rsp+80h] [rbp-1D8h] BYREF
+  __int64 v87; // [rsp+90h] [rbp-1C8h]
+  _OWORD v88[3]; // [rsp+98h] [rbp-1C0h] BYREF
+  _BYTE v89[272]; // [rsp+D0h] [rbp-188h] BYREF
+  _OWORD v90[5]; // [rsp+1E0h] [rbp-78h] BYREF
+  __int64 v91; // [rsp+230h] [rbp-28h]
+  int v92; // [rsp+238h] [rbp-20h]
+  __int16 v93; // [rsp+23Ch] [rbp-1Ch]
+  char v94; // [rsp+23Eh] [rbp-1Ah]
 
-  RegHandle = a1;
-  memset(v75, 0, sizeof(v75));
-  v72 = 0LL;
-  v73 = 0LL;
-  v74 = 0LL;
+  v84 = a1;
+  memset(v88, 0, sizeof(v88));
+  v85 = 0LL;
+  v86 = 0LL;
+  v87 = 0LL;
   RelatedActivityId = 0LL;
   if ( *(_BYTE *)(a1 + 1) == 5 )
   {
@@ -167,68 +182,141 @@ void __fastcall PsDispatchIumService(ULONGLONG a1, __int64 a2, __int64 a3, __int
     }
   }
   v6 = *(unsigned __int16 *)(a1 + 2);
-  if ( v6 > 0x1A )
+  if ( v6 > 0x1B )
   {
-    if ( v6 <= 0x27 )
+    if ( v6 > 0x28 )
     {
-      if ( v6 == 39 )
+      if ( v6 > 0x2F )
       {
-        *(_QWORD *)(a1 + 24) = 0LL;
-        if ( (unsigned __int8)PspIumReplenishPartitionPages(*(_QWORD *)(a1 + 8), *(unsigned int *)(a1 + 16)) )
-          *(_QWORD *)(a1 + 24) = 1LL;
+        v76 = v6 - 48;
+        if ( !v76 )
+        {
+          PartitionState = MmCommitHotPatchTable(*(_QWORD *)(a1 + 8), *(_QWORD *)(a1 + 16));
+          goto LABEL_171;
+        }
+        v77 = v76 - 1;
+        if ( !v77 )
+        {
+          MmInsertSecureImageActivePatch(*(_DWORD *)(a1 + 8), *(_DWORD *)(a1 + 16), *(_DWORD *)(a1 + 40));
+          return;
+        }
+        v78 = v77 - 1;
+        if ( !v78 )
+        {
+          MmRemoveSecureImageActivePatch(*(unsigned int *)(a1 + 8), *(unsigned int *)(a1 + 16));
+          return;
+        }
+        v79 = v78 - 1;
+        if ( !v79 )
+        {
+          PartitionState = PspIumAlertMultipleThreadByThreadId(a1);
+          goto LABEL_171;
+        }
+        if ( v79 != 1 )
+          goto LABEL_161;
+        v80 = *(_BYTE *)(a1 + 28);
+        RegHandle = 0LL;
+        v84 = 0LL;
+        SectionForHotpatch = MmCreateSectionForHotpatch(
+                               *(_QWORD *)(a1 + 8),
+                               *(_DWORD *)(a1 + 16),
+                               *(_DWORD *)(a1 + 20),
+                               *(_DWORD *)(a1 + 24),
+                               v80,
+                               (unsigned int)&RegHandle);
+        if ( SectionForHotpatch >= 0 )
+        {
+          LOBYTE(v81) = v80;
+          SectionForHotpatch = MmGetSectionStrongImageReference(RegHandle, v81, 0LL, &v84);
+          if ( SectionForHotpatch < 0 )
+          {
+            ObCloseHandle((HANDLE)RegHandle, v80);
+            RegHandle = 0LL;
+          }
+        }
+        *(_DWORD *)(a1 + 8) = SectionForHotpatch;
+        *(_QWORD *)(a1 + 16) = RegHandle;
+        v52 = v84;
+        goto LABEL_166;
+      }
+      if ( v6 == 47 )
+      {
+        MmUnlockPages(*(PMDL *)(a1 + 8));
+        IoFreeMdl(*(PMDL *)(a1 + 8));
         return;
       }
-      if ( v6 <= 0x21 )
+      v71 = v6 - 41;
+      if ( !v71 )
       {
-        if ( v6 == 33 )
+        MmUpdateSlabRangeType(*(_QWORD *)(a1 + 8), *(_QWORD *)(a1 + 16));
+        return;
+      }
+      v72 = v71 - 1;
+      if ( !v72 )
+      {
+        ExQueueWorkItem(&PspIumWorkItem, DelayedWorkQueue);
+        return;
+      }
+      v73 = v72 - 1;
+      if ( !v73 )
+      {
+        PartitionState = PsAdjustBasicEnclaveThreadList(
+                           *(_QWORD *)(a1 + 8),
+                           *(_QWORD *)(a1 + 16),
+                           *(unsigned int *)(a1 + 24));
+        goto LABEL_171;
+      }
+      v74 = v73 - 1;
+      if ( !v74 )
+      {
+        SecurePool = PspIumAllocateSecurePool(a1);
+        goto LABEL_86;
+      }
+      v75 = v74 - 1;
+      if ( !v75 )
+      {
+        MmFreeSecurePoolMemory(*(_QWORD *)(a1 + 24), *(_QWORD *)(a1 + 32));
+        return;
+      }
+      if ( v75 != 1 )
+        goto LABEL_161;
+      v65 = *(_KPROCESS **)(a1 + 8);
+      Process = KeGetCurrentThread()->ApcState.Process;
+      if ( Process != v65 )
+        KiStackAttachProcess(*(_KPROCESS **)(a1 + 8), 0, (__int64)v88);
+      v67 = MmPrepareImagePagesForHotPatch(*(_QWORD *)(a1 + 16), *(_QWORD *)(a1 + 24), a1 + 16);
+    }
+    else
+    {
+      if ( v6 == 40 )
+      {
+        PsTerminateVsmEnclave(*(_QWORD *)(a1 + 8), 0x80000000LL);
+        return;
+      }
+      if ( v6 <= 0x22 )
+      {
+        if ( v6 == 34 )
         {
-          DbgkMapViewOfSection(*(PVOID *)(a1 + 8));
-          return;
+          PartitionState = PspMapView(a1);
+          goto LABEL_171;
         }
-        v55 = v6 - 27;
-        if ( !v55 )
+        v53 = v6 - 28;
+        if ( v53 )
         {
-          Pool2 = ExAllocatePool2(0x40uLL);
-          v64 = Pool2;
-          if ( Pool2 )
+          v54 = v53 - 1;
+          if ( v54 )
           {
-            *(_QWORD *)Pool2 = 0LL;
-            *(_DWORD *)(Pool2 + 8) = 56;
-            *(_QWORD *)(Pool2 + 32) = 0LL;
-            *(_QWORD *)(Pool2 + 40) = 4096LL;
-            *(_QWORD *)(Pool2 + 48) = *(_QWORD *)(a1 + 8);
-            *(_WORD *)(Pool2 + 10) = 2;
-            MmMapLockedPagesSpecifyCache((PMDL)Pool2, 0, MmCached, 0LL, 0, 0x40000010u);
-            if ( (*(_BYTE *)(v64 + 10) & 1) != 0 )
-            {
-              *(_QWORD *)(a1 + 8) = 0LL;
-              *(_QWORD *)(a1 + 16) = v64;
-              *(_QWORD *)(a1 + 24) = *(_QWORD *)(v64 + 24);
-              return;
-            }
-            ExFreePoolWithTag((PVOID)v64, 0);
-          }
-          v27 = 3221225626LL;
-LABEL_43:
-          *(_QWORD *)(a1 + 8) = v27;
-          return;
-        }
-        v56 = v55 - 1;
-        if ( v56 )
-        {
-          v57 = v56 - 1;
-          if ( v57 )
-          {
-            v58 = v57 - 1;
-            if ( !v58 )
+            v55 = v54 - 1;
+            if ( !v55 )
             {
               MmUnmapProtectedKernelPageRange(*(_QWORD *)(a1 + 8), *(_QWORD *)(a1 + 16));
               return;
             }
-            v59 = v58 - 1;
-            if ( v59 )
+            v56 = v55 - 1;
+            if ( v56 )
             {
-              if ( v59 == 1 )
+              v57 = v56 - 1;
+              if ( !v57 )
               {
                 DbgkPostModuleMessage(
                   *(PVOID *)(a1 + 8),
@@ -239,7 +327,12 @@ LABEL_43:
                   *(PRKEVENT *)(a1 + 48));
                 return;
               }
-              goto LABEL_70;
+              if ( v57 == 1 )
+              {
+                DbgkMapViewOfSection(*(PVOID *)(a1 + 8));
+                return;
+              }
+              goto LABEL_161;
             }
             if ( *(_QWORD *)(a1 + 8) )
               MmLockLoadedModuleListExclusive();
@@ -248,360 +341,314 @@ LABEL_43:
           }
           else
           {
-            v60 = *(_QWORD *)(a1 + 16);
-            v61 = *(_QWORD *)(a1 + 8);
+            v58 = *(_QWORD *)(a1 + 16);
+            v59 = *(_QWORD *)(a1 + 8);
             if ( *(_QWORD *)(a1 + 24) )
-              MmMapDriverTablePage(v61, v60, a3, *(unsigned int *)(a1 + 32));
+              MmMapDriverTablePage(v59, v58, a3, *(unsigned int *)(a1 + 32));
             else
-              MmMapProtectedKernelPage(v61, v60);
+              MmMapProtectedKernelPage(v59, v58);
           }
           return;
         }
-        v62 = *(struct _MDL **)(a1 + 8);
-        MmUnmapLockedPages(v62->MappedSystemVa, v62);
-        v30 = v62;
-LABEL_135:
-        ExFreePoolWithTag(v30, 0);
-        return;
+        v60 = *(struct _MDL **)(a1 + 8);
+        MmUnmapLockedPages(v60->MappedSystemVa, v60);
+        v47 = v60;
+        goto LABEL_118;
       }
-      v65 = v6 - 34;
-      if ( !v65 )
+      v61 = v6 - 35;
+      if ( v61 )
       {
-        PartitionState = PspMapView(a1);
-        goto LABEL_18;
-      }
-      v66 = v65 - 1;
-      if ( v66 )
-      {
-        v67 = v66 - 1;
-        if ( !v67 )
+        v62 = v61 - 1;
+        if ( !v62 )
         {
           ObfDereferenceObjectWithTag(*(PVOID *)(a1 + 8), 0x746C6644u);
           return;
         }
-        v68 = v67 - 1;
-        if ( !v68 )
+        v63 = v62 - 1;
+        if ( !v63 )
         {
           KeSetEvent(*(PRKEVENT *)(a1 + 8), 0, 0);
           return;
         }
-        if ( v68 != 1 )
-          goto LABEL_70;
-        if ( !*(_QWORD *)(a1 + 8) )
+        v64 = v63 - 1;
+        if ( !v64 )
         {
-          PspIumFreePartitionState(*(PVOID *)(a1 + 16));
+          if ( !*(_QWORD *)(a1 + 8) )
+          {
+            PspIumFreePartitionState(*(PVOID *)(a1 + 16));
+            return;
+          }
+          PartitionState = PspIumAllocatePartitionState(a1);
+          goto LABEL_171;
+        }
+        if ( v64 == 1 )
+        {
+          *(_QWORD *)(a1 + 24) = 0LL;
+          if ( PspIumReplenishPartitionPages(*(_QWORD *)(a1 + 8), *(_DWORD *)(a1 + 16)) )
+            *(_QWORD *)(a1 + 24) = 1LL;
           return;
         }
-        PartitionState = PspIumAllocatePartitionState(a1);
-        goto LABEL_18;
+        goto LABEL_161;
       }
-      v33 = *(_KPROCESS **)(a1 + 8);
+      v65 = *(_KPROCESS **)(a1 + 8);
       Process = KeGetCurrentThread()->ApcState.Process;
-      if ( Process != v33 )
-        KiStackAttachProcess(*(_KPROCESS **)(a1 + 8), 0, (__int64)v75);
-      v69 = MmUnmapViewOfSection(v33, *(_QWORD *)(a1 + 16));
+      if ( Process != v65 )
+        KiStackAttachProcess(*(_KPROCESS **)(a1 + 8), 0, (__int64)v88);
+      v67 = MmUnmapViewOfSection(v65, *(_QWORD *)(a1 + 16));
     }
-    else
-    {
-      if ( v6 > 0x2E )
-      {
-        v35 = v6 - 47;
-        if ( !v35 )
-        {
-          MmUnlockPages(*(PMDL *)(a1 + 8));
-          IoFreeMdl(*(PMDL *)(a1 + 8));
-          return;
-        }
-        v36 = v35 - 1;
-        if ( v36 )
-        {
-          v37 = v36 - 1;
-          if ( !v37 )
-          {
-            MmInsertSecureImageActivePatch(*(_DWORD *)(a1 + 8), *(_DWORD *)(a1 + 16), *(_DWORD *)(a1 + 40));
-            return;
-          }
-          v38 = v37 - 1;
-          if ( !v38 )
-          {
-            MmRemoveSecureImageActivePatch(*(unsigned int *)(a1 + 8), *(unsigned int *)(a1 + 16));
-            return;
-          }
-          if ( v38 != 1 )
-            goto LABEL_70;
-          PartitionState = PspIumAlertMultipleThreadByThreadId(a1);
-        }
-        else
-        {
-          PartitionState = MmCommitHotPatchTable(*(_QWORD *)(a1 + 8), *(_QWORD *)(a1 + 16));
-        }
-        goto LABEL_18;
-      }
-      if ( v6 != 46 )
-      {
-        v13 = v6 - 40;
-        if ( !v13 )
-        {
-          PsTerminateVsmEnclave(*(_QWORD *)(a1 + 8), 0x80000000LL);
-          return;
-        }
-        v14 = v13 - 1;
-        if ( !v14 )
-        {
-          MmUpdateSlabRangeType(*(_QWORD *)(a1 + 8), *(_QWORD *)(a1 + 16));
-          return;
-        }
-        v15 = v14 - 1;
-        if ( !v15 )
-        {
-          ExQueueWorkItem(&PspIumWorkItem, DelayedWorkQueue);
-          return;
-        }
-        v31 = v15 - 1;
-        if ( !v31 )
-        {
-          PartitionState = PsAdjustBasicEnclaveThreadList(
-                             *(_QWORD *)(a1 + 8),
-                             *(_QWORD *)(a1 + 16),
-                             *(unsigned int *)(a1 + 24));
-          goto LABEL_18;
-        }
-        v32 = v31 - 1;
-        if ( v32 )
-        {
-          if ( v32 == 1 )
-          {
-            MmFreeSecurePoolMemory(*(_QWORD *)(a1 + 24), *(_QWORD *)(a1 + 32));
-            return;
-          }
-          goto LABEL_70;
-        }
-        SecurePool = PspIumAllocateSecurePool(a1);
-        goto LABEL_103;
-      }
-      v33 = *(_KPROCESS **)(a1 + 8);
-      Process = KeGetCurrentThread()->ApcState.Process;
-      if ( Process != v33 )
-        KiStackAttachProcess(*(_KPROCESS **)(a1 + 8), 0, (__int64)v75);
-      v69 = MmPrepareImagePagesForHotPatch(*(_QWORD *)(a1 + 16), *(_QWORD *)(a1 + 24), a1 + 16);
-    }
-    v70 = v69;
-    if ( Process != v33 )
-      KiUnstackDetachProcess((__int64)v75, 0);
+    v70 = v67;
+    if ( Process != v65 )
+      KiUnstackDetachProcess((__int64)v88, 0, v68, v69);
     *(_QWORD *)(a1 + 8) = v70;
     return;
   }
-  if ( v6 == 26 )
+  if ( v6 == 27 )
   {
-    v30 = (struct _MDL *)VslFreePoolTransferObject(*(PVOID *)(a1 + 8));
-    goto LABEL_135;
-  }
-  if ( v6 == 13 )
-  {
-    v19 = KeGetCurrentThread()->ApcState.Process;
-    v26 = *(_KPROCESS **)(a1 + 8);
-    if ( v19 != v26 )
-      KiStackAttachProcess(v26, 0, (__int64)v75);
-    VirtualMemory = MmFreeVirtualMemory(0xFFFFFFFFFFFFFFFFuLL, 0, 0x10000000);
-    goto LABEL_35;
-  }
-  if ( v6 > 0xD )
-  {
-    if ( v6 <= 0x14 )
+    Pool2 = ExAllocatePool2(0x40uLL, 0x38uLL, 0x646C6D4Du);
+    v51 = Pool2;
+    if ( !Pool2 )
     {
-      if ( v6 == 20 )
+LABEL_94:
+      v12 = 3221225626LL;
+      goto LABEL_18;
+    }
+    *(_QWORD *)Pool2 = 0LL;
+    *(_DWORD *)(Pool2 + 8) = 56;
+    *(_QWORD *)(Pool2 + 32) = 0LL;
+    *(_QWORD *)(Pool2 + 40) = 4096LL;
+    *(_QWORD *)(Pool2 + 48) = *(_QWORD *)(a1 + 8);
+    *(_WORD *)(Pool2 + 10) = 2;
+    MmMapLockedPagesSpecifyCache((PMDL)Pool2, 0, MmCached, 0LL, 0, 0x40000010u);
+    if ( (*(_BYTE *)(v51 + 10) & 1) == 0 )
+    {
+      ExFreePoolWithTag((PVOID)v51, 0);
+      goto LABEL_94;
+    }
+    *(_QWORD *)(a1 + 8) = 0LL;
+    *(_QWORD *)(a1 + 16) = v51;
+    v52 = *(_QWORD *)(v51 + 24);
+LABEL_166:
+    *(_QWORD *)(a1 + 24) = v52;
+    return;
+  }
+  if ( v6 > 0xE )
+  {
+    if ( v6 <= 0x15 )
+    {
+      if ( v6 == 21 )
+      {
+        ActivityId = (const GUID *)(a1 + 32);
+        if ( !*(_QWORD *)(a1 + 32) && !*(_QWORD *)(a1 + 40) )
+          ActivityId = 0LL;
+        if ( *(_QWORD *)(a1 + 48) || *(_QWORD *)(a1 + 56) )
+          RelatedActivityId = (GUID *)(a1 + 48);
+        PartitionState = EtwWriteEx(
+                           *(_QWORD *)(a1 + 8),
+                           (PCEVENT_DESCRIPTOR)(a1 + 16),
+                           0LL,
+                           0,
+                           ActivityId,
+                           RelatedActivityId,
+                           *(_DWORD *)(a1 + 64),
+                           *(PEVENT_DATA_DESCRIPTOR *)(a1 + 72));
+        goto LABEL_171;
+      }
+      v35 = v6 - 15;
+      if ( !v35 )
+      {
+        LOBYTE(v12) = DbgkpSuspendProcess(*(_QWORD *)(a1 + 8));
+        goto LABEL_17;
+      }
+      v36 = v35 - 1;
+      if ( !v36 )
+      {
+        DbgkpResumeProcess(*(_QWORD *)(a1 + 8));
+        return;
+      }
+      v37 = v36 - 1;
+      if ( !v37 )
+      {
+        memset_0(v89, 0, sizeof(v89));
+        PartitionState = DbgkpSendErrorMessage(*(_QWORD *)(a1 + 8), *(unsigned int *)(a1 + 16), v89);
+        goto LABEL_171;
+      }
+      v38 = v37 - 1;
+      if ( !v38 )
+      {
+        RegHandle = 0LL;
+        v40 = *(void **)(a1 + 24);
+        if ( v40 )
+          RelatedActivityId = (GUID *)VslIumEtwEnableCallback;
+        v41 = EtwRegister((LPCGUID)(a1 + 8), (PETWENABLECALLBACK)RelatedActivityId, v40, &RegHandle);
+        *(_QWORD *)(a1 + 16) = RegHandle;
+        goto LABEL_172;
+      }
+      v39 = v38 - 1;
+      if ( !v39 )
+      {
+        PartitionState = EtwUnregister(*(_QWORD *)(a1 + 8));
+        goto LABEL_171;
+      }
+      if ( v39 == 1 )
       {
         PartitionState = EtwSetInformation(
                            *(_QWORD *)(a1 + 8),
                            *(EVENT_INFO_CLASS *)(a1 + 16),
                            *(PVOID *)(a1 + 24),
                            *(_DWORD *)(a1 + 32));
+        goto LABEL_171;
       }
-      else
-      {
-        v39 = v6 - 14;
-        if ( !v39 )
-        {
-          v45 = KeGetCurrentThread()->ApcState.Process;
-          v46 = *(_KPROCESS **)(a1 + 8);
-          if ( v45 != v46 )
-            KiStackAttachProcess(v46, 0, (__int64)v75);
-          v47 = MmProtectVirtualMemory(
-                  *(_QWORD *)(a1 + 16),
-                  *(_QWORD *)(a1 + 8),
-                  (int)a1 + 24,
-                  (int)a1 + 32,
-                  *(_DWORD *)(a1 + 40),
-                  a1 + 40);
-          if ( v45 != *(_KPROCESS **)(a1 + 8) )
-            KiUnstackDetachProcess((__int64)v75, 0);
-          *(_DWORD *)(a1 + 8) = v47;
-          return;
-        }
-        v40 = v39 - 1;
-        if ( !v40 )
-        {
-          LOBYTE(v27) = DbgkpSuspendProcess(*(_QWORD *)(a1 + 8));
-          goto LABEL_42;
-        }
-        v41 = v40 - 1;
-        if ( !v41 )
-        {
-          DbgkpResumeProcess(*(_QWORD *)(a1 + 8));
-          return;
-        }
-        v42 = v41 - 1;
-        if ( v42 )
-        {
-          v43 = v42 - 1;
-          if ( !v43 )
-          {
-            RegHandle = 0LL;
-            v44 = *(void **)(a1 + 24);
-            if ( v44 )
-              RelatedActivityId = VslIumEtwEnableCallback;
-            *(_QWORD *)(a1 + 8) = EtwRegister((LPCGUID)(a1 + 8), RelatedActivityId, v44, &RegHandle);
-            *(_QWORD *)(a1 + 16) = RegHandle;
-            return;
-          }
-          if ( v43 != 1 )
-            goto LABEL_70;
-          PartitionState = EtwUnregister(*(_QWORD *)(a1 + 8));
-        }
-        else
-        {
-          memset_0(v76, 0, sizeof(v76));
-          PartitionState = DbgkpSendErrorMessage(*(_QWORD *)(a1 + 8), *(unsigned int *)(a1 + 16), v76);
-        }
-      }
-LABEL_18:
-      *(_QWORD *)(a1 + 8) = PartitionState;
-      return;
+      goto LABEL_161;
     }
-    v48 = v6 - 21;
-    if ( !v48 )
-    {
-      ActivityId = (const GUID *)(a1 + 32);
-      if ( !*(_QWORD *)(a1 + 32) && !*(_QWORD *)(a1 + 40) )
-        ActivityId = 0LL;
-      if ( *(_QWORD *)(a1 + 48) || *(_QWORD *)(a1 + 56) )
-        RelatedActivityId = (ETWENABLECALLBACK *)(a1 + 48);
-      PartitionState = EtwWriteEx(
-                         *(_QWORD *)(a1 + 8),
-                         (PCEVENT_DESCRIPTOR)(a1 + 16),
-                         0LL,
-                         0,
-                         ActivityId,
-                         (LPCGUID)RelatedActivityId,
-                         *(_DWORD *)(a1 + 64),
-                         *(PEVENT_DATA_DESCRIPTOR *)(a1 + 72));
-      goto LABEL_18;
-    }
-    v49 = v48 - 1;
-    if ( !v49 )
+    v43 = v6 - 22;
+    if ( !v43 )
     {
       PartitionState = PspIumVerifyParentSd(*(unsigned int *)(a1 + 8), a2, *(_QWORD *)(a1 + 24));
-      goto LABEL_18;
+      goto LABEL_171;
     }
-    v50 = v49 - 1;
-    if ( !v50 )
+    v44 = v43 - 1;
+    if ( !v44 )
     {
       VslHandleKsrCall(a1);
       return;
     }
-    v51 = v50 - 1;
-    if ( !v51 )
+    v45 = v44 - 1;
+    if ( !v45 )
     {
-      v53 = *(_DWORD *)(a1 + 8);
-      if ( v53 == -1070268299 || v53 == -1070268286 )
+      v49 = *(_DWORD *)(a1 + 8);
+      if ( v49 == -1070268299 || v49 == -1070268286 )
         LOBYTE(RelatedActivityId) = 1;
       LOBYTE(a3) = (_BYTE)RelatedActivityId;
-      LOBYTE(a4) = (unsigned int)(v53 + 1070268287) <= 1;
+      LOBYTE(a4) = (unsigned int)(v49 + 1070268287) <= 1;
       PartitionState = HvlpDepositPages(0LL, a2, a3, a4);
-      goto LABEL_18;
+      goto LABEL_171;
     }
-    if ( v51 != 1 )
-      goto LABEL_70;
-    SecurePool = VslAllocatePool(*(_QWORD *)(a1 + 8), *(_DWORD *)(a1 + 16), (int)a1 + 16, (int)a1 + 24, a1 + 32);
-LABEL_103:
+    v46 = v45 - 1;
+    if ( v46 )
+    {
+      if ( v46 != 1 )
+        goto LABEL_161;
+      v47 = (void *)VslFreePoolTransferObject(*(__int64 ***)(a1 + 8), 0LL);
+LABEL_118:
+      ExFreePoolWithTag(v47, 0);
+      return;
+    }
+    SecurePool = VslAllocatePool(
+                   *(_QWORD *)(a1 + 8),
+                   *(_DWORD *)(a1 + 16),
+                   (_QWORD *)(a1 + 16),
+                   (_QWORD *)(a1 + 24),
+                   (_QWORD *)(a1 + 32));
+LABEL_86:
     *(_DWORD *)(a1 + 8) = SecurePool;
+    return;
+  }
+  if ( v6 == 14 )
+  {
+    v30 = KeGetCurrentThread()->ApcState.Process;
+    v31 = *(_KPROCESS **)(a1 + 8);
+    if ( v30 != v31 )
+      KiStackAttachProcess(v31, 0, (__int64)v88);
+    v32 = MmProtectVirtualMemory(
+            *(_QWORD *)(a1 + 16),
+            *(_QWORD *)(a1 + 8),
+            (int)a1 + 24,
+            (int)a1 + 32,
+            *(_DWORD *)(a1 + 40),
+            a1 + 40);
+    if ( v30 != *(_KPROCESS **)(a1 + 8) )
+      KiUnstackDetachProcess((__int64)v88, 0, v33, v34);
+    *(_DWORD *)(a1 + 8) = v32;
     return;
   }
   if ( v6 > 7 )
   {
-    v11 = v6 - 8;
-    if ( !v11 )
+    v14 = v6 - 8;
+    if ( !v14 )
     {
       if ( *(_QWORD *)(a1 + 16) )
-        RelatedActivityId = (ETWENABLECALLBACK *)(a1 + 24);
+        RelatedActivityId = (GUID *)(a1 + 24);
       PartitionState = KeWaitForAlertByThreadId(*(_BYTE *)(a1 + 8), RelatedActivityId, 0LL);
-      goto LABEL_18;
+      goto LABEL_171;
     }
-    v16 = v11 - 1;
-    if ( !v16 )
+    v15 = v14 - 1;
+    if ( !v15 )
     {
       CurrentThread = KeGetCurrentThread();
       --CurrentThread->KernelApcDisable;
       KeLeaveCriticalRegion();
       return;
     }
-    v17 = v16 - 1;
-    if ( !v17 )
+    v16 = v15 - 1;
+    if ( !v16 )
     {
       memmove(*(void **)(a1 + 8), *(const void **)(a1 + 16), *(unsigned int *)(a1 + 24));
       *(_QWORD *)(a1 + 8) = 0LL;
       return;
     }
-    v18 = v17 - 1;
-    if ( !v18 )
+    v17 = v16 - 1;
+    if ( !v17 )
     {
       LOBYTE(a2) = *(_BYTE *)(a1 + 24);
       PartitionState = MmGetSectionStrongImageReference(*(_QWORD *)(a1 + 8), a2, *(_QWORD *)(a1 + 16), a1 + 16);
-      goto LABEL_18;
+      goto LABEL_171;
     }
-    if ( v18 != 1 )
-      goto LABEL_70;
-    v19 = KeGetCurrentThread()->ApcState.Process;
-    v20 = *(_KPROCESS **)(a1 + 8);
-    if ( v19 != v20 )
-      KiStackAttachProcess(v20, 0, (__int64)v75);
-    v21 = 0;
-    v22 = 0LL;
-    v23 = *(_QWORD *)(a1 + 48);
-    if ( v23 || *(_QWORD *)(a1 + 56) )
+    v18 = v17 - 1;
+    if ( !v18 )
     {
-      *(_QWORD *)&v72 = 1LL;
-      *((_QWORD *)&v72 + 1) = &v73;
-      v73 = v23;
-      v74 = *(_QWORD *)(a1 + 56);
-      v21 = 1;
-      v22 = &v72;
+      v19 = KeGetCurrentThread()->ApcState.Process;
+      v24 = *(_KPROCESS **)(a1 + 8);
+      if ( v19 != v24 )
+        KiStackAttachProcess(v24, 0, (__int64)v88);
+      v25 = 0;
+      v26 = 0LL;
+      v27 = *(_QWORD *)(a1 + 48);
+      if ( v27 || *(_QWORD *)(a1 + 56) )
+      {
+        *(_QWORD *)&v85 = 1LL;
+        *((_QWORD *)&v85 + 1) = &v86;
+        v86 = v27;
+        v87 = *(_QWORD *)(a1 + 56);
+        v25 = 1;
+        v26 = &v85;
+      }
+      VirtualMemory = MmAllocateVirtualMemory(
+                        -1,
+                        (int)a1 + 24,
+                        (int)a1 + 32,
+                        *(_DWORD *)(a1 + 40),
+                        4,
+                        v26,
+                        v25,
+                        0,
+                        0x10000000,
+                        0,
+                        0LL);
+      goto LABEL_42;
     }
-    VirtualMemory = MmAllocateVirtualMemory(
-                      -1,
-                      (int)a1 + 24,
-                      (int)a1 + 32,
-                      *(_DWORD *)(a1 + 40),
-                      4,
-                      v22,
-                      v21,
-                      0,
-                      0x10000000,
-                      0,
-                      0LL);
-LABEL_35:
-    v25 = VirtualMemory;
-    if ( v19 != *(_KPROCESS **)(a1 + 8) )
-      KiUnstackDetachProcess((__int64)v75, 0);
-    *(_DWORD *)(a1 + 8) = v25;
+    if ( v18 == 1 )
+    {
+      v19 = KeGetCurrentThread()->ApcState.Process;
+      v20 = *(_KPROCESS **)(a1 + 8);
+      if ( v19 != v20 )
+        KiStackAttachProcess(v20, 0, (__int64)v88);
+      VirtualMemory = MmFreeVirtualMemory(0xFFFFFFFFFFFFFFFFuLL, 0, 0x10000000);
+LABEL_42:
+      v28 = VirtualMemory;
+      if ( v19 != *(_KPROCESS **)(a1 + 8) )
+        KiUnstackDetachProcess((__int64)v88, 0, v22, v23);
+      *(_DWORD *)(a1 + 8) = v28;
+      return;
+    }
+LABEL_161:
+    LOBYTE(a3) = 1;
+    PspTerminateThreadByPointer(KeGetCurrentThread(), 3221225477LL, a3);
     return;
   }
   if ( v6 == 7 )
   {
-    LOBYTE(v27) = KeAlertThreadByThreadIdEx(*(_QWORD *)(a1 + 8), 0LL);
-LABEL_42:
-    v27 = (unsigned __int8)v27;
-    goto LABEL_43;
+    LOBYTE(v12) = KeAlertThreadByThreadIdEx(*(_QWORD *)(a1 + 8), 0LL);
+    goto LABEL_17;
   }
   v7 = v6 - 1;
   if ( !v7 )
@@ -612,7 +659,11 @@ LABEL_42:
                        *(unsigned int *)(a1 + 24),
                        a1 + 16,
                        a1 + 24);
-    goto LABEL_18;
+LABEL_171:
+    v41 = PartitionState;
+LABEL_172:
+    *(_QWORD *)(a1 + 8) = v41;
+    return;
   }
   v8 = v7 - 1;
   if ( !v8 )
@@ -629,33 +680,34 @@ LABEL_42:
       PspIumResolveVirtualFault(a1);
       return;
     }
-    v28 = v10 - 1;
-    if ( !v28 )
+    v11 = v10 - 1;
+    if ( !v11 )
     {
       PspIumGetSystemData(a1);
       return;
     }
-    if ( v28 == 1 )
+    if ( v11 == 1 )
     {
       LOBYTE(a3) = *(_BYTE *)(a1 + 24);
       LOBYTE(a2) = *(_BYTE *)(a1 + 16);
-      LOBYTE(v27) = DbgkForwardException(*(_QWORD *)(a1 + 8), a2, a3);
-      goto LABEL_42;
+      LOBYTE(v12) = DbgkForwardException(*(_QWORD *)(a1 + 8), a2, a3);
+LABEL_17:
+      v12 = (unsigned __int8)v12;
+LABEL_18:
+      *(_QWORD *)(a1 + 8) = v12;
+      return;
     }
-LABEL_70:
-    LOBYTE(a3) = 1;
-    PspTerminateThreadByPointer(KeGetCurrentThread(), 3221225477LL, a3);
-    return;
+    goto LABEL_161;
   }
-  v77[0] = *(_OWORD *)(a1 + 10);
-  v77[1] = *(_OWORD *)(a1 + 26);
-  v77[2] = *(_OWORD *)(a1 + 42);
-  v77[3] = *(_OWORD *)(a1 + 58);
-  v77[4] = *(_OWORD *)(a1 + 74);
-  v78 = *(_QWORD *)(a1 + 90);
-  v79 = *(_DWORD *)(a1 + 98);
-  v80 = *(_WORD *)(a1 + 102);
-  v81 = 0;
+  v90[0] = *(_OWORD *)(a1 + 10);
+  v90[1] = *(_OWORD *)(a1 + 26);
+  v90[2] = *(_OWORD *)(a1 + 42);
+  v90[3] = *(_OWORD *)(a1 + 58);
+  v90[4] = *(_OWORD *)(a1 + 74);
+  v91 = *(_QWORD *)(a1 + 90);
+  v92 = *(_DWORD *)(a1 + 98);
+  v93 = *(_WORD *)(a1 + 102);
+  v94 = 0;
   DbgPrintEx(
     0,
     0,
@@ -663,7 +715,7 @@ LABEL_70:
     *(unsigned __int16 *)(a1 + 8) >> 13,
     *(_DWORD *)(a1 + 4),
     (*(unsigned __int16 *)(a1 + 8) >> 1) & 0xFFF,
-    (const char *)v77);
+    (const char *)v90);
   if ( (*(_BYTE *)(a1 + 8) & 1) != 0 )
     __debugbreak();
 }

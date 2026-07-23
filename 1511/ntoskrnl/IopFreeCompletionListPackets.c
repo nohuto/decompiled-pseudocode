@@ -29,7 +29,7 @@ void __fastcall IopFreeCompletionListPackets(_QWORD *P, void *a2)
         if ( v5 == 2 )
           IopFreeWaitCompletionPacket(v4, a2);
         else
-          IopFreeMiniCompletionPacket((struct _SLIST_ENTRY *)v4);
+          IopFreeMiniCompletionPacket((_SLIST_ENTRY *)v4);
       }
       else
       {

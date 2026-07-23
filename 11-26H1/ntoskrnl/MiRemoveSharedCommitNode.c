@@ -1,28 +1,28 @@
 /*
- * XREFs of MiRemoveSharedCommitNode @ 0x1409C7C70
+ * XREFs of MiRemoveSharedCommitNode @ 0x140998C50
  * Callers:
- *     MiDeleteNewlyCreatedPartialVads @ 0x14087EFD4 (MiDeleteNewlyCreatedPartialVads.c)
- *     MiDeleteVad @ 0x14095BF10 (MiDeleteVad.c)
- *     MiDeletePartialCloneVads @ 0x1409619E4 (MiDeletePartialCloneVads.c)
- *     MiCloneAncillaryVadInfo @ 0x140961D0C (MiCloneAncillaryVadInfo.c)
- *     MiInsertSharedCommitNode @ 0x1409C6360 (MiInsertSharedCommitNode.c)
- *     MiDataVadErrorCleanup @ 0x1409C670C (MiDataVadErrorCleanup.c)
- *     MiSectionClose @ 0x1409C7C40 (MiSectionClose.c)
- *     MiRemoveSharedCommitNode @ 0x1409C7C70 (MiRemoveSharedCommitNode.c)
- *     MiMapViewOfImageSection @ 0x1409CD37C (MiMapViewOfImageSection.c)
- *     MmLinkJobProcess @ 0x140ADDB9C (MmLinkJobProcess.c)
+ *     MiDeleteNewlyCreatedPartialVads @ 0x1408853D4 (MiDeleteNewlyCreatedPartialVads.c)
+ *     MiInsertSharedCommitNode @ 0x140997340 (MiInsertSharedCommitNode.c)
+ *     MiDataVadErrorCleanup @ 0x1409976EC (MiDataVadErrorCleanup.c)
+ *     MiSectionClose @ 0x140998C20 (MiSectionClose.c)
+ *     MiRemoveSharedCommitNode @ 0x140998C50 (MiRemoveSharedCommitNode.c)
+ *     MiMapViewOfImageSection @ 0x14099E35C (MiMapViewOfImageSection.c)
+ *     MiDeleteVad @ 0x140A017D0 (MiDeleteVad.c)
+ *     MiDeletePartialCloneVads @ 0x140A076D8 (MiDeletePartialCloneVads.c)
+ *     MiCloneAncillaryVadInfo @ 0x140A07A00 (MiCloneAncillaryVadInfo.c)
+ *     MmLinkJobProcess @ 0x140ADA90C (MmLinkJobProcess.c)
  * Callees:
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     KiCheckForKernelApcDelivery @ 0x14027DB80 (KiCheckForKernelApcDelivery.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     RtlAvlRemoveNode @ 0x14030C5E0 (RtlAvlRemoveNode.c)
- *     ExfTryToWakePushLock @ 0x1403170A0 (ExfTryToWakePushLock.c)
- *     MiIncludeSharedCommit @ 0x14044F630 (MiIncludeSharedCommit.c)
- *     MiGetCommittedPages @ 0x14045C518 (MiGetCommittedPages.c)
- *     MiRemoveSharedCommitNode @ 0x1409C7C70 (MiRemoveSharedCommitNode.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     KiCheckForKernelApcDelivery @ 0x14027D0F0 (KiCheckForKernelApcDelivery.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     RtlAvlRemoveNode @ 0x1402EE660 (RtlAvlRemoveNode.c)
+ *     ExfTryToWakePushLock @ 0x1403190D0 (ExfTryToWakePushLock.c)
+ *     MiIncludeSharedCommit @ 0x140447760 (MiIncludeSharedCommit.c)
+ *     MiGetCommittedPages @ 0x1404560C0 (MiGetCommittedPages.c)
+ *     MiRemoveSharedCommitNode @ 0x140998C50 (MiRemoveSharedCommitNode.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __fastcall MiRemoveSharedCommitNode(__int64 a1, unsigned __int64 a2, char a3, struct _KLOCK_ENTRIES *a4)
@@ -158,7 +158,7 @@ void __fastcall MiRemoveSharedCommitNode(__int64 a1, unsigned __int64 a2, char a
     KeAbPostRelease(v32 + 40);
     v11 = v30;
     v9 = v30->SpecialApcDisable++ == -1;
-    if ( v9 && ($7A85BAF4F1FA08634C1C4A3E45B775B3 *)v30->ApcState.ApcListHead[0].Flink != &v30->152 )
+    if ( v9 && ($241382875694CED3D471BC5892DE3337 *)v30->ApcState.ApcListHead[0].Flink != &v30->152 )
       KiCheckForKernelApcDelivery(v27, v26);
   }
   if ( !v14 )
@@ -167,7 +167,7 @@ void __fastcall MiRemoveSharedCommitNode(__int64 a1, unsigned __int64 a2, char a
       ExfTryToWakePushLock((volatile signed __int64 *)(v7 + 1712));
     KeAbPostRelease(v7 + 1712);
     v9 = v11->SpecialApcDisable++ == -1;
-    if ( v9 && ($7A85BAF4F1FA08634C1C4A3E45B775B3 *)v11->ApcState.ApcListHead[0].Flink != &v11->152 )
+    if ( v9 && ($241382875694CED3D471BC5892DE3337 *)v11->ApcState.ApcListHead[0].Flink != &v11->152 )
       KiCheckForKernelApcDelivery(v29, v28);
   }
   if ( v10 )

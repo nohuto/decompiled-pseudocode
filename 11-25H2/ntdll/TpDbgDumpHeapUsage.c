@@ -8,26 +8,27 @@
  *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x180174020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
  */
 
-void *__fastcall TpDbgDumpHeapUsage(
-        char a1,
-        __int64 (__fastcall *a2)(__int64, _QWORD, void *, _QWORD, _DWORD, _QWORD),
+PWSTR __fastcall TpDbgDumpHeapUsage(
+        BOOLEAN a1,
+        __int64 (__fastcall *a2)(__int64, _QWORD, PWSTR, _QWORD, ULONG, SIZE_T),
         __int64 a3)
 {
   unsigned int i; // ebx
-  void *result; // rax
-  __int128 v8; // [rsp+40h] [rbp-38h] BYREF
+  PWSTR result; // rax
+  _RTL_HEAP_TAG_INFO TagInfo; // [rsp+40h] [rbp-38h] BYREF
 
-  v8 = 0LL;
+  TagInfo = 0LL;
   for ( i = 0; i < 0xE; ++i )
   {
-    result = RtlQueryTagHeap(
-               (__int64)NtCurrentPeb()->ProcessHeap,
-               0,
-               i + ((unsigned int)TppHeapTag >> 18),
-               a1,
-               (__int64)&v8);
+    result = RtlQueryTagHeap(NtCurrentPeb()->ProcessHeap, 0, i + (TppHeapTag >> 18), a1, &TagInfo);
     if ( result )
-      result = (void *)a2(a3, i + TppHeapTag, result, (unsigned int)v8, DWORD1(v8), *((_QWORD *)&v8 + 1));
+      result = (PWSTR)a2(
+                        a3,
+                        i + TppHeapTag,
+                        result,
+                        TagInfo.NumberOfAllocations,
+                        TagInfo.NumberOfFrees,
+                        TagInfo.BytesAllocated);
   }
   return result;
 }

@@ -1,24 +1,25 @@
 /*
- * XREFs of PsReferenceEffectiveToken @ 0x14094F580
+ * XREFs of PsReferenceEffectiveToken @ 0x1409CAEC0
  * Callers:
- *     SepReferenceTokenByHandle @ 0x1402AC430 (SepReferenceTokenByHandle.c)
- *     SeLogAccessFailure @ 0x1402B59D0 (SeLogAccessFailure.c)
- *     SeSetLearningModeObjectInformation @ 0x140430644 (SeSetLearningModeObjectInformation.c)
- *     SepVerifyDesktopAppPolicyOverrideCaller @ 0x14045FC94 (SepVerifyDesktopAppPolicyOverrideCaller.c)
- *     SepDesktopAppxSubProcessToken @ 0x14045FEB8 (SepDesktopAppxSubProcessToken.c)
- *     RtlpQueryLowBoxId @ 0x140461FD0 (RtlpQueryLowBoxId.c)
- *     RtlpAllowsLowBoxAccess @ 0x1404620E0 (RtlpAllowsLowBoxAccess.c)
- *     SeCaptureAtomTableCallout @ 0x1404B53BC (SeCaptureAtomTableCallout.c)
- *     PspAllocateNotificationChannel @ 0x1407F7938 (PspAllocateNotificationChannel.c)
- *     ExpWnfQueryCurrentUserSID @ 0x14094E028 (ExpWnfQueryCurrentUserSID.c)
- *     SeSubProcessToken @ 0x140A2B26C (SeSubProcessToken.c)
+ *     SeLogAccessFailure @ 0x1403006A0 (SeLogAccessFailure.c)
+ *     SepReferenceTokenByHandle @ 0x1403ABB50 (SepReferenceTokenByHandle.c)
+ *     SeSetLearningModeObjectInformation @ 0x14041D674 (SeSetLearningModeObjectInformation.c)
+ *     SepVerifyDesktopAppPolicyOverrideCaller @ 0x140459608 (SepVerifyDesktopAppPolicyOverrideCaller.c)
+ *     RtlpQueryLowBoxId @ 0x14045AF90 (RtlpQueryLowBoxId.c)
+ *     RtlpAllowsLowBoxAccess @ 0x14045B09C (RtlpAllowsLowBoxAccess.c)
+ *     SeCaptureAtomTableCallout @ 0x1404AEFD4 (SeCaptureAtomTableCallout.c)
+ *     SepDesktopAppxSubProcessToken @ 0x14051E308 (SepDesktopAppxSubProcessToken.c)
+ *     SepCreateAppContainerToken @ 0x14063EAD8 (SepCreateAppContainerToken.c)
+ *     PspAllocateNotificationChannel @ 0x1407FD498 (PspAllocateNotificationChannel.c)
+ *     ExpWnfQueryCurrentUserSID @ 0x1409C9978 (ExpWnfQueryCurrentUserSID.c)
+ *     SeSubProcessToken @ 0x140B84D74 (SeSubProcessToken.c)
  * Callees:
- *     PspUnlockThreadSecurityShared @ 0x140271DC0 (PspUnlockThreadSecurityShared.c)
- *     ExfAcquirePushLockSharedEx @ 0x140277CC0 (ExfAcquirePushLockSharedEx.c)
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     ObfReferenceObjectWithTag @ 0x140278B30 (ObfReferenceObjectWithTag.c)
- *     PsReferencePrimaryTokenWithTag @ 0x140279DC0 (PsReferencePrimaryTokenWithTag.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     PspUnlockThreadSecurityShared @ 0x140271330 (PspUnlockThreadSecurityShared.c)
+ *     ExfAcquirePushLockSharedEx @ 0x140277230 (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     ObfReferenceObjectWithTag @ 0x1402780A0 (ObfReferenceObjectWithTag.c)
+ *     PsReferencePrimaryTokenWithTag @ 0x140279330 (PsReferencePrimaryTokenWithTag.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
  */
 
 ULONG_PTR __fastcall PsReferenceEffectiveToken(

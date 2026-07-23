@@ -1,10 +1,10 @@
 /*
- * XREFs of EtwpAllocatePidFilter @ 0x140AA1C34
+ * XREFs of EtwpAllocatePidFilter @ 0x140AA36F8
  * Callers:
- *     EtwpAllocateFilter @ 0x140AA11F0 (EtwpAllocateFilter.c)
+ *     EtwpAllocateFilter @ 0x140AA2CB4 (EtwpAllocateFilter.c)
  * Callees:
- *     memmove @ 0x14073D480 (memmove.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall EtwpAllocatePidFilter(__int64 a1, unsigned int **a2)

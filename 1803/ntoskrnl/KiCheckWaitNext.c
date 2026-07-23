@@ -12,9 +12,9 @@ __int64 __fastcall KiCheckWaitNext(__int64 a1, __int64 a2, char a3, _QWORD *a4, 
 {
   unsigned __int8 v7; // si
   unsigned __int8 CurrentIrql; // r10
-  __int64 InterruptTimePrecise; // rax
+  LARGE_INTEGER InterruptTimePrecise; // rax
   __int64 v11; // rcx
-  LARGE_INTEGER v13; // [rsp+40h] [rbp+8h] BYREF
+  LARGE_INTEGER PerformanceCounter; // [rsp+40h] [rbp+8h] BYREF
 
   v7 = _bittestandreset((signed __int32 *)(a1 + 116), 2u);
   if ( !v7 )
@@ -34,15 +34,15 @@ __int64 __fastcall KiCheckWaitNext(__int64 a1, __int64 a2, char a3, _QWORD *a4, 
     {
       if ( a3 )
       {
-        InterruptTimePrecise = RtlGetInterruptTimePrecise(&v13);
+        InterruptTimePrecise = RtlGetInterruptTimePrecise(&PerformanceCounter);
         v11 = MEMORY[0xFFFFF780000003B0];
       }
       else
       {
         v11 = MEMORY[0xFFFFF780000003B0];
-        InterruptTimePrecise = MEMORY[0xFFFFF78000000008];
+        InterruptTimePrecise.QuadPart = MEMORY[0xFFFFF78000000008];
       }
-      *a4 = InterruptTimePrecise - v11 - *(_QWORD *)(a1 + 248) - *(_QWORD *)a2;
+      *a4 = InterruptTimePrecise.QuadPart - v11 - *(_QWORD *)(a1 + 248) - *(_QWORD *)a2;
       *a5 = 2;
     }
   }

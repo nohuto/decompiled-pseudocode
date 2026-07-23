@@ -82,200 +82,205 @@
  *     memset$thunk$772440563353939046 @ 0x180174030 (memset$thunk$772440563353939046.c)
  */
 
-__int64 __fastcall LdrpLogInternal(__int64 a1, int a2, __int64 a3, int a4, char *Format, char a6)
+__int64 LdrpLogInternal(_QWORD a1, int a2, __int64 a3, int a4, char *Format, ...)
 {
-  __int64 v8; // rbx
-  unsigned int v9; // edi
+  __int64 v7; // rbx
+  unsigned int v8; // edi
   int Args; // ecx
+  int v10; // eax
   int v11; // eax
   int v12; // eax
-  int v13; // eax
-  unsigned __int64 v14; // rdx
-  __int16 v15; // cx
-  __int64 *v16; // r11
-  __int16 v17; // ax
-  __int64 v18; // r10
-  __int64 v19; // r15
-  char *v20; // r9
-  _WORD *v21; // r8
-  __int64 v22; // rax
-  __int64 v23; // rdx
-  __int64 v24; // r8
-  __int64 v25; // r9
+  unsigned __int64 UTF8StringByteCount; // rdx
+  unsigned __int16 CodePage; // cx
+  unsigned __int16 **p_MultiByteTable; // r11
+  unsigned __int16 DBCSCodePage; // ax
+  unsigned __int16 *MultiByteTable; // r10
+  unsigned __int16 *DBCSOffsets; // r15
+  char *v19; // r9
+  WCHAR *v20; // r8
+  __int64 v21; // rax
+  __int64 v22; // rdx
+  __int64 v23; // r8
+  __int64 v24; // r9
   _DWORD *SharedData; // rcx
-  __int64 v27; // rcx
-  va_list v28; // rdi
+  __int64 v26; // rcx
+  va_list v27; // rdi
   __int64 result; // rax
-  int v30; // ecx
-  __int64 v31; // rcx
-  __int64 v32; // rax
-  unsigned __int8 *v33; // r9
-  __int64 v34; // rcx
-  signed __int32 v35[6]; // [rsp+8h] [rbp-100h] BYREF
-  __int64 v36; // [rsp+40h] [rbp-C8h]
-  char *v37; // [rsp+48h] [rbp-C0h]
-  __int64 v38; // [rsp+58h] [rbp-B0h] BYREF
+  int v29; // ecx
+  __int64 v30; // rcx
+  __int64 v31; // rax
+  unsigned __int8 *v32; // r9
+  __int64 v33; // rcx
+  signed __int32 v34[6]; // [rsp+8h] [rbp-100h] BYREF
+  __int64 v35; // [rsp+40h] [rbp-C8h]
+  char *v36; // [rsp+48h] [rbp-C0h]
+  ULONG UnicodeStringActualByteCount[2]; // [rsp+58h] [rbp-B0h] BYREF
   va_list ArgList; // [rsp+60h] [rbp-A8h]
-  __int64 v40; // [rsp+68h] [rbp-A0h]
-  __int64 v41; // [rsp+70h] [rbp-98h]
-  _WORD v42[2]; // [rsp+78h] [rbp-90h] BYREF
-  int v43; // [rsp+7Ch] [rbp-8Ch]
-  wchar_t *v44; // [rsp+80h] [rbp-88h]
-  _WORD v45[2]; // [rsp+88h] [rbp-80h] BYREF
-  int v46; // [rsp+8Ch] [rbp-7Ch]
-  _WORD *v47; // [rsp+90h] [rbp-78h]
+  __int64 v39; // [rsp+68h] [rbp-A0h]
+  __int64 v40; // [rsp+70h] [rbp-98h]
+  _WORD v41[2]; // [rsp+78h] [rbp-90h] BYREF
+  int v42; // [rsp+7Ch] [rbp-8Ch]
+  wchar_t *v43; // [rsp+80h] [rbp-88h]
+  _WORD v44[2]; // [rsp+88h] [rbp-80h] BYREF
+  int v45; // [rsp+8Ch] [rbp-7Ch]
+  WCHAR *v46; // [rsp+90h] [rbp-78h]
   char Buffer[256]; // [rsp+98h] [rbp-70h] BYREF
-  wchar_t v49[128]; // [rsp+198h] [rbp+90h] BYREF
-  _WORD v50[256]; // [rsp+298h] [rbp+190h] BYREF
+  wchar_t v48[128]; // [rsp+198h] [rbp+90h] BYREF
+  WCHAR UnicodeStringDestination[256]; // [rsp+298h] [rbp+190h] BYREF
+  va_list va; // [rsp+520h] [rbp+418h] BYREF
 
-  ArgList = &a6;
-  v8 = 2LL * a4;
-  v43 = 0;
-  v46 = 0;
+  va_start(va, Format);
+  va_copy(ArgList, va);
+  v7 = 2LL * a4;
+  v42 = 0;
+  v45 = 0;
   if ( (unsigned int)(a4 - 2) > 2 )
   {
     if ( qword_1801D47E8 )
     {
-      v9 = 256;
-      memset_thunk_772440563353939046(v49, 0, 0x100uLL);
-      memset_thunk_772440563353939046(v50, 0, 0x200uLL);
-      v42[1] = 256;
-      v44 = v49;
-      LODWORD(v38) = 0;
-      v45[1] = 512;
-      v41 = 0LL;
-      v47 = v50;
+      v8 = 256;
+      memset_thunk_772440563353939046(v48, 0, 0x100uLL);
+      memset_thunk_772440563353939046(UnicodeStringDestination, 0, 0x200uLL);
+      v41[1] = 256;
+      v43 = v48;
+      UnicodeStringActualByteCount[0] = 0;
+      v44[1] = 512;
+      v40 = 0LL;
+      v46 = UnicodeStringDestination;
       memset_thunk_772440563353939046(Buffer, 0, 0x100uLL);
       Args = (int)NtCurrentTeb()->ClientId.UniqueThread;
-      v37 = (&off_1801753A8)[v8];
-      v36 = a3;
-      v11 = RtlStringCchPrintfExW(v49, 0, (wchar_t *)L"%x-%S-%S-", Args);
-      if ( !v11 || v11 == -2147483643 )
+      v36 = (&off_1801753A8)[v7];
+      v35 = a3;
+      v10 = RtlStringCchPrintfExW(v48, 0, (wchar_t *)L"%x-%S-%S-", Args);
+      if ( !v10 || v10 == -2147483643 )
       {
-        v42[0] = 2 * (128 - v41);
-        v12 = vsnprintf(Buffer, 0xFFuLL, Format, ArgList);
-        if ( v12 < 0 || (unsigned __int64)v12 > 0xFE )
+        v41[0] = 2 * (128 - v40);
+        v11 = vsnprintf(Buffer, 0xFFuLL, Format, ArgList);
+        if ( v11 < 0 || (unsigned __int64)v11 > 0xFE )
         {
-          v13 = 1;
+          v12 = 1;
           Buffer[255] = 0;
         }
         else
         {
-          v13 = 256 - v12;
+          v12 = 256 - v11;
         }
-        v14 = (unsigned int)(256 - v13);
-        v45[0] = 2 * (256 - v13);
-        _InterlockedOr(v35, 0);
-        LODWORD(v40) = 65001;
-        if ( word_1801CEFD0 == -535 || GlobalRtlNlsState == -535 )
+        UTF8StringByteCount = (unsigned int)(256 - v12);
+        v44[0] = 2 * (256 - v12);
+        _InterlockedOr(v34, 0);
+        LODWORD(v39) = 65001;
+        if ( CodePageTable.CodePage == 0xFDE9 || GlobalRtlNlsState.CodePage == 0xFDE9 )
         {
-          v15 = Utf8TableInfo;
-          v16 = (__int64 *)&xmmword_1801CF070;
-          v17 = WORD6(Utf8TableInfo);
-          v18 = xmmword_1801CF070;
-          v19 = qword_1801CF088;
+          CodePage = Utf8TableInfo;
+          p_MultiByteTable = (unsigned __int16 **)&xmmword_1801CF070;
+          DBCSCodePage = WORD6(Utf8TableInfo);
+          MultiByteTable = (unsigned __int16 *)xmmword_1801CF070;
+          DBCSOffsets = (unsigned __int16 *)qword_1801CF088;
         }
         else
         {
-          _InterlockedOr(v35, 0);
-          v15 = GlobalRtlNlsState;
-          v16 = &qword_1801CEFB0;
-          v17 = word_1801CEF9C;
-          v18 = qword_1801CEFB0;
-          v19 = qword_1801CEFC8;
+          _InterlockedOr(v34, 0);
+          CodePage = GlobalRtlNlsState.CodePage;
+          p_MultiByteTable = &GlobalRtlNlsState.MultiByteTable;
+          DBCSCodePage = GlobalRtlNlsState.DBCSCodePage;
+          MultiByteTable = GlobalRtlNlsState.MultiByteTable;
+          DBCSOffsets = GlobalRtlNlsState.DBCSOffsets;
         }
-        v20 = Buffer;
-        v21 = v50;
-        if ( v15 == (_WORD)v40 )
+        v19 = Buffer;
+        v20 = UnicodeStringDestination;
+        if ( CodePage == (_WORD)v39 )
         {
-          if ( (_DWORD)v14 )
-            RtlUTF8ToUnicodeN(v50, 0x200u, &v38, Buffer, v14);
+          if ( (_DWORD)UTF8StringByteCount )
+            RtlUTF8ToUnicodeN(
+              UnicodeStringDestination,
+              0x200u,
+              UnicodeStringActualByteCount,
+              Buffer,
+              UTF8StringByteCount);
           else
-            LODWORD(v38) = 0;
+            UnicodeStringActualByteCount[0] = 0;
         }
-        else if ( v17 )
+        else if ( DBCSCodePage )
         {
-          while ( v9 && (_DWORD)v14 )
+          while ( v8 && (_DWORD)UTF8StringByteCount )
           {
-            --v9;
-            v14 = (unsigned int)(v14 - 1);
-            v31 = 2LL * (unsigned __int8)*v20;
-            v32 = *(unsigned __int16 *)(v19 + v31);
-            if ( (_WORD)v32 )
+            --v8;
+            UTF8StringByteCount = (unsigned int)(UTF8StringByteCount - 1);
+            v30 = (unsigned __int8)*v19;
+            v31 = DBCSOffsets[v30];
+            if ( (_WORD)v31 )
             {
-              if ( !(_DWORD)v14 )
+              if ( !(_DWORD)UTF8StringByteCount )
               {
-                *v21 = 0;
-                LODWORD(v21) = (_DWORD)v21 + 2;
+                *v20 = 0;
+                LODWORD(v20) = (_DWORD)v20 + 2;
                 break;
               }
-              v33 = (unsigned __int8 *)(v20 + 1);
-              v14 = (unsigned int)(v14 - 1);
-              *v21++ = *(_WORD *)(v19 + 2 * (*v33 + v32));
-              v20 = (char *)(v33 + 1);
+              v32 = (unsigned __int8 *)(v19 + 1);
+              UTF8StringByteCount = (unsigned int)(UTF8StringByteCount - 1);
+              *v20++ = DBCSOffsets[*v32 + v31];
+              v19 = (char *)(v32 + 1);
             }
             else
             {
-              *v21++ = *(_WORD *)(v31 + *v16);
-              ++v20;
+              *v20++ = (*p_MultiByteTable)[v30];
+              ++v19;
             }
           }
-          v21 = (_WORD *)((unsigned int)v21 - (unsigned int)v50);
-          LODWORD(v38) = (_DWORD)v21;
+          v20 = (WCHAR *)((unsigned int)v20 - (unsigned int)UnicodeStringDestination);
+          UnicodeStringActualByteCount[0] = (unsigned int)v20;
         }
         else
         {
-          if ( (unsigned int)v14 <= 0x100 )
-            v9 = v14;
-          LODWORD(v38) = 2 * v9;
-          if ( v9 )
+          if ( (unsigned int)UTF8StringByteCount <= 0x100 )
+            v8 = UTF8StringByteCount;
+          UnicodeStringActualByteCount[0] = 2 * v8;
+          if ( v8 )
           {
-            v14 = (unsigned __int64)Buffer;
-            v20 = (char *)v9;
-            v21 = v50;
+            UTF8StringByteCount = (unsigned __int64)Buffer;
+            v19 = (char *)v8;
+            v20 = UnicodeStringDestination;
             do
             {
-              v22 = *(unsigned __int8 *)v14;
-              ++v21;
-              ++v14;
-              *(v21 - 1) = *(_WORD *)(v18 + 2 * v22);
-              --v20;
+              v21 = *(unsigned __int8 *)UTF8StringByteCount;
+              ++v20;
+              ++UTF8StringByteCount;
+              *(v20 - 1) = MultiByteTable[v21];
+              --v19;
             }
-            while ( v20 );
+            while ( v19 );
           }
         }
-        LdrpAddUnicodeStringToSnapsBuffer(v42, v14, v21, v20);
-        LdrpAddUnicodeStringToSnapsBuffer(v45, v23, v24, v25);
+        LdrpAddUnicodeStringToSnapsBuffer(v41, UTF8StringByteCount, v20, v19);
+        LdrpAddUnicodeStringToSnapsBuffer(v44, v22, v23, v24);
       }
     }
   }
   SharedData = NtCurrentPeb()->SharedData;
   if ( SharedData && *SharedData )
-    v27 = (__int64)NtCurrentPeb()->SharedData + 554;
+    v26 = (__int64)NtCurrentPeb()->SharedData + 554;
   else
-    v27 = 2147353476LL;
-  if ( *(_BYTE *)v27
+    v26 = 2147353476LL;
+  if ( *(_BYTE *)v26
     && (NtCurrentPeb()->TracingFlags & 4) != 0
-    && (!(unsigned int)RtlGetCurrentServiceSessionId()
-      ? (v34 = 2147353477LL)
-      : (v34 = (__int64)NtCurrentPeb()->SharedData + 555),
-        *(char *)v34 < 0) )
+    && (!RtlGetCurrentServiceSessionId() ? (v33 = 2147353477LL) : (v33 = (__int64)NtCurrentPeb()->SharedData + 555),
+        *(char *)v33 < 0) )
   {
-    v28 = ArgList;
+    va_copy(v27, ArgList);
     LdrpEtwLogLoaderSnaps(a3, a4, Format, ArgList);
   }
   else
   {
-    v28 = ArgList;
+    va_copy(v27, ArgList);
   }
   result = (unsigned int)LdrpDebugFlags;
-  v30 = LdrpLogLevelStateTable[2 * v8] | 1;
-  if ( (v30 & LdrpDebugFlags) != 0 && ((LdrpDebugFlags & 0x80u) == 0 || LdrpIsSecureProcess) )
+  v29 = LdrpLogLevelStateTable[2 * v7] | 1;
+  if ( (v29 & LdrpDebugFlags) != 0 && ((LdrpDebugFlags & 0x80u) == 0 || LdrpIsSecureProcess) )
   {
-    LdrpLogDbgPrint(v30, a2, a3, a4, (__int64)Format, (__int64)v28);
+    LdrpLogDbgPrint(v29, a2, a3, a4, (__int64)Format, (__int64)v27);
     result = (unsigned int)LdrpDebugFlags;
   }
-  if ( ((unsigned int)result & dword_180176094[2 * v8]) != 0 )
+  if ( ((unsigned int)result & dword_180176094[2 * v7]) != 0 )
     __debugbreak();
   return result;
 }

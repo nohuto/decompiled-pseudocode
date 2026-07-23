@@ -1,22 +1,22 @@
 /*
- * XREFs of PopFxStopDeviceAccounting @ 0x1402D9D5C
+ * XREFs of PopFxStopDeviceAccounting @ 0x1402D9F4C
  * Callers:
- *     PopCaptureSleepStudyStatistics @ 0x1402DF0EC (PopCaptureSleepStudyStatistics.c)
+ *     PopCaptureSleepStudyStatistics @ 0x1402DF2DC (PopCaptureSleepStudyStatistics.c)
  * Callees:
  *     ExAcquirePushLockSharedEx @ 0x14004EE20 (ExAcquirePushLockSharedEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
- *     KxReleaseSpinLock @ 0x1400630E0 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14008CF40 (KeAcquireSpinLockRaiseToDpc.c)
- *     ExfReleasePushLockShared @ 0x1400914B0 (ExfReleasePushLockShared.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
- *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
- *     PopFxUpdateAccountingActiveTime @ 0x1400FEEB4 (PopFxUpdateAccountingActiveTime.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     PopFxMergeActiveTimeAccounting @ 0x1402D89D8 (PopFxMergeActiveTimeAccounting.c)
- *     PopDiagTraceFxDeviceAccounting @ 0x1402E094C (PopDiagTraceFxDeviceAccounting.c)
- *     PopDiagTraceFxGlobalDeviceAccounting @ 0x1402E0F04 (PopDiagTraceFxGlobalDeviceAccounting.c)
- *     PopDiagTraceFxComponentAccounting @ 0x1408725E4 (PopDiagTraceFxComponentAccounting.c)
+ *     KxReleaseSpinLock @ 0x1400630D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14008CE80 (KeAcquireSpinLockRaiseToDpc.c)
+ *     ExfReleasePushLockShared @ 0x1400913F0 (ExfReleasePushLockShared.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B78F0 (KiLeaveCriticalRegionUnsafe.c)
+ *     RtlInitUnicodeString @ 0x1400B99D0 (RtlInitUnicodeString.c)
+ *     PopFxUpdateAccountingActiveTime @ 0x1400FEF34 (PopFxUpdateAccountingActiveTime.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     PopFxMergeActiveTimeAccounting @ 0x1402D8BC8 (PopFxMergeActiveTimeAccounting.c)
+ *     PopDiagTraceFxDeviceAccounting @ 0x1402E0B3C (PopDiagTraceFxDeviceAccounting.c)
+ *     PopDiagTraceFxGlobalDeviceAccounting @ 0x1402E10F4 (PopDiagTraceFxGlobalDeviceAccounting.c)
+ *     PopDiagTraceFxComponentAccounting @ 0x140873844 (PopDiagTraceFxComponentAccounting.c)
  */
 
 unsigned __int64 PopFxStopDeviceAccounting()
@@ -123,15 +123,15 @@ unsigned __int64 PopFxStopDeviceAccounting()
       v3 = *(_QWORD *)v3;
     }
     v14 = KeAcquireSpinLockRaiseToDpc(&PopFxGlobalDeviceAccountingLock);
-    v15 = qword_140418EB0;
-    v16 = qword_140418EB8;
+    v15 = qword_140419F90;
+    v16 = qword_140419F98;
     v17 = v14;
-    v23[0] = xmmword_140418EC0;
-    v23[1] = xmmword_140418ED0;
-    v24 = qword_140418EE0;
-    v21[0] = xmmword_140418EE8;
-    v21[1] = xmmword_140418EF8;
-    v22 = qword_140418F08;
+    v23[0] = xmmword_140419FA0;
+    v23[1] = xmmword_140419FB0;
+    v24 = qword_140419FC0;
+    v21[0] = xmmword_140419FC8;
+    v21[1] = xmmword_140419FD8;
+    v22 = qword_140419FE8;
     KxReleaseSpinLock(&PopFxGlobalDeviceAccountingLock);
     if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && KeGetCurrentIrql() >= 2u && v17 < 2u )
     {

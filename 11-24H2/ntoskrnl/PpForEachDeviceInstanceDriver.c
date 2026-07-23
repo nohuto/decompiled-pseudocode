@@ -1,20 +1,20 @@
 /*
- * XREFs of PpForEachDeviceInstanceDriver @ 0x140A0CE90
+ * XREFs of PpForEachDeviceInstanceDriver @ 0x1409BB294
  * Callers:
- *     PiDeviceRegistration @ 0x140A0CBC4 (PiDeviceRegistration.c)
+ *     PiDeviceRegistration @ 0x1409BAFC8 (PiDeviceRegistration.c)
  * Callees:
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     PnpUnicodeStringToWstrFree @ 0x1408B7510 (PnpUnicodeStringToWstrFree.c)
- *     _CmGetDeviceRegProp @ 0x1408C5BB0 (_CmGetDeviceRegProp.c)
- *     _CmOpenDeviceRegKey @ 0x1408C6880 (_CmOpenDeviceRegKey.c)
- *     _CmOpenCommonClassRegKey @ 0x1408C82AC (_CmOpenCommonClassRegKey.c)
- *     _PnpGetObjectProperty @ 0x1408CDFD0 (_PnpGetObjectProperty.c)
- *     _CmGetInstallerClassRegProp @ 0x14099405C (_CmGetInstallerClassRegProp.c)
- *     PiForEachDriverQueryRoutine @ 0x140A0D3DC (PiForEachDriverQueryRoutine.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     PnpUnicodeStringToWstrFree @ 0x1408B4E80 (PnpUnicodeStringToWstrFree.c)
+ *     _CmGetDeviceRegProp @ 0x1408C35E0 (_CmGetDeviceRegProp.c)
+ *     _CmOpenDeviceRegKey @ 0x1408C42B0 (_CmOpenDeviceRegKey.c)
+ *     _CmOpenCommonClassRegKey @ 0x1408C5CDC (_CmOpenCommonClassRegKey.c)
+ *     _PnpGetObjectProperty @ 0x1408CB9C0 (_PnpGetObjectProperty.c)
+ *     _CmGetInstallerClassRegProp @ 0x14097F09C (_CmGetInstallerClassRegProp.c)
+ *     PiForEachDriverQueryRoutine @ 0x1409BB7E0 (PiForEachDriverQueryRoutine.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PpForEachDeviceInstanceDriver(unsigned __int16 *a1, __int64 a2, __int64 a3)
@@ -67,7 +67,7 @@ __int64 __fastcall PpForEachDeviceInstanceDriver(unsigned __int16 *a1, __int64 a
   {
     if ( !*v7 )
       goto LABEL_12;
-    Pool2 = (WCHAR *)ExAllocatePool2(0x100uLL);
+    Pool2 = (WCHAR *)ExAllocatePool2(0x100uLL, 2uLL, 0x75737050u);
     v7 = Pool2;
     if ( Pool2 )
     {
@@ -80,7 +80,7 @@ __int64 __fastcall PpForEachDeviceInstanceDriver(unsigned __int16 *a1, __int64 a
     && ((_WORD)v8 != (_WORD)v6 || v7[((unsigned __int64)(unsigned int)v8 >> 1) - 1])
     && (v8 > v6 - 2 || v7[(v8 >> 1) - 1] && v7[v8 >> 1]) )
   {
-    v9 = (WCHAR *)ExAllocatePool2(0x100uLL);
+    v9 = (WCHAR *)ExAllocatePool2(0x100uLL, v8 + 2, 0x75737050u);
     v7 = v9;
     if ( v9 )
     {
@@ -110,7 +110,7 @@ LABEL_12:
     v29[0] = a1;
     v29[1] = PiProcessDriverInstance;
     v24 = 170;
-    v5 = (wchar_t *)ExAllocatePool2(0x100uLL);
+    v5 = (wchar_t *)ExAllocatePool2(0x100uLL, 0xAAuLL, 0x20207050u);
     if ( !v5 )
     {
 LABEL_18:
@@ -122,13 +122,13 @@ LABEL_18:
       if ( i >= 5 )
         goto LABEL_19;
       v14 = 4LL * i;
-      v15 = qword_140002E80[v14 + 2];
+      v15 = qword_140002B70[v14 + 2];
       if ( !v15 || Handle )
         break;
 LABEL_40:
       ;
     }
-    v16 = qword_140002E80[v14 + 1];
+    v16 = qword_140002B70[v14 + 1];
     v23 = v24;
     if ( v15 )
     {
@@ -150,7 +150,7 @@ LABEL_40:
                            *(_QWORD **)&PiPnpRtlCtx,
                            v30,
                            (__int64)Handle,
-                           qword_140002E80[v14],
+                           qword_140002B70[v14],
                            (__int64)&v25,
                            (__int64)v5,
                            (__int64)&v23);
@@ -176,7 +176,7 @@ LABEL_40:
                          *(__int64 *)&PiPnpRtlCtx,
                          (__int64)v7,
                          (__int64)v28,
-                         qword_140002E80[v14],
+                         qword_140002B70[v14],
                          (__int64)&v25,
                          (__int64)v5,
                          (__int64)&v23,
@@ -194,7 +194,7 @@ LABEL_38:
       {
         if ( DeviceRegProp < 0 )
           goto LABEL_19;
-        DeviceRegProp = PiForEachDriverQueryRoutine(v25, v5, v23, qword_140002E80[4 * i + 3], v29);
+        DeviceRegProp = PiForEachDriverQueryRoutine(v25, v5, v23, qword_140002B70[4 * i + 3], v29);
         if ( DeviceRegProp < 0 )
           goto LABEL_19;
       }
@@ -202,11 +202,11 @@ LABEL_38:
     }
     ExFreePoolWithTag(v5, 0);
     v24 = v23;
-    v5 = (wchar_t *)ExAllocatePool2(0x100uLL);
+    v5 = (wchar_t *)ExAllocatePool2(0x100uLL, v23, 0x20207050u);
     if ( !v5 )
       goto LABEL_18;
-    v18 = qword_140002E80[v14 + 1];
-    if ( LOBYTE(qword_140002E80[4 * i + 2]) )
+    v18 = qword_140002B70[v14 + 1];
+    if ( LOBYTE(qword_140002B70[4 * i + 2]) )
     {
       if ( !v18 )
       {
@@ -214,7 +214,7 @@ LABEL_38:
                                   *(_QWORD **)&PiPnpRtlCtx,
                                   v30,
                                   (__int64)Handle,
-                                  qword_140002E80[4 * i],
+                                  qword_140002B70[4 * i],
                                   (__int64)&v25,
                                   (__int64)v5,
                                   (__int64)&v23);
@@ -232,7 +232,7 @@ LABEL_38:
                                   *(__int64 *)&PiPnpRtlCtx,
                                   (__int64)v7,
                                   (__int64)v28,
-                                  qword_140002E80[4 * i],
+                                  qword_140002B70[4 * i],
                                   (__int64)&v25,
                                   (__int64)v5,
                                   (__int64)&v23,

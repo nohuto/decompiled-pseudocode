@@ -1,27 +1,27 @@
 /*
- * XREFs of PiDevCfgResolveVariableDeviceProperty @ 0x14077BE90
+ * XREFs of PiDevCfgResolveVariableDeviceProperty @ 0x14077C050
  * Callers:
  *     <none>
  * Callees:
- *     PnpValidateMultiSzData @ 0x14036EF08 (PnpValidateMultiSzData.c)
- *     PnpValidateRegistryString @ 0x14036EF3C (PnpValidateRegistryString.c)
- *     PnpValidateStringData @ 0x14036EF78 (PnpValidateStringData.c)
- *     PnpValidateRegistryDword @ 0x14039A9C8 (PnpValidateRegistryDword.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     memmove @ 0x140413F40 (memmove.c)
- *     RtlFreeAnsiString @ 0x140602CB0 (RtlFreeAnsiString.c)
- *     PnpGetObjectProperty @ 0x140637A3C (PnpGetObjectProperty.c)
- *     RtlGUIDFromString @ 0x140644870 (RtlGUIDFromString.c)
- *     RtlStringFromGUIDEx @ 0x14067A7D8 (RtlStringFromGUIDEx.c)
- *     PnpRegSzToString @ 0x14074002C (PnpRegSzToString.c)
- *     IopGetRegistryValue @ 0x140742A98 (IopGetRegistryValue.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     PnpValidateMultiSzData @ 0x14036F0B8 (PnpValidateMultiSzData.c)
+ *     PnpValidateRegistryString @ 0x14036F0EC (PnpValidateRegistryString.c)
+ *     PnpValidateStringData @ 0x14036F128 (PnpValidateStringData.c)
+ *     PnpValidateRegistryDword @ 0x14039AB18 (PnpValidateRegistryDword.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     PnpGetObjectProperty @ 0x14062C84C (PnpGetObjectProperty.c)
+ *     RtlGUIDFromString @ 0x140639680 (RtlGUIDFromString.c)
+ *     RtlFreeAnsiString @ 0x14063DA40 (RtlFreeAnsiString.c)
+ *     RtlStringFromGUIDEx @ 0x14066DF18 (RtlStringFromGUIDEx.c)
+ *     PnpRegSzToString @ 0x1407401EC (PnpRegSzToString.c)
+ *     IopGetRegistryValue @ 0x140742C58 (IopGetRegistryValue.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PiDevCfgResolveVariableDeviceProperty(__int64 *a1, void *a2, __int64 a3)
 {
-  int RegistryValue; // ebx
+  NTSTATUS RegistryValue; // ebx
   _DWORD *v7; // r15
   unsigned int v8; // edx
   _WORD *v9; // rcx
@@ -238,7 +238,7 @@ LABEL_56:
       }
       if ( (_DWORD)v19 != 16 )
         goto LABEL_20;
-      RegistryValue = RtlStringFromGUIDEx((unsigned int *)v20, (__int64)&UnicodeString, 1);
+      RegistryValue = RtlStringFromGUIDEx((PGUID)v20, &UnicodeString, 1u);
       if ( RegistryValue >= 0 )
       {
         v13 = UnicodeString.Length + 2;

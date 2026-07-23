@@ -16,7 +16,7 @@ char __fastcall LdrpLogVsmEnclaveLdrDeleteEnclaveTelemetry(int a1)
   __int64 v4; // r8
   __int64 v5; // r9
   int v7; // [rsp+30h] [rbp-68h] BYREF
-  _BYTE v8[32]; // [rsp+40h] [rbp-58h] BYREF
+  _EVENT_DATA_DESCRIPTOR v8; // [rsp+40h] [rbp-58h] BYREF
   const char *v9; // [rsp+60h] [rbp-38h]
   int v10; // [rsp+68h] [rbp-30h]
   int v11; // [rsp+6Ch] [rbp-2Ch]
@@ -27,11 +27,7 @@ char __fastcall LdrpLogVsmEnclaveLdrDeleteEnclaveTelemetry(int a1)
   v1 = NtCurrentPeb();
   if ( v1->ProcessHeap )
   {
-    LOBYTE(v1) = RtlRunOnceExecuteOnce(
-                   &VsmEnclaveTelemetryInitRunOnce,
-                   (unsigned int (__fastcall *)(volatile signed __int64 *, __int64, unsigned __int64 *))VsmEnclaveTelemetryInitOnce,
-                   0LL,
-                   0LL);
+    LOBYTE(v1) = RtlRunOnceExecuteOnce(&VsmEnclaveTelemetryInitRunOnce, VsmEnclaveTelemetryInitOnce, 0LL, 0LL);
     if ( (unsigned int)dword_180166590 > 4 )
     {
       LOBYTE(v1) = tlgKeywordOn((__int64)&dword_180166590, 0x400000000000LL);
@@ -44,7 +40,7 @@ char __fastcall LdrpLogVsmEnclaveLdrDeleteEnclaveTelemetry(int a1)
         v10 = 17;
         v7 = a1;
         v13 = v5;
-        LOBYTE(v1) = tlgWriteTransfer_EtwEventWriteTransfer(v3, byte_1801319E6, v4, v5, v5, (__int64)v8);
+        LOBYTE(v1) = tlgWriteTransfer_EtwEventWriteTransfer(v3, (unsigned __int8 *)dword_1801319E6, v4, v5, v5, &v8);
       }
     }
   }

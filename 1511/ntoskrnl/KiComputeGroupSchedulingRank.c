@@ -11,12 +11,12 @@
  *     KiChargeSchedulingGroupCycleTime @ 0x1401CB44C (KiChargeSchedulingGroupCycleTime.c)
  */
 
-void __fastcall KiComputeGroupSchedulingRank(__int64 a1, __int64 a2, __int64 a3)
+char __fastcall KiComputeGroupSchedulingRank(__int64 a1, __int64 a2, __int64 a3)
 {
   unsigned int v6; // eax
   char v7; // cl
   unsigned __int64 v8; // r9
-  char v9; // al
+  unsigned __int64 v9; // rax
 
   if ( *(__int64 *)(a1 + 32) > 0 )
     KiChargeSchedulingGroupCycleTime(a1, a3);
@@ -29,19 +29,21 @@ void __fastcall KiComputeGroupSchedulingRank(__int64 a1, __int64 a2, __int64 a3)
   if ( (v7 & 0x12) == 0 && *(_QWORD *)a3 > *(_QWORD *)(a3 + 16) )
     *(_BYTE *)(a3 + 112) = v7 | 2;
   KiCheckForEffectivePriorityChange(a2, a3);
-  v9 = *(_BYTE *)(a3 + 112);
+  LOBYTE(v9) = *(_BYTE *)(a3 + 112);
   if ( (v9 & 1) != 0 )
   {
     if ( (v9 & 2) != 0 )
-      KiRemoveSchedulingGroupQueue(a2, a3, 1);
+      LOBYTE(v9) = KiRemoveSchedulingGroupQueue((_RTL_RB_TREE *)a2, a3, 1);
     else
-      KiResortScbQueue(a2, a3, 1);
+      LOBYTE(v9) = KiResortScbQueue((_RTL_RB_TREE *)a2, a3, 1);
   }
   if ( !*(_BYTE *)(a2 + 23321) )
   {
+    v9 = (unsigned __int64)(unsigned int)KiProcessorIndexToNumberMappingTable[*(unsigned int *)(a2 + 36)] >> 6;
     _InterlockedOr64(
-      &qword_1402CF8C8[(unsigned __int64)(unsigned int)KiProcessorIndexToNumberMappingTable[*(unsigned int *)(a2 + 36)] >> 6],
+      &qword_1402CF8C8[v9],
       1LL << (KiProcessorIndexToNumberMappingTable[*(unsigned int *)(a2 + 36)] & 0x3F));
     *(_BYTE *)(a2 + 23321) = 1;
   }
+  return v9;
 }

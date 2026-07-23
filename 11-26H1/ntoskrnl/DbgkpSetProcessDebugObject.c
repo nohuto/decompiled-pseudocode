@@ -1,25 +1,25 @@
 /*
- * XREFs of DbgkpSetProcessDebugObject @ 0x140985C5C
+ * XREFs of DbgkpSetProcessDebugObject @ 0x14091D490
  * Callers:
- *     NtDebugActiveProcess @ 0x140985620 (NtDebugActiveProcess.c)
+ *     NtDebugActiveProcess @ 0x140947620 (NtDebugActiveProcess.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     ExReleaseRundownProtection_0 @ 0x140266240 (ExReleaseRundownProtection_0.c)
- *     PsReferenceSiloContext @ 0x140277800 (PsReferenceSiloContext.c)
- *     ExAcquireFastMutex @ 0x140278070 (ExAcquireFastMutex.c)
- *     ObfReferenceObjectWithTag @ 0x140278B30 (ObfReferenceObjectWithTag.c)
- *     KeReleaseGuardedMutex @ 0x140278D40 (KeReleaseGuardedMutex.c)
- *     KeSetEvent @ 0x1402DE9C0 (KeSetEvent.c)
- *     DbgkpMarkProcessPeb @ 0x140775AB4 (DbgkpMarkProcessPeb.c)
- *     DbgkpPostFakeThreadMessages @ 0x1409556F0 (DbgkpPostFakeThreadMessages.c)
- *     PsGetNextProcessThread @ 0x1409573A0 (PsGetNextProcessThread.c)
- *     DbgkpWakeTarget @ 0x140985E88 (DbgkpWakeTarget.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     ExReleaseRundownProtection_0 @ 0x1402657B0 (ExReleaseRundownProtection_0.c)
+ *     PsReferenceSiloContext @ 0x140276D70 (PsReferenceSiloContext.c)
+ *     ExAcquireFastMutex @ 0x1402775E0 (ExAcquireFastMutex.c)
+ *     ObfReferenceObjectWithTag @ 0x1402780A0 (ObfReferenceObjectWithTag.c)
+ *     KeReleaseGuardedMutex @ 0x1402782B0 (KeReleaseGuardedMutex.c)
+ *     KeSetEvent @ 0x1402C0780 (KeSetEvent.c)
+ *     DbgkpMarkProcessPeb @ 0x14077895C (DbgkpMarkProcessPeb.c)
+ *     DbgkpWakeTarget @ 0x14091D3BC (DbgkpWakeTarget.c)
+ *     DbgkpPostFakeThreadMessages @ 0x140949760 (DbgkpPostFakeThreadMessages.c)
+ *     PsGetNextProcessThread @ 0x14094ADD0 (PsGetNextProcessThread.c)
  */
 
 __int64 DbgkpSetProcessDebugObject(PRKPROCESS PROCESS, PRKEVENT Event, int a3, ...)
 {
   struct _KTHREAD *CurrentThread; // r12
-  _QWORD *v4; // rsi
+  void *v4; // rsi
   int v5; // edi
   LIST_ENTRY *p_WaitListHead; // rax
   struct _LIST_ENTRY *Flink; // r15
@@ -32,59 +32,57 @@ __int64 DbgkpSetProcessDebugObject(PRKPROCESS PROCESS, PRKEVENT Event, int a3, .
   PVOID *v16; // rax
   struct _LIST_ENTRY *v17; // rcx
   struct _LIST_ENTRY *v18; // rax
-  PVOID v19; // rcx
+  char *v19; // rcx
   __int64 v20; // rax
-  __int64 v22; // r8
-  struct _KLOCK_ENTRIES *v23; // r9
-  _QWORD *NextProcessThread; // rbx
+  __int64 NextProcessThread; // rbx
   PKGUARDED_MUTEX Mutex; // [rsp+30h] [rbp-20h] BYREF
-  struct _KTHREAD *v26; // [rsp+38h] [rbp-18h]
+  struct _KTHREAD *v24; // [rsp+38h] [rbp-18h]
   PVOID P; // [rsp+40h] [rbp-10h] BYREF
   PVOID *p_P; // [rsp+48h] [rbp-8h]
-  char v29; // [rsp+98h] [rbp+48h]
-  char v30; // [rsp+A0h] [rbp+50h]
-  _QWORD *v31; // [rsp+A8h] [rbp+58h] BYREF
+  char v27; // [rsp+98h] [rbp+48h]
+  char v28; // [rsp+A0h] [rbp+50h]
+  void *v29; // [rsp+A8h] [rbp+58h] BYREF
   va_list va; // [rsp+A8h] [rbp+58h]
   va_list va1; // [rsp+B0h] [rbp+60h] BYREF
 
   va_start(va1, a3);
   va_start(va, a3);
-  v31 = va_arg(va1, _QWORD *);
+  v29 = va_arg(va1, void *);
   CurrentThread = KeGetCurrentThread();
   p_P = &P;
   Mutex = 0LL;
   P = &P;
-  v26 = CurrentThread;
-  v4 = v31;
-  v29 = 1;
+  v24 = CurrentThread;
+  v4 = v29;
+  v27 = 1;
   v5 = a3;
-  v30 = 0;
+  v28 = 0;
   if ( a3 >= 0 )
   {
     v5 = 0;
     while ( 1 )
     {
-      v30 = 1;
-      ExAcquireFastMutex((PKGUARDED_MUTEX)&EmpParseLock.152);
+      v28 = 1;
+      ExAcquireFastMutex((PKGUARDED_MUTEX)&EmpParseLock.ApcStateFill[8]);
       if ( PROCESS[1].UserTime )
         break;
       PROCESS[1].UserTime = (unsigned __int64)Event;
       ObfReferenceObjectWithTag(v4, 0x4F676244u);
-      NextProcessThread = PsGetNextProcessThread((__int64)PROCESS, v4, v22, v23);
+      NextProcessThread = PsGetNextProcessThread(PROCESS, v4);
       if ( !NextProcessThread )
         goto LABEL_3;
       PROCESS[1].UserTime = 0LL;
-      KeReleaseGuardedMutex((PKGUARDED_MUTEX)&EmpParseLock.152);
-      v30 = 0;
+      KeReleaseGuardedMutex((PKGUARDED_MUTEX)&EmpParseLock.ApcStateFill[8]);
+      v28 = 0;
       ObfDereferenceObjectWithTag(v4, 0x4F676244u);
-      v5 = DbgkpPostFakeThreadMessages(PROCESS, Event, (__int64)NextProcessThread, &Mutex, (_QWORD **)va);
+      v5 = DbgkpPostFakeThreadMessages(PROCESS, Event, NextProcessThread, &Mutex, (void **)va);
       if ( v5 < 0 )
       {
         v4 = 0LL;
         goto LABEL_3;
       }
       ObfDereferenceObjectWithTag(Mutex, 0x4F676244u);
-      v4 = v31;
+      v4 = v29;
     }
     v5 = -1073741752;
   }
@@ -149,11 +147,11 @@ LABEL_18:
       v17->Blink = v18;
       goto LABEL_17;
     }
-    if ( v29 )
+    if ( v27 )
     {
       HIDWORD(v11[4].Blink) = Blink_high & 0xFFFFFFFB;
       KeSetEvent(Event, 0, 0);
-      v29 = 0;
+      v27 = 0;
     }
     v11[5].Flink = 0LL;
     _InterlockedOr((volatile signed __int32 *)&v14[90], 0x40u);
@@ -164,18 +162,18 @@ LABEL_6:
       HIDWORD(v11[4].Blink) = v10 & 0xFFFFFFF7;
       ExReleaseRundownProtection_0((PEX_RUNDOWN_REF)&v14[88].Blink);
     }
-    CurrentThread = v26;
+    CurrentThread = v24;
 LABEL_9:
     p_WaitListHead = &Event[3].Header.WaitListHead;
   }
   KeReleaseGuardedMutex(Mutex);
-  if ( v30 )
-    KeReleaseGuardedMutex((PKGUARDED_MUTEX)&EmpParseLock.152);
+  if ( v28 )
+    KeReleaseGuardedMutex((PKGUARDED_MUTEX)&EmpParseLock.ApcStateFill[8]);
   if ( v4 )
     ObfDereferenceObjectWithTag(v4, 0x4F676244u);
   while ( 1 )
   {
-    v19 = P;
+    v19 = (char *)P;
     if ( P == &P )
       break;
     if ( *((PVOID **)P + 1) != &P )

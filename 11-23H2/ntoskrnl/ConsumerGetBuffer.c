@@ -1,9 +1,9 @@
 /*
- * XREFs of ConsumerGetBuffer @ 0x140AA1674
+ * XREFs of ConsumerGetBuffer @ 0x140AA14E4
  * Callers:
- *     PopRequestWrite @ 0x140AA3FB0 (PopRequestWrite.c)
+ *     PopRequestWrite @ 0x140AA3E20 (PopRequestWrite.c)
  * Callees:
- *     PopHiberCheckForDebugBreak @ 0x140AA2E54 (PopHiberCheckForDebugBreak.c)
+ *     PopHiberCheckForDebugBreak @ 0x140AA2CC4 (PopHiberCheckForDebugBreak.c)
  */
 
 unsigned __int64 __fastcall ConsumerGetBuffer(__int64 a1, unsigned int *a2, char a3)

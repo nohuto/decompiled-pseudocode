@@ -1,13 +1,13 @@
 /*
- * XREFs of RawCleanupVcb @ 0x1403EE474
+ * XREFs of RawCleanupVcb @ 0x1403EFAA4
  * Callers:
- *     RawInitiateDeleteVolume @ 0x1400072F8 (RawInitiateDeleteVolume.c)
- *     RawCheckForDeleteVolume @ 0x1402104BC (RawCheckForDeleteVolume.c)
- *     RawMountVolume @ 0x1403EE6BC (RawMountVolume.c)
+ *     RawInitiateDeleteVolume @ 0x140007468 (RawInitiateDeleteVolume.c)
+ *     RawCheckForDeleteVolume @ 0x1402102E8 (RawCheckForDeleteVolume.c)
+ *     RawMountVolume @ 0x1403EFCEC (RawMountVolume.c)
  * Callees:
- *     ExFreeCacheAwareRundownProtection @ 0x140007928 (ExFreeCacheAwareRundownProtection.c)
+ *     ExFreeCacheAwareRundownProtection @ 0x140007A98 (ExFreeCacheAwareRundownProtection.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
- *     FsRtlTeardownPerStreamContexts @ 0x1403EE4E8 (FsRtlTeardownPerStreamContexts.c)
+ *     FsRtlTeardownPerStreamContexts @ 0x1403EFB18 (FsRtlTeardownPerStreamContexts.c)
  */
 
 void __fastcall RawCleanupVcb(PFSRTL_ADVANCED_FCB_HEADER AdvancedHeader)

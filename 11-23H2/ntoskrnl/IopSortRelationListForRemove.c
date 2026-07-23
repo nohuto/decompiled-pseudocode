@@ -1,16 +1,16 @@
 /*
- * XREFs of IopSortRelationListForRemove @ 0x1408687B8
+ * XREFs of IopSortRelationListForRemove @ 0x1408689F8
  * Callers:
- *     PnpBuildRemovalRelationList @ 0x140867BB4 (PnpBuildRemovalRelationList.c)
- *     PipRemoveDevicesInRelationList @ 0x1408817EC (PipRemoveDevicesInRelationList.c)
+ *     PnpBuildRemovalRelationList @ 0x140867DF4 (PnpBuildRemovalRelationList.c)
+ *     PipRemoveDevicesInRelationList @ 0x140881A2C (PipRemoveDevicesInRelationList.c)
  * Callees:
- *     ExReleaseResourceLite @ 0x14023D410 (ExReleaseResourceLite.c)
- *     PiGetProviderList @ 0x1406C98D0 (PiGetProviderList.c)
- *     PpDevNodeUnlockTree @ 0x1406C98FC (PpDevNodeUnlockTree.c)
- *     PnpAcquireDependencyRelationsLock @ 0x1406C9958 (PnpAcquireDependencyRelationsLock.c)
- *     PiEnumerateProviderListEntry @ 0x140838348 (PiEnumerateProviderListEntry.c)
- *     PipSortDeviceObjectList @ 0x1408688CC (PipSortDeviceObjectList.c)
- *     PipIsDeviceInDeviceObjectList @ 0x140868D4C (PipIsDeviceInDeviceObjectList.c)
+ *     ExReleaseResourceLite @ 0x14023D4E0 (ExReleaseResourceLite.c)
+ *     PiGetProviderList @ 0x1406C9900 (PiGetProviderList.c)
+ *     PpDevNodeUnlockTree @ 0x1406C992C (PpDevNodeUnlockTree.c)
+ *     PnpAcquireDependencyRelationsLock @ 0x1406C9988 (PnpAcquireDependencyRelationsLock.c)
+ *     PiEnumerateProviderListEntry @ 0x140838648 (PiEnumerateProviderListEntry.c)
+ *     PipSortDeviceObjectList @ 0x140868B0C (PipSortDeviceObjectList.c)
+ *     PipIsDeviceInDeviceObjectList @ 0x140868F8C (PipIsDeviceInDeviceObjectList.c)
  */
 
 __int64 __fastcall IopSortRelationListForRemove(__int64 a1)

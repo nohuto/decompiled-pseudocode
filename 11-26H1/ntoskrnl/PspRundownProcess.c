@@ -1,17 +1,17 @@
 /*
- * XREFs of PspRundownProcess @ 0x140B39B8C
+ * XREFs of PspRundownProcess @ 0x140B3BD9C
  * Callers:
- *     PspProcessClose @ 0x140A8E3E0 (PspProcessClose.c)
+ *     PspProcessClose @ 0x140A930B0 (PspProcessClose.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     ObfReferenceObjectWithTag @ 0x140278B30 (ObfReferenceObjectWithTag.c)
- *     ExAcquireRundownProtectionEx @ 0x140375100 (ExAcquireRundownProtectionEx.c)
- *     ExQueueWorkItem @ 0x140381C70 (ExQueueWorkItem.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     ObfReferenceObjectWithTag @ 0x1402780A0 (ObfReferenceObjectWithTag.c)
+ *     ExAcquireRundownProtectionEx @ 0x140376EB0 (ExAcquireRundownProtectionEx.c)
+ *     ExQueueWorkItem @ 0x140383A20 (ExQueueWorkItem.c)
  */
 
 void __fastcall PspRundownProcess(signed __int64 Object)
 {
-  struct _WORK_QUEUE_ITEM *v2; // rcx
+  struct _WORK_QUEUE_ITEM *p_Spare18; // rcx
 
   if ( ExAcquireRundownProtectionEx((PEX_RUNDOWN_REF)(Object + 488), 0) )
   {
@@ -23,7 +23,7 @@ void __fastcall PspRundownProcess(signed __int64 Object)
     {
       if ( _InterlockedIncrement(&PspSiloMonitorLock.Timer.Header.LockNV) != 1 )
         return;
-      v2 = (struct _WORK_QUEUE_ITEM *)&PsAltSystemCallRegistrationLock.WaitBlockFill11[104];
+      p_Spare18 = (struct _WORK_QUEUE_ITEM *)&PsAltSystemCallRegistrationLock.Spare18;
       goto LABEL_5;
     }
     if ( _interlockedbittestandset((volatile signed __int32 *)(Object + 496), 8u) )
@@ -33,9 +33,9 @@ void __fastcall PspRundownProcess(signed __int64 Object)
     }
     if ( _InterlockedIncrement(&PspSiloMonitorLock.Timer.Header.SignalState) == 1 )
     {
-      v2 = (struct _WORK_QUEUE_ITEM *)&PsAltSystemCallRegistrationLock.WaitBlockFill11[40];
+      p_Spare18 = (struct _WORK_QUEUE_ITEM *)&PsAltSystemCallRegistrationLock.QueueListEntry.Blink;
 LABEL_5:
-      ExQueueWorkItem(v2, NormalWorkQueue);
+      ExQueueWorkItem(p_Spare18, NormalWorkQueue);
     }
   }
 }

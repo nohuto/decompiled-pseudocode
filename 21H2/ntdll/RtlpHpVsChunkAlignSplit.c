@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlpHpVsChunkAlignSplit @ 0x18010F8A0
+ * XREFs of RtlpHpVsChunkAlignSplit @ 0x18010F860
  * Callers:
  *     RtlpHpVsContextFree @ 0x180028500 (RtlpHpVsContextFree.c)
  *     RtlpHpVsContextAllocateInternal @ 0x180028CD0 (RtlpHpVsContextAllocateInternal.c)
  *     RtlpHpVsChunkSplit @ 0x180029280 (RtlpHpVsChunkSplit.c)
- *     RtlpHpVsChunkFree @ 0x18010FB5C (RtlpHpVsChunkFree.c)
+ *     RtlpHpVsChunkFree @ 0x18010FB1C (RtlpHpVsChunkFree.c)
  * Callees:
  *     <none>
  */

@@ -11,139 +11,143 @@
  *     memmove @ 0x1800AB5C0 (memmove.c)
  */
 
-__int64 __fastcall RtlReplaceSidInSd(__int64 a1, __int64 a2, __int64 a3, _DWORD *a4)
+NTSTATUS __cdecl RtlReplaceSidInSd(
+        PSECURITY_DESCRIPTOR SecurityDescriptor,
+        PSID OldSid,
+        PSID NewSid,
+        ULONG *NumChanges)
 {
   int v5; // r14d
   size_t v7; // r14
-  __int64 v9; // r13
-  __int64 result; // rax
+  PSECURITY_DESCRIPTOR v9; // r13
+  NTSTATUS result; // eax
   unsigned __int8 v11; // al
   int v12; // ecx
-  void *v13; // rsi
+  char *v13; // rsi
   unsigned __int8 v14; // al
   int v15; // ecx
-  void *v16; // rsi
-  __int64 v17; // rsi
-  __int64 v18; // rdi
+  char *v16; // rsi
+  __int64 AceCount; // rsi
+  PACL v18; // rdi
   __int64 v19; // rdx
   unsigned __int8 v20; // al
   int v21; // ecx
   void *v22; // r15
   __int64 v23; // rsi
-  __int64 v24; // rdi
+  PACL v24; // rdi
   __int64 v25; // rdx
   unsigned __int8 v26; // al
   int v27; // ecx
   void *v28; // r15
   unsigned int v29; // [rsp+20h] [rbp-18h]
-  _QWORD v30[2]; // [rsp+28h] [rbp-10h] BYREF
-  bool v32; // [rsp+88h] [rbp+50h] BYREF
-  __int64 v33; // [rsp+90h] [rbp+58h]
-  __int64 v34; // [rsp+98h] [rbp+60h] BYREF
+  PACL Dacl[2]; // [rsp+28h] [rbp-10h] BYREF
+  BOOLEAN OwnerDefaulted; // [rsp+88h] [rbp+50h] BYREF
+  char *v33; // [rsp+90h] [rbp+58h]
+  PSID Owner; // [rsp+98h] [rbp+60h] BYREF
 
-  v33 = a3;
-  *a4 = 0;
-  v5 = *(unsigned __int8 *)(a2 + 1);
-  v34 = 0LL;
+  v33 = (char *)NewSid;
+  *NumChanges = 0;
+  v5 = *((unsigned __int8 *)OldSid + 1);
+  Owner = 0LL;
   v7 = (unsigned int)(4 * v5);
   v29 = v7;
-  v9 = a1;
-  result = RtlGetOwnerSecurityDescriptor(a1, &v34, &v32);
-  if ( (int)result >= 0 )
+  v9 = SecurityDescriptor;
+  result = RtlGetOwnerSecurityDescriptor(SecurityDescriptor, &Owner, &OwnerDefaulted);
+  if ( result >= 0 )
   {
-    if ( v34 )
+    if ( Owner )
     {
-      if ( *(_BYTE *)v34 == *(_BYTE *)a2 )
+      if ( *(_BYTE *)Owner == *(_BYTE *)OldSid )
       {
-        v11 = *(_BYTE *)(a2 + 1);
-        if ( *(_BYTE *)(v34 + 1) == v11 || *(unsigned __int8 *)(v34 + 1) == v11 + 1 )
+        v11 = *((_BYTE *)OldSid + 1);
+        if ( *((_BYTE *)Owner + 1) == v11 || *((unsigned __int8 *)Owner + 1) == v11 + 1 )
         {
-          v12 = *(_DWORD *)(v34 + 2) - *(_DWORD *)(a2 + 2);
+          v12 = *(_DWORD *)((char *)Owner + 2) - *(_DWORD *)((char *)OldSid + 2);
           if ( !v12 )
-            v12 = *(unsigned __int16 *)(v34 + 6) - *(unsigned __int16 *)(a2 + 6);
+            v12 = *((unsigned __int16 *)Owner + 3) - *((unsigned __int16 *)OldSid + 3);
           if ( !v12 )
           {
-            v13 = (void *)(v34 + 8);
-            if ( !memcmp((const void *)(v34 + 8), (const void *)(a2 + 8), (unsigned int)v7) )
+            v13 = (char *)Owner + 8;
+            if ( !memcmp((char *)Owner + 8, (char *)OldSid + 8, (unsigned int)v7) )
             {
-              memmove(v13, (const void *)(a3 + 8), (unsigned int)v7);
-              ++*a4;
+              memmove(v13, (char *)NewSid + 8, (unsigned int)v7);
+              ++*NumChanges;
             }
           }
         }
       }
     }
-    v34 = 0LL;
-    result = RtlGetGroupSecurityDescriptor(v9, &v34, &v32);
-    if ( (int)result >= 0 )
+    Owner = 0LL;
+    result = RtlGetGroupSecurityDescriptor(v9, &Owner, &OwnerDefaulted);
+    if ( result >= 0 )
     {
-      if ( v34 )
+      if ( Owner )
       {
-        if ( *(_BYTE *)v34 == *(_BYTE *)a2 )
+        if ( *(_BYTE *)Owner == *(_BYTE *)OldSid )
         {
-          v14 = *(_BYTE *)(a2 + 1);
-          if ( *(_BYTE *)(v34 + 1) == v14 || *(unsigned __int8 *)(v34 + 1) == v14 + 1 )
+          v14 = *((_BYTE *)OldSid + 1);
+          if ( *((_BYTE *)Owner + 1) == v14 || *((unsigned __int8 *)Owner + 1) == v14 + 1 )
           {
-            v15 = *(_DWORD *)(v34 + 2) - *(_DWORD *)(a2 + 2);
+            v15 = *(_DWORD *)((char *)Owner + 2) - *(_DWORD *)((char *)OldSid + 2);
             if ( !v15 )
-              v15 = *(unsigned __int16 *)(v34 + 6) - *(unsigned __int16 *)(a2 + 6);
+              v15 = *((unsigned __int16 *)Owner + 3) - *((unsigned __int16 *)OldSid + 3);
             if ( !v15 )
             {
-              v16 = (void *)(v34 + 8);
-              if ( !memcmp((const void *)(v34 + 8), (const void *)(a2 + 8), (unsigned int)v7) )
+              v16 = (char *)Owner + 8;
+              if ( !memcmp((char *)Owner + 8, (char *)OldSid + 8, (unsigned int)v7) )
               {
-                memmove(v16, (const void *)(a3 + 8), (unsigned int)v7);
-                ++*a4;
+                memmove(v16, (char *)NewSid + 8, (unsigned int)v7);
+                ++*NumChanges;
               }
             }
           }
         }
       }
-      v30[0] = 0LL;
-      result = RtlGetDaclSecurityDescriptor(v9, (bool *)&v34, v30, &v32);
-      if ( (int)result >= 0 )
+      Dacl[0] = 0LL;
+      result = RtlGetDaclSecurityDescriptor(v9, (PBOOLEAN)&Owner, Dacl, &OwnerDefaulted);
+      if ( result >= 0 )
       {
-        if ( (_BYTE)v34 )
+        if ( (_BYTE)Owner )
         {
-          if ( v30[0] )
+          if ( Dacl[0] )
           {
-            v17 = *(unsigned __int16 *)(v30[0] + 4LL);
-            v18 = v30[0] + 8LL;
-            if ( *(_WORD *)(v30[0] + 4LL) )
+            AceCount = Dacl[0]->AceCount;
+            v18 = Dacl[0] + 1;
+            if ( Dacl[0]->AceCount )
             {
-              while ( *(_BYTE *)v18 > 3u )
+              while ( v18->AclRevision > 3u )
               {
-                if ( *(_BYTE *)v18 == 4 )
+                if ( v18->AclRevision == 4 )
                 {
-                  v19 = 4 * (unsigned int)*(unsigned __int8 *)(v18 + 13) + 8 + v18 + 12;
+                  v19 = (__int64)(&v18[2].AceCount + 2 * (unsigned int)HIBYTE(v18[1].AceCount));
                   goto LABEL_29;
                 }
 LABEL_37:
-                v18 += *(unsigned __int16 *)(v18 + 2);
-                if ( !--v17 )
+                v18 = (PACL)((char *)v18 + v18->AclSize);
+                if ( !--AceCount )
                 {
-                  v9 = a1;
+                  v9 = SecurityDescriptor;
                   v7 = (unsigned int)v7;
                   goto LABEL_39;
                 }
               }
-              v19 = v18 + 8;
+              v19 = (__int64)&v18[1];
 LABEL_29:
-              if ( *(_BYTE *)v19 == *(_BYTE *)a2 )
+              if ( *(_BYTE *)v19 == *(_BYTE *)OldSid )
               {
-                v20 = *(_BYTE *)(a2 + 1);
+                v20 = *((_BYTE *)OldSid + 1);
                 if ( *(_BYTE *)(v19 + 1) == v20 || *(unsigned __int8 *)(v19 + 1) == v20 + 1 )
                 {
-                  v21 = *(_DWORD *)(v19 + 2) - *(_DWORD *)(a2 + 2);
+                  v21 = *(_DWORD *)(v19 + 2) - *(_DWORD *)((char *)OldSid + 2);
                   if ( !v21 )
-                    v21 = *(unsigned __int16 *)(v19 + 6) - *(unsigned __int16 *)(a2 + 6);
+                    v21 = *(unsigned __int16 *)(v19 + 6) - *((unsigned __int16 *)OldSid + 3);
                   if ( !v21 )
                   {
                     v22 = (void *)(v19 + 8);
-                    if ( !memcmp((const void *)(v19 + 8), (const void *)(a2 + 8), (unsigned int)v7) )
+                    if ( !memcmp((const void *)(v19 + 8), (char *)OldSid + 8, (unsigned int)v7) )
                     {
-                      memmove(v22, (const void *)(v33 + 8), (unsigned int)v7);
-                      ++*a4;
+                      memmove(v22, v33 + 8, (unsigned int)v7);
+                      ++*NumChanges;
                     }
                   }
                 }
@@ -153,51 +157,51 @@ LABEL_29:
           }
         }
 LABEL_39:
-        v30[0] = 0LL;
-        result = RtlGetSaclSecurityDescriptor(v9, (bool *)&v34, v30, &v32);
-        if ( (int)result >= 0 && (_BYTE)v34 && v30[0] )
+        Dacl[0] = 0LL;
+        result = RtlGetSaclSecurityDescriptor(v9, (PBOOLEAN)&Owner, Dacl, &OwnerDefaulted);
+        if ( result >= 0 && (_BYTE)Owner && Dacl[0] )
         {
-          v23 = *(unsigned __int16 *)(v30[0] + 4LL);
-          v24 = v30[0] + 8LL;
-          if ( *(_WORD *)(v30[0] + 4LL) )
+          v23 = Dacl[0]->AceCount;
+          v24 = Dacl[0] + 1;
+          if ( Dacl[0]->AceCount )
           {
-            while ( *(_BYTE *)v24 > 3u )
+            while ( v24->AclRevision > 3u )
             {
-              if ( *(_BYTE *)v24 == 4 )
+              if ( v24->AclRevision == 4 )
               {
-                v25 = 4 * (unsigned int)*(unsigned __int8 *)(v24 + 13) + 8 + v24 + 12;
+                v25 = (__int64)(&v24[2].AceCount + 2 * (unsigned int)HIBYTE(v24[1].AceCount));
                 goto LABEL_47;
               }
 LABEL_55:
               v7 = v29;
-              v24 += *(unsigned __int16 *)(v24 + 2);
+              v24 = (PACL)((char *)v24 + v24->AclSize);
               if ( !--v23 )
-                return 0LL;
+                return 0;
             }
-            v25 = v24 + 8;
+            v25 = (__int64)&v24[1];
 LABEL_47:
-            if ( *(_BYTE *)v25 == *(_BYTE *)a2 )
+            if ( *(_BYTE *)v25 == *(_BYTE *)OldSid )
             {
-              v26 = *(_BYTE *)(a2 + 1);
+              v26 = *((_BYTE *)OldSid + 1);
               if ( *(_BYTE *)(v25 + 1) == v26 || *(unsigned __int8 *)(v25 + 1) == v26 + 1 )
               {
-                v27 = *(_DWORD *)(v25 + 2) - *(_DWORD *)(a2 + 2);
+                v27 = *(_DWORD *)(v25 + 2) - *(_DWORD *)((char *)OldSid + 2);
                 if ( !v27 )
-                  v27 = *(unsigned __int16 *)(v25 + 6) - *(unsigned __int16 *)(a2 + 6);
+                  v27 = *(unsigned __int16 *)(v25 + 6) - *((unsigned __int16 *)OldSid + 3);
                 if ( !v27 )
                 {
                   v28 = (void *)(v25 + 8);
-                  if ( !memcmp((const void *)(v25 + 8), (const void *)(a2 + 8), v7) )
+                  if ( !memcmp((const void *)(v25 + 8), (char *)OldSid + 8, v7) )
                   {
-                    memmove(v28, (const void *)(v33 + 8), v7);
-                    ++*a4;
+                    memmove(v28, v33 + 8, v7);
+                    ++*NumChanges;
                   }
                 }
               }
             }
             goto LABEL_55;
           }
-          return 0LL;
+          return 0;
         }
       }
     }

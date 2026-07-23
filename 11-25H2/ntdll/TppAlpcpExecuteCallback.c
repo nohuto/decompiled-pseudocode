@@ -21,9 +21,9 @@
  *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x180174020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
  */
 
-void __fastcall TppAlpcpExecuteCallback(__int64 a1, __int64 a2, __int64 a3)
+void __fastcall TppAlpcpExecuteCallback(_TP_CALLBACK_INSTANCE *a1, __int64 a2, __int64 a3)
 {
-  unsigned __int64 v3; // rdi
+  PVOID v3; // rdi
   __int64 v6; // rax
   signed __int32 v7; // r8d
   int v8; // eax
@@ -38,17 +38,17 @@ void __fastcall TppAlpcpExecuteCallback(__int64 a1, __int64 a2, __int64 a3)
   volatile signed __int32 **v17; // rdx
   bool v18; // zf
   signed __int64 v19; // rax
-  __int64 v20; // r15
+  PTP_CALLBACK_INSTANCE v20; // r15
   __int64 v21; // r13
-  _QWORD *v22; // rdi
-  _QWORD *v23; // rbx
+  __int64 **v22; // rdi
+  __int64 *v23; // rbx
   void *v24; // rcx
   __int64 v25; // rdi
   struct _TEB *v26; // rax
   void *SubProcessTag; // r8
   _DWORD *SharedData; // rdx
   __int64 v29; // rdx
-  _QWORD *v30; // rbx
+  unsigned __int64 *v30; // rbx
   __int64 v31; // rdi
   _DWORD *v32; // rcx
   __int64 v33; // rcx
@@ -66,16 +66,16 @@ void __fastcall TppAlpcpExecuteCallback(__int64 a1, __int64 a2, __int64 a3)
   _DWORD *v45; // rcx
   __int64 v46; // rcx
   __int64 v47; // rsi
-  unsigned __int64 v48; // rcx
+  unsigned __int64 Root; // rcx
   unsigned __int64 v49; // rax
   __int64 v50; // rax
   int Count; // ebx
-  __int64 v52; // rcx
-  int v53; // [rsp+30h] [rbp-D0h] BYREF
-  __int64 v54; // [rsp+38h] [rbp-C8h]
+  void *v52; // rcx
+  int PortInformation; // [rsp+30h] [rbp-D0h] BYREF
+  PTP_CALLBACK_INSTANCE Instance; // [rsp+38h] [rbp-C8h]
   __int64 v55; // [rsp+40h] [rbp-C0h]
   __int128 v56; // [rsp+48h] [rbp-B8h]
-  _DWORD v57[2]; // [rsp+60h] [rbp-A0h] BYREF
+  _DWORD Fields[2]; // [rsp+60h] [rbp-A0h] BYREF
   __int64 v58; // [rsp+68h] [rbp-98h]
   __int128 v59; // [rsp+70h] [rbp-90h]
   __int64 v60; // [rsp+80h] [rbp-80h]
@@ -95,9 +95,9 @@ void __fastcall TppAlpcpExecuteCallback(__int64 a1, __int64 a2, __int64 a3)
   int v74; // [rsp+120h] [rbp+20h]
   int v75; // [rsp+124h] [rbp+24h]
 
-  v3 = *(_QWORD *)(a2 + 208);
+  v3 = *(PVOID *)(a2 + 208);
   v55 = a3;
-  v54 = a1;
+  Instance = a1;
   if ( !v3 )
     goto LABEL_2;
   v47 = 0LL;
@@ -107,41 +107,41 @@ void __fastcall TppAlpcpExecuteCallback(__int64 a1, __int64 a2, __int64 a3)
     goto LABEL_72;
   }
   RtlAcquireSRWLockShared(&LdrpModuleDatatableLock);
-  v48 = LdrpModuleBaseAddressIndex;
-  if ( (qword_1801D44B0 & 1) != 0 )
+  Root = (unsigned __int64)LdrpModuleBaseAddressIndex.Root;
+  if ( (*(_BYTE *)&LdrpModuleBaseAddressIndex.0 & 1) != 0 )
   {
-    if ( !LdrpModuleBaseAddressIndex )
+    if ( !LdrpModuleBaseAddressIndex.Root )
       goto LABEL_71;
-    v48 = (unsigned __int64)&LdrpModuleBaseAddressIndex ^ LdrpModuleBaseAddressIndex;
+    Root = (unsigned __int64)&LdrpModuleBaseAddressIndex ^ (unsigned __int64)LdrpModuleBaseAddressIndex.Root;
   }
-  if ( !v48 )
+  if ( !Root )
     goto LABEL_71;
   do
   {
-    if ( v3 >= *(_QWORD *)(v48 - 152) )
+    if ( (unsigned __int64)v3 >= *(_QWORD *)(Root - 152) )
     {
-      if ( v3 <= *(_QWORD *)(v48 - 152) )
+      if ( (unsigned __int64)v3 <= *(_QWORD *)(Root - 152) )
         break;
-      v49 = *(_QWORD *)(v48 + 8);
-      if ( (qword_1801D44B0 & 1) != 0 && v49 )
+      v49 = *(_QWORD *)(Root + 8);
+      if ( (*(_BYTE *)&LdrpModuleBaseAddressIndex.0 & 1) != 0 && v49 )
       {
-        v48 ^= v49;
+        Root ^= v49;
         continue;
       }
 LABEL_65:
-      v48 = v49;
+      Root = v49;
       continue;
     }
-    v49 = *(_QWORD *)v48;
-    if ( (qword_1801D44B0 & 1) == 0 || !v49 )
+    v49 = *(_QWORD *)Root;
+    if ( (*(_BYTE *)&LdrpModuleBaseAddressIndex.0 & 1) == 0 || !v49 )
       goto LABEL_65;
-    v48 ^= v49;
+    Root ^= v49;
   }
-  while ( v48 );
-  if ( v48 )
+  while ( Root );
+  if ( Root )
   {
-    v50 = *(_QWORD *)(v48 - 48);
-    v47 = v48 - 200;
+    v50 = *(_QWORD *)(Root - 48);
+    v47 = Root - 200;
     if ( *(_DWORD *)(v50 + 24) != -1 && (*(_BYTE *)(*(_QWORD *)v50 - 56LL) & 0x20) == 0 )
       _InterlockedIncrement((volatile signed __int32 *)(v47 + 276));
   }
@@ -151,11 +151,11 @@ LABEL_72:
   if ( v47 )
   {
     Count = LdrpIncrementModuleLoadCount(v47);
-    LdrpDereferenceModule(v47);
+    LdrpDereferenceModule((char *)v47);
     if ( Count >= 0 )
     {
-      *(_DWORD *)(a1 + 144) |= 0x100u;
-      *(_QWORD *)(a1 + 168) = v3;
+      a1->CallbackEpilogFlags |= 0x100u;
+      a1->RaceDll = v3;
 LABEL_2:
       _InterlockedIncrement((volatile signed __int32 *)(a2 + 72));
       if ( (*(_BYTE *)(a2 + 288) & 3) == 3 )
@@ -172,9 +172,9 @@ LABEL_2:
             break;
           if ( v7 == _InterlockedCompareExchange((volatile signed __int32 *)(a2 + 284), v10, v7) )
           {
-            v52 = *(_QWORD *)(a2 + 272);
-            v53 = v8 + v9;
-            NtAlpcSetInformation(v52, 8LL, &v53);
+            v52 = *(void **)(a2 + 272);
+            PortInformation = v8 + v9;
+            NtAlpcSetInformation(v52, AlpcAdjustCompletionListConcurrencyCountInformation, &PortInformation, 4u);
           }
         }
       }
@@ -186,7 +186,7 @@ LABEL_2:
       {
         if ( v11 )
         {
-          RtlReleaseSRWLockExclusive((volatile signed __int64 *)(a2 + 136));
+          RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(a2 + 136));
           v11 = 0;
         }
         v13 = (v12 + 1) ^ (v12 ^ (v12 + 1)) & 0xF000000000000000uLL;
@@ -210,46 +210,46 @@ LABEL_2:
             }
           }
           if ( _interlockedbittestandset64(v14, 0LL) )
-            RtlpAcquireSRWLockExclusiveContended(a2 + 136);
+            RtlpAcquireSRWLockExclusiveContended((PVOID)(a2 + 136));
         }
         v19 = _InterlockedCompareExchange64((volatile signed __int64 *)(a2 + 128), v13, v12);
         v18 = v12 == v19;
         v12 = v19;
       }
       while ( !v18 );
-      v20 = v54;
+      v20 = Instance;
       v21 = v55;
       if ( v11 )
       {
-        v22 = *(_QWORD **)(a2 + 144);
+        v22 = *(__int64 ***)(a2 + 144);
         *(_QWORD *)(a2 + 144) = 0LL;
-        RtlReleaseSRWLockExclusive((volatile signed __int64 *)(a2 + 136));
+        RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(a2 + 136));
         if ( v22 )
         {
           do
           {
-            v23 = (_QWORD *)*v22;
+            v23 = *v22;
             ZwAlertThreadByThreadId(v22[1]);
-            v22 = v23;
+            v22 = (__int64 **)v23;
           }
           while ( v23 );
         }
       }
       if ( (unsigned __int64)(*(_QWORD *)(a2 + 168) - 1LL) <= 0xFFFFFFFFFFFFFFFDuLL )
       {
-        *(_QWORD *)v20 = 72LL;
-        *(_DWORD *)(v20 + 8) = 1;
-        RtlActivateActivationContextUnsafeFast(v20, *(_QWORD *)(a2 + 168));
-        *(_BYTE *)(v20 + 76) |= 1u;
+        v20->ActivationFrame.Size = 72LL;
+        v20->ActivationFrame.Format = 1;
+        RtlActivateActivationContextUnsafeFast((__int64)v20, *(_QWORD *)(a2 + 168));
+        *((_BYTE *)v20 + 76) |= 1u;
       }
-      *(_DWORD *)(v20 + 144) |= 0x240u;
-      *(_QWORD *)(v20 + 184) = a2 + 72;
+      v20->CallbackEpilogFlags |= 0x240u;
+      v20->CleanupGroupMember = (_TPP_CLEANUP_GROUP_MEMBER *)(a2 + 72);
       if ( (*(_DWORD *)(a2 + 240) & 3) == 1 )
         TpCallbackMayRunLong(v20);
       v24 = *(void **)(a2 + 176);
       if ( v24 )
       {
-        *(_QWORD *)(v20 + 80) = v24;
+        v20->SubProcessTag = v24;
         v25 = 2147353488LL;
         v26 = NtCurrentTeb();
         SubProcessTag = v26->SubProcessTag;
@@ -265,22 +265,22 @@ LABEL_2:
           WORD3(v73[0]) = 1349;
           v74 = (int)SubProcessTag;
           v75 = (int)v24;
-          if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+          if ( RtlGetCurrentServiceSessionId() )
             v25 = (__int64)NtCurrentPeb()->SharedData + 566;
-          NtTraceEvent(*(unsigned __int8 *)v25, 1026LL, 8LL, v73);
+          NtTraceEvent((HANDLE)*(unsigned __int8 *)v25, 0x402u, 8u, v73);
         }
       }
       NtCurrentTeb()->ActivityId = *(_GUID *)(a2 + 184);
-      v30 = (_QWORD *)(a2 + 200);
+      v30 = (unsigned __int64 *)(a2 + 200);
       if ( a2 != -200 )
       {
         if ( *(_QWORD *)NtCurrentTeb()->WorkingOnBehalfTicket == *v30 )
           goto LABEL_36;
-        if ( (int)NtSetInformationThread(-2LL, 44LL, v30) >= 0 )
+        if ( NtSetInformationThread((HANDLE)0xFFFFFFFFFFFFFFFELL, ThreadWorkOnBehalfTicket, v30, 8u) >= 0 )
         {
           *(_QWORD *)NtCurrentTeb()->WorkingOnBehalfTicket = *v30;
 LABEL_36:
-          *(_QWORD *)(v20 + 248) = *v30;
+          v20->WorkOnBehalf = *v30;
         }
       }
       v31 = 2147353478LL;
@@ -295,8 +295,8 @@ LABEL_36:
         v62 = *(_QWORD *)(a2 + 152);
         v63 = *(_QWORD *)(a2 + 160);
         v64 = *(_QWORD *)(a2 + 176);
-        v57[0] = 0;
-        v57[1] = 471990272;
+        Fields[0] = 0;
+        Fields[1] = 471990272;
         v58 = 0LL;
         v59 = 0LL;
         v61 = a2;
@@ -305,7 +305,7 @@ LABEL_36:
           v35 = (__int64)NtCurrentPeb()->SharedData + 556;
         else
           v35 = 2147353478LL;
-        NtTraceEvent(*(unsigned __int8 *)v35, 1026LL, 40LL, v57);
+        NtTraceEvent((HANDLE)*(unsigned __int8 *)v35, 0x402u, 0x28u, Fields);
       }
       v36 = *(_QWORD *)(a2 + 176);
       v37 = *(_QWORD *)(a2 + 160);
@@ -327,16 +327,20 @@ LABEL_36:
       {
         v42 = 0LL;
       }
-      *(_QWORD *)(v20 + 88) = *(_QWORD *)(a2 + 152);
-      *(_QWORD *)(v20 + 96) = *(_QWORD *)(a2 + 160);
+      v20->Callback = *(void **)(a2 + 152);
+      v20->Context = *(void **)(a2 + 160);
       if ( (*(_BYTE *)(a2 + 288) & 1) != 0 )
       {
-        *(_QWORD *)(v20 + 136) = a2;
-        (*(void (__fastcall **)(__int64, _QWORD, __int64, __int64))(a2 + 152))(v20, *(_QWORD *)(a2 + 160), a2, v21);
+        v20->AlpcWorkItem = (_TP_ALPC *)a2;
+        (*(void (__fastcall **)(PTP_CALLBACK_INSTANCE, _QWORD, __int64, __int64))(a2 + 152))(
+          v20,
+          *(_QWORD *)(a2 + 160),
+          a2,
+          v21);
       }
       else
       {
-        (*(void (__fastcall **)(__int64, _QWORD, __int64))(a2 + 152))(v20, *(_QWORD *)(a2 + 160), a2);
+        (*(void (__fastcall **)(PTP_CALLBACK_INSTANCE, _QWORD, __int64))(a2 + 152))(v20, *(_QWORD *)(a2 + 160), a2);
       }
       v43 = NtCurrentPeb()->SharedData;
       if ( v43 && *v43 )
@@ -357,7 +361,7 @@ LABEL_36:
         v45 = NtCurrentPeb()->SharedData;
         if ( v45 && *v45 )
           v31 = (__int64)NtCurrentPeb()->SharedData + 556;
-        NtTraceEvent(*(unsigned __int8 *)v31, 1027LL, 40LL, v65);
+        NtTraceEvent((HANDLE)*(unsigned __int8 *)v31, 0x403u, 0x28u, v65);
       }
       if ( v42 )
       {

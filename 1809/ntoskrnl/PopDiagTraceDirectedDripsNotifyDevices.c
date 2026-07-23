@@ -1,12 +1,12 @@
 /*
- * XREFs of PopDiagTraceDirectedDripsNotifyDevices @ 0x14087211C
+ * XREFs of PopDiagTraceDirectedDripsNotifyDevices @ 0x14087337C
  * Callers:
- *     PopDirectedDripsNotifyDrivers @ 0x140868158 (PopDirectedDripsNotifyDrivers.c)
+ *     PopDirectedDripsNotifyDrivers @ 0x1408693B8 (PopDirectedDripsNotifyDrivers.c)
  * Callees:
  *     EtwEventEnabled @ 0x14005B2D0 (EtwEventEnabled.c)
- *     EtwWrite @ 0x1400CAD20 (EtwWrite.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     IoDiagTraceDirectedDripsCandidateDevices @ 0x14083CDF0 (IoDiagTraceDirectedDripsCandidateDevices.c)
+ *     EtwWrite @ 0x1400CAE00 (EtwWrite.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     IoDiagTraceDirectedDripsCandidateDevices @ 0x14083E050 (IoDiagTraceDirectedDripsCandidateDevices.c)
  */
 
 char __fastcall PopDiagTraceDirectedDripsNotifyDevices(unsigned __int8 a1, int a2, __int64 a3)

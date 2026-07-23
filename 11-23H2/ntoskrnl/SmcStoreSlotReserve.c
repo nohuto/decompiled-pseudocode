@@ -1,16 +1,16 @@
 /*
- * XREFs of SmcStoreSlotReserve @ 0x1409DBB44
+ * XREFs of SmcStoreSlotReserve @ 0x1409DBD44
  * Callers:
- *     SmcStoreCreate @ 0x1409DB254 (SmcStoreCreate.c)
+ *     SmcStoreCreate @ 0x1409DB454 (SmcStoreCreate.c)
  * Callees:
  *     CmSiFreeMemory @ 0x140208C40 (CmSiFreeMemory.c)
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     ExfTryToWakePushLock @ 0x1402BD960 (ExfTryToWakePushLock.c)
- *     SSHSupportAllocateNonPaged @ 0x14032D354 (SSHSupportAllocateNonPaged.c)
- *     SmcStorePlacementGet @ 0x1409DB668 (SmcStorePlacementGet.c)
- *     SmcStoreSlotAbort @ 0x1409DBA08 (SmcStoreSlotAbort.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140231120 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     KeLeaveCriticalRegion @ 0x140231550 (KeLeaveCriticalRegion.c)
+ *     ExfTryToWakePushLock @ 0x1402BDBF0 (ExfTryToWakePushLock.c)
+ *     SSHSupportAllocateNonPaged @ 0x14032D5E4 (SSHSupportAllocateNonPaged.c)
+ *     SmcStorePlacementGet @ 0x1409DB868 (SmcStorePlacementGet.c)
+ *     SmcStoreSlotAbort @ 0x1409DBC08 (SmcStoreSlotAbort.c)
  */
 
 unsigned __int64 __fastcall SmcStoreSlotReserve(__int64 a1, __int64 a2, ULONG a3)

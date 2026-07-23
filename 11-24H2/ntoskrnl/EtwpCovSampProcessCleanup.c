@@ -1,14 +1,14 @@
 /*
- * XREFs of EtwpCovSampProcessCleanup @ 0x140902250
+ * XREFs of EtwpCovSampProcessCleanup @ 0x140924B30
  * Callers:
- *     EtwExitProcess @ 0x1408A9474 (EtwExitProcess.c)
- *     EtwpCovSampProcessEnsureContext @ 0x140901F18 (EtwpCovSampProcessEnsureContext.c)
- *     EtwpCovSampContextCleanup @ 0x140AD9EF8 (EtwpCovSampContextCleanup.c)
- *     EtwpCoverageSamplerStop @ 0x140ADAAD0 (EtwpCoverageSamplerStop.c)
+ *     EtwExitProcess @ 0x1408FF6D4 (EtwExitProcess.c)
+ *     EtwpCovSampProcessEnsureContext @ 0x1409247F8 (EtwpCovSampProcessEnsureContext.c)
+ *     EtwpCovSampContextCleanup @ 0x140ADB73C (EtwpCovSampContextCleanup.c)
+ *     EtwpCoverageSamplerStop @ 0x140ADC310 (EtwpCoverageSamplerStop.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140325680 (ObfDereferenceObject.c)
- *     EtwpCovSampModuleDereference @ 0x140900F9C (EtwpCovSampModuleDereference.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ObfDereferenceObject @ 0x1402CE210 (ObfDereferenceObject.c)
+ *     EtwpCovSampModuleDereference @ 0x14092387C (EtwpCovSampModuleDereference.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __fastcall EtwpCovSampProcessCleanup(__int64 a1, char a2)

@@ -35,99 +35,96 @@ int __stdcall RtlpSetInstallLanguage(char a1, PCWSTR SourceString)
   int v8; // eax
   _WORD *v9; // ecx
   int v10; // ecx
-  const unsigned __int16 *v11; // eax
+  wchar_t *v11; // eax
   unsigned int v12; // ecx
   bool v13; // zf
   char *v14; // edx
   int v15; // edi
-  const unsigned __int16 *v16; // eax
-  const unsigned __int16 *v17; // ecx
-  const unsigned __int16 *v18; // edx
-  const unsigned __int16 *v19; // edx
-  const unsigned __int16 *v20; // eax
+  wchar_t *v16; // eax
+  wchar_t *v17; // ecx
+  wchar_t *v18; // edx
+  wchar_t *v19; // edx
+  wchar_t *v20; // eax
   unsigned int v21; // ecx
-  const unsigned __int16 *v23; // [esp+10h] [ebp-530h] BYREF
-  unsigned __int16 *v24; // [esp+14h] [ebp-52Ch] BYREF
-  char v25; // [esp+1Bh] [ebp-525h]
-  HANDLE Handle; // [esp+1Ch] [ebp-524h] BYREF
-  int v27; // [esp+20h] [ebp-520h] BYREF
-  int v28; // [esp+24h] [ebp-51Ch] BYREF
-  UNICODE_STRING v29; // [esp+28h] [ebp-518h] BYREF
-  _WORD *v30; // [esp+30h] [ebp-510h] BYREF
-  PCWSTR v31; // [esp+34h] [ebp-50Ch]
-  int v32; // [esp+38h] [ebp-508h] BYREF
-  HANDLE v33; // [esp+3Ch] [ebp-504h] BYREF
-  int v34; // [esp+40h] [ebp-500h] BYREF
-  HANDLE v35; // [esp+44h] [ebp-4FCh]
-  UNICODE_STRING *v36; // [esp+48h] [ebp-4F8h]
-  int v37; // [esp+4Ch] [ebp-4F4h]
-  int v38; // [esp+50h] [ebp-4F0h]
-  int v39; // [esp+54h] [ebp-4ECh]
-  int v40; // [esp+58h] [ebp-4E8h]
-  UNICODE_STRING v41; // [esp+5Ch] [ebp-4E4h] BYREF
-  char v42[4]; // [esp+64h] [ebp-4DCh] BYREF
-  __int16 *v43; // [esp+68h] [ebp-4D8h]
-  int v44; // [esp+6Ch] [ebp-4D4h]
-  UNICODE_STRING DestinationString; // [esp+70h] [ebp-4D0h] BYREF
-  unsigned __int16 v46[88]; // [esp+78h] [ebp-4C8h] BYREF
-  _WORD v47[88]; // [esp+128h] [ebp-418h] BYREF
-  unsigned __int16 v48[260]; // [esp+1D8h] [ebp-368h] BYREF
-  _WORD v49[174]; // [esp+3E0h] [ebp-160h] BYREF
+  size_t v23; // [esp-4h] [ebp-544h]
+  size_t v24; // [esp-4h] [ebp-544h]
+  wchar_t *v25; // [esp+10h] [ebp-530h] BYREF
+  wchar_t *v26; // [esp+14h] [ebp-52Ch] BYREF
+  char v27; // [esp+1Bh] [ebp-525h]
+  HANDLE KeyHandle; // [esp+1Ch] [ebp-524h] BYREF
+  int v29; // [esp+20h] [ebp-520h] BYREF
+  int v30; // [esp+24h] [ebp-51Ch] BYREF
+  _UNICODE_STRING ValueName; // [esp+28h] [ebp-518h] BYREF
+  _WORD *v32; // [esp+30h] [ebp-510h] BYREF
+  PCWSTR v33; // [esp+34h] [ebp-50Ch]
+  LCID Lcid; // [esp+38h] [ebp-508h] BYREF
+  HANDLE Handle; // [esp+3Ch] [ebp-504h] BYREF
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [esp+40h] [ebp-500h] BYREF
+  int v37; // [esp+58h] [ebp-4E8h]
+  _UNICODE_STRING String; // [esp+5Ch] [ebp-4E4h] BYREF
+  char v39[4]; // [esp+64h] [ebp-4DCh] BYREF
+  __int16 *v40; // [esp+68h] [ebp-4D8h]
+  int v41; // [esp+6Ch] [ebp-4D4h]
+  _UNICODE_STRING DestinationString; // [esp+70h] [ebp-4D0h] BYREF
+  wchar_t v43[88]; // [esp+78h] [ebp-4C8h] BYREF
+  _WORD v44[88]; // [esp+128h] [ebp-418h] BYREF
+  wchar_t v45[260]; // [esp+1D8h] [ebp-368h] BYREF
+  _WORD v46[174]; // [esp+3E0h] [ebp-160h] BYREF
 
   v2 = SourceString;
-  v31 = SourceString;
+  v33 = SourceString;
+  KeyHandle = 0;
   Handle = 0;
-  v33 = 0;
-  v25 = 0;
-  LOBYTE(v40) = 0;
+  v27 = 0;
+  LOBYTE(v37) = 0;
   if ( !SourceString )
     return -1073741811;
   if ( (a1 & 4) != 0 )
   {
     RtlInitUnicodeString(&DestinationString, SourceString);
-    InstalledLanguageIndexByName = RtlUnicodeStringToLcid(&DestinationString.Length, &v32);
+    InstalledLanguageIndexByName = RtlUnicodeStringToLcid(&DestinationString, &Lcid);
     if ( InstalledLanguageIndexByName < 0 )
       return InstalledLanguageIndexByName;
-    v41.MaximumLength = 172;
-    v41.Buffer = v46;
-    if ( !RtlLCIDToCultureName(v32, &v41.Length) )
+    String.MaximumLength = 172;
+    String.Buffer = v43;
+    if ( !RtlLCIDToCultureName(Lcid, &String) )
       return -1073741811;
-    v2 = v46;
-    v31 = v46;
+    v2 = (const WCHAR *)v43;
+    v33 = (PCWSTR)v43;
   }
   else
   {
     if ( (a1 & 8) == 0 )
       return -1073741811;
-    RtlInitUnicodeString(&v41, SourceString);
-    if ( !RtlCultureNameToLCID(&v41.Length, &v32) )
+    RtlInitUnicodeString(&String, SourceString);
+    if ( !RtlCultureNameToLCID(&String, &Lcid) )
       return -1073741811;
   }
-  InstalledLanguageIndexByName = RtlpCreateProcessRegistryInfo(&v28);
+  InstalledLanguageIndexByName = RtlpCreateProcessRegistryInfo(&v30);
   if ( InstalledLanguageIndexByName < 0 )
     return InstalledLanguageIndexByName;
-  v4 = v28;
-  if ( !v28 )
+  v4 = v30;
+  if ( !v30 )
     return -1073741823;
-  LOWORD(v24) = -1;
+  LOWORD(v26) = -1;
   if ( !v2 )
   {
     InstalledLanguageIndexByName = -1073741811;
     goto LABEL_18;
   }
-  InstalledLanguageIndexByName = RtlpMuiRegGetInstalledLanguageIndexByName(v28, v2, 0, &v24);
+  InstalledLanguageIndexByName = RtlpMuiRegGetInstalledLanguageIndexByName(v30, v2, 0, &v26);
   if ( InstalledLanguageIndexByName < 0 )
   {
-    v4 = v28;
+    v4 = v30;
 LABEL_18:
-    v6 = v44;
-    v5 = v43;
+    v6 = v41;
+    v5 = v40;
     goto LABEL_19;
   }
-  v5 = (__int16 *)(*(_DWORD *)(*(_DWORD *)(v28 + 20) + 12) + 28 * (__int16)v24);
+  v5 = (__int16 *)(*(_DWORD *)(*(_DWORD *)(v30 + 20) + 12) + 28 * (__int16)v26);
   if ( *v5 < 0 )
     return -1073741275;
-  v4 = v28;
+  v4 = v30;
   v6 = *v5 & 7;
   InstalledLanguageIndexByName = 0;
 LABEL_19:
@@ -139,7 +136,7 @@ LABEL_19:
   v8 = v7 - 1;
   if ( !v8 )
   {
-    v25 = 1;
+    v27 = 1;
     if ( !v5 )
     {
       InstalledLanguageIndexByName = -1073741811;
@@ -148,20 +145,20 @@ LABEL_62:
         return InstalledLanguageIndexByName;
       goto LABEL_63;
     }
-    v23 = v48;
-    v27 = 258;
-    InstalledLanguageIndexByName = RtlpGetDefaultLanguageBaseOrParent(v4, v5, &v30, v48, 0x102u, &v23, &v27);
+    v25 = v45;
+    v29 = 258;
+    InstalledLanguageIndexByName = RtlpGetDefaultLanguageBaseOrParent(v4, v5, &v32, v45, 0x102u, &v25, &v29);
     if ( InstalledLanguageIndexByName < 0 )
       return InstalledLanguageIndexByName;
-    if ( !v27 )
+    if ( !v29 )
       return -1073741789;
-    v16 = v23 + 1;
-    v21 = v27 - 1;
+    v16 = v25 + 1;
+    v21 = v29 - 1;
     v13 = (*(_BYTE *)v5 & 4) == 0;
-    v18 = (const unsigned __int16 *)(v27 - 1);
-    ++v23;
-    --v27;
-    if ( !v13 || !v30 || (*(_BYTE *)v30 & 2) == 0 )
+    v18 = (wchar_t *)(v29 - 1);
+    ++v25;
+    --v29;
+    if ( !v13 || !v32 || (*(_BYTE *)v32 & 2) == 0 )
     {
 LABEL_50:
       if ( !v18 )
@@ -170,57 +167,59 @@ LABEL_50:
       *v16 = 0;
       goto LABEL_62;
     }
-    RtlpGetDefaultLanguageBaseOrParent(v28, v30, 0, v16, v21, &v23, &v27);
-    v19 = (const unsigned __int16 *)v27;
-    if ( !v27 )
+    RtlpGetDefaultLanguageBaseOrParent(v30, v32, 0, v16, v21, &v25, &v29);
+    v19 = (wchar_t *)v29;
+    if ( !v29 )
       return -1073741789;
-    v20 = v23;
+    v20 = v25;
 LABEL_49:
     v16 = v20 + 1;
-    v18 = (const unsigned __int16 *)((char *)v19 - 1);
+    v18 = (wchar_t *)((char *)v19 - 1);
     goto LABEL_50;
   }
   if ( v8 != 2 )
     return -1073741811;
-  v40 = 1;
-  memset(v47, 0, 0xACu);
-  RtlStringCchCopyW(v47, 85, (int)v31);
-  v31 = v46;
-  memset(v46, 0, 0xACu);
-  InstalledLanguageIndexByName = RtlpGetDefaultLanguageBaseOrParent(v28, v5, &v27, v46, 0x55u, 0, 0);
+  LODWORD(v23) = 172;
+  v37 = 1;
+  memset(v44, 0, v23);
+  RtlStringCchCopyW(v44, 85, (int)v33);
+  LODWORD(v24) = 172;
+  v33 = (PCWSTR)v43;
+  memset(v43, 0, v24);
+  InstalledLanguageIndexByName = RtlpGetDefaultLanguageBaseOrParent(v30, v5, &v29, v43, 0x55u, 0, 0);
   if ( InstalledLanguageIndexByName < 0 )
     return InstalledLanguageIndexByName;
-  v9 = (_WORD *)v27;
-  if ( !v27 )
+  v9 = (_WORD *)v29;
+  if ( !v29 )
     return -1073741637;
   if ( v5 )
   {
-    InstalledLanguageIndexByName = RtlStringCchCopyExW(v49, 172, v47, &v23, (int *)&v24, v27);
+    InstalledLanguageIndexByName = RtlStringCchCopyExW(v46, 172, v44, &v25, (int *)&v26, v29);
     if ( InstalledLanguageIndexByName >= 0 )
     {
-      v10 = (int)v24;
-      if ( !v24 )
+      v10 = (int)v26;
+      if ( !v26 )
         return -1073741789;
-      v24 = (unsigned __int16 *)((char *)v24 - 1);
-      ++v23;
-      InstalledLanguageIndexByName = RtlpGetDefaultLanguageBaseOrParent(v28, v5, &v30, v23, v10 - 1, &v23, &v24);
+      v26 = (wchar_t *)((char *)v26 - 1);
+      ++v25;
+      InstalledLanguageIndexByName = RtlpGetDefaultLanguageBaseOrParent(v30, v5, &v32, v25, v10 - 1, &v25, &v26);
       if ( InstalledLanguageIndexByName >= 0 )
       {
-        if ( !v24 )
+        if ( !v26 )
           return -1073741789;
-        v11 = v23 + 1;
-        v12 = (unsigned int)v24 - 1;
+        v11 = v25 + 1;
+        v12 = (unsigned int)v26 - 1;
         v13 = (*(_BYTE *)v5 & 4) == 0;
-        v14 = (char *)v24 - 1;
-        ++v23;
-        v24 = (unsigned __int16 *)((char *)v24 - 1);
-        if ( v13 && v30 && (*(_BYTE *)v30 & 2) != 0 )
+        v14 = (char *)v26 - 1;
+        ++v25;
+        v26 = (wchar_t *)((char *)v26 - 1);
+        if ( v13 && v32 && (*(_BYTE *)v32 & 2) != 0 )
         {
-          RtlpGetDefaultLanguageBaseOrParent(v28, v30, 0, v11, v12, &v23, &v24);
-          if ( !v24 )
+          RtlpGetDefaultLanguageBaseOrParent(v30, v32, 0, v11, v12, &v25, &v26);
+          if ( !v26 )
             return -1073741789;
-          v11 = v23 + 1;
-          v14 = (char *)v24 - 1;
+          v11 = v25 + 1;
+          v14 = (char *)v26 - 1;
         }
         if ( !v14 )
           return -1073741789;
@@ -228,7 +227,7 @@ LABEL_49:
         *v11 = 0;
       }
     }
-    v9 = (_WORD *)v27;
+    v9 = (_WORD *)v29;
   }
   else
   {
@@ -238,109 +237,109 @@ LABEL_49:
     return InstalledLanguageIndexByName;
   if ( (*(_BYTE *)v9 & 2) != 0 )
   {
-    v15 = v28;
-    v25 = v40;
-    v24 = v48;
-    v23 = (const unsigned __int16 *)258;
-    InstalledLanguageIndexByName = RtlpGetDefaultLanguageBaseOrParent(v28, v9, &v30, v48, 0x102u, &v24, &v23);
+    v15 = v30;
+    v27 = v37;
+    v26 = v45;
+    v25 = (wchar_t *)258;
+    InstalledLanguageIndexByName = RtlpGetDefaultLanguageBaseOrParent(v30, v9, &v32, v45, 0x102u, &v26, &v25);
     if ( InstalledLanguageIndexByName < 0 )
       return InstalledLanguageIndexByName;
-    if ( !v23 )
+    if ( !v25 )
       return -1073741789;
-    v16 = v24 + 1;
-    v17 = (const unsigned __int16 *)((char *)v23 - 1);
-    ++v24;
-    v23 = v17;
+    v16 = v26 + 1;
+    v17 = (wchar_t *)((char *)v25 - 1);
+    ++v26;
+    v25 = v17;
     v18 = v17;
-    if ( (*(_BYTE *)v27 & 4) != 0 || !v30 || (*(_BYTE *)v30 & 2) == 0 )
+    if ( (*(_BYTE *)v29 & 4) != 0 || !v32 || (*(_BYTE *)v32 & 2) == 0 )
       goto LABEL_50;
-    RtlpGetDefaultLanguageBaseOrParent(v15, v30, 0, v16, (unsigned int)v17, &v24, &v23);
-    v19 = v23;
-    if ( !v23 )
+    RtlpGetDefaultLanguageBaseOrParent(v15, v32, 0, v16, (unsigned int)v17, &v26, &v25);
+    v19 = v25;
+    if ( !v25 )
       return -1073741789;
-    v20 = v24;
+    v20 = v26;
     goto LABEL_49;
   }
 LABEL_63:
-  RtlInitUnicodeString(&v41, v31);
-  if ( !RtlCultureNameToLCID(&v41.Length, &v32) )
+  RtlInitUnicodeString(&String, v33);
+  if ( !RtlCultureNameToLCID(&String, &Lcid) )
     return -1073741811;
-  InstalledLanguageIndexByName = ZwFlushInstallUILanguage((unsigned __int16)v32, 0);
+  InstalledLanguageIndexByName = ZwFlushInstallUILanguage(Lcid, 0);
   if ( InstalledLanguageIndexByName >= 0 )
   {
-    if ( v25 )
+    if ( v27 )
     {
-      RtlpSetPreferredUILanguages(8, v48, v42);
+      RtlpSetPreferredUILanguages(8, v45, v39);
     }
     else
     {
-      RtlInitUnicodeString(&v29, L"\\Registry\\Machine\\System\\CurrentControlSet\\Control\\NLS\\Language");
-      v34 = 24;
-      v36 = &v29;
-      v35 = 0;
-      v37 = 64;
-      v38 = 0;
-      v39 = 0;
-      if ( ZwOpenKey((int)&Handle, 983103, (int)&v34) >= 0 )
+      RtlInitUnicodeString(&ValueName, L"\\Registry\\Machine\\System\\CurrentControlSet\\Control\\NLS\\Language");
+      ObjectAttributes.Length = 24;
+      ObjectAttributes.ObjectName = &ValueName;
+      ObjectAttributes.RootDirectory = 0;
+      ObjectAttributes.Attributes = 64;
+      ObjectAttributes.SecurityDescriptor = 0;
+      ObjectAttributes.SecurityQualityOfService = 0;
+      if ( ZwOpenKey(&KeyHandle, 0xF003Fu, &ObjectAttributes) >= 0 )
       {
-        RtlInitUnicodeString(&v29, L"InstallLanguageFallback");
-        NtDeleteValueKey((int)Handle, (int)&v29);
-        NtClose(Handle);
+        RtlInitUnicodeString(&ValueName, L"InstallLanguageFallback");
+        NtDeleteValueKey(KeyHandle, &ValueName);
+        NtClose(KeyHandle);
       }
     }
-    if ( (_BYTE)v40 )
+    if ( (_BYTE)v37 )
     {
-      RtlpSetPreferredUILanguages(8, v47, v42);
-      RtlpSetPreferredUILanguages(8, v49, v42);
+      RtlpSetPreferredUILanguages(8, v44, v39);
+      RtlpSetPreferredUILanguages(8, v46, v39);
     }
     else
     {
-      RtlInitUnicodeString(&v29, L"\\Registry\\Machine\\System\\CurrentControlSet\\Control\\MUI\\Settings");
-      Handle = 0;
-      v36 = &v29;
-      v34 = 24;
-      v35 = 0;
-      v37 = 64;
-      v38 = 0;
-      v39 = 0;
-      if ( ZwOpenKey((int)&Handle, 983103, (int)&v34) >= 0 )
+      RtlInitUnicodeString(&ValueName, L"\\Registry\\Machine\\System\\CurrentControlSet\\Control\\MUI\\Settings");
+      KeyHandle = 0;
+      ObjectAttributes.ObjectName = &ValueName;
+      ObjectAttributes.Length = 24;
+      ObjectAttributes.RootDirectory = 0;
+      ObjectAttributes.Attributes = 64;
+      ObjectAttributes.SecurityDescriptor = 0;
+      ObjectAttributes.SecurityQualityOfService = 0;
+      if ( ZwOpenKey(&KeyHandle, 0xF003Fu, &ObjectAttributes) >= 0 )
       {
-        RtlInitUnicodeString(&v29, L"PreferredUILanguages");
-        NtDeleteValueKey((int)Handle, (int)&v29);
-        NtClose(Handle);
+        RtlInitUnicodeString(&ValueName, L"PreferredUILanguages");
+        NtDeleteValueKey(KeyHandle, &ValueName);
+        NtClose(KeyHandle);
         RtlInitUnicodeString(
-          &v29,
+          &ValueName,
           L"\\Registry\\Machine\\System\\CurrentControlSet\\Control\\MUI\\Settings\\LanguageConfiguration");
-        Handle = 0;
-        v36 = &v29;
-        v34 = 24;
-        v35 = 0;
-        v37 = 64;
-        v38 = 0;
-        v39 = 0;
-        if ( ZwOpenKey((int)&Handle, 983103, (int)&v34) >= 0 )
+        KeyHandle = 0;
+        ObjectAttributes.ObjectName = &ValueName;
+        ObjectAttributes.Length = 24;
+        ObjectAttributes.RootDirectory = 0;
+        ObjectAttributes.Attributes = 64;
+        ObjectAttributes.SecurityDescriptor = 0;
+        ObjectAttributes.SecurityQualityOfService = 0;
+        if ( ZwOpenKey(&KeyHandle, 0xF003Fu, &ObjectAttributes) >= 0 )
         {
-          ZwDeleteKey((int)Handle);
-          NtClose(Handle);
+          ZwDeleteKey(KeyHandle);
+          NtClose(KeyHandle);
         }
-        if ( OpenGlobalizationUserSettingsKey((void *)0x2000000, (int)&Handle) >= 0 )
+        if ( OpenGlobalizationUserSettingsKey(0x2000000u, &KeyHandle) >= 0 )
         {
-          RtlInitUnicodeString(&v29, L"Control Panel\\Desktop\\MuiCached");
-          v35 = Handle;
-          v36 = &v29;
-          v34 = 24;
-          v37 = 64;
-          v38 = 0;
-          v39 = 0;
-          if ( ZwOpenKey((int)&v33, 983103, (int)&v34) >= 0 )
+          RtlInitUnicodeString(&ValueName, L"Control Panel\\Desktop\\MuiCached");
+          ObjectAttributes.RootDirectory = KeyHandle;
+          ObjectAttributes.ObjectName = &ValueName;
+          ObjectAttributes.Length = 24;
+          ObjectAttributes.Attributes = 64;
+          ObjectAttributes.SecurityDescriptor = 0;
+          ObjectAttributes.SecurityQualityOfService = 0;
+          if ( ZwOpenKey(&Handle, 0xF003Fu, &ObjectAttributes) >= 0 )
           {
-            RtlInitUnicodeString(&v29, L"MachinePreferredUILanguages");
-            NtDeleteValueKey((int)v33, (int)&v29);
-            RtlInitUnicodeString(&v29, L"MachineLanguageConfiguration");
-            NtDeleteValueKey((int)v33, (int)&v29);
-            NtClose(v33);
+            RtlInitUnicodeString(&ValueName, L"MachinePreferredUILanguages");
+            NtDeleteValueKey(Handle, &ValueName);
+            RtlInitUnicodeString(&ValueName, L"MachineLanguageConfiguration");
+            NtDeleteValueKey(Handle, &ValueName);
+            NtClose(Handle);
           }
-          NtClose(Handle);
+          NtClose(KeyHandle);
         }
       }
     }

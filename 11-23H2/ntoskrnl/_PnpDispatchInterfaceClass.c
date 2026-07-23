@@ -1,18 +1,18 @@
 /*
- * XREFs of _PnpDispatchInterfaceClass @ 0x1407C5DA0
+ * XREFs of _PnpDispatchInterfaceClass @ 0x1407C6070
  * Callers:
  *     <none>
  * Callees:
- *     _PnpMapCmStatusToDispatchStatus @ 0x14022B1E4 (_PnpMapCmStatusToDispatchStatus.c)
- *     _CmValidateInstallerClassName @ 0x14078787C (_CmValidateInstallerClassName.c)
- *     _CmOpenInterfaceClassRegKey @ 0x1407878A0 (_CmOpenInterfaceClassRegKey.c)
- *     _CmGetInterfaceClassMappedProperty @ 0x1407C5EB0 (_CmGetInterfaceClassMappedProperty.c)
- *     _CmGetMatchingCommonClassList @ 0x14082A71C (_CmGetMatchingCommonClassList.c)
- *     _CmCreateInterfaceClass @ 0x140880398 (_CmCreateInterfaceClass.c)
- *     _CmDeleteInterfaceClass @ 0x140A62DBC (_CmDeleteInterfaceClass.c)
- *     _CmGetInterfaceClassMappedPropertyKeys @ 0x140A691E8 (_CmGetInterfaceClassMappedPropertyKeys.c)
- *     _CmGetInterfaceClassMappedPropertyLocales @ 0x140A693BC (_CmGetInterfaceClassMappedPropertyLocales.c)
- *     _CmSetInterfaceClassMappedProperty @ 0x140A6A038 (_CmSetInterfaceClassMappedProperty.c)
+ *     _PnpMapCmStatusToDispatchStatus @ 0x14022B2F4 (_PnpMapCmStatusToDispatchStatus.c)
+ *     _CmValidateInstallerClassName @ 0x140787A6C (_CmValidateInstallerClassName.c)
+ *     _CmOpenInterfaceClassRegKey @ 0x140787A90 (_CmOpenInterfaceClassRegKey.c)
+ *     _CmGetInterfaceClassMappedProperty @ 0x1407C6180 (_CmGetInterfaceClassMappedProperty.c)
+ *     _CmGetMatchingCommonClassList @ 0x14082AA1C (_CmGetMatchingCommonClassList.c)
+ *     _CmCreateInterfaceClass @ 0x1408805D8 (_CmCreateInterfaceClass.c)
+ *     _CmDeleteInterfaceClass @ 0x140A6306C (_CmDeleteInterfaceClass.c)
+ *     _CmGetInterfaceClassMappedPropertyKeys @ 0x140A69498 (_CmGetInterfaceClassMappedPropertyKeys.c)
+ *     _CmGetInterfaceClassMappedPropertyLocales @ 0x140A6966C (_CmGetInterfaceClassMappedPropertyLocales.c)
+ *     _CmSetInterfaceClassMappedProperty @ 0x140A6A2E8 (_CmSetInterfaceClassMappedProperty.c)
  */
 
 __int64 __fastcall PnpDispatchInterfaceClass(__int64 a1, const WCHAR *a2, __int64 a3, int a4, __int64 a5)

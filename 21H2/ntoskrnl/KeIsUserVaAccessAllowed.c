@@ -1,9 +1,9 @@
 /*
- * XREFs of KeIsUserVaAccessAllowed @ 0x140254F38
+ * XREFs of KeIsUserVaAccessAllowed @ 0x1402764A8
  * Callers:
- *     MiValidFault @ 0x140209750 (MiValidFault.c)
- *     KiQuantumEnd @ 0x140257CF0 (KiQuantumEnd.c)
- *     MiDbgCopyMemory @ 0x1405458A4 (MiDbgCopyMemory.c)
+ *     KiQuantumEnd @ 0x140279260 (KiQuantumEnd.c)
+ *     MiValidFault @ 0x1402AE050 (MiValidFault.c)
+ *     MiDbgCopyMemory @ 0x140545AE4 (MiDbgCopyMemory.c)
  * Callees:
  *     <none>
  */

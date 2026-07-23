@@ -1,14 +1,14 @@
 /*
- * XREFs of WmipCompleteGuidIrpWithError @ 0x14036A118
+ * XREFs of WmipCompleteGuidIrpWithError @ 0x14036A2B8
  * Callers:
- *     WmipReceiveNotifications @ 0x14036158C (WmipReceiveNotifications.c)
- *     WmipDeleteMethod @ 0x1406C6C40 (WmipDeleteMethod.c)
+ *     WmipReceiveNotifications @ 0x14036172C (WmipReceiveNotifications.c)
+ *     WmipDeleteMethod @ 0x1406C6C70 (WmipDeleteMethod.c)
  * Callees:
- *     KxReleaseQueuedSpinLock @ 0x140260360 (KxReleaseQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140260E60 (KeAcquireInStackQueuedSpinLock.c)
- *     IofCompleteRequest @ 0x1402C9980 (IofCompleteRequest.c)
- *     WmipClearIrpObjectList @ 0x14036A22C (WmipClearIrpObjectList.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseQueuedSpinLock @ 0x1402605F0 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402610F0 (KeAcquireInStackQueuedSpinLock.c)
+ *     IofCompleteRequest @ 0x1402C9C10 (IofCompleteRequest.c)
+ *     WmipClearIrpObjectList @ 0x14036A3CC (WmipClearIrpObjectList.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 void __fastcall WmipCompleteGuidIrpWithError(__int64 a1)
@@ -32,10 +32,13 @@ void __fastcall WmipCompleteGuidIrpWithError(__int64 a1)
   }
   KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
   OldIrql = LockHandle.OldIrql;
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && LockHandle.OldIrql <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
+      && LockHandle.OldIrql <= 0xFu
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;

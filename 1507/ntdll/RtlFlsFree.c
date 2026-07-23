@@ -9,53 +9,50 @@
  *     RtlEndStrongEnumerationHashTable @ 0x180075B10 (RtlEndStrongEnumerationHashTable.c)
  */
 
-__int64 __fastcall RtlFlsFree(unsigned int a1, char *a2, __int64 a3, __int64 a4)
+NTSTATUS __cdecl RtlFlsFree(ULONG FlsIndex)
 {
   _PEB *ProcessEnvironmentBlock; // rsi
-  const signed __int32 **FlsBitmap; // rcx
-  unsigned __int8 v7; // di
+  _RTL_BITMAP *FlsBitmap; // rcx
+  unsigned __int8 v4; // di
   struct _FLS_CALLBACK_INFO *FlsCallback; // rax
-  __int64 v9; // r14
-  __int64 v10; // r12
-  void (__fastcall *v11)(_QWORD); // r15
-  char *v12; // rdx
-  __int64 v13; // r8
-  __int64 v14; // r9
+  __int64 v6; // r14
+  __int64 v7; // r12
+  void (__fastcall *v8)(_QWORD); // r15
   _LIST_ENTRY *i; // rbx
 
-  if ( a1 - 1 > 0x7E )
-    return 3221225485LL;
+  if ( FlsIndex - 1 > 0x7E )
+    return -1073741811;
   ProcessEnvironmentBlock = NtCurrentTeb()->ProcessEnvironmentBlock;
-  RtlAcquireSRWLockExclusive(&RtlpFlsLock, a2, a3, a4);
-  FlsBitmap = (const signed __int32 **)ProcessEnvironmentBlock->FlsBitmap;
-  if ( a1 >= *(_DWORD *)FlsBitmap )
+  RtlAcquireSRWLockExclusive(&RtlpFlsLock);
+  FlsBitmap = (_RTL_BITMAP *)ProcessEnvironmentBlock->FlsBitmap;
+  if ( FlsIndex >= FlsBitmap->SizeOfBitMap )
   {
-    v7 = 0;
+    v4 = 0;
   }
   else
   {
-    v7 = _bittest(FlsBitmap[1], a1);
-    if ( v7 )
+    v4 = _bittest((const signed __int32 *)FlsBitmap->Buffer, FlsIndex);
+    if ( v4 )
     {
-      RtlClearBits(FlsBitmap, a1, 1LL);
+      RtlClearBits(FlsBitmap, FlsIndex, 1u);
       FlsCallback = ProcessEnvironmentBlock->FlsCallback;
-      v9 = 16LL * a1;
-      v10 = a1;
-      v11 = *(void (__fastcall **)(_QWORD))((char *)FlsCallback + v9);
-      RtlAcquireSRWLockExclusive((volatile signed __int64 *)((char *)FlsCallback + v9 + 8), v12, v13, v14);
+      v6 = 16LL * FlsIndex;
+      v7 = FlsIndex;
+      v8 = *(void (__fastcall **)(_QWORD))((char *)FlsCallback + v6);
+      RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)((char *)FlsCallback + v6 + 8));
       for ( i = ProcessEnvironmentBlock->FlsListHead.Flink; i != &ProcessEnvironmentBlock->FlsListHead; i = i->Flink )
       {
-        if ( v11 )
+        if ( v8 )
         {
-          if ( *((_QWORD *)&i[1].Flink + v10) )
-            v11(*((_QWORD *)&i[1].Flink + v10));
+          if ( *((_QWORD *)&i[1].Flink + v7) )
+            v8(*((_QWORD *)&i[1].Flink + v7));
         }
-        *((_QWORD *)&i[1].Flink + v10) = 0LL;
+        *((_QWORD *)&i[1].Flink + v7) = 0LL;
       }
-      *(_QWORD *)((char *)ProcessEnvironmentBlock->FlsCallback + v9) = 0LL;
-      RtlReleaseSRWLockExclusive((volatile signed __int64 *)((char *)ProcessEnvironmentBlock->FlsCallback + v9 + 8));
+      *(_QWORD *)((char *)ProcessEnvironmentBlock->FlsCallback + v6) = 0LL;
+      RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)((char *)ProcessEnvironmentBlock->FlsCallback + v6 + 8));
     }
   }
   RtlReleaseSRWLockExclusive(&RtlpFlsLock);
-  return v7 == 0 ? 0xC000000D : 0;
+  return v4 == 0 ? 0xC000000D : 0;
 }

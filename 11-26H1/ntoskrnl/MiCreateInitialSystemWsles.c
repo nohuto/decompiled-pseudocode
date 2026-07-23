@@ -1,13 +1,13 @@
 /*
- * XREFs of MiCreateInitialSystemWsles @ 0x140CF893C
+ * XREFs of MiCreateInitialSystemWsles @ 0x140CFECBC
  * Callers:
- *     MiInitializeSystemImageRegion @ 0x140D00924 (MiInitializeSystemImageRegion.c)
+ *     MiInitializeSystemImageRegion @ 0x140D06CC4 (MiInitializeSystemImageRegion.c)
  * Callees:
- *     MiUnlockWorkingSetShared @ 0x1402EB6C0 (MiUnlockWorkingSetShared.c)
- *     MiLockWorkingSetShared @ 0x1402EDD60 (MiLockWorkingSetShared.c)
- *     MiWalkPageTables @ 0x140326A80 (MiWalkPageTables.c)
- *     MiGetAnyMultiplexedVm @ 0x140457870 (MiGetAnyMultiplexedVm.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     MiUnlockWorkingSetShared @ 0x1402CD700 (MiUnlockWorkingSetShared.c)
+ *     MiLockWorkingSetShared @ 0x1402CFDE0 (MiLockWorkingSetShared.c)
+ *     MiWalkPageTables @ 0x140328AB0 (MiWalkPageTables.c)
+ *     MiGetAnyMultiplexedVm @ 0x14044F0E0 (MiGetAnyMultiplexedVm.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 _BOOL8 MiCreateInitialSystemWsles()
@@ -28,8 +28,8 @@ _BOOL8 MiCreateInitialSystemWsles()
   memset_0(&v6, 0, 0xC0uLL);
   AnyMultiplexedVm = MiGetAnyMultiplexedVm(1);
   v7 &= 0xFFFFFE3F;
-  v10 = qword_140E37C80;
-  v11 = qword_140E37C88 - 1 + qword_140E37C80;
+  v10 = qword_140E37E00;
+  v11 = qword_140E37E08 - 1 + qword_140E37E00;
   v12 = MiCreatePteWsle;
   v9 = AnyMultiplexedVm;
   v6 = 7;

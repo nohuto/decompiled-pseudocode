@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlPcToFileHeader @ 0x14012F670
+ * XREFs of RtlPcToFileHeader @ 0x14012F740
  * Callers:
- *     EtwpLocateDbgIdForRegEntry @ 0x1406BA0B0 (EtwpLocateDbgIdForRegEntry.c)
- *     KeSetTracepoint @ 0x140844E00 (KeSetTracepoint.c)
- *     sub_14098FE9C @ 0x14098FE9C (sub_14098FE9C.c)
+ *     EtwpLocateDbgIdForRegEntry @ 0x1406BB350 (EtwpLocateDbgIdForRegEntry.c)
+ *     KeSetTracepoint @ 0x140846060 (KeSetTracepoint.c)
+ *     sub_140990E9C @ 0x140990E9C (sub_140990E9C.c)
  * Callees:
- *     RtlpxLookupFunctionTable @ 0x1400A18B0 (RtlpxLookupFunctionTable.c)
+ *     RtlpxLookupFunctionTable @ 0x1400A17F0 (RtlpxLookupFunctionTable.c)
  */
 
 PVOID __stdcall RtlPcToFileHeader(PVOID PcValue, PVOID *BaseOfImage)
@@ -13,10 +13,10 @@ PVOID __stdcall RtlPcToFileHeader(PVOID PcValue, PVOID *BaseOfImage)
   PVOID result; // rax
   __int128 v4; // [rsp+20h] [rbp-28h] BYREF
 
-  if ( (unsigned __int64)PcValue >= *(&xmmword_140558020 + 1)
-    && (unsigned __int64)PcValue < *(&xmmword_140558020 + 1) + (unsigned int)qword_140558030 )
+  if ( (unsigned __int64)PcValue >= *(&xmmword_140559020 + 1)
+    && (unsigned __int64)PcValue < *(&xmmword_140559020 + 1) + (unsigned int)qword_140559030 )
   {
-    v4 = *(_OWORD *)&xmmword_140558020;
+    v4 = *(_OWORD *)&xmmword_140559020;
   }
   else
   {

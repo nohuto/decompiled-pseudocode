@@ -1,26 +1,26 @@
 /*
- * XREFs of ExAllocatePoolMm @ 0x1402E26E0
+ * XREFs of ExAllocatePoolMm @ 0x1402E2970
  * Callers:
  *     MiAbsorbPossibleEngineChanges @ 0x140221054 (MiAbsorbPossibleEngineChanges.c)
  *     MiAllocateAcceleratorDescriptor @ 0x1402220E0 (MiAllocateAcceleratorDescriptor.c)
- *     MiReferenceIoPages @ 0x140336500 (MiReferenceIoPages.c)
- *     MiGetHugePageToZero @ 0x140351160 (MiGetHugePageToZero.c)
- *     MiComputeIdealDpcGang @ 0x14038B91C (MiComputeIdealDpcGang.c)
- *     MiZeroPageCalibrate @ 0x1403AA5F0 (MiZeroPageCalibrate.c)
- *     MiAllocateZeroCalibrationBuffer @ 0x1403AA918 (MiAllocateZeroCalibrationBuffer.c)
- *     MiAllocateZeroPageDecisionTraceBuffer @ 0x1403B38AC (MiAllocateZeroPageDecisionTraceBuffer.c)
- *     MiLockWorkingSetForLargeMapping @ 0x140650148 (MiLockWorkingSetForLargeMapping.c)
- *     MiCombineAllPhysicalMemory @ 0x1406F9D10 (MiCombineAllPhysicalMemory.c)
- *     MiAddSecureEntry @ 0x140745D84 (MiAddSecureEntry.c)
- *     MiCreateZeroThreadContext @ 0x140837A38 (MiCreateZeroThreadContext.c)
- *     MiCreatePerNodeZeroingConductor @ 0x14085F658 (MiCreatePerNodeZeroingConductor.c)
- *     MiInitializeScrubPacket @ 0x140A4602C (MiInitializeScrubPacket.c)
+ *     MiReferenceIoPages @ 0x140336790 (MiReferenceIoPages.c)
+ *     MiGetHugePageToZero @ 0x140351300 (MiGetHugePageToZero.c)
+ *     MiComputeIdealDpcGang @ 0x14038BAFC (MiComputeIdealDpcGang.c)
+ *     MiZeroPageCalibrate @ 0x1403AA7D0 (MiZeroPageCalibrate.c)
+ *     MiAllocateZeroCalibrationBuffer @ 0x1403AAAF8 (MiAllocateZeroCalibrationBuffer.c)
+ *     MiAllocateZeroPageDecisionTraceBuffer @ 0x1403B3A8C (MiAllocateZeroPageDecisionTraceBuffer.c)
+ *     MiLockWorkingSetForLargeMapping @ 0x140650698 (MiLockWorkingSetForLargeMapping.c)
+ *     MiCombineAllPhysicalMemory @ 0x1406F9F20 (MiCombineAllPhysicalMemory.c)
+ *     MiAddSecureEntry @ 0x140745F74 (MiAddSecureEntry.c)
+ *     MiCreateZeroThreadContext @ 0x140837D38 (MiCreateZeroThreadContext.c)
+ *     MiCreatePerNodeZeroingConductor @ 0x14085F898 (MiCreatePerNodeZeroingConductor.c)
+ *     MiInitializeScrubPacket @ 0x140A462DC (MiInitializeScrubPacket.c)
  *     MmInitializeProcessor @ 0x140A89098 (MmInitializeProcessor.c)
  *     MiInitNucleus @ 0x140B41888 (MiInitNucleus.c)
  *     MiComputeMemoryNodeProcessorAssignments @ 0x140B5EFB4 (MiComputeMemoryNodeProcessorAssignments.c)
  * Callees:
  *     ExAllocatePoolWithQuotaTag @ 0x1402080C0 (ExAllocatePoolWithQuotaTag.c)
- *     ExpAllocatePoolWithTagFromNode @ 0x1402AD250 (ExpAllocatePoolWithTagFromNode.c)
+ *     ExpAllocatePoolWithTagFromNode @ 0x1402AD4E0 (ExpAllocatePoolWithTagFromNode.c)
  *     ExpPoolFlagsToPoolType @ 0x140AAEB60 (ExpPoolFlagsToPoolType.c)
  */
 

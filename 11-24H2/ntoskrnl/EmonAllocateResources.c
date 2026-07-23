@@ -1,17 +1,17 @@
 /*
- * XREFs of EmonAllocateResources @ 0x14055AD8C
+ * XREFs of EmonAllocateResources @ 0x1405589BC
  * Callers:
- *     EmonReserveProfileResourcesEnhanced @ 0x14055DD40 (EmonReserveProfileResourcesEnhanced.c)
- *     EmonReserveProfileResourcesOriginal @ 0x14055DF00 (EmonReserveProfileResourcesOriginal.c)
+ *     EmonReserveProfileResourcesEnhanced @ 0x14055B970 (EmonReserveProfileResourcesEnhanced.c)
+ *     EmonReserveProfileResourcesOriginal @ 0x14055BB30 (EmonReserveProfileResourcesOriginal.c)
  * Callees:
- *     HalpMmAllocCtxAlloc @ 0x14024BD68 (HalpMmAllocCtxAlloc.c)
- *     KeReleaseSpinLock @ 0x14024DD30 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140254B20 (KeAcquireSpinLockRaiseToDpc.c)
- *     HalpMmAllocCtxFree @ 0x14037CBAC (HalpMmAllocCtxFree.c)
- *     HalpQueryMaximumRegisteredProcessorCount @ 0x140541F70 (HalpQueryMaximumRegisteredProcessorCount.c)
- *     HalpPmuReservedResourcesProcessorCallback @ 0x140545ED8 (HalpPmuReservedResourcesProcessorCallback.c)
- *     EmonReleaseProfileResourcesInternal @ 0x14055D8D4 (EmonReleaseProfileResourcesInternal.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     HalpMmAllocCtxAlloc @ 0x14027C378 (HalpMmAllocCtxAlloc.c)
+ *     KeReleaseSpinLock @ 0x14027E340 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140285130 (KeAcquireSpinLockRaiseToDpc.c)
+ *     HalpMmAllocCtxFree @ 0x1402EA1C8 (HalpMmAllocCtxFree.c)
+ *     HalpQueryMaximumRegisteredProcessorCount @ 0x14053F86C (HalpQueryMaximumRegisteredProcessorCount.c)
+ *     HalpPmuReservedResourcesProcessorCallback @ 0x140543798 (HalpPmuReservedResourcesProcessorCallback.c)
+ *     EmonReleaseProfileResourcesInternal @ 0x14055B504 (EmonReleaseProfileResourcesInternal.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 __int64 __fastcall EmonAllocateResources(__int64 a1, __int64 a2, __int64 a3, __int64 a4, int a5, _QWORD *a6)
@@ -75,13 +75,13 @@ LABEL_16:
     goto LABEL_16;
   }
   v16 = KeAcquireSpinLockRaiseToDpc(&EmonReservedResourcesLock);
-  v17 = (_QWORD *)qword_140F8F028;
-  if ( *(__int64 **)qword_140F8F028 != &EmonReservedResourcesList )
+  v17 = (_QWORD *)qword_140F8F228;
+  if ( *(__int64 **)qword_140F8F228 != &EmonReservedResourcesList )
     __fastfail(3u);
   *v15 = &EmonReservedResourcesList;
   v15[1] = v17;
   *v17 = v15;
-  qword_140F8F028 = (__int64)v15;
+  qword_140F8F228 = (__int64)v15;
   KeReleaseSpinLock(&EmonReservedResourcesLock, v16);
   *a6 = v15;
   return (unsigned int)v11;

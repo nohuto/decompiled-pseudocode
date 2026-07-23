@@ -1,13 +1,13 @@
 /*
- * XREFs of MiFlushFileOnlyMdl @ 0x1402B5E6C
+ * XREFs of MiFlushFileOnlyMdl @ 0x1402B605C
  * Callers:
  *     MiFlushSectionInternal @ 0x14004C270 (MiFlushSectionInternal.c)
- *     MiGatherMappedPages @ 0x14007E6B0 (MiGatherMappedPages.c)
+ *     MiGatherMappedPages @ 0x14007E6A0 (MiGatherMappedPages.c)
  * Callees:
  *     MmUnmapLockedPages @ 0x140033F00 (MmUnmapLockedPages.c)
  *     MmMapLockedPagesSpecifyCache @ 0x14005C0C0 (MmMapLockedPagesSpecifyCache.c)
- *     MiPersistMemory @ 0x1402B65A0 (MiPersistMemory.c)
- *     MiPersistPage @ 0x1402B65D0 (MiPersistPage.c)
+ *     MiPersistMemory @ 0x1402B6790 (MiPersistMemory.c)
+ *     MiPersistPage @ 0x1402B67C0 (MiPersistPage.c)
  */
 
 __int64 __fastcall MiFlushFileOnlyMdl(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
@@ -24,7 +24,7 @@ __int64 __fastcall MiFlushFileOnlyMdl(__int64 a1, __int64 a2, __int64 a3, __int6
   *(_QWORD *)(a4 + 8) = 0LL;
   *(_DWORD *)a4 = 0;
   v8 = (unsigned __int64)(v7 + v6 + 4095) >> 12;
-  if ( !byte_14043A07C )
+  if ( !byte_14043B13C )
   {
     if ( (*(_BYTE *)(a2 + 10) & 5) != 0 )
       v9 = *(PVOID *)(a2 + 24);

@@ -10,9 +10,9 @@
  *     memset$thunk$772440563353939046 @ 0x180174030 (memset$thunk$772440563353939046.c)
  */
 
-__int64 __fastcall RtlpFlsSetValue(__int64 a1, __int64 *a2, int a3, __int64 a4)
+__int64 __fastcall RtlpFlsSetValue(PRTL_SRWLOCK SRWLock, unsigned __int64 *a2, int a3, __int64 a4)
 {
-  __int64 v7; // rbx
+  unsigned __int64 v7; // rbx
   unsigned int v8; // ebp
   unsigned int v9; // esi
   unsigned int v10; // ecx
@@ -20,11 +20,11 @@ __int64 __fastcall RtlpFlsSetValue(__int64 a1, __int64 *a2, int a3, __int64 a4)
   __int64 v12; // rcx
   __int64 v13; // rdi
   _OWORD *v14; // rbp
-  __int64 v15; // r12
+  unsigned __int64 v15; // r12
   unsigned int v17; // r15d
   _OWORD *v18; // rax
   __int64 v19; // rax
-  __int64 *v20; // rcx
+  PRTL_SRWLOCK *Value; // rcx
 
   if ( (unsigned int)(a3 - 1) > 0xFEE )
   {
@@ -52,15 +52,15 @@ __int64 __fastcall RtlpFlsSetValue(__int64 a1, __int64 *a2, int a3, __int64 a4)
       *(_QWORD *)(v19 + 64) = 0LL;
       *(_QWORD *)(v19 + 72) = 0LL;
       *a2 = v19;
-      RtlAcquireSRWLockExclusive(a1);
-      v20 = *(__int64 **)(a1 + 80);
-      if ( *v20 != a1 + 72 )
+      RtlAcquireSRWLockExclusive(SRWLock);
+      Value = (PRTL_SRWLOCK *)SRWLock[10].Value;
+      if ( *Value != &SRWLock[9] )
         __fastfail(3u);
-      *(_QWORD *)(v7 + 8) = v20;
-      *(_QWORD *)v7 = a1 + 72;
-      *v20 = v7;
-      *(_QWORD *)(a1 + 80) = v7;
-      RtlReleaseSRWLockExclusive(a1);
+      *(_QWORD *)(v7 + 8) = Value;
+      *(_QWORD *)v7 = SRWLock + 9;
+      *Value = (PRTL_SRWLOCK)v7;
+      SRWLock[10].Value = v7;
+      RtlReleaseSRWLockExclusive(SRWLock);
     }
     _BitScanReverse(&v10, v8);
     v11 = 1 << v10;

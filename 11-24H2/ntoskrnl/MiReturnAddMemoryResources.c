@@ -1,13 +1,13 @@
 /*
- * XREFs of MiReturnAddMemoryResources @ 0x14066E8AC
+ * XREFs of MiReturnAddMemoryResources @ 0x14066FA80
  * Callers:
- *     MiAddPhysicalMemory @ 0x1407E866C (MiAddPhysicalMemory.c)
- *     MiRemovePhysicalMemory @ 0x1407E9DAC (MiRemovePhysicalMemory.c)
+ *     MiAddPhysicalMemory @ 0x1407E8C3C (MiAddPhysicalMemory.c)
+ *     MiRemovePhysicalMemory @ 0x1407EA37C (MiRemovePhysicalMemory.c)
  * Callees:
- *     MiDeletePartitionPageNodes @ 0x14068A020 (MiDeletePartitionPageNodes.c)
- *     MiReleaseAddMemoryLocks @ 0x1407E9D5C (MiReleaseAddMemoryLocks.c)
- *     MiUnlinkHotAddFlight @ 0x1407EA0CC (MiUnlinkHotAddFlight.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     MiDeletePartitionPageNodes @ 0x14068B150 (MiDeletePartitionPageNodes.c)
+ *     MiReleaseAddMemoryLocks @ 0x1407EA32C (MiReleaseAddMemoryLocks.c)
+ *     MiUnlinkHotAddFlight @ 0x1407EA69C (MiUnlinkHotAddFlight.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall MiReturnAddMemoryResources(__int64 a1)

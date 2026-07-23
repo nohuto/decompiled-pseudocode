@@ -1,9 +1,9 @@
 /*
- * XREFs of PoDeletePowerLimitRequest @ 0x14074ABF0
+ * XREFs of PoDeletePowerLimitRequest @ 0x140748F20
  * Callers:
  *     <none>
  * Callees:
- *     PopFreePowerLimitRequest @ 0x14074B644 (PopFreePowerLimitRequest.c)
+ *     PopFreePowerLimitRequest @ 0x140749974 (PopFreePowerLimitRequest.c)
  */
 
 __int64 __fastcall PoDeletePowerLimitRequest(void *a1)

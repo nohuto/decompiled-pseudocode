@@ -1,5 +1,5 @@
 /*
- * XREFs of FsRtlUpdateDiskCounters @ 0x140121220
+ * XREFs of FsRtlUpdateDiskCounters @ 0x1401212F0
  * Callers:
  *     <none>
  * Callees:

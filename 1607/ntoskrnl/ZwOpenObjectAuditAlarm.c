@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwOpenObjectAuditAlarm @ 0x14015BF40
+ * XREFs of ZwOpenObjectAuditAlarm @ 0x14015C4B0
  * Callers:
  *     <none>
  * Callees:
@@ -22,5 +22,5 @@ NTSTATUS __stdcall ZwOpenObjectAuditAlarm(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(SubsystemName, HandleId, ObjectTypeName);
+  return KiServiceInternal(SubsystemName);
 }

@@ -1,12 +1,12 @@
 /*
- * XREFs of ExIsFastResourceHeld2 @ 0x140413A7C
+ * XREFs of ExIsFastResourceHeld2 @ 0x140413E10
  * Callers:
- *     ExIsFastResourceHeld @ 0x1403CA490 (ExIsFastResourceHeld.c)
+ *     ExIsFastResourceHeld @ 0x1403CA670 (ExIsFastResourceHeld.c)
  * Callees:
- *     ExpFindFastOwnerEntryForThread2 @ 0x1404159F8 (ExpFindFastOwnerEntryForThread2.c)
- *     ExpIsFastResourceOwned @ 0x140415A5C (ExpIsFastResourceOwned.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     ExpFindFastOwnerEntryForThread2 @ 0x140415D8C (ExpFindFastOwnerEntryForThread2.c)
+ *     ExpIsFastResourceOwned @ 0x140415DF0 (ExpIsFastResourceOwned.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
  */
 
 char __fastcall ExIsFastResourceHeld2(ULONG_PTR BugCheckParameter2, __int64 a2)
@@ -56,7 +56,7 @@ char __fastcall ExIsFastResourceHeld2(ULONG_PTR BugCheckParameter2, __int64 a2)
     }
     while ( v12 != v11 );
     if ( (v11 & 0x200000) != 0 )
-      KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+      KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
   }
   _enable();
   if ( !v9 )
@@ -65,7 +65,7 @@ char __fastcall ExIsFastResourceHeld2(ULONG_PTR BugCheckParameter2, __int64 a2)
     return 1;
   v13 = KeGetCurrentIrql();
   __writecr8(2uLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && v13 <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && v13 <= 0xFu )
   {
     v14 = KeGetCurrentPrcb()->SchedulerAssist;
     v15 = 4;
@@ -75,10 +75,10 @@ char __fastcall ExIsFastResourceHeld2(ULONG_PTR BugCheckParameter2, __int64 a2)
     v14[5] = (_DWORD)SchedulerAssist;
   }
   v6 = ExpFindFastOwnerEntryForThread2(CurrentThread, v3, (_DWORD)SchedulerAssist, 0) != 0;
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v16 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v16 <= 0xFu && v13 <= 0xFu && v16 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v16 <= 0xFu && v13 <= 0xFu && v16 >= 2u )
     {
       v17 = KeGetCurrentPrcb();
       v18 = v17->SchedulerAssist;
@@ -86,7 +86,7 @@ char __fastcall ExIsFastResourceHeld2(ULONG_PTR BugCheckParameter2, __int64 a2)
       v20 = (v19 & v18[5]) == 0;
       v18[5] &= v19;
       if ( v20 )
-        KiRemoveSystemWorkPriorityKick(v17);
+        KiRemoveSystemWorkPriorityKick((__int64)v17);
     }
   }
   __writecr8(v13);

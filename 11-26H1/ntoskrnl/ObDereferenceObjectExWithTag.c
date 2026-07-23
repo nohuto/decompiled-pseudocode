@@ -1,12 +1,12 @@
 /*
- * XREFs of ObDereferenceObjectExWithTag @ 0x14047DD60
+ * XREFs of ObDereferenceObjectExWithTag @ 0x1404776D0
  * Callers:
- *     ObpCreateHandle @ 0x14092CA60 (ObpCreateHandle.c)
- *     MiCreateImageOrDataSection @ 0x1409BAFEC (MiCreateImageOrDataSection.c)
+ *     ObpCreateHandle @ 0x140908590 (ObpCreateHandle.c)
+ *     MiCreateImageOrDataSection @ 0x14098BFCC (MiCreateImageOrDataSection.c)
  * Callees:
- *     ObpPushStackInfo @ 0x1402659F0 (ObpPushStackInfo.c)
- *     ObpDeferObjectDeletion @ 0x1403DD9F0 (ObpDeferObjectDeletion.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
+ *     ObpPushStackInfo @ 0x140264F60 (ObpPushStackInfo.c)
+ *     ObpDeferObjectDeletion @ 0x1403E0BE0 (ObpDeferObjectDeletion.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall ObDereferenceObjectExWithTag(ULONG_PTR BugCheckParameter2, int a2, unsigned int a3)

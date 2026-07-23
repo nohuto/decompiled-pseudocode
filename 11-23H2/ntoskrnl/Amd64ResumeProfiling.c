@@ -1,5 +1,5 @@
 /*
- * XREFs of Amd64ResumeProfiling @ 0x14052A020
+ * XREFs of Amd64ResumeProfiling @ 0x14052A570
  * Callers:
  *     <none>
  * Callees:

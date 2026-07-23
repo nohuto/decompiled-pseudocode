@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlDowncaseUnicodeString @ 0x1406970E0
+ * XREFs of RtlDowncaseUnicodeString @ 0x1405F6630
  * Callers:
- *     ExpKdPullRemoteFileForUser @ 0x14095B9CC (ExpKdPullRemoteFileForUser.c)
+ *     ExpKdPullRemoteFileForUser @ 0x14095BB9C (ExpKdPullRemoteFileForUser.c)
  * Callees:
- *     NLS_DOWNCASE @ 0x1402B1FF0 (NLS_DOWNCASE.c)
- *     ExpAllocateStringRoutine @ 0x1406A0F60 (ExpAllocateStringRoutine.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     NLS_DOWNCASE @ 0x1402301A0 (NLS_DOWNCASE.c)
+ *     ExpAllocateStringRoutine @ 0x1406006F0 (ExpAllocateStringRoutine.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 NTSTATUS __stdcall RtlDowncaseUnicodeString(

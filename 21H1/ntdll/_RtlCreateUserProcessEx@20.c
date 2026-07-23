@@ -7,28 +7,33 @@
  *     _RtlpCreateUserProcess@24 @ 0x4B342119 (_RtlpCreateUserProcess@24.c)
  */
 
-int __stdcall RtlCreateUserProcessEx(int a1, int a2, char a3, int a4, void *a5)
+NTSTATUS __cdecl RtlCreateUserProcessEx(
+        PUNICODE_STRING NtImagePathName,
+        PRTL_USER_PROCESS_PARAMETERS ProcessParameters,
+        BOOLEAN InheritHandles,
+        PRTL_USER_PROCESS_EXTENDED_PARAMETERS ProcessExtendedParameters,
+        PRTL_USER_PROCESS_INFORMATION ProcessInformation)
 {
-  int v5; // eax
-  int v6; // ecx
+  PRTL_USER_PROCESS_PARAMETERS v5; // eax
+  ULONG v6; // ecx
 
-  if ( !a1 )
+  if ( !NtImagePathName )
     return -1073741811;
-  if ( !a2 )
+  if ( !ProcessParameters )
     return -1073741811;
-  v5 = RtlNormalizeProcessParams(a2);
+  v5 = RtlNormalizeProcessParams(ProcessParameters);
   if ( !v5 )
     return -1073741811;
   v6 = 0;
-  if ( a3 )
+  if ( InheritHandles )
     v6 = 4;
   else
-    *(_DWORD *)(v5 + 44) = 0;
-  if ( (*(_DWORD *)(v5 + 8) & 0x40000) != 0 )
+    v5->CurrentDirectory.Handle = 0;
+  if ( (v5->Flags & 0x40000) != 0 )
     v6 |= 0x80u;
-  if ( (*(_DWORD *)(v5 + 8) & 0x400000) != 0 )
+  if ( (v5->Flags & 0x400000) != 0 )
     v6 |= 0x40u;
-  if ( (*(_DWORD *)(v5 + 8) & 0x800000) != 0 )
+  if ( (v5->Flags & 0x800000) != 0 )
     v6 |= 0x40000u;
-  return RtlpCreateUserProcess(v6, 1, a4, a5);
+  return RtlpCreateUserProcess(v6, 1u, (int)ProcessExtendedParameters, ProcessInformation);
 }

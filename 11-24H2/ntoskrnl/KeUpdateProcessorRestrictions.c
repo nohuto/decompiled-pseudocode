@@ -1,10 +1,10 @@
 /*
- * XREFs of KeUpdateProcessorRestrictions @ 0x1405B5194
+ * XREFs of KeUpdateProcessorRestrictions @ 0x1405B245C
  * Callers:
- *     PpmParkEvaluateRestriction @ 0x1404EE4B8 (PpmParkEvaluateRestriction.c)
+ *     PpmParkEvaluateRestriction @ 0x1404E5C48 (PpmParkEvaluateRestriction.c)
  * Callees:
- *     KiGetNumberOfActiveSubNodes @ 0x1404397E8 (KiGetNumberOfActiveSubNodes.c)
- *     KiInstallSubNodeHeteroSets @ 0x1404AD6A0 (KiInstallSubNodeHeteroSets.c)
+ *     KiGetNumberOfActiveSubNodes @ 0x14042C3A8 (KiGetNumberOfActiveSubNodes.c)
+ *     KiInstallSubNodeHeteroSets @ 0x1404A7D80 (KiInstallSubNodeHeteroSets.c)
  */
 
 char __fastcall KeUpdateProcessorRestrictions(unsigned __int16 a1, unsigned int a2, unsigned int *a3, __int64 a4)

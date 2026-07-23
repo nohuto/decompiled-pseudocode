@@ -10,11 +10,8 @@
  *     RtlReleaseSRWLockExclusive @ 0x180038940 (RtlReleaseSRWLockExclusive.c)
  */
 
-signed __int64 __fastcall RtlpStdLockRelease(volatile signed __int64 *a1)
+void __fastcall RtlpStdLockRelease(_RTL_SRWLOCK *a1)
 {
-  signed __int64 result; // rax
-
   if ( !byte_18015F3E8 )
-    return RtlReleaseSRWLockExclusive(a1);
-  return result;
+    RtlReleaseSRWLockExclusive(a1);
 }

@@ -3,7 +3,7 @@
  * Callers:
  *     <none>
  * Callees:
- *     ExpConvertFastResourceExclusiveToShared @ 0x14039C944 (ExpConvertFastResourceExclusiveToShared.c)
+ *     sub_14039C944 @ 0x14039C944 (sub_14039C944.c)
  *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
  */
 
@@ -20,7 +20,7 @@ __int64 __fastcall ExConvertFastResourceExclusiveToShared(ULONG_PTR BugCheckPara
   CurrentThread = KeGetCurrentThread();
   if ( CurrentIrql > 1u )
     KeBugCheckEx(0x1C6u, 0LL, CurrentIrql, 1uLL, 0LL);
-  if ( !CurrentIrql && (CurrentThread->MiscFlags & 0x400) == 0 && !CurrentThread->WaitBlock[3].SpareLong )
+  if ( !CurrentIrql && (*((_DWORD *)CurrentThread + 29) & 0x400) == 0 && !*((_DWORD *)CurrentThread + 121) )
     KeBugCheckEx(0x1C6u, 7uLL, 0LL, 0LL, 0LL);
   v4 = *(_QWORD *)(a2 + 32);
   if ( (struct _KTHREAD *)v4 != CurrentThread )
@@ -34,5 +34,5 @@ __int64 __fastcall ExConvertFastResourceExclusiveToShared(ULONG_PTR BugCheckPara
     KeBugCheckEx(0x1C6u, 0xBuLL, a2, ((unsigned __int64)(v5 & 4) << 14) | 1, 0LL);
   if ( !*(_BYTE *)(a2 + 18) || *(_QWORD *)(a2 + 40) != a2 + 40 )
     KeBugCheckEx(0x1C6u, 0x13uLL, BugCheckParameter2, 0LL, 0LL);
-  return ExpConvertFastResourceExclusiveToShared(BugCheckParameter2, a2);
+  return sub_14039C944(BugCheckParameter2, a2);
 }

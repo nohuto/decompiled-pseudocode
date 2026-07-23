@@ -1,11 +1,11 @@
 /*
- * XREFs of MiCaptureSectionCreateExtendedParameters @ 0x14070775C
+ * XREFs of MiCaptureSectionCreateExtendedParameters @ 0x14071EB3C
  * Callers:
- *     MmCreateSectionEx @ 0x1406D4704 (MmCreateSectionEx.c)
- *     MiCreateSectionCommon @ 0x140707430 (MiCreateSectionCommon.c)
+ *     MmCreateSectionEx @ 0x1406AB9E4 (MmCreateSectionEx.c)
+ *     MiCreateSectionCommon @ 0x14071E810 (MiCreateSectionCommon.c)
  * Callees:
- *     RtlULongLongMult @ 0x14024ED98 (RtlULongLongMult.c)
- *     ProbeForWrite @ 0x1406547A0 (ProbeForWrite.c)
+ *     RtlULongLongMult @ 0x1402F35E8 (RtlULongLongMult.c)
+ *     ProbeForWrite @ 0x1406495C0 (ProbeForWrite.c)
  */
 
 __int64 __fastcall MiCaptureSectionCreateExtendedParameters(

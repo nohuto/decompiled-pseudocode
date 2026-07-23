@@ -1,11 +1,11 @@
 /*
- * XREFs of CcAllocateVacbLevels @ 0x1404764C0
+ * XREFs of CcAllocateVacbLevels @ 0x14047255C
  * Callers:
- *     CcSetVacbLargeOffset @ 0x1402D5FE0 (CcSetVacbLargeOffset.c)
- *     CcReferenceFileOffset @ 0x1404CFBE0 (CcReferenceFileOffset.c)
+ *     CcSetVacbLargeOffset @ 0x140357260 (CcSetVacbLargeOffset.c)
+ *     CcReferenceFileOffset @ 0x1404C8C90 (CcReferenceFileOffset.c)
  * Callees:
- *     ExAllocateFromNPagedLookasideList @ 0x140248B90 (ExAllocateFromNPagedLookasideList.c)
- *     CcFreeUnusedVacbLevels @ 0x1402D672C (CcFreeUnusedVacbLevels.c)
+ *     ExAllocateFromNPagedLookasideList @ 0x1402E2DD0 (ExAllocateFromNPagedLookasideList.c)
+ *     CcFreeUnusedVacbLevels @ 0x1403579AC (CcFreeUnusedVacbLevels.c)
  */
 
 char __fastcall CcAllocateVacbLevels(unsigned int a1, char a2, __int64 a3)

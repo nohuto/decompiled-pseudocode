@@ -7,38 +7,38 @@
  *     _RtlSubtreePredecessor@4 @ 0x4B2E7900 (_RtlSubtreePredecessor@4.c)
  */
 
-void __stdcall RtlDeleteNoSplay(_DWORD *a1, _DWORD *a2)
+void __cdecl RtlDeleteNoSplay(PRTL_SPLAY_LINKS Links, PRTL_SPLAY_LINKS *Root)
 {
-  _DWORD *v2; // ecx
-  int v3; // eax
+  _RTL_SPLAY_LINKS *LeftChild; // ecx
+  _RTL_SPLAY_LINKS *v3; // eax
 
-  if ( a1[1] && a1[2] )
+  if ( Links->LeftChild && Links->RightChild )
   {
-    v3 = RtlSubtreePredecessor(a1);
-    if ( (_DWORD *)*a1 == a1 )
-      *a2 = v3;
-    SwapSplayLinks(v3, a1);
+    v3 = RtlSubtreePredecessor(Links);
+    if ( Links->Parent == Links )
+      *Root = v3;
+    SwapSplayLinks(v3, Links);
   }
-  v2 = (_DWORD *)a1[1];
-  if ( v2 || (v2 = (_DWORD *)a1[2]) != 0 )
+  LeftChild = Links->LeftChild;
+  if ( LeftChild || (LeftChild = Links->RightChild) != 0 )
   {
-    if ( (_DWORD *)*a1 == a1 )
+    if ( Links->Parent == Links )
     {
-      *v2 = v2;
-      *a2 = v2;
+      LeftChild->Parent = LeftChild;
+      *Root = LeftChild;
     }
     else
     {
-      *(_DWORD *)(4 * (*(_DWORD *)(*a1 + 4) != (_DWORD)a1) + 4 + *a1) = v2;
-      *v2 = *a1;
+      *((_DWORD *)&Links->Parent->LeftChild + (Links->Parent->LeftChild != Links)) = LeftChild;
+      LeftChild->Parent = Links->Parent;
     }
   }
-  else if ( (_DWORD *)*a1 == a1 )
+  else if ( Links->Parent == Links )
   {
-    *a2 = 0;
+    *Root = 0;
   }
   else
   {
-    *(_DWORD *)(4 * (*(_DWORD *)(*a1 + 4) != (_DWORD)a1) + 4 + *a1) = 0;
+    *((_DWORD *)&Links->Parent->LeftChild + (Links->Parent->LeftChild != Links)) = 0;
   }
 }

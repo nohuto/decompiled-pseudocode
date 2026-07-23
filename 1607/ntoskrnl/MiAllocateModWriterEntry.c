@@ -1,11 +1,11 @@
 /*
- * XREFs of MiAllocateModWriterEntry @ 0x140102A50
+ * XREFs of MiAllocateModWriterEntry @ 0x1401007D0
  * Callers:
- *     MiMappedPageWriter @ 0x14013D554 (MiMappedPageWriter.c)
- *     MiAllocateMappedWriterMdls @ 0x14014AB7C (MiAllocateMappedWriterMdls.c)
- *     MiCreatePagefile @ 0x140568D38 (MiCreatePagefile.c)
+ *     MiMappedPageWriter @ 0x14013DAC4 (MiMappedPageWriter.c)
+ *     MiAllocateMappedWriterMdls @ 0x14014B0EC (MiAllocateMappedWriterMdls.c)
+ *     MiCreatePagefile @ 0x140569278 (MiCreatePagefile.c)
  * Callees:
- *     MiChargeForWriteInProgressPage @ 0x140102D9C (MiChargeForWriteInProgressPage.c)
+ *     MiChargeForWriteInProgressPage @ 0x140100B1C (MiChargeForWriteInProgressPage.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
  */

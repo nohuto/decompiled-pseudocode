@@ -1,14 +1,14 @@
 /*
- * XREFs of KdpCopyMemoryChunks @ 0x1406F2F08
+ * XREFs of KdpCopyMemoryChunks @ 0x1406F2BA0
  * Callers:
- *     KdpSetCommonState @ 0x140083548 (KdpSetCommonState.c)
- *     KdSystemDebugControl @ 0x14064E858 (KdSystemDebugControl.c)
- *     KdpPrintString @ 0x1406F2000 (KdpPrintString.c)
- *     KdLogDbgPrint @ 0x1406F2230 (KdLogDbgPrint.c)
- *     KdpCreateRemoteFile @ 0x1406F2438 (KdpCreateRemoteFile.c)
- *     KdpReportLoadSymbolsStateChange @ 0x1406F2934 (KdpReportLoadSymbolsStateChange.c)
- *     KdpSendWaitContinue @ 0x1406F2AAC (KdpSendWaitContinue.c)
- *     KdpReadVirtualMemory @ 0x1406F2E54 (KdpReadVirtualMemory.c)
+ *     KdpSetCommonState @ 0x1400841C8 (KdpSetCommonState.c)
+ *     KdSystemDebugControl @ 0x14064E93C (KdSystemDebugControl.c)
+ *     KdpCreateRemoteFile @ 0x1406F20D0 (KdpCreateRemoteFile.c)
+ *     KdpReportLoadSymbolsStateChange @ 0x1406F25CC (KdpReportLoadSymbolsStateChange.c)
+ *     KdpSendWaitContinue @ 0x1406F2744 (KdpSendWaitContinue.c)
+ *     KdpReadVirtualMemory @ 0x1406F2AEC (KdpReadVirtualMemory.c)
+ *     KdLogDbgPrint @ 0x1406F2CFC (KdLogDbgPrint.c)
+ *     KdpPrintString @ 0x1406F2F8C (KdpPrintString.c)
  *     KdpSysReadControlSpace @ 0x1406F343C (KdpSysReadControlSpace.c)
  *     KdpSysWriteControlSpace @ 0x1406F3668 (KdpSysWriteControlSpace.c)
  *     KdpReportCommandStringStateChange @ 0x1406F3CE0 (KdpReportCommandStringStateChange.c)
@@ -20,7 +20,7 @@
  *     KdpCopyCodeStream @ 0x1406F5FA4 (KdpCopyCodeStream.c)
  *     KdpPromptString @ 0x1406F65C4 (KdpPromptString.c)
  * Callees:
- *     MmDbgCopyMemory @ 0x140083624 (MmDbgCopyMemory.c)
+ *     MmDbgCopyMemory @ 0x1400842A4 (MmDbgCopyMemory.c)
  */
 
 __int64 __fastcall KdpCopyMemoryChunks(char *a1, __int64 a2, unsigned int a3, unsigned int a4, int a5, _DWORD *a6)

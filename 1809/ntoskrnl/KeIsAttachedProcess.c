@@ -1,5 +1,5 @@
 /*
- * XREFs of KeIsAttachedProcess @ 0x1400B6B90
+ * XREFs of KeIsAttachedProcess @ 0x1400B6AD0
  * Callers:
  *     <none>
  * Callees:

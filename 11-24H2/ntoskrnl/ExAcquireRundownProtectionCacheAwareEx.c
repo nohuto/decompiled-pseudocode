@@ -1,20 +1,17 @@
 /*
- * XREFs of ExAcquireRundownProtectionCacheAwareEx @ 0x14040CCA0
+ * XREFs of ExAcquireRundownProtectionCacheAwareEx @ 0x140405330
  * Callers:
- *     EtwpEventWriteFull @ 0x140328590 (EtwpEventWriteFull.c)
- *     EtwpFailLogging @ 0x14032A9F0 (EtwpFailLogging.c)
- *     RawBeginOperation @ 0x14040CC60 (RawBeginOperation.c)
- *     EtwpCompressionDpc @ 0x140651160 (EtwpCompressionDpc.c)
- *     EtwInitialize @ 0x1407A6460 (EtwInitialize.c)
- *     PeriodicCaptureStateTimerCallback @ 0x1407AD9C0 (PeriodicCaptureStateTimerCallback.c)
- *     EtwpStartLogger @ 0x140831694 (EtwpStartLogger.c)
- *     EtwpStopTrace @ 0x1408325A4 (EtwpStopTrace.c)
- *     EtwpUpdateEnableMask @ 0x14083658C (EtwpUpdateEnableMask.c)
- *     EtwpAddRegEntryToGroup @ 0x140839260 (EtwpAddRegEntryToGroup.c)
- *     EtwpRegisterUMProvider @ 0x14083C6F0 (EtwpRegisterUMProvider.c)
- *     EtwpTrackProviderRegistration @ 0x14083DAD0 (EtwpTrackProviderRegistration.c)
- *     EtwpWriteUserEvent @ 0x140920F90 (EtwpWriteUserEvent.c)
- *     EtwpAcquireLoggerContextByLoggerId @ 0x140926F50 (EtwpAcquireLoggerContextByLoggerId.c)
+ *     EtwpFailLogging @ 0x1403FABA0 (EtwpFailLogging.c)
+ *     RawBeginOperation @ 0x1404052F0 (RawBeginOperation.c)
+ *     EtwpCompressionDpc @ 0x14064F860 (EtwpCompressionDpc.c)
+ *     EtwInitialize @ 0x1407A65A0 (EtwInitialize.c)
+ *     PeriodicCaptureStateTimerCallback @ 0x1407ADE10 (PeriodicCaptureStateTimerCallback.c)
+ *     EtwpUpdateEnableMask @ 0x14083745C (EtwpUpdateEnableMask.c)
+ *     EtwpRegisterUMProvider @ 0x140838D50 (EtwpRegisterUMProvider.c)
+ *     EtwpAcquireLoggerContextByLoggerId @ 0x140929090 (EtwpAcquireLoggerContextByLoggerId.c)
+ *     EtwpStartLogger @ 0x1409D017C (EtwpStartLogger.c)
+ *     EtwpStopTrace @ 0x1409D2184 (EtwpStopTrace.c)
+ *     EtwpWriteUserEvent @ 0x140AD78A0 (EtwpWriteUserEvent.c)
  * Callees:
  *     <none>
  */

@@ -1,23 +1,23 @@
 /*
- * XREFs of CcAcquireByteRangeForWrite @ 0x1400CBDC0
+ * XREFs of CcAcquireByteRangeForWrite @ 0x1400C9C60
  * Callers:
- *     CcNotifyOfMappedWrite @ 0x14002078C (CcNotifyOfMappedWrite.c)
- *     CcFlushCachePriv @ 0x1400E8E10 (CcFlushCachePriv.c)
+ *     CcNotifyOfMappedWrite @ 0x14002030C (CcNotifyOfMappedWrite.c)
+ *     CcFlushCachePriv @ 0x1400E6CB0 (CcFlushCachePriv.c)
  * Callees:
- *     KeReleaseGuardedMutex @ 0x14000CA40 (KeReleaseGuardedMutex.c)
- *     ExAcquireFastMutex @ 0x14002D0A0 (ExAcquireFastMutex.c)
- *     PsBoostThreadIoEx @ 0x14002D440 (PsBoostThreadIoEx.c)
- *     ExAcquireResourceExclusiveLite @ 0x140068160 (ExAcquireResourceExclusiveLite.c)
- *     DbgPrintEx @ 0x140081B0C (DbgPrintEx.c)
- *     FsRtlIsNtstatusExpected @ 0x1400AB6F8 (FsRtlIsNtstatusExpected.c)
- *     CcFindBcb @ 0x1400CB15C (CcFindBcb.c)
- *     CcInsertIntoCleanSharedCacheMapList @ 0x1400CBCE8 (CcInsertIntoCleanSharedCacheMapList.c)
- *     CcFindBitmapRangeToClean @ 0x1400CC834 (CcFindBitmapRangeToClean.c)
- *     CcDeductDirtyPages @ 0x1400CC864 (CcDeductDirtyPages.c)
- *     CcUnpinFileDataEx @ 0x1400CF860 (CcUnpinFileDataEx.c)
- *     KeAcquireQueuedSpinLock @ 0x1400E8D30 (KeAcquireQueuedSpinLock.c)
- *     KeReleaseQueuedSpinLock @ 0x1400E8DA0 (KeReleaseQueuedSpinLock.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
+ *     KeReleaseGuardedMutex @ 0x14000C5C0 (KeReleaseGuardedMutex.c)
+ *     ExAcquireFastMutex @ 0x14002CC20 (ExAcquireFastMutex.c)
+ *     PsBoostThreadIoEx @ 0x14002CFC0 (PsBoostThreadIoEx.c)
+ *     ExAcquireResourceExclusiveLite @ 0x140067CE0 (ExAcquireResourceExclusiveLite.c)
+ *     DbgPrintEx @ 0x140084C90 (DbgPrintEx.c)
+ *     FsRtlIsNtstatusExpected @ 0x1400A9C60 (FsRtlIsNtstatusExpected.c)
+ *     CcFindBcb @ 0x1400C8FFC (CcFindBcb.c)
+ *     CcInsertIntoCleanSharedCacheMapList @ 0x1400C9B88 (CcInsertIntoCleanSharedCacheMapList.c)
+ *     CcFindBitmapRangeToClean @ 0x1400CA6D4 (CcFindBitmapRangeToClean.c)
+ *     CcDeductDirtyPages @ 0x1400CA704 (CcDeductDirtyPages.c)
+ *     CcUnpinFileDataEx @ 0x1400CD700 (CcUnpinFileDataEx.c)
+ *     KeAcquireQueuedSpinLock @ 0x1400E6BD0 (KeAcquireQueuedSpinLock.c)
+ *     KeReleaseQueuedSpinLock @ 0x1400E6C40 (KeReleaseQueuedSpinLock.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
  */
 
 bool __fastcall CcAcquireByteRangeForWrite(

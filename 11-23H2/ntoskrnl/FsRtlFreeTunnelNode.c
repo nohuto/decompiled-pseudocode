@@ -1,10 +1,10 @@
 /*
- * XREFs of FsRtlFreeTunnelNode @ 0x140326EE8
+ * XREFs of FsRtlFreeTunnelNode @ 0x140327178
  * Callers:
- *     FsRtlRemoveNodeFromTunnel @ 0x140326D8C (FsRtlRemoveNodeFromTunnel.c)
- *     FsRtlAddToTunnelCacheEx @ 0x14079ECC0 (FsRtlAddToTunnelCacheEx.c)
+ *     FsRtlRemoveNodeFromTunnel @ 0x14032701C (FsRtlRemoveNodeFromTunnel.c)
+ *     FsRtlAddToTunnelCacheEx @ 0x14079EEB0 (FsRtlAddToTunnelCacheEx.c)
  * Callees:
- *     ExFreeToNPagedLookasideList @ 0x1402B6B70 (ExFreeToNPagedLookasideList.c)
+ *     ExFreeToNPagedLookasideList @ 0x1402B6E00 (ExFreeToNPagedLookasideList.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

@@ -70,16 +70,19 @@ unsigned __int64 __fastcall RtlpHpLargeFree(__int128 *a1, unsigned __int64 a2, u
   }
   if ( v7 )
   {
-    RtlRbRemoveNode((unsigned __int64 *)a1 + 9, v7);
+    RtlRbRemoveNode((PRTL_RB_TREE)((char *)a1 + 72), (PRTL_BALANCED_NODE)v7);
     if ( (v4 & 1) == 0 )
     {
       if ( (*(_DWORD *)a1 & 1) != 0 )
       {
         ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)a1 + 16);
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
           CurrentIrql = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v6 <= 0xFu && CurrentIrql >= 2u )
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+            && CurrentIrql <= 0xFu
+            && (unsigned __int8)v6 <= 0xFu
+            && CurrentIrql >= 2u )
           {
             CurrentPrcb = KeGetCurrentPrcb();
             SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -125,10 +128,10 @@ unsigned __int64 __fastcall RtlpHpLargeFree(__int128 *a1, unsigned __int64 a2, u
       if ( (*(_DWORD *)a1 & 1) != 0 )
       {
         ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)a1 + 16);
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
           v21 = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && v21 <= 0xFu && (unsigned __int8)v6 <= 0xFu && v21 >= 2u )
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v21 <= 0xFu && (unsigned __int8)v6 <= 0xFu && v21 >= 2u )
           {
             v22 = KeGetCurrentPrcb();
             v23 = v22->SchedulerAssist;

@@ -1,15 +1,15 @@
 /*
- * XREFs of MiMakePageBad @ 0x1402CF128
+ * XREFs of MiMakePageBad @ 0x1402CF318
  * Callers:
- *     MiScrubLargeMappedPage @ 0x1402CF238 (MiScrubLargeMappedPage.c)
- *     MiScrubNode @ 0x1402CF6C8 (MiScrubNode.c)
- *     MiScrubProcessPhysicalPages @ 0x140850350 (MiScrubProcessPhysicalPages.c)
+ *     MiScrubLargeMappedPage @ 0x1402CF428 (MiScrubLargeMappedPage.c)
+ *     MiScrubNode @ 0x1402CF8B8 (MiScrubNode.c)
+ *     MiScrubProcessPhysicalPages @ 0x1408515B0 (MiScrubProcessPhysicalPages.c)
  * Callees:
  *     MiLockPageInline @ 0x14002CE40 (MiLockPageInline.c)
  *     MiChargeResident @ 0x14002DF50 (MiChargeResident.c)
  *     MiInsertPageInList @ 0x140039FD0 (MiInsertPageInList.c)
  *     MiChargeCommit @ 0x14004CF20 (MiChargeCommit.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 void __fastcall MiMakePageBad(ULONG_PTR a1, char a2)
@@ -26,10 +26,10 @@ void __fastcall MiMakePageBad(ULONG_PTR a1, char a2)
   else
     v5 = 17;
   v6 = (*(_QWORD *)(a1 + 40) >> 40) & 0x3FFLL;
-  v7 = *(ULONG_PTR **)(qword_14043A748 + 8 * v6);
+  v7 = *(ULONG_PTR **)(qword_14043B808 + 8 * v6);
   if ( (*(_BYTE *)(a1 + 35) & 0x40) == 0 )
   {
-    MiChargeCommit(*(_QWORD *)(qword_14043A748 + 8 * v6), 1uLL, 4u);
+    MiChargeCommit(*(_QWORD *)(qword_14043B808 + 8 * v6), 1uLL, 4u);
     MiChargeResident(v7, 1uLL, 0xFFFFFFFFLL);
     *(_BYTE *)(a1 + 35) |= 0x40u;
   }
@@ -46,5 +46,5 @@ void __fastcall MiMakePageBad(ULONG_PTR a1, char a2)
     }
     __writecr8(v5);
   }
-  _InterlockedIncrement(&dword_14043A87C);
+  _InterlockedIncrement(&dword_14043B93C);
 }

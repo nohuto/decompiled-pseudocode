@@ -1,12 +1,12 @@
 /*
  * XREFs of IoCreateController @ 0x140861240
  * Callers:
- *     DifIoCreateControllerWrapper @ 0x14060D950 (DifIoCreateControllerWrapper.c)
+ *     sub_14060D950 @ 0x14060D950 (sub_14060D950.c)
  * Callees:
  *     KeInitializeDeviceQueue @ 0x1402D3260 (KeInitializeDeviceQueue.c)
  *     memset @ 0x140435E00 (memset.c)
- *     ObInsertObjectEx @ 0x140729C30 (ObInsertObjectEx.c)
- *     ObCreateObjectEx @ 0x14072B3B0 (ObCreateObjectEx.c)
+ *     sub_140729C30 @ 0x140729C30 (sub_140729C30.c)
+ *     sub_14072B3B0 @ 0x14072B3B0 (sub_14072B3B0.c)
  *     ObCloseHandle @ 0x14074F6A0 (ObCloseHandle.c)
  */
 
@@ -26,14 +26,14 @@ PCONTROLLER_OBJECT __stdcall IoCreateController(ULONG Size)
   v2 = Size;
   v5[0] = 48LL;
   v7 = 0;
-  v6 = IopCaseInsensitive != 0 ? 576 : 512;
+  v6 = dword_140C0C628 != 0 ? 576 : 512;
   Object = 0LL;
   Handle = 0LL;
   v5[1] = 0LL;
   v5[2] = 0LL;
   v8 = 0LL;
-  if ( (int)ObCreateObjectEx(0, (_DWORD *)IoControllerObjectType, (int)v5, 0, v4, Size + 72, 0, 0, &Object, 0LL) >= 0
-    && (int)ObInsertObjectEx((char *)Object, 0LL, 3u, 1, 0, (__int64)&Object, &Handle) >= 0 )
+  if ( (int)sub_14072B3B0(0, (_DWORD *)qword_140D07000, (int)v5, 0, v4, Size + 72, 0, 0, &Object, 0LL) >= 0
+    && (int)sub_140729C30((char *)Object, 0LL, 3, 1, 0, (__int64)&Object, &Handle) >= 0 )
   {
     ObCloseHandle(Handle, 0);
     v1 = (struct _CONTROLLER_OBJECT *)Object;

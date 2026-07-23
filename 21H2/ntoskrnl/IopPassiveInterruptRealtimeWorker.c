@@ -1,10 +1,10 @@
 /*
- * XREFs of IopPassiveInterruptRealtimeWorker @ 0x1403CF020
+ * XREFs of IopPassiveInterruptRealtimeWorker @ 0x1403CF190
  * Callers:
  *     <none>
  * Callees:
- *     KeRemoveQueue @ 0x140202DD0 (KeRemoveQueue.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     KeRemoveQueue @ 0x1402A7710 (KeRemoveQueue.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
  */
 
 void __fastcall __noreturn IopPassiveInterruptRealtimeWorker(PRKQUEUE Queue)

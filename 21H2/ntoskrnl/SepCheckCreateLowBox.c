@@ -1,14 +1,14 @@
 /*
- * XREFs of SepCheckCreateLowBox @ 0x1406BF634
+ * XREFs of SepCheckCreateLowBox @ 0x14061E544
  * Callers:
- *     NtCreateLowBoxToken @ 0x140676580 (NtCreateLowBoxToken.c)
+ *     NtCreateLowBoxToken @ 0x140669C50 (NtCreateLowBoxToken.c)
  * Callees:
- *     SeCaptureSubjectContext @ 0x140655B30 (SeCaptureSubjectContext.c)
- *     SeReleaseSubjectContext @ 0x1406568F0 (SeReleaseSubjectContext.c)
- *     RtlIsParentOfChildAppContainer @ 0x140673594 (RtlIsParentOfChildAppContainer.c)
+ *     SeCaptureSubjectContext @ 0x14064A950 (SeCaptureSubjectContext.c)
+ *     SeReleaseSubjectContext @ 0x14064B710 (SeReleaseSubjectContext.c)
+ *     RtlIsParentOfChildAppContainer @ 0x1406687C4 (RtlIsParentOfChildAppContainer.c)
  */
 
-__int64 __fastcall SepCheckCreateLowBox(PSID a1)
+__int64 __fastcall SepCheckCreateLowBox(PSID ChildAppContainerSid)
 {
   int IsParentOfChildAppContainer; // ebx
   char v3; // di
@@ -35,7 +35,7 @@ __int64 __fastcall SepCheckCreateLowBox(PSID a1)
   IsParentOfChildAppContainer = *((_DWORD *)ClientToken + 50) & 0x2000;
 LABEL_4:
   if ( !IsParentOfChildAppContainer && v3 && (*((_DWORD *)ClientToken + 50) & 0x4000) != 0 )
-    IsParentOfChildAppContainer = (unsigned __int8)RtlIsParentOfChildAppContainer(*((PSID *)ClientToken + 98), a1);
+    IsParentOfChildAppContainer = RtlIsParentOfChildAppContainer(*((PSID *)ClientToken + 98), ChildAppContainerSid);
   SeReleaseSubjectContext(&SubjectContext);
   return IsParentOfChildAppContainer == 0 ? 0xC0000022 : 0;
 }

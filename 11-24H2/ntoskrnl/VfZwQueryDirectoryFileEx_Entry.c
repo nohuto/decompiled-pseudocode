@@ -1,12 +1,12 @@
 /*
- * XREFs of VfZwQueryDirectoryFileEx_Entry @ 0x140B94850
+ * XREFs of VfZwQueryDirectoryFileEx_Entry @ 0x140B96850
  * Callers:
  *     <none>
  * Callees:
- *     ViZwCheckApcRequirement @ 0x140B94C28 (ViZwCheckApcRequirement.c)
- *     ViZwCheckUnicodeString @ 0x140B94CE0 (ViZwCheckUnicodeString.c)
- *     ViZwCheckVirtualAddress @ 0x140B94D78 (ViZwCheckVirtualAddress.c)
- *     ViZwShouldCheck @ 0x140B94DC4 (ViZwShouldCheck.c)
+ *     ViZwCheckApcRequirement @ 0x140B96C28 (ViZwCheckApcRequirement.c)
+ *     ViZwCheckUnicodeString @ 0x140B96CE0 (ViZwCheckUnicodeString.c)
+ *     ViZwCheckVirtualAddress @ 0x140B96D78 (ViZwCheckVirtualAddress.c)
+ *     ViZwShouldCheck @ 0x140B96DC4 (ViZwShouldCheck.c)
  */
 
 __int64 __fastcall VfZwQueryDirectoryFileEx_Entry(__int64 a1, __int64 a2, __int64 a3)

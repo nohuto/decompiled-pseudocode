@@ -1,12 +1,12 @@
 /*
- * XREFs of MiUnlockPoolCommitWs @ 0x140286540
+ * XREFs of MiUnlockPoolCommitWs @ 0x1402867D0
  * Callers:
- *     MiFillPoolCommitPageTable @ 0x140285390 (MiFillPoolCommitPageTable.c)
- *     MiCommitPoolMemory @ 0x140285E30 (MiCommitPoolMemory.c)
+ *     MiFillPoolCommitPageTable @ 0x140285620 (MiFillPoolCommitPageTable.c)
+ *     MiCommitPoolMemory @ 0x1402860C0 (MiCommitPoolMemory.c)
  * Callees:
- *     MiUnlockWorkingSetShared @ 0x14023C500 (MiUnlockWorkingSetShared.c)
- *     MiUnlockPageTableInternal @ 0x1403195C0 (MiUnlockPageTableInternal.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiUnlockWorkingSetShared @ 0x14023C5D0 (MiUnlockWorkingSetShared.c)
+ *     MiUnlockPageTableInternal @ 0x140319850 (MiUnlockPageTableInternal.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiUnlockPoolCommitWs(__int64 a1)
@@ -26,10 +26,10 @@ __int64 __fastcall MiUnlockPoolCommitWs(__int64 a1)
   }
   result = MiUnlockWorkingSetShared(*(_QWORD *)(a1 + 48), 2u);
   v4 = *(unsigned __int8 *)(a1 + 76);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     result = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
       && (unsigned __int8)result <= 0xFu
       && (unsigned __int8)v4 <= 0xFu
       && (unsigned __int8)result >= 2u )

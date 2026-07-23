@@ -166,7 +166,7 @@ LABEL_13:
     {
       CurrentIrql = KeGetCurrentIrql();
       __writecr8(2uLL);
-      if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+      if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
       {
         SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
         if ( CurrentIrql == 2 )
@@ -210,10 +210,10 @@ LABEL_13:
               *(_BYTE *)(v28 + 34) &= ~0x10u;
               MiPfnReferenceCountIsZero(v28, 0xAAAAAAAAAAAAAAABuLL * (v50 >> 4));
               _InterlockedAnd64((volatile signed __int64 *)(v28 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-              if ( KiIrqlFlags )
+              if ( (_DWORD)KiIrqlFlags )
               {
                 v37 = KeGetCurrentIrql();
-                if ( (KiIrqlFlags & 1) != 0 && v37 <= 0xFu && CurrentIrql <= 0xFu && v37 >= 2u )
+                if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v37 <= 0xFu && CurrentIrql <= 0xFu && v37 >= 2u )
                 {
                   CurrentPrcb = KeGetCurrentPrcb();
                   v39 = CurrentPrcb->SchedulerAssist;
@@ -228,7 +228,7 @@ LABEL_13:
               ++dword_140C6590C;
               CurrentIrql = KeGetCurrentIrql();
               __writecr8(2uLL);
-              if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+              if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
               {
                 v41 = KeGetCurrentPrcb()->SchedulerAssist;
                 if ( CurrentIrql == 2 )
@@ -256,10 +256,10 @@ LABEL_51:
         }
       }
       ExReleaseSpinLockExclusiveFromDpcLevel(v21);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v31 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v31 <= 0xFu && CurrentIrql <= 0xFu && v31 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v31 <= 0xFu && CurrentIrql <= 0xFu && v31 >= 2u )
         {
           v32 = KeGetCurrentPrcb();
           v33 = v32->SchedulerAssist;

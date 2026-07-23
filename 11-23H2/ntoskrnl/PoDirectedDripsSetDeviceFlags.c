@@ -1,7 +1,7 @@
 /*
- * XREFs of PoDirectedDripsSetDeviceFlags @ 0x1403AC350
+ * XREFs of PoDirectedDripsSetDeviceFlags @ 0x1403AC530
  * Callers:
- *     PopPowerInformationInternal @ 0x1407ED06C (PopPowerInformationInternal.c)
+ *     PopPowerInformationInternal @ 0x1407ED33C (PopPowerInformationInternal.c)
  * Callees:
  *     <none>
  */

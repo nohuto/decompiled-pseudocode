@@ -1,5 +1,5 @@
 /*
- * XREFs of PsGetJobMemoryPartition @ 0x1407F7870
+ * XREFs of PsGetJobMemoryPartition @ 0x1407FD3D0
  * Callers:
  *     <none>
  * Callees:

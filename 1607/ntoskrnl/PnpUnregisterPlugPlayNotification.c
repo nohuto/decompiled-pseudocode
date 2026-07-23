@@ -1,19 +1,19 @@
 /*
- * XREFs of PnpUnregisterPlugPlayNotification @ 0x140111A40
+ * XREFs of PnpUnregisterPlugPlayNotification @ 0x140111FA4
  * Callers:
- *     IoUnregisterPlugPlayNotificationEx @ 0x14052D7DC (IoUnregisterPlugPlayNotificationEx.c)
- *     IoUnregisterPlugPlayNotification @ 0x14052D7E4 (IoUnregisterPlugPlayNotification.c)
- *     PopCleanCoolingExtension @ 0x14066B8F0 (PopCleanCoolingExtension.c)
- *     PopPolicyDeviceTargetChange @ 0x140672E7C (PopPolicyDeviceTargetChange.c)
- *     SmKmFileInfoCleanup @ 0x140697DE0 (SmKmFileInfoCleanup.c)
+ *     IoUnregisterPlugPlayNotificationEx @ 0x14052DD1C (IoUnregisterPlugPlayNotificationEx.c)
+ *     IoUnregisterPlugPlayNotification @ 0x14052DD24 (IoUnregisterPlugPlayNotification.c)
+ *     PopCleanCoolingExtension @ 0x14066B9D4 (PopCleanCoolingExtension.c)
+ *     PopPolicyDeviceTargetChange @ 0x140672F60 (PopPolicyDeviceTargetChange.c)
+ *     SmKmFileInfoCleanup @ 0x140697EC4 (SmKmFileInfoCleanup.c)
  * Callees:
- *     KeReleaseGuardedMutex @ 0x14000CA40 (KeReleaseGuardedMutex.c)
- *     ExAcquireFastMutex @ 0x14002D0A0 (ExAcquireFastMutex.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x140055FA0 (KiLeaveCriticalRegionUnsafe.c)
- *     ExAcquireResourceExclusiveLite @ 0x140068160 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x140068940 (ExReleaseResourceLite.c)
+ *     KeReleaseGuardedMutex @ 0x14000C5C0 (KeReleaseGuardedMutex.c)
+ *     ExAcquireFastMutex @ 0x14002CC20 (ExAcquireFastMutex.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140055B20 (KiLeaveCriticalRegionUnsafe.c)
+ *     ExAcquireResourceExclusiveLite @ 0x140067CE0 (ExAcquireResourceExclusiveLite.c)
+ *     ExReleaseResourceLite @ 0x1400684C0 (ExReleaseResourceLite.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
- *     PnpDereferenceNotify @ 0x1403F0FC8 (PnpDereferenceNotify.c)
+ *     PnpDereferenceNotify @ 0x140489340 (PnpDereferenceNotify.c)
  */
 
 __int64 __fastcall PnpUnregisterPlugPlayNotification(__int64 a1, char a2)

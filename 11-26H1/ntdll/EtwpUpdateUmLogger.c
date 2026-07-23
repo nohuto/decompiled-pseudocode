@@ -1,15 +1,15 @@
 /*
- * XREFs of EtwpUpdateUmLogger @ 0x180076C98
+ * XREFs of EtwpUpdateUmLogger @ 0x1800654B8
  * Callers:
- *     EtwProcessPrivateLoggerRequest @ 0x180076830 (EtwProcessPrivateLoggerRequest.c)
+ *     EtwProcessPrivateLoggerRequest @ 0x180065050 (EtwProcessPrivateLoggerRequest.c)
  * Callees:
- *     RtlpSysVolFree @ 0x180038000 (RtlpSysVolFree.c)
- *     RtlNtStatusToDosError @ 0x180056660 (RtlNtStatusToDosError.c)
- *     RtlFreeAnsiString @ 0x180056B20 (RtlFreeAnsiString.c)
- *     EtwpQueryUmLogger @ 0x180076A54 (EtwpQueryUmLogger.c)
- *     EtwpSynchronizeWithLogger @ 0x1800774FC (EtwpSynchronizeWithLogger.c)
- *     EtwpAddInstanceIdToLogFileName @ 0x180077C48 (EtwpAddInstanceIdToLogFileName.c)
- *     EtwpGetPrivateLoggerContext @ 0x180077F10 (EtwpGetPrivateLoggerContext.c)
+ *     RtlpSysVolFree @ 0x180001CD0 (RtlpSysVolFree.c)
+ *     RtlNtStatusToDosError @ 0x180040BE0 (RtlNtStatusToDosError.c)
+ *     RtlFreeAnsiString @ 0x1800410A0 (RtlFreeAnsiString.c)
+ *     EtwpQueryUmLogger @ 0x180065274 (EtwpQueryUmLogger.c)
+ *     EtwpSynchronizeWithLogger @ 0x180065D1C (EtwpSynchronizeWithLogger.c)
+ *     EtwpAddInstanceIdToLogFileName @ 0x180066468 (EtwpAddInstanceIdToLogFileName.c)
+ *     EtwpGetPrivateLoggerContext @ 0x180066730 (EtwpGetPrivateLoggerContext.c)
  */
 
 __int64 __fastcall EtwpUpdateUmLogger(unsigned int a1, _DWORD *a2, _DWORD *a3, __int64 a4)
@@ -22,7 +22,7 @@ __int64 __fastcall EtwpUpdateUmLogger(unsigned int a1, _DWORD *a2, _DWORD *a3, _
   int v13; // edx
   __m128i v14; // xmm6
   NTSTATUS v15; // eax
-  __int64 v16; // rcx
+  void *v16; // rcx
   int v17; // eax
   int v18; // r8d
   __int64 v19; // [rsp+78h] [rbp+10h] BYREF
@@ -97,7 +97,7 @@ LABEL_22:
       {
         v9 = 0;
       }
-      v16 = _mm_srli_si128(v14, 8).m128i_u64[0];
+      v16 = (void *)_mm_srli_si128(v14, 8).m128i_u64[0];
       if ( v16 )
         RtlpSysVolFree(v16);
     }

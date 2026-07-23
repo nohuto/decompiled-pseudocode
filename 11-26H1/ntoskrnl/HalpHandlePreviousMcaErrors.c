@@ -1,16 +1,16 @@
 /*
- * XREFs of HalpHandlePreviousMcaErrors @ 0x140BE9B88
+ * XREFs of HalpHandlePreviousMcaErrors @ 0x140BEFB88
  * Callers:
- *     HalpInitializeMce @ 0x140BE9EA4 (HalpInitializeMce.c)
+ *     HalpInitializeMce @ 0x140BEFEA4 (HalpInitializeMce.c)
  * Callees:
- *     KeQueryActiveProcessorCountEx @ 0x140211EA0 (KeQueryActiveProcessorCountEx.c)
- *     KeSetSystemGroupAffinityThread @ 0x14037A1C0 (KeSetSystemGroupAffinityThread.c)
- *     KeRevertToUserGroupAffinityThread @ 0x14037C490 (KeRevertToUserGroupAffinityThread.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     HalpHandlePreviousMcaErrorsOnProcessor @ 0x140BE9CC8 (HalpHandlePreviousMcaErrorsOnProcessor.c)
- *     HalpMceInitializeErrorPacketContents @ 0x140C0AFC4 (HalpMceInitializeErrorPacketContents.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     KeQueryActiveProcessorCountEx @ 0x140211F80 (KeQueryActiveProcessorCountEx.c)
+ *     KeSetSystemGroupAffinityThread @ 0x14037BF70 (KeSetSystemGroupAffinityThread.c)
+ *     KeRevertToUserGroupAffinityThread @ 0x14037E240 (KeRevertToUserGroupAffinityThread.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     HalpHandlePreviousMcaErrorsOnProcessor @ 0x140BEFCC8 (HalpHandlePreviousMcaErrorsOnProcessor.c)
+ *     HalpMceInitializeErrorPacketContents @ 0x140C111D4 (HalpMceInitializeErrorPacketContents.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __fastcall HalpHandlePreviousMcaErrors(char a1)
@@ -21,11 +21,11 @@ void __fastcall HalpHandlePreviousMcaErrors(char a1)
   ULONG ActiveProcessorCount; // ebp
   __int64 v6; // r14
   unsigned int v7; // ecx
-  struct _GROUP_AFFINITY *p_PreviousAffinity; // rdx
+  _GROUP_AFFINITY *p_PreviousAffinity; // rdx
   __int64 v9; // rcx
   __int64 i; // rbx
-  struct _GROUP_AFFINITY Affinity; // [rsp+20h] [rbp-48h] BYREF
-  struct _GROUP_AFFINITY PreviousAffinity; // [rsp+30h] [rbp-38h] BYREF
+  _GROUP_AFFINITY Affinity; // [rsp+20h] [rbp-48h] BYREF
+  _GROUP_AFFINITY PreviousAffinity; // [rsp+30h] [rbp-38h] BYREF
 
   Affinity = 0LL;
   PreviousAffinity = 0LL;
@@ -43,7 +43,7 @@ void __fastcall HalpHandlePreviousMcaErrors(char a1)
       {
         *(_DWORD *)Affinity.Reserved = 0;
         Affinity.Reserved[2] = 0;
-        v7 = *(_DWORD *)(v6 + *(_QWORD *)&KiSupervisorXStateFeaturesLock.WaitBlockFill11[112]);
+        v7 = *(volatile LONG *)((char *)&KiSupervisorXStateFeaturesLock.SchedulerApc.Thread->Header.Lock + v6);
         *(_DWORD *)&Affinity.Group = (unsigned __int16)(v7 >> 6);
         Affinity.Mask = 1LL << v7;
         if ( v4 )

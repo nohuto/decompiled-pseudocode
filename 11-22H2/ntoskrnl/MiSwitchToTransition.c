@@ -280,7 +280,9 @@ LABEL_36:
       if ( ((*(_QWORD *)(v29 + 40) >> 43) & 0x3FF) != 0 )
         ExAcquireRundownProtectionCacheAware(*(PEX_RUNDOWN_REF_CACHE_AWARE *)(v63 + 2432));
       _InterlockedAnd64(v38, 0x7FFFFFFFFFFFFFFFuLL);
-      if ( KiIrqlFlags && (CurrentIrql = KeGetCurrentIrql(), (KiIrqlFlags & 1) != 0) && CurrentIrql <= 0xFu )
+      if ( (_DWORD)KiIrqlFlags
+        && (CurrentIrql = KeGetCurrentIrql(), ((unsigned __int8)KiIrqlFlags & 1) != 0)
+        && CurrentIrql <= 0xFu )
       {
         v41 = v58;
         if ( v58 <= 0xFu && CurrentIrql >= 2u )

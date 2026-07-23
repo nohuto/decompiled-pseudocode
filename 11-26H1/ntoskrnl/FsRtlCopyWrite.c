@@ -1,20 +1,20 @@
 /*
- * XREFs of FsRtlCopyWrite @ 0x140ABE620
+ * XREFs of FsRtlCopyWrite @ 0x140AC06C0
  * Callers:
  *     <none>
  * Callees:
- *     CcCopyWriteWontFlush @ 0x14026B440 (CcCopyWriteWontFlush.c)
- *     ExAcquireResourceExclusiveLite @ 0x140275200 (ExAcquireResourceExclusiveLite.c)
- *     ExAcquireResourceSharedLite @ 0x1402B3C80 (ExAcquireResourceSharedLite.c)
- *     ExReleaseResourceLite @ 0x1402B4CF0 (ExReleaseResourceLite.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     FsRtlIsNtstatusExpected @ 0x1402E2870 (FsRtlIsNtstatusExpected.c)
- *     CcCanIWrite @ 0x140383700 (CcCanIWrite.c)
- *     IoSetTopLevelIrp @ 0x14044F910 (IoSetTopLevelIrp.c)
- *     IoGetTopLevelIrp @ 0x1404611F0 (IoGetTopLevelIrp.c)
- *     CcZeroData @ 0x14046D2D0 (CcZeroData.c)
- *     CcCopyWrite @ 0x1404DFEF0 (CcCopyWrite.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     CcCopyWriteWontFlush @ 0x14026A9B0 (CcCopyWriteWontFlush.c)
+ *     ExAcquireResourceExclusiveLite @ 0x140274770 (ExAcquireResourceExclusiveLite.c)
+ *     FsRtlIsNtstatusExpected @ 0x1402C4930 (FsRtlIsNtstatusExpected.c)
+ *     ExAcquireResourceSharedLite @ 0x1402FE950 (ExAcquireResourceSharedLite.c)
+ *     ExReleaseResourceLite @ 0x1402FF9C0 (ExReleaseResourceLite.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     CcCanIWrite @ 0x1403854B0 (CcCanIWrite.c)
+ *     IoSetTopLevelIrp @ 0x140447A40 (IoSetTopLevelIrp.c)
+ *     IoGetTopLevelIrp @ 0x1404595F0 (IoGetTopLevelIrp.c)
+ *     CcZeroData @ 0x140466A50 (CcZeroData.c)
+ *     CcCopyWrite @ 0x1404D95D0 (CcCopyWrite.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 BOOLEAN __stdcall FsRtlCopyWrite(

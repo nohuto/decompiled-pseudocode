@@ -47,7 +47,7 @@ __int64 __fastcall MiIncrementAweMapCount(__int64 a1, __int64 a2, __int64 a3, _D
   unsigned __int8 v27; // r12
   unsigned int v28; // r8d
   __int64 v29; // rcx
-  unsigned __int64 v30; // r14
+  __int64 v30; // r14
   __int64 v31; // rcx
   int v32; // eax
   unsigned int v33; // ecx
@@ -73,7 +73,7 @@ __int64 __fastcall MiIncrementAweMapCount(__int64 a1, __int64 a2, __int64 a3, _D
   unsigned __int8 v53; // r13
   unsigned int v54; // r8d
   __int64 v55; // rcx
-  unsigned __int64 v56; // r14
+  __int64 v56; // r14
   int v57; // eax
   unsigned int v58; // ecx
   __int64 v59; // rdx
@@ -192,7 +192,7 @@ __int64 __fastcall MiIncrementAweMapCount(__int64 a1, __int64 a2, __int64 a3, _D
         goto LABEL_34;
       while ( 1 )
       {
-        v30 = (unsigned __int64)&v25->LockEntries[v29];
+        v30 = (__int64)&v25->LockEntries[v29];
         v28 &= ~(1 << v29);
         if ( (*(_BYTE *)(v30 + 26) & 1) != 0
           && (*(_DWORD *)(v30 + 32) & 1) == 0
@@ -217,14 +217,14 @@ LABEL_34:
       {
         *(_BYTE *)(v30 + 32) |= 2u;
         if ( *(__int64 *)(v30 + 32) < 0 )
-          KiAbEntryRemoveFromTree(v30);
+          KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)v30);
         v32 = *(_DWORD *)(v30 + 88) & 0x1FFFF;
         v33 = *(_DWORD *)(v30 + 88) & 0xFFFE0000;
         *(_BYTE *)(v30 + 25) &= ~1u;
         v74[0] = v32;
         *(_DWORD *)(v30 + 88) = v33;
         *(_QWORD *)(v30 + 32) = 0LL;
-        v34 = (__int64)(v30 - (unsigned __int64)v25->LockEntries) / 96;
+        v34 = (signed __int64)(v30 - (unsigned __int64)v25->LockEntries) / 96;
         if ( v27 == 1 )
           v25->AbEntrySummary |= 1 << v34;
         else
@@ -361,7 +361,7 @@ LABEL_112:
       v74[1] = v55;
       if ( v14 )
         break;
-      v56 = (unsigned __int64)&v51->LockEntries[v55];
+      v56 = (__int64)&v51->LockEntries[v55];
       v54 &= ~(1 << v55);
       if ( (*(_BYTE *)(v56 + 26) & 1) != 0
         && (*(_DWORD *)(v56 + 32) & 1) == 0
@@ -375,14 +375,14 @@ LABEL_112:
           {
             *(_BYTE *)(v56 + 32) |= 2u;
             if ( *(__int64 *)(v56 + 32) < 0 )
-              KiAbEntryRemoveFromTree(v56);
+              KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)v56);
             v57 = *(_DWORD *)(v56 + 88) & 0x1FFFF;
             v58 = *(_DWORD *)(v56 + 88) & 0xFFFE0000;
             *(_BYTE *)(v56 + 25) &= ~1u;
             v75 = v57;
             *(_DWORD *)(v56 + 88) = v58;
             *(_QWORD *)(v56 + 32) = 0LL;
-            v59 = (__int64)(v56 - (unsigned __int64)v51->LockEntries) / 96;
+            v59 = (signed __int64)(v56 - (unsigned __int64)v51->LockEntries) / 96;
             if ( v53 == 1 )
               v51->AbEntrySummary |= 1 << v59;
             else

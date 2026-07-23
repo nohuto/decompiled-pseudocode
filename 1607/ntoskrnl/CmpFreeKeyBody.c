@@ -1,9 +1,9 @@
 /*
- * XREFs of CmpFreeKeyBody @ 0x1404DE02C
+ * XREFs of CmpFreeKeyBody @ 0x1404C1630
  * Callers:
- *     CmpFreeKeyByCell @ 0x1404005C8 (CmpFreeKeyByCell.c)
+ *     CmpFreeKeyByCell @ 0x1403FF488 (CmpFreeKeyByCell.c)
  * Callees:
- *     HvFreeCell @ 0x1404016EC (HvFreeCell.c)
+ *     HvFreeCell @ 0x1404005AC (HvFreeCell.c)
  */
 
 char __fastcall CmpFreeKeyBody(ULONG_PTR BugCheckParameter2, ULONG_PTR BugCheckParameter3)

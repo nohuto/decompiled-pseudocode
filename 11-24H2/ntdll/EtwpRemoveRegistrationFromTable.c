@@ -1,20 +1,20 @@
 /*
- * XREFs of EtwpRemoveRegistrationFromTable @ 0x18001D3A8
+ * XREFs of EtwpRemoveRegistrationFromTable @ 0x180049DA8
  * Callers:
- *     EtwNotificationUnregister @ 0x18001D140 (EtwNotificationUnregister.c)
+ *     EtwNotificationUnregister @ 0x180049B40 (EtwNotificationUnregister.c)
  * Callees:
- *     RtlRbRemoveNode @ 0x180051DA0 (RtlRbRemoveNode.c)
- *     RtlAcquireSRWLockExclusive @ 0x180055AE0 (RtlAcquireSRWLockExclusive.c)
+ *     RtlRbRemoveNode @ 0x180067980 (RtlRbRemoveNode.c)
+ *     RtlAcquireSRWLockExclusive @ 0x18006B6C0 (RtlAcquireSRWLockExclusive.c)
  */
 
-__int64 __fastcall EtwpRemoveRegistrationFromTable(__m128i *a1)
+void __fastcall EtwpRemoveRegistrationFromTable(PRTL_BALANCED_NODE Node)
 {
   __m128i si128; // xmm0
 
   RtlAcquireSRWLockExclusive(&EtwpProvLock);
-  RtlRbRemoveNode(&EtwpRegistrationTable, a1);
+  RtlRbRemoveNode(&EtwpRegistrationTable, Node);
   si128 = _mm_load_si128((const __m128i *)&_xmm_abababababababababababababababab);
-  *a1 = si128;
-  a1[1].m128i_i64[0] = si128.m128i_i64[0];
-  return RtlReleaseSRWLockExclusive(&EtwpProvLock);
+  Node->0 = ($FBC9B23403EBD771FD3EBC899ACD9FA2)si128;
+  Node->ParentValue = si128.m128i_i64[0];
+  RtlReleaseSRWLockExclusive(&EtwpProvLock);
 }

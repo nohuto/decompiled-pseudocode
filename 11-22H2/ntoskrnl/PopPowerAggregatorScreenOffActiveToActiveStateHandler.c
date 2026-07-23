@@ -9,7 +9,7 @@
  *     PopPowerAggregatorNotifyCsStateExited @ 0x140993BD4 (PopPowerAggregatorNotifyCsStateExited.c)
  */
 
-__int64 __fastcall PopPowerAggregatorScreenOffActiveToActiveStateHandler(__int64 a1)
+__int64 __fastcall PopPowerAggregatorScreenOffActiveToActiveStateHandler(LARGE_INTEGER *a1)
 {
   __int64 v1; // rcx
   _DWORD v3[10]; // [rsp+20h] [rbp-28h] BYREF

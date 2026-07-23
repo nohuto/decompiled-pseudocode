@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpIommuConstructReservedPageTables @ 0x1409A75C0
+ * XREFs of HalpIommuConstructReservedPageTables @ 0x1409A84F0
  * Callers:
- *     HalpIommuInitializeAll @ 0x14099B3D4 (HalpIommuInitializeAll.c)
+ *     HalpIommuInitializeAll @ 0x14099C3D4 (HalpIommuInitializeAll.c)
  * Callees:
- *     HalpIommuConstructReservedPageTable @ 0x1409A74A8 (HalpIommuConstructReservedPageTable.c)
+ *     HalpIommuConstructReservedPageTable @ 0x1409A83D8 (HalpIommuConstructReservedPageTable.c)
  */
 
 __int64 __fastcall HalpIommuConstructReservedPageTables(__int64 a1, _DWORD *a2, unsigned int a3)

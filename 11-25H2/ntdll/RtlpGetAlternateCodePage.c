@@ -6,7 +6,7 @@
  *     RtlpMuiRegGetInstalledLanguageIndexByName @ 0x180089F60 (RtlpMuiRegGetInstalledLanguageIndexByName.c)
  */
 
-__int64 __fastcall RtlpGetAlternateCodePage(__int64 a1, const wchar_t *a2, _QWORD *a3)
+__int64 __fastcall RtlpGetAlternateCodePage(__int64 a1, wchar_t *a2, _QWORD *a3)
 {
   unsigned int v5; // ebx
   __int64 i; // r8

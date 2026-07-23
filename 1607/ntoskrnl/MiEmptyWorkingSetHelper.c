@@ -1,16 +1,16 @@
 /*
- * XREFs of MiEmptyWorkingSetHelper @ 0x1400160F8
+ * XREFs of MiEmptyWorkingSetHelper @ 0x140015C78
  * Callers:
- *     MiEmptyWorkingSet @ 0x140015ED4 (MiEmptyWorkingSet.c)
- *     MiEmptyWsPrivatePagesCallback @ 0x140133238 (MiEmptyWsPrivatePagesCallback.c)
- *     MmUpdateOldWorkingSetPages @ 0x1401EA524 (MmUpdateOldWorkingSetPages.c)
+ *     MiEmptyWorkingSet @ 0x140015A54 (MiEmptyWorkingSet.c)
+ *     MiEmptyWsPrivatePagesCallback @ 0x1401337A8 (MiEmptyWsPrivatePagesCallback.c)
+ *     MmUpdateOldWorkingSetPages @ 0x1401EA350 (MmUpdateOldWorkingSetPages.c)
  * Callees:
- *     MI_WSLE_LOG_ACCESS @ 0x140016E5C (MI_WSLE_LOG_ACCESS.c)
- *     MiGetSharedWorkingSetList @ 0x140047070 (MiGetSharedWorkingSetList.c)
- *     MiPartitionIdToPointer @ 0x1400680A0 (MiPartitionIdToPointer.c)
- *     MiFreeWsleList @ 0x1400E3AD0 (MiFreeWsleList.c)
- *     MI_GET_PAGE_FRAME_FROM_PTE @ 0x1401F2550 (MI_GET_PAGE_FRAME_FROM_PTE.c)
- *     MiDemoteCombinedPte @ 0x1401F97B0 (MiDemoteCombinedPte.c)
+ *     MI_WSLE_LOG_ACCESS @ 0x1400169DC (MI_WSLE_LOG_ACCESS.c)
+ *     MiGetSharedWorkingSetList @ 0x140046BF0 (MiGetSharedWorkingSetList.c)
+ *     MiPartitionIdToPointer @ 0x140067C20 (MiPartitionIdToPointer.c)
+ *     MiFreeWsleList @ 0x1400E1970 (MiFreeWsleList.c)
+ *     MI_GET_PAGE_FRAME_FROM_PTE @ 0x1401F237C (MI_GET_PAGE_FRAME_FROM_PTE.c)
+ *     MiDemoteCombinedPte @ 0x1401F95DC (MiDemoteCombinedPte.c)
  */
 
 __int64 __fastcall MiEmptyWorkingSetHelper(__int64 a1, __int64 a2, __int64 a3, _DWORD *a4)
@@ -41,7 +41,7 @@ __int64 __fastcall MiEmptyWorkingSetHelper(__int64 a1, __int64 a2, __int64 a3, _
   v19 = *(_QWORD *)(v12 + 8);
   if ( v19 >= 0 )
     MiDemoteCombinedPte(a1, a2, v19 | 0x8000000000000000uLL);
-  if ( dword_140327188 )
+  if ( dword_1403271C8 )
     MI_WSLE_LOG_ACCESS(
       a1,
       *(_QWORD *)(SharedWorkingSetList + 80) + a3 * *(unsigned int *)(SharedWorkingSetList + 32),

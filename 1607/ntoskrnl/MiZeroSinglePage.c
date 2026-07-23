@@ -1,15 +1,15 @@
 /*
- * XREFs of MiZeroSinglePage @ 0x140066B90
+ * XREFs of MiZeroSinglePage @ 0x140066710
  * Callers:
- *     MiZeroPageThread @ 0x140139C40 (MiZeroPageThread.c)
+ *     MiZeroPageThread @ 0x14013A1B0 (MiZeroPageThread.c)
  * Callees:
- *     MiReleaseFreshPageLocked @ 0x1400221A4 (MiReleaseFreshPageLocked.c)
- *     MiUnlinkFreeOrZeroedPage @ 0x140066D00 (MiUnlinkFreeOrZeroedPage.c)
- *     MiInsertPageInFreeOrZeroedList @ 0x1400671C0 (MiInsertPageInFreeOrZeroedList.c)
- *     KeZeroPages @ 0x140161E50 (KeZeroPages.c)
- *     HvlNotifyLongSpinWait @ 0x1401BAE68 (HvlNotifyLongSpinWait.c)
- *     MiPteInShadowRange @ 0x1401EF3B8 (MiPteInShadowRange.c)
- *     MiWritePteShadow @ 0x1401EF658 (MiWritePteShadow.c)
+ *     MiReleaseFreshPageLocked @ 0x140021D24 (MiReleaseFreshPageLocked.c)
+ *     MiUnlinkFreeOrZeroedPage @ 0x140066880 (MiUnlinkFreeOrZeroedPage.c)
+ *     MiInsertPageInFreeOrZeroedList @ 0x140066D40 (MiInsertPageInFreeOrZeroedList.c)
+ *     KeZeroPages @ 0x1401623C0 (KeZeroPages.c)
+ *     HvlNotifyLongSpinWait @ 0x1401BAD4C (HvlNotifyLongSpinWait.c)
+ *     MiPteInShadowRange @ 0x1401EF1E4 (MiPteInShadowRange.c)
+ *     MiWritePteShadow @ 0x1401EF484 (MiWritePteShadow.c)
  */
 
 __int64 __fastcall MiZeroSinglePage(__int64 a1)

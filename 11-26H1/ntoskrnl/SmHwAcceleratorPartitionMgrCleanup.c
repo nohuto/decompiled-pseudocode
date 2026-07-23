@@ -1,15 +1,15 @@
 /*
- * XREFs of SmHwAcceleratorPartitionMgrCleanup @ 0x14081B83C
+ * XREFs of SmHwAcceleratorPartitionMgrCleanup @ 0x140821A4C
  * Callers:
- *     ?SmFirstTimeInit@@YAJPEAU_SM_PARTITION@@K@Z @ 0x14063CDAC (-SmFirstTimeInit@@YAJPEAU_SM_PARTITION@@K@Z.c)
- *     SmPartitionCleanup @ 0x140818F90 (SmPartitionCleanup.c)
+ *     ?SmFirstTimeInit@@YAJPEAU_SM_PARTITION@@K@Z @ 0x14064098C (-SmFirstTimeInit@@YAJPEAU_SM_PARTITION@@K@Z.c)
+ *     SmPartitionCleanup @ 0x14081F1A0 (SmPartitionCleanup.c)
  * Callees:
- *     KiUnstackDetachProcess @ 0x1402307C0 (KiUnstackDetachProcess.c)
- *     KeStackAttachProcess @ 0x1402C5270 (KeStackAttachProcess.c)
- *     CmSiFreeMemory @ 0x140495010 (CmSiFreeMemory.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     SmHwAcceleratorMgrPartitionUnregister @ 0x14081B3C8 (SmHwAcceleratorMgrPartitionUnregister.c)
- *     SmHwAcceleratorPartitionCtxCleanup @ 0x14081B7C8 (SmHwAcceleratorPartitionCtxCleanup.c)
+ *     KiUnstackDetachProcess @ 0x140232120 (KiUnstackDetachProcess.c)
+ *     KeStackAttachProcess @ 0x14030FF30 (KeStackAttachProcess.c)
+ *     CmSiFreeMemory @ 0x14048EB60 (CmSiFreeMemory.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     SmHwAcceleratorMgrPartitionUnregister @ 0x1408215D8 (SmHwAcceleratorMgrPartitionUnregister.c)
+ *     SmHwAcceleratorPartitionCtxCleanup @ 0x1408219D8 (SmHwAcceleratorPartitionCtxCleanup.c)
  */
 
 void __fastcall SmHwAcceleratorPartitionMgrCleanup(__int64 a1, struct _KPROCESS *a2)

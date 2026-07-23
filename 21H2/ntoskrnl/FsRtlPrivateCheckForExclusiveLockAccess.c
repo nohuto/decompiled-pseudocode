@@ -1,18 +1,18 @@
 /*
- * XREFs of FsRtlPrivateCheckForExclusiveLockAccess @ 0x1402ADB54
+ * XREFs of FsRtlPrivateCheckForExclusiveLockAccess @ 0x14022BEB4
  * Callers:
- *     FsRtlPrivateCheckWaitingLocks @ 0x14029FDB4 (FsRtlPrivateCheckWaitingLocks.c)
- *     FsRtlPrivateLock @ 0x140358360 (FsRtlPrivateLock.c)
+ *     FsRtlPrivateCheckWaitingLocks @ 0x14021D334 (FsRtlPrivateCheckWaitingLocks.c)
+ *     FsRtlPrivateLock @ 0x1403630B0 (FsRtlPrivateLock.c)
  * Callees:
- *     FsRtlFindFirstOverlappingExclusiveNode @ 0x1402ADCBC (FsRtlFindFirstOverlappingExclusiveNode.c)
- *     FsRtlFindFirstOverlappingSharedNode @ 0x140359430 (FsRtlFindFirstOverlappingSharedNode.c)
- *     RtlSplay @ 0x140359770 (RtlSplay.c)
- *     FsRtlFindFirstOverlapInNode @ 0x1404EF9B4 (FsRtlFindFirstOverlapInNode.c)
+ *     FsRtlFindFirstOverlappingExclusiveNode @ 0x14022C01C (FsRtlFindFirstOverlappingExclusiveNode.c)
+ *     FsRtlFindFirstOverlappingSharedNode @ 0x140364180 (FsRtlFindFirstOverlappingSharedNode.c)
+ *     RtlSplay @ 0x1403644C0 (RtlSplay.c)
+ *     FsRtlFindFirstOverlapInNode @ 0x1404EF934 (FsRtlFindFirstOverlapInNode.c)
  */
 
 char __fastcall FsRtlPrivateCheckForExclusiveLockAccess(__int64 a1, __int64 a2)
 {
-  RTL_SPLAY_LINKS *v4; // rcx
+  _RTL_SPLAY_LINKS *v4; // rcx
   __int64 v5; // rax
   __int64 FirstOverlappingSharedNode; // rax
   PRTL_SPLAY_LINKS v7; // rax

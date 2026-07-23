@@ -1,18 +1,18 @@
 /*
- * XREFs of _CmGetDeviceParent @ 0x140926998
+ * XREFs of _CmGetDeviceParent @ 0x140928AD8
  * Callers:
- *     _CmIsDeviceSafeRemovalRequired @ 0x1408BC37C (_CmIsDeviceSafeRemovalRequired.c)
- *     PiCMGetRelatedDeviceInstance @ 0x1408BE750 (PiCMGetRelatedDeviceInstance.c)
- *     _CmGetDeviceSiblings @ 0x1409B3E64 (_CmGetDeviceSiblings.c)
- *     _CmGetDeviceMappedPropertyFromComposite @ 0x1409B4770 (_CmGetDeviceMappedPropertyFromComposite.c)
- *     _CmGetParentDeviceContainerId @ 0x140AB65B0 (_CmGetParentDeviceContainerId.c)
+ *     _CmIsDeviceSafeRemovalRequired @ 0x1408B9CCC (_CmIsDeviceSafeRemovalRequired.c)
+ *     PiCMGetRelatedDeviceInstance @ 0x1408BC0A0 (PiCMGetRelatedDeviceInstance.c)
+ *     _CmGetDeviceSiblings @ 0x1409AB1F4 (_CmGetDeviceSiblings.c)
+ *     _CmGetDeviceMappedPropertyFromComposite @ 0x1409ABB00 (_CmGetDeviceMappedPropertyFromComposite.c)
+ *     _CmGetParentDeviceContainerId @ 0x140AB0634 (_CmGetParentDeviceContainerId.c)
  * Callees:
- *     RtlStringCchCopyExW @ 0x14041DC50 (RtlStringCchCopyExW.c)
- *     RtlInitUnicodeStringEx @ 0x14045AA10 (RtlInitUnicodeStringEx.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     _PnpGetObjectProperty @ 0x1408CDFD0 (_PnpGetObjectProperty.c)
- *     _CmIsRootDevice @ 0x140926C14 (_CmIsRootDevice.c)
+ *     RtlStringCchCopyExW @ 0x140412020 (RtlStringCchCopyExW.c)
+ *     RtlInitUnicodeStringEx @ 0x14044FE60 (RtlInitUnicodeStringEx.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     _PnpGetObjectProperty @ 0x1408CB9C0 (_PnpGetObjectProperty.c)
+ *     _CmIsRootDevice @ 0x140928D54 (_CmIsRootDevice.c)
  */
 
 __int64 __fastcall CmGetDeviceParent(_QWORD *a1, WCHAR *a2, wchar_t *a3, unsigned int *a4)
@@ -42,7 +42,7 @@ __int64 __fastcall CmGetDeviceParent(_QWORD *a1, WCHAR *a2, wchar_t *a3, unsigne
     return inited;
   if ( !a1[34] )
     return (unsigned int)-1073741822;
-  v10 = guard_dispatch_icall_no_overrides(a1, &DestinationString, 1LL, v20);
+  v10 = guard_dispatch_icall_no_overrides(a1, &DestinationString);
   if ( v10 == -2147483643 )
     return (unsigned int)-1073741789;
   if ( v10 == -1073741810 )

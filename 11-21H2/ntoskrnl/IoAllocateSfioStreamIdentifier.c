@@ -3,7 +3,7 @@
  * Callers:
  *     <none>
  * Callees:
- *     IopGetSetStreamIdentifier @ 0x14055802C (IopGetSetStreamIdentifier.c)
+ *     sub_14055802C @ 0x14055802C (sub_14055802C.c)
  */
 
 NTSTATUS __stdcall IoAllocateSfioStreamIdentifier(
@@ -17,6 +17,6 @@ NTSTATUS __stdcall IoAllocateSfioStreamIdentifier(
   if ( Length - 1 > 0xFFFFFFDE )
     return -1073741584;
   if ( Signature )
-    return IopGetSetStreamIdentifier((_DWORD)FileObject, Length, (_DWORD)Signature, (_DWORD)StreamIdentifier, 1);
+    return sub_14055802C((_DWORD)FileObject, Length, (_DWORD)Signature, (_DWORD)StreamIdentifier, 1);
   return -1073741583;
 }

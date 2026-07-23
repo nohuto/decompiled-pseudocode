@@ -1,17 +1,17 @@
 /*
- * XREFs of ResCDirectoryValidateHeader @ 0x18005D0A0
+ * XREFs of ResCDirectoryValidateHeader @ 0x18005D090
  * Callers:
- *     ResCDirectoryValidate @ 0x1800FFF9C (ResCDirectoryValidate.c)
- *     ResCDirectoryGetSize @ 0x180105CB8 (ResCDirectoryGetSize.c)
- *     ResCDirectoryPopulate @ 0x180105D04 (ResCDirectoryPopulate.c)
+ *     ResCDirectoryValidate @ 0x1800FFED4 (ResCDirectoryValidate.c)
+ *     ResCDirectoryGetSize @ 0x180105CC0 (ResCDirectoryGetSize.c)
+ *     ResCDirectoryPopulate @ 0x180105D0C (ResCDirectoryPopulate.c)
  * Callees:
- *     RtlSetLastWin32Error @ 0x18005A470 (RtlSetLastWin32Error.c)
- *     ResCDirectoryGetSize @ 0x180105CB8 (ResCDirectoryGetSize.c)
+ *     RtlSetLastWin32Error @ 0x18005A460 (RtlSetLastWin32Error.c)
+ *     ResCDirectoryGetSize @ 0x180105CC0 (ResCDirectoryGetSize.c)
  */
 
 __int64 __fastcall ResCDirectoryValidateHeader(__int64 a1, unsigned int a2)
 {
-  unsigned int v3; // ecx
+  LONG v3; // ecx
   int v5; // eax
   unsigned int v6; // eax
   unsigned int v7; // eax

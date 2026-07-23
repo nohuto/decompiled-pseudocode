@@ -1,30 +1,28 @@
 /*
- * XREFs of MiWakeModifiedPageWriter @ 0x1402D0460
+ * XREFs of MiWakeModifiedPageWriter @ 0x140261468
  * Callers:
- *     MiInsertPageInList @ 0x14022CB10 (MiInsertPageInList.c)
- *     MiInsertPagesInList @ 0x140271500 (MiInsertPagesInList.c)
- *     MiFlushAllPagesWorker @ 0x1402CF240 (MiFlushAllPagesWorker.c)
- *     MiFlushAllStoreSwapPages @ 0x1402D01D8 (MiFlushAllStoreSwapPages.c)
- *     MiObtainFreePages @ 0x1402D17D4 (MiObtainFreePages.c)
- *     MiAdjustModifiedPageLoad @ 0x1402D2864 (MiAdjustModifiedPageLoad.c)
+ *     MiInsertPagesInList @ 0x140226A90 (MiInsertPagesInList.c)
+ *     MiFlushAllStoreSwapPages @ 0x1402611E0 (MiFlushAllStoreSwapPages.c)
+ *     MiObtainFreePages @ 0x1402616B4 (MiObtainFreePages.c)
+ *     MiFlushAllPagesWorker @ 0x140263A34 (MiFlushAllPagesWorker.c)
+ *     MiInsertPageInList @ 0x140300420 (MiInsertPageInList.c)
+ *     MiAdjustModifiedPageLoad @ 0x140353ADC (MiAdjustModifiedPageLoad.c)
  * Callees:
- *     KeSetActualBasePriorityThread @ 0x14020A160 (KeSetActualBasePriorityThread.c)
- *     ExReleaseRundownProtection_0 @ 0x140245670 (ExReleaseRundownProtection_0.c)
- *     KeSetEvent @ 0x1402725A0 (KeSetEvent.c)
- *     ExAcquireRundownProtection @ 0x1402792A0 (ExAcquireRundownProtection.c)
+ *     ExReleaseRundownProtection_0 @ 0x14020DE50 (ExReleaseRundownProtection_0.c)
+ *     KeSetEvent @ 0x140227B30 (KeSetEvent.c)
+ *     ExAcquireRundownProtection_0 @ 0x14022E830 (ExAcquireRundownProtection_0.c)
+ *     KeSetActualBasePriorityThread @ 0x140331740 (KeSetActualBasePriorityThread.c)
  */
 
 LONG __fastcall MiWakeModifiedPageWriter(__int64 a1, __int64 a2)
 {
-  __int64 v4; // r8
-
   if ( a2 == -1 )
   {
     if ( *(_DWORD *)(a1 + 740) )
       KeSetEvent((PRKEVENT)(a1 + 744), 0, 0);
-    if ( *(_DWORD *)(a1 + 768) != 18 && ExAcquireRundownProtection((PEX_RUNDOWN_REF)(a1 + 1000)) )
+    if ( *(_DWORD *)(a1 + 768) != 18 && ExAcquireRundownProtection_0((PEX_RUNDOWN_REF)(a1 + 1000)) )
     {
-      KeSetActualBasePriorityThread(*(_QWORD *)(a1 + 992), 18, v4);
+      KeSetActualBasePriorityThread(*(_QWORD *)(a1 + 992));
       ExReleaseRundownProtection_0((PEX_RUNDOWN_REF)(a1 + 1000));
     }
   }

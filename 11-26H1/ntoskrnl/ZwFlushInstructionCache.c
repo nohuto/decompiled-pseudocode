@@ -1,17 +1,17 @@
 /*
- * XREFs of ZwFlushInstructionCache @ 0x140725210
+ * XREFs of ZwFlushInstructionCache @ 0x140729DE0
  * Callers:
- *     DifZwFlushInstructionCacheWrapper @ 0x1406A66B0 (DifZwFlushInstructionCacheWrapper.c)
- *     sub_1408807A8 @ 0x1408807A8 (sub_1408807A8.c)
- *     sub_1409EDA0C @ 0x1409EDA0C (sub_1409EDA0C.c)
- *     sub_1409F05F8 @ 0x1409F05F8 (sub_1409F05F8.c)
+ *     DifZwFlushInstructionCacheWrapper @ 0x1406AA290 (DifZwFlushInstructionCacheWrapper.c)
+ *     sub_140886BA8 @ 0x140886BA8 (sub_140886BA8.c)
+ *     sub_1409EA1DC @ 0x1409EA1DC (sub_1409EA1DC.c)
+ *     sub_1409ECDC8 @ 0x1409ECDC8 (sub_1409ECDC8.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwFlushInstructionCache(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwFlushInstructionCache(HANDLE ProcessHandle, PVOID BaseAddress, SIZE_T Length)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(ProcessHandle);
 }

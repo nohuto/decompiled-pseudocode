@@ -10,101 +10,100 @@
  *     ZwOpenKeyEx @ 0x18009EA30 (ZwOpenKeyEx.c)
  */
 
-__int64 __fastcall sub_1800CC464(int a1, __int64 a2)
+__int64 __fastcall sub_1800CC464(int a1, __int64 a2, HANDLE *a3)
 {
   signed int PersistedStateLocation; // ecx
-  __int64 v5; // r11
-  char *v6; // rcx
   __int64 v7; // r11
-  __int64 v8; // rdx
-  signed __int64 v9; // rax
-  __int16 v10; // r8
+  WCHAR *v8; // rcx
+  __int64 v9; // r11
+  __int64 v10; // rdx
   char *v11; // rax
-  __int64 v13; // [rsp+40h] [rbp-C0h] BYREF
-  __int64 v14; // [rsp+48h] [rbp-B8h] BYREF
-  _WORD *v15; // [rsp+50h] [rbp-B0h]
-  int v16; // [rsp+58h] [rbp-A8h]
-  __int64 v17; // [rsp+60h] [rbp-A0h]
-  __int64 *v18; // [rsp+68h] [rbp-98h]
-  int v19; // [rsp+70h] [rbp-90h]
-  __int128 v20; // [rsp+78h] [rbp-88h]
-  _WORD v21[264]; // [rsp+90h] [rbp-70h] BYREF
+  WCHAR v12; // r8
+  WCHAR *v13; // rax
+  ACCESS_MASK v14; // edx
+  ULONG BufferLengthOut[2]; // [rsp+40h] [rbp-C0h] BYREF
+  __int64 v17; // [rsp+48h] [rbp-B8h] BYREF
+  WCHAR *v18; // [rsp+50h] [rbp-B0h]
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+58h] [rbp-A8h] BYREF
+  WCHAR TargetPath[264]; // [rsp+90h] [rbp-70h] BYREF
 
   PersistedStateLocation = RtlGetPersistedStateLocation(
                              L"AppxStateChange",
                              L"TargetNtPath",
                              L"\\Registry\\Machine\\Software\\Microsoft\\Windows\\CurrentVersion\\AppModel\\StateChange",
-                             0,
-                             v21,
+                             LocationTypeRegistry,
+                             TargetPath,
                              0x20Au,
-                             (unsigned int *)&v13);
+                             BufferLengthOut);
   if ( PersistedStateLocation >= 0 )
   {
     if ( a1 == -1073740702 )
     {
-      PersistedStateLocation = sub_180003214(v21, 261LL, &v13);
+      PersistedStateLocation = sub_180003214(TargetPath, 261LL, BufferLengthOut);
       if ( PersistedStateLocation >= 0 )
       {
-        v6 = (char *)&v21[v13];
-        v7 = v5 - v13;
-        if ( v7 )
+        v8 = &TargetPath[*(_QWORD *)BufferLengthOut];
+        v9 = v7 - *(_QWORD *)BufferLengthOut;
+        if ( v9 )
         {
-          v8 = v7 + v13 + 2147483385;
-          v9 = (char *)L"\\PackageList\\" - v6;
+          v10 = v9 + *(_QWORD *)BufferLengthOut + 2147483385LL;
+          v11 = (char *)((char *)L"\\PackageList\\" - (char *)v8);
           do
           {
-            if ( !v8 )
-              break;
-            v10 = *(_WORD *)&v6[v9];
             if ( !v10 )
               break;
-            *(_WORD *)v6 = v10;
-            --v8;
-            v6 += 2;
-            --v7;
+            v12 = *(WCHAR *)((char *)v8 + (_QWORD)v11);
+            if ( !v12 )
+              break;
+            *v8 = v12;
+            --v10;
+            ++v8;
+            --v9;
           }
-          while ( v7 );
+          while ( v9 );
         }
-        v11 = v6 - 2;
-        if ( v7 )
-          v11 = v6;
-        PersistedStateLocation = v7 == 0 ? 0x80000005 : 0;
-        *(_WORD *)v11 = 0;
+        v13 = v8 - 1;
+        if ( v9 )
+          v13 = v8;
+        PersistedStateLocation = v9 == 0 ? 0x80000005 : 0;
+        *v13 = 0;
       }
       if ( PersistedStateLocation >= 0 )
       {
-        PersistedStateLocation = sub_180003144((__int64)v21, 0x20AuLL, a2);
+        PersistedStateLocation = sub_180003144((__int64)TargetPath, 0x20AuLL, a2);
         if ( PersistedStateLocation >= 0 )
         {
-          v14 = 0LL;
-          v15 = 0LL;
-          PersistedStateLocation = sub_180003214(v21, 0x7FFFLL, &v13);
+          v17 = 0LL;
+          v18 = 0LL;
+          PersistedStateLocation = sub_180003214(TargetPath, 0x7FFFLL, BufferLengthOut);
           if ( PersistedStateLocation >= 0 )
           {
-            LOWORD(v14) = 2 * v13;
-            WORD1(v14) = 2 * v13 + 2;
-            v15 = v21;
+            LOWORD(v17) = 2 * LOWORD(BufferLengthOut[0]);
+            WORD1(v17) = 2 * LOWORD(BufferLengthOut[0]) + 2;
+            v18 = TargetPath;
+            v14 = 131353;
 LABEL_18:
-            v16 = 48;
-            v18 = &v14;
-            v17 = 0LL;
-            v19 = 64;
-            v20 = 0LL;
-            return (unsigned int)ZwOpenKeyEx();
+            ObjectAttributes.Length = 48;
+            ObjectAttributes.ObjectName = (PUNICODE_STRING)&v17;
+            ObjectAttributes.RootDirectory = 0LL;
+            ObjectAttributes.Attributes = 64;
+            *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+            return (unsigned int)ZwOpenKeyEx(a3, v14, &ObjectAttributes, 0);
           }
         }
       }
     }
     else
     {
-      v14 = 0LL;
-      v15 = 0LL;
-      PersistedStateLocation = sub_180003214(v21, 0x7FFFLL, &v13);
+      v17 = 0LL;
+      v18 = 0LL;
+      PersistedStateLocation = sub_180003214(TargetPath, 0x7FFFLL, BufferLengthOut);
       if ( PersistedStateLocation >= 0 )
       {
-        LOWORD(v14) = 2 * v13;
-        WORD1(v14) = 2 * v13 + 2;
-        v15 = v21;
+        LOWORD(v17) = 2 * LOWORD(BufferLengthOut[0]);
+        WORD1(v17) = 2 * LOWORD(BufferLengthOut[0]) + 2;
+        v18 = TargetPath;
+        v14 = 131097;
         goto LABEL_18;
       }
     }

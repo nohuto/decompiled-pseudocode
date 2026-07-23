@@ -29,7 +29,7 @@ ULONG_PTR __fastcall MiAllocatePagedPoolPages(unsigned int a1, unsigned __int64 
   int v3; // r15d
   unsigned __int64 v4; // r14
   unsigned int v5; // ecx
-  union _SLIST_HEADER *v6; // rcx
+  _SLIST_HEADER *v6; // rcx
   ULONG_PTR v7; // r13
   unsigned __int16 *v8; // rax
   struct _KTHREAD *CurrentThread; // rax
@@ -756,7 +756,7 @@ LABEL_77:
       {
         v49->CrossThreadReleasableAndBusyByte |= 2u;
         if ( (__int64)v49->LockState.LockState < 0 )
-          KiAbEntryRemoveFromTree(&v42->LockEntries[v48]);
+          KiAbEntryRemoveFromTree(&v42->LockEntries[v48].TreeNode);
         v50 = 0;
         v132 = 0;
         v132 = v49->BoostBitmap.AllFields & 0x1FFFF;
@@ -842,7 +842,7 @@ LABEL_248:
   {
     v103->CrossThreadReleasableAndBusyByte |= 2u;
     if ( (__int64)v103->LockState.LockState < 0 )
-      KiAbEntryRemoveFromTree(&v96->LockEntries[v102]);
+      KiAbEntryRemoveFromTree(&v96->LockEntries[v102].TreeNode);
     v131 = 0;
     v131 = v103->BoostBitmap.AllFields & 0x1FFFF;
     v103->BoostBitmap.AllFields &= 0xFFFE0000;

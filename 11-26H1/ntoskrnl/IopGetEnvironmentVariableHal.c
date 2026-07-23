@@ -1,9 +1,9 @@
 /*
- * XREFs of IopGetEnvironmentVariableHal @ 0x140AF4AE0
+ * XREFs of IopGetEnvironmentVariableHal @ 0x140AF7180
  * Callers:
  *     <none>
  * Callees:
- *     HalGetEnvironmentVariableEx @ 0x140471D30 (HalGetEnvironmentVariableEx.c)
+ *     HalGetEnvironmentVariableEx @ 0x14046B4B0 (HalGetEnvironmentVariableEx.c)
  */
 
 __int64 __fastcall IopGetEnvironmentVariableHal(

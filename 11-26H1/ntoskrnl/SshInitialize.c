@@ -1,16 +1,16 @@
 /*
- * XREFs of SshInitialize @ 0x140CD7428
+ * XREFs of SshInitialize @ 0x140CDD7A8
  * Callers:
- *     PoInitSystem @ 0x140CCE870 (PoInitSystem.c)
+ *     PoInitSystem @ 0x140CD49D0 (PoInitSystem.c)
  * Callees:
- *     SshpSetCollectionActive @ 0x1404A2B28 (SshpSetCollectionActive.c)
- *     SSHSupportEtwRegister @ 0x1407E44D8 (SSHSupportEtwRegister.c)
- *     SSHSupportRegisterPowerSettingCallback @ 0x1407E4508 (SSHSupportRegisterPowerSettingCallback.c)
- *     TraceLoggingRegisterEx_EtwRegister_EtwSetInformation @ 0x14093BE80 (TraceLoggingRegisterEx_EtwRegister_EtwSetInformation.c)
- *     CmSiRWLockInitialize @ 0x140B60560 (CmSiRWLockInitialize.c)
- *     SshpUninitialize @ 0x140CD7578 (SshpUninitialize.c)
- *     SshpSessionManagerInitialize @ 0x140CD7604 (SshpSessionManagerInitialize.c)
- *     SshpAlpcInitialize @ 0x140CD768C (SshpAlpcInitialize.c)
+ *     SshpSetCollectionActive @ 0x14049C548 (SshpSetCollectionActive.c)
+ *     SSHSupportEtwRegister @ 0x1407EA048 (SSHSupportEtwRegister.c)
+ *     SSHSupportRegisterPowerSettingCallback @ 0x1407EA078 (SSHSupportRegisterPowerSettingCallback.c)
+ *     TraceLoggingRegisterEx_EtwRegister_EtwSetInformation @ 0x140917A20 (TraceLoggingRegisterEx_EtwRegister_EtwSetInformation.c)
+ *     CmSiRWLockInitialize @ 0x140B63600 (CmSiRWLockInitialize.c)
+ *     SshpUninitialize @ 0x140CDD8F8 (SshpUninitialize.c)
+ *     SshpSessionManagerInitialize @ 0x140CDD984 (SshpSessionManagerInitialize.c)
+ *     SshpAlpcInitialize @ 0x140CDDA0C (SshpAlpcInitialize.c)
  */
 
 __int64 __fastcall SshInitialize(int a1)
@@ -25,7 +25,7 @@ __int64 __fastcall SshInitialize(int a1)
   {
     CmSiRWLockInitialize(&SshpLibraryListLock);
     SshpSessionType = 0;
-    qword_140F0A988 = (__int64)&SshpLibraryList;
+    qword_140F0AD28 = (__int64)&SshpLibraryList;
     p_QuantumTarget = &SshpBlockerCollections.QuantumTarget;
     SshpLibraryList = &SshpLibraryList;
     SshpSessionId = 0LL;
@@ -41,10 +41,10 @@ __int64 __fastcall SshInitialize(int a1)
       p_QuantumTarget = v2 + 6;
     }
     while ( v3 != 1 );
-    qword_140F0A958 = 0LL;
+    qword_140F0ACF8 = 0LL;
     SshpPurgeBlockersWorkItem = 0LL;
-    qword_140F0A950 = (__int64)SshpPurgeBlockersWorker;
-    dword_140F0A960 = 0;
+    qword_140F0ACF0 = (__int64)SshpPurgeBlockersWorker;
+    dword_140F0AD00 = 0;
     SshpGlobalBlockerCount = 0LL;
     SshpSetCollectionActive((struct _KTHREAD *)&SshpBlockerCollections.WaitBlockFill11[64], 1u);
     SshpInitialized = 1;

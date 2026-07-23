@@ -1,14 +1,14 @@
 /*
- * XREFs of KiEndThreadCycleAccumulation @ 0x1402261A0
+ * XREFs of KiEndThreadCycleAccumulation @ 0x140227B30
  * Callers:
- *     KeUpdateThreadTag @ 0x1402C4800 (KeUpdateThreadTag.c)
- *     KiRetireDpcList @ 0x140335700 (KiRetireDpcList.c)
- *     PpmCheckCustomRun @ 0x1404BBD70 (PpmCheckCustomRun.c)
+ *     KeUpdateThreadTag @ 0x14030F4C0 (KeUpdateThreadTag.c)
+ *     KiRetireDpcList @ 0x140337730 (KiRetireDpcList.c)
+ *     PpmCheckCustomRun @ 0x1404B5550 (PpmCheckCustomRun.c)
  * Callees:
- *     HalpTimerQueryCounterSafe @ 0x1402085F0 (HalpTimerQueryCounterSafe.c)
- *     HalpTimerScaleCounter @ 0x140208D00 (HalpTimerScaleCounter.c)
- *     KiUpdateThreadHgsFeedback @ 0x140226C00 (KiUpdateThreadHgsFeedback.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
+ *     HalpTimerQueryCounterSafe @ 0x1402086D0 (HalpTimerQueryCounterSafe.c)
+ *     HalpTimerScaleCounter @ 0x140208DE0 (HalpTimerScaleCounter.c)
+ *     KiUpdateThreadHgsFeedback @ 0x140228590 (KiUpdateThreadHgsFeedback.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
  */
 
 unsigned __int64 __fastcall KiEndThreadCycleAccumulation(__int64 a1, __int64 a2, _QWORD *a3, unsigned __int8 a4)
@@ -52,7 +52,7 @@ unsigned __int64 __fastcall KiEndThreadCycleAccumulation(__int64 a1, __int64 a2,
   unsigned __int16 *v43; // r8
   char v44; // r8
   _QWORD *v45; // rdx
-  unsigned int v46; // eax
+  unsigned int UserWaitTime_high; // eax
   unsigned int v47; // ecx
   unsigned int v48; // ecx
   int v49; // ecx
@@ -118,7 +118,7 @@ unsigned __int64 __fastcall KiEndThreadCycleAccumulation(__int64 a1, __int64 a2,
           v68 = 0;
           if ( HalpTimerQueryCounterHandlerCount )
           {
-            v78 = &unk_140FBB448;
+            v78 = &unk_140FBB7E8;
             do
             {
               if ( v11 == *v78 )
@@ -199,7 +199,7 @@ unsigned __int64 __fastcall KiEndThreadCycleAccumulation(__int64 a1, __int64 a2,
           v67 = 0;
           if ( HalpTimerQueryCounterHandlerCount )
           {
-            v75 = &unk_140FBB448;
+            v75 = &unk_140FBB7E8;
             do
             {
               if ( v11 == *v75 )
@@ -287,9 +287,9 @@ unsigned __int64 __fastcall KiEndThreadCycleAccumulation(__int64 a1, __int64 a2,
           v22 = v9;
         }
         v23 = ((unsigned __int64)((((v22 * (unsigned __int128)MEMORY[0xFFFFF78000000360]) >> 64)
-                                 * *(unsigned __int64 *)&stru_140FC01F0.SavedApcStateFill[40]) >> 64) >> KiMaximumIncrementShiftCount)
+                                 * (unsigned __int64)stru_140FC11F0.SavedApcState.Process) >> 64) >> KiMaximumIncrementShiftCount)
             - ((unsigned __int64)((*((unsigned __int64 *)&v21 + 1)
-                                 * (unsigned __int128)*(unsigned __int64 *)&stru_140FC01F0.SavedApcStateFill[40]) >> 64) >> KiMaximumIncrementShiftCount);
+                                 * (unsigned __int128)(unsigned __int64)stru_140FC11F0.SavedApcState.Process) >> 64) >> KiMaximumIncrementShiftCount);
         if ( v23 )
         {
           if ( (*(_DWORD *)(a2 + 116) & 0x400) != 0
@@ -410,7 +410,7 @@ LABEL_36:
           v41 = 100;
         }
         v42 = 0;
-        v43 = (unsigned __int16 *)(a1 + 35464);
+        v43 = (unsigned __int16 *)(a1 + 35468);
         do
         {
           if ( v41 <= *v43 )
@@ -421,21 +421,21 @@ LABEL_36:
         while ( v42 < 3 );
         v44 = *(_BYTE *)(a1 + 35352);
         v45 = (_QWORD *)(16LL * v42 + v38 + (v44 != 0 ? 8 : 0));
-        v46 = *(&KsepShimDbLock.ReservedPreviousReadyTimeValue + 1);
+        UserWaitTime_high = HIDWORD(KsepShimDbLock.UserWaitTime);
         *v45 += v5;
         v47 = *(_DWORD *)(v38 + 192);
-        if ( v46 > v47 )
+        if ( UserWaitTime_high > v47 )
         {
-          LODWORD(v90) = v46;
-          if ( v46 - v47 >= 0x20 )
+          LODWORD(v90) = UserWaitTime_high;
+          if ( UserWaitTime_high - v47 >= 0x20 )
             HIDWORD(v90) = 1;
           else
-            HIDWORD(v90) = (*(_DWORD *)(v38 + 196) << (v46 - v47)) | 1;
+            HIDWORD(v90) = (*(_DWORD *)(v38 + 196) << (UserWaitTime_high - v47)) | 1;
           *(_QWORD *)(v38 + 192) = v90;
         }
         else
         {
-          v48 = v47 - v46;
+          v48 = v47 - UserWaitTime_high;
           if ( v48 < 0x20 )
             *(_DWORD *)(v38 + 196) |= 1 << v48;
         }
@@ -467,7 +467,7 @@ LABEL_36:
     }
     if ( KiHgsPlusEnabled )
       KiUpdateThreadHgsFeedback(a1, a2, v5, a4);
-    if ( *(_QWORD *)(a1 + 34480) && *(_UNKNOWN **)(a2 + 544) != &unk_140FC8F40 && *(unsigned __int8 *)(a2 + 516) < 7u )
+    if ( *(_QWORD *)(a1 + 34480) && *(_UNKNOWN **)(a2 + 544) != &unk_140FC9F40 && *(unsigned __int8 *)(a2 + 516) < 7u )
     {
       v53 = *(_DWORD *)(a2 + 80);
       if ( v53 <= *(_DWORD *)(a2 + 84) )
@@ -486,7 +486,7 @@ LABEL_36:
           *i += v5;
       }
       if ( (*(_BYTE *)(a2 + 2) & 8) != 0
-        && *(_UNKNOWN **)(a2 + 544) != &unk_140FC8F40
+        && *(_UNKNOWN **)(a2 + 544) != &unk_140FC9F40
         && (*(_QWORD *)(*(_QWORD *)(a2 + 576) + 8LL * *(unsigned __int16 *)(*(_QWORD *)(a1 + 192) + 136LL) + 8) & *(_QWORD *)(*(_QWORD *)(a1 + 192) + 128LL)) != *(_QWORD *)(*(_QWORD *)(a1 + 192) + 128LL) )
       {
         *(_QWORD *)(a1 + 34472) += v5;

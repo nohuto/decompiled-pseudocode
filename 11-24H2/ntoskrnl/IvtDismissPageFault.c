@@ -1,10 +1,10 @@
 /*
- * XREFs of IvtDismissPageFault @ 0x14056E060
+ * XREFs of IvtDismissPageFault @ 0x14056B4F0
  * Callers:
  *     <none>
  * Callees:
- *     IvtIommuSendCommand @ 0x1403BB944 (IvtIommuSendCommand.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     IvtIommuSendCommand @ 0x140375084 (IvtIommuSendCommand.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 unsigned __int64 __fastcall IvtDismissPageFault(__int64 a1, unsigned int a2, __int16 a3, unsigned __int16 a4, int a5)
@@ -27,5 +27,5 @@ unsigned __int64 __fastcall IvtDismissPageFault(__int64 a1, unsigned int a2, __i
   *(_QWORD *)&v9 = (8LL * a4) ^ (v9 ^ (8LL * a4)) & 0xFFFFFFFFFFFFF007uLL | 4;
   if ( a5 < 0 )
     v8 = v6 & 0xFFFFFFFFFFFF0FFFuLL | 0x1000;
-  return IvtIommuSendCommand(a1, &v8, 0LL);
+  return IvtIommuSendCommand(a1, &v8, 0);
 }

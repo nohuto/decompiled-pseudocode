@@ -1,14 +1,14 @@
 /*
- * XREFs of PopWriteImageHeader @ 0x140B5ED50
+ * XREFs of PopWriteImageHeader @ 0x140B60DD0
  * Callers:
- *     PopSaveHiberContext @ 0x140B6EC80 (PopSaveHiberContext.c)
+ *     PopSaveHiberContext @ 0x140B70CF0 (PopSaveHiberContext.c)
  * Callees:
- *     DbgPrint @ 0x1402CB260 (DbgPrint.c)
- *     KeQueryPerformanceCounter @ 0x14034FA10 (KeQueryPerformanceCounter.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     tcpxsum @ 0x1406B3530 (tcpxsum.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     PopWriteHiberPages @ 0x140B5EA28 (PopWriteHiberPages.c)
+ *     DbgPrint @ 0x140274290 (DbgPrint.c)
+ *     KeQueryPerformanceCounter @ 0x14036DEF0 (KeQueryPerformanceCounter.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     tcpxsum @ 0x1406B44D0 (tcpxsum.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     PopWriteHiberPages @ 0x140B60AA8 (PopWriteHiberPages.c)
  */
 
 __int64 __fastcall PopWriteImageHeader(__int64 a1, __int64 a2, unsigned int a3, __int64 a4)
@@ -30,8 +30,6 @@ __int64 __fastcall PopWriteImageHeader(__int64 a1, __int64 a2, unsigned int a3, 
   __int128 v20; // xmm1
   __int64 v21; // rdx
   __int64 v22; // rcx
-  __int64 v23; // r8
-  __int64 v24; // r9
   __int64 result; // rax
 
   BugCheckParameter4 = a3;
@@ -41,20 +39,20 @@ __int64 __fastcall PopWriteImageHeader(__int64 a1, __int64 a2, unsigned int a3, 
     DbgPrint("MemImage->WakeCheck %lx doesn't make PoWakeCheck %lx\n", v6, a3);
     KeBugCheckEx(0xA0u, 0x109uLL, 0xAuLL, *(unsigned int *)(a2 + 80), BugCheckParameter4);
   }
-  qword_140F0B478 = *(_QWORD *)(a2 + 1176);
-  dword_140F0B480 = *(_DWORD *)(a1 + 288);
+  qword_140F0C0B8 = *(_QWORD *)(a2 + 1176);
+  dword_140F0C0C0 = *(_DWORD *)(a1 + 288);
   v8 = __rdtsc();
-  qword_140F0B390 = (((unsigned __int64)HIDWORD(v8) << 32) | (unsigned int)v8) - a4;
-  dword_140F0B55C = ((unsigned int)dword_140F0AD60 >> 4) - 1;
+  qword_140F0BFD0 = (((unsigned __int64)HIDWORD(v8) << 32) | (unsigned int)v8) - a4;
+  dword_140F0C19C = ((unsigned int)dword_140F0BBA0 >> 4) - 1;
   PerformanceCounter = KeQueryPerformanceCounter(0LL);
   v10 = 0;
-  qword_140F0B3C8 = PerformanceCounter.QuadPart;
-  for ( i = 5LL; v10 < *(_DWORD *)(a1 + 288); qword_140F0B3A8 += *(_QWORD *)(*(_QWORD *)(a1 + 296) + v13 + 80) )
+  qword_140F0C008 = PerformanceCounter.QuadPart;
+  for ( i = 5LL; v10 < *(_DWORD *)(a1 + 288); qword_140F0BFE8 += *(_QWORD *)(*(_QWORD *)(a1 + 296) + v13 + 80) )
   {
-    v12 = &unk_140F0B608;
+    v12 = &unk_140F0C248;
     v13 = 168LL * v10;
     v14 = 5LL;
-    v15 = v13 - (_QWORD)&unk_140F0B608;
+    v15 = v13 - (_QWORD)&unk_140F0C248;
     do
     {
       v16 = (char *)v12 + v15;
@@ -65,19 +63,19 @@ __int64 __fastcall PopWriteImageHeader(__int64 a1, __int64 a2, unsigned int a3, 
     }
     while ( v14 );
     ++v10;
-    qword_140F0B528 += *(_QWORD *)(*(_QWORD *)(a1 + 296) + v13 + 56);
-    qword_140F0B3A0 += *(_QWORD *)(*(_QWORD *)(a1 + 296) + v13 + 40);
+    qword_140F0C168 += *(_QWORD *)(*(_QWORD *)(a1 + 296) + v13 + 56);
+    qword_140F0BFE0 += *(_QWORD *)(*(_QWORD *)(a1 + 296) + v13 + 40);
   }
-  qword_140F0B538 = qword_140F0B550;
-  qword_140F0B548 = (unsigned int)dword_140F0B558;
-  qword_140F0B550 += qword_140F0B530;
-  v17 = qword_140F0B520;
-  dword_140F0B558 += qword_140F0B540;
-  *(_QWORD *)(a2 + 88) = qword_140F0B520;
-  if ( byte_140F0AD81 )
-    *(_QWORD *)(a2 + 88) = qword_140F0B528 + v17;
+  qword_140F0C178 = qword_140F0C190;
+  qword_140F0C188 = (unsigned int)dword_140F0C198;
+  qword_140F0C190 += qword_140F0C170;
+  v17 = qword_140F0C160;
+  dword_140F0C198 += qword_140F0C180;
+  *(_QWORD *)(a2 + 88) = qword_140F0C160;
+  if ( byte_140F0BBC1 )
+    *(_QWORD *)(a2 + 88) = qword_140F0C168 + v17;
   v18 = (_OWORD *)(a2 + 136);
-  v19 = &qword_140F0B378;
+  v19 = &qword_140F0BFB8;
   do
   {
     *v18 = *(_OWORD *)v19;
@@ -106,6 +104,6 @@ __int64 __fastcall PopWriteImageHeader(__int64 a1, __int64 a2, unsigned int a3, 
   PopWriteHiberPages(a1, a2, 1uLL, 0LL);
   result = *(_QWORD *)(*(_QWORD *)(a1 + 184) + 72LL);
   if ( result )
-    return guard_dispatch_icall_no_overrides(v22, v21, v23, v24);
+    return guard_dispatch_icall_no_overrides(v22, v21);
   return result;
 }

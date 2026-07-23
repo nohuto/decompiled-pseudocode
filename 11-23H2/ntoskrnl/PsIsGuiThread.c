@@ -1,7 +1,7 @@
 /*
- * XREFs of PsIsGuiThread @ 0x1409AE634
+ * XREFs of PsIsGuiThread @ 0x1409AE834
  * Callers:
- *     NtSetInformationProcess @ 0x140774540 (NtSetInformationProcess.c)
+ *     NtSetInformationProcess @ 0x140774730 (NtSetInformationProcess.c)
  * Callees:
  *     <none>
  */

@@ -1,9 +1,9 @@
 /*
- * XREFs of NtCreateKeyTransacted_Stub @ 0x14097CB70
+ * XREFs of NtCreateKeyTransacted_Stub @ 0x14097CD50
  * Callers:
- *     _RegRtlCreateKeyTransacted @ 0x14063E55C (_RegRtlCreateKeyTransacted.c)
+ *     _RegRtlCreateKeyTransacted @ 0x14063336C (_RegRtlCreateKeyTransacted.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall NtCreateKeyTransacted_Stub(
@@ -18,15 +18,15 @@ __int64 __fastcall NtCreateKeyTransacted_Stub(
 {
   NTSTATUS (__stdcall *v8)(PHANDLE, ACCESS_MASK, POBJECT_ATTRIBUTES, ULONG, PUNICODE_STRING, ULONG, HANDLE, PULONG); // rax
 
-  if ( byte_140CFA4A9 )
+  if ( byte_140CFA508 )
   {
-    v8 = (NTSTATUS (__stdcall *)(PHANDLE, ACCESS_MASK, POBJECT_ATTRIBUTES, ULONG, PUNICODE_STRING, ULONG, HANDLE, PULONG))qword_140CFA4B0;
+    v8 = (NTSTATUS (__stdcall *)(PHANDLE, ACCESS_MASK, POBJECT_ATTRIBUTES, ULONG, PUNICODE_STRING, ULONG, HANDLE, PULONG))qword_140CFA500;
   }
   else
   {
     v8 = ZwCreateKeyTransacted;
-    byte_140CFA4A9 = 1;
-    qword_140CFA4B0 = (__int64)ZwCreateKeyTransacted;
+    byte_140CFA508 = 1;
+    qword_140CFA500 = (__int64)ZwCreateKeyTransacted;
   }
   if ( v8 )
     return ((__int64 (__fastcall *)(__int64, __int64, __int64, _QWORD, _QWORD, int, __int64, __int64))v8)(

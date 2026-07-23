@@ -3,13 +3,13 @@
  * Callers:
  *     <none>
  * Callees:
- *     KiIpiSendPacket @ 0x1400C8A18 (KiIpiSendPacket.c)
- *     KeAddProcessorAffinityEx @ 0x1400D3F88 (KeAddProcessorAffinityEx.c)
- *     KeSetAffinityProcess @ 0x14014A0B8 (KeSetAffinityProcess.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     xHalTscSynchronization @ 0x1401BA878 (xHalTscSynchronization.c)
- *     KeSignalCallDpcSynchronize @ 0x1401D6450 (KeSignalCallDpcSynchronize.c)
+ *     KiIpiSendPacket @ 0x1400C68B8 (KiIpiSendPacket.c)
+ *     KeAddProcessorAffinityEx @ 0x1400D1E28 (KeAddProcessorAffinityEx.c)
+ *     KeSetAffinityProcess @ 0x14014A628 (KeSetAffinityProcess.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     xHalTscSynchronization @ 0x1401BA75C (xHalTscSynchronization.c)
+ *     KeSignalCallDpcSynchronize @ 0x1401D627C (KeSignalCallDpcSynchronize.c)
  *     KiInitializeProcessor @ 0x1403D34A8 (KiInitializeProcessor.c)
  *     KeRestoreMtrrBroadcast @ 0x1403D36E8 (KeRestoreMtrrBroadcast.c)
  *     KiConfigureSchedulingInformation @ 0x1403D3734 (KiConfigureSchedulingInformation.c)

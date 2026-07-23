@@ -1,62 +1,61 @@
 /*
- * XREFs of PopCoolingSxTransition @ 0x1404359C0
+ * XREFs of PopCoolingSxTransition @ 0x140424E88
  * Callers:
- *     PopThermalSxEntry @ 0x1404351B4 (PopThermalSxEntry.c)
+ *     PopThermalSxEntry @ 0x14042408C (PopThermalSxEntry.c)
+ *     PopThermalSxExit @ 0x140516740 (PopThermalSxExit.c)
  * Callees:
- *     PopReleaseRwLock @ 0x14043630C (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x140436378 (PopAcquireRwLockExclusive.c)
- *     PopTraceThermalRequestActiveActivity @ 0x14043661C (PopTraceThermalRequestActiveActivity.c)
- *     PopTraceThermalRequestPassiveHistogram @ 0x140436950 (PopTraceThermalRequestPassiveHistogram.c)
- *     PopThermalUpdatePassiveTimeTracking @ 0x140B2F378 (PopThermalUpdatePassiveTimeTracking.c)
- *     PopThermalUpdateActiveTimeTracking @ 0x140B41620 (PopThermalUpdateActiveTimeTracking.c)
+ *     PopReleaseRwLock @ 0x14021B1A8 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x140425310 (PopAcquireRwLockExclusive.c)
+ *     PopTraceThermalRequestActiveActivity @ 0x1404255AC (PopTraceThermalRequestActiveActivity.c)
+ *     PopTraceThermalRequestPassiveHistogram @ 0x1404258E0 (PopTraceThermalRequestPassiveHistogram.c)
+ *     PopThermalUpdatePassiveTimeTracking @ 0x140B31158 (PopThermalUpdatePassiveTimeTracking.c)
+ *     PopThermalUpdateActiveTimeTracking @ 0x140B43630 (PopThermalUpdateActiveTimeTracking.c)
  */
 
 __int64 __fastcall PopCoolingSxTransition(char a1)
 {
-  struct _LIST_ENTRY *i; // rdi
+  __int64 i; // rdi
   __int64 v3; // rdx
-  struct _LIST_ENTRY *j; // rbx
-  struct _LIST_ENTRY *v6; // rax
+  __int64 *j; // rbx
+  __int64 v6; // rax
 
-  PopAcquireRwLockExclusive(&stru_140F10828.SavedApcStateFill[32]);
-  for ( i = stru_140F10828.SavedApcState.ApcListHead[1].Flink;
-        i != (struct _LIST_ENTRY *)&stru_140F10828.SavedApcStateFill[16];
-        i = i->Flink )
+  PopAcquireRwLockExclusive(&PopCoolingExtensionLock);
+  for ( i = PopCoolingExtensionList; (__int64 *)i != &PopCoolingExtensionList; i = *(_QWORD *)i )
   {
-    if ( LOBYTE(i[4].Flink) )
+    if ( *(_BYTE *)(i + 64) )
     {
-      PopAcquireRwLockExclusive(&i[2]);
-      for ( j = i[1].Flink; j != &i[1]; j = j->Flink )
+      PopAcquireRwLockExclusive(i + 32);
+      for ( j = *(__int64 **)(i + 16); j != (__int64 *)(i + 16); j = (__int64 *)*j )
       {
-        if ( BYTE2(j[1].Flink) )
+        if ( *((_BYTE *)j + 18) )
         {
           if ( a1 )
           {
-            if ( i[8].Blink )
+            if ( *(_QWORD *)(i + 136) )
             {
-              LOBYTE(v3) = j[1].Flink;
-              PopThermalUpdatePassiveTimeTracking(&j[2].Blink, v3);
+              LOBYTE(v3) = *((_BYTE *)j + 16);
+              PopThermalUpdatePassiveTimeTracking(j + 5, v3);
               PopTraceThermalRequestPassiveHistogram(j);
             }
-            if ( i[8].Flink )
+            if ( *(_QWORD *)(i + 128) )
             {
-              LOBYTE(v3) = BYTE1(j[1].Flink) == 0;
-              PopThermalUpdateActiveTimeTracking(&j[2].Blink, v3);
+              LOBYTE(v3) = *((_BYTE *)j + 17) == 0;
+              PopThermalUpdateActiveTimeTracking(j + 5, v3);
               PopTraceThermalRequestActiveActivity(j);
             }
-            LOBYTE(j[2].Blink) = 1;
+            *((_BYTE *)j + 40) = 1;
           }
           else
           {
-            v6 = (struct _LIST_ENTRY *)MEMORY[0xFFFFF78000000008];
-            j[3].Flink = (struct _LIST_ENTRY *)MEMORY[0xFFFFF78000000008];
-            j[3].Blink = v6;
-            LOBYTE(j[2].Blink) = 0;
+            v6 = MEMORY[0xFFFFF78000000008];
+            j[6] = MEMORY[0xFFFFF78000000008];
+            j[7] = v6;
+            *((_BYTE *)j + 40) = 0;
           }
         }
       }
-      PopReleaseRwLock((struct _KTHREAD *)&i[2]);
+      PopReleaseRwLock((struct _KTHREAD *)(i + 32));
     }
   }
-  return PopReleaseRwLock((struct _KTHREAD *)&stru_140F10828.SavedApcStateFill[32]);
+  return PopReleaseRwLock((struct _KTHREAD *)&PopCoolingExtensionLock);
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of ViDeadlockKeInitializeMutex_Exit @ 0x140AD93D0
+ * XREFs of ViDeadlockKeInitializeMutex_Exit @ 0x140AD93C0
  * Callers:
  *     <none>
  * Callees:
- *     VfDeadlockInitializeResource @ 0x140AD7768 (VfDeadlockInitializeResource.c)
+ *     VfDeadlockInitializeResource @ 0x140AD7758 (VfDeadlockInitializeResource.c)
  */
 
 __int64 __fastcall ViDeadlockKeInitializeMutex_Exit(__int64 a1, __int64 a2)

@@ -1,17 +1,17 @@
 /*
- * XREFs of EtwpInvokeEventCallback @ 0x1404A93C4
+ * XREFs of EtwpInvokeEventCallback @ 0x1404A2A54
  * Callers:
- *     EtwpEventWriteFull @ 0x14021336C (EtwpEventWriteFull.c)
- *     EtwTraceEvent @ 0x140216BB0 (EtwTraceEvent.c)
- *     EtwpTraceMessageVa @ 0x1402176B0 (EtwpTraceMessageVa.c)
- *     EtwpLogKernelEvent @ 0x14032CDC0 (EtwpLogKernelEvent.c)
- *     EtwpLogSystemEventUnsafe @ 0x14041297C (EtwpLogSystemEventUnsafe.c)
- *     EtwTraceRaw @ 0x140516B78 (EtwTraceRaw.c)
- *     EtwpWriteUserEvent @ 0x140B7D098 (EtwpWriteUserEvent.c)
+ *     EtwpEventWriteFull @ 0x14021344C (EtwpEventWriteFull.c)
+ *     EtwTraceEvent @ 0x140216EE0 (EtwTraceEvent.c)
+ *     EtwpTraceMessageVa @ 0x1402179E0 (EtwpTraceMessageVa.c)
+ *     EtwpLogKernelEvent @ 0x14032EDF0 (EtwpLogKernelEvent.c)
+ *     EtwpLogSystemEventUnsafe @ 0x140406FB0 (EtwpLogSystemEventUnsafe.c)
+ *     EtwTraceRaw @ 0x1405105E8 (EtwTraceRaw.c)
+ *     EtwpWriteUserEvent @ 0x140B85DAC (EtwpWriteUserEvent.c)
  * Callees:
- *     KeIsTraceCallbackAllowed @ 0x1404A9454 (KeIsTraceCallbackAllowed.c)
- *     EtwpGetNextEventOffsetType @ 0x1404A94A8 (EtwpGetNextEventOffsetType.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     KeIsTraceCallbackAllowed @ 0x1404A2AE4 (KeIsTraceCallbackAllowed.c)
+ *     EtwpGetNextEventOffsetType @ 0x1404A2B38 (EtwpGetNextEventOffsetType.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall EtwpInvokeEventCallback(__int64 a1, __int64 *a2)

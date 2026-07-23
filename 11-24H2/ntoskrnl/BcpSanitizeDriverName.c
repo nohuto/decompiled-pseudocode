@@ -1,8 +1,8 @@
 /*
- * XREFs of BcpSanitizeDriverName @ 0x14069A014
+ * XREFs of BcpSanitizeDriverName @ 0x14069B094
  * Callers:
- *     BcpDisplayErrorInformation @ 0x1406991EC (BcpDisplayErrorInformation.c)
- *     BcpDisplayErrorInformationModernized @ 0x140699454 (BcpDisplayErrorInformationModernized.c)
+ *     BcpDisplayErrorInformation @ 0x14069A26C (BcpDisplayErrorInformation.c)
+ *     BcpDisplayErrorInformationModernized @ 0x14069A4D4 (BcpDisplayErrorInformationModernized.c)
  * Callees:
  *     <none>
  */

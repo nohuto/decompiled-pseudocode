@@ -1,11 +1,11 @@
 /*
- * XREFs of MiFindLargeNodePage @ 0x140394ED0
+ * XREFs of MiFindLargeNodePage @ 0x140395020
  * Callers:
- *     MiFindContiguousPages @ 0x1403016E0 (MiFindContiguousPages.c)
- *     MiAllocatePartitionPhysicalPages @ 0x1408DA978 (MiAllocatePartitionPhysicalPages.c)
+ *     MiFindContiguousPages @ 0x14030C430 (MiFindContiguousPages.c)
+ *     MiAllocatePartitionPhysicalPages @ 0x1408DAAD8 (MiAllocatePartitionPhysicalPages.c)
  * Callees:
- *     MiSetPfnOwnedAndActive @ 0x14023BC40 (MiSetPfnOwnedAndActive.c)
- *     MiUpdateLargePageBitMap @ 0x140300090 (MiUpdateLargePageBitMap.c)
+ *     MiSetPfnOwnedAndActive @ 0x1402E0490 (MiSetPfnOwnedAndActive.c)
+ *     MiUpdateLargePageBitMap @ 0x14030ADE0 (MiUpdateLargePageBitMap.c)
  *     MiGetLargePagesDemoteAsNeeded @ 0x1403F5870 (MiGetLargePagesDemoteAsNeeded.c)
  *     MiConvertEntireLargePageToSmall @ 0x1403F5C28 (MiConvertEntireLargePageToSmall.c)
  *     MiGetFreeZeroLargePages @ 0x1403F6914 (MiGetFreeZeroLargePages.c)
@@ -18,7 +18,7 @@ __int64 __fastcall MiFindLargeNodePage(
         unsigned int *a3,
         int a4,
         int a5,
-        unsigned int a6,
+        char a6,
         unsigned int a7)
 {
   __int64 v9; // r11
@@ -44,7 +44,7 @@ __int64 __fastcall MiFindLargeNodePage(
   if ( a2 >= (unsigned __int16)KeNumberNodes )
   {
     a2 = *(_DWORD *)(KiProcessorBlock[KeGetCurrentThread()->IdealProcessor] + 32532);
-    v10 = (unsigned int *)(qword_140C4DE98 + 4LL * a2 * (unsigned __int16)KeNumberNodes);
+    v10 = (unsigned int *)(qword_140C4DED8 + 4LL * a2 * (unsigned __int16)KeNumberNodes);
     v11 = (__int64)&v10[(unsigned __int16)KeNumberNodes];
   }
   else

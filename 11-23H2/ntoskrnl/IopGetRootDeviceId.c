@@ -1,12 +1,12 @@
 /*
- * XREFs of IopGetRootDeviceId @ 0x1408354B8
+ * XREFs of IopGetRootDeviceId @ 0x1408357B8
  * Callers:
- *     IoReportDetectedDevice @ 0x140834DD0 (IoReportDetectedDevice.c)
- *     IoReportRootDevice @ 0x140835270 (IoReportRootDevice.c)
+ *     IoReportDetectedDevice @ 0x1408350D0 (IoReportDetectedDevice.c)
+ *     IoReportRootDevice @ 0x140835570 (IoReportRootDevice.c)
  * Callees:
  *     RtlAppendUnicodeStringToString @ 0x140208A00 (RtlAppendUnicodeStringToString.c)
- *     RtlAppendUnicodeToString @ 0x14022A860 (RtlAppendUnicodeToString.c)
- *     IopGetOriginalServiceName @ 0x140835544 (IopGetOriginalServiceName.c)
+ *     RtlAppendUnicodeToString @ 0x14022A970 (RtlAppendUnicodeToString.c)
+ *     IopGetOriginalServiceName @ 0x140835844 (IopGetOriginalServiceName.c)
  */
 
 int __fastcall IopGetRootDeviceId(PCUNICODE_STRING Source, PUNICODE_STRING Destination)

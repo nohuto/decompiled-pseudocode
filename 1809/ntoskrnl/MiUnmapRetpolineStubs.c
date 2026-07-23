@@ -1,16 +1,16 @@
 /*
- * XREFs of MiUnmapRetpolineStubs @ 0x140853E10
+ * XREFs of MiUnmapRetpolineStubs @ 0x140855070
  * Callers:
- *     MiUnloadSystemImage @ 0x140651AA4 (MiUnloadSystemImage.c)
+ *     MiUnloadSystemImage @ 0x140652C64 (MiUnloadSystemImage.c)
  * Callees:
  *     MiPteInShadowRange @ 0x14003D740 (MiPteInShadowRange.c)
- *     MiGetPteAddress @ 0x140065DE8 (MiGetPteAddress.c)
- *     MiFlushTbList @ 0x1400740C0 (MiFlushTbList.c)
- *     MiInsertTbFlushEntry @ 0x1400B3AF0 (MiInsertTbFlushEntry.c)
- *     MiInitializeTbFlushList @ 0x1400EDB84 (MiInitializeTbFlushList.c)
- *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     MiGetPteAddress @ 0x140065DD8 (MiGetPteAddress.c)
+ *     MiFlushTbList @ 0x1400740B0 (MiFlushTbList.c)
+ *     MiInsertTbFlushEntry @ 0x1400B3A30 (MiInsertTbFlushEntry.c)
+ *     MiInitializeTbFlushList @ 0x1400EDC04 (MiInitializeTbFlushList.c)
+ *     MiWritePteShadow @ 0x140120F40 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120FA0 (MiPteHasShadow.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
  */
 
 void __fastcall MiUnmapRetpolineStubs(__int64 a1, int a2)
@@ -31,9 +31,9 @@ void __fastcall MiUnmapRetpolineStubs(__int64 a1, int a2)
 
   v3 = 0;
   v4 = *(_QWORD *)(a1 + 48)
-     + (((unsigned int)dword_140438E74 + 4095LL) & 0xFFFFFFFFFFFFF000uLL)
+     + (((unsigned int)dword_140439F34 + 4095LL) & 0xFFFFFFFFFFFFF000uLL)
      + ((*(unsigned int *)(a1 + 64) + 4095LL) & 0xFFFFFFFFFFFFF000uLL);
-  while ( v3 < dword_140438E60 )
+  while ( v3 < dword_140439F20 )
   {
     PteAddress = MiGetPteAddress(v4 + (v3 << 12));
     if ( MiPteInShadowRange(PteAddress) )
@@ -41,7 +41,7 @@ void __fastcall MiUnmapRetpolineStubs(__int64 a1, int a2)
       if ( (unsigned int)MiPteHasShadow() )
       {
         v8 = 1;
-        if ( !HIBYTE(word_14043A1AC) )
+        if ( !HIBYTE(word_14043B26C) )
         {
           v10 = (v6 & 1) == 0;
           goto LABEL_8;

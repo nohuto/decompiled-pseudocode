@@ -1,8 +1,8 @@
 /*
- * XREFs of KdEncodeDataBlock @ 0x1405AF6B0
+ * XREFs of KdEncodeDataBlock @ 0x1405AC620
  * Callers:
- *     IopLiveDumpCollectPages @ 0x14059A264 (IopLiveDumpCollectPages.c)
- *     KeInitSystem @ 0x140C60CE0 (KeInitSystem.c)
+ *     IopLiveDumpCollectPages @ 0x1405971E8 (IopLiveDumpCollectPages.c)
+ *     KeInitSystem @ 0x140C62E30 (KeInitSystem.c)
  * Callees:
  *     <none>
  */

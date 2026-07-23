@@ -1,15 +1,15 @@
 /*
- * XREFs of SmQueryStoreInformation @ 0x1403E3354
+ * XREFs of SmQueryStoreInformation @ 0x1403E4980
  * Callers:
- *     ExpQuerySystemInformation @ 0x140415620 (ExpQuerySystemInformation.c)
+ *     ExpQuerySystemInformation @ 0x1404144E0 (ExpQuerySystemInformation.c)
  * Callees:
- *     SmProcessCompressionInfoRequest @ 0x1403E4338 (SmProcessCompressionInfoRequest.c)
- *     SeSinglePrivilegeCheck @ 0x140413F70 (SeSinglePrivilegeCheck.c)
- *     SmcProcessListRequest @ 0x140545288 (SmcProcessListRequest.c)
- *     SmProcessRegistrationRequest @ 0x14057B694 (SmProcessRegistrationRequest.c)
- *     SmProcessListRequest @ 0x1406968A0 (SmProcessListRequest.c)
- *     SmProcessStatsRequest @ 0x140696C6C (SmProcessStatsRequest.c)
- *     SmcProcessStatsRequest @ 0x1406977E0 (SmcProcessStatsRequest.c)
+ *     SmProcessCompressionInfoRequest @ 0x1403E5964 (SmProcessCompressionInfoRequest.c)
+ *     SeSinglePrivilegeCheck @ 0x140412E30 (SeSinglePrivilegeCheck.c)
+ *     SmcProcessListRequest @ 0x1405457C8 (SmcProcessListRequest.c)
+ *     SmProcessRegistrationRequest @ 0x14057BB40 (SmProcessRegistrationRequest.c)
+ *     SmProcessListRequest @ 0x140696984 (SmProcessListRequest.c)
+ *     SmProcessStatsRequest @ 0x140696D50 (SmProcessStatsRequest.c)
+ *     SmcProcessStatsRequest @ 0x1406978C4 (SmcProcessStatsRequest.c)
  */
 
 __int64 __fastcall SmQueryStoreInformation(__int64 a1, __int64 a2, int a3, __int64 a4, __int64 a5)

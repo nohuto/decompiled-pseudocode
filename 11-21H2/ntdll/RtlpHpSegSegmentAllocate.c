@@ -13,56 +13,56 @@
  *     RtlpHpTlLogMemStats @ 0x180118400 (RtlpHpTlLogMemStats.c)
  */
 
-__int64 __fastcall RtlpHpSegSegmentAllocate(__int64 a1, int a2)
+__int64 __fastcall RtlpHpSegSegmentAllocate(__int64 a1, int a2, int a3)
 {
-  unsigned int v2; // esi
-  __int64 v4; // rbx
-  __int64 v5; // rbp
-  __int64 v6; // r8
-  unsigned int v7; // edx
-  __int64 v8; // r13
-  _BOOL8 v9; // r15
-  unsigned __int64 v10; // r14
-  unsigned __int64 v11; // r12
-  __int64 v12; // rcx
+  unsigned int v3; // esi
+  __int64 v5; // rbx
+  __int64 v6; // rbp
+  __int64 v7; // r8
+  unsigned int v8; // edx
+  __int64 v9; // r13
+  _BOOL8 v10; // r15
+  unsigned __int64 v11; // r14
+  unsigned __int64 v12; // r12
   __int64 v13; // rcx
+  __int64 v14; // rcx
 
-  v2 = a2 + 2;
-  v4 = 0LL;
-  v5 = RtlpHpSegMgrAllocate(a1, (unsigned int)(a2 + 2));
-  if ( v5 )
+  v3 = a2 + 2;
+  v5 = 0LL;
+  v6 = RtlpHpSegMgrAllocate(a1, a2 + 2, a3);
+  if ( v6 )
   {
-    v7 = -*(_DWORD *)a1;
-    v8 = v7;
-    _InterlockedExchangeAdd64((volatile signed __int64 *)(*(__int16 *)(a1 + 22) + a1), (unsigned __int64)v7 >> 12);
-    _InterlockedExchangeAdd64((volatile signed __int64 *)(*(__int16 *)(a1 + 22) + a1 + 8), v2);
-    v9 = v7 != 0x100000;
-    v10 = 2 * ((unsigned __int64)(v5 - qword_18017B718) >> 20);
-    v11 = v10 + 2 * ((unsigned __int64)v7 >> 20);
-    while ( v10 < v11 )
+    v8 = -*(_DWORD *)a1;
+    v9 = v8;
+    _InterlockedExchangeAdd64((volatile signed __int64 *)(*(__int16 *)(a1 + 22) + a1), (unsigned __int64)v8 >> 12);
+    _InterlockedExchangeAdd64((volatile signed __int64 *)(*(__int16 *)(a1 + 22) + a1 + 8), v3);
+    v10 = v8 != 0x100000;
+    v11 = 2 * ((unsigned __int64)(v6 - qword_18017B718) >> 20);
+    v12 = v11 + 2 * ((unsigned __int64)v8 >> 20);
+    while ( v11 < v12 )
     {
-      if ( (int)RtlCSparseBitmapBitmaskWrite(&unk_18017B720, v10, v6, v9 + 1) < 0 )
+      if ( (int)RtlCSparseBitmapBitmaskWrite(&BaseAddress, v11, v7, v10 + 1) < 0 )
       {
-        RtlpHpSegSegmentFree(a1, v5, v2, 0LL);
-        return v4;
+        RtlpHpSegSegmentFree(a1);
+        return v5;
       }
-      v10 += 2LL;
+      v11 += 2LL;
     }
-    if ( (unsigned int)RtlGetCurrentServiceSessionId() )
-      v12 = (__int64)NtCurrentPeb()->SharedData + 550;
+    if ( RtlGetCurrentServiceSessionId() )
+      v13 = (__int64)NtCurrentPeb()->SharedData + 550;
     else
-      v12 = 2147353472LL;
-    if ( *(_BYTE *)v12 && (NtCurrentPeb()->TracingFlags & 1) != 0 )
-      RtlpLogHeapCommit(*(_QWORD *)(a1 + 56), v5, v2 << 12, 12LL);
-    if ( (unsigned int)RtlGetCurrentServiceSessionId() )
-      v13 = (__int64)NtCurrentPeb()->SharedData + 558;
+      v13 = 2147353472LL;
+    if ( *(_BYTE *)v13 && (NtCurrentPeb()->TracingFlags & 1) != 0 )
+      RtlpLogHeapCommit(*(_QWORD *)(a1 + 56), v6, v3 << 12, 12LL);
+    if ( RtlGetCurrentServiceSessionId() )
+      v14 = (__int64)NtCurrentPeb()->SharedData + 558;
     else
-      v13 = 2147353480LL;
-    if ( *(_BYTE *)v13 )
-      RtlpHeapLogRangeReserve(*(_QWORD *)(a1 + 56), v5, v8);
+      v14 = 2147353480LL;
+    if ( *(_BYTE *)v14 )
+      RtlpHeapLogRangeReserve(*(_QWORD *)(a1 + 56), v6, v9);
     if ( (RtlpHpHeapFeatures & 8) != 0 )
       RtlpHpTlLogMemStats(*(_QWORD *)(a1 + 56), a1 + *(__int16 *)(a1 + 22));
-    return v5;
+    return v6;
   }
-  return v4;
+  return v5;
 }

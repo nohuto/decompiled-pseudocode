@@ -1,12 +1,12 @@
 /*
- * XREFs of EtwpRotateCompressionTarget @ 0x14031580C
+ * XREFs of EtwpRotateCompressionTarget @ 0x1403159FC
  * Callers:
- *     EtwpCompressBuffer @ 0x140314A98 (EtwpCompressBuffer.c)
- *     EtwpRotateCompressionTargetIfNeeded @ 0x14031587C (EtwpRotateCompressionTargetIfNeeded.c)
+ *     EtwpCompressBuffer @ 0x140314C88 (EtwpCompressBuffer.c)
+ *     EtwpRotateCompressionTargetIfNeeded @ 0x140315A6C (EtwpRotateCompressionTargetIfNeeded.c)
  * Callees:
  *     EtwpDequeueFreeBuffer @ 0x140015278 (EtwpDequeueFreeBuffer.c)
  *     EtwpEnqueueAvailableBuffer @ 0x1400153E0 (EtwpEnqueueAvailableBuffer.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
  */
 
 volatile signed __int32 *__fastcall EtwpRotateCompressionTarget(__int64 a1)

@@ -1,7 +1,7 @@
 /*
- * XREFs of RaspConvertDeltas @ 0x14069ACFC
+ * XREFs of RaspConvertDeltas @ 0x14069BD7C
  * Callers:
- *     RaspGetUnscaledGlyphData @ 0x14069B1FC (RaspGetUnscaledGlyphData.c)
+ *     RaspGetUnscaledGlyphData @ 0x14069C27C (RaspGetUnscaledGlyphData.c)
  * Callees:
  *     <none>
  */

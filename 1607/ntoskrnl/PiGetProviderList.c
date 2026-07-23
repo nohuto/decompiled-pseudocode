@@ -1,14 +1,14 @@
 /*
- * XREFs of PiGetProviderList @ 0x1403F4CC4
+ * XREFs of PiGetProviderList @ 0x1403F3B88
  * Callers:
- *     PipProcessRebuildPowerRelationsQueue @ 0x1403F22F0 (PipProcessRebuildPowerRelationsQueue.c)
- *     PipNotifyDeviceDependencyList @ 0x1403F2428 (PipNotifyDeviceDependencyList.c)
- *     PipCheckForUnsatisfiedDependencies @ 0x1403F4C84 (PipCheckForUnsatisfiedDependencies.c)
- *     IopSortRelationListForRemove @ 0x1404C49D0 (IopSortRelationListForRemove.c)
- *     PiQueryPowerDependencyRelations @ 0x140570DD4 (PiQueryPowerDependencyRelations.c)
- *     IoClearDependency @ 0x14062AA60 (IoClearDependency.c)
- *     PnpGetDeviceDependencyList @ 0x14062B650 (PnpGetDeviceDependencyList.c)
- *     IopCheckIfMergeRequired @ 0x14064B8D0 (IopCheckIfMergeRequired.c)
+ *     PipProcessRebuildPowerRelationsQueue @ 0x1403F11B4 (PipProcessRebuildPowerRelationsQueue.c)
+ *     PipNotifyDeviceDependencyList @ 0x1403F12EC (PipNotifyDeviceDependencyList.c)
+ *     PipCheckForUnsatisfiedDependencies @ 0x1403F3B48 (PipCheckForUnsatisfiedDependencies.c)
+ *     IopSortRelationListForRemove @ 0x1404863A8 (IopSortRelationListForRemove.c)
+ *     PiQueryPowerDependencyRelations @ 0x140571314 (PiQueryPowerDependencyRelations.c)
+ *     IoClearDependency @ 0x14062AB14 (IoClearDependency.c)
+ *     PnpGetDeviceDependencyList @ 0x14062B704 (PnpGetDeviceDependencyList.c)
+ *     IopCheckIfMergeRequired @ 0x14064B9B4 (IopCheckIfMergeRequired.c)
  * Callees:
  *     <none>
  */

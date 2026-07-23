@@ -1,11 +1,11 @@
 /*
- * XREFs of CcDeductDirtyPages @ 0x1402F3F80
+ * XREFs of CcDeductDirtyPages @ 0x1402F4210
  * Callers:
- *     CcAcquireByteRangeForWrite @ 0x14029D030 (CcAcquireByteRangeForWrite.c)
- *     CcDeleteMbcb @ 0x1402F3E04 (CcDeleteMbcb.c)
- *     CcDeleteBcbs @ 0x1403C6668 (CcDeleteBcbs.c)
+ *     CcAcquireByteRangeForWrite @ 0x14029D2C0 (CcAcquireByteRangeForWrite.c)
+ *     CcDeleteMbcb @ 0x1402F4094 (CcDeleteMbcb.c)
+ *     CcDeleteBcbs @ 0x1403C6848 (CcDeleteBcbs.c)
  * Callees:
- *     CcDeductDirtyPagesInternal @ 0x1402F3FB8 (CcDeductDirtyPagesInternal.c)
+ *     CcDeductDirtyPagesInternal @ 0x1402F4248 (CcDeductDirtyPagesInternal.c)
  */
 
 __int64 __fastcall CcDeductDirtyPages(__int64 a1, __int64 a2)

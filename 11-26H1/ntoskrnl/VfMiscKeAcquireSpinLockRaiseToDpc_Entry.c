@@ -1,10 +1,10 @@
 /*
- * XREFs of VfMiscKeAcquireSpinLockRaiseToDpc_Entry @ 0x140C3CD10
+ * XREFs of VfMiscKeAcquireSpinLockRaiseToDpc_Entry @ 0x140C42D20
  * Callers:
  *     <none>
  * Callees:
- *     VfMiscCheckKernelAddress @ 0x1404FD268 (VfMiscCheckKernelAddress.c)
- *     ViMiscCheckKeRaiseIrql @ 0x140C470BC (ViMiscCheckKeRaiseIrql.c)
+ *     VfMiscCheckKernelAddress @ 0x1404F67A8 (VfMiscCheckKernelAddress.c)
+ *     ViMiscCheckKeRaiseIrql @ 0x140C4D0CC (ViMiscCheckKeRaiseIrql.c)
  */
 
 __int64 __fastcall VfMiscKeAcquireSpinLockRaiseToDpc_Entry(__int64 *a1)

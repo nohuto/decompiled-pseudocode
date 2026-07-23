@@ -1,17 +1,17 @@
 /*
- * XREFs of PopFxActivateComponentWorker @ 0x1400C1660
+ * XREFs of PopFxActivateComponentWorker @ 0x1400BF4F0
  * Callers:
- *     PoFxActivateComponent @ 0x1400C10E0 (PoFxActivateComponent.c)
- *     PopFxIdleWorkerTail @ 0x1400C1860 (PopFxIdleWorkerTail.c)
- *     PopFxActivateComponent @ 0x140142174 (PopFxActivateComponent.c)
+ *     PoFxActivateComponent @ 0x1400BEF70 (PoFxActivateComponent.c)
+ *     PopFxIdleWorkerTail @ 0x1400BF6F0 (PopFxIdleWorkerTail.c)
+ *     PopFxActivateComponent @ 0x1401426E4 (PopFxActivateComponent.c)
  * Callees:
- *     PopFxProcessWork @ 0x1400C124C (PopFxProcessWork.c)
- *     PopFxAddRefDevice @ 0x1400C16F4 (PopFxAddRefDevice.c)
- *     PopFxCompleteComponentActivation @ 0x1400C1A64 (PopFxCompleteComponentActivation.c)
- *     PopPluginComponentActive @ 0x1400C215C (PopPluginComponentActive.c)
- *     KeReleaseSpinLock @ 0x1400E9A70 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x1400EFE30 (KeAcquireSpinLockRaiseToDpc.c)
- *     PopFxActivateComponent @ 0x140142174 (PopFxActivateComponent.c)
+ *     PopFxProcessWork @ 0x1400BF0DC (PopFxProcessWork.c)
+ *     PopFxAddRefDevice @ 0x1400BF584 (PopFxAddRefDevice.c)
+ *     PopFxCompleteComponentActivation @ 0x1400BF8F4 (PopFxCompleteComponentActivation.c)
+ *     PopPluginComponentActive @ 0x1400BFFEC (PopPluginComponentActive.c)
+ *     KeReleaseSpinLock @ 0x1400EB600 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1400EDCB0 (KeAcquireSpinLockRaiseToDpc.c)
+ *     PopFxActivateComponent @ 0x1401426E4 (PopFxActivateComponent.c)
  */
 
 void __fastcall PopFxActivateComponentWorker(ULONG_PTR a1, __int64 a2, char a3, int *a4)

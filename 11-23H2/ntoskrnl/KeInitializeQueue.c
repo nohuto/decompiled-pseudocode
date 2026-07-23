@@ -1,8 +1,8 @@
 /*
  * XREFs of KeInitializeQueue @ 0x140220E10
  * Callers:
- *     NtCreateIoCompletion @ 0x1406B26D0 (NtCreateIoCompletion.c)
- *     EtwpCreateUmReplyObject @ 0x14077EACC (EtwpCreateUmReplyObject.c)
+ *     NtCreateIoCompletion @ 0x1406B2700 (NtCreateIoCompletion.c)
+ *     EtwpCreateUmReplyObject @ 0x14077ECBC (EtwpCreateUmReplyObject.c)
  *     FsRtlInitializeWorkerThread @ 0x140B685CC (FsRtlInitializeWorkerThread.c)
  *     IopInitializePassiveInterruptServices @ 0x140B6A794 (IopInitializePassiveInterruptServices.c)
  *     ExpWorkerFactoryInitialization @ 0x140B72530 (ExpWorkerFactoryInitialization.c)

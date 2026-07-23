@@ -1,9 +1,9 @@
 /*
- * XREFs of AlpcpContextAttribute64to32 @ 0x140AE686C
+ * XREFs of AlpcpContextAttribute64to32 @ 0x140AE462C
  * Callers:
- *     AlpcpExposeCapturedContextAttribute @ 0x140AE6768 (AlpcpExposeCapturedContextAttribute.c)
+ *     AlpcpExposeCapturedContextAttribute @ 0x140AE4528 (AlpcpExposeCapturedContextAttribute.c)
  * Callees:
- *     RtlWriteULongToUser @ 0x14077F7A0 (RtlWriteULongToUser.c)
+ *     RtlWriteULongToUser @ 0x1407822A0 (RtlWriteULongToUser.c)
  */
 
 void __fastcall AlpcpContextAttribute64to32(int *a1, int *a2, char a3)

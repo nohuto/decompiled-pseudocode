@@ -1,12 +1,12 @@
 /*
- * XREFs of IoQueryFileDosDeviceName @ 0x14075A8C0
+ * XREFs of IoQueryFileDosDeviceName @ 0x14075AAB0
  * Callers:
- *     EtwpGetDriverDataDosPath @ 0x1403D784C (EtwpGetDriverDataDosPath.c)
- *     CcMmLogLostDelayedWriteError @ 0x140537874 (CcMmLogLostDelayedWriteError.c)
- *     NtQueryInformationProcess @ 0x1406FCA90 (NtQueryInformationProcess.c)
- *     PiDrvDbQuerySystemPathWin32 @ 0x140813120 (PiDrvDbQuerySystemPathWin32.c)
+ *     EtwpGetDriverDataDosPath @ 0x1403D7A2C (EtwpGetDriverDataDosPath.c)
+ *     CcMmLogLostDelayedWriteError @ 0x140537DC4 (CcMmLogLostDelayedWriteError.c)
+ *     NtQueryInformationProcess @ 0x1406FCCA0 (NtQueryInformationProcess.c)
+ *     PiDrvDbQuerySystemPathWin32 @ 0x1408133F0 (PiDrvDbQuerySystemPathWin32.c)
  * Callees:
- *     IopQueryNameInternal @ 0x14075A964 (IopQueryNameInternal.c)
+ *     IopQueryNameInternal @ 0x14075AB54 (IopQueryNameInternal.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
@@ -15,7 +15,7 @@ NTSTATUS __stdcall IoQueryFileDosDeviceName(PFILE_OBJECT FileObject, POBJECT_NAM
 {
   __int64 v2; // rdi
   __int64 v5; // rdx
-  struct _OBJECT_NAME_INFORMATION *Pool2; // rbx
+  _OBJECT_NAME_INFORMATION *Pool2; // rbx
   __int64 v7; // r8
   NTSTATUS v8; // edi
   int v10; // [rsp+30h] [rbp-18h]
@@ -24,7 +24,7 @@ NTSTATUS __stdcall IoQueryFileDosDeviceName(PFILE_OBJECT FileObject, POBJECT_NAM
   v2 = 208LL;
   for ( i = 208; ; v2 = i )
   {
-    Pool2 = (struct _OBJECT_NAME_INFORMATION *)ExAllocatePool2(256LL, v2, 1849978697LL);
+    Pool2 = (_OBJECT_NAME_INFORMATION *)ExAllocatePool2(256LL, v2, 1849978697LL);
     if ( !Pool2 )
       break;
     LOBYTE(v10) = 0;

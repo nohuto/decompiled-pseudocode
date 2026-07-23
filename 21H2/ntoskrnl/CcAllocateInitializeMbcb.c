@@ -1,10 +1,10 @@
 /*
- * XREFs of CcAllocateInitializeMbcb @ 0x1402BEBB4
+ * XREFs of CcAllocateInitializeMbcb @ 0x14023D008
  * Callers:
- *     CcSetDirtyInMask @ 0x140336470 (CcSetDirtyInMask.c)
+ *     CcSetDirtyInMask @ 0x1403411C0 (CcSetDirtyInMask.c)
  * Callees:
- *     memset @ 0x140414200 (memset.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 _QWORD *CcAllocateInitializeMbcb()

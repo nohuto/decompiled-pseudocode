@@ -1,17 +1,17 @@
 /*
- * XREFs of EtwInitialize @ 0x140824718
+ * XREFs of EtwInitialize @ 0x14082A958
  * Callers:
- *     CmCompleteRegistryInitialization @ 0x14084E49C (CmCompleteRegistryInitialization.c)
- *     InitBootProcessor @ 0x140CAA7CC (InitBootProcessor.c)
- *     IoInitSystemPreDrivers @ 0x140CBACA0 (IoInitSystemPreDrivers.c)
+ *     CmCompleteRegistryInitialization @ 0x1408547AC (CmCompleteRegistryInitialization.c)
+ *     InitBootProcessor @ 0x140CB07CC (InitBootProcessor.c)
+ *     IoInitSystemPreDrivers @ 0x140CC0D18 (IoInitSystemPreDrivers.c)
  * Callees:
- *     ExAcquireRundownProtectionCacheAwareEx @ 0x140218100 (ExAcquireRundownProtectionCacheAwareEx.c)
- *     EtwpBuffersFlushRequired @ 0x14021999C (EtwpBuffersFlushRequired.c)
- *     ExReleaseRundownProtectionCacheAwareEx @ 0x140257080 (ExReleaseRundownProtectionCacheAwareEx.c)
- *     KeGetEffectiveIrql @ 0x1402642B0 (KeGetEffectiveIrql.c)
- *     KeInsertQueueDpc @ 0x1402BDB30 (KeInsertQueueDpc.c)
- *     KeSetEvent @ 0x1402DE9C0 (KeSetEvent.c)
- *     EtwpInitialize @ 0x140CE08F4 (EtwpInitialize.c)
+ *     ExAcquireRundownProtectionCacheAwareEx @ 0x140218430 (ExAcquireRundownProtectionCacheAwareEx.c)
+ *     EtwpBuffersFlushRequired @ 0x140219AFC (EtwpBuffersFlushRequired.c)
+ *     ExReleaseRundownProtectionCacheAwareEx @ 0x140258A10 (ExReleaseRundownProtectionCacheAwareEx.c)
+ *     KeGetEffectiveIrql @ 0x140263820 (KeGetEffectiveIrql.c)
+ *     KeSetEvent @ 0x1402C0780 (KeSetEvent.c)
+ *     KeInsertQueueDpc @ 0x1403087F0 (KeInsertQueueDpc.c)
+ *     EtwpInitialize @ 0x140CE6C94 (EtwpInitialize.c)
  */
 
 void __fastcall EtwInitialize(unsigned int a1, __int64 a2)
@@ -31,14 +31,14 @@ void __fastcall EtwInitialize(unsigned int a1, __int64 a2)
   {
     if ( a1 < 3 )
     {
-      while ( (unsigned __int8)EtwpBootPhase <= a1 )
-        EtwpInitialize((unsigned __int8)EtwpBootPhase, a1, v4);
+      while ( LOBYTE(stru_140F03830.CycleTime) <= a1 )
+        EtwpInitialize(LOBYTE(stru_140F03830.CycleTime), a1, v4);
     }
     else if ( a1 == 3 )
     {
       v5 = EtwpHostSiloState;
       v6 = 0LL;
-      ++EtwpBootPhase;
+      ++LOBYTE(stru_140F03830.CycleTime);
       if ( *(_DWORD *)(EtwpHostSiloState + 16) )
       {
         do
@@ -80,6 +80,6 @@ void __fastcall EtwInitialize(unsigned int a1, __int64 a2)
   else if ( v4 )
   {
     if ( *(_QWORD *)(v4 + 8) != v4 + 8 )
-      EtwpInitialize((unsigned __int8)EtwpBootPhase, 0LL, v4);
+      EtwpInitialize(LOBYTE(stru_140F03830.CycleTime), 0LL, v4);
   }
 }

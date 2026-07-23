@@ -1,26 +1,26 @@
 /*
- * XREFs of PopBatteryWakeDpc @ 0x14060C7A0
+ * XREFs of PopBatteryWakeDpc @ 0x14060F900
  * Callers:
  *     <none>
  * Callees:
- *     KeSetEvent @ 0x1402DE9C0 (KeSetEvent.c)
- *     ExQueueWorkItem @ 0x140381C70 (ExQueueWorkItem.c)
- *     PopBatteryQueueWork @ 0x1404E0BBC (PopBatteryQueueWork.c)
+ *     KeSetEvent @ 0x1402C0780 (KeSetEvent.c)
+ *     ExQueueWorkItem @ 0x140383A20 (ExQueueWorkItem.c)
+ *     PopBatteryQueueWork @ 0x1404DA29C (PopBatteryQueueWork.c)
  */
 
 void PopBatteryWakeDpc()
 {
   unsigned int v0; // edi
 
-  byte_140F0FFB8 = 0;
+  byte_140F10778 = 0;
   v0 = 1;
   if ( PopBatteryInitiateIgnoreStatusDuringBoot )
   {
     PopBatteryInitiateIgnoreStatusDuringBoot = 0;
     v0 = 17;
   }
-  KeSetEvent(&stru_140F0FF80, 0, 0);
-  _InterlockedExchange(&dword_140F0FEF8, 0);
+  KeSetEvent(&stru_140F10740, 0, 0);
+  _InterlockedExchange(&dword_140F106B8, 0);
   PopBatteryQueueWork(v0);
-  ExQueueWorkItem(&stru_140F0FF98, DelayedWorkQueue);
+  ExQueueWorkItem(&stru_140F10758, DelayedWorkQueue);
 }

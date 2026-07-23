@@ -1,14 +1,14 @@
 /*
- * XREFs of KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140321360
+ * XREFs of KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402C9EF0
  * Callers:
- *     CcMapAndCopyInToCache @ 0x1404DD240 (CcMapAndCopyInToCache.c)
- *     PnprMirrorMarkedPages @ 0x140B543CC (PnprMirrorMarkedPages.c)
+ *     CcMapAndCopyInToCache @ 0x1404D6C60 (CcMapAndCopyInToCache.c)
+ *     PnprMirrorMarkedPages @ 0x140B5641C (PnprMirrorMarkedPages.c)
  * Callees:
- *     KiRemoveSystemWorkPriorityKick @ 0x14025E408 (KiRemoveSystemWorkPriorityKick.c)
- *     KiReleaseQueuedSpinLockInstrumented @ 0x140321C90 (KiReleaseQueuedSpinLockInstrumented.c)
- *     KxWaitForLockChainValid @ 0x140321D40 (KxWaitForLockChainValid.c)
- *     KiHaltOnAddressWakeEntireList @ 0x140321D94 (KiHaltOnAddressWakeEntireList.c)
- *     KeDisableInterrupts @ 0x140321E80 (KeDisableInterrupts.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14028EA18 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiReleaseQueuedSpinLockInstrumented @ 0x1402CA820 (KiReleaseQueuedSpinLockInstrumented.c)
+ *     KxWaitForLockChainValid @ 0x1402CA8D0 (KxWaitForLockChainValid.c)
+ *     KiHaltOnAddressWakeEntireList @ 0x1402CA924 (KiHaltOnAddressWakeEntireList.c)
+ *     KeDisableInterrupts @ 0x1402CAA10 (KeDisableInterrupts.c)
  */
 
 void __stdcall KeReleaseInStackQueuedSpinLockFromDpcLevel(PKLOCK_QUEUE_HANDLE LockHandle)
@@ -48,7 +48,7 @@ void __stdcall KeReleaseInStackQueuedSpinLockFromDpcLevel(PKLOCK_QUEUE_HANDLE Lo
   if ( (((unsigned __int8)Lock ^ (unsigned __int8)_InterlockedExchange64((volatile __int64 *)(Next + 8), (__int64)Lock)) & 4) != 0 )
   {
     _InterlockedOr(v13, 0);
-    v7 = KeDisableInterrupts(Lock, v1, ((unsigned __int64)(Next + 8) >> 5) & 0x7F);
+    v7 = KeDisableInterrupts(Lock, v1, ((unsigned __int64)(Next + 8) >> 5) & 0x7F, KiHaltOnAddressHashTable);
     KiHaltOnAddressWakeEntireList(v8, _InterlockedExchange64((volatile __int64 *)(v6 + 8 * v5), 0LL));
     if ( v7 )
     {

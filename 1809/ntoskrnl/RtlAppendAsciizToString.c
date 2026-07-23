@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlAppendAsciizToString @ 0x140890B30
+ * XREFs of RtlAppendAsciizToString @ 0x140891D90
  * Callers:
  *     <none>
  * Callees:
- *     memmove @ 0x1401D1540 (memmove.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
  */
 
 NTSTATUS __stdcall RtlAppendAsciizToString(PSTRING Destination, PCSZ Source)

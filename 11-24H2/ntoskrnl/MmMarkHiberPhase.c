@@ -1,17 +1,17 @@
 /*
- * XREFs of MmMarkHiberPhase @ 0x140B62DB8
+ * XREFs of MmMarkHiberPhase @ 0x140B64E88
  * Callers:
- *     PopMarkComponentsBootPhase @ 0x140B5D694 (PopMarkComponentsBootPhase.c)
+ *     PopMarkComponentsBootPhase @ 0x140B5F714 (PopMarkComponentsBootPhase.c)
  * Callees:
- *     MiWalkPageTables @ 0x140235640 (MiWalkPageTables.c)
- *     PoSetHiberRange @ 0x1402649E0 (PoSetHiberRange.c)
- *     MiGetAnyMultiplexedVm @ 0x140442630 (MiGetAnyMultiplexedVm.c)
- *     MiIsRetpolineEnabled @ 0x140446FE0 (MiIsRetpolineEnabled.c)
- *     MiQuerySystemBase @ 0x1404600DC (MiQuerySystemBase.c)
- *     MiMarkHiberProtectedImages @ 0x140672BF0 (MiMarkHiberProtectedImages.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     MiMarkKernelPageTablePages @ 0x140B627A8 (MiMarkKernelPageTablePages.c)
- *     MiMarkNonPagedHiberPhasePages @ 0x140B6282C (MiMarkNonPagedHiberPhasePages.c)
+ *     MiWalkPageTables @ 0x14020F7D0 (MiWalkPageTables.c)
+ *     MiGetAnyMultiplexedVm @ 0x140439200 (MiGetAnyMultiplexedVm.c)
+ *     MiIsRetpolineEnabled @ 0x14043F7B4 (MiIsRetpolineEnabled.c)
+ *     MiQuerySystemBase @ 0x140454FBC (MiQuerySystemBase.c)
+ *     PoSetHiberRange @ 0x14046AD10 (PoSetHiberRange.c)
+ *     MiMarkHiberProtectedImages @ 0x140673DC0 (MiMarkHiberProtectedImages.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     MiMarkKernelPageTablePages @ 0x140B64878 (MiMarkKernelPageTablePages.c)
+ *     MiMarkNonPagedHiberPhasePages @ 0x140B648FC (MiMarkNonPagedHiberPhasePages.c)
  */
 
 __int64 MmMarkHiberPhase()
@@ -28,7 +28,7 @@ __int64 MmMarkHiberPhase()
   _QWORD *v9; // rcx
   _QWORD *v10; // rcx
   char *AnyMultiplexedVm; // rax
-  _DWORD v13[2]; // [rsp+30h] [rbp-C8h] BYREF
+  int v13[2]; // [rsp+30h] [rbp-C8h] BYREF
   char v14; // [rsp+39h] [rbp-BFh]
   char *v15; // [rsp+50h] [rbp-A8h]
   unsigned __int64 v16; // [rsp+58h] [rbp-A0h]
@@ -45,27 +45,27 @@ __int64 MmMarkHiberPhase()
     v0 = MiQuerySystemBase(5, &v19);
     MiMarkNonPagedHiberPhasePages(v0, v0 + v19 - 1, 0x200u);
   }
-  PoSetHiberRange(0LL, 0x14000u, qword_140E37340[0], 1uLL, 0x61676D4Du);
+  PoSetHiberRange(0LL, 0x14000u, qword_140E37480[0], 1uLL, 0x61676D4Du);
   PoSetHiberRange(0LL, 0x10000u, KeGetCurrentThread()->ApcState.Process, 0x840uLL, 0x62706D4Du);
   KernelWaitTime = (void *)KeGetCurrentThread()->ApcState.Process[2].KernelWaitTime;
   if ( KernelWaitTime )
     PoSetHiberRange(0LL, 0x10000u, KernelWaitTime, 0x1000uLL, 0x62706D4Du);
-  PoSetHiberRange(0LL, 0x10000u, qword_140E2D730, (unsigned int)(dword_140E2D73C << 12), 0x62706D4Du);
+  PoSetHiberRange(0LL, 0x10000u, Base, (unsigned int)(dword_140E2D87C << 12), 0x62706D4Du);
   if ( MiIsRetpolineEnabled() )
     PoSetHiberRange(
       0LL,
       0x10000u,
-      qword_140E2D760,
-      8 * (((unsigned __int64)qword_140E2D758 >> 6) + ((qword_140E2D758 & 0x3F) != 0)),
+      qword_140E2D8A0,
+      8 * (((unsigned __int64)qword_140E2D898 >> 6) + ((qword_140E2D898 & 0x3F) != 0)),
       0x62706D4Du);
-  MiMarkNonPagedHiberPhasePages(qword_140E2F058, qword_140E2F058 + qword_140E2F060 - 1, 0);
+  MiMarkNonPagedHiberPhasePages(qword_140E2F198, qword_140E2F198 + qword_140E2F1A0 - 1, 0);
   PoSetHiberRange(0LL, 0x10000u, &MiState, 0xD000uLL, 0x74536D4Du);
-  PoSetHiberRange(0LL, 0x10000u, qword_140E2FF88, 8LL * qword_140E2FF68->SizeOfBitMap, 0x70536D4Du);
+  PoSetHiberRange(0LL, 0x10000u, qword_140E300C8, 8LL * qword_140E300A8->SizeOfBitMap, 0x70536D4Du);
   PoSetHiberRange(
     0LL,
     0x10000u,
-    qword_140E2FF68->Buffer,
-    8 * (((unsigned __int64)qword_140E2FF68->SizeOfBitMap >> 6) + ((qword_140E2FF68->SizeOfBitMap & 0x3F) != 0)),
+    qword_140E300A8->Buffer,
+    8 * (((unsigned __int64)qword_140E300A8->SizeOfBitMap >> 6) + ((qword_140E300A8->SizeOfBitMap & 0x3F) != 0)),
     0x70536D4Du);
   PoSetHiberRange(0LL, 0x10000u, (PVOID)0xFFFFF78000000000LL, 0x1000uLL, 0x64736D4Du);
   PoSetHiberRange(0LL, 0x10000u, MmUnloadedDrivers, 0x7D0uLL, 0x64736D4Du);
@@ -80,7 +80,7 @@ __int64 MmMarkHiberPhase()
     --v3;
   }
   while ( v3 );
-  v5 = (_QWORD *)qword_140E371C0;
+  v5 = (_QWORD *)qword_140E37300;
   i = 0LL;
   while ( v5 )
   {
@@ -118,6 +118,6 @@ __int64 MmMarkHiberPhase()
   v15 = AnyMultiplexedVm;
   v16 = 0xFFFF800000000000uLL;
   v14 = 17;
-  MiWalkPageTables((__int64)v13);
+  MiWalkPageTables(v13);
   return MiMarkHiberProtectedImages();
 }

@@ -1,8 +1,8 @@
 /*
- * XREFs of MiWriteCloneFlags @ 0x14047F9C8
+ * XREFs of MiWriteCloneFlags @ 0x14047A758
  * Callers:
- *     SymCryptModExpWindowed @ 0x1405378D8 (SymCryptModExpWindowed.c)
- *     MiCloneProcessAddressSpace @ 0x140ABD72C (MiCloneProcessAddressSpace.c)
+ *     SymCryptModExpWindowed @ 0x140531D78 (SymCryptModExpWindowed.c)
+ *     MiCloneProcessAddressSpace @ 0x140AB879C (MiCloneProcessAddressSpace.c)
  * Callees:
  *     <none>
  */

@@ -1,14 +1,14 @@
 /*
- * XREFs of MiReleaseMemoryRuns @ 0x1406222EC
+ * XREFs of MiReleaseMemoryRuns @ 0x14062283C
  * Callers:
- *     MmAllocateMemoryRanges @ 0x140A2E2C0 (MmAllocateMemoryRanges.c)
- *     MmFreeMemoryRanges @ 0x140A2E4C0 (MmFreeMemoryRanges.c)
+ *     MmAllocateMemoryRanges @ 0x140A2E570 (MmAllocateMemoryRanges.c)
+ *     MmFreeMemoryRanges @ 0x140A2E770 (MmFreeMemoryRanges.c)
  * Callees:
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     MiHugePfnPartition @ 0x140620C50 (MiHugePfnPartition.c)
- *     MiInsertHugeRangeInList @ 0x140620FCC (MiInsertHugeRangeInList.c)
- *     MiLockHugePfn @ 0x1406213F4 (MiLockHugePfn.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
+ *     MiHugePfnPartition @ 0x1406211A0 (MiHugePfnPartition.c)
+ *     MiInsertHugeRangeInList @ 0x14062151C (MiInsertHugeRangeInList.c)
+ *     MiLockHugePfn @ 0x140621944 (MiLockHugePfn.c)
  */
 
 void __fastcall MiReleaseMemoryRuns(ULONG_PTR a1, __int64 *a2, int a3)
@@ -64,10 +64,13 @@ void __fastcall MiReleaseMemoryRuns(ULONG_PTR a1, __int64 *a2, int a3)
           (volatile signed __int32 *)(qword_140C67DF8
                                     + 4 * (((((__int64)v10 - qword_140C67DF0) >> 3) & 0x3FFFFFuLL) >> 5)),
           ~(1 << ((((__int64)v10 - qword_140C67DF0) >> 3) & 0x1F)));
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
           CurrentIrql = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v14 <= 0xFu && CurrentIrql >= 2u )
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+            && CurrentIrql <= 0xFu
+            && (unsigned __int8)v14 <= 0xFu
+            && CurrentIrql >= 2u )
           {
             CurrentPrcb = KeGetCurrentPrcb();
             SchedulerAssist = CurrentPrcb->SchedulerAssist;

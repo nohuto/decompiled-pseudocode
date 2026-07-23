@@ -1,15 +1,15 @@
 /*
- * XREFs of TtmNotifyLowPowerStateExited @ 0x1409A42A8
+ * XREFs of TtmNotifyLowPowerStateExited @ 0x1409A44A8
  * Callers:
- *     PopIssueActionRequest @ 0x140989CA4 (PopIssueActionRequest.c)
- *     PopPowerAggregatorNotifyCsStateExited @ 0x140993B24 (PopPowerAggregatorNotifyCsStateExited.c)
+ *     PopIssueActionRequest @ 0x140989EA4 (PopIssueActionRequest.c)
+ *     PopPowerAggregatorNotifyCsStateExited @ 0x140993D24 (PopPowerAggregatorNotifyCsStateExited.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     ExReleaseResourceLite @ 0x14023D410 (ExReleaseResourceLite.c)
- *     TtmiScheduleSessionWorker @ 0x1409A4AA4 (TtmiScheduleSessionWorker.c)
- *     TtmpAcquireSessionById @ 0x1409A4F30 (TtmpAcquireSessionById.c)
- *     TtmiLogError @ 0x1409A8344 (TtmiLogError.c)
- *     TtmiLogSessionCsExitComplete @ 0x1409A9224 (TtmiLogSessionCsExitComplete.c)
+ *     KeLeaveCriticalRegion @ 0x140231550 (KeLeaveCriticalRegion.c)
+ *     ExReleaseResourceLite @ 0x14023D4E0 (ExReleaseResourceLite.c)
+ *     TtmiScheduleSessionWorker @ 0x1409A4CA4 (TtmiScheduleSessionWorker.c)
+ *     TtmpAcquireSessionById @ 0x1409A5130 (TtmpAcquireSessionById.c)
+ *     TtmiLogError @ 0x1409A8544 (TtmiLogError.c)
+ *     TtmiLogSessionCsExitComplete @ 0x1409A9424 (TtmiLogSessionCsExitComplete.c)
  */
 
 void __fastcall TtmNotifyLowPowerStateExited(unsigned int a1)

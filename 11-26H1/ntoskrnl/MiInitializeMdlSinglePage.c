@@ -1,13 +1,13 @@
 /*
- * XREFs of MiInitializeMdlSinglePage @ 0x14033BB38
+ * XREFs of MiInitializeMdlSinglePage @ 0x14033DBB8
  * Callers:
- *     MiAllocateKernelStackPages @ 0x1403D1778 (MiAllocateKernelStackPages.c)
- *     MiInitializeMdlBatchPages @ 0x14050EE1C (MiInitializeMdlBatchPages.c)
- *     MiInitializeMdlLeafPfns @ 0x1406EE498 (MiInitializeMdlLeafPfns.c)
+ *     MiAllocateKernelStackPages @ 0x1403D4748 (MiAllocateKernelStackPages.c)
+ *     MiInitializeMdlBatchPages @ 0x14050888C (MiInitializeMdlBatchPages.c)
+ *     MiInitializeMdlLeafPfns @ 0x1406F3138 (MiInitializeMdlLeafPfns.c)
  * Callees:
- *     MiConvertLargePfnToSmall @ 0x140206D40 (MiConvertLargePfnToSmall.c)
- *     MiSetPfnContainingFrame @ 0x14033BC10 (MiSetPfnContainingFrame.c)
- *     MiInitializeMdlPfn @ 0x14033BC60 (MiInitializeMdlPfn.c)
+ *     MiConvertLargePfnToSmall @ 0x140206E20 (MiConvertLargePfnToSmall.c)
+ *     MiSetPfnContainingFrame @ 0x14033DC90 (MiSetPfnContainingFrame.c)
+ *     MiInitializeMdlPfn @ 0x14033DCE0 (MiInitializeMdlPfn.c)
  */
 
 __int64 __fastcall MiInitializeMdlSinglePage(

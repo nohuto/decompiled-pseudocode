@@ -7,25 +7,39 @@
  *     wcslen @ 0x1801292B0 (wcslen.c)
  */
 
-__int64 __fastcall RtlDosPathNameToRelativeNtPathName_U_WithStatus(
-        const wchar_t *a1,
-        unsigned __int16 *a2,
-        _QWORD *a3,
-        __int64 a4)
+NTSTATUS __cdecl RtlDosPathNameToRelativeNtPathName_U_WithStatus(
+        PCWSTR DosFileName,
+        PUNICODE_STRING NtFileName,
+        PWSTR *FilePart,
+        PRTL_RELATIVE_NAME_U RelativeName)
 {
   size_t v7; // rax
   _QWORD v9[3]; // [rsp+40h] [rbp-18h] BYREF
 
-  v9[1] = a1;
+  v9[1] = DosFileName;
   v9[0] = 0LL;
-  if ( !a1 )
-    return RtlpDosPathNameToRelativeNtPathName(2, (unsigned __int16 *)v9, 0LL, a2, 0LL, a3, a4);
-  v7 = wcslen(a1);
+  if ( !DosFileName )
+    return RtlpDosPathNameToRelativeNtPathName(
+             2,
+             (unsigned __int16 *)v9,
+             0LL,
+             &NtFileName->Length,
+             0LL,
+             FilePart,
+             (__int64)RelativeName);
+  v7 = wcslen(DosFileName);
   if ( v7 <= 0x7FFE )
   {
     LOWORD(v9[0]) = 2 * v7;
     WORD1(v9[0]) = 2 * v7 + 2;
-    return RtlpDosPathNameToRelativeNtPathName(2, (unsigned __int16 *)v9, 0LL, a2, 0LL, a3, a4);
+    return RtlpDosPathNameToRelativeNtPathName(
+             2,
+             (unsigned __int16 *)v9,
+             0LL,
+             &NtFileName->Length,
+             0LL,
+             FilePart,
+             (__int64)RelativeName);
   }
-  return 3221225734LL;
+  return -1073741562;
 }

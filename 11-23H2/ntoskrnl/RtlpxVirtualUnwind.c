@@ -1,19 +1,19 @@
 /*
- * XREFs of RtlpxVirtualUnwind @ 0x1402A5A80
+ * XREFs of RtlpxVirtualUnwind @ 0x1402A5D10
  * Callers:
- *     RtlDispatchException @ 0x1402A3DC0 (RtlDispatchException.c)
- *     RtlpWalkFrameChain @ 0x1402A42A0 (RtlpWalkFrameChain.c)
- *     RtlUnwindEx @ 0x1402A4D40 (RtlUnwindEx.c)
- *     RtlVirtualUnwind2 @ 0x1402A59E0 (RtlVirtualUnwind2.c)
- *     RtlVirtualUnwind @ 0x14030D6C0 (RtlVirtualUnwind.c)
+ *     RtlDispatchException @ 0x1402A4050 (RtlDispatchException.c)
+ *     RtlpWalkFrameChain @ 0x1402A4530 (RtlpWalkFrameChain.c)
+ *     RtlUnwindEx @ 0x1402A4FD0 (RtlUnwindEx.c)
+ *     RtlVirtualUnwind2 @ 0x1402A5C70 (RtlVirtualUnwind2.c)
+ *     RtlVirtualUnwind @ 0x14030D950 (RtlVirtualUnwind.c)
  * Callees:
- *     RtlpUnwindPrologue @ 0x1402A5F50 (RtlpUnwindPrologue.c)
- *     RtlRaiseStatus @ 0x1403217B0 (RtlRaiseStatus.c)
- *     RtlpVirtualPopShadowStack @ 0x14036EE80 (RtlpVirtualPopShadowStack.c)
- *     RtlpUnwindEpilogue @ 0x1404643C0 (RtlpUnwindEpilogue.c)
- *     RtlpUnwindOpSlots @ 0x140464850 (RtlpUnwindOpSlots.c)
- *     RtlpSameFunction @ 0x1405B19C0 (RtlpSameFunction.c)
- *     ExRaiseDatatypeMisalignment @ 0x140A00B60 (ExRaiseDatatypeMisalignment.c)
+ *     RtlpUnwindPrologue @ 0x1402A61E0 (RtlpUnwindPrologue.c)
+ *     RtlRaiseStatus @ 0x140321A40 (RtlRaiseStatus.c)
+ *     RtlpVirtualPopShadowStack @ 0x14036F020 (RtlpVirtualPopShadowStack.c)
+ *     RtlpUnwindEpilogue @ 0x1404647C0 (RtlpUnwindEpilogue.c)
+ *     RtlpUnwindOpSlots @ 0x140464C50 (RtlpUnwindOpSlots.c)
+ *     RtlpSameFunction @ 0x1405B1F30 (RtlpSameFunction.c)
+ *     ExRaiseDatatypeMisalignment @ 0x140A00DF0 (ExRaiseDatatypeMisalignment.c)
  */
 
 __int64 __fastcall RtlpxVirtualUnwind(
@@ -156,7 +156,7 @@ __int64 __fastcall RtlpxVirtualUnwind(
         if ( (v41 & 1) != 0 )
           v41 = (unsigned int)(v41 + 1);
         if ( (unsigned int)++v24 > 0x20 )
-          RtlRaiseStatus(3221225727LL);
+          RtlRaiseStatus(-1073741569);
         v23 = (char *)(a2 + *(unsigned int *)&v23[2 * v41 + 12]);
         if ( a3 <= 0x7FFFFFFEFFFFLL && ((unsigned __int8)v23 & 3) != 0 )
           goto LABEL_69;

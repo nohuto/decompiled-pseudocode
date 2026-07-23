@@ -1,9 +1,9 @@
 /*
- * XREFs of KiCheckEnqueueStoreFeaturePresence @ 0x140B57E78
+ * XREFs of KiCheckEnqueueStoreFeaturePresence @ 0x140B59EF8
  * Callers:
- *     KiInitializeKernel @ 0x140B588B0 (KiInitializeKernel.c)
+ *     KiInitializeKernel @ 0x140B5A930 (KiInitializeKernel.c)
  * Callees:
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 char __fastcall KiCheckEnqueueStoreFeaturePresence(__int64 a1, _QWORD *a2)

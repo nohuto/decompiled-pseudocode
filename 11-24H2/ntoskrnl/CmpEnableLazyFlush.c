@@ -1,12 +1,12 @@
 /*
- * XREFs of CmpEnableLazyFlush @ 0x1404AD184
+ * XREFs of CmpEnableLazyFlush @ 0x1404A7864
  * Callers:
- *     CmpCoalescingCallback @ 0x1404AD130 (CmpCoalescingCallback.c)
- *     CmpEnableLazyFlushDpcRoutine @ 0x140667D80 (CmpEnableLazyFlushDpcRoutine.c)
- *     CmThawRegistry @ 0x1407D85E0 (CmThawRegistry.c)
- *     CmSetLazyFlushState @ 0x140AA0860 (CmSetLazyFlushState.c)
+ *     CmpCoalescingCallback @ 0x1404A7810 (CmpCoalescingCallback.c)
+ *     CmpEnableLazyFlushDpcRoutine @ 0x140666670 (CmpEnableLazyFlushDpcRoutine.c)
+ *     CmThawRegistry @ 0x1407D8B30 (CmThawRegistry.c)
+ *     CmSetLazyFlushState @ 0x140A9BBF0 (CmSetLazyFlushState.c)
  * Callees:
- *     CmpArmLazyWriter @ 0x14027B0B0 (CmpArmLazyWriter.c)
+ *     CmpArmLazyWriter @ 0x140230640 (CmpArmLazyWriter.c)
  */
 
 void __fastcall CmpEnableLazyFlush(int a1)

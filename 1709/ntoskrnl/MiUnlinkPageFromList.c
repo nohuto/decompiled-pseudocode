@@ -565,7 +565,7 @@ LABEL_108:
               v65 = BugCheckParameter2 + 0x58000000000LL;
               v51 = (unsigned __int128)(v65 * (__int128)0x2AAAAAAAAAAAAAABLL) >> 64;
               v66 = (v65 / 48) & 0x1F;
-              v67 = (volatile signed __int32 *)(qword_140388B70 + 4 * ((unsigned __int64)(v65 / 48) >> 5));
+              v67 = (volatile signed __int32 *)stru_140388B68.Buffer + ((unsigned __int64)(v65 / 48) >> 5);
               if ( (unsigned __int64)(v66 + 1) > 0x20 )
               {
                 if ( !v66 )

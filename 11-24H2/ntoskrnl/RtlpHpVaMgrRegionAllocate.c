@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlpHpVaMgrRegionAllocate @ 0x140421A48
+ * XREFs of RtlpHpVaMgrRegionAllocate @ 0x14021BAD8
  * Callers:
- *     RtlpHpVaMgrAlloc @ 0x140421420 (RtlpHpVaMgrAlloc.c)
+ *     RtlpHpVaMgrAlloc @ 0x1404596F4 (RtlpHpVaMgrAlloc.c)
  * Callees:
- *     RtlpHpEnvFreeVA @ 0x14024421C (RtlpHpEnvFreeVA.c)
- *     RtlpHpVaMgrAllocAligned @ 0x140421ACC (RtlpHpVaMgrAllocAligned.c)
- *     RtlpHpVaMgrRangeCreate @ 0x140421B54 (RtlpHpVaMgrRangeCreate.c)
+ *     RtlpHpEnvFreeVA @ 0x14020C9AC (RtlpHpEnvFreeVA.c)
+ *     RtlpHpVaMgrAllocAligned @ 0x14021BB5C (RtlpHpVaMgrAllocAligned.c)
+ *     RtlpHpVaMgrRangeCreate @ 0x14021BBE4 (RtlpHpVaMgrRangeCreate.c)
  */
 
 __int64 __fastcall RtlpHpVaMgrRegionAllocate(__int64 a1)

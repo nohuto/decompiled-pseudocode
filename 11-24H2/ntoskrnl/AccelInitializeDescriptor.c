@@ -1,11 +1,11 @@
 /*
- * XREFs of AccelInitializeDescriptor @ 0x140665AB0
+ * XREFs of AccelInitializeDescriptor @ 0x1406643A0
  * Callers:
- *     MiAllocateAcceleratorDescriptor @ 0x140690914 (MiAllocateAcceleratorDescriptor.c)
- *     SmHwAcceleratorCreate @ 0x14079BC3C (SmHwAcceleratorCreate.c)
- *     SmHwInitializeAccelDescriptor @ 0x14079CDBC (SmHwInitializeAccelDescriptor.c)
+ *     MiAllocateAcceleratorDescriptor @ 0x1406919E4 (MiAllocateAcceleratorDescriptor.c)
+ *     SmHwAcceleratorCreate @ 0x14079BD4C (SmHwAcceleratorCreate.c)
+ *     SmHwInitializeAccelDescriptor @ 0x14079CECC (SmHwInitializeAccelDescriptor.c)
  * Callees:
- *     AccelQueryDescriptorSize @ 0x140665BF4 (AccelQueryDescriptorSize.c)
+ *     AccelQueryDescriptorSize @ 0x1406644E4 (AccelQueryDescriptorSize.c)
  */
 
 __int64 __fastcall AccelInitializeDescriptor(__int64 a1, unsigned int a2, __int64 a3)

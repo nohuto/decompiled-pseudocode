@@ -1,12 +1,12 @@
 /*
- * XREFs of MiInsertPreviouslyRegisteredHotPatchRecord @ 0x140A37CD0
+ * XREFs of MiInsertPreviouslyRegisteredHotPatchRecord @ 0x140A37F80
  * Callers:
- *     MiDeleteHotPatchRecord @ 0x140A36864 (MiDeleteHotPatchRecord.c)
- *     MiInsertHotPatchRecord @ 0x140A37B40 (MiInsertHotPatchRecord.c)
+ *     MiDeleteHotPatchRecord @ 0x140A36B14 (MiDeleteHotPatchRecord.c)
+ *     MiInsertHotPatchRecord @ 0x140A37DF0 (MiInsertHotPatchRecord.c)
  * Callees:
- *     RtlAvlInsertNodeEx @ 0x1402880C0 (RtlAvlInsertNodeEx.c)
- *     RtlEqualUnicodeString @ 0x1406DA2F0 (RtlEqualUnicodeString.c)
- *     MiCompareHotPatchNodes @ 0x140A36604 (MiCompareHotPatchNodes.c)
+ *     RtlAvlInsertNodeEx @ 0x140288350 (RtlAvlInsertNodeEx.c)
+ *     RtlEqualUnicodeString @ 0x1406DA320 (RtlEqualUnicodeString.c)
+ *     MiCompareHotPatchNodes @ 0x140A368B4 (MiCompareHotPatchNodes.c)
  */
 
 _BOOL8 __fastcall MiInsertPreviouslyRegisteredHotPatchRecord(const UNICODE_STRING *a1)

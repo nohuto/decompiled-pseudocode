@@ -1,7 +1,7 @@
 /*
- * XREFs of KiGetThreadReadyTime @ 0x1401B4990
+ * XREFs of KiGetThreadReadyTime @ 0x1401B4AD0
  * Callers:
- *     KeQueryValuesThread @ 0x14008EF50 (KeQueryValuesThread.c)
+ *     KeQueryValuesThread @ 0x14008EE70 (KeQueryValuesThread.c)
  * Callees:
  *     <none>
  */

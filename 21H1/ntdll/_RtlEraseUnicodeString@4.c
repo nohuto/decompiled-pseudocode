@@ -6,19 +6,17 @@
  *     _memset @ 0x4B2F8F30 (_memset.c)
  */
 
-int __stdcall RtlEraseUnicodeString(int a1)
+void __cdecl RtlEraseUnicodeString(PUNICODE_STRING String)
 {
-  int result; // eax
+  size_t v1; // [esp-4h] [ebp-8h]
 
-  if ( *(_DWORD *)(a1 + 4) )
+  if ( String->Buffer )
   {
-    result = *(unsigned __int16 *)(a1 + 2);
-    if ( (_WORD)result )
+    if ( String->MaximumLength )
     {
-      memset(*(void **)(a1 + 4), 0, *(unsigned __int16 *)(a1 + 2));
-      result = 0;
-      *(_WORD *)a1 = 0;
+      LODWORD(v1) = String->MaximumLength;
+      memset(String->Buffer, 0, v1);
+      String->Length = 0;
     }
   }
-  return result;
 }

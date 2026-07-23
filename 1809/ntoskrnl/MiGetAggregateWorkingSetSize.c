@@ -1,9 +1,9 @@
 /*
- * XREFs of MiGetAggregateWorkingSetSize @ 0x1402BF60C
+ * XREFs of MiGetAggregateWorkingSetSize @ 0x1402BF7FC
  * Callers:
- *     MmLogSystemShareablePfnInfo @ 0x14085B6D0 (MmLogSystemShareablePfnInfo.c)
+ *     MmLogSystemShareablePfnInfo @ 0x14085C930 (MmLogSystemShareablePfnInfo.c)
  * Callees:
- *     MiGetAggregationVm @ 0x1402BF634 (MiGetAggregationVm.c)
+ *     MiGetAggregationVm @ 0x1402BF824 (MiGetAggregationVm.c)
  */
 
 __int64 __fastcall MiGetAggregateWorkingSetSize(__int64 a1)

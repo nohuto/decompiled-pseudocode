@@ -14,10 +14,16 @@
  *     PsSuspendThread @ 0x1409BA290 (PsSuspendThread.c)
  */
 
-__int64 __fastcall NtChangeThreadState(ULONG_PTR a1, ULONG_PTR a2, unsigned int a3, __int64 a4, int a5, int a6)
+NTSTATUS __cdecl NtChangeThreadState(
+        HANDLE ThreadStateChangeHandle,
+        HANDLE ThreadHandle,
+        THREAD_STATE_CHANGE_TYPE StateChangeType,
+        PVOID ExtendedInformation,
+        SIZE_T ExtendedInformationLength,
+        ULONG64 Reserved)
 {
   char PreviousMode; // bl
-  int v9; // edi
+  NTSTATUS v9; // edi
   int v10; // edx
   int v11; // eax
   PVOID v12; // rcx
@@ -36,24 +42,32 @@ __int64 __fastcall NtChangeThreadState(ULONG_PTR a1, ULONG_PTR a2, unsigned int 
 
   Object = 0LL;
   v25 = 0LL;
-  if ( a3 <= 1 )
+  if ( (unsigned int)StateChangeType <= ThreadStateChangeResume )
   {
-    if ( a5 )
-      return (unsigned int)-1073741820;
-    if ( a4 )
-      return (unsigned int)-1073741811;
+    if ( (_DWORD)ExtendedInformationLength )
+      return -1073741820;
+    if ( ExtendedInformation )
+      return -1073741811;
   }
-  if ( a6 )
-    return (unsigned int)-1073741811;
+  if ( (_DWORD)Reserved )
+    return -1073741811;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
-  v9 = ObpReferenceObjectByHandleWithTag(a1, 1, PspThreadStateChangeType, PreviousMode, 0x63547350u, &v25, 0LL, 0LL);
+  v9 = ObpReferenceObjectByHandleWithTag(
+         (ULONG_PTR)ThreadStateChangeHandle,
+         1,
+         PspThreadStateChangeType,
+         PreviousMode,
+         0x63547350u,
+         &v25,
+         0LL,
+         0LL);
   if ( v9 >= 0 )
   {
     v10 = 0;
-    if ( a3 <= 1 )
+    if ( (unsigned int)StateChangeType <= ThreadStateChangeResume )
       v10 = 2;
     v11 = ObpReferenceObjectByHandleWithTag(
-            a2,
+            (ULONG_PTR)ThreadHandle,
             v10,
             (__int64)PsThreadType,
             PreviousMode,
@@ -77,9 +91,9 @@ __int64 __fastcall NtChangeThreadState(ULONG_PTR a1, ULONG_PTR a2, unsigned int 
           ExfAcquirePushLockExclusiveEx(v15, v17, (__int64)v15);
         if ( v18 )
           *((_BYTE *)v18 + 10) = 1;
-        if ( a3 )
+        if ( StateChangeType )
         {
-          if ( a3 == 1 )
+          if ( StateChangeType == ThreadStateChangeResume )
           {
             v23 = v25;
             if ( *((_DWORD *)v25 + 4) )
@@ -124,5 +138,5 @@ __int64 __fastcall NtChangeThreadState(ULONG_PTR a1, ULONG_PTR a2, unsigned int 
   }
   if ( v25 )
     ObfDereferenceObjectWithTag(v25, 0x63547350u);
-  return (unsigned int)v9;
+  return v9;
 }

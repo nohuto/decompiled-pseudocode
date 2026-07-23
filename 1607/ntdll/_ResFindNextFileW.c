@@ -1,98 +1,110 @@
 /*
- * XREFs of _ResFindNextFileW @ 0x180104724
+ * XREFs of _ResFindNextFileW @ 0x180104664
  * Callers:
- *     ResCGetHighestCacheIndex @ 0x180104E9C (ResCGetHighestCacheIndex.c)
+ *     ResCGetHighestCacheIndex @ 0x180104DDC (ResCGetHighestCacheIndex.c)
  * Callees:
- *     RtlEnterCriticalSection @ 0x180019B50 (RtlEnterCriticalSection.c)
- *     RtlLeaveCriticalSection @ 0x180019DC0 (RtlLeaveCriticalSection.c)
- *     RtlAllocateHeap @ 0x180022DB0 (RtlAllocateHeap.c)
- *     RtlSetLastWin32Error @ 0x18005A470 (RtlSetLastWin32Error.c)
+ *     RtlEnterCriticalSection @ 0x180019B40 (RtlEnterCriticalSection.c)
+ *     RtlLeaveCriticalSection @ 0x180019DB0 (RtlLeaveCriticalSection.c)
+ *     RtlAllocateHeap @ 0x180022DA0 (RtlAllocateHeap.c)
+ *     RtlSetLastWin32Error @ 0x18005A460 (RtlSetLastWin32Error.c)
  *     NtQueryDirectoryFile @ 0x1800A6AC0 (NtQueryDirectoryFile.c)
  *     memmove @ 0x1800AC980 (memmove.c)
  */
 
-__int64 __fastcall ResFindNextFileW(_QWORD *a1, __int64 a2)
+__int64 __fastcall ResFindNextFileW(__int64 a1, __int64 a2)
 {
   unsigned int v4; // esi
-  __int64 Heap; // rax
-  unsigned int *v7; // rdi
-  int DirectoryFile; // eax
-  unsigned int *v9; // rcx
-  unsigned int *v10; // rdx
+  PVOID Heap; // rax
+  _DWORD *FileInformation; // rdi
+  NTSTATUS v8; // eax
+  _DWORD *v9; // rcx
+  _DWORD *v10; // rdx
   char *v11; // rax
   size_t v12; // r8
+  _IO_STATUS_BLOCK IoStatusBlock; // [rsp+68h] [rbp-40h] BYREF
 
   v4 = 1;
-  if ( a1 == (_QWORD *)1 )
+  if ( a1 == 1 )
     return 0LL;
-  if ( a1 == (_QWORD *)-1LL )
+  if ( a1 == -1 )
   {
-    RtlSetLastWin32Error(6u);
+    RtlSetLastWin32Error(6);
     return 0LL;
   }
-  RtlEnterCriticalSection((__int64)(a1 + 5));
-  if ( !a1[1] )
+  RtlEnterCriticalSection((PRTL_CRITICAL_SECTION)(a1 + 40));
+  if ( !*(_QWORD *)(a1 + 8) )
   {
-    Heap = RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, BaseDllTag + 786432, 0x1000uLL);
-    a1[1] = Heap;
+    Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, BaseDllTag + 786432, 0x1000uLL);
+    *(_QWORD *)(a1 + 8) = Heap;
     if ( !Heap )
     {
-      RtlSetLastWin32Error(8u);
+      RtlSetLastWin32Error(8);
       goto LABEL_9;
     }
-    a1[2] = Heap;
-    a1[3] = 4096LL;
+    *(_QWORD *)(a1 + 16) = Heap;
+    *(_QWORD *)(a1 + 24) = 4096LL;
     v4 = 1;
   }
-  v7 = (unsigned int *)a1[2];
-  if ( (unsigned int *)a1[1] != v7 )
+  FileInformation = *(_DWORD **)(a1 + 16);
+  if ( *(_DWORD **)(a1 + 8) != FileInformation )
     goto LABEL_31;
-  DirectoryFile = NtQueryDirectoryFile();
-  if ( DirectoryFile == -2147483643 )
+  v8 = NtQueryDirectoryFile(
+         *(HANDLE *)a1,
+         0LL,
+         0LL,
+         0LL,
+         &IoStatusBlock,
+         FileInformation,
+         *(_DWORD *)(a1 + 24),
+         FileBothDirectoryInformation,
+         0,
+         0LL,
+         0);
+  if ( v8 == -2147483643 )
   {
-    v9 = v7;
+    v9 = FileInformation;
     v10 = 0LL;
     while ( *v9 )
     {
       v10 = v9;
-      v9 += (unsigned __int64)*v9 >> 2;
+      v9 += (unsigned __int64)(unsigned int)*v9 >> 2;
     }
     if ( v10 )
       *v10 = 0;
-    DirectoryFile = 0;
+    v8 = 0;
   }
-  if ( DirectoryFile >= 0 )
+  if ( v8 >= 0 )
   {
 LABEL_31:
-    if ( *v7 )
-      v11 = (char *)v7 + *v7;
+    if ( *FileInformation )
+      v11 = (char *)FileInformation + (unsigned int)*FileInformation;
     else
-      v11 = (char *)a1[1];
-    a1[2] = v11;
-    *(_DWORD *)a2 = v7[14];
-    *(_QWORD *)(a2 + 4) = *((_QWORD *)v7 + 1);
-    *(_QWORD *)(a2 + 12) = *((_QWORD *)v7 + 2);
-    *(_QWORD *)(a2 + 20) = *((_QWORD *)v7 + 3);
-    *(_DWORD *)(a2 + 28) = v7[11];
-    *(_DWORD *)(a2 + 32) = v7[10];
-    if ( v7[15] <= 0x208 )
+      v11 = *(char **)(a1 + 8);
+    *(_QWORD *)(a1 + 16) = v11;
+    *(_DWORD *)a2 = FileInformation[14];
+    *(_QWORD *)(a2 + 4) = *((_QWORD *)FileInformation + 1);
+    *(_QWORD *)(a2 + 12) = *((_QWORD *)FileInformation + 2);
+    *(_QWORD *)(a2 + 20) = *((_QWORD *)FileInformation + 3);
+    *(_DWORD *)(a2 + 28) = FileInformation[11];
+    *(_DWORD *)(a2 + 32) = FileInformation[10];
+    if ( FileInformation[15] <= 0x208u )
     {
-      memmove((void *)(a2 + 44), (char *)v7 + 94, v7[15]);
-      *(_WORD *)(a2 + 2 * ((unsigned __int64)v7[15] >> 1) + 44) = 0;
+      memmove((void *)(a2 + 44), (char *)FileInformation + 94, (unsigned int)FileInformation[15]);
+      *(_WORD *)(a2 + 2 * ((unsigned __int64)(unsigned int)FileInformation[15] >> 1) + 44) = 0;
     }
-    v12 = *((char *)v7 + 68);
+    v12 = *((char *)FileInformation + 68);
     if ( v12 <= 0x1C )
     {
-      memmove((void *)(a2 + 564), (char *)v7 + 70, v12);
-      *(_WORD *)(a2 + 2 * ((__int64)*((char *)v7 + 68) >> 1) + 564) = 0;
+      memmove((void *)(a2 + 564), (char *)FileInformation + 70, v12);
+      *(_WORD *)(a2 + 2 * ((__int64)*((char *)FileInformation + 68) >> 1) + 564) = 0;
     }
-    if ( (v7[14] & 0x400) != 0 )
-      *(_DWORD *)(a2 + 36) = v7[16];
+    if ( (FileInformation[14] & 0x400) != 0 )
+      *(_DWORD *)(a2 + 36) = FileInformation[16];
     goto LABEL_28;
   }
 LABEL_9:
   v4 = 0;
 LABEL_28:
-  RtlLeaveCriticalSection((__int64)(a1 + 5));
+  RtlLeaveCriticalSection((PRTL_CRITICAL_SECTION)(a1 + 40));
   return v4;
 }

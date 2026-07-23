@@ -1,8 +1,8 @@
 /*
- * XREFs of KeDoesTebMatchThread @ 0x140526C70
+ * XREFs of KeDoesTebMatchThread @ 0x140526EB0
  * Callers:
- *     PspGetSetContextInternal @ 0x1406498B0 (PspGetSetContextInternal.c)
- *     PspDisassociateUmsThreadFromPrimary @ 0x14090E844 (PspDisassociateUmsThreadFromPrimary.c)
+ *     PspGetSetContextInternal @ 0x14063E6D0 (PspGetSetContextInternal.c)
+ *     PspDisassociateUmsThreadFromPrimary @ 0x14090E9A4 (PspDisassociateUmsThreadFromPrimary.c)
  * Callees:
  *     <none>
  */

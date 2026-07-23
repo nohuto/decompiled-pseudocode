@@ -1,25 +1,25 @@
 /*
- * XREFs of DbgkCreateThread @ 0x1405F7028
+ * XREFs of DbgkCreateThread @ 0x1405F8028
  * Callers:
- *     PspUserThreadStartup @ 0x1405F6E40 (PspUserThreadStartup.c)
+ *     PspUserThreadStartup @ 0x1405F7E40 (PspUserThreadStartup.c)
  * Callees:
  *     MiReferenceControlAreaFile @ 0x14001CBB0 (MiReferenceControlAreaFile.c)
  *     ObFastDereferenceObject @ 0x14004D9D0 (ObFastDereferenceObject.c)
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
- *     MiSectionControlArea @ 0x140075E70 (MiSectionControlArea.c)
- *     RtlImageNtHeader @ 0x14009DAE0 (RtlImageNtHeader.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     PsCallImageNotifyRoutines @ 0x1405F50F0 (PsCallImageNotifyRoutines.c)
- *     ObCloseHandle @ 0x1405F5700 (ObCloseHandle.c)
- *     PsReferenceProcessFilePointer @ 0x14061CB90 (PsReferenceProcessFilePointer.c)
- *     PspReferenceSystemDll @ 0x140677B28 (PspReferenceSystemDll.c)
- *     PsWow64GetProcessNtdllType @ 0x1406783F4 (PsWow64GetProcessNtdllType.c)
- *     PsQuerySystemDllInfo @ 0x1406820BC (PsQuerySystemDllInfo.c)
- *     DbgkSendSystemDllMessages @ 0x14080E48C (DbgkSendSystemDllMessages.c)
- *     DbgkpPostModuleMessages @ 0x14080F1A4 (DbgkpPostModuleMessages.c)
- *     DbgkpSendApiMessage @ 0x140810BB4 (DbgkpSendApiMessage.c)
- *     DbgkpSectionToFileHandle @ 0x1408115A8 (DbgkpSectionToFileHandle.c)
+ *     MiSectionControlArea @ 0x140075E60 (MiSectionControlArea.c)
+ *     RtlImageNtHeader @ 0x14009DA20 (RtlImageNtHeader.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     PsCallImageNotifyRoutines @ 0x1405F60F0 (PsCallImageNotifyRoutines.c)
+ *     ObCloseHandle @ 0x1405F6700 (ObCloseHandle.c)
+ *     PsReferenceProcessFilePointer @ 0x14061DB90 (PsReferenceProcessFilePointer.c)
+ *     PspReferenceSystemDll @ 0x140678CE8 (PspReferenceSystemDll.c)
+ *     PsWow64GetProcessNtdllType @ 0x1406795B4 (PsWow64GetProcessNtdllType.c)
+ *     PsQuerySystemDllInfo @ 0x14068327C (PsQuerySystemDllInfo.c)
+ *     DbgkSendSystemDllMessages @ 0x14080F68C (DbgkSendSystemDllMessages.c)
+ *     DbgkpPostModuleMessages @ 0x1408103A4 (DbgkpPostModuleMessages.c)
+ *     DbgkpSendApiMessage @ 0x140811DB4 (DbgkpSendApiMessage.c)
+ *     DbgkpSectionToFileHandle @ 0x1408127A8 (DbgkpSectionToFileHandle.c)
  */
 
 LONG_PTR __fastcall DbgkCreateThread(_QWORD *a1)

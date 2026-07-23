@@ -1,16 +1,16 @@
 /*
- * XREFs of VfBuildMdlFromScatterGatherList @ 0x140706744
+ * XREFs of VfBuildMdlFromScatterGatherList @ 0x140706774
  * Callers:
  *     <none>
  * Callees:
- *     IoAllocateMdl @ 0x14002EF90 (IoAllocateMdl.c)
- *     KeReleaseSpinLock @ 0x1400E9A70 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x1400EFE30 (KeAcquireSpinLockRaiseToDpc.c)
- *     memmove @ 0x140171280 (memmove.c)
- *     VF_MARK_SCATTER_GATHER_LIST @ 0x1407061B0 (VF_MARK_SCATTER_GATHER_LIST.c)
- *     VF_UNMARK_SCATTER_GATHER_LIST @ 0x1407061C8 (VF_UNMARK_SCATTER_GATHER_LIST.c)
- *     ViGetAdapterInformationInternal @ 0x140709708 (ViGetAdapterInformationInternal.c)
- *     ViGetRealDmaOperation @ 0x140709924 (ViGetRealDmaOperation.c)
+ *     IoAllocateMdl @ 0x14002EB10 (IoAllocateMdl.c)
+ *     KeReleaseSpinLock @ 0x1400EB600 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1400EDCB0 (KeAcquireSpinLockRaiseToDpc.c)
+ *     memmove @ 0x140171780 (memmove.c)
+ *     VF_MARK_SCATTER_GATHER_LIST @ 0x1407061E0 (VF_MARK_SCATTER_GATHER_LIST.c)
+ *     VF_UNMARK_SCATTER_GATHER_LIST @ 0x1407061F8 (VF_UNMARK_SCATTER_GATHER_LIST.c)
+ *     ViGetAdapterInformationInternal @ 0x140709738 (ViGetAdapterInformationInternal.c)
+ *     ViGetRealDmaOperation @ 0x140709954 (ViGetRealDmaOperation.c)
  */
 
 __int64 __fastcall VfBuildMdlFromScatterGatherList(__int64 a1, __int64 a2, struct _MDL *a3, PMDL *a4)

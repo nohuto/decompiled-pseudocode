@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlpMuiRegLoadRegistryInfo @ 0x14073D974
+ * XREFs of RtlpMuiRegLoadRegistryInfo @ 0x14073EB64
  * Callers:
- *     RtlpMuiRegCreateKernelRegistryInfo @ 0x140182860 (RtlpMuiRegCreateKernelRegistryInfo.c)
+ *     RtlpMuiRegCreateKernelRegistryInfo @ 0x1401829A0 (RtlpMuiRegCreateKernelRegistryInfo.c)
  * Callees:
- *     DbgPrint @ 0x1401262D0 (DbgPrint.c)
- *     RtlpMuiRegLoadLicInformation @ 0x140182AE0 (RtlpMuiRegLoadLicInformation.c)
- *     RtlpLoadLanguageConfigList @ 0x14073D9E4 (RtlpLoadLanguageConfigList.c)
- *     RtlpMuiRegFreeRegistryInfo @ 0x14073DB00 (RtlpMuiRegFreeRegistryInfo.c)
- *     _RtlpMuiRegLoadInstalled @ 0x14073DF88 (_RtlpMuiRegLoadInstalled.c)
+ *     DbgPrint @ 0x1401263A0 (DbgPrint.c)
+ *     RtlpMuiRegLoadLicInformation @ 0x140182C20 (RtlpMuiRegLoadLicInformation.c)
+ *     RtlpLoadLanguageConfigList @ 0x14073EBD4 (RtlpLoadLanguageConfigList.c)
+ *     RtlpMuiRegFreeRegistryInfo @ 0x14073ECF0 (RtlpMuiRegFreeRegistryInfo.c)
+ *     _RtlpMuiRegLoadInstalled @ 0x14073F178 (_RtlpMuiRegLoadInstalled.c)
  */
 
 __int64 __fastcall RtlpMuiRegLoadRegistryInfo(__int64 a1)

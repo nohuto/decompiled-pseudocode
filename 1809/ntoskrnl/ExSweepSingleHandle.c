@@ -1,9 +1,9 @@
 /*
- * XREFs of ExSweepSingleHandle @ 0x14008D88C
+ * XREFs of ExSweepSingleHandle @ 0x14008D7CC
  * Callers:
- *     ExDestroyHandle @ 0x1405FB318 (ExDestroyHandle.c)
+ *     ExDestroyHandle @ 0x1405FC318 (ExDestroyHandle.c)
  * Callees:
- *     ExpUnblockPushLock @ 0x140111B80 (ExpUnblockPushLock.c)
+ *     ExpUnblockPushLock @ 0x140111BF0 (ExpUnblockPushLock.c)
  */
 
 __int64 __fastcall ExSweepSingleHandle(__int64 a1, _QWORD *a2)

@@ -7,7 +7,7 @@
  *     RtlpHpSegSegmentAllocate @ 0x18005D2C8 (RtlpHpSegSegmentAllocate.c)
  * Callees:
  *     _TlgWrite @ 0x18004D1E8 (_TlgWrite.c)
- *     __security_check_cookie @ 0x18008FEC0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x18008FED0 (__security_check_cookie.c)
  */
 
 TLG_STATUS __fastcall RtlpHpTlLogMemStats(__int64 a1, __int64 *a2, const GUID *a3, const GUID *a4)
@@ -47,7 +47,7 @@ TLG_STATUS __fastcall RtlpHpTlLogMemStats(__int64 a1, __int64 *a2, const GUID *a
     v16 = 8LL;
     v18 = 8LL;
     v20 = 8LL;
-    return TlgWrite((TraceLoggingHProvider)&dword_18015F698, &unk_18012C77E, a3, a4, 7u, &pData);
+    return TlgWrite((TraceLoggingHProvider)&dword_18015F698, &unk_18012C80E, a3, a4, 7u, &pData);
   }
   return result;
 }

@@ -1,15 +1,16 @@
 /*
- * XREFs of RtlSizeHeap @ 0x140619810
+ * XREFs of RtlSizeHeap @ 0x14061C860
  * Callers:
  *     <none>
  * Callees:
- *     RtlpLogHeapFailure @ 0x140521C9C (RtlpLogHeapFailure.c)
- *     RtlpSizeHeapInternal @ 0x14061D584 (RtlpSizeHeapInternal.c)
+ *     RtlpLogHeapFailure @ 0x140524308 (RtlpLogHeapFailure.c)
+ *     RtlpSizeHeapInternal @ 0x1406205D4 (RtlpSizeHeapInternal.c)
  */
 
-__int64 __fastcall RtlSizeHeap(__int64 a1, __int64 a2, __int64 a3)
+// local variable allocation has failed, the output may be wrong!
+SIZE_T __cdecl RtlSizeHeap(PVOID HeapHandle, ULONG Flags, PVOID BaseAddress)
 {
-  if ( !a1 )
-    RtlpLogHeapFailure(0x13u, 0LL, a3, 0LL, 0LL, 0LL);
-  return RtlpSizeHeapInternal(a1, a2, a3);
+  if ( !HeapHandle )
+    RtlpLogHeapFailure(0x13u, 0LL, (__int64)BaseAddress, 0LL, 0LL, 0LL);
+  return RtlpSizeHeapInternal(HeapHandle, *(_QWORD *)&Flags, BaseAddress);
 }

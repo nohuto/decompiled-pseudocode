@@ -5,7 +5,7 @@
  *     MxSwapPages @ 0x140797EAC (MxSwapPages.c)
  *     MxFillPhysicalPage @ 0x140798170 (MxFillPhysicalPage.c)
  * Callees:
- *     MI_READ_PTE_LOCK_FREE @ 0x1401F25D0 (MI_READ_PTE_LOCK_FREE.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1401F23FC (MI_READ_PTE_LOCK_FREE.c)
  */
 
 __int64 MxGetPhase0Mapping()

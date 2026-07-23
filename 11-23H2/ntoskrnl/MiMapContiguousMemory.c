@@ -1,17 +1,17 @@
 /*
- * XREFs of MiMapContiguousMemory @ 0x1403359F8
+ * XREFs of MiMapContiguousMemory @ 0x140335C88
  * Callers:
- *     MmMapIoSpaceEx @ 0x1403359B0 (MmMapIoSpaceEx.c)
- *     MiAllocateContiguousMemory @ 0x1403B9CD4 (MiAllocateContiguousMemory.c)
+ *     MmMapIoSpaceEx @ 0x140335C40 (MmMapIoSpaceEx.c)
+ *     MiAllocateContiguousMemory @ 0x1403B9EB4 (MiAllocateContiguousMemory.c)
  * Callees:
- *     MiReservePtes @ 0x14027D190 (MiReservePtes.c)
- *     MiFillSystemPtes @ 0x14027E8C0 (MiFillSystemPtes.c)
- *     MiReleasePtes @ 0x1402CB8E0 (MiReleasePtes.c)
- *     MiSanitizePage @ 0x140335C10 (MiSanitizePage.c)
- *     MiMappingHasIoReferences @ 0x140335C40 (MiMappingHasIoReferences.c)
- *     MiMapContiguousMemoryLarge @ 0x14038E404 (MiMapContiguousMemoryLarge.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     MiInsertPteTracker @ 0x140661384 (MiInsertPteTracker.c)
+ *     MiReservePtes @ 0x14027D420 (MiReservePtes.c)
+ *     MiFillSystemPtes @ 0x14027EB50 (MiFillSystemPtes.c)
+ *     MiReleasePtes @ 0x1402CBB70 (MiReleasePtes.c)
+ *     MiSanitizePage @ 0x140335EA0 (MiSanitizePage.c)
+ *     MiMappingHasIoReferences @ 0x140335ED0 (MiMappingHasIoReferences.c)
+ *     MiMapContiguousMemoryLarge @ 0x14038E5E4 (MiMapContiguousMemoryLarge.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     MiInsertPteTracker @ 0x1406618D4 (MiInsertPteTracker.c)
  */
 
 __int64 __fastcall MiMapContiguousMemory(unsigned __int64 a1, __int64 a2, __int64 a3, unsigned int a4, char a5)

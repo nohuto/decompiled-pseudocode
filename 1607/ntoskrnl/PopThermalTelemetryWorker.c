@@ -1,14 +1,14 @@
 /*
- * XREFs of PopThermalTelemetryWorker @ 0x14020724C
+ * XREFs of PopThermalTelemetryWorker @ 0x140207078
  * Callers:
  *     <none>
  * Callees:
- *     PopReleaseRwLock @ 0x14000DCD8 (PopReleaseRwLock.c)
- *     PopAcquireRwLockShared @ 0x14000E0B0 (PopAcquireRwLockShared.c)
- *     PopAcquireRwLockExclusive @ 0x1400FBFA8 (PopAcquireRwLockExclusive.c)
- *     PopTraceThermalZonePassiveHistogram @ 0x140124B6C (PopTraceThermalZonePassiveHistogram.c)
- *     PopCoolingTelemetryWorker @ 0x140201C7C (PopCoolingTelemetryWorker.c)
- *     PopThermalUpdatePassiveTimeTracking @ 0x14053283C (PopThermalUpdatePassiveTimeTracking.c)
+ *     PopReleaseRwLock @ 0x14000D858 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockShared @ 0x14000DC30 (PopAcquireRwLockShared.c)
+ *     PopAcquireRwLockExclusive @ 0x1400F9D28 (PopAcquireRwLockExclusive.c)
+ *     PopTraceThermalZonePassiveHistogram @ 0x1401250DC (PopTraceThermalZonePassiveHistogram.c)
+ *     PopCoolingTelemetryWorker @ 0x140201AA8 (PopCoolingTelemetryWorker.c)
+ *     PopThermalUpdatePassiveTimeTracking @ 0x140532D7C (PopThermalUpdatePassiveTimeTracking.c)
  */
 
 __int64 PopThermalTelemetryWorker()
@@ -27,5 +27,5 @@ __int64 PopThermalTelemetryWorker()
   }
   PopReleaseRwLock(&PopPolicyDeviceLock);
   PopCoolingTelemetryWorker();
-  return PopOkayToQueueNextWorkItem(&unk_140302EC8);
+  return PopOkayToQueueNextWorkItem(&unk_140302F28);
 }

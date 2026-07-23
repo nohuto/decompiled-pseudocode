@@ -1,11 +1,11 @@
 /*
- * XREFs of IopGetRegistryULongValue @ 0x1405CC46C
+ * XREFs of IopGetRegistryULongValue @ 0x1405CEC80
  * Callers:
- *     IopGetRegistryBoolValue @ 0x1405CC44C (IopGetRegistryBoolValue.c)
- *     IopLiveDumpInitRegistrySettings @ 0x1405CFF50 (IopLiveDumpInitRegistrySettings.c)
+ *     IopGetRegistryBoolValue @ 0x1405CEC60 (IopGetRegistryBoolValue.c)
+ *     IopLiveDumpInitRegistrySettings @ 0x1405D2760 (IopLiveDumpInitRegistrySettings.c)
  * Callees:
- *     IopGetRegistryValue @ 0x140A121A8 (IopGetRegistryValue.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     IopGetRegistryValue @ 0x140A11398 (IopGetRegistryValue.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall IopGetRegistryULongValue(void *a1)

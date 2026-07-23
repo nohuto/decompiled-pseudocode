@@ -37,11 +37,11 @@ __int64 __fastcall PsInvokeWin32Callout(int a1, __int64 a2, int a3, __int64 a4)
   _KPROCESS *Process; // rcx
   int SessionId; // eax
   _DWORD *v10; // r9
-  union _RTL_RUN_ONCE *v11; // rbp
+  _RTL_RUN_ONCE *v11; // rbp
   struct _EX_RUNDOWN_REF *v12; // rax
   struct _EX_RUNDOWN_REF *v13; // rsi
   int v14; // ebx
-  union _RTL_RUN_ONCE *Win32Callouts; // rax
+  _RTL_RUN_ONCE *Win32Callouts; // rax
   __int64 v17; // rcx
   unsigned int v18; // [rsp+40h] [rbp+18h] BYREF
 

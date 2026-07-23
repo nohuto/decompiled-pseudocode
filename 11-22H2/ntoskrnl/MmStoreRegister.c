@@ -27,8 +27,8 @@ __int64 __fastcall MmStoreRegister(__int64 *a1, __int64 a2, __int64 a3, __int64 
   struct _KEVENT *v10; // rbp
   _DWORD *v11; // r15
   int SystemThread; // esi
-  RTL_BITMAP *v13; // rax
-  RTL_BITMAP *v14; // r14
+  _RTL_BITMAP *v13; // rax
+  _RTL_BITMAP *v14; // r14
   unsigned int v15; // edx
   unsigned __int64 v16; // r9
   __int64 *v17; // r8
@@ -72,10 +72,10 @@ __int64 __fastcall MmStoreRegister(__int64 *a1, __int64 a2, __int64 a3, __int64 
                    0LL);
   if ( SystemThread >= 0 )
   {
-    v13 = (RTL_BITMAP *)MiAllocatePool(
-                          64,
-                          8 * (((unsigned int)dword_140D1D1DC >> 6) + ((dword_140D1D1DC & 0x3F) != 0) + 2),
-                          0x20206D4Du);
+    v13 = (_RTL_BITMAP *)MiAllocatePool(
+                           64,
+                           8 * (((unsigned int)dword_140D1D1DC >> 6) + ((dword_140D1D1DC & 0x3F) != 0) + 2),
+                           0x20206D4Du);
     v14 = v13;
     if ( v13 )
     {

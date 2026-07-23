@@ -23,10 +23,10 @@ char __fastcall EtwpApplyPackageIdFilter(__int64 a1, _WORD *a2, _WORD *a3)
   unsigned int v12; // ebx
   unsigned __int16 v13; // si
   unsigned int v14; // ebx
-  unsigned __int64 v16; // [rsp+30h] [rbp-1E8h] BYREF
-  unsigned __int64 v17; // [rsp+38h] [rbp-1E0h] BYREF
-  wchar_t Str2[128]; // [rsp+40h] [rbp-1D8h] BYREF
-  wchar_t v19[72]; // [rsp+140h] [rbp-D8h] BYREF
+  ULONG_PTR PackageSize; // [rsp+30h] [rbp-1E8h] BYREF
+  ULONG_PTR AppIdSize; // [rsp+38h] [rbp-1E0h] BYREF
+  WCHAR PackageFullName[128]; // [rsp+40h] [rbp-1D8h] BYREF
+  WCHAR AppId[72]; // [rsp+140h] [rbp-D8h] BYREF
 
   v3 = 0;
   v7 = a2 == 0LL;
@@ -36,17 +36,18 @@ char __fastcall EtwpApplyPackageIdFilter(__int64 a1, _WORD *a2, _WORD *a3)
   SeSecurityAttributePresent((__int64)v9, (const UNICODE_STRING *)&PspPackagedAppClaim);
   if ( v10 )
   {
-    v16 = 256LL;
-    v17 = 130LL;
-    if ( (int)RtlQueryPackageIdentity((__int64)v9, (__int64)Str2, (__int64)&v16, (__int64)v19, (__int64)&v17, 0LL) >= 0 )
+    PackageSize = 256LL;
+    AppIdSize = 130LL;
+    if ( RtlQueryPackageIdentity(v9, PackageFullName, &PackageSize, AppId, &AppIdSize, 0LL) >= 0 )
     {
       if ( a2 )
       {
         v11 = 0;
-        v12 = (v16 >> 1) - 1;
+        v12 = (PackageSize >> 1) - 1;
         if ( *a2 )
         {
-          while ( (unsigned __int16)a2[8 * v11 + 4] != v12 || wcsnicmp(*(const wchar_t **)&a2[8 * v11 + 8], Str2, v12) )
+          while ( (unsigned __int16)a2[8 * v11 + 4] != v12
+               || wcsnicmp(*(const wchar_t **)&a2[8 * v11 + 8], PackageFullName, v12) )
           {
             if ( ++v11 >= *a2 )
               goto LABEL_8;
@@ -62,10 +63,10 @@ LABEL_8:
       if ( a3 )
       {
         v13 = 0;
-        v14 = (v17 >> 1) - 1;
+        v14 = (AppIdSize >> 1) - 1;
         if ( *a3 )
         {
-          while ( (unsigned __int16)a3[8 * v13 + 4] != v14 || wcsnicmp(*(const wchar_t **)&a3[8 * v13 + 8], v19, v14) )
+          while ( (unsigned __int16)a3[8 * v13 + 4] != v14 || wcsnicmp(*(const wchar_t **)&a3[8 * v13 + 8], AppId, v14) )
           {
             if ( ++v13 >= *a3 )
               goto LABEL_14;

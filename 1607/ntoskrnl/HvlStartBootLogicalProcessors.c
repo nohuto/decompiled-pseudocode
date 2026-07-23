@@ -1,21 +1,21 @@
 /*
- * XREFs of HvlStartBootLogicalProcessors @ 0x140139734
+ * XREFs of HvlStartBootLogicalProcessors @ 0x140139CA4
  * Callers:
  *     KeStartAllProcessors @ 0x140792860 (KeStartAllProcessors.c)
  * Callees:
- *     qsort @ 0x14014DF60 (qsort.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     HvlpCommitLpIndices @ 0x1401BB410 (HvlpCommitLpIndices.c)
- *     HvlpEnableNextLogicalProcessor @ 0x1401BB72C (HvlpEnableNextLogicalProcessor.c)
- *     HvlpGetLpcbByApicId @ 0x1401BB968 (HvlpGetLpcbByApicId.c)
- *     HvlpQueryApicIdAndNumaNode @ 0x1401BBC94 (HvlpQueryApicIdAndNumaNode.c)
- *     HvlpSelectLpSet @ 0x1401BBDC8 (HvlpSelectLpSet.c)
- *     HvlpSelectVpSet @ 0x1401BC21C (HvlpSelectVpSet.c)
- *     HvlpUpdateLpcbIndex @ 0x1401BC8D8 (HvlpUpdateLpcbIndex.c)
+ *     qsort @ 0x14014E520 (qsort.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     HvlpCommitLpIndices @ 0x1401BB2F4 (HvlpCommitLpIndices.c)
+ *     HvlpEnableNextLogicalProcessor @ 0x1401BB610 (HvlpEnableNextLogicalProcessor.c)
+ *     HvlpGetLpcbByApicId @ 0x1401BB84C (HvlpGetLpcbByApicId.c)
+ *     HvlpQueryApicIdAndNumaNode @ 0x1401BBB78 (HvlpQueryApicIdAndNumaNode.c)
+ *     HvlpSelectLpSet @ 0x1401BBCAC (HvlpSelectLpSet.c)
+ *     HvlpSelectVpSet @ 0x1401BC100 (HvlpSelectVpSet.c)
+ *     HvlpUpdateLpcbIndex @ 0x1401BC7BC (HvlpUpdateLpcbIndex.c)
  *     MmFreeIndependentPages @ 0x1403E1F14 (MmFreeIndependentPages.c)
- *     MmAllocateIndependentPages @ 0x1404E6034 (MmAllocateIndependentPages.c)
- *     xHalSetSystemInformation @ 0x140581940 (xHalSetSystemInformation.c)
- *     HvlpDiscoverTopologyLocal @ 0x140620538 (HvlpDiscoverTopologyLocal.c)
+ *     MmAllocateIndependentPages @ 0x1404C8A68 (MmAllocateIndependentPages.c)
+ *     xHalSetSystemInformation @ 0x140581DF0 (xHalSetSystemInformation.c)
+ *     HvlpDiscoverTopologyLocal @ 0x1406205EC (HvlpDiscoverTopologyLocal.c)
  */
 
 __int64 HvlStartBootLogicalProcessors()

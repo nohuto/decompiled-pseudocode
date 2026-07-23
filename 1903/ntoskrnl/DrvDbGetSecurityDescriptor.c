@@ -42,9 +42,9 @@ void *DrvDbGetSecurityDescriptor()
   PVOID v16; // rax
   void *v17; // rbx
   _WORD SecurityDescriptor[28]; // [rsp+30h] [rbp-38h] BYREF
-  struct _SID_IDENTIFIER_AUTHORITY IdentifierAuthority; // [rsp+B0h] [rbp+48h] BYREF
-  struct _SID_IDENTIFIER_AUTHORITY v21; // [rsp+B8h] [rbp+50h] BYREF
-  struct _SID_IDENTIFIER_AUTHORITY v22; // [rsp+C0h] [rbp+58h] BYREF
+  _SID_IDENTIFIER_AUTHORITY IdentifierAuthority; // [rsp+B0h] [rbp+48h] BYREF
+  _SID_IDENTIFIER_AUTHORITY v21; // [rsp+B8h] [rbp+50h] BYREF
+  _SID_IDENTIFIER_AUTHORITY v22; // [rsp+C0h] [rbp+58h] BYREF
   void *v23; // [rsp+C8h] [rbp+60h]
 
   *(_WORD *)&IdentifierAuthority.Value[4] = 1280;

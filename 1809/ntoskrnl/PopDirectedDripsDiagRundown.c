@@ -1,18 +1,18 @@
 /*
- * XREFs of PopDirectedDripsDiagRundown @ 0x14087B950
+ * XREFs of PopDirectedDripsDiagRundown @ 0x14087CBB0
  * Callers:
- *     PopDirectedDripsNotify @ 0x14071E748 (PopDirectedDripsNotify.c)
+ *     PopDirectedDripsNotify @ 0x14071F9E8 (PopDirectedDripsNotify.c)
  * Callees:
  *     _TlgKeywordOn @ 0x140012A04 (_TlgKeywordOn.c)
  *     _TlgWrite @ 0x140012EE4 (_TlgWrite.c)
  *     ExAcquirePushLockSharedEx @ 0x14004EE20 (ExAcquirePushLockSharedEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
- *     ExfReleasePushLockShared @ 0x1400914B0 (ExfReleasePushLockShared.c)
- *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
- *     EtwWrite @ 0x1400CAD20 (EtwWrite.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     PopDirectedDripsDiagCreateBlockerEntryBoolean @ 0x14087B6B8 (PopDirectedDripsDiagCreateBlockerEntryBoolean.c)
- *     PopDirectedDripsDiagCreateBlockerEntryULong @ 0x14087B724 (PopDirectedDripsDiagCreateBlockerEntryULong.c)
+ *     ExfReleasePushLockShared @ 0x1400913F0 (ExfReleasePushLockShared.c)
+ *     RtlInitUnicodeString @ 0x1400B99D0 (RtlInitUnicodeString.c)
+ *     EtwWrite @ 0x1400CAE00 (EtwWrite.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     PopDirectedDripsDiagCreateBlockerEntryBoolean @ 0x14087C918 (PopDirectedDripsDiagCreateBlockerEntryBoolean.c)
+ *     PopDirectedDripsDiagCreateBlockerEntryULong @ 0x14087C984 (PopDirectedDripsDiagCreateBlockerEntryULong.c)
  */
 
 __int64 PopDirectedDripsDiagRundown()
@@ -91,7 +91,7 @@ __int64 PopDirectedDripsDiagRundown()
   while ( v1 != (_DWORD)result );
   if ( (result & 1) != 0 )
   {
-    RtlInitUnicodeString(&DestinationString, &word_140766550);
+    RtlInitUnicodeString(&DestinationString, &word_140767740);
     v24 = PopWnfCsEnterScenarioId;
     ExAcquirePushLockSharedEx((ULONG_PTR)&PopDirectedDripsDiagLock, 0LL);
     for ( i = PopDirectedDripsDiagList; (__int64 *)i != &PopDirectedDripsDiagList; i = *(_QWORD *)i )
@@ -168,7 +168,7 @@ __int64 PopDirectedDripsDiagRundown()
           v54 = 4LL;
           v56 = 4LL;
           v58 = 4LL;
-          TlgWrite(&pCallbackContext, &unk_1403712BA, 0LL, 0LL, 0xFu, &pData);
+          TlgWrite(&pCallbackContext, &unk_14037224A, 0LL, 0LL, 0xFu, &pData);
         }
       }
       *(_QWORD *)(i + 108) = 0LL;

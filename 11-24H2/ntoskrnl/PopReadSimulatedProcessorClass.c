@@ -1,13 +1,13 @@
 /*
- * XREFs of PopReadSimulatedProcessorClass @ 0x140C31558
+ * XREFs of PopReadSimulatedProcessorClass @ 0x140C33678
  * Callers:
- *     PopReadSimulatedArchitecturalClasses @ 0x140C30E64 (PopReadSimulatedArchitecturalClasses.c)
- *     PopReadSimulatedHGSClasses @ 0x140C31050 (PopReadSimulatedHGSClasses.c)
+ *     PopReadSimulatedArchitecturalClasses @ 0x140C32F84 (PopReadSimulatedArchitecturalClasses.c)
+ *     PopReadSimulatedHGSClasses @ 0x140C33170 (PopReadSimulatedHGSClasses.c)
  * Callees:
- *     KeGetProcessorIndexFromNumber @ 0x140352BB0 (KeGetProcessorIndexFromNumber.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ZwEnumerateValueKey @ 0x1406A6670 (ZwEnumerateValueKey.c)
- *     ZwQueryValueKey @ 0x1406A66F0 (ZwQueryValueKey.c)
+ *     KeGetProcessorIndexFromNumber @ 0x140370440 (KeGetProcessorIndexFromNumber.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ZwEnumerateValueKey @ 0x1406A7610 (ZwEnumerateValueKey.c)
+ *     ZwQueryValueKey @ 0x1406A7690 (ZwQueryValueKey.c)
  */
 
 char __fastcall PopReadSimulatedProcessorClass(__int64 a1, unsigned __int16 a2, void *a3, ULONG a4)
@@ -22,7 +22,7 @@ char __fastcall PopReadSimulatedProcessorClass(__int64 a1, unsigned __int16 a2, 
   int v15; // r9d
   ULONG ProcessorIndexFromNumber; // eax
   __int64 v17; // rbx
-  struct _PROCESSOR_NUMBER ProcNumber; // [rsp+30h] [rbp-39h] BYREF
+  _PROCESSOR_NUMBER ProcNumber; // [rsp+30h] [rbp-39h] BYREF
   ULONG ResultLength; // [rsp+34h] [rbp-35h] BYREF
   UNICODE_STRING ValueName; // [rsp+38h] [rbp-31h] BYREF
   __int128 KeyValueInformation; // [rsp+48h] [rbp-21h] BYREF

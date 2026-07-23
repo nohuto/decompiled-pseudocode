@@ -1,7 +1,7 @@
 /*
- * XREFs of PsChargeProcessPoolQuota @ 0x14009CE54
+ * XREFs of PsChargeProcessPoolQuota @ 0x14009C654
  * Callers:
- *     PsChargePoolQuota @ 0x14009CE38 (PsChargePoolQuota.c)
+ *     PsChargePoolQuota @ 0x14009C638 (PsChargePoolQuota.c)
  * Callees:
  *     <none>
  */

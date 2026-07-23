@@ -1,11 +1,11 @@
 /*
- * XREFs of MiSpinForProtoPoolLock @ 0x14042C460
+ * XREFs of MiSpinForProtoPoolLock @ 0x14041F210
  * Callers:
- *     MiLockOwnedProtoPage @ 0x1402158F0 (MiLockOwnedProtoPage.c)
- *     MiLockProtoPoolPage @ 0x14022E920 (MiLockProtoPoolPage.c)
+ *     MiLockProtoPoolPage @ 0x140302230 (MiLockProtoPoolPage.c)
+ *     MiLockOwnedProtoPage @ 0x1403354A0 (MiLockOwnedProtoPage.c)
  * Callees:
- *     HvlNotifyLongSpinWait @ 0x140293260 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140293290 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     HvlNotifyLongSpinWait @ 0x1402A2E60 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1402A2E90 (KiCheckVpBackingLongSpinWaitHypercall.c)
  */
 
 __int64 __fastcall MiSpinForProtoPoolLock(__int64 a1)

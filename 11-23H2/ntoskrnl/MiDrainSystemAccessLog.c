@@ -1,17 +1,17 @@
 /*
- * XREFs of MiDrainSystemAccessLog @ 0x140286CD4
+ * XREFs of MiDrainSystemAccessLog @ 0x140286F64
  * Callers:
  *     MiEmptyAccessLogs @ 0x1402005B0 (MiEmptyAccessLogs.c)
  *     MiDeleteSessionAddressSpace @ 0x1402008EC (MiDeleteSessionAddressSpace.c)
- *     MiCaptureAndResetWorkingSetAccessBits @ 0x140361BD0 (MiCaptureAndResetWorkingSetAccessBits.c)
- *     MiCleanWorkingSet @ 0x1403649EC (MiCleanWorkingSet.c)
- *     MiDeleteVad @ 0x1406FA420 (MiDeleteVad.c)
+ *     MiCaptureAndResetWorkingSetAccessBits @ 0x140361D70 (MiCaptureAndResetWorkingSetAccessBits.c)
+ *     MiCleanWorkingSet @ 0x140364B8C (MiCleanWorkingSet.c)
+ *     MiDeleteVad @ 0x1406FA630 (MiDeleteVad.c)
  * Callees:
- *     MiGetSharedVm @ 0x140286E74 (MiGetSharedVm.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402894C0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x14028A930 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     MiEmptyPageAccessLog @ 0x1402E1F40 (MiEmptyPageAccessLog.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiGetSharedVm @ 0x140287104 (MiGetSharedVm.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140289750 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x14028ABC0 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     MiEmptyPageAccessLog @ 0x1402E21D0 (MiEmptyPageAccessLog.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiDrainSystemAccessLog(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
@@ -40,7 +40,7 @@ __int64 __fastcall MiDrainSystemAccessLog(__int64 a1, __int64 a2, __int64 a3, __
   {
     CurrentIrql = KeGetCurrentIrql();
     __writecr8(2uLL);
-    if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+    if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
     {
       SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
       v16 = 4;
@@ -61,10 +61,10 @@ __int64 __fastcall MiDrainSystemAccessLog(__int64 a1, __int64 a2, __int64 a3, __
     }
     v15 = MiGetSharedVm(a1, v12, v13, v14);
     ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(v15 + 64));
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v17 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v17 <= 0xFu && CurrentIrql <= 0xFu && v17 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v17 <= 0xFu && CurrentIrql <= 0xFu && v17 >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         v19 = CurrentPrcb->SchedulerAssist;

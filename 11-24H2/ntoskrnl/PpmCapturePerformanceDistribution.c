@@ -1,16 +1,16 @@
 /*
- * XREFs of PpmCapturePerformanceDistribution @ 0x14047F450
+ * XREFs of PpmCapturePerformanceDistribution @ 0x14047A270
  * Callers:
- *     ExpQuerySystemInformation @ 0x140ADC240 (ExpQuerySystemInformation.c)
+ *     ExpQuerySystemInformation @ 0x140ADDAE0 (ExpQuerySystemInformation.c)
  * Callees:
- *     KeWaitForSingleObject @ 0x14033E960 (KeWaitForSingleObject.c)
- *     KeGetPrcb @ 0x140352980 (KeGetPrcb.c)
- *     PopQueueTargetDpc @ 0x140352A60 (PopQueueTargetDpc.c)
- *     PpmCapturePerformanceDistributionCallback @ 0x14047F700 (PpmCapturePerformanceDistributionCallback.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     KeGetPrcb @ 0x1402B0A10 (KeGetPrcb.c)
+ *     KeWaitForSingleObject @ 0x14031DE40 (KeWaitForSingleObject.c)
+ *     PopQueueTargetDpc @ 0x1403702F0 (PopQueueTargetDpc.c)
+ *     PpmCapturePerformanceDistributionCallback @ 0x14047A520 (PpmCapturePerformanceDistributionCallback.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 __int64 __fastcall PpmCapturePerformanceDistribution(
@@ -81,7 +81,7 @@ LABEL_2:
     }
     _BitScanForward64(&v11, v9);
     v9 &= ~(1LL << v11);
-    Prcb = KeGetPrcb(*((_DWORD *)qword_140F21E78 + 64 * (unsigned __int16)a1 + (unsigned __int8)v11));
+    Prcb = KeGetPrcb(*((_DWORD *)qword_140F22998 + 64 * (unsigned __int16)a1 + (unsigned __int8)v11));
     CurrentIrql = KeGetCurrentIrql();
     __writecr8(2uLL);
     if ( KiIrqlFlags )

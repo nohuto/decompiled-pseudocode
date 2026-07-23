@@ -1,11 +1,11 @@
 /*
- * XREFs of ExpPoolMgrAcquirePoolListLockShared @ 0x1404C2094
+ * XREFs of ExpPoolMgrAcquirePoolListLockShared @ 0x1404BB8E4
  * Callers:
- *     ExpPoolMgrGetNextPoolCommon @ 0x140AC379C (ExpPoolMgrGetNextPoolCommon.c)
- *     ExpPoolMgrResolveMaintenanceHint @ 0x140AC3850 (ExpPoolMgrResolveMaintenanceHint.c)
+ *     ExpPoolMgrGetNextPoolCommon @ 0x140AC540C (ExpPoolMgrGetNextPoolCommon.c)
+ *     ExpPoolMgrResolveMaintenanceHint @ 0x140AC54C0 (ExpPoolMgrResolveMaintenanceHint.c)
  * Callees:
- *     ExfAcquirePushLockSharedEx @ 0x140277CC0 (ExfAcquirePushLockSharedEx.c)
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
+ *     ExfAcquirePushLockSharedEx @ 0x140277230 (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
  */
 
 signed __int64 __fastcall ExpPoolMgrAcquirePoolListLockShared(

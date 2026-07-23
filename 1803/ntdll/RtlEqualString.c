@@ -6,48 +6,47 @@
  *     RtlUpperChar @ 0x180080600 (RtlUpperChar.c)
  */
 
-char __fastcall RtlEqualString(unsigned __int16 *a1, unsigned __int16 *a2, char a3)
+BOOLEAN __cdecl RtlEqualString(PSTRING String1, PSTRING String2, BOOLEAN CaseInSensitive)
 {
-  __int64 v3; // r9
-  _BYTE *v5; // rdi
-  _BYTE *v6; // rsi
-  __int64 v7; // r14
-  char v8; // al
-  __int64 v9; // rcx
-  __int64 v10; // rcx
+  __int64 Length; // r9
+  PCHAR Buffer; // rdi
+  CHAR *v6; // rsi
+  CHAR *v7; // r14
+  CHAR v8; // cl
+  CHAR v9; // bl
+  CHAR *v10; // rcx
 
-  v3 = *a1;
-  if ( (_DWORD)v3 != *a2 )
+  Length = String1->Length;
+  if ( (_DWORD)Length != String2->Length )
     return 0;
-  v5 = (_BYTE *)*((_QWORD *)a1 + 1);
-  v6 = &v5[v3];
-  if ( a3 )
+  Buffer = String1->Buffer;
+  v6 = &Buffer[Length];
+  if ( CaseInSensitive )
   {
-    if ( v5 < v6 )
+    if ( Buffer < v6 )
     {
-      v7 = *((_QWORD *)a2 + 1) - (_QWORD)v5;
+      v7 = (CHAR *)(String2->Buffer - Buffer);
       while ( 1 )
       {
-        LOBYTE(a1) = v5[v7];
-        if ( *v5 != (_BYTE)a1 )
+        v8 = Buffer[(_QWORD)v7];
+        if ( *Buffer != v8 )
         {
-          v8 = RtlUpperChar(a1);
-          LOBYTE(v9) = *v5;
-          if ( (unsigned __int8)RtlUpperChar(v9) != v8 )
+          v9 = RtlUpperChar(v8);
+          if ( RtlUpperChar(*Buffer) != v9 )
             break;
         }
-        if ( ++v5 >= v6 )
+        if ( ++Buffer >= v6 )
           return 1;
       }
       return 0;
     }
   }
-  else if ( v5 < v6 )
+  else if ( Buffer < v6 )
   {
-    v10 = *((_QWORD *)a2 + 1) - (_QWORD)v5;
-    while ( *v5 == v5[v10] )
+    v10 = (CHAR *)(String2->Buffer - Buffer);
+    while ( *Buffer == Buffer[(_QWORD)v10] )
     {
-      if ( ++v5 >= v6 )
+      if ( ++Buffer >= v6 )
         return 1;
     }
     return 0;

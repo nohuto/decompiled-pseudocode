@@ -16,10 +16,10 @@
 
 int __fastcall RtlpInterlockedPushEntrySList(unsigned int a1, _DWORD *a2)
 {
-  char *v3; // edi
+  _RTL_SRWLOCK *v3; // edi
   int v4; // esi
 
-  v3 = (char *)&RtlpSlistLockedAltLocks + 4 * ((a1 >> 2) & 0x1F);
+  v3 = &RtlpSlistLockedAltLocks + ((a1 >> 2) & 0x1F);
   RtlAcquireSRWLockExclusive(v3);
   v4 = *(_DWORD *)a1;
   *a2 = *(_DWORD *)a1;

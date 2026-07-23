@@ -1,12 +1,12 @@
 /*
- * XREFs of PopFxDestroyDeviceDpm @ 0x140202834
+ * XREFs of PopFxDestroyDeviceDpm @ 0x140202660
  * Callers:
- *     PoFxUnregisterDevice @ 0x14066C560 (PoFxUnregisterDevice.c)
- *     PopFxUnregisterDevice @ 0x14066D58C (PopFxUnregisterDevice.c)
+ *     PoFxUnregisterDevice @ 0x14066C644 (PoFxUnregisterDevice.c)
+ *     PopFxUnregisterDevice @ 0x14066D670 (PopFxUnregisterDevice.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14006ACD0 (ObfDereferenceObjectWithTag.c)
- *     IoReleaseRemoveLockEx @ 0x14009DD7C (IoReleaseRemoveLockEx.c)
- *     PopFxDestroyDeviceCommon @ 0x140202808 (PopFxDestroyDeviceCommon.c)
+ *     ObfDereferenceObjectWithTag @ 0x14006A850 (ObfDereferenceObjectWithTag.c)
+ *     IoReleaseRemoveLockEx @ 0x14009D57C (IoReleaseRemoveLockEx.c)
+ *     PopFxDestroyDeviceCommon @ 0x140202634 (PopFxDestroyDeviceCommon.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  */
 

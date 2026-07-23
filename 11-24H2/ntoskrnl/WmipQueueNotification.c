@@ -1,13 +1,13 @@
 /*
- * XREFs of WmipQueueNotification @ 0x140A55BA4
+ * XREFs of WmipQueueNotification @ 0x140A4DAF4
  * Callers:
- *     WmipWriteWnodeToObject @ 0x1403DC55C (WmipWriteWnodeToObject.c)
+ *     WmipWriteWnodeToObject @ 0x1403CBB50 (WmipWriteWnodeToObject.c)
  * Callees:
- *     KeSetEvent @ 0x1402725A0 (KeSetEvent.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     KeSetEvent @ 0x140227B30 (KeSetEvent.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall WmipQueueNotification(struct _KEVENT *a1, char **a2, unsigned int *a3)
@@ -47,7 +47,7 @@ __int64 __fastcall WmipQueueNotification(struct _KEVENT *a1, char **a2, unsigned
       goto LABEL_6;
     if ( v12 > v5 )
       v5 = (v12 + 0x3FFF) & 0xFFFFC000;
-    Pool2 = (char *)ExAllocatePool2(0x100uLL);
+    Pool2 = (char *)ExAllocatePool2(0x100uLL, v5, 0x70696D57u);
     v3 = Pool2;
     if ( !Pool2 )
     {

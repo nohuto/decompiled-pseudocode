@@ -24,7 +24,7 @@ _QWORD *CmFcManagerDrainAllFeatureUsageNotifications()
   v2 = _interlockedbittestandset64((volatile signed __int32 *)&stru_140C14168, 0LL);
   v3 = v1;
   if ( v2 )
-    ExfAcquirePushLockExclusiveEx(&stru_140C14168, v1, (__int64)&stru_140C14168);
+    ExfAcquirePushLockExclusiveEx((unsigned __int64 *)&stru_140C14168, v1, (__int64)&stru_140C14168);
   if ( v3 )
     *(_BYTE *)(v3 + 18) = 1;
   CmFcpManagerDrainUsageNotifications((__int64)CmFcSystemManager, 1);

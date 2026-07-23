@@ -1,5 +1,5 @@
 /*
- * XREFs of RtlpEnclaveCallDispatchFilter @ 0x180120B60
+ * XREFs of RtlpEnclaveCallDispatchFilter @ 0x18011ED90
  * Callers:
  *     <none>
  * Callees:

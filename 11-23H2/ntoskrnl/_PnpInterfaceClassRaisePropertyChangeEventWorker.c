@@ -1,9 +1,9 @@
 /*
- * XREFs of _PnpInterfaceClassRaisePropertyChangeEventWorker @ 0x140A65754
+ * XREFs of _PnpInterfaceClassRaisePropertyChangeEventWorker @ 0x140A65A04
  * Callers:
- *     _PnpObjectRaisePropertyChangeEvent @ 0x1407972F4 (_PnpObjectRaisePropertyChangeEvent.c)
+ *     _PnpObjectRaisePropertyChangeEvent @ 0x1407974E4 (_PnpObjectRaisePropertyChangeEvent.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall PnpInterfaceClassRaisePropertyChangeEventWorker(
@@ -23,7 +23,7 @@ __int64 __fastcall PnpInterfaceClassRaisePropertyChangeEventWorker(
   v9 = 0LL;
   while ( 1 )
   {
-    v10 = *((_QWORD *)&off_140C09640 + v9);
+    v10 = *((_QWORD *)&off_140C09630 + v9);
     if ( *(_DWORD *)(a5 + 16) == *(_DWORD *)(v10 + 16) )
     {
       v11 = *(_QWORD *)a5 - *(_QWORD *)v10;

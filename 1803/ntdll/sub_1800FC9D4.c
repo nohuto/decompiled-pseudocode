@@ -7,7 +7,7 @@
  *     __security_check_cookie @ 0x18008B0F0 (__security_check_cookie.c)
  */
 
-__int64 __fastcall sub_1800FC9D4(int a1, int a2, int a3, __int64 a4)
+ULONG __fastcall sub_1800FC9D4(int a1, int a2, int a3, __int64 a4)
 {
   _QWORD v5[7]; // [rsp+20h] [rbp-50h] BYREF
   int v6; // [rsp+58h] [rbp-18h]
@@ -28,5 +28,5 @@ __int64 __fastcall sub_1800FC9D4(int a1, int a2, int a3, __int64 a4)
   v5[6] = a4;
   v7 = 0;
   v5[4] = &v10;
-  return EtwEventWrite(qword_18015D2D8, (int)&unk_180123FF0, 4, (__int64)v5);
+  return EtwEventWrite(qword_18015D2D8, &stru_180123FF0, 4u, (PEVENT_DATA_DESCRIPTOR)v5);
 }

@@ -1,14 +1,14 @@
 /*
- * XREFs of MiVolunteerForTrimFirst @ 0x1400E5F90
+ * XREFs of MiVolunteerForTrimFirst @ 0x1400E3E30
  * Callers:
- *     MiAgeWorkingSet @ 0x140047090 (MiAgeWorkingSet.c)
- *     MiDeleteSystemPagableVm @ 0x14004ACA0 (MiDeleteSystemPagableVm.c)
- *     MiUpdateWorkingSetAgeDistribution @ 0x1400BC53C (MiUpdateWorkingSetAgeDistribution.c)
- *     MiReleaseWsle @ 0x1400E2430 (MiReleaseWsle.c)
- *     MiFreeWsleList @ 0x1400E3AD0 (MiFreeWsleList.c)
+ *     MiAgeWorkingSet @ 0x140046C10 (MiAgeWorkingSet.c)
+ *     MiDeleteSystemPagableVm @ 0x14004A820 (MiDeleteSystemPagableVm.c)
+ *     MiUpdateWorkingSetAgeDistribution @ 0x1400BA3CC (MiUpdateWorkingSetAgeDistribution.c)
+ *     MiReleaseWsle @ 0x1400E02D0 (MiReleaseWsle.c)
+ *     MiFreeWsleList @ 0x1400E1970 (MiFreeWsleList.c)
  * Callees:
- *     KeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x14001BCF0 (KeAcquireInStackQueuedSpinLockAtDpcLevel.c)
- *     KxReleaseQueuedSpinLock @ 0x140069570 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x14001B870 (KeAcquireInStackQueuedSpinLockAtDpcLevel.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400690F0 (KxReleaseQueuedSpinLock.c)
  */
 
 __int64 __fastcall MiVolunteerForTrimFirst(__int64 a1, __int64 a2)
@@ -34,8 +34,8 @@ __int64 __fastcall MiVolunteerForTrimFirst(__int64 a1, __int64 a2)
   else
   {
     v4 = (unsigned __int16)result;
-    result = qword_140326FF8;
-    v5 = *(int **)(qword_140326FF8 + 8 * v4);
+    result = qword_140327038;
+    v5 = *(int **)(qword_140327038 + 8 * v4);
   }
   v6 = *((_QWORD *)v5 + 781);
   if ( *(_QWORD *)(a1 + 88) >= *(_QWORD *)(v6 + 64) )
@@ -56,7 +56,7 @@ __int64 __fastcall MiVolunteerForTrimFirst(__int64 a1, __int64 a2)
       return result;
     v8 = 2;
   }
-  KeAcquireInStackQueuedSpinLockAtDpcLevel(&qword_140327740, &LockHandle);
+  KeAcquireInStackQueuedSpinLockAtDpcLevel(&qword_140327780, &LockHandle);
   if ( *(_BYTE *)(v6 + 53) || !*v7 )
   {
     *(_BYTE *)(v6 + 54) = 1;

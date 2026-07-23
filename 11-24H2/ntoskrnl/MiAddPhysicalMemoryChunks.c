@@ -1,19 +1,19 @@
 /*
- * XREFs of MiAddPhysicalMemoryChunks @ 0x1407E8944
+ * XREFs of MiAddPhysicalMemoryChunks @ 0x1407E8F14
  * Callers:
- *     MiActOnPartitionNodePages @ 0x140688F24 (MiActOnPartitionNodePages.c)
- *     MmAddPhysicalMemory @ 0x1407EA4D0 (MmAddPhysicalMemory.c)
- *     MiHotAddBootDeferredDescriptorsDiscardable @ 0x140C51764 (MiHotAddBootDeferredDescriptorsDiscardable.c)
+ *     MiActOnPartitionNodePages @ 0x14068A054 (MiActOnPartitionNodePages.c)
+ *     MmAddPhysicalMemory @ 0x1407EAAA0 (MmAddPhysicalMemory.c)
+ *     MiHotAddBootDeferredDescriptorsDiscardable @ 0x140C538F4 (MiHotAddBootDeferredDescriptorsDiscardable.c)
  * Callees:
- *     MiPageToNode @ 0x14026C1E0 (MiPageToNode.c)
- *     MiNodeAvailablePages @ 0x1403D29E0 (MiNodeAvailablePages.c)
- *     MiGetClosestImplicitNode @ 0x1403F379C (MiGetClosestImplicitNode.c)
- *     MiRestrictRangeToNode @ 0x140401E10 (MiRestrictRangeToNode.c)
- *     MiGetAvailablePagesExcludeSlists @ 0x140477508 (MiGetAvailablePagesExcludeSlists.c)
- *     MiGetLargestPageIndex @ 0x140494B50 (MiGetLargestPageIndex.c)
- *     IoUpdateDumpPhysicalRanges @ 0x140592538 (IoUpdateDumpPhysicalRanges.c)
- *     MiNodeLargeFreeZeroPages2 @ 0x140684408 (MiNodeLargeFreeZeroPages2.c)
- *     MiAddPhysicalMemory @ 0x1407E866C (MiAddPhysicalMemory.c)
+ *     MiPageToNode @ 0x140221770 (MiPageToNode.c)
+ *     MiGetClosestImplicitNode @ 0x140391F4C (MiGetClosestImplicitNode.c)
+ *     MiRestrictRangeToNode @ 0x1403FC38C (MiRestrictRangeToNode.c)
+ *     MiGetAvailablePagesExcludeSlists @ 0x140473AA8 (MiGetAvailablePagesExcludeSlists.c)
+ *     MiNodeAvailablePages @ 0x14047E7E0 (MiNodeAvailablePages.c)
+ *     MiGetLargestPageIndex @ 0x14048F5E0 (MiGetLargestPageIndex.c)
+ *     IoUpdateDumpPhysicalRanges @ 0x14058F55C (IoUpdateDumpPhysicalRanges.c)
+ *     MiNodeLargeFreeZeroPages2 @ 0x140685534 (MiNodeLargeFreeZeroPages2.c)
+ *     MiAddPhysicalMemory @ 0x1407E8C3C (MiAddPhysicalMemory.c)
  */
 
 __int64 __fastcall MiAddPhysicalMemoryChunks(
@@ -125,7 +125,7 @@ __int64 __fastcall MiAddPhysicalMemoryChunks(
       v18 = 0x100000 - BugCheckParameter2;
     v19 = MiPageToNode(BugCheckParameter2);
     ClosestImplicitNode = MiGetClosestImplicitNode(v19 + 1);
-    v22 = qword_140E38C10 + 57216LL * (unsigned int)(ClosestImplicitNode - v21);
+    v22 = qword_140E38D50 + 57216LL * (unsigned int)(ClosestImplicitNode - v21);
     v51 = v22;
     if ( v16 >= 0 )
     {
@@ -233,7 +233,7 @@ LABEL_47:
           {
             if ( v17 == 2 )
             {
-              v32 = MiNodeAvailablePages(v51, 2LL);
+              v32 = MiNodeAvailablePages(v51);
               if ( v32 >= 6 )
                 goto LABEL_74;
               v35 = 0LL;

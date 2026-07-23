@@ -24,30 +24,15 @@ BOOLEAN __cdecl RtlInstallFunctionTableCallback(
   __int64 v6; // rbp
   unsigned __int64 v10; // rsi
   __int64 v11; // rax
-  char *v12; // rdx
-  __int64 v13; // r8
-  __int64 v14; // r9
-  __int64 v15; // rax
-  int v16; // ebx
-  unsigned __int64 v17; // r8
-  void *ProcessHeap; // rcx
-  __int64 Heap; // rax
-  __int64 v20; // rbx
-  char *v21; // rdx
-  __int64 v22; // r8
-  __int64 v23; // r9
-  char *v24; // rdx
-  __int64 v25; // r8
-  __int64 v26; // r9
-  __int64 **v27; // rax
-  char *v28; // rdx
-  __int64 v29; // r8
-  __int64 v30; // r9
-  char *v31; // rdx
-  __int64 v32; // r8
-  __int64 v33; // r9
-  int v34; // edx
-  int v36; // ecx
+  ULONG_PTR v12; // rax
+  int v13; // ebx
+  SIZE_T v14; // r8
+  PVOID ProcessHeap; // rcx
+  LARGE_INTEGER *Heap; // rax
+  __int64 v17; // rbx
+  __int64 **v18; // rax
+  int v19; // edx
+  int v21; // ecx
 
   v6 = Length;
   if ( (TableIdentifier & 3) != 3 || (Length & 0x80000000) != 0 )
@@ -61,94 +46,94 @@ BOOLEAN __cdecl RtlInstallFunctionTableCallback(
     while ( OutOfProcessCallbackDll[v11] );
     v10 = 2 * v11 + 2;
   }
-  if ( (int)LdrEnsureMrdataHeapExists() < 0 )
+  if ( LdrEnsureMrdataHeapExists() < 0 )
     return 0;
-  v15 = qword_1801572F0;
-  if ( qword_1801572F0 )
+  v12 = LdrSystemDllInitBlock.Wow64SharedInformation[9];
+  if ( LdrSystemDllInitBlock.Wow64SharedInformation[9] )
   {
-    RtlAcquireSRWLockExclusive(&LdrpMrdataLock, v12, v13, v14);
-    v16 = *(_DWORD *)LdrpMrdataHeapUnprotected;
+    RtlAcquireSRWLockExclusive(&LdrpMrdataLock);
+    v13 = *(_DWORD *)LdrpMrdataHeapUnprotected;
     if ( !*(_DWORD *)LdrpMrdataHeapUnprotected )
       RtlProtectHeap(LdrpMrdataHeap, 0);
-    if ( v16 == -1 )
+    if ( v13 == -1 )
     {
       RtlReleaseSRWLockExclusive(&LdrpMrdataLock);
       __fastfail(0xEu);
     }
-    *(_DWORD *)LdrpMrdataHeapUnprotected = v16 + 1;
+    *(_DWORD *)LdrpMrdataHeapUnprotected = v13 + 1;
     RtlReleaseSRWLockExclusive(&LdrpMrdataLock);
-    v15 = qword_1801572F0;
+    v12 = LdrSystemDllInitBlock.Wow64SharedInformation[9];
   }
-  v17 = v10 + 88;
-  if ( v15 )
+  v14 = v10 + 88;
+  if ( v12 )
   {
-    if ( v17 >= 0xFF000 )
+    if ( v14 >= 0xFF000 )
       goto LABEL_32;
-    ProcessHeap = (void *)LdrpMrdataHeap;
+    ProcessHeap = LdrpMrdataHeap;
   }
   else
   {
     ProcessHeap = NtCurrentPeb()->ProcessHeap;
   }
-  Heap = RtlAllocateHeap((__int64)ProcessHeap, 0, v17);
-  v20 = Heap;
+  Heap = (LARGE_INTEGER *)RtlAllocateHeap(ProcessHeap, 0, v14);
+  v17 = (__int64)Heap;
   if ( !Heap )
   {
-    v15 = qword_1801572F0;
+    v12 = LdrSystemDllInitBlock.Wow64SharedInformation[9];
 LABEL_32:
-    if ( v15 )
+    if ( v12 )
     {
-      RtlAcquireSRWLockExclusive(&LdrpMrdataLock, v12, v17, v14);
-      v36 = *(_DWORD *)LdrpMrdataHeapUnprotected;
+      RtlAcquireSRWLockExclusive(&LdrpMrdataLock);
+      v21 = *(_DWORD *)LdrpMrdataHeapUnprotected;
       if ( !*(_DWORD *)LdrpMrdataHeapUnprotected )
       {
         RtlReleaseSRWLockExclusive(&LdrpMrdataLock);
         __fastfail(0xEu);
       }
-      *(_DWORD *)LdrpMrdataHeapUnprotected = v36 - 1;
-      if ( v36 == 1 )
-        RtlProtectHeap(LdrpMrdataHeap, 1);
+      *(_DWORD *)LdrpMrdataHeapUnprotected = v21 - 1;
+      if ( v21 == 1 )
+        RtlProtectHeap(LdrpMrdataHeap, 1u);
       RtlReleaseSRWLockExclusive(&LdrpMrdataLock);
     }
     return 0;
   }
-  *(_QWORD *)(Heap + 16) = TableIdentifier;
-  ZwQuerySystemTime(Heap + 24);
-  *(_QWORD *)(v20 + 32) = BaseAddress;
-  *(_QWORD *)(v20 + 40) = BaseAddress + v6;
-  *(_QWORD *)(v20 + 64) = Context;
-  *(_QWORD *)(v20 + 48) = BaseAddress;
-  *(_QWORD *)(v20 + 56) = Callback;
-  *(_DWORD *)(v20 + 80) = 2;
-  *(_QWORD *)(v20 + 72) = 0LL;
+  Heap[2].QuadPart = TableIdentifier;
+  ZwQuerySystemTime(Heap + 3);
+  *(_QWORD *)(v17 + 32) = BaseAddress;
+  *(_QWORD *)(v17 + 40) = BaseAddress + v6;
+  *(_QWORD *)(v17 + 64) = Context;
+  *(_QWORD *)(v17 + 48) = BaseAddress;
+  *(_QWORD *)(v17 + 56) = Callback;
+  *(_DWORD *)(v17 + 80) = 2;
+  *(_QWORD *)(v17 + 72) = 0LL;
   if ( OutOfProcessCallbackDll )
   {
-    *(_QWORD *)(v20 + 72) = v20 + 88;
-    RtlStringCbCopyW((_WORD *)(v20 + 88), v10, (__int64)OutOfProcessCallbackDll);
+    *(_QWORD *)(v17 + 72) = v17 + 88;
+    RtlStringCbCopyW((_WORD *)(v17 + 88), v10, (__int64)OutOfProcessCallbackDll);
   }
-  LdrProtectMrdata(0, v21, v22, v23);
-  RtlAcquireSRWLockExclusive(&RtlpDynamicFunctionTableLock, v24, v25, v26);
-  v27 = (__int64 **)qword_180157270;
-  *(_QWORD *)v20 = &RtlpDynamicFunctionTable;
-  *(_QWORD *)(v20 + 8) = v27;
-  if ( *v27 != &RtlpDynamicFunctionTable )
+  LdrProtectMrdata(0);
+  RtlAcquireSRWLockExclusive(&RtlpDynamicFunctionTableLock);
+  v18 = (__int64 **)qword_180157270;
+  *(_QWORD *)v17 = &RtlpDynamicFunctionTable;
+  *(_QWORD *)(v17 + 8) = v18;
+  if ( *v18 != &RtlpDynamicFunctionTable )
     __fastfail(3u);
-  *v27 = (__int64 *)v20;
-  qword_180157270 = v20;
+  *v18 = (__int64 *)v17;
+  qword_180157270 = v17;
   RtlReleaseSRWLockExclusive(&RtlpDynamicFunctionTableLock);
-  LdrProtectMrdata(1, v28, v29, v30);
-  if ( qword_1801572F0 )
+  LdrProtectMrdata(1);
+  if ( LdrSystemDllInitBlock.Wow64SharedInformation[9] )
   {
-    RtlAcquireSRWLockExclusive(&LdrpMrdataLock, v31, v32, v33);
-    v34 = *(_DWORD *)LdrpMrdataHeapUnprotected;
+    RtlAcquireSRWLockExclusive(&LdrpMrdataLock);
+    v19 = *(_DWORD *)LdrpMrdataHeapUnprotected;
     if ( !*(_DWORD *)LdrpMrdataHeapUnprotected )
     {
       RtlReleaseSRWLockExclusive(&LdrpMrdataLock);
       __fastfail(0xEu);
     }
-    *(_DWORD *)LdrpMrdataHeapUnprotected = v34 - 1;
-    if ( v34 == 1 )
-      RtlProtectHeap(LdrpMrdataHeap, 1);
+    *(_DWORD *)LdrpMrdataHeapUnprotected = v19 - 1;
+    if ( v19 == 1 )
+      RtlProtectHeap(LdrpMrdataHeap, 1u);
     RtlReleaseSRWLockExclusive(&LdrpMrdataLock);
   }
   return 1;

@@ -1,5 +1,5 @@
 /*
- * XREFs of ScpCfgICallHandler_Fptr @ 0x18016D280
+ * XREFs of ScpCfgICallHandler_Fptr @ 0x18016C280
  * Callers:
  *     <none>
  * Callees:

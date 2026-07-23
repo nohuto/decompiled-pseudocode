@@ -1,15 +1,15 @@
 /*
- * XREFs of MiZeroInParallel @ 0x14010C2DC
+ * XREFs of MiZeroInParallel @ 0x14010A05C
  * Callers:
- *     MiInitializeMdlPages @ 0x140106A8C (MiInitializeMdlPages.c)
- *     MiAllocateLargeZeroPages @ 0x1406620F0 (MiAllocateLargeZeroPages.c)
+ *     MiInitializeMdlPages @ 0x14010480C (MiInitializeMdlPages.c)
+ *     MiAllocateLargeZeroPages @ 0x1406621D4 (MiAllocateLargeZeroPages.c)
  * Callees:
- *     KeWaitForGate @ 0x140097C98 (KeWaitForGate.c)
- *     KeSignalGate @ 0x1400A889C (KeSignalGate.c)
- *     KeSetPriorityThread @ 0x1400D2F20 (KeSetPriorityThread.c)
- *     MiZeroInParallelWorker @ 0x140109B40 (MiZeroInParallelWorker.c)
- *     PsCreateSystemThread @ 0x1403E4710 (PsCreateSystemThread.c)
- *     ObCloseHandle @ 0x14050C73C (ObCloseHandle.c)
+ *     KeWaitForGate @ 0x140097498 (KeWaitForGate.c)
+ *     KeSignalGate @ 0x1400A6E1C (KeSignalGate.c)
+ *     KeSetPriorityThread @ 0x1400D0DC0 (KeSetPriorityThread.c)
+ *     MiZeroInParallelWorker @ 0x1401078C0 (MiZeroInParallelWorker.c)
+ *     PsCreateSystemThread @ 0x1403E5D3C (PsCreateSystemThread.c)
+ *     ObCloseHandle @ 0x1404EF6CC (ObCloseHandle.c)
  */
 
 void __fastcall MiZeroInParallel(__int64 a1, __int64 a2, char a3)
@@ -81,7 +81,7 @@ LABEL_23:
             v11 = 1LL;
             goto LABEL_9;
           }
-          v17 = v10 >> byte_1403269C9;
+          v17 = v10 >> byte_140326A09;
           if ( v6 && (_DWORD)v17 == v7 )
           {
             _BitScanReverse64((unsigned __int64 *)&v16, v6);
@@ -92,7 +92,7 @@ LABEL_23:
           if ( v6 )
           {
             _BitScanReverse64((unsigned __int64 *)&v18, v6);
-            v7 = v10 >> byte_1403269C9;
+            v7 = v10 >> byte_140326A09;
             LODWORD(v16) = v18;
 LABEL_30:
             v6 &= ~(1LL << v18);

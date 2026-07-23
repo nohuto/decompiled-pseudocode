@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpTscTraceStatus @ 0x140549C38
+ * XREFs of HalpTscTraceStatus @ 0x1405474F8
  * Callers:
- *     HalpTscAdvSynchLeader @ 0x140548F60 (HalpTscAdvSynchLeader.c)
- *     HalpTscFallbackToPlatformSource @ 0x1405495E4 (HalpTscFallbackToPlatformSource.c)
+ *     HalpTscAdvSynchLeader @ 0x140546820 (HalpTscAdvSynchLeader.c)
+ *     HalpTscFallbackToPlatformSource @ 0x140546EA4 (HalpTscFallbackToPlatformSource.c)
  * Callees:
- *     EtwWriteEx @ 0x140259680 (EtwWriteEx.c)
- *     EtwEventEnabled @ 0x1402A1BD0 (EtwEventEnabled.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     EtwWriteEx @ 0x140289C90 (EtwWriteEx.c)
+ *     EtwEventEnabled @ 0x1402D1300 (EtwEventEnabled.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 void __fastcall HalpTscTraceStatus(PCEVENT_DESCRIPTOR EventDescriptor, int a2)

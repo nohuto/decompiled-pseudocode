@@ -1,16 +1,16 @@
 /*
- * XREFs of VerifierIoInitializeRemoveLockEx @ 0x14070DBDC
+ * XREFs of VerifierIoInitializeRemoveLockEx @ 0x14070DC0C
  * Callers:
  *     <none>
  * Callees:
- *     VfAvlReserveNode @ 0x1400842D8 (VfAvlReserveNode.c)
- *     VfAvlCleanupLockContext @ 0x14008446C (VfAvlCleanupLockContext.c)
- *     VfAvlInsertReservedTreeNode @ 0x14008449C (VfAvlInsertReservedTreeNode.c)
- *     VfAvlInitializeLockContext @ 0x1400845E8 (VfAvlInitializeLockContext.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     VerifierBugCheckIfAppropriate @ 0x14070C2E8 (VerifierBugCheckIfAppropriate.c)
- *     ViRemLockDeleteFirstTreeNode @ 0x14070DEAC (ViRemLockDeleteFirstTreeNode.c)
- *     ViRemLockFindSurrogate @ 0x14070DF48 (ViRemLockFindSurrogate.c)
+ *     VfAvlReserveNode @ 0x140082438 (VfAvlReserveNode.c)
+ *     VfAvlCleanupLockContext @ 0x1400825CC (VfAvlCleanupLockContext.c)
+ *     VfAvlInsertReservedTreeNode @ 0x1400825FC (VfAvlInsertReservedTreeNode.c)
+ *     VfAvlInitializeLockContext @ 0x140082748 (VfAvlInitializeLockContext.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     VerifierBugCheckIfAppropriate @ 0x14070C318 (VerifierBugCheckIfAppropriate.c)
+ *     ViRemLockDeleteFirstTreeNode @ 0x14070DEDC (ViRemLockDeleteFirstTreeNode.c)
+ *     ViRemLockFindSurrogate @ 0x14070DF78 (ViRemLockFindSurrogate.c)
  */
 
 unsigned __int64 __fastcall VerifierIoInitializeRemoveLockEx(

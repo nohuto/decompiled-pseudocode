@@ -1,5 +1,5 @@
 /*
- * XREFs of RtlInternTableInitialize @ 0x140856680
+ * XREFs of RtlInternTableInitialize @ 0x140856980
  * Callers:
  *     PopEtInit @ 0x140B6A7E0 (PopEtInit.c)
  * Callees:

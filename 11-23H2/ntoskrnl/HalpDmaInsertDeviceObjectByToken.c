@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpDmaInsertDeviceObjectByToken @ 0x1403909F0
+ * XREFs of HalpDmaInsertDeviceObjectByToken @ 0x140390BD0
  * Callers:
- *     HalpDmaCheckAdapterToken @ 0x1405014B0 (HalpDmaCheckAdapterToken.c)
- *     HalpDmaLinkDeviceObjectByToken @ 0x1408278B0 (HalpDmaLinkDeviceObjectByToken.c)
+ *     HalpDmaCheckAdapterToken @ 0x140501A00 (HalpDmaCheckAdapterToken.c)
+ *     HalpDmaLinkDeviceObjectByToken @ 0x140827BB0 (HalpDmaLinkDeviceObjectByToken.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250E80 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140250F40 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
 
@@ -54,10 +54,13 @@ __int64 __fastcall HalpDmaInsertDeviceObjectByToken(__int64 a1, __int64 a2, char
   }
 LABEL_6:
   KxReleaseSpinLock((volatile signed __int64 *)&HalpDmaPdoListLock);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v7 <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
+      && (unsigned __int8)v7 <= 0xFu
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;

@@ -1,9 +1,9 @@
 /*
- * XREFs of ViThunkReplaceSharedExports @ 0x140B97D70
+ * XREFs of ViThunkReplaceSharedExports @ 0x140B99D70
  * Callers:
- *     VfThunkApplyThunksCurrentSession @ 0x140B971AC (VfThunkApplyThunksCurrentSession.c)
+ *     VfThunkApplyThunksCurrentSession @ 0x140B991AC (VfThunkApplyThunksCurrentSession.c)
  * Callees:
- *     MmReplaceImportEntry @ 0x14066C448 (MmReplaceImportEntry.c)
+ *     MmReplaceImportEntry @ 0x14066D618 (MmReplaceImportEntry.c)
  */
 
 void __fastcall ViThunkReplaceSharedExports(ULONG_PTR a1, ULONG_PTR *a2, unsigned int a3)

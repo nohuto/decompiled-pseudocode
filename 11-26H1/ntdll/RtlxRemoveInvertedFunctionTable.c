@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlxRemoveInvertedFunctionTable @ 0x1800DB700
+ * XREFs of RtlxRemoveInvertedFunctionTable @ 0x1800D86C0
  * Callers:
- *     RtlRemoveInvertedFunctionTable @ 0x1800DB6CC (RtlRemoveInvertedFunctionTable.c)
+ *     RtlRemoveInvertedFunctionTable @ 0x1800D868C (RtlRemoveInvertedFunctionTable.c)
  * Callees:
- *     LdrProtectMrdata @ 0x180081980 (LdrProtectMrdata.c)
- *     RtlpRemoveInvertedFunctionTableEntry @ 0x1800DB758 (RtlpRemoveInvertedFunctionTableEntry.c)
+ *     LdrProtectMrdata @ 0x180078D20 (LdrProtectMrdata.c)
+ *     RtlpRemoveInvertedFunctionTableEntry @ 0x1800D8718 (RtlpRemoveInvertedFunctionTableEntry.c)
  */
 
 void __fastcall RtlxRemoveInvertedFunctionTable(__int64 a1, __int64 a2)
@@ -16,7 +16,7 @@ void __fastcall RtlxRemoveInvertedFunctionTable(__int64 a1, __int64 a2)
   v2 = (unsigned int)(LdrpInvertedFunctionTables[0] - 1);
   if ( LdrpInvertedFunctionTables[0] != 1 )
   {
-    for ( i = (_QWORD *)&xmmword_1801E0450 + 3 * v2 + 1; a2 != *i; i -= 3 )
+    for ( i = (_QWORD *)&xmmword_1801DF450 + 3 * v2 + 1; a2 != *i; i -= 3 )
     {
       LODWORD(v2) = v2 - 1;
       if ( !(_DWORD)v2 )

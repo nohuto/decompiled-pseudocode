@@ -12,31 +12,29 @@
  *     RtlFreeHeap @ 0x180080DD0 (RtlFreeHeap.c)
  */
 
-__int64 __fastcall LdrpObtainLockedEnclave(unsigned __int64 a1, char a2)
+__int64 *__fastcall LdrpObtainLockedEnclave(unsigned __int64 a1, char a2)
 {
-  __int64 v4; // rbx
+  __int64 *v4; // rbx
   __int64 *v5; // r8
-  __int64 v6; // r9
-  __int64 v7; // r9
-  unsigned __int64 v9; // rcx
+  unsigned __int64 v7; // rcx
 
   v4 = 0LL;
   while ( 1 )
   {
-    RtlEnterCriticalSection((__int64)&LdrpEnclaveListLock);
+    RtlEnterCriticalSection(&LdrpEnclaveListLock);
     v5 = (__int64 *)LdrpEnclaveList;
     if ( (__int64 *)LdrpEnclaveList != &LdrpEnclaveList )
     {
       while ( 1 )
       {
-        v9 = v5[9];
-        v4 = (__int64)v5;
+        v7 = v5[9];
+        v4 = v5;
         if ( a2 )
         {
-          if ( a1 == v9 )
+          if ( a1 == v7 )
             break;
         }
-        else if ( a1 >= v9 && a1 - v9 < v5[10] )
+        else if ( a1 >= v7 && a1 - v7 < v5[10] )
         {
           break;
         }
@@ -48,19 +46,19 @@ __int64 __fastcall LdrpObtainLockedEnclave(unsigned __int64 a1, char a2)
     if ( !v4 )
     {
 LABEL_7:
-      RtlLeaveCriticalSection((__int64)&LdrpEnclaveListLock);
+      RtlLeaveCriticalSection(&LdrpEnclaveListLock);
       return 0LL;
     }
-    _InterlockedIncrement((volatile signed __int32 *)(v4 + 60));
-    RtlLeaveCriticalSection((__int64)&LdrpEnclaveListLock);
-    RtlEnterCriticalSection(v4 + 16);
-    if ( *(_QWORD *)(v4 + 72) )
+    _InterlockedIncrement((volatile signed __int32 *)v4 + 15);
+    RtlLeaveCriticalSection(&LdrpEnclaveListLock);
+    RtlEnterCriticalSection((PRTL_CRITICAL_SECTION)(v4 + 2));
+    if ( v4[9] )
       return v4;
-    RtlLeaveCriticalSection(v4 + 16);
-    if ( _InterlockedExchangeAdd((volatile signed __int32 *)(v4 + 60), 0xFFFFFFFF) == 1 )
+    RtlLeaveCriticalSection((PRTL_CRITICAL_SECTION)(v4 + 2));
+    if ( _InterlockedExchangeAdd((volatile signed __int32 *)v4 + 15, 0xFFFFFFFF) == 1 )
     {
-      RtlFreeHeap(LdrpHeap, 0, *(_QWORD *)(v4 + 112), v6);
-      RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v4, v7);
+      RtlFreeHeap(LdrpHeap, 0, (PVOID)v4[14]);
+      RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v4);
     }
   }
 }

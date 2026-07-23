@@ -1,11 +1,11 @@
 /*
- * XREFs of CmpDoReDoSetLastWriteTime @ 0x1408074CC
+ * XREFs of CmpDoReDoSetLastWriteTime @ 0x1408086CC
  * Callers:
- *     CmpDoReDoRecord @ 0x140807334 (CmpDoReDoRecord.c)
+ *     CmpDoReDoRecord @ 0x140808534 (CmpDoReDoRecord.c)
  * Callees:
- *     ZwClose @ 0x1401B8370 (ZwClose.c)
- *     ZwSetInformationKey @ 0x1401BB3B0 (ZwSetInformationKey.c)
- *     CmpDoReOpenTransKey @ 0x1408075FC (CmpDoReOpenTransKey.c)
+ *     ZwClose @ 0x1401B84D0 (ZwClose.c)
+ *     ZwSetInformationKey @ 0x1401BB510 (ZwSetInformationKey.c)
+ *     CmpDoReOpenTransKey @ 0x1408087FC (CmpDoReOpenTransKey.c)
  */
 
 __int64 __fastcall CmpDoReDoSetLastWriteTime(__int64 a1, __int64 a2)

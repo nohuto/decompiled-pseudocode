@@ -1,17 +1,17 @@
 /*
- * XREFs of HalpAcpiRealTimeToUtcTime @ 0x1407801E4
+ * XREFs of HalpAcpiRealTimeToUtcTime @ 0x140782CE4
  * Callers:
- *     HalQueryRealTimeClock @ 0x140451480 (HalQueryRealTimeClock.c)
+ *     HalQueryRealTimeClock @ 0x1404495B0 (HalQueryRealTimeClock.c)
  * Callees:
- *     RtlTimeFieldsToTime @ 0x1404522E0 (RtlTimeFieldsToTime.c)
- *     ExLocalTimeToSystemTime @ 0x1404C6E60 (ExLocalTimeToSystemTime.c)
+ *     RtlTimeFieldsToTime @ 0x14044A410 (RtlTimeFieldsToTime.c)
+ *     ExLocalTimeToSystemTime @ 0x1404C0810 (ExLocalTimeToSystemTime.c)
  */
 
 __int64 __fastcall HalpAcpiRealTimeToUtcTime(__int64 a1, LARGE_INTEGER *a2)
 {
   unsigned int v4; // ebx
   __int64 v5; // rcx
-  TIME_FIELDS TimeFields; // [rsp+20h] [rbp-10h] BYREF
+  _TIME_FIELDS TimeFields; // [rsp+20h] [rbp-10h] BYREF
   LARGE_INTEGER Time; // [rsp+40h] [rbp+10h] BYREF
 
   TimeFields.Year = *(_WORD *)a1;

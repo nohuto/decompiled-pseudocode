@@ -1,11 +1,11 @@
 /*
- * XREFs of CcShouldSpinAsyncReadWorkerThread @ 0x1402C0E88
+ * XREFs of CcShouldSpinAsyncReadWorkerThread @ 0x1402C1118
  * Callers:
- *     CcPostWorkQueueAsyncRead @ 0x1402C0C04 (CcPostWorkQueueAsyncRead.c)
- *     CcAsyncReadWorker @ 0x1403BEB00 (CcAsyncReadWorker.c)
+ *     CcPostWorkQueueAsyncRead @ 0x1402C0E94 (CcPostWorkQueueAsyncRead.c)
+ *     CcAsyncReadWorker @ 0x1403BECE0 (CcAsyncReadWorker.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     ExReleasePushLockEx @ 0x140231190 (ExReleasePushLockEx.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140231120 (ExAcquirePushLockExclusiveEx.c)
+ *     ExReleasePushLockEx @ 0x140231280 (ExReleasePushLockEx.c)
  */
 
 char __fastcall CcShouldSpinAsyncReadWorkerThread(__int64 a1, _QWORD *a2, _QWORD *a3, unsigned int a4)

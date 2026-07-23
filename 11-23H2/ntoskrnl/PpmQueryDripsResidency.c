@@ -1,9 +1,9 @@
 /*
- * XREFs of PpmQueryDripsResidency @ 0x1405859F0
+ * XREFs of PpmQueryDripsResidency @ 0x140585EE0
  * Callers:
  *     <none>
  * Callees:
- *     PpmQueryPlatformStateResidency @ 0x1403D6FA0 (PpmQueryPlatformStateResidency.c)
+ *     PpmQueryPlatformStateResidency @ 0x1403D7180 (PpmQueryPlatformStateResidency.c)
  */
 
 __int64 PpmQueryDripsResidency()

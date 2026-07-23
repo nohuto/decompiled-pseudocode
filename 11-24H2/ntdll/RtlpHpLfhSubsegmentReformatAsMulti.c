@@ -1,14 +1,14 @@
 /*
- * XREFs of RtlpHpLfhSubsegmentReformatAsMulti @ 0x18004E800
+ * XREFs of RtlpHpLfhSubsegmentReformatAsMulti @ 0x1800643E0
  * Callers:
- *     RtlpHpLfhBucketAddSubsegment @ 0x18004E6E0 (RtlpHpLfhBucketAddSubsegment.c)
- *     RtlpHpLfhOwnerCompact @ 0x1800506A0 (RtlpHpLfhOwnerCompact.c)
+ *     RtlpHpLfhBucketAddSubsegment @ 0x1800642C0 (RtlpHpLfhBucketAddSubsegment.c)
+ *     RtlpHpLfhOwnerCompact @ 0x180066280 (RtlpHpLfhOwnerCompact.c)
  * Callees:
- *     RtlpHpLfhSubsegmentConstructCommitState @ 0x18004E980 (RtlpHpLfhSubsegmentConstructCommitState.c)
- *     RtlpHpLfhSubsegmentCountEmptyUnits @ 0x18004F3B0 (RtlpHpLfhSubsegmentCountEmptyUnits.c)
- *     RtlpHpLfhContextUpdateFreeCommitCount @ 0x180056220 (RtlpHpLfhContextUpdateFreeCommitCount.c)
- *     RtlpHpLfhSubsegmentReformatCheck @ 0x1800E00E0 (RtlpHpLfhSubsegmentReformatCheck.c)
- *     memset$thunk$772440563353939046 @ 0x180172030 (memset$thunk$772440563353939046.c)
+ *     RtlpHpLfhSubsegmentConstructCommitState @ 0x180064560 (RtlpHpLfhSubsegmentConstructCommitState.c)
+ *     RtlpHpLfhSubsegmentCountEmptyUnits @ 0x180064F90 (RtlpHpLfhSubsegmentCountEmptyUnits.c)
+ *     RtlpHpLfhContextUpdateFreeCommitCount @ 0x18006BE00 (RtlpHpLfhContextUpdateFreeCommitCount.c)
+ *     RtlpHpLfhSubsegmentReformatCheck @ 0x1800DB1E0 (RtlpHpLfhSubsegmentReformatCheck.c)
+ *     memset$thunk$772440563353939046 @ 0x180171030 (memset$thunk$772440563353939046.c)
  */
 
 __int64 __fastcall RtlpHpLfhSubsegmentReformatAsMulti(__int64 a1, unsigned __int64 a2, char a3)
@@ -37,7 +37,7 @@ __int64 __fastcall RtlpHpLfhSubsegmentReformatAsMulti(__int64 a1, unsigned __int
   }
   else
   {
-    v7 = 2 * ((unsigned __int16)qword_1801CDEC8 ^ *(unsigned __int16 *)(a2 + 40) ^ (unsigned __int16)(a2 >> 12));
+    v7 = 2 * ((unsigned __int16)qword_1801CCEC8 ^ *(unsigned __int16 *)(a2 + 40) ^ (unsigned __int16)(a2 >> 12));
     if ( ((v7 - 1) & v7) != 0 )
     {
       _BitScanReverse(&v8, v7);

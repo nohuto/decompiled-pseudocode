@@ -1,14 +1,14 @@
 /*
- * XREFs of HvCheckAndUpdateHiveBackupTimeStamp @ 0x1407033FC
+ * XREFs of HvCheckAndUpdateHiveBackupTimeStamp @ 0x14070360C
  * Callers:
- *     CmpCreateHive @ 0x1407023CC (CmpCreateHive.c)
- *     HvpPerformLogFileRecovery @ 0x14080028C (HvpPerformLogFileRecovery.c)
- *     CmpMountPreloadedHives @ 0x1408630AC (CmpMountPreloadedHives.c)
- *     CmpCreateHiveRootCell @ 0x14087448C (CmpCreateHiveRootCell.c)
- *     CmpRecoverFlushProtocolStateFromFiles @ 0x140A1CE84 (CmpRecoverFlushProtocolStateFromFiles.c)
+ *     CmpCreateHive @ 0x1407025DC (CmpCreateHive.c)
+ *     HvpPerformLogFileRecovery @ 0x14080055C (HvpPerformLogFileRecovery.c)
+ *     CmpMountPreloadedHives @ 0x1408632EC (CmpMountPreloadedHives.c)
+ *     CmpCreateHiveRootCell @ 0x1408746CC (CmpCreateHiveRootCell.c)
+ *     CmpRecoverFlushProtocolStateFromFiles @ 0x140A1D134 (CmpRecoverFlushProtocolStateFromFiles.c)
  * Callees:
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     HvpMarkDirty @ 0x140747110 (HvpMarkDirty.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
+ *     HvpMarkDirty @ 0x140747300 (HvpMarkDirty.c)
  *     HvpGetBinContextInitialize @ 0x140AF5200 (HvpGetBinContextInitialize.c)
  *     HvpMapEntryGetBinAddress @ 0x140AF5210 (HvpMapEntryGetBinAddress.c)
  *     HvpGetCellMap @ 0x140AF5280 (HvpGetCellMap.c)

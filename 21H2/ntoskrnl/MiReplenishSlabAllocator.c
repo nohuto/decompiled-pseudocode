@@ -1,12 +1,12 @@
 /*
- * XREFs of MiReplenishSlabAllocator @ 0x140392814
+ * XREFs of MiReplenishSlabAllocator @ 0x140392964
  * Callers:
- *     MmAccessFault @ 0x14020D090 (MmAccessFault.c)
- *     MiGetSlabPage @ 0x1402E803C (MiGetSlabPage.c)
- *     MmAllocateSecureKernelPages @ 0x1405533D4 (MmAllocateSecureKernelPages.c)
+ *     MiGetSlabPage @ 0x14029938C (MiGetSlabPage.c)
+ *     MmAccessFault @ 0x1402B1990 (MmAccessFault.c)
+ *     MmAllocateSecureKernelPages @ 0x140553614 (MmAllocateSecureKernelPages.c)
  * Callees:
- *     MiAllocateSlabEntry @ 0x140392868 (MiAllocateSlabEntry.c)
- *     MiInsertSlabEntry @ 0x14039A0CC (MiInsertSlabEntry.c)
+ *     MiAllocateSlabEntry @ 0x1403929B8 (MiAllocateSlabEntry.c)
+ *     MiInsertSlabEntry @ 0x14039A21C (MiInsertSlabEntry.c)
  */
 
 __int64 __fastcall MiReplenishSlabAllocator(__int64 a1, __int64 a2, unsigned __int64 a3, unsigned int a4)

@@ -1,18 +1,18 @@
 /*
- * XREFs of RtlDeactivateActivationContext @ 0x180088D10
+ * XREFs of RtlDeactivateActivationContext @ 0x180080110
  * Callers:
  *     <none>
  * Callees:
- *     RtlRaiseException @ 0x180040C10 (RtlRaiseException.c)
- *     DbgPrintEx @ 0x1800413D0 (DbgPrintEx.c)
- *     RtlRaiseStatus @ 0x18004A7C0 (RtlRaiseStatus.c)
- *     RtlReleaseActivationContext @ 0x18004DE10 (RtlReleaseActivationContext.c)
- *     RtlpFreeActivationContextStackFrame @ 0x180088F70 (RtlpFreeActivationContextStackFrame.c)
- *     __security_check_cookie @ 0x180162C90 (__security_check_cookie.c)
- *     memset$thunk$772440563353939046 @ 0x180170030 (memset$thunk$772440563353939046.c)
+ *     RtlRaiseException @ 0x18002B180 (RtlRaiseException.c)
+ *     DbgPrintEx @ 0x18002B940 (DbgPrintEx.c)
+ *     RtlRaiseStatus @ 0x180034D40 (RtlRaiseStatus.c)
+ *     RtlReleaseActivationContext @ 0x180038390 (RtlReleaseActivationContext.c)
+ *     RtlpFreeActivationContextStackFrame @ 0x180080370 (RtlpFreeActivationContextStackFrame.c)
+ *     __security_check_cookie @ 0x180162B90 (__security_check_cookie.c)
+ *     memset$thunk$772440563353939046 @ 0x18016F030 (memset$thunk$772440563353939046.c)
  */
 
-void __fastcall RtlDeactivateActivationContext(int a1, unsigned __int64 a2)
+void __cdecl RtlDeactivateActivationContext(ULONG Flags, ULONG_PTR Cookie)
 {
   _ACTIVATION_CONTEXT_STACK *ActivationContextStackPointer; // rdi
   unsigned __int64 ActiveFrame; // rbx
@@ -23,34 +23,39 @@ void __fastcall RtlDeactivateActivationContext(int a1, unsigned __int64 a2)
   unsigned __int64 v8; // rax
   EXCEPTION_RECORD ExceptionRecord; // [rsp+30h] [rbp-C8h] BYREF
 
-  if ( (a1 & 0xFFFFFFFE) != 0 )
+  if ( (Flags & 0xFFFFFFFE) != 0 )
   {
-    DbgPrintEx(51, 0, "SXS: %s() called with invalid flags 0x%08lx\n", "RtlDeactivateActivationContext", a1);
+    DbgPrintEx(0x33u, 0, "SXS: %s() called with invalid flags 0x%08lx\n", "RtlDeactivateActivationContext", Flags);
     RtlRaiseStatus(-1073741811);
   }
-  if ( a2 )
+  if ( Cookie )
   {
-    if ( a2 >> 60 != 1 )
+    if ( Cookie >> 60 != 1 )
     {
-      DbgPrintEx(51, 0, "SXS: %s() called with invalid cookie type 0x%08Ix\n", "RtlDeactivateActivationContext", a2);
+      DbgPrintEx(
+        0x33u,
+        0,
+        "SXS: %s() called with invalid cookie type 0x%08Ix\n",
+        "RtlDeactivateActivationContext",
+        Cookie);
       RtlRaiseStatus(-1073741811);
     }
     ActivationContextStackPointer = NtCurrentTeb()->ActivationContextStackPointer;
-    if ( ((HIDWORD(a2) ^ ActivationContextStackPointer->StackId) & 0xFFFFFFF) != 0 )
+    if ( ((HIDWORD(Cookie) ^ ActivationContextStackPointer->StackId) & 0xFFFFFFF) != 0 )
     {
       DbgPrintEx(
-        51,
+        0x33u,
         0,
         "SXS: %s() called with invalid cookie tid 0x%08Ix - should be %08Ix\n",
         "RtlDeactivateActivationContext",
-        a2,
+        Cookie,
         ActivationContextStackPointer->StackId & 0xFFFFFFF);
       RtlRaiseStatus(-1073741811);
     }
     ActiveFrame = (unsigned __int64)ActivationContextStackPointer->ActiveFrame;
     if ( ActivationContextStackPointer->ActiveFrame )
     {
-      if ( (*(_BYTE *)(ActiveFrame + 16) & 8) != 0 && *(_QWORD *)(ActiveFrame + 24) == a2 )
+      if ( (*(_BYTE *)(ActiveFrame + 16) & 8) != 0 && *(_QWORD *)(ActiveFrame + 24) == Cookie )
       {
         v4 = (unsigned __int64)ActivationContextStackPointer->ActiveFrame;
       }
@@ -63,7 +68,7 @@ void __fastcall RtlDeactivateActivationContext(int a1, unsigned __int64 a2)
         v8 = *(_QWORD *)ActiveFrame;
         if ( (*(_BYTE *)(v4 + 16) & 8) == 0 )
           v8 = 0LL;
-        while ( !v8 || *(_QWORD *)(v8 + 24) != a2 )
+        while ( !v8 || *(_QWORD *)(v8 + 24) != Cookie )
         {
           v4 = *(_QWORD *)v4;
           ++v7;
@@ -91,7 +96,7 @@ LABEL_18:
       {
         v6 = *(_QWORD *)ActiveFrame;
         if ( (*(_BYTE *)(ActiveFrame + 16) & 1) != 0 )
-          RtlReleaseActivationContext(*(volatile signed __int32 **)(ActiveFrame + 8));
+          RtlReleaseActivationContext(*(PACTIVATION_CONTEXT *)(ActiveFrame + 8));
         if ( (*(_BYTE *)(ActiveFrame + 16) & 8) != 0 )
           RtlpFreeActivationContextStackFrame(ActivationContextStackPointer, ActiveFrame);
         ActiveFrame = v6;

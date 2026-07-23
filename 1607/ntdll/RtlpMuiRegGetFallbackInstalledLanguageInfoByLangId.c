@@ -1,7 +1,7 @@
 /*
  * XREFs of RtlpMuiRegGetFallbackInstalledLanguageInfoByLangId @ 0x1800F4448
  * Callers:
- *     RtlpSetPreferredUILanguages @ 0x1800E7E30 (RtlpSetPreferredUILanguages.c)
+ *     RtlpSetPreferredUILanguages @ 0x1800E7EF0 (RtlpSetPreferredUILanguages.c)
  * Callees:
  *     <none>
  */

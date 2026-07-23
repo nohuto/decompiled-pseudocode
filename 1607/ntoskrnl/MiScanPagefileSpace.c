@@ -1,15 +1,15 @@
 /*
- * XREFs of MiScanPagefileSpace @ 0x14065B124
+ * XREFs of MiScanPagefileSpace @ 0x14065B208
  * Callers:
  *     <none>
  * Callees:
- *     MiCaptureDirtyBitToPfn @ 0x140015D60 (MiCaptureDirtyBitToPfn.c)
- *     MiReleasePageFileInfo @ 0x14001A280 (MiReleasePageFileInfo.c)
- *     MiGetPagingFileOffset @ 0x1400B9780 (MiGetPagingFileOffset.c)
- *     MiDereferencePageRuns @ 0x140107058 (MiDereferencePageRuns.c)
- *     MiReferencePageRuns @ 0x1401070F0 (MiReferencePageRuns.c)
- *     MiLockPage @ 0x1401593D8 (MiLockPage.c)
- *     MiUnlockPage @ 0x1401F2B80 (MiUnlockPage.c)
+ *     MiCaptureDirtyBitToPfn @ 0x1400158E0 (MiCaptureDirtyBitToPfn.c)
+ *     MiReleasePageFileInfo @ 0x140019E00 (MiReleasePageFileInfo.c)
+ *     MiGetPagingFileOffset @ 0x1400B7610 (MiGetPagingFileOffset.c)
+ *     MiDereferencePageRuns @ 0x140104DD8 (MiDereferencePageRuns.c)
+ *     MiReferencePageRuns @ 0x140104E70 (MiReferencePageRuns.c)
+ *     MiLockPage @ 0x140159948 (MiLockPage.c)
+ *     MiUnlockPage @ 0x1401F29AC (MiUnlockPage.c)
  */
 
 __int64 __fastcall MiScanPagefileSpace(struct _KEVENT *a1)

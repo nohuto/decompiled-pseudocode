@@ -1,14 +1,14 @@
 /*
- * XREFs of MiLockPageTable @ 0x14038216C
+ * XREFs of MiLockPageTable @ 0x140381CBC
  * Callers:
- *     NtLockVirtualMemory @ 0x140270060 (NtLockVirtualMemory.c)
- *     MiInitializeDynamicBitmap @ 0x1407868DC (MiInitializeDynamicBitmap.c)
- *     MiProtectLargeKernelHalRange @ 0x1407A1470 (MiProtectLargeKernelHalRange.c)
+ *     NtLockVirtualMemory @ 0x14025E000 (NtLockVirtualMemory.c)
+ *     MiInitializeDynamicBitmap @ 0x140786A9C (MiInitializeDynamicBitmap.c)
+ *     MiProtectLargeKernelHalRange @ 0x1407A1670 (MiProtectLargeKernelHalRange.c)
  * Callees:
- *     MiLockPageTableInternal @ 0x14020EAF0 (MiLockPageTableInternal.c)
+ *     MiLockPageTableInternal @ 0x1402B33F0 (MiLockPageTableInternal.c)
  */
 
 __int64 __fastcall MiLockPageTable(__int64 a1, unsigned __int64 a2)
 {
-  return MiLockPageTableInternal(a1, a2, 0LL);
+  return MiLockPageTableInternal(a1, a2, 0);
 }

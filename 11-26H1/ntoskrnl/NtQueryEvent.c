@@ -1,30 +1,35 @@
 /*
- * XREFs of NtQueryEvent @ 0x140A5F870
+ * XREFs of NtQueryEvent @ 0x140A6C830
  * Callers:
- *     DifNtQueryEventWrapper @ 0x140682250 (DifNtQueryEventWrapper.c)
+ *     DifNtQueryEventWrapper @ 0x140685E30 (DifNtQueryEventWrapper.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     RtlCopyVolatileMemory @ 0x140733080 (RtlCopyVolatileMemory.c)
- *     RtlReadUCharFromUser @ 0x14077F51C (RtlReadUCharFromUser.c)
- *     RtlReadULongFromUser @ 0x14077F590 (RtlReadULongFromUser.c)
- *     RtlWriteUCharToUser @ 0x14077F710 (RtlWriteUCharToUser.c)
- *     RtlWriteULongToUser @ 0x14077F7A0 (RtlWriteULongToUser.c)
- *     ExRaiseDatatypeMisalignment @ 0x1408F29F0 (ExRaiseDatatypeMisalignment.c)
- *     ExRaiseAccessViolation @ 0x1408F5DA0 (ExRaiseAccessViolation.c)
- *     ObReferenceObjectByHandle @ 0x1408F9550 (ObReferenceObjectByHandle.c)
- *     ExpQueryCrossVmEvent @ 0x140B65068 (ExpQueryCrossVmEvent.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     RtlCopyVolatileMemory @ 0x140737C50 (RtlCopyVolatileMemory.c)
+ *     RtlReadUCharFromUser @ 0x14078201C (RtlReadUCharFromUser.c)
+ *     RtlReadULongFromUser @ 0x140782090 (RtlReadULongFromUser.c)
+ *     RtlWriteUCharToUser @ 0x140782210 (RtlWriteUCharToUser.c)
+ *     RtlWriteULongToUser @ 0x1407822A0 (RtlWriteULongToUser.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408F8FB0 (ExRaiseDatatypeMisalignment.c)
+ *     ExRaiseAccessViolation @ 0x140925D30 (ExRaiseAccessViolation.c)
+ *     ObReferenceObjectByHandle @ 0x1409294E0 (ObReferenceObjectByHandle.c)
+ *     ExpQueryCrossVmEvent @ 0x140B68108 (ExpQueryCrossVmEvent.c)
  */
 
-__int64 __fastcall NtQueryEvent(HANDLE Handle, int a2, unsigned __int64 a3, int a4, unsigned int *a5)
+NTSTATUS __cdecl NtQueryEvent(
+        HANDLE EventHandle,
+        EVENT_INFORMATION_CLASS EventInformationClass,
+        PVOID EventInformation,
+        ULONG EventInformationLength,
+        PULONG ReturnLength)
 {
   KPROCESSOR_MODE PreviousMode; // si
   unsigned __int64 v8; // rdi
   unsigned __int64 v9; // r14
   char UCharFromUser; // al
-  unsigned int *v11; // rdi
+  PULONG v11; // rdi
   int ULongFromUser; // eax
   NTSTATUS v13; // eax
-  NTSTATUS v14; // r15d
+  int v14; // r15d
   _DWORD *v15; // r14
   int v17; // [rsp+30h] [rbp-58h] BYREF
   PVOID Object[2]; // [rsp+38h] [rbp-50h] BYREF
@@ -33,19 +38,19 @@ __int64 __fastcall NtQueryEvent(HANDLE Handle, int a2, unsigned __int64 a3, int 
 
   Src = 0;
   v17 = 0;
-  if ( a2 )
-    return 3221225475LL;
-  if ( a4 != 8 )
-    return 3221225476LL;
+  if ( EventInformationClass )
+    return -1073741821;
+  if ( EventInformationLength != 8 )
+    return -1073741820;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   if ( PreviousMode )
   {
-    v8 = a3;
-    if ( (a3 & 3) != 0 )
+    v8 = (unsigned __int64)EventInformation;
+    if ( ((unsigned __int8)EventInformation & 3) != 0 )
       ExRaiseDatatypeMisalignment();
-    if ( a3 + 8 <= a3 || a3 + 8 > 0x7FFFFFFF0000LL )
+    if ( (char *)EventInformation + 8 <= EventInformation || (unsigned __int64)EventInformation + 8 > 0x7FFFFFFF0000LL )
       ExRaiseAccessViolation();
-    v9 = ((a3 + 7) & 0xFFFFFFFFFFFFF000uLL) + 4096;
+    v9 = (((unsigned __int64)EventInformation + 7) & 0xFFFFFFFFFFFFF000uLL) + 4096;
     do
     {
       UCharFromUser = RtlReadUCharFromUser((volatile void *)v8);
@@ -53,19 +58,19 @@ __int64 __fastcall NtQueryEvent(HANDLE Handle, int a2, unsigned __int64 a3, int 
       v8 = (v8 & 0xFFFFFFFFFFFFF000uLL) + 4096;
     }
     while ( v8 != v9 );
-    v11 = a5;
-    if ( a5 )
+    v11 = ReturnLength;
+    if ( ReturnLength )
     {
-      ULongFromUser = RtlReadULongFromUser(a5);
-      RtlWriteULongToUser(a5, ULongFromUser);
+      ULongFromUser = RtlReadULongFromUser(ReturnLength);
+      RtlWriteULongToUser(ReturnLength, ULongFromUser);
     }
   }
   else
   {
-    v11 = a5;
+    v11 = ReturnLength;
   }
   Object[0] = 0LL;
-  v13 = ObReferenceObjectByHandle(Handle, 1u, (POBJECT_TYPE)ExEventObjectType, PreviousMode, Object, 0LL);
+  v13 = ObReferenceObjectByHandle(EventHandle, 1u, (POBJECT_TYPE)ExEventObjectType, PreviousMode, Object, 0LL);
   v14 = v13;
   v15 = Object[0];
   v20 = Object[0];
@@ -74,13 +79,13 @@ __int64 __fastcall NtQueryEvent(HANDLE Handle, int a2, unsigned __int64 a3, int 
   {
     if ( v13 == -1073741788 )
     {
-      if ( *(_QWORD *)&WheapConfigTableLock.WaitBlockFill11[64] )
+      if ( WheapConfigTableLock.WaitBlock[1].WaitListEntry.Blink )
       {
         Object[0] = 0LL;
         v14 = ObReferenceObjectByHandle(
-                Handle,
+                EventHandle,
                 1u,
-                *(POBJECT_TYPE *)&WheapConfigTableLock.WaitBlockFill11[64],
+                (POBJECT_TYPE)WheapConfigTableLock.WaitBlock[1].WaitListEntry.Blink,
                 PreviousMode,
                 Object,
                 0LL);
@@ -103,13 +108,13 @@ __int64 __fastcall NtQueryEvent(HANDLE Handle, int a2, unsigned __int64 a3, int 
   if ( v14 >= 0 )
   {
     if ( PreviousMode )
-      RtlWriteULongToUser((_DWORD *)a3, Src);
+      RtlWriteULongToUser(EventInformation, Src);
     else
-      RtlCopyVolatileMemory((void *)a3, &Src, 4uLL);
+      RtlCopyVolatileMemory(EventInformation, &Src, 4uLL);
     if ( PreviousMode )
-      RtlWriteULongToUser((_DWORD *)(a3 + 4), v17);
+      RtlWriteULongToUser((_DWORD *)EventInformation + 1, v17);
     else
-      *(_DWORD *)(a3 + 4) = v17;
+      *((_DWORD *)EventInformation + 1) = v17;
     if ( v11 )
     {
       if ( PreviousMode )
@@ -120,5 +125,5 @@ __int64 __fastcall NtQueryEvent(HANDLE Handle, int a2, unsigned __int64 a3, int 
   }
   if ( v15 )
     ObfDereferenceObject(v15);
-  return (unsigned int)v14;
+  return v14;
 }

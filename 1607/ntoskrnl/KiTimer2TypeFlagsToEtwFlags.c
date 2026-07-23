@@ -1,8 +1,8 @@
 /*
- * XREFs of KiTimer2TypeFlagsToEtwFlags @ 0x1401DAC10
+ * XREFs of KiTimer2TypeFlagsToEtwFlags @ 0x1401DAA3C
  * Callers:
- *     KiExpireTimer2 @ 0x1400EC080 (KiExpireTimer2.c)
- *     KiTraceSetTimer2 @ 0x1401DADC8 (KiTraceSetTimer2.c)
+ *     KiExpireTimer2 @ 0x1400E9EF0 (KiExpireTimer2.c)
+ *     KiTraceSetTimer2 @ 0x1401DABF4 (KiTraceSetTimer2.c)
  * Callees:
  *     <none>
  */

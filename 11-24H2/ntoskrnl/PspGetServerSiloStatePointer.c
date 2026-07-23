@@ -1,11 +1,11 @@
 /*
- * XREFs of PspGetServerSiloStatePointer @ 0x1404FB1C0
+ * XREFs of PspGetServerSiloStatePointer @ 0x1404F8AA0
  * Callers:
- *     PspCompleteServerSiloShutdownDeferred @ 0x140772600 (PspCompleteServerSiloShutdownDeferred.c)
- *     PsStartSiloMonitor @ 0x140779270 (PsStartSiloMonitor.c)
- *     PsUnregisterSiloMonitor @ 0x1407794B0 (PsUnregisterSiloMonitor.c)
- *     PspNotifyServerSiloCreation @ 0x140779708 (PspNotifyServerSiloCreation.c)
- *     PspBeginServerSiloShutdown @ 0x1408E8FFC (PspBeginServerSiloShutdown.c)
+ *     PspCompleteServerSiloShutdownDeferred @ 0x140772820 (PspCompleteServerSiloShutdownDeferred.c)
+ *     PsStartSiloMonitor @ 0x140779370 (PsStartSiloMonitor.c)
+ *     PsUnregisterSiloMonitor @ 0x1407795B0 (PsUnregisterSiloMonitor.c)
+ *     PspNotifyServerSiloCreation @ 0x140779808 (PspNotifyServerSiloCreation.c)
+ *     PspBeginServerSiloShutdown @ 0x14085A824 (PspBeginServerSiloShutdown.c)
  * Callees:
  *     <none>
  */

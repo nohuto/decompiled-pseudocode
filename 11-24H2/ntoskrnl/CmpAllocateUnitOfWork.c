@@ -1,23 +1,23 @@
 /*
- * XREFs of CmpAllocateUnitOfWork @ 0x140A2E660
+ * XREFs of CmpAllocateUnitOfWork @ 0x140A230A0
  * Callers:
- *     CmDeleteKey @ 0x140869BFC (CmDeleteKey.c)
- *     CmSetValueKey @ 0x14086B130 (CmSetValueKey.c)
- *     CmDeleteValueKey @ 0x14086D078 (CmDeleteValueKey.c)
- *     CmpCreateChild @ 0x14091788C (CmpCreateChild.c)
- *     CmSetLastWriteTimeKey @ 0x14097A430 (CmSetLastWriteTimeKey.c)
- *     CmSetKeyFlags @ 0x14097AE70 (CmSetKeyFlags.c)
- *     CmpSetKeySecurity @ 0x14099FAEC (CmpSetKeySecurity.c)
- *     CmpUndoDeleteKeyForTrans @ 0x140A2E074 (CmpUndoDeleteKeyForTrans.c)
+ *     CmpSetKeySecurity @ 0x140830A20 (CmpSetKeySecurity.c)
+ *     CmDeleteKey @ 0x14086DF2C (CmDeleteKey.c)
+ *     CmSetValueKey @ 0x14086F460 (CmSetValueKey.c)
+ *     CmDeleteValueKey @ 0x1408713A8 (CmDeleteValueKey.c)
+ *     CmpCreateChild @ 0x14090B2FC (CmpCreateChild.c)
+ *     CmSetLastWriteTimeKey @ 0x140962C40 (CmSetLastWriteTimeKey.c)
+ *     CmSetKeyFlags @ 0x140963680 (CmSetKeyFlags.c)
+ *     CmpUndoDeleteKeyForTrans @ 0x140A22AB4 (CmpUndoDeleteKeyForTrans.c)
  * Callees:
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 __int64 CmpAllocateUnitOfWork()
 {
   __int64 result; // rax
 
-  result = ExAllocatePool2(0x100uLL);
+  result = ExAllocatePool2(0x100uLL, 0x78uLL, 0x77554D43u);
   if ( result )
   {
     *(_QWORD *)(result + 8) = result;

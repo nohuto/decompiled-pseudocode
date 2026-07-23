@@ -3,7 +3,7 @@
  * Callers:
  *     ExInitializePoolTracker @ 0x140B54C88 (ExInitializePoolTracker.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  */
 
 __int64 ExpSeedHotTags()

@@ -1,69 +1,71 @@
 /*
- * XREFs of MiChangeAwePageAttributes @ 0x140681768
+ * XREFs of MiChangeAwePageAttributes @ 0x140682958
  * Callers:
- *     MiResolveAwePageConflict @ 0x140682F08 (MiResolveAwePageConflict.c)
+ *     MiResolveAwePageConflict @ 0x1406840F8 (MiResolveAwePageConflict.c)
  * Callees:
- *     MiChangePageAttributeBatch @ 0x1402668E4 (MiChangePageAttributeBatch.c)
- *     MiLockPageInline @ 0x140291550 (MiLockPageInline.c)
- *     MiUnlockPage @ 0x1402915F0 (MiUnlockPage.c)
- *     MiMakeLinkedListPte @ 0x1402D1A40 (MiMakeLinkedListPte.c)
+ *     MiLockPageInline @ 0x1402A1150 (MiLockPageInline.c)
+ *     MiUnlockPage @ 0x1402A11F0 (MiUnlockPage.c)
+ *     MiChangePageAttributeBatch @ 0x1403A8860 (MiChangePageAttributeBatch.c)
+ *     MiMakeLinkedListPte @ 0x1403F8EF0 (MiMakeLinkedListPte.c)
  */
 
-__int64 __fastcall MiChangeAwePageAttributes(__int64 a1, __int64 a2, int a3)
+__int64 __fastcall MiChangeAwePageAttributes(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
-  unsigned __int64 v3; // rsi
-  __int64 v5; // rdi
-  unsigned __int8 v6; // dl
-  __int64 v7; // rbx
-  unsigned __int64 v8; // rcx
-  __int64 v9; // rdi
-  __int64 *v10; // rdi
-  __int64 v11; // rax
+  unsigned __int64 v4; // rsi
+  int v5; // ebp
+  __int64 v6; // rdi
+  unsigned __int8 v7; // dl
+  __int64 v8; // rbx
+  unsigned __int64 v9; // rcx
+  __int64 v10; // rdi
+  __int64 *v11; // rdi
+  __int64 v12; // rax
   __int64 LinkedListPte; // rax
-  __int64 v13; // rdx
-  __int64 v15; // [rsp+40h] [rbp+8h] BYREF
+  unsigned __int64 v14; // rdx
+  unsigned __int64 v16; // [rsp+40h] [rbp+8h] BYREF
 
-  v3 = *(_QWORD *)(a1 + 16);
-  v5 = a2;
-  v6 = MiLockPageInline(a2);
-  if ( (unsigned __int16)*(_DWORD *)(v5 + 32) > 2u
-    || (*(_QWORD *)(v5 + 24) & 0x3FFFFFFFFFFFFFFFLL) != 1
-    || (*(_QWORD *)(v5 + 24) & 0x4000000000000000LL) != 0 )
+  v4 = *(_QWORD *)(a1 + 16);
+  v5 = a3;
+  v6 = a2;
+  v7 = MiLockPageInline(a2, a2, a3, a4);
+  if ( (unsigned __int16)*(_DWORD *)(v6 + 32) > 2u
+    || (*(_QWORD *)(v6 + 24) & 0x3FFFFFFFFFFFFFFFLL) != 1
+    || (*(_QWORD *)(v6 + 24) & 0x4000000000000000LL) != 0 )
   {
-    MiUnlockPage(v5, v6);
+    MiUnlockPage(v6, v7);
     return 3221225496LL;
   }
   else
   {
-    v7 = *(_QWORD *)(v5 + 16);
-    MiUnlockPage(v5, v6);
-    v8 = 0LL;
-    v15 = 0x7FFFFFFFFFLL;
-    while ( v8 < v3 )
+    v8 = *(_QWORD *)(v6 + 16);
+    MiUnlockPage(v6, v7);
+    v9 = 0LL;
+    v16 = 0x7FFFFFFFFFLL;
+    while ( v9 < v4 )
     {
-      if ( (unsigned __int16)*(_DWORD *)(v5 + 32) > 2u || (*(_QWORD *)(v5 + 24) & 0x4000000000000000LL) != 0 )
+      if ( (unsigned __int16)*(_DWORD *)(v6 + 32) > 2u || (*(_QWORD *)(v6 + 24) & 0x4000000000000000LL) != 0 )
         return 3221225496LL;
-      v5 += 48LL;
-      ++v8;
+      v6 += 48LL;
+      ++v9;
     }
-    v9 = v5 + 16;
-    if ( v3 )
+    v10 = v6 + 16;
+    if ( v4 )
     {
-      v10 = (__int64 *)(-48LL * v3 + v9);
-      v11 = v15;
+      v11 = (__int64 *)(-48LL * v4 + v10);
+      v12 = v16;
       do
       {
-        LinkedListPte = MiMakeLinkedListPte(v11);
-        *v10 = LinkedListPte;
-        v7 = LinkedListPte;
-        v11 = v13;
-        v15 = v13;
-        v10 += 6;
-        --v3;
+        LinkedListPte = MiMakeLinkedListPte(v12);
+        *v11 = LinkedListPte;
+        v8 = LinkedListPte;
+        v12 = v14;
+        v16 = v14;
+        v11 += 6;
+        --v4;
       }
-      while ( v3 );
+      while ( v4 );
     }
-    MiChangePageAttributeBatch(&v15, a3, v7, 0);
+    MiChangePageAttributeBatch(&v16, v5, v8, 0);
     return 0LL;
   }
 }

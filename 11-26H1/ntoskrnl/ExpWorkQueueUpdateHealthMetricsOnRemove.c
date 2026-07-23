@@ -1,10 +1,10 @@
 /*
- * XREFs of ExpWorkQueueUpdateHealthMetricsOnRemove @ 0x1406D0E94
+ * XREFs of ExpWorkQueueUpdateHealthMetricsOnRemove @ 0x1406D4EC4
  * Callers:
  *     ExpTryQueueWorkItem @ 0x1402020DC (ExpTryQueueWorkItem.c)
- *     ExpWorkerThread @ 0x1403F5680 (ExpWorkerThread.c)
+ *     ExpWorkerThread @ 0x1403EF030 (ExpWorkerThread.c)
  * Callees:
- *     ExpTypeToPriority @ 0x1403831D0 (ExpTypeToPriority.c)
+ *     ExpTypeToPriority @ 0x140384F80 (ExpTypeToPriority.c)
  */
 
 __int64 __fastcall ExpWorkQueueUpdateHealthMetricsOnRemove(__int64 a1, __int64 a2)
@@ -15,7 +15,7 @@ __int64 __fastcall ExpWorkQueueUpdateHealthMetricsOnRemove(__int64 a1, __int64 a
   unsigned int v5; // r9d
   char v6; // r8
   unsigned __int64 v7; // rdx
-  struct _LIST_ENTRY *Blink; // rcx
+  unsigned __int64 *Object; // rcx
   __int64 v9; // r10
 
   result = ExpTypeToPriority(*(_DWORD *)(a2 + 84));
@@ -26,13 +26,13 @@ __int64 __fastcall ExpWorkQueueUpdateHealthMetricsOnRemove(__int64 a1, __int64 a
     v7 = (MEMORY[0xFFFFF78000000008] - *(_QWORD *)(v3 + 88)) / 0x2710uLL;
     if ( !ExpWorkQueueDelayHistogramBucketCount )
       goto LABEL_7;
-    Blink = ExSaPageGroupDescriptorArrayLock.SavedApcState.ApcListHead[1].Blink;
+    Object = (unsigned __int64 *)ExSaPageGroupDescriptorArrayLock.WaitBlock[1].Object;
     do
     {
-      if ( (struct _LIST_ENTRY *)v7 < Blink->Flink )
+      if ( v7 < *Object )
         break;
       ++v5;
-      Blink = (struct _LIST_ENTRY *)((char *)Blink + 8);
+      ++Object;
     }
     while ( v5 < ExpWorkQueueDelayHistogramBucketCount );
     if ( v5 >= ExpWorkQueueDelayHistogramBucketCount )

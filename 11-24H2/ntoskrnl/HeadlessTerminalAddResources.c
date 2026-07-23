@@ -1,11 +1,11 @@
 /*
- * XREFs of HeadlessTerminalAddResources @ 0x1407B7A14
+ * XREFs of HeadlessTerminalAddResources @ 0x1407B7E64
  * Callers:
- *     IoReportHalResourceUsage @ 0x140C22DA0 (IoReportHalResourceUsage.c)
+ *     IoReportHalResourceUsage @ 0x140C24DD0 (IoReportHalResourceUsage.c)
  * Callees:
- *     HalTranslateBusAddress @ 0x140458FE0 (HalTranslateBusAddress.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     HalTranslateBusAddress @ 0x14044E090 (HalTranslateBusAddress.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall HeadlessTerminalAddResources(void *Src, size_t Size, char a3, _QWORD *a4, _DWORD *a5)
@@ -28,7 +28,8 @@ __int64 __fastcall HeadlessTerminalAddResources(void *Src, size_t Size, char a3,
     goto LABEL_11;
   }
   *a5 = Size + 36;
-  if ( (int)Size + 36 < (unsigned int)Size || (Pool2 = (void *)ExAllocatePool2(0x100uLL), (*a4 = Pool2) == 0LL) )
+  if ( (int)Size + 36 < (unsigned int)Size
+    || (Pool2 = (void *)ExAllocatePool2(0x100uLL, (unsigned int)(Size + 36), 0x736C6448u), (*a4 = Pool2) == 0LL) )
   {
     result = 3221225626LL;
 LABEL_11:

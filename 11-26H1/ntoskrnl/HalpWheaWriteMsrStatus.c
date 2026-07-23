@@ -1,13 +1,13 @@
 /*
- * XREFs of HalpWheaWriteMsrStatus @ 0x14045318C
+ * XREFs of HalpWheaWriteMsrStatus @ 0x14044B2BC
  * Callers:
- *     HalpMcaReadError @ 0x140453B40 (HalpMcaReadError.c)
- *     HalpMcaClearError @ 0x140453EC4 (HalpMcaClearError.c)
- *     HalpMcaReadErrorUncorrectedAMD @ 0x14057E848 (HalpMcaReadErrorUncorrectedAMD.c)
- *     HalpMcaSetProcessorConfig @ 0x140BE91B8 (HalpMcaSetProcessorConfig.c)
+ *     HalpMcaReadError @ 0x14044BC70 (HalpMcaReadError.c)
+ *     HalpMcaClearError @ 0x14044BFF4 (HalpMcaClearError.c)
+ *     HalpMcaReadErrorUncorrectedAMD @ 0x140580D68 (HalpMcaReadErrorUncorrectedAMD.c)
+ *     HalpMcaSetProcessorConfig @ 0x140BEF1B8 (HalpMcaSetProcessorConfig.c)
  * Callees:
- *     HalpGetCpuVendor @ 0x140453A00 (HalpGetCpuVendor.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     HalpGetCpuVendor @ 0x14044BB30 (HalpGetCpuVendor.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall HalpWheaWriteMsrStatus(__int64 a1, __int64 a2, __int64 a3)

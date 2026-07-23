@@ -1,13 +1,13 @@
 /*
- * XREFs of IopFreeCopyObjectsFromDataBuffer @ 0x1404C2E04
+ * XREFs of IopFreeCopyObjectsFromDataBuffer @ 0x1404BC654
  * Callers:
- *     IopReadFile @ 0x1408F856C (IopReadFile.c)
- *     NtCopyFileChunk @ 0x140AE2060 (NtCopyFileChunk.c)
+ *     IopReadFile @ 0x1409284FC (IopReadFile.c)
+ *     NtCopyFileChunk @ 0x140ADF550 (NtCopyFileChunk.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     IopFreeIrpExtension @ 0x140268930 (IopFreeIrpExtension.c)
- *     IopExceptionCleanupEx @ 0x1409B6D64 (IopExceptionCleanupEx.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     IopFreeIrpExtension @ 0x140267EA0 (IopFreeIrpExtension.c)
+ *     IopExceptionCleanupEx @ 0x140924ADC (IopExceptionCleanupEx.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __fastcall IopFreeCopyObjectsFromDataBuffer(__int64 a1, char a2)
@@ -17,7 +17,7 @@ void __fastcall IopFreeCopyObjectsFromDataBuffer(__int64 a1, char a2)
   IRP *v4; // rsi
   ULONG_PTR v5; // rdi
 
-  v2 = a1 - 72;
+  v2 = a1 - 80;
   if ( a2 )
   {
     v4 = *(IRP **)(v2 + 32);

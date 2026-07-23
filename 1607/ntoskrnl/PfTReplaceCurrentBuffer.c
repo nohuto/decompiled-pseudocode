@@ -1,12 +1,12 @@
 /*
- * XREFs of PfTReplaceCurrentBuffer @ 0x1403E8A6C
+ * XREFs of PfTReplaceCurrentBuffer @ 0x1403EA09C
  * Callers:
- *     PfpCopyEvent @ 0x1403E7DD0 (PfpCopyEvent.c)
- *     PfpLogPageAccess @ 0x1403E83D0 (PfpLogPageAccess.c)
- *     PfTAcquireLogEntry @ 0x140531A60 (PfTAcquireLogEntry.c)
+ *     PfpCopyEvent @ 0x1403E9400 (PfpCopyEvent.c)
+ *     PfpLogPageAccess @ 0x1403E9A00 (PfpLogPageAccess.c)
+ *     PfTAcquireLogEntry @ 0x140531FA0 (PfTAcquireLogEntry.c)
  * Callees:
- *     KeSetEvent @ 0x1400562D0 (KeSetEvent.c)
- *     PfTGetFreeBuffer @ 0x1403E8B04 (PfTGetFreeBuffer.c)
+ *     KeSetEvent @ 0x140055E50 (KeSetEvent.c)
+ *     PfTGetFreeBuffer @ 0x1403EA134 (PfTGetFreeBuffer.c)
  */
 
 __int64 PfTReplaceCurrentBuffer()
@@ -43,7 +43,7 @@ __int64 PfTReplaceCurrentBuffer()
     *(_QWORD *)(v6 + 8) = v4;
     *v5 = v4;
     if ( *(_WORD *)(v2 + 10) <= *(_WORD *)(v2 + 8) )
-      KeSetEvent(&stru_140328070, 0, 0);
+      KeSetEvent(&stru_1403280B0, 0, 0);
   }
   else
   {

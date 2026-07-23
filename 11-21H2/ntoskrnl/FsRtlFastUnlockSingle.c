@@ -3,8 +3,8 @@
  * Callers:
  *     FsRtlProcessFileLock @ 0x14021D0B0 (FsRtlProcessFileLock.c)
  * Callees:
- *     FsRtlFastUnlockSingleExclusive @ 0x14021DEB4 (FsRtlFastUnlockSingleExclusive.c)
- *     FsRtlFastUnlockSingleShared @ 0x14021E048 (FsRtlFastUnlockSingleShared.c)
+ *     sub_14021DEB4 @ 0x14021DEB4 (sub_14021DEB4.c)
+ *     sub_14021E048 @ 0x14021E048 (sub_14021E048.c)
  */
 
 NTSTATUS __stdcall FsRtlFastUnlockSingle(
@@ -30,7 +30,7 @@ NTSTATUS __stdcall FsRtlFastUnlockSingle(
     return -1073741698;
   if ( (unsigned __int64)(Length->QuadPart + FileOffset->QuadPart - 1) < FileOffset->QuadPart && Length->QuadPart )
     return -1073741407;
-  if ( (unsigned int)FsRtlFastUnlockSingleExclusive(
+  if ( (unsigned int)sub_14021DEB4(
                        (_DWORD)LockInformation,
                        (_DWORD)FileObject,
                        (_DWORD)FileOffset,
@@ -40,15 +40,6 @@ NTSTATUS __stdcall FsRtlFastUnlockSingle(
                        (__int64)Context,
                        0,
                        1) )
-    return FsRtlFastUnlockSingleShared(
-             FileLock->LockInformation,
-             v11,
-             v10,
-             v9,
-             (__int64)ProcessId,
-             Key,
-             (__int64)Context,
-             0,
-             1);
+    return sub_14021E048(FileLock->LockInformation, v11, v10, v9, (__int64)ProcessId, Key, (__int64)Context, 0, 1);
   return 0;
 }

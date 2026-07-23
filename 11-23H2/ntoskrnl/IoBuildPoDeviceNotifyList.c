@@ -1,21 +1,21 @@
 /*
- * XREFs of IoBuildPoDeviceNotifyList @ 0x140A9E0F8
+ * XREFs of IoBuildPoDeviceNotifyList @ 0x140A9DF68
  * Callers:
- *     PopBuildDeviceNotifyList @ 0x140AA713C (PopBuildDeviceNotifyList.c)
+ *     PopBuildDeviceNotifyList @ 0x140AA6FAC (PopBuildDeviceNotifyList.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14022F5B0 (ObfDereferenceObjectWithTag.c)
- *     ObfReferenceObject @ 0x140233C40 (ObfReferenceObject.c)
- *     IoGetAttachedDeviceReference @ 0x14025A100 (IoGetAttachedDeviceReference.c)
- *     ObfReferenceObjectWithTag @ 0x1402B68C0 (ObfReferenceObjectWithTag.c)
- *     IoGetLowerDeviceObjectWithTag @ 0x1403663DC (IoGetLowerDeviceObjectWithTag.c)
- *     PnpLockDeviceActionQueue @ 0x1403C3E9C (PnpLockDeviceActionQueue.c)
- *     memset @ 0x140435A00 (memset.c)
- *     PnpPowerStateTransitionWatchdogPopRecord @ 0x140957A94 (PnpPowerStateTransitionWatchdogPopRecord.c)
- *     PnpPowerStateTransitionWatchdogPushRecord @ 0x140957AAC (PnpPowerStateTransitionWatchdogPushRecord.c)
- *     IopCaptureObjectName @ 0x140A9E7C0 (IopCaptureObjectName.c)
- *     IopCheckDeviceFlags @ 0x140A9E870 (IopCheckDeviceFlags.c)
- *     IopFreePoDeviceNotifyListHead @ 0x140A9E8F4 (IopFreePoDeviceNotifyListHead.c)
- *     IopIsNotifyInBroadcast @ 0x140A9E974 (IopIsNotifyInBroadcast.c)
+ *     ObfDereferenceObjectWithTag @ 0x14022F6C0 (ObfDereferenceObjectWithTag.c)
+ *     ObfReferenceObject @ 0x140233D10 (ObfReferenceObject.c)
+ *     IoGetAttachedDeviceReference @ 0x14025A390 (IoGetAttachedDeviceReference.c)
+ *     ObfReferenceObjectWithTag @ 0x1402B6B50 (ObfReferenceObjectWithTag.c)
+ *     IoGetLowerDeviceObjectWithTag @ 0x14036657C (IoGetLowerDeviceObjectWithTag.c)
+ *     PnpLockDeviceActionQueue @ 0x1403C407C (PnpLockDeviceActionQueue.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     PnpPowerStateTransitionWatchdogPopRecord @ 0x140957C94 (PnpPowerStateTransitionWatchdogPopRecord.c)
+ *     PnpPowerStateTransitionWatchdogPushRecord @ 0x140957CAC (PnpPowerStateTransitionWatchdogPushRecord.c)
+ *     IopCaptureObjectName @ 0x140A9E630 (IopCaptureObjectName.c)
+ *     IopCheckDeviceFlags @ 0x140A9E6E0 (IopCheckDeviceFlags.c)
+ *     IopFreePoDeviceNotifyListHead @ 0x140A9E764 (IopFreePoDeviceNotifyListHead.c)
+ *     IopIsNotifyInBroadcast @ 0x140A9E7E4 (IopIsNotifyInBroadcast.c)
  */
 
 __int64 *__fastcall IoBuildPoDeviceNotifyList(char *a1, int a2)

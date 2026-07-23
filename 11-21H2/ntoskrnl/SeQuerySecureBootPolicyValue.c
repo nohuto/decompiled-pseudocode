@@ -4,8 +4,8 @@
  *     <none>
  * Callees:
  *     memmove @ 0x140435B40 (memmove.c)
- *     SepSecureBootFindMatchingRegistryRule @ 0x1409CDED0 (SepSecureBootFindMatchingRegistryRule.c)
- *     SepSecureBootGetPolicyValueByRef @ 0x1409CE000 (SepSecureBootGetPolicyValueByRef.c)
+ *     sub_1409CDED0 @ 0x1409CDED0 (sub_1409CDED0.c)
+ *     sub_1409CE000 @ 0x1409CE000 (sub_1409CE000.c)
  */
 
 __int64 __fastcall SeQuerySecureBootPolicyValue(
@@ -16,8 +16,8 @@ __int64 __fastcall SeQuerySecureBootPolicyValue(
         unsigned int a5,
         _DWORD *a6)
 {
-  int PolicyValueByRef; // ebx
-  __int64 MatchingRegistryRule; // rax
+  int v8; // ebx
+  __int64 v10; // rax
   size_t v11; // rdx
   size_t Size; // [rsp+20h] [rbp-18h] BYREF
   void *Src; // [rsp+28h] [rbp-10h] BYREF
@@ -26,15 +26,11 @@ __int64 __fastcall SeQuerySecureBootPolicyValue(
   LODWORD(Size) = 0;
   if ( qword_140D01440 )
   {
-    MatchingRegistryRule = SepSecureBootFindMatchingRegistryRule(a1, a1, a2);
-    if ( MatchingRegistryRule )
+    v10 = sub_1409CDED0(a1, a1, a2);
+    if ( v10 )
     {
-      PolicyValueByRef = SepSecureBootGetPolicyValueByRef(
-                           qword_140D04980 + *(unsigned int *)(MatchingRegistryRule + 12),
-                           a3,
-                           &Src,
-                           &Size);
-      if ( PolicyValueByRef >= 0 )
+      v8 = sub_1409CE000(qword_140D04980 + *(unsigned int *)(v10 + 12), a3, &Src, &Size);
+      if ( v8 >= 0 )
       {
         v11 = (unsigned int)Size;
         *a6 = Size;
@@ -56,5 +52,5 @@ __int64 __fastcall SeQuerySecureBootPolicyValue(
   {
     return (unsigned int)-2143092730;
   }
-  return (unsigned int)PolicyValueByRef;
+  return (unsigned int)v8;
 }

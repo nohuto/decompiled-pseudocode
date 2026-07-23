@@ -1,11 +1,11 @@
 /*
- * XREFs of PiUEventDispatch @ 0x1409D66B0
+ * XREFs of PiUEventDispatch @ 0x1409A75A0
  * Callers:
  *     <none>
  * Callees:
- *     IofCompleteRequest @ 0x1403FD9D0 (IofCompleteRequest.c)
- *     PiUEventHandleIoctl @ 0x1409D6950 (PiUEventHandleIoctl.c)
- *     PiUEventFreeClientRegistrationContext @ 0x1409D80BC (PiUEventFreeClientRegistrationContext.c)
+ *     IofCompleteRequest @ 0x1403FA1C0 (IofCompleteRequest.c)
+ *     PiUEventHandleIoctl @ 0x1409A7840 (PiUEventHandleIoctl.c)
+ *     PiUEventFreeClientRegistrationContext @ 0x1409A8FAC (PiUEventFreeClientRegistrationContext.c)
  */
 
 __int64 __fastcall PiUEventDispatch(__int64 a1, IRP *a2)

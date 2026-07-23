@@ -1,14 +1,14 @@
 /*
- * XREFs of RtlpHpSizeHeapInternal @ 0x140594B2C
+ * XREFs of RtlpHpSizeHeapInternal @ 0x140594D5C
  * Callers:
- *     RtlpHpExtrasGet @ 0x140594968 (RtlpHpExtrasGet.c)
- *     RtlpHpSizeHeap @ 0x140594A84 (RtlpHpSizeHeap.c)
+ *     RtlpHpExtrasGet @ 0x140594B98 (RtlpHpExtrasGet.c)
+ *     RtlpHpSizeHeap @ 0x140594CB4 (RtlpHpSizeHeap.c)
  * Callees:
- *     RtlCSparseBitmapBitmaskRead @ 0x1402A2380 (RtlCSparseBitmapBitmaskRead.c)
- *     RtlpHpEnvGetHeapManager @ 0x140309414 (RtlpHpEnvGetHeapManager.c)
- *     RtlpHpSegDescriptorValidate @ 0x1403422D0 (RtlpHpSegDescriptorValidate.c)
- *     RtlpHpSegSizeInternal @ 0x1405950C8 (RtlpHpSegSizeInternal.c)
- *     RtlpHpLargeAllocSize @ 0x140595464 (RtlpHpLargeAllocSize.c)
+ *     RtlCSparseBitmapBitmaskRead @ 0x14021F7C0 (RtlCSparseBitmapBitmaskRead.c)
+ *     RtlpHpEnvGetHeapManager @ 0x140314164 (RtlpHpEnvGetHeapManager.c)
+ *     RtlpHpSegDescriptorValidate @ 0x14034D020 (RtlpHpSegDescriptorValidate.c)
+ *     RtlpHpSegSizeInternal @ 0x1405952F8 (RtlpHpSegSizeInternal.c)
+ *     RtlpHpLargeAllocSize @ 0x140595694 (RtlpHpLargeAllocSize.c)
  */
 
 __int64 __fastcall RtlpHpSizeHeapInternal(__int128 *a1, unsigned __int64 a2, unsigned int a3, __int64 a4)

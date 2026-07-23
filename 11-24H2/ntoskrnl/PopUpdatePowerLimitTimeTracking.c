@@ -1,10 +1,10 @@
 /*
- * XREFs of PopUpdatePowerLimitTimeTracking @ 0x1405CF8EC
+ * XREFs of PopUpdatePowerLimitTimeTracking @ 0x1405CD00C
  * Callers:
- *     PopPowerLimitTelemetryWorker @ 0x1404276D8 (PopPowerLimitTelemetryWorker.c)
- *     PopPowerLimitSxTransition @ 0x1405CF7E4 (PopPowerLimitSxTransition.c)
- *     PoSetPowerLimitValue @ 0x14074ADE0 (PoSetPowerLimitValue.c)
- *     PopFreePowerLimitRequest @ 0x14074B644 (PopFreePowerLimitRequest.c)
+ *     PopPowerLimitTelemetryWorker @ 0x14041B868 (PopPowerLimitTelemetryWorker.c)
+ *     PopPowerLimitSxTransition @ 0x1405CCF04 (PopPowerLimitSxTransition.c)
+ *     PoSetPowerLimitValue @ 0x140749110 (PoSetPowerLimitValue.c)
+ *     PopFreePowerLimitRequest @ 0x140749974 (PopFreePowerLimitRequest.c)
  * Callees:
  *     <none>
  */

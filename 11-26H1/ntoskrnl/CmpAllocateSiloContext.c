@@ -1,9 +1,9 @@
 /*
- * XREFs of CmpAllocateSiloContext @ 0x140A30CB4
+ * XREFs of CmpAllocateSiloContext @ 0x140A4BC14
  * Callers:
- *     CmpGetOrCreateContextForSiloNoRef @ 0x140A30A64 (CmpGetOrCreateContextForSiloNoRef.c)
+ *     CmpGetOrCreateContextForSiloNoRef @ 0x140A4B9C4 (CmpGetOrCreateContextForSiloNoRef.c)
  * Callees:
- *     PsCreateSiloContext @ 0x140A30D20 (PsCreateSiloContext.c)
+ *     PsCreateSiloContext @ 0x140A4BC80 (PsCreateSiloContext.c)
  */
 
 __int64 __fastcall CmpAllocateSiloContext(int a1, _QWORD *a2)

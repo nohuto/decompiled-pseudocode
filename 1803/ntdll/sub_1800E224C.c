@@ -20,7 +20,7 @@ void __fastcall sub_1800E224C(ULONG_PTR a1)
   EXCEPTION_RECORD ExceptionRecord; // [rsp+30h] [rbp-588h] BYREF
   struct _CONTEXT ContextRecord; // [rsp+D0h] [rbp-4E8h] BYREF
 
-  RtlDecodePointer(qword_18015C2F0);
+  RtlDecodePointer(Ptr);
   ExceptionRecord.ExceptionCode = -1073741420;
   ExceptionRecord.ExceptionFlags = 0;
   ExceptionRecord.ExceptionRecord = 0LL;
@@ -35,7 +35,7 @@ void __fastcall sub_1800E224C(ULONG_PTR a1)
       v3 = 0;
     dword_18015978C = v3;
     RtlCaptureContext(&ContextRecord);
-    RtlReportException((__int64)&ExceptionRecord, (__int64)&ContextRecord, 0xFu);
+    RtlReportException(&ExceptionRecord, &ContextRecord, 0xFu);
   }
   RtlRaiseException(&ExceptionRecord);
 }

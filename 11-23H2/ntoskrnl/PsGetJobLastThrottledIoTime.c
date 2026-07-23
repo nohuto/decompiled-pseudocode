@@ -1,11 +1,11 @@
 /*
- * XREFs of PsGetJobLastThrottledIoTime @ 0x1405A4100
+ * XREFs of PsGetJobLastThrottledIoTime @ 0x1405A4670
  * Callers:
- *     MiNoPagesLastChance @ 0x140650EF4 (MiNoPagesLastChance.c)
+ *     MiNoPagesLastChance @ 0x140651444 (MiNoPagesLastChance.c)
  * Callees:
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402A7C00 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     ExAcquireSpinLockShared @ 0x140314620 (ExAcquireSpinLockShared.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402A7E90 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     ExAcquireSpinLockShared @ 0x1403148B0 (ExAcquireSpinLockShared.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall PsGetJobLastThrottledIoTime(__int64 a1)
@@ -25,10 +25,13 @@ __int64 __fastcall PsGetJobLastThrottledIoTime(__int64 a1)
   v4 = *(_QWORD *)(a1 + 1720);
   v5 = v3;
   ExReleaseSpinLockSharedFromDpcLevel(v1);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v5 <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
+      && (unsigned __int8)v5 <= 0xFu
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;

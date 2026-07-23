@@ -11,18 +11,22 @@
  *     CmOpenKey @ 0x1404F5560 (CmOpenKey.c)
  */
 
-__int64 __fastcall NtOpenKeyTransacted(HANDLE *a1, int a2, __int64 a3, void *a4)
+NTSTATUS __cdecl NtOpenKeyTransacted(
+        PHANDLE KeyHandle,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        HANDLE TransactionHandle)
 {
   struct _KTHREAD *CurrentThread; // rax
   unsigned __int64 v9; // rtt
   struct _KTHREAD *v10; // rcx
   __int16 v11; // ax
-  NTSTATUS v13; // ebx
+  int v13; // ebx
   unsigned __int64 v14; // rtt
   struct _KTHREAD *v15; // rcx
   __int16 v16; // ax
   PVOID v17; // rbx
-  unsigned int v18; // edi
+  NTSTATUS v18; // edi
   unsigned __int64 v19; // rtt
   struct _KTHREAD *v20; // rcx
   __int16 v21; // ax
@@ -39,7 +43,7 @@ __int64 __fastcall NtOpenKeyTransacted(HANDLE *a1, int a2, __int64 a3, void *a4)
     || ExfAcquireRundownProtection(&CmpShutdownRundown) )
   {
     v13 = ObReferenceObjectByHandle(
-            a4,
+            TransactionHandle,
             4u,
             (POBJECT_TYPE)TmTransactionObjectType,
             KeGetCurrentThread()->PreviousMode,
@@ -48,7 +52,7 @@ __int64 __fastcall NtOpenKeyTransacted(HANDLE *a1, int a2, __int64 a3, void *a4)
     if ( v13 >= 0 )
     {
       v17 = Object;
-      v18 = CmOpenKey(a1, a2, a3, 0, (__int64)Object);
+      v18 = CmOpenKey(KeyHandle, DesiredAccess, (__int64)ObjectAttributes, 0, (__int64)Object);
       ObfDereferenceObject(v17);
       _m_prefetchw(&CmpShutdownRundown);
       v19 = CmpShutdownRundown.Count & 0xFFFFFFFFFFFFFFFEuLL;
@@ -86,7 +90,7 @@ __int64 __fastcall NtOpenKeyTransacted(HANDLE *a1, int a2, __int64 a3, void *a4)
       {
         KiCheckForKernelApcDelivery();
       }
-      return (unsigned int)v13;
+      return v13;
     }
   }
   else
@@ -100,6 +104,6 @@ __int64 __fastcall NtOpenKeyTransacted(HANDLE *a1, int a2, __int64 a3, void *a4)
     {
       KiCheckForKernelApcDelivery();
     }
-    return 3221225865LL;
+    return -1073741431;
   }
 }

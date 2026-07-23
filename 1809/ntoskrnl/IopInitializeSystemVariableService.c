@@ -1,14 +1,14 @@
 /*
- * XREFs of IopInitializeSystemVariableService @ 0x140192EEC
+ * XREFs of IopInitializeSystemVariableService @ 0x14019302C
  * Callers:
- *     IoInitSystemPreDrivers @ 0x1409B1F54 (IoInitSystemPreDrivers.c)
+ *     IoInitSystemPreDrivers @ 0x1409B2F54 (IoInitSystemPreDrivers.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     ZwClose @ 0x1401B8370 (ZwClose.c)
- *     ZwOpenKey @ 0x1401B83D0 (ZwOpenKey.c)
- *     ZwQueryValueKey @ 0x1401B8470 (ZwQueryValueKey.c)
- *     TraceLoggingRegisterEx @ 0x14071DC38 (TraceLoggingRegisterEx.c)
+ *     RtlInitUnicodeString @ 0x1400B99D0 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     ZwClose @ 0x1401B84D0 (ZwClose.c)
+ *     ZwOpenKey @ 0x1401B8530 (ZwOpenKey.c)
+ *     ZwQueryValueKey @ 0x1401B85D0 (ZwQueryValueKey.c)
+ *     TraceLoggingRegisterEx @ 0x14071EED8 (TraceLoggingRegisterEx.c)
  */
 
 int IopInitializeSystemVariableService()
@@ -23,7 +23,7 @@ int IopInitializeSystemVariableService()
   int v7; // [rsp+88h] [rbp+3Fh]
   int v8; // [rsp+8Ch] [rbp+43h]
 
-  TraceLoggingRegisterEx(&stru_140400AB0, 0LL, 0LL);
+  TraceLoggingRegisterEx(&stru_140401AB0, 0LL, 0LL);
   KeyHandle = 0LL;
   RtlInitUnicodeString(
     &DestinationString,

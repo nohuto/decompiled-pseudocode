@@ -1,20 +1,22 @@
 /*
- * XREFs of EmpMapPhysicalAddress @ 0x140C17E34
+ * XREFs of EmpMapPhysicalAddress @ 0x140C19E34
  * Callers:
- *     EmpCacheBiosDate @ 0x140C6288C (EmpCacheBiosDate.c)
+ *     EmpCacheBiosDate @ 0x140C64A08 (EmpCacheBiosDate.c)
  * Callees:
- *     KiStackAttachProcess @ 0x1403209E0 (KiStackAttachProcess.c)
- *     KiUnstackDetachProcess @ 0x140321EC0 (KiUnstackDetachProcess.c)
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     ZwMapViewOfSection @ 0x1406A6910 (ZwMapViewOfSection.c)
- *     ZwOpenSection @ 0x1406A6AF0 (ZwOpenSection.c)
+ *     KiStackAttachProcess @ 0x1402C9570 (KiStackAttachProcess.c)
+ *     KiUnstackDetachProcess @ 0x1402CAA50 (KiUnstackDetachProcess.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     ZwMapViewOfSection @ 0x1406A78B0 (ZwMapViewOfSection.c)
+ *     ZwOpenSection @ 0x1406A7A90 (ZwOpenSection.c)
  */
 
 char *__fastcall EmpMapPhysicalAddress(SIZE_T a1, __int64 a2, HANDLE *a3, PVOID *a4, __int64 a5)
 {
   __int64 v5; // rbx
-  char *v8; // rax
+  __int64 v8; // r8
+  __int64 v9; // r9
+  char *v10; // rax
   LARGE_INTEGER SectionOffset; // [rsp+50h] [rbp-11h] BYREF
   UNICODE_STRING DestinationString; // [rsp+58h] [rbp-9h] BYREF
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+68h] [rbp+7h] BYREF
@@ -51,15 +53,15 @@ char *__fastcall EmpMapPhysicalAddress(SIZE_T a1, __int64 a2, HANDLE *a3, PVOID 
            0,
            4u) < 0 )
     {
-      KiUnstackDetachProcess(a5, 0);
+      KiUnstackDetachProcess(a5, 0, v8, v9);
       ZwClose(*a3);
       *a3 = 0LL;
     }
     else
     {
-      v8 = (char *)BaseAddress;
+      v10 = (char *)BaseAddress;
       *a4 = BaseAddress;
-      return v8 + 4085;
+      return v10 + 4085;
     }
   }
   return (char *)v5;

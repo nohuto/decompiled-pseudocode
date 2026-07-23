@@ -41,7 +41,7 @@ int __fastcall KiDispatchException(PEXCEPTION_RECORD ExceptionRecord, __int64 a2
   int v12; // ecx
   int v13; // ecx
   struct _KTHREAD *CurrentThread; // rax
-  unsigned int v15; // r12d
+  ULONG v15; // r12d
   unsigned __int64 v16; // rax
   void *v17; // rsp
   int v18; // r8d
@@ -60,10 +60,10 @@ int __fastcall KiDispatchException(PEXCEPTION_RECORD ExceptionRecord, __int64 a2
   ULONG_PTR BugCheckParameter4; // [rsp+20h] [rbp-10h]
   int v33; // [rsp+30h] [rbp+0h] BYREF
   int v34; // [rsp+34h] [rbp+4h]
-  unsigned int v35; // [rsp+38h] [rbp+8h] BYREF
+  ULONG ContextLength; // [rsp+38h] [rbp+8h] BYREF
   unsigned __int64 v36; // [rsp+40h] [rbp+10h]
   unsigned __int64 v37; // [rsp+48h] [rbp+18h]
-  __int64 v38; // [rsp+50h] [rbp+20h] BYREF
+  PCONTEXT_EX ContextEx; // [rsp+50h] [rbp+20h] BYREF
   unsigned __int64 v39; // [rsp+58h] [rbp+28h]
   PEXCEPTION_RECORD v40; // [rsp+60h] [rbp+30h]
   __int64 v41; // [rsp+68h] [rbp+38h]
@@ -136,15 +136,15 @@ int __fastcall KiDispatchException(PEXCEPTION_RECORD ExceptionRecord, __int64 a2
       v15 = 1048671;
     v34 = v15;
   }
-  RtlGetExtendedContextLength(v15, &v35);
-  v16 = v35 + 15LL;
-  if ( v16 <= v35 )
+  RtlGetExtendedContextLength(v15, &ContextLength);
+  v16 = ContextLength + 15LL;
+  if ( v16 <= ContextLength )
     v16 = 0xFFFFFFFFFFFFFF0LL;
   v17 = alloca(v16 & 0xFFFFFFFFFFFFFFF0uLL);
   v46 = &v33;
   if ( v5 )
-    memset(&v33, 0, v35);
-  RtlInitializeExtendedContext(&v33, v15, &v38);
+    memset(&v33, 0, ContextLength);
+  RtlInitializeExtendedContext((PCONTEXT)&v33, v15, &ContextEx);
   KeContextFromKframes(a3, v41, (__int64)&v33);
   if ( ExceptionRecord->ExceptionCode == -2147483645 )
     --v50;
@@ -214,7 +214,7 @@ LABEL_64:
           v37 = v21;
           if ( (v15 & 0x100040) == 0x100040 )
           {
-            v24 = (v21 - *(unsigned int *)(v38 + 20)) & 0xFFFFFFFFFFFFFFC0uLL;
+            v24 = (v21 - ContextEx->XState.Length) & 0xFFFFFFFFFFFFFFC0uLL;
             v37 = v24;
           }
           v36 = (v24 - 40) & 0xFFFFFFFFFFFFFFF0uLL;
@@ -248,7 +248,7 @@ LABEL_64:
           KeCopyExceptionRecord(v44, ExceptionRecord);
           v28 = v45;
           LOBYTE(v29) = 1;
-          RtlpCopyExtendedContext(v29, v45, (unsigned int)&v51, v15, v38, 0LL);
+          RtlpCopyExtendedContext(v29, v45, (unsigned int)&v51, v15, (__int64)ContextEx, 0LL);
           *(_OWORD *)v28 = v51;
           *(_QWORD *)(v28 + 16) = v52;
           _disable();

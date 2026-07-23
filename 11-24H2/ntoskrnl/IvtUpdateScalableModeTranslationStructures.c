@@ -1,12 +1,12 @@
 /*
- * XREFs of IvtUpdateScalableModeTranslationStructures @ 0x1404CB814
+ * XREFs of IvtUpdateScalableModeTranslationStructures @ 0x1404C4C90
  * Callers:
- *     IvtUpdateTranslationStructures @ 0x1404F810C (IvtUpdateTranslationStructures.c)
+ *     IvtUpdateTranslationStructures @ 0x1404F59EC (IvtUpdateTranslationStructures.c)
  * Callees:
- *     IvtGetBlockedDomain @ 0x1404C8254 (IvtGetBlockedDomain.c)
- *     IvtUpdateScalableModeContextEntry @ 0x1404CB910 (IvtUpdateScalableModeContextEntry.c)
- *     IvtUpdateScalableModePasidTablesForPasid @ 0x1404F5314 (IvtUpdateScalableModePasidTablesForPasid.c)
- *     IvtGetPasidGranularTranslationType @ 0x1404FA750 (IvtGetPasidGranularTranslationType.c)
+ *     IvtGetBlockedDomain @ 0x1404C1988 (IvtGetBlockedDomain.c)
+ *     IvtUpdateScalableModeContextEntry @ 0x1404C4D8C (IvtUpdateScalableModeContextEntry.c)
+ *     IvtUpdateScalableModePasidTablesForPasid @ 0x1404F2C14 (IvtUpdateScalableModePasidTablesForPasid.c)
+ *     IvtGetPasidGranularTranslationType @ 0x1404F8030 (IvtGetPasidGranularTranslationType.c)
  */
 
 __int64 __fastcall IvtUpdateScalableModeTranslationStructures(

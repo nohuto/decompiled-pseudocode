@@ -1,12 +1,12 @@
 /*
- * XREFs of VslConfigureDynamicMemory @ 0x14058CCAC
+ * XREFs of VslConfigureDynamicMemory @ 0x140589FA4
  * Callers:
- *     KeConfigureDynamicMemory @ 0x1405B79E4 (KeConfigureDynamicMemory.c)
+ *     KeConfigureDynamicMemory @ 0x1405B4FBC (KeConfigureDynamicMemory.c)
  * Callees:
- *     VslpEnterIumSecureMode @ 0x140265D90 (VslpEnterIumSecureMode.c)
- *     HvlQueryVsmConnection @ 0x140456290 (HvlQueryVsmConnection.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     VslpEnterIumSecureMode @ 0x1403AADB0 (VslpEnterIumSecureMode.c)
+ *     HvlQueryVsmConnection @ 0x14044B190 (HvlQueryVsmConnection.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 __int64 __fastcall VslConfigureDynamicMemory(__int64 a1, __int64 a2, unsigned int a3)
@@ -24,5 +24,5 @@ __int64 __fastcall VslConfigureDynamicMemory(__int64 a1, __int64 a2, unsigned in
   v8 = a1;
   v9 = a2;
   v10 = v4;
-  return VslpEnterIumSecureMode(2u, 39LL, 0, (__int64)v7);
+  return VslpEnterIumSecureMode(2u, 0x27u, 0, (__int64)v7);
 }

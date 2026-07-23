@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlCSparseBitmapLeaveLockingRegion @ 0x140314930
+ * XREFs of RtlCSparseBitmapLeaveLockingRegion @ 0x140314BC0
  * Callers:
- *     RtlSparseArrayElementAllocate @ 0x140310484 (RtlSparseArrayElementAllocate.c)
- *     RtlCSparseBitmapBitmaskWrite @ 0x140312350 (RtlCSparseBitmapBitmaskWrite.c)
- *     RtlpCSparseBitmapPageCommit @ 0x140313428 (RtlpCSparseBitmapPageCommit.c)
- *     RtlpCSparseBitmapPageDecommit @ 0x140355B7C (RtlpCSparseBitmapPageDecommit.c)
+ *     RtlSparseArrayElementAllocate @ 0x140310714 (RtlSparseArrayElementAllocate.c)
+ *     RtlCSparseBitmapBitmaskWrite @ 0x1403125E0 (RtlCSparseBitmapBitmaskWrite.c)
+ *     RtlpCSparseBitmapPageCommit @ 0x1403136B8 (RtlpCSparseBitmapPageCommit.c)
+ *     RtlpCSparseBitmapPageDecommit @ 0x140355D1C (RtlpCSparseBitmapPageDecommit.c)
  * Callees:
- *     KiCheckForKernelApcDelivery @ 0x14030F820 (KiCheckForKernelApcDelivery.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiCheckForKernelApcDelivery @ 0x14030FAB0 (KiCheckForKernelApcDelivery.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 char __fastcall RtlCSparseBitmapLeaveLockingRegion(unsigned __int8 *a1)
@@ -23,10 +23,10 @@ char __fastcall RtlCSparseBitmapLeaveLockingRegion(unsigned __int8 *a1)
   if ( v1[1].ApcStateFill[0] )
   {
     v2 = *a1;
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       LOBYTE(v1) = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
         && (unsigned __int8)v1 <= 0xFu
         && (unsigned __int8)v2 <= 0xFu
         && (unsigned __int8)v1 >= 2u )

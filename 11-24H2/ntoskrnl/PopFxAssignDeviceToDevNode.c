@@ -1,11 +1,11 @@
 /*
- * XREFs of PopFxAssignDeviceToDevNode @ 0x1404B8C0C
+ * XREFs of PopFxAssignDeviceToDevNode @ 0x1404B38C8
  * Callers:
- *     PopFxRegisterDevice @ 0x14074E950 (PopFxRegisterDevice.c)
- *     PopFxUnregisterDevice @ 0x140A74BB4 (PopFxUnregisterDevice.c)
+ *     PopFxRegisterDevice @ 0x14074CC80 (PopFxRegisterDevice.c)
+ *     PopFxUnregisterDevice @ 0x140A6EED4 (PopFxUnregisterDevice.c)
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x14028F370 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusive @ 0x140379ED0 (ExReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14029EF70 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusive @ 0x1402E6E40 (ExReleaseSpinLockExclusive.c)
  */
 
 void __fastcall PopFxAssignDeviceToDevNode(__int64 a1, __int64 a2)

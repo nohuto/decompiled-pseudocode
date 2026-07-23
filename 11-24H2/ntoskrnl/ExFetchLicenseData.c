@@ -1,15 +1,15 @@
 /*
- * XREFs of ExFetchLicenseData @ 0x1407B7D80
+ * XREFs of ExFetchLicenseData @ 0x1407B81D0
  * Callers:
  *     <none>
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     ExfReleasePushLockShared @ 0x14025DE00 (ExfReleasePushLockShared.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     ExfAcquirePushLockSharedEx @ 0x14034050C (ExfAcquirePushLockSharedEx.c)
- *     PsGetCurrentServerSiloGlobals @ 0x140347D10 (PsGetCurrentServerSiloGlobals.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     ExfReleasePushLockShared @ 0x14028E410 (ExfReleasePushLockShared.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     ExfAcquirePushLockSharedEx @ 0x14031F9EC (ExfAcquirePushLockSharedEx.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x140326710 (PsGetCurrentServerSiloGlobals.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
  */
 
 __int64 __fastcall ExFetchLicenseData(void *a1, unsigned int a2, unsigned int *a3)
@@ -17,7 +17,7 @@ __int64 __fastcall ExFetchLicenseData(void *a1, unsigned int a2, unsigned int *a
   struct _LIST_ENTRY *Blink; // rsi
   __int64 v7; // r8
   struct _KTHREAD *CurrentThread; // rax
-  _QWORD *v10; // r15
+  char *v10; // r15
   unsigned int *Flink; // rdx
   unsigned int v12; // [rsp+70h] [rbp+18h]
 
@@ -27,11 +27,11 @@ __int64 __fastcall ExFetchLicenseData(void *a1, unsigned int a2, unsigned int *a
     return 3221225485LL;
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
-  v10 = KeAbPreAcquire((__int64)&Blink[2927].Blink, 0LL);
+  v10 = (char *)KeAbPreAcquire((__int64)&Blink[2927].Blink, 0LL);
   if ( _InterlockedCompareExchange64((volatile signed __int64 *)&Blink[2927].Blink, 17LL, 0LL) )
     ExfAcquirePushLockSharedEx((signed __int64 *)&Blink[2927].Blink, 0, v10, (__int64)&Blink[2927].Blink);
   if ( v10 )
-    *((_BYTE *)v10 + 10) = 1;
+    v10[10] = 1;
   if ( LOBYTE(Blink[2937].Flink) )
     goto LABEL_8;
   Flink = (unsigned int *)Blink[2927].Flink;

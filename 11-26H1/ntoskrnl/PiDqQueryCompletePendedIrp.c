@@ -1,11 +1,11 @@
 /*
- * XREFs of PiDqQueryCompletePendedIrp @ 0x14098FED0
+ * XREFs of PiDqQueryCompletePendedIrp @ 0x140950930
  * Callers:
- *     PiDqObjectManagerServiceActionQueue @ 0x14098F320 (PiDqObjectManagerServiceActionQueue.c)
+ *     PiDqObjectManagerServiceActionQueue @ 0x14094FD80 (PiDqObjectManagerServiceActionQueue.c)
  * Callees:
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     PiDqIrpComplete @ 0x1409900E4 (PiDqIrpComplete.c)
- *     PiDqQueryGetNextIoctlInfo @ 0x140990240 (PiDqQueryGetNextIoctlInfo.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     PiDqIrpComplete @ 0x140950B44 (PiDqIrpComplete.c)
+ *     PiDqQueryGetNextIoctlInfo @ 0x140950CA0 (PiDqQueryGetNextIoctlInfo.c)
  */
 
 __int64 __fastcall PiDqQueryCompletePendedIrp(__int64 a1)

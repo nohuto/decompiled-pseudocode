@@ -7,20 +7,20 @@
  *     _RtlpHpVsContextAllocateInternal@24 @ 0x4B37F180 (_RtlpHpVsContextAllocateInternal@24.c)
  */
 
-int __stdcall RtlpHpVsContextAllocate(int a1, int a2)
+int __thiscall RtlpHpVsContextAllocate(_RTL_SRWLOCK *this, int a2, int a3)
 {
-  int v2; // esi
-  int v4; // [esp+8h] [ebp-10h] BYREF
-  volatile signed __int32 *v5; // [esp+Ch] [ebp-Ch]
-  int v6; // [esp+10h] [ebp-8h]
-  int v7; // [esp+14h] [ebp-4h] BYREF
+  int Internal; // esi
+  int v5; // [esp+8h] [ebp-10h] BYREF
+  PRTL_SRWLOCK SRWLock; // [esp+Ch] [ebp-Ch]
+  int v7; // [esp+10h] [ebp-8h]
+  int v8; // [esp+14h] [ebp-4h] BYREF
 
-  v7 = 0;
-  v4 = 0;
+  v8 = 0;
   v5 = 0;
-  v6 = 0;
-  v2 = RtlpHpVsContextAllocateInternal(a1, a2, &v4, &v7);
-  if ( v7 && (a2 & 1) == 0 )
-    RtlReleaseSRWLockExclusive(v5);
-  return v2;
+  SRWLock = 0;
+  v7 = 0;
+  Internal = RtlpHpVsContextAllocateInternal(this, a2, a3, (int)&v5, (int)&v8);
+  if ( v8 && (a3 & 1) == 0 )
+    RtlReleaseSRWLockExclusive(SRWLock);
+  return Internal;
 }

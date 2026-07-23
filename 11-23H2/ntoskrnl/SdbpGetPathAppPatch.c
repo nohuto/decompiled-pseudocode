@@ -1,14 +1,14 @@
 /*
- * XREFs of SdbpGetPathAppPatch @ 0x140A52C30
+ * XREFs of SdbpGetPathAppPatch @ 0x140A52EE0
  * Callers:
- *     SdbpGetPathAppPatchPreRS3 @ 0x14066E110 (SdbpGetPathAppPatchPreRS3.c)
- *     SdbpGetPathCustomSdbPreRS3 @ 0x14066E2A0 (SdbpGetPathCustomSdbPreRS3.c)
- *     SdbpGetPathCustomSdb @ 0x140A52E80 (SdbpGetPathCustomSdb.c)
+ *     SdbpGetPathAppPatchPreRS3 @ 0x14066E660 (SdbpGetPathAppPatchPreRS3.c)
+ *     SdbpGetPathCustomSdbPreRS3 @ 0x14066E7F0 (SdbpGetPathCustomSdbPreRS3.c)
+ *     SdbpGetPathCustomSdb @ 0x140A53130 (SdbpGetPathCustomSdb.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  *     AslLogCallPrintf @ 0x1406956FC (AslLogCallPrintf.c)
- *     AslPathCombine @ 0x140A550EC (AslPathCombine.c)
- *     AslPathToSystemPathBuf @ 0x140A553E8 (AslPathToSystemPathBuf.c)
+ *     AslPathCombine @ 0x140A5539C (AslPathCombine.c)
+ *     AslPathToSystemPathBuf @ 0x140A55698 (AslPathToSystemPathBuf.c)
  */
 
 __int64 __fastcall SdbpGetPathAppPatch(NTSTRSAFE_PWSTR pszDest, size_t cchDest)

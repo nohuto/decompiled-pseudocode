@@ -46,10 +46,13 @@ __int64 __fastcall MiEnableImageDirectMap(
         if ( !v12 || (*(_DWORD *)(v12 + 56) & 3) == 0 && (*(_BYTE *)(v12 + 62) & 0xC) != 4 )
           *((_BYTE *)a2 + 62) = *((_BYTE *)a2 + 62) & 0xF3 | 4;
         ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140C65640);
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
           CurrentIrql = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v11 <= 0xFu && CurrentIrql >= 2u )
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+            && CurrentIrql <= 0xFu
+            && (unsigned __int8)v11 <= 0xFu
+            && CurrentIrql >= 2u )
           {
             CurrentPrcb = KeGetCurrentPrcb();
             SchedulerAssist = CurrentPrcb->SchedulerAssist;

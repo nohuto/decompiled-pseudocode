@@ -1,11 +1,11 @@
 /*
- * XREFs of TtmiLogTerminalDisplayTimeouts @ 0x140904994
+ * XREFs of TtmiLogTerminalDisplayTimeouts @ 0x140904AF4
  * Callers:
- *     TtmiTerminalSetDisplayTimeouts @ 0x1408FDC6C (TtmiTerminalSetDisplayTimeouts.c)
+ *     TtmiTerminalSetDisplayTimeouts @ 0x1408FDDCC (TtmiTerminalSetDisplayTimeouts.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14025FAE0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgKeywordOn @ 0x1402605BC (_tlgKeywordOn.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14027E1A4 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x1402864F4 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  */
 
 void __fastcall TtmiLogTerminalDisplayTimeouts(int a1, __int64 a2, __int64 a3, __int64 a4, __int64 a5, __int64 a6)
@@ -57,7 +57,7 @@ void __fastcall TtmiLogTerminalDisplayTimeouts(int a1, __int64 a2, __int64 a3, _
       v24 = 4LL;
       tlgWriteTransfer_EtwWriteTransfer(
         (__int64)&dword_140D2D8C8,
-        (unsigned __int8 *)&unk_14002AD80,
+        (unsigned __int8 *)word_14002B632,
         0LL,
         0LL,
         8u,

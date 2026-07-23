@@ -1,21 +1,21 @@
 /*
- * XREFs of IopBuildAsynchronousFsdRequest @ 0x1404B4190
+ * XREFs of IopBuildAsynchronousFsdRequest @ 0x1404AD760
  * Callers:
- *     IoBuildAsynchronousFsdRequest @ 0x1404B4150 (IoBuildAsynchronousFsdRequest.c)
- *     PnpQueryInterface @ 0x140AA8480 (PnpQueryInterface.c)
- *     IopBuildSynchronousFsdRequest @ 0x140AD4020 (IopBuildSynchronousFsdRequest.c)
- *     IoBuildSynchronousFsdRequest @ 0x140AD5C20 (IoBuildSynchronousFsdRequest.c)
- *     IopCreateArcName @ 0x140B1C9D8 (IopCreateArcName.c)
+ *     IoBuildAsynchronousFsdRequest @ 0x1404AD720 (IoBuildAsynchronousFsdRequest.c)
+ *     PnpQueryInterface @ 0x1409DB9B4 (PnpQueryInterface.c)
+ *     IopBuildSynchronousFsdRequest @ 0x140AD1480 (IopBuildSynchronousFsdRequest.c)
+ *     IoBuildSynchronousFsdRequest @ 0x140AD2BD0 (IoBuildSynchronousFsdRequest.c)
+ *     IopCreateArcName @ 0x140B1EBE8 (IopCreateArcName.c)
  * Callees:
- *     IoFreeIrp @ 0x140268860 (IoFreeIrp.c)
- *     IopAllocateIrpExReturn @ 0x14026C640 (IopAllocateIrpExReturn.c)
- *     IoSetDiskIoAttributionFromThread @ 0x14026CD00 (IoSetDiskIoAttributionFromThread.c)
- *     PsGetIoPriorityThread @ 0x1403750A0 (PsGetIoPriorityThread.c)
- *     IopAllocateMdl @ 0x14039EBE0 (IopAllocateMdl.c)
- *     IoFreeMdl @ 0x14039F190 (IoFreeMdl.c)
- *     IopProbeAndLockPages_0 @ 0x1404B4354 (IopProbeAndLockPages_0.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
+ *     IoFreeIrp @ 0x140267DD0 (IoFreeIrp.c)
+ *     IopAllocateIrpExReturn @ 0x14026BBB0 (IopAllocateIrpExReturn.c)
+ *     IoSetDiskIoAttributionFromThread @ 0x14026C270 (IoSetDiskIoAttributionFromThread.c)
+ *     PsGetIoPriorityThread @ 0x140376E50 (PsGetIoPriorityThread.c)
+ *     IopAllocateMdl @ 0x1403A0940 (IopAllocateMdl.c)
+ *     IoFreeMdl @ 0x1403A0EF0 (IoFreeMdl.c)
+ *     IopProbeAndLockPages_0 @ 0x1404AD924 (IopProbeAndLockPages_0.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall IopBuildAsynchronousFsdRequest(

@@ -18,17 +18,17 @@
  *     BiLogMessage @ 0x14058C1E4 (BiLogMessage.c)
  */
 
-__int64 __fastcall BcdCloseStore(__int64 a1)
+NTSTATUS __cdecl BcdCloseStore(HANDLE BcdStoreHandle)
 {
   __int64 v2; // rcx
   char v3; // si
   int v4; // eax
-  unsigned int v5; // ebx
+  NTSTATUS v5; // ebx
   unsigned int v6; // ebx
-  unsigned int v7; // eax
+  NTSTATUS v7; // eax
   __int64 v8; // rcx
 
-  LOBYTE(v2) = BiIsOfflineHandle(a1);
+  LOBYTE(v2) = BiIsOfflineHandle((char)BcdStoreHandle);
   v3 = v2;
   v4 = BiAcquireBcdSyncMutant(v2);
   v5 = v4;
@@ -38,10 +38,10 @@ __int64 __fastcall BcdCloseStore(__int64 a1)
   }
   else
   {
-    if ( (unsigned __int8)BiIsSystemStore(a1) )
+    if ( (unsigned __int8)BiIsSystemStore(BcdStoreHandle) )
     {
       v6 = 0;
-      if ( BiIsSynchFirmwareEntries(a1) )
+      if ( BiIsSynchFirmwareEntries((char)BcdStoreHandle) )
         v6 = 4;
       if ( (unsigned __int8)BiIsWinPEBoot() )
         v6 |= 2u;
@@ -51,7 +51,7 @@ __int64 __fastcall BcdCloseStore(__int64 a1)
       v6 = 2;
     }
     BiLogMessage(2LL, L"Closing store. Flags: 0x%x", v6);
-    v7 = BiCloseStore(a1, v6);
+    v7 = BiCloseStore((__int64)BcdStoreHandle, v6);
     LOBYTE(v8) = v3;
     v5 = v7;
     BiReleaseBcdSyncMutant(v8);

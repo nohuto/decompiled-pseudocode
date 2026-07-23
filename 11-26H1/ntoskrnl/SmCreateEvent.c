@@ -1,12 +1,12 @@
 /*
- * XREFs of SmCreateEvent @ 0x140B4EDE8
+ * XREFs of SmCreateEvent @ 0x140B51678
  * Callers:
- *     SmRegistrationCtxStart @ 0x140B4ED90 (SmRegistrationCtxStart.c)
+ *     SmRegistrationCtxStart @ 0x140B51620 (SmRegistrationCtxStart.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     ZwCreateEvent @ 0x140723CF0 (ZwCreateEvent.c)
- *     ObReferenceObjectByHandle @ 0x1408F9550 (ObReferenceObjectByHandle.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     ZwCreateEvent @ 0x1407288C0 (ZwCreateEvent.c)
+ *     ObReferenceObjectByHandle @ 0x1409294E0 (ObReferenceObjectByHandle.c)
  */
 
 __int64 __fastcall SmCreateEvent(__int64 a1, PVOID *a2)

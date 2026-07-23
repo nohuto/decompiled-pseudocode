@@ -1,14 +1,14 @@
 /*
- * XREFs of MiIsPageTableLocked @ 0x1403FAAB4
+ * XREFs of MiIsPageTableLocked @ 0x140295EE4
  * Callers:
- *     MiAgePte @ 0x14022F8D0 (MiAgePte.c)
- *     MiTrimPte @ 0x140242BA0 (MiTrimPte.c)
- *     MiEmptyWorkingSetHelper @ 0x140287320 (MiEmptyWorkingSetHelper.c)
- *     MiEmptyPte @ 0x140287AF0 (MiEmptyPte.c)
- *     MiWalkVaCheckCommon @ 0x1403FA9F0 (MiWalkVaCheckCommon.c)
+ *     MiTrimPte @ 0x1402130B0 (MiTrimPte.c)
+ *     MiWalkVaCheckCommon @ 0x140295E20 (MiWalkVaCheckCommon.c)
+ *     MiEmptyWorkingSetHelper @ 0x140296F20 (MiEmptyWorkingSetHelper.c)
+ *     MiEmptyPte @ 0x1402976F0 (MiEmptyPte.c)
+ *     MiAgePte @ 0x140303CD0 (MiAgePte.c)
  * Callees:
- *     MI_READ_PTE_LOCK_FREE @ 0x14021A250 (MI_READ_PTE_LOCK_FREE.c)
- *     MiTranslateVmToLock @ 0x1403FB1A0 (MiTranslateVmToLock.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140246FA0 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiTranslateVmToLock @ 0x1403FC970 (MiTranslateVmToLock.c)
  */
 
 _BOOL8 __fastcall MiIsPageTableLocked(__int64 a1, unsigned __int64 a2)
@@ -35,7 +35,7 @@ _BOOL8 __fastcall MiIsPageTableLocked(__int64 a1, unsigned __int64 a2)
     }
   }
   if ( (*(_DWORD *)(a1 + 184) & 0xF) != 0 && a2 >= 0xFFFFF6FB7DBED000uLL && a2 <= 0xFFFFF6FB7DBEDFFFuLL )
-    LODWORD(v2) = (unsigned int)dword_140E2F0AC[(unsigned __int64)(2
+    LODWORD(v2) = (unsigned int)dword_140E2F1EC[(unsigned __int64)(2
                                                                  * (unsigned int)((__int64)(a2 + 0x90482413000LL) >> 3)) >> 5] >> ((2 * ((__int64)(a2 + 0x90482413000LL) >> 3)) & 0x1F);
   else
     v2 = (unsigned __int64)MI_READ_PTE_LOCK_FREE(a2) >> 60;

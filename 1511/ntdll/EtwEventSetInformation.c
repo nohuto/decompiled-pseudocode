@@ -6,28 +6,32 @@
  *     <none>
  */
 
-__int64 __fastcall EtwEventSetInformation(__int64 a1, int a2, char *a3, int a4)
+ULONG __cdecl EtwEventSetInformation(
+        REGHANDLE RegHandle,
+        EVENT_INFO_CLASS InformationClass,
+        PVOID EventInformation,
+        ULONG InformationLength)
 {
-  int v4; // edx
+  __int32 v4; // edx
 
-  if ( a2 )
+  if ( InformationClass )
   {
-    v4 = a2 - 2;
+    v4 = InformationClass - 2;
     if ( v4 )
     {
       if ( v4 != 1 )
-        return 50LL;
-      if ( a3 && a4 == 1 )
-        return EtwpUseDescriptorType(a1, a3);
+        return 50;
+      if ( EventInformation && InformationLength == 1 )
+        return EtwpUseDescriptorType(RegHandle, (char *)EventInformation);
     }
-    else if ( a3 && (unsigned int)(a4 - 3) <= 0xFFFC )
+    else if ( EventInformation && InformationLength - 3 <= 0xFFFC )
     {
-      return EtwpSetProviderTraits(a1, a3, (unsigned __int16)a4);
+      return EtwpSetProviderTraits(RegHandle, EventInformation, (unsigned __int16)InformationLength);
     }
   }
-  else if ( !a4 )
+  else if ( !InformationLength )
   {
-    return EtwpTrackProviderBinary();
+    return EtwpTrackProviderBinary(RegHandle);
   }
-  return 87LL;
+  return 87;
 }

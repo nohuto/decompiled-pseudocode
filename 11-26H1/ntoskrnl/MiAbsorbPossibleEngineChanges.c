@@ -1,18 +1,18 @@
 /*
- * XREFs of MiAbsorbPossibleEngineChanges @ 0x1404EBE80
+ * XREFs of MiAbsorbPossibleEngineChanges @ 0x1404E5460
  * Callers:
- *     MiInitializeZeroEngines @ 0x140B277AC (MiInitializeZeroEngines.c)
+ *     MiInitializeZeroEngines @ 0x140B2A06C (MiInitializeZeroEngines.c)
  * Callees:
- *     ExReleaseSpinLockShared @ 0x14026CEE0 (ExReleaseSpinLockShared.c)
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402DC6D0 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     ExAcquireSpinLockShared @ 0x1402EDF10 (ExAcquireSpinLockShared.c)
- *     InitializeSListHead @ 0x140499200 (InitializeSListHead.c)
- *     MiUpdateEngineConfiguration @ 0x1404F8D64 (MiUpdateEngineConfiguration.c)
- *     MiUpdateEngineAffinities @ 0x1404FDD1C (MiUpdateEngineAffinities.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     ExReleaseSpinLockShared @ 0x14026C450 (ExReleaseSpinLockShared.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402BE490 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     ExAcquireSpinLockShared @ 0x1402CFF90 (ExAcquireSpinLockShared.c)
+ *     InitializeSListHead @ 0x140492D50 (InitializeSListHead.c)
+ *     MiUpdateEngineConfiguration @ 0x1404F2374 (MiUpdateEngineConfiguration.c)
+ *     MiUpdateEngineAffinities @ 0x1404F725C (MiUpdateEngineAffinities.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
-__int64 __fastcall MiAbsorbPossibleEngineChanges(union _SLIST_HEADER *a1, int *a2)
+__int64 __fastcall MiAbsorbPossibleEngineChanges(_SLIST_HEADER *a1, int *a2)
 {
   __int64 v4; // rbp
   __int64 v5; // r8
@@ -32,7 +32,7 @@ __int64 __fastcall MiAbsorbPossibleEngineChanges(union _SLIST_HEADER *a1, int *a
   v4 = *a2;
   v5 = *(unsigned int *)(*((_QWORD *)a2 + 17) + 56LL);
   *((_DWORD *)&a1[1].HeaderX64 + 1) = v5;
-  v6 = *(_QWORD *)(384 * v5 + qword_140E2D6B8 + 376);
+  v6 = *(_QWORD *)(384 * v5 + qword_140E2D838 + 376);
   if ( !(_DWORD)v4 )
   {
     *((_BYTE *)a2 + 39) = 1;
@@ -48,12 +48,12 @@ LABEL_3:
   if ( (*(_DWORD *)(v6 + 36) & 1) != 0 )
   {
     *((_BYTE *)a2 + 39) = 1;
-    v8 = &qword_140E2D698;
+    v8 = &qword_140E2D818;
     BYTE1(a1->Alignment) = 1;
   }
   else
   {
-    v8 = *(__int64 **)(384 * v5 + qword_140E2D6B8 + 376);
+    v8 = *(__int64 **)(384 * v5 + qword_140E2D838 + 376);
   }
   v9 = (volatile LONG *)(v6 + 64);
   v10 = ExAcquireSpinLockShared((PEX_SPIN_LOCK)(v6 + 64));

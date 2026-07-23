@@ -6,7 +6,7 @@
  *     NtSetEventEx @ 0x140995350 (NtSetEventEx.c)
  */
 
-__int64 __fastcall NtSetEvent(void *a1)
+NTSTATUS __cdecl NtSetEvent(HANDLE EventHandle, PLONG PreviousState)
 {
-  return NtSetEventEx(a1);
+  return NtSetEventEx(EventHandle);
 }

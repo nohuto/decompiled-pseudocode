@@ -1,7 +1,7 @@
 /*
- * XREFs of KiIntSteerEnable @ 0x14012D314
+ * XREFs of KiIntSteerEnable @ 0x14012D884
  * Callers:
- *     KeConnectInterrupt @ 0x14012CFC4 (KeConnectInterrupt.c)
+ *     KeConnectInterrupt @ 0x14012D534 (KeConnectInterrupt.c)
  * Callees:
  *     <none>
  */

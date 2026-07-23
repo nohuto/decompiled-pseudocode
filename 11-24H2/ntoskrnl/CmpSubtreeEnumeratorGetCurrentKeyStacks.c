@@ -1,7 +1,7 @@
 /*
- * XREFs of CmpSubtreeEnumeratorGetCurrentKeyStacks @ 0x140A63428
+ * XREFs of CmpSubtreeEnumeratorGetCurrentKeyStacks @ 0x140A5BD28
  * Callers:
- *     CmRenameKey @ 0x1407D9068 (CmRenameKey.c)
+ *     CmRenameKey @ 0x1407D95B8 (CmRenameKey.c)
  * Callees:
  *     <none>
  */

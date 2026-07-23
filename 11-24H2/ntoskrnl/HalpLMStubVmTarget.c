@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpLMStubVmTarget @ 0x1406A5BB6
+ * XREFs of HalpLMStubVmTarget @ 0x1406A6BBF
  * Callers:
- *     HalpLMStubForVM @ 0x1406A5AF0 (HalpLMStubForVM.c)
+ *     HalpLMStubForVM @ 0x1406A6AF0 (HalpLMStubForVM.c)
  * Callees:
- *     <none>
+ *     HalpInterruptCheckProcessorCacheDomainSharing @ 0x140556B80 (HalpInterruptCheckProcessorCacheDomainSharing.c)
  */
 
 // positive sp value has been detected, the output may be wrong!
@@ -32,6 +32,8 @@ __int64 __fastcall HalpLMStubVmTarget()
   __writedr(6u, *(_QWORD *)(v0 + 208));
   __writedr(7u, *(_QWORD *)(v0 + 216));
   __writeeflags(*(_QWORD *)(v0 + 452));
+  if ( (*(_DWORD *)(v0 + 8) & 8) != 0 )
+    HalpInterruptCheckProcessorCacheDomainSharing(v0);
   result = *(_QWORD *)(v0 + 504);
   _fxrstor((void *)(v0 + 640));
   ++*(_DWORD *)(v0 + 4);

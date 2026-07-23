@@ -1,16 +1,16 @@
 /*
- * XREFs of MiGetSlabStandbyPage @ 0x140656E5C
+ * XREFs of MiGetSlabStandbyPage @ 0x1406573AC
  * Callers:
- *     MiGetSlabPage @ 0x14023BD70 (MiGetSlabPage.c)
+ *     MiGetSlabPage @ 0x14023BE40 (MiGetSlabPage.c)
  * Callees:
- *     MiUnlinkPageFromListEx @ 0x140266630 (MiUnlinkPageFromListEx.c)
- *     MiReleasePageListLock @ 0x1402DDAD0 (MiReleasePageListLock.c)
- *     MiReInitializeFreeSlabPfn @ 0x1403390FC (MiReInitializeFreeSlabPfn.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memset @ 0x140435A00 (memset.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     MiDiscardTransitionPteEx @ 0x140650624 (MiDiscardTransitionPteEx.c)
- *     MiLockPageListAndFirstPage @ 0x140650BD4 (MiLockPageListAndFirstPage.c)
+ *     MiUnlinkPageFromListEx @ 0x1402668C0 (MiUnlinkPageFromListEx.c)
+ *     MiReleasePageListLock @ 0x1402DDD60 (MiReleasePageListLock.c)
+ *     MiReInitializeFreeSlabPfn @ 0x14033938C (MiReInitializeFreeSlabPfn.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     MiDiscardTransitionPteEx @ 0x140650B74 (MiDiscardTransitionPteEx.c)
+ *     MiLockPageListAndFirstPage @ 0x140651124 (MiLockPageListAndFirstPage.c)
  */
 
 __int64 __fastcall MiGetSlabStandbyPage(__int64 a1)
@@ -39,7 +39,7 @@ __int64 __fastcall MiGetSlabStandbyPage(__int64 a1)
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
   v4 = -1LL;
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     v6 = 4;
@@ -51,10 +51,10 @@ __int64 __fastcall MiGetSlabStandbyPage(__int64 a1)
   v8 = Page;
   if ( Page == -1 )
   {
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v9 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v9 <= 0xFu && CurrentIrql <= 0xFu && v9 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v9 <= 0xFu && CurrentIrql <= 0xFu && v9 >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         v11 = CurrentPrcb->SchedulerAssist;
@@ -75,10 +75,10 @@ __int64 __fastcall MiGetSlabStandbyPage(__int64 a1)
     *(_BYTE *)(v14 + 34) = *(_BYTE *)(v14 + 34) & 0xF8 | 1;
     MiReInitializeFreeSlabPfn((_QWORD *)v14, a1);
     _InterlockedAnd64((volatile signed __int64 *)(v14 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v15 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v15 <= 0xFu && CurrentIrql <= 0xFu && v15 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v15 <= 0xFu && CurrentIrql <= 0xFu && v15 >= 2u )
       {
         v16 = KeGetCurrentPrcb();
         v17 = v16->SchedulerAssist;

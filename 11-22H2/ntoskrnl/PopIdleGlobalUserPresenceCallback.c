@@ -12,9 +12,6 @@ __int64 __fastcall PopIdleGlobalUserPresenceCallback(LPCGUID SettingGuid, int *V
 {
   __int64 v4; // rax
   int v5; // ebx
-  __int64 v6; // rdx
-  __int64 v7; // rcx
-  __int64 v8; // r8
 
   v4 = *(_QWORD *)&SettingGuid->Data1 - *(_QWORD *)&GUID_GLOBAL_USER_PRESENCE.Data1;
   if ( *(_QWORD *)&SettingGuid->Data1 == *(_QWORD *)&GUID_GLOBAL_USER_PRESENCE.Data1 )
@@ -30,7 +27,7 @@ __int64 __fastcall PopIdleGlobalUserPresenceCallback(LPCGUID SettingGuid, int *V
       qword_140C3CEE0 = 0LL;
       dword_140C3CD70 = 0;
     }
-    PopReleasePolicyLock(v7, v6, v8);
+    PopReleasePolicyLock();
   }
   return 0LL;
 }

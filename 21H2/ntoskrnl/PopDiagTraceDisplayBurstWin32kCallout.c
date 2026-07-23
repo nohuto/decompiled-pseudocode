@@ -1,10 +1,10 @@
 /*
- * XREFs of PopDiagTraceDisplayBurstWin32kCallout @ 0x1408E9E4C
+ * XREFs of PopDiagTraceDisplayBurstWin32kCallout @ 0x1408E9FAC
  * Callers:
- *     NtPowerInformation @ 0x1406777D0 (NtPowerInformation.c)
+ *     NtPowerInformation @ 0x14066AF10 (NtPowerInformation.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14025FAE0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14027E1A4 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  */
 
 char __fastcall PopDiagTraceDisplayBurstWin32kCallout(__int64 a1, __int64 a2, char a3)
@@ -35,7 +35,7 @@ char __fastcall PopDiagTraceDisplayBurstWin32kCallout(__int64 a1, __int64 a2, ch
     v13 = 1LL;
     return tlgWriteTransfer_EtwWriteTransfer(
              (__int64)&dword_140C02228,
-             (unsigned __int8 *)byte_140027D51,
+             (unsigned __int8 *)byte_1400282A1,
              0LL,
              0LL,
              5u,

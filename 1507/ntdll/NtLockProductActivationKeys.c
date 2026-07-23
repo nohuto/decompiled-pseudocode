@@ -6,11 +6,11 @@
  *     <none>
  */
 
-__int64 NtLockProductActivationKeys()
+NTSTATUS __cdecl NtLockProductActivationKeys(ULONG *pPrivateVer, ULONG *pSafeMode)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 250LL;
+  result = 250;
   __asm { syscall; Low latency system call }
   return result;
 }

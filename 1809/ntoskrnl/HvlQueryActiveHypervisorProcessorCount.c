@@ -1,5 +1,5 @@
 /*
- * XREFs of HvlQueryActiveHypervisorProcessorCount @ 0x140271410
+ * XREFs of HvlQueryActiveHypervisorProcessorCount @ 0x140271600
  * Callers:
  *     <none>
  * Callees:

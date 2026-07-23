@@ -1,42 +1,42 @@
 /*
- * XREFs of IopQueryNameInternal @ 0x1409FC134
+ * XREFs of IopQueryNameInternal @ 0x140920D34
  * Callers:
- *     IoQueryFileDosDeviceName @ 0x1409FC050 (IoQueryFileDosDeviceName.c)
- *     IopQueryName @ 0x1409FC100 (IopQueryName.c)
+ *     IoQueryFileDosDeviceName @ 0x140920C50 (IoQueryFileDosDeviceName.c)
+ *     IopQueryName @ 0x140920D00 (IopQueryName.c)
  * Callees:
- *     memmove @ 0x14073D480 (memmove.c)
- *     RtlCopyToUser @ 0x14077F284 (RtlCopyToUser.c)
- *     RtlWriteULong64ToUser @ 0x14077F758 (RtlWriteULong64ToUser.c)
- *     RtlWriteUShortToUser @ 0x14077F7E4 (RtlWriteUShortToUser.c)
- *     IopQueryXxxInformation @ 0x1409B8C10 (IopQueryXxxInformation.c)
- *     IoVolumeDeviceToDosName @ 0x1409FB9E0 (IoVolumeDeviceToDosName.c)
- *     IopGetFileInformation @ 0x1409FC6D0 (IopGetFileInformation.c)
- *     ObQueryNameStringMode @ 0x1409FDA40 (ObQueryNameStringMode.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     RtlCopyToUser @ 0x140781D84 (RtlCopyToUser.c)
+ *     RtlWriteULong64ToUser @ 0x140782258 (RtlWriteULong64ToUser.c)
+ *     RtlWriteUShortToUser @ 0x1407822E4 (RtlWriteUShortToUser.c)
+ *     IoVolumeDeviceToDosName @ 0x1409205E0 (IoVolumeDeviceToDosName.c)
+ *     IopGetFileInformation @ 0x1409212D0 (IopGetFileInformation.c)
+ *     ObQueryNameStringMode @ 0x140922640 (ObQueryNameStringMode.c)
+ *     IopQueryXxxInformation @ 0x140989BF0 (IopQueryXxxInformation.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall IopQueryNameInternal(
-        struct _FILE_OBJECT *a1,
+        ULONG_PTR a1,
         __int64 a2,
         char a3,
         UNICODE_STRING *a4,
         unsigned int a5,
         _DWORD *a6,
-        unsigned __int8 a7)
+        char a7)
 {
-  struct _FILE_OBJECT *v8; // rdi
+  ULONG_PTR v8; // rdi
   UNICODE_STRING *v9; // r12
   char v10; // r13
   unsigned int v11; // esi
   UNICODE_STRING *v12; // r14
-  _DWORD *p_Type; // rcx
+  _DWORD *v13; // rcx
   NTSTATUS NameStringMode; // edi
   UNICODE_STRING *v15; // rdi
   char v16; // cl
   _DWORD *v17; // r13
   UNICODE_STRING *v18; // r14
-  struct _FILE_OBJECT *v19; // rcx
+  ULONG_PTR v19; // rcx
   NTSTATUS FileInformation; // eax
   int v21; // eax
   unsigned int v22; // eax
@@ -90,10 +90,10 @@ __int64 __fastcall IopQueryNameInternal(
     if ( a5 >= 0x10 )
       v12 = a4;
   }
-  p_Type = &v8->DeviceObject->Type;
+  v13 = *(_DWORD **)(v8 + 8);
   if ( !a3 )
     goto LABEL_7;
-  v31 = p_Type[13];
+  v31 = v13[13];
   if ( (v31 & 0x10) != 0 )
   {
     v35 = L"\\\\?\\vmsmb";
@@ -103,7 +103,7 @@ __int64 __fastcall IopQueryNameInternal(
     v37 = (unsigned __int16)(v36 != 0 ? 20 : 4);
     LODWORD(v38) = v37 + 16;
     if ( (int)v37 + 16 > v11 )
-      goto LABEL_80;
+      goto LABEL_79;
     NameStringMode = 0;
     v12->Length = v36 != 0 ? 18 : 2;
     v12->MaximumLength = v37;
@@ -112,16 +112,16 @@ __int64 __fastcall IopQueryNameInternal(
   }
   else
   {
-    NameStringMode = IoVolumeDeviceToDosName(p_Type, v12);
+    NameStringMode = IoVolumeDeviceToDosName(v13, v12);
     LODWORD(v38) = v12->Length + 18;
   }
   if ( NameStringMode < 0 )
   {
     v8 = a1;
-LABEL_80:
-    p_Type = &v8->DeviceObject->Type;
+LABEL_79:
+    v13 = *(_DWORD **)(v8 + 8);
 LABEL_7:
-    NameStringMode = ObQueryNameStringMode((_DWORD)p_Type, (_DWORD)v12, v11, (unsigned int)&v38, 0);
+    NameStringMode = ObQueryNameStringMode((_DWORD)v13, (_DWORD)v12, v11, (unsigned int)&v38, 0);
     goto LABEL_8;
   }
   v10 = 1;
@@ -144,7 +144,7 @@ LABEL_8:
     else
       Length = v12->Length;
     memmove(&a4[1], v12->Buffer, Length);
-    if ( (a1->DeviceObject->Characteristics & 0x10) == 0 )
+    if ( (*(_DWORD *)(*(_QWORD *)(a1 + 8) + 52LL) & 0x10) == 0 )
       ExFreePoolWithTag(v12->Buffer, 0);
   }
   else if ( a7 == 1 && (unsigned int)v38 <= v11 && a5 >= 0x10 )
@@ -182,8 +182,6 @@ LABEL_8:
   if ( a7 == 1 )
   {
     v18 = v9;
-    if ( !v16 )
-      v11 = v11 - v38 + 4;
   }
   else if ( v16 )
   {
@@ -195,14 +193,13 @@ LABEL_8:
   {
     v18 = (UNICODE_STRING *)((char *)v15 - 4);
     Buffer_high = HIDWORD(v15[-1].Buffer);
-    v11 = (_DWORD)a4 + v11 - ((_DWORD)v15 - 4) - 2;
   }
   if ( a7 != 1 || a3 )
   {
     v19 = a1;
-    if ( (a1->Flags & 2) != 0 )
+    if ( (*(_DWORD *)(a1 + 80) & 2) != 0 )
     {
-      FileInformation = IopGetFileInformation(a1, (__int64)&v38);
+      FileInformation = IopGetFileInformation((PVOID)a1, (__int64)&v38);
       goto LABEL_27;
     }
   }
@@ -210,7 +207,7 @@ LABEL_8:
   {
     v19 = a1;
   }
-  FileInformation = IopQueryXxxInformation(v19, 9, v11, a7, (__int64)v18, &v38, 1);
+  FileInformation = IopQueryXxxInformation(v19, (__int64)v18, (__int64)&v38, 1);
 LABEL_27:
   NameStringMode = FileInformation;
   if ( (FileInformation & 0xC0000000) == 0xC0000000 )

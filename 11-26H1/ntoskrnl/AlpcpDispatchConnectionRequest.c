@@ -1,21 +1,21 @@
 /*
- * XREFs of AlpcpDispatchConnectionRequest @ 0x1408E8048
+ * XREFs of AlpcpDispatchConnectionRequest @ 0x1408EE608
  * Callers:
- *     NtSecureConnectPort @ 0x1408E5CC0 (NtSecureConnectPort.c)
- *     AlpcpProcessConnectionRequest @ 0x1408E7654 (AlpcpProcessConnectionRequest.c)
+ *     NtSecureConnectPort @ 0x1408EC280 (NtSecureConnectPort.c)
+ *     AlpcpProcessConnectionRequest @ 0x1408EDC14 (AlpcpProcessConnectionRequest.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     ExfAcquirePushLockSharedEx @ 0x140277CC0 (ExfAcquirePushLockSharedEx.c)
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     ExfReleasePushLockShared @ 0x140278BD0 (ExfReleasePushLockShared.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     ObReferenceObjectSafe @ 0x140449C10 (ObReferenceObjectSafe.c)
- *     PsGetProcessJob @ 0x1404A9820 (PsGetProcessJob.c)
- *     PsGetJobEffectiveFreezeCount @ 0x140533280 (PsGetJobEffectiveFreezeCount.c)
- *     AlpcpSetMessageCommunicationInfo @ 0x1408E831C (AlpcpSetMessageCommunicationInfo.c)
- *     AlpcpSetOwnerPortMessage @ 0x1408E84A0 (AlpcpSetOwnerPortMessage.c)
- *     AlpcpCompleteDispatchMessage @ 0x1409BF938 (AlpcpCompleteDispatchMessage.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     ExfAcquirePushLockSharedEx @ 0x140277230 (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     ExfReleasePushLockShared @ 0x140278140 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     ObReferenceObjectSafe @ 0x140441D40 (ObReferenceObjectSafe.c)
+ *     PsGetProcessJob @ 0x1404A2EB0 (PsGetProcessJob.c)
+ *     PsGetJobEffectiveFreezeCount @ 0x140535700 (PsGetJobEffectiveFreezeCount.c)
+ *     AlpcpSetMessageCommunicationInfo @ 0x1408EE8DC (AlpcpSetMessageCommunicationInfo.c)
+ *     AlpcpSetOwnerPortMessage @ 0x1408EEA60 (AlpcpSetOwnerPortMessage.c)
+ *     AlpcpCompleteDispatchMessage @ 0x140990918 (AlpcpCompleteDispatchMessage.c)
  */
 
 __int64 __fastcall AlpcpDispatchConnectionRequest(__int64 *a1, __int64 a2, __int64 a3, struct _KLOCK_ENTRIES *a4)

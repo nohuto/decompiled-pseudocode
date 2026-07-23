@@ -1,16 +1,16 @@
 /*
- * XREFs of _CmGetDeviceInterfaceMappedPropertyFromRegValue @ 0x1408B6960
+ * XREFs of _CmGetDeviceInterfaceMappedPropertyFromRegValue @ 0x1408B42D0
  * Callers:
- *     _CmGetDeviceInterfaceMappedPropertyKeys @ 0x1408B640C (_CmGetDeviceInterfaceMappedPropertyKeys.c)
- *     _PnpDispatchDeviceInterface @ 0x1408CCC00 (_PnpDispatchDeviceInterface.c)
+ *     _CmGetDeviceInterfaceMappedPropertyKeys @ 0x1408B3D7C (_CmGetDeviceInterfaceMappedPropertyKeys.c)
+ *     _PnpDispatchDeviceInterface @ 0x1408CA5F0 (_PnpDispatchDeviceInterface.c)
  * Callees:
- *     RtlInitUnicodeStringEx @ 0x14045AA10 (RtlInitUnicodeStringEx.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     _PnpCtxRegQueryValue @ 0x1408BC774 (_PnpCtxRegQueryValue.c)
- *     _PnpRegQueryValueIndirect @ 0x1408C6550 (_PnpRegQueryValueIndirect.c)
- *     _RegRtlOpenKeyTransacted @ 0x1408C7B60 (_RegRtlOpenKeyTransacted.c)
- *     _CmOpenDeviceInterfaceRegKey @ 0x1408CB4B4 (_CmOpenDeviceInterfaceRegKey.c)
+ *     RtlInitUnicodeStringEx @ 0x14044FE60 (RtlInitUnicodeStringEx.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     _PnpCtxRegQueryValue @ 0x1408BA0C4 (_PnpCtxRegQueryValue.c)
+ *     _PnpRegQueryValueIndirect @ 0x1408C3F80 (_PnpRegQueryValueIndirect.c)
+ *     _RegRtlOpenKeyTransacted @ 0x1408C5590 (_RegRtlOpenKeyTransacted.c)
+ *     _CmOpenDeviceInterfaceRegKey @ 0x1408C8EE4 (_CmOpenDeviceInterfaceRegKey.c)
  */
 
 __int64 __fastcall CmGetDeviceInterfaceMappedPropertyFromRegValue(
@@ -47,28 +47,26 @@ __int64 __fastcall CmGetDeviceInterfaceMappedPropertyFromRegValue(
   _DWORD *v33; // rax
   __int64 v34; // rax
   __int64 v35; // rcx
-  char v36[4]; // [rsp+40h] [rbp-40h] BYREF
-  int v37; // [rsp+44h] [rbp-3Ch] BYREF
-  int v38; // [rsp+48h] [rbp-38h] BYREF
-  HANDLE v39; // [rsp+50h] [rbp-30h] BYREF
-  HANDLE v40; // [rsp+58h] [rbp-28h] BYREF
+  int v36; // [rsp+44h] [rbp-3Ch] BYREF
+  int v37; // [rsp+48h] [rbp-38h] BYREF
+  HANDLE v38; // [rsp+50h] [rbp-30h] BYREF
+  HANDLE v39; // [rsp+58h] [rbp-28h] BYREF
   HANDLE Handle; // [rsp+60h] [rbp-20h] BYREF
   UNICODE_STRING DestinationString; // [rsp+68h] [rbp-18h] BYREF
-  char v44; // [rsp+D8h] [rbp+58h] BYREF
+  char v43; // [rsp+D8h] [rbp+58h] BYREF
 
   v8 = a8;
   inited = 0;
   Handle = 0LL;
   v11 = a5;
-  v40 = 0LL;
   v39 = 0LL;
-  v38 = 0;
+  v38 = 0LL;
+  v37 = 0;
   *a5 = 0;
   *v8 = 0;
-  v37 = 0;
+  v36 = 0;
   v14 = (_BYTE *)a6;
-  v44 = 0;
-  v36[0] = 0;
+  v43 = 0;
   if ( a6 )
   {
     v15 = a7;
@@ -82,7 +80,7 @@ __int64 __fastcall CmGetDeviceInterfaceMappedPropertyFromRegValue(
   if ( v16 < 2 )
     return (unsigned int)-1073741264;
   v17 = 0;
-  v18 = &off_140B3B400;
+  v18 = &off_140B3D1B0;
   do
   {
     v19 = *v18;
@@ -128,12 +126,12 @@ __int64 __fastcall CmGetDeviceInterfaceMappedPropertyFromRegValue(
           if ( inited >= 0 )
           {
             if ( a1[36] )
-              inited = guard_dispatch_icall_no_overrides(a1, &DestinationString, v36, 0LL);
+              inited = guard_dispatch_icall_no_overrides(a1, &DestinationString);
             else
               inited = -1073741822;
           }
           if ( inited >= 0 )
-            *v14 = -(v36[0] != 0);
+            *v14 = 0;
         }
         else
         {
@@ -150,17 +148,17 @@ __int64 __fastcall CmGetDeviceInterfaceMappedPropertyFromRegValue(
         v34 = *(_QWORD *)(a4 + 8) - *(_QWORD *)DEVPKEY_Device_InstanceId.fmtid.Data4;
       if ( !v34 )
       {
-        inited = CmOpenDeviceInterfaceRegKey((_DWORD)a1, (_DWORD)a2, 49, (_DWORD)v19, 1, 0, (__int64)&v40, 0LL);
+        inited = CmOpenDeviceInterfaceRegKey((_DWORD)a1, (_DWORD)a2, 49, (_DWORD)v19, 1, 0, (__int64)&v39, 0LL);
         if ( inited < 0 )
           goto LABEL_22;
-        v37 = v15;
-        v32 = PnpCtxRegQueryValue(v35, v40, L"DeviceInstance", &v38, v14, &v37);
-        ZwClose(v40);
+        v36 = v15;
+        v32 = PnpCtxRegQueryValue(v35, v39, L"DeviceInstance", &v37, v14, &v36);
+        ZwClose(v39);
         if ( v32 != -1073741772 && v32 != -1073741444 )
         {
           if ( !v32 || v32 == -1073741789 )
           {
-            *a8 = v37;
+            *a8 = v36;
             *a5 = 18;
             if ( v32 || !v15 )
               inited = -1073741789;
@@ -187,29 +185,29 @@ LABEL_67:
     v28 = *(_QWORD *)(v27 + 8);
   else
     v28 = 0LL;
-  v29 = RegRtlOpenKeyTransacted(v26, L"Device Parameters", 0LL, 1LL, &v39, v28);
+  v29 = RegRtlOpenKeyTransacted(v26, L"Device Parameters", 0LL, 1LL, &v38, v28);
   if ( v29 == -1073741772 || v29 == -1073741444 )
     goto LABEL_63;
   if ( v29 >= 0 )
   {
     v30 = (__int64 (__fastcall *)(_QWORD, _QWORD, _QWORD, _QWORD, _QWORD, _QWORD, _QWORD))a1[65];
-    v37 = v15;
+    v36 = v15;
     if ( !v30 || v30 == PnpRegQueryValueIndirect )
-      v31 = PnpRegQueryValueIndirect(a1, v39, L"FriendlyName", &v38, v14, &v37, &v44);
+      v31 = PnpRegQueryValueIndirect(a1, v38, L"FriendlyName", &v37, v14, &v36, &v43);
     else
-      v31 = guard_dispatch_icall_no_overrides(a1, v39, L"FriendlyName", &v38);
+      v31 = guard_dispatch_icall_no_overrides(a1, v38);
     v32 = v31;
-    ZwClose(v39);
+    ZwClose(v38);
     if ( v32 != -1073741772 && v32 != -1073741444 )
     {
       if ( !v32 || v32 == -1073741789 )
       {
-        *a8 = v37;
+        *a8 = v36;
         v33 = a5;
         *a5 = 18;
         if ( v32 || !v15 )
           inited = -1073741789;
-        if ( v44 )
+        if ( v43 )
           *v33 = 25;
         goto LABEL_22;
       }

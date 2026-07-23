@@ -2,9 +2,9 @@
  * XREFs of RtlpFcReferenceFeatureConfigurationBuffers @ 0x18005E1AC
  * Callers:
  *     RtlQueryFeatureConfiguration @ 0x18005E0F0 (RtlQueryFeatureConfiguration.c)
- *     RtlNotifyFeatureUsage @ 0x180101B40 (RtlNotifyFeatureUsage.c)
- *     RtlQueryAllFeatureConfigurations @ 0x180101BD0 (RtlQueryAllFeatureConfigurations.c)
- *     RtlQueryFeatureUsageNotificationSubscriptions @ 0x180101C90 (RtlQueryFeatureUsageNotificationSubscriptions.c)
+ *     RtlNotifyFeatureUsage @ 0x180101B00 (RtlNotifyFeatureUsage.c)
+ *     RtlQueryAllFeatureConfigurations @ 0x180101B90 (RtlQueryAllFeatureConfigurations.c)
+ *     RtlQueryFeatureUsageNotificationSubscriptions @ 0x180101C50 (RtlQueryFeatureUsageNotificationSubscriptions.c)
  * Callees:
  *     RtlpFcUpdateLocalConfiguration @ 0x18005DD5C (RtlpFcUpdateLocalConfiguration.c)
  *     RtlpFcBufferManagerDereferenceBuffers @ 0x18005E074 (RtlpFcBufferManagerDereferenceBuffers.c)
@@ -27,7 +27,7 @@ __int64 __fastcall RtlpFcReferenceFeatureConfigurationBuffers(__int64 a1, char a
     goto LABEL_2;
   RtlpFcBufferManagerDereferenceBuffers(qword_18016AB48, v11);
   v11 = 0LL;
-  result = RtlpFcUpdateLocalConfiguration((unsigned __int64)&RtlpFcProcessManager, v7, a2);
+  result = RtlpFcUpdateLocalConfiguration(&RtlpFcProcessManager, v7, a2);
   if ( (int)result >= 0 )
   {
     RtlpFcBufferManagerReferenceBuffers(qword_18016AB48, v10, &v11);

@@ -1,7 +1,7 @@
 /*
- * XREFs of CmpDoesProcessBelongToServiceSession @ 0x140596B0C
+ * XREFs of CmpDoesProcessBelongToServiceSession @ 0x140597B0C
  * Callers:
- *     CmpDoParseKey @ 0x140641CA0 (CmpDoParseKey.c)
+ *     CmpDoParseKey @ 0x140642CC0 (CmpDoParseKey.c)
  * Callees:
  *     PsGetServerSiloServiceSessionId @ 0x1400067D0 (PsGetServerSiloServiceSessionId.c)
  *     PsGetProcessServerSilo @ 0x14004D260 (PsGetProcessServerSilo.c)

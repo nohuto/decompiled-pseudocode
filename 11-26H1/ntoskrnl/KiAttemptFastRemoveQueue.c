@@ -1,9 +1,9 @@
 /*
- * XREFs of KiAttemptFastRemoveQueue @ 0x1404705F0
+ * XREFs of KiAttemptFastRemoveQueue @ 0x140469D70
  * Callers:
- *     KeRemoveQueueEx @ 0x140220B60 (KeRemoveQueueEx.c)
+ *     KeRemoveQueueEx @ 0x1402224F0 (KeRemoveQueueEx.c)
  * Callees:
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall KiAttemptFastRemoveQueue(ULONG_PTR BugCheckParameter2, __int64 a2, unsigned int a3)
@@ -25,7 +25,7 @@ __int64 __fastcall KiAttemptFastRemoveQueue(ULONG_PTR BugCheckParameter2, __int6
         0x96u,
         (ULONG_PTR)v7,
         BugCheckParameter2,
-        (ULONG_PTR)ExSaPageGroupDescriptorArrayLock.SuspendEvent.Header.WaitListHead.Blink,
+        *(ULONG_PTR *)&ExSaPageGroupDescriptorArrayLock.WaitBlockFill11[64],
         v7[2]);
     if ( *(__int64 **)(v9 + 8) != v7 || (v10 = (__int64 **)v7[1], *v10 != v7) )
       __fastfail(3u);

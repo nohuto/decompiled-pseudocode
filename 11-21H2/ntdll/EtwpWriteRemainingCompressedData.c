@@ -9,14 +9,24 @@
 __int64 __fastcall EtwpWriteRemainingCompressedData(__int64 a1, _DWORD *a2, _DWORD *a3)
 {
   _QWORD *v7; // rbp
-  int v8; // edx
+  NTSTATUS v8; // edx
+  _IO_STATUS_BLOCK IoStatusBlock; // [rsp+50h] [rbp-18h] BYREF
 
   *a2 = 0;
   *a3 = 0;
   if ( !*(_DWORD *)(a1 + 436) )
     return 0LL;
   v7 = (_QWORD *)(a1 + 344);
-  v8 = NtWriteFile();
+  v8 = NtWriteFile(
+         *(HANDLE *)(a1 + 128),
+         0LL,
+         0LL,
+         0LL,
+         &IoStatusBlock,
+         *(PVOID *)(a1 + 424),
+         *(_DWORD *)(a1 + 192),
+         (PLARGE_INTEGER)(a1 + 344),
+         0LL);
   if ( v8 >= 0 )
   {
     *v7 += *(unsigned int *)(a1 + 436);

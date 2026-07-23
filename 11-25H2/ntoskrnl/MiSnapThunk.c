@@ -15,15 +15,15 @@
  *     ExFreePoolWithTag @ 0x140B62CD0 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall MiSnapThunk(unsigned __int64 a1, __int64 a2, _WORD *a3, char **a4, unsigned __int16 *a5)
+__int64 __fastcall MiSnapThunk(char *a1, __int64 a2, _WORD *a3, char **a4, unsigned __int16 *a5)
 {
   char **v5; // r14
-  __int64 v9; // rax
-  unsigned __int64 v10; // r8
+  char *v9; // rax
+  char *v10; // r8
   unsigned __int16 *v11; // rcx
-  unsigned __int64 v12; // r14
+  char *v12; // r14
   __int64 v13; // rdx
-  unsigned __int64 v14; // rbx
+  char *v14; // rbx
   unsigned int v15; // r10d
   unsigned __int8 *v16; // rax
   __int64 v17; // rdx
@@ -51,18 +51,18 @@ __int64 __fastcall MiSnapThunk(unsigned __int64 a1, __int64 a2, _WORD *a3, char 
   _WORD *v40; // rdi
   PVOID v41; // rcx
   CHAR Character; // [rsp+30h] [rbp-40h]
-  wchar_t *v43; // [rsp+38h] [rbp-38h] BYREF
+  ULONG Size[2]; // [rsp+38h] [rbp-38h] BYREF
   char *v44; // [rsp+40h] [rbp-30h]
   UNICODE_STRING DestinationString; // [rsp+48h] [rbp-28h] BYREF
-  STRING SourceString; // [rsp+58h] [rbp-18h] BYREF
+  ANSI_STRING SourceString; // [rsp+58h] [rbp-18h] BYREF
   int v47; // [rsp+A8h] [rbp+38h]
 
   v47 = a2;
   v5 = a4;
-  LODWORD(v43) = 0;
+  Size[0] = 0;
   DestinationString = 0LL;
   SourceString = 0LL;
-  v9 = RtlImageDirectoryEntryToData(a1, 1, 0, &v43);
+  v9 = (char *)RtlImageDirectoryEntryToData(a1, 1u, 0, Size);
   v10 = v9;
   if ( !v9 )
     return 3221226083LL;
@@ -71,7 +71,7 @@ __int64 __fastcall MiSnapThunk(unsigned __int64 a1, __int64 a2, _WORD *a3, char 
   {
     if ( !a5 )
     {
-      v28 = *a3 - *(_WORD *)(v9 + 16);
+      v28 = *a3 - *((_WORD *)v9 + 8);
       goto LABEL_25;
     }
   }
@@ -79,14 +79,14 @@ __int64 __fastcall MiSnapThunk(unsigned __int64 a1, __int64 a2, _WORD *a3, char 
   {
     v11 = (unsigned __int16 *)(*(_QWORD *)a3 + a2);
   }
-  v12 = a1 + *(unsigned int *)(v9 + 32);
+  v12 = &a1[*((unsigned int *)v9 + 8)];
   v13 = *v11;
-  v14 = a1 + *(unsigned int *)(v9 + 36);
-  v15 = *(_DWORD *)(v9 + 24);
+  v14 = &a1[*((unsigned int *)v9 + 9)];
+  v15 = *((_DWORD *)v9 + 6);
   if ( (unsigned int)v13 >= v15 )
     goto LABEL_10;
   v16 = (unsigned __int8 *)(v11 + 1);
-  v17 = a1 + *(unsigned int *)(v12 + 4 * v13) - (_QWORD)(v11 + 1);
+  v17 = &a1[*(unsigned int *)&v12[4 * v13]] - (char *)(v11 + 1);
   do
   {
     v18 = v16[v17];
@@ -107,7 +107,7 @@ LABEL_10:
       {
         v23 = (v20 + v22) >> 1;
         v24 = (char *)(v11 + 1);
-        v25 = a1 + *(unsigned int *)(v12 + 4LL * v23) - (_QWORD)(v11 + 1);
+        v25 = &a1[*(unsigned int *)&v12[4 * v23]] - (char *)(v11 + 1);
         while ( 1 )
         {
           v26 = *v24;
@@ -126,7 +126,7 @@ LABEL_18:
         {
           if ( v27 <= 0 )
           {
-            v28 = *(_WORD *)(v14 + 2LL * v23);
+            v28 = *(_WORD *)&v14[2 * v23];
             goto LABEL_24;
           }
           v20 = v23 + 1;
@@ -141,15 +141,15 @@ LABEL_18:
     }
     return 3221226083LL;
   }
-  v28 = *(_WORD *)(v14 + 2LL * *v11);
+  v28 = *(_WORD *)&v14[2 * *v11];
 LABEL_24:
   v5 = a4;
 LABEL_25:
-  if ( (unsigned int)v28 >= *(_DWORD *)(v10 + 20) )
+  if ( (unsigned int)v28 >= *((_DWORD *)v10 + 5) )
     return 3221226082LL;
-  v29 = (char *)(*(unsigned int *)(a1 + *(unsigned int *)(v10 + 28) + 4LL * v28) + a1);
+  v29 = &a1[*(unsigned int *)&a1[4 * v28 + *((unsigned int *)v10 + 7)]];
   *v5 = v29;
-  if ( (unsigned __int64)v29 <= v10 || (unsigned __int64)v29 >= v10 + (unsigned int)v43 )
+  if ( v29 <= v10 || v29 >= &v10[Size[0]] )
     return 0LL;
   SourceString.Buffer = v29;
   v30 = strchr(v29, 46);
@@ -168,7 +168,7 @@ LABEL_25:
     if ( *((unsigned __int16 *)v31 + 44) >= (unsigned int)DestinationString.Length )
     {
       v35 = (wchar_t *)((char *)DestinationString.Buffer + DestinationString.Length);
-      v43 = v35;
+      *(_QWORD *)Size = v35;
       while ( Buffer < v35 )
       {
         Character = *(_BYTE *)Buffer;
@@ -177,7 +177,7 @@ LABEL_25:
           v36 = RtlUpperChar(*v34);
           if ( RtlUpperChar(Character) != v36 )
             goto LABEL_52;
-          v35 = v43;
+          v35 = *(wchar_t **)Size;
         }
         Buffer = (wchar_t *)((char *)Buffer + 1);
         ++v34;
@@ -194,10 +194,10 @@ LABEL_25:
         memmove((void *)(Pool + 2), v38, v37 + 1);
         *v40 = 0;
         v41 = v31[6];
-        v43 = 0LL;
-        v32 = MiSnapThunk((_DWORD)v41, v47, (unsigned int)&v43, (unsigned int)&v43, (__int64)v40);
+        *(_QWORD *)Size = 0LL;
+        v32 = MiSnapThunk((_DWORD)v41, v47, (unsigned int)Size, (unsigned int)Size, (__int64)v40);
         ExFreePoolWithTag(v40, 0);
-        *a4 = (char *)v43;
+        *a4 = *(char **)Size;
       }
       break;
     }

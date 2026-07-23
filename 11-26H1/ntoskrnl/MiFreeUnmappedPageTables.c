@@ -1,12 +1,12 @@
 /*
- * XREFs of MiFreeUnmappedPageTables @ 0x1403631D0
+ * XREFs of MiFreeUnmappedPageTables @ 0x140364F70
  * Callers:
- *     MiDeleteSystemPageTableTail @ 0x1403630D0 (MiDeleteSystemPageTableTail.c)
+ *     MiDeleteSystemPageTableTail @ 0x140364E70 (MiDeleteSystemPageTableTail.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     MiBadShareCount @ 0x1402DC710 (MiBadShareCount.c)
- *     MiPfnShareCountIsZero @ 0x1402DC770 (MiPfnShareCountIsZero.c)
- *     MiUnlinkPageChainHead @ 0x140365EF0 (MiUnlinkPageChainHead.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     MiBadShareCount @ 0x1402BE4D0 (MiBadShareCount.c)
+ *     MiPfnShareCountIsZero @ 0x1402BE530 (MiPfnShareCountIsZero.c)
+ *     MiUnlinkPageChainHead @ 0x140367C90 (MiUnlinkPageChainHead.c)
  */
 
 __int64 __fastcall MiFreeUnmappedPageTables(__int64 a1, _QWORD *a2, int a3)

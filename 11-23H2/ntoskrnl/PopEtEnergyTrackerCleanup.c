@@ -1,12 +1,12 @@
 /*
- * XREFs of PopEtEnergyTrackerCleanup @ 0x14099865C
+ * XREFs of PopEtEnergyTrackerCleanup @ 0x14099885C
  * Callers:
- *     PopEtEnergyTrackerDelete @ 0x140998810 (PopEtEnergyTrackerDelete.c)
+ *     PopEtEnergyTrackerDelete @ 0x140998A10 (PopEtEnergyTrackerDelete.c)
  * Callees:
- *     PopReleaseRwLock @ 0x14032C480 (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x14032C5E4 (PopAcquireRwLockExclusive.c)
- *     PopEtAggregateKeyCleanup @ 0x1407B29D8 (PopEtAggregateKeyCleanup.c)
- *     PopEtEnergyTrackerCleanupAggregates @ 0x1407B9170 (PopEtEnergyTrackerCleanupAggregates.c)
+ *     PopReleaseRwLock @ 0x14032C710 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x14032C874 (PopAcquireRwLockExclusive.c)
+ *     PopEtAggregateKeyCleanup @ 0x1407B2BC8 (PopEtAggregateKeyCleanup.c)
+ *     PopEtEnergyTrackerCleanupAggregates @ 0x1407B9450 (PopEtEnergyTrackerCleanupAggregates.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

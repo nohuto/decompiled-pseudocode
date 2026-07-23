@@ -1,13 +1,13 @@
 /*
- * XREFs of CmpWaitForLateUnloadWorker @ 0x1402C8600
+ * XREFs of CmpWaitForLateUnloadWorker @ 0x1402B98A0
  * Callers:
- *     CmpDeleteKeyObject @ 0x140847360 (CmpDeleteKeyObject.c)
+ *     CmpDeleteKeyObject @ 0x140843620 (CmpDeleteKeyObject.c)
  * Callees:
- *     ExTimedWaitForUnblockPushLock @ 0x1402C6D50 (ExTimedWaitForUnblockPushLock.c)
- *     ExpUnblockPushLock @ 0x1402C793C (ExpUnblockPushLock.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     CmLockHive @ 0x140845C74 (CmLockHive.c)
- *     CmUnlockHive @ 0x140846740 (CmUnlockHive.c)
+ *     ExTimedWaitForUnblockPushLock @ 0x1402BB8D0 (ExTimedWaitForUnblockPushLock.c)
+ *     ExpUnblockPushLock @ 0x1402BC2BC (ExpUnblockPushLock.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     CmLockHive @ 0x140841F34 (CmLockHive.c)
+ *     CmUnlockHive @ 0x140842A00 (CmUnlockHive.c)
  */
 
 __int64 __fastcall CmpWaitForLateUnloadWorker(__int64 a1)
@@ -17,9 +17,9 @@ __int64 __fastcall CmpWaitForLateUnloadWorker(__int64 a1)
   signed __int64 *v4; // rdi
   signed __int64 v5; // rax
   signed __int64 v6; // rtt
-  volatile __int64 *v7; // rcx
+  __int64 v7; // rcx
   signed __int64 v8; // rcx
-  char v9[24]; // [rsp+20h] [rbp-48h] BYREF
+  _BYTE v9[24]; // [rsp+20h] [rbp-48h] BYREF
   signed __int64 v10; // [rsp+38h] [rbp-30h]
   int v11; // [rsp+54h] [rbp-14h]
 
@@ -47,11 +47,11 @@ __int64 __fastcall CmpWaitForLateUnloadWorker(__int64 a1)
         }
         while ( v5 != v8 );
       }
-      v7 = (volatile __int64 *)(a1 + 4808);
+      v7 = a1 + 4808;
       if ( *(_DWORD *)(a1 + 4800) == v2 )
-        ExTimedWaitForUnblockPushLock((__int64)v7, v9, 0LL);
+        ExTimedWaitForUnblockPushLock(v7, v9, 0LL);
       else
-        ExpUnblockPushLock(v7, v9, 0);
+        ExpUnblockPushLock(v7, v9, 0LL);
       CmLockHive(a1);
       v2 = *(_DWORD *)(a1 + 4800);
       result = CmUnlockHive(a1);

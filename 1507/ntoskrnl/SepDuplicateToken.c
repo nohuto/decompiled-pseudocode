@@ -64,15 +64,15 @@ __int64 __fastcall SepDuplicateToken(
   bool v25; // zf
   struct _KTHREAD *v26; // rcx
   __int16 v27; // ax
-  __int64 **v28; // r15
+  PSID_AND_ATTRIBUTES *v28; // r15
   char *v29; // r14
   struct _KTHREAD *v30; // rcx
   __int16 v31; // ax
-  __int64 *v32; // rcx
+  _SID_AND_ATTRIBUTES *v32; // rcx
   int i; // eax
   __int64 v34; // rax
-  __int64 **v35; // r12
-  __int64 *v36; // rax
+  PSID_AND_ATTRIBUTES *v35; // r12
+  _SID_AND_ATTRIBUTES *v36; // rax
   int j; // ecx
   __int64 v38; // rax
   unsigned int v39; // ecx
@@ -95,7 +95,7 @@ __int64 __fastcall SepDuplicateToken(
   struct _KTHREAD *v56; // rcx
   __int16 v57; // ax
   char *Object; // [rsp+50h] [rbp-78h]
-  __int64 **v59; // [rsp+78h] [rbp-50h]
+  PSID_AND_ATTRIBUTES *v59; // [rsp+78h] [rbp-50h]
   ULONG pulResult; // [rsp+E8h] [rbp+20h] BYREF
 
   v8 = a5;
@@ -168,7 +168,7 @@ __int64 __fastcall SepDuplicateToken(
   *((_QWORD *)Object + 135) = 0LL;
   *((_QWORD *)Object + 136) = 0LL;
   *((_QWORD *)Object + 99) = 0LL;
-  v59 = (__int64 **)(Object + 792);
+  v59 = (PSID_AND_ATTRIBUTES *)(Object + 792);
   *((_QWORD *)Object + 98) = 0LL;
   *((_DWORD *)Object + 200) = 0;
   memset(Object + 808, 0, 0x110uLL);
@@ -228,11 +228,11 @@ LABEL_70:
     }
   }
   memmove(v19 + 1144, (const void *)(a1 + 1144), *(unsigned int *)(a1 + 132));
-  v28 = (__int64 **)(v19 + 152);
+  v28 = (PSID_AND_ATTRIBUTES *)(v19 + 152);
   if ( SepTokenSidSharingEnabled )
   {
     v29 = &v19[-a1];
-    *v28 = (__int64 *)&v19[*(_QWORD *)(a1 + 152) - a1];
+    *v28 = (PSID_AND_ATTRIBUTES)&v19[*(_QWORD *)(a1 + 152) - a1];
     v21 = SepDuplicateTokenUserAndGroups(a1, v19);
     if ( v21 < 0 )
     {
@@ -252,25 +252,25 @@ LABEL_31:
   {
     v29 = &v19[-a1];
     *((_DWORD *)v19 + 31) = *(_DWORD *)(a1 + 124);
-    v32 = (__int64 *)&v19[*(_QWORD *)(a1 + 152) - a1];
+    v32 = (_SID_AND_ATTRIBUTES *)&v19[*(_QWORD *)(a1 + 152) - a1];
     *v28 = v32;
     for ( i = *((_DWORD *)v19 + 31); i; --i )
     {
-      *v32 += (__int64)v29;
-      v32 += 2;
+      v32->Sid = (char *)v32->Sid + (unsigned __int64)v29;
+      ++v32;
     }
   }
   v34 = *(_QWORD *)(a1 + 160);
-  v35 = (__int64 **)(v19 + 160);
+  v35 = (PSID_AND_ATTRIBUTES *)(v19 + 160);
   *((_QWORD *)v19 + 20) = v34;
   if ( v34 )
   {
-    v36 = (__int64 *)&v29[v34];
+    v36 = (_SID_AND_ATTRIBUTES *)&v29[v34];
     *v35 = v36;
     for ( j = *v20; j; --j )
     {
-      *v36 += (__int64)v29;
-      v36 += 2;
+      v36->Sid = (char *)v36->Sid + (unsigned __int64)v29;
+      ++v36;
     }
   }
   v38 = *(_QWORD *)(a1 + 184);
@@ -347,10 +347,10 @@ LABEL_31:
       }
       if ( a3 )
         SepMakeTokenEffectiveOnly();
-      RtlSidHashInitialize(*v28, *((_DWORD *)Object + 31), (_QWORD *)Object + 29);
-      RtlSidHashInitialize(*v35, *((_DWORD *)Object + 32), (_QWORD *)Object + 63);
+      RtlSidHashInitialize(*v28, *((_DWORD *)Object + 31), (PSID_AND_ATTRIBUTES_HASH)(Object + 232));
+      RtlSidHashInitialize(*v35, *((_DWORD *)Object + 32), (PSID_AND_ATTRIBUTES_HASH)(Object + 504));
       if ( *v59 )
-        RtlSidHashInitialize(*v59, *((_DWORD *)Object + 200), (_QWORD *)Object + 101);
+        RtlSidHashInitialize(*v59, *((_DWORD *)Object + 200), (PSID_AND_ATTRIBUTES_HASH)(Object + 808));
       *a8 = Object;
     }
     else

@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlpEnsureSegHeapLockedForWalk @ 0x1800744A4
+ * XREFs of RtlpEnsureSegHeapLockedForWalk @ 0x180094A94
  * Callers:
- *     RtlpHpTagDestroyHeap @ 0x180072524 (RtlpHpTagDestroyHeap.c)
- *     RtlWalkHeap @ 0x1800725D0 (RtlWalkHeap.c)
- *     RtlpWalkHeapInternal @ 0x180072620 (RtlpWalkHeapInternal.c)
- *     RtlpQueryExtendedInformationHeap @ 0x180072680 (RtlpQueryExtendedInformationHeap.c)
+ *     RtlpHpTagDestroyHeap @ 0x180092B10 (RtlpHpTagDestroyHeap.c)
+ *     RtlWalkHeap @ 0x180092BC0 (RtlWalkHeap.c)
+ *     RtlpWalkHeapInternal @ 0x180092C10 (RtlpWalkHeapInternal.c)
+ *     RtlpQueryExtendedInformationHeap @ 0x180092C70 (RtlpQueryExtendedInformationHeap.c)
  * Callees:
- *     RtlpHpEnvAcquireGlobalLockExclusive @ 0x180111428 (RtlpHpEnvAcquireGlobalLockExclusive.c)
+ *     RtlpHpEnvAcquireGlobalLockExclusive @ 0x180110FA8 (RtlpHpEnvAcquireGlobalLockExclusive.c)
  */
 
 void *__fastcall RtlpEnsureSegHeapLockedForWalk(__int64 a1)

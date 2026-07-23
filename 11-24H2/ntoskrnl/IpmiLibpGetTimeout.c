@@ -1,10 +1,10 @@
 /*
- * XREFs of IpmiLibpGetTimeout @ 0x14069FFDC
+ * XREFs of IpmiLibpGetTimeout @ 0x1406A10E0
  * Callers:
- *     IpmiLibpKcsRequestAndReceive @ 0x1406A03A0 (IpmiLibpKcsRequestAndReceive.c)
- *     IpmiLibpKcsSpinRegister @ 0x1406A0634 (IpmiLibpKcsSpinRegister.c)
+ *     IpmiLibpKcsRequestAndReceive @ 0x1406A14A4 (IpmiLibpKcsRequestAndReceive.c)
+ *     IpmiLibpKcsSpinRegister @ 0x1406A173C (IpmiLibpKcsSpinRegister.c)
  * Callees:
- *     KeQueryPerformanceCounter @ 0x14034FA10 (KeQueryPerformanceCounter.c)
+ *     KeQueryPerformanceCounter @ 0x14036DEF0 (KeQueryPerformanceCounter.c)
  */
 
 LONGLONG __fastcall IpmiLibpGetTimeout(__int64 a1, unsigned int a2)

@@ -1,13 +1,13 @@
 /*
- * XREFs of EtwpReserveWithPmcCounters @ 0x1405A94C8
+ * XREFs of EtwpReserveWithPmcCounters @ 0x1405A96F8
  * Callers:
- *     EtwpLogKernelEvent @ 0x140350000 (EtwpLogKernelEvent.c)
- *     EtwpLogContextSwapEvent @ 0x1403AEE10 (EtwpLogContextSwapEvent.c)
+ *     EtwpLogKernelEvent @ 0x14035AD50 (EtwpLogKernelEvent.c)
+ *     EtwpLogContextSwapEvent @ 0x1403AEF80 (EtwpLogContextSwapEvent.c)
  * Callees:
- *     EtwpReserveTraceBuffer @ 0x1403506F0 (EtwpReserveTraceBuffer.c)
+ *     EtwpReserveTraceBuffer @ 0x14035B440 (EtwpReserveTraceBuffer.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     memset @ 0x140414200 (memset.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     memset @ 0x140414300 (memset.c)
  */
 
 unsigned __int64 __fastcall EtwpReserveWithPmcCounters(
@@ -15,7 +15,7 @@ unsigned __int64 __fastcall EtwpReserveWithPmcCounters(
         __int16 a2,
         int a3,
         __int64 a4,
-        signed __int64 *a5,
+        LARGE_INTEGER *a5,
         __int16 a6)
 {
   int v8; // r15d
@@ -58,7 +58,7 @@ unsigned __int64 __fastcall EtwpReserveWithPmcCounters(
   v15 = v14;
   if ( v14 )
   {
-    *(_QWORD *)(v14 + 8) = *a5;
+    *(LARGE_INTEGER *)(v14 + 8) = *a5;
     *(_WORD *)(v14 + 4) = v10;
     *(_WORD *)(v14 + 6) = a2;
     *(_DWORD *)v14 = (unsigned __int8)a6 | ((unsigned __int8)v8 << 8) | 0xC0110000;

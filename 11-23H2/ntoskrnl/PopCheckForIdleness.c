@@ -1,16 +1,16 @@
 /*
- * XREFs of PopCheckForIdleness @ 0x14032C620
+ * XREFs of PopCheckForIdleness @ 0x14032C8B0
  * Callers:
  *     <none>
  * Callees:
  *     KeQueryActiveProcessorCountEx @ 0x140222050 (KeQueryActiveProcessorCountEx.c)
- *     KeEnumerateNextProcessor @ 0x1402572B0 (KeEnumerateNextProcessor.c)
- *     PopGetPolicyWorker @ 0x14032CB64 (PopGetPolicyWorker.c)
- *     PopCheckForWork @ 0x14032CBB8 (PopCheckForWork.c)
- *     PopQueueWorkItem @ 0x14032CCE4 (PopQueueWorkItem.c)
- *     Feature_PowerEventProcessorSystemIdle__private_ReportDeviceUsage @ 0x140411374 (Feature_PowerEventProcessorSystemIdle__private_ReportDeviceUsage.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     PopDiagTraceIdleCheck @ 0x140593C9C (PopDiagTraceIdleCheck.c)
+ *     KeEnumerateNextProcessor @ 0x140257370 (KeEnumerateNextProcessor.c)
+ *     PopGetPolicyWorker @ 0x14032CDF4 (PopGetPolicyWorker.c)
+ *     PopCheckForWork @ 0x14032CE48 (PopCheckForWork.c)
+ *     PopQueueWorkItem @ 0x14032CF74 (PopQueueWorkItem.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     Feature_PowerEventProcessorSystemIdle__private_ReportDeviceUsage @ 0x140411580 (Feature_PowerEventProcessorSystemIdle__private_ReportDeviceUsage.c)
+ *     PopDiagTraceIdleCheck @ 0x14059418C (PopDiagTraceIdleCheck.c)
  */
 
 __int64 PopCheckForIdleness()
@@ -51,7 +51,7 @@ __int64 PopCheckForIdleness()
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
   v4 = -1LL;
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     v6 = 4;
@@ -63,14 +63,14 @@ __int64 PopCheckForIdleness()
     v1 = (_DWORD *)((unsigned int)v6 | SchedulerAssist[5]);
     SchedulerAssist[5] = (_DWORD)v1;
   }
-  v7 = qword_140C3CD38;
+  v7 = qword_140C3CCD8;
   v8 = MEMORY[0xFFFFF78000000320];
   v9 = (unsigned int)KiIrqlFlags;
   v23 = MEMORY[0xFFFFF78000000320];
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v10 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v10 <= 0xFu && CurrentIrql <= 0xFu && v10 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v10 <= 0xFu && CurrentIrql <= 0xFu && v10 >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       v9 = (unsigned int)CurrentIrql + 1;
@@ -85,12 +85,12 @@ __int64 PopCheckForIdleness()
     }
   }
   __writecr8(CurrentIrql);
-  if ( byte_140C3CD35 )
+  if ( byte_140C3CCD5 )
   {
     v14 = v8 - v7;
     if ( (int)v8 - v7 <= 0 )
     {
-      byte_140C3CD35 = 0;
+      byte_140C3CCD5 = 0;
       goto LABEL_39;
     }
     v25 = qword_140D1EFF8[0];
@@ -132,20 +132,20 @@ __int64 PopCheckForIdleness()
       if ( v16 / ActiveProcessorCount < 0 )
         v15 = 0;
     }
-    dword_140C3CD04 = v17;
+    dword_140C3CCA4 = v17;
     PopSIdle = v15;
     if ( !PopPlatformAoAc )
     {
       LODWORD(v20) = v16 % ActiveProcessorCount;
       Feature_PowerEventProcessorSystemIdle__private_ReportDeviceUsage(v18, v20);
     }
-    if ( dword_140C3CD0C )
+    if ( dword_140C3CCAC )
     {
-      dword_140C3CD08 += PopIdleScanInterval;
+      dword_140C3CCA8 += PopIdleScanInterval;
       PopDiagTraceIdleCheck(v18, (unsigned int)v17, v15);
       if ( !PopPlatformAoAc
-        && PopPreSleepNotificationSeconds + 120 <= (unsigned int)dword_140C3CD0C
-        && dword_140C3CD08 + PopPreSleepNotificationSeconds >= (unsigned int)dword_140C3CD0C
+        && PopPreSleepNotificationSeconds + 120 <= (unsigned int)dword_140C3CCAC
+        && dword_140C3CCA8 + PopPreSleepNotificationSeconds >= (unsigned int)dword_140C3CCAC
         && !PopIsAboutToSleep )
       {
         PopIsAboutToSleep = 1;
@@ -155,8 +155,8 @@ __int64 PopCheckForIdleness()
   }
   v25 = qword_140D1EFF8[0];
   v24 = (unsigned __int16 *)KeActiveProcessors;
-  qword_140C3CD38 = v8;
-  byte_140C3CD35 = 1;
+  qword_140C3CCD8 = v8;
+  byte_140C3CCD5 = 1;
   v26 = 0;
   while ( !(unsigned int)KeEnumerateNextProcessor(&v22, &v24) )
     *(_DWORD *)(KiProcessorBlock[v22] + 33828) = *(_DWORD *)(*(_QWORD *)(KiProcessorBlock[v22] + 24) + 652LL);

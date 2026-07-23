@@ -1,8 +1,8 @@
 /*
- * XREFs of ExUpdateLicenseDataInternal @ 0x1405A0AD0
+ * XREFs of ExUpdateLicenseDataInternal @ 0x1405A1AD0
  * Callers:
- *     ExUpdateLicenseData @ 0x1408CED20 (ExUpdateLicenseData.c)
- *     ExInitLicenseData @ 0x1409C43A0 (ExInitLicenseData.c)
+ *     ExUpdateLicenseData @ 0x1408CFFE0 (ExUpdateLicenseData.c)
+ *     ExInitLicenseData @ 0x1409C53A0 (ExInitLicenseData.c)
  * Callees:
  *     ExpLicUpdateChecksum @ 0x1400077F0 (ExpLicUpdateChecksum.c)
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
@@ -10,28 +10,28 @@
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     ExAcquirePushLockSharedEx @ 0x14004EE20 (ExAcquirePushLockSharedEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
- *     ExfReleasePushLockShared @ 0x1400914B0 (ExfReleasePushLockShared.c)
- *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
- *     memcmp @ 0x140196200 (memcmp.c)
- *     qsort @ 0x1401962E0 (qsort.c)
- *     ZwClose @ 0x1401B8370 (ZwClose.c)
- *     ZwCreateSection @ 0x1401B8AD0 (ZwCreateSection.c)
- *     RtlCompareMemory @ 0x1401C5BD0 (RtlCompareMemory.c)
- *     memmove @ 0x1401D1540 (memmove.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     sub_1405A1530 @ 0x1405A1530 (sub_1405A1530.c)
- *     ExpSetKernelDataProtection @ 0x1405A15F4 (ExpSetKernelDataProtection.c)
- *     ExpGetKernelDataProtection @ 0x1405A1B24 (ExpGetKernelDataProtection.c)
- *     sub_1405A1F10 @ 0x1405A1F10 (sub_1405A1F10.c)
- *     MmMapViewInSystemSpace @ 0x1405A23A0 (MmMapViewInSystemSpace.c)
- *     sub_1405A23DC @ 0x1405A23DC (sub_1405A23DC.c)
- *     ExpPutLicenseDataIntoRegistry @ 0x1405A2404 (ExpPutLicenseDataIntoRegistry.c)
- *     MmUnmapViewInSystemSpace @ 0x1405DF390 (MmUnmapViewInSystemSpace.c)
- *     ObReferenceObjectByHandle @ 0x1405E8350 (ObReferenceObjectByHandle.c)
- *     sub_1408CF054 @ 0x1408CF054 (sub_1408CF054.c)
+ *     ExfReleasePushLockShared @ 0x1400913F0 (ExfReleasePushLockShared.c)
+ *     ExfTryToWakePushLock @ 0x140091500 (ExfTryToWakePushLock.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B78F0 (KiLeaveCriticalRegionUnsafe.c)
+ *     memcmp @ 0x140196340 (memcmp.c)
+ *     qsort @ 0x140196420 (qsort.c)
+ *     ZwClose @ 0x1401B84D0 (ZwClose.c)
+ *     ZwCreateSection @ 0x1401B8C30 (ZwCreateSection.c)
+ *     RtlCompareMemory @ 0x1401C5D30 (RtlCompareMemory.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     sub_1405A2530 @ 0x1405A2530 (sub_1405A2530.c)
+ *     ExpSetKernelDataProtection @ 0x1405A25F4 (ExpSetKernelDataProtection.c)
+ *     ExpGetKernelDataProtection @ 0x1405A2B24 (ExpGetKernelDataProtection.c)
+ *     sub_1405A2F10 @ 0x1405A2F10 (sub_1405A2F10.c)
+ *     MmMapViewInSystemSpace @ 0x1405A33A0 (MmMapViewInSystemSpace.c)
+ *     sub_1405A33DC @ 0x1405A33DC (sub_1405A33DC.c)
+ *     ExpPutLicenseDataIntoRegistry @ 0x1405A3404 (ExpPutLicenseDataIntoRegistry.c)
+ *     MmUnmapViewInSystemSpace @ 0x1405E0390 (MmUnmapViewInSystemSpace.c)
+ *     ObReferenceObjectByHandle @ 0x1405E9350 (ObReferenceObjectByHandle.c)
+ *     sub_1408D0314 @ 0x1408D0314 (sub_1408D0314.c)
  */
 
 __int64 __fastcall ExUpdateLicenseDataInternal(int a1, unsigned int *a2)
@@ -211,8 +211,8 @@ LABEL_199:
   v74 = 0;
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
-  ExAcquirePushLockSharedEx((ULONG_PTR)&qword_14096E4E0, 0LL);
-  if ( off_14096D030 )
+  ExAcquirePushLockSharedEx((ULONG_PTR)&qword_14096F4E0, 0LL);
+  if ( off_14096E030 )
   {
     v11 = 1;
     v129 = 1;
@@ -240,7 +240,7 @@ LABEL_199:
   {
     if ( Data )
     {
-      if ( !byte_14096E4C1 && *a2 == *(_DWORD *)Data )
+      if ( !byte_14096F4C1 && *a2 == *(_DWORD *)Data )
       {
         v12 = a2[1];
         if ( v12 == *((_DWORD *)Data + 1)
@@ -255,9 +255,9 @@ LABEL_199:
     }
   }
 LABEL_32:
-  if ( _InterlockedCompareExchange64((volatile signed __int64 *)&qword_14096E4E0, 0LL, 17LL) != 17 )
-    ExfReleasePushLockShared((signed __int64 *)&qword_14096E4E0);
-  KeAbPostRelease((ULONG_PTR)&qword_14096E4E0);
+  if ( _InterlockedCompareExchange64((volatile signed __int64 *)&qword_14096F4E0, 0LL, 17LL) != 17 )
+    ExfReleasePushLockShared((signed __int64 *)&qword_14096F4E0);
+  KeAbPostRelease((ULONG_PTR)&qword_14096F4E0);
   KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
   if ( v74 < 0 )
   {
@@ -271,7 +271,7 @@ LABEL_201:
   {
     v50 = KeGetCurrentThread();
     --v50->KernelApcDisable;
-    ExAcquirePushLockExclusiveEx((ULONG_PTR)&qword_14096E4E0, 0LL);
+    ExAcquirePushLockExclusiveEx((ULONG_PTR)&qword_14096F4E0, 0LL);
     if ( Data )
     {
       KernelDataProtection = ExpGetKernelDataProtection(v116);
@@ -295,7 +295,7 @@ LABEL_201:
                 v55 = 16LL * (unsigned int)v53;
                 updated = v55 > 0xFFFFFFFF ? 0xC0000095 : 0;
                 if ( v55 <= 0xFFFFFFFF )
-                  updated = ExpLicUpdateChecksum((__int64)qword_14096FD00, v53, &v91);
+                  updated = ExpLicUpdateChecksum((__int64)qword_140970D00, v53, &v91);
               }
             }
             if ( updated )
@@ -325,7 +325,7 @@ LABEL_201:
     }
     else
     {
-      v51 = dword_14096D0A4;
+      v51 = dword_14096E0B8;
     }
     v78 = v51;
     v13 = 4;
@@ -343,7 +343,7 @@ LABEL_138:
         v59 = 16LL * (unsigned int)v57;
         v58 = v59 > 0xFFFFFFFF ? 0xC0000095 : 0;
         if ( v59 <= 0xFFFFFFFF )
-          v58 = ExpLicUpdateChecksum((__int64)qword_14096FD00, v57, &v94);
+          v58 = ExpLicUpdateChecksum((__int64)qword_140970D00, v57, &v94);
       }
     }
     if ( v58 )
@@ -355,12 +355,12 @@ LABEL_138:
     v114 = v95;
     v115 = v96;
     ExpSetKernelDataProtection(&v113, 7LL, 1LL);
-    if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_14096E4E0, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-      ExfTryToWakePushLock((volatile signed __int64 *)&qword_14096E4E0);
-    KeAbPostRelease((ULONG_PTR)&qword_14096E4E0);
+    if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_14096F4E0, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+      ExfTryToWakePushLock((volatile signed __int64 *)&qword_14096F4E0);
+    KeAbPostRelease((ULONG_PTR)&qword_14096F4E0);
     KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
     if ( v78 )
-      ((void (*)(void))sub_1405A23DC)();
+      ((void (*)(void))sub_1405A33DC)();
     v74 = 0x40000000;
     goto LABEL_149;
   }
@@ -397,16 +397,16 @@ LABEL_138:
     goto LABEL_152;
   }
   LOBYTE(v17) = 1;
-  v74 = sub_1405A1F10(v16, v17, 0LL, 0LL, NumOfElements);
+  v74 = sub_1405A2F10(v16, v17, 0LL, 0LL, NumOfElements);
   if ( v74 != -1073741789 )
     goto LABEL_49;
   v19 = KeGetCurrentThread();
   --v19->KernelApcDisable;
-  ExAcquirePushLockSharedEx((ULONG_PTR)&qword_14096E4E0, 0LL);
+  ExAcquirePushLockSharedEx((ULONG_PTR)&qword_14096F4E0, 0LL);
   v74 = NumOfElements[0] > 0x923u ? 0xC000000D : 0;
-  if ( _InterlockedCompareExchange64((volatile signed __int64 *)&qword_14096E4E0, 0LL, 17LL) != 17 )
-    ExfReleasePushLockShared((signed __int64 *)&qword_14096E4E0);
-  KeAbPostRelease((ULONG_PTR)&qword_14096E4E0);
+  if ( _InterlockedCompareExchange64((volatile signed __int64 *)&qword_14096F4E0, 0LL, 17LL) != 17 )
+    ExfReleasePushLockShared((signed __int64 *)&qword_14096F4E0);
+  KeAbPostRelease((ULONG_PTR)&qword_14096F4E0);
   KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
   if ( v74 < 0 )
   {
@@ -426,9 +426,9 @@ LABEL_152:
     v4 = 0LL;
     goto LABEL_102;
   }
-  v74 = sub_1405A1F10(MappedBase, 0LL, PoolWithTag, NumOfElements[0], 0LL);
+  v74 = sub_1405A2F10(MappedBase, 0LL, PoolWithTag, NumOfElements[0], 0LL);
   if ( v74 >= 0 )
-    qsort(v22, v20, 0x10uLL, sub_1405A1530);
+    qsort(v22, v20, 0x10uLL, sub_1405A2530);
 LABEL_49:
   if ( v74 < 0 )
   {
@@ -440,7 +440,7 @@ LABEL_49:
   v75 = 0;
   v23 = KeGetCurrentThread();
   --v23->KernelApcDisable;
-  ExAcquirePushLockSharedEx((ULONG_PTR)&qword_14096E4E0, 0LL);
+  ExAcquirePushLockSharedEx((ULONG_PTR)&qword_14096F4E0, 0LL);
   if ( !v129 )
   {
     v24 = 0;
@@ -451,11 +451,11 @@ LABEL_49:
     {
       v26 = 2LL * v25;
       v27 = (char *)P + 16 * v24;
-      v28 = sub_1405A1530(v27, &qword_14096FD00[2 * v25]);
+      v28 = sub_1405A2530(v27, &qword_140970D00[2 * v25]);
       v110 = v28;
       v29 = v27[1];
       v109 = v29;
-      v30 = qword_14096FD00[v26 + 1];
+      v30 = qword_140970D00[v26 + 1];
       v120 = v30;
       if ( v28 < 0 )
       {
@@ -496,14 +496,14 @@ LABEL_61:
     }
   }
 LABEL_67:
-  if ( _InterlockedCompareExchange64((volatile signed __int64 *)&qword_14096E4E0, 0LL, 17LL) != 17 )
-    ExfReleasePushLockShared((signed __int64 *)&qword_14096E4E0);
-  KeAbPostRelease((ULONG_PTR)&qword_14096E4E0);
+  if ( _InterlockedCompareExchange64((volatile signed __int64 *)&qword_14096F4E0, 0LL, 17LL) != 17 )
+    ExfReleasePushLockShared((signed __int64 *)&qword_14096F4E0);
+  KeAbPostRelease((ULONG_PTR)&qword_14096F4E0);
   KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
   ObfReferenceObject(v86);
   v32 = KeGetCurrentThread();
   --v32->KernelApcDisable;
-  ExAcquirePushLockExclusiveEx((ULONG_PTR)&qword_14096E4E0, 0LL);
+  ExAcquirePushLockExclusiveEx((ULONG_PTR)&qword_14096F4E0, 0LL);
   v87 = MappedBase;
   LOBYTE(v33) = 0;
   if ( !MappedBase )
@@ -546,27 +546,27 @@ LABEL_79:
   if ( v37 < 0 )
     goto LABEL_92;
   ExpSetKernelDataProtection(&v113, 7LL, 1LL);
-  *(_QWORD *)&NumOfElements[1] = qword_14096EA58;
+  *(_QWORD *)&NumOfElements[1] = qword_14096FA58;
   v88 = Data;
-  qword_14096EA58 = (__int64)v86;
+  qword_14096FA58 = (__int64)v86;
   Data = v87;
   MappedBase = 0LL;
-  off_14096D030 = 0LL;
-  v130 = byte_14096E4C1;
-  byte_14096E4C1 = 0;
-  memset(qword_14096FD00, 0, 16LL * (unsigned int)::NumOfElements);
+  off_14096E030 = 0LL;
+  v130 = byte_14096F4C1;
+  byte_14096F4C1 = 0;
+  memset(qword_140970D00, 0, 16LL * (unsigned int)::NumOfElements);
   LODWORD(v38) = 0;
   LODWORD(::NumOfElements) = 0;
   if ( P )
   {
-    memmove(qword_14096FD00, P, 16LL * (unsigned int)v34);
+    memmove(qword_140970D00, P, 16LL * (unsigned int)v34);
     LODWORD(::NumOfElements) = v34;
     LODWORD(v38) = 0;
   }
-  byte_14096E4DB = 1;
+  byte_14096F4DB = 1;
   if ( !v87 )
   {
-    v40 = dword_14096D0A4;
+    v40 = dword_14096E0B8;
     goto LABEL_85;
   }
   v39 = ExpGetKernelDataProtection(v117);
@@ -595,7 +595,7 @@ LABEL_85:
           v62 = 16LL * (unsigned int)v60;
           v61 = v62 > 0xFFFFFFFF ? 0xC0000095 : 0;
           if ( v62 <= 0xFFFFFFFF )
-            v61 = ExpLicUpdateChecksum((__int64)qword_14096FD00, v60, &v100);
+            v61 = ExpLicUpdateChecksum((__int64)qword_140970D00, v60, &v100);
         }
       }
       if ( v61 )
@@ -624,14 +624,14 @@ LABEL_85:
 LABEL_86:
   if ( (*((_DWORD *)Data + 3) & 1) != 0 )
   {
-    dword_14096D0A4 = 2;
+    dword_14096E0B8 = 2;
     v123 = 2;
     ExpSetKernelDataProtection(v122, 2LL, 0LL);
     v77 = 1;
   }
   else
   {
-    dword_14096D0A4 = v38;
+    dword_14096E0B8 = v38;
     v125 = v38;
     ExpSetKernelDataProtection(v124, 2LL, 0LL);
   }
@@ -659,7 +659,7 @@ LABEL_86:
               v66 = 16LL * (unsigned int)v64;
               v65 = v66 > 0xFFFFFFFF ? 0xC0000095 : 0;
               if ( v66 <= 0xFFFFFFFF )
-                v65 = ExpLicUpdateChecksum((__int64)qword_14096FD00, v64, &v103);
+                v65 = ExpLicUpdateChecksum((__int64)qword_140970D00, v64, &v103);
             }
           }
           if ( v65 )
@@ -692,7 +692,7 @@ LABEL_86:
   }
   else
   {
-    v42 = dword_14096D0A4;
+    v42 = dword_14096E0B8;
   }
   if ( v40 != v42 && (!v40 || !v42) )
   {
@@ -702,10 +702,10 @@ LABEL_86:
 LABEL_92:
   v43 = v33;
 LABEL_93:
-  v44 = _InterlockedExchangeAdd64((volatile signed __int64 *)&qword_14096E4E0, 0xFFFFFFFFFFFFFFFFuLL);
+  v44 = _InterlockedExchangeAdd64((volatile signed __int64 *)&qword_14096F4E0, 0xFFFFFFFFFFFFFFFFuLL);
   if ( (v44 & 2) != 0 && (v44 & 4) == 0 )
-    ExfTryToWakePushLock((volatile signed __int64 *)&qword_14096E4E0);
-  KeAbPostRelease((ULONG_PTR)&qword_14096E4E0);
+    ExfTryToWakePushLock((volatile signed __int64 *)&qword_14096F4E0);
+  KeAbPostRelease((ULONG_PTR)&qword_14096F4E0);
   KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
   if ( (int)Src < 0 )
   {
@@ -727,26 +727,26 @@ LABEL_157:
     }
   }
   if ( v43 || !v129 )
-    sub_1405A23DC(v45);
+    sub_1405A33DC(v45);
   v74 = 0;
   v46 = -1073741811;
   v4 = *(void **)&NumOfElements[1];
   if ( v75 == 1 )
     v74 = 263;
 LABEL_102:
-  if ( v130 && !byte_14096E4C1 )
-    sub_1408CF054(&KernelLicensingCacheCorruptionFixed);
+  if ( v130 && !byte_14096F4C1 )
+    sub_1408D0314(&KernelLicensingCacheCorruptionFixed);
   if ( v77 )
   {
     v47 = KeGetCurrentThread();
     --v47->KernelApcDisable;
-    ExAcquirePushLockExclusiveEx((ULONG_PTR)&qword_14096E4E0, 0LL);
+    ExAcquirePushLockExclusiveEx((ULONG_PTR)&qword_14096F4E0, 0LL);
     v126[40] = 0;
     ExpSetKernelDataProtection(v126, 32LL, 0LL);
-    v48 = _InterlockedExchangeAdd64((volatile signed __int64 *)&qword_14096E4E0, 0xFFFFFFFFFFFFFFFFuLL);
+    v48 = _InterlockedExchangeAdd64((volatile signed __int64 *)&qword_14096F4E0, 0xFFFFFFFFFFFFFFFFuLL);
     if ( (v48 & 2) != 0 && (v48 & 4) == 0 )
-      ExfTryToWakePushLock((volatile signed __int64 *)&qword_14096E4E0);
-    KeAbPostRelease((ULONG_PTR)&qword_14096E4E0);
+      ExfTryToWakePushLock((volatile signed __int64 *)&qword_14096F4E0);
+    KeAbPostRelease((ULONG_PTR)&qword_14096F4E0);
     KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
   }
   if ( v86 )
@@ -763,7 +763,7 @@ LABEL_102:
   {
     v68 = KeGetCurrentThread();
     --v68->KernelApcDisable;
-    ExAcquirePushLockExclusiveEx((ULONG_PTR)&qword_14096E4E0, 0LL);
+    ExAcquirePushLockExclusiveEx((ULONG_PTR)&qword_14096F4E0, 0LL);
     if ( Data )
     {
       v69 = ExpGetKernelDataProtection(v119);
@@ -786,7 +786,7 @@ LABEL_102:
                 v72 = 16LL * (unsigned int)v70;
                 v71 = v72 > 0xFFFFFFFF ? 0xC0000095 : 0;
                 if ( v72 <= 0xFFFFFFFF )
-                  v71 = ExpLicUpdateChecksum((__int64)qword_14096FD00, v70, &v106);
+                  v71 = ExpLicUpdateChecksum((__int64)qword_140970D00, v70, &v106);
               }
             }
             if ( v71 )
@@ -813,7 +813,7 @@ LABEL_102:
     }
     else
     {
-      v13 = dword_14096D0A4;
+      v13 = dword_14096E0B8;
     }
     if ( v13 )
     {
@@ -821,16 +821,16 @@ LABEL_102:
     }
     else
     {
-      dword_14096D0A4 = 5;
+      dword_14096E0B8 = 5;
       v128 = 5;
       ExpSetKernelDataProtection(v127, 2LL, 0LL);
     }
-    if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_14096E4E0, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-      ExfTryToWakePushLock((volatile signed __int64 *)&qword_14096E4E0);
-    KeAbPostRelease((ULONG_PTR)&qword_14096E4E0);
+    if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_14096F4E0, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+      ExfTryToWakePushLock((volatile signed __int64 *)&qword_14096F4E0);
+    KeAbPostRelease((ULONG_PTR)&qword_14096F4E0);
     KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
     if ( v9 )
-      sub_1405A23DC(v73);
+      sub_1405A33DC(v73);
   }
   return (unsigned int)v74;
 }

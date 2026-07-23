@@ -16,31 +16,30 @@
  *     ExFreePoolWithTag @ 0x140B62CD0 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall BiUpdateObjectReferenceInEfiEntry(__int64 a1, __int64 a2)
+__int64 __fastcall BiUpdateObjectReferenceInEfiEntry(__int64 a1, void *a2)
 {
-  int ObjectReferenceFromEfiEntry; // ebx
+  NTSTATUS ObjectReferenceFromEfiEntry; // ebx
   __int64 v5; // rax
   size_t v6; // rbx
   wchar_t *Pool2; // rax
   wchar_t *v8; // rsi
   wchar_t *v9; // rdi
-  __int64 v10; // r8
   UNICODE_STRING DestinationString; // [rsp+20h] [rbp-40h] BYREF
-  __int128 v13; // [rsp+30h] [rbp-30h] BYREF
-  __int128 v14; // [rsp+40h] [rbp-20h] BYREF
+  GUID Identifier; // [rsp+30h] [rbp-30h] BYREF
+  __int128 v13; // [rsp+40h] [rbp-20h] BYREF
 
+  Identifier = 0LL;
   v13 = 0LL;
-  v14 = 0LL;
   DestinationString = 0LL;
-  ObjectReferenceFromEfiEntry = BiGetObjectReferenceFromEfiEntry(a1, &v14);
+  ObjectReferenceFromEfiEntry = BiGetObjectReferenceFromEfiEntry(a1, &v13);
   if ( ObjectReferenceFromEfiEntry >= 0 )
   {
-    ObjectReferenceFromEfiEntry = BcdQueryObject(a2, 0, 0LL, (__int64)&v13);
+    ObjectReferenceFromEfiEntry = BcdQueryObject(a2, 0, 0LL, &Identifier);
     if ( ObjectReferenceFromEfiEntry >= 0 )
     {
-      v5 = v14 - v13;
-      if ( (_QWORD)v14 == (_QWORD)v13 )
-        v5 = *((_QWORD *)&v14 + 1) - *((_QWORD *)&v13 + 1);
+      v5 = v13 - *(_QWORD *)&Identifier.Data1;
+      if ( (_QWORD)v13 == *(_QWORD *)&Identifier.Data1 )
+        v5 = *((_QWORD *)&v13 + 1) - *(_QWORD *)Identifier.Data4;
       if ( v5 )
       {
         v6 = (unsigned int)(*(_DWORD *)(a1 + 40) - 20);
@@ -54,8 +53,7 @@ __int64 __fastcall BiUpdateObjectReferenceInEfiEntry(__int64 a1, __int64 a2)
           if ( v9 )
           {
             RtlInitUnicodeString(&DestinationString, 0LL);
-            LOBYTE(v10) = 1;
-            ObjectReferenceFromEfiEntry = RtlStringFromGUIDEx(&v13, &DestinationString, v10);
+            ObjectReferenceFromEfiEntry = RtlStringFromGUIDEx(&Identifier, &DestinationString, 1u);
             if ( ObjectReferenceFromEfiEntry >= 0 )
             {
               memmove(

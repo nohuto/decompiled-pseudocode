@@ -1,14 +1,14 @@
 /*
- * XREFs of KeSetTagCpuSets @ 0x1405F3F1C
+ * XREFs of KeSetTagCpuSets @ 0x1405F68DC
  * Callers:
- *     NtSetSystemInformation @ 0x140833840 (NtSetSystemInformation.c)
+ *     NtSetSystemInformation @ 0x140839A80 (NtSetSystemInformation.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     KxReleaseSpinLock @ 0x1402BDEF0 (KxReleaseSpinLock.c)
- *     KxAcquireSpinLock @ 0x14032F2C0 (KxAcquireSpinLock.c)
- *     KiValidateCpuSetMasks @ 0x140462E9C (KiValidateCpuSetMasks.c)
- *     RtlWriteAcquireTickLock @ 0x14046AC24 (RtlWriteAcquireTickLock.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KxReleaseSpinLock @ 0x140308BB0 (KxReleaseSpinLock.c)
+ *     KxAcquireSpinLock @ 0x1403312F0 (KxAcquireSpinLock.c)
+ *     KiValidateCpuSetMasks @ 0x14045BE5C (KiValidateCpuSetMasks.c)
+ *     RtlWriteAcquireTickLock @ 0x1404643A4 (RtlWriteAcquireTickLock.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 __int64 __fastcall KeSetTagCpuSets(unsigned int a1, __int64 a2, struct _LIST_ENTRY *a3)
@@ -33,7 +33,7 @@ __int64 __fastcall KeSetTagCpuSets(unsigned int a1, __int64 a2, struct _LIST_ENT
     RtlWriteAcquireTickLock(&KiCpuSetSequence);
     for ( i = 0; i < a1; ++v3 )
     {
-      for ( j = *v3; j; stru_140FC01F0.SavedApcState.ApcListHead[0].Blink[64 * i + (unsigned int)v10].Blink = a3 )
+      for ( j = *v3; j; stru_140FC11F0.SavedApcState.ApcListHead[0].Flink[64 * i + (unsigned int)v10].Blink = a3 )
       {
         _BitScanForward64(&v10, j);
         j &= ~(1LL << v10);

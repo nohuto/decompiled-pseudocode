@@ -1,9 +1,9 @@
 /*
- * XREFs of IopSymlinkCleanupECP @ 0x1406ABE00
+ * XREFs of IopSymlinkCleanupECP @ 0x1406AD0A0
  * Callers:
  *     <none>
  * Callees:
- *     IopSymlinkFreeRelatedMountPointChain @ 0x1406ABE14 (IopSymlinkFreeRelatedMountPointChain.c)
+ *     IopSymlinkFreeRelatedMountPointChain @ 0x1406AD0B4 (IopSymlinkFreeRelatedMountPointChain.c)
  */
 
 void __fastcall IopSymlinkCleanupECP(PVOID EcpContext, LPCGUID EcpType)

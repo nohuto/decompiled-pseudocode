@@ -1,0 +1,41 @@
+/*
+ * XREFs of sub_1409FF2C4 @ 0x1409FF2C4
+ * Callers:
+ *     sub_1409FD4A0 @ 0x1409FD4A0 (sub_1409FD4A0.c)
+ *     sub_1409FF6B0 @ 0x1409FF6B0 (sub_1409FF6B0.c)
+ * Callees:
+ *     sub_1409FD474 @ 0x1409FD474 (sub_1409FD474.c)
+ *     sub_1409FF178 @ 0x1409FF178 (sub_1409FF178.c)
+ */
+
+__int64 __fastcall sub_1409FF2C4(__int64 a1, unsigned int a2)
+{
+  unsigned __int64 v2; // rdx
+  _DWORD *v3; // r8
+  unsigned int v4; // r9d
+  __int64 v5; // r10
+  unsigned int v6; // eax
+  __int64 v7; // rcx
+  unsigned __int64 v8; // rcx
+
+  v5 = (unsigned int)sub_1409FD474((_WORD *)(a1 + 20), a1 + a2);
+  v6 = v3[3];
+  if ( v6 < 0x14 )
+    return 3221225485LL;
+  if ( v6 > v4 )
+    return 3221225485LL;
+  if ( v3[2] != 1 )
+    return 3221225485LL;
+  v7 = (unsigned int)v3[4];
+  if ( (v7 & 3) != 0 )
+    return 3221225485LL;
+  if ( (unsigned int)v7 >= v4 )
+    return 3221225485LL;
+  if ( (_DWORD)v5 == -1 )
+    return 3221225485LL;
+  v8 = (unsigned __int64)v3 + v7;
+  if ( (unsigned __int64)v3 + 2 * v5 + 22 > v8 )
+    return 3221225485LL;
+  else
+    return sub_1409FF178(v8, v2);
+}

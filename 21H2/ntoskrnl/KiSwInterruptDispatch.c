@@ -1,17 +1,17 @@
 /*
- * XREFs of KiSwInterruptDispatch @ 0x1403DCC20
+ * XREFs of KiSwInterruptDispatch @ 0x1403DCD90
  * Callers:
- *     KiSwInterrupt @ 0x140404F60 (KiSwInterrupt.c)
+ *     KiSwInterrupt @ 0x140405140 (KiSwInterrupt.c)
  * Callees:
- *     KeExitRetpoline @ 0x14035E888 (KeExitRetpoline.c)
- *     KiGetTrapFrameMode @ 0x140394B60 (KiGetTrapFrameMode.c)
- *     memmove @ 0x140413F40 (memmove.c)
- *     KiReadKernelDr7 @ 0x140512C04 (KiReadKernelDr7.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
- *     $$b8 @ 0x140A0F3CC ($$b8.c)
- *     SdbpCheckDll @ 0x140A11080 (SdbpCheckDll.c)
- *     KeGuardDispatchICall @ 0x140A11330 (KeGuardDispatchICall.c)
- *     KeGuardCheckICall @ 0x140A11340 (KeGuardCheckICall.c)
+ *     KeExitRetpoline @ 0x1402A37B8 (KeExitRetpoline.c)
+ *     KiGetTrapFrameMode @ 0x140394CB0 (KiGetTrapFrameMode.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     KiReadKernelDr7 @ 0x140512E44 (KiReadKernelDr7.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
+ *     $$b8 @ 0x140A103CC ($$b8.c)
+ *     SdbpCheckDll @ 0x140A12080 (SdbpCheckDll.c)
+ *     KeGuardDispatchICall @ 0x140A12330 (KeGuardDispatchICall.c)
+ *     KeGuardCheckICall @ 0x140A12340 (KeGuardCheckICall.c)
  */
 
 char __fastcall KiSwInterruptDispatch(__int64 a1, __int64 a2, __int64 a3)
@@ -200,7 +200,7 @@ char __fastcall KiSwInterruptDispatch(__int64 a1, __int64 a2, __int64 a3)
     *PoolWithTag = 0LL;
     v9 = PoolWithTag + 4;
     PoolWithTag[3] = PoolWithTag;
-    PoolWithTag[2] = sub_1403EA270;
+    PoolWithTag[2] = sub_1403EA3E0;
     v164 = PoolWithTag + 4;
     memmove(PoolWithTag + 4, v3, 0xAA0uLL);
     v8[339] = v3;
@@ -877,7 +877,7 @@ LABEL_202:
       *(_QWORD *)(v119 + v9[210]) = 0LL;
       *(_QWORD *)(v119 + v9[212]) = 0LL;
       SdbpCheckDll(265, v115, v114, v113, v116, v9[43], v118);
-      JUMPOUT(0x1403DDAEFLL);
+      JUMPOUT(0x1403DDC5FLL);
     }
     v132 = *((_DWORD *)v9 + 49);
     *((_DWORD *)v9 + 49) = 0;

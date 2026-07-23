@@ -1,12 +1,12 @@
 /*
- * XREFs of CcSetLogHandleForFileEx @ 0x1400A77DC
+ * XREFs of CcSetLogHandleForFileEx @ 0x1400A5D54
  * Callers:
  *     <none>
  * Callees:
- *     KeAcquireQueuedSpinLock @ 0x1400E8D30 (KeAcquireQueuedSpinLock.c)
- *     ObfReferenceObjectWithTag @ 0x1400EE4F0 (ObfReferenceObjectWithTag.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     KeAcquireQueuedSpinLock @ 0x1400E6BD0 (KeAcquireQueuedSpinLock.c)
+ *     ObfReferenceObjectWithTag @ 0x1400EC370 (ObfReferenceObjectWithTag.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
+ *     memset @ 0x140171AC0 (memset.c)
  */
 
 void __fastcall CcSetLogHandleForFileEx(__int64 a1, __int64 a2, __int64 a3, __int64 a4, PVOID Object)
@@ -51,23 +51,23 @@ void __fastcall CcSetLogHandleForFileEx(__int64 a1, __int64 a2, __int64 a3, __in
     v10 = (_QWORD *)(v8 + 120);
     if ( *(_DWORD *)(v8 + 112) )
     {
-      v16 = (_QWORD *)qword_140322FB8;
-      if ( *(__int64 **)qword_140322FB8 != &CcDirtySharedCacheMapWithLogHandleList )
+      v16 = (_QWORD *)qword_140322FD8;
+      if ( *(__int64 **)qword_140322FD8 != &CcDirtySharedCacheMapWithLogHandleList )
         __fastfail(3u);
       *v10 = &CcDirtySharedCacheMapWithLogHandleList;
       *(_QWORD *)(v8 + 128) = v16;
       *v16 = v10;
-      qword_140322FB8 = v8 + 120;
+      qword_140322FD8 = v8 + 120;
     }
     else
     {
-      v11 = (_QWORD *)qword_140322F98;
-      if ( *(__int64 **)qword_140322F98 != &CcCleanSharedCacheMapWithLogHandleList )
+      v11 = (_QWORD *)qword_140322FB8;
+      if ( *(__int64 **)qword_140322FB8 != &CcCleanSharedCacheMapWithLogHandleList )
         __fastfail(3u);
       *v10 = &CcCleanSharedCacheMapWithLogHandleList;
       *(_QWORD *)(v8 + 128) = v11;
       *v11 = v10;
-      qword_140322F98 = v8 + 120;
+      qword_140322FB8 = v8 + 120;
     }
     if ( !*(_QWORD *)(*(_QWORD *)(v8 + 504) + 40LL) )
     {

@@ -1,5 +1,5 @@
 /*
- * XREFs of NtdllDispatchHook_W @ 0x18015EDF0
+ * XREFs of NtdllDispatchHook_W @ 0x18015ECF0
  * Callers:
  *     <none>
  * Callees:
@@ -9,5 +9,5 @@
 // attributes: thunk
 void __noreturn NtdllDispatchHook_W()
 {
-  off_1801E0298();
+  off_1801DF298();
 }

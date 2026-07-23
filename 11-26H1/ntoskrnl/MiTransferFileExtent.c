@@ -1,13 +1,13 @@
 /*
- * XREFs of MiTransferFileExtent @ 0x140504358
+ * XREFs of MiTransferFileExtent @ 0x1404FDB1C
  * Callers:
- *     MiIssueHardFaultIo @ 0x14038EA50 (MiIssueHardFaultIo.c)
- *     MiFlushFileOnlyMdl @ 0x140507F90 (MiFlushFileOnlyMdl.c)
+ *     MiIssueHardFaultIo @ 0x140390800 (MiIssueHardFaultIo.c)
+ *     MiFlushFileOnlyMdl @ 0x140501964 (MiFlushFileOnlyMdl.c)
  * Callees:
- *     MiInitializeCachedExtentWalker @ 0x1405044E8 (MiInitializeCachedExtentWalker.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     MiCopyFilePage @ 0x1406F93E0 (MiCopyFilePage.c)
- *     MiGetCachedExtentWalkerNextPage @ 0x1406FA1C8 (MiGetCachedExtentWalkerNextPage.c)
+ *     MiInitializeCachedExtentWalker @ 0x1404FDCAC (MiInitializeCachedExtentWalker.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     MiCopyFilePage @ 0x1406FE0B0 (MiCopyFilePage.c)
+ *     MiGetCachedExtentWalkerNextPage @ 0x1406FEE98 (MiGetCachedExtentWalkerNextPage.c)
  */
 
 int *__fastcall MiTransferFileExtent(_DWORD *a1, ULONG_PTR a2, ULONG_PTR a3, int a4, __int64 a5)

@@ -1,9 +1,9 @@
 /*
- * XREFs of SecureDump_ConvertBinaryToHexString @ 0x14055D910
+ * XREFs of SecureDump_ConvertBinaryToHexString @ 0x14055DFD0
  * Callers:
- *     SecureDump_LoadCertAndProvisionKey @ 0x14055E140 (SecureDump_LoadCertAndProvisionKey.c)
+ *     SecureDump_LoadCertAndProvisionKey @ 0x14055E800 (SecureDump_LoadCertAndProvisionKey.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall SecureDump_ConvertBinaryToHexString(char *a1, unsigned int a2, __int64 a3, _DWORD *a4)

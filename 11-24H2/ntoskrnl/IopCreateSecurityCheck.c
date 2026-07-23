@@ -1,17 +1,17 @@
 /*
- * XREFs of IopCreateSecurityCheck @ 0x14046DA5C
+ * XREFs of IopCreateSecurityCheck @ 0x1403B5AE0
  * Callers:
- *     IopParseDevice @ 0x14089F880 (IopParseDevice.c)
+ *     IopParseDevice @ 0x1408A7F20 (IopParseDevice.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x1402595A0 (KeLeaveCriticalRegionThread.c)
- *     ExReleaseResourceLite @ 0x14025A450 (ExReleaseResourceLite.c)
- *     ExAcquireResourceSharedLite @ 0x140341E80 (ExAcquireResourceSharedLite.c)
- *     SeAccessCheck @ 0x14035A5B0 (SeAccessCheck.c)
- *     SeOpenObjectAuditAlarm @ 0x1408520E0 (SeOpenObjectAuditAlarm.c)
- *     SeLockSubjectContext @ 0x140868470 (SeLockSubjectContext.c)
- *     SeUnlockSubjectContext @ 0x1408684D0 (SeUnlockSubjectContext.c)
- *     SeAppendPrivileges @ 0x1409D2470 (SeAppendPrivileges.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     KeLeaveCriticalRegionThread @ 0x140289BB0 (KeLeaveCriticalRegionThread.c)
+ *     ExReleaseResourceLite @ 0x14028AA60 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceSharedLite @ 0x140321360 (ExAcquireResourceSharedLite.c)
+ *     SeAccessCheck @ 0x1403B6900 (SeAccessCheck.c)
+ *     SeOpenObjectAuditAlarm @ 0x14084E3A0 (SeOpenObjectAuditAlarm.c)
+ *     SeLockSubjectContext @ 0x14086C760 (SeLockSubjectContext.c)
+ *     SeUnlockSubjectContext @ 0x14086C7C0 (SeUnlockSubjectContext.c)
+ *     SeAppendPrivileges @ 0x1409C22A0 (SeAppendPrivileges.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 BOOLEAN __fastcall IopCreateSecurityCheck(

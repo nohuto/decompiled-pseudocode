@@ -1,13 +1,13 @@
 /*
- * XREFs of HalpExtInitExtensions @ 0x140C0F11C
+ * XREFs of HalpExtInitExtensions @ 0x140C1111C
  * Callers:
- *     HalpHalExtInitSystem @ 0x140B4D060 (HalpHalExtInitSystem.c)
+ *     HalpHalExtInitSystem @ 0x140B4F0A0 (HalpHalExtInitSystem.c)
  * Callees:
- *     DbgPrintEx @ 0x1402CB2F0 (DbgPrintEx.c)
- *     HalpAcpiGetTable @ 0x140478488 (HalpAcpiGetTable.c)
- *     HalpMmAllocateMemoryInternal @ 0x140542CD0 (HalpMmAllocateMemoryInternal.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     DbgPrintEx @ 0x140275B40 (DbgPrintEx.c)
+ *     HalpAcpiGetTable @ 0x14045F918 (HalpAcpiGetTable.c)
+ *     HalpMmAllocateMemoryInternal @ 0x140540620 (HalpMmAllocateMemoryInternal.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 __int64 __fastcall HalpExtInitExtensions(__int64 a1)
@@ -18,20 +18,18 @@ __int64 __fastcall HalpExtInitExtensions(__int64 a1)
   _QWORD *v5; // rax
   unsigned int v6; // edi
   void *MemoryInternal; // rax
-  __int64 v8; // r9
   __int64 Table; // r13
-  unsigned int v10; // r14d
-  _QWORD *v11; // rax
-  _QWORD *v12; // rdi
-  __int64 v13; // r15
-  __int64 v14; // r8
-  unsigned __int64 v15; // rsi
+  unsigned int v9; // r14d
+  _QWORD *v10; // rax
+  _QWORD *v11; // rdi
+  __int64 v12; // r15
+  unsigned __int64 v13; // rsi
   __int64 **i; // r15
-  __int64 v18; // [rsp+60h] [rbp+8h] BYREF
+  __int64 v16; // [rsp+60h] [rbp+8h] BYREF
 
   v1 = 0;
   HalpExtLoaderBlock = a1;
-  v18 = 0LL;
+  v16 = 0LL;
   v3 = 0;
   v4 = (_QWORD **)(*(_QWORD *)(a1 + 240) + 2584LL);
   HalpExtHandleCount = 0;
@@ -54,34 +52,34 @@ __int64 __fastcall HalpExtInitExtensions(__int64 a1)
     if ( MemoryInternal )
     {
       memset_0(MemoryInternal, 0, v6);
-      Table = HalpAcpiGetTable(a1, 1414681411, 0LL, 0LL);
+      Table = HalpAcpiGetTable(a1, 1414681411, 0, 0);
       if ( Table )
       {
-        v10 = 0;
-        v11 = (_QWORD *)(*(_QWORD *)(a1 + 240) + 2584LL);
-        v12 = (_QWORD *)*v11;
-        if ( (_QWORD *)*v11 != v11 )
+        v9 = 0;
+        v10 = (_QWORD *)(*(_QWORD *)(a1 + 240) + 2584LL);
+        v11 = (_QWORD *)*v10;
+        if ( (_QWORD *)*v10 != v10 )
         {
           do
           {
-            if ( *((int *)v12 + 10) >= 0 )
+            if ( *((int *)v11 + 10) >= 0 )
             {
-              v13 = v12[2];
-              v18 = 0LL;
-              if ( (int)guard_dispatch_icall_no_overrides(0LL, &v18, &HalpExtensionImports, v8) >= 0 && v18 )
+              v12 = v11[2];
+              v16 = 0LL;
+              if ( (int)guard_dispatch_icall_no_overrides(0LL, &v16) >= 0 && v16 )
               {
-                v15 = HalpExtHandleArray + ((unsigned __int64)v10 << 6);
-                *(_QWORD *)(v15 + 8) = *(_QWORD *)(v13 + 56);
-                *(_QWORD *)(v15 + 16) = v18;
-                *(_DWORD *)(v15 + 24) = 0;
-                *(_QWORD *)(v15 + 48) = *(_QWORD *)(v13 + 48);
-                *(_DWORD *)(v15 + 56) = *(_DWORD *)(v13 + 64);
-                *(_BYTE *)v15 = 1;
-                *(_QWORD *)(v15 + 40) = v15 + 32;
-                *(_QWORD *)(v15 + 32) = v15 + 32;
-                for ( i = (__int64 **)v12[3]; i != v12 + 3; i = (__int64 **)*i )
-                  guard_dispatch_icall_no_overrides(v10, Table + *((unsigned int *)i + 4), v14, v8);
-                *(_BYTE *)v15 = 0;
+                v13 = HalpExtHandleArray + ((unsigned __int64)v9 << 6);
+                *(_QWORD *)(v13 + 8) = *(_QWORD *)(v12 + 56);
+                *(_QWORD *)(v13 + 16) = v16;
+                *(_DWORD *)(v13 + 24) = 0;
+                *(_QWORD *)(v13 + 48) = *(_QWORD *)(v12 + 48);
+                *(_DWORD *)(v13 + 56) = *(_DWORD *)(v12 + 64);
+                *(_BYTE *)v13 = 1;
+                *(_QWORD *)(v13 + 40) = v13 + 32;
+                *(_QWORD *)(v13 + 32) = v13 + 32;
+                for ( i = (__int64 **)v11[3]; i != v11 + 3; i = (__int64 **)*i )
+                  guard_dispatch_icall_no_overrides(v9, Table + *((unsigned int *)i + 4));
+                *(_BYTE *)v13 = 0;
               }
             }
             else
@@ -90,13 +88,13 @@ __int64 __fastcall HalpExtInitExtensions(__int64 a1)
                 0x65u,
                 0,
                 "HAL Extension %s failed load, status=0x%x\n",
-                (const char *)v12[6],
-                *((_DWORD *)v12 + 10));
+                (const char *)v11[6],
+                *((_DWORD *)v11 + 10));
             }
-            ++v10;
-            v12 = (_QWORD *)*v12;
+            ++v9;
+            v11 = (_QWORD *)*v11;
           }
-          while ( v12 != (_QWORD *)(*(_QWORD *)(a1 + 240) + 2584LL) );
+          while ( v11 != (_QWORD *)(*(_QWORD *)(a1 + 240) + 2584LL) );
         }
       }
     }

@@ -1,9 +1,9 @@
 /*
- * XREFs of KiAbDetermineMaxWaiterPriority @ 0x1402BC720
+ * XREFs of KiAbDetermineMaxWaiterPriority @ 0x1402BC9B0
  * Callers:
- *     KiSwapThread @ 0x14023F3F0 (KiSwapThread.c)
- *     KiDispatchInterrupt @ 0x140249530 (KiDispatchInterrupt.c)
- *     KiAbProcessThreadLocks @ 0x1402BC350 (KiAbProcessThreadLocks.c)
+ *     KiSwapThread @ 0x14023F4C0 (KiSwapThread.c)
+ *     KiDispatchInterrupt @ 0x140249600 (KiDispatchInterrupt.c)
+ *     KiAbProcessThreadLocks @ 0x1402BC5E0 (KiAbProcessThreadLocks.c)
  * Callees:
  *     <none>
  */

@@ -3,11 +3,11 @@
  * Callers:
  *     MiInitializeSystemVa @ 0x140B5FA88 (MiInitializeSystemVa.c)
  * Callees:
- *     MiHyperSpaceSize @ 0x14025D514 (MiHyperSpaceSize.c)
- *     ExGenRandom @ 0x1403175D0 (ExGenRandom.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     qsort @ 0x1403DA430 (qsort.c)
- *     memset @ 0x140435A00 (memset.c)
+ *     MiHyperSpaceSize @ 0x14025D7A4 (MiHyperSpaceSize.c)
+ *     ExGenRandom @ 0x140317860 (ExGenRandom.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     qsort @ 0x1403DA610 (qsort.c)
+ *     memset @ 0x140435E00 (memset.c)
  *     MiAssignSystemVa @ 0x140B5FF04 (MiAssignSystemVa.c)
  *     MiAddSubRegionEntropy @ 0x140B60128 (MiAddSubRegionEntropy.c)
  */

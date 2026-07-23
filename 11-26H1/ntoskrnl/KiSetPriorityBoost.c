@@ -1,12 +1,12 @@
 /*
- * XREFs of KiSetPriorityBoost @ 0x1403BFA08
+ * XREFs of KiSetPriorityBoost @ 0x1403C9908
  * Callers:
- *     KiVpBackingThreadYieldExecution @ 0x1402385C4 (KiVpBackingThreadYieldExecution.c)
- *     KiNormalPriorityReadyScan @ 0x1403BF1A4 (KiNormalPriorityReadyScan.c)
- *     KiScanSharedReadyThreads @ 0x1403BF4BC (KiScanSharedReadyThreads.c)
+ *     KiVpBackingThreadYieldExecution @ 0x140239F24 (KiVpBackingThreadYieldExecution.c)
+ *     KiNormalPriorityReadyScan @ 0x1403C90A4 (KiNormalPriorityReadyScan.c)
+ *     KiScanSharedReadyThreads @ 0x1403C93BC (KiScanSharedReadyThreads.c)
  * Callees:
- *     KiUpdateThreadPriority @ 0x14037EAA0 (KiUpdateThreadPriority.c)
- *     KiSetPriorityThread @ 0x14037F250 (KiSetPriorityThread.c)
+ *     KiUpdateThreadPriority @ 0x140380850 (KiUpdateThreadPriority.c)
+ *     KiSetPriorityThread @ 0x140381000 (KiSetPriorityThread.c)
  */
 
 unsigned __int64 __fastcall KiSetPriorityBoost(

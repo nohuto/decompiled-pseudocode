@@ -7,7 +7,7 @@
  *     KeQueryMaximumProcessorCountEx @ 0x1400FC800 (KeQueryMaximumProcessorCountEx.c)
  */
 
-int __fastcall ExpAcquireFannedOutPushLockExclusive(unsigned __int64 a1, unsigned __int64 a2, __int16 *a3)
+int __fastcall ExpAcquireFannedOutPushLockExclusive(unsigned __int64 a1, __int64 a2, __int16 *a3)
 {
   unsigned int v3; // esi
   unsigned __int64 v4; // rbp

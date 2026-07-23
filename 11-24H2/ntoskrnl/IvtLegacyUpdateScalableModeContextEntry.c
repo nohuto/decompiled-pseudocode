@@ -1,16 +1,16 @@
 /*
- * XREFs of IvtLegacyUpdateScalableModeContextEntry @ 0x140570E38
+ * XREFs of IvtLegacyUpdateScalableModeContextEntry @ 0x14056E2C8
  * Callers:
- *     IvtLegacyConfigureAts @ 0x14056FEF0 (IvtLegacyConfigureAts.c)
- *     IvtLegacySetDevicePasidTable @ 0x140570B60 (IvtLegacySetDevicePasidTable.c)
- *     IvtLegacyUpdateScalableModeTranslationStructures @ 0x140570FFC (IvtLegacyUpdateScalableModeTranslationStructures.c)
+ *     IvtLegacyConfigureAts @ 0x14056D380 (IvtLegacyConfigureAts.c)
+ *     IvtLegacySetDevicePasidTable @ 0x14056DFF0 (IvtLegacySetDevicePasidTable.c)
+ *     IvtLegacyUpdateScalableModeTranslationStructures @ 0x14056E48C (IvtLegacyUpdateScalableModeTranslationStructures.c)
  * Callees:
- *     IvtGetScalableModePasidTables @ 0x14056E9DC (IvtGetScalableModePasidTables.c)
- *     IvtInvalidateScalableModeContextEntry @ 0x14056F5C0 (IvtInvalidateScalableModeContextEntry.c)
- *     IvtLegacyBuildScalableModeContextEntry @ 0x14056FE18 (IvtLegacyBuildScalableModeContextEntry.c)
- *     IvtLegacyGetDomainId @ 0x140570894 (IvtLegacyGetDomainId.c)
- *     IvtLegacySetScalableModeContextEntry @ 0x140570DF8 (IvtLegacySetScalableModeContextEntry.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     IvtGetScalableModePasidTables @ 0x14056BE6C (IvtGetScalableModePasidTables.c)
+ *     IvtInvalidateScalableModeContextEntry @ 0x14056CA50 (IvtInvalidateScalableModeContextEntry.c)
+ *     IvtLegacyBuildScalableModeContextEntry @ 0x14056D2A8 (IvtLegacyBuildScalableModeContextEntry.c)
+ *     IvtLegacyGetDomainId @ 0x14056DD24 (IvtLegacyGetDomainId.c)
+ *     IvtLegacySetScalableModeContextEntry @ 0x14056E288 (IvtLegacySetScalableModeContextEntry.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 __int64 __fastcall IvtLegacyUpdateScalableModeContextEntry(

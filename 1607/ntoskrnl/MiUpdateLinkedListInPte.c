@@ -1,12 +1,12 @@
 /*
- * XREFs of MiUpdateLinkedListInPte @ 0x1401F2A14
+ * XREFs of MiUpdateLinkedListInPte @ 0x1401F281C
  * Callers:
- *     InsertTailListPte @ 0x140017ED0 (InsertTailListPte.c)
- *     MiObtainSystemCacheView @ 0x140019B70 (MiObtainSystemCacheView.c)
- *     MmUnmapViewInSystemCache @ 0x1400492C0 (MmUnmapViewInSystemCache.c)
- *     MmFreeSpecialPool @ 0x1401EC0A4 (MmFreeSpecialPool.c)
+ *     InsertTailListPte @ 0x140017A50 (InsertTailListPte.c)
+ *     MiObtainSystemCacheView @ 0x1400196F0 (MiObtainSystemCacheView.c)
+ *     MmUnmapViewInSystemCache @ 0x140048E40 (MmUnmapViewInSystemCache.c)
+ *     MmFreeSpecialPool @ 0x1401EBED0 (MmFreeSpecialPool.c)
  * Callees:
- *     MiReverseSwizzleInvalidPte @ 0x1401F2934 (MiReverseSwizzleInvalidPte.c)
+ *     MiReverseSwizzleInvalidPte @ 0x1401F2760 (MiReverseSwizzleInvalidPte.c)
  */
 
 __int64 __fastcall MiUpdateLinkedListInPte(__int64 a1)

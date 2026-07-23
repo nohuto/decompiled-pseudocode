@@ -1,11 +1,11 @@
 /*
- * XREFs of BiGetSystemPartition @ 0x14053B84C
+ * XREFs of BiGetSystemPartition @ 0x14053BD8C
  * Callers:
- *     BiGetSystemStorePath @ 0x14053B764 (BiGetSystemStorePath.c)
+ *     BiGetSystemStorePath @ 0x14053BCA4 (BiGetSystemStorePath.c)
  * Callees:
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     SyspartGetSystemPartition @ 0x14053B8CC (SyspartGetSystemPartition.c)
+ *     SyspartGetSystemPartition @ 0x14053BE0C (SyspartGetSystemPartition.c)
  */
 
 __int64 __fastcall BiGetSystemPartition(_QWORD *a1)

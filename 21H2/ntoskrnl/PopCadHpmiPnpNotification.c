@@ -1,9 +1,9 @@
 /*
- * XREFs of PopCadHpmiPnpNotification @ 0x1408F5790
+ * XREFs of PopCadHpmiPnpNotification @ 0x1408F58F0
  * Callers:
  *     <none>
  * Callees:
- *     PopCadTriggerDriverLoad @ 0x1408F57F8 (PopCadTriggerDriverLoad.c)
+ *     PopCadTriggerDriverLoad @ 0x1408F5958 (PopCadTriggerDriverLoad.c)
  */
 
 __int64 __fastcall PopCadHpmiPnpNotification(char *NotificationStructure, PVOID Context)

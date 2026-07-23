@@ -1,15 +1,15 @@
 /*
- * XREFs of MiUnlockClonePageTable @ 0x14030B67C
+ * XREFs of MiUnlockClonePageTable @ 0x1402ED6FC
  * Callers:
- *     MiCloneVad @ 0x14030A8F8 (MiCloneVad.c)
- *     MiBuildForkPte @ 0x14030AB74 (MiBuildForkPte.c)
- *     MiDuplicateCloneLeaf @ 0x14030D374 (MiDuplicateCloneLeaf.c)
- *     MiHandleForkTransitionPte @ 0x14030E420 (MiHandleForkTransitionPte.c)
- *     MiReplenishCloneLeafPage @ 0x14030E9E0 (MiReplenishCloneLeafPage.c)
+ *     MiCloneVad @ 0x1402EC978 (MiCloneVad.c)
+ *     MiBuildForkPte @ 0x1402ECBF4 (MiBuildForkPte.c)
+ *     MiDuplicateCloneLeaf @ 0x1402EF3F4 (MiDuplicateCloneLeaf.c)
+ *     MiHandleForkTransitionPte @ 0x1402F04A0 (MiHandleForkTransitionPte.c)
+ *     MiReplenishCloneLeafPage @ 0x1402F0A60 (MiReplenishCloneLeafPage.c)
  * Callees:
- *     MiUnlockPageTableInternal @ 0x1402D13E0 (MiUnlockPageTableInternal.c)
- *     MiFlushTbList @ 0x140329040 (MiFlushTbList.c)
- *     MiReleaseProcessorFlushList @ 0x1403613C0 (MiReleaseProcessorFlushList.c)
+ *     MiUnlockPageTableInternal @ 0x1402B31A0 (MiUnlockPageTableInternal.c)
+ *     MiFlushTbList @ 0x14032B070 (MiFlushTbList.c)
+ *     MiReleaseProcessorFlushList @ 0x140363160 (MiReleaseProcessorFlushList.c)
  */
 
 void __fastcall MiUnlockClonePageTable(__int64 a1, unsigned __int64 a2)

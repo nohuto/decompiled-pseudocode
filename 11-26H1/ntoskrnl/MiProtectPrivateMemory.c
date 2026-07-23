@@ -1,26 +1,26 @@
 /*
- * XREFs of MiProtectPrivateMemory @ 0x1403116B4
+ * XREFs of MiProtectPrivateMemory @ 0x1403136E8
  * Callers:
- *     MmProtectVirtualMemory @ 0x14095E5D8 (MmProtectVirtualMemory.c)
+ *     MmProtectVirtualMemory @ 0x140A03E98 (MmProtectVirtualMemory.c)
  * Callees:
- *     MiUnlockPageTableInternal @ 0x1402D13E0 (MiUnlockPageTableInternal.c)
- *     MiUnlockWorkingSetShared @ 0x1402EB6C0 (MiUnlockWorkingSetShared.c)
- *     MiLockWorkingSetShared @ 0x1402EDD60 (MiLockWorkingSetShared.c)
- *     MiMakeSystemAddressValid @ 0x1403028C0 (MiMakeSystemAddressValid.c)
- *     MiProtectGoodCitizen @ 0x140311404 (MiProtectGoodCitizen.c)
- *     MiProtectFlushPayload @ 0x140311488 (MiProtectFlushPayload.c)
- *     MiProtectInitialVaAttributes @ 0x14031162C (MiProtectInitialVaAttributes.c)
- *     MiComputeCheckPte @ 0x1403119F8 (MiComputeCheckPte.c)
- *     MiProtectValidPte @ 0x140311A38 (MiProtectValidPte.c)
- *     MiComputePageCommitment @ 0x140311CE0 (MiComputePageCommitment.c)
- *     MiFlushTbList @ 0x140329040 (MiFlushTbList.c)
- *     MiSetProtectionOnTransitionPte @ 0x14033CED4 (MiSetProtectionOnTransitionPte.c)
- *     MiReleaseProcessorFlushList @ 0x1403613C0 (MiReleaseProcessorFlushList.c)
- *     MiProtectPageFilePte @ 0x140487168 (MiProtectPageFilePte.c)
- *     MiMakeProtoLeafValid @ 0x1404BFB08 (MiMakeProtoLeafValid.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     MiChargeFullProcessCommitment @ 0x1409C7944 (MiChargeFullProcessCommitment.c)
- *     MiReturnFullProcessCommitment @ 0x140A82B94 (MiReturnFullProcessCommitment.c)
+ *     MiUnlockPageTableInternal @ 0x1402B31A0 (MiUnlockPageTableInternal.c)
+ *     MiUnlockWorkingSetShared @ 0x1402CD700 (MiUnlockWorkingSetShared.c)
+ *     MiLockWorkingSetShared @ 0x1402CFDE0 (MiLockWorkingSetShared.c)
+ *     MiMakeSystemAddressValid @ 0x1402E4940 (MiMakeSystemAddressValid.c)
+ *     MiProtectGoodCitizen @ 0x140313438 (MiProtectGoodCitizen.c)
+ *     MiProtectFlushPayload @ 0x1403134BC (MiProtectFlushPayload.c)
+ *     MiProtectInitialVaAttributes @ 0x140313660 (MiProtectInitialVaAttributes.c)
+ *     MiComputeCheckPte @ 0x140313A2C (MiComputeCheckPte.c)
+ *     MiProtectValidPte @ 0x140313A6C (MiProtectValidPte.c)
+ *     MiComputePageCommitment @ 0x140313D10 (MiComputePageCommitment.c)
+ *     MiFlushTbList @ 0x14032B070 (MiFlushTbList.c)
+ *     MiSetProtectionOnTransitionPte @ 0x14033EF54 (MiSetProtectionOnTransitionPte.c)
+ *     MiReleaseProcessorFlushList @ 0x140363160 (MiReleaseProcessorFlushList.c)
+ *     MiProtectPageFilePte @ 0x140480B38 (MiProtectPageFilePte.c)
+ *     MiMakeProtoLeafValid @ 0x1404B9358 (MiMakeProtoLeafValid.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     MiChargeFullProcessCommitment @ 0x140998924 (MiChargeFullProcessCommitment.c)
+ *     MiReturnFullProcessCommitment @ 0x140A88A04 (MiReturnFullProcessCommitment.c)
  */
 
 __int64 __fastcall MiProtectPrivateMemory(

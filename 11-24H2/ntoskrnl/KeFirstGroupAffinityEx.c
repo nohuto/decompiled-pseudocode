@@ -1,13 +1,13 @@
 /*
- * XREFs of KeFirstGroupAffinityEx @ 0x14045A8C0
+ * XREFs of KeFirstGroupAffinityEx @ 0x14044FD10
  * Callers:
- *     KeSetSystemGroupAffinityThread @ 0x140339650 (KeSetSystemGroupAffinityThread.c)
- *     HalpTimerStallExecutionProcessor @ 0x14033B670 (HalpTimerStallExecutionProcessor.c)
- *     KeSetSystemMultipleGroupAffinityThread @ 0x1404C6BDC (KeSetSystemMultipleGroupAffinityThread.c)
- *     PpmIdleInstallNewVetoList @ 0x1405CE7A0 (PpmIdleInstallNewVetoList.c)
- *     PpmIdleInitializeConcurrency @ 0x14074A0E0 (PpmIdleInitializeConcurrency.c)
- *     PpmRegisterPerfStates @ 0x14074FED4 (PpmRegisterPerfStates.c)
- *     NtSetInformationJobObject @ 0x140ACE760 (NtSetInformationJobObject.c)
+ *     KeSetSystemGroupAffinityThread @ 0x140318B30 (KeSetSystemGroupAffinityThread.c)
+ *     HalpTimerStallExecutionProcessor @ 0x14031AB50 (HalpTimerStallExecutionProcessor.c)
+ *     KeSetSystemMultipleGroupAffinityThread @ 0x1404C003C (KeSetSystemMultipleGroupAffinityThread.c)
+ *     PpmIdleInstallNewVetoList @ 0x1405CBEC0 (PpmIdleInstallNewVetoList.c)
+ *     PpmIdleInitializeConcurrency @ 0x140748410 (PpmIdleInitializeConcurrency.c)
+ *     PpmRegisterPerfStates @ 0x14074E1F4 (PpmRegisterPerfStates.c)
+ *     NtSetInformationJobObject @ 0x140ACC7F0 (NtSetInformationJobObject.c)
  * Callees:
  *     <none>
  */

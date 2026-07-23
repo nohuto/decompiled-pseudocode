@@ -13,7 +13,7 @@
 
 _QWORD *__fastcall EtwpFindGuidEntry(_QWORD *Buf1)
 {
-  unsigned __int64 v2; // rbx
+  unsigned __int64 Root; // rbx
   _QWORD *i; // r14
   int v4; // esi
   int v5; // eax
@@ -23,50 +23,50 @@ _QWORD *__fastcall EtwpFindGuidEntry(_QWORD *Buf1)
   __int64 v10; // rax
   _QWORD *v11; // rcx
 
-  RtlAcquireSRWLockExclusive((volatile signed __int32 *)&EtwpProvLock);
-  v2 = EtwpGuidEntryTable;
-  if ( (qword_1801D42B0 & 1) != 0 )
+  RtlAcquireSRWLockExclusive(&EtwpProvLock);
+  Root = (unsigned __int64)EtwpGuidEntryTable.Root;
+  if ( (*(_BYTE *)&EtwpGuidEntryTable.0 & 1) != 0 )
   {
-    if ( !EtwpGuidEntryTable )
+    if ( !EtwpGuidEntryTable.Root )
     {
 LABEL_10:
       RtlReleaseSRWLockExclusive(&EtwpProvLock);
       return 0LL;
     }
-    v2 = (unsigned __int64)&EtwpGuidEntryTable ^ EtwpGuidEntryTable;
+    Root = (unsigned __int64)&EtwpGuidEntryTable ^ (unsigned __int64)EtwpGuidEntryTable.Root;
   }
   i = 0LL;
-  v4 = qword_1801D42B0 & 1;
-  if ( v2 )
+  v4 = *(_BYTE *)&EtwpGuidEntryTable.0 & 1;
+  if ( Root )
   {
     while ( 1 )
     {
-      v5 = memcmp(Buf1, (const void *)(v2 + 24), 0x10uLL);
+      v5 = memcmp(Buf1, (const void *)(Root + 24), 0x10uLL);
       if ( v5 < 0 )
         break;
       if ( v5 > 0 )
       {
-        v6 = *(_QWORD *)(v2 + 8);
+        v6 = *(_QWORD *)(Root + 8);
 LABEL_6:
         if ( v4 && v6 )
           goto LABEL_13;
         goto LABEL_7;
       }
-      v6 = *(_QWORD *)v2;
-      i = (_QWORD *)v2;
+      v6 = *(_QWORD *)Root;
+      i = (_QWORD *)Root;
       if ( v4 && v6 )
       {
 LABEL_13:
-        v2 ^= v6;
+        Root ^= v6;
         goto LABEL_8;
       }
 LABEL_7:
-      v2 = v6;
+      Root = v6;
 LABEL_8:
-      if ( !v2 )
+      if ( !Root )
         goto LABEL_9;
     }
-    v6 = *(_QWORD *)v2;
+    v6 = *(_QWORD *)Root;
     goto LABEL_6;
   }
 LABEL_9:

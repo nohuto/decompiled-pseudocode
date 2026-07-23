@@ -1,10 +1,10 @@
 /*
- * XREFs of MiDetermineNewPfnHeatState @ 0x140451C6C
+ * XREFs of MiDetermineNewPfnHeatState @ 0x140446D1C
  * Callers:
- *     MiInitializeNewPfns @ 0x14066BBD4 (MiInitializeNewPfns.c)
- *     MiEnableNewPfns @ 0x14066CABC (MiEnableNewPfns.c)
- *     MxInsertFreePages @ 0x140C52D50 (MxInsertFreePages.c)
- *     MxInsertEnclaveBootPages @ 0x140C581C4 (MxInsertEnclaveBootPages.c)
+ *     MiInitializeNewPfns @ 0x14066CDA4 (MiInitializeNewPfns.c)
+ *     MiEnableNewPfns @ 0x14066DC8C (MiEnableNewPfns.c)
+ *     MxInsertFreePages @ 0x140C54EE0 (MxInsertFreePages.c)
+ *     MxInsertEnclaveBootPages @ 0x140C5A354 (MxInsertEnclaveBootPages.c)
  * Callees:
  *     <none>
  */

@@ -1,11 +1,11 @@
 /*
- * XREFs of HalpMcaExtendedLogInitialize @ 0x1404BA460
+ * XREFs of HalpMcaExtendedLogInitialize @ 0x1404BA6A0
  * Callers:
- *     HalpInitializeMce @ 0x1409A0E1C (HalpInitializeMce.c)
+ *     HalpInitializeMce @ 0x1409A1D4C (HalpInitializeMce.c)
  * Callees:
- *     MmMapIoSpaceEx @ 0x140294E50 (MmMapIoSpaceEx.c)
- *     MmUnmapIoSpace @ 0x140297530 (MmUnmapIoSpace.c)
- *     HalpMcaExtendedLogGetL1DirectoryBase @ 0x1404BA354 (HalpMcaExtendedLogGetL1DirectoryBase.c)
+ *     MmMapIoSpaceEx @ 0x140216B10 (MmMapIoSpaceEx.c)
+ *     MmUnmapIoSpace @ 0x140217FB0 (MmUnmapIoSpace.c)
+ *     HalpMcaExtendedLogGetL1DirectoryBase @ 0x1404BA594 (HalpMcaExtendedLogGetL1DirectoryBase.c)
  */
 
 __int64 HalpMcaExtendedLogInitialize()
@@ -48,24 +48,24 @@ LABEL_4:
   v0 = v6;
   if ( !v6 )
     goto LABEL_4;
-  qword_140CF6868 = v6;
-  dword_140CF6878 = *(_DWORD *)(v6 + 48);
-  qword_140CF6870 = (*(_QWORD *)(v6 + 8) - (unsigned __int64)*(unsigned int *)(v6 + 4)) >> 3;
-  if ( qword_140CF6870 < (unsigned __int64)(unsigned int)dword_140CF6878 )
+  qword_140CF68A8 = v6;
+  dword_140CF68B8 = *(_DWORD *)(v6 + 48);
+  qword_140CF68B0 = (*(_QWORD *)(v6 + 8) - (unsigned __int64)*(unsigned int *)(v6 + 4)) >> 3;
+  if ( qword_140CF68B0 < (unsigned __int64)(unsigned int)dword_140CF68B8 )
   {
 LABEL_13:
     v4 = -1073741637;
 LABEL_14:
     HalpMcaExtendedLoggingSupported = 0;
-    if ( qword_140CF6888 )
-      MmUnmapIoSpace(qword_140CF6888, *(_QWORD *)(v0 + 24));
+    if ( qword_140CF68C8 )
+      MmUnmapIoSpace(qword_140CF68C8, *(_QWORD *)(v0 + 24));
     goto LABEL_16;
   }
-  qword_140CF6888 = (PVOID)MmMapIoSpaceEx(*(_QWORD *)(v6 + 16), *(_QWORD *)(v6 + 24), 0x204u);
-  if ( qword_140CF6888 )
+  qword_140CF68C8 = (PVOID)MmMapIoSpaceEx(*(_QWORD *)(v6 + 16), *(_QWORD *)(v6 + 24), 0x204u);
+  if ( qword_140CF68C8 )
   {
-    qword_140CF6880 = *(_QWORD *)(v0 + 16);
-    qword_140CF6890 = *(_QWORD *)(v0 + 24);
+    qword_140CF68C0 = *(_QWORD *)(v0 + 16);
+    qword_140CF68D0 = *(_QWORD *)(v0 + 24);
     *(_DWORD *)(v0 + 32) |= 1u;
     return 0;
   }
@@ -74,6 +74,6 @@ LABEL_14:
 LABEL_16:
   if ( v0 )
     MmUnmapIoSpace((PVOID)v0, v1);
-  memset(&qword_140CF6868, 0, 0x30uLL);
+  memset(&qword_140CF68A8, 0, 0x30uLL);
   return v4;
 }

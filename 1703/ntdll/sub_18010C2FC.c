@@ -11,20 +11,20 @@
  *     sub_18010D634 @ 0x18010D634 (sub_18010D634.c)
  */
 
-unsigned int *__fastcall sub_18010C2FC(__int64 a1, __int64 a2)
+void *__fastcall sub_18010C2FC(__int64 a1, __int64 a2)
 {
-  __int64 v2; // rdi
+  void *v2; // rdi
   __int64 v3; // rbx
   __int64 v4; // rax
   int v5; // r8d
   int v6; // r9d
-  unsigned int *result; // rax
+  void *result; // rax
 
   v2 = 0LL;
   v3 = 0LL;
   if ( !a1 )
   {
-    RtlSetLastWin32Error(0x57u);
+    RtlSetLastWin32Error(87);
 LABEL_7:
     if ( (unsigned __int64)(v3 - 1) <= 0xFFFFFFFFFFFFFFFDuLL )
       sub_18010C390(v3);
@@ -34,11 +34,11 @@ LABEL_7:
   v3 = v4;
   if ( !v4 )
     return 0LL;
-  v2 = sub_18010D418(v4, 4, v5, v6, 0LL);
+  v2 = (void *)sub_18010D418(v4, 4, v5, v6, 0LL);
   if ( !v2 )
     goto LABEL_7;
   sub_18010C390(v3);
-  result = sub_180002DE4(v2, 0, 9);
+  result = sub_180002DE4((__int64)v2, 0, 9);
   if ( !result )
   {
 LABEL_9:

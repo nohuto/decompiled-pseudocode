@@ -1,13 +1,13 @@
 /*
- * XREFs of KeAreAllApcsDisabled @ 0x14004F260
+ * XREFs of KeAreAllApcsDisabled @ 0x14004EDE0
  * Callers:
- *     PnpIsSafeToExamineUserModeTeb @ 0x140007E58 (PnpIsSafeToExamineUserModeTeb.c)
- *     IopfCompleteRequest @ 0x140053570 (IopfCompleteRequest.c)
- *     NtSetInformationFile @ 0x140079360 (NtSetInformationFile.c)
- *     MmFlushVirtualMemory @ 0x1404D1998 (MmFlushVirtualMemory.c)
+ *     IopfCompleteRequest @ 0x1400530F0 (IopfCompleteRequest.c)
+ *     NtSetInformationFile @ 0x1400793E0 (NtSetInformationFile.c)
+ *     PnpIsSafeToExamineUserModeTeb @ 0x140086AA0 (PnpIsSafeToExamineUserModeTeb.c)
+ *     MmFlushVirtualMemory @ 0x1404B5438 (MmFlushVirtualMemory.c)
  *     ViZwCheckApcRequirement @ 0x140720CBC (ViZwCheckApcRequirement.c)
  * Callees:
- *     KeAreInterruptsEnabled @ 0x1400516C0 (KeAreInterruptsEnabled.c)
+ *     KeAreInterruptsEnabled @ 0x140051240 (KeAreInterruptsEnabled.c)
  */
 
 BOOLEAN KeAreAllApcsDisabled(void)

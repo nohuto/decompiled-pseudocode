@@ -1,26 +1,38 @@
 /*
- * XREFs of RtlIdnToAscii @ 0x1800BA110
+ * XREFs of RtlIdnToAscii @ 0x1800B1ED0
  * Callers:
  *     <none>
  * Callees:
- *     RtlpSysVolFree @ 0x180001470 (RtlpSysVolFree.c)
- *     RtlAllocateHeap @ 0x180011260 (RtlAllocateHeap.c)
- *     RtlpNameprepAsciiRealWorker @ 0x1800BB090 (RtlpNameprepAsciiRealWorker.c)
+ *     RtlpSysVolFree @ 0x180005870 (RtlpSysVolFree.c)
+ *     RtlAllocateHeap @ 0x18003DC60 (RtlAllocateHeap.c)
+ *     RtlpNameprepAsciiRealWorker @ 0x1800B2E50 (RtlpNameprepAsciiRealWorker.c)
  */
 
-__int64 __fastcall RtlIdnToAscii(unsigned int a1, __int64 a2, unsigned int a3, __int64 a4, __int64 a5)
+NTSTATUS __cdecl RtlIdnToAscii(
+        ULONG Flags,
+        PCWSTR SourceString,
+        LONG SourceStringLength,
+        PWSTR DestinationString,
+        PLONG DestinationStringLength)
 {
-  __int64 Heap; // rbx
-  __int64 v10; // rax
-  __int64 v11; // rdi
-  unsigned int v12; // esi
+  PVOID Heap; // rbx
+  PVOID v10; // rax
+  void *v11; // rdi
+  NTSTATUS v12; // esi
 
-  Heap = RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 8u, 0x3FEuLL);
-  v10 = RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 8u, 0x406uLL);
+  Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, 0x3FEuLL);
+  v10 = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, 0x406uLL);
   v11 = v10;
   if ( Heap && v10 )
   {
-    v12 = RtlpNameprepAsciiRealWorker(a1, a2, a3, a4, a5, 1, Heap);
+    v12 = RtlpNameprepAsciiRealWorker(
+            Flags,
+            SourceString,
+            (unsigned int)SourceStringLength,
+            DestinationString,
+            DestinationStringLength,
+            1,
+            Heap);
 LABEL_4:
     RtlpSysVolFree(Heap);
     goto LABEL_5;

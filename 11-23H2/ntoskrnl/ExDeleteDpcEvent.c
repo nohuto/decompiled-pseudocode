@@ -1,9 +1,9 @@
 /*
- * XREFs of ExDeleteDpcEvent @ 0x14060BFF0
+ * XREFs of ExDeleteDpcEvent @ 0x14060C540
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14022F5B0 (ObfDereferenceObjectWithTag.c)
+ *     ObfDereferenceObjectWithTag @ 0x14022F6C0 (ObfDereferenceObjectWithTag.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

@@ -1,5 +1,5 @@
 /*
- * XREFs of RtlpHasMachineUILock @ 0x180103CE0
+ * XREFs of RtlpHasMachineUILock @ 0x180103CA0
  * Callers:
  *     RtlpMuiRegLoadPreferredUILanguages @ 0x18003E734 (RtlpMuiRegLoadPreferredUILanguages.c)
  *     RtlpLoadLanguageConfigList @ 0x18003F48C (RtlpLoadLanguageConfigList.c)
@@ -8,22 +8,22 @@
  *     LdrpQueryValueKey @ 0x18003F680 (LdrpQueryValueKey.c)
  */
 
-__int64 __fastcall RtlpHasMachineUILock(__int64 a1, _BYTE *a2)
+__int64 __fastcall RtlpHasMachineUILock(HANDLE KeyHandle, _BYTE *a2)
 {
   __int64 result; // rax
-  UNICODE_STRING DestinationString; // [rsp+30h] [rbp-18h] BYREF
+  _UNICODE_STRING DestinationString; // [rsp+30h] [rbp-18h] BYREF
   int v6; // [rsp+58h] [rbp+10h] BYREF
-  unsigned int v7; // [rsp+60h] [rbp+18h] BYREF
+  __int64 v7; // [rsp+60h] [rbp+18h] BYREF
   int v8; // [rsp+68h] [rbp+20h] BYREF
 
   v6 = -1;
   v8 = 4;
-  v7 = 4;
-  if ( !a2 || !a1 )
+  LODWORD(v7) = 4;
+  if ( !a2 || !KeyHandle )
     return 3221225485LL;
   *a2 = 0;
   RtlInitUnicodeString(&DestinationString, L"MachineUILock");
-  result = LdrpQueryValueKey(a1, (__int64)&DestinationString, &v8, &v6, &v7);
+  result = LdrpQueryValueKey(KeyHandle, &DestinationString, &v8, &v6, (ULONG *)&v7);
   if ( (int)result >= 0 )
   {
     if ( v6 == 1 )

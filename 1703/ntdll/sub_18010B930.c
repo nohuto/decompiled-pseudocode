@@ -10,81 +10,79 @@
  *     ZwOpenDirectoryObject @ 0x1800A5E00 (ZwOpenDirectoryObject.c)
  */
 
-__int64 __fastcall sub_18010B930(_QWORD *a1)
+NTSTATUS __fastcall sub_18010B930(HANDLE *a1)
 {
   __m128i *v2; // rbx
-  __int64 result; // rax
-  int v4; // edi
+  NTSTATUS result; // eax
+  NTSTATUS v4; // edi
   __m128i v5; // xmm0
-  int v6; // ebx
-  __int64 v7; // [rsp+28h] [rbp-48h] BYREF
-  unsigned __int64 v8; // [rsp+30h] [rbp-40h]
-  int v9; // [rsp+38h] [rbp-38h]
-  __int64 v10; // [rsp+40h] [rbp-30h]
-  __int64 *v11; // [rsp+48h] [rbp-28h]
-  int v12; // [rsp+50h] [rbp-20h]
-  __int128 v13; // [rsp+58h] [rbp-18h]
-  __int64 v14; // [rsp+A8h] [rbp+38h]
-  __int64 v15; // [rsp+B0h] [rbp+40h]
-  __int64 v16; // [rsp+B8h] [rbp+48h]
+  NTSTATUS v6; // ebx
+  __int64 ThreadInformation; // [rsp+20h] [rbp-50h] BYREF
+  __int64 v8; // [rsp+28h] [rbp-48h] BYREF
+  unsigned __int64 v9; // [rsp+30h] [rbp-40h]
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+38h] [rbp-38h] BYREF
+  HANDLE TokenHandle; // [rsp+A8h] [rbp+38h] BYREF
+  HANDLE Handle; // [rsp+B0h] [rbp+40h] BYREF
+  HANDLE DirectoryHandle; // [rsp+B8h] [rbp+48h] BYREF
 
   v2 = (__m128i *)((char *)NtCurrentPeb()->ReadOnlySharedMemoryBase
                  + *((_QWORD *)NtCurrentPeb()->ReadOnlyStaticServerData + 1)
-                 - *(_QWORD *)&NtCurrentPeb()[1].InheritedAddressSpace);
+                 - NtCurrentPeb()->CsrServerReadOnlySharedMemoryBase);
   if ( NtCurrentTeb()->IsImpersonating )
   {
-    result = ZwOpenThreadToken();
-    if ( (int)result < 0 )
+    result = ZwOpenThreadToken((HANDLE)0xFFFFFFFFFFFFFFFELL, 4u, 1u, &TokenHandle);
+    if ( result < 0 )
       return result;
-    v4 = ZwSetInformationThread();
+    ThreadInformation = 0LL;
+    v4 = ZwSetInformationThread((HANDLE)0xFFFFFFFFFFFFFFFELL, ThreadImpersonationToken, &ThreadInformation, 8u);
     if ( v4 < 0 )
     {
-      ZwClose();
-      return (unsigned int)v4;
+      ZwClose(TokenHandle);
+      return v4;
     }
   }
   else
   {
-    v14 = 0LL;
+    TokenHandle = 0LL;
   }
-  v10 = 0LL;
-  v9 = 48;
-  v12 = 64;
+  ObjectAttributes.RootDirectory = 0LL;
+  ObjectAttributes.Length = 48;
+  ObjectAttributes.Attributes = 64;
   v5 = v2[2];
-  v7 = v2[2].m128i_i64[0];
-  v8 = _mm_srli_si128(v5, 8).m128i_u64[0];
-  if ( v8 )
-    v8 += (unsigned __int64)NtCurrentPeb()->ReadOnlySharedMemoryBase
+  v8 = v2[2].m128i_i64[0];
+  v9 = _mm_srli_si128(v5, 8).m128i_u64[0];
+  if ( v9 )
+    v9 += (unsigned __int64)NtCurrentPeb()->ReadOnlySharedMemoryBase
         + *((_QWORD *)NtCurrentPeb()->ReadOnlyStaticServerData + 1)
         - *(_QWORD *)((char *)NtCurrentPeb()->ReadOnlySharedMemoryBase
                     + *((_QWORD *)NtCurrentPeb()->ReadOnlyStaticServerData + 1)
-                    - *(_QWORD *)&NtCurrentPeb()[1].InheritedAddressSpace
+                    - NtCurrentPeb()->CsrServerReadOnlySharedMemoryBase
                     + 2896)
-        - *(_QWORD *)&NtCurrentPeb()[1].InheritedAddressSpace;
+        - NtCurrentPeb()->CsrServerReadOnlySharedMemoryBase;
   else
-    v8 = 0LL;
-  v11 = &v7;
-  v13 = 0LL;
-  v6 = ZwOpenDirectoryObject();
+    v9 = 0LL;
+  ObjectAttributes.ObjectName = (PUNICODE_STRING)&v8;
+  *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+  v6 = ZwOpenDirectoryObject(&DirectoryHandle, 0xFu, &ObjectAttributes);
   if ( v6 < 0 )
   {
-    v6 = ZwOpenDirectoryObject();
+    v6 = ZwOpenDirectoryObject(&Handle, 2u, &ObjectAttributes);
     if ( v6 >= 0 )
     {
-      v10 = v15;
-      v9 = 48;
-      v11 = (__int64 *)&unk_1801115C0;
-      v12 = 64;
-      v13 = 0LL;
-      v6 = ZwOpenDirectoryObject();
-      ZwClose();
+      ObjectAttributes.RootDirectory = Handle;
+      ObjectAttributes.Length = 48;
+      ObjectAttributes.ObjectName = (PUNICODE_STRING)&unk_1801115C0;
+      ObjectAttributes.Attributes = 64;
+      *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+      v6 = ZwOpenDirectoryObject(&DirectoryHandle, 0xFu, &ObjectAttributes);
+      ZwClose(Handle);
     }
   }
-  if ( v14 )
+  if ( TokenHandle )
   {
-    ZwSetInformationThread();
-    ZwClose();
+    ZwSetInformationThread((HANDLE)0xFFFFFFFFFFFFFFFELL, ThreadImpersonationToken, &TokenHandle, 8u);
+    ZwClose(TokenHandle);
   }
-  *a1 = v16;
-  return (unsigned int)v6;
+  *a1 = DirectoryHandle;
+  return v6;
 }

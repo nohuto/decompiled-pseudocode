@@ -7,9 +7,9 @@
  *     _TppRaiseInvalidParameter@0 @ 0x4B3848BD (_TppRaiseInvalidParameter@0.c)
  */
 
-int __stdcall TpSetPoolWorkerThreadIdleTimeout(int a1, int a2, int a3)
+NTSTATUS __stdcall TpSetPoolWorkerThreadIdleTimeout(int a1, int WorkerFactoryInformation, int a3)
 {
   if ( !a1 || a3 >= 0 || NtCurrentPeb()->Ldr->ShutdownInProgress )
     TppRaiseInvalidParameter();
-  return ZwSetInformationWorkerFactory(*(_DWORD *)(a1 + 36), 2, &a2, 8);
+  return ZwSetInformationWorkerFactory(*(HANDLE *)(a1 + 36), WorkerFactoryIdleTimeout, &WorkerFactoryInformation, 8u);
 }

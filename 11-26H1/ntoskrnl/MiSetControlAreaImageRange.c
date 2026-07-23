@@ -1,13 +1,13 @@
 /*
- * XREFs of MiSetControlAreaImageRange @ 0x1404BD76C
+ * XREFs of MiSetControlAreaImageRange @ 0x1404B6F4C
  * Callers:
- *     MiSelectImageBase @ 0x1409CACA8 (MiSelectImageBase.c)
- *     MiBuildImageControlArea @ 0x140A551FC (MiBuildImageControlArea.c)
- *     MiFreeRelocations @ 0x140AAA400 (MiFreeRelocations.c)
+ *     MiSelectImageBase @ 0x14099BC88 (MiSelectImageBase.c)
+ *     MiBuildImageControlArea @ 0x140A6279C (MiBuildImageControlArea.c)
+ *     MiFreeRelocations @ 0x140AA79E0 (MiFreeRelocations.c)
  * Callees:
- *     ExReleaseSpinLockExclusive @ 0x14021AA80 (ExReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x140249CD0 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExReleaseSpinLockExclusive @ 0x14021C410 (ExReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024B630 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
  */
 
 void __fastcall MiSetControlAreaImageRange(__int64 a1, __int64 a2, int a3)

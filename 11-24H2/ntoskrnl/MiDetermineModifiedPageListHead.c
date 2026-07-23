@@ -1,14 +1,14 @@
 /*
- * XREFs of MiDetermineModifiedPageListHead @ 0x14022D670
+ * XREFs of MiDetermineModifiedPageListHead @ 0x140300F80
  * Callers:
- *     MiUnlinkPageFromListEx @ 0x140211CD0 (MiUnlinkPageFromListEx.c)
- *     MiReplaceTransitionPage @ 0x140224B14 (MiReplaceTransitionPage.c)
- *     MiInsertPageInList @ 0x14022CB10 (MiInsertPageInList.c)
- *     MiZeroCfgSystemWideBitmapWorker @ 0x1403E4774 (MiZeroCfgSystemWideBitmapWorker.c)
- *     MiUpdatePageAttributeStamp @ 0x1404767D4 (MiUpdatePageAttributeStamp.c)
+ *     MiReplaceTransitionPage @ 0x140251EC4 (MiReplaceTransitionPage.c)
+ *     MiInsertPageInList @ 0x140300420 (MiInsertPageInList.c)
+ *     MiUnlinkPageFromListEx @ 0x14033B030 (MiUnlinkPageFromListEx.c)
+ *     MiZeroCfgSystemWideBitmapWorker @ 0x1403D2314 (MiZeroCfgSystemWideBitmapWorker.c)
+ *     MiUpdatePageAttributeStamp @ 0x1403F034C (MiUpdatePageAttributeStamp.c)
  * Callees:
- *     MiSetStoreVirtualPagefileValue @ 0x14039D920 (MiSetStoreVirtualPagefileValue.c)
- *     MiMakePageFilePte @ 0x14039F4D8 (MiMakePageFilePte.c)
+ *     MiMakePageFilePte @ 0x140215C78 (MiMakePageFilePte.c)
+ *     MiSetStoreVirtualPagefileValue @ 0x1402FAC20 (MiSetStoreVirtualPagefileValue.c)
  */
 
 __int64 __fastcall MiDetermineModifiedPageListHead(__int64 a1, __int64 a2, char a3)
@@ -36,8 +36,8 @@ __int64 __fastcall MiDetermineModifiedPageListHead(__int64 a1, __int64 a2, char 
     return a2 + 88 * (((unsigned __int16)v3 >> 12) + 48LL);
   if ( (unsigned __int16)v3 >> 12 != *(_DWORD *)(a2 + 1204) )
     goto LABEL_43;
-  if ( qword_140E2DB80 && (v3 & 0x10) == 0 )
-    v3 &= ~qword_140E2DB80;
+  if ( qword_140E2DCC0 && (v3 & 0x10) == 0 )
+    v3 &= ~qword_140E2DCC0;
   v6 = HIDWORD(v3);
   if ( v6 - 2 > 2 || !(_DWORD)v6 )
   {
@@ -85,17 +85,17 @@ LABEL_43:
         v10 = *(unsigned __int16 *)(v21 + 172);
         if ( v9 )
         {
-          if ( qword_140E2DB80 )
+          if ( qword_140E2DCC0 )
           {
             if ( (v9 & 0x10) != 0 )
               v11 = (unsigned int)v9 & 0xFFFFFFEF;
             else
-              v11 = ~(_DWORD)qword_140E2DB80 & (unsigned int)v9;
+              v11 = ~(_DWORD)qword_140E2DCC0 & (unsigned int)v9;
             v12 = v11 | 0x300000000LL;
-            if ( (qword_140E2DB80 & v12) != 0 )
+            if ( (qword_140E2DCC0 & v12) != 0 )
               PageFilePte = v12 | 0x10;
             else
-              PageFilePte = qword_140E2DB80 | v12;
+              PageFilePte = qword_140E2DCC0 | v12;
           }
           else
           {
@@ -118,7 +118,7 @@ LABEL_43:
   {
     if ( (a3 & 2) != 0 )
     {
-      *(_QWORD *)(a1 + 16) = MiSetStoreVirtualPagefileValue(a2, *(_QWORD *)(a1 + 16), 3LL);
+      *(_QWORD *)(a1 + 16) = MiSetStoreVirtualPagefileValue(a2, *(_QWORD *)(a1 + 16), 3u);
       return a2 + 3968;
     }
     return a2 + 3968;

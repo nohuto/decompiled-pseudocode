@@ -38,7 +38,7 @@ char __fastcall EtwpTraceStackKey(
   __int64 v15; // rcx
   struct _KTHREAD *v16; // rcx
   __int16 v17; // ax
-  union _SLIST_HEADER *v19; // r15
+  _SLIST_HEADER *v19; // r15
   char v20; // di
   unsigned int v21; // r12d
   PSLIST_ENTRY v22; // r13
@@ -62,17 +62,17 @@ char __fastcall EtwpTraceStackKey(
   PSLIST_ENTRY v40; // rax
   PSLIST_ENTRY *v41; // rax
   unsigned int v42; // edi
-  union _SLIST_HEADER *v43; // rbx
+  _SLIST_HEADER *v43; // rbx
   PSLIST_ENTRY v44; // r14
   PSLIST_ENTRY v45; // r15
   unsigned int v46; // r12d
-  struct _SLIST_ENTRY *Next; // rdi
+  _SLIST_ENTRY *Next; // rdi
   PSLIST_ENTRY *v48; // rax
   struct _KTHREAD *v49; // rdx
   __int16 v50; // ax
   char v51; // [rsp+30h] [rbp-A8h]
   unsigned int v52; // [rsp+38h] [rbp-A0h]
-  union _SLIST_HEADER *v53; // [rsp+40h] [rbp-98h]
+  _SLIST_HEADER *v53; // [rsp+40h] [rbp-98h]
   unsigned __int8 v54; // [rsp+48h] [rbp-90h]
   __int64 v55; // [rsp+50h] [rbp-88h]
   PSLIST_ENTRY v56; // [rsp+60h] [rbp-78h] BYREF
@@ -127,7 +127,7 @@ LABEL_6:
   }
   if ( !v14 )
     return 0;
-  v19 = *(union _SLIST_HEADER **)(v14 + 856);
+  v19 = *(_SLIST_HEADER **)(v14 + 856);
   v53 = v19;
   if ( !v19 )
   {
@@ -319,7 +319,7 @@ LABEL_49:
     *(_QWORD *)(a4 + 16) = &v56;
     *(_QWORD *)(a4 + 24) = 8LL;
     EtwpLogKernelEvent(a4, a1, 2u, a3, a2);
-    EtwpDereferenceStackEntry(v56, *(union _SLIST_HEADER **)(v60 + 856));
+    EtwpDereferenceStackEntry(v56, *(_SLIST_HEADER **)(v60 + 856));
     goto LABEL_90;
   }
   if ( CurrentIrql == 2 )

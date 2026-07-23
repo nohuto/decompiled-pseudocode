@@ -18,8 +18,8 @@ __int64 __fastcall PfSnNameRemove(__int64 a1, unsigned __int64 a2)
   unsigned __int8 CurrentIrql; // r15
   unsigned int v7; // ebx
   signed __int32 v8; // eax
-  unsigned __int64 *i; // rbx
-  unsigned __int64 v10; // rax
+  _RTL_BALANCED_NODE *i; // rbx
+  _RTL_BALANCED_NODE *v10; // rax
   _QWORD *v12; // rcx
   unsigned __int64 v13; // r8
   unsigned __int64 v14; // rdx
@@ -51,7 +51,7 @@ __int64 __fastcall PfSnNameRemove(__int64 a1, unsigned __int64 a2)
         HvlNotifyLongSpinWait(v7);
     }
   }
-  for ( i = *(unsigned __int64 **)(a1 + 520); ; i = (unsigned __int64 *)i[1] )
+  for ( i = *(_RTL_BALANCED_NODE **)(a1 + 520); ; i = i->Children[1] )
   {
     while ( 1 )
     {
@@ -64,15 +64,15 @@ __int64 __fastcall PfSnNameRemove(__int64 a1, unsigned __int64 a2)
         __writecr8(CurrentIrql);
         return v5;
       }
-      v10 = i[3];
-      if ( v10 <= a2 )
+      v10 = i[1].Children[0];
+      if ( (unsigned __int64)v10 <= a2 )
         break;
-      i = (unsigned __int64 *)*i;
+      i = i->Children[0];
     }
-    if ( v10 >= a2 )
+    if ( (unsigned __int64)v10 >= a2 )
       break;
   }
-  RtlRbRemoveNode((unsigned __int64 *)(a1 + 520), i);
+  RtlRbRemoveNode((PRTL_RB_TREE)(a1 + 520), i);
   if ( (BYTE6(PerfGlobalGroupMask) & 1) != 0 )
     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented(v3, retaddr);
   else

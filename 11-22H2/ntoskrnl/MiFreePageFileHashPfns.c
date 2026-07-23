@@ -11,7 +11,7 @@
  *     MiFreePageFileHashPfn @ 0x140665F38 (MiFreePageFileHashPfn.c)
  */
 
-unsigned __int64 __fastcall MiFreePageFileHashPfns(union _SLIST_HEADER *a1)
+unsigned __int64 __fastcall MiFreePageFileHashPfns(_SLIST_HEADER *a1)
 {
   unsigned __int64 Region; // rbp
   unsigned __int64 v2; // rdi
@@ -40,10 +40,13 @@ unsigned __int64 __fastcall MiFreePageFileHashPfns(union _SLIST_HEADER *a1)
       MiFreePageFileHashPfn(0xAAAAAAAAAAAAAAABuLL * ((__int64)(v4 + 0x220000000000LL) >> 4));
       _InterlockedAnd64((volatile signed __int64 *)(v4 + 24), 0x7FFFFFFFFFFFFFFFuLL);
       result = (unsigned int)KiIrqlFlags;
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         CurrentIrql = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v6 <= 0xFu && CurrentIrql >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+          && CurrentIrql <= 0xFu
+          && (unsigned __int8)v6 <= 0xFu
+          && CurrentIrql >= 2u )
         {
           CurrentPrcb = KeGetCurrentPrcb();
           SchedulerAssist = CurrentPrcb->SchedulerAssist;

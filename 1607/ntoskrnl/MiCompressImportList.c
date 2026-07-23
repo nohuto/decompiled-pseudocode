@@ -1,7 +1,7 @@
 /*
- * XREFs of MiCompressImportList @ 0x1404EBD24
+ * XREFs of MiCompressImportList @ 0x1404CDDAC
  * Callers:
- *     MiResolveImageReferences @ 0x14046C67C (MiResolveImageReferences.c)
+ *     MiResolveImageReferences @ 0x14046B54C (MiResolveImageReferences.c)
  * Callees:
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)

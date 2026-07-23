@@ -1,11 +1,11 @@
 /*
- * XREFs of _RegRtlEnumValue @ 0x14086E5D0
+ * XREFs of _RegRtlEnumValue @ 0x14086E810
  * Callers:
- *     _PnpCtxRegEnumValue @ 0x1408779A4 (_PnpCtxRegEnumValue.c)
- *     _RegRtlCopyTreeInternal @ 0x140A6A698 (_RegRtlCopyTreeInternal.c)
+ *     _PnpCtxRegEnumValue @ 0x140877BE4 (_PnpCtxRegEnumValue.c)
+ *     _RegRtlCopyTreeInternal @ 0x140A6A948 (_RegRtlCopyTreeInternal.c)
  * Callees:
- *     ZwEnumerateValueKey @ 0x14041AFC0 (ZwEnumerateValueKey.c)
- *     memmove @ 0x140435700 (memmove.c)
+ *     ZwEnumerateValueKey @ 0x14041B350 (ZwEnumerateValueKey.c)
+ *     memmove @ 0x140435B00 (memmove.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

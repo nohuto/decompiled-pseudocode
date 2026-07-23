@@ -9,10 +9,10 @@
  *     KiResumeClockTimer @ 0x14014E908 (KiResumeClockTimer.c)
  */
 
-__int64 KeResumeClockTimerSafe()
+LONGLONG KeResumeClockTimerSafe()
 {
   unsigned __int8 CurrentIrql; // bl
-  __int64 result; // rax
+  LONGLONG result; // rax
 
   if ( KeGetEffectiveIrql() >= 0xDu )
     return KiResumeClockTimer();

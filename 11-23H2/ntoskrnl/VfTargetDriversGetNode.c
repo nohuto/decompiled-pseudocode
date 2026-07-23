@@ -2,9 +2,9 @@
  * XREFs of VfTargetDriversGetNode @ 0x140209F84
  * Callers:
  *     VfDifCaptureDriverEntry @ 0x140209F44 (VfDifCaptureDriverEntry.c)
- *     VfTargetDriversGetVerifierData @ 0x140ACB558 (VfTargetDriversGetVerifierData.c)
- *     VfThunkApplyThunksCurrentSession @ 0x140ADB3DC (VfThunkApplyThunksCurrentSession.c)
- *     ViThunkApplyWdmThunksCurrentSession @ 0x140ADB6EC (ViThunkApplyWdmThunksCurrentSession.c)
+ *     VfTargetDriversGetVerifierData @ 0x140ACB548 (VfTargetDriversGetVerifierData.c)
+ *     VfThunkApplyThunksCurrentSession @ 0x140ADB3CC (VfThunkApplyThunksCurrentSession.c)
+ *     ViThunkApplyWdmThunksCurrentSession @ 0x140ADB6DC (ViThunkApplyWdmThunksCurrentSession.c)
  * Callees:
  *     VfAvlLookupTreeNode @ 0x140209FDC (VfAvlLookupTreeNode.c)
  *     VfAvlCleanupLockContext @ 0x14020A34C (VfAvlCleanupLockContext.c)

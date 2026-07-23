@@ -7,7 +7,11 @@
  *     _Wow64SystemServiceCall@0 @ 0x4B308730 (_Wow64SystemServiceCall@0.c)
  */
 
-int __stdcall ZwSetTimer2(int a1, int a2, int a3, int a4)
+NTSTATUS __cdecl ZwSetTimer2(
+        HANDLE TimerHandle,
+        PLARGE_INTEGER DueTime,
+        PLARGE_INTEGER Period,
+        PT2_SET_PARAMETERS Parameters)
 {
   return Wow64SystemServiceCall();
 }

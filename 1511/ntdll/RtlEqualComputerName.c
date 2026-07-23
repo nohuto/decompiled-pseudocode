@@ -7,7 +7,7 @@
  */
 
 // attributes: thunk
-__int64 RtlEqualComputerName()
+BOOLEAN __cdecl RtlEqualComputerName(PUNICODE_STRING String1, PUNICODE_STRING String2)
 {
-  return RtlEqualDomainName();
+  return RtlEqualDomainName(String1, String2);
 }

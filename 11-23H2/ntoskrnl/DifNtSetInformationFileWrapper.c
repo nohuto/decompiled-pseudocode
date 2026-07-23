@@ -1,12 +1,12 @@
 /*
- * XREFs of DifNtSetInformationFileWrapper @ 0x1405E8220
+ * XREFs of DifNtSetInformationFileWrapper @ 0x1405E8790
  * Callers:
  *     <none>
  * Callees:
- *     NtSetInformationFile @ 0x1402A6BF0 (NtSetInformationFile.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     DifGetAPIThunkContextById @ 0x1404664BE (DifGetAPIThunkContextById.c)
- *     DifGetReturnAddressForWrappers @ 0x1405F88C4 (DifGetReturnAddressForWrappers.c)
+ *     NtSetInformationFile @ 0x1402A6E80 (NtSetInformationFile.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     DifGetAPIThunkContextById @ 0x1404668BE (DifGetAPIThunkContextById.c)
+ *     DifGetReturnAddressForWrappers @ 0x1405F8E34 (DifGetReturnAddressForWrappers.c)
  */
 
 NTSTATUS __fastcall DifNtSetInformationFileWrapper(

@@ -1,15 +1,15 @@
 /*
- * XREFs of PopDisableCoolingExtension @ 0x1409830A8
+ * XREFs of PopDisableCoolingExtension @ 0x1409832A8
  * Callers:
- *     PopCoolingExtensionPnpNotification @ 0x140982DF0 (PopCoolingExtensionPnpNotification.c)
+ *     PopCoolingExtensionPnpNotification @ 0x140982FF0 (PopCoolingExtensionPnpNotification.c)
  * Callees:
- *     KeWaitForSingleObject @ 0x140243CE0 (KeWaitForSingleObject.c)
- *     KeInitializeEvent @ 0x1402AF870 (KeInitializeEvent.c)
- *     PopReleaseRwLock @ 0x14032C480 (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x14032C5E4 (PopAcquireRwLockExclusive.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     PopPropogateCoolingChange @ 0x140586D00 (PopPropogateCoolingChange.c)
- *     PopDiagTraceCoolingExtension @ 0x1408615EC (PopDiagTraceCoolingExtension.c)
+ *     KeWaitForSingleObject @ 0x140243DB0 (KeWaitForSingleObject.c)
+ *     KeInitializeEvent @ 0x1402AFB00 (KeInitializeEvent.c)
+ *     PopReleaseRwLock @ 0x14032C710 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x14032C874 (PopAcquireRwLockExclusive.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     PopPropogateCoolingChange @ 0x1405871F0 (PopPropogateCoolingChange.c)
+ *     PopDiagTraceCoolingExtension @ 0x14086182C (PopDiagTraceCoolingExtension.c)
  */
 
 void __fastcall PopDisableCoolingExtension(__int64 a1)

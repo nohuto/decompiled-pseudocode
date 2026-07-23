@@ -1,7 +1,7 @@
 /*
- * XREFs of ScanHexFormat @ 0x180074D80
+ * XREFs of ScanHexFormat @ 0x180074D90
  * Callers:
- *     RtlGUIDFromString @ 0x180074B90 (RtlGUIDFromString.c)
+ *     RtlGUIDFromString @ 0x180074BA0 (RtlGUIDFromString.c)
  * Callees:
  *     <none>
  */

@@ -23,14 +23,14 @@
  *     ExFreePoolWithTag @ 0x1409B70B0 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall NtEnumerateBootEntries(unsigned __int64 Address, _DWORD *a2)
+NTSTATUS __cdecl NtEnumerateBootEntries(PVOID Buffer, PULONG BufferLength)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
   KPROCESSOR_MODE PreviousMode; // si
   __int64 v5; // rcx
   unsigned int v6; // ebx
   _DWORD *v7; // rsi
-  unsigned int v8; // r12d
+  NTSTATUS v8; // r12d
   _DWORD *v9; // r13
   struct _KTHREAD *v10; // rax
   unsigned int *PoolWithTag; // rax
@@ -94,33 +94,34 @@ __int64 __fastcall NtEnumerateBootEntries(unsigned __int64 Address, _DWORD *a2)
   v58 = 0LL;
   P = 0LL;
   if ( dword_140C19690 != 2 )
-    return 3221225474LL;
-  if ( (Address & 0xFFFFFFFFFFFFFFFCuLL) != Address )
-    return 3221225485LL;
+    return -1073741822;
+  if ( (PVOID)((unsigned __int64)Buffer & 0xFFFFFFFFFFFFFFFCuLL) != Buffer )
+    return -1073741811;
   CurrentThread = KeGetCurrentThread();
   PreviousMode = CurrentThread->PreviousMode;
   NumberOfBytes_4 = PreviousMode;
   if ( PreviousMode )
   {
     v5 = 0x7FFFFFFF0000LL;
-    if ( (unsigned __int64)a2 < 0x7FFFFFFF0000LL )
-      v5 = (__int64)a2;
+    if ( (unsigned __int64)BufferLength < 0x7FFFFFFF0000LL )
+      v5 = (__int64)BufferLength;
     *(_DWORD *)v5 = *(_DWORD *)v5;
-    v6 = Address != 0 ? *a2 : 0;
+    v6 = Buffer != 0LL ? *BufferLength : 0;
     v49 = v6;
     if ( v6 )
-      ProbeForWrite((volatile void *)Address, v6, 4u);
+      ProbeForWrite(Buffer, v6, 4u);
     PreviousMode = NumberOfBytes_4;
     if ( !SeSinglePrivilegeCheck(SeSystemEnvironmentPrivilege, NumberOfBytes_4) )
-      return 3221225569LL;
+      return -1073741727;
   }
   else
   {
-    v6 = Address != 0 ? *a2 : 0;
+    v6 = Buffer != 0LL ? *BufferLength : 0;
     v49 = v6;
   }
   if ( !v6
-    || (result = ExLockUserBuffer(Address, v6, PreviousMode, IoWriteAccess, &v58, (struct _MDL **)&P), (int)result >= 0) )
+    || (result = ExLockUserBuffer((unsigned __int64)Buffer, v6, PreviousMode, IoWriteAccess, &v58, (struct _MDL **)&P),
+        result >= 0) )
   {
     v7 = v58;
     v48 = v6 != 0;
@@ -338,7 +339,7 @@ LABEL_78:
       ExUnlockUserBuffer((struct _MDL *)P);
     if ( v15 < 0 )
       v8 = v15;
-    *a2 = (_DWORD)v7 - (_DWORD)v58;
+    *BufferLength = (_DWORD)v7 - (_DWORD)v58;
     return v8;
   }
   return result;

@@ -1,13 +1,13 @@
 /*
- * XREFs of MiStoreGetWriteSupport @ 0x14039822C
+ * XREFs of MiStoreGetWriteSupport @ 0x140399F8C
  * Callers:
- *     MiStoreWriteModifiedPagePrepare @ 0x1404091C0 (MiStoreWriteModifiedPagePrepare.c)
+ *     MiStoreWriteModifiedPagePrepare @ 0x1404022B0 (MiStoreWriteModifiedPagePrepare.c)
  * Callees:
- *     ExAllocatePoolMm @ 0x1403985B0 (ExAllocatePoolMm.c)
- *     RtlpInterlockedPopEntrySList @ 0x140730C90 (RtlpInterlockedPopEntrySList.c)
+ *     ExAllocatePoolMm @ 0x14039A310 (ExAllocatePoolMm.c)
+ *     RtlpInterlockedPopEntrySList @ 0x140735860 (RtlpInterlockedPopEntrySList.c)
  */
 
-PSLIST_ENTRY __fastcall MiStoreGetWriteSupport(union _SLIST_HEADER *a1)
+PSLIST_ENTRY __fastcall MiStoreGetWriteSupport(_SLIST_HEADER *a1)
 {
   PSLIST_ENTRY result; // rax
   __int64 v2; // r9

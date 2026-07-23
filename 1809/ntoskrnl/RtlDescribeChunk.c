@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlDescribeChunk @ 0x140890A70
+ * XREFs of RtlDescribeChunk @ 0x140891CD0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
  */
 
 NTSTATUS __stdcall RtlDescribeChunk(

@@ -1,7 +1,7 @@
 /*
- * XREFs of MiVaIsPageFileHash @ 0x14010A924
+ * XREFs of MiVaIsPageFileHash @ 0x1401086A4
  * Callers:
- *     MiStealPage @ 0x140107E84 (MiStealPage.c)
+ *     MiStealPage @ 0x140105C04 (MiStealPage.c)
  * Callees:
  *     <none>
  */

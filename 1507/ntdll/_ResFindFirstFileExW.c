@@ -16,12 +16,12 @@
  *     BasepInitializeFindFileHandle @ 0x1800F8F20 (BasepInitializeFindFileHandle.c)
  */
 
-unsigned __int64 __fastcall ResFindFirstFileExW(PCWSTR SourceString, __int64 a2, __int64 a3)
+__int64 __fastcall ResFindFirstFileExW(PCWSTR DosFileName, __int64 a2, __int64 a3)
 {
   bool v5; // r12
-  unsigned __int64 result; // rax
+  __int64 result; // rax
   __int64 v7; // rax
-  unsigned __int64 v8; // rsi
+  unsigned __int16 *Buffer; // rsi
   __int64 v9; // rcx
   unsigned __int16 v10; // cx
   unsigned __int16 v11; // ax
@@ -29,71 +29,72 @@ unsigned __int64 __fastcall ResFindFirstFileExW(PCWSTR SourceString, __int64 a2,
   char v13; // bl
   NTSTATUS v14; // eax
   unsigned int v15; // edx
-  _WORD *v16; // rcx
-  int DirectoryFile; // ebx
+  unsigned __int16 *v16; // rcx
+  NTSTATUS v17; // ebx
   size_t v18; // r8
-  unsigned __int16 v19; // [rsp+60h] [rbp-A0h]
-  void *Source1; // [rsp+68h] [rbp-98h] BYREF
+  _UNICODE_STRING FileName; // [rsp+60h] [rbp-A0h] BYREF
   HANDLE FileHandle; // [rsp+70h] [rbp-90h] BYREF
-  unsigned __int16 v22; // [rsp+78h] [rbp-88h] BYREF
-  __int16 v23; // [rsp+7Ah] [rbp-86h]
-  unsigned __int64 v24; // [rsp+80h] [rbp-80h]
-  UNICODE_STRING DestinationString; // [rsp+88h] [rbp-78h] BYREF
-  struct _IO_STATUS_BLOCK IoStatusBlock; // [rsp+98h] [rbp-68h] BYREF
-  OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+A8h] [rbp-58h] BYREF
-  __int64 v28; // [rsp+E8h] [rbp-18h]
-  __int64 v29; // [rsp+F0h] [rbp-10h]
-  __int64 v30; // [rsp+F8h] [rbp-8h]
-  int v31; // [rsp+108h] [rbp+8h]
-  int v32; // [rsp+10Ch] [rbp+Ch]
-  int v33; // [rsp+118h] [rbp+18h]
+  _UNICODE_STRING NtFileName; // [rsp+78h] [rbp-88h] BYREF
+  _UNICODE_STRING DestinationString; // [rsp+88h] [rbp-78h] BYREF
+  _IO_STATUS_BLOCK IoStatusBlock; // [rsp+98h] [rbp-68h] BYREF
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+A8h] [rbp-58h] BYREF
+  _BYTE FileInformation[8]; // [rsp+E0h] [rbp-20h] BYREF
+  __int64 v26; // [rsp+E8h] [rbp-18h]
+  __int64 v27; // [rsp+F0h] [rbp-10h]
+  __int64 v28; // [rsp+F8h] [rbp-8h]
+  int v29; // [rsp+108h] [rbp+8h]
+  int v30; // [rsp+10Ch] [rbp+Ch]
+  int v31; // [rsp+118h] [rbp+18h]
   unsigned int Size; // [rsp+11Ch] [rbp+1Ch]
   int Size_4; // [rsp+120h] [rbp+20h]
-  char v36; // [rsp+124h] [rbp+24h]
-  _BYTE v37[24]; // [rsp+126h] [rbp+26h] BYREF
+  char v34; // [rsp+124h] [rbp+24h]
+  _BYTE v35[24]; // [rsp+126h] [rbp+26h] BYREF
   _BYTE Src[530]; // [rsp+13Eh] [rbp+3Eh] BYREF
 
-  RtlInitUnicodeString(&DestinationString, SourceString);
+  RtlInitUnicodeString(&DestinationString, DosFileName);
   v5 = DestinationString.Buffer[((unsigned __int64)DestinationString.Length >> 1) - 1] == 46;
-  if ( !RtlDosPathNameToNtPathName_U((__int64)SourceString, (__int64)&v22, (__int64)&Source1, 0LL) )
+  if ( !RtlDosPathNameToNtPathName_U(DosFileName, &NtFileName, &FileName.Buffer, 0LL) )
   {
-    RtlSetLastWin32Error(3u);
+    RtlSetLastWin32Error(3);
     return -1LL;
   }
   v7 = -1LL;
   do
     ++v7;
-  while ( *((_WORD *)Source1 + v7) );
-  v8 = v24;
+  while ( FileName.Buffer[v7] );
+  Buffer = NtFileName.Buffer;
+  FileName.Length = 2 * v7;
   v9 = -1LL;
+  FileName.MaximumLength = 2 * v7 + 2;
   do
     ++v9;
-  while ( *(_WORD *)(v24 + 2 * v9) );
+  while ( NtFileName.Buffer[v9] );
   v10 = 2 * v9;
-  v22 = v10;
-  v23 = v10 + 2;
-  if ( Source1 )
-    v11 = v10 + v24 - (_WORD)Source1;
+  NtFileName.Length = v10;
+  NtFileName.MaximumLength = v10 + 2;
+  if ( FileName.Buffer )
+    v11 = v10 + LOWORD(NtFileName.Buffer) - LOWORD(FileName.Buffer);
   else
     v11 = 0;
-  v19 = v11;
-  if ( Source1 )
+  FileName.Length = v11;
+  FileName.MaximumLength = v11;
+  if ( FileName.Buffer )
   {
-    v10 = (_WORD)Source1 - v24;
-    v22 = (_WORD)Source1 - v24;
-    v23 = (_WORD)Source1 - v24;
+    v10 = LOWORD(FileName.Buffer) - LOWORD(NtFileName.Buffer);
+    NtFileName.Length = LOWORD(FileName.Buffer) - LOWORD(NtFileName.Buffer);
+    NtFileName.MaximumLength = LOWORD(FileName.Buffer) - LOWORD(NtFileName.Buffer);
   }
   v12 = (unsigned __int64)v10 >> 1;
-  if ( *(_WORD *)(v24 + 2 * v12 - 4) == 58 || *(_WORD *)(v24 + 2 * v12 - 2) == 92 )
+  if ( NtFileName.Buffer[v12 - 2] == 58 || NtFileName.Buffer[v12 - 1] == 92 )
   {
     v13 = 0;
   }
   else
   {
     v13 = 1;
-    v22 = v10 - 2;
+    NtFileName.Length = v10 - 2;
   }
-  ObjectAttributes.ObjectName = (PUNICODE_STRING)&v22;
+  ObjectAttributes.ObjectName = &NtFileName;
   ObjectAttributes.Length = 48;
   ObjectAttributes.RootDirectory = 0LL;
   ObjectAttributes.Attributes = 64;
@@ -101,71 +102,85 @@ unsigned __int64 __fastcall ResFindFirstFileExW(PCWSTR SourceString, __int64 a2,
   v14 = NtOpenFile(&FileHandle, 0x100001u, &ObjectAttributes, &IoStatusBlock, 3u, 0x4021u);
   if ( (v14 == -1073741811 || v14 == -1073741565) && v13 )
   {
-    v22 += 2;
+    NtFileName.Length += 2;
     v14 = NtOpenFile(&FileHandle, 0x100001u, &ObjectAttributes, &IoStatusBlock, 3u, 0x4021u);
-    v22 -= 2;
+    NtFileName.Length -= 2;
   }
   if ( v14 < 0 )
   {
-    RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v8);
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, Buffer);
     return -1LL;
   }
-  if ( !v19 )
+  if ( !FileName.Length )
   {
-    RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v8);
-LABEL_46:
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, Buffer);
+LABEL_47:
     NtClose(FileHandle);
     return -1LL;
   }
-  if ( v19 != 6 || RtlCompareMemory(Source1, L"*.*", 6uLL) != 6 )
+  if ( FileName.Length == 6 && RtlCompareMemory(FileName.Buffer, L"*.*", 6uLL) == 6 )
   {
-    v15 = 0;
-    v16 = Source1;
-    if ( (v19 & 0xFFFE) != 0 )
-    {
-      while ( 1 )
-      {
-        if ( v15 && *v16 == 46 && *(v16 - 1) == 42 )
-          *(v16 - 1) = 60;
-        if ( *v16 == 63 )
-          break;
-        if ( *v16 == 42 )
-          goto LABEL_35;
-LABEL_38:
-        ++v15;
-        ++v16;
-        if ( v15 >= v19 >> 1 )
-          goto LABEL_39;
-      }
-      *v16 = 62;
-LABEL_35:
-      if ( v15 && *(v16 - 1) == 46 )
-        *(v16 - 1) = 34;
-      goto LABEL_38;
-    }
-LABEL_39:
-    if ( v5 && *(v16 - 1) == 42 )
-      *(v16 - 1) = 60;
+    FileName.Length = 2;
+    goto LABEL_43;
   }
-  DirectoryFile = NtQueryDirectoryFile();
-  RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v8);
-  if ( DirectoryFile < 0 )
-    goto LABEL_46;
+  v15 = 0;
+  v16 = FileName.Buffer;
+  if ( (FileName.Length & 0xFFFE) != 0 )
+  {
+    while ( 1 )
+    {
+      if ( v15 && *v16 == 46 && *(v16 - 1) == 42 )
+        *(v16 - 1) = 60;
+      if ( *v16 == 63 )
+        break;
+      if ( *v16 == 42 )
+        goto LABEL_36;
+LABEL_39:
+      ++v15;
+      ++v16;
+      if ( v15 >= FileName.Length >> 1 )
+        goto LABEL_40;
+    }
+    *v16 = 62;
+LABEL_36:
+    if ( v15 && *(v16 - 1) == 46 )
+      *(v16 - 1) = 34;
+    goto LABEL_39;
+  }
+LABEL_40:
+  if ( v5 && *(v16 - 1) == 42 )
+    *(v16 - 1) = 60;
+LABEL_43:
+  v17 = NtQueryDirectoryFile(
+          FileHandle,
+          0LL,
+          0LL,
+          0LL,
+          &IoStatusBlock,
+          FileInformation,
+          0x268u,
+          FileBothDirectoryInformation,
+          1u,
+          &FileName,
+          0);
+  RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, Buffer);
+  if ( v17 < 0 )
+    goto LABEL_47;
   v18 = Size;
-  *(_DWORD *)a3 = v33;
-  *(_QWORD *)(a3 + 4) = v28;
-  *(_QWORD *)(a3 + 12) = v29;
-  *(_QWORD *)(a3 + 20) = v30;
-  *(_DWORD *)(a3 + 28) = v32;
-  *(_DWORD *)(a3 + 32) = v31;
+  *(_DWORD *)a3 = v31;
+  *(_QWORD *)(a3 + 4) = v26;
+  *(_QWORD *)(a3 + 12) = v27;
+  *(_QWORD *)(a3 + 20) = v28;
+  *(_DWORD *)(a3 + 28) = v30;
+  *(_DWORD *)(a3 + 32) = v29;
   memmove((void *)(a3 + 44), Src, v18);
   *(_WORD *)(a3 + 2 * ((unsigned __int64)Size >> 1) + 44) = 0;
-  memmove((void *)(a3 + 564), v37, v36);
-  *(_WORD *)(a3 + 2 * ((__int64)v36 >> 1) + 564) = 0;
-  if ( (v33 & 0x400) != 0 )
+  memmove((void *)(a3 + 564), v35, v34);
+  *(_WORD *)(a3 + 2 * ((__int64)v34 >> 1) + 564) = 0;
+  if ( (v31 & 0x400) != 0 )
     *(_DWORD *)(a3 + 36) = Size_4;
-  result = BasepInitializeFindFileHandle((__int64)FileHandle);
+  result = (__int64)BasepInitializeFindFileHandle((_RTL_CRITICAL_SECTION_DEBUG *)FileHandle);
   if ( !result )
-    goto LABEL_46;
+    goto LABEL_47;
   return result;
 }

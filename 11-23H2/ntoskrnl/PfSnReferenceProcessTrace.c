@@ -1,18 +1,18 @@
 /*
- * XREFs of PfSnReferenceProcessTrace @ 0x1402E25B4
+ * XREFs of PfSnReferenceProcessTrace @ 0x1402E2844
  * Callers:
- *     PfSnLogFileDataAccess @ 0x1402E245C (PfSnLogFileDataAccess.c)
- *     PfSnLogPageFault @ 0x1402E2510 (PfSnLogPageFault.c)
- *     PfSnLogHelper @ 0x1407738C8 (PfSnLogHelper.c)
- *     PfSnAsyncContextInitialize @ 0x1407DB1D8 (PfSnAsyncContextInitialize.c)
- *     PfSnEndProcessTrace @ 0x1407E5320 (PfSnEndProcessTrace.c)
+ *     PfSnLogFileDataAccess @ 0x1402E26EC (PfSnLogFileDataAccess.c)
+ *     PfSnLogPageFault @ 0x1402E27A0 (PfSnLogPageFault.c)
+ *     PfSnLogHelper @ 0x140773AB8 (PfSnLogHelper.c)
+ *     PfSnAsyncContextInitialize @ 0x1407DB4A8 (PfSnAsyncContextInitialize.c)
+ *     PfSnEndProcessTrace @ 0x1407E55F0 (PfSnEndProcessTrace.c)
  * Callees:
- *     KeSetEvent @ 0x14023C5E0 (KeSetEvent.c)
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250E80 (KeAcquireSpinLockRaiseToDpc.c)
- *     ExAcquireRundownProtection_0 @ 0x14028B360 (ExAcquireRundownProtection_0.c)
- *     ExAcquireRundownProtectionEx @ 0x1402F5CE0 (ExAcquireRundownProtectionEx.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeSetEvent @ 0x14023C6B0 (KeSetEvent.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140250F40 (KeAcquireSpinLockRaiseToDpc.c)
+ *     ExAcquireRundownProtection_0 @ 0x14028B5F0 (ExAcquireRundownProtection_0.c)
+ *     ExAcquireRundownProtectionEx @ 0x1402F5F70 (ExAcquireRundownProtectionEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall PfSnReferenceProcessTrace(__int64 a1)
@@ -104,10 +104,13 @@ LABEL_28:
         if ( v12 )
           v10 = ExAcquireRundownProtection_0((PEX_RUNDOWN_REF)(v12 + 360));
         KxReleaseSpinLock((volatile signed __int64 *)&qword_140C6A610);
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
           CurrentIrql = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v11 <= 0xFu && CurrentIrql >= 2u )
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+            && CurrentIrql <= 0xFu
+            && (unsigned __int8)v11 <= 0xFu
+            && CurrentIrql >= 2u )
           {
             CurrentPrcb = KeGetCurrentPrcb();
             SchedulerAssist = CurrentPrcb->SchedulerAssist;

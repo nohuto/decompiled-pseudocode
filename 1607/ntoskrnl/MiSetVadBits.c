@@ -1,9 +1,9 @@
 /*
- * XREFs of MiSetVadBits @ 0x14065B530
+ * XREFs of MiSetVadBits @ 0x14065B614
  * Callers:
- *     MiUpdateVadBits @ 0x14046DACC (MiUpdateVadBits.c)
+ *     MiUpdateVadBits @ 0x14046C99C (MiUpdateVadBits.c)
  * Callees:
- *     RtlSetBits @ 0x140028420 (RtlSetBits.c)
+ *     RtlSetBits @ 0x140027FA0 (RtlSetBits.c)
  */
 
 void __fastcall MiSetVadBits(__int64 a1)
@@ -15,7 +15,7 @@ void __fastcall MiSetVadBits(__int64 a1)
   __int64 v5; // rcx
   unsigned int v6; // edi
   __int64 v7; // r14
-  struct _RTL_BITMAP *v8; // r11
+  _RTL_BITMAP *v8; // r11
   unsigned int v9; // r9d
   unsigned int v10; // r10d
   int v11; // ebp
@@ -26,12 +26,12 @@ void __fastcall MiSetVadBits(__int64 a1)
   v2 = (*(_DWORD *)(a1 + 24) >> 4) | (*(unsigned __int8 *)(a1 + 32) << 28);
   v3 = *(unsigned __int8 *)(a1 + 33) << 28;
   v4 = *(_DWORD *)(a1 + 28);
-  v5 = qword_140327F90;
+  v5 = qword_140327FD0;
   v6 = (v4 >> 4) | v3;
   v7 = 0LL;
   do
   {
-    v8 = (struct _RTL_BITMAP *)(v7 + v5);
+    v8 = (_RTL_BITMAP *)(v7 + v5);
     v9 = 8 * (*(_DWORD *)(v7 + v5 + 276840472) - v5);
     if ( v6 < v9 )
       goto LABEL_10;
@@ -54,7 +54,7 @@ void __fastcall MiSetVadBits(__int64 a1)
     RtlSetBits(v8 + 17302529, v12 - v9, v13 - v12 + 1);
     if ( !v11 )
       break;
-    v5 = qword_140327F90;
+    v5 = qword_140327FD0;
 LABEL_10:
     ++v1;
     v7 += 40LL;

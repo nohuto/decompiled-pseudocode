@@ -1,15 +1,15 @@
 /*
- * XREFs of FsRtlLookupPerStreamContextInternal @ 0x1402C1230
+ * XREFs of FsRtlLookupPerStreamContextInternal @ 0x14030BEF0
  * Callers:
  *     <none>
  * Callees:
- *     ExAcquireFastMutex @ 0x140278070 (ExAcquireFastMutex.c)
- *     KeReleaseGuardedMutex @ 0x140278D40 (KeReleaseGuardedMutex.c)
- *     ExReleaseAutoExpandPushLockShared @ 0x14027A640 (ExReleaseAutoExpandPushLockShared.c)
- *     KeLeaveCriticalRegionThread @ 0x1402B8A60 (KeLeaveCriticalRegionThread.c)
- *     FsRtlAcquireAutoExpandPushLockShared @ 0x1402C1350 (FsRtlAcquireAutoExpandPushLockShared.c)
- *     FsRtlReleasePushLock @ 0x1402C23EC (FsRtlReleasePushLock.c)
- *     PfLockSharedAcquire @ 0x1404B2990 (PfLockSharedAcquire.c)
+ *     ExAcquireFastMutex @ 0x1402775E0 (ExAcquireFastMutex.c)
+ *     KeReleaseGuardedMutex @ 0x1402782B0 (KeReleaseGuardedMutex.c)
+ *     ExReleaseAutoExpandPushLockShared @ 0x140279BB0 (ExReleaseAutoExpandPushLockShared.c)
+ *     KeLeaveCriticalRegionThread @ 0x140303720 (KeLeaveCriticalRegionThread.c)
+ *     FsRtlAcquireAutoExpandPushLockShared @ 0x14030C010 (FsRtlAcquireAutoExpandPushLockShared.c)
+ *     FsRtlReleasePushLock @ 0x14030D0AC (FsRtlReleasePushLock.c)
+ *     PfLockSharedAcquire @ 0x1404ABEA0 (PfLockSharedAcquire.c)
  */
 
 PFSRTL_PER_STREAM_CONTEXT __stdcall FsRtlLookupPerStreamContextInternal(
@@ -23,8 +23,6 @@ PFSRTL_PER_STREAM_CONTEXT __stdcall FsRtlLookupPerStreamContextInternal(
   struct _LIST_ENTRY *Flink; // rax
   _LIST_ENTRY *p_FilterContexts; // rcx
   unsigned __int8 v11; // cl
-  __int64 v12; // rdx
-  __int64 v13; // r8
 
   v3 = 0LL;
   v4 = *((_BYTE *)StreamContext + 7) >> 4;
@@ -90,6 +88,6 @@ LABEL_19:
     return v3;
   }
   ExReleaseAutoExpandPushLockShared(v8, 0LL);
-  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v12, v13);
+  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
   return v3;
 }

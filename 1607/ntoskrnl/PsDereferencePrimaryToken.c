@@ -1,8 +1,8 @@
 /*
- * XREFs of PsDereferencePrimaryToken @ 0x1404E15F4
+ * XREFs of PsDereferencePrimaryToken @ 0x1404C4BF8
  * Callers:
- *     AlpcpAcceptConnectPort @ 0x1404B4A28 (AlpcpAcceptConnectPort.c)
- *     AlpcpCopyRequestData @ 0x140655200 (AlpcpCopyRequestData.c)
+ *     AlpcpAcceptConnectPort @ 0x14049EE08 (AlpcpAcceptConnectPort.c)
+ *     AlpcpCopyRequestData @ 0x1406552E4 (AlpcpCopyRequestData.c)
  *     IopInitializePlugPlayServices @ 0x14079CCD4 (IopInitializePlugPlayServices.c)
  * Callees:
  *     <none>

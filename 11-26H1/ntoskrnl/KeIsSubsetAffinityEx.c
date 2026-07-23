@@ -1,5 +1,5 @@
 /*
- * XREFs of KeIsSubsetAffinityEx @ 0x140493520
+ * XREFs of KeIsSubsetAffinityEx @ 0x14048CAB0
  * Callers:
  *     <none>
  * Callees:

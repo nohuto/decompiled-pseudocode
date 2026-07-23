@@ -12,7 +12,7 @@
 
 __int64 __fastcall KsepPatchDriverImportsTable(__int64 a1, __int64 a2)
 {
-  __int64 v4; // r13
+  PVOID v4; // r13
   __int64 result; // rax
   __int64 v6; // rdi
   unsigned int i; // r12d
@@ -21,12 +21,12 @@ __int64 __fastcall KsepPatchDriverImportsTable(__int64 a1, __int64 a2)
   __int64 v10; // r9
   __int64 HookAddressForOriginal; // rax
   __int64 v12; // rbp
-  int v13; // [rsp+60h] [rbp+8h] BYREF
+  ULONG v13; // [rsp+60h] [rbp+8h] BYREF
 
   v13 = 0;
   if ( a1 && a2 )
   {
-    v4 = RtlImageDirectoryEntryToData(*(_QWORD *)(a1 + 48), 1, 0xCu, &v13);
+    v4 = RtlImageDirectoryEntryToData(*(PVOID *)(a1 + 48), 1u, 0xCu, &v13);
     if ( !v4 )
       return 3221225473LL;
     v6 = *(_QWORD *)(a2 + 48);
@@ -54,7 +54,7 @@ LABEL_26:
           v10 = *(_QWORD *)(v8 + 24);
           if ( !v10 || *(_DWORD *)v8 )
             return 3221225485LL;
-          result = KsepPatchImportTableEntry(a1, v4, v13, v10, *(_QWORD *)(v8 + 16));
+          result = KsepPatchImportTableEntry(a1, (_DWORD)v4, v13, v10, *(_QWORD *)(v8 + 16));
           if ( (_DWORD)result == -1073741275 )
           {
             if ( !(unsigned int)VfIsVerifierEnabled() )
@@ -65,7 +65,7 @@ LABEL_26:
             v12 = HookAddressForOriginal;
             if ( !HookAddressForOriginal )
               goto LABEL_25;
-            result = KsepPatchImportTableEntry(a1, v4, v13, HookAddressForOriginal, *(_QWORD *)(v8 + 16));
+            result = KsepPatchImportTableEntry(a1, (_DWORD)v4, v13, HookAddressForOriginal, *(_QWORD *)(v8 + 16));
             if ( (int)result >= 0 )
             {
               *(_QWORD *)(v8 + 24) = v12;

@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpInterruptStartBlockedProcessors @ 0x1405574D4
+ * XREFs of HalpInterruptStartBlockedProcessors @ 0x140554E14
  * Callers:
- *     HalStartNextProcessor @ 0x140546280 (HalStartNextProcessor.c)
- *     HalpProcInitSystem @ 0x140B4D1C0 (HalpProcInitSystem.c)
- *     HalpInterruptReinitialize @ 0x140B6A818 (HalpInterruptReinitialize.c)
+ *     HalStartNextProcessor @ 0x140543B40 (HalStartNextProcessor.c)
+ *     HalpProcInitSystem @ 0x140B4F200 (HalpProcInitSystem.c)
+ *     HalpInterruptReinitialize @ 0x140B6C0DC (HalpInterruptReinitialize.c)
  * Callees:
- *     HalpGetProcessorStateByNtIndex @ 0x1403B8918 (HalpGetProcessorStateByNtIndex.c)
- *     HalpBlkStartBlockedProcessor @ 0x140B509C0 (HalpBlkStartBlockedProcessor.c)
+ *     HalpGetProcessorStateByNtIndex @ 0x1402B49A8 (HalpGetProcessorStateByNtIndex.c)
+ *     HalpBlkStartBlockedProcessor @ 0x140B52A10 (HalpBlkStartBlockedProcessor.c)
  */
 
 __int64 __fastcall HalpInterruptStartBlockedProcessors(unsigned int a1)

@@ -1,10 +1,10 @@
 /*
- * XREFs of HvlpGetVtlCallVa @ 0x14032BA6C
+ * XREFs of HvlpGetVtlCallVa @ 0x14032BC5C
  * Callers:
- *     HvlEnableVsmCalls @ 0x1409DF548 (HvlEnableVsmCalls.c)
+ *     HvlEnableVsmCalls @ 0x1409E0548 (HvlEnableVsmCalls.c)
  * Callees:
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     HvcallFastExtended @ 0x140322500 (HvcallFastExtended.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     HvcallFastExtended @ 0x1403226F0 (HvcallFastExtended.c)
  */
 
 __int64 HvlpGetVtlCallVa()

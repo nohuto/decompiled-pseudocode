@@ -1,17 +1,17 @@
 /*
- * XREFs of CmpFinishBeingActiveFlusherAndReconciler @ 0x14079F5B4
+ * XREFs of CmpFinishBeingActiveFlusherAndReconciler @ 0x14079F7B4
  * Callers:
- *     CmpLoadHiveThread @ 0x14079ED50 (CmpLoadHiveThread.c)
- *     CmReplaceKey @ 0x14086D9C8 (CmReplaceKey.c)
- *     CmpRefreshHive @ 0x14087D3F8 (CmpRefreshHive.c)
- *     CmpSaveKeyByFileCopy @ 0x14087D8A0 (CmpSaveKeyByFileCopy.c)
+ *     CmpLoadHiveThread @ 0x14079EF50 (CmpLoadHiveThread.c)
+ *     CmReplaceKey @ 0x14086DB28 (CmReplaceKey.c)
+ *     CmpRefreshHive @ 0x14087D558 (CmpRefreshHive.c)
+ *     CmpSaveKeyByFileCopy @ 0x14087DA00 (CmpSaveKeyByFileCopy.c)
  * Callees:
- *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
- *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
- *     CmpWakeWriteQueueWaiters @ 0x1406BBC78 (CmpWakeWriteQueueWaiters.c)
- *     CmpUnlockRegistry @ 0x1406F5ED0 (CmpUnlockRegistry.c)
- *     CmpLockRegistry @ 0x1406F5F10 (CmpLockRegistry.c)
+ *     ExfTryToWakePushLock @ 0x1402FC2C0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x1403539D0 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1403556E0 (ExAcquirePushLockExclusiveEx.c)
+ *     CmpWakeWriteQueueWaiters @ 0x14061ACF8 (CmpWakeWriteQueueWaiters.c)
+ *     CmpUnlockRegistry @ 0x14070D2B0 (CmpUnlockRegistry.c)
+ *     CmpLockRegistry @ 0x14070D2F0 (CmpLockRegistry.c)
  */
 
 char __fastcall CmpFinishBeingActiveFlusherAndReconciler(__int64 a1)

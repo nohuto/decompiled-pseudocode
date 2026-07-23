@@ -1,24 +1,24 @@
 /*
- * XREFs of KiBugCheckDispatch @ 0x1406BEC80
+ * XREFs of KiBugCheckDispatch @ 0x1406BFB80
  * Callers:
- *     KxIsrLinkage @ 0x1406AE9A0 (KxIsrLinkage.c)
- *     KiNmiInterruptStart @ 0x1406B67C0 (KiNmiInterruptStart.c)
- *     KiBoundFault @ 0x1406B7440 (KiBoundFault.c)
- *     KiNpxNotAvailableFault @ 0x1406B8200 (KiNpxNotAvailableFault.c)
- *     KiDoubleFaultAbort @ 0x1406B85C0 (KiDoubleFaultAbort.c)
- *     KiNpxSegmentOverrunAbort @ 0x1406B8940 (KiNpxSegmentOverrunAbort.c)
- *     KiInvalidTssFault @ 0x1406B8CC0 (KiInvalidTssFault.c)
- *     KiSegmentNotPresentFault @ 0x1406B9040 (KiSegmentNotPresentFault.c)
- *     KiPageFault @ 0x1406B9B40 (KiPageFault.c)
- *     KiFloatingErrorFault @ 0x1406BA340 (KiFloatingErrorFault.c)
- *     KiXmmException @ 0x1406BB900 (KiXmmException.c)
- *     KiVirtualizationException @ 0x1406BBD00 (KiVirtualizationException.c)
- *     KiControlProtectionFault @ 0x1406BC440 (KiControlProtectionFault.c)
- *     KiSystemServiceHandler @ 0x1406BDCC0 (KiSystemServiceHandler.c)
- *     KiSystemCall64 @ 0x1406BDE40 (KiSystemCall64.c)
- *     KiFastFailDispatch @ 0x1406BF240 (KiFastFailDispatch.c)
+ *     KxIsrLinkage @ 0x1406AF940 (KxIsrLinkage.c)
+ *     KiNmiInterruptStart @ 0x1406B76C0 (KiNmiInterruptStart.c)
+ *     KiBoundFault @ 0x1406B8340 (KiBoundFault.c)
+ *     KiNpxNotAvailableFault @ 0x1406B9100 (KiNpxNotAvailableFault.c)
+ *     KiDoubleFaultAbort @ 0x1406B94C0 (KiDoubleFaultAbort.c)
+ *     KiNpxSegmentOverrunAbort @ 0x1406B9840 (KiNpxSegmentOverrunAbort.c)
+ *     KiInvalidTssFault @ 0x1406B9BC0 (KiInvalidTssFault.c)
+ *     KiSegmentNotPresentFault @ 0x1406B9F40 (KiSegmentNotPresentFault.c)
+ *     KiPageFault @ 0x1406BAA40 (KiPageFault.c)
+ *     KiFloatingErrorFault @ 0x1406BB240 (KiFloatingErrorFault.c)
+ *     KiXmmException @ 0x1406BC800 (KiXmmException.c)
+ *     KiVirtualizationException @ 0x1406BCC00 (KiVirtualizationException.c)
+ *     KiControlProtectionFault @ 0x1406BD340 (KiControlProtectionFault.c)
+ *     KiSystemServiceHandler @ 0x1406BEBC0 (KiSystemServiceHandler.c)
+ *     KiSystemCall64 @ 0x1406BED40 (KiSystemCall64.c)
+ *     KiFastFailDispatch @ 0x1406C0140 (KiFastFailDispatch.c)
  * Callees:
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
  */
 
 void __fastcall __noreturn KiBugCheckDispatch(ULONG a1, ULONG_PTR a2, ULONG_PTR a3, ULONG_PTR a4)

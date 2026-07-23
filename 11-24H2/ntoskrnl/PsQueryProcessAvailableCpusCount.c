@@ -1,9 +1,9 @@
 /*
- * XREFs of PsQueryProcessAvailableCpusCount @ 0x1405E5630
+ * XREFs of PsQueryProcessAvailableCpusCount @ 0x1405E2BE0
  * Callers:
  *     <none>
  * Callees:
- *     KeQueryProcessAvailableCpus @ 0x1405B82AC (KeQueryProcessAvailableCpus.c)
+ *     KeQueryProcessAvailableCpus @ 0x1405B588C (KeQueryProcessAvailableCpus.c)
  */
 
 __int64 __fastcall PsQueryProcessAvailableCpusCount(__int64 a1, _DWORD *a2, __int64 *a3)

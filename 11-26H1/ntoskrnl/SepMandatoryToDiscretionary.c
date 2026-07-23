@@ -1,7 +1,7 @@
 /*
- * XREFs of SepMandatoryToDiscretionary @ 0x140447B20
+ * XREFs of SepMandatoryToDiscretionary @ 0x140440610
  * Callers:
- *     SepAccessCheckAndAuditAlarm @ 0x1409F55D0 (SepAccessCheckAndAuditAlarm.c)
+ *     SepAccessCheckAndAuditAlarm @ 0x140A5E120 (SepAccessCheckAndAuditAlarm.c)
  * Callees:
  *     <none>
  */

@@ -11,16 +11,20 @@
  *     _RtlpUnlinkHandlerChain@4 @ 0x4B3666B0 (_RtlpUnlinkHandlerChain@4.c)
  */
 
-int __stdcall KiUserCallbackExceptionHandler(PEXCEPTION_RECORD ExceptionRecord, PVOID TargetFrame, int a3, int a4)
+int __stdcall KiUserCallbackExceptionHandler(
+        PEXCEPTION_RECORD ExceptionRecord,
+        PVOID TargetFrame,
+        PCONTEXT ContextRecord,
+        int a4)
 {
   int result; // eax
-  int ExceptionCode; // eax
-  int v6; // eax
+  NTSTATUS ExceptionCode; // eax
+  NTSTATUS v6; // eax
 
   if ( (NtCurrentPeb()->ProcessParameters->Flags & 0x80000) == 0 )
   {
-    RtlpUnlinkHandlerChain(a3);
-    LdrpLogFatalUserCallbackException(ExceptionRecord, a3);
+    RtlpUnlinkHandlerChain(ContextRecord);
+    LdrpLogFatalUserCallbackException((int)ExceptionRecord, ContextRecord);
     return 0;
   }
   ExceptionCode = ExceptionRecord->ExceptionCode;
@@ -30,7 +34,7 @@ LABEL_6:
     v6 = ZwCallbackReturn(0, 0, ExceptionCode);
     RtlRaiseStatus(v6);
   }
-  result = RtlpCallUserCallbackExceptionFilter(ExceptionRecord, a3);
+  result = RtlpCallUserCallbackExceptionFilter(ExceptionRecord, ContextRecord);
   if ( result )
   {
     RtlUnwind(TargetFrame, &loc_4B2F4DDE, ExceptionRecord, (PVOID)ExceptionRecord->ExceptionCode);

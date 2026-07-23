@@ -1,13 +1,13 @@
 /*
- * XREFs of EtwpApplyEventIdPayloadFilter @ 0x140313FE0
+ * XREFs of EtwpApplyEventIdPayloadFilter @ 0x1403141D0
  * Callers:
- *     EtwpEventWriteFull @ 0x1400C84E0 (EtwpEventWriteFull.c)
- *     EtwpApplyEventIdPayloadFilterOnUserEvent @ 0x1408C1AF0 (EtwpApplyEventIdPayloadFilterOnUserEvent.c)
+ *     EtwpEventWriteFull @ 0x1400C8420 (EtwpEventWriteFull.c)
+ *     EtwpApplyEventIdPayloadFilterOnUserEvent @ 0x1408C2DB0 (EtwpApplyEventIdPayloadFilterOnUserEvent.c)
  * Callees:
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     EtwpPerfectHashFunctionSearch @ 0x1403149B4 (EtwpPerfectHashFunctionSearch.c)
- *     EtwpApplyPayloadFilterInternal @ 0x140318178 (EtwpApplyPayloadFilterInternal.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     EtwpPerfectHashFunctionSearch @ 0x140314BA4 (EtwpPerfectHashFunctionSearch.c)
+ *     EtwpApplyPayloadFilterInternal @ 0x140318368 (EtwpApplyPayloadFilterInternal.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
  */
 
 char __fastcall EtwpApplyEventIdPayloadFilter(

@@ -1,12 +1,13 @@
 /*
- * XREFs of SepSetTokenSessionById @ 0x140A82BD4
+ * XREFs of SepSetTokenSessionById @ 0x140A88A44
  * Callers:
- *     SepGetAnonymousToken @ 0x1403C9F7C (SepGetAnonymousToken.c)
- *     SeExchangePrimaryToken @ 0x140814B78 (SeExchangePrimaryToken.c)
- *     SepFilterToken @ 0x140A45584 (SepFilterToken.c)
+ *     SepGetAnonymousToken @ 0x1403B321C (SepGetAnonymousToken.c)
+ *     SeExchangePrimaryToken @ 0x14081AC68 (SeExchangePrimaryToken.c)
+ *     SepFilterToken @ 0x1409E3714 (SepFilterToken.c)
+ *     SeSubProcessToken @ 0x140B84D74 (SeSubProcessToken.c)
  * Callees:
- *     PsGetSessionObjectById @ 0x140215CF4 (PsGetSessionObjectById.c)
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
+ *     PsGetSessionObjectById @ 0x140216024 (PsGetSessionObjectById.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
  */
 
 void __fastcall SepSetTokenSessionById(__int64 a1, int a2, char a3, __int64 a4, _QWORD *a5)

@@ -1,12 +1,12 @@
 /*
- * XREFs of DifIoCreateNotificationEventWrapper @ 0x1405DE760
+ * XREFs of DifIoCreateNotificationEventWrapper @ 0x1405DECD0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     DifGetAPIThunkContextById @ 0x1404664BE (DifGetAPIThunkContextById.c)
- *     DifGetReturnAddressForWrappers @ 0x1405F88C4 (DifGetReturnAddressForWrappers.c)
- *     IoCreateNotificationEvent @ 0x1407E90F0 (IoCreateNotificationEvent.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     DifGetAPIThunkContextById @ 0x1404668BE (DifGetAPIThunkContextById.c)
+ *     DifGetReturnAddressForWrappers @ 0x1405F8E34 (DifGetReturnAddressForWrappers.c)
+ *     IoCreateNotificationEvent @ 0x1407E93C0 (IoCreateNotificationEvent.c)
  */
 
 PKEVENT __fastcall DifIoCreateNotificationEventWrapper(PUNICODE_STRING EventName, PHANDLE EventHandle)

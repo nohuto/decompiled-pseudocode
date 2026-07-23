@@ -19,19 +19,22 @@ double __usercall _except1@<st0>(int a1@<ebp>, int a2, int a3, double a4, double
   int v6; // esi
   int v7; // eax
   double result; // st7
-  int v9; // [esp+2Ch] [ebp-8Ch] BYREF
-  int v10; // [esp+6Ch] [ebp-4Ch]
-  int v11; // [esp+ACh] [ebp-Ch]
-  void *v12; // [esp+B0h] [ebp-8h]
+  ULONG_PTR v9; // [esp+0h] [ebp-B8h]
+  int v10; // [esp+2Ch] [ebp-8Ch] BYREF
+  int v11; // [esp+6Ch] [ebp-4Ch]
+  int v12; // [esp+ACh] [ebp-Ch]
+  void *v13; // [esp+B0h] [ebp-8h]
   void *retaddr; // [esp+B8h] [ebp+0h]
 
-  v11 = a1;
-  v12 = retaddr;
+  v12 = a1;
+  v13 = retaddr;
   v6 = a6;
   if ( !_handle_exc(a2, &a5, a6) )
   {
-    v10 &= ~1u;
-    _raise_exc_ex((ULONG_PTR)&v9, (int)&a6, a2, a3, (int)&a4, (int)&a5, 0);
+    v11 &= ~1u;
+    HIDWORD(v9) = &a6;
+    LODWORD(v9) = &v10;
+    _raise_exc_ex(v9, a2, a3, (int)&a4, (int)&a5, 0);
   }
   v7 = _errcode(a2);
   if ( _matherr_flag || !v7 )

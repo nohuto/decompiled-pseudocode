@@ -2,8 +2,8 @@
  * XREFs of PsIsJobParentImmutable @ 0x14069EDA4
  * Callers:
  *     PspGetJobAssignmentDisposition @ 0x1406A05A0 (PspGetJobAssignmentDisposition.c)
- *     PspIsJobMovable @ 0x1409B2564 (PspIsJobMovable.c)
- *     ObCreateSiloRootDirectory @ 0x140A73B00 (ObCreateSiloRootDirectory.c)
+ *     PspIsJobMovable @ 0x1409B2764 (PspIsJobMovable.c)
+ *     ObCreateSiloRootDirectory @ 0x140A73DB0 (ObCreateSiloRootDirectory.c)
  * Callees:
  *     <none>
  */

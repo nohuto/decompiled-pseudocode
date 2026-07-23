@@ -1,11 +1,11 @@
 /*
- * XREFs of LsaFreeReturnBuffer @ 0x140B50080
+ * XREFs of LsaFreeReturnBuffer @ 0x140B52910
  * Callers:
  *     <none>
  * Callees:
- *     ExReleaseExtensionTable @ 0x14048FC18 (ExReleaseExtensionTable.c)
- *     ExGetExtensionTable @ 0x14049B7B0 (ExGetExtensionTable.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     ExReleaseExtensionTable @ 0x1404896C4 (ExReleaseExtensionTable.c)
+ *     ExGetExtensionTable @ 0x140495300 (ExGetExtensionTable.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 NTSTATUS __stdcall LsaFreeReturnBuffer(PVOID Buffer)
@@ -14,10 +14,10 @@ NTSTATUS __stdcall LsaFreeReturnBuffer(PVOID Buffer)
   __int64 v3; // rdx
 
   v2 = -1073741822;
-  if ( ExGetExtensionTable(*(struct _EX_RUNDOWN_REF **)&SepRmCapTableLock.PriorityFloorCounts[8]) )
+  if ( ExGetExtensionTable(*(struct _EX_RUNDOWN_REF **)&SepRmCapTableLock.AbCompletedIoQoSBoostCount) )
   {
     v2 = guard_dispatch_icall_no_overrides((__int64)Buffer, v3);
-    ExReleaseExtensionTable(*(struct _EX_RUNDOWN_REF **)&SepRmCapTableLock.PriorityFloorCounts[8]);
+    ExReleaseExtensionTable(*(struct _EX_RUNDOWN_REF **)&SepRmCapTableLock.AbCompletedIoQoSBoostCount);
   }
   return v2;
 }

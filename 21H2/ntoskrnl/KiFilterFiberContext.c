@@ -1,18 +1,18 @@
 /*
- * XREFs of KiFilterFiberContext @ 0x140A1BBA0
+ * XREFs of KiFilterFiberContext @ 0x140A1CBA0
  * Callers:
- *     KeInitAmd64SpecificState @ 0x140A5F0D4 (KeInitAmd64SpecificState.c)
+ *     KeInitAmd64SpecificState @ 0x140A600D4 (KeInitAmd64SpecificState.c)
  * Callees:
- *     ExNotifyCallback @ 0x1402B0640 (ExNotifyCallback.c)
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     KeExpandKernelStackAndCallout @ 0x1402D3350 (KeExpandKernelStackAndCallout.c)
- *     ExInitializeNPagedLookasideList @ 0x14037A6C0 (ExInitializeNPagedLookasideList.c)
- *     KdDisableDebugger @ 0x1403CFA20 (KdDisableDebugger.c)
- *     KdEnableDebugger @ 0x140510D40 (KdEnableDebugger.c)
- *     ExCreateCallback @ 0x1406BD240 (ExCreateCallback.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     KiSwInterruptPresent @ 0x140A423F0 (KiSwInterruptPresent.c)
- *     KeKeepData @ 0x140A73BDC (KeKeepData.c)
+ *     ExNotifyCallback @ 0x14022E9A0 (ExNotifyCallback.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     KeExpandKernelStackAndCallout @ 0x140251680 (KeExpandKernelStackAndCallout.c)
+ *     ExInitializeNPagedLookasideList @ 0x14037A210 (ExInitializeNPagedLookasideList.c)
+ *     KdDisableDebugger @ 0x1403CFB90 (KdDisableDebugger.c)
+ *     KdEnableDebugger @ 0x140510F80 (KdEnableDebugger.c)
+ *     ExCreateCallback @ 0x14061C450 (ExCreateCallback.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     KiSwInterruptPresent @ 0x140A433F0 (KiSwInterruptPresent.c)
+ *     KeKeepData @ 0x140A74BDC (KeKeepData.c)
  */
 
 _BOOL8 __fastcall KiFilterFiberContext(__int64 a1)
@@ -88,7 +88,7 @@ _BOOL8 __fastcall KiFilterFiberContext(__int64 a1)
       *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
       if ( ExCreateCallback(&CallbackObject, &ObjectAttributes, 0, 0) >= 0 )
       {
-        ExNotifyCallback(CallbackObject, sub_1403DDE50, &__29);
+        ExNotifyCallback(CallbackObject, sub_1403DDFC0, &__29);
         HalPutDmaAdapter((PADAPTER_OBJECT)CallbackObject);
         if ( __29 )
           __32 = 1;
@@ -111,7 +111,7 @@ _BOOL8 __fastcall KiFilterFiberContext(__int64 a1)
   v11 = ((unsigned __int64)v10 ^ *((_QWORD *)&v10 + 1)) % 6;
   Parameter[1] = v11;
   Parameter[0] = v9 % 0xD;
-  v12 = KeExpandKernelStackAndCallout(sub_140A379E0, Parameter, 0xC000uLL);
+  v12 = KeExpandKernelStackAndCallout(sub_140A389E0, Parameter, 0xC000uLL);
   v14 = v33;
   if ( v12 < 0 )
     v14 = 0;
@@ -137,7 +137,7 @@ _BOOL8 __fastcall KiFilterFiberContext(__int64 a1)
       v35 = a1;
       v36 = 0;
       v37 = 0;
-      v20 = KeExpandKernelStackAndCallout(sub_140A379E0, v34, 0xC000uLL);
+      v20 = KeExpandKernelStackAndCallout(sub_140A389E0, v34, 0xC000uLL);
       v21 = v37;
       if ( v20 < 0 )
         v21 = 0;
@@ -158,7 +158,7 @@ _BOOL8 __fastcall KiFilterFiberContext(__int64 a1)
         if ( v22 >= 0 )
           v23 = 0;
         v40 = v23;
-        v24 = KeExpandKernelStackAndCallout(sub_140A379E0, v38, 0xC000uLL);
+        v24 = KeExpandKernelStackAndCallout(sub_140A389E0, v38, 0xC000uLL);
         v25 = v41;
         if ( v24 < 0 )
           v25 = 0;

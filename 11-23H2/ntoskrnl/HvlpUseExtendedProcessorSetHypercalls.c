@@ -1,8 +1,8 @@
 /*
- * XREFs of HvlpUseExtendedProcessorSetHypercalls @ 0x1403CC380
+ * XREFs of HvlpUseExtendedProcessorSetHypercalls @ 0x1403CC560
  * Callers:
- *     HvlFlushRangeListTb @ 0x1403CBDAC (HvlFlushRangeListTb.c)
- *     HvlFlushAddressSpaceTb @ 0x1403CBF98 (HvlFlushAddressSpaceTb.c)
+ *     HvlFlushRangeListTb @ 0x1403CBF8C (HvlFlushRangeListTb.c)
+ *     HvlFlushAddressSpaceTb @ 0x1403CC178 (HvlFlushAddressSpaceTb.c)
  * Callees:
  *     <none>
  */

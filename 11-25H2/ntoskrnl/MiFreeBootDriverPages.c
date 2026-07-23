@@ -20,11 +20,11 @@
  *     MiUnmapReturnCharges @ 0x140A8A838 (MiUnmapReturnCharges.c)
  */
 
-void __fastcall MiFreeBootDriverPages(__int64 a1, __int64 a2, unsigned __int64 a3, __int64 a4)
+void __fastcall MiFreeBootDriverPages(__int64 a1, void *a2, unsigned __int64 a3, __int64 a4)
 {
   __int64 v5; // rbx
   unsigned __int64 v6; // rbp
-  __int64 v8; // r15
+  PVOID v8; // r15
   int v9; // r9d
   _QWORD *v10; // rdi
   unsigned __int64 v11; // rbp
@@ -40,7 +40,7 @@ void __fastcall MiFreeBootDriverPages(__int64 a1, __int64 a2, unsigned __int64 a
   int v21; // eax
   __int64 v22; // rcx
   int v23; // r14d
-  __int64 v24; // rt1
+  PVOID v24; // rt1
   int v25; // [rsp+40h] [rbp-98h] BYREF
   ULONG_PTR v26; // [rsp+48h] [rbp-90h]
   ULONG_PTR BugCheckParameter2; // [rsp+50h] [rbp-88h]
@@ -139,7 +139,7 @@ void __fastcall MiFreeBootDriverPages(__int64 a1, __int64 a2, unsigned __int64 a
     MiDecommitPages(a3, v5, v21, 0LL, 0LL, v23, 0LL, (__int64)v28);
     MiUnmapReturnCharges((__int64)&MiSystemPartition, (unsigned __int64 *)v28);
   }
-  v24 = *(_QWORD *)&KeNumberProcessorsGroup0[9];
+  v24 = *(PVOID *)&KeNumberProcessorsGroup0[9];
   if ( v8 == v24 || v8 == PsHalImageBase )
     _InterlockedAdd64(&qword_140E37398, -v5);
   else

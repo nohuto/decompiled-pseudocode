@@ -1,12 +1,12 @@
 /*
- * XREFs of MiEndingOffset @ 0x140279F08
+ * XREFs of MiEndingOffset @ 0x14027A198
  * Callers:
  *     MiInitializeImageProtos @ 0x14021A200 (MiInitializeImageProtos.c)
- *     MiFlushSectionInternal @ 0x140275750 (MiFlushSectionInternal.c)
- *     MiEndingOffsetWithLock @ 0x140279E50 (MiEndingOffsetWithLock.c)
- *     MiCopyDataPageToImagePage @ 0x14028B470 (MiCopyDataPageToImagePage.c)
- *     MiCanFileBeTruncatedInternal @ 0x14028B9A0 (MiCanFileBeTruncatedInternal.c)
- *     MiAllocateFileExtents @ 0x140A33068 (MiAllocateFileExtents.c)
+ *     MiFlushSectionInternal @ 0x1402759E0 (MiFlushSectionInternal.c)
+ *     MiEndingOffsetWithLock @ 0x14027A0E0 (MiEndingOffsetWithLock.c)
+ *     MiCopyDataPageToImagePage @ 0x14028B700 (MiCopyDataPageToImagePage.c)
+ *     MiCanFileBeTruncatedInternal @ 0x14028BC30 (MiCanFileBeTruncatedInternal.c)
+ *     MiAllocateFileExtents @ 0x140A33318 (MiAllocateFileExtents.c)
  * Callees:
  *     <none>
  */

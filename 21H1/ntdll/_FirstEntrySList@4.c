@@ -8,5 +8,5 @@
 
 PSLIST_ENTRY __stdcall FirstEntrySList(const SLIST_HEADER *ListHead)
 {
-  return ListHead->Next.Next;
+  return (PSLIST_ENTRY)ListHead->Next.Next;
 }

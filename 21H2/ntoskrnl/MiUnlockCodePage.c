@@ -1,16 +1,16 @@
 /*
- * XREFs of MiUnlockCodePage @ 0x1403A1050
+ * XREFs of MiUnlockCodePage @ 0x1403A11A0
  * Callers:
- *     MiLockCode @ 0x1403235B0 (MiLockCode.c)
- *     MiHandleDriverNonPagedSections @ 0x14075C910 (MiHandleDriverNonPagedSections.c)
- *     MiUnlockDriverCode @ 0x1407716C4 (MiUnlockDriverCode.c)
- *     MmUnlockPreChargedPagedPool @ 0x1407771E0 (MmUnlockPreChargedPagedPool.c)
- *     MiUnlockDriverPages @ 0x1408C4DC0 (MiUnlockDriverPages.c)
+ *     MiLockCode @ 0x14032E300 (MiLockCode.c)
+ *     MiHandleDriverNonPagedSections @ 0x14075CAD0 (MiHandleDriverNonPagedSections.c)
+ *     MiUnlockDriverCode @ 0x140771884 (MiUnlockDriverCode.c)
+ *     MmUnlockPreChargedPagedPool @ 0x1407773A0 (MmUnlockPreChargedPagedPool.c)
+ *     MiUnlockDriverPages @ 0x1408C4F20 (MiUnlockDriverPages.c)
  * Callees:
- *     MiLockPageInline @ 0x1402FFE30 (MiLockPageInline.c)
- *     MiRemoveLockedPageChargeAndDecRef @ 0x140328BC0 (MiRemoveLockedPageChargeAndDecRef.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x14032DEC0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiPteInShadowRange @ 0x140348AF0 (MiPteInShadowRange.c)
+ *     MiLockPageInline @ 0x14030AB80 (MiLockPageInline.c)
+ *     MiRemoveLockedPageChargeAndDecRef @ 0x140333910 (MiRemoveLockedPageChargeAndDecRef.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140338C10 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiPteInShadowRange @ 0x140353840 (MiPteInShadowRange.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 

@@ -1,10 +1,10 @@
 /*
- * XREFs of MiInitializePartitionThreads @ 0x140659B40
+ * XREFs of MiInitializePartitionThreads @ 0x140659C24
  * Callers:
- *     MiCreatePartition @ 0x1406601A8 (MiCreatePartition.c)
+ *     MiCreatePartition @ 0x14066028C (MiCreatePartition.c)
  * Callees:
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     PsCreateSystemThread @ 0x1403E4710 (PsCreateSystemThread.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     PsCreateSystemThread @ 0x1403E5D3C (PsCreateSystemThread.c)
  */
 
 NTSTATUS __fastcall MiInitializePartitionThreads(_BYTE *StartContext)

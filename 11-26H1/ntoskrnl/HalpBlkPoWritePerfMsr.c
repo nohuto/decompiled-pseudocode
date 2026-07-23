@@ -1,13 +1,13 @@
 /*
- * XREFs of HalpBlkPoWritePerfMsr @ 0x1405A56E0
+ * XREFs of HalpBlkPoWritePerfMsr @ 0x1405A7EF0
  * Callers:
  *     <none>
  * Callees:
- *     KeReleaseSpinLock @ 0x1402BE860 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14032F300 (KeAcquireSpinLockRaiseToDpc.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     HalpInterruptSendIpiToPhysicalTarget @ 0x14057F5A4 (HalpInterruptSendIpiToPhysicalTarget.c)
- *     HalpBlkPoBusyWait @ 0x1405A5178 (HalpBlkPoBusyWait.c)
+ *     KeReleaseSpinLock @ 0x140309520 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140331330 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     HalpInterruptSendIpiToPhysicalTarget @ 0x140581AC4 (HalpInterruptSendIpiToPhysicalTarget.c)
+ *     HalpBlkPoBusyWait @ 0x1405A7988 (HalpBlkPoBusyWait.c)
  */
 
 __int64 __fastcall HalpBlkPoWritePerfMsr(unsigned int a1, int a2, __int64 a3, __int64 a4)

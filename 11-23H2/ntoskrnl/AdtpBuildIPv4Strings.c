@@ -1,22 +1,22 @@
 /*
- * XREFs of AdtpBuildIPv4Strings @ 0x140A5A65C
+ * XREFs of AdtpBuildIPv4Strings @ 0x140A5A90C
  * Callers:
- *     AdtpBuildSockAddrString @ 0x140A5B3C0 (AdtpBuildSockAddrString.c)
+ *     AdtpBuildSockAddrString @ 0x140A5B670 (AdtpBuildSockAddrString.c)
  * Callees:
- *     StringCchPrintfW @ 0x1403662E8 (StringCchPrintfW.c)
- *     RtlIpv4AddressToStringW @ 0x1403BF770 (RtlIpv4AddressToStringW.c)
+ *     StringCchPrintfW @ 0x140366488 (StringCchPrintfW.c)
+ *     RtlIpv4AddressToStringW @ 0x1403BF950 (RtlIpv4AddressToStringW.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
 
-__int64 __fastcall AdtpBuildIPv4Strings(const struct in_addr *a1, __int64 a2, _BYTE *a3, __int64 a4, _BYTE *a5)
+__int64 __fastcall AdtpBuildIPv4Strings(_WORD *a1, __int64 a2, _BYTE *a3, __int64 a4, _BYTE *a5)
 {
   unsigned int v9; // ebx
   __int64 Pool2; // rax
   __int64 v11; // rax
   __int64 v12; // rax
 
-  if ( a1->S_un.S_un_w.s_w1 != 2 )
+  if ( *a1 != 2 )
   {
     v9 = -1073741503;
     goto LABEL_14;
@@ -33,7 +33,10 @@ __int64 __fastcall AdtpBuildIPv4Strings(const struct in_addr *a1, __int64 a2, _B
     }
     *a3 = 1;
     *(_WORD *)a2 = 2
-                 * ((__int64)((unsigned int)RtlIpv4AddressToStringW(a1 + 1, *(PWSTR *)(a2 + 8)) - *(_DWORD *)(a2 + 8)) >> 1);
+                 * ((__int64)((unsigned int)RtlIpv4AddressToStringW(
+                                              (const struct in_addr *)(a1 + 2),
+                                              *(PWSTR *)(a2 + 8))
+                            - *(_DWORD *)(a2 + 8)) >> 1);
   }
   if ( !a4 || !a5 )
     return 0;
@@ -46,7 +49,7 @@ __int64 __fastcall AdtpBuildIPv4Strings(const struct in_addr *a1, __int64 a2, _B
     goto LABEL_14;
   }
   *a5 = 1;
-  if ( StringCchPrintfW(*(STRSAFE_LPWSTR *)(a4 + 8), 8uLL, L"%d", (unsigned __int16)__ROL2__(a1->S_un.S_un_w.s_w2, 8)) >= 0 )
+  if ( StringCchPrintfW(*(STRSAFE_LPWSTR *)(a4 + 8), 8uLL, L"%d", (unsigned __int16)__ROL2__(a1[1], 8)) >= 0 )
   {
     v12 = -1LL;
     do

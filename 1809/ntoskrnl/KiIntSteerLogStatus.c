@@ -1,13 +1,13 @@
 /*
- * XREFs of KiIntSteerLogStatus @ 0x14029A9A8
+ * XREFs of KiIntSteerLogStatus @ 0x14029AB98
  * Callers:
- *     KiIntSteerEventTraceControlCallback @ 0x140764250 (KiIntSteerEventTraceControlCallback.c)
+ *     KiIntSteerEventTraceControlCallback @ 0x140765440 (KiIntSteerEventTraceControlCallback.c)
  * Callees:
  *     KiIntSteerEtwEventEnabled @ 0x14005B8E0 (KiIntSteerEtwEventEnabled.c)
- *     KeEnumerateNextProcessor @ 0x140063BE0 (KeEnumerateNextProcessor.c)
- *     EtwWriteEx @ 0x1400CAD60 (EtwWriteEx.c)
- *     KiIntSteerLogState @ 0x14016E22C (KiIntSteerLogState.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     KeEnumerateNextProcessor @ 0x140063BD0 (KeEnumerateNextProcessor.c)
+ *     EtwWriteEx @ 0x1400CAE40 (EtwWriteEx.c)
+ *     KiIntSteerLogState @ 0x14016E32C (KiIntSteerLogState.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
  */
 
 char __fastcall KiIntSteerLogStatus(char a1)
@@ -50,7 +50,7 @@ char __fastcall KiIntSteerLogStatus(char a1)
     v22 = 2LL;
     v21 = KiIntSteerMask;
     v25 = 0;
-    v23 = qword_14041B228;
+    v23 = qword_14041C2C8;
     v24 = 160 * LOWORD(KiIntSteerMask[0]);
     EtwWriteEx(KiIntSteerEtwHandle, v3, 0LL, 0, 0LL, 0LL, 5u, &UserData);
   }
@@ -59,7 +59,7 @@ char __fastcall KiIntSteerLogStatus(char a1)
     v4 = &PPM_ETW_INTERRUPT_STEERING_PROC_RUNDOWN;
   if ( KiIntSteerEtwEventEnabled((__int64)v4) )
   {
-    v11[1] = (unsigned __int16 *)qword_1405416A8[0];
+    v11[1] = (unsigned __int16 *)qword_1405426A8[0];
     v11[0] = (unsigned __int16 *)KeActiveProcessors;
     v12 = 0;
     while ( !(unsigned int)KeEnumerateNextProcessor(&v10, v11) )

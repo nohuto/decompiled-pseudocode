@@ -1,7 +1,7 @@
 /*
- * XREFs of IoQueueThreadIrp @ 0x140132E00
+ * XREFs of IoQueueThreadIrp @ 0x140133370
  * Callers:
- *     PiPagePathSetState @ 0x14057D324 (PiPagePathSetState.c)
+ *     PiPagePathSetState @ 0x14057D7D0 (PiPagePathSetState.c)
  * Callees:
  *     <none>
  */

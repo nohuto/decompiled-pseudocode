@@ -1,19 +1,19 @@
 /*
- * XREFs of KiReadyOutSwappedThreads @ 0x140091140
+ * XREFs of KiReadyOutSwappedThreads @ 0x1400908A0
  * Callers:
- *     KiInSwapProcesses @ 0x140090F20 (KiInSwapProcesses.c)
- *     KiOutSwapProcesses @ 0x140090FD0 (KiOutSwapProcesses.c)
+ *     KiInSwapProcesses @ 0x140090680 (KiInSwapProcesses.c)
+ *     KiOutSwapProcesses @ 0x140090730 (KiOutSwapProcesses.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x14002ECB0 (KeYieldProcessorEx.c)
- *     KiAbProcessContextSwitch @ 0x14005C490 (KiAbProcessContextSwitch.c)
- *     KiDeliverApc @ 0x14005DBD0 (KiDeliverApc.c)
- *     KiReadyThread @ 0x14005FBEC (KiReadyThread.c)
- *     KiUpdateThreadState @ 0x140091CEC (KiUpdateThreadState.c)
- *     KiCaptureTotalCyclesCurrentThread @ 0x1400D0C00 (KiCaptureTotalCyclesCurrentThread.c)
- *     KiQueueReadyThread @ 0x1400D0C70 (KiQueueReadyThread.c)
- *     KiRequestSoftwareInterrupt @ 0x1400D8230 (KiRequestSoftwareInterrupt.c)
- *     KiSwapContext @ 0x140165CD0 (KiSwapContext.c)
- *     EtwTraceReadyThread @ 0x1402260C8 (EtwTraceReadyThread.c)
+ *     KeYieldProcessorEx @ 0x14002E830 (KeYieldProcessorEx.c)
+ *     KiAbProcessContextSwitch @ 0x14005C010 (KiAbProcessContextSwitch.c)
+ *     KiDeliverApc @ 0x14005D750 (KiDeliverApc.c)
+ *     KiReadyThread @ 0x14005F76C (KiReadyThread.c)
+ *     KiUpdateThreadState @ 0x14009144C (KiUpdateThreadState.c)
+ *     KiCaptureTotalCyclesCurrentThread @ 0x1400CEAA0 (KiCaptureTotalCyclesCurrentThread.c)
+ *     KiQueueReadyThread @ 0x1400CEB10 (KiQueueReadyThread.c)
+ *     KiRequestSoftwareInterrupt @ 0x1400D60D0 (KiRequestSoftwareInterrupt.c)
+ *     KiSwapContext @ 0x140166240 (KiSwapContext.c)
+ *     EtwTraceReadyThread @ 0x140225EF4 (EtwTraceReadyThread.c)
  */
 
 int __fastcall KiReadyOutSwappedThreads(_QWORD *a1, unsigned __int8 a2, __int64 a3, __int64 a4)

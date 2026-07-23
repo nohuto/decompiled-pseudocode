@@ -6,8 +6,8 @@
  *     TppCleanupGroupMemberDestroy @ 0x18000CAAC (TppCleanupGroupMemberDestroy.c)
  */
 
-__int64 __fastcall TppSimplepFree(_QWORD *a1)
+LOGICAL __fastcall TppSimplepFree(_QWORD *a1)
 {
   TppCleanupGroupMemberDestroy(a1);
-  return RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, TppHeapTag + 0x200000, (unsigned __int64)a1);
+  return RtlFreeHeap(NtCurrentPeb()->ProcessHeap, TppHeapTag + 0x200000, a1);
 }

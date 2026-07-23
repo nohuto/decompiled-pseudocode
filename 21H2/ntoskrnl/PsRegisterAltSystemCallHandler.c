@@ -1,19 +1,22 @@
 /*
- * XREFs of PsRegisterAltSystemCallHandler @ 0x14090BAF0
+ * XREFs of PsRegisterAltSystemCallHandler @ 0x14090BC50
  * Callers:
  *     <none>
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
- *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
- *     ExReleasePushLockEx @ 0x14034AE90 (ExReleasePushLockEx.c)
- *     KeLeaveCriticalRegion @ 0x14034B3B0 (KeLeaveCriticalRegion.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
+ *     KeLeaveCriticalRegionThread @ 0x1402AB8C0 (KeLeaveCriticalRegionThread.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1403556E0 (ExAcquirePushLockExclusiveEx.c)
+ *     ExReleasePushLockEx @ 0x140355BE0 (ExReleasePushLockEx.c)
+ *     KeLeaveCriticalRegion @ 0x140356100 (KeLeaveCriticalRegion.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall PsRegisterAltSystemCallHandler(__int64 a1, unsigned int a2)
 {
   __int64 v2; // rbx
   struct _KTHREAD *CurrentThread; // rax
+  __int64 v5; // rdx
+  __int64 v6; // r8
+  __int64 v7; // r9
 
   v2 = (int)a2;
   if ( !a1 || a2 >= 2 )
@@ -31,6 +34,6 @@ __int64 __fastcall PsRegisterAltSystemCallHandler(__int64 a1, unsigned int a2)
   }
   PsAltSystemCallHandlers[v2] = a1;
   ExReleasePushLockEx((ULONG_PTR)&PsAltSystemCallRegistrationLock, 0LL);
-  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v5, v6, v7);
   return 0LL;
 }

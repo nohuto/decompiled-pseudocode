@@ -1,12 +1,12 @@
 /*
- * XREFs of WheapDeferredRecoveryServiceWorker @ 0x140320ED0
+ * XREFs of WheapDeferredRecoveryServiceWorker @ 0x1403210C0
  * Callers:
  *     <none>
  * Callees:
- *     KxReleaseSpinLock @ 0x1400630E0 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14008CF40 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     KxReleaseSpinLock @ 0x1400630D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14008CE80 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
  */
 
 __int64 WheapDeferredRecoveryServiceWorker()
@@ -20,10 +20,10 @@ __int64 WheapDeferredRecoveryServiceWorker()
 
   do
   {
-    v0 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)&WheapDispatchPtr.AlignmentRequirement);
+    v0 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)&WheapDispatchPtr.DeviceQueue.DeviceListHead.Blink);
     v1 = WheaPassiveDrsList;
     WheaPassiveDrsList = *(_QWORD *)WheaPassiveDrsList;
-    KxReleaseSpinLock((PKSPIN_LOCK)&WheapDispatchPtr.AlignmentRequirement);
+    KxReleaseSpinLock((PKSPIN_LOCK)&WheapDispatchPtr.DeviceQueue.DeviceListHead.Blink);
     if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && KeGetCurrentIrql() >= 2u && v0 < 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();

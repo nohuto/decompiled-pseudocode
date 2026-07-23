@@ -1,7 +1,7 @@
 /*
- * XREFs of ViThunkGetWdmThunk @ 0x140C35A8C
+ * XREFs of ViThunkGetWdmThunk @ 0x140C3BA9C
  * Callers:
- *     ViThunkFindAllThunkedImports @ 0x140C3585C (ViThunkFindAllThunkedImports.c)
+ *     ViThunkFindAllThunkedImports @ 0x140C3B86C (ViThunkFindAllThunkedImports.c)
  * Callees:
  *     <none>
  */

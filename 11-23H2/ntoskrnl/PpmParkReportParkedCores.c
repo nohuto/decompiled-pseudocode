@@ -1,19 +1,19 @@
 /*
- * XREFs of PpmParkReportParkedCores @ 0x140350DC0
+ * XREFs of PpmParkReportParkedCores @ 0x140350F60
  * Callers:
  *     <none>
  * Callees:
- *     PpmPerfQueueAction @ 0x140252078 (PpmPerfQueueAction.c)
- *     KiAndAffinityEx @ 0x140252440 (KiAndAffinityEx.c)
- *     KeEnumerateNextProcessor @ 0x1402572B0 (KeEnumerateNextProcessor.c)
- *     KeGetPrcb @ 0x140257330 (KeGetPrcb.c)
- *     KeCountSetBitsAffinityEx @ 0x1402C01C0 (KeCountSetBitsAffinityEx.c)
- *     KiSubtractAffinityEx @ 0x14033D83C (KiSubtractAffinityEx.c)
- *     PpmEventSoftParkRankListChanged @ 0x140392C94 (PpmEventSoftParkRankListChanged.c)
- *     KeUpdateSoftParkRankList @ 0x140392CEC (KeUpdateSoftParkRankList.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memset @ 0x140435A00 (memset.c)
- *     KiXorAffinityEx @ 0x14045FF6C (KiXorAffinityEx.c)
+ *     PpmPerfQueueAction @ 0x140252138 (PpmPerfQueueAction.c)
+ *     KiAndAffinityEx @ 0x140252500 (KiAndAffinityEx.c)
+ *     KeEnumerateNextProcessor @ 0x140257370 (KeEnumerateNextProcessor.c)
+ *     KeGetPrcb @ 0x1402573F0 (KeGetPrcb.c)
+ *     KeCountSetBitsAffinityEx @ 0x1402C0450 (KeCountSetBitsAffinityEx.c)
+ *     KiSubtractAffinityEx @ 0x14033DACC (KiSubtractAffinityEx.c)
+ *     PpmEventSoftParkRankListChanged @ 0x140392E74 (PpmEventSoftParkRankListChanged.c)
+ *     KeUpdateSoftParkRankList @ 0x140392ECC (KeUpdateSoftParkRankList.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     KiXorAffinityEx @ 0x14046036C (KiXorAffinityEx.c)
  */
 
 char PpmParkReportParkedCores()

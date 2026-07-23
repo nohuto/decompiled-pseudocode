@@ -6,13 +6,13 @@
  *     RtlpxLookupFunctionTable @ 0x1800787D0 (RtlpxLookupFunctionTable.c)
  */
 
-unsigned int *__fastcall RtlpLookupFunctionEntryForStackWalks(unsigned __int64 a1, __int64 a2)
+unsigned int *__fastcall RtlpLookupFunctionEntryForStackWalks(char *BaseAddress, __int64 a2)
 {
   unsigned __int64 v4; // rcx
   __int64 v5; // r8
   unsigned int *result; // rax
   unsigned int v7; // r9d
-  unsigned __int64 v8; // rdi
+  char *v8; // rdi
   unsigned int *v9; // rdx
   int v10; // r10d
   int v11; // r9d
@@ -20,12 +20,13 @@ unsigned int *__fastcall RtlpLookupFunctionEntryForStackWalks(unsigned __int64 a
   int v13; // r11d
 
   v4 = *(_QWORD *)(a2 + 8);
-  if ( a1 < v4 || a1 >= v4 + *(unsigned int *)(a2 + 16) )
+  if ( (unsigned __int64)BaseAddress < v4 || (unsigned __int64)BaseAddress >= v4 + *(unsigned int *)(a2 + 16) )
   {
-    if ( a1 < *((_QWORD *)&xmmword_1801E9430 + 1)
-      || a1 >= *((_QWORD *)&xmmword_1801E9430 + 1) + (unsigned __int64)(unsigned int)qword_1801E9440 )
+    if ( (unsigned __int64)BaseAddress < *((_QWORD *)&xmmword_1801E9430 + 1)
+      || (unsigned __int64)BaseAddress >= *((_QWORD *)&xmmword_1801E9430 + 1)
+                                        + (unsigned __int64)(unsigned int)qword_1801E9440 )
     {
-      v5 = RtlpxLookupFunctionTable(a1, a2);
+      v5 = RtlpxLookupFunctionTable(BaseAddress);
     }
     else
     {
@@ -44,9 +45,9 @@ unsigned int *__fastcall RtlpLookupFunctionEntryForStackWalks(unsigned __int64 a
     result = 0LL;
     if ( v7 )
     {
-      v8 = a1 - *(_QWORD *)(a2 + 8);
+      v8 = &BaseAddress[-*(_QWORD *)(a2 + 8)];
       v9 = (unsigned int *)(v5 + 12LL * (v7 - 1));
-      if ( v8 < *v9 )
+      if ( (unsigned __int64)v8 < *v9 )
       {
         v10 = 0;
         v11 = v7 - 2;
@@ -54,19 +55,19 @@ unsigned int *__fastcall RtlpLookupFunctionEntryForStackWalks(unsigned __int64 a
         {
           v13 = (v10 + v11) >> 1;
           v9 = (unsigned int *)(v5 + 12LL * v13);
-          if ( v8 < *v9 )
+          if ( (unsigned __int64)v8 < *v9 )
           {
             v11 = v13 - 1;
           }
           else
           {
-            if ( v8 < v9[3] )
+            if ( (unsigned __int64)v8 < v9[3] )
               break;
             v10 = v13 + 1;
           }
         }
       }
-      if ( v8 >= *v9 && v8 < v9[1] )
+      if ( (unsigned __int64)v8 >= *v9 && (unsigned __int64)v8 < v9[1] )
         result = v9;
     }
     if ( result )

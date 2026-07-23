@@ -1,9 +1,9 @@
 /*
- * XREFs of PopIdleWakeFreeWakeSourceAccounting @ 0x140B28968
+ * XREFs of PopIdleWakeFreeWakeSourceAccounting @ 0x140B2AE38
  * Callers:
- *     PopIdleWakeNotifyModernStandbyExitWorker @ 0x140B284E0 (PopIdleWakeNotifyModernStandbyExitWorker.c)
+ *     PopIdleWakeNotifyModernStandbyExitWorker @ 0x140B2A9B0 (PopIdleWakeNotifyModernStandbyExitWorker.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
  */
 
 LONG_PTR __fastcall PopIdleWakeFreeWakeSourceAccounting(_DWORD *a1)

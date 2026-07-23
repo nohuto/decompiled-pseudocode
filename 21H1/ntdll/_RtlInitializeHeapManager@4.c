@@ -20,13 +20,13 @@
 
 int __thiscall RtlInitializeHeapManager(void *this)
 {
-  unsigned int *v2; // ebx
+  struct _PEB *v2; // ebx
   void (__thiscall *v3)(_DWORD); // esi
-  __int16 v4; // ax
-  int v6; // [esp+10h] [ebp-8h] BYREF
+  WORD Subsystem; // ax
+  PIMAGE_NT_HEADERS OutHeaders; // [esp+10h] [ebp-8h] BYREF
 
   RtlHpGlobalsInitialize();
-  v2 = (unsigned int *)NtCurrentPeb();
+  v2 = NtCurrentPeb();
   if ( (RtlpLowFragHeapGlobalFlags & 0x10) != 0 || RtlpHpOptIntoSegmentHeap(this) )
   {
     RtlpHpHeapFeatures |= 1u;
@@ -40,8 +40,7 @@ int __thiscall RtlInitializeHeapManager(void *this)
   }
   if ( (RtlpHpLfhPerfFlags & 0x40) != 0 )
   {
-    dword_4B3A47FC = -1;
-    RtlpHpGCInterval = -10000000;
+    RtlpHpGCInterval.QuadPart = -10000000LL;
     RtlpHpOverrideGCInterval(this);
   }
   RtlpHpInitializePerfPolicies();
@@ -54,16 +53,16 @@ int __thiscall RtlInitializeHeapManager(void *this)
       RtlpHeapErrorHandlerThreshold = 2;
     RtlpDisableBreakOnFailureCookie = 0;
   }
-  RtlImageNtHeaderEx(3, v2[2], 0, 0, &v6);
-  v4 = *(_WORD *)(v6 + 92);
-  if ( (v4 == 1 || v4 == 2 || v4 == 3) && *(_WORD *)(v6 + 72) >= 6u )
+  RtlImageNtHeaderEx(3u, v2->ImageBaseAddress, 0LL, &OutHeaders);
+  Subsystem = OutHeaders->OptionalHeader.Subsystem;
+  if ( (Subsystem == 1 || Subsystem == 2 || Subsystem == 3) && OutHeaders->OptionalHeader.MajorSubsystemVersion >= 6u )
     RtlpDisableBreakOnFailureCookie = _bittest(&RtlHeapProcessFlags, 0xCu) || (RtlpDisableHeapLookaside & 1) != 0
                                     ? RtlpDisableBreakOnFailureCookie
                                     : 0;
-  v2[34] = 0;
-  v2[35] = 16;
-  v2[36] = (unsigned int)&RtlpProcessHeapsListBuffer;
-  RtlInitializeCriticalSectionEx(&RtlpProcessHeapsListLock, 0, 0x10000000);
+  v2->NumberOfHeaps = 0;
+  v2->MaximumNumberOfHeaps = 16;
+  v2->ProcessHeaps = (void **)&RtlpProcessHeapsListBuffer;
+  RtlInitializeCriticalSectionEx(&RtlpProcessHeapsListLock, 0, 0x10000000u);
   RtlpHeapGenerateRandomValue32();
   RtlpHeapKey = RtlpHeapGenerateRandomValue32();
   if ( (RtlGetSuiteMask() & 0x10000) != 0 )

@@ -24,7 +24,7 @@ _QWORD *__fastcall PopFxRemoveAcpiDevice(__int64 a1, __int64 a2)
   unsigned int SessionId; // edx
   unsigned __int8 v9; // si
   unsigned int v10; // r8d
-  unsigned __int64 v11; // rdi
+  __int64 v11; // rdi
   bool v12; // zf
   __int64 v13; // rcx
   int v14; // eax
@@ -58,7 +58,7 @@ _QWORD *__fastcall PopFxRemoveAcpiDevice(__int64 a1, __int64 a2)
     v12 = !_BitScanReverse((unsigned int *)&v13, v10);
     if ( v12 )
       goto LABEL_15;
-    v11 = (unsigned __int64)&v7->LockEntries[v13];
+    v11 = (__int64)&v7->LockEntries[v13];
     v10 &= ~(1 << v13);
     if ( (*(_BYTE *)(v11 + 26) & 1) != 0
       && (*(_DWORD *)(v11 + 32) & 1) == 0
@@ -79,14 +79,14 @@ LABEL_15:
   }
   *(_BYTE *)(v11 + 32) |= 2u;
   if ( *(__int64 *)(v11 + 32) < 0 )
-    KiAbEntryRemoveFromTree(v11);
+    KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)v11);
   v14 = *(_DWORD *)(v11 + 88) & 0x1FFFF;
   v15 = *(_DWORD *)(v11 + 88) & 0xFFFE0000;
   *(_BYTE *)(v11 + 25) &= ~1u;
   v19 = v14;
   *(_DWORD *)(v11 + 88) = v15;
   *(_QWORD *)(v11 + 32) = 0LL;
-  v16 = (__int64)(v11 - (unsigned __int64)v7->LockEntries) / 96;
+  v16 = (signed __int64)(v11 - (unsigned __int64)v7->LockEntries) / 96;
   if ( v9 == 1 )
     v7->AbEntrySummary |= 1 << v16;
   else

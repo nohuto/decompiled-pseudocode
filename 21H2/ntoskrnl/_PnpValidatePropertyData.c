@@ -1,17 +1,17 @@
 /*
- * XREFs of _PnpValidatePropertyData @ 0x14063A2BC
+ * XREFs of _PnpValidatePropertyData @ 0x14062F0CC
  * Callers:
- *     ValidFilter @ 0x14062DF94 (ValidFilter.c)
- *     PiDqQueryValidateQueryData @ 0x14062EEF0 (PiDqQueryValidateQueryData.c)
- *     _PnpGetObjectPropertyWorker @ 0x140637D08 (_PnpGetObjectPropertyWorker.c)
- *     _PnpSetObjectPropertyWorker @ 0x140745D9C (_PnpSetObjectPropertyWorker.c)
- *     PiSwValidatePropertyArray @ 0x14074E6FC (PiSwValidatePropertyArray.c)
+ *     ValidFilter @ 0x14062301C (ValidFilter.c)
+ *     PiDqQueryValidateQueryData @ 0x140623F70 (PiDqQueryValidateQueryData.c)
+ *     _PnpGetObjectPropertyWorker @ 0x14062CB18 (_PnpGetObjectPropertyWorker.c)
+ *     _PnpSetObjectPropertyWorker @ 0x140745F5C (_PnpSetObjectPropertyWorker.c)
+ *     PiSwValidatePropertyArray @ 0x14074E8BC (PiSwValidatePropertyArray.c)
  * Callees:
- *     _GetBaseTypeSize @ 0x1402652A4 (_GetBaseTypeSize.c)
- *     _IsFixedSizeType @ 0x140265340 (_IsFixedSizeType.c)
- *     RtlStringCbLengthW @ 0x140265368 (RtlStringCbLengthW.c)
- *     RtlLengthSecurityDescriptor @ 0x1406600D0 (RtlLengthSecurityDescriptor.c)
- *     RtlValidRelativeSecurityDescriptor @ 0x14066DC80 (RtlValidRelativeSecurityDescriptor.c)
+ *     RtlStringCbLengthW @ 0x14024789C (RtlStringCbLengthW.c)
+ *     _GetBaseTypeSize @ 0x140253334 (_GetBaseTypeSize.c)
+ *     _IsFixedSizeType @ 0x1402533D0 (_IsFixedSizeType.c)
+ *     RtlLengthSecurityDescriptor @ 0x140654EF0 (RtlLengthSecurityDescriptor.c)
+ *     RtlValidRelativeSecurityDescriptor @ 0x140662AA0 (RtlValidRelativeSecurityDescriptor.c)
  */
 
 __int64 __fastcall PnpValidatePropertyData(__int64 *SecurityDescriptor, ULONG SecurityDescriptorLength, int a3)

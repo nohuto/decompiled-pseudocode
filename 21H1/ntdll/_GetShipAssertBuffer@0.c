@@ -9,29 +9,28 @@
  *     _SetAssertBufferPtrinPeb@4 @ 0x4B33B4C3 (_SetAssertBufferPtrinPeb@4.c)
  */
 
-__int32 __stdcall GetShipAssertBuffer()
+int __stdcall GetShipAssertBuffer()
 {
   signed __int32 v0; // eax
   int v1; // esi
   int v2; // edi
-  _DWORD v4[2]; // [esp+Ch] [ebp-10h] BYREF
-  unsigned int v5; // [esp+14h] [ebp-8h] BYREF
-  __int32 v6; // [esp+18h] [ebp-4h] BYREF
+  ULONG_PTR v4; // [esp-10h] [ebp-2Ch]
+  ULONG v5; // [esp+0h] [ebp-1Ch]
+  LARGE_INTEGER DelayInterval; // [esp+Ch] [ebp-10h] BYREF
+  ULONG_PTR RegionSize; // [esp+14h] [ebp-8h] BYREF
 
-  v6 = 0;
-  v5 = 0;
+  RegionSize = 0LL;
   v0 = _InterlockedCompareExchange(&dword_4B3A6C20, 255, 0);
   v1 = v0;
   if ( v0 )
   {
     if ( v0 == 255 )
     {
-      v4[1] = -1;
       v2 = 0;
-      v4[0] = -1000000;
+      DelayInterval.QuadPart = -1000000LL;
       do
       {
-        ZwDelayExecution(0, (int)v4);
+        ZwDelayExecution(0, &DelayInterval);
         v1 = dword_4B3A6C20;
         if ( dword_4B3A6C20 != 255 )
           break;
@@ -47,16 +46,18 @@ __int32 __stdcall GetShipAssertBuffer()
   }
   else
   {
-    v5 = 0x2000;
-    if ( NtAllocateVirtualMemory(-1, (int)&v6, 0, (int)&v5, 4096, 4) >= 0
-      && v5 >= 0x2000
-      && SetAssertBufferPtrinPeb(v6) >= 0 )
+    HIDWORD(v4) = &RegionSize;
+    LODWORD(v4) = 0;
+    LODWORD(RegionSize) = 0x2000;
+    if ( NtAllocateVirtualMemory((HANDLE)0xFFFFFFFF, (PVOID *)&RegionSize + 1, v4, (PSIZE_T)0x1000, 4u, v5) >= 0
+      && (unsigned int)RegionSize >= 0x2000
+      && SetAssertBufferPtrinPeb(HIDWORD(RegionSize)) >= 0 )
     {
-      _InterlockedExchange(&dword_4B3A6C20, v6);
-      return v6;
+      _InterlockedExchange(&dword_4B3A6C20, SHIDWORD(RegionSize));
+      return HIDWORD(RegionSize);
     }
   }
-  if ( v6 )
-    NtFreeVirtualMemory(-1, (int)&v6, (int)&v5, 0x8000);
+  if ( HIDWORD(RegionSize) )
+    NtFreeVirtualMemory((HANDLE)0xFFFFFFFF, (PVOID *)&RegionSize + 1, &RegionSize, 0x8000u);
   return v1;
 }

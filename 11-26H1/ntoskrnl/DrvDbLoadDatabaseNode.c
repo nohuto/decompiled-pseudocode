@@ -1,24 +1,24 @@
 /*
- * XREFs of DrvDbLoadDatabaseNode @ 0x14091DE9C
+ * XREFs of DrvDbLoadDatabaseNode @ 0x1409788FC
  * Callers:
- *     DrvDbSetDriverDatabaseMappedProperty @ 0x14089E93C (DrvDbSetDriverDatabaseMappedProperty.c)
- *     DrvDbOpenContext @ 0x14089F29C (DrvDbOpenContext.c)
- *     DrvDbOpenObjectRegKey @ 0x14091D580 (DrvDbOpenObjectRegKey.c)
- *     DrvDbAcquireDatabaseNodeBaseKey @ 0x14091DC40 (DrvDbAcquireDatabaseNodeBaseKey.c)
- *     DrvDbOpenDriverDatabaseRegKey @ 0x140B29ACC (DrvDbOpenDriverDatabaseRegKey.c)
+ *     DrvDbSetDriverDatabaseMappedProperty @ 0x1408A4D3C (DrvDbSetDriverDatabaseMappedProperty.c)
+ *     DrvDbOpenContext @ 0x1408A569C (DrvDbOpenContext.c)
+ *     DrvDbOpenObjectRegKey @ 0x140977FE0 (DrvDbOpenObjectRegKey.c)
+ *     DrvDbAcquireDatabaseNodeBaseKey @ 0x1409786A0 (DrvDbAcquireDatabaseNodeBaseKey.c)
+ *     DrvDbOpenDriverDatabaseRegKey @ 0x140B2BB4C (DrvDbOpenDriverDatabaseRegKey.c)
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     DrvDbGetSecurityDescriptor @ 0x14089FB2C (DrvDbGetSecurityDescriptor.c)
- *     DrvDbInitializeDatabaseNodeVersion @ 0x14089FEB4 (DrvDbInitializeDatabaseNodeVersion.c)
- *     DrvDbUnloadDatabaseNode @ 0x14091E08C (DrvDbUnloadDatabaseNode.c)
- *     _PnpCtxRegCreateTree @ 0x14091E1FC (_PnpCtxRegCreateTree.c)
- *     _PnpCtxGetCachedContextBaseKey @ 0x140996AB8 (_PnpCtxGetCachedContextBaseKey.c)
- *     _PnpCtxRegOpenKey @ 0x140997890 (_PnpCtxRegOpenKey.c)
- *     DrvDbGetDriverDatabaseMappedProperty @ 0x140B234C4 (DrvDbGetDriverDatabaseMappedProperty.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     DrvDbGetSecurityDescriptor @ 0x1408A5F2C (DrvDbGetSecurityDescriptor.c)
+ *     DrvDbInitializeDatabaseNodeVersion @ 0x1408A62B4 (DrvDbInitializeDatabaseNodeVersion.c)
+ *     _PnpCtxGetCachedContextBaseKey @ 0x140957518 (_PnpCtxGetCachedContextBaseKey.c)
+ *     _PnpCtxRegOpenKey @ 0x1409582F0 (_PnpCtxRegOpenKey.c)
+ *     DrvDbUnloadDatabaseNode @ 0x140978AEC (DrvDbUnloadDatabaseNode.c)
+ *     _PnpCtxRegCreateTree @ 0x140978C5C (_PnpCtxRegCreateTree.c)
+ *     DrvDbGetDriverDatabaseMappedProperty @ 0x140B258C4 (DrvDbGetDriverDatabaseMappedProperty.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall DrvDbLoadDatabaseNode(_QWORD *a1, __int64 a2)
+__int64 __fastcall DrvDbLoadDatabaseNode(__int64 *a1, __int64 a2)
 {
   int v2; // eax
   int CachedContextBaseKey; // ebx
@@ -29,9 +29,9 @@ __int64 __fastcall DrvDbLoadDatabaseNode(_QWORD *a1, __int64 a2)
   int v10; // eax
   int v11; // eax
   __int64 v13; // r15
-  __int64 v14; // rdx
+  int v14; // edx
   int v15; // eax
-  __int64 v16; // rdx
+  int v16; // edx
   void *SecurityDescriptor; // rax
   __int64 v18; // r8
   _DWORD *v19; // rbx
@@ -76,15 +76,15 @@ LABEL_8:
     }
     if ( !*(_QWORD *)(a2 + 96) )
     {
-      v16 = *(unsigned int *)(a2 + 40);
-      if ( (_DWORD)v16 )
+      v16 = *(_DWORD *)(a2 + 40);
+      if ( v16 )
       {
-        CachedContextBaseKey = PnpCtxGetCachedContextBaseKey(*a1, v16, &v29);
+        CachedContextBaseKey = PnpCtxGetCachedContextBaseKey(*a1, v16, (__int64)&v29);
         if ( CachedContextBaseKey < 0 )
           goto LABEL_7;
-        LODWORD(v4) = v29;
+        v4 = v29;
       }
-      CachedContextBaseKey = PnpCtxRegOpenKey(*a1, v4, *(_QWORD *)(a2 + 56), 0, 0x2000000, a2 + 96);
+      CachedContextBaseKey = PnpCtxRegOpenKey(*a1, v4, *(_QWORD *)(a2 + 56), 0, 0x2000000u, a2 + 96);
       if ( CachedContextBaseKey < 0 )
       {
 LABEL_7:
@@ -169,15 +169,15 @@ LABEL_57:
   v13 = a2 + 96;
   if ( *(_QWORD *)(a2 + 96) )
     goto LABEL_9;
-  v14 = *(unsigned int *)(a2 + 40);
-  if ( (_DWORD)v14 )
+  v14 = *(_DWORD *)(a2 + 40);
+  if ( v14 )
   {
-    CachedContextBaseKey = PnpCtxGetCachedContextBaseKey(*a1, v14, &v29);
+    CachedContextBaseKey = PnpCtxGetCachedContextBaseKey(*a1, v14, (__int64)&v29);
     if ( CachedContextBaseKey < 0 )
       goto LABEL_9;
     v4 = v29;
   }
-  v15 = PnpCtxRegOpenKey(*a1, v4, *(_QWORD *)(a2 + 56), 0, 0x2000000, v13);
+  v15 = PnpCtxRegOpenKey(*a1, v4, *(_QWORD *)(a2 + 56), 0, 0x2000000u, v13);
   CachedContextBaseKey = v15;
   if ( v15 != -1073741772 )
   {

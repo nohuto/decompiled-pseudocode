@@ -1,11 +1,11 @@
 /*
- * XREFs of KiInitializeNxSupportDiscard @ 0x140CCB288
+ * XREFs of KiInitializeNxSupportDiscard @ 0x140CD1368
  * Callers:
- *     KiInitializeBootStructures @ 0x140BF5890 (KiInitializeBootStructures.c)
+ *     KiInitializeBootStructures @ 0x140BFB890 (KiInitializeBootStructures.c)
  * Callees:
- *     strstr @ 0x140535B20 (strstr.c)
- *     KiIsNXSupported @ 0x140BF425C (KiIsNXSupported.c)
- *     KiGetCpuVendor @ 0x140C0A4F8 (KiGetCpuVendor.c)
+ *     strstr @ 0x140537FA0 (strstr.c)
+ *     KiIsNXSupported @ 0x140BFA25C (KiIsNXSupported.c)
+ *     KiGetCpuVendor @ 0x140C10708 (KiGetCpuVendor.c)
  */
 
 char KiInitializeNxSupportDiscard()

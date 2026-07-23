@@ -1,7 +1,7 @@
 /*
- * XREFs of MiDemoteValidLargePageOneLevel @ 0x140184B04
+ * XREFs of MiDemoteValidLargePageOneLevel @ 0x140184C44
  * Callers:
- *     MiPfnRangeIsZero @ 0x140184654 (MiPfnRangeIsZero.c)
+ *     MiPfnRangeIsZero @ 0x140184794 (MiPfnRangeIsZero.c)
  * Callees:
  *     MiInitializePfnForOtherProcess @ 0x140026C2C (MiInitializePfnForOtherProcess.c)
  *     MiGetPageTablePages @ 0x140026E90 (MiGetPageTablePages.c)
@@ -11,16 +11,16 @@
  *     MiPteInShadowRange @ 0x14003D740 (MiPteInShadowRange.c)
  *     MiMakeValidPte @ 0x14003D7F0 (MiMakeValidPte.c)
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
- *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
- *     MiFlushTbList @ 0x1400740C0 (MiFlushTbList.c)
- *     MiMapPageInHyperSpaceWorker @ 0x140082780 (MiMapPageInHyperSpaceWorker.c)
- *     MI_IS_PHYSICAL_ADDRESS @ 0x14009D910 (MI_IS_PHYSICAL_ADDRESS.c)
- *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
- *     MiInsertLargeTbFlushEntry @ 0x140121484 (MiInsertLargeTbFlushEntry.c)
- *     MiTransformValidPteInPlace @ 0x14016A70C (MiTransformValidPteInPlace.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     memset @ 0x1401D1880 (memset.c)
+ *     KeYieldProcessorEx @ 0x14006C9E0 (KeYieldProcessorEx.c)
+ *     MiFlushTbList @ 0x1400740B0 (MiFlushTbList.c)
+ *     MiMapPageInHyperSpaceWorker @ 0x140082770 (MiMapPageInHyperSpaceWorker.c)
+ *     MI_IS_PHYSICAL_ADDRESS @ 0x14009D850 (MI_IS_PHYSICAL_ADDRESS.c)
+ *     MiWritePteShadow @ 0x140120F40 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120FA0 (MiPteHasShadow.c)
+ *     MiInsertLargeTbFlushEntry @ 0x140121554 (MiInsertLargeTbFlushEntry.c)
+ *     MiTransformValidPteInPlace @ 0x14016A80C (MiTransformValidPteInPlace.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     memset @ 0x1401D1980 (memset.c)
  */
 
 __int64 __fastcall MiDemoteValidLargePageOneLevel(unsigned __int64 a1)
@@ -122,7 +122,7 @@ __int64 __fastcall MiDemoteValidLargePageOneLevel(unsigned __int64 a1)
       if ( (unsigned int)MiPteHasShadow() )
       {
         v17 = 1;
-        if ( !HIBYTE(word_14043A1AC) && (v33 & 1) != 0 )
+        if ( !HIBYTE(word_14043B26C) && (v33 & 1) != 0 )
           v16 |= v34;
       }
       else

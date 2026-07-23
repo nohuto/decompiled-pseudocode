@@ -1,20 +1,20 @@
 /*
- * XREFs of KeAllocateInterrupt @ 0x14016DA28
+ * XREFs of KeAllocateInterrupt @ 0x14016DB28
  * Callers:
- *     IopConnectInterrupt @ 0x14071074C (IopConnectInterrupt.c)
+ *     IopConnectInterrupt @ 0x1407119EC (IopConnectInterrupt.c)
  * Callees:
- *     MmAllocateIndependentPagesEx @ 0x140108FBC (MmAllocateIndependentPagesEx.c)
- *     RtlpInterlockedPopEntrySList @ 0x1401C53D0 (RtlpInterlockedPopEntrySList.c)
- *     RtlpInterlockedPushEntrySList @ 0x1401C5410 (RtlpInterlockedPushEntrySList.c)
+ *     MmAllocateIndependentPagesEx @ 0x14010903C (MmAllocateIndependentPagesEx.c)
+ *     RtlpInterlockedPopEntrySList @ 0x1401C5530 (RtlpInterlockedPopEntrySList.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1401C5570 (RtlpInterlockedPushEntrySList.c)
  */
 
-__int64 __fastcall KeAllocateInterrupt(union _SLIST_HEADER *a1)
+__int64 __fastcall KeAllocateInterrupt(_SLIST_HEADER *a1)
 {
-  union _SLIST_HEADER *v1; // rsi
+  _SLIST_HEADER *v1; // rsi
   unsigned __int16 v3; // bx
   __int64 result; // rax
   int v5; // r14d
-  struct _SLIST_ENTRY *v6; // rbx
+  _SLIST_ENTRY *v6; // rbx
   __int64 v7; // rbp
 
   v1 = a1 + 732;
@@ -31,7 +31,7 @@ LABEL_2:
     while ( 1 )
     {
       result = MmAllocateIndependentPagesEx(0x1000uLL, v5, 0LL, 0);
-      v6 = (struct _SLIST_ENTRY *)result;
+      v6 = (_SLIST_ENTRY *)result;
       if ( !result )
         break;
       v7 = 12LL;

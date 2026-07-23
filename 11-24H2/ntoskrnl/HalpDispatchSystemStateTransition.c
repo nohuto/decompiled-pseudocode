@@ -1,13 +1,13 @@
 /*
- * XREFs of HalpDispatchSystemStateTransition @ 0x1404BD3D0
+ * XREFs of HalpDispatchSystemStateTransition @ 0x1404B8540
  * Callers:
- *     HalpDispatchPower @ 0x140B6C690 (HalpDispatchPower.c)
+ *     HalpDispatchPower @ 0x140B6DF30 (HalpDispatchPower.c)
  * Callees:
- *     HalpEfiLockOutRuntimeCallsForSystemSleep @ 0x1403BC158 (HalpEfiLockOutRuntimeCallsForSystemSleep.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     HalpBuildResumeStructures @ 0x140B4CE28 (HalpBuildResumeStructures.c)
- *     HalpFreeResumeStructures @ 0x140B4CEA4 (HalpFreeResumeStructures.c)
- *     HalpInterruptMaskAcpi @ 0x140B6C718 (HalpInterruptMaskAcpi.c)
+ *     HalpEfiLockOutRuntimeCallsForSystemSleep @ 0x1403755D8 (HalpEfiLockOutRuntimeCallsForSystemSleep.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     HalpBuildResumeStructures @ 0x140B4EE68 (HalpBuildResumeStructures.c)
+ *     HalpFreeResumeStructures @ 0x140B4EEE4 (HalpFreeResumeStructures.c)
+ *     HalpInterruptMaskAcpi @ 0x140B6DFB8 (HalpInterruptMaskAcpi.c)
  */
 
 __int64 __fastcall HalpDispatchSystemStateTransition(__int64 a1)

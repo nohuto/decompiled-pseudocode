@@ -1,11 +1,11 @@
 /*
- * XREFs of PnpFixupID @ 0x14090F468
+ * XREFs of PnpFixupID @ 0x1409B1598
  * Callers:
- *     PnpQueryID @ 0x14090F2E8 (PnpQueryID.c)
- *     PiProcessNewDeviceNode @ 0x140AA5E3C (PiProcessNewDeviceNode.c)
- *     PnpQueryDeviceID @ 0x140AA88B8 (PnpQueryDeviceID.c)
+ *     PnpQueryID @ 0x1409B1418 (PnpQueryID.c)
+ *     PiProcessNewDeviceNode @ 0x1409D9370 (PiProcessNewDeviceNode.c)
+ *     PnpQueryDeviceID @ 0x1409DBDEC (PnpQueryDeviceID.c)
  * Callees:
- *     PnpLogEvent @ 0x140AA4138 (PnpLogEvent.c)
+ *     PnpLogEvent @ 0x140A37B48 (PnpLogEvent.c)
  */
 
 __int64 __fastcall PnpFixupID(int *a1, unsigned int a2, int a3, unsigned int a4, __int64 a5)

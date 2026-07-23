@@ -1,15 +1,15 @@
 /*
- * XREFs of DifObjTrkInsertItem @ 0x140617CF0
+ * XREFs of DifObjTrkInsertItem @ 0x1406162B0
  * Callers:
  *     <none>
  * Callees:
- *     RtlInsertElementGenericTableAvl @ 0x1403F03D0 (RtlInsertElementGenericTableAvl.c)
- *     DifIsValidTrackingObject @ 0x140617BBC (DifIsValidTrackingObject.c)
- *     DifObjTrkGetPluginContext @ 0x140617CD0 (DifObjTrkGetPluginContext.c)
- *     DifAcquireSpinLockAtDpcLevelSafe @ 0x140619DE4 (DifAcquireSpinLockAtDpcLevelSafe.c)
- *     DifReleaseSpinLockFromDpcLevelSafe @ 0x140619E9C (DifReleaseSpinLockFromDpcLevelSafe.c)
- *     MmGetVaTypeForVerifier @ 0x140675644 (MmGetVaTypeForVerifier.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     RtlInsertElementGenericTableAvl @ 0x1403E40F0 (RtlInsertElementGenericTableAvl.c)
+ *     DifIsValidTrackingObject @ 0x14061617C (DifIsValidTrackingObject.c)
+ *     DifObjTrkGetPluginContext @ 0x140616290 (DifObjTrkGetPluginContext.c)
+ *     DifAcquireSpinLockAtDpcLevelSafe @ 0x1406183A4 (DifAcquireSpinLockAtDpcLevelSafe.c)
+ *     DifReleaseSpinLockFromDpcLevelSafe @ 0x14061845C (DifReleaseSpinLockFromDpcLevelSafe.c)
+ *     MmGetVaTypeForVerifier @ 0x140676814 (MmGetVaTypeForVerifier.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 __int64 __fastcall DifObjTrkInsertItem(unsigned int a1, unsigned __int64 a2, unsigned int a3)

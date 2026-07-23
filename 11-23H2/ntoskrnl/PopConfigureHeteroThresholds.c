@@ -1,7 +1,7 @@
 /*
- * XREFs of PopConfigureHeteroThresholds @ 0x14082E0F0
+ * XREFs of PopConfigureHeteroThresholds @ 0x14082E3F0
  * Callers:
- *     PopConfigureHeteroPolicies @ 0x14082D8CC (PopConfigureHeteroPolicies.c)
+ *     PopConfigureHeteroPolicies @ 0x14082DBCC (PopConfigureHeteroPolicies.c)
  * Callees:
  *     <none>
  */
@@ -48,7 +48,7 @@ __int64 __fastcall PopConfigureHeteroThresholds(__int64 a1, unsigned __int8 a2)
     {
       case 0:
 LABEL_12:
-        v10 = &PpmCurrentProfile[55 * dword_140C3D86C + 5];
+        v10 = &PpmCurrentProfile[55 * dword_140C3D96C + 5];
         HIDWORD(v17) = HIDWORD(result) | 0x3C00000;
         result = v17;
         goto LABEL_15;
@@ -83,7 +83,7 @@ LABEL_14:
     if ( !PpmMultimediaQosProfile )
       goto LABEL_12;
 LABEL_41:
-    v10 = (__int64 *)(440LL * dword_140C3D86C + v12 + 40);
+    v10 = (__int64 *)(440LL * dword_140C3D96C + v12 + 40);
     result = *v10;
     v17 = *v10;
 LABEL_15:

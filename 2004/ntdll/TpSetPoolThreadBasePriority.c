@@ -6,21 +6,25 @@
  *     NtSetInformationWorkerFactory @ 0x1800A01E0 (NtSetInformationWorkerFactory.c)
  */
 
-__int64 __fastcall TpSetPoolThreadBasePriority(__int64 a1, int a2)
+NTSTATUS __cdecl TpSetPoolThreadBasePriority(PTP_POOL Pool, ULONG BasePriority)
 {
-  int v3; // [rsp+38h] [rbp+10h] BYREF
+  ULONG WorkerFactoryInformation; // [rsp+38h] [rbp+10h] BYREF
 
-  if ( !a1 )
-    return 3221225485LL;
-  if ( a2 < 15 )
+  if ( !Pool )
+    return -1073741811;
+  if ( (int)BasePriority < 15 )
   {
-    if ( a2 <= -15 )
-      a2 = -16;
-    v3 = a2;
+    if ( (int)BasePriority <= -15 )
+      BasePriority = -16;
+    WorkerFactoryInformation = BasePriority;
   }
   else
   {
-    v3 = 16;
+    WorkerFactoryInformation = 16;
   }
-  return NtSetInformationWorkerFactory(*(_QWORD *)(a1 + 56), 11LL, &v3);
+  return NtSetInformationWorkerFactory(
+           *((HANDLE *)Pool + 7),
+           WorkerFactoryThreadBasePriority,
+           &WorkerFactoryInformation,
+           4u);
 }

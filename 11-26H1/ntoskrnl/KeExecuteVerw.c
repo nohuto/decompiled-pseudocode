@@ -1,9 +1,9 @@
 /*
- * XREFs of KeExecuteVerw @ 0x14073D300
+ * XREFs of KeExecuteVerw @ 0x140741F00
  * Callers:
- *     PoIdle @ 0x1403E9FF0 (PoIdle.c)
- *     KiExecuteSmtIsolationThread @ 0x1405F6610 (KiExecuteSmtIsolationThread.c)
- *     PpmIdleDefaultExecute @ 0x140602100 (PpmIdleDefaultExecute.c)
+ *     PoIdle @ 0x1402F6ED0 (PoIdle.c)
+ *     KiExecuteSmtIsolationThread @ 0x1405F8FD0 (KiExecuteSmtIsolationThread.c)
+ *     PpmIdleDefaultExecute @ 0x140604BB0 (PpmIdleDefaultExecute.c)
  * Callees:
  *     <none>
  */

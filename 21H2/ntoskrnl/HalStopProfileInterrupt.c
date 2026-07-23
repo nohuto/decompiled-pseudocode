@@ -1,9 +1,9 @@
 /*
- * XREFs of HalStopProfileInterrupt @ 0x1404BE840
+ * XREFs of HalStopProfileInterrupt @ 0x1404BEA80
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall HalStopProfileInterrupt(__int64 a1)

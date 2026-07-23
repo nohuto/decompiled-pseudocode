@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpInterruptWaitForProcessorStartUp @ 0x1403768E4
+ * XREFs of HalpInterruptWaitForProcessorStartUp @ 0x140376A84
  * Callers:
  *     HalpInterruptStartProcessor @ 0x140A88D4C (HalpInterruptStartProcessor.c)
  * Callees:
- *     KeStallExecutionProcessor @ 0x1402C3030 (KeStallExecutionProcessor.c)
+ *     KeStallExecutionProcessor @ 0x1402C32C0 (KeStallExecutionProcessor.c)
  */
 
 __int64 __fastcall HalpInterruptWaitForProcessorStartUp(_BYTE *a1, char a2)

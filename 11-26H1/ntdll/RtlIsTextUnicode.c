@@ -1,16 +1,16 @@
 /*
- * XREFs of RtlIsTextUnicode @ 0x1800BCE60
+ * XREFs of RtlIsTextUnicode @ 0x1800BA390
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-bool __fastcall RtlIsTextUnicode(_WORD *a1, unsigned int a2, int *a3)
+BOOLEAN __cdecl RtlIsTextUnicode(PVOID Buffer, ULONG Size, PULONG Result)
 {
   __int64 v3; // rax
   int v5; // ecx
-  unsigned int v6; // edx
+  ULONG v6; // edx
   int v7; // esi
   signed __int32 v8; // r8d
   int v9; // ebp
@@ -34,7 +34,7 @@ bool __fastcall RtlIsTextUnicode(_WORD *a1, unsigned int a2, int *a3)
   unsigned int v27; // edx
   unsigned int v28; // edx
   bool v29; // zf
-  unsigned int v30; // r9d
+  ULONG v30; // r9d
   unsigned __int64 v31; // rcx
   int v32; // r11d
   unsigned int v33; // r10d
@@ -50,7 +50,7 @@ bool __fastcall RtlIsTextUnicode(_WORD *a1, unsigned int a2, int *a3)
   int v43; // r8d
   int v44; // ecx
   int v45; // eax
-  int v46; // ecx
+  ULONG v46; // ecx
   unsigned int v48; // r8d
   unsigned int v49; // r8d
   unsigned int v50; // eax
@@ -94,7 +94,7 @@ bool __fastcall RtlIsTextUnicode(_WORD *a1, unsigned int a2, int *a3)
   v69 = 0;
   v5 = 0;
   v56 = 0;
-  v6 = a2 >> 1;
+  v6 = Size >> 1;
   v3 = v6;
   v70 = 0;
   if ( v6 > 0x100 )
@@ -130,41 +130,41 @@ bool __fastcall RtlIsTextUnicode(_WORD *a1, unsigned int a2, int *a3)
   v83 = 0LL;
   _InterlockedOr(&v53, 0);
   v16 = 0;
-  if ( GlobalRtlNlsState != -535 )
+  if ( GlobalRtlNlsState.CodePage != 0xFDE9 )
   {
     v11 = 0;
-    if ( word_1801C5FD0 != -535 )
+    if ( CodePageTable.CodePage != 0xFDE9 )
     {
       _InterlockedOr(&v53, 0);
-      v83 = qword_1801C6020;
+      v83 = qword_1801C5020;
       LODWORD(v3) = v84;
-      v88 = word_1801C5F9C != 0;
+      v88 = GlobalRtlNlsState.DBCSCodePage != 0;
     }
   }
   if ( !v6 )
     goto LABEL_96;
-  if ( a2 == 2 )
+  if ( Size == 2 )
   {
-    v17 = a1;
-    if ( !*a1 || HIBYTE(*a1) )
+    v17 = Buffer;
+    if ( !*(_WORD *)Buffer || HIBYTE(*(_WORD *)Buffer) )
       goto LABEL_10;
 LABEL_96:
-    if ( a3 )
-      *a3 = 5;
+    if ( Result )
+      *Result = 5;
     return 0;
   }
-  if ( a2 <= 2 || (unsigned int)v3 > 0x100 )
+  if ( Size <= 2 || (unsigned int)v3 > 0x100 )
   {
-    v17 = a1;
+    v17 = Buffer;
   }
   else
   {
-    v29 = (a2 & 1) == 0;
-    v17 = a1;
+    v29 = (Size & 1) == 0;
+    v17 = Buffer;
     if ( v29 )
     {
       v12 = 0;
-      if ( (a1[v6 - 1] & 0xFF00) == 0 )
+      if ( (*((_WORD *)Buffer + v6 - 1) & 0xFF00) == 0 )
         --v6;
       v5 = 0;
     }
@@ -348,15 +348,15 @@ LABEL_106:
     v54 = v48 + 1;
 LABEL_40:
   v30 = 512;
-  v31 = a2;
+  v31 = Size;
   v32 = v67 - 1;
   if ( v59 )
     v32 = v67;
   v33 = v54 + 1;
   if ( v59 != 26 )
     v33 = v54;
-  if ( a2 <= 0x200 )
-    v30 = a2;
+  if ( Size <= 0x200 )
+    v30 = Size;
   if ( v88 )
   {
     v49 = 0;
@@ -366,7 +366,7 @@ LABEL_40:
       do
       {
         v50 = v34 + 1;
-        v51 = *(_WORD *)(v83 + 2LL * *((unsigned __int8 *)a1 + v49));
+        v51 = *(_WORD *)(v83 + 2LL * *((unsigned __int8 *)Buffer + v49));
         if ( !v51 )
           v50 = v34;
         v34 = v50;
@@ -378,7 +378,7 @@ LABEL_40:
       while ( v52 + 1 < v30 );
       v7 = v55;
       v9 = v56;
-      v31 = a2;
+      v31 = Size;
     }
   }
   else
@@ -401,7 +401,7 @@ LABEL_40:
   if ( !v68 )
     v72 = 16;
 LABEL_52:
-  if ( v88 && v34 && a3 && (*a3 & 0x400) != 0 )
+  if ( v88 && v34 && Result && (*Result & 0x400) != 0 )
   {
     if ( (unsigned int)v84 <= 0x100 )
       v36 = v31 >> 2;
@@ -435,23 +435,23 @@ LABEL_52:
   if ( v16 + v12 + v15 + v63 || (v44 = v43, v33) && v33 >= v30 / 0x28 )
     v44 = v43 | 0x100;
   v45 = v44 | 0x200;
-  if ( (a2 & 1) == 0 )
+  if ( (Size & 1) == 0 )
     v45 = v44;
   v46 = v45 | 0x1000;
   if ( !v32 )
     v46 = v45;
-  if ( *a1 == 0xFEFF )
+  if ( *(_WORD *)Buffer == 0xFEFF )
   {
     v46 |= 8u;
   }
-  else if ( *a1 == 0xFFFE )
+  else if ( *(_WORD *)Buffer == 0xFFFE )
   {
     v46 |= 0x80u;
   }
-  if ( a3 )
+  if ( Result )
   {
-    v46 &= *a3;
-    *a3 = v46;
+    v46 &= *Result;
+    *Result = v46;
   }
   return (v46 & 0xB08) == 8 || (v46 & 0xF0) == 0 && (v46 & 0xF00) == 0 && (v46 & 0xF00F) != 0;
 }

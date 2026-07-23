@@ -1,19 +1,19 @@
 /*
- * XREFs of KeTransitionProcessorParkState @ 0x1401DBC78
+ * XREFs of KeTransitionProcessorParkState @ 0x1401DBAA4
  * Callers:
- *     PpmParkReportParkedCore @ 0x14020E018 (PpmParkReportParkedCore.c)
- *     PpmParkReportUnparkedCore @ 0x14020E098 (PpmParkReportUnparkedCore.c)
+ *     PpmParkReportParkedCore @ 0x14020DE44 (PpmParkReportParkedCore.c)
+ *     PpmParkReportUnparkedCore @ 0x14020DEC4 (PpmParkReportUnparkedCore.c)
  * Callees:
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140026F70 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14002E9E0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KeYieldProcessorEx @ 0x14002ECB0 (KeYieldProcessorEx.c)
- *     KiUpdateThreadPriority @ 0x140091DA8 (KiUpdateThreadPriority.c)
- *     KiSetProcessorIdle @ 0x1400AEA40 (KiSetProcessorIdle.c)
- *     KiQueryEffectivePriorityThread @ 0x1400D016C (KiQueryEffectivePriorityThread.c)
- *     KiGroupSchedulingGenerationEnd @ 0x1400D24A0 (KiGroupSchedulingGenerationEnd.c)
- *     KiProcessDeferredReadyList @ 0x1400D3450 (KiProcessDeferredReadyList.c)
- *     KiRequestSoftwareInterrupt @ 0x1400D8230 (KiRequestSoftwareInterrupt.c)
- *     KiFlushReadyLists @ 0x1401DBFD4 (KiFlushReadyLists.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140026AF0 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14002E560 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KeYieldProcessorEx @ 0x14002E830 (KeYieldProcessorEx.c)
+ *     KiUpdateThreadPriority @ 0x140091508 (KiUpdateThreadPriority.c)
+ *     KiSetProcessorIdle @ 0x1400ACFA8 (KiSetProcessorIdle.c)
+ *     KiQueryEffectivePriorityThread @ 0x1400CE00C (KiQueryEffectivePriorityThread.c)
+ *     KiGroupSchedulingGenerationEnd @ 0x1400D0340 (KiGroupSchedulingGenerationEnd.c)
+ *     KiProcessDeferredReadyList @ 0x1400D12F0 (KiProcessDeferredReadyList.c)
+ *     KiRequestSoftwareInterrupt @ 0x1400D60D0 (KiRequestSoftwareInterrupt.c)
+ *     KiFlushReadyLists @ 0x1401DBE00 (KiFlushReadyLists.c)
  */
 
 __int64 __fastcall KeTransitionProcessorParkState(__int64 a1)

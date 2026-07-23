@@ -1,14 +1,14 @@
 /*
- * XREFs of HalpDmaAllocateMappingResources @ 0x140C1019C
+ * XREFs of HalpDmaAllocateMappingResources @ 0x140C1219C
  * Callers:
- *     HalpDmaInit @ 0x140C10654 (HalpDmaInit.c)
+ *     HalpDmaInit @ 0x140C12654 (HalpDmaInit.c)
  * Callees:
- *     HalpMmAllocCtxAlloc @ 0x14024BD68 (HalpMmAllocCtxAlloc.c)
- *     KeQueryMaximumProcessorCountEx @ 0x14033E440 (KeQueryMaximumProcessorCountEx.c)
- *     HalpMmAllocCtxFree @ 0x14037CBAC (HalpMmAllocCtxFree.c)
- *     MmFreeMappingAddress @ 0x140A5DAA0 (MmFreeMappingAddress.c)
- *     HalpDmaAllocateReservedMapping @ 0x140C10338 (HalpDmaAllocateReservedMapping.c)
- *     HalpDmaAllocateReservedMappingArray @ 0x140C10394 (HalpDmaAllocateReservedMappingArray.c)
+ *     HalpMmAllocCtxAlloc @ 0x14027C378 (HalpMmAllocCtxAlloc.c)
+ *     HalpMmAllocCtxFree @ 0x1402EA1C8 (HalpMmAllocCtxFree.c)
+ *     KeQueryMaximumProcessorCountEx @ 0x14031D920 (KeQueryMaximumProcessorCountEx.c)
+ *     MmFreeMappingAddress @ 0x140A55EC0 (MmFreeMappingAddress.c)
+ *     HalpDmaAllocateReservedMapping @ 0x140C12338 (HalpDmaAllocateReservedMapping.c)
+ *     HalpDmaAllocateReservedMappingArray @ 0x140C12394 (HalpDmaAllocateReservedMappingArray.c)
  */
 
 __int64 HalpDmaAllocateMappingResources()
@@ -39,21 +39,21 @@ __int64 HalpDmaAllocateMappingResources()
 
   MaximumProcessorCount = KeQueryMaximumProcessorCountEx(0xFFFFu);
   v1 = MaximumProcessorCount;
-  qword_140E3EB68 = HalpMmAllocCtxAlloc(v2, 8 * MaximumProcessorCount);
-  if ( !qword_140E3EB68 )
+  qword_140E3ECA8 = HalpMmAllocCtxAlloc(v2, 8 * MaximumProcessorCount);
+  if ( !qword_140E3ECA8 )
     return 3221225626LL;
   v5 = HalpMmAllocCtxAlloc(v3, 4144 * MaximumProcessorCount);
   v8 = v5;
   if ( !v5 )
   {
-    v9 = qword_140E3EB68;
+    v9 = qword_140E3ECA8;
 LABEL_5:
     HalpMmAllocCtxFree(v6, v9);
     return 3221225626LL;
   }
   if ( (_DWORD)MaximumProcessorCount )
   {
-    v7 = (_QWORD *)qword_140E3EB68;
+    v7 = (_QWORD *)qword_140E3ECA8;
     v6 = v5 + 32;
     do
     {
@@ -69,14 +69,14 @@ LABEL_5:
     }
     while ( v1 );
   }
-  qword_140E3EB28 = 0LL;
+  qword_140E3EC68 = 0LL;
   v11 = 4LL;
   if ( (unsigned int)MaximumProcessorCount <= 4 )
   {
-    qword_140E3EB70 = HalpMmAllocCtxAlloc(v6, 8 * MaximumProcessorCount);
-    if ( !qword_140E3EB70 )
+    qword_140E3ECB0 = HalpMmAllocCtxAlloc(v6, 8 * MaximumProcessorCount);
+    if ( !qword_140E3ECB0 )
     {
-      HalpMmAllocCtxFree(v12, qword_140E3EB68);
+      HalpMmAllocCtxFree(v12, qword_140E3ECA8);
       v9 = v8;
       goto LABEL_5;
     }
@@ -84,13 +84,13 @@ LABEL_5:
     {
       if ( (unsigned int)i >= (unsigned int)MaximumProcessorCount )
       {
-        byte_140E3EB38 = 1;
+        byte_140E3EC78 = 1;
         return 0LL;
       }
       ReservedMapping = HalpDmaAllocateReservedMapping();
-      v16 = qword_140E3EB70;
+      v16 = qword_140E3ECB0;
       v17 = (unsigned int)i;
-      *(_QWORD *)(qword_140E3EB70 + 8 * i) = ReservedMapping;
+      *(_QWORD *)(qword_140E3ECB0 + 8 * i) = ReservedMapping;
       if ( !ReservedMapping )
         break;
     }
@@ -102,7 +102,7 @@ LABEL_5:
         v19 = *(_QWORD *)(v18 + v16);
         MmFreeMappingAddress(*(PVOID *)(v19 + 16), 0x446C6148u);
         HalpMmAllocCtxFree(v20, v19);
-        v16 = qword_140E3EB70;
+        v16 = qword_140E3ECB0;
         v18 += 8LL;
         --v17;
       }
@@ -114,7 +114,7 @@ LABEL_5:
   ReservedMappingArray = HalpDmaAllocateReservedMappingArray((unsigned int)MaximumProcessorCount, v11, v7);
   if ( ReservedMappingArray < 0 )
   {
-    HalpMmAllocCtxFree(v21, qword_140E3EB68);
+    HalpMmAllocCtxFree(v21, qword_140E3ECA8);
     HalpMmAllocCtxFree(v23, v8);
   }
   return (unsigned int)ReservedMappingArray;

@@ -16,8 +16,11 @@
 void __cdecl RtlGuardRestoreContext(PCONTEXT ContextRecord, struct _EXCEPTION_RECORD *ExceptionRecord)
 {
   unsigned __int64 v4; // rsi
-  BOOL v5; // eax
-  unsigned __int64 v6; // rcx
+  int v5; // eax
+  int v6; // eax
+  BOOL v7; // eax
+  unsigned __int64 v8; // rcx
+  int v9; // eax
 
   if ( ExceptionRecord )
   {
@@ -25,29 +28,35 @@ void __cdecl RtlGuardRestoreContext(PCONTEXT ContextRecord, struct _EXCEPTION_RE
     {
       case 0x80000026:
         v4 = ExceptionRecord->ExceptionInformation[0];
-        if ( (unsigned int)LdrControlFlowGuardEnforced() && !RtlGuardIsValidStackPointer(*(_QWORD *)(v4 + 16)) )
+        LOBYTE(v5) = LdrControlFlowGuardEnforced();
+        if ( v5 && !RtlGuardIsValidStackPointer(*(_QWORD *)(v4 + 16)) )
           goto LABEL_19;
-        if ( (((unsigned __int64)qword_18018F398 >> 60) & 3) != 1 )
-          RtlGuardCheckLongJumpTarget(*(_QWORD *)(v4 + 80), 0, 0LL);
+        if ( ((LdrSystemDllInitBlock.MitigationOptionsMap.Map[1] >> 60) & 3) != 1 )
+          RtlGuardCheckLongJumpTarget(*(PVOID *)(v4 + 80), 0, 0LL);
         goto LABEL_6;
       case 0x80000029:
-        if ( ExceptionRecord->NumberParameters && (unsigned int)LdrControlFlowGuardEnforced() )
+        if ( ExceptionRecord->NumberParameters )
         {
-          v5 = LdrControlFlowGuardEnforcedWithExportSuppression();
-          v6 = ExceptionRecord->ExceptionInformation[0];
-          if ( v5 )
-            LdrpValidateUserCallTargetES(v6);
-          else
-            LdrpValidateUserCallTarget(v6);
+          LOBYTE(v6) = LdrControlFlowGuardEnforced();
+          if ( v6 )
+          {
+            v7 = LdrControlFlowGuardEnforcedWithExportSuppression();
+            v8 = ExceptionRecord->ExceptionInformation[0];
+            if ( v7 )
+              LdrpValidateUserCallTargetES(v8);
+            else
+              LdrpValidateUserCallTarget(v8);
+          }
         }
         break;
       case 0xC0000027:
-        if ( (((unsigned __int64)qword_18018F398 >> 60) & 3) != 1 )
-          RtlGuardCheckExceptionHandler(ContextRecord->Rip, 0, 0LL);
+        if ( ((LdrSystemDllInitBlock.MitigationOptionsMap.Map[1] >> 60) & 3) != 1 )
+          RtlGuardCheckExceptionHandler((PVOID)ContextRecord->Rip, 0, 0LL);
         goto LABEL_6;
     }
   }
-  if ( (unsigned int)LdrControlFlowGuardEnforced() && !RtlGuardIsValidStackPointer(ContextRecord->Rsp) )
+  LOBYTE(v9) = LdrControlFlowGuardEnforced();
+  if ( v9 && !RtlGuardIsValidStackPointer(ContextRecord->Rsp) )
 LABEL_19:
     __fastfail(0xDu);
 LABEL_6:

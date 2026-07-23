@@ -78,10 +78,10 @@ __int64 __fastcall VmpPrefetchVirtualAddresses(volatile LONG *SpinLock, _QWORD *
           {
             v23 = *((_QWORD *)SpinLock + 5);
             ExReleaseSpinLockSharedFromDpcLevel(SpinLock);
-            if ( KiIrqlFlags )
+            if ( (_DWORD)KiIrqlFlags )
             {
               CurrentIrql = KeGetCurrentIrql();
-              if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v10 <= 0xFu && CurrentIrql >= 2u )
+              if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v10 <= 0xFu && CurrentIrql >= 2u )
               {
                 CurrentPrcb = KeGetCurrentPrcb();
                 SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -108,10 +108,10 @@ __int64 __fastcall VmpPrefetchVirtualAddresses(volatile LONG *SpinLock, _QWORD *
         a2 += 2;
       }
       ExReleaseSpinLockSharedFromDpcLevel(SpinLock);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v17 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v17 <= 0xFu && v10 <= 0xFu && v17 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v17 <= 0xFu && v10 <= 0xFu && v17 >= 2u )
         {
           v18 = KeGetCurrentPrcb();
           v19 = v18->SchedulerAssist;

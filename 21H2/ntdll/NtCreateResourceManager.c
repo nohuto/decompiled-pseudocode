@@ -1,16 +1,23 @@
 /*
- * XREFs of NtCreateResourceManager @ 0x18009EDF0
+ * XREFs of NtCreateResourceManager @ 0x18009EDB0
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 NtCreateResourceManager()
+NTSTATUS __cdecl NtCreateResourceManager(
+        PHANDLE ResourceManagerHandle,
+        ACCESS_MASK DesiredAccess,
+        HANDLE TmHandle,
+        LPGUID RmGuid,
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        ULONG CreateOptions,
+        PUNICODE_STRING Description)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 190LL;
+  result = 190;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

@@ -1,20 +1,20 @@
 /*
- * XREFs of KeReleaseSpinLockFromDpcLevel @ 0x14032FB40
+ * XREFs of KeReleaseSpinLockFromDpcLevel @ 0x14032FDD0
  * Callers:
- *     sub_1403F18C0 @ 0x1403F18C0 (sub_1403F18C0.c)
- *     ExAcquireFastResourceWithFlags @ 0x140412180 (ExAcquireFastResourceWithFlags.c)
- *     ExAcquireFastResourceExclusive2 @ 0x1404129E0 (ExAcquireFastResourceExclusive2.c)
- *     ExAcquireFastResourceShared2 @ 0x140412CA0 (ExAcquireFastResourceShared2.c)
- *     ExAcquireFastResourceSharedStarveExclusive2 @ 0x140412FDC (ExAcquireFastResourceSharedStarveExclusive2.c)
- *     ExDisownFastResource2 @ 0x14041351C (ExDisownFastResource2.c)
- *     ExpAcquireFastResourceExclusiveSlow @ 0x14041478C (ExpAcquireFastResourceExclusiveSlow.c)
- *     ExpAcquireFastResourceSharedSlow @ 0x140414B10 (ExpAcquireFastResourceSharedSlow.c)
- *     ExpMoveSharedFastResourceOwnershipWithFlags @ 0x140415A7C (ExpMoveSharedFastResourceOwnershipWithFlags.c)
- *     ExpReleaseDisownedFastResourceExclusive2 @ 0x140416018 (ExpReleaseDisownedFastResourceExclusive2.c)
- *     ExpReleaseDisownedFastResourceShared2 @ 0x1404161C8 (ExpReleaseDisownedFastResourceShared2.c)
- *     KeSynchronizeExecution @ 0x140420220 (KeSynchronizeExecution.c)
+ *     sub_1403F1AA0 @ 0x1403F1AA0 (sub_1403F1AA0.c)
+ *     ExAcquireFastResourceWithFlags @ 0x1404124C0 (ExAcquireFastResourceWithFlags.c)
+ *     ExAcquireFastResourceExclusive2 @ 0x140412D74 (ExAcquireFastResourceExclusive2.c)
+ *     ExAcquireFastResourceShared2 @ 0x140413034 (ExAcquireFastResourceShared2.c)
+ *     ExAcquireFastResourceSharedStarveExclusive2 @ 0x140413370 (ExAcquireFastResourceSharedStarveExclusive2.c)
+ *     ExDisownFastResource2 @ 0x1404138B0 (ExDisownFastResource2.c)
+ *     ExpAcquireFastResourceExclusiveSlow @ 0x140414B20 (ExpAcquireFastResourceExclusiveSlow.c)
+ *     ExpAcquireFastResourceSharedSlow @ 0x140414EA4 (ExpAcquireFastResourceSharedSlow.c)
+ *     ExpMoveSharedFastResourceOwnershipWithFlags @ 0x140415E10 (ExpMoveSharedFastResourceOwnershipWithFlags.c)
+ *     ExpReleaseDisownedFastResourceExclusive2 @ 0x1404163AC (ExpReleaseDisownedFastResourceExclusive2.c)
+ *     ExpReleaseDisownedFastResourceShared2 @ 0x14041655C (ExpReleaseDisownedFastResourceShared2.c)
+ *     KeSynchronizeExecution @ 0x1404205B0 (KeSynchronizeExecution.c)
  * Callees:
- *     KiReleaseSpinLockInstrumented @ 0x140571848 (KiReleaseSpinLockInstrumented.c)
+ *     KiReleaseSpinLockInstrumented @ 0x140571D88 (KiReleaseSpinLockInstrumented.c)
  */
 
 void __stdcall KeReleaseSpinLockFromDpcLevel(PKSPIN_LOCK SpinLock)

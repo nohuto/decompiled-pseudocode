@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlpHpLfhSubsegmentDelayFreeListBatch @ 0x1402B6644
+ * XREFs of RtlpHpLfhSubsegmentDelayFreeListBatch @ 0x1403D9244
  * Callers:
- *     RtlpHpLfhSubsegmentDelayFreeListProcess @ 0x1402B5E60 (RtlpHpLfhSubsegmentDelayFreeListProcess.c)
+ *     RtlpHpLfhSubsegmentDelayFreeListProcess @ 0x1403D8A60 (RtlpHpLfhSubsegmentDelayFreeListProcess.c)
  * Callees:
- *     RtlpHpLfhReportError @ 0x14049B638 (RtlpHpLfhReportError.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     RtlpHpLfhReportError @ 0x140496164 (RtlpHpLfhReportError.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 __int64 __fastcall RtlpHpLfhSubsegmentDelayFreeListBatch(

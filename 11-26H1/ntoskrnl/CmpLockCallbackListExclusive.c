@@ -1,12 +1,12 @@
 /*
- * XREFs of CmpLockCallbackListExclusive @ 0x140770A48
+ * XREFs of CmpLockCallbackListExclusive @ 0x140773A48
  * Callers:
- *     CmUnRegisterCallback @ 0x1408505D0 (CmUnRegisterCallback.c)
- *     CmpInsertCallbackInListByAltitude @ 0x140A051A4 (CmpInsertCallbackInListByAltitude.c)
+ *     CmUnRegisterCallback @ 0x1408568E0 (CmUnRegisterCallback.c)
+ *     CmpInsertCallbackInListByAltitude @ 0x1409F0994 (CmpInsertCallbackInListByAltitude.c)
  * Callees:
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
  */
 
 void __fastcall CmpLockCallbackListExclusive(__int64 a1, __int64 a2, __int64 a3, struct _KLOCK_ENTRIES *a4)
@@ -18,10 +18,13 @@ void __fastcall CmpLockCallbackListExclusive(__int64 a1, __int64 a2, __int64 a3,
 
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
-  v5 = (AutoBoost *)KeAbPreAcquire((__int64)&CmpCallbackListLock, 0LL, 0LL, a4);
+  v5 = (AutoBoost *)KeAbPreAcquire((__int64)&CmpContextListLock.Header.WaitListHead, 0LL, 0LL, a4);
   v7 = v5;
-  if ( _interlockedbittestandset64((volatile signed __int32 *)&CmpCallbackListLock, 0LL) )
-    ExfAcquirePushLockExclusiveEx((unsigned __int64 *)&CmpCallbackListLock, v5, (__int64)&CmpCallbackListLock);
+  if ( _interlockedbittestandset64((volatile signed __int32 *)&CmpContextListLock.Header.WaitListHead, 0LL) )
+    ExfAcquirePushLockExclusiveEx(
+      (unsigned __int64 *)&CmpContextListLock.Header.WaitListHead,
+      v5,
+      (__int64)&CmpContextListLock.Header.WaitListHead);
   if ( v7 )
   {
     if ( (KiAbpGlobalState & 1) != 0 )

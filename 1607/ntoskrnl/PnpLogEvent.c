@@ -1,18 +1,18 @@
 /*
- * XREFs of PnpLogEvent @ 0x14062DA98
+ * XREFs of PnpLogEvent @ 0x14062DB4C
  * Callers:
- *     PnpQueryID @ 0x140488E8C (PnpQueryID.c)
- *     PnpFixupID @ 0x140489004 (PnpFixupID.c)
- *     PiLookupInDDB @ 0x14049CFB8 (PiLookupInDDB.c)
- *     PiIsDriverBlocked @ 0x14049D1BC (PiIsDriverBlocked.c)
- *     PpCheckInDriverDatabase @ 0x14049D7A4 (PpCheckInDriverDatabase.c)
- *     PnpLogDuplicateDevice @ 0x140649C38 (PnpLogDuplicateDevice.c)
+ *     PnpQueryID @ 0x140511600 (PnpQueryID.c)
+ *     PnpFixupID @ 0x140511778 (PnpFixupID.c)
+ *     PiIsDriverBlocked @ 0x140515678 (PiIsDriverBlocked.c)
+ *     PiLookupInDDB @ 0x1405158D4 (PiLookupInDDB.c)
+ *     PpCheckInDriverDatabase @ 0x140515BB0 (PpCheckInDriverDatabase.c)
+ *     PnpLogDuplicateDevice @ 0x140649D1C (PnpLogDuplicateDevice.c)
  *     IopInitializePlugPlayServices @ 0x14079CCD4 (IopInitializePlugPlayServices.c)
  *     PpInitializeBootDDB @ 0x14079DA0C (PpInitializeBootDDB.c)
  * Callees:
- *     IoWriteErrorLogEntry @ 0x1401310F8 (IoWriteErrorLogEntry.c)
- *     memmove @ 0x140171280 (memmove.c)
- *     IoAllocateGenericErrorLogEntry @ 0x1401C89D4 (IoAllocateGenericErrorLogEntry.c)
+ *     IoWriteErrorLogEntry @ 0x140131668 (IoWriteErrorLogEntry.c)
+ *     memmove @ 0x140171780 (memmove.c)
+ *     IoAllocateGenericErrorLogEntry @ 0x1401C8874 (IoAllocateGenericErrorLogEntry.c)
  */
 
 void __fastcall PnpLogEvent(const void **a1, const void **a2, int a3, const void *a4, unsigned int Size)

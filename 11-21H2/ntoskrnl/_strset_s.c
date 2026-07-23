@@ -3,7 +3,7 @@
  * Callers:
  *     <none>
  * Callees:
- *     xHalTimerWatchdogStop @ 0x1403A7020 (xHalTimerWatchdogStop.c)
+ *     __misaligned_access @ 0x1403A7020 (__misaligned_access.c)
  */
 
 errno_t __cdecl strset_s(char *a1, size_t DstSize, int Value)
@@ -26,7 +26,7 @@ errno_t __cdecl strset_s(char *a1, size_t DstSize, int Value)
     {
       *a1 = 0;
 LABEL_8:
-      xHalTimerWatchdogStop();
+      _misaligned_access();
       return 22;
     }
   }

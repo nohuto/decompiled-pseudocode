@@ -1,46 +1,54 @@
 /*
- * XREFs of NtQuerySection @ 0x1406A9210
+ * XREFs of NtQuerySection @ 0x140607190
  * Callers:
  *     <none>
  * Callees:
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     MmGetSectionInformation @ 0x140620F30 (MmGetSectionInformation.c)
- *     ProbeForWrite @ 0x1406547A0 (ProbeForWrite.c)
- *     ObReferenceObjectByHandle @ 0x1406F0BC0 (ObReferenceObjectByHandle.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     ProbeForWrite @ 0x1406495C0 (ProbeForWrite.c)
+ *     MmGetSectionInformation @ 0x14068ABA0 (MmGetSectionInformation.c)
+ *     ObReferenceObjectByHandle @ 0x140707FA0 (ObReferenceObjectByHandle.c)
  */
 
-__int64 __fastcall NtQuerySection(HANDLE Handle, int a2, volatile void *a3, SIZE_T a4, unsigned __int64 *a5)
+NTSTATUS __cdecl NtQuerySection(
+        HANDLE SectionHandle,
+        SECTION_INFORMATION_CLASS SectionInformationClass,
+        PVOID SectionInformation,
+        SIZE_T SectionInformationLength,
+        PSIZE_T ReturnLength)
 {
   KPROCESSOR_MODE PreviousMode; // r15
   __int64 v10; // rcx
-  unsigned __int64 v11; // rbx
-  int SectionInformation; // edi
-  int v13; // edx
+  SIZE_T v11; // rbx
+  int v12; // edi
+  __int64 v13; // rdx
   struct _DMA_ADAPTER *v14; // rsi
   PVOID Object; // [rsp+30h] [rbp-28h] BYREF
 
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   if ( PreviousMode )
   {
-    ProbeForWrite(a3, a4, 4u);
-    if ( a5 )
+    ProbeForWrite(SectionInformation, SectionInformationLength, 4u);
+    if ( ReturnLength )
     {
       v10 = 0x7FFFFFFF0000LL;
-      if ( (unsigned __int64)a5 < 0x7FFFFFFF0000LL )
-        v10 = (__int64)a5;
+      if ( (unsigned __int64)ReturnLength < 0x7FFFFFFF0000LL )
+        v10 = (__int64)ReturnLength;
       *(_QWORD *)v10 = *(_QWORD *)v10;
     }
   }
-  if ( a2 )
+  if ( SectionInformationClass )
   {
-    if ( a2 == 1 )
+    if ( SectionInformationClass == SectionImageInformation )
     {
       v11 = 64LL;
     }
     else
     {
-      if ( a2 != 2 && a2 != 3 )
-        return 3221225475LL;
+      if ( SectionInformationClass != SectionRelocationInformation
+        && SectionInformationClass != SectionOriginalBaseInformation )
+      {
+        return -1073741821;
+      }
       v11 = 8LL;
     }
   }
@@ -48,21 +56,21 @@ __int64 __fastcall NtQuerySection(HANDLE Handle, int a2, volatile void *a3, SIZE
   {
     v11 = 24LL;
   }
-  if ( a4 < v11 )
-    return 3221225476LL;
+  if ( SectionInformationLength < v11 )
+    return -1073741820;
   Object = 0LL;
-  SectionInformation = ObReferenceObjectByHandle(Handle, 1u, MmSectionObjectType, PreviousMode, &Object, 0LL);
-  if ( SectionInformation >= 0 )
+  v12 = ObReferenceObjectByHandle(SectionHandle, 1u, MmSectionObjectType, PreviousMode, &Object, 0LL);
+  if ( v12 >= 0 )
   {
-    v13 = a2;
+    v13 = (unsigned int)SectionInformationClass;
     v14 = (struct _DMA_ADAPTER *)Object;
-    SectionInformation = MmGetSectionInformation((__int64)Object, v13, (__int64)a3);
-    if ( SectionInformation >= 0 )
+    v12 = MmGetSectionInformation(Object, v13, SectionInformation);
+    if ( v12 >= 0 )
     {
-      if ( a5 )
-        *a5 = v11;
+      if ( ReturnLength )
+        *ReturnLength = v11;
     }
     HalPutDmaAdapter(v14);
   }
-  return (unsigned int)SectionInformation;
+  return v12;
 }

@@ -1,17 +1,17 @@
 /*
- * XREFs of PoGetPerfStateAndParkingInfo @ 0x140434F50
+ * XREFs of PoGetPerfStateAndParkingInfo @ 0x140370500
  * Callers:
- *     ExpQueryProcessorInformationCounters @ 0x1409DDD20 (ExpQueryProcessorInformationCounters.c)
- *     ExpQuerySystemInformation @ 0x140ADC240 (ExpQuerySystemInformation.c)
+ *     ExpQueryProcessorInformationCounters @ 0x1409D78F0 (ExpQueryProcessorInformationCounters.c)
+ *     ExpQuerySystemInformation @ 0x140ADDAE0 (ExpQuerySystemInformation.c)
  * Callees:
- *     KeQueryActiveProcessorCountEx @ 0x1402105E0 (KeQueryActiveProcessorCountEx.c)
- *     PopExecuteOnTargetProcessors @ 0x1403529A4 (PopExecuteOnTargetProcessors.c)
- *     KeGetProcessorIndexFromNumber @ 0x140352BB0 (KeGetProcessorIndexFromNumber.c)
- *     PpmGetThroughputInfoCallback @ 0x1404352D0 (PpmGetThroughputInfoCallback.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     KeQueryActiveProcessorCountEx @ 0x140339940 (KeQueryActiveProcessorCountEx.c)
+ *     PpmGetThroughputInfoCallback @ 0x14036FE50 (PpmGetThroughputInfoCallback.c)
+ *     PopExecuteOnTargetProcessors @ 0x140370234 (PopExecuteOnTargetProcessors.c)
+ *     KeGetProcessorIndexFromNumber @ 0x140370440 (KeGetProcessorIndexFromNumber.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 __int64 __fastcall PoGetPerfStateAndParkingInfo(PPROCESSOR_NUMBER ProcNumber, __int64 a2, __int64 a3, _QWORD *a4)
@@ -21,30 +21,29 @@ __int64 __fastcall PoGetPerfStateAndParkingInfo(PPROCESSOR_NUMBER ProcNumber, __
   _DWORD *v10; // r8
   int *v11; // r11
   _DWORD *v12; // r10
-  unsigned int *v13; // r9
-  _DWORD *v14; // rcx
-  unsigned int v15; // esi
-  unsigned int v16; // r14d
-  int v17; // eax
-  unsigned int v18; // edx
-  __int64 v19; // rcx
-  __int64 v20; // rax
-  unsigned int v21; // r10d
-  unsigned int v22; // eax
-  unsigned int v23; // esi
-  unsigned int v24; // ecx
+  _DWORD *v13; // rcx
+  unsigned int v14; // esi
+  unsigned int v15; // r14d
+  int v16; // eax
+  unsigned int v17; // edx
+  __int64 v18; // rcx
+  __int64 v19; // rax
+  unsigned int v20; // r10d
+  unsigned int v21; // eax
+  unsigned int v22; // esi
+  unsigned int v23; // ecx
   __int64 result; // rax
   unsigned __int8 CurrentIrql; // bl
-  int v27; // edi
-  unsigned int v28; // ecx
-  unsigned int v29; // r9d
-  __int64 v30; // rcx
-  __int64 *v31; // rdx
-  __int64 v32; // rcx
-  __int64 v33; // [rsp+20h] [rbp-158h] BYREF
-  _QWORD v34[33]; // [rsp+28h] [rbp-150h] BYREF
+  int v26; // edi
+  unsigned int v27; // ecx
+  unsigned int v28; // r9d
+  __int64 v29; // rcx
+  __int64 *v30; // rdx
+  __int64 v31; // rcx
+  __int64 v32; // [rsp+20h] [rbp-158h] BYREF
+  _QWORD v33[33]; // [rsp+28h] [rbp-150h] BYREF
 
-  memset_0(v34, 0, 0x100uLL);
+  memset_0(v33, 0, 0x100uLL);
   *(_OWORD *)a2 = 0LL;
   *(_OWORD *)(a2 + 16) = 0LL;
   ProcessorIndexFromNumber = KeGetProcessorIndexFromNumber(ProcNumber);
@@ -60,76 +59,75 @@ __int64 __fastcall PoGetPerfStateAndParkingInfo(PPROCESSOR_NUMBER ProcNumber, __
   v10 = *(_DWORD **)(v9 + 35248);
   v11 = (int *)(a2 + 24);
   v12 = *(_DWORD **)(v9 + 35256);
-  v13 = (unsigned int *)(a2 + 8);
-  v14 = (_DWORD *)(a2 + 4);
+  v13 = (_DWORD *)(a2 + 4);
   if ( v10 && v12 )
   {
-    v15 = v12[20];
-    if ( v15 >= v10[132] )
-      v15 = v10[132];
+    v14 = v12[20];
+    if ( v14 >= v10[132] )
+      v14 = v10[132];
     if ( a2 != -4 )
-      *v14 = v12[21];
-    v16 = v10[132] * v10[112] / 0x64u;
+      *v13 = v12[21];
+    v15 = v10[132] * v10[112] / 0x64u;
     if ( a2 )
-      *(_DWORD *)a2 = (v15 < v10[114]) + 1;
+      *(_DWORD *)a2 = (v14 < v10[114]) + 1;
     if ( a2 != -24 )
     {
-      v17 = v12[8];
-      *v11 = v17;
+      v16 = v12[8];
+      *v11 = v16;
       if ( v12[7] < 0x64u )
-        *v11 = v17 | 4;
+        *v11 = v16 | 4;
     }
   }
   else
   {
     if ( a2 != -4 )
-      *v14 = *(_DWORD *)(v9 + 68);
-    v16 = *(_DWORD *)(v9 + 68);
+      *v13 = *(_DWORD *)(v9 + 68);
+    v15 = *(_DWORD *)(v9 + 68);
     if ( a2 )
       *(_DWORD *)a2 = 0;
     if ( a2 != -24 )
       *v11 = 0;
   }
-  v18 = 100;
+  v17 = 100;
   if ( a2 != -8 )
   {
-    v19 = *(_QWORD *)(v9 + 35248);
-    v20 = *(_QWORD *)(v9 + 35256);
-    if ( v19 && v20 )
+    v18 = *(_QWORD *)(v9 + 35248);
+    v19 = *(_QWORD *)(v9 + 35256);
+    if ( v18 && v19 )
     {
-      if ( *(_BYTE *)(v20 + 112) )
-        v21 = *(_DWORD *)(v20 + 132);
+      if ( *(_BYTE *)(v19 + 112) )
+        v20 = *(_DWORD *)(v19 + 132);
       else
-        v21 = *(_DWORD *)(v20 + 80);
-      v22 = *(_DWORD *)(v19 + 528);
-      if ( v21 < v22 )
-        v22 = v21;
+        v20 = *(_DWORD *)(v19 + 80);
+      v21 = *(_DWORD *)(v18 + 528);
+      if ( v20 < v21 )
+        v21 = v20;
     }
     else
     {
-      v22 = 100;
+      v21 = 100;
     }
-    *v13 = v22;
+    *(_DWORD *)(a2 + 8) = v21;
   }
   if ( v10 )
   {
-    v23 = v10[112];
+    v22 = v10[112];
     *(_DWORD *)(a2 + 12) = v10[136];
-    v24 = v10[134];
-    if ( v24 >= v10[135] )
-      v24 = v10[135];
-    *(_DWORD *)(a2 + 16) = v24;
+    v23 = v10[134];
+    if ( v23 >= v10[135] )
+      v23 = v10[135];
+    *(_DWORD *)(a2 + 16) = v23;
     if ( v10[113] != v10[115] )
       *(_BYTE *)(a2 + 28) = 1;
-    if ( v24 < 0x64 )
+    if ( v23 < 0x64 )
       *(_DWORD *)(a2 + 24) |= 1u;
-    v18 = 100 * v16 / v10[112];
+    v17 = 100 * v15 / v10[112];
   }
   else
   {
-    v23 = *(_DWORD *)(v9 + 68);
+    v22 = *(_DWORD *)(v9 + 68);
   }
-  *(_DWORD *)(a2 + 20) = v18;
+  *(_DWORD *)(a2 + 20) = v17;
   result = *(unsigned __int8 *)(v9 + 35340);
   *(_BYTE *)(a2 + 29) = result;
   if ( a4 )
@@ -143,29 +141,29 @@ __int64 __fastcall PoGetPerfStateAndParkingInfo(PPROCESSOR_NUMBER ProcNumber, __
     __writecr8(2uLL);
     if ( KiIrqlFlags )
       KiRaiseIrqlProcessIrqlFlags(CurrentIrql, 2LL);
-    result = PpmGetThroughputInfoCallback(v9, a3, v23, v13);
-    v27 = result;
+    result = PpmGetThroughputInfoCallback((LARGE_INTEGER *)v9, a3, v22);
+    v26 = result;
     if ( KiIrqlFlags )
       result = KiLowerIrqlProcessIrqlFlags(KeGetCurrentIrql(), CurrentIrql);
     __writecr8(CurrentIrql);
-    if ( v27 < 0 )
+    if ( v26 < 0 )
     {
-      v33 = 2097153LL;
-      memset_0(v34, 0, 0x100uLL);
-      v28 = *((_DWORD *)KiGlobalState + KeGetProcessorIndexFromNumber(ProcNumber));
-      v29 = v28 & 0x3F;
-      v30 = v28 >> 6;
-      if ( (_DWORD)v30 )
+      v32 = 2097153LL;
+      memset_0(v33, 0, 0x100uLL);
+      v27 = *((_DWORD *)KiGlobalState + KeGetProcessorIndexFromNumber(ProcNumber));
+      v28 = v27 & 0x3F;
+      v29 = v27 >> 6;
+      if ( (_DWORD)v29 )
       {
-        if ( WORD1(v33) <= (unsigned int)v30 )
-          return PopExecuteOnTargetProcessors((__int64)&v33, (__int64)PpmGetThroughputInfoCallback, a3, v23);
-        LOWORD(v33) = v30 + 1;
+        if ( WORD1(v32) <= (unsigned int)v29 )
+          return PopExecuteOnTargetProcessors((__int64)&v32, (__int64)PpmGetThroughputInfoCallback, a3, v22);
+        LOWORD(v32) = v29 + 1;
       }
-      v31 = &v34[v30];
-      v32 = *v31;
-      _bittestandset64(&v32, v29);
-      *v31 = v32;
-      return PopExecuteOnTargetProcessors((__int64)&v33, (__int64)PpmGetThroughputInfoCallback, a3, v23);
+      v30 = &v33[v29];
+      v31 = *v30;
+      _bittestandset64(&v31, v28);
+      *v30 = v31;
+      return PopExecuteOnTargetProcessors((__int64)&v32, (__int64)PpmGetThroughputInfoCallback, a3, v22);
     }
   }
   return result;

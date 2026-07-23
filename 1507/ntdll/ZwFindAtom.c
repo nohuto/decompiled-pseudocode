@@ -6,11 +6,11 @@
  *     <none>
  */
 
-__int64 ZwFindAtom()
+NTSTATUS __cdecl ZwFindAtom(PWSTR AtomName, ULONG Length, PRTL_ATOM Atom)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 20LL;
+  result = 20;
   __asm { syscall; Low latency system call }
   return result;
 }

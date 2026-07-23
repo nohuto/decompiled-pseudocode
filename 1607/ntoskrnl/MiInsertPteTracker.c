@@ -1,15 +1,15 @@
 /*
- * XREFs of MiInsertPteTracker @ 0x1401FC7EC
+ * XREFs of MiInsertPteTracker @ 0x1401FC618
  * Callers:
- *     MiMapContiguousMemory @ 0x14009B8AC (MiMapContiguousMemory.c)
- *     MmMapLockedPagesSpecifyCache @ 0x1400DE220 (MmMapLockedPagesSpecifyCache.c)
- *     MmAllocateMappingAddress @ 0x14052C2FC (MmAllocateMappingAddress.c)
+ *     MiMapContiguousMemory @ 0x14009B0AC (MiMapContiguousMemory.c)
+ *     MmMapLockedPagesSpecifyCache @ 0x1400DC0C0 (MmMapLockedPagesSpecifyCache.c)
+ *     MmAllocateMappingAddress @ 0x14052C83C (MmAllocateMappingAddress.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLock @ 0x140012750 (KeReleaseInStackQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14001BD40 (KeAcquireInStackQueuedSpinLock.c)
- *     RtlCaptureStackBackTrace @ 0x140084730 (RtlCaptureStackBackTrace.c)
- *     RtlpInterlockedPopEntrySList @ 0x140166E00 (RtlpInterlockedPopEntrySList.c)
- *     RtlpInterlockedFlushSList @ 0x140166E80 (RtlpInterlockedFlushSList.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x1400122D0 (KeReleaseInStackQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14001B8C0 (KeAcquireInStackQueuedSpinLock.c)
+ *     RtlCaptureStackBackTrace @ 0x140082890 (RtlCaptureStackBackTrace.c)
+ *     RtlpInterlockedPopEntrySList @ 0x140167370 (RtlpInterlockedPopEntrySList.c)
+ *     RtlpInterlockedFlushSList @ 0x1401673F0 (RtlpInterlockedFlushSList.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
  */
@@ -32,12 +32,12 @@ void __fastcall MiInsertPteTracker(__int64 a1, int a2, char a3, int a4)
   ULONG BackTraceHash; // [rsp+20h] [rbp-38h] BYREF
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+28h] [rbp-30h] BYREF
 
-  if ( LOWORD(stru_140327400.Alignment) < 0xAu )
+  if ( LOWORD(stru_140327440.Alignment) < 0xAu )
   {
-    PoolWithTag = RtlpInterlockedPopEntrySList(&stru_140327400);
+    PoolWithTag = RtlpInterlockedPopEntrySList(&stru_140327440);
     goto LABEL_6;
   }
-  v9 = RtlpInterlockedFlushSList(&stru_140327400);
+  v9 = RtlpInterlockedFlushSList(&stru_140327440);
   PoolWithTag = v9;
   if ( v9 )
   {
@@ -59,7 +59,7 @@ LABEL_6:
   PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, 0x80uLL, 0x79536D4Du);
   if ( !PoolWithTag )
   {
-    byte_140327564 = 1;
+    byte_1403275A4 = 1;
     return;
   }
 LABEL_9:
@@ -96,8 +96,8 @@ LABEL_15:
   v16 = *((_QWORD *)PoolWithTag + 4) >> 12;
   *((_DWORD *)PoolWithTag + 16) = (*((_DWORD *)PoolWithTag + 16) ^ (*((_DWORD *)PoolWithTag + 16) ^ a3 & 1) & 1) & 0xFFFFFFED | (16 * ((a3 & 2) != 0));
   v17 = 40543LL * (unsigned int)v16;
-  KeAcquireInStackQueuedSpinLock(&qword_140327410, &LockHandle);
-  v18 = (char *)&unk_140327D90 + 16 * (((unsigned __int8)v17 ^ BYTE4(v17)) & 0xF);
+  KeAcquireInStackQueuedSpinLock(&qword_140327450, &LockHandle);
+  v18 = (char *)&unk_140327DD0 + 16 * (((unsigned __int8)v17 ^ BYTE4(v17)) & 0xF);
   v19 = *(_QWORD *)v18;
   if ( *(char **)(*(_QWORD *)v18 + 8LL) != v18 )
     __fastfail(3u);
@@ -105,9 +105,9 @@ LABEL_15:
   *(_QWORD *)PoolWithTag = v19;
   *(_QWORD *)(v19 + 8) = PoolWithTag;
   *(_QWORD *)v18 = PoolWithTag;
-  qword_140327E90 += v14;
-  v20 = ++qword_140327E98;
-  if ( qword_140327E98 > (unsigned __int64)qword_140327EA0 )
-    qword_140327EA0 = v20;
+  qword_140327ED0 += v14;
+  v20 = ++qword_140327ED8;
+  if ( qword_140327ED8 > (unsigned __int64)qword_140327EE0 )
+    qword_140327EE0 = v20;
   KeReleaseInStackQueuedSpinLock(&LockHandle);
 }

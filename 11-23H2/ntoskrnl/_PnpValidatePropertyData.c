@@ -1,17 +1,17 @@
 /*
- * XREFs of _PnpValidatePropertyData @ 0x140796EB8
+ * XREFs of _PnpValidatePropertyData @ 0x1407970A8
  * Callers:
- *     ValidFilterExpression @ 0x140371998 (ValidFilterExpression.c)
- *     _PnpGetObjectPropertyWorker @ 0x1406D0384 (_PnpGetObjectPropertyWorker.c)
- *     _PnpSetObjectPropertyWorker @ 0x140796CFC (_PnpSetObjectPropertyWorker.c)
- *     PiSwValidatePropertyArray @ 0x14079C8F8 (PiSwValidatePropertyArray.c)
- *     PiDqQueryValidateQueryData @ 0x1407F9D58 (PiDqQueryValidateQueryData.c)
+ *     ValidFilterExpression @ 0x140371B38 (ValidFilterExpression.c)
+ *     _PnpGetObjectPropertyWorker @ 0x1406D03B4 (_PnpGetObjectPropertyWorker.c)
+ *     _PnpSetObjectPropertyWorker @ 0x140796EEC (_PnpSetObjectPropertyWorker.c)
+ *     PiSwValidatePropertyArray @ 0x14079CAE8 (PiSwValidatePropertyArray.c)
+ *     PiDqQueryValidateQueryData @ 0x1407FA028 (PiDqQueryValidateQueryData.c)
  * Callees:
- *     _GetBaseTypeSize @ 0x140322E20 (_GetBaseTypeSize.c)
- *     _IsFixedSizeType @ 0x140322EE0 (_IsFixedSizeType.c)
- *     RtlUnalignedStringCbLengthW @ 0x140322F08 (RtlUnalignedStringCbLengthW.c)
- *     RtlValidRelativeSecurityDescriptor @ 0x14070DB20 (RtlValidRelativeSecurityDescriptor.c)
- *     RtlLengthSecurityDescriptor @ 0x140710F40 (RtlLengthSecurityDescriptor.c)
+ *     _GetBaseTypeSize @ 0x1403230B0 (_GetBaseTypeSize.c)
+ *     _IsFixedSizeType @ 0x140323170 (_IsFixedSizeType.c)
+ *     RtlUnalignedStringCbLengthW @ 0x140323198 (RtlUnalignedStringCbLengthW.c)
+ *     RtlValidRelativeSecurityDescriptor @ 0x14070DD30 (RtlValidRelativeSecurityDescriptor.c)
+ *     RtlLengthSecurityDescriptor @ 0x140711150 (RtlLengthSecurityDescriptor.c)
  */
 
 __int64 __fastcall PnpValidatePropertyData(__int64 *SecurityDescriptor, ULONG SecurityDescriptorLength, int a3)

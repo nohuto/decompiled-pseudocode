@@ -1,18 +1,18 @@
 /*
- * XREFs of RtlGenerateClass5Guid @ 0x140AAC700
+ * XREFs of RtlGenerateClass5Guid @ 0x140AA7730
  * Callers:
- *     PipCreateComputerId @ 0x140C203D8 (PipCreateComputerId.c)
+ *     PipCreateComputerId @ 0x140C22418 (PipCreateComputerId.c)
  * Callees:
- *     BCryptCloseAlgorithmProvider @ 0x1406081C8 (BCryptCloseAlgorithmProvider.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     BCryptFinishHash @ 0x1408FAB68 (BCryptFinishHash.c)
- *     BCryptHashData @ 0x1408FAC64 (BCryptHashData.c)
- *     BCryptDestroyHash @ 0x1408FACDC (BCryptDestroyHash.c)
- *     BCryptCreateHash @ 0x1408FAD30 (BCryptCreateHash.c)
- *     BCryptGetProperty @ 0x140A45488 (BCryptGetProperty.c)
- *     BCryptOpenAlgorithmProvider @ 0x140AA6D0C (BCryptOpenAlgorithmProvider.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     BCryptCloseAlgorithmProvider @ 0x1406058CC (BCryptCloseAlgorithmProvider.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     BCryptFinishHash @ 0x14091D448 (BCryptFinishHash.c)
+ *     BCryptHashData @ 0x14091D544 (BCryptHashData.c)
+ *     BCryptDestroyHash @ 0x14091D5BC (BCryptDestroyHash.c)
+ *     BCryptCreateHash @ 0x14091D610 (BCryptCreateHash.c)
+ *     BCryptGetProperty @ 0x140A3B034 (BCryptGetProperty.c)
+ *     BCryptOpenAlgorithmProvider @ 0x140AA1E08 (BCryptOpenAlgorithmProvider.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall RtlGenerateClass5Guid(__int64 a1, UCHAR *a2, ULONG a3, __int64 a4)
@@ -55,7 +55,7 @@ __int64 __fastcall RtlGenerateClass5Guid(__int64 a1, UCHAR *a2, ULONG a3, __int6
     Property = BCryptGetProperty(phAlgorithm, L"ObjectLength", pbOutput, v12, &v25, v19);
     if ( Property >= 0 )
     {
-      Pool2 = (UCHAR *)ExAllocatePool2(0x100uLL);
+      Pool2 = (UCHAR *)ExAllocatePool2(0x100uLL, *(unsigned int *)pbOutput, 0x64697547u);
       v4 = Pool2;
       if ( Pool2 )
       {

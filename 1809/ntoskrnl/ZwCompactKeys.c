@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwCompactKeys @ 0x1401B9490
+ * XREFs of ZwCompactKeys @ 0x1401B95F0
  * Callers:
  *     <none>
  * Callees:
@@ -9,9 +9,7 @@
 // local variable allocation has failed, the output may be wrong!
 NTSTATUS __stdcall ZwCompactKeys(ULONG Count, PHANDLE KeyArray)
 {
-  __int64 v2; // r8
-
   _disable();
   __readeflags();
-  return KiServiceInternal(*(_QWORD *)&Count, KeyArray, v2);
+  return KiServiceInternal(*(_QWORD *)&Count);
 }

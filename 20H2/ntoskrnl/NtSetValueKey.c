@@ -34,13 +34,13 @@
  *     ExRaiseDatatypeMisalignment @ 0x140777E40 (ExRaiseDatatypeMisalignment.c)
  */
 
-__int64 __fastcall NtSetValueKey(
-        __int64 a1,
-        unsigned __int64 a2,
-        unsigned int a3,
-        unsigned int a4,
-        void *a5,
-        size_t Size)
+NTSTATUS __cdecl NtSetValueKey(
+        HANDLE KeyHandle,
+        PUNICODE_STRING ValueName,
+        ULONG TitleIndex,
+        ULONG Type,
+        PVOID Data,
+        ULONG DataSize)
 {
   char v7; // r13
   char v8; // r12
@@ -51,7 +51,7 @@ __int64 __fastcall NtSetValueKey(
   BOOLEAN v13; // r14
   signed __int8 v14; // al
   unsigned __int16 Length; // di
-  unsigned int v16; // ebx
+  ULONG v16; // ebx
   void *v17; // r15
   unsigned int v18; // r13d
   unsigned int v19; // r14d
@@ -65,24 +65,24 @@ __int64 __fastcall NtSetValueKey(
   struct _KTHREAD *v27; // rax
   void *v28; // r14
   int v30; // r8d
-  signed int v31; // edi
+  int v31; // edi
   bool v32; // zf
   _DMA_OPERATIONS *v33; // rcx
   int v34; // [rsp+30h] [rbp-1A8h]
   unsigned __int8 v35; // [rsp+40h] [rbp-198h]
   BOOLEAN v36; // [rsp+41h] [rbp-197h]
   char v37; // [rsp+42h] [rbp-196h]
-  unsigned int v38; // [rsp+44h] [rbp-194h]
+  NTSTATUS v38; // [rsp+44h] [rbp-194h]
   UNICODE_STRING DestinationString; // [rsp+50h] [rbp-188h] BYREF
   PADAPTER_OBJECT DmaAdapter; // [rsp+60h] [rbp-178h] BYREF
   void *Src; // [rsp+68h] [rbp-170h]
   void *v42; // [rsp+70h] [rbp-168h]
   int v43; // [rsp+78h] [rbp-160h] BYREF
-  unsigned int v44; // [rsp+7Ch] [rbp-15Ch]
+  ULONG v44; // [rsp+7Ch] [rbp-15Ch]
   PPRIVILEGE_SET Privileges; // [rsp+80h] [rbp-158h]
-  unsigned int v46; // [rsp+88h] [rbp-150h]
+  ULONG v46; // [rsp+88h] [rbp-150h]
   __int64 v47; // [rsp+90h] [rbp-148h] BYREF
-  __int64 v48; // [rsp+98h] [rbp-140h]
+  HANDLE v48; // [rsp+98h] [rbp-140h]
   _DMA_OPERATIONS *DmaOperations; // [rsp+A0h] [rbp-138h]
   _QWORD v50[2]; // [rsp+A8h] [rbp-130h] BYREF
   struct _PRIVILEGE_SET *v51; // [rsp+B8h] [rbp-120h]
@@ -92,10 +92,10 @@ __int64 __fastcall NtSetValueKey(
   _OWORD v55[2]; // [rsp+130h] [rbp-A8h] BYREF
   _BYTE v56[64]; // [rsp+150h] [rbp-88h] BYREF
 
-  v44 = a4;
-  v46 = a3;
-  v48 = a1;
-  Src = a5;
+  v44 = Type;
+  v46 = TitleIndex;
+  v48 = KeyHandle;
+  Src = Data;
   DestinationString = 0LL;
   v47 = 0LL;
   memset(v55, 0, sizeof(v55));
@@ -131,7 +131,7 @@ LABEL_96:
     v26 = 0;
     goto LABEL_73;
   }
-  v31 = CmObReferenceObjectByHandle(v48, 2, v12, v9, (__int64)&DmaAdapter, (__int64)&v47);
+  v31 = CmObReferenceObjectByHandle((_DWORD)v48, 2, v12, v9, (__int64)&DmaAdapter, (__int64)&v47);
   v38 = v31;
   if ( v31 != -1073741790 )
   {
@@ -145,10 +145,10 @@ LABEL_6:
     if ( v35 == 1 )
     {
       v52 = 0LL;
-      if ( a2 >= 0x7FFFFFFF0000LL )
-        a2 = 0x7FFFFFFF0000LL;
-      LODWORD(v52) = *(_DWORD *)a2;
-      *((_QWORD *)&v52 + 1) = *(_QWORD *)(a2 + 8);
+      if ( (unsigned __int64)ValueName >= 0x7FFFFFFF0000LL )
+        ValueName = (PUNICODE_STRING)0x7FFFFFFF0000LL;
+      LODWORD(v52) = *(_DWORD *)&ValueName->Length;
+      *((_QWORD *)&v52 + 1) = ValueName->Buffer;
       DestinationString = (UNICODE_STRING)v52;
       DestinationString.MaximumLength = v52;
       Length = v52;
@@ -163,10 +163,9 @@ LABEL_6:
           Length = DestinationString.Length;
         }
       }
-      v16 = Size;
+      v16 = DataSize;
       v17 = Src;
-      if ( (_DWORD)Size
-        && ((unsigned __int64)Src + (unsigned int)Size > 0x7FFFFFFF0000LL || (char *)Src + (unsigned int)Size < Src) )
+      if ( DataSize && ((unsigned __int64)Src + DataSize > 0x7FFFFFFF0000LL || (char *)Src + DataSize < Src) )
       {
         MEMORY[0x7FFFFFFF0000] = 0;
         Length = DestinationString.Length;
@@ -174,10 +173,10 @@ LABEL_6:
     }
     else
     {
-      DestinationString = *(UNICODE_STRING *)a2;
+      DestinationString = *ValueName;
       v42 = 0LL;
-      v16 = Size;
-      if ( !(_DWORD)Size )
+      v16 = DataSize;
+      if ( !DataSize )
       {
         Length = DestinationString.Length;
         v17 = Src;
@@ -361,7 +360,7 @@ LABEL_72:
     v26 = 0;
     goto LABEL_73;
   }
-  v31 = CmObReferenceObjectByHandle(v48, 131097, v30, v35, (__int64)&DmaAdapter, (__int64)&v47);
+  v31 = CmObReferenceObjectByHandle((_DWORD)v48, 131097, v30, v35, (__int64)&DmaAdapter, (__int64)&v47);
   v38 = v31;
   if ( v31 < 0 )
     goto LABEL_96;
@@ -409,5 +408,5 @@ LABEL_73:
     KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
     return v38;
   }
-  return (unsigned int)v31;
+  return v31;
 }

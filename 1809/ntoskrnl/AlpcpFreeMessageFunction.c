@@ -1,12 +1,12 @@
 /*
- * XREFs of AlpcpFreeMessageFunction @ 0x1405FC2E0
+ * XREFs of AlpcpFreeMessageFunction @ 0x1405FD2E0
  * Callers:
  *     <none>
  * Callees:
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     ExDestroyHandle @ 0x1405FB318 (ExDestroyHandle.c)
- *     ExMapHandleToPointerEx @ 0x1405FC384 (ExMapHandleToPointerEx.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B78F0 (KiLeaveCriticalRegionUnsafe.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     ExDestroyHandle @ 0x1405FC318 (ExDestroyHandle.c)
+ *     ExMapHandleToPointerEx @ 0x1405FD384 (ExMapHandleToPointerEx.c)
  */
 
 void __fastcall AlpcpFreeMessageFunction(_DWORD *P)

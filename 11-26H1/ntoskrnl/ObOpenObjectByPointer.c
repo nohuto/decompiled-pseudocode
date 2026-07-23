@@ -1,64 +1,64 @@
 /*
- * XREFs of ObOpenObjectByPointer @ 0x14092AFF0
+ * XREFs of ObOpenObjectByPointer @ 0x140906B20
  * Callers:
- *     DbgkUserReportWorkRoutine @ 0x14078AC30 (DbgkUserReportWorkRoutine.c)
- *     ObInitServerSilo @ 0x1407C22F0 (ObInitServerSilo.c)
- *     PfTStart @ 0x1407C67E4 (PfTStart.c)
- *     PopEtEnergyTrackerQueryProcessEnergyValues @ 0x1407DC454 (PopEtEnergyTrackerQueryProcessEnergyValues.c)
- *     TtmiOpenDefaultTerminal @ 0x1407EBF0C (TtmiOpenDefaultTerminal.c)
- *     NtCreateCpuPartition @ 0x1407F18E0 (NtCreateCpuPartition.c)
- *     SmGetRegistrationInfo @ 0x140818E2C (SmGetRegistrationInfo.c)
- *     CmpInitializeRegistryProcess @ 0x140857024 (CmpInitializeRegistryProcess.c)
- *     MiOpenSpecialPurposeMemory @ 0x14087E770 (MiOpenSpecialPurposeMemory.c)
- *     PsOpenProcess @ 0x1408EFC40 (PsOpenProcess.c)
- *     NtGetNextThread @ 0x140956360 (NtGetNextThread.c)
- *     ExGetNextProcess @ 0x140969F30 (ExGetNextProcess.c)
- *     VrpPostEnumerateKey @ 0x140976950 (VrpPostEnumerateKey.c)
- *     CmLoadDifferencingKey @ 0x14097B3F0 (CmLoadDifferencingKey.c)
- *     CmConvertHandleToKernelHandle @ 0x14097CB84 (CmConvertHandleToKernelHandle.c)
- *     DbgkOpenProcessDebugPort @ 0x140987150 (DbgkOpenProcessDebugPort.c)
- *     PspOneDirectionSecurityDomainCombine @ 0x1409FE890 (PspOneDirectionSecurityDomainCombine.c)
- *     PiCMOpenObjectKey @ 0x1409FFA20 (PiCMOpenObjectKey.c)
- *     PspCombineSecurityDomains @ 0x140A0021C (PspCombineSecurityDomains.c)
- *     PiCMDuplicateRegistryHandle @ 0x140A007EC (PiCMDuplicateRegistryHandle.c)
- *     PspCreateObjectHandle @ 0x140A0406C (PspCreateObjectHandle.c)
- *     WmipIoControl @ 0x140A0D940 (WmipIoControl.c)
- *     PsOpenThread @ 0x140A10530 (PsOpenThread.c)
- *     ObpSetDeviceMap @ 0x140A18D3C (ObpSetDeviceMap.c)
- *     sub_140A19B9C @ 0x140A19B9C (sub_140A19B9C.c)
- *     EtwpCapturePreviousRegistryData @ 0x140A24B9C (EtwpCapturePreviousRegistryData.c)
- *     IopInvalidateVolumesForDevice @ 0x140A34D8C (IopInvalidateVolumesForDevice.c)
- *     NtOpenThreadTokenEx @ 0x140A47C40 (NtOpenThreadTokenEx.c)
- *     NtQueryInformationProcess @ 0x140A4A1F0 (NtQueryInformationProcess.c)
- *     NtOpenProcessTokenEx @ 0x140A81910 (NtOpenProcessTokenEx.c)
- *     NtCreateWorkerFactory @ 0x140A912F0 (NtCreateWorkerFactory.c)
- *     CmFcManagerQueryFeatureConfigurationSectionInformation @ 0x140AAD7E4 (CmFcManagerQueryFeatureConfigurationSectionInformation.c)
- *     NtOpenPrivateNamespace @ 0x140ADE430 (NtOpenPrivateNamespace.c)
- *     ObOpenObjectByPointerWithTag @ 0x140AE2EE0 (ObOpenObjectByPointerWithTag.c)
- *     DbgkpOpenHandles @ 0x140AE97C4 (DbgkpOpenHandles.c)
- *     NtGetNextProcess @ 0x140AEF810 (NtGetNextProcess.c)
- *     KiAvailableCpusProcessWorkItemCallback @ 0x140B05090 (KiAvailableCpusProcessWorkItemCallback.c)
- *     VrpPreLoadKey @ 0x140B1B118 (VrpPreLoadKey.c)
- *     EtwpOpenConsumer @ 0x140B29A24 (EtwpOpenConsumer.c)
- *     MmManagePartitionGetMemoryEvents @ 0x140B4F824 (MmManagePartitionGetMemoryEvents.c)
- *     PopEtEnergyTrackerQueryDxgProcessEnergyValues @ 0x140B6D478 (PopEtEnergyTrackerQueryDxgProcessEnergyValues.c)
+ *     DbgkUserReportWorkRoutine @ 0x14078D760 (DbgkUserReportWorkRoutine.c)
+ *     ObInitServerSilo @ 0x1407C5350 (ObInitServerSilo.c)
+ *     PfTStart @ 0x1407C9844 (PfTStart.c)
+ *     PopEtEnergyTrackerQueryProcessEnergyValues @ 0x1407E0674 (PopEtEnergyTrackerQueryProcessEnergyValues.c)
+ *     TtmiOpenDefaultTerminal @ 0x1407F1A70 (TtmiOpenDefaultTerminal.c)
+ *     NtCreateCpuPartition @ 0x1407F7440 (NtCreateCpuPartition.c)
+ *     SmGetRegistrationInfo @ 0x14081F03C (SmGetRegistrationInfo.c)
+ *     CmpInitializeRegistryProcess @ 0x14085D3B4 (CmpInitializeRegistryProcess.c)
+ *     MiOpenSpecialPurposeMemory @ 0x140884B70 (MiOpenSpecialPurposeMemory.c)
+ *     PsOpenProcess @ 0x1408F6200 (PsOpenProcess.c)
+ *     IopInvalidateVolumesForDevice @ 0x14091958C (IopInvalidateVolumesForDevice.c)
+ *     PspOneDirectionSecurityDomainCombine @ 0x14091B690 (PspOneDirectionSecurityDomainCombine.c)
+ *     PiCMOpenObjectKey @ 0x14091C7BC (PiCMOpenObjectKey.c)
+ *     PspCombineSecurityDomains @ 0x14091CFB8 (PspCombineSecurityDomains.c)
+ *     PiCMDuplicateRegistryHandle @ 0x14091D314 (PiCMDuplicateRegistryHandle.c)
+ *     ExGetNextProcess @ 0x14091E590 (ExGetNextProcess.c)
+ *     VrpPostEnumerateKey @ 0x140938960 (VrpPostEnumerateKey.c)
+ *     CmLoadDifferencingKey @ 0x14093D400 (CmLoadDifferencingKey.c)
+ *     CmConvertHandleToKernelHandle @ 0x14093EB94 (CmConvertHandleToKernelHandle.c)
+ *     DbgkOpenProcessDebugPort @ 0x140948E50 (DbgkOpenProcessDebugPort.c)
+ *     NtGetNextThread @ 0x140949FE0 (NtGetNextThread.c)
+ *     NtGetNextProcess @ 0x1409BA3B0 (NtGetNextProcess.c)
+ *     WmipIoControl @ 0x140A0BC50 (WmipIoControl.c)
+ *     PsOpenThread @ 0x140A0F720 (PsOpenThread.c)
+ *     ObpSetDeviceMap @ 0x140A2236C (ObpSetDeviceMap.c)
+ *     sub_140A231CC @ 0x140A231CC (sub_140A231CC.c)
+ *     EtwpCapturePreviousRegistryData @ 0x140A376AC (EtwpCapturePreviousRegistryData.c)
+ *     NtOpenThreadTokenEx @ 0x140A50F30 (NtOpenThreadTokenEx.c)
+ *     NtQueryInformationProcess @ 0x140A534E0 (NtQueryInformationProcess.c)
+ *     PspCreateObjectHandle @ 0x140A7BDE4 (PspCreateObjectHandle.c)
+ *     NtOpenProcessTokenEx @ 0x140A87780 (NtOpenProcessTokenEx.c)
+ *     NtCreateWorkerFactory @ 0x140A95E40 (NtCreateWorkerFactory.c)
+ *     CmFcManagerQueryFeatureConfigurationSectionInformation @ 0x140AAB8A4 (CmFcManagerQueryFeatureConfigurationSectionInformation.c)
+ *     EtwpOpenConsumer @ 0x140AB3A1C (EtwpOpenConsumer.c)
+ *     NtOpenPrivateNamespace @ 0x140ADB620 (NtOpenPrivateNamespace.c)
+ *     ObOpenObjectByPointerWithTag @ 0x140AE0A60 (ObOpenObjectByPointerWithTag.c)
+ *     DbgkpOpenHandles @ 0x140AEC2B4 (DbgkpOpenHandles.c)
+ *     KiAvailableCpusProcessWorkItemCallback @ 0x140B06CA0 (KiAvailableCpusProcessWorkItemCallback.c)
+ *     VrpPreLoadKey @ 0x140B1D3C8 (VrpPreLoadKey.c)
+ *     MmManagePartitionGetMemoryEvents @ 0x140B520B4 (MmManagePartitionGetMemoryEvents.c)
+ *     PopEtEnergyTrackerQueryDxgProcessEnergyValues @ 0x140B70848 (PopEtEnergyTrackerQueryDxgProcessEnergyValues.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     ObpPushStackInfo @ 0x1402659F0 (ObpPushStackInfo.c)
- *     ExfAcquirePushLockSharedEx @ 0x140277CC0 (ExfAcquirePushLockSharedEx.c)
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     ObfReferenceObjectWithTag @ 0x140278B30 (ObfReferenceObjectWithTag.c)
- *     ExfReleasePushLockShared @ 0x140278BD0 (ExfReleasePushLockShared.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     PsReferencePrimaryTokenWithTag @ 0x140279DC0 (PsReferencePrimaryTokenWithTag.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     KeLeaveCriticalRegionThread @ 0x1402B8A60 (KeLeaveCriticalRegionThread.c)
- *     SepDeleteAccessState @ 0x140418680 (SepDeleteAccessState.c)
- *     ObReferenceObjectByPointerWithTag @ 0x14043DAF0 (ObReferenceObjectByPointerWithTag.c)
- *     SepCreateAccessStateFromSubjectContext @ 0x1404425E0 (SepCreateAccessStateFromSubjectContext.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     ObpCreateHandle @ 0x14092CA60 (ObpCreateHandle.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     ObpPushStackInfo @ 0x140264F60 (ObpPushStackInfo.c)
+ *     ExfAcquirePushLockSharedEx @ 0x140277230 (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     ObfReferenceObjectWithTag @ 0x1402780A0 (ObfReferenceObjectWithTag.c)
+ *     ExfReleasePushLockShared @ 0x140278140 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     PsReferencePrimaryTokenWithTag @ 0x140279330 (PsReferencePrimaryTokenWithTag.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     KeLeaveCriticalRegionThread @ 0x140303720 (KeLeaveCriticalRegionThread.c)
+ *     SepDeleteAccessState @ 0x14040CC90 (SepDeleteAccessState.c)
+ *     ObReferenceObjectByPointerWithTag @ 0x140436600 (ObReferenceObjectByPointerWithTag.c)
+ *     SepCreateAccessStateFromSubjectContext @ 0x14043B0F0 (SepCreateAccessStateFromSubjectContext.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     ObpCreateHandle @ 0x140908590 (ObpCreateHandle.c)
  */
 
 NTSTATUS __stdcall ObOpenObjectByPointer(
@@ -80,28 +80,26 @@ NTSTATUS __stdcall ObOpenObjectByPointer(
   signed __int64 *p_WaitBlockList; // r12
   void *v18; // rdx
   LegacyAutoBoost *v19; // rbx
-  _KTRAP_FRAME *v20; // rbx
-  __int64 v21; // rdx
-  __int64 v22; // r8
-  _KTRAP_FRAME *v23; // rax
-  NTSTATUS v24; // ebx
-  NTSTATUS v25; // edi
-  signed __int64 v26; // r8
-  _KPROCESS *v27; // rcx
+  struct _LIST_ENTRY *v20; // rbx
+  struct _LIST_ENTRY *v21; // rax
+  NTSTATUS v22; // ebx
+  NTSTATUS v23; // edi
+  signed __int64 v24; // r8
+  _KPROCESS *v25; // rcx
   signed __int64 ActiveProcessors; // rax
-  signed __int64 v29; // rtt
-  PACCESS_TOKEN v30; // rcx
+  signed __int64 v27; // rtt
+  PACCESS_TOKEN v28; // rcx
   _QWORD *PrimaryToken; // rax
   _QWORD *ClientToken; // rax
-  struct _KTHREAD *v34; // [rsp+68h] [rbp-200h]
-  __int128 v35; // [rsp+78h] [rbp-1F0h] BYREF
-  _KTRAP_FRAME *v36; // [rsp+88h] [rbp-1E0h]
-  __int64 v37; // [rsp+90h] [rbp-1D8h]
-  _QWORD v38[20]; // [rsp+A0h] [rbp-1C8h] BYREF
-  _QWORD v39[28]; // [rsp+140h] [rbp-128h] BYREF
+  struct _KTHREAD *v32; // [rsp+68h] [rbp-200h]
+  __int128 v33; // [rsp+78h] [rbp-1F0h] BYREF
+  struct _LIST_ENTRY *v34; // [rsp+88h] [rbp-1E0h]
+  __int64 v35; // [rsp+90h] [rbp-1D8h]
+  _QWORD v36[20]; // [rsp+A0h] [rbp-1C8h] BYREF
+  _QWORD v37[28]; // [rsp+140h] [rbp-128h] BYREF
 
-  memset_0(v39, 0, sizeof(v39));
-  memset_0(v38, 0, sizeof(v38));
+  memset_0(v37, 0, sizeof(v37));
+  memset_0(v36, 0, sizeof(v36));
   v10 = AccessMode;
   v11 = ObjectType;
   *Handle = 0LL;
@@ -113,21 +111,21 @@ NTSTATUS __stdcall ObOpenObjectByPointer(
     if ( (HandleAttributes & v11->TypeInfo.InvalidAttributes) != 0
       || (*((char *)Object - 21) & 1) != 0 && *((_QWORD *)Object - 2) )
     {
-      ++*(_DWORD *)&stru_140F132C8.SavedApcStateFill[24];
+      ++ObpStackTraceLock.AbCompletedIoQoSBoostCount;
       ObfDereferenceObjectWithTag(Object, 0x6E48624Fu);
       return -1073741811;
     }
     if ( !PassedAccessState )
     {
       CurrentThread = KeGetCurrentThread();
-      *((_QWORD *)&v35 + 1) = 0LL;
+      *((_QWORD *)&v33 + 1) = 0LL;
       Process = (__int64)CurrentThread->ApcState.Process;
-      v37 = *(_QWORD *)(Process + 464);
+      v35 = *(_QWORD *)(Process + 464);
       if ( (*(_DWORD *)(&CurrentThread[1].SwapListEntry + 1) & 8) != 0 )
       {
         p_WaitBlockList = (signed __int64 *)&CurrentThread[1].WaitBlockList;
-        v34 = KeGetCurrentThread();
-        --v34->KernelApcDisable;
+        v32 = KeGetCurrentThread();
+        --v32->KernelApcDisable;
         v19 = (LegacyAutoBoost *)KeAbPreAcquire((__int64)&CurrentThread[1].WaitBlockList, 0LL, 0LL, v14);
         if ( _InterlockedCompareExchange64((volatile signed __int64 *)&CurrentThread[1].WaitBlockList, 17LL, 0LL) )
           ExfAcquirePushLockSharedEx(
@@ -144,9 +142,9 @@ NTSTATUS __stdcall ObOpenObjectByPointer(
         }
         if ( (*(_DWORD *)(&CurrentThread[1].SwapListEntry + 1) & 8) != 0 )
         {
-          v20 = (_KTRAP_FRAME *)(*(_QWORD *)((char *)&CurrentThread[1].116 + 4) & 0xFFFFFFFFFFFFFFF8uLL);
+          v20 = (struct _LIST_ENTRY *)(*(_QWORD *)((char *)&CurrentThread[1].116 + 4) & 0xFFFFFFFFFFFFFFF8uLL);
           ObfReferenceObjectWithTag(v20, 0x75536553u);
-          DWORD2(v35) = *((_DWORD *)&CurrentThread[1].0 + 1) & 3;
+          DWORD2(v33) = *((_DWORD *)&CurrentThread[1].0 + 1) & 3;
         }
         else
         {
@@ -155,48 +153,48 @@ NTSTATUS __stdcall ObOpenObjectByPointer(
         if ( _InterlockedCompareExchange64(p_WaitBlockList, 0LL, 17LL) != 17 )
           ExfReleasePushLockShared(p_WaitBlockList);
         KeAbPostRelease((unsigned __int64)p_WaitBlockList);
-        KeLeaveCriticalRegionThread((__int64)v34, v21, v22);
+        KeLeaveCriticalRegionThread((__int64)v32);
         v10 = AccessMode;
       }
       else
       {
         v20 = 0LL;
       }
-      *(_QWORD *)&v35 = v20;
-      v23 = (_KTRAP_FRAME *)PsReferencePrimaryTokenWithTag(Process, 0x75536553u, v13, v14);
-      v36 = v23;
+      *(_QWORD *)&v33 = v20;
+      v21 = (struct _LIST_ENTRY *)PsReferencePrimaryTokenWithTag(Process, 0x75536553u, v13, v14);
+      v34 = v21;
       if ( SeTokenLeakTracking )
       {
-        if ( v23 )
+        if ( v21 )
         {
-          _InterlockedIncrement((volatile signed __int32 *)(v23[2].Rbp + 284));
-          if ( v23 == RtlpBootStatHandleLock.TrapFrame )
+          _InterlockedIncrement((volatile signed __int32 *)&v21[71].Blink[17].Blink + 1);
+          if ( v21 == RtlpBootStatHandleLock.ApcState.ApcListHead[1].Flink )
             __debugbreak();
         }
         if ( v20 )
         {
-          _InterlockedIncrement((volatile signed __int32 *)(v20[2].Rbp + 284));
-          if ( v20 == RtlpBootStatHandleLock.TrapFrame )
+          _InterlockedIncrement((volatile signed __int32 *)&v20[71].Blink[17].Blink + 1);
+          if ( v20 == RtlpBootStatHandleLock.ApcState.ApcListHead[1].Flink )
             __debugbreak();
         }
       }
-      v24 = SepCreateAccessStateFromSubjectContext(
-              &v35,
-              v38,
-              v39,
+      v22 = SepCreateAccessStateFromSubjectContext(
+              &v33,
+              v36,
+              v37,
               DesiredAccess,
               &v11->TypeInfo.GenericMapping.GenericRead);
-      if ( v24 < 0 )
+      if ( v22 < 0 )
       {
         ObfDereferenceObjectWithTag(Object, 0x6E48624Fu);
-        return v24;
+        return v22;
       }
-      PassedAccessState = (PACCESS_STATE)v38;
+      PassedAccessState = (PACCESS_STATE)v36;
     }
-    v25 = ObpCreateHandle(1LL, Object, 0LL, PassedAccessState, 0, HandleAttributes, v10, 0LL, 0, 0LL, Handle);
-    if ( v25 < 0 )
+    v23 = ObpCreateHandle(1LL, Object, 0LL, PassedAccessState, 0, HandleAttributes, v10, 0LL, 0, 0LL, Handle);
+    if ( v23 < 0 )
       ObfDereferenceObjectWithTag(Object, 0x6E48624Fu);
-    if ( PassedAccessState == (PACCESS_STATE)v38 )
+    if ( PassedAccessState == (PACCESS_STATE)v36 )
     {
       SepDeleteAccessState((__int64)PassedAccessState);
       if ( SeTokenLeakTracking )
@@ -205,45 +203,45 @@ NTSTATUS __stdcall ObOpenObjectByPointer(
         if ( PrimaryToken )
         {
           _InterlockedDecrement((volatile signed __int32 *)(PrimaryToken[143] + 284LL));
-          if ( PassedAccessState->SubjectSecurityContext.PrimaryToken == RtlpBootStatHandleLock.TrapFrame )
+          if ( PassedAccessState->SubjectSecurityContext.PrimaryToken == RtlpBootStatHandleLock.ApcState.ApcListHead[1].Flink )
             __debugbreak();
         }
         ClientToken = PassedAccessState->SubjectSecurityContext.ClientToken;
         if ( ClientToken )
         {
           _InterlockedDecrement((volatile signed __int32 *)(ClientToken[143] + 284LL));
-          if ( PassedAccessState->SubjectSecurityContext.ClientToken == RtlpBootStatHandleLock.TrapFrame )
+          if ( PassedAccessState->SubjectSecurityContext.ClientToken == RtlpBootStatHandleLock.ApcState.ApcListHead[1].Flink )
             __debugbreak();
         }
       }
-      v26 = (signed __int64)PassedAccessState->SubjectSecurityContext.PrimaryToken;
-      v27 = KeGetCurrentThread()->ApcState.Process;
-      _m_prefetchw(&v27[1].ActiveProcessors);
-      ActiveProcessors = (signed __int64)v27[1].ActiveProcessors;
+      v24 = (signed __int64)PassedAccessState->SubjectSecurityContext.PrimaryToken;
+      v25 = KeGetCurrentThread()->ApcState.Process;
+      _m_prefetchw(&v25[1].ActiveProcessors);
+      ActiveProcessors = (signed __int64)v25[1].ActiveProcessors;
       do
       {
-        if ( (v26 ^ (unsigned __int64)ActiveProcessors) >= 0xF )
+        if ( (v24 ^ (unsigned __int64)ActiveProcessors) >= 0xF )
         {
-          ObfDereferenceObjectWithTag((PVOID)v26, 0x75536553u);
+          ObfDereferenceObjectWithTag((PVOID)v24, 0x75536553u);
           goto LABEL_30;
         }
-        v29 = ActiveProcessors;
+        v27 = ActiveProcessors;
         ActiveProcessors = _InterlockedCompareExchange64(
-                             (volatile signed __int64 *)&v27[1].ActiveProcessors,
+                             (volatile signed __int64 *)&v25[1].ActiveProcessors,
                              ActiveProcessors + 1,
                              ActiveProcessors);
       }
-      while ( v29 != ActiveProcessors );
+      while ( v27 != ActiveProcessors );
       if ( ObpTraceFlags )
-        ObpPushStackInfo(v26 - 48, -1, 0x75536553u);
+        ObpPushStackInfo(v24 - 48, -1, 0x75536553u);
 LABEL_30:
-      v30 = PassedAccessState->SubjectSecurityContext.ClientToken;
+      v28 = PassedAccessState->SubjectSecurityContext.ClientToken;
       PassedAccessState->SubjectSecurityContext.PrimaryToken = 0LL;
-      if ( v30 )
-        ObfDereferenceObjectWithTag(v30, 0x75536553u);
+      if ( v28 )
+        ObfDereferenceObjectWithTag(v28, 0x75536553u);
       PassedAccessState->SubjectSecurityContext.ClientToken = 0LL;
     }
-    return v25;
+    return v23;
   }
   return result;
 }

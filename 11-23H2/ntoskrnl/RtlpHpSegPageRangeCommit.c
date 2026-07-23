@@ -1,14 +1,14 @@
 /*
- * XREFs of RtlpHpSegPageRangeCommit @ 0x14024E2F0
+ * XREFs of RtlpHpSegPageRangeCommit @ 0x14024E3C0
  * Callers:
- *     RtlpHpSegAlloc @ 0x14024DB40 (RtlpHpSegAlloc.c)
- *     RtlpHpSegLfhVsCommit @ 0x14024E1F0 (RtlpHpSegLfhVsCommit.c)
- *     RtlpHpSegPageRangeCoalesce @ 0x14024EAD0 (RtlpHpSegPageRangeCoalesce.c)
- *     RtlpHpSegLfhVsDecommit @ 0x140316770 (RtlpHpSegLfhVsDecommit.c)
- *     RtlpHpMetadataCommit @ 0x1403C7234 (RtlpHpMetadataCommit.c)
+ *     RtlpHpSegAlloc @ 0x14024DC10 (RtlpHpSegAlloc.c)
+ *     RtlpHpSegLfhVsCommit @ 0x14024E2C0 (RtlpHpSegLfhVsCommit.c)
+ *     RtlpHpSegPageRangeCoalesce @ 0x14024EBA0 (RtlpHpSegPageRangeCoalesce.c)
+ *     RtlpHpSegLfhVsDecommit @ 0x140316A00 (RtlpHpSegLfhVsDecommit.c)
+ *     RtlpHpMetadataCommit @ 0x1403C7414 (RtlpHpMetadataCommit.c)
  * Callees:
- *     RtlpHpSegMgrCommit @ 0x14024F080 (RtlpHpSegMgrCommit.c)
- *     RtlpHpSegPageRangeHandleCommit @ 0x14024F400 (RtlpHpSegPageRangeHandleCommit.c)
+ *     RtlpHpSegMgrCommit @ 0x14024F150 (RtlpHpSegMgrCommit.c)
+ *     RtlpHpSegPageRangeHandleCommit @ 0x14024F4D0 (RtlpHpSegPageRangeHandleCommit.c)
  */
 
 __int64 __fastcall RtlpHpSegPageRangeCommit(

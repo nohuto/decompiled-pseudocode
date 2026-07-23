@@ -1,49 +1,46 @@
 /*
- * XREFs of RtlInitCodePageTable @ 0x180087AD0
+ * XREFs of RtlInitCodePageTable @ 0x180087AC0
  * Callers:
- *     RtlInitNlsTables @ 0x180087A60 (RtlInitNlsTables.c)
+ *     RtlInitNlsTables @ 0x180087A50 (RtlInitNlsTables.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall RtlInitCodePageTable(unsigned __int16 *a1, __int64 a2)
+void __cdecl RtlInitCodePageTable(PUSHORT TableBase, PCPTABLEINFO CodePageTable)
 {
   __int64 v2; // r9
   __int64 v3; // r8
   unsigned __int16 v4; // r9
-  unsigned __int16 *v5; // rax
-  _WORD *v6; // rax
-  __int64 result; // rax
+  USHORT *v5; // rax
+  USHORT *v6; // rax
 
-  v2 = *a1;
+  v2 = *TableBase;
   v3 = v2 + 1;
-  v4 = a1[v2] + v2;
-  *(_WORD *)a2 = a1[1];
-  *(_WORD *)(a2 + 2) = a1[2];
-  *(_WORD *)(a2 + 4) = a1[3];
-  *(_WORD *)(a2 + 6) = a1[4];
-  *(_WORD *)(a2 + 8) = a1[5];
-  *(_WORD *)(a2 + 10) = a1[6];
-  *(_QWORD *)(a2 + 14) = *(_QWORD *)(a1 + 7);
-  *(_DWORD *)(a2 + 22) = *(_DWORD *)(a1 + 11);
-  v5 = &a1[v3];
-  *(_QWORD *)(a2 + 32) = v5;
+  v4 = TableBase[v2] + v2;
+  CodePageTable->CodePage = TableBase[1];
+  CodePageTable->MaximumCharacterSize = TableBase[2];
+  CodePageTable->DefaultChar = TableBase[3];
+  CodePageTable->UniDefaultChar = TableBase[4];
+  CodePageTable->TransDefaultChar = TableBase[5];
+  CodePageTable->TransUniDefaultChar = TableBase[6];
+  *(_QWORD *)CodePageTable->LeadByte = *(_QWORD *)(TableBase + 7);
+  *(_DWORD *)&CodePageTable->LeadByte[8] = *(_DWORD *)(TableBase + 11);
+  v5 = &TableBase[v3];
+  CodePageTable->MultiByteTable = v5;
   if ( v5[256] )
     v6 = v5 + 513;
   else
     v6 = v5 + 257;
-  *(_QWORD *)(a2 + 48) = v6;
+  CodePageTable->DBCSRanges = v6;
   if ( *v6 )
   {
-    *(_QWORD *)(a2 + 56) = v6 + 1;
-    *(_WORD *)(a2 + 12) = 1;
+    CodePageTable->DBCSOffsets = v6 + 1;
+    CodePageTable->DBCSCodePage = 1;
   }
   else
   {
-    *(_WORD *)(a2 + 12) = 0;
-    *(_QWORD *)(a2 + 56) = 0LL;
+    CodePageTable->DBCSCodePage = 0;
+    CodePageTable->DBCSOffsets = 0LL;
   }
-  result = v4;
-  *(_QWORD *)(a2 + 40) = &a1[v4 + 1];
-  return result;
+  CodePageTable->WideCharTable = &TableBase[v4 + 1];
 }

@@ -1,22 +1,22 @@
 /*
- * XREFs of SmKmKeyGenNewKey @ 0x14079A1C4
+ * XREFs of SmKmKeyGenNewKey @ 0x14079A2D4
  * Callers:
- *     SmKmKeyGenGenerate @ 0x140799E00 (SmKmKeyGenGenerate.c)
+ *     SmKmKeyGenGenerate @ 0x140799F10 (SmKmKeyGenGenerate.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     ExfTryToWakePushLock @ 0x14025F9A0 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     SmAllocEx @ 0x14044AB68 (SmAllocEx.c)
- *     CmSiFreeMemory @ 0x14046B8D0 (CmSiFreeMemory.c)
- *     SmCrGenRandom @ 0x14060F494 (SmCrGenRandom.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     ZwDeleteValueKey @ 0x1406A7FF0 (ZwDeleteValueKey.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     SmKmKeyGenKeyFind @ 0x14079A004 (SmKmKeyGenKeyFind.c)
- *     SmKmKeyGenLoadKey @ 0x14079A048 (SmKmKeyGenLoadKey.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     ExfTryToWakePushLock @ 0x14028FFB0 (ExfTryToWakePushLock.c)
+ *     SmAllocEx @ 0x1402F5228 (SmAllocEx.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     CmSiFreeMemory @ 0x140464550 (CmSiFreeMemory.c)
+ *     SmCrGenRandom @ 0x14060DA54 (SmCrGenRandom.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     ZwDeleteValueKey @ 0x1406A8F90 (ZwDeleteValueKey.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     SmKmKeyGenKeyFind @ 0x14079A114 (SmKmKeyGenKeyFind.c)
+ *     SmKmKeyGenLoadKey @ 0x14079A158 (SmKmKeyGenLoadKey.c)
  */
 
 __int64 __fastcall SmKmKeyGenNewKey(ULONG_PTR BugCheckParameter2, _WORD *Src, ULONG cbBuffer)
@@ -31,8 +31,8 @@ __int64 __fastcall SmKmKeyGenNewKey(ULONG_PTR BugCheckParameter2, _WORD *Src, UL
   ULONG v12; // r9d
   int v13; // eax
   struct _KTHREAD *CurrentThread; // rax
-  _QWORD *v15; // rax
-  _QWORD *v16; // rbp
+  char *v15; // rax
+  char *v16; // rbp
   __int64 *v17; // rax
   __int64 v18; // rcx
   HANDLE v19; // r9
@@ -48,7 +48,7 @@ __int64 __fastcall SmKmKeyGenNewKey(ULONG_PTR BugCheckParameter2, _WORD *Src, UL
   do
     ++v4;
   while ( Src[v4] );
-  v7 = (void *)SmAllocEx(cbBuffer + 42 + 2 * (_DWORD)v4, 1196125555LL, -1);
+  v7 = (void *)SmAllocEx(cbBuffer + 42 + 2 * (_DWORD)v4, 0x474B6D73u, -1);
   v8 = (__int64)v7;
   if ( !v7 )
     return (unsigned int)-1073741670;
@@ -67,12 +67,12 @@ __int64 __fastcall SmKmKeyGenNewKey(ULONG_PTR BugCheckParameter2, _WORD *Src, UL
 LABEL_9:
     CurrentThread = KeGetCurrentThread();
     --CurrentThread->KernelApcDisable;
-    v15 = KeAbPreAcquire(BugCheckParameter2, 0LL);
+    v15 = (char *)KeAbPreAcquire(BugCheckParameter2, 0LL);
     v16 = v15;
     if ( _interlockedbittestandset64((volatile signed __int32 *)BugCheckParameter2, 0LL) )
-      ExfAcquirePushLockExclusiveEx((unsigned __int64 *)BugCheckParameter2, (__int64)v15, BugCheckParameter2);
+      ExfAcquirePushLockExclusiveEx((unsigned __int64 *)BugCheckParameter2, v15, BugCheckParameter2);
     if ( v16 )
-      *((_BYTE *)v16 + 10) = 1;
+      v16[10] = 1;
     if ( !SmKmKeyGenKeyFind(BugCheckParameter2, Src) )
     {
       v17 = (__int64 *)(BugCheckParameter2 + 8);

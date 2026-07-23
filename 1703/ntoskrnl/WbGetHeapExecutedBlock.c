@@ -23,7 +23,7 @@ __int64 __fastcall WbGetHeapExecutedBlock(__int64 a1, __int64 a2, volatile signe
 {
   __int64 v5; // rdx
   struct _KTHREAD *CurrentThread; // rax
-  __int64 v8; // rbx
+  PRTL_BALANCED_NODE v8; // rbx
   __int64 v9; // rdx
   int v10; // ebx
   void *v11; // rdx
@@ -42,11 +42,11 @@ __int64 __fastcall WbGetHeapExecutedBlock(__int64 a1, __int64 a2, volatile signe
   WbReleaseLeastRecentlyUsedHeapExecutedBlocks(a1, v5);
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->SpecialApcDisable;
-  v8 = KeAbPreAcquire(a1 + 48, 0LL, 0LL);
+  v8 = KeAbPreAcquire(a1 + 48, 0LL, 0);
   if ( _InterlockedCompareExchange64((volatile signed __int64 *)(a1 + 48), 17LL, 0LL) )
     ExfAcquirePushLockSharedEx((signed __int64 *)(a1 + 48), v8, a1 + 48);
   if ( v8 )
-    *(_BYTE *)(v8 + 26) |= 1u;
+    BYTE2(v8[1].Left) |= 1u;
   v9 = *(_QWORD *)(a2 + 256);
   v18 = 0LL;
   v10 = sub_14053B960((int)a1 + 8, v9, 8, (unsigned int)&v18, 0LL);

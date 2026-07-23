@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpBlkDeviceNotAvailableFault @ 0x140BDBD00
+ * XREFs of HalpBlkDeviceNotAvailableFault @ 0x140BDDD00
  * Callers:
  *     <none>
  * Callees:
- *     HalpBlkFatalErrorHalt @ 0x140BDB900 (HalpBlkFatalErrorHalt.c)
+ *     HalpBlkFatalErrorHalt @ 0x140BDD900 (HalpBlkFatalErrorHalt.c)
  */
 
 void __fastcall __noreturn HalpBlkDeviceNotAvailableFault(__int64 a1, __int64 a2, __int64 a3, __int64 a4)

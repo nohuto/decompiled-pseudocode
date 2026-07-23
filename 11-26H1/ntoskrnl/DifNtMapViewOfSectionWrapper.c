@@ -1,28 +1,28 @@
 /*
- * XREFs of DifNtMapViewOfSectionWrapper @ 0x14067BB70
+ * XREFs of DifNtMapViewOfSectionWrapper @ 0x14067F750
  * Callers:
  *     <none>
  * Callees:
- *     DifGetReturnAddressForWrappers @ 0x140260EA4 (DifGetReturnAddressForWrappers.c)
- *     ExReleaseRundownProtection_0 @ 0x140266240 (ExReleaseRundownProtection_0.c)
- *     ExAcquireRundownProtection_0 @ 0x1402F0590 (ExAcquireRundownProtection_0.c)
- *     DifGetAPIThunkContextById @ 0x1404C17A4 (DifGetAPIThunkContextById.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     NtMapViewOfSection @ 0x1409C28A0 (NtMapViewOfSection.c)
+ *     DifGetReturnAddressForWrappers @ 0x14026040C (DifGetReturnAddressForWrappers.c)
+ *     ExReleaseRundownProtection_0 @ 0x1402657B0 (ExReleaseRundownProtection_0.c)
+ *     ExAcquireRundownProtection_0 @ 0x1402D2610 (ExAcquireRundownProtection_0.c)
+ *     DifGetAPIThunkContextById @ 0x1404BAFF4 (DifGetAPIThunkContextById.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     NtMapViewOfSection @ 0x140993880 (NtMapViewOfSection.c)
  */
 
 __int64 __fastcall DifNtMapViewOfSectionWrapper(
-        ULONG_PTR a1,
-        ULONG_PTR a2,
-        __int64 a3,
-        __int64 a4,
-        __int64 a5,
-        __int64 a6,
-        __int64 a7,
-        int a8,
-        int a9,
-        int a10)
+        void *a1,
+        void *a2,
+        PVOID *a3,
+        ULONG_PTR a4,
+        SIZE_T CommitSize,
+        LARGE_INTEGER *SectionOffset,
+        ULONG_PTR *ViewSize,
+        SECTION_INHERIT InheritDisposition,
+        ULONG AllocationType,
+        ULONG Win32Protect)
 {
   __int128 *APIThunkContextById; // rax
   __int64 v14; // rdx
@@ -35,16 +35,16 @@ __int64 __fastcall DifNtMapViewOfSectionWrapper(
   BOOLEAN v21; // di
   __int128 *j; // rbx
   PVOID v24; // [rsp+58h] [rbp-59h] BYREF
-  int v25; // [rsp+60h] [rbp-51h]
-  int v26; // [rsp+64h] [rbp-4Dh]
-  int v27; // [rsp+68h] [rbp-49h]
-  __int64 v28; // [rsp+70h] [rbp-41h]
-  __int64 v29; // [rsp+78h] [rbp-39h]
-  __int64 v30; // [rsp+80h] [rbp-31h]
-  __int64 v31; // [rsp+88h] [rbp-29h]
-  __int64 v32; // [rsp+90h] [rbp-21h]
-  ULONG_PTR v33; // [rsp+98h] [rbp-19h]
-  ULONG_PTR v34; // [rsp+A0h] [rbp-11h]
+  ULONG v25; // [rsp+60h] [rbp-51h]
+  ULONG v26; // [rsp+64h] [rbp-4Dh]
+  SECTION_INHERIT v27; // [rsp+68h] [rbp-49h]
+  ULONG_PTR *v28; // [rsp+70h] [rbp-41h]
+  LARGE_INTEGER *v29; // [rsp+78h] [rbp-39h]
+  SIZE_T v30; // [rsp+80h] [rbp-31h]
+  ULONG_PTR v31; // [rsp+88h] [rbp-29h]
+  PVOID *v32; // [rsp+90h] [rbp-21h]
+  void *v33; // [rsp+98h] [rbp-19h]
+  void *v34; // [rsp+A0h] [rbp-11h]
   unsigned int v35; // [rsp+A8h] [rbp-9h]
   void *retaddr; // [rsp+E0h] [rbp+2Fh]
 
@@ -68,12 +68,12 @@ __int64 __fastcall DifNtMapViewOfSectionWrapper(
 LABEL_7:
   v18 = 0;
   v34 = a1;
-  v30 = a5;
-  v29 = a6;
-  v28 = a7;
-  v27 = a8;
-  v26 = a9;
-  v25 = a10;
+  v30 = CommitSize;
+  v29 = SectionOffset;
+  v28 = ViewSize;
+  v27 = InheritDisposition;
+  v26 = AllocationType;
+  v25 = Win32Protect;
   v33 = a2;
   v32 = a3;
   v31 = a4;
@@ -89,7 +89,17 @@ LABEL_7:
       ExReleaseRundownProtection_0(&DifRebootlessRundown);
   }
 LABEL_17:
-  v35 = NtMapViewOfSection(a1, a2, a5, a6, a7, a8, a9, a10);
+  v35 = NtMapViewOfSection(
+          a1,
+          a2,
+          a3,
+          a4,
+          CommitSize,
+          SectionOffset,
+          ViewSize,
+          InheritDisposition,
+          AllocationType,
+          Win32Protect);
   if ( v15 )
   {
     if ( (v21 = 0, !VfDifRunningWithoutReboot) && (VfOptionFlags & 0x800) == 0

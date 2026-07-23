@@ -1,11 +1,11 @@
 /*
- * XREFs of HvlSkCrashdumpCallbackRoutine @ 0x1405C06C0
+ * XREFs of HvlSkCrashdumpCallbackRoutine @ 0x1405C2F30
  * Callers:
  *     <none>
  * Callees:
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     HvlpSnapshotCrashArea @ 0x1405C0EF4 (HvlpSnapshotCrashArea.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     HvlpSnapshotCrashArea @ 0x1405C3764 (HvlpSnapshotCrashArea.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 char __fastcall HvlSkCrashdumpCallbackRoutine(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
@@ -21,7 +21,7 @@ char __fastcall HvlSkCrashdumpCallbackRoutine(__int64 a1, __int64 a2, __int64 a3
   ULONG v12; // ecx
   ULONG_PTR BugCheckParameter4; // [rsp+20h] [rbp-18h]
 
-  Flink = VslpReservedTransferLock.WaitBlock[2].WaitListEntry.Flink;
+  Flink = VslpReservedTransferLock.WaitBlock[3].WaitListEntry.Flink;
   CurrentPrcb = KeGetCurrentPrcb();
   HvlpSnapshotCrashArea(a1, a2, a3, a4);
   if ( Flink && (HIDWORD(Flink->Flink) & 1) != 0 )
@@ -38,7 +38,7 @@ char __fastcall HvlSkCrashdumpCallbackRoutine(__int64 a1, __int64 a2, __int64 a3
       v11 = (ULONG_PTR)Flink[1].Flink;
       v12 = (ULONG)Flink->Blink;
       BugCheckParameter4 = (ULONG_PTR)Flink[2].Blink;
-      LOBYTE(stru_140F10828.WriteOperationCount) = 1;
+      PoAllProcIntrDisabled = 1;
       KeBugCheckEx(v12, v11, Blink, v9, BugCheckParameter4);
     }
     while ( 1 )

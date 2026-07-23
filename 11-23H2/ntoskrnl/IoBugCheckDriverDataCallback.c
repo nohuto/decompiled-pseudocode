@@ -1,5 +1,5 @@
 /*
- * XREFs of IoBugCheckDriverDataCallback @ 0x14054F6F0
+ * XREFs of IoBugCheckDriverDataCallback @ 0x14054FDB0
  * Callers:
  *     <none>
  * Callees:
@@ -18,7 +18,7 @@ void __fastcall IoBugCheckDriverDataCallback(
 
   v4 = (unsigned __int16 *)KiBugCheckDriver;
   v5 = 0;
-  ReasonSpecificData[1] = xmmword_14003FA30;
+  ReasonSpecificData[1] = xmmword_14003FB30;
   if ( v4 && *((_QWORD *)v4 + 1) && *v4 )
     v5 = *v4;
   v6 = *((_QWORD *)ReasonSpecificData + 4);

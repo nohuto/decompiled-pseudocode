@@ -1,13 +1,13 @@
 /*
- * XREFs of IommuMapIdentityRangeEx @ 0x140525F50
+ * XREFs of IommuMapIdentityRangeEx @ 0x1405264A0
  * Callers:
  *     <none>
  * Callees:
- *     HalpIommuDomainFreeLogicalAddressRange @ 0x14045E6EE (HalpIommuDomainFreeLogicalAddressRange.c)
- *     HalpIommuDomainGetLogicalAddressRange @ 0x14045E726 (HalpIommuDomainGetLogicalAddressRange.c)
- *     HalpIommuDomainMapIdentityRange @ 0x140517BE4 (HalpIommuDomainMapIdentityRange.c)
- *     HalpIommuDomainMapLogicalRange @ 0x140517D84 (HalpIommuDomainMapLogicalRange.c)
- *     IommupProcessPhysicalAddress @ 0x140526C08 (IommupProcessPhysicalAddress.c)
+ *     HalpIommuDomainFreeLogicalAddressRange @ 0x14045EAEE (HalpIommuDomainFreeLogicalAddressRange.c)
+ *     HalpIommuDomainGetLogicalAddressRange @ 0x14045EB26 (HalpIommuDomainGetLogicalAddressRange.c)
+ *     HalpIommuDomainMapIdentityRange @ 0x140518134 (HalpIommuDomainMapIdentityRange.c)
+ *     HalpIommuDomainMapLogicalRange @ 0x1405182D4 (HalpIommuDomainMapLogicalRange.c)
+ *     IommupProcessPhysicalAddress @ 0x140527158 (IommupProcessPhysicalAddress.c)
  */
 
 __int64 __fastcall IommuMapIdentityRangeEx(ULONG_PTR a1, unsigned int a2, int a3)

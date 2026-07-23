@@ -1,17 +1,17 @@
 /*
- * XREFs of SdbpCheckAttribute @ 0x1408075F4
+ * XREFs of SdbpCheckAttribute @ 0x140807D34
  * Callers:
- *     SdbpCheckAllAttributes @ 0x14080735C (SdbpCheckAllAttributes.c)
+ *     SdbpCheckAllAttributes @ 0x140807A9C (SdbpCheckAllAttributes.c)
  * Callees:
- *     wil_details_FeatureReporting_ReportUsageToService @ 0x14053CAC4 (wil_details_FeatureReporting_ReportUsageToService.c)
- *     wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath @ 0x14053CB54 (wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath.c)
- *     SdbpCheckFromStringVersion @ 0x1408078F4 (SdbpCheckFromStringVersion.c)
- *     SdbpCheckFromVersion @ 0x140807A84 (SdbpCheckFromVersion.c)
- *     SdbpCheckUptoStringVersion @ 0x140807ACC (SdbpCheckUptoStringVersion.c)
- *     SdbpCheckUptoVersion @ 0x140807C40 (SdbpCheckUptoVersion.c)
- *     SdbpCheckVersion @ 0x140807C88 (SdbpCheckVersion.c)
- *     AslLogCallPrintf @ 0x1409601DC (AslLogCallPrintf.c)
- *     AslStringPatternMatchExW @ 0x140960540 (AslStringPatternMatchExW.c)
+ *     wil_details_FeatureReporting_ReportUsageToService @ 0x14053A3BC (wil_details_FeatureReporting_ReportUsageToService.c)
+ *     wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath @ 0x14053A44C (wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath.c)
+ *     SdbpCheckFromStringVersion @ 0x140808034 (SdbpCheckFromStringVersion.c)
+ *     SdbpCheckFromVersion @ 0x1408081C4 (SdbpCheckFromVersion.c)
+ *     SdbpCheckUptoStringVersion @ 0x14080820C (SdbpCheckUptoStringVersion.c)
+ *     SdbpCheckUptoVersion @ 0x140808380 (SdbpCheckUptoVersion.c)
+ *     SdbpCheckVersion @ 0x1408083C8 (SdbpCheckVersion.c)
+ *     AslLogCallPrintf @ 0x140947C9C (AslLogCallPrintf.c)
+ *     AslStringPatternMatchExW @ 0x140948000 (AslStringPatternMatchExW.c)
  */
 
 __int64 __fastcall SdbpCheckAttribute(_DWORD *a1, unsigned __int16 a2, _QWORD *a3, unsigned int a4, __int64 a5)

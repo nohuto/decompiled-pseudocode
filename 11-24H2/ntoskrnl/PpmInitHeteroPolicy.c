@@ -1,7 +1,7 @@
 /*
- * XREFs of PpmInitHeteroPolicy @ 0x140C318AC
+ * XREFs of PpmInitHeteroPolicy @ 0x140C339CC
  * Callers:
- *     PoInitSystem @ 0x140C61990 (PoInitSystem.c)
+ *     PoInitSystem @ 0x140C63AE4 (PoInitSystem.c)
  * Callees:
  *     <none>
  */
@@ -16,7 +16,7 @@ __int64 PpmInitHeteroPolicy()
   char v5; // cl
   __int64 result; // rax
 
-  v0 = (char *)&unk_140F06CC3;
+  v0 = (char *)&unk_140F06FE3;
   v1 = 2LL;
   do
   {
@@ -36,26 +36,26 @@ __int64 PpmInitHeteroPolicy()
     --v1;
   }
   while ( v1 );
-  word_140F06B6E = -1;
-  word_140F06D56 = -1;
-  dword_140F06B68 = 5;
-  dword_140F06D50 = 5;
-  dword_140F06B64 = 5;
-  dword_140F06D4C = 5;
+  word_140F06E8E = -1;
+  word_140F07076 = -1;
+  dword_140F06E88 = 5;
+  dword_140F07070 = 5;
+  dword_140F06E84 = 5;
+  dword_140F0706C = 5;
   result = 4LL;
-  dword_140F06B74 = 4;
-  dword_140F06D5C = 4;
-  byte_140F06A59 = 3;
-  byte_140F06C41 = 3;
-  word_140F06B5B = 12850;
-  word_140F06D43 = 12850;
-  dword_140F06B78 = 3;
-  dword_140F06D60 = 3;
-  qword_140F06B7C = 3LL;
-  qword_140F06D64 = 3LL;
-  dword_140F06B84 = 0;
-  dword_140F06D6C = 0;
-  dword_140F06B88 = 1;
-  dword_140F06D70 = 1;
+  dword_140F06E94 = 4;
+  dword_140F0707C = 4;
+  byte_140F06D79 = 3;
+  byte_140F06F61 = 3;
+  word_140F06E7B = 12850;
+  word_140F07063 = 12850;
+  dword_140F06E98 = 3;
+  dword_140F07080 = 3;
+  qword_140F06E9C = 3LL;
+  qword_140F07084 = 3LL;
+  dword_140F06EA4 = 0;
+  dword_140F0708C = 0;
+  dword_140F06EA8 = 1;
+  dword_140F07090 = 1;
   return result;
 }

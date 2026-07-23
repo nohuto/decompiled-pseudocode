@@ -1,13 +1,13 @@
 /*
- * XREFs of SeDeleteObjectAuditAlarmWithTransaction @ 0x140A98130
+ * XREFs of SeDeleteObjectAuditAlarmWithTransaction @ 0x140863C20
  * Callers:
- *     NtDeleteKey @ 0x1408697B0 (NtDeleteKey.c)
- *     NtMakeTemporaryObject @ 0x140A682C0 (NtMakeTemporaryObject.c)
- *     SeDeleteObjectAuditAlarm @ 0x140A98110 (SeDeleteObjectAuditAlarm.c)
+ *     SeDeleteObjectAuditAlarm @ 0x140863C00 (SeDeleteObjectAuditAlarm.c)
+ *     NtDeleteKey @ 0x14086DAE0 (NtDeleteKey.c)
+ *     NtMakeTemporaryObject @ 0x1409B92A0 (NtMakeTemporaryObject.c)
  * Callees:
- *     SeReleaseSubjectContext @ 0x14084D7E0 (SeReleaseSubjectContext.c)
- *     SeCaptureSubjectContext @ 0x14084D8F0 (SeCaptureSubjectContext.c)
- *     SepAdtDeleteObjectAuditAlarm @ 0x1408F07FC (SepAdtDeleteObjectAuditAlarm.c)
+ *     SeReleaseSubjectContext @ 0x140849AA0 (SeReleaseSubjectContext.c)
+ *     SeCaptureSubjectContext @ 0x140849BB0 (SeCaptureSubjectContext.c)
+ *     SepAdtDeleteObjectAuditAlarm @ 0x140861FFC (SepAdtDeleteObjectAuditAlarm.c)
  */
 
 void __stdcall SeDeleteObjectAuditAlarmWithTransaction(PVOID Object, HANDLE Handle, GUID *TransactionId)

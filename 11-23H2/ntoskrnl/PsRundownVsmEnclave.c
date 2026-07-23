@@ -1,11 +1,11 @@
 /*
- * XREFs of PsRundownVsmEnclave @ 0x1409B77C4
+ * XREFs of PsRundownVsmEnclave @ 0x1409B79C4
  * Callers:
- *     MiCanDeleteEnclave @ 0x140647148 (MiCanDeleteEnclave.c)
+ *     MiCanDeleteEnclave @ 0x140647698 (MiCanDeleteEnclave.c)
  * Callees:
- *     VslpEnterIumSecureMode @ 0x14033FCF0 (VslpEnterIumSecureMode.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memset @ 0x140435A00 (memset.c)
+ *     VslpEnterIumSecureMode @ 0x14033FF80 (VslpEnterIumSecureMode.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     memset @ 0x140435E00 (memset.c)
  */
 
 __int64 __fastcall PsRundownVsmEnclave(__int64 a1)

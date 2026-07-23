@@ -1,25 +1,25 @@
 /*
- * XREFs of MiCompleteRestrictedImageFault @ 0x1403744A0
+ * XREFs of MiCompleteRestrictedImageFault @ 0x140376250
  * Callers:
- *     MiSoftFaultMappedView @ 0x1403BB610 (MiSoftFaultMappedView.c)
+ *     MiSoftFaultMappedView @ 0x1403C5480 (MiSoftFaultMappedView.c)
  * Callees:
- *     ObFastDereferenceObjectDeferDelete @ 0x140264A20 (ObFastDereferenceObjectDeferDelete.c)
- *     PfSnLogPageFaultCommon @ 0x140265B50 (PfSnLogPageFaultCommon.c)
- *     ExReleaseRundownProtection_0 @ 0x140266240 (ExReleaseRundownProtection_0.c)
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     MiGetSubsectionFromPte @ 0x1402836C0 (MiGetSubsectionFromPte.c)
- *     MiUserPdeOrAbove @ 0x1402A1440 (MiUserPdeOrAbove.c)
- *     MiAllocateWsle @ 0x1402D7F18 (MiAllocateWsle.c)
- *     MiGetContainingPageTable @ 0x1402D9BF0 (MiGetContainingPageTable.c)
- *     MiEmptyDeferredWorkingSetEntries @ 0x1402E5EA0 (MiEmptyDeferredWorkingSetEntries.c)
- *     MiPteHasShadow @ 0x1403011E0 (MiPteHasShadow.c)
- *     MiLockAndDecrementShareCount @ 0x1403091DC (MiLockAndDecrementShareCount.c)
- *     MiIncreaseUsedPtes @ 0x140365F20 (MiIncreaseUsedPtes.c)
- *     MiGetSharedProtos @ 0x140372BD8 (MiGetSharedProtos.c)
- *     PfSnReferenceProcessTrace @ 0x140374C1C (PfSnReferenceProcessTrace.c)
- *     MiIsAddressGlobal @ 0x140374CF0 (MiIsAddressGlobal.c)
- *     PsGetIoPriorityThread @ 0x1403750A0 (PsGetIoPriorityThread.c)
- *     MiReferenceControlAreaFileWithTag @ 0x14038ED10 (MiReferenceControlAreaFileWithTag.c)
+ *     ObFastDereferenceObjectDeferDelete @ 0x140263F90 (ObFastDereferenceObjectDeferDelete.c)
+ *     PfSnLogPageFaultCommon @ 0x1402650C0 (PfSnLogPageFaultCommon.c)
+ *     ExReleaseRundownProtection_0 @ 0x1402657B0 (ExReleaseRundownProtection_0.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     MiGetSubsectionFromPte @ 0x140282C30 (MiGetSubsectionFromPte.c)
+ *     MiUserPdeOrAbove @ 0x1402A0990 (MiUserPdeOrAbove.c)
+ *     MiAllocateWsle @ 0x1402B9CD8 (MiAllocateWsle.c)
+ *     MiGetContainingPageTable @ 0x1402BB9B0 (MiGetContainingPageTable.c)
+ *     MiEmptyDeferredWorkingSetEntries @ 0x1402C7EE0 (MiEmptyDeferredWorkingSetEntries.c)
+ *     MiPteHasShadow @ 0x1402E3260 (MiPteHasShadow.c)
+ *     MiLockAndDecrementShareCount @ 0x1402EB25C (MiLockAndDecrementShareCount.c)
+ *     MiIncreaseUsedPtes @ 0x140367CC0 (MiIncreaseUsedPtes.c)
+ *     MiGetSharedProtos @ 0x140374988 (MiGetSharedProtos.c)
+ *     PfSnReferenceProcessTrace @ 0x1403769CC (PfSnReferenceProcessTrace.c)
+ *     MiIsAddressGlobal @ 0x140376AA0 (MiIsAddressGlobal.c)
+ *     PsGetIoPriorityThread @ 0x140376E50 (PsGetIoPriorityThread.c)
+ *     MiReferenceControlAreaFileWithTag @ 0x140390AC0 (MiReferenceControlAreaFileWithTag.c)
  */
 
 __int64 __fastcall MiCompleteRestrictedImageFault(__int64 *a1, ULONG_PTR a2, _QWORD *a3, unsigned int a4)
@@ -92,7 +92,7 @@ __int64 __fastcall MiCompleteRestrictedImageFault(__int64 *a1, ULONG_PTR a2, _QW
   v9 = 0LL;
   v10 = *(_QWORD *)MiGetSubsectionFromPte(*(_QWORD *)(v8 + 16));
   v59 = v10;
-  if ( LODWORD(stru_140E66FF0.ThreadLock) )
+  if ( LODWORD(stru_140E67200.ThreadLock) )
   {
     v13 = MiReferenceControlAreaFileWithTag(v10, 1666411853LL, 1LL);
     v11 = v57;
@@ -114,11 +114,11 @@ __int64 __fastcall MiCompleteRestrictedImageFault(__int64 *a1, ULONG_PTR a2, _QW
     v18 = (_QWORD *)(48 * v17 - 0x220000000000LL);
     v19 = v18[2];
     v20 = v19;
-    if ( qword_140E2D740 && (v19 & 0x10) == 0 )
-      v20 = v19 & qword_140E2D748;
+    if ( qword_140E2D8C0 && (v19 & 0x10) == 0 )
+      v20 = v19 & qword_140E2D8C8;
     v21 = (v20 >> 12) & 0x3FFFFFFFFFFLL;
     if ( v21 )
-      v9 = qword_140E37B90 - 8 + 8 * v21;
+      v9 = qword_140E37D10 - 8 + 8 * v21;
     v22 = v12 | v18[1];
     v23 = v7 + 8 * ((__int64)(v22 - v11) >> 3);
     if ( v14 )

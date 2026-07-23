@@ -1,7 +1,7 @@
 /*
- * XREFs of HvlSwitchToVsmVtl1 @ 0x140159AE0
+ * XREFs of HvlSwitchToVsmVtl1 @ 0x14015A050
  * Callers:
- *     VslpEnterIumSecureMode @ 0x1400AA174 (VslpEnterIumSecureMode.c)
+ *     VslpEnterIumSecureMode @ 0x1400A86F4 (VslpEnterIumSecureMode.c)
  * Callees:
  *     <none>
  */

@@ -1,20 +1,20 @@
 /*
- * XREFs of MiRescanPageFileBitmapPortion @ 0x140367008
+ * XREFs of MiRescanPageFileBitmapPortion @ 0x1403C56D8
  * Callers:
- *     MiRescanPagefileBitmaps @ 0x14036660C (MiRescanPagefileBitmaps.c)
- *     MiCoalescePageFileBitmapsCache @ 0x140366840 (MiCoalescePageFileBitmapsCache.c)
+ *     MiRescanPagefileBitmaps @ 0x1403C3F28 (MiRescanPagefileBitmaps.c)
+ *     MiCoalescePageFileBitmapsCache @ 0x1403C4F10 (MiCoalescePageFileBitmapsCache.c)
  * Callees:
- *     RtlRbInsertNodeEx @ 0x1402BDA80 (RtlRbInsertNodeEx.c)
- *     RtlRbRemoveNode @ 0x1402BE130 (RtlRbRemoveNode.c)
- *     RtlFindNextClearRunUlong @ 0x1403672BC (RtlFindNextClearRunUlong.c)
+ *     RtlRbInsertNodeEx @ 0x1403651C0 (RtlRbInsertNodeEx.c)
+ *     RtlRbRemoveNode @ 0x140365870 (RtlRbRemoveNode.c)
+ *     RtlFindNextClearRunUlong @ 0x1403C598C (RtlFindNextClearRunUlong.c)
  */
 
-__int64 __fastcall MiRescanPageFileBitmapPortion(__int64 a1, __int64 a2, int a3, int a4, unsigned __int64 *a5)
+__int64 __fastcall MiRescanPageFileBitmapPortion(__int64 a1, __int64 a2, int a3, int a4, __int64 *a5)
 {
   __int64 v5; // rax
-  unsigned __int64 *v7; // r12
+  __int64 *v7; // r12
   int v8; // edx
-  unsigned __int64 v9; // rbx
+  __int64 v9; // rbx
   int v10; // r13d
   __int64 result; // rax
   int v12; // r8d
@@ -24,16 +24,16 @@ __int64 __fastcall MiRescanPageFileBitmapPortion(__int64 a1, __int64 a2, int a3,
   unsigned int v16; // r14d
   int v17; // r15d
   unsigned int v18; // eax
-  unsigned __int64 v19; // rcx
-  unsigned __int64 *v20; // rax
+  __int64 v19; // rcx
+  _QWORD *v20; // rax
   __int64 v21; // rdi
   unsigned int v22; // ecx
   unsigned __int64 v23; // rdx
-  bool v24; // r8
+  BOOLEAN v24; // r8
   unsigned __int64 v25; // rax
-  unsigned __int64 v26; // rdx
-  bool v27; // r8
-  unsigned __int64 v28; // rax
+  __int64 v26; // rdx
+  BOOLEAN v27; // r8
+  __int64 v28; // rax
   __int64 v29; // rax
   _DWORD v30[2]; // [rsp+30h] [rbp-38h] BYREF
   __int64 v31; // [rsp+38h] [rbp-30h]
@@ -63,8 +63,8 @@ __int64 __fastcall MiRescanPageFileBitmapPortion(__int64 a1, __int64 a2, int a3,
         if ( v15 )
         {
           v21 = a1 + 112;
-          RtlRbRemoveNode((unsigned __int64 *)(a1 + 112), (unsigned __int64 *)v9);
-          RtlRbRemoveNode((unsigned __int64 *)(a1 + 128), (unsigned __int64 *)(v9 + 24));
+          RtlRbRemoveNode((PRTL_RB_TREE)(a1 + 112), (PRTL_BALANCED_NODE)v9);
+          RtlRbRemoveNode((PRTL_RB_TREE)(a1 + 128), (PRTL_BALANCED_NODE)(v9 + 24));
           v22 = *(_DWORD *)(a1 + 108);
           if ( v22 <= *(_DWORD *)(v9 + 52) )
             v22 = *(_DWORD *)(v9 + 52);
@@ -73,7 +73,7 @@ __int64 __fastcall MiRescanPageFileBitmapPortion(__int64 a1, __int64 a2, int a3,
         else
         {
           v19 = *(_QWORD *)v9;
-          if ( *(_QWORD *)(*(_QWORD *)v9 + 8LL) != v9 || (v20 = *(unsigned __int64 **)(v9 + 8), *v20 != v9) )
+          if ( *(_QWORD *)(*(_QWORD *)v9 + 8LL) != v9 || (v20 = *(_QWORD **)(v9 + 8), *v20 != v9) )
             __fastfail(3u);
           *v20 = v19;
           v21 = a1 + 112;
@@ -120,7 +120,7 @@ LABEL_26:
             v23 = v25;
           }
         }
-        RtlRbInsertNodeEx((__int64 *)v21, v23, v24, v9);
+        RtlRbInsertNodeEx((PRTL_RB_TREE)v21, (PRTL_BALANCED_NODE)v23, v24, (PRTL_BALANCED_NODE)v9);
         v26 = *(_QWORD *)(a1 + 128);
         if ( (*(_BYTE *)(a1 + 136) & 1) != 0 && v26 )
           v26 ^= a1 + 128;
@@ -164,7 +164,7 @@ LABEL_32:
             v26 = v28;
           }
         }
-        RtlRbInsertNodeEx((__int64 *)(a1 + 128), v26, v27, v9 + 24);
+        RtlRbInsertNodeEx((PRTL_RB_TREE)(a1 + 128), (PRTL_BALANCED_NODE)v26, v27, (PRTL_BALANCED_NODE)(v9 + 24));
         ++*(_DWORD *)(a1 + 96);
         v9 = *(_QWORD *)(a1 + 144);
         if ( v9 == a1 + 144 )

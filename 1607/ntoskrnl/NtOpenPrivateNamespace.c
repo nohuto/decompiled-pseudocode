@@ -1,29 +1,33 @@
 /*
- * XREFs of NtOpenPrivateNamespace @ 0x1404784D8
+ * XREFs of NtOpenPrivateNamespace @ 0x1404773A8
  * Callers:
  *     <none>
  * Callees:
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x140055FA0 (KiLeaveCriticalRegionUnsafe.c)
- *     ObfReferenceObject @ 0x14006A060 (ObfReferenceObject.c)
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     PsGetCurrentServerSiloGlobals @ 0x14008C610 (PsGetCurrentServerSiloGlobals.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1400C8070 (ExfAcquirePushLockExclusiveEx.c)
- *     ExfReleasePushLock @ 0x1400C8620 (ExfReleasePushLock.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140055B20 (KiLeaveCriticalRegionUnsafe.c)
+ *     ObfReferenceObject @ 0x140069BE0 (ObfReferenceObject.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x14008BD70 (PsGetCurrentServerSiloGlobals.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1400C5F10 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfReleasePushLock @ 0x1400C64C0 (ExfReleasePushLock.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
- *     ObOpenObjectByPointer @ 0x1404203C0 (ObOpenObjectByPointer.c)
- *     ObpLookupNamespaceEntry @ 0x1404786FC (ObpLookupNamespaceEntry.c)
- *     ObpCaptureBoundaryDescriptor @ 0x140478794 (ObpCaptureBoundaryDescriptor.c)
- *     ExRaiseDatatypeMisalignment @ 0x1406B6058 (ExRaiseDatatypeMisalignment.c)
+ *     ObOpenObjectByPointer @ 0x14041F280 (ObOpenObjectByPointer.c)
+ *     ObpLookupNamespaceEntry @ 0x1404775CC (ObpLookupNamespaceEntry.c)
+ *     ObpCaptureBoundaryDescriptor @ 0x140477664 (ObpCaptureBoundaryDescriptor.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1406B6190 (ExRaiseDatatypeMisalignment.c)
  */
 
-__int64 __fastcall NtOpenPrivateNamespace(unsigned __int64 a1, ACCESS_MASK a2, __int64 a3, void *a4)
+NTSTATUS __cdecl NtOpenPrivateNamespace(
+        PHANDLE NamespaceHandle,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        POBJECT_BOUNDARY_DESCRIPTOR BoundaryDescriptor)
 {
-  _QWORD *v5; // r14
+  PHANDLE v5; // r14
   signed __int64 v6; // rbx
   KPROCESSOR_MODE AccessMode; // r12
-  __int64 result; // rax
+  NTSTATUS result; // eax
   char *CurrentServerSiloGlobals; // r15
   struct _KTHREAD *CurrentThread; // rcx
   unsigned __int64 *v11; // rdi
@@ -45,36 +49,36 @@ __int64 __fastcall NtOpenPrivateNamespace(unsigned __int64 a1, ACCESS_MASK a2, _
   ULONG HandleAttributes; // [rsp+40h] [rbp-38h]
   int HandleAttributesa; // [rsp+40h] [rbp-38h]
   PVOID P; // [rsp+48h] [rbp-30h]
-  unsigned int Pa; // [rsp+48h] [rbp-30h]
+  NTSTATUS Pa; // [rsp+48h] [rbp-30h]
   HANDLE Handle; // [rsp+50h] [rbp-28h] BYREF
 
-  v5 = (_QWORD *)a1;
+  v5 = NamespaceHandle;
   v6 = 0LL;
   Handle = 0LL;
   AccessMode = KeGetCurrentThread()->PreviousMode;
   HandleAttributes = 0;
   if ( AccessMode )
   {
-    if ( a1 >= 0x7FFFFFFF0000LL )
-      a1 = 0x7FFFFFFF0000LL;
-    *(_QWORD *)a1 = *(_QWORD *)a1;
-    if ( a3 )
+    if ( (unsigned __int64)NamespaceHandle >= 0x7FFFFFFF0000LL )
+      NamespaceHandle = (PHANDLE)0x7FFFFFFF0000LL;
+    *NamespaceHandle = *NamespaceHandle;
+    if ( ObjectAttributes )
     {
-      if ( (a3 & 7) != 0 )
+      if ( ((unsigned __int8)ObjectAttributes & 7) != 0 )
         ExRaiseDatatypeMisalignment();
-      HandleAttributes = *(_DWORD *)(a3 + 24);
+      HandleAttributes = ObjectAttributes->Attributes;
     }
   }
-  else if ( a3 )
+  else if ( ObjectAttributes )
   {
-    HandleAttributes = *(_DWORD *)(a3 + 24);
+    HandleAttributes = ObjectAttributes->Attributes;
   }
   if ( AccessMode )
     HandleAttributesa = HandleAttributes & 0x1DF2;
   else
     HandleAttributesa = HandleAttributes & 0x11FF2;
-  result = ObpCaptureBoundaryDescriptor(a4);
-  if ( (int)result >= 0 )
+  result = ObpCaptureBoundaryDescriptor(BoundaryDescriptor);
+  if ( result >= 0 )
   {
     CurrentServerSiloGlobals = (char *)PsGetCurrentServerSiloGlobals();
     CurrentThread = KeGetCurrentThread();
@@ -99,7 +103,14 @@ __int64 __fastcall NtOpenPrivateNamespace(unsigned __int64 a1, ACCESS_MASK a2, _
         ExfReleasePushLock(v11);
       KeAbPostRelease((ULONG_PTR)v11);
       KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread(), v24, v25, v26);
-      Pa = ObOpenObjectByPointer(v21, HandleAttributesa, 0LL, a2, ObpDirectoryObjectType, AccessMode, &Handle);
+      Pa = ObOpenObjectByPointer(
+             v21,
+             HandleAttributesa,
+             0LL,
+             DesiredAccess,
+             ObpDirectoryObjectType,
+             AccessMode,
+             &Handle);
       ObfDereferenceObject(v21);
       *v5 = Handle;
       return Pa;
@@ -115,7 +126,7 @@ __int64 __fastcall NtOpenPrivateNamespace(unsigned __int64 a1, ACCESS_MASK a2, _
         ExfReleasePushLock(v11);
       KeAbPostRelease((ULONG_PTR)v11);
       KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread(), v18, v19, v20);
-      return 3221225530LL;
+      return -1073741766;
     }
   }
   return result;

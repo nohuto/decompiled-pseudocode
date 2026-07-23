@@ -1,7 +1,7 @@
 /*
- * XREFs of SbpLookup @ 0x180113A2C
+ * XREFs of SbpLookup @ 0x1801139EC
  * Callers:
- *     SbpResolveBasedOnName @ 0x180113BC8 (SbpResolveBasedOnName.c)
+ *     SbpResolveBasedOnName @ 0x180113B88 (SbpResolveBasedOnName.c)
  * Callees:
  *     _strnicmp @ 0x18008DE10 (_strnicmp.c)
  */

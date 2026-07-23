@@ -1,22 +1,22 @@
 /*
- * XREFs of MiFreePhysicalPageChain @ 0x14064A170
+ * XREFs of MiFreePhysicalPageChain @ 0x14064A6C0
  * Callers:
- *     MiDeletePagablePteRange @ 0x14027A160 (MiDeletePagablePteRange.c)
- *     NtFreeUserPhysicalPages @ 0x140A42320 (NtFreeUserPhysicalPages.c)
- *     NtMapUserPhysicalPages @ 0x140A42880 (NtMapUserPhysicalPages.c)
- *     NtMapUserPhysicalPagesScatter @ 0x140A42B30 (NtMapUserPhysicalPagesScatter.c)
+ *     MiDeletePagablePteRange @ 0x14027A3F0 (MiDeletePagablePteRange.c)
+ *     NtFreeUserPhysicalPages @ 0x140A425D0 (NtFreeUserPhysicalPages.c)
+ *     NtMapUserPhysicalPages @ 0x140A42B30 (NtMapUserPhysicalPages.c)
+ *     NtMapUserPhysicalPagesScatter @ 0x140A42DE0 (NtMapUserPhysicalPagesScatter.c)
  * Callees:
- *     MiFreePagesFromMdl @ 0x1402EBB80 (MiFreePagesFromMdl.c)
- *     MiLockPageInline @ 0x1402EF680 (MiLockPageInline.c)
- *     MiGetLeafPfnBuddy @ 0x14038BFDC (MiGetLeafPfnBuddy.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memset @ 0x140435A00 (memset.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     MiFreeContiguousLargePageRun @ 0x140649DB8 (MiFreeContiguousLargePageRun.c)
- *     MiFreePhysicalRange @ 0x14064A7F4 (MiFreePhysicalRange.c)
- *     MiGetAweInfoPartition @ 0x14064A858 (MiGetAweInfoPartition.c)
- *     MiReadyLargeAwePageForFree @ 0x14064BC58 (MiReadyLargeAwePageForFree.c)
- *     MiReturnProcessPhysicalPages @ 0x140A43C20 (MiReturnProcessPhysicalPages.c)
+ *     MiFreePagesFromMdl @ 0x1402EBE10 (MiFreePagesFromMdl.c)
+ *     MiLockPageInline @ 0x1402EF910 (MiLockPageInline.c)
+ *     MiGetLeafPfnBuddy @ 0x14038C1BC (MiGetLeafPfnBuddy.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     MiFreeContiguousLargePageRun @ 0x14064A308 (MiFreeContiguousLargePageRun.c)
+ *     MiFreePhysicalRange @ 0x14064AD44 (MiFreePhysicalRange.c)
+ *     MiGetAweInfoPartition @ 0x14064ADA8 (MiGetAweInfoPartition.c)
+ *     MiReadyLargeAwePageForFree @ 0x14064C1A8 (MiReadyLargeAwePageForFree.c)
+ *     MiReturnProcessPhysicalPages @ 0x140A43ED0 (MiReturnProcessPhysicalPages.c)
  */
 
 unsigned __int64 __fastcall MiFreePhysicalPageChain(__int64 a1, _QWORD *a2)
@@ -96,10 +96,10 @@ unsigned __int64 __fastcall MiFreePhysicalPageChain(__int64 a1, _QWORD *a2)
       *v16 = 0LL;
       *(_QWORD *)(v17 + 24) = v19 ^ ((v19 + 1) ^ v19) & 0x3FFFFFFFFFFFFFFFLL;
       _InterlockedAnd64((volatile signed __int64 *)(v17 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         CurrentIrql = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v20 <= 0xFu && CurrentIrql >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v20 <= 0xFu && CurrentIrql >= 2u )
         {
           CurrentPrcb = KeGetCurrentPrcb();
           SchedulerAssist = CurrentPrcb->SchedulerAssist;

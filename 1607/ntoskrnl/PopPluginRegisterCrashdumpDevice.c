@@ -1,7 +1,7 @@
 /*
- * XREFs of PopPluginRegisterCrashdumpDevice @ 0x140204848
+ * XREFs of PopPluginRegisterCrashdumpDevice @ 0x140204674
  * Callers:
- *     PoFxRegisterCrashdumpDevice @ 0x14054886C (PoFxRegisterCrashdumpDevice.c)
+ *     PoFxRegisterCrashdumpDevice @ 0x140548DAC (PoFxRegisterCrashdumpDevice.c)
  * Callees:
  *     <none>
  */

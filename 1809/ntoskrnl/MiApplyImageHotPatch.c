@@ -1,19 +1,19 @@
 /*
- * XREFs of MiApplyImageHotPatch @ 0x140854688
+ * XREFs of MiApplyImageHotPatch @ 0x1408558E8
  * Callers:
- *     MiPerformImageHotPatch @ 0x140856C80 (MiPerformImageHotPatch.c)
+ *     MiPerformImageHotPatch @ 0x140857EE0 (MiPerformImageHotPatch.c)
  * Callees:
  *     MmUnlockPages @ 0x140033580 (MmUnlockPages.c)
  *     MmUnmapLockedPages @ 0x140033F00 (MmUnmapLockedPages.c)
  *     MmProbeAndLockPages @ 0x140040380 (MmProbeAndLockPages.c)
  *     MmMapLockedPagesSpecifyCache @ 0x14005C0C0 (MmMapLockedPagesSpecifyCache.c)
- *     MmUnlockPagableImageSection @ 0x140097F00 (MmUnlockPagableImageSection.c)
- *     MiLockPagableImageSection @ 0x14009ABB0 (MiLockPagableImageSection.c)
- *     IoAllocateMdl @ 0x1400DFCD0 (IoAllocateMdl.c)
- *     IoFreeMdl @ 0x1400E0B60 (IoFreeMdl.c)
- *     KeGenericCallDpc @ 0x1401203F0 (KeGenericCallDpc.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     RtlApplyHotPatch @ 0x14057E148 (RtlApplyHotPatch.c)
+ *     MmUnlockPagableImageSection @ 0x140097E40 (MmUnlockPagableImageSection.c)
+ *     MiLockPagableImageSection @ 0x14009AAF0 (MiLockPagableImageSection.c)
+ *     IoAllocateMdl @ 0x1400DFD50 (IoAllocateMdl.c)
+ *     IoFreeMdl @ 0x1400E0BE0 (IoFreeMdl.c)
+ *     KeGenericCallDpc @ 0x140120460 (KeGenericCallDpc.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     RtlApplyHotPatch @ 0x14057F148 (RtlApplyHotPatch.c)
  */
 
 __int64 __fastcall MiApplyImageHotPatch(

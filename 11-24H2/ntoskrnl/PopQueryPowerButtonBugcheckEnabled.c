@@ -1,21 +1,21 @@
 /*
- * XREFs of PopQueryPowerButtonBugcheckEnabled @ 0x140AB2400
+ * XREFs of PopQueryPowerButtonBugcheckEnabled @ 0x140AAD370
  * Callers:
- *     PopPowerButtonWorkCallback @ 0x1405D83A0 (PopPowerButtonWorkCallback.c)
- *     PopPowerInformationInternal @ 0x140AC4A30 (PopPowerInformationInternal.c)
+ *     PopPowerButtonWorkCallback @ 0x1405D58C0 (PopPowerButtonWorkCallback.c)
+ *     PopPowerInformationInternal @ 0x140AC2410 (PopPowerInformationInternal.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     ExfReleasePushLockShared @ 0x14025DE00 (ExfReleasePushLockShared.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     DbgPrintEx @ 0x1402CB2F0 (DbgPrintEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     ExfAcquirePushLockSharedEx @ 0x14034050C (ExfAcquirePushLockSharedEx.c)
+ *     DbgPrintEx @ 0x140275B40 (DbgPrintEx.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     ExfReleasePushLockShared @ 0x14028E410 (ExfReleasePushLockShared.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     ExfAcquirePushLockSharedEx @ 0x14031F9EC (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
  */
 
 __int64 PopQueryPowerButtonBugcheckEnabled()
 {
   struct _KTHREAD *CurrentThread; // rax
-  _QWORD *v1; // rbx
+  char *v1; // rbx
   unsigned int v2; // edi
   int v3; // esi
   unsigned int v4; // ebx
@@ -23,7 +23,7 @@ __int64 PopQueryPowerButtonBugcheckEnabled()
 
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
-  v1 = KeAbPreAcquire((__int64)&PopPowerButtonBugcheckLock, 0LL);
+  v1 = (char *)KeAbPreAcquire((__int64)&PopPowerButtonBugcheckLock, 0LL);
   if ( _InterlockedCompareExchange64((volatile signed __int64 *)&PopPowerButtonBugcheckLock, 17LL, 0LL) )
     ExfAcquirePushLockSharedEx(
       (signed __int64 *)&PopPowerButtonBugcheckLock,
@@ -32,7 +32,7 @@ __int64 PopQueryPowerButtonBugcheckEnabled()
       (__int64)&PopPowerButtonBugcheckLock);
   v2 = 0;
   if ( v1 )
-    *((_BYTE *)v1 + 10) = 1;
+    v1[10] = 1;
   v3 = PopPowerButtonBugcheckConfig;
   v4 = PopPowerButtonLiveDumpConfig;
   if ( _InterlockedCompareExchange64((volatile signed __int64 *)&PopPowerButtonBugcheckLock, 0LL, 17LL) != 17 )
@@ -41,7 +41,7 @@ __int64 PopQueryPowerButtonBugcheckEnabled()
   KeLeaveCriticalRegion();
   if ( v3 == 2 )
     v2 = 1;
-  LOBYTE(word_140F07798) = v2;
+  LOBYTE(word_140F07BB8) = v2;
   if ( (v4 & 1) != 0 )
   {
     v5 = v4 & 0xF0;
@@ -54,7 +54,7 @@ __int64 PopQueryPowerButtonBugcheckEnabled()
         "PopQueryPowerButtonBugcheckEnabled: PowerButtonLiveDump Timeout value is invalid or not specified. Set it to default.\n");
     }
   }
-  HIDWORD(qword_140F077A4) = v4;
+  HIDWORD(qword_140F07BC4) = v4;
   DbgPrintEx(
     0x92u,
     2u,

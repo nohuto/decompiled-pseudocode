@@ -1,16 +1,16 @@
 /*
- * XREFs of KiIntSteerInit @ 0x140CCBB80
+ * XREFs of KiIntSteerInit @ 0x140CD1CE0
  * Callers:
- *     KeInitSystem @ 0x140CC82B8 (KeInitSystem.c)
+ *     KeInitSystem @ 0x140CCE3A8 (KeInitSystem.c)
  * Callees:
- *     KeQueryActiveProcessorCountEx @ 0x140211EA0 (KeQueryActiveProcessorCountEx.c)
- *     KeAddProcessorAffinityEx @ 0x140246720 (KeAddProcessorAffinityEx.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     KiIntSteerDetermineSteeringEnabled @ 0x140CCBAF4 (KiIntSteerDetermineSteeringEnabled.c)
- *     IntPartGetClassAffinityGroup @ 0x140D01F90 (IntPartGetClassAffinityGroup.c)
- *     IntPartCreate @ 0x140D02274 (IntPartCreate.c)
+ *     KeQueryActiveProcessorCountEx @ 0x140211F80 (KeQueryActiveProcessorCountEx.c)
+ *     KeAddProcessorAffinityEx @ 0x140248080 (KeAddProcessorAffinityEx.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     KiIntSteerDetermineSteeringEnabled @ 0x140CD1C54 (KiIntSteerDetermineSteeringEnabled.c)
+ *     IntPartGetClassAffinityGroup @ 0x140D08330 (IntPartGetClassAffinityGroup.c)
+ *     IntPartCreate @ 0x140D08614 (IntPartCreate.c)
  */
 
 __int64 __fastcall KiIntSteerInit(int a1)
@@ -25,13 +25,13 @@ __int64 __fastcall KiIntSteerInit(int a1)
   v1 = 0;
   if ( a1 == 1 )
   {
-    LODWORD(KsepShimDbLock.ExtendedFeatureDisableMask) = 0;
-    KsepShimDbLock.Spare35[1] = (unsigned __int64)KsepShimDbLock.Spare35;
-    KsepShimDbLock.Spare35[0] = (unsigned __int64)KsepShimDbLock.Spare35;
-    KiIntTrackSpinlock = 0LL;
-    KsepShimDbLock.IptSaveArea = (void *)2097153;
-    memset_0(&KsepShimDbLock.ResourceIndex, 0, 0x100uLL);
-    KeAddProcessorAffinityEx((unsigned __int16 *)&KsepShimDbLock.IptSaveArea, 0);
+    KiIntTrackRootCount = 0;
+    qword_140F14EC8 = (__int64)&KiIntTrackRootList;
+    KiIntTrackRootList = (__int64)&KiIntTrackRootList;
+    KsepShimDbLock.InGlobalUpdateVpThreadPriorityList = 0LL;
+    KsepShimDbLock.KernelShadowStack = (void *)2097153;
+    memset_0(&KsepShimDbLock.KernelShadowStackInitial, 0, 0x100uLL);
+    KeAddProcessorAffinityEx((unsigned __int16 *)&KsepShimDbLock.KernelShadowStack, 0);
     *(_QWORD *)&KiIntSteerAffinitizedInterrupts.Count = 2097153LL;
     memset_0(&KiIntSteerAffinitizedInterrupts.8, 0, sizeof(KiIntSteerAffinitizedInterrupts.8));
     guard_dispatch_icall_no_overrides(39LL, 4LL);

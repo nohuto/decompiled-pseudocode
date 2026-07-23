@@ -1,14 +1,14 @@
 /*
- * XREFs of MiQueueExtentPfnDeletion @ 0x14063F0B8
+ * XREFs of MiQueueExtentPfnDeletion @ 0x14063F608
  * Callers:
  *     MiWorkingSetManager @ 0x14021D5F0 (MiWorkingSetManager.c)
- *     MiClearFileOnlyPfn @ 0x14063C200 (MiClearFileOnlyPfn.c)
+ *     MiClearFileOnlyPfn @ 0x14063C750 (MiClearFileOnlyPfn.c)
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x14024D360 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402894C0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x14028A930 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     MiWakeFileOnlyReaper @ 0x14064044C (MiWakeFileOnlyReaper.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024D430 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140289750 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x14028ABC0 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     MiWakeFileOnlyReaper @ 0x14064099C (MiWakeFileOnlyReaper.c)
  */
 
 void __fastcall MiQueueExtentPfnDeletion(_QWORD *a1)
@@ -33,10 +33,13 @@ void __fastcall MiQueueExtentPfnDeletion(_QWORD *a1)
     v2 = ExAcquireSpinLockExclusive(&dword_140C6CEA0);
     MiWakeFileOnlyReaper();
     ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140C6CEA0);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v2 <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+        && CurrentIrql <= 0xFu
+        && (unsigned __int8)v2 <= 0xFu
+        && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;

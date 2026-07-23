@@ -1,10 +1,10 @@
 /*
- * XREFs of KiFreeProcessorNumber @ 0x14057093C
+ * XREFs of KiFreeProcessorNumber @ 0x140570E7C
  * Callers:
- *     KiFreeProcessorStateInitializationParameters @ 0x14056BE34 (KiFreeProcessorStateInitializationParameters.c)
+ *     KiFreeProcessorStateInitializationParameters @ 0x14056C4F4 (KiFreeProcessorStateInitializationParameters.c)
  * Callees:
- *     KiFindSubNodeForProcessorNumber @ 0x140376768 (KiFindSubNodeForProcessorNumber.c)
- *     KiUncommitGroupSubNodeAssignments @ 0x140570AA0 (KiUncommitGroupSubNodeAssignments.c)
+ *     KiFindSubNodeForProcessorNumber @ 0x140376908 (KiFindSubNodeForProcessorNumber.c)
+ *     KiUncommitGroupSubNodeAssignments @ 0x140570FE0 (KiUncommitGroupSubNodeAssignments.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

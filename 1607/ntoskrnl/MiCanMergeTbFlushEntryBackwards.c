@@ -1,7 +1,7 @@
 /*
- * XREFs of MiCanMergeTbFlushEntryBackwards @ 0x1400E67B8
+ * XREFs of MiCanMergeTbFlushEntryBackwards @ 0x1400E4658
  * Callers:
- *     MiFreeWsleList @ 0x1400E3AD0 (MiFreeWsleList.c)
+ *     MiFreeWsleList @ 0x1400E1970 (MiFreeWsleList.c)
  * Callees:
  *     <none>
  */

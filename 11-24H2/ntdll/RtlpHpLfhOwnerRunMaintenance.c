@@ -1,21 +1,21 @@
 /*
- * XREFs of RtlpHpLfhOwnerRunMaintenance @ 0x18004D870
+ * XREFs of RtlpHpLfhOwnerRunMaintenance @ 0x180063450
  * Callers:
- *     RtlpHpLfhPrivateSlotShutdown @ 0x18004AEFC (RtlpHpLfhPrivateSlotShutdown.c)
- *     RtlpHpLfhBucketGetSubsegment @ 0x18004B540 (RtlpHpLfhBucketGetSubsegment.c)
- *     RtlpHpLfhSlotAllocateSlow @ 0x18004B690 (RtlpHpLfhSlotAllocateSlow.c)
+ *     RtlpHpLfhPrivateSlotShutdown @ 0x180060ADC (RtlpHpLfhPrivateSlotShutdown.c)
+ *     RtlpHpLfhBucketGetSubsegment @ 0x180061120 (RtlpHpLfhBucketGetSubsegment.c)
+ *     RtlpHpLfhSlotAllocateSlow @ 0x180061270 (RtlpHpLfhSlotAllocateSlow.c)
  * Callees:
- *     RtlpLogHeapFailure @ 0x18002A380 (RtlpLogHeapFailure.c)
- *     RtlpHpLfhSubsegmentDelayFreeProcess @ 0x18004D160 (RtlpHpLfhSubsegmentDelayFreeProcess.c)
- *     RtlpHpLfhSubsegmentDecommitPages @ 0x18004D510 (RtlpHpLfhSubsegmentDecommitPages.c)
- *     RtlpHpLfhSubsegmentDelayFreeListBatch @ 0x18004E040 (RtlpHpLfhSubsegmentDelayFreeListBatch.c)
- *     RtlpHpLfhBlockBitmapInitialize @ 0x18004E3F0 (RtlpHpLfhBlockBitmapInitialize.c)
- *     RtlpHpLfhOwnerMoveSubsegment @ 0x18004E450 (RtlpHpLfhOwnerMoveSubsegment.c)
- *     RtlpHpLfhSubsegmentConstructCommitState @ 0x18004E980 (RtlpHpLfhSubsegmentConstructCommitState.c)
- *     RtlpHpLfhSubsegmentCountEmptyUnits @ 0x18004F3B0 (RtlpHpLfhSubsegmentCountEmptyUnits.c)
- *     RtlpHpLfhContextUpdateFreeCommitCount @ 0x180056220 (RtlpHpLfhContextUpdateFreeCommitCount.c)
- *     RtlpHpLfhSubsegmentReformatCheck @ 0x1800E00E0 (RtlpHpLfhSubsegmentReformatCheck.c)
- *     memset$thunk$772440563353939046 @ 0x180172030 (memset$thunk$772440563353939046.c)
+ *     RtlpLogHeapFailure @ 0x180056D80 (RtlpLogHeapFailure.c)
+ *     RtlpHpLfhSubsegmentDelayFreeProcess @ 0x180062D40 (RtlpHpLfhSubsegmentDelayFreeProcess.c)
+ *     RtlpHpLfhSubsegmentDecommitPages @ 0x1800630F0 (RtlpHpLfhSubsegmentDecommitPages.c)
+ *     RtlpHpLfhSubsegmentDelayFreeListBatch @ 0x180063C20 (RtlpHpLfhSubsegmentDelayFreeListBatch.c)
+ *     RtlpHpLfhBlockBitmapInitialize @ 0x180063FD0 (RtlpHpLfhBlockBitmapInitialize.c)
+ *     RtlpHpLfhOwnerMoveSubsegment @ 0x180064030 (RtlpHpLfhOwnerMoveSubsegment.c)
+ *     RtlpHpLfhSubsegmentConstructCommitState @ 0x180064560 (RtlpHpLfhSubsegmentConstructCommitState.c)
+ *     RtlpHpLfhSubsegmentCountEmptyUnits @ 0x180064F90 (RtlpHpLfhSubsegmentCountEmptyUnits.c)
+ *     RtlpHpLfhContextUpdateFreeCommitCount @ 0x18006BE00 (RtlpHpLfhContextUpdateFreeCommitCount.c)
+ *     RtlpHpLfhSubsegmentReformatCheck @ 0x1800DB1E0 (RtlpHpLfhSubsegmentReformatCheck.c)
+ *     memset$thunk$772440563353939046 @ 0x180171030 (memset$thunk$772440563353939046.c)
  */
 
 void __fastcall RtlpHpLfhOwnerRunMaintenance(unsigned __int64 a1, __int64 a2, unsigned __int64 *a3, char a4)
@@ -119,9 +119,9 @@ void __fastcall RtlpHpLfhOwnerRunMaintenance(unsigned __int64 a1, __int64 a2, un
       v65 = v64;
       v27 = HIWORD(v24);
       v66 = v10 >> 12;
-      v28 = (unsigned __int16)(*(_WORD *)(v10 + 40) ^ qword_1801CDEC8 ^ (v10 >> 12));
+      v28 = (unsigned __int16)(*(_WORD *)(v10 + 40) ^ qword_1801CCEC8 ^ (v10 >> 12));
       v29 = v10
-          + ((unsigned __int64)(*(_DWORD *)(v10 + 40) ^ (unsigned int)qword_1801CDEC8 ^ (unsigned int)(v10 >> 12)) >> 16);
+          + ((unsigned __int64)(*(_DWORD *)(v10 + 40) ^ (unsigned int)qword_1801CCEC8 ^ (unsigned int)(v10 >> 12)) >> 16);
       v61 = HIWORD(v24);
       v60 = v28;
       if ( v25 == HIWORD(v24) + *(unsigned __int16 *)(v10 + 32) )
@@ -169,7 +169,7 @@ LABEL_36:
               v41 = &v38[2
                        * ((((_DWORD)v34
                           - (_DWORD)v10
-                          + (v31 ^ *(unsigned __int16 *)(v10 + 40) ^ (unsigned int)(unsigned __int16)qword_1801CDEC8)
+                          + (v31 ^ *(unsigned __int16 *)(v10 + 40) ^ (unsigned int)(unsigned __int16)qword_1801CCEC8)
                           - 1) >> 12 >> v35)
                         - (unsigned int)v36)
                        + 2];
@@ -204,7 +204,7 @@ LABEL_55:
               {
                 v43 = v39;
                 v44 = (__int64 *)a1;
-                RtlpHpLfhSubsegmentDecommitPages(a1, (unsigned __int8 *)v10, v43, 2uLL);
+                RtlpHpLfhSubsegmentDecommitPages(a1, v10, v43, (char *)2);
               }
               v45 = __ROL8__(0xFFFFFFFEFFFFFFFEuLL, v33 & 0x1F);
               v46 = v10 + 8 * ((unsigned __int64)v33 >> 5);
@@ -273,7 +273,7 @@ LABEL_6:
           else
           {
             v15 = 2
-                * ((unsigned __int16)qword_1801CDEC8 ^ *(unsigned __int16 *)(v10 + 40) ^ (unsigned __int16)(v10 >> 12));
+                * ((unsigned __int16)qword_1801CCEC8 ^ *(unsigned __int16 *)(v10 + 40) ^ (unsigned __int16)(v10 >> 12));
             if ( ((v15 - 1) & v15) != 0 )
             {
               _BitScanReverse(&v16, v15);

@@ -1,17 +1,17 @@
 /*
- * XREFs of CmpNotifyChangeKey @ 0x14097AF04
+ * XREFs of CmpNotifyChangeKey @ 0x14093CF14
  * Callers:
- *     NtNotifyChangeMultipleKeys @ 0x14097A180 (NtNotifyChangeMultipleKeys.c)
+ *     NtNotifyChangeMultipleKeys @ 0x14093C190 (NtNotifyChangeMultipleKeys.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     Feature_NotifyQuotaCharge__private_IsEnabledDeviceUsageNoInline @ 0x1404BD94C (Feature_NotifyQuotaCharge__private_IsEnabledDeviceUsageNoInline.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     CmpLogNotificationRegister @ 0x1408554EC (CmpLogNotificationRegister.c)
- *     CmpPostNotify @ 0x1408CAEE0 (CmpPostNotify.c)
- *     CmpFreePostBlock @ 0x1408D1020 (CmpFreePostBlock.c)
- *     SeCaptureSubjectContext @ 0x140933620 (SeCaptureSubjectContext.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     CmpIsKeyDeletedForKeyBody @ 0x140C58750 (CmpIsKeyDeletedForKeyBody.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     Feature_NotifyQuotaCharge__private_IsEnabledDeviceUsageNoInline @ 0x1404B712C (Feature_NotifyQuotaCharge__private_IsEnabledDeviceUsageNoInline.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     CmpLogNotificationRegister @ 0x14085B884 (CmpLogNotificationRegister.c)
+ *     CmpPostNotify @ 0x1408D1490 (CmpPostNotify.c)
+ *     CmpFreePostBlock @ 0x1408D75E0 (CmpFreePostBlock.c)
+ *     SeCaptureSubjectContext @ 0x14090F1D0 (SeCaptureSubjectContext.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     CmpIsKeyDeletedForKeyBody @ 0x140C5E750 (CmpIsKeyDeletedForKeyBody.c)
  */
 
 __int64 __fastcall CmpNotifyChangeKey(
@@ -175,17 +175,17 @@ LABEL_17:
 LABEL_12:
     __fastfail(3u);
   }
-  v25 = (_QWORD *)qword_140FD55B8;
+  v25 = (_QWORD *)qword_140FD65D0;
   p_SListFaultAddress = &CmpAsyncKernelPostList;
   v26 = a2 + 2;
-  if ( *(__int64 **)qword_140FD55B8 != &CmpAsyncKernelPostList )
+  if ( *(__int64 **)qword_140FD65D0 != &CmpAsyncKernelPostList )
     goto LABEL_12;
   *v26 = &CmpAsyncKernelPostList;
   a2[3] = v25;
   *v25 = v26;
-  qword_140FD55B8 = (__int64)(a2 + 2);
+  qword_140FD65D0 = (__int64)(a2 + 2);
 LABEL_20:
-  if ( (DWORD2(PerfGlobalGroupMask[0]) & 0x2000000) != 0 )
+  if ( (DWORD2(PerfGlobalGroupMask) & 0x2000000) != 0 )
     CmpLogNotificationRegister(
       (__int64)a2,
       *(_QWORD *)(a1 + 8),

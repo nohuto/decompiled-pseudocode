@@ -20,6 +20,6 @@ __int64 HvlpCondenseMicrocode()
   v4 = 1;
   HvcallInitInputControl(7, &v2);
   LODWORD(v2) = v2 | 0x10000;
-  v0 = HvcallFastExtended(v2, (__int64)v3, 24LL, 0LL, 0);
+  v0 = HvcallFastExtended(v2, (__int64)v3, 0x18u, 0, 0);
   return HvlpHvToNtStatus(v0);
 }

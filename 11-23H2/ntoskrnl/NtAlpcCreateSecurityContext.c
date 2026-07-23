@@ -1,18 +1,18 @@
 /*
- * XREFs of NtAlpcCreateSecurityContext @ 0x14071C580
+ * XREFs of NtAlpcCreateSecurityContext @ 0x14071C780
  * Callers:
  *     <none>
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     ObReferenceObjectByHandle @ 0x1406E62C0 (ObReferenceObjectByHandle.c)
- *     AlpcpDeleteBlob @ 0x14071C11C (AlpcpDeleteBlob.c)
- *     AlpcpCreateSecurityContext @ 0x14071C9C8 (AlpcpCreateSecurityContext.c)
- *     AlpcpDereferenceBlobEx @ 0x14071E93C (AlpcpDereferenceBlobEx.c)
- *     ExRaiseDatatypeMisalignment @ 0x140A00B60 (ExRaiseDatatypeMisalignment.c)
+ *     KeLeaveCriticalRegionThread @ 0x14022F7F0 (KeLeaveCriticalRegionThread.c)
+ *     ObfDereferenceObject @ 0x140231660 (ObfDereferenceObject.c)
+ *     ObReferenceObjectByHandle @ 0x1406E62F0 (ObReferenceObjectByHandle.c)
+ *     AlpcpDeleteBlob @ 0x14071C31C (AlpcpDeleteBlob.c)
+ *     AlpcpCreateSecurityContext @ 0x14071CBC8 (AlpcpCreateSecurityContext.c)
+ *     AlpcpDereferenceBlobEx @ 0x14071EB3C (AlpcpDereferenceBlobEx.c)
+ *     ExRaiseDatatypeMisalignment @ 0x140A00DF0 (ExRaiseDatatypeMisalignment.c)
  */
 
-__int64 __fastcall NtAlpcCreateSecurityContext(HANDLE Handle, int a2, __m128i *a3)
+NTSTATUS __cdecl NtAlpcCreateSecurityContext(HANDLE PortHandle, ULONG Flags, PALPC_SECURITY_ATTR SecurityAttribute)
 {
   struct _KTHREAD *CurrentThread; // rax
   KPROCESSOR_MODE PreviousMode; // r15
@@ -21,7 +21,7 @@ __int64 __fastcall NtAlpcCreateSecurityContext(HANDLE Handle, int a2, __m128i *a
   unsigned __int64 v9; // xmm1_8
   unsigned __int64 v10; // rbx
   __int64 v11; // rax
-  NTSTATUS SecurityContext; // edi
+  int SecurityContext; // edi
   PVOID v13; // r14
   ULONG_PTR v14; // rbx
   unsigned __int64 v16; // xmm1_8
@@ -29,17 +29,17 @@ __int64 __fastcall NtAlpcCreateSecurityContext(HANDLE Handle, int a2, __m128i *a
   __int64 v18; // [rsp+38h] [rbp-40h]
   int v19; // [rsp+40h] [rbp-38h]
   __int128 v20; // [rsp+48h] [rbp-30h]
-  __int64 v21; // [rsp+58h] [rbp-20h]
+  ALPC_HANDLE ContextHandle; // [rsp+58h] [rbp-20h]
   PVOID Object; // [rsp+98h] [rbp+20h] BYREF
 
   v20 = 0LL;
-  LODWORD(v21) = 0;
+  LODWORD(ContextHandle) = 0;
   v18 = 0LL;
   v19 = 0;
   BugCheckParameter2 = 0LL;
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
-  if ( a2 )
+  if ( Flags )
   {
     SecurityContext = -1073741811;
   }
@@ -48,15 +48,15 @@ __int64 __fastcall NtAlpcCreateSecurityContext(HANDLE Handle, int a2, __m128i *a
     PreviousMode = KeGetCurrentThread()->PreviousMode;
     if ( PreviousMode )
     {
-      if ( ((unsigned __int8)a3 & 7) != 0 )
+      if ( ((unsigned __int8)SecurityAttribute & 7) != 0 )
         ExRaiseDatatypeMisalignment();
       v7 = 0x7FFFFFFF0000LL;
-      if ( (unsigned __int64)a3 < 0x7FFFFFFF0000LL )
-        v7 = (__int64)a3;
+      if ( (unsigned __int64)SecurityAttribute < 0x7FFFFFFF0000LL )
+        v7 = (__int64)SecurityAttribute;
       *(_BYTE *)v7 = *(_BYTE *)v7;
       *(_BYTE *)(v7 + 23) = *(_BYTE *)(v7 + 23);
-      v8 = *a3;
-      v21 = a3[1].m128i_i64[0];
+      v8 = *(__m128i *)&SecurityAttribute->Flags;
+      ContextHandle = SecurityAttribute->ContextHandle;
       v9 = _mm_srli_si128(v8, 8).m128i_u64[0];
       v10 = v9;
       if ( v9 )
@@ -70,7 +70,7 @@ __int64 __fastcall NtAlpcCreateSecurityContext(HANDLE Handle, int a2, __m128i *a
     }
     else
     {
-      v16 = _mm_srli_si128(*a3, 8).m128i_u64[0];
+      v16 = _mm_srli_si128(*(__m128i *)&SecurityAttribute->Flags, 8).m128i_u64[0];
       v10 = v16;
       if ( v16 )
       {
@@ -79,7 +79,7 @@ __int64 __fastcall NtAlpcCreateSecurityContext(HANDLE Handle, int a2, __m128i *a
       }
     }
     Object = 0LL;
-    SecurityContext = ObReferenceObjectByHandle(Handle, 1u, AlpcPortObjectType, PreviousMode, &Object, 0LL);
+    SecurityContext = ObReferenceObjectByHandle(PortHandle, 1u, AlpcPortObjectType, PreviousMode, &Object, 0LL);
     if ( SecurityContext >= 0 )
     {
       if ( !v10 )
@@ -92,12 +92,12 @@ __int64 __fastcall NtAlpcCreateSecurityContext(HANDLE Handle, int a2, __m128i *a
       if ( SecurityContext >= 0 )
       {
         v14 = BugCheckParameter2;
-        a3[1].m128i_i64[0] = *(_QWORD *)(BugCheckParameter2 + 8);
+        SecurityAttribute->ContextHandle = *(ALPC_HANDLE *)(BugCheckParameter2 + 8);
         AlpcpDereferenceBlobEx(v14);
       }
       ObfDereferenceObject(v13);
     }
   }
   KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
-  return (unsigned int)SecurityContext;
+  return SecurityContext;
 }

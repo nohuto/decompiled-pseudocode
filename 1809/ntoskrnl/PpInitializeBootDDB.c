@@ -1,16 +1,16 @@
 /*
- * XREFs of PpInitializeBootDDB @ 0x1409C842C
+ * XREFs of PpInitializeBootDDB @ 0x1409C942C
  * Callers:
- *     IopInitializePlugPlayServices @ 0x1409C7608 (IopInitializePlugPlayServices.c)
+ *     IopInitializePlugPlayServices @ 0x1409C8608 (IopInitializePlugPlayServices.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
- *     ExInitializeResourceLite @ 0x1400CC4F0 (ExInitializeResourceLite.c)
- *     memmove @ 0x1401D1540 (memmove.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     SdbInitDatabaseInMemory @ 0x1405A21DC (SdbInitDatabaseInMemory.c)
- *     PnpLogEvent @ 0x140827DEC (PnpLogEvent.c)
- *     PiInitializeDDBCache @ 0x1409C85C4 (PiInitializeDDBCache.c)
+ *     RtlInitUnicodeString @ 0x1400B99D0 (RtlInitUnicodeString.c)
+ *     ExInitializeResourceLite @ 0x1400CC570 (ExInitializeResourceLite.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     SdbInitDatabaseInMemory @ 0x1405A31DC (SdbInitDatabaseInMemory.c)
+ *     PnpLogEvent @ 0x140828FEC (PnpLogEvent.c)
+ *     PiInitializeDDBCache @ 0x1409C95C4 (PiInitializeDDBCache.c)
  */
 
 __int64 __fastcall PpInitializeBootDDB(__int64 a1, int a2)

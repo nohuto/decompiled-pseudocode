@@ -1,7 +1,7 @@
 /*
- * XREFs of ViDisableVerification @ 0x140C21EFC
+ * XREFs of ViDisableVerification @ 0x140C27F0C
  * Callers:
- *     ViInitSystemPhase0 @ 0x140CDEDA4 (ViInitSystemPhase0.c)
+ *     ViInitSystemPhase0 @ 0x140CE513C (ViInitSystemPhase0.c)
  * Callees:
  *     <none>
  */

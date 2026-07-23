@@ -1,16 +1,16 @@
 /*
- * XREFs of PopFxFindAcpiDeviceByUniqueId @ 0x140397170
+ * XREFs of PopFxFindAcpiDeviceByUniqueId @ 0x140397350
  * Callers:
- *     PopFxAcpiPrepareDevice @ 0x1405A0DA8 (PopFxAcpiPrepareDevice.c)
- *     PopFxFindDeviceAndAllocateUniqueId @ 0x140790E0C (PopFxFindDeviceAndAllocateUniqueId.c)
- *     PopFxRegisterDeviceWorker @ 0x1408366AC (PopFxRegisterDeviceWorker.c)
+ *     PopFxAcpiPrepareDevice @ 0x1405A1298 (PopFxAcpiPrepareDevice.c)
+ *     PopFxFindDeviceAndAllocateUniqueId @ 0x140790FFC (PopFxFindDeviceAndAllocateUniqueId.c)
+ *     PopFxRegisterDeviceWorker @ 0x1408369AC (PopFxRegisterDeviceWorker.c)
  * Callees:
- *     ExAcquirePushLockSharedEx @ 0x140230D90 (ExAcquirePushLockSharedEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     ExfReleasePushLockShared @ 0x1402BD860 (ExfReleasePushLockShared.c)
- *     IoAcquireRemoveLockEx @ 0x1403124F0 (IoAcquireRemoveLockEx.c)
- *     RtlCompareUnicodeString @ 0x1406DA140 (RtlCompareUnicodeString.c)
+ *     ExAcquirePushLockSharedEx @ 0x140230E80 (ExAcquirePushLockSharedEx.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     KeLeaveCriticalRegion @ 0x140231550 (KeLeaveCriticalRegion.c)
+ *     ExfReleasePushLockShared @ 0x1402BDAF0 (ExfReleasePushLockShared.c)
+ *     IoAcquireRemoveLockEx @ 0x140312780 (IoAcquireRemoveLockEx.c)
+ *     RtlCompareUnicodeString @ 0x1406DA170 (RtlCompareUnicodeString.c)
  */
 
 __int64 __fastcall PopFxFindAcpiDeviceByUniqueId(PCUNICODE_STRING String2, __int64 **a2)

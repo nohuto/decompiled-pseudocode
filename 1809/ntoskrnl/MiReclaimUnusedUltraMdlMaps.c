@@ -1,14 +1,14 @@
 /*
- * XREFs of MiReclaimUnusedUltraMdlMaps @ 0x1400F0AB4
+ * XREFs of MiReclaimUnusedUltraMdlMaps @ 0x1400F0B34
  * Callers:
- *     MiWorkingSetManager @ 0x1400EF5B4 (MiWorkingSetManager.c)
+ *     MiWorkingSetManager @ 0x1400EF634 (MiWorkingSetManager.c)
  * Callees:
- *     KeAcquireInStackQueuedSpinLock @ 0x14007DE90 (KeAcquireInStackQueuedSpinLock.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
- *     MiDeleteUltraMapContext @ 0x1400E1844 (MiDeleteUltraMapContext.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     RtlpInterlockedPopEntrySList @ 0x1401C53D0 (RtlpInterlockedPopEntrySList.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14007DE80 (KeAcquireInStackQueuedSpinLock.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC6A0 (KxReleaseQueuedSpinLock.c)
+ *     MiDeleteUltraMapContext @ 0x1400E18C4 (MiDeleteUltraMapContext.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     RtlpInterlockedPopEntrySList @ 0x1401C5530 (RtlpInterlockedPopEntrySList.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
  */
 
 unsigned __int64 MiReclaimUnusedUltraMdlMaps()
@@ -36,9 +36,9 @@ unsigned __int64 MiReclaimUnusedUltraMdlMaps()
       v4 = (unsigned __int64)v2 << 9;
       do
       {
-        while ( *(_WORD *)(v4 + qword_14043ACF0) > 2u )
+        while ( *(_WORD *)(v4 + qword_14043BDB0) > 2u )
         {
-          v5 = RtlpInterlockedPopEntrySList((PSLIST_HEADER)(qword_14043ACF0 + ((8LL * v2 + v3) << 6)));
+          v5 = RtlpInterlockedPopEntrySList((PSLIST_HEADER)(qword_14043BDB0 + ((8LL * v2 + v3) << 6)));
           v6 = v5;
           if ( !v5 )
             break;
@@ -56,8 +56,8 @@ unsigned __int64 MiReclaimUnusedUltraMdlMaps()
     while ( v2 < (unsigned __int16)KeNumberNodes );
     if ( v1 )
     {
-      KeAcquireInStackQueuedSpinLock(&qword_14043ACA8, &LockHandle);
-      dword_14043ACE8 -= v1;
+      KeAcquireInStackQueuedSpinLock(&qword_14043BD68, &LockHandle);
+      dword_14043BDA8 -= v1;
       KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
       OldIrql = LockHandle.OldIrql;
       if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && KeGetCurrentIrql() >= 2u && LockHandle.OldIrql < 2u )

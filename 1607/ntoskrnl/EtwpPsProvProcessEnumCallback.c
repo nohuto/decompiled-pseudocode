@@ -1,20 +1,20 @@
 /*
- * XREFs of EtwpPsProvProcessEnumCallback @ 0x1406A7D94
+ * XREFs of EtwpPsProvProcessEnumCallback @ 0x1406A7ECC
  * Callers:
- *     EtwpPsProvCaptureState @ 0x1406A7D1C (EtwpPsProvCaptureState.c)
+ *     EtwpPsProvCaptureState @ 0x1406A7E54 (EtwpPsProvCaptureState.c)
  * Callees:
- *     ObFastDereferenceObject @ 0x14000F690 (ObFastDereferenceObject.c)
- *     KiStackAttachProcess @ 0x1400CD1F0 (KiStackAttachProcess.c)
- *     KiUnstackDetachProcess @ 0x1400CE820 (KiUnstackDetachProcess.c)
- *     ExAcquireRundownProtection @ 0x1400D3ED0 (ExAcquireRundownProtection.c)
- *     ExReleaseRundownProtection @ 0x1400D3F00 (ExReleaseRundownProtection.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     PsReferencePrimaryToken @ 0x140418C20 (PsReferencePrimaryToken.c)
- *     EtwpQueryTokenPackageInfo @ 0x14045DB40 (EtwpQueryTokenPackageInfo.c)
- *     EtwpQueryProcessOtherInfo @ 0x14045DBFC (EtwpQueryProcessOtherInfo.c)
- *     EtwpIsProcessZombie @ 0x140498C84 (EtwpIsProcessZombie.c)
- *     PsSetProcessTelemetryAppState @ 0x1404A33DC (PsSetProcessTelemetryAppState.c)
- *     EtwpPsProvTraceProcess @ 0x14054B508 (EtwpPsProvTraceProcess.c)
+ *     ObFastDereferenceObject @ 0x14000F210 (ObFastDereferenceObject.c)
+ *     KiStackAttachProcess @ 0x1400CB090 (KiStackAttachProcess.c)
+ *     KiUnstackDetachProcess @ 0x1400CC6C0 (KiUnstackDetachProcess.c)
+ *     ExAcquireRundownProtection @ 0x1400D1D70 (ExAcquireRundownProtection.c)
+ *     ExReleaseRundownProtection @ 0x1400D1DA0 (ExReleaseRundownProtection.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     PsReferencePrimaryToken @ 0x140417AE0 (PsReferencePrimaryToken.c)
+ *     EtwpQueryTokenPackageInfo @ 0x14045CA10 (EtwpQueryTokenPackageInfo.c)
+ *     EtwpQueryProcessOtherInfo @ 0x14045CACC (EtwpQueryProcessOtherInfo.c)
+ *     EtwpIsProcessZombie @ 0x140499714 (EtwpIsProcessZombie.c)
+ *     PsSetProcessTelemetryAppState @ 0x14051B7DC (PsSetProcessTelemetryAppState.c)
+ *     EtwpPsProvTraceProcess @ 0x14054BA48 (EtwpPsProvTraceProcess.c)
  */
 
 __int64 __fastcall EtwpPsProvProcessEnumCallback(PEPROCESS Process, _BYTE *a2)
@@ -27,7 +27,7 @@ __int64 __fastcall EtwpPsProvProcessEnumCallback(PEPROCESS Process, _BYTE *a2)
   unsigned int v10; // [rsp+30h] [rbp-208h] BYREF
   __int64 v11; // [rsp+38h] [rbp-200h] BYREF
   _BYTE v12[48]; // [rsp+40h] [rbp-1F8h] BYREF
-  unsigned int v13[104]; // [rsp+70h] [rbp-1C8h] BYREF
+  unsigned int PackageSize[104]; // [rsp+70h] [rbp-1C8h] BYREF
 
   v4 = 0;
   if ( !EtwpIsProcessZombie((__int64)Process) )
@@ -53,13 +53,13 @@ __int64 __fastcall EtwpPsProvProcessEnumCallback(PEPROCESS Process, _BYTE *a2)
       {
         v10 = 0;
         v8 = PsReferencePrimaryToken(Process);
-        EtwpQueryTokenPackageInfo((__int64)v8, (__int64)v13, &v10);
+        EtwpQueryTokenPackageInfo(v8, (WCHAR *)PackageSize, &v10);
         if ( a2[8] )
           EtwpQueryProcessOtherInfo((__int64)Process, (__int64)&v11);
         else
           v11 = 0LL;
         ObFastDereferenceObject((signed __int64 *)&Process[1].Affinity.Bitmap[5], (unsigned __int64)v8);
-        EtwpPsProvTraceProcess(Process, v10, v13, (__int64)&v11, 771);
+        EtwpPsProvTraceProcess(Process, v10, PackageSize, (__int64)&v11, 771);
       }
       if ( v4 )
       {

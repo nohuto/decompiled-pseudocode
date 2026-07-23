@@ -4,7 +4,7 @@
  *     LdrpMergeLangFallbackLists @ 0x18003A52C (LdrpMergeLangFallbackLists.c)
  *     RtlpAddNeutralsToMergedList @ 0x18003BD04 (RtlpAddNeutralsToMergedList.c)
  *     RtlpFilterandReplaceConsoleLanguages @ 0x18003C2D4 (RtlpFilterandReplaceConsoleLanguages.c)
- *     LdrpMergeParentBaseLanguagesToList @ 0x1800EED40 (LdrpMergeParentBaseLanguagesToList.c)
+ *     LdrpMergeParentBaseLanguagesToList @ 0x1800EED00 (LdrpMergeParentBaseLanguagesToList.c)
  * Callees:
  *     RtlpMuiRegAddMultiSzToLangFallbackList @ 0x18003ACBC (RtlpMuiRegAddMultiSzToLangFallbackList.c)
  *     LdrpLangFallbackListFindNode @ 0x18003B628 (LdrpLangFallbackListFindNode.c)

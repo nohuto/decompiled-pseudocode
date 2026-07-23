@@ -1,14 +1,14 @@
 /*
- * XREFs of PnprMarkOrMirrorPages @ 0x140579EA8
+ * XREFs of PnprMarkOrMirrorPages @ 0x14057AEA8
  * Callers:
- *     PnprMirrorPhysicalMemory @ 0x14028A430 (PnprMirrorPhysicalMemory.c)
- *     PnprRecopyAddress @ 0x14028A614 (PnprRecopyAddress.c)
- *     PnprRecopyMappingReserve @ 0x14028A66C (PnprRecopyMappingReserve.c)
+ *     PnprMirrorPhysicalMemory @ 0x14028A620 (PnprMirrorPhysicalMemory.c)
+ *     PnprRecopyAddress @ 0x14028A804 (PnprRecopyAddress.c)
+ *     PnprRecopyMappingReserve @ 0x14028A85C (PnprRecopyMappingReserve.c)
  * Callees:
  *     RtlClearBits @ 0x140017890 (RtlClearBits.c)
  *     KeReleaseInStackQueuedSpinLock @ 0x14001F500 (KeReleaseInStackQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14007DE90 (KeAcquireInStackQueuedSpinLock.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14007DE80 (KeAcquireInStackQueuedSpinLock.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall PnprMarkOrMirrorPages(unsigned __int64 a1, unsigned __int64 a2, char a3)
@@ -16,7 +16,7 @@ __int64 __fastcall PnprMarkOrMirrorPages(unsigned __int64 a1, unsigned __int64 a
   __int64 v5; // rcx
   unsigned __int64 v6; // r14
   __int64 v7; // rax
-  struct _RTL_BITMAP *v8; // rsi
+  _RTL_BITMAP *v8; // rsi
   unsigned __int64 v9; // r13
   unsigned __int64 v10; // r15
   unsigned __int64 v11; // rbp
@@ -31,10 +31,10 @@ __int64 __fastcall PnprMarkOrMirrorPages(unsigned __int64 a1, unsigned __int64 a
   v5 = PnprContext;
   v6 = a1 >> 12;
   v7 = PnprContext + 152;
-  v8 = *(struct _RTL_BITMAP **)(PnprContext + 152);
+  v8 = *(_RTL_BITMAP **)(PnprContext + 152);
   v9 = (a2 >> 12) + v6;
   v10 = v9 - 1;
-  while ( v8 != (struct _RTL_BITMAP *)v7 )
+  while ( v8 != (_RTL_BITMAP *)v7 )
   {
     v11 = *(_QWORD *)&v8[1].SizeOfBitMap;
     if ( v10 < v11 )
@@ -74,7 +74,7 @@ __int64 __fastcall PnprMarkOrMirrorPages(unsigned __int64 a1, unsigned __int64 a
       }
     }
     v5 = PnprContext;
-    v8 = *(struct _RTL_BITMAP **)&v8->SizeOfBitMap;
+    v8 = *(_RTL_BITMAP **)&v8->SizeOfBitMap;
     v7 = PnprContext + 152;
   }
   return 0LL;

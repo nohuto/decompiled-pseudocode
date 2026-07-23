@@ -1,10 +1,10 @@
 /*
- * XREFs of MiSelectSystemImageAddress @ 0x14075FE58
+ * XREFs of MiSelectSystemImageAddress @ 0x140760018
  * Callers:
- *     MiSelectImageBase @ 0x140714524 (MiSelectImageBase.c)
- *     MiGetSystemAddressForImage @ 0x14075E8AC (MiGetSystemAddressForImage.c)
+ *     MiSelectImageBase @ 0x1406C2B74 (MiSelectImageBase.c)
+ *     MiGetSystemAddressForImage @ 0x14075EA6C (MiGetSystemAddressForImage.c)
  * Callees:
- *     MiReserveDriverPtes @ 0x14075FEA4 (MiReserveDriverPtes.c)
+ *     MiReserveDriverPtes @ 0x140760064 (MiReserveDriverPtes.c)
  */
 
 __int64 __fastcall MiSelectSystemImageAddress(int a1, unsigned int a2)

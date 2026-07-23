@@ -1,18 +1,18 @@
 /*
- * XREFs of MiScrubAwePage @ 0x1402B1C5C
+ * XREFs of MiScrubAwePage @ 0x1402B1E4C
  * Callers:
- *     MiScrubProcessPhysicalPages @ 0x140850350 (MiScrubProcessPhysicalPages.c)
+ *     MiScrubProcessPhysicalPages @ 0x1408515B0 (MiScrubProcessPhysicalPages.c)
  * Callees:
  *     MiPteInShadowRange @ 0x14003D740 (MiPteInShadowRange.c)
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
  *     MiUnlockWorkingSetShared @ 0x140046970 (MiUnlockWorkingSetShared.c)
- *     MiLockPageTableInternal @ 0x14006CA20 (MiLockPageTableInternal.c)
- *     MiLockWorkingSetShared @ 0x140076050 (MiLockWorkingSetShared.c)
- *     KeFlushSingleTb @ 0x1400ECDF4 (KeFlushSingleTb.c)
- *     MiUnlockPageTableInternal @ 0x140104A90 (MiUnlockPageTableInternal.c)
- *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
- *     MiScrubPage @ 0x1402CF950 (MiScrubPage.c)
+ *     MiLockPageTableInternal @ 0x14006CA10 (MiLockPageTableInternal.c)
+ *     MiLockWorkingSetShared @ 0x140076040 (MiLockWorkingSetShared.c)
+ *     KeFlushSingleTb @ 0x1400ECE74 (KeFlushSingleTb.c)
+ *     MiUnlockPageTableInternal @ 0x140104B10 (MiUnlockPageTableInternal.c)
+ *     MiWritePteShadow @ 0x140120F40 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120FA0 (MiPteHasShadow.c)
+ *     MiScrubPage @ 0x1402CFB40 (MiScrubPage.c)
  */
 
 __int64 __fastcall MiScrubAwePage(__int64 a1, __int64 a2, _DWORD *a3)
@@ -59,7 +59,7 @@ __int64 __fastcall MiScrubAwePage(__int64 a1, __int64 a2, _DWORD *a3)
       if ( (unsigned int)MiPteHasShadow() )
       {
         v12 = 1;
-        if ( !HIBYTE(word_14043A1AC) )
+        if ( !HIBYTE(word_14043B26C) )
         {
           v14 = (v11 & 1) == 0;
           goto LABEL_14;
@@ -87,7 +87,7 @@ LABEL_14:
       if ( (unsigned int)MiPteHasShadow() )
       {
         v17 = 1;
-        if ( !HIBYTE(word_14043A1AC) )
+        if ( !HIBYTE(word_14043B26C) )
         {
           v18 = (v16 & 1) == 0;
           goto LABEL_26;

@@ -1,15 +1,15 @@
 /*
  * XREFs of BgkpLockBgfxCodeSection @ 0x140AEEB60
  * Callers:
- *     BgkNotifyDisplayOwnershipChange @ 0x1403ADB80 (BgkNotifyDisplayOwnershipChange.c)
- *     BgkResumePrepare @ 0x140A99A74 (BgkResumePrepare.c)
+ *     BgkNotifyDisplayOwnershipChange @ 0x1403ADD60 (BgkNotifyDisplayOwnershipChange.c)
+ *     BgkResumePrepare @ 0x140A998E4 (BgkResumePrepare.c)
  *     BgkInitialize @ 0x140B9D198 (BgkInitialize.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1402BD960 (ExfTryToWakePushLock.c)
- *     MmLockPagableDataSection @ 0x1406AD5B0 (MmLockPagableDataSection.c)
+ *     KeLeaveCriticalRegionThread @ 0x14022F7F0 (KeLeaveCriticalRegionThread.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140231120 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     ExfTryToWakePushLock @ 0x1402BDBF0 (ExfTryToWakePushLock.c)
+ *     MmLockPagableDataSection @ 0x1406AD5E0 (MmLockPagableDataSection.c)
  */
 
 _QWORD *BgkpLockBgfxCodeSection()

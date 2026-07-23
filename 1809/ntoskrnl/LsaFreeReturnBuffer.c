@@ -1,11 +1,11 @@
 /*
- * XREFs of LsaFreeReturnBuffer @ 0x14068FD10
+ * XREFs of LsaFreeReturnBuffer @ 0x140690ED0
  * Callers:
  *     <none>
  * Callees:
- *     ExReleaseExtensionTable @ 0x14010DBEC (ExReleaseExtensionTable.c)
- *     ExGetExtensionTable @ 0x14010DC04 (ExGetExtensionTable.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     ExReleaseExtensionTable @ 0x14010DC6C (ExReleaseExtensionTable.c)
+ *     ExGetExtensionTable @ 0x14010DC84 (ExGetExtensionTable.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
  */
 
 NTSTATUS __stdcall LsaFreeReturnBuffer(PVOID Buffer)

@@ -1,11 +1,11 @@
 /*
- * XREFs of RcFrameConsolidation @ 0x1404FCEF0
+ * XREFs of RcFrameConsolidation @ 0x1404FA7B0
  * Callers:
  *     <none>
  * Callees:
- *     KeKernelShadowStackRestoreContext @ 0x1402651D0 (KeKernelShadowStackRestoreContext.c)
- *     KeCheckStackAndTargetAddress @ 0x1404378F0 (KeCheckStackAndTargetAddress.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
+ *     KeKernelShadowStackRestoreContext @ 0x1403A9E70 (KeKernelShadowStackRestoreContext.c)
+ *     KeCheckStackAndTargetAddress @ 0x14042A370 (KeCheckStackAndTargetAddress.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
  */
 
 void __fastcall RcFrameConsolidation(
@@ -32,7 +32,7 @@ void __fastcall RcFrameConsolidation(
   _UNKNOWN *retaddr; // [rsp+0h] [rbp+0h] BYREF
   void *v33; // [rsp+F8h] [rbp+F8h]
 
-  v33 = (void *)guard_dispatch_icall_no_overrides(a1, a2, a3, a4);
+  v33 = (void *)guard_dispatch_icall_no_overrides(a1, a2);
   if ( (a6 & 0xFFFFFF3F) == 0x10000F )
   {
     _mm_setcsr(HIDWORD(a6));
@@ -46,5 +46,5 @@ void __fastcall RcFrameConsolidation(
     _disable();
     __asm { iretq }
   }
-  JUMPOUT(0x1404FCCF5LL);
+  JUMPOUT(0x1404FA5B5LL);
 }

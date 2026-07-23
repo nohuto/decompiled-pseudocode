@@ -1,23 +1,23 @@
 /*
- * XREFs of CcAsyncCopyRead @ 0x1402C1070
+ * XREFs of CcAsyncCopyRead @ 0x1402C1300
  * Callers:
  *     <none>
  * Callees:
- *     KxReleaseQueuedSpinLock @ 0x140260360 (KxReleaseQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140260E60 (KeAcquireInStackQueuedSpinLock.c)
- *     CcAllocateWorkQueueEntry @ 0x14029B670 (CcAllocateWorkQueueEntry.c)
- *     PsGetIoPriorityThread @ 0x1402A8BB0 (PsGetIoPriorityThread.c)
- *     ExpAllocatePoolWithTagFromNode @ 0x1402AD250 (ExpAllocatePoolWithTagFromNode.c)
- *     CcPostWorkQueueAsyncRead @ 0x1402C0C04 (CcPostWorkQueueAsyncRead.c)
- *     IoReferenceIoAttributionFromThread @ 0x1402C0F30 (IoReferenceIoAttributionFromThread.c)
- *     CcGetNodeForReadAhead @ 0x1402C13E4 (CcGetNodeForReadAhead.c)
- *     KeQueryPerformanceCounter @ 0x1402C3270 (KeQueryPerformanceCounter.c)
- *     PsGetPagePriorityThread @ 0x1402E1520 (PsGetPagePriorityThread.c)
- *     RtlRaiseStatus @ 0x1403217B0 (RtlRaiseStatus.c)
- *     CcScheduleReadAheadNuma @ 0x140328FBC (CcScheduleReadAheadNuma.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     CcSetTelemetryPeriodicTimer @ 0x140875774 (CcSetTelemetryPeriodicTimer.c)
+ *     KxReleaseQueuedSpinLock @ 0x1402605F0 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402610F0 (KeAcquireInStackQueuedSpinLock.c)
+ *     CcAllocateWorkQueueEntry @ 0x14029B900 (CcAllocateWorkQueueEntry.c)
+ *     PsGetIoPriorityThread @ 0x1402A8E40 (PsGetIoPriorityThread.c)
+ *     ExpAllocatePoolWithTagFromNode @ 0x1402AD4E0 (ExpAllocatePoolWithTagFromNode.c)
+ *     CcPostWorkQueueAsyncRead @ 0x1402C0E94 (CcPostWorkQueueAsyncRead.c)
+ *     IoReferenceIoAttributionFromThread @ 0x1402C11C0 (IoReferenceIoAttributionFromThread.c)
+ *     CcGetNodeForReadAhead @ 0x1402C1674 (CcGetNodeForReadAhead.c)
+ *     KeQueryPerformanceCounter @ 0x1402C3500 (KeQueryPerformanceCounter.c)
+ *     PsGetPagePriorityThread @ 0x1402E17B0 (PsGetPagePriorityThread.c)
+ *     RtlRaiseStatus @ 0x140321A40 (RtlRaiseStatus.c)
+ *     CcScheduleReadAheadNuma @ 0x14032924C (CcScheduleReadAheadNuma.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
+ *     CcSetTelemetryPeriodicTimer @ 0x1408759B4 (CcSetTelemetryPeriodicTimer.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 
@@ -42,7 +42,7 @@ char __fastcall CcAsyncCopyRead(
   struct _KTHREAD *CurrentThread; // rsi
   _SLIST_ENTRY *PoolWithTagFromNode; // rax
   _SLIST_ENTRY *v21; // r14
-  int v22; // ebp
+  NTSTATUS v22; // ebp
   volatile signed __int64 *DeepFreezeStartTime; // rcx
   unsigned __int64 OldIrql; // rbp
   unsigned __int8 CurrentIrql; // al
@@ -75,7 +75,7 @@ char __fastcall CcAsyncCopyRead(
   if ( (signed __int64)(*a2 + a3) > *(_QWORD *)(v12 + 8) )
     KeBugCheckEx(0x34u, 0x3FDuLL, 0xFFFFFFFFC0000420uLL, 0LL, 0LL);
   if ( !a5 )
-    RtlRaiseStatus(3221225704LL);
+    RtlRaiseStatus(-1073741592);
   CurrentThread = a7;
   if ( CcEnableReadAheadInAsyncRead && (*v17 & 0x20000) != 0 )
     CcScheduleReadAheadNuma(Object, Ahead);
@@ -90,13 +90,13 @@ char __fastcall CcAsyncCopyRead(
                                           0);
   v21 = PoolWithTagFromNode;
   if ( !PoolWithTagFromNode )
-    RtlRaiseStatus(3221225626LL);
+    RtlRaiseStatus(-1073741670);
   PoolWithTagFromNode->Next = 0LL;
   v22 = CcAllocateWorkQueueEntry(v13, *(_QWORD *)(v12 + 600), v18, &ListEntry);
   if ( v22 < 0 )
   {
     ExFreePoolWithTag(v21, 0x73416343u);
-    RtlRaiseStatus((unsigned int)v22);
+    RtlRaiseStatus(v22);
   }
   if ( !CurrentThread )
     CurrentThread = KeGetCurrentThread();
@@ -112,10 +112,13 @@ char __fastcall CcAsyncCopyRead(
   ++*(_DWORD *)(v12 + 544);
   KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
   OldIrql = LockHandle.OldIrql;
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && LockHandle.OldIrql <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
+      && LockHandle.OldIrql <= 0xFu
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;

@@ -1,9 +1,9 @@
 /*
- * XREFs of Feature_ForegroundBoost_ApiRemoval__private_IsEnabledFallback @ 0x14052E960
+ * XREFs of Feature_ForegroundBoost_ApiRemoval__private_IsEnabledFallback @ 0x140530E80
  * Callers:
- *     Feature_ForegroundBoost_ApiRemoval__private_IsEnabledDeviceUsageNoInline @ 0x1404E5110 (Feature_ForegroundBoost_ApiRemoval__private_IsEnabledDeviceUsageNoInline.c)
+ *     Feature_ForegroundBoost_ApiRemoval__private_IsEnabledDeviceUsageNoInline @ 0x1404DE6B0 (Feature_ForegroundBoost_ApiRemoval__private_IsEnabledDeviceUsageNoInline.c)
  * Callees:
- *     wil_details_IsEnabledFallback @ 0x1405016DC (wil_details_IsEnabledFallback.c)
+ *     wil_details_IsEnabledFallback @ 0x1404FAECC (wil_details_IsEnabledFallback.c)
  */
 
 __int64 __fastcall Feature_ForegroundBoost_ApiRemoval__private_IsEnabledFallback(__int64 a1, unsigned int a2)

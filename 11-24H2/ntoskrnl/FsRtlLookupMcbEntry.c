@@ -1,9 +1,9 @@
 /*
- * XREFs of FsRtlLookupMcbEntry @ 0x14057FBB0
+ * XREFs of FsRtlLookupMcbEntry @ 0x14057CFF0
  * Callers:
  *     <none>
  * Callees:
- *     FsRtlLookupLargeMcbEntry @ 0x1404031D0 (FsRtlLookupLargeMcbEntry.c)
+ *     FsRtlLookupLargeMcbEntry @ 0x1403FD7D0 (FsRtlLookupLargeMcbEntry.c)
  */
 
 BOOLEAN __stdcall FsRtlLookupMcbEntry(PMCB Mcb, VBN Vbn, PLBN Lbn, PULONG SectorCount, PULONG Index)

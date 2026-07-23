@@ -1,10 +1,10 @@
 /*
- * XREFs of HalBuildMdlFromScatterGatherListV2 @ 0x1402AB920
+ * XREFs of HalBuildMdlFromScatterGatherListV2 @ 0x140229A60
  * Callers:
  *     <none>
  * Callees:
- *     IoAllocateMdl @ 0x1402E8BB0 (IoAllocateMdl.c)
- *     IoFreeMdl @ 0x1402E9600 (IoFreeMdl.c)
+ *     IoAllocateMdl @ 0x140299F00 (IoAllocateMdl.c)
+ *     IoFreeMdl @ 0x14029A950 (IoFreeMdl.c)
  */
 
 __int64 __fastcall HalBuildMdlFromScatterGatherListV2(__int64 a1, unsigned int *a2, struct _MDL *a3, struct _MDL **a4)

@@ -1,14 +1,14 @@
 /*
- * XREFs of PiUEventQueueBroadcastEventEntry @ 0x1404EB59C
+ * XREFs of PiUEventQueueBroadcastEventEntry @ 0x1404887EC
  * Callers:
- *     PiUEventProcessBroadcastNotifications @ 0x1403EF550 (PiUEventProcessBroadcastNotifications.c)
+ *     PiUEventProcessBroadcastNotifications @ 0x140489978 (PiUEventProcessBroadcastNotifications.c)
  * Callees:
- *     KeReleaseGuardedMutex @ 0x14000CA40 (KeReleaseGuardedMutex.c)
- *     ExAcquireFastMutex @ 0x14002D0A0 (ExAcquireFastMutex.c)
- *     RtlInitUnicodeString @ 0x14002DC60 (RtlInitUnicodeString.c)
- *     ExQueueWorkItem @ 0x14005FE5C (ExQueueWorkItem.c)
+ *     KeReleaseGuardedMutex @ 0x14000C5C0 (KeReleaseGuardedMutex.c)
+ *     ExAcquireFastMutex @ 0x14002CC20 (ExAcquireFastMutex.c)
+ *     RtlInitUnicodeString @ 0x14002D7E0 (RtlInitUnicodeString.c)
+ *     ExQueueWorkItem @ 0x14005F9DC (ExQueueWorkItem.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     RtlEqualUnicodeString @ 0x14040F720 (RtlEqualUnicodeString.c)
+ *     RtlEqualUnicodeString @ 0x14040E5E0 (RtlEqualUnicodeString.c)
  */
 
 void __fastcall PiUEventQueueBroadcastEventEntry(__int64 a1)
@@ -62,13 +62,13 @@ LABEL_12:
     v2 = (PVOID *)*v2;
   }
   *(_BYTE *)(a1 + 16) = 1;
-  v4 = (__int64 *)qword_140320068;
-  if ( *(PVOID **)qword_140320068 != &PiUEventBroadcastEventQueue )
+  v4 = (__int64 *)qword_140320088;
+  if ( *(PVOID **)qword_140320088 != &PiUEventBroadcastEventQueue )
     __fastfail(3u);
   *(_QWORD *)a1 = &PiUEventBroadcastEventQueue;
   *(_QWORD *)(a1 + 8) = v4;
   *v4 = a1;
-  qword_140320068 = a1;
+  qword_140320088 = a1;
   KeReleaseGuardedMutex(&PiUEventBroadcastEventQueueLock);
   if ( v3 )
   {

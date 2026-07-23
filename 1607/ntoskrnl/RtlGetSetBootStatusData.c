@@ -1,20 +1,20 @@
 /*
- * XREFs of RtlGetSetBootStatusData @ 0x140543314
+ * XREFs of RtlGetSetBootStatusData @ 0x140543854
  * Callers:
  *     NtSetSystemPowerState @ 0x1403CF658 (NtSetSystemPowerState.c)
- *     PopClearSleepMarker @ 0x14052EC58 (PopClearSleepMarker.c)
- *     PopSetSleepMarker @ 0x140531690 (PopSetSleepMarker.c)
- *     PoClearTransitionMarker @ 0x140580424 (PoClearTransitionMarker.c)
- *     PopClearConnectedStandbyMarker @ 0x14066A310 (PopClearConnectedStandbyMarker.c)
- *     PopRecordPhysicalPowerButton @ 0x14066A420 (PopRecordPhysicalPowerButton.c)
- *     PopRecordPowerButton @ 0x14066A52C (PopRecordPowerButton.c)
- *     PopSetCleanShutdownMarker @ 0x14066A634 (PopSetCleanShutdownMarker.c)
- *     PopSetConnectedStandbyMarker @ 0x14066A6C4 (PopSetConnectedStandbyMarker.c)
+ *     PopClearSleepMarker @ 0x14052F198 (PopClearSleepMarker.c)
+ *     PopSetSleepMarker @ 0x140531BD0 (PopSetSleepMarker.c)
+ *     PoClearTransitionMarker @ 0x1405808D0 (PoClearTransitionMarker.c)
+ *     PopClearConnectedStandbyMarker @ 0x14066A3F4 (PopClearConnectedStandbyMarker.c)
+ *     PopRecordPhysicalPowerButton @ 0x14066A504 (PopRecordPhysicalPowerButton.c)
+ *     PopRecordPowerButton @ 0x14066A610 (PopRecordPowerButton.c)
+ *     PopSetCleanShutdownMarker @ 0x14066A718 (PopSetCleanShutdownMarker.c)
+ *     PopSetConnectedStandbyMarker @ 0x14066A7A8 (PopSetConnectedStandbyMarker.c)
  *     PopCheckAndClearBootError @ 0x1407BA920 (PopCheckAndClearBootError.c)
  *     PopCheckShutdownMarker @ 0x1407BA97C (PopCheckShutdownMarker.c)
  * Callees:
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     RtlpGetSetBootStatusData @ 0x14054346C (RtlpGetSetBootStatusData.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     RtlpGetSetBootStatusData @ 0x1405439AC (RtlpGetSetBootStatusData.c)
  */
 
 NTSTATUS __stdcall RtlGetSetBootStatusData(

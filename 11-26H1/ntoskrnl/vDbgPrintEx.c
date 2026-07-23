@@ -1,9 +1,9 @@
 /*
- * XREFs of vDbgPrintEx @ 0x140397490
+ * XREFs of vDbgPrintEx @ 0x140399210
  * Callers:
  *     <none>
  * Callees:
- *     vDbgPrintExWithPrefixInternalHelper @ 0x140397670 (vDbgPrintExWithPrefixInternalHelper.c)
+ *     vDbgPrintExWithPrefixInternalHelper @ 0x1403993F0 (vDbgPrintExWithPrefixInternalHelper.c)
  */
 
 ULONG __stdcall vDbgPrintEx(ULONG ComponentId, ULONG Level, PCCH Format, va_list arglist)

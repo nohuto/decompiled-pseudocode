@@ -1,7 +1,7 @@
 /*
- * XREFs of EtwpCoverageSamplerQueryStatusInformation @ 0x140946FCC
+ * XREFs of EtwpCoverageSamplerQueryStatusInformation @ 0x14094719C
  * Callers:
- *     EtwpQueryCoverageSamplerInformation @ 0x1409477E4 (EtwpQueryCoverageSamplerInformation.c)
+ *     EtwpQueryCoverageSamplerInformation @ 0x1409479B4 (EtwpQueryCoverageSamplerInformation.c)
  * Callees:
  *     <none>
  */

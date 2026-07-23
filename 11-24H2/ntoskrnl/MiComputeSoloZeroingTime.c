@@ -1,9 +1,9 @@
 /*
- * XREFs of MiComputeSoloZeroingTime @ 0x140415A50
+ * XREFs of MiComputeSoloZeroingTime @ 0x1402718B0
  * Callers:
- *     MiQuantifyZeroWork @ 0x1404158F8 (MiQuantifyZeroWork.c)
+ *     MiQuantifyZeroWork @ 0x140271758 (MiQuantifyZeroWork.c)
  * Callees:
- *     MiTimeToWriteMemory @ 0x140415B24 (MiTimeToWriteMemory.c)
+ *     MiTimeToWriteMemory @ 0x140271984 (MiTimeToWriteMemory.c)
  */
 
 __int64 __fastcall MiComputeSoloZeroingTime(__int64 a1)
@@ -14,7 +14,7 @@ __int64 __fastcall MiComputeSoloZeroingTime(__int64 a1)
   _QWORD *v5; // r14
   unsigned int i; // edi
 
-  v2 = *(_QWORD *)(qword_140E38C10 + 57216LL * *(unsigned int *)(a1 + 88) + 15272);
+  v2 = *(_QWORD *)(qword_140E38D50 + 57216LL * *(unsigned int *)(a1 + 88) + 15272);
   if ( !v2 )
     return 0LL;
   v3 = 0;

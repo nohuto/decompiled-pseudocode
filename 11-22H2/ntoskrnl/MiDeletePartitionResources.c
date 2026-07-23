@@ -152,7 +152,7 @@ LABEL_14:
   }
   while ( v10 );
   MiFreeClonePool(a1);
-  MiEmptyKernelStackCache((union _SLIST_HEADER *)a1, 1);
+  MiEmptyKernelStackCache((_SLIST_HEADER *)a1, 1);
   *(_QWORD *)(a1 + 17816) -= MiDeletePagingFiles(a1);
   MiEnumerateSlabAllocators(
     a1,
@@ -280,10 +280,13 @@ LABEL_53:
     }
   }
   ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(v13 + 224));
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v26 <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
+      && (unsigned __int8)v26 <= 0xFu
+      && CurrentIrql >= 2u )
     {
       v34 = KeGetCurrentPrcb();
       v35 = v34->SchedulerAssist;

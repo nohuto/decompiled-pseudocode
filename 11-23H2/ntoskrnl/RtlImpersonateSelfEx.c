@@ -1,20 +1,23 @@
 /*
- * XREFs of RtlImpersonateSelfEx @ 0x1407D2D5C
+ * XREFs of RtlImpersonateSelfEx @ 0x1407D302C
  * Callers:
  *     CmpCmdHiveOpen @ 0x14068B2C0 (CmpCmdHiveOpen.c)
- *     RtlAcquirePrivilege @ 0x1407D2B8C (RtlAcquirePrivilege.c)
- *     BiAcquirePrivilege @ 0x1408060A8 (BiAcquirePrivilege.c)
+ *     RtlAcquirePrivilege @ 0x1407D2E5C (RtlAcquirePrivilege.c)
+ *     BiAcquirePrivilege @ 0x140806378 (BiAcquirePrivilege.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     ZwSetInformationThread @ 0x14041AF00 (ZwSetInformationThread.c)
- *     ZwClose @ 0x14041AF40 (ZwClose.c)
- *     ZwOpenProcessTokenEx @ 0x14041B360 (ZwOpenProcessTokenEx.c)
- *     ZwDuplicateToken @ 0x14041B5A0 (ZwDuplicateToken.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     ZwSetInformationThread @ 0x14041B290 (ZwSetInformationThread.c)
+ *     ZwClose @ 0x14041B2D0 (ZwClose.c)
+ *     ZwOpenProcessTokenEx @ 0x14041B6F0 (ZwOpenProcessTokenEx.c)
+ *     ZwDuplicateToken @ 0x14041B930 (ZwDuplicateToken.c)
  */
 
-__int64 __fastcall RtlImpersonateSelfEx(int a1, int a2, HANDLE *a3)
+NTSTATUS __cdecl RtlImpersonateSelfEx(
+        SECURITY_IMPERSONATION_LEVEL ImpersonationLevel,
+        ACCESS_MASK AdditionalAccess,
+        PHANDLE ThreadToken)
 {
-  NTSTATUS v5; // ebx
+  int v5; // ebx
   HANDLE ThreadInformation; // [rsp+30h] [rbp-29h] BYREF
   HANDLE TokenHandle; // [rsp+38h] [rbp-21h] BYREF
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+40h] [rbp-19h] BYREF
@@ -27,9 +30,9 @@ __int64 __fastcall RtlImpersonateSelfEx(int a1, int a2, HANDLE *a3)
   *(&ObjectAttributes.Length + 1) = 0;
   *(&ObjectAttributes.Attributes + 1) = 0;
   v12 = 0;
-  if ( !a3 && a2 )
-    return 3221225712LL;
-  v10[1] = a1;
+  if ( !ThreadToken && AdditionalAccess )
+    return -1073741584;
+  v10[1] = ImpersonationLevel;
   ObjectAttributes.Attributes = 512;
   ObjectAttributes.SecurityQualityOfService = v10;
   ObjectAttributes.Length = 48;
@@ -41,16 +44,22 @@ __int64 __fastcall RtlImpersonateSelfEx(int a1, int a2, HANDLE *a3)
   v5 = ZwOpenProcessTokenEx((HANDLE)0xFFFFFFFFFFFFFFFFLL, 2u, 0x200u, &TokenHandle);
   if ( v5 >= 0 )
   {
-    v5 = ZwDuplicateToken(TokenHandle, a2 | 4, &ObjectAttributes, 0, TokenImpersonation, &ThreadInformation);
+    v5 = ZwDuplicateToken(
+           TokenHandle,
+           AdditionalAccess | 4,
+           &ObjectAttributes,
+           0,
+           TokenImpersonation,
+           &ThreadInformation);
     if ( v5 >= 0 )
     {
       v5 = ZwSetInformationThread((HANDLE)0xFFFFFFFFFFFFFFFELL, ThreadImpersonationToken, &ThreadInformation, 8u);
-      if ( v5 >= 0 && a3 )
-        *a3 = ThreadInformation;
+      if ( v5 >= 0 && ThreadToken )
+        *ThreadToken = ThreadInformation;
       else
         ZwClose(ThreadInformation);
     }
     ZwClose(TokenHandle);
   }
-  return (unsigned int)v5;
+  return v5;
 }

@@ -1,14 +1,14 @@
 /*
- * XREFs of DrvDbGetDriverDatabaseMappedPropertyKeys @ 0x1409014A8
+ * XREFs of DrvDbGetDriverDatabaseMappedPropertyKeys @ 0x140902768
  * Callers:
- *     DrvDbDispatchDriverDatabase @ 0x1406D2780 (DrvDbDispatchDriverDatabase.c)
+ *     DrvDbDispatchDriverDatabase @ 0x1406D3A20 (DrvDbDispatchDriverDatabase.c)
  * Callees:
- *     ZwClose @ 0x1401B8370 (ZwClose.c)
- *     _RegRtlQueryValue @ 0x1405C79A8 (_RegRtlQueryValue.c)
- *     DrvDbOpenObjectRegKey @ 0x1406D2C78 (DrvDbOpenObjectRegKey.c)
- *     DrvDbFindDatabaseNode @ 0x1406D3B78 (DrvDbFindDatabaseNode.c)
- *     DrvDbOpenDriverDatabaseRegKey @ 0x140753ABC (DrvDbOpenDriverDatabaseRegKey.c)
- *     DrvDbGetCompositeMappedPropertyKeys @ 0x140901340 (DrvDbGetCompositeMappedPropertyKeys.c)
+ *     ZwClose @ 0x1401B84D0 (ZwClose.c)
+ *     _RegRtlQueryValue @ 0x1405C89A8 (_RegRtlQueryValue.c)
+ *     DrvDbOpenObjectRegKey @ 0x1406D3F18 (DrvDbOpenObjectRegKey.c)
+ *     DrvDbFindDatabaseNode @ 0x1406D4E18 (DrvDbFindDatabaseNode.c)
+ *     DrvDbOpenDriverDatabaseRegKey @ 0x140754CAC (DrvDbOpenDriverDatabaseRegKey.c)
+ *     DrvDbGetCompositeMappedPropertyKeys @ 0x140902600 (DrvDbGetCompositeMappedPropertyKeys.c)
  */
 
 __int64 __fastcall DrvDbGetDriverDatabaseMappedPropertyKeys(
@@ -73,7 +73,7 @@ __int64 __fastcall DrvDbGetDriverDatabaseMappedPropertyKeys(
   v12 = a1;
   *(_DWORD *)a6 = 0;
   v13 = 0;
-  result = DrvDbGetCompositeMappedPropertyKeys(a1, (_OWORD **)&off_140400390, 5u, a4, a5, v40);
+  result = DrvDbGetCompositeMappedPropertyKeys(a1, (_OWORD **)&off_140401390, 5u, a4, a5, v40);
   if ( (int)result < 0 )
     return result;
   v16 = *v6;
@@ -94,7 +94,7 @@ __int64 __fastcall DrvDbGetDriverDatabaseMappedPropertyKeys(
   if ( v17 < 0 )
     goto LABEL_48;
   v18 = KeyHandle;
-  v19 = &off_140356510;
+  v19 = &off_140357500;
   v45 = KeyHandle;
   v20 = 0;
   while ( 1 )
@@ -166,7 +166,7 @@ LABEL_31:
     v10 = Handle;
   }
   v29 = 0;
-  v30 = &off_1403534A0;
+  v30 = &off_1403544A0;
   while ( 2 )
   {
     v31 = (const WCHAR *)v30[2];

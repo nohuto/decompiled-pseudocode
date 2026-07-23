@@ -1,12 +1,12 @@
 /*
- * XREFs of PspUnlockJobListExclusive @ 0x140606464
+ * XREFs of PspUnlockJobListExclusive @ 0x140607464
  * Callers:
- *     PspJobDelete @ 0x14008FE10 (PspJobDelete.c)
- *     NtCreateJobObject @ 0x140605F80 (NtCreateJobObject.c)
+ *     PspJobDelete @ 0x14008FD50 (PspJobDelete.c)
+ *     NtCreateJobObject @ 0x140606F80 (NtCreateJobObject.c)
  * Callees:
  *     KiLeaveGuardedRegionUnsafe @ 0x14004F090 (KiLeaveGuardedRegionUnsafe.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
+ *     ExfTryToWakePushLock @ 0x140091500 (ExfTryToWakePushLock.c)
  */
 
 __int64 __fastcall PspUnlockJobListExclusive(__int64 a1)

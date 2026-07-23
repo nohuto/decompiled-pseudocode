@@ -1,15 +1,15 @@
 /*
- * XREFs of MiSetIdealProcessorThread @ 0x1403B4508
+ * XREFs of MiSetIdealProcessorThread @ 0x140370F20
  * Callers:
- *     MiZeroMoveToProcessor @ 0x14030AA98 (MiZeroMoveToProcessor.c)
+ *     MiZeroMoveToProcessor @ 0x140314978 (MiZeroMoveToProcessor.c)
  * Callees:
- *     KeQueryPriorityThread @ 0x140248260 (KeQueryPriorityThread.c)
- *     KeSetSystemGroupAffinityThread @ 0x140339650 (KeSetSystemGroupAffinityThread.c)
- *     KeRevertToUserGroupAffinityThread @ 0x14033A250 (KeRevertToUserGroupAffinityThread.c)
- *     KeSetIdealProcessorThreadEx @ 0x1403B422C (KeSetIdealProcessorThreadEx.c)
- *     KeFindFirstSetRightGroupAffinity @ 0x1403B4C70 (KeFindFirstSetRightGroupAffinity.c)
- *     KeSetPriorityThread @ 0x1403F96D0 (KeSetPriorityThread.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     KeQueryPriorityThread @ 0x1402E24A0 (KeQueryPriorityThread.c)
+ *     KeSetSystemGroupAffinityThread @ 0x140318B30 (KeSetSystemGroupAffinityThread.c)
+ *     KeRevertToUserGroupAffinityThread @ 0x140319730 (KeRevertToUserGroupAffinityThread.c)
+ *     KeSetIdealProcessorThreadEx @ 0x140370A64 (KeSetIdealProcessorThreadEx.c)
+ *     KeFindFirstSetRightGroupAffinity @ 0x140371000 (KeFindFirstSetRightGroupAffinity.c)
+ *     KeSetPriorityThread @ 0x140371FE0 (KeSetPriorityThread.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 __int64 __fastcall MiSetIdealProcessorThread(PGROUP_AFFINITY Affinity)
@@ -20,7 +20,7 @@ __int64 __fastcall MiSetIdealProcessorThread(PGROUP_AFFINITY Affinity)
   unsigned int FirstSetRightGroupAffinity; // eax
   int v6; // esi
   unsigned int v8; // [rsp+20h] [rbp-28h] BYREF
-  struct _GROUP_AFFINITY PreviousAffinity; // [rsp+28h] [rbp-20h] BYREF
+  _GROUP_AFFINITY PreviousAffinity; // [rsp+28h] [rbp-20h] BYREF
 
   v8 = 0;
   v1 = Affinity->Mask == 0;

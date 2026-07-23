@@ -1,11 +1,11 @@
 /*
- * XREFs of PopDiagTraceSleepReliabilityDiagConfigUpdate @ 0x1406F9478
+ * XREFs of PopDiagTraceSleepReliabilityDiagConfigUpdate @ 0x1406F70B8
  * Callers:
- *     PopPowerInformationInternal @ 0x140AC4A30 (PopPowerInformationInternal.c)
+ *     PopPowerInformationInternal @ 0x140AC2410 (PopPowerInformationInternal.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140330CB0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgKeywordOn @ 0x140426AF0 (_tlgKeywordOn.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402B92F0 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x14041A970 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 void PopDiagTraceSleepReliabilityDiagConfigUpdate()
@@ -21,7 +21,7 @@ void PopDiagTraceSleepReliabilityDiagConfigUpdate()
   int v8; // [rsp+78h] [rbp-20h]
   int v9; // [rsp+7Ch] [rbp-1Ch]
 
-  if ( (unsigned int)dword_140E076F0 > 5 && tlgKeywordOn((__int64)&dword_140E076F0, 0x400000000000LL) )
+  if ( (unsigned int)dword_140E07680 > 5 && tlgKeywordOn((__int64)&dword_140E07680, 0x400000000000LL) )
   {
     v6 = 0;
     v9 = 0;
@@ -31,6 +31,6 @@ void PopDiagTraceSleepReliabilityDiagConfigUpdate()
     v5 = 1;
     v2 = 0x1000000LL;
     v8 = 8;
-    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140E076F0, (unsigned __int8 *)&word_14004B6FE, 0LL, 0LL, 4u, &v3);
+    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140E07680, (unsigned __int8 *)&dword_14004AD7C, 0LL, 0LL, 4u, &v3);
   }
 }

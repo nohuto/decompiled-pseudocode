@@ -1,23 +1,23 @@
 /*
- * XREFs of VmPinMemoryRanges @ 0x14081D290
+ * XREFs of VmPinMemoryRanges @ 0x1408234A0
  * Callers:
- *     VmPinMemoryRange @ 0x14081D1A0 (VmPinMemoryRange.c)
+ *     VmPinMemoryRange @ 0x1408233B0 (VmPinMemoryRange.c)
  * Callees:
- *     KeQueryUnbiasedInterruptTimePrecise @ 0x140207BF0 (KeQueryUnbiasedInterruptTimePrecise.c)
- *     ExfAcquirePushLockSharedEx @ 0x140277CC0 (ExfAcquirePushLockSharedEx.c)
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     ExfReleasePushLockShared @ 0x140278BD0 (ExfReleasePushLockShared.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     _tlgKeywordOn @ 0x14044F850 (_tlgKeywordOn.c)
- *     VmpPinMemoryRanges @ 0x1406C1F74 (VmpPinMemoryRanges.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     SddlpFreeUuidString @ 0x1408186A4 (SddlpFreeUuidString.c)
- *     VmpPinRangesContextStart @ 0x14081D870 (VmpPinRangesContextStart.c)
- *     VmpUnpinRangeSinglePages @ 0x14081DD5C (VmpUnpinRangeSinglePages.c)
- *     VmpLogPin @ 0x14081E76C (VmpLogPin.c)
+ *     KeQueryUnbiasedInterruptTimePrecise @ 0x140207CD0 (KeQueryUnbiasedInterruptTimePrecise.c)
+ *     ExfAcquirePushLockSharedEx @ 0x140277230 (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     ExfReleasePushLockShared @ 0x140278140 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     _tlgKeywordOn @ 0x140447980 (_tlgKeywordOn.c)
+ *     VmpPinMemoryRanges @ 0x1406C5B54 (VmpPinMemoryRanges.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     SddlpFreeUuidString @ 0x14081E8B4 (SddlpFreeUuidString.c)
+ *     VmpPinRangesContextStart @ 0x140823A80 (VmpPinRangesContextStart.c)
+ *     VmpUnpinRangeSinglePages @ 0x140823F6C (VmpUnpinRangeSinglePages.c)
+ *     VmpLogPin @ 0x14082497C (VmpLogPin.c)
  */
 
 __int64 __fastcall VmPinMemoryRanges(unsigned __int64 a1, __int64 a2, __int64 a3, int a4, __int64 a5)
@@ -69,9 +69,9 @@ __int64 __fastcall VmPinMemoryRanges(unsigned __int64 a1, __int64 a2, __int64 a3
   v38 = 0LL;
   v39 = 0LL;
   v40 = 0LL;
-  if ( stru_140F066E8.QuantumTarget
-    && *(_DWORD *)stru_140F066E8.QuantumTarget
-    && tlgKeywordOn(stru_140F066E8.QuantumTarget, 32LL) )
+  if ( stru_140F06A28.InitialStack
+    && *(_DWORD *)stru_140F06A28.InitialStack
+    && tlgKeywordOn((__int64)stru_140F06A28.InitialStack, 32LL) )
   {
     v9 = KeQueryUnbiasedInterruptTimePrecise(&QpcTimeStamp);
   }
@@ -165,9 +165,9 @@ LABEL_27:
   if ( v9 )
   {
     KeQueryUnbiasedInterruptTimePrecise(&v34);
-    if ( stru_140F066E8.QuantumTarget )
+    if ( stru_140F06A28.InitialStack )
     {
-      if ( *(_DWORD *)stru_140F066E8.QuantumTarget && tlgKeywordOn(stru_140F066E8.QuantumTarget, 32LL) )
+      if ( *(_DWORD *)stru_140F06A28.InitialStack && tlgKeywordOn((__int64)stru_140F06A28.InitialStack, 32LL) )
         VmpLogPin(v24, 0, v7, v32, v37, v29, a5, v14, v25);
     }
   }

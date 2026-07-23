@@ -1,15 +1,15 @@
 /*
- * XREFs of MiTrimThisWsle @ 0x140016960
+ * XREFs of MiTrimThisWsle @ 0x1400164E0
  * Callers:
- *     MiTrimWorkingSet @ 0x140016210 (MiTrimWorkingSet.c)
+ *     MiTrimWorkingSet @ 0x140015D90 (MiTrimWorkingSet.c)
  * Callees:
- *     MiPartitionIdToPointer @ 0x1400680A0 (MiPartitionIdToPointer.c)
- *     MiUpdateWorkingSetAgeDistribution @ 0x1400BC53C (MiUpdateWorkingSetAgeDistribution.c)
- *     MiLocateCloneAddress @ 0x1400BDB00 (MiLocateCloneAddress.c)
- *     MiSetWsleAge @ 0x1400BDC94 (MiSetWsleAge.c)
- *     MiGetPfnPriority @ 0x1400E67A4 (MiGetPfnPriority.c)
- *     MI_GET_PAGE_FRAME_FROM_PTE @ 0x1401F2550 (MI_GET_PAGE_FRAME_FROM_PTE.c)
- *     MiDemoteCombinedPte @ 0x1401F97B0 (MiDemoteCombinedPte.c)
+ *     MiPartitionIdToPointer @ 0x140067C20 (MiPartitionIdToPointer.c)
+ *     MiUpdateWorkingSetAgeDistribution @ 0x1400BA3CC (MiUpdateWorkingSetAgeDistribution.c)
+ *     MiLocateCloneAddress @ 0x1400BB990 (MiLocateCloneAddress.c)
+ *     MiSetWsleAge @ 0x1400BBB24 (MiSetWsleAge.c)
+ *     MiGetPfnPriority @ 0x1400E4644 (MiGetPfnPriority.c)
+ *     MI_GET_PAGE_FRAME_FROM_PTE @ 0x1401F237C (MI_GET_PAGE_FRAME_FROM_PTE.c)
+ *     MiDemoteCombinedPte @ 0x1401F95DC (MiDemoteCombinedPte.c)
  */
 
 __int64 __fastcall MiTrimThisWsle(__int64 a1, __int64 a2, unsigned int a3)

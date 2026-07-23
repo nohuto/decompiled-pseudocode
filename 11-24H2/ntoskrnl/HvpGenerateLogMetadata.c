@@ -1,11 +1,11 @@
 /*
- * XREFs of HvpGenerateLogMetadata @ 0x14097F1C8
+ * XREFs of HvpGenerateLogMetadata @ 0x1409679D8
  * Callers:
- *     HvpGenerateLogEntryMetadata @ 0x14042AF5C (HvpGenerateLogEntryMetadata.c)
- *     HvpApplyLegacyLogFile @ 0x1407E6070 (HvpApplyLegacyLogFile.c)
+ *     HvpGenerateLogEntryMetadata @ 0x140377360 (HvpGenerateLogEntryMetadata.c)
+ *     HvpApplyLegacyLogFile @ 0x1407E6640 (HvpApplyLegacyLogFile.c)
  * Callees:
- *     RtlFindNextForwardRunClear @ 0x1403E15B0 (RtlFindNextForwardRunClear.c)
- *     HvpCountSetRangesInVector @ 0x14097F28C (HvpCountSetRangesInVector.c)
+ *     RtlFindNextForwardRunClear @ 0x1403C3BB0 (RtlFindNextForwardRunClear.c)
+ *     HvpCountSetRangesInVector @ 0x140967A9C (HvpCountSetRangesInVector.c)
  */
 
 __int64 __fastcall HvpGenerateLogMetadata(PRTL_BITMAP BitMapHeader, __int64 a2, unsigned int *a3)

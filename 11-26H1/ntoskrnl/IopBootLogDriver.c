@@ -1,9 +1,9 @@
 /*
- * XREFs of IopBootLogDriver @ 0x1405CA670
+ * XREFs of IopBootLogDriver @ 0x1405CCF40
  * Callers:
  *     <none>
  * Callees:
- *     IopBootLog @ 0x140A27974 (IopBootLog.c)
+ *     IopBootLog @ 0x140A3AA14 (IopBootLog.c)
  */
 
 __int64 __fastcall IopBootLogDriver(__int64 a1)

@@ -1,16 +1,16 @@
 /*
- * XREFs of MiConsumeSystemCacheTbFlushNeededView @ 0x140424738
+ * XREFs of MiConsumeSystemCacheTbFlushNeededView @ 0x1404185E8
  * Callers:
- *     MiObtainSystemCacheView @ 0x140241D90 (MiObtainSystemCacheView.c)
+ *     MiObtainSystemCacheView @ 0x140209EE0 (MiObtainSystemCacheView.c)
  * Callees:
- *     MiInitializeTbFlushList @ 0x140233BB0 (MiInitializeTbFlushList.c)
- *     MiReleaseProcessorFlushList @ 0x14023FFD0 (MiReleaseProcessorFlushList.c)
- *     MiInsertTbFlushEntry @ 0x1402432E0 (MiInsertTbFlushEntry.c)
- *     MiGetProcessorFlushList @ 0x1402894BC (MiGetProcessorFlushList.c)
- *     MiFlushTbList @ 0x140291730 (MiFlushTbList.c)
- *     MiRebalanceSystemCacheFreedViews @ 0x1402D4480 (MiRebalanceSystemCacheFreedViews.c)
- *     MiInsertReadiedSystemCacheViews @ 0x1402D4594 (MiInsertReadiedSystemCacheViews.c)
- *     MiTbFlushListPromoteThreshold @ 0x140424950 (MiTbFlushListPromoteThreshold.c)
+ *     MiReleaseProcessorFlushList @ 0x140208120 (MiReleaseProcessorFlushList.c)
+ *     MiInsertTbFlushEntry @ 0x1402137F0 (MiInsertTbFlushEntry.c)
+ *     MiInitializeTbFlushList @ 0x140214780 (MiInitializeTbFlushList.c)
+ *     MiGetProcessorFlushList @ 0x1402990BC (MiGetProcessorFlushList.c)
+ *     MiFlushTbList @ 0x1402A1330 (MiFlushTbList.c)
+ *     MiRebalanceSystemCacheFreedViews @ 0x140355700 (MiRebalanceSystemCacheFreedViews.c)
+ *     MiInsertReadiedSystemCacheViews @ 0x140355814 (MiInsertReadiedSystemCacheViews.c)
+ *     MiTbFlushListPromoteThreshold @ 0x140418800 (MiTbFlushListPromoteThreshold.c)
  */
 
 __int64 __fastcall MiConsumeSystemCacheTbFlushNeededView(__int64 a1, unsigned __int64 a2)

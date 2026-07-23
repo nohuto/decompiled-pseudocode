@@ -20,7 +20,7 @@ __int64 __fastcall PspSetJobIoAttribution(_QWORD *Object, __int64 a2, char a3, u
   char v7; // r12
   unsigned int v9; // eax
   unsigned int v10; // eax
-  unsigned __int64 v11; // rax
+  _RTL_BALANCED_NODE *v11; // rax
   __int64 v12; // rdi
   unsigned int v13; // esi
   const EVENT_DESCRIPTOR *v14; // rbx
@@ -118,8 +118,8 @@ LABEL_25:
     *((_DWORD *)Object + 333) = v10 + a4;
     goto LABEL_25;
   }
-  v11 = IoDiskIoAttributionAllocate(Object, 0LL);
-  v12 = v11;
+  v11 = (_RTL_BALANCED_NODE *)IoDiskIoAttributionAllocate(Object, 0LL);
+  v12 = (__int64)v11;
   if ( v11 )
   {
     IoStartDiskIoAttributionForContext(v11);

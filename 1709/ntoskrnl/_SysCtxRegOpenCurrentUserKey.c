@@ -35,7 +35,7 @@ __int64 __fastcall SysCtxRegOpenCurrentUserKey(_QWORD *a1, unsigned int a2, unsi
   unsigned __int16 v11; // bx
   wchar_t *PoolWithTag; // rax
   __int64 v13; // rcx
-  struct _SID_IDENTIFIER_AUTHORITY IdentifierAuthority; // [rsp+30h] [rbp-99h] BYREF
+  _SID_IDENTIFIER_AUTHORITY IdentifierAuthority; // [rsp+30h] [rbp-99h] BYREF
   int TokenInformation; // [rsp+38h] [rbp-91h] BYREF
   HANDLE Handle; // [rsp+40h] [rbp-89h] BYREF
   int v18; // [rsp+48h] [rbp-81h] BYREF

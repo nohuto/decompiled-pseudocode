@@ -1,22 +1,22 @@
 /*
- * XREFs of MiDecommitPrivatePageTail @ 0x1404F2240
+ * XREFs of MiDecommitPrivatePageTail @ 0x1404EFCE0
  * Callers:
- *     MiDecommitFreePagesTail @ 0x1404F1D60 (MiDecommitFreePagesTail.c)
+ *     MiDecommitFreePagesTail @ 0x1404EF800 (MiDecommitFreePagesTail.c)
  * Callees:
- *     MiChargeCommit @ 0x140211450 (MiChargeCommit.c)
- *     MiReleasePageFileInfo @ 0x14021B9A0 (MiReleasePageFileInfo.c)
- *     MiDecommitFreePage @ 0x14023E790 (MiDecommitFreePage.c)
- *     MiCaptureDirtyBitToPfn @ 0x14023ED00 (MiCaptureDirtyBitToPfn.c)
- *     MiBadShareCount @ 0x14023EE28 (MiBadShareCount.c)
- *     EtwTraceKernelEvent @ 0x140255180 (EtwTraceKernelEvent.c)
- *     HvlNotifyLongSpinWait @ 0x140293260 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140293290 (KiCheckVpBackingLongSpinWaitHypercall.c)
- *     MiGetLeafVa @ 0x1402DEE20 (MiGetLeafVa.c)
- *     MiIdentifyPfn @ 0x140307510 (MiIdentifyPfn.c)
- *     MiSetPfnIdentity @ 0x1403A00D0 (MiSetPfnIdentity.c)
- *     MiIsPfnSystemCharged @ 0x140437E10 (MiIsPfnSystemCharged.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     MiDecommitFreePage @ 0x1402068E0 (MiDecommitFreePage.c)
+ *     MiCaptureDirtyBitToPfn @ 0x140206E50 (MiCaptureDirtyBitToPfn.c)
+ *     MiBadShareCount @ 0x140206F78 (MiBadShareCount.c)
+ *     MiSetPfnIdentity @ 0x140216B00 (MiSetPfnIdentity.c)
+ *     MiGetLeafVa @ 0x140240700 (MiGetLeafVa.c)
+ *     MiReleasePageFileInfo @ 0x1402486F0 (MiReleasePageFileInfo.c)
+ *     EtwTraceKernelEvent @ 0x140285790 (EtwTraceKernelEvent.c)
+ *     HvlNotifyLongSpinWait @ 0x1402A2E60 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1402A2E90 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     MiIdentifyPfn @ 0x1403113F0 (MiIdentifyPfn.c)
+ *     MiChargeCommit @ 0x14033A7B0 (MiChargeCommit.c)
+ *     MiIsPfnSystemCharged @ 0x14042A890 (MiIsPfnSystemCharged.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 void __fastcall MiDecommitPrivatePageTail(__int64 a1, ULONG_PTR a2, ULONG_PTR a3)
@@ -32,12 +32,13 @@ void __fastcall MiDecommitPrivatePageTail(__int64 a1, ULONG_PTR a2, ULONG_PTR a3
   __int64 v13; // rbp
   int IsPfnSystemCharged; // eax
   int v15; // eax
-  __int128 v16; // [rsp+38h] [rbp-70h] BYREF
-  __int64 v17; // [rsp+48h] [rbp-60h]
-  _QWORD v18[2]; // [rsp+50h] [rbp-58h] BYREF
+  __int64 v16; // r9
+  __int128 v17; // [rsp+38h] [rbp-70h] BYREF
+  __int64 v18; // [rsp+48h] [rbp-60h]
+  _QWORD v19[2]; // [rsp+50h] [rbp-58h] BYREF
 
-  v16 = 0LL;
   v17 = 0LL;
+  v18 = 0LL;
   v3 = (a3 >> 12) & 0xFFFFFFFFFFLL;
   v6 = 48 * v3 - 0x220000000000LL;
   if ( (*(_QWORD *)(v6 + 8) | 0x8000000000000000uLL) != a2 )
@@ -80,7 +81,7 @@ void __fastcall MiDecommitPrivatePageTail(__int64 a1, ULONG_PTR a2, ULONG_PTR a3
       }
       if ( (BYTE4(PerfGlobalGroupMask) & 1) != 0 )
       {
-        MiIdentifyPfn(v3, (__int64 *)&v16);
+        MiIdentifyPfn(v3, (__int64 *)&v17);
         v12 = 1;
         goto LABEL_23;
       }
@@ -114,7 +115,7 @@ LABEL_22:
     v8 = 1;
   }
 LABEL_23:
-  v13 = *((_QWORD *)qword_140E2FF88 + ((*(_QWORD *)(v6 + 40) >> 43) & 0x3FFLL));
+  v13 = *((_QWORD *)qword_140E300C8 + ((*(_QWORD *)(v6 + 40) >> 43) & 0x3FFLL));
   if ( (*(_DWORD *)(a1 + 156) & 0x20) != 0 )
     v9 = MiCaptureDirtyBitToPfn(v6);
   if ( *v11 )
@@ -145,10 +146,10 @@ LABEL_23:
   }
   if ( v12 )
   {
-    v18[1] = 24LL;
-    v18[0] = &v16;
-    EtwTraceKernelEvent((int)v18, 1, 0x20000001u, 631, 290462468);
+    v19[1] = 24LL;
+    v19[0] = &v17;
+    EtwTraceKernelEvent((int)v19, 1, 0x20000001u, 631, 290462468);
   }
   if ( v9 )
-    MiReleasePageFileInfo(v13, v9, 1LL);
+    MiReleasePageFileInfo(v13, v9, 1LL, v16);
 }

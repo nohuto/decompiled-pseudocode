@@ -1,19 +1,19 @@
 /*
- * XREFs of ExpFindArcName @ 0x1406B0860
+ * XREFs of ExpFindArcName @ 0x1406B0998
  * Callers:
- *     ExpCreateOutputARC @ 0x1406B0314 (ExpCreateOutputARC.c)
+ *     ExpCreateOutputARC @ 0x1406B044C (ExpCreateOutputARC.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14002DC60 (RtlInitUnicodeString.c)
- *     wcscpy_s @ 0x140153094 (wcscpy_s.c)
- *     wcsncat_s @ 0x140153118 (wcsncat_s.c)
- *     wcsncpy_s @ 0x140153224 (wcsncpy_s.c)
- *     ZwClose @ 0x140159E60 (ZwClose.c)
- *     ZwOpenDirectoryObject @ 0x14015A780 (ZwOpenDirectoryObject.c)
- *     ZwQueryDirectoryObject @ 0x14015C2A0 (ZwQueryDirectoryObject.c)
+ *     RtlInitUnicodeString @ 0x14002D7E0 (RtlInitUnicodeString.c)
+ *     wcscpy_s @ 0x140153654 (wcscpy_s.c)
+ *     wcsncat_s @ 0x1401536D8 (wcsncat_s.c)
+ *     wcsncpy_s @ 0x1401537E4 (wcsncpy_s.c)
+ *     ZwClose @ 0x14015A3D0 (ZwClose.c)
+ *     ZwOpenDirectoryObject @ 0x14015ACF0 (ZwOpenDirectoryObject.c)
+ *     ZwQueryDirectoryObject @ 0x14015C810 (ZwQueryDirectoryObject.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     RtlEqualUnicodeString @ 0x14040F720 (RtlEqualUnicodeString.c)
- *     ExpTranslateSymbolicLink @ 0x1406B30A8 (ExpTranslateSymbolicLink.c)
+ *     RtlEqualUnicodeString @ 0x14040E5E0 (RtlEqualUnicodeString.c)
+ *     ExpTranslateSymbolicLink @ 0x1406B31E0 (ExpTranslateSymbolicLink.c)
  */
 
 __int64 __fastcall ExpFindArcName(const UNICODE_STRING *a1, wchar_t **a2)

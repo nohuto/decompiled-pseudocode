@@ -1,22 +1,22 @@
 /*
- * XREFs of MiCommitFileBackedSection @ 0x140A58878
+ * XREFs of MiCommitFileBackedSection @ 0x140A65DF8
  * Callers:
- *     MiAllocateVirtualMemory @ 0x1409F3464 (MiAllocateVirtualMemory.c)
+ *     MiAllocateVirtualMemory @ 0x1409EFC34 (MiAllocateVirtualMemory.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     ObfReferenceObjectWithTag @ 0x140278B30 (ObfReferenceObjectWithTag.c)
- *     MiLockVad @ 0x14027EBC0 (MiLockVad.c)
- *     MiUnlockVad @ 0x14027F670 (MiUnlockVad.c)
- *     MiSetProtectionOnSection @ 0x140304DE0 (MiSetProtectionOnSection.c)
- *     MiMakeProtectionMask @ 0x140364A40 (MiMakeProtectionMask.c)
- *     MiStartingOffset @ 0x14036CEA0 (MiStartingOffset.c)
- *     MiFlushRelease @ 0x14036D520 (MiFlushRelease.c)
- *     MiReadVadFlags @ 0x1404655D0 (MiReadVadFlags.c)
- *     MiVadDeleted @ 0x140480A68 (MiVadDeleted.c)
- *     MiFlushAcquire @ 0x1404B3174 (MiFlushAcquire.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     MiCheckSecuredVad @ 0x14095DB28 (MiCheckSecuredVad.c)
- *     MmExtendSection @ 0x140A58080 (MmExtendSection.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     ObfReferenceObjectWithTag @ 0x1402780A0 (ObfReferenceObjectWithTag.c)
+ *     MiLockVad @ 0x14027E130 (MiLockVad.c)
+ *     MiUnlockVad @ 0x14027EBE0 (MiUnlockVad.c)
+ *     MiSetProtectionOnSection @ 0x1402E6E60 (MiSetProtectionOnSection.c)
+ *     MiMakeProtectionMask @ 0x1403667E0 (MiMakeProtectionMask.c)
+ *     MiStartingOffset @ 0x14036EC40 (MiStartingOffset.c)
+ *     MiFlushRelease @ 0x14036F2C0 (MiFlushRelease.c)
+ *     MiReadVadFlags @ 0x14045E590 (MiReadVadFlags.c)
+ *     MiVadDeleted @ 0x14047A3A8 (MiVadDeleted.c)
+ *     MiFlushAcquire @ 0x1404AC7F4 (MiFlushAcquire.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     MiCheckSecuredVad @ 0x140A033E8 (MiCheckSecuredVad.c)
+ *     MmExtendSection @ 0x140A65600 (MmExtendSection.c)
  */
 
 __int64 __fastcall MiCommitFileBackedSection(__int64 a1, ULONG_PTR a2, __int64 a3)

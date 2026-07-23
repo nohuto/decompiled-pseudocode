@@ -1,21 +1,21 @@
 /*
- * XREFs of EtwpFlushTrace @ 0x1406DD6A4
+ * XREFs of EtwpFlushTrace @ 0x1406B4984
  * Callers:
- *     NtTraceControl @ 0x1405EAF60 (NtTraceControl.c)
+ *     NtTraceControl @ 0x1406DA6C0 (NtTraceControl.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
- *     EtwEventEnabled @ 0x14021BF30 (EtwEventEnabled.c)
- *     RtlFreeAnsiString @ 0x140602CB0 (RtlFreeAnsiString.c)
- *     EtwpCheckLoggerControlAccess @ 0x140642DDC (EtwpCheckLoggerControlAccess.c)
- *     EtwpReleaseLoggerContext @ 0x140643A38 (EtwpReleaseLoggerContext.c)
- *     EtwpSynchronizeWithLogger @ 0x1406B8D9C (EtwpSynchronizeWithLogger.c)
- *     EtwpAcquireLoggerContext @ 0x1406DEEF0 (EtwpAcquireLoggerContext.c)
- *     EtwpValidateLoggerInfo @ 0x1406DF014 (EtwpValidateLoggerInfo.c)
- *     EtwpCaptureString @ 0x1406DF044 (EtwpCaptureString.c)
- *     EtwpGetLoggerInfoFromContext @ 0x1406DF154 (EtwpGetLoggerInfoFromContext.c)
- *     EtwpCCSwapStop @ 0x140798870 (EtwpCCSwapStop.c)
- *     EtwpEventWriteTemplateSession @ 0x140939E7C (EtwpEventWriteTemplateSession.c)
- *     EtwpBufferingModeFlush @ 0x14093D188 (EtwpBufferingModeFlush.c)
+ *     KeLeaveCriticalRegionThread @ 0x1402AB8C0 (KeLeaveCriticalRegionThread.c)
+ *     EtwEventEnabled @ 0x1402C0830 (EtwEventEnabled.c)
+ *     EtwpSynchronizeWithLogger @ 0x14061839C (EtwpSynchronizeWithLogger.c)
+ *     EtwpCheckLoggerControlAccess @ 0x140637BEC (EtwpCheckLoggerControlAccess.c)
+ *     EtwpReleaseLoggerContext @ 0x140638848 (EtwpReleaseLoggerContext.c)
+ *     RtlFreeAnsiString @ 0x14063DA40 (RtlFreeAnsiString.c)
+ *     EtwpAcquireLoggerContext @ 0x1406B61D0 (EtwpAcquireLoggerContext.c)
+ *     EtwpValidateLoggerInfo @ 0x1406B62F4 (EtwpValidateLoggerInfo.c)
+ *     EtwpCaptureString @ 0x1406B6324 (EtwpCaptureString.c)
+ *     EtwpGetLoggerInfoFromContext @ 0x1406B6434 (EtwpGetLoggerInfoFromContext.c)
+ *     EtwpCCSwapStop @ 0x140798A70 (EtwpCCSwapStop.c)
+ *     EtwpEventWriteTemplateSession @ 0x14093A04C (EtwpEventWriteTemplateSession.c)
+ *     EtwpBufferingModeFlush @ 0x14093D358 (EtwpBufferingModeFlush.c)
  */
 
 __int64 __fastcall EtwpFlushTrace(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
@@ -30,39 +30,42 @@ __int64 __fastcall EtwpFlushTrace(__int64 a1, __int64 a2, __int64 a3, __int64 a4
   __int64 v13; // r14
   int v14; // eax
   __int64 v15; // rcx
-  UNICODE_STRING v16; // xmm0
-  int v17; // eax
-  __int64 v18; // rcx
-  int v19; // eax
+  __int64 v16; // rdx
+  __int64 v17; // r8
+  __int64 v18; // r9
+  UNICODE_STRING v19; // xmm0
+  int v20; // eax
+  __int64 v21; // rcx
+  int v22; // eax
   UNICODE_STRING UnicodeString; // [rsp+20h] [rbp-38h] BYREF
-  __int64 v21; // [rsp+70h] [rbp+18h] BYREF
+  __int64 v24; // [rsp+70h] [rbp+18h] BYREF
 
-  v21 = 0LL;
+  v24 = 0LL;
   UnicodeString = 0LL;
   result = EtwpValidateLoggerInfo(a2, a2, a3, a4);
   if ( (int)result >= 0 )
   {
     CurrentThread = KeGetCurrentThread();
     --CurrentThread->KernelApcDisable;
-    LoggerInfoFromContext = EtwpAcquireLoggerContext(a1, v7, &v21);
+    LoggerInfoFromContext = EtwpAcquireLoggerContext(a1, v7, &v24);
     if ( LoggerInfoFromContext < 0 )
     {
 LABEL_15:
       RtlFreeAnsiString(&UnicodeString);
-      KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+      KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v16, v17, v18);
       return (unsigned int)LoggerInfoFromContext;
     }
-    v10 = v21;
-    if ( (*(_DWORD *)(v21 + 12) & 0x40000) != 0 )
+    v10 = v24;
+    if ( (*(_DWORD *)(v24 + 12) & 0x40000) != 0 )
     {
       LoggerInfoFromContext = -1073741637;
     }
     else
     {
-      v11 = ((*(_DWORD *)(v21 + 12) & 0x100 | 0x400u) >> 3) | 0x40;
-      if ( !*(_QWORD *)(v21 + 816) )
-        v11 = (*(_DWORD *)(v21 + 12) & 0x100 | 0x400u) >> 3;
-      v12 = *(_DWORD *)(v21 + 12) & 0x400;
+      v11 = ((*(_DWORD *)(v24 + 12) & 0x100 | 0x400u) >> 3) | 0x40;
+      if ( !*(_QWORD *)(v24 + 816) )
+        v11 = (*(_DWORD *)(v24 + 12) & 0x100 | 0x400u) >> 3;
+      v12 = *(_DWORD *)(v24 + 12) & 0x400;
       if ( v12 )
       {
         if ( !*(_QWORD *)(a2 + 136) || (v13 = a2 + 128, !*(_WORD *)(a2 + 128)) )
@@ -76,7 +79,7 @@ LABEL_15:
       {
         v13 = a2 + 128;
       }
-      LoggerInfoFromContext = EtwpCheckLoggerControlAccess(v11, v21);
+      LoggerInfoFromContext = EtwpCheckLoggerControlAccess(v11, v24);
       if ( LoggerInfoFromContext >= 0 )
       {
         if ( !v12 )
@@ -95,20 +98,20 @@ LABEL_11:
         LoggerInfoFromContext = EtwpCaptureString(v13, &UnicodeString);
         if ( LoggerInfoFromContext >= 0 )
         {
-          v16 = UnicodeString;
+          v19 = UnicodeString;
           UnicodeString.Buffer = 0LL;
-          *(UNICODE_STRING *)(v10 + 200) = v16;
+          *(UNICODE_STRING *)(v10 + 200) = v19;
           _InterlockedOr((volatile signed __int32 *)(v10 + 836), 1u);
-          v17 = *(_DWORD *)(v10 + 12);
-          v10 = v21;
-          if ( (v17 & 0x2000000) != 0 )
+          v20 = *(_DWORD *)(v10 + 12);
+          v10 = v24;
+          if ( (v20 & 0x2000000) != 0 )
           {
-            v18 = 32LL * *(unsigned __int8 *)(v21 + 834) + a1 + 4260;
-            if ( v18 )
+            v21 = 32LL * *(unsigned __int8 *)(v24 + 834) + a1 + 4260;
+            if ( v21 )
             {
-              v19 = *(_DWORD *)(v18 + 4);
-              if ( (v19 & 4) != 0 && (v19 & 0x100) != 0 )
-                EtwpCCSwapStop(*(unsigned int *)(v21 + 216), 0LL);
+              v22 = *(_DWORD *)(v21 + 4);
+              if ( (v22 & 4) != 0 && (v22 & 0x100) != 0 )
+                EtwpCCSwapStop(*(unsigned int *)(v24 + 216), 0LL);
             }
           }
           v14 = EtwpBufferingModeFlush(v10);

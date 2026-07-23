@@ -1,14 +1,14 @@
 /*
- * XREFs of TtmiAcquireCurrentSession @ 0x140546B38
+ * XREFs of TtmiAcquireCurrentSession @ 0x140547078
  * Callers:
- *     TtmNotifyDeviceArrival @ 0x140546A1C (TtmNotifyDeviceArrival.c)
- *     TtmNotifyDeviceDeparture @ 0x140676D1C (TtmNotifyDeviceDeparture.c)
- *     TtmNotifyDeviceInput @ 0x140676DD4 (TtmNotifyDeviceInput.c)
- *     TtmpDispatchOpenTerminal @ 0x140679B64 (TtmpDispatchOpenTerminal.c)
+ *     TtmNotifyDeviceArrival @ 0x140546F5C (TtmNotifyDeviceArrival.c)
+ *     TtmNotifyDeviceDeparture @ 0x140676E00 (TtmNotifyDeviceDeparture.c)
+ *     TtmNotifyDeviceInput @ 0x140676EB8 (TtmNotifyDeviceInput.c)
+ *     TtmpDispatchOpenTerminal @ 0x140679C48 (TtmpDispatchOpenTerminal.c)
  * Callees:
- *     MmGetSessionIdEx @ 0x140024FEC (MmGetSessionIdEx.c)
- *     TtmpAcquireSessionById @ 0x140546B74 (TtmpAcquireSessionById.c)
- *     TtmiLogError @ 0x140546BCC (TtmiLogError.c)
+ *     MmGetSessionIdEx @ 0x140024B6C (MmGetSessionIdEx.c)
+ *     TtmpAcquireSessionById @ 0x1405470B4 (TtmpAcquireSessionById.c)
+ *     TtmiLogError @ 0x14054710C (TtmiLogError.c)
  */
 
 __int64 __fastcall TtmiAcquireCurrentSession(__int64 a1)

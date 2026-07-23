@@ -10,11 +10,11 @@
 
 ULONG __stdcall RtlpGetModifiedProcessCookie()
 {
-  ULONG Seed; // [esp+0h] [ebp-4h] BYREF
+  ULONG ProcessInformation; // [esp+0h] [ebp-4h] BYREF
 
-  Seed = 0;
-  if ( ZwQueryInformationProcess(-1, 36, (int)&Seed, 4, 0) < 0 )
+  ProcessInformation = 0;
+  if ( ZwQueryInformationProcess((HANDLE)0xFFFFFFFF, ProcessCookie, &ProcessInformation, 4u, 0) < 0 )
     return 0;
   else
-    return RtlUniform(&Seed);
+    return RtlUniform(&ProcessInformation);
 }

@@ -1,8 +1,8 @@
 /*
- * XREFs of _CmGetDevicePanelMappedPropertyKeys @ 0x14089A7E0
+ * XREFs of _CmGetDevicePanelMappedPropertyKeys @ 0x1408A0BE0
  * Callers:
- *     _CmDeleteDevicePanelWorker @ 0x14089A1DC (_CmDeleteDevicePanelWorker.c)
- *     _PnpDispatchDevicePanel @ 0x14089C760 (_PnpDispatchDevicePanel.c)
+ *     _CmDeleteDevicePanelWorker @ 0x1408A05DC (_CmDeleteDevicePanelWorker.c)
+ *     _PnpDispatchDevicePanel @ 0x1408A2B60 (_PnpDispatchDevicePanel.c)
  * Callees:
  *     <none>
  */
@@ -32,7 +32,7 @@ __int64 __fastcall CmGetDevicePanelMappedPropertyKeys(
     if ( a5 && (unsigned int)v8 < a6 )
     {
       v9 = 5 * v8;
-      v10 = (&off_14000F498)[2 * v7];
+      v10 = (&off_14000F7C8)[2 * v7];
       *(_OWORD *)(a5 + 4 * v9) = *(_OWORD *)v10;
       *(_DWORD *)(a5 + 4 * v9 + 16) = *((_DWORD *)v10 + 4);
     }

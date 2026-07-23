@@ -1,10 +1,10 @@
 /*
- * XREFs of WdipSemDisableContextProviders @ 0x140717A5C
+ * XREFs of WdipSemDisableContextProviders @ 0x140718CFC
  * Callers:
- *     WdipTimeoutCheckRoutine @ 0x1406BF450 (WdipTimeoutCheckRoutine.c)
- *     WdipSemDisableScenario @ 0x1407174C4 (WdipSemDisableScenario.c)
+ *     WdipTimeoutCheckRoutine @ 0x1406C06F0 (WdipTimeoutCheckRoutine.c)
+ *     WdipSemDisableScenario @ 0x140718764 (WdipSemDisableScenario.c)
  * Callees:
- *     WdipSemDisableContextProvider @ 0x140717ACC (WdipSemDisableContextProvider.c)
+ *     WdipSemDisableContextProvider @ 0x140718D6C (WdipSemDisableContextProvider.c)
  */
 
 void __fastcall WdipSemDisableContextProviders(__int64 a1, __int64 a2)

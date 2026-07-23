@@ -1,12 +1,12 @@
 /*
- * XREFs of IommuDeviceCreate @ 0x140786C00
+ * XREFs of IommuDeviceCreate @ 0x140789730
  * Callers:
  *     <none>
  * Callees:
- *     HalpIommuCreateDevice @ 0x14051AC18 (HalpIommuCreateDevice.c)
- *     HalpIommuDeleteDevice @ 0x140587958 (HalpIommuDeleteDevice.c)
- *     HalpIommuFreeDeviceId @ 0x14058BE64 (HalpIommuFreeDeviceId.c)
- *     IommupCreateDeviceId @ 0x14059FDDC (IommupCreateDeviceId.c)
+ *     HalpIommuCreateDevice @ 0x140514688 (HalpIommuCreateDevice.c)
+ *     HalpIommuDeleteDevice @ 0x140589F30 (HalpIommuDeleteDevice.c)
+ *     HalpIommuFreeDeviceId @ 0x14058E5E4 (HalpIommuFreeDeviceId.c)
+ *     IommupCreateDeviceId @ 0x1405A25CC (IommupCreateDeviceId.c)
  */
 
 __int64 __fastcall IommuDeviceCreate(void *a1, __int64 a2, __int64 *a3)

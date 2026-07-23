@@ -1,8 +1,8 @@
 /*
- * XREFs of PopUnregisterPowerSettingCallback @ 0x140111E80
+ * XREFs of PopUnregisterPowerSettingCallback @ 0x1401123E4
  * Callers:
- *     PopDispatchPowerSettingCallbacks @ 0x1403F5FEC (PopDispatchPowerSettingCallbacks.c)
- *     PoUnregisterPowerSettingCallback @ 0x14052DE48 (PoUnregisterPowerSettingCallback.c)
+ *     PopDispatchPowerSettingCallbacks @ 0x1403F4EB0 (PopDispatchPowerSettingCallbacks.c)
+ *     PoUnregisterPowerSettingCallback @ 0x14052E388 (PoUnregisterPowerSettingCallback.c)
  * Callees:
  *     <none>
  */

@@ -1,12 +1,12 @@
 /*
- * XREFs of MiLockStandbyLookasidePage @ 0x14046CE70
+ * XREFs of MiLockStandbyLookasidePage @ 0x14046D270
  * Callers:
- *     MiRemoveLowestPriorityStandbyPage @ 0x140651854 (MiRemoveLowestPriorityStandbyPage.c)
+ *     MiRemoveLowestPriorityStandbyPage @ 0x140651DA4 (MiRemoveLowestPriorityStandbyPage.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x140242E40 (KeYieldProcessorEx.c)
- *     MiAcquirePageListLock @ 0x1402673A0 (MiAcquirePageListLock.c)
- *     MiReplaceStandbyLookaside @ 0x140330C08 (MiReplaceStandbyLookaside.c)
- *     MiPickStandbyLookasideIndex @ 0x140651504 (MiPickStandbyLookasideIndex.c)
+ *     KeYieldProcessorEx @ 0x140242F10 (KeYieldProcessorEx.c)
+ *     MiAcquirePageListLock @ 0x140267630 (MiAcquirePageListLock.c)
+ *     MiReplaceStandbyLookaside @ 0x140330E98 (MiReplaceStandbyLookaside.c)
+ *     MiPickStandbyLookasideIndex @ 0x140651A54 (MiPickStandbyLookasideIndex.c)
  */
 
 __int64 __fastcall MiLockStandbyLookasidePage(__int64 a1, unsigned __int8 *a2, unsigned int a3)

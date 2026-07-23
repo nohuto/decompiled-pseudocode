@@ -1,22 +1,22 @@
 /*
- * XREFs of KiWakePriQueueWaiter @ 0x1403248F0
+ * XREFs of KiWakePriQueueWaiter @ 0x1402CD480
  * Callers:
- *     ExpTryQueueWorkItem @ 0x1402A0DCC (ExpTryQueueWorkItem.c)
- *     KiActivateWaiterQueueWithNoLocks @ 0x1402A5864 (KiActivateWaiterQueueWithNoLocks.c)
- *     KiActivateWaiterQueueWithThreadLock @ 0x1402A61D0 (KiActivateWaiterQueueWithThreadLock.c)
- *     ExQueueWorkItemFromIo @ 0x140323D10 (ExQueueWorkItemFromIo.c)
- *     ExpQueueWorkItem @ 0x140324510 (ExpQueueWorkItem.c)
- *     ExQueueWorkItem @ 0x140325850 (ExQueueWorkItem.c)
- *     KiActivateWaiterPriQueue @ 0x1404338A8 (KiActivateWaiterPriQueue.c)
+ *     ExQueueWorkItemFromIo @ 0x1402CC8A0 (ExQueueWorkItemFromIo.c)
+ *     ExpQueueWorkItem @ 0x1402CD0A0 (ExpQueueWorkItem.c)
+ *     ExQueueWorkItem @ 0x1402CE3E0 (ExQueueWorkItem.c)
+ *     KiActivateWaiterQueueWithNoLocks @ 0x1402D4F94 (KiActivateWaiterQueueWithNoLocks.c)
+ *     KiActivateWaiterQueueWithThreadLock @ 0x1402D5900 (KiActivateWaiterQueueWithThreadLock.c)
+ *     KiActivateWaiterPriQueue @ 0x1402D6C08 (KiActivateWaiterPriQueue.c)
+ *     ExpTryQueueWorkItem @ 0x1403AB6FC (ExpTryQueueWorkItem.c)
  * Callees:
- *     KiComputeThreadPriority @ 0x14024FA80 (KiComputeThreadPriority.c)
- *     KiSetPriorityThread @ 0x14024FBBC (KiSetPriorityThread.c)
- *     KiAbQueueAutoBoostDpc @ 0x140253AF0 (KiAbQueueAutoBoostDpc.c)
- *     HvlNotifyLongSpinWait @ 0x140293260 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140293290 (KiCheckVpBackingLongSpinWaitHypercall.c)
- *     KiQueryQuantumReset @ 0x1403241CC (KiQueryQuantumReset.c)
- *     KiSignalThread @ 0x140324240 (KiSignalThread.c)
- *     KiAdjustRealtimePriorityFloor @ 0x140324448 (KiAdjustRealtimePriorityFloor.c)
+ *     KiComputeThreadPriority @ 0x140280090 (KiComputeThreadPriority.c)
+ *     KiSetPriorityThread @ 0x1402801CC (KiSetPriorityThread.c)
+ *     KiAbQueueAutoBoostDpc @ 0x140284100 (KiAbQueueAutoBoostDpc.c)
+ *     HvlNotifyLongSpinWait @ 0x1402A2E60 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1402A2E90 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     KiQueryQuantumReset @ 0x1402CCD5C (KiQueryQuantumReset.c)
+ *     KiSignalThread @ 0x1402CCDD0 (KiSignalThread.c)
+ *     KiAdjustRealtimePriorityFloor @ 0x1402CCFD8 (KiAdjustRealtimePriorityFloor.c)
  */
 
 __int64 __fastcall KiWakePriQueueWaiter(__int64 a1, __int64 a2, __int64 a3, int a4)

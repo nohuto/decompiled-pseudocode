@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlpCtContextFree @ 0x1409C20BC
+ * XREFs of RtlpCtContextFree @ 0x1409C22BC
  * Callers:
- *     RtlRaiseCustomSystemEventTrigger @ 0x1405B0FA0 (RtlRaiseCustomSystemEventTrigger.c)
- *     RtlpCtContextInit @ 0x1409C2118 (RtlpCtContextInit.c)
- *     RtlpRtlpCtWaitForWnfQuiescentWorker @ 0x1409C22E0 (RtlpRtlpCtWaitForWnfQuiescentWorker.c)
+ *     RtlRaiseCustomSystemEventTrigger @ 0x1405B1510 (RtlRaiseCustomSystemEventTrigger.c)
+ *     RtlpCtContextInit @ 0x1409C2318 (RtlpCtContextInit.c)
+ *     RtlpRtlpCtWaitForWnfQuiescentWorker @ 0x1409C24E0 (RtlpRtlpCtWaitForWnfQuiescentWorker.c)
  * Callees:
- *     ExUnsubscribeWnfStateChange @ 0x1407E1090 (ExUnsubscribeWnfStateChange.c)
+ *     ExUnsubscribeWnfStateChange @ 0x1407E1360 (ExUnsubscribeWnfStateChange.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

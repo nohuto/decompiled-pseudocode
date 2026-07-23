@@ -1,28 +1,28 @@
 /*
- * XREFs of MiTradePage @ 0x140291970
+ * XREFs of MiTradePage @ 0x140290ED0
  * Callers:
- *     MiFindContiguousPagesNode @ 0x1402904F0 (MiFindContiguousPagesNode.c)
- *     MiClaimPhysicalRun @ 0x140291700 (MiClaimPhysicalRun.c)
+ *     MiFindContiguousPagesNode @ 0x14028FA50 (MiFindContiguousPagesNode.c)
+ *     MiClaimPhysicalRun @ 0x140290C60 (MiClaimPhysicalRun.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     MiGetPfnPageSizeIndex @ 0x14028B290 (MiGetPfnPageSizeIndex.c)
- *     MI_PAGE_TO_FULL_COLOR @ 0x14028DF90 (MI_PAGE_TO_FULL_COLOR.c)
- *     MiTradePageMarkedFreeZero @ 0x14028E304 (MiTradePageMarkedFreeZero.c)
- *     MiTradePageMarkedBad @ 0x14028E820 (MiTradePageMarkedBad.c)
- *     MiIsPageOnBadList @ 0x14028F9D0 (MiIsPageOnBadList.c)
- *     MiActivePageClaimCandidate @ 0x1402923F0 (MiActivePageClaimCandidate.c)
- *     MiLockAndInsertPageInFreeList @ 0x140293098 (MiLockAndInsertPageInFreeList.c)
- *     MiTradePageMarkedActive @ 0x1402931C0 (MiTradePageMarkedActive.c)
- *     HvlNotifyLongSpinWait @ 0x1402BBF00 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1402BC760 (KiCheckVpBackingLongSpinWaitHypercall.c)
- *     MiGetBaseResidentPage @ 0x1402F1BA0 (MiGetBaseResidentPage.c)
- *     MiIsDecayPfn @ 0x1402F9850 (MiIsDecayPfn.c)
- *     MiTradePageMarkedTransition @ 0x1402FD5C0 (MiTradePageMarkedTransition.c)
- *     MiSwapStackPage @ 0x140415804 (MiSwapStackPage.c)
- *     MiPfnLargeBitSet @ 0x140430D40 (MiPfnLargeBitSet.c)
- *     MiTrimSharedPage @ 0x140478A54 (MiTrimSharedPage.c)
- *     MiTradePageMarkedPoisoned @ 0x1405193C8 (MiTradePageMarkedPoisoned.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     MiGetPfnPageSizeIndex @ 0x14028A7F0 (MiGetPfnPageSizeIndex.c)
+ *     MI_PAGE_TO_FULL_COLOR @ 0x14028D4F0 (MI_PAGE_TO_FULL_COLOR.c)
+ *     MiTradePageMarkedFreeZero @ 0x14028D864 (MiTradePageMarkedFreeZero.c)
+ *     MiTradePageMarkedBad @ 0x14028DD80 (MiTradePageMarkedBad.c)
+ *     MiIsPageOnBadList @ 0x14028EF30 (MiIsPageOnBadList.c)
+ *     MiActivePageClaimCandidate @ 0x140291950 (MiActivePageClaimCandidate.c)
+ *     MiLockAndInsertPageInFreeList @ 0x1402925F8 (MiLockAndInsertPageInFreeList.c)
+ *     MiTradePageMarkedActive @ 0x140292720 (MiTradePageMarkedActive.c)
+ *     MiGetBaseResidentPage @ 0x1402D3C20 (MiGetBaseResidentPage.c)
+ *     MiIsDecayPfn @ 0x1402DB8D0 (MiIsDecayPfn.c)
+ *     MiTradePageMarkedTransition @ 0x1402DF640 (MiTradePageMarkedTransition.c)
+ *     HvlNotifyLongSpinWait @ 0x140306BC0 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140307420 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     MiSwapStackPage @ 0x140409E34 (MiSwapStackPage.c)
+ *     MiPfnLargeBitSet @ 0x14041DD70 (MiPfnLargeBitSet.c)
+ *     MiTrimSharedPage @ 0x1404723B4 (MiTrimSharedPage.c)
+ *     MiTradePageMarkedPoisoned @ 0x140512E38 (MiTradePageMarkedPoisoned.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 __int64 __fastcall MiTradePage(__int64 a1, unsigned __int64 a2, __int64 a3)
@@ -98,7 +98,7 @@ __int64 __fastcall MiTradePage(__int64 a1, unsigned __int64 a2, __int64 a3)
     if ( *(_QWORD *)(a1 + 32) != -1LL )
       v8 = *(_QWORD *)(a1 + 32);
     v34 = v8;
-    if ( v6 > qword_140E2D7A0 )
+    if ( v6 > qword_140E2D920 )
     {
       if ( !(unsigned int)MiIsDecayPfn(v6) )
         goto LABEL_40;
@@ -121,7 +121,7 @@ __int64 __fastcall MiTradePage(__int64 a1, unsigned __int64 a2, __int64 a3)
 LABEL_40:
       CurrentIrql = 17;
 LABEL_41:
-      _InterlockedIncrement(&dword_140EF8D94);
+      _InterlockedIncrement(&dword_140EF90F4);
       goto LABEL_23;
     }
     v12 = v4;
@@ -153,7 +153,7 @@ LABEL_41:
         if ( v19 != 3 )
           *(_QWORD *)(a1 + 40) = MiPageSizes[v19];
       }
-      _InterlockedIncrement(&dword_140EF8D9C);
+      _InterlockedIncrement(&dword_140EF90FC);
       goto LABEL_23;
     }
     LODWORD(PfnPageSizeIndex) = 3;
@@ -175,7 +175,7 @@ LABEL_41:
       if ( v14 == 6 )
       {
         *(_QWORD *)(a1 + 40) = MiPageSizes[PfnPageSizeIndex];
-        _InterlockedIncrement(&dword_140EF8DA4);
+        _InterlockedIncrement(&dword_140EF9104);
         goto LABEL_23;
       }
       v6 = v45;
@@ -188,16 +188,16 @@ LABEL_41:
     }
     if ( (*(_QWORD *)(v9 + 40) & 0x20000000000000LL) != 0 )
       goto LABEL_41;
-    if ( byte_140E3BD26 )
+    if ( byte_140E3BEA6 )
     {
       if ( (v5 & 0x410000) != 0x410000 )
       {
         v16 = (unsigned __int64)(v35 / 48) >> 9;
-        if ( *(_BYTE *)(qword_140E3D0C0 + 2 * v16) )
+        if ( *(_BYTE *)(qword_140E3D240 + 2 * v16) )
         {
-          if ( *(_BYTE *)(qword_140E3D0C0 + 2 * v16) != 10 )
+          if ( *(_BYTE *)(qword_140E3D240 + 2 * v16) != 10 )
           {
-            _InterlockedIncrement(&dword_140EF8D98);
+            _InterlockedIncrement(&dword_140EF90F8);
             goto LABEL_23;
           }
         }
@@ -205,7 +205,7 @@ LABEL_41:
     }
     if ( (((v5 & 0x10000000) == 0) & (*(_DWORD *)(v9 + 32) >> 30)) != 0 )
     {
-      _InterlockedIncrement(&dword_140EF8DD4);
+      _InterlockedIncrement(&dword_140EF9134);
       goto LABEL_23;
     }
     if ( v14 <= 1 )
@@ -261,7 +261,7 @@ LABEL_51:
         }
         else
         {
-          _InterlockedIncrement(&dword_140EF8D9C);
+          _InterlockedIncrement(&dword_140EF90FC);
           MiLockAndInsertPageInFreeList(v9);
           CurrentIrql = v37;
         }
@@ -282,14 +282,14 @@ LABEL_24:
     }
     if ( v14 != 6 )
     {
-      _InterlockedIncrement(&dword_140EF8DE4);
+      _InterlockedIncrement(&dword_140EF9144);
 LABEL_23:
       v17 = -1LL;
       goto LABEL_24;
     }
     if ( (v5 & 0x200000) != 0 && MiIsPageOnBadList(v9) )
     {
-      _InterlockedIncrement(&dword_140EF8DDC);
+      _InterlockedIncrement(&dword_140EF913C);
       goto LABEL_23;
     }
     if ( ((*(_QWORD *)(v9 + 40) >> 60) & 7) != 2 )
@@ -297,7 +297,7 @@ LABEL_23:
     if ( (v5 & 8) != 0 )
     {
 LABEL_121:
-      _InterlockedIncrement(&dword_140EF8DE0);
+      _InterlockedIncrement(&dword_140EF9140);
       goto LABEL_23;
     }
     _InterlockedAnd64((volatile signed __int64 *)(v9 + 24), 0x7FFFFFFFFFFFFFFFuLL);
@@ -311,19 +311,19 @@ LABEL_121:
     CurrentIrql = 17;
     if ( (unsigned int)MiSwapStackPage((_DWORD)v47, v9, *(_DWORD *)(a1 + 28), v5, (__int64)&v34, (__int64)&v44) )
     {
-      v23 = (volatile signed __int32 *)&unk_140EF8D80;
+      v23 = (volatile signed __int32 *)&unk_140EF90E0;
       v17 = v34;
       if ( !v44 )
-        v23 = (volatile signed __int32 *)&unk_140EF8D8C;
+        v23 = (volatile signed __int32 *)&unk_140EF90EC;
       goto LABEL_76;
     }
     if ( ((*(_QWORD *)(v9 + 40) >> 60) & 7) == 2 )
     {
-      _InterlockedIncrement(&dword_140EF8DE8);
+      _InterlockedIncrement(&dword_140EF9148);
       v17 = -1LL;
       goto LABEL_29;
     }
-    _InterlockedIncrement(&dword_140EF8D90);
+    _InterlockedIncrement(&dword_140EF90F0);
 LABEL_49:
     if ( v42 )
       goto LABEL_23;
@@ -334,7 +334,7 @@ LABEL_49:
   active = MiActivePageClaimCandidate((_DWORD)v47, v9, 1, v5, 1, v46);
   if ( active )
   {
-    _InterlockedIncrement(&dword_140EF8E68);
+    _InterlockedIncrement(&dword_140EF91C8);
     *(_QWORD *)(a1 + 40) = active;
     goto LABEL_23;
   }
@@ -350,18 +350,18 @@ LABEL_49:
     goto LABEL_49;
   if ( v22 )
   {
-    _InterlockedIncrement(&dword_140EF8DF0);
+    _InterlockedIncrement(&dword_140EF9150);
     v17 = -1LL;
     goto LABEL_29;
   }
   v17 = v34;
   if ( ((*(_QWORD *)(v9 + 40) >> 43) & 0x3FF) != *v3 )
   {
-    _InterlockedIncrement(&dword_140EF8D9C);
+    _InterlockedIncrement(&dword_140EF90FC);
     MiLockAndInsertPageInFreeList(v9);
     goto LABEL_29;
   }
-  v23 = (volatile signed __int32 *)&unk_140EF8D84;
+  v23 = (volatile signed __int32 *)&unk_140EF90E4;
 LABEL_76:
   _InterlockedIncrement(v23);
   *(_QWORD *)(v9 + 16) = *(_QWORD *)&CLFS_LSN_NULL_EXT;
@@ -375,11 +375,11 @@ LABEL_80:
   else
   {
     v25 = *(_QWORD *)&CLFS_LSN_NULL_EXT & 0xFFFFFFFFFFFFFC1FuLL | 0x80;
-    if ( qword_140E2D740 )
+    if ( qword_140E2D8C0 )
     {
-      if ( (qword_140E2D740 & v25) == 0 )
+      if ( (qword_140E2D8C0 & v25) == 0 )
       {
-        v26 = qword_140E2D740 | *(_QWORD *)&CLFS_LSN_NULL_EXT & 0xFFFFFFFFFFFFFC9FuLL;
+        v26 = qword_140E2D8C0 | *(_QWORD *)&CLFS_LSN_NULL_EXT & 0xFFFFFFFFFFFFFC9FuLL;
         goto LABEL_80;
       }
       v25 = *(_QWORD *)&CLFS_LSN_NULL_EXT & 0xFFFFFFFFFFFFFC0FuLL | 0x90;

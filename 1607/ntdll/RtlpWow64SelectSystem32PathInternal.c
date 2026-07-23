@@ -1,14 +1,14 @@
 /*
- * XREFs of RtlpWow64SelectSystem32PathInternal @ 0x18006E0D4
+ * XREFs of RtlpWow64SelectSystem32PathInternal @ 0x18006E0C4
  * Callers:
- *     RtlReplaceSystemDirectoryInPath @ 0x18006E020 (RtlReplaceSystemDirectoryInPath.c)
+ *     RtlReplaceSystemDirectoryInPath @ 0x18006E010 (RtlReplaceSystemDirectoryInPath.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x180044150 (RtlInitUnicodeString.c)
+ *     RtlInitUnicodeString @ 0x180044140 (RtlInitUnicodeString.c)
  */
 
-__int64 __fastcall RtlpWow64SelectSystem32PathInternal(__int16 a1, char a2, UNICODE_STRING *a3)
+__int64 __fastcall RtlpWow64SelectSystem32PathInternal(__int16 a1, char a2, _UNICODE_STRING *a3)
 {
-  UNICODE_STRING *v3; // rcx
+  _UNICODE_STRING *v3; // rcx
   const WCHAR *v4; // rdx
   bool v6; // zf
 

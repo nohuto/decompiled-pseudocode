@@ -9,15 +9,24 @@
  *     RtlQueryPackageClaims @ 0x14001ADB0 (RtlQueryPackageClaims.c)
  */
 
-__int64 __fastcall RtlQueryPackageIdentity(__int64 a1, __int64 a2, __int64 a3, __int64 a4, __int64 a5, _BYTE *a6)
+NTSTATUS __cdecl RtlQueryPackageIdentity(
+        HANDLE TokenHandle,
+        PWSTR PackageFullName,
+        PSIZE_T PackageSize,
+        PWSTR AppId,
+        PSIZE_T AppIdSize,
+        PBOOLEAN Packaged)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
+  unsigned __int64 *v7; // [rsp+38h] [rbp-20h]
+  _PS_PKG_CLAIM v8; // [rsp+40h] [rbp-18h] BYREF
 
-  result = RtlQueryPackageClaims(a1, a2, a3);
-  if ( (int)result >= 0 )
+  v8 = 0LL;
+  result = RtlQueryPackageClaims(TokenHandle, PackageFullName, PackageSize, AppId, AppIdSize, 0LL, &v8, v7);
+  if ( result >= 0 )
   {
-    if ( a6 )
-      *a6 = 0;
+    if ( Packaged )
+      *Packaged = LOWORD(v8.Flags) != 0LL;
   }
   return result;
 }

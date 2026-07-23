@@ -6,7 +6,7 @@
  *     <none>
  */
 
-__int64 __fastcall sub_1800B0978(int a1, int a2, int a3, int a4, __int64 a5)
+__int64 __fastcall sub_1800B0978(int a1, int a2, int a3, int a4, ULONG_PTR *a5)
 {
   char v5; // of
 

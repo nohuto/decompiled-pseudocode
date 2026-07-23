@@ -1,14 +1,14 @@
 /*
- * XREFs of RtlStringCchCatW @ 0x140371960
+ * XREFs of RtlStringCchCatW @ 0x1403714B0
  * Callers:
- *     ExpGetGlobalLocaleSection @ 0x140612BDC (ExpGetGlobalLocaleSection.c)
- *     AslpEnvResolveVars @ 0x140753DC4 (AslpEnvResolveVars.c)
- *     SdbpCreateSearchDBContext @ 0x14075AE40 (SdbpCreateSearchDBContext.c)
- *     SshpQueryRegistryValues @ 0x1407968F0 (SshpQueryRegistryValues.c)
- *     AslpFileQueryVersionString @ 0x1407B2E5C (AslpFileQueryVersionString.c)
- *     AslPathCombine @ 0x140968814 (AslPathCombine.c)
- *     AslPathToSystemPathBuf @ 0x140968980 (AslPathToSystemPathBuf.c)
- *     BapdpProcessVsmKeyBlobs @ 0x140A4140C (BapdpProcessVsmKeyBlobs.c)
+ *     ExpGetGlobalLocaleSection @ 0x1406A268C (ExpGetGlobalLocaleSection.c)
+ *     AslpEnvResolveVars @ 0x140753F84 (AslpEnvResolveVars.c)
+ *     SdbpCreateSearchDBContext @ 0x14075B000 (SdbpCreateSearchDBContext.c)
+ *     SshpQueryRegistryValues @ 0x140796AF0 (SshpQueryRegistryValues.c)
+ *     AslpFileQueryVersionString @ 0x1407B2FFC (AslpFileQueryVersionString.c)
+ *     AslPathCombine @ 0x1409689F4 (AslPathCombine.c)
+ *     AslPathToSystemPathBuf @ 0x140968B60 (AslPathToSystemPathBuf.c)
+ *     BapdpProcessVsmKeyBlobs @ 0x140A4240C (BapdpProcessVsmKeyBlobs.c)
  * Callees:
  *     <none>
  */

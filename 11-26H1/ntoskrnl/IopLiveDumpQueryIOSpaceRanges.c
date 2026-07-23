@@ -1,10 +1,10 @@
 /*
- * XREFs of IopLiveDumpQueryIOSpaceRanges @ 0x1405D1490
+ * XREFs of IopLiveDumpQueryIOSpaceRanges @ 0x1405D3C78
  * Callers:
- *     IopLiveDumpAllocateFromIOSpace @ 0x1405CD3AC (IopLiveDumpAllocateFromIOSpace.c)
+ *     IopLiveDumpAllocateFromIOSpace @ 0x1405CFBBC (IopLiveDumpAllocateFromIOSpace.c)
  * Callees:
- *     MmQueryMemoryRanges @ 0x140868080 (MmQueryMemoryRanges.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     MmQueryMemoryRanges @ 0x14086E460 (MmQueryMemoryRanges.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall IopLiveDumpQueryIOSpaceRanges(__int64 a1, __int64 a2, _QWORD *a3)

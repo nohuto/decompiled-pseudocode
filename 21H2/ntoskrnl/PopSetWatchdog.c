@@ -1,19 +1,19 @@
 /*
- * XREFs of PopSetWatchdog @ 0x140280568
+ * XREFs of PopSetWatchdog @ 0x14026E7A8
  * Callers:
- *     PopPowerInformationInternal @ 0x140678DF4 (PopPowerInformationInternal.c)
+ *     PopPowerInformationInternal @ 0x14066C534 (PopPowerInformationInternal.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
- *     KiSetTimerEx @ 0x14025FD70 (KiSetTimerEx.c)
- *     KeCancelTimer @ 0x140260240 (KeCancelTimer.c)
- *     PopUpdateWatchdogNoWorkersEvent @ 0x140280840 (PopUpdateWatchdogNoWorkersEvent.c)
- *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KxReleaseSpinLock @ 0x140212140 (KxReleaseSpinLock.c)
+ *     PopUpdateWatchdogNoWorkersEvent @ 0x14026EA80 (PopUpdateWatchdogNoWorkersEvent.c)
+ *     KiSetTimerEx @ 0x1402814E0 (KiSetTimerEx.c)
+ *     KeCancelTimer @ 0x1402819B0 (KeCancelTimer.c)
+ *     KeWaitForSingleObject @ 0x1403504C0 (KeWaitForSingleObject.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140362F80 (KeAcquireSpinLockRaiseToDpc.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     memset @ 0x140414200 (memset.c)
- *     PopCacheDisplayOnPhaseDuration @ 0x140578C9C (PopCacheDisplayOnPhaseDuration.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     PopCacheDisplayOnPhaseDuration @ 0x140578EDC (PopCacheDisplayOnPhaseDuration.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 char *__fastcall PopSetWatchdog(char *P, unsigned int *a2, char a3)
@@ -100,7 +100,7 @@ char *__fastcall PopSetWatchdog(char *P, unsigned int *a2, char a3)
     *((_QWORD *)v5 + 26) = v11 + v12;
     *((_QWORD *)v5 + 38) = KeGetCurrentThread();
     v5[216] = 1;
-    if ( !(unsigned __int8)KiSetTimerEx((__int64)(v5 + 48), -v11, 0, 0, (__int64)(v5 + 112)) )
+    if ( !(unsigned __int8)KiSetTimerEx((int)v5 + 48, -(int)v11, 0, 0, (__int64)(v5 + 112)) )
     {
       v5[20] = 1;
       PopUpdateWatchdogNoWorkersEvent(v5);

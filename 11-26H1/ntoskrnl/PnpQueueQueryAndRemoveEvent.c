@@ -1,23 +1,23 @@
 /*
- * XREFs of PnpQueueQueryAndRemoveEvent @ 0x14090AD94
+ * XREFs of PnpQueueQueryAndRemoveEvent @ 0x1409B5DE4
  * Callers:
- *     PnpRequestDeviceEjectExWorker @ 0x1407A2590 (PnpRequestDeviceEjectExWorker.c)
- *     PiCMQueryRemove @ 0x140B2D27C (PiCMQueryRemove.c)
+ *     PnpRequestDeviceEjectExWorker @ 0x1407A50D0 (PnpRequestDeviceEjectExWorker.c)
+ *     PiCMQueryRemove @ 0x140B2F2FC (PiCMQueryRemove.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     KeWaitForSingleObject @ 0x140278560 (KeWaitForSingleObject.c)
- *     KeInitializeEvent @ 0x140466F30 (KeInitializeEvent.c)
- *     PnpDiagnosticTraceObject @ 0x140493A8C (PnpDiagnosticTraceObject.c)
- *     PnpDiagnosticTraceDeviceOperation @ 0x140493C2C (PnpDiagnosticTraceDeviceOperation.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     PnpRemoveEventFromQueue @ 0x1407AD8EC (PnpRemoveEventFromQueue.c)
- *     PnpInsertEventInQueue @ 0x14090965C (PnpInsertEventInQueue.c)
- *     PnpInitializeTargetDeviceRemoveEvent @ 0x14090B1C4 (PnpInitializeTargetDeviceRemoveEvent.c)
- *     PnpAllocateCriticalMemory @ 0x140912A94 (PnpAllocateCriticalMemory.c)
- *     PnpDeviceObjectFromDeviceInstanceWithTag @ 0x140999B20 (PnpDeviceObjectFromDeviceInstanceWithTag.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     KeWaitForSingleObject @ 0x140277AD0 (KeWaitForSingleObject.c)
+ *     KeInitializeEvent @ 0x140460680 (KeInitializeEvent.c)
+ *     PnpDiagnosticTraceObject @ 0x14048D5DC (PnpDiagnosticTraceObject.c)
+ *     PnpDiagnosticTraceDeviceOperation @ 0x14048D77C (PnpDiagnosticTraceDeviceOperation.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     PnpRemoveEventFromQueue @ 0x1407B094C (PnpRemoveEventFromQueue.c)
+ *     PnpDeviceObjectFromDeviceInstanceWithTag @ 0x14095A580 (PnpDeviceObjectFromDeviceInstanceWithTag.c)
+ *     PnpInsertEventInQueue @ 0x1409AB21C (PnpInsertEventInQueue.c)
+ *     PnpAllocateCriticalMemory @ 0x1409B4B74 (PnpAllocateCriticalMemory.c)
+ *     PnpInitializeTargetDeviceRemoveEvent @ 0x1409B6214 (PnpInitializeTargetDeviceRemoveEvent.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PnpQueueQueryAndRemoveEvent(unsigned __int16 *a1, char *a2, _WORD *a3, _WORD *a4, char a5, int a6)
@@ -27,7 +27,7 @@ __int64 __fastcall PnpQueueQueryAndRemoveEvent(unsigned __int16 *a1, char *a2, _
   char *v9; // r13
   unsigned __int16 *v10; // rsi
   char v11; // r12
-  __int64 v12; // rax
+  _QWORD *v12; // rax
   PVOID v13; // rcx
   int v14; // ebx
   int v15; // r15d
@@ -61,14 +61,14 @@ __int64 __fastcall PnpQueueQueryAndRemoveEvent(unsigned __int16 *a1, char *a2, _
   *(_OWORD *)&Event.Header.Lock = 0LL;
   if ( (a5 & 8) != 0 )
     PnpDiagnosticTraceObject(&KMPnPEvt_DeviceEject_Start, a1);
-  v12 = PnpDeviceObjectFromDeviceInstanceWithTag(v8, 1131441744LL);
+  v12 = PnpDeviceObjectFromDeviceInstanceWithTag((__int64)v8, 0x43706E50u);
   *(_QWORD *)&Size[1] = v12;
   if ( !v12 )
   {
     inserted = -1073741810;
     goto LABEL_31;
   }
-  v13 = *(PVOID *)(*(_QWORD *)(v12 + 312) + 40LL);
+  v13 = *(PVOID *)(v12[39] + 40LL);
   if ( !v13 )
   {
     inserted = -1073741810;
@@ -130,7 +130,7 @@ LABEL_12:
   else
   {
     Size[0] = *(unsigned __int16 *)(*(_QWORD *)(*(_QWORD *)(*(_QWORD *)&Size[1] + 312LL) + 40LL) + 40LL) + 202;
-    CriticalMemory = PnpAllocateCriticalMemory(0LL, 256LL, Size[0], 1265659472LL);
+    CriticalMemory = PnpAllocateCriticalMemory(0, 0x100uLL);
     if ( CriticalMemory )
     {
       PnpInitializeTargetDeviceRemoveEvent(

@@ -1,14 +1,14 @@
 /*
- * XREFs of ?SmHighMemPriorityWatchdogWorker@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAX@Z @ 0x140599350
+ * XREFs of ?SmHighMemPriorityWatchdogWorker@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAX@Z @ 0x140599580
  * Callers:
  *     <none>
  * Callees:
- *     ExReleaseRundownProtection_0 @ 0x14027C4F0 (ExReleaseRundownProtection_0.c)
- *     SmKmStoreReferenceEx @ 0x1402D959C (SmKmStoreReferenceEx.c)
- *     SmKmStoreRefFromStoreIndex @ 0x1402D95D8 (SmKmStoreRefFromStoreIndex.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     ZwQuerySystemInformation @ 0x1403FAA60 (ZwQuerySystemInformation.c)
- *     ?SmStPrioritizeRegionsStore@?$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_SMST_PRIORITIZE_REGIONS_CTX@@@Z @ 0x140599604 (-SmStPrioritizeRegionsStore@-$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_SMST_PRIORITIZE_REGIONS_CTX.c)
+ *     ExReleaseRundownProtection @ 0x14026A490 (ExReleaseRundownProtection.c)
+ *     SmKmStoreReferenceEx @ 0x14028A8EC (SmKmStoreReferenceEx.c)
+ *     SmKmStoreRefFromStoreIndex @ 0x14028A928 (SmKmStoreRefFromStoreIndex.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     ZwQuerySystemInformation @ 0x1403FAC40 (ZwQuerySystemInformation.c)
+ *     ?SmStPrioritizeRegionsStore@?$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_SMST_PRIORITIZE_REGIONS_CTX@@@Z @ 0x140599834 (-SmStPrioritizeRegionsStore@-$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_SMST_PRIORITIZE_REGIONS_CTX.c)
  */
 
 void __fastcall SMKM_STORE_MGR<SM_TRAITS>::SmHighMemPriorityWatchdogWorker(__int64 a1)
@@ -28,7 +28,7 @@ void __fastcall SMKM_STORE_MGR<SM_TRAITS>::SmHighMemPriorityWatchdogWorker(__int
   v1 = a1 - 1800;
   memset(v11, 0, sizeof(v11));
   v12 = 0LL;
-  if ( (int)ZwQuerySystemInformation(182LL, (__int64)v11) >= 0 )
+  if ( ZwQuerySystemInformation(SystemMemoryUsageInformation, v11, 0x38u, 0LL) >= 0 )
   {
     v4 = 128000LL;
     v5 = 0;
@@ -47,7 +47,7 @@ void __fastcall SMKM_STORE_MGR<SM_TRAITS>::SmHighMemPriorityWatchdogWorker(__int
         if ( *(_BYTE *)(v7 + 6023) != 1 )
           SMKM_STORE<SM_TRAITS>::SmStPrioritizeRegionsStore(v7, &v10);
         v9 = (struct _EX_RUNDOWN_REF *)SmKmStoreRefFromStoreIndex(v1, *(_DWORD *)(v8 + 6016) & 0x3FF);
-        ExReleaseRundownProtection_0(v9 + 1);
+        ExReleaseRundownProtection(v9 + 1);
       }
       ++v5;
     }

@@ -1,13 +1,18 @@
 /*
- * XREFs of RtlpWaitOnAddressWithTimeout @ 0x1800DB9F0
+ * XREFs of RtlpWaitOnAddressWithTimeout @ 0x180031350
  * Callers:
- *     RtlpWaitOnAddressRemoveWaitBlock @ 0x18009BA90 (RtlpWaitOnAddressRemoveWaitBlock.c)
+ *     RtlpWaitOnAddressRemoveWaitBlock @ 0x1800308E0 (RtlpWaitOnAddressRemoveWaitBlock.c)
  * Callees:
- *     RtlpWaitOnAddressRemoveWaitBlock @ 0x18009BA90 (RtlpWaitOnAddressRemoveWaitBlock.c)
- *     NtWaitForAlertByThreadId @ 0x1801658E0 (NtWaitForAlertByThreadId.c)
+ *     RtlpWaitOnAddressRemoveWaitBlock @ 0x1800308E0 (RtlpWaitOnAddressRemoveWaitBlock.c)
+ *     NtWaitForAlertByThreadId @ 0x180163CA0 (NtWaitForAlertByThreadId.c)
  */
 
-__int64 __fastcall RtlpWaitOnAddressWithTimeout(__int64 a1, _QWORD *a2, __int64 a3, unsigned int a4, __int64 a5)
+__int64 __fastcall RtlpWaitOnAddressWithTimeout(
+        __int64 a1,
+        _QWORD *a2,
+        LARGE_INTEGER *a3,
+        unsigned int a4,
+        PVOID Address)
 {
   unsigned int v5; // ebp
   volatile signed __int32 *v6; // rdi
@@ -16,8 +21,8 @@ __int64 __fastcall RtlpWaitOnAddressWithTimeout(__int64 a1, _QWORD *a2, __int64 
   int i; // edx
   unsigned __int64 v14; // rcx
   unsigned __int64 v15; // rax
-  __int64 v16; // rbx
-  unsigned int v17; // esi
+  void *v16; // rbx
+  unsigned __int32 v17; // esi
 
   v5 = 0;
   v6 = (volatile signed __int32 *)(a2 + 5);
@@ -48,9 +53,9 @@ __int64 __fastcall RtlpWaitOnAddressWithTimeout(__int64 a1, _QWORD *a2, __int64 
   }
   if ( !_interlockedbittestandreset(v6, 0) )
     return 0LL;
-  v16 = a5;
-  if ( !a5 )
-    v16 = *a2;
+  v16 = Address;
+  if ( !Address )
+    v16 = (void *)*a2;
   v17 = NtWaitForAlertByThreadId(v16, a3);
   if ( v17 == 258 )
   {

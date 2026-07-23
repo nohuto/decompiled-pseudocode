@@ -1,11 +1,11 @@
 /*
- * XREFs of PopGetIdleTimesCallback @ 0x1400A79B0
+ * XREFs of PopGetIdleTimesCallback @ 0x1400A78F0
  * Callers:
- *     PoGetIdleTimes @ 0x1400A7320 (PoGetIdleTimes.c)
+ *     PoGetIdleTimes @ 0x1400A7260 (PoGetIdleTimes.c)
  * Callees:
- *     PpmContinueActiveTimeAccumulation @ 0x1400A604C (PpmContinueActiveTimeAccumulation.c)
- *     PpmConvertTime @ 0x1400A7D14 (PpmConvertTime.c)
- *     memset @ 0x1401D1880 (memset.c)
+ *     PpmContinueActiveTimeAccumulation @ 0x1400A5F8C (PpmContinueActiveTimeAccumulation.c)
+ *     PpmConvertTime @ 0x1400A7C54 (PpmConvertTime.c)
+ *     memset @ 0x1401D1980 (memset.c)
  */
 
 __int64 __fastcall PopGetIdleTimesCallback(__int64 a1, _QWORD *a2, __int64 a3)

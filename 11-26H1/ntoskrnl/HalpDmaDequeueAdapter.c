@@ -1,11 +1,11 @@
 /*
- * XREFs of HalpDmaDequeueAdapter @ 0x140589338
+ * XREFs of HalpDmaDequeueAdapter @ 0x14058BA08
  * Callers:
- *     HalpDmaProcessMapRegisterQueueV2 @ 0x140359B80 (HalpDmaProcessMapRegisterQueueV2.c)
- *     HalpDmaProcessMapRegisterQueueV3 @ 0x14043E9DC (HalpDmaProcessMapRegisterQueueV3.c)
+ *     HalpDmaProcessMapRegisterQueueV2 @ 0x14035B920 (HalpDmaProcessMapRegisterQueueV2.c)
+ *     HalpDmaProcessMapRegisterQueueV3 @ 0x1404374EC (HalpDmaProcessMapRegisterQueueV3.c)
  * Callees:
- *     KeAcquireInStackQueuedSpinLock @ 0x1402B4730 (KeAcquireInStackQueuedSpinLock.c)
- *     KeReleaseInStackQueuedSpinLock @ 0x1402B98C0 (KeReleaseInStackQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402FF400 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x140304580 (KeReleaseInStackQueuedSpinLock.c)
  */
 
 _QWORD *__fastcall HalpDmaDequeueAdapter(__int64 a1, char a2)

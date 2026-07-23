@@ -1,8 +1,8 @@
 /*
- * XREFs of FsRtlCompareNodeAndKey @ 0x1400C3F44
+ * XREFs of FsRtlCompareNodeAndKey @ 0x1400C1DE4
  * Callers:
- *     FsRtlFindInTunnelCache @ 0x140501A80 (FsRtlFindInTunnelCache.c)
- *     FsRtlAddToTunnelCache @ 0x1405030D8 (FsRtlAddToTunnelCache.c)
+ *     FsRtlFindInTunnelCache @ 0x1404E4A10 (FsRtlFindInTunnelCache.c)
+ *     FsRtlAddToTunnelCache @ 0x1404E6068 (FsRtlAddToTunnelCache.c)
  * Callees:
  *     <none>
  */

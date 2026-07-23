@@ -3,8 +3,8 @@
  * Callers:
  *     <none>
  * Callees:
- *     NLS_UPCASE @ 0x1403477B0 (NLS_UPCASE.c)
- *     PsGetCurrentServerSiloGlobals @ 0x140347DB0 (PsGetCurrentServerSiloGlobals.c)
+ *     sub_1403477B0 @ 0x1403477B0 (sub_1403477B0.c)
+ *     sub_140347DB0 @ 0x140347DB0 (sub_140347DB0.c)
  */
 
 NTSTATUS __stdcall RtlUpcaseUnicodeToCustomCPN(
@@ -28,7 +28,7 @@ NTSTATUS __stdcall RtlUpcaseUnicodeToCustomCPN(
   __int64 v18; // r14
   unsigned __int16 v19; // ax
   _BYTE *v20; // r10
-  wchar_t *DBCSOffsets; // r14
+  PUSHORT DBCSOffsets; // r14
   int v22; // r15d
   _WORD *WideCharTable; // r12
   PWCH v24; // rbp
@@ -41,7 +41,7 @@ NTSTATUS __stdcall RtlUpcaseUnicodeToCustomCPN(
   int v32; // [rsp+50h] [rbp+8h]
 
   v8 = BytesInUnicodeString >> 1;
-  v14 = *((_QWORD *)PsGetCurrentServerSiloGlobals() + 154);
+  v14 = *((_QWORD *)sub_140347DB0() + 154);
   if ( CustomCP->DBCSCodePage )
   {
     DBCSOffsets = CustomCP->DBCSOffsets;
@@ -62,7 +62,7 @@ NTSTATUS __stdcall RtlUpcaseUnicodeToCustomCPN(
           v28 = DBCSOffsets[(unsigned __int8)v26 + v27];
         else
           v28 = CustomCP->MultiByteTable[(unsigned __int8)v26];
-        v29 = WideCharTable[NLS_UPCASE(v14, v28)];
+        v29 = WideCharTable[sub_1403477B0(v14, v28)];
         if ( HIBYTE(v29) )
         {
           v30 = v13--;
@@ -95,7 +95,7 @@ NTSTATUS __stdcall RtlUpcaseUnicodeToCustomCPN(
       v18 = v15;
       do
       {
-        v19 = NLS_UPCASE(v14, CustomCP->MultiByteTable[(unsigned __int8)v16[*v17++]]);
+        v19 = sub_1403477B0(v14, CustomCP->MultiByteTable[(unsigned __int8)v16[*v17++]]);
         *v20 = v16[v19];
         --v18;
       }

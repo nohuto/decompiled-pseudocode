@@ -1,9 +1,9 @@
 /*
- * XREFs of MiCreateResidentBasePfnTemplate @ 0x140C580B8
+ * XREFs of MiCreateResidentBasePfnTemplate @ 0x140C5A248
  * Callers:
- *     MiInitNucleus @ 0x140C4F298 (MiInitNucleus.c)
+ *     MiInitNucleus @ 0x140C51428 (MiInitNucleus.c)
  * Callees:
- *     MiCopyPfnEntryRaw @ 0x140441C20 (MiCopyPfnEntryRaw.c)
+ *     MiCopyPfnEntryRaw @ 0x1404386A0 (MiCopyPfnEntryRaw.c)
  */
 
 __int64 __fastcall MiCreateResidentBasePfnTemplate(__int64 a1)
@@ -13,7 +13,7 @@ __int64 __fastcall MiCreateResidentBasePfnTemplate(__int64 a1)
   __int64 result; // rax
   unsigned int v4; // [rsp+30h] [rbp+8h]
 
-  MiCopyPfnEntryRaw(a1, qword_140E2FE40);
+  MiCopyPfnEntryRaw(a1, qword_140E2FF80);
   *(_QWORD *)(v1 + 24) &= 0xC000000000000000uLL;
   v2 = *(_DWORD *)(v1 + 32);
   LOWORD(v2) = 0;

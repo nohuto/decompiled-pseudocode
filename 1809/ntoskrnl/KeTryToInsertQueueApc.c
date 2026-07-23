@@ -1,15 +1,15 @@
 /*
- * XREFs of KeTryToInsertQueueApc @ 0x140294C20
+ * XREFs of KeTryToInsertQueueApc @ 0x140294E10
  * Callers:
- *     EtwpQueueStackWalkApc @ 0x14030F260 (EtwpQueueStackWalkApc.c)
- *     EtwpCovSampCaptureQueueApc @ 0x140316B2C (EtwpCovSampCaptureQueueApc.c)
+ *     EtwpQueueStackWalkApc @ 0x14030F450 (EtwpQueueStackWalkApc.c)
+ *     EtwpCovSampCaptureQueueApc @ 0x140316D1C (EtwpCovSampCaptureQueueApc.c)
  * Callees:
- *     KeGetEffectiveIrql @ 0x1400CAAD0 (KeGetEffectiveIrql.c)
- *     KiSignalThreadForApc @ 0x1400F1F84 (KiSignalThreadForApc.c)
- *     KiInsertQueueApc @ 0x1400F2120 (KiInsertQueueApc.c)
- *     KiReleaseThreadLockSafe @ 0x14010C410 (KiReleaseThreadLockSafe.c)
- *     KiTryToAcquireThreadLock @ 0x140115180 (KiTryToAcquireThreadLock.c)
- *     KeIsThreadRunning @ 0x14028DDA8 (KeIsThreadRunning.c)
+ *     KeGetEffectiveIrql @ 0x1400CABB0 (KeGetEffectiveIrql.c)
+ *     KiSignalThreadForApc @ 0x1400F2004 (KiSignalThreadForApc.c)
+ *     KiInsertQueueApc @ 0x1400F21A0 (KiInsertQueueApc.c)
+ *     KiReleaseThreadLockSafe @ 0x14010C490 (KiReleaseThreadLockSafe.c)
+ *     KiTryToAcquireThreadLock @ 0x1401151F0 (KiTryToAcquireThreadLock.c)
+ *     KeIsThreadRunning @ 0x14028DF98 (KeIsThreadRunning.c)
  */
 
 char __fastcall KeTryToInsertQueueApc(__int64 a1, __int64 a2, __int64 a3)

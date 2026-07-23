@@ -14,10 +14,10 @@ __int64 GetGlobalizationUserModelType()
   result = (unsigned int)dword_140EEEA1C;
   if ( !dword_140EEEA1C )
   {
-    if ( (unsigned __int8)RtlIsMultiSessionSku() )
+    if ( RtlIsMultiSessionSku() )
       result = 1LL;
     else
-      result = (unsigned int)((unsigned __int8)RtlIsMultiUsersInSessionSku() != 0) + 2;
+      result = (unsigned int)(RtlIsMultiUsersInSessionSku() != 0) + 2;
     dword_140EEEA1C = result;
   }
   return result;

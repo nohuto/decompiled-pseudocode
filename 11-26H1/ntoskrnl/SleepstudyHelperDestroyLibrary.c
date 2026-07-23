@@ -1,19 +1,19 @@
 /*
- * XREFs of SleepstudyHelperDestroyLibrary @ 0x140614000
+ * XREFs of SleepstudyHelperDestroyLibrary @ 0x140616EC0
  * Callers:
- *     SleepstudyHelper_Uninitialize @ 0x1407E4740 (SleepstudyHelper_Uninitialize.c)
- *     SshpUninitialize @ 0x140CD7578 (SshpUninitialize.c)
+ *     SleepstudyHelper_Uninitialize @ 0x1407EA2A0 (SleepstudyHelper_Uninitialize.c)
+ *     SshpUninitialize @ 0x140CDD8F8 (SshpUninitialize.c)
  * Callees:
- *     SshpBlockerActiveDereference @ 0x1402564B8 (SshpBlockerActiveDereference.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     KeReleaseSpinLock @ 0x1402BE860 (KeReleaseSpinLock.c)
- *     ExfTryToWakePushLock @ 0x1403170A0 (ExfTryToWakePushLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14032F300 (KeAcquireSpinLockRaiseToDpc.c)
- *     SshpFreeDataEntry @ 0x1407E3AD8 (SshpFreeDataEntry.c)
- *     CmpVolumeManagerLockContextListExclusive @ 0x140905BD0 (CmpVolumeManagerLockContextListExclusive.c)
- *     SshpCacheRemoveBlocker @ 0x140AAD518 (SshpCacheRemoveBlocker.c)
- *     SshpFreeBlockerEntry @ 0x140AAD54C (SshpFreeBlockerEntry.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     SshpBlockerActiveDereference @ 0x140257E48 (SshpBlockerActiveDereference.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     KeReleaseSpinLock @ 0x140309520 (KeReleaseSpinLock.c)
+ *     ExfTryToWakePushLock @ 0x1403190D0 (ExfTryToWakePushLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140331330 (KeAcquireSpinLockRaiseToDpc.c)
+ *     SshpFreeDataEntry @ 0x1407E8E24 (SshpFreeDataEntry.c)
+ *     CmpVolumeManagerLockContextListExclusive @ 0x140A2E304 (CmpVolumeManagerLockContextListExclusive.c)
+ *     SshpCacheRemoveBlocker @ 0x140AAB5D8 (SshpCacheRemoveBlocker.c)
+ *     SshpFreeBlockerEntry @ 0x140AAB60C (SshpFreeBlockerEntry.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall SleepstudyHelperDestroyLibrary(PVOID **P)

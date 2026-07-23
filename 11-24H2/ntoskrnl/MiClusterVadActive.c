@@ -1,7 +1,7 @@
 /*
- * XREFs of MiClusterVadActive @ 0x140692F14
+ * XREFs of MiClusterVadActive @ 0x140693FE4
  * Callers:
- *     MiLockStealUserVm @ 0x140227A3C (MiLockStealUserVm.c)
+ *     MiLockStealUserVm @ 0x14025539C (MiLockStealUserVm.c)
  * Callees:
  *     <none>
  */

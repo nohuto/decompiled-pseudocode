@@ -1,7 +1,7 @@
 /*
  * XREFs of RtlpDereferenceAtom @ 0x14020BCF8
  * Callers:
- *     RtlDestroyLowBoxAtoms @ 0x1403645AC (RtlDestroyLowBoxAtoms.c)
+ *     RtlDestroyLowBoxAtoms @ 0x14036474C (RtlDestroyLowBoxAtoms.c)
  *     RtlDeleteAtomFromAtomTable @ 0x14069EA50 (RtlDeleteAtomFromAtomTable.c)
  * Callees:
  *     RtlpFreeAllAtom @ 0x14020BD88 (RtlpFreeAllAtom.c)

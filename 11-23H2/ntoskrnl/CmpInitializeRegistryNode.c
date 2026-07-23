@@ -1,20 +1,20 @@
 /*
- * XREFs of CmpInitializeRegistryNode @ 0x14080CD68
+ * XREFs of CmpInitializeRegistryNode @ 0x14080D038
  * Callers:
- *     CmLogMcUpdateStatus @ 0x14061581C (CmLogMcUpdateStatus.c)
- *     CmpAddProcessorConfigurationEntry @ 0x14080C91C (CmpAddProcessorConfigurationEntry.c)
+ *     CmLogMcUpdateStatus @ 0x140615D6C (CmLogMcUpdateStatus.c)
+ *     CmpAddProcessorConfigurationEntry @ 0x14080CBEC (CmpAddProcessorConfigurationEntry.c)
  *     CmpSetupConfigurationTree @ 0x140B373AC (CmpSetupConfigurationTree.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1B0 (RtlInitUnicodeString.c)
- *     RtlInitAnsiString @ 0x1402F6C50 (RtlInitAnsiString.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     ZwClose @ 0x14041AF40 (ZwClose.c)
- *     ZwCreateKey @ 0x14041B100 (ZwCreateKey.c)
- *     ZwSetValueKey @ 0x14041B960 (ZwSetValueKey.c)
- *     memmove @ 0x140435700 (memmove.c)
- *     RtlFreeUnicodeString @ 0x14076F3D0 (RtlFreeUnicodeString.c)
- *     RtlAnsiStringToUnicodeString @ 0x140773C00 (RtlAnsiStringToUnicodeString.c)
- *     RtlIntegerToChar @ 0x1407CF190 (RtlIntegerToChar.c)
+ *     RtlInitUnicodeString @ 0x14022E2C0 (RtlInitUnicodeString.c)
+ *     RtlInitAnsiString @ 0x1402F6EE0 (RtlInitAnsiString.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     ZwClose @ 0x14041B2D0 (ZwClose.c)
+ *     ZwCreateKey @ 0x14041B490 (ZwCreateKey.c)
+ *     ZwSetValueKey @ 0x14041BCF0 (ZwSetValueKey.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     RtlFreeUnicodeString @ 0x14076F5C0 (RtlFreeUnicodeString.c)
+ *     RtlAnsiStringToUnicodeString @ 0x140773DF0 (RtlAnsiStringToUnicodeString.c)
+ *     RtlIntegerToChar @ 0x1407CF460 (RtlIntegerToChar.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
@@ -44,7 +44,7 @@ NTSTATUS __fastcall CmpInitializeRegistryNode(__int64 a1, void *a2, HANDLE *a3, 
   STRING DestinationString; // [rsp+70h] [rbp-71h] BYREF
   UNICODE_STRING UnicodeString; // [rsp+80h] [rbp-61h] BYREF
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+90h] [rbp-51h] BYREF
-  char SourceString[16]; // [rsp+C0h] [rbp-21h] BYREF
+  CHAR String[16]; // [rsp+C0h] [rbp-21h] BYREF
   char v33; // [rsp+D0h] [rbp-11h] BYREF
 
   v6 = (int *)(a1 + 28);
@@ -80,8 +80,8 @@ NTSTATUS __fastcall CmpInitializeRegistryNode(__int64 a1, void *a2, HANDLE *a3, 
         v14 = *(_WORD *)(a6 + 2 * v13);
         *(_WORD *)(a6 + 2LL * *v6) = v14 + 1;
       }
-      RtlIntegerToChar(v14, 0xAu, 12, SourceString);
-      RtlInitAnsiString(&DestinationString, SourceString);
+      RtlIntegerToChar(v14, 0xAu, 12, String);
+      RtlInitAnsiString(&DestinationString, String);
       *(_DWORD *)&v28.Length = 1572864;
       v28.Buffer = (wchar_t *)&v33;
       RtlAnsiStringToUnicodeString(&v28, &DestinationString, 0);

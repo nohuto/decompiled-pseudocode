@@ -1,23 +1,23 @@
 /*
- * XREFs of PopFxRegisterDeviceWorker @ 0x140B1BA40
+ * XREFs of PopFxRegisterDeviceWorker @ 0x140B1DC50
  * Callers:
- *     PoFxRegisterCoreDevice @ 0x1407CCFA0 (PoFxRegisterCoreDevice.c)
- *     PopFxRegisterDevice @ 0x140B4F9A0 (PopFxRegisterDevice.c)
+ *     PoFxRegisterCoreDevice @ 0x1407D0040 (PoFxRegisterCoreDevice.c)
+ *     PopFxRegisterDevice @ 0x140B52230 (PopFxRegisterDevice.c)
  * Callees:
- *     IoAllocateIrp @ 0x14026C4D0 (IoAllocateIrp.c)
- *     PopFxActivateComponent @ 0x14037AB40 (PopFxActivateComponent.c)
- *     PopFxBugCheck @ 0x1403B0E54 (PopFxBugCheck.c)
- *     PopFxRegisterDeviceWithPep @ 0x140443B58 (PopFxRegisterDeviceWithPep.c)
- *     KeInitializeEvent @ 0x140466F30 (KeInitializeEvent.c)
- *     PopPlRegisterComponent @ 0x1404E327C (PopPlRegisterComponent.c)
- *     PopPlRegisterDevice @ 0x1404EF6AC (PopPlRegisterDevice.c)
- *     IoInitializeRemoveLockEx @ 0x1404F4C60 (IoInitializeRemoveLockEx.c)
- *     PopFxFindAcpiDeviceByUniqueId @ 0x1404FA998 (PopFxFindAcpiDeviceByUniqueId.c)
- *     PopFxCreateDeviceCommon @ 0x14050DD80 (PopFxCreateDeviceCommon.c)
- *     PopFxReleaseAcpiRefDevice @ 0x1406058BC (PopFxReleaseAcpiRefDevice.c)
- *     PopFxVerifyDependencies @ 0x140B1C088 (PopFxVerifyDependencies.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     IoAllocateIrp @ 0x14026BA40 (IoAllocateIrp.c)
+ *     PopFxActivateComponent @ 0x14037C8F0 (PopFxActivateComponent.c)
+ *     PopFxBugCheck @ 0x1403BAB64 (PopFxBugCheck.c)
+ *     PopFxRegisterDeviceWithPep @ 0x14043C668 (PopFxRegisterDeviceWithPep.c)
+ *     KeInitializeEvent @ 0x140460680 (KeInitializeEvent.c)
+ *     PopPlRegisterComponent @ 0x1404DC810 (PopPlRegisterComponent.c)
+ *     PopPlRegisterDevice @ 0x1404E8C8C (PopPlRegisterDevice.c)
+ *     IoInitializeRemoveLockEx @ 0x1404EE240 (IoInitializeRemoveLockEx.c)
+ *     PopFxFindAcpiDeviceByUniqueId @ 0x1404F3FA8 (PopFxFindAcpiDeviceByUniqueId.c)
+ *     PopFxCreateDeviceCommon @ 0x1405077F0 (PopFxCreateDeviceCommon.c)
+ *     PopFxReleaseAcpiRefDevice @ 0x1406083BC (PopFxReleaseAcpiRefDevice.c)
+ *     PopFxVerifyDependencies @ 0x140B1E298 (PopFxVerifyDependencies.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PopFxRegisterDeviceWorker(
@@ -191,7 +191,7 @@ LABEL_51:
   v86 = 8 * (int)v9 + 16;
   v87 = v86 + 40 * v9;
   v83 = v87 + 24LL * v17;
-  AcpiDeviceByUniqueId = PopFxFindAcpiDeviceByUniqueId(a2, (__int64 **)&v75, v86, j);
+  AcpiDeviceByUniqueId = PopFxFindAcpiDeviceByUniqueId(a2, (unsigned __int64 **)&v75, v86, j);
   v14 = v75;
   if ( AcpiDeviceByUniqueId >= 0 )
   {
@@ -372,8 +372,11 @@ LABEL_22:
           if ( !(unsigned __int8)PopFxRegisterDeviceWithPep(a1, (int)a2, (__int64)v25, (struct _KLOCK_ENTRIES *)v27) )
             PopFxBugCheck(0x601uLL, (ULONG_PTR)v25, v27, 0LL);
           PopPlRegisterDevice((__int64)v25, v44, v45);
-          if ( (*(_QWORD *)v27 & 0x10) == 0 && ((*(_QWORD *)v27 & 8) != 0 || dword_140E67520) )
+          if ( (*(_QWORD *)v27 & 0x10) == 0
+            && ((*(_QWORD *)v27 & 8) != 0 || PopPoFxSystemIrpWaitForReportDevicePoweredReg) )
+          {
             _InterlockedOr((volatile signed __int32 *)v25 + 216, 0x80u);
+          }
           if ( (*(_BYTE *)v27 & 0x20) != 0 )
             _InterlockedOr((volatile signed __int32 *)v25 + 216, 0x1000u);
           if ( (*(_BYTE *)v27 & 0x40) != 0 )

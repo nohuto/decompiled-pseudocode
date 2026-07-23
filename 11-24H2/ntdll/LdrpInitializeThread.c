@@ -1,24 +1,24 @@
 /*
- * XREFs of LdrpInitializeThread @ 0x180012810
+ * XREFs of LdrpInitializeThread @ 0x18003F210
  * Callers:
- *     _LdrpInitialize @ 0x180066904 (_LdrpInitialize.c)
+ *     _LdrpInitialize @ 0x1800AEAE4 (_LdrpInitialize.c)
  * Callees:
- *     LdrpDropLastInProgressCount @ 0x180001F40 (LdrpDropLastInProgressCount.c)
- *     LdrpDrainWorkQueue @ 0x180003E20 (LdrpDrainWorkQueue.c)
- *     LdrpReleaseLoaderLock @ 0x180004E10 (LdrpReleaseLoaderLock.c)
- *     RtlDeactivateActivationContextUnsafeFast @ 0x18000F570 (RtlDeactivateActivationContextUnsafeFast.c)
- *     LdrpAllocateTls @ 0x180012580 (LdrpAllocateTls.c)
- *     LdrpCallInitRoutine @ 0x180012C90 (LdrpCallInitRoutine.c)
- *     LdrpCallTlsInitializers @ 0x180012F30 (LdrpCallTlsInitializers.c)
- *     RtlRaiseStatus @ 0x180014DE0 (RtlRaiseStatus.c)
- *     LdrpAcquireLoaderLock @ 0x18001CD20 (LdrpAcquireLoaderLock.c)
- *     RtlActivateActivationContextUnsafeFast @ 0x1800703A0 (RtlActivateActivationContextUnsafeFast.c)
- *     RtlRaiseException @ 0x180070510 (RtlRaiseException.c)
- *     RtlpInitializeThreadActivationContextStack @ 0x1800EDBB0 (RtlpInitializeThreadActivationContextStack.c)
- *     LdrpAcquireSchedulerSharedDataSlot @ 0x1800F1124 (LdrpAcquireSchedulerSharedDataSlot.c)
- *     ZwTerminateProcess @ 0x180162210 (ZwTerminateProcess.c)
- *     ZwDelayExecution @ 0x180162310 (ZwDelayExecution.c)
- *     __security_check_cookie @ 0x1801659C0 (__security_check_cookie.c)
+ *     LdrpReleaseLoaderLock @ 0x180031810 (LdrpReleaseLoaderLock.c)
+ *     RtlDeactivateActivationContextUnsafeFast @ 0x18003BF70 (RtlDeactivateActivationContextUnsafeFast.c)
+ *     LdrpAllocateTls @ 0x18003EF80 (LdrpAllocateTls.c)
+ *     LdrpCallInitRoutine @ 0x18003F690 (LdrpCallInitRoutine.c)
+ *     LdrpCallTlsInitializers @ 0x18003F930 (LdrpCallTlsInitializers.c)
+ *     RtlRaiseStatus @ 0x1800417E0 (RtlRaiseStatus.c)
+ *     LdrpAcquireLoaderLock @ 0x180049720 (LdrpAcquireLoaderLock.c)
+ *     RtlActivateActivationContextUnsafeFast @ 0x18008CC80 (RtlActivateActivationContextUnsafeFast.c)
+ *     RtlRaiseException @ 0x18008CDF0 (RtlRaiseException.c)
+ *     LdrpDrainWorkQueue @ 0x1800AB680 (LdrpDrainWorkQueue.c)
+ *     LdrpDropLastInProgressCount @ 0x1800ACA84 (LdrpDropLastInProgressCount.c)
+ *     RtlpInitializeThreadActivationContextStack @ 0x1800E8D90 (RtlpInitializeThreadActivationContextStack.c)
+ *     LdrpAcquireSchedulerSharedDataSlot @ 0x1800EBDA4 (LdrpAcquireSchedulerSharedDataSlot.c)
+ *     ZwTerminateProcess @ 0x1801605D0 (ZwTerminateProcess.c)
+ *     ZwDelayExecution @ 0x1801606D0 (ZwDelayExecution.c)
+ *     __security_check_cookie @ 0x180163D80 (__security_check_cookie.c)
  */
 
 __int64 __fastcall LdrpInitializeThread(__int64 a1, __int64 a2, __int64 a3)
@@ -26,14 +26,14 @@ __int64 __fastcall LdrpInitializeThread(__int64 a1, __int64 a2, __int64 a3)
   struct _TEB *v3; // rbx
   _PEB *ProcessEnvironmentBlock; // rsi
   __int64 result; // rax
-  int i; // ebx
+  NTSTATUS i; // ebx
   __int64 v7; // rcx
   __int64 v8; // rdi
   _QWORD *v9; // rbx
   __int64 v10; // rdx
   _ACTIVATION_CONTEXT_STACK *ActivationContextStackPointer; // r8
   unsigned __int64 ActiveFrame; // rcx
-  __int64 v13; // [rsp+20h] [rbp-198h] BYREF
+  LARGE_INTEGER DelayInterval; // [rsp+20h] [rbp-198h] BYREF
   __int64 v14; // [rsp+28h] [rbp-190h]
   __int64 v15; // [rsp+30h] [rbp-188h]
   _QWORD v16[2]; // [rsp+40h] [rbp-178h] BYREF
@@ -50,7 +50,7 @@ __int64 __fastcall LdrpInitializeThread(__int64 a1, __int64 a2, __int64 a3)
   EXCEPTION_RECORD ExceptionRecord; // [rsp+F0h] [rbp-C8h] BYREF
   _UNKNOWN *retaddr; // [rsp+1B8h] [rbp+0h]
 
-  v13 = 0LL;
+  DelayInterval.QuadPart = 0LL;
   v3 = NtCurrentTeb();
   ProcessEnvironmentBlock = v3->ProcessEnvironmentBlock;
   if ( UseCOR && (v3->SameTebFlags & 0x400) != 0 )
@@ -59,7 +59,12 @@ __int64 __fastcall LdrpInitializeThread(__int64 a1, __int64 a2, __int64 a3)
     a2 = __ROR8__(LdrpCorExeMainRoutine, 64 - (MEMORY[0x7FFE0330] & 0x3Fu));
     *(_QWORD *)(a1 + 128) = a2 ^ MEMORY[0x7FFE0330];
   }
-  LdrpAcquireSchedulerSharedDataSlot(v3, a2, a3, a1, v13);
+  ((void (__fastcall *)(_QWORD, _QWORD, _QWORD, _QWORD, _QWORD))LdrpAcquireSchedulerSharedDataSlot)(
+    v3,
+    a2,
+    a3,
+    a1,
+    (LARGE_INTEGER)DelayInterval.QuadPart);
   RtlpInitializeThreadActivationContextStack(v3);
   if ( (NtCurrentTeb()->SameTebFlags & 8) != 0 )
   {
@@ -74,21 +79,21 @@ __int64 __fastcall LdrpInitializeThread(__int64 a1, __int64 a2, __int64 a3)
   {
     if ( i != -1073741801 )
       break;
-    v13 = -3000000LL;
-    ZwDelayExecution(0LL, &v13);
+    DelayInterval.QuadPart = -3000000LL;
+    ZwDelayExecution(0, &DelayInterval);
   }
   if ( i < 0 )
   {
-    ZwTerminateProcess(-1LL, (unsigned int)i);
-    RtlRaiseStatus((unsigned int)i);
+    ZwTerminateProcess((HANDLE)0xFFFFFFFFFFFFFFFFLL, i);
+    RtlRaiseStatus(i);
   }
-  LdrpDrainWorkQueue(0);
+  LdrpDrainWorkQueue(0LL);
   LdrpAcquireLoaderLock();
-  v8 = qword_1801D28D0;
+  v8 = qword_1801D18D0;
   while ( 1 )
   {
     v14 = v8;
-    if ( (__int64 *)v8 == &qword_1801D28D0 )
+    if ( (__int64 *)v8 == &qword_1801D18D0 )
       break;
     v26 = v8;
     if ( *(int *)(*(_QWORD *)(v8 + 152) + 56LL) < 9 )
@@ -109,7 +114,7 @@ __int64 __fastcall LdrpInitializeThread(__int64 a1, __int64 a2, __int64 a3)
       v7 &= 0x80004u;
       if ( (_DWORD)v7 != 524292 )
         goto LABEL_27;
-      if ( byte_1801D2908 )
+      if ( byte_1801D1908 )
         goto LABEL_38;
       v16[0] = 72LL;
       v16[1] = 1LL;
@@ -163,13 +168,13 @@ LABEL_24:
       v8 = v14;
       if ( *(_WORD *)(v14 + 110) )
         LdrpCallTlsInitializers(2LL, v14);
-      LdrpCallInitRoutine(v15, *v9, 2LL, 0LL);
+      LdrpCallInitRoutine(v15, *v9, 2LL);
       RtlDeactivateActivationContextUnsafeFast((__int64)v16);
 LABEL_27:
       v8 = *(_QWORD *)v8;
     }
   }
-  if ( *(_WORD *)(LdrpImageEntry + 110) && !byte_1801D2908 )
+  if ( *(_WORD *)(LdrpImageEntry + 110) && !byte_1801D1908 )
   {
     v21[0] = 72LL;
     v21[1] = 1LL;
@@ -182,6 +187,6 @@ LABEL_27:
     RtlDeactivateActivationContextUnsafeFast((__int64)v21);
   }
 LABEL_38:
-  LdrpReleaseLoaderLock(v7, 0x15u, 0);
+  LdrpReleaseLoaderLock(v7, 21, 0);
   return LdrpDropLastInProgressCount();
 }

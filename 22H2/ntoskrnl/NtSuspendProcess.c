@@ -8,14 +8,14 @@
  *     PsSuspendProcess @ 0x14090C870 (PsSuspendProcess.c)
  */
 
-__int64 __fastcall NtSuspendProcess(void *a1)
+NTSTATUS __cdecl NtSuspendProcess(HANDLE ProcessHandle)
 {
-  NTSTATUS v1; // ebx
+  int v1; // ebx
   PVOID Object; // [rsp+58h] [rbp+10h] BYREF
 
   Object = 0LL;
   v1 = ObReferenceObjectByHandleWithTag(
-         a1,
+         ProcessHandle,
          0x800u,
          (POBJECT_TYPE)PsProcessType,
          KeGetCurrentThread()->PreviousMode,
@@ -27,5 +27,5 @@ __int64 __fastcall NtSuspendProcess(void *a1)
     v1 = PsSuspendProcess(Object);
     ObfDereferenceObjectWithTag(Object, 0x75537350u);
   }
-  return (unsigned int)v1;
+  return v1;
 }

@@ -13,9 +13,6 @@
 
 void __fastcall PopThermalSxExit(int a1)
 {
-  __int64 v1; // rdx
-  __int64 v2; // rcx
-  __int64 v3; // r8
   struct _KTHREAD *CurrentThread; // rax
   __int64 i; // rdi
 
@@ -25,9 +22,9 @@ void __fastcall PopThermalSxExit(int a1)
     if ( PopThermalHibernateInitiated )
     {
       PopThermalHibernateInitiated = 0;
-      ZwUpdateWnfStateData((__int64)&WNF_PO_THERMAL_HIBERNATE_OCCURRED, 0LL, 0LL);
+      ZwUpdateWnfStateData(&WNF_PO_THERMAL_HIBERNATE_OCCURRED, 0LL, 0, 0LL, 0LL, 0, 0);
     }
-    PopReleasePolicyLock(v2, v1, v3);
+    PopReleasePolicyLock();
   }
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;

@@ -1,13 +1,13 @@
 /*
- * XREFs of ViThunkApplyPristineCurrentSession @ 0x140C354B0
+ * XREFs of ViThunkApplyPristineCurrentSession @ 0x140C3B4C0
  * Callers:
- *     VfThunkApplyPristineToAllSession @ 0x140C353D0 (VfThunkApplyPristineToAllSession.c)
+ *     VfThunkApplyPristineToAllSession @ 0x140C3B3E0 (VfThunkApplyPristineToAllSession.c)
  * Callees:
- *     RtlImageDirectoryEntryToData @ 0x14040E290 (RtlImageDirectoryEntryToData.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     VfUtilPrintCheckinString @ 0x140C21A10 (VfUtilPrintCheckinString.c)
- *     ViThunkGetPristine @ 0x140C35A48 (ViThunkGetPristine.c)
- *     MmApplyVerifierToRunningImage @ 0x140C43750 (MmApplyVerifierToRunningImage.c)
+ *     RtlImageDirectoryEntryToData @ 0x14042B1C0 (RtlImageDirectoryEntryToData.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     VfUtilPrintCheckinString @ 0x140C27A20 (VfUtilPrintCheckinString.c)
+ *     ViThunkGetPristine @ 0x140C3BA58 (ViThunkGetPristine.c)
+ *     MmApplyVerifierToRunningImage @ 0x140C49760 (MmApplyVerifierToRunningImage.c)
  */
 
 __int64 __fastcall ViThunkApplyPristineCurrentSession(ULONG_PTR BugCheckParameter2)
@@ -16,18 +16,18 @@ __int64 __fastcall ViThunkApplyPristineCurrentSession(ULONG_PTR BugCheckParamete
   __int64 v3; // rsi
   _QWORD *v4; // r14
   _DWORD *v5; // r15
-  unsigned int v6; // edi
+  ULONG v6; // edi
   __int64 v7; // rcx
   __int64 Pristine; // r10
   int v9; // r11d
   __int64 v10; // rcx
   __int64 v11; // rcx
-  unsigned int v13; // [rsp+40h] [rbp+8h] BYREF
+  ULONG v13; // [rsp+40h] [rbp+8h] BYREF
 
   v13 = 0;
   v2 = 0;
   v3 = 0LL;
-  v4 = (_QWORD *)RtlImageDirectoryEntryToData(*(_QWORD *)(BugCheckParameter2 + 48), 1, 0xCu, &v13);
+  v4 = RtlImageDirectoryEntryToData(*(PVOID *)(BugCheckParameter2 + 48), 1u, 0xCu, &v13);
   if ( v4 && v13 )
   {
     v5 = ViWdmThunksWithIatIndex;

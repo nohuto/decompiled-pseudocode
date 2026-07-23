@@ -13,14 +13,14 @@
  *     memset @ 0x1800AB900 (memset.c)
  */
 
-__int64 __fastcall RtlCreateSecurityDescriptor(_BYTE *a1, int a2)
+NTSTATUS __cdecl RtlCreateSecurityDescriptor(PSECURITY_DESCRIPTOR SecurityDescriptor, ULONG Revision)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  if ( a2 != 1 )
-    return 3221225560LL;
-  memset(a1, 0, 0x28uLL);
-  result = 0LL;
-  *a1 = 1;
+  if ( Revision != 1 )
+    return -1073741736;
+  memset(SecurityDescriptor, 0, 0x28uLL);
+  result = 0;
+  *(_BYTE *)SecurityDescriptor = 1;
   return result;
 }

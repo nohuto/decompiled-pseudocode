@@ -1,10 +1,10 @@
 /*
- * XREFs of ViTargetFreeContiguousMemoryFromNode @ 0x140935008
+ * XREFs of ViTargetFreeContiguousMemoryFromNode @ 0x140936008
  * Callers:
- *     ViTargetFreeContiguousMemory @ 0x140934F64 (ViTargetFreeContiguousMemory.c)
- *     ViTargetFreeContiguousMemoryCallback @ 0x140934FE0 (ViTargetFreeContiguousMemoryCallback.c)
+ *     ViTargetFreeContiguousMemory @ 0x140935F64 (ViTargetFreeContiguousMemory.c)
+ *     ViTargetFreeContiguousMemoryCallback @ 0x140935FE0 (ViTargetFreeContiguousMemoryCallback.c)
  * Callees:
- *     VfUtilFreePoolDispatchLevel @ 0x140309AA0 (VfUtilFreePoolDispatchLevel.c)
+ *     VfUtilFreePoolDispatchLevel @ 0x140309C90 (VfUtilFreePoolDispatchLevel.c)
  */
 
 __int64 __fastcall ViTargetFreeContiguousMemoryFromNode(__int64 a1, __int64 a2)
@@ -34,6 +34,6 @@ __int64 __fastcall ViTargetFreeContiguousMemoryFromNode(__int64 a1, __int64 a2)
   *v7 = v5;
   v5[1] = (__int64)v7;
   *(_QWORD *)(v2 + 232) -= v4[3];
-  VfUtilFreePoolDispatchLevel((struct _SLIST_ENTRY *)v4);
+  VfUtilFreePoolDispatchLevel((_SLIST_ENTRY *)v4);
   return 1LL;
 }

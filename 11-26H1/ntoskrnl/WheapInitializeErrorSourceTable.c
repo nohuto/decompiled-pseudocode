@@ -1,12 +1,12 @@
 /*
- * XREFs of WheapInitializeErrorSourceTable @ 0x140CE8128
+ * XREFs of WheapInitializeErrorSourceTable @ 0x140CEE4C8
  * Callers:
- *     WheaInitialize @ 0x140CE7AB8 (WheaInitialize.c)
+ *     WheaInitialize @ 0x140CEDE58 (WheaInitialize.c)
  * Callees:
- *     WheapAddErrorSource @ 0x1406D4BB8 (WheapAddErrorSource.c)
- *     WheapInitializeErrorSource @ 0x140847684 (WheapInitializeErrorSource.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     WheapAddErrorSource @ 0x1406D8C98 (WheapAddErrorSource.c)
+ *     WheapInitializeErrorSource @ 0x14084D8E4 (WheapInitializeErrorSource.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall WheapInitializeErrorSourceTable(unsigned int a1, unsigned int *a2)
@@ -18,7 +18,7 @@ __int64 __fastcall WheapInitializeErrorSourceTable(unsigned int a1, unsigned int
   unsigned int *v8; // rdx
   __int64 v9; // rax
   __int128 v10; // xmm0
-  void **p_StackBase; // rcx
+  struct _LIST_ENTRY **p_Blink; // rcx
   int v12; // ebp
 
   for ( i = 0; i < a1; ++i )
@@ -54,8 +54,8 @@ __int64 __fastcall WheapInitializeErrorSourceTable(unsigned int a1, unsigned int
       *(_OWORD *)(v7 + 48) = *((_OWORD *)v8 + 3);
       *(_QWORD *)(v7 + 64) = *((_QWORD *)v8 + 8);
       *(_DWORD *)(v7 + 72) = v8[18];
-      p_StackBase = &WheapInUsePageOfflineNotifyLock.StackBase;
-      if ( *((_BYTE *)&WheapInUsePageOfflineNotifyLock.StackBase + 64 * (__int64)(int)a2[2]) )
+      p_Blink = &WheapInUsePageOfflineNotifyLock.Header.WaitListHead.Blink;
+      if ( LOBYTE((&WheapInUsePageOfflineNotifyLock.Header.WaitListHead.Blink)[8 * (__int64)(int)a2[2]]) )
       {
         v12 = WheapInitializeErrorSource(v6);
         if ( v12 < 0 )
@@ -69,7 +69,7 @@ __int64 __fastcall WheapInitializeErrorSourceTable(unsigned int a1, unsigned int
         *(_DWORD *)(v6 + 40) = a2[2];
         *(_BYTE *)(v6 + 88) = 1;
       }
-      WheapAddErrorSource((__int64)p_StackBase, v6);
+      WheapAddErrorSource((__int64)p_Blink, v6);
       a2 = (unsigned int *)((char *)a2 + *a2);
     }
   }

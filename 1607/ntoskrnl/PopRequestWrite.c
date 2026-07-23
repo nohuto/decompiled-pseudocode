@@ -4,18 +4,18 @@
  *     PopWriteHiberImage @ 0x1403CCFC4 (PopWriteHiberImage.c)
  *     PopCompressCallback @ 0x1403CD618 (PopCompressCallback.c)
  * Callees:
- *     MmGetPhysicalAddress @ 0x14002500C (MmGetPhysicalAddress.c)
- *     xHalFreeMessageTarget @ 0x140130D64 (xHalFreeMessageTarget.c)
- *     IoAddTriageDumpDataBlock @ 0x14014B3B4 (IoAddTriageDumpDataBlock.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
- *     PopInternalAddToDumpFile @ 0x1401FF078 (PopInternalAddToDumpFile.c)
+ *     MmGetPhysicalAddress @ 0x140024B8C (MmGetPhysicalAddress.c)
+ *     xHalFreeMessageTarget @ 0x1401312D4 (xHalFreeMessageTarget.c)
+ *     IoAddTriageDumpDataBlock @ 0x14014B924 (IoAddTriageDumpDataBlock.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
+ *     PopInternalAddToDumpFile @ 0x1401FEEA4 (PopInternalAddToDumpFile.c)
  *     ConsumerGetBuffer @ 0x1403CD99C (ConsumerGetBuffer.c)
  *     ProducerConsumerBufferComplete @ 0x1403CE50C (ProducerConsumerBufferComplete.c)
  *     PopGetIoLocation @ 0x1403CE9D4 (PopGetIoLocation.c)
  *     PopHiberChecksumHiberFileData @ 0x1403CEA54 (PopHiberChecksumHiberFileData.c)
  *     PopCheckpointSystemSleep @ 0x1403CEBA4 (PopCheckpointSystemSleep.c)
  *     PopGetRemainingHibernateRangeDataSize @ 0x1403DF0DC (PopGetRemainingHibernateRangeDataSize.c)
- *     MmGetNumberOfPhysicalPages @ 0x1404145C8 (MmGetNumberOfPhysicalPages.c)
+ *     MmGetNumberOfPhysicalPages @ 0x140413488 (MmGetNumberOfPhysicalPages.c)
  */
 
 char __fastcall PopRequestWrite(ULONG_PTR BugCheckParameter3, __int64 a2, unsigned int a3)
@@ -75,7 +75,7 @@ char __fastcall PopRequestWrite(ULONG_PTR BugCheckParameter3, __int64 a2, unsign
                                i + 376,
                                v3);
         v22 = __rdtsc();
-        qword_1403038C0 += (((unsigned __int64)HIDWORD(v22) << 32) | (unsigned int)v22) - v20;
+        qword_140303800 += (((unsigned __int64)HIDWORD(v22) << 32) | (unsigned int)v22) - v20;
         if ( (BugCheckParameter4 & 0x80000000) != 0LL )
         {
           PopCheckpointSystemSleep(21LL);
@@ -89,12 +89,12 @@ char __fastcall PopRequestWrite(ULONG_PTR BugCheckParameter3, __int64 a2, unsign
       }
       else
       {
-        qword_1403038B8 += v19 - *(_QWORD *)(i + 344);
+        qword_1403037F8 += v19 - *(_QWORD *)(i + 344);
         ProducerConsumerBufferComplete(v5, v5 + 48, *(_QWORD *)(i + 392), *(unsigned int *)(i + 368));
         v31 = __rdtsc();
-        qword_1403038E0 += (((unsigned __int64)HIDWORD(v31) << 32) | (unsigned int)v31) - v20;
-        qword_140303A78 += *(_QWORD *)(i + 368);
-        dword_140303A80 += (unsigned __int64)(*(_QWORD *)(i + 360) + 4095LL) >> 12;
+        qword_140303820 += (((unsigned __int64)HIDWORD(v31) << 32) | (unsigned int)v31) - v20;
+        qword_1403039B8 += *(_QWORD *)(i + 368);
+        dword_1403039C0 += (unsigned __int64)(*(_QWORD *)(i + 360) + 4095LL) >> 12;
         v32 = *(_QWORD *)(i + 360);
         *(_QWORD *)(i + 384) += v32;
         *(_QWORD *)(i + 352) += v32;
@@ -128,14 +128,14 @@ char __fastcall PopRequestWrite(ULONG_PTR BugCheckParameter3, __int64 a2, unsign
     v24 = v41;
     *(_QWORD *)(i + 392) = Buffer;
     *(_QWORD *)(i + 368) = v24;
-    if ( v23 + v14 > qword_140303590 )
+    if ( v23 + v14 > qword_1403034D0 )
     {
       PopCheckpointSystemSleep(22LL);
       if ( (unsigned int)(*(_DWORD *)(i + 184) - 4) <= 1 )
         RemainingHibernateRangeDataSize = PopGetRemainingHibernateRangeDataSize(i);
       NumberOfPhysicalPages = MmGetNumberOfPhysicalPages();
       IoAddTriageDumpDataBlock((int)&NumberOfPhysicalPages, 8);
-      KeBugCheckEx(0xA0u, 0xBuLL, qword_140303590, *(unsigned int *)(i + 184), RemainingHibernateRangeDataSize);
+      KeBugCheckEx(0xA0u, 0xBuLL, qword_1403034D0, *(unsigned int *)(i + 184), RemainingHibernateRangeDataSize);
     }
     LOBYTE(v16) = 1;
     PopHiberChecksumHiberFileData(i, v16, v23, Buffer, v24);
@@ -165,7 +165,7 @@ char __fastcall PopRequestWrite(ULONG_PTR BugCheckParameter3, __int64 a2, unsign
     v28 = __rdtsc();
     v29 = (*(int (__fastcall **)(__int64, ULONG_PTR, __int64, _QWORD))(*(_QWORD *)(i + 168) + 128LL))(1LL, v10, v3, 0LL);
     v30 = __rdtsc();
-    qword_1403038C0 += (((unsigned __int64)HIDWORD(v30) << 32) | (unsigned int)v30) - v28;
+    qword_140303800 += (((unsigned __int64)HIDWORD(v30) << 32) | (unsigned int)v30) - v28;
     if ( (_DWORD)v29 == -1073741637 )
     {
       *(_BYTE *)(i + 400) = 0;
@@ -187,7 +187,7 @@ LABEL_28:
       v28 = __rdtsc();
       v33 = (*(int (__fastcall **)(ULONG_PTR, __int64))(*(_QWORD *)(i + 168) + 64LL))(v10, v3);
       v34 = __rdtsc();
-      qword_1403038C0 += (((unsigned __int64)HIDWORD(v34) << 32) | (unsigned int)v34) - v28;
+      qword_140303800 += (((unsigned __int64)HIDWORD(v34) << 32) | (unsigned int)v34) - v28;
       if ( (v33 & 0x80000000) != 0LL )
       {
         PopCheckpointSystemSleep(21LL);

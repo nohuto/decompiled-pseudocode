@@ -1,11 +1,11 @@
 /*
- * XREFs of DmrGetNextDrhdDeviceScope @ 0x14037F320
+ * XREFs of DmrGetNextDrhdDeviceScope @ 0x14037F4C0
  * Callers:
- *     HalpIvtProcessDrhdEntry @ 0x14037E8B4 (HalpIvtProcessDrhdEntry.c)
- *     DmrFindDrhdForDeviceScope @ 0x14037F020 (DmrFindDrhdForDeviceScope.c)
- *     DmrValidateDeviceScope @ 0x14037F22C (DmrValidateDeviceScope.c)
+ *     HalpIvtProcessDrhdEntry @ 0x14037EA54 (HalpIvtProcessDrhdEntry.c)
+ *     DmrFindDrhdForDeviceScope @ 0x14037F1C0 (DmrFindDrhdForDeviceScope.c)
+ *     DmrValidateDeviceScope @ 0x14037F3CC (DmrValidateDeviceScope.c)
  * Callees:
- *     DmrGetNextDeviceScope @ 0x14037F470 (DmrGetNextDeviceScope.c)
+ *     DmrGetNextDeviceScope @ 0x14037F610 (DmrGetNextDeviceScope.c)
  */
 
 __int64 __fastcall DmrGetNextDrhdDeviceScope(unsigned __int64 a1, __int64 a2)

@@ -6,15 +6,16 @@
  *     ZwQueryKey @ 0x1800A1170 (ZwQueryKey.c)
  */
 
-__int64 __fastcall RtlpValidateKeyTrust(__int64 a1, __int16 a2)
+__int64 __fastcall RtlpValidateKeyTrust(void *a1, __int16 a2)
 {
   __int64 result; // rax
-  int v3; // ecx
-  char v4; // [rsp+48h] [rbp+10h] BYREF
+  NTSTATUS v3; // ecx
+  char KeyInformation; // [rsp+48h] [rbp+10h] BYREF
+  ULONG ResultLength; // [rsp+50h] [rbp+18h] BYREF
 
   if ( (a2 & 0x100) != 0 )
     return 0LL;
-  v3 = ZwQueryKey(a1, 8LL, &v4);
+  v3 = ZwQueryKey(a1, KeyTrustInformation, &KeyInformation, 4u, &ResultLength);
   result = 0LL;
   if ( v3 < 0 )
   {
@@ -22,7 +23,7 @@ __int64 __fastcall RtlpValidateKeyTrust(__int64 a1, __int16 a2)
     if ( v3 != -1073741431 )
       goto LABEL_8;
   }
-  else if ( (v4 & 1) == 0 )
+  else if ( (KeyInformation & 1) == 0 )
   {
 LABEL_8:
     __fastfail(9u);

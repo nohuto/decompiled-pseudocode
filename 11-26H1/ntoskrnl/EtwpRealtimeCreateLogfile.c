@@ -1,28 +1,28 @@
 /*
- * XREFs of EtwpRealtimeCreateLogfile @ 0x140A146BC
+ * XREFs of EtwpRealtimeCreateLogfile @ 0x140A138AC
  * Callers:
- *     EtwpLogger @ 0x140A13B90 (EtwpLogger.c)
+ *     EtwpLogger @ 0x140A12D80 (EtwpLogger.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     RtlStringCbPrintfW @ 0x140433060 (RtlStringCbPrintfW.c)
- *     EtwpRealtimeResetReferenceTime @ 0x14083000C (EtwpRealtimeResetReferenceTime.c)
- *     EtwpRealtimeUpdateReferenceTime @ 0x140830040 (EtwpRealtimeUpdateReferenceTime.c)
- *     EtwpSendSessionNotification @ 0x140A1545C (EtwpSendSessionNotification.c)
- *     EtwpDelayCreate @ 0x140A16624 (EtwpDelayCreate.c)
- *     EtwpExpandFileName @ 0x140A16914 (EtwpExpandFileName.c)
- *     RtlCreateUnicodeString @ 0x140A70410 (RtlCreateUnicodeString.c)
- *     EtwpRealtimeZeroTruncateLogfile @ 0x140B4476C (EtwpRealtimeZeroTruncateLogfile.c)
- *     EtwpRealtimeRestoreState @ 0x140B5391C (EtwpRealtimeRestoreState.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePool @ 0x140C10E30 (ExFreePool.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     RtlStringCbPrintfW @ 0x140420090 (RtlStringCbPrintfW.c)
+ *     EtwpRealtimeResetReferenceTime @ 0x14083624C (EtwpRealtimeResetReferenceTime.c)
+ *     EtwpRealtimeUpdateReferenceTime @ 0x140836280 (EtwpRealtimeUpdateReferenceTime.c)
+ *     EtwpSendSessionNotification @ 0x140A14650 (EtwpSendSessionNotification.c)
+ *     EtwpExpandFileName @ 0x140A1586C (EtwpExpandFileName.c)
+ *     EtwpDelayCreate @ 0x140A15A94 (EtwpDelayCreate.c)
+ *     RtlCreateUnicodeString @ 0x140A478B0 (RtlCreateUnicodeString.c)
+ *     EtwpRealtimeZeroTruncateLogfile @ 0x140B4652C (EtwpRealtimeZeroTruncateLogfile.c)
+ *     EtwpRealtimeRestoreState @ 0x140B561BC (EtwpRealtimeRestoreState.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePool @ 0x140C16E30 (ExFreePool.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall EtwpRealtimeCreateLogfile(__int64 a1)
 {
   __int64 v1; // r14
   __int64 v4; // rax
-  size_t v5; // rbp
+  size_t v5; // rsi
   wchar_t *Pool2; // rax
   wchar_t *v7; // rdi
   wchar_t v8; // ax

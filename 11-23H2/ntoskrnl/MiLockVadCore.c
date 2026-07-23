@@ -1,12 +1,12 @@
 /*
- * XREFs of MiLockVadCore @ 0x1402877D0
+ * XREFs of MiLockVadCore @ 0x140287A60
  * Callers:
  *     MiCaptureWriteWatchDirtyBit @ 0x1402170B0 (MiCaptureWriteWatchDirtyBit.c)
- *     MiMoveDirtyBitsToPfns @ 0x140285A10 (MiMoveDirtyBitsToPfns.c)
- *     MiSetVadFlags @ 0x1402876B0 (MiSetVadFlags.c)
- *     NtGetWriteWatch @ 0x1402EA260 (NtGetWriteWatch.c)
+ *     MiMoveDirtyBitsToPfns @ 0x140285CA0 (MiMoveDirtyBitsToPfns.c)
+ *     MiSetVadFlags @ 0x140287940 (MiSetVadFlags.c)
+ *     NtGetWriteWatch @ 0x1402EA4F0 (NtGetWriteWatch.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x140242E40 (KeYieldProcessorEx.c)
+ *     KeYieldProcessorEx @ 0x140242F10 (KeYieldProcessorEx.c)
  */
 
 __int64 __fastcall MiLockVadCore(__int64 a1)
@@ -21,7 +21,7 @@ __int64 __fastcall MiLockVadCore(__int64 a1)
   v8 = 0;
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     if ( CurrentIrql == 2 )

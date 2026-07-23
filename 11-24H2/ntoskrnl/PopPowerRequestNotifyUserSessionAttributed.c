@@ -1,12 +1,12 @@
 /*
- * XREFs of PopPowerRequestNotifyUserSessionAttributed @ 0x140ABB508
+ * XREFs of PopPowerRequestNotifyUserSessionAttributed @ 0x140AB6528
  * Callers:
- *     PopPowerInformationInternal @ 0x140AC4A30 (PopPowerInformationInternal.c)
+ *     PopPowerInformationInternal @ 0x140AC2410 (PopPowerInformationInternal.c)
  * Callees:
- *     PopReleaseRwLock @ 0x1403B5EC8 (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x1404283D4 (PopAcquireRwLockExclusive.c)
- *     TtmNotifySessionPowerRequestPresent @ 0x140769D28 (TtmNotifySessionPowerRequestPresent.c)
- *     TtmIsEnabled @ 0x1409BBDE8 (TtmIsEnabled.c)
+ *     PopReleaseRwLock @ 0x1402AE8FC (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x14041C564 (PopAcquireRwLockExclusive.c)
+ *     TtmNotifySessionPowerRequestPresent @ 0x140769F48 (TtmNotifySessionPowerRequestPresent.c)
+ *     TtmIsEnabled @ 0x1409A2438 (TtmIsEnabled.c)
  */
 
 char __fastcall PopPowerRequestNotifyUserSessionAttributed(int a1, PVOID a2, void *a3)
@@ -19,7 +19,7 @@ char __fastcall PopPowerRequestNotifyUserSessionAttributed(int a1, PVOID a2, voi
 
   v4 = 0LL;
   v5 = 0;
-  PopAcquireRwLockExclusive(&PopPowerRequestLock);
+  PopAcquireRwLockExclusive((unsigned __int64 *)&PopPowerRequestLock);
   for ( i = (PVOID *)PopPowerRequestObjectList; i != &PopPowerRequestObjectList; i = (PVOID *)*i )
   {
     v4 = i;
@@ -30,7 +30,7 @@ char __fastcall PopPowerRequestNotifyUserSessionAttributed(int a1, PVOID a2, voi
       break;
     }
   }
-  result = PopReleaseRwLock((signed __int64 *)&PopPowerRequestLock);
+  result = PopReleaseRwLock(&PopPowerRequestLock);
   if ( v5 )
   {
     result = TtmIsEnabled();

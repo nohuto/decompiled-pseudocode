@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpMmUpdateTiledMemoryMapTargetStub @ 0x1405592F4
+ * XREFs of HalpMmUpdateTiledMemoryMapTargetStub @ 0x140556F24
  * Callers:
- *     HalpInterruptStartProcessor @ 0x140B4BED0 (HalpInterruptStartProcessor.c)
- *     HalpBuildResumeStructures @ 0x140B4CE28 (HalpBuildResumeStructures.c)
+ *     HalpInterruptStartProcessor @ 0x140B4DF10 (HalpInterruptStartProcessor.c)
+ *     HalpBuildResumeStructures @ 0x140B4EE68 (HalpBuildResumeStructures.c)
  * Callees:
- *     MiUnmapContiguousMemory @ 0x140263178 (MiUnmapContiguousMemory.c)
- *     MmGetPhysicalAddress @ 0x140263A60 (MmGetPhysicalAddress.c)
- *     MmMapIoSpaceEx @ 0x1402E9A50 (MmMapIoSpaceEx.c)
+ *     MiUnmapContiguousMemory @ 0x1402929E8 (MiUnmapContiguousMemory.c)
+ *     MmGetPhysicalAddress @ 0x1402932D0 (MmGetPhysicalAddress.c)
+ *     MmMapIoSpaceEx @ 0x14034B090 (MmMapIoSpaceEx.c)
  */
 
 __int64 HalpMmUpdateTiledMemoryMapTargetStub()
@@ -18,7 +18,7 @@ __int64 HalpMmUpdateTiledMemoryMapTargetStub()
   v0 = 0;
   if ( HalpTargetStubPtePa )
   {
-    v1 = (_QWORD *)MmMapIoSpaceEx(HalpTargetStubPtePa, 8LL, 4u);
+    v1 = (_QWORD *)MmMapIoSpaceEx(HalpTargetStubPtePa, 8LL, 4LL);
     if ( v1 )
     {
       PhysicalAddress = MmGetPhysicalAddress(HalpLMStub);

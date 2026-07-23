@@ -1,10 +1,10 @@
 /*
- * XREFs of CcIsThereDirtyLoggedPages @ 0x1400A0A40
+ * XREFs of CcIsThereDirtyLoggedPages @ 0x14009F368
  * Callers:
  *     <none>
  * Callees:
- *     KeAcquireQueuedSpinLock @ 0x1400E8D30 (KeAcquireQueuedSpinLock.c)
- *     KeReleaseQueuedSpinLock @ 0x1400E8DA0 (KeReleaseQueuedSpinLock.c)
+ *     KeAcquireQueuedSpinLock @ 0x1400E6BD0 (KeAcquireQueuedSpinLock.c)
+ *     KeReleaseQueuedSpinLock @ 0x1400E6C40 (KeReleaseQueuedSpinLock.c)
  */
 
 char __fastcall CcIsThereDirtyLoggedPages(__int64 a1, _DWORD *a2)

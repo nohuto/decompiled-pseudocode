@@ -1,19 +1,19 @@
 /*
- * XREFs of BiDeleteEfiVariable @ 0x1406D4808
+ * XREFs of BiDeleteEfiVariable @ 0x1406D4940
  * Callers:
- *     BiExportEfiBootManager @ 0x1406D4A80 (BiExportEfiBootManager.c)
+ *     BiExportEfiBootManager @ 0x1406D4BB8 (BiExportEfiBootManager.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14002DC60 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     ZwQuerySystemEnvironmentValueEx @ 0x14015C620 (ZwQuerySystemEnvironmentValueEx.c)
- *     ZwSetSystemEnvironmentValueEx @ 0x14015CF40 (ZwSetSystemEnvironmentValueEx.c)
- *     BiReleasePrivilege @ 0x14053BD20 (BiReleasePrivilege.c)
- *     BiAcquirePrivilege @ 0x14053BD6C (BiAcquirePrivilege.c)
+ *     RtlInitUnicodeString @ 0x14002D7E0 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     ZwQuerySystemEnvironmentValueEx @ 0x14015CB90 (ZwQuerySystemEnvironmentValueEx.c)
+ *     ZwSetSystemEnvironmentValueEx @ 0x14015D4B0 (ZwSetSystemEnvironmentValueEx.c)
+ *     BiReleasePrivilege @ 0x14053C260 (BiReleasePrivilege.c)
+ *     BiAcquirePrivilege @ 0x14053C2AC (BiAcquirePrivilege.c)
  */
 
 __int64 __fastcall BiDeleteEfiVariable(PCWSTR SourceString)
 {
-  int v2; // ebx
+  NTSTATUS v2; // ebx
   NTSTATUS v3; // eax
   ULONG *Attributes; // [rsp+20h] [rbp-50h]
   ULONG ReturnLength; // [rsp+30h] [rbp-40h] BYREF

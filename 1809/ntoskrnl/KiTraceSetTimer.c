@@ -1,16 +1,16 @@
 /*
- * XREFs of KiTraceSetTimer @ 0x14029B968
+ * XREFs of KiTraceSetTimer @ 0x14029BB58
  * Callers:
  *     KiSetTimerEx @ 0x14001D380 (KiSetTimerEx.c)
  *     ExpSetTimerObject @ 0x14001D7C0 (ExpSetTimerObject.c)
  *     KeSetTimerEx @ 0x14001DF70 (KeSetTimerEx.c)
  *     KiCommitThreadWait @ 0x140055AD0 (KiCommitThreadWait.c)
- *     KiResumeThread @ 0x1400F1C60 (KiResumeThread.c)
- *     KiAdjustTimerDueTimes @ 0x14016FBEC (KiAdjustTimerDueTimes.c)
+ *     KiResumeThread @ 0x1400F1CE0 (KiResumeThread.c)
+ *     KiAdjustTimerDueTimes @ 0x14016FCEC (KiAdjustTimerDueTimes.c)
  * Callees:
- *     KeGetPrcb @ 0x1400A62C4 (KeGetPrcb.c)
- *     EtwTraceKernelEvent @ 0x1400F3710 (EtwTraceKernelEvent.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     KeGetPrcb @ 0x1400A6204 (KeGetPrcb.c)
+ *     EtwTraceKernelEvent @ 0x1400F3790 (EtwTraceKernelEvent.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
  */
 
 void __fastcall KiTraceSetTimer(__int64 a1, __int64 a2, char a3)

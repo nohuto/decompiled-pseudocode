@@ -4,8 +4,8 @@
  *     KiFreezeTargetExecution @ 0x14020E1D0 (KiFreezeTargetExecution.c)
  * Callees:
  *     RtlXRestore @ 0x14020E140 (RtlXRestore.c)
- *     KeContextToKframes @ 0x14041EB80 (KeContextToKframes.c)
- *     KiRestoreProcessorControlState @ 0x14041ECD0 (KiRestoreProcessorControlState.c)
+ *     KeContextToKframes @ 0x14041EF10 (KeContextToKframes.c)
+ *     KiRestoreProcessorControlState @ 0x14041F060 (KiRestoreProcessorControlState.c)
  */
 
 __int64 __fastcall KiRestoreProcessorState(int a1, int a2)

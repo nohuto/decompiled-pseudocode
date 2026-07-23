@@ -1,9 +1,9 @@
 /*
- * XREFs of DrvDbGetDriverDatabaseList @ 0x1408BDC44
+ * XREFs of DrvDbGetDriverDatabaseList @ 0x1408BB594
  * Callers:
- *     DrvDbDispatchDriverDatabase @ 0x1408BDAB0 (DrvDbDispatchDriverDatabase.c)
+ *     DrvDbDispatchDriverDatabase @ 0x1408BB400 (DrvDbDispatchDriverDatabase.c)
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall DrvDbGetDriverDatabaseList(
@@ -31,9 +31,7 @@ __int64 __fastcall DrvDbGetDriverDatabaseList(
   signed __int64 v21; // r8
   __int16 v22; // ax
   __int64 v23; // rcx
-  __int64 v27; // [rsp+80h] [rbp+18h]
 
-  v27 = a3;
   v6 = 0;
   v8 = a2;
   v9 = a1;
@@ -45,7 +43,7 @@ __int64 __fastcall DrvDbGetDriverDatabaseList(
   v12 = (__int64 **)a1[2];
   while ( v12 != v11 )
   {
-    if ( !v8 || (unsigned __int8)guard_dispatch_icall_no_overrides(*v9, v12[3], 7LL, a3) )
+    if ( !v8 || (unsigned __int8)guard_dispatch_icall_no_overrides(*v9, v12[3]) )
     {
       v14 = (*((unsigned __int16 *)v12 + 8) >> 1) + 1;
       *a6 += v14;
@@ -92,7 +90,6 @@ LABEL_30:
     v12 = (__int64 **)*v12;
     v9 = a1;
     v8 = a2;
-    a3 = v27;
   }
   v23 = (unsigned int)*a6;
   *a6 = v23 + 1;

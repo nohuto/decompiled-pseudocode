@@ -1,20 +1,20 @@
 /*
- * XREFs of MiSnapDriverRange @ 0x140653BE0
+ * XREFs of MiSnapDriverRange @ 0x140654DA0
  * Callers:
- *     MiCheckForDiscardableLongJumpTable @ 0x1402C3340 (MiCheckForDiscardableLongJumpTable.c)
- *     MiHandleDriverNonPagedSections @ 0x14065578C (MiHandleDriverNonPagedSections.c)
- *     MiFreeDriverInitialization @ 0x1406C778C (MiFreeDriverInitialization.c)
- *     MiDisablePagingOfDriver @ 0x1406CB750 (MiDisablePagingOfDriver.c)
- *     MiBackSingleImageWithPagefile @ 0x14070D460 (MiBackSingleImageWithPagefile.c)
- *     MiMarkKernelImageCfgBits @ 0x14070F394 (MiMarkKernelImageCfgBits.c)
- *     MiEnablePagingOfDriver @ 0x14072B570 (MiEnablePagingOfDriver.c)
- *     MmDiscardDriverSection @ 0x1409F7A3C (MmDiscardDriverSection.c)
+ *     MiCheckForDiscardableLongJumpTable @ 0x1402C3530 (MiCheckForDiscardableLongJumpTable.c)
+ *     MiHandleDriverNonPagedSections @ 0x14065694C (MiHandleDriverNonPagedSections.c)
+ *     MiFreeDriverInitialization @ 0x1406C8A2C (MiFreeDriverInitialization.c)
+ *     MiDisablePagingOfDriver @ 0x1406CC9F0 (MiDisablePagingOfDriver.c)
+ *     MiBackSingleImageWithPagefile @ 0x14070E700 (MiBackSingleImageWithPagefile.c)
+ *     MiMarkKernelImageCfgBits @ 0x140710634 (MiMarkKernelImageCfgBits.c)
+ *     MiEnablePagingOfDriver @ 0x14072C760 (MiEnablePagingOfDriver.c)
+ *     MmDiscardDriverSection @ 0x1409F8A3C (MmDiscardDriverSection.c)
  * Callees:
- *     MiGetPteAddress @ 0x140065DE8 (MiGetPteAddress.c)
- *     RtlImageNtHeader @ 0x14009DAE0 (RtlImageNtHeader.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     MmImageSectionPagable @ 0x140653FEC (MmImageSectionPagable.c)
+ *     MiGetPteAddress @ 0x140065DD8 (MiGetPteAddress.c)
+ *     RtlImageNtHeader @ 0x14009DA20 (RtlImageNtHeader.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     MmImageSectionPagable @ 0x1406551AC (MmImageSectionPagable.c)
  */
 
 __int64 __fastcall MiSnapDriverRange(

@@ -1,29 +1,29 @@
 /*
  * XREFs of KdInitSystem @ 0x140AB1040
  * Callers:
- *     KdEnableDebuggerWithLock @ 0x14056777C (KdEnableDebuggerWithLock.c)
- *     KeEnterKernelDebugger @ 0x140569370 (KeEnterKernelDebugger.c)
+ *     KdEnableDebuggerWithLock @ 0x140567E3C (KdEnableDebuggerWithLock.c)
+ *     KeEnterKernelDebugger @ 0x140569A30 (KeEnterKernelDebugger.c)
  *     KiSystemStartup @ 0x140A87010 (KiSystemStartup.c)
  *     KiSetFeatureBits @ 0x140A8D4C4 (KiSetFeatureBits.c)
- *     KiSetProcessorSignature @ 0x140A8E554 (KiSetProcessorSignature.c)
- *     PopHiberCheckResume @ 0x140AA2EA0 (PopHiberCheckResume.c)
+ *     KiSetProcessorSignature @ 0x140A8E3CC (KiSetProcessorSignature.c)
+ *     PopHiberCheckResume @ 0x140AA2D10 (PopHiberCheckResume.c)
  *     Phase1InitializationDiscard @ 0x140B4FFBC (Phase1InitializationDiscard.c)
  * Callees:
  *     DbgLoadImageSymbols @ 0x14020AA80 (DbgLoadImageSymbols.c)
- *     KeInitializeTimerEx @ 0x1402BE660 (KeInitializeTimerEx.c)
- *     KeInitializeDpc @ 0x1402BF9A0 (KeInitializeDpc.c)
- *     KeQueryPerformanceCounter @ 0x1402C3270 (KeQueryPerformanceCounter.c)
- *     RtlInitAnsiString @ 0x1402F6C50 (RtlInitAnsiString.c)
- *     KdPollBreakIn @ 0x140331EB0 (KdPollBreakIn.c)
- *     MmGetPagedPoolCommitPointer @ 0x14036F1E8 (MmGetPagedPoolCommitPointer.c)
- *     KeIsKernelCetEnabled @ 0x140388254 (KeIsKernelCetEnabled.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     _strupr @ 0x1403D8960 (_strupr.c)
- *     strncmp @ 0x1403D8E90 (strncmp.c)
- *     strstr @ 0x1403D91D0 (strstr.c)
- *     atol @ 0x1403D9280 (atol.c)
- *     __report_rangecheckfailure @ 0x1404FE0EC (__report_rangecheckfailure.c)
- *     KdDisableDebuggerWithLock @ 0x140567528 (KdDisableDebuggerWithLock.c)
+ *     KeInitializeTimerEx @ 0x1402BE8F0 (KeInitializeTimerEx.c)
+ *     KeInitializeDpc @ 0x1402BFC30 (KeInitializeDpc.c)
+ *     KeQueryPerformanceCounter @ 0x1402C3500 (KeQueryPerformanceCounter.c)
+ *     RtlInitAnsiString @ 0x1402F6EE0 (RtlInitAnsiString.c)
+ *     KdPollBreakIn @ 0x140332140 (KdPollBreakIn.c)
+ *     MmGetPagedPoolCommitPointer @ 0x14036F388 (MmGetPagedPoolCommitPointer.c)
+ *     KeIsKernelCetEnabled @ 0x140388434 (KeIsKernelCetEnabled.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     _strupr @ 0x1403D8B40 (_strupr.c)
+ *     strncmp @ 0x1403D9070 (strncmp.c)
+ *     strstr @ 0x1403D93B0 (strstr.c)
+ *     atol @ 0x1403D9460 (atol.c)
+ *     __report_rangecheckfailure @ 0x1404FE63C (__report_rangecheckfailure.c)
+ *     KdDisableDebuggerWithLock @ 0x140567BE8 (KdDisableDebuggerWithLock.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  *     KdRegisterDebuggerDataBlock @ 0x140AB15A4 (KdRegisterDebuggerDataBlock.c)
  */
@@ -51,15 +51,15 @@ char __fastcall KdInitSystem(int a1, __int64 a2, __int64 a3, __int64 a4)
   unsigned int v24; // ebp
   __int64 *k; // rdi
   __int64 v26; // rdx
-  char *v27; // r9
+  CHAR *v27; // r9
   unsigned int v28; // r8d
-  char v29; // al
+  CHAR v29; // al
   __int64 v30; // rcx
   __int64 v31; // rdi
   unsigned int v32; // eax
   signed __int32 v33[8]; // [rsp+0h] [rbp-178h] BYREF
   STRING DestinationString; // [rsp+20h] [rbp-158h] BYREF
-  char SourceString[256]; // [rsp+30h] [rbp-148h] BYREF
+  CHAR SourceString[256]; // [rsp+30h] [rbp-148h] BYREF
 
   v5 = 0;
   v6 = 0;
@@ -305,7 +305,7 @@ char __fastcall KdInitSystem(int a1, __int64 a2, __int64 a3, __int64 a4)
       {
         if ( !a2 )
         {
-          DbgLoadImageSymbols(0LL, qword_140C021B8, 0xFFFFFFFFLL);
+          DbgLoadImageSymbols(0LL, (void *)qword_140C021B8, 0xFFFFFFFFLL);
           return 1;
         }
         if ( KeIsKernelCetEnabled() && (_BYTE)KdDebuggerEnabled && !(_BYTE)KdDebuggerNotPresent )
@@ -320,7 +320,7 @@ char __fastcall KdInitSystem(int a1, __int64 a2, __int64 a3, __int64 a4)
             break;
           DestinationString = 0LL;
           LODWORD(v26) = 0;
-          v27 = (char *)k[10];
+          v27 = (CHAR *)k[10];
           v28 = *((unsigned __int16 *)k + 36) >> 1;
           if ( v28 >= 0x100 )
             v28 = 255;
@@ -337,7 +337,7 @@ char __fastcall KdInitSystem(int a1, __int64 a2, __int64 a3, __int64 a4)
             _report_rangecheckfailure();
           SourceString[v26] = 0;
           RtlInitAnsiString(&DestinationString, SourceString);
-          DbgLoadImageSymbols((__int64)&DestinationString, k[6], 0xFFFFFFFFLL);
+          DbgLoadImageSymbols((__int64)&DestinationString, (void *)k[6], 0xFFFFFFFFLL);
           k = (__int64 *)*k;
         }
         KdBreakAfterSymbolLoad = KdPollBreakIn();

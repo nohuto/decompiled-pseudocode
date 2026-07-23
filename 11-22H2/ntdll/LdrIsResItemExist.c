@@ -7,7 +7,7 @@
  *     LdrRscIsTypeExist @ 0x180029250 (LdrRscIsTypeExist.c)
  */
 
-int __fastcall LdrIsResItemExist(__int64 a1, _QWORD *a2, __int64 a3, unsigned int a4)
+int __fastcall LdrIsResItemExist(void *a1, _QWORD *a2, __int64 a3, unsigned int a4)
 {
   __int64 RcConfig; // rax
   __int64 v7; // rbx
@@ -15,8 +15,7 @@ int __fastcall LdrIsResItemExist(__int64 a1, _QWORD *a2, __int64 a3, unsigned in
   int v9; // [rsp+40h] [rbp+18h] BYREF
 
   v9 = 0;
-  LOBYTE(a3) = 1;
-  RcConfig = LdrpGetRcConfig(a1, a2, a3);
+  RcConfig = LdrpGetRcConfig(a1);
   v7 = RcConfig;
   if ( !RcConfig )
     return 0x80000;

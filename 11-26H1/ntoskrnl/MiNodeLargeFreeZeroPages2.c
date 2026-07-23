@@ -1,7 +1,7 @@
 /*
- * XREFs of MiNodeLargeFreeZeroPages2 @ 0x140703424
+ * XREFs of MiNodeLargeFreeZeroPages2 @ 0x1407080F4
  * Callers:
- *     MiAddPhysicalMemoryChunks @ 0x140865468 (MiAddPhysicalMemoryChunks.c)
+ *     MiAddPhysicalMemoryChunks @ 0x14086B848 (MiAddPhysicalMemoryChunks.c)
  * Callees:
  *     <none>
  */
@@ -27,7 +27,7 @@ __int64 __fastcall MiNodeLargeFreeZeroPages2(__int64 a1, int a2)
     v6 = 0LL;
     for ( i = 0LL; i <= 1; ++i )
     {
-      for ( j = 0; j < (unsigned __int8)byte_140E2D718; v6 += *(_QWORD *)(a1 + 8 * (2 * (i + 2 * (v3 + 23)) + v9)) )
+      for ( j = 0; j < (unsigned __int8)byte_140E2D898; v6 += *(_QWORD *)(a1 + 8 * (2 * (i + 2 * (v3 + 23)) + v9)) )
         v9 = j++;
     }
     v10 = v6 * *v4;

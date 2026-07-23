@@ -1,21 +1,21 @@
 /*
- * XREFs of HalpFindTimer @ 0x140581834
+ * XREFs of HalpFindTimer @ 0x140583D54
  * Callers:
- *     HalpInitializeTimers @ 0x140576C98 (HalpInitializeTimers.c)
- *     HalpTimerFindIdealClockSource @ 0x140576FC0 (HalpTimerFindIdealClockSource.c)
- *     HalpTimerFindIdealPerformanceCounterSource @ 0x1405771E0 (HalpTimerFindIdealPerformanceCounterSource.c)
- *     HalpTimerFindIdealScalingSource @ 0x140577340 (HalpTimerFindIdealScalingSource.c)
- *     HalpTimerFindIdealWatchdog @ 0x140577420 (HalpTimerFindIdealWatchdog.c)
- *     HalpTimerInitializeEarlyStallSource @ 0x14057797C (HalpTimerInitializeEarlyStallSource.c)
- *     HalpTimerQueryCycleCounter @ 0x140577BA0 (HalpTimerQueryCycleCounter.c)
- *     HalpTimerSelectRoles @ 0x140577E78 (HalpTimerSelectRoles.c)
- *     HalpTimerFindBestAlwaysOnTimer @ 0x1405820F8 (HalpTimerFindBestAlwaysOnTimer.c)
- *     HalpTscAdvSynchLeader @ 0x140583650 (HalpTscAdvSynchLeader.c)
- *     HalpTscSynchronization @ 0x140583F70 (HalpTscSynchronization.c)
- *     HalpTimerInitializeHypervisorTimer @ 0x140584840 (HalpTimerInitializeHypervisorTimer.c)
- *     HalpTimerConfigureQpcBypass @ 0x140584CD8 (HalpTimerConfigureQpcBypass.c)
- *     HalpTimerSaveProcessorFrequency @ 0x140584DF8 (HalpTimerSaveProcessorFrequency.c)
- *     HalpTimerMeasureProcessorsWorker @ 0x140586790 (HalpTimerMeasureProcessorsWorker.c)
+ *     HalpInitializeTimers @ 0x1405791C8 (HalpInitializeTimers.c)
+ *     HalpTimerFindIdealClockSource @ 0x1405794F0 (HalpTimerFindIdealClockSource.c)
+ *     HalpTimerFindIdealPerformanceCounterSource @ 0x140579710 (HalpTimerFindIdealPerformanceCounterSource.c)
+ *     HalpTimerFindIdealScalingSource @ 0x140579870 (HalpTimerFindIdealScalingSource.c)
+ *     HalpTimerFindIdealWatchdog @ 0x140579950 (HalpTimerFindIdealWatchdog.c)
+ *     HalpTimerInitializeEarlyStallSource @ 0x140579EAC (HalpTimerInitializeEarlyStallSource.c)
+ *     HalpTimerQueryCycleCounter @ 0x14057A0D0 (HalpTimerQueryCycleCounter.c)
+ *     HalpTimerSelectRoles @ 0x14057A3A8 (HalpTimerSelectRoles.c)
+ *     HalpTimerFindBestAlwaysOnTimer @ 0x140584618 (HalpTimerFindBestAlwaysOnTimer.c)
+ *     HalpTscAdvSynchLeader @ 0x140585B70 (HalpTscAdvSynchLeader.c)
+ *     HalpTscSynchronization @ 0x140586490 (HalpTscSynchronization.c)
+ *     HalpTimerInitializeHypervisorTimer @ 0x140586D60 (HalpTimerInitializeHypervisorTimer.c)
+ *     HalpTimerConfigureQpcBypass @ 0x1405871F8 (HalpTimerConfigureQpcBypass.c)
+ *     HalpTimerSaveProcessorFrequency @ 0x140587318 (HalpTimerSaveProcessorFrequency.c)
+ *     HalpTimerMeasureProcessorsWorker @ 0x140588CB0 (HalpTimerMeasureProcessorsWorker.c)
  * Callees:
  *     <none>
  */

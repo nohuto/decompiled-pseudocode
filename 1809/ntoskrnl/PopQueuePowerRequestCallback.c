@@ -14,9 +14,9 @@ __int64 __fastcall PopQueuePowerRequestCallback(__int64 a1, int a2, __int64 a3, 
   __int64 result; // rax
 
   v4 = a2;
-  v5 = &off_1403FE778;
+  v5 = &off_1403FF778;
   result = 2 * v4;
-  if ( *(&off_1403FE778 + 2 * v4) )
+  if ( *(&off_1403FF778 + 2 * v4) )
   {
     LOBYTE(a3) = -(char)a3;
     LOBYTE(v5) = a4;

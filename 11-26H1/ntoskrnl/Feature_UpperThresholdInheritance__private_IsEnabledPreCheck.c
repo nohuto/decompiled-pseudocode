@@ -1,10 +1,10 @@
 /*
- * XREFs of Feature_UpperThresholdInheritance__private_IsEnabledPreCheck @ 0x1404D5ECC
+ * XREFs of Feature_UpperThresholdInheritance__private_IsEnabledPreCheck @ 0x1404CF690
  * Callers:
- *     PopConfigureHeteroThresholds @ 0x140A9EEA8 (PopConfigureHeteroThresholds.c)
+ *     PopConfigureHeteroThresholds @ 0x140AAA414 (PopConfigureHeteroThresholds.c)
  * Callees:
- *     wil_details_FeatureReporting_ReportUsageToService @ 0x14052D25C (wil_details_FeatureReporting_ReportUsageToService.c)
- *     wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath @ 0x140532A10 (wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath.c)
+ *     wil_details_FeatureReporting_ReportUsageToService @ 0x14052F77C (wil_details_FeatureReporting_ReportUsageToService.c)
+ *     wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath @ 0x140534EB0 (wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath.c)
  */
 
 __int64 Feature_UpperThresholdInheritance__private_IsEnabledPreCheck()

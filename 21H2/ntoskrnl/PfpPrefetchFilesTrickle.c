@@ -1,17 +1,17 @@
 /*
- * XREFs of PfpPrefetchFilesTrickle @ 0x1406C9930
+ * XREFs of PfpPrefetchFilesTrickle @ 0x140678220
  * Callers:
- *     PfpPrefetchRequestPerform @ 0x1406C5978 (PfpPrefetchRequestPerform.c)
+ *     PfpPrefetchRequestPerform @ 0x140674268 (PfpPrefetchRequestPerform.c)
  * Callees:
- *     PfpCheckPrefetchAbort @ 0x1402D4204 (PfpCheckPrefetchAbort.c)
- *     MmQueryMemoryListInformation @ 0x1402D4240 (MmQueryMemoryListInformation.c)
- *     PfpReadSupportInitialize @ 0x1402D45F8 (PfpReadSupportInitialize.c)
- *     memmove @ 0x140413F40 (memmove.c)
- *     MmPrefetchPagesEx @ 0x14061C354 (MmPrefetchPagesEx.c)
- *     PfpFileBuildReadSupport @ 0x1406C85E0 (PfpFileBuildReadSupport.c)
- *     PfpUpdateRepurposedByPrefetch @ 0x1406C9C7C (PfpUpdateRepurposedByPrefetch.c)
- *     PfpGetPageListCount @ 0x1406C9D98 (PfpGetPageListCount.c)
- *     PfpReadSupportCleanup @ 0x1406C9DB4 (PfpReadSupportCleanup.c)
+ *     PfpCheckPrefetchAbort @ 0x140272EDC (PfpCheckPrefetchAbort.c)
+ *     MmQueryMemoryListInformation @ 0x140272F20 (MmQueryMemoryListInformation.c)
+ *     PfpReadSupportInitialize @ 0x1402732D8 (PfpReadSupportInitialize.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     PfpFileBuildReadSupport @ 0x140676ED0 (PfpFileBuildReadSupport.c)
+ *     PfpUpdateRepurposedByPrefetch @ 0x14067856C (PfpUpdateRepurposedByPrefetch.c)
+ *     PfpGetPageListCount @ 0x140678688 (PfpGetPageListCount.c)
+ *     PfpReadSupportCleanup @ 0x1406786A4 (PfpReadSupportCleanup.c)
+ *     MmPrefetchPagesEx @ 0x140685FC4 (MmPrefetchPagesEx.c)
  */
 
 __int64 __fastcall PfpPrefetchFilesTrickle(_QWORD *a1)
@@ -125,7 +125,7 @@ LABEL_17:
             v20 = (_QWORD *)(v19 + 16);
             memmove((void *)(v19 + 16), (const void *)(v19 + 16 + 8LL * v16), 8LL * v18);
             *v20 |= (8 * (v38 & 7u)) | (unsigned __int64)(*(_DWORD *)(*a1 + 28LL) & 7);
-            LODWORD(v20) = MmPrefetchPagesEx(1u, (__int64)&v29, 0LL);
+            LODWORD(v20) = MmPrefetchPagesEx(1LL, &v29, 0LL);
             PfpUpdateRepurposedByPrefetch(a1 + 6, *(unsigned int *)(v26 + 8));
             v21 = v36;
             if ( (int)v20 >= 0 )

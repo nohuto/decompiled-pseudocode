@@ -17,56 +17,61 @@
  *     _RtlpInitializeDeniedAce@24 @ 0x4B3367AC (_RtlpInitializeDeniedAce@24.c)
  */
 
-int __stdcall RtlCreateAndSetSD(int a1, unsigned int a2, int a3, int a4, _DWORD *a5)
+NTSTATUS __cdecl RtlCreateAndSetSD(
+        PRTL_ACE_DATA AceData,
+        ULONG AceCount,
+        PSID OwnerSid,
+        PSID GroupSid,
+        PSECURITY_DESCRIPTOR *NewSecurityDescriptor)
 {
   int Acl; // esi
   void *ProcessHeap; // edi
-  unsigned int v7; // ebx
+  ULONG v7; // ebx
   unsigned int v8; // edx
-  int v9; // edi
+  PRTL_ACE_DATA v9; // edi
   int v10; // ecx
   unsigned int v11; // eax
   unsigned int v12; // ecx
   unsigned int v13; // ecx
-  int Heap; // eax
-  _DWORD *v15; // edi
-  int v16; // eax
-  int v17; // ebx
-  int v19; // ebx
-  int v20; // edx
-  int v21; // ecx
+  char *Heap; // eax
+  char *v15; // edi
+  ACL *v16; // eax
+  void *v17; // ebx
+  ACCESS_MASK *p_AccessMask; // ebx
+  ACL *v20; // edx
+  ULONG v21; // ecx
   int v22; // eax
-  int v23; // [esp+Ch] [ebp-20h]
-  int v24; // [esp+Ch] [ebp-20h]
-  int v25; // [esp+10h] [ebp-1Ch]
-  char *Src; // [esp+14h] [ebp-18h]
-  unsigned __int8 *Srca; // [esp+14h] [ebp-18h]
-  int v28; // [esp+18h] [ebp-14h]
-  unsigned int v29; // [esp+1Ch] [ebp-10h]
-  int v30; // [esp+1Ch] [ebp-10h]
-  unsigned int v31; // [esp+20h] [ebp-Ch]
-  int v32; // [esp+20h] [ebp-Ch]
-  int v33; // [esp+24h] [ebp-8h]
-  int v34; // [esp+28h] [ebp-4h]
+  SIZE_T v23; // [esp-4h] [ebp-30h]
+  SIZE_T v24; // [esp-4h] [ebp-30h]
+  ACL *v25; // [esp+Ch] [ebp-20h]
+  int v26; // [esp+Ch] [ebp-20h]
+  ACL *Sacl; // [esp+10h] [ebp-1Ch]
+  char *SourceSid; // [esp+14h] [ebp-18h]
+  unsigned __int8 *SourceSida; // [esp+14h] [ebp-18h]
+  ACL *Dacl; // [esp+18h] [ebp-14h]
+  SIZE_T Size; // [esp+1Ch] [ebp-10h]
+  ACL *Sizea; // [esp+1Ch] [ebp-10h]
+  int Size_4; // [esp+20h] [ebp-Ch]
+  PVOID AceList; // [esp+24h] [ebp-8h]
+  PVOID HeapHandle; // [esp+28h] [ebp-4h]
 
   Acl = 0;
-  v28 = 0;
+  Dacl = 0;
   ProcessHeap = NtCurrentPeb()->ProcessHeap;
   v7 = 8;
   v8 = 8;
-  v25 = 0;
-  v31 = 8;
-  v29 = 0;
-  v33 = 0;
-  v34 = (int)ProcessHeap;
-  Src = 0;
-  if ( a2 )
+  Sacl = 0;
+  Size = 0x800000000LL;
+  AceList = 0;
+  HeapHandle = ProcessHeap;
+  SourceSid = 0;
+  if ( AceCount )
   {
-    v9 = a1;
+    v9 = AceData;
     while ( 1 )
     {
-      v10 = *(unsigned __int8 *)(**(_DWORD **)(v9 + 8) + 1);
-      if ( !*(_BYTE *)v9 || *(_BYTE *)v9 == 1 )
+      v10 = *((unsigned __int8 *)*v9->Sid + 1);
+      if ( !v9->AceType || v9->AceType == 1 )
       {
         v11 = 4 * v10 + 20;
         if ( v11 + v7 < v7 )
@@ -75,21 +80,21 @@ int __stdcall RtlCreateAndSetSD(int a1, unsigned int a2, int a3, int a4, _DWORD 
       }
       else
       {
-        if ( *(_BYTE *)v9 != 2 )
+        if ( v9->AceType != 2 )
           return -1073741811;
         v11 = 4 * v10 + 20;
         v12 = v11 + v8;
         if ( v11 + v8 < v8 )
           return -1073741801;
         v8 += v11;
-        v31 = v12;
+        HIDWORD(Size) = v12;
       }
-      if ( v29 <= v11 )
-        v29 = v11;
-      v9 += 12;
-      if ( (unsigned int)++Src >= a2 )
+      if ( (unsigned int)Size <= v11 )
+        LODWORD(Size) = v11;
+      ++v9;
+      if ( (unsigned int)++SourceSid >= AceCount )
       {
-        ProcessHeap = (void *)v34;
+        ProcessHeap = HeapHandle;
         break;
       }
     }
@@ -107,50 +112,52 @@ int __stdcall RtlCreateAndSetSD(int a1, unsigned int a2, int a3, int a4, _DWORD 
       return -1073741801;
     v13 += v8;
   }
-  Heap = RtlAllocateHeap((int)ProcessHeap, NtdllBaseTag + 1310720, v13);
-  v15 = (_DWORD *)Heap;
+  LODWORD(v23) = v13;
+  Heap = (char *)RtlAllocateHeap(ProcessHeap, NtdllBaseTag + 1310720, v23);
+  v15 = Heap;
   if ( Heap )
   {
-    v16 = Heap + 20;
+    v16 = (ACL *)(Heap + 20);
     if ( v7 != 8 )
     {
-      v28 = (int)(v15 + 5);
-      v23 = v7 + v16;
-      Acl = RtlCreateAcl((int)(v15 + 5), v7, 2u);
+      Dacl = (ACL *)(v15 + 20);
+      v25 = (ACL *)((char *)v16 + v7);
+      Acl = RtlCreateAcl((PACL)(v15 + 20), v7, 2u);
       if ( Acl < 0 )
         goto LABEL_49;
-      v16 = v23;
+      v16 = v25;
     }
-    if ( v31 == 8 || (v25 = v16, Acl = RtlCreateAcl(v16, v31, 2u), Acl >= 0) )
+    if ( HIDWORD(Size) == 8 || (Sacl = v16, Acl = RtlCreateAcl(v16, HIDWORD(Size), 2u), Acl >= 0) )
     {
-      v17 = v34;
-      v33 = RtlAllocateHeap(v34, NtdllBaseTag + 1310720, v29);
-      if ( !v33 )
+      LODWORD(v24) = Size;
+      v17 = HeapHandle;
+      AceList = RtlAllocateHeap(HeapHandle, NtdllBaseTag + 1310720, v24);
+      if ( !AceList )
       {
         Acl = -1073741801;
         goto LABEL_50;
       }
-      v24 = 0;
-      if ( !a2 )
+      v26 = 0;
+      if ( !AceCount )
       {
 LABEL_43:
-        Acl = RtlCreateSecurityDescriptor(v15, 1);
+        Acl = RtlCreateSecurityDescriptor(v15, 1u);
         if ( Acl >= 0 )
         {
-          Acl = RtlSetOwnerSecurityDescriptor((int)v15, a3, 0);
+          Acl = RtlSetOwnerSecurityDescriptor(v15, OwnerSid, 0);
           if ( Acl >= 0 )
           {
-            Acl = RtlSetGroupSecurityDescriptor((int)v15, a4, 0);
+            Acl = RtlSetGroupSecurityDescriptor(v15, GroupSid, 0);
             if ( Acl >= 0 )
             {
-              Acl = RtlSetDaclSecurityDescriptor((int)v15, 1, v28, 0);
+              Acl = RtlSetDaclSecurityDescriptor(v15, 1u, Dacl, 0);
               if ( Acl >= 0 )
               {
-                Acl = RtlSetSaclSecurityDescriptor((int)v15, v25 != 0, v25, 0);
+                Acl = RtlSetSaclSecurityDescriptor(v15, Sacl != 0, Sacl, 0);
                 if ( Acl >= 0 )
                 {
                   Acl = 0;
-                  *a5 = v15;
+                  *NewSecurityDescriptor = v15;
                   goto LABEL_51;
                 }
               }
@@ -158,60 +165,72 @@ LABEL_43:
           }
         }
 LABEL_50:
-        RtlFreeHeap(v17, 0, (int)v15);
+        RtlFreeHeap(v17, 0, v15);
 LABEL_51:
-        if ( v33 )
-          RtlFreeHeap(v17, 0, v33);
+        if ( AceList )
+          RtlFreeHeap(v17, 0, AceList);
         return Acl;
       }
-      v19 = a1 + 4;
+      p_AccessMask = &AceData->AccessMask;
       while ( 1 )
       {
         v20 = 0;
-        Srca = **(unsigned __int8 ***)(v19 + 4);
-        v21 = 4 * Srca[1] + 8;
-        if ( *(_BYTE *)(v19 - 4) )
+        SourceSida = *(unsigned __int8 **)p_AccessMask[1];
+        v21 = 4 * SourceSida[1] + 8;
+        if ( *((_BYTE *)p_AccessMask - 4) )
         {
-          if ( *(_BYTE *)(v19 - 4) == 1 )
+          if ( *((_BYTE *)p_AccessMask - 4) == 1 )
           {
-            v30 = v28;
-            v32 = 4 * Srca[1] + 20;
-            v22 = RtlpInitializeDeniedAce(*(_BYTE *)(v19 - 3), *(_BYTE *)(v19 - 2), *(_DWORD *)v19, Srca);
+            Sizea = Dacl;
+            Size_4 = 4 * SourceSida[1] + 20;
+            v22 = RtlpInitializeDeniedAce(
+                    *((_BYTE *)p_AccessMask - 3),
+                    *((_BYTE *)p_AccessMask - 2),
+                    *p_AccessMask,
+                    SourceSida);
           }
           else
           {
-            if ( *(_BYTE *)(v19 - 4) != 2 )
+            if ( *((_BYTE *)p_AccessMask - 4) != 2 )
               goto LABEL_39;
-            v30 = v25;
-            v32 = 4 * Srca[1] + 20;
-            v22 = RtlpInitializeAuditAce(*(_BYTE *)(v19 - 3), *(_BYTE *)(v19 - 2), *(_DWORD *)v19, Srca);
+            Sizea = Sacl;
+            Size_4 = 4 * SourceSida[1] + 20;
+            v22 = RtlpInitializeAuditAce(
+                    *((_BYTE *)p_AccessMask - 3),
+                    *((_BYTE *)p_AccessMask - 2),
+                    *p_AccessMask,
+                    SourceSida);
           }
         }
         else
         {
-          v30 = v28;
-          v32 = 4 * Srca[1] + 20;
-          v22 = RtlpInitializeAllowedAce(*(_BYTE *)(v19 - 3), *(_BYTE *)(v19 - 2), *(_DWORD *)v19, Srca);
+          Sizea = Dacl;
+          Size_4 = 4 * SourceSida[1] + 20;
+          v22 = RtlpInitializeAllowedAce(
+                  *((_BYTE *)p_AccessMask - 3),
+                  *((_BYTE *)p_AccessMask - 2),
+                  *p_AccessMask,
+                  SourceSida);
         }
-        v21 = v32;
+        v21 = Size_4;
         Acl = v22;
-        v20 = v30;
+        v20 = Sizea;
 LABEL_39:
         if ( Acl < 0 )
           break;
-        Acl = RtlAddAce(v20, 2u, 0xFFFFFFFF, v33, v21);
+        Acl = RtlAddAce(v20, 2u, 0xFFFFFFFF, AceList, v21);
         if ( Acl < 0 )
           break;
-        v19 += 12;
-        if ( ++v24 >= a2 )
+        p_AccessMask += 3;
+        if ( ++v26 >= AceCount )
         {
-          v17 = v34;
+          v17 = HeapHandle;
           goto LABEL_43;
         }
       }
     }
 LABEL_49:
-    v17 = v34;
+    v17 = HeapHandle;
     goto LABEL_50;
   }
   return -1073741801;

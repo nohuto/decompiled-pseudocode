@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlInitCodePageTable @ 0x14057B8EC
+ * XREFs of RtlInitCodePageTable @ 0x14057BD98
  * Callers:
- *     RtlInitNlsTables @ 0x14057B890 (RtlInitNlsTables.c)
+ *     RtlInitNlsTables @ 0x14057BD3C (RtlInitNlsTables.c)
  * Callees:
  *     <none>
  */

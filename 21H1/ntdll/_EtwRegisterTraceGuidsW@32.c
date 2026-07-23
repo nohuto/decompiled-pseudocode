@@ -10,53 +10,56 @@
  *     @__security_check_cookie@4 @ 0x4B2F4B20 (@__security_check_cookie@4.c)
  */
 
-int __stdcall EtwRegisterTraceGuidsW(int a1, int a2, _DWORD *a3, unsigned int a4, int a5, int a6, int a7, _DWORD *a8)
+int __stdcall EtwRegisterTraceGuidsW(
+        ULONG (__cdecl *a1)(PETW_NOTIFICATION_HEADER, PVOID),
+        int a2,
+        unsigned int *a3,
+        unsigned int a4,
+        int a5,
+        int a6,
+        int a7,
+        _DWORD *a8)
 {
-  int RegGuidsContext; // eax
-  int v9; // edi
-  struct _TEB *LastErrorValue; // esi
+  void *v8; // eax
+  void *v9; // edi
+  LONG LastErrorValue; // esi
   int v12; // [esp-4h] [ebp-34h]
-  int v13[2]; // [esp+10h] [ebp-20h] BYREF
-  int v14; // [esp+18h] [ebp-18h]
-  _DWORD Buf1[4]; // [esp+1Ch] [ebp-14h] BYREF
+  ULONGLONG RegHandle; // [esp+10h] [ebp-20h] BYREF
+  PETW_NOTIFICATION_CALLBACK Callback; // [esp+18h] [ebp-18h]
+  GUID Guid; // [esp+1Ch] [ebp-14h] BYREF
 
-  v14 = a1;
-  v13[0] = a5;
+  Callback = a1;
+  LODWORD(RegHandle) = a5;
   if ( a1 && a8 && a3 && a4 <= 0x10000 )
   {
-    v12 = v13[0];
-    Buf1[0] = *a3;
-    Buf1[1] = a3[1];
-    Buf1[2] = a3[2];
-    Buf1[3] = a3[3];
+    v12 = RegHandle;
+    Guid.Data1 = *a3;
+    *(_DWORD *)&Guid.Data2 = a3[1];
+    *(_DWORD *)Guid.Data4 = a3[2];
+    *(_DWORD *)&Guid.Data4[4] = a3[3];
     *a8 = 0;
     a8[1] = 0;
-    RegGuidsContext = EtwpCreateRegGuidsContext(a1, Buf1, a4, v12);
-    v9 = RegGuidsContext;
-    if ( RegGuidsContext )
+    v8 = (void *)EtwpCreateRegGuidsContext(a1, &Guid, a4, v12);
+    v9 = v8;
+    if ( v8 )
     {
-      LastErrorValue = (struct _TEB *)EtwNotificationRegister(Buf1, 2, v14, RegGuidsContext, v13);
+      LastErrorValue = EtwNotificationRegister(&Guid, 2u, Callback, v8, &RegHandle);
       if ( LastErrorValue )
-      {
-        RtlFreeHeap((int)NtCurrentPeb()->ProcessHeap, 0, v9);
-      }
+        RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v9);
       else
-      {
-        *a8 = v13[0];
-        a8[1] = v13[1];
-      }
+        *(_QWORD *)a8 = RegHandle;
     }
     else
     {
-      LastErrorValue = (struct _TEB *)NtCurrentTeb()->LastErrorValue;
+      LastErrorValue = NtCurrentTeb()->LastErrorValue;
     }
     if ( LastErrorValue )
       RtlSetLastWin32Error(LastErrorValue);
-    return (int)LastErrorValue;
+    return LastErrorValue;
   }
   else
   {
-    RtlSetLastWin32Error((struct _TEB *)0x57);
+    RtlSetLastWin32Error(87);
     return 87;
   }
 }

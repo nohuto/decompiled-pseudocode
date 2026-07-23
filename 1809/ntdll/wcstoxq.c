@@ -1,13 +1,13 @@
 /*
- * XREFs of wcstoxq @ 0x180091BE4
+ * XREFs of wcstoxq @ 0x180091BF4
  * Callers:
- *     _wcstoi64 @ 0x180091B80 (_wcstoi64.c)
- *     _wcstoui64 @ 0x180091BB0 (_wcstoui64.c)
+ *     _wcstoi64 @ 0x180091B90 (_wcstoi64.c)
+ *     _wcstoui64 @ 0x180091BC0 (_wcstoui64.c)
  * Callees:
- *     _errno @ 0x180088260 (_errno.c)
- *     _invalid_parameter @ 0x18008FDE8 (_invalid_parameter.c)
- *     _iswctype_l @ 0x180093830 (_iswctype_l.c)
- *     _wchartodigit @ 0x18009786C (_wchartodigit.c)
+ *     _errno @ 0x180088270 (_errno.c)
+ *     _invalid_parameter @ 0x18008FDF8 (_invalid_parameter.c)
+ *     _iswctype_l @ 0x180093840 (_iswctype_l.c)
+ *     _wchartodigit @ 0x18009787C (_wchartodigit.c)
  */
 
 unsigned __int64 __fastcall wcstoxq(__int64 a1, wint_t *a2, wint_t **a3, int a4, int a5, int *a6)

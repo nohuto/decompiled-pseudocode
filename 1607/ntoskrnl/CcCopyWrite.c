@@ -1,9 +1,9 @@
 /*
- * XREFs of CcCopyWrite @ 0x1401B19E8
+ * XREFs of CcCopyWrite @ 0x1401B18CC
  * Callers:
- *     FsRtlCopyWrite @ 0x14061D638 (FsRtlCopyWrite.c)
+ *     FsRtlCopyWrite @ 0x14061D6EC (FsRtlCopyWrite.c)
  * Callees:
- *     CcCopyWriteEx @ 0x1400EBDE0 (CcCopyWriteEx.c)
+ *     CcCopyWriteEx @ 0x1400E9C50 (CcCopyWriteEx.c)
  */
 
 // local variable allocation has failed, the output may be wrong!

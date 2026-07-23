@@ -1,10 +1,10 @@
 /*
- * XREFs of IopCreateVpb @ 0x140B63D74
+ * XREFs of IopCreateVpb @ 0x140B66E14
  * Callers:
- *     IoCreateDevice @ 0x1409FEBC0 (IoCreateDevice.c)
- *     IoVerifyVolume @ 0x140B47540 (IoVerifyVolume.c)
+ *     IoCreateDevice @ 0x14091B9C0 (IoCreateDevice.c)
+ *     IoVerifyVolume @ 0x140B49570 (IoVerifyVolume.c)
  * Callees:
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall IopCreateVpb(__int64 a1)

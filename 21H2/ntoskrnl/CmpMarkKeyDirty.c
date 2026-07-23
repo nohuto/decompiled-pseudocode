@@ -1,16 +1,16 @@
 /*
- * XREFs of CmpMarkKeyDirty @ 0x14066A298
+ * XREFs of CmpMarkKeyDirty @ 0x14065F0B8
  * Callers:
- *     CmDeleteLayeredKey @ 0x1404ED078 (CmDeleteLayeredKey.c)
- *     CmpCreateChild @ 0x140667AD4 (CmpCreateChild.c)
- *     CmpFreeKeyByCell @ 0x14066B280 (CmpFreeKeyByCell.c)
- *     CmRenameKey @ 0x14086CA04 (CmRenameKey.c)
- *     CmpLightWeightPrepareDeleteKeyUoW @ 0x14087F610 (CmpLightWeightPrepareDeleteKeyUoW.c)
+ *     CmDeleteLayeredKey @ 0x1404ED2B8 (CmDeleteLayeredKey.c)
+ *     CmpCreateChild @ 0x14065C8F4 (CmpCreateChild.c)
+ *     CmpFreeKeyByCell @ 0x1406600A0 (CmpFreeKeyByCell.c)
+ *     CmRenameKey @ 0x14086CB64 (CmRenameKey.c)
+ *     CmpLightWeightPrepareDeleteKeyUoW @ 0x14087F770 (CmpLightWeightPrepareDeleteKeyUoW.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     CmpMarkValueDataDirty @ 0x140666F88 (CmpMarkValueDataDirty.c)
- *     CmpMarkIndexDirty @ 0x14066C5EC (CmpMarkIndexDirty.c)
- *     HvpMarkCellDirty @ 0x140708420 (HvpMarkCellDirty.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     CmpMarkValueDataDirty @ 0x14065BDA8 (CmpMarkValueDataDirty.c)
+ *     CmpMarkIndexDirty @ 0x14066140C (CmpMarkIndexDirty.c)
+ *     HvpMarkCellDirty @ 0x14071F800 (HvpMarkCellDirty.c)
  */
 
 char __fastcall CmpMarkKeyDirty(ULONG_PTR BugCheckParameter2, ULONG_PTR BugCheckParameter3, char a3)

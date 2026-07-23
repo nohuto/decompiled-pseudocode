@@ -1,13 +1,13 @@
 /*
- * XREFs of CmpPostApc @ 0x1407D4AD0
+ * XREFs of CmpPostApc @ 0x1407D4DA0
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     KeSetEvent @ 0x14023C5E0 (KeSetEvent.c)
- *     DbgPrint @ 0x14032A6F0 (DbgPrint.c)
- *     CmpFreeSubordinatePost @ 0x1407678DC (CmpFreeSubordinatePost.c)
- *     CmpFreePostBlock @ 0x140768350 (CmpFreePostBlock.c)
+ *     ObfDereferenceObject @ 0x140231660 (ObfDereferenceObject.c)
+ *     KeSetEvent @ 0x14023C6B0 (KeSetEvent.c)
+ *     DbgPrint @ 0x14032A980 (DbgPrint.c)
+ *     CmpFreeSubordinatePost @ 0x140767ACC (CmpFreeSubordinatePost.c)
+ *     CmpFreePostBlock @ 0x140768540 (CmpFreePostBlock.c)
  */
 
 void __fastcall CmpPostApc(__int64 a1, __int64 a2, __int64 a3, _DWORD *a4, __int64 a5)

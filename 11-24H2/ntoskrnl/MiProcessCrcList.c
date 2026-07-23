@@ -1,21 +1,21 @@
 /*
- * XREFs of MiProcessCrcList @ 0x1409F2910
+ * XREFs of MiProcessCrcList @ 0x1409E6C70
  * Callers:
- *     MiCombineWorkingSet @ 0x140685248 (MiCombineWorkingSet.c)
- *     MiCombineWorkingSetTail @ 0x140685430 (MiCombineWorkingSetTail.c)
- *     MiCombineAllPhysicalMemory @ 0x1409F24E8 (MiCombineAllPhysicalMemory.c)
+ *     MiCombineWorkingSet @ 0x140686378 (MiCombineWorkingSet.c)
+ *     MiCombineWorkingSetTail @ 0x140686560 (MiCombineWorkingSetTail.c)
+ *     MiCombineAllPhysicalMemory @ 0x1409E6848 (MiCombineAllPhysicalMemory.c)
  * Callees:
- *     MiLocateCombineBlock @ 0x1402445AC (MiLocateCombineBlock.c)
- *     RtlAvlInsertNodeEx @ 0x14025FDD0 (RtlAvlInsertNodeEx.c)
- *     RtlAvlRemoveNode @ 0x140260BC0 (RtlAvlRemoveNode.c)
- *     MiAllocatePool @ 0x1402ACA70 (MiAllocatePool.c)
- *     MiSharePages @ 0x1402FA880 (MiSharePages.c)
- *     ObfDereferenceObjectWithTag @ 0x1403254A0 (ObfDereferenceObjectWithTag.c)
- *     MiValidCombineProtection @ 0x140426AC0 (MiValidCombineProtection.c)
- *     MiCompareActiveCrcEntries @ 0x140430DC0 (MiCompareActiveCrcEntries.c)
- *     MiCapturePfnVm @ 0x14045B3C4 (MiCapturePfnVm.c)
- *     qsort @ 0x1404FED20 (qsort.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     MiLocateCombineBlock @ 0x14020CD3C (MiLocateCombineBlock.c)
+ *     MiAllocatePool @ 0x140277450 (MiAllocatePool.c)
+ *     RtlAvlInsertNodeEx @ 0x1402903E0 (RtlAvlInsertNodeEx.c)
+ *     RtlAvlRemoveNode @ 0x1402911D0 (RtlAvlRemoveNode.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CE030 (ObfDereferenceObjectWithTag.c)
+ *     MiSharePages @ 0x140343830 (MiSharePages.c)
+ *     MiValidCombineProtection @ 0x140346230 (MiValidCombineProtection.c)
+ *     MiCompareActiveCrcEntries @ 0x140423220 (MiCompareActiveCrcEntries.c)
+ *     MiCapturePfnVm @ 0x1404507C4 (MiCapturePfnVm.c)
+ *     qsort @ 0x1404FC5E0 (qsort.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __fastcall MiProcessCrcList(__int64 a1, void *a2, size_t a3, int a4)
@@ -68,7 +68,7 @@ void __fastcall MiProcessCrcList(__int64 a1, void *a2, size_t a3, int a4)
   struct _KTHREAD *v50; // [rsp+60h] [rbp-11h]
   PVOID Object[2]; // [rsp+68h] [rbp-9h] BYREF
   __int128 v52; // [rsp+78h] [rbp+7h]
-  unsigned int v55; // [rsp+E8h] [rbp+77h]
+  int v55; // [rsp+E8h] [rbp+77h]
 
   if ( a3 )
   {

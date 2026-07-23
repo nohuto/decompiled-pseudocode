@@ -1,11 +1,11 @@
 /*
- * XREFs of MiPrepareDeleteOnClose @ 0x140672500
+ * XREFs of MiPrepareDeleteOnClose @ 0x1406736D0
  * Callers:
- *     MiIssueSegmentDereferenceWork @ 0x1403F7920 (MiIssueSegmentDereferenceWork.c)
+ *     MiIssueSegmentDereferenceWork @ 0x1403ED890 (MiIssueSegmentDereferenceWork.c)
  * Callees:
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14020FA40 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExTryAcquireSpinLockExclusiveAtDpcLevel @ 0x14022E850 (ExTryAcquireSpinLockExclusiveAtDpcLevel.c)
- *     MiMoveUnusedSubsectionsToDeleteOnClose @ 0x1406723AC (MiMoveUnusedSubsectionsToDeleteOnClose.c)
+ *     ExTryAcquireSpinLockExclusiveAtDpcLevel @ 0x140302160 (ExTryAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140338DA0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiMoveUnusedSubsectionsToDeleteOnClose @ 0x14067357C (MiMoveUnusedSubsectionsToDeleteOnClose.c)
  */
 
 void __fastcall MiPrepareDeleteOnClose(__int64 a1)
@@ -18,7 +18,7 @@ void __fastcall MiPrepareDeleteOnClose(__int64 a1)
   {
     if ( (i[12] & 0x20) == 0 )
     {
-      if ( (unsigned int)ExTryAcquireSpinLockExclusiveAtDpcLevel() )
+      if ( (unsigned int)ExTryAcquireSpinLockExclusiveAtDpcLevel(i + 16) )
       {
         MiMoveUnusedSubsectionsToDeleteOnClose(a1, (__int64)(i - 2));
         ExReleaseSpinLockExclusiveFromDpcLevel(i + 16);

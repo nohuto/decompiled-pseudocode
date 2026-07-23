@@ -1,15 +1,15 @@
 /*
- * XREFs of ExGetBigPoolInfo @ 0x14022CD84
+ * XREFs of ExGetBigPoolInfo @ 0x14022CBB0
  * Callers:
- *     ExpQuerySystemInformation @ 0x140415620 (ExpQuerySystemInformation.c)
- *     EtwpPoolRunDown @ 0x1406A7568 (EtwpPoolRunDown.c)
- *     ExGetSessionBigPoolInformation @ 0x1406AB034 (ExGetSessionBigPoolInformation.c)
+ *     ExpQuerySystemInformation @ 0x1404144E0 (ExpQuerySystemInformation.c)
+ *     EtwpPoolRunDown @ 0x1406A76A0 (EtwpPoolRunDown.c)
+ *     ExGetSessionBigPoolInformation @ 0x1406AB16C (ExGetSessionBigPoolInformation.c)
  * Callees:
- *     MiFreePoolPages @ 0x140018558 (MiFreePoolPages.c)
- *     ExReleaseSpinLockExclusive @ 0x14002E9A0 (ExReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x14002EB90 (ExAcquireSpinLockExclusive.c)
- *     MiAllocatePoolPages @ 0x14009DBEC (MiAllocatePoolPages.c)
- *     memmove @ 0x140171280 (memmove.c)
+ *     MiFreePoolPages @ 0x1400180D8 (MiFreePoolPages.c)
+ *     ExReleaseSpinLockExclusive @ 0x14002E520 (ExReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14002E710 (ExAcquireSpinLockExclusive.c)
+ *     MiAllocatePoolPages @ 0x14009D3EC (MiAllocatePoolPages.c)
+ *     memmove @ 0x140171780 (memmove.c)
  */
 
 __int64 __fastcall ExGetBigPoolInfo(_DWORD *a1, unsigned int a2, int a3, unsigned int *a4)
@@ -63,8 +63,8 @@ __int64 __fastcall ExGetBigPoolInfo(_DWORD *a1, unsigned int a2, int a3, unsigne
     }
     else
     {
-      v13 = *(const void **)(qword_140326918 + 8072);
-      v14 = *(_QWORD *)(qword_140326918 + 8080);
+      v13 = *(const void **)(qword_140326958 + 8072);
+      v14 = *(_QWORD *)(qword_140326958 + 8080);
     }
     if ( !v13 )
     {

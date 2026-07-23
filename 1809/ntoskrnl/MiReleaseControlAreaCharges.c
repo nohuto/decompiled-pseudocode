@@ -1,15 +1,15 @@
 /*
- * XREFs of MiReleaseControlAreaCharges @ 0x140079C68
+ * XREFs of MiReleaseControlAreaCharges @ 0x140079C58
  * Callers:
- *     MiInsertUnusedSegment @ 0x14007B5A0 (MiInsertUnusedSegment.c)
- *     MiSegmentDelete @ 0x14061E928 (MiSegmentDelete.c)
+ *     MiInsertUnusedSegment @ 0x14007B590 (MiInsertUnusedSegment.c)
+ *     MiSegmentDelete @ 0x14061F928 (MiSegmentDelete.c)
  * Callees:
- *     MiIncludeSharedCommit @ 0x140076780 (MiIncludeSharedCommit.c)
- *     MiAweControlArea @ 0x140077E6C (MiAweControlArea.c)
- *     ExAcquireSpinLockExclusive @ 0x1400BC4E0 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC660 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     MiComputeCrossPartitionSectionCharges @ 0x1402C49BC (MiComputeCrossPartitionSectionCharges.c)
+ *     MiIncludeSharedCommit @ 0x140076770 (MiIncludeSharedCommit.c)
+ *     MiAweControlArea @ 0x140077E5C (MiAweControlArea.c)
+ *     ExAcquireSpinLockExclusive @ 0x1400BC420 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC5A0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiComputeCrossPartitionSectionCharges @ 0x1402C4BAC (MiComputeCrossPartitionSectionCharges.c)
  */
 
 __int64 __fastcall MiReleaseControlAreaCharges(__int64 a1)

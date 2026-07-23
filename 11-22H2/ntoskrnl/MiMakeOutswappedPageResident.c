@@ -126,7 +126,7 @@ unsigned __int64 __fastcall MiMakeOutswappedPageResident(__int64 a1, __int64 a2,
   {
     CurrentIrql = KeGetCurrentIrql();
     __writecr8(2uLL);
-    if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+    if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
     {
       SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
       if ( CurrentIrql == 2 )
@@ -148,10 +148,10 @@ LABEL_22:
       *(_QWORD *)(v11 + 24) = v19;
       v20 = MiCaptureDirtyBitToPfn(v11);
       _InterlockedAnd64((volatile signed __int64 *)(v11 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v21 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v21 <= 0xFu && CurrentIrql <= 0xFu && v21 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v21 <= 0xFu && CurrentIrql <= 0xFu && v21 >= 2u )
         {
           CurrentPrcb = KeGetCurrentPrcb();
           v23 = CurrentPrcb->SchedulerAssist;
@@ -177,10 +177,10 @@ LABEL_22:
     }
     MiDiscardTransitionPteEx(v11, 0LL);
     _InterlockedAnd64((volatile signed __int64 *)(v11 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v14 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v14 <= 0xFu && CurrentIrql <= 0xFu && v14 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v14 <= 0xFu && CurrentIrql <= 0xFu && v14 >= 2u )
       {
         v15 = KeGetCurrentPrcb();
         v16 = v15->SchedulerAssist;
@@ -193,10 +193,10 @@ LABEL_22:
     }
     __writecr8(CurrentIrql);
   }
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v25 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v25 <= 0xFu && CurrentIrql <= 0xFu && v25 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v25 <= 0xFu && CurrentIrql <= 0xFu && v25 >= 2u )
     {
       v26 = KeGetCurrentPrcb();
       v27 = v26->SchedulerAssist;
@@ -326,7 +326,7 @@ LABEL_47:
       if ( HIWORD(v71) )
         v71 = (unsigned __int16)v71 | ((HIWORD(v71) - 1) << 16);
       _InterlockedAnd64((volatile signed __int64 *)(v33 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-      if ( KiIrqlFlags && (v51 = KeGetCurrentIrql(), (KiIrqlFlags & 1) != 0) && v51 <= 0xFu )
+      if ( (_DWORD)KiIrqlFlags && (v51 = KeGetCurrentIrql(), ((unsigned __int8)KiIrqlFlags & 1) != 0) && v51 <= 0xFu )
       {
         v52 = v70[0];
         if ( LOBYTE(v70[0]) <= 0xFu && v51 >= 2u )
@@ -387,7 +387,7 @@ LABEL_47:
   *(_QWORD *)(v33 + 16) = MiSwizzleInvalidPte(128LL);
   *(_BYTE *)(v33 + 34) |= 0x10u;
   _InterlockedAnd64((volatile signed __int64 *)(v33 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-  if ( KiIrqlFlags && (v59 = KeGetCurrentIrql(), (KiIrqlFlags & 1) != 0) && v59 <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && (v59 = KeGetCurrentIrql(), ((unsigned __int8)KiIrqlFlags & 1) != 0) && v59 <= 0xFu )
   {
     v60 = v70[0];
     if ( LOBYTE(v70[0]) <= 0xFu && v59 >= 2u )

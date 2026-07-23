@@ -1086,7 +1086,7 @@ LABEL_282:
           {
             CurrentIrql = KeGetCurrentIrql();
             __writecr8(0xFuLL);
-            if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+            if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
             {
               v154 = KeGetCurrentPrcb()->SchedulerAssist;
               if ( CurrentIrql == 15 )
@@ -1096,10 +1096,10 @@ LABEL_282:
               v154[5] |= v155;
             }
             KiCancelClockTimer(v13, 5LL);
-            if ( KiIrqlFlags )
+            if ( (_DWORD)KiIrqlFlags )
             {
               v156 = KeGetCurrentIrql();
-              if ( (KiIrqlFlags & 1) != 0 && v156 <= 0xFu && CurrentIrql <= 0xFu && v156 >= 2u )
+              if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v156 <= 0xFu && CurrentIrql <= 0xFu && v156 >= 2u )
               {
                 v157 = KeGetCurrentPrcb();
                 v158 = v157->SchedulerAssist;

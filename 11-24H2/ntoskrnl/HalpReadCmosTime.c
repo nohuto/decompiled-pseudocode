@@ -1,11 +1,11 @@
 /*
- * XREFs of HalpReadCmosTime @ 0x140425C74
+ * XREFs of HalpReadCmosTime @ 0x140419B24
  * Callers:
- *     HalQueryRealTimeClock @ 0x140425810 (HalQueryRealTimeClock.c)
+ *     HalQueryRealTimeClock @ 0x1404196C0 (HalQueryRealTimeClock.c)
  * Callees:
- *     HalpReleaseCmosSpinLock @ 0x140425E04 (HalpReleaseCmosSpinLock.c)
- *     HalpAcquireCmosSpinLockAndWait @ 0x140425E20 (HalpAcquireCmosSpinLockAndWait.c)
- *     HalpGetCmosCenturyByte @ 0x140425E68 (HalpGetCmosCenturyByte.c)
+ *     HalpReleaseCmosSpinLock @ 0x140419CB4 (HalpReleaseCmosSpinLock.c)
+ *     HalpAcquireCmosSpinLockAndWait @ 0x140419CD0 (HalpAcquireCmosSpinLockAndWait.c)
+ *     HalpGetCmosCenturyByte @ 0x140419D18 (HalpGetCmosCenturyByte.c)
  */
 
 __int64 __fastcall HalpReadCmosTime(_WORD *a1)

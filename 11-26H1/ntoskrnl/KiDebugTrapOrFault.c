@@ -1,9 +1,9 @@
 /*
- * XREFs of KiDebugTrapOrFault @ 0x140733480
+ * XREFs of KiDebugTrapOrFault @ 0x140738080
  * Callers:
- *     KiDebugTrapOrFaultShadow @ 0x140C59180 (KiDebugTrapOrFaultShadow.c)
+ *     KiDebugTrapOrFaultShadow @ 0x140C5F180 (KiDebugTrapOrFaultShadow.c)
  * Callees:
- *     VslKernelShadowStackAssist @ 0x140368500 (VslKernelShadowStackAssist.c)
+ *     VslKernelShadowStackAssist @ 0x14036A2A0 (VslKernelShadowStackAssist.c)
  */
 
 __int64 __fastcall KiDebugTrapOrFault(

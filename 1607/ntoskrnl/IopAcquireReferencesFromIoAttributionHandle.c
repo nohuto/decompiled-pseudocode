@@ -1,26 +1,26 @@
 /*
- * XREFs of IopAcquireReferencesFromIoAttributionHandle @ 0x1400B610C
+ * XREFs of IopAcquireReferencesFromIoAttributionHandle @ 0x1400B3F34
  * Callers:
- *     IoGetIoRateControl @ 0x1400B5FD8 (IoGetIoRateControl.c)
- *     IoNotifyQuotaState @ 0x1401CC084 (IoNotifyQuotaState.c)
+ *     IoGetIoRateControl @ 0x1400B3E00 (IoGetIoRateControl.c)
+ *     IoNotifyQuotaState @ 0x1401CBF68 (IoNotifyQuotaState.c)
  * Callees:
- *     IopFindDiskIoAttribution @ 0x14001F2F8 (IopFindDiskIoAttribution.c)
- *     IoDiskIoAttributionDereference @ 0x14001F3AC (IoDiskIoAttributionDereference.c)
- *     ExAcquireRundownProtection @ 0x1400D3ED0 (ExAcquireRundownProtection.c)
+ *     IopFindDiskIoAttribution @ 0x14001EE78 (IopFindDiskIoAttribution.c)
+ *     IoDiskIoAttributionDereference @ 0x14001EF2C (IoDiskIoAttributionDereference.c)
+ *     ExAcquireRundownProtection @ 0x1400D1D70 (ExAcquireRundownProtection.c)
  */
 
 __int64 __fastcall IopAcquireReferencesFromIoAttributionHandle(__int64 a1, __int64 *a2, _QWORD *a3)
 {
-  struct _EX_RUNDOWN_REF *DiskIoAttribution; // rax
+  _RTL_BALANCED_NODE *DiskIoAttribution; // rax
   __int64 v6; // rbx
   __int64 v7; // rax
   unsigned int v8; // edi
 
-  DiskIoAttribution = (struct _EX_RUNDOWN_REF *)IopFindDiskIoAttribution(a1);
+  DiskIoAttribution = IopFindDiskIoAttribution(a1);
   v6 = (__int64)DiskIoAttribution;
   if ( DiskIoAttribution )
   {
-    if ( ExAcquireRundownProtection(DiskIoAttribution + 19) )
+    if ( ExAcquireRundownProtection((PEX_RUNDOWN_REF)&DiskIoAttribution[6].Right) )
     {
       v7 = *(_QWORD *)(v6 + 144);
       *a2 = v6;

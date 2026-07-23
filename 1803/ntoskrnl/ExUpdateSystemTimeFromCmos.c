@@ -19,7 +19,7 @@ BOOLEAN __fastcall ExUpdateSystemTimeFromCmos(char a1, unsigned int a2)
   LARGE_INTEGER Time; // [rsp+30h] [rbp-38h] BYREF
   LARGE_INTEGER SystemTime; // [rsp+38h] [rbp-30h] BYREF
   __int64 v8; // [rsp+40h] [rbp-28h] BYREF
-  struct _TIME_FIELDS TimeFields; // [rsp+48h] [rbp-20h] BYREF
+  _TIME_FIELDS TimeFields; // [rsp+48h] [rbp-20h] BYREF
 
   if ( !a2 )
     a2 = ExpMaxTimeSeperationBeforeCorrect;

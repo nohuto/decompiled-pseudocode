@@ -1,14 +1,14 @@
 /*
- * XREFs of PiDevCfgMigrateRootDevice @ 0x14095EBE4
+ * XREFs of PiDevCfgMigrateRootDevice @ 0x14095EDE4
  * Callers:
- *     PiDevCfgProcessDevice @ 0x14087A1F0 (PiDevCfgProcessDevice.c)
+ *     PiDevCfgProcessDevice @ 0x14087A430 (PiDevCfgProcessDevice.c)
  * Callees:
- *     PnpValidateRegistryDword @ 0x1403C6BBC (PnpValidateRegistryDword.c)
- *     PnpRegistryValueExists @ 0x1403CE894 (PnpRegistryValueExists.c)
- *     ZwClose @ 0x14041AF40 (ZwClose.c)
+ *     PnpValidateRegistryDword @ 0x1403C6D9C (PnpValidateRegistryDword.c)
+ *     PnpRegistryValueExists @ 0x1403CEA74 (PnpRegistryValueExists.c)
+ *     ZwClose @ 0x14041B2D0 (ZwClose.c)
  *     IopGetRegistryValue @ 0x14068CE78 (IopGetRegistryValue.c)
- *     PiDevCfgMigrateDevice @ 0x14087BF7C (PiDevCfgMigrateDevice.c)
- *     PiDevCfgOpenDeviceMigrationKey @ 0x14095ECD8 (PiDevCfgOpenDeviceMigrationKey.c)
+ *     PiDevCfgMigrateDevice @ 0x14087C1BC (PiDevCfgMigrateDevice.c)
+ *     PiDevCfgOpenDeviceMigrationKey @ 0x14095EED8 (PiDevCfgOpenDeviceMigrationKey.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

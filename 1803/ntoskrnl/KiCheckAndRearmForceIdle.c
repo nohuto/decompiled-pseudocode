@@ -15,7 +15,7 @@ void __fastcall KiCheckAndRearmForceIdle(__int64 a1, __int64 a2)
 {
   struct _KPRCB *CurrentPrcb; // rbx
   int v3; // [rsp+30h] [rbp+8h] BYREF
-  LARGE_INTEGER v4; // [rsp+38h] [rbp+10h] BYREF
+  LARGE_INTEGER PerformanceCounter; // [rsp+38h] [rbp+10h] BYREF
 
   if ( !KiForceIdleDisabled )
   {
@@ -46,7 +46,8 @@ LABEL_6:
       _enable();
       return;
     }
-    KiForceIdleStartTime = 10000000LL * (unsigned int)KiForceIdleGracePeriodInSec + RtlGetInterruptTimePrecise(&v4);
+    KiForceIdleStartTime = 10000000LL * (unsigned int)KiForceIdleGracePeriodInSec
+                         + *(_QWORD *)&RtlGetInterruptTimePrecise(&PerformanceCounter);
     goto LABEL_6;
   }
 }

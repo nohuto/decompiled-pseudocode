@@ -11,10 +11,10 @@
  *     SepCheckCapabilities @ 0x14053EE14 (SepCheckCapabilities.c)
  */
 
-BOOLEAN __fastcall SepIsImpersonationAllowedDueToCapability(__int64 Token, __int64 a2)
+BOOLEAN __fastcall SepIsImpersonationAllowedDueToCapability(char *Token, __int64 a2)
 {
   bool v3; // si
-  char IsMultiSessionSku; // r14
+  BOOLEAN IsMultiSessionSku; // r14
   BOOLEAN result; // al
   PSID v7; // r15
   char v8; // bp
@@ -29,27 +29,27 @@ BOOLEAN __fastcall SepIsImpersonationAllowedDueToCapability(__int64 Token, __int
 
   v3 = 0;
   IsMultiSessionSku = RtlIsMultiSessionSku();
-  if ( *(_DWORD *)(a2 + 120) != *(_DWORD *)(Token + 120) || (*(_DWORD *)(*(_QWORD *)(a2 + 216) + 32LL) & 0x10) != 0 )
+  if ( *(_DWORD *)(a2 + 120) != *((_DWORD *)Token + 30) || (*(_DWORD *)(*(_QWORD *)(a2 + 216) + 32LL) & 0x10) != 0 )
     return 0;
   if ( !IsMultiSessionSku )
   {
     v7 = SeDefaultAccountAliasSid;
-    v8 = SepSidInToken(Token, 0LL, SeDefaultAccountAliasSid, 0, 0, 0, 0);
+    v8 = SepSidInToken((__int64)Token, 0LL, SeDefaultAccountAliasSid, 0, 0, 0, 0);
     if ( v8 )
     {
-      if ( SeTokenIsRestricted((PACCESS_TOKEN)Token) )
-        v8 = SepSidInToken(Token, 0LL, v7, 0, 1, 0, 0);
+      if ( SeTokenIsRestricted(Token) )
+        v8 = SepSidInToken((__int64)Token, 0LL, v7, 0, 1, 0, 0);
       v3 = v8 != 0;
     }
   }
-  if ( SepAllowSessionImpersonationCap && (*(_DWORD *)(Token + 200) & 0x4000) == 0 )
+  if ( SepAllowSessionImpersonationCap && (*((_DWORD *)Token + 50) & 0x4000) == 0 )
   {
     v9 = SeSessionImpersonationCapabilityGroupSid;
-    v10 = SepSidInToken(Token, 0LL, SeSessionImpersonationCapabilityGroupSid, 0, 0, 0, 0);
+    v10 = SepSidInToken((__int64)Token, 0LL, SeSessionImpersonationCapabilityGroupSid, 0, 0, 0, 0);
     if ( v10 )
     {
-      if ( SeTokenIsRestricted((PACCESS_TOKEN)Token) )
-        v10 = SepSidInToken(Token, 0LL, v9, 0, 1, 0, 0);
+      if ( SeTokenIsRestricted(Token) )
+        v10 = SepSidInToken((__int64)Token, 0LL, v9, 0, 1, 0, 0);
       if ( v10 )
         return 1;
     }
@@ -62,11 +62,11 @@ BOOLEAN __fastcall SepIsImpersonationAllowedDueToCapability(__int64 Token, __int
   if ( IsMultiSessionSku || (*(_DWORD *)(a2 + 200) & 0x4000) == 0 )
     return 0;
   v12 = SeConstrainedImpersonationCapabilityGroupSid;
-  v13 = SepSidInToken(Token, 0LL, SeConstrainedImpersonationCapabilityGroupSid, 0, 0, 0, 0);
+  v13 = SepSidInToken((__int64)Token, 0LL, SeConstrainedImpersonationCapabilityGroupSid, 0, 0, 0, 0);
   if ( v13 )
   {
-    if ( SeTokenIsRestricted((PACCESS_TOKEN)Token) )
-      v13 = SepSidInToken(Token, 0LL, v12, 0, 1, 0, 0);
+    if ( SeTokenIsRestricted(Token) )
+      v13 = SepSidInToken((__int64)Token, 0LL, v12, 0, 1, 0, 0);
     if ( v13 )
       goto LABEL_29;
   }
@@ -76,17 +76,24 @@ BOOLEAN __fastcall SepIsImpersonationAllowedDueToCapability(__int64 Token, __int
   if ( v14 )
   {
 LABEL_29:
-    if ( (*(_DWORD *)(Token + 200) & 0x4000) == 0 )
+    if ( (*((_DWORD *)Token + 50) & 0x4000) == 0 )
       return 1;
   }
-  result = SepSidInTokenSidHash(Token + 808, 0LL, SeConstrainedImpersonationCapabilitySid, 0, 1, 0, 0);
+  result = SepSidInTokenSidHash(
+             (PSID_AND_ATTRIBUTES_HASH)(Token + 808),
+             0LL,
+             SeConstrainedImpersonationCapabilitySid,
+             0,
+             1,
+             0,
+             0);
   LOBYTE(v16) = result;
   if ( result )
   {
-    v15 = (int)SepCheckCapabilities((PACCESS_TOKEN)Token, (__int64)&v16) < 0;
+    v15 = (int)SepCheckCapabilities(Token, (__int64)&v16) < 0;
     result = v16;
     if ( !v15 && !(_BYTE)v16 )
-      return RtlEqualSid(*(PSID *)(Token + 784), *(PSID *)(a2 + 784));
+      return RtlEqualSid(*((PSID *)Token + 98), *(PSID *)(a2 + 784));
   }
   return result;
 }

@@ -1,11 +1,11 @@
 /*
- * XREFs of McTemplateK0jq @ 0x1402705D0
+ * XREFs of McTemplateK0jq @ 0x1402707C0
  * Callers:
- *     McGenControlCallbackV2 @ 0x140139E90 (McGenControlCallbackV2.c)
- *     FsRtlpHeatRegisterVolume @ 0x140816538 (FsRtlpHeatRegisterVolume.c)
+ *     McGenControlCallbackV2 @ 0x140139F90 (McGenControlCallbackV2.c)
+ *     FsRtlpHeatRegisterVolume @ 0x140817738 (FsRtlpHeatRegisterVolume.c)
  * Callees:
- *     McGenEventWrite @ 0x14015D6C0 (McGenEventWrite.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     McGenEventWrite @ 0x14015D7C0 (McGenEventWrite.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
  */
 
 ULONG __fastcall McTemplateK0jq(__int64 a1, __int64 a2, const GUID *a3, __int64 a4, __int64 a5)

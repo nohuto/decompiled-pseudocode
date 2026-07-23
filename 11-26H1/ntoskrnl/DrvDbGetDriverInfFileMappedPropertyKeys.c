@@ -1,12 +1,12 @@
 /*
- * XREFs of DrvDbGetDriverInfFileMappedPropertyKeys @ 0x14089E314
+ * XREFs of DrvDbGetDriverInfFileMappedPropertyKeys @ 0x1408A4714
  * Callers:
- *     DrvDbDispatchDriverInfFile @ 0x14091BC80 (DrvDbDispatchDriverInfFile.c)
+ *     DrvDbDispatchDriverInfFile @ 0x1409766E0 (DrvDbDispatchDriverInfFile.c)
  * Callees:
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     DrvDbGetCompositeMappedPropertyKeys @ 0x14089DD40 (DrvDbGetCompositeMappedPropertyKeys.c)
- *     DrvDbGetRegValueMappedPropertyKeys @ 0x14089E800 (DrvDbGetRegValueMappedPropertyKeys.c)
- *     DrvDbOpenDriverInfFileRegKey @ 0x14091BE60 (DrvDbOpenDriverInfFileRegKey.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     DrvDbGetCompositeMappedPropertyKeys @ 0x1408A4140 (DrvDbGetCompositeMappedPropertyKeys.c)
+ *     DrvDbGetRegValueMappedPropertyKeys @ 0x1408A4C00 (DrvDbGetRegValueMappedPropertyKeys.c)
+ *     DrvDbOpenDriverInfFileRegKey @ 0x1409768C0 (DrvDbOpenDriverInfFileRegKey.c)
  */
 
 __int64 __fastcall DrvDbGetDriverInfFileMappedPropertyKeys(
@@ -32,7 +32,7 @@ __int64 __fastcall DrvDbGetDriverInfFileMappedPropertyKeys(
   v8 = a4;
   v9 = a1;
   v10 = a5;
-  CompositeMappedPropertyKeys = DrvDbGetCompositeMappedPropertyKeys(a1, (__int64)&off_140E0A3C0, 1u, a4, a5, a6);
+  CompositeMappedPropertyKeys = DrvDbGetCompositeMappedPropertyKeys(a1, (__int64)off_140E0A4C0, 1u, a4, a5, a6);
   if ( CompositeMappedPropertyKeys < 0 )
     return (unsigned int)CompositeMappedPropertyKeys;
   v15 = *a6;
@@ -58,7 +58,7 @@ LABEL_11:
     CompositeMappedPropertyKeys = DrvDbGetRegValueMappedPropertyKeys(
                                     v11,
                                     a3,
-                                    (unsigned int)&off_1400013F0,
+                                    (unsigned int)&off_140001910,
                                     4,
                                     v8,
                                     v10,

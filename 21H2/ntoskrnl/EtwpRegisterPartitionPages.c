@@ -1,15 +1,15 @@
 /*
- * XREFs of EtwpRegisterPartitionPages @ 0x1405B0764
+ * XREFs of EtwpRegisterPartitionPages @ 0x1405B0994
  * Callers:
- *     EtwpAllocatePartitionMemory @ 0x1405B0608 (EtwpAllocatePartitionMemory.c)
+ *     EtwpAllocatePartitionMemory @ 0x1405B0838 (EtwpAllocatePartitionMemory.c)
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x14021D060 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14033BD80 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusive @ 0x1402C1960 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140346AD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     EtwpMdlHashTableAllocator @ 0x1405B0724 (EtwpMdlHashTableAllocator.c)
- *     EtwpMdlHashTableDeallocator @ 0x1405B0748 (EtwpMdlHashTableDeallocator.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     EtwpMdlHashTableAllocator @ 0x1405B0954 (EtwpMdlHashTableAllocator.c)
+ *     EtwpMdlHashTableDeallocator @ 0x1405B0978 (EtwpMdlHashTableDeallocator.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 char __fastcall EtwpRegisterPartitionPages(__int64 a1, __int64 a2, __int64 a3)

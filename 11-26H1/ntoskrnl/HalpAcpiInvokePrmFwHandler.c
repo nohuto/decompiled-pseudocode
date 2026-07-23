@@ -1,5 +1,5 @@
 /*
- * XREFs of HalpAcpiInvokePrmFwHandler @ 0x140579870
+ * XREFs of HalpAcpiInvokePrmFwHandler @ 0x14057BDA0
  * Callers:
  *     <none>
  * Callees:

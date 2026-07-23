@@ -15,12 +15,17 @@
  *     AlpcpReplyLegacySynchronousRequest @ 0x14064A8F4 (AlpcpReplyLegacySynchronousRequest.c)
  */
 
-__int64 __fastcall NtReplyWaitReceivePortEx(HANDLE Handle, __int64 a2, __m256i *a3, __int64 a4, __int64 a5)
+NTSTATUS __cdecl NtReplyWaitReceivePortEx(
+        HANDLE PortHandle,
+        PVOID *PortContext,
+        PPORT_MESSAGE ReplyMessage,
+        PPORT_MESSAGE ReceiveMessage,
+        PLARGE_INTEGER Timeout)
 {
   struct _KTHREAD *CurrentThread; // rax
   KPROCESSOR_MODE PreviousMode; // r14
   __int64 v11; // rdx
-  NTSTATUS v12; // ebx
+  int v12; // ebx
   __int64 v13; // r8
   __int64 v14; // r9
   struct _DMA_ADAPTER *v15; // rdi
@@ -33,21 +38,23 @@ __int64 __fastcall NtReplyWaitReceivePortEx(HANDLE Handle, __int64 a2, __m256i *
   --CurrentThread->KernelApcDisable;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   if ( PreviousMode )
-    AlpcpProbeForWriteMessageHeader(a4, 0LL);
+    AlpcpProbeForWriteMessageHeader(ReceiveMessage, 0LL);
   Object = 0LL;
-  v12 = ObReferenceObjectByHandle(Handle, 1u, AlpcPortObjectType, PreviousMode, &Object, 0LL);
+  v12 = ObReferenceObjectByHandle(PortHandle, 1u, AlpcPortObjectType, PreviousMode, &Object, 0LL);
   if ( v12 >= 0 )
   {
     v15 = (struct _DMA_ADAPTER *)Object;
     v19[0] = Object;
     LODWORD(v19[6]) = 0;
-    if ( a3
+    if ( ReplyMessage
       && ((*((_DWORD *)Object + 104) & 0x2000) == 0
-        ? (LODWORD(v19[6]) = 65541, memset(&v19[3], 0, 24), v17 = AlpcpSendMessage((__int64)v19, a3, 0LL, PreviousMode))
+        ? (LODWORD(v19[6]) = 65541,
+           memset(&v19[3], 0, 24),
+           v17 = AlpcpSendMessage((__int64)v19, (__m256i *)ReplyMessage, 0LL, PreviousMode))
         : (LODWORD(v19[6]) = 4,
            memset(&v19[3], 0, 24),
            LOBYTE(v13) = PreviousMode,
-           v17 = AlpcpReplyLegacySynchronousRequest(v19, a3, v13)),
+           v17 = AlpcpReplyLegacySynchronousRequest(v19, ReplyMessage, v13)),
           v12 = v17,
           v17 < 0) )
     {
@@ -57,11 +64,11 @@ __int64 __fastcall NtReplyWaitReceivePortEx(HANDLE Handle, __int64 a2, __m256i *
     }
     else
     {
-      v12 = AlpcpReceiveLegacyMessage(v19, a4, a5, a2);
+      v12 = AlpcpReceiveLegacyMessage(v19, ReceiveMessage, Timeout, PortContext);
       AlpcpCompleteDeferSignalRequest(v19);
       HalPutDmaAdapter(v15);
     }
   }
   KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v11, v13, v14);
-  return (unsigned int)v12;
+  return v12;
 }

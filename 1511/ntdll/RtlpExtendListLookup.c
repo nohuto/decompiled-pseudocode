@@ -7,12 +7,12 @@
  *     RtlpPopulateListIndex @ 0x1800563E8 (RtlpPopulateListIndex.c)
  */
 
-void __fastcall RtlpExtendListLookup(__int64 a1, __int64 a2)
+void __fastcall RtlpExtendListLookup(PVOID HeapHandle, __int64 a2)
 {
   unsigned int v4; // eax
   unsigned int v5; // esi
   unsigned __int64 v6; // rbp
-  __int64 Heap; // rax
+  _DWORD *Heap; // rax
 
   if ( !*(_QWORD *)a2 )
   {
@@ -21,18 +21,18 @@ void __fastcall RtlpExtendListLookup(__int64 a1, __int64 a2)
     if ( *(_DWORD *)(a2 + 12) )
       v4 = 8;
     v6 = (unsigned __int64)v5 >> 3;
-    Heap = RtlAllocateHeap(a1, 0x80000Au, v6 + v5 * (v4 + 8LL) + 56);
+    Heap = RtlAllocateHeap(HeapHandle, 0x80000Au, v6 + v5 * (v4 + 8LL) + 56);
     if ( Heap )
     {
-      *(_BYTE *)(Heap - 1) = 1;
-      *(_DWORD *)(Heap + 8) = v5 + *(_DWORD *)(a2 + 8);
-      *(_DWORD *)(Heap + 24) = *(_DWORD *)(a2 + 8);
-      *(_DWORD *)(Heap + 12) = *(_DWORD *)(a2 + 12);
-      *(_QWORD *)(Heap + 40) = Heap + 56;
-      *(_QWORD *)(Heap + 48) = v6 + Heap + 56;
-      *(_QWORD *)(Heap + 32) = *(_QWORD *)(a2 + 32);
+      *((_BYTE *)Heap - 1) = 1;
+      Heap[2] = v5 + *(_DWORD *)(a2 + 8);
+      Heap[6] = *(_DWORD *)(a2 + 8);
+      Heap[3] = *(_DWORD *)(a2 + 12);
+      *((_QWORD *)Heap + 5) = Heap + 14;
+      *((_QWORD *)Heap + 6) = (char *)Heap + v6 + 56;
+      *((_QWORD *)Heap + 4) = *(_QWORD *)(a2 + 32);
       *(_QWORD *)a2 = Heap;
-      RtlpPopulateListIndex(a1, *(_QWORD *)(a1 + 312));
+      RtlpPopulateListIndex(HeapHandle, *((_QWORD *)HeapHandle + 39));
     }
   }
 }

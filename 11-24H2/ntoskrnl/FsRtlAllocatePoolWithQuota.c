@@ -1,10 +1,10 @@
 /*
- * XREFs of FsRtlAllocatePoolWithQuota @ 0x140580450
+ * XREFs of FsRtlAllocatePoolWithQuota @ 0x14057D890
  * Callers:
  *     <none>
  * Callees:
- *     RtlRaiseStatus @ 0x140280B30 (RtlRaiseStatus.c)
- *     ExAllocatePoolWithQuotaTag @ 0x14048CAC0 (ExAllocatePoolWithQuotaTag.c)
+ *     RtlRaiseStatus @ 0x1402360C0 (RtlRaiseStatus.c)
+ *     ExAllocatePoolWithQuotaTag @ 0x1404877E0 (ExAllocatePoolWithQuotaTag.c)
  */
 
 PVOID __fastcall FsRtlAllocatePoolWithQuota(POOL_TYPE a1, unsigned int a2)

@@ -6,11 +6,11 @@
  *     <none>
  */
 
-__int64 ZwAreMappedFilesTheSame()
+NTSTATUS __cdecl ZwAreMappedFilesTheSame(PVOID File1MappedAsAnImage, PVOID File2MappedAsFile)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 138LL;
+  result = 138;
   __asm { syscall; Low latency system call }
   return result;
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpAllocateCR3Root @ 0x140559294
+ * XREFs of HalpAllocateCR3Root @ 0x140556EC4
  * Callers:
- *     HalpMmBuildTiledMemoryMap @ 0x140B4E7C0 (HalpMmBuildTiledMemoryMap.c)
+ *     HalpMmBuildTiledMemoryMap @ 0x140B50810 (HalpMmBuildTiledMemoryMap.c)
  * Callees:
- *     MmAllocateContiguousNodeMemory @ 0x140411690 (MmAllocateContiguousNodeMemory.c)
+ *     MmAllocateContiguousNodeMemory @ 0x1403958D0 (MmAllocateContiguousNodeMemory.c)
  */
 
 __int64 HalpAllocateCR3Root()

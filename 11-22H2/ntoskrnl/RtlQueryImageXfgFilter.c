@@ -14,21 +14,21 @@
  *     RtlpOpenSystemSessionKey @ 0x1409B8E98 (RtlpOpenSystemSessionKey.c)
  */
 
-__int64 __fastcall RtlQueryImageXfgFilter(_WORD *a1, UNICODE_STRING *a2, __int64 a3, __int64 a4, _BYTE *a5)
+__int64 __fastcall RtlQueryImageXfgFilter(_WORD *a1, UNICODE_STRING *a2, void *a3, __int64 a4, _BYTE *a5)
 {
   int v7; // eax
   NTSTATUS inited; // ebx
   NTSTATUS v10; // eax
   char PreviousMode; // cl
   ULONG v12; // eax
-  __int64 v13; // rax
+  PIMAGE_NT_HEADERS v13; // rax
   __int64 v14; // r13
   NTSTATUS v15; // eax
   NTSTATUS v16; // eax
   ULONG ResultLength; // [rsp+30h] [rbp-E8h] BYREF
   HANDLE KeyHandle; // [rsp+38h] [rbp-E0h] BYREF
-  int v19; // [rsp+40h] [rbp-D8h]
-  int v20; // [rsp+44h] [rbp-D4h]
+  unsigned int TimeDateStamp; // [rsp+40h] [rbp-D8h]
+  unsigned int CheckSum; // [rsp+44h] [rbp-D4h]
   HANDLE Handle; // [rsp+48h] [rbp-D0h] BYREF
   int v22; // [rsp+50h] [rbp-C8h]
   __int64 v23; // [rsp+58h] [rbp-C0h]
@@ -48,8 +48,8 @@ __int64 __fastcall RtlQueryImageXfgFilter(_WORD *a1, UNICODE_STRING *a2, __int64
   v29 = 0;
   memset(&ObjectAttributes, 0, 44);
   DestinationString = 0LL;
-  v20 = 0;
-  v19 = 0;
+  CheckSum = 0;
+  TimeDateStamp = 0;
   KeyHandle = 0LL;
   Handle = 0LL;
   *a5 = 0;
@@ -109,8 +109,8 @@ LABEL_18:
     v13 = RtlImageNtHeader(a3);
     if ( v13 )
     {
-      v19 = *(_DWORD *)(v13 + 8);
-      v20 = *(_DWORD *)(v13 + 88);
+      TimeDateStamp = v13->FileHeader.TimeDateStamp;
+      CheckSum = v13->OptionalHeader.CheckSum;
     }
     else
     {
@@ -132,8 +132,11 @@ LABEL_18:
       {
         if ( v15 < 0 )
           goto LABEL_10;
-        if ( *(_QWORD *)((char *)&KeyValueInformation + 4) != 0x400000004LL || HIDWORD(KeyValueInformation) != v19 )
+        if ( *(_QWORD *)((char *)&KeyValueInformation + 4) != 0x400000004LL
+          || HIDWORD(KeyValueInformation) != TimeDateStamp )
+        {
           goto LABEL_35;
+        }
       }
       v16 = ZwQueryValueKey(
               Handle,
@@ -147,7 +150,7 @@ LABEL_18:
       {
         if ( v16 < 0 )
           goto LABEL_10;
-        if ( *(_QWORD *)((char *)&KeyValueInformation + 4) != 0x400000004LL || HIDWORD(KeyValueInformation) != v20 )
+        if ( *(_QWORD *)((char *)&KeyValueInformation + 4) != 0x400000004LL || HIDWORD(KeyValueInformation) != CheckSum )
         {
 LABEL_35:
           inited = -1073741275;

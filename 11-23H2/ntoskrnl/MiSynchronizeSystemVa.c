@@ -1,23 +1,23 @@
 /*
- * XREFs of MiSynchronizeSystemVa @ 0x1402619B0
+ * XREFs of MiSynchronizeSystemVa @ 0x140261C40
  * Callers:
- *     MiSystemFault @ 0x1402611A0 (MiSystemFault.c)
- *     MiTranslatePageForCopy @ 0x1402EDE44 (MiTranslatePageForCopy.c)
- *     MiTrimSharedPageFromViews @ 0x1402EFC5C (MiTrimSharedPageFromViews.c)
- *     MiLockStealSystemVm @ 0x140398A4C (MiLockStealSystemVm.c)
+ *     MiSystemFault @ 0x140261430 (MiSystemFault.c)
+ *     MiTranslatePageForCopy @ 0x1402EE0D4 (MiTranslatePageForCopy.c)
+ *     MiTrimSharedPageFromViews @ 0x1402EFEEC (MiTrimSharedPageFromViews.c)
+ *     MiLockStealSystemVm @ 0x140398C2C (MiLockStealSystemVm.c)
  * Callees:
  *     MiGetAnyMultiplexedVm @ 0x1402146B4 (MiGetAnyMultiplexedVm.c)
- *     MiFastLockLeafPageTable @ 0x140237280 (MiFastLockLeafPageTable.c)
- *     ExAcquireSpinLockExclusive @ 0x14024D360 (ExAcquireSpinLockExclusive.c)
- *     MiLockLowestValidPageTable @ 0x14025A290 (MiLockLowestValidPageTable.c)
- *     MiGetSystemCacheReverseMap @ 0x140262410 (MiGetSystemCacheReverseMap.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1402712F0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiGetSharedVm @ 0x140286E74 (MiGetSharedVm.c)
- *     MiFillPteHierarchy @ 0x14028AEF0 (MiFillPteHierarchy.c)
- *     MiUnlockSystemVa @ 0x1402EED60 (MiUnlockSystemVa.c)
- *     ExpWaitForSpinLockSharedAndAcquire @ 0x140316D70 (ExpWaitForSpinLockSharedAndAcquire.c)
- *     MiPageTableStillExists @ 0x1403A9020 (MiPageTableStillExists.c)
- *     ExpAcquireSpinLockSharedAtDpcLevelInstrumented @ 0x14046B4F2 (ExpAcquireSpinLockSharedAtDpcLevelInstrumented.c)
+ *     MiFastLockLeafPageTable @ 0x140237350 (MiFastLockLeafPageTable.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024D430 (ExAcquireSpinLockExclusive.c)
+ *     MiLockLowestValidPageTable @ 0x14025A520 (MiLockLowestValidPageTable.c)
+ *     MiGetSystemCacheReverseMap @ 0x1402626A0 (MiGetSystemCacheReverseMap.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140271580 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiGetSharedVm @ 0x140287104 (MiGetSharedVm.c)
+ *     MiFillPteHierarchy @ 0x14028B180 (MiFillPteHierarchy.c)
+ *     MiUnlockSystemVa @ 0x1402EEFF0 (MiUnlockSystemVa.c)
+ *     ExpWaitForSpinLockSharedAndAcquire @ 0x140317000 (ExpWaitForSpinLockSharedAndAcquire.c)
+ *     MiPageTableStillExists @ 0x1403A9200 (MiPageTableStillExists.c)
+ *     ExpAcquireSpinLockSharedAtDpcLevelInstrumented @ 0x14046B8F2 (ExpAcquireSpinLockSharedAtDpcLevelInstrumented.c)
  */
 
 __int64 __fastcall MiSynchronizeSystemVa(__int64 a1, unsigned __int64 a2, __int64 a3, __int64 a4, __int64 a5)
@@ -88,7 +88,7 @@ __int64 __fastcall MiSynchronizeSystemVa(__int64 a1, unsigned __int64 a2, __int6
     {
       CurrentIrql = KeGetCurrentIrql();
       __writecr8(2uLL);
-      if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+      if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
       {
         SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
         if ( CurrentIrql == 2 )
@@ -111,7 +111,7 @@ LABEL_5:
 LABEL_6:
   v11 = KeGetCurrentIrql();
   __writecr8(2uLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && v11 <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && v11 <= 0xFu )
   {
     v30 = KeGetCurrentPrcb()->SchedulerAssist;
     if ( v11 == 2 )

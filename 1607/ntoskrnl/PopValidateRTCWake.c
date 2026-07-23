@@ -3,8 +3,8 @@
  * Callers:
  *     PopHandleWakeSources @ 0x1403D0AEC (PopHandleWakeSources.c)
  * Callees:
- *     PopPowerTransitionTimesInMs @ 0x140114634 (PopPowerTransitionTimesInMs.c)
- *     PopCurrentPowerStatePrecise @ 0x140547C2C (PopCurrentPowerStatePrecise.c)
+ *     PopPowerTransitionTimesInMs @ 0x140114BA4 (PopPowerTransitionTimesInMs.c)
+ *     PopCurrentPowerStatePrecise @ 0x14054816C (PopCurrentPowerStatePrecise.c)
  */
 
 char __fastcall PopValidateRTCWake(_BYTE *a1)
@@ -26,7 +26,7 @@ char __fastcall PopValidateRTCWake(_BYTE *a1)
   {
     v4 = 1;
 LABEL_15:
-    dword_1403034C0 = v4;
+    dword_140303400 = v4;
     goto LABEL_5;
   }
   if ( v3 == 8 )
@@ -37,28 +37,28 @@ LABEL_15:
   if ( (PopFixedWakeSourceMask & 0x18) != 0 )
   {
     PopCurrentPowerStatePrecise(v8);
-    v4 = dword_140303E0C;
+    v4 = dword_140303D4C;
     v2 = PopFixedWakeSourceMask;
-    dword_1403034C0 = dword_140303E0C;
+    dword_140303400 = dword_140303D4C;
   }
   else
   {
-    v4 = dword_1403034C0;
+    v4 = dword_140303400;
   }
 LABEL_5:
   if ( (unsigned __int64)v4 >= 3 )
   {
     if ( (v2 & 4) == 0 )
       *a1 = 1;
-    v4 = NumberOfBytes && (unsigned __int64)qword_1403034D0 > NumberOfBytes;
-    dword_1403034C0 = v4;
+    v4 = NumberOfBytes && (unsigned __int64)qword_140303410 > NumberOfBytes;
+    dword_140303400 = v4;
   }
-  v5 = (unsigned __int64)*(&qword_1403034D0 + 3 * v4);
+  v5 = (unsigned __int64)*(&qword_140303410 + 3 * v4);
   if ( v5 )
   {
     if ( v5 >= 0x989680 )
       v5 -= 10000000LL;
-    v7 = qword_1403034A8;
+    v7 = qword_1403033E8;
     if ( PoResumeFromHibernate )
     {
       PopPowerTransitionTimesInMs(0LL, 0LL, 0LL, &v10, (__int64)&v9);
@@ -67,7 +67,7 @@ LABEL_5:
     if ( v5 < v7 && v7 - v5 < (-(__int64)((PopFullWake & 3) != 0) & 0xFFFFFFFFBE6F5500uLL) + 1200000000 )
       return 1;
   }
-  dword_1403034C0 = 3;
+  dword_140303400 = 3;
   result = 0;
   *a1 = 0;
   return result;

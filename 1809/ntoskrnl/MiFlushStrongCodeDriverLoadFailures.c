@@ -1,15 +1,15 @@
 /*
- * XREFs of MiFlushStrongCodeDriverLoadFailures @ 0x1409BCCD4
+ * XREFs of MiFlushStrongCodeDriverLoadFailures @ 0x1409BDCD4
  * Callers:
- *     MiInitSystem @ 0x1409BC5A8 (MiInitSystem.c)
+ *     MiInitSystem @ 0x1409BD5A8 (MiInitSystem.c)
  * Callees:
  *     _TlgCreateSz @ 0x140003938 (_TlgCreateSz.c)
  *     _TlgKeywordOn @ 0x140012A04 (_TlgKeywordOn.c)
- *     _TlgWriteEx @ 0x1401008B8 (_TlgWriteEx.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     MmReleaseLoadLock @ 0x140651A20 (MmReleaseLoadLock.c)
- *     MmAcquireLoadLock @ 0x140651A60 (MmAcquireLoadLock.c)
+ *     _TlgWriteEx @ 0x140100938 (_TlgWriteEx.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     MmReleaseLoadLock @ 0x140652BE0 (MmReleaseLoadLock.c)
+ *     MmAcquireLoadLock @ 0x140652C20 (MmAcquireLoadLock.c)
  */
 
 _QWORD *MiFlushStrongCodeDriverLoadFailures()
@@ -42,16 +42,16 @@ _QWORD *MiFlushStrongCodeDriverLoadFailures()
   Lock = MmAcquireLoadLock();
   while ( 1 )
   {
-    v1 = (unsigned __int16 *)qword_140438EE8;
-    if ( qword_140438EE8 == &qword_140438EE8 )
+    v1 = (unsigned __int16 *)qword_140439FA8;
+    if ( qword_140439FA8 == &qword_140439FA8 )
       break;
-    if ( *((PVOID **)qword_140438EE8 + 1) != &qword_140438EE8
-      || (v3 = *(_QWORD *)qword_140438EE8, *(PVOID *)(*(_QWORD *)qword_140438EE8 + 8LL) != qword_140438EE8) )
+    if ( *((PVOID **)qword_140439FA8 + 1) != &qword_140439FA8
+      || (v3 = *(_QWORD *)qword_140439FA8, *(PVOID *)(*(_QWORD *)qword_140439FA8 + 8LL) != qword_140439FA8) )
     {
       __fastfail(3u);
     }
-    qword_140438EE8 = *(PVOID *)qword_140438EE8;
-    *(_QWORD *)(v3 + 8) = &qword_140438EE8;
+    qword_140439FA8 = *(PVOID *)qword_140439FA8;
+    *(_QWORD *)(v3 + 8) = &qword_140439FA8;
     if ( hProvider->LevelPlus1 > 5 && TlgKeywordOn(hProvider, 0x400000000000uLL) )
     {
       v4 = (const CHAR *)*((_QWORD *)v1 + 2);
@@ -71,7 +71,7 @@ _QWORD *MiFlushStrongCodeDriverLoadFailures()
       v15 = 2;
       v20 = 4;
       v23 = 4;
-      TlgWriteEx(v7, &unk_14036DE01, v6, (ULONG)v7, v8, v9, 7u, &pData);
+      TlgWriteEx(v7, &unk_14036EDE2, v6, (ULONG)v7, v8, v9, 7u, &pData);
     }
     ExFreePoolWithTag(v1, 0);
   }

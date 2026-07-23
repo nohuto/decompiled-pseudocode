@@ -12,15 +12,15 @@
  *     RtlpHpLfhSubsegmentLockOwner @ 0x1800F3474 (RtlpHpLfhSubsegmentLockOwner.c)
  */
 
-__int64 __fastcall RtlpHpLfhSubsegmentFreeBlock(__int64 *a1, __int64 a2, __int64 a3, char a4)
+__int64 __fastcall RtlpHpLfhSubsegmentFreeBlock(_RTL_SRWLOCK *a1, __int64 a2, __int64 a3, char a4)
 {
   int v6; // eax
   unsigned __int8 *v7; // rdx
   int v9; // r12d
   unsigned int v11; // edi
-  __int64 v12; // rbp
+  _RTL_SRWLOCK *v12; // rbp
   int v13; // esi
-  __int64 v14; // rcx
+  unsigned __int64 Value; // rcx
   unsigned int v15; // edx
   unsigned __int64 v16; // r8
   int v17; // edx
@@ -43,16 +43,16 @@ __int64 __fastcall RtlpHpLfhSubsegmentFreeBlock(__int64 *a1, __int64 a2, __int64
   if ( !a3 )
     goto LABEL_15;
   v13 = (unsigned __int16)v6;
-  v14 = a1[RtlpLfhBucketIndexMap[(unsigned __int64)((unsigned int)(unsigned __int16)v6 + 15) >> 4] + 24];
+  Value = a1[RtlpLfhBucketIndexMap[(unsigned __int64)((unsigned int)(unsigned __int16)v6 + 15) >> 4] + 24].Value;
   v15 = a3 - HIWORD(v6) - a2;
-  if ( *(_DWORD *)(v14 + 72) )
+  if ( *(_DWORD *)(Value + 72) )
   {
-    v16 = (v15 * (unsigned __int64)*(unsigned int *)(v14 + 72)) >> *(_BYTE *)(v14 + 76);
+    v16 = (v15 * (unsigned __int64)*(unsigned int *)(Value + 72)) >> *(_BYTE *)(Value + 76);
     v17 = v15 - v16 * (unsigned __int16)v6;
   }
   else
   {
-    v18 = *(_BYTE *)(v14 + 76);
+    v18 = *(_BYTE *)(Value + 76);
     LODWORD(v16) = v15 >> v18;
     v17 = ((1 << v18) - 1) & v15;
   }
@@ -69,14 +69,14 @@ __int64 __fastcall RtlpHpLfhSubsegmentFreeBlock(__int64 *a1, __int64 a2, __int64
                                (volatile signed __int64 *)(a2 + 8 * v20 + 48),
                                ~(3LL << ((2 * v16) & 0x3F))) >> ((2 * v16) & 0x3F)) & 1) == 0 )
     {
-      RtlpLogHeapFailure(16, *a1, a3, a2, (unsigned int)v16, 0LL);
+      RtlpLogHeapFailure(16, a1->Value, a3, a2, (unsigned int)v16, 0LL);
       return 0;
     }
     if ( *(_BYTE *)(a2 + 45) > 1u )
     {
       v21 = RtlpHpLfhSubsegmentDecBlockCounts(a2, (int)a3 - (int)a2, v13);
       if ( v21 != -1 )
-        RtlpHpLfhSubsegmentDecommitPages((unsigned __int64)a1, a2, v21, 2u, a4);
+        RtlpHpLfhSubsegmentDecommitPages(a1, a2, v21, 2u, a4);
     }
 LABEL_15:
     v22 = *(unsigned __int16 *)(a2 + 34);
@@ -85,7 +85,7 @@ LABEL_15:
     {
       if ( !v12 && (!(_WORD)v23 || (unsigned __int16)v23 == v22 - 1) )
       {
-        v12 = RtlpHpLfhSubsegmentLockOwner(a2, v7);
+        v12 = (_RTL_SRWLOCK *)RtlpHpLfhSubsegmentLockOwner(a2, v7);
         if ( !v12 )
           return v11;
       }
@@ -99,7 +99,7 @@ LABEL_15:
       {
 LABEL_27:
         if ( v12 )
-          RtlReleaseSRWLockExclusive((volatile signed __int64 *)(v12 + 16));
+          RtlReleaseSRWLockExclusive(v12 + 2);
         return v11;
       }
     }
@@ -107,13 +107,13 @@ LABEL_27:
     {
       v9 = 0;
     }
-    v25 = RtlpHpLfhOwnerMoveSubsegment(v12, (__int64 *)a2, v9);
-    RtlReleaseSRWLockExclusive((volatile signed __int64 *)(v12 + 16));
+    v25 = RtlpHpLfhOwnerMoveSubsegment((__int64)v12, (__int64 *)a2, v9);
+    RtlReleaseSRWLockExclusive(v12 + 2);
     v12 = 0LL;
     if ( v25 )
       RtlpHpLfhBucketAddSubsegment(
         (__int64)a1,
-        a1[RtlpLfhBucketIndexMap[(unsigned __int64)((unsigned int)v27 + 15) >> 4] + 24],
+        (_RTL_SRWLOCK *)a1[RtlpLfhBucketIndexMap[(unsigned __int64)((unsigned int)v27 + 15) >> 4] + 24].Value,
         (__int64)v25,
         a4);
     goto LABEL_27;

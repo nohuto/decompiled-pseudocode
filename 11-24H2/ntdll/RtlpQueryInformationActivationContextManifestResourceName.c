@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlpQueryInformationActivationContextManifestResourceName @ 0x18011699C
+ * XREFs of RtlpQueryInformationActivationContextManifestResourceName @ 0x180111BD0
  * Callers:
- *     RtlQueryInformationActivationContext @ 0x18001ABD0 (RtlQueryInformationActivationContext.c)
+ *     RtlQueryInformationActivationContext @ 0x1800475D0 (RtlQueryInformationActivationContext.c)
  * Callees:
- *     RtlpLocateActivationContextSection @ 0x18005E750 (RtlpLocateActivationContextSection.c)
- *     RtlpCrackActivationContextStringSectionHeader @ 0x180108C64 (RtlpCrackActivationContextStringSectionHeader.c)
+ *     RtlpLocateActivationContextSection @ 0x180074330 (RtlpLocateActivationContextSection.c)
+ *     RtlpCrackActivationContextStringSectionHeader @ 0x180103B94 (RtlpCrackActivationContextStringSectionHeader.c)
  */
 
 __int64 __fastcall RtlpQueryInformationActivationContextManifestResourceName(

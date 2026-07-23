@@ -14,14 +14,15 @@
 __int64 __fastcall sub_180100D94(__int64 a1, __int16 a2)
 {
   unsigned __int64 v2; // rbp
-  int v6; // ebx
-  int v7; // esi
+  ULONG v6; // ebx
+  NTSTATUS v7; // esi
   unsigned __int64 v8; // rdx
   __int16 v9; // ax
   __int64 v10; // rdx
-  _WORD v11[2]; // [rsp+50h] [rbp+0h] BYREF
+  void *v11; // rcx
+  _WORD v12[2]; // [rsp+50h] [rbp+0h] BYREF
 
-  v2 = (unsigned __int64)v11 & 0xFFFFFFFFFFFFFFE0uLL;
+  v2 = (unsigned __int64)v12 & 0xFFFFFFFFFFFFFFE0uLL;
   *(_DWORD *)(v2 + 4) = 0;
   *(_WORD *)v2 = -1;
   if ( !a1 )
@@ -29,30 +30,36 @@ __int64 __fastcall sub_180100D94(__int64 a1, __int16 a2)
   RtlInitUnicodeString(
     (PUNICODE_STRING)(v2 + 16),
     L"\\Registry\\Machine\\System\\CurrentControlSet\\Control\\MUI\\UILanguages\\PendingDelete");
-  *(_QWORD *)(((unsigned __int64)v11 & 0xFFFFFFFFFFFFFFE0uLL) + 8) = 0LL;
-  *(_QWORD *)(((unsigned __int64)v11 & 0xFFFFFFFFFFFFFFE0uLL) + 0x30) = ((unsigned __int64)v11 & 0xFFFFFFFFFFFFFFE0uLL)
+  *(_QWORD *)(((unsigned __int64)v12 & 0xFFFFFFFFFFFFFFE0uLL) + 8) = 0LL;
+  *(_QWORD *)(((unsigned __int64)v12 & 0xFFFFFFFFFFFFFFE0uLL) + 0x30) = ((unsigned __int64)v12 & 0xFFFFFFFFFFFFFFE0uLL)
                                                                       + 16;
-  *(_DWORD *)(((unsigned __int64)v11 & 0xFFFFFFFFFFFFFFE0uLL) + 0x20) = 48;
-  *(_QWORD *)(((unsigned __int64)v11 & 0xFFFFFFFFFFFFFFE0uLL) + 0x28) = 0LL;
-  *(_DWORD *)(((unsigned __int64)v11 & 0xFFFFFFFFFFFFFFE0uLL) + 0x38) = 64;
-  *(_OWORD *)(((unsigned __int64)v11 & 0xFFFFFFFFFFFFFFE0uLL) + 0x40) = 0LL;
-  if ( (int)ZwOpenKey() >= 0 )
+  *(_DWORD *)(((unsigned __int64)v12 & 0xFFFFFFFFFFFFFFE0uLL) + 0x20) = 48;
+  *(_QWORD *)(((unsigned __int64)v12 & 0xFFFFFFFFFFFFFFE0uLL) + 0x28) = 0LL;
+  *(_DWORD *)(((unsigned __int64)v12 & 0xFFFFFFFFFFFFFFE0uLL) + 0x38) = 64;
+  *(_OWORD *)(((unsigned __int64)v12 & 0xFFFFFFFFFFFFFFE0uLL) + 0x40) = 0LL;
+  if ( ZwOpenKey((PHANDLE)(v2 + 8), 0x20019u, (POBJECT_ATTRIBUTES)(v2 + 32)) >= 0 )
   {
     v6 = 0;
     do
     {
-      v7 = ZwEnumerateKey();
+      v7 = ZwEnumerateKey(
+             *(HANDLE *)(((unsigned __int64)v12 & 0xFFFFFFFFFFFFFFE0uLL) + 8),
+             v6,
+             KeyBasicInformation,
+             (PVOID)(v2 + 96),
+             0x200u,
+             (PULONG)(v2 + 4));
       if ( v7 >= 0 )
       {
-        v8 = *(unsigned int *)(((unsigned __int64)v11 & 0xFFFFFFFFFFFFFFE0uLL) + 0x6C);
+        v8 = *(unsigned int *)(((unsigned __int64)v12 & 0xFFFFFFFFFFFFFFE0uLL) + 0x6C);
         if ( v8 + 24 < 0x1FE )
         {
-          *(_WORD *)(((unsigned __int64)v11 & 0xFFFFFFFFFFFFFFE0uLL) + 0x70 + 2 * (v8 >> 1)) = 0;
+          *(_WORD *)(((unsigned __int64)v12 & 0xFFFFFFFFFFFFFFE0uLL) + 0x70 + 2 * (v8 >> 1)) = 0;
           if ( (int)sub_18001583C(
                       a1,
                       (const WCHAR *)(v2 + 112),
                       0,
-                      (_WORD *)((unsigned __int64)v11 & 0xFFFFFFFFFFFFFFE0uLL)) >= 0 )
+                      (_WORD *)((unsigned __int64)v12 & 0xFFFFFFFFFFFFFFE0uLL)) >= 0 )
           {
             v9 = *(_WORD *)v2;
             if ( *(_WORD *)v2 != 0xFFFF && v9 != a2 )
@@ -67,8 +74,9 @@ __int64 __fastcall sub_180100D94(__int64 a1, __int16 a2)
       ++v6;
     }
     while ( v7 != -2147483622 );
-    if ( *(_QWORD *)(((unsigned __int64)v11 & 0xFFFFFFFFFFFFFFE0uLL) + 8) )
-      ZwClose();
+    v11 = *(void **)(((unsigned __int64)v12 & 0xFFFFFFFFFFFFFFE0uLL) + 8);
+    if ( v11 )
+      ZwClose(v11);
   }
   return 0LL;
 }

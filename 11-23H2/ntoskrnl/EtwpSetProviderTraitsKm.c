@@ -1,12 +1,12 @@
 /*
- * XREFs of EtwpSetProviderTraitsKm @ 0x1407D7178
+ * XREFs of EtwpSetProviderTraitsKm @ 0x1407D7448
  * Callers:
- *     EtwSetInformation @ 0x1407D7120 (EtwSetInformation.c)
+ *     EtwSetInformation @ 0x1407D73F0 (EtwSetInformation.c)
  * Callees:
- *     EtwEventEnabled @ 0x140258420 (EtwEventEnabled.c)
- *     memmove @ 0x140435700 (memmove.c)
- *     EtwpSetProviderTraitsCommon @ 0x1406BE544 (EtwpSetProviderTraitsCommon.c)
- *     EtwpEventWriteRegistrationStatus @ 0x1409E393C (EtwpEventWriteRegistrationStatus.c)
+ *     EtwEventEnabled @ 0x1402584E0 (EtwEventEnabled.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     EtwpSetProviderTraitsCommon @ 0x1406BE574 (EtwpSetProviderTraitsCommon.c)
+ *     EtwpEventWriteRegistrationStatus @ 0x1409E3BCC (EtwpEventWriteRegistrationStatus.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
 
@@ -15,7 +15,7 @@ __int64 __fastcall EtwpSetProviderTraitsKm(__int64 a1, void *Src, unsigned __int
   __int16 v4; // ax
   unsigned int v6; // esi
   __int64 Pool2; // rax
-  const char *P; // rbx
+  _RTL_BALANCED_NODE *Node; // rbx
   unsigned int v9; // ebx
   __int64 v11; // rdx
   __int64 v12; // rcx
@@ -36,7 +36,7 @@ __int64 __fastcall EtwpSetProviderTraitsKm(__int64 a1, void *Src, unsigned __int
   else
   {
     Pool2 = ExAllocatePool2(64LL, (unsigned int)a3 + 28, 1417114693LL);
-    P = (const char *)Pool2;
+    Node = (_RTL_BALANCED_NODE *)Pool2;
     if ( Pool2 )
     {
       memmove((void *)(Pool2 + 28), Src, v6);
@@ -45,10 +45,10 @@ __int64 __fastcall EtwpSetProviderTraitsKm(__int64 a1, void *Src, unsigned __int
              0,
              (__int64)&v14,
              a1,
-             P,
+             Node,
              v6,
              &EtwpProviderTraitsKmMutex,
-             (__int64)&EtwpProviderTraitsKmTree);
+             &EtwpProviderTraitsKmTree);
       if ( !v9 )
         return v9;
     }

@@ -1,13 +1,13 @@
 /*
- * XREFs of EtwpSysModuleRunDown @ 0x14094CAD8
+ * XREFs of EtwpSysModuleRunDown @ 0x1408F1048
  * Callers:
- *     EtwpProcessEnumCallback @ 0x14094ACC0 (EtwpProcessEnumCallback.c)
+ *     EtwpProcessEnumCallback @ 0x1408EF230 (EtwpProcessEnumCallback.c)
  * Callees:
- *     EtwpLogKernelEvent @ 0x140257180 (EtwpLogKernelEvent.c)
- *     HvlQueryConnection @ 0x140461030 (HvlQueryConnection.c)
- *     MmEnumerateSystemImages @ 0x1404FAB30 (MmEnumerateSystemImages.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     EtwpLogKernelEvent @ 0x140287790 (EtwpLogKernelEvent.c)
+ *     HvlQueryConnection @ 0x1404564C0 (HvlQueryConnection.c)
+ *     MmEnumerateSystemImages @ 0x1404F8410 (MmEnumerateSystemImages.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 __int64 __fastcall EtwpSysModuleRunDown(__int64 a1, char a2)
@@ -24,9 +24,9 @@ __int64 __fastcall EtwpSysModuleRunDown(__int64 a1, char a2)
   __int16 v14; // [rsp+5Eh] [rbp-33h]
   _BYTE v15[40]; // [rsp+68h] [rbp-29h] BYREF
   __int128 v16; // [rsp+90h] [rbp-1h]
-  ULONG_PTR *v17; // [rsp+A8h] [rbp+17h] BYREF
+  PVOID *v17; // [rsp+A8h] [rbp+17h] BYREF
   __int64 v18; // [rsp+B0h] [rbp+1Fh]
-  __int64 *v19; // [rsp+C8h] [rbp+37h]
+  int *v19; // [rsp+C8h] [rbp+37h]
   __int64 v20; // [rsp+D0h] [rbp+3Fh]
 
   v13 = 0;
@@ -44,7 +44,7 @@ __int64 __fastcall EtwpSysModuleRunDown(__int64 a1, char a2)
     {
       v8 = *(_DWORD *)a1;
       v9 = *(_QWORD *)(a1 + 1360);
-      v17 = (ULONG_PTR *)&v10;
+      v17 = (PVOID *)&v10;
       v18 = 8LL;
       EtwpLogKernelEvent((__int64)&v17, v9, v8, 1u, 5154, 0x501802u);
     }
@@ -57,7 +57,7 @@ __int64 __fastcall EtwpSysModuleRunDown(__int64 a1, char a2)
     v4 = 5124;
   v12 = v4;
   v18 = 56LL;
-  v17 = (ULONG_PTR *)v15;
+  v17 = (PVOID *)v15;
   v20 = 2LL;
   v19 = &EtwpNull;
   v16 = 0LL;

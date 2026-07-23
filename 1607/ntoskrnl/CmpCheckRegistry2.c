@@ -1,17 +1,17 @@
 /*
- * XREFs of CmpCheckRegistry2 @ 0x14043EF70
+ * XREFs of CmpCheckRegistry2 @ 0x14043DE40
  * Callers:
- *     CmCheckRegistry @ 0x140480374 (CmCheckRegistry.c)
+ *     CmCheckRegistry @ 0x14047F0C8 (CmCheckRegistry.c)
  * Callees:
- *     SetFailureLocation @ 0x1401B2AF8 (SetFailureLocation.c)
+ *     SetFailureLocation @ 0x1401B29DC (SetFailureLocation.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     CmpCheckKey @ 0x14043D610 (CmpCheckKey.c)
- *     CmpCheckAndFixSecurityCellsRefcount @ 0x1404E1020 (CmpCheckAndFixSecurityCellsRefcount.c)
- *     RtlCompareUnicodeString @ 0x1404FF850 (RtlCompareUnicodeString.c)
- *     CmpCompareCompressedName @ 0x140512960 (CmpCompareCompressedName.c)
- *     RtlUpcaseUnicodeChar @ 0x1405132D0 (RtlUpcaseUnicodeChar.c)
- *     CmpRemoveSubKeyCellNoCellRef @ 0x14060AA54 (CmpRemoveSubKeyCellNoCellRef.c)
+ *     CmpCheckKey @ 0x14043C4E0 (CmpCheckKey.c)
+ *     CmpCheckAndFixSecurityCellsRefcount @ 0x1404C4624 (CmpCheckAndFixSecurityCellsRefcount.c)
+ *     RtlCompareUnicodeString @ 0x1404E27E0 (RtlCompareUnicodeString.c)
+ *     CmpCompareCompressedName @ 0x1404F5D50 (CmpCompareCompressedName.c)
+ *     RtlUpcaseUnicodeChar @ 0x1404F66C0 (RtlUpcaseUnicodeChar.c)
+ *     CmpRemoveSubKeyCellNoCellRef @ 0x14060AB08 (CmpRemoveSubKeyCellNoCellRef.c)
  */
 
 __int64 __fastcall CmpCheckRegistry2(ULONG_PTR a1, int a2, int a3, __int64 a4, char a5, PRTL_BITMAP a6, int *a7)

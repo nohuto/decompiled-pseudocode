@@ -1,122 +1,120 @@
 /*
- * XREFs of RtlpCreateWnfNameSubscription @ 0x180099A4C
+ * XREFs of RtlpCreateWnfNameSubscription @ 0x18002E89C
  * Callers:
- *     RtlpSubscribeWnfStateChangeNotificationInternal @ 0x1800991AC (RtlpSubscribeWnfStateChangeNotificationInternal.c)
+ *     RtlpSubscribeWnfStateChangeNotificationInternal @ 0x18002DFFC (RtlpSubscribeWnfStateChangeNotificationInternal.c)
  * Callees:
- *     RtlAcquireSRWLockShared @ 0x180010220 (RtlAcquireSRWLockShared.c)
- *     RtlReleaseSRWLockShared @ 0x180010280 (RtlReleaseSRWLockShared.c)
- *     RtlAllocateHeap @ 0x180011260 (RtlAllocateHeap.c)
- *     RtlFreeHeap @ 0x1800269F0 (RtlFreeHeap.c)
- *     RtlRbInsertNodeEx @ 0x180054EB0 (RtlRbInsertNodeEx.c)
- *     RtlAcquireSRWLockExclusive @ 0x180055AE0 (RtlAcquireSRWLockExclusive.c)
- *     RtlReleaseSRWLockExclusive @ 0x1800567B0 (RtlReleaseSRWLockExclusive.c)
- *     RtlpFindWnfNameSubscription @ 0x180099F00 (RtlpFindWnfNameSubscription.c)
- *     __security_check_cookie @ 0x1801659C0 (__security_check_cookie.c)
- *     memcmp @ 0x1801676D0 (memcmp.c)
- *     memset$thunk$772440563353939046 @ 0x180172030 (memset$thunk$772440563353939046.c)
+ *     RtlpFindWnfNameSubscription @ 0x18002ED50 (RtlpFindWnfNameSubscription.c)
+ *     RtlAcquireSRWLockShared @ 0x18003CC20 (RtlAcquireSRWLockShared.c)
+ *     RtlReleaseSRWLockShared @ 0x18003CC80 (RtlReleaseSRWLockShared.c)
+ *     RtlAllocateHeap @ 0x18003DC60 (RtlAllocateHeap.c)
+ *     RtlFreeHeap @ 0x1800533F0 (RtlFreeHeap.c)
+ *     RtlRbInsertNodeEx @ 0x18006AA90 (RtlRbInsertNodeEx.c)
+ *     RtlAcquireSRWLockExclusive @ 0x18006B6C0 (RtlAcquireSRWLockExclusive.c)
+ *     RtlReleaseSRWLockExclusive @ 0x18006C390 (RtlReleaseSRWLockExclusive.c)
+ *     __security_check_cookie @ 0x180163D80 (__security_check_cookie.c)
+ *     memcmp @ 0x180165A90 (memcmp.c)
+ *     memset$thunk$772440563353939046 @ 0x180171030 (memset$thunk$772440563353939046.c)
  */
 
-__int64 __fastcall RtlpCreateWnfNameSubscription(_QWORD *a1, __int64 a2, __int64 a3)
+__int64 __fastcall RtlpCreateWnfNameSubscription(__int64 *a1, __int64 a2, __int64 a3)
 {
   __int64 v3; // r13
-  bool v4; // bl
+  BOOLEAN v4; // bl
   __int64 WnfNameSubscription; // rax
-  void *Heap; // rax
-  unsigned __int64 v8; // r15
+  char *Heap; // rax
+  char *v8; // r15
   __int64 v9; // rax
-  volatile signed __int32 **v10; // rdx
-  unsigned __int64 v11; // r8
-  __int64 v12; // rax
-  unsigned __int64 v13; // rdi
-  int v14; // ebp
-  unsigned __int64 v15; // rax
-  __int64 v17; // [rsp+20h] [rbp-48h] BYREF
+  __int64 v10; // rax
+  unsigned __int64 v11; // rdi
+  int v12; // ebp
+  unsigned __int64 v13; // rax
+  __int64 v15; // [rsp+20h] [rbp-48h] BYREF
 
-  v3 = qword_1801CE200;
+  v3 = qword_1801CD200;
   v4 = 0;
-  v17 = a2;
+  v15 = a2;
   if ( a3 )
     return 3221225485LL;
-  RtlAcquireSRWLockShared((volatile signed __int64 *)(qword_1801CE200 + 8));
-  WnfNameSubscription = RtlpFindWnfNameSubscription(v3, &v17);
+  RtlAcquireSRWLockShared((PRTL_SRWLOCK)(qword_1801CD200 + 8));
+  WnfNameSubscription = RtlpFindWnfNameSubscription(v3, &v15);
   if ( WnfNameSubscription )
   {
     if ( _InterlockedIncrement64((volatile signed __int64 *)(WnfNameSubscription + 88)) <= 1 )
       __fastfail(0xEu);
     *a1 = WnfNameSubscription;
-    RtlReleaseSRWLockShared((volatile signed __int64 *)(v3 + 8));
+    RtlReleaseSRWLockShared((PRTL_SRWLOCK)(v3 + 8));
     return 0LL;
   }
-  RtlReleaseSRWLockShared((volatile signed __int64 *)(v3 + 8));
-  Heap = (void *)RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, 0x98uLL);
-  v8 = (unsigned __int64)Heap;
+  RtlReleaseSRWLockShared((PRTL_SRWLOCK)(v3 + 8));
+  Heap = (char *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, 0x98uLL);
+  v8 = Heap;
   if ( Heap )
   {
     memset_thunk_772440563353939046(Heap, 0, 0x98uLL);
-    v9 = v17;
+    v9 = v15;
     *(_DWORD *)v8 = 9963794;
-    *(_QWORD *)(v8 + 16) = v9;
-    *(_QWORD *)(v8 + 80) = v8 + 72;
-    *(_QWORD *)(v8 + 72) = v8 + 72;
-    *(_QWORD *)(v8 + 88) = 1LL;
-    *(_DWORD *)(v8 + 124) = 0;
-    RtlAcquireSRWLockExclusive((volatile signed __int32 *)(v3 + 8), v10, v11);
-    v12 = RtlpFindWnfNameSubscription(v3, &v17);
-    if ( v12 )
+    *((_QWORD *)v8 + 2) = v9;
+    *((_QWORD *)v8 + 10) = v8 + 72;
+    *((_QWORD *)v8 + 9) = v8 + 72;
+    *((_QWORD *)v8 + 11) = 1LL;
+    *((_DWORD *)v8 + 31) = 0;
+    RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)(v3 + 8));
+    v10 = RtlpFindWnfNameSubscription(v3, &v15);
+    if ( v10 )
     {
-      if ( _InterlockedIncrement64((volatile signed __int64 *)(v12 + 88)) <= 1 )
+      if ( _InterlockedIncrement64((volatile signed __int64 *)(v10 + 88)) <= 1 )
         __fastfail(0xEu);
-      *a1 = v12;
-      RtlReleaseSRWLockExclusive((volatile signed __int64 *)(v3 + 8));
-      RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v8);
+      *a1 = v10;
+      RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(v3 + 8));
+      RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v8);
     }
     else
     {
-      v13 = *(_QWORD *)(v3 + 16);
+      v11 = *(_QWORD *)(v3 + 16);
       if ( (*(_BYTE *)(v3 + 24) & 1) != 0 )
       {
-        if ( v13 )
-          v13 ^= v3 + 16;
+        if ( v11 )
+          v11 ^= v3 + 16;
       }
-      v14 = *(_BYTE *)(v3 + 24) & 1;
-      if ( v13 )
+      v12 = *(_BYTE *)(v3 + 24) & 1;
+      if ( v11 )
       {
         while ( 1 )
         {
-          if ( memcmp((const void *)(v8 + 16), (const void *)(v13 - 16), 8uLL) >= 0 )
+          if ( memcmp(v8 + 16, (const void *)(v11 - 16), 8uLL) >= 0 )
           {
-            v15 = *(_QWORD *)(v13 + 8);
-            if ( v14 )
+            v13 = *(_QWORD *)(v11 + 8);
+            if ( v12 )
             {
-              if ( !v15 )
+              if ( !v13 )
               {
 LABEL_15:
                 v4 = 1;
                 break;
               }
-              v15 ^= v13;
+              v13 ^= v11;
             }
-            if ( !v15 )
+            if ( !v13 )
               goto LABEL_15;
           }
           else
           {
-            v15 = *(_QWORD *)v13;
-            if ( v14 )
+            v13 = *(_QWORD *)v11;
+            if ( v12 )
             {
-              if ( !v15 )
+              if ( !v13 )
                 break;
-              v15 ^= v13;
+              v13 ^= v11;
             }
-            if ( !v15 )
+            if ( !v13 )
               break;
           }
-          v13 = v15;
+          v11 = v13;
         }
       }
-      RtlRbInsertNodeEx(v3 + 16, v13, v4, v8 + 32);
-      *a1 = v8;
-      RtlReleaseSRWLockExclusive((volatile signed __int64 *)(v3 + 8));
+      RtlRbInsertNodeEx((PRTL_RB_TREE)(v3 + 16), (PRTL_BALANCED_NODE)v11, v4, (PRTL_BALANCED_NODE)(v8 + 32));
+      *a1 = (__int64)v8;
+      RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(v3 + 8));
     }
     return 0LL;
   }

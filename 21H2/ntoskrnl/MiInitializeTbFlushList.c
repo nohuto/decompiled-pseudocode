@@ -1,9 +1,9 @@
 /*
- * XREFs of MiInitializeTbFlushList @ 0x14026DF5C
+ * XREFs of MiInitializeTbFlushList @ 0x14025BEFC
  * Callers:
- *     MiEliminateZeroPages @ 0x140646580 (MiEliminateZeroPages.c)
- *     MiProtectLargeKernelHalRange @ 0x1407A1470 (MiProtectLargeKernelHalRange.c)
- *     MmDeleteShadowMapping @ 0x1408D1964 (MmDeleteShadowMapping.c)
+ *     MiEliminateZeroPages @ 0x14063B370 (MiEliminateZeroPages.c)
+ *     MiProtectLargeKernelHalRange @ 0x1407A1670 (MiProtectLargeKernelHalRange.c)
+ *     MmDeleteShadowMapping @ 0x1408D1AC4 (MmDeleteShadowMapping.c)
  * Callees:
  *     <none>
  */

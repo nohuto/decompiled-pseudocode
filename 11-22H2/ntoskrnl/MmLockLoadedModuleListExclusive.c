@@ -25,9 +25,9 @@ void __fastcall MmLockLoadedModuleListExclusive(unsigned __int8 *a1)
   {
     v3 = KeGetCurrentIrql();
     __writecr8(0xFuLL);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
-      if ( (KiIrqlFlags & 1) != 0 && v3 <= 0xFu )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v3 <= 0xFu )
       {
         SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
         if ( v3 == 15 )

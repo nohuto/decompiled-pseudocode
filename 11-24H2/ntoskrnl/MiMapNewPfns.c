@@ -1,19 +1,19 @@
 /*
- * XREFs of MiMapNewPfns @ 0x1407E96AC
+ * XREFs of MiMapNewPfns @ 0x1407E9C7C
  * Callers:
- *     MiAddPhysicalMemory @ 0x1407E866C (MiAddPhysicalMemory.c)
+ *     MiAddPhysicalMemory @ 0x1407E8C3C (MiAddPhysicalMemory.c)
  * Callees:
- *     MiPageToNode @ 0x14026C1E0 (MiPageToNode.c)
- *     MiMakeZeroedPageTablesEx @ 0x1403A62E0 (MiMakeZeroedPageTablesEx.c)
- *     MiUnlockDynamicMemoryShared @ 0x1403D57CC (MiUnlockDynamicMemoryShared.c)
- *     MiLockDynamicMemoryShared @ 0x1403D5830 (MiLockDynamicMemoryShared.c)
- *     MiGetClosestImplicitNode @ 0x1403F379C (MiGetClosestImplicitNode.c)
- *     MiGetPteAddress @ 0x140437550 (MiGetPteAddress.c)
- *     MiInitializeDynamicPfns @ 0x14066D8BC (MiInitializeDynamicPfns.c)
- *     MiPhysicalMemoryEverRemoved @ 0x14066E644 (MiPhysicalMemoryEverRemoved.c)
- *     MiCreateIoPageExclusion @ 0x140675738 (MiCreateIoPageExclusion.c)
- *     MiRemoveIoPageExclusion @ 0x140676A0C (MiRemoveIoPageExclusion.c)
- *     MiZeroHotAddMemory @ 0x1407EA394 (MiZeroHotAddMemory.c)
+ *     MiPageToNode @ 0x140221770 (MiPageToNode.c)
+ *     MiUnlockDynamicMemoryShared @ 0x140264630 (MiUnlockDynamicMemoryShared.c)
+ *     MiLockDynamicMemoryShared @ 0x140264694 (MiLockDynamicMemoryShared.c)
+ *     MiMakeZeroedPageTablesEx @ 0x14026D5D0 (MiMakeZeroedPageTablesEx.c)
+ *     MiGetClosestImplicitNode @ 0x140391F4C (MiGetClosestImplicitNode.c)
+ *     MiGetPteAddress @ 0x140429FD0 (MiGetPteAddress.c)
+ *     MiInitializeDynamicPfns @ 0x14066EA90 (MiInitializeDynamicPfns.c)
+ *     MiPhysicalMemoryEverRemoved @ 0x14066F818 (MiPhysicalMemoryEverRemoved.c)
+ *     MiCreateIoPageExclusion @ 0x140676908 (MiCreateIoPageExclusion.c)
+ *     MiRemoveIoPageExclusion @ 0x140677BDC (MiRemoveIoPageExclusion.c)
+ *     MiZeroHotAddMemory @ 0x1407EA964 (MiZeroHotAddMemory.c)
  */
 
 __int64 __fastcall MiMapNewPfns(__int64 a1)
@@ -24,7 +24,7 @@ __int64 __fastcall MiMapNewPfns(__int64 a1)
   __int64 v5; // rdx
   __int64 v6; // rax
   __int64 v7; // r8
-  ULONG_PTR v8; // r12
+  unsigned __int64 v8; // r12
   __int64 v9; // r15
   unsigned int v10; // eax
   unsigned int v11; // edx
@@ -39,7 +39,7 @@ __int64 __fastcall MiMapNewPfns(__int64 a1)
   __int64 v20; // [rsp+30h] [rbp-58h] BYREF
   __int128 v21; // [rsp+38h] [rbp-50h]
   __int64 v22; // [rsp+48h] [rbp-40h]
-  ULONG_PTR v23; // [rsp+50h] [rbp-38h]
+  __int64 v23; // [rsp+50h] [rbp-38h]
 
   v1 = *(_QWORD *)(a1 + 16);
   v3 = 0;
@@ -65,7 +65,7 @@ __int64 __fastcall MiMapNewPfns(__int64 a1)
   result = MiCreateIoPageExclusion(&v20, (v11 >> 1) & 1);
   if ( (int)result >= 0 )
   {
-    if ( v8 >= 0x40000 && qword_140E3D450 >= 0x200000 )
+    if ( v8 >= 0x40000 && qword_140E3D590 >= 0x200000 )
     {
       if ( PteAddress != (PteAddress & 0xFFFFFFFFFFFFF000uLL) )
         PteAddress &= 0xFFFFFFFFFFFFF000uLL;
@@ -88,7 +88,7 @@ __int64 __fastcall MiMapNewPfns(__int64 a1)
     {
       CurrentThread = 0LL;
     }
-    if ( (unsigned int)MiMakeZeroedPageTablesEx(PteAddress, v9, v17, 3, v16) )
+    if ( (unsigned int)MiMakeZeroedPageTablesEx(PteAddress, v9, v17, 3u, v16) )
     {
       if ( !(unsigned int)MiPhysicalMemoryEverRemoved(*(_QWORD *)(a1 + 16), v8, 1) )
         *(_DWORD *)(a1 + 40) |= 0x40000u;

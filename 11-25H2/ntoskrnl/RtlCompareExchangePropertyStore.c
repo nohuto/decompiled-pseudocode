@@ -12,14 +12,18 @@
  *     ExFreePoolWithTag @ 0x140B62CD0 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall RtlCompareExchangePropertyStore(_OWORD *Key, unsigned __int64 a2, __int64 *a3, _QWORD *a4)
+NTSTATUS __cdecl RtlCompareExchangePropertyStore(
+        ULONG_PTR Key,
+        PULONG_PTR Comperand,
+        PULONG_PTR Exchange,
+        PULONG_PTR Context)
 {
   int v4; // r12d
   void *v6; // r15
   _OWORD *i; // rdi
   unsigned __int8 v9; // al
   __int64 v10; // r8
-  unsigned __int64 v11; // rdx
+  PULONG_PTR v11; // rdx
   unsigned __int8 v12; // bp
   char *v13; // rax
   char *Pool2; // rbx
@@ -29,16 +33,16 @@ __int64 __fastcall RtlCompareExchangePropertyStore(_OWORD *Key, unsigned __int64
   __int64 v18; // rdx
   void *v19; // rdi
   __int64 v20; // rcx
-  __int64 v21; // rcx
-  __int64 v22; // rcx
-  unsigned int v23; // ebx
+  unsigned __int64 v21; // rcx
+  unsigned __int64 v22; // rcx
+  NTSTATUS v23; // ebx
 
   v4 = 0;
   v6 = 0LL;
-  for ( i = Key; ; i = Key )
+  for ( i = (_OWORD *)Key; ; i = (_OWORD *)Key )
   {
     v9 = RtlpAcquirePropStoreLockExclusive(&RtlpPropStoreLock);
-    v11 = (unsigned __int64)RtlpPropStoreEntries;
+    v11 = (PULONG_PTR)RtlpPropStoreEntries;
     v12 = v9;
     if ( RtlpPropStoreEntries )
     {
@@ -89,17 +93,17 @@ LABEL_28:
         memmove(Pool2, RtlpPropStoreEntries, 24LL * (unsigned int)RtlpPropStoreEntriesActiveCount);
         v6 = v19;
       }
-      i = Key;
+      i = (_OWORD *)Key;
       RtlpPropStoreEntries = Pool2;
       RtlpPropStoreEntriesTotalCount = v16;
 LABEL_16:
       v4 = 1;
       v20 = 3LL * (unsigned int)RtlpPropStoreEntriesActiveCount;
-      v11 = (unsigned int)(RtlpPropStoreEntriesActiveCount + 1);
+      v11 = (PULONG_PTR)(unsigned int)(RtlpPropStoreEntriesActiveCount + 1);
       LODWORD(RtlpPropStoreEntriesActiveCount) = RtlpPropStoreEntriesActiveCount + 1;
       v13 = &Pool2[8 * v20];
-      if ( a3 )
-        v21 = *a3;
+      if ( Exchange )
+        v21 = *Exchange;
       else
         v21 = 0LL;
       *((_QWORD *)v13 + 2) = v21;
@@ -111,13 +115,13 @@ LABEL_16:
     ExFreePoolWithTag(Pool2, 0);
   }
   v22 = *((_QWORD *)v13 + 2);
-  if ( !a3 || v22 == *a3 )
+  if ( !Exchange || v22 == *Exchange )
   {
-    v11 = a2;
-    *((_QWORD *)v13 + 2) = a2;
+    v11 = Comperand;
+    *((_QWORD *)v13 + 2) = Comperand;
   }
-  if ( a4 )
-    *a4 = v22;
+  if ( Context )
+    *Context = v22;
   if ( v4 )
   {
     qsort(RtlpPropStoreEntries, (unsigned int)RtlpPropStoreEntriesActiveCount, 0x18uLL, RtlpComparePropertyEntry);

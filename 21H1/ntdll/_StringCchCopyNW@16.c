@@ -12,15 +12,15 @@
  * Fallback: raw IDA disassembly follows.
  *
  * 000000004B38628E: mov     edi, edi
- * 000000004B386290: push    ebp; pszSrc
+ * 000000004B386290: push    ebp; pcchNewDestLength
  * 000000004B386291: mov     ebp, esp
- * 000000004B386293: cmp     [ebp+cchDest], 7FFFFFFEh
+ * 000000004B386293: cmp     dword ptr [ebp+cchDest], 7FFFFFFEh
  * 000000004B38629A: jbe     short loc_4B3862A8
  * 000000004B38629C: xor     edx, edx
  * 000000004B38629E: mov     eax, 80070057h
  * 000000004B3862A3: mov     [ecx], dx
  * 000000004B3862A6: jmp     short loc_4B3862B4
- * 000000004B3862A8: push    [ebp+cchDest]; pcchNewDestLength
+ * 000000004B3862A8: push    dword ptr [ebp+cchDest]
  * 000000004B3862AB: push    [ebp+pszDest]; cchDest
  * 000000004B3862AE: push    ecx; pszDest
  * 000000004B3862AF: call    StringCopyWorkerW_1

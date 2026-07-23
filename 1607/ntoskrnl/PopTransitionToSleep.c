@@ -3,15 +3,15 @@
  * Callers:
  *     <none>
  * Callees:
- *     KeSetEvent @ 0x1400562D0 (KeSetEvent.c)
- *     KeWaitForSingleObject @ 0x14005C880 (KeWaitForSingleObject.c)
- *     PopDiagTraceEventNoPayload @ 0x1400B06CC (PopDiagTraceEventNoPayload.c)
- *     MmFlushAllPages @ 0x140113180 (MmFlushAllPages.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     MmTrimFilePagesFromWorkingSets @ 0x1401EA500 (MmTrimFilePagesFromWorkingSets.c)
+ *     KeSetEvent @ 0x140055E50 (KeSetEvent.c)
+ *     KeWaitForSingleObject @ 0x14005C400 (KeWaitForSingleObject.c)
+ *     PopDiagTraceEventNoPayload @ 0x1400AE73C (PopDiagTraceEventNoPayload.c)
+ *     MmFlushAllPages @ 0x1401136F0 (MmFlushAllPages.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     MmTrimFilePagesFromWorkingSets @ 0x1401EA32C (MmTrimFilePagesFromWorkingSets.c)
  *     MmDuplicateMemory @ 0x1403C9918 (MmDuplicateMemory.c)
  *     PopInvokeSystemStateHandler @ 0x1403CC110 (PopInvokeSystemStateHandler.c)
- *     PopEnlargeHiberFile @ 0x14052F134 (PopEnlargeHiberFile.c)
+ *     PopEnlargeHiberFile @ 0x14052F674 (PopEnlargeHiberFile.c)
  */
 
 void __fastcall PopTransitionToSleep(struct _KEVENT *StartContext)
@@ -26,7 +26,7 @@ void __fastcall PopTransitionToSleep(struct _KEVENT *StartContext)
 
   memset(v7, 0, 0x28uLL);
   Lock = StartContext[3].Header.Lock;
-  qword_140303650 = (__int64)KeGetCurrentThread();
+  qword_140303590 = (__int64)KeGetCurrentThread();
   v8 = 0;
   if ( Lock == 3 || Lock == 6 )
   {
@@ -61,10 +61,10 @@ void __fastcall PopTransitionToSleep(struct _KEVENT *StartContext)
   {
     KeSetEvent(StartContext, 0, 1u);
     KeWaitForSingleObject(&StartContext[1], Executive, 0, 0, 0LL);
-    v5 = PopInvokeSystemStateHandler(Lock, qword_1403034A0);
+    v5 = PopInvokeSystemStateHandler(Lock, qword_1403033E0);
   }
   v6 = v5;
-  qword_1403039B8 = __rdtsc();
+  qword_1403038F8 = __rdtsc();
   StartContext[3].Header.SignalState = v6;
   KeSetEvent(StartContext + 2, 0, 0);
 }

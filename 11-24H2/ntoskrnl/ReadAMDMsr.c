@@ -1,7 +1,7 @@
 /*
- * XREFs of ReadAMDMsr @ 0x1406B31F0
+ * XREFs of ReadAMDMsr @ 0x1406B4190
  * Callers:
- *     KiDisableCacheErrataSource @ 0x1405C3828 (KiDisableCacheErrataSource.c)
+ *     KiDisableCacheErrataSource @ 0x1405C0DF8 (KiDisableCacheErrataSource.c)
  * Callees:
  *     <none>
  */

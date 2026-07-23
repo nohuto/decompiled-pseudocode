@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlpHpVaMgrRangeFree @ 0x140350900
+ * XREFs of RtlpHpVaMgrRangeFree @ 0x140352980
  * Callers:
- *     RtlpHpVaMgrCtxFree @ 0x14034FEFC (RtlpHpVaMgrCtxFree.c)
+ *     RtlpHpVaMgrCtxFree @ 0x140351F7C (RtlpHpVaMgrCtxFree.c)
  * Callees:
- *     RtlpHpVaMgrRangeCleanup @ 0x14034FCD4 (RtlpHpVaMgrRangeCleanup.c)
- *     MmFreePoolMemory @ 0x14035029C (MmFreePoolMemory.c)
+ *     RtlpHpVaMgrRangeCleanup @ 0x140351D54 (RtlpHpVaMgrRangeCleanup.c)
+ *     MmFreePoolMemory @ 0x14035231C (MmFreePoolMemory.c)
  */
 
 __int64 __fastcall RtlpHpVaMgrRangeFree(__int64 a1, __int64 a2)

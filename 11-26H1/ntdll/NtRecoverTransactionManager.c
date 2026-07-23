@@ -1,16 +1,16 @@
 /*
- * XREFs of NtRecoverTransactionManager @ 0x180161E90
+ * XREFs of NtRecoverTransactionManager @ 0x180161D90
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 NtRecoverTransactionManager()
+NTSTATUS __cdecl NtRecoverTransactionManager(HANDLE TransactionManagerHandle)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 379LL;
+  result = 379;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

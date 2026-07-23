@@ -1,9 +1,9 @@
 /*
- * XREFs of CmpLogHiveInitializeEvent @ 0x140772A1C
+ * XREFs of CmpLogHiveInitializeEvent @ 0x140775A1C
  * Callers:
- *     CmpCreateHive @ 0x1408B5E6C (CmpCreateHive.c)
+ *     CmpCreateHive @ 0x1408BC440 (CmpCreateHive.c)
  * Callees:
- *     EtwTraceKernelEvent @ 0x1402DAC90 (EtwTraceKernelEvent.c)
+ *     EtwTraceKernelEvent @ 0x1402BCA50 (EtwTraceKernelEvent.c)
  */
 
 __int64 __fastcall CmpLogHiveInitializeEvent(__int64 a1, int a2, unsigned __int16 *a3, int a4)

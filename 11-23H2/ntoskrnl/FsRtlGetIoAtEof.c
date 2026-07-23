@@ -1,9 +1,9 @@
 /*
- * XREFs of FsRtlGetIoAtEof @ 0x140304CB0
+ * XREFs of FsRtlGetIoAtEof @ 0x140304F40
  * Callers:
  *     <none>
  * Callees:
- *     FsRtlpWaitForIoAtEof @ 0x140304990 (FsRtlpWaitForIoAtEof.c)
+ *     FsRtlpWaitForIoAtEof @ 0x140304C20 (FsRtlpWaitForIoAtEof.c)
  */
 
 __int64 __fastcall FsRtlGetIoAtEof(__int64 a1, volatile signed __int32 *a2, __int64 a3, __int64 a4, char a5, char *a6)

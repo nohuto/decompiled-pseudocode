@@ -1,5 +1,5 @@
 /*
- * XREFs of HalpBlkSpuriousInterrupt @ 0x140C7D940
+ * XREFs of HalpBlkSpuriousInterrupt @ 0x140C83940
  * Callers:
  *     <none>
  * Callees:

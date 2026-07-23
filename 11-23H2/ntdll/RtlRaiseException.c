@@ -19,10 +19,10 @@
  *     RtlRaiseExceptionForReturnAddressHijack @ 0x1800A5DD0 (RtlRaiseExceptionForReturnAddressHijack.c)
  *     RtlpPossibleDeadlock @ 0x1800F4EB4 (RtlpPossibleDeadlock.c)
  *     RtlpAllocateHeapRaiseException @ 0x180103A18 (RtlpAllocateHeapRaiseException.c)
- *     RtlReportFatalFailure @ 0x18010D6F0 (RtlReportFatalFailure.c)
- *     TppRaiseHandleStatus @ 0x1801271D0 (TppRaiseHandleStatus.c)
- *     TppRaiseInvalidParameter @ 0x180127278 (TppRaiseInvalidParameter.c)
- *     PssNtValidateDescriptor @ 0x180129400 (PssNtValidateDescriptor.c)
+ *     RtlReportFatalFailure @ 0x18010D6C0 (RtlReportFatalFailure.c)
+ *     TppRaiseHandleStatus @ 0x1801271A0 (TppRaiseHandleStatus.c)
+ *     TppRaiseInvalidParameter @ 0x180127248 (TppRaiseInvalidParameter.c)
+ *     PssNtValidateDescriptor @ 0x1801293D0 (PssNtValidateDescriptor.c)
  * Callees:
  *     RtlDispatchException @ 0x18001E680 (RtlDispatchException.c)
  *     RtlLookupFunctionEntry @ 0x180020780 (RtlLookupFunctionEntry.c)
@@ -35,27 +35,27 @@
  *     RtlRestoreContext @ 0x1800A5420 (RtlRestoreContext.c)
  *     RtlpGuardSynchronizeRestorePc @ 0x1800A5990 (RtlpGuardSynchronizeRestorePc.c)
  *     _alloca_probe @ 0x1800A5E30 (_alloca_probe.c)
- *     RtlRaiseStatus @ 0x1801106D0 (RtlRaiseStatus.c)
+ *     RtlRaiseStatus @ 0x1801106A0 (RtlRaiseStatus.c)
  */
 
 void __stdcall RtlRaiseException(PEXCEPTION_RECORD ExceptionRecord)
 {
-  unsigned __int64 v1; // rbx
-  unsigned int v3; // r14d
+  ULONG64 v1; // rbx
+  ULONG v3; // r14d
   unsigned __int64 v4; // rbx
   unsigned __int64 v5; // rcx
   unsigned __int64 v6; // rcx
   void *v7; // rsp
   void *v8; // rsp
-  unsigned int v9; // ebx
+  NTSTATUS v9; // ebx
   ULONG64 v10; // r14
   struct _IMAGE_RUNTIME_FUNCTION_ENTRY *v11; // rax
-  __int64 v12; // r8
-  PEXCEPTION_RECORD v13; // rcx
+  EXCEPTION_RECORD *v12; // rcx
+  BOOLEAN v13; // r8
   ULONG64 v14; // rbx
   struct _IMAGE_RUNTIME_FUNCTION_ENTRY *v15; // rax
   unsigned __int64 ImageBase; // [rsp+40h] [rbp+0h] BYREF
-  unsigned int v17; // [rsp+48h] [rbp+8h] BYREF
+  PCONTEXT_EX ContextLength; // [rsp+48h] [rbp+8h] BYREF
   unsigned __int64 EstablisherFrame; // [rsp+50h] [rbp+10h] BYREF
   PVOID HandlerData; // [rsp+58h] [rbp+18h] BYREF
   struct _UNWIND_HISTORY_TABLE HistoryTable; // [rsp+60h] [rbp+20h] BYREF
@@ -64,7 +64,7 @@ void __stdcall RtlRaiseException(PEXCEPTION_RECORD ExceptionRecord)
   ExceptionRecord->ExceptionFlags |= 0x80u;
   v1 = 0LL;
   v3 = 1048587;
-  if ( !NtCurrentPeb()->BeingDebugged || (((unsigned __int64)qword_18019C3B8 >> 60) & 3) == 1 )
+  if ( !NtCurrentPeb()->BeingDebugged || ((LdrSystemDllInitBlock.MitigationOptionsMap.Map[1] >> 60) & 3) == 1 )
   {
     if ( MEMORY[0x7FFE03D8] )
     {
@@ -73,7 +73,7 @@ void __stdcall RtlRaiseException(PEXCEPTION_RECORD ExceptionRecord)
       {
         v4 = MEMORY[0x7FFE0708] | MEMORY[0x7FFE03D8] | 0x8000000000000000uLL;
         if ( ((MEMORY[0x7FFE0708] | MEMORY[0x7FFE03D8]) & 0x800LL) != 0
-          && (((unsigned __int64)qword_18019C3B8 >> 60) & 3) != 1 )
+          && ((LdrSystemDllInitBlock.MitigationOptionsMap.Map[1] >> 60) & 3) != 1 )
         {
           v4 = (MEMORY[0x7FFE0708] | MEMORY[0x7FFE03D8]) & 0x7FFFFFFFFFFFF7FFLL | 0x8000000000000000uLL;
         }
@@ -81,14 +81,14 @@ void __stdcall RtlRaiseException(PEXCEPTION_RECORD ExceptionRecord)
       }
     }
   }
-  RtlGetExtendedContextLength2(v3, &v17, v1);
-  v5 = v17 + 15LL;
-  if ( v5 <= v17 )
+  RtlGetExtendedContextLength2(v3, (PULONG)&ContextLength, v1);
+  v5 = (unsigned int)ContextLength + 15LL;
+  if ( v5 <= (unsigned int)ContextLength )
     v5 = 0xFFFFFFFFFFFFFF0LL;
   v6 = v5 & 0xFFFFFFFFFFFFFFF0uLL;
   v7 = alloca(v6);
   v8 = alloca(v6);
-  v9 = RtlInitializeExtendedContext2(&ImageBase, v3, &v17, v1);
+  v9 = RtlInitializeExtendedContext2((PCONTEXT)&ImageBase, v3, &ContextLength, v1);
   RtlpCaptureContext2(&ImageBase);
   v10 = v21;
   HistoryTable.Count = 0;
@@ -109,18 +109,18 @@ LABEL_22:
   }
   ExceptionRecord->ExceptionAddress = (void *)v21;
   RtlpGuardSynchronizeRestorePc(v21);
-  v13 = ExceptionRecord;
+  v12 = ExceptionRecord;
   if ( NtCurrentPeb()->BeingDebugged )
   {
-    LOBYTE(v12) = 1;
+    v13 = 1;
 LABEL_21:
-    v9 = ZwRaiseException(v13, &ImageBase, v12);
+    v9 = ZwRaiseException(v12, (PCONTEXT)&ImageBase, v13);
     goto LABEL_22;
   }
-  if ( !RtlDispatchException((__int64)ExceptionRecord, (__int64)&ImageBase) )
+  if ( !RtlDispatchException(ExceptionRecord, (PCONTEXT)&ImageBase) )
   {
-    v12 = 0LL;
-    v13 = ExceptionRecord;
+    v13 = 0;
+    v12 = ExceptionRecord;
     goto LABEL_21;
   }
   RtlRestoreContext((PCONTEXT)&ImageBase, ExceptionRecord);

@@ -1,10 +1,10 @@
 /*
- * XREFs of CmpRecordRegistryLockRelease @ 0x14022FAF0
+ * XREFs of CmpRecordRegistryLockRelease @ 0x14022FBE0
  * Callers:
  *     CmpUnlockRegistry @ 0x140AF54F0 (CmpUnlockRegistry.c)
  * Callees:
- *     Feature_AccessRegistryLockAcquireCount__private_ReportDeviceUsage @ 0x140419778 (Feature_AccessRegistryLockAcquireCount__private_ReportDeviceUsage.c)
- *     CmpThreadInfoLogStack @ 0x14061600C (CmpThreadInfoLogStack.c)
+ *     Feature_AccessRegistryLockAcquireCount__private_ReportDeviceUsage @ 0x140419B08 (Feature_AccessRegistryLockAcquireCount__private_ReportDeviceUsage.c)
+ *     CmpThreadInfoLogStack @ 0x14061655C (CmpThreadInfoLogStack.c)
  */
 
 struct _KTHREAD *CmpRecordRegistryLockRelease()

@@ -14,7 +14,7 @@
 __int64 __fastcall BiSetBootEntryOrder(PULONG Ids, PULONG Count)
 {
   unsigned int v2; // edi
-  int v4; // ebx
+  NTSTATUS v4; // ebx
   NTSTATUS v5; // eax
   __int64 v7; // [rsp+40h] [rbp+18h] BYREF
 

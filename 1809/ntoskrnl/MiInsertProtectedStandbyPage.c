@@ -7,14 +7,14 @@
  *     KxWaitForLockChainValid @ 0x140022C50 (KxWaitForLockChainValid.c)
  *     MiPfnReferenceCountIsZero @ 0x140030E00 (MiPfnReferenceCountIsZero.c)
  *     MiSwizzleInvalidPte @ 0x14003D7C0 (MiSwizzleInvalidPte.c)
- *     KxWaitForLockOwnerShip @ 0x14007DF20 (KxWaitForLockOwnerShip.c)
- *     KxAcquireQueuedSpinLock @ 0x1400AC9B0 (KxAcquireQueuedSpinLock.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
- *     KeSetEvent @ 0x1400C2B00 (KeSetEvent.c)
- *     MiUpdateAvailableEvents @ 0x14017F824 (MiUpdateAvailableEvents.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     KiAcquireQueuedSpinLockInstrumented @ 0x140290A00 (KiAcquireQueuedSpinLockInstrumented.c)
- *     KiReleaseQueuedSpinLockInstrumented @ 0x140290AB8 (KiReleaseQueuedSpinLockInstrumented.c)
+ *     KxWaitForLockOwnerShip @ 0x14007DF10 (KxWaitForLockOwnerShip.c)
+ *     KxAcquireQueuedSpinLock @ 0x1400AC8F0 (KxAcquireQueuedSpinLock.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC6A0 (KxReleaseQueuedSpinLock.c)
+ *     KeSetEvent @ 0x1400C2A40 (KeSetEvent.c)
+ *     MiUpdateAvailableEvents @ 0x14017F964 (MiUpdateAvailableEvents.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiAcquireQueuedSpinLockInstrumented @ 0x140290BF0 (KiAcquireQueuedSpinLockInstrumented.c)
+ *     KiReleaseQueuedSpinLockInstrumented @ 0x140290CA8 (KiReleaseQueuedSpinLockInstrumented.c)
  */
 
 __int64 __fastcall MiInsertProtectedStandbyPage(__int64 a1, __int64 a2, __int64 a3)
@@ -59,7 +59,7 @@ __int64 __fastcall MiInsertProtectedStandbyPage(__int64 a1, __int64 a2, __int64 
   v6 = 0x2AAAAAAAAAAAAAABLL;
   v7 = (unsigned __int128)((a2 + 0x58000000000LL) * (__int128)0x2AAAAAAAAAAAAAABLL) >> 64;
   v8 = ((unsigned __int64)v7 >> 63) + (v7 >> 3);
-  if ( (v5 & 0x10000000000000LL) != 0 || byte_14043DBDE && _bittest64((const signed __int64 *)qword_14043E218, v8 >> 9) )
+  if ( (v5 & 0x10000000000000LL) != 0 || byte_14043EC9E && _bittest64((const signed __int64 *)qword_14043F2D8, v8 >> 9) )
     return MiPfnReferenceCountIsZero(a2, v8, a3, v6);
   if ( !a1 )
     return MiPfnReferenceCountIsZero(a2, v8, a3, v6);
@@ -68,8 +68,8 @@ __int64 __fastcall MiInsertProtectedStandbyPage(__int64 a1, __int64 a2, __int64 
     return MiPfnReferenceCountIsZero(a2, v8, a3, v6);
   if ( (a3 & 0x40) != 0 )
     return MiPfnReferenceCountIsZero(a2, v8, a3, v6);
-  v9 = *(_QWORD *)(qword_14043A748 + 8 * ((v5 >> 40) & 0x3FF));
-  if ( *(_QWORD *)(qword_14043A748 + 8 * ((*(_QWORD *)(a1 + 40) >> 40) & 0x3FFLL)) != v9
+  v9 = *(_QWORD *)(qword_14043B808 + 8 * ((v5 >> 40) & 0x3FF));
+  if ( *(_QWORD *)(qword_14043B808 + 8 * ((*(_QWORD *)(a1 + 40) >> 40) & 0x3FFLL)) != v9
     || ((unsigned __int8)a3 & 7u) >= 5 )
   {
     return MiPfnReferenceCountIsZero(a2, v8, a3, v6);
@@ -141,8 +141,8 @@ LABEL_17:
   *(_QWORD *)(a2 + 24) ^= (*(_QWORD *)(a2 + 24) ^ ((unsigned __int64)(unsigned int)KiTbFlushTimeStamp << 56)) & 0xF00000000000000LL;
   *(_BYTE *)(a2 + 34) = v16 & 0xF8 | 2;
   v17 = *(_QWORD *)(a1 + 16);
-  if ( qword_14043A0C0 && (v17 & 0x10) == 0 )
-    v17 &= ~qword_14043A0C0;
+  if ( qword_14043B180 && (v17 & 0x10) == 0 )
+    v17 &= ~qword_14043B180;
   v18 = 0xFFFFFFFFFLL;
   v19 = *(_QWORD *)(a1 + 40) & 0xFFFFFFFFFLL;
   v20 = 0xFFFFFFF000000000uLL;
@@ -159,7 +159,7 @@ LABEL_17:
     v23 = 5LL;
   else
     v23 = v22 & 7;
-  v24 = (_QWORD *)(*(_QWORD *)(*(_QWORD *)(qword_14043A748 + 8 * ((*(_QWORD *)(a2 + 40) >> 40) & 0x3FFLL)) + 16LL)
+  v24 = (_QWORD *)(*(_QWORD *)(*(_QWORD *)(qword_14043B808 + 8 * ((*(_QWORD *)(a2 + 40) >> 40) & 0x3FFLL)) + 16LL)
                  + 1984LL * (*(_QWORD *)(a2 + 40) >> 58)
                  + 24 * (v23 + 8 * ((*(_QWORD *)(a2 + 40) >> 36) & 3LL)));
   ++v24[107];

@@ -4,7 +4,7 @@
  *     InitializeUserOrMachineLangList @ 0x180039F7C (InitializeUserOrMachineLangList.c)
  *     RtlGetThreadPreferredUILanguages @ 0x18003CC60 (RtlGetThreadPreferredUILanguages.c)
  *     RtlpMuiRegLoadRegistryInfo @ 0x18004B910 (RtlpMuiRegLoadRegistryInfo.c)
- *     RtlGetSystemPreferredUILanguages @ 0x18007A100 (RtlGetSystemPreferredUILanguages.c)
+ *     RtlGetSystemPreferredUILanguages @ 0x18007A110 (RtlGetSystemPreferredUILanguages.c)
  * Callees:
  *     RtlLeaveCriticalSection @ 0x180014020 (RtlLeaveCriticalSection.c)
  *     RtlEnterCriticalSection @ 0x180014370 (RtlEnterCriticalSection.c)
@@ -31,7 +31,7 @@ __int64 __fastcall RtlpSetProcUserMachineLangList(__int64 a1, unsigned int a2)
   if ( a2 == 1 && *(_QWORD *)(a1 + 64) || *(_QWORD *)(a1 + 56) && !a2 )
     return 0LL;
   RtlpInitMuiCriticalSection();
-  RtlEnterCriticalSection((__int64)&RegistryInfoCritSect);
+  RtlEnterCriticalSection(&RegistryInfoCritSect);
   if ( (!*(_QWORD *)(a1 + 64) || a2 != 1) && (!*(_QWORD *)(a1 + 56) || a2) )
   {
     PreferredUILanguages = RtlpMuiRegLoadPreferredUILanguages(a1, v6, a2, 3, (__int64)&v10, (__int64)&v11);
@@ -67,6 +67,6 @@ __int64 __fastcall RtlpSetProcUserMachineLangList(__int64 a1, unsigned int a2)
       }
     }
   }
-  RtlLeaveCriticalSection((__int64)&RegistryInfoCritSect);
+  RtlLeaveCriticalSection(&RegistryInfoCritSect);
   return (unsigned int)PreferredUILanguages;
 }

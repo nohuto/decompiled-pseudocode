@@ -1,14 +1,14 @@
 /*
- * XREFs of PpmEventHgsNormalizedTable @ 0x140502DA4
+ * XREFs of PpmEventHgsNormalizedTable @ 0x1404FC674
  * Callers:
- *     PpmEventTraceControlCallback @ 0x1407DCAD0 (PpmEventTraceControlCallback.c)
+ *     PpmEventTraceControlCallback @ 0x1407E0E70 (PpmEventTraceControlCallback.c)
  * Callees:
- *     EtwEventEnabled @ 0x140212D90 (EtwEventEnabled.c)
- *     EtwWriteEx @ 0x140212F70 (EtwWriteEx.c)
- *     KeQueryMaximumProcessorCountEx @ 0x1402767B0 (KeQueryMaximumProcessorCountEx.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     EtwEventEnabled @ 0x140212E70 (EtwEventEnabled.c)
+ *     EtwWriteEx @ 0x140213050 (EtwWriteEx.c)
+ *     KeQueryMaximumProcessorCountEx @ 0x140275D20 (KeQueryMaximumProcessorCountEx.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void PpmEventHgsNormalizedTable()
@@ -43,9 +43,7 @@ void PpmEventHgsNormalizedTable()
   v11 = *(_DWORD *)(PpmHeteroCapability + 4);
   if ( PpmEtwRegistered )
   {
-    if ( EtwEventEnabled(
-           (REGHANDLE)PopModernStandbyStateNotify.ApcState.ApcListHead[1].Blink,
-           &PPM_ETW_WPS_ORDER_VALUE_TABLE_RUNDOWN) )
+    if ( EtwEventEnabled(PpmEtwHandle, &PPM_ETW_WPS_ORDER_VALUE_TABLE_RUNDOWN) )
     {
       v13 = MaximumProcessorCount * v11;
       Pool2 = (_BYTE *)ExAllocatePool2(0x100uLL);
@@ -69,7 +67,7 @@ void PpmEventHgsNormalizedTable()
           do
           {
             v5 = 0;
-            v6 = (char *)(*(_QWORD *)(v3 + 8) + v1);
+            v6 = (char *)(*(_QWORD *)(v3 + 16) + v1);
             if ( v4 )
             {
               do
@@ -77,8 +75,8 @@ void PpmEventHgsNormalizedTable()
                 v7 = v5 + v1 * v4;
                 v8 = PpmHeteroCapability;
                 v9 = 11 * v7;
-                Pool2[v9 + 9] = *(_BYTE *)(PpmHeteroCapability + 4 * v7 + 25);
-                Pool2[v9 + 10] = *(_BYTE *)(v8 + 4 * v7 + 24);
+                Pool2[v9 + 9] = *(_BYTE *)(PpmHeteroCapability + 4 * v7 + 49);
+                Pool2[v9 + 10] = *(_BYTE *)(v8 + 4 * v7 + 48);
                 v10 = *v6;
                 *(_DWORD *)&Pool2[v9 + 4] = v5++;
                 Pool2[v9 + 8] = v10;
@@ -95,15 +93,7 @@ void PpmEventHgsNormalizedTable()
         v22 = Pool2;
         v24 = 0;
         v23 = 11 * v13;
-        EtwWriteEx(
-          (REGHANDLE)PopModernStandbyStateNotify.ApcState.ApcListHead[1].Blink,
-          &PPM_ETW_WPS_ORDER_VALUE_TABLE_RUNDOWN,
-          0LL,
-          0,
-          0LL,
-          0LL,
-          5u,
-          &UserData);
+        EtwWriteEx(PpmEtwHandle, &PPM_ETW_WPS_ORDER_VALUE_TABLE_RUNDOWN, 0LL, 0, 0LL, 0LL, 5u, &UserData);
         ExFreePoolWithTag(Pool2, 0x654D5050u);
       }
     }

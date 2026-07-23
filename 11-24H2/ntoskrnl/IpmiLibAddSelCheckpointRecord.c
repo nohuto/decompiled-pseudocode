@@ -1,10 +1,10 @@
 /*
- * XREFs of IpmiLibAddSelCheckpointRecord @ 0x14069FD0C
+ * XREFs of IpmiLibAddSelCheckpointRecord @ 0x1406A0E10
  * Callers:
- *     WheaSelLogCheckPoint @ 0x1407C67B0 (WheaSelLogCheckPoint.c)
+ *     WheaSelLogCheckPoint @ 0x1407C6C10 (WheaSelLogCheckPoint.c)
  * Callees:
- *     IpmiHwContextInitialized @ 0x14069F66C (IpmiHwContextInitialized.c)
- *     IpmiLibAddSelRecord @ 0x14069FE08 (IpmiLibAddSelRecord.c)
+ *     IpmiHwContextInitialized @ 0x1406A0770 (IpmiHwContextInitialized.c)
+ *     IpmiLibAddSelRecord @ 0x1406A0F0C (IpmiLibAddSelRecord.c)
  */
 
 __int64 __fastcall IpmiLibAddSelCheckpointRecord(__int64 a1)

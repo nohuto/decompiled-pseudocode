@@ -1,17 +1,17 @@
 /*
- * XREFs of PiDevCfgResolveVariableFormatString @ 0x1407AB0D0
+ * XREFs of PiDevCfgResolveVariableFormatString @ 0x1407AE0F0
  * Callers:
  *     <none>
  * Callees:
- *     RtlStringCchPrintfW @ 0x1404B0AA4 (RtlStringCchPrintfW.c)
- *     PnpValidateRegistryString @ 0x1404ED020 (PnpValidateRegistryString.c)
- *     PnpValidateRegistryMultiSz @ 0x140506D2C (PnpValidateRegistryMultiSz.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     IopGetRegistryValue @ 0x140A121A8 (IopGetRegistryValue.c)
- *     PiDevCfgResolveVariable @ 0x140A71BD0 (PiDevCfgResolveVariable.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     RtlStringCchPrintfW @ 0x1404AA134 (RtlStringCchPrintfW.c)
+ *     PnpValidateRegistryString @ 0x1404E6600 (PnpValidateRegistryString.c)
+ *     PnpValidateRegistryMultiSz @ 0x1405006FC (PnpValidateRegistryMultiSz.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     IopGetRegistryValue @ 0x140A11398 (IopGetRegistryValue.c)
+ *     PiDevCfgResolveVariable @ 0x140A480A0 (PiDevCfgResolveVariable.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PiDevCfgResolveVariableFormatString(__int64 a1, void *a2, __int64 a3)

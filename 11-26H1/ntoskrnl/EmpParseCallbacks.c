@@ -1,19 +1,19 @@
 /*
- * XREFs of EmpParseCallbacks @ 0x140CB600C
+ * XREFs of EmpParseCallbacks @ 0x140CBC04C
  * Callers:
- *     EmpParseInfDatabase @ 0x140CB63E0 (EmpParseInfDatabase.c)
+ *     EmpParseInfDatabase @ 0x140CBC420 (EmpParseInfDatabase.c)
  * Callees:
- *     strtoul @ 0x140535858 (strtoul.c)
- *     EmpSearchCallbackDatabase @ 0x1405B4E44 (EmpSearchCallbackDatabase.c)
- *     EmpSearchEntryDatabase @ 0x1405B4E7C (EmpSearchEntryDatabase.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
- *     EmpInfParseGetGuidFromName @ 0x140CB5E44 (EmpInfParseGetGuidFromName.c)
- *     EmpInfParseGetSectionLineCount @ 0x140CB5EF0 (EmpInfParseGetSectionLineCount.c)
- *     CmpGetKeyName @ 0x140CB7F1C (CmpGetKeyName.c)
- *     CmpGetSectionLineIndex @ 0x140CB7F54 (CmpGetSectionLineIndex.c)
- *     CmpGetSectionLineIndexValueCount @ 0x140CB7FCC (CmpGetSectionLineIndexValueCount.c)
+ *     strtoul @ 0x140537CD8 (strtoul.c)
+ *     EmpSearchCallbackDatabase @ 0x1405B7654 (EmpSearchCallbackDatabase.c)
+ *     EmpSearchEntryDatabase @ 0x1405B768C (EmpSearchEntryDatabase.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
+ *     EmpInfParseGetGuidFromName @ 0x140CBBE84 (EmpInfParseGetGuidFromName.c)
+ *     EmpInfParseGetSectionLineCount @ 0x140CBBF30 (EmpInfParseGetSectionLineCount.c)
+ *     CmpGetKeyName @ 0x140CBDF60 (CmpGetKeyName.c)
+ *     CmpGetSectionLineIndex @ 0x140CBDF98 (CmpGetSectionLineIndex.c)
+ *     CmpGetSectionLineIndexValueCount @ 0x140CBE010 (CmpGetSectionLineIndexValueCount.c)
  */
 
 __int64 __fastcall EmpParseCallbacks(__int64 a1)
@@ -108,8 +108,8 @@ LABEL_22:
       *(_QWORD *)&v11[1].Data1 = 0LL;
       *(_DWORD *)v11[1].Data4 = 0;
       *(_QWORD *)&v11[2].Data1 = 0LL;
-      *(_QWORD *)v11[2].Data4 = EmpParseLock.StackBase;
-      EmpParseLock.StackBase = v11[2].Data4;
+      *(_QWORD *)v11[2].Data4 = EmpParseLock.StateSaveArea;
+      EmpParseLock.StateSaveArea = (_XSAVE_FORMAT *)v11[2].Data4;
     }
     v12 = v11;
 LABEL_14:

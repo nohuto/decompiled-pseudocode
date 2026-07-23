@@ -47,7 +47,7 @@ void __fastcall EtwpGetAutoLoggerEventNameFilter(__int64 a1, __int64 a2, PVOID *
   char *v34; // [rsp+D8h] [rbp-28h]
   int v35; // [rsp+E0h] [rbp-20h] BYREF
   UNICODE_STRING *p_UnicodeString; // [rsp+E8h] [rbp-18h]
-  _QWORD v37[140]; // [rsp+1D0h] [rbp+D0h] BYREF
+  _RTL_QUERY_REGISTRY_TABLE QueryTable[20]; // [rsp+1D0h] [rbp+D0h] BYREF
 
   *a3 = 0LL;
   v5 = -1LL;
@@ -85,45 +85,45 @@ void __fastcall EtwpGetAutoLoggerEventNameFilter(__int64 a1, __int64 a2, PVOID *
       v15 = v14;
       if ( v14 )
       {
-        memset(v37, 0, sizeof(v37));
+        memset(QueryTable, 0, sizeof(QueryTable));
         v26 = v15;
-        v37[0] = &EtwpQueryRegistryCallback;
-        LODWORD(v37[4]) = 11;
-        v37[3] = &v25;
+        QueryTable[0].QueryRoutine = (PRTL_QUERY_REGISTRY_ROUTINE)&EtwpQueryRegistryCallback;
+        QueryTable[0].DefaultType = 11;
+        QueryTable[0].EntryContext = &v25;
         v25 = 11;
-        v37[2] = L"MatchAnyKeyword";
-        LODWORD(v37[11]) = 11;
-        v37[10] = &v27;
-        v37[9] = L"MatchAllKeyword";
+        QueryTable[0].Name = L"MatchAnyKeyword";
+        QueryTable[1].DefaultType = 11;
+        QueryTable[1].EntryContext = &v27;
+        QueryTable[1].Name = L"MatchAllKeyword";
         v28 = v15 + 8;
-        v37[17] = &v29;
-        v37[16] = L"Level";
+        QueryTable[2].EntryContext = &v29;
+        QueryTable[2].Name = L"Level";
         v30 = v15 + 16;
-        v37[24] = &v31;
-        v37[23] = L"FilterIn";
+        QueryTable[3].EntryContext = &v31;
+        QueryTable[3].Name = L"FilterIn";
         v32 = v15 + 17;
-        v37[31] = &v33;
-        v37[30] = L"NameCount";
+        QueryTable[4].EntryContext = &v33;
+        QueryTable[4].Name = L"NameCount";
         v34 = v15 + 18;
-        v37[38] = &v35;
-        v37[37] = L"Names";
+        QueryTable[5].EntryContext = &v35;
+        QueryTable[5].Name = L"Names";
         v27 = 11;
-        v37[40] = &v19;
-        v37[7] = &EtwpQueryRegistryCallback;
-        v37[14] = &EtwpQueryRegistryCallback;
-        LODWORD(v37[18]) = 4;
+        QueryTable[5].DefaultData = &v19;
+        QueryTable[1].QueryRoutine = (PRTL_QUERY_REGISTRY_ROUTINE)&EtwpQueryRegistryCallback;
+        QueryTable[2].QueryRoutine = (PRTL_QUERY_REGISTRY_ROUTINE)&EtwpQueryRegistryCallback;
+        QueryTable[2].DefaultType = 4;
         v29 = 4;
-        v37[21] = &EtwpQueryRegistryCallback;
-        LODWORD(v37[25]) = 4;
+        QueryTable[3].QueryRoutine = (PRTL_QUERY_REGISTRY_ROUTINE)&EtwpQueryRegistryCallback;
+        QueryTable[3].DefaultType = 4;
         v31 = 4;
-        v37[28] = &EtwpQueryRegistryCallback;
-        LODWORD(v37[32]) = 4;
+        QueryTable[4].QueryRoutine = (PRTL_QUERY_REGISTRY_ROUTINE)&EtwpQueryRegistryCallback;
+        QueryTable[4].DefaultType = 4;
         v33 = 4;
-        v37[35] = &EtwpQueryRegistryCallback;
+        QueryTable[5].QueryRoutine = (PRTL_QUERY_REGISTRY_ROUTINE)&EtwpQueryRegistryCallback;
         p_UnicodeString = &UnicodeString;
-        LODWORD(v37[39]) = 1;
+        QueryTable[5].DefaultType = 1;
         v35 = 1;
-        if ( (int)RtlQueryRegistryValuesEx(0x40000000LL, KeyHandle, v37, 0LL, 0LL) >= 0 )
+        if ( RtlQueryRegistryValuesEx(0x40000000u, (PCWSTR)KeyHandle, QueryTable, 0LL, 0LL) >= 0 )
         {
           Length = UnicodeString.Length;
           v17 = 0;

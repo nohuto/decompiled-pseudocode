@@ -1,9 +1,9 @@
 /*
- * XREFs of IopPortFindSuitableRange @ 0x14055ABC8
+ * XREFs of IopPortFindSuitableRange @ 0x14055B108
  * Callers:
  *     <none>
  * Callees:
- *     RtlFindRange @ 0x140559DF0 (RtlFindRange.c)
+ *     RtlFindRange @ 0x14055A330 (RtlFindRange.c)
  */
 
 char __fastcall IopPortFindSuitableRange(__int64 a1, unsigned __int64 *a2)

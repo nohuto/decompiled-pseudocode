@@ -1,35 +1,35 @@
 /*
- * XREFs of CmpLoadKeyCommon @ 0x14046E794
+ * XREFs of CmpLoadKeyCommon @ 0x140467F14
  * Callers:
- *     CmLoadAppKey @ 0x1408B2250 (CmLoadAppKey.c)
- *     CmLoadKey @ 0x140AE15E4 (CmLoadKey.c)
+ *     CmLoadAppKey @ 0x1408B87F4 (CmLoadAppKey.c)
+ *     CmLoadKey @ 0x140ADEAD4 (CmLoadKey.c)
  * Callees:
- *     CmpRecheckHiveVolumePolicy @ 0x14046EB90 (CmpRecheckHiveVolumePolicy.c)
- *     CmpJoinClassOfTrust @ 0x14046EEE4 (CmpJoinClassOfTrust.c)
- *     SetFailureLocation @ 0x140494894 (SetFailureLocation.c)
- *     TmEnableCallbacks @ 0x140534530 (TmEnableCallbacks.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     CmpSetGlobalQuotaAllowed @ 0x140851464 (CmpSetGlobalQuotaAllowed.c)
- *     UNLOCK_HIVE_LOAD @ 0x1408B11FC (UNLOCK_HIVE_LOAD.c)
- *     CmpFlushHive @ 0x1408B321C (CmpFlushHive.c)
- *     CmpLockRegistryFreezeAware @ 0x1408B3FA0 (CmpLockRegistryFreezeAware.c)
- *     LOCK_HIVE_LOAD @ 0x1408B45EC (LOCK_HIVE_LOAD.c)
- *     CmpDestroyHive @ 0x1408B6DC4 (CmpDestroyHive.c)
- *     CmpTrimHive @ 0x1408B781C (CmpTrimHive.c)
- *     CmpReferenceKeyControlBlockUnsafe @ 0x1408BC670 (CmpReferenceKeyControlBlockUnsafe.c)
- *     CmpLockHiveListExclusive @ 0x1408C84C8 (CmpLockHiveListExclusive.c)
- *     CmpUnlockHiveList @ 0x1408C8634 (CmpUnlockHiveList.c)
- *     CmpLinkHiveToMaster @ 0x14097C11C (CmpLinkHiveToMaster.c)
- *     CmpDereferenceKeyControlBlockUnsafe @ 0x140A2F9B0 (CmpDereferenceKeyControlBlockUnsafe.c)
- *     CmpInitCmRM @ 0x140A75780 (CmpInitCmRM.c)
- *     CmpVEAddHiveToSIDMappingTable @ 0x140AFD380 (CmpVEAddHiveToSIDMappingTable.c)
- *     CmpAddToHiveFileList @ 0x140B05280 (CmpAddToHiveFileList.c)
- *     CmRmFinalizeRecovery @ 0x140B3A6E8 (CmRmFinalizeRecovery.c)
- *     CmpIsKeyDeletedForKeyBody @ 0x140C58750 (CmpIsKeyDeletedForKeyBody.c)
- *     CmpPerformKeyBodyDeletionCheck @ 0x140C587C0 (CmpPerformKeyBodyDeletionCheck.c)
- *     CmpAttachToRegistryProcess @ 0x140C58930 (CmpAttachToRegistryProcess.c)
- *     CmpUnlockRegistry @ 0x140C58970 (CmpUnlockRegistry.c)
- *     CmpDetachFromRegistryProcess @ 0x140C58A50 (CmpDetachFromRegistryProcess.c)
+ *     CmpRecheckHiveVolumePolicy @ 0x140468310 (CmpRecheckHiveVolumePolicy.c)
+ *     CmpJoinClassOfTrust @ 0x140468664 (CmpJoinClassOfTrust.c)
+ *     SetFailureLocation @ 0x14048E3E4 (SetFailureLocation.c)
+ *     TmEnableCallbacks @ 0x1405369B0 (TmEnableCallbacks.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     CmpSetGlobalQuotaAllowed @ 0x140857774 (CmpSetGlobalQuotaAllowed.c)
+ *     UNLOCK_HIVE_LOAD @ 0x1408B7808 (UNLOCK_HIVE_LOAD.c)
+ *     CmpFlushHive @ 0x1408B97F0 (CmpFlushHive.c)
+ *     CmpLockRegistryFreezeAware @ 0x1408BA574 (CmpLockRegistryFreezeAware.c)
+ *     LOCK_HIVE_LOAD @ 0x1408BABC0 (LOCK_HIVE_LOAD.c)
+ *     CmpDestroyHive @ 0x1408BD394 (CmpDestroyHive.c)
+ *     CmpTrimHive @ 0x1408BDDEC (CmpTrimHive.c)
+ *     CmpReferenceKeyControlBlockUnsafe @ 0x1408C2C40 (CmpReferenceKeyControlBlockUnsafe.c)
+ *     CmpLockHiveListExclusive @ 0x1408CEA7C (CmpLockHiveListExclusive.c)
+ *     CmpUnlockHiveList @ 0x1408CEBE8 (CmpUnlockHiveList.c)
+ *     CmpLinkHiveToMaster @ 0x14093E12C (CmpLinkHiveToMaster.c)
+ *     CmpDereferenceKeyControlBlockUnsafe @ 0x140A41830 (CmpDereferenceKeyControlBlockUnsafe.c)
+ *     CmpInitCmRM @ 0x140A7E4A0 (CmpInitCmRM.c)
+ *     CmpVEAddHiveToSIDMappingTable @ 0x140AFEEF0 (CmpVEAddHiveToSIDMappingTable.c)
+ *     CmpAddToHiveFileList @ 0x140B06E90 (CmpAddToHiveFileList.c)
+ *     CmRmFinalizeRecovery @ 0x140B3CA88 (CmRmFinalizeRecovery.c)
+ *     CmpIsKeyDeletedForKeyBody @ 0x140C5E750 (CmpIsKeyDeletedForKeyBody.c)
+ *     CmpPerformKeyBodyDeletionCheck @ 0x140C5E7C0 (CmpPerformKeyBodyDeletionCheck.c)
+ *     CmpAttachToRegistryProcess @ 0x140C5E930 (CmpAttachToRegistryProcess.c)
+ *     CmpUnlockRegistry @ 0x140C5E970 (CmpUnlockRegistry.c)
+ *     CmpDetachFromRegistryProcess @ 0x140C5EA50 (CmpDetachFromRegistryProcess.c)
  */
 
 __int64 __fastcall CmpLoadKeyCommon(
@@ -225,7 +225,7 @@ LABEL_42:
   UNLOCK_HIVE_LOAD();
   v20 = 0;
 LABEL_31:
-  if ( !CmpProfileLoaded && !CmpCallbackListLock.ApcStateFill[24] )
+  if ( !CmpProfileLoaded && !CmpContextListLock.ApcStateFill[16] )
   {
     CmpProfileLoaded = 1;
     CmpSetGlobalQuotaAllowed();

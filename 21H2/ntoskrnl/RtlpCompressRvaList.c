@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlpCompressRvaList @ 0x1406E9E60
+ * XREFs of RtlpCompressRvaList @ 0x140701240
  * Callers:
- *     RtlCreateRvaList @ 0x1407139BC (RtlCreateRvaList.c)
+ *     RtlCreateRvaList @ 0x1406C200C (RtlCreateRvaList.c)
  * Callees:
- *     MiImageRvaRawEnumNext @ 0x140681E60 (MiImageRvaRawEnumNext.c)
- *     MiImageRvaRawEnumFirst @ 0x1406A933C (MiImageRvaRawEnumFirst.c)
- *     RtlpSetRvaListRvaStateBits @ 0x1406B243C (RtlpSetRvaListRvaStateBits.c)
+ *     MiImageRvaRawEnumNext @ 0x1405DCEA0 (MiImageRvaRawEnumNext.c)
+ *     MiImageRvaRawEnumFirst @ 0x1406072BC (MiImageRvaRawEnumFirst.c)
+ *     RtlpSetRvaListRvaStateBits @ 0x14061147C (RtlpSetRvaListRvaStateBits.c)
  */
 
 __int64 __fastcall RtlpCompressRvaList(__int64 a1, _DWORD *a2, __int64 a3, __int64 a4, _DWORD *a5, _QWORD *a6, int *a7)

@@ -17,7 +17,7 @@
  *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
  */
 
-__int64 __fastcall MiFinishLastForkPageTable(__int64 a1, __int64 a2)
+void __fastcall MiFinishLastForkPageTable(__int64 a1, __int64 a2)
 {
   BOOL v3; // ebx
   __int64 v4; // rdi
@@ -29,9 +29,10 @@ __int64 __fastcall MiFinishLastForkPageTable(__int64 a1, __int64 a2)
   int v10; // r14d
   __int64 v11; // r8
   bool v12; // zf
-  __int64 result; // rax
+  unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
+  int v16; // eax
 
   v3 = 1;
   v4 = 48 * a2 - 0x220000000000LL;
@@ -80,25 +81,23 @@ LABEL_16:
     MiUnmapPageInHyperSpaceWorker((unsigned __int64)v8, 0x11u);
   }
 LABEL_18:
-  result = 0x7FFFFFFFFFFFFFFFLL;
   _InterlockedAnd64((volatile signed __int64 *)(v4 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
-    result = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0
-      && (unsigned __int8)result <= 0xFu
+    CurrentIrql = KeGetCurrentIrql();
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
       && (unsigned __int8)v7 <= 0xFu
-      && (unsigned __int8)result >= 2u )
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;
-      result = ~(unsigned __int16)(-1LL << ((unsigned __int8)v7 + 1));
-      v12 = ((unsigned int)result & SchedulerAssist[5]) == 0;
-      SchedulerAssist[5] &= result;
+      v16 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v7 + 1));
+      v12 = (v16 & SchedulerAssist[5]) == 0;
+      SchedulerAssist[5] &= v16;
       if ( v12 )
-        result = KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+        KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
     }
   }
   __writecr8(v7);
-  return result;
 }

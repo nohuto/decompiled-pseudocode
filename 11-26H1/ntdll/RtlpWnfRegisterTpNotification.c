@@ -1,44 +1,41 @@
 /*
- * XREFs of RtlpWnfRegisterTpNotification @ 0x180070714
+ * XREFs of RtlpWnfRegisterTpNotification @ 0x180090B64
  * Callers:
- *     RtlpInitializeWnf @ 0x180070624 (RtlpInitializeWnf.c)
+ *     RtlpInitializeWnf @ 0x180090A74 (RtlpInitializeWnf.c)
  * Callees:
- *     TpAllocWait @ 0x18004F460 (TpAllocWait.c)
- *     TpSetWaitEx @ 0x18004F8E0 (TpSetWaitEx.c)
- *     TpReleaseWait @ 0x1800703F0 (TpReleaseWait.c)
- *     NtClose @ 0x18015F120 (NtClose.c)
- *     ZwCreateEvent @ 0x18015F840 (ZwCreateEvent.c)
- *     NtSetWnfProcessNotificationEvent @ 0x1801627F0 (NtSetWnfProcessNotificationEvent.c)
+ *     TpAllocWait @ 0x1800399E0 (TpAllocWait.c)
+ *     TpSetWaitEx @ 0x180039E60 (TpSetWaitEx.c)
+ *     TpReleaseWait @ 0x180090840 (TpReleaseWait.c)
+ *     NtClose @ 0x18015F020 (NtClose.c)
+ *     ZwCreateEvent @ 0x18015F740 (ZwCreateEvent.c)
+ *     NtSetWnfProcessNotificationEvent @ 0x1801626F0 (NtSetWnfProcessNotificationEvent.c)
  */
 
 __int64 RtlpWnfRegisterTpNotification()
 {
-  int v0; // ebx
-  __int64 v1; // rdx
-  char v3; // [rsp+20h] [rbp-18h]
-  HANDLE Handle; // [rsp+40h] [rbp+8h] BYREF
-  __int64 v5; // [rsp+48h] [rbp+10h] BYREF
+  NTSTATUS v0; // ebx
+  PVOID Context; // [rsp+40h] [rbp+8h] BYREF
+  PTP_WAIT WaitReturn; // [rsp+48h] [rbp+10h] BYREF
 
-  v5 = 0LL;
-  Handle = 0LL;
-  v3 = 0;
-  v0 = ZwCreateEvent(&Handle, 2031619LL, 0LL, 1LL, v3);
+  WaitReturn = 0LL;
+  Context = 0LL;
+  v0 = ZwCreateEvent(&Context, 0x1F0003u, 0LL, SynchronizationEvent, 0);
   if ( v0 >= 0 )
   {
-    v0 = TpAllocWait(&v5, (__int64)RtlpWnfNotificationThread, (int)Handle, 0LL);
+    v0 = TpAllocWait(&WaitReturn, (PTP_WAIT_CALLBACK)RtlpWnfNotificationThread, Context, 0LL);
     if ( v0 >= 0 )
     {
-      v0 = NtSetWnfProcessNotificationEvent(Handle);
+      v0 = NtSetWnfProcessNotificationEvent(Context);
       if ( v0 >= 0 )
       {
-        TpSetWaitEx(v5, (volatile signed __int32 **)Handle, 0LL, 0LL);
+        TpSetWaitEx(WaitReturn, Context, 0LL, 0LL);
         return (unsigned int)v0;
       }
     }
-    if ( v5 )
-      TpReleaseWait(v5, v1);
+    if ( WaitReturn )
+      TpReleaseWait(WaitReturn);
   }
-  if ( Handle )
-    NtClose(Handle);
+  if ( Context )
+    NtClose(Context);
   return (unsigned int)v0;
 }

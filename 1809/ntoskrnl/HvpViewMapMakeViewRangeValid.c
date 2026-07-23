@@ -1,14 +1,14 @@
 /*
- * XREFs of HvpViewMapMakeViewRangeValid @ 0x1405A5658
+ * XREFs of HvpViewMapMakeViewRangeValid @ 0x1405A6658
  * Callers:
- *     HvpViewMapCreateViewsForRegion @ 0x1405A524C (HvpViewMapCreateViewsForRegion.c)
- *     HvpViewMapPromoteRangeToMapping @ 0x1406BA4B0 (HvpViewMapPromoteRangeToMapping.c)
- *     HvpViewMapExtendStorage @ 0x1406CC5A0 (HvpViewMapExtendStorage.c)
+ *     HvpViewMapCreateViewsForRegion @ 0x1405A624C (HvpViewMapCreateViewsForRegion.c)
+ *     HvpViewMapPromoteRangeToMapping @ 0x1406BB750 (HvpViewMapPromoteRangeToMapping.c)
+ *     HvpViewMapExtendStorage @ 0x1406CD840 (HvpViewMapExtendStorage.c)
  * Callees:
  *     CmSiProtectViewOfSection @ 0x14000F024 (CmSiProtectViewOfSection.c)
  *     CmSiPrefetchVirtualMemoryRange @ 0x14000F060 (CmSiPrefetchVirtualMemoryRange.c)
- *     CmSiLockViewOfSection @ 0x14016CD68 (CmSiLockViewOfSection.c)
- *     HvpViewMapTouchPages @ 0x1405A5B8C (HvpViewMapTouchPages.c)
+ *     CmSiLockViewOfSection @ 0x14016CE68 (CmSiLockViewOfSection.c)
+ *     HvpViewMapTouchPages @ 0x1405A6B8C (HvpViewMapTouchPages.c)
  */
 
 __int64 __fastcall HvpViewMapMakeViewRangeValid(SIZE_T a1, _QWORD *a2, __int64 a3, __int64 a4, char a5)
@@ -32,7 +32,7 @@ __int64 __fastcall HvpViewMapMakeViewRangeValid(SIZE_T a1, _QWORD *a2, __int64 a
   v11 = CmSiProtectViewOfSection(a1, *(void ***)(a1 + 24), v6, a4 - a3, 2u, (ULONG *)&v22);
   if ( v11 >= 0 )
   {
-    CmSiPrefetchVirtualMemoryRange(*(__int64 **)(a1 + 24), (__int64)v6, v5);
+    CmSiPrefetchVirtualMemoryRange(*(void ***)(a1 + 24), v6, v5);
     v13 = 0;
     if ( (*(_DWORD *)(a1 + 32) & 2) == 0 )
     {

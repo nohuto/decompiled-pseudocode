@@ -1,16 +1,16 @@
 /*
- * XREFs of MiLockPageAtDpc @ 0x14054F91C
+ * XREFs of MiLockPageAtDpc @ 0x14054FB5C
  * Callers:
- *     NtLockVirtualMemory @ 0x140270060 (NtLockVirtualMemory.c)
- *     MiInitializeMdlBatchPages @ 0x1402E38E4 (MiInitializeMdlBatchPages.c)
- *     MiInsertLargePageChain @ 0x1402FE784 (MiInsertLargePageChain.c)
- *     MiDeleteClusterPage @ 0x14032B830 (MiDeleteClusterPage.c)
- *     MiMakeLargePageTable @ 0x14053DA14 (MiMakeLargePageTable.c)
- *     MiRebuildLargePage @ 0x1405526D8 (MiRebuildLargePage.c)
- *     MiDemotePfnListChain @ 0x14055E218 (MiDemotePfnListChain.c)
- *     MiCreateKernelHalSlabRange @ 0x140A4F6A0 (MiCreateKernelHalSlabRange.c)
+ *     NtLockVirtualMemory @ 0x14025E000 (NtLockVirtualMemory.c)
+ *     MiInitializeMdlBatchPages @ 0x140294C34 (MiInitializeMdlBatchPages.c)
+ *     MiInsertLargePageChain @ 0x1403094D4 (MiInsertLargePageChain.c)
+ *     MiDeleteClusterPage @ 0x140336580 (MiDeleteClusterPage.c)
+ *     MiMakeLargePageTable @ 0x14053DC54 (MiMakeLargePageTable.c)
+ *     MiRebuildLargePage @ 0x140552918 (MiRebuildLargePage.c)
+ *     MiDemotePfnListChain @ 0x14055E458 (MiDemotePfnListChain.c)
+ *     MiCreateKernelHalSlabRange @ 0x140A506A0 (MiCreateKernelHalSlabRange.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x14024B280 (KeYieldProcessorEx.c)
+ *     KeYieldProcessorEx @ 0x1402EFAD0 (KeYieldProcessorEx.c)
  */
 
 __int64 __fastcall MiLockPageAtDpc(__int64 a1, __int64 a2, __int64 a3, __int64 a4)

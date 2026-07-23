@@ -1,13 +1,13 @@
 /*
- * XREFs of EtwpObjectTypeRundown @ 0x1407B0FE4
+ * XREFs of EtwpObjectTypeRundown @ 0x1407B1434
  * Callers:
- *     EtwpKernelTraceRundown @ 0x140A15E44 (EtwpKernelTraceRundown.c)
+ *     EtwpKernelTraceRundown @ 0x140A0F024 (EtwpKernelTraceRundown.c)
  * Callees:
- *     EtwpLogKernelEvent @ 0x140257180 (EtwpLogKernelEvent.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ZwQueryObject @ 0x1406A6610 (ZwQueryObject.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     EtwpLogKernelEvent @ 0x140287790 (EtwpLogKernelEvent.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ZwQueryObject @ 0x1406A75B0 (ZwQueryObject.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __fastcall EtwpObjectTypeRundown(__int64 a1, char a2)
@@ -40,7 +40,7 @@ void __fastcall EtwpObjectTypeRundown(__int64 a1, char a2)
   {
     if ( Pool2 )
       ExFreePoolWithTag(Pool2, 0);
-    Pool2 = (unsigned __int16 *)ExAllocatePool2(0x100uLL);
+    Pool2 = (unsigned __int16 *)ExAllocatePool2(0x100uLL, ObjectInformationLength, 0x74777445u);
     if ( !Pool2 )
       break;
     v5 = ZwQueryObject(0LL, ObjectTypesInformation, Pool2, ObjectInformationLength, &ObjectInformationLength);

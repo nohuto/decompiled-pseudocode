@@ -1,14 +1,14 @@
 /*
- * XREFs of Normalization__IsNormalized @ 0x1800ADD10
+ * XREFs of Normalization__IsNormalized @ 0x1800ACE40
  * Callers:
- *     RtlpIdnToUnicodeWorker @ 0x1800AD200 (RtlpIdnToUnicodeWorker.c)
- *     RtlIsNormalizedString @ 0x1800AF240 (RtlIsNormalizedString.c)
+ *     RtlpIdnToUnicodeWorker @ 0x1800AC330 (RtlpIdnToUnicodeWorker.c)
+ *     RtlIsNormalizedString @ 0x1800AE370 (RtlIsNormalizedString.c)
  * Callees:
- *     Normalization__CanCombinableCharactersCombine @ 0x1800B0530 (Normalization__CanCombinableCharactersCombine.c)
- *     CanComposeHangul @ 0x1800B0994 (CanComposeHangul.c)
- *     Normalization__CanCombineWithStartFirstPair @ 0x1800B0B28 (Normalization__CanCombineWithStartFirstPair.c)
- *     Normalization__GetSecondDecomposedCharPlane0 @ 0x1801218EC (Normalization__GetSecondDecomposedCharPlane0.c)
- *     Normalization__GetFirstDecomposedCharPlane0 @ 0x180121DB8 (Normalization__GetFirstDecomposedCharPlane0.c)
+ *     Normalization__CanCombinableCharactersCombine @ 0x1800AF660 (Normalization__CanCombinableCharactersCombine.c)
+ *     CanComposeHangul @ 0x1800AFAC4 (CanComposeHangul.c)
+ *     Normalization__CanCombineWithStartFirstPair @ 0x1800AFC58 (Normalization__CanCombineWithStartFirstPair.c)
+ *     Normalization__GetSecondDecomposedCharPlane0 @ 0x180121688 (Normalization__GetSecondDecomposedCharPlane0.c)
+ *     Normalization__GetFirstDecomposedCharPlane0 @ 0x180121B58 (Normalization__GetFirstDecomposedCharPlane0.c)
  */
 
 __int64 __fastcall Normalization__IsNormalized(__int64 a1, unsigned __int16 *a2, int a3, _BYTE *a4)

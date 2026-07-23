@@ -1,9 +1,9 @@
 /*
- * XREFs of MiCompareSlabEntry @ 0x1402C1F64
+ * XREFs of MiCompareSlabEntry @ 0x1402C2154
  * Callers:
- *     MiFreePageToSlabAllocator @ 0x1402C1F80 (MiFreePageToSlabAllocator.c)
- *     MiInsertSlabEntry @ 0x1402C2AA4 (MiInsertSlabEntry.c)
- *     MmUpdateSlabRangeProtection @ 0x1409F75B8 (MmUpdateSlabRangeProtection.c)
+ *     MiFreePageToSlabAllocator @ 0x1402C2170 (MiFreePageToSlabAllocator.c)
+ *     MiInsertSlabEntry @ 0x1402C2C94 (MiInsertSlabEntry.c)
+ *     MmUpdateSlabRangeProtection @ 0x1409F85B8 (MmUpdateSlabRangeProtection.c)
  * Callees:
  *     <none>
  */

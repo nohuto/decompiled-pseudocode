@@ -1,26 +1,26 @@
 /*
- * XREFs of MmSetAddressRangeModifiedEx @ 0x14039A698
+ * XREFs of MmSetAddressRangeModifiedEx @ 0x14039C3F8
  * Callers:
- *     CcFlushCacheOneRange @ 0x14039A180 (CcFlushCacheOneRange.c)
- *     CcZeroDataInCache @ 0x14039EF58 (CcZeroDataInCache.c)
- *     CcUnpinRepinnedBcb @ 0x1404AA000 (CcUnpinRepinnedBcb.c)
- *     CcPurgeAndClearCacheSection @ 0x1404B3978 (CcPurgeAndClearCacheSection.c)
- *     MmSetAddressRangeModified @ 0x1404B6E90 (MmSetAddressRangeModified.c)
+ *     CcFlushCacheOneRange @ 0x14039BEE0 (CcFlushCacheOneRange.c)
+ *     CcZeroDataInCache @ 0x1403A0CB8 (CcZeroDataInCache.c)
+ *     CcUnpinRepinnedBcb @ 0x1404A3690 (CcUnpinRepinnedBcb.c)
+ *     CcPurgeAndClearCacheSection @ 0x1404ACF44 (CcPurgeAndClearCacheSection.c)
+ *     MmSetAddressRangeModified @ 0x1404B06C0 (MmSetAddressRangeModified.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     MiLockPageTableInternal @ 0x1402B34E0 (MiLockPageTableInternal.c)
- *     MiUnlockPageTableInternal @ 0x1402D13E0 (MiUnlockPageTableInternal.c)
- *     MiReleasePageFileInfo @ 0x1402DAD50 (MiReleasePageFileInfo.c)
- *     MiGetMultiplexedVm @ 0x1402E47B0 (MiGetMultiplexedVm.c)
- *     MiUnlockWorkingSetShared @ 0x1402EB6C0 (MiUnlockWorkingSetShared.c)
- *     MiLockWorkingSetShared @ 0x1402EDD60 (MiLockWorkingSetShared.c)
- *     MiWriteValidPteNewProtection @ 0x140300450 (MiWriteValidPteNewProtection.c)
- *     MiCaptureDirtyBitToPfn @ 0x14031AE30 (MiCaptureDirtyBitToPfn.c)
- *     MiGetProcessorFlushList @ 0x1403229E0 (MiGetProcessorFlushList.c)
- *     MiFlushTbList @ 0x140329040 (MiFlushTbList.c)
- *     MiInsertTbFlushEntry @ 0x14035E7E0 (MiInsertTbFlushEntry.c)
- *     MiReleaseProcessorFlushList @ 0x1403613C0 (MiReleaseProcessorFlushList.c)
- *     MiMakeProtectionMask @ 0x140364A40 (MiMakeProtectionMask.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     MiUnlockPageTableInternal @ 0x1402B31A0 (MiUnlockPageTableInternal.c)
+ *     MiReleasePageFileInfo @ 0x1402BCB10 (MiReleasePageFileInfo.c)
+ *     MiGetMultiplexedVm @ 0x1402C67F0 (MiGetMultiplexedVm.c)
+ *     MiUnlockWorkingSetShared @ 0x1402CD700 (MiUnlockWorkingSetShared.c)
+ *     MiLockWorkingSetShared @ 0x1402CFDE0 (MiLockWorkingSetShared.c)
+ *     MiWriteValidPteNewProtection @ 0x1402E24D0 (MiWriteValidPteNewProtection.c)
+ *     MiLockPageTableInternal @ 0x1402FE1B0 (MiLockPageTableInternal.c)
+ *     MiCaptureDirtyBitToPfn @ 0x14031CE60 (MiCaptureDirtyBitToPfn.c)
+ *     MiGetProcessorFlushList @ 0x140324A10 (MiGetProcessorFlushList.c)
+ *     MiFlushTbList @ 0x14032B070 (MiFlushTbList.c)
+ *     MiInsertTbFlushEntry @ 0x140360580 (MiInsertTbFlushEntry.c)
+ *     MiReleaseProcessorFlushList @ 0x140363160 (MiReleaseProcessorFlushList.c)
+ *     MiMakeProtectionMask @ 0x1403667E0 (MiMakeProtectionMask.c)
  */
 
 char __fastcall MmSetAddressRangeModifiedEx(unsigned __int64 a1)
@@ -63,8 +63,8 @@ char __fastcall MmSetAddressRangeModifiedEx(unsigned __int64 a1)
   v25 = (((a1 + v5 - 1) >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
   v27 = a1 & 0xFFFFFFFFFFFFF000uLL;
   v26 = ((v6 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
-  v28 = MiLockWorkingSetShared((__int64)&unk_140E3D500, 0xFFFFF68000000000uLL, v5);
-  MiLockPageTableInternal((signed __int64)&unk_140E3D500, v26, 0);
+  v28 = MiLockWorkingSetShared((__int64)&unk_140E3D680, 0xFFFFF68000000000uLL, v5);
+  MiLockPageTableInternal((signed __int64)&unk_140E3D680, v26, 0);
   MultiplexedVm = MiGetMultiplexedVm(v8, a1 & 0xFFFFFFFFFFFFF000uLL);
   v10 = v25;
   v11 = MultiplexedVm;
@@ -84,7 +84,7 @@ char __fastcall MmSetAddressRangeModifiedEx(unsigned __int64 a1)
         while ( *(__int64 *)(v15 + 24) < 0 );
       }
       v16 = (*(_BYTE *)(v15 + 34) & 0x10) == 0;
-      v17 = *(struct _KEVENT **)(stru_140E2EB88.ThreadLock + 8 * ((*(_QWORD *)(v15 + 40) >> 43) & 0x3FFLL));
+      v17 = *(struct _KEVENT **)(stru_140E2ED08.ThreadLock + 8 * ((*(_QWORD *)(v15 + 40) >> 43) & 0x3FFLL));
       v23 = v17;
       if ( v16 || (*(_DWORD *)(v15 + 16) & 0x400LL) == 0 )
       {
@@ -94,7 +94,7 @@ char __fastcall MmSetAddressRangeModifiedEx(unsigned __int64 a1)
       }
       _InterlockedAnd64((volatile signed __int64 *)(v15 + 24), 0x7FFFFFFFFFFFFFFFuLL);
       if ( v14 )
-        MiReleasePageFileInfo(v17, v14, 0);
+        MiReleasePageFileInfo(v17, v14, 0LL);
       v3 = ProtectionMask;
       if ( ProtectionMask == 2 && (v13 & 0x800) != 0 )
       {

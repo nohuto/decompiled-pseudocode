@@ -1,16 +1,16 @@
 /*
- * XREFs of MiUpdateSlabPagePlaceholderState @ 0x140369290
+ * XREFs of MiUpdateSlabPagePlaceholderState @ 0x14036B030
  * Callers:
- *     MiCreateSlabEntry @ 0x140206284 (MiCreateSlabEntry.c)
- *     MiFreeSlabEntry @ 0x1402A7A6C (MiFreeSlabEntry.c)
- *     MiDemoteSlabEntry @ 0x1402AA3B4 (MiDemoteSlabEntry.c)
- *     MiGetPageFromSlabAllocator @ 0x14033A4BC (MiGetPageFromSlabAllocator.c)
- *     MiDefragmentSlabWorker @ 0x1407063E4 (MiDefragmentSlabWorker.c)
+ *     MiCreateSlabEntry @ 0x140206364 (MiCreateSlabEntry.c)
+ *     MiFreeSlabEntry @ 0x1402A6E7C (MiFreeSlabEntry.c)
+ *     MiDemoteSlabEntry @ 0x1402A97C4 (MiDemoteSlabEntry.c)
+ *     MiGetPageFromSlabAllocator @ 0x14033C53C (MiGetPageFromSlabAllocator.c)
+ *     MiDefragmentSlabWorker @ 0x14070B0B4 (MiDefragmentSlabWorker.c)
  * Callees:
- *     MiAbortCombineScan @ 0x1403691D0 (MiAbortCombineScan.c)
- *     VslSetPlaceholderPages @ 0x1403693A0 (VslSetPlaceholderPages.c)
- *     MiSetPfnIdentity @ 0x140369440 (MiSetPfnIdentity.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
+ *     MiAbortCombineScan @ 0x14036AF70 (MiAbortCombineScan.c)
+ *     VslSetPlaceholderPages @ 0x14036B140 (VslSetPlaceholderPages.c)
+ *     MiSetPfnIdentity @ 0x14036B1E0 (MiSetPfnIdentity.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
  */
 
 void __fastcall MiUpdateSlabPagePlaceholderState(int a1, ULONG_PTR a2, __int64 a3, int a4)

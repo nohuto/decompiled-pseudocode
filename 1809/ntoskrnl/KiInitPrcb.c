@@ -1,13 +1,13 @@
 /*
- * XREFs of KiInitPrcb @ 0x140570414
+ * XREFs of KiInitPrcb @ 0x140571414
  * Callers:
- *     KiInitializeBootStructures @ 0x14056FE10 (KiInitializeBootStructures.c)
+ *     KiInitializeBootStructures @ 0x140570E10 (KiInitializeBootStructures.c)
  * Callees:
- *     KeInitializeDpc @ 0x1400A56F0 (KeInitializeDpc.c)
- *     InitializeSListHead @ 0x1400F3180 (InitializeSListHead.c)
- *     KiInitializeDpcList @ 0x14013BA4C (KiInitializeDpcList.c)
- *     KiIntSteerInitPrcb @ 0x14013BAA0 (KiIntSteerInitPrcb.c)
- *     memset @ 0x1401D1880 (memset.c)
+ *     KeInitializeDpc @ 0x1400A5630 (KeInitializeDpc.c)
+ *     InitializeSListHead @ 0x1400F3200 (InitializeSListHead.c)
+ *     KiInitializeDpcList @ 0x14013BB4C (KiInitializeDpcList.c)
+ *     KiIntSteerInitPrcb @ 0x14013BBA0 (KiIntSteerInitPrcb.c)
+ *     memset @ 0x1401D1980 (memset.c)
  */
 
 __int64 __fastcall KiInitPrcb(__int64 a1, int a2)
@@ -116,7 +116,7 @@ __int64 __fastcall KiInitPrcb(__int64 a1, int a2)
     NtfsStructLock = 0LL;
     AfdWorkQueueSpinLock = 0LL;
     KeSleepingProcessors = 1310740;
-    memset(&unk_14041B464, 0, 0xA4uLL);
+    memset(&unk_14041C504, 0, 0xA4uLL);
   }
   KiIntSteerInitPrcb(a1);
   KeInitializeDpc((PRKDPC)(a1 + 25728), (PKDEFERRED_ROUTINE)KiAbDeferredProcessingWorker, 0LL);

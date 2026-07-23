@@ -1,22 +1,22 @@
 /*
- * XREFs of MiFinalizeImageHeaderPage @ 0x1404C7B8C
+ * XREFs of MiFinalizeImageHeaderPage @ 0x1404C18CC
  * Callers:
- *     MiReleaseImageSection @ 0x140A579A4 (MiReleaseImageSection.c)
+ *     MiReleaseImageSection @ 0x140A64F24 (MiReleaseImageSection.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     MiGetSubsectionFromPte @ 0x1402836C0 (MiGetSubsectionFromPte.c)
- *     MiPageToNode @ 0x140289710 (MiPageToNode.c)
- *     MiMakeDemandZeroPte @ 0x14028B2D0 (MiMakeDemandZeroPte.c)
- *     MI_PAGE_TO_FULL_COLOR @ 0x14028DF90 (MI_PAGE_TO_FULL_COLOR.c)
- *     MiReplaceTransitionPage @ 0x140293C88 (MiReplaceTransitionPage.c)
- *     MiReleaseFreshPageAtDpc @ 0x140295CA0 (MiReleaseFreshPageAtDpc.c)
- *     MiRemoveLockedPageChargeAndDecRef @ 0x1402E8BF0 (MiRemoveLockedPageChargeAndDecRef.c)
- *     MiGetPfnSlabType @ 0x1402FDC40 (MiGetPfnSlabType.c)
- *     MiGetSlabPage @ 0x14033A284 (MiGetSlabPage.c)
- *     MiUseSlabAllocator @ 0x140373DF4 (MiUseSlabAllocator.c)
- *     MiCheckSlabPage @ 0x14038A86C (MiCheckSlabPage.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     MiGetSubsectionFromPte @ 0x140282C30 (MiGetSubsectionFromPte.c)
+ *     MiPageToNode @ 0x140288C70 (MiPageToNode.c)
+ *     MiMakeDemandZeroPte @ 0x14028A830 (MiMakeDemandZeroPte.c)
+ *     MI_PAGE_TO_FULL_COLOR @ 0x14028D4F0 (MI_PAGE_TO_FULL_COLOR.c)
+ *     MiReplaceTransitionPage @ 0x1402931E8 (MiReplaceTransitionPage.c)
+ *     MiReleaseFreshPageAtDpc @ 0x140295200 (MiReleaseFreshPageAtDpc.c)
+ *     MiRemoveLockedPageChargeAndDecRef @ 0x1402CAC30 (MiRemoveLockedPageChargeAndDecRef.c)
+ *     MiGetPfnSlabType @ 0x1402DFCC0 (MiGetPfnSlabType.c)
+ *     MiGetSlabPage @ 0x14033C304 (MiGetSlabPage.c)
+ *     MiUseSlabAllocator @ 0x140375BA4 (MiUseSlabAllocator.c)
+ *     MiCheckSlabPage @ 0x14038C61C (MiCheckSlabPage.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 __int64 __fastcall MiFinalizeImageHeaderPage(__int64 a1)
@@ -47,7 +47,7 @@ __int64 __fastcall MiFinalizeImageHeaderPage(__int64 a1)
   v2 = 48 * a1 - 0x220000000000LL;
   SubsectionFromPte = (_DWORD *)MiGetSubsectionFromPte(*(_QWORD *)(v2 + 16));
   v4 = 0LL;
-  v5 = *(_QWORD *)(stru_140E2EB88.ThreadLock + 8LL * (*(_DWORD *)(*(_QWORD *)SubsectionFromPte + 60LL) & 0x3FF));
+  v5 = *(_QWORD *)(stru_140E2ED08.ThreadLock + 8LL * (*(_DWORD *)(*(_QWORD *)SubsectionFromPte + 60LL) & 0x3FF));
   v7 = MiPageToNode(v6);
   if ( (unsigned int)MiUseSlabAllocator(v5, SubsectionFromPte, *(_QWORD *)(v2 + 16), v7, &v20) )
   {

@@ -16,7 +16,7 @@
 
 __int64 __fastcall ST_STORE<SM_TRAITS>::StDmSinglePageCopy(
         __int64 a1,
-        __int64 a2,
+        void *a2,
         __int64 a3,
         unsigned __int64 a4,
         __int64 a5,
@@ -27,7 +27,7 @@ __int64 __fastcall ST_STORE<SM_TRAITS>::StDmSinglePageCopy(
   unsigned __int64 v11; // rdi
   __int64 v12; // r8
   int v13; // esi
-  void *v14; // r15
+  UCHAR *v14; // r15
   unsigned int v15; // edx
   __int64 v16; // rcx
   char v17; // al
@@ -36,7 +36,7 @@ __int64 __fastcall ST_STORE<SM_TRAITS>::StDmSinglePageCopy(
   __int64 v20; // rdx
   __int64 v21; // r8
   __int64 v22; // r9
-  unsigned int v23; // eax
+  ULONG CompressedBufferSize; // eax
   unsigned int v24; // ebx
   int v25; // r15d
   struct _KTHREAD *v26; // rax
@@ -44,27 +44,27 @@ __int64 __fastcall ST_STORE<SM_TRAITS>::StDmSinglePageCopy(
   size_t v29; // r8
   const void *v30; // rdx
   struct _KTHREAD *CurrentThread; // rax
-  int v32; // [rsp+40h] [rbp-78h] BYREF
+  ULONG FinalUncompressedSize; // [rsp+40h] [rbp-78h] BYREF
   unsigned int v33; // [rsp+48h] [rbp-70h]
-  __int64 v34; // [rsp+50h] [rbp-68h]
+  PVOID WorkSpace; // [rsp+50h] [rbp-68h]
   __int64 v35; // [rsp+58h] [rbp-60h] BYREF
   int v36; // [rsp+60h] [rbp-58h]
 
   v7 = *(unsigned int *)(a1 + 824);
-  v34 = a2;
+  WorkSpace = a2;
   v10 = *(unsigned __int16 *)(a5 + 4) - 1;
   v35 = 0LL;
   v11 = v7 + a3;
   v36 = 0;
   v12 = *(_QWORD *)(a1 + 1016);
   v13 = 0;
-  v32 = 0;
-  v14 = (void *)a4;
+  FinalUncompressedSize = 0;
+  v14 = (UCHAR *)a4;
   v15 = -*(_DWORD *)(v12 + 8) & (*(_DWORD *)(v12 + 8) + v10);
   v33 = v15;
   if ( (a4 & 1) != 0 )
   {
-    v14 = *(void **)(a6 + 48);
+    v14 = *(UCHAR **)(a6 + 48);
     a4 &= ~1uLL;
   }
   v16 = v12;
@@ -117,17 +117,24 @@ __int64 __fastcall ST_STORE<SM_TRAITS>::StDmSinglePageCopy(
     }
     v13 = 2;
   }
-  v23 = *(unsigned __int16 *)(a5 + 4);
-  if ( v23 >= 0x1000 )
+  CompressedBufferSize = *(unsigned __int16 *)(a5 + 4);
+  if ( CompressedBufferSize >= 0x1000 )
   {
     v29 = *(unsigned __int16 *)(a5 + 4);
     v30 = (const void *)v11;
     goto LABEL_25;
   }
-  if ( (int)RtlDecompressBufferEx(*(unsigned __int16 *)(a1 + 992), (_DWORD)v14, 4096, v11, v23, (__int64)&v32, v34) >= 0
-    && v32 == 4096 )
+  if ( RtlDecompressBufferEx(
+         *(_WORD *)(a1 + 992),
+         v14,
+         0x1000u,
+         (PUCHAR)v11,
+         CompressedBufferSize,
+         &FinalUncompressedSize,
+         WorkSpace) >= 0
+    && FinalUncompressedSize == 4096 )
   {
-    if ( v14 == (void *)a4 )
+    if ( v14 == (UCHAR *)a4 )
     {
 LABEL_18:
       v24 = 0;

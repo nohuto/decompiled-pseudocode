@@ -1,19 +1,19 @@
 /*
- * XREFs of AslpFileGetVersionBlock @ 0x1407595FC
+ * XREFs of AslpFileGetVersionBlock @ 0x1407597EC
  * Callers:
- *     AslpFileGetVersionAttributes @ 0x140759218 (AslpFileGetVersionAttributes.c)
+ *     AslpFileGetVersionAttributes @ 0x140759408 (AslpFileGetVersionAttributes.c)
  * Callees:
- *     RtlFileMapFree @ 0x1402F7C50 (RtlFileMapFree.c)
- *     RtlVerifyVersionInfo @ 0x1403841D0 (RtlVerifyVersionInfo.c)
- *     VerSetConditionMask @ 0x1403949C0 (VerSetConditionMask.c)
- *     RtlFileMapMapView @ 0x1403B1320 (RtlFileMapMapView.c)
- *     _wcsicmp @ 0x1403D9A50 (_wcsicmp.c)
- *     memmove @ 0x140435700 (memmove.c)
- *     memset @ 0x140435A00 (memset.c)
+ *     RtlFileMapFree @ 0x1402F7EE0 (RtlFileMapFree.c)
+ *     RtlVerifyVersionInfo @ 0x1403843B0 (RtlVerifyVersionInfo.c)
+ *     VerSetConditionMask @ 0x140394BA0 (VerSetConditionMask.c)
+ *     RtlFileMapMapView @ 0x1403B1500 (RtlFileMapMapView.c)
+ *     _wcsicmp @ 0x1403D9C30 (_wcsicmp.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     memset @ 0x140435E00 (memset.c)
  *     AslLogCallPrintf @ 0x1406956FC (AslLogCallPrintf.c)
- *     AslAlloc @ 0x140758498 (AslAlloc.c)
- *     AslFileMappingEnsure @ 0x140758EF0 (AslFileMappingEnsure.c)
- *     LdrResSearchResource @ 0x140759C40 (LdrResSearchResource.c)
+ *     AslAlloc @ 0x140758688 (AslAlloc.c)
+ *     AslFileMappingEnsure @ 0x1407590E0 (AslFileMappingEnsure.c)
+ *     LdrResSearchResource @ 0x140759E30 (LdrResSearchResource.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

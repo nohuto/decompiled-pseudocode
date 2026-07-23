@@ -1,8 +1,8 @@
 /*
- * XREFs of RtlStringCopyWorkerA_0 @ 0x14012A83C
+ * XREFs of RtlStringCopyWorkerA_0 @ 0x14012A90C
  * Callers:
- *     RtlStringCchCopyA @ 0x14012A7F4 (RtlStringCchCopyA.c)
- *     EmpParseTargetRuleStringIndexList @ 0x1409BF22C (EmpParseTargetRuleStringIndexList.c)
+ *     RtlStringCchCopyA @ 0x14012A8C4 (RtlStringCchCopyA.c)
+ *     EmpParseTargetRuleStringIndexList @ 0x1409C022C (EmpParseTargetRuleStringIndexList.c)
  * Callees:
  *     <none>
  */

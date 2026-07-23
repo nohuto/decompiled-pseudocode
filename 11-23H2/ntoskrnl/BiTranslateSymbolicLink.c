@@ -1,13 +1,13 @@
 /*
- * XREFs of BiTranslateSymbolicLink @ 0x140807CB4
+ * XREFs of BiTranslateSymbolicLink @ 0x140807F84
  * Callers:
- *     BiGetNtPartitionPath @ 0x140807310 (BiGetNtPartitionPath.c)
- *     BiTranslateSymbolicLinkFile @ 0x140A5D278 (BiTranslateSymbolicLinkFile.c)
+ *     BiGetNtPartitionPath @ 0x1408075E0 (BiGetNtPartitionPath.c)
+ *     BiTranslateSymbolicLinkFile @ 0x140A5D528 (BiTranslateSymbolicLinkFile.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1B0 (RtlInitUnicodeString.c)
- *     ZwClose @ 0x14041AF40 (ZwClose.c)
- *     ZwOpenSymbolicLinkObject @ 0x14041D420 (ZwOpenSymbolicLinkObject.c)
- *     ZwQuerySymbolicLinkObject @ 0x14041DA80 (ZwQuerySymbolicLinkObject.c)
+ *     RtlInitUnicodeString @ 0x14022E2C0 (RtlInitUnicodeString.c)
+ *     ZwClose @ 0x14041B2D0 (ZwClose.c)
+ *     ZwOpenSymbolicLinkObject @ 0x14041D7B0 (ZwOpenSymbolicLinkObject.c)
+ *     ZwQuerySymbolicLinkObject @ 0x14041DE10 (ZwQuerySymbolicLinkObject.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

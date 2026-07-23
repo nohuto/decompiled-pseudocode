@@ -4,7 +4,7 @@
  *     RtlpHpVsContextFree @ 0x180036AF0 (RtlpHpVsContextFree.c)
  *     RtlpHpFreeHeap @ 0x18003B1F0 (RtlpHpFreeHeap.c)
  *     RtlpHpHeapDestroy @ 0x1800652A8 (RtlpHpHeapDestroy.c)
- *     RtlpHpVsContextFreeInternal @ 0x180124394 (RtlpHpVsContextFreeInternal.c)
+ *     RtlpHpVsContextFreeInternal @ 0x180124364 (RtlpHpVsContextFreeInternal.c)
  * Callees:
  *     _guard_xfg_dispatch_icall_nop @ 0x1800A4B90 (_guard_xfg_dispatch_icall_nop.c)
  */

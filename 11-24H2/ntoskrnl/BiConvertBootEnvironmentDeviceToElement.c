@@ -1,11 +1,11 @@
 /*
- * XREFs of BiConvertBootEnvironmentDeviceToElement @ 0x140812780
+ * XREFs of BiConvertBootEnvironmentDeviceToElement @ 0x140812EC0
  * Callers:
- *     BiConvertRegistryDataToElement @ 0x1409BF658 (BiConvertRegistryDataToElement.c)
+ *     BiConvertRegistryDataToElement @ 0x1409A5CA8 (BiConvertRegistryDataToElement.c)
  * Callees:
- *     BiConvertBootEnvironmentDeviceToNt @ 0x1408127CC (BiConvertBootEnvironmentDeviceToNt.c)
- *     BiConvertBootEnvironmentDeviceToQualifiedPartition @ 0x140813010 (BiConvertBootEnvironmentDeviceToQualifiedPartition.c)
- *     BiConvertBootEnvironmentDeviceToUnknown @ 0x1408130FC (BiConvertBootEnvironmentDeviceToUnknown.c)
+ *     BiConvertBootEnvironmentDeviceToNt @ 0x140812F0C (BiConvertBootEnvironmentDeviceToNt.c)
+ *     BiConvertBootEnvironmentDeviceToQualifiedPartition @ 0x140813750 (BiConvertBootEnvironmentDeviceToQualifiedPartition.c)
+ *     BiConvertBootEnvironmentDeviceToUnknown @ 0x14081383C (BiConvertBootEnvironmentDeviceToUnknown.c)
  */
 
 __int64 __fastcall BiConvertBootEnvironmentDeviceToElement(void *a1, int a2, char a3, __int64 a4, __int64 a5)

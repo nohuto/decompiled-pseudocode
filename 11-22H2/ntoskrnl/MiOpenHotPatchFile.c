@@ -38,28 +38,28 @@ __int64 __fastcall MiOpenHotPatchFile(
   int v15; // eax
   int SessionId; // ecx
   __int64 *v17; // rax
-  unsigned __int64 v18; // rsi
-  __int16 v19; // ax
+  ULONG64 v18; // rsi
+  unsigned __int16 Machine; // ax
   __int64 HotPatchInformation; // rax
   __int64 HotPatchBase; // rax
   int v23; // [rsp+40h] [rbp-138h]
   int v24; // [rsp+48h] [rbp-130h]
   PVOID Object; // [rsp+78h] [rbp-100h] BYREF
   HANDLE FileHandle; // [rsp+80h] [rbp-F8h] BYREF
-  unsigned __int64 v28; // [rsp+90h] [rbp-E8h] BYREF
+  PIMAGE_NT_HEADERS OutHeaders; // [rsp+90h] [rbp-E8h] BYREF
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+98h] [rbp-E0h] BYREF
   HANDLE *v30; // [rsp+C8h] [rbp-B0h]
   PVOID *v31; // [rsp+D0h] [rbp-A8h]
   struct _IO_STATUS_BLOCK IoStatusBlock; // [rsp+D8h] [rbp-A0h] BYREF
-  _OWORD v33[5]; // [rsp+F0h] [rbp-88h] BYREF
+  PVOID BaseOfImage[10]; // [rsp+F0h] [rbp-88h] BYREF
 
   v30 = a4;
   v31 = a5;
   *(_QWORD *)&ObjectAttributes.Length = 48LL;
   *(_QWORD *)&ObjectAttributes.Attributes = 576LL;
   IoStatusBlock = 0LL;
-  memset(v33, 0, sizeof(v33));
-  v28 = 0LL;
+  memset(BaseOfImage, 0, sizeof(BaseOfImage));
+  OutHeaders = 0LL;
   Object = 0LL;
   FileHandle = 0LL;
   ObjectAttributes.RootDirectory = 0LL;
@@ -106,14 +106,15 @@ __int64 __fastcall MiOpenHotPatchFile(
     if ( SystemSection >= 0 )
     {
       v17 = (__int64 *)MiSectionControlArea((__int64)Object);
-      SystemSection = MiMapImageInSystemSpace(v17, 1, (__int64)v33);
+      SystemSection = MiMapImageInSystemSpace(v17, 1, (__int64)BaseOfImage);
       if ( SystemSection >= 0 )
       {
-        v18 = (unsigned __int64)LODWORD(v33[1]) << 12;
-        SystemSection = RtlImageNtHeaderEx(0, *(unsigned __int64 *)&v33[0], v18, &v28);
+        v18 = (unsigned __int64)LODWORD(BaseOfImage[2]) << 12;
+        SystemSection = RtlImageNtHeaderEx(0, BaseOfImage[0], v18, &OutHeaders);
         if ( SystemSection >= 0 )
         {
-          if ( v28 + 24 < v28 || v28 + 24 > v18 + *(_QWORD *)&v33[0] )
+          if ( &OutHeaders->OptionalHeader < (_IMAGE_OPTIONAL_HEADER64 *)OutHeaders
+            || &OutHeaders->OptionalHeader > (_IMAGE_OPTIONAL_HEADER64 *)((char *)BaseOfImage[0] + v18) )
           {
             SystemSection = -1073741701;
           }
@@ -124,15 +125,15 @@ __int64 __fastcall MiOpenHotPatchFile(
               SystemSection = -1073739516;
               goto LABEL_28;
             }
-            v19 = *(_WORD *)(v28 + 4);
-            if ( v19 != -31132 && v19 != 332 && v19 != -21916 )
+            Machine = OutHeaders->FileHeader.Machine;
+            if ( Machine != 0x8664 && Machine != 332 && Machine != 0xAA64 )
               v12 = 0;
             if ( !v12 )
             {
               SystemSection = -1073741701;
               goto LABEL_28;
             }
-            HotPatchInformation = RtlFindHotPatchInformation(*(_QWORD *)&v33[0]);
+            HotPatchInformation = RtlFindHotPatchInformation(BaseOfImage[0]);
             if ( !HotPatchInformation )
             {
               SystemSection = -1073741701;
@@ -155,12 +156,12 @@ __int64 __fastcall MiOpenHotPatchFile(
             Object = 0LL;
             if ( a6 )
             {
-              *a6 = v33[0];
-              a6[1] = v33[1];
-              a6[2] = v33[2];
-              a6[3] = v33[3];
-              a6[4] = v33[4];
-              *(_QWORD *)&v33[0] = 0LL;
+              *a6 = *(_OWORD *)BaseOfImage;
+              a6[1] = *(_OWORD *)&BaseOfImage[2];
+              a6[2] = *(_OWORD *)&BaseOfImage[4];
+              a6[3] = *(_OWORD *)&BaseOfImage[6];
+              a6[4] = *(_OWORD *)&BaseOfImage[8];
+              BaseOfImage[0] = 0LL;
             }
             SystemSection = 0;
           }
@@ -169,8 +170,8 @@ __int64 __fastcall MiOpenHotPatchFile(
     }
   }
 LABEL_28:
-  if ( *(_QWORD *)&v33[0] )
-    MiUnmapImageInSystemSpace((__int64)v33);
+  if ( BaseOfImage[0] )
+    MiUnmapImageInSystemSpace((__int64)BaseOfImage);
   if ( Object )
     ObfDereferenceObject(Object);
   if ( FileHandle )

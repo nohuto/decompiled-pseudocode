@@ -1,16 +1,15 @@
 /*
- * XREFs of ZwOpenProcessTokenEx @ 0x1403FA9A0
+ * XREFs of ZwOpenProcessTokenEx @ 0x1403FAB80
  * Callers:
- *     RtlAcquirePrivilege @ 0x1406B118C (RtlAcquirePrivilege.c)
- *     RtlImpersonateSelfEx @ 0x1406B13C8 (RtlImpersonateSelfEx.c)
- *     _SysCtxRegOpenCurrentUserKey @ 0x14072D458 (_SysCtxRegOpenCurrentUserKey.c)
- *     BiAdjustPrivilege @ 0x140785D10 (BiAdjustPrivilege.c)
- *     RtlpIsAppContainer @ 0x140914C28 (RtlpIsAppContainer.c)
+ *     RtlAcquirePrivilege @ 0x14061013C (RtlAcquirePrivilege.c)
+ *     RtlImpersonateSelfEx @ 0x140610378 (RtlImpersonateSelfEx.c)
+ *     _SysCtxRegOpenCurrentUserKey @ 0x14072D908 (_SysCtxRegOpenCurrentUserKey.c)
+ *     BiAdjustPrivilege @ 0x140785ED0 (BiAdjustPrivilege.c)
+ *     RtlpIsAppContainer @ 0x140914D88 (RtlpIsAppContainer.c)
  * Callees:
  *     <none>
  */
 
-// local variable allocation has failed, the output may be wrong!
 NTSTATUS __stdcall ZwOpenProcessTokenEx(
         HANDLE ProcessHandle,
         ACCESS_MASK DesiredAccess,
@@ -19,5 +18,5 @@ NTSTATUS __stdcall ZwOpenProcessTokenEx(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(ProcessHandle, *(_QWORD *)&DesiredAccess);
+  return KiServiceInternal(ProcessHandle);
 }

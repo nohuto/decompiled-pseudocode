@@ -1,5 +1,5 @@
 /*
- * XREFs of IoCsqInitializeEx @ 0x14013AA10
+ * XREFs of IoCsqInitializeEx @ 0x14013AB10
  * Callers:
  *     <none>
  * Callees:

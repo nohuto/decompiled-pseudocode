@@ -1,7 +1,7 @@
 /*
- * XREFs of PopGetEnergyEstimationInfo @ 0x140583A44
+ * XREFs of PopGetEnergyEstimationInfo @ 0x140583F34
  * Callers:
- *     PopPowerInformationInternal @ 0x1407ED06C (PopPowerInformationInternal.c)
+ *     PopPowerInformationInternal @ 0x1407ED33C (PopPowerInformationInternal.c)
  * Callees:
  *     <none>
  */

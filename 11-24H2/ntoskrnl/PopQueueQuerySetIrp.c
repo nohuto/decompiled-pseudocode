@@ -1,21 +1,21 @@
 /*
- * XREFs of PopQueueQuerySetIrp @ 0x140376E74
+ * XREFs of PopQueueQuerySetIrp @ 0x1403A96B4
  * Callers:
- *     PopFxActivateComponentDependents @ 0x1403769A0 (PopFxActivateComponentDependents.c)
- *     PopRequestPowerIrp @ 0x140377360 (PopRequestPowerIrp.c)
- *     PopNotifyDevice @ 0x140B6F748 (PopNotifyDevice.c)
+ *     PopRequestPowerIrp @ 0x1403A7FD0 (PopRequestPowerIrp.c)
+ *     PopFxActivateComponentDependents @ 0x1403A91E0 (PopFxActivateComponentDependents.c)
+ *     PopNotifyDevice @ 0x140B717B8 (PopNotifyDevice.c)
  * Callees:
- *     KeReleaseSpinLock @ 0x14024DD30 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140254B20 (KeAcquireSpinLockRaiseToDpc.c)
- *     KeReleaseInStackQueuedSpinLock @ 0x140275CD0 (KeReleaseInStackQueuedSpinLock.c)
- *     KeAcquireQueuedSpinLock @ 0x1402D6AF0 (KeAcquireQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x1402D8540 (KeAcquireInStackQueuedSpinLock.c)
- *     KeReleaseQueuedSpinLock @ 0x140322C90 (KeReleaseQueuedSpinLock.c)
- *     ExQueueWorkItem @ 0x140325850 (ExQueueWorkItem.c)
- *     IofCallDriver @ 0x140374160 (IofCallDriver.c)
- *     PopDiagTraceIrpStart @ 0x14037712C (PopDiagTraceIrpStart.c)
- *     PopDeepSleepSetDisengageReason @ 0x1403CB2E4 (PopDeepSleepSetDisengageReason.c)
- *     PopEnableIrpWatchdog @ 0x140440F7C (PopEnableIrpWatchdog.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x14022B260 (KeReleaseInStackQueuedSpinLock.c)
+ *     IofCallDriver @ 0x14025CA20 (IofCallDriver.c)
+ *     KeReleaseSpinLock @ 0x14027E340 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140285130 (KeAcquireSpinLockRaiseToDpc.c)
+ *     PopDeepSleepSetDisengageReason @ 0x1402B9DFC (PopDeepSleepSetDisengageReason.c)
+ *     KeReleaseQueuedSpinLock @ 0x1402CB820 (KeReleaseQueuedSpinLock.c)
+ *     ExQueueWorkItem @ 0x1402CE3E0 (ExQueueWorkItem.c)
+ *     PopEnableIrpWatchdog @ 0x140314DDC (PopEnableIrpWatchdog.c)
+ *     KeAcquireQueuedSpinLock @ 0x140357D70 (KeAcquireQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1403597C0 (KeAcquireInStackQueuedSpinLock.c)
+ *     PopDiagTraceIrpStart @ 0x14046B350 (PopDiagTraceIrpStart.c)
  */
 
 void __fastcall PopQueueQuerySetIrp(IRP *a1)
@@ -61,7 +61,7 @@ void __fastcall PopQueueQuerySetIrp(IRP *a1)
     v9 = KeAcquireSpinLockRaiseToDpc(&PopPendingPowerTransitionLock);
     if ( ++PopPendingSetPowerDeviceIrps == 1 )
     {
-      PopDeepSleepSetDisengageReason(2LL);
+      PopDeepSleepSetDisengageReason(2u);
       if ( !PopDevicePowerTransitionInProgressWorkerQueued )
       {
         PopDevicePowerTransitionInProgressWorkerQueued = 1;
@@ -94,13 +94,13 @@ void __fastcall PopQueueQuerySetIrp(IRP *a1)
   p_ListEntry = (struct _IRP::$::$2AD798E65616C4F7304824DBFA27E419::$665C8370128C04AB892B069E6FB086E8 *)&v3->Tail.Overlay.ListEntry;
   if ( v2 )
   {
-    v19 = (struct _LIST_ENTRY *)qword_140F0B698;
-    if ( *(__int64 **)qword_140F0B698 != &PopInrushIrpList )
+    v19 = (struct _LIST_ENTRY *)qword_140F0B1E8;
+    if ( *(__int64 **)qword_140F0B1E8 != &PopInrushIrpList )
       goto LABEL_44;
     p_ListEntry->ListEntry.Flink = (struct _LIST_ENTRY *)&PopInrushIrpList;
     v3->Tail.Overlay.ListEntry.Blink = v19;
     v19->Flink = &p_ListEntry->ListEntry;
-    qword_140F0B698 = (__int64)&v3->Tail.Overlay.ListEntry;
+    qword_140F0B1E8 = (__int64)&v3->Tail.Overlay.ListEntry;
   }
   v13 = 272LL;
   v14 = 272LL;
@@ -151,7 +151,7 @@ LABEL_18:
   if ( v3 )
   {
     PopDiagTraceIrpStart(v16, v3);
-    PopEnableIrpWatchdog(v3);
+    PopEnableIrpWatchdog((__int64)v3);
     IofCallDriver(v8, v3);
   }
 }

@@ -1,14 +1,14 @@
 /*
- * XREFs of PopDirectedDripsUmInitialize @ 0x140796898
+ * XREFs of PopDirectedDripsUmInitialize @ 0x140796A98
  * Callers:
- *     PopDirectedDripsInitializePhase0 @ 0x140A40A88 (PopDirectedDripsInitializePhase0.c)
+ *     PopDirectedDripsInitializePhase0 @ 0x140A41A88 (PopDirectedDripsInitializePhase0.c)
  * Callees:
- *     RtlInitializeGenericTableAvl @ 0x140264400 (RtlInitializeGenericTableAvl.c)
+ *     RtlInitializeGenericTableAvl @ 0x1402524C0 (RtlInitializeGenericTableAvl.c)
  */
 
 void PopDirectedDripsUmInitialize()
 {
-  qword_140C1E9D8 = 0LL;
+  qword_140C1E918 = 0LL;
   PopDirectedDripsUmLock = 0LL;
   PopDirectedDripsUmTestDeviceCount = 0;
   RtlInitializeGenericTableAvl(

@@ -4,17 +4,17 @@
  *     RtlCleanUpTEBLangLists @ 0x18003A5D0 (RtlCleanUpTEBLangLists.c)
  *     RtlpMuiRegFreeRegistryInfo @ 0x18004BA00 (RtlpMuiRegFreeRegistryInfo.c)
  *     RtlpLoadLanguageConfigList @ 0x18004BC10 (RtlpLoadLanguageConfigList.c)
- *     RtlpUpdateTEBLanguage @ 0x180080C90 (RtlpUpdateTEBLanguage.c)
+ *     RtlpUpdateTEBLanguage @ 0x180080CA0 (RtlpUpdateTEBLanguage.c)
  *     RtlpMuiRegResizeStringPool @ 0x180101760 (RtlpMuiRegResizeStringPool.c)
  * Callees:
  *     RtlFreeHeap @ 0x180017E40 (RtlFreeHeap.c)
  */
 
-__int64 __fastcall RtlpMuiRegFreeStringPool(unsigned __int64 a1)
+LOGICAL __fastcall RtlpMuiRegFreeStringPool(PVOID BaseAddress)
 {
-  __int64 result; // rax
+  LOGICAL result; // eax
 
-  if ( a1 )
-    return RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, a1);
+  if ( BaseAddress )
+    return RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, BaseAddress);
   return result;
 }

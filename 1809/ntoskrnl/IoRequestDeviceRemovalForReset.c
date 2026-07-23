@@ -1,18 +1,18 @@
 /*
- * XREFs of IoRequestDeviceRemovalForReset @ 0x1408267B0
+ * XREFs of IoRequestDeviceRemovalForReset @ 0x1408279B0
  * Callers:
  *     <none>
  * Callees:
- *     KeInitializeTimerEx @ 0x140089FF0 (KeInitializeTimerEx.c)
- *     KeInitializeDpc @ 0x1400A56F0 (KeInitializeDpc.c)
- *     ObfReferenceObjectWithTag @ 0x1400ACDF0 (ObfReferenceObjectWithTag.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     McTemplateK0hzr0 @ 0x140287F48 (McTemplateK0hzr0.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     PnpSetTargetDeviceRemove @ 0x1406EEC90 (PnpSetTargetDeviceRemove.c)
- *     IopAllocateUnicodeString @ 0x14070FEF4 (IopAllocateUnicodeString.c)
- *     IopFreeResetRemovalContext @ 0x140826B30 (IopFreeResetRemovalContext.c)
- *     PnpTraceRequestDeviceRemovalForReset @ 0x140839F34 (PnpTraceRequestDeviceRemovalForReset.c)
+ *     KeInitializeTimerEx @ 0x140089FE0 (KeInitializeTimerEx.c)
+ *     KeInitializeDpc @ 0x1400A5630 (KeInitializeDpc.c)
+ *     ObfReferenceObjectWithTag @ 0x1400ACD30 (ObfReferenceObjectWithTag.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     McTemplateK0hzr0 @ 0x140288138 (McTemplateK0hzr0.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     PnpSetTargetDeviceRemove @ 0x1406EFF30 (PnpSetTargetDeviceRemove.c)
+ *     IopAllocateUnicodeString @ 0x140711194 (IopAllocateUnicodeString.c)
+ *     IopFreeResetRemovalContext @ 0x140827D30 (IopFreeResetRemovalContext.c)
+ *     PnpTraceRequestDeviceRemovalForReset @ 0x14083B194 (PnpTraceRequestDeviceRemovalForReset.c)
  */
 
 __int64 __fastcall IoRequestDeviceRemovalForReset(PVOID Object, unsigned int a2)
@@ -68,7 +68,7 @@ LABEL_2:
   {
     if ( Object )
       v5 = *(_QWORD *)(*((_QWORD *)Object + 39) + 40LL);
-    if ( (byte_140405847 & 8) != 0 )
+    if ( (byte_140406847 & 8) != 0 )
       McTemplateK0hzr0(v9, v8, v10, *(_WORD *)(v5 + 40) >> 1, *(_QWORD *)(v5 + 48));
   }
   else if ( v6 )

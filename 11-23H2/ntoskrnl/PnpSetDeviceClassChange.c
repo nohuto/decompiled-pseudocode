@@ -1,11 +1,11 @@
 /*
- * XREFs of PnpSetDeviceClassChange @ 0x140794024
+ * XREFs of PnpSetDeviceClassChange @ 0x140794214
  * Callers:
- *     IopProcessSetInterfaceState @ 0x1407936D4 (IopProcessSetInterfaceState.c)
+ *     IopProcessSetInterfaceState @ 0x1407938C4 (IopProcessSetInterfaceState.c)
  * Callees:
- *     memmove @ 0x140435700 (memmove.c)
- *     PnpInsertEventInQueue @ 0x140786330 (PnpInsertEventInQueue.c)
- *     PnpCreateDeviceEventEntry @ 0x14079436C (PnpCreateDeviceEventEntry.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     PnpInsertEventInQueue @ 0x140786520 (PnpInsertEventInQueue.c)
+ *     PnpCreateDeviceEventEntry @ 0x14079455C (PnpCreateDeviceEventEntry.c)
  */
 
 __int64 __fastcall PnpSetDeviceClassChange(_OWORD *a1, _OWORD *a2, const void **a3)

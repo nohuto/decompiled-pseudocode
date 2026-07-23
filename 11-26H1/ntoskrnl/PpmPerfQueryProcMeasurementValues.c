@@ -1,9 +1,9 @@
 /*
- * XREFs of PpmPerfQueryProcMeasurementValues @ 0x140B23D20
+ * XREFs of PpmPerfQueryProcMeasurementValues @ 0x140B26120
  * Callers:
- *     PopPowerInformationInternal @ 0x140B6F6FC (PopPowerInformationInternal.c)
+ *     PopPowerInformationInternal @ 0x140B73EF0 (PopPowerInformationInternal.c)
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall PpmPerfQueryProcMeasurementValues(unsigned int a1, __int64 a2)

@@ -1,20 +1,20 @@
 /*
- * XREFs of MiSetVadDeleted @ 0x1402B94A0
+ * XREFs of MiSetVadDeleted @ 0x140360BE0
  * Callers:
- *     MiCoalescePlaceholderAllocations @ 0x1408DC33C (MiCoalescePlaceholderAllocations.c)
- *     MiReserveUserMemory @ 0x1408DFE98 (MiReserveUserMemory.c)
- *     MiMapViewOfDataSection @ 0x1408E0820 (MiMapViewOfDataSection.c)
- *     MiDeleteVad @ 0x1408E5390 (MiDeleteVad.c)
- *     MiFinishPlaceholderVadReplacement @ 0x140A7084C (MiFinishPlaceholderVadReplacement.c)
+ *     MiDeleteVad @ 0x140895840 (MiDeleteVad.c)
+ *     MiCoalescePlaceholderAllocations @ 0x1408DA56C (MiCoalescePlaceholderAllocations.c)
+ *     MiReserveUserMemory @ 0x140916A48 (MiReserveUserMemory.c)
+ *     MiMapViewOfDataSection @ 0x1409173D0 (MiMapViewOfDataSection.c)
+ *     MiFinishPlaceholderVadReplacement @ 0x140A69CDC (MiFinishPlaceholderVadReplacement.c)
  * Callees:
- *     KiAbEntryFreeAndEnableInterrupts @ 0x14025CDA0 (KiAbEntryFreeAndEnableInterrupts.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14025E408 (KiRemoveSystemWorkPriorityKick.c)
- *     ExfTryToWakePushLock @ 0x14025F9A0 (ExfTryToWakePushLock.c)
- *     MiSetVadFlags @ 0x1402B8D5C (MiSetVadFlags.c)
- *     KiCheckForKernelApcDelivery @ 0x1402BB4D0 (KiCheckForKernelApcDelivery.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
+ *     KiAbEntryFreeAndEnableInterrupts @ 0x14028D3B0 (KiAbEntryFreeAndEnableInterrupts.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14028EA18 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExfTryToWakePushLock @ 0x14028FFB0 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     MiSetVadFlags @ 0x14036049C (MiSetVadFlags.c)
+ *     KiCheckForKernelApcDelivery @ 0x140362C10 (KiCheckForKernelApcDelivery.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall MiSetVadDeleted(__int64 a1)
@@ -22,50 +22,51 @@ __int64 __fastcall MiSetVadDeleted(__int64 a1)
   struct _KTHREAD *CurrentThread; // rbx
   _KPROCESS *Process; // rsi
   ULONG_PTR Masks; // rsi
-  __int64 v5; // rax
-  __int64 v6; // rdi
-  __int64 v7; // rdx
-  struct _KTHREAD *v8; // r11
+  char *v5; // rax
+  __int64 v6; // r9
+  char *v7; // rdi
+  __int64 v8; // rdx
+  struct _KTHREAD *v9; // r11
   _KLOCK_ENTRIES *KernelAbEntries; // r8
-  __int64 v10; // r9
+  __int64 v11; // r9
   unsigned int i; // eax
-  char *v12; // r10
+  char *v13; // r10
   __int64 result; // rax
   struct _KPRCB *CurrentPrcb; // rcx
   _DWORD *SchedulerAssist; // r8
-  int v17; // ett
+  int v18; // ett
 
   CurrentThread = KeGetCurrentThread();
   Process = CurrentThread->ApcState.Process;
   --CurrentThread->SpecialApcDisable;
   Masks = (ULONG_PTR)Process[1].ActiveGroupsMask.Masks;
-  v5 = KeAbPreAcquire(Masks, 0LL, 0LL);
-  v6 = v5;
+  v5 = (char *)KeAbPreAcquire(Masks, 0LL);
+  v7 = v5;
   if ( _interlockedbittestandset64((volatile signed __int32 *)Masks, 0LL) )
-    ExfAcquirePushLockExclusiveEx(Masks, v5, Masks);
-  if ( v6 )
-    *(_BYTE *)(v6 + 10) = 1;
-  MiSetVadFlags(a1, 2LL, 1);
+    ExfAcquirePushLockExclusiveEx((unsigned __int64 *)Masks, v5, Masks);
+  if ( v7 )
+    v7[10] = 1;
+  MiSetVadFlags(a1, 2LL, 1LL, v6);
   if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)Masks, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
     ExfTryToWakePushLock((volatile signed __int64 *)Masks);
-  v8 = KeGetCurrentThread();
+  v9 = KeGetCurrentThread();
   _disable();
-  KernelAbEntries = v8->KernelAbEntries;
-  v10 = Masks & 0x7FFFFFFFFFFFFFFCLL;
+  KernelAbEntries = v9->KernelAbEntries;
+  v11 = Masks & 0x7FFFFFFFFFFFFFFCLL;
   for ( i = 0; i < KernelAbEntries->EntryCount; ++i )
   {
-    v12 = (char *)KernelAbEntries + 88 * i;
-    v7 = *((_QWORD *)v12 + 2);
-    if ( (v7 & 0x7FFFFFFFFFFFFFFCLL) == v10 && v12[26] && (v7 & 1) == 0 )
+    v13 = (char *)KernelAbEntries + 88 * i;
+    v8 = *((_QWORD *)v13 + 2);
+    if ( (v8 & 0x7FFFFFFFFFFFFFFCLL) == v11 && v13[26] && (v8 & 1) == 0 )
     {
-      v12[26] = 0;
-      result = KiAbEntryFreeAndEnableInterrupts((__int64)(v12 + 16), (ULONG_PTR)v8, Masks, 1, 0LL);
+      v13[26] = 0;
+      result = KiAbEntryFreeAndEnableInterrupts((__int64)(v13 + 16), (ULONG_PTR)v9, Masks, 1LL, 0LL);
       goto LABEL_18;
     }
   }
-  result = *((unsigned int *)&v8->MiscFlags + 1);
+  result = *((unsigned int *)&v9->MiscFlags + 1);
   if ( (result & 0x10000) == 0 )
-    KeBugCheckEx(0x162u, (ULONG_PTR)v8, Masks, 0LL, 0LL);
+    KeBugCheckEx(0x162u, (ULONG_PTR)v9, Masks, 0LL, 0LL);
   CurrentPrcb = KeGetCurrentPrcb();
   SchedulerAssist = CurrentPrcb->SchedulerAssist;
   if ( SchedulerAssist )
@@ -74,12 +75,12 @@ __int64 __fastcall MiSetVadDeleted(__int64 a1)
     LODWORD(result) = *SchedulerAssist;
     do
     {
-      v7 = (unsigned int)result;
-      LODWORD(v7) = result & 0xFFDFFFFF;
-      v17 = result;
+      v8 = (unsigned int)result;
+      LODWORD(v8) = result & 0xFFDFFFFF;
+      v18 = result;
       result = (unsigned int)_InterlockedCompareExchange(SchedulerAssist, result & 0xFFDFFFFF, result);
     }
-    while ( v17 != (_DWORD)result );
+    while ( v18 != (_DWORD)result );
     if ( (result & 0x200000) != 0 )
       result = KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
   }
@@ -89,7 +90,7 @@ LABEL_18:
   {
     result = (__int64)&CurrentThread->152;
     if ( *(_QWORD *)result != result )
-      return KiCheckForKernelApcDelivery(CurrentPrcb, v7, SchedulerAssist, v10);
+      return KiCheckForKernelApcDelivery(CurrentPrcb, v8, SchedulerAssist, v11);
   }
   return result;
 }

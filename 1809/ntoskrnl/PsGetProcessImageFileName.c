@@ -1,9 +1,9 @@
 /*
- * XREFs of PsGetProcessImageFileName @ 0x140129C70
+ * XREFs of PsGetProcessImageFileName @ 0x140129D40
  * Callers:
- *     PspInsertProcess @ 0x1406093A8 (PspInsertProcess.c)
- *     PiUEventHandleVetoEvent @ 0x1406FF7D0 (PiUEventHandleVetoEvent.c)
- *     PnpLogVetoInformation @ 0x1408330D0 (PnpLogVetoInformation.c)
+ *     PspInsertProcess @ 0x14060A3A8 (PspInsertProcess.c)
+ *     PiUEventHandleVetoEvent @ 0x140700A70 (PiUEventHandleVetoEvent.c)
+ *     PnpLogVetoInformation @ 0x140834330 (PnpLogVetoInformation.c)
  * Callees:
  *     <none>
  */

@@ -1,18 +1,18 @@
 /*
- * XREFs of ExpFreeHeapSpecialPool @ 0x1403A8B6C
+ * XREFs of ExpFreeHeapSpecialPool @ 0x140398994
  * Callers:
- *     ExAllocateHeapPool @ 0x1402ACDB0 (ExAllocateHeapPool.c)
+ *     ExAllocateHeapPool @ 0x140277790 (ExAllocateHeapPool.c)
  * Callees:
- *     ExpFreePoolChecks @ 0x1402B0D90 (ExpFreePoolChecks.c)
- *     RtlpHpFreeHeap @ 0x1402B2660 (RtlpHpFreeHeap.c)
- *     MmDeterminePoolType @ 0x1402B2B50 (MmDeterminePoolType.c)
- *     ExpRemovePoolTrackerExpansion @ 0x1402B2BA0 (ExpRemovePoolTrackerExpansion.c)
- *     ExpPoolTrackerReturnLimit @ 0x1402B2E60 (ExpPoolTrackerReturnLimit.c)
- *     EtwTracePool @ 0x1403AA0C8 (EtwTracePool.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     ExpPoolFlagsToPoolType @ 0x140B744E0 (ExpPoolFlagsToPoolType.c)
- *     ViFreeTrackedPool @ 0x140BA8FD0 (ViFreeTrackedPool.c)
+ *     ExpFreePoolChecks @ 0x14035B160 (ExpFreePoolChecks.c)
+ *     RtlpHpFreeHeap @ 0x14035B220 (RtlpHpFreeHeap.c)
+ *     MmDeterminePoolType @ 0x14035B710 (MmDeterminePoolType.c)
+ *     ExpRemovePoolTrackerExpansion @ 0x14035B760 (ExpRemovePoolTrackerExpansion.c)
+ *     ExpPoolTrackerReturnLimit @ 0x14035BA20 (ExpPoolTrackerReturnLimit.c)
+ *     EtwTracePool @ 0x1403971E8 (EtwTracePool.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     ExpPoolFlagsToPoolType @ 0x140B76080 (ExpPoolFlagsToPoolType.c)
+ *     ViFreeTrackedPool @ 0x140BAAFD0 (ViFreeTrackedPool.c)
  */
 
 __int64 __fastcall ExpFreeHeapSpecialPool(__int64 a1, unsigned __int64 a2)
@@ -37,14 +37,14 @@ __int64 __fastcall ExpFreeHeapSpecialPool(__int64 a1, unsigned __int64 a2)
   unsigned int v21; // r8d
   int v23; // r9d
   __int64 v24; // r9
-  int v25; // edx
+  __int16 v25; // dx
   char v26; // [rsp+68h] [rbp+10h] BYREF
   char v27; // [rsp+70h] [rbp+18h] BYREF
   int v28; // [rsp+78h] [rbp+20h] BYREF
 
   v4 = MmDeterminePoolType(a2);
   v6 = (unsigned int *)(v5 & 0xFFFFFFFFFFFFF000uLL);
-  if ( byte_140FCDC28 )
+  if ( byte_140FCECA8 )
   {
     if ( (unsigned __int64)v6 < 0xFFFF800000000000uLL )
       KeBugCheckEx(0x1F1u, 2uLL, 1uLL, (ULONG_PTR)v6, 0LL);
@@ -95,7 +95,7 @@ __int64 __fastcall ExpFreeHeapSpecialPool(__int64 a1, unsigned __int64 a2)
         v25 = v28 | 8;
         v28 |= 8u;
       }
-      v14 = EtwTracePool(3618, v25, v13, a2, v10);
+      EtwTracePool(3618, v25, v13, a2, v10);
     }
   }
   LODWORD(v14) = KeGetPcr()->Prcb.Number;

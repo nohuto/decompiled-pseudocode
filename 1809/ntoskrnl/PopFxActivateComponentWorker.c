@@ -1,17 +1,17 @@
 /*
- * XREFs of PopFxActivateComponentWorker @ 0x1400FE230
+ * XREFs of PopFxActivateComponentWorker @ 0x1400FE2B0
  * Callers:
- *     PopFxActivateComponent @ 0x1400FE110 (PopFxActivateComponent.c)
- *     PopFxIdleWorkerTail @ 0x1400FEA08 (PopFxIdleWorkerTail.c)
+ *     PopFxActivateComponent @ 0x1400FE190 (PopFxActivateComponent.c)
+ *     PopFxIdleWorkerTail @ 0x1400FEA88 (PopFxIdleWorkerTail.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x1400630E0 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14008CF40 (KeAcquireSpinLockRaiseToDpc.c)
- *     PopFxActivateComponent @ 0x1400FE110 (PopFxActivateComponent.c)
- *     PopFxAddRefDevice @ 0x1400FE2C8 (PopFxAddRefDevice.c)
- *     PopFxProcessWork @ 0x1400FE390 (PopFxProcessWork.c)
- *     PopFxCompleteComponentActivation @ 0x1400FEC4C (PopFxCompleteComponentActivation.c)
- *     PopPluginComponentActive @ 0x1400FF3B8 (PopPluginComponentActive.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1400630D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14008CE80 (KeAcquireSpinLockRaiseToDpc.c)
+ *     PopFxActivateComponent @ 0x1400FE190 (PopFxActivateComponent.c)
+ *     PopFxAddRefDevice @ 0x1400FE348 (PopFxAddRefDevice.c)
+ *     PopFxProcessWork @ 0x1400FE410 (PopFxProcessWork.c)
+ *     PopFxCompleteComponentActivation @ 0x1400FECCC (PopFxCompleteComponentActivation.c)
+ *     PopPluginComponentActive @ 0x1400FF438 (PopPluginComponentActive.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall PopFxActivateComponentWorker(ULONG_PTR a1, __int64 a2, unsigned __int8 a3, __int64 a4)

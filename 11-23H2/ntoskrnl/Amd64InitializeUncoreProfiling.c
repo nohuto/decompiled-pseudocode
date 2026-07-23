@@ -1,14 +1,14 @@
 /*
- * XREFs of Amd64InitializeUncoreProfiling @ 0x1405298D0
+ * XREFs of Amd64InitializeUncoreProfiling @ 0x140529E20
  * Callers:
  *     <none>
  * Callees:
  *     KeQueryActiveProcessorCountEx @ 0x140222050 (KeQueryActiveProcessorCountEx.c)
- *     KeRevertToUserGroupAffinityThread @ 0x140305E00 (KeRevertToUserGroupAffinityThread.c)
- *     KeSetSystemGroupAffinityThread @ 0x140306C50 (KeSetSystemGroupAffinityThread.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     Amd64InitializeCacheStatus @ 0x1405295B4 (Amd64InitializeCacheStatus.c)
- *     Amd64InitializeDataFabricStatus @ 0x140529788 (Amd64InitializeDataFabricStatus.c)
+ *     KeRevertToUserGroupAffinityThread @ 0x140306090 (KeRevertToUserGroupAffinityThread.c)
+ *     KeSetSystemGroupAffinityThread @ 0x140306EE0 (KeSetSystemGroupAffinityThread.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     Amd64InitializeCacheStatus @ 0x140529B04 (Amd64InitializeCacheStatus.c)
+ *     Amd64InitializeDataFabricStatus @ 0x140529CD8 (Amd64InitializeDataFabricStatus.c)
  */
 
 void Amd64InitializeUncoreProfiling()
@@ -18,8 +18,8 @@ void Amd64InitializeUncoreProfiling()
   int *v7; // rdi
   __int64 v8; // rsi
   unsigned int v9; // ecx
-  struct _GROUP_AFFINITY Affinity; // [rsp+20h] [rbp-40h] BYREF
-  struct _GROUP_AFFINITY PreviousAffinity; // [rsp+40h] [rbp-20h] BYREF
+  _GROUP_AFFINITY Affinity; // [rsp+20h] [rbp-40h] BYREF
+  _GROUP_AFFINITY PreviousAffinity; // [rsp+40h] [rbp-20h] BYREF
 
   _RAX = 0x80000000LL;
   __asm { cpuid }

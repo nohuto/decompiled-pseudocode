@@ -1,38 +1,38 @@
 /*
- * XREFs of LdrpWriteBackProtectedDelayLoad @ 0x180030098
+ * XREFs of LdrpWriteBackProtectedDelayLoad @ 0x180030088
  * Callers:
- *     LdrpHandleProtectedDelayload @ 0x180033840 (LdrpHandleProtectedDelayload.c)
+ *     LdrpHandleProtectedDelayload @ 0x180033830 (LdrpHandleProtectedDelayload.c)
  * Callees:
- *     RtlReleaseSRWLockExclusive @ 0x18001C550 (RtlReleaseSRWLockExclusive.c)
- *     RtlAcquireSRWLockExclusive @ 0x180020BF0 (RtlAcquireSRWLockExclusive.c)
+ *     RtlReleaseSRWLockExclusive @ 0x18001C540 (RtlReleaseSRWLockExclusive.c)
+ *     RtlAcquireSRWLockExclusive @ 0x180020BE0 (RtlAcquireSRWLockExclusive.c)
  *     ZwProtectVirtualMemory @ 0x1800A6E20 (ZwProtectVirtualMemory.c)
  */
 
-signed __int64 __fastcall LdrpWriteBackProtectedDelayLoad(
-        __int64 a1,
+void __fastcall LdrpWriteBackProtectedDelayLoad(
+        _RTL_SRWLOCK *a1,
         char *a2,
         __int64 a3,
-        __int64 a4,
+        unsigned int a4,
         unsigned int a5)
 {
-  volatile signed __int64 *v5; // rbp
-  __int64 v6; // r14
-  int v8; // ebx
+  _RTL_SRWLOCK *v5; // rbp
+  ULONG_PTR v6; // r14
+  unsigned int v8; // ebx
   char *v10; // rax
   __int64 v11; // rdi
   __int64 v12; // rdx
-  __int64 v14; // [rsp+60h] [rbp+8h] BYREF
-  char *v15; // [rsp+68h] [rbp+10h] BYREF
-  char v16; // [rsp+78h] [rbp+20h] BYREF
+  ULONG_PTR RegionSize; // [rsp+60h] [rbp+8h] BYREF
+  PVOID BaseAddress; // [rsp+68h] [rbp+10h] BYREF
+  ULONG OldProtect; // [rsp+78h] [rbp+20h] BYREF
 
-  v5 = (volatile signed __int64 *)(a1 + 144);
-  v6 = 8LL * (unsigned int)a4;
-  v14 = v6;
+  v5 = a1 + 18;
+  v6 = 8LL * a4;
+  RegionSize = v6;
   v8 = a4;
-  v15 = a2;
-  RtlAcquireSRWLockExclusive(a1 + 144, a2, a3, a4);
+  BaseAddress = a2;
+  RtlAcquireSRWLockExclusive(a1 + 18);
   if ( *(_QWORD *)&a2[8 * a5] != *(_QWORD *)(a3 + 8LL * a5)
-    && (int)ZwProtectVirtualMemory(-1LL, &v15, &v14, 4LL, &v16) >= 0 )
+    && ZwProtectVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &BaseAddress, &RegionSize, 4u, &OldProtect) >= 0 )
   {
     if ( v8 )
     {
@@ -48,7 +48,7 @@ signed __int64 __fastcall LdrpWriteBackProtectedDelayLoad(
       }
       while ( v8 );
     }
-    ZwProtectVirtualMemory(-1LL, &v15, &v14, 2LL, &v16);
+    ZwProtectVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &BaseAddress, &RegionSize, 2u, &OldProtect);
   }
-  return RtlReleaseSRWLockExclusive(v5);
+  RtlReleaseSRWLockExclusive(v5);
 }

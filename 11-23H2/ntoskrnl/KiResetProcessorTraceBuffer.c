@@ -1,9 +1,9 @@
 /*
- * XREFs of KiResetProcessorTraceBuffer @ 0x14056CF20
+ * XREFs of KiResetProcessorTraceBuffer @ 0x14056D5E0
  * Callers:
- *     SwapContext @ 0x1404283C0 (SwapContext.c)
+ *     SwapContext @ 0x140428750 (SwapContext.c)
  * Callees:
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 KiResetProcessorTraceBuffer()
@@ -21,7 +21,7 @@ __int64 KiResetProcessorTraceBuffer()
 
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(0xFuLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     if ( CurrentIrql == 15 )
@@ -38,10 +38,10 @@ __int64 KiResetProcessorTraceBuffer()
     __writemsr(0x571u, 0LL);
     __writemsr(0x570u, v3);
   }
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v4 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v4 <= 0xFu && CurrentIrql <= 0xFu && v4 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v4 <= 0xFu && CurrentIrql <= 0xFu && v4 >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       v6 = CurrentPrcb->SchedulerAssist;
@@ -49,7 +49,7 @@ __int64 KiResetProcessorTraceBuffer()
       v8 = (v7 & v6[5]) == 0;
       v6[5] &= v7;
       if ( v8 )
-        KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+        KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
     }
   }
   result = CurrentIrql;

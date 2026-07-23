@@ -1,9 +1,9 @@
 /*
- * XREFs of MiPageTableStillExists @ 0x1404884B4
+ * XREFs of MiPageTableStillExists @ 0x140481FF4
  * Callers:
- *     MiSynchronizeSystemVa @ 0x1402E3870 (MiSynchronizeSystemVa.c)
+ *     MiSynchronizeSystemVa @ 0x1402C58B0 (MiSynchronizeSystemVa.c)
  * Callees:
- *     MiPteHasShadow @ 0x1403011E0 (MiPteHasShadow.c)
+ *     MiPteHasShadow @ 0x1402E3260 (MiPteHasShadow.c)
  */
 
 __int64 __fastcall MiPageTableStillExists(__int64 a1, int *a2)

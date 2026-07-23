@@ -236,7 +236,7 @@ LABEL_41:
     v27 = (Flags & 4) != 0;
     v28 = KeGetCurrentThread();
     --v28->KernelApcDisable;
-    v29 = KeAbPreAcquire((ULONG_PTR)&FileObject->Lock, 0LL, 0LL);
+    v29 = KeAbPreAcquire((ULONG_PTR)&FileObject->Lock, 0LL, 0);
     v57[0] = 0;
     if ( _InterlockedExchange((volatile __int32 *)&FileObject->Busy, 1) )
     {
@@ -385,7 +385,7 @@ LABEL_66:
           Mdl = IoAllocateMdl(v19, Length, 0, 1u, v40);
           v49 = (unsigned __int64)Mdl;
           if ( !Mdl )
-            RtlRaiseStatus(0xC000009A);
+            RtlRaiseStatus(-1073741670);
           v50 = *(unsigned __int8 *)(v43 - 72);
           MmProbeAndLockPages(Mdl, v56, IoReadAccess);
           if ( (MmTrackLockedPages & 1) != 0 )

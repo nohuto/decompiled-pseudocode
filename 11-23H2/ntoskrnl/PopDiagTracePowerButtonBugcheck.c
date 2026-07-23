@@ -1,12 +1,12 @@
 /*
- * XREFs of PopDiagTracePowerButtonBugcheck @ 0x1409908D8
+ * XREFs of PopDiagTracePowerButtonBugcheck @ 0x140990AD8
  * Callers:
- *     PopPowerButtonWorkCallback @ 0x1405990F0 (PopPowerButtonWorkCallback.c)
+ *     PopPowerButtonWorkCallback @ 0x1405995E0 (PopPowerButtonWorkCallback.c)
  * Callees:
  *     _tlgKeywordOn @ 0x140212E64 (_tlgKeywordOn.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6B24 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     PopRecordLongPowerButtonPressDetected @ 0x14085E520 (PopRecordLongPowerButtonPressDetected.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6DB4 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     PopRecordLongPowerButtonPressDetected @ 0x14085E760 (PopRecordLongPowerButtonPressDetected.c)
  */
 
 void __fastcall PopDiagTracePowerButtonBugcheck(int a1)
@@ -70,33 +70,33 @@ void __fastcall PopDiagTracePowerButtonBugcheck(int a1)
     {
       v6 = 7000;
       v20 = &v6;
-      v1 = (unsigned __int8 *)&word_140030396;
-      v7 = dword_140C3A008;
+      v1 = (unsigned __int8 *)word_14002FE22;
+      v7 = dword_140C39FA8;
       v22 = &v7;
-      v8 = dword_140C3A004;
+      v8 = dword_140C39FA4;
       v24 = &v8;
-      v4 = byte_140C3A068;
+      v4 = byte_140C3A008;
       v26 = &v4;
-      v16 = qword_140C3A010;
+      v16 = qword_140C39FB0;
       v28 = &v16;
-      v9 = dword_140C3A018;
+      v9 = dword_140C39FB8;
       v30 = &v9;
-      v10 = dword_140C3A01C;
+      v10 = dword_140C39FBC;
       v32 = (unsigned __int64 *)&v10;
-      v17 = qword_140C3A020;
+      v17 = qword_140C39FC0;
       v34 = &v17;
-      v11 = dword_140C3A06C;
+      v11 = dword_140C3A00C;
       v36 = &v11;
-      v5[0] = word_140C3A078;
+      v5[0] = word_140C3A018;
       v38 = v5;
-      v12 = qword_140C3A070;
+      v12 = qword_140C3A010;
       v40 = &v12;
       v42 = (int *)&v12 + 1;
-      v13 = HIDWORD(qword_140C3A084);
+      v13 = HIDWORD(qword_140C3A024);
       v44 = &v13;
-      v14 = dword_140C3A07C;
+      v14 = dword_140C3A01C;
       v46 = &v14;
-      v15 = qword_140C3A084;
+      v15 = qword_140C3A024;
       v48 = &v15;
       v3 = 17;
       v21 = 4LL;
@@ -124,33 +124,33 @@ LABEL_9:
   {
     v15 = v2;
     v20 = &v15;
-    v1 = (unsigned __int8 *)byte_140030221;
-    v14 = dword_140C3A008;
+    v1 = (unsigned __int8 *)&dword_14002FC1C;
+    v14 = dword_140C39FA8;
     v22 = &v14;
-    v13 = dword_140C3A004;
+    v13 = dword_140C39FA4;
     v24 = &v13;
-    v5[0] = byte_140C3A068;
+    v5[0] = byte_140C3A008;
     v26 = v5;
-    v17 = qword_140C3A010;
+    v17 = qword_140C39FB0;
     v28 = &v17;
     v30 = (int *)&v12 + 1;
-    v12 = __PAIR64__(dword_140C3A018, dword_140C3A01C);
+    v12 = __PAIR64__(dword_140C39FB8, dword_140C39FBC);
     v32 = &v12;
-    v16 = qword_140C3A020;
+    v16 = qword_140C39FC0;
     v34 = &v16;
-    v11 = dword_140C3A06C;
+    v11 = dword_140C3A00C;
     v36 = &v11;
-    v4 = word_140C3A078;
+    v4 = word_140C3A018;
     v38 = &v4;
-    v10 = qword_140C3A070;
+    v10 = qword_140C3A010;
     v40 = (unsigned __int64 *)&v10;
-    v9 = HIDWORD(qword_140C3A070);
+    v9 = HIDWORD(qword_140C3A010);
     v42 = &v9;
-    v8 = HIDWORD(qword_140C3A084);
+    v8 = HIDWORD(qword_140C3A024);
     v44 = &v8;
-    v7 = dword_140C3A07C;
+    v7 = dword_140C3A01C;
     v46 = &v7;
-    v6 = qword_140C3A084;
+    v6 = qword_140C3A024;
     v48 = &v6;
     v50 = &v18;
     v3 = 18;

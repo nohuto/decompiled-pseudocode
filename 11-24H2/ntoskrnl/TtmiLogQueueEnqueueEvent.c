@@ -1,11 +1,11 @@
 /*
- * XREFs of TtmiLogQueueEnqueueEvent @ 0x14076D90C
+ * XREFs of TtmiLogQueueEnqueueEvent @ 0x14076DB2C
  * Callers:
- *     TtmiWriteEventToSingleQueue @ 0x140770BA4 (TtmiWriteEventToSingleQueue.c)
+ *     TtmiWriteEventToSingleQueue @ 0x140770DC4 (TtmiWriteEventToSingleQueue.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140330CB0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgKeywordOn @ 0x140426AF0 (_tlgKeywordOn.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402B92F0 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x14041A970 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 void TtmiLogQueueEnqueueEvent()
@@ -23,7 +23,7 @@ void TtmiLogQueueEnqueueEvent()
   int *v10; // [rsp+90h] [rbp+37h]
   __int64 v11; // [rsp+98h] [rbp+3Fh]
 
-  if ( (unsigned int)dword_140FD78B8 > 5 && tlgKeywordOn((__int64)&dword_140FD78B8, 1LL) )
+  if ( (unsigned int)dword_140FD88C8 > 5 && tlgKeywordOn((__int64)&dword_140FD88C8, 1LL) )
   {
     v3 = v1;
     v6 = &v3;
@@ -34,6 +34,6 @@ void TtmiLogQueueEnqueueEvent()
     v10 = &v2;
     v9 = 8LL;
     v11 = 4LL;
-    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140FD78B8, (unsigned __int8 *)word_14004FD12, 0LL, 0LL, 5u, &v5);
+    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140FD88C8, (unsigned __int8 *)&unk_140050450, 0LL, 0LL, 5u, &v5);
   }
 }

@@ -1,18 +1,18 @@
 /*
- * XREFs of AlpcpExposeAttributes @ 0x140449E20
+ * XREFs of AlpcpExposeAttributes @ 0x140448CF0
  * Callers:
- *     AlpcpProcessSynchronousRequest @ 0x140448B60 (AlpcpProcessSynchronousRequest.c)
- *     AlpcpReceiveMessage @ 0x1404494D0 (AlpcpReceiveMessage.c)
- *     AlpcpCompleteDispatchMessage @ 0x14044B990 (AlpcpCompleteDispatchMessage.c)
- *     AlpcpProcessConnectionRequest @ 0x1404B26D4 (AlpcpProcessConnectionRequest.c)
+ *     AlpcpProcessSynchronousRequest @ 0x140447A30 (AlpcpProcessSynchronousRequest.c)
+ *     AlpcpReceiveMessage @ 0x1404483A0 (AlpcpReceiveMessage.c)
+ *     AlpcpCompleteDispatchMessage @ 0x14044A860 (AlpcpCompleteDispatchMessage.c)
+ *     AlpcpProcessConnectionRequest @ 0x14049CAB4 (AlpcpProcessConnectionRequest.c)
  * Callees:
- *     memset @ 0x1401715C0 (memset.c)
- *     AlpcpReferenceBlob @ 0x14040BD4C (AlpcpReferenceBlob.c)
- *     AlpcpDereferenceBlobEx @ 0x14040C274 (AlpcpDereferenceBlobEx.c)
- *     AlpcpReceiveView @ 0x14040CD88 (AlpcpReceiveView.c)
- *     AlpcpExposeHandleAttribute @ 0x14044A4C0 (AlpcpExposeHandleAttribute.c)
- *     AlpcpExposeTokenAttribute @ 0x14044A690 (AlpcpExposeTokenAttribute.c)
- *     AlpcpExposeWorkOnBehalfAttribute @ 0x14044A810 (AlpcpExposeWorkOnBehalfAttribute.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     AlpcpReferenceBlob @ 0x14040AC0C (AlpcpReferenceBlob.c)
+ *     AlpcpDereferenceBlobEx @ 0x14040B134 (AlpcpDereferenceBlobEx.c)
+ *     AlpcpReceiveView @ 0x14040BC48 (AlpcpReceiveView.c)
+ *     AlpcpExposeHandleAttribute @ 0x140449390 (AlpcpExposeHandleAttribute.c)
+ *     AlpcpExposeTokenAttribute @ 0x140449560 (AlpcpExposeTokenAttribute.c)
+ *     AlpcpExposeWorkOnBehalfAttribute @ 0x1404496E0 (AlpcpExposeWorkOnBehalfAttribute.c)
  */
 
 __int64 __fastcall AlpcpExposeAttributes(_DWORD *a1, int a2, __int64 a3, __int64 a4)

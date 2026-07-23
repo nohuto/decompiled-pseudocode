@@ -1,19 +1,19 @@
 /*
- * XREFs of CmpTransInitializeTransaction @ 0x1404DA4B8
+ * XREFs of CmpTransInitializeTransaction @ 0x1404BDABC
  * Callers:
- *     CmpTransSearchAddTrans @ 0x1403FF144 (CmpTransSearchAddTrans.c)
+ *     CmpTransSearchAddTrans @ 0x1403FE004 (CmpTransSearchAddTrans.c)
  * Callees:
- *     KiLeaveCriticalRegionUnsafe @ 0x140055FA0 (KiLeaveCriticalRegionUnsafe.c)
- *     ExAcquireFastMutexUnsafe @ 0x1400F05A0 (ExAcquireFastMutexUnsafe.c)
- *     ExReleaseFastMutexUnsafe @ 0x1400F0700 (ExReleaseFastMutexUnsafe.c)
- *     ExfUnblockPushLock @ 0x1401598C0 (ExfUnblockPushLock.c)
- *     CmpTransReferenceTransaction @ 0x1403FF0D8 (CmpTransReferenceTransaction.c)
- *     CmpTransDereferenceTransaction @ 0x1403FF128 (CmpTransDereferenceTransaction.c)
- *     ObReferenceObjectByHandle @ 0x140450D40 (ObReferenceObjectByHandle.c)
- *     CmpAccountForLogReservation @ 0x1404DA5F0 (CmpAccountForLogReservation.c)
- *     CmTmCreateEnlistment @ 0x1404DA67C (CmTmCreateEnlistment.c)
- *     CmpStartRMLogs @ 0x1404DA6EC (CmpStartRMLogs.c)
- *     CmpTransSearchAddTransFromRm @ 0x1404DEC94 (CmpTransSearchAddTransFromRm.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140055B20 (KiLeaveCriticalRegionUnsafe.c)
+ *     ExAcquireFastMutexUnsafe @ 0x1400EE420 (ExAcquireFastMutexUnsafe.c)
+ *     ExReleaseFastMutexUnsafe @ 0x1400EE580 (ExReleaseFastMutexUnsafe.c)
+ *     ExfUnblockPushLock @ 0x140159E30 (ExfUnblockPushLock.c)
+ *     CmpTransReferenceTransaction @ 0x1403FDF98 (CmpTransReferenceTransaction.c)
+ *     CmpTransDereferenceTransaction @ 0x1403FDFE8 (CmpTransDereferenceTransaction.c)
+ *     ObReferenceObjectByHandle @ 0x14044FC10 (ObReferenceObjectByHandle.c)
+ *     CmpAccountForLogReservation @ 0x1404BDBF4 (CmpAccountForLogReservation.c)
+ *     CmTmCreateEnlistment @ 0x1404BDC80 (CmTmCreateEnlistment.c)
+ *     CmpStartRMLogs @ 0x1404BDCF0 (CmpStartRMLogs.c)
+ *     CmpTransSearchAddTransFromRm @ 0x1404C2298 (CmpTransSearchAddTransFromRm.c)
  */
 
 __int64 __fastcall CmpTransInitializeTransaction(__int64 a1)

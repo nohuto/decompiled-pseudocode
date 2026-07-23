@@ -1,15 +1,15 @@
 /*
- * XREFs of ExpParseSignatureName @ 0x1407BC030
+ * XREFs of ExpParseSignatureName @ 0x1407BC480
  * Callers:
- *     ExpConvertSignatureName @ 0x1407BB6C8 (ExpConvertSignatureName.c)
+ *     ExpConvertSignatureName @ 0x1407BBB18 (ExpConvertSignatureName.c)
  * Callees:
- *     wcsncpy_s @ 0x140504980 (wcsncpy_s.c)
- *     ExpTranslateHexStringToGUID @ 0x1407BD234 (ExpTranslateHexStringToGUID.c)
- *     ExpTranslateHexStringToULONG @ 0x1407BD3B4 (ExpTranslateHexStringToULONG.c)
- *     ExpTranslateHexStringToULONGLONG @ 0x1407BD450 (ExpTranslateHexStringToULONGLONG.c)
- *     RtlGUIDFromString @ 0x1408CA240 (RtlGUIDFromString.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     wcsncpy_s @ 0x140502240 (wcsncpy_s.c)
+ *     ExpTranslateHexStringToGUID @ 0x1407BD684 (ExpTranslateHexStringToGUID.c)
+ *     ExpTranslateHexStringToULONG @ 0x1407BD804 (ExpTranslateHexStringToULONG.c)
+ *     ExpTranslateHexStringToULONGLONG @ 0x1407BD8A0 (ExpTranslateHexStringToULONGLONG.c)
+ *     RtlGUIDFromString @ 0x1408C7C70 (RtlGUIDFromString.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 NTSTATUS __fastcall ExpParseSignatureName(
@@ -98,7 +98,7 @@ LABEL_10:
     goto LABEL_23;
   }
 LABEL_16:
-  Pool2 = (wchar_t *)ExAllocatePool2(0x40uLL);
+  Pool2 = (wchar_t *)ExAllocatePool2(0x40uLL, 2LL * (unsigned int)(v15 + 1), 0x72766E45u);
   v19 = Pool2;
   if ( !Pool2 )
     return -1073741670;
@@ -122,7 +122,7 @@ LABEL_23:
     v14 = 1;
     if ( (unsigned int)v22 < a2 )
     {
-      v23 = (wchar_t *)ExAllocatePool2(0x40uLL);
+      v23 = (wchar_t *)ExAllocatePool2(0x40uLL, 0x22uLL, 0x72766E45u);
       if ( v23 )
       {
         v24 = v22;

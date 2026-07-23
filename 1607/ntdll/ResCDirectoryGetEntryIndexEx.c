@@ -1,9 +1,9 @@
 /*
- * XREFs of ResCDirectoryGetEntryIndexEx @ 0x18008A148
+ * XREFs of ResCDirectoryGetEntryIndexEx @ 0x18008A138
  * Callers:
- *     ResCDirectoryGetEntryCopyAndIndex @ 0x18008A1C0 (ResCDirectoryGetEntryCopyAndIndex.c)
+ *     ResCDirectoryGetEntryCopyAndIndex @ 0x18008A1B0 (ResCDirectoryGetEntryCopyAndIndex.c)
  * Callees:
- *     RtlSetLastWin32Error @ 0x18005A470 (RtlSetLastWin32Error.c)
+ *     RtlSetLastWin32Error @ 0x18005A460 (RtlSetLastWin32Error.c)
  *     ??$GetEntryIndex@PEAU_RESCDIRECTORY@@PEAU_RESCDENTRY@@$0A@@@YAHPEAU_RESCDIRECTORY@@U_RESCACHEID@@I@Z @ 0x1800FF860 (--$GetEntryIndex@PEAU_RESCDIRECTORY@@PEAU_RESCDENTRY@@$0A@@@YAHPEAU_RESCDIRECTORY@@U_RESCACHEID@.c)
  */
 
@@ -16,7 +16,7 @@ __int64 __fastcall ResCDirectoryGetEntryIndexEx(__int64 a1, __int128 *a2)
   if ( !a1 || !*(_QWORD *)(a1 + 48) )
   {
     if ( !NtCurrentTeb()->LastErrorValue )
-      RtlSetLastWin32Error(0x57u);
+      RtlSetLastWin32Error(87);
     return 0xFFFFFFFFLL;
   }
   v6 = *a2;

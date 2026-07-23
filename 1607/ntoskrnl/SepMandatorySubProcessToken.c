@@ -1,19 +1,19 @@
 /*
- * XREFs of SepMandatorySubProcessToken @ 0x14007C05C
+ * XREFs of SepMandatorySubProcessToken @ 0x14007C0DC
  * Callers:
- *     SeSubProcessToken @ 0x14046EA48 (SeSubProcessToken.c)
+ *     SeSubProcessToken @ 0x14046D918 (SeSubProcessToken.c)
  * Callees:
- *     RtlFindAceByType @ 0x140012AA0 (RtlFindAceByType.c)
- *     SepLocateTokenIntegrity @ 0x140012F6C (SepLocateTokenIntegrity.c)
- *     ObfDereferenceObjectWithTag @ 0x14006ACD0 (ObfDereferenceObjectWithTag.c)
- *     RtlSidDominates @ 0x1400760C0 (RtlSidDominates.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
+ *     RtlFindAceByType @ 0x140012620 (RtlFindAceByType.c)
+ *     SepLocateTokenIntegrity @ 0x140012AEC (SepLocateTokenIntegrity.c)
+ *     ObfDereferenceObjectWithTag @ 0x14006A850 (ObfDereferenceObjectWithTag.c)
+ *     RtlSidDominates @ 0x140076140 (RtlSidDominates.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     RtlCreateSecurityDescriptor @ 0x140413ED0 (RtlCreateSecurityDescriptor.c)
- *     PsReferenceProcessFilePointer @ 0x14046EFC0 (PsReferenceProcessFilePointer.c)
- *     SeTokenIsAdmin @ 0x140475CE4 (SeTokenIsAdmin.c)
- *     ObQuerySecurityObject @ 0x14052121C (ObQuerySecurityObject.c)
+ *     RtlCreateSecurityDescriptor @ 0x140412D90 (RtlCreateSecurityDescriptor.c)
+ *     PsReferenceProcessFilePointer @ 0x14046DE90 (PsReferenceProcessFilePointer.c)
+ *     SeTokenIsAdmin @ 0x140474BB4 (SeTokenIsAdmin.c)
+ *     ObQuerySecurityObject @ 0x140504284 (ObQuerySecurityObject.c)
  */
 
 __int64 __fastcall SepMandatorySubProcessToken(_DWORD *Token, __int64 a2, __int64 a3, _QWORD *a4)
@@ -21,16 +21,16 @@ __int64 __fastcall SepMandatorySubProcessToken(_DWORD *Token, __int64 a2, __int6
   _BYTE *v4; // rsi
   void *v5; // r12
   int v6; // eax
-  int SecurityObject; // edi
+  NTSTATUS SecurityObject; // edi
   _QWORD *v8; // r14
   __int16 v11; // ax
   __int64 v12; // rax
-  __int64 v13; // rcx
-  unsigned __int8 *AceByType; // rax
+  ACL *v13; // rcx
+  char *AceByType; // rax
   _BYTE *PoolWithTag; // rax
-  char *v17; // r14
-  char **TokenIntegrity; // rax
-  char **v19; // r15
+  _BYTE *v17; // r14
+  PSID *TokenIntegrity; // rax
+  PSID *v19; // r15
   unsigned __int8 v20; // al
   int v21; // ecx
   _QWORD *v22; // rcx
@@ -50,7 +50,7 @@ __int64 __fastcall SepMandatorySubProcessToken(_DWORD *Token, __int64 a2, __int6
   unsigned int v36; // eax
   int v37; // eax
   unsigned __int8 v38; // al
-  bool v39; // [rsp+30h] [rbp-99h] BYREF
+  BOOLEAN Dominates[4]; // [rsp+30h] [rbp-99h] BYREF
   _DWORD NumberOfBytes[3]; // [rsp+34h] [rbp-95h] BYREF
   void *v41; // [rsp+40h] [rbp-89h] BYREF
   _BYTE SecurityDescriptor[128]; // [rsp+50h] [rbp-79h] BYREF
@@ -63,7 +63,7 @@ __int64 __fastcall SepMandatorySubProcessToken(_DWORD *Token, __int64 a2, __int6
   SecurityObject = 0;
   v41 = 0LL;
   v8 = a4;
-  v39 = 0;
+  Dominates[0] = 0;
   if ( (v6 & 1) != 0 || (*(_DWORD *)(a2 + 212) & 2) == 0 )
     goto LABEL_13;
   SecurityObject = PsReferenceProcessFilePointer(a3, &v41);
@@ -88,20 +88,20 @@ LABEL_6:
       {
         if ( v11 >= 0 )
         {
-          v13 = *((_QWORD *)v4 + 3);
+          v13 = (ACL *)*((_QWORD *)v4 + 3);
 LABEL_12:
-          AceByType = RtlFindAceByType(v13, 17, 0LL);
+          AceByType = (char *)RtlFindAceByType(v13, 0x11u, 0LL);
           if ( AceByType )
           {
-            v17 = (char *)(AceByType + 8);
-            TokenIntegrity = (char **)SepLocateTokenIntegrity(a2);
+            v17 = AceByType + 8;
+            TokenIntegrity = (PSID *)SepLocateTokenIntegrity(a2);
             v19 = TokenIntegrity;
             if ( !TokenIntegrity )
               goto LABEL_40;
-            SecurityObject = RtlSidDominates(*TokenIntegrity, v17, &v39);
+            SecurityObject = RtlSidDominates(*TokenIntegrity, v17, Dominates);
             if ( SecurityObject < 0 )
               goto LABEL_15;
-            if ( v39 )
+            if ( Dominates[0] )
             {
               v20 = v17[1];
               if ( v20 )
@@ -129,7 +129,7 @@ LABEL_40:
         v12 = *((unsigned int *)v4 + 3);
         if ( (_DWORD)v12 )
         {
-          v13 = (__int64)&v4[v12];
+          v13 = (ACL *)&v4[v12];
           goto LABEL_12;
         }
       }

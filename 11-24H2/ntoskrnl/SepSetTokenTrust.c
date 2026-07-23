@@ -1,14 +1,14 @@
 /*
- * XREFs of SepSetTokenTrust @ 0x1409DF8F0
+ * XREFs of SepSetTokenTrust @ 0x1409D96A0
  * Callers:
- *     SepSetTrustLevelForProcessToken @ 0x14035F43C (SepSetTrustLevelForProcessToken.c)
- *     SepCreateTokenEx @ 0x1403645F4 (SepCreateTokenEx.c)
- *     SepDuplicateToken @ 0x140856520 (SepDuplicateToken.c)
- *     SepFilterToken @ 0x140AD2664 (SepFilterToken.c)
+ *     SepCreateTokenEx @ 0x1403E9CAC (SepCreateTokenEx.c)
+ *     SepSetTrustLevelForProcessToken @ 0x1403EB1F4 (SepSetTrustLevelForProcessToken.c)
+ *     SepDuplicateToken @ 0x1408527E0 (SepDuplicateToken.c)
+ *     SepFilterToken @ 0x140985C1C (SepFilterToken.c)
  * Callees:
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall SepSetTokenTrust(__int64 a1, unsigned __int8 *a2)
@@ -23,7 +23,7 @@ __int64 __fastcall SepSetTokenTrust(__int64 a1, unsigned __int8 *a2)
   if ( a2 )
   {
     v7 = 4 * a2[1] + 8;
-    Pool2 = (void *)ExAllocatePool2(0x100uLL);
+    Pool2 = (void *)ExAllocatePool2(0x100uLL, v7, 0x69536553u);
     v2 = Pool2;
     if ( !Pool2 )
       return 3221225626LL;

@@ -1,19 +1,19 @@
 /*
  * XREFs of LdrpLogIntegrityContinuityTelemetry @ 0x1800D1770
  * Callers:
- *     LdrpValidateIntegrityContinuity @ 0x180086FE0 (LdrpValidateIntegrityContinuity.c)
+ *     LdrpValidateIntegrityContinuity @ 0x180086FF0 (LdrpValidateIntegrityContinuity.c)
  * Callees:
  *     RtlRunOnceExecuteOnce @ 0x1800213E0 (RtlRunOnceExecuteOnce.c)
  *     _TlgKeywordOn @ 0x18004B5F0 (_TlgKeywordOn.c)
  *     _TlgWrite @ 0x18004D1E8 (_TlgWrite.c)
- *     __security_check_cookie @ 0x18008FEC0 (__security_check_cookie.c)
- *     NtQuerySystemInformation @ 0x1800A09A0 (NtQuerySystemInformation.c)
- *     RtlCaptureContext @ 0x1800A4310 (RtlCaptureContext.c)
+ *     __security_check_cookie @ 0x18008FED0 (__security_check_cookie.c)
+ *     NtQuerySystemInformation @ 0x1800A09C0 (NtQuerySystemInformation.c)
+ *     RtlCaptureContext @ 0x1800A4330 (RtlCaptureContext.c)
  *     memset @ 0x1800A7100 (memset.c)
  *     RtlReportException @ 0x1800DDD10 (RtlReportException.c)
  */
 
-__int64 __fastcall LdrpLogIntegrityContinuityTelemetry(__int64 a1, int a2, int a3, int a4, char a5)
+NTSTATUS __fastcall LdrpLogIntegrityContinuityTelemetry(__int64 a1, int a2, int a3, int a4, char a5)
 {
   __int64 v9; // rax
   unsigned __int16 *v10; // rbx
@@ -32,7 +32,7 @@ __int64 __fastcall LdrpLogIntegrityContinuityTelemetry(__int64 a1, int a2, int a
   int v24; // [rsp+54h] [rbp-B4h] BYREF
   __int64 v25; // [rsp+58h] [rbp-B0h] BYREF
   __int64 SystemInformation; // [rsp+60h] [rbp-A8h] BYREF
-  _QWORD v27[20]; // [rsp+68h] [rbp-A0h] BYREF
+  EXCEPTION_RECORD ExceptionRecord; // [rsp+68h] [rbp-A0h] BYREF
   struct _CONTEXT ContextRecord; // [rsp+108h] [rbp+0h] BYREF
   EVENT_DATA_DESCRIPTOR pData; // [rsp+5D8h] [rbp+4D0h] BYREF
   _DWORD *v30; // [rsp+5F8h] [rbp+4F0h]
@@ -63,11 +63,11 @@ __int64 __fastcall LdrpLogIntegrityContinuityTelemetry(__int64 a1, int a2, int a
   __int64 v55; // [rsp+6C0h] [rbp+5B8h]
 
   SystemInformation = 0LL;
-  if ( (int)RtlRunOnceExecuteOnce(
-              &LibLoaderTelemetryInitRunOnce,
-              (unsigned int (__fastcall *)(volatile signed __int64 *, __int64, unsigned __int64 *))LibLoaderTelemetryInitOnce,
-              0LL,
-              0LL) >= 0 )
+  if ( RtlRunOnceExecuteOnce(
+         &LibLoaderTelemetryInitRunOnce,
+         (PRTL_RUN_ONCE_INIT_FN)LibLoaderTelemetryInitOnce,
+         0LL,
+         0LL) >= 0 )
   {
     v9 = *(_QWORD *)(a1 + 48);
     v10 = (unsigned __int16 *)(v9 + 72);
@@ -81,11 +81,7 @@ __int64 __fastcall LdrpLogIntegrityContinuityTelemetry(__int64 a1, int a2, int a
       v11 = -1;
     }
     LODWORD(SystemInformation) = 8;
-    NtQuerySystemInformation(
-      SystemRegistryQuotaInformation|SystemPerformanceInformation|0x40,
-      &SystemInformation,
-      8u,
-      0LL);
+    NtQuerySystemInformation(SystemCodeIntegrityInformation, &SystemInformation, 8u, 0LL);
     if ( dword_18015F4E8 > 5u && TlgKeywordOn((TraceLoggingHProvider)&dword_18015F4E8, 0x800000000000uLL) )
     {
       v14 = *(_QWORD *)(a1 + 56);
@@ -127,14 +123,15 @@ __int64 __fastcall LdrpLogIntegrityContinuityTelemetry(__int64 a1, int a2, int a
       v51 = 4LL;
       v53 = 4LL;
       v55 = 1LL;
-      TlgWrite((TraceLoggingHProvider)&dword_18015F4E8, &unk_18012C305, v12, v13, 0xFu, &pData);
+      TlgWrite((TraceLoggingHProvider)&dword_18015F4E8, &unk_18012C395, v12, v13, 0xFu, &pData);
     }
   }
   RtlCaptureContext(&ContextRecord);
-  memset(v27, 0, 0x98uLL);
-  v27[0] = 3221226505LL;
-  v27[2] = 0LL;
-  LODWORD(v27[3]) = 1;
-  v27[4] = 45LL;
-  return RtlReportException(v27, &ContextRecord, 30LL);
+  memset(&ExceptionRecord, 0, sizeof(ExceptionRecord));
+  ExceptionRecord.ExceptionCode = -1073740791;
+  ExceptionRecord.ExceptionFlags = 0;
+  ExceptionRecord.ExceptionAddress = 0LL;
+  ExceptionRecord.NumberParameters = 1;
+  ExceptionRecord.ExceptionInformation[0] = 45LL;
+  return RtlReportException(&ExceptionRecord, &ContextRecord, 0x1Eu);
 }

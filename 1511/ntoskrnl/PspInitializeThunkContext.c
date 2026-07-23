@@ -17,10 +17,10 @@
 int PspInitializeThunkContext()
 {
   struct _KTHREAD *CurrentThread; // rsi
-  int ContextThreadInternal; // edi
+  NTSTATUS ContextThreadInternal; // edi
   ULONG64 v2; // rdx
-  __int64 v3; // rcx
-  void *InstrumentationCallback; // rcx
+  unsigned __int64 v3; // rcx
+  unsigned __int64 InstrumentationCallback; // rcx
   _BYTE *v5; // rcx
   _OWORD *v6; // rax
   __int64 v7; // rcx
@@ -28,13 +28,13 @@ int PspInitializeThunkContext()
   __int64 v9; // rcx
   __int64 BaseTrapFrame; // rax
   __int64 v11; // r8
-  struct _EXCEPTION_RECORD ExceptionRecord; // [rsp+40h] [rbp-A58h] BYREF
+  EXCEPTION_RECORD ExceptionRecord; // [rsp+40h] [rbp-A58h] BYREF
   _QWORD v13[154]; // [rsp+E0h] [rbp-9B8h] BYREF
-  _QWORD v14[154]; // [rsp+5B0h] [rbp-4E8h] BYREF
+  CONTEXT v14; // [rsp+5B0h] [rbp-4E8h] BYREF
 
   CurrentThread = KeGetCurrentThread();
   memset(v13, 0, sizeof(v13));
-  memset(v14, 0, sizeof(v14));
+  memset(&v14, 0, sizeof(v14));
   LODWORD(v13[6]) = 1048603;
   --CurrentThread->SpecialApcDisable;
   PspCallThreadNotifyRoutines((__int64)CurrentThread, 1u, 1);
@@ -42,23 +42,24 @@ int PspInitializeThunkContext()
   if ( ContextThreadInternal >= 0 )
   {
     v2 = (v13[19] - 1232LL) & 0xFFFFFFFFFFFFFFF0uLL;
-    v14[19] = v2 - 40;
+    v14.Rsp = v2 - 40;
     v3 = *((_QWORD *)PspSystemDlls + 5);
-    v14[6] = 0x1F800010000BLL;
-    v14[31] = PspLoaderInitRoutine;
-    v14[16] = v2;
-    v14[17] = v3;
-    *(_DWORD *)((char *)&v14[7] + 2) = 2818091;
-    *(_DWORD *)((char *)&v14[7] + 6) = 2818131;
-    WORD1(v14[8]) = 43;
-    LOWORD(v14[7]) = 51;
-    LOWORD(v14[32]) = 639;
-    LODWORD(v14[35]) = 8064;
-    InstrumentationCallback = CurrentThread->ApcState.Process->InstrumentationCallback;
+    v14.ContextFlags = 1048587;
+    v14.Rip = PspLoaderInitRoutine;
+    v14.Rcx = v2;
+    v14.Rdx = v3;
+    *(_DWORD *)&v14.SegDs = 2818091;
+    *(_DWORD *)&v14.SegFs = 2818131;
+    v14.SegSs = 43;
+    v14.SegCs = 51;
+    v14.MxCsr = 8064;
+    v14.FltSave.ControlWord = 639;
+    v14.FltSave.MxCsr = 8064;
+    InstrumentationCallback = (unsigned __int64)CurrentThread->ApcState.Process->InstrumentationCallback;
     if ( InstrumentationCallback )
     {
-      v14[25] = PspLoaderInitRoutine;
-      v14[31] = InstrumentationCallback;
+      v14.R10 = PspLoaderInitRoutine;
+      v14.Rip = InstrumentationCallback;
     }
     if ( (v2 & 0xF) != 0 )
       ExRaiseDatatypeMisalignment();
@@ -89,7 +90,7 @@ int PspInitializeThunkContext()
     *(_OWORD *)(v2 + 32) = v6[2];
     *(_OWORD *)(v2 + 48) = v6[3];
     *(_OWORD *)(v2 + 64) = v6[4];
-    ContextThreadInternal = PspSetContextThreadInternal((__int64)CurrentThread, (__int64)v14, 0, 1, 0);
+    ContextThreadInternal = PspSetContextThreadInternal((__int64)CurrentThread, &v14, 0, 1, 0);
   }
   result = KiLeaveGuardedRegionUnsafe((__int64)CurrentThread);
   if ( ContextThreadInternal < 0 )

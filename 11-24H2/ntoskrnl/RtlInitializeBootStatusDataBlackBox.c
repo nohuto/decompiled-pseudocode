@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlInitializeBootStatusDataBlackBox @ 0x140782E14
+ * XREFs of RtlInitializeBootStatusDataBlackBox @ 0x140782D44
  * Callers:
- *     PoClearTransitionMarker @ 0x140748F9C (PoClearTransitionMarker.c)
+ *     PoClearTransitionMarker @ 0x1407472C8 (PoClearTransitionMarker.c)
  * Callees:
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ZwReadFile @ 0x1406A64D0 (ZwReadFile.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     RtlpRecordBootStatusData @ 0x140A776A4 (RtlpRecordBootStatusData.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ZwReadFile @ 0x1406A7470 (ZwReadFile.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     RtlpRecordBootStatusData @ 0x140A717C4 (RtlpRecordBootStatusData.c)
  */
 
 NTSTATUS __fastcall RtlInitializeBootStatusDataBlackBox(HANDLE FileHandle)

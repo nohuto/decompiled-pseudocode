@@ -7,27 +7,22 @@
  *     _memcpy @ 0x4B2F88B0 (_memcpy.c)
  */
 
-int __fastcall EtwpAddEventToBuffer(
-        int a1,
-        __int16 a2,
-        _DWORD *a3,
-        void *Src,
-        size_t Size,
-        unsigned int a6,
-        _DWORD *a7)
+int __fastcall EtwpAddEventToBuffer(int a1, __int16 a2, _DWORD *a3, void *Src, size_t Size, _DWORD *a6)
 {
-  int v8; // edx
+  int v7; // edx
+  size_t v9; // [esp-4h] [ebp-14h]
 
-  *a7 = Size + 16;
-  if ( a6 < Size + 16 )
+  *a6 = Size + 16;
+  if ( HIDWORD(Size) < (unsigned int)(Size + 16) )
     return -1073741789;
-  v8 = a1 + *(_DWORD *)(a1 + 48);
-  *(_WORD *)(v8 + 4) = Size + 16;
-  *(_WORD *)(v8 + 6) = a2;
-  *(_DWORD *)v8 = -1072693246;
-  *(_DWORD *)(v8 + 8) = *a3;
-  *(_DWORD *)(v8 + 12) = a3[1];
-  memcpy((void *)(v8 + 16), Src, Size);
+  v7 = a1 + *(_DWORD *)(a1 + 48);
+  LODWORD(v9) = Size;
+  *(_WORD *)(v7 + 4) = Size + 16;
+  *(_WORD *)(v7 + 6) = a2;
+  *(_DWORD *)v7 = -1072693246;
+  *(_DWORD *)(v7 + 8) = *a3;
+  *(_DWORD *)(v7 + 12) = a3[1];
+  memcpy((void *)(v7 + 16), Src, v9);
   *(_DWORD *)(a1 + 48) += (Size + 23) & 0xFFFFFFF8;
   return 0;
 }

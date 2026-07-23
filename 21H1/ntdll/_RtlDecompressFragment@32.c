@@ -6,20 +6,28 @@
  *     _RtlpHpAppCompatDontChangePolicy@0 @ 0x4B2ED850 (_RtlpHpAppCompatDontChangePolicy@0.c)
  */
 
-int __stdcall RtlDecompressFragment(unsigned __int8 a1, int a2, int a3, int a4, int a5, int a6, int a7, int a8)
+NTSTATUS __cdecl RtlDecompressFragment(
+        USHORT CompressionFormat,
+        PUCHAR UncompressedFragment,
+        ULONG UncompressedFragmentSize,
+        PUCHAR CompressedBuffer,
+        ULONG CompressedBufferSize,
+        ULONG FragmentOffset,
+        PULONG FinalUncompressedSize,
+        PVOID WorkSpace)
 {
-  if ( !a1 || a1 == 1 )
+  if ( !(_BYTE)CompressionFormat || (unsigned __int8)CompressionFormat == 1 )
     return -1073741811;
-  if ( a1 <= 4u )
-    return ((int (__thiscall *)(int, int, int, int, int, int, _DWORD, int, int))RtlDecompressFragmentProcs[a1])(
-             RtlDecompressFragmentProcs[a1],
-             a2,
-             a3,
-             a4,
-             a5,
-             a6,
+  if ( (unsigned __int8)CompressionFormat <= 4u )
+    return ((int (__thiscall *)(int, PUCHAR, ULONG, PUCHAR, ULONG, ULONG, _DWORD, PULONG, PVOID))RtlDecompressFragmentProcs[(unsigned __int8)CompressionFormat])(
+             RtlDecompressFragmentProcs[(unsigned __int8)CompressionFormat],
+             UncompressedFragment,
+             UncompressedFragmentSize,
+             CompressedBuffer,
+             CompressedBufferSize,
+             FragmentOffset,
              0,
-             a7,
-             a8);
+             FinalUncompressedSize,
+             WorkSpace);
   return -1073741217;
 }

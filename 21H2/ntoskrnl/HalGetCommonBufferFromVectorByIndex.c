@@ -1,9 +1,9 @@
 /*
- * XREFs of HalGetCommonBufferFromVectorByIndex @ 0x1404C6180
+ * XREFs of HalGetCommonBufferFromVectorByIndex @ 0x1404C63C0
  * Callers:
  *     <none>
  * Callees:
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
  */
 
 _QWORD *__fastcall HalGetCommonBufferFromVectorByIndex(__int64 a1, __int64 a2, unsigned int a3, _QWORD *a4, _QWORD *a5)

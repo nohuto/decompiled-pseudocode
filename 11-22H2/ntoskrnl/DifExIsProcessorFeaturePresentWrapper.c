@@ -9,7 +9,7 @@
  *     DifGetReturnAddressForWrappers @ 0x1405F8954 (DifGetReturnAddressForWrappers.c)
  */
 
-char __fastcall DifExIsProcessorFeaturePresentWrapper(unsigned int a1)
+BOOLEAN __fastcall DifExIsProcessorFeaturePresentWrapper(ULONG ProcessorFeature)
 {
   __int64 *APIThunkContextById; // rax
   __int64 v3; // rdx
@@ -20,7 +20,7 @@ char __fastcall DifExIsProcessorFeaturePresentWrapper(unsigned int a1)
   int v8; // eax
   __int64 ReturnAddressForWrappers; // rax
   __int64 *i; // rdi
-  char result; // al
+  BOOLEAN result; // al
   _QWORD *v12; // rdi
   _QWORD *v13; // rbx
   __int128 v14; // [rsp+20h] [rbp-18h] BYREF
@@ -56,14 +56,14 @@ LABEL_8:
   }
   *(_QWORD *)&v14 = 0LL;
 LABEL_10:
-  DWORD2(v14) = a1;
+  DWORD2(v14) = ProcessorFeature;
   for ( i = (__int64 *)v7[4]; i != v7 + 4; i = (__int64 *)*i )
   {
     if ( i != (__int64 *)16 )
       ((void (__fastcall *)(__int128 *))*(i - 1))(&v14);
   }
 LABEL_17:
-  result = RtlIsProcessorFeaturePresent(a1);
+  result = RtlIsProcessorFeaturePresent(ProcessorFeature);
   BYTE12(v14) = result;
   if ( v7 )
   {

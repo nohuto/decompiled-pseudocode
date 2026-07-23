@@ -235,19 +235,19 @@
 
 void *__cdecl memset(void *a1, int Val, size_t Size)
 {
-  size_t v3; // edx
+  unsigned int v3; // edx
   int v4; // eax
   _BYTE *v5; // edi
   int v6; // ecx
-  size_t v7; // ecx
+  unsigned int v7; // ecx
   unsigned int v8; // ecx
 
   v3 = Size;
-  if ( !Size )
+  if ( !(_DWORD)Size )
     return a1;
   LOBYTE(v4) = Val;
   v5 = a1;
-  if ( Size < 4 )
+  if ( (unsigned int)Size < 4 )
     goto LABEL_13;
   v6 = -(int)a1 & 3;
   if ( v6 )

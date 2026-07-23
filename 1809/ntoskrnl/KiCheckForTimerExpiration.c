@@ -3,14 +3,14 @@
  * Callers:
  *     KeAccumulateTicks @ 0x1400601D0 (KeAccumulateTicks.c)
  * Callees:
- *     EtwTraceKernelEvent @ 0x1400F3710 (EtwTraceKernelEvent.c)
- *     PoTraceSystemTimerResolutionKernel @ 0x1400FCC50 (PoTraceSystemTimerResolutionKernel.c)
- *     KiSetClockIntervalToMinimumRequested @ 0x1400FCD10 (KiSetClockIntervalToMinimumRequested.c)
- *     KiGetClockIntervalOneShot @ 0x1400FCFA4 (KiGetClockIntervalOneShot.c)
- *     KiSetClockInterval @ 0x14012EAF8 (KiSetClockInterval.c)
- *     KiResetClockInterval @ 0x140190BEC (KiResetClockInterval.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     EtwTraceKernelEvent @ 0x1400F3790 (EtwTraceKernelEvent.c)
+ *     PoTraceSystemTimerResolutionKernel @ 0x1400FCCD0 (PoTraceSystemTimerResolutionKernel.c)
+ *     KiSetClockIntervalToMinimumRequested @ 0x1400FCD90 (KiSetClockIntervalToMinimumRequested.c)
+ *     KiGetClockIntervalOneShot @ 0x1400FD024 (KiGetClockIntervalOneShot.c)
+ *     KiSetClockInterval @ 0x14012EBC8 (KiSetClockInterval.c)
+ *     KiResetClockInterval @ 0x140190D2C (KiResetClockInterval.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int16 __fastcall KiCheckForTimerExpiration(__int64 a1)
@@ -97,14 +97,14 @@ LABEL_12:
       goto LABEL_13;
     goto LABEL_32;
   }
-  LOWORD(v4) = qword_140421D88;
-  if ( qword_140421D88 <= v3 )
+  LOWORD(v4) = qword_140422E68;
+  if ( qword_140422E68 <= v3 )
 LABEL_32:
     v1 = 1;
 LABEL_13:
   if ( !*(_BYTE *)(a1 + 33) )
     goto LABEL_14;
-  v11 = qword_140421D88;
+  v11 = qword_140422E68;
   v12 = v3 + KeMaximumIncrement;
   LOWORD(v4) = KiVelocityFlags;
   if ( (KiVelocityFlags & 0x100) == 0 )
@@ -112,10 +112,10 @@ LABEL_13:
     v17 = KiHRTimerClockActive;
     if ( KiHRTimerClockActive )
     {
-      if ( v12 > qword_140421D88 )
+      if ( v12 > qword_140422E68 )
         goto LABEL_14;
     }
-    else if ( v12 <= qword_140421D88 )
+    else if ( v12 <= qword_140422E68 )
     {
       goto LABEL_14;
     }
@@ -146,12 +146,12 @@ LABEL_13:
     v4 = CurrentIrql;
     goto LABEL_29;
   }
-  if ( qword_140421D88 > v3 )
+  if ( qword_140422E68 > v3 )
   {
     v4 = KiClockOwnerOneShotRequest;
     if ( !KiClockOwnerOneShotRequest )
       v4 = -1LL;
-    if ( v4 != qword_140421D88 )
+    if ( v4 != qword_140422E68 )
     {
       v13 = KeGetCurrentIrql();
       __writecr8(0xFuLL);

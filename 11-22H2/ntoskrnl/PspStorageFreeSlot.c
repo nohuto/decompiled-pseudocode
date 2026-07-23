@@ -14,7 +14,7 @@
 __int64 __fastcall PspStorageFreeSlot(unsigned int a1)
 {
   unsigned int v1; // edi
-  RTL_BITMAP *v2; // rsi
+  _RTL_BITMAP *v2; // rsi
   struct _KTHREAD *CurrentThread; // rax
   unsigned int v4; // edi
 

@@ -23,40 +23,44 @@
  *     BiConvertRegistryDataToElement @ 0x1404FDAE8 (BiConvertRegistryDataToElement.c)
  */
 
-__int64 __fastcall BcdGetElementDataWithFlags(__int64 a1, unsigned int a2, __int64 a3, __int64 a4, _DWORD *a5)
+NTSTATUS __cdecl BcdGetElementDataWithFlags(
+        HANDLE BcdObjectHandle,
+        ULONG BcdElement,
+        BCD_FLAGS BcdFlags,
+        PVOID Buffer,
+        PULONG BufferSize)
 {
   __int64 v7; // rcx
   char v8; // r13
-  __int64 result; // rax
+  NTSTATUS result; // eax
   __int64 v10; // rcx
-  int v11; // ebx
+  NTSTATUS v11; // ebx
   int v12; // eax
   int RegistryValue; // eax
-  PVOID v14; // rsi
+  void *v14; // rsi
   HANDLE v15; // [rsp+40h] [rbp-31h] BYREF
   HANDLE Handle; // [rsp+48h] [rbp-29h] BYREF
-  unsigned int v17; // [rsp+50h] [rbp-21h]
-  unsigned int v18; // [rsp+54h] [rbp-1Dh] BYREF
-  PVOID P; // [rsp+58h] [rbp-19h] BYREF
-  __int64 v20; // [rsp+60h] [rbp-11h]
+  ULONG v17; // [rsp+50h] [rbp-21h]
+  _DWORD Size[3]; // [rsp+54h] [rbp-1Dh] BYREF
+  GUID *Guid; // [rsp+60h] [rbp-11h]
   wchar_t DstBuf[24]; // [rsp+68h] [rbp-9h] BYREF
 
-  v20 = a4;
-  v17 = a2;
-  if ( !a5 || !a4 && *a5 )
-    return 3221225485LL;
-  LOBYTE(v7) = BiIsOfflineHandle(a1);
+  Guid = (GUID *)Buffer;
+  v17 = BcdElement;
+  if ( !BufferSize || !Buffer && *BufferSize )
+    return -1073741811;
+  LOBYTE(v7) = BiIsOfflineHandle((char)BcdObjectHandle);
   v8 = v7;
   result = BiAcquireBcdSyncMutant(v7);
-  if ( (int)result >= 0 )
+  if ( result >= 0 )
   {
     v15 = 0LL;
     Handle = 0LL;
-    P = 0LL;
-    v11 = BiOpenKey(a1, L"Elements", 131097LL, &v15);
+    *(_QWORD *)&Size[1] = 0LL;
+    v11 = BiOpenKey(BcdObjectHandle, L"Elements", 131097LL, &v15);
     if ( v11 >= 0 )
     {
-      if ( ultow_s(a2, DstBuf, 0x16uLL, 16) )
+      if ( ultow_s(BcdElement, DstBuf, 0x16uLL, 16) )
       {
         v11 = -1073741823;
       }
@@ -68,12 +72,18 @@ __int64 __fastcall BcdGetElementDataWithFlags(__int64 a1, unsigned int a2, __int
         }
         else
         {
-          v12 = BiConvertElementFormatToValueType(HIBYTE(a2) & 0xF);
-          RegistryValue = BiGetRegistryValue(Handle, L"Element", 0LL, v12, &P, &v18);
-          v14 = P;
+          v12 = BiConvertElementFormatToValueType(HIBYTE(BcdElement) & 0xF);
+          RegistryValue = BiGetRegistryValue(Handle, L"Element", 0LL, v12, &Size[1], Size);
+          v14 = *(void **)&Size[1];
           v11 = RegistryValue;
           if ( RegistryValue >= 0 )
-            v11 = BiConvertRegistryDataToElement(a1, P, v18, v17, 0, v20, a5);
+            v11 = BiConvertRegistryDataToElement(
+                    BcdObjectHandle,
+                    *(PCWSTR *)&Size[1],
+                    Size[0],
+                    0,
+                    Guid,
+                    (__int64)BufferSize);
           if ( v14 )
             ExFreePoolWithTag(v14, 0);
         }
@@ -85,7 +95,7 @@ __int64 __fastcall BcdGetElementDataWithFlags(__int64 a1, unsigned int a2, __int
       BiCloseKey(v15);
     LOBYTE(v10) = v8;
     BiReleaseBcdSyncMutant(v10);
-    return (unsigned int)v11;
+    return v11;
   }
   return result;
 }

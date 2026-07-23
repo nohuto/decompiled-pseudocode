@@ -6,7 +6,7 @@
  *     _Wow64SystemServiceCall@0 @ 0x4B308730 (_Wow64SystemServiceCall@0.c)
  */
 
-int __stdcall ZwSetUuidSeed(int a1)
+NTSTATUS __cdecl ZwSetUuidSeed(PCHAR Seed)
 {
   return Wow64SystemServiceCall();
 }

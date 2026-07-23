@@ -1,15 +1,15 @@
 /*
- * XREFs of LdrpCheckRedirection @ 0x1800838D8
+ * XREFs of LdrpCheckRedirection @ 0x18007AC78
  * Callers:
- *     LdrpResolveForwarder @ 0x180039370 (LdrpResolveForwarder.c)
- *     LdrpResolveProcedureAddress @ 0x1800C5A40 (LdrpResolveProcedureAddress.c)
- *     LdrpSnapModule @ 0x18011B530 (LdrpSnapModule.c)
+ *     LdrpResolveForwarder @ 0x1800238E0 (LdrpResolveForwarder.c)
+ *     LdrpResolveProcedureAddress @ 0x1800C3200 (LdrpResolveProcedureAddress.c)
+ *     LdrpSnapModule @ 0x18011B2E0 (LdrpSnapModule.c)
  * Callees:
- *     LdrpLogInternal @ 0x180046B90 (LdrpLogInternal.c)
- *     RtlCompareUnicodeStrings @ 0x180083D00 (RtlCompareUnicodeStrings.c)
- *     LdrpHashAsciizString @ 0x1800849D8 (LdrpHashAsciizString.c)
- *     LdrpCompareRedirectedFunction @ 0x180084A0C (LdrpCompareRedirectedFunction.c)
- *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x180170020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
+ *     LdrpLogInternal @ 0x180031100 (LdrpLogInternal.c)
+ *     RtlCompareUnicodeStrings @ 0x18007B0A0 (RtlCompareUnicodeStrings.c)
+ *     LdrpHashAsciizString @ 0x18007BD78 (LdrpHashAsciizString.c)
+ *     LdrpCompareRedirectedFunction @ 0x18007BDAC (LdrpCompareRedirectedFunction.c)
+ *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x18016F020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
  */
 
 __int64 __fastcall LdrpCheckRedirection(__int64 a1, __int64 a2, __int64 a3)
@@ -20,11 +20,11 @@ __int64 __fastcall LdrpCheckRedirection(__int64 a1, __int64 a2, __int64 a3)
   unsigned int v8; // ebp
   __int64 v9; // r12
   __int128 v10; // xmm0
-  unsigned __int64 v11; // rbx
+  unsigned __int64 Root; // rbx
   unsigned int v12; // esi
   wchar_t *v13; // r8
   int v14; // edi
-  int v15; // eax
+  LONG v15; // eax
   char *v16; // rax
   __int64 v17; // rdx
   char v18; // cl
@@ -33,9 +33,8 @@ __int64 __fastcall LdrpCheckRedirection(__int64 a1, __int64 a2, __int64 a3)
   _QWORD **v22; // rcx
   unsigned __int64 v23; // rax
   _QWORD *i; // rcx
-  int Format; // [rsp+20h] [rbp-78h]
   _UNICODE_STRING RedirectionDllName; // [rsp+50h] [rbp-48h] BYREF
-  __int128 v27; // [rsp+60h] [rbp-38h]
+  PCWCH String2[2]; // [rsp+60h] [rbp-38h]
 
   *(_QWORD *)&RedirectionDllName.Length = 0LL;
   v5 = -4530927LL;
@@ -43,23 +42,23 @@ __int64 __fastcall LdrpCheckRedirection(__int64 a1, __int64 a2, __int64 a3)
   v8 = *(_DWORD *)(v7 + 264);
   v9 = v7 + 88;
   v10 = *(_OWORD *)(v7 + 88);
-  v11 = LdrpRedirectionTree;
+  Root = (unsigned __int64)LdrpRedirectionTree.Root;
   v12 = v6;
   *(_QWORD *)&RedirectionDllName.Length = __PAIR64__(v8, v6);
   RedirectionDllName.Buffer = v13;
-  v27 = v10;
-  if ( (qword_1801CB5C0 & 1) != 0 && LdrpRedirectionTree )
-    v11 = (unsigned __int64)&LdrpRedirectionTree ^ LdrpRedirectionTree;
-  v14 = qword_1801CB5C0 & 1;
-  while ( v11 )
+  *(_OWORD *)String2 = v10;
+  if ( (*(_BYTE *)&LdrpRedirectionTree.0 & 1) != 0 && LdrpRedirectionTree.Root )
+    Root = (unsigned __int64)&LdrpRedirectionTree ^ (unsigned __int64)LdrpRedirectionTree.Root;
+  v14 = *(_BYTE *)&LdrpRedirectionTree.0 & 1;
+  while ( Root )
   {
-    v15 = *(_DWORD *)(v11 + 24) - v12;
+    v15 = *(_DWORD *)(Root + 24) - v12;
     if ( v15 )
       goto LABEL_11;
-    v15 = *(_DWORD *)(v11 + 28) - v8;
+    v15 = *(_DWORD *)(Root + 28) - v8;
     if ( v15 )
       goto LABEL_11;
-    v16 = *(char **)(v11 + 32);
+    v16 = *(char **)(Root + 32);
     v17 = a3 - (_QWORD)v16;
     while ( 1 )
     {
@@ -78,40 +77,39 @@ LABEL_9:
     v19 = v15 < 0;
     if ( !v15 )
     {
-      LOBYTE(Format) = 1;
       v15 = RtlCompareUnicodeStrings(
-              *(_QWORD *)(v11 + 48),
-              (unsigned __int64)*(unsigned __int16 *)(v11 + 40) >> 1,
-              *((_QWORD *)&v27 + 1),
-              (unsigned __int64)(unsigned __int16)v27 >> 1,
-              Format);
+              *(PCWCH *)(Root + 48),
+              (unsigned __int64)*(unsigned __int16 *)(Root + 40) >> 1,
+              String2[1],
+              (unsigned __int64)LOWORD(String2[0]) >> 1,
+              1u);
 LABEL_11:
       v19 = v15 < 0;
     }
     if ( v19 )
     {
-      v20 = *(_QWORD *)v11;
+      v20 = *(_QWORD *)Root;
     }
     else
     {
       if ( v15 <= 0 )
         break;
-      v20 = *(_QWORD *)(v11 + 8);
+      v20 = *(_QWORD *)(Root + 8);
     }
     if ( v14 && v20 )
-      v11 ^= v20;
+      Root ^= v20;
     else
-      v11 = v20;
+      Root = v20;
   }
-  while ( v11 && !(unsigned int)LdrpCompareRedirectedFunction(&RedirectionDllName, v11) )
+  while ( Root && !(unsigned int)LdrpCompareRedirectedFunction(&RedirectionDllName, Root) )
   {
     if ( !LdrpRedirectionByFunctionCalloutFunc
-      || (unsigned __int8)LdrpRedirectionByFunctionCalloutFunc(*(_QWORD *)(a1 + 80), *(unsigned int *)(v11 + 64)) )
+      || (unsigned __int8)LdrpRedirectionByFunctionCalloutFunc(*(_QWORD *)(a1 + 80), *(unsigned int *)(Root + 64)) )
     {
-      v5 = *(_QWORD *)(v11 + 56);
+      v5 = *(_QWORD *)(Root + 56);
       RedirectionDllName = NtCurrentPeb()->ProcessParameters->RedirectionDllName;
       LdrpLogInternal(
-        (int)"minkernel\\ldr\\ldrredirect.c",
+        "minkernel\\ldr\\ldrredirect.c",
         296,
         (__int64)"LdrpCheckRedirection",
         2,
@@ -122,22 +120,22 @@ LABEL_11:
         &RedirectionDllName);
       return v5;
     }
-    v22 = *(_QWORD ***)(v11 + 8);
-    v23 = v11;
+    v22 = *(_QWORD ***)(Root + 8);
+    v23 = Root;
     if ( v22 )
     {
-      v11 = *(_QWORD *)(v11 + 8);
+      Root = *(_QWORD *)(Root + 8);
       for ( i = *v22; i; i = (_QWORD *)*i )
-        v11 = (unsigned __int64)i;
+        Root = (unsigned __int64)i;
     }
     else
     {
       while ( 1 )
       {
-        v11 = *(_QWORD *)(v11 + 16) & 0xFFFFFFFFFFFFFFFCuLL;
-        if ( !v11 || *(_QWORD *)v11 == v23 )
+        Root = *(_QWORD *)(Root + 16) & 0xFFFFFFFFFFFFFFFCuLL;
+        if ( !Root || *(_QWORD *)Root == v23 )
           break;
-        v23 = v11;
+        v23 = Root;
       }
     }
   }

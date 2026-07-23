@@ -1,8 +1,8 @@
 /*
- * XREFs of RtlMultiByteToUnicodeSize @ 0x14054C98C
+ * XREFs of RtlMultiByteToUnicodeSize @ 0x14054CECC
  * Callers:
- *     RtlxAnsiStringToUnicodeSize @ 0x14054C968 (RtlxAnsiStringToUnicodeSize.c)
- *     RtlxOemStringToUnicodeSize @ 0x1406857F0 (RtlxOemStringToUnicodeSize.c)
+ *     RtlxAnsiStringToUnicodeSize @ 0x14054CEA8 (RtlxAnsiStringToUnicodeSize.c)
+ *     RtlxOemStringToUnicodeSize @ 0x1406858D4 (RtlxOemStringToUnicodeSize.c)
  * Callees:
  *     <none>
  */

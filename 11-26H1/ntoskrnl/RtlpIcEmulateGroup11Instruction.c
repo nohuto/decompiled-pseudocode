@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlpIcEmulateGroup11Instruction @ 0x140C56734
+ * XREFs of RtlpIcEmulateGroup11Instruction @ 0x140C5C734
  * Callers:
- *     RtlpIcEmulateInstruction @ 0x140C569F8 (RtlpIcEmulateInstruction.c)
+ *     RtlpIcEmulateInstruction @ 0x140C5C9F8 (RtlpIcEmulateInstruction.c)
  * Callees:
- *     RtlpIcAccessMemory @ 0x140C56198 (RtlpIcAccessMemory.c)
- *     RtlpIcDecodeModRm @ 0x140C56290 (RtlpIcDecodeModRm.c)
- *     RtlpIcDecodeModRmOperand @ 0x140C5637C (RtlpIcDecodeModRmOperand.c)
- *     RtlpIcFetchImmediateOperand @ 0x140C573E0 (RtlpIcFetchImmediateOperand.c)
+ *     RtlpIcAccessMemory @ 0x140C5C198 (RtlpIcAccessMemory.c)
+ *     RtlpIcDecodeModRm @ 0x140C5C290 (RtlpIcDecodeModRm.c)
+ *     RtlpIcDecodeModRmOperand @ 0x140C5C37C (RtlpIcDecodeModRmOperand.c)
+ *     RtlpIcFetchImmediateOperand @ 0x140C5D3E0 (RtlpIcFetchImmediateOperand.c)
  */
 
 __int64 __fastcall RtlpIcEmulateGroup11Instruction(__int64 a1, __int64 a2, int *a3)

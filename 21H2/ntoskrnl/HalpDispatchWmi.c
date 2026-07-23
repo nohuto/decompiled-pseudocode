@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpDispatchWmi @ 0x1407D5320
+ * XREFs of HalpDispatchWmi @ 0x1407D5490
  * Callers:
  *     <none>
  * Callees:
- *     IofCompleteRequest @ 0x140243490 (IofCompleteRequest.c)
- *     HalpPassIrpFromFdoToPdo @ 0x1403A729C (HalpPassIrpFromFdoToPdo.c)
+ *     IofCompleteRequest @ 0x1402E7CE0 (IofCompleteRequest.c)
+ *     HalpPassIrpFromFdoToPdo @ 0x1403A73EC (HalpPassIrpFromFdoToPdo.c)
  */
 
 __int64 __fastcall HalpDispatchWmi(__int64 a1, IRP *a2)

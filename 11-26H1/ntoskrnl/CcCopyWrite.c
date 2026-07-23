@@ -1,9 +1,9 @@
 /*
- * XREFs of CcCopyWrite @ 0x1404DFEF0
+ * XREFs of CcCopyWrite @ 0x1404D95D0
  * Callers:
- *     FsRtlCopyWrite @ 0x140ABE620 (FsRtlCopyWrite.c)
+ *     FsRtlCopyWrite @ 0x140AC06C0 (FsRtlCopyWrite.c)
  * Callees:
- *     CcCopyWriteEx @ 0x14026CF40 (CcCopyWriteEx.c)
+ *     CcCopyWriteEx @ 0x14026C4B0 (CcCopyWriteEx.c)
  */
 
 BOOLEAN __stdcall CcCopyWrite(

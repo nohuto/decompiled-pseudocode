@@ -10,40 +10,40 @@
  *     __alloca_probe_16 @ 0x4B2F6500 (__alloca_probe_16.c)
  */
 
-int __stdcall RtlWow64GetProcessMachines(int a1, _WORD *a2, __int16 *a3)
+NTSTATUS __cdecl RtlWow64GetProcessMachines(HANDLE ProcessHandle, PUSHORT ProcessMachine, PUSHORT NativeMachine)
 {
-  _WORD *v3; // ebx
-  __int16 *v4; // edi
+  PUSHORT v3; // ebx
+  PUSHORT v4; // edi
   int v5; // esi
   struct _TEB *v6; // eax
   int WowTebOffset; // ecx
   _WORD *v8; // eax
-  __int16 v9; // cx
+  USHORT v9; // cx
   __int16 v10; // ax
-  __int16 v11; // dx
+  USHORT v11; // dx
   __int16 v12; // cx
-  int result; // eax
+  NTSTATUS result; // eax
   void *v14; // esp
   int v15; // ebx
   int v16; // esi
   _BYTE *v17; // edi
   _BYTE v18[12]; // [esp+0h] [ebp-3Ch] BYREF
-  _WORD *v19; // [esp+Ch] [ebp-30h]
-  __int16 *v20; // [esp+10h] [ebp-2Ch]
+  PUSHORT v19; // [esp+Ch] [ebp-30h]
+  PUSHORT v20; // [esp+10h] [ebp-2Ch]
   int v21; // [esp+14h] [ebp-28h]
-  int v22; // [esp+18h] [ebp-24h] BYREF
+  HANDLE InputBuffer; // [esp+18h] [ebp-24h] BYREF
   int v23; // [esp+1Ch] [ebp-20h]
-  int v24; // [esp+20h] [ebp-1Ch] BYREF
+  ULONG ReturnLength; // [esp+20h] [ebp-1Ch] BYREF
   _BYTE *v25; // [esp+24h] [ebp-18h]
-  _BYTE v26[16]; // [esp+28h] [ebp-14h] BYREF
+  _BYTE SystemInformation[16]; // [esp+28h] [ebp-14h] BYREF
 
-  v3 = a2;
-  v4 = a3;
+  v3 = ProcessMachine;
+  v4 = NativeMachine;
   v5 = 0;
-  v22 = a1;
-  v19 = a2;
-  v20 = a3;
-  if ( a1 == -1 )
+  InputBuffer = ProcessHandle;
+  v19 = ProcessMachine;
+  v20 = NativeMachine;
+  if ( ProcessHandle == (HANDLE)-1 )
   {
     if ( !NtCurrentTeb()->WowTebOffset )
     {
@@ -74,15 +74,27 @@ int __stdcall RtlWow64GetProcessMachines(int a1, _WORD *a2, __int16 *a3)
       }
     }
   }
-  v24 = 16;
-  v25 = v26;
-  v5 = ZwQuerySystemInformationEx(181, &v22, 4, v26, 16, &v24);
+  ReturnLength = 16;
+  v25 = SystemInformation;
+  v5 = ZwQuerySystemInformationEx(
+         SystemSupportedProcessorArchitectures,
+         &InputBuffer,
+         4u,
+         SystemInformation,
+         0x10u,
+         &ReturnLength);
   v21 = v5;
   if ( v5 == -1073741789 )
   {
-    v14 = alloca(v24);
+    v14 = alloca(ReturnLength);
     v25 = v18;
-    v5 = ZwQuerySystemInformationEx(181, &v22, 4, v18, v24, &v24);
+    v5 = ZwQuerySystemInformationEx(
+           SystemSupportedProcessorArchitectures,
+           &InputBuffer,
+           4u,
+           v18,
+           ReturnLength,
+           &ReturnLength);
     v21 = v5;
   }
   if ( v5 < 0 )

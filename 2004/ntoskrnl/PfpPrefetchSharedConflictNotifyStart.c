@@ -33,7 +33,7 @@ __int64 __fastcall PfpPrefetchSharedConflictNotifyStart(
   {
     BugCheckParameter2 = &PfGlobals;
   }
-  v6 = KeAbPreAcquire((ULONG_PTR)BugCheckParameter2, 0LL, 0LL);
+  v6 = KeAbPreAcquire((ULONG_PTR)BugCheckParameter2, 0LL, 0);
   v5 = v6;
   if ( v6 )
   {

@@ -4,7 +4,7 @@
  *     IoCreateSymbolicLink @ 0x1406C4C40 (IoCreateSymbolicLink.c)
  * Callees:
  *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     ObCreateSymbolicLink @ 0x1406C505C (ObCreateSymbolicLink.c)
+ *     sub_1406C505C @ 0x1406C505C (sub_1406C505C.c)
  */
 
 __int64 __fastcall IoCreateSymbolicLink2(__int64 a1, __int64 a2)
@@ -12,7 +12,7 @@ __int64 __fastcall IoCreateSymbolicLink2(__int64 a1, __int64 a2)
   __int128 v2; // xmm0
   bool v3; // zf
   int v4; // eax
-  int SymbolicLink; // ebx
+  int v5; // ebx
   _DWORD v7[2]; // [rsp+30h] [rbp-50h] BYREF
   __int128 v8; // [rsp+38h] [rbp-48h]
   _DWORD v9[2]; // [rsp+48h] [rbp-38h] BYREF
@@ -41,10 +41,10 @@ __int64 __fastcall IoCreateSymbolicLink2(__int64 a1, __int64 a2)
   v10 = 0LL;
   v15 = 0LL;
   v7[0] = v4;
-  v14 = SePublicDefaultUnrestrictedSd;
+  v14 = qword_140D3CA48;
   v8 = v2;
-  SymbolicLink = ObCreateSymbolicLink((unsigned int)&Handle, 983041, (unsigned int)v9, (unsigned int)v7, 0);
-  if ( SymbolicLink >= 0 )
+  v5 = sub_1406C505C((unsigned int)&Handle, 983041, (unsigned int)v9, (unsigned int)v7, 0);
+  if ( v5 >= 0 )
     ZwClose(Handle);
-  return (unsigned int)SymbolicLink;
+  return (unsigned int)v5;
 }

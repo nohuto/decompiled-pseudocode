@@ -9,53 +9,52 @@
  *     _guard_dispatch_icall_nop @ 0x18009E4A0 (_guard_dispatch_icall_nop.c)
  */
 
-__int64 __fastcall RtlFlsFree(unsigned int a1, unsigned __int64 a2, unsigned __int64 *a3, __int64 a4)
+NTSTATUS __cdecl RtlFlsFree(ULONG FlsIndex)
 {
-  struct _PEB *ProcessEnvironmentBlock; // rsi
-  __int64 FlsBitmap; // rcx
-  unsigned __int8 v7; // di
-  struct _FLS_CALLBACK_INFO *FlsCallback; // rax
-  __int64 v9; // r14
-  __int64 v10; // rbp
-  void (*v11)(void); // r15
-  unsigned __int64 v12; // rdx
-  unsigned __int64 *v13; // r8
-  __int64 v14; // r9
-  struct _LIST_ENTRY *i; // rbx
+  PPEB ProcessEnvironmentBlock; // rsi
+  _RTL_BITMAP *ChpeV2ProcessInfo; // rcx
+  unsigned __int8 v4; // di
+  char *v5; // rax
+  __int64 v6; // r14
+  __int64 v7; // rbp
+  void (*v8)(void); // r15
+  PVOID *i; // rbx
 
-  if ( a1 - 1 > 0x7E )
-    return 3221225485LL;
+  if ( FlsIndex - 1 > 0x7E )
+    return -1073741811;
   ProcessEnvironmentBlock = NtCurrentTeb()->ProcessEnvironmentBlock;
-  RtlAcquireSRWLockExclusive((unsigned __int64)&qword_18015D260, a2, a3, a4);
-  FlsBitmap = (__int64)ProcessEnvironmentBlock->FlsBitmap;
-  if ( a1 >= *(_DWORD *)FlsBitmap )
+  RtlAcquireSRWLockExclusive(&stru_18015D260);
+  ChpeV2ProcessInfo = (_RTL_BITMAP *)ProcessEnvironmentBlock->ChpeV2ProcessInfo;
+  if ( FlsIndex >= ChpeV2ProcessInfo->SizeOfBitMap )
   {
-    v7 = 0;
+    v4 = 0;
   }
   else
   {
-    v7 = _bittest(*(const signed __int32 **)(FlsBitmap + 8), a1);
-    if ( v7 )
+    v4 = _bittest((const signed __int32 *)ChpeV2ProcessInfo->Buffer, FlsIndex);
+    if ( v4 )
     {
-      RtlClearBits(FlsBitmap, a1, 1u);
-      FlsCallback = ProcessEnvironmentBlock->FlsCallback;
-      v9 = 16LL * a1;
-      v10 = a1;
-      v11 = *(void (**)(void))((char *)FlsCallback + v9);
-      RtlAcquireSRWLockExclusive((unsigned __int64)FlsCallback + v9 + 8, v12, v13, v14);
-      for ( i = ProcessEnvironmentBlock->FlsListHead.Flink; i != &ProcessEnvironmentBlock->FlsListHead; i = i->Flink )
+      RtlClearBits(ChpeV2ProcessInfo, FlsIndex, 1u);
+      v5 = (char *)ProcessEnvironmentBlock->SparePointers[0];
+      v6 = 16LL * FlsIndex;
+      v7 = FlsIndex;
+      v8 = *(void (**)(void))&v5[v6];
+      RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)&v5[v6 + 8]);
+      for ( i = (PVOID *)ProcessEnvironmentBlock->SparePointers[1];
+            i != &ProcessEnvironmentBlock->SparePointers[1];
+            i = (PVOID *)*i )
       {
-        if ( v11 )
+        if ( v8 )
         {
-          if ( *((_QWORD *)&i[1].Flink + v10) )
-            v11();
+          if ( i[v7 + 2] )
+            v8();
         }
-        *((_QWORD *)&i[1].Flink + v10) = 0LL;
+        i[v7 + 2] = 0LL;
       }
-      *(_QWORD *)((char *)ProcessEnvironmentBlock->FlsCallback + v9) = 0LL;
-      RtlReleaseSRWLockExclusive((volatile signed __int64 *)((char *)ProcessEnvironmentBlock->FlsCallback + v9 + 8));
+      *(_QWORD *)((char *)ProcessEnvironmentBlock->SparePointers[0] + v6) = 0LL;
+      RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)((char *)ProcessEnvironmentBlock->SparePointers[0] + v6 + 8));
     }
   }
-  RtlReleaseSRWLockExclusive(&qword_18015D260);
-  return v7 == 0 ? 0xC000000D : 0;
+  RtlReleaseSRWLockExclusive(&stru_18015D260);
+  return v4 == 0 ? 0xC000000D : 0;
 }

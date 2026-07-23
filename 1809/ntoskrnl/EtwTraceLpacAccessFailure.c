@@ -1,17 +1,17 @@
 /*
- * XREFs of EtwTraceLpacAccessFailure @ 0x1408C0934
+ * XREFs of EtwTraceLpacAccessFailure @ 0x1408C1BF4
  * Callers:
- *     SepLogLpacAccessFailure @ 0x1402FEC00 (SepLogLpacAccessFailure.c)
+ *     SepLogLpacAccessFailure @ 0x1402FEDF0 (SepLogLpacAccessFailure.c)
  * Callees:
- *     KeQuerySystemTimePrecise @ 0x14008A4F0 (KeQuerySystemTimePrecise.c)
- *     EtwWrite @ 0x1400CAD20 (EtwWrite.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     KeQuerySystemTimePrecise @ 0x14008A4E0 (KeQuerySystemTimePrecise.c)
+ *     EtwWrite @ 0x1400CAE00 (EtwWrite.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall EtwTraceLpacAccessFailure(int a1)
 {
   NTSTATUS result; // eax
-  __int64 v2; // [rsp+30h] [rbp-38h] BYREF
+  LARGE_INTEGER v2; // [rsp+30h] [rbp-38h] BYREF
   struct _EVENT_DATA_DESCRIPTOR UserData; // [rsp+38h] [rbp-30h] BYREF
   int *v4; // [rsp+48h] [rbp-20h]
   int v5; // [rsp+50h] [rbp-18h]

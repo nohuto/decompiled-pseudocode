@@ -1,10 +1,10 @@
 /*
- * XREFs of BgkpDisableConsole @ 0x1404635C0
+ * XREFs of BgkpDisableConsole @ 0x14045C580
  * Callers:
- *     BgkNotifyDisplayOwnershipChange @ 0x1404633C0 (BgkNotifyDisplayOwnershipChange.c)
- *     BgkDestroy @ 0x140C4F454 (BgkDestroy.c)
+ *     BgkNotifyDisplayOwnershipChange @ 0x14045C380 (BgkNotifyDisplayOwnershipChange.c)
+ *     BgkDestroy @ 0x140C55454 (BgkDestroy.c)
  * Callees:
- *     ExfWaitForRundownProtectionRelease @ 0x140463DCC (ExfWaitForRundownProtectionRelease.c)
+ *     ExfWaitForRundownProtectionRelease @ 0x14045CD8C (ExfWaitForRundownProtectionRelease.c)
  */
 
 unsigned __int64 BgkpDisableConsole()

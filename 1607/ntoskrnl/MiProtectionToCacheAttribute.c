@@ -1,16 +1,16 @@
 /*
- * XREFs of MiProtectionToCacheAttribute @ 0x1400E74EC
+ * XREFs of MiProtectionToCacheAttribute @ 0x1400E538C
  * Callers:
- *     MiInitializeTransitionPfn @ 0x140023124 (MiInitializeTransitionPfn.c)
- *     MmCheckCachedPageStates @ 0x140033AB0 (MmCheckCachedPageStates.c)
- *     MiAllocateContiguousMemory @ 0x14009AF40 (MiAllocateContiguousMemory.c)
- *     MiBuildMdlForMappedFileFault @ 0x1400BF5B0 (MiBuildMdlForMappedFileFault.c)
- *     MiInitializePfn @ 0x1400E7280 (MiInitializePfn.c)
- *     MiInsertViewOfPhysicalSection @ 0x140146848 (MiInsertViewOfPhysicalSection.c)
- *     MiSharePages @ 0x1401FA8E4 (MiSharePages.c)
- *     MiGet64KPage @ 0x1401FB7C4 (MiGet64KPage.c)
- *     MiFindLargePageMemory @ 0x1406626E4 (MiFindLargePageMemory.c)
- *     MiGetFastLargePage @ 0x1406629F0 (MiGetFastLargePage.c)
+ *     MiInitializeTransitionPfn @ 0x140022CA4 (MiInitializeTransitionPfn.c)
+ *     MmCheckCachedPageStates @ 0x140033630 (MmCheckCachedPageStates.c)
+ *     MiAllocateContiguousMemory @ 0x14009A740 (MiAllocateContiguousMemory.c)
+ *     MiBuildMdlForMappedFileFault @ 0x1400BD440 (MiBuildMdlForMappedFileFault.c)
+ *     MiInitializePfn @ 0x1400E5120 (MiInitializePfn.c)
+ *     MiInsertViewOfPhysicalSection @ 0x140146DB8 (MiInsertViewOfPhysicalSection.c)
+ *     MiSharePages @ 0x1401FA710 (MiSharePages.c)
+ *     MiGet64KPage @ 0x1401FB5F0 (MiGet64KPage.c)
+ *     MiFindLargePageMemory @ 0x1406627C8 (MiFindLargePageMemory.c)
+ *     MiGetFastLargePage @ 0x140662AD4 (MiGetFastLargePage.c)
  * Callees:
  *     <none>
  */

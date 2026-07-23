@@ -1,21 +1,21 @@
 /*
- * XREFs of PopNotifyConsoleUserPresent @ 0x1407D3744
+ * XREFs of PopNotifyConsoleUserPresent @ 0x1407D3A14
  * Callers:
- *     PopUserPresentSetWorker @ 0x14058E1B0 (PopUserPresentSetWorker.c)
+ *     PopUserPresentSetWorker @ 0x14058E6A0 (PopUserPresentSetWorker.c)
  *     PopSessionWinlogonNotification @ 0x140682D5C (PopSessionWinlogonNotification.c)
- *     NtSetThreadExecutionState @ 0x1407A8D20 (NtSetThreadExecutionState.c)
- *     PopSetSystemAwayMode @ 0x14098A890 (PopSetSystemAwayMode.c)
+ *     NtSetThreadExecutionState @ 0x1407A8F10 (NtSetThreadExecutionState.c)
+ *     PopSetSystemAwayMode @ 0x14098AA90 (PopSetSystemAwayMode.c)
  * Callees:
- *     RtlGetActiveConsoleId @ 0x14035ECC0 (RtlGetActiveConsoleId.c)
- *     TtmIsEnabled @ 0x1407A6090 (TtmIsEnabled.c)
- *     PopInvokeWin32Callout @ 0x1407D38BC (PopInvokeWin32Callout.c)
- *     TtmNotifyConsoleUserPresent @ 0x1409A4214 (TtmNotifyConsoleUserPresent.c)
+ *     RtlGetActiveConsoleId @ 0x14035EE60 (RtlGetActiveConsoleId.c)
+ *     TtmIsEnabled @ 0x1407A6280 (TtmIsEnabled.c)
+ *     PopInvokeWin32Callout @ 0x1407D3B8C (PopInvokeWin32Callout.c)
+ *     TtmNotifyConsoleUserPresent @ 0x1409A4414 (TtmNotifyConsoleUserPresent.c)
  */
 
-__int64 __fastcall PopNotifyConsoleUserPresent(char a1, unsigned int a2)
+ULONG __fastcall PopNotifyConsoleUserPresent(char a1, unsigned int a2)
 {
-  __int64 result; // rax
-  unsigned int v5; // ebx
+  ULONG result; // eax
+  ULONG v5; // ebx
   int v6; // [rsp+20h] [rbp-30h] BYREF
   __int16 v7; // [rsp+25h] [rbp-2Bh]
   char v8; // [rsp+27h] [rbp-29h]
@@ -25,11 +25,11 @@ __int64 __fastcall PopNotifyConsoleUserPresent(char a1, unsigned int a2)
   int v12; // [rsp+38h] [rbp-18h]
   int v13; // [rsp+3Ch] [rbp-14h]
   __int64 v14; // [rsp+40h] [rbp-10h]
-  int v15; // [rsp+80h] [rbp+30h] BYREF
+  ULONG v15; // [rsp+80h] [rbp+30h] BYREF
   int v16; // [rsp+88h] [rbp+38h] BYREF
   unsigned int v17; // [rsp+8Ch] [rbp+3Ch]
 
-  result = 0LL;
+  result = 0;
   v7 = 0;
   v8 = 0;
   v10 = 0;
@@ -41,7 +41,7 @@ __int64 __fastcall PopNotifyConsoleUserPresent(char a1, unsigned int a2)
     result = RtlGetActiveConsoleId();
     v15 = result;
     v5 = result;
-    if ( (_DWORD)result != -1 )
+    if ( result != -1 )
     {
       if ( TtmIsEnabled() )
       {

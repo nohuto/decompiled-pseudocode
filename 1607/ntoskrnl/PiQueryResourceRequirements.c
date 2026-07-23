@@ -1,20 +1,20 @@
 /*
- * XREFs of PiQueryResourceRequirements @ 0x1404C90AC
+ * XREFs of PiQueryResourceRequirements @ 0x14050E808
  * Callers:
- *     PiProcessNewDeviceNode @ 0x140487BC4 (PiProcessNewDeviceNode.c)
+ *     PiProcessNewDeviceNode @ 0x140510338 (PiProcessNewDeviceNode.c)
  * Callees:
- *     KeReleaseGuardedMutex @ 0x14000CA40 (KeReleaseGuardedMutex.c)
- *     ExAcquireFastMutex @ 0x14002D0A0 (ExAcquireFastMutex.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x140055FA0 (KiLeaveCriticalRegionUnsafe.c)
- *     ExAcquireResourceSharedLite @ 0x1400685B0 (ExAcquireResourceSharedLite.c)
- *     ExReleaseResourceLite @ 0x140068940 (ExReleaseResourceLite.c)
- *     ZwClose @ 0x140159E60 (ZwClose.c)
- *     ZwSetValueKey @ 0x14015A880 (ZwSetValueKey.c)
- *     ZwDeleteValueKey @ 0x14015B5E0 (ZwDeleteValueKey.c)
+ *     KeReleaseGuardedMutex @ 0x14000C5C0 (KeReleaseGuardedMutex.c)
+ *     ExAcquireFastMutex @ 0x14002CC20 (ExAcquireFastMutex.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140055B20 (KiLeaveCriticalRegionUnsafe.c)
+ *     ExAcquireResourceSharedLite @ 0x140068130 (ExAcquireResourceSharedLite.c)
+ *     ExReleaseResourceLite @ 0x1400684C0 (ExReleaseResourceLite.c)
+ *     ZwClose @ 0x14015A3D0 (ZwClose.c)
+ *     ZwSetValueKey @ 0x14015ADF0 (ZwSetValueKey.c)
+ *     ZwDeleteValueKey @ 0x14015BB50 (ZwDeleteValueKey.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
- *     PipSetDevNodeFlags @ 0x1403F33A0 (PipSetDevNodeFlags.c)
- *     PpIrpQueryResourceRequirements @ 0x1404C9260 (PpIrpQueryResourceRequirements.c)
- *     _CmOpenDeviceRegKey @ 0x1404FCD30 (_CmOpenDeviceRegKey.c)
+ *     PipSetDevNodeFlags @ 0x1403F2264 (PipSetDevNodeFlags.c)
+ *     _CmOpenDeviceRegKey @ 0x1404DFCC0 (_CmOpenDeviceRegKey.c)
+ *     PpIrpQueryResourceRequirements @ 0x14050E9BC (PpIrpQueryResourceRequirements.c)
  */
 
 __int64 __fastcall PiQueryResourceRequirements(__int64 a1)
@@ -52,7 +52,15 @@ __int64 __fastcall PiQueryResourceRequirements(__int64 a1)
   {
     goto LABEL_19;
   }
-  v7 = CmOpenDeviceRegKey(PiPnpRtlCtx, *(_QWORD *)(a1 + 48), 20, 0, 983103, v4 != 0LL, (__int64)&KeyHandle, 0LL);
+  v7 = CmOpenDeviceRegKey(
+         *(__int64 *)&PiPnpRtlCtx,
+         *(_QWORD *)(a1 + 48),
+         0x14u,
+         0,
+         983103,
+         v4 != 0LL,
+         (__int64)&KeyHandle,
+         0LL);
   v8 = KeyHandle;
   if ( v7 < 0 )
     v8 = 0LL;

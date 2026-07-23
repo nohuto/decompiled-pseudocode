@@ -1,47 +1,47 @@
 /*
- * XREFs of RtlpHpLfhSlotAllocateSlow @ 0x140402C90
+ * XREFs of RtlpHpLfhSlotAllocateSlow @ 0x1403FBD90
  * Callers:
- *     RtlpHpAllocateHeap @ 0x140397A80 (RtlpHpAllocateHeap.c)
- *     RtlpHpAllocateHeapInternal @ 0x140520DB8 (RtlpHpAllocateHeapInternal.c)
+ *     RtlpHpAllocateHeap @ 0x140399800 (RtlpHpAllocateHeap.c)
+ *     RtlpHpAllocateHeapInternal @ 0x14052345C (RtlpHpAllocateHeapInternal.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     ExAcquireSpinLockExclusive @ 0x140249CD0 (ExAcquireSpinLockExclusive.c)
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     ExfReleasePushLockShared @ 0x140278BD0 (ExfReleasePushLockShared.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     KiCheckForKernelApcDelivery @ 0x14027DB80 (KiCheckForKernelApcDelivery.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     RtlpHpAcquireLockExclusive @ 0x14027E170 (RtlpHpAcquireLockExclusive.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     RtlpHpLfhOwnerRunMaintenance @ 0x140346820 (RtlpHpLfhOwnerRunMaintenance.c)
- *     RtlpHpLfhContextMetadataAllocate @ 0x140346DC4 (RtlpHpLfhContextMetadataAllocate.c)
- *     RtlpHpEnvTlsSetValue @ 0x140346E80 (RtlpHpEnvTlsSetValue.c)
- *     RtlpHpLfhHeatMapQuery @ 0x140347720 (RtlpHpLfhHeatMapQuery.c)
- *     RtlpHpLfhContextSlotStandbyProcess @ 0x140347D20 (RtlpHpLfhContextSlotStandbyProcess.c)
- *     RtlpHpLfhPrivateSlotShutdown @ 0x140347ECC (RtlpHpLfhPrivateSlotShutdown.c)
- *     RtlpHpLfhBucketAddSubsegment @ 0x140349230 (RtlpHpLfhBucketAddSubsegment.c)
- *     RtlpHpLfhOwnerFreeListProcess @ 0x1403493F0 (RtlpHpLfhOwnerFreeListProcess.c)
- *     RtlpHpLfhOwnerMoveSubsegment @ 0x14034952C (RtlpHpLfhOwnerMoveSubsegment.c)
- *     RtlpHpLfhOwnerGetSubsegment @ 0x140349720 (RtlpHpLfhOwnerGetSubsegment.c)
- *     RtlpHpLfhSubsegmentDelayFreeProcess @ 0x1403498B0 (RtlpHpLfhSubsegmentDelayFreeProcess.c)
- *     RtlpHpLfhContextUpdateFreeCommitCount @ 0x140349D0C (RtlpHpLfhContextUpdateFreeCommitCount.c)
- *     RtlpHpLfhSubsegmentReformatCheck @ 0x140349E18 (RtlpHpLfhSubsegmentReformatCheck.c)
- *     RtlpHpReleaseLockShared @ 0x14034BE40 (RtlpHpReleaseLockShared.c)
- *     RtlpHpLfhSubsegmentDelayFreeListProcess @ 0x14034BF30 (RtlpHpLfhSubsegmentDelayFreeListProcess.c)
- *     RtlpHpLfhSubsegmentCommitBlock @ 0x14034CDC0 (RtlpHpLfhSubsegmentCommitBlock.c)
- *     RtlpHpReleaseLockExclusive @ 0x14034D300 (RtlpHpReleaseLockExclusive.c)
- *     RtlpHpLfhSubsegmentPrefetch @ 0x14034D5CC (RtlpHpLfhSubsegmentPrefetch.c)
- *     RtlpHpEnvCompactionSchedule @ 0x14034D650 (RtlpHpEnvCompactionSchedule.c)
- *     RtlpHpLfhBucketUpdateAffinityMapping @ 0x14035402C (RtlpHpLfhBucketUpdateAffinityMapping.c)
- *     ExpReleaseSpinLockSharedFromDpcLevelInstrumented @ 0x14036A848 (ExpReleaseSpinLockSharedFromDpcLevelInstrumented.c)
- *     RtlpHpLfhPrivateSlotCreate @ 0x140519814 (RtlpHpLfhPrivateSlotCreate.c)
- *     RtlpHpLfhSubsegmentCreate @ 0x14051C628 (RtlpHpLfhSubsegmentCreate.c)
- *     RtlpHpLfhThreadDataInitializeSet @ 0x14052769C (RtlpHpLfhThreadDataInitializeSet.c)
- *     RtlpHpLfhContextUnlockExtension @ 0x140530AB0 (RtlpHpLfhContextUnlockExtension.c)
- *     RtlpHpLfhContextLockExtension @ 0x14053148C (RtlpHpLfhContextLockExtension.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     RtlHeapZero @ 0x1407322C0 (RtlHeapZero.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024B630 (ExAcquireSpinLockExclusive.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     ExfReleasePushLockShared @ 0x140278140 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     KiCheckForKernelApcDelivery @ 0x14027D0F0 (KiCheckForKernelApcDelivery.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     RtlpHpAcquireLockExclusive @ 0x14027D6E0 (RtlpHpAcquireLockExclusive.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     RtlpHpLfhOwnerRunMaintenance @ 0x1403488A0 (RtlpHpLfhOwnerRunMaintenance.c)
+ *     RtlpHpLfhContextMetadataAllocate @ 0x140348E44 (RtlpHpLfhContextMetadataAllocate.c)
+ *     RtlpHpEnvTlsSetValue @ 0x140348F00 (RtlpHpEnvTlsSetValue.c)
+ *     RtlpHpLfhHeatMapQuery @ 0x1403497A0 (RtlpHpLfhHeatMapQuery.c)
+ *     RtlpHpLfhContextSlotStandbyProcess @ 0x140349DA0 (RtlpHpLfhContextSlotStandbyProcess.c)
+ *     RtlpHpLfhPrivateSlotShutdown @ 0x140349F4C (RtlpHpLfhPrivateSlotShutdown.c)
+ *     RtlpHpLfhBucketAddSubsegment @ 0x14034B2B0 (RtlpHpLfhBucketAddSubsegment.c)
+ *     RtlpHpLfhOwnerFreeListProcess @ 0x14034B470 (RtlpHpLfhOwnerFreeListProcess.c)
+ *     RtlpHpLfhOwnerMoveSubsegment @ 0x14034B5AC (RtlpHpLfhOwnerMoveSubsegment.c)
+ *     RtlpHpLfhOwnerGetSubsegment @ 0x14034B7A0 (RtlpHpLfhOwnerGetSubsegment.c)
+ *     RtlpHpLfhSubsegmentDelayFreeProcess @ 0x14034B930 (RtlpHpLfhSubsegmentDelayFreeProcess.c)
+ *     RtlpHpLfhContextUpdateFreeCommitCount @ 0x14034BD8C (RtlpHpLfhContextUpdateFreeCommitCount.c)
+ *     RtlpHpLfhSubsegmentReformatCheck @ 0x14034BE98 (RtlpHpLfhSubsegmentReformatCheck.c)
+ *     RtlpHpReleaseLockShared @ 0x14034DEC0 (RtlpHpReleaseLockShared.c)
+ *     RtlpHpLfhSubsegmentDelayFreeListProcess @ 0x14034DFB0 (RtlpHpLfhSubsegmentDelayFreeListProcess.c)
+ *     RtlpHpLfhSubsegmentCommitBlock @ 0x14034EE40 (RtlpHpLfhSubsegmentCommitBlock.c)
+ *     RtlpHpReleaseLockExclusive @ 0x14034F380 (RtlpHpReleaseLockExclusive.c)
+ *     RtlpHpLfhSubsegmentPrefetch @ 0x14034F64C (RtlpHpLfhSubsegmentPrefetch.c)
+ *     RtlpHpEnvCompactionSchedule @ 0x14034F6D0 (RtlpHpEnvCompactionSchedule.c)
+ *     ExpReleaseSpinLockSharedFromDpcLevelInstrumented @ 0x14036C5E8 (ExpReleaseSpinLockSharedFromDpcLevelInstrumented.c)
+ *     RtlpHpLfhPrivateSlotCreate @ 0x140513284 (RtlpHpLfhPrivateSlotCreate.c)
+ *     RtlpHpLfhBucketUpdateAffinityMapping @ 0x140519218 (RtlpHpLfhBucketUpdateAffinityMapping.c)
+ *     RtlpHpLfhSubsegmentCreate @ 0x1405194B4 (RtlpHpLfhSubsegmentCreate.c)
+ *     RtlpHpLfhThreadDataInitializeSet @ 0x140529D0C (RtlpHpLfhThreadDataInitializeSet.c)
+ *     RtlpHpLfhContextUnlockExtension @ 0x140532FB0 (RtlpHpLfhContextUnlockExtension.c)
+ *     RtlpHpLfhContextLockExtension @ 0x14053398C (RtlpHpLfhContextLockExtension.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     RtlHeapZero @ 0x140736E90 (RtlHeapZero.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 unsigned __int64 __fastcall RtlpHpLfhSlotAllocateSlow(__int64 a1, __int64 a2, unsigned int a3, char a4)
@@ -625,7 +625,7 @@ LABEL_251:
           }
           else if ( *((_BYTE *)v5 + 73) )
           {
-            if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+            if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || PopHibernateInProgress )
             {
               _InterlockedAnd((volatile signed __int32 *)(v14 + 16), 0xBFFFFFFF);
               _InterlockedDecrement((volatile signed __int32 *)(v14 + 16));
@@ -645,7 +645,7 @@ LABEL_251:
             KeAbPostRelease(v14 + 16);
             v126 = KeGetCurrentThread();
             v24 = v126->SpecialApcDisable++ == -1;
-            if ( v24 && ($7A85BAF4F1FA08634C1C4A3E45B775B3 *)v126->ApcState.ApcListHead[0].Flink != &v126->152 )
+            if ( v24 && ($241382875694CED3D471BC5892DE3337 *)v126->ApcState.ApcListHead[0].Flink != &v126->152 )
               KiCheckForKernelApcDelivery((__int64)v126, v125);
           }
           v197 = 0;
@@ -864,8 +864,8 @@ LABEL_334:
           {
             *((_BYTE *)v5 + v184 + 92) = 1;
             if ( !(BYTE1(**(_QWORD **)(*v5 + 56LL)) == 1
-                 ? *(_DWORD *)&ExSaPageGroupDescriptorArrayLock.Tag
-                 : ExSaPageGroupDescriptorArrayLock.SystemCallNumber) )
+                 ? HIDWORD(ExSaPageGroupDescriptorArrayLock.StackBase)
+                 : LODWORD(ExSaPageGroupDescriptorArrayLock.ThreadLock)) )
               RtlpHpEnvCompactionSchedule(*(_QWORD **)(*v5 + 56LL));
           }
           if ( BYTE6(v205) == 1 )
@@ -1364,7 +1364,7 @@ LABEL_348:
       RtlpHpReleaseLockShared(v194, v193, v224);
   }
   if ( v204 )
-    RtlpHpLfhBucketUpdateAffinityMapping((__int64)v5, (volatile signed __int8 *)v108);
+    RtlpHpLfhBucketUpdateAffinityMapping(v5, v108);
   if ( v202 != &v202 )
     RtlpHpLfhBucketAddSubsegment((__int64)v5, v108, &v202, 0LL);
   return v6;

@@ -1,12 +1,12 @@
 /*
- * XREFs of IopReferenceIoAttributionFromProcess @ 0x140467C50
+ * XREFs of IopReferenceIoAttributionFromProcess @ 0x1404613A0
  * Callers:
- *     IopSetDiskIoAttributionExtension @ 0x140269D74 (IopSetDiskIoAttributionExtension.c)
- *     IoSynchronousPageWriteEx @ 0x14026B9F0 (IoSynchronousPageWriteEx.c)
+ *     IopSetDiskIoAttributionExtension @ 0x1402692E4 (IopSetDiskIoAttributionExtension.c)
+ *     IoSynchronousPageWriteEx @ 0x14026AF60 (IoSynchronousPageWriteEx.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     ExAcquireSpinLockShared @ 0x1402EDF10 (ExAcquireSpinLockShared.c)
- *     ExpReleaseSpinLockSharedFromDpcLevelInstrumented @ 0x14036A848 (ExpReleaseSpinLockSharedFromDpcLevelInstrumented.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     ExAcquireSpinLockShared @ 0x1402CFF90 (ExAcquireSpinLockShared.c)
+ *     ExpReleaseSpinLockSharedFromDpcLevelInstrumented @ 0x14036C5E8 (ExpReleaseSpinLockSharedFromDpcLevelInstrumented.c)
  */
 
 __int64 __fastcall IopReferenceIoAttributionFromProcess(__int64 a1, char a2, _QWORD *a3)
@@ -19,7 +19,7 @@ __int64 __fastcall IopReferenceIoAttributionFromProcess(__int64 a1, char a2, _QW
 
   if ( !*(_QWORD *)(a1 + 1752) )
     return 3221226021LL;
-  v7 = ExAcquireSpinLockShared((PEX_SPIN_LOCK)&IopSessionNotificationLock.TrapFrame + 1);
+  v7 = ExAcquireSpinLockShared(&IopDiskIoAttributionLock);
   v8 = *(_QWORD *)(a1 + 1752);
   v9 = v7;
   if ( v8 )
@@ -35,16 +35,14 @@ __int64 __fastcall IopReferenceIoAttributionFromProcess(__int64 a1, char a2, _QW
       *a3 = v8;
     }
   }
-  if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+  if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || PopHibernateInProgress )
   {
-    _InterlockedAnd((_DWORD *)&IopSessionNotificationLock.TrapFrame + 1, 0xBFFFFFFF);
-    _InterlockedDecrement((_DWORD *)&IopSessionNotificationLock.TrapFrame + 1);
+    _InterlockedAnd(&IopDiskIoAttributionLock, 0xBFFFFFFF);
+    _InterlockedDecrement(&IopDiskIoAttributionLock);
   }
   else
   {
-    ExpReleaseSpinLockSharedFromDpcLevelInstrumented(
-      (volatile signed __int32 *)&IopSessionNotificationLock.TrapFrame + 1,
-      retaddr);
+    ExpReleaseSpinLockSharedFromDpcLevelInstrumented(&IopDiskIoAttributionLock, retaddr);
   }
   if ( KiIrqlFlags )
     KiLowerIrqlProcessIrqlFlags(KeGetCurrentIrql(), v9);

@@ -1,20 +1,20 @@
 /*
- * XREFs of PiDrvDbLoadNodeWorkerCallback @ 0x140B1EEB0
+ * XREFs of PiDrvDbLoadNodeWorkerCallback @ 0x140B20F30
  * Callers:
  *     <none>
  * Callees:
- *     KeSetEvent @ 0x1402DE9C0 (KeSetEvent.c)
- *     PnpDiagnosticTraceObject @ 0x140493A8C (PnpDiagnosticTraceObject.c)
- *     PnpDiagnosticTraceObjectWithStatus @ 0x1404E091C (PnpDiagnosticTraceObjectWithStatus.c)
- *     ZwSetEvent @ 0x1407235B0 (ZwSetEvent.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     ZwResetEvent @ 0x1407264F0 (ZwResetEvent.c)
- *     PiDrvDbSetupNodeHive @ 0x1407B7DA0 (PiDrvDbSetupNodeHive.c)
- *     _SysCtxRegOpenKey @ 0x1409978F0 (_SysCtxRegOpenKey.c)
- *     _PnpGetObjectProperty @ 0x14099E300 (_PnpGetObjectProperty.c)
- *     _PnpSetObjectProperty @ 0x1409DBEB0 (_PnpSetObjectProperty.c)
- *     PiDrvDbLoadHive @ 0x140B1F060 (PiDrvDbLoadHive.c)
- *     PiDrvDbUnloadHive @ 0x140B1F12C (PiDrvDbUnloadHive.c)
+ *     KeSetEvent @ 0x1402C0780 (KeSetEvent.c)
+ *     PnpDiagnosticTraceObject @ 0x14048D5DC (PnpDiagnosticTraceObject.c)
+ *     PnpDiagnosticTraceObjectWithStatus @ 0x1404D9FFC (PnpDiagnosticTraceObjectWithStatus.c)
+ *     ZwSetEvent @ 0x140728180 (ZwSetEvent.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     ZwResetEvent @ 0x14072B0C0 (ZwResetEvent.c)
+ *     PiDrvDbSetupNodeHive @ 0x1407BAE00 (PiDrvDbSetupNodeHive.c)
+ *     _SysCtxRegOpenKey @ 0x140958350 (_SysCtxRegOpenKey.c)
+ *     _PnpGetObjectProperty @ 0x14095ED60 (_PnpGetObjectProperty.c)
+ *     _PnpSetObjectProperty @ 0x140A19100 (_PnpSetObjectProperty.c)
+ *     PiDrvDbLoadHive @ 0x140B210E0 (PiDrvDbLoadHive.c)
+ *     PiDrvDbUnloadHive @ 0x140B211AC (PiDrvDbUnloadHive.c)
  */
 
 NTSTATUS __fastcall PiDrvDbLoadNodeWorkerCallback(__int64 a1)
@@ -142,7 +142,7 @@ NTSTATUS __fastcall PiDrvDbLoadNodeWorkerCallback(__int64 a1)
       v1 = (unsigned __int16 *)(a1 + 16);
     }
     ZwClose(Handle);
-    ZwResetEvent(*(_QWORD *)(a1 + 472), 0LL);
+    ZwResetEvent(*(HANDLE *)(a1 + 472), 0LL);
     v9 = PiDrvDbUnloadHive(v3, *(_QWORD *)(a1 + 472));
     if ( v9 == 259 )
     {

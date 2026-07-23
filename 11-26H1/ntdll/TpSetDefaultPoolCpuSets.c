@@ -1,19 +1,16 @@
 /*
- * XREFs of TpSetDefaultPoolCpuSets @ 0x180121A24
+ * XREFs of TpSetDefaultPoolCpuSets @ 0x1801217C0
  * Callers:
- *     LdrpInitializeProcess @ 0x1800CF8B8 (LdrpInitializeProcess.c)
+ *     LdrpInitializeProcess @ 0x1800CD028 (LdrpInitializeProcess.c)
  * Callees:
- *     RtlAcquireSRWLockExclusive @ 0x18003F4D0 (RtlAcquireSRWLockExclusive.c)
- *     memmove @ 0x180164700 (memmove.c)
+ *     RtlAcquireSRWLockExclusive @ 0x180029A40 (RtlAcquireSRWLockExclusive.c)
+ *     memmove @ 0x180164600 (memmove.c)
  */
 
-struct _TEB *__fastcall TpSetDefaultPoolCpuSets(void *Src, __int64 a2)
+void __fastcall TpSetDefaultPoolCpuSets(void *Src, unsigned int a2)
 {
-  unsigned int v3; // ebx
-
-  v3 = a2;
-  RtlAcquireSRWLockExclusive(&TppPoolpDefaultPoolCpuSetLock, a2);
-  TppPoolpDefaultPoolCpuSetCount = v3;
-  memmove(&TppPoolpDefaultPoolCpuSets, Src, 8LL * v3);
-  return RtlReleaseSRWLockExclusive(&TppPoolpDefaultPoolCpuSetLock);
+  RtlAcquireSRWLockExclusive(&TppPoolpDefaultPoolCpuSetLock);
+  TppPoolpDefaultPoolCpuSetCount = a2;
+  memmove(&TppPoolpDefaultPoolCpuSets, Src, 8LL * a2);
+  RtlReleaseSRWLockExclusive(&TppPoolpDefaultPoolCpuSetLock);
 }

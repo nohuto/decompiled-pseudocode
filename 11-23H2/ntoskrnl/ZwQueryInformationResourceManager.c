@@ -1,12 +1,11 @@
 /*
- * XREFs of ZwQueryInformationResourceManager @ 0x14041D820
+ * XREFs of ZwQueryInformationResourceManager @ 0x14041DBB0
  * Callers:
- *     DifZwQueryInformationResourceManagerWrapper @ 0x1405F4930 (DifZwQueryInformationResourceManagerWrapper.c)
+ *     DifZwQueryInformationResourceManagerWrapper @ 0x1405F4EA0 (DifZwQueryInformationResourceManagerWrapper.c)
  * Callees:
  *     <none>
  */
 
-// local variable allocation has failed, the output may be wrong!
 NTSTATUS __stdcall ZwQueryInformationResourceManager(
         HANDLE ResourceManagerHandle,
         RESOURCEMANAGER_INFORMATION_CLASS ResourceManagerInformationClass,
@@ -16,5 +15,5 @@ NTSTATUS __stdcall ZwQueryInformationResourceManager(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(ResourceManagerHandle, *(_QWORD *)&ResourceManagerInformationClass);
+  return KiServiceInternal(ResourceManagerHandle);
 }

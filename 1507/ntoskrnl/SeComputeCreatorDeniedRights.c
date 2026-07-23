@@ -19,7 +19,7 @@ __int64 __fastcall SeComputeCreatorDeniedRights(
 {
   unsigned int v4; // ebp
   __int64 v9; // rax
-  __int64 v10; // rdx
+  __int16 v10; // dx
   __int64 v11; // rax
   __int64 v12; // rcx
   _WORD *SeOwnerRightsSid; // r12
@@ -30,7 +30,7 @@ __int64 __fastcall SeComputeCreatorDeniedRights(
   unsigned __int8 v18; // cl
   unsigned __int8 *v19; // rcx
   __int64 v20; // rax
-  __int64 v21; // rcx
+  ACL *v21; // rcx
   PACCESS_TOKEN ClientToken; // rcx
   void *ScopedPolicySid; // rax
   int Cap; // eax
@@ -52,11 +52,11 @@ __int64 __fastcall SeComputeCreatorDeniedRights(
     if ( !a4 )
       return 0LL;
   }
-  v10 = *(unsigned __int16 *)(a4 + 2);
+  v10 = *(_WORD *)(a4 + 2);
   LOWORD(AccessStatus) = v10;
   if ( (v10 & 4) != 0 )
   {
-    if ( (v10 & 0x8000) != 0 )
+    if ( v10 < 0 )
     {
       v11 = *(unsigned int *)(a4 + 16);
       if ( (_DWORD)v11 )
@@ -112,21 +112,21 @@ LABEL_21:
     v15 += *((unsigned __int16 *)v15 + 1);
   }
   while ( v16 < v14 );
-  v10 = (unsigned __int16)AccessStatus;
+  v10 = AccessStatus;
 LABEL_23:
   if ( (v10 & 0x10) != 0 )
   {
-    if ( (v10 & 0x8000) != 0 )
+    if ( v10 < 0 )
     {
       v20 = *(unsigned int *)(a4 + 12);
       if ( (_DWORD)v20 )
-        v21 = a4 + v20;
+        v21 = (ACL *)(a4 + v20);
       else
         v21 = 0LL;
     }
     else
     {
-      v21 = *(_QWORD *)(a4 + 24);
+      v21 = *(ACL **)(a4 + 24);
     }
   }
   else
@@ -138,7 +138,7 @@ LABEL_23:
     return 0LL;
   if ( !v21 )
     return 0LL;
-  ScopedPolicySid = (void *)SepGetScopedPolicySid(v21, v10, 0x8000LL);
+  ScopedPolicySid = (void *)SepGetScopedPolicySid(v21);
   if ( !ScopedPolicySid )
     return 0LL;
   Cap = SepRmReferenceFindCap(ScopedPolicySid);

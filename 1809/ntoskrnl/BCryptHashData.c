@@ -1,12 +1,12 @@
 /*
- * XREFs of BCryptHashData @ 0x140691444
+ * XREFs of BCryptHashData @ 0x140692604
  * Callers:
- *     WbHashData @ 0x140691148 (WbHashData.c)
- *     RtlGenerateClass5Guid @ 0x14073BE90 (RtlGenerateClass5Guid.c)
+ *     WbHashData @ 0x140692308 (WbHashData.c)
+ *     RtlGenerateClass5Guid @ 0x14073D080 (RtlGenerateClass5Guid.c)
  * Callees:
- *     ExReleaseExtensionTable @ 0x14010DBEC (ExReleaseExtensionTable.c)
- *     ExGetExtensionTable @ 0x14010DC04 (ExGetExtensionTable.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     ExReleaseExtensionTable @ 0x14010DC6C (ExReleaseExtensionTable.c)
+ *     ExGetExtensionTable @ 0x14010DC84 (ExGetExtensionTable.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
  */
 
 NTSTATUS __stdcall BCryptHashData(BCRYPT_HASH_HANDLE hHash, PUCHAR pbInput, ULONG cbInput, ULONG dwFlags)

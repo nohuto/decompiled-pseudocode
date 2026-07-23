@@ -1,10 +1,10 @@
 /*
- * XREFs of MiDoesPageRequireImportLinkingFixups @ 0x140480DF4
+ * XREFs of MiDoesPageRequireImportLinkingFixups @ 0x14047A764
  * Callers:
- *     MiUpdateImagePfnImportRelocations @ 0x140480C40 (MiUpdateImagePfnImportRelocations.c)
- *     MiWalkEntireImagePageNeedsProcessing @ 0x140B5EB50 (MiWalkEntireImagePageNeedsProcessing.c)
+ *     MiUpdateImagePfnImportRelocations @ 0x14047A5B0 (MiUpdateImagePfnImportRelocations.c)
+ *     MiWalkEntireImagePageNeedsProcessing @ 0x140B61CD0 (MiWalkEntireImagePageNeedsProcessing.c)
  * Callees:
- *     MiDoesPageRequireRetpolineFixups @ 0x140A8214C (MiDoesPageRequireRetpolineFixups.c)
+ *     MiDoesPageRequireRetpolineFixups @ 0x140A87FBC (MiDoesPageRequireRetpolineFixups.c)
  */
 
 __int64 __fastcall MiDoesPageRequireImportLinkingFixups(__int64 a1)

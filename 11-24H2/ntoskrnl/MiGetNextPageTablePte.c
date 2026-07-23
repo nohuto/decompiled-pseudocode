@@ -1,22 +1,22 @@
 /*
- * XREFs of MiGetNextPageTablePte @ 0x1402DE8B0
+ * XREFs of MiGetNextPageTablePte @ 0x140240190
  * Callers:
- *     MiWalkPageTablesRecursively @ 0x1402DC430 (MiWalkPageTablesRecursively.c)
+ *     MiWalkPageTablesRecursively @ 0x14023DD10 (MiWalkPageTablesRecursively.c)
  * Callees:
- *     MmAccessFault @ 0x140216750 (MmAccessFault.c)
- *     MiUnlockWorkingSetExclusive @ 0x140218550 (MiUnlockWorkingSetExclusive.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x14021A250 (MI_READ_PTE_LOCK_FREE.c)
- *     MiLockNestedPageTable @ 0x140285190 (MiLockNestedPageTable.c)
- *     MiFlushTbList @ 0x140291730 (MiFlushTbList.c)
- *     MiUnlockWorkingSetShared @ 0x1402E0410 (MiUnlockWorkingSetShared.c)
- *     ExReleaseSpinLockRegardlessFromDpcLevel @ 0x1402E2460 (ExReleaseSpinLockRegardlessFromDpcLevel.c)
- *     MiIsPdeOrAboveAccessible @ 0x1403113C0 (MiIsPdeOrAboveAccessible.c)
- *     MiIsLazyStampedPte @ 0x1403114C0 (MiIsLazyStampedPte.c)
- *     MiUnlockPageTableInternal @ 0x140321070 (MiUnlockPageTableInternal.c)
- *     KxReleaseQueuedSpinLock @ 0x140321BB0 (KxReleaseQueuedSpinLock.c)
- *     MiFlushAllFilesystemPages @ 0x1404D6B8C (MiFlushAllFilesystemPages.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
+ *     MiLockNestedPageTable @ 0x140201F50 (MiLockNestedPageTable.c)
+ *     ExReleaseSpinLockRegardlessFromDpcLevel @ 0x14020BE60 (ExReleaseSpinLockRegardlessFromDpcLevel.c)
+ *     MiUnlockWorkingSetShared @ 0x140241CF0 (MiUnlockWorkingSetShared.c)
+ *     MiUnlockWorkingSetExclusive @ 0x140243400 (MiUnlockWorkingSetExclusive.c)
+ *     MmAccessFault @ 0x140243610 (MmAccessFault.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140246FA0 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiFlushTbList @ 0x1402A1330 (MiFlushTbList.c)
+ *     MiUnlockPageTableInternal @ 0x1402C9C00 (MiUnlockPageTableInternal.c)
+ *     KxReleaseQueuedSpinLock @ 0x1402CA740 (KxReleaseQueuedSpinLock.c)
+ *     MiIsPdeOrAboveAccessible @ 0x1403F4C00 (MiIsPdeOrAboveAccessible.c)
+ *     MiIsLazyStampedPte @ 0x1403F4D00 (MiIsLazyStampedPte.c)
+ *     MiFlushAllFilesystemPages @ 0x1404CFFDC (MiFlushAllFilesystemPages.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall MiGetNextPageTablePte(int *a1, unsigned __int64 *a2, __int64 a3, __int64 a4)
@@ -30,7 +30,7 @@ __int64 __fastcall MiGetNextPageTablePte(int *a1, unsigned __int64 *a2, __int64 
   unsigned __int64 v11; // rdx
   __int64 v12; // rsi
   __int64 v13; // rdx
-  __int64 BugCheckParameter4; // rdi
+  ULONG_PTR BugCheckParameter4; // rdi
   unsigned __int64 i; // rax
   int v16; // eax
   ULONG_PTR v17; // rbx
@@ -46,40 +46,30 @@ __int64 __fastcall MiGetNextPageTablePte(int *a1, unsigned __int64 *a2, __int64 
   unsigned __int64 v27; // rdi
   __int64 v28; // r10
   __int64 v29; // rdx
-  _OWORD v30[2]; // [rsp+30h] [rbp-98h] BYREF
-  __int128 v31; // [rsp+50h] [rbp-78h]
-  __int128 v32; // [rsp+60h] [rbp-68h]
-  __int128 v33; // [rsp+70h] [rbp-58h]
-  __int128 v34; // [rsp+80h] [rbp-48h]
-  __int128 v35; // [rsp+90h] [rbp-38h]
-  __int64 v36; // [rsp+A0h] [rbp-28h]
 
   v4 = (int)a3;
-  memset(v30, 0, sizeof(v30));
   v5 = a4;
   v6 = (ULONG_PTR)a2;
-  v31 = 0LL;
-  v32 = 0LL;
-  v33 = 0LL;
-  v36 = 0LL;
-  v34 = 0LL;
-  v35 = 0LL;
   if ( (_DWORD)a3 == 3 )
-    v8 = MI_READ_PTE_LOCK_FREE((unsigned __int64)a2);
+    v8 = MI_READ_PTE_LOCK_FREE(a2, a2, a3);
   else
     v8 = *a2;
   if ( !v8 )
   {
-    if ( !(_DWORD)v4 && (*a1 & 1) != 0 )
-      return 2LL;
-    return 1LL;
+    if ( (_DWORD)v4 || (*a1 & 1) == 0 )
+      return 1LL;
+    return 2LL;
   }
   if ( (v8 & 1) == 0 )
   {
     if ( (int)v4 < 1 )
     {
-      if ( !(_DWORD)v4 )
-        return 2LL;
+      if ( (_DWORD)v4 )
+        goto LABEL_7;
+      return 2LL;
+    }
+    if ( (unsigned int)MiIsPdeOrAboveAccessible(v6) )
+    {
 LABEL_7:
       if ( (*a1 & 0x80u) == 0 )
       {
@@ -97,33 +87,7 @@ LABEL_7:
           a1[1] = v21;
         }
         if ( (v10 & 1) != 0 )
-        {
-LABEL_18:
-          BugCheckParameter4 = (__int64)(v6 << 25) >> 16;
-          for ( i = BugCheckParameter4; i >= 0xFFFFF68000000000uLL; i = (__int64)(i << 25) >> 16 )
-          {
-            if ( i > 0xFFFFF6FFFFFFFFFFuLL )
-              break;
-          }
-          DWORD2(v31) = a1[4];
-          v16 = MmAccessFault(2uLL, BugCheckParameter4, 0, (ULONG_PTR)v30 + 1);
-          v17 = v16;
-          if ( v16 < 0 )
-          {
-            for ( j = BugCheckParameter4; j >= 0xFFFFF68000000000uLL; j = (__int64)(j << 25) >> 16 )
-            {
-              if ( j > 0xFFFFF6FFFFFFFFFFuLL )
-                break;
-            }
-            if ( j >= 0xFFFF800000000000uLL || !BYTE12(v31) )
-            {
-              MiFlushAllFilesystemPages(1LL);
-              KeBugCheckEx(0x7Au, 1uLL, v17, (ULONG_PTR)KeGetCurrentThread()->ApcState.Process, BugCheckParameter4);
-            }
-            return 1LL;
-          }
-          return 2LL;
-        }
+          goto LABEL_18;
         v11 = *((_QWORD *)a1 + 7);
         v12 = *((_QWORD *)a1 + 4);
         if ( !v11 )
@@ -135,13 +99,32 @@ LABEL_15:
           else
             MiUnlockWorkingSetExclusive(v12, v13);
           a1[1] |= 1u;
-          goto LABEL_18;
+LABEL_18:
+          BugCheckParameter4 = (__int64)(v6 << 25) >> 16;
+          for ( i = BugCheckParameter4; i >= 0xFFFFF68000000000uLL; i = (__int64)(i << 25) >> 16 )
+          {
+            if ( i > 0xFFFFF6FFFFFFFFFFuLL )
+              break;
+          }
+          v16 = MmAccessFault(2uLL, BugCheckParameter4);
+          v17 = v16;
+          if ( v16 < 0 )
+          {
+            for ( j = BugCheckParameter4; j >= 0xFFFFF68000000000uLL; j = (__int64)(j << 25) >> 16 )
+            {
+              if ( j > 0xFFFFF6FFFFFFFFFFuLL )
+                break;
+            }
+            MiFlushAllFilesystemPages(1LL);
+            KeBugCheckEx(0x7Au, 1uLL, v17, (ULONG_PTR)KeGetCurrentThread()->ApcState.Process, BugCheckParameter4);
+          }
+          return 2LL;
         }
         if ( (*a1 & 0x1000) != 0 )
         {
           if ( v11 == 0xFFFFF6FB7DBEDF68uLL )
           {
-LABEL_39:
+LABEL_36:
             *((_QWORD *)a1 + 7) = 0LL;
             goto LABEL_15;
           }
@@ -176,7 +159,11 @@ LABEL_39:
           v25 = KeGetCurrentThread()->ApcState.Process[2].ActiveProcessors[5].StaticBitmap[7];
           if ( v25 )
           {
-            ExReleaseSpinLockRegardlessFromDpcLevel(v25 + 4 * ((v11 >> 3) & 0x1FF));
+            ExReleaseSpinLockRegardlessFromDpcLevel(
+              (volatile signed __int32 *)(v25 + 4 * ((v11 >> 3) & 0x1FF)),
+              (v11 >> 3) & 0x1FF,
+              0xFFFFF6FB7DBED000uLL,
+              0xFFFFF6FB7DBEDFFFuLL);
             *((_QWORD *)a1 + 7) = 0LL;
             goto LABEL_15;
           }
@@ -193,21 +180,19 @@ LABEL_39:
           goto LABEL_15;
         }
         _InterlockedAnd64((volatile signed __int64 *)v11, 0xCFFFFFFFFFFFFFFFuLL);
-        goto LABEL_39;
+        goto LABEL_36;
       }
       return 1LL;
     }
-    if ( (unsigned int)MiIsPdeOrAboveAccessible(v6) )
-      goto LABEL_7;
     if ( (unsigned int)MiIsLazyStampedPte(v28) )
       return 2LL;
-    goto LABEL_73;
+    goto LABEL_70;
   }
   if ( v6 == 0xFFFFF6FB7DBEDF68uLL )
     return 1LL;
   if ( (v8 & 0x80u) != 0LL )
   {
-LABEL_73:
+LABEL_70:
     if ( (*a1 & 0x40) == 0 )
       return 2LL;
     v29 = *((_QWORD *)a1 + 23);
@@ -221,7 +206,7 @@ LABEL_73:
   }
   v20 = *a1;
   if ( (*a1 & 0x200) != 0
-    && qword_140E37340[0] != (PVOID)qword_140E37358
+    && qword_140E37480[0] != (PVOID)qword_140E37498
     && ((v8 >> 12) & 0xFFFFFFFFFFLL) == *((_QWORD *)&MiState + v4 + 5408) )
   {
     return 1LL;

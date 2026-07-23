@@ -11,7 +11,7 @@
  *     ExFreePoolWithTag @ 0x14036E0A0 (ExFreePoolWithTag.c)
  */
 
-void __fastcall ST_STORE<SM_TRAITS>::StReleaseReadContext(union _SLIST_HEADER *a1, __int64 a2)
+void __fastcall ST_STORE<SM_TRAITS>::StReleaseReadContext(_SLIST_HEADER *a1, __int64 a2)
 {
   B_TREE<_SM_PAGE_KEY,ST_STORE<SM_TRAITS>::_ST_PAGE_ENTRY,4096,NP_CONTEXT,B_TREE_KEY_COMPARATOR<_SM_PAGE_KEY>>::BTreeSearchResultDeref(
     &a1[5],

@@ -1,10 +1,10 @@
 /*
- * XREFs of CmpTransSearchAddTransFromHive @ 0x1404DEC44
+ * XREFs of CmpTransSearchAddTransFromHive @ 0x1404C2248
  * Callers:
- *     CmpDoParseKey @ 0x140453D10 (CmpDoParseKey.c)
+ *     CmpDoParseKey @ 0x140452BE0 (CmpDoParseKey.c)
  * Callees:
- *     CmpTransSearchAddLightWeightTrans @ 0x1403FDAD8 (CmpTransSearchAddLightWeightTrans.c)
- *     CmpTransSearchAddTransFromRm @ 0x1404DEC94 (CmpTransSearchAddTransFromRm.c)
+ *     CmpTransSearchAddLightWeightTrans @ 0x1403FC998 (CmpTransSearchAddLightWeightTrans.c)
+ *     CmpTransSearchAddTransFromRm @ 0x1404C2298 (CmpTransSearchAddTransFromRm.c)
  */
 
 __int64 __fastcall CmpTransSearchAddTransFromHive(__int64 a1, __int64 a2, int a3, int a4, __int64 *a5)

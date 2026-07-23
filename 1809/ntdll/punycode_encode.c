@@ -1,12 +1,12 @@
 /*
- * XREFs of punycode_encode @ 0x180085738
+ * XREFs of punycode_encode @ 0x180085748
  * Callers:
  *     RtlpNameprepAsciiRealWorker @ 0x180046788 (RtlpNameprepAsciiRealWorker.c)
  * Callees:
  *     RtlStringCopyWorkerW @ 0x180001CE4 (RtlStringCopyWorkerW.c)
  *     adapt @ 0x1800022F4 (adapt.c)
  *     FindLabelEnd @ 0x180047C50 (FindLabelEnd.c)
- *     _wcsnicmp @ 0x180091A20 (_wcsnicmp.c)
+ *     _wcsnicmp @ 0x180091A30 (_wcsnicmp.c)
  *     GetUTF32 @ 0x1800FAEE8 (GetUTF32.c)
  *     ValidateStd3Range @ 0x1800FAF44 (ValidateStd3Range.c)
  */

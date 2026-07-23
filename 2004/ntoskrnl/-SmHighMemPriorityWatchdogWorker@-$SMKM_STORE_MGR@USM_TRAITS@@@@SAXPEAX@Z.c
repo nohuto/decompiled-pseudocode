@@ -27,7 +27,7 @@ void __fastcall SMKM_STORE_MGR<SM_TRAITS>::SmHighMemPriorityWatchdogWorker(__int
   v1 = a1 - 1800;
   memset(v10, 0, sizeof(v10));
   v11 = 0LL;
-  if ( (int)ZwQuerySystemInformation(182LL, (__int64)v10) >= 0 )
+  if ( ZwQuerySystemInformation(SystemMemoryUsageInformation, v10, 0x38u, 0LL) >= 0 )
   {
     v3 = 128000LL;
     v4 = 0;

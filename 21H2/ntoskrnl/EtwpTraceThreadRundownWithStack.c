@@ -1,47 +1,44 @@
 /*
- * XREFs of EtwpTraceThreadRundownWithStack @ 0x1405AB88C
+ * XREFs of EtwpTraceThreadRundownWithStack @ 0x1405ABABC
  * Callers:
- *     EtwpThreadEnumCallback @ 0x140797C50 (EtwpThreadEnumCallback.c)
+ *     EtwpThreadEnumCallback @ 0x140797E50 (EtwpThreadEnumCallback.c)
  * Callees:
- *     KeInsertQueueApc @ 0x14025F8C0 (KeInsertQueueApc.c)
- *     KeInitializeApc @ 0x140278E60 (KeInitializeApc.c)
- *     KeRemoveQueueApc @ 0x1402C4D4C (KeRemoveQueueApc.c)
- *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
- *     EtwpTraceThreadRundown @ 0x1403AE820 (EtwpTraceThreadRundown.c)
- *     memset @ 0x140414200 (memset.c)
+ *     KeRemoveQueueApc @ 0x1402432CC (KeRemoveQueueApc.c)
+ *     KeInitializeApc @ 0x140266E00 (KeInitializeApc.c)
+ *     KeInsertQueueApc @ 0x14027E260 (KeInsertQueueApc.c)
+ *     KeWaitForSingleObject @ 0x1403504C0 (KeWaitForSingleObject.c)
+ *     EtwpTraceThreadRundown @ 0x1403AE970 (EtwpTraceThreadRundown.c)
+ *     memset @ 0x140414300 (memset.c)
  */
 
 NTSTATUS __fastcall EtwpTraceThreadRundownWithStack(struct _KTHREAD *a1, __int64 a2)
 {
   NTSTATUS result; // eax
-  __int64 v5; // rdx
-  __int64 v6; // r8
-  _DWORD *v7; // r9
   __int128 Object; // [rsp+40h] [rbp-29h] BYREF
-  char *v9; // [rsp+50h] [rbp-19h]
-  _BYTE v10[96]; // [rsp+60h] [rbp-9h] BYREF
+  char *v6; // [rsp+50h] [rbp-19h]
+  _BYTE v7[96]; // [rsp+60h] [rbp-9h] BYREF
   LARGE_INTEGER Timeout; // [rsp+D0h] [rbp+67h] BYREF
 
-  memset(v10, 0, 0x58uLL);
+  memset(v7, 0, 0x58uLL);
   Object = 0LL;
-  v9 = 0LL;
+  v6 = 0LL;
   if ( a1 == KeGetCurrentThread() )
     return EtwpTraceThreadRundown((__int64)a1, a2);
   if ( *(_BYTE *)(a2 + 67) )
     return EtwpTraceThreadRundown((__int64)a1, a2);
   DWORD1(Object) = 0;
-  v9 = (char *)&Object + 8;
+  v6 = (char *)&Object + 8;
   *((_QWORD *)&Object + 1) = (char *)&Object + 8;
   LOWORD(Object) = 1;
   BYTE2(Object) = 6;
-  KeInitializeApc((__int64)v10, (__int64)a1, 0, (__int64)EtwpThreadRundownApc, 0LL, 0LL, 0, 0LL);
-  if ( !KeInsertQueueApc((__int64)v10, (__int64)&Object, a2, 0) )
+  KeInitializeApc((__int64)v7, (__int64)a1, 0, (__int64)EtwpThreadRundownApc, 0LL, 0LL, 0, 0LL);
+  if ( !KeInsertQueueApc((__int64)v7, (__int64)&Object, a2, 0) )
     return EtwpTraceThreadRundown((__int64)a1, a2);
   Timeout.QuadPart = EtwpOneMs * (unsigned int)EtwpStackCaptureTimeout;
   result = KeWaitForSingleObject(&Object, WrExecutive, 0, 0, &Timeout);
   if ( result != 258 )
     return result;
-  if ( KeRemoveQueueApc((__int64)v10, v5, v6, v7) )
+  if ( KeRemoveQueueApc((__int64)v7) )
     return EtwpTraceThreadRundown((__int64)a1, a2);
   else
     return KeWaitForSingleObject(&Object, WrExecutive, 0, 0, 0LL);

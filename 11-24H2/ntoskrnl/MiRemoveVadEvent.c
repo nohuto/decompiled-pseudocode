@@ -1,10 +1,10 @@
 /*
- * XREFs of MiRemoveVadEvent @ 0x140678550
+ * XREFs of MiRemoveVadEvent @ 0x1406796DC
  * Callers:
- *     MiMapViewOfImageSection @ 0x1408E3418 (MiMapViewOfImageSection.c)
+ *     MiMapViewOfImageSection @ 0x140AE8594 (MiMapViewOfImageSection.c)
  * Callees:
- *     MiLockVadCore @ 0x1403FD500 (MiLockVadCore.c)
- *     MiUnlockVadCore @ 0x140429670 (MiUnlockVadCore.c)
+ *     MiLockVadCore @ 0x1403DAE20 (MiLockVadCore.c)
+ *     MiUnlockVadCore @ 0x14041D7C0 (MiUnlockVadCore.c)
  */
 
 __int64 __fastcall MiRemoveVadEvent(__int64 a1, _QWORD *a2)

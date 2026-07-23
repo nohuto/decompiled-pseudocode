@@ -1,16 +1,12 @@
 /*
- * XREFs of RtlSetUnhandledExceptionFilter @ 0x180003BB0
+ * XREFs of RtlSetUnhandledExceptionFilter @ 0x180106220
  * Callers:
  *     <none>
  * Callees:
- *     RtlEncodePointer @ 0x180004AC0 (RtlEncodePointer.c)
+ *     RtlEncodePointer @ 0x1800314C0 (RtlEncodePointer.c)
  */
 
-__int64 RtlSetUnhandledExceptionFilter()
+void __cdecl RtlSetUnhandledExceptionFilter(PRTLP_UNHANDLED_EXCEPTION_FILTER UnhandledExceptionFilter)
 {
-  __int64 result; // rax
-
-  result = RtlEncodePointer();
-  RtlpUnhandledExceptionFilter = result;
-  return result;
+  RtlpUnhandledExceptionFilter = RtlEncodePointer(UnhandledExceptionFilter);
 }

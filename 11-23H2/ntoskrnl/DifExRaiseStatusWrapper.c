@@ -1,15 +1,15 @@
 /*
- * XREFs of DifExRaiseStatusWrapper @ 0x1405D95F0
+ * XREFs of DifExRaiseStatusWrapper @ 0x1405D9B60
  * Callers:
  *     <none>
  * Callees:
- *     RtlRaiseStatus @ 0x1403217B0 (RtlRaiseStatus.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     DifGetAPIThunkContextById @ 0x1404664BE (DifGetAPIThunkContextById.c)
- *     DifGetReturnAddressForWrappers @ 0x1405F88C4 (DifGetReturnAddressForWrappers.c)
+ *     RtlRaiseStatus @ 0x140321A40 (RtlRaiseStatus.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     DifGetAPIThunkContextById @ 0x1404668BE (DifGetAPIThunkContextById.c)
+ *     DifGetReturnAddressForWrappers @ 0x1405F8E34 (DifGetReturnAddressForWrappers.c)
  */
 
-void __fastcall __noreturn DifExRaiseStatusWrapper(int a1)
+void __fastcall __noreturn DifExRaiseStatusWrapper(NTSTATUS Status)
 {
   __int64 *APIThunkContextById; // rax
   __int64 v3; // rdx
@@ -55,12 +55,12 @@ LABEL_8:
   *(_QWORD *)&v12 = 0LL;
 LABEL_10:
   v10 = v7 + 4;
-  DWORD2(v12) = a1;
+  DWORD2(v12) = Status;
   for ( i = (_QWORD *)v7[4]; i != v10; i = (_QWORD *)*i )
   {
     if ( i != (_QWORD *)16 )
       ((void (__fastcall *)(__int128 *))*(i - 1))(&v12);
   }
 LABEL_17:
-  RtlRaiseStatus(a1);
+  RtlRaiseStatus(Status);
 }

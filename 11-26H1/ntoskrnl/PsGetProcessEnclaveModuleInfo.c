@@ -1,16 +1,16 @@
 /*
- * XREFs of PsGetProcessEnclaveModuleInfo @ 0x1404F3AFC
+ * XREFs of PsGetProcessEnclaveModuleInfo @ 0x1404ED0DC
  * Callers:
- *     DbgkpPostModuleMessages @ 0x140B27048 (DbgkpPostModuleMessages.c)
+ *     DbgkpPostModuleMessages @ 0x140B290F8 (DbgkpPostModuleMessages.c)
  * Callees:
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     ExfTryToWakePushLock @ 0x1403170A0 (ExfTryToWakePushLock.c)
- *     PsFreeEnclaveModuleInfo @ 0x1404F3D50 (PsFreeEnclaveModuleInfo.c)
- *     MmGetEnclaveModuleList @ 0x140700318 (MmGetEnclaveModuleList.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     ExfTryToWakePushLock @ 0x1403190D0 (ExfTryToWakePushLock.c)
+ *     PsFreeEnclaveModuleInfo @ 0x1404ED330 (PsFreeEnclaveModuleInfo.c)
+ *     MmGetEnclaveModuleList @ 0x140704FE8 (MmGetEnclaveModuleList.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall PsGetProcessEnclaveModuleInfo(__int64 a1, _QWORD *a2, unsigned int *a3, struct _KLOCK_ENTRIES *a4)

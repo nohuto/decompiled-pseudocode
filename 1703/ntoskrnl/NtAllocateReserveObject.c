@@ -8,33 +8,40 @@
  *     ObInsertObjectEx @ 0x14050DCA0 (ObInsertObjectEx.c)
  */
 
-__int64 __fastcall NtAllocateReserveObject(__int64 *a1, int a2, int a3)
+NTSTATUS __cdecl NtAllocateReserveObject(
+        PHANDLE MemoryReserveHandle,
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        MEMORY_RESERVE_TYPE Type)
 {
   __int64 v3; // r14
   char PreviousMode; // si
   __int64 v6; // r8
   PVOID *p_Object; // rcx
-  __int64 result; // rax
+  NTSTATUS result; // eax
   _DWORD *v9; // rbx
-  int inserted; // edx
+  NTSTATUS inserted; // edx
   __int64 v11; // [rsp+50h] [rbp-28h] BYREF
   PVOID Object; // [rsp+98h] [rbp+20h] BYREF
 
-  v3 = a3;
+  v3 = Type;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   if ( PreviousMode )
   {
     v6 = 0x7FFFFFFF0000LL;
-    if ( (unsigned __int64)a1 < 0x7FFFFFFF0000LL )
-      v6 = (__int64)a1;
+    if ( (unsigned __int64)MemoryReserveHandle < 0x7FFFFFFF0000LL )
+      v6 = (__int64)MemoryReserveHandle;
     *(_QWORD *)v6 = *(_QWORD *)v6;
   }
   if ( (unsigned int)v3 > 1 )
-    return 3221225485LL;
+    return -1073741811;
   p_Object = &Object;
   LOBYTE(p_Object) = PreviousMode;
-  result = ObCreateObjectEx((_DWORD)p_Object, (unsigned int)*(&PspMemoryReserveObjectTypes + v3), a2, PreviousMode);
-  if ( (int)result >= 0 )
+  result = ObCreateObjectEx(
+             (_DWORD)p_Object,
+             (unsigned int)*(&PspMemoryReserveObjectTypes + v3),
+             (_DWORD)ObjectAttributes,
+             PreviousMode);
+  if ( result >= 0 )
   {
     v9 = Object;
     memset(Object, 0, PspMemoryReserveObjectSizes[v3]);
@@ -48,8 +55,8 @@ __int64 __fastcall NtAllocateReserveObject(__int64 *a1, int a2, int a3)
     inserted = ObInsertObjectEx(v9, 0LL, 0, 0LL, (__int64)&v11);
     LODWORD(Object) = inserted;
     if ( inserted >= 0 )
-      *a1 = v11;
-    return (unsigned int)inserted;
+      *MemoryReserveHandle = (HANDLE)v11;
+    return inserted;
   }
   return result;
 }

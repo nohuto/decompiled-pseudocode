@@ -1,12 +1,12 @@
 /*
- * XREFs of WheaAttemptClearPoison @ 0x140847FF0
+ * XREFs of WheaAttemptClearPoison @ 0x14084E2C0
  * Callers:
- *     HalpMemoryErrorDeferredHandler @ 0x14058F0C8 (HalpMemoryErrorDeferredHandler.c)
+ *     HalpMemoryErrorDeferredHandler @ 0x140591848 (HalpMemoryErrorDeferredHandler.c)
  * Callees:
- *     KeWaitForSingleObject @ 0x140278560 (KeWaitForSingleObject.c)
- *     ExQueueWorkItem @ 0x140381C70 (ExQueueWorkItem.c)
- *     KeInitializeEvent @ 0x140466F30 (KeInitializeEvent.c)
- *     WheapAttemptPhysicalPageOffline @ 0x1408487D0 (WheapAttemptPhysicalPageOffline.c)
+ *     KeWaitForSingleObject @ 0x140277AD0 (KeWaitForSingleObject.c)
+ *     ExQueueWorkItem @ 0x140383A20 (ExQueueWorkItem.c)
+ *     KeInitializeEvent @ 0x140460680 (KeInitializeEvent.c)
+ *     WheapAttemptPhysicalPageOffline @ 0x14084EAA0 (WheapAttemptPhysicalPageOffline.c)
  */
 
 __int64 __fastcall WheaAttemptClearPoison(__int64 a1, char a2, __int64 a3)

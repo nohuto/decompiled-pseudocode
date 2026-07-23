@@ -1,8 +1,8 @@
 /*
- * XREFs of RtlpHpStackTraceAllocFindMapping @ 0x18014F790
+ * XREFs of RtlpHpStackTraceAllocFindMapping @ 0x18014F640
  * Callers:
- *     RtlpHpStackTraceAllocRemove @ 0x18014F848 (RtlpHpStackTraceAllocRemove.c)
- *     RtlpHpStackTraceHeapSerialize @ 0x18014FC20 (RtlpHpStackTraceHeapSerialize.c)
+ *     RtlpHpStackTraceAllocRemove @ 0x18014F6F8 (RtlpHpStackTraceAllocRemove.c)
+ *     RtlpHpStackTraceHeapSerialize @ 0x18014FAD0 (RtlpHpStackTraceHeapSerialize.c)
  * Callees:
  *     <none>
  */

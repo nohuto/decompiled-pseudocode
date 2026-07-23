@@ -1,23 +1,23 @@
 /*
- * XREFs of PipGetPersistentMemory @ 0x14079D57C
+ * XREFs of PipGetPersistentMemory @ 0x1407A00BC
  * Callers:
- *     IoAcquireKsrPersistentMemoryEx @ 0x14079C460 (IoAcquireKsrPersistentMemoryEx.c)
- *     IoMapKsrPersistentMemoryEx @ 0x14079C760 (IoMapKsrPersistentMemoryEx.c)
- *     IoQueryKsrPersistentMemorySizeEx @ 0x14079C970 (IoQueryKsrPersistentMemorySizeEx.c)
- *     IoReserveKsrPersistentMemoryEx @ 0x14079CB90 (IoReserveKsrPersistentMemoryEx.c)
+ *     IoAcquireKsrPersistentMemoryEx @ 0x14079EFA0 (IoAcquireKsrPersistentMemoryEx.c)
+ *     IoMapKsrPersistentMemoryEx @ 0x14079F2A0 (IoMapKsrPersistentMemoryEx.c)
+ *     IoQueryKsrPersistentMemorySizeEx @ 0x14079F4B0 (IoQueryKsrPersistentMemorySizeEx.c)
+ *     IoReserveKsrPersistentMemoryEx @ 0x14079F6D0 (IoReserveKsrPersistentMemoryEx.c)
  * Callees:
- *     MmUnmapLockedPages @ 0x140281690 (MmUnmapLockedPages.c)
- *     MmMapLockedPagesSpecifyCache @ 0x14035D330 (MmMapLockedPagesSpecifyCache.c)
- *     IoAddTriageDumpDataBlock @ 0x14044AB54 (IoAddTriageDumpDataBlock.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     PipUnpackMetadata @ 0x1405D8CAC (PipUnpackMetadata.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     PipGetDriverKsrGuid @ 0x14079D3F0 (PipGetDriverKsrGuid.c)
- *     PipMatchPersistentMemory @ 0x14079DC84 (PipMatchPersistentMemory.c)
- *     PipMatchPersistentMemoryV1 @ 0x14079DD64 (PipMatchPersistentMemoryV1.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     MmUnmapLockedPages @ 0x140280C00 (MmUnmapLockedPages.c)
+ *     MmMapLockedPagesSpecifyCache @ 0x14035F0D0 (MmMapLockedPagesSpecifyCache.c)
+ *     IoAddTriageDumpDataBlock @ 0x140442C84 (IoAddTriageDumpDataBlock.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     PipUnpackMetadata @ 0x1405DB4AC (PipUnpackMetadata.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     PipGetDriverKsrGuid @ 0x14079FF30 (PipGetDriverKsrGuid.c)
+ *     PipMatchPersistentMemory @ 0x1407A07C4 (PipMatchPersistentMemory.c)
+ *     PipMatchPersistentMemoryV1 @ 0x1407A08A4 (PipMatchPersistentMemoryV1.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PipGetPersistentMemory(

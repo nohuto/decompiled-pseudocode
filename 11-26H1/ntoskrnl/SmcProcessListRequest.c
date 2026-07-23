@@ -1,13 +1,13 @@
 /*
- * XREFs of SmcProcessListRequest @ 0x14081A284
+ * XREFs of SmcProcessListRequest @ 0x140820494
  * Callers:
- *     SmQueryStoreInformation @ 0x140B26304 (SmQueryStoreInformation.c)
+ *     SmQueryStoreInformation @ 0x140B28564 (SmQueryStoreInformation.c)
  * Callees:
- *     RtlCopyFromUser @ 0x140533E38 (RtlCopyFromUser.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     RtlCopyVolatileMemory @ 0x140733080 (RtlCopyVolatileMemory.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     ProbeForWrite @ 0x1408F5D00 (ProbeForWrite.c)
+ *     RtlCopyFromUser @ 0x1405362B8 (RtlCopyFromUser.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     RtlCopyVolatileMemory @ 0x140737C50 (RtlCopyVolatileMemory.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     ProbeForWrite @ 0x140925C90 (ProbeForWrite.c)
  */
 
 __int64 __fastcall SmcProcessListRequest(void *Src, int a2, _DWORD *a3, char a4)

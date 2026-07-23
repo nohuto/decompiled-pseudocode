@@ -1,17 +1,17 @@
 /*
- * XREFs of DrvDbAcquireDatabaseNodeBaseKey @ 0x1406D2E38
+ * XREFs of DrvDbAcquireDatabaseNodeBaseKey @ 0x1406D40D8
  * Callers:
- *     DrvDbOpenObjectRegKey @ 0x1406D2C78 (DrvDbOpenObjectRegKey.c)
- *     DrvDbDeleteObjectRegKey @ 0x140900D4C (DrvDbDeleteObjectRegKey.c)
- *     DrvDbGetObjectList @ 0x140901F40 (DrvDbGetObjectList.c)
+ *     DrvDbOpenObjectRegKey @ 0x1406D3F18 (DrvDbOpenObjectRegKey.c)
+ *     DrvDbDeleteObjectRegKey @ 0x14090200C (DrvDbDeleteObjectRegKey.c)
+ *     DrvDbGetObjectList @ 0x140903200 (DrvDbGetObjectList.c)
  * Callees:
  *     ExReleaseResourceLite @ 0x14004F590 (ExReleaseResourceLite.c)
  *     ExAcquireResourceExclusiveLite @ 0x1400505F0 (ExAcquireResourceExclusiveLite.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
- *     _SysCtxRegOpenKey @ 0x1405C7AFC (_SysCtxRegOpenKey.c)
- *     DrvDbLoadDatabaseNode @ 0x1406D3150 (DrvDbLoadDatabaseNode.c)
- *     _PnpCtxRegCreateTree @ 0x1406D34F0 (_PnpCtxRegCreateTree.c)
- *     _PnpCtxRegCreateKey @ 0x1406E6464 (_PnpCtxRegCreateKey.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B78F0 (KiLeaveCriticalRegionUnsafe.c)
+ *     _SysCtxRegOpenKey @ 0x1405C8AFC (_SysCtxRegOpenKey.c)
+ *     DrvDbLoadDatabaseNode @ 0x1406D43F0 (DrvDbLoadDatabaseNode.c)
+ *     _PnpCtxRegCreateTree @ 0x1406D4790 (_PnpCtxRegCreateTree.c)
+ *     _PnpCtxRegCreateKey @ 0x1406E7704 (_PnpCtxRegCreateKey.c)
  */
 
 __int64 __fastcall DrvDbAcquireDatabaseNodeBaseKey(__int64 *a1, __int64 a2, int a3, _QWORD *a4)
@@ -54,7 +54,7 @@ __int64 __fastcall DrvDbAcquireDatabaseNodeBaseKey(__int64 *a1, __int64 a2, int 
       v18 = *a1;
       if ( (_DWORD)v5 )
       {
-        Key = PnpCtxRegCreateKey(v18, v17, qword_140353E40[v5], 0, 0x2000000, 0LL, a2 + 96 + 8 * v5, 0LL);
+        Key = PnpCtxRegCreateKey(v18, v17, qword_140354E40[v5], 0, 0x2000000, 0LL, a2 + 96 + 8 * v5, 0LL);
       }
       else
       {
@@ -78,7 +78,7 @@ LABEL_4:
       v15 = *a1;
       if ( (_DWORD)v5 )
       {
-        Tree = PnpCtxRegCreateTree(v15, v14, qword_140353E40[v5], 0, 0x2000000, 0LL, (__int64)a4, 0LL);
+        Tree = PnpCtxRegCreateTree(v15, v14, qword_140354E40[v5], 0, 0x2000000, 0LL, (__int64)a4, 0LL);
       }
       else
       {

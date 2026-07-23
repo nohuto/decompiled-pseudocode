@@ -1,5 +1,5 @@
 /*
- * XREFs of LZNT1FindMatchMaximum @ 0x18010C7F0
+ * XREFs of LZNT1FindMatchMaximum @ 0x18010C7B0
  * Callers:
  *     <none>
  * Callees:

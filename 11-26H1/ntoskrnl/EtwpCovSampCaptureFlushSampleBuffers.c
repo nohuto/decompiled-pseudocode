@@ -1,13 +1,13 @@
 /*
- * XREFs of EtwpCovSampCaptureFlushSampleBuffers @ 0x1405250F8
+ * XREFs of EtwpCovSampCaptureFlushSampleBuffers @ 0x140527768
  * Callers:
- *     EtwpCovSampCaptureContextStop @ 0x1404FE56C (EtwpCovSampCaptureContextStop.c)
- *     EtwpCovSampCaptureFlush @ 0x14093FB64 (EtwpCovSampCaptureFlush.c)
+ *     EtwpCovSampCaptureContextStop @ 0x1404F7B1C (EtwpCovSampCaptureContextStop.c)
+ *     EtwpCovSampCaptureFlush @ 0x140A32C74 (EtwpCovSampCaptureFlush.c)
  * Callees:
- *     KeQueryMaximumProcessorCountEx @ 0x1402767B0 (KeQueryMaximumProcessorCountEx.c)
- *     KeReleaseSpinLock @ 0x1402BE860 (KeReleaseSpinLock.c)
- *     EtwpCovSampTryAcquireBufferLock @ 0x1402BFE94 (EtwpCovSampTryAcquireBufferLock.c)
- *     EtwpCovSampSampleBufferDecRef @ 0x1406C8D70 (EtwpCovSampSampleBufferDecRef.c)
+ *     KeQueryMaximumProcessorCountEx @ 0x140275D20 (KeQueryMaximumProcessorCountEx.c)
+ *     KeReleaseSpinLock @ 0x140309520 (KeReleaseSpinLock.c)
+ *     EtwpCovSampTryAcquireBufferLock @ 0x14030AB58 (EtwpCovSampTryAcquireBufferLock.c)
+ *     EtwpCovSampSampleBufferDecRef @ 0x1406CCD50 (EtwpCovSampSampleBufferDecRef.c)
  */
 
 void __fastcall EtwpCovSampCaptureFlushSampleBuffers(__int64 a1)
@@ -32,7 +32,9 @@ void __fastcall EtwpCovSampCaptureFlushSampleBuffers(__int64 a1)
       v5 = 0LL;
       v6 = ((unsigned int)*(_QWORD *)(a1 + 8) >> 13) & 0x3FFFF;
       _BitScanReverse(&v7, v6);
-      v8 = (KSPIN_LOCK *)((*(_QWORD *)(*(_QWORD *)(*(_QWORD *)(v3 + ExSaPageArrays) + 8LL * (v7 - 2))
+      v8 = (KSPIN_LOCK *)((*(_QWORD *)(*(_QWORD *)(*(_QWORD *)((char *)ExSaPageGroupDescriptorArrayLock.SListFaultAddress
+                                                             + v3)
+                                                 + 8LL * (v7 - 2))
                                      + 8 * (v6 ^ (unsigned int)(1 << v7))
                                      + 8)
                          + 8 * ((*(_QWORD *)(a1 + 8) >> 4) & 0x1FFLL)

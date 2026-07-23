@@ -1,15 +1,15 @@
 /*
  * XREFs of VfDriverLoadImage @ 0x1406FDD58
  * Callers:
- *     MmLoadSystemImage @ 0x140482B2C (MmLoadSystemImage.c)
- *     VfDriverEnableVerifier @ 0x140704AC8 (VfDriverEnableVerifier.c)
+ *     MmLoadSystemImage @ 0x140481880 (MmLoadSystemImage.c)
+ *     VfDriverEnableVerifier @ 0x140704AF8 (VfDriverEnableVerifier.c)
  *     VfInitBootDriversLoaded @ 0x1407A52D8 (VfInitBootDriversLoaded.c)
  *     VfDriverLoadBootDrivers @ 0x1407A53BC (VfDriverLoadBootDrivers.c)
  * Callees:
- *     VfTargetDriversAdd @ 0x14008439C (VfTargetDriversAdd.c)
- *     RtlEqualUnicodeString @ 0x14040F720 (RtlEqualUnicodeString.c)
- *     VfNotifyVerifierExtensions @ 0x140704E00 (VfNotifyVerifierExtensions.c)
- *     ViXdvDriverLoadImage @ 0x14070512C (ViXdvDriverLoadImage.c)
+ *     VfTargetDriversAdd @ 0x1400824FC (VfTargetDriversAdd.c)
+ *     RtlEqualUnicodeString @ 0x14040E5E0 (RtlEqualUnicodeString.c)
+ *     VfNotifyVerifierExtensions @ 0x140704E30 (VfNotifyVerifierExtensions.c)
+ *     ViXdvDriverLoadImage @ 0x14070515C (ViXdvDriverLoadImage.c)
  *     VfSuspectDriversLoadCallback @ 0x140716114 (VfSuspectDriversLoadCallback.c)
  */
 

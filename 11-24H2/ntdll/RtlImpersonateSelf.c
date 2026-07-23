@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlImpersonateSelf @ 0x1800F67E0
+ * XREFs of RtlImpersonateSelf @ 0x1800F0D40
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall RtlImpersonateSelf(int a1)
+NTSTATUS __cdecl RtlImpersonateSelf(SECURITY_IMPERSONATION_LEVEL ImpersonationLevel)
 {
-  return RtlImpersonateSelfEx(a1, 0, 0LL);
+  return RtlImpersonateSelfEx(ImpersonationLevel, 0, 0LL);
 }

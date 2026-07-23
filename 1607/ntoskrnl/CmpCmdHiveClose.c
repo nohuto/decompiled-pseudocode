@@ -1,20 +1,20 @@
 /*
- * XREFs of CmpCmdHiveClose @ 0x14049FCA0
+ * XREFs of CmpCmdHiveClose @ 0x1405180AC
  * Callers:
- *     CmpLoadKeyCommon @ 0x140087994 (CmpLoadKeyCommon.c)
- *     CmpDoReconcileNextHive @ 0x1404806D8 (CmpDoReconcileNextHive.c)
- *     CmLoadKey @ 0x14049C9B4 (CmLoadKey.c)
- *     CmUnloadKey @ 0x14049F858 (CmUnloadKey.c)
- *     CmShutdownSystem @ 0x1405FC64C (CmShutdownSystem.c)
- *     CmReplaceKey @ 0x1405FE0FC (CmReplaceKey.c)
- *     CmpFlushBackupHive @ 0x1406044B0 (CmpFlushBackupHive.c)
+ *     CmpLoadKeyCommon @ 0x14010BB8C (CmpLoadKeyCommon.c)
+ *     CmpDoReconcileNextHive @ 0x14047F42C (CmpDoReconcileNextHive.c)
+ *     CmLoadKey @ 0x1404A4834 (CmLoadKey.c)
+ *     CmUnloadKey @ 0x140517C64 (CmUnloadKey.c)
+ *     CmShutdownSystem @ 0x1405FC700 (CmShutdownSystem.c)
+ *     CmReplaceKey @ 0x1405FE1B0 (CmReplaceKey.c)
+ *     CmpFlushBackupHive @ 0x140604564 (CmpFlushBackupHive.c)
  * Callees:
- *     IoSetThreadHardErrorMode @ 0x140074CB8 (IoSetThreadHardErrorMode.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     ZwClose @ 0x140159E60 (ZwClose.c)
- *     ZwQueryInformationFile @ 0x140159EA0 (ZwQueryInformationFile.c)
- *     ZwSetInformationFile @ 0x14015A160 (ZwSetInformationFile.c)
- *     ZwSetInformationObject @ 0x14015A800 (ZwSetInformationObject.c)
+ *     IoSetThreadHardErrorMode @ 0x140074D38 (IoSetThreadHardErrorMode.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     ZwClose @ 0x14015A3D0 (ZwClose.c)
+ *     ZwQueryInformationFile @ 0x14015A410 (ZwQueryInformationFile.c)
+ *     ZwSetInformationFile @ 0x14015A6D0 (ZwSetInformationFile.c)
+ *     ZwSetInformationObject @ 0x14015AD70 (ZwSetInformationObject.c)
  */
 
 BOOLEAN __fastcall CmpCmdHiveClose(__int64 a1)

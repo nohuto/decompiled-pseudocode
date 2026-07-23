@@ -7,7 +7,7 @@
  *     RtlTestProtectedAccess @ 0x1409BC0CC (RtlTestProtectedAccess.c)
  */
 
-__int64 __fastcall PspValidateCreateProcessProtection(__int64 a1, __int64 a2, char a3, char a4, unsigned __int8 a5)
+__int64 __fastcall PspValidateCreateProcessProtection(__int64 a1, __int64 a2, char a3, char a4, PS_PROTECTION Source)
 {
   unsigned __int64 v5; // rbx
   unsigned int v6; // edi
@@ -21,7 +21,7 @@ __int64 __fastcall PspValidateCreateProcessProtection(__int64 a1, __int64 a2, ch
       if ( (*(_DWORD *)(a2 + 8) & 0x800LL) == 0 )
       {
         Feature_ID51912085__private_IsEnabledPreCheck();
-        if ( (dword_140B2D194[3 * (v5 >> 4)] & 0x40) != 0 && !RtlTestProtectedAccess(a5, v5) )
+        if ( (dword_140B2D194[3 * (v5 >> 4)] & 0x40) != 0 && !RtlTestProtectedAccess(Source, (PS_PROTECTION)v5) )
           return (unsigned int)-1073741811;
       }
     }

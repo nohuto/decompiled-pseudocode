@@ -1,7 +1,7 @@
 /*
- * XREFs of KeEnterCriticalRegionThread @ 0x140302E20
+ * XREFs of KeEnterCriticalRegionThread @ 0x1403030B0
  * Callers:
- *     NtSetInformationProcess @ 0x140774540 (NtSetInformationProcess.c)
+ *     NtSetInformationProcess @ 0x140774730 (NtSetInformationProcess.c)
  * Callees:
  *     <none>
  */

@@ -1,16 +1,16 @@
 /*
- * XREFs of ObpLockDirectoryExclusive @ 0x1402AB5F0
+ * XREFs of ObpLockDirectoryExclusive @ 0x140229730
  * Callers:
- *     ObpDeleteNameCheck @ 0x14062CBD0 (ObpDeleteNameCheck.c)
- *     NtSetInformationObject @ 0x140691630 (NtSetInformationObject.c)
- *     ObpMarkDirectoryObjectsTemporary @ 0x140691AB8 (ObpMarkDirectoryObjectsTemporary.c)
- *     ObpLookupObjectName @ 0x1406F3F20 (ObpLookupObjectName.c)
- *     ObCloseHandleTableEntry @ 0x1406F5660 (ObCloseHandleTableEntry.c)
- *     ObCreateObjectTypeEx @ 0x1407958F0 (ObCreateObjectTypeEx.c)
- *     ObInitSystem @ 0x140A3E538 (ObInitSystem.c)
+ *     NtSetInformationObject @ 0x1405F14A0 (NtSetInformationObject.c)
+ *     ObpMarkDirectoryObjectsTemporary @ 0x1405F1928 (ObpMarkDirectoryObjectsTemporary.c)
+ *     ObpDeleteNameCheck @ 0x140663D60 (ObpDeleteNameCheck.c)
+ *     ObpLookupObjectName @ 0x14070B300 (ObpLookupObjectName.c)
+ *     ObCloseHandleTableEntry @ 0x14070CA40 (ObCloseHandleTableEntry.c)
+ *     ObCreateObjectTypeEx @ 0x140795AF0 (ObCreateObjectTypeEx.c)
+ *     ObInitSystem @ 0x140A3F538 (ObInitSystem.c)
  * Callees:
- *     ObfReferenceObjectWithTag @ 0x1402056A0 (ObfReferenceObjectWithTag.c)
- *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
+ *     ObfReferenceObjectWithTag @ 0x1402A9FE0 (ObfReferenceObjectWithTag.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1403556E0 (ExAcquirePushLockExclusiveEx.c)
  */
 
 LONG_PTR __fastcall ObpLockDirectoryExclusive(__int64 a1, void *a2)

@@ -6,21 +6,21 @@
  *     _ZwRaiseHardError@24 @ 0x4B2F3FF0 (_ZwRaiseHardError@24.c)
  */
 
-int __thiscall LdrpProcessMachineMismatch(_DWORD *this)
+NTSTATUS __thiscall LdrpProcessMachineMismatch(_DWORD *this)
 {
-  int result; // eax
+  NTSTATUS result; // eax
   int v2; // esi
-  int v3; // [esp+4h] [ebp-Ch] BYREF
-  int v4; // [esp+Ch] [ebp-4h] BYREF
+  unsigned __int64 Parameters; // [esp+4h] [ebp-Ch] BYREF
+  ULONG Response; // [esp+Ch] [ebp-4h] BYREF
 
   if ( *(_WORD *)(LdrpAppHeaders + 72) > 3u )
     return 1073741838;
   v2 = this[8];
-  v3 = v2 + 36;
-  result = ZwRaiseHardError(1073741838, 1, 1, (int)&v3, 2, (int)&v4);
+  LODWORD(Parameters) = v2 + 36;
+  result = ZwRaiseHardError(1073741838, 1u, 1u, &Parameters, 2u, &Response);
   if ( result >= 0 )
   {
-    if ( v4 == 3 )
+    if ( Response == 3 )
     {
       if ( LdrInitState != 3 )
         ++LdrpFatalHardErrorCount;

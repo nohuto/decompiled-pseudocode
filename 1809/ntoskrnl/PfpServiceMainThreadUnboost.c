@@ -1,14 +1,14 @@
 /*
- * XREFs of PfpServiceMainThreadUnboost @ 0x140143350
+ * XREFs of PfpServiceMainThreadUnboost @ 0x140143450
  * Callers:
- *     PfPowerActionNotify @ 0x140567F10 (PfPowerActionNotify.c)
+ *     PfPowerActionNotify @ 0x140568F10 (PfPowerActionNotify.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x1400630E0 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14008CF40 (KeAcquireSpinLockRaiseToDpc.c)
- *     ObDereferenceObjectDeferDelete @ 0x1400C1060 (ObDereferenceObjectDeferDelete.c)
- *     KeSetActualBasePriorityThread @ 0x1400CCF40 (KeSetActualBasePriorityThread.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
+ *     KxReleaseSpinLock @ 0x1400630D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14008CE80 (KeAcquireSpinLockRaiseToDpc.c)
+ *     ObDereferenceObjectDeferDelete @ 0x1400C0FA0 (ObDereferenceObjectDeferDelete.c)
+ *     KeSetActualBasePriorityThread @ 0x1400CCFC0 (KeSetActualBasePriorityThread.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
  */
 
 void __fastcall PfpServiceMainThreadUnboost(_DWORD *P)
@@ -19,17 +19,17 @@ void __fastcall PfpServiceMainThreadUnboost(_DWORD *P)
   struct _KPRCB *CurrentPrcb; // rcx
 
   v2 = 0LL;
-  v3 = KeAcquireSpinLockRaiseToDpc(&qword_14043C108);
-  if ( !P || dword_14043C110 == P[41] )
+  v3 = KeAcquireSpinLockRaiseToDpc(&qword_14043D1C8);
+  if ( !P || dword_14043D1D0 == P[41] )
   {
     v2 = Object;
     if ( Object )
     {
       Object = 0LL;
-      KeSetActualBasePriorityThread((__int64)v2, (unsigned int)dword_14043C100, v4);
+      KeSetActualBasePriorityThread((__int64)v2, (unsigned int)dword_14043D1C0, v4);
     }
   }
-  KxReleaseSpinLock(&qword_14043C108);
+  KxReleaseSpinLock(&qword_14043D1C8);
   if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && KeGetCurrentIrql() >= 2u && v3 < 2u )
   {
     CurrentPrcb = KeGetCurrentPrcb();

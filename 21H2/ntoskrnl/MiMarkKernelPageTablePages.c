@@ -1,12 +1,12 @@
 /*
- * XREFs of MiMarkKernelPageTablePages @ 0x1409B03D8
+ * XREFs of MiMarkKernelPageTablePages @ 0x1409B1308
  * Callers:
- *     MmMarkHiberPhase @ 0x1409B061C (MmMarkHiberPhase.c)
+ *     MmMarkHiberPhase @ 0x1409B154C (MmMarkHiberPhase.c)
  * Callees:
- *     MiWalkPageTables @ 0x1402092C0 (MiWalkPageTables.c)
- *     MiGetAnyMultiplexedVm @ 0x1402FD0FC (MiGetAnyMultiplexedVm.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     memset @ 0x140414200 (memset.c)
+ *     MiWalkPageTables @ 0x1402ADBC0 (MiWalkPageTables.c)
+ *     MiGetAnyMultiplexedVm @ 0x140307E4C (MiGetAnyMultiplexedVm.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     memset @ 0x140414300 (memset.c)
  */
 
 __int64 MiMarkKernelPageTablePages()

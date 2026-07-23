@@ -1,15 +1,15 @@
 /*
- * XREFs of MiDoneWithThisPageGetAnother @ 0x14055A138
+ * XREFs of MiDoneWithThisPageGetAnother @ 0x14055A378
  * Callers:
- *     MiUpdateForkMaps @ 0x14055B7A0 (MiUpdateForkMaps.c)
+ *     MiUpdateForkMaps @ 0x14055B9E0 (MiUpdateForkMaps.c)
  * Callees:
- *     MiGetPage @ 0x140213610 (MiGetPage.c)
- *     MiGetSharedVm @ 0x14021AF50 (MiGetSharedVm.c)
- *     MiUnlockWorkingSetExclusive @ 0x14021CAE0 (MiUnlockWorkingSetExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x14021D060 (ExAcquireSpinLockExclusive.c)
- *     MiInitializePageColorBase @ 0x14023F280 (MiInitializePageColorBase.c)
- *     MiFinishLastForkPageTable @ 0x14055A6A0 (MiFinishLastForkPageTable.c)
- *     MiWaitForFreePage @ 0x14055C1FC (MiWaitForFreePage.c)
+ *     MiGetPage @ 0x1402B7F10 (MiGetPage.c)
+ *     MiGetSharedVm @ 0x1402BF850 (MiGetSharedVm.c)
+ *     MiUnlockWorkingSetExclusive @ 0x1402C13E0 (MiUnlockWorkingSetExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x1402C1960 (ExAcquireSpinLockExclusive.c)
+ *     MiInitializePageColorBase @ 0x1402E3AD0 (MiInitializePageColorBase.c)
+ *     MiFinishLastForkPageTable @ 0x14055A8E0 (MiFinishLastForkPageTable.c)
+ *     MiWaitForFreePage @ 0x14055C43C (MiWaitForFreePage.c)
  */
 
 __int64 __fastcall MiDoneWithThisPageGetAnother(__int64 *a1, __int64 a2, __int64 a3, unsigned __int8 a4)
@@ -33,7 +33,7 @@ __int64 __fastcall MiDoneWithThisPageGetAnother(__int64 *a1, __int64 a2, __int64
   MiInitializePageColorBase(v4, 0, (__int64)&v16);
   v9 = _InterlockedExchangeAdd((volatile signed __int32 *)v16, 1u);
   v10 = HIDWORD(v16) | v9 & DWORD2(v16);
-  v11 = *(_QWORD *)(qword_140C4E648 + 8LL * *(unsigned __int16 *)(a3 + 1838));
+  v11 = *(_QWORD *)(qword_140C4E688 + 8LL * *(unsigned __int16 *)(a3 + 1838));
   while ( 1 )
   {
     Page = MiGetPage(v11, v10, 770LL);

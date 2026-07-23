@@ -1,8 +1,8 @@
 /*
  * XREFs of WerLiveKernelSubmitReport_0 @ 0x140001310
  * Callers:
- *     DbgkpWerCaptureLiveTriageDump @ 0x14061BEB4 (DbgkpWerCaptureLiveTriageDump.c)
- *     DbgkpWerDeferredWriteRoutine @ 0x14061C1BC (DbgkpWerDeferredWriteRoutine.c)
+ *     DbgkpWerCaptureLiveTriageDump @ 0x14061BF68 (DbgkpWerCaptureLiveTriageDump.c)
+ *     DbgkpWerDeferredWriteRoutine @ 0x14061C270 (DbgkpWerDeferredWriteRoutine.c)
  * Callees:
  *     <none>
  */

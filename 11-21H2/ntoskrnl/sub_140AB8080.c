@@ -1,7 +1,7 @@
 /*
  * XREFs of sub_140AB8080 @ 0x140AB8080
  * Callers:
- *     __guard_retpoline_icall_handler @ 0x140AB8060 (__guard_retpoline_icall_handler.c)
+ *     <none>
  * Callees:
  *     <none>
  */

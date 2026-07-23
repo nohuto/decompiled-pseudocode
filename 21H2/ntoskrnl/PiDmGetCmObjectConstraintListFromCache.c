@@ -1,10 +1,10 @@
 /*
- * XREFs of PiDmGetCmObjectConstraintListFromCache @ 0x140639FE8
+ * XREFs of PiDmGetCmObjectConstraintListFromCache @ 0x14062EDF8
  * Callers:
- *     PiPnpRtlGetFilteredDeviceInterfaceList @ 0x14063A9DC (PiPnpRtlGetFilteredDeviceInterfaceList.c)
- *     PiPnpRtlGetFilteredDeviceList @ 0x14063ACF4 (PiPnpRtlGetFilteredDeviceList.c)
+ *     PiPnpRtlGetFilteredDeviceInterfaceList @ 0x14062F7EC (PiPnpRtlGetFilteredDeviceInterfaceList.c)
+ *     PiPnpRtlGetFilteredDeviceList @ 0x14062FB04 (PiPnpRtlGetFilteredDeviceList.c)
  * Callees:
- *     PiDmGetObjectConstraintList @ 0x140639EEC (PiDmGetObjectConstraintList.c)
+ *     PiDmGetObjectConstraintList @ 0x14062ECFC (PiDmGetObjectConstraintList.c)
  */
 
 __int64 __fastcall PiDmGetCmObjectConstraintListFromCache(
@@ -25,7 +25,7 @@ __int64 __fastcall PiDmGetCmObjectConstraintListFromCache(
   v7 = 0;
   v9[0] = a3;
   v11 = 0;
-  switch ( LODWORD(qword_1400074A0[5 * a1]) )
+  switch ( LODWORD(qword_1400074B0[5 * a1]) )
   {
     case 1:
       v7 = 1;

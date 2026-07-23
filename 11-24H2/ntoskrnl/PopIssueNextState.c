@@ -1,11 +1,11 @@
 /*
- * XREFs of PopIssueNextState @ 0x140B65DAC
+ * XREFs of PopIssueNextState @ 0x140B67EEC
  * Callers:
- *     PopInvokeSystemStateHandler @ 0x140B6552C (PopInvokeSystemStateHandler.c)
+ *     PopInvokeSystemStateHandler @ 0x140B6766C (PopInvokeSystemStateHandler.c)
  * Callees:
- *     HvlNotifyLongSpinWait @ 0x140293260 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140293290 (KiCheckVpBackingLongSpinWaitHypercall.c)
- *     PopHandleNextState @ 0x140B65E10 (PopHandleNextState.c)
+ *     HvlNotifyLongSpinWait @ 0x1402A2E60 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1402A2E90 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     PopHandleNextState @ 0x140B67F50 (PopHandleNextState.c)
  */
 
 __int64 __fastcall PopIssueNextState(__int64 a1, _DWORD *a2, __int32 a3)

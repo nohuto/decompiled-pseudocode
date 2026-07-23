@@ -1,9 +1,9 @@
 /*
- * XREFs of FsRtlpOplockRHIrpCancelRoutine @ 0x1404190D0
+ * XREFs of FsRtlpOplockRHIrpCancelRoutine @ 0x140408E80
  * Callers:
- *     IoCancelIrp @ 0x140418FA0 (IoCancelIrp.c)
+ *     IoCancelIrp @ 0x140408D50 (IoCancelIrp.c)
  * Callees:
- *     FsRtlpCancelOplockRHIrp @ 0x1404190F0 (FsRtlpCancelOplockRHIrp.c)
+ *     FsRtlpCancelOplockRHIrp @ 0x140408EA0 (FsRtlpCancelOplockRHIrp.c)
  */
 
 __int64 __fastcall FsRtlpOplockRHIrpCancelRoutine(__int64 a1, __int64 a2, __int64 a3)

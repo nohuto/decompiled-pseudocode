@@ -1,16 +1,16 @@
 /*
- * XREFs of RtlpxLookupFunctionTable @ 0x1400A18B0
+ * XREFs of RtlpxLookupFunctionTable @ 0x1400A17F0
  * Callers:
- *     RtlLookupFunctionEntry @ 0x14009DC20 (RtlLookupFunctionEntry.c)
- *     RtlpLookupFunctionEntryForStackWalks @ 0x1400A0410 (RtlpLookupFunctionEntryForStackWalks.c)
- *     RtlPcToFileHeader @ 0x14012F670 (RtlPcToFileHeader.c)
- *     RtlLookupFunctionTable @ 0x1401375E0 (RtlLookupFunctionTable.c)
- *     RtlGuardCheckLongJumpTarget @ 0x1402F6718 (RtlGuardCheckLongJumpTarget.c)
- *     RtlCreateInvertedFunctionTableCacheEntry @ 0x1409CF77C (RtlCreateInvertedFunctionTableCacheEntry.c)
- *     KiVerifyPdata @ 0x1409CFFD0 (KiVerifyPdata.c)
+ *     RtlLookupFunctionEntry @ 0x14009DB60 (RtlLookupFunctionEntry.c)
+ *     RtlpLookupFunctionEntryForStackWalks @ 0x1400A0350 (RtlpLookupFunctionEntryForStackWalks.c)
+ *     RtlPcToFileHeader @ 0x14012F740 (RtlPcToFileHeader.c)
+ *     RtlLookupFunctionTable @ 0x1401376E0 (RtlLookupFunctionTable.c)
+ *     RtlGuardCheckLongJumpTarget @ 0x1402F6908 (RtlGuardCheckLongJumpTarget.c)
+ *     RtlCreateInvertedFunctionTableCacheEntry @ 0x1409D077C (RtlCreateInvertedFunctionTableCacheEntry.c)
+ *     KiVerifyPdata @ 0x1409D0FD0 (KiVerifyPdata.c)
  * Callees:
- *     MmLockLoadedModuleListShared @ 0x14009B82C (MmLockLoadedModuleListShared.c)
- *     MmUnlockLoadedModuleListShared @ 0x1400DA688 (MmUnlockLoadedModuleListShared.c)
+ *     MmLockLoadedModuleListShared @ 0x14009B76C (MmLockLoadedModuleListShared.c)
+ *     MmUnlockLoadedModuleListShared @ 0x1400DA708 (MmUnlockLoadedModuleListShared.c)
  */
 
 PVOID __fastcall RtlpxLookupFunctionTable(unsigned __int64 a1, __int64 a2)
@@ -55,7 +55,7 @@ PVOID __fastcall RtlpxLookupFunctionTable(unsigned __int64 a1, __int64 a2)
     v7 = 0;
     v8 = 1;
     if ( (KiSpeculationFeatures & 0x20000000000LL) != 0 )
-      v7 = dword_140438E74;
+      v7 = dword_140439F34;
     v9 = *RtlpInvertedFunctionTable - 1;
     v10 = (KiSpeculationFeatures & 0x20000000000LL) != 0 ? 0x1000 : 0;
     if ( v9 >= 1 )
@@ -113,7 +113,7 @@ LABEL_19:
   {
     v16 = 0;
     if ( (KiSpeculationFeatures & 0x20000000000LL) != 0 )
-      v16 = dword_140438E74;
+      v16 = dword_140439F34;
     v17 = *RtlpInvertedFunctionTable - 1;
     v18 = (KiSpeculationFeatures & 0x20000000000LL) != 0 ? 0x1000 : 0;
     if ( v17 >= 1 )
@@ -162,7 +162,7 @@ LABEL_19:
     v23 = 0;
     v24 = (PVOID *)PsLoadedModuleList;
     if ( (KiSpeculationFeatures & 0x20000000000LL) != 0 )
-      v23 = dword_140438E74;
+      v23 = dword_140439F34;
     v25 = (KiSpeculationFeatures & 0x20000000000LL) != 0 ? 0x1000 : 0;
     if ( PsLoadedModuleList )
     {

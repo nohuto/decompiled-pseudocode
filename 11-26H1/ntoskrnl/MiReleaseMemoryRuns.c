@@ -1,15 +1,15 @@
 /*
- * XREFs of MiReleaseMemoryRuns @ 0x1406ED4A8
+ * XREFs of MiReleaseMemoryRuns @ 0x1406F2148
  * Callers:
- *     MmAllocateMemoryRanges @ 0x140867D80 (MmAllocateMemoryRanges.c)
- *     MmFreeMemoryRanges @ 0x140867FF0 (MmFreeMemoryRanges.c)
+ *     MmAllocateMemoryRanges @ 0x14086E160 (MmAllocateMemoryRanges.c)
+ *     MmFreeMemoryRanges @ 0x14086E3D0 (MmFreeMemoryRanges.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     MiLockHugePfnAtDpc @ 0x140358C94 (MiLockHugePfnAtDpc.c)
- *     MiHugePfnPartition @ 0x14048E180 (MiHugePfnPartition.c)
- *     MiInsertHugeRangeInList @ 0x14048E66C (MiInsertHugeRangeInList.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     MiLockHugePfnAtDpc @ 0x14035AA34 (MiLockHugePfnAtDpc.c)
+ *     MiHugePfnPartition @ 0x140487CC0 (MiHugePfnPartition.c)
+ *     MiInsertHugeRangeInList @ 0x1404881AC (MiInsertHugeRangeInList.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall MiReleaseMemoryRuns(__int64 *a1, int a2)
@@ -44,7 +44,7 @@ __int64 __fastcall MiReleaseMemoryRuns(__int64 *a1, int a2)
       v9 = *v6 % *(_QWORD *)(v4 + 24);
       v3 = v8 ^ (v8 ^ v3) & 0xFFFFFFFFFFC00000uLL;
       v10 = v9 + 1;
-      v11 = (_QWORD *)(*(_QWORD *)((char *)&stru_140E2EB88.116 + 4) + 8 * (v8 & 0x3FFFFF));
+      v11 = (_QWORD *)(*(_QWORD *)((char *)&stru_140E2ED08.116 + 4) + 8 * (v8 & 0x3FFFFF));
       do
       {
         --v10;
@@ -58,7 +58,7 @@ __int64 __fastcall MiReleaseMemoryRuns(__int64 *a1, int a2)
         {
           MiHugePfnPartition(v11);
           LODWORD(v9) = v14 & v3;
-          if ( (*(_QWORD *)(*(_QWORD *)((char *)&stru_140E2EB88.116 + 4) + 8 * (v14 & v3)) & 0x10000LL) == 0 )
+          if ( (*(_QWORD *)(*(_QWORD *)((char *)&stru_140E2ED08.116 + 4) + 8 * (v14 & v3)) & 0x10000LL) == 0 )
             v12 = v13;
         }
         CurrentIrql = KeGetCurrentIrql();
@@ -71,12 +71,12 @@ __int64 __fastcall MiReleaseMemoryRuns(__int64 *a1, int a2)
         }
         MiLockHugePfnAtDpc((__int64)v11);
         MiInsertHugeRangeInList(0LL, v3, v12);
-        result = *(_QWORD *)&stru_140E2EB88.SystemCallNumber;
-        LODWORD(v9) = ~(1 << (((__int64)v11 - *(_QWORD *)((char *)&stru_140E2EB88.116 + 4)) >> 3));
+        result = *(_QWORD *)&stru_140E2ED08.SystemCallNumber;
+        LODWORD(v9) = ~(1 << (((__int64)v11 - *(_QWORD *)((char *)&stru_140E2ED08.116 + 4)) >> 3));
         _InterlockedAnd(
-          (volatile signed __int32 *)(*(_QWORD *)&stru_140E2EB88.SystemCallNumber
+          (volatile signed __int32 *)(*(_QWORD *)&stru_140E2ED08.SystemCallNumber
                                     + 4
-                                    * (((((__int64)v11 - *(_QWORD *)((char *)&stru_140E2EB88.116 + 4)) >> 3) & 0x3FFFFFuLL) >> 5)),
+                                    * (((((__int64)v11 - *(_QWORD *)((char *)&stru_140E2ED08.116 + 4)) >> 3) & 0x3FFFFFuLL) >> 5)),
           v9);
         if ( CurrentIrql != 17 )
         {

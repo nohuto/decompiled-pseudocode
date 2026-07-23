@@ -1,9 +1,9 @@
 /*
- * XREFs of NtCreatePagingFile @ 0x1405681F0
+ * XREFs of NtCreatePagingFile @ 0x140568730
  * Callers:
  *     <none>
  * Callees:
- *     MiCreatePagingFile @ 0x140568224 (MiCreatePagingFile.c)
+ *     MiCreatePagingFile @ 0x140568764 (MiCreatePagingFile.c)
  */
 
 NTSTATUS __stdcall NtCreatePagingFile(

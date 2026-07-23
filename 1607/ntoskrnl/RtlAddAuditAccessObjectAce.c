@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlAddAuditAccessObjectAce @ 0x140684698
+ * XREFs of RtlAddAuditAccessObjectAce @ 0x14068477C
  * Callers:
- *     LocalGetAclForString @ 0x1404D6D44 (LocalGetAclForString.c)
+ *     LocalGetAclForString @ 0x1404BA348 (LocalGetAclForString.c)
  * Callees:
  *     <none>
  */

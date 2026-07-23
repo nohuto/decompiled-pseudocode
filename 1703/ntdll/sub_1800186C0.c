@@ -7,8 +7,8 @@
  *     RtlFreeHeap @ 0x1800244A0 (RtlFreeHeap.c)
  */
 
-__int64 __fastcall sub_1800186C0(__int64 a1)
+LOGICAL __fastcall sub_1800186C0(PVOID BaseAddress)
 {
-  sub_1800186FC(a1);
-  return RtlFreeHeap(NtCurrentPeb()->ProcessHeap, (unsigned int)(dword_18015C000 + 0x200000));
+  sub_1800186FC(BaseAddress);
+  return RtlFreeHeap(NtCurrentPeb()->ProcessHeap, dword_18015C000 + 0x200000, BaseAddress);
 }

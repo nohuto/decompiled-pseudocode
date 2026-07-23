@@ -1,13 +1,13 @@
 /*
- * XREFs of SymCryptFixedWindowRecoding @ 0x1405390DC
+ * XREFs of SymCryptFixedWindowRecoding @ 0x14053357C
  * Callers:
- *     SymCryptEcpointScalarMulFixedWindow @ 0x14052A210 (SymCryptEcpointScalarMulFixedWindow.c)
+ *     SymCryptEcpointScalarMulFixedWindow @ 0x140527A20 (SymCryptEcpointScalarMulFixedWindow.c)
  * Callees:
- *     SymCryptIntAddUint32 @ 0x140523784 (SymCryptIntAddUint32.c)
- *     SymCryptIntDivPow2 @ 0x140523888 (SymCryptIntDivPow2.c)
- *     SymCryptIntGetValueLsbits32 @ 0x140523940 (SymCryptIntGetValueLsbits32.c)
- *     SymCryptIntMaskedCopy @ 0x1405239B8 (SymCryptIntMaskedCopy.c)
- *     SymCryptIntSubUint32 @ 0x140523A98 (SymCryptIntSubUint32.c)
+ *     SymCryptIntAddUint32 @ 0x14052109C (SymCryptIntAddUint32.c)
+ *     SymCryptIntDivPow2 @ 0x1405211A0 (SymCryptIntDivPow2.c)
+ *     SymCryptIntGetValueLsbits32 @ 0x140521258 (SymCryptIntGetValueLsbits32.c)
+ *     SymCryptIntMaskedCopy @ 0x1405212D0 (SymCryptIntMaskedCopy.c)
+ *     SymCryptIntSubUint32 @ 0x1405213B0 (SymCryptIntSubUint32.c)
  */
 
 __int64 __fastcall SymCryptFixedWindowRecoding(char a1, __int64 a2, __int64 a3, __int64 a4, _DWORD *a5, int a6)

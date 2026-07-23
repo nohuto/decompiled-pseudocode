@@ -6,15 +6,15 @@
  *     RtlGetInterruptTimePrecise @ 0x14009E740 (RtlGetInterruptTimePrecise.c)
  */
 
-unsigned __int64 KeGetNextClockTickDuration()
+__int64 KeGetNextClockTickDuration()
 {
   __int64 v0; // rbx
-  unsigned __int64 InterruptTimePrecise; // rax
-  LARGE_INTEGER v3; // [rsp+30h] [rbp+8h] BYREF
+  LARGE_INTEGER InterruptTimePrecise; // rax
+  LARGE_INTEGER PerformanceCounter; // [rsp+30h] [rbp+8h] BYREF
 
   v0 = 0LL;
-  InterruptTimePrecise = RtlGetInterruptTimePrecise(&v3);
-  if ( KiClockTimerNextTickTime > InterruptTimePrecise )
-    return KiClockTimerNextTickTime - InterruptTimePrecise;
+  InterruptTimePrecise = RtlGetInterruptTimePrecise(&PerformanceCounter);
+  if ( (unsigned __int64)KiClockTimerNextTickTime > InterruptTimePrecise.QuadPart )
+    return KiClockTimerNextTickTime - InterruptTimePrecise.QuadPart;
   return v0;
 }

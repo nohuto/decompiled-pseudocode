@@ -18,7 +18,7 @@ __int64 __fastcall PiAuCheckClientInteractive(_BYTE *a1)
   PVOID PoolWithTag; // rax
   void *v4; // rdi
   NTSTATUS v5; // ebx
-  struct _SID_IDENTIFIER_AUTHORITY IdentifierAuthority; // [rsp+38h] [rbp+10h] BYREF
+  _SID_IDENTIFIER_AUTHORITY IdentifierAuthority; // [rsp+38h] [rbp+10h] BYREF
 
   *a1 = 0;
   *(_DWORD *)IdentifierAuthority.Value = 0;

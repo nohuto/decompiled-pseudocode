@@ -1,15 +1,15 @@
 /*
- * XREFs of RtlEnumerateGenericTableAvl @ 0x140371720
+ * XREFs of RtlEnumerateGenericTableAvl @ 0x1403718C0
  * Callers:
- *     PiDmObjectManagerPopulate @ 0x1408396DC (PiDmObjectManagerPopulate.c)
- *     EtwpFreeKeyNameList @ 0x14083CBB8 (EtwpFreeKeyNameList.c)
- *     PopPowerRequestStatsOnSleepstudySessionChange @ 0x140875AA0 (PopPowerRequestStatsOnSleepstudySessionChange.c)
- *     VfAvlDeleteAllTreeNodes @ 0x140ADC260 (VfAvlDeleteAllTreeNodes.c)
- *     VfAvlEnumerateNodes @ 0x140ADC2D4 (VfAvlEnumerateNodes.c)
- *     VfPtGenerateTraceInformation @ 0x140ADE808 (VfPtGenerateTraceInformation.c)
- *     ViPtDeleteAvlTrees @ 0x140ADEC20 (ViPtDeleteAvlTrees.c)
+ *     PiDmObjectManagerPopulate @ 0x1408399DC (PiDmObjectManagerPopulate.c)
+ *     EtwpFreeKeyNameList @ 0x14083CEB8 (EtwpFreeKeyNameList.c)
+ *     PopPowerRequestStatsOnSleepstudySessionChange @ 0x140875CE0 (PopPowerRequestStatsOnSleepstudySessionChange.c)
+ *     VfAvlDeleteAllTreeNodes @ 0x140ADC250 (VfAvlDeleteAllTreeNodes.c)
+ *     VfAvlEnumerateNodes @ 0x140ADC2C4 (VfAvlEnumerateNodes.c)
+ *     VfPtGenerateTraceInformation @ 0x140ADE7F8 (VfPtGenerateTraceInformation.c)
+ *     ViPtDeleteAvlTrees @ 0x140ADEC10 (ViPtDeleteAvlTrees.c)
  * Callees:
- *     RtlEnumerateGenericTableWithoutSplayingAvl @ 0x140371750 (RtlEnumerateGenericTableWithoutSplayingAvl.c)
+ *     RtlEnumerateGenericTableWithoutSplayingAvl @ 0x1403718F0 (RtlEnumerateGenericTableWithoutSplayingAvl.c)
  */
 
 PVOID __stdcall RtlEnumerateGenericTableAvl(PRTL_AVL_TABLE Table, BOOLEAN Restart)

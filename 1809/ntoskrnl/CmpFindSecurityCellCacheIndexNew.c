@@ -1,18 +1,18 @@
 /*
- * XREFs of CmpFindSecurityCellCacheIndexNew @ 0x1401B35E4
+ * XREFs of CmpFindSecurityCellCacheIndexNew @ 0x1401B3724
  * Callers:
- *     CmpResetCachedSecurity @ 0x140581274 (CmpResetCachedSecurity.c)
- *     CmpUndoDeleteKeyForTransEx @ 0x140581354 (CmpUndoDeleteKeyForTransEx.c)
- *     CmpAddSecurityCellToCache @ 0x1405AB584 (CmpAddSecurityCellToCache.c)
- *     CmpAssignSecurityToKcb @ 0x1405ACAE4 (CmpAssignSecurityToKcb.c)
- *     CmpSetSecurityDescriptorInfo @ 0x1405B7C5C (CmpSetSecurityDescriptorInfo.c)
- *     CmpCreateKeyControlBlock @ 0x1405D5EB0 (CmpCreateKeyControlBlock.c)
- *     CmpIncrementCachedSecurityRefcount @ 0x1405DBC90 (CmpIncrementCachedSecurityRefcount.c)
- *     CmpRemoveFromSecurityCache @ 0x1406CA560 (CmpRemoveFromSecurityCache.c)
- *     CmpCopyKeyPartial @ 0x1406FF8C0 (CmpCopyKeyPartial.c)
- *     CmpSyncKeyValues @ 0x1407FE4DC (CmpSyncKeyValues.c)
+ *     CmpResetCachedSecurity @ 0x140582274 (CmpResetCachedSecurity.c)
+ *     CmpUndoDeleteKeyForTransEx @ 0x140582354 (CmpUndoDeleteKeyForTransEx.c)
+ *     CmpAddSecurityCellToCache @ 0x1405AC584 (CmpAddSecurityCellToCache.c)
+ *     CmpAssignSecurityToKcb @ 0x1405ADAE4 (CmpAssignSecurityToKcb.c)
+ *     CmpSetSecurityDescriptorInfo @ 0x1405B8C5C (CmpSetSecurityDescriptorInfo.c)
+ *     CmpCreateKeyControlBlock @ 0x1405D6EB0 (CmpCreateKeyControlBlock.c)
+ *     CmpIncrementCachedSecurityRefcount @ 0x1405DCC90 (CmpIncrementCachedSecurityRefcount.c)
+ *     CmpRemoveFromSecurityCache @ 0x1406CB800 (CmpRemoveFromSecurityCache.c)
+ *     CmpCopyKeyPartial @ 0x140700B60 (CmpCopyKeyPartial.c)
+ *     CmpSyncKeyValues @ 0x1407FF6DC (CmpSyncKeyValues.c)
  * Callees:
- *     CmpFindLowerBoundInSortedArray @ 0x1401B357C (CmpFindLowerBoundInSortedArray.c)
+ *     CmpFindLowerBoundInSortedArray @ 0x1401B36BC (CmpFindLowerBoundInSortedArray.c)
  */
 
 char __fastcall CmpFindSecurityCellCacheIndexNew(__int64 a1, unsigned int a2, _DWORD *a3)

@@ -1,17 +1,17 @@
 /*
- * XREFs of NtSetSystemEnvironmentValue @ 0x1408D58C0
+ * XREFs of NtSetSystemEnvironmentValue @ 0x1408D6B80
  * Callers:
  *     <none>
  * Callees:
  *     ExReleaseFastMutexUnsafe @ 0x140018980 (ExReleaseFastMutexUnsafe.c)
  *     ExAcquireFastMutexUnsafe @ 0x1400189C0 (ExAcquireFastMutexUnsafe.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     SeSinglePrivilegeCheck @ 0x140612160 (SeSinglePrivilegeCheck.c)
- *     RtlUnicodeStringToAnsiString @ 0x14067BAD0 (RtlUnicodeStringToAnsiString.c)
- *     RtlxUnicodeStringToOemSize @ 0x14067BE90 (RtlxUnicodeStringToOemSize.c)
- *     ExRaiseDatatypeMisalignment @ 0x1408D65C0 (ExRaiseDatatypeMisalignment.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B78F0 (KiLeaveCriticalRegionUnsafe.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     SeSinglePrivilegeCheck @ 0x140613160 (SeSinglePrivilegeCheck.c)
+ *     RtlUnicodeStringToAnsiString @ 0x14067CC90 (RtlUnicodeStringToAnsiString.c)
+ *     RtlxUnicodeStringToOemSize @ 0x14067D050 (RtlxUnicodeStringToOemSize.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408D7880 (ExRaiseDatatypeMisalignment.c)
  */
 
 NTSTATUS __stdcall NtSetSystemEnvironmentValue(PUNICODE_STRING VariableName, PUNICODE_STRING Value)
@@ -28,9 +28,9 @@ NTSTATUS __stdcall NtSetSystemEnvironmentValue(PUNICODE_STRING VariableName, PUN
   int v12; // ebx
   struct _KTHREAD *CurrentThread; // rax
   int v14; // ebx
-  STRING DestinationString; // [rsp+28h] [rbp-60h] BYREF
+  _STRING DestinationString; // [rsp+28h] [rbp-60h] BYREF
   int v16; // [rsp+38h] [rbp-50h]
-  STRING v17; // [rsp+40h] [rbp-48h] BYREF
+  _STRING v17; // [rsp+40h] [rbp-48h] BYREF
   UNICODE_STRING UnicodeString; // [rsp+50h] [rbp-38h] BYREF
   UNICODE_STRING SourceString; // [rsp+60h] [rbp-28h] BYREF
   ULONG v20; // [rsp+70h] [rbp-18h]

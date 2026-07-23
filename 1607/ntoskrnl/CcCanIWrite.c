@@ -1,19 +1,19 @@
 /*
- * XREFs of CcCanIWrite @ 0x1400209F0
+ * XREFs of CcCanIWrite @ 0x140020570
  * Callers:
- *     FsRtlCopyWrite @ 0x14061D638 (FsRtlCopyWrite.c)
- *     FsRtlPrepareMdlWriteDev @ 0x14061E018 (FsRtlPrepareMdlWriteDev.c)
+ *     FsRtlCopyWrite @ 0x14061D6EC (FsRtlCopyWrite.c)
+ *     FsRtlPrepareMdlWriteDev @ 0x14061E0CC (FsRtlPrepareMdlWriteDev.c)
  * Callees:
- *     CcCanIWriteStream @ 0x140020AA0 (CcCanIWriteStream.c)
- *     KeWaitForSingleObject @ 0x14005C880 (KeWaitForSingleObject.c)
- *     CcAdjustWriteBehindThreadPoolIfNeeded @ 0x14006FC80 (CcAdjustWriteBehindThreadPoolIfNeeded.c)
- *     CcScheduleLazyWriteScan @ 0x14007091C (CcScheduleLazyWriteScan.c)
- *     ExInterlockedInsertTailList @ 0x14008C0E0 (ExInterlockedInsertTailList.c)
- *     ExInterlockedInsertHeadList @ 0x1400A7B70 (ExInterlockedInsertHeadList.c)
- *     KeAcquireQueuedSpinLock @ 0x1400E8D30 (KeAcquireQueuedSpinLock.c)
- *     KeReleaseQueuedSpinLock @ 0x1400E8DA0 (KeReleaseQueuedSpinLock.c)
- *     CcPostDeferredWrites @ 0x1401B1B04 (CcPostDeferredWrites.c)
- *     CcPerfLogCanWriteFail @ 0x1401B29DC (CcPerfLogCanWriteFail.c)
+ *     CcCanIWriteStream @ 0x140020620 (CcCanIWriteStream.c)
+ *     KeWaitForSingleObject @ 0x14005C400 (KeWaitForSingleObject.c)
+ *     CcAdjustWriteBehindThreadPoolIfNeeded @ 0x14006F800 (CcAdjustWriteBehindThreadPoolIfNeeded.c)
+ *     CcScheduleLazyWriteScan @ 0x14007049C (CcScheduleLazyWriteScan.c)
+ *     ExInterlockedInsertTailList @ 0x14008B840 (ExInterlockedInsertTailList.c)
+ *     ExInterlockedInsertHeadList @ 0x1400A60E8 (ExInterlockedInsertHeadList.c)
+ *     KeAcquireQueuedSpinLock @ 0x1400E6BD0 (KeAcquireQueuedSpinLock.c)
+ *     KeReleaseQueuedSpinLock @ 0x1400E6C40 (KeReleaseQueuedSpinLock.c)
+ *     CcPostDeferredWrites @ 0x1401B19E8 (CcPostDeferredWrites.c)
+ *     CcPerfLogCanWriteFail @ 0x1401B28C0 (CcPerfLogCanWriteFail.c)
  */
 
 BOOLEAN __stdcall CcCanIWrite(PFILE_OBJECT FileObject, ULONG BytesToWrite, BOOLEAN Wait, UCHAR Retrying)
@@ -33,7 +33,7 @@ BOOLEAN __stdcall CcCanIWrite(PFILE_OBJECT FileObject, ULONG BytesToWrite, BOOLE
   int v21; // [rsp+50h] [rbp-58h]
   PFILE_OBJECT v22; // [rsp+58h] [rbp-50h]
   ULONG v23; // [rsp+60h] [rbp-48h]
-  struct _LIST_ENTRY ListEntry; // [rsp+68h] [rbp-40h] BYREF
+  _LIST_ENTRY ListEntry; // [rsp+68h] [rbp-40h] BYREF
   __int16 *p_Object; // [rsp+78h] [rbp-30h]
 
   if ( FileObject )

@@ -1,11 +1,11 @@
 /*
- * XREFs of MiTransformValidPteUsingAccessedBit @ 0x1403940AC
+ * XREFs of MiTransformValidPteUsingAccessedBit @ 0x14038D6C8
  * Callers:
- *     MiTransformValidPteInPlace @ 0x14039404C (MiTransformValidPteInPlace.c)
- *     MiTradeBootImagePage @ 0x140C5BB90 (MiTradeBootImagePage.c)
+ *     MiTransformValidPteInPlace @ 0x14038D668 (MiTransformValidPteInPlace.c)
+ *     MiTradeBootImagePage @ 0x140C5DD20 (MiTradeBootImagePage.c)
  * Callees:
- *     MiCheckLinearProtectedPteAccessedBit @ 0x140232A20 (MiCheckLinearProtectedPteAccessedBit.c)
- *     MiFlushValidPteFromTb @ 0x1403942E4 (MiFlushValidPteFromTb.c)
+ *     MiCheckLinearProtectedPteAccessedBit @ 0x140203550 (MiCheckLinearProtectedPteAccessedBit.c)
+ *     MiFlushValidPteFromTb @ 0x14038D900 (MiFlushValidPteFromTb.c)
  */
 
 __int64 __fastcall MiTransformValidPteUsingAccessedBit(
@@ -53,7 +53,7 @@ LABEL_13:
           && (a3 & 0x20) == 0
           && (unsigned __int64)BugCheckParameter2 >= 0xFFFFF6C000000000uLL )
         {
-          MiCheckLinearProtectedPteAccessedBit((ULONG_PTR)BugCheckParameter2, a3, 128);
+          MiCheckLinearProtectedPteAccessedBit((ULONG_PTR)BugCheckParameter2, a3, 128LL);
         }
         v15 = _InterlockedCompareExchange64(BugCheckParameter2, a3, v9);
         v13 = v9 == v15;
@@ -71,7 +71,7 @@ LABEL_13:
         && (v9 & 1) == 1
         && (unsigned __int64)BugCheckParameter2 >= 0xFFFFF6C000000000uLL )
       {
-        MiCheckLinearProtectedPteAccessedBit((ULONG_PTR)BugCheckParameter2, v9 & 0xFFFFFFFFFFFFFFDFuLL, 128);
+        MiCheckLinearProtectedPteAccessedBit((ULONG_PTR)BugCheckParameter2, v9 & 0xFFFFFFFFFFFFFFDFuLL, 128LL);
       }
       v14 = _InterlockedCompareExchange64(BugCheckParameter2, v12, v9);
       v13 = v9 == v14;

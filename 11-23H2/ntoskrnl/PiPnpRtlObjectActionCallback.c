@@ -1,17 +1,17 @@
 /*
- * XREFs of PiPnpRtlObjectActionCallback @ 0x1406D64B0
+ * XREFs of PiPnpRtlObjectActionCallback @ 0x1406D64E0
  * Callers:
  *     <none>
  * Callees:
- *     memcmp @ 0x1403DA350 (memcmp.c)
- *     _PnpGetObjectProperty @ 0x1406D01F0 (_PnpGetObjectProperty.c)
- *     PiDmObjectGetAggregatedBooleanPropertyData @ 0x1406D6858 (PiDmObjectGetAggregatedBooleanPropertyData.c)
- *     PiDmObjectGetCachedObjectProperty @ 0x1406D69DC (PiDmObjectGetCachedObjectProperty.c)
- *     PiPnpRtlCacheObjectBaseKey @ 0x140789358 (PiPnpRtlCacheObjectBaseKey.c)
- *     PiDmObjectUpdateCachedObjectProperty @ 0x14078D2CC (PiDmObjectUpdateCachedObjectProperty.c)
- *     PiDmGetObjectList @ 0x1407FC058 (PiDmGetObjectList.c)
- *     PiDrvDbMountNode @ 0x140970050 (PiDrvDbMountNode.c)
- *     PiDrvDbUnmountNode @ 0x140971418 (PiDrvDbUnmountNode.c)
+ *     memcmp @ 0x1403DA530 (memcmp.c)
+ *     _PnpGetObjectProperty @ 0x1406D0220 (_PnpGetObjectProperty.c)
+ *     PiDmObjectGetAggregatedBooleanPropertyData @ 0x1406D6888 (PiDmObjectGetAggregatedBooleanPropertyData.c)
+ *     PiDmObjectGetCachedObjectProperty @ 0x1406D6A0C (PiDmObjectGetCachedObjectProperty.c)
+ *     PiPnpRtlCacheObjectBaseKey @ 0x140789548 (PiPnpRtlCacheObjectBaseKey.c)
+ *     PiDmObjectUpdateCachedObjectProperty @ 0x14078D4BC (PiDmObjectUpdateCachedObjectProperty.c)
+ *     PiDmGetObjectList @ 0x1407FC328 (PiDmGetObjectList.c)
+ *     PiDrvDbMountNode @ 0x140970250 (PiDrvDbMountNode.c)
+ *     PiDrvDbUnmountNode @ 0x140971618 (PiDrvDbUnmountNode.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

@@ -1,9 +1,9 @@
 /*
- * XREFs of PiProcessRequeryDeviceState @ 0x140545C5C
+ * XREFs of PiProcessRequeryDeviceState @ 0x14054619C
  * Callers:
- *     PnpDeviceActionWorker @ 0x1400AFA3C (PnpDeviceActionWorker.c)
+ *     PnpDeviceActionWorker @ 0x1400865A0 (PnpDeviceActionWorker.c)
  * Callees:
- *     PiProcessQueryDeviceState @ 0x1403F13A8 (PiProcessQueryDeviceState.c)
+ *     PiProcessQueryDeviceState @ 0x1403F026C (PiProcessQueryDeviceState.c)
  */
 
 __int64 __fastcall PiProcessRequeryDeviceState(__int64 a1)

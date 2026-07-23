@@ -1,43 +1,43 @@
 /*
- * XREFs of PopWnfUserAwayPredictionCallback @ 0x1407CCDD0
+ * XREFs of PopWnfUserAwayPredictionCallback @ 0x1407CFE70
  * Callers:
  *     <none>
  * Callees:
- *     PopUpdateSmartUserPresencePredictions @ 0x14077C938 (PopUpdateSmartUserPresencePredictions.c)
- *     ExQueryWnfStateData @ 0x1409489F0 (ExQueryWnfStateData.c)
- *     PopAcquirePolicyLock @ 0x140C04BF0 (PopAcquirePolicyLock.c)
- *     PopReleasePolicyLock @ 0x140C04C40 (PopReleasePolicyLock.c)
+ *     PopUpdateSmartUserPresencePredictions @ 0x14077F42C (PopUpdateSmartUserPresencePredictions.c)
+ *     ExQueryWnfStateData @ 0x1409C4360 (ExQueryWnfStateData.c)
+ *     PopAcquirePolicyLock @ 0x140C0AE00 (PopAcquirePolicyLock.c)
+ *     PopReleasePolicyLock @ 0x140C0AE50 (PopReleasePolicyLock.c)
  */
 
 /*
- * Hex-Rays decompilation failed for PopWnfUserAwayPredictionCallback @ 0x1407CCDD0
- * Reason: Hex-Rays returned no pseudocode for 0x1407CCDD0
+ * Hex-Rays decompilation failed for PopWnfUserAwayPredictionCallback @ 0x1407CFE70
+ * Reason: Hex-Rays returned no pseudocode for 0x1407CFE70
  * Fallback: raw IDA disassembly follows.
  *
- * 00000001407CCDD0: mov     rax, rsp
- * 00000001407CCDD3: mov     [rax+20h], r9d
- * 00000001407CCDD7: push    rbx
- * 00000001407CCDD8: sub     rsp, 30h
- * 00000001407CCDDC: lea     r9, [rax-18h]
- * 00000001407CCDE0: mov     qword ptr [rax-10h], 0
- * 00000001407CCDE8: lea     r8, [rax-10h]
- * 00000001407CCDEC: mov     dword ptr [rax-18h], 8
- * 00000001407CCDF3: lea     rdx, [rax+20h]
- * 00000001407CCDF7: call    ExQueryWnfStateData
- * 00000001407CCDFC: mov     ebx, eax
- * 00000001407CCDFE: test    eax, eax
- * 00000001407CCE00: js      short loc_1407CCE26
- * 00000001407CCE02: cmp     [rsp+38h+var_18], 8
- * 00000001407CCE07: jnb     short loc_1407CCE0D
- * 00000001407CCE09: xor     ebx, ebx
- * 00000001407CCE0B: jmp     short loc_1407CCE26
- * 00000001407CCE0D: call    PopAcquirePolicyLock
- * 00000001407CCE12: mov     rcx, [rsp+38h+var_10]
- * 00000001407CCE17: mov     edx, 3
- * 00000001407CCE1C: call    PopUpdateSmartUserPresencePredictions
- * 00000001407CCE21: call    PopReleasePolicyLock
- * 00000001407CCE26: mov     eax, ebx
- * 00000001407CCE28: add     rsp, 30h
- * 00000001407CCE2C: pop     rbx
- * 00000001407CCE2D: retn
+ * 00000001407CFE70: mov     rax, rsp
+ * 00000001407CFE73: mov     [rax+20h], r9d
+ * 00000001407CFE77: push    rbx
+ * 00000001407CFE78: sub     rsp, 30h
+ * 00000001407CFE7C: lea     r9, [rax-18h]
+ * 00000001407CFE80: mov     qword ptr [rax-10h], 0
+ * 00000001407CFE88: lea     r8, [rax-10h]
+ * 00000001407CFE8C: mov     dword ptr [rax-18h], 8
+ * 00000001407CFE93: lea     rdx, [rax+20h]
+ * 00000001407CFE97: call    ExQueryWnfStateData
+ * 00000001407CFE9C: mov     ebx, eax
+ * 00000001407CFE9E: test    eax, eax
+ * 00000001407CFEA0: js      short loc_1407CFEC6
+ * 00000001407CFEA2: cmp     [rsp+38h+var_18], 8
+ * 00000001407CFEA7: jnb     short loc_1407CFEAD
+ * 00000001407CFEA9: xor     ebx, ebx
+ * 00000001407CFEAB: jmp     short loc_1407CFEC6
+ * 00000001407CFEAD: call    PopAcquirePolicyLock
+ * 00000001407CFEB2: mov     rcx, [rsp+38h+var_10]
+ * 00000001407CFEB7: mov     edx, 3
+ * 00000001407CFEBC: call    PopUpdateSmartUserPresencePredictions
+ * 00000001407CFEC1: call    PopReleasePolicyLock
+ * 00000001407CFEC6: mov     eax, ebx
+ * 00000001407CFEC8: add     rsp, 30h
+ * 00000001407CFECC: pop     rbx
+ * 00000001407CFECD: retn
  */

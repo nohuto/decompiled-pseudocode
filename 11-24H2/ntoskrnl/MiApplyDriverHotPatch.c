@@ -1,36 +1,36 @@
 /*
- * XREFs of MiApplyDriverHotPatch @ 0x1407F0C5C
+ * XREFs of MiApplyDriverHotPatch @ 0x1407F122C
  * Callers:
- *     MiApplyHotPatchToLoadedDriver @ 0x1407F13E8 (MiApplyHotPatchToLoadedDriver.c)
+ *     MiApplyHotPatchToLoadedDriver @ 0x1407F19B8 (MiApplyHotPatchToLoadedDriver.c)
  * Callees:
- *     VslpEnterIumSecureMode @ 0x140265D90 (VslpEnterIumSecureMode.c)
- *     MiAllocatePool @ 0x1402ACA70 (MiAllocatePool.c)
- *     MiGetAnyMultiplexedVm @ 0x140442630 (MiGetAnyMultiplexedVm.c)
- *     MiGetBaseLoaderPortion @ 0x1404D0508 (MiGetBaseLoaderPortion.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     VslApplyHotPatch @ 0x14058CBC4 (VslApplyHotPatch.c)
- *     MiLinkHotPatchToBase @ 0x14067D1C4 (MiLinkHotPatchToBase.c)
- *     MiUpdatePatchInProgress @ 0x14067D8A4 (MiUpdatePatchInProgress.c)
- *     RtlGetHotPatchSize @ 0x1406A345C (RtlGetHotPatchSize.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     VslObtainHotPatchUndoTable @ 0x14070FCC0 (VslObtainHotPatchUndoTable.c)
- *     MiAddEntryToImportList @ 0x1407E732C (MiAddEntryToImportList.c)
- *     MiPrepareDriverPatchState @ 0x1407E7E2C (MiPrepareDriverPatchState.c)
- *     MiApplyHotPatchToDriverDataPages @ 0x1407F1288 (MiApplyHotPatchToDriverDataPages.c)
- *     MiIdentifyImageDiscardablePages @ 0x1407F2EE0 (MiIdentifyImageDiscardablePages.c)
- *     MiIdentifyPatchImageDataPages @ 0x1407F2FE8 (MiIdentifyPatchImageDataPages.c)
- *     MiInvokePatchCallback @ 0x1407F36A4 (MiInvokePatchCallback.c)
- *     MiPrepareDriverForHotPatch @ 0x1407F5414 (MiPrepareDriverForHotPatch.c)
- *     RtlFindHotPatchBaseMachine @ 0x14082F05C (RtlFindHotPatchBaseMachine.c)
- *     RtlFindHotPatchInformation @ 0x14082F0C4 (RtlFindHotPatchInformation.c)
- *     RtlValidateHotPatchBase @ 0x14082F3A8 (RtlValidateHotPatchBase.c)
- *     RtlFindExportedRoutineByName @ 0x1408B0E30 (RtlFindExportedRoutineByName.c)
- *     MiGetSectionStrongImageReference @ 0x1409593FC (MiGetSectionStrongImageReference.c)
- *     MiAllocateKernelCfgBitmapPageTables @ 0x140A3E36C (MiAllocateKernelCfgBitmapPageTables.c)
- *     MiUnlockDriverPages @ 0x140A3E5CC (MiUnlockDriverPages.c)
- *     MiFreeLoadedImportList @ 0x140A9ED10 (MiFreeLoadedImportList.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     MiAllocatePool @ 0x140277450 (MiAllocatePool.c)
+ *     VslpEnterIumSecureMode @ 0x1403AADB0 (VslpEnterIumSecureMode.c)
+ *     MiGetAnyMultiplexedVm @ 0x140439200 (MiGetAnyMultiplexedVm.c)
+ *     MiGetBaseLoaderPortion @ 0x1404C96FC (MiGetBaseLoaderPortion.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     VslApplyHotPatch @ 0x140589EBC (VslApplyHotPatch.c)
+ *     MiLinkHotPatchToBase @ 0x14067E3BC (MiLinkHotPatchToBase.c)
+ *     MiUpdatePatchInProgress @ 0x14067EAA4 (MiUpdatePatchInProgress.c)
+ *     RtlGetHotPatchSize @ 0x1406A44AC (RtlGetHotPatchSize.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     VslObtainHotPatchUndoTable @ 0x14070D850 (VslObtainHotPatchUndoTable.c)
+ *     MiAddEntryToImportList @ 0x1407E78FC (MiAddEntryToImportList.c)
+ *     MiPrepareDriverPatchState @ 0x1407E83FC (MiPrepareDriverPatchState.c)
+ *     MiApplyHotPatchToDriverDataPages @ 0x1407F1858 (MiApplyHotPatchToDriverDataPages.c)
+ *     MiIdentifyImageDiscardablePages @ 0x1407F3514 (MiIdentifyImageDiscardablePages.c)
+ *     MiIdentifyPatchImageDataPages @ 0x1407F361C (MiIdentifyPatchImageDataPages.c)
+ *     MiInvokePatchCallback @ 0x1407F3C98 (MiInvokePatchCallback.c)
+ *     MiPrepareDriverForHotPatch @ 0x1407F5B04 (MiPrepareDriverForHotPatch.c)
+ *     RtlFindHotPatchBaseMachine @ 0x14082F88C (RtlFindHotPatchBaseMachine.c)
+ *     RtlFindHotPatchInformation @ 0x14082F8F4 (RtlFindHotPatchInformation.c)
+ *     RtlValidateHotPatchBase @ 0x14082FBA0 (RtlValidateHotPatchBase.c)
+ *     RtlFindExportedRoutineByName @ 0x140907090 (RtlFindExportedRoutineByName.c)
+ *     MiGetSectionStrongImageReference @ 0x14093AE14 (MiGetSectionStrongImageReference.c)
+ *     MiAllocateKernelCfgBitmapPageTables @ 0x140A33C7C (MiAllocateKernelCfgBitmapPageTables.c)
+ *     MiUnlockDriverPages @ 0x140A33EDC (MiUnlockDriverPages.c)
+ *     MiFreeLoadedImportList @ 0x140A9A0D8 (MiFreeLoadedImportList.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall MiApplyDriverHotPatch(__int64 a1, __int64 a2, __int64 a3)
@@ -64,7 +64,7 @@ __int64 __fastcall MiApplyDriverHotPatch(__int64 a1, __int64 a2, __int64 a3)
   _DWORD *v31; // [rsp+78h] [rbp-88h]
   _DWORD *v32; // [rsp+80h] [rbp-80h]
   PVOID P; // [rsp+88h] [rbp-78h]
-  __int64 ExportedRoutineByName; // [rsp+90h] [rbp-70h] BYREF
+  PVOID ExportedRoutineByName; // [rsp+90h] [rbp-70h] BYREF
   int v35; // [rsp+98h] [rbp-68h]
   __int64 v36; // [rsp+A0h] [rbp-60h]
   __int64 *v37; // [rsp+A8h] [rbp-58h]
@@ -85,7 +85,7 @@ __int64 __fastcall MiApplyDriverHotPatch(__int64 a1, __int64 a2, __int64 a3)
   if ( (*(_DWORD *)(BaseLoaderPortion + 184) & 0x80u) != 0 )
     return 3221225496LL;
   v28 = MiGetBaseLoaderPortion(a1);
-  HotPatchInformation = RtlFindHotPatchInformation(*(_QWORD *)(a1 + 48), 0LL);
+  HotPatchInformation = RtlFindHotPatchInformation(*(PVOID *)(a1 + 48));
   v31 = (_DWORD *)HotPatchInformation;
   v8 = (_DWORD *)HotPatchInformation;
   if ( !HotPatchInformation )
@@ -107,7 +107,7 @@ __int64 __fastcall MiApplyDriverHotPatch(__int64 a1, __int64 a2, __int64 a3)
     goto LABEL_11;
   memset_0(v42, 0, 0x68uLL);
   v43 = *(_QWORD *)(a2 + 48);
-  result = VslpEnterIumSecureMode(2u, 75LL, 0, (__int64)v42);
+  result = VslpEnterIumSecureMode(2u, 0x4Bu, 0, (__int64)v42);
   if ( (int)result < 0 )
     return result;
   v13 = v44;
@@ -251,7 +251,7 @@ LABEL_28:
     if ( SectionStrongImageReference >= 0 )
     {
       if ( (*(_DWORD *)(BaseLoaderPortion + 184) & 2) != 0 )
-        ExportedRoutineByName = RtlFindExportedRoutineByName(*(_QWORD *)(a1 + 48), "__PatchMainCallout__");
+        ExportedRoutineByName = RtlFindExportedRoutineByName(*(PVOID *)(a1 + 48), "__PatchMainCallout__");
       if ( ExportedRoutineByName )
       {
         v35 = 0;

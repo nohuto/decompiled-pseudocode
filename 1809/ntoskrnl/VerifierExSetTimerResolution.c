@@ -1,9 +1,9 @@
 /*
- * XREFs of VerifierExSetTimerResolution @ 0x140930F00
+ * XREFs of VerifierExSetTimerResolution @ 0x140931F00
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
  */
 
 __int64 VerifierExSetTimerResolution()

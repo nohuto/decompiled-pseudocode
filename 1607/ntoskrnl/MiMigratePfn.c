@@ -1,37 +1,37 @@
 /*
- * XREFs of MiMigratePfn @ 0x140036E10
+ * XREFs of MiMigratePfn @ 0x140036990
  * Callers:
- *     MiResolveTransitionFault @ 0x140035F90 (MiResolveTransitionFault.c)
+ *     MiResolveTransitionFault @ 0x140035B10 (MiResolveTransitionFault.c)
  * Callees:
- *     MiReleasePageFileInfo @ 0x14001A280 (MiReleasePageFileInfo.c)
- *     MiLockPageInline @ 0x140022E70 (MiLockPageInline.c)
- *     MiFinalizePageAttribute @ 0x14002375C (MiFinalizePageAttribute.c)
- *     MiPfnReferenceCountIsZero @ 0x14002448C (MiPfnReferenceCountIsZero.c)
- *     MiIsFaultPteIntact @ 0x140025C60 (MiIsFaultPteIntact.c)
- *     MiObtainFaultCharges @ 0x14002B530 (MiObtainFaultCharges.c)
- *     MiLockPageAtDpcInline @ 0x14002EB30 (MiLockPageAtDpcInline.c)
- *     MiGetPage @ 0x14003DA50 (MiGetPage.c)
- *     MiUnlockProtoPoolPage @ 0x14004C4E0 (MiUnlockProtoPoolPage.c)
- *     MiRemoveLockedPageCharge @ 0x14004D1E0 (MiRemoveLockedPageCharge.c)
- *     MiRemoveLockedPageChargeAndDecRef @ 0x14004E740 (MiRemoveLockedPageChargeAndDecRef.c)
- *     MiLockProtoPoolPage @ 0x14004ED80 (MiLockProtoPoolPage.c)
- *     MiIsPfnCommitNotCharged @ 0x14004F140 (MiIsPfnCommitNotCharged.c)
- *     MiAddLockedPageCharge @ 0x14004F188 (MiAddLockedPageCharge.c)
- *     MiInsertPageInFreeOrZeroedList @ 0x1400671C0 (MiInsertPageInFreeOrZeroedList.c)
- *     MiPartitionIdToPointer @ 0x1400680A0 (MiPartitionIdToPointer.c)
- *     MiCapturePageFileInfoInline @ 0x140098320 (MiCapturePageFileInfoInline.c)
- *     MiLockNestedPageAtDpcInline @ 0x14009E2E0 (MiLockNestedPageAtDpcInline.c)
- *     MiReturnFaultCharges @ 0x1400B2F88 (MiReturnFaultCharges.c)
- *     MiCopyPage @ 0x1400E3260 (MiCopyPage.c)
- *     MiInitializePageColorBase @ 0x1400E60A0 (MiInitializePageColorBase.c)
- *     MiComputeFaultNode @ 0x1400E6130 (MiComputeFaultNode.c)
- *     MiGetInPageSupportBlock @ 0x1400E7520 (MiGetInPageSupportBlock.c)
- *     MiCanPageMove @ 0x14010745C (MiCanPageMove.c)
- *     MiCopyPfnEntry @ 0x140107B40 (MiCopyPfnEntry.c)
- *     MiPteInShadowRange @ 0x1401EF3B8 (MiPteInShadowRange.c)
- *     MiWritePteShadow @ 0x1401EF658 (MiWritePteShadow.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1401F25D0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiUpdateTransitionPteFrame @ 0x1401F2A38 (MiUpdateTransitionPteFrame.c)
+ *     MiReleasePageFileInfo @ 0x140019E00 (MiReleasePageFileInfo.c)
+ *     MiLockPageInline @ 0x1400229F0 (MiLockPageInline.c)
+ *     MiFinalizePageAttribute @ 0x1400232DC (MiFinalizePageAttribute.c)
+ *     MiPfnReferenceCountIsZero @ 0x14002400C (MiPfnReferenceCountIsZero.c)
+ *     MiIsFaultPteIntact @ 0x1400257E0 (MiIsFaultPteIntact.c)
+ *     MiObtainFaultCharges @ 0x14002B0B0 (MiObtainFaultCharges.c)
+ *     MiLockPageAtDpcInline @ 0x14002E6B0 (MiLockPageAtDpcInline.c)
+ *     MiGetPage @ 0x14003D5D0 (MiGetPage.c)
+ *     MiUnlockProtoPoolPage @ 0x14004C060 (MiUnlockProtoPoolPage.c)
+ *     MiRemoveLockedPageCharge @ 0x14004CD60 (MiRemoveLockedPageCharge.c)
+ *     MiRemoveLockedPageChargeAndDecRef @ 0x14004E2C0 (MiRemoveLockedPageChargeAndDecRef.c)
+ *     MiLockProtoPoolPage @ 0x14004E900 (MiLockProtoPoolPage.c)
+ *     MiIsPfnCommitNotCharged @ 0x14004ECC0 (MiIsPfnCommitNotCharged.c)
+ *     MiAddLockedPageCharge @ 0x14004ED08 (MiAddLockedPageCharge.c)
+ *     MiInsertPageInFreeOrZeroedList @ 0x140066D40 (MiInsertPageInFreeOrZeroedList.c)
+ *     MiPartitionIdToPointer @ 0x140067C20 (MiPartitionIdToPointer.c)
+ *     MiCapturePageFileInfoInline @ 0x140097B20 (MiCapturePageFileInfoInline.c)
+ *     MiLockNestedPageAtDpcInline @ 0x14009DAE0 (MiLockNestedPageAtDpcInline.c)
+ *     MiReturnFaultCharges @ 0x1400B0E08 (MiReturnFaultCharges.c)
+ *     MiCopyPage @ 0x1400E1100 (MiCopyPage.c)
+ *     MiInitializePageColorBase @ 0x1400E3F40 (MiInitializePageColorBase.c)
+ *     MiComputeFaultNode @ 0x1400E3FD0 (MiComputeFaultNode.c)
+ *     MiGetInPageSupportBlock @ 0x1400E53C0 (MiGetInPageSupportBlock.c)
+ *     MiCanPageMove @ 0x1401051DC (MiCanPageMove.c)
+ *     MiCopyPfnEntry @ 0x1401058C0 (MiCopyPfnEntry.c)
+ *     MiPteInShadowRange @ 0x1401EF1E4 (MiPteInShadowRange.c)
+ *     MiWritePteShadow @ 0x1401EF484 (MiWritePteShadow.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1401F23FC (MI_READ_PTE_LOCK_FREE.c)
+ *     MiUpdateTransitionPteFrame @ 0x1401F2864 (MiUpdateTransitionPteFrame.c)
  */
 
 __int64 __fastcall MiMigratePfn(__int64 a1, unsigned __int64 a2, __int64 a3, __int64 a4, __int64 a5, __int64 *a6)
@@ -95,7 +95,7 @@ LABEL_3:
   }
   v10 = MiComputeFaultNode(a1, a2, 0, a5, (__int64)v45);
   MiInitializePageColorBase(a1, v10, &v46);
-  v12 = v48 >> byte_1403269C9;
+  v12 = v48 >> byte_140326A09;
   BugCheckParameter2 = v12;
   if ( (_DWORD)v12 == *(_QWORD *)(a3 + 40) >> 58 )
     return a3;
@@ -107,7 +107,7 @@ LABEL_3:
   v43 = (struct _KEVENT *)v15;
   ++*v46;
   v41 = v18 | (unsigned __int16)(v47 & *v16);
-  v20 = (char *)qword_1403269A8 + 2 * v19 * (unsigned int)(unsigned __int16)KeNumberNodes;
+  v20 = (char *)qword_1403269E8 + 2 * v19 * (unsigned int)(unsigned __int16)KeNumberNodes;
   v21 = &v20[(unsigned __int16)KeNumberNodes];
   if ( v20 >= v21 )
   {
@@ -129,8 +129,10 @@ LABEL_15:
       return a3;
     v25 = 1LL;
     if ( (a5 & 1) != 0 && *(_BYTE *)(a5 & 0xFFFFFFFFFFFFFFFEuLL) == 4
-      || a2 >= qword_140327FF0 && a2 < qword_140327FF0 + 0x8000000000LL
-      || PsNtosImageBase && (a2 >= PsNtosImageBase && a2 < PsNtosImageEnd || a2 >= PsHalImageBase && a2 < PsHalImageEnd) )
+      || a2 >= qword_140328030 && a2 < qword_140328030 + 0x8000000000LL
+      || PsNtosImageBase
+      && (a2 >= (unsigned __int64)PsNtosImageBase && a2 < PsNtosImageEnd
+       || a2 >= (unsigned __int64)PsHalImageBase && a2 < PsHalImageEnd) )
     {
       v25 = 9LL;
     }
@@ -145,7 +147,7 @@ LABEL_42:
     v28 = 48 * Page - 0x58000000000LL;
     if ( BugCheckParameter2 != (unsigned __int8)HIBYTE(*(_QWORD *)(v28 + 40)) >> 2 )
     {
-      v29 = (char *)qword_1403269A8 + 2 * (unsigned int)(unsigned __int16)KeNumberNodes * BugCheckParameter2;
+      v29 = (char *)qword_1403269E8 + 2 * (unsigned int)(unsigned __int16)KeNumberNodes * BugCheckParameter2;
       if ( v29 < v21 )
       {
         while ( *v29 != ((*(_QWORD *)(a3 + 40) >> 58) & 0x3F) )

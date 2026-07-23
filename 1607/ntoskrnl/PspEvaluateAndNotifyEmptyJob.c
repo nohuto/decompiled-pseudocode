@@ -1,13 +1,13 @@
 /*
- * XREFs of PspEvaluateAndNotifyEmptyJob @ 0x140469F64
+ * XREFs of PspEvaluateAndNotifyEmptyJob @ 0x140468E34
  * Callers:
- *     PspNotifyEmptyJobsInJobChain @ 0x14046A034 (PspNotifyEmptyJobsInJobChain.c)
- *     PspTerminateAllProcessesInJobHierarchy @ 0x1404E2F28 (PspTerminateAllProcessesInJobHierarchy.c)
+ *     PspNotifyEmptyJobsInJobChain @ 0x140468F04 (PspNotifyEmptyJobsInJobChain.c)
+ *     PspTerminateAllProcessesInJobHierarchy @ 0x1404C5E8C (PspTerminateAllProcessesInJobHierarchy.c)
  * Callees:
- *     KeSetEvent @ 0x1400562D0 (KeSetEvent.c)
- *     ExAcquireResourceExclusiveLite @ 0x140068160 (ExAcquireResourceExclusiveLite.c)
- *     PspHardDereferenceSiloWorker @ 0x14020F654 (PspHardDereferenceSiloWorker.c)
- *     PspSendReliableJobNotification @ 0x14047310C (PspSendReliableJobNotification.c)
+ *     KeSetEvent @ 0x140055E50 (KeSetEvent.c)
+ *     ExAcquireResourceExclusiveLite @ 0x140067CE0 (ExAcquireResourceExclusiveLite.c)
+ *     PspHardDereferenceSiloWorker @ 0x14020F480 (PspHardDereferenceSiloWorker.c)
+ *     PspSendReliableJobNotification @ 0x140471FDC (PspSendReliableJobNotification.c)
  */
 
 void __fastcall PspEvaluateAndNotifyEmptyJob(PRKEVENT Event, char a2, char a3)

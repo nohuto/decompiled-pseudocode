@@ -10,19 +10,19 @@
  *     NtDelayExecution @ 0x140697390 (NtDelayExecution.c)
  */
 
-__int64 __fastcall LdrpInitMuiCrits(__int64 a1, __int64 a2, __int64 a3)
+signed __int32 __fastcall LdrpInitMuiCrits(__int64 a1, __int64 a2, __int64 a3)
 {
-  __int64 result; // rax
-  __int64 v4; // [rsp+38h] [rbp+10h] BYREF
+  signed __int32 result; // eax
+  LARGE_INTEGER DelayInterval; // [rsp+38h] [rbp+10h] BYREF
 
-  v4 = -1000000LL;
+  DelayInterval.QuadPart = -1000000LL;
   while ( 1 )
   {
-    result = (unsigned int)_InterlockedCompareExchange(&MuiLockInitCount, 1, 0);
-    if ( !(_DWORD)result )
+    result = _InterlockedCompareExchange(&MuiLockInitCount, 1, 0);
+    if ( !result )
       break;
     if ( MuiLockInitCount == 1 )
-      result = NtDelayExecution(0LL, &v4);
+      result = NtDelayExecution(0, &DelayInterval);
     if ( MuiLockInitCount == 2 )
       return result;
   }

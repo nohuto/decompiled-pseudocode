@@ -1,10 +1,10 @@
 /*
- * XREFs of ExpTryAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x140417030
+ * XREFs of ExpTryAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x14040B640
  * Callers:
- *     PopPepWork @ 0x1403AE7D0 (PopPepWork.c)
- *     ExTryAcquireSpinLockExclusiveAtDpcLevel @ 0x140416FD0 (ExTryAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     PopPepWork @ 0x1403B84E0 (PopPepWork.c)
+ *     ExTryAcquireSpinLockExclusiveAtDpcLevel @ 0x14040B5E0 (ExTryAcquireSpinLockExclusiveAtDpcLevel.c)
  * Callees:
- *     PerfLogSpinLockAcquire @ 0x1404DA444 (PerfLogSpinLockAcquire.c)
+ *     PerfLogSpinLockAcquire @ 0x1404D3B24 (PerfLogSpinLockAcquire.c)
  */
 
 __int64 __fastcall ExpTryAcquireSpinLockExclusiveAtDpcLevelInstrumented(volatile signed __int32 *a1)
@@ -21,7 +21,7 @@ __int64 __fastcall ExpTryAcquireSpinLockExclusiveAtDpcLevelInstrumented(volatile
 
   CurrentPrcb = KeGetCurrentPrcb();
   v2 = 0;
-  if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+  if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || PopHibernateInProgress )
   {
     v4 = 0;
     InterruptCount = 0;

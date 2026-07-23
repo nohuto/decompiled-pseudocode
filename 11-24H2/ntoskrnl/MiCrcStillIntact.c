@@ -1,39 +1,41 @@
 /*
- * XREFs of MiCrcStillIntact @ 0x1402FA610
+ * XREFs of MiCrcStillIntact @ 0x140345608
  * Callers:
- *     MiSharePages @ 0x1402FA880 (MiSharePages.c)
+ *     MiSharePages @ 0x140343830 (MiSharePages.c)
  * Callees:
- *     MiCombineCandidate @ 0x14020C0F0 (MiCombineCandidate.c)
- *     MiClearPteAccessed @ 0x1402307A0 (MiClearPteAccessed.c)
- *     HvlNotifyLongSpinWait @ 0x140293260 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140293290 (KiCheckVpBackingLongSpinWaitHypercall.c)
- *     MiVmAccessLoggingEnabled @ 0x1402E47A4 (MiVmAccessLoggingEnabled.c)
- *     MiGetWsleContents @ 0x1402E5390 (MiGetWsleContents.c)
- *     MiMakeCombineCandidateClean @ 0x1402FA1D0 (MiMakeCombineCandidateClean.c)
- *     MiVadSupportsCombine @ 0x1402FBB08 (MiVadSupportsCombine.c)
+ *     HvlNotifyLongSpinWait @ 0x1402A2E60 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1402A2E90 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     MiClearPteAccessed @ 0x140304BA0 (MiClearPteAccessed.c)
+ *     MiCombineCandidate @ 0x140344930 (MiCombineCandidate.c)
+ *     MiGetWsleContents @ 0x140344BE0 (MiGetWsleContents.c)
+ *     MiVadSupportsCombine @ 0x140344CB0 (MiVadSupportsCombine.c)
+ *     MiMakeCombineCandidateClean @ 0x140346988 (MiMakeCombineCandidateClean.c)
+ *     MiVmAccessLoggingEnabled @ 0x140346A3C (MiVmAccessLoggingEnabled.c)
  */
 
 __int64 __fastcall MiCrcStillIntact(__int64 a1, __int64 a2, __int64 a3, int a4)
 {
   _QWORD *v5; // r12
-  unsigned int v6; // r13d
+  int v6; // r13d
   ULONG_PTR v7; // rsi
   unsigned __int64 v8; // rbx
   __int64 v9; // rdi
   unsigned int v10; // ebp
   char v11; // al
   __int64 v12; // rcx
-  int v13; // r10d
-  __int64 v14; // rax
-  int v16; // eax
-  unsigned __int64 v17; // [rsp+70h] [rbp+8h]
-  __int64 v18; // [rsp+80h] [rbp+18h]
+  __int64 v13; // r8
+  __int64 v14; // r9
+  int v15; // r10d
+  __int64 v16; // rax
+  int v18; // eax
+  unsigned __int64 v19; // [rsp+70h] [rbp+8h]
+  __int64 v20; // [rsp+80h] [rbp+18h]
 
   v5 = *(_QWORD **)a1;
   v6 = *(_DWORD *)(a1 + 140);
-  v18 = *(_QWORD *)(a1 + 112);
-  v17 = *(_QWORD *)(a3 + 16);
-  v7 = ((v17 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
+  v20 = *(_QWORD *)(a1 + 112);
+  v19 = *(_QWORD *)(a3 + 16);
+  v7 = ((v19 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
   v8 = *(_QWORD *)v7;
   if ( (*(_QWORD *)v7 & 1) != 0 )
   {
@@ -69,14 +71,14 @@ __int64 __fastcall MiCrcStillIntact(__int64 a1, __int64 a2, __int64 a3, int a4)
         && (MiGetWsleContents(0x3FFFFFFFFELL, (__int64)(v7 << 25) >> 16) & 0xF) != 8
         && (unsigned __int16)*(_DWORD *)(v9 + 32) == 1 )
       {
-        v14 = 0LL;
-        if ( v13 != 1 || (v14 = MiVadSupportsCombine(v12, v17)) != 0 )
+        v16 = 0LL;
+        if ( v15 != 1 || (v16 = MiVadSupportsCombine(v12, v19, v13, v14)) != 0 )
         {
           if ( a4 == 2 )
           {
             if ( (v8 & 0x42) != 0 )
             {
-              MiMakeCombineCandidateClean(v7, v14);
+              MiMakeCombineCandidateClean(v7, v16);
               return 1LL;
             }
           }
@@ -84,13 +86,13 @@ __int64 __fastcall MiCrcStillIntact(__int64 a1, __int64 a2, __int64 a3, int a4)
           {
             if ( a4 != 3 )
               return 1LL;
-            v16 = MiVmAccessLoggingEnabled(v18);
+            v18 = MiVmAccessLoggingEnabled(v20);
             if ( (unsigned int)MiClearPteAccessed(
-                                 v18,
+                                 v20,
                                  48 * ((v8 >> 12) & 0xFFFFFFFFFFLL) - 0x220000000000LL,
                                  v7,
                                  0LL,
-                                 (unsigned int)(v16 != 0) + 4) )
+                                 (unsigned int)(v18 != 0) + 4) )
             {
               *(_DWORD *)(a2 + 20) &= ~2u;
               return 1LL;

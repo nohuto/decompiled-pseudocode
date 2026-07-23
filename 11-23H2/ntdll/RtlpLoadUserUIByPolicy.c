@@ -8,63 +8,54 @@
  *     RtlInitUnicodeString @ 0x1800187C0 (RtlInitUnicodeString.c)
  *     NtClose @ 0x1800A1090 (NtClose.c)
  *     NtOpenKey @ 0x1800A10F0 (NtOpenKey.c)
- *     RtlpLoadPolicyLanguageSpec @ 0x1801120FC (RtlpLoadPolicyLanguageSpec.c)
- *     RtlpMuiRegGrowLanguageList @ 0x1801135D4 (RtlpMuiRegGrowLanguageList.c)
+ *     RtlpLoadPolicyLanguageSpec @ 0x1801120CC (RtlpLoadPolicyLanguageSpec.c)
+ *     RtlpMuiRegGrowLanguageList @ 0x1801135A4 (RtlpMuiRegGrowLanguageList.c)
  */
 
 __int64 __fastcall RtlpLoadUserUIByPolicy(void *a1, __int64 a2, __int64 *a3)
 {
-  __int64 v6; // rdx
-  int v7; // ebx
-  __int64 v9; // r8
+  NTSTATUS PolicyLanguageSpec; // ebx
+  __int64 v8; // r8
   __int64 LanguageList; // rax
-  HANDLE v11; // [rsp+20h] [rbp-50h] BYREF
-  HANDLE Handle; // [rsp+28h] [rbp-48h] BYREF
-  UNICODE_STRING DestinationString; // [rsp+30h] [rbp-40h] BYREF
-  int v14; // [rsp+40h] [rbp-30h] BYREF
-  HANDLE v15; // [rsp+48h] [rbp-28h]
-  UNICODE_STRING *p_DestinationString; // [rsp+50h] [rbp-20h]
-  int v17; // [rsp+58h] [rbp-18h]
-  __int128 v18; // [rsp+60h] [rbp-10h]
-  unsigned __int8 v19; // [rsp+A8h] [rbp+38h] BYREF
-  __int16 v20; // [rsp+B8h] [rbp+48h] BYREF
+  HANDLE KeyHandle; // [rsp+20h] [rbp-50h] BYREF
+  HANDLE Handle; // [rsp+28h] [rbp-48h]
+  _UNICODE_STRING DestinationString; // [rsp+30h] [rbp-40h] BYREF
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+40h] [rbp-30h] BYREF
 
   Handle = 0LL;
-  v11 = 0LL;
-  v19 = 0;
-  v20 = 0;
+  KeyHandle = 0LL;
   if ( a2 && a3 )
   {
     RtlInitUnicodeString(&DestinationString, L"Software\\Policies\\Microsoft\\Control Panel\\Desktop");
     if ( a1 )
     {
-      v15 = a1;
+      ObjectAttributes.RootDirectory = a1;
     }
     else
     {
-      v7 = OpenGlobalizationUserSettingsKey(0x2000000LL, v6, &Handle);
-      if ( v7 < 0 )
+      PolicyLanguageSpec = OpenGlobalizationUserSettingsKey(0x2000000u);
+      if ( PolicyLanguageSpec < 0 )
         goto LABEL_6;
-      v15 = Handle;
+      ObjectAttributes.RootDirectory = Handle;
     }
-    v14 = 48;
-    p_DestinationString = &DestinationString;
-    v17 = 64;
-    v18 = 0LL;
-    v7 = NtOpenKey(&v11, 131097LL, &v14);
-    if ( v7 >= 0 )
+    ObjectAttributes.Length = 48;
+    ObjectAttributes.ObjectName = &DestinationString;
+    ObjectAttributes.Attributes = 64;
+    *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+    PolicyLanguageSpec = NtOpenKey(&KeyHandle, 0x20019u, &ObjectAttributes);
+    if ( PolicyLanguageSpec >= 0 )
     {
-      v7 = RtlpLoadPolicyLanguageSpec(v11, a2, &v19, &v20);
-      if ( !v7 )
+      PolicyLanguageSpec = RtlpLoadPolicyLanguageSpec(KeyHandle);
+      if ( !PolicyLanguageSpec )
       {
-        v9 = *a3;
+        v8 = *a3;
         if ( *a3 )
         {
-          if ( *(_WORD *)(v9 + 4) < *(_WORD *)(v9 + 6) )
+          if ( *(_WORD *)(v8 + 4) < *(_WORD *)(v8 + 6) )
           {
 LABEL_20:
-            *(_WORD *)(*(_QWORD *)(v9 + 24) + 6LL * *(unsigned __int16 *)(v9 + 4)) = v19;
-            *(_WORD *)(*(_QWORD *)(*a3 + 24) + 6LL * (unsigned __int16)(*(_WORD *)(*a3 + 4))++ + 4) = v20;
+            *(_WORD *)(*(_QWORD *)(v8 + 24) + 6LL * *(unsigned __int16 *)(v8 + 4)) = 0;
+            *(_WORD *)(*(_QWORD *)(*a3 + 24) + 6LL * (unsigned __int16)(*(_WORD *)(*a3 + 4))++ + 4) = 0;
             goto LABEL_6;
           }
           LanguageList = RtlpMuiRegGrowLanguageList(*a3);
@@ -74,10 +65,10 @@ LABEL_20:
           LanguageList = RtlpMuiRegCreateLanguageList(1LL, 0LL, a2);
         }
         *a3 = LanguageList;
-        v9 = LanguageList;
+        v8 = LanguageList;
         if ( !LanguageList )
         {
-          v7 = -1073741801;
+          PolicyLanguageSpec = -1073741801;
           goto LABEL_6;
         }
         goto LABEL_20;
@@ -86,15 +77,15 @@ LABEL_20:
   }
   else
   {
-    v7 = -1073741811;
+    PolicyLanguageSpec = -1073741811;
   }
 LABEL_6:
-  if ( v11 )
+  if ( KeyHandle )
   {
-    NtClose(v11);
-    v11 = 0LL;
+    NtClose(KeyHandle);
+    KeyHandle = 0LL;
   }
   if ( Handle )
     NtClose(Handle);
-  return (unsigned int)v7;
+  return (unsigned int)PolicyLanguageSpec;
 }

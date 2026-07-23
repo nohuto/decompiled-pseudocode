@@ -1,7 +1,7 @@
 /*
- * XREFs of PpmPerfMinimumPerfReached @ 0x1402AE3C4
+ * XREFs of PpmPerfMinimumPerfReached @ 0x14022C724
  * Callers:
- *     PpmCheckMakeupSkippedChecks @ 0x1402AE280 (PpmCheckMakeupSkippedChecks.c)
+ *     PpmCheckMakeupSkippedChecks @ 0x14022C5E0 (PpmCheckMakeupSkippedChecks.c)
  * Callees:
  *     <none>
  */

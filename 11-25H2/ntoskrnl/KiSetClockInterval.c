@@ -14,92 +14,96 @@
 
 __int64 __fastcall KiSetClockInterval(unsigned int a1, char a2, __int64 a3)
 {
-  __int64 v3; // rdi
-  unsigned __int64 v6; // rdx
-  unsigned __int64 v7; // rax
-  __int64 InterruptTimePrecise; // rbx
-  __int64 v9; // rdx
-  unsigned int ClockTickDueTime; // eax
-  __int64 v11; // r8
-  __int64 v12; // rdx
-  unsigned int v13; // ebx
-  char v15; // [rsp+40h] [rbp+18h] BYREF
+  unsigned __int64 Root; // rdx
+  BOOLEAN v7; // r8
+  unsigned __int64 v8; // rax
+  LARGE_INTEGER InterruptTimePrecise; // rbx
+  __int64 v10; // rdx
+  unsigned int v11; // eax
+  __int64 v12; // r8
+  __int64 v13; // rdx
+  unsigned int v14; // ebx
+  LARGE_INTEGER PerformanceCounter; // [rsp+40h] [rbp+18h] BYREF
 
-  v3 = a3;
   if ( *(_BYTE *)(a3 + 24) )
-    RtlRbRemoveNode(&KiClockIntervalRequests, a3);
-  *(_DWORD *)(v3 + 28) = a1;
-  if ( (qword_140E66478 & 1) != 0 )
+    RtlRbRemoveNode(&KiClockIntervalRequests, (PRTL_BALANCED_NODE)a3);
+  *(_DWORD *)(a3 + 28) = a1;
+  if ( (*(_BYTE *)&KiClockIntervalRequests.0 & 1) != 0 )
   {
-    if ( KiClockIntervalRequests )
-      v6 = KiClockIntervalRequests ^ (unsigned __int64)&KiClockIntervalRequests;
+    if ( KiClockIntervalRequests.Root )
+      Root = (unsigned __int64)KiClockIntervalRequests.Root ^ (unsigned __int64)&KiClockIntervalRequests;
     else
-      v6 = 0LL;
+      Root = 0LL;
   }
   else
   {
-    v6 = KiClockIntervalRequests;
+    Root = (unsigned __int64)KiClockIntervalRequests.Root;
   }
-  LOBYTE(a3) = 0;
-  if ( v6 )
+  v7 = 0;
+  if ( Root )
   {
     while ( 1 )
     {
-      if ( a1 >= *(_DWORD *)(v6 + 28) )
+      if ( a1 >= *(_DWORD *)(Root + 28) )
       {
-        v7 = *(_QWORD *)(v6 + 8);
-        if ( (qword_140E66478 & 1) != 0 )
+        v8 = *(_QWORD *)(Root + 8);
+        if ( (*(_BYTE *)&KiClockIntervalRequests.0 & 1) != 0 )
         {
-          if ( !v7 )
+          if ( !v8 )
             goto LABEL_14;
-          v7 ^= v6;
+          v8 ^= Root;
         }
-        if ( !v7 )
+        if ( !v8 )
         {
 LABEL_14:
-          LOBYTE(a3) = 1;
+          v7 = 1;
           break;
         }
       }
       else
       {
-        v7 = *(_QWORD *)v6;
-        if ( (qword_140E66478 & 1) != 0 )
+        v8 = *(_QWORD *)Root;
+        if ( (*(_BYTE *)&KiClockIntervalRequests.0 & 1) != 0 )
         {
-          if ( !v7 )
+          if ( !v8 )
             break;
-          v7 ^= v6;
+          v8 ^= Root;
         }
-        if ( !v7 )
+        if ( !v8 )
           break;
       }
-      v6 = v7;
+      Root = v8;
     }
   }
-  RtlRbInsertNodeEx(&KiClockIntervalRequests, v6, a3, v3);
-  *(_BYTE *)(v3 + 24) = 1;
+  RtlRbInsertNodeEx(&KiClockIntervalRequests, (PRTL_BALANCED_NODE)Root, v7, (PRTL_BALANCED_NODE)a3);
+  *(_BYTE *)(a3 + 24) = 1;
   if ( a2 )
     KePseudoHrTimeIncrement = a1;
   if ( KiClockTimerPerCpuTickScheduling )
   {
     if ( KiClockTimerReducePreciseTimeQueries )
-      InterruptTimePrecise = RtlGetInterruptTimePrecise(&v15);
+      InterruptTimePrecise = RtlGetInterruptTimePrecise(&PerformanceCounter);
     else
-      InterruptTimePrecise = 0LL;
-    KiSetClockTimerKTimerDeadlines(KeGetCurrentPrcb(), InterruptTimePrecise, 0LL);
-    LOBYTE(v9) = 1;
-    ClockTickDueTime = KiSetNextClockTickDueTime(InterruptTimePrecise, v9);
+      InterruptTimePrecise.QuadPart = 0LL;
+    ((void (__fastcall *)(_QWORD, _QWORD, _QWORD))KiSetClockTimerKTimerDeadlines)(
+      KeGetCurrentPrcb(),
+      (LARGE_INTEGER)InterruptTimePrecise.QuadPart,
+      0LL);
+    LOBYTE(v10) = 1;
+    v11 = ((__int64 (__fastcall *)(_QWORD, _QWORD))KiSetNextClockTickDueTime)(
+            (LARGE_INTEGER)InterruptTimePrecise.QuadPart,
+            v10);
   }
   else
   {
-    ClockTickDueTime = KiSetClockIntervalToMinimumRequested();
+    v11 = KiSetClockIntervalToMinimumRequested();
   }
-  v12 = *(unsigned int *)(v3 + 32);
-  v13 = ClockTickDueTime;
-  if ( (_DWORD)v12 )
+  v13 = *(unsigned int *)(a3 + 32);
+  v14 = v11;
+  if ( (_DWORD)v13 )
   {
-    LOBYTE(v11) = 1;
-    PoTraceSystemTimerResolutionKernel(a1, v12, v11);
+    LOBYTE(v12) = 1;
+    PoTraceSystemTimerResolutionKernel(a1, v13, v12);
   }
-  return v13;
+  return v14;
 }

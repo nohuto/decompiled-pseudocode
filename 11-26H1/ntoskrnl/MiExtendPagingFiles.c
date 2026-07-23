@@ -1,15 +1,15 @@
 /*
- * XREFs of MiExtendPagingFiles @ 0x140B2F8D4
+ * XREFs of MiExtendPagingFiles @ 0x140B316B4
  * Callers:
- *     MiHandlePageFileSizeChanges @ 0x140524EAC (MiHandlePageFileSizeChanges.c)
+ *     MiHandlePageFileSizeChanges @ 0x14052751C (MiHandlePageFileSizeChanges.c)
  * Callees:
- *     MiGetPageFileResizeCandidates @ 0x1404E7480 (MiGetPageFileResizeCandidates.c)
- *     qsort @ 0x140536F00 (qsort.c)
- *     MiUpdatePagingFileMinimum @ 0x1406F9078 (MiUpdatePagingFileMinimum.c)
- *     MiIncreaseCommitLimits @ 0x140705868 (MiIncreaseCommitLimits.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     MiAttemptPageFileExtension @ 0x140B2FAF8 (MiAttemptPageFileExtension.c)
+ *     MiGetPageFileResizeCandidates @ 0x1404E083C (MiGetPageFileResizeCandidates.c)
+ *     qsort @ 0x140539380 (qsort.c)
+ *     MiUpdatePagingFileMinimum @ 0x1406FDD48 (MiUpdatePagingFileMinimum.c)
+ *     MiIncreaseCommitLimits @ 0x14070A538 (MiIncreaseCommitLimits.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     MiAttemptPageFileExtension @ 0x140B318D8 (MiAttemptPageFileExtension.c)
  */
 
 void __fastcall MiExtendPagingFiles(__int64 a1)

@@ -1,12 +1,12 @@
 /*
- * XREFs of TtmiLogCalloutWatchdogCrashSkipped @ 0x140882C74
+ * XREFs of TtmiLogCalloutWatchdogCrashSkipped @ 0x140883ED4
  * Callers:
- *     TtmpCalloutWatchdogCallback @ 0x14087DD70 (TtmpCalloutWatchdogCallback.c)
+ *     TtmpCalloutWatchdogCallback @ 0x14087EFD0 (TtmpCalloutWatchdogCallback.c)
  * Callees:
  *     PsGetProcessSessionIdEx @ 0x140003190 (PsGetProcessSessionIdEx.c)
  *     _TlgKeywordOn @ 0x140012A04 (_TlgKeywordOn.c)
  *     _TlgWrite @ 0x140012EE4 (_TlgWrite.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
  */
 
 char __fastcall TtmiLogCalloutWatchdogCrashSkipped(int a1, int a2, __int64 a3, __int64 a4, __int64 a5, __int64 a6)
@@ -45,9 +45,9 @@ char __fastcall TtmiLogCalloutWatchdogCrashSkipped(int a1, int a2, __int64 a3, _
   _UNKNOWN *retaddr; // [rsp+110h] [rbp+4Fh] BYREF
 
   v6 = &retaddr;
-  if ( stru_14096D7E8.LevelPlus1 > 5 )
+  if ( stru_14096E7E8.LevelPlus1 > 5 )
   {
-    LOBYTE(v6) = TlgKeywordOn(&stru_14096D7E8, 0x400000000001uLL);
+    LOBYTE(v6) = TlgKeywordOn(&stru_14096E7E8, 0x400000000001uLL);
     if ( (_BYTE)v6 )
     {
       ProcessSessionId = PsGetProcessSessionIdEx((__int64)KeGetCurrentThread()->ApcState.Process);
@@ -79,7 +79,7 @@ char __fastcall TtmiLogCalloutWatchdogCrashSkipped(int a1, int a2, __int64 a3, _
       v34 = 8;
       v37 = 8;
       v40 = 8;
-      LOBYTE(v6) = TlgWrite(&stru_14096D7E8, &unk_140371C85, 0LL, 0LL, 9u, &pData);
+      LOBYTE(v6) = TlgWrite(&stru_14096E7E8, &unk_140372BFE, 0LL, 0LL, 9u, &pData);
     }
   }
   return (char)v6;

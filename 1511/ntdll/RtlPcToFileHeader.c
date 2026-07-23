@@ -14,15 +14,15 @@ PVOID __stdcall RtlPcToFileHeader(PVOID PcValue, PVOID *BaseOfImage)
   PVOID result; // rax
   __int128 v4; // [rsp+20h] [rbp-28h] BYREF
 
-  if ( (unsigned __int64)PcValue < *((_QWORD *)&xmmword_180155330 + 1)
-    || (unsigned __int64)PcValue >= *((_QWORD *)&xmmword_180155330 + 1)
-                                  + (unsigned __int64)(unsigned int)qword_180155340 )
+  if ( (unsigned __int64)PcValue < LdrSystemDllInitBlock.MitigationOptionsMap.Map[1]
+    || (unsigned __int64)PcValue >= LdrSystemDllInitBlock.MitigationOptionsMap.Map[1]
+                                  + LODWORD(LdrSystemDllInitBlock.MitigationOptionsMap.Map[2]) )
   {
-    RtlpxLookupFunctionTable((unsigned __int64)PcValue, (__int64)&v4);
+    RtlpxLookupFunctionTable(PcValue, (__int64)&v4);
   }
   else
   {
-    v4 = xmmword_180155330;
+    v4 = *(_OWORD *)LdrSystemDllInitBlock.MitigationOptionsMap.Map;
   }
   result = (PVOID)*((_QWORD *)&v4 + 1);
   *BaseOfImage = (PVOID)*((_QWORD *)&v4 + 1);

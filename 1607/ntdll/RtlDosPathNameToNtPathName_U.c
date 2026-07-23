@@ -1,14 +1,18 @@
 /*
- * XREFs of RtlDosPathNameToNtPathName_U @ 0x180011710
+ * XREFs of RtlDosPathNameToNtPathName_U @ 0x180011700
  * Callers:
- *     LdrpResValidateFilePath @ 0x1800DDB90 (LdrpResValidateFilePath.c)
- *     _ResFindFirstFileExW @ 0x180104314 (_ResFindFirstFileExW.c)
- *     _ResGetFileAttributesW @ 0x180104A74 (_ResGetFileAttributesW.c)
+ *     LdrpResValidateFilePath @ 0x1800DDC50 (LdrpResValidateFilePath.c)
+ *     _ResFindFirstFileExW @ 0x180104254 (_ResFindFirstFileExW.c)
+ *     _ResGetFileAttributesW @ 0x1801049B4 (_ResGetFileAttributesW.c)
  * Callees:
- *     RtlpDosPathNameToRelativeNtPathName_U @ 0x180011828 (RtlpDosPathNameToRelativeNtPathName_U.c)
+ *     RtlpDosPathNameToRelativeNtPathName_U @ 0x180011818 (RtlpDosPathNameToRelativeNtPathName_U.c)
  */
 
-bool __fastcall RtlDosPathNameToNtPathName_U(int a1, int a2, __int64 a3, __int64 a4)
+BOOLEAN __cdecl RtlDosPathNameToNtPathName_U(
+        PCWSTR DosFileName,
+        PUNICODE_STRING NtFileName,
+        PWSTR *FilePart,
+        PRTL_RELATIVE_NAME_U RelativeName)
 {
-  return (int)RtlpDosPathNameToRelativeNtPathName_U(a1, 0, a1, a2, a3, a4) >= 0;
+  return (int)RtlpDosPathNameToRelativeNtPathName_U(DosFileName, 0LL, DosFileName, NtFileName, FilePart, RelativeName) >= 0;
 }

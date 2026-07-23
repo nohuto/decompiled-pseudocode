@@ -11,15 +11,15 @@
  *     CmCreateKey @ 0x14068D940 (CmCreateKey.c)
  */
 
-__int64 __fastcall NtCreateKeyTransacted(
-        HANDLE *a1,
-        int a2,
-        __int64 a3,
-        __int64 a4,
-        __int128 *a5,
-        int a6,
-        HANDLE Handle,
-        _DWORD *a8)
+NTSTATUS __cdecl NtCreateKeyTransacted(
+        PHANDLE KeyHandle,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        ULONG TitleIndex,
+        PUNICODE_STRING Class,
+        ULONG CreateOptions,
+        HANDLE TransactionHandle,
+        PULONG Disposition)
 {
   struct _KTHREAD *CurrentThread; // rax
   __int64 v12; // rdx
@@ -33,7 +33,7 @@ __int64 __fastcall NtCreateKeyTransacted(
   __int64 v20; // r8
   __int64 v21; // r9
   NTSTATUS v23; // eax
-  int Key; // edi
+  NTSTATUS Key; // edi
   PVOID Object; // [rsp+40h] [rbp-18h] BYREF
   PVOID v26; // [rsp+48h] [rbp-10h] BYREF
 
@@ -42,18 +42,18 @@ __int64 __fastcall NtCreateKeyTransacted(
   if ( !ExAcquireRundownProtection_0((PEX_RUNDOWN_REF)&CmpShutdownRundown) )
   {
     KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v12, v13, v14);
-    return (unsigned int)-1073741431;
+    return -1073741431;
   }
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   Object = 0LL;
-  v16 = ObReferenceObjectByHandle(Handle, 4u, CmRegistryTransactionType, PreviousMode, &Object, 0LL);
+  v16 = ObReferenceObjectByHandle(TransactionHandle, 4u, CmRegistryTransactionType, PreviousMode, &Object, 0LL);
   v18 = (__int64)Object;
   Key = v16;
   if ( v16 == -1073741788 )
   {
     v26 = 0LL;
     v23 = ObReferenceObjectByHandle(
-            Handle,
+            TransactionHandle,
             4u,
             (POBJECT_TYPE)TmTransactionObjectType,
             KeGetCurrentThread()->PreviousMode,
@@ -63,7 +63,15 @@ __int64 __fastcall NtCreateKeyTransacted(
     Key = v23;
 LABEL_6:
     if ( Key >= 0 )
-      Key = CmCreateKey(a1, a2, a3, v17, a5, a6, a8, v18);
+      Key = CmCreateKey(
+              KeyHandle,
+              DesiredAccess,
+              (ULONG_PTR)ObjectAttributes,
+              v17,
+              (__int128 *)Class,
+              CreateOptions,
+              Disposition,
+              v18);
     goto LABEL_8;
   }
   if ( v16 >= 0 )
@@ -76,5 +84,5 @@ LABEL_8:
     CmpTransDereferenceTransaction(v18);
   ExReleaseRundownProtection_0((PEX_RUNDOWN_REF)&CmpShutdownRundown);
   KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v19, v20, v21);
-  return (unsigned int)Key;
+  return Key;
 }

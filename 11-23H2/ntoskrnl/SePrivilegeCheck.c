@@ -1,19 +1,19 @@
 /*
- * XREFs of SePrivilegeCheck @ 0x14072F2B0
+ * XREFs of SePrivilegeCheck @ 0x14072F4B0
  * Callers:
  *     NtSetInformationJobObject @ 0x1406A4040 (NtSetInformationJobObject.c)
- *     ObpAdjustCreatorAccessState @ 0x1406C2B08 (ObpAdjustCreatorAccessState.c)
- *     ObpCreateHandle @ 0x1406E4510 (ObpCreateHandle.c)
- *     SeSinglePrivilegeCheckEx @ 0x14070FC2C (SeSinglePrivilegeCheckEx.c)
- *     RtlpNewSecurityObject @ 0x14072A400 (RtlpNewSecurityObject.c)
- *     SeSinglePrivilegeCheck @ 0x140737B00 (SeSinglePrivilegeCheck.c)
- *     MiIsUserQueryVmCallerTrusted @ 0x1407D037C (MiIsUserQueryVmCallerTrusted.c)
- *     SeCheckPrivilegedObject @ 0x1407E0064 (SeCheckPrivilegedObject.c)
- *     PspSinglePrivCheck @ 0x1407E3D88 (PspSinglePrivCheck.c)
- *     PiAuDoesClientHavePrivilege @ 0x14095B8B8 (PiAuDoesClientHavePrivilege.c)
- *     CMFCheckAccess @ 0x140A018E4 (CMFCheckAccess.c)
+ *     ObpAdjustCreatorAccessState @ 0x1406C2B38 (ObpAdjustCreatorAccessState.c)
+ *     ObpCreateHandle @ 0x1406E4540 (ObpCreateHandle.c)
+ *     SeSinglePrivilegeCheckEx @ 0x14070FE3C (SeSinglePrivilegeCheckEx.c)
+ *     RtlpNewSecurityObject @ 0x14072A600 (RtlpNewSecurityObject.c)
+ *     SeSinglePrivilegeCheck @ 0x140737CF0 (SeSinglePrivilegeCheck.c)
+ *     MiIsUserQueryVmCallerTrusted @ 0x1407D064C (MiIsUserQueryVmCallerTrusted.c)
+ *     SeCheckPrivilegedObject @ 0x1407E0334 (SeCheckPrivilegedObject.c)
+ *     PspSinglePrivCheck @ 0x1407E4058 (PspSinglePrivCheck.c)
+ *     PiAuDoesClientHavePrivilege @ 0x14095BAB8 (PiAuDoesClientHavePrivilege.c)
+ *     CMFCheckAccess @ 0x140A01B74 (CMFCheckAccess.c)
  * Callees:
- *     SepPrivilegeCheck @ 0x1402AF690 (SepPrivilegeCheck.c)
+ *     SepPrivilegeCheck @ 0x1402AF920 (SepPrivilegeCheck.c)
  */
 
 BOOLEAN __stdcall SePrivilegeCheck(

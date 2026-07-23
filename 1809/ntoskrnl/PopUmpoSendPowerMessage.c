@@ -2,32 +2,32 @@
  * XREFs of PopUmpoSendPowerMessage @ 0x1400035C0
  * Callers:
  *     PopUmpoSendPowerRequestOverrideQuery @ 0x140002AE4 (PopUmpoSendPowerRequestOverrideQuery.c)
- *     PopUmpoSendFlushSleepStudyLoggerNotification @ 0x14015978C (PopUmpoSendFlushSleepStudyLoggerNotification.c)
- *     PopUmpoSendPowerRequestOverrideCleanup @ 0x140589A88 (PopUmpoSendPowerRequestOverrideCleanup.c)
- *     PopEvaluateGlobalUserStatus @ 0x1406DCA98 (PopEvaluateGlobalUserStatus.c)
- *     PopUmpoSendLegacyEvent @ 0x1406DDDBC (PopUmpoSendLegacyEvent.c)
- *     PopUserPresencePredictionModeCallback @ 0x140762560 (PopUserPresencePredictionModeCallback.c)
- *     PopMonitorProcessBrightnessAction @ 0x140877864 (PopMonitorProcessBrightnessAction.c)
+ *     PopUmpoSendFlushSleepStudyLoggerNotification @ 0x14015988C (PopUmpoSendFlushSleepStudyLoggerNotification.c)
+ *     PopUmpoSendPowerRequestOverrideCleanup @ 0x14058AA88 (PopUmpoSendPowerRequestOverrideCleanup.c)
+ *     PopEvaluateGlobalUserStatus @ 0x1406DDD38 (PopEvaluateGlobalUserStatus.c)
+ *     PopUmpoSendLegacyEvent @ 0x1406DF05C (PopUmpoSendLegacyEvent.c)
+ *     PopUserPresencePredictionModeCallback @ 0x140763750 (PopUserPresencePredictionModeCallback.c)
+ *     PopMonitorProcessBrightnessAction @ 0x140878AC4 (PopMonitorProcessBrightnessAction.c)
  * Callees:
  *     AlpcGetMessageAttribute @ 0x140004B10 (AlpcGetMessageAttribute.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     ZwAlpcSendWaitReceivePort @ 0x1401B92D0 (ZwAlpcSendWaitReceivePort.c)
- *     memmove @ 0x1401D1540 (memmove.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     PopReleaseUmpoPushLock @ 0x140589AD0 (PopReleaseUmpoPushLock.c)
- *     PopAcquireUmpoPushLock @ 0x140589AF4 (PopAcquireUmpoPushLock.c)
- *     PopUmpoProcessMessage @ 0x14058AF88 (PopUmpoProcessMessage.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     ZwAlpcSendWaitReceivePort @ 0x1401B9430 (ZwAlpcSendWaitReceivePort.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     PopReleaseUmpoPushLock @ 0x14058AAD0 (PopReleaseUmpoPushLock.c)
+ *     PopAcquireUmpoPushLock @ 0x14058AAF4 (PopAcquireUmpoPushLock.c)
+ *     PopUmpoProcessMessage @ 0x14058BF88 (PopUmpoProcessMessage.c)
  */
 
 __int64 __fastcall PopUmpoSendPowerMessage(void *Src, size_t Size, char a3)
 {
   HANDLE v6; // rdi
-  int v7; // eax
-  int v8; // ebx
-  __int64 MessageAttribute; // rax
-  __int64 v11; // [rsp+40h] [rbp-C0h] BYREF
-  _BYTE v12[160]; // [rsp+50h] [rbp-B0h] BYREF
-  _WORD v13[256]; // [rsp+F0h] [rbp-10h] BYREF
+  NTSTATUS v7; // eax
+  NTSTATUS v8; // ebx
+  _ALPC_CONTEXT_ATTR *MessageAttribute; // rax
+  ULONG_PTR BufferLength[2]; // [rsp+40h] [rbp-C0h] BYREF
+  _ALPC_MESSAGE_ATTRIBUTES Buffer[20]; // [rsp+50h] [rbp-B0h] BYREF
+  _BYTE SendMessageA[512]; // [rsp+F0h] [rbp-10h] BYREF
 
   PopAcquireUmpoPushLock(0LL);
   v6 = PopAlpcClientPort;
@@ -38,31 +38,31 @@ __int64 __fastcall PopUmpoSendPowerMessage(void *Src, size_t Size, char a3)
       v8 = -2147483643;
       goto LABEL_6;
     }
-    memset(v13, 0, sizeof(v13));
-    v13[0] = Size;
-    v13[1] = Size + 40;
-    memmove(&v13[20], Src, Size);
+    memset(SendMessageA, 0, sizeof(SendMessageA));
+    *(_WORD *)SendMessageA = Size;
+    *(_WORD *)&SendMessageA[2] = Size + 40;
+    memmove(&SendMessageA[40], Src, Size);
     if ( a3 )
     {
-      memset(v12, 0, sizeof(v12));
-      v11 = 512LL;
-      v8 = ((__int64 (__fastcall *)(HANDLE, __int64, _WORD *, _QWORD, _WORD *, __int64 *, _BYTE *, _QWORD))ZwAlpcSendWaitReceivePort)(
+      memset(Buffer, 0, sizeof(Buffer));
+      BufferLength[0] = 512LL;
+      v8 = ZwAlpcSendWaitReceivePort(
              v6,
-             0x20000LL,
-             v13,
+             0x20000u,
+             (PPORT_MESSAGE)SendMessageA,
              0LL,
-             v13,
-             &v11,
-             v12,
+             (PPORT_MESSAGE)SendMessageA,
+             BufferLength,
+             Buffer,
              0LL);
       if ( v8 < 0 )
         goto LABEL_6;
-      MessageAttribute = AlpcGetMessageAttribute(v12, 0x20000000LL);
-      v7 = PopUmpoProcessMessage(v13, MessageAttribute);
+      MessageAttribute = (_ALPC_CONTEXT_ATTR *)AlpcGetMessageAttribute(Buffer, 0x20000000u);
+      v7 = PopUmpoProcessMessage((PPORT_MESSAGE)SendMessageA, MessageAttribute);
     }
     else
     {
-      v7 = ZwAlpcSendWaitReceivePort(v6, 0x10000LL, v13, 0LL, 0LL, 0LL, 0LL, 0LL, v11);
+      v7 = ZwAlpcSendWaitReceivePort(v6, 0x10000u, (PPORT_MESSAGE)SendMessageA, 0LL, 0LL, 0LL, 0LL, 0LL);
     }
     v8 = v7;
   }

@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlpComputeCrcInternal @ 0x1404878F0
+ * XREFs of RtlpComputeCrcInternal @ 0x140481430
  * Callers:
- *     IopLiveDumpWriteDumpFile @ 0x140343D08 (IopLiveDumpWriteDumpFile.c)
- *     RtlCrc64 @ 0x1404878D0 (RtlCrc64.c)
- *     IopLiveDumpBufferDumpData @ 0x1405CDF10 (IopLiveDumpBufferDumpData.c)
- *     PopEnsureErratumSubscribed @ 0x140606D90 (PopEnsureErratumSubscribed.c)
- *     MdlInvariantPostProcessing1 @ 0x140642B44 (MdlInvariantPostProcessing1.c)
- *     MdlInvariantPreProcessing1 @ 0x140642D54 (MdlInvariantPreProcessing1.c)
+ *     IopLiveDumpWriteDumpFile @ 0x140345D88 (IopLiveDumpWriteDumpFile.c)
+ *     RtlCrc64 @ 0x140481410 (RtlCrc64.c)
+ *     IopLiveDumpBufferDumpData @ 0x1405D0720 (IopLiveDumpBufferDumpData.c)
+ *     PopEnsureErratumSubscribed @ 0x140609890 (PopEnsureErratumSubscribed.c)
+ *     MdlInvariantPostProcessing1 @ 0x140646724 (MdlInvariantPostProcessing1.c)
+ *     MdlInvariantPreProcessing1 @ 0x140646934 (MdlInvariantPreProcessing1.c)
  * Callees:
  *     <none>
  */

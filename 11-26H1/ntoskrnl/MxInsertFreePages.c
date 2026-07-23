@@ -1,19 +1,19 @@
 /*
- * XREFs of MxInsertFreePages @ 0x140CF7300
+ * XREFs of MxInsertFreePages @ 0x140CFD680
  * Callers:
- *     MxInsertPagesInFreeList @ 0x140CF7780 (MxInsertPagesInFreeList.c)
+ *     MxInsertPagesInFreeList @ 0x140CFDB00 (MxInsertPagesInFreeList.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     MiPageToNode @ 0x140289710 (MiPageToNode.c)
- *     MiInitializeAllResidentPageBasePfns @ 0x14028E4A4 (MiInitializeAllResidentPageBasePfns.c)
- *     MiRestrictRangeToNode @ 0x1402CABF0 (MiRestrictRangeToNode.c)
- *     MiInsertPageInFreeOrZeroedList @ 0x1402DCDD0 (MiInsertPageInFreeOrZeroedList.c)
- *     MiCreateInitialLargeLeafPfns @ 0x14046AE30 (MiCreateInitialLargeLeafPfns.c)
- *     MiDetermineNewPfnHeatState @ 0x140497664 (MiDetermineNewPfnHeatState.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     MiCreateInitialPfns @ 0x1406E70A0 (MiCreateInitialPfns.c)
- *     MiCreatePfnTemplate @ 0x1406E70E8 (MiCreatePfnTemplate.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     MiPageToNode @ 0x140288C70 (MiPageToNode.c)
+ *     MiInitializeAllResidentPageBasePfns @ 0x14028DA04 (MiInitializeAllResidentPageBasePfns.c)
+ *     MiRestrictRangeToNode @ 0x1402AC9B0 (MiRestrictRangeToNode.c)
+ *     MiInsertPageInFreeOrZeroedList @ 0x1402BEB90 (MiInsertPageInFreeOrZeroedList.c)
+ *     MiCreateInitialLargeLeafPfns @ 0x1404645B0 (MiCreateInitialLargeLeafPfns.c)
+ *     MiDetermineNewPfnHeatState @ 0x1404911B4 (MiDetermineNewPfnHeatState.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     MiCreateInitialPfns @ 0x1406EBD50 (MiCreateInitialPfns.c)
+ *     MiCreatePfnTemplate @ 0x1406EBD98 (MiCreatePfnTemplate.c)
  */
 
 __int64 __fastcall MxInsertFreePages(ULONG_PTR BugCheckParameter2, ULONG_PTR a2, unsigned int a3, int a4)
@@ -63,7 +63,7 @@ __int64 __fastcall MxInsertFreePages(ULONG_PTR BugCheckParameter2, ULONG_PTR a2,
         {
           v12 = MiPageSizes[v18];
           v13 = MiPageToNode(v7);
-          v14 = MiDetermineNewPfnHeatState(0, v11, qword_140E37CD0 + 56320LL * v13);
+          v14 = MiDetermineNewPfnHeatState(0, v11, qword_140E37E50 + 56320LL * v13);
           v15 = a3 & 0xFFFFFBFF;
           a3 |= 0x400u;
           if ( !v14 )

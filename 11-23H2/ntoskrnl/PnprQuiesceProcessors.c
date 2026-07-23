@@ -1,17 +1,17 @@
 /*
- * XREFs of PnprQuiesceProcessors @ 0x140A9D904
+ * XREFs of PnprQuiesceProcessors @ 0x140A9D774
  * Callers:
- *     PnprQuiesce @ 0x140563188 (PnprQuiesce.c)
+ *     PnprQuiesce @ 0x140563848 (PnprQuiesce.c)
  * Callees:
- *     KeInsertQueueDpc @ 0x140254770 (KeInsertQueueDpc.c)
- *     KeEnumerateNextProcessor @ 0x1402572B0 (KeEnumerateNextProcessor.c)
- *     KeInitializeDpc @ 0x1402BF9A0 (KeInitializeDpc.c)
- *     KeRemoveProcessorAffinityEx @ 0x1402C02B0 (KeRemoveProcessorAffinityEx.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     memset @ 0x140435A00 (memset.c)
- *     KeSuspendClockTimerSafe @ 0x14056FAD0 (KeSuspendClockTimerSafe.c)
- *     PnprGetMillisecondCounter @ 0x140A9C8B4 (PnprGetMillisecondCounter.c)
+ *     KeInsertQueueDpc @ 0x140254830 (KeInsertQueueDpc.c)
+ *     KeEnumerateNextProcessor @ 0x140257370 (KeEnumerateNextProcessor.c)
+ *     KeInitializeDpc @ 0x1402BFC30 (KeInitializeDpc.c)
+ *     KeRemoveProcessorAffinityEx @ 0x1402C0540 (KeRemoveProcessorAffinityEx.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     KeSuspendClockTimerSafe @ 0x140570010 (KeSuspendClockTimerSafe.c)
+ *     PnprGetMillisecondCounter @ 0x140A9C724 (PnprGetMillisecondCounter.c)
  */
 
 __int64 PnprQuiesceProcessors()
@@ -101,7 +101,7 @@ __int64 PnprQuiesceProcessors()
   v2 = 2LL;
   __writecr8(2uLL);
   v3 = (unsigned int)LOBYTE(Dpc.Number) + 1;
-  if ( KiIrqlFlags
+  if ( (_DWORD)KiIrqlFlags
     && ((unsigned __int8)KiIrqlFlags & (unsigned __int8)(LOBYTE(Dpc.Number) + 1)) != 0
     && CurrentIrql <= 0xFu )
   {

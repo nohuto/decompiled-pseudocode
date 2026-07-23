@@ -1,19 +1,19 @@
 /*
- * XREFs of HvViewMapStart @ 0x14060FCB4
+ * XREFs of HvViewMapStart @ 0x14060FD68
  * Callers:
- *     HvLoadHive @ 0x14047ECF8 (HvLoadHive.c)
- *     HvInitializeHive @ 0x14047FBA4 (HvInitializeHive.c)
- *     HvpDropPagedBins @ 0x14054DD48 (HvpDropPagedBins.c)
+ *     HvLoadHive @ 0x14047DA4C (HvLoadHive.c)
+ *     HvInitializeHive @ 0x14047E8F8 (HvInitializeHive.c)
+ *     HvpDropPagedBins @ 0x14054E0E8 (HvpDropPagedBins.c)
  * Callees:
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     CcClearPrivateWriteFile @ 0x1401B1FD8 (CcClearPrivateWriteFile.c)
- *     CcSetPrivateWriteFile @ 0x1401B240C (CcSetPrivateWriteFile.c)
- *     ObReferenceObjectByHandle @ 0x140450D40 (ObReferenceObjectByHandle.c)
- *     CmpTouchFile @ 0x1406043E4 (CmpTouchFile.c)
- *     HvpViewMapPrefetchFile @ 0x140610074 (HvpViewMapPrefetchFile.c)
- *     HvpViewMapViewOfPrimaryFile @ 0x140610158 (HvpViewMapViewOfPrimaryFile.c)
- *     HvpViewUnmapViewOfPrimaryFile @ 0x140610488 (HvpViewUnmapViewOfPrimaryFile.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     CcClearPrivateWriteFile @ 0x1401B1EBC (CcClearPrivateWriteFile.c)
+ *     CcSetPrivateWriteFile @ 0x1401B22F0 (CcSetPrivateWriteFile.c)
+ *     ObReferenceObjectByHandle @ 0x14044FC10 (ObReferenceObjectByHandle.c)
+ *     CmpTouchFile @ 0x140604498 (CmpTouchFile.c)
+ *     HvpViewMapPrefetchFile @ 0x140610128 (HvpViewMapPrefetchFile.c)
+ *     HvpViewMapViewOfPrimaryFile @ 0x14061020C (HvpViewMapViewOfPrimaryFile.c)
+ *     HvpViewUnmapViewOfPrimaryFile @ 0x14061053C (HvpViewUnmapViewOfPrimaryFile.c)
  */
 
 __int64 __fastcall HvViewMapStart(__int64 a1, __int64 a2, void *a3, unsigned int a4, char a5)

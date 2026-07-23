@@ -1,11 +1,11 @@
 /*
- * XREFs of PipCheckIfAllProvidersHaveDevnodes @ 0x14074CAE0
+ * XREFs of PipCheckIfAllProvidersHaveDevnodes @ 0x14074CCA0
  * Callers:
- *     PipProcessRebuildPowerRelationsQueue @ 0x14074B56C (PipProcessRebuildPowerRelationsQueue.c)
+ *     PipProcessRebuildPowerRelationsQueue @ 0x14074B72C (PipProcessRebuildPowerRelationsQueue.c)
  * Callees:
- *     PiGetProviderList @ 0x140741958 (PiGetProviderList.c)
- *     PipIsDeviceReadyForPowerRelations @ 0x14074B750 (PipIsDeviceReadyForPowerRelations.c)
- *     PiEnumerateProviderListEntry @ 0x14089D92C (PiEnumerateProviderListEntry.c)
+ *     PiGetProviderList @ 0x140741B18 (PiGetProviderList.c)
+ *     PipIsDeviceReadyForPowerRelations @ 0x14074B910 (PipIsDeviceReadyForPowerRelations.c)
+ *     PiEnumerateProviderListEntry @ 0x14089DA8C (PiEnumerateProviderListEntry.c)
  */
 
 char __fastcall PipCheckIfAllProvidersHaveDevnodes(__int64 a1)

@@ -5,29 +5,29 @@
  * Callees:
  *     RtlGetCurrentServiceSessionId @ 0x180024850 (RtlGetCurrentServiceSessionId.c)
  *     __security_check_cookie @ 0x18008C940 (__security_check_cookie.c)
- *     ZwUpdateWnfStateData @ 0x1800A1030 (ZwUpdateWnfStateData.c)
- *     RtlpWnfETWEventPublish @ 0x1800DEAA8 (RtlpWnfETWEventPublish.c)
+ *     ZwUpdateWnfStateData @ 0x1800A0FF0 (ZwUpdateWnfStateData.c)
+ *     RtlpWnfETWEventPublish @ 0x1800DEA68 (RtlpWnfETWEventPublish.c)
  */
 
 __int64 __fastcall RtlTestAndPublishWnfStateData(
-        __int64 a1,
-        __int64 a2,
-        __int64 a3,
-        unsigned int a4,
-        __int64 a5,
-        int a6)
+        WNF_STATE_NAME a1,
+        const WNF_TYPE_ID *a2,
+        const void *a3,
+        ULONG a4,
+        void *ExplicitScope,
+        WNF_CHANGE_STAMP MatchingChangeStamp)
 {
-  int updated; // ebx
+  NTSTATUS updated; // ebx
   __int64 v8; // rdx
-  __int64 v10; // [rsp+40h] [rbp-28h] BYREF
+  WNF_STATE_NAME StateName; // [rsp+40h] [rbp-28h] BYREF
 
-  v10 = a1;
-  updated = ZwUpdateWnfStateData(&v10, a3, a4, a2, a5, a6, 1);
-  if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+  StateName = a1;
+  updated = ZwUpdateWnfStateData(&StateName, a3, a4, a2, ExplicitScope, MatchingChangeStamp, 1u);
+  if ( RtlGetCurrentServiceSessionId() )
     v8 = (__int64)NtCurrentPeb()->SharedData + 564;
   else
     v8 = 2147353486LL;
   if ( *(_BYTE *)v8 && updated >= 0 )
-    RtlpWnfETWEventPublish(v10, a4);
+    ((void (__fastcall *)(_QWORD, _QWORD))RtlpWnfETWEventPublish)(StateName, a4);
   return (unsigned int)updated;
 }

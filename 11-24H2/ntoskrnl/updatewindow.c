@@ -1,10 +1,10 @@
 /*
- * XREFs of updatewindow @ 0x1405F51E8
+ * XREFs of updatewindow @ 0x1405F2828
  * Callers:
- *     inflate @ 0x1405F3FB0 (inflate.c)
+ *     inflate @ 0x1405F15F0 (inflate.c)
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
  */
 
 __int64 __fastcall updatewindow(__int64 a1, __int64 a2, unsigned int a3)
@@ -27,11 +27,7 @@ __int64 __fastcall updatewindow(__int64 a1, __int64 a2, unsigned int a3)
   v6 = *(char **)(v3 + 64);
   if ( !v6 )
   {
-    v7 = guard_dispatch_icall_no_overrides(
-           *(_QWORD *)(a1 + 64),
-           (unsigned int)((1 << *(_DWORD *)(v3 + 48)) + 16),
-           1LL,
-           0LL);
+    v7 = guard_dispatch_icall_no_overrides(*(_QWORD *)(a1 + 64), (unsigned int)((1 << *(_DWORD *)(v3 + 48)) + 16));
     *(_QWORD *)(v3 + 64) = v7;
     v6 = (char *)v7;
     if ( !v7 )

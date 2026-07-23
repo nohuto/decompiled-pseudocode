@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlStringCbPrintfExW @ 0x180087430
+ * XREFs of RtlStringCbPrintfExW @ 0x1800092E0
  * Callers:
- *     RtlpQueryPseudoEnvironmentVariable @ 0x180085B9C (RtlpQueryPseudoEnvironmentVariable.c)
- *     RtlQueryPackageClaims @ 0x180087120 (RtlQueryPackageClaims.c)
- *     LdrpConstructModernAppKeyName @ 0x180087A54 (LdrpConstructModernAppKeyName.c)
+ *     RtlpQueryPseudoEnvironmentVariable @ 0x180007A4C (RtlpQueryPseudoEnvironmentVariable.c)
+ *     RtlQueryPackageClaims @ 0x180008FD0 (RtlQueryPackageClaims.c)
+ *     LdrpConstructModernAppKeyName @ 0x1800A3518 (LdrpConstructModernAppKeyName.c)
  * Callees:
- *     RtlStringExHandleOtherFlagsW @ 0x180114B1C (RtlStringExHandleOtherFlagsW.c)
- *     _vsnwprintf @ 0x180122B60 (_vsnwprintf.c)
- *     memset$thunk$772440563353939046 @ 0x180172030 (memset$thunk$772440563353939046.c)
+ *     RtlStringExHandleOtherFlagsW @ 0x18010FE2C (RtlStringExHandleOtherFlagsW.c)
+ *     _vsnwprintf @ 0x180120D90 (_vsnwprintf.c)
+ *     memset$thunk$772440563353939046 @ 0x180171030 (memset$thunk$772440563353939046.c)
  */
 
 __int64 RtlStringCbPrintfExW(
@@ -55,7 +55,7 @@ __int64 RtlStringCbPrintfExW(
   v16 = Buffer;
   v17 = a2 >> 1;
   if ( (a5 & 0x100) != 0 && !Format )
-    v10 = (const wchar_t *)&unk_18017EEFC;
+    v10 = &SourceString;
   v9 = 0;
   if ( (a5 & 0xFFFFE000) != 0 )
   {

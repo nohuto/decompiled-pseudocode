@@ -1,13 +1,13 @@
 /*
- * XREFs of IopFreeCopyObjectsFromDataBuffer @ 0x14028F164
+ * XREFs of IopFreeCopyObjectsFromDataBuffer @ 0x14028F3F4
  * Callers:
- *     IopFreeCopyObjectsFromIrp @ 0x14028F1B0 (IopFreeCopyObjectsFromIrp.c)
- *     NtCopyFileChunk @ 0x140749890 (NtCopyFileChunk.c)
- *     IopReadFile @ 0x14074C1C0 (IopReadFile.c)
+ *     IopFreeCopyObjectsFromIrp @ 0x14028F440 (IopFreeCopyObjectsFromIrp.c)
+ *     NtCopyFileChunk @ 0x140749A80 (NtCopyFileChunk.c)
+ *     IopReadFile @ 0x14074C3B0 (IopReadFile.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     IopFreeIrpExtension @ 0x14028FE18 (IopFreeIrpExtension.c)
- *     IopExceptionCleanupEx @ 0x140944978 (IopExceptionCleanupEx.c)
+ *     ObfDereferenceObject @ 0x140231660 (ObfDereferenceObject.c)
+ *     IopFreeIrpExtension @ 0x1402900A8 (IopFreeIrpExtension.c)
+ *     IopExceptionCleanupEx @ 0x140944B78 (IopExceptionCleanupEx.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

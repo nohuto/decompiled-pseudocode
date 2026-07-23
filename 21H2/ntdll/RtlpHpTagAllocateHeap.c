@@ -9,17 +9,17 @@
  *     RtlpHpTagContextGetTag @ 0x18009CEB4 (RtlpHpTagContextGetTag.c)
  */
 
-__int64 __fastcall RtlpHpTagAllocateHeap(__int64 a1, __int64 a2, unsigned int a3)
+__int64 __fastcall RtlpHpTagAllocateHeap(PVOID BaseAddress, __int64 a2)
 {
-  __int64 v6; // rcx
+  __int64 v4; // rcx
   unsigned __int16 Tag; // di
   __int64 result; // rax
 
   if ( (unsigned int)RtlpHpTaggableHeap() )
-    Tag = RtlpHpTagContextGetTag(v6, a2);
+    Tag = RtlpHpTagContextGetTag(v4, a2);
   else
     Tag = 0;
-  result = RtlpAllocateHeapInternal(a1, a2, a3, Tag);
+  result = RtlpAllocateHeapInternal(BaseAddress);
   if ( !result )
   {
     if ( Tag )

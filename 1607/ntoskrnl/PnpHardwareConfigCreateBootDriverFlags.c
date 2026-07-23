@@ -1,17 +1,17 @@
 /*
- * XREFs of PnpHardwareConfigCreateBootDriverFlags @ 0x14054FA20
+ * XREFs of PnpHardwareConfigCreateBootDriverFlags @ 0x14054FF60
  * Callers:
  *     IopMarkBootPartition @ 0x140798EDC (IopMarkBootPartition.c)
  * Callees:
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     ZwDeviceIoControlFile @ 0x140159D60 (ZwDeviceIoControlFile.c)
- *     ZwClose @ 0x140159E60 (ZwClose.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     ZwDeviceIoControlFile @ 0x14015A2D0 (ZwDeviceIoControlFile.c)
+ *     ZwClose @ 0x14015A3D0 (ZwClose.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     _PnpCtxRegSetValue @ 0x1404870E4 (_PnpCtxRegSetValue.c)
- *     _SysCtxRegOpenKey @ 0x1404FDB8C (_SysCtxRegOpenKey.c)
- *     _PnpCtxRegQueryValue @ 0x140504098 (_PnpCtxRegQueryValue.c)
- *     PipHardwareConfigOpenKey @ 0x14054FB84 (PipHardwareConfigOpenKey.c)
+ *     _SysCtxRegOpenKey @ 0x1404E0B1C (_SysCtxRegOpenKey.c)
+ *     _PnpCtxRegQueryValue @ 0x1404E7028 (_PnpCtxRegQueryValue.c)
+ *     _PnpCtxRegSetValue @ 0x140512E00 (_PnpCtxRegSetValue.c)
+ *     PipHardwareConfigOpenKey @ 0x1405500C4 (PipHardwareConfigOpenKey.c)
  */
 
 __int64 __fastcall PnpHardwareConfigCreateBootDriverFlags(__int64 a1, void *a2)
@@ -103,7 +103,7 @@ __int64 __fastcall PnpHardwareConfigCreateBootDriverFlags(__int64 a1, void *a2)
             break;
           default:
 LABEL_28:
-            v5 = PnpCtxRegSetValue(v11, Handle, (__int64)L"BootDriverFlags", 4LL, (__int64)&v13, 4u);
+            v5 = PnpCtxRegSetValue(v11, Handle, L"BootDriverFlags", 4u, &v13, 4u);
             goto LABEL_4;
         }
         v13 = v12;

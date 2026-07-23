@@ -1,9 +1,9 @@
 /*
- * XREFs of HvlGetPpmStatsForProcessor @ 0x14038DF14
+ * XREFs of HvlGetPpmStatsForProcessor @ 0x14038E064
  * Callers:
- *     PpmUpdatePerformanceFeedback @ 0x140224070 (PpmUpdatePerformanceFeedback.c)
+ *     PpmUpdatePerformanceFeedback @ 0x1402C8970 (PpmUpdatePerformanceFeedback.c)
  * Callees:
- *     HvlGetReferenceTime @ 0x14038DFAC (HvlGetReferenceTime.c)
+ *     HvlGetReferenceTime @ 0x14038E0FC (HvlGetReferenceTime.c)
  */
 
 __int64 __fastcall HvlGetPpmStatsForProcessor(struct _KPRCB *a1, _QWORD *a2, _QWORD *a3)
@@ -18,15 +18,15 @@ __int64 __fastcall HvlGetPpmStatsForProcessor(struct _KPRCB *a1, _QWORD *a2, _QW
 
   if ( a1 == KeGetCurrentPrcb() )
   {
-    v6 = HIDWORD(xmmword_140CED550);
+    v6 = HIDWORD(xmmword_140CED590);
     StatisticsPage = a1->StatisticsPage;
     do
     {
       v8 = StatisticsPage[v6];
-      *a3 = a1->StatisticsPage[(unsigned int)xmmword_140CED560];
+      *a3 = a1->StatisticsPage[(unsigned int)xmmword_140CED5A0];
     }
     while ( v8 != StatisticsPage[v6] );
-    v9 = DWORD1(xmmword_140CED560);
+    v9 = DWORD1(xmmword_140CED5A0);
     v10 = a1->StatisticsPage;
     do
     {
@@ -38,8 +38,8 @@ __int64 __fastcall HvlGetPpmStatsForProcessor(struct _KPRCB *a1, _QWORD *a2, _QW
   else
   {
     ReferenceTime = HvlGetReferenceTime();
-    v13 = (unsigned int)xmmword_140CED560;
-    *a2 = ReferenceTime - a1->StatisticsPage[DWORD1(xmmword_140CED550)];
+    v13 = (unsigned int)xmmword_140CED5A0;
+    *a2 = ReferenceTime - a1->StatisticsPage[DWORD1(xmmword_140CED590)];
     *a3 = a1->StatisticsPage[v13];
   }
   return ReferenceTime;

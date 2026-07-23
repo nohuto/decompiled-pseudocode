@@ -1,16 +1,16 @@
 /*
- * XREFs of EtwpLogMemNodeInfo @ 0x140257F54
+ * XREFs of EtwpLogMemNodeInfo @ 0x140259734
  * Callers:
- *     EtwpLogMemInfoTimerCallback @ 0x1404C3F60 (EtwpLogMemInfoTimerCallback.c)
+ *     EtwpLogMemInfoTimerCallback @ 0x1404BD840 (EtwpLogMemInfoTimerCallback.c)
  * Callees:
- *     EtwWriteEx @ 0x140212F70 (EtwWriteEx.c)
- *     EtwProviderEnabled @ 0x1402563E0 (EtwProviderEnabled.c)
- *     PsGetNextPartition @ 0x1402580F8 (PsGetNextPartition.c)
- *     MmFillEtwNodeInformation @ 0x140258494 (MmFillEtwNodeInformation.c)
- *     MmFillEtwHugeIoSpaceInformation @ 0x1406E34E0 (MmFillEtwHugeIoSpaceInformation.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     EtwWriteEx @ 0x140213050 (EtwWriteEx.c)
+ *     EtwProviderEnabled @ 0x140257D70 (EtwProviderEnabled.c)
+ *     PsGetNextPartition @ 0x1402598D8 (PsGetNextPartition.c)
+ *     MmFillEtwNodeInformation @ 0x140259C74 (MmFillEtwNodeInformation.c)
+ *     MmFillEtwHugeIoSpaceInformation @ 0x1406E818C (MmFillEtwHugeIoSpaceInformation.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void EtwpLogMemNodeInfo()
@@ -36,7 +36,7 @@ void EtwpLogMemNodeInfo()
   LODWORD(v7) = 0;
   if ( EtwpHostSiloState != -4812
     && (*(_DWORD *)(EtwpHostSiloState + 4816) & 0x80000) != 0
-    && EtwProviderEnabled(EtwpMemoryProvRegHandle, 0, 0x400uLL) )
+    && EtwProviderEnabled((REGHANDLE)stru_140F03830.SavedApcState.ApcListHead[1].Flink, 0, 0x400uLL) )
   {
     if ( (unsigned __int16)KeNumberNodes > 8u )
     {
@@ -62,8 +62,16 @@ void EtwpLogMemNodeInfo()
       v10 = 4LL;
       v11 = Pool2;
       v13 = 0;
-      EtwWriteEx(EtwpMemoryProvRegHandle, &KERNEL_MEM_EVENT_MEMINFO_NODE, 0LL, 0, 0LL, 0LL, 3u, &UserData);
-      if ( *($353D57E818BB6F967B4B818D974CF463 *)((char *)&stru_140E2EB88.116 + 4) )
+      EtwWriteEx(
+        (REGHANDLE)stru_140F03830.SavedApcState.ApcListHead[1].Flink,
+        &KERNEL_MEM_EVENT_MEMINFO_NODE,
+        0LL,
+        0,
+        0LL,
+        0LL,
+        3u,
+        &UserData);
+      if ( *($C9C4F79064DE35237E3F199A7D1BD3E1 *)((char *)&stru_140E2ED08.116 + 4) )
       {
         v4 = MmFillEtwHugeIoSpaceInformation(
                v3,
@@ -77,7 +85,15 @@ void EtwpLogMemNodeInfo()
           v11 = Pool2;
           v13 = 0;
           v12 = 28 * v4;
-          EtwWriteEx(EtwpMemoryProvRegHandle, &KERNEL_MEM_EVENT_MEMINFO_HUGE_IOSPACE, 0LL, 0, 0LL, 0LL, 3u, &UserData);
+          EtwWriteEx(
+            (REGHANDLE)stru_140F03830.SavedApcState.ApcListHead[1].Flink,
+            &KERNEL_MEM_EVENT_MEMINFO_HUGE_IOSPACE,
+            0LL,
+            0,
+            0LL,
+            0LL,
+            3u,
+            &UserData);
         }
       }
     }

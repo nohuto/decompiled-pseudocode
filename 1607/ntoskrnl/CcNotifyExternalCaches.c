@@ -1,12 +1,12 @@
 /*
- * XREFs of CcNotifyExternalCaches @ 0x1401340A4
+ * XREFs of CcNotifyExternalCaches @ 0x140134614
  * Callers:
- *     CcQueueLazyWriteScanThread @ 0x14013FDAC (CcQueueLazyWriteScanThread.c)
+ *     CcQueueLazyWriteScanThread @ 0x14014031C (CcQueueLazyWriteScanThread.c)
  * Callees:
- *     KxReleaseQueuedSpinLock @ 0x140069570 (KxReleaseQueuedSpinLock.c)
- *     KeAcquireQueuedSpinLockAtDpcLevel @ 0x14006E6C0 (KeAcquireQueuedSpinLockAtDpcLevel.c)
- *     CcCalculatePagesToWrite @ 0x1400CBC20 (CcCalculatePagesToWrite.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x1400EFE30 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400690F0 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireQueuedSpinLockAtDpcLevel @ 0x14006E240 (KeAcquireQueuedSpinLockAtDpcLevel.c)
+ *     CcCalculatePagesToWrite @ 0x1400C9AC0 (CcCalculatePagesToWrite.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1400EDCB0 (KeAcquireSpinLockRaiseToDpc.c)
  */
 
 void __fastcall CcNotifyExternalCaches(unsigned int a1)

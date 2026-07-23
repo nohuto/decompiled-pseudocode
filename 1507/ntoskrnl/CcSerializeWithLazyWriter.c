@@ -15,9 +15,9 @@ char __fastcall CcSerializeWithLazyWriter(__int64 a1)
   __int64 v3; // rsi
   volatile signed __int64 **v4; // rbx
   __int64 v5; // rax
-  struct _SLIST_ENTRY *v7; // rsi
+  _SLIST_ENTRY *v7; // rsi
   _SLIST_ENTRY *Next; // rcx
-  struct _SLIST_ENTRY **v9; // rax
+  _SLIST_ENTRY **v9; // rax
   volatile signed __int64 **v10; // rbx
   __int64 v11; // rax
   struct _KPRCB *CurrentPrcb; // rcx
@@ -49,9 +49,9 @@ char __fastcall CcSerializeWithLazyWriter(__int64 a1)
     _InterlockedXor64((volatile signed __int64 *)(v5 + 8), 1uLL);
     return 0;
   }
-  v7 = (struct _SLIST_ENTRY *)(v3 & 0xFFFFFFFFFFFFFFFEuLL);
+  v7 = (_SLIST_ENTRY *)(v3 & 0xFFFFFFFFFFFFFFFEuLL);
   Next = v7->Next;
-  v9 = (struct _SLIST_ENTRY **)*((_QWORD *)&v7->Next + 1);
+  v9 = (_SLIST_ENTRY **)*((_QWORD *)&v7->Next + 1);
   if ( *(&v7->Next->Next + 1) != v7 || *v9 != v7 )
     __fastfail(3u);
   *v9 = Next;
@@ -90,7 +90,7 @@ LABEL_19:
   else
   {
     ++P->FreeMisses;
-    ((void (__fastcall *)(struct _SLIST_ENTRY *))P->FreeEx)(v7);
+    ((void (__fastcall *)(_SLIST_ENTRY *))P->FreeEx)(v7);
   }
   return v2;
 }

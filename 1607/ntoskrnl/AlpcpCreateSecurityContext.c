@@ -1,27 +1,27 @@
 /*
- * XREFs of AlpcpCreateSecurityContext @ 0x14040D720
+ * XREFs of AlpcpCreateSecurityContext @ 0x14040C5E0
  * Callers:
- *     NtAlpcCreateSecurityContext @ 0x14040BFE0 (NtAlpcCreateSecurityContext.c)
- *     AlpcpCaptureSecurityAttribute @ 0x14044D650 (AlpcpCaptureSecurityAttribute.c)
- *     AlpcpCaptureSecurityAttributeInternal @ 0x1404D6340 (AlpcpCaptureSecurityAttributeInternal.c)
+ *     NtAlpcCreateSecurityContext @ 0x14040AEA0 (NtAlpcCreateSecurityContext.c)
+ *     AlpcpCaptureSecurityAttribute @ 0x14044C520 (AlpcpCaptureSecurityAttribute.c)
+ *     AlpcpCaptureSecurityAttributeInternal @ 0x1404B9944 (AlpcpCaptureSecurityAttributeInternal.c)
  * Callees:
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     ObfReferenceObject @ 0x14006A060 (ObfReferenceObject.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     ExfAcquirePushLockSharedEx @ 0x1400C8280 (ExfAcquirePushLockSharedEx.c)
- *     ExfReleasePushLockShared @ 0x1400C8640 (ExfReleasePushLockShared.c)
- *     ObfReferenceObjectWithTag @ 0x1400EE4F0 (ObfReferenceObjectWithTag.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     AlpcpStartInitialization @ 0x14040B7CC (AlpcpStartInitialization.c)
- *     AlpcpReferenceBlob @ 0x14040BD4C (AlpcpReferenceBlob.c)
- *     AlpcAddHandleTableEntry @ 0x14040BE50 (AlpcAddHandleTableEntry.c)
- *     AlpcpEndInitialization @ 0x14040BFAC (AlpcpEndInitialization.c)
- *     AlpcpDereferenceBlobEx @ 0x14040C274 (AlpcpDereferenceBlobEx.c)
- *     AlpcpInsertResourcePort @ 0x14040D574 (AlpcpInsertResourcePort.c)
- *     AlpcpAllocateBlob @ 0x14040D624 (AlpcpAllocateBlob.c)
- *     AlpcpChargePagedPoolQuota @ 0x14040D6F4 (AlpcpChargePagedPoolQuota.c)
- *     SeCreateClientSecurity @ 0x14040F068 (SeCreateClientSecurity.c)
- *     AlpcpReleasePagedPoolQuota @ 0x1404C0EB0 (AlpcpReleasePagedPoolQuota.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     ObfReferenceObject @ 0x140069BE0 (ObfReferenceObject.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockSharedEx @ 0x1400C6120 (ExfAcquirePushLockSharedEx.c)
+ *     ExfReleasePushLockShared @ 0x1400C64E0 (ExfReleasePushLockShared.c)
+ *     ObfReferenceObjectWithTag @ 0x1400EC370 (ObfReferenceObjectWithTag.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     AlpcpStartInitialization @ 0x14040A68C (AlpcpStartInitialization.c)
+ *     AlpcpReferenceBlob @ 0x14040AC0C (AlpcpReferenceBlob.c)
+ *     AlpcAddHandleTableEntry @ 0x14040AD10 (AlpcAddHandleTableEntry.c)
+ *     AlpcpEndInitialization @ 0x14040AE6C (AlpcpEndInitialization.c)
+ *     AlpcpDereferenceBlobEx @ 0x14040B134 (AlpcpDereferenceBlobEx.c)
+ *     AlpcpInsertResourcePort @ 0x14040C434 (AlpcpInsertResourcePort.c)
+ *     AlpcpAllocateBlob @ 0x14040C4E4 (AlpcpAllocateBlob.c)
+ *     AlpcpChargePagedPoolQuota @ 0x14040C5B4 (AlpcpChargePagedPoolQuota.c)
+ *     SeCreateClientSecurity @ 0x14040DF28 (SeCreateClientSecurity.c)
+ *     AlpcpReleasePagedPoolQuota @ 0x1404ACBE0 (AlpcpReleasePagedPoolQuota.c)
  */
 
 __int64 __fastcall AlpcpCreateSecurityContext(

@@ -1,32 +1,32 @@
 /*
- * XREFs of ?StDmSinglePageCopy@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAXPEAD2PEAU_ST_PAGE_LOCATION@1@PEAU_STDM_READ_CONTEXT@1@@Z @ 0x140465996
+ * XREFs of ?StDmSinglePageCopy@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAXPEAD2PEAU_ST_PAGE_LOCATION@1@PEAU_STDM_READ_CONTEXT@1@@Z @ 0x140465D96
  * Callers:
- *     ?StDmSinglePageTransfer@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAXPEAD11PEAU_ST_PAGE_LOCATION@1@PEAU_STDM_READ_CONTEXT@1@@Z @ 0x1405C77C8 (-StDmSinglePageTransfer@-$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAXPEAD11PEAU_ST_PAGE_LO.c)
+ *     ?StDmSinglePageTransfer@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAXPEAD11PEAU_ST_PAGE_LOCATION@1@PEAU_STDM_READ_CONTEXT@1@@Z @ 0x1405C7D38 (-StDmSinglePageTransfer@-$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAXPEAD11PEAU_ST_PAGE_LO.c)
  * Callees:
- *     ExAcquirePushLockSharedEx @ 0x140230D90 (ExAcquirePushLockSharedEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfReleasePushLockShared @ 0x1402BD860 (ExfReleasePushLockShared.c)
- *     RtlDecompressBufferEx @ 0x1402F5980 (RtlDecompressBufferEx.c)
- *     KiCheckForKernelApcDelivery @ 0x14030F820 (KiCheckForKernelApcDelivery.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memmove @ 0x140435700 (memmove.c)
- *     ?StDmPageError@?$ST_STORE@USM_TRAITS@@@@SAKPEAU_ST_DATA_MGR@1@PEAD1PEAU_ST_PAGE_LOCATION@1@PEAU_STDM_READ_CONTEXT@1@J@Z @ 0x1405C6794 (-StDmPageError@-$ST_STORE@USM_TRAITS@@@@SAKPEAU_ST_DATA_MGR@1@PEAD1PEAU_ST_PAGE_LOCATION@1@PEAU_.c)
- *     SmCrAuthDecrypt @ 0x1405CDBAC (SmCrAuthDecrypt.c)
+ *     ExAcquirePushLockSharedEx @ 0x140230E80 (ExAcquirePushLockSharedEx.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     ExfReleasePushLockShared @ 0x1402BDAF0 (ExfReleasePushLockShared.c)
+ *     RtlDecompressBufferEx @ 0x1402F5C10 (RtlDecompressBufferEx.c)
+ *     KiCheckForKernelApcDelivery @ 0x14030FAB0 (KiCheckForKernelApcDelivery.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     ?StDmPageError@?$ST_STORE@USM_TRAITS@@@@SAKPEAU_ST_DATA_MGR@1@PEAD1PEAU_ST_PAGE_LOCATION@1@PEAU_STDM_READ_CONTEXT@1@J@Z @ 0x1405C6D04 (-StDmPageError@-$ST_STORE@USM_TRAITS@@@@SAKPEAU_ST_DATA_MGR@1@PEAD1PEAU_ST_PAGE_LOCATION@1@PEAU_.c)
+ *     SmCrAuthDecrypt @ 0x1405CE11C (SmCrAuthDecrypt.c)
  */
 
 __int64 __fastcall ST_STORE<SM_TRAITS>::StDmSinglePageCopy(
         __int64 a1,
-        __int64 a2,
+        void *a2,
         __int64 a3,
         unsigned __int64 a4,
         __int64 a5,
         __int64 a6)
 {
-  void *v6; // r14
+  PUCHAR v6; // r14
   int v9; // r12d
   __int64 v10; // rdx
   char v11; // bl
-  __int64 v12; // rsi
+  unsigned __int64 v12; // rsi
   __int64 v13; // r8
   unsigned int v14; // r12d
   char v15; // al
@@ -38,32 +38,32 @@ __int64 __fastcall ST_STORE<SM_TRAITS>::StDmSinglePageCopy(
   ULONG_PTR v21; // rcx
   struct _KTHREAD *v22; // rax
   bool v23; // zf
-  unsigned int v24; // eax
-  void *v25; // rdi
+  ULONG CompressedBufferSize; // eax
+  PUCHAR v25; // rdi
   struct _KTHREAD *v26; // rax
   ULONG_PTR v27; // rcx
-  int v29; // [rsp+40h] [rbp-88h] BYREF
-  void *Src; // [rsp+48h] [rbp-80h]
-  __int64 v31; // [rsp+50h] [rbp-78h]
+  ULONG FinalUncompressedSize; // [rsp+40h] [rbp-88h] BYREF
+  PUCHAR UncompressedBuffer; // [rsp+48h] [rbp-80h]
+  PVOID WorkSpace; // [rsp+50h] [rbp-78h]
   __int64 v32; // [rsp+60h] [rbp-68h] BYREF
   int v33; // [rsp+68h] [rbp-60h]
 
-  v6 = (void *)a4;
+  v6 = (PUCHAR)a4;
   v32 = 0LL;
   v33 = 0;
   v9 = *(unsigned __int16 *)(a5 + 4) - 1;
-  v31 = a2;
+  WorkSpace = a2;
   v10 = *(unsigned int *)(a1 + 824);
-  v29 = 0;
+  FinalUncompressedSize = 0;
   v11 = 0;
-  Src = (void *)a4;
+  UncompressedBuffer = (PUCHAR)a4;
   v12 = v10 + a3;
   v13 = *(_QWORD *)(a1 + 1016);
   v14 = -*(_DWORD *)(v13 + 8) & (*(_DWORD *)(v13 + 8) + v9);
   if ( (a4 & 1) != 0 )
   {
-    v6 = (void *)(a4 & 0xFFFFFFFFFFFFFFFEuLL);
-    Src = *(void **)(a6 + 48);
+    v6 = (PUCHAR)(a4 & 0xFFFFFFFFFFFFFFFEuLL);
+    UncompressedBuffer = *(PUCHAR *)(a6 + 48);
   }
   if ( (v12 & 3) != 0 )
   {
@@ -110,16 +110,23 @@ __int64 __fastcall ST_STORE<SM_TRAITS>::StDmSinglePageCopy(
       }
       v11 = 2;
     }
-    v24 = *(unsigned __int16 *)(a5 + 4);
-    if ( v24 >= 0x1000 )
+    CompressedBufferSize = *(unsigned __int16 *)(a5 + 4);
+    if ( CompressedBufferSize >= 0x1000 )
     {
       memmove(v6, (const void *)v12, *(unsigned __int16 *)(a5 + 4));
     }
     else
     {
-      v25 = Src;
-      if ( (int)RtlDecompressBufferEx(*(_WORD *)(a1 + 992), (__int64)Src, 0x1000u, v12, v24, (__int64)&v29, v31) < 0
-        || v29 != 4096 )
+      v25 = UncompressedBuffer;
+      if ( RtlDecompressBufferEx(
+             *(_WORD *)(a1 + 992),
+             UncompressedBuffer,
+             0x1000u,
+             (PUCHAR)v12,
+             CompressedBufferSize,
+             &FinalUncompressedSize,
+             WorkSpace) < 0
+        || FinalUncompressedSize != 4096 )
       {
         v17 = -1073741116;
         v11 |= 1u;

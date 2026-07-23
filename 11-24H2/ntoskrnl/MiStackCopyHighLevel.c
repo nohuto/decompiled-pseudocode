@@ -1,11 +1,11 @@
 /*
- * XREFs of MiStackCopyHighLevel @ 0x140675304
+ * XREFs of MiStackCopyHighLevel @ 0x1406764D4
  * Callers:
- *     MiWritePteHighLevelIsr @ 0x1404B8330 (MiWritePteHighLevelIsr.c)
+ *     MiWritePteHighLevelIsr @ 0x1404B2C80 (MiWritePteHighLevelIsr.c)
  * Callees:
- *     MiClearPfnReuseFields @ 0x1403A1D30 (MiClearPfnReuseFields.c)
- *     MiCopyKstack @ 0x140675158 (MiCopyKstack.c)
- *     MiSwitchKstackPages @ 0x140675564 (MiSwitchKstackPages.c)
+ *     MiClearPfnReuseFields @ 0x140218960 (MiClearPfnReuseFields.c)
+ *     MiCopyKstack @ 0x140676328 (MiCopyKstack.c)
+ *     MiSwitchKstackPages @ 0x140676734 (MiSwitchKstackPages.c)
  */
 
 __int64 __fastcall MiStackCopyHighLevel(_QWORD *a1)

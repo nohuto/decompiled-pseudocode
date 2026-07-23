@@ -1,146 +1,150 @@
 /*
- * XREFs of RtlRbInsertNodeEx @ 0x1400ECEC0
+ * XREFs of RtlRbInsertNodeEx @ 0x1400EAD30
  * Callers:
- *     MiBitmapsCachedEntryLengthChanged @ 0x14001BDE8 (MiBitmapsCachedEntryLengthChanged.c)
- *     PfSnGetFileInformation @ 0x140037630 (PfSnGetFileInformation.c)
- *     KiAbEntryUpdateOwnerTreePosition @ 0x14006C06C (KiAbEntryUpdateOwnerTreePosition.c)
- *     KiAbEntryUpdateWaiterTreePosition @ 0x14006C414 (KiAbEntryUpdateWaiterTreePosition.c)
- *     KiInsertSchedulingGroupQueue @ 0x140099610 (KiInsertSchedulingGroupQueue.c)
- *     KiSetClockInterval @ 0x14009DEE4 (KiSetClockInterval.c)
- *     MiRescanPageFileBitmapPortion @ 0x1400B63D0 (MiRescanPageFileBitmapPortion.c)
- *     MiInvalidatePageFileBitmapsCache @ 0x1400B6934 (MiInvalidatePageFileBitmapsCache.c)
- *     IoStartDiskIoAttributionForContext @ 0x1400B720C (IoStartDiskIoAttributionForContext.c)
- *     KiInsertTimer2WithCollectionLockHeld @ 0x1400EC8A0 (KiInsertTimer2WithCollectionLockHeld.c)
- *     KiAbEntryGetLockedHeadEntry @ 0x1400ECA30 (KiAbEntryGetLockedHeadEntry.c)
- *     KiInsertTimer2IntoCollection @ 0x1400ED2D0 (KiInsertTimer2IntoCollection.c)
- *     MiInitializePagefileBitmapsCache @ 0x140142D04 (MiInitializePagefileBitmapsCache.c)
- *     PspJobIoRateVolumeEntryInsert @ 0x14020F970 (PspJobIoRateVolumeEntryInsert.c)
- *     VmpFaultEntryInsert @ 0x140223E88 (VmpFaultEntryInsert.c)
- *     VmpInsertMemoryRange @ 0x1402242A4 (VmpInsertMemoryRange.c)
- *     EtwpSetProviderTraitsCommon @ 0x140409934 (EtwpSetProviderTraitsCommon.c)
+ *     MiBitmapsCachedEntryLengthChanged @ 0x14001B968 (MiBitmapsCachedEntryLengthChanged.c)
+ *     PfSnGetFileInformation @ 0x1400371B0 (PfSnGetFileInformation.c)
+ *     KiAbEntryUpdateOwnerTreePosition @ 0x14006BBEC (KiAbEntryUpdateOwnerTreePosition.c)
+ *     KiAbEntryUpdateWaiterTreePosition @ 0x14006BF94 (KiAbEntryUpdateWaiterTreePosition.c)
+ *     KiInsertSchedulingGroupQueue @ 0x140098E10 (KiInsertSchedulingGroupQueue.c)
+ *     KiSetClockInterval @ 0x14009D6E4 (KiSetClockInterval.c)
+ *     MiRescanPageFileBitmapPortion @ 0x1400B41F8 (MiRescanPageFileBitmapPortion.c)
+ *     MiInvalidatePageFileBitmapsCache @ 0x1400B475C (MiInvalidatePageFileBitmapsCache.c)
+ *     IoStartDiskIoAttributionForContext @ 0x1400B5034 (IoStartDiskIoAttributionForContext.c)
+ *     KiInsertTimer2WithCollectionLockHeld @ 0x1400EA710 (KiInsertTimer2WithCollectionLockHeld.c)
+ *     KiAbEntryGetLockedHeadEntry @ 0x1400EA8A0 (KiAbEntryGetLockedHeadEntry.c)
+ *     KiInsertTimer2IntoCollection @ 0x1400EB140 (KiInsertTimer2IntoCollection.c)
+ *     MiInitializePagefileBitmapsCache @ 0x140143274 (MiInitializePagefileBitmapsCache.c)
+ *     PspJobIoRateVolumeEntryInsert @ 0x14020F79C (PspJobIoRateVolumeEntryInsert.c)
+ *     VmpFaultEntryInsert @ 0x140223CB4 (VmpFaultEntryInsert.c)
+ *     VmpInsertMemoryRange @ 0x1402240D0 (VmpInsertMemoryRange.c)
+ *     EtwpSetProviderTraitsCommon @ 0x1404087F4 (EtwpSetProviderTraitsCommon.c)
  *     KeInitializeClock @ 0x1407B87A4 (KeInitializeClock.c)
  * Callees:
  *     <none>
  */
 
-void __fastcall RtlRbInsertNodeEx(unsigned __int64 *a1, unsigned __int64 a2, bool a3, unsigned __int64 a4)
+BOOLEAN __cdecl RtlRbInsertNodeEx(PRTL_RB_TREE Tree, PRTL_BALANCED_NODE Parent, BOOLEAN Right, PRTL_BALANCED_NODE Node)
 {
-  unsigned __int64 v4; // r10
-  BOOL v5; // r11d
-  __int64 v6; // rbx
-  unsigned __int64 *v7; // rbx
-  unsigned __int64 *v8; // rdi
-  unsigned __int64 v9; // r8
-  unsigned int v10; // r11d
-  __int64 v11; // r9
-  _QWORD *v12; // r11
-  unsigned __int64 v13; // r8
-  __int64 v14; // rcx
-  __int64 v15; // r8
-  __int64 v16; // rsi
+  unsigned __int64 v4; // rax
+  _RTL_BALANCED_NODE *v5; // r10
+  _BOOL8 v6; // r11
+  _RTL_BALANCED_NODE *v7; // rbx
+  PRTL_BALANCED_NODE *v8; // rbx
+  PRTL_BALANCED_NODE *v9; // rdi
+  _RTL_BALANCED_NODE *v10; // r8
+  BOOL v11; // r11d
+  _BOOL8 v12; // r9
+  PRTL_BALANCED_NODE *v13; // r11
+  unsigned __int64 v14; // r8
+  _RTL_BALANCED_NODE *v15; // rcx
+  unsigned __int64 v16; // r8
+  unsigned __int64 ParentValue; // rsi
 
-  *(_QWORD *)a4 = 0LL;
-  *(_QWORD *)(a4 + 8) = 0LL;
-  if ( a2 )
+  Node->0 = 0uLL;
+  if ( Parent )
   {
-    *(_QWORD *)(a2 + 8LL * a3) = a4;
-    *(_QWORD *)(a4 + 16) = a2 | 1;
-    if ( !a3 && a2 == a1[1] )
-      a1[1] = a4;
-    if ( (*(_BYTE *)(a2 + 16) & 1) != 0 )
+    Parent->Children[Right] = Node;
+    LOBYTE(v4) = (unsigned __int8)Parent | 1;
+    Node->ParentValue = (unsigned __int64)Parent | 1;
+    if ( !Right && Parent == Tree->Min )
+      Tree->Min = Node;
+    if ( (*(_BYTE *)&Parent->0 & 1) != 0 )
     {
       while ( 1 )
       {
-        v4 = *(_QWORD *)(a2 + 16) & 0xFFFFFFFFFFFFFFFCuLL;
-        v5 = *(_QWORD *)v4 != a2;
-        v6 = *(_QWORD *)(v4 + 8LL * (*(_QWORD *)v4 == a2));
-        if ( !v6 || (*(_BYTE *)(v6 + 16) & 1) == 0 )
+        v5 = (_RTL_BALANCED_NODE *)(Parent->ParentValue & 0xFFFFFFFFFFFFFFFCuLL);
+        v6 = v5->Children[0] != Parent;
+        v4 = v5->Children[0] == Parent;
+        v7 = v5->Children[v4];
+        if ( !v7 || (*(_BYTE *)&v7->0 & 1) == 0 )
           break;
-        *(_BYTE *)(a2 + 16) &= ~1u;
-        a4 = v4;
-        *(_BYTE *)(v6 + 16) &= ~1u;
-        a2 = *(_QWORD *)(v4 + 16) & 0xFFFFFFFFFFFFFFFCuLL;
-        if ( a2 )
+        *(_BYTE *)&Parent->0 &= ~1u;
+        Node = v5;
+        *(_BYTE *)&v7->0 &= ~1u;
+        Parent = (PRTL_BALANCED_NODE)(v5->ParentValue & 0xFFFFFFFFFFFFFFFCuLL);
+        if ( Parent )
         {
-          *(_BYTE *)(v4 + 16) |= 1u;
-          a3 = v4 != *(_QWORD *)a2;
-          if ( (*(_BYTE *)(a2 + 16) & 1) != 0 )
+          *(_BYTE *)&v5->0 |= 1u;
+          Right = v5 != Parent->Children[0];
+          if ( (*(_BYTE *)&Parent->0 & 1) != 0 )
             continue;
         }
-        return;
+        return v4;
       }
-      if ( a3 != v5 )
+      if ( Right != v6 )
       {
-        if ( (*(_QWORD *)(a4 + 16) & 0xFFFFFFFFFFFFFFFCuLL) != a2 )
+        if ( (PRTL_BALANCED_NODE)(Node->ParentValue & 0xFFFFFFFFFFFFFFFCuLL) != Parent )
           __fastfail(0x1Du);
-        v7 = (unsigned __int64 *)(a2 + 8LL * (*(_QWORD *)v4 == a2));
-        if ( *v7 != a4 )
+        v8 = &Parent->Children[v5->Children[0] == Parent];
+        if ( *v8 != Node )
           __fastfail(0x1Du);
-        if ( *(_QWORD *)(v4 + 8LL * (*(_QWORD *)v4 != a2)) != a2 )
+        if ( v5->Children[v5->Children[0] != Parent] != Parent )
           __fastfail(0x1Du);
-        *(_QWORD *)(v4 + 8LL * (*(_QWORD *)v4 != a2)) = a4;
-        v8 = (unsigned __int64 *)(a4 + 8LL * v5);
-        *(_QWORD *)(a4 + 16) = v4 | *(_DWORD *)(a4 + 16) & 3;
-        v9 = *v8;
-        if ( *v8 )
+        v5->Children[v5->Children[0] != Parent] = Node;
+        v9 = &Node->Children[v6];
+        Node->ParentValue = (unsigned __int64)v5 | *(_DWORD *)&Node->0 & 3;
+        v10 = *v9;
+        if ( *v9 )
         {
-          v16 = *(_QWORD *)(v9 + 16);
-          if ( (v16 & 0xFFFFFFFFFFFFFFFCuLL) != a4 )
+          ParentValue = v10->ParentValue;
+          if ( (PRTL_BALANCED_NODE)(ParentValue & 0xFFFFFFFFFFFFFFFCuLL) != Node )
             __fastfail(0x1Du);
-          *(_QWORD *)(v9 + 16) = a2 | v16 & 3;
+          v10->ParentValue = (unsigned __int64)Parent | ParentValue & 3;
         }
-        *v7 = v9;
-        *v8 = a2;
-        *(_QWORD *)(a2 + 16) = a4 | *(_DWORD *)(a2 + 16) & 3;
-        a2 = a4;
+        *v8 = v10;
+        *v9 = Parent;
+        Parent->ParentValue = (unsigned __int64)Node | *(_DWORD *)&Parent->0 & 3;
+        Parent = Node;
       }
-      v10 = !v5;
-      if ( (*(_QWORD *)(a2 + 16) & 0xFFFFFFFFFFFFFFFCuLL) != v4 )
+      v11 = !v6;
+      if ( (_RTL_BALANCED_NODE *)(Parent->ParentValue & 0xFFFFFFFFFFFFFFFCuLL) != v5 )
         __fastfail(0x1Du);
-      v11 = v10;
-      v12 = (_QWORD *)(v4 + 8 * (v10 ^ 1LL));
-      if ( *v12 != a2 )
+      v12 = v11;
+      v13 = &v5->Children[!v11];
+      if ( *v13 != Parent )
         __fastfail(0x1Du);
-      v13 = *(_QWORD *)(v4 + 16) & 0xFFFFFFFFFFFFFFFCuLL;
-      if ( v13 )
+      v14 = v5->ParentValue & 0xFFFFFFFFFFFFFFFCuLL;
+      if ( v14 )
       {
-        if ( *(_QWORD *)(v13 + 8) == v4 )
+        if ( *(_RTL_BALANCED_NODE **)(v14 + 8) == v5 )
         {
-          *(_QWORD *)(v13 + 8) = a2;
+          *(_QWORD *)(v14 + 8) = Parent;
         }
         else
         {
-          if ( *(_QWORD *)v13 != v4 )
+          if ( *(_RTL_BALANCED_NODE **)v14 != v5 )
             __fastfail(0x1Du);
-          *(_QWORD *)v13 = a2;
+          *(_QWORD *)v14 = Parent;
         }
       }
       else
       {
-        if ( *a1 != v4 )
+        if ( Tree->Root != v5 )
           __fastfail(0x1Du);
-        *a1 = a2;
+        Tree->Root = Parent;
       }
-      *(_QWORD *)(a2 + 16) = v13 | *(_DWORD *)(a2 + 16) & 3;
-      v14 = *(_QWORD *)(a2 + 8 * v11);
-      if ( v14 )
+      Parent->ParentValue = v14 | *(_DWORD *)&Parent->0 & 3;
+      v15 = Parent->Children[v12];
+      if ( v15 )
       {
-        v15 = *(_QWORD *)(v14 + 16);
-        if ( (v15 & 0xFFFFFFFFFFFFFFFCuLL) != a2 )
+        v16 = v15->ParentValue;
+        if ( (PRTL_BALANCED_NODE)(v16 & 0xFFFFFFFFFFFFFFFCuLL) != Parent )
           __fastfail(0x1Du);
-        *(_QWORD *)(v14 + 16) = v4 | v15 & 3;
+        v15->ParentValue = (unsigned __int64)v5 | v16 & 3;
       }
-      *v12 = v14;
-      *(_QWORD *)(a2 + 8 * v11) = v4;
-      *(_QWORD *)(v4 + 16) = a2 | *(_DWORD *)(v4 + 16) & 3;
-      *(_BYTE *)(v4 + 16) |= 1u;
-      *(_BYTE *)(a2 + 16) &= ~1u;
+      *v13 = v15;
+      Parent->Children[v12] = v5;
+      v4 = (unsigned __int64)Parent | *(_DWORD *)&v5->0 & 3;
+      v5->ParentValue = v4;
+      *(_BYTE *)&v5->0 |= 1u;
+      *(_BYTE *)&Parent->0 &= ~1u;
     }
   }
   else
   {
-    *a1 = a4;
-    a1[1] = a4;
-    *(_QWORD *)(a4 + 16) = 0LL;
+    Tree->Root = Node;
+    Tree->Min = Node;
+    Node->ParentValue = 0LL;
   }
+  return v4;
 }

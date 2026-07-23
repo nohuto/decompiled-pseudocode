@@ -1,21 +1,21 @@
 /*
- * XREFs of PfFbBufferListInsertInFree @ 0x140477680
+ * XREFs of PfFbBufferListInsertInFree @ 0x140473C20
  * Callers:
- *     PfFbBufferListAllocateTemporary @ 0x140477570 (PfFbBufferListAllocateTemporary.c)
- *     PfFbBufferListFlushStandby @ 0x1404775E4 (PfFbBufferListFlushStandby.c)
- *     PfTFullEventListAdd @ 0x140488B58 (PfTFullEventListAdd.c)
- *     PfFbBufferListAllocate @ 0x1405CCB6C (PfFbBufferListAllocate.c)
- *     PfTCleanup @ 0x140746568 (PfTCleanup.c)
- *     PfpFlushEventBuffers @ 0x14094F57C (PfpFlushEventBuffers.c)
- *     PfpRepurposeNameLoggingTrace @ 0x140A8C29C (PfpRepurposeNameLoggingTrace.c)
+ *     PfFbBufferListAllocateTemporary @ 0x140473B10 (PfFbBufferListAllocateTemporary.c)
+ *     PfFbBufferListFlushStandby @ 0x140473B84 (PfFbBufferListFlushStandby.c)
+ *     PfTFullEventListAdd @ 0x140483C48 (PfTFullEventListAdd.c)
+ *     PfFbBufferListAllocate @ 0x1405CA2DC (PfFbBufferListAllocate.c)
+ *     PfTCleanup @ 0x140744858 (PfTCleanup.c)
+ *     PfpFlushEventBuffers @ 0x140971A8C (PfpFlushEventBuffers.c)
+ *     PfpRepurposeNameLoggingTrace @ 0x140A887CC (PfpRepurposeNameLoggingTrace.c)
  * Callees:
- *     ExReleaseRundownProtection_0 @ 0x140245670 (ExReleaseRundownProtection_0.c)
- *     RtlpInterlockedPushEntrySList @ 0x1406B38D0 (RtlpInterlockedPushEntrySList.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ExReleaseRundownProtection_0 @ 0x14020DE50 (ExReleaseRundownProtection_0.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1406B4870 (RtlpInterlockedPushEntrySList.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
-void __fastcall PfFbBufferListInsertInFree(_SLIST_ENTRY *RunRef, struct _SLIST_ENTRY *P, int a3, int a4, int a5)
+void __fastcall PfFbBufferListInsertInFree(_SLIST_ENTRY *RunRef, _SLIST_ENTRY *P, int a3, int a4, int a5)
 {
   _SLIST_ENTRY *v7; // r8
   __int64 Next_low; // rcx
@@ -28,7 +28,7 @@ void __fastcall PfFbBufferListInsertInFree(_SLIST_ENTRY *RunRef, struct _SLIST_E
   }
   else
   {
-    v7 = (struct _SLIST_ENTRY *)((char *)P + a3);
+    v7 = (_SLIST_ENTRY *)((char *)P + a3);
     P[1].Next = RunRef;
     P[2].Next = v7;
     Next_low = LODWORD(RunRef[5].Next);

@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpDmaGetRemappingInformation @ 0x140865688
+ * XREFs of HalpDmaGetRemappingInformation @ 0x1408658C8
  * Callers:
  *     HaliQuerySystemInformation @ 0x140A88510 (HaliQuerySystemInformation.c)
  * Callees:
- *     HalpIommuGetSecurityPolicy @ 0x14036F164 (HalpIommuGetSecurityPolicy.c)
+ *     HalpIommuGetSecurityPolicy @ 0x14036F304 (HalpIommuGetSecurityPolicy.c)
  */
 
 __int64 __fastcall HalpDmaGetRemappingInformation(int a1, int *a2)

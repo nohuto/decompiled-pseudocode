@@ -1,19 +1,19 @@
 /*
- * XREFs of PsRestoreImpersonation @ 0x1409D6E80
+ * XREFs of PsRestoreImpersonation @ 0x1409C74E0
  * Callers:
- *     CmpAddRemoveContainerToCLFSLog @ 0x1407E639C (CmpAddRemoveContainerToCLFSLog.c)
- *     NtCreateUserProcess @ 0x140ACBA80 (NtCreateUserProcess.c)
- *     CmpStartCLFSLog @ 0x140AE5E28 (CmpStartCLFSLog.c)
+ *     CmpAddRemoveContainerToCLFSLog @ 0x1407E696C (CmpAddRemoveContainerToCLFSLog.c)
+ *     NtCreateUserProcess @ 0x140AC9930 (NtCreateUserProcess.c)
+ *     CmpStartCLFSLog @ 0x140AE7708 (CmpStartCLFSLog.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x1402595A0 (KeLeaveCriticalRegionThread.c)
- *     ExfTryToWakePushLock @ 0x14025F9A0 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     ObfDereferenceObject @ 0x140325680 (ObfDereferenceObject.c)
- *     PsReferenceSiloContext @ 0x14033FA90 (PsReferenceSiloContext.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     SeQueryTokenTrustLink @ 0x14046743C (SeQueryTokenTrustLink.c)
- *     PspWriteTebImpersonationInfo @ 0x140911080 (PspWriteTebImpersonationInfo.c)
+ *     KeLeaveCriticalRegionThread @ 0x140289BB0 (KeLeaveCriticalRegionThread.c)
+ *     ExfTryToWakePushLock @ 0x14028FFB0 (ExfTryToWakePushLock.c)
+ *     ObfDereferenceObject @ 0x1402CE210 (ObfDereferenceObject.c)
+ *     PsReferenceSiloContext @ 0x14031EF70 (PsReferenceSiloContext.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     SeQueryTokenTrustLink @ 0x14045EEDC (SeQueryTokenTrustLink.c)
+ *     PspWriteTebImpersonationInfo @ 0x1408E87D0 (PspWriteTebImpersonationInfo.c)
  */
 
 void __stdcall PsRestoreImpersonation(PETHREAD Thread, PSE_IMPERSONATION_STATE ImpersonationState)
@@ -24,8 +24,8 @@ void __stdcall PsRestoreImpersonation(PETHREAD Thread, PSE_IMPERSONATION_STATE I
   struct _KTHREAD *v6; // r13
   __int64 v8; // rcx
   unsigned __int64 v9; // rdi
-  _QWORD *v10; // rax
-  _QWORD *v11; // rbp
+  char *v10; // rax
+  char *v11; // rbp
   struct _KTHREAD *v12; // rbp
   char v13; // di
 
@@ -48,15 +48,12 @@ void __stdcall PsRestoreImpersonation(PETHREAD Thread, PSE_IMPERSONATION_STATE I
     v9 = 0LL;
   }
   --CurrentThread->KernelApcDisable;
-  v10 = KeAbPreAcquire((__int64)&Thread[1].WaitBlockList, 0LL);
+  v10 = (char *)KeAbPreAcquire((__int64)&Thread[1].WaitBlockList, 0LL);
   v11 = v10;
   if ( _interlockedbittestandset64((volatile signed __int32 *)&Thread[1].WaitBlockList, 0LL) )
-    ExfAcquirePushLockExclusiveEx(
-      (unsigned __int64 *)&Thread[1].WaitBlockList,
-      (__int64)v10,
-      (__int64)&Thread[1].WaitBlockList);
+    ExfAcquirePushLockExclusiveEx((unsigned __int64 *)&Thread[1].WaitBlockList, v10, (__int64)&Thread[1].WaitBlockList);
   if ( v11 )
-    *((_BYTE *)v11 + 10) = 1;
+    v11[10] = 1;
   if ( (*(_DWORD *)(&Thread[1].SwapListEntry + 1) & 8) != 0 )
   {
     v12 = Thread[1].WaitBlock[1].Thread;
@@ -68,7 +65,7 @@ void __stdcall PsRestoreImpersonation(PETHREAD Thread, PSE_IMPERSONATION_STATE I
   }
   if ( ImpersonationState->Token )
   {
-    *($5FBC9D02EEE85B5272AB6A5488D47FE6 *)((char *)&Thread[1].116 + 4) = ($5FBC9D02EEE85B5272AB6A5488D47FE6)v9;
+    *($F6E8E81C3EACE4482EE2626591212BC8 *)((char *)&Thread[1].116 + 4) = ($F6E8E81C3EACE4482EE2626591212BC8)v9;
     Thread[1].WaitBlock[1].Thread = v6;
     if ( ImpersonationState->CopyOnOpen )
       _InterlockedOr((volatile signed __int32 *)&Thread[1].SwapListEntry + 2, 0x100u);

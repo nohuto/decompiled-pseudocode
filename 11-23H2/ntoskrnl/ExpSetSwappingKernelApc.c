@@ -1,10 +1,10 @@
 /*
- * XREFs of ExpSetSwappingKernelApc @ 0x140AAB110
+ * XREFs of ExpSetSwappingKernelApc @ 0x140AAAF80
  * Callers:
  *     <none>
  * Callees:
- *     KeSetEvent @ 0x14023C5E0 (KeSetEvent.c)
- *     KeSetKernelStackSwapEnable @ 0x1402A8CB0 (KeSetKernelStackSwapEnable.c)
+ *     KeSetEvent @ 0x14023C6B0 (KeSetEvent.c)
+ *     KeSetKernelStackSwapEnable @ 0x1402A8F40 (KeSetKernelStackSwapEnable.c)
  */
 
 LONG __fastcall ExpSetSwappingKernelApc(__int64 a1, __int64 a2, BOOLEAN *a3, struct _KEVENT **a4)

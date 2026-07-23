@@ -1,10 +1,10 @@
 /*
- * XREFs of HvlRegisterPerfFeedbackCounters @ 0x140589634
+ * XREFs of HvlRegisterPerfFeedbackCounters @ 0x140586924
  * Callers:
- *     PpmPerfRegisterHvPerfStateCounters @ 0x140763E20 (PpmPerfRegisterHvPerfStateCounters.c)
+ *     PpmPerfRegisterHvPerfStateCounters @ 0x1407637F0 (PpmPerfRegisterHvPerfStateCounters.c)
  * Callees:
- *     HvlpSetPowerProperty @ 0x1404BD770 (HvlpSetPowerProperty.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     HvlpSetPowerProperty @ 0x1404B88E0 (HvlpSetPowerProperty.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 __int64 __fastcall HvlRegisterPerfFeedbackCounters(int a1, __int64 a2)

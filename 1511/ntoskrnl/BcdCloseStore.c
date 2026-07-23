@@ -16,22 +16,22 @@
  *     BiAcquireBcdSyncMutant @ 0x1404FD784 (BiAcquireBcdSyncMutant.c)
  */
 
-__int64 __fastcall BcdCloseStore(HANDLE Handle)
+NTSTATUS __cdecl BcdCloseStore(HANDLE BcdStoreHandle)
 {
   __int64 v2; // rcx
   char v3; // si
-  __int64 result; // rax
+  NTSTATUS result; // eax
   char v5; // bl
-  unsigned int v6; // eax
+  NTSTATUS v6; // eax
   __int64 v7; // rcx
-  unsigned int v8; // ebx
+  NTSTATUS v8; // ebx
 
-  LOBYTE(v2) = BiIsOfflineHandle((char)Handle);
+  LOBYTE(v2) = BiIsOfflineHandle((char)BcdStoreHandle);
   v3 = v2;
   result = BiAcquireBcdSyncMutant(v2);
-  if ( (int)result >= 0 )
+  if ( result >= 0 )
   {
-    if ( (unsigned __int8)BiIsSystemStore(Handle) )
+    if ( (unsigned __int8)BiIsSystemStore(BcdStoreHandle) )
     {
       v5 = 4;
       if ( (unsigned __int8)BiIsWinPEBoot() )
@@ -41,7 +41,7 @@ __int64 __fastcall BcdCloseStore(HANDLE Handle)
     {
       v5 = 2;
     }
-    v6 = BiCloseStore(Handle, v5);
+    v6 = BiCloseStore(BcdStoreHandle, v5);
     LOBYTE(v7) = v3;
     v8 = v6;
     BiReleaseBcdSyncMutant(v7);

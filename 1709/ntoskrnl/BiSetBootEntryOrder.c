@@ -13,7 +13,7 @@
 __int64 __fastcall BiSetBootEntryOrder(PULONG Ids, PULONG Count)
 {
   unsigned int v2; // edi
-  int v4; // ebx
+  NTSTATUS v4; // ebx
   unsigned int v6; // [rsp+40h] [rbp+18h] BYREF
 
   v2 = (unsigned int)Count;

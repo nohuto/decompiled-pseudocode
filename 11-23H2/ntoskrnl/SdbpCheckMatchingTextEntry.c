@@ -1,19 +1,19 @@
 /*
- * XREFs of SdbpCheckMatchingTextEntry @ 0x140A4FF54
+ * XREFs of SdbpCheckMatchingTextEntry @ 0x140A50204
  * Callers:
- *     SdbpCheckMatchingText @ 0x140A4FE30 (SdbpCheckMatchingText.c)
+ *     SdbpCheckMatchingText @ 0x140A500E0 (SdbpCheckMatchingText.c)
  * Callees:
- *     memmove @ 0x140435700 (memmove.c)
+ *     memmove @ 0x140435B00 (memmove.c)
  *     AslLogCallPrintf @ 0x1406956FC (AslLogCallPrintf.c)
- *     AslFileMappingDelete @ 0x140756FB8 (AslFileMappingDelete.c)
- *     AslFileMappingCreate @ 0x140757F3C (AslFileMappingCreate.c)
- *     AslAlloc @ 0x140758498 (AslAlloc.c)
- *     AslFileNotFound @ 0x1407591EC (AslFileNotFound.c)
- *     SdbpInitializeSearchDBContext @ 0x140A513C0 (SdbpInitializeSearchDBContext.c)
- *     SdbpResolveMatchingFile @ 0x140A51760 (SdbpResolveMatchingFile.c)
- *     AslStringSearchA @ 0x140A53ECC (AslStringSearchA.c)
- *     AslStringSearchW @ 0x140A53F64 (AslStringSearchW.c)
- *     AslFileMappingEnsureMappedAs @ 0x140A546AC (AslFileMappingEnsureMappedAs.c)
+ *     AslFileMappingDelete @ 0x1407571A8 (AslFileMappingDelete.c)
+ *     AslFileMappingCreate @ 0x14075812C (AslFileMappingCreate.c)
+ *     AslAlloc @ 0x140758688 (AslAlloc.c)
+ *     AslFileNotFound @ 0x1407593DC (AslFileNotFound.c)
+ *     SdbpInitializeSearchDBContext @ 0x140A51670 (SdbpInitializeSearchDBContext.c)
+ *     SdbpResolveMatchingFile @ 0x140A51A10 (SdbpResolveMatchingFile.c)
+ *     AslStringSearchA @ 0x140A5417C (AslStringSearchA.c)
+ *     AslStringSearchW @ 0x140A54214 (AslStringSearchW.c)
+ *     AslFileMappingEnsureMappedAs @ 0x140A5495C (AslFileMappingEnsureMappedAs.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

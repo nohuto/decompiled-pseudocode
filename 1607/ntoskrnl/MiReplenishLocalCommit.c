@@ -1,9 +1,9 @@
 /*
- * XREFs of MiReplenishLocalCommit @ 0x1400A4FEC
+ * XREFs of MiReplenishLocalCommit @ 0x1400A3564
  * Callers:
- *     MiChargeCommit @ 0x14002B650 (MiChargeCommit.c)
+ *     MiChargeCommit @ 0x14002B1D0 (MiChargeCommit.c)
  * Callees:
- *     MiSyncCommitSignals @ 0x140142B2C (MiSyncCommitSignals.c)
+ *     MiSyncCommitSignals @ 0x14014309C (MiSyncCommitSignals.c)
  */
 
 signed __int64 __fastcall MiReplenishLocalCommit(__int64 a1, __int64 a2, unsigned __int64 a3, __int64 a4)

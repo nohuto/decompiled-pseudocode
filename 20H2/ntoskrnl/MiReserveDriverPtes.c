@@ -28,11 +28,11 @@ unsigned __int64 __fastcall MiReserveDriverPtes(int a1, __int64 a2, unsigned int
   __int64 i; // rbx
   ULONG ClearBitsAndSet; // ecx
   ULONG v11; // r12d
-  RTL_BITMAP *Pool; // r15
+  _RTL_BITMAP *Pool; // r15
   int v13; // ebx
   unsigned __int64 v14; // rax
   __int64 PteAddress; // rsi
-  RTL_BITMAP *v16; // rcx
+  _RTL_BITMAP *v16; // rcx
   unsigned __int64 v17; // [rsp+20h] [rbp-58h]
   unsigned __int64 v19; // [rsp+98h] [rbp+20h]
 
@@ -59,7 +59,7 @@ unsigned __int64 __fastcall MiReserveDriverPtes(int a1, __int64 a2, unsigned int
   }
   v11 = (unsigned __int8)ExGenRandom(1);
   v19 = (16 * (v6 + v11) + 511) & 0xFFFFFE00;
-  Pool = (RTL_BITMAP *)MiAllocatePool((_DWORD)InitializationPhase != 0 ? 256 : 64, (v19 >> 7) + 40, 0x70446D4Du);
+  Pool = (_RTL_BITMAP *)MiAllocatePool((_DWORD)InitializationPhase != 0 ? 256 : 64, (v19 >> 7) + 40, 0x70446D4Du);
   if ( !Pool )
   {
 LABEL_8:

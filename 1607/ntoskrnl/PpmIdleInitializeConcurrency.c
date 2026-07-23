@@ -1,15 +1,15 @@
 /*
- * XREFs of PpmIdleInitializeConcurrency @ 0x14056A4B0
+ * XREFs of PpmIdleInitializeConcurrency @ 0x14056A9F0
  * Callers:
- *     PpmParkRegisterParking @ 0x140143818 (PpmParkRegisterParking.c)
+ *     PpmParkRegisterParking @ 0x140143D88 (PpmParkRegisterParking.c)
  * Callees:
- *     KeFirstGroupAffinityEx @ 0x1400ABFF8 (KeFirstGroupAffinityEx.c)
- *     KeCountSetBitsAffinityEx @ 0x1400C8A70 (KeCountSetBitsAffinityEx.c)
- *     KeRevertToUserGroupAffinityThread @ 0x1400C9044 (KeRevertToUserGroupAffinityThread.c)
- *     KeSetSystemGroupAffinityThread @ 0x1400CB014 (KeSetSystemGroupAffinityThread.c)
- *     PpmQueryTime @ 0x1400D6ADC (PpmQueryTime.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     KeFirstGroupAffinityEx @ 0x1400AA560 (KeFirstGroupAffinityEx.c)
+ *     KeCountSetBitsAffinityEx @ 0x1400C6910 (KeCountSetBitsAffinityEx.c)
+ *     KeRevertToUserGroupAffinityThread @ 0x1400C6EE4 (KeRevertToUserGroupAffinityThread.c)
+ *     KeSetSystemGroupAffinityThread @ 0x1400C8EB4 (KeSetSystemGroupAffinityThread.c)
+ *     PpmQueryTime @ 0x1400D497C (PpmQueryTime.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     memset @ 0x140171AC0 (memset.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
  */
 

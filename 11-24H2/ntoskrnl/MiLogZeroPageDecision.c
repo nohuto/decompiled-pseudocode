@@ -1,10 +1,10 @@
 /*
- * XREFs of MiLogZeroPageDecision @ 0x1403C79E0
+ * XREFs of MiLogZeroPageDecision @ 0x140413620
  * Callers:
- *     MiReassessZeroThreads @ 0x1403C698C (MiReassessZeroThreads.c)
- *     MiWakeZeroingThreads @ 0x1403C7310 (MiWakeZeroingThreads.c)
+ *     MiReassessZeroThreads @ 0x1404125C0 (MiReassessZeroThreads.c)
+ *     MiWakeZeroingThreads @ 0x140412F50 (MiWakeZeroingThreads.c)
  * Callees:
- *     MiZeroPageLogEntriesMergable @ 0x1403C7B14 (MiZeroPageLogEntriesMergable.c)
+ *     MiZeroPageLogEntriesMergable @ 0x140413754 (MiZeroPageLogEntriesMergable.c)
  */
 
 void __fastcall MiLogZeroPageDecision(
@@ -52,12 +52,12 @@ void __fastcall MiLogZeroPageDecision(
       *((_BYTE *)v11 + 12) = (a2 << 6) | v15 & 0x3F;
       if ( v6[2] == 1 || !(unsigned int)MiZeroPageLogEntriesMergable(v11, v11 - 4) || *(_WORD *)(v16 - 2) == 0xFFFF )
       {
-        ++dword_140EF4C48;
+        ++dword_140EF4E68;
         ++v6[2];
       }
       else
       {
-        ++dword_140EF4C44;
+        ++dword_140EF4E64;
         ++*(_WORD *)(v16 - 2);
       }
     }

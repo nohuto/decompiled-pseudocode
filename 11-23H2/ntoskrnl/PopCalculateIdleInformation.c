@@ -1,16 +1,16 @@
 /*
- * XREFs of PopCalculateIdleInformation @ 0x1403C7D40
+ * XREFs of PopCalculateIdleInformation @ 0x1403C7F20
  * Callers:
- *     PopCaptureSleepStudyStatistics @ 0x1403C7F00 (PopCaptureSleepStudyStatistics.c)
- *     PopCalculateCsSummary @ 0x140591334 (PopCalculateCsSummary.c)
- *     PopSleepstudyStartNextSession @ 0x140878644 (PopSleepstudyStartNextSession.c)
- *     PopSleepstudySnapModernStandbySessionData @ 0x140993418 (PopSleepstudySnapModernStandbySessionData.c)
- *     PopDripsWatchdogCallbackWorker @ 0x14099C190 (PopDripsWatchdogCallbackWorker.c)
- *     PopDripsWatchdogDiagnosticWorker @ 0x14099C470 (PopDripsWatchdogDiagnosticWorker.c)
- *     PopDripsWatchdogStartWatchdog @ 0x14099C718 (PopDripsWatchdogStartWatchdog.c)
+ *     PopCaptureSleepStudyStatistics @ 0x1403C80E0 (PopCaptureSleepStudyStatistics.c)
+ *     PopCalculateCsSummary @ 0x140591824 (PopCalculateCsSummary.c)
+ *     PopSleepstudyStartNextSession @ 0x140878884 (PopSleepstudyStartNextSession.c)
+ *     PopSleepstudySnapModernStandbySessionData @ 0x140993618 (PopSleepstudySnapModernStandbySessionData.c)
+ *     PopDripsWatchdogCallbackWorker @ 0x14099C390 (PopDripsWatchdogCallbackWorker.c)
+ *     PopDripsWatchdogDiagnosticWorker @ 0x14099C670 (PopDripsWatchdogDiagnosticWorker.c)
+ *     PopDripsWatchdogStartWatchdog @ 0x14099C918 (PopDripsWatchdogStartWatchdog.c)
  * Callees:
- *     PpmConvertTime @ 0x140255510 (PpmConvertTime.c)
- *     PpmQueryPlatformStateResidency @ 0x1403D6FA0 (PpmQueryPlatformStateResidency.c)
+ *     PpmConvertTime @ 0x1402555D0 (PpmConvertTime.c)
+ *     PpmQueryPlatformStateResidency @ 0x1403D7180 (PpmQueryPlatformStateResidency.c)
  */
 
 unsigned __int64 __fastcall PopCalculateIdleInformation(__int64 a1)

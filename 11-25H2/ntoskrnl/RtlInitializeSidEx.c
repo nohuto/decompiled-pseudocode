@@ -6,34 +6,32 @@
  *     RtlInitializeSid @ 0x1409EAF40 (RtlInitializeSid.c)
  */
 
-NTSTATUS __fastcall RtlInitializeSidEx(_DWORD *a1, struct _SID_IDENTIFIER_AUTHORITY *a2, UCHAR a3, __int64 a4)
+NTSTATUS RtlInitializeSidEx(PSID Sid, PSID_IDENTIFIER_AUTHORITY IdentifierAuthority, UCHAR SubAuthorityCount, ...)
 {
-  unsigned int v4; // ebx
+  unsigned int v3; // ebx
   NTSTATUS result; // eax
-  UCHAR *v7; // rcx
-  _DWORD *v8; // rdx
-  __int64 v9; // r8
-  UCHAR v10; // [rsp+60h] [rbp+18h] BYREF
-  __int64 v11; // [rsp+68h] [rbp+20h]
+  UCHAR *v6; // rcx
+  _DWORD *v7; // rdx
+  __int64 v8; // r8
+  UCHAR v9; // [rsp+60h] [rbp+18h] BYREF
 
-  v10 = a3;
-  v11 = a4;
-  v4 = a3;
-  result = RtlInitializeSid(a1, a2, a3);
+  v9 = SubAuthorityCount;
+  v3 = SubAuthorityCount;
+  result = RtlInitializeSid(Sid, IdentifierAuthority, SubAuthorityCount);
   if ( result >= 0 )
   {
-    if ( (_BYTE)v4 )
+    if ( (_BYTE)v3 )
     {
-      v7 = &v10;
-      v8 = a1 + 2;
-      v9 = v4;
+      v6 = &v9;
+      v7 = (char *)Sid + 8;
+      v8 = v3;
       do
       {
-        v7 += 8;
-        *v8++ = *(_DWORD *)v7;
-        --v9;
+        v6 += 8;
+        *v7++ = *(_DWORD *)v6;
+        --v8;
       }
-      while ( v9 );
+      while ( v8 );
     }
     return 0;
   }

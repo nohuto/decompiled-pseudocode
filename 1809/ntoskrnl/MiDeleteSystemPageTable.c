@@ -1,22 +1,22 @@
 /*
- * XREFs of MiDeleteSystemPageTable @ 0x14011F050
+ * XREFs of MiDeleteSystemPageTable @ 0x14011F0C0
  * Callers:
  *     <none>
  * Callees:
  *     MiPteInShadowRange @ 0x14003D740 (MiPteInShadowRange.c)
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
- *     MiGetLeafVa @ 0x140076410 (MiGetLeafVa.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14007DE90 (KeAcquireInStackQueuedSpinLock.c)
- *     MiEvictPageTableLock @ 0x1400983A0 (MiEvictPageTableLock.c)
- *     MiInsertTbFlushEntry @ 0x1400B3AF0 (MiInsertTbFlushEntry.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
- *     MiAddSystemPageTableToList @ 0x14011F228 (MiAddSystemPageTableToList.c)
- *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
- *     MiInsertLargeTbFlushEntry @ 0x140121484 (MiInsertLargeTbFlushEntry.c)
- *     MiReplicatePteChange @ 0x140174F14 (MiReplicatePteChange.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     RtlCompareMemoryUlong @ 0x1401C5C50 (RtlCompareMemoryUlong.c)
+ *     MiGetLeafVa @ 0x140076400 (MiGetLeafVa.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14007DE80 (KeAcquireInStackQueuedSpinLock.c)
+ *     MiEvictPageTableLock @ 0x1400982E0 (MiEvictPageTableLock.c)
+ *     MiInsertTbFlushEntry @ 0x1400B3A30 (MiInsertTbFlushEntry.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC6A0 (KxReleaseQueuedSpinLock.c)
+ *     MiAddSystemPageTableToList @ 0x14011F298 (MiAddSystemPageTableToList.c)
+ *     MiWritePteShadow @ 0x140120F40 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120FA0 (MiPteHasShadow.c)
+ *     MiInsertLargeTbFlushEntry @ 0x140121554 (MiInsertLargeTbFlushEntry.c)
+ *     MiReplicatePteChange @ 0x140175014 (MiReplicatePteChange.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     RtlCompareMemoryUlong @ 0x1401C5DB0 (RtlCompareMemoryUlong.c)
  */
 
 __int64 __fastcall MiDeleteSystemPageTable(__int64 a1, unsigned __int64 a2, int a3)
@@ -97,7 +97,7 @@ __int64 __fastcall MiDeleteSystemPageTable(__int64 a1, unsigned __int64 a2, int 
     v18 = MiPteInShadowRange(a2);
     if ( a3 == 3 )
     {
-      KeAcquireInStackQueuedSpinLock(&qword_14043AE80, &LockHandle);
+      KeAcquireInStackQueuedSpinLock(&qword_14043BF40, &LockHandle);
       v20 = ZeroPte;
       v21 = 0;
       if ( v18 )
@@ -105,7 +105,7 @@ __int64 __fastcall MiDeleteSystemPageTable(__int64 a1, unsigned __int64 a2, int 
         if ( (unsigned int)MiPteHasShadow(v19, ZeroPte) )
         {
           v21 = 1;
-          if ( HIBYTE(word_14043A1AC) )
+          if ( HIBYTE(word_14043B26C) )
             goto LABEL_30;
 LABEL_28:
           if ( (v20 & 1) != 0 )
@@ -137,7 +137,7 @@ LABEL_30:
       if ( (unsigned int)MiPteHasShadow(v17, ZeroPte) )
       {
         v26 = 1;
-        if ( HIBYTE(word_14043A1AC) )
+        if ( HIBYTE(word_14043B26C) )
           goto LABEL_46;
       }
       else if ( (KeGetCurrentThread()->ApcState.Process[2].ActiveProcessors.Bitmap[0] & 0x100000000000LL) == 0 )

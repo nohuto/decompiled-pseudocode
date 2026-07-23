@@ -1,9 +1,9 @@
 /*
- * XREFs of PfSnPrefetchCacheCtxStart @ 0x140AB0350
+ * XREFs of PfSnPrefetchCacheCtxStart @ 0x140AAB2C0
  * Callers:
- *     PfSnPrefetchCacheEntryGet @ 0x140961580 (PfSnPrefetchCacheEntryGet.c)
+ *     PfSnPrefetchCacheEntryGet @ 0x140949040 (PfSnPrefetchCacheEntryGet.c)
  * Callees:
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall PfSnPrefetchCacheCtxStart(__int64 a1)
@@ -21,7 +21,7 @@ __int64 __fastcall PfSnPrefetchCacheCtxStart(__int64 a1)
   _QWORD *v12; // rax
   __int64 v14; // [rsp+48h] [rbp+10h]
 
-  Pool2 = (char *)ExAllocatePool2(0x40uLL);
+  Pool2 = (char *)ExAllocatePool2(0x40uLL, 0x1000uLL, 0x66506343u);
   v3 = 0;
   v4 = Pool2;
   if ( Pool2 )

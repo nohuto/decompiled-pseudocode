@@ -54,20 +54,20 @@
 
 int __cdecl memcmp(const void *Buf1, const void *Buf2, size_t Size)
 {
+  unsigned int i; // ecx
   int v6; // esi
 
-  while ( Size >= 4 )
+  for ( i = Size; i >= 4; i -= 4 )
   {
     if ( *(_DWORD *)Buf1 != *(_DWORD *)Buf2 )
     {
-      Size = 4;
+      i = 4;
       break;
     }
     Buf1 = (char *)Buf1 + 4;
     Buf2 = (char *)Buf2 + 4;
-    Size -= 4;
   }
-  if ( !Size )
+  if ( !i )
     return 0;
   v6 = (_BYTE *)Buf2 - (_BYTE *)Buf1;
   while ( *(_BYTE *)Buf1 >= *((_BYTE *)Buf1 + v6) )
@@ -75,7 +75,7 @@ int __cdecl memcmp(const void *Buf1, const void *Buf2, size_t Size)
     if ( *(_BYTE *)Buf1 > *((_BYTE *)Buf1 + v6) )
       return 1;
     Buf1 = (char *)Buf1 + 1;
-    if ( !--Size )
+    if ( !--i )
       return 0;
   }
   return -1;

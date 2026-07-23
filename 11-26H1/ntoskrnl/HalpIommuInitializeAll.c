@@ -1,22 +1,22 @@
 /*
- * XREFs of HalpIommuInitializeAll @ 0x140C0D57C
+ * XREFs of HalpIommuInitializeAll @ 0x140C1378C
  * Callers:
- *     HalpInterruptReinitialize @ 0x140BEA368 (HalpInterruptReinitialize.c)
- *     HalpIommuInitSystem @ 0x140BEB6E0 (HalpIommuInitSystem.c)
+ *     HalpInterruptReinitialize @ 0x140BF0368 (HalpInterruptReinitialize.c)
+ *     HalpIommuInitSystem @ 0x140BF16E0 (HalpIommuInitSystem.c)
  * Callees:
- *     RtlClearAllBits @ 0x14047EA90 (RtlClearAllBits.c)
- *     HviGetHardwareFeatures @ 0x1404E6360 (HviGetHardwareFeatures.c)
- *     HalpInterruptIsRemappingRequired @ 0x1404E7C88 (HalpInterruptIsRemappingRequired.c)
- *     HalpIommuPopulateExceptionList @ 0x14050C65C (HalpIommuPopulateExceptionList.c)
- *     HalpMmAllocateMemory @ 0x14057DCD4 (HalpMmAllocateMemory.c)
- *     HalpIommuUpdatePageTableLevel @ 0x1405876F4 (HalpIommuUpdatePageTableLevel.c)
- *     HalpIommuUpdatePageWalkCapability @ 0x140587794 (HalpIommuUpdatePageWalkCapability.c)
- *     HalpIommuConfigureInterrupt @ 0x14058BC8C (HalpIommuConfigureInterrupt.c)
- *     HalpGetIrtEntryCount @ 0x14058FB6C (HalpGetIrtEntryCount.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     HalpIommuSetupMessageInterruptRouting @ 0x140BEBC10 (HalpIommuSetupMessageInterruptRouting.c)
- *     HalpIommuProcessReservedDomains @ 0x140BEBD4C (HalpIommuProcessReservedDomains.c)
+ *     RtlClearAllBits @ 0x140478400 (RtlClearAllBits.c)
+ *     HviGetHardwareFeatures @ 0x1404DF900 (HviGetHardwareFeatures.c)
+ *     HalpInterruptIsRemappingRequired @ 0x1404E1048 (HalpInterruptIsRemappingRequired.c)
+ *     HalpIommuPopulateExceptionList @ 0x1405060CC (HalpIommuPopulateExceptionList.c)
+ *     HalpMmAllocateMemory @ 0x1405801F4 (HalpMmAllocateMemory.c)
+ *     HalpIommuUpdatePageTableLevel @ 0x140589C14 (HalpIommuUpdatePageTableLevel.c)
+ *     HalpIommuUpdatePageWalkCapability @ 0x140589CB4 (HalpIommuUpdatePageWalkCapability.c)
+ *     HalpIommuConfigureInterrupt @ 0x14058E40C (HalpIommuConfigureInterrupt.c)
+ *     HalpGetIrtEntryCount @ 0x1405922EC (HalpGetIrtEntryCount.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     HalpIommuSetupMessageInterruptRouting @ 0x140BF1C10 (HalpIommuSetupMessageInterruptRouting.c)
+ *     HalpIommuProcessReservedDomains @ 0x140BF1D4C (HalpIommuProcessReservedDomains.c)
  */
 
 __int64 __fastcall HalpIommuInitializeAll(char a1, __int64 a2)
@@ -30,11 +30,11 @@ __int64 __fastcall HalpIommuInitializeAll(char a1, __int64 a2)
   int v10; // ebx
   unsigned int v11; // ebx
   __int64 result; // rax
-  int v13; // ecx
+  volatile LONG Lock; // ecx
   int v14; // edx
   __int64 v15; // rdx
   const char *v16; // rcx
-  __int64 StackLimit_high; // rdx
+  __int64 StackBase_high; // rdx
   unsigned __int64 v18[3]; // [rsp+30h] [rbp-50h] BYREF
   __int128 v19; // [rsp+48h] [rbp-38h] BYREF
   __int128 v20; // [rsp+58h] [rbp-28h] BYREF
@@ -108,9 +108,9 @@ LABEL_24:
             }
             else
             {
-              v13 = **(_DWORD **)&KiSupervisorXStateFeaturesLock.WaitBlockFill11[112];
-              v18[1] = (unsigned __int16)(**(_DWORD **)&KiSupervisorXStateFeaturesLock.WaitBlockFill11[112] >> 6);
-              v18[0] = 1LL << v13;
+              Lock = KiSupervisorXStateFeaturesLock.SchedulerApc.Thread->Header.Lock;
+              v18[1] = (unsigned __int16)((unsigned int)KiSupervisorXStateFeaturesLock.SchedulerApc.Thread->Header.Lock >> 6);
+              v18[0] = 1LL << Lock;
               if ( !HalpInterruptIsRemappingRequired() || (v14 = 6, (*(_DWORD *)(v8 + 464) & 0x10) != 0) )
                 v14 = 1073741822;
               HalpIommuConfigureInterrupt(v7, v14, v18);
@@ -149,19 +149,19 @@ LABEL_30:
   }
   HalpIommuUpdatePageWalkCapability();
   HalpIommuUpdatePageTableLevel();
-  if ( HIDWORD(HalpDeviceBlockUnblockPushLock.StackLimit) )
+  if ( HIDWORD(HalpDeviceBlockUnblockPushLock.StackBase) )
   {
     v4 = 12;
     v16 = "\t";
     HalpIommuDomainMaxInputBitWidth = 12;
-    StackLimit_high = HIDWORD(HalpDeviceBlockUnblockPushLock.StackLimit);
+    StackBase_high = HIDWORD(HalpDeviceBlockUnblockPushLock.StackBase);
     do
     {
       v4 += *v16;
       v16 += 4;
-      --StackLimit_high;
+      --StackBase_high;
     }
-    while ( StackLimit_high );
+    while ( StackBase_high );
 LABEL_50:
     HalpIommuDomainMaxInputBitWidth = v4;
   }

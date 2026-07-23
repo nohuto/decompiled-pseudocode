@@ -1,15 +1,15 @@
 /*
- * XREFs of RtlpFcChangeRegistrationCallback @ 0x1800FF560
+ * XREFs of RtlpFcChangeRegistrationCallback @ 0x1800FECB0
  * Callers:
  *     <none>
  * Callees:
- *     RtlAcquireSRWLockExclusive @ 0x18003F4D0 (RtlAcquireSRWLockExclusive.c)
- *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x180170020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
+ *     RtlAcquireSRWLockExclusive @ 0x180029A40 (RtlAcquireSRWLockExclusive.c)
+ *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x18016F020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
  */
 
-struct _TEB *__fastcall RtlpFcChangeRegistrationCallback(__int64 a1, __int64 a2)
+void __fastcall RtlpFcChangeRegistrationCallback(PTP_CALLBACK_INSTANCE a1, _RTL_SRWLOCK *a2, PTP_WORK a3)
 {
-  RtlAcquireSRWLockExclusive((volatile signed __int64 *)(a2 + 32), a2);
-  (*(void (__fastcall **)(_QWORD))(a2 + 16))(*(_QWORD *)(a2 + 24));
-  return RtlReleaseSRWLockExclusive((volatile signed __int64 *)(a2 + 32));
+  RtlAcquireSRWLockExclusive(a2 + 4);
+  ((void (__fastcall *)(unsigned __int64))a2[2].Value)(a2[3].Value);
+  RtlReleaseSRWLockExclusive(a2 + 4);
 }

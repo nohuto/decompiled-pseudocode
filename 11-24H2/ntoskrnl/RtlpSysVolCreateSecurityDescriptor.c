@@ -1,17 +1,17 @@
 /*
- * XREFs of RtlpSysVolCreateSecurityDescriptor @ 0x140783E04
+ * XREFs of RtlpSysVolCreateSecurityDescriptor @ 0x140783D34
  * Callers:
- *     RtlCreateSystemVolumeInformationFolder @ 0x1407837C0 (RtlCreateSystemVolumeInformationFolder.c)
+ *     RtlCreateSystemVolumeInformationFolder @ 0x1407836F0 (RtlCreateSystemVolumeInformationFolder.c)
  * Callees:
- *     RtlLengthSid @ 0x140456300 (RtlLengthSid.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     RtlSetControlSecurityDescriptor @ 0x140781170 (RtlSetControlSecurityDescriptor.c)
- *     RtlCreateAcl @ 0x14085CAA0 (RtlCreateAcl.c)
- *     RtlpAddKnownAce @ 0x14091DA10 (RtlpAddKnownAce.c)
- *     RtlSetDaclSecurityDescriptor @ 0x1409E56A0 (RtlSetDaclSecurityDescriptor.c)
- *     RtlCreateSecurityDescriptor @ 0x1409E6710 (RtlCreateSecurityDescriptor.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     RtlLengthSid @ 0x14044B2D0 (RtlLengthSid.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     RtlSetControlSecurityDescriptor @ 0x1407810A0 (RtlSetControlSecurityDescriptor.c)
+ *     RtlCreateAcl @ 0x140858810 (RtlCreateAcl.c)
+ *     RtlpAddKnownAce @ 0x140911480 (RtlpAddKnownAce.c)
+ *     RtlSetDaclSecurityDescriptor @ 0x1409DFF30 (RtlSetDaclSecurityDescriptor.c)
+ *     RtlCreateSecurityDescriptor @ 0x1409E16D0 (RtlCreateSecurityDescriptor.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall RtlpSysVolCreateSecurityDescriptor(_QWORD *a1, ACL **a2)
@@ -23,14 +23,14 @@ __int64 __fastcall RtlpSysVolCreateSecurityDescriptor(_QWORD *a1, ACL **a2)
   ULONG v8; // esi
   ACL *v9; // rax
   ACL *v10; // rbx
-  int Acl; // esi
+  NTSTATUS Acl; // esi
   ACL *v12; // rcx
   __int16 Sid; // [rsp+30h] [rbp-38h] BYREF
   int v14; // [rsp+32h] [rbp-36h]
   __int16 v15; // [rsp+36h] [rbp-32h]
   int v16; // [rsp+38h] [rbp-30h]
 
-  Pool2 = (void *)ExAllocatePool2(0x100uLL);
+  Pool2 = (void *)ExAllocatePool2(0x100uLL, 0x28uLL, 0x536C6F56u);
   v5 = Pool2;
   if ( !Pool2 )
     return 3221225626LL;
@@ -42,7 +42,7 @@ __int64 __fastcall RtlpSysVolCreateSecurityDescriptor(_QWORD *a1, ACL **a2)
   Sid = 257;
   v16 = 18;
   v8 = RtlLengthSid(&Sid) + 16;
-  v9 = (ACL *)ExAllocatePool2(0x100uLL);
+  v9 = (ACL *)ExAllocatePool2(0x100uLL, v8, 0x536C6F56u);
   v10 = v9;
   if ( !v9 )
   {
@@ -63,7 +63,7 @@ LABEL_11:
   Acl = RtlpAddKnownAce((int)v10, 2, 3, 0x1FFFFF, &Sid, 0);
   if ( Acl < 0
     || (Acl = RtlSetDaclSecurityDescriptor(v5, 1u, v10, 0), Acl < 0)
-    || (Acl = RtlSetControlSecurityDescriptor((__int64)v5, 0x1000u, 0x1000u), Acl < 0) )
+    || (Acl = RtlSetControlSecurityDescriptor(v5, 0x1000u, 0x1000u), Acl < 0) )
   {
     v12 = v10;
     goto LABEL_11;

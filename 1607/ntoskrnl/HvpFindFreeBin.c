@@ -1,11 +1,11 @@
 /*
- * XREFs of HvpFindFreeBin @ 0x14047E5F0
+ * XREFs of HvpFindFreeBin @ 0x14047D344
  * Callers:
- *     HvpAddBin @ 0x14047DF10 (HvpAddBin.c)
+ *     HvpAddBin @ 0x14047CC64 (HvpAddBin.c)
  * Callees:
- *     HvpMapEntryGetFreeBin @ 0x1400F0100 (HvpMapEntryGetFreeBin.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
- *     HvpGetCellMap @ 0x140513BC0 (HvpGetCellMap.c)
+ *     HvpMapEntryGetFreeBin @ 0x1400EDF80 (HvpMapEntryGetFreeBin.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
+ *     HvpGetCellMap @ 0x1404F6FB0 (HvpGetCellMap.c)
  */
 
 __int64 __fastcall HvpFindFreeBin(ULONG_PTR BugCheckParameter2, unsigned int a2, int a3, _DWORD *a4)

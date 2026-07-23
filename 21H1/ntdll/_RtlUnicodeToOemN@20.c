@@ -8,39 +8,39 @@
  *     _RtlUnicodeToUTF8N@20 @ 0x4B2E4640 (_RtlUnicodeToUTF8N@20.c)
  */
 
-unsigned int __stdcall RtlUnicodeToOemN(
-        _BYTE *a1,
-        unsigned int a2,
-        unsigned int *a3,
-        unsigned __int16 *a4,
-        unsigned int a5)
+NTSTATUS __cdecl RtlUnicodeToOemN(
+        PCHAR OemString,
+        ULONG MaxBytesInOemString,
+        PULONG BytesInOemString,
+        PCWCH UnicodeString,
+        ULONG BytesInUnicodeString)
 {
-  unsigned int v5; // ecx
-  unsigned int v6; // edx
-  unsigned int v7; // esi
+  ULONG v5; // ecx
+  ULONG v6; // edx
+  ULONG v7; // esi
   int v8; // ebx
-  unsigned int v9; // edi
-  int *v11; // eax
-  int v12; // esi
-  _BYTE *v13; // esi
-  _BYTE *v14; // ebx
-  unsigned __int16 *v15; // edi
+  ULONG v9; // edi
+  ULONG *v11; // eax
+  NTSTATUS v12; // esi
+  PCHAR v13; // esi
+  PCHAR v14; // ebx
+  PCWCH v15; // edi
   int v16; // eax
   unsigned int v17; // eax
   unsigned int v18; // ebx
   unsigned int v19; // eax
   unsigned int v20; // [esp+4h] [ebp-8h] BYREF
-  _BYTE *v21; // [esp+8h] [ebp-4h]
+  ULONG v21; // [esp+8h] [ebp-4h]
 
   if ( (unsigned __int8)RtlpIsUtf8Process(1) )
   {
-    v11 = (int *)a3;
-    if ( !a3 )
-      v11 = (int *)&v20;
+    v11 = BytesInOemString;
+    if ( !BytesInOemString )
+      v11 = &v20;
     v12 = 0;
-    if ( a5 )
+    if ( BytesInUnicodeString )
     {
-      if ( RtlUnicodeToUTF8N(a1, a2, v11, a4, a5) == -1073741789 )
+      if ( RtlUnicodeToUTF8N(OemString, MaxBytesInOemString, v11, UnicodeString, BytesInUnicodeString) == -1073741789 )
         return -2147483643;
     }
     else
@@ -51,22 +51,22 @@ unsigned int __stdcall RtlUnicodeToOemN(
   }
   else
   {
-    v5 = a2;
-    v6 = a5 >> 1;
-    v21 = (_BYTE *)(a5 >> 1);
+    v5 = MaxBytesInOemString;
+    v6 = BytesInUnicodeString >> 1;
+    v21 = BytesInUnicodeString >> 1;
     if ( NlsMbOemCodePageTag )
     {
-      v13 = a1;
-      v14 = a1;
-      v21 = a1;
+      v13 = OemString;
+      v14 = OemString;
+      v21 = (ULONG)OemString;
       if ( v6 )
       {
-        v15 = a4;
+        v15 = UnicodeString;
         do
         {
           if ( !v5 )
             break;
-          v16 = *v15++;
+          v16 = *(unsigned __int16 *)v15++;
           v17 = *(unsigned __int16 *)(NlsUnicodeToMbOemData + 2 * v16);
           v20 = v17;
           v18 = v17 >> 8;
@@ -83,30 +83,30 @@ unsigned int __stdcall RtlUnicodeToOemN(
           --v6;
         }
         while ( v6 );
-        v14 = v21;
+        v14 = (PCHAR)v21;
       }
-      if ( a3 )
-        *a3 = v13 - v14;
+      if ( BytesInOemString )
+        *BytesInOemString = v13 - v14;
     }
     else
     {
-      v7 = a5 >> 1;
-      if ( v6 >= a2 )
-        v7 = a2;
-      if ( a3 )
-        *a3 = v7;
+      v7 = BytesInUnicodeString >> 1;
+      if ( v6 >= MaxBytesInOemString )
+        v7 = MaxBytesInOemString;
+      if ( BytesInOemString )
+        *BytesInOemString = v7;
       v8 = NlsUnicodeToOemData;
       v9 = 0;
       if ( v7 )
       {
         do
         {
-          a1[v9] = *(_BYTE *)(a4[v9] + v8);
+          OemString[v9] = *(_BYTE *)((unsigned __int16)UnicodeString[v9] + v8);
           ++v9;
         }
         while ( v9 < v7 );
-        v5 = a2;
-        v6 = (unsigned int)v21;
+        v5 = MaxBytesInOemString;
+        v6 = v21;
       }
     }
     return v5 < v6 ? 0x80000005 : 0;

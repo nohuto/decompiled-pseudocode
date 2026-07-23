@@ -1,10 +1,10 @@
 /*
- * XREFs of ExpTryAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x14046B5B6
+ * XREFs of ExpTryAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x14046B9B6
  * Callers:
- *     ExTryAcquireSpinLockExclusiveAtDpcLevel @ 0x1403121F0 (ExTryAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     ExTryAcquireSpinLockExclusiveAtDpcLevel @ 0x140312480 (ExTryAcquireSpinLockExclusiveAtDpcLevel.c)
  * Callees:
- *     TRY_ACQUIRE_EXLOCK_EXCLUSIVE @ 0x140312218 (TRY_ACQUIRE_EXLOCK_EXCLUSIVE.c)
- *     PerfLogSpinLockAcquire @ 0x140600D04 (PerfLogSpinLockAcquire.c)
+ *     TRY_ACQUIRE_EXLOCK_EXCLUSIVE @ 0x1403124A8 (TRY_ACQUIRE_EXLOCK_EXCLUSIVE.c)
+ *     PerfLogSpinLockAcquire @ 0x140601254 (PerfLogSpinLockAcquire.c)
  */
 
 __int64 __fastcall ExpTryAcquireSpinLockExclusiveAtDpcLevelInstrumented(volatile signed __int32 *a1)

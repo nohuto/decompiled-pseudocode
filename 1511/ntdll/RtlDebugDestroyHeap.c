@@ -9,27 +9,27 @@
  *     RtlpValidateHeap @ 0x180092BC8 (RtlpValidateHeap.c)
  */
 
-char __fastcall RtlDebugDestroyHeap(__int64 a1)
+char __fastcall RtlDebugDestroyHeap(PVOID *BaseAddress)
 {
   __int64 v3; // rcx
-  __int64 v4; // [rsp+30h] [rbp+8h] BYREF
+  ULONG_PTR v4; // [rsp+30h] [rbp+8h] BYREF
 
-  if ( (void *)a1 == NtCurrentPeb()->ProcessHeap )
+  if ( BaseAddress == NtCurrentPeb()->ProcessHeap )
   {
     if ( NtCurrentPeb()->Ldr )
       DbgPrint("HEAP[%wZ]: ", &NtCurrentPeb()->Ldr->InLoadOrderModuleList.Flink[5].Blink);
     else
       DbgPrint("HEAP: ");
-    DbgPrint("May not destroy the process heap at %p\n", (const void *)a1);
+    DbgPrint("May not destroy the process heap at %p\n", BaseAddress);
     return 0;
   }
-  if ( !RtlpCheckHeapSignature((_DWORD *)a1, "RtlDestroyHeap") || !RtlpValidateHeap(a1, 0) )
+  if ( !RtlpCheckHeapSignature(BaseAddress, "RtlDestroyHeap") || !RtlpValidateHeap(BaseAddress, 0) )
     return 0;
-  *(_DWORD *)(a1 + 152) = 0;
-  if ( *(_QWORD *)(a1 + 216) )
+  *((_DWORD *)BaseAddress + 38) = 0;
+  if ( BaseAddress[27] )
   {
     v4 = 0LL;
-    RtlpSecMemFreeVirtualMemory(v3, (_QWORD *)(a1 + 216), &v4, 0x8000LL);
+    RtlpSecMemFreeVirtualMemory(v3, BaseAddress + 27, &v4, 0x8000u);
   }
   return 1;
 }

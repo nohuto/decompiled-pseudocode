@@ -11,7 +11,7 @@
  *     __security_check_cookie @ 0x180166F50 (__security_check_cookie.c)
  */
 
-int __fastcall LdrIsResItemExist(__int64 a1, const wchar_t **a2, __int64 a3, unsigned int a4)
+int __fastcall LdrIsResItemExist(PVOID BaseOfImage, const wchar_t **a2, __int64 a3, unsigned int a4)
 {
   __int64 v7; // rax
   unsigned int *v8; // rbx
@@ -20,26 +20,27 @@ int __fastcall LdrIsResItemExist(__int64 a1, const wchar_t **a2, __int64 a3, uns
   int result; // eax
   int v12; // [rsp+40h] [rbp-58h] BYREF
   __int64 v13; // [rsp+48h] [rbp-50h] BYREF
-  unsigned int *v14; // [rsp+50h] [rbp-48h] BYREF
-  char v15[8]; // [rsp+58h] [rbp-40h] BYREF
-  _QWORD v16[3]; // [rsp+60h] [rbp-38h] BYREF
+  unsigned int *v14; // [rsp+50h] [rbp-48h]
+  const wchar_t *v15; // [rsp+60h] [rbp-38h]
+  __int64 v16; // [rsp+68h] [rbp-30h]
+  __int64 v17; // [rsp+70h] [rbp-28h]
 
   v12 = 0;
   v13 = 0LL;
-  v7 = LdrpGetFromMUIMemCache(a1, 0LL, 0LL, 8LL);
+  v7 = LdrpGetFromMUIMemCache(BaseOfImage);
   v14 = (unsigned int *)v7;
   v8 = (unsigned int *)v7;
   if ( v7 == -1 )
     return 0x80000;
   if ( !v7 )
   {
-    v16[1] = 1LL;
-    v16[0] = L"MUI";
-    v16[2] = 0LL;
-    v9 = LdrpSearchResourceSection_U(a1, (unsigned int)v16, 3, 33554480, (__int64)&v13);
+    v16 = 1LL;
+    v15 = L"MUI";
+    v17 = 0LL;
+    v9 = LdrpSearchResourceSection_U(BaseOfImage, (__int64)&v13);
     if ( v9 >= 0 )
     {
-      v9 = LdrpAccessResourceDataNoMultipleLanguage(a1, v13, &v14, v15);
+      v9 = LdrpAccessResourceDataNoMultipleLanguage(BaseOfImage);
       if ( v9 >= 0 )
       {
         v8 = v14;
@@ -53,7 +54,7 @@ LABEL_8:
     v10 = -1LL;
     if ( v8 )
       v10 = (__int64)v8;
-    LdrpSetAlternateResourceModuleHandle(a1, 0LL, 0LL, v10, 0, 2, v9, 0LL);
+    LdrpSetAlternateResourceModuleHandle((__int64)BaseOfImage, 0LL, 0LL, v10, 0, 2, v9, 0LL);
     if ( v8 )
       goto LABEL_11;
     return 0x80000;

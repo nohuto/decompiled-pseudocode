@@ -1,13 +1,13 @@
 /*
- * XREFs of SeAuditPlugAndPlay @ 0x140A6FB84
+ * XREFs of SeAuditPlugAndPlay @ 0x140A69008
  * Callers:
- *     PiAuditDeviceOperation @ 0x140A6F4C0 (PiAuditDeviceOperation.c)
+ *     PiAuditDeviceOperation @ 0x140A68944 (PiAuditDeviceOperation.c)
  * Callees:
- *     AdtpWriteToEtwEx @ 0x140453140 (AdtpWriteToEtwEx.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     SeReleaseSubjectContext @ 0x14084D7E0 (SeReleaseSubjectContext.c)
- *     SeCaptureSubjectContext @ 0x14084D8F0 (SeCaptureSubjectContext.c)
+ *     AdtpWriteToEtwEx @ 0x1404481F0 (AdtpWriteToEtwEx.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     SeReleaseSubjectContext @ 0x140849AA0 (SeReleaseSubjectContext.c)
+ *     SeCaptureSubjectContext @ 0x140849BB0 (SeCaptureSubjectContext.c)
  */
 
 void __fastcall SeAuditPlugAndPlay(

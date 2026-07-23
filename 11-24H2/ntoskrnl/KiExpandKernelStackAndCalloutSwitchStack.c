@@ -1,14 +1,14 @@
 /*
- * XREFs of KiExpandKernelStackAndCalloutSwitchStack @ 0x14027D900
+ * XREFs of KiExpandKernelStackAndCalloutSwitchStack @ 0x140232E90
  * Callers:
- *     KeExpandKernelStackAndCalloutInternal @ 0x14027D7A0 (KeExpandKernelStackAndCalloutInternal.c)
+ *     KeExpandKernelStackAndCalloutInternal @ 0x140232D30 (KeExpandKernelStackAndCalloutInternal.c)
  * Callees:
- *     KeAreInterruptsEnabled @ 0x140257E20 (KeAreInterruptsEnabled.c)
- *     KeQueryCurrentStackInformationEx @ 0x140259BD0 (KeQueryCurrentStackInformationEx.c)
- *     KiExpandKernelStackAndCalloutOnStackSegment @ 0x14027C840 (KiExpandKernelStackAndCalloutOnStackSegment.c)
- *     MmGrowKernelStackEx @ 0x140477D50 (MmGrowKernelStackEx.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     KeGetCurrentStackPointer @ 0x1406AA390 (KeGetCurrentStackPointer.c)
+ *     KiExpandKernelStackAndCalloutOnStackSegment @ 0x140231DD0 (KiExpandKernelStackAndCalloutOnStackSegment.c)
+ *     KeAreInterruptsEnabled @ 0x140288430 (KeAreInterruptsEnabled.c)
+ *     KeQueryCurrentStackInformationEx @ 0x14028A1E0 (KeQueryCurrentStackInformationEx.c)
+ *     MmGrowKernelStackEx @ 0x140474350 (MmGrowKernelStackEx.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     KeGetCurrentStackPointer @ 0x1406AB330 (KeGetCurrentStackPointer.c)
  */
 
 __int64 __fastcall KiExpandKernelStackAndCalloutSwitchStack(
@@ -23,25 +23,27 @@ __int64 __fastcall KiExpandKernelStackAndCalloutSwitchStack(
   _BYTE *v9; // rsi
   struct _KTHREAD *CurrentThread; // rdi
   __int64 CurrentStackPointer; // rax
-  char *StackLimit; // r15
+  signed __int64 StackLimit; // r15
   __int64 v13; // r14
-  char *v14; // rdi
-  __int64 v15; // rdx
-  __int64 v16; // rcx
+  _QWORD *InitialStack; // rcx
+  unsigned __int64 v15; // rdi
+  __int64 v16; // rdx
+  __int64 v17; // rdx
+  __int64 v18; // rcx
   unsigned __int8 CurrentIrql; // al
-  unsigned __int64 v19; // rax
-  char *v20; // [rsp+30h] [rbp-38h] BYREF
-  unsigned __int64 v21[6]; // [rsp+38h] [rbp-30h] BYREF
-  int v22; // [rsp+80h] [rbp+18h] BYREF
+  __int64 v21; // rax
+  unsigned __int64 v22; // [rsp+30h] [rbp-38h] BYREF
+  __int64 v23[6]; // [rsp+38h] [rbp-30h] BYREF
+  int v24; // [rsp+80h] [rbp+18h] BYREF
 
   v5 = a4;
-  v20 = 0LL;
+  v22 = 0LL;
   v6 = a3;
-  v21[0] = 0LL;
-  v22 = 0;
+  v23[0] = 0LL;
+  v24 = 0;
   if ( a3 > (unsigned int)KeMaximumKernelStackExpansionSize )
     return 3221225713LL;
-  if ( byte_140FCDC28 )
+  if ( byte_140FCECA8 )
   {
     if ( a3 <= 0x11800 )
     {
@@ -64,10 +66,11 @@ __int64 __fastcall KiExpandKernelStackAndCalloutSwitchStack(
 LABEL_6:
   CurrentThread = KeGetCurrentThread();
   CurrentStackPointer = KeGetCurrentStackPointer(a1, a2);
-  StackLimit = (char *)CurrentThread->StackLimit;
+  StackLimit = (signed __int64)CurrentThread->StackLimit;
   v13 = CurrentStackPointer;
-  v14 = (char *)(*((_QWORD *)CurrentThread->InitialStack + 1) & 0xFFFFFFFFFFFFFFFEuLL);
-  if ( !KeAreInterruptsEnabled() )
+  InitialStack = CurrentThread->InitialStack;
+  v15 = InitialStack[1] & 0xFFFFFFFFFFFFFFFEuLL;
+  if ( !(unsigned __int8)KeAreInterruptsEnabled(InitialStack, v16) )
   {
     CurrentIrql = 15;
     goto LABEL_23;
@@ -77,15 +80,15 @@ LABEL_6:
   {
     if ( (v5 & 2) != 0 )
       return 3221225714LL;
-    v19 = KeGetCurrentStackPointer(v16, v15);
-    if ( !KeQueryCurrentStackInformationEx(v19, &v22, &v20, v21) )
+    v21 = KeGetCurrentStackPointer(v18, v17);
+    if ( !(unsigned __int8)KeQueryCurrentStackInformationEx(v21, &v24, &v22, v23) )
       __fastfail(4u);
-    if ( v22 == 1 || v22 == 10 )
+    if ( v24 == 1 || v24 == 10 )
     {
-      StackLimit = v20;
-      v14 = v20;
+      StackLimit = v22;
+      v15 = v22;
     }
-    else if ( v22 == 5 )
+    else if ( v24 == 5 )
     {
       v5 |= 1u;
     }
@@ -97,9 +100,9 @@ LABEL_23:
   if ( v6 == (unsigned int)KeKernelStackSize || v6 == 24576 && (unsigned int)KeKernelStackSize >= 0x6000 )
     v5 |= 5u;
 LABEL_11:
-  if ( v13 - (__int64)v14 < v6
+  if ( v13 - v15 < v6
     || (v5 & 1) != 0
-    || v13 - (__int64)StackLimit < v6 && ((v5 & 0xC0000000) != 0 || (int)MmGrowKernelStackEx(v13, v6) < 0) )
+    || v13 - StackLimit < v6 && ((v5 & 0xC0000000) != 0 || (int)MmGrowKernelStackEx(v13, v6) < 0) )
   {
     return KiExpandKernelStackAndCalloutOnStackSegment(a1, a2, v6, v5, v9);
   }

@@ -1,12 +1,12 @@
 /*
- * XREFs of MiLoadImportDll @ 0x140544204
+ * XREFs of MiLoadImportDll @ 0x140544744
  * Callers:
- *     MiResolveImageReferences @ 0x14046C67C (MiResolveImageReferences.c)
+ *     MiResolveImageReferences @ 0x14046B54C (MiResolveImageReferences.c)
  * Callees:
- *     MiFreeDriverInitialization @ 0x14047D508 (MiFreeDriverInitialization.c)
- *     MmLoadSystemImage @ 0x140482B2C (MmLoadSystemImage.c)
- *     MmCallDllInitialize @ 0x1405442A0 (MmCallDllInitialize.c)
- *     MmUnloadSystemImage @ 0x140545D68 (MmUnloadSystemImage.c)
+ *     MiFreeDriverInitialization @ 0x14047C25C (MiFreeDriverInitialization.c)
+ *     MmLoadSystemImage @ 0x140481880 (MmLoadSystemImage.c)
+ *     MmCallDllInitialize @ 0x1405447E0 (MmCallDllInitialize.c)
+ *     MmUnloadSystemImage @ 0x1405462A8 (MmUnloadSystemImage.c)
  */
 
 __int64 __fastcall MiLoadImportDll(__int64 a1, const UNICODE_STRING *a2, unsigned int a3, ULONG_PTR *a4, _QWORD *a5)

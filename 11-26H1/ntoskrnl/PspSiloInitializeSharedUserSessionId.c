@@ -1,7 +1,7 @@
 /*
- * XREFs of PspSiloInitializeSharedUserSessionId @ 0x1407EF6FC
+ * XREFs of PspSiloInitializeSharedUserSessionId @ 0x1407F525C
  * Callers:
- *     PspInitializeSiloStructures @ 0x140CD8CA4 (PspInitializeSiloStructures.c)
+ *     PspInitializeSiloStructures @ 0x140CDF024 (PspInitializeSiloStructures.c)
  * Callees:
  *     <none>
  */

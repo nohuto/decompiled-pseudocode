@@ -170,14 +170,14 @@ __int64 __fastcall EtwpStartLogger(__int64 a1, __int64 a2)
     {
       goto LABEL_147;
     }
-    v43 = *(_QWORD *)(a2 + 24) - SystemTraceControlGuid;
+    v43 = *(_QWORD *)(a2 + 24) - *(_QWORD *)&SystemTraceControlGuid.Data1;
     if ( !v43 )
-      v43 = *(_QWORD *)(a2 + 32) - 0x3969A8086000829ALL;
+      v43 = *(_QWORD *)(a2 + 32) - *(_QWORD *)SystemTraceControlGuid.Data4;
     if ( !v43 )
       goto LABEL_147;
-    v44 = *(_QWORD *)(a2 + 24) - CKCLGuid;
+    v44 = *(_QWORD *)(a2 + 24) - *(_QWORD *)&CKCLGuid.Data1;
     if ( !v44 )
-      v44 = *(_QWORD *)(a2 + 32) - 0x74F156D0633E71AFLL;
+      v44 = *(_QWORD *)(a2 + 32) - *(_QWORD *)CKCLGuid.Data4;
     if ( !v44 || (v6 & 4) != 0 )
       goto LABEL_147;
   }
@@ -241,21 +241,21 @@ LABEL_198:
   v10 = *(_QWORD *)&Uuid.Data1;
   v11 = a1 + 912;
   v12 = *(_QWORD *)Uuid.Data4;
-  v13 = *(_QWORD *)&Uuid.Data1 - SystemTraceControlGuid;
-  if ( *(_QWORD *)&Uuid.Data1 == SystemTraceControlGuid )
-    v13 = *(_QWORD *)Uuid.Data4 - 0x3969A8086000829ALL;
+  v13 = *(_QWORD *)&Uuid.Data1 - *(_QWORD *)&SystemTraceControlGuid.Data1;
+  if ( *(_QWORD *)&Uuid.Data1 == *(_QWORD *)&SystemTraceControlGuid.Data1 )
+    v13 = *(_QWORD *)Uuid.Data4 - *(_QWORD *)SystemTraceControlGuid.Data4;
   if ( !v13 )
     goto LABEL_161;
-  v14 = *(_QWORD *)&Uuid.Data1 - CKCLGuid;
-  if ( *(_QWORD *)&Uuid.Data1 == CKCLGuid )
-    v14 = *(_QWORD *)Uuid.Data4 - 0x74F156D0633E71AFLL;
+  v14 = *(_QWORD *)&Uuid.Data1 - *(_QWORD *)&CKCLGuid.Data1;
+  if ( *(_QWORD *)&Uuid.Data1 == *(_QWORD *)&CKCLGuid.Data1 )
+    v14 = *(_QWORD *)Uuid.Data4 - *(_QWORD *)CKCLGuid.Data4;
   if ( !v14 )
   {
 LABEL_161:
     RtlFreeAnsiString(&DestinationString);
-    v45 = v10 - SystemTraceControlGuid;
+    v45 = v10 - *(_QWORD *)&SystemTraceControlGuid.Data1;
     if ( !v45 )
-      v45 = v12 - 0x3969A8086000829ALL;
+      v45 = v12 - *(_QWORD *)SystemTraceControlGuid.Data4;
     if ( v45 )
     {
       v46 = 2;
@@ -308,9 +308,9 @@ LABEL_147:
     FileName = -1073741811;
     goto LABEL_238;
   }
-  v16 = *(_QWORD *)&Uuid.Data1 - AuditLoggerGuid;
-  if ( *(_QWORD *)&Uuid.Data1 == AuditLoggerGuid )
-    v16 = *(_QWORD *)Uuid.Data4 + 0x6A2DF162E6CE8D6ELL;
+  v16 = *(_QWORD *)&Uuid.Data1 - *(_QWORD *)&AuditLoggerGuid.Data1;
+  if ( *(_QWORD *)&Uuid.Data1 == *(_QWORD *)&AuditLoggerGuid.Data1 )
+    v16 = *(_QWORD *)Uuid.Data4 - *(_QWORD *)AuditLoggerGuid.Data4;
   if ( !v16 )
   {
     v57 = 3;
@@ -331,9 +331,9 @@ LABEL_212:
   }
   if ( !wcsicmp(DestinationString.Buffer, L"Eventlog-Security") )
   {
-    v51 = v10 - AuditLoggerGuid;
-    if ( v10 == AuditLoggerGuid )
-      v51 = v12 + 0x6A2DF162E6CE8D6ELL;
+    v51 = v10 - *(_QWORD *)&AuditLoggerGuid.Data1;
+    if ( v10 == *(_QWORD *)&AuditLoggerGuid.Data1 )
+      v51 = v12 - *(_QWORD *)AuditLoggerGuid.Data4;
     if ( v51 )
       goto LABEL_198;
   }
@@ -622,14 +622,14 @@ LABEL_114:
         }
       }
     }
-    v39 = HeapGuid - *(_QWORD *)(inited + 73);
-    if ( HeapGuid == *(_QWORD *)(inited + 73) )
-      v39 = 0x4AA2F2756B3425A8LL - *(_QWORD *)(inited + 75);
+    v39 = *(_QWORD *)&HeapGuid.Data1 - *(_QWORD *)(inited + 73);
+    if ( *(_QWORD *)&HeapGuid.Data1 == *(_QWORD *)(inited + 73) )
+      v39 = *(_QWORD *)HeapGuid.Data4 - *(_QWORD *)(inited + 75);
     if ( v39 )
     {
-      v40 = CritSecGuid - *(_QWORD *)(inited + 73);
-      if ( CritSecGuid == *(_QWORD *)(inited + 73) )
-        v40 = 0x6B81390EF58D1581LL - *(_QWORD *)(inited + 75);
+      v40 = *(_QWORD *)&CritSecGuid.Data1 - *(_QWORD *)(inited + 73);
+      if ( *(_QWORD *)&CritSecGuid.Data1 == *(_QWORD *)(inited + 73) )
+        v40 = *(_QWORD *)CritSecGuid.Data4 - *(_QWORD *)(inited + 75);
       if ( v40 )
         goto LABEL_123;
       v56 = 1LL;

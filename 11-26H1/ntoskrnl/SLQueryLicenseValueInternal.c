@@ -1,28 +1,28 @@
 /*
- * XREFs of SLQueryLicenseValueInternal @ 0x140A6A758
+ * XREFs of SLQueryLicenseValueInternal @ 0x140A770F8
  * Callers:
- *     NtQueryLicenseValue @ 0x140A6A340 (NtQueryLicenseValue.c)
- *     ntoskrnl_27 @ 0x140A6A6F0 (ntoskrnl_27.c)
+ *     NtQueryLicenseValue @ 0x140A76CE0 (NtQueryLicenseValue.c)
+ *     ntoskrnl_27 @ 0x140A77090 (ntoskrnl_27.c)
  * Callees:
- *     ExfAcquirePushLockSharedEx @ 0x140277CC0 (ExfAcquirePushLockSharedEx.c)
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     ExfReleasePushLockShared @ 0x140278BD0 (ExfReleasePushLockShared.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     ExfTryToWakePushLock @ 0x1403170A0 (ExfTryToWakePushLock.c)
- *     ExpQueryLicenseValueFromBlobHelper @ 0x1404F1718 (ExpQueryLicenseValueFromBlobHelper.c)
- *     _wcsicmp @ 0x140536570 (_wcsicmp.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     memcmp @ 0x14073D750 (memcmp.c)
- *     sub_140838B04 @ 0x140838B04 (sub_140838B04.c)
- *     SLGetSubscriptionPfn @ 0x140839458 (SLGetSubscriptionPfn.c)
- *     RtlEqualUnicodeString @ 0x14091F0E0 (RtlEqualUnicodeString.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ExfAcquirePushLockSharedEx @ 0x140277230 (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     ExfReleasePushLockShared @ 0x140278140 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     ExfTryToWakePushLock @ 0x1403190D0 (ExfTryToWakePushLock.c)
+ *     ExpQueryLicenseValueFromBlobHelper @ 0x1404EACF8 (ExpQueryLicenseValueFromBlobHelper.c)
+ *     _wcsicmp @ 0x1405389F0 (_wcsicmp.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     memcmp @ 0x140742350 (memcmp.c)
+ *     sub_14083ED44 @ 0x14083ED44 (sub_14083ED44.c)
+ *     SLGetSubscriptionPfn @ 0x14083F698 (SLGetSubscriptionPfn.c)
+ *     RtlEqualUnicodeString @ 0x140979B40 (RtlEqualUnicodeString.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall SLQueryLicenseValueInternal(
@@ -106,12 +106,12 @@ __int64 __fastcall SLQueryLicenseValueInternal(
         {
           v49.Entries[0].WaiterTree.0 = ($7D93978C745EB1C2D28075BAF55422B4)1;
           v49.Entries[0].EntryLock = (unsigned __int64)a2;
-          *(_DWORD *)&v49.AvailableEntryBitmap = sub_140838B04(a1, 2LL, a3, (struct _KLOCK_ENTRIES *)a4);
+          *(_DWORD *)&v49.AvailableEntryBitmap = sub_14083ED44(a1, 2LL, a3, (struct _KLOCK_ENTRIES *)a4);
           v49.Entries[0].TreeNode.Children[0] = 0LL;
           v8 = 1;
           for ( i = 0; i < 0xE; ++i )
           {
-            v10 = *((unsigned __int16 *)&off_140BD88C0 + 20 * i + 4);
+            v10 = *((unsigned __int16 *)&off_140BDF750 + 20 * i + 4);
             v11 = *(unsigned __int16 *)v49.Entries[0].EntryLock;
             if ( (_WORD)v11 == (_WORD)v10 )
             {
@@ -130,10 +130,10 @@ __int64 __fastcall SLQueryLicenseValueInternal(
                 }
                 while ( v15 );
               }
-              if ( !memcmp(Buf1, *(&off_140BD88C0 + 5 * i), v10) )
+              if ( !memcmp(Buf1, *(&off_140BDF750 + 5 * i), v10) )
               {
-                LOBYTE(v6) = *((_BYTE *)&off_140BD88C0 + 40 * i + 32);
-                v16 = (_RTL_BALANCED_NODE *)*(&off_140BD88C0 + 5 * i + 2);
+                LOBYTE(v6) = *((_BYTE *)&off_140BDF750 + 40 * i + 32);
+                v16 = (_RTL_BALANCED_NODE *)*(&off_140BDF750 + 5 * i + 2);
                 v49.Entries[0].TreeNode.Children[0] = v16;
                 goto LABEL_16;
               }
@@ -183,14 +183,14 @@ LABEL_16:
           LODWORD(v49.Thread) = 0;
           LicenseValueFromBlobHelper = ExpQueryLicenseValueFromBlobHelper(
                                          v21,
-                                         (__int64)&qword_140BD9360,
+                                         (__int64)&qword_140BE01E0,
                                          0LL,
                                          &v49,
                                          4,
                                          (__int64)&v49.AvailableEntryBitmap);
-          if ( !ExpPlatformBinaryLock.SchedulerApc.NormalContext
+          if ( !ExpPlatformBinaryLock.SchedulerApc.SystemArgument2
             || !LODWORD(v49.Thread)
-            || RtlEqualUnicodeString(String1, &stru_140BD9370, 0) )
+            || RtlEqualUnicodeString(String1, &stru_140BE01F0, 0) )
           {
             goto LABEL_52;
           }
@@ -271,7 +271,7 @@ LABEL_54:
               v39 = 1;
               for ( j = 0; j < 0xE; ++j )
               {
-                v41 = *((unsigned __int16 *)&off_140BD88C0 + 20 * j + 4);
+                v41 = *((unsigned __int16 *)&off_140BDF750 + 20 * j + 4);
                 v42 = *(unsigned __int16 *)v49.Entries[0].EntryLock;
                 if ( (_WORD)v42 == (_WORD)v41 )
                 {
@@ -291,9 +291,9 @@ LABEL_54:
                     while ( v46 );
                     v38 = 0LL;
                   }
-                  if ( !memcmp(Buf1, *(&off_140BD88C0 + 5 * j), v41) )
+                  if ( !memcmp(Buf1, *(&off_140BDF750 + 5 * j), v41) )
                   {
-                    v38 = (__int64)*(&off_140BD88C0 + 5 * j + 3);
+                    v38 = (__int64)*(&off_140BDF750 + 5 * j + 3);
                     break;
                   }
                 }

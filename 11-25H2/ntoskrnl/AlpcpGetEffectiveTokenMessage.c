@@ -29,7 +29,7 @@ __int64 __fastcall AlpcpGetEffectiveTokenMessage(__int64 a1, __int64 a2, _QWORD 
   PEPROCESS *v12; // r14
   struct _KTHREAD *CurrentThread; // rax
   PEPROCESS Process; // r13
-  __int64 *v15; // r15
+  PSID *v15; // r15
   int ClientSecurity; // ebx
   __int64 v18; // rax
   __int64 *v19; // rcx
@@ -102,7 +102,7 @@ LABEL_21:
     *((_BYTE *)v19 + 10) = 1;
   if ( (*(_DWORD *)(v10 + 1440) & 8) != 0 )
   {
-    v15 = (__int64 *)(*(_QWORD *)(v10 + 1336) & 0xFFFFFFFFFFFFFFF8uLL);
+    v15 = (PSID *)(*(_QWORD *)(v10 + 1336) & 0xFFFFFFFFFFFFFFF8uLL);
     ObfReferenceObjectWithTag(v15, 0x63436553u);
     v20 = *(_BYTE *)(v10 + 1336);
     v24 = *(_DWORD *)(v10 + 1336) & 3;
@@ -124,7 +124,7 @@ LABEL_21:
   if ( !v15 )
   {
 LABEL_11:
-    v15 = (__int64 *)PsReferencePrimaryTokenWithTag((__int64)Process, 0x63436553u);
+    v15 = (PSID *)PsReferencePrimaryTokenWithTag((__int64)Process, 0x63436553u);
     v29 = BYTE2(Process[3].ActiveGroupsMask.Masks[1]);
     v11 = 0;
   }

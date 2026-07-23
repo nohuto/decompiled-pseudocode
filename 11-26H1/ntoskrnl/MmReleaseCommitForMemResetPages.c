@@ -1,20 +1,20 @@
 /*
- * XREFs of MmReleaseCommitForMemResetPages @ 0x1406E54FC
+ * XREFs of MmReleaseCommitForMemResetPages @ 0x1406EA1AC
  * Callers:
- *     NtSetInformationProcess @ 0x140B72B10 (NtSetInformationProcess.c)
+ *     NtSetInformationProcess @ 0x140B781E0 (NtSetInformationProcess.c)
  * Callees:
- *     ExReleaseSpinLockExclusive @ 0x14021AA80 (ExReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x140249CD0 (ExAcquireSpinLockExclusive.c)
- *     KeWaitForSingleObject @ 0x140278560 (KeWaitForSingleObject.c)
- *     MiLockWorkingSetExclusive @ 0x14027E5A0 (MiLockWorkingSetExclusive.c)
- *     MiUnlockWorkingSetExclusive @ 0x14027E758 (MiUnlockWorkingSetExclusive.c)
- *     MiAttachThreadDone @ 0x1402C66F0 (MiAttachThreadDone.c)
- *     KeForceDetachProcess @ 0x1402C6C30 (KeForceDetachProcess.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KeForceAttachProcess @ 0x14045D2E0 (KeForceAttachProcess.c)
- *     MiPrepareAttachThread @ 0x140474DE0 (MiPrepareAttachThread.c)
- *     KeRetryOutswapProcess @ 0x1404AA98C (KeRetryOutswapProcess.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     ExReleaseSpinLockExclusive @ 0x14021C410 (ExReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024B630 (ExAcquireSpinLockExclusive.c)
+ *     KeWaitForSingleObject @ 0x140277AD0 (KeWaitForSingleObject.c)
+ *     MiLockWorkingSetExclusive @ 0x14027DB10 (MiLockWorkingSetExclusive.c)
+ *     MiUnlockWorkingSetExclusive @ 0x14027DCC8 (MiUnlockWorkingSetExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiAttachThreadDone @ 0x140311390 (MiAttachThreadDone.c)
+ *     KeForceDetachProcess @ 0x1403118D0 (KeForceDetachProcess.c)
+ *     KeForceAttachProcess @ 0x140456CE0 (KeForceAttachProcess.c)
+ *     MiPrepareAttachThread @ 0x14046E560 (MiPrepareAttachThread.c)
+ *     KeRetryOutswapProcess @ 0x1404A401C (KeRetryOutswapProcess.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall MmReleaseCommitForMemResetPages(__int64 BugCheckParameter1, int a2)
@@ -41,14 +41,14 @@ __int64 __fastcall MmReleaseCommitForMemResetPages(__int64 BugCheckParameter1, i
   v19[1] = v19;
   v3 = BugCheckParameter1 + 1024;
   v19[0] = v19;
-  v5 = (__int64 *)&unk_140E37820;
+  v5 = (__int64 *)&unk_140E379A0;
   v7 = *(_DWORD *)(BugCheckParameter1 + 1208) & 0xF;
   memset(v20, 0, sizeof(v20));
   if ( v7 != 1 )
     v5 = (__int64 *)(BugCheckParameter1 + 1248);
   if ( (HIBYTE(*(_DWORD *)(BugCheckParameter1 + 1208)) & 0x30) == 0x20 )
   {
-    v8 = (volatile LONG *)(*(_QWORD *)(stru_140E2EB88.ThreadLock + 8LL
+    v8 = (volatile LONG *)(*(_QWORD *)(stru_140E2ED08.ThreadLock + 8LL
                                                                  * *(unsigned __int16 *)(BugCheckParameter1 + 1198))
                          + 21384LL);
     ExAcquireSpinLockExclusive(v8);

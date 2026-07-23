@@ -1,27 +1,27 @@
 /*
- * XREFs of IoPageReadEx @ 0x1402A6810
+ * XREFs of IoPageReadEx @ 0x1402A6AA0
  * Callers:
- *     MiIssueHardFaultIo @ 0x1402A1BE0 (MiIssueHardFaultIo.c)
- *     MiPageRead @ 0x1402A3BAC (MiPageRead.c)
- *     IoPageRead @ 0x1403D59D0 (IoPageRead.c)
- *     MiMakeOutswappedPageResident @ 0x14061856C (MiMakeOutswappedPageResident.c)
- *     MiPfIssueCoalescedSupport @ 0x140631DAC (MiPfIssueCoalescedSupport.c)
+ *     MiIssueHardFaultIo @ 0x1402A1E70 (MiIssueHardFaultIo.c)
+ *     MiPageRead @ 0x1402A3E3C (MiPageRead.c)
+ *     IoPageRead @ 0x1403D5BB0 (IoPageRead.c)
+ *     MiMakeOutswappedPageResident @ 0x140618ABC (MiMakeOutswappedPageResident.c)
+ *     MiPfIssueCoalescedSupport @ 0x1406322FC (MiPfIssueCoalescedSupport.c)
  * Callees:
- *     IofCallDriver @ 0x14022EEF0 (IofCallDriver.c)
- *     IopAllocateIrpExReturn @ 0x14022EF70 (IopAllocateIrpExReturn.c)
- *     IoGetRelatedDeviceObject @ 0x14022F510 (IoGetRelatedDeviceObject.c)
- *     KxAcquireSpinLock @ 0x1402515B0 (KxAcquireSpinLock.c)
- *     IopSetDiskIoAttributionExtension @ 0x140290350 (IopSetDiskIoAttributionExtension.c)
- *     IopSetDriverFlagsExtension @ 0x1402907C0 (IopSetDriverFlagsExtension.c)
- *     PsGetBaseIoPriorityThread @ 0x1402A7BC0 (PsGetBaseIoPriorityThread.c)
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402A7C00 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     IoSetDiskIoAttributionFromThread @ 0x1402A7C30 (IoSetDiskIoAttributionFromThread.c)
- *     ExAcquireSpinLockShared @ 0x140314620 (ExAcquireSpinLockShared.c)
- *     IopAllocateBackpocketIrp @ 0x1405549E0 (IopAllocateBackpocketIrp.c)
- *     IopAllocateReserveIrp @ 0x140554C78 (IopAllocateReserveIrp.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     KiReleaseSpinLockInstrumented @ 0x140571848 (KiReleaseSpinLockInstrumented.c)
- *     MmIsFileObjectAPagingFile @ 0x14063BD18 (MmIsFileObjectAPagingFile.c)
+ *     IofCallDriver @ 0x14022F000 (IofCallDriver.c)
+ *     IopAllocateIrpExReturn @ 0x14022F080 (IopAllocateIrpExReturn.c)
+ *     IoGetRelatedDeviceObject @ 0x14022F620 (IoGetRelatedDeviceObject.c)
+ *     KxAcquireSpinLock @ 0x140251670 (KxAcquireSpinLock.c)
+ *     IopSetDiskIoAttributionExtension @ 0x1402905E0 (IopSetDiskIoAttributionExtension.c)
+ *     IopSetDriverFlagsExtension @ 0x140290A50 (IopSetDriverFlagsExtension.c)
+ *     PsGetBaseIoPriorityThread @ 0x1402A7E50 (PsGetBaseIoPriorityThread.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402A7E90 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     IoSetDiskIoAttributionFromThread @ 0x1402A7EC0 (IoSetDiskIoAttributionFromThread.c)
+ *     ExAcquireSpinLockShared @ 0x1403148B0 (ExAcquireSpinLockShared.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     IopAllocateBackpocketIrp @ 0x1405550A0 (IopAllocateBackpocketIrp.c)
+ *     IopAllocateReserveIrp @ 0x140555338 (IopAllocateReserveIrp.c)
+ *     KiReleaseSpinLockInstrumented @ 0x140571D88 (KiReleaseSpinLockInstrumented.c)
+ *     MmIsFileObjectAPagingFile @ 0x14063C268 (MmIsFileObjectAPagingFile.c)
  */
 
 NTSTATUS __fastcall IoPageReadEx(
@@ -133,10 +133,13 @@ LABEL_13:
     v15 = 1;
 LABEL_18:
   ExReleaseSpinLockSharedFromDpcLevel(&dword_140C69648);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v18 <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
+      && (unsigned __int8)v18 <= 0xFu
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       v19 = -1LL << ((unsigned __int8)v18 + 1);
@@ -198,7 +201,7 @@ LABEL_18:
   v28 = (__int64 *)(v27 + 1280);
   v29 = KeGetCurrentIrql();
   __writecr8(2uLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && v29 <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && v29 <= 0xFu )
   {
     v34 = KeGetCurrentPrcb()->SchedulerAssist;
     if ( v29 == 2 )
@@ -219,10 +222,10 @@ LABEL_18:
     KiReleaseSpinLockInstrumented(v27 + 1496, retaddr);
   else
     _InterlockedAnd64((volatile signed __int64 *)(v27 + 1496), 0LL);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v43 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v43 <= 0xFu && v29 <= 0xFu && v43 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v43 <= 0xFu && v29 <= 0xFu && v43 >= 2u )
     {
       v44 = KeGetCurrentPrcb();
       v45 = v44->SchedulerAssist;

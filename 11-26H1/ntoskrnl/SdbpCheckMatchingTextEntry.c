@@ -1,22 +1,22 @@
 /*
- * XREFs of SdbpCheckMatchingTextEntry @ 0x140883550
+ * XREFs of SdbpCheckMatchingTextEntry @ 0x140889950
  * Callers:
- *     SdbpCheckMatchingText @ 0x1408833A0 (SdbpCheckMatchingText.c)
+ *     SdbpCheckMatchingText @ 0x1408897A0 (SdbpCheckMatchingText.c)
  * Callees:
- *     MmIsUserAddress @ 0x14044E7C0 (MmIsUserAddress.c)
- *     RtlCopyFromUser @ 0x140533E38 (RtlCopyFromUser.c)
- *     SdbpUmaInit_PCWSTR @ 0x1407149BC (SdbpUmaInit_PCWSTR.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     AslFileNotFound @ 0x14077B92C (AslFileNotFound.c)
- *     SdbpInitializeSearchDBContext @ 0x140884BA8 (SdbpInitializeSearchDBContext.c)
- *     SdbpResolveMatchingFile @ 0x140885488 (SdbpResolveMatchingFile.c)
- *     AslFileMappingEnsureMappedAs @ 0x140888ABC (AslFileMappingEnsureMappedAs.c)
- *     AslFileMappingGetViewBase @ 0x140888F98 (AslFileMappingGetViewBase.c)
- *     AslFileMappingCreate @ 0x1409E3894 (AslFileMappingCreate.c)
- *     AslAlloc @ 0x1409E4C90 (AslAlloc.c)
- *     AslFileMappingDelete @ 0x1409E56C8 (AslFileMappingDelete.c)
- *     AslFree @ 0x1409E6BD8 (AslFree.c)
- *     AslLogCallPrintf @ 0x1409E8884 (AslLogCallPrintf.c)
+ *     MmIsUserAddress @ 0x1404468F0 (MmIsUserAddress.c)
+ *     RtlCopyFromUser @ 0x1405362B8 (RtlCopyFromUser.c)
+ *     SdbpUmaInit_PCWSTR @ 0x1407196AC (SdbpUmaInit_PCWSTR.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     AslFileNotFound @ 0x14077E56C (AslFileNotFound.c)
+ *     SdbpInitializeSearchDBContext @ 0x14088AFA8 (SdbpInitializeSearchDBContext.c)
+ *     SdbpResolveMatchingFile @ 0x14088B888 (SdbpResolveMatchingFile.c)
+ *     AslFileMappingEnsureMappedAs @ 0x14088EEB8 (AslFileMappingEnsureMappedAs.c)
+ *     AslFileMappingGetViewBase @ 0x14088F394 (AslFileMappingGetViewBase.c)
+ *     AslLogCallPrintf @ 0x1409D5294 (AslLogCallPrintf.c)
+ *     AslFree @ 0x1409D6144 (AslFree.c)
+ *     AslFileMappingDelete @ 0x1409D772C (AslFileMappingDelete.c)
+ *     AslAlloc @ 0x1409D8260 (AslAlloc.c)
+ *     AslFileMappingCreate @ 0x140A37E7C (AslFileMappingCreate.c)
  */
 
 __int64 __fastcall SdbpCheckMatchingTextEntry(

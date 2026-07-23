@@ -1,5 +1,5 @@
 /*
- * XREFs of VerifierPoFxCompleteDevicePowerNotRequired @ 0x14070CBA8
+ * XREFs of VerifierPoFxCompleteDevicePowerNotRequired @ 0x14070CBD8
  * Callers:
  *     <none>
  * Callees:

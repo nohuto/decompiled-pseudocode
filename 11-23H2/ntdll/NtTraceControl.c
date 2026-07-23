@@ -14,18 +14,24 @@
  *     EtwpGetMaxLogger @ 0x180081DE8 (EtwpGetMaxLogger.c)
  *     EtwpTrackProviderBinary @ 0x18008510C (EtwpTrackProviderBinary.c)
  *     EtwRegisterSecurityProvider @ 0x18008EAE0 (EtwRegisterSecurityProvider.c)
- *     EtwpUseDescriptorType @ 0x1801250C0 (EtwpUseDescriptorType.c)
- *     EtwpDemuxUmTraceHandle @ 0x180125590 (EtwpDemuxUmTraceHandle.c)
- *     EtwpRegisterPrivateSession @ 0x180125990 (EtwpRegisterPrivateSession.c)
+ *     EtwpUseDescriptorType @ 0x180125090 (EtwpUseDescriptorType.c)
+ *     EtwpDemuxUmTraceHandle @ 0x180125560 (EtwpDemuxUmTraceHandle.c)
+ *     EtwpRegisterPrivateSession @ 0x180125960 (EtwpRegisterPrivateSession.c)
  * Callees:
  *     <none>
  */
 
-__int64 NtTraceControl()
+NTSTATUS __cdecl NtTraceControl(
+        ETWTRACECONTROLCODE FunctionCode,
+        PVOID InputBuffer,
+        ULONG InputBufferLength,
+        PVOID OutputBuffer,
+        ULONG OutputBufferLength,
+        PULONG ReturnLength)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 467LL;
+  result = 467;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

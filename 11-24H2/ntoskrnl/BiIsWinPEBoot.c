@@ -1,12 +1,12 @@
 /*
- * XREFs of BiIsWinPEBoot @ 0x1409C1B7C
+ * XREFs of BiIsWinPEBoot @ 0x1409A81CC
  * Callers:
- *     BcdCloseStore @ 0x14085EED8 (BcdCloseStore.c)
- *     BiOpenSystemStore @ 0x1409C0FC0 (BiOpenSystemStore.c)
+ *     BiOpenSystemStore @ 0x1409A7610 (BiOpenSystemStore.c)
+ *     BcdCloseStore @ 0x140A81A08 (BcdCloseStore.c)
  * Callees:
- *     wcsstr @ 0x1405002B0 (wcsstr.c)
- *     BiGetRegistryValue @ 0x14085D5C8 (BiGetRegistryValue.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     wcsstr @ 0x1404FDB70 (wcsstr.c)
+ *     BiGetRegistryValue @ 0x140859338 (BiGetRegistryValue.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 bool BiIsWinPEBoot()

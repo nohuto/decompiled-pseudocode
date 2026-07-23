@@ -1,9 +1,9 @@
 /*
  * XREFs of EtwpIsValidImageAddress @ 0x1405D193C
  * Callers:
- *     EtwpFindDebugId @ 0x1406AB300 (EtwpFindDebugId.c)
+ *     EtwpFindDebugId @ 0x1406099F0 (EtwpFindDebugId.c)
  * Callees:
- *     MmIsAddressValidEx @ 0x14030C4F0 (MmIsAddressValidEx.c)
+ *     MmIsAddressValidEx @ 0x140317240 (MmIsAddressValidEx.c)
  */
 
 char __fastcall EtwpIsValidImageAddress(__int64 a1, __int64 a2, unsigned __int64 *a3)

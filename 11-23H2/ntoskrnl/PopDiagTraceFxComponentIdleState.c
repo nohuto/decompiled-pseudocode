@@ -1,13 +1,13 @@
 /*
- * XREFs of PopDiagTraceFxComponentIdleState @ 0x14035C6AC
+ * XREFs of PopDiagTraceFxComponentIdleState @ 0x14035C84C
  * Callers:
- *     PopFxProcessWork @ 0x140312634 (PopFxProcessWork.c)
- *     PoFxCompleteIdleState @ 0x14035C3C0 (PoFxCompleteIdleState.c)
+ *     PopFxProcessWork @ 0x1403128C4 (PopFxProcessWork.c)
+ *     PoFxCompleteIdleState @ 0x14035C560 (PoFxCompleteIdleState.c)
  * Callees:
- *     EtwWriteEx @ 0x1402581E0 (EtwWriteEx.c)
- *     EtwEventEnabled @ 0x140258420 (EtwEventEnabled.c)
- *     PopFxAddLogEntry @ 0x140312AF4 (PopFxAddLogEntry.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     EtwWriteEx @ 0x1402582A0 (EtwWriteEx.c)
+ *     EtwEventEnabled @ 0x1402584E0 (EtwEventEnabled.c)
+ *     PopFxAddLogEntry @ 0x140312D84 (PopFxAddLogEntry.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  */
 
 BOOLEAN __fastcall PopDiagTraceFxComponentIdleState(__int64 a1, int a2, unsigned int a3)

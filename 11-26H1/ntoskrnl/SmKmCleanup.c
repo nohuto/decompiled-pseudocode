@@ -1,11 +1,11 @@
 /*
- * XREFs of SmKmCleanup @ 0x14081A5EC
+ * XREFs of SmKmCleanup @ 0x1408207FC
  * Callers:
- *     ?SmCleanup@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@@Z @ 0x14063C534 (-SmCleanup@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@@Z.c)
+ *     ?SmCleanup@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@@Z @ 0x140640114 (-SmCleanup@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@@Z.c)
  * Callees:
- *     CmSiFreeMemory @ 0x140495010 (CmSiFreeMemory.c)
- *     SmStoreGetId @ 0x14052785C (SmStoreGetId.c)
- *     SmKmStoreDelete @ 0x140B20310 (SmKmStoreDelete.c)
+ *     CmSiFreeMemory @ 0x14048EB60 (CmSiFreeMemory.c)
+ *     SmStoreGetId @ 0x140529ECC (SmStoreGetId.c)
+ *     SmKmStoreDelete @ 0x140B22710 (SmKmStoreDelete.c)
  */
 
 void __fastcall SmKmCleanup(struct _PRIVILEGE_SET **a1)

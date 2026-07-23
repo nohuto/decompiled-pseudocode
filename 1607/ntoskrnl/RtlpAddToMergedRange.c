@@ -1,8 +1,8 @@
 /*
- * XREFs of RtlpAddToMergedRange @ 0x14055A3B4
+ * XREFs of RtlpAddToMergedRange @ 0x14055A8F4
  * Callers:
- *     RtlpDeleteFromMergedRange @ 0x140557F10 (RtlpDeleteFromMergedRange.c)
- *     RtlpAddIntersectingRanges @ 0x14055A288 (RtlpAddIntersectingRanges.c)
+ *     RtlpDeleteFromMergedRange @ 0x140558450 (RtlpDeleteFromMergedRange.c)
+ *     RtlpAddIntersectingRanges @ 0x14055A7C8 (RtlpAddIntersectingRanges.c)
  * Callees:
  *     <none>
  */

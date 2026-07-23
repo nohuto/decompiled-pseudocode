@@ -1,22 +1,22 @@
 /*
- * XREFs of DrvDbDeleteObjectSubKey @ 0x140A2D44C
+ * XREFs of DrvDbDeleteObjectSubKey @ 0x140A3EE58
  * Callers:
- *     DrvDbDeleteObjectRegKey @ 0x14089DBC4 (DrvDbDeleteObjectRegKey.c)
+ *     DrvDbDeleteObjectRegKey @ 0x1408A3FC4 (DrvDbDeleteObjectRegKey.c)
  * Callees:
- *     RtlStringCchCopyExW @ 0x14045AB50 (RtlStringCchCopyExW.c)
- *     wcschr @ 0x140537F60 (wcschr.c)
- *     wcsrchr @ 0x140538350 (wcsrchr.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     _PnpDeletePropertyWorker @ 0x14090ABAC (_PnpDeletePropertyWorker.c)
- *     _PnpCtxRegDeleteValue @ 0x14090B324 (_PnpCtxRegDeleteValue.c)
- *     _PnpGetGenericStorePropertyKeys @ 0x140919888 (_PnpGetGenericStorePropertyKeys.c)
- *     _PnpCtxRegEnumValue @ 0x14091ACF0 (_PnpCtxRegEnumValue.c)
- *     _PnpCtxRegQueryInfoKey @ 0x14091B2F8 (_PnpCtxRegQueryInfoKey.c)
- *     _RegRtlOpenKeyTransacted @ 0x140997950 (_RegRtlOpenKeyTransacted.c)
- *     _PnpCtxRegDeleteKey @ 0x140A2D8BC (_PnpCtxRegDeleteKey.c)
- *     _PnpCtxRegDeleteTree @ 0x140A2D8F8 (_PnpCtxRegDeleteTree.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     RtlStringCchCopyExW @ 0x140454380 (RtlStringCchCopyExW.c)
+ *     wcschr @ 0x14053A3E0 (wcschr.c)
+ *     wcsrchr @ 0x14053A7D0 (wcsrchr.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     _RegRtlOpenKeyTransacted @ 0x1409583B0 (_RegRtlOpenKeyTransacted.c)
+ *     _PnpGetGenericStorePropertyKeys @ 0x1409742E8 (_PnpGetGenericStorePropertyKeys.c)
+ *     _PnpCtxRegEnumValue @ 0x140975750 (_PnpCtxRegEnumValue.c)
+ *     _PnpCtxRegQueryInfoKey @ 0x140975D5C (_PnpCtxRegQueryInfoKey.c)
+ *     _PnpDeletePropertyWorker @ 0x1409AD164 (_PnpDeletePropertyWorker.c)
+ *     _PnpCtxRegDeleteValue @ 0x1409AD448 (_PnpCtxRegDeleteValue.c)
+ *     _PnpCtxRegDeleteKey @ 0x140A3F2C8 (_PnpCtxRegDeleteKey.c)
+ *     _PnpCtxRegDeleteTree @ 0x140A3F304 (_PnpCtxRegDeleteTree.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall DrvDbDeleteObjectSubKey(__int64 *a1, char *a2, const WCHAR *a3, unsigned int a4)
@@ -84,7 +84,7 @@ LABEL_41:
   }
   while ( 1 )
   {
-    GenericStorePropertyKeys = PnpGetGenericStorePropertyKeys(*a1, (int)Handle[0], 0LL, 0, (__int64)Pool2, v9, &v37);
+    GenericStorePropertyKeys = PnpGetGenericStorePropertyKeys(*a1, (__int64)Handle[0], 0LL, 0, (__int64)Pool2, v9, &v37);
     v14 = GenericStorePropertyKeys;
     if ( GenericStorePropertyKeys != -1073741789 )
       break;
@@ -117,7 +117,7 @@ LABEL_41:
     {
       do
       {
-        v29 = PnpDeletePropertyWorker(*a1, (int)Handle[0], 0LL, (__int64)Pool2 + 20 * v17, 0, dwFlags, 0);
+        v29 = PnpDeletePropertyWorker(*a1, (__int64)Handle[0], 0LL, (__int64)Pool2 + 20 * v17, 0, dwFlags, 0);
         v14 = v29;
         if ( v29 == -1073741275 || v29 == -1073741790 )
         {

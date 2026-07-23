@@ -17,7 +17,7 @@ __int64 __fastcall MiInitializeLoadedModuleList(__int64 a1)
   __int64 *v2; // rsi
   __int64 v3; // rbx
   char *v4; // rdi
-  __int64 v5; // rcx
+  PVOID v5; // rcx
   char *v7; // [rsp+40h] [rbp+8h] BYREF
 
   qword_14034E9D0 = (__int64)&qword_14034E9C8;
@@ -42,7 +42,7 @@ __int64 __fastcall MiInitializeLoadedModuleList(__int64 a1)
     if ( (int)MiConstructLoaderEntry(v3, (const void **)(v3 + 88), (unsigned __int16 *)(v3 + 72), 0, 1, &v7) < 0 )
       break;
     v4 = v7;
-    v5 = *((_QWORD *)v7 + 6);
+    v5 = (PVOID)*((_QWORD *)v7 + 6);
     if ( v5 == PsNtosImageBase )
       RtlCreateInvertedFunctionTableCacheEntry(v5, *((unsigned int *)v7 + 16));
     MiLockdownSections((__int64)v4);

@@ -1,14 +1,14 @@
 /*
- * XREFs of SepAdtClassifyObjectIntoSubCategory @ 0x1408F1A40
+ * XREFs of SepAdtClassifyObjectIntoSubCategory @ 0x140863240
  * Callers:
- *     ObpCreateHandle @ 0x14084DAA0 (ObpCreateHandle.c)
- *     SeOperationAuditAlarm @ 0x1408F0A50 (SeOperationAuditAlarm.c)
- *     SeAuditHandleCreation @ 0x1408F0F70 (SeAuditHandleCreation.c)
+ *     ObpCreateHandle @ 0x140849D60 (ObpCreateHandle.c)
+ *     SeOperationAuditAlarm @ 0x140862250 (SeOperationAuditAlarm.c)
+ *     SeAuditHandleCreation @ 0x140862770 (SeAuditHandleCreation.c)
  * Callees:
- *     PsGetCurrentServerSiloGlobals @ 0x140347D10 (PsGetCurrentServerSiloGlobals.c)
- *     SepAuditingEnabledForSubcategory @ 0x14041B520 (SepAuditingEnabledForSubcategory.c)
- *     RtlCompareMemory @ 0x1406B3990 (RtlCompareMemory.c)
- *     SepIsRemovableStorageDevice @ 0x1408F1C04 (SepIsRemovableStorageDevice.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x140326710 (PsGetCurrentServerSiloGlobals.c)
+ *     SepAuditingEnabledForSubcategory @ 0x14040F060 (SepAuditingEnabledForSubcategory.c)
+ *     RtlCompareMemory @ 0x1406B4930 (RtlCompareMemory.c)
+ *     SepIsRemovableStorageDevice @ 0x140863404 (SepIsRemovableStorageDevice.c)
  */
 
 __int16 __fastcall SepAdtClassifyObjectIntoSubCategory(__int64 a1, unsigned __int16 *a2, char a3, char a4)

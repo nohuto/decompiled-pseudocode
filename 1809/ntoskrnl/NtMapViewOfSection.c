@@ -1,16 +1,16 @@
 /*
- * XREFs of NtMapViewOfSection @ 0x140676FB0
+ * XREFs of NtMapViewOfSection @ 0x140678170
  * Callers:
  *     <none>
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
- *     MiMapViewOfSection @ 0x1405EFB10 (MiMapViewOfSection.c)
- *     MiMapParametersInitialize @ 0x1405F0080 (MiMapParametersInitialize.c)
- *     MiMapViewOfSectionCommon @ 0x1406771F0 (MiMapViewOfSectionCommon.c)
- *     MiValidateZeroBits @ 0x14067742C (MiValidateZeroBits.c)
- *     DbgkMapViewOfSection @ 0x14067747C (DbgkMapViewOfSection.c)
- *     EtwTiLogMapExecView @ 0x1406CF3E0 (EtwTiLogMapExecView.c)
+ *     MiMapViewOfSection @ 0x1405F0B10 (MiMapViewOfSection.c)
+ *     MiMapParametersInitialize @ 0x1405F1080 (MiMapParametersInitialize.c)
+ *     MiMapViewOfSectionCommon @ 0x1406783B0 (MiMapViewOfSectionCommon.c)
+ *     MiValidateZeroBits @ 0x1406785EC (MiValidateZeroBits.c)
+ *     DbgkMapViewOfSection @ 0x14067863C (DbgkMapViewOfSection.c)
+ *     EtwTiLogMapExecView @ 0x1406D0680 (EtwTiLogMapExecView.c)
  */
 
 NTSTATUS __stdcall NtMapViewOfSection(
@@ -67,7 +67,7 @@ NTSTATUS __stdcall NtMapViewOfSection(
                &v24);
     if ( result < 0 )
     {
-      ++dword_14043A880;
+      ++dword_14043B940;
       return result;
     }
     v22 = v13;
@@ -104,9 +104,9 @@ NTSTATUS __stdcall NtMapViewOfSection(
       v21 = v24 == 0;
     }
     if ( v21 )
-      ++dword_14043A880;
+      ++dword_14043B940;
     else
-      ++dword_14043A884;
+      ++dword_14043B944;
 LABEL_12:
     ObfDereferenceObject(Object);
     ObfDereferenceObjectWithTag(v29, 0x77566D4Du);

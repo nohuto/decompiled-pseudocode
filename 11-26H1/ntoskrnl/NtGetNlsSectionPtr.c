@@ -1,43 +1,48 @@
 /*
- * XREFs of NtGetNlsSectionPtr @ 0x140A97650
+ * XREFs of NtGetNlsSectionPtr @ 0x140A9B7D0
  * Callers:
- *     DifNtGetNlsSectionPtrWrapper @ 0x140679610 (DifNtGetNlsSectionPtrWrapper.c)
- *     RtlpInitCodePageTables @ 0x140802074 (RtlpInitCodePageTables.c)
- *     RtlpInitUppercaseTables @ 0x14080221C (RtlpInitUppercaseTables.c)
+ *     DifNtGetNlsSectionPtrWrapper @ 0x14067D1F0 (DifNtGetNlsSectionPtrWrapper.c)
+ *     RtlpInitCodePageTables @ 0x140807B14 (RtlpInitCodePageTables.c)
+ *     RtlpInitUppercaseTables @ 0x140807CBC (RtlpInitUppercaseTables.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     MiSectionControlArea @ 0x14038A9B0 (MiSectionControlArea.c)
- *     MiCheckPurgeAndUpMapCount @ 0x140442A20 (MiCheckPurgeAndUpMapCount.c)
- *     MiInsertInSystemSpace @ 0x1404EDA44 (MiInsertInSystemSpace.c)
- *     MiDereferenceControlArea @ 0x1404EF3F0 (MiDereferenceControlArea.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     ZwOpenFile @ 0x140723A50 (ZwOpenFile.c)
- *     ZwOpenSection @ 0x140723AD0 (ZwOpenSection.c)
- *     ZwCreateSection @ 0x140723D30 (ZwCreateSection.c)
- *     RtlReadULong64FromUser @ 0x14077F554 (RtlReadULong64FromUser.c)
- *     RtlWriteULong64ToUser @ 0x14077F758 (RtlWriteULong64ToUser.c)
- *     ObReferenceObjectByHandle @ 0x1408F9550 (ObReferenceObjectByHandle.c)
- *     MmMapViewOfSection @ 0x1409C1F50 (MmMapViewOfSection.c)
- *     RtlpInitNlsSectionName @ 0x140A979F0 (RtlpInitNlsSectionName.c)
- *     RtlpInitNlsFileName @ 0x140B29D74 (RtlpInitNlsFileName.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     MiSectionControlArea @ 0x14038C760 (MiSectionControlArea.c)
+ *     MiCheckPurgeAndUpMapCount @ 0x14043B530 (MiCheckPurgeAndUpMapCount.c)
+ *     MiInsertInSystemSpace @ 0x1404E7024 (MiInsertInSystemSpace.c)
+ *     MiDereferenceControlArea @ 0x1404E89D0 (MiDereferenceControlArea.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     ZwOpenFile @ 0x140728620 (ZwOpenFile.c)
+ *     ZwOpenSection @ 0x1407286A0 (ZwOpenSection.c)
+ *     ZwCreateSection @ 0x140728900 (ZwCreateSection.c)
+ *     RtlReadULong64FromUser @ 0x140782054 (RtlReadULong64FromUser.c)
+ *     RtlWriteULong64ToUser @ 0x140782258 (RtlWriteULong64ToUser.c)
+ *     ObReferenceObjectByHandle @ 0x1409294E0 (ObReferenceObjectByHandle.c)
+ *     MmMapViewOfSection @ 0x140992F30 (MmMapViewOfSection.c)
+ *     RtlpInitNlsSectionName @ 0x140A9BB70 (RtlpInitNlsSectionName.c)
+ *     RtlpInitNlsFileName @ 0x140B2BDF4 (RtlpInitNlsFileName.c)
  */
 
-NTSTATUS __fastcall NtGetNlsSectionPtr(unsigned int a1, unsigned int a2, _QWORD *a3, _QWORD *a4, __int64 *a5)
+NTSTATUS __cdecl NtGetNlsSectionPtr(
+        ULONG SectionType,
+        ULONG SectionData,
+        PVOID ContextData,
+        PVOID *SectionPointer,
+        PULONG SectionSize)
 {
   __int64 v9; // r13
   char PreviousMode; // r15
   __int64 ULong64FromUser; // rax
   __int64 v12; // rax
   __int64 v13; // rax
-  int v14; // ebx
+  NTSTATUS v14; // ebx
   _QWORD *v15; // rsi
   NTSTATUS result; // eax
   __int64 v17; // [rsp+58h] [rbp-210h] BYREF
   PVOID Object; // [rsp+60h] [rbp-208h] BYREF
-  __int64 v19; // [rsp+68h] [rbp-200h] BYREF
+  void *v19; // [rsp+68h] [rbp-200h] BYREF
   HANDLE SectionHandle; // [rsp+70h] [rbp-1F8h] BYREF
-  __int64 v21; // [rsp+78h] [rbp-1F0h] BYREF
+  void *v21; // [rsp+78h] [rbp-1F0h] BYREF
   HANDLE FileHandle; // [rsp+88h] [rbp-1E0h] BYREF
   __int128 v23; // [rsp+90h] [rbp-1D8h] BYREF
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+A0h] [rbp-1C8h] BYREF
@@ -47,7 +52,7 @@ NTSTATUS __fastcall NtGetNlsSectionPtr(unsigned int a1, unsigned int a2, _QWORD 
   _BYTE v28[128]; // [rsp+120h] [rbp-148h] BYREF
   _BYTE v29[128]; // [rsp+1A0h] [rbp-C8h] BYREF
 
-  LODWORD(v17) = a2;
+  LODWORD(v17) = SectionData;
   *(&ObjectAttributes.Length + 1) = 0;
   *(&ObjectAttributes.Attributes + 1) = 0;
   v25 = 0LL;
@@ -57,29 +62,29 @@ NTSTATUS __fastcall NtGetNlsSectionPtr(unsigned int a1, unsigned int a2, _QWORD 
   v21 = 0LL;
   v9 = 0LL;
   v19 = 0LL;
-  if ( !a4 && !a3 )
+  if ( !SectionPointer && !ContextData )
     return -1073741811;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   if ( PreviousMode )
   {
-    if ( a4 )
+    if ( SectionPointer )
     {
-      ULong64FromUser = RtlReadULong64FromUser(a4);
-      RtlWriteULong64ToUser(a4, ULong64FromUser);
+      ULong64FromUser = RtlReadULong64FromUser(SectionPointer);
+      RtlWriteULong64ToUser(SectionPointer, ULong64FromUser);
     }
-    if ( a5 )
+    if ( SectionSize )
     {
-      v12 = RtlReadULong64FromUser(a5);
-      RtlWriteULong64ToUser(a5, v12);
+      v12 = RtlReadULong64FromUser(SectionSize);
+      RtlWriteULong64ToUser(SectionSize, v12);
     }
-    if ( a3 )
+    if ( ContextData )
     {
-      v13 = RtlReadULong64FromUser(a3);
-      RtlWriteULong64ToUser(a3, v13);
+      v13 = RtlReadULong64FromUser(ContextData);
+      RtlWriteULong64ToUser(ContextData, v13);
       return -1073741583;
     }
   }
-  result = RtlpInitNlsSectionName(a1, a2, v28);
+  result = RtlpInitNlsSectionName(SectionType, SectionData, v28);
   if ( result >= 0 )
   {
     ObjectAttributes.Length = 48;
@@ -87,7 +92,7 @@ NTSTATUS __fastcall NtGetNlsSectionPtr(unsigned int a1, unsigned int a2, _QWORD 
     ObjectAttributes.Attributes = 720;
     ObjectAttributes.ObjectName = (PUNICODE_STRING)&v25;
     *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
-    if ( ((a1 - 11) & 0xFFFFFFFC) != 0 || a1 == 13 )
+    if ( ((SectionType - 11) & 0xFFFFFFFC) != 0 || SectionType == 13 )
     {
       v14 = -1073741823;
     }
@@ -99,7 +104,7 @@ NTSTATUS __fastcall NtGetNlsSectionPtr(unsigned int a1, unsigned int a2, _QWORD 
         *(&v26.Length + 1) = 0;
         *(&v26.Attributes + 1) = 0;
         v23 = 0LL;
-        result = RtlpInitNlsFileName(a1, (unsigned int)v17, v29);
+        result = RtlpInitNlsFileName(SectionType, (unsigned int)v17, v29);
         if ( result < 0 )
           return result;
         v26.Length = 48;
@@ -121,7 +126,7 @@ NTSTATUS __fastcall NtGetNlsSectionPtr(unsigned int a1, unsigned int a2, _QWORD 
       ZwClose(SectionHandle);
       if ( v14 >= 0 )
       {
-        if ( a4 )
+        if ( SectionPointer )
         {
           *(_QWORD *)&v23 = 0LL;
           if ( PreviousMode )
@@ -134,11 +139,11 @@ NTSTATUS __fastcall NtGetNlsSectionPtr(unsigned int a1, unsigned int a2, _QWORD 
                     0LL,
                     0LL,
                     (__int64)&v23,
-                    &v19,
+                    (__int64 *)&v19,
                     1,
                     0x400000,
                     2);
-            v9 = v19;
+            v9 = (__int64)v19;
           }
           else
           {
@@ -164,30 +169,30 @@ NTSTATUS __fastcall NtGetNlsSectionPtr(unsigned int a1, unsigned int a2, _QWORD 
         {
           v15 = Object;
         }
-        if ( !a3 )
+        if ( !ContextData )
           ObfDereferenceObject(v15);
         if ( v14 >= 0 )
         {
-          if ( a4 )
+          if ( SectionPointer )
           {
             if ( PreviousMode )
-              RtlWriteULong64ToUser(a4, v21);
+              RtlWriteULong64ToUser(SectionPointer, (__int64)v21);
             else
-              *a4 = v21;
+              *SectionPointer = v21;
           }
-          if ( a5 )
+          if ( SectionSize )
           {
             if ( PreviousMode )
-              RtlWriteULong64ToUser(a5, v9);
+              RtlWriteULong64ToUser(SectionSize, v9);
             else
-              *a5 = v9;
+              *(_QWORD *)SectionSize = v9;
           }
-          if ( a3 )
+          if ( ContextData )
           {
             if ( PreviousMode )
-              RtlWriteULong64ToUser(a3, (__int64)v15);
+              RtlWriteULong64ToUser(ContextData, (__int64)v15);
             else
-              *a3 = v15;
+              *(_QWORD *)ContextData = v15;
           }
         }
       }

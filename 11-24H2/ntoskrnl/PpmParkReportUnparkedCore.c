@@ -1,12 +1,12 @@
 /*
- * XREFs of PpmParkReportUnparkedCore @ 0x140351950
+ * XREFs of PpmParkReportUnparkedCore @ 0x1402B0778
  * Callers:
- *     PpmPerfAction @ 0x140351770 (PpmPerfAction.c)
+ *     PpmPerfAction @ 0x1402AFC80 (PpmPerfAction.c)
  * Callees:
- *     PpmIdleUpdateProcessorLatencyLimit @ 0x1403B5A90 (PpmIdleUpdateProcessorLatencyLimit.c)
- *     KeTransitionProcessorParkState @ 0x1403E9560 (KeTransitionProcessorParkState.c)
- *     KeInterlockedClearProcessorAffinityEx @ 0x1403E9E90 (KeInterlockedClearProcessorAffinityEx.c)
- *     PpmEventCoreParkingStateChange @ 0x14048E1F8 (PpmEventCoreParkingStateChange.c)
+ *     PpmIdleUpdateProcessorLatencyLimit @ 0x1402AE9D0 (PpmIdleUpdateProcessorLatencyLimit.c)
+ *     KeTransitionProcessorParkState @ 0x1403D720C (KeTransitionProcessorParkState.c)
+ *     KeInterlockedClearProcessorAffinityEx @ 0x1403D7B30 (KeInterlockedClearProcessorAffinityEx.c)
+ *     PpmEventCoreParkingStateChange @ 0x1404886C8 (PpmEventCoreParkingStateChange.c)
  */
 
 _PPM_IDLE_STATES *__fastcall PpmParkReportUnparkedCore(struct _KPRCB *a1)

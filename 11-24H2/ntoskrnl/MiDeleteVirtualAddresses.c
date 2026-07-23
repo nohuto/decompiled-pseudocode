@@ -1,11 +1,11 @@
 /*
- * XREFs of MiDeleteVirtualAddresses @ 0x1403CC160
+ * XREFs of MiDeleteVirtualAddresses @ 0x140266330
  * Callers:
- *     MiDeleteFinalPageTables @ 0x14045BA24 (MiDeleteFinalPageTables.c)
- *     MiDeleteVad @ 0x1408E5390 (MiDeleteVad.c)
- *     MiUnmapLockedPagesInUserSpace @ 0x140A61744 (MiUnmapLockedPagesInUserSpace.c)
+ *     MiDeleteFinalPageTables @ 0x140450DBC (MiDeleteFinalPageTables.c)
+ *     MiDeleteVad @ 0x140895840 (MiDeleteVad.c)
+ *     MiUnmapLockedPagesInUserSpace @ 0x140A59F24 (MiUnmapLockedPagesInUserSpace.c)
  * Callees:
- *     MiDeletePagablePteRange @ 0x1403CC1D4 (MiDeletePagablePteRange.c)
+ *     MiDeletePagablePteRange @ 0x1402663A4 (MiDeletePagablePteRange.c)
  */
 
 unsigned __int64 __fastcall MiDeleteVirtualAddresses(int a1, int a2, int a3, __int64 a4)

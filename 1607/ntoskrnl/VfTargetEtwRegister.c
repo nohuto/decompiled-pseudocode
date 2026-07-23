@@ -1,12 +1,12 @@
 /*
- * XREFs of VfTargetEtwRegister @ 0x14071002C
+ * XREFs of VfTargetEtwRegister @ 0x14071005C
  * Callers:
  *     VerifierEtwRegister @ 0x14071CF6C (VerifierEtwRegister.c)
  *     VerifierEtwRegisterClassicProvider @ 0x14071CFA0 (VerifierEtwRegisterClassicProvider.c)
  * Callees:
- *     VfAvlCleanupLockContext @ 0x14008446C (VfAvlCleanupLockContext.c)
- *     VfAvlInitializeLockContext @ 0x1400845E8 (VfAvlInitializeLockContext.c)
- *     VfAvlLookupTreeNode @ 0x14012F004 (VfAvlLookupTreeNode.c)
+ *     VfAvlCleanupLockContext @ 0x1400825CC (VfAvlCleanupLockContext.c)
+ *     VfAvlInitializeLockContext @ 0x140082748 (VfAvlInitializeLockContext.c)
+ *     VfAvlLookupTreeNode @ 0x14012F574 (VfAvlLookupTreeNode.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
  */

@@ -13,7 +13,7 @@
  *     <none>
  */
 
-void __fastcall VfAvlFreeNodeNoLock(__int64 a1, struct _SLIST_ENTRY *a2)
+void __fastcall VfAvlFreeNodeNoLock(__int64 a1, _SLIST_ENTRY *a2)
 {
   if ( *(_DWORD *)(a1 + 28) == 1 )
   {

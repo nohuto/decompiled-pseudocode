@@ -1,9 +1,9 @@
 /*
- * XREFs of KiConnectSwInterrupt @ 0x140C28714
+ * XREFs of KiConnectSwInterrupt @ 0x140C2A7B4
  * Callers:
- *     sub_140BE10B0 @ 0x140BE10B0 (sub_140BE10B0.c)
+ *     sub_140BE30B0 @ 0x140BE30B0 (sub_140BE30B0.c)
  * Callees:
- *     VslConnectSwInterrupt @ 0x140C650B0 (VslConnectSwInterrupt.c)
+ *     VslConnectSwInterrupt @ 0x140C6722C (VslConnectSwInterrupt.c)
  */
 
 __int64 __fastcall KiConnectSwInterrupt(ULONG_PTR a1, unsigned int a2)

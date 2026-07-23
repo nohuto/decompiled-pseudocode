@@ -1,10 +1,10 @@
 /*
- * XREFs of WdipSemSqmEnabled @ 0x140930BE0
+ * XREFs of WdipSemSqmEnabled @ 0x140930D40
  * Callers:
- *     WdipSemLogInflightLimitExceededInformation @ 0x14092FEB4 (WdipSemLogInflightLimitExceededInformation.c)
- *     WdipSemLogTimeoutInformation @ 0x1409304B0 (WdipSemLogTimeoutInformation.c)
+ *     WdipSemLogInflightLimitExceededInformation @ 0x140930014 (WdipSemLogInflightLimitExceededInformation.c)
+ *     WdipSemLogTimeoutInformation @ 0x140930610 (WdipSemLogTimeoutInformation.c)
  * Callees:
- *     EtwEventEnabled @ 0x14021BF30 (EtwEventEnabled.c)
+ *     EtwEventEnabled @ 0x1402C0830 (EtwEventEnabled.c)
  */
 
 bool WdipSemSqmEnabled()

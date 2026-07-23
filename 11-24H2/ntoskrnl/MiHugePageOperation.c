@@ -1,23 +1,23 @@
 /*
- * XREFs of MiHugePageOperation @ 0x140685BC0
+ * XREFs of MiHugePageOperation @ 0x140686CF0
  * Callers:
- *     MiGetHugeRange @ 0x1406700C4 (MiGetHugeRange.c)
- *     MiHotAddHugeRange @ 0x1407EAFDC (MiHotAddHugeRange.c)
- *     MiAllocatePartitionPhysicalPages @ 0x1407FB6A4 (MiAllocatePartitionPhysicalPages.c)
+ *     MiGetHugeRange @ 0x140671294 (MiGetHugeRange.c)
+ *     MiHotAddHugeRange @ 0x1407EB5AC (MiHotAddHugeRange.c)
+ *     MiAllocatePartitionPhysicalPages @ 0x1407FBE14 (MiAllocatePartitionPhysicalPages.c)
  * Callees:
- *     MiDeleteUltraThreadContext @ 0x14020C870 (MiDeleteUltraThreadContext.c)
- *     MiGetUltraMapping @ 0x14020CE50 (MiGetUltraMapping.c)
- *     MiUpdateProtectionMask @ 0x14021BFAC (MiUpdateProtectionMask.c)
- *     MiUnmapContiguousMemory @ 0x140263178 (MiUnmapContiguousMemory.c)
- *     MiPageToNode @ 0x14026C1E0 (MiPageToNode.c)
- *     MmMapIoSpaceEx @ 0x1402E9A50 (MmMapIoSpaceEx.c)
- *     MiInitializePageColorBase @ 0x1402EF8B0 (MiInitializePageColorBase.c)
- *     MiCreateUltraThreadContext @ 0x1402F3EF0 (MiCreateUltraThreadContext.c)
- *     MiWriteLargePte @ 0x1403090A0 (MiWriteLargePte.c)
- *     MiGroupZeroHugeRange @ 0x140685AB4 (MiGroupZeroHugeRange.c)
- *     MiSoloZeroHugeRange @ 0x140685E14 (MiSoloZeroHugeRange.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     MiPageToNode @ 0x140221770 (MiPageToNode.c)
+ *     MiUpdateProtectionMask @ 0x140248CFC (MiUpdateProtectionMask.c)
+ *     MiUnmapContiguousMemory @ 0x1402929E8 (MiUnmapContiguousMemory.c)
+ *     MiWriteLargePte @ 0x140312F80 (MiWriteLargePte.c)
+ *     MiDeleteUltraThreadContext @ 0x140335BD0 (MiDeleteUltraThreadContext.c)
+ *     MiGetUltraMapping @ 0x1403361B0 (MiGetUltraMapping.c)
+ *     MiCreateUltraThreadContext @ 0x14033BC80 (MiCreateUltraThreadContext.c)
+ *     MiInitializePageColorBase @ 0x140342940 (MiInitializePageColorBase.c)
+ *     MmMapIoSpaceEx @ 0x14034B090 (MmMapIoSpaceEx.c)
+ *     MiGroupZeroHugeRange @ 0x140686BE4 (MiGroupZeroHugeRange.c)
+ *     MiSoloZeroHugeRange @ 0x140686F44 (MiSoloZeroHugeRange.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 __int64 __fastcall MiHugePageOperation(__int64 a1, unsigned __int64 a2)
@@ -27,7 +27,7 @@ __int64 __fastcall MiHugePageOperation(__int64 a1, unsigned __int64 a2)
   int v6; // esi
   unsigned __int64 UltraMapping; // r15
   int updated; // eax
-  unsigned int v9; // r8d
+  __int64 v9; // r8
   ULONG_PTR v10; // rbp
   __int64 result; // rax
   __int128 v12; // [rsp+38h] [rbp-D0h] BYREF
@@ -41,7 +41,7 @@ __int64 __fastcall MiHugePageOperation(__int64 a1, unsigned __int64 a2)
     3,
     v4 + 1,
     (__int64)&v12);
-  if ( a2 <= qword_140E2DBE0 && ((*(_QWORD *)(48 * a2 - 0x21FFFFFFFFD8LL) >> 54) & 1) != 0 )
+  if ( a2 <= qword_140E2DD20 && ((*(_QWORD *)(48 * a2 - 0x21FFFFFFFFD8LL) >> 54) & 1) != 0 )
     v5 = (unsigned __int8)BYTE2(*(_DWORD *)(48 * a2 - 0x21FFFFFFFFE0LL)) >> 6;
   else
     v5 = 1;
@@ -55,15 +55,15 @@ __int64 __fastcall MiHugePageOperation(__int64 a1, unsigned __int64 a2)
   else
   {
     v6 = 1;
-    v9 = 4;
+    v9 = 4LL;
     if ( v5 )
     {
       if ( v5 == 2 )
-        v9 = 1028;
+        v9 = 1028LL;
     }
     else
     {
-      v9 = 516;
+      v9 = 516LL;
     }
     UltraMapping = MmMapIoSpaceEx(a2 << 12, 0x40000000LL, v9);
     if ( !UltraMapping )

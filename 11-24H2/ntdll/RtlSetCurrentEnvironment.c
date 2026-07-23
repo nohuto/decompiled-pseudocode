@@ -1,37 +1,37 @@
 /*
- * XREFs of RtlSetCurrentEnvironment @ 0x180112B10
+ * XREFs of RtlSetCurrentEnvironment @ 0x18010DDD0
  * Callers:
  *     <none>
  * Callees:
- *     RtlpSysVolFree @ 0x180001470 (RtlpSysVolFree.c)
- *     RtlEnterCriticalSection @ 0x1800148F0 (RtlEnterCriticalSection.c)
- *     RtlLeaveCriticalSection @ 0x1800149F0 (RtlLeaveCriticalSection.c)
- *     RtlpClearEnvironmentHashTable @ 0x180082B7C (RtlpClearEnvironmentHashTable.c)
- *     RtlpAllocationSize @ 0x1800839C4 (RtlpAllocationSize.c)
+ *     RtlpClearEnvironmentHashTable @ 0x1800049FC (RtlpClearEnvironmentHashTable.c)
+ *     RtlpAllocationSize @ 0x180005844 (RtlpAllocationSize.c)
+ *     RtlpSysVolFree @ 0x180005870 (RtlpSysVolFree.c)
+ *     RtlEnterCriticalSection @ 0x1800412F0 (RtlEnterCriticalSection.c)
+ *     RtlLeaveCriticalSection @ 0x1800413F0 (RtlLeaveCriticalSection.c)
  */
 
-__int64 __fastcall RtlSetCurrentEnvironment(__int64 a1, __int64 *a2)
+NTSTATUS __cdecl RtlSetCurrentEnvironment(PVOID Environment, PVOID *PreviousEnvironment)
 {
   _RTL_USER_PROCESS_PARAMETERS *ProcessParameters; // rsi
-  __int64 v5; // rbx
-  __int64 Environment; // rbp
+  SIZE_T v5; // rbx
+  void *v6; // rbp
 
   ProcessParameters = NtCurrentPeb()->ProcessParameters;
-  v5 = RtlpAllocationSize(a1);
-  RtlEnterCriticalSection((__int64)&FastPebLock);
+  v5 = RtlpAllocationSize(Environment);
+  RtlEnterCriticalSection(&FastPebLock);
   RtlpClearEnvironmentHashTable();
-  Environment = (__int64)ProcessParameters->Environment;
+  v6 = ProcessParameters->Environment;
   ++ProcessParameters->EnvironmentVersion;
-  ProcessParameters->Environment = (void *)a1;
+  ProcessParameters->Environment = Environment;
   ProcessParameters->EnvironmentSize = v5;
-  RtlLeaveCriticalSection((__int64)&FastPebLock);
-  if ( a2 )
+  RtlLeaveCriticalSection(&FastPebLock);
+  if ( PreviousEnvironment )
   {
-    *a2 = Environment;
+    *PreviousEnvironment = v6;
   }
-  else if ( Environment )
+  else if ( v6 )
   {
-    RtlpSysVolFree(Environment);
+    RtlpSysVolFree(v6);
   }
-  return 0LL;
+  return 0;
 }

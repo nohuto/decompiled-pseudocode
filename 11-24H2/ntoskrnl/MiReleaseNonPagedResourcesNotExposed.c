@@ -1,15 +1,15 @@
 /*
- * XREFs of MiReleaseNonPagedResourcesNotExposed @ 0x1403A9CCC
+ * XREFs of MiReleaseNonPagedResourcesNotExposed @ 0x14039895C
  * Callers:
- *     MiFreeSmallPageFromMdl @ 0x1403A2098 (MiFreeSmallPageFromMdl.c)
- *     MiReturnMdlCharges @ 0x1403A8ECC (MiReturnMdlCharges.c)
- *     MiFreeLargePageCharges @ 0x1403A9C50 (MiFreeLargePageCharges.c)
- *     MiObtainMdlCharges @ 0x1404128E0 (MiObtainMdlCharges.c)
- *     MmRemovePhysicalMemory @ 0x1407EA5D0 (MmRemovePhysicalMemory.c)
- *     MiAllocatePartitionPhysicalPages @ 0x1407FB6A4 (MiAllocatePartitionPhysicalPages.c)
+ *     MiFreeSmallPageFromMdl @ 0x140218CC8 (MiFreeSmallPageFromMdl.c)
+ *     MiObtainMdlCharges @ 0x140394D20 (MiObtainMdlCharges.c)
+ *     MiReturnMdlCharges @ 0x140397B54 (MiReturnMdlCharges.c)
+ *     MiFreeLargePageCharges @ 0x1403988E0 (MiFreeLargePageCharges.c)
+ *     MmRemovePhysicalMemory @ 0x1407EABA0 (MmRemovePhysicalMemory.c)
+ *     MiAllocatePartitionPhysicalPages @ 0x1407FBE14 (MiAllocatePartitionPhysicalPages.c)
  * Callees:
- *     MiReturnResident @ 0x14020F6B0 (MiReturnResident.c)
- *     MiReturnCommit @ 0x14028EF80 (MiReturnCommit.c)
+ *     MiReturnCommit @ 0x14029EB80 (MiReturnCommit.c)
+ *     MiReturnResident @ 0x140338A10 (MiReturnResident.c)
  */
 
 unsigned __int64 __fastcall MiReleaseNonPagedResourcesNotExposed(__int64 a1, unsigned __int64 a2)

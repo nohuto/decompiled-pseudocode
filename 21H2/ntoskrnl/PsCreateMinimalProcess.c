@@ -1,34 +1,34 @@
 /*
- * XREFs of PsCreateMinimalProcess @ 0x1407C6284
+ * XREFs of PsCreateMinimalProcess @ 0x1407C65A4
  * Callers:
- *     ?SmFirstTimeInit@@YAJKK@Z @ 0x14035D458 (-SmFirstTimeInit@@YAJKK@Z.c)
- *     CmpInitializeRegistryProcess @ 0x1407C606C (CmpInitializeRegistryProcess.c)
- *     PspCreateProcess @ 0x1407CE460 (PspCreateProcess.c)
- *     PspCreatePicoProcess @ 0x14090BD00 (PspCreatePicoProcess.c)
- *     PspCreatePartitionSystemProcess @ 0x14090CF58 (PspCreatePartitionSystemProcess.c)
- *     VmCreateMemoryProcess @ 0x14092EC70 (VmCreateMemoryProcess.c)
- *     PspInitPhase1 @ 0x140A4B338 (PspInitPhase1.c)
+ *     ?SmFirstTimeInit@@YAJKK@Z @ 0x1402A2388 (-SmFirstTimeInit@@YAJKK@Z.c)
+ *     CmpInitializeRegistryProcess @ 0x1407C638C (CmpInitializeRegistryProcess.c)
+ *     PspCreateProcess @ 0x1407CE5D0 (PspCreateProcess.c)
+ *     PspCreatePicoProcess @ 0x14090BE60 (PspCreatePicoProcess.c)
+ *     PspCreatePartitionSystemProcess @ 0x14090D0B8 (PspCreatePartitionSystemProcess.c)
+ *     VmCreateMemoryProcess @ 0x14092EDD0 (VmCreateMemoryProcess.c)
+ *     PspInitPhase1 @ 0x140A4C338 (PspInitPhase1.c)
  * Callees:
- *     KeUnstackDetachProcess @ 0x1402075C0 (KeUnstackDetachProcess.c)
- *     KeStackAttachProcess @ 0x14025C110 (KeStackAttachProcess.c)
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     KeKvaShadowingActive @ 0x1402CF588 (KeKvaShadowingActive.c)
- *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     memset @ 0x140414200 (memset.c)
- *     PspRundownSingleProcess @ 0x140604738 (PspRundownSingleProcess.c)
- *     PspInsertProcess @ 0x140607710 (PspInsertProcess.c)
- *     PspGetMemoryPartitionContext @ 0x14060CF80 (PspGetMemoryPartitionContext.c)
- *     PspCreateObjectHandle @ 0x14064A7C4 (PspCreateObjectHandle.c)
- *     PsTerminateProcess @ 0x1406BC4B8 (PsTerminateProcess.c)
- *     PspAllocateProcess @ 0x1406D6638 (PspAllocateProcess.c)
- *     PsReferencePrimaryToken @ 0x140706D00 (PsReferencePrimaryToken.c)
- *     PsAssignProcessToJobObject @ 0x14071F3B0 (PsAssignProcessToJobObject.c)
- *     DbgkCreateMinimalProcess @ 0x1407C6578 (DbgkCreateMinimalProcess.c)
- *     PspSetMinimalProcessName @ 0x1407C65E4 (PspSetMinimalProcessName.c)
- *     MmSynchronizeAddressPolicy @ 0x1407C6680 (MmSynchronizeAddressPolicy.c)
- *     PspDeleteMemoryPartitionContext @ 0x140908D08 (PspDeleteMemoryPartitionContext.c)
- *     PspDeleteObjectAccessState @ 0x14090A0DC (PspDeleteObjectAccessState.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     KeKvaShadowingActive @ 0x14024D904 (KeKvaShadowingActive.c)
+ *     KeStackAttachProcess @ 0x14027D680 (KeStackAttachProcess.c)
+ *     KeUnstackDetachProcess @ 0x1402ABEC0 (KeUnstackDetachProcess.c)
+ *     ObfDereferenceObjectWithTag @ 0x140355E90 (ObfDereferenceObjectWithTag.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     PsTerminateProcess @ 0x14061B628 (PsTerminateProcess.c)
+ *     PspCreateObjectHandle @ 0x14063F5E4 (PspCreateObjectHandle.c)
+ *     PspInsertProcess @ 0x1406971A0 (PspInsertProcess.c)
+ *     PspGetMemoryPartitionContext @ 0x14069CA30 (PspGetMemoryPartitionContext.c)
+ *     PspAllocateProcess @ 0x1406AD918 (PspAllocateProcess.c)
+ *     PspRundownSingleProcess @ 0x1406F3E68 (PspRundownSingleProcess.c)
+ *     PsAssignProcessToJobObject @ 0x1406F6D10 (PsAssignProcessToJobObject.c)
+ *     PsReferencePrimaryToken @ 0x14071E0E0 (PsReferencePrimaryToken.c)
+ *     DbgkCreateMinimalProcess @ 0x1407C6898 (DbgkCreateMinimalProcess.c)
+ *     PspSetMinimalProcessName @ 0x1407C6904 (PspSetMinimalProcessName.c)
+ *     MmSynchronizeAddressPolicy @ 0x1407C69A0 (MmSynchronizeAddressPolicy.c)
+ *     PspDeleteMemoryPartitionContext @ 0x140908E68 (PspDeleteMemoryPartitionContext.c)
+ *     PspDeleteObjectAccessState @ 0x14090A23C (PspDeleteObjectAccessState.c)
  */
 
 __int64 __fastcall PsCreateMinimalProcess(
@@ -40,17 +40,17 @@ __int64 __fastcall PsCreateMinimalProcess(
         int a6,
         char a7,
         __int64 a8,
-        __int64 a9,
+        _QWORD *Object,
         _QWORD *a10)
 {
-  __int64 v11; // r14
+  _QWORD *v11; // r14
   PADAPTER_OBJECT v12; // r12
   unsigned int v14; // ebx
   int MemoryPartitionContext; // esi
   PRKPROCESS v16; // rdi
   char v17; // al
   PRKPROCESS PROCESS; // [rsp+80h] [rbp-80h] BYREF
-  __int64 v20; // [rsp+88h] [rbp-78h] BYREF
+  _QWORD *v20; // [rsp+88h] [rbp-78h] BYREF
   PVOID v21; // [rsp+90h] [rbp-70h] BYREF
   __int64 v22; // [rsp+98h] [rbp-68h] BYREF
   __int64 v23; // [rsp+A0h] [rbp-60h]
@@ -58,12 +58,12 @@ __int64 __fastcall PsCreateMinimalProcess(
   _QWORD *v25; // [rsp+B0h] [rbp-50h]
   _BYTE v26[400]; // [rsp+C0h] [rbp-40h] BYREF
   struct _KAPC_STATE ApcState; // [rsp+250h] [rbp+150h] BYREF
-  unsigned int v28; // [rsp+308h] [rbp+208h]
+  int v28; // [rsp+308h] [rbp+208h]
 
-  v11 = a9;
+  v11 = Object;
   v24 = a3;
   v23 = a2;
-  v20 = a9;
+  v20 = Object;
   v12 = DmaAdapter;
   v25 = a10;
   v22 = 0LL;
@@ -75,7 +75,7 @@ __int64 __fastcall PsCreateMinimalProcess(
     v12 = (PADAPTER_OBJECT)PsReferencePrimaryToken(Process);
   v14 = DmaAdapter != 0LL;
   v28 = a6 | 0x800;
-  MemoryPartitionContext = PspGetMemoryPartitionContext((__int64)Process, v28, (__int64)&v20, a9 != 0, &v21);
+  MemoryPartitionContext = PspGetMemoryPartitionContext((__int64)Process, v28, (__int64)&v20, Object != 0LL, &v21);
   if ( MemoryPartitionContext >= 0 )
   {
     MemoryPartitionContext = PspAllocateProcess(
@@ -125,10 +125,18 @@ __int64 __fastcall PsCreateMinimalProcess(
       v17 = 1;
       if ( (_DWORD)v22 )
         v17 = 3;
-      MemoryPartitionContext = PspInsertProcess((char *)v16, Process, 0x2000000, v28, 0LL, v17, v24, (PACCESS_STATE)v26);
+      MemoryPartitionContext = PspInsertProcess(
+                                 (char *)v16,
+                                 Process,
+                                 0x2000000u,
+                                 v28,
+                                 0LL,
+                                 v17,
+                                 v24,
+                                 (PACCESS_STATE)v26);
       if ( MemoryPartitionContext < 0 )
       {
-        PspRundownSingleProcess((__int64)PROCESS, 0);
+        PspRundownSingleProcess((ULONG_PTR)PROCESS, 0);
       }
       else
       {

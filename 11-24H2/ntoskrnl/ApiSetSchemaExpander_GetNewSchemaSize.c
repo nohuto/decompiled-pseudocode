@@ -1,7 +1,7 @@
 /*
- * XREFs of ApiSetSchemaExpander_GetNewSchemaSize @ 0x140662A88
+ * XREFs of ApiSetSchemaExpander_GetNewSchemaSize @ 0x14066136C
  * Callers:
- *     ApiSetComposeSchema_V7 @ 0x14066169C (ApiSetComposeSchema_V7.c)
+ *     ApiSetComposeSchema_V7 @ 0x14065FE98 (ApiSetComposeSchema_V7.c)
  * Callees:
  *     <none>
  */

@@ -1,12 +1,12 @@
 /*
- * XREFs of PspLockJobConditionally @ 0x14085E94C
+ * XREFs of PspLockJobConditionally @ 0x14085A6BC
  * Callers:
- *     PspJobDelete @ 0x1404EE9D0 (PspJobDelete.c)
- *     PspSetNetRateControl @ 0x140778224 (PspSetNetRateControl.c)
- *     PspSetJobIoRateControl @ 0x14085E618 (PspSetJobIoRateControl.c)
- *     NtSetInformationJobObject @ 0x140ACE760 (NtSetInformationJobObject.c)
+ *     PspJobDelete @ 0x1404E6110 (PspJobDelete.c)
+ *     PspSetNetRateControl @ 0x1407783E4 (PspSetNetRateControl.c)
+ *     PspSetJobIoRateControl @ 0x14085A388 (PspSetJobIoRateControl.c)
+ *     NtSetInformationJobObject @ 0x140ACC7F0 (NtSetInformationJobObject.c)
  * Callees:
- *     ExAcquireResourceExclusiveLite @ 0x1402769C0 (ExAcquireResourceExclusiveLite.c)
+ *     ExAcquireResourceExclusiveLite @ 0x14022BF50 (ExAcquireResourceExclusiveLite.c)
  */
 
 BOOLEAN __fastcall PspLockJobConditionally(__int64 a1, __int64 a2)

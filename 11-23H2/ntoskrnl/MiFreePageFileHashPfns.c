@@ -2,16 +2,16 @@
  * XREFs of MiFreePageFileHashPfns @ 0x14021D960
  * Callers:
  *     MiScanPagefiles @ 0x14021D8FC (MiScanPagefiles.c)
- *     MiDeletePagefile @ 0x140A32800 (MiDeletePagefile.c)
+ *     MiDeletePagefile @ 0x140A32AB0 (MiDeletePagefile.c)
  * Callees:
- *     MiReturnCommit @ 0x1402DC250 (MiReturnCommit.c)
- *     MiLockPageInline @ 0x1402EF680 (MiLockPageInline.c)
- *     RtlpInterlockedFlushSList @ 0x140428F30 (RtlpInterlockedFlushSList.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     MiFreePageFileHashPfn @ 0x140665EC8 (MiFreePageFileHashPfn.c)
+ *     MiReturnCommit @ 0x1402DC4E0 (MiReturnCommit.c)
+ *     MiLockPageInline @ 0x1402EF910 (MiLockPageInline.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     RtlpInterlockedFlushSList @ 0x1404292C0 (RtlpInterlockedFlushSList.c)
+ *     MiFreePageFileHashPfn @ 0x140666418 (MiFreePageFileHashPfn.c)
  */
 
-unsigned __int64 __fastcall MiFreePageFileHashPfns(union _SLIST_HEADER *a1)
+unsigned __int64 __fastcall MiFreePageFileHashPfns(_SLIST_HEADER *a1)
 {
   unsigned __int64 Region; // rbp
   unsigned __int64 v2; // rdi
@@ -40,10 +40,13 @@ unsigned __int64 __fastcall MiFreePageFileHashPfns(union _SLIST_HEADER *a1)
       MiFreePageFileHashPfn(0xAAAAAAAAAAAAAAABuLL * ((__int64)(v4 + 0x220000000000LL) >> 4));
       _InterlockedAnd64((volatile signed __int64 *)(v4 + 24), 0x7FFFFFFFFFFFFFFFuLL);
       result = (unsigned int)KiIrqlFlags;
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         CurrentIrql = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v6 <= 0xFu && CurrentIrql >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+          && CurrentIrql <= 0xFu
+          && (unsigned __int8)v6 <= 0xFu
+          && CurrentIrql >= 2u )
         {
           CurrentPrcb = KeGetCurrentPrcb();
           SchedulerAssist = CurrentPrcb->SchedulerAssist;

@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlpFlsSlotDataValidateEmpty @ 0x1404C4364
+ * XREFs of RtlpFlsSlotDataValidateEmpty @ 0x1404BDC44
  * Callers:
- *     PspExitThread @ 0x14095771C (PspExitThread.c)
+ *     PspExitThread @ 0x14094B14C (PspExitThread.c)
  * Callees:
  *     <none>
  */

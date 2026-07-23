@@ -19,5 +19,5 @@ NTSTATUS __stdcall ZwNotifyChangeDirectoryFile(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(FileHandle, Event, ApcRoutine);
+  return KiServiceInternal(FileHandle);
 }

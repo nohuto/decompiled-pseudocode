@@ -1,18 +1,18 @@
 /*
- * XREFs of PiDevCfgMakeServiceBootStart @ 0x14072A588
+ * XREFs of PiDevCfgMakeServiceBootStart @ 0x1407281D8
  * Callers:
- *     PiDevCfgConfigureDevice @ 0x140997CFC (PiDevCfgConfigureDevice.c)
+ *     PiDevCfgConfigureDevice @ 0x1409CA478 (PiDevCfgConfigureDevice.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     PnpValidateStringData @ 0x1404ACF1C (PnpValidateStringData.c)
- *     PnpValidateRegistryDword @ 0x1404C71B4 (PnpValidateRegistryDword.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     ZwSetValueKey @ 0x1406A7010 (ZwSetValueKey.c)
- *     RtlPrefixUnicodeString @ 0x14086E3C0 (RtlPrefixUnicodeString.c)
- *     PipOpenServiceEnumKeys @ 0x1409CAB04 (PipOpenServiceEnumKeys.c)
- *     IopGetRegistryValue @ 0x1409CAD5C (IopGetRegistryValue.c)
- *     PnpRegSzToString @ 0x140A48EA0 (PnpRegSzToString.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     PnpValidateStringData @ 0x1404A7600 (PnpValidateStringData.c)
+ *     PnpValidateRegistryDword @ 0x1404C0614 (PnpValidateRegistryDword.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     ZwSetValueKey @ 0x1406A7FB0 (ZwSetValueKey.c)
+ *     RtlPrefixUnicodeString @ 0x1408726F0 (RtlPrefixUnicodeString.c)
+ *     PipOpenServiceEnumKeys @ 0x1409B5D44 (PipOpenServiceEnumKeys.c)
+ *     IopGetRegistryValue @ 0x1409B5F9C (IopGetRegistryValue.c)
+ *     PnpRegSzToString @ 0x140A3FBB8 (PnpRegSzToString.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PiDevCfgMakeServiceBootStart(PCWSTR SourceString)

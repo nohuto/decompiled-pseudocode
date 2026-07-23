@@ -1,22 +1,22 @@
 /*
- * XREFs of PiDqOpenUserObjectRegKey @ 0x140631D88
+ * XREFs of PiDqOpenUserObjectRegKey @ 0x140631E3C
  * Callers:
- *     PiDqOpenObjectRegKey @ 0x140631CFC (PiDqOpenObjectRegKey.c)
+ *     PiDqOpenObjectRegKey @ 0x140631DB0 (PiDqOpenObjectRegKey.c)
  * Callees:
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     ZwClose @ 0x140159E60 (ZwClose.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     ZwClose @ 0x14015A3D0 (ZwClose.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
- *     RtlConvertSidToUnicodeString @ 0x1403F8710 (RtlConvertSidToUnicodeString.c)
- *     SeQueryUserSidToken @ 0x1403FFC40 (SeQueryUserSidToken.c)
- *     SeCaptureSubjectContext @ 0x140412030 (SeCaptureSubjectContext.c)
- *     SeReleaseSubjectContext @ 0x14041F9B0 (SeReleaseSubjectContext.c)
- *     SeQueryInformationToken @ 0x140439FF0 (SeQueryInformationToken.c)
- *     RtlFreeAnsiString @ 0x140458CF0 (RtlFreeAnsiString.c)
- *     PnpConcatPWSTR @ 0x140487108 (PnpConcatPWSTR.c)
- *     _PnpCtxRegCreateTree @ 0x1404FA7B8 (_PnpCtxRegCreateTree.c)
- *     _SysCtxRegOpenKey @ 0x1404FDB8C (_SysCtxRegOpenKey.c)
- *     _PnpValidateObjectName @ 0x140564498 (_PnpValidateObjectName.c)
- *     PiDqGetRelativeObjectRegPath @ 0x1406317A0 (PiDqGetRelativeObjectRegPath.c)
+ *     RtlConvertSidToUnicodeString @ 0x1403F75D0 (RtlConvertSidToUnicodeString.c)
+ *     SeQueryUserSidToken @ 0x1403FEB00 (SeQueryUserSidToken.c)
+ *     SeCaptureSubjectContext @ 0x140410EF0 (SeCaptureSubjectContext.c)
+ *     SeReleaseSubjectContext @ 0x14041E870 (SeReleaseSubjectContext.c)
+ *     SeQueryInformationToken @ 0x140438EC0 (SeQueryInformationToken.c)
+ *     RtlFreeAnsiString @ 0x140457BC0 (RtlFreeAnsiString.c)
+ *     _PnpCtxRegCreateTree @ 0x1404DD744 (_PnpCtxRegCreateTree.c)
+ *     _SysCtxRegOpenKey @ 0x1404E0B1C (_SysCtxRegOpenKey.c)
+ *     PnpConcatPWSTR @ 0x140512884 (PnpConcatPWSTR.c)
+ *     _PnpValidateObjectName @ 0x1405649D8 (_PnpValidateObjectName.c)
+ *     PiDqGetRelativeObjectRegPath @ 0x140631854 (PiDqGetRelativeObjectRegPath.c)
  */
 
 __int64 __fastcall PiDqOpenUserObjectRegKey(

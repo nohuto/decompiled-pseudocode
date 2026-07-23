@@ -8,63 +8,65 @@
  */
 
 int __fastcall RtlpWin32NtNameToNtPathName(
-        unsigned __int16 *a1,
-        unsigned __int16 *a2,
-        unsigned __int16 *a3,
-        _DWORD *a4,
+        _DWORD *a1,
+        _UNICODE_STRING *a2,
+        PUNICODE_STRING Destination,
+        PUNICODE_STRING *a4,
         _DWORD *a5,
         _DWORD *a6)
 {
-  unsigned __int16 *v7; // esi
+  PUNICODE_STRING v7; // esi
   unsigned int v8; // edi
-  int Heap; // eax
+  wchar_t *Heap; // eax
   int v10; // eax
-  unsigned int v12; // edx
-  _WORD *i; // eax
+  wchar_t *Buffer; // edx
+  wchar_t *i; // eax
   _WORD *v14; // eax
-  const void *v15[2]; // [esp+10h] [ebp-8h] BYREF
+  SIZE_T v15; // [esp-4h] [ebp-1Ch]
+  UNICODE_STRING Source; // [esp+10h] [ebp-8h] BYREF
 
   v7 = a2;
-  v8 = *a1 + 2;
+  v8 = *(unsigned __int16 *)a1 + 2;
   if ( v8 > 0xFFFE )
     return -1073741562;
   if ( !a2 )
   {
-    v7 = a3;
-    if ( !a3 )
+    v7 = Destination;
+    if ( !Destination )
       return -1073741811;
     goto LABEL_4;
   }
-  if ( v8 > a2[1] )
+  if ( v8 > a2->MaximumLength )
   {
-    v7 = a3;
-    if ( a3 )
+    v7 = Destination;
+    if ( Destination )
     {
 LABEL_4:
-      Heap = RtlAllocateHeap((int)NtCurrentPeb()->ProcessHeap, 0, v8);
-      *((_DWORD *)v7 + 1) = Heap;
+      LODWORD(v15) = *(unsigned __int16 *)a1 + 2;
+      Heap = (wchar_t *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, v15);
+      v7->Buffer = Heap;
       if ( !Heap )
         return -1073741801;
-      v7[1] = v8;
-      *v7 = 0;
+      v7->MaximumLength = v8;
+      v7->Length = 0;
       goto LABEL_6;
     }
     return -1073741562;
   }
 LABEL_6:
-  RtlAppendUnicodeStringToString(v7, (const void **)&RtlpDosDevicesPrefix);
-  v15[0] = *(const void **)a1;
-  v10 = *((_DWORD *)a1 + 1);
-  LOWORD(v15[0]) -= 8;
-  v15[1] = (const void *)(v10 + 8);
-  RtlAppendUnicodeStringToString(v7, v15);
+  RtlAppendUnicodeStringToString(v7, &RtlpDosDevicesPrefix);
+  *(_DWORD *)&Source.Length = *a1;
+  v10 = a1[1];
+  Source.Length -= 8;
+  Source.Buffer = (wchar_t *)(v10 + 8);
+  RtlAppendUnicodeStringToString(v7, &Source);
   if ( a4 )
     *a4 = v7;
-  *(_WORD *)(*((_DWORD *)v7 + 1) + 2 * (*v7 >> 1)) = 0;
+  v7->Buffer[v7->Length >> 1] = 0;
   if ( a5 )
   {
-    v12 = *((_DWORD *)v7 + 1);
-    for ( i = (_WORD *)(v12 + 2 * ((*v7 >> 1) - 1)); (unsigned int)i >= v12; --i )
+    Buffer = v7->Buffer;
+    for ( i = &Buffer[(v7->Length >> 1) - 1]; i >= Buffer; --i )
     {
       if ( *i == 92 )
       {

@@ -1,16 +1,16 @@
 /*
- * XREFs of EtwpStackWalkApc @ 0x140468DC0
+ * XREFs of EtwpStackWalkApc @ 0x1404691C0
  * Callers:
  *     <none>
  * Callees:
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250E80 (KeAcquireSpinLockRaiseToDpc.c)
- *     EtwpEventWriteFull @ 0x140258570 (EtwpEventWriteFull.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memset @ 0x140435A00 (memset.c)
- *     EtwpFinalizePendingApc @ 0x140468894 (EtwpFinalizePendingApc.c)
- *     EtwpTraceStackWalk @ 0x140468FCC (EtwpTraceStackWalk.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140250F40 (KeAcquireSpinLockRaiseToDpc.c)
+ *     EtwpEventWriteFull @ 0x140258630 (EtwpEventWriteFull.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     EtwpFinalizePendingApc @ 0x140468C94 (EtwpFinalizePendingApc.c)
+ *     EtwpTraceStackWalk @ 0x1404693CC (EtwpTraceStackWalk.c)
  */
 
 void __fastcall EtwpStackWalkApc(__int64 a1, _QWORD *a2, __int64 *a3)
@@ -46,10 +46,13 @@ void __fastcall EtwpStackWalkApc(__int64 a1, _QWORD *a2, __int64 *a3)
   {
     v8 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(v7 + 912));
     KxReleaseSpinLock((volatile signed __int64 *)(v7 + 912));
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v8 <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+        && CurrentIrql <= 0xFu
+        && (unsigned __int8)v8 <= 0xFu
+        && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -57,7 +60,7 @@ void __fastcall EtwpStackWalkApc(__int64 a1, _QWORD *a2, __int64 *a3)
         v13 = (v12 & SchedulerAssist[5]) == 0;
         SchedulerAssist[5] &= v12;
         if ( v13 )
-          KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+          KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
       }
     }
     __writecr8(v8);
@@ -92,7 +95,7 @@ void __fastcall EtwpStackWalkApc(__int64 a1, _QWORD *a2, __int64 *a3)
         1u,
         0,
         0,
-        (__int64)ETW_EVENT_USER_STACK_TRACE,
+        (unsigned __int16 *)ETW_EVENT_USER_STACK_TRACE,
         0,
         0,
         0LL,

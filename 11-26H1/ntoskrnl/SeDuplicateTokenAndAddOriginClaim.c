@@ -1,11 +1,11 @@
 /*
- * XREFs of SeDuplicateTokenAndAddOriginClaim @ 0x140A2CFB8
+ * XREFs of SeDuplicateTokenAndAddOriginClaim @ 0x140B2A218
  * Callers:
- *     NtCreateUserProcess @ 0x140B77FE0 (NtCreateUserProcess.c)
+ *     NtCreateUserProcess @ 0x140B7D6F0 (NtCreateUserProcess.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     SepDuplicateToken @ 0x14092A5A0 (SepDuplicateToken.c)
- *     SepAddTokenOriginClaim @ 0x140A2D094 (SepAddTokenOriginClaim.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     SepDuplicateToken @ 0x1409060B0 (SepDuplicateToken.c)
+ *     SepAddTokenOriginClaim @ 0x140B2A2F4 (SepAddTokenOriginClaim.c)
  */
 
 __int64 __fastcall SeDuplicateTokenAndAddOriginClaim(__int64 a1, __int64 a2, unsigned int a3, PVOID *a4)
@@ -21,7 +21,7 @@ __int64 __fastcall SeDuplicateTokenAndAddOriginClaim(__int64 a1, __int64 a2, uns
   memset(&v12[1], 0, 24);
   v12[0] = 48LL;
   v13 = 0LL;
-  v7 = SepDuplicateToken(a1, (__int64)v12, 0, 1, 0, 0, 0, (char **)&Object);
+  v7 = SepDuplicateToken(a1, (int)v12, 0, 1, 0, 0, 0, (char **)&Object);
   if ( v7 < 0 )
   {
     v9 = 0LL;

@@ -1,12 +1,12 @@
 /*
- * XREFs of MmStoreLogCorruptionFixed @ 0x14065D124
+ * XREFs of MmStoreLogCorruptionFixed @ 0x14065D674
  * Callers:
- *     ?StDmHandleDecompressionFailure@?$ST_STORE@USM_TRAITS@@@@SAKPEAU_ST_DATA_MGR@1@PEAD1PEAU_ST_PAGE_LOCATION@1@PEAU_STDM_READ_CONTEXT@1@@Z @ 0x1405C5F84 (-StDmHandleDecompressionFailure@-$ST_STORE@USM_TRAITS@@@@SAKPEAU_ST_DATA_MGR@1@PEAD1PEAU_ST_PAGE.c)
+ *     ?StDmHandleDecompressionFailure@?$ST_STORE@USM_TRAITS@@@@SAKPEAU_ST_DATA_MGR@1@PEAD1PEAU_ST_PAGE_LOCATION@1@PEAU_STDM_READ_CONTEXT@1@@Z @ 0x1405C64F4 (-StDmHandleDecompressionFailure@-$ST_STORE@USM_TRAITS@@@@SAKPEAU_ST_DATA_MGR@1@PEAD1PEAU_ST_PAGE.c)
  * Callees:
  *     _tlgKeywordOn @ 0x140212E64 (_tlgKeywordOn.c)
- *     MmGetPhysicalAddress @ 0x14028BEE0 (MmGetPhysicalAddress.c)
- *     _tlgWriteEx_EtwWriteEx @ 0x140367F70 (_tlgWriteEx_EtwWriteEx.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     MmGetPhysicalAddress @ 0x14028C170 (MmGetPhysicalAddress.c)
+ *     _tlgWriteEx_EtwWriteEx @ 0x140368110 (_tlgWriteEx_EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  */
 
 void __fastcall MmStoreLogCorruptionFixed(char *a1, unsigned int a2, int a3)
@@ -78,7 +78,7 @@ void __fastcall MmStoreLogCorruptionFixed(char *a1, unsigned int a2, int a3)
         v13 = a3;
         v15 = v6;
         v17 = 0x1000000LL;
-        tlgWriteEx_EtwWriteEx(v9, (unsigned __int8 *)&byte_140039B8B, v7, 1u, v10, v11, 8u, &v18);
+        tlgWriteEx_EtwWriteEx(v9, (unsigned __int8 *)&byte_140039AE9, v7, 1u, v10, v11, 8u, &v18);
       }
     }
   }

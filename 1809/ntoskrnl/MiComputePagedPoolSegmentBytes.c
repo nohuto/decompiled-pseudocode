@@ -1,8 +1,8 @@
 /*
- * XREFs of MiComputePagedPoolSegmentBytes @ 0x14007B69C
+ * XREFs of MiComputePagedPoolSegmentBytes @ 0x14007B68C
  * Callers:
- *     MiInsertUnusedSegment @ 0x14007B5A0 (MiInsertUnusedSegment.c)
- *     MiUnlinkUnusedControlArea @ 0x14007BAD0 (MiUnlinkUnusedControlArea.c)
+ *     MiInsertUnusedSegment @ 0x14007B590 (MiInsertUnusedSegment.c)
+ *     MiUnlinkUnusedControlArea @ 0x14007BAC0 (MiUnlinkUnusedControlArea.c)
  * Callees:
  *     <none>
  */

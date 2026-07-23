@@ -7,14 +7,14 @@
  *     MiGetPageTablePages @ 0x140026E90 (MiGetPageTablePages.c)
  *     MiUnmapPageInHyperSpaceWorker @ 0x14003AB00 (MiUnmapPageInHyperSpaceWorker.c)
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
- *     MiFlushTbList @ 0x1400740C0 (MiFlushTbList.c)
- *     MiMapPageInHyperSpaceWorker @ 0x140082780 (MiMapPageInHyperSpaceWorker.c)
- *     MiMakeSystemLeavesNonZero @ 0x14016A3E0 (MiMakeSystemLeavesNonZero.c)
- *     MiReplicatePteChange @ 0x140174F14 (MiReplicatePteChange.c)
- *     KeCopyPage @ 0x1401C09D0 (KeCopyPage.c)
- *     MiMakeLargePageTable @ 0x1402B50E8 (MiMakeLargePageTable.c)
- *     MiArePageContentsZero @ 0x1402BF768 (MiArePageContentsZero.c)
- *     MxCopyPage @ 0x1409BFDC8 (MxCopyPage.c)
+ *     MiFlushTbList @ 0x1400740B0 (MiFlushTbList.c)
+ *     MiMapPageInHyperSpaceWorker @ 0x140082770 (MiMapPageInHyperSpaceWorker.c)
+ *     MiMakeSystemLeavesNonZero @ 0x14016A4E0 (MiMakeSystemLeavesNonZero.c)
+ *     MiReplicatePteChange @ 0x140175014 (MiReplicatePteChange.c)
+ *     KeCopyPage @ 0x1401C0B30 (KeCopyPage.c)
+ *     MiMakeLargePageTable @ 0x1402B52D8 (MiMakeLargePageTable.c)
+ *     MiArePageContentsZero @ 0x1402BF958 (MiArePageContentsZero.c)
+ *     MxCopyPage @ 0x1409C0DC8 (MxCopyPage.c)
  */
 
 __int64 __fastcall MiCreateSystemPageTable(__int64 a1, __int64 a2, int a3)
@@ -77,7 +77,7 @@ __int64 __fastcall MiCreateSystemPageTable(__int64 a1, __int64 a2, int a3)
   {
     ++*(_QWORD *)(v3 + 40);
     v14 = (v23 + 0x58000000000LL) / 48;
-    if ( (MiFlags & 0x80) != 0 && (++dword_14043A86C & MmPageValidationFrequency) == 0 )
+    if ( (MiFlags & 0x80) != 0 && (++dword_14043B92C & MmPageValidationFrequency) == 0 )
       MiArePageContentsZero((v23 + 0x58000000000LL) / 48);
     if ( v9 )
     {

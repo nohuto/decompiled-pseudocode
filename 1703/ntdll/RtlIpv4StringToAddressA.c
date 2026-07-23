@@ -146,6 +146,6 @@ LABEL_18:
     v23 = v28;
   }
   *Terminator = S;
-  Addr->S_un.S_addr = _byteswap_ulong(v23);
+  *(_DWORD *)Addr = _byteswap_ulong(v23);
   return 0;
 }

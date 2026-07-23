@@ -1,12 +1,12 @@
 /*
- * XREFs of FsRtlFindFirstOverlappingExclusiveNode @ 0x1400C5F48
+ * XREFs of FsRtlFindFirstOverlappingExclusiveNode @ 0x1400C3DE8
  * Callers:
- *     FsRtlFastUnlockSingleExclusive @ 0x1400C51B4 (FsRtlFastUnlockSingleExclusive.c)
- *     FsRtlPrivateCheckForSharedLockAccess @ 0x1400C5618 (FsRtlPrivateCheckForSharedLockAccess.c)
- *     FsRtlPrivateCheckForExclusiveLockAccess @ 0x1400C5DF4 (FsRtlPrivateCheckForExclusiveLockAccess.c)
- *     FsRtlPrivateInsertExclusiveLock @ 0x1400C5ED4 (FsRtlPrivateInsertExclusiveLock.c)
- *     FsRtlCheckNoExclusiveConflict @ 0x1401B8C20 (FsRtlCheckNoExclusiveConflict.c)
- *     FsRtlGetNextFileLock @ 0x1401B8DC0 (FsRtlGetNextFileLock.c)
+ *     FsRtlFastUnlockSingleExclusive @ 0x1400C3054 (FsRtlFastUnlockSingleExclusive.c)
+ *     FsRtlPrivateCheckForSharedLockAccess @ 0x1400C34B8 (FsRtlPrivateCheckForSharedLockAccess.c)
+ *     FsRtlPrivateCheckForExclusiveLockAccess @ 0x1400C3C94 (FsRtlPrivateCheckForExclusiveLockAccess.c)
+ *     FsRtlPrivateInsertExclusiveLock @ 0x1400C3D74 (FsRtlPrivateInsertExclusiveLock.c)
+ *     FsRtlCheckNoExclusiveConflict @ 0x1401B8864 (FsRtlCheckNoExclusiveConflict.c)
+ *     FsRtlGetNextFileLock @ 0x1401B8A04 (FsRtlGetNextFileLock.c)
  * Callees:
  *     <none>
  */

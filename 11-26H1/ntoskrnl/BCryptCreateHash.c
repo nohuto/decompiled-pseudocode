@@ -1,12 +1,12 @@
 /*
- * XREFs of BCryptCreateHash @ 0x1409EB178
+ * XREFs of BCryptCreateHash @ 0x1409E7948
  * Callers:
- *     sub_1409EB84C @ 0x1409EB84C (sub_1409EB84C.c)
- *     RtlGenerateClass5Guid @ 0x140B2AB60 (RtlGenerateClass5Guid.c)
+ *     sub_1409E801C @ 0x1409E801C (sub_1409E801C.c)
+ *     RtlGenerateClass5Guid @ 0x140B2CBE0 (RtlGenerateClass5Guid.c)
  * Callees:
- *     ExReleaseExtensionTable @ 0x14048FC18 (ExReleaseExtensionTable.c)
- *     ExGetExtensionTable @ 0x14049B7B0 (ExGetExtensionTable.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     ExReleaseExtensionTable @ 0x1404896C4 (ExReleaseExtensionTable.c)
+ *     ExGetExtensionTable @ 0x140495300 (ExGetExtensionTable.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 NTSTATUS __stdcall BCryptCreateHash(
@@ -21,10 +21,10 @@ NTSTATUS __stdcall BCryptCreateHash(
   NTSTATUS v9; // ebx
 
   v9 = -1073741822;
-  if ( ExGetExtensionTable(*(struct _EX_RUNDOWN_REF **)&SepRmCapTableLock.PriorityFloorCounts[16]) )
+  if ( ExGetExtensionTable(*(struct _EX_RUNDOWN_REF **)&SepRmCapTableLock.ForegroundLossTime) )
   {
     v9 = guard_dispatch_icall_no_overrides((__int64)hAlgorithm, (__int64)phHash);
-    ExReleaseExtensionTable(*(struct _EX_RUNDOWN_REF **)&SepRmCapTableLock.PriorityFloorCounts[16]);
+    ExReleaseExtensionTable(*(struct _EX_RUNDOWN_REF **)&SepRmCapTableLock.ForegroundLossTime);
   }
   return v9;
 }

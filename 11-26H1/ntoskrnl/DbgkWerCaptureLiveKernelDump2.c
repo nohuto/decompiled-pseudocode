@@ -1,18 +1,18 @@
 /*
- * XREFs of DbgkWerCaptureLiveKernelDump2 @ 0x140B41E80
+ * XREFs of DbgkWerCaptureLiveKernelDump2 @ 0x140B43D70
  * Callers:
- *     PopPowerButtonWorkCallback @ 0x14060CD70 (PopPowerButtonWorkCallback.c)
- *     NtPowerInformation @ 0x1409DE3E0 (NtPowerInformation.c)
- *     DbgkWerCaptureLiveKernelDump @ 0x140B41E00 (DbgkWerCaptureLiveKernelDump.c)
+ *     PopPowerButtonWorkCallback @ 0x14060FE80 (PopPowerButtonWorkCallback.c)
+ *     NtPowerInformation @ 0x140A1B510 (NtPowerInformation.c)
+ *     DbgkWerCaptureLiveKernelDump @ 0x140B43CF0 (DbgkWerCaptureLiveKernelDump.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     DbgPrintEx @ 0x140397530 (DbgPrintEx.c)
- *     RtlStringCchCopyW @ 0x14046AD84 (RtlStringCchCopyW.c)
- *     DbgkpWerCleanupContext @ 0x14078C108 (DbgkpWerCleanupContext.c)
- *     DbgkpWerFreePool @ 0x14078C400 (DbgkpWerFreePool.c)
- *     DbgkpWerProcessPolicyResult @ 0x14078C420 (DbgkpWerProcessPolicyResult.c)
- *     DbgkpWerIsFullLiveDumpDisabled @ 0x140B420DC (DbgkpWerIsFullLiveDumpDisabled.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     DbgPrintEx @ 0x1403992B0 (DbgPrintEx.c)
+ *     RtlStringCchCopyW @ 0x140464504 (RtlStringCchCopyW.c)
+ *     DbgkpWerCleanupContext @ 0x14078EC38 (DbgkpWerCleanupContext.c)
+ *     DbgkpWerFreePool @ 0x14078EF30 (DbgkpWerFreePool.c)
+ *     DbgkpWerProcessPolicyResult @ 0x14078EF50 (DbgkpWerProcessPolicyResult.c)
+ *     DbgkpWerIsFullLiveDumpDisabled @ 0x140B43FCC (DbgkpWerIsFullLiveDumpDisabled.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall DbgkWerCaptureLiveKernelDump2(
@@ -29,7 +29,7 @@ __int64 __fastcall DbgkWerCaptureLiveKernelDump2(
   __int64 Pool2; // rsi
   NTSTRSAFE_PCWSTR v15; // rax
   __int64 v16; // rcx
-  int FirstArgument; // eax
+  int FirstArgument_high; // eax
   int v18; // ecx
   unsigned int v19; // ecx
   int v20; // eax
@@ -62,7 +62,7 @@ __int64 __fastcall DbgkWerCaptureLiveKernelDump2(
   }
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
-  if ( _InterlockedExchange((volatile __int32 *)&EmpParseLock.ReadyTime, 1) == 1 )
+  if ( _InterlockedExchange((volatile __int32 *)&EmpParseLock.TrapFrame, 1) == 1 )
   {
     v13 = -1073741267;
   }
@@ -89,10 +89,10 @@ __int64 __fastcall DbgkWerCaptureLiveKernelDump2(
           v13 = RtlStringCchCopyW((NTSTRSAFE_PWSTR)Pool2, 0x10uLL, pszSrc);
           if ( v13 >= 0 )
           {
-            FirstArgument = (int)EmpParseLock.FirstArgument;
+            FirstArgument_high = HIDWORD(EmpParseLock.FirstArgument);
             if ( (*(_BYTE *)(a7 + 24) & 2) != 0 )
-              FirstArgument = 1;
-            v22 = FirstArgument;
+              FirstArgument_high = 1;
+            v22 = FirstArgument_high;
             v18 = *(_DWORD *)(Pool2 + 104);
             *(_QWORD *)(Pool2 + 56) = a5;
             v19 = v18 & 0xFFFFFFFD;
@@ -134,7 +134,7 @@ __int64 __fastcall DbgkWerCaptureLiveKernelDump2(
     {
       v13 = -1073741670;
     }
-    _InterlockedExchange((volatile __int32 *)&EmpParseLock.ReadyTime, 0);
+    _InterlockedExchange((volatile __int32 *)&EmpParseLock.TrapFrame, 0);
   }
 LABEL_30:
   KeLeaveCriticalRegion();

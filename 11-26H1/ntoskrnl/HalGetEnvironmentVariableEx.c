@@ -1,19 +1,19 @@
 /*
- * XREFs of HalGetEnvironmentVariableEx @ 0x140471D30
+ * XREFs of HalGetEnvironmentVariableEx @ 0x14046B4B0
  * Callers:
- *     IoSaveInitialBugCheckProgress @ 0x1405C77E0 (IoSaveInitialBugCheckProgress.c)
- *     WheapProcessEfiBadMemoryPage @ 0x1406D48FC (WheapProcessEfiBadMemoryPage.c)
- *     NtQueryDriverEntryOrder @ 0x14083DB70 (NtQueryDriverEntryOrder.c)
- *     IopGetEnvironmentVariableHal @ 0x140AF4AE0 (IopGetEnvironmentVariableHal.c)
- *     PopSetMemoryOverwriteRequestAction @ 0x140BF90C8 (PopSetMemoryOverwriteRequestAction.c)
+ *     IoSaveInitialBugCheckProgress @ 0x1405CA0B0 (IoSaveInitialBugCheckProgress.c)
+ *     WheapProcessEfiBadMemoryPage @ 0x1406D897C (WheapProcessEfiBadMemoryPage.c)
+ *     NtQueryDriverEntryOrder @ 0x140843DB0 (NtQueryDriverEntryOrder.c)
+ *     IopGetEnvironmentVariableHal @ 0x140AF7180 (IopGetEnvironmentVariableHal.c)
+ *     PopSetMemoryOverwriteRequestAction @ 0x140BFF0C8 (PopSetMemoryOverwriteRequestAction.c)
  * Callees:
- *     KeSetSystemGroupAffinityThread @ 0x14037A1C0 (KeSetSystemGroupAffinityThread.c)
- *     KeRevertToUserGroupAffinityThread @ 0x14037C490 (KeRevertToUserGroupAffinityThread.c)
- *     HalpEfiStartRuntimeCode @ 0x140472300 (HalpEfiStartRuntimeCode.c)
- *     HalpConvertEfiToNtStatus @ 0x140472358 (HalpConvertEfiToNtStatus.c)
- *     wcscpy_s @ 0x14053CB00 (wcscpy_s.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     _alloca_probe @ 0x140731080 (_alloca_probe.c)
+ *     KeSetSystemGroupAffinityThread @ 0x14037BF70 (KeSetSystemGroupAffinityThread.c)
+ *     KeRevertToUserGroupAffinityThread @ 0x14037E240 (KeRevertToUserGroupAffinityThread.c)
+ *     HalpEfiStartRuntimeCode @ 0x14046BA80 (HalpEfiStartRuntimeCode.c)
+ *     HalpConvertEfiToNtStatus @ 0x14046BAD8 (HalpConvertEfiToNtStatus.c)
+ *     wcscpy_s @ 0x14053EF80 (wcscpy_s.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     _alloca_probe @ 0x140735C50 (_alloca_probe.c)
  */
 
 __int64 __fastcall HalGetEnvironmentVariableEx(const wchar_t *a1, __int64 a2, __int64 a3, _DWORD *a4, __int64 a5)
@@ -31,12 +31,12 @@ __int64 __fastcall HalGetEnvironmentVariableEx(const wchar_t *a1, __int64 a2, __
   __int64 v19; // rax
   unsigned int v20; // ebx
   wchar_t Dst[4]; // [rsp+30h] [rbp+0h] BYREF
-  struct _GROUP_AFFINITY Affinity; // [rsp+38h] [rbp+8h] BYREF
-  struct _GROUP_AFFINITY PreviousAffinity; // [rsp+48h] [rbp+18h] BYREF
+  _GROUP_AFFINITY Affinity; // [rsp+38h] [rbp+8h] BYREF
+  _GROUP_AFFINITY PreviousAffinity; // [rsp+48h] [rbp+18h] BYREF
 
   Affinity = 0LL;
   PreviousAffinity = 0LL;
-  if ( !HalpDeviceBlockUnblockPushLock.WaitBlockFill6[104] )
+  if ( !HalpDeviceBlockUnblockPushLock.WaitBlockFill6[72] )
     return 3221225474LL;
   v9 = -1LL;
   do
@@ -62,7 +62,7 @@ __int64 __fastcall HalGetEnvironmentVariableEx(const wchar_t *a1, __int64 a2, __
   else
   {
     v17 = 1;
-    v18 = *(_DWORD *)(*(_QWORD *)&KiSupervisorXStateFeaturesLock.WaitBlockFill11[112] + 4LL * KeGetPcr()->Prcb.Number);
+    v18 = *((_DWORD *)&KiSupervisorXStateFeaturesLock.SchedulerApc.Thread->Header.Lock + KeGetPcr()->Prcb.Number);
     Affinity.Reserved[1] = 0;
     Affinity.Reserved[2] = 0;
     *(_DWORD *)&Affinity.Group = (unsigned __int16)(v18 >> 6);
@@ -71,8 +71,8 @@ __int64 __fastcall HalGetEnvironmentVariableEx(const wchar_t *a1, __int64 a2, __
   }
   if ( HalEfiRuntimeServicesTable && HalEfiRuntimeServicesTable[3] )
   {
-    _InterlockedIncrement((_DWORD *)&HalpDeviceBlockUnblockPushLock.OtherTransferCount + 1);
-    _InterlockedIncrement((volatile signed __int32 *)HalpDeviceBlockUnblockPushLock.TracingPrivate);
+    _InterlockedIncrement((_DWORD *)&HalpDeviceBlockUnblockPushLock.WriteOperationCount + 1);
+    _InterlockedIncrement((volatile signed __int32 *)&HalpDeviceBlockUnblockPushLock.ReadTransferCount);
     HalpEfiStartRuntimeCode(8LL);
     v19 = ((__int64 (__fastcall *)(wchar_t *, __int64, __int64, wchar_t *, __int64))HalEfiRuntimeServicesTable[3])(
             Dst,
@@ -81,8 +81,8 @@ __int64 __fastcall HalGetEnvironmentVariableEx(const wchar_t *a1, __int64 a2, __
             Dst,
             a3);
     _InterlockedAnd((volatile signed __int32 *)&KeGetPcr()->HalReserved[8], 0xFFFFFFF7);
-    _InterlockedDecrement((_DWORD *)&HalpDeviceBlockUnblockPushLock.OtherTransferCount + 1);
-    _InterlockedDecrement((volatile signed __int32 *)HalpDeviceBlockUnblockPushLock.TracingPrivate);
+    _InterlockedDecrement((_DWORD *)&HalpDeviceBlockUnblockPushLock.WriteOperationCount + 1);
+    _InterlockedDecrement((volatile signed __int32 *)&HalpDeviceBlockUnblockPushLock.ReadTransferCount);
     v20 = HalpConvertEfiToNtStatus(v19);
   }
   else

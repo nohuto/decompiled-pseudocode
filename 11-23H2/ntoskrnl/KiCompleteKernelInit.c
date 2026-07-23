@@ -3,18 +3,18 @@
  * Callers:
  *     KiInitializeKernel @ 0x140A8BF10 (KiInitializeKernel.c)
  * Callees:
- *     KiAcquirePrcbLocksForIsolationUnit @ 0x140246770 (KiAcquirePrcbLocksForIsolationUnit.c)
- *     KeInitializeDpc @ 0x1402BF9A0 (KeInitializeDpc.c)
- *     KiReleasePrcbLocksForIsolationUnit @ 0x1403078C0 (KiReleasePrcbLocksForIsolationUnit.c)
- *     KiUpdateThreadPriority @ 0x140307B90 (KiUpdateThreadPriority.c)
- *     KeInitializeTimer2 @ 0x14031E500 (KeInitializeTimer2.c)
- *     KeAttachProcess @ 0x140364370 (KeAttachProcess.c)
- *     KiSetProcessorIdle @ 0x14038142C (KiSetProcessorIdle.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
+ *     KiAcquirePrcbLocksForIsolationUnit @ 0x140246840 (KiAcquirePrcbLocksForIsolationUnit.c)
+ *     KeInitializeDpc @ 0x1402BFC30 (KeInitializeDpc.c)
+ *     KiReleasePrcbLocksForIsolationUnit @ 0x140307B50 (KiReleasePrcbLocksForIsolationUnit.c)
+ *     KiUpdateThreadPriority @ 0x140307E20 (KiUpdateThreadPriority.c)
+ *     KeInitializeTimer2 @ 0x14031E790 (KeInitializeTimer2.c)
+ *     KeAttachProcess @ 0x140364510 (KeAttachProcess.c)
+ *     KiSetProcessorIdle @ 0x1403815CC (KiSetProcessorIdle.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
  *     KiInitializeThreadCycleTable @ 0x140A8CCC0 (KiInitializeThreadCycleTable.c)
  *     KiAddCpuToSystemCpuPartition @ 0x140A8CD30 (KiAddCpuToSystemCpuPartition.c)
  *     KiCreateCpuSetForProcessor @ 0x140A8CD78 (KiCreateCpuSetForProcessor.c)
- *     KiAllocateHeteroConfigBuffer @ 0x140A8EBD8 (KiAllocateHeteroConfigBuffer.c)
+ *     KiAllocateHeteroConfigBuffer @ 0x140A8EA50 (KiAllocateHeteroConfigBuffer.c)
  */
 
 __int64 __fastcall KiCompleteKernelInit(__int64 a1, __int64 a2, int a3)
@@ -38,7 +38,7 @@ __int64 __fastcall KiCompleteKernelInit(__int64 a1, __int64 a2, int a3)
   }
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     LODWORD(v13) = 4;

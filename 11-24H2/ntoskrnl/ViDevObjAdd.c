@@ -1,12 +1,12 @@
 /*
- * XREFs of ViDevObjAdd @ 0x140B92404
+ * XREFs of ViDevObjAdd @ 0x140B94404
  * Callers:
- *     VerifierIoCreateDevice @ 0x140B92120 (VerifierIoCreateDevice.c)
+ *     VerifierIoCreateDevice @ 0x140B94120 (VerifierIoCreateDevice.c)
  * Callees:
- *     VfAvlInsertReservedTreeNode @ 0x1403F0328 (VfAvlInsertReservedTreeNode.c)
- *     VfAvlCleanupLockContext @ 0x1403F142C (VfAvlCleanupLockContext.c)
- *     VfAvlReserveNode @ 0x1403F1620 (VfAvlReserveNode.c)
- *     VfAvlInitializeLockContext @ 0x14049C0D8 (VfAvlInitializeLockContext.c)
+ *     VfAvlInsertReservedTreeNode @ 0x1403E4050 (VfAvlInsertReservedTreeNode.c)
+ *     VfAvlCleanupLockContext @ 0x1403E514C (VfAvlCleanupLockContext.c)
+ *     VfAvlReserveNode @ 0x1403E5340 (VfAvlReserveNode.c)
+ *     VfAvlInitializeLockContext @ 0x140496D08 (VfAvlInitializeLockContext.c)
  */
 
 char __fastcall ViDevObjAdd(__int64 a1)

@@ -1,10 +1,10 @@
 /*
- * XREFs of MiIsProbeActive @ 0x140676268
+ * XREFs of MiIsProbeActive @ 0x140677438
  * Callers:
- *     MmIsIoSpaceActive @ 0x140676A60 (MmIsIoSpaceActive.c)
+ *     MmIsIoSpaceActive @ 0x140677C30 (MmIsIoSpaceActive.c)
  * Callees:
- *     MiUnlockIoPfnTree @ 0x1403D0468 (MiUnlockIoPfnTree.c)
- *     MiLockIoPfnTree @ 0x1403D0514 (MiLockIoPfnTree.c)
+ *     MiUnlockIoPfnTree @ 0x14038F980 (MiUnlockIoPfnTree.c)
+ *     MiLockIoPfnTree @ 0x14038FA2C (MiLockIoPfnTree.c)
  */
 
 __int64 __fastcall MiIsProbeActive(unsigned __int64 a1, __int64 a2)
@@ -27,9 +27,9 @@ __int64 __fastcall MiIsProbeActive(unsigned __int64 a1, __int64 a2)
   v3 = a1 + a2 - 1;
   v4 = 0;
   v5 = MiLockIoPfnTree(1LL, a2);
-  v6 = (_QWORD *)qword_140E37180[0];
+  v6 = (_QWORD *)qword_140E372C0[0];
   v7 = v5;
-  if ( !qword_140E37180[0] )
+  if ( !qword_140E372C0[0] )
     goto LABEL_30;
   i = 0LL;
   do

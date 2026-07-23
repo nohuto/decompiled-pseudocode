@@ -14,59 +14,49 @@
  *     NtQueryFullAttributesFile @ 0x180094BE0 (NtQueryFullAttributesFile.c)
  */
 
-__int64 __fastcall ResGetFileAttributesEx(int a1, __int64 a2, __int64 a3)
+__int64 __fastcall ResGetFileAttributesEx(const WCHAR *a1, __int64 a2, __int64 a3)
 {
-  ULONG v4; // ecx
-  unsigned __int64 v5; // rsi
-  __int64 v6; // rax
-  NTSTATUS FullAttributesFile; // edi
-  __int128 v9; // [rsp+20h] [rbp-59h] BYREF
-  __int128 v10; // [rsp+30h] [rbp-49h] BYREF
-  __int64 v11; // [rsp+40h] [rbp-39h]
-  int v12; // [rsp+50h] [rbp-29h]
-  __int64 v13; // [rsp+58h] [rbp-21h]
-  __int128 *v14; // [rsp+60h] [rbp-19h]
-  int v15; // [rsp+68h] [rbp-11h]
-  __int128 v16; // [rsp+70h] [rbp-9h]
-  __int64 v17; // [rsp+80h] [rbp+7h]
-  __int64 v18; // [rsp+88h] [rbp+Fh]
-  __int64 v19; // [rsp+90h] [rbp+17h]
-  int v20; // [rsp+A8h] [rbp+2Fh]
-  int v21; // [rsp+ACh] [rbp+33h]
-  int v22; // [rsp+B0h] [rbp+37h]
+  LONG v4; // ecx
+  unsigned __int16 *Buffer; // rsi
+  HANDLE ContainingDirectory; // rax
+  int v7; // edi
+  _UNICODE_STRING NtFileName; // [rsp+20h] [rbp-59h] BYREF
+  _RTL_RELATIVE_NAME_U RelativeName; // [rsp+30h] [rbp-49h] BYREF
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+50h] [rbp-29h] BYREF
+  _FILE_NETWORK_OPEN_INFORMATION FileInformation; // [rsp+80h] [rbp+7h] BYREF
 
-  if ( RtlDosPathNameToRelativeNtPathName_U(a1, (int)&v9, 0LL, (__int64)&v10) )
+  if ( RtlDosPathNameToRelativeNtPathName_U(a1, &NtFileName, 0LL, &RelativeName) )
   {
-    v5 = *((_QWORD *)&v9 + 1);
-    if ( (_WORD)v10 )
+    Buffer = NtFileName.Buffer;
+    if ( RelativeName.RelativeName.Length )
     {
-      v6 = v11;
-      v9 = v10;
+      ContainingDirectory = RelativeName.ContainingDirectory;
+      NtFileName = RelativeName.RelativeName;
     }
     else
     {
-      v6 = 0LL;
-      v11 = 0LL;
+      ContainingDirectory = 0LL;
+      RelativeName.ContainingDirectory = 0LL;
     }
-    v13 = v6;
-    v12 = 48;
-    v14 = &v9;
-    v15 = 64;
-    v16 = 0LL;
-    FullAttributesFile = NtQueryFullAttributesFile();
-    RtlReleaseRelativeName((__int64)&v10);
-    RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v5);
-    if ( FullAttributesFile >= 0 )
+    ObjectAttributes.RootDirectory = ContainingDirectory;
+    ObjectAttributes.Length = 48;
+    ObjectAttributes.ObjectName = &NtFileName;
+    ObjectAttributes.Attributes = 64;
+    *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+    v7 = NtQueryFullAttributesFile(&ObjectAttributes, &FileInformation);
+    RtlReleaseRelativeName(&RelativeName);
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, Buffer);
+    if ( v7 >= 0 )
     {
-      *(_DWORD *)a3 = v22;
-      *(_QWORD *)(a3 + 4) = v17;
-      *(_QWORD *)(a3 + 12) = v18;
-      *(_QWORD *)(a3 + 20) = v19;
-      *(_DWORD *)(a3 + 28) = v21;
-      *(_DWORD *)(a3 + 32) = v20;
+      *(_DWORD *)a3 = FileInformation.FileAttributes;
+      *(_QWORD *)(a3 + 4) = FileInformation.CreationTime.QuadPart;
+      *(_QWORD *)(a3 + 12) = FileInformation.LastAccessTime.QuadPart;
+      *(_QWORD *)(a3 + 20) = FileInformation.LastWriteTime.QuadPart;
+      *(_DWORD *)(a3 + 28) = FileInformation.EndOfFile.HighPart;
+      *(_DWORD *)(a3 + 32) = FileInformation.EndOfFile.LowPart;
       return 1LL;
     }
-    v4 = RtlNtStatusToDosError(FullAttributesFile);
+    v4 = RtlNtStatusToDosError(v7);
   }
   else
   {

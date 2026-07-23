@@ -1,26 +1,26 @@
 /*
  * XREFs of LdrResSearchResource @ 0x140673120
  * Callers:
- *     PspLocateInPEManifest @ 0x140673010 (PspLocateInPEManifest.c)
- *     PopEtGetProcessVersionInfo @ 0x1406744E0 (PopEtGetProcessVersionInfo.c)
+ *     sub_140673010 @ 0x140673010 (sub_140673010.c)
+ *     sub_1406744E0 @ 0x1406744E0 (sub_1406744E0.c)
  *     LdrResFindResource @ 0x1406E7250 (LdrResFindResource.c)
  *     LdrResFindResourceDirectory @ 0x1406EB1B0 (LdrResFindResourceDirectory.c)
- *     SeRegisterElamCertResources @ 0x14082E228 (SeRegisterElamCertResources.c)
- *     AslpFileGetVersionBlock @ 0x1408422F0 (AslpFileGetVersionBlock.c)
+ *     sub_14082E228 @ 0x14082E228 (sub_14082E228.c)
+ *     sub_1408422F0 @ 0x1408422F0 (sub_1408422F0.c)
  *     RtlLoadString @ 0x1409B7260 (RtlLoadString.c)
  *     KeHwPolicyLocateResource @ 0x140AFAC30 (KeHwPolicyLocateResource.c)
  * Callees:
- *     LdrpResSearchResourceMappedFile @ 0x140206200 (LdrpResSearchResourceMappedFile.c)
- *     LdrLoadAlternateResourceModuleEx @ 0x1402D708C (LdrLoadAlternateResourceModuleEx.c)
- *     DownLevelLangIDToLanguageName @ 0x140372644 (DownLevelLangIDToLanguageName.c)
- *     DownLevelLanguageNameToLangID @ 0x1403C68CC (DownLevelLanguageNameToLangID.c)
+ *     sub_140206200 @ 0x140206200 (sub_140206200.c)
+ *     sub_1402D708C @ 0x1402D708C (sub_1402D708C.c)
+ *     sub_140372644 @ 0x140372644 (sub_140372644.c)
+ *     sub_1403C68CC @ 0x1403C68CC (sub_1403C68CC.c)
  *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
  *     memmove @ 0x140435B40 (memmove.c)
- *     LdrpResGetMappingSize @ 0x1406734EC (LdrpResGetMappingSize.c)
+ *     sub_1406734EC @ 0x1406734EC (sub_1406734EC.c)
  */
 
 __int64 __fastcall LdrResSearchResource(
-        __int64 a1,
+        unsigned __int64 a1,
         const void *a2,
         unsigned int a3,
         int a4,
@@ -29,7 +29,7 @@ __int64 __fastcall LdrResSearchResource(
         void *a7,
         __int64 a8)
 {
-  __int64 v10; // r14
+  void *v10; // r14
   unsigned int v11; // ebx
   int v12; // ecx
   unsigned int v13; // edi
@@ -39,8 +39,8 @@ __int64 __fastcall LdrResSearchResource(
   int v17; // esi
   unsigned __int16 v18; // ax
   __int64 v19; // r12
-  __int64 v20; // [rsp+58h] [rbp-80h] BYREF
-  ULONGLONG v21; // [rsp+60h] [rbp-78h] BYREF
+  ULONG64 v20; // [rsp+58h] [rbp-80h] BYREF
+  void *v21; // [rsp+60h] [rbp-78h] BYREF
   _QWORD *v22; // [rsp+68h] [rbp-70h]
   __int64 v23; // [rsp+70h] [rbp-68h]
   _QWORD v24[2]; // [rsp+78h] [rbp-60h] BYREF
@@ -118,7 +118,7 @@ LABEL_29:
     {
       if ( *(_WORD *)v25 )
       {
-        v18 = DownLevelLanguageNameToLangID((const void *)v25, 2);
+        v18 = sub_1403C68CC((const void *)v25, 2);
         LODWORD(v21) = v18;
       }
       else
@@ -129,42 +129,33 @@ LABEL_29:
       v25 = v18;
       goto LABEL_57;
     }
-    if ( v25 && ((v25 & 0x3FF) == 0 || v25 == 127 || !(unsigned int)DownLevelLangIDToLanguageName(v25, 0LL, 0, 2)) )
+    if ( v25 && ((v25 & 0x3FF) == 0 || v25 == 127 || !(unsigned int)sub_140372644(v25, 0LL, 0, 2)) )
       return (unsigned int)-1073741811;
   }
 LABEL_57:
   if ( (v13 & 0x300) == 0 )
     goto LABEL_63;
-  v10 = a1;
+  v10 = (void *)a1;
   if ( (v13 & 0x200) != 0 )
   {
-    v10 = a1 | 1;
+    v10 = (void *)(a1 | 1);
     if ( (a1 & 1) != 0 )
-      v10 = a1;
+      v10 = (void *)a1;
   }
-  result = LdrpResGetMappingSize(v10, &v20, v13);
+  result = sub_1406734EC(v10, &v20, v13);
   if ( (int)result >= 0 || (v13 & 0x1000) == 0 )
   {
 LABEL_63:
     v19 = v23;
-    v11 = LdrpResSearchResourceMappedFile(v10, v20, v13, (__int64)v24, v17, v22, a6, a7, v23);
+    v11 = sub_140206200(v10, v20, v13, (__int64)v24, v17, v22, a6, a7, v23);
     if ( v11 == -1073741686 && ((v24[0] - 16LL) & 0xFFFFFFFFFFFFFFF7uLL) != 0 )
     {
       v21 = 0LL;
-      if ( (int)LdrLoadAlternateResourceModuleEx(v10, 0xF2EEu, &v21, 0LL, 0x1000000) >= 0 )
+      if ( (int)sub_1402D708C((__int64)v10, 0xF2EEu, &v21, 0LL, 0x1000000) >= 0 )
       {
         v20 = 0LL;
-        if ( (int)LdrpResGetMappingSize(v21, &v20, v13) >= 0 )
-          return (unsigned int)LdrpResSearchResourceMappedFile(
-                                 v21,
-                                 v20,
-                                 v13 | 0x1000000,
-                                 (__int64)v24,
-                                 v17,
-                                 v22,
-                                 a6,
-                                 a7,
-                                 v19);
+        if ( (int)sub_1406734EC(v21, &v20, v13) >= 0 )
+          return (unsigned int)sub_140206200(v21, v20, v13 | 0x1000000, (__int64)v24, v17, v22, a6, a7, v19);
       }
     }
     return v11;

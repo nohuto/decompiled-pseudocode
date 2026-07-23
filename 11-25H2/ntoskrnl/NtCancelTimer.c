@@ -22,11 +22,11 @@
  *     ObReferenceObjectByHandle @ 0x14084F190 (ObReferenceObjectByHandle.c)
  */
 
-__int64 __fastcall NtCancelTimer(HANDLE Handle, _BYTE *a2)
+NTSTATUS __cdecl NtCancelTimer(HANDLE TimerHandle, PBOOLEAN CurrentState)
 {
   KPROCESSOR_MODE PreviousMode; // r14
   int v5; // edi
-  NTSTATUS v6; // ebx
+  int v6; // ebx
   PVOID v7; // r15
   struct _OBJECT_TYPE *v8; // rax
   volatile signed __int64 *v9; // r13
@@ -53,31 +53,31 @@ __int64 __fastcall NtCancelTimer(HANDLE Handle, _BYTE *a2)
   __int64 v31; // [rsp+50h] [rbp-48h]
   __int64 retaddr; // [rsp+98h] [rbp+0h]
   KIRQL v33; // [rsp+A8h] [rbp+10h]
-  char v34; // [rsp+A8h] [rbp+10h]
+  BOOLEAN v34; // [rsp+A8h] [rbp+10h]
   char v35; // [rsp+B0h] [rbp+18h]
 
   PreviousMode = KeGetCurrentThread()->PreviousMode;
-  if ( a2 && PreviousMode )
+  if ( CurrentState && PreviousMode )
   {
     v20 = 0x7FFFFFFF0000LL;
-    if ( (unsigned __int64)a2 < 0x7FFFFFFF0000LL )
-      v20 = (__int64)a2;
+    if ( (unsigned __int64)CurrentState < 0x7FFFFFFF0000LL )
+      v20 = (__int64)CurrentState;
     *(_BYTE *)v20 = *(_BYTE *)v20;
   }
   v5 = 0;
   Object = 0LL;
-  v6 = ObReferenceObjectByHandle(Handle, 2u, 0LL, PreviousMode, &Object, 0LL);
+  v6 = ObReferenceObjectByHandle(TimerHandle, 2u, 0LL, PreviousMode, &Object, 0LL);
   if ( v6 < 0 )
-    return (unsigned int)v6;
+    return v6;
   v7 = Object;
   v31 = (unsigned __int8)((unsigned __int16)((_WORD)Object - 48) >> 8);
   v8 = (struct _OBJECT_TYPE *)ObTypeIndexTable[(unsigned __int8)ObHeaderCookie ^ v31 ^ (unsigned __int8)*((char *)Object - 24)];
   if ( v8 == ExpIRTimerObjectType )
   {
-    if ( a2 )
+    if ( CurrentState )
     {
       ObfDereferenceObjectWithTag(Object, 0x746C6644u);
-      return 3221225485LL;
+      return -1073741811;
     }
     else
     {
@@ -159,13 +159,13 @@ __int64 __fastcall NtCancelTimer(HANDLE Handle, _BYTE *a2)
           KeBugCheckEx(0x18u, 0LL, (ULONG_PTR)Object, 5uLL, v16);
         ObpDeferObjectDeletion(v15, v11, v12, 0LL);
       }
-      if ( a2 )
-        *a2 = v34;
+      if ( CurrentState )
+        *CurrentState = v34;
       if ( v14 )
         PoDestroyReasonContext(v14);
-      return (unsigned int)v6;
+      return v6;
     }
     ObfDereferenceObjectWithTag(Object, 0x746C6644u);
-    return 3221225508LL;
+    return -1073741788;
   }
 }

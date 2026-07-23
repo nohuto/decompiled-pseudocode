@@ -21,60 +21,59 @@
  *     memset @ 0x1800A3600 (memset.c)
  */
 
-__int64 __fastcall sub_18000BCF8(__int64 a1, void *a2, char a3, UNICODE_STRING *a4)
+__int64 __fastcall sub_18000BCF8(HANDLE TokenHandle, void *a2, char a3, _UNICODE_STRING *a4)
 {
   void *v7; // r14
   PSID v8; // rdi
   char v10; // r13
   char v11; // al
   int v12; // r12d
-  signed int InformationToken; // ebx
+  NTSTATUS AppContainerParent; // ebx
   __int64 v14; // rdi
   int v15; // r14d
   char v16; // al
-  wchar_t *v17; // rcx
+  WCHAR *v17; // rcx
   __int64 v18; // rdx
   int v19; // r11d
   int v20; // r14d
   __int64 v21; // rbx
   int v22; // r15d
   size_t v23; // rbx
-  wchar_t *v24; // rax
-  wchar_t *v25; // rdi
-  wchar_t v27; // ax
-  wchar_t *v28; // rax
+  WCHAR *v24; // rax
+  WCHAR *v25; // rdi
+  WCHAR v27; // ax
+  WCHAR *v28; // rax
   bool v29; // zf
-  wchar_t v30; // ax
+  WCHAR v30; // ax
   char v31; // [rsp+40h] [rbp-C0h]
-  PSID Sid; // [rsp+48h] [rbp-B8h] BYREF
-  int v33; // [rsp+50h] [rbp-B0h] BYREF
-  _BYTE v34[4]; // [rsp+54h] [rbp-ACh] BYREF
+  PSID AppContainerSidParent; // [rsp+48h] [rbp-B8h] BYREF
+  int TokenInformation; // [rsp+50h] [rbp-B0h] BYREF
+  ULONG ReturnLength; // [rsp+54h] [rbp-ACh] BYREF
   int v35; // [rsp+58h] [rbp-A8h] BYREF
   int v36; // [rsp+5Ch] [rbp-A4h]
   int v37; // [rsp+60h] [rbp-A0h]
-  UNICODE_STRING UnicodeString; // [rsp+68h] [rbp-98h] BYREF
-  int v39; // [rsp+78h] [rbp-88h] BYREF
+  _UNICODE_STRING UnicodeString; // [rsp+68h] [rbp-98h] BYREF
+  _APPCONTAINER_SID_TYPE AppContainerSidType; // [rsp+78h] [rbp-88h] BYREF
   int v40; // [rsp+7Ch] [rbp-84h] BYREF
   __int64 v41; // [rsp+80h] [rbp-80h] BYREF
-  int v42; // [rsp+88h] [rbp-78h] BYREF
-  const WCHAR *v43; // [rsp+90h] [rbp-70h]
-  UNICODE_STRING v44; // [rsp+98h] [rbp-68h] BYREF
-  UNICODE_STRING DestinationString; // [rsp+A8h] [rbp-58h] BYREF
-  PSID v46[12]; // [rsp+C0h] [rbp-40h] BYREF
-  void *v47; // [rsp+120h] [rbp+20h] BYREF
-  wchar_t Buffer[264]; // [rsp+170h] [rbp+70h] BYREF
-  PCWSTR v49; // [rsp+380h] [rbp+280h] BYREF
-  char v50; // [rsp+388h] [rbp+288h]
+  UNICODE_STRING v42; // [rsp+88h] [rbp-78h] BYREF
+  _UNICODE_STRING v43; // [rsp+98h] [rbp-68h] BYREF
+  _UNICODE_STRING DestinationString; // [rsp+A8h] [rbp-58h] BYREF
+  PSID Sid[12]; // [rsp+C0h] [rbp-40h] BYREF
+  void *v46; // [rsp+120h] [rbp+20h] BYREF
+  WCHAR Source[264]; // [rsp+170h] [rbp+70h] BYREF
+  PCWSTR v48; // [rsp+380h] [rbp+280h] BYREF
+  char v49; // [rsp+388h] [rbp+288h]
   WCHAR SourceString[264]; // [rsp+4A0h] [rbp+3A0h] BYREF
 
-  Sid = 0LL;
+  AppContainerSidParent = 0LL;
   v7 = 0LL;
   v8 = 0LL;
-  memset(Buffer, 0, 0x208uLL);
+  memset(Source, 0, 0x208uLL);
   memset(SourceString, 0, 0x208uLL);
-  v42 = 262146;
-  v43 = "\\";
-  if ( !a4 || !a1 )
+  *(_DWORD *)&v42.Length = 262146;
+  v42.Buffer = (PWCH)"\\";
+  if ( !a4 || !TokenHandle )
     return 3221225485LL;
   v31 = 1;
   v36 = a3 & 2;
@@ -86,90 +85,90 @@ __int64 __fastcall sub_18000BCF8(__int64 a1, void *a2, char a3, UNICODE_STRING *
   a4->Buffer = 0LL;
   *(_QWORD *)&UnicodeString.Length = 0LL;
   UnicodeString.Buffer = 0LL;
-  *(_QWORD *)&v44.Length = 0LL;
-  v44.Buffer = 0LL;
-  v33 = 0;
+  *(_QWORD *)&v43.Length = 0LL;
+  v43.Buffer = 0LL;
+  TokenInformation = 0;
   v35 = 0;
   if ( a2 )
   {
     v7 = a2;
-    v33 = 1;
+    TokenInformation = 1;
     goto LABEL_8;
   }
-  InformationToken = ZwQueryInformationToken(a1, 29LL, &v33, 4LL, v34);
-  if ( InformationToken >= 0 )
+  AppContainerParent = ZwQueryInformationToken(TokenHandle, 0x1Du, &TokenInformation, 4u, &ReturnLength);
+  if ( AppContainerParent >= 0 )
   {
-    if ( !v33 )
+    if ( !TokenInformation )
       goto LABEL_8;
-    InformationToken = ZwQueryInformationToken(a1, 31LL, &v47, 80LL, v34);
-    if ( InformationToken >= 0 )
+    AppContainerParent = ZwQueryInformationToken(TokenHandle, 0x1Fu, &v46, 0x50u, &ReturnLength);
+    if ( AppContainerParent >= 0 )
     {
-      v7 = v47;
-      if ( !v47 )
+      v7 = v46;
+      if ( !v46 )
       {
-        InformationToken = -1073741823;
+        AppContainerParent = -1073741823;
         goto LABEL_37;
       }
 LABEL_8:
-      InformationToken = ZwQueryInformationToken(a1, 42LL, &v35, 4LL, v34);
-      if ( InformationToken < 0 )
+      AppContainerParent = ZwQueryInformationToken(TokenHandle, 0x2Au, &v35, 4u, &ReturnLength);
+      if ( AppContainerParent < 0 )
         goto LABEL_37;
       if ( v35 )
       {
-        InformationToken = ZwQueryInformationToken(a1, 1LL, v46, 88LL, v34);
-        if ( InformationToken < 0 )
+        AppContainerParent = ZwQueryInformationToken(TokenHandle, 1u, Sid, 0x58u, &ReturnLength);
+        if ( AppContainerParent < 0 )
           goto LABEL_37;
-        InformationToken = RtlConvertSidToUnicodeString(&v44, v46[0], 1u);
-        if ( InformationToken < 0 )
+        AppContainerParent = RtlConvertSidToUnicodeString(&v43, Sid[0], 1u);
+        if ( AppContainerParent < 0 )
           goto LABEL_37;
       }
-      InformationToken = ZwQueryInformationToken(a1, 12LL, &v40, 4LL, v34);
-      if ( InformationToken < 0 )
+      AppContainerParent = ZwQueryInformationToken(TokenHandle, 0xCu, &v40, 4u, &ReturnLength);
+      if ( AppContainerParent < 0 )
         goto LABEL_37;
       v14 = 260LL;
-      if ( v33 )
+      if ( TokenInformation )
       {
-        InformationToken = RtlGetAppContainerSidType(v7, &v39);
-        if ( InformationToken < 0 )
+        AppContainerParent = RtlGetAppContainerSidType(v7, &AppContainerSidType);
+        if ( AppContainerParent < 0 )
           goto LABEL_36;
-        if ( v39 == 2 )
+        if ( AppContainerSidType == ParentAppContainerSidType )
         {
-          InformationToken = RtlConvertSidToUnicodeString(&UnicodeString, v7, 1u);
-          if ( InformationToken < 0 )
+          AppContainerParent = RtlConvertSidToUnicodeString(&UnicodeString, v7, 1u);
+          if ( AppContainerParent < 0 )
             goto LABEL_36;
         }
         else
         {
-          InformationToken = RtlGetAppContainerParent((__int64)v7, (__int64 *)&Sid);
-          if ( InformationToken < 0 )
+          AppContainerParent = RtlGetAppContainerParent(v7, &AppContainerSidParent);
+          if ( AppContainerParent < 0 )
             goto LABEL_36;
-          InformationToken = RtlConvertSidToUnicodeString(&UnicodeString, Sid, 1u);
-          if ( InformationToken < 0 )
+          AppContainerParent = RtlConvertSidToUnicodeString(&UnicodeString, AppContainerSidParent, 1u);
+          if ( AppContainerParent < 0 )
             goto LABEL_36;
-          InformationToken = sub_18000C23C(SourceString);
-          if ( InformationToken < 0 )
+          AppContainerParent = sub_18000C23C(SourceString);
+          if ( AppContainerParent < 0 )
             goto LABEL_36;
           RtlFreeUnicodeString(&UnicodeString);
           RtlInitUnicodeString(&UnicodeString, SourceString);
           v31 = 0;
         }
       }
-      InformationToken = ZwQueryInformationToken(a1, 44LL, &v49, 288LL, v34);
-      if ( InformationToken >= 0 )
+      AppContainerParent = ZwQueryInformationToken(TokenHandle, 0x2Cu, &v48, 0x120u, &ReturnLength);
+      if ( AppContainerParent >= 0 )
       {
         v15 = v40;
-        if ( v35 || v33 || (v29 = v15 == (unsigned int)RtlGetCurrentServiceSessionId(), v16 = 1, !v29) )
+        if ( v35 || TokenInformation || (v29 = v15 == RtlGetCurrentServiceSessionId(), v16 = 1, !v29) )
           v16 = 0;
         if ( v10 )
         {
           if ( !v12 )
             goto LABEL_21;
-          v17 = Buffer;
+          v17 = Source;
           do
           {
             if ( v14 == -2147483386 )
               break;
-            v27 = *(wchar_t *)((char *)v17 + (char *)L"AppContainerNamedObjects" - (char *)Buffer);
+            v27 = *(WCHAR *)((char *)v17 + (char *)L"AppContainerNamedObjects" - (char *)Source);
             if ( !v27 )
               break;
             *v17++ = v27;
@@ -179,33 +178,33 @@ LABEL_8:
         }
         else
         {
-          v17 = Buffer;
+          v17 = Source;
           if ( !v16 )
           {
 LABEL_21:
-            InformationToken = sub_18000C23C(Buffer);
+            AppContainerParent = sub_18000C23C(Source);
 LABEL_22:
-            if ( InformationToken >= 0 )
+            if ( AppContainerParent >= 0 )
             {
               v41 = 0LL;
-              InformationToken = sub_18000C2B4(Buffer, 520LL, &v41);
-              if ( InformationToken >= 0 )
+              AppContainerParent = sub_18000C2B4(Source, 520LL, &v41);
+              if ( AppContainerParent >= 0 )
               {
                 v20 = v36;
                 if ( v35 == v19 || v36 )
                   v21 = v41;
                 else
-                  v21 = v41 + v44.Length + 2LL;
-                if ( v33 != v19 )
+                  v21 = v41 + v43.Length + 2LL;
+                if ( TokenInformation != v19 )
                   v21 += UnicodeString.Length + 2LL;
                 v22 = v37;
-                if ( v50 != (_BYTE)v19 && !v37 )
+                if ( v49 != (_BYTE)v19 && !v37 )
                 {
-                  RtlInitUnicodeString(&DestinationString, v49);
+                  RtlInitUnicodeString(&DestinationString, v48);
                   v21 += DestinationString.Length + 2LL;
                 }
                 v23 = v21 + 2;
-                v24 = (wchar_t *)sub_18006D6B8(v23, v18);
+                v24 = (WCHAR *)sub_18006D6B8(v23, v18);
                 v25 = v24;
                 if ( v24 )
                 {
@@ -213,25 +212,26 @@ LABEL_22:
                   *(_QWORD *)&a4->Length = 0LL;
                   a4->MaximumLength = v23;
                   a4->Buffer = v25;
-                  InformationToken = RtlAppendUnicodeToString(a4, Buffer);
-                  if ( InformationToken >= 0 )
+                  AppContainerParent = RtlAppendUnicodeToString(a4, Source);
+                  if ( AppContainerParent >= 0 )
                   {
                     if ( !v35
                       || v20
-                      || (InformationToken = RtlAppendUnicodeStringToString(a4, &v42), InformationToken >= 0)
-                      && (InformationToken = RtlAppendUnicodeStringToString(a4, &v44), InformationToken >= 0) )
+                      || (AppContainerParent = RtlAppendUnicodeStringToString(a4, &v42), AppContainerParent >= 0)
+                      && (AppContainerParent = RtlAppendUnicodeStringToString(a4, &v43), AppContainerParent >= 0) )
                     {
-                      if ( !v33
-                        || (InformationToken = RtlAppendUnicodeStringToString(a4, &v42), InformationToken >= 0)
-                        && (InformationToken = RtlAppendUnicodeStringToString(a4, &UnicodeString), InformationToken >= 0) )
+                      if ( !TokenInformation
+                        || (AppContainerParent = RtlAppendUnicodeStringToString(a4, &v42), AppContainerParent >= 0)
+                        && (AppContainerParent = RtlAppendUnicodeStringToString(a4, &UnicodeString),
+                            AppContainerParent >= 0) )
                       {
-                        if ( v50 )
+                        if ( v49 )
                         {
                           if ( !v22 )
                           {
-                            InformationToken = RtlAppendUnicodeStringToString(a4, &v42);
-                            if ( InformationToken >= 0 )
-                              InformationToken = RtlAppendUnicodeStringToString(a4, &DestinationString);
+                            AppContainerParent = RtlAppendUnicodeStringToString(a4, &v42);
+                            if ( AppContainerParent >= 0 )
+                              AppContainerParent = RtlAppendUnicodeStringToString(a4, &DestinationString);
                           }
                         }
                       }
@@ -240,7 +240,7 @@ LABEL_22:
                 }
                 else
                 {
-                  InformationToken = -1073741670;
+                  AppContainerParent = -1073741670;
                 }
               }
             }
@@ -250,7 +250,7 @@ LABEL_22:
           {
             if ( v14 == -2147483386 )
               break;
-            v30 = *(wchar_t *)((char *)v17 + (char *)L"\\BaseNamedObjects" - (char *)Buffer);
+            v30 = *(WCHAR *)((char *)v17 + (char *)L"\\BaseNamedObjects" - (char *)Source);
             if ( !v30 )
               break;
             *v17++ = v30;
@@ -261,21 +261,21 @@ LABEL_22:
         v28 = v17 - 1;
         if ( v14 )
           v28 = v17;
-        InformationToken = v14 == 0 ? 0x80000005 : 0;
+        AppContainerParent = v14 == 0 ? 0x80000005 : 0;
         *v28 = 0;
         goto LABEL_22;
       }
 LABEL_36:
-      v8 = Sid;
+      v8 = AppContainerSidParent;
     }
   }
 LABEL_37:
-  RtlFreeUnicodeString(&v44);
-  if ( InformationToken < 0 )
+  RtlFreeUnicodeString(&v43);
+  if ( AppContainerParent < 0 )
     RtlFreeUnicodeString(a4);
   if ( v31 )
     RtlFreeUnicodeString(&UnicodeString);
   if ( v8 )
-    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0LL, Sid);
-  return (unsigned int)InformationToken;
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, AppContainerSidParent);
+  return (unsigned int)AppContainerParent;
 }

@@ -1,15 +1,15 @@
 /*
- * XREFs of TtmiRetrieveEventFromQueue @ 0x14090558C
+ * XREFs of TtmiRetrieveEventFromQueue @ 0x1409056EC
  * Callers:
- *     TtmpDispatchGetTerminalEvent @ 0x140900E10 (TtmpDispatchGetTerminalEvent.c)
+ *     TtmpDispatchGetTerminalEvent @ 0x140900F70 (TtmpDispatchGetTerminalEvent.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
- *     KeResetEvent @ 0x14027BC40 (KeResetEvent.c)
- *     ExReleaseResourceLite @ 0x14034B3F0 (ExReleaseResourceLite.c)
- *     ExAcquireResourceExclusiveLite @ 0x14034BBA0 (ExAcquireResourceExclusiveLite.c)
- *     TtmiLogError @ 0x140902AC4 (TtmiLogError.c)
- *     TtmiLogQueueDequeueEvent @ 0x1409033B0 (TtmiLogQueueDequeueEvent.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     KeResetEvent @ 0x140269BE0 (KeResetEvent.c)
+ *     KeLeaveCriticalRegionThread @ 0x1402AB8C0 (KeLeaveCriticalRegionThread.c)
+ *     ExReleaseResourceLite @ 0x140356140 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceExclusiveLite @ 0x1403568F0 (ExAcquireResourceExclusiveLite.c)
+ *     TtmiLogError @ 0x140902C24 (TtmiLogError.c)
+ *     TtmiLogQueueDequeueEvent @ 0x140903510 (TtmiLogQueueDequeueEvent.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall TtmiRetrieveEventFromQueue(__int64 a1, _OWORD *a2)
@@ -23,6 +23,9 @@ __int64 __fastcall TtmiRetrieveEventFromQueue(__int64 a1, _OWORD *a2)
   _OWORD *v10; // rbx
   __int64 v11; // rax
   __int128 v12; // xmm1
+  __int64 v13; // rdx
+  __int64 v14; // r8
+  __int64 v15; // r9
 
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
@@ -74,6 +77,6 @@ LABEL_3:
   ExFreePoolWithTag(v8, 0x716D7454u);
 LABEL_13:
   ExReleaseResourceLite((PERESOURCE)(a1 + 24));
-  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v13, v14, v15);
   return v5;
 }

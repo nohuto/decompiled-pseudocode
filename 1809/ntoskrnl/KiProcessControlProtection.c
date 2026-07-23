@@ -1,9 +1,9 @@
 /*
- * XREFs of KiProcessControlProtection @ 0x14028D7C0
+ * XREFs of KiProcessControlProtection @ 0x14028D9B0
  * Callers:
- *     KiControlProtectionFault @ 0x1401CDA40 (KiControlProtectionFault.c)
+ *     KiControlProtectionFault @ 0x1401CDB40 (KiControlProtectionFault.c)
  * Callees:
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 char __fastcall KiProcessControlProtection(__int64 a1)

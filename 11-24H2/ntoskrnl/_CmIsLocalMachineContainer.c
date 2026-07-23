@@ -1,12 +1,12 @@
 /*
- * XREFs of _CmIsLocalMachineContainer @ 0x140A76C64
+ * XREFs of _CmIsLocalMachineContainer @ 0x140A70D84
  * Callers:
- *     _CmGetDeviceContainerMappedProperty @ 0x1408B6188 (_CmGetDeviceContainerMappedProperty.c)
- *     PiDcHandleCustomDeviceEvent @ 0x1409EEF24 (PiDcHandleCustomDeviceEvent.c)
+ *     _CmGetDeviceContainerMappedProperty @ 0x1408B3AF8 (_CmGetDeviceContainerMappedProperty.c)
+ *     PiDcHandleCustomDeviceEvent @ 0x1409EC964 (PiDcHandleCustomDeviceEvent.c)
  * Callees:
- *     _wcsicmp @ 0x1404FE3B0 (_wcsicmp.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     _CmGetDeviceRegProp @ 0x1408C5BB0 (_CmGetDeviceRegProp.c)
+ *     _wcsicmp @ 0x1404FBC70 (_wcsicmp.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     _CmGetDeviceRegProp @ 0x1408C35E0 (_CmGetDeviceRegProp.c)
  */
 
 bool __fastcall CmIsLocalMachineContainer(__int64 a1, const wchar_t *a2)

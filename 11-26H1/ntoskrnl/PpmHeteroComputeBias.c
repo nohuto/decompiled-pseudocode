@@ -1,7 +1,7 @@
 /*
- * XREFs of PpmHeteroComputeBias @ 0x140A9F15C
+ * XREFs of PpmHeteroComputeBias @ 0x140AAA6C8
  * Callers:
- *     PopConfigureHeteroPolicies @ 0x140A9E35C (PopConfigureHeteroPolicies.c)
+ *     PopConfigureHeteroPolicies @ 0x140AA9D88 (PopConfigureHeteroPolicies.c)
  * Callees:
  *     <none>
  */

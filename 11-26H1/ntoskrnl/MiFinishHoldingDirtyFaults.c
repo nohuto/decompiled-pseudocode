@@ -1,12 +1,12 @@
 /*
- * XREFs of MiFinishHoldingDirtyFaults @ 0x1406FC1A4
+ * XREFs of MiFinishHoldingDirtyFaults @ 0x140700E74
  * Callers:
- *     MiReleaseHotPatchResources @ 0x140B55540 (MiReleaseHotPatchResources.c)
+ *     MiReleaseHotPatchResources @ 0x140B57DDC (MiReleaseHotPatchResources.c)
  * Callees:
- *     KiCheckForKernelApcDelivery @ 0x14027DB80 (KiCheckForKernelApcDelivery.c)
- *     MiLockWorkingSetExclusive @ 0x14027E5A0 (MiLockWorkingSetExclusive.c)
- *     MiUnlockWorkingSetExclusive @ 0x14027E758 (MiUnlockWorkingSetExclusive.c)
- *     KeSetEvent @ 0x1402DE9C0 (KeSetEvent.c)
+ *     KiCheckForKernelApcDelivery @ 0x14027D0F0 (KiCheckForKernelApcDelivery.c)
+ *     MiLockWorkingSetExclusive @ 0x14027DB10 (MiLockWorkingSetExclusive.c)
+ *     MiUnlockWorkingSetExclusive @ 0x14027DCC8 (MiUnlockWorkingSetExclusive.c)
+ *     KeSetEvent @ 0x1402C0780 (KeSetEvent.c)
  */
 
 void __fastcall MiFinishHoldingDirtyFaults(__int64 *a1, __int64 a2, __int64 a3)
@@ -48,6 +48,6 @@ LABEL_12:
     KeSetEvent((PRKEVENT)(v11 + 16), 0, 0);
   }
   v13 = CurrentThread->SpecialApcDisable++ == -1;
-  if ( v13 && ($7A85BAF4F1FA08634C1C4A3E45B775B3 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
+  if ( v13 && ($241382875694CED3D471BC5892DE3337 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
     KiCheckForKernelApcDelivery(v11, v9);
 }

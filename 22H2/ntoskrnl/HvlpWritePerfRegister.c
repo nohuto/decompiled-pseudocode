@@ -22,6 +22,6 @@ __int64 __fastcall HvlpWritePerfRegister(int a1, __int64 a2, __int64 a3, __int64
   v9 = a4;
   v7 = a2;
   v8 = a3;
-  v4 = HvcallFastExtended(65563LL, (__int64)v6, 32LL, 0LL, 0);
+  v4 = HvcallFastExtended(65563LL, (__int64)v6, 0x20u, 0, 0);
   return HvlpHvToNtStatus(v4);
 }

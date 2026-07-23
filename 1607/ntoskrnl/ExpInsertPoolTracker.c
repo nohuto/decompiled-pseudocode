@@ -1,12 +1,12 @@
 /*
- * XREFs of ExpInsertPoolTracker @ 0x140122B70
+ * XREFs of ExpInsertPoolTracker @ 0x1401230E0
  * Callers:
- *     ExDrainPoolLookasideList @ 0x140531D38 (ExDrainPoolLookasideList.c)
+ *     ExDrainPoolLookasideList @ 0x140532278 (ExDrainPoolLookasideList.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLock @ 0x140012750 (KeReleaseInStackQueuedSpinLock.c)
- *     ExpInsertPoolTrackerExpansion @ 0x140012AF0 (ExpInsertPoolTrackerExpansion.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14001BD40 (KeAcquireInStackQueuedSpinLock.c)
- *     EtwTracePool @ 0x1401596BC (EtwTracePool.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x1400122D0 (KeReleaseInStackQueuedSpinLock.c)
+ *     ExpInsertPoolTrackerExpansion @ 0x140012670 (ExpInsertPoolTrackerExpansion.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14001B8C0 (KeAcquireInStackQueuedSpinLock.c)
+ *     EtwTracePool @ 0x140159C2C (EtwTracePool.c)
  */
 
 void __fastcall ExpInsertPoolTracker(unsigned int a1, unsigned __int64 a2, unsigned int a3, int a4)

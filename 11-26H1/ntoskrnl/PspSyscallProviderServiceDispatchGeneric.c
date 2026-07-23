@@ -1,11 +1,11 @@
 /*
- * XREFs of PspSyscallProviderServiceDispatchGeneric @ 0x1407EDBBC
+ * XREFs of PspSyscallProviderServiceDispatchGeneric @ 0x1407F371C
  * Callers:
- *     PsSyscallProviderDispatch @ 0x140B43670 (PsSyscallProviderDispatch.c)
+ *     PsSyscallProviderDispatch @ 0x140B45560 (PsSyscallProviderDispatch.c)
  * Callees:
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     PspCaptureSystemServiceInMemoryArgs @ 0x1407ED680 (PspCaptureSystemServiceInMemoryArgs.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     PspCaptureSystemServiceInMemoryArgs @ 0x1407F31E0 (PspCaptureSystemServiceInMemoryArgs.c)
  */
 
 __int64 __fastcall PspSyscallProviderServiceDispatchGeneric(
@@ -30,8 +30,8 @@ __int64 __fastcall PspSyscallProviderServiceDispatchGeneric(
   else
   {
     v8 = *((_DWORD *)&KeGetCurrentThread()->0 + 1) & 0x200000;
-    if ( (v5 & 0x7000) != 0x1000 || (p_Blink = (_KWAIT_BLOCK *)&stru_140FC01F0.MutantListHead.Blink, !v8) )
-      p_Blink = &stru_140FC01F0.WaitBlock[3];
+    if ( (v5 & 0x7000) != 0x1000 || (p_Blink = (_KWAIT_BLOCK *)&stru_140FC11F0.MutantListHead.Blink, !v8) )
+      p_Blink = &stru_140FC11F0.WaitBlock[3];
     return guard_dispatch_icall_no_overrides(
              (__int64)(&p_Blink->WaitListEntry.Flink)[4 * ((v5 >> 12) & 7)]
            + ((__int64)*((int *)&(&p_Blink->WaitListEntry.Flink)[4 * ((v5 >> 12) & 7)]->Flink + (v5 & 0xFFF)) >> 4),

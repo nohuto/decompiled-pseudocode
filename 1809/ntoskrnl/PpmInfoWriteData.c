@@ -1,7 +1,7 @@
 /*
- * XREFs of PpmInfoWriteData @ 0x14058BA70
+ * XREFs of PpmInfoWriteData @ 0x14058CA70
  * Callers:
- *     PpmInfoAdjustSetting @ 0x14058B9B8 (PpmInfoAdjustSetting.c)
+ *     PpmInfoAdjustSetting @ 0x14058C9B8 (PpmInfoAdjustSetting.c)
  * Callees:
  *     <none>
  */

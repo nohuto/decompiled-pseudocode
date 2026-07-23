@@ -1,34 +1,34 @@
 /*
- * XREFs of CmpIsRegistryLockAcquired @ 0x140262890
+ * XREFs of CmpIsRegistryLockAcquired @ 0x140261E00
  * Callers:
- *     NtRenameKey @ 0x14084F890 (NtRenameKey.c)
- *     NtReplaceKey @ 0x14084FD20 (NtReplaceKey.c)
- *     NtSaveMergedKeys @ 0x140850190 (NtSaveMergedKeys.c)
- *     NtSetInformationKey @ 0x1408B0310 (NtSetInformationKey.c)
- *     CmPostCallbackNotification @ 0x1408C93B0 (CmPostCallbackNotification.c)
- *     CmpDeleteKeyObject @ 0x1408C9470 (CmpDeleteKeyObject.c)
- *     CmPostCallbackNotificationEx @ 0x1408C9D50 (CmPostCallbackNotificationEx.c)
- *     CmpParseKey @ 0x1408CB3F0 (CmpParseKey.c)
- *     CmpSecurityMethod @ 0x1408ED400 (CmpSecurityMethod.c)
- *     NtQueryValueKey @ 0x1408F2A10 (NtQueryValueKey.c)
- *     NtQueryKey @ 0x1408F4C30 (NtQueryKey.c)
- *     CmLoadDifferencingKey @ 0x14097B3F0 (CmLoadDifferencingKey.c)
- *     NtDeleteValueKey @ 0x14097CD00 (NtDeleteValueKey.c)
- *     NtQueryMultipleValueKey @ 0x14097D340 (NtQueryMultipleValueKey.c)
- *     NtSetValueKey @ 0x14097DE30 (NtSetValueKey.c)
- *     NtEnumerateValueKey @ 0x14097F290 (NtEnumerateValueKey.c)
- *     NtEnumerateKey @ 0x140A5B7C0 (NtEnumerateKey.c)
- *     NtSaveKeyEx @ 0x140A754D0 (NtSaveKeyEx.c)
- *     NtRestoreKey @ 0x140A76FC0 (NtRestoreKey.c)
- *     NtDeleteKey @ 0x140AB2390 (NtDeleteKey.c)
- *     NtFlushKey @ 0x140AFFC30 (NtFlushKey.c)
- *     CmUnloadKey @ 0x140B0A63C (CmUnloadKey.c)
+ *     NtRenameKey @ 0x140855BA0 (NtRenameKey.c)
+ *     NtReplaceKey @ 0x140856030 (NtReplaceKey.c)
+ *     NtSaveMergedKeys @ 0x1408564A0 (NtSaveMergedKeys.c)
+ *     NtSetInformationKey @ 0x1408B6800 (NtSetInformationKey.c)
+ *     CmPostCallbackNotification @ 0x1408CF960 (CmPostCallbackNotification.c)
+ *     CmpDeleteKeyObject @ 0x1408CFA20 (CmpDeleteKeyObject.c)
+ *     CmPostCallbackNotificationEx @ 0x1408D0300 (CmPostCallbackNotificationEx.c)
+ *     CmpParseKey @ 0x1408D19A0 (CmpParseKey.c)
+ *     CmpSecurityMethod @ 0x1408F39C0 (CmpSecurityMethod.c)
+ *     NtQueryValueKey @ 0x1408F8FD0 (NtQueryValueKey.c)
+ *     NtQueryKey @ 0x140924BC0 (NtQueryKey.c)
+ *     CmLoadDifferencingKey @ 0x14093D400 (CmLoadDifferencingKey.c)
+ *     NtDeleteValueKey @ 0x14093ED10 (NtDeleteValueKey.c)
+ *     NtQueryMultipleValueKey @ 0x14093F350 (NtQueryMultipleValueKey.c)
+ *     NtSetValueKey @ 0x14093FE40 (NtSetValueKey.c)
+ *     NtEnumerateValueKey @ 0x1409412A0 (NtEnumerateValueKey.c)
+ *     CmUnloadKey @ 0x140A3E88C (CmUnloadKey.c)
+ *     NtEnumerateKey @ 0x140A68780 (NtEnumerateKey.c)
+ *     NtSaveKeyEx @ 0x140A7E1F0 (NtSaveKeyEx.c)
+ *     NtRestoreKey @ 0x140A7FCE0 (NtRestoreKey.c)
+ *     NtDeleteKey @ 0x140AB0060 (NtDeleteKey.c)
+ *     NtFlushKey @ 0x140B018C0 (NtFlushKey.c)
  * Callees:
- *     RtlWalkFrameChain @ 0x140262D70 (RtlWalkFrameChain.c)
- *     _tlgKeywordOn @ 0x14044F850 (_tlgKeywordOn.c)
- *     _tlgWriteAgg @ 0x1404599C0 (_tlgWriteAgg.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     RtlWalkFrameChain @ 0x1402622E0 (RtlWalkFrameChain.c)
+ *     _tlgKeywordOn @ 0x140447980 (_tlgKeywordOn.c)
+ *     _tlgWriteAgg @ 0x140451240 (_tlgWriteAgg.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 __int64 CmpIsRegistryLockAcquired()
@@ -71,26 +71,38 @@ __int64 CmpIsRegistryLockAcquired()
     v14 = 0LL;
     v15 = 0LL;
     RtlWalkFrameChain(Callers, 0xAu, 0);
-    if ( Callers[0] >= (PVOID)PsNtosImageBase && Callers[0] <= (PVOID)PsNtosImageEnd )
-      *(_QWORD *)&v11 = (char *)Callers[0] - PsNtosImageBase;
-    if ( Callers[1] >= (PVOID)PsNtosImageBase && Callers[1] <= (PVOID)PsNtosImageEnd )
-      *((_QWORD *)&v11 + 1) = (char *)Callers[1] - PsNtosImageBase;
-    if ( (unsigned __int64)v7 >= PsNtosImageBase && (unsigned __int64)v7 <= PsNtosImageEnd )
-      *(_QWORD *)&v12 = v7 - PsNtosImageBase;
-    if ( *((_QWORD *)&v7 + 1) >= PsNtosImageBase && *((_QWORD *)&v7 + 1) <= (unsigned __int64)PsNtosImageEnd )
-      *((_QWORD *)&v12 + 1) = *((_QWORD *)&v7 + 1) - PsNtosImageBase;
-    if ( (unsigned __int64)v8 >= PsNtosImageBase && (unsigned __int64)v8 <= PsNtosImageEnd )
-      *(_QWORD *)&v13 = v8 - PsNtosImageBase;
-    if ( *((_QWORD *)&v8 + 1) >= PsNtosImageBase && *((_QWORD *)&v8 + 1) <= (unsigned __int64)PsNtosImageEnd )
-      *((_QWORD *)&v13 + 1) = *((_QWORD *)&v8 + 1) - PsNtosImageBase;
-    if ( (unsigned __int64)v9 >= PsNtosImageBase && (unsigned __int64)v9 <= PsNtosImageEnd )
-      *(_QWORD *)&v14 = v9 - PsNtosImageBase;
-    if ( *((_QWORD *)&v9 + 1) >= PsNtosImageBase && *((_QWORD *)&v9 + 1) <= (unsigned __int64)PsNtosImageEnd )
-      *((_QWORD *)&v14 + 1) = *((_QWORD *)&v9 + 1) - PsNtosImageBase;
-    if ( (unsigned __int64)v10 >= PsNtosImageBase && (unsigned __int64)v10 <= PsNtosImageEnd )
-      *(_QWORD *)&v15 = v10 - PsNtosImageBase;
-    if ( *((_QWORD *)&v10 + 1) >= PsNtosImageBase && *((_QWORD *)&v10 + 1) <= (unsigned __int64)PsNtosImageEnd )
-      *((_QWORD *)&v15 + 1) = *((_QWORD *)&v10 + 1) - PsNtosImageBase;
+    if ( Callers[0] >= PsNtosImageBase && Callers[0] <= (PVOID)PsNtosImageEnd )
+      *(_QWORD *)&v11 = (char *)Callers[0] - (char *)PsNtosImageBase;
+    if ( Callers[1] >= PsNtosImageBase && Callers[1] <= (PVOID)PsNtosImageEnd )
+      *((_QWORD *)&v11 + 1) = (char *)Callers[1] - (char *)PsNtosImageBase;
+    if ( (unsigned __int64)v7 >= (unsigned __int64)PsNtosImageBase && (unsigned __int64)v7 <= PsNtosImageEnd )
+      *(_QWORD *)&v12 = v7 - (_QWORD)PsNtosImageBase;
+    if ( *((_QWORD *)&v7 + 1) >= (unsigned __int64)PsNtosImageBase
+      && *((_QWORD *)&v7 + 1) <= (unsigned __int64)PsNtosImageEnd )
+    {
+      *((_QWORD *)&v12 + 1) = *((_QWORD *)&v7 + 1) - (_QWORD)PsNtosImageBase;
+    }
+    if ( (unsigned __int64)v8 >= (unsigned __int64)PsNtosImageBase && (unsigned __int64)v8 <= PsNtosImageEnd )
+      *(_QWORD *)&v13 = v8 - (_QWORD)PsNtosImageBase;
+    if ( *((_QWORD *)&v8 + 1) >= (unsigned __int64)PsNtosImageBase
+      && *((_QWORD *)&v8 + 1) <= (unsigned __int64)PsNtosImageEnd )
+    {
+      *((_QWORD *)&v13 + 1) = *((_QWORD *)&v8 + 1) - (_QWORD)PsNtosImageBase;
+    }
+    if ( (unsigned __int64)v9 >= (unsigned __int64)PsNtosImageBase && (unsigned __int64)v9 <= PsNtosImageEnd )
+      *(_QWORD *)&v14 = v9 - (_QWORD)PsNtosImageBase;
+    if ( *((_QWORD *)&v9 + 1) >= (unsigned __int64)PsNtosImageBase
+      && *((_QWORD *)&v9 + 1) <= (unsigned __int64)PsNtosImageEnd )
+    {
+      *((_QWORD *)&v14 + 1) = *((_QWORD *)&v9 + 1) - (_QWORD)PsNtosImageBase;
+    }
+    if ( (unsigned __int64)v10 >= (unsigned __int64)PsNtosImageBase && (unsigned __int64)v10 <= PsNtosImageEnd )
+      *(_QWORD *)&v15 = v10 - (_QWORD)PsNtosImageBase;
+    if ( *((_QWORD *)&v10 + 1) >= (unsigned __int64)PsNtosImageBase
+      && *((_QWORD *)&v10 + 1) <= (unsigned __int64)PsNtosImageEnd )
+    {
+      *((_QWORD *)&v15 + 1) = *((_QWORD *)&v10 + 1) - (_QWORD)PsNtosImageBase;
+    }
     if ( (unsigned int)dword_140E09EE8 > 5 )
     {
       if ( (unsigned __int8)tlgKeywordOn(&dword_140E09EE8, 0x400000000000LL) )
@@ -103,7 +115,7 @@ __int64 CmpIsRegistryLockAcquired()
         v21 = &v5;
         v5 = 0x1000000LL;
         v22 = 8LL;
-        tlgWriteAgg((int)&dword_140E09EE8, (int)&word_140055EA6, v3, 5, &v16);
+        tlgWriteAgg((int)&dword_140E09EE8, (int)&byte_140056E99, v3, 5, &v16);
       }
     }
     KeBugCheckEx(0x51u, 0x35uLL, (ULONG_PTR)CurrentThread, 0LL, 0LL);

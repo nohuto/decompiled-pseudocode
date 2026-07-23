@@ -1,13 +1,13 @@
 /*
- * XREFs of PsIsVsmEnclaveTerminated @ 0x14088E32C
+ * XREFs of PsIsVsmEnclaveTerminated @ 0x14088F58C
  * Callers:
- *     MiCanDeleteEnclave @ 0x1402BCE14 (MiCanDeleteEnclave.c)
+ *     MiCanDeleteEnclave @ 0x1402BD004 (MiCanDeleteEnclave.c)
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     KeLeaveCriticalRegion @ 0x14004F410 (KeLeaveCriticalRegion.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     KeSetEvent @ 0x1400C2B00 (KeSetEvent.c)
+ *     ExfTryToWakePushLock @ 0x140091500 (ExfTryToWakePushLock.c)
+ *     KeSetEvent @ 0x1400C2A40 (KeSetEvent.c)
  */
 
 bool __fastcall PsIsVsmEnclaveTerminated(__int64 a1)

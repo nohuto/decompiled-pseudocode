@@ -1,37 +1,35 @@
 /*
- * XREFs of PopDecrementPowerSettingPendingUpdates @ 0x1403B4260
+ * XREFs of PopDecrementPowerSettingPendingUpdates @ 0x1403BE16C
  * Callers:
- *     PopSetPowerSettingValue @ 0x140A3E538 (PopSetPowerSettingValue.c)
- *     PopDispatchPowerSettingCallbacks @ 0x140A401E0 (PopDispatchPowerSettingCallbacks.c)
+ *     PopSetPowerSettingValue @ 0x1409F9F58 (PopSetPowerSettingValue.c)
+ *     PopDispatchPowerSettingCallbacks @ 0x1409FBC00 (PopDispatchPowerSettingCallbacks.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     KxReleaseSpinLock @ 0x1402BDEF0 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14032F300 (KeAcquireSpinLockRaiseToDpc.c)
- *     PopDeepSleepClearDisengageReason @ 0x1403B42F8 (PopDeepSleepClearDisengageReason.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KxReleaseSpinLock @ 0x140308BB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140331330 (KeAcquireSpinLockRaiseToDpc.c)
+ *     PopDeepSleepClearDisengageReason @ 0x1403BE204 (PopDeepSleepClearDisengageReason.c)
  */
 
 void __fastcall PopDecrementPowerSettingPendingUpdates(char a1)
 {
   unsigned __int64 v2; // rdi
 
-  v2 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)&stru_140F10828.WriteTransferCount);
+  v2 = KeAcquireSpinLockRaiseToDpc(&PopPendingPowerSettingUpdateLock);
   if ( a1 )
   {
-    _InterlockedAdd(
-      (volatile signed __int32 *)&stru_140F10828.KernelShadowStack,
-      -LODWORD(stru_140F10828.InGlobalUpdateVpThreadPriorityList));
-    LODWORD(stru_140F10828.InGlobalUpdateVpThreadPriorityList) = 0;
+    _InterlockedAdd(&PopPendingPowerSettingUpdates, -PopPendingPowerSettingUpdatesQueued);
+    PopPendingPowerSettingUpdatesQueued = 0;
   }
   else
   {
-    _InterlockedDecrement((volatile signed __int32 *)&stru_140F10828.KernelShadowStack);
+    _InterlockedDecrement(&PopPendingPowerSettingUpdates);
   }
-  if ( !LODWORD(stru_140F10828.KernelShadowStack) )
+  if ( !PopPendingPowerSettingUpdates )
   {
-    *(_QWORD *)&stru_140F10828.SchedulerAssistPriorityFloor = 0LL;
+    PopPendingPowerSettingUpdateTime = 0LL;
     PopDeepSleepClearDisengageReason(3LL);
   }
-  KxReleaseSpinLock((PKSPIN_LOCK)&stru_140F10828.WriteTransferCount);
+  KxReleaseSpinLock(&PopPendingPowerSettingUpdateLock);
   if ( KiIrqlFlags )
     KiLowerIrqlProcessIrqlFlags(KeGetCurrentIrql(), v2);
   __writecr8(v2);

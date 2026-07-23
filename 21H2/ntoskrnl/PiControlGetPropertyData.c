@@ -1,21 +1,21 @@
 /*
- * XREFs of PiControlGetPropertyData @ 0x1406ADDA0
+ * XREFs of PiControlGetPropertyData @ 0x14060C640
  * Callers:
  *     <none>
  * Callees:
- *     PiControlFreeUserModeCallersBuffer @ 0x1402647E0 (PiControlFreeUserModeCallersBuffer.c)
- *     PiControlAllocateBufferForUserModeCaller @ 0x1402C27E0 (PiControlAllocateBufferForUserModeCaller.c)
- *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
- *     PiControlMakeUserModeCallersCopy @ 0x1406356D0 (PiControlMakeUserModeCallersCopy.c)
- *     PnpDeviceObjectFromDeviceInstanceWithTag @ 0x1406386D0 (PnpDeviceObjectFromDeviceInstanceWithTag.c)
- *     PpDevNodeUnlockTree @ 0x140639BC0 (PpDevNodeUnlockTree.c)
- *     PpDevNodeLockTree @ 0x140639C54 (PpDevNodeLockTree.c)
- *     IoGetDeviceProperty @ 0x14063FC90 (IoGetDeviceProperty.c)
- *     _CmGetDeviceRegProp @ 0x14064146C (_CmGetDeviceRegProp.c)
- *     PpHotSwapGetDevnodeRemovalPolicy @ 0x1406C0754 (PpHotSwapGetDevnodeRemovalPolicy.c)
- *     PiControlGetDeviceStack @ 0x14072FB64 (PiControlGetDeviceStack.c)
- *     PnpGetDeviceDependencyList @ 0x14089E0D4 (PnpGetDeviceDependencyList.c)
- *     PiControlGetDevicePowerData @ 0x1408B3494 (PiControlGetDevicePowerData.c)
+ *     PiControlAllocateBufferForUserModeCaller @ 0x140240C80 (PiControlAllocateBufferForUserModeCaller.c)
+ *     PiControlFreeUserModeCallersBuffer @ 0x140252870 (PiControlFreeUserModeCallersBuffer.c)
+ *     ObfDereferenceObjectWithTag @ 0x140355E90 (ObfDereferenceObjectWithTag.c)
+ *     PpHotSwapGetDevnodeRemovalPolicy @ 0x14061F664 (PpHotSwapGetDevnodeRemovalPolicy.c)
+ *     PiControlMakeUserModeCallersCopy @ 0x14062A4E0 (PiControlMakeUserModeCallersCopy.c)
+ *     PnpDeviceObjectFromDeviceInstanceWithTag @ 0x14062D4E0 (PnpDeviceObjectFromDeviceInstanceWithTag.c)
+ *     PpDevNodeUnlockTree @ 0x14062E9D0 (PpDevNodeUnlockTree.c)
+ *     PpDevNodeLockTree @ 0x14062EA64 (PpDevNodeLockTree.c)
+ *     IoGetDeviceProperty @ 0x140634AA0 (IoGetDeviceProperty.c)
+ *     _CmGetDeviceRegProp @ 0x14063627C (_CmGetDeviceRegProp.c)
+ *     PiControlGetDeviceStack @ 0x14072FD30 (PiControlGetDeviceStack.c)
+ *     PnpGetDeviceDependencyList @ 0x14089E234 (PnpGetDeviceDependencyList.c)
+ *     PiControlGetDevicePowerData @ 0x1408B35F4 (PiControlGetDevicePowerData.c)
  */
 
 __int64 __fastcall PiControlGetPropertyData(__int64 a1, unsigned __int16 *a2, __int64 a3, char a4)
@@ -24,9 +24,9 @@ __int64 __fastcall PiControlGetPropertyData(__int64 a1, unsigned __int16 *a2, __
   unsigned int v5; // r14d
   __int64 result; // rax
   struct _DEVICE_OBJECT *v9; // r13
-  PVOID DeviceNode; // rsi
+  _DWORD *DeviceNode; // rsi
   unsigned int *v11; // rdi
-  void **v12; // r15
+  unsigned __int16 *v12; // r15
   __int64 v13; // rdx
   int DevicePowerData; // ebx
   unsigned int v15; // eax
@@ -49,33 +49,34 @@ __int64 __fastcall PiControlGetPropertyData(__int64 a1, unsigned __int16 *a2, __
   __int64 v32; // rdx
   int DeviceDependencyList; // eax
   unsigned int v34; // ecx
+  int ResultLength; // [rsp+20h] [rbp-40h]
   PVOID PropertyBuffer; // [rsp+40h] [rbp-20h] BYREF
-  __int128 v36; // [rsp+48h] [rbp-18h] BYREF
-  int v37; // [rsp+A8h] [rbp+48h] BYREF
-  char v38; // [rsp+B8h] [rbp+58h]
+  __int128 v37; // [rsp+48h] [rbp-18h] BYREF
+  int v38; // [rsp+A8h] [rbp+48h] BYREF
+  char v39; // [rsp+B8h] [rbp+58h]
 
-  v38 = a4;
+  v39 = a4;
   v4 = *a2;
   v5 = 0;
-  v37 = 0;
+  v38 = 0;
   PropertyBuffer = 0LL;
-  v36 = 0LL;
-  WORD1(v36) = v4;
-  LOWORD(v36) = v4;
+  v37 = 0LL;
+  WORD1(v37) = v4;
+  LOWORD(v37) = v4;
   if ( (unsigned __int16)(v4 - 1) > 0x18Fu || (v4 & 1) != 0 )
     return 3221225485LL;
-  result = PiControlMakeUserModeCallersCopy((void **)&v36 + 1, *((void **)a2 + 1), v4, 2u, a4, 1);
+  result = PiControlMakeUserModeCallersCopy((char *)&v37 + 8, *((_QWORD *)a2 + 1), v4, 2LL, a4, 1);
   if ( (int)result >= 0 )
   {
-    PpDevNodeLockTree(0);
-    v9 = (struct _DEVICE_OBJECT *)PnpDeviceObjectFromDeviceInstanceWithTag((__int64)&v36, 0x43706E50u);
-    PiControlFreeUserModeCallersBuffer(a4, *((void **)&v36 + 1));
+    PpDevNodeLockTree(0LL);
+    v9 = (struct _DEVICE_OBJECT *)PnpDeviceObjectFromDeviceInstanceWithTag(&v37, 1131441744LL);
+    PiControlFreeUserModeCallersBuffer(a4, *((void **)&v37 + 1));
     if ( !v9 || (DeviceNode = v9->DeviceObjectExtension->DeviceNode) == 0LL )
     {
       DevicePowerData = -1073741810;
       goto LABEL_39;
     }
-    if ( (unsigned int)(*((_DWORD *)DeviceNode + 75) - 787) <= 1 )
+    if ( (unsigned int)(DeviceNode[75] - 787) <= 1 )
     {
       DevicePowerData = -1073741738;
     }
@@ -83,7 +84,7 @@ __int64 __fastcall PiControlGetPropertyData(__int64 a1, unsigned __int16 *a2, __
     {
       v11 = (unsigned int *)(a2 + 16);
       v5 = *((_DWORD *)a2 + 8);
-      v12 = (void **)(a2 + 12);
+      v12 = a2 + 12;
       DevicePowerData = PiControlAllocateBufferForUserModeCaller(&PropertyBuffer, v5, a4, *((_QWORD *)a2 + 3));
       if ( DevicePowerData < 0 )
         goto LABEL_39;
@@ -106,19 +107,20 @@ __int64 __fastcall PiControlGetPropertyData(__int64 a1, unsigned __int16 *a2, __
             if ( v5 >= 4 )
             {
               DevicePowerData = 0;
-              *(_DWORD *)PropertyBuffer = *((_DWORD *)DeviceNode + 171);
+              *(_DWORD *)PropertyBuffer = DeviceNode[171];
 LABEL_21:
-              v24 = v38;
-              UserModeCallersCopy = PiControlMakeUserModeCallersCopy(v12, PropertyBuffer, v5, 1u, v38, 0);
+              v24 = v39;
+              LOBYTE(ResultLength) = v39;
+              UserModeCallersCopy = PiControlMakeUserModeCallersCopy(v12, PropertyBuffer, v5, 1LL, ResultLength, 0);
               if ( UserModeCallersCopy < 0 )
                 DevicePowerData = UserModeCallersCopy;
               goto LABEL_23;
             }
             DevicePowerData = -1073741789;
 LABEL_39:
-            v24 = v38;
+            v24 = v39;
 LABEL_23:
-            PpDevNodeUnlockTree(0);
+            PpDevNodeUnlockTree(0LL);
             if ( v9 )
               ObfDereferenceObjectWithTag(v9, 0x43706E50u);
             PiControlFreeUserModeCallersBuffer(v24, PropertyBuffer);
@@ -212,16 +214,16 @@ LABEL_18:
           if ( v21 == 1 )
           {
             DeviceRegProp = CmGetDeviceRegProp(
-                              *(__int64 *)&PiPnpRtlCtx,
+                              PiPnpRtlCtx,
                               *((_QWORD *)DeviceNode + 6),
-                              0LL,
+                              0,
                               34,
-                              (__int64)&v37,
+                              (__int64)&v38,
                               (__int64)PropertyBuffer,
                               (__int64)(a2 + 16),
                               0);
             DevicePowerData = DeviceRegProp;
-            if ( DeviceRegProp >= 0 && v37 != 4 )
+            if ( DeviceRegProp >= 0 && v38 != 4 )
             {
               DevicePowerData = -1073741584;
               goto LABEL_39;
@@ -242,7 +244,7 @@ LABEL_54:
 LABEL_19:
     if ( DevicePowerData >= 0 )
     {
-      v12 = (void **)(a2 + 12);
+      v12 = a2 + 12;
       goto LABEL_21;
     }
     goto LABEL_39;

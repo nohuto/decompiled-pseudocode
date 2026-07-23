@@ -19,7 +19,7 @@ BOOLEAN __fastcall PpmHvSetVirtualProcessorQos(__int64 a1)
   {
     *(_DWORD *)(v3 + 4) = v2;
     *(_DWORD *)(v3 + 12) = 1;
-    HvlpSetRegister64(589851LL, 4294967294LL);
+    HvlpSetRegister64(589851, 0xFFFFFFFEuLL);
   }
   return PpmEventVpQosChange(a1);
 }

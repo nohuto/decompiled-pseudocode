@@ -1,11 +1,11 @@
 /*
- * XREFs of KiEncls @ 0x14015E500
+ * XREFs of KiEncls @ 0x14015EA70
  * Callers:
- *     KeAddEnclavePage @ 0x1406E5BA4 (KeAddEnclavePage.c)
- *     KeCreateEnclave @ 0x1406E5CE4 (KeCreateEnclave.c)
- *     KeDebugWriteEnclaveMemory @ 0x1406E5E78 (KeDebugWriteEnclaveMemory.c)
- *     KeInitializeEnclave @ 0x1406E5EFC (KeInitializeEnclave.c)
- *     KeRemoveEnclavePage @ 0x1406E5FA8 (KeRemoveEnclavePage.c)
+ *     KeAddEnclavePage @ 0x1406E5CDC (KeAddEnclavePage.c)
+ *     KeCreateEnclave @ 0x1406E5E1C (KeCreateEnclave.c)
+ *     KeDebugWriteEnclaveMemory @ 0x1406E5FB0 (KeDebugWriteEnclaveMemory.c)
+ *     KeInitializeEnclave @ 0x1406E6034 (KeInitializeEnclave.c)
+ *     KeRemoveEnclavePage @ 0x1406E60E0 (KeRemoveEnclavePage.c)
  * Callees:
  *     <none>
  */

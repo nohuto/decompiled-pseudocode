@@ -6,12 +6,11 @@
  *     sub_1800F2878 @ 0x1800F2878 (sub_1800F2878.c)
  */
 
-unsigned __int64 *__fastcall RtlSetExtendedFeaturesMask(__int64 a1)
+void __cdecl RtlSetExtendedFeaturesMask(PCONTEXT_EX ContextEx, ULONG64 FeatureMask)
 {
-  unsigned __int64 *result; // rax
-  __int64 v2; // r10
+  unsigned __int64 *v2; // rax
+  __int64 v3; // r10
 
-  result = (unsigned __int64 *)sub_1800F2878(a1);
-  *result = v2 & (MEMORY[0x7FFE0708] | MEMORY[0x7FFE03D8]) & 0xFFFFFFFFFFFFFFFCuLL;
-  return result;
+  v2 = (unsigned __int64 *)sub_1800F2878(ContextEx);
+  *v2 = v3 & (MEMORY[0x7FFE0708] | MEMORY[0x7FFE03D8]) & 0xFFFFFFFFFFFFFFFCuLL;
 }

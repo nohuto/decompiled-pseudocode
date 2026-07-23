@@ -28,7 +28,7 @@
  *     CmpReleaseShutdownRundown @ 0x140BA9970 (CmpReleaseShutdownRundown.c)
  */
 
-__int64 __fastcall NtDeleteValueKey(__int64 a1, _OWORD *a2)
+NTSTATUS __cdecl NtDeleteValueKey(HANDLE KeyHandle, PUNICODE_STRING ValueName)
 {
   int v3; // edi
   char v4; // r14
@@ -42,7 +42,7 @@ __int64 __fastcall NtDeleteValueKey(__int64 a1, _OWORD *a2)
   int v12; // r8d
   int v13; // r9d
   __int64 v14; // rdx
-  int v15; // edi
+  NTSTATUS v15; // edi
   __int64 v16; // rcx
   unsigned __int16 v17; // r8
   char *v18; // rsi
@@ -63,13 +63,13 @@ __int64 __fastcall NtDeleteValueKey(__int64 a1, _OWORD *a2)
   __int64 v34; // [rsp+68h] [rbp-130h] BYREF
   PPRIVILEGE_SET Privileges; // [rsp+70h] [rbp-128h]
   _QWORD v36[2]; // [rsp+78h] [rbp-120h] BYREF
-  __int64 v37; // [rsp+88h] [rbp-110h]
+  HANDLE v37; // [rsp+88h] [rbp-110h]
   __int64 v38; // [rsp+90h] [rbp-108h]
   __m128i v39; // [rsp+A0h] [rbp-F8h] BYREF
   _BYTE v40[232]; // [rsp+B0h] [rbp-E8h] BYREF
 
-  v3 = a1;
-  v37 = a1;
+  v3 = (int)KeyHandle;
+  v37 = KeyHandle;
   *(_OWORD *)v40 = 0LL;
   memset(&v40[104], 0, 72);
   v34 = 0LL;
@@ -107,7 +107,7 @@ __int64 __fastcall NtDeleteValueKey(__int64 a1, _OWORD *a2)
       goto LABEL_51;
     }
     LOBYTE(v27) = PreviousMode;
-    v15 = CmObReferenceObjectByHandle(v37, 131097, v26, v27, (__int64)&Object, (__int64)&v34);
+    v15 = CmObReferenceObjectByHandle((_DWORD)v37, 131097, v26, v27, (__int64)&Object, (__int64)&v34);
     if ( v15 < 0 )
       goto LABEL_52;
     if ( !CmKeyBodyNeedsVirtualImage((__int64)Object) )
@@ -131,8 +131,8 @@ LABEL_52:
   {
     v39 = 0LL;
     v16 = 0x7FFFFFFF0000LL;
-    if ( (unsigned __int64)a2 < 0x7FFFFFFF0000LL )
-      v16 = (__int64)a2;
+    if ( (unsigned __int64)ValueName < 0x7FFFFFFF0000LL )
+      v16 = (__int64)ValueName;
     v39.m128i_i32[0] = *(_DWORD *)v16;
     v14 = *(_QWORD *)(v16 + 8);
     v39.m128i_i64[1] = v14;
@@ -142,7 +142,7 @@ LABEL_52:
   }
   else
   {
-    *(_OWORD *)Src = *a2;
+    *(UNICODE_STRING *)Src = *ValueName;
   }
   v17 = (unsigned __int16)Src[0];
   v18 = (char *)((unsigned __int64)Src[1] & -(__int64)(LOWORD(Src[0]) != 0));
@@ -218,7 +218,7 @@ LABEL_58:
     }
 LABEL_29:
     v39 = *(__m128i *)Src;
-    v15 = CmDeleteValueKey((__int64)Object, (unsigned __int16 *)&v39, v37, (v34 & 4) != 0);
+    v15 = CmDeleteValueKey((__int64)Object, (unsigned __int16 *)&v39, (__int64)v37, (v34 & 4) != 0);
 LABEL_30:
     v8 = v4;
   }
@@ -251,5 +251,5 @@ LABEL_31:
   if ( v30 )
     CmpReleaseShutdownRundown(v24);
   CmCleanupThreadInfo((_KAFFINITY_EX **)v40);
-  return (unsigned int)v15;
+  return v15;
 }

@@ -1,28 +1,28 @@
 /*
- * XREFs of MiCreateUltraThreadContext @ 0x1402F45F0
+ * XREFs of MiCreateUltraThreadContext @ 0x1402D6670
  * Callers:
- *     MiFindContiguousPagesPrepare @ 0x14028F3C8 (MiFindContiguousPagesPrepare.c)
- *     MiZeroLargePage @ 0x1402A1A04 (MiZeroLargePage.c)
- *     MiThreadWorker @ 0x1403C32F0 (MiThreadWorker.c)
- *     MiInitializeNewUltraHugeContext @ 0x14048DA98 (MiInitializeNewUltraHugeContext.c)
- *     MiHugePageOperation @ 0x140705138 (MiHugePageOperation.c)
- *     MiDefragmentSlabWorker @ 0x1407063E4 (MiDefragmentSlabWorker.c)
- *     MiCreateZeroThreadContext @ 0x140773624 (MiCreateZeroThreadContext.c)
- *     MiInitializeScrubPacket @ 0x14087DA14 (MiInitializeScrubPacket.c)
- *     MiInitializeForkMaps @ 0x140961828 (MiInitializeForkMaps.c)
- *     MiCombineIdenticalPages @ 0x140B49E94 (MiCombineIdenticalPages.c)
- *     MmRelocatePfnList @ 0x140B6D1F4 (MmRelocatePfnList.c)
- *     MmInitializeProcessor @ 0x140C0013C (MmInitializeProcessor.c)
+ *     MiFindContiguousPagesPrepare @ 0x14028E928 (MiFindContiguousPagesPrepare.c)
+ *     MiZeroLargePage @ 0x1402A0F54 (MiZeroLargePage.c)
+ *     MiThreadWorker @ 0x1403CD1F0 (MiThreadWorker.c)
+ *     MiInitializeNewUltraHugeContext @ 0x1404875D8 (MiInitializeNewUltraHugeContext.c)
+ *     MiHugePageOperation @ 0x140709E08 (MiHugePageOperation.c)
+ *     MiDefragmentSlabWorker @ 0x14070B0B4 (MiDefragmentSlabWorker.c)
+ *     MiCreateZeroThreadContext @ 0x140776624 (MiCreateZeroThreadContext.c)
+ *     MiInitializeScrubPacket @ 0x140883E14 (MiInitializeScrubPacket.c)
+ *     MiInitializeForkMaps @ 0x140A0751C (MiInitializeForkMaps.c)
+ *     MiCombineIdenticalPages @ 0x140B4BC24 (MiCombineIdenticalPages.c)
+ *     MmRelocatePfnList @ 0x140B705C4 (MmRelocatePfnList.c)
+ *     MmInitializeProcessor @ 0x140C0634C (MmInitializeProcessor.c)
  * Callees:
- *     MiGetPage @ 0x1402866A0 (MiGetPage.c)
- *     MiReleaseNonPagedResources @ 0x14028C070 (MiReleaseNonPagedResources.c)
- *     MiDeleteUltraThreadContext @ 0x14028F5E0 (MiDeleteUltraThreadContext.c)
- *     MiReleaseFreshPage @ 0x140292190 (MiReleaseFreshPage.c)
- *     MiReplenishUltraPageTables @ 0x1402F445C (MiReplenishUltraPageTables.c)
- *     MiChargePartitionResidentAvailable @ 0x1402F60D0 (MiChargePartitionResidentAvailable.c)
- *     MiChargeCommit @ 0x1402F64A0 (MiChargeCommit.c)
- *     MiGetSlabPage @ 0x14033A284 (MiGetSlabPage.c)
- *     MiReturnCommit @ 0x14036D2B0 (MiReturnCommit.c)
+ *     MiGetPage @ 0x140285C00 (MiGetPage.c)
+ *     MiReleaseNonPagedResources @ 0x14028B5D0 (MiReleaseNonPagedResources.c)
+ *     MiDeleteUltraThreadContext @ 0x14028EB40 (MiDeleteUltraThreadContext.c)
+ *     MiReleaseFreshPage @ 0x1402916F0 (MiReleaseFreshPage.c)
+ *     MiReplenishUltraPageTables @ 0x1402D64DC (MiReplenishUltraPageTables.c)
+ *     MiChargePartitionResidentAvailable @ 0x1402D8150 (MiChargePartitionResidentAvailable.c)
+ *     MiChargeCommit @ 0x1402D8520 (MiChargeCommit.c)
+ *     MiGetSlabPage @ 0x14033C304 (MiGetSlabPage.c)
+ *     MiReturnCommit @ 0x14036F050 (MiReturnCommit.c)
  */
 
 __int64 __fastcall MiCreateUltraThreadContext(__int64 a1, __int64 a2, int a3, __int64 a4)
@@ -61,15 +61,15 @@ __int64 __fastcall MiCreateUltraThreadContext(__int64 a1, __int64 a2, int a3, __
 LABEL_4:
     ;
   }
-  v10 = dword_140E34BE4;
+  v10 = dword_140E34D64;
   v11 = v7 + 32LL * i;
   v12 = i;
   do
   {
-    if ( v10 == dword_140E34BE0 )
+    if ( v10 == dword_140E34D60 )
       goto LABEL_30;
     v13 = v10;
-    v10 = _InterlockedCompareExchange(&dword_140E34BE4, v10 + 1, v10);
+    v10 = _InterlockedCompareExchange(&dword_140E34D64, v10 + 1, v10);
   }
   while ( v13 != v10 );
   *(_QWORD *)v11 = 0LL;
@@ -103,13 +103,13 @@ LABEL_26:
   {
     MiReturnCommit(&MiSystemPartition, v12, 0LL);
 LABEL_29:
-    _InterlockedDecrement(&dword_140E34BE4);
+    _InterlockedDecrement(&dword_140E34D64);
 LABEL_30:
     MiDeleteUltraThreadContext(v7);
     return 0LL;
   }
 LABEL_17:
-  if ( byte_140E2D71A )
+  if ( byte_140E2D89A )
     MiReplenishUltraPageTables((*(_DWORD *)(a2 + 8) >> 9) & 0x3F, v5);
   v18 = 0LL;
   while ( 2 )
@@ -144,7 +144,7 @@ LABEL_24:
   SlabPage = MiGetPage((__int64)&MiSystemPartition, v20, (unsigned int)(v21 != 0) + 176);
   if ( SlabPage != -1 )
     goto LABEL_24;
-  _InterlockedDecrement(&dword_140E34BE4);
+  _InterlockedDecrement(&dword_140E34D64);
   if ( (_DWORD)v18 )
   {
     v25 = (_QWORD *)(v11 + 8 * ((unsigned int)v18 + 1LL));

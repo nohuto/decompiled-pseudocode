@@ -1,12 +1,12 @@
 /*
- * XREFs of ExpPoolMgrResolveMaintenanceHint @ 0x140AC3850
+ * XREFs of ExpPoolMgrResolveMaintenanceHint @ 0x140AC54C0
  * Callers:
- *     ExpPoolMgrRebalanceWorker @ 0x140AC3610 (ExpPoolMgrRebalanceWorker.c)
- *     ExpPoolMgrCompactPools @ 0x140AC36CC (ExpPoolMgrCompactPools.c)
+ *     ExpPoolMgrRebalanceWorker @ 0x140AC5280 (ExpPoolMgrRebalanceWorker.c)
+ *     ExpPoolMgrCompactPools @ 0x140AC533C (ExpPoolMgrCompactPools.c)
  * Callees:
- *     ExAcquireRundownProtection_0 @ 0x1402F0590 (ExAcquireRundownProtection_0.c)
- *     ExpPoolMgrAcquirePoolListLockShared @ 0x1404C2094 (ExpPoolMgrAcquirePoolListLockShared.c)
- *     ExpPoolMgrReleasePoolListLockShared @ 0x1404CA9F4 (ExpPoolMgrReleasePoolListLockShared.c)
+ *     ExAcquireRundownProtection_0 @ 0x1402D2610 (ExAcquireRundownProtection_0.c)
+ *     ExpPoolMgrAcquirePoolListLockShared @ 0x1404BB8E4 (ExpPoolMgrAcquirePoolListLockShared.c)
+ *     ExpPoolMgrReleasePoolListLockShared @ 0x1404C4424 (ExpPoolMgrReleasePoolListLockShared.c)
  */
 
 struct _EX_RUNDOWN_REF *__fastcall ExpPoolMgrResolveMaintenanceHint(

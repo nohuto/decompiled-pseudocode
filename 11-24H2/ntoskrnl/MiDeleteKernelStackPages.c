@@ -1,22 +1,22 @@
 /*
- * XREFs of MiDeleteKernelStackPages @ 0x14026A1A4
+ * XREFs of MiDeleteKernelStackPages @ 0x14021F734
  * Callers:
- *     MiDeleteCachedKernelShadowStack @ 0x140269224 (MiDeleteCachedKernelShadowStack.c)
- *     MiDeleteCachedKernelStack @ 0x140269ADC (MiDeleteCachedKernelStack.c)
- *     MmDeleteKernelStack @ 0x14026A4B0 (MmDeleteKernelStack.c)
- *     MiAllocateKernelStackPages @ 0x14039F96C (MiAllocateKernelStackPages.c)
+ *     MiAllocateKernelStackPages @ 0x14021639C (MiAllocateKernelStackPages.c)
+ *     MiDeleteCachedKernelShadowStack @ 0x14021E9E8 (MiDeleteCachedKernelShadowStack.c)
+ *     MiDeleteCachedKernelStack @ 0x14021F06C (MiDeleteCachedKernelStack.c)
+ *     MmDeleteKernelStack @ 0x14021FA40 (MmDeleteKernelStack.c)
  * Callees:
- *     MiReturnResident @ 0x14020F6B0 (MiReturnResident.c)
- *     MiVaToFlushVm @ 0x1402293EC (MiVaToFlushVm.c)
- *     MiDeleteShadowStackPtes @ 0x140269284 (MiDeleteShadowStackPtes.c)
- *     MiDecommitPages @ 0x140288300 (MiDecommitPages.c)
- *     MiReturnCommit @ 0x14028EF80 (MiReturnCommit.c)
+ *     MiDeleteShadowStackPtes @ 0x14021EA48 (MiDeleteShadowStackPtes.c)
+ *     MiDecommitPages @ 0x140297F00 (MiDecommitPages.c)
+ *     MiReturnCommit @ 0x14029EB80 (MiReturnCommit.c)
+ *     MiVaToFlushVm @ 0x1402FC5EC (MiVaToFlushVm.c)
+ *     MiReturnResident @ 0x140338A10 (MiReturnResident.c)
  */
 
 ULONG *__fastcall MiDeleteKernelStackPages(ULONG *a1, __int64 a2, __int64 a3, int a4, __int64 a5)
 {
   ULONG_PTR v5; // rsi
-  void *v9; // rdx
+  __int64 v9; // rdx
   __int64 v10; // rcx
   __int64 v11; // rbx
   ULONG *result; // rax
@@ -38,13 +38,13 @@ ULONG *__fastcall MiDeleteKernelStackPages(ULONG *a1, __int64 a2, __int64 a3, in
   }
   else
   {
-    v11 = MiDeleteShadowStackPtes(v10, (__int64)v9, v5, a3, a5, &v13);
+    v11 = MiDeleteShadowStackPtes(v10, v9, v5, a3, a5, &v13);
   }
   result = &MiSystemPartition;
   if ( a1 == &MiSystemPartition )
-    _InterlockedAdd64(&qword_140E375E8, v11 - *((_QWORD *)&v14 + 1));
+    _InterlockedAdd64(&qword_140E37728, v11 - *((_QWORD *)&v14 + 1));
   if ( (_QWORD)v13 != v11 )
-    result = (ULONG *)MiReturnResident((__int64)a1, v13 - v11);
+    result = (ULONG *)MiReturnResident(a1, v13 - v11);
   if ( *((_QWORD *)&v14 + 1) - *((_QWORD *)&v13 + 1) != v11 )
     return (ULONG *)MiReturnCommit(a1, *((_QWORD *)&v14 + 1) - *((_QWORD *)&v13 + 1) - v11, 0LL);
   return result;

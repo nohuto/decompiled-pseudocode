@@ -1,20 +1,20 @@
 /*
- * XREFs of RtlpHpSegMgrVaCtxInsert @ 0x1402A52C4
+ * XREFs of RtlpHpSegMgrVaCtxInsert @ 0x140222704
  * Callers:
- *     RtlpHpSegMgrAllocate @ 0x1402A4D14 (RtlpHpSegMgrAllocate.c)
+ *     RtlpHpSegMgrAllocate @ 0x140222154 (RtlpHpSegMgrAllocate.c)
  * Callees:
- *     KiCheckForKernelApcDelivery @ 0x14024A6E0 (KiCheckForKernelApcDelivery.c)
- *     KiAbEntryRemoveFromTree @ 0x14028F490 (KiAbEntryRemoveFromTree.c)
- *     RtlpHpQueryVA @ 0x1402A5CA4 (RtlpHpQueryVA.c)
- *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
- *     RtlpHpAcquireLockExclusive @ 0x1403083B0 (RtlpHpAcquireLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14033BD80 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     MiGetSystemRegionType @ 0x14034A950 (MiGetSystemRegionType.c)
- *     KiAbThreadRemoveBoosts @ 0x14034AD00 (KiAbThreadRemoveBoosts.c)
- *     KiLeaveGuardedRegionUnsafe @ 0x14034AD90 (KiLeaveGuardedRegionUnsafe.c)
- *     MmGetSessionIdEx @ 0x14034AE60 (MmGetSessionIdEx.c)
+ *     KiAbEntryRemoveFromTree @ 0x14020C630 (KiAbEntryRemoveFromTree.c)
+ *     RtlpHpQueryVA @ 0x1402230E4 (RtlpHpQueryVA.c)
+ *     KiCheckForKernelApcDelivery @ 0x1402EEF30 (KiCheckForKernelApcDelivery.c)
+ *     ExfTryToWakePushLock @ 0x1402FC2C0 (ExfTryToWakePushLock.c)
+ *     RtlpHpAcquireLockExclusive @ 0x140313100 (RtlpHpAcquireLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140346AD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiGetSystemRegionType @ 0x1403556A0 (MiGetSystemRegionType.c)
+ *     KiAbThreadRemoveBoosts @ 0x140355A50 (KiAbThreadRemoveBoosts.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x140355AE0 (KiLeaveGuardedRegionUnsafe.c)
+ *     MmGetSessionIdEx @ 0x140355BB0 (MmGetSessionIdEx.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall RtlpHpSegMgrVaCtxInsert(__int64 a1, __int64 a2)
@@ -34,22 +34,21 @@ __int64 __fastcall RtlpHpSegMgrVaCtxInsert(__int64 a1, __int64 a2)
   __int64 v15; // rcx
   __int64 v16; // rdi
   __int64 v17; // rdx
-  __int64 v18; // rcx
   struct _KPRCB *CurrentPrcb; // r9
   _DWORD *SchedulerAssist; // r8
-  __int128 v21; // [rsp+30h] [rbp-10h] BYREF
-  __int16 *v22; // [rsp+98h] [rbp+58h] BYREF
+  __int128 v20; // [rsp+30h] [rbp-10h] BYREF
+  __int16 *v21; // [rsp+98h] [rbp+58h] BYREF
 
   v2 = *(_OWORD *)(a1 + 40);
-  v22 = 0LL;
-  v21 = v2;
-  RtlpHpQueryVA(a2, &v21, &v22, 0LL);
-  v4 = v22;
-  if ( *v22 < 0 )
+  v21 = 0LL;
+  v20 = v2;
+  RtlpHpQueryVA(a2, &v20, &v21, 0LL);
+  v4 = v21;
+  if ( *v21 < 0 )
   {
-    *v22 ^= (*v22 ^ (*v22 + 1)) & 0x7FF;
+    *v21 ^= (*v21 ^ (*v21 + 1)) & 0x7FF;
     _InterlockedExchangeAdd64((volatile signed __int64 *)(*(__int16 *)(a1 + 20) + a1), 1uLL);
-    v4 = v22;
+    v4 = v21;
   }
   v5 = a1 + 112;
   v6 = (unsigned __int64)(unsigned __int16)*v4 >> 15;
@@ -118,7 +117,7 @@ LABEL_13:
     }
     *(_BYTE *)(v16 + 32) |= 2u;
     if ( *(__int64 *)(v16 + 32) < 0 )
-      KiAbEntryRemoveFromTree(v16);
+      KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)v16);
     *(_DWORD *)(v16 + 88) &= 0xFFFE0000;
     *(_BYTE *)(v16 + 25) &= ~1u;
     *(_QWORD *)(v16 + 32) = 0LL;
@@ -132,7 +131,7 @@ LABEL_25:
     KiAbThreadRemoveBoosts((ULONG_PTR)CurrentThread);
     v14 = CurrentThread->SpecialApcDisable++ == -1;
     if ( v14 && ($C459BD0D405E8E46662177FB3D0A143F *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
-      KiCheckForKernelApcDelivery(v18);
+      KiCheckForKernelApcDelivery();
     return KiLeaveGuardedRegionUnsafe(KeGetCurrentThread());
   }
   return result;

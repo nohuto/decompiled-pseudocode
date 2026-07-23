@@ -1,26 +1,26 @@
 /*
- * XREFs of RtlUnwindEx @ 0x1400F5660
+ * XREFs of RtlUnwindEx @ 0x1400F34B0
  * Callers:
- *     __C_specific_handler @ 0x14014CA70 (__C_specific_handler.c)
- *     _local_unwind @ 0x14014D1B0 (_local_unwind.c)
- *     __longjmp_internal @ 0x1401599B0 (__longjmp_internal.c)
- *     KiSystemServiceHandler @ 0x14016EE80 (KiSystemServiceHandler.c)
- *     RtlUnwind @ 0x140211D44 (RtlUnwind.c)
+ *     __C_specific_handler @ 0x14014CFE0 (__C_specific_handler.c)
+ *     _local_unwind @ 0x14014D720 (_local_unwind.c)
+ *     __longjmp_internal @ 0x140159F20 (__longjmp_internal.c)
+ *     KiSystemServiceHandler @ 0x14016F380 (KiSystemServiceHandler.c)
+ *     RtlUnwind @ 0x140211B70 (RtlUnwind.c)
  * Callees:
- *     RtlpGetStackLimits @ 0x14004F390 (RtlpGetStackLimits.c)
- *     RtlVirtualUnwind @ 0x1400B3138 (RtlVirtualUnwind.c)
- *     RtlpUnwindEpilogue @ 0x1400B3C60 (RtlpUnwindEpilogue.c)
- *     RtlpUnwindOpSlots @ 0x1400B3E1C (RtlpUnwindOpSlots.c)
- *     RtlpCopyContext @ 0x1400F6068 (RtlpCopyContext.c)
- *     RtlLookupFunctionEntry @ 0x1400F6220 (RtlLookupFunctionEntry.c)
- *     RtlRaiseStatus @ 0x1400F6738 (RtlRaiseStatus.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     RtlpSameFunction @ 0x1401593E8 (RtlpSameFunction.c)
- *     ZwRaiseException @ 0x14015C6E0 (ZwRaiseException.c)
- *     RtlCaptureContext @ 0x140166F20 (RtlCaptureContext.c)
- *     RtlRestoreContext @ 0x140167060 (RtlRestoreContext.c)
- *     RtlpExecuteHandlerForUnwind @ 0x140167720 (RtlpExecuteHandlerForUnwind.c)
- *     ExRaiseDatatypeMisalignment @ 0x1406B6058 (ExRaiseDatatypeMisalignment.c)
+ *     RtlpGetStackLimits @ 0x14004EF10 (RtlpGetStackLimits.c)
+ *     RtlVirtualUnwind @ 0x1400B0FB8 (RtlVirtualUnwind.c)
+ *     RtlpUnwindEpilogue @ 0x1400B1AE0 (RtlpUnwindEpilogue.c)
+ *     RtlpUnwindOpSlots @ 0x1400B1C9C (RtlpUnwindOpSlots.c)
+ *     RtlpCopyContext @ 0x1400F3EB8 (RtlpCopyContext.c)
+ *     RtlLookupFunctionEntry @ 0x1400F4070 (RtlLookupFunctionEntry.c)
+ *     RtlRaiseStatus @ 0x1400F4588 (RtlRaiseStatus.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     RtlpSameFunction @ 0x140159958 (RtlpSameFunction.c)
+ *     ZwRaiseException @ 0x14015CC50 (ZwRaiseException.c)
+ *     RtlCaptureContext @ 0x140167490 (RtlCaptureContext.c)
+ *     RtlRestoreContext @ 0x1401675D0 (RtlRestoreContext.c)
+ *     RtlpExecuteHandlerForUnwind @ 0x140167C90 (RtlpExecuteHandlerForUnwind.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1406B6190 (ExRaiseDatatypeMisalignment.c)
  */
 
 void __stdcall RtlUnwindEx(
@@ -121,7 +121,7 @@ void __stdcall RtlUnwindEx(
   unsigned __int64 EstablisherFrame; // [rsp+48h] [rbp-B8h] BYREF
   unsigned int v95; // [rsp+50h] [rbp-B0h]
   unsigned __int64 ImageBase; // [rsp+58h] [rbp-A8h] BYREF
-  EXCEPTION_ROUTINE *v97; // [rsp+60h] [rbp-A0h]
+  EXCEPTION_DISPOSITION (__cdecl *v97)(_EXCEPTION_RECORD *, PVOID, _CONTEXT *, PVOID); // [rsp+60h] [rbp-A0h]
   unsigned int v98; // [rsp+68h] [rbp-98h]
   PUNWIND_HISTORY_TABLE v99; // [rsp+70h] [rbp-90h]
   PRUNTIME_FUNCTION v100; // [rsp+78h] [rbp-88h]
@@ -140,7 +140,7 @@ void __stdcall RtlUnwindEx(
   unsigned __int64 v113; // [rsp+E8h] [rbp-18h]
   PVOID v114; // [rsp+F0h] [rbp-10h]
   struct _CONTEXT *v115; // [rsp+F8h] [rbp-8h]
-  EXCEPTION_ROUTINE *v116; // [rsp+100h] [rbp+0h]
+  EXCEPTION_DISPOSITION (__cdecl *v116)(_EXCEPTION_RECORD *, PVOID, _CONTEXT *, PVOID); // [rsp+100h] [rbp+0h]
   PVOID v117; // [rsp+108h] [rbp+8h]
   struct _UNWIND_HISTORY_TABLE *v118; // [rsp+110h] [rbp+10h]
   int v119; // [rsp+118h] [rbp+18h]

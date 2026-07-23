@@ -88,20 +88,19 @@ __int64 __fastcall MiCopyToCfgBitMap(
   unsigned __int64 v66; // [rsp+140h] [rbp+30h]
   PVOID P; // [rsp+148h] [rbp+38h]
   unsigned __int64 v68; // [rsp+150h] [rbp+40h]
-  __int64 v69; // [rsp+158h] [rbp+48h] BYREF
-  char *v70; // [rsp+160h] [rbp+50h]
-  int v71; // [rsp+168h] [rbp+58h]
-  unsigned int v72; // [rsp+16Ch] [rbp+5Ch]
-  unsigned __int64 v73; // [rsp+170h] [rbp+60h]
-  __int64 v74; // [rsp+178h] [rbp+68h]
-  unsigned __int64 v75; // [rsp+180h] [rbp+70h]
+  _RTL_BITMAP_EX BitMapHeader; // [rsp+158h] [rbp+48h] BYREF
+  int v70; // [rsp+168h] [rbp+58h]
+  unsigned int v71; // [rsp+16Ch] [rbp+5Ch]
+  unsigned __int64 v72; // [rsp+170h] [rbp+60h]
+  __int64 v73; // [rsp+178h] [rbp+68h]
+  unsigned __int64 v74; // [rsp+180h] [rbp+70h]
 
-  v71 = a4;
+  v70 = a4;
   v9 = a2;
   v66 = a2;
-  v74 = a1;
-  v69 = 0LL;
-  v70 = 0LL;
+  v73 = a1;
+  BitMapHeader.SizeOfBitMap = 0LL;
+  BitMapHeader.Buffer = 0LL;
   v10 = a8;
   if ( a2 > 1 )
   {
@@ -110,8 +109,8 @@ __int64 __fastcall MiCopyToCfgBitMap(
     v66 = v9;
   }
   v11 = v9;
-  v73 = v9;
-  v75 = v9;
+  v72 = v9;
+  v74 = v9;
   v12 = v9;
   v61 = v9;
   v13 = 0;
@@ -156,11 +155,11 @@ LABEL_12:
     v24 = v16 - v23;
     if ( v16 - v23 >= v20 )
       v24 = v20;
-    v72 = v24;
+    v71 = v24;
     v25 = v24;
     if ( v66 > 1 )
     {
-      if ( v71 == 1 )
+      if ( v70 == 1 )
       {
         if ( v13 < *(_DWORD *)v12 )
         {
@@ -180,8 +179,8 @@ LABEL_12:
         if ( v65 - v28 >= v20 )
           v25 = (unsigned int)v20;
         memmove(PoolWithTag, v19, (unsigned int)v25);
-        v70 = PoolWithTag;
-        v69 = (unsigned int)(8 * v25);
+        BitMapHeader.Buffer = (unsigned __int64 *)PoolWithTag;
+        BitMapHeader.SizeOfBitMap = (unsigned int)(8 * v25);
         for ( i = v61; v13 < *(_DWORD *)v61; i = v61 )
         {
           v30 = *(_QWORD *)(i + 8);
@@ -196,7 +195,7 @@ LABEL_12:
           }
           else
           {
-            RtlClearBitsEx((__int64)&v69, 2 * ((unsigned __int64)v31 >> 4), 2uLL);
+            RtlClearBitsEx((__int64)&BitMapHeader, 2 * ((unsigned __int64)v31 >> 4), 2uLL);
           }
           ++v13;
         }
@@ -204,11 +203,11 @@ LABEL_12:
         goto LABEL_64;
       }
       v25 = v24;
-      if ( !v71 )
+      if ( !v70 )
       {
-        v70 = PoolWithTag;
-        v69 = 8 * v24;
-        RtlClearAllBitsEx((__int64)&v69);
+        BitMapHeader.Buffer = (unsigned __int64 *)PoolWithTag;
+        BitMapHeader.SizeOfBitMap = 8 * v24;
+        RtlClearAllBitsEx(&BitMapHeader);
         v33 = v14 + (v24 >> 1 << 7);
         v64 = v33;
         v34 = a8;
@@ -237,7 +236,7 @@ LABEL_63:
               a7 = v33;
               v10 = a8;
               *a8 = v35;
-              v25 = v72;
+              v25 = v71;
 LABEL_64:
               v19 = v63;
               break;
@@ -247,7 +246,7 @@ LABEL_64:
             {
               v37 = v35 & 0xF;
               v38 = v35 - v14;
-              if ( v37 == *(_DWORD *)(v74 + 24) )
+              if ( v37 == *(_DWORD *)(v73 + 24) )
               {
                 v39 = 2 * ((unsigned __int64)v38 >> 4);
                 if ( (v36 & 4) != 0 )
@@ -263,7 +262,7 @@ LABEL_64:
               }
               else
               {
-                RtlSetBitsEx((__int64)&v69, 2 * ((unsigned __int64)v38 >> 4), 2uLL);
+                RtlSetBitsEx((__int64)&BitMapHeader, 2 * ((unsigned __int64)v38 >> 4), 2uLL);
               }
             }
           }
@@ -310,7 +309,7 @@ LABEL_64:
               v53 = 0LL;
               do
               {
-                if ( _bittest64(*(const signed __int64 **)(v75 + 40), v51 + v42 * v50) )
+                if ( _bittest64(*(const signed __int64 **)(v74 + 40), v51 + v42 * v50) )
                 {
                   v54 = *(_QWORD *)(v11 + 48);
                   if ( v54 )

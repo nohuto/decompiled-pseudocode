@@ -1,17 +1,17 @@
 /*
- * XREFs of WmipGetSMBiosTableData @ 0x140A42038
+ * XREFs of WmipGetSMBiosTableData @ 0x140A37918
  * Callers:
- *     WmipRawSMBiosTableHandler @ 0x14048B1E0 (WmipRawSMBiosTableHandler.c)
- *     WmipQueryWmiDataBlock @ 0x140A41D60 (WmipQueryWmiDataBlock.c)
+ *     WmipRawSMBiosTableHandler @ 0x140486010 (WmipRawSMBiosTableHandler.c)
+ *     WmipQueryWmiDataBlock @ 0x140A37640 (WmipQueryWmiDataBlock.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     ExReleaseResourceLite @ 0x14025A450 (ExReleaseResourceLite.c)
- *     MmUnmapIoSpace @ 0x140263160 (MmUnmapIoSpace.c)
- *     MmMapIoSpaceEx @ 0x1402E9A50 (MmMapIoSpaceEx.c)
- *     RtlCopyDeviceMemory @ 0x140520F1C (RtlCopyDeviceMemory.c)
- *     WmipSMBiosHideMachine @ 0x1407A4B8C (WmipSMBiosHideMachine.c)
- *     WmipGetRegistryHideMachine @ 0x140A42134 (WmipGetRegistryHideMachine.c)
- *     WmipAcquireSmbiosLockShared @ 0x140A421E4 (WmipAcquireSmbiosLockShared.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     ExReleaseResourceLite @ 0x14028AA60 (ExReleaseResourceLite.c)
+ *     MmUnmapIoSpace @ 0x1402929D0 (MmUnmapIoSpace.c)
+ *     MmMapIoSpaceEx @ 0x14034B090 (MmMapIoSpaceEx.c)
+ *     RtlCopyDeviceMemory @ 0x14051E7EC (RtlCopyDeviceMemory.c)
+ *     WmipSMBiosHideMachine @ 0x1407A4C9C (WmipSMBiosHideMachine.c)
+ *     WmipGetRegistryHideMachine @ 0x140A37A14 (WmipGetRegistryHideMachine.c)
+ *     WmipAcquireSmbiosLockShared @ 0x140A37AC4 (WmipAcquireSmbiosLockShared.c)
  */
 
 __int64 __fastcall WmipGetSMBiosTableData(char *a1, int *a2, _DWORD *a3)
@@ -29,7 +29,7 @@ __int64 __fastcall WmipGetSMBiosTableData(char *a1, int *a2, _DWORD *a3)
   {
     if ( WmipSMBiosTablePhysicalAddress )
     {
-      v8 = (char *)MmMapIoSpaceEx(WmipSMBiosTablePhysicalAddress, (unsigned int)WmipSMBiosTableLength, 4u);
+      v8 = (char *)MmMapIoSpaceEx(WmipSMBiosTablePhysicalAddress, (unsigned int)WmipSMBiosTableLength, 4LL);
       v9 = v8;
       if ( v8 )
       {

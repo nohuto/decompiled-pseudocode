@@ -11,14 +11,14 @@
 PSLIST_ENTRY sub_18000F3FC()
 {
   PSLIST_ENTRY result; // rax
-  void *ProcessHeap; // rcx
+  PVOID ProcessHeap; // rcx
 
   result = RtlInterlockedPopEntrySList(&ListHead);
   if ( !result )
   {
     ProcessHeap = NtCurrentPeb()->ProcessHeap;
     if ( ProcessHeap )
-      return (PSLIST_ENTRY)RtlAllocateHeap(ProcessHeap, 0LL, 48LL);
+      return (PSLIST_ENTRY)RtlAllocateHeap(ProcessHeap, 0, 0x30uLL);
   }
   return result;
 }

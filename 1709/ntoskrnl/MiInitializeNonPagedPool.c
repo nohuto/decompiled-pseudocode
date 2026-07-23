@@ -40,7 +40,7 @@ __int64 MiInitializeNonPagedPool()
   unsigned __int64 v20; // r13
   unsigned __int64 v21; // rax
   unsigned int v22; // ecx
-  union _SLIST_HEADER *v23; // rbx
+  _SLIST_HEADER *v23; // rbx
   PSLIST_HEADER v24; // rbp
   ULONG_PTR v25; // rdi
   unsigned __int64 *p_Alignment; // rbp
@@ -50,7 +50,7 @@ __int64 MiInitializeNonPagedPool()
   __int64 v30; // rax
   __int64 v31; // rsi
   __int64 v32; // r8
-  union _SLIST_HEADER *v33; // r15
+  _SLIST_HEADER *v33; // r15
   __int64 v34; // r14
   unsigned __int64 Alignment; // rax
   unsigned __int64 v36; // r14
@@ -149,7 +149,7 @@ LABEL_11:
         *p_Alignment = 8LL;
         p_Alignment += 2;
         v23->Alignment = 8LL;
-        v23 = (union _SLIST_HEADER *)((char *)v23 + 8);
+        v23 = (_SLIST_HEADER *)((char *)v23 + 8);
         --v51;
       }
       while ( v51 );

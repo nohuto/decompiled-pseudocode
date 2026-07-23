@@ -1,17 +1,17 @@
 /*
- * XREFs of MiSpecialPurposeMemoryRemoved @ 0x1407FECA8
+ * XREFs of MiSpecialPurposeMemoryRemoved @ 0x1407FF418
  * Callers:
- *     MmRemovePhysicalMemory @ 0x1407EA5D0 (MmRemovePhysicalMemory.c)
- *     MiSpecialPurposeMemoryTypeDereference @ 0x1407FEE24 (MiSpecialPurposeMemoryTypeDereference.c)
+ *     MmRemovePhysicalMemory @ 0x1407EABA0 (MmRemovePhysicalMemory.c)
+ *     MiSpecialPurposeMemoryTypeDereference @ 0x1407FF594 (MiSpecialPurposeMemoryTypeDereference.c)
  * Callees:
- *     ExfTryToWakePushLock @ 0x14025F9A0 (ExfTryToWakePushLock.c)
- *     PsDereferencePartition @ 0x140275E60 (PsDereferencePartition.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     KiCheckForKernelApcDelivery @ 0x1402BB4D0 (KiCheckForKernelApcDelivery.c)
- *     KeGenericCallDpcEx @ 0x140414C8C (KeGenericCallDpcEx.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     MiFindSpecialPurposeMemoryTypeByPartition @ 0x1407FE2A8 (MiFindSpecialPurposeMemoryTypeByPartition.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     PsDereferencePartition @ 0x14022B3F0 (PsDereferencePartition.c)
+ *     KeGenericCallDpcEx @ 0x140270AE8 (KeGenericCallDpcEx.c)
+ *     ExfTryToWakePushLock @ 0x14028FFB0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     KiCheckForKernelApcDelivery @ 0x140362C10 (KiCheckForKernelApcDelivery.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     MiFindSpecialPurposeMemoryTypeByPartition @ 0x1407FEA18 (MiFindSpecialPurposeMemoryTypeByPartition.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __fastcall MiSpecialPurposeMemoryRemoved(_QWORD *a1)
@@ -22,26 +22,24 @@ void __fastcall MiSpecialPurposeMemoryRemoved(_QWORD *a1)
   HANDLE *v5; // rbx
   HANDLE *v6; // rcx
   HANDLE **v7; // rax
-  __int64 v8; // rdx
-  __int64 v9; // rcx
   struct _KTHREAD *CurrentThread; // rax
-  bool v11; // zf
-  __int128 v12; // [rsp+20h] [rbp-20h] BYREF
-  __int64 v13; // [rsp+30h] [rbp-10h]
+  bool v9; // zf
+  __int128 v10; // [rsp+20h] [rbp-20h] BYREF
+  __int64 v11; // [rsp+30h] [rbp-10h]
   ULONG_PTR BugCheckParameter2; // [rsp+60h] [rbp+20h] BYREF
-  __int64 v15; // [rsp+68h] [rbp+28h] BYREF
+  __int64 v13; // [rsp+68h] [rbp+28h] BYREF
 
   v1 = 0LL;
   BugCheckParameter2 = 0LL;
-  v15 = 0LL;
   v13 = 0LL;
+  v11 = 0LL;
   v3 = a1[2314];
-  v12 = 0LL;
+  v10 = 0LL;
   if ( !v3 && !a1[53] )
   {
     SpecialPurposeMemoryTypeByPartition = (HANDLE *)MiFindSpecialPurposeMemoryTypeByPartition(
                                                       (__int64)a1,
-                                                      &v15,
+                                                      &v13,
                                                       (volatile signed __int64 **)&BugCheckParameter2);
     v5 = SpecialPurposeMemoryTypeByPartition;
     if ( SpecialPurposeMemoryTypeByPartition
@@ -52,10 +50,10 @@ void __fastcall MiSpecialPurposeMemoryRemoved(_QWORD *a1)
     {
       if ( SpecialPurposeMemoryTypeByPartition[9] )
       {
-        HIDWORD(v13) = 0;
-        *((_QWORD *)&v12 + 1) = v15;
-        *(_QWORD *)&v12 = SpecialPurposeMemoryTypeByPartition;
-        KeGenericCallDpcEx((__int64)MiSpecialPurposeMemoryCacheUpdateDpc, (__int64)&v12);
+        HIDWORD(v11) = 0;
+        *((_QWORD *)&v10 + 1) = v13;
+        *(_QWORD *)&v10 = SpecialPurposeMemoryTypeByPartition;
+        KeGenericCallDpcEx((__int64)MiSpecialPurposeMemoryCacheUpdateDpc, (__int64)&v10);
       }
       v6 = (HANDLE *)*v5;
       if ( *((HANDLE **)*v5 + 1) != v5 || (v7 = (HANDLE **)v5[1], *v7 != v5) )
@@ -70,15 +68,15 @@ void __fastcall MiSpecialPurposeMemoryRemoved(_QWORD *a1)
         ExfTryToWakePushLock((volatile signed __int64 *)BugCheckParameter2);
       KeAbPostRelease(BugCheckParameter2);
       CurrentThread = KeGetCurrentThread();
-      v11 = CurrentThread->SpecialApcDisable++ == -1;
-      if ( v11
-        && ($81B80DCEA5A02D890AB7B2872B48AC01 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
+      v9 = CurrentThread->SpecialApcDisable++ == -1;
+      if ( v9
+        && ($727077A9B6E167EAE1398C74674DC5A5 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
       {
-        KiCheckForKernelApcDelivery(v9, v8);
+        KiCheckForKernelApcDelivery();
       }
     }
-    if ( v15 )
-      PsDereferencePartition(*(_QWORD *)(v15 + 184));
+    if ( v13 )
+      PsDereferencePartition(*(_QWORD *)(v13 + 184));
     if ( v1 )
     {
       ZwClose(v1[7]);

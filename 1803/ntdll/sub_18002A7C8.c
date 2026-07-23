@@ -18,7 +18,7 @@
  *     sub_1800FE318 @ 0x1800FE318 (sub_1800FE318.c)
  */
 
-__int64 __fastcall sub_18002A7C8(unsigned __int64 a1, unsigned __int64 *a2)
+__int64 __fastcall sub_18002A7C8(unsigned __int64 a1, PSIZE_T RegionSize)
 {
   __int64 v4; // rax
   __int64 v5; // rbp
@@ -27,25 +27,25 @@ __int64 __fastcall sub_18002A7C8(unsigned __int64 a1, unsigned __int64 *a2)
   unsigned __int64 v8; // rsi
   unsigned __int64 v9; // r8
   unsigned __int64 v10; // rdx
-  int v11; // eax
-  int v12; // eax
+  ULONG Protect; // eax
+  NTSTATUS v12; // eax
   __int64 v13; // r15
-  __int64 v14; // rcx
+  __int64 UserModeGlobalLogger; // rcx
   int v15; // edx
-  unsigned __int64 v16; // r9
-  unsigned __int64 v17; // rdx
+  ULONG_PTR v16; // r9
+  ULONG_PTR v17; // rdx
   __int64 v18; // rdx
   unsigned __int64 v19; // rbp
   __int64 v20; // rcx
   __int64 v21; // rsi
   __int64 v22; // rcx
-  __int64 v24; // [rsp+50h] [rbp+8h] BYREF
+  PVOID BaseAddress; // [rsp+50h] [rbp+8h] BYREF
 
-  v4 = sub_18002ACD0(a1, *a2);
+  v4 = sub_18002ACD0(a1, *RegionSize);
   v5 = v4;
   if ( v4 == a1 + 240 )
     return 0LL;
-  if ( dword_18015D450 >= 1 && *(_QWORD *)(v4 + 40) < *a2 )
+  if ( dword_18015D450 >= 1 && *(_QWORD *)(v4 + 40) < *RegionSize )
   {
     if ( NtCurrentPeb()->Ldr )
       DbgPrint("HEAP[%wZ]: ", &NtCurrentPeb()->Ldr->InLoadOrderModuleList.Flink[5].Blink);
@@ -60,26 +60,26 @@ __int64 __fastcall sub_18002A7C8(unsigned __int64 a1, unsigned __int64 *a2)
     v8 = (v6 & 0xFFFFFFFFFFFF0000uLL) - ((unsigned __int64)v7 << 16) + 0x10000;
   else
     v8 = a1;
-  v24 = *(_QWORD *)(v5 + 32);
+  BaseAddress = *(PVOID *)(v5 + 32);
   if ( qword_18015D758 != *(_QWORD *)(a1 + 360) )
   {
-    v12 = ((__int64 (__fastcall *)(unsigned __int64, __int64 *, unsigned __int64 *))(qword_18015D758 ^ *(_QWORD *)(a1 + 360)))(
+    v12 = ((__int64 (__fastcall *)(unsigned __int64, PVOID *, PSIZE_T))(qword_18015D758 ^ *(_QWORD *)(a1 + 360)))(
             a1,
-            &v24,
-            a2);
+            &BaseAddress,
+            RegionSize);
   }
   else
   {
     v9 = *(_QWORD *)(v5 + 40);
-    v10 = *a2;
-    if ( v9 - *a2 <= 16LL * *(_QWORD *)(a1 + 176) && v9 < 16 * (unsigned __int64)*(unsigned int *)(a1 + 148) )
+    v10 = *RegionSize;
+    if ( v9 - *RegionSize <= 16LL * *(_QWORD *)(a1 + 176) && v9 < 16 * (unsigned __int64)*(unsigned int *)(a1 + 148) )
     {
-      *a2 = v9;
+      *RegionSize = v9;
       v10 = v9;
     }
-    *a2 = (v10 + 4095) & 0xFFFFFFFFFFFFF000uLL;
-    v11 = sub_18002AE30(a1, 1LL);
-    v12 = ZwAllocateVirtualMemory(-1LL, &v24, 0LL, a2, 4096, v11);
+    *RegionSize = (v10 + 4095) & 0xFFFFFFFFFFFFF000uLL;
+    Protect = sub_18002AE30(a1, 1LL);
+    v12 = ZwAllocateVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &BaseAddress, 0LL, RegionSize, 0x1000u, Protect);
     ++*(_DWORD *)(a1 + 592);
   }
   if ( v12 < 0 )
@@ -88,12 +88,12 @@ __int64 __fastcall sub_18002A7C8(unsigned __int64 a1, unsigned __int64 *a2)
     return 0LL;
   }
   v13 = 2147353472LL;
-  if ( (unsigned int)RtlGetCurrentServiceSessionId() )
-    v14 = (__int64)NtCurrentPeb()->HotpatchInformation + 550;
+  if ( RtlGetCurrentServiceSessionId() )
+    UserModeGlobalLogger = (__int64)NtCurrentPeb()->SharedData->UserModeGlobalLogger;
   else
-    v14 = 2147353472LL;
-  if ( *(_BYTE *)v14 && (NtCurrentPeb()->TracingFlags & 1) != 0 )
-    sub_1800FE0A4(a1, v24, *a2, 2LL);
+    UserModeGlobalLogger = 2147353472LL;
+  if ( *(_BYTE *)UserModeGlobalLogger && (NtCurrentPeb()->TracingFlags & 1) != 0 )
+    sub_1800FE0A4(a1, BaseAddress, *RegionSize, 2LL);
   if ( *(_DWORD *)(a1 + 124) )
   {
     v15 = *(_DWORD *)(v6 + 8) ^ *(_DWORD *)(a1 + 136);
@@ -115,15 +115,15 @@ __int64 __fastcall sub_18002A7C8(unsigned __int64 a1, unsigned __int64 *a2)
     *(_QWORD *)(a1 + 552) -= v16;
     v16 = *(_QWORD *)(v5 + 40);
   }
-  v17 = *a2;
-  if ( v16 > *a2 || v16 + *(_QWORD *)(v5 + 32) == *(_QWORD *)(v8 + 72) )
+  v17 = *RegionSize;
+  if ( v16 > *RegionSize || v16 + *(_QWORD *)(v5 + 32) == *(_QWORD *)(v8 + 72) )
   {
-    sub_18002AA88(a1, v8, *(_DWORD *)(v5 + 32) + v17 - 48, v16 - v17, v5 - 16, (__int64)a2);
-    *a2 *= 16LL;
+    sub_18002AA88(a1, v8, *(_DWORD *)(v5 + 32) + v17 - 48, v16 - v17, v5 - 16, (__int64)RegionSize);
+    *RegionSize *= 16LL;
   }
   else
   {
-    *a2 = v17 + 16LL * *(unsigned __int16 *)(v6 + 8);
+    *RegionSize = v17 + 16LL * *(unsigned __int16 *)(v6 + 8);
   }
   *(_BYTE *)(v6 + 11) = 0;
   v18 = *(_QWORD *)(v8 + 40);
@@ -138,26 +138,26 @@ __int64 __fastcall sub_18002A7C8(unsigned __int64 a1, unsigned __int64 *a2)
       sub_18009A5F0(3, v18, v6, v8, 0LL, 0LL);
   }
   *(_BYTE *)(v6 + 14) = v19;
-  if ( (unsigned int)RtlGetCurrentServiceSessionId() )
-    v20 = (__int64)NtCurrentPeb()->HotpatchInformation + 550;
+  if ( RtlGetCurrentServiceSessionId() )
+    v20 = (__int64)NtCurrentPeb()->SharedData->UserModeGlobalLogger;
   else
     v20 = 2147353472LL;
   if ( *(_BYTE *)v20 && (NtCurrentPeb()->TracingFlags & 1) != 0 )
   {
-    if ( (unsigned int)RtlGetCurrentServiceSessionId() )
-      v13 = (__int64)NtCurrentPeb()->HotpatchInformation + 550;
-    sub_1800FE318(a1, v6, *a2, 16 * *(_QWORD *)(a1 + 192), *(unsigned __int8 *)v13);
+    if ( RtlGetCurrentServiceSessionId() )
+      v13 = (__int64)NtCurrentPeb()->SharedData->UserModeGlobalLogger;
+    sub_1800FE318(a1, v6, *RegionSize, 16 * *(_QWORD *)(a1 + 192), (HANDLE)*(unsigned __int8 *)v13);
   }
   v21 = 2147353482LL;
-  if ( (unsigned int)RtlGetCurrentServiceSessionId() )
-    v22 = (__int64)NtCurrentPeb()->HotpatchInformation + 560;
+  if ( RtlGetCurrentServiceSessionId() )
+    v22 = (__int64)&NtCurrentPeb()->SharedData->UserModeGlobalLogger[5];
   else
     v22 = 2147353482LL;
   if ( *(_BYTE *)v22 )
   {
-    if ( (unsigned int)RtlGetCurrentServiceSessionId() )
-      v21 = (__int64)NtCurrentPeb()->HotpatchInformation + 560;
-    sub_1800FE318(a1, v6, *a2, 16 * *(_QWORD *)(a1 + 192), *(unsigned __int8 *)v21);
+    if ( RtlGetCurrentServiceSessionId() )
+      v21 = (__int64)&NtCurrentPeb()->SharedData->UserModeGlobalLogger[5];
+    sub_1800FE318(a1, v6, *RegionSize, 16 * *(_QWORD *)(a1 + 192), (HANDLE)*(unsigned __int8 *)v21);
   }
   return v6;
 }

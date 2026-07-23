@@ -1,21 +1,21 @@
 /*
- * XREFs of ExpWnfSubscribeNameInstance @ 0x14061034C
+ * XREFs of ExpWnfSubscribeNameInstance @ 0x14061134C
  * Callers:
- *     ExpWnfSubscribeWnfStateChange @ 0x14060F054 (ExpWnfSubscribeWnfStateChange.c)
+ *     ExpWnfSubscribeWnfStateChange @ 0x140610054 (ExpWnfSubscribeWnfStateChange.c)
  * Callees:
  *     ExfAcquirePushLockSharedEx @ 0x140005550 (ExfAcquirePushLockSharedEx.c)
  *     ExfAcquirePushLockExclusiveEx @ 0x140005760 (ExfAcquirePushLockExclusiveEx.c)
  *     ExAcquireRundownProtection_0 @ 0x14004D320 (ExAcquireRundownProtection_0.c)
  *     KeAbPreAcquire @ 0x14004E270 (KeAbPreAcquire.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
- *     ExfReleasePushLockShared @ 0x1400914B0 (ExfReleasePushLockShared.c)
- *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     ExAllocatePoolWithQuotaTag @ 0x1400B7670 (ExAllocatePoolWithQuotaTag.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     ExpWnfUpdateSubscription @ 0x140610794 (ExpWnfUpdateSubscription.c)
- *     ExpWnfNotifyNameSubscribers @ 0x1406109F8 (ExpWnfNotifyNameSubscribers.c)
+ *     ExfReleasePushLockShared @ 0x1400913F0 (ExfReleasePushLockShared.c)
+ *     ExfTryToWakePushLock @ 0x140091500 (ExfTryToWakePushLock.c)
+ *     ExAllocatePoolWithQuotaTag @ 0x1400B75B0 (ExAllocatePoolWithQuotaTag.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     ExpWnfUpdateSubscription @ 0x140611794 (ExpWnfUpdateSubscription.c)
+ *     ExpWnfNotifyNameSubscribers @ 0x1406119F8 (ExpWnfNotifyNameSubscribers.c)
  */
 
 __int64 __fastcall ExpWnfSubscribeNameInstance(
@@ -32,17 +32,17 @@ __int64 __fastcall ExpWnfSubscribeNameInstance(
         _DWORD *a11)
 {
   struct _SINGLE_LIST_ENTRY *Next; // r12
-  __int64 v14; // r14
+  PRTL_BALANCED_NODE v14; // r14
   int updated; // r14d
   __int64 v16; // rdx
   struct _EX_RUNDOWN_REF *PoolWithTag; // rax
   struct _EX_RUNDOWN_REF *v19; // rsi
   signed __int64 v20; // r12
   unsigned __int64 *v21; // r14
-  __int64 v22; // rax
-  __int64 v23; // r15
+  _RTL_BALANCED_NODE *v22; // rax
+  _RTL_BALANCED_NODE *v23; // r15
   volatile signed __int64 *v24; // r15
-  __int64 v25; // rax
+  PRTL_BALANCED_NODE v25; // rax
   signed __int8 v26; // cf
   struct _EX_RUNDOWN_REF *v27; // rcx
   struct _SINGLE_LIST_ENTRY *v28; // rax
@@ -55,7 +55,7 @@ __int64 __fastcall ExpWnfSubscribeNameInstance(
   int v35; // [rsp+54h] [rbp-1Ch] BYREF
   struct _EX_RUNDOWN_REF *v36; // [rsp+58h] [rbp-18h] BYREF
   struct _SINGLE_LIST_ENTRY *v37; // [rsp+60h] [rbp-10h]
-  __int64 v38; // [rsp+68h] [rbp-8h]
+  _RTL_BALANCED_NODE *v38; // [rsp+68h] [rbp-8h]
 
   Next = a2[2].SwapListEntry.Next;
   v37 = Next;
@@ -68,7 +68,7 @@ __int64 __fastcall ExpWnfSubscribeNameInstance(
     if ( _InterlockedCompareExchange64((volatile signed __int64 *)&Next[10], 17LL, 0LL) )
       ExfAcquirePushLockSharedEx((unsigned __int64 *)&Next[10], v14, (ULONG_PTR)&Next[10]);
     if ( v14 )
-      *(_BYTE *)(v14 + 26) |= 1u;
+      BYTE2(v14[1].Left) |= 1u;
     updated = ExpWnfUpdateSubscription(
                 a1,
                 (_DWORD)Next,
@@ -120,7 +120,7 @@ __int64 __fastcall ExpWnfSubscribeNameInstance(
   if ( _interlockedbittestandset64((volatile signed __int32 *)v21, 0LL) )
     ExfAcquirePushLockExclusiveEx(v21, v22, (ULONG_PTR)v21);
   if ( v23 )
-    *(_BYTE *)(v23 + 26) |= 1u;
+    BYTE2(v23[1].Left) |= 1u;
   v24 = (volatile signed __int64 *)(a1 + 112);
   v25 = KeAbPreAcquire(a1 + 112, 0LL, 0);
   v26 = _interlockedbittestandset64((volatile signed __int32 *)(a1 + 112), 0LL);
@@ -131,7 +131,7 @@ __int64 __fastcall ExpWnfSubscribeNameInstance(
     v25 = v38;
   }
   if ( v25 )
-    *(_BYTE *)(v25 + 26) |= 1u;
+    BYTE2(v25[1].Left) |= 1u;
   if ( *(_QWORD *)(a1 + 48) )
   {
     if ( a7 != 1

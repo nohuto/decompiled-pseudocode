@@ -1,20 +1,20 @@
 /*
- * XREFs of MiReplicatePteChange @ 0x140174F14
+ * XREFs of MiReplicatePteChange @ 0x140175014
  * Callers:
  *     MiCreateSystemPageTable @ 0x140026730 (MiCreateSystemPageTable.c)
- *     MiDeleteVaTail @ 0x140075880 (MiDeleteVaTail.c)
- *     MiDeleteSystemPageTable @ 0x14011F050 (MiDeleteSystemPageTable.c)
- *     MiZeroAndFlushPtes @ 0x14012337C (MiZeroAndFlushPtes.c)
- *     MiDecommitLargePoolVa @ 0x14015B2E0 (MiDecommitLargePoolVa.c)
- *     MiPfnRangeIsZero @ 0x140184654 (MiPfnRangeIsZero.c)
- *     MiInitializeShadowPageTable @ 0x14072A3F4 (MiInitializeShadowPageTable.c)
+ *     MiDeleteVaTail @ 0x140075870 (MiDeleteVaTail.c)
+ *     MiDeleteSystemPageTable @ 0x14011F0C0 (MiDeleteSystemPageTable.c)
+ *     MiZeroAndFlushPtes @ 0x14012344C (MiZeroAndFlushPtes.c)
+ *     MiDecommitLargePoolVa @ 0x14015B3E0 (MiDecommitLargePoolVa.c)
+ *     MiPfnRangeIsZero @ 0x140184794 (MiPfnRangeIsZero.c)
+ *     MiInitializeShadowPageTable @ 0x14072B5E4 (MiInitializeShadowPageTable.c)
  * Callees:
  *     MiGetSystemRegionType @ 0x14004EC30 (MiGetSystemRegionType.c)
- *     MiGetLeafVa @ 0x140076410 (MiGetLeafVa.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14007DE90 (KeAcquireInStackQueuedSpinLock.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
- *     MiReplicatePteChangeToProcess @ 0x140175078 (MiReplicatePteChangeToProcess.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiGetLeafVa @ 0x140076400 (MiGetLeafVa.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14007DE80 (KeAcquireInStackQueuedSpinLock.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC6A0 (KxReleaseQueuedSpinLock.c)
+ *     MiReplicatePteChangeToProcess @ 0x140175178 (MiReplicatePteChangeToProcess.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiReplicatePteChange(unsigned __int64 a1, unsigned __int64 a2)
@@ -53,9 +53,9 @@ __int64 __fastcall MiReplicatePteChange(unsigned __int64 a1, unsigned __int64 a2
   else
   {
     v7 = 0LL;
-    v8 = &qword_140439FE8;
+    v8 = &qword_14043B0A8;
   }
-  KeAcquireInStackQueuedSpinLock(&qword_14043AE80, &LockHandle);
+  KeAcquireInStackQueuedSpinLock(&qword_14043BF40, &LockHandle);
   for ( i = (__int64 *)*v8; i != v8; i = (__int64 *)*i )
   {
     v12 = (_KPROCESS *)((char *)i + (v7 != 0 ? -832LL : -1552LL));

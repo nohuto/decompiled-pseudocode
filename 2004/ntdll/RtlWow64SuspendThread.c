@@ -15,91 +15,96 @@
  *     RtlpWow64OpenThreadProcess @ 0x1800DC5D8 (RtlpWow64OpenThreadProcess.c)
  */
 
-__int64 __fastcall RtlWow64SuspendThread(int a1, int *a2)
+__int64 __fastcall RtlWow64SuspendThread(HANDLE ThreadHandle, int *PreviousSuspendCount)
 {
   HANDLE v2; // rdi
   int SharedInfoProcess; // ebx
-  __int64 v5; // rdx
-  __int64 v7; // [rsp+30h] [rbp-D0h]
-  _BYTE v8[8]; // [rsp+60h] [rbp-A0h] BYREF
-  HANDLE v9; // [rsp+68h] [rbp-98h] BYREF
+  void *v6; // rdx
+  ULONG Options; // [rsp+30h] [rbp-D0h]
+  _BYTE v9[8]; // [rsp+60h] [rbp-A0h] BYREF
+  HANDLE TargetProcessHandle; // [rsp+68h] [rbp-98h]
   HANDLE Handle; // [rsp+70h] [rbp-90h] BYREF
-  __int64 v11; // [rsp+78h] [rbp-88h]
-  _QWORD v12[2]; // [rsp+80h] [rbp-80h] BYREF
-  char v13; // [rsp+90h] [rbp-70h] BYREF
+  HANDLE TargetHandle; // [rsp+78h] [rbp-88h] BYREF
+  __int64 v13[2]; // [rsp+80h] [rbp-80h] BYREF
   _BYTE v14[40]; // [rsp+98h] [rbp-68h] BYREF
-  int v15; // [rsp+C0h] [rbp-40h]
-  char v16; // [rsp+F4h] [rbp-Ch]
+  int ThreadInformation[12]; // [rsp+C0h] [rbp-40h] BYREF
+  _BYTE ObjectInformation[56]; // [rsp+F0h] [rbp-10h] BYREF
 
-  v9 = 0LL;
-  v11 = 0LL;
+  TargetProcessHandle = 0LL;
+  TargetHandle = 0LL;
   v2 = 0LL;
   Handle = 0LL;
-  SharedInfoProcess = RtlpWow64OpenThreadProcess(a1, (_DWORD)a2, (unsigned int)&v13, (unsigned int)&v9, (__int64)v12);
+  SharedInfoProcess = RtlpWow64OpenThreadProcess(ThreadHandle, (__int64)v13);
   if ( SharedInfoProcess < 0 )
     goto LABEL_20;
-  if ( (void *)v12[0] == NtCurrentTeb()->ClientId.UniqueProcess
-    && (void *)v12[1] == NtCurrentTeb()->ClientId.UniqueThread )
+  if ( (void *)v13[0] == NtCurrentTeb()->ClientId.UniqueProcess
+    && (void *)v13[1] == NtCurrentTeb()->ClientId.UniqueThread )
   {
     goto LABEL_18;
   }
-  SharedInfoProcess = RtlWow64GetSharedInfoProcess(v9, v8, (__int64)v14);
+  SharedInfoProcess = RtlWow64GetSharedInfoProcess(TargetProcessHandle, v9, v14);
   if ( SharedInfoProcess < 0 )
   {
 LABEL_19:
     v2 = Handle;
     goto LABEL_20;
   }
-  if ( !v8[0] || (v14[4] & 2) == 0 )
+  if ( !v9[0] || (v14[4] & 2) == 0 )
   {
 LABEL_18:
-    SharedInfoProcess = NtSuspendThread();
+    SharedInfoProcess = NtSuspendThread(ThreadHandle, (PULONG)PreviousSuspendCount);
     goto LABEL_19;
   }
-  SharedInfoProcess = ZwQueryObject();
+  SharedInfoProcess = ZwQueryObject(ThreadHandle, ObjectBasicInformation, ObjectInformation, 0x38u, 0LL);
   if ( SharedInfoProcess < 0 )
     goto LABEL_19;
-  if ( (v16 & 2) == 0 )
+  if ( (ObjectInformation[4] & 2) == 0 )
   {
     SharedInfoProcess = -1073741790;
     goto LABEL_19;
   }
-  LODWORD(v7) = 0;
-  SharedInfoProcess = ZwDuplicateObject();
+  SharedInfoProcess = ZwDuplicateObject(
+                        (HANDLE)0xFFFFFFFFFFFFFFFFLL,
+                        ThreadHandle,
+                        TargetProcessHandle,
+                        &TargetHandle,
+                        0x10080Au,
+                        0,
+                        0);
   if ( SharedInfoProcess < 0 )
     goto LABEL_19;
-  v5 = v11;
-  if ( (void *)v12[0] != NtCurrentTeb()->ClientId.UniqueProcess )
-    v5 = v11 | 1;
+  v6 = TargetHandle;
+  if ( (void *)v13[0] != NtCurrentTeb()->ClientId.UniqueProcess )
+    v6 = (void *)((unsigned __int64)TargetHandle | 1);
   SharedInfoProcess = RtlpCreateUserThreadEx(
-                        (__int64)v9,
+                        TargetProcessHandle,
                         0LL,
                         102,
                         0,
                         0LL,
                         0LL,
-                        v7,
-                        (__int64)RtlpWow64SuspendThreadWorker,
-                        v5,
+                        Options,
+                        RtlpWow64SuspendThreadWorker,
+                        v6,
                         &Handle,
                         0LL);
   if ( SharedInfoProcess < 0 )
     goto LABEL_19;
   v2 = Handle;
   NtWaitForSingleObject(Handle, 0, 0LL);
-  ZwQueryInformationThread();
-  SharedInfoProcess = v15;
-  if ( v15 >= 0 )
+  ZwQueryInformationThread(v2, ThreadBasicInformation, ThreadInformation, 0x30u, 0LL);
+  SharedInfoProcess = ThreadInformation[0];
+  if ( ThreadInformation[0] >= 0 )
   {
-    if ( a2 )
-      *a2 = v15;
+    if ( PreviousSuspendCount )
+      *PreviousSuspendCount = ThreadInformation[0];
     SharedInfoProcess = 0;
   }
 LABEL_20:
-  if ( v11 )
-    ZwDuplicateObject();
-  if ( v9 )
-    NtClose(v9);
+  if ( TargetHandle )
+    ZwDuplicateObject(TargetProcessHandle, TargetHandle, 0LL, 0LL, 0, 0, 3u);
+  if ( TargetProcessHandle )
+    NtClose(TargetProcessHandle);
   if ( v2 )
     NtClose(v2);
   return (unsigned int)SharedInfoProcess;

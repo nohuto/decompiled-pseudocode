@@ -40,7 +40,7 @@ void __fastcall PnprQuiesceProcessorDpc(
   SIZE_T v19; // rdx
   PVOID v20[16]; // [rsp+20h] [rbp-88h] BYREF
   int v21; // [rsp+A0h] [rbp-8h]
-  struct _PROCESSOR_NUMBER ProcNumber; // [rsp+B8h] [rbp+10h] BYREF
+  _PROCESSOR_NUMBER ProcNumber; // [rsp+B8h] [rbp+10h] BYREF
   unsigned int v23; // [rsp+C0h] [rbp+18h] BYREF
   PVOID BaseAddress; // [rsp+C8h] [rbp+20h] BYREF
 

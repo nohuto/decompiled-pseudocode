@@ -1,17 +1,17 @@
 /*
- * XREFs of CcGetPartitionWithCreate @ 0x1403E1F28
+ * XREFs of CcGetPartitionWithCreate @ 0x1403E5118
  * Callers:
- *     CcInitializeCacheMapInternal @ 0x1403E1230 (CcInitializeCacheMapInternal.c)
+ *     CcInitializeCacheMapInternal @ 0x1403E4420 (CcInitializeCacheMapInternal.c)
  * Callees:
- *     PsReferencePartitionSafe @ 0x140258850 (PsReferencePartitionSafe.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x1402B4730 (KeAcquireInStackQueuedSpinLock.c)
- *     KeReleaseInStackQueuedSpinLock @ 0x1402B98C0 (KeReleaseInStackQueuedSpinLock.c)
- *     KeReleaseSpinLock @ 0x1402BE860 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14032F300 (KeAcquireSpinLockRaiseToDpc.c)
- *     PsDereferencePartition @ 0x140381940 (PsDereferencePartition.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     CcCreatePartition @ 0x1405B2188 (CcCreatePartition.c)
- *     CcDeletePartition @ 0x1405B2214 (CcDeletePartition.c)
+ *     PsReferencePartitionSafe @ 0x14025A030 (PsReferencePartitionSafe.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402FF400 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x140304580 (KeReleaseInStackQueuedSpinLock.c)
+ *     KeReleaseSpinLock @ 0x140309520 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140331330 (KeAcquireSpinLockRaiseToDpc.c)
+ *     PsDereferencePartition @ 0x1403836F0 (PsDereferencePartition.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     CcCreatePartition @ 0x1405B4998 (CcCreatePartition.c)
+ *     CcDeletePartition @ 0x1405B4A24 (CcDeletePartition.c)
  */
 
 _BYTE *__fastcall CcGetPartitionWithCreate(__int64 a1)
@@ -32,7 +32,7 @@ _BYTE *__fastcall CcGetPartitionWithCreate(__int64 a1)
   if ( Partition )
   {
     KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)(Partition + 768), &LockHandle);
-    v6 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)&EmpParseLock.ReadOperationCount);
+    v6 = KeAcquireSpinLockRaiseToDpc(&EmpParseLock.InGlobalUpdateVpThreadPriorityList);
     if ( *(_QWORD *)(a1 + 8) )
     {
       v2 = v1;
@@ -40,7 +40,7 @@ _BYTE *__fastcall CcGetPartitionWithCreate(__int64 a1)
     }
     else
     {
-      ++WORD2(EmpParseLock.KernelShadowStack);
+      ++LOWORD(EmpParseLock.ReadTransferCount);
       *(_QWORD *)(a1 + 8) = v1;
       v1[1293] = 1;
       if ( PsReferencePartitionSafe(a1) )
@@ -48,7 +48,7 @@ _BYTE *__fastcall CcGetPartitionWithCreate(__int64 a1)
       else
         v1[1294] = 1;
     }
-    KeReleaseSpinLock((PKSPIN_LOCK)&EmpParseLock.ReadOperationCount, v6);
+    KeReleaseSpinLock(&EmpParseLock.InGlobalUpdateVpThreadPriorityList, v6);
     KeReleaseInStackQueuedSpinLock(&LockHandle);
     if ( !v2 || (v2[1294] = 2, CcDeletePartition(v2), v1) )
     {

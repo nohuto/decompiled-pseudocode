@@ -12,31 +12,32 @@
  *     _LdrpLogDbgPrint @ 0x4B32E582 (_LdrpLogDbgPrint.c)
  */
 
-int __thiscall LdrpInitializeTls(void *this)
+int __stdcall LdrpInitializeTls()
 {
-  int *v1; // esi
-  unsigned int v2; // ebx
-  int *v3; // edi
-  void *v4; // eax
-  int v5; // esi
+  PLDR_DATA_TABLE_ENTRY Flink; // esi
+  ULONG v1; // ebx
+  PLDR_DATA_TABLE_ENTRY v2; // edi
+  PVOID v3; // eax
+  ULONG v4; // esi
   int result; // eax
-  int v7; // edi
-  void *Heap; // eax
-  void *v9; // [esp+Ch] [ebp-8h] BYREF
-  int v10; // [esp+10h] [ebp-4h] BYREF
+  unsigned int v6; // edi
+  unsigned int *Heap; // eax
+  SIZE_T v8; // [esp-4h] [ebp-18h]
+  ULONG Size; // [esp+Ch] [ebp-8h] BYREF
+  ULONG NumberToSet; // [esp+10h] [ebp-4h] BYREF
 
-  v10 = 0;
-  v1 = (int *)dword_4B3A5D8C;
-  if ( (int *)dword_4B3A5D8C == &dword_4B3A5D8C )
+  NumberToSet = 0;
+  Flink = dword_4B3A5D8C;
+  if ( IsListEmpty((struct _LIST_ENTRY *)&dword_4B3A5D8C) )
     goto LABEL_6;
-  v2 = 1;
+  v1 = 1;
   do
   {
-    v3 = v1;
-    v1 = (int *)*v1;
-    v4 = RtlImageDirectoryEntryToData(this, v3[6], 1, 9, (int)&v9);
-    v9 = v4;
-    if ( v4 )
+    v2 = Flink;
+    Flink = (PLDR_DATA_TABLE_ENTRY)Flink->InLoadOrderLinks.Flink;
+    v3 = RtlImageDirectoryEntryToData(v2->DllBase, 1u, 9u, &Size);
+    Size = (ULONG)v3;
+    if ( v3 )
     {
       if ( (ShowSnaps & 5) != 0 )
         LdrpLogDbgPrint(
@@ -45,42 +46,43 @@ int __thiscall LdrpInitializeTls(void *this)
           "LdrpInitializeTls",
           2,
           "DLL \"%wZ\" has TLS information at %p\n",
-          v3 + 9,
-          v4);
-      result = LdrpAllocateTlsEntry(&v10, 0, 0);
+          &v2->FullDllName,
+          v3);
+      result = LdrpAllocateTlsEntry(&NumberToSet, 0, 0);
       if ( result < 0 )
         return result;
-      *((_WORD *)v3 + 29) = -1;
+      v2->TlsIndex = -1;
     }
   }
-  while ( v1 != &dword_4B3A5D8C );
-  v5 = v10;
-  if ( v10 )
+  while ( Flink != (PLDR_DATA_TABLE_ENTRY)&dword_4B3A5D8C );
+  v4 = NumberToSet;
+  if ( NumberToSet )
   {
-    v7 = v10 + 8;
-    if ( (unsigned int)(v10 + 8) > 0x20 )
+    v6 = NumberToSet + 8;
+    if ( NumberToSet + 8 > 0x20 )
     {
-      v2 = (unsigned int)(v10 + 39) >> 5;
-      Heap = (void *)RtlAllocateHeap((int)NtCurrentPeb()->ProcessHeap, NtdllBaseTag + 786432, 4 * v2);
+      v1 = (NumberToSet + 39) >> 5;
+      LODWORD(v8) = 4 * v1;
+      Heap = (unsigned int *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, NtdllBaseTag + 786432, v8);
       if ( !Heap )
         return -1073741801;
-      v5 = v10;
+      v4 = NumberToSet;
     }
     else
     {
-      Heap = &LdrpStaticTlsBitmapVector;
+      Heap = (unsigned int *)&LdrpStaticTlsBitmapVector;
     }
-    LdrpTlsBitmap = v7;
-    LdrpActualBitmapSize = v2;
-    dword_4B3A5C94 = Heap;
-    RtlSetBits(&LdrpTlsBitmap, 0, v5);
-    RtlClearBits(&LdrpTlsBitmap, v5, 8);
+    LdrpTlsBitmap.SizeOfBitMap = v6;
+    LdrpActualBitmapSize = v1;
+    LdrpTlsBitmap.Buffer = Heap;
+    RtlSetBits(&LdrpTlsBitmap, 0, v4);
+    RtlClearBits(&LdrpTlsBitmap, v4, 8u);
   }
   else
   {
 LABEL_6:
-    LdrpTlsBitmap = 0;
-    dword_4B3A5C94 = 0;
+    LdrpTlsBitmap.SizeOfBitMap = 0;
+    LdrpTlsBitmap.Buffer = 0;
   }
   return LdrpAllocateTls();
 }

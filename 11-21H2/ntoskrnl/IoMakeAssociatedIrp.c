@@ -3,10 +3,10 @@
  * Callers:
  *     <none>
  * Callees:
- *     IoMakeAssociatedIrpPriv @ 0x14020BA48 (IoMakeAssociatedIrpPriv.c)
+ *     sub_14020BA48 @ 0x14020BA48 (sub_14020BA48.c)
  */
 
 PIRP __stdcall IoMakeAssociatedIrp(PIRP Irp, CCHAR StackSize)
 {
-  return (PIRP)IoMakeAssociatedIrpPriv((__int64)Irp, 0LL, StackSize);
+  return (PIRP)sub_14020BA48((__int64)Irp, 0LL, StackSize);
 }

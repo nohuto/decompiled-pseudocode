@@ -1,15 +1,15 @@
 /*
- * XREFs of IommupDeviceEnablePasidTaggedDma @ 0x140829364
+ * XREFs of IommupDeviceEnablePasidTaggedDma @ 0x140829664
  * Callers:
- *     HalpIommuCreateDevice @ 0x140829048 (HalpIommuCreateDevice.c)
+ *     HalpIommuCreateDevice @ 0x140829348 (HalpIommuCreateDevice.c)
  * Callees:
- *     Feature_Servicing_IommuApiPasid__private_IsEnabledDeviceUsage @ 0x14040F968 (Feature_Servicing_IommuApiPasid__private_IsEnabledDeviceUsage.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     HalpDmaGetIommuInterface @ 0x1404FFDC4 (HalpDmaGetIommuInterface.c)
- *     HalpIommuIsDmarStageCompatible @ 0x1405182F8 (HalpIommuIsDmarStageCompatible.c)
- *     IommupHvIsStage1DmarCompatible @ 0x140525054 (IommupHvIsStage1DmarCompatible.c)
- *     IommupDeviceGetPasidSettings @ 0x140829494 (IommupDeviceGetPasidSettings.c)
- *     IommupDeviceEnableSvm @ 0x140933D34 (IommupDeviceEnableSvm.c)
+ *     Feature_Servicing_IommuApiPasid__private_IsEnabledDeviceUsage @ 0x14040FB48 (Feature_Servicing_IommuApiPasid__private_IsEnabledDeviceUsage.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     HalpDmaGetIommuInterface @ 0x140500314 (HalpDmaGetIommuInterface.c)
+ *     HalpIommuIsDmarStageCompatible @ 0x140518848 (HalpIommuIsDmarStageCompatible.c)
+ *     IommupHvIsStage1DmarCompatible @ 0x1405255A4 (IommupHvIsStage1DmarCompatible.c)
+ *     IommupDeviceGetPasidSettings @ 0x140829794 (IommupDeviceGetPasidSettings.c)
+ *     IommupDeviceEnableSvm @ 0x140933F34 (IommupDeviceEnableSvm.c)
  */
 
 __int64 __fastcall IommupDeviceEnablePasidTaggedDma(__int64 a1, __int64 a2)

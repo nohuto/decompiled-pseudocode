@@ -17,7 +17,7 @@ PSLIST_ENTRY MiEmptyKernelStackCache()
   PSLIST_ENTRY result; // rax
   unsigned int i; // ebx
   int j; // edi
-  union _SLIST_HEADER *v3; // rsi
+  _SLIST_HEADER *v3; // rsi
   ULONG_PTR v4; // r8
   PSLIST_ENTRY v5; // rax
   _UNKNOWN *retaddr; // [rsp+90h] [rbp+88h] BYREF

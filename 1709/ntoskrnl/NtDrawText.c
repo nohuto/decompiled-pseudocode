@@ -10,9 +10,9 @@
  *     BgkDrawText @ 0x1407D2C7C (BgkDrawText.c)
  */
 
-__int64 __fastcall NtDrawText(int *a1)
+NTSTATUS __cdecl NtDrawText(PUNICODE_STRING Text)
 {
-  int v2; // edi
+  NTSTATUS v2; // edi
   void *v3; // rsi
   KPROCESSOR_MODE PreviousMode; // r15
   __int64 v6; // rax
@@ -29,14 +29,14 @@ __int64 __fastcall NtDrawText(int *a1)
   v3 = 0LL;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   if ( !SeSinglePrivilegeCheck(SeTcbPrivilege, PreviousMode) )
-    return 3221225569LL;
-  if ( !a1 )
-    return 3221225485LL;
+    return -1073741727;
+  if ( !Text )
+    return -1073741811;
   if ( !PreviousMode )
     goto LABEL_17;
   v6 = 0x7FFFFFFF0000LL;
-  if ( (unsigned __int64)a1 < 0x7FFFFFFF0000LL )
-    v6 = (__int64)a1;
+  if ( (unsigned __int64)Text < 0x7FFFFFFF0000LL )
+    v6 = (__int64)Text;
   v7 = *(_DWORD *)v6;
   v14 = *(_DWORD *)v6;
   v12 = *(_DWORD *)v6;
@@ -53,13 +53,13 @@ __int64 __fastcall NtDrawText(int *a1)
   {
     memmove(PoolWithTag, v8, HIWORD(v14));
     v13 = v3;
-    a1 = &v12;
+    Text = (PUNICODE_STRING)&v12;
 LABEL_17:
     v2 = -1073741811;
-    v11 = *((_WORD *)a1 + 1) >> 1;
+    v11 = Text->MaximumLength >> 1;
     if ( v11 )
     {
-      while ( *(_WORD *)(*((_QWORD *)a1 + 1) + 2LL * v11 - 2) )
+      while ( Text->Buffer[v11 - 1] )
       {
         if ( !--v11 )
           goto LABEL_22;
@@ -68,12 +68,12 @@ LABEL_17:
     }
 LABEL_22:
     if ( v2 >= 0 )
-      v2 = BgkDrawText(*((_QWORD *)a1 + 1));
+      v2 = BgkDrawText(Text->Buffer);
     goto LABEL_24;
   }
   v2 = -1073741801;
 LABEL_24:
   if ( v3 )
     ExFreePoolWithTag(v3, 0);
-  return (unsigned int)v2;
+  return v2;
 }

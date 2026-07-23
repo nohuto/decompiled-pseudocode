@@ -1,7 +1,7 @@
 /*
- * XREFs of ZwCancelTimer @ 0x140724010
+ * XREFs of ZwCancelTimer @ 0x140728BE0
  * Callers:
- *     DifZwCancelTimerWrapper @ 0x14069CC40 (DifZwCancelTimerWrapper.c)
+ *     DifZwCancelTimerWrapper @ 0x1406A0820 (DifZwCancelTimerWrapper.c)
  * Callees:
  *     <none>
  */
@@ -10,5 +10,5 @@ NTSTATUS __stdcall ZwCancelTimer(HANDLE TimerHandle, PBOOLEAN CurrentState)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(TimerHandle, CurrentState);
+  return KiServiceInternal(TimerHandle);
 }

@@ -1,21 +1,21 @@
 /*
- * XREFs of RtlUnicodeStringToInteger @ 0x1409933D0
+ * XREFs of RtlUnicodeStringToInteger @ 0x14097E410
  * Callers:
- *     RtlpMuiRegAddAlternateCodePage @ 0x1406A2170 (RtlpMuiRegAddAlternateCodePage.c)
- *     PiDcInitUpdateProperties @ 0x1407276DC (PiDcInitUpdateProperties.c)
- *     RtlpQueryNlsSystemCodePages @ 0x14077ECAC (RtlpQueryNlsSystemCodePages.c)
- *     WdipSemLoadNextEndEvent @ 0x1407A1300 (WdipSemLoadNextEndEvent.c)
- *     WdipSemLoadNextScenario @ 0x1407A1610 (WdipSemLoadNextScenario.c)
- *     CmpGetAcpiProfileInformation @ 0x1407D3D9C (CmpGetAcpiProfileInformation.c)
- *     _PnpGetGenericStorePropertyKeys @ 0x1409920EC (_PnpGetGenericStorePropertyKeys.c)
- *     RtlLookupAtomInAtomTable @ 0x140992D40 (RtlLookupAtomInAtomTable.c)
- *     RtlGetIntegerAtom @ 0x140993300 (RtlGetIntegerAtom.c)
- *     _PnpParseIndirectResourceString @ 0x1409B6534 (_PnpParseIndirectResourceString.c)
- *     RtlQueryImageFileKeyOption @ 0x140A22FB0 (RtlQueryImageFileKeyOption.c)
- *     PiCMDeleteDeviceKey @ 0x140ABCF28 (PiCMDeleteDeviceKey.c)
- *     PopReadSimulatedArchitecturalClasses @ 0x140C30E64 (PopReadSimulatedArchitecturalClasses.c)
- *     PopReadSimulatedHGSClasses @ 0x140C31050 (PopReadSimulatedHGSClasses.c)
- *     PsInitializeBootCpuPartitions @ 0x140C3489C (PsInitializeBootCpuPartitions.c)
+ *     RtlpMuiRegAddAlternateCodePage @ 0x1406A31C0 (RtlpMuiRegAddAlternateCodePage.c)
+ *     PiDcInitUpdateProperties @ 0x14072526C (PiDcInitUpdateProperties.c)
+ *     RtlpQueryNlsSystemCodePages @ 0x14077EBDC (RtlpQueryNlsSystemCodePages.c)
+ *     WdipSemLoadNextEndEvent @ 0x1407A1410 (WdipSemLoadNextEndEvent.c)
+ *     WdipSemLoadNextScenario @ 0x1407A1720 (WdipSemLoadNextScenario.c)
+ *     CmpGetAcpiProfileInformation @ 0x1407D428C (CmpGetAcpiProfileInformation.c)
+ *     _PnpGetGenericStorePropertyKeys @ 0x14097D12C (_PnpGetGenericStorePropertyKeys.c)
+ *     RtlLookupAtomInAtomTable @ 0x14097DD80 (RtlLookupAtomInAtomTable.c)
+ *     RtlGetIntegerAtom @ 0x14097E340 (RtlGetIntegerAtom.c)
+ *     _PnpParseIndirectResourceString @ 0x1409AD8C4 (_PnpParseIndirectResourceString.c)
+ *     RtlQueryImageFileKeyOption @ 0x140A173C0 (RtlQueryImageFileKeyOption.c)
+ *     PiCMDeleteDeviceKey @ 0x140AB7F94 (PiCMDeleteDeviceKey.c)
+ *     PopReadSimulatedArchitecturalClasses @ 0x140C32F84 (PopReadSimulatedArchitecturalClasses.c)
+ *     PopReadSimulatedHGSClasses @ 0x140C33170 (PopReadSimulatedHGSClasses.c)
+ *     PsInitializeBootCpuPartitions @ 0x140C369DC (PsInitializeBootCpuPartitions.c)
  * Callees:
  *     <none>
  */

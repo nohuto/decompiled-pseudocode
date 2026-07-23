@@ -1,14 +1,14 @@
 /*
- * XREFs of ZwUmsThreadYield @ 0x1401BB950
+ * XREFs of ZwUmsThreadYield @ 0x1401BBAB0
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwUmsThreadYield(__int64 a1, __int64 a2, __int64 a3)
+NTSTATUS __cdecl ZwUmsThreadYield(PVOID SchedulerParam)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2, a3);
+  return KiServiceInternal(SchedulerParam);
 }

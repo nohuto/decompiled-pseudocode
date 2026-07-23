@@ -1,17 +1,17 @@
 /*
- * XREFs of PiSwStopDestroy @ 0x1406ED198
+ * XREFs of PiSwStopDestroy @ 0x1406EE438
  * Callers:
- *     IopRemoveDevice @ 0x1406ECE04 (IopRemoveDevice.c)
+ *     IopRemoveDevice @ 0x1406EE0A4 (IopRemoveDevice.c)
  * Callees:
  *     ExReleaseResourceLite @ 0x14004F590 (ExReleaseResourceLite.c)
  *     ExAcquireResourceExclusiveLite @ 0x1400505F0 (ExAcquireResourceExclusiveLite.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
- *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
- *     _wcsicmp @ 0x140195930 (_wcsicmp.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     PiSwCloseDevice @ 0x1406D9110 (PiSwCloseDevice.c)
- *     PiSwFindChildren @ 0x1406E811C (PiSwFindChildren.c)
- *     PnpConcatPWSTR @ 0x1406FCA88 (PnpConcatPWSTR.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B78F0 (KiLeaveCriticalRegionUnsafe.c)
+ *     RtlInitUnicodeString @ 0x1400B99D0 (RtlInitUnicodeString.c)
+ *     _wcsicmp @ 0x140195A70 (_wcsicmp.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     PiSwCloseDevice @ 0x1406DA3B0 (PiSwCloseDevice.c)
+ *     PiSwFindChildren @ 0x1406E93BC (PiSwFindChildren.c)
+ *     PnpConcatPWSTR @ 0x1406FDD28 (PnpConcatPWSTR.c)
  */
 
 __int64 __fastcall PiSwStopDestroy(__int64 a1, const WCHAR *a2)

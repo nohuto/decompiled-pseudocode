@@ -3,7 +3,7 @@
  * Callers:
  *     PoInitSystem @ 0x140B50BBC (PoInitSystem.c)
  * Callees:
- *     PopInitializeTimer @ 0x140848888 (PopInitializeTimer.c)
+ *     PopInitializeTimer @ 0x140848B88 (PopInitializeTimer.c)
  */
 
 __int64 PpmPerfInitialize()
@@ -23,9 +23,9 @@ __int64 PpmPerfInitialize()
   qword_140D1EB40 = (__int64)&PpmPerfDomainHead;
   v0 = 2LL;
   PpmPerfDomainHead = (__int64)&PpmPerfDomainHead;
-  dword_140C394DC = 50;
-  dword_140C39694 = 50;
-  v1 = &unk_140C39698;
+  dword_140C3945C = 50;
+  dword_140C39614 = 50;
+  v1 = &unk_140C39618;
   do
   {
     *(v1 - 440) = 1;
@@ -53,12 +53,12 @@ __int64 PpmPerfInitialize()
   stru_140C3E950.WorkerRoutine = (void (__fastcall *)(void *))PpmMediaBufferingWorker;
   PpmPerfLatencyBoostWorkItem.WorkerRoutine = (void (__fastcall *)(void *))PpmPerfLatencySensitivityHintWorker;
   v3 = PpmPerfQosTransitionHysteresisOverride;
-  dword_140C394FC = 100;
-  dword_140C396B4 = 100;
+  dword_140C3947C = 100;
+  dword_140C39634 = 100;
   if ( PpmPerfQosTransitionHysteresisOverride == -1 )
     v3 = PpmPerfQosTransitionHysteresis;
-  dword_140C39500 = 2;
-  dword_140C396B8 = 2;
+  dword_140C39480 = 2;
+  dword_140C39638 = 2;
   if ( v3 <= 0x1F4 )
   {
     v2 = 500;

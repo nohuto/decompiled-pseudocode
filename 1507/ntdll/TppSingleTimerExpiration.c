@@ -14,33 +14,28 @@
  *     TppIteWakeWaiters @ 0x18007DF04 (TppIteWakeWaiters.c)
  */
 
-__int64 __fastcall TppSingleTimerExpiration(__int64 a1, volatile signed __int64 *a2, char a3)
+__int64 __fastcall TppSingleTimerExpiration(__int64 a1, _RTL_SRWLOCK *a2, char a3)
 {
   __int64 v6; // rbx
-  __int64 v7; // r8
-  __int64 v8; // r9
-  char v9; // al
-  __int64 v10; // rax
+  char v7; // al
+  __int64 v8; // rax
   __int64 result; // rax
-  __int64 v12; // rcx
-  __int64 v13; // rdx
-  __int64 v14; // r8
-  __int64 v15; // r9
-  __int64 v16; // rcx
-  __int64 v17; // rbx
+  __int64 v10; // rdx
+  __int64 v11; // rcx
+  __int64 v12; // rbx
 
   if ( MEMORY[0x7FFE0386] )
   {
-    v16 = (__int64)(a2 + 1);
+    v11 = (__int64)&a2[1];
     if ( !a3 )
-      v16 = (__int64)(a2 + 16);
-    TppETWTimerExpiration(v16, a1);
+      v11 = (__int64)&a2[16];
+    TppETWTimerExpiration(v11, a1);
   }
   v6 = MEMORY[0x7FFE0008] - MEMORY[0x7FFE03B0] - RtlpFreezeTimeBias;
-  RtlAcquireSRWLockExclusive((volatile signed __int64 *)(a1 + 232), MEMORY[0x7FFE03B0], 2147353520LL, 2147352584LL);
-  v9 = *(_BYTE *)(a1 + 346) >> 2;
+  RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)(a1 + 232));
+  v7 = *(_BYTE *)(a1 + 346) >> 2;
   *(_BYTE *)(a1 + 346) = 0;
-  if ( (v9 & 1) == 0 )
+  if ( (v7 & 1) == 0 )
   {
     if ( *(_BYTE *)(a1 + 345) )
     {
@@ -50,37 +45,33 @@ __int64 __fastcall TppSingleTimerExpiration(__int64 a1, volatile signed __int64 
     }
     else
     {
-      v10 = *(unsigned int *)(a1 + 340);
-      if ( (_DWORD)v10 )
+      v8 = *(unsigned int *)(a1 + 340);
+      if ( (_DWORD)v8 )
       {
         if ( a3 )
           *(_QWORD *)(a1 + 320) = v6;
-        v12 = 10000 * v10;
-        *(_QWORD *)(a1 + 320) += 10000 * v10;
-        v13 = *(_QWORD *)(a1 + 320);
-        if ( v13 <= v6 )
-        {
-          v13 = (v6 - v13) % v12;
-          *(_QWORD *)(a1 + 320) = v6 + v12 - v13;
-        }
+        *(_QWORD *)(a1 + 320) += 10000 * v8;
+        v10 = *(_QWORD *)(a1 + 320);
+        if ( v10 <= v6 )
+          *(_QWORD *)(a1 + 320) = v6 + 10000 * v8 - (v6 - v10) % (10000 * v8);
         _InterlockedIncrement((volatile signed __int32 *)a1);
-        RtlAcquireSRWLockExclusive(a2, (char *)v13, v7, v8);
-        TppEnqueueTimer((__int64)(a2 + 16), a1);
-        TppUpdateSubQueueTimer((__int64)(a2 + 16), 0, v14, v15);
+        RtlAcquireSRWLockExclusive(a2);
+        TppEnqueueTimer((__int64)&a2[16], a1);
+        TppUpdateSubQueueTimer((__int64)&a2[16], 0);
         RtlReleaseSRWLockExclusive(a2);
       }
     }
     TppWorkPost(a1);
 LABEL_6:
-    RtlReleaseSRWLockExclusive((volatile signed __int64 *)(a1 + 232));
+    RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(a1 + 232));
     goto LABEL_7;
   }
   *(_DWORD *)(a1 + 340) = 0;
   *(_QWORD *)(a1 + 320) = 0LL;
-  v17 = *(_QWORD *)(a1 + 328);
+  v12 = *(_QWORD *)(a1 + 328);
   *(_QWORD *)(a1 + 328) = 0LL;
-  RtlReleaseSRWLockExclusive((volatile signed __int64 *)(a1 + 232));
-  TppIteWakeWaiters(v17);
+  RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(a1 + 232));
+  TppIteWakeWaiters(v12);
 LABEL_7:
   result = (unsigned int)_InterlockedExchangeAdd((volatile signed __int32 *)a1, 0xFFFFFFFF);
   if ( (_DWORD)result == 1 )

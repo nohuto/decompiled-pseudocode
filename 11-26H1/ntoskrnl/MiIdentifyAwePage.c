@@ -1,10 +1,10 @@
 /*
- * XREFs of MiIdentifyAwePage @ 0x140415764
+ * XREFs of MiIdentifyAwePage @ 0x140409D94
  * Callers:
- *     MiIdentifyPfn @ 0x1402F0EF0 (MiIdentifyPfn.c)
+ *     MiIdentifyPfn @ 0x1402D2F70 (MiIdentifyPfn.c)
  * Callees:
- *     MiGetPfnPidSafe @ 0x140416120 (MiGetPfnPidSafe.c)
- *     MiGetLeafPfnBuddy @ 0x140416870 (MiGetLeafPfnBuddy.c)
+ *     MiGetPfnPidSafe @ 0x14040A730 (MiGetPfnPidSafe.c)
+ *     MiGetLeafPfnBuddy @ 0x14040AE80 (MiGetLeafPfnBuddy.c)
  */
 
 unsigned __int64 __fastcall MiIdentifyAwePage(__int64 a1)
@@ -16,7 +16,7 @@ unsigned __int64 __fastcall MiIdentifyAwePage(__int64 a1)
   unsigned __int64 v5; // rcx
 
   result = MiGetLeafPfnBuddy(a1, 1LL);
-  if ( (result < 0xFFFFDE0000000000uLL || result >= 48 * qword_140E2D7A0 - 0x21FFFFFFFFD0LL) && (PfnPidSafe = 0, result) )
+  if ( (result < 0xFFFFDE0000000000uLL || result >= 48 * qword_140E2D920 - 0x21FFFFFFFFD0LL) && (PfnPidSafe = 0, result) )
   {
     if ( *(_QWORD *)result != 399680LL )
       PfnPidSafe = MiGetPfnPidSafe(v3, 3LL);

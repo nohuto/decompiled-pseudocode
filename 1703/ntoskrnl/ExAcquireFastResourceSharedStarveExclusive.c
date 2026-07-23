@@ -30,17 +30,16 @@ char __fastcall ExAcquireFastResourceSharedStarveExclusive(ULONG_PTR BugCheckPar
   ULONG_PTR *v15; // rcx
   __int64 v16; // rax
   char v17; // bp
-  __int64 v19; // rax
+  PRTL_BALANCED_NODE v19; // rax
   __int64 v20; // rdx
-  __int64 v21; // r8
-  _QWORD *v22; // r8
-  _QWORD *v23; // rdx
-  __int64 v24; // rdx
-  _QWORD *v25; // rcx
-  _QWORD *v26; // rdx
-  __int64 v27; // rdx
+  _QWORD *v21; // r8
+  _QWORD *v22; // rdx
+  __int64 v23; // rdx
+  _QWORD *v24; // rcx
+  _QWORD *v25; // rdx
+  __int64 v26; // rdx
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+30h] [rbp-68h] BYREF
-  _BYTE v29[40]; // [rsp+48h] [rbp-50h] BYREF
+  _BYTE v28[40]; // [rsp+48h] [rbp-50h] BYREF
 
   CurrentThread = KeGetCurrentThread();
   v7 = 0LL;
@@ -87,23 +86,23 @@ char __fastcall ExAcquireFastResourceSharedStarveExclusive(ULONG_PTR BugCheckPar
   v19 = KeAbPreAcquire(BugCheckParameter2, 0LL, a3 == 0);
   v7 = (_KLOCK_ENTRY *)v19;
   if ( v19 )
-    *(_BYTE *)(a2 + 16) = (2 * ((char)(16 * (*(_BYTE *)(v19 + 24) - 50)) / 96)) | 1;
+    *(_BYTE *)(a2 + 16) = (2 * ((char)(16 * (LOBYTE(v19[1].Children[0]) - 50)) / 96)) | 1;
   LockHandle.LockQueue.Next = 0LL;
   LockHandle.LockQueue.Lock = (unsigned __int64 *volatile)(BugCheckParameter2 + 96);
   KxAcquireQueuedSpinLock((__int64)&LockHandle, (volatile __int64 *)(BugCheckParameter2 + 96));
   v17 = ExpTryAcquireResourceSharedStarveExclusive(BugCheckParameter2);
   if ( v17 )
   {
-    v22 = *(_QWORD **)(BugCheckParameter2 + 56);
-    v23 = (_QWORD *)(a2 + 56);
-    if ( *v22 != BugCheckParameter2 + 48 )
+    v21 = *(_QWORD **)(BugCheckParameter2 + 56);
+    v22 = (_QWORD *)(a2 + 56);
+    if ( *v21 != BugCheckParameter2 + 48 )
       __fastfail(3u);
-    *v23 = BugCheckParameter2 + 48;
-    *(_QWORD *)(a2 + 64) = v22;
-    *v22 = v23;
-    *(_QWORD *)(BugCheckParameter2 + 56) = v23;
+    *v22 = BugCheckParameter2 + 48;
+    *(_QWORD *)(a2 + 64) = v21;
+    *v21 = v22;
+    *(_QWORD *)(BugCheckParameter2 + 56) = v22;
     KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
-    ExpAddFastOwnerEntryToThreadList((__int64)CurrentThread, v24, 0, a2);
+    ExpAddFastOwnerEntryToThreadList((__int64)CurrentThread, v23, 0, a2);
     goto LABEL_14;
   }
   if ( !a3 )
@@ -117,24 +116,24 @@ LABEL_14:
     goto LABEL_15;
   }
   if ( v7 )
-    KeAbPreWait((__int64)v7, v20, v21);
-  v25 = *(_QWORD **)(BugCheckParameter2 + 56);
-  v26 = (_QWORD *)(a2 + 56);
-  if ( *v25 != BugCheckParameter2 + 48 )
+    KeAbPreWait((__int64)v7, v20);
+  v24 = *(_QWORD **)(BugCheckParameter2 + 56);
+  v25 = (_QWORD *)(a2 + 56);
+  if ( *v24 != BugCheckParameter2 + 48 )
     __fastfail(3u);
-  *(_QWORD *)(a2 + 64) = v25;
-  *v26 = BugCheckParameter2 + 48;
-  *v25 = v26;
-  *(_QWORD *)(BugCheckParameter2 + 56) = v26;
-  ExpPrepareToWaitForResourceShared(BugCheckParameter2, (__int64)v29);
+  *(_QWORD *)(a2 + 64) = v24;
+  *v25 = BugCheckParameter2 + 48;
+  *v24 = v25;
+  *(_QWORD *)(BugCheckParameter2 + 56) = v25;
+  ExpPrepareToWaitForResourceShared(BugCheckParameter2, (__int64)v28);
   *(_BYTE *)(a2 + 19) = 1;
   KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
-  ExpAddFastOwnerEntryToThreadList((__int64)CurrentThread, v27, 0, a2);
+  ExpAddFastOwnerEntryToThreadList((__int64)CurrentThread, v26, 0, a2);
   __writecr8(v13);
-  ExpWaitForResource((_DWORD *)BugCheckParameter2, (__int64)v29, 0x10244u, 0LL);
+  ExpWaitForResource((_DWORD *)BugCheckParameter2, (__int64)v28, 0x10244u, 0LL);
   *(_BYTE *)(a2 + 19) = 0;
   if ( v7 )
-    KeAbPreAcquire(BugCheckParameter2, (__int64)v7, 0LL);
+    KeAbPreAcquire(BugCheckParameter2, &v7->TreeNode, 0);
   v17 = 1;
 LABEL_15:
   if ( v7 )

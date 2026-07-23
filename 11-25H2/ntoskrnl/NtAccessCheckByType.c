@@ -6,15 +6,33 @@
  *     SeAccessCheckByType @ 0x140363B20 (SeAccessCheckByType.c)
  */
 
-__int64 __fastcall NtAccessCheckByType(
-        __int64 a1,
-        __int64 a2,
-        __int64 a3,
-        __int64 a4,
-        __int64 a5,
-        int a6,
-        __int64 a7,
-        __int64 a8)
+NTSTATUS __cdecl NtAccessCheckByType(
+        PSECURITY_DESCRIPTOR SecurityDescriptor,
+        PSID PrincipalSelfSid,
+        HANDLE ClientToken,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_TYPE_LIST ObjectTypeList,
+        ULONG ObjectTypeListLength,
+        PGENERIC_MAPPING GenericMapping,
+        PPRIVILEGE_SET PrivilegeSet,
+        PULONG PrivilegeSetLength,
+        PACCESS_MASK GrantedAccess,
+        PNTSTATUS AccessStatus)
 {
-  return SeAccessCheckByType(a1, a2, a3, a4, a5, a6, a7, a8);
+  char v12; // [rsp+58h] [rbp-10h]
+
+  v12 = 0;
+  return SeAccessCheckByType(
+           SecurityDescriptor,
+           PrincipalSelfSid,
+           ClientToken,
+           DesiredAccess,
+           ObjectTypeList,
+           ObjectTypeListLength,
+           GenericMapping,
+           PrivilegeSet,
+           PrivilegeSetLength,
+           GrantedAccess,
+           AccessStatus,
+           v12);
 }

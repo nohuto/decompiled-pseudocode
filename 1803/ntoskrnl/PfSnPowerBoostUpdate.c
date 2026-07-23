@@ -7,20 +7,20 @@
  *     NtUpdateWnfStateData @ 0x1404F53D8 (NtUpdateWnfStateData.c)
  */
 
-__int64 __fastcall PfSnPowerBoostUpdate(int a1)
+NTSTATUS __fastcall PfSnPowerBoostUpdate(int a1)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
   signed __int32 v2; // edx
-  int v3; // [rsp+58h] [rbp+10h] BYREF
-  int v4; // [rsp+5Ch] [rbp+14h]
+  int Buffer; // [rsp+58h] [rbp+10h] BYREF
+  int Buffer_4; // [rsp+5Ch] [rbp+14h]
 
-  result = (unsigned int)-a1;
+  result = -a1;
   v2 = _InterlockedExchangeAdd(&dword_1403CD954, a1 != 0 ? 1 : -1);
   if ( !v2 && a1 || v2 == 1 && !a1 )
   {
-    v4 = -1;
-    v3 = (2 * (_BYTE)a1) & 2 | 1;
-    return NtUpdateWnfStateData((unsigned int)&WNF_SEB_APP_LAUNCH_PREFETCH, (unsigned int)&v3, 8, 0, 0LL, 0, 0);
+    Buffer_4 = -1;
+    Buffer = (2 * (_BYTE)a1) & 2 | 1;
+    return NtUpdateWnfStateData(&WNF_SEB_APP_LAUNCH_PREFETCH, &Buffer, 8u, 0LL, 0LL, 0, 0);
   }
   return result;
 }

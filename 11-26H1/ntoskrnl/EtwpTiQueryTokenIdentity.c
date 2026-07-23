@@ -1,11 +1,11 @@
 /*
- * XREFs of EtwpTiQueryTokenIdentity @ 0x140B192EC
+ * XREFs of EtwpTiQueryTokenIdentity @ 0x140B1B73C
  * Callers:
- *     EtwTiLogImpersonateClient @ 0x1409294AC (EtwTiLogImpersonateClient.c)
+ *     EtwTiLogImpersonateClient @ 0x140904FBC (EtwTiLogImpersonateClient.c)
  * Callees:
- *     SeQueryInformationToken @ 0x1408F4300 (SeQueryInformationToken.c)
- *     EtwpTiSerializeTokenGroups @ 0x140B19394 (EtwpTiSerializeTokenGroups.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     SeQueryInformationToken @ 0x1408FA8C0 (SeQueryInformationToken.c)
+ *     EtwpTiSerializeTokenGroups @ 0x140B1B7E4 (EtwpTiSerializeTokenGroups.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall EtwpTiQueryTokenIdentity(__int64 a1, void *a2)
@@ -16,7 +16,7 @@ __int64 __fastcall EtwpTiQueryTokenIdentity(__int64 a1, void *a2)
   PVOID TokenInformation; // [rsp+30h] [rbp+8h] BYREF
 
   TokenInformation = 0LL;
-  v3 = SeQueryInformationToken(a2, TokenUserClaimAttributes|TokenAuditPolicy, &TokenInformation);
+  v3 = SeQueryInformationToken(a2, MaxTokenInfoClass, &TokenInformation);
   if ( v3 < 0
     || (v3 = EtwpTiSerializeTokenGroups(
                *((_QWORD *)TokenInformation + 9),

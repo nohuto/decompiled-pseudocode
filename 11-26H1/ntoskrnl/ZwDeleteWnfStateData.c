@@ -1,14 +1,14 @@
 /*
- * XREFs of ZwDeleteWnfStateData @ 0x140724FF0
+ * XREFs of ZwDeleteWnfStateData @ 0x140729BC0
  * Callers:
- *     DifZwDeleteWnfStateDataWrapper @ 0x1406A44D0 (DifZwDeleteWnfStateDataWrapper.c)
+ *     DifZwDeleteWnfStateDataWrapper @ 0x1406A80B0 (DifZwDeleteWnfStateDataWrapper.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwDeleteWnfStateData(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwDeleteWnfStateData(PCWNF_STATE_NAME StateName, const void *ExplicitScope)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(StateName);
 }

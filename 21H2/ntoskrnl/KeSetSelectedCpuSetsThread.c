@@ -1,26 +1,26 @@
 /*
- * XREFs of KeSetSelectedCpuSetsThread @ 0x14051CBE0
+ * XREFs of KeSetSelectedCpuSetsThread @ 0x14051CE20
  * Callers:
- *     NtSetInformationThread @ 0x1406FCE80 (NtSetInformationThread.c)
+ *     NtSetInformationThread @ 0x140714260 (NtSetInformationThread.c)
  * Callees:
- *     KiEndThreadCycleAccumulation @ 0x14022E080 (KiEndThreadCycleAccumulation.c)
- *     KiReadyDeferredReadyList @ 0x140230D60 (KiReadyDeferredReadyList.c)
- *     KiDeliverApc @ 0x14024A750 (KiDeliverApc.c)
- *     KeYieldProcessorEx @ 0x14024B280 (KeYieldProcessorEx.c)
- *     KiQueueReadyThread @ 0x1402593B0 (KiQueueReadyThread.c)
- *     KiSendSoftwareInterrupt @ 0x140293DEC (KiSendSoftwareInterrupt.c)
- *     KiRequestSoftwareInterrupt @ 0x140293E54 (KiRequestSoftwareInterrupt.c)
- *     KiReleaseThreadLockSafe @ 0x14029A860 (KiReleaseThreadLockSafe.c)
- *     KiValidateCpuSetMasks @ 0x1402AB540 (KiValidateCpuSetMasks.c)
- *     KiGetThreadCpuSetMaskPointer @ 0x1402EBCB8 (KiGetThreadCpuSetMaskPointer.c)
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14031C800 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     ExAcquireSpinLockSharedAtDpcLevel @ 0x14031C8D0 (ExAcquireSpinLockSharedAtDpcLevel.c)
- *     KiAbProcessContextSwitch @ 0x140347C50 (KiAbProcessContextSwitch.c)
- *     KiUpdateThreadCpuSets @ 0x1403C628C (KiUpdateThreadCpuSets.c)
- *     KiWriteCpuSetMasks @ 0x1403C6324 (KiWriteCpuSetMasks.c)
+ *     KiSendSoftwareInterrupt @ 0x140211D5C (KiSendSoftwareInterrupt.c)
+ *     KiRequestSoftwareInterrupt @ 0x140211DC4 (KiRequestSoftwareInterrupt.c)
+ *     KiReleaseThreadLockSafe @ 0x1402121F0 (KiReleaseThreadLockSafe.c)
+ *     KiValidateCpuSetMasks @ 0x140229680 (KiValidateCpuSetMasks.c)
+ *     KiQueueReadyThread @ 0x14027A920 (KiQueueReadyThread.c)
+ *     KiGetThreadCpuSetMaskPointer @ 0x14029D008 (KiGetThreadCpuSetMaskPointer.c)
+ *     KiEndThreadCycleAccumulation @ 0x1402D28D0 (KiEndThreadCycleAccumulation.c)
+ *     KiReadyDeferredReadyList @ 0x1402D55B0 (KiReadyDeferredReadyList.c)
+ *     KiDeliverApc @ 0x1402EEFA0 (KiDeliverApc.c)
+ *     KeYieldProcessorEx @ 0x1402EFAD0 (KeYieldProcessorEx.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x140327550 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     ExAcquireSpinLockSharedAtDpcLevel @ 0x140327620 (ExAcquireSpinLockSharedAtDpcLevel.c)
+ *     KiAbProcessContextSwitch @ 0x1403529A0 (KiAbProcessContextSwitch.c)
+ *     KiUpdateThreadCpuSets @ 0x1403C642C (KiUpdateThreadCpuSets.c)
+ *     KiWriteCpuSetMasks @ 0x1403C64C4 (KiWriteCpuSetMasks.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     KiSwapContext @ 0x140406470 (KiSwapContext.c)
- *     EtwTraceIdealProcessor @ 0x1405A7844 (EtwTraceIdealProcessor.c)
+ *     KiSwapContext @ 0x140406650 (KiSwapContext.c)
+ *     EtwTraceIdealProcessor @ 0x1405A7A74 (EtwTraceIdealProcessor.c)
  */
 
 __int64 __fastcall KeSetSelectedCpuSetsThread(__int64 a1, unsigned int a2, char *a3)
@@ -55,25 +55,24 @@ __int64 __fastcall KeSetSelectedCpuSetsThread(__int64 a1, unsigned int a2, char 
   int v33; // eax
   __int64 NextThread; // rdi
   __int64 v35; // r8
-  __int64 v36; // r9
-  unsigned int v37; // r8d
-  bool v38; // zf
-  struct _KPRCB *v39; // rcx
-  _DWORD *v40; // rdx
-  struct _KPRCB *v41; // r9
-  _DWORD *v42; // r8
-  int v43; // eax
-  int v44; // [rsp+20h] [rbp-38h] BYREF
-  int v45; // [rsp+24h] [rbp-34h] BYREF
-  _QWORD *v46[6]; // [rsp+28h] [rbp-30h] BYREF
-  unsigned int v47; // [rsp+78h] [rbp+20h] BYREF
+  unsigned int v36; // r8d
+  bool v37; // zf
+  struct _KPRCB *v38; // rcx
+  _DWORD *v39; // rdx
+  struct _KPRCB *v40; // r9
+  _DWORD *v41; // r8
+  int v42; // eax
+  int v43; // [rsp+20h] [rbp-38h] BYREF
+  int v44; // [rsp+24h] [rbp-34h] BYREF
+  _QWORD *v45[6]; // [rsp+28h] [rbp-30h] BYREF
+  unsigned int v46; // [rsp+78h] [rbp+20h] BYREF
 
-  v47 = 0;
+  v46 = 0;
   result = KiValidateCpuSetMasks(a3, a2);
   if ( (int)result >= 0 )
   {
-    v46[0] = 0LL;
-    ThreadCpuSetMaskPointer = (unsigned __int64 *)KiGetThreadCpuSetMaskPointer(a1, &v47);
+    v45[0] = 0LL;
+    ThreadCpuSetMaskPointer = (unsigned __int64 *)KiGetThreadCpuSetMaskPointer(a1, &v46);
     CurrentIrql = KeGetCurrentIrql();
     __writecr8(2uLL);
     if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
@@ -84,7 +83,7 @@ __int64 __fastcall KeSetSelectedCpuSetsThread(__int64 a1, unsigned int a2, char 
     v11 = (volatile LONG *)(v7 + 64);
     ExAcquireSpinLockSharedAtDpcLevel((PEX_SPIN_LOCK)(v7 + 64));
     CurrentPrcb = KeGetCurrentPrcb();
-    v44 = 0;
+    v43 = 0;
     while ( 1 )
     {
       v16 = CurrentPrcb->SchedulerAssist;
@@ -112,12 +111,12 @@ __int64 __fastcall KeSetSelectedCpuSetsThread(__int64 a1, unsigned int a2, char 
         }
       }
       do
-        KeYieldProcessorEx(&v44, v12, v13, v14);
+        KeYieldProcessorEx(&v43, v12, v13, v14);
       while ( *(_QWORD *)(a1 + 64) );
     }
     v20 = *(_DWORD *)(a1 + 588);
-    KiWriteCpuSetMasks(ThreadCpuSetMaskPointer, v47, (__int64)a3, a2);
-    updated = KiUpdateThreadCpuSets(a1, (__int64)v46);
+    KiWriteCpuSetMasks(ThreadCpuSetMaskPointer, v46, (__int64)a3, a2);
+    updated = KiUpdateThreadCpuSets(a1, (__int64)v45);
     v22 = *(_DWORD *)(a1 + 588);
     v23 = updated;
     KiReleaseThreadLockSafe(a1);
@@ -127,7 +126,7 @@ __int64 __fastcall KeSetSelectedCpuSetsThread(__int64 a1, unsigned int a2, char 
     if ( v23 && KeGetPcr()->Prcb.Number != *(_DWORD *)(v23 + 36) )
       KiSendSoftwareInterrupt();
     v24 = KeGetCurrentPrcb();
-    KiReadyDeferredReadyList((__int64)v24, v46);
+    KiReadyDeferredReadyList((__int64)v24, v45);
     if ( CurrentIrql >= 2u )
     {
       if ( v24->NextThread && !v24->DpcRoutineActive )
@@ -140,7 +139,7 @@ __int64 __fastcall KeSetSelectedCpuSetsThread(__int64 a1, unsigned int a2, char 
       {
         KiAbProcessContextSwitch((__int64)v24->CurrentThread, 0);
         v29 = KeGetCurrentPrcb();
-        v45 = 0;
+        v44 = 0;
         while ( 1 )
         {
           v30 = v29->SchedulerAssist;
@@ -168,7 +167,7 @@ __int64 __fastcall KeSetSelectedCpuSetsThread(__int64 a1, unsigned int a2, char 
             }
           }
           do
-            KeYieldProcessorEx(&v45, v26, v27, v28);
+            KeYieldProcessorEx(&v44, v26, v27, v28);
           while ( v24->PrcbLock );
         }
         NextThread = (__int64)v24->NextThread;
@@ -185,43 +184,43 @@ __int64 __fastcall KeSetSelectedCpuSetsThread(__int64 a1, unsigned int a2, char 
         *(_BYTE *)(NextThread + 388) = 2;
         *(_BYTE *)(CurrentThread + 643) = 32;
         *(_BYTE *)(CurrentThread + 390) = CurrentIrql;
-        KiQueueReadyThread((__int64)v24, CurrentThread, v35, v36);
-        LOBYTE(v37) = CurrentIrql;
-        v38 = (unsigned __int8)KiSwapContext(CurrentThread, NextThread, v37) == 0;
+        KiQueueReadyThread(v24, CurrentThread, v35);
+        LOBYTE(v36) = CurrentIrql;
+        v37 = (unsigned __int8)KiSwapContext(CurrentThread, NextThread, v36) == 0;
       }
       else
       {
-        v38 = (*(_DWORD *)(CurrentThread + 116) & 0x40) == 0;
+        v37 = (*(_DWORD *)(CurrentThread + 116) & 0x40) == 0;
       }
-      if ( !v38 )
+      if ( !v37 )
       {
         if ( KiIrqlFlags )
         {
           if ( (KiIrqlFlags & 1) != 0 && (unsigned __int8)(KeGetCurrentIrql() - 2) <= 0xDu )
           {
-            v39 = KeGetCurrentPrcb();
-            v40 = v39->SchedulerAssist;
-            v38 = (v40[5] & 0xFFFF0003) == 0;
-            v40[5] &= 0xFFFF0003;
-            if ( v38 )
-              KiRemoveSystemWorkPriorityKick((__int64)v39);
+            v38 = KeGetCurrentPrcb();
+            v39 = v38->SchedulerAssist;
+            v37 = (v39[5] & 0xFFFF0003) == 0;
+            v39[5] &= 0xFFFF0003;
+            if ( v37 )
+              KiRemoveSystemWorkPriorityKick((__int64)v38);
           }
         }
         __writecr8(1uLL);
         *(_DWORD *)(CurrentThread + 116) &= ~0x40u;
-        KiDeliverApc(0, 0, 0LL);
+        KiDeliverApc(0, 0LL, 0LL);
       }
       if ( KiIrqlFlags )
       {
         if ( (KiIrqlFlags & 1) != 0 && (unsigned __int8)(KeGetCurrentIrql() - 2) <= 0xDu )
         {
-          v41 = KeGetCurrentPrcb();
-          v42 = v41->SchedulerAssist;
-          v43 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
-          v38 = (v43 & v42[5]) == 0;
-          v42[5] &= v43;
-          if ( v38 )
-            KiRemoveSystemWorkPriorityKick((__int64)v41);
+          v40 = KeGetCurrentPrcb();
+          v41 = v40->SchedulerAssist;
+          v42 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
+          v37 = (v42 & v41[5]) == 0;
+          v41[5] &= v42;
+          if ( v37 )
+            KiRemoveSystemWorkPriorityKick((__int64)v40);
         }
       }
       __writecr8(CurrentIrql);

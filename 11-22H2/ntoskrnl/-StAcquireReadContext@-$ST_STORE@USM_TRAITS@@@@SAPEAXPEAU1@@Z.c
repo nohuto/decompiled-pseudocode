@@ -13,7 +13,7 @@ PSLIST_ENTRY __fastcall ST_STORE<SM_TRAITS>::StAcquireReadContext(__int64 a1)
 {
   PSLIST_ENTRY v2; // rbx
   __int64 v3; // rdx
-  struct _SLIST_ENTRY *Pool2; // rax
+  _SLIST_ENTRY *Pool2; // rax
   unsigned __int64 v5; // rcx
   unsigned __int64 v6; // rcx
   unsigned __int64 v7; // rdx
@@ -24,7 +24,7 @@ PSLIST_ENTRY __fastcall ST_STORE<SM_TRAITS>::StAcquireReadContext(__int64 a1)
     v3 = (unsigned int)(*(_DWORD *)(a1 + 4024) + 4544);
     if ( (*(_DWORD *)(a1 + 856) & 0x40000) == 0 )
       v3 = (unsigned int)(*(_DWORD *)(a1 + 4024) + 448);
-    Pool2 = (struct _SLIST_ENTRY *)ExAllocatePool2(64LL, v3, 1951624563LL);
+    Pool2 = (_SLIST_ENTRY *)ExAllocatePool2(64LL, v3, 1951624563LL);
     v2 = Pool2;
     if ( Pool2 )
     {

@@ -1,28 +1,28 @@
 /*
- * XREFs of MiCoalesceFreePages @ 0x140067870
+ * XREFs of MiCoalesceFreePages @ 0x1400673F0
  * Callers:
- *     MiInsertPageInFreeOrZeroedList @ 0x1400671C0 (MiInsertPageInFreeOrZeroedList.c)
+ *     MiInsertPageInFreeOrZeroedList @ 0x140066D40 (MiInsertPageInFreeOrZeroedList.c)
  * Callees:
- *     MiInsertLargePageInNodeListHelper @ 0x14001B760 (MiInsertLargePageInNodeListHelper.c)
- *     MiPageToNode @ 0x14001BA54 (MiPageToNode.c)
- *     MiChangePageAttribute @ 0x14001D088 (MiChangePageAttribute.c)
- *     MiReleaseFreshPageLocked @ 0x1400221A4 (MiReleaseFreshPageLocked.c)
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     MiUnlinkFreeOrZeroedPage @ 0x140066D00 (MiUnlinkFreeOrZeroedPage.c)
- *     MiInsertPageInFreeOrZeroedList @ 0x1400671C0 (MiInsertPageInFreeOrZeroedList.c)
- *     MiPartitionIdToPointer @ 0x1400680A0 (MiPartitionIdToPointer.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     KeAbPostReleaseEx @ 0x1400C66BC (KeAbPostReleaseEx.c)
- *     ExfTryAcquirePushLockShared @ 0x1400C7C18 (ExfTryAcquirePushLockShared.c)
- *     ExfReleasePushLockShared @ 0x1400C8640 (ExfReleasePushLockShared.c)
- *     RtlpInterlockedPushEntrySList @ 0x140166E40 (RtlpInterlockedPushEntrySList.c)
- *     RtlpInterlockedFlushSList @ 0x140166E80 (RtlpInterlockedFlushSList.c)
- *     MiGetPteTimeStamp @ 0x1401F269C (MiGetPteTimeStamp.c)
- *     MiInvalidPteConforms @ 0x1401F26C4 (MiInvalidPteConforms.c)
- *     MiClearPfnSlist @ 0x1401F2C58 (MiClearPfnSlist.c)
- *     MiIsFreshPfnFromZeroedList @ 0x1401F2C78 (MiIsFreshPfnFromZeroedList.c)
- *     MiSetFreshPfnFromFreeList @ 0x1401F2FAC (MiSetFreshPfnFromFreeList.c)
- *     MiSetOriginalPtePfnFromFreeList @ 0x1401F2FB8 (MiSetOriginalPtePfnFromFreeList.c)
+ *     MiInsertLargePageInNodeListHelper @ 0x14001B2E0 (MiInsertLargePageInNodeListHelper.c)
+ *     MiPageToNode @ 0x14001B5D4 (MiPageToNode.c)
+ *     MiChangePageAttribute @ 0x14001CC08 (MiChangePageAttribute.c)
+ *     MiReleaseFreshPageLocked @ 0x140021D24 (MiReleaseFreshPageLocked.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     MiUnlinkFreeOrZeroedPage @ 0x140066880 (MiUnlinkFreeOrZeroedPage.c)
+ *     MiInsertPageInFreeOrZeroedList @ 0x140066D40 (MiInsertPageInFreeOrZeroedList.c)
+ *     MiPartitionIdToPointer @ 0x140067C20 (MiPartitionIdToPointer.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     KeAbPostReleaseEx @ 0x1400C455C (KeAbPostReleaseEx.c)
+ *     ExfTryAcquirePushLockShared @ 0x1400C5AB8 (ExfTryAcquirePushLockShared.c)
+ *     ExfReleasePushLockShared @ 0x1400C64E0 (ExfReleasePushLockShared.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1401673B0 (RtlpInterlockedPushEntrySList.c)
+ *     RtlpInterlockedFlushSList @ 0x1401673F0 (RtlpInterlockedFlushSList.c)
+ *     MiGetPteTimeStamp @ 0x1401F24C8 (MiGetPteTimeStamp.c)
+ *     MiInvalidPteConforms @ 0x1401F24F0 (MiInvalidPteConforms.c)
+ *     MiClearPfnSlist @ 0x1401F2A84 (MiClearPfnSlist.c)
+ *     MiIsFreshPfnFromZeroedList @ 0x1401F2AA4 (MiIsFreshPfnFromZeroedList.c)
+ *     MiSetFreshPfnFromFreeList @ 0x1401F2DD8 (MiSetFreshPfnFromFreeList.c)
+ *     MiSetOriginalPtePfnFromFreeList @ 0x1401F2DE4 (MiSetOriginalPtePfnFromFreeList.c)
  */
 
 __int64 __fastcall MiCoalesceFreePages(__int64 a1, __int64 a2)
@@ -71,13 +71,13 @@ __int64 __fastcall MiCoalesceFreePages(__int64 a1, __int64 a2)
   int v44; // r15d
   unsigned int v45; // r8d
   unsigned int v46; // r8d
-  union _SLIST_HEADER *v47; // r14
+  _SLIST_HEADER *v47; // r14
   __int16 v48; // r12
-  union _SLIST_HEADER *v49; // rcx
+  _SLIST_HEADER *v49; // rcx
   PSLIST_ENTRY v50; // rsi
   PSLIST_ENTRY v51; // rbx
   __int64 v52; // r8
-  struct _SLIST_ENTRY *Next; // rbp
+  _SLIST_ENTRY *Next; // rbp
   ULONG_PTR v54; // r9
   signed __int64 v55; // rdx
   signed __int64 v56; // r8
@@ -122,7 +122,7 @@ __int64 __fastcall MiCoalesceFreePages(__int64 a1, __int64 a2)
   v13 = (_QWORD *)(48 * v5 - 0x57FFFFFFFD8LL);
   do
   {
-    if ( v11 > qword_140326A90
+    if ( v11 > qword_140326AD0
       || v6 && (*v13 & 0x20000000000000LL) == 0
       || MiPartitionIdToPointer(((unsigned int)HIDWORD(*v12) >> 8) & 0x3FF, v7, *v12, v6) != v69 )
     {
@@ -188,7 +188,7 @@ __int64 __fastcall MiCoalesceFreePages(__int64 a1, __int64 a2)
         *(_QWORD *)(v29 + 16) &= 0xFFFFFFFFFFFFFC1FuLL;
       goto LABEL_77;
     }
-    if ( v25 > qword_140326A90 || MmPhysicalMemoryBlock && (*v30 & 0x20000000000000LL) == 0 )
+    if ( v25 > qword_140326AD0 || MmPhysicalMemoryBlock && (*v30 & 0x20000000000000LL) == 0 )
       goto LABEL_81;
     v31 = *(_QWORD *)(v29 + 40) >> 40;
     LOWORD(v31) = v31 & 0x3FF;
@@ -213,16 +213,14 @@ __int64 __fastcall MiCoalesceFreePages(__int64 a1, __int64 a2)
       v45 = MiPageToNode(v25, 0);
       v43 = 513;
     }
-    v46 = v45 << byte_1403269C9;
-    v47 = (union _SLIST_HEADER *)(*(_QWORD *)(v69 + 8LL * v44 + 1744)
-                                + 16LL
-                                * (dword_1403269F8 & (unsigned int)v25 | v46 | (((*v30 >> 36) & 3) << byte_1403269D8)));
+    v46 = v45 << byte_140326A09;
+    v47 = (_SLIST_HEADER *)(*(_QWORD *)(v69 + 8LL * v44 + 1744)
+                          + 16LL * (dword_140326A38 & (unsigned int)v25 | v46 | (((*v30 >> 36) & 3) << byte_140326A18)));
     if ( !LOWORD(v47->Alignment) )
       goto LABEL_80;
     v48 = 512;
-    v49 = (union _SLIST_HEADER *)(*(_QWORD *)(v69 + 8LL * v44 + 1744)
-                                + 16LL
-                                * (dword_1403269F8 & (unsigned int)v25 | v46 | (((*v30 >> 36) & 3) << byte_1403269D8)));
+    v49 = (_SLIST_HEADER *)(*(_QWORD *)(v69 + 8LL * v44 + 1744)
+                          + 16LL * (dword_140326A38 & (unsigned int)v25 | v46 | (((*v30 >> 36) & 3) << byte_140326A18)));
     if ( !v44 )
       v48 = v43;
     v50 = 0LL;
@@ -289,7 +287,7 @@ LABEL_80:
 LABEL_73:
     if ( !(unsigned int)MiIsFreshPfnFromZeroedList(v29)
       || (v58 = *(unsigned __int8 *)(v29 + 34) >> 6, v58 != 1)
-      && (((unsigned __int8)(1 << v58) | 2) & (unsigned __int8)byte_140326A60) != 0 )
+      && (((unsigned __int8)(1 << v58) | 2) & (unsigned __int8)byte_140326AA0) != 0 )
     {
       v4 = 1;
       v72 = 1;

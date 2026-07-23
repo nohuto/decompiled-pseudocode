@@ -47,7 +47,7 @@
  *     _RtlFreeHeap@12 @ 0x4B2C3B70 (_RtlFreeHeap@12.c)
  */
 
-int __stdcall RtlDeleteBoundaryDescriptor(int a1)
+void __cdecl RtlDeleteBoundaryDescriptor(POBJECT_BOUNDARY_DESCRIPTOR BoundaryDescriptor)
 {
-  return RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, a1);
+  RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, BoundaryDescriptor);
 }

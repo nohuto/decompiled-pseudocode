@@ -1,17 +1,17 @@
 /*
- * XREFs of DbgkCopyProcessDebugPort @ 0x1406BA2B0
+ * XREFs of DbgkCopyProcessDebugPort @ 0x1406BA2E0
  * Callers:
- *     PspInsertProcess @ 0x1406B9FA4 (PspInsertProcess.c)
+ *     PspInsertProcess @ 0x1406B9FD4 (PspInsertProcess.c)
  * Callees:
- *     ExAcquireFastMutex @ 0x140230720 (ExAcquireFastMutex.c)
- *     ExReleaseFastMutex @ 0x140230860 (ExReleaseFastMutex.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     ObfReferenceObject @ 0x140233C40 (ObfReferenceObject.c)
- *     VslpEnterIumSecureMode @ 0x14033FCF0 (VslpEnterIumSecureMode.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memset @ 0x140435A00 (memset.c)
- *     PsTestProtectedProcessIncompatibility @ 0x1406B8204 (PsTestProtectedProcessIncompatibility.c)
- *     DbgkpMarkProcessPeb @ 0x14093740C (DbgkpMarkProcessPeb.c)
+ *     ExAcquireFastMutex @ 0x140230810 (ExAcquireFastMutex.c)
+ *     ExReleaseFastMutex @ 0x140230950 (ExReleaseFastMutex.c)
+ *     ObfDereferenceObject @ 0x140231660 (ObfDereferenceObject.c)
+ *     ObfReferenceObject @ 0x140233D10 (ObfReferenceObject.c)
+ *     VslpEnterIumSecureMode @ 0x14033FF80 (VslpEnterIumSecureMode.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     PsTestProtectedProcessIncompatibility @ 0x1406B8234 (PsTestProtectedProcessIncompatibility.c)
+ *     DbgkpMarkProcessPeb @ 0x14093760C (DbgkpMarkProcessPeb.c)
  */
 
 __int64 __fastcall DbgkCopyProcessDebugPort(ULONG_PTR BugCheckParameter1, __int64 a2, char *a3, char *a4)

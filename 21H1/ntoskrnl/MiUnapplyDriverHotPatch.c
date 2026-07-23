@@ -70,7 +70,7 @@ __int64 __fastcall MiUnapplyDriverHotPatch(__int64 a1, __int64 a2)
       }
     }
   }
-  MiUnlockDriverPages((unsigned __int64 *)v10);
+  MiUnlockDriverPages(v10);
   if ( v6 )
     ExFreePoolWithTag(v6, 0);
   if ( v7 >= 0 )

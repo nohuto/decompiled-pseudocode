@@ -1,16 +1,21 @@
 /*
- * XREFs of ZwOpenKeyTransactedEx @ 0x1800A2650
+ * XREFs of ZwOpenKeyTransactedEx @ 0x1800A2670
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 ZwOpenKeyTransactedEx()
+NTSTATUS __cdecl ZwOpenKeyTransactedEx(
+        PHANDLE KeyHandle,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        ULONG OpenOptions,
+        HANDLE TransactionHandle)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 284LL;
+  result = 284;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

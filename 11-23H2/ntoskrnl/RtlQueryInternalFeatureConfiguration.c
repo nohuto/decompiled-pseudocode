@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlQueryInternalFeatureConfiguration @ 0x140411680
+ * XREFs of RtlQueryInternalFeatureConfiguration @ 0x1404118C0
  * Callers:
  *     <none>
  * Callees:
  *     ObGetCurrentIrql @ 0x14020B9A0 (ObGetCurrentIrql.c)
- *     RtlpFcBufferManagerDereferenceBuffers @ 0x14035D208 (RtlpFcBufferManagerDereferenceBuffers.c)
- *     RtlpFcBufferManagerReferenceBuffers @ 0x14035D29C (RtlpFcBufferManagerReferenceBuffers.c)
- *     RtlpFcGetBufferManager @ 0x1407D0EBC (RtlpFcGetBufferManager.c)
- *     RtlpFcQueryFeatureConfigurationFromBufferSet @ 0x1407D0ECC (RtlpFcQueryFeatureConfigurationFromBufferSet.c)
+ *     RtlpFcBufferManagerDereferenceBuffers @ 0x14035D3A8 (RtlpFcBufferManagerDereferenceBuffers.c)
+ *     RtlpFcBufferManagerReferenceBuffers @ 0x14035D43C (RtlpFcBufferManagerReferenceBuffers.c)
+ *     RtlpFcGetBufferManager @ 0x1407D118C (RtlpFcGetBufferManager.c)
+ *     RtlpFcQueryFeatureConfigurationFromBufferSet @ 0x1407D119C (RtlpFcQueryFeatureConfigurationFromBufferSet.c)
  */
 
 __int64 __fastcall RtlQueryInternalFeatureConfiguration(unsigned int a1, unsigned int a2, _QWORD *a3, __int64 a4)

@@ -1,10 +1,10 @@
 /*
- * XREFs of PfpLogPageAccess @ 0x14074B320
+ * XREFs of PfpLogPageAccess @ 0x14074B510
  * Callers:
- *     PfpCopyEvent @ 0x14074ADD0 (PfpCopyEvent.c)
- *     PfpFlushBuffers @ 0x14074B010 (PfpFlushBuffers.c)
+ *     PfpCopyEvent @ 0x14074AFC0 (PfpCopyEvent.c)
+ *     PfpFlushBuffers @ 0x14074B200 (PfpFlushBuffers.c)
  * Callees:
- *     PfTReplaceCurrentBuffer @ 0x14074BA00 (PfTReplaceCurrentBuffer.c)
+ *     PfTReplaceCurrentBuffer @ 0x14074BBF0 (PfTReplaceCurrentBuffer.c)
  */
 
 unsigned __int64 __fastcall PfpLogPageAccess(__int64 a1, _DWORD *a2, _BYTE *a3, __int64 a4, int a5)

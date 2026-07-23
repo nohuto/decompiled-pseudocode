@@ -1,7 +1,7 @@
 /*
- * XREFs of DifCreateAPIThunkContext @ 0x1405D4B9C
+ * XREFs of DifCreateAPIThunkContext @ 0x1405D510C
  * Callers:
- *     DifRegisterPlugin @ 0x1405D5070 (DifRegisterPlugin.c)
+ *     DifRegisterPlugin @ 0x1405D55E0 (DifRegisterPlugin.c)
  * Callees:
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

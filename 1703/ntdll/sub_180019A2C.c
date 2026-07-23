@@ -18,19 +18,15 @@ __int64 __fastcall sub_180019A2C(__int64 a1, __int64 a2)
   unsigned int v7; // edx
   _DWORD *v8; // rcx
   int v9; // eax
-  unsigned int v10; // edx
+  ULONG v10; // edx
   unsigned int i; // ecx
   unsigned int v12; // eax
-  __int64 v13; // rdx
-  __int64 v14; // rcx
-  int v15; // esi
-  __int64 v16; // r8
-  __int64 v17; // r9
-  __int64 v18; // rdx
-  __int64 v20; // [rsp+50h] [rbp+8h] BYREF
+  NTSTATUS v13; // esi
+  __int64 v14; // rdx
+  unsigned __int64 SubscriptionId; // [rsp+50h] [rbp+8h] BYREF
 
-  RtlAcquireSRWLockExclusive(qword_18015C008 + 8);
-  RtlAcquireSRWLockExclusive(a1 + 56);
+  RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)(qword_18015C008 + 8));
+  RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)(a1 + 56));
   v4 = *(_QWORD **)(a1 + 72);
   v5 = (_QWORD *)(a2 + 8);
   if ( *v4 != a1 + 64 )
@@ -67,19 +63,16 @@ __int64 __fastcall sub_180019A2C(__int64 a1, __int64 a2)
   v12 = *(_DWORD *)(a2 + 56);
   if ( *(_DWORD *)(a1 + 24) > v12 )
     *(_DWORD *)(a1 + 24) = v12;
-  v15 = ZwSubscribeWnfStateChange(a1 + 16, *(unsigned int *)(a1 + 24), v10, &v20);
-  if ( v15 >= 0 )
-  {
-    v14 = v20;
-    *(_QWORD *)(a1 + 8) = v20;
-  }
-  if ( (unsigned int)RtlGetCurrentServiceSessionId(v14, v13, v16, v17) )
-    v18 = (__int64)NtCurrentPeb()->HotpatchInformation + 564;
+  v13 = ZwSubscribeWnfStateChange((PCWNF_STATE_NAME)(a1 + 16), *(_DWORD *)(a1 + 24), v10, &SubscriptionId);
+  if ( v13 >= 0 )
+    *(_QWORD *)(a1 + 8) = SubscriptionId;
+  if ( RtlGetCurrentServiceSessionId() )
+    v14 = (__int64)&NtCurrentPeb()->SharedData->UserModeGlobalLogger[7];
   else
-    v18 = 2147353486LL;
-  if ( *(_BYTE *)v18 && v15 >= 0 )
+    v14 = 2147353486LL;
+  if ( *(_BYTE *)v14 && v13 >= 0 )
     sub_1800DF4BC(*(_QWORD *)(a1 + 16), a2, a1, *(_DWORD *)(a1 + 108), *(_QWORD *)(a2 + 32), *(_DWORD *)(a2 + 64));
-  RtlReleaseSRWLockExclusive(a1 + 56);
-  RtlReleaseSRWLockExclusive(qword_18015C008 + 8);
-  return (unsigned int)v15;
+  RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(a1 + 56));
+  RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(qword_18015C008 + 8));
+  return (unsigned int)v13;
 }

@@ -1,18 +1,18 @@
 /*
- * XREFs of AuthzBasepInitializeSystemSecurityAttributes @ 0x14056F854
+ * XREFs of AuthzBasepInitializeSystemSecurityAttributes @ 0x14056FD94
  * Callers:
  *     SeRmInitPhase1 @ 0x1407B2DB0 (SeRmInitPhase1.c)
  * Callees:
- *     AuthzBasepSetSecurityAttributesToken @ 0x14007C264 (AuthzBasepSetSecurityAttributesToken.c)
- *     AuthzBasepFreeSecurityAttributesList @ 0x140088740 (AuthzBasepFreeSecurityAttributesList.c)
- *     AuthzBasepAllocateSecurityAttributesList @ 0x140146050 (AuthzBasepAllocateSecurityAttributesList.c)
- *     RtlIsMultiSessionSku @ 0x1405037BC (RtlIsMultiSessionSku.c)
+ *     AuthzBasepSetSecurityAttributesToken @ 0x14007C2E4 (AuthzBasepSetSecurityAttributesToken.c)
+ *     AuthzBasepFreeSecurityAttributesList @ 0x14010C930 (AuthzBasepFreeSecurityAttributesList.c)
+ *     AuthzBasepAllocateSecurityAttributesList @ 0x1401465C0 (AuthzBasepAllocateSecurityAttributesList.c)
+ *     RtlIsMultiSessionSku @ 0x1404E674C (RtlIsMultiSessionSku.c)
  */
 
 __int64 __fastcall AuthzBasepInitializeSystemSecurityAttributes(__int64 a1, __int64 a2)
 {
   _QWORD *SecurityAttributesList; // rbx
-  char IsMultiSessionSku; // al
+  BOOLEAN IsMultiSessionSku; // al
   char v4; // si
   unsigned int v5; // edi
   _WORD v7[2]; // [rsp+20h] [rbp-40h] BYREF

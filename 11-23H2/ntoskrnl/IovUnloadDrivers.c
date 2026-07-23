@@ -1,13 +1,13 @@
 /*
- * XREFs of IovUnloadDrivers @ 0x140AC17F0
+ * XREFs of IovUnloadDrivers @ 0x140AC17E0
  * Callers:
- *     IoShutdownSystem @ 0x140A99B34 (IoShutdownSystem.c)
+ *     IoShutdownSystem @ 0x140A999A4 (IoShutdownSystem.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     ZwDelayExecution @ 0x14041B3E0 (ZwDelayExecution.c)
- *     ObEnumerateObjectsByType @ 0x14097B854 (ObEnumerateObjectsByType.c)
+ *     ObfDereferenceObject @ 0x140231660 (ObfDereferenceObject.c)
+ *     ZwDelayExecution @ 0x14041B770 (ZwDelayExecution.c)
+ *     ObEnumerateObjectsByType @ 0x14097BA54 (ObEnumerateObjectsByType.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
- *     IovpUnloadDriver @ 0x140AC1EB8 (IovpUnloadDriver.c)
+ *     IovpUnloadDriver @ 0x140AC1EA8 (IovpUnloadDriver.c)
  */
 
 __int64 IovUnloadDrivers()
@@ -21,8 +21,7 @@ __int64 IovUnloadDrivers()
   _DWORD *v7; // rcx
   PVOID *v8; // rdi
   PVOID v9; // rcx
-  int v10; // [rsp+40h] [rbp+8h] BYREF
-  int v11; // [rsp+44h] [rbp+Ch]
+  LARGE_INTEGER DelayInterval; // [rsp+40h] [rbp+8h] BYREF
 
   if ( !PopShutdownCleanly )
     return 3221225473LL;
@@ -71,9 +70,8 @@ __int64 IovUnloadDrivers()
     }
     if ( !v4 )
       break;
-    v11 = -1;
-    v10 = -100000000;
-    ZwDelayExecution(0LL, (__int64)&v10);
+    DelayInterval.QuadPart = -100000000LL;
+    ZwDelayExecution(0, &DelayInterval);
     v1 = v5;
     if ( !v5 )
       goto LABEL_17;

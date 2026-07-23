@@ -1,11 +1,11 @@
 /*
- * XREFs of WbCreateWarbirdProcess @ 0x1407E769C
+ * XREFs of WbCreateWarbirdProcess @ 0x1407E796C
  * Callers:
- *     WbGetWarbirdProcess @ 0x140763600 (WbGetWarbirdProcess.c)
+ *     WbGetWarbirdProcess @ 0x1407637F0 (WbGetWarbirdProcess.c)
  * Callees:
- *     memset @ 0x140435A00 (memset.c)
- *     sub_140763820 @ 0x140763820 (sub_140763820.c)
- *     WbAlloc @ 0x140763988 (WbAlloc.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     sub_140763A10 @ 0x140763A10 (sub_140763A10.c)
+ *     WbAlloc @ 0x140763B78 (WbAlloc.c)
  */
 
 __int64 __fastcall WbCreateWarbirdProcess(__int64 a1, _QWORD *a2)
@@ -30,7 +30,7 @@ __int64 __fastcall WbCreateWarbirdProcess(__int64 a1, _QWORD *a2)
     *v6 = a1;
     *((_DWORD *)v6 + 14) = 60;
     v5 = 0;
-    v6[5] = sub_1407BC4C0;
+    v6[5] = sub_1407BC790;
     v6[1] = 8LL;
     *((_DWORD *)v6 + 4) = 0;
     v6[3] = 0LL;
@@ -39,19 +39,19 @@ __int64 __fastcall WbCreateWarbirdProcess(__int64 a1, _QWORD *a2)
     v6[10] = 0LL;
     v6[9] = v6 + 8;
     v6[8] = v6 + 8;
-    v6[27] = sub_1407D5CE0;
+    v6[27] = sub_1407D5FB0;
     v6[23] = 8LL;
     *((_DWORD *)v6 + 48) = 0;
     v6[25] = 0LL;
     *((_DWORD *)v6 + 52) = 10;
     v6[28] = 0LL;
-    v6[15] = sub_1407BEDA0;
+    v6[15] = sub_1407BF070;
     v6[11] = 8LL;
     *((_DWORD *)v6 + 24) = 0;
     v6[13] = 0LL;
     *((_DWORD *)v6 + 28) = 10;
     v6[16] = 0LL;
-    v6[21] = sub_1407EAEA0;
+    v6[21] = sub_1407EB170;
     v6[17] = 8LL;
     *((_DWORD *)v6 + 36) = 0;
     v6[19] = 0LL;
@@ -59,6 +59,6 @@ __int64 __fastcall WbCreateWarbirdProcess(__int64 a1, _QWORD *a2)
     v6[22] = 0LL;
     *a2 = v6;
   }
-  sub_140763820(v4);
+  sub_140763A10(v4);
   return (unsigned int)v5;
 }

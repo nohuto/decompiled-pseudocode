@@ -1,12 +1,12 @@
 /*
- * XREFs of PopSessionConnected @ 0x14071D72C
+ * XREFs of PopSessionConnected @ 0x14071E9CC
  * Callers:
- *     PopSessionConnectionChange @ 0x14071D688 (PopSessionConnectionChange.c)
+ *     PopSessionConnectionChange @ 0x14071E928 (PopSessionConnectionChange.c)
  * Callees:
- *     PopConsoleSessionActiveInput @ 0x1406DC420 (PopConsoleSessionActiveInput.c)
- *     PopRemoteSessionActiveInput @ 0x1406DC494 (PopRemoteSessionActiveInput.c)
- *     PopDiagTraceSessionStates @ 0x1406DC750 (PopDiagTraceSessionStates.c)
- *     PopSetSessionDisplayStatus @ 0x14071D7D4 (PopSetSessionDisplayStatus.c)
+ *     PopConsoleSessionActiveInput @ 0x1406DD6C0 (PopConsoleSessionActiveInput.c)
+ *     PopRemoteSessionActiveInput @ 0x1406DD734 (PopRemoteSessionActiveInput.c)
+ *     PopDiagTraceSessionStates @ 0x1406DD9F0 (PopDiagTraceSessionStates.c)
+ *     PopSetSessionDisplayStatus @ 0x14071EA74 (PopSetSessionDisplayStatus.c)
  */
 
 __int64 __fastcall PopSessionConnected(unsigned int a1, unsigned __int8 a2, int *a3)

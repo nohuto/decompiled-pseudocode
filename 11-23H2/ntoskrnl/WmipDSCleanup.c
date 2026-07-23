@@ -1,14 +1,14 @@
 /*
- * XREFs of WmipDSCleanup @ 0x140882650
+ * XREFs of WmipDSCleanup @ 0x140882890
  * Callers:
  *     <none>
  * Callees:
- *     KeWaitForSingleObject @ 0x140243CE0 (KeWaitForSingleObject.c)
- *     KeReleaseMutex @ 0x1402AFF70 (KeReleaseMutex.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     WmipUnreferenceEntry @ 0x1406C6FE0 (WmipUnreferenceEntry.c)
- *     WmipGenerateBinaryMofNotification @ 0x14085240C (WmipGenerateBinaryMofNotification.c)
- *     WmipUnlinkInstanceSetFromGuidEntry @ 0x140882764 (WmipUnlinkInstanceSetFromGuidEntry.c)
+ *     KeWaitForSingleObject @ 0x140243DB0 (KeWaitForSingleObject.c)
+ *     KeReleaseMutex @ 0x1402B0200 (KeReleaseMutex.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
+ *     WmipUnreferenceEntry @ 0x1406C7010 (WmipUnreferenceEntry.c)
+ *     WmipGenerateBinaryMofNotification @ 0x14085270C (WmipGenerateBinaryMofNotification.c)
+ *     WmipUnlinkInstanceSetFromGuidEntry @ 0x1408829A4 (WmipUnlinkInstanceSetFromGuidEntry.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

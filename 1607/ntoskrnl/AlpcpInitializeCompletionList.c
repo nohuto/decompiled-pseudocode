@@ -1,35 +1,29 @@
 /*
- * XREFs of AlpcpInitializeCompletionList @ 0x1404DDB10
+ * XREFs of AlpcpInitializeCompletionList @ 0x1404C1114
  * Callers:
- *     NtAlpcSetInformation @ 0x140472CD8 (NtAlpcSetInformation.c)
+ *     NtAlpcSetInformation @ 0x140471BA8 (NtAlpcSetInformation.c)
  * Callees:
- *     AlpcGetHeaderSize @ 0x14000A018 (AlpcGetHeaderSize.c)
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     IoAllocateMdl @ 0x14002EF90 (IoAllocateMdl.c)
- *     MmProbeAndLockPages @ 0x14002F120 (MmProbeAndLockPages.c)
- *     MmUnlockPages @ 0x140051A80 (MmUnlockPages.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     IoFreeMdl @ 0x140072230 (IoFreeMdl.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1400C8070 (ExfAcquirePushLockExclusiveEx.c)
- *     ExfTryToWakePushLock @ 0x1400C8738 (ExfTryToWakePushLock.c)
- *     MmMapLockedPagesSpecifyCache @ 0x1400DE220 (MmMapLockedPagesSpecifyCache.c)
- *     AlpcpFreeCompletionPacketLookaside @ 0x1400F7BB4 (AlpcpFreeCompletionPacketLookaside.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     AlpcGetHeaderSize @ 0x140009B98 (AlpcGetHeaderSize.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     IoAllocateMdl @ 0x14002EB10 (IoAllocateMdl.c)
+ *     MmProbeAndLockPages @ 0x14002ECA0 (MmProbeAndLockPages.c)
+ *     MmUnlockPages @ 0x140051600 (MmUnlockPages.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     IoFreeMdl @ 0x140071DB0 (IoFreeMdl.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1400C5F10 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfTryToWakePushLock @ 0x1400C65D8 (ExfTryToWakePushLock.c)
+ *     MmMapLockedPagesSpecifyCache @ 0x1400DC0C0 (MmMapLockedPagesSpecifyCache.c)
+ *     AlpcpFreeCompletionPacketLookaside @ 0x1400F59F4 (AlpcpFreeCompletionPacketLookaside.c)
+ *     memset @ 0x140171AC0 (memset.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     AlpcpAllocateCompletionPacketLookaside @ 0x140471860 (AlpcpAllocateCompletionPacketLookaside.c)
- *     AlpcpRegisterCompletionListDatabase @ 0x1404DDF54 (AlpcpRegisterCompletionListDatabase.c)
- *     AlpcpUnregisterCompletionListDatabase @ 0x1404F0088 (AlpcpUnregisterCompletionListDatabase.c)
- *     AlpcpGetMessageAttributeSize32 @ 0x14052936C (AlpcpGetMessageAttributeSize32.c)
+ *     AlpcpAllocateCompletionPacketLookaside @ 0x140470730 (AlpcpAllocateCompletionPacketLookaside.c)
+ *     AlpcpRegisterCompletionListDatabase @ 0x1404C1558 (AlpcpRegisterCompletionListDatabase.c)
+ *     AlpcpUnregisterCompletionListDatabase @ 0x1404D217C (AlpcpUnregisterCompletionListDatabase.c)
+ *     AlpcpGetMessageAttributeSize32 @ 0x1405298AC (AlpcpGetMessageAttributeSize32.c)
  */
 
-__int64 __fastcall AlpcpInitializeCompletionList(
-        __int64 a1,
-        char *a2,
-        unsigned int a3,
-        int a4,
-        unsigned int a5,
-        int a6)
+__int64 __fastcall AlpcpInitializeCompletionList(__int64 a1, char *a2, unsigned int a3, int a4, ULONG Flags, int a6)
 {
   size_t v6; // r13
   char v9; // r15
@@ -45,7 +39,7 @@ __int64 __fastcall AlpcpInitializeCompletionList(
   __int64 v19; // rax
   __int64 v20; // rax
   __int64 v21; // rdx
-  int MessageAttributeSize32; // eax
+  ULONG MessageAttributeSize32; // eax
   int v23; // r9d
   unsigned int v24; // r10d
   _DWORD *v25; // rdx
@@ -68,7 +62,7 @@ __int64 __fastcall AlpcpInitializeCompletionList(
   if ( ((unsigned __int16)a2 & 0xFFF) != 0LL
     || (a3 & 0xFFF) != 0
     || a3 - 0x4000 > 0x3FFFC000
-    || (a5 & 0x57FFFFFF) != 0
+    || (Flags & 0x57FFFFFF) != 0
     || !a4 )
   {
     v33 = 0;
@@ -132,14 +126,14 @@ LABEL_36:
       *((_QWORD *)v11 + 6) = &a2[v6];
       v21 = (__int64)&a2[v18 + 4096 + v17];
       *((_QWORD *)v11 + 7) = v21;
-      *((_DWORD *)v11 + 37) = a5;
+      *((_DWORD *)v11 + 37) = Flags;
       if ( a6 )
       {
-        MessageAttributeSize32 = AlpcpGetMessageAttributeSize32(a5, v21, v17);
+        MessageAttributeSize32 = AlpcpGetMessageAttributeSize32(Flags, v21, v17);
       }
       else
       {
-        MessageAttributeSize32 = AlpcGetHeaderSize(a5);
+        MessageAttributeSize32 = AlpcGetHeaderSize(Flags);
         v23 = v36;
         v24 = v37;
       }

@@ -1,7 +1,7 @@
 /*
- * XREFs of PiDevCfgVerifyFeatureScore @ 0x14083160C
+ * XREFs of PiDevCfgVerifyFeatureScore @ 0x14083286C
  * Callers:
- *     PiDevCfgConfigureDevice @ 0x1406E2E34 (PiDevCfgConfigureDevice.c)
+ *     PiDevCfgConfigureDevice @ 0x1406E40D4 (PiDevCfgConfigureDevice.c)
  * Callees:
  *     <none>
  */

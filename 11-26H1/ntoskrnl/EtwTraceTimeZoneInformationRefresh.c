@@ -1,11 +1,11 @@
 /*
- * XREFs of EtwTraceTimeZoneInformationRefresh @ 0x140B125BC
+ * XREFs of EtwTraceTimeZoneInformationRefresh @ 0x140B1433C
  * Callers:
- *     ExpRefreshTimeZoneInformation @ 0x140B1209C (ExpRefreshTimeZoneInformation.c)
+ *     ExpRefreshTimeZoneInformation @ 0x140B13E1C (ExpRefreshTimeZoneInformation.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212E30 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     EtwWrite @ 0x140212EF0 (EtwWrite.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212F10 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     EtwWrite @ 0x140212FD0 (EtwWrite.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 char __fastcall EtwTraceTimeZoneInformationRefresh(int a1, int a2, int a3, char a4, char a5)
@@ -58,7 +58,7 @@ char __fastcall EtwTraceTimeZoneInformationRefresh(int a1, int a2, int a3, char 
   {
     result = 83;
   }
-  if ( (unsigned int)dword_140E08F48 > 5 )
+  if ( (unsigned int)dword_140E08F78 > 5 )
   {
     v7 = result;
     v10 = a1;
@@ -76,14 +76,14 @@ char __fastcall EtwTraceTimeZoneInformationRefresh(int a1, int a2, int a3, char 
     v29 = 1LL;
     v31 = 1LL;
     result = tlgWriteTransfer_EtwWriteTransfer(
-               (__int64)&dword_140E08F48,
-               (unsigned __int8 *)&word_1400544AE,
+               (__int64)&dword_140E08F78,
+               (unsigned __int8 *)word_140054902,
                0LL,
                0LL,
                7u,
                &v21);
   }
-  if ( EtwpSecurityLock.MutantListHead.Blink )
+  if ( EtwKernelProvRegHandle )
   {
     *(_QWORD *)&UserData.Size = 4LL;
     UserData.Ptr = (ULONGLONG)&v32;
@@ -95,12 +95,7 @@ char __fastcall EtwTraceTimeZoneInformationRefresh(int a1, int a2, int a3, char 
     v17 = &v35;
     v19 = &a5;
     v20 = 1LL;
-    return EtwWrite(
-             (REGHANDLE)EtwpSecurityLock.MutantListHead.Blink,
-             &KernelTimeZoneInformationRefresh,
-             0LL,
-             5u,
-             &UserData);
+    return EtwWrite(EtwKernelProvRegHandle, &KernelTimeZoneInformationRefresh, 0LL, 5u, &UserData);
   }
   return result;
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of BgpFoGetStringAdvanceWidth @ 0x14023985C
+ * XREFs of BgpFoGetStringAdvanceWidth @ 0x140239740
  * Callers:
- *     BcpDisplayCriticalString @ 0x140239B00 (BcpDisplayCriticalString.c)
+ *     BcpDisplayCriticalString @ 0x1402399E4 (BcpDisplayCriticalString.c)
  * Callees:
- *     BgpRasGetGlyphAdvanceWidth @ 0x14023AA8C (BgpRasGetGlyphAdvanceWidth.c)
+ *     BgpRasGetGlyphAdvanceWidth @ 0x14023A970 (BgpRasGetGlyphAdvanceWidth.c)
  */
 
 __int64 BgpFoGetStringAdvanceWidth(int a1, __int16 *a2, _DWORD *a3, ...)

@@ -1,9 +1,9 @@
 /*
- * XREFs of MiValidateAllocationType @ 0x1406F7148
+ * XREFs of MiValidateAllocationType @ 0x1406F7358
  * Callers:
- *     MiAllocateVirtualMemoryPrepare @ 0x1406F6BB0 (MiAllocateVirtualMemoryPrepare.c)
+ *     MiAllocateVirtualMemoryPrepare @ 0x1406F6DC0 (MiAllocateVirtualMemoryPrepare.c)
  * Callees:
- *     MiMakeProtectionMask @ 0x140276980 (MiMakeProtectionMask.c)
+ *     MiMakeProtectionMask @ 0x140276C10 (MiMakeProtectionMask.c)
  */
 
 __int64 __fastcall MiValidateAllocationType(int a1, int a2, unsigned int a3)

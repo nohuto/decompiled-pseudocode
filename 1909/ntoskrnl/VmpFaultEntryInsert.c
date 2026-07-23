@@ -9,28 +9,28 @@
  *     KiRemoveSystemWorkPriorityKick @ 0x1401BF308 (KiRemoveSystemWorkPriorityKick.c)
  */
 
-__int64 __fastcall VmpFaultEntryInsert(__int64 a1, unsigned __int64 a2, unsigned int a3)
+__int64 __fastcall VmpFaultEntryInsert(__int64 a1, _RTL_BALANCED_NODE *a2, unsigned int a3)
 {
-  unsigned __int64 v3; // rdi
+  _RTL_BALANCED_NODE *v3; // rdi
   unsigned __int64 v5; // r14
   unsigned __int8 CurrentIrql; // si
   volatile LONG *v7; // rbp
   __int64 v8; // rbx
   unsigned __int64 v9; // rdx
-  bool v10; // r8
+  BOOLEAN v10; // r8
   unsigned __int64 v11; // rax
   struct _KPRCB *CurrentPrcb; // rcx
   __int64 result; // rax
 
   v3 = a2;
-  v5 = a2 + 48LL * a3;
+  v5 = (unsigned __int64)&a2[2 * a3];
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(0xFuLL);
   if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql < 2u )
     _InterlockedOr((volatile signed __int32 *)KeGetCurrentPrcb()->SchedulerAssist, 0x10000u);
   v7 = (volatile LONG *)(a1 + 64);
   ExAcquireSpinLockExclusiveAtDpcLevel((PEX_SPIN_LOCK)(a1 + 64));
-  if ( v3 < v5 )
+  if ( (unsigned __int64)v3 < v5 )
   {
     v8 = a1 + 48;
     do
@@ -43,7 +43,7 @@ __int64 __fastcall VmpFaultEntryInsert(__int64 a1, unsigned __int64 a2, unsigned
       {
         while ( 1 )
         {
-          if ( (*(_QWORD *)(v3 + 24) & 0xFFFFFFFFFFFFFuLL) >= (*(_QWORD *)(v9 + 24) & 0xFFFFFFFFFFFFFuLL) )
+          if ( ((unsigned __int64)v3[1].Children[0] & 0xFFFFFFFFFFFFFLL) >= (*(_QWORD *)(v9 + 24) & 0xFFFFFFFFFFFFFuLL) )
           {
             v11 = *(_QWORD *)(v9 + 8);
             if ( (*(_BYTE *)(v8 + 8) & 1) != 0 )
@@ -78,10 +78,10 @@ LABEL_16:
           v9 = v11;
         }
       }
-      RtlRbInsertNodeEx((unsigned __int64 *)v8, v9, v10, v3);
-      v3 += 48LL;
+      RtlRbInsertNodeEx((PRTL_RB_TREE)v8, (PRTL_BALANCED_NODE)v9, v10, v3);
+      v3 += 2;
     }
-    while ( v3 < v5 );
+    while ( (unsigned __int64)v3 < v5 );
   }
   ExReleaseSpinLockExclusiveFromDpcLevel(v7);
   if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && KeGetCurrentIrql() >= 2u && CurrentIrql < 2u )

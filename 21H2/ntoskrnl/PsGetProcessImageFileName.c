@@ -1,9 +1,9 @@
 /*
- * XREFs of PsGetProcessImageFileName @ 0x1402BDD90
+ * XREFs of PsGetProcessImageFileName @ 0x14023C3D0
  * Callers:
- *     ObCheckRefTraceProcess @ 0x140607974 (ObCheckRefTraceProcess.c)
- *     PnpLogVetoInformation @ 0x140732794 (PnpLogVetoInformation.c)
- *     PiUEventHandleVetoEvent @ 0x14076E718 (PiUEventHandleVetoEvent.c)
+ *     ObCheckRefTraceProcess @ 0x140697404 (ObCheckRefTraceProcess.c)
+ *     PnpLogVetoInformation @ 0x140732954 (PnpLogVetoInformation.c)
+ *     PiUEventHandleVetoEvent @ 0x14076E8D8 (PiUEventHandleVetoEvent.c)
  * Callees:
  *     <none>
  */

@@ -1,10 +1,10 @@
 /*
- * XREFs of PnpInitializeTriageBlock @ 0x1405A53C8
+ * XREFs of PnpInitializeTriageBlock @ 0x1405A2308
  * Callers:
- *     IopAddBugcheckTriageDataFromParameters @ 0x140592F50 (IopAddBugcheckTriageDataFromParameters.c)
- *     PnpWatchdogBugcheck @ 0x1405A5494 (PnpWatchdogBugcheck.c)
+ *     IopAddBugcheckTriageDataFromParameters @ 0x14058FF74 (IopAddBugcheckTriageDataFromParameters.c)
+ *     PnpWatchdogBugcheck @ 0x1405A23D4 (PnpWatchdogBugcheck.c)
  * Callees:
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 ULONG_PTR __fastcall PnpInitializeTriageBlock(_DWORD *a1)

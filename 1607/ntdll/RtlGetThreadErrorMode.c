@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlGetThreadErrorMode @ 0x180081F70
+ * XREFs of RtlGetThreadErrorMode @ 0x180081F60
  * Callers:
- *     LdrpLogLoadFailureEtwEvent @ 0x180081EC4 (LdrpLogLoadFailureEtwEvent.c)
+ *     LdrpLogLoadFailureEtwEvent @ 0x180081EB4 (LdrpLogLoadFailureEtwEvent.c)
  * Callees:
  *     <none>
  */
 
-__int64 RtlGetThreadErrorMode()
+ULONG RtlGetThreadErrorMode(void)
 {
   struct _TEB *v0; // rcx
   int WowTebOffset; // eax
@@ -31,7 +31,7 @@ __int64 RtlGetThreadErrorMode()
   {
     if ( (int)v6 < 0 )
       v5 = (struct _TEB *)((char *)v5 + v6);
-    return LODWORD(v5->glDispatchTable[167]);
+    return (ULONG)v5->glDispatchTable[167];
   }
   else
   {

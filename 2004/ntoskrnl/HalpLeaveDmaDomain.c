@@ -90,7 +90,7 @@ __int64 __fastcall HalpLeaveDmaDomain(__int64 a1)
           {
             *(_BYTE *)(v20 + 32) |= 2u;
             if ( *(__int64 *)(v20 + 32) < 0 )
-              KiAbEntryRemoveFromTree(v20);
+              KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)v20);
             v21 = *(_DWORD *)(v20 + 88) & 0x1FFFF;
             v22 = *(_DWORD *)(v20 + 88) & 0xFFFE0000;
             *(_BYTE *)(v20 + 25) &= ~1u;
@@ -150,7 +150,7 @@ LABEL_45:
           {
             *(_BYTE *)(v10 + 32) |= 2u;
             if ( *(__int64 *)(v10 + 32) < 0 )
-              KiAbEntryRemoveFromTree(v10);
+              KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)v10);
             v11 = *(_DWORD *)(v10 + 88) & 0x1FFFF;
             v12 = *(_DWORD *)(v10 + 88) & 0xFFFE0000;
             *(_BYTE *)(v10 + 25) &= ~1u;

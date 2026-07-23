@@ -1,18 +1,18 @@
 /*
- * XREFs of MiSelectBestZeroingProcessor @ 0x1403C7C00
+ * XREFs of MiSelectBestZeroingProcessor @ 0x140413840
  * Callers:
- *     MiBackgroundZeroNodePages @ 0x1403C6F60 (MiBackgroundZeroNodePages.c)
- *     MiMoveBackgroundZeroThreads @ 0x1403C8F60 (MiMoveBackgroundZeroThreads.c)
+ *     MiMoveBackgroundZeroThreads @ 0x1403A3B00 (MiMoveBackgroundZeroThreads.c)
+ *     MiBackgroundZeroNodePages @ 0x140412BA0 (MiBackgroundZeroNodePages.c)
  * Callees:
- *     MiAssignBackgroundZeroThreadToProcessor @ 0x140209CEC (MiAssignBackgroundZeroThreadToProcessor.c)
- *     MiFindBestZeroingProcessor @ 0x140209DE8 (MiFindBestZeroingProcessor.c)
- *     MiReleaseSpinLockExclusive @ 0x14028EE30 (MiReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x14028F370 (ExAcquireSpinLockExclusive.c)
- *     MiUnlinkZeroThreadFromActiveDomain @ 0x1403C7D5C (MiUnlinkZeroThreadFromActiveDomain.c)
- *     MiDecrementZeroEngineThread @ 0x1403C7E68 (MiDecrementZeroEngineThread.c)
+ *     MiReleaseSpinLockExclusive @ 0x14029EA30 (MiReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14029EF70 (ExAcquireSpinLockExclusive.c)
+ *     MiAssignBackgroundZeroThreadToProcessor @ 0x1403312CC (MiAssignBackgroundZeroThreadToProcessor.c)
+ *     MiFindBestZeroingProcessor @ 0x1403313C8 (MiFindBestZeroingProcessor.c)
+ *     MiUnlinkZeroThreadFromActiveDomain @ 0x14041399C (MiUnlinkZeroThreadFromActiveDomain.c)
+ *     MiDecrementZeroEngineThread @ 0x140413AA8 (MiDecrementZeroEngineThread.c)
  */
 
-_BOOL8 __fastcall MiSelectBestZeroingProcessor(__int64 a1, __int64 a2, int a3, unsigned int a4)
+_BOOL8 __fastcall MiSelectBestZeroingProcessor(__int64 a1, __int64 a2, int a3, int a4)
 {
   __int64 v5; // rdx
   __int64 v9; // rax
@@ -29,14 +29,14 @@ _BOOL8 __fastcall MiSelectBestZeroingProcessor(__int64 a1, __int64 a2, int a3, u
   if ( v5 == *(_QWORD *)(a2 + 368)
     && (v9 = *(unsigned __int16 *)(a2 + 360), (_WORD)v9 == *(_WORD *)(a2 + 376))
     && v5
-    && (v5 & qword_140E2EC50[v9]) == 0 )
+    && (v5 & qword_140E2ED90[v9]) == 0 )
   {
-    ++dword_140EF4CA0;
+    ++dword_140EF4EC0;
     return 1LL;
   }
   else
   {
-    ++dword_140EF4CA4;
+    ++dword_140EF4EC4;
     if ( a3 )
       v11 = 17;
     else
@@ -45,7 +45,7 @@ _BOOL8 __fastcall MiSelectBestZeroingProcessor(__int64 a1, __int64 a2, int a3, u
       MiUnlinkZeroThreadFromActiveDomain(a2);
     MiFindBestZeroingProcessor((__int64)v13, (int *)a1, a4, 1);
     v12 = DWORD2(v14);
-    ++dword_140EF4C88[SDWORD2(v14)];
+    ++dword_140EF4EA8[SDWORD2(v14)];
     if ( v12 == 5 )
     {
       MiDecrementZeroEngineThread(a2);

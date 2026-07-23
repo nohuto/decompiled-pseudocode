@@ -7,13 +7,13 @@
  *     _RtlFreeHeap@12 @ 0x4B2C3B70 (_RtlFreeHeap@12.c)
  */
 
-int __thiscall RtlpFreeTraverseNodes(void *this)
+int __thiscall RtlpFreeTraverseNodes(PVOID BaseAddress)
 {
   int v1; // esi
 
   v1 = 0;
-  if ( !this )
+  if ( !BaseAddress )
     return -1073741811;
-  RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, this);
+  RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, BaseAddress);
   return v1;
 }

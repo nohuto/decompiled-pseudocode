@@ -1,11 +1,11 @@
 /*
- * XREFs of MiDbgCopyToMemory @ 0x1406FDD64
+ * XREFs of MiDbgCopyToMemory @ 0x140702A34
  * Callers:
- *     MiDbgCopyMemoryInternal @ 0x1406FD8F0 (MiDbgCopyMemoryInternal.c)
+ *     MiDbgCopyMemoryInternal @ 0x1407025C0 (MiDbgCopyMemoryInternal.c)
  * Callees:
- *     MiDbgCopyPrivilegedData @ 0x1406FDCAC (MiDbgCopyPrivilegedData.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     RtlCopyVolatileMemory @ 0x140733080 (RtlCopyVolatileMemory.c)
+ *     MiDbgCopyPrivilegedData @ 0x14070297C (MiDbgCopyPrivilegedData.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     RtlCopyVolatileMemory @ 0x140737C50 (RtlCopyVolatileMemory.c)
  */
 
 __int64 __fastcall MiDbgCopyToMemory(__int64 a1, _BYTE *a2, int a3)
@@ -92,7 +92,7 @@ __int64 __fastcall MiDbgCopyToMemory(__int64 a1, _BYTE *a2, int a3)
   }
   else
   {
-    stru_140E2EB88.SuspendEvent.Header.SignalState |= 0x10000u;
+    stru_140E2ED08.SuspendEvent.Header.SignalState |= 0x10000u;
   }
   return result;
 }

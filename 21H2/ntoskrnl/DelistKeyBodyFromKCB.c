@@ -1,22 +1,22 @@
 /*
- * XREFs of DelistKeyBodyFromKCB @ 0x140667930
+ * XREFs of DelistKeyBodyFromKCB @ 0x14065C750
  * Callers:
- *     CmpDeleteKeyObject @ 0x1406675C0 (CmpDeleteKeyObject.c)
+ *     CmpDeleteKeyObject @ 0x14065C3E0 (CmpDeleteKeyObject.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
- *     ExReleasePushLockEx @ 0x14034AE90 (ExReleasePushLockEx.c)
- *     CmpLockKcbExclusive @ 0x1405EC35C (CmpLockKcbExclusive.c)
- *     CmpFreeKeyControlBlock @ 0x140719B20 (CmpFreeKeyControlBlock.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1403556E0 (ExAcquirePushLockExclusiveEx.c)
+ *     ExReleasePushLockEx @ 0x140355BE0 (ExReleasePushLockEx.c)
+ *     CmpFreeKeyControlBlock @ 0x1405E0C60 (CmpFreeKeyControlBlock.c)
+ *     CmpLockKcbExclusive @ 0x1406DBABC (CmpLockKcbExclusive.c)
  */
 
-char __fastcall DelistKeyBodyFromKCB(__int64 *a1, char a2)
+char __fastcall DelistKeyBodyFromKCB(_QWORD *a1, char a2)
 {
   char v2; // r9
   unsigned int i; // r8d
   signed __int64 v6; // rax
   __int64 v7; // rbx
   __int64 v8; // rcx
-  __int64 *v9; // rdx
+  _QWORD *v9; // rdx
   ULONG_PTR v10; // rbx
   bool v11; // di
 
@@ -25,7 +25,7 @@ LABEL_2:
   for ( i = 0; i < 4; ++i )
   {
     v6 = _InterlockedCompareExchange64((volatile signed __int64 *)(a1[1] + 8LL * i + 136), 0LL, (signed __int64)a1);
-    if ( a1 == (__int64 *)v6 )
+    if ( a1 == (_QWORD *)v6 )
       goto LABEL_13;
     if ( (unsigned __int64)(v6 - 1) <= 1 )
     {
@@ -43,7 +43,7 @@ LABEL_2:
   }
   v8 = a1[4];
   v6 = (signed __int64)(a1 + 4);
-  if ( *(__int64 **)(v8 + 8) != a1 + 4 || (v9 = (__int64 *)a1[5], *v9 != v6) )
+  if ( *(_QWORD **)(v8 + 8) != a1 + 4 || (v9 = (_QWORD *)a1[5], *v9 != v6) )
     __fastfail(3u);
   *v9 = v8;
   *(_QWORD *)(v8 + 8) = v9;
@@ -58,7 +58,7 @@ LABEL_13:
       _InterlockedDecrement((volatile signed __int32 *)(v10 + 56));
     LOBYTE(v6) = ExReleasePushLockEx(v10 + 48, 0LL);
     if ( v11 && (*(_DWORD *)(v10 + 8) & 0x80000) != 0 )
-      LOBYTE(v6) = CmpFreeKeyControlBlock(v10);
+      LOBYTE(v6) = (unsigned __int8)CmpFreeKeyControlBlock(v10);
   }
   return v6;
 }

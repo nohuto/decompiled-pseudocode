@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlpProcessHeapsRemove @ 0x18007E93C
+ * XREFs of RtlpProcessHeapsRemove @ 0x18006D880
  * Callers:
- *     RtlDestroyHeap @ 0x18007EAC0 (RtlDestroyHeap.c)
+ *     RtlDestroyHeap @ 0x18006D090 (RtlDestroyHeap.c)
  * Callees:
- *     RtlFreeHeap_0 @ 0x18003FD10 (RtlFreeHeap_0.c)
- *     RtlEnterCriticalSection @ 0x180048D70 (RtlEnterCriticalSection.c)
- *     RtlLeaveCriticalSection @ 0x18004A3E0 (RtlLeaveCriticalSection.c)
+ *     RtlFreeHeap_0 @ 0x18002A280 (RtlFreeHeap_0.c)
+ *     RtlpReleaseHeapListLock @ 0x1800762B0 (RtlpReleaseHeapListLock.c)
+ *     RtlpAcquireHeapListLock @ 0x1800762FC (RtlpAcquireHeapListLock.c)
  */
 
 struct _PEB *__fastcall RtlpProcessHeapsRemove(__int64 a1)
@@ -19,7 +19,7 @@ struct _PEB *__fastcall RtlpProcessHeapsRemove(__int64 a1)
   result = NtCurrentPeb();
   if ( result->ProcessHeap != (void *)a1 )
   {
-    RtlEnterCriticalSection((__int64)&RtlpProcessHeapsLock);
+    RtlpAcquireHeapListLock();
     v3 = 56LL;
     if ( *(_DWORD *)(a1 + 16) != -571548178 )
       v3 = 392LL;
@@ -35,9 +35,9 @@ struct _PEB *__fastcall RtlpProcessHeapsRemove(__int64 a1)
         *(_QWORD *)(a1 + 56) = 0LL;
       else
         *(_QWORD *)(a1 + 392) = 0LL;
-      RtlFreeHeap_0();
+      RtlFreeHeap_0(NtCurrentPeb()->ProcessHeap, 0, v4);
     }
-    return (struct _PEB *)RtlLeaveCriticalSection((__int64)&RtlpProcessHeapsLock);
+    return (struct _PEB *)RtlpReleaseHeapListLock(0LL);
   }
   return result;
 }

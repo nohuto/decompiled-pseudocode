@@ -1,12 +1,12 @@
 /*
- * XREFs of GetModuleFullPathName @ 0x1800353CC
+ * XREFs of GetModuleFullPathName @ 0x18002052C
  * Callers:
- *     GetImageTuple @ 0x18006DF50 (GetImageTuple.c)
+ *     GetImageTuple @ 0x18008E3A0 (GetImageTuple.c)
  * Callees:
- *     RtlUnicodeStringToAnsiString @ 0x1800344C0 (RtlUnicodeStringToAnsiString.c)
- *     GetModuleFullPathNameUnicode @ 0x1800354D0 (GetModuleFullPathNameUnicode.c)
- *     RtlFreeHeap_0 @ 0x18003FD10 (RtlFreeHeap_0.c)
- *     RtlAllocateHeap_0 @ 0x1800439E0 (RtlAllocateHeap_0.c)
+ *     RtlUnicodeStringToAnsiString @ 0x18001F620 (RtlUnicodeStringToAnsiString.c)
+ *     GetModuleFullPathNameUnicode @ 0x180020630 (GetModuleFullPathNameUnicode.c)
+ *     RtlFreeHeap_0 @ 0x18002A280 (RtlFreeHeap_0.c)
+ *     RtlAllocateHeap_0 @ 0x18002DF50 (RtlAllocateHeap_0.c)
  */
 
 wchar_t *__fastcall GetModuleFullPathName(__int64 a1, char *a2)
@@ -17,13 +17,13 @@ wchar_t *__fastcall GetModuleFullPathName(__int64 a1, char *a2)
   unsigned int ModuleFullPathNameUnicode; // eax
   unsigned int Length; // ebx
   NTSTATUS v9; // eax
-  STRING DestinationString; // [rsp+20h] [rbp-28h] BYREF
+  _STRING DestinationString; // [rsp+20h] [rbp-28h] BYREF
   UNICODE_STRING SourceString; // [rsp+30h] [rbp-18h] BYREF
 
   DestinationString = 0LL;
   ProcessHeap = NtCurrentPeb()->ProcessHeap;
   *(_QWORD *)&SourceString.Length = 0LL;
-  result = (wchar_t *)RtlAllocateHeap_0(ProcessHeap, 8LL, 520LL);
+  result = (wchar_t *)RtlAllocateHeap_0(ProcessHeap, 8u, 0x208uLL);
   SourceString.Buffer = result;
   v6 = result;
   if ( result )
@@ -52,7 +52,7 @@ wchar_t *__fastcall GetModuleFullPathName(__int64 a1, char *a2)
         Length = 0;
       }
     }
-    RtlFreeHeap_0(NtCurrentPeb()->ProcessHeap, 0LL, v6);
+    RtlFreeHeap_0(NtCurrentPeb()->ProcessHeap, 0, v6);
     return (wchar_t *)Length;
   }
   return result;

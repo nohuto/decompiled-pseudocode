@@ -5,26 +5,26 @@
  *     InitBootProcessor @ 0x1407937C4 (InitBootProcessor.c)
  *     Phase1InitializationDiscard @ 0x140794438 (Phase1InitializationDiscard.c)
  * Callees:
- *     KiSetPendingTick @ 0x14009E0F8 (KiSetPendingTick.c)
- *     RtlRbInsertNodeEx @ 0x1400ECEC0 (RtlRbInsertNodeEx.c)
- *     xHalFreeMessageTarget @ 0x140130D64 (xHalFreeMessageTarget.c)
- *     KiSetupTimeIncrement @ 0x140149F88 (KiSetupTimeIncrement.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     xHalUnmaskInterrupt @ 0x14014CC60 (xHalUnmaskInterrupt.c)
- *     strstr @ 0x14014CF38 (strstr.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
- *     PoTraceDynamicTickDisabled @ 0x140207528 (PoTraceDynamicTickDisabled.c)
+ *     KiSetPendingTick @ 0x14009D8F8 (KiSetPendingTick.c)
+ *     RtlRbInsertNodeEx @ 0x1400EAD30 (RtlRbInsertNodeEx.c)
+ *     xHalFreeMessageTarget @ 0x1401312D4 (xHalFreeMessageTarget.c)
+ *     KiSetupTimeIncrement @ 0x14014A4F8 (KiSetupTimeIncrement.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     xHalUnmaskInterrupt @ 0x14014D1D0 (xHalUnmaskInterrupt.c)
+ *     strstr @ 0x14014D4A8 (strstr.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
+ *     PoTraceDynamicTickDisabled @ 0x140207354 (PoTraceDynamicTickDisabled.c)
  *     EmClientQueryRuleState @ 0x1403C84A8 (EmClientQueryRuleState.c)
  */
 
 BOOLEAN __fastcall KeInitializeClock(ULONG_PTR BugCheckParameter2, __int64 a2)
 {
-  bool v2; // bl
+  BOOLEAN v2; // bl
   BOOLEAN result; // al
   unsigned __int8 CurrentIrql; // di
-  unsigned __int64 v5; // rdx
+  _RTL_BALANCED_NODE *Root; // rdx
   const char *v6; // rcx
-  unsigned __int64 v7; // rax
+  _RTL_BALANCED_NODE *v7; // rax
   int v8; // [rsp+30h] [rbp-48h] BYREF
   LARGE_INTEGER PerformanceFrequency; // [rsp+38h] [rbp-40h] BYREF
   __int64 v10; // [rsp+40h] [rbp-38h]
@@ -36,8 +36,8 @@ BOOLEAN __fastcall KeInitializeClock(ULONG_PTR BugCheckParameter2, __int64 a2)
   if ( !(_DWORD)BugCheckParameter2 )
   {
     v6 = *(const char **)(a2 + 216);
-    qword_14030DDA8 = -1LL;
-    qword_14030DDC8 = -1LL;
+    qword_14030DDE8 = -1LL;
+    qword_14030DE08 = -1LL;
     if ( v6 && strstr(v6, "DISABLEDYNAMICTICK") )
       KiDynamicTickDisableReason = 1;
     off_1402F2580();
@@ -87,37 +87,33 @@ BOOLEAN __fastcall KeInitializeClock(ULONG_PTR BugCheckParameter2, __int64 a2)
   off_1402F2588();
   off_1402F25A0();
   KiSetPendingTick(1);
-  v5 = KiClockIntervalRequests;
+  Root = KiClockIntervalRequests.Root;
   KeTimeIncrement = v10;
   KiLastRequestedTimeIncrement = KeMaximumIncrement;
   KeNonHrTimeIncrement = v10;
-  dword_14030DE1C = KeMaximumIncrement;
-  if ( !KiClockIntervalRequests )
+  dword_14030DE5C = KeMaximumIncrement;
+  if ( !KiClockIntervalRequests.Root )
     goto LABEL_11;
-  while ( KeMaximumIncrement < *(_DWORD *)(v5 + 28) )
+  while ( KeMaximumIncrement < HIDWORD(Root[1].Left) )
   {
-    v7 = *(_QWORD *)v5;
-    if ( !*(_QWORD *)v5 )
+    v7 = Root->Children[0];
+    if ( !Root->Children[0] )
       goto LABEL_11;
 LABEL_34:
-    v5 = v7;
+    Root = v7;
   }
-  v7 = *(_QWORD *)(v5 + 8);
+  v7 = Root->Children[1];
   if ( v7 )
     goto LABEL_34;
   v2 = 1;
 LABEL_11:
-  RtlRbInsertNodeEx(
-    (unsigned __int64 *)&KiClockIntervalRequests,
-    v5,
-    v2,
-    (unsigned __int64)&KiDefaultClockIntervalRequest);
-  byte_14030DE18 = 1;
+  RtlRbInsertNodeEx(&KiClockIntervalRequests, Root, v2, &KiDefaultClockIntervalRequest);
+  byte_14030DE58 = 1;
   __writecr8(CurrentIrql);
-  dword_14030DDB0 = KeTimeIncrement;
-  dword_14030DDB4 = KeTimeIncrement;
+  dword_14030DDF0 = KeTimeIncrement;
+  dword_14030DDF4 = KeTimeIncrement;
   result = KiLastRequestedTimeIncrement;
-  dword_14030DDB8 = KiLastRequestedTimeIncrement;
-  dword_14030DDBC = KiLastRequestedTimeIncrement;
+  dword_14030DDF8 = KiLastRequestedTimeIncrement;
+  dword_14030DDFC = KiLastRequestedTimeIncrement;
   return result;
 }

@@ -1,19 +1,19 @@
 /*
- * XREFs of LdrpMapDllWithSectionHandle @ 0x18002F26C
+ * XREFs of LdrpMapDllWithSectionHandle @ 0x18002F25C
  * Callers:
- *     LdrpLoadKnownDll @ 0x180012040 (LdrpLoadKnownDll.c)
- *     LdrpMapDllNtFileName @ 0x18002D3AC (LdrpMapDllNtFileName.c)
+ *     LdrpLoadKnownDll @ 0x180012030 (LdrpLoadKnownDll.c)
+ *     LdrpMapDllNtFileName @ 0x18002D39C (LdrpMapDllNtFileName.c)
  * Callees:
- *     LdrpLogDllState @ 0x180015E20 (LdrpLogDllState.c)
- *     LdrpMapAndSnapDependency @ 0x180016434 (LdrpMapAndSnapDependency.c)
- *     LdrpMapImage @ 0x18002F44C (LdrpMapImage.c)
- *     LdrpProcessMappedModule @ 0x18002F938 (LdrpProcessMappedModule.c)
- *     LdrpLoadContextReplaceModule @ 0x180073728 (LdrpLoadContextReplaceModule.c)
- *     LdrpCorProcessImports @ 0x180087948 (LdrpCorProcessImports.c)
- *     LdrpLogNewDllLoadInternal @ 0x1800D18F0 (LdrpLogNewDllLoadInternal.c)
+ *     LdrpLogDllState @ 0x180015E10 (LdrpLogDllState.c)
+ *     LdrpMapAndSnapDependency @ 0x180016424 (LdrpMapAndSnapDependency.c)
+ *     LdrpMapImage @ 0x18002F43C (LdrpMapImage.c)
+ *     LdrpProcessMappedModule @ 0x18002F928 (LdrpProcessMappedModule.c)
+ *     LdrpLoadContextReplaceModule @ 0x180073718 (LdrpLoadContextReplaceModule.c)
+ *     LdrpCorProcessImports @ 0x180087938 (LdrpCorProcessImports.c)
+ *     LdrpLogNewDllLoadInternal @ 0x1800D19B0 (LdrpLogNewDllLoadInternal.c)
  */
 
-__int64 __fastcall LdrpMapDllWithSectionHandle(__int64 a1, __int64 a2)
+__int64 __fastcall LdrpMapDllWithSectionHandle(__int64 a1, void *a2)
 {
   __int64 v2; // rbx
   int v4; // eax
@@ -21,10 +21,10 @@ __int64 __fastcall LdrpMapDllWithSectionHandle(__int64 a1, __int64 a2)
   __int64 v6; // rcx
   __int64 v7; // rax
   __int64 v9; // rdx
-  __int64 v10; // [rsp+40h] [rbp+8h] BYREF
+  __int64 v10; // [rsp+40h] [rbp+8h]
 
   v2 = *(_QWORD *)(a1 + 48);
-  v4 = LdrpMapImage(a2, v2, *(unsigned int *)(a1 + 24), &v10);
+  v4 = LdrpMapImage(a2);
   v5 = v4;
   if ( v4 >= 0 && v4 != 1073741838 )
   {

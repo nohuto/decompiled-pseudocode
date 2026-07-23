@@ -1,11 +1,11 @@
 /*
- * XREFs of PnpTraceIommuDeviceProperties @ 0x1407B1BC8
+ * XREFs of PnpTraceIommuDeviceProperties @ 0x1407B4C28
  * Callers:
- *     PiIommuAllocateExtension @ 0x140AA4BCC (PiIommuAllocateExtension.c)
+ *     PiIommuAllocateExtension @ 0x140B21D08 (PiIommuAllocateExtension.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212E30 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgKeywordOn @ 0x14044F850 (_tlgKeywordOn.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212F10 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x140447980 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 void PnpTraceIommuDeviceProperties()
@@ -24,7 +24,7 @@ void PnpTraceIommuDeviceProperties()
   int *v11; // [rsp+90h] [rbp+37h]
   __int64 v12; // [rsp+98h] [rbp+3Fh]
 
-  if ( (unsigned int)dword_140E06EA8 > 5 && tlgKeywordOn((__int64)&dword_140E06EA8, 0x400000000000LL) )
+  if ( (unsigned int)dword_140E06E48 > 5 && tlgKeywordOn((__int64)&dword_140E06E48, 0x400000000000LL) )
   {
     v10[1] = 0;
     v5 = &v3;
@@ -37,6 +37,6 @@ void PnpTraceIommuDeviceProperties()
     v6 = 8LL;
     v8 = 2LL;
     v12 = 4LL;
-    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140E06EA8, (unsigned __int8 *)&byte_1400481BF, 0LL, 0LL, 6u, &v4);
+    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140E06E48, (unsigned __int8 *)byte_140048518, 0LL, 0LL, 6u, &v4);
   }
 }

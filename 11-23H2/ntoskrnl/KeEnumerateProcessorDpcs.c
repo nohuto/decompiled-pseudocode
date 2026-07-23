@@ -1,12 +1,12 @@
 /*
- * XREFs of KeEnumerateProcessorDpcs @ 0x14057225C
+ * XREFs of KeEnumerateProcessorDpcs @ 0x14057279C
  * Callers:
- *     DbgkpLkmdSnapGlobals @ 0x14053BC5C (DbgkpLkmdSnapGlobals.c)
+ *     DbgkpLkmdSnapGlobals @ 0x14053C1AC (DbgkpLkmdSnapGlobals.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KxAcquireSpinLock @ 0x1402515B0 (KxAcquireSpinLock.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KxAcquireSpinLock @ 0x140251670 (KxAcquireSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall KeEnumerateProcessorDpcs(int a1, __int64 a2, __int64 a3)
@@ -28,7 +28,7 @@ __int64 __fastcall KeEnumerateProcessorDpcs(int a1, __int64 a2, __int64 a3)
   v4 = KiProcessorBlock[a1];
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(0xFuLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     if ( CurrentIrql == 15 )
@@ -49,10 +49,10 @@ __int64 __fastcall KeEnumerateProcessorDpcs(int a1, __int64 a2, __int64 a3)
     --v9;
   }
   while ( v9 );
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v11 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v11 <= 0xFu && CurrentIrql <= 0xFu && v11 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v11 <= 0xFu && CurrentIrql <= 0xFu && v11 >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       v13 = CurrentPrcb->SchedulerAssist;

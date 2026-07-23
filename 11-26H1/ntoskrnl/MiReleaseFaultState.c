@@ -1,95 +1,97 @@
 /*
- * XREFs of MiReleaseFaultState @ 0x14038DD90
+ * XREFs of MiReleaseFaultState @ 0x14038FB40
  * Callers:
- *     MiFinishHardFault @ 0x14031D830 (MiFinishHardFault.c)
- *     MiTradeForPageTablePage @ 0x14033B46C (MiTradeForPageTablePage.c)
- *     MiWaitForCollidedFaultComplete @ 0x14038B588 (MiWaitForCollidedFaultComplete.c)
- *     MiIssueHardFault @ 0x14038D350 (MiIssueHardFault.c)
- *     MmAccessFault @ 0x1403A2390 (MmAccessFault.c)
- *     MiUserFault @ 0x1403A3140 (MiUserFault.c)
- *     MiInPagePageTable @ 0x1403A4C70 (MiInPagePageTable.c)
- *     MiFaultGetFileExtents @ 0x14050CBDC (MiFaultGetFileExtents.c)
- *     MiPrivateFixup @ 0x14051D784 (MiPrivateFixup.c)
- *     MiKernelWriteToExecutableMemory @ 0x1406FF57C (MiKernelWriteToExecutableMemory.c)
- *     MiSoftFaultClusterTradeReleaseLocks @ 0x140712784 (MiSoftFaultClusterTradeReleaseLocks.c)
+ *     MiFinishHardFault @ 0x14031F860 (MiFinishHardFault.c)
+ *     MiTradeForPageTablePage @ 0x14033D4EC (MiTradeForPageTablePage.c)
+ *     MiWaitForCollidedFaultComplete @ 0x14038D338 (MiWaitForCollidedFaultComplete.c)
+ *     MiIssueHardFault @ 0x14038F100 (MiIssueHardFault.c)
+ *     MmAccessFault @ 0x1403A40F0 (MmAccessFault.c)
+ *     MiUserFault @ 0x1403A4EA0 (MiUserFault.c)
+ *     MiInPagePageTable @ 0x1403A69D0 (MiInPagePageTable.c)
+ *     MiFaultGetFileExtents @ 0x14050664C (MiFaultGetFileExtents.c)
+ *     MiPrivateFixup @ 0x14051FCB0 (MiPrivateFixup.c)
+ *     MiKernelWriteToExecutableMemory @ 0x14070424C (MiKernelWriteToExecutableMemory.c)
+ *     MiSoftFaultClusterTradeReleaseLocks @ 0x14071747C (MiSoftFaultClusterTradeReleaseLocks.c)
  * Callees:
- *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x14021AAD4 (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     MiCheckProcessShadow @ 0x1402B2E70 (MiCheckProcessShadow.c)
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402B9F90 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     MiUnlockWorkingSetShared @ 0x1402EB6C0 (MiUnlockWorkingSetShared.c)
- *     MiAddWorkingSetEntries @ 0x1402EBAC0 (MiAddWorkingSetEntries.c)
- *     MiLockWorkingSetShared @ 0x1402EDD60 (MiLockWorkingSetShared.c)
- *     MiLockWorkingSetSharedAtDpc @ 0x1403654E4 (MiLockWorkingSetSharedAtDpc.c)
- *     ExpReleaseSpinLockSharedFromDpcLevelInstrumented @ 0x14036A848 (ExpReleaseSpinLockSharedFromDpcLevelInstrumented.c)
- *     MiDeleteDeferredCloneDescriptors @ 0x1404FBFC4 (MiDeleteDeferredCloneDescriptors.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     FirstEntrySList @ 0x140730C80 (FirstEntrySList.c)
+ *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x14021C464 (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiUnlockWorkingSetShared @ 0x1402CD700 (MiUnlockWorkingSetShared.c)
+ *     MiAddWorkingSetEntries @ 0x1402CDB00 (MiAddWorkingSetEntries.c)
+ *     MiLockWorkingSetShared @ 0x1402CFDE0 (MiLockWorkingSetShared.c)
+ *     MiCheckProcessShadow @ 0x1402FDB40 (MiCheckProcessShadow.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140304C50 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     MiLockWorkingSetSharedAtDpc @ 0x140367284 (MiLockWorkingSetSharedAtDpc.c)
+ *     ExpReleaseSpinLockSharedFromDpcLevelInstrumented @ 0x14036C5E8 (ExpReleaseSpinLockSharedFromDpcLevelInstrumented.c)
+ *     MiDeleteDeferredCloneDescriptors @ 0x1404F5510 (MiDeleteDeferredCloneDescriptors.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     FirstEntrySList @ 0x140735850 (FirstEntrySList.c)
  */
 
-__int64 __fastcall MiReleaseFaultState(__int64 a1, unsigned __int8 a2, _BYTE *a3)
+__int64 __fastcall MiReleaseFaultState(__int64 a1, unsigned __int8 a2, __int64 a3, __int64 a4)
 {
-  __int64 v3; // r13
-  __int64 v4; // rsi
-  char v8; // r9
-  unsigned __int64 v9; // rdx
+  __int64 v4; // r13
+  __int64 v5; // rsi
+  _BYTE *v6; // rdi
+  char v9; // r9
   unsigned __int64 v10; // rdx
+  unsigned __int64 v11; // rdx
   struct _KPRCB *CurrentPrcb; // rdx
-  char v12; // cl
-  __int64 v13; // rax
-  __int64 v14; // rcx
-  __int64 v15; // rdx
-  int v16; // eax
-  volatile signed __int32 *v17; // rcx
-  unsigned __int64 v18; // rdx
-  int v19; // ebx
-  __int64 *v20; // r14
-  int v21; // r12d
-  _DWORD *v22; // r14
-  __int64 v23; // rbp
-  volatile LONG *v24; // rdi
-  __int64 v25; // rdx
-  __int64 v26; // r8
+  char v13; // cl
+  __int64 v14; // rax
+  __int64 v15; // rcx
+  __int64 v16; // rdx
+  int v17; // eax
+  volatile signed __int32 *v18; // rcx
+  unsigned __int64 v19; // rdx
+  int v20; // ebx
+  __int64 *v21; // r14
+  int v22; // r12d
+  _DWORD *v23; // r14
+  __int64 v24; // rbp
+  volatile LONG *v25; // rdi
+  __int64 v26; // rdx
+  __int64 v27; // r8
   _KPROCESS *Process; // rbx
   __int64 retaddr; // [rsp+58h] [rbp+0h]
 
-  v3 = *(_QWORD *)(a1 + 16);
-  v4 = *(_QWORD *)a1;
-  if ( v3 )
+  v4 = *(_QWORD *)(a1 + 16);
+  v5 = *(_QWORD *)a1;
+  v6 = (_BYTE *)a3;
+  if ( v4 )
   {
     if ( *(_WORD *)(a1 + 10) )
     {
-      v8 = *(_BYTE *)(a1 + 13) & 2;
-      v9 = ((unsigned __int64)*(unsigned __int16 *)(a1 + 8) << 12) + (v3 << 25 >> 16 << 25 >> 16);
-      if ( v9 < 0xFFFFF68000000000uLL || v9 > 0xFFFFF6FFFFFFFFFFuLL )
+      v9 = *(_BYTE *)(a1 + 13) & 2;
+      v10 = ((unsigned __int64)*(unsigned __int16 *)(a1 + 8) << 12) + (v4 << 25 >> 16 << 25 >> 16);
+      if ( v10 < 0xFFFFF68000000000uLL || v10 > 0xFFFFF6FFFFFFFFFFuLL )
       {
-        v8 |= 5u;
+        v9 |= 5u;
       }
-      else if ( (*(_DWORD *)(v4 + 184) & 0xF) == 0 )
+      else if ( (*(_DWORD *)(v5 + 184) & 0xF) == 0 )
       {
-        v8 |= 4u;
+        v9 |= 4u;
       }
-      MiAddWorkingSetEntries(v4, v9, *(unsigned __int16 *)(a1 + 10), v8);
+      MiAddWorkingSetEntries(v5, v10, *(unsigned __int16 *)(a1 + 10), v9);
       *(_WORD *)(a1 + 10) = 0;
     }
-    v10 = *(_QWORD *)(a1 + 16);
-    if ( v10 == 0xFFFFF6FB7DBEDF68uLL )
+    v11 = *(_QWORD *)(a1 + 16);
+    if ( v11 == 0xFFFFF6FB7DBEDF68uLL )
     {
       CurrentPrcb = KeGetCurrentPrcb();
-      v12 = *(_DWORD *)(v4 + 184) & 0xF;
-      if ( v12 )
+      v13 = *(_DWORD *)(v5 + 184) & 0xF;
+      if ( v13 )
       {
-        if ( v12 == 7 )
+        if ( v13 == 7 )
         {
           KeReleaseInStackQueuedSpinLockFromDpcLevel(&CurrentPrcb->SelfmapLockHandle[1]);
         }
         else
         {
-          v13 = 3LL;
-          if ( v12 == 5 )
-            v13 = 0LL;
-          KeReleaseInStackQueuedSpinLockFromDpcLevel(&CurrentPrcb->SelfmapLockHandle[v13]);
+          v14 = 3LL;
+          if ( v13 == 5 )
+            v14 = 0LL;
+          KeReleaseInStackQueuedSpinLockFromDpcLevel(&CurrentPrcb->SelfmapLockHandle[v14]);
         }
       }
       else
@@ -97,95 +99,100 @@ __int64 __fastcall MiReleaseFaultState(__int64 a1, unsigned __int8 a2, _BYTE *a3
         KeReleaseInStackQueuedSpinLockFromDpcLevel(&CurrentPrcb->SelfmapLockHandle[2]);
       }
     }
-    else if ( (*(_DWORD *)(v4 + 184) & 0xF) != 0
-           || v10 < 0xFFFFF6FB7DBED000uLL
-           || v10 > 0xFFFFF6FB7DBEDFFFuLL
-           || (v14 = *(_QWORD *)&KeGetCurrentThread()->ApcState.Process[2].ActiveProcessors[6].Count) == 0 )
-    {
-      if ( (*(_DWORD *)(v4 + 184) & 0xF) != 0 && v10 >= 0xFFFFF6FB7DBED000uLL && v10 <= 0xFFFFF6FB7DBEDFFFuLL )
-      {
-        v18 = 2 * (unsigned int)((__int64)(v10 + 0x90482413000LL) >> 3);
-        _InterlockedAnd(
-          (volatile signed __int32 *)&stru_140E2D930.PriorityFloorCounts[4 * (v18 >> 5) + 4],
-          ~(2 << (v18 & 0x1F)) & ~(1 << (v18 & 0x1F)));
-      }
-      else
-      {
-        _InterlockedAnd64((volatile signed __int64 *)v10, 0xCFFFFFFFFFFFFFFFuLL);
-      }
-    }
     else
     {
-      v15 = (v10 >> 3) & 0x1FF;
-      v16 = *(_DWORD *)(v14 + 4 * v15);
-      v17 = (volatile signed __int32 *)(v14 + 4 * v15);
-      if ( (v16 & 0x3FFFFFFF) != 0 )
+      a3 = 0xFFFFF6FB7DBED000uLL;
+      a4 = 0xFFFFF6FB7DBEDFFFuLL;
+      if ( (*(_DWORD *)(v5 + 184) & 0xF) != 0
+        || v11 < 0xFFFFF6FB7DBED000uLL
+        || v11 > 0xFFFFF6FB7DBEDFFFuLL
+        || (v15 = *(_QWORD *)&KeGetCurrentThread()->ApcState.Process[2].ActiveProcessors[6].Count) == 0 )
       {
-        if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+        if ( (*(_DWORD *)(v5 + 184) & 0xF) != 0 && v11 >= 0xFFFFF6FB7DBED000uLL && v11 <= 0xFFFFF6FB7DBEDFFFuLL )
         {
-          _InterlockedAnd(v17, 0xBFFFFFFF);
-          _InterlockedDecrement(v17);
+          v19 = 2 * (unsigned int)((__int64)(v11 + 0x90482413000LL) >> 3);
+          _InterlockedAnd(
+            (volatile signed __int32 *)&stru_140E2DAB0.PriorityFloorCounts[4 * (v19 >> 5) + 4],
+            ~(2 << (v19 & 0x1F)) & ~(1 << (v19 & 0x1F)));
         }
         else
         {
-          ExpReleaseSpinLockSharedFromDpcLevelInstrumented(v17, retaddr);
+          _InterlockedAnd64((volatile signed __int64 *)v11, 0xCFFFFFFFFFFFFFFFuLL);
         }
       }
       else
       {
-        if ( v16 >= 0 )
-          KeBugCheckEx(0x10u, (ULONG_PTR)v17, 0x100uLL, 0LL, 0LL);
-        if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
-          *v17 = 0;
+        v16 = (v11 >> 3) & 0x1FF;
+        v17 = *(_DWORD *)(v15 + 4 * v16);
+        v18 = (volatile signed __int32 *)(v15 + 4 * v16);
+        if ( (v17 & 0x3FFFFFFF) != 0 )
+        {
+          if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || PopHibernateInProgress )
+          {
+            _InterlockedAnd(v18, 0xBFFFFFFF);
+            _InterlockedDecrement(v18);
+          }
+          else
+          {
+            ExpReleaseSpinLockSharedFromDpcLevelInstrumented(v18, retaddr);
+          }
+        }
         else
-          ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented(v17, retaddr);
+        {
+          if ( v17 >= 0 )
+            KeBugCheckEx(0x10u, (ULONG_PTR)v18, 0x100uLL, 0LL, 0LL);
+          if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || PopHibernateInProgress )
+            *v18 = 0;
+          else
+            ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented(v18, retaddr);
+        }
       }
     }
     *(_BYTE *)(a1 + 13) |= 4u;
     *(_QWORD *)(a1 + 16) = 0LL;
   }
-  if ( a3 )
-    *a3 = *(_BYTE *)(a1 + 12);
+  if ( v6 )
+    *v6 = *(_BYTE *)(a1 + 12);
   else
     a2 = *(_BYTE *)(a1 + 12);
   if ( (*(_BYTE *)(a1 + 13) & 1) == 0 )
     goto LABEL_67;
-  v19 = *(_DWORD *)(v4 + 184);
-  v20 = &qword_140E37800;
-  if ( (v19 & 0xF) != 1 )
-    v20 = (__int64 *)(v4 + 192);
-  v21 = *(_DWORD *)(&KeGetCurrentThread()[1].SwapListEntry + 1) & 0x400000;
-  MiCheckProcessShadow(v4, 2u);
-  v22 = (_DWORD *)*v20;
-  v23 = 3LL;
-  v24 = v22 + 16;
+  v20 = *(_DWORD *)(v5 + 184);
+  v21 = &qword_140E37980;
+  if ( (v20 & 0xF) != 1 )
+    v21 = (__int64 *)(v5 + 192);
+  v22 = *(_DWORD *)(&KeGetCurrentThread()[1].SwapListEntry + 1) & 0x400000;
+  MiCheckProcessShadow(v5, 2u, a3, a4);
+  v23 = (_DWORD *)*v21;
+  v24 = 3LL;
+  v25 = v23 + 16;
   do
   {
-    ExReleaseSpinLockExclusiveFromDpcLevel(v24);
-    v24 += 16;
-    --v23;
+    ExReleaseSpinLockExclusiveFromDpcLevel(v25);
+    v25 += 16;
+    --v24;
   }
-  while ( v23 );
+  while ( v24 );
   if ( a2 == 17 )
   {
-    if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
-      *v22 = 0;
+    if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || PopHibernateInProgress )
+      *v23 = 0;
     else
-      ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented(v22, retaddr);
+      ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented(v23, retaddr);
   }
   else
   {
-    if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
-      *v22 = 0;
+    if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || PopHibernateInProgress )
+      *v23 = 0;
     else
-      ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented(v22, retaddr);
+      ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented(v23, retaddr);
     if ( KiIrqlFlags )
       KiLowerIrqlProcessIrqlFlags(KeGetCurrentIrql(), a2);
     __writecr8(a2);
   }
-  if ( (v19 & 0xF) == 0 )
+  if ( (v20 & 0xF) == 0 )
   {
-    if ( *(_QWORD *)(v4 + 16) )
+    if ( *(_QWORD *)(v5 + 16) )
     {
       Process = KeGetCurrentThread()->ApcState.Process;
       if ( Process[2].ActiveProcessors != (volatile _KAFFINITY_EX *)-896LL )
@@ -195,14 +202,14 @@ __int64 __fastcall MiReleaseFaultState(__int64 a1, unsigned __int8 a2, _BYTE *a3
       }
     }
   }
-  if ( !v21 && (unsigned __int16)*(_DWORD *)(v4 + 188) )
+  if ( !v22 && (unsigned __int16)*(_DWORD *)(v5 + 188) )
   {
     if ( a2 == 17 )
-      MiLockWorkingSetSharedAtDpc(v4);
+      MiLockWorkingSetSharedAtDpc(v5);
     else
-      MiLockWorkingSetShared(v4, v25, v26);
+      MiLockWorkingSetShared(v5, v26, v27);
 LABEL_67:
-    MiUnlockWorkingSetShared(v4, a2);
+    MiUnlockWorkingSetShared(v5, a2);
   }
-  return v3;
+  return v4;
 }

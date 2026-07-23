@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlQueryModuleInformation @ 0x18013C040
+ * XREFs of RtlQueryModuleInformation @ 0x18013BF00
  * Callers:
  *     <none>
  * Callees:
- *     RtlFreeHeap_0 @ 0x18003FD10 (RtlFreeHeap_0.c)
- *     RtlAllocateHeap_0 @ 0x1800439E0 (RtlAllocateHeap_0.c)
- *     NtQuerySystemInformation @ 0x18015F600 (NtQuerySystemInformation.c)
- *     __security_check_cookie @ 0x180162C90 (__security_check_cookie.c)
- *     memset$thunk$772440563353939046 @ 0x180170030 (memset$thunk$772440563353939046.c)
+ *     RtlFreeHeap_0 @ 0x18002A280 (RtlFreeHeap_0.c)
+ *     RtlAllocateHeap_0 @ 0x18002DF50 (RtlAllocateHeap_0.c)
+ *     NtQuerySystemInformation @ 0x18015F500 (NtQuerySystemInformation.c)
+ *     __security_check_cookie @ 0x180162B90 (__security_check_cookie.c)
+ *     memset$thunk$772440563353939046 @ 0x18016F030 (memset$thunk$772440563353939046.c)
  */
 
 __int64 __fastcall RtlQueryModuleInformation(unsigned int *a1, int a2, __int64 a3)
@@ -112,13 +112,13 @@ LABEL_28:
         goto LABEL_28;
       }
       if ( Heap_0 != (unsigned int *)SystemInformation )
-        RtlFreeHeap_0();
-      Heap_0 = (unsigned int *)RtlAllocateHeap_0();
+        RtlFreeHeap_0(NtCurrentPeb()->ProcessHeap, 0, Heap_0);
+      Heap_0 = (unsigned int *)RtlAllocateHeap_0(NtCurrentPeb()->ProcessHeap, NtdllBaseTag + 1572864, ReturnLength[0]);
       if ( !Heap_0 )
         return 3221225626LL;
     }
     if ( Heap_0 != (unsigned int *)SystemInformation )
-      RtlFreeHeap_0();
+      RtlFreeHeap_0(NtCurrentPeb()->ProcessHeap, 0, Heap_0);
     return v11;
   }
   return result;

@@ -1,18 +1,18 @@
 /*
- * XREFs of ExReArmFastCache @ 0x1406AE05C
+ * XREFs of ExReArmFastCache @ 0x1406AE194
  * Callers:
  *     <none>
  * Callees:
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x140055FA0 (KiLeaveCriticalRegionUnsafe.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     ExpLicUpdateChecksum @ 0x14008606C (ExpLicUpdateChecksum.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1400C8070 (ExfAcquirePushLockExclusiveEx.c)
- *     ExfTryToWakePushLock @ 0x1400C8738 (ExfTryToWakePushLock.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     CmSetValueKey @ 0x1404037B0 (CmSetValueKey.c)
- *     ExpObtainFastCacheKeyBody @ 0x14057A65C (ExpObtainFastCacheKeyBody.c)
- *     sub_1406AF6C0 @ 0x1406AF6C0 (sub_1406AF6C0.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140055B20 (KiLeaveCriticalRegionUnsafe.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     ExpLicUpdateChecksum @ 0x14008795C (ExpLicUpdateChecksum.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1400C5F10 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfTryToWakePushLock @ 0x1400C65D8 (ExfTryToWakePushLock.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     CmSetValueKey @ 0x140402670 (CmSetValueKey.c)
+ *     ExpObtainFastCacheKeyBody @ 0x14057AB9C (ExpObtainFastCacheKeyBody.c)
+ *     sub_1406AF7F8 @ 0x1406AF7F8 (sub_1406AF7F8.c)
  */
 
 __int64 ExReArmFastCache()
@@ -56,14 +56,14 @@ __int64 ExReArmFastCache()
     v5 = 0;
     while ( 1 )
     {
-      updated = sub_1406AF6C0(v5, 0LL);
+      updated = sub_1406AF7F8(v5, 0LL);
       if ( updated < 0 )
         break;
       if ( ++v5 >= 5 )
       {
         ExpFastCacheReArmed = 1;
         if ( *(_QWORD *)&qword_140747E48
-          || (updated = ExpObtainFastCacheKeyBody((UNICODE_STRING *)&stru_1406E9958, (PVOID *)&qword_140747E48),
+          || (updated = ExpObtainFastCacheKeyBody((UNICODE_STRING *)&stru_1406E9A88, (PVOID *)&qword_140747E48),
               updated >= 0) )
         {
           v15 = 0LL;
@@ -88,7 +88,7 @@ __int64 ExReArmFastCache()
             v19 = v15;
             updated = CmSetValueKey(
                         *(__int64 *)&qword_140747E48,
-                        (UNICODE_STRING *)&stru_1406E9948,
+                        (UNICODE_STRING *)&stru_1406E9A78,
                         3,
                         v18,
                         v14,

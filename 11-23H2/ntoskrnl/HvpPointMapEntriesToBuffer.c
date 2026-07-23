@@ -1,14 +1,14 @@
 /*
- * XREFs of HvpPointMapEntriesToBuffer @ 0x14074FDCC
+ * XREFs of HvpPointMapEntriesToBuffer @ 0x14074FFBC
  * Callers:
- *     HvpAddBin @ 0x14074F174 (HvpAddBin.c)
- *     HvpRemapAndEnlistHiveBins @ 0x14074F794 (HvpRemapAndEnlistHiveBins.c)
- *     HvpBuildMapForMemoryBackedHive @ 0x140826778 (HvpBuildMapForMemoryBackedHive.c)
- *     HvpDropPagedBins @ 0x140827034 (HvpDropPagedBins.c)
- *     HvpAddDummyBinToHive @ 0x140A1DC30 (HvpAddDummyBinToHive.c)
- *     HvpMapHiveImage @ 0x140A1DCF4 (HvpMapHiveImage.c)
+ *     HvpAddBin @ 0x14074F364 (HvpAddBin.c)
+ *     HvpRemapAndEnlistHiveBins @ 0x14074F984 (HvpRemapAndEnlistHiveBins.c)
+ *     HvpBuildMapForMemoryBackedHive @ 0x140826A78 (HvpBuildMapForMemoryBackedHive.c)
+ *     HvpDropPagedBins @ 0x140827334 (HvpDropPagedBins.c)
+ *     HvpAddDummyBinToHive @ 0x140A1DEE0 (HvpAddDummyBinToHive.c)
+ *     HvpMapHiveImage @ 0x140A1DFA4 (HvpMapHiveImage.c)
  * Callees:
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
  *     HvpGetCellMap @ 0x140AF5280 (HvpGetCellMap.c)
  */
 

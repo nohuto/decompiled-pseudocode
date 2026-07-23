@@ -1,17 +1,17 @@
 /*
- * XREFs of MiEstablishDefragSlabEntries @ 0x140706AC4
+ * XREFs of MiEstablishDefragSlabEntries @ 0x14070B794
  * Callers:
- *     MiDefragmentSlabWorker @ 0x1407063E4 (MiDefragmentSlabWorker.c)
+ *     MiDefragmentSlabWorker @ 0x14070B0B4 (MiDefragmentSlabWorker.c)
  * Callees:
- *     MiReleaseFreshPage @ 0x140292190 (MiReleaseFreshPage.c)
- *     MiFreeSlabEntry @ 0x1402A7A6C (MiFreeSlabEntry.c)
- *     MiRemoveSlabEntry @ 0x1402A9800 (MiRemoveSlabEntry.c)
- *     MiClearHintSlabEntry @ 0x1402A9900 (MiClearHintSlabEntry.c)
- *     MiEnumerateSlabAllocatorsEx @ 0x1404A0C04 (MiEnumerateSlabAllocatorsEx.c)
- *     MiPurgeSlabEntry @ 0x1404C1DFC (MiPurgeSlabEntry.c)
- *     MiDetermineDefragmentSlabIdentity @ 0x140706A00 (MiDetermineDefragmentSlabIdentity.c)
- *     MiFindDefragmentSlabEntries @ 0x140706E34 (MiFindDefragmentSlabEntries.c)
- *     MiLockUnlockSlabContextsForDefrag @ 0x1407077BC (MiLockUnlockSlabContextsForDefrag.c)
+ *     MiReleaseFreshPage @ 0x1402916F0 (MiReleaseFreshPage.c)
+ *     MiFreeSlabEntry @ 0x1402A6E7C (MiFreeSlabEntry.c)
+ *     MiRemoveSlabEntry @ 0x1402A8C10 (MiRemoveSlabEntry.c)
+ *     MiClearHintSlabEntry @ 0x1402A8D10 (MiClearHintSlabEntry.c)
+ *     MiEnumerateSlabAllocatorsEx @ 0x14049A754 (MiEnumerateSlabAllocatorsEx.c)
+ *     MiPurgeSlabEntry @ 0x1404BB64C (MiPurgeSlabEntry.c)
+ *     MiDetermineDefragmentSlabIdentity @ 0x14070B6D0 (MiDetermineDefragmentSlabIdentity.c)
+ *     MiFindDefragmentSlabEntries @ 0x14070BB04 (MiFindDefragmentSlabEntries.c)
+ *     MiLockUnlockSlabContextsForDefrag @ 0x14070C48C (MiLockUnlockSlabContextsForDefrag.c)
  */
 
 __int64 __fastcall MiEstablishDefragSlabEntries(__int64 a1)

@@ -1,8 +1,8 @@
 /*
- * XREFs of RtlpHpLfhSlotAllocate @ 0x1400BAEA0
+ * XREFs of RtlpHpLfhSlotAllocate @ 0x1400BADE0
  * Callers:
- *     ExAllocateHeapPool @ 0x1400BA170 (ExAllocateHeapPool.c)
- *     RtlpHpLfhBucketAllocate @ 0x1402FD1F4 (RtlpHpLfhBucketAllocate.c)
+ *     ExAllocateHeapPool @ 0x1400BA0B0 (ExAllocateHeapPool.c)
+ *     RtlpHpLfhBucketAllocate @ 0x1402FD3E4 (RtlpHpLfhBucketAllocate.c)
  * Callees:
  *     KiAbEntryRemoveFromTree @ 0x140004530 (KiAbEntryRemoveFromTree.c)
  *     KiCheckForKernelApcDelivery @ 0x140005A50 (KiCheckForKernelApcDelivery.c)
@@ -16,23 +16,23 @@
  *     KiLeaveGuardedRegionUnsafe @ 0x14004F090 (KiLeaveGuardedRegionUnsafe.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     ExGenRandom @ 0x1400627E0 (ExGenRandom.c)
- *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
- *     ExfReleasePushLockShared @ 0x1400914B0 (ExfReleasePushLockShared.c)
- *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14009D110 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     RtlpHpAcquireLockExclusive @ 0x1400BC4A0 (RtlpHpAcquireLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x1400BC4E0 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC660 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     RtlpHpLfhSubsegmentFreeBlock @ 0x1400BEE30 (RtlpHpLfhSubsegmentFreeBlock.c)
- *     RtlpHpLfhBucketAddSubsegment @ 0x14010E130 (RtlpHpLfhBucketAddSubsegment.c)
- *     RtlpHpLfhBucketGetSubsegment @ 0x14010E440 (RtlpHpLfhBucketGetSubsegment.c)
- *     RtlpHpLfhOwnerMoveSubsegment @ 0x14010E720 (RtlpHpLfhOwnerMoveSubsegment.c)
- *     RtlpHpLfhBucketUpdateAffinityMapping @ 0x14012C460 (RtlpHpLfhBucketUpdateAffinityMapping.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
- *     RtlpHpLfhSubsegmentCommitBlock @ 0x1402FD318 (RtlpHpLfhSubsegmentCommitBlock.c)
- *     ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x14031C0B4 (ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented.c)
- *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x14031C278 (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
+ *     KeYieldProcessorEx @ 0x14006C9E0 (KeYieldProcessorEx.c)
+ *     ExfReleasePushLockShared @ 0x1400913F0 (ExfReleasePushLockShared.c)
+ *     ExfTryToWakePushLock @ 0x140091500 (ExfTryToWakePushLock.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14009D050 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     RtlpHpAcquireLockExclusive @ 0x1400BC3E0 (RtlpHpAcquireLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x1400BC420 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC5A0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     RtlpHpLfhSubsegmentFreeBlock @ 0x1400BED70 (RtlpHpLfhSubsegmentFreeBlock.c)
+ *     RtlpHpLfhBucketAddSubsegment @ 0x14010E1B0 (RtlpHpLfhBucketAddSubsegment.c)
+ *     RtlpHpLfhBucketGetSubsegment @ 0x14010E4C0 (RtlpHpLfhBucketGetSubsegment.c)
+ *     RtlpHpLfhOwnerMoveSubsegment @ 0x14010E7A0 (RtlpHpLfhOwnerMoveSubsegment.c)
+ *     RtlpHpLfhBucketUpdateAffinityMapping @ 0x14012C530 (RtlpHpLfhBucketUpdateAffinityMapping.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
+ *     RtlpHpLfhSubsegmentCommitBlock @ 0x1402FD508 (RtlpHpLfhSubsegmentCommitBlock.c)
+ *     ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x14031C2A4 (ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented.c)
+ *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x14031C468 (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
  */
 
 __int64 __fastcall RtlpHpLfhSlotAllocate(__int64 a1, __int64 a2, __int64 a3, unsigned int a4, unsigned int a5)
@@ -386,7 +386,7 @@ LABEL_217:
             {
               v119->CrossThreadReleasableAndBusyByte |= 2u;
               if ( (__int64)v119->LockState.LockState < 0 )
-                KiAbEntryRemoveFromTree((__int64)&v113->LockEntries[v118], v115);
+                KiAbEntryRemoveFromTree(&v113->LockEntries[v118].TreeNode, v115);
               v160 = 0;
               v160 = v119->BoostBitmap.AllFields & 0x1FFFF;
               v119->BoostBitmap.AllFields &= 0xFFFE0000;
@@ -410,8 +410,8 @@ LABEL_217:
         v64 = 2 * (*(unsigned __int16 *)(v63 + 34) + (unsigned __int64)*(unsigned __int8 *)(v63 + 39));
         v65 = RtlpSearchWidth[*(unsigned __int8 *)(a3 + 1)];
         v163 = (unsigned int)v63 >> 12;
-        v66 = (unsigned __int16)(qword_14040E088 ^ *(_WORD *)(v63 + 40) ^ ((unsigned int)v63 >> 12));
-        v162 = qword_14040E088 ^ *(_DWORD *)(v63 + 40) ^ ((unsigned int)v63 >> 12);
+        v66 = (unsigned __int16)(qword_14040F0E8 ^ *(_WORD *)(v63 + 40) ^ ((unsigned int)v63 >> 12));
+        v162 = qword_14040F0E8 ^ *(_DWORD *)(v63 + 40) ^ ((unsigned int)v63 >> 12);
         v67 = 3LL;
         if ( a4 >= v66 )
           v67 = 1LL;
@@ -573,7 +573,7 @@ LABEL_321:
             {
               v145->CrossThreadReleasableAndBusyByte |= 2u;
               if ( (__int64)v145->LockState.LockState < 0 )
-                KiAbEntryRemoveFromTree((__int64)&v138->LockEntries[v144], v141);
+                KiAbEntryRemoveFromTree(&v138->LockEntries[v144].TreeNode, v141);
               v161 = 0;
               v161 = v145->BoostBitmap.AllFields & 0x1FFFF;
               v145->BoostBitmap.AllFields &= 0xFFFE0000;
@@ -599,7 +599,7 @@ LABEL_321:
         if ( a4 < v66 )
         {
           v134 = v66 - a4;
-          v135 = (unsigned __int16)qword_14040E088 ^ *(unsigned __int16 *)(v63 + 40) ^ (unsigned __int64)(unsigned __int16)v163;
+          v135 = (unsigned __int16)qword_14040F0E8 ^ *(unsigned __int16 *)(v63 + 40) ^ (unsigned __int64)(unsigned __int16)v163;
           if ( v134 == 1 )
             v136 = 0x8000;
           else
@@ -705,7 +705,7 @@ LABEL_203:
       {
         v101->CrossThreadReleasableAndBusyByte |= 2u;
         if ( (__int64)v101->LockState.LockState < 0 )
-          KiAbEntryRemoveFromTree((__int64)&v95->LockEntries[v100], v97);
+          KiAbEntryRemoveFromTree(&v95->LockEntries[v100].TreeNode, v97);
         v159 = 0;
         v159 = v101->BoostBitmap.AllFields & 0x1FFFF;
         v101->BoostBitmap.AllFields &= 0xFFFE0000;
@@ -976,7 +976,7 @@ LABEL_127:
       {
         *(_BYTE *)(v31 + 32) |= 2u;
         if ( *(__int64 *)(v31 + 32) < 0 )
-          KiAbEntryRemoveFromTree(v31, v26);
+          KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)v31, v26);
         v158 = 0;
         v158 = *(_DWORD *)(v31 + 88) & 0x1FFFF;
         *(_DWORD *)(v31 + 88) &= 0xFFFE0000;
@@ -1017,7 +1017,7 @@ LABEL_160:
   v39 = RtlpSearchWidth[v36];
   LODWORD(v36) = ((unsigned int)v12 >> 12) ^ *(_DWORD *)(v12 + 40);
   v162 = (unsigned int)v12 >> 12;
-  LODWORD(v36) = qword_14040E088 ^ v36;
+  LODWORD(v36) = qword_14040F0E8 ^ v36;
   v40 = (unsigned __int16)v36;
   v41 = a4 < (unsigned __int16)v36;
   v163 = v36;
@@ -1110,7 +1110,7 @@ LABEL_62:
         v151 = 0x8000;
       else
         v151 = v150 & 0x3FFF;
-      *(_WORD *)(((unsigned __int16)qword_14040E088 ^ *(unsigned __int16 *)(v12 + 40) ^ (unsigned __int64)(unsigned __int16)v162)
+      *(_WORD *)(((unsigned __int16)qword_14040F0E8 ^ *(unsigned __int16 *)(v12 + 40) ^ (unsigned __int64)(unsigned __int16)v162)
                + v61
                - 2) = v151;
     }

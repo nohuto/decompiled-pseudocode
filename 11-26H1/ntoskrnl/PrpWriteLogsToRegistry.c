@@ -1,13 +1,13 @@
 /*
- * XREFs of PrpWriteLogsToRegistry @ 0x1404F7398
+ * XREFs of PrpWriteLogsToRegistry @ 0x1404F09A8
  * Callers:
- *     MicrocodeLogRegistry @ 0x1404F72B0 (MicrocodeLogRegistry.c)
+ *     MicrocodeLogRegistry @ 0x1404F08C0 (MicrocodeLogRegistry.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     wcslen @ 0x1405380A0 (wcslen.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     ZwOpenKey @ 0x140723630 (ZwOpenKey.c)
- *     ZwSetValueKey @ 0x140723FF0 (ZwSetValueKey.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     wcslen @ 0x14053A520 (wcslen.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     ZwOpenKey @ 0x140728200 (ZwOpenKey.c)
+ *     ZwSetValueKey @ 0x140728BC0 (ZwSetValueKey.c)
  */
 
 NTSTATUS __fastcall PrpWriteLogsToRegistry(__int64 a1, UNICODE_STRING *a2)
@@ -42,11 +42,11 @@ NTSTATUS __fastcall PrpWriteLogsToRegistry(__int64 a1, UNICODE_STRING *a2)
   result = ZwOpenKey(&KeyHandle, 0x2001Fu, &ObjectAttributes);
   if ( result >= 0 )
   {
-    if ( CmpCallbackListLock.WaitBlock[0].Thread )
+    if ( CmpContextListLock.WaitBlock[0].WaitListEntry.Blink )
     {
       RtlInitUnicodeString(&DestinationString, L"Microcode Runtime Update Latency (x100s ns)");
-      ZwSetValueKey(KeyHandle, &DestinationString, 0, 0xBu, &CmpCallbackListLock.WaitBlockFill11[24], 8u);
-      CmpCallbackListLock.WaitBlock[0].Thread = 0LL;
+      ZwSetValueKey(KeyHandle, &DestinationString, 0, 0xBu, &CmpContextListLock.WaitBlockFill10[8], 8u);
+      CmpContextListLock.WaitBlock[0].WaitListEntry.Blink = 0LL;
     }
     *(_QWORD *)&DestinationString.Length = 0LL;
     DestinationString.Buffer = (wchar_t *)L"Patch Source";
@@ -55,7 +55,7 @@ NTSTATUS __fastcall PrpWriteLogsToRegistry(__int64 a1, UNICODE_STRING *a2)
       LOWORD(v3) = -4;
     DestinationString.Length = v3;
     DestinationString.MaximumLength = v3 + 2;
-    ZwSetValueKey(KeyHandle, &DestinationString, 0, 4u, (PVOID)&CmpCallbackListLock.Queue, 4u);
+    ZwSetValueKey(KeyHandle, &DestinationString, 0, 4u, &CmpContextListLock.SwapListEntry + 1, 4u);
     *(_QWORD *)&DestinationString.Length = 0LL;
     DestinationString.Buffer = (wchar_t *)L"Record Type";
     v4 = 2 * wcslen(L"Record Type");
@@ -63,7 +63,7 @@ NTSTATUS __fastcall PrpWriteLogsToRegistry(__int64 a1, UNICODE_STRING *a2)
       LOWORD(v4) = -4;
     DestinationString.Length = v4;
     DestinationString.MaximumLength = v4 + 2;
-    ZwSetValueKey(KeyHandle, &DestinationString, 0, 4u, (char *)&CmpCallbackListLock.Queue + 4, 4u);
+    ZwSetValueKey(KeyHandle, &DestinationString, 0, 4u, (char *)&CmpContextListLock.SwapListEntry + 12, 4u);
     *(_QWORD *)&DestinationString.Length = 0LL;
     DestinationString.Buffer = (wchar_t *)L"CPU Family Model Stepping";
     v5 = 2 * wcslen(L"CPU Family Model Stepping");
@@ -71,7 +71,7 @@ NTSTATUS __fastcall PrpWriteLogsToRegistry(__int64 a1, UNICODE_STRING *a2)
       LOWORD(v5) = -4;
     DestinationString.Length = v5;
     DestinationString.MaximumLength = v5 + 2;
-    ZwSetValueKey(KeyHandle, &DestinationString, 0, 4u, &CmpCallbackListLock.Teb, 4u);
+    ZwSetValueKey(KeyHandle, &DestinationString, 0, 4u, (PVOID)&CmpContextListLock.Queue, 4u);
     *(_QWORD *)&DestinationString.Length = 0LL;
     DestinationString.Buffer = (wchar_t *)L"CPU Meta Data";
     v6 = 2 * wcslen(L"CPU Meta Data");
@@ -79,7 +79,7 @@ NTSTATUS __fastcall PrpWriteLogsToRegistry(__int64 a1, UNICODE_STRING *a2)
       LOWORD(v6) = -4;
     DestinationString.Length = v6;
     DestinationString.MaximumLength = v6 + 2;
-    ZwSetValueKey(KeyHandle, &DestinationString, 0, 4u, (char *)&CmpCallbackListLock.Teb + 4, 4u);
+    ZwSetValueKey(KeyHandle, &DestinationString, 0, 4u, (char *)&CmpContextListLock.Queue + 4, 4u);
     *(_QWORD *)&DestinationString.Length = 0LL;
     DestinationString.Buffer = (wchar_t *)L"Firmware Record Version";
     v7 = 2 * wcslen(L"Firmware Record Version");
@@ -87,7 +87,7 @@ NTSTATUS __fastcall PrpWriteLogsToRegistry(__int64 a1, UNICODE_STRING *a2)
       LOWORD(v7) = -4;
     DestinationString.Length = v7;
     DestinationString.MaximumLength = v7 + 2;
-    ZwSetValueKey(KeyHandle, &DestinationString, 0, 4u, &CmpCallbackListLock.RelativeTimerBias, 4u);
+    ZwSetValueKey(KeyHandle, &DestinationString, 0, 4u, &CmpContextListLock.Teb, 4u);
     *(_QWORD *)&DestinationString.Length = 0LL;
     DestinationString.Buffer = (wchar_t *)L"Previous Record Version";
     v8 = 2 * wcslen(L"Previous Record Version");
@@ -95,7 +95,7 @@ NTSTATUS __fastcall PrpWriteLogsToRegistry(__int64 a1, UNICODE_STRING *a2)
       LOWORD(v8) = -4;
     DestinationString.Length = v8;
     DestinationString.MaximumLength = v8 + 2;
-    ZwSetValueKey(KeyHandle, &DestinationString, 0, 4u, (char *)&CmpCallbackListLock.RelativeTimerBias + 4, 4u);
+    ZwSetValueKey(KeyHandle, &DestinationString, 0, 4u, (char *)&CmpContextListLock.Teb + 4, 4u);
     *(_QWORD *)&DestinationString.Length = 0LL;
     DestinationString.Buffer = (wchar_t *)L"Current Record Version";
     v9 = 2 * wcslen(L"Current Record Version");
@@ -103,7 +103,7 @@ NTSTATUS __fastcall PrpWriteLogsToRegistry(__int64 a1, UNICODE_STRING *a2)
       LOWORD(v9) = -4;
     DestinationString.Length = v9;
     DestinationString.MaximumLength = v9 + 2;
-    ZwSetValueKey(KeyHandle, &DestinationString, 0, 4u, &CmpCallbackListLock.Timer, 4u);
+    ZwSetValueKey(KeyHandle, &DestinationString, 0, 4u, &CmpContextListLock.RelativeTimerBias, 4u);
     *(_QWORD *)&DestinationString.Length = 0LL;
     DestinationString.Buffer = (wchar_t *)L"Preferred Record Version";
     v10 = 2 * wcslen(L"Preferred Record Version");
@@ -111,7 +111,7 @@ NTSTATUS __fastcall PrpWriteLogsToRegistry(__int64 a1, UNICODE_STRING *a2)
       LOWORD(v10) = -4;
     DestinationString.Length = v10;
     DestinationString.MaximumLength = v10 + 2;
-    ZwSetValueKey(KeyHandle, &DestinationString, 0, 4u, &CmpCallbackListLock.Timer.Header.SignalState, 4u);
+    ZwSetValueKey(KeyHandle, &DestinationString, 0, 4u, (char *)&CmpContextListLock.RelativeTimerBias + 4, 4u);
     *(_QWORD *)&DestinationString.Length = 0LL;
     DestinationString.Buffer = (wchar_t *)L"Patch Configuration Used";
     v11 = 2 * wcslen(L"Patch Configuration Used");
@@ -119,7 +119,7 @@ NTSTATUS __fastcall PrpWriteLogsToRegistry(__int64 a1, UNICODE_STRING *a2)
       LOWORD(v11) = -4;
     DestinationString.Length = v11;
     DestinationString.MaximumLength = v11 + 2;
-    ZwSetValueKey(KeyHandle, &DestinationString, 0, 3u, &CmpCallbackListLock.Timer.Header.WaitListHead, 1u);
+    ZwSetValueKey(KeyHandle, &DestinationString, 0, 3u, &CmpContextListLock.Timer, 1u);
     *(_QWORD *)&DestinationString.Length = 0LL;
     DestinationString.Buffer = (wchar_t *)L"Update Status";
     v12 = 2 * wcslen(L"Update Status");
@@ -127,13 +127,7 @@ NTSTATUS __fastcall PrpWriteLogsToRegistry(__int64 a1, UNICODE_STRING *a2)
       LOWORD(v12) = -4;
     DestinationString.Length = v12;
     DestinationString.MaximumLength = v12 + 2;
-    ZwSetValueKey(
-      KeyHandle,
-      &DestinationString,
-      0,
-      4u,
-      (char *)&CmpCallbackListLock.Timer.Header.WaitListHead.Flink + 4,
-      4u);
+    ZwSetValueKey(KeyHandle, &DestinationString, 0, 4u, &CmpContextListLock.Timer.Header.SignalState, 4u);
     *(_QWORD *)&DestinationString.Length = 0LL;
     DestinationString.Buffer = (wchar_t *)L"Update Environment";
     v13 = 2 * wcslen(L"Update Environment");
@@ -141,7 +135,7 @@ NTSTATUS __fastcall PrpWriteLogsToRegistry(__int64 a1, UNICODE_STRING *a2)
       LOWORD(v13) = -4;
     DestinationString.Length = v13;
     DestinationString.MaximumLength = v13 + 2;
-    ZwSetValueKey(KeyHandle, &DestinationString, 0, 4u, &CmpCallbackListLock.Timer.Header.WaitListHead.Blink, 4u);
+    ZwSetValueKey(KeyHandle, &DestinationString, 0, 4u, &CmpContextListLock.Timer.Header.WaitListHead, 4u);
     *(_QWORD *)&DestinationString.Length = 0LL;
     DestinationString.Buffer = (wchar_t *)L"Update Revision";
     v14 = 2 * wcslen(L"Update Revision");
@@ -149,7 +143,7 @@ NTSTATUS __fastcall PrpWriteLogsToRegistry(__int64 a1, UNICODE_STRING *a2)
       LOWORD(v14) = -4;
     DestinationString.Length = v14;
     DestinationString.MaximumLength = v14 + 2;
-    ZwSetValueKey(KeyHandle, &DestinationString, 0, 3u, &CmpCallbackListLock.Timer, 4u);
+    ZwSetValueKey(KeyHandle, &DestinationString, 0, 3u, &CmpContextListLock.RelativeTimerBias, 4u);
     *(_QWORD *)&DestinationString.Length = 0LL;
     DestinationString.Buffer = (wchar_t *)L"Previous Update Revision";
     v15 = 2 * wcslen(L"Previous Update Revision");
@@ -157,7 +151,7 @@ NTSTATUS __fastcall PrpWriteLogsToRegistry(__int64 a1, UNICODE_STRING *a2)
       LOWORD(v15) = -4;
     DestinationString.Length = v15;
     DestinationString.MaximumLength = v15 + 2;
-    ZwSetValueKey(KeyHandle, &DestinationString, 0, 3u, (char *)&CmpCallbackListLock.RelativeTimerBias + 4, 4u);
+    ZwSetValueKey(KeyHandle, &DestinationString, 0, 3u, (char *)&CmpContextListLock.Teb + 4, 4u);
     *(_QWORD *)&DestinationString.Length = 0LL;
     DestinationString.Buffer = (wchar_t *)L"Platform Specific Field 1";
     v16 = 2 * wcslen(L"Platform Specific Field 1");
@@ -165,7 +159,7 @@ NTSTATUS __fastcall PrpWriteLogsToRegistry(__int64 a1, UNICODE_STRING *a2)
       LOWORD(v16) = -4;
     DestinationString.Length = v16;
     DestinationString.MaximumLength = v16 + 2;
-    v17 = ZwSetValueKey(KeyHandle, &DestinationString, 0, 4u, (char *)&CmpCallbackListLock.Teb + 4, 4u);
+    v17 = ZwSetValueKey(KeyHandle, &DestinationString, 0, 4u, (char *)&CmpContextListLock.Queue + 4, 4u);
     ZwClose(KeyHandle);
     return v17;
   }

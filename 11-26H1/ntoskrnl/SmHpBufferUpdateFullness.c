@@ -1,15 +1,15 @@
 /*
- * XREFs of SmHpBufferUpdateFullness @ 0x14024DAA0
+ * XREFs of SmHpBufferUpdateFullness @ 0x14024F400
  * Callers:
- *     SmHpBufferAlloc @ 0x14024D95C (SmHpBufferAlloc.c)
- *     SmHpBufferCleanup @ 0x1403F0468 (SmHpBufferCleanup.c)
+ *     SmHpBufferAlloc @ 0x14024F2BC (SmHpBufferAlloc.c)
+ *     SmHpBufferCleanup @ 0x1403E9E38 (SmHpBufferCleanup.c)
  * Callees:
- *     rapidhash_internal @ 0x14024B730 (rapidhash_internal.c)
- *     SmHpBufferProtectEx @ 0x14024CCB0 (SmHpBufferProtectEx.c)
- *     ExProtectPoolEx @ 0x14024CE7C (ExProtectPoolEx.c)
- *     SmHpUnprotectListNeighbors @ 0x14024DC94 (SmHpUnprotectListNeighbors.c)
- *     SmPrepareForFatalHeapCorruption @ 0x14024F434 (SmPrepareForFatalHeapCorruption.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
+ *     rapidhash_internal @ 0x14024D090 (rapidhash_internal.c)
+ *     SmHpBufferProtectEx @ 0x14024E610 (SmHpBufferProtectEx.c)
+ *     ExProtectPoolEx @ 0x14024E7DC (ExProtectPoolEx.c)
+ *     SmHpUnprotectListNeighbors @ 0x14024F5F4 (SmHpUnprotectListNeighbors.c)
+ *     SmPrepareForFatalHeapCorruption @ 0x140250D94 (SmPrepareForFatalHeapCorruption.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall SmHpBufferUpdateFullness(__int64 a1, __int64 a2, __int16 a3)

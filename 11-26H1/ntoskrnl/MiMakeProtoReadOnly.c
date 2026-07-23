@@ -1,10 +1,10 @@
 /*
- * XREFs of MiMakeProtoReadOnly @ 0x14031C2E0
+ * XREFs of MiMakeProtoReadOnly @ 0x14031E310
  * Callers:
- *     MiHardFaultPageRelease @ 0x14031C920 (MiHardFaultPageRelease.c)
+ *     MiHardFaultPageRelease @ 0x14031E950 (MiHardFaultPageRelease.c)
  * Callees:
- *     MiUpdateProtectionMask @ 0x140303850 (MiUpdateProtectionMask.c)
- *     MiReadPteShadow @ 0x140314FF0 (MiReadPteShadow.c)
+ *     MiUpdateProtectionMask @ 0x1402E58D0 (MiUpdateProtectionMask.c)
+ *     MiReadPteShadow @ 0x140317020 (MiReadPteShadow.c)
  */
 
 unsigned __int64 __fastcall MiMakeProtoReadOnly(__int64 *a1, __int64 a2)

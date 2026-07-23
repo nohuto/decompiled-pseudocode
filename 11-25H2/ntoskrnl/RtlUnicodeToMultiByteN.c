@@ -21,7 +21,7 @@ NTSTATUS __stdcall RtlUnicodeToMultiByteN(
   PCWCH v10; // r10
   ULONG v11; // eax
   PCHAR v12; // r8
-  struct _CPTABLEINFO *p_Blink; // rcx
+  _CPTABLEINFO *p_Blink; // rcx
   ULONG v14; // r11d
   _WORD *WideCharTable; // rbx
   __int64 v16; // rcx
@@ -48,7 +48,7 @@ NTSTATUS __stdcall RtlUnicodeToMultiByteN(
     v10 = UnicodeString;
     v11 = MaxBytesInMultiByteString;
     v12 = MultiByteString;
-    p_Blink = (struct _CPTABLEINFO *)&CurrentServerSiloGlobals[64].Blink;
+    p_Blink = (_CPTABLEINFO *)&CurrentServerSiloGlobals[64].Blink;
     if ( !p_Blink )
     {
 LABEL_22:

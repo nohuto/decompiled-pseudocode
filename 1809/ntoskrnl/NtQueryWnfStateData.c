@@ -1,26 +1,32 @@
 /*
- * XREFs of NtQueryWnfStateData @ 0x14060F3C0
+ * XREFs of NtQueryWnfStateData @ 0x1406103C0
  * Callers:
  *     <none>
  * Callees:
  *     ExReleaseRundownProtection_0 @ 0x14004D2F0 (ExReleaseRundownProtection_0.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     ExpWnfLookupPermanentName @ 0x1405AA92C (ExpWnfLookupPermanentName.c)
- *     ExpWnfCreateNameInstance @ 0x14060E058 (ExpWnfCreateNameInstance.c)
- *     ExpWnfReleaseCapturedScopeInstanceId @ 0x14060F814 (ExpWnfReleaseCapturedScopeInstanceId.c)
- *     ExpCaptureWnfStateName @ 0x14060F868 (ExpCaptureWnfStateName.c)
- *     ExpWnfLookupNameInstance @ 0x14060F8E0 (ExpWnfLookupNameInstance.c)
- *     ExpWnfResolveScopeInstance @ 0x14060F9EC (ExpWnfResolveScopeInstance.c)
- *     ExpWnfCaptureScopeInstanceId @ 0x14060FE20 (ExpWnfCaptureScopeInstanceId.c)
- *     ExpWnfValidatePubSubPreconditions @ 0x14060FEEC (ExpWnfValidatePubSubPreconditions.c)
- *     ExpWnfReadStateData @ 0x14060FFDC (ExpWnfReadStateData.c)
- *     ProbeForWrite @ 0x140629A60 (ProbeForWrite.c)
- *     ExpWnfCheckCrossScopeAccess @ 0x1406C7090 (ExpWnfCheckCrossScopeAccess.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B78F0 (KiLeaveCriticalRegionUnsafe.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     ExpWnfLookupPermanentName @ 0x1405AB92C (ExpWnfLookupPermanentName.c)
+ *     ExpWnfCreateNameInstance @ 0x14060F058 (ExpWnfCreateNameInstance.c)
+ *     ExpWnfReleaseCapturedScopeInstanceId @ 0x140610814 (ExpWnfReleaseCapturedScopeInstanceId.c)
+ *     ExpCaptureWnfStateName @ 0x140610868 (ExpCaptureWnfStateName.c)
+ *     ExpWnfLookupNameInstance @ 0x1406108E0 (ExpWnfLookupNameInstance.c)
+ *     ExpWnfResolveScopeInstance @ 0x1406109EC (ExpWnfResolveScopeInstance.c)
+ *     ExpWnfCaptureScopeInstanceId @ 0x140610E20 (ExpWnfCaptureScopeInstanceId.c)
+ *     ExpWnfValidatePubSubPreconditions @ 0x140610EEC (ExpWnfValidatePubSubPreconditions.c)
+ *     ExpWnfReadStateData @ 0x140610FDC (ExpWnfReadStateData.c)
+ *     ProbeForWrite @ 0x14062AA80 (ProbeForWrite.c)
+ *     ExpWnfCheckCrossScopeAccess @ 0x1406C8330 (ExpWnfCheckCrossScopeAccess.c)
  */
 
-__int64 __fastcall NtQueryWnfStateData(__int64 a1, __int128 *a2, __int64 a3, _DWORD *a4, __int64 a5, unsigned int *a6)
+NTSTATUS __cdecl NtQueryWnfStateData(
+        PCWNF_STATE_NAME StateName,
+        PCWNF_TYPE_ID TypeId,
+        const void *ExplicitScope,
+        PWNF_CHANGE_STAMP ChangeStamp,
+        PVOID Buffer,
+        PULONG BufferSize)
 {
   struct _KTHREAD *CurrentThread; // rax
   unsigned __int8 v8; // di
@@ -41,24 +47,24 @@ __int64 __fastcall NtQueryWnfStateData(__int64 a1, __int128 *a2, __int64 a3, _DW
   int v23; // eax
   PVOID v25; // r15
   int Sid; // [rsp+20h] [rbp-E8h]
-  int StateData; // [rsp+30h] [rbp-D8h]
+  NTSTATUS StateData; // [rsp+30h] [rbp-D8h]
   int v28; // [rsp+38h] [rbp-D0h]
   struct _EX_RUNDOWN_REF *v29; // [rsp+40h] [rbp-C8h] BYREF
-  unsigned int v30; // [rsp+48h] [rbp-C0h]
+  ULONG v30; // [rsp+48h] [rbp-C0h]
   PVOID P; // [rsp+50h] [rbp-B8h] BYREF
   int v32; // [rsp+58h] [rbp-B0h]
-  __int128 *v33; // [rsp+60h] [rbp-A8h]
+  PCWNF_TYPE_ID v33; // [rsp+60h] [rbp-A8h]
   int v34[2]; // [rsp+68h] [rbp-A0h] BYREF
   unsigned __int64 v35; // [rsp+70h] [rbp-98h] BYREF
   struct _KPROCESS *v36; // [rsp+78h] [rbp-90h]
-  _DWORD *v37; // [rsp+80h] [rbp-88h]
+  PWNF_CHANGE_STAMP v37; // [rsp+80h] [rbp-88h]
   PSID v38; // [rsp+88h] [rbp-80h] BYREF
-  __int64 v39; // [rsp+90h] [rbp-78h]
+  PVOID v39; // [rsp+90h] [rbp-78h]
   _QWORD v40[2]; // [rsp+A8h] [rbp-60h] BYREF
   __int128 v41; // [rsp+B8h] [rbp-50h] BYREF
 
-  v37 = a4;
-  v39 = a5;
+  v37 = ChangeStamp;
+  v39 = Buffer;
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
   v8 = KeGetCurrentThread()->$86A1A36C0FEBA810544B2F2B35F40C82::gap0[10];
@@ -69,8 +75,8 @@ __int64 __fastcall NtQueryWnfStateData(__int64 a1, __int128 *a2, __int64 a3, _DW
   LODWORD(v10) = 0;
   v40[0] = 0LL;
   v40[1] = 0LL;
-  v33 = a2;
-  StateData = ExpCaptureWnfStateName(a1, &v35, v8);
+  v33 = TypeId;
+  StateData = ExpCaptureWnfStateName(StateName, &v35, v8);
   if ( StateData >= 0 )
   {
     if ( v8 )
@@ -80,19 +86,19 @@ __int64 __fastcall NtQueryWnfStateData(__int64 a1, __int128 *a2, __int64 a3, _DW
         if ( v11 >= 0x7FFFFFFF0000LL )
           v11 = 0x7FFFFFFF0000LL;
         v41 = *(_OWORD *)v11;
-        v33 = &v41;
+        v33 = (PCWNF_TYPE_ID)&v41;
       }
       v14 = v12;
       if ( v12 >= 0x7FFFFFFF0000LL )
         v14 = 0x7FFFFFFF0000LL;
       *(_DWORD *)v14 = *(_DWORD *)v14;
-      v15 = (__int64)a6;
-      if ( (unsigned __int64)a6 >= 0x7FFFFFFF0000LL )
+      v15 = (__int64)BufferSize;
+      if ( (unsigned __int64)BufferSize >= 0x7FFFFFFF0000LL )
         v15 = 0x7FFFFFFF0000LL;
       v16 = *(unsigned int *)v15;
       v30 = *(_DWORD *)v15;
-      v17 = (__int64)a6;
-      if ( (unsigned __int64)a6 >= 0x7FFFFFFF0000LL )
+      v17 = (__int64)BufferSize;
+      if ( (unsigned __int64)BufferSize >= 0x7FFFFFFF0000LL )
         v17 = 0x7FFFFFFF0000LL;
       *(_DWORD *)v17 = *(_DWORD *)v17;
       if ( (_DWORD)v16 )
@@ -100,20 +106,20 @@ __int64 __fastcall NtQueryWnfStateData(__int64 a1, __int128 *a2, __int64 a3, _DW
     }
     else
     {
-      v30 = *a6;
+      v30 = *BufferSize;
     }
     v18 = v35;
     v19 = (v35 >> 4) & 3;
     v32 = (v35 >> 4) & 3;
     v10 = (v35 >> 6) & 0xF;
     v28 = (v35 >> 6) & 0xF;
-    StateData = ExpWnfCaptureScopeInstanceId(v10, a3, v8, &v38, v40);
+    StateData = ExpWnfCaptureScopeInstanceId(v10, ExplicitScope, v8, &v38, v40);
     if ( StateData >= 0 )
     {
       LOBYTE(v9) = v8 == 0;
       if ( v8 )
       {
-        if ( a3 )
+        if ( ExplicitScope )
         {
           StateData = ExpWnfCheckCrossScopeAccess(v18);
           if ( StateData < 0 )
@@ -166,12 +172,12 @@ __int64 __fastcall NtQueryWnfStateData(__int64 a1, __int128 *a2, __int64 a3, _DW
       }
       if ( v29 )
       {
-        StateData = ExpWnfReadStateData(v29, v37, v39, v30, a6);
+        StateData = ExpWnfReadStateData(v29, v37, v39, v30, BufferSize);
       }
       else
       {
         *v37 = 0;
-        *a6 = 0;
+        *BufferSize = 0;
         StateData = 0;
       }
     }
@@ -185,5 +191,5 @@ LABEL_30:
     ExFreePoolWithTag(P, 0x20666E57u);
   ExpWnfReleaseCapturedScopeInstanceId((unsigned int)v10, v40, v8);
   KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
-  return (unsigned int)StateData;
+  return StateData;
 }

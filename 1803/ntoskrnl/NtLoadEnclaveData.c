@@ -24,27 +24,27 @@
  *     ExRaiseDatatypeMisalignment @ 0x1407C5940 (ExRaiseDatatypeMisalignment.c)
  */
 
-__int64 __fastcall NtLoadEnclaveData(
-        ULONG_PTR a1,
-        __int64 a2,
-        void *a3,
-        __int64 a4,
-        int a5,
-        PVOID Base,
-        SIZE_T Length,
-        __int64 *a8,
-        _DWORD *a9)
+NTSTATUS __cdecl NtLoadEnclaveData(
+        HANDLE ProcessHandle,
+        PVOID BaseAddress,
+        PVOID Buffer,
+        SIZE_T BufferSize,
+        ULONG Protect,
+        PVOID PageInformation,
+        ULONG PageInformationLength,
+        PSIZE_T NumberOfBytesWritten,
+        PULONG EnclaveError)
 {
   __int16 v9; // r11
   ULONG_PTR v10; // r10
-  int v11; // r15d
+  ULONG v11; // r15d
   __int64 v12; // r14
   __int64 v13; // rdx
   __int64 v14; // rcx
   __int64 v15; // rcx
   SIZE_T v16; // rax
   struct _MDL *PoolWithTag; // rax
-  int v18; // edi
+  NTSTATUS v18; // edi
   struct _KTHREAD *CurrentThread; // rax
   struct _KPROCESS *Process; // rbx
   unsigned __int64 v21; // rax
@@ -56,16 +56,16 @@ __int64 __fastcall NtLoadEnclaveData(
   ULONG_PTR v27; // rbx
   volatile signed __int32 *v28; // rbx
   KPROCESSOR_MODE AccessMode; // [rsp+50h] [rbp-118h]
-  int v31; // [rsp+54h] [rbp-114h] BYREF
+  NTSTATUS v31; // [rsp+54h] [rbp-114h] BYREF
   int v32; // [rsp+58h] [rbp-110h]
   ULONG_PTR BugCheckParameter1; // [rsp+60h] [rbp-108h]
   void *v34; // [rsp+68h] [rbp-100h]
   PVOID Object; // [rsp+70h] [rbp-F8h] BYREF
   _DWORD v36[3]; // [rsp+7Ch] [rbp-ECh] BYREF
   PMDL MemoryDescriptorList; // [rsp+88h] [rbp-E0h]
-  _DWORD *v38; // [rsp+90h] [rbp-D8h]
-  ULONG_PTR v39; // [rsp+A0h] [rbp-C8h]
-  __int64 *v40; // [rsp+A8h] [rbp-C0h]
+  PULONG v38; // [rsp+90h] [rbp-D8h]
+  HANDLE v39; // [rsp+A0h] [rbp-C8h]
+  PSIZE_T v40; // [rsp+A8h] [rbp-C0h]
   void *v41; // [rsp+B0h] [rbp-B8h]
   __int64 v42; // [rsp+B8h] [rbp-B0h]
   __int64 v43; // [rsp+C0h] [rbp-A8h] BYREF
@@ -73,38 +73,38 @@ __int64 __fastcall NtLoadEnclaveData(
   void *Src; // [rsp+E0h] [rbp-88h]
   _BYTE v46[48]; // [rsp+F8h] [rbp-70h] BYREF
 
-  v9 = a4;
-  v42 = a4;
-  Src = a3;
-  *(_QWORD *)&v36[1] = a2;
-  v10 = a1;
-  BugCheckParameter1 = a1;
-  v39 = a1;
-  v11 = Length;
-  LODWORD(v34) = Length;
-  v40 = a8;
-  v38 = a9;
+  v9 = BufferSize;
+  v42 = BufferSize;
+  Src = Buffer;
+  *(_QWORD *)&v36[1] = BaseAddress;
+  v10 = (ULONG_PTR)ProcessHandle;
+  BugCheckParameter1 = (ULONG_PTR)ProcessHandle;
+  v39 = ProcessHandle;
+  v11 = PageInformationLength;
+  LODWORD(v34) = PageInformationLength;
+  v40 = NumberOfBytesWritten;
+  v38 = EnclaveError;
   v44[0] = 0LL;
   v36[0] = 0;
   Object = 0LL;
   v12 = 0LL;
   v43 = 0LL;
-  LOBYTE(a4) = KeGetCurrentThread()->PreviousMode;
-  AccessMode = a4;
-  if ( (_BYTE)a4 == 1 )
+  LOBYTE(BufferSize) = KeGetCurrentThread()->PreviousMode;
+  AccessMode = BufferSize;
+  if ( (_BYTE)BufferSize == 1 )
   {
     v13 = 0x7FFFFFFF0000LL;
-    if ( a9 )
+    if ( EnclaveError )
     {
-      v14 = (__int64)a9;
-      if ( (unsigned __int64)a9 >= 0x7FFFFFFF0000LL )
+      v14 = (__int64)EnclaveError;
+      if ( (unsigned __int64)EnclaveError >= 0x7FFFFFFF0000LL )
         v14 = 0x7FFFFFFF0000LL;
       *(_DWORD *)v14 = *(_DWORD *)v14;
     }
-    if ( a8 )
+    if ( NumberOfBytesWritten )
     {
-      v15 = (__int64)a8;
-      if ( (unsigned __int64)a8 >= 0x7FFFFFFF0000LL )
+      v15 = (__int64)NumberOfBytesWritten;
+      if ( (unsigned __int64)NumberOfBytesWritten >= 0x7FFFFFFF0000LL )
         v15 = 0x7FFFFFFF0000LL;
       *(_QWORD *)v15 = *(_QWORD *)v15;
     }
@@ -114,25 +114,25 @@ __int64 __fastcall NtLoadEnclaveData(
     v13 = 0x7FFFFFFF0000LL;
   }
   v41 = 0LL;
-  if ( (_DWORD)Length )
+  if ( PageInformationLength )
   {
-    if ( (unsigned int)(Length - 16) > 0xFFEF )
+    if ( PageInformationLength - 16 > 0xFFEF )
     {
       v18 = -1073741820;
       goto LABEL_22;
     }
-    if ( (_BYTE)a4 == 1 )
+    if ( (_BYTE)BufferSize == 1 )
     {
-      if ( ((unsigned __int8)Base & 3) != 0 )
+      if ( ((unsigned __int8)PageInformation & 3) != 0 )
         ExRaiseDatatypeMisalignment();
-      if ( (unsigned __int64)Base + (unsigned int)Length > 0x7FFFFFFF0000LL
-        || (char *)Base + (unsigned int)Length < Base )
+      if ( (unsigned __int64)PageInformation + PageInformationLength > 0x7FFFFFFF0000LL
+        || (char *)PageInformation + PageInformationLength < PageInformation )
       {
         MEMORY[0x7FFFFFFF0000] = 0;
       }
     }
-    v41 = *(void **)Base;
-    v16 = MmSizeOfMdl(Base, (unsigned int)Length);
+    v41 = *(void **)PageInformation;
+    v16 = MmSizeOfMdl(PageInformation, PageInformationLength);
     PoolWithTag = (struct _MDL *)ExAllocatePoolWithTag(NonPagedPoolNx, v16, 0x6C646D4Du);
     v12 = (__int64)PoolWithTag;
     MemoryDescriptorList = PoolWithTag;
@@ -147,15 +147,16 @@ LABEL_46:
     }
     PoolWithTag->Next = 0LL;
     PoolWithTag->Size = 8
-                      * (((((unsigned __int16)Base & 0xFFF) + (unsigned __int64)(unsigned int)Length + 4095) >> 12) + 6);
+                      * (((((unsigned __int16)PageInformation & 0xFFF) + (unsigned __int64)PageInformationLength + 4095) >> 12)
+                       + 6);
     PoolWithTag->MdlFlags = 0;
-    PoolWithTag->StartVa = (PVOID)((unsigned __int64)Base & 0xFFFFFFFFFFFFF000uLL);
-    PoolWithTag->ByteOffset = (unsigned __int16)Base & 0xFFF;
-    PoolWithTag->ByteCount = Length;
+    PoolWithTag->StartVa = (PVOID)((unsigned __int64)PageInformation & 0xFFFFFFFFFFFFF000uLL);
+    PoolWithTag->ByteOffset = (unsigned __int16)PageInformation & 0xFFF;
+    PoolWithTag->ByteCount = PageInformationLength;
     MmProbeAndLockPages(PoolWithTag, AccessMode, IoReadAccess);
-    v11 = (int)v34;
+    v11 = (unsigned int)v34;
     v10 = BugCheckParameter1;
-    LOBYTE(a4) = AccessMode;
+    LOBYTE(BufferSize) = AccessMode;
     v9 = v42;
   }
   if ( (v36[1] & 0xFFF) != 0 )
@@ -176,7 +177,7 @@ LABEL_46:
   }
   else
   {
-    v18 = ObpReferenceObjectByHandleWithTag(v10, 8, (__int64)PsProcessType, a4, 0x6D566D4Du, &Object, 0LL, 0LL);
+    v18 = ObpReferenceObjectByHandleWithTag(v10, 8, (__int64)PsProcessType, BufferSize, 0x6D566D4Du, &Object, 0LL, 0LL);
     v31 = v18;
     if ( v18 < 0 )
       goto LABEL_46;
@@ -209,7 +210,7 @@ LABEL_46:
                   *(__int64 *)&v36[1],
                   Src,
                   v26,
-                  a5,
+                  Protect,
                   v44,
                   v36);
           v31 = v18;
@@ -251,7 +252,7 @@ LABEL_47:
 LABEL_48:
   v27 = BugCheckParameter1;
   if ( v23 )
-    MiUnlockAndDereferenceVad(v23, v13, (__int64)a3, a4);
+    MiUnlockAndDereferenceVad(v23, v13, (__int64)Buffer, BufferSize);
   if ( v24 )
     KiUnstackDetachProcess((__int64)v46, 0LL);
   if ( Object && v27 != -1LL )
@@ -268,9 +269,9 @@ LABEL_48:
     DbgkMapViewOfSection((_KPROCESS *)Object, 0LL, *(void **)(v43 + 16));
     MiDereferenceEnclaveModule(v28);
   }
-  if ( a8 )
-    *a8 = v44[0];
-  if ( a9 )
-    *a9 = v36[0];
-  return (unsigned int)v18;
+  if ( NumberOfBytesWritten )
+    *NumberOfBytesWritten = v44[0];
+  if ( EnclaveError )
+    *EnclaveError = v36[0];
+  return v18;
 }

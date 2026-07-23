@@ -7,13 +7,13 @@
  *     NtTraceEvent @ 0x180093EE0 (NtTraceEvent.c)
  */
 
-__int64 __fastcall TppETWTimerCancelNtTimer(__int64 a1)
+NTSTATUS __fastcall TppETWTimerCancelNtTimer(__int64 a1)
 {
-  _BYTE v2[6]; // [rsp+20h] [rbp-38h] BYREF
+  _BYTE Fields[6]; // [rsp+20h] [rbp-38h] BYREF
   __int16 v3; // [rsp+26h] [rbp-32h]
   __int64 v4; // [rsp+40h] [rbp-18h]
 
   v4 = a1;
   v3 = 7213;
-  return NtTraceEvent(MEMORY[0x7FFE0386], 1026LL, 4294967268LL, v2);
+  return NtTraceEvent((HANDLE)MEMORY[0x7FFE0386], 0x402u, 0xFFFFFFE4, Fields);
 }

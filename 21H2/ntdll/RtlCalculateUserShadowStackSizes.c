@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlCalculateUserShadowStackSizes @ 0x1800E186C
+ * XREFs of RtlCalculateUserShadowStackSizes @ 0x1800E182C
  * Callers:
- *     RtlCreateUserFiberShadowStack @ 0x1800E1920 (RtlCreateUserFiberShadowStack.c)
+ *     RtlCreateUserFiberShadowStack @ 0x1800E18E0 (RtlCreateUserFiberShadowStack.c)
  * Callees:
  *     RtlULongLongSub @ 0x180057BA0 (RtlULongLongSub.c)
  */

@@ -1,16 +1,16 @@
 /*
  * XREFs of KeInsertQueue @ 0x1402624D0
  * Callers:
- *     IopPassiveInterruptDpc @ 0x140459F80 (IopPassiveInterruptDpc.c)
- *     FsRtlpPostStackOverflow @ 0x140542FC4 (FsRtlpPostStackOverflow.c)
- *     EtwpQueueReply @ 0x1406F20E8 (EtwpQueueReply.c)
+ *     sub_140459F80 @ 0x140459F80 (sub_140459F80.c)
+ *     sub_140542FC4 @ 0x140542FC4 (sub_140542FC4.c)
+ *     sub_1406F20E8 @ 0x1406F20E8 (sub_1406F20E8.c)
  * Callees:
- *     KiExitDispatcher @ 0x1402B0820 (KiExitDispatcher.c)
- *     KiAcquireKobjectLockSafe @ 0x1402F3290 (KiAcquireKobjectLockSafe.c)
- *     KiWakeQueueWaiter @ 0x1402F6A70 (KiWakeQueueWaiter.c)
- *     KiWakeOtherQueueWaiters @ 0x14035B550 (KiWakeOtherQueueWaiters.c)
- *     KeIsThreadRunning @ 0x14056B1E4 (KeIsThreadRunning.c)
- *     EtwTraceEnqueueWork @ 0x14062DA60 (EtwTraceEnqueueWork.c)
+ *     sub_1402B0820 @ 0x1402B0820 (sub_1402B0820.c)
+ *     sub_1402F3290 @ 0x1402F3290 (sub_1402F3290.c)
+ *     sub_1402F6A70 @ 0x1402F6A70 (sub_1402F6A70.c)
+ *     sub_14035B550 @ 0x14035B550 (sub_14035B550.c)
+ *     sub_14056B1E4 @ 0x14056B1E4 (sub_14056B1E4.c)
+ *     sub_14062DA60 @ 0x14062DA60 (sub_14062DA60.c)
  */
 
 LONG __stdcall KeInsertQueue(PRKQUEUE Queue, PLIST_ENTRY Entry)
@@ -18,9 +18,9 @@ LONG __stdcall KeInsertQueue(PRKQUEUE Queue, PLIST_ENTRY Entry)
   LIST_ENTRY *p_WaitListHead; // rbp
   char CurrentIrql; // r15
   struct _KPRCB *CurrentPrcb; // rsi
-  _KTHREAD *CurrentThread; // r14
+  __int64 v7; // r14
   LONG SignalState; // r12d
-  _DWORD *SchedulerAssist; // r9
+  __int64 v10; // r9
   LONG v11; // edx
   struct _LIST_ENTRY *Blink; // rcx
   __int64 v13; // r8
@@ -28,24 +28,24 @@ LONG __stdcall KeInsertQueue(PRKQUEUE Queue, PLIST_ENTRY Entry)
   p_WaitListHead = &Queue->Header.WaitListHead;
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && (unsigned __int8)CurrentIrql <= 0xFu )
+  if ( dword_140D06B08 && (dword_140D06B08 & 1) != 0 && (unsigned __int8)CurrentIrql <= 0xFu )
   {
-    SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
-    SchedulerAssist[5] |= (-1 << (CurrentIrql + 1)) & 4;
+    v10 = *((_QWORD *)KeGetCurrentPrcb() + 4375);
+    *(_DWORD *)(v10 + 20) |= (-1 << (CurrentIrql + 1)) & 4;
   }
   CurrentPrcb = KeGetCurrentPrcb();
-  CurrentThread = CurrentPrcb->CurrentThread;
-  if ( (DWORD1(PerfGlobalGroupMask) & 0x1000000) != 0 )
+  v7 = *((_QWORD *)CurrentPrcb + 1);
+  if ( (DWORD1(xmmword_140D06900) & 0x1000000) != 0 )
   {
-    LOBYTE(v13) = KeIsThreadRunning(CurrentPrcb->CurrentThread);
-    EtwTraceEnqueueWork(CurrentThread, Entry, v13);
+    LOBYTE(v13) = sub_14056B1E4(*((_QWORD *)CurrentPrcb + 1));
+    sub_14062DA60(v7, Entry, v13);
   }
-  KiAcquireKobjectLockSafe(Queue);
+  sub_1402F3290(Queue);
   SignalState = Queue->Header.SignalState;
   if ( p_WaitListHead->Flink == p_WaitListHead
     || Queue->CurrentCount >= Queue->MaximumCount
-    || (PRKQUEUE)CurrentThread->Queue == Queue && CurrentThread->WaitReason == 15
-    || !(unsigned __int8)KiWakeQueueWaiter(CurrentPrcb, Queue, Entry) )
+    || *(PRKQUEUE *)(v7 + 232) == Queue && *(_BYTE *)(v7 + 643) == 15
+    || !(unsigned __int8)sub_1402F6A70(CurrentPrcb, Queue, Entry) )
   {
     v11 = Queue->Header.SignalState;
     Queue->Header.SignalState = v11 + 1;
@@ -57,13 +57,13 @@ LONG __stdcall KeInsertQueue(PRKQUEUE Queue, PLIST_ENTRY Entry)
     Blink->Flink = Entry;
     Queue->EntryListHead.Blink = Entry;
     if ( !v11 && p_WaitListHead->Flink != p_WaitListHead )
-      KiWakeOtherQueueWaiters(CurrentPrcb, Queue);
+      sub_14035B550(CurrentPrcb, Queue);
   }
   else
   {
     Entry->Flink = 0LL;
   }
   _InterlockedAnd(&Queue->Header.Lock, 0xFFFFFF7F);
-  KiExitDispatcher((_DWORD)CurrentPrcb, 0, 1, 0, CurrentIrql);
+  sub_1402B0820((_DWORD)CurrentPrcb, 0, 1, 0, CurrentIrql);
   return SignalState;
 }

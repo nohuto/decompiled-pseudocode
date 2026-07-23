@@ -20,103 +20,98 @@
  *     PopAcquirePolicyLock @ 0x140A87BE4 (PopAcquirePolicyLock.c)
  */
 
-__int64 __fastcall NtSetThreadExecutionState(int a1, _DWORD *a2)
+NTSTATUS __cdecl NtSetThreadExecutionState(EXECUTION_STATE NewFlags, EXECUTION_STATE *PreviousFlags)
 {
   char PreviousMode; // dl
   struct _KTHREAD *CurrentThread; // r15
   __int64 v6; // rcx
   struct _LIST_ENTRY *Blink; // rbx
-  int v8; // ebx
+  NTSTATUS v8; // ebx
   _QWORD *v9; // rsi
   __int64 v10; // rdx
   __int64 v11; // r8
   __int64 v12; // r9
   char LegacyPowerRequestFlags; // al
   int v15; // ecx
-  __int64 v16; // rdx
+  int v16; // ecx
   __int64 v17; // rcx
-  __int64 v18; // r8
-  int v19; // ecx
-  __int64 v20; // rdx
-  __int64 v21; // rcx
-  __int64 v22; // r8
-  bool v23; // bl
-  bool v24; // di
+  bool v18; // bl
+  bool v19; // di
   unsigned int SessionId; // eax
-  __int64 v26; // rcx
-  struct _LIST_ENTRY *v27; // [rsp+30h] [rbp-38h] BYREF
-  int v28; // [rsp+80h] [rbp+18h] BYREF
+  __int64 v21; // rcx
+  struct _LIST_ENTRY *v22; // [rsp+30h] [rbp-38h] BYREF
+  EXECUTION_STATE v23; // [rsp+80h] [rbp+18h] BYREF
   PVOID P; // [rsp+88h] [rbp+20h] BYREF
 
-  v28 = 0;
+  v23 = 0;
   P = 0LL;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   if ( !PreviousMode )
-    return (unsigned int)-1073741637;
+    return -1073741637;
   CurrentThread = KeGetCurrentThread();
-  if ( (a1 & 0x7FFFFFBC) != 0 || (a1 & 0x40) != 0 && a1 >= 0 )
-    return (unsigned int)-1073741811;
+  if ( (NewFlags & 0x7FFFFFBC) != 0 || (NewFlags & 0x40) != 0 && (NewFlags & 0x80000000) == 0 )
+    return -1073741811;
   v6 = 0x7FFFFFFF0000LL;
-  if ( (unsigned __int64)a2 < 0x7FFFFFFF0000LL )
-    v6 = (__int64)a2;
+  if ( (unsigned __int64)PreviousFlags < 0x7FFFFFFF0000LL )
+    v6 = (__int64)PreviousFlags;
   *(_DWORD *)v6 = *(_DWORD *)v6;
   Blink = CurrentThread[1].ApcState.ApcListHead[1].Blink;
-  v27 = Blink;
-  if ( Blink || a1 >= 0 )
+  v22 = Blink;
+  if ( Blink || (NewFlags & 0x80000000) == 0 )
     goto LABEL_11;
   v8 = PoCaptureReasonContext(0LL, PreviousMode, 0LL, 1, 0LL, (__int64 *)&P);
   if ( v8 < 0 )
-    return (unsigned int)v8;
+    return v8;
   v9 = P;
-  v8 = PopPowerRequestCreateCommon(P, 0, &v27);
+  v8 = PopPowerRequestCreateCommon(P, 0, &v22);
   if ( v8 >= 0 )
   {
-    Blink = v27;
-    CurrentThread[1].ApcState.ApcListHead[1].Blink = v27;
+    Blink = v22;
+    CurrentThread[1].ApcState.ApcListHead[1].Blink = v22;
 LABEL_11:
-    LegacyPowerRequestFlags = PopGetLegacyPowerRequestFlags(Blink, a1, &v28);
-    *a2 = v28;
-    if ( a1 >= 0 )
+    LegacyPowerRequestFlags = PopGetLegacyPowerRequestFlags(Blink, NewFlags, (int *)&v23);
+    *PreviousFlags = v23;
+    if ( (NewFlags & 0x80000000) == 0 )
     {
-      PopDiagTraceSetThreadExecutionState(CurrentThread, (unsigned int)a1);
-      if ( (a1 & 1) != 0 )
+      PopDiagTraceSetThreadExecutionState(CurrentThread, NewFlags);
+      if ( (NewFlags & 1) != 0 )
       {
         PopAcquirePolicyLock(v15);
         PopSystemRequiredSet();
-        PopReleasePolicyLock(v17, v16, v18);
+        PopReleasePolicyLock();
       }
-      if ( (a1 & 2) != 0 )
+      if ( (NewFlags & 2) != 0 )
       {
         PoEnergyContextUpdateComponentPower((__int64)KeGetCurrentThread()->ApcState.Process, 12, 3LL);
-        PopAcquirePolicyLock(v19);
+        PopAcquirePolicyLock(v16);
         if ( !PopPlatformAoAc || PopLidOpened || PopConsoleExternalDisplayConnected )
         {
-          LOBYTE(v21) = 1;
-          PopAcquireAdaptiveLock(v21);
-          v23 = PopAdaptiveBootContext != 0;
+          LOBYTE(v17) = 1;
+          PopAcquireAdaptiveLock(v17);
+          v18 = PopAdaptiveBootContext != 0;
           PopReleaseAdaptiveLock();
-          v24 = v23;
+          v19 = v18;
         }
         else
         {
-          v24 = 1;
+          v19 = 1;
         }
-        PopReleasePolicyLock(v21, v20, v22);
+        PopReleasePolicyLock();
         SessionId = MmGetSessionIdEx((__int64)KeGetCurrentThread()->ApcState.Process);
-        if ( SessionIsInteractive(SessionId) && !v24 )
+        if ( SessionIsInteractive(SessionId) && !v19 )
         {
-          LOBYTE(v26) = 1;
-          PopNotifyConsoleUserPresent(v26, 8LL);
+          LOBYTE(v21) = 1;
+          PopNotifyConsoleUserPresent(v21, 8LL);
         }
       }
     }
     else
     {
-      PopApplyLegacyPowerRequestFlags(Blink, a1, LegacyPowerRequestFlags);
+      PopApplyLegacyPowerRequestFlags(Blink, NewFlags, LegacyPowerRequestFlags);
     }
     return 0;
   }
   if ( v9 )
     PoDestroyReasonContext(v9, v10, v11, v12);
-  return (unsigned int)v8;
+  return v8;
 }

@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpQueryIommuReservedRegionInformation @ 0x140765484
+ * XREFs of HalpQueryIommuReservedRegionInformation @ 0x140765644
  * Callers:
- *     HaliQuerySystemInformation @ 0x14098FEF0 (HaliQuerySystemInformation.c)
+ *     HaliQuerySystemInformation @ 0x1409909D0 (HaliQuerySystemInformation.c)
  * Callees:
- *     HalpIommuFreeDeviceId @ 0x140379A1C (HalpIommuFreeDeviceId.c)
- *     HalpIommuGetDeviceId @ 0x140379A34 (HalpIommuGetDeviceId.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     HalpIommuLocateFromDevice @ 0x140765500 (HalpIommuLocateFromDevice.c)
+ *     HalpIommuFreeDeviceId @ 0x14037956C (HalpIommuFreeDeviceId.c)
+ *     HalpIommuGetDeviceId @ 0x140379584 (HalpIommuGetDeviceId.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     HalpIommuLocateFromDevice @ 0x1407656C0 (HalpIommuLocateFromDevice.c)
  */
 
 __int64 __fastcall HalpQueryIommuReservedRegionInformation(__int64 a1, unsigned int a2)

@@ -1,30 +1,30 @@
 /*
- * XREFs of KdInitSystem @ 0x140B75E30
+ * XREFs of KdInitSystem @ 0x140B77E30
  * Callers:
- *     KdEnableDebuggerWithLock @ 0x1405AFA7C (KdEnableDebuggerWithLock.c)
- *     KeEnterKernelDebugger @ 0x1405B2830 (KeEnterKernelDebugger.c)
- *     KiSystemStartup @ 0x140B4B3A0 (KiSystemStartup.c)
- *     KiSetFeatureBits @ 0x140B59BF4 (KiSetFeatureBits.c)
- *     PopHiberCheckResume @ 0x140B6E970 (PopHiberCheckResume.c)
- *     Phase1InitializationDiscard @ 0x140C0C048 (Phase1InitializationDiscard.c)
+ *     KdEnableDebuggerWithLock @ 0x1405AC9EC (KdEnableDebuggerWithLock.c)
+ *     KeEnterKernelDebugger @ 0x1405AF7A0 (KeEnterKernelDebugger.c)
+ *     KiSystemStartup @ 0x140B4D3E0 (KiSystemStartup.c)
+ *     KiSetFeatureBits @ 0x140B5BC74 (KiSetFeatureBits.c)
+ *     PopHiberCheckResume @ 0x140B709E0 (PopHiberCheckResume.c)
+ *     Phase1InitializationDiscard @ 0x140C0E048 (Phase1InitializationDiscard.c)
  * Callees:
- *     KdPollBreakIn @ 0x14029CFB0 (KdPollBreakIn.c)
- *     KeQueryPerformanceCounter @ 0x14034FA10 (KeQueryPerformanceCounter.c)
- *     KeInitializeTimer @ 0x140455420 (KeInitializeTimer.c)
- *     KeInitializeDpc @ 0x140455470 (KeInitializeDpc.c)
- *     KeIsKernelCetEnabled @ 0x1404566A0 (KeIsKernelCetEnabled.c)
- *     RtlInitAnsiString @ 0x1404654C0 (RtlInitAnsiString.c)
- *     DbgLoadImageSymbols @ 0x1404A4130 (DbgLoadImageSymbols.c)
- *     __report_rangecheckfailure @ 0x1404F51BC (__report_rangecheckfailure.c)
- *     MmGetPagedPoolCommitPointer @ 0x1404F8998 (MmGetPagedPoolCommitPointer.c)
- *     _strupr @ 0x1404FD210 (_strupr.c)
- *     strstr @ 0x1404FD9B0 (strstr.c)
- *     atol @ 0x1404FDC00 (atol.c)
- *     KdDisableDebuggerWithLock @ 0x1405AF918 (KdDisableDebuggerWithLock.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     strncmp @ 0x1406BFB20 (strncmp.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     KdRegisterDebuggerDataBlock @ 0x140B76578 (KdRegisterDebuggerDataBlock.c)
+ *     KdPollBreakIn @ 0x1402ABAA0 (KdPollBreakIn.c)
+ *     KeQueryPerformanceCounter @ 0x14036DEF0 (KeQueryPerformanceCounter.c)
+ *     KeInitializeTimer @ 0x14044A0E0 (KeInitializeTimer.c)
+ *     KeInitializeDpc @ 0x14044A220 (KeInitializeDpc.c)
+ *     KeIsKernelCetEnabled @ 0x14044B670 (KeIsKernelCetEnabled.c)
+ *     RtlInitAnsiString @ 0x14045BBA0 (RtlInitAnsiString.c)
+ *     DbgLoadImageSymbols @ 0x14049EEC0 (DbgLoadImageSymbols.c)
+ *     __report_rangecheckfailure @ 0x1404F2ABC (__report_rangecheckfailure.c)
+ *     MmGetPagedPoolCommitPointer @ 0x1404F6278 (MmGetPagedPoolCommitPointer.c)
+ *     _strupr @ 0x1404FAAD0 (_strupr.c)
+ *     strstr @ 0x1404FB270 (strstr.c)
+ *     atol @ 0x1404FB4C0 (atol.c)
+ *     KdDisableDebuggerWithLock @ 0x1405AC888 (KdDisableDebuggerWithLock.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     strncmp @ 0x1406C0A20 (strncmp.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     KdRegisterDebuggerDataBlock @ 0x140B78578 (KdRegisterDebuggerDataBlock.c)
  */
 
 char __fastcall KdInitSystem(int a1, __int64 a2, __int64 a3, __int64 a4)
@@ -49,19 +49,20 @@ char __fastcall KdInitSystem(int a1, __int64 a2, __int64 a3, __int64 a4)
   __int64 v22; // rdx
   __int64 v23; // rcx
   __int64 v24; // r8
-  unsigned __int64 v25; // rax
-  unsigned int v26; // esi
-  __int64 *v27; // rdi
-  __int64 v28; // rdx
-  char *v29; // r9
-  unsigned int v30; // r8d
-  char v31; // al
-  __int64 v32; // rcx
+  __int64 v25; // r9
+  unsigned __int64 v26; // rax
+  unsigned int v27; // esi
+  __int64 *v28; // rdi
+  __int64 v29; // rdx
+  CHAR *v30; // r9
+  unsigned int v31; // r8d
+  CHAR v32; // al
+  __int64 v33; // rcx
   unsigned int j; // edi
-  ULONG_PTR Pool2; // rax
-  signed __int32 v36[8]; // [rsp+0h] [rbp-178h] BYREF
+  __int64 Pool2; // rax
+  signed __int32 v37[8]; // [rsp+0h] [rbp-178h] BYREF
   STRING DestinationString; // [rsp+20h] [rbp-158h] BYREF
-  char SourceString[256]; // [rsp+30h] [rbp-148h] BYREF
+  CHAR SourceString[256]; // [rsp+30h] [rbp-148h] BYREF
 
   v5 = 0;
   v6 = 0;
@@ -86,16 +87,16 @@ char __fastcall KdInitSystem(int a1, __int64 a2, __int64 a3, __int64 a4)
       *((_QWORD *)&KdpContext + 1) = KdDebugDevice;
       qword_140E011B0 = (__int64)MmGetPagedPoolCommitPointer();
       KdpPowerSpinLock = 0LL;
-      qword_140F58EE8 = (__int64)&KdpPowerListHead;
+      qword_140F55138 = (__int64)&KdpPowerListHead;
       KdpPowerListHead = (__int64)&KdpPowerListHead;
-      qword_140F58EC8 = (__int64)&KdpDebuggerDataListHead;
+      qword_140F55148 = (__int64)&KdpDebuggerDataListHead;
       KdpDebuggerDataListHead = (__int64)&KdpDebuggerDataListHead;
       KdRegisterDebuggerDataBlock(v8, &KdDebuggerDataBlock);
       WORD1(KdVersionBlock) = NtBuildNumber;
       LOWORD(KdVersionBlock) = (unsigned int)NtBuildNumber >> 28;
-      qword_140E0A9C0 = (__int64)&KdpDebuggerDataListHead;
+      qword_140E0AA48 = (__int64)&KdpDebuggerDataListHead;
       WORD3(KdVersionBlock) |= 1u;
-      *((_QWORD *)&xmmword_140E0A9B0 + 1) = &PsLoadedModuleList;
+      *((_QWORD *)&xmmword_140E0AA38 + 1) = &PsLoadedModuleList;
       *(_WORD *)((char *)&KdVersionBlock + 11) = 13059;
     }
     CurrentPrcb = KeGetCurrentPrcb();
@@ -110,7 +111,7 @@ char __fastcall KdInitSystem(int a1, __int64 a2, __int64 a3, __int64 a4)
       off_140E01318 = &KdpLoaderDebuggerBlock;
       KdpLoaderDebuggerBlock = a2 + 16;
       v11 = *(char **)(a2 + 216);
-      *(_QWORD *)&xmmword_140E0A9B0 = v10;
+      *(_QWORD *)&xmmword_140E0AA38 = v10;
       if ( v11 )
       {
         strupr(v11);
@@ -247,9 +248,9 @@ char __fastcall KdInitSystem(int a1, __int64 a2, __int64 a3, __int64 a4)
     else
     {
       v12 = 1;
-      *(_QWORD *)&xmmword_140E0A9B0 = PsNtosImageBase;
+      *(_QWORD *)&xmmword_140E0AA38 = PsNtosImageBase;
     }
-    qword_140E01058 = xmmword_140E0A9B0;
+    qword_140E01058 = xmmword_140E0AA38;
     if ( !v7 )
     {
       if ( a2 && *(_DWORD *)(a2 + 12) < 2u || !v12 )
@@ -309,38 +310,38 @@ char __fastcall KdInitSystem(int a1, __int64 a2, __int64 a3, __int64 a4)
         {
           LOBYTE(KeKernelCetWrssEnabledScenarios) = KeKernelCetWrssEnabledScenarios | 2;
           v23 = 1698LL;
-          v25 = __readmsr(0x6A2u) | 2;
-          v22 = HIDWORD(v25);
-          __writemsr(0x6A2u, v25);
+          v26 = __readmsr(0x6A2u) | 2;
+          v22 = HIDWORD(v26);
+          __writemsr(0x6A2u, v26);
         }
-        v26 = 0;
-        v27 = *(__int64 **)(a2 + 16);
-        while ( v27 != (__int64 *)(a2 + 16) && v26 < 3 )
+        v27 = 0;
+        v28 = *(__int64 **)(a2 + 16);
+        while ( v28 != (__int64 *)(a2 + 16) && v27 < 3 )
         {
           DestinationString = 0LL;
-          LODWORD(v28) = 0;
-          v29 = (char *)v27[10];
-          v30 = *((unsigned __int16 *)v27 + 36) >> 1;
-          if ( v30 >= 0x100 )
-            v30 = 255;
+          LODWORD(v29) = 0;
+          v30 = (CHAR *)v28[10];
+          v31 = *((unsigned __int16 *)v28 + 36) >> 1;
+          if ( v31 >= 0x100 )
+            v31 = 255;
           do
           {
-            v31 = *v29;
-            v29 += 2;
-            v32 = (unsigned int)v28;
-            v28 = (unsigned int)(v28 + 1);
-            SourceString[v32] = v31;
+            v32 = *v30;
+            v30 += 2;
+            v33 = (unsigned int)v29;
+            v29 = (unsigned int)(v29 + 1);
+            SourceString[v33] = v32;
           }
-          while ( (unsigned int)v28 < v30 );
-          if ( (unsigned int)v28 >= 0x100uLL )
+          while ( (unsigned int)v29 < v31 );
+          if ( (unsigned int)v29 >= 0x100uLL )
             _report_rangecheckfailure();
-          SourceString[v28] = 0;
+          SourceString[v29] = 0;
           RtlInitAnsiString(&DestinationString, SourceString);
-          DbgLoadImageSymbols((__int64)&DestinationString, v27[6], 0xFFFFFFFFLL);
-          v27 = (__int64 *)*v27;
-          ++v26;
+          DbgLoadImageSymbols((__int64)&DestinationString, v28[6], 0xFFFFFFFFLL);
+          v28 = (__int64 *)*v28;
+          ++v27;
         }
-        KdBreakAfterSymbolLoad = KdPollBreakIn(v23, v22, v24);
+        KdBreakAfterSymbolLoad = KdPollBreakIn(v23, v22, v24, v25);
 LABEL_66:
         v21 = *(_QWORD *)(a2 + 240);
         if ( v21 )
@@ -363,7 +364,7 @@ LABEL_65:
       Pool2 = ExAllocatePool2(0x40uLL, 0x1000uLL, 0x6F49644BuLL);
       if ( Pool2 )
       {
-        _InterlockedOr(v36, 0);
+        _InterlockedOr(v37, 0);
         KdLogBuffer[j] = Pool2;
       }
     }

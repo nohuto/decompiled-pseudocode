@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpGetSetCmosData @ 0x140425794
+ * XREFs of HalpGetSetCmosData @ 0x140419644
  * Callers:
- *     HalGetBusDataByOffset @ 0x140488FB0 (HalGetBusDataByOffset.c)
- *     HalpGetCmosData @ 0x14055280C (HalpGetCmosData.c)
+ *     HalGetBusDataByOffset @ 0x1403A7A90 (HalGetBusDataByOffset.c)
+ *     HalpGetCmosData @ 0x14055014C (HalpGetCmosData.c)
  * Callees:
- *     HalpReleaseCmosSpinLock @ 0x140425E04 (HalpReleaseCmosSpinLock.c)
- *     HalpAcquireCmosSpinLock @ 0x140425EE8 (HalpAcquireCmosSpinLock.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
+ *     HalpReleaseCmosSpinLock @ 0x140419CB4 (HalpReleaseCmosSpinLock.c)
+ *     HalpAcquireCmosSpinLock @ 0x140419D98 (HalpAcquireCmosSpinLock.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall HalpGetSetCmosData(__int64 a1, unsigned int a2, _BYTE *a3, int a4, char a5)
@@ -16,7 +16,6 @@ __int64 __fastcall HalpGetSetCmosData(__int64 a1, unsigned int a2, _BYTE *a3, in
   __int64 v9; // rdx
   __int64 v10; // rcx
   __int64 v11; // r8
-  __int64 v12; // r9
 
   v5 = HalpCmosBusParameterTable;
   v8 = a2;
@@ -28,11 +27,11 @@ __int64 __fastcall HalpGetSetCmosData(__int64 a1, unsigned int a2, _BYTE *a3, in
     if ( a5 )
     {
       LOBYTE(v9) = *a3;
-      guard_dispatch_icall_no_overrides(v8, v9, v11, v12);
+      guard_dispatch_icall_no_overrides(v8, v9);
     }
     else
     {
-      *a3 = guard_dispatch_icall_no_overrides(v8, v9, v11, v12);
+      *a3 = guard_dispatch_icall_no_overrides(v8, v9);
     }
     ++v8;
   }

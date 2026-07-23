@@ -1,8 +1,8 @@
 /*
- * XREFs of UpdateInternalStatsOnFlush @ 0x14087FEB0
+ * XREFs of UpdateInternalStatsOnFlush @ 0x1408800F0
  * Callers:
- *     LookUpTableFlushComplete @ 0x14085CCE0 (LookUpTableFlushComplete.c)
- *     LookUpTableFlushPartial @ 0x14087FD9C (LookUpTableFlushPartial.c)
+ *     LookUpTableFlushComplete @ 0x14085CF20 (LookUpTableFlushComplete.c)
+ *     LookUpTableFlushPartial @ 0x14087FFDC (LookUpTableFlushPartial.c)
  * Callees:
  *     <none>
  */

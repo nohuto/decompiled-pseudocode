@@ -9,17 +9,17 @@
  *     _RtlRbRemoveNode@8 @ 0x4B2D9B10 (_RtlRbRemoveNode@8.c)
  */
 
-volatile signed __int32 *__fastcall RtlpHpSegFreeRangeRemove(int a1, _DWORD *a2)
+volatile signed __int32 *__fastcall RtlpHpSegFreeRangeRemove(int a1, _RTL_BALANCED_NODE *a2)
 {
   unsigned __int16 v4; // ax
   int v5; // ecx
   volatile signed __int32 *result; // eax
 
-  RtlRbRemoveNode(a1 + 80, (unsigned int)a2);
-  a2[1] = 0;
-  a2[2] = 0;
-  v4 = ~(unsigned __int16)(a2[3] >> 8);
-  *a2 = -857879331;
+  RtlRbRemoveNode((PRTL_RB_TREE)(a1 + 80), a2);
+  a2->Children[1] = 0;
+  a2->ParentValue = 0;
+  v4 = ~(unsigned __int16)((unsigned int)a2[1].Children[0] >> 8);
+  a2->Children[0] = (_RTL_BALANCED_NODE *)-857879331;
   v5 = v4;
   result = (volatile signed __int32 *)(a1 + *(__int16 *)(a1 + 18) + 8);
   _InterlockedExchangeAdd(result, -v5);

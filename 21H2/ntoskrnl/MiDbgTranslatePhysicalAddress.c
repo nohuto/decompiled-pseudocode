@@ -1,17 +1,17 @@
 /*
- * XREFs of MiDbgTranslatePhysicalAddress @ 0x1405461F0
+ * XREFs of MiDbgTranslatePhysicalAddress @ 0x140546430
  * Callers:
- *     MiDbgCopyMemory @ 0x1405458A4 (MiDbgCopyMemory.c)
+ *     MiDbgCopyMemory @ 0x140545AE4 (MiDbgCopyMemory.c)
  * Callees:
- *     MiMakeProtectionPfnCompatible @ 0x14023B9BC (MiMakeProtectionPfnCompatible.c)
- *     KeYieldProcessorEx @ 0x14024B280 (KeYieldProcessorEx.c)
- *     ExTryAcquireSpinLockExclusiveAtDpcLevel @ 0x140261880 (ExTryAcquireSpinLockExclusiveAtDpcLevel.c)
- *     KeFlushSingleTb @ 0x14026BA08 (KeFlushSingleTb.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140314D90 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     MiMakeValidPte @ 0x14032E730 (MiMakeValidPte.c)
- *     KeFlushSingleCurrentTb @ 0x140389ED8 (KeFlushSingleCurrentTb.c)
- *     MiCheckPhysicalAddressRange @ 0x1405455DC (MiCheckPhysicalAddressRange.c)
- *     MiDbgUnTranslatePhysicalAddress @ 0x1405465C4 (MiDbgUnTranslatePhysicalAddress.c)
+ *     KeFlushSingleTb @ 0x1402599A8 (KeFlushSingleTb.c)
+ *     ExTryAcquireSpinLockExclusiveAtDpcLevel @ 0x140282D50 (ExTryAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     MiMakeProtectionPfnCompatible @ 0x1402E020C (MiMakeProtectionPfnCompatible.c)
+ *     KeYieldProcessorEx @ 0x1402EFAD0 (KeYieldProcessorEx.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x14031FAE0 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     MiMakeValidPte @ 0x140339480 (MiMakeValidPte.c)
+ *     KeFlushSingleCurrentTb @ 0x14038A028 (KeFlushSingleCurrentTb.c)
+ *     MiCheckPhysicalAddressRange @ 0x14054581C (MiCheckPhysicalAddressRange.c)
+ *     MiDbgUnTranslatePhysicalAddress @ 0x140546804 (MiDbgUnTranslatePhysicalAddress.c)
  */
 
 unsigned __int64 __fastcall MiDbgTranslatePhysicalAddress(unsigned __int64 a1, char a2, __int64 a3)
@@ -44,9 +44,9 @@ unsigned __int64 __fastcall MiDbgTranslatePhysicalAddress(unsigned __int64 a1, c
   unsigned __int64 ValidPte; // rax
   _DWORD v32[14]; // [rsp+20h] [rbp-38h] BYREF
 
-  v3 = qword_140C4E888;
+  v3 = qword_140C4E8C8;
   v6 = a1;
-  if ( !qword_140C4E888 || !(unsigned int)MiCheckPhysicalAddressRange(a1, 1LL) )
+  if ( !qword_140C4E8C8 || !(unsigned int)MiCheckPhysicalAddressRange(a1, 1LL) )
     return 0LL;
   v9 = 2LL;
   v10 = v3 << 25 >> 16;
@@ -82,7 +82,7 @@ unsigned __int64 __fastcall MiDbgTranslatePhysicalAddress(unsigned __int64 a1, c
         {
           if ( (a2 & 0x41) != 0 || (KiBugCheckActive & 3) == 0 )
             return 0LL;
-          ++dword_140C4E890;
+          ++dword_140C4E8D0;
           *(_DWORD *)a3 = 4;
         }
       }
@@ -108,15 +108,15 @@ unsigned __int64 __fastcall MiDbgTranslatePhysicalAddress(unsigned __int64 a1, c
   if ( (a2 & 4) != 0 )
   {
     *(_DWORD *)a3 = 8;
-    if ( !(unsigned int)ExTryAcquireSpinLockExclusiveAtDpcLevel(&dword_140C4EC40) )
+    if ( !(unsigned int)ExTryAcquireSpinLockExclusiveAtDpcLevel(&dword_140C4EC80) )
       return 0LL;
   }
   else
   {
     *(_DWORD *)a3 = 16;
-    ExAcquireSpinLockExclusiveAtDpcLevel(&dword_140C4EC40);
+    ExAcquireSpinLockExclusiveAtDpcLevel(&dword_140C4EC80);
   }
-  v17 = (_QWORD *)*((_QWORD *)&xmmword_140C4EC48 + 1);
+  v17 = (_QWORD *)*((_QWORD *)&xmmword_140C4EC88 + 1);
   v18 = 3;
   while ( v17 )
   {
@@ -141,7 +141,7 @@ unsigned __int64 __fastcall MiDbgTranslatePhysicalAddress(unsigned __int64 a1, c
   if ( !v20 )
   {
 LABEL_36:
-    v21 = (_QWORD *)qword_140C4EC58;
+    v21 = (_QWORD *)qword_140C4EC98;
     while ( v21 )
     {
       v22 = v21[5];
@@ -223,13 +223,13 @@ LABEL_74:
     }
   }
   if ( v18 == 3 )
-    ++dword_140C4E890;
+    ++dword_140C4E8D0;
 LABEL_67:
   v28 = v12 | 0xA0000000;
-  v29 = (volatile signed __int64 *)qword_140C4E888;
-  ValidPte = MiMakeValidPte(qword_140C4E888, v11, v28);
+  v29 = (volatile signed __int64 *)qword_140C4E8C8;
+  ValidPte = MiMakeValidPte(qword_140C4E8C8, v11, v28);
   if ( (a2 & 0x41) != 0 )
-    byte_140C4E880 = 1;
+    byte_140C4E8C0 = 1;
   if ( _InterlockedCompareExchange64(v29, ValidPte, 0LL) )
     goto LABEL_74;
   *(_DWORD *)a3 |= 0x20u;

@@ -1,12 +1,12 @@
 /*
- * XREFs of TtmiLogCalloutWatchdogCrashSkipped @ 0x14076BFF0
+ * XREFs of TtmiLogCalloutWatchdogCrashSkipped @ 0x14076C210
  * Callers:
- *     TtmpCalloutWatchdogCallback @ 0x140769020 (TtmpCalloutWatchdogCallback.c)
+ *     TtmpCalloutWatchdogCallback @ 0x140769240 (TtmpCalloutWatchdogCallback.c)
  * Callees:
- *     PsGetSessionIdEx @ 0x1403025D0 (PsGetSessionIdEx.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140330CB0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgKeywordOn @ 0x140426AF0 (_tlgKeywordOn.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402B92F0 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     PsGetSessionIdEx @ 0x14030CBE0 (PsGetSessionIdEx.c)
+ *     _tlgKeywordOn @ 0x14041A970 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 char __fastcall TtmiLogCalloutWatchdogCrashSkipped(int a1, int a2, __int64 a3, __int64 a4, __int64 a5, __int64 a6)
@@ -45,9 +45,9 @@ char __fastcall TtmiLogCalloutWatchdogCrashSkipped(int a1, int a2, __int64 a3, _
   _UNKNOWN *retaddr; // [rsp+110h] [rbp+4Fh] BYREF
 
   v6 = &retaddr;
-  if ( (unsigned int)dword_140FD7880 > 5 )
+  if ( (unsigned int)dword_140FD8890 > 5 )
   {
-    LOBYTE(v6) = tlgKeywordOn((__int64)&dword_140FD7880, 0x400000000001LL);
+    LOBYTE(v6) = tlgKeywordOn((__int64)&dword_140FD8890, 0x400000000001LL);
     if ( (_BYTE)v6 )
     {
       SessionId = PsGetSessionIdEx((__int64)KeGetCurrentThread()->ApcState.Process);
@@ -80,8 +80,8 @@ char __fastcall TtmiLogCalloutWatchdogCrashSkipped(int a1, int a2, __int64 a3, _
       v16 = a3;
       v17 = a4;
       LOBYTE(v6) = tlgWriteTransfer_EtwWriteTransfer(
-                     (__int64)&dword_140FD7880,
-                     (unsigned __int8 *)&dword_14004F9BF + 3,
+                     (__int64)&dword_140FD8890,
+                     (unsigned __int8 *)&unk_140050F10,
                      0LL,
                      0LL,
                      9u,

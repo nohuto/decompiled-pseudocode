@@ -1,10 +1,10 @@
 /*
- * XREFs of WdipSemSqmLogTimeoutDataPoints @ 0x140930CD0
+ * XREFs of WdipSemSqmLogTimeoutDataPoints @ 0x140930E30
  * Callers:
- *     WdipSemLogTimeoutInformation @ 0x1409304B0 (WdipSemLogTimeoutInformation.c)
+ *     WdipSemLogTimeoutInformation @ 0x140930610 (WdipSemLogTimeoutInformation.c)
  * Callees:
- *     WdipSemGetGuidKey @ 0x1409308C8 (WdipSemGetGuidKey.c)
- *     WdipSemSqmAddToStream @ 0x140930A7C (WdipSemSqmAddToStream.c)
+ *     WdipSemGetGuidKey @ 0x140930A28 (WdipSemGetGuidKey.c)
+ *     WdipSemSqmAddToStream @ 0x140930BDC (WdipSemSqmAddToStream.c)
  */
 
 NTSTATUS __fastcall WdipSemSqmLogTimeoutDataPoints(__int64 a1, int a2)

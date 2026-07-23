@@ -1,10 +1,10 @@
 /*
- * XREFs of KiHeteroReduceToMaximallyPreferredByClass @ 0x1405772E8
+ * XREFs of KiHeteroReduceToMaximallyPreferredByClass @ 0x1405777D8
  * Callers:
- *     KiHeteroIdleSetReduction @ 0x140461D4C (KiHeteroIdleSetReduction.c)
- *     KiTallyHeteroSoftParkElectionVotes @ 0x14057E3EC (KiTallyHeteroSoftParkElectionVotes.c)
+ *     KiHeteroIdleSetReduction @ 0x14046214C (KiHeteroIdleSetReduction.c)
+ *     KiTallyHeteroSoftParkElectionVotes @ 0x14057E8DC (KiTallyHeteroSoftParkElectionVotes.c)
  * Callees:
- *     KiGetProcessorClassForPolicy @ 0x140461766 (KiGetProcessorClassForPolicy.c)
+ *     KiGetProcessorClassForPolicy @ 0x140461B66 (KiGetProcessorClassForPolicy.c)
  */
 
 __int64 __fastcall KiHeteroReduceToMaximallyPreferredByClass(

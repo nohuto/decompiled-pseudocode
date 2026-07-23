@@ -1,8 +1,8 @@
 /*
- * XREFs of KiUncommitGroupSubNodeAssignments @ 0x140570AA0
+ * XREFs of KiUncommitGroupSubNodeAssignments @ 0x140570FE0
  * Callers:
- *     KiAllocateProcessorNumber @ 0x1403772B8 (KiAllocateProcessorNumber.c)
- *     KiFreeProcessorNumber @ 0x14057093C (KiFreeProcessorNumber.c)
+ *     KiAllocateProcessorNumber @ 0x140377458 (KiAllocateProcessorNumber.c)
+ *     KiFreeProcessorNumber @ 0x140570E7C (KiFreeProcessorNumber.c)
  * Callees:
  *     <none>
  */

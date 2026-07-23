@@ -1,15 +1,15 @@
 /*
- * XREFs of PsSetProcessFaultInformation @ 0x1404F09D4
+ * XREFs of PsSetProcessFaultInformation @ 0x1404D2AC8
  * Callers:
- *     NtSetInformationProcess @ 0x140425A10 (NtSetInformationProcess.c)
- *     DbgkForwardException @ 0x1404DBC50 (DbgkForwardException.c)
+ *     NtSetInformationProcess @ 0x1404248E0 (NtSetInformationProcess.c)
+ *     DbgkForwardException @ 0x1404BF254 (DbgkForwardException.c)
  * Callees:
- *     PspLockProcessExclusive @ 0x140088FB8 (PspLockProcessExclusive.c)
- *     PspUnlockProcessExclusive @ 0x1400F22D8 (PspUnlockProcessExclusive.c)
- *     PsSetProcessTelemetryAppState @ 0x1404A33DC (PsSetProcessTelemetryAppState.c)
+ *     PspUnlockProcessExclusive @ 0x1400F0128 (PspUnlockProcessExclusive.c)
+ *     PspLockProcessExclusive @ 0x14010D1A8 (PspLockProcessExclusive.c)
+ *     PsSetProcessTelemetryAppState @ 0x14051B7DC (PsSetProcessTelemetryAppState.c)
  */
 
-__int64 __fastcall PsSetProcessFaultInformation(__int64 a1, _DWORD *a2)
+__int64 __fastcall PsSetProcessFaultInformation(ULONG_PTR a1, _DWORD *a2)
 {
   struct _KTHREAD *CurrentThread; // rdi
   char v6; // al
@@ -18,7 +18,7 @@ __int64 __fastcall PsSetProcessFaultInformation(__int64 a1, _DWORD *a2)
   {
     _m_prefetchw((const void *)(a1 + 1740));
     if ( (_InterlockedOr((volatile signed __int32 *)(a1 + 1740), 0x10u) & 0x10) == 0 )
-      PsSetProcessTelemetryAppState((struct _EX_RUNDOWN_REF *)a1, 4);
+      PsSetProcessTelemetryAppState(a1);
   }
   if ( (*a2 & 2) != 0 )
   {

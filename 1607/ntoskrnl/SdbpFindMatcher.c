@@ -1,9 +1,9 @@
 /*
- * XREFs of SdbpFindMatcher @ 0x14057388C
+ * XREFs of SdbpFindMatcher @ 0x140573DCC
  * Callers:
- *     SdbpMatchList @ 0x1405737E8 (SdbpMatchList.c)
+ *     SdbpMatchList @ 0x140573D28 (SdbpMatchList.c)
  * Callees:
- *     SdbGetTagFromTagID @ 0x140501250 (SdbGetTagFromTagID.c)
+ *     SdbGetTagFromTagID @ 0x1404E41E0 (SdbGetTagFromTagID.c)
  */
 
 __int64 __fastcall SdbpFindMatcher(_QWORD *a1, __int64 a2, __int64 a3, unsigned int a4)

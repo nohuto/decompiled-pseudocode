@@ -1,9 +1,9 @@
 /*
- * XREFs of KeUpdatePrimaryThreadContext @ 0x140651A9C
+ * XREFs of KeUpdatePrimaryThreadContext @ 0x140651B80
  * Callers:
- *     PspGetSetContextInternal @ 0x140518130 (PspGetSetContextInternal.c)
+ *     PspGetSetContextInternal @ 0x1404FB520 (PspGetSetContextInternal.c)
  * Callees:
- *     RtlpCopyLegacyContext @ 0x1400F32B4 (RtlpCopyLegacyContext.c)
+ *     RtlpCopyLegacyContext @ 0x1400F1104 (RtlpCopyLegacyContext.c)
  */
 
 __int64 __fastcall KeUpdatePrimaryThreadContext(__int64 a1, __int64 a2)

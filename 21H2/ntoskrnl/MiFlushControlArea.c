@@ -1,27 +1,27 @@
 /*
- * XREFs of MiFlushControlArea @ 0x140529794
+ * XREFs of MiFlushControlArea @ 0x1405299D4
  * Callers:
- *     MiDeleteCachedSegment @ 0x140528BB8 (MiDeleteCachedSegment.c)
- *     MiProcessDeleteOnClose @ 0x140529F98 (MiProcessDeleteOnClose.c)
+ *     MiDeleteCachedSegment @ 0x140528DF8 (MiDeleteCachedSegment.c)
+ *     MiProcessDeleteOnClose @ 0x14052A1D8 (MiProcessDeleteOnClose.c)
  * Callees:
- *     ObFastReferenceObjectLocked @ 0x140206338 (ObFastReferenceObjectLocked.c)
- *     MiFlushSectionInternal @ 0x140219DB0 (MiFlushSectionInternal.c)
- *     ExAcquireSpinLockExclusive @ 0x14021D060 (ExAcquireSpinLockExclusive.c)
- *     ExQueueWorkItem @ 0x14023E750 (ExQueueWorkItem.c)
- *     MmIsWriteErrorFatal @ 0x140255928 (MmIsWriteErrorFatal.c)
- *     MiAllocatePool @ 0x14025AD70 (MiAllocatePool.c)
- *     MiDeleteControlArea @ 0x1402F7AE4 (MiDeleteControlArea.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14033BD80 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
- *     MiDecrementModifiedWriteCount @ 0x140357408 (MiDecrementModifiedWriteCount.c)
- *     MiInsertUnusedSegment @ 0x140357560 (MiInsertUnusedSegment.c)
+ *     MmIsWriteErrorFatal @ 0x140276E98 (MmIsWriteErrorFatal.c)
+ *     MiAllocatePool @ 0x14027C2E0 (MiAllocatePool.c)
+ *     ObFastReferenceObjectLocked @ 0x1402AAC68 (ObFastReferenceObjectLocked.c)
+ *     MiFlushSectionInternal @ 0x1402BE6B0 (MiFlushSectionInternal.c)
+ *     ExAcquireSpinLockExclusive @ 0x1402C1960 (ExAcquireSpinLockExclusive.c)
+ *     ExQueueWorkItem @ 0x1402E2FA0 (ExQueueWorkItem.c)
+ *     MiDeleteControlArea @ 0x140302834 (MiDeleteControlArea.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140346AD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ObfDereferenceObjectWithTag @ 0x140355E90 (ObfDereferenceObjectWithTag.c)
+ *     MiDecrementModifiedWriteCount @ 0x140362158 (MiDecrementModifiedWriteCount.c)
+ *     MiInsertUnusedSegment @ 0x1403622B0 (MiInsertUnusedSegment.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     MiPreventControlAreaDelete @ 0x140529F5C (MiPreventControlAreaDelete.c)
- *     MiRemoveWakeListEntry @ 0x14052A8DC (MiRemoveWakeListEntry.c)
- *     MiReturnCrossPartitionSectionCharges @ 0x1405550EC (MiReturnCrossPartitionSectionCharges.c)
- *     FsRtlReleaseFileForCcFlush @ 0x140647024 (FsRtlReleaseFileForCcFlush.c)
- *     FsRtlAcquireFileForCcFlushEx @ 0x140647204 (FsRtlAcquireFileForCcFlushEx.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     MiPreventControlAreaDelete @ 0x14052A19C (MiPreventControlAreaDelete.c)
+ *     MiRemoveWakeListEntry @ 0x14052AB1C (MiRemoveWakeListEntry.c)
+ *     MiReturnCrossPartitionSectionCharges @ 0x14055532C (MiReturnCrossPartitionSectionCharges.c)
+ *     FsRtlReleaseFileForCcFlush @ 0x14063BE14 (FsRtlReleaseFileForCcFlush.c)
+ *     FsRtlAcquireFileForCcFlushEx @ 0x14063BFF4 (FsRtlAcquireFileForCcFlushEx.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall MiFlushControlArea(char *P, unsigned __int8 a2, __int64 *a3, struct _FILE_OBJECT **a4)
@@ -100,7 +100,7 @@ __int64 __fastcall MiFlushControlArea(char *P, unsigned __int8 a2, __int64 *a3, 
   v40 = v13;
   v14 = ExAcquireSpinLockExclusive((PEX_SPIN_LOCK)P + 18);
   v15 = _InterlockedDecrement64((volatile signed __int64 *)P + 14);
-  *(_QWORD *)(*(_QWORD *)(qword_140C4E648 + 8LL * (*((_WORD *)P + 30) & 0x3FF)) + 1688LL) = 0LL;
+  *(_QWORD *)(*(_QWORD *)(qword_140C4E688 + 8LL * (*((_WORD *)P + 30) & 0x3FF)) + 1688LL) = 0LL;
   if ( !v13 || (*((_DWORD *)P + 14) & 1) != 0 )
   {
     *((_DWORD *)P + 14) &= ~0x100u;
@@ -158,7 +158,7 @@ __int64 __fastcall MiFlushControlArea(char *P, unsigned __int8 a2, __int64 *a3, 
     }
     __writecr8(v14);
     KeGetCurrentThread()[1].TrapFrame = (_KTRAP_FRAME *)1;
-    v20 = MiFlushSectionInternal(0LL, 0LL, (_QWORD *)P + 16, 0LL, 0LL, 2u, (unsigned int *)&v35);
+    v20 = MiFlushSectionInternal(0LL, 0LL, (__int64 *)P + 16, 0LL, 0LL, 2u, (unsigned int *)&v35);
     KeGetCurrentThread()[1].TrapFrame = 0LL;
     if ( v20 < 0 )
       Pool = (struct _WORK_QUEUE_ITEM *)MiAllocatePool(64, 0x38uLL, 0x70646D4Du);
@@ -198,7 +198,7 @@ LABEL_31:
 LABEL_34:
     v25 = 0LL;
   else
-    v25 = *(_QWORD *)(qword_140C4E648 + 8LL * (*((_WORD *)P + 30) & 0x3FF));
+    v25 = *(_QWORD *)(qword_140C4E688 + 8LL * (*((_WORD *)P + 30) & 0x3FF));
   ExReleaseSpinLockExclusiveFromDpcLevel(SpinLock);
   if ( KiIrqlFlags )
   {

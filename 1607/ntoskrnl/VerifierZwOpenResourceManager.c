@@ -1,5 +1,5 @@
 /*
- * XREFs of VerifierZwOpenResourceManager @ 0x14070CDF4
+ * XREFs of VerifierZwOpenResourceManager @ 0x14070CE24
  * Callers:
  *     <none>
  * Callees:

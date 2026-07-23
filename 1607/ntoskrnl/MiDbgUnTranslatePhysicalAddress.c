@@ -1,12 +1,12 @@
 /*
- * XREFs of MiDbgUnTranslatePhysicalAddress @ 0x1401487C8
+ * XREFs of MiDbgUnTranslatePhysicalAddress @ 0x140148D38
  * Callers:
- *     MiDbgCopyMemory @ 0x1400836B8 (MiDbgCopyMemory.c)
- *     MiDbgTranslatePhysicalAddress @ 0x1401470C4 (MiDbgTranslatePhysicalAddress.c)
+ *     MiDbgCopyMemory @ 0x140084338 (MiDbgCopyMemory.c)
+ *     MiDbgTranslatePhysicalAddress @ 0x140147634 (MiDbgTranslatePhysicalAddress.c)
  * Callees:
- *     KxReleaseQueuedSpinLock @ 0x140069570 (KxReleaseQueuedSpinLock.c)
- *     KeFlushSingleTb @ 0x14010A628 (KeFlushSingleTb.c)
- *     KeFlushSingleCurrentTb @ 0x14012C860 (KeFlushSingleCurrentTb.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400690F0 (KxReleaseQueuedSpinLock.c)
+ *     KeFlushSingleTb @ 0x1401083A8 (KeFlushSingleTb.c)
+ *     KeFlushSingleCurrentTb @ 0x14012CDD0 (KeFlushSingleCurrentTb.c)
  */
 
 unsigned __int8 __fastcall MiDbgUnTranslatePhysicalAddress(int *a1)
@@ -18,8 +18,8 @@ unsigned __int8 __fastcall MiDbgUnTranslatePhysicalAddress(int *a1)
 
   if ( (*a1 & 0x20) != 0 )
   {
-    v2 = qword_140327208 << 25;
-    _InterlockedExchange64((volatile __int64 *)qword_140327208, 0LL);
+    v2 = qword_140327248 << 25;
+    _InterlockedExchange64((volatile __int64 *)qword_140327248, 0LL);
     v3 = v2 >> 16;
     if ( (*a1 & 0x12) != 0 )
       KeFlushSingleTb(v3, 0, 1u);

@@ -1,7 +1,7 @@
 /*
- * XREFs of EtwpCopyMetaProviderGuids @ 0x14046B07C
+ * XREFs of EtwpCopyMetaProviderGuids @ 0x14046B47C
  * Callers:
- *     EtwpGetTraceGuidList @ 0x1409E7DA4 (EtwpGetTraceGuidList.c)
+ *     EtwpGetTraceGuidList @ 0x1409E8034 (EtwpGetTraceGuidList.c)
  * Callees:
  *     <none>
  */

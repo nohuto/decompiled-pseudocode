@@ -1,9 +1,9 @@
 /*
- * XREFs of HvlSvmClearPrqStalled @ 0x1401BE00C
+ * XREFs of HvlSvmClearPrqStalled @ 0x1401BDEF0
  * Callers:
  *     <none>
  * Callees:
- *     HvcallpExtendedFastHypercall @ 0x1401685A0 (HvcallpExtendedFastHypercall.c)
+ *     HvcallpExtendedFastHypercall @ 0x140168B10 (HvcallpExtendedFastHypercall.c)
  */
 
 __int64 __fastcall HvlSvmClearPrqStalled(unsigned int a1)

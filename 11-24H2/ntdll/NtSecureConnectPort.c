@@ -1,16 +1,25 @@
 /*
- * XREFs of NtSecureConnectPort @ 0x180164F00
+ * XREFs of NtSecureConnectPort @ 0x1801632C0
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 NtSecureConnectPort()
+NTSTATUS __cdecl NtSecureConnectPort(
+        PHANDLE PortHandle,
+        PUNICODE_STRING PortName,
+        PSECURITY_QUALITY_OF_SERVICE SecurityQos,
+        PPORT_VIEW ClientView,
+        PSID RequiredServerSid,
+        PREMOTE_PORT_VIEW ServerView,
+        PULONG MaxMessageLength,
+        PVOID ConnectionInformation,
+        PULONG ConnectionInformationLength)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 404LL;
+  result = 404;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

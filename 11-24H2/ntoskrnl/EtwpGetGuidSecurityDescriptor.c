@@ -1,15 +1,15 @@
 /*
- * XREFs of EtwpGetGuidSecurityDescriptor @ 0x140839E78
+ * XREFs of EtwpGetGuidSecurityDescriptor @ 0x1408370F0
  * Callers:
- *     EtwpAccessCheckFromState @ 0x140839BF8 (EtwpAccessCheckFromState.c)
- *     EtwpGetSecurityDescriptorByGuid @ 0x140839D68 (EtwpGetSecurityDescriptorByGuid.c)
- *     EtwpInitializeSecurity @ 0x140C3E2EC (EtwpInitializeSecurity.c)
+ *     EtwpAccessCheckFromState @ 0x140836E70 (EtwpAccessCheckFromState.c)
+ *     EtwpGetSecurityDescriptorByGuid @ 0x140836FE0 (EtwpGetSecurityDescriptorByGuid.c)
+ *     EtwpInitializeSecurity @ 0x140C4043C (EtwpInitializeSecurity.c)
  * Callees:
- *     ZwQueryValueKey @ 0x1406A66F0 (ZwQueryValueKey.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     SeValidSecurityDescriptor @ 0x1409EA4E0 (SeValidSecurityDescriptor.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ZwQueryValueKey @ 0x1406A7690 (ZwQueryValueKey.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     SeValidSecurityDescriptor @ 0x140835560 (SeValidSecurityDescriptor.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall EtwpGetGuidSecurityDescriptor(UNICODE_STRING *a1, _QWORD *a2)
@@ -35,7 +35,7 @@ __int64 __fastcall EtwpGetGuidSecurityDescriptor(UNICODE_STRING *a1, _QWORD *a2)
   {
     if ( Pool2 )
       ExFreePoolWithTag(Pool2, 0);
-    Pool2 = (void *)ExAllocatePool2(0x100uLL);
+    Pool2 = (void *)ExAllocatePool2(0x100uLL, v4, 0x50777445u);
     if ( !Pool2 )
       return (unsigned int)-1073741670;
     v5 = EtwpMutableSecurityKeyHandle;
@@ -54,7 +54,7 @@ LABEL_17:
       return v10;
     }
     Length = v4 + 16;
-    v8 = (_DWORD *)ExAllocatePool2(0x100uLL);
+    v8 = (_DWORD *)ExAllocatePool2(0x100uLL, v4 + 16, 0x6D6C7472u);
     if ( !v8 )
     {
       v10 = -1073741801;
@@ -93,7 +93,7 @@ LABEL_12:
       {
         if ( SeValidSecurityDescriptor(v4, Pool2) )
         {
-          v12 = (void *)ExAllocatePool2(0x100uLL);
+          v12 = (void *)ExAllocatePool2(0x100uLL, v4, 0x50777445u);
           *a2 = v12;
           if ( v12 )
           {

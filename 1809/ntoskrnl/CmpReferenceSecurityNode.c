@@ -1,10 +1,10 @@
 /*
- * XREFs of CmpReferenceSecurityNode @ 0x140580C84
+ * XREFs of CmpReferenceSecurityNode @ 0x140581C84
  * Callers:
- *     CmRenameKey @ 0x1407EDAF4 (CmRenameKey.c)
+ *     CmRenameKey @ 0x1407EECF4 (CmRenameKey.c)
  * Callees:
- *     CmpKeySecurityIncrementReferenceCount @ 0x1401B34C4 (CmpKeySecurityIncrementReferenceCount.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     CmpKeySecurityIncrementReferenceCount @ 0x1401B3604 (CmpKeySecurityIncrementReferenceCount.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall CmpReferenceSecurityNode(ULONG_PTR a1, __int64 a2)

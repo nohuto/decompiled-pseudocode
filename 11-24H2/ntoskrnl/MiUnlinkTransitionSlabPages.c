@@ -1,12 +1,12 @@
 /*
- * XREFs of MiUnlinkTransitionSlabPages @ 0x14044342C
+ * XREFs of MiUnlinkTransitionSlabPages @ 0x14043C5B4
  * Callers:
- *     MiDemoteSlabEntry @ 0x140442F50 (MiDemoteSlabEntry.c)
- *     MiDeleteSlabEntriesForIdentity @ 0x140687540 (MiDeleteSlabEntriesForIdentity.c)
+ *     MiDemoteSlabEntry @ 0x14043BE9C (MiDemoteSlabEntry.c)
+ *     MiDeleteSlabEntriesForIdentity @ 0x140688670 (MiDeleteSlabEntriesForIdentity.c)
  * Callees:
- *     MiUnlinkPageFromListEx @ 0x140211CD0 (MiUnlinkPageFromListEx.c)
- *     HvlNotifyLongSpinWait @ 0x140293260 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140293290 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     HvlNotifyLongSpinWait @ 0x1402A2E60 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1402A2E90 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     MiUnlinkPageFromListEx @ 0x14033B030 (MiUnlinkPageFromListEx.c)
  */
 
 unsigned __int64 __fastcall MiUnlinkTransitionSlabPages(__int64 a1, __int64 a2)

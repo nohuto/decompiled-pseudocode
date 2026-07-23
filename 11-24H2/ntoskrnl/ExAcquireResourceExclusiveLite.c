@@ -1,209 +1,210 @@
 /*
- * XREFs of ExAcquireResourceExclusiveLite @ 0x1402769C0
+ * XREFs of ExAcquireResourceExclusiveLite @ 0x14022BF50
  * Callers:
- *     CcPinFileData @ 0x140272D30 (CcPinFileData.c)
- *     ExEnterCriticalRegionAndAcquireResourceExclusive @ 0x140276980 (ExEnterCriticalRegionAndAcquireResourceExclusive.c)
- *     MiAcquireLoadLock @ 0x1402C6F98 (MiAcquireLoadLock.c)
- *     SepQueueWorkItem @ 0x140349B84 (SepQueueWorkItem.c)
- *     SepRmCallLsa @ 0x14034A120 (SepRmCallLsa.c)
- *     SepDesktopAppxSubProcessToken @ 0x140355ABC (SepDesktopAppxSubProcessToken.c)
- *     SepInternalSetSecurityAttributesToken @ 0x1403571CC (SepInternalSetSecurityAttributesToken.c)
- *     FsRtlAcquireFileForModWriteEx @ 0x140372ABC (FsRtlAcquireFileForModWriteEx.c)
- *     PnpUnregisterPlugPlayNotification @ 0x14046F240 (PnpUnregisterPlugPlayNotification.c)
- *     CcUnpinRepinnedBcb @ 0x140494980 (CcUnpinRepinnedBcb.c)
- *     SeTokenSetRedirectionTrustPolicy @ 0x14049759C (SeTokenSetRedirectionTrustPolicy.c)
- *     PfResourceExclusiveAcquire @ 0x14049EF58 (PfResourceExclusiveAcquire.c)
- *     SeTokenSetNoChildProcessRestricted @ 0x1404B93F4 (SeTokenSetNoChildProcessRestricted.c)
- *     PiDmaGuardQueueRemoveEntry @ 0x1404BD344 (PiDmaGuardQueueRemoveEntry.c)
- *     CcAcquireByteRangeForWrite @ 0x1404DC470 (CcAcquireByteRangeForWrite.c)
- *     IoCaptureLiveDump @ 0x1404E6068 (IoCaptureLiveDump.c)
- *     IoConfigureCrashDump @ 0x140590DB4 (IoConfigureCrashDump.c)
- *     IoUpdateDumpPhysicalRanges @ 0x140592538 (IoUpdateDumpPhysicalRanges.c)
- *     IoSetDeferredLiveDumpFileHandle @ 0x140597B68 (IoSetDeferredLiveDumpFileHandle.c)
- *     PiDrvDbUnloadNodeWaitWorkerCallback @ 0x1405A9910 (PiDrvDbUnloadNodeWaitWorkerCallback.c)
- *     RtlpAllocateHeap @ 0x1405EA9AC (RtlpAllocateHeap.c)
- *     RtlpFreeHeap @ 0x1405ECA10 (RtlpFreeHeap.c)
- *     RtlpSetupExtendedBlock @ 0x1405ED758 (RtlpSetupExtendedBlock.c)
- *     SeSetSecurityAttributesTokenEx @ 0x1406092E0 (SeSetSecurityAttributesTokenEx.c)
- *     DifExAcquireResourceExclusiveLiteWrapper @ 0x14061BBD0 (DifExAcquireResourceExclusiveLiteWrapper.c)
- *     ExEnterPriorityRegionAndAcquireResourceExclusive @ 0x140656DA0 (ExEnterPriorityRegionAndAcquireResourceExclusive.c)
- *     TtmpAcquireSessionLock @ 0x1406F73C8 (TtmpAcquireSessionLock.c)
- *     FsRtlPrepareMdlWriteDev @ 0x14070A4B0 (FsRtlPrepareMdlWriteDev.c)
- *     FsRtlDedupChangeUninit @ 0x14070CAB0 (FsRtlDedupChangeUninit.c)
- *     FsRtlpDedupChangeRegisterVolume @ 0x14070CCE0 (FsRtlpDedupChangeRegisterVolume.c)
- *     FsRtlpHeatRegisterVolume @ 0x14070D6DC (FsRtlpHeatRegisterVolume.c)
- *     FsRtlpHeatUnregisterVolume @ 0x14070D880 (FsRtlpHeatUnregisterVolume.c)
- *     IoInitializeCrashDump @ 0x140710A68 (IoInitializeCrashDump.c)
- *     IopBootLogToFile @ 0x140711A34 (IopBootLogToFile.c)
- *     IopCopyBootLogRegistryToFile @ 0x140711E7C (IopCopyBootLogRegistryToFile.c)
- *     IopInitializeBootLogging @ 0x140712428 (IopInitializeBootLogging.c)
- *     IoEnumerateRegisteredFiltersList @ 0x140714080 (IoEnumerateRegisteredFiltersList.c)
- *     IoRegisterFileSystem @ 0x1407142F0 (IoRegisterFileSystem.c)
- *     IoRegisterFsRegistrationChangeMountAware @ 0x1407144C0 (IoRegisterFsRegistrationChangeMountAware.c)
- *     IoUnregisterFileSystem @ 0x140714D40 (IoUnregisterFileSystem.c)
- *     IoUnregisterFsRegistrationChange @ 0x140714E00 (IoUnregisterFsRegistrationChange.c)
- *     IoReportDetectedDevice @ 0x14071C850 (IoReportDetectedDevice.c)
- *     IoReportRootDevice @ 0x14071D300 (IoReportRootDevice.c)
- *     PiGetDeviceRegistryProperty @ 0x14071EC28 (PiGetDeviceRegistryProperty.c)
- *     PnpNotifyHwProfileChange @ 0x140720684 (PnpNotifyHwProfileChange.c)
- *     PnpNotifyTargetDeviceChangeNotifyEntry @ 0x1407208D4 (PnpNotifyTargetDeviceChangeNotifyEntry.c)
- *     PpReleaseBootDDB @ 0x140724EC4 (PpReleaseBootDDB.c)
- *     PpDevCfgProcessDevices @ 0x14072D090 (PpDevCfgProcessDevices.c)
- *     PiCMDeleteDeviceWorker @ 0x1407310F0 (PiCMDeleteDeviceWorker.c)
- *     PiCMGenerateDeviceInstance @ 0x14073136C (PiCMGenerateDeviceInstance.c)
- *     PipKsrNotifyDrivers @ 0x14073423C (PipKsrNotifyDrivers.c)
- *     PiInitializeDevice @ 0x140734A0C (PiInitializeDevice.c)
- *     PiDmaGuardQueueInsertEntry @ 0x14073A3A0 (PiDmaGuardQueueInsertEntry.c)
- *     TtmiResetInactivityTimer @ 0x14076FA90 (TtmiResetInactivityTimer.c)
- *     TtmpWnfInactivityTimeoutCallback @ 0x140770730 (TtmpWnfInactivityTimeoutCallback.c)
- *     TtmpAcquireQueueLock @ 0x140770CE8 (TtmpAcquireQueueLock.c)
- *     PspSetIoPriorityLimitJobTree @ 0x140777DA4 (PspSetIoPriorityLimitJobTree.c)
- *     PspSetJobMemoryPartition @ 0x140777E54 (PspSetJobMemoryPartition.c)
- *     PspSetPagePriorityLimitJobTree @ 0x1407784F0 (PspSetPagePriorityLimitJobTree.c)
- *     RtlZeroHeap @ 0x140783280 (RtlZeroHeap.c)
- *     SeSetPrivateNameSpaceToken @ 0x14078F838 (SeSetPrivateNameSpaceToken.c)
- *     SepSetServerSiloToken @ 0x14078FC08 (SepSetServerSiloToken.c)
- *     SeExchangePrimaryToken @ 0x140792C9C (SeExchangePrimaryToken.c)
- *     SepAddTokenLogonSession @ 0x140793570 (SepAddTokenLogonSession.c)
- *     SepDeleteUnreferencedLogonSessionsInSilo @ 0x140793668 (SepDeleteUnreferencedLogonSessionsInSilo.c)
- *     SepMakeLogonSessionsSiblings @ 0x140793804 (SepMakeLogonSessionsSiblings.c)
- *     SepRemoveTokenLogonSession @ 0x140793A58 (SepRemoveTokenLogonSession.c)
- *     SepRmGlobalSaclSetWrkr @ 0x1407947B0 (SepRmGlobalSaclSetWrkr.c)
- *     WmiAcquireSmbiosLockExclusive @ 0x1407A4014 (WmiAcquireSmbiosLockExclusive.c)
- *     ExpRegisterFirmwareTableInformationHandler @ 0x1407B5650 (ExpRegisterFirmwareTableInformationHandler.c)
- *     NtFlushInstallUILanguage @ 0x1407C2F70 (NtFlushInstallUILanguage.c)
- *     NtMapCMFModule @ 0x1407C3080 (NtMapCMFModule.c)
- *     _PnpCtxCloseMachine @ 0x1408171F0 (_PnpCtxCloseMachine.c)
- *     DrvDbSetDriverDatabaseMappedProperty @ 0x1408226F4 (DrvDbSetDriverDatabaseMappedProperty.c)
- *     PspAllocateAndQueryNotificationChannel @ 0x14085CCAC (PspAllocateAndQueryNotificationChannel.c)
- *     PspLockRootJobExclusive @ 0x14085D130 (PspLockRootJobExclusive.c)
- *     PspSetJobIoRateControl @ 0x14085E618 (PspSetJobIoRateControl.c)
- *     PspLockJobConditionally @ 0x14085E94C (PspLockJobConditionally.c)
- *     PspFreezeJobTree @ 0x14085EA8C (PspFreezeJobTree.c)
- *     IopGetSetSecurityObject @ 0x1408796F0 (IopGetSetSecurityObject.c)
- *     CmpLockRegistryExclusive @ 0x14087DD80 (CmpLockRegistryExclusive.c)
- *     PspRemoveProcessFromJobChain @ 0x1408A9078 (PspRemoveProcessFromJobChain.c)
- *     IopDoDeferredSetInterfaceState @ 0x1408B24D0 (IopDoDeferredSetInterfaceState.c)
- *     IopRegisterDeviceInterface @ 0x1408B3B2C (IopRegisterDeviceInterface.c)
- *     IoSetDeviceInterfaceState @ 0x1408B40B0 (IoSetDeviceInterfaceState.c)
- *     PiDmObjectManagerAcquireExclusiveLock @ 0x1408B5444 (PiDmObjectManagerAcquireExclusiveLock.c)
- *     IoGetDeviceInterfaceAlias @ 0x1408B7090 (IoGetDeviceInterfaceAlias.c)
- *     PiPnpRtlSetObjectProperty @ 0x1408B84A0 (PiPnpRtlSetObjectProperty.c)
- *     PiSwLock @ 0x1408B9494 (PiSwLock.c)
- *     PiPnpRtlObjectEventWorker @ 0x1408B9D40 (PiPnpRtlObjectEventWorker.c)
- *     PipProcessDevNodeTree @ 0x1408BA630 (PipProcessDevNodeTree.c)
- *     IopGetDeviceInterfaces @ 0x1408C8470 (IopGetDeviceInterfaces.c)
- *     PiPnpRtlOperationListAcquireExclusiveLock @ 0x1408CC29C (PiPnpRtlOperationListAcquireExclusiveLock.c)
- *     PiDqObjectManagerServiceActionQueue @ 0x1408D2DD0 (PiDqObjectManagerServiceActionQueue.c)
- *     PspLockJobsAndProcessExclusive @ 0x1408E705C (PspLockJobsAndProcessExclusive.c)
- *     PspGetMemoryPartitionFromJobList @ 0x1408E7594 (PspGetMemoryPartitionFromJobList.c)
- *     PspLockJobChain @ 0x1408E76DC (PspLockJobChain.c)
- *     PspApplyWorkingSetLimitsToProcess @ 0x1408E7AC0 (PspApplyWorkingSetLimitsToProcess.c)
- *     PspSetEnergyTrackingStateJobTree @ 0x1408EA030 (PspSetEnergyTrackingStateJobTree.c)
- *     PspSendProcessNotificationToJobChain @ 0x1408EA780 (PspSendProcessNotificationToJobChain.c)
- *     PspLockJobExclusive @ 0x1408EB430 (PspLockJobExclusive.c)
- *     PspCallJobHierarchyCallbacks @ 0x1408EBFF8 (PspCallJobHierarchyCallbacks.c)
- *     PspEnforceLimitsJobPostCallback @ 0x1408ECC80 (PspEnforceLimitsJobPostCallback.c)
- *     _CmGetDeviceSoftwareKeyPath @ 0x1409095F0 (_CmGetDeviceSoftwareKeyPath.c)
- *     DrvDbReleaseDatabaseNodeBaseKey @ 0x1409251C8 (DrvDbReleaseDatabaseNodeBaseKey.c)
- *     DrvDbAcquireDatabaseNodeBaseKey @ 0x140925270 (DrvDbAcquireDatabaseNodeBaseKey.c)
- *     DrvDbOpenObjectRegKey @ 0x1409254F0 (DrvDbOpenObjectRegKey.c)
- *     PiDrvDbNodeActionCallback @ 0x140925E10 (PiDrvDbNodeActionCallback.c)
- *     PiDrvDbLoadNode @ 0x140925F40 (PiDrvDbLoadNode.c)
- *     NtAdjustPrivilegesToken @ 0x1409377D0 (NtAdjustPrivilegesToken.c)
- *     FsRtlAcquireFileExclusiveCommon @ 0x140942350 (FsRtlAcquireFileExclusiveCommon.c)
- *     PiPnpRtlSetDeviceRegProperty @ 0x14099B5CC (PiPnpRtlSetDeviceRegProperty.c)
- *     PspSetQuotaLimits @ 0x1409AFD58 (PspSetQuotaLimits.c)
- *     PopAdaptiveGetBootIsUnattended @ 0x1409B9E70 (PopAdaptiveGetBootIsUnattended.c)
- *     PopIsLockConsoleTimeoutActive @ 0x1409BA32C (PopIsLockConsoleTimeoutActive.c)
- *     PopSetDisplayStatus @ 0x1409BA3E8 (PopSetDisplayStatus.c)
- *     PopAdaptiveGetBootTargetSystemState @ 0x1409BA4D8 (PopAdaptiveGetBootTargetSystemState.c)
- *     PopUserPresenceHostStateChange @ 0x1409BA7C8 (PopUserPresenceHostStateChange.c)
- *     PopAdaptiveGetBootIsSystemInitiated @ 0x1409BB16C (PopAdaptiveGetBootIsSystemInitiated.c)
- *     PopAdaptiveGetSessionState @ 0x1409BB2A4 (PopAdaptiveGetSessionState.c)
- *     PnpDelayedRemoveWorker @ 0x1409C6B60 (PnpDelayedRemoveWorker.c)
- *     PpCheckInDriverDatabase @ 0x1409C7E2C (PpCheckInDriverDatabase.c)
- *     IopLoadDriver @ 0x1409C90C0 (IopLoadDriver.c)
- *     FsRtlAcquireFileForCcFlushEx @ 0x1409D1DE0 (FsRtlAcquireFileForCcFlushEx.c)
- *     IoRegisterPlugPlayNotification @ 0x1409ED860 (IoRegisterPlugPlayNotification.c)
- *     PnpNotifyDeviceClassChange @ 0x1409EE72C (PnpNotifyDeviceClassChange.c)
- *     PnpNotifyTargetDeviceChange @ 0x1409EEAA0 (PnpNotifyTargetDeviceChange.c)
- *     PiDcHandleCustomDeviceEvent @ 0x1409EEF24 (PiDcHandleCustomDeviceEvent.c)
- *     NtCreateTimer @ 0x1409F7110 (NtCreateTimer.c)
- *     LockRMLog @ 0x140A05A38 (LockRMLog.c)
- *     PpDevNodeLockTree @ 0x140A08C10 (PpDevNodeLockTree.c)
- *     PpDeviceRegistration @ 0x140A0CB38 (PpDeviceRegistration.c)
- *     PnpProcessQueryRemoveAndEject @ 0x140A0DB78 (PnpProcessQueryRemoveAndEject.c)
- *     PnpQueuePendingSurpriseRemoval @ 0x140A0E9B4 (PnpQueuePendingSurpriseRemoval.c)
- *     PnpUnlinkDeviceRemovalRelations @ 0x140A0EDE0 (PnpUnlinkDeviceRemovalRelations.c)
- *     PnpAcquireDependencyRelationsLock @ 0x140A0F188 (PnpAcquireDependencyRelationsLock.c)
- *     PnpDisableDeviceInterfaces @ 0x140A10ED8 (PnpDisableDeviceInterfaces.c)
- *     NtGetMUIRegistryInfo @ 0x140A215C0 (NtGetMUIRegistryInfo.c)
- *     SepCreateLogonSessionTrack @ 0x140A22BDC (SepCreateLogonSessionTrack.c)
- *     PopAcquireAdaptiveLock @ 0x140A30168 (PopAcquireAdaptiveLock.c)
- *     SepReferenceLogonSessionSilo @ 0x140A31B44 (SepReferenceLogonSessionSilo.c)
- *     NtAdjustGroupsToken @ 0x140A36530 (NtAdjustGroupsToken.c)
- *     FsRtlCopyWrite @ 0x140A3A470 (FsRtlCopyWrite.c)
- *     SeSetMandatoryPolicyToken @ 0x140A4A5C4 (SeSetMandatoryPolicyToken.c)
- *     SepUpdateLogonSessionTrack @ 0x140A4BA84 (SepUpdateLogonSessionTrack.c)
- *     SeSetSessionIdToken @ 0x140A50448 (SeSetSessionIdToken.c)
- *     SepRmCommandServerThread @ 0x140A52820 (SepRmCommandServerThread.c)
- *     PspSetBackgroundJobTree @ 0x140A58988 (PspSetBackgroundJobTree.c)
- *     IopSetDeviceSecurityDescriptor @ 0x140A5AC1C (IopSetDeviceSecurityDescriptor.c)
- *     IopGetRootDevices @ 0x140A624B8 (IopGetRootDevices.c)
- *     SepDeleteLogonSessionTrack @ 0x140A64520 (SepDeleteLogonSessionTrack.c)
- *     AdtpBuildAccessesString @ 0x140A729FC (AdtpBuildAccessesString.c)
- *     IopBootLog @ 0x140A785F8 (IopBootLog.c)
- *     PiProcessNewDeviceNode @ 0x140A7C564 (PiProcessNewDeviceNode.c)
- *     PnpSurpriseFailUnsafeDmaDevices @ 0x140A7F278 (PnpSurpriseFailUnsafeDmaDevices.c)
- *     PnpChainDereferenceComplete @ 0x140A878A4 (PnpChainDereferenceComplete.c)
- *     DrvDbOpenDriverDatabaseRegKey @ 0x140A88D94 (DrvDbOpenDriverDatabaseRegKey.c)
- *     SeSetVirtualizationToken @ 0x140A8A728 (SeSetVirtualizationToken.c)
- *     PiDrvDbUnloadNodeWorkerCallback @ 0x140A965B0 (PiDrvDbUnloadNodeWorkerCallback.c)
- *     PiDmaGuardQueueFlush @ 0x140AA2610 (PiDmaGuardQueueFlush.c)
- *     SeMarkLogonSessionForTerminationNotificationEx @ 0x140AA7260 (SeMarkLogonSessionForTerminationNotificationEx.c)
- *     PnpDeleteDeviceInterfaces @ 0x140AA7668 (PnpDeleteDeviceInterfaces.c)
- *     IoOpenDeviceInterfaceRegistryKey @ 0x140AADBF0 (IoOpenDeviceInterfaceRegistryKey.c)
- *     PiCMCreateDevice @ 0x140AB4970 (PiCMCreateDevice.c)
- *     SepBlockAccessForLogonSession @ 0x140ABBB60 (SepBlockAccessForLogonSession.c)
- *     PnpGetDeviceInstanceRegistryValue @ 0x140ABC880 (PnpGetDeviceInstanceRegistryValue.c)
- *     PiCMUnregisterDeviceInterface @ 0x140AC00A8 (PiCMUnregisterDeviceInterface.c)
- *     NtSetInformationJobObject @ 0x140ACE760 (NtSetInformationJobObject.c)
- *     NtSetInformationToken @ 0x140AD6C10 (NtSetInformationToken.c)
- *     NtCreateLowBoxToken @ 0x140AD8020 (NtCreateLowBoxToken.c)
- *     SepDeReferenceLogonSession @ 0x140AD8BA4 (SepDeReferenceLogonSession.c)
- *     IoShutdownSystem @ 0x140B5374C (IoShutdownSystem.c)
- *     PopAcquirePolicyLock @ 0x140B67CB0 (PopAcquirePolicyLock.c)
- *     IopInitCrashDumpRegCallback @ 0x140C1CA50 (IopInitCrashDumpRegCallback.c)
- *     PipResetMatchingFilteredDevices @ 0x140C22040 (PipResetMatchingFilteredDevices.c)
+ *     CcPinFileData @ 0x1402282C0 (CcPinFileData.c)
+ *     ExEnterCriticalRegionAndAcquireResourceExclusive @ 0x14022BF10 (ExEnterCriticalRegionAndAcquireResourceExclusive.c)
+ *     FsRtlAcquireFileForModWriteEx @ 0x14025B37C (FsRtlAcquireFileForModWriteEx.c)
+ *     MiAcquireLoadLock @ 0x1402BBB18 (MiAcquireLoadLock.c)
+ *     SepInternalSetSecurityAttributesToken @ 0x1403B9324 (SepInternalSetSecurityAttributesToken.c)
+ *     SepRmCallLsa @ 0x1403C17F0 (SepRmCallLsa.c)
+ *     SepQueueWorkItem @ 0x1403C35C4 (SepQueueWorkItem.c)
+ *     PnpUnregisterPlugPlayNotification @ 0x140469950 (PnpUnregisterPlugPlayNotification.c)
+ *     CcUnpinRepinnedBcb @ 0x14048F410 (CcUnpinRepinnedBcb.c)
+ *     SeTokenSetRedirectionTrustPolicy @ 0x140491F2C (SeTokenSetRedirectionTrustPolicy.c)
+ *     PfResourceExclusiveAcquire @ 0x140499D88 (PfResourceExclusiveAcquire.c)
+ *     SeTokenSetNoChildProcessRestricted @ 0x1404B4294 (SeTokenSetNoChildProcessRestricted.c)
+ *     PiDmaGuardQueueRemoveEntry @ 0x1404B84B4 (PiDmaGuardQueueRemoveEntry.c)
+ *     CcAcquireByteRangeForWrite @ 0x1404D5E90 (CcAcquireByteRangeForWrite.c)
+ *     IoCaptureLiveDump @ 0x1404DC764 (IoCaptureLiveDump.c)
+ *     SepDesktopAppxSubProcessToken @ 0x1404EBED4 (SepDesktopAppxSubProcessToken.c)
+ *     IoConfigureCrashDump @ 0x14058DDD4 (IoConfigureCrashDump.c)
+ *     IoUpdateDumpPhysicalRanges @ 0x14058F55C (IoUpdateDumpPhysicalRanges.c)
+ *     IoSetDeferredLiveDumpFileHandle @ 0x140594AE4 (IoSetDeferredLiveDumpFileHandle.c)
+ *     PiDrvDbUnloadNodeWaitWorkerCallback @ 0x1405A6880 (PiDrvDbUnloadNodeWaitWorkerCallback.c)
+ *     RtlpAllocateHeap @ 0x1405E7EFC (RtlpAllocateHeap.c)
+ *     RtlpFreeHeap @ 0x1405E9FB0 (RtlpFreeHeap.c)
+ *     RtlpSetupExtendedBlock @ 0x1405EAD40 (RtlpSetupExtendedBlock.c)
+ *     SepCreateAppContainerToken @ 0x140606A30 (SepCreateAppContainerToken.c)
+ *     SeSetSecurityAttributesTokenEx @ 0x140607780 (SeSetSecurityAttributesTokenEx.c)
+ *     DifExAcquireResourceExclusiveLiteWrapper @ 0x14061A190 (DifExAcquireResourceExclusiveLiteWrapper.c)
+ *     ExEnterPriorityRegionAndAcquireResourceExclusive @ 0x1406554A0 (ExEnterPriorityRegionAndAcquireResourceExclusive.c)
+ *     TtmpAcquireSessionLock @ 0x1406F53C8 (TtmpAcquireSessionLock.c)
+ *     FsRtlPrepareMdlWriteDev @ 0x140708070 (FsRtlPrepareMdlWriteDev.c)
+ *     FsRtlDedupChangeUninit @ 0x14070A650 (FsRtlDedupChangeUninit.c)
+ *     FsRtlpDedupChangeRegisterVolume @ 0x14070A880 (FsRtlpDedupChangeRegisterVolume.c)
+ *     FsRtlpHeatRegisterVolume @ 0x14070B27C (FsRtlpHeatRegisterVolume.c)
+ *     FsRtlpHeatUnregisterVolume @ 0x14070B420 (FsRtlpHeatUnregisterVolume.c)
+ *     IoInitializeCrashDump @ 0x14070E5F8 (IoInitializeCrashDump.c)
+ *     IopBootLogToFile @ 0x14070F5C4 (IopBootLogToFile.c)
+ *     IopCopyBootLogRegistryToFile @ 0x14070FA0C (IopCopyBootLogRegistryToFile.c)
+ *     IopInitializeBootLogging @ 0x14070FFB8 (IopInitializeBootLogging.c)
+ *     IoEnumerateRegisteredFiltersList @ 0x140711C10 (IoEnumerateRegisteredFiltersList.c)
+ *     IoRegisterFileSystem @ 0x140711E80 (IoRegisterFileSystem.c)
+ *     IoRegisterFsRegistrationChangeMountAware @ 0x140712050 (IoRegisterFsRegistrationChangeMountAware.c)
+ *     IoUnregisterFileSystem @ 0x1407128D0 (IoUnregisterFileSystem.c)
+ *     IoUnregisterFsRegistrationChange @ 0x140712990 (IoUnregisterFsRegistrationChange.c)
+ *     IoReportDetectedDevice @ 0x14071A3E0 (IoReportDetectedDevice.c)
+ *     IoReportRootDevice @ 0x14071AE90 (IoReportRootDevice.c)
+ *     PiGetDeviceRegistryProperty @ 0x14071C7B8 (PiGetDeviceRegistryProperty.c)
+ *     PnpNotifyHwProfileChange @ 0x14071E214 (PnpNotifyHwProfileChange.c)
+ *     PnpNotifyTargetDeviceChangeNotifyEntry @ 0x14071E464 (PnpNotifyTargetDeviceChangeNotifyEntry.c)
+ *     PpReleaseBootDDB @ 0x140722A54 (PpReleaseBootDDB.c)
+ *     PpDevCfgProcessDevices @ 0x14072B0A4 (PpDevCfgProcessDevices.c)
+ *     PiCMDeleteDeviceWorker @ 0x14072F100 (PiCMDeleteDeviceWorker.c)
+ *     PiCMGenerateDeviceInstance @ 0x14072F37C (PiCMGenerateDeviceInstance.c)
+ *     PipKsrNotifyDrivers @ 0x14073216C (PipKsrNotifyDrivers.c)
+ *     PiInitializeDevice @ 0x14073293C (PiInitializeDevice.c)
+ *     PiDmaGuardQueueInsertEntry @ 0x1407382D0 (PiDmaGuardQueueInsertEntry.c)
+ *     TtmiResetInactivityTimer @ 0x14076FCB0 (TtmiResetInactivityTimer.c)
+ *     TtmpWnfInactivityTimeoutCallback @ 0x140770950 (TtmpWnfInactivityTimeoutCallback.c)
+ *     TtmpAcquireQueueLock @ 0x140770F08 (TtmpAcquireQueueLock.c)
+ *     PspSetIoPriorityLimitJobTree @ 0x140777F64 (PspSetIoPriorityLimitJobTree.c)
+ *     PspSetJobMemoryPartition @ 0x140778014 (PspSetJobMemoryPartition.c)
+ *     PspSetPagePriorityLimitJobTree @ 0x1407786B0 (PspSetPagePriorityLimitJobTree.c)
+ *     RtlZeroHeap @ 0x1407831B0 (RtlZeroHeap.c)
+ *     SeSetPrivateNameSpaceToken @ 0x14078F808 (SeSetPrivateNameSpaceToken.c)
+ *     SepSetServerSiloToken @ 0x14078FBD8 (SepSetServerSiloToken.c)
+ *     SeExchangePrimaryToken @ 0x140792C70 (SeExchangePrimaryToken.c)
+ *     SepAddTokenLogonSession @ 0x140793610 (SepAddTokenLogonSession.c)
+ *     SepDeleteUnreferencedLogonSessionsInSilo @ 0x140793708 (SepDeleteUnreferencedLogonSessionsInSilo.c)
+ *     SepMakeLogonSessionsSiblings @ 0x1407938A4 (SepMakeLogonSessionsSiblings.c)
+ *     SepRemoveTokenLogonSession @ 0x140793AF8 (SepRemoveTokenLogonSession.c)
+ *     SepRmGlobalSaclSetWrkr @ 0x1407948C0 (SepRmGlobalSaclSetWrkr.c)
+ *     WmiAcquireSmbiosLockExclusive @ 0x1407A4124 (WmiAcquireSmbiosLockExclusive.c)
+ *     ExpRegisterFirmwareTableInformationHandler @ 0x1407B5AA0 (ExpRegisterFirmwareTableInformationHandler.c)
+ *     NtFlushInstallUILanguage @ 0x1407C41A0 (NtFlushInstallUILanguage.c)
+ *     NtMapCMFModule @ 0x1407C42B0 (NtMapCMFModule.c)
+ *     _PnpCtxCloseMachine @ 0x140817930 (_PnpCtxCloseMachine.c)
+ *     DrvDbSetDriverDatabaseMappedProperty @ 0x140822E34 (DrvDbSetDriverDatabaseMappedProperty.c)
+ *     PspAllocateAndQueryNotificationChannel @ 0x140858A1C (PspAllocateAndQueryNotificationChannel.c)
+ *     PspLockRootJobExclusive @ 0x140858E9C (PspLockRootJobExclusive.c)
+ *     PspSetJobIoRateControl @ 0x14085A388 (PspSetJobIoRateControl.c)
+ *     PspLockJobConditionally @ 0x14085A6BC (PspLockJobConditionally.c)
+ *     PspSetEnergyTrackingStateJobTree @ 0x14085B860 (PspSetEnergyTrackingStateJobTree.c)
+ *     PspSendProcessNotificationToJobChain @ 0x14085BFB0 (PspSendProcessNotificationToJobChain.c)
+ *     PspLockJobExclusive @ 0x14085CC60 (PspLockJobExclusive.c)
+ *     PspCallJobHierarchyCallbacks @ 0x14085D828 (PspCallJobHierarchyCallbacks.c)
+ *     PspEnforceLimitsJobPostCallback @ 0x14085E4B0 (PspEnforceLimitsJobPostCallback.c)
+ *     IopGetSetSecurityObject @ 0x14087DA20 (IopGetSetSecurityObject.c)
+ *     CmpLockRegistryExclusive @ 0x140881C30 (CmpLockRegistryExclusive.c)
+ *     IopDoDeferredSetInterfaceState @ 0x1408AFDC4 (IopDoDeferredSetInterfaceState.c)
+ *     IopRegisterDeviceInterface @ 0x1408B141C (IopRegisterDeviceInterface.c)
+ *     IoSetDeviceInterfaceState @ 0x1408B19A0 (IoSetDeviceInterfaceState.c)
+ *     PiDmObjectManagerAcquireExclusiveLock @ 0x1408B2D34 (PiDmObjectManagerAcquireExclusiveLock.c)
+ *     IoGetDeviceInterfaceAlias @ 0x1408B4A00 (IoGetDeviceInterfaceAlias.c)
+ *     PiPnpRtlSetObjectProperty @ 0x1408B5E10 (PiPnpRtlSetObjectProperty.c)
+ *     PiSwLock @ 0x1408B6E3C (PiSwLock.c)
+ *     PiPnpRtlObjectEventWorker @ 0x1408B76F0 (PiPnpRtlObjectEventWorker.c)
+ *     PipProcessDevNodeTree @ 0x1408B7FE0 (PipProcessDevNodeTree.c)
+ *     IopGetDeviceInterfaces @ 0x1408C5EA0 (IopGetDeviceInterfaces.c)
+ *     PiPnpRtlOperationListAcquireExclusiveLock @ 0x1408C9CCC (PiPnpRtlOperationListAcquireExclusiveLock.c)
+ *     PiDqObjectManagerServiceActionQueue @ 0x1408D07C0 (PiDqObjectManagerServiceActionQueue.c)
+ *     PspLockJobsAndProcessExclusive @ 0x1408D78C4 (PspLockJobsAndProcessExclusive.c)
+ *     PspGetMemoryPartitionFromJobList @ 0x1408D7DF0 (PspGetMemoryPartitionFromJobList.c)
+ *     PspLockJobChain @ 0x1408D7F38 (PspLockJobChain.c)
+ *     PspApplyWorkingSetLimitsToProcess @ 0x1408D8304 (PspApplyWorkingSetLimitsToProcess.c)
+ *     _CmGetDeviceSoftwareKeyPath @ 0x1408E0D10 (_CmGetDeviceSoftwareKeyPath.c)
+ *     NtGetMUIRegistryInfo @ 0x1408F7D70 (NtGetMUIRegistryInfo.c)
+ *     PspRemoveProcessFromJobChain @ 0x1408FF2D8 (PspRemoveProcessFromJobChain.c)
+ *     DrvDbReleaseDatabaseNodeBaseKey @ 0x140927308 (DrvDbReleaseDatabaseNodeBaseKey.c)
+ *     DrvDbAcquireDatabaseNodeBaseKey @ 0x1409273B0 (DrvDbAcquireDatabaseNodeBaseKey.c)
+ *     DrvDbOpenObjectRegKey @ 0x140927630 (DrvDbOpenObjectRegKey.c)
+ *     PiDrvDbNodeActionCallback @ 0x140927F50 (PiDrvDbNodeActionCallback.c)
+ *     PiDrvDbLoadNode @ 0x140928080 (PiDrvDbLoadNode.c)
+ *     NtAdjustPrivilegesToken @ 0x140984860 (NtAdjustPrivilegesToken.c)
+ *     NtAdjustGroupsToken @ 0x140986940 (NtAdjustGroupsToken.c)
+ *     FsRtlAcquireFileExclusiveCommon @ 0x14098C5C0 (FsRtlAcquireFileExclusiveCommon.c)
+ *     PspSetQuotaLimits @ 0x140999A58 (PspSetQuotaLimits.c)
+ *     PopAdaptiveGetBootIsUnattended @ 0x1409A04C0 (PopAdaptiveGetBootIsUnattended.c)
+ *     PopIsLockConsoleTimeoutActive @ 0x1409A097C (PopIsLockConsoleTimeoutActive.c)
+ *     PopSetDisplayStatus @ 0x1409A0A38 (PopSetDisplayStatus.c)
+ *     PopAdaptiveGetBootTargetSystemState @ 0x1409A0B28 (PopAdaptiveGetBootTargetSystemState.c)
+ *     PopUserPresenceHostStateChange @ 0x1409A0E18 (PopUserPresenceHostStateChange.c)
+ *     PopAdaptiveGetBootIsSystemInitiated @ 0x1409A17BC (PopAdaptiveGetBootIsSystemInitiated.c)
+ *     PopAdaptiveGetSessionState @ 0x1409A18F4 (PopAdaptiveGetSessionState.c)
+ *     IopLoadDriver @ 0x1409B6EEC (IopLoadDriver.c)
+ *     PpCheckInDriverDatabase @ 0x1409B89D4 (PpCheckInDriverDatabase.c)
+ *     PnpDelayedRemoveWorker @ 0x1409BABD0 (PnpDelayedRemoveWorker.c)
+ *     PpDeviceRegistration @ 0x1409BAF3C (PpDeviceRegistration.c)
+ *     PnpProcessQueryRemoveAndEject @ 0x1409BBF7C (PnpProcessQueryRemoveAndEject.c)
+ *     PnpQueuePendingSurpriseRemoval @ 0x1409BCDB8 (PnpQueuePendingSurpriseRemoval.c)
+ *     PnpUnlinkDeviceRemovalRelations @ 0x1409BD1E4 (PnpUnlinkDeviceRemovalRelations.c)
+ *     PnpAcquireDependencyRelationsLock @ 0x1409BD598 (PnpAcquireDependencyRelationsLock.c)
+ *     PnpDisableDeviceInterfaces @ 0x1409BF2E8 (PnpDisableDeviceInterfaces.c)
+ *     FsRtlAcquireFileForCcFlushEx @ 0x1409C1C10 (FsRtlAcquireFileForCcFlushEx.c)
+ *     PiPnpRtlSetDeviceRegProperty @ 0x1409CDD3C (PiPnpRtlSetDeviceRegProperty.c)
+ *     NtCreateTimer @ 0x1409EADF0 (NtCreateTimer.c)
+ *     IoRegisterPlugPlayNotification @ 0x1409EB2A0 (IoRegisterPlugPlayNotification.c)
+ *     PnpNotifyDeviceClassChange @ 0x1409EC16C (PnpNotifyDeviceClassChange.c)
+ *     PnpNotifyTargetDeviceChange @ 0x1409EC4E0 (PnpNotifyTargetDeviceChange.c)
+ *     PiDcHandleCustomDeviceEvent @ 0x1409EC964 (PiDcHandleCustomDeviceEvent.c)
+ *     LockRMLog @ 0x140A01F68 (LockRMLog.c)
+ *     PpDevNodeLockTree @ 0x140A05140 (PpDevNodeLockTree.c)
+ *     SepCreateLogonSessionTrack @ 0x140A16FEC (SepCreateLogonSessionTrack.c)
+ *     PopAcquireAdaptiveLock @ 0x140A24C58 (PopAcquireAdaptiveLock.c)
+ *     SepReferenceLogonSessionSilo @ 0x140A25AB4 (SepReferenceLogonSessionSilo.c)
+ *     FsRtlCopyWrite @ 0x140A2FA90 (FsRtlCopyWrite.c)
+ *     SeSetMandatoryPolicyToken @ 0x140A412E4 (SeSetMandatoryPolicyToken.c)
+ *     SepUpdateLogonSessionTrack @ 0x140A427E4 (SepUpdateLogonSessionTrack.c)
+ *     SeSetSessionIdToken @ 0x140A471F8 (SeSetSessionIdToken.c)
+ *     SepRmCommandServerThread @ 0x140A4A870 (SepRmCommandServerThread.c)
+ *     PspSetBackgroundJobTree @ 0x140A50138 (PspSetBackgroundJobTree.c)
+ *     IopSetDeviceSecurityDescriptor @ 0x140A524DC (IopSetDeviceSecurityDescriptor.c)
+ *     IopGetRootDevices @ 0x140A5ADB8 (IopGetRootDevices.c)
+ *     SepDeleteLogonSessionTrack @ 0x140A5CE20 (SepDeleteLogonSessionTrack.c)
+ *     PspFreezeJobTree @ 0x140A67B30 (PspFreezeJobTree.c)
+ *     AdtpBuildAccessesString @ 0x140A6BDDC (AdtpBuildAccessesString.c)
+ *     IopBootLog @ 0x140A728F8 (IopBootLog.c)
+ *     PiProcessNewDeviceNode @ 0x140A76864 (PiProcessNewDeviceNode.c)
+ *     PnpSurpriseFailUnsafeDmaDevices @ 0x140A78A28 (PnpSurpriseFailUnsafeDmaDevices.c)
+ *     PnpChainDereferenceComplete @ 0x140A83D94 (PnpChainDereferenceComplete.c)
+ *     DrvDbOpenDriverDatabaseRegKey @ 0x140A85194 (DrvDbOpenDriverDatabaseRegKey.c)
+ *     SeSetVirtualizationToken @ 0x140A86A68 (SeSetVirtualizationToken.c)
+ *     PiDrvDbUnloadNodeWorkerCallback @ 0x140A92DE0 (PiDrvDbUnloadNodeWorkerCallback.c)
+ *     PiDmaGuardQueueFlush @ 0x140A9D9A0 (PiDmaGuardQueueFlush.c)
+ *     SeMarkLogonSessionForTerminationNotificationEx @ 0x140AA2360 (SeMarkLogonSessionForTerminationNotificationEx.c)
+ *     PnpDeleteDeviceInterfaces @ 0x140AA2768 (PnpDeleteDeviceInterfaces.c)
+ *     IoOpenDeviceInterfaceRegistryKey @ 0x140AA8C70 (IoOpenDeviceInterfaceRegistryKey.c)
+ *     PiCMCreateDevice @ 0x140AB39A4 (PiCMCreateDevice.c)
+ *     SepBlockAccessForLogonSession @ 0x140AB6B80 (SepBlockAccessForLogonSession.c)
+ *     PnpGetDeviceInstanceRegistryValue @ 0x140AB78A0 (PnpGetDeviceInstanceRegistryValue.c)
+ *     PiCMUnregisterDeviceInterface @ 0x140ABB188 (PiCMUnregisterDeviceInterface.c)
+ *     NtSetInformationJobObject @ 0x140ACC7F0 (NtSetInformationJobObject.c)
+ *     NtSetInformationToken @ 0x140AD4280 (NtSetInformationToken.c)
+ *     NtCreateLowBoxToken @ 0x140AD5A60 (NtCreateLowBoxToken.c)
+ *     SepDeReferenceLogonSession @ 0x140AD7224 (SepDeReferenceLogonSession.c)
+ *     IoShutdownSystem @ 0x140B5579C (IoShutdownSystem.c)
+ *     PopAcquirePolicyLock @ 0x140B69DF0 (PopAcquirePolicyLock.c)
+ *     IopInitCrashDumpRegCallback @ 0x140C1EA90 (IopInitCrashDumpRegCallback.c)
+ *     PipResetMatchingFilteredDevices @ 0x140C24080 (PipResetMatchingFilteredDevices.c)
  * Callees:
- *     PsBoostThreadIoEx @ 0x14024DD90 (PsBoostThreadIoEx.c)
- *     KiAbThreadInsertList @ 0x14024E470 (KiAbThreadInsertList.c)
- *     KiAbQueueAutoBoostDpc @ 0x140253AF0 (KiAbQueueAutoBoostDpc.c)
- *     KxAcquireSpinLock @ 0x140254AE0 (KxAcquireSpinLock.c)
- *     KeAbPostReleaseEx @ 0x14025CCE0 (KeAbPostReleaseEx.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14025E408 (KiRemoveSystemWorkPriorityKick.c)
- *     KeReleaseInStackQueuedSpinLock @ 0x140275CD0 (KeReleaseInStackQueuedSpinLock.c)
- *     EtwpGetTrackingLockSlotForThread @ 0x140277718 (EtwpGetTrackingLockSlotForThread.c)
- *     ExpWaitForResource @ 0x140277840 (ExpWaitForResource.c)
- *     ExpApplyPriorityBoost @ 0x140277A10 (ExpApplyPriorityBoost.c)
- *     PsBoostThreadOutstandingIoQoS @ 0x1402788E0 (PsBoostThreadOutstandingIoQoS.c)
- *     IoBoostThreadIoPriority @ 0x140278D90 (IoBoostThreadIoPriority.c)
- *     KxReleaseSpinLock @ 0x140279CC0 (KxReleaseSpinLock.c)
- *     KxWaitForLockOwnerShip @ 0x1402D6990 (KxWaitForLockOwnerShip.c)
- *     KiAcquireQueuedSpinLockInstrumented @ 0x1402D85F0 (KiAcquireQueuedSpinLockInstrumented.c)
- *     KeWakeAddressAll @ 0x140321AA0 (KeWakeAddressAll.c)
- *     KiReleaseQueuedSpinLockInstrumented @ 0x140321C90 (KiReleaseQueuedSpinLockInstrumented.c)
- *     KxWaitForLockChainValid @ 0x140321D40 (KxWaitForLockChainValid.c)
- *     KiHaltOnAddressWakeEntireList @ 0x140321D94 (KiHaltOnAddressWakeEntireList.c)
- *     KeDisableInterrupts @ 0x140321E80 (KeDisableInterrupts.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     ObfReferenceObjectWithTag @ 0x1403403E0 (ObfReferenceObjectWithTag.c)
- *     ExpAcquireFastResourceExclusiveSlow @ 0x1403DD330 (ExpAcquireFastResourceExclusiveSlow.c)
- *     KeAbMarkCrossThreadReleasable @ 0x1403DD90C (KeAbMarkCrossThreadReleasable.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x14022B260 (KeReleaseInStackQueuedSpinLock.c)
+ *     EtwpGetTrackingLockSlotForThread @ 0x14022CCA8 (EtwpGetTrackingLockSlotForThread.c)
+ *     ExpWaitForResource @ 0x14022CDD0 (ExpWaitForResource.c)
+ *     ExpApplyPriorityBoost @ 0x14022CFA0 (ExpApplyPriorityBoost.c)
+ *     PsBoostThreadOutstandingIoQoS @ 0x14022DE70 (PsBoostThreadOutstandingIoQoS.c)
+ *     IoBoostThreadIoPriority @ 0x14022E320 (IoBoostThreadIoPriority.c)
+ *     KxReleaseSpinLock @ 0x14022F250 (KxReleaseSpinLock.c)
+ *     PsBoostThreadIoEx @ 0x14027E3A0 (PsBoostThreadIoEx.c)
+ *     KiAbThreadInsertList @ 0x14027EA80 (KiAbThreadInsertList.c)
+ *     KiAbQueueAutoBoostDpc @ 0x140284100 (KiAbQueueAutoBoostDpc.c)
+ *     KxAcquireSpinLock @ 0x1402850F0 (KxAcquireSpinLock.c)
+ *     KeAbPostReleaseEx @ 0x14028D2F0 (KeAbPostReleaseEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14028EA18 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeWakeAddressAll @ 0x1402CA630 (KeWakeAddressAll.c)
+ *     KiReleaseQueuedSpinLockInstrumented @ 0x1402CA820 (KiReleaseQueuedSpinLockInstrumented.c)
+ *     KxWaitForLockChainValid @ 0x1402CA8D0 (KxWaitForLockChainValid.c)
+ *     KiHaltOnAddressWakeEntireList @ 0x1402CA924 (KiHaltOnAddressWakeEntireList.c)
+ *     KeDisableInterrupts @ 0x1402CAA10 (KeDisableInterrupts.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     ObfReferenceObjectWithTag @ 0x14031F8C0 (ObfReferenceObjectWithTag.c)
+ *     KxWaitForLockOwnerShip @ 0x140357C10 (KxWaitForLockOwnerShip.c)
+ *     KiAcquireQueuedSpinLockInstrumented @ 0x140359870 (KiAcquireQueuedSpinLockInstrumented.c)
+ *     ExpAcquireFastResourceExclusiveSlow @ 0x1403BD020 (ExpAcquireFastResourceExclusiveSlow.c)
+ *     KeAbMarkCrossThreadReleasable @ 0x1403BD5FC (KeAbMarkCrossThreadReleasable.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
  */
 
 BOOLEAN __stdcall ExAcquireResourceExclusiveLite(PERESOURCE Resource, BOOLEAN Wait)
@@ -232,38 +233,38 @@ BOOLEAN __stdcall ExAcquireResourceExclusiveLite(PERESOURCE Resource, BOOLEAN Wa
   __int64 v26; // r8
   __int64 v27; // r9
   __int64 v28; // rcx
-  struct _KPRCB *v29; // rcx
   signed __int32 *SchedulerAssist; // r8
-  signed __int32 v31; // eax
-  signed __int32 v32; // ett
+  signed __int32 v30; // eax
+  signed __int32 v31; // ett
   _QWORD *ExclusiveWaiters; // rax
-  PVOID *v34; // rcx
+  PVOID *v33; // rcx
+  ULONG v34; // edi
   ULONG v35; // edi
-  ULONG v36; // edi
-  struct _KPRCB *v37; // rsi
+  struct _KPRCB *v36; // rsi
   ULONG ContentionCount; // r15d
-  __int16 v39; // ax
-  __int64 v40; // rax
-  unsigned __int64 v41; // r14
-  struct _KPRCB *v42; // r14
-  unsigned __int64 v43; // r12
-  __int16 v44; // cx
-  __int64 v45; // rax
-  int v46; // ecx
-  struct _KTHREAD *v47; // r8
-  int v48; // edx
-  int v49; // ecx
-  unsigned __int64 v50; // rax
-  int v51; // eax
-  int v52; // r9d
-  int v53; // edx
-  USHORT v54; // ax
-  int v55; // edx
-  int v56; // ecx
-  unsigned __int64 v57; // rax
-  int v58; // eax
-  int v59; // r12d
-  ULONG_PTR v60; // rax
+  __int16 v38; // ax
+  __int64 v39; // rax
+  unsigned __int64 v40; // r14
+  struct _KPRCB *v41; // r14
+  unsigned __int64 v42; // r12
+  __int16 v43; // cx
+  __int64 v44; // rax
+  int v45; // ecx
+  struct _KTHREAD *v46; // r8
+  int v47; // edx
+  int v48; // ecx
+  unsigned __int64 v49; // rax
+  int v50; // eax
+  int v51; // r9d
+  int v52; // edx
+  USHORT v53; // ax
+  int v54; // edx
+  int v55; // ecx
+  unsigned __int64 v56; // rax
+  int v57; // eax
+  int v58; // r12d
+  __int64 v59; // rax
+  __int64 v60; // rdx
   ERESOURCE_THREAD OwnerThread; // rax
   OWNER_ENTRY *p_OwnerEntry; // rdi
   POWNER_ENTRY OwnerTable; // rdi
@@ -278,7 +279,7 @@ BOOLEAN __stdcall ExAcquireResourceExclusiveLite(PERESOURCE Resource, BOOLEAN Wa
   __int64 v72; // rax
   unsigned __int64 *volatile v73; // rdx
   OWNER_ENTRY *v74; // r8
-  ULONG_PTR v75; // rax
+  __int64 v75; // rax
   unsigned __int64 v76; // rdi
   char v77; // r12
   char v78; // al
@@ -286,32 +287,31 @@ BOOLEAN __stdcall ExAcquireResourceExclusiveLite(PERESOURCE Resource, BOOLEAN Wa
   unsigned __int8 v80; // al
   unsigned __int8 v81; // dl
   struct _KTHREAD *v82; // r8
-  ULONG_PTR v83; // rdx
+  __int64 v83; // rdx
   signed __int64 v84; // rax
   ULONG *p_ActiveEntries; // r13
   char v86; // al
   ULONG **v87; // rax
   _QWORD *v88; // rcx
-  struct _KPRCB *v89; // rcx
-  signed __int32 *v90; // r8
-  signed __int32 v91; // eax
-  signed __int32 v92; // ett
-  unsigned __int8 v93; // dl
-  struct _KTHREAD *v94; // r9
-  signed __int32 v95[6]; // [rsp+8h] [rbp-A9h] BYREF
+  signed __int32 *v89; // r8
+  signed __int32 v90; // eax
+  signed __int32 v91; // ett
+  unsigned __int8 v92; // dl
+  struct _KTHREAD *v93; // r9
+  signed __int32 v94[6]; // [rsp+8h] [rbp-A9h] BYREF
   PVOID SystemArgument1; // [rsp+38h] [rbp-79h]
-  unsigned __int8 v97; // [rsp+40h] [rbp-71h]
-  ULONG_PTR v98; // [rsp+48h] [rbp-69h]
+  unsigned __int8 v96; // [rsp+40h] [rbp-71h]
+  __int64 v97; // [rsp+48h] [rbp-69h]
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+50h] [rbp-61h] BYREF
-  PVOID v100; // [rsp+68h] [rbp-49h] BYREF
-  PVOID *v101; // [rsp+70h] [rbp-41h]
-  struct _KTHREAD *v102; // [rsp+78h] [rbp-39h]
-  __int64 v103; // [rsp+80h] [rbp-31h]
-  _QWORD v104[3]; // [rsp+88h] [rbp-29h] BYREF
-  struct _KLOCK_QUEUE_HANDLE v105; // [rsp+A0h] [rbp-11h] BYREF
-  __int128 v106; // [rsp+B8h] [rbp+7h]
-  __int128 v107; // [rsp+C8h] [rbp+17h]
-  __int128 v108; // [rsp+D8h] [rbp+27h]
+  PVOID v99; // [rsp+68h] [rbp-49h] BYREF
+  PVOID *v100; // [rsp+70h] [rbp-41h]
+  struct _KTHREAD *v101; // [rsp+78h] [rbp-39h]
+  __int64 v102; // [rsp+80h] [rbp-31h]
+  _QWORD v103[3]; // [rsp+88h] [rbp-29h] BYREF
+  struct _KLOCK_QUEUE_HANDLE v104; // [rsp+A0h] [rbp-11h] BYREF
+  __int128 v105; // [rsp+B8h] [rbp+7h]
+  __int128 v106; // [rsp+C8h] [rbp+17h]
+  __int128 v107; // [rsp+D8h] [rbp+27h]
   _UNKNOWN *retaddr; // [rsp+110h] [rbp+5Fh]
 
   Flag = Resource->Flag;
@@ -321,9 +321,9 @@ BOOLEAN __stdcall ExAcquireResourceExclusiveLite(PERESOURCE Resource, BOOLEAN Wa
     KeBugCheckEx(0x1C6u, 0xFuLL, (ULONG_PTR)Resource, 0LL, 0LL);
   if ( (Flag & 1) == 0 )
   {
-    v101 = 0LL;
+    v100 = 0LL;
     *(_QWORD *)&LockHandle.OldIrql = 0LL;
-    BYTE3(v103) = 0;
+    BYTE3(v102) = 0;
     CurrentThread = KeGetCurrentThread();
     v9 = (DWORD1(PerfGlobalGroupMask) & 0x20000) != 0;
     __incgsdword(0x9078u);
@@ -339,7 +339,7 @@ BOOLEAN __stdcall ExAcquireResourceExclusiveLite(PERESOURCE Resource, BOOLEAN Wa
     {
       v12 = _InterlockedExchange64((volatile __int64 *)p_SpinLock, (__int64)&LockHandle);
       if ( v12 )
-        KxWaitForLockOwnerShip(&LockHandle);
+        KxWaitForLockOwnerShip(&LockHandle, v12);
     }
     else
     {
@@ -366,7 +366,7 @@ LABEL_12:
         __incgsdword(0x9064u);
         if ( v9 )
         {
-          LODWORD(v98) = Resource->ContentionCount;
+          LODWORD(v97) = Resource->ContentionCount;
           LODWORD(SystemArgument1) = 0;
           CurrentPrcb = KeGetCurrentPrcb();
           v17 = __rdtsc();
@@ -374,7 +374,7 @@ LABEL_12:
           Group = CurrentPrcb->Group;
           ++CurrentPrcb->SynchCounters.ExEtwSynchTrackingNotificationsCount;
           LOWORD(SystemArgument1) = Group;
-          v97 = GroupIndex;
+          v96 = GroupIndex;
           BYTE2(SystemArgument1) = GroupIndex;
           TrackingLockSlotForThread = EtwpGetTrackingLockSlotForThread(Resource, 0x10000LL);
           if ( TrackingLockSlotForThread )
@@ -385,7 +385,7 @@ LABEL_12:
             if ( v21 == 4 )
             {
               if ( *(_WORD *)(TrackingLockSlotForThread + 24) == Group
-                && *(_BYTE *)(TrackingLockSlotForThread + 26) == v97 )
+                && *(_BYTE *)(TrackingLockSlotForThread + 26) == v96 )
               {
                 *(_QWORD *)TrackingLockSlotForThread = v17 - *(_QWORD *)TrackingLockSlotForThread;
               }
@@ -399,7 +399,7 @@ LABEL_12:
               *(_QWORD *)TrackingLockSlotForThread = 0LL;
             }
             *(_DWORD *)(TrackingLockSlotForThread + 24) = (_DWORD)SystemArgument1;
-            *(_DWORD *)(TrackingLockSlotForThread + 44) = v98;
+            *(_DWORD *)(TrackingLockSlotForThread + 44) = v97;
             *(_DWORD *)(TrackingLockSlotForThread + 32) = 1;
             *(_DWORD *)(TrackingLockSlotForThread + 36) = 1;
           }
@@ -423,25 +423,24 @@ LABEL_12:
                                                         (volatile __int64 *)(Next + 8),
                                                         (__int64)LockHandle.LockQueue.Lock)) & 4) != 0 )
       {
-        _InterlockedOr(v95, 0);
-        v25 = KeDisableInterrupts(Lock, v12, ((unsigned __int64)(Next + 8) >> 5) & 0x7F);
+        _InterlockedOr(v94, 0);
+        v25 = KeDisableInterrupts(Lock, v12, ((unsigned __int64)(Next + 8) >> 5) & 0x7F, &KiHaltOnAddressHashTable);
         KiHaltOnAddressWakeEntireList(v28, _InterlockedExchange64((volatile __int64 *)(v27 + 8 * v26), 0LL));
         if ( v25 )
         {
-          v29 = KeGetCurrentPrcb();
-          SchedulerAssist = (signed __int32 *)v29->SchedulerAssist;
+          SchedulerAssist = (signed __int32 *)KeGetCurrentPrcb()->SchedulerAssist;
           if ( SchedulerAssist )
           {
             _m_prefetchw(SchedulerAssist);
-            v31 = *SchedulerAssist;
+            v30 = *SchedulerAssist;
             do
             {
-              v32 = v31;
-              v31 = _InterlockedCompareExchange(SchedulerAssist, v31 & 0xFFDFFFFF, v31);
+              v31 = v30;
+              v30 = _InterlockedCompareExchange(SchedulerAssist, v30 & 0xFFDFFFFF, v30);
             }
-            while ( v32 != v31 );
-            if ( (v31 & 0x200000) != 0 )
-              KiRemoveSystemWorkPriorityKick((__int64)v29);
+            while ( v31 != v30 );
+            if ( (v30 & 0x200000) != 0 )
+              KiRemoveSystemWorkPriorityKick();
           }
           _enable();
         }
@@ -451,39 +450,39 @@ LABEL_12:
     if ( (Resource->ReservedLowFlags & 0x80u) != 0
       && (struct _KTHREAD *)Resource->OwnerEntry.OwnerThread == CurrentThread )
     {
-      v35 = (Resource->OwnerEntry.TableSize + 8) ^ ((unsigned __int8)(Resource->OwnerEntry.TableSize + 8) ^ (unsigned __int8)*(_DWORD *)&Resource->OwnerEntry.0) & 7;
-      Resource->OwnerEntry.TableSize = v35;
-      v36 = v35 >> 3;
+      v34 = (Resource->OwnerEntry.TableSize + 8) ^ ((unsigned __int8)(Resource->OwnerEntry.TableSize + 8) ^ (unsigned __int8)*(_DWORD *)&Resource->OwnerEntry.0) & 7;
+      Resource->OwnerEntry.TableSize = v34;
+      v35 = v34 >> 3;
       KeReleaseInStackQueuedSpinLock(&LockHandle);
       __incgsdword(0x9080u);
       __incgsdword(0x9064u);
       if ( v9 )
       {
-        v37 = KeGetCurrentPrcb();
+        v36 = KeGetCurrentPrcb();
         ContentionCount = Resource->ContentionCount;
         BYTE3(SystemArgument1) = 0;
-        v39 = v37->Group;
-        ++v37->SynchCounters.ExEtwSynchTrackingNotificationsCount;
-        LOWORD(SystemArgument1) = v39;
-        BYTE2(SystemArgument1) = v37->GroupIndex;
-        v40 = EtwpGetTrackingLockSlotForThread(Resource, 0x10000LL);
-        if ( v40 )
+        v38 = v36->Group;
+        ++v36->SynchCounters.ExEtwSynchTrackingNotificationsCount;
+        LOWORD(SystemArgument1) = v38;
+        BYTE2(SystemArgument1) = v36->GroupIndex;
+        v39 = EtwpGetTrackingLockSlotForThread(Resource, 0x10000LL);
+        if ( v39 )
         {
-          ++v37->SynchCounters.ExEtwSynchTrackingNotificationsAccountedCount;
-          if ( *(_DWORD *)(v40 + 32) )
+          ++v36->SynchCounters.ExEtwSynchTrackingNotificationsAccountedCount;
+          if ( *(_DWORD *)(v39 + 32) )
           {
-            if ( *(_DWORD *)(v40 + 36) < v36 )
-              *(_DWORD *)(v40 + 36) = v36;
+            if ( *(_DWORD *)(v39 + 36) < v35 )
+              *(_DWORD *)(v39 + 36) = v35;
           }
           else
           {
-            *(_QWORD *)v40 = 1LL;
-            *(_QWORD *)(v40 + 8) = 2LL;
-            *(_DWORD *)(v40 + 24) = (_DWORD)SystemArgument1;
-            *(_DWORD *)(v40 + 36) = v36;
-            *(_DWORD *)(v40 + 44) = ContentionCount;
+            *(_QWORD *)v39 = 1LL;
+            *(_QWORD *)(v39 + 8) = 2LL;
+            *(_DWORD *)(v39 + 24) = (_DWORD)SystemArgument1;
+            *(_DWORD *)(v39 + 36) = v35;
+            *(_DWORD *)(v39 + 44) = ContentionCount;
           }
-          *(_DWORD *)(v40 + 32) = 1;
+          *(_DWORD *)(v39 + 32) = 1;
         }
       }
       return 1;
@@ -495,127 +494,128 @@ LABEL_12:
       return 0;
     }
     ++Resource->NumberOfExclusiveWaiters;
-    v104[1] = v104;
-    v104[0] = v104;
+    v103[1] = v103;
+    v103[0] = v103;
     ExclusiveWaiters = Resource->ExclusiveWaiters;
+    v99 = 0LL;
     v100 = 0LL;
-    v101 = 0LL;
-    v103 = 393217LL;
-    v102 = CurrentThread;
-    v104[2] = 0LL;
+    v102 = 393217LL;
+    v101 = CurrentThread;
+    v103[2] = 0LL;
     if ( ExclusiveWaiters )
     {
-      v34 = (PVOID *)ExclusiveWaiters[1];
-      if ( *v34 != ExclusiveWaiters )
+      v33 = (PVOID *)ExclusiveWaiters[1];
+      if ( *v33 != ExclusiveWaiters )
         goto LABEL_43;
-      v101 = (PVOID *)ExclusiveWaiters[1];
-      v100 = ExclusiveWaiters;
-      *v34 = &v100;
-      ExclusiveWaiters[1] = &v100;
+      v100 = (PVOID *)ExclusiveWaiters[1];
+      v99 = ExclusiveWaiters;
+      *v33 = &v99;
+      ExclusiveWaiters[1] = &v99;
     }
     else
     {
-      v101 = &v100;
-      v100 = &v100;
-      Resource->ExclusiveWaiters = &v100;
+      v100 = &v99;
+      v99 = &v99;
+      Resource->ExclusiveWaiters = &v99;
     }
     if ( (BYTE6(PerfGlobalGroupMask) & 1) != 0 && !PopHibernateInProgress )
     {
       KiReleaseQueuedSpinLockInstrumented(&LockHandle, retaddr);
 LABEL_54:
-      v41 = LockHandle.OldIrql;
+      v40 = LockHandle.OldIrql;
       if ( KiIrqlFlags )
         KiLowerIrqlProcessIrqlFlags(KeGetCurrentIrql(), LockHandle.OldIrql);
-      __writecr8(v41);
+      __writecr8(v40);
       __incgsdword(0x9084u);
       if ( v9 )
       {
+        v105 = 0LL;
         v106 = 0LL;
         v107 = 0LL;
-        v108 = 0LL;
-        v42 = KeGetCurrentPrcb();
+        v41 = KeGetCurrentPrcb();
         BYTE3(SystemArgument1) = 0;
-        v43 = __rdtsc();
-        v44 = v42->Group;
-        ++v42->SynchCounters.ExEtwSynchTrackingNotificationsCount;
-        LOWORD(SystemArgument1) = v44;
-        BYTE2(SystemArgument1) = v42->GroupIndex;
-        v45 = EtwpGetTrackingLockSlotForThread(Resource, 0x10000LL);
-        if ( v45 )
+        v42 = __rdtsc();
+        v43 = v41->Group;
+        ++v41->SynchCounters.ExEtwSynchTrackingNotificationsCount;
+        LOWORD(SystemArgument1) = v43;
+        BYTE2(SystemArgument1) = v41->GroupIndex;
+        v44 = EtwpGetTrackingLockSlotForThread(Resource, 0x10000LL);
+        if ( v44 )
         {
-          ++v42->SynchCounters.ExEtwSynchTrackingNotificationsAccountedCount;
-          v46 = (int)SystemArgument1;
-          *(_DWORD *)(v45 + 32) = 4;
-          *(_QWORD *)v45 = v43;
-          *(_DWORD *)(v45 + 24) = v46;
+          ++v41->SynchCounters.ExEtwSynchTrackingNotificationsAccountedCount;
+          v45 = (int)SystemArgument1;
+          *(_DWORD *)(v44 + 32) = 4;
+          *(_QWORD *)v44 = v42;
+          *(_DWORD *)(v44 + 24) = v45;
         }
       }
-      v47 = KeGetCurrentThread();
-      v48 = 0;
-      v49 = (*((_DWORD *)&v47[1].SwapListEntry + 2) >> 9) & 7;
-      v50 = v47->Process[1].Padding[3];
-      if ( v50 )
+      v46 = KeGetCurrentThread();
+      v47 = 0;
+      v48 = (*((_DWORD *)&v46[1].SwapListEntry + 2) >> 9) & 7;
+      v49 = v46->Process[1].Padding[3];
+      if ( v49 )
       {
-        v51 = *(_DWORD *)(v50 + 1084);
-        if ( v49 >= v51 )
-          v49 = v51;
+        v50 = *(_DWORD *)(v49 + 1084);
+        if ( v48 >= v50 )
+          v48 = v50;
       }
-      if ( (v49 < 2 && v47 == KeGetCurrentThread() && LODWORD(v47[1].Timer.TimerListEntry.Flink) || v49 > 1)
+      if ( (v48 < 2 && v46 == KeGetCurrentThread() && LODWORD(v46[1].Timer.TimerListEntry.Flink) || v48 > 1)
         && (Resource->ReservedLowFlags & 4) == 0 )
       {
-        v48 = 4;
+        v47 = 4;
       }
-      v52 = v48 | 2;
+      v51 = v47 | 2;
       if ( (Resource->ReservedLowFlags & 2) != 0 )
-        v52 = v48;
-      v53 = v52 | 0xFF00;
-      if ( v47->Priority <= (int)Resource->WaiterPriority )
-        v53 = v52;
-      if ( v53 )
+        v51 = v47;
+      v52 = v51 | 0xFF00;
+      if ( v46->Priority <= (int)Resource->WaiterPriority )
+        v52 = v51;
+      if ( v52 )
         ExpApplyPriorityBoost(Resource);
-      ExpWaitForResource(Resource, &v100, 66084LL);
-      v54 = Resource->Flag;
-      memset(&v105, 0, sizeof(v105));
-      if ( (v54 & 8) == 0 )
+      ExpWaitForResource(Resource, &v99, 66084LL);
+      v53 = Resource->Flag;
+      memset(&v104, 0, sizeof(v104));
+      if ( (v53 & 8) == 0 )
       {
-        v55 = 0;
-        if ( (v54 & 4) != 0 )
+        v54 = 0;
+        if ( (v53 & 4) != 0 )
         {
-          v56 = (*((_DWORD *)&CurrentThread[1].SwapListEntry + 2) >> 9) & 7;
-          v57 = CurrentThread->Process[1].Padding[3];
-          if ( v57 )
+          v55 = (*((_DWORD *)&CurrentThread[1].SwapListEntry + 2) >> 9) & 7;
+          v56 = CurrentThread->Process[1].Padding[3];
+          if ( v56 )
           {
-            v58 = *(_DWORD *)(v57 + 1084);
-            if ( v56 >= v58 )
-              v56 = v58;
+            v57 = *(_DWORD *)(v56 + 1084);
+            if ( v55 >= v57 )
+              v55 = v57;
           }
-          if ( v56 < 2 )
-            v55 = 4;
+          if ( v55 < 2 )
+            v54 = 4;
         }
-        v59 = v55 | 2;
+        v58 = v54 | 2;
         if ( (Resource->ReservedLowFlags & 2) == 0 )
-          v59 = v55;
-        if ( v59 )
+          v58 = v54;
+        if ( v58 )
         {
-          v105.LockQueue.Lock = &Resource->SpinLock;
-          v105.LockQueue.Next = 0LL;
-          v60 = KeGetCurrentIrql();
-          v98 = v60;
+          v104.LockQueue.Lock = &Resource->SpinLock;
+          v104.LockQueue.Next = 0LL;
+          v59 = KeGetCurrentIrql();
+          v97 = v59;
           __writecr8(2uLL);
           if ( KiIrqlFlags )
           {
-            KiRaiseIrqlProcessIrqlFlags((unsigned __int8)v60, 2LL);
-            LOBYTE(v60) = v98;
+            KiRaiseIrqlProcessIrqlFlags((unsigned __int8)v59, 2LL);
+            LOBYTE(v59) = v97;
           }
-          v105.OldIrql = v60;
+          v104.OldIrql = v59;
           if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || PopHibernateInProgress )
           {
-            if ( _InterlockedExchange64((volatile __int64 *)p_SpinLock, (__int64)&v105) )
-              KxWaitForLockOwnerShip(&v105);
+            v60 = _InterlockedExchange64((volatile __int64 *)p_SpinLock, (__int64)&v104);
+            if ( v60 )
+              KxWaitForLockOwnerShip(&v104, v60);
           }
           else
           {
-            KiAcquireQueuedSpinLockInstrumented(&v105, &Resource->SpinLock);
+            KiAcquireQueuedSpinLockInstrumented(&v104, &Resource->SpinLock);
           }
           OwnerThread = Resource->OwnerEntry.OwnerThread;
           p_OwnerEntry = &Resource->OwnerEntry;
@@ -644,23 +644,23 @@ LABEL_89:
               p_OwnerEntry = 0LL;
             }
           }
-          if ( (v59 & 4) != 0 )
+          if ( (v58 & 4) != 0 )
           {
             if ( (p_OwnerEntry->TableSize & 1) != 0 )
             {
-              v59 &= ~4u;
+              v58 &= ~4u;
             }
             else
             {
-              PsBoostThreadIoEx((__int64)CurrentThread, 0, 0LL, 0LL);
+              PsBoostThreadIoEx(CurrentThread, 0LL, 0LL, 0LL);
               p_OwnerEntry->TableSize |= 1u;
             }
           }
-          if ( (v59 & 2) != 0 )
+          if ( (v58 & 2) != 0 )
           {
             if ( (p_OwnerEntry->TableSize & 4) != 0 )
             {
-              v59 &= ~2u;
+              v58 &= ~2u;
             }
             else
             {
@@ -668,29 +668,29 @@ LABEL_89:
                 && CurrentThread->AbWaitEntryCount )
               {
                 v75 = KeGetCurrentIrql();
-                v98 = v75;
+                v97 = v75;
                 __writecr8(2uLL);
                 if ( KiIrqlFlags )
                   KiRaiseIrqlProcessIrqlFlags((unsigned __int8)v75, 2LL);
                 SystemArgument1 = KeGetCurrentPrcb();
                 if ( (unsigned int)KiAbThreadInsertList(
-                                     (__int64)CurrentThread,
-                                     (_QWORD *)SystemArgument1 + 4655,
-                                     &CurrentThread->PropagateBoostsEntry.Next) )
-                  KiAbQueueAutoBoostDpc((struct _KDPC *)SystemArgument1);
+                                     CurrentThread,
+                                     (char *)SystemArgument1 + 37240,
+                                     &CurrentThread->PropagateBoostsEntry) )
+                  KiAbQueueAutoBoostDpc(SystemArgument1);
                 if ( KiIrqlFlags )
-                  KiLowerIrqlProcessIrqlFlags(KeGetCurrentIrql(), (unsigned __int8)v98);
-                __writecr8((unsigned __int8)v98);
+                  KiLowerIrqlProcessIrqlFlags(KeGetCurrentIrql(), (unsigned __int8)v97);
+                __writecr8((unsigned __int8)v97);
               }
               p_OwnerEntry->TableSize |= 4u;
             }
           }
-          KeReleaseInStackQueuedSpinLock(&v105);
-          if ( v59 )
+          KeReleaseInStackQueuedSpinLock(&v104);
+          if ( v58 )
           {
-            if ( (v59 & 4) != 0 )
-              IoBoostThreadIoPriority(CurrentThread, 2LL, 0LL);
-            if ( (v59 & 2) != 0 )
+            if ( (v58 & 4) != 0 )
+              IoBoostThreadIoPriority(CurrentThread, 2LL);
+            if ( (v58 & 2) != 0 )
               PsBoostThreadOutstandingIoQoS(CurrentThread);
           }
         }
@@ -699,7 +699,7 @@ LABEL_89:
       __incgsdword(0x9064u);
       if ( v9 )
       {
-        LODWORD(v98) = Resource->ContentionCount;
+        LODWORD(v97) = Resource->ContentionCount;
         LODWORD(SystemArgument1) = 0;
         v67 = KeGetCurrentPrcb();
         v68 = __rdtsc();
@@ -725,7 +725,7 @@ LABEL_89:
             *(_QWORD *)v71 = 0LL;
           }
           *(_DWORD *)(v71 + 24) = (_DWORD)SystemArgument1;
-          *(_DWORD *)(v71 + 44) = v98;
+          *(_DWORD *)(v71 + 44) = v97;
           *(_DWORD *)(v71 + 32) = 1;
           *(_DWORD *)(v71 + 36) = 1;
         }
@@ -751,17 +751,17 @@ LABEL_89:
       KeWakeAddressAll(v72 + 8, v73, v2, v3);
     goto LABEL_54;
   }
-  v93 = KeGetCurrentIrql();
-  v94 = KeGetCurrentThread();
-  if ( v93 > (unsigned __int8)v2 )
-    KeBugCheckEx(0x1C6u, 0LL, v93, (unsigned __int8)v2, 0LL);
-  if ( v93 >= 2u && (KeGetPcr()->Prcb.DpcRequestSummary & 0x10001) != 0 )
+  v92 = KeGetCurrentIrql();
+  v93 = KeGetCurrentThread();
+  if ( v92 > (unsigned __int8)v2 )
+    KeBugCheckEx(0x1C6u, 0LL, v92, (unsigned __int8)v2, 0LL);
+  if ( v92 >= 2u && (KeGetPcr()->Prcb.DpcRequestSummary & 0x10001) != 0 )
 LABEL_154:
     KeBugCheckEx(0x1C6u, 5uLL, 0LL, 0LL, 0LL);
-  if ( (v94->ApcState.InProgressFlags & 2) != 0 )
+  if ( (v93->ApcState.InProgressFlags & 2) != 0 )
 LABEL_148:
     KeBugCheckEx(0x1C6u, 6uLL, 0LL, 0LL, 0LL);
-  if ( !v93 && (v94->MiscFlags & 0x400) == 0 && !v94->WaitBlock[3].SpareLong )
+  if ( !v92 && (v93->MiscFlags & 0x400) == 0 && !v93->WaitBlock[3].SpareLong )
     goto LABEL_152;
   v76 = (unsigned __int64)KeGetCurrentThread();
   if ( Wait )
@@ -789,7 +789,7 @@ LABEL_148:
 LABEL_152:
     KeBugCheckEx(0x1C6u, 7uLL, 0LL, 0LL, 0LL);
   v83 = KeAbPreAcquire(Resource, 0LL, v79 == 0);
-  v98 = v83;
+  v97 = v83;
   v84 = _InterlockedCompareExchange64((volatile signed __int64 *)Resource, 1LL, 0LL);
   p_ActiveEntries = &Resource->ActiveEntries;
   if ( !v84 )
@@ -813,20 +813,19 @@ LABEL_43:
     *(_QWORD *)&Resource->NumberOfSharedWaiters = v87;
     v88[1] = p_ActiveEntries;
     *v87 = p_ActiveEntries;
-    v89 = KeGetCurrentPrcb();
-    v90 = (signed __int32 *)v89->SchedulerAssist;
-    if ( v90 )
+    v89 = (signed __int32 *)KeGetCurrentPrcb()->SchedulerAssist;
+    if ( v89 )
     {
-      _m_prefetchw(v90);
-      v91 = *v90;
+      _m_prefetchw(v89);
+      v90 = *v89;
       do
       {
-        v92 = v91;
-        v91 = _InterlockedCompareExchange(v90, v91 & 0xFFDFFFFF, v91);
+        v91 = v90;
+        v90 = _InterlockedCompareExchange(v89, v90 & 0xFFDFFFFF, v90);
       }
-      while ( v92 != v91 );
-      if ( (v91 & 0x200000) != 0 )
-        KiRemoveSystemWorkPriorityKick((__int64)v89);
+      while ( v91 != v90 );
+      if ( (v90 & 0x200000) != 0 )
+        KiRemoveSystemWorkPriorityKick();
     }
     _enable();
     return 1;
@@ -836,7 +835,7 @@ LABEL_43:
     ++LODWORD(Resource->SpinLock);
     if ( !v83 )
       return 1;
-    KeAbPostReleaseEx((ULONG_PTR)Resource, v83);
+    KeAbPostReleaseEx((ULONG_PTR)Resource);
     return 1;
   }
   else
@@ -847,7 +846,7 @@ LABEL_43:
       return 1;
     }
     if ( v83 )
-      KeAbPostReleaseEx((ULONG_PTR)Resource, v83);
+      KeAbPostReleaseEx((ULONG_PTR)Resource);
     return 0;
   }
 }

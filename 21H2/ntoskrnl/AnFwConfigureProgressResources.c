@@ -1,14 +1,14 @@
 /*
- * XREFs of AnFwConfigureProgressResources @ 0x1409F1744
+ * XREFs of AnFwConfigureProgressResources @ 0x1409F2744
  * Callers:
- *     BgpFwLibraryInitialize @ 0x1409F29E8 (BgpFwLibraryInitialize.c)
+ *     BgpFwLibraryInitialize @ 0x1409F39E8 (BgpFwLibraryInitialize.c)
  * Callees:
- *     KeInitializeEvent @ 0x1403538F0 (KeInitializeEvent.c)
- *     BgpTxtRegionSize @ 0x14039BCE8 (BgpTxtRegionSize.c)
- *     BgpGxRectangleSize @ 0x14039BD48 (BgpGxRectangleSize.c)
- *     BgpGetBitsPerPixel @ 0x14039C280 (BgpGetBitsPerPixel.c)
- *     BgpTxtCreateRegion @ 0x1409F30D4 (BgpTxtCreateRegion.c)
- *     BgpFoGetFontHandle @ 0x1409F334C (BgpFoGetFontHandle.c)
+ *     KeInitializeEvent @ 0x14035E640 (KeInitializeEvent.c)
+ *     BgpTxtRegionSize @ 0x14039BE38 (BgpTxtRegionSize.c)
+ *     BgpGxRectangleSize @ 0x14039BE98 (BgpGxRectangleSize.c)
+ *     BgpGetBitsPerPixel @ 0x14039C3D0 (BgpGetBitsPerPixel.c)
+ *     BgpTxtCreateRegion @ 0x1409F40D4 (BgpTxtCreateRegion.c)
+ *     BgpFoGetFontHandle @ 0x1409F434C (BgpFoGetFontHandle.c)
  */
 
 __int64 __fastcall AnFwConfigureProgressResources(int *a1)
@@ -22,7 +22,7 @@ __int64 __fastcall AnFwConfigureProgressResources(int *a1)
 
   v8 = 0LL;
   v5 = 0LL;
-  KeInitializeEvent(&stru_140CF3300, NotificationEvent, 1u);
+  KeInitializeEvent(&stru_140CF3340, NotificationEvent, 1u);
   if ( !a1 )
     return 0LL;
   if ( (a1[6] & 1) == 0 )

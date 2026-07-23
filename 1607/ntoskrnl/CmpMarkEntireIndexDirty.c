@@ -1,12 +1,12 @@
 /*
- * XREFs of CmpMarkEntireIndexDirty @ 0x14060A8F4
+ * XREFs of CmpMarkEntireIndexDirty @ 0x14060A9A8
  * Callers:
- *     CmpLightWeightDuplicateParentLists @ 0x14060EBE8 (CmpLightWeightDuplicateParentLists.c)
+ *     CmpLightWeightDuplicateParentLists @ 0x14060EC9C (CmpLightWeightDuplicateParentLists.c)
  * Callees:
- *     HvpGetCellContextReinitialize @ 0x14002D3E8 (HvpGetCellContextReinitialize.c)
- *     HvpMarkCellDirty @ 0x1405136F0 (HvpMarkCellDirty.c)
- *     CmpUnlockHiveWriter @ 0x140564644 (CmpUnlockHiveWriter.c)
- *     CmpLockHiveWriter @ 0x1405646A8 (CmpLockHiveWriter.c)
+ *     HvpGetCellContextReinitialize @ 0x14002CF68 (HvpGetCellContextReinitialize.c)
+ *     HvpMarkCellDirty @ 0x1404F6AE0 (HvpMarkCellDirty.c)
+ *     CmpUnlockHiveWriter @ 0x140564B84 (CmpUnlockHiveWriter.c)
+ *     CmpLockHiveWriter @ 0x140564BE8 (CmpLockHiveWriter.c)
  */
 
 char __fastcall CmpMarkEntireIndexDirty(ULONG_PTR BugCheckParameter2, ULONG_PTR BugCheckParameter3)

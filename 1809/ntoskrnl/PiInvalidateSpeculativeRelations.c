@@ -1,10 +1,10 @@
 /*
- * XREFs of PiInvalidateSpeculativeRelations @ 0x1406EF064
+ * XREFs of PiInvalidateSpeculativeRelations @ 0x1406F0304
  * Callers:
- *     PnpProcessQueryRemoveAndEject @ 0x1406EF790 (PnpProcessQueryRemoveAndEject.c)
+ *     PnpProcessQueryRemoveAndEject @ 0x1406F0A30 (PnpProcessQueryRemoveAndEject.c)
  * Callees:
- *     PnpInvalidateRelationsInList @ 0x1406EDCB0 (PnpInvalidateRelationsInList.c)
- *     IopRemoveDeviceRelationsFromList @ 0x1406EF0A0 (IopRemoveDeviceRelationsFromList.c)
+ *     PnpInvalidateRelationsInList @ 0x1406EEF50 (PnpInvalidateRelationsInList.c)
+ *     IopRemoveDeviceRelationsFromList @ 0x1406F0340 (IopRemoveDeviceRelationsFromList.c)
  */
 
 __int64 __fastcall PiInvalidateSpeculativeRelations(unsigned int a1, _QWORD *a2)

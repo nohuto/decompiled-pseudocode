@@ -7,75 +7,64 @@
  * Callees:
  *     RtlGetCurrentServiceSessionId @ 0x180024850 (RtlGetCurrentServiceSessionId.c)
  *     __security_check_cookie @ 0x18008C940 (__security_check_cookie.c)
- *     ZwCancelTimer2 @ 0x18009E8B0 (ZwCancelTimer2.c)
- *     ZwSetTimer2 @ 0x1800A0C30 (ZwSetTimer2.c)
- *     TppETWTimerCancelNtTimer @ 0x180112AA4 (TppETWTimerCancelNtTimer.c)
- *     TppETWTimerSetNtTimer @ 0x180112D74 (TppETWTimerSetNtTimer.c)
+ *     ZwCancelTimer2 @ 0x18009E870 (ZwCancelTimer2.c)
+ *     ZwSetTimer2 @ 0x1800A0BF0 (ZwSetTimer2.c)
+ *     TppETWTimerCancelNtTimer @ 0x180112A64 (TppETWTimerCancelNtTimer.c)
+ *     TppETWTimerSetNtTimer @ 0x180112D34 (TppETWTimerSetNtTimer.c)
  */
 
-void __fastcall TppUpdateSubQueueTimer(__int64 a1, __int64 a2)
+void __fastcall TppUpdateSubQueueTimer(__int64 a1, char a2)
 {
   __int64 v3; // rcx
-  char v4; // r8
-  __int64 v5; // rdi
+  LARGE_INTEGER v4; // rdi
+  __int64 v5; // rsi
   __int64 v6; // rcx
-  __int64 v7; // rdx
-  __int64 v8; // rsi
-  __int64 v9; // rcx
-  __int64 v10; // rcx
-  __int64 v11; // rcx
-  __int64 v12; // [rsp+20h] [rbp-28h] BYREF
-  int v13; // [rsp+28h] [rbp-20h] BYREF
-  __int64 v14; // [rsp+30h] [rbp-18h]
+  __int64 v7; // rcx
+  __int64 v8; // rcx
+  LARGE_INTEGER DueTime; // [rsp+20h] [rbp-28h] BYREF
+  _T2_SET_PARAMETERS_V0 Parameters; // [rsp+28h] [rbp-20h] BYREF
 
-  v13 = 0;
+  Parameters.Version = 0;
   v3 = *(_QWORD *)(a1 + 16);
-  v4 = a2;
   if ( v3 )
   {
-    v5 = *(_QWORD *)(*(_QWORD *)(a1 + 8) + 32LL);
-    v6 = *(_QWORD *)(v3 + 32) - v5;
-    v7 = (unsigned __int128)(v6 * (__int128)0x346DC5D63886594BLL) >> 64;
-    v8 = v6 / 10000;
-    if ( *(_QWORD *)a1 != v5 || *(_DWORD *)(a1 + 112) != (_DWORD)v8 )
+    v4 = *(LARGE_INTEGER *)(*(_QWORD *)(a1 + 8) + 32LL);
+    v5 = (*(_QWORD *)(v3 + 32) - v4.QuadPart) / 10000;
+    if ( *(_QWORD *)a1 != v4.QuadPart || *(_DWORD *)(a1 + 112) != (_DWORD)v5 )
     {
-      v9 = 10000LL * (unsigned int)v8;
-      *(_QWORD *)a1 = v5;
-      v14 = v9;
-      *(_DWORD *)(a1 + 112) = v8;
-      if ( !v4 )
+      *(LARGE_INTEGER *)a1 = v4;
+      Parameters.NoWakeTolerance = 10000LL * (unsigned int)v5;
+      *(_DWORD *)(a1 + 112) = v5;
+      if ( !a2 )
       {
-        v7 = RtlpFreezeTimeBias;
-        v9 = MEMORY[0x7FFE0008] - MEMORY[0x7FFE03B0] - RtlpFreezeTimeBias;
-        if ( v9 > v5 )
-        {
-          v5 = 0LL;
-        }
+        v6 = MEMORY[0x7FFE0008] - MEMORY[0x7FFE03B0] - RtlpFreezeTimeBias;
+        if ( v6 > v4.QuadPart )
+          v4.QuadPart = 0LL;
         else
-        {
-          v9 -= v5;
-          v5 = v9;
-        }
+          v4.QuadPart = v6 - v4.QuadPart;
       }
-      v12 = v5;
-      if ( (unsigned int)RtlGetCurrentServiceSessionId(v9, v7) )
-        v10 = (__int64)NtCurrentPeb()->SharedData + 556;
+      DueTime = v4;
+      if ( RtlGetCurrentServiceSessionId() )
+        v7 = (__int64)NtCurrentPeb()->SharedData + 556;
       else
-        v10 = 2147353478LL;
-      if ( *(_BYTE *)v10 )
-        TppETWTimerSetNtTimer(a1, v5, (unsigned int)v8);
-      ZwSetTimer2(*(_QWORD *)(a1 + 24), &v12, 0LL, &v13);
+        v7 = 2147353478LL;
+      if ( *(_BYTE *)v7 )
+        ((void (__fastcall *)(_QWORD, _QWORD, _QWORD))TppETWTimerSetNtTimer)(
+          a1,
+          (LARGE_INTEGER)v4.QuadPart,
+          (unsigned int)v5);
+      ZwSetTimer2(*(HANDLE *)(a1 + 24), &DueTime, 0LL, &Parameters);
     }
   }
   else if ( *(_QWORD *)a1 )
   {
     *(_QWORD *)a1 = 0LL;
-    if ( (unsigned int)RtlGetCurrentServiceSessionId(0LL, a2) )
-      v11 = (__int64)NtCurrentPeb()->SharedData + 556;
+    if ( RtlGetCurrentServiceSessionId() )
+      v8 = (__int64)NtCurrentPeb()->SharedData + 556;
     else
-      v11 = 2147353478LL;
-    if ( *(_BYTE *)v11 )
+      v8 = 2147353478LL;
+    if ( *(_BYTE *)v8 )
       TppETWTimerCancelNtTimer(a1);
-    ZwCancelTimer2(*(_QWORD *)(a1 + 24), 0LL);
+    ZwCancelTimer2(*(HANDLE *)(a1 + 24), 0LL);
   }
 }

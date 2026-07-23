@@ -3,9 +3,9 @@
  * Callers:
  *     PipInitializeCoreDriversAndElam @ 0x140B3C670 (PipInitializeCoreDriversAndElam.c)
  * Callees:
- *     KeExpandKernelStackAndCallout @ 0x1403D68E0 (KeExpandKernelStackAndCallout.c)
- *     KdDisableDebugger @ 0x140567510 (KdDisableDebugger.c)
- *     KdEnableDebugger @ 0x140567740 (KdEnableDebugger.c)
+ *     KeExpandKernelStackAndCallout @ 0x1403D6AC0 (KeExpandKernelStackAndCallout.c)
+ *     KdDisableDebugger @ 0x140567BD0 (KdDisableDebugger.c)
+ *     KdEnableDebugger @ 0x140567E00 (KdEnableDebugger.c)
  *     sub_140B34828 @ 0x140B34828 (sub_140B34828.c)
  *     KiSwInterruptPresent @ 0x140B679C0 (KiSwInterruptPresent.c)
  *     KiAreCodePatchesAllowed @ 0x140B958F0 (KiAreCodePatchesAllowed.c)

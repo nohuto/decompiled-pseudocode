@@ -25,7 +25,7 @@
  *     RtlpValidateLFHBlock @ 0x18010674C (RtlpValidateLFHBlock.c)
  */
 
-__int64 __fastcall RtlpReAllocateHeapInternal(
+unsigned __int64 __fastcall RtlpReAllocateHeapInternal(
         __int64 a1,
         int a2,
         unsigned __int64 a3,
@@ -165,7 +165,7 @@ __int64 __fastcall RtlpReAllocateHeapInternal(
 LABEL_44:
         if ( (dword_180160378 & 1) != 0
           && (dword_180160378 & 2) != 0
-          && a1 != RtlpHpMetadataHeap
+          && (PVOID)a1 != RtlpHpMetadataHeap
           && NtCurrentPeb()->ProcessHeap
           && v30 )
         {
@@ -329,7 +329,7 @@ LABEL_51:
             if ( v52 == 4 )
             {
               if ( (v13 & 1) == 0 && (*(_BYTE *)(a1 + 116) & 1) == 0 )
-                RtlEnterCriticalSection(*(_QWORD *)(a1 + 352));
+                RtlEnterCriticalSection(*(PRTL_CRITICAL_SECTION *)(a1 + 352));
               if ( *(_DWORD *)(a1 + 124) )
               {
                 *(_DWORD *)(v14 + 8) ^= *(_DWORD *)(a1 + 136);
@@ -344,7 +344,7 @@ LABEL_51:
                 *(_DWORD *)(v14 + 8) ^= *(_DWORD *)(a1 + 136);
               }
               if ( (v13 & 1) == 0 && (*(_BYTE *)(a1 + 116) & 1) == 0 )
-                RtlLeaveCriticalSection(*(_QWORD *)(a1 + 352));
+                RtlLeaveCriticalSection(*(PRTL_CRITICAL_SECTION *)(a1 + 352));
             }
             else
             {
@@ -424,10 +424,10 @@ LABEL_51:
             }
             v8 = v14 + 16;
 LABEL_16:
-            v16 = RtlpReAllocateHeap(a1, v13 | 2u, v8, a4);
+            v16 = RtlpReAllocateHeap(a1);
             if ( (dword_180160378 & 1) != 0
               && (dword_180160378 & 2) != 0
-              && a1 != RtlpHpMetadataHeap
+              && (PVOID)a1 != RtlpHpMetadataHeap
               && NtCurrentPeb()->ProcessHeap )
             {
               if ( !v16 )
@@ -436,7 +436,7 @@ LABEL_49:
                 a4 -= v15;
                 if ( v11 )
                 {
-                  RtlSizeHeap(a1, 0LL, v8);
+                  RtlSizeHeap((PVOID)a1, 0, (PVOID)v8);
                   v63 = RtlpSetupExtendedBlock(a1, v13, v8, v62, v15, v11);
                   RtlpCallInterceptRoutine(v11, a1, v63, 6, v8);
                 }
@@ -489,5 +489,5 @@ LABEL_106:
     v14 = 0LL;
     goto LABEL_13;
   }
-  return RtlDebugReAllocateHeap((void *)a1);
+  return RtlDebugReAllocateHeap(a1);
 }

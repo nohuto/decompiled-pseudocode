@@ -1,12 +1,12 @@
 /*
- * XREFs of VfWdInit @ 0x140ADE0E8
+ * XREFs of VfWdInit @ 0x140ADE0D8
  * Callers:
- *     ViIovInitialization @ 0x140ADC388 (ViIovInitialization.c)
+ *     ViIovInitialization @ 0x140ADC378 (ViIovInitialization.c)
  * Callees:
- *     KeInitializeTimerEx @ 0x1402BE660 (KeInitializeTimerEx.c)
- *     KeInitializeDpc @ 0x1402BF9A0 (KeInitializeDpc.c)
- *     ExInitializeNPagedLookasideListInternal @ 0x1403C32D0 (ExInitializeNPagedLookasideListInternal.c)
- *     VfWdSetCancelTimeout @ 0x140ADE1AC (VfWdSetCancelTimeout.c)
+ *     KeInitializeTimerEx @ 0x1402BE8F0 (KeInitializeTimerEx.c)
+ *     KeInitializeDpc @ 0x1402BFC30 (KeInitializeDpc.c)
+ *     ExInitializeNPagedLookasideListInternal @ 0x1403C34B0 (ExInitializeNPagedLookasideListInternal.c)
+ *     VfWdSetCancelTimeout @ 0x140ADE19C (VfWdSetCancelTimeout.c)
  */
 
 __int64 VfWdInit()

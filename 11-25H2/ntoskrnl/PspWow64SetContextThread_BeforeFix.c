@@ -24,7 +24,7 @@
  *     RtlpWow64CtxToAmd64 @ 0x140A51994 (RtlpWow64CtxToAmd64.c)
  */
 
-__int64 __fastcall PspWow64SetContextThread_BeforeFix(
+NTSTATUS __fastcall PspWow64SetContextThread_BeforeFix(
         PETHREAD Thread,
         unsigned int *a2,
         int a3,
@@ -58,16 +58,16 @@ __int64 __fastcall PspWow64SetContextThread_BeforeFix(
         __int64 a31,
         __int64 a32)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
   __int64 v36; // rdx
-  __int64 CpuAreaEnabledFeatures; // r13
+  ULONG64 CpuAreaEnabledFeatures; // r13
   __int64 v38; // rax
-  unsigned int v39; // edi
+  ULONG v39; // edi
   unsigned __int64 v40; // rcx
   unsigned __int64 v41; // rcx
   void *v42; // rsp
   void *v43; // rsp
-  _BYTE *v44; // r15
+  _CONTEXT *v44; // r15
   int v45; // edx
   int v46; // ecx
   struct _KPROCESS *v47; // rbx
@@ -83,7 +83,7 @@ __int64 __fastcall PspWow64SetContextThread_BeforeFix(
   void *v57; // rsp
   void *v58; // rsp
   char v59; // r14
-  unsigned int v60; // ebx
+  NTSTATUS v60; // ebx
   int v61; // ebx
   bool v62; // cf
   struct _KTHREAD *CurrentThread; // rcx
@@ -92,23 +92,23 @@ __int64 __fastcall PspWow64SetContextThread_BeforeFix(
   int v66; // [rsp+28h] [rbp-28h]
   int v67; // [rsp+28h] [rbp-28h]
   _BYTE v68[4]; // [rsp+50h] [rbp+0h] BYREF
-  unsigned int v69; // [rsp+54h] [rbp+4h] BYREF
+  ULONG v69; // [rsp+54h] [rbp+4h] BYREF
   char v70; // [rsp+58h] [rbp+8h]
   unsigned int v71; // [rsp+5Ch] [rbp+Ch] BYREF
-  __int64 v72; // [rsp+60h] [rbp+10h] BYREF
+  PCONTEXT_EX ContextEx; // [rsp+60h] [rbp+10h] BYREF
   ULONG_PTR BugCheckParameter1; // [rsp+68h] [rbp+18h]
-  __int64 v74; // [rsp+70h] [rbp+20h]
+  ULONG64 v74; // [rsp+70h] [rbp+20h]
   PETHREAD Threada; // [rsp+78h] [rbp+28h] BYREF
   __int64 v76; // [rsp+80h] [rbp+30h]
   __int16 v77; // [rsp+88h] [rbp+38h]
 
   v70 = a4;
   if ( a3 != 716 )
-    return 3221225476LL;
+    return -1073741820;
   Threada = KeGetCurrentThread();
   BugCheckParameter1 = (ULONG_PTR)Thread->Process;
   if ( (unsigned __int16)PsWow64GetProcessMachine(BugCheckParameter1) != 332 )
-    return 3221225485LL;
+    return -1073741811;
   v71 = 0x10000;
   CpuAreaEnabledFeatures = RtlWow64GetCpuAreaEnabledFeatures(&v71);
   v74 = CpuAreaEnabledFeatures;
@@ -125,16 +125,16 @@ __int64 __fastcall PspWow64SetContextThread_BeforeFix(
   }
   LOBYTE(v36) = a4;
   result = RtlpWow64SanitizeContextFlags(&v71, v36);
-  if ( (int)result < 0 )
+  if ( result < 0 )
     return result;
   v39 = v71 & 0x37FFFFFF;
   v71 &= 0x37FFFFFFu;
   v69 = 0;
-  v72 = 0LL;
+  ContextEx = 0LL;
   if ( a4 )
   {
     result = RtlGetExtendedContextLength2(v39, &v69, CpuAreaEnabledFeatures);
-    if ( (int)result < 0 )
+    if ( result < 0 )
       return result;
     v40 = v69 + 15LL;
     if ( v40 <= v69 )
@@ -142,18 +142,18 @@ __int64 __fastcall PspWow64SetContextThread_BeforeFix(
     v41 = v40 & 0xFFFFFFFFFFFFFFF0uLL;
     v42 = alloca(v41);
     v43 = alloca(v41);
-    v44 = v68;
-    result = RtlInitializeExtendedContext2((__int64)v68, v39, &v72, CpuAreaEnabledFeatures);
-    if ( (int)result < 0 )
+    v44 = (_CONTEXT *)v68;
+    result = RtlInitializeExtendedContext2((PCONTEXT)v68, v39, &ContextEx, CpuAreaEnabledFeatures);
+    if ( result < 0 )
       return result;
     LOBYTE(v45) = 1;
-    result = RtlpReadExtendedContext(v46, v45, v72, v39, (__int64)a2, 0LL);
-    if ( (int)result < 0 )
+    result = RtlpReadExtendedContext(v46, v45, (_DWORD)ContextEx, v39, (__int64)a2, 0LL);
+    if ( result < 0 )
       return result;
   }
   else
   {
-    v44 = a2;
+    v44 = (_CONTEXT *)a2;
   }
   v47 = IoThreadToProcess(Threada);
   if ( IoThreadToProcess(Thread) == v47
@@ -161,13 +161,13 @@ __int64 __fastcall PspWow64SetContextThread_BeforeFix(
     && (v39 & 0x10001) == 0x10001 )
   {
     ThreadTeb = PsGetThreadTeb((__int64)Thread);
-    if ( !(unsigned int)RtlGuardIsValidWow64StackPointer(*((unsigned int *)v44 + 49), ThreadTeb) )
-      return 3221225485LL;
+    if ( !(unsigned int)RtlGuardIsValidWow64StackPointer(HIDWORD(v44->R9), ThreadTeb) )
+      return -1073741811;
   }
   v49 = CpuAreaEnabledFeatures != 0 ? 0x40 : 0;
   v69 = 0;
   result = RtlGetExtendedContextLength2(v49 + 1048607, &v69, CpuAreaEnabledFeatures);
-  if ( (int)result < 0 )
+  if ( result < 0 )
     return result;
   v50 = v69 + 15LL;
   if ( v50 <= v69 )
@@ -175,19 +175,19 @@ __int64 __fastcall PspWow64SetContextThread_BeforeFix(
   v51 = v50 & 0xFFFFFFFFFFFFFFF0uLL;
   v52 = alloca(v51);
   v53 = alloca(v51);
-  result = RtlInitializeExtendedContext2((__int64)v68, v49 + 1048607, &Threada, CpuAreaEnabledFeatures);
-  if ( (int)result < 0 )
+  result = RtlInitializeExtendedContext2((PCONTEXT)v68, v49 + 1048607, (PCONTEXT_EX *)&Threada, CpuAreaEnabledFeatures);
+  if ( result < 0 )
     return result;
   LOBYTE(v54) = 1;
   result = PspGetContextThreadInternal((_DWORD)Thread, (unsigned int)v68, 0, v54, 1);
-  if ( (int)result < 0 )
+  if ( result < 0 )
     return result;
   v69 = 0;
   result = RtlGetExtendedContextLength2(CpuAreaEnabledFeatures != 0 ? 65663 : 65599, &v69, CpuAreaEnabledFeatures);
-  if ( (int)result < 0 )
+  if ( result < 0 )
     return result;
   v68[0] = 0;
-  LODWORD(v72) = 0;
+  LODWORD(ContextEx) = 0;
   v55 = v69 + 15LL;
   if ( v55 <= v69 )
     v55 = 0xFFFFFFFFFFFFFF0LL;
@@ -195,20 +195,20 @@ __int64 __fastcall PspWow64SetContextThread_BeforeFix(
   v57 = alloca(v56);
   v58 = alloca(v56);
   LODWORD(Length) = v69;
-  result = PspWow64ReadOrWriteThreadCpuArea(BugCheckParameter1, Length, v66, (__int64)&v72, (__int64)v68);
-  if ( (int)result < 0 )
+  result = PspWow64ReadOrWriteThreadCpuArea(BugCheckParameter1, Length, v66, (__int64)&ContextEx, (__int64)v68);
+  if ( result < 0 )
     return result;
   v59 = 0;
   if ( v68[0] )
   {
-    result = RtlCopyContext(v68, v39, v44);
-    if ( (int)result < 0 )
+    result = RtlCopyContext((PCONTEXT)v68, v39, v44);
+    if ( result < 0 )
       return result;
 LABEL_43:
     LODWORD(Lengtha) = v69;
-    result = PspWow64ReadOrWriteThreadCpuArea(BugCheckParameter1, Lengtha, v67, (__int64)&v72, 0LL);
+    result = PspWow64ReadOrWriteThreadCpuArea(BugCheckParameter1, Lengtha, v67, (__int64)&ContextEx, 0LL);
     v60 = result;
-    if ( (int)result < 0 )
+    if ( result < 0 )
       return result;
     goto LABEL_44;
   }
@@ -216,11 +216,11 @@ LABEL_43:
   {
     result = RtlpWow64CtxToAmd64(v39, v44, v68);
     v60 = result;
-    if ( (int)result < 0 )
+    if ( result < 0 )
       return result;
     v59 = 1;
 LABEL_44:
-    if ( !v59 || (result = PspSetContextThreadInternal(Thread, 1), v60 = result, (int)result >= 0) )
+    if ( !v59 || (result = PspSetContextThreadInternal(Thread, 1), v60 = result, result >= 0) )
     {
       if ( v70 )
       {
@@ -232,24 +232,24 @@ LABEL_44:
     }
     return result;
   }
-  v61 = v72;
-  if ( (v72 & 1) == 0 )
+  v61 = (int)ContextEx;
+  if ( ((unsigned __int8)ContextEx & 1) == 0 )
   {
     v62 = v74 != 0;
-    v74 = -v74;
+    v74 = -(__int64)v74;
     result = RtlpWow64CtxFromAmd64(v62 ? 65656 : 65592, v68, v68);
-    if ( (int)result < 0 )
+    if ( result < 0 )
       return result;
     memset_0((char *)&a32 + 4, 0, 0x60uLL);
-    LODWORD(v72) = v61 | 1;
+    LODWORD(ContextEx) = v61 | 1;
   }
-  result = RtlCopyContext(v68, v39, v44);
-  if ( (int)result >= 0 )
+  result = RtlCopyContext((PCONTEXT)v68, v39, v44);
+  if ( result >= 0 )
   {
     if ( (v39 & 0x10010) == 0x10010 )
     {
       result = RtlpWow64CtxToAmd64(65552LL, v44, v68);
-      if ( (int)result < 0 )
+      if ( result < 0 )
         return result;
       v59 = 1;
       LODWORD(v76) = 1048592;

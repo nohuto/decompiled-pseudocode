@@ -1,44 +1,37 @@
 /*
- * XREFs of _PnpOpenPropertiesKey @ 0x140995B20
+ * XREFs of _PnpOpenPropertiesKey @ 0x140956580
  * Callers:
- *     _CmSetInstallerClassRegPropWorker @ 0x140897348 (_CmSetInstallerClassRegPropWorker.c)
- *     _CmDeleteInstallerClassMappedPropertyFromRegValue @ 0x14089B4DC (_CmDeleteInstallerClassMappedPropertyFromRegValue.c)
- *     _CmDeleteInterfaceClassMappedPropertyFromRegValue @ 0x14089B688 (_CmDeleteInterfaceClassMappedPropertyFromRegValue.c)
- *     _CmSetInterfaceClassMappedPropertyFromRegValue @ 0x14089C560 (_CmSetInterfaceClassMappedPropertyFromRegValue.c)
- *     _PnpSetPropertyWorker @ 0x14090A5FC (_PnpSetPropertyWorker.c)
- *     _PnpDeletePropertyWorker @ 0x14090ABAC (_PnpDeletePropertyWorker.c)
- *     _CmGetInstallerClassRegPropWorker @ 0x140918FE0 (_CmGetInstallerClassRegPropWorker.c)
- *     _CmGetInstallerClassMappedPropertyFromRegValue @ 0x140919488 (_CmGetInstallerClassMappedPropertyFromRegValue.c)
- *     _PnpGetGenericStorePropertyKeys @ 0x140919888 (_PnpGetGenericStorePropertyKeys.c)
- *     _PnpGetGenericStorePropertyLocales @ 0x140AB3B94 (_PnpGetGenericStorePropertyLocales.c)
- *     _CmSetInstallerClassMappedPropertyFromRegValue @ 0x140B44E74 (_CmSetInstallerClassMappedPropertyFromRegValue.c)
+ *     _CmSetInstallerClassRegPropWorker @ 0x14089D748 (_CmSetInstallerClassRegPropWorker.c)
+ *     _CmDeleteInstallerClassMappedPropertyFromRegValue @ 0x1408A18DC (_CmDeleteInstallerClassMappedPropertyFromRegValue.c)
+ *     _CmDeleteInterfaceClassMappedPropertyFromRegValue @ 0x1408A1A88 (_CmDeleteInterfaceClassMappedPropertyFromRegValue.c)
+ *     _CmSetInterfaceClassMappedPropertyFromRegValue @ 0x1408A2960 (_CmSetInterfaceClassMappedPropertyFromRegValue.c)
+ *     _CmGetInstallerClassRegPropWorker @ 0x140973A40 (_CmGetInstallerClassRegPropWorker.c)
+ *     _CmGetInstallerClassMappedPropertyFromRegValue @ 0x140973EE8 (_CmGetInstallerClassMappedPropertyFromRegValue.c)
+ *     _PnpGetGenericStorePropertyKeys @ 0x1409742E8 (_PnpGetGenericStorePropertyKeys.c)
+ *     _PnpSetPropertyWorker @ 0x1409ACBB4 (_PnpSetPropertyWorker.c)
+ *     _PnpDeletePropertyWorker @ 0x1409AD164 (_PnpDeletePropertyWorker.c)
+ *     _PnpGetGenericStorePropertyLocales @ 0x140AB4F34 (_PnpGetGenericStorePropertyLocales.c)
+ *     _CmSetInstallerClassMappedPropertyFromRegValue @ 0x140B47184 (_CmSetInstallerClassMappedPropertyFromRegValue.c)
  * Callees:
- *     RtlStringCchPrintfExW @ 0x14044E030 (RtlStringCchPrintfExW.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     _PnpCtxRegCreateTree @ 0x14091E1FC (_PnpCtxRegCreateTree.c)
- *     RtlValidSecurityDescriptor @ 0x140926EB0 (RtlValidSecurityDescriptor.c)
- *     _RegRtlOpenKeyTransacted @ 0x140997950 (_RegRtlOpenKeyTransacted.c)
- *     _SysCtxRegCreateKey @ 0x140AEABF8 (_SysCtxRegCreateKey.c)
- *     _PnpGetPropertiesSecurityDescriptor @ 0x140B2371C (_PnpGetPropertiesSecurityDescriptor.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     RtlStringCchPrintfExW @ 0x140446160 (RtlStringCchPrintfExW.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     RtlValidSecurityDescriptor @ 0x1409029C0 (RtlValidSecurityDescriptor.c)
+ *     _RegRtlOpenKeyTransacted @ 0x1409583B0 (_RegRtlOpenKeyTransacted.c)
+ *     _PnpCtxRegCreateTree @ 0x140978C5C (_PnpCtxRegCreateTree.c)
+ *     _SysCtxRegCreateKey @ 0x140AED6E8 (_SysCtxRegCreateKey.c)
+ *     _PnpGetPropertiesSecurityDescriptor @ 0x140B25B1C (_PnpGetPropertiesSecurityDescriptor.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall PnpOpenPropertiesKey(
-        __int64 a1,
-        __int64 a2,
-        const wchar_t *a3,
-        __int64 a4,
-        char a5,
-        __int64 a6,
-        HANDLE *a7)
+__int64 __fastcall PnpOpenPropertiesKey(__int64 a1, __int64 a2, _WORD *a3, __int64 a4, char a5, int a6, void **a7)
 {
   __int64 v8; // rcx
   NTSTATUS v11; // edi
   wchar_t *Pool2; // rbx
   void *v13; // rsi
-  const wchar_t *v14; // rax
+  _WORD *v14; // rax
   __int64 v15; // rcx
   unsigned int v17; // edi
   __int64 v18; // rax
@@ -51,8 +44,8 @@ __int64 __fastcall PnpOpenPropertiesKey(
   void *PropertiesSecurityDescriptor; // rax
   __int64 v26; // rcx
   const wchar_t *v27; // [rsp+30h] [rbp-118h]
-  ACCESS_MASK v28; // [rsp+50h] [rbp-F8h]
-  HANDLE v29; // [rsp+58h] [rbp-F0h]
+  unsigned int v28; // [rsp+50h] [rbp-F8h]
+  void *v29; // [rsp+58h] [rbp-F0h]
   wchar_t pszDest[64]; // [rsp+70h] [rbp-D8h] BYREF
 
   v8 = 0LL;
@@ -170,7 +163,7 @@ LABEL_31:
       {
         v29 = *a7;
         *a7 = 0LL;
-        Key = PnpCtxRegCreateTree(a1, v29, a3, 0, v28, 0LL, a7, 0LL);
+        Key = PnpCtxRegCreateTree(a1, v29, a3, 0LL, v28, 0LL, a7, 0LL);
         if ( Key == -1073741444 )
         {
           v11 = -1073741772;

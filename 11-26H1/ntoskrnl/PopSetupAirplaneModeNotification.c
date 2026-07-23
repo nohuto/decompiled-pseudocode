@@ -1,9 +1,9 @@
 /*
- * XREFs of PopSetupAirplaneModeNotification @ 0x1407C8590
+ * XREFs of PopSetupAirplaneModeNotification @ 0x1407CB5F0
  * Callers:
- *     PoInitSystem @ 0x140CCE870 (PoInitSystem.c)
+ *     PoInitSystem @ 0x140CD49D0 (PoInitSystem.c)
  * Callees:
- *     ExSubscribeWnfStateChange @ 0x140948A90 (ExSubscribeWnfStateChange.c)
+ *     ExSubscribeWnfStateChange @ 0x1409C4400 (ExSubscribeWnfStateChange.c)
  */
 
 __int64 PopSetupAirplaneModeNotification()

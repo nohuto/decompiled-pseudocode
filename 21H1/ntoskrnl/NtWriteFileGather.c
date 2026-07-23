@@ -29,22 +29,22 @@
  *     ExFreePoolWithTag @ 0x1409B1010 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall NtWriteFileGather(
-        void *a1,
-        void *a2,
-        __int64 a3,
-        void *a4,
-        unsigned __int64 a5,
-        union _FILE_SEGMENT_ELEMENT *Src,
+NTSTATUS __cdecl NtWriteFileGather(
+        HANDLE FileHandle,
+        HANDLE Event,
+        PIO_APC_ROUTINE ApcRoutine,
+        PVOID ApcContext,
+        PIO_STATUS_BLOCK IoStatusBlock,
+        PFILE_SEGMENT_ELEMENT SegmentArray,
         ULONG Length,
-        __int64 a8,
-        ULONG *a9)
+        PLARGE_INTEGER ByteOffset,
+        PULONG Key)
 {
-  ULONG *v9; // r15
-  __int64 v10; // r12
+  PULONG v9; // r15
+  PLARGE_INTEGER v10; // r12
   int v11; // esi
   KPROCESSOR_MODE PreviousMode; // r14
-  __int64 result; // rax
+  NTSTATUS result; // eax
   unsigned __int8 GrantedAccess; // r13
   PFILE_OBJECT v15; // rdi
   PDEVICE_OBJECT RelatedDeviceObject; // rax
@@ -60,17 +60,17 @@ __int64 __fastcall NtWriteFileGather(
   bool v26; // cl
   __int64 v27; // rdi
   ULONG v28; // r10d
-  union _FILE_SEGMENT_ELEMENT *PoolWithQuota_1; // rbx
+  _FILE_SEGMENT_ELEMENT *PoolWithQuota_1; // rbx
   int SectorSize; // ecx
   __int16 v31; // ax
-  NTSTATUS v32; // r14d
+  int v32; // r14d
   char v33; // r15
   KPROCESSOR_MODE v34; // r14
   struct _DEVICE_OBJECT *v35; // r12
   IRP *Irp; // rax
   _DWORD *v37; // r9
   IRP *v38; // rsi
-  __int64 v39; // r13
+  PIO_STATUS_BLOCK v39; // r13
   struct _IO_STACK_LOCATION *CurrentStackLocation; // r14
   struct _MDL *Mdl; // rax
   unsigned __int64 v42; // rbx
@@ -80,7 +80,7 @@ __int64 __fastcall NtWriteFileGather(
   struct _KTHREAD *v46; // rax
   PFILE_OBJECT v47; // rbx
   __int64 v48; // rax
-  unsigned int v49; // ebx
+  NTSTATUS v49; // ebx
   KPROCESSOR_MODE AccessMode; // [rsp+40h] [rbp-B8h]
   _BYTE v51[23]; // [rsp+41h] [rbp-B7h] BYREF
   PFILE_OBJECT FileObject; // [rsp+58h] [rbp-A0h] BYREF
@@ -95,13 +95,13 @@ __int64 __fastcall NtWriteFileGather(
   struct _OBJECT_HANDLE_INFORMATION v61; // [rsp+A0h] [rbp-58h] BYREF
   struct _KTHREAD *CurrentThread; // [rsp+A8h] [rbp-50h]
   struct _KTHREAD *v63; // [rsp+B0h] [rbp-48h]
-  __int64 v65; // [rsp+110h] [rbp+18h] BYREF
-  void *v66; // [rsp+118h] [rbp+20h]
+  LARGE_INTEGER v65; // [rsp+110h] [rbp+18h] BYREF
+  PVOID v66; // [rsp+118h] [rbp+20h]
 
-  v66 = a4;
-  v65 = a3;
-  v9 = a9;
-  v10 = a8;
+  v66 = ApcContext;
+  v65.QuadPart = (LONGLONG)ApcRoutine;
+  v9 = Key;
+  v10 = ByteOffset;
   v11 = 0;
   FileObject = 0LL;
   P = 0LL;
@@ -112,8 +112,8 @@ __int64 __fastcall NtWriteFileGather(
   CurrentThread = KeGetCurrentThread();
   PreviousMode = CurrentThread->PreviousMode;
   AccessMode = PreviousMode;
-  result = IopReferenceFileObject(a1, 0, PreviousMode, (PVOID *)&FileObject, &v61);
-  if ( (int)result < 0 )
+  result = IopReferenceFileObject(FileHandle, 0, PreviousMode, (PVOID *)&FileObject, &v61);
+  if ( result < 0 )
     return result;
   GrantedAccess = v61.GrantedAccess;
   v15 = FileObject;
@@ -130,7 +130,7 @@ __int64 __fastcall NtWriteFileGather(
     && (_DWORD)DeviceType != 83 )
   {
     HalPutDmaAdapter((PADAPTER_OBJECT)v15);
-    return 3221225485LL;
+    return -1073741811;
   }
   LOBYTE(v11) = (Length & 0xFFF) != 0;
   v22 = (Length >> 12) + v11;
@@ -139,15 +139,15 @@ __int64 __fastcall NtWriteFileGather(
     if ( ((~(unsigned __int8)((unsigned int)Flags >> 5) & 4 | 2) & GrantedAccess) == 0 )
     {
       HalPutDmaAdapter((PADAPTER_OBJECT)v15);
-      return 3221225506LL;
+      return -1073741790;
     }
     v56 = 0;
-    v23 = a5;
+    v23 = (__int64)IoStatusBlock;
     v24 = 0x7FFFFFFF0000LL;
-    if ( a5 >= 0x7FFFFFFF0000LL )
+    if ( (unsigned __int64)IoStatusBlock >= 0x7FFFFFFF0000LL )
       v23 = 0x7FFFFFFF0000LL;
     *(_DWORD *)v23 = *(_DWORD *)v23;
-    IopMarkApcRoutineIfAsynchronousIo32((unsigned int **)&a5, &v65, *(_BYTE *)p_Flags & 2);
+    IopMarkApcRoutineIfAsynchronousIo32((unsigned int **)&IoStatusBlock, (__int64 *)&v65, *(_BYTE *)p_Flags & 2);
     v63 = KeGetCurrentThread();
     v25 = v63->ApcState.Process[1].AffinityPadding[10];
     v26 = 0;
@@ -163,42 +163,42 @@ __int64 __fastcall NtWriteFileGather(
     {
       if ( v26 )
       {
-        if ( ((unsigned __int8)Src & 3) != 0 )
+        if ( ((unsigned __int8)SegmentArray & 3) != 0 )
           ExRaiseDatatypeMisalignment();
       }
-      else if ( ((unsigned __int8)Src & 7) != 0 )
+      else if ( ((unsigned __int8)SegmentArray & 7) != 0 )
       {
         ExRaiseDatatypeMisalignment();
       }
-      if ( (unsigned __int64)&Src[v27] > 0x7FFFFFFF0000LL || &Src[v27] < Src )
+      if ( (unsigned __int64)&SegmentArray[v27] > 0x7FFFFFFF0000LL || &SegmentArray[v27] < SegmentArray )
         MEMORY[0x7FFFFFFF0000] = 0;
     }
     v28 = Length;
     if ( Length )
     {
-      PoolWithQuota_1 = (union _FILE_SEGMENT_ELEMENT *)IopVerifierExAllocatePoolWithQuota_1(PagedPool, 8LL * v22);
+      PoolWithQuota_1 = (_FILE_SEGMENT_ELEMENT *)IopVerifierExAllocatePoolWithQuota_1(PagedPool, 8LL * v22);
       P = PoolWithQuota_1;
-      memmove(PoolWithQuota_1, Src, 8LL * v22);
-      Src = PoolWithQuota_1;
+      memmove(PoolWithQuota_1, SegmentArray, 8LL * v22);
+      SegmentArray = PoolWithQuota_1;
       Flags = 0LL;
       v60 = 0;
       while ( (unsigned int)Flags < v22 )
       {
-        if ( ((__int64)Src[(unsigned int)Flags].Buffer & 0xFFFLL) != 0 )
-          RtlRaiseStatus(0xC000000D);
+        if ( ((__int64)SegmentArray[(unsigned int)Flags].Buffer & 0xFFFLL) != 0 )
+          RtlRaiseStatus(-1073741811);
         Flags = (unsigned int)(Flags + 1);
         v60 = Flags;
       }
       v28 = Length;
     }
     v15 = FileObject;
-    if ( FileObject->CompletionContext && (v65 & 0xFFFFFFFFFFFFFFFEuLL) != 0 )
-      RtlRaiseStatus(0xC000000D);
+    if ( FileObject->CompletionContext && (v65.QuadPart & 0xFFFFFFFFFFFFFFFEuLL) != 0 )
+      RtlRaiseStatus(-1073741811);
     if ( v10 )
     {
-      if ( (v10 & 3) != 0 )
+      if ( ((unsigned __int8)v10 & 3) != 0 )
         ExRaiseDatatypeMisalignment();
-      *(_QWORD *)&v51[7] = *(_QWORD *)v10;
+      *(LARGE_INTEGER *)&v51[7] = *v10;
       v15 = FileObject;
     }
     p_Flags = &v15->Flags;
@@ -214,7 +214,7 @@ __int64 __fastcall NtWriteFileGather(
         {
           Flags = v28 % (unsigned int)v17;
           if ( v28 % (unsigned int)v17 )
-            RtlRaiseStatus(0xC000000D);
+            RtlRaiseStatus(-1073741811);
         }
       }
       if ( v10
@@ -223,7 +223,7 @@ __int64 __fastcall NtWriteFileGather(
         && (_WORD)SectorSize
         && ((SectorSize - 1) & *(_DWORD *)&v51[7]) != 0 )
       {
-        RtlRaiseStatus(0xC000000D);
+        RtlRaiseStatus(-1073741811);
       }
     }
     if ( v9 )
@@ -238,7 +238,7 @@ __int64 __fastcall NtWriteFileGather(
   else
   {
     if ( v10 )
-      *(_QWORD *)&v51[7] = *(_QWORD *)v10;
+      *(LARGE_INTEGER *)&v51[7] = *v10;
     if ( v9 )
       v54 = *v9;
   }
@@ -247,17 +247,17 @@ __int64 __fastcall NtWriteFileGather(
     *(_DWORD *)&v51[7] = -1;
     *(_DWORD *)&v51[11] = -1;
   }
-  if ( a2 )
+  if ( Event )
   {
     Object = 0LL;
-    v32 = ObReferenceObjectByHandle(a2, 2u, (POBJECT_TYPE)ExEventObjectType, PreviousMode, &Object, 0LL);
+    v32 = ObReferenceObjectByHandle(Event, 2u, (POBJECT_TYPE)ExEventObjectType, PreviousMode, &Object, 0LL);
     DmaAdapter = (PADAPTER_OBJECT)Object;
     if ( v32 < 0 )
     {
       HalPutDmaAdapter((PADAPTER_OBJECT)v15);
       if ( P )
         ExFreePoolWithTag(P, 0);
-      return (unsigned int)v32;
+      return v32;
     }
     KeResetEvent((PRKEVENT)Object);
   }
@@ -266,7 +266,7 @@ __int64 __fastcall NtWriteFileGather(
     v46 = KeGetCurrentThread();
     --v46->KernelApcDisable;
     v47 = FileObject;
-    v48 = KeAbPreAcquire((ULONG_PTR)&FileObject->Lock, 0LL, 0LL);
+    v48 = KeAbPreAcquire((ULONG_PTR)&FileObject->Lock, 0LL, 0);
     v51[0] = 0;
     if ( _InterlockedExchange((volatile __int32 *)&v47->Busy, 1) )
     {
@@ -307,7 +307,7 @@ LABEL_125:
       HalPutDmaAdapter((PADAPTER_OBJECT)v15);
       if ( P )
         ExFreePoolWithTag(P, 0);
-      return 3221225485LL;
+      return -1073741811;
     }
     v33 = 0;
     v34 = AccessMode;
@@ -335,9 +335,9 @@ LABEL_125:
     Irp->Cancel = 0;
     Irp->CancelRoutine = 0LL;
     Irp->UserEvent = (PKEVENT)DmaAdapter;
-    v39 = a5;
-    Irp->UserIosb = (PIO_STATUS_BLOCK)a5;
-    Irp->Overlay.AllocationSize.QuadPart = v65;
+    v39 = IoStatusBlock;
+    Irp->UserIosb = IoStatusBlock;
+    Irp->Overlay.AllocationSize = v65;
     Irp->Overlay.AsynchronousParameters.UserApcContext = v66;
     CurrentStackLocation = Irp->Tail.Overlay.CurrentStackLocation;
     *(_DWORD *)&CurrentStackLocation[-1].MajorFunction = 4;
@@ -349,12 +349,12 @@ LABEL_125:
     Irp->Flags = 0;
     if ( Length )
     {
-      Mdl = IoAllocateMdl(Src->Buffer, Length, 0, 1u, Irp);
+      Mdl = IoAllocateMdl(SegmentArray->Buffer, Length, 0, 1u, Irp);
       v42 = (unsigned __int64)Mdl;
       if ( !Mdl )
-        RtlRaiseStatus(0xC000009A);
+        RtlRaiseStatus(-1073741670);
       MajorFunction = CurrentStackLocation[-1].MajorFunction;
-      MmProbeAndLockSelectedPages(Mdl, Src, AccessMode, IoReadAccess);
+      MmProbeAndLockSelectedPages(Mdl, SegmentArray, AccessMode, IoReadAccess);
       if ( (MmTrackLockedPages & 1) != 0 )
       {
         v44 = MajorFunction;
@@ -365,7 +365,7 @@ LABEL_125:
       {
         v35 = DeviceObject;
       }
-      v38->UserBuffer = Src->Buffer;
+      v38->UserBuffer = SegmentArray->Buffer;
     }
     if ( P )
       ExFreePoolWithTag(P, 0);
@@ -375,7 +375,7 @@ LABEL_125:
     CurrentStackLocation[-1].Parameters.Read.ByteOffset.QuadPart = *(_QWORD *)&v51[7];
     FileObjectExtension = v15->FileObjectExtension;
     if ( FileObjectExtension && (*FileObjectExtension & 0x10) != 0 )
-      CurrentStackLocation[-1].Parameters.Read.Flags = *(_DWORD *)(v39 + 8);
+      CurrentStackLocation[-1].Parameters.Read.Flags = v39->Information;
     LOBYTE(v37) = 1;
     return IopSynchronousServiceTail(v35, v38, (__int64)v15, v37, AccessMode, v33, 1u);
   }
@@ -384,6 +384,6 @@ LABEL_125:
     IopAllocateIrpCleanup((PADAPTER_OBJECT)v15, DmaAdapter);
     if ( P )
       ExFreePoolWithTag(P, 0);
-    return 3221225626LL;
+    return -1073741670;
   }
 }

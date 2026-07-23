@@ -1,11 +1,11 @@
 /*
- * XREFs of KiRollbackSlistPops @ 0x1404C1F40
+ * XREFs of KiRollbackSlistPops @ 0x1404BD530
  * Callers:
  *     <none>
  * Callees:
- *     KeInsertQueueDpc @ 0x1402542F0 (KeInsertQueueDpc.c)
- *     KiCheckForSListAddress @ 0x1404038C0 (KiCheckForSListAddress.c)
- *     PspGetBaseTrapFrame @ 0x140434EF0 (PspGetBaseTrapFrame.c)
+ *     KeInsertQueueDpc @ 0x140284900 (KeInsertQueueDpc.c)
+ *     KiCheckForSListAddress @ 0x1403FE680 (KiCheckForSListAddress.c)
+ *     PspGetBaseTrapFrame @ 0x140427E50 (PspGetBaseTrapFrame.c)
  */
 
 void KiRollbackSlistPops()
@@ -30,8 +30,8 @@ void KiRollbackSlistPops()
       BaseTrapFrame = PspGetBaseTrapFrame(CurrentThread, 0LL);
       v4 = *(_QWORD *)(BaseTrapFrame + 360);
       if ( *(_WORD *)(BaseTrapFrame + 368) == 51
-        && v4 > qword_140FC6488
-        && v4 <= qword_140FC6478
+        && v4 > qword_140FC7508
+        && v4 <= qword_140FC74F8
         && !*(_BYTE *)(BaseTrapFrame + 43) )
       {
         KeInsertQueueDpc(&CurrentPrcb->SlistRollbackDpc, 0LL, 0LL);

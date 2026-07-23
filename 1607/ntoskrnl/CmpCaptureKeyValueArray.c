@@ -1,13 +1,13 @@
 /*
- * XREFs of CmpCaptureKeyValueArray @ 0x1401B2C8C
+ * XREFs of CmpCaptureKeyValueArray @ 0x1401B2B70
  * Callers:
- *     NtQueryMultipleValueKey @ 0x1404DD5F8 (NtQueryMultipleValueKey.c)
+ *     NtQueryMultipleValueKey @ 0x1404C0BFC (NtQueryMultipleValueKey.c)
  * Callees:
- *     ExAllocatePoolWithQuotaTag @ 0x1400127B0 (ExAllocatePoolWithQuotaTag.c)
- *     RtlULongLongAdd @ 0x1400890B4 (RtlULongLongAdd.c)
- *     memmove @ 0x140171280 (memmove.c)
+ *     ExAllocatePoolWithQuotaTag @ 0x140012330 (ExAllocatePoolWithQuotaTag.c)
+ *     RtlULongLongAdd @ 0x14010D2A4 (RtlULongLongAdd.c)
+ *     memmove @ 0x140171780 (memmove.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
- *     ExRaiseDatatypeMisalignment @ 0x1406B6058 (ExRaiseDatatypeMisalignment.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1406B6190 (ExRaiseDatatypeMisalignment.c)
  */
 
 __int64 __fastcall CmpCaptureKeyValueArray(__int64 a1, unsigned int a2, char a3, _QWORD *a4, _QWORD *a5, _QWORD *a6)

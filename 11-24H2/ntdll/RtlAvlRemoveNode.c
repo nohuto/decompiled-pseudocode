@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlAvlRemoveNode @ 0x1800E7890
+ * XREFs of RtlAvlRemoveNode @ 0x180027B50
  * Callers:
- *     RtlDeleteFunctionTable @ 0x1800E74E0 (RtlDeleteFunctionTable.c)
- *     RtlDeleteGrowableFunctionTable @ 0x1800E76F0 (RtlDeleteGrowableFunctionTable.c)
+ *     RtlDeleteFunctionTable @ 0x1800277A0 (RtlDeleteFunctionTable.c)
+ *     RtlDeleteGrowableFunctionTable @ 0x1800279B0 (RtlDeleteGrowableFunctionTable.c)
  * Callees:
- *     RtlpTreeDoubleRotateNodes @ 0x1800065D4 (RtlpTreeDoubleRotateNodes.c)
+ *     RtlpTreeDoubleRotateNodes @ 0x180032FD4 (RtlpTreeDoubleRotateNodes.c)
  */
 
 void __fastcall RtlAvlRemoveNode(unsigned __int64 *a1, __int64 a2)

@@ -1,5 +1,5 @@
 /*
- * XREFs of KeInitializeTimer @ 0x1400F0C34
+ * XREFs of KeInitializeTimer @ 0x1400EEA84
  * Callers:
  *     CcInitializeBcbProfiler @ 0x140777304 (CcInitializeBcbProfiler.c)
  *     sub_140778D9C @ 0x140778D9C (sub_140778D9C.c)

@@ -3,8 +3,8 @@
  * Callers:
  *     HalpIommuInitDiscard @ 0x140B65050 (HalpIommuInitDiscard.c)
  * Callees:
- *     HalpIvtProcessDmarTable @ 0x14037EF08 (HalpIvtProcessDmarTable.c)
- *     HalSocGetAcpiTable @ 0x1403A4BDC (HalSocGetAcpiTable.c)
+ *     HalpIvtProcessDmarTable @ 0x14037F0A8 (HalpIvtProcessDmarTable.c)
+ *     HalSocGetAcpiTable @ 0x1403A4DBC (HalSocGetAcpiTable.c)
  */
 
 __int64 __fastcall HalpIommuIvtDiscover(_QWORD *a1)

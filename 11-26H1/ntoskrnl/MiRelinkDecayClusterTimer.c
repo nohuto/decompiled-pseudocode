@@ -1,7 +1,7 @@
 /*
- * XREFs of MiRelinkDecayClusterTimer @ 0x140480A78
+ * XREFs of MiRelinkDecayClusterTimer @ 0x14047A3B8
  * Callers:
- *     MiEmptyDecayClusterTimers @ 0x1402994DC (MiEmptyDecayClusterTimers.c)
+ *     MiEmptyDecayClusterTimers @ 0x140298A3C (MiEmptyDecayClusterTimers.c)
  * Callees:
  *     <none>
  */
@@ -19,9 +19,9 @@ unsigned __int64 __fastcall MiRelinkDecayClusterTimer(__int64 a1, unsigned int a
 
   v2 = a2;
   *(_DWORD *)(a1 + 32) = ((unsigned __int8)a2 << 22) ^ (*(_DWORD *)(a1 + 32) ^ ((unsigned __int8)a2 << 22)) & 0xFF3FFFFF;
-  v3 = *(_QWORD *)(stru_140E2EB88.ThreadLock + 8 * ((*(_QWORD *)(a1 + 40) >> 43) & 0x3FFLL));
+  v3 = *(_QWORD *)(stru_140E2ED08.ThreadLock + 8 * ((*(_QWORD *)(a1 + 40) >> 43) & 0x3FFLL));
   v4 = *(_QWORD *)(v3 + 8LL * a2 + 16448);
-  v5 = (a1 + 0x220000000000LL) / 48 - qword_140E347B0;
+  v5 = (a1 + 0x220000000000LL) / 48 - qword_140E34930;
   v6 = v4 >> 1;
   *(_QWORD *)(a1 + 8) = (unsigned int)v4 & 0xFFFFFFFE | 0xFFFFFFFE00000000uLL;
   v7 = v5 << 33;
@@ -32,7 +32,7 @@ unsigned __int64 __fastcall MiRelinkDecayClusterTimer(__int64 a1, unsigned int a
   else
   {
     LODWORD(v6) = (v4 >> 1) & 0x7FFFFFFF;
-    *(_QWORD *)(48 * (v6 + qword_140E347B0) - 0x220000000000LL + 8) = v7 | *(_QWORD *)(48 * (v6 + qword_140E347B0)
+    *(_QWORD *)(48 * (v6 + qword_140E34930) - 0x220000000000LL + 8) = v7 | *(_QWORD *)(48 * (v6 + qword_140E34930)
                                                                                      - 0x220000000000LL
                                                                                      + 8) & 0x1FFFFFFFFLL;
   }

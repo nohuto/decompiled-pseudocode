@@ -1,23 +1,23 @@
 /*
- * XREFs of AlpcpCreateSection @ 0x1406D43DC
+ * XREFs of AlpcpCreateSection @ 0x1406AB6BC
  * Callers:
- *     AlpcpMapLegacyPortView @ 0x1406D2148 (AlpcpMapLegacyPortView.c)
- *     NtAlpcCreatePortSection @ 0x1406D4210 (NtAlpcCreatePortSection.c)
+ *     AlpcpMapLegacyPortView @ 0x1406A9428 (AlpcpMapLegacyPortView.c)
+ *     NtAlpcCreatePortSection @ 0x1406AB4F0 (NtAlpcCreatePortSection.c)
  * Callees:
- *     ExfReleasePushLockShared @ 0x1402F1470 (ExfReleasePushLockShared.c)
- *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
- *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
- *     ExAcquirePushLockSharedEx @ 0x14034AB50 (ExAcquirePushLockSharedEx.c)
- *     ObfReferenceObject @ 0x14034B230 (ObfReferenceObject.c)
- *     memset @ 0x140414200 (memset.c)
- *     AlpcpDereferenceBlobEx @ 0x1405E9FC0 (AlpcpDereferenceBlobEx.c)
- *     AlpcpReferenceBlob @ 0x140660A14 (AlpcpReferenceBlob.c)
- *     AlpcpAllocateBlob @ 0x140660A8C (AlpcpAllocateBlob.c)
- *     AlpcpInsertResourcePort @ 0x140660DCC (AlpcpInsertResourcePort.c)
- *     AlpcpEndInitialization @ 0x140662784 (AlpcpEndInitialization.c)
- *     AlpcAddHandleTableEntry @ 0x1406627C8 (AlpcAddHandleTableEntry.c)
- *     MmCreateSection @ 0x1406D4680 (MmCreateSection.c)
- *     ObReferenceObjectByHandle @ 0x1406F0BC0 (ObReferenceObjectByHandle.c)
+ *     ExfReleasePushLockShared @ 0x1402FC1C0 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x1403539D0 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1403556E0 (ExAcquirePushLockExclusiveEx.c)
+ *     ExAcquirePushLockSharedEx @ 0x1403558A0 (ExAcquirePushLockSharedEx.c)
+ *     ObfReferenceObject @ 0x140355F80 (ObfReferenceObject.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     AlpcpReferenceBlob @ 0x140655834 (AlpcpReferenceBlob.c)
+ *     AlpcpAllocateBlob @ 0x1406558AC (AlpcpAllocateBlob.c)
+ *     AlpcpInsertResourcePort @ 0x140655BEC (AlpcpInsertResourcePort.c)
+ *     AlpcpEndInitialization @ 0x1406575A4 (AlpcpEndInitialization.c)
+ *     AlpcAddHandleTableEntry @ 0x1406575E8 (AlpcAddHandleTableEntry.c)
+ *     MmCreateSection @ 0x1406AB960 (MmCreateSection.c)
+ *     AlpcpDereferenceBlobEx @ 0x1406D9720 (AlpcpDereferenceBlobEx.c)
+ *     ObReferenceObjectByHandle @ 0x140707FA0 (ObReferenceObjectByHandle.c)
  */
 
 __int64 __fastcall AlpcpCreateSection(char *Object, unsigned __int8 a2, char a3, void *a4, __int64 a5, ULONG_PTR *a6)
@@ -70,7 +70,7 @@ __int64 __fastcall AlpcpCreateSection(char *Object, unsigned __int8 a2, char a3,
     KeAbPostRelease((ULONG_PTR)(Object + 352));
     v13 = -1073741769;
 LABEL_16:
-    AlpcpDereferenceBlobEx(v12, 1);
+    AlpcpDereferenceBlobEx(v12);
     return (unsigned int)v13;
   }
   ExAcquirePushLockExclusiveEx(v12 - 16, 0LL);
@@ -90,7 +90,7 @@ LABEL_16:
       KeAbPostRelease((ULONG_PTR)(Object + 352));
       *(_QWORD *)(v12 + 16) = 0LL;
       AlpcpEndInitialization(v12);
-      AlpcpDereferenceBlobEx(v12, 2);
+      AlpcpDereferenceBlobEx(v12);
       return 3221225626LL;
     }
   }

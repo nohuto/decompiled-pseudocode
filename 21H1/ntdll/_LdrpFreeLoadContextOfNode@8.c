@@ -11,25 +11,25 @@
 
 int __fastcall LdrpFreeLoadContextOfNode(_DWORD *a1, int a2)
 {
-  _DWORD *v4; // esi
+  int v4; // esi
   int result; // eax
   _DWORD *v6; // eax
   _DWORD *v7; // edi
   _DWORD *v8; // esi
 
-  v4 = (_DWORD *)(*a1 - 84);
-  result = v4[23];
+  v4 = *a1 - 84;
+  result = *(_DWORD *)(v4 + 92);
   if ( result && *(_DWORD *)(result + 24) == a2 )
   {
     while ( 1 )
     {
-      LdrpFreeLoadContext(v4[23]);
-      v6 = (_DWORD *)v4[21];
+      LdrpFreeLoadContext(*(PVOID *)(v4 + 92));
+      v6 = *(_DWORD **)(v4 + 84);
       if ( a1 == v6 )
         break;
-      v4 = v6 - 21;
+      v4 = (int)(v6 - 21);
     }
-    result = v4[20];
+    result = *(_DWORD *)(v4 + 80);
     v7 = *(_DWORD **)(result + 24);
     if ( v7 )
     {

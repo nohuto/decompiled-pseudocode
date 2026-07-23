@@ -62,7 +62,7 @@ NTSTATUS __stdcall NtOpenThreadTokenEx(
   PVOID P; // [rsp+60h] [rbp-B8h] BYREF
   __int64 v34; // [rsp+68h] [rbp-B0h]
   HANDLE Handle; // [rsp+70h] [rbp-A8h] BYREF
-  struct _SE_IMPERSONATION_STATE ImpersonationState; // [rsp+78h] [rbp-A0h] BYREF
+  _SE_IMPERSONATION_STATE ImpersonationState; // [rsp+78h] [rbp-A0h] BYREF
   struct _KTHREAD *CurrentThread; // [rsp+88h] [rbp-90h]
   __int64 v38; // [rsp+90h] [rbp-88h]
   int v39; // [rsp+98h] [rbp-80h] BYREF

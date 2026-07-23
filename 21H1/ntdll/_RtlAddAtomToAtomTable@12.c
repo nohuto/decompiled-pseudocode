@@ -6,7 +6,9 @@
  *     _RtlAddAtomToAtomTableEx@16 @ 0x4B2E00E8 (_RtlAddAtomToAtomTableEx@16.c)
  */
 
-int __thiscall RtlAddAtomToAtomTable(void *this, int a2, int a3, int a4)
+NTSTATUS __cdecl RtlAddAtomToAtomTable(PVOID AtomTableHandle, PWSTR AtomName, PRTL_ATOM Atom)
 {
-  return RtlAddAtomToAtomTableEx(a4, this);
+  int v3; // ecx
+
+  return RtlAddAtomToAtomTableEx(Atom, v3);
 }

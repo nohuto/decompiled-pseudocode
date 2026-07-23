@@ -1,11 +1,11 @@
 /*
- * XREFs of BapdpProcessBootMetadata @ 0x140A41040
+ * XREFs of BapdpProcessBootMetadata @ 0x140A42040
  * Callers:
- *     BootApplicationPersistentDataProcess @ 0x140A4117C (BootApplicationPersistentDataProcess.c)
+ *     BootApplicationPersistentDataProcess @ 0x140A4217C (BootApplicationPersistentDataProcess.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
- *     BapdpQueryData @ 0x140A41734 (BapdpQueryData.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
+ *     BapdpQueryData @ 0x140A42734 (BapdpQueryData.c)
  */
 
 unsigned int *__fastcall BapdpProcessBootMetadata(__int64 a1)
@@ -23,7 +23,7 @@ unsigned int *__fastcall BapdpProcessBootMetadata(__int64 a1)
   v5[1] = 1201445829;
   v5[2] = 1736995215;
   v5[3] = 1054971003;
-  if ( (qword_140C19858 & 4) != 0 )
+  if ( (qword_140C197B8 & 4) != 0 )
   {
     ExSoftRebootState = 2;
     ExSoftRebootFlags = 2;

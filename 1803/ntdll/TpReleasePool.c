@@ -16,126 +16,115 @@
  *     sub_180108810 @ 0x180108810 (sub_180108810.c)
  */
 
-signed __int64 __fastcall TpReleasePool(__int64 a1, unsigned __int64 a2, unsigned __int64 *a3, __int64 a4)
+void __cdecl TpReleasePool(PTP_POOL Pool)
 {
-  __int64 v5; // rdx
-  __int64 v6; // rcx
-  __int64 v7; // r8
-  __int64 v8; // r9
-  signed __int64 v9; // rax
-  signed __int64 v10; // rtt
-  __int64 v11; // rcx
+  __int64 v1; // rdx
+  __int64 v2; // r8
+  __int64 v4; // rdx
+  __int64 v5; // rcx
+  __int64 v6; // r8
+  signed __int64 v7; // rax
+  signed __int64 v8; // rtt
+  __int64 v9; // rcx
   int i; // edi
   __int64 j; // rsi
-  __int64 v14; // rax
-  signed __int64 result; // rax
-  __int64 v16; // r8
-  __int64 v17; // r9
-  __int64 v18; // rcx
-  signed __int64 *v19; // rdx
-  __int64 *v20; // rcx
-  __int64 v21; // rcx
+  __int64 v12; // rax
+  __int64 v13; // rcx
+  _RTL_SRWLOCK *v14; // rdx
+  const void **v15; // rcx
+  PPEB_LDR_DATA Ldr; // rcx
   _UNKNOWN *retaddr; // [rsp+78h] [rbp+0h]
-  char v23; // [rsp+88h] [rbp+10h]
-  signed __int64 v24; // [rsp+90h] [rbp+18h]
+  char v18; // [rsp+88h] [rbp+10h]
+  signed __int64 v19; // [rsp+90h] [rbp+18h]
 
-  v23 = 0;
-  if ( !a1 || a1 == qword_18015D3B8 || a1 == qword_18015D3A8 || NtCurrentPeb()->Ldr->ShutdownInProgress )
+  v18 = 0;
+  if ( !Pool || Pool == qword_18015D3B8 || Pool == (PTP_POOL)qword_18015D3A8 || NtCurrentPeb()->Ldr->ShutdownInProgress )
   {
-    result = (signed __int64)NtCurrentPeb();
-    v21 = *(_QWORD *)(result + 24);
-    if ( !*(_BYTE *)(v21 + 72) )
-      return sub_1801086C8(v21, a2, a3, a4);
+    Ldr = NtCurrentPeb()->Ldr;
+    if ( !Ldr->ShutdownInProgress )
+      sub_1801086C8(Ldr, v1, v2);
   }
   else
   {
-    RtlAcquireSRWLockExclusive(a1 + 368, a2, a3, a4);
-    if ( *(_BYTE *)(a1 + 377) )
+    RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)Pool + 46);
+    if ( *((_BYTE *)Pool + 377) )
     {
-      sub_1801086C8(v6, v5, v7, v8);
+      sub_1801086C8(v5, v4, v6);
     }
     else
     {
-      if ( !*(_BYTE *)(a1 + 376) )
+      if ( !*((_BYTE *)Pool + 376) )
       {
-        *(_BYTE *)(a1 + 376) = 1;
-        ZwShutdownWorkerFactory(*(_QWORD *)(a1 + 56), a1);
+        *((_BYTE *)Pool + 376) = 1;
+        ZwShutdownWorkerFactory(*((HANDLE *)Pool + 7), (LONG *)Pool);
       }
       while ( 1 )
       {
-        _m_prefetchw((const void *)(a1 + 8));
-        v9 = *(_QWORD *)(a1 + 8);
-        LODWORD(v24) = v9;
+        _m_prefetchw((char *)Pool + 8);
+        v7 = *((_QWORD *)Pool + 1);
+        LODWORD(v19) = v7;
         do
         {
-          if ( !HIDWORD(v9) )
+          if ( !HIDWORD(v7) )
             break;
-          HIDWORD(v24) = HIDWORD(v9) - 1;
-          v10 = v9;
-          v9 = _InterlockedCompareExchange64((volatile signed __int64 *)(a1 + 8), v24, v9);
-          LODWORD(v24) = v9;
+          HIDWORD(v19) = HIDWORD(v7) - 1;
+          v8 = v7;
+          v7 = _InterlockedCompareExchange64((volatile signed __int64 *)Pool + 1, v19, v7);
+          LODWORD(v19) = v7;
         }
-        while ( v10 != v9 );
-        if ( !HIDWORD(v9) )
+        while ( v8 != v7 );
+        if ( !HIDWORD(v7) )
           break;
-        v11 = 0LL;
+        v9 = 0LL;
         for ( i = 0; i < 3; ++i )
         {
-          if ( v11 )
+          if ( v9 )
             goto LABEL_27;
-          for ( j = 0LL; (unsigned int)j < dword_18015D044 && !v11; j = (unsigned int)(j + 1) )
+          for ( j = 0LL; (unsigned int)j < dword_18015D044 && !v9; j = (unsigned int)(j + 1) )
           {
-            v14 = sub_180089000(*(_QWORD *)(a1 + 8LL * i + 16) + 24 * j, i);
-            if ( v14 )
-              v11 = v14 - 16;
+            v12 = sub_180089000(*((_QWORD *)Pool + i + 2) + 24 * j, i);
+            if ( v12 )
+              v9 = v12 - 16;
             else
-              v11 = 0LL;
+              v9 = 0LL;
           }
         }
-        if ( !v11 )
+        if ( !v9 )
           continue;
 LABEL_27:
-        if ( *(_QWORD *)v11 && *(_QWORD *)(*(_QWORD *)v11 + 8LL) )
+        if ( *(_QWORD *)v9 && *(_QWORD *)(*(_QWORD *)v9 + 8LL) )
           _guard_dispatch_icall_fptr();
       }
-      *(_QWORD *)(a1 + 408) = retaddr;
-      *(_BYTE *)(a1 + 377) = 1;
-      v23 = 1;
+      *((_QWORD *)Pool + 51) = retaddr;
+      *((_BYTE *)Pool + 377) = 1;
+      v18 = 1;
     }
-    RtlReleaseSRWLockExclusive((volatile signed __int64 *)(a1 + 368));
-    result = (signed __int64)RtlGetCurrentServiceSessionId();
-    if ( (_DWORD)result )
-    {
-      result = (signed __int64)NtCurrentPeb();
-      v18 = *(_QWORD *)(result + 144) + 556LL;
-    }
+    RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)Pool + 46);
+    if ( RtlGetCurrentServiceSessionId() )
+      v13 = (__int64)&NtCurrentPeb()->SharedData->UserModeGlobalLogger[3];
     else
+      v13 = 2147353478LL;
+    if ( *(_BYTE *)v13 )
+      sub_180108810(Pool);
+    if ( v18 )
     {
-      v18 = 2147353478LL;
-    }
-    if ( *(_BYTE *)v18 )
-      result = sub_180108810(a1);
-    if ( v23 )
-    {
-      if ( a1 == qword_18015D3B8 )
+      if ( Pool == qword_18015D3B8 )
       {
-        v19 = &qword_18015D3B0;
-        v20 = &qword_18015D3B8;
+        v14 = &stru_18015D3B0;
+        v15 = (const void **)&qword_18015D3B8;
       }
       else
       {
-        if ( a1 != qword_18015D3A8 )
+        if ( Pool != (PTP_POOL)qword_18015D3A8 )
         {
-          result = (unsigned int)_InterlockedExchangeAdd((volatile signed __int32 *)a1, 0xFFFFFFFF);
-          if ( (_DWORD)result == 1 )
-            return sub_18007E8A0(a1);
-          return result;
+          if ( _InterlockedExchangeAdd((volatile signed __int32 *)Pool, 0xFFFFFFFF) == 1 )
+            sub_18007E8A0(Pool);
+          return;
         }
-        v19 = (signed __int64 *)&unk_18015D3A0;
-        v20 = &qword_18015D3A8;
+        v14 = (_RTL_SRWLOCK *)&unk_18015D3A0;
+        v15 = (const void **)&qword_18015D3A8;
       }
-      return sub_180047198((const void **)v20, (unsigned __int64)v19, v16, v17);
+      sub_180047198(v15, v14);
     }
   }
-  return result;
 }

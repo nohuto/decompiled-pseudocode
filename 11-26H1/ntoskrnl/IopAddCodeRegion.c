@@ -1,11 +1,11 @@
 /*
- * XREFs of IopAddCodeRegion @ 0x1404E71D0
+ * XREFs of IopAddCodeRegion @ 0x1404E058C
  * Callers:
- *     KeCapturePersistentThreadState @ 0x14034F2C0 (KeCapturePersistentThreadState.c)
+ *     KeCapturePersistentThreadState @ 0x140351340 (KeCapturePersistentThreadState.c)
  * Callees:
- *     RtlImageNtHeaderEx @ 0x14046A510 (RtlImageNtHeaderEx.c)
- *     RtlULongLongSub @ 0x1404AF854 (RtlULongLongSub.c)
- *     memmove @ 0x14073D480 (memmove.c)
+ *     RtlImageNtHeaderEx @ 0x140463C90 (RtlImageNtHeaderEx.c)
+ *     RtlULongLongSub @ 0x1404A8EE4 (RtlULongLongSub.c)
+ *     memmove @ 0x140742080 (memmove.c)
  */
 
 __int64 __fastcall IopAddCodeRegion(__int64 a1, unsigned int a2, _DWORD *a3)
@@ -14,19 +14,19 @@ __int64 __fastcall IopAddCodeRegion(__int64 a1, unsigned int a2, _DWORD *a3)
   unsigned int v4; // edx
   __int64 v6; // r12
   char v8; // cl
-  const void *v9; // rsi
+  char *v9; // rsi
   ULONGLONG v10; // r13
   ULONGLONG v11; // r14
   PVOID *v12; // rbx
   __int64 v13; // rdi
-  unsigned __int64 v14; // rbp
+  char *v14; // rbp
   unsigned int *v16; // rdx
   unsigned int *v17; // rax
   unsigned __int64 v18; // rdx
   unsigned int v19; // ebx
   ULONGLONG pullResult[11]; // [rsp+20h] [rbp-58h] BYREF
   char v23; // [rsp+90h] [rbp+18h]
-  __int64 v24; // [rsp+98h] [rbp+20h] BYREF
+  PIMAGE_NT_HEADERS OutHeaders; // [rsp+98h] [rbp+20h] BYREF
 
   pullResult[0] = 0LL;
   v3 = a2 + 7;
@@ -50,15 +50,15 @@ __int64 __fastcall IopAddCodeRegion(__int64 a1, unsigned int a2, _DWORD *a3)
   v13 = v4 - 16;
   while ( v12 != &PsLoadedModuleList )
   {
-    v14 = (unsigned __int64)v12[6];
-    if ( v11 >= v14 && v11 < v14 + *((unsigned int *)v12 + 38) )
+    v14 = (char *)v12[6];
+    if ( v11 >= (unsigned __int64)v14 && v11 < (unsigned __int64)&v14[*((unsigned int *)v12 + 38)] )
     {
-      v24 = 0LL;
-      RtlImageNtHeaderEx(1, v14, 0LL, &v24);
-      if ( !v24 )
+      OutHeaders = 0LL;
+      RtlImageNtHeaderEx(1u, v14, 0LL, &OutHeaders);
+      if ( !OutHeaders )
         return a2;
-      v16 = (unsigned int *)(v24 + *(unsigned __int16 *)(v24 + 20) + 24LL);
-      v17 = &v16[10 * *(unsigned __int16 *)(v24 + 6)];
+      v16 = (unsigned int *)((char *)&OutHeaders->OptionalHeader.Magic + OutHeaders->FileHeader.SizeOfOptionalHeader);
+      v17 = &v16[10 * OutHeaders->FileHeader.NumberOfSections];
       while ( 1 )
       {
         if ( v16 >= v17 )
@@ -66,8 +66,8 @@ __int64 __fastcall IopAddCodeRegion(__int64 a1, unsigned int a2, _DWORD *a3)
           v8 = v23;
           goto LABEL_7;
         }
-        v9 = (const void *)(v14 + v16[3]);
-        v10 = (ULONGLONG)v9 + v16[2];
+        v9 = &v14[v16[3]];
+        v10 = (ULONGLONG)&v9[v16[2]];
         if ( v11 >= (unsigned __int64)v9 && v11 < v10 )
           break;
         v16 += 10;
@@ -84,8 +84,8 @@ LABEL_7:
     return a2;
   v18 = (unsigned __int64)(unsigned int)v13 >> 1;
   if ( *(_QWORD *)(a1 + 248) - v18 + 1 >= (unsigned __int64)v9 )
-    v9 = (const void *)(*(_QWORD *)(a1 + 248) - v18 + 1);
-  if ( (unsigned __int64)v9 + v13 > v10 )
+    v9 = (char *)(*(_QWORD *)(a1 + 248) - v18 + 1);
+  if ( (unsigned __int64)&v9[v13] > v10 )
   {
     if ( RtlULongLongSub(v10, (ULONGLONG)v9, pullResult) < 0 )
       return a2;

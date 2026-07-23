@@ -1,10 +1,10 @@
 /*
- * XREFs of PopFxDuplicateUniqueId @ 0x140179B0C
+ * XREFs of PopFxDuplicateUniqueId @ 0x140179C0C
  * Callers:
- *     PopFxCreateDeviceCommon @ 0x140179958 (PopFxCreateDeviceCommon.c)
+ *     PopFxCreateDeviceCommon @ 0x140179A58 (PopFxCreateDeviceCommon.c)
  * Callees:
- *     memmove @ 0x1401D1540 (memmove.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PopFxDuplicateUniqueId(const void **a1, __int64 a2)

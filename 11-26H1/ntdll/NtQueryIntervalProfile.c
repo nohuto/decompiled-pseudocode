@@ -1,16 +1,16 @@
 /*
- * XREFs of NtQueryIntervalProfile @ 0x180161AF0
+ * XREFs of NtQueryIntervalProfile @ 0x1801619F0
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 NtQueryIntervalProfile()
+NTSTATUS __cdecl NtQueryIntervalProfile(KPROFILE_SOURCE ProfileSource, PULONG Interval)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 350LL;
+  result = 350;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

@@ -1,27 +1,27 @@
 /*
- * XREFs of EmClientQueryRuleState @ 0x140C03950
+ * XREFs of EmClientQueryRuleState @ 0x140C09B60
  * Callers:
- *     HalpInterruptIsMsiSupported @ 0x140516034 (HalpInterruptIsMsiSupported.c)
- *     PopDirectedDripsQueryEnabledMitigations @ 0x1407CC23C (PopDirectedDripsQueryEnabledMitigations.c)
- *     PopPolicyDeviceHandleWakeAlarmNotification @ 0x1407D7814 (PopPolicyDeviceHandleWakeAlarmNotification.c)
- *     PopEnableHiberFile @ 0x14094353C (PopEnableHiberFile.c)
- *     PopFilterCapabilities @ 0x140944D5C (PopFilterCapabilities.c)
- *     PoInitSystem @ 0x140CCE870 (PoInitSystem.c)
- *     PopHiberEvaluateSkippingMemoryMapValidation @ 0x140CD1560 (PopHiberEvaluateSkippingMemoryMapValidation.c)
- *     PopEvaluateInputSuppressionRequired @ 0x140CD308C (PopEvaluateInputSuppressionRequired.c)
- *     PopReadErrataForIncorrectLidNotification @ 0x140CD5FE0 (PopReadErrataForIncorrectLidNotification.c)
- *     KeInitializeClock @ 0x140D0B7A4 (KeInitializeClock.c)
+ *     HalpInterruptIsMsiSupported @ 0x14050FAA4 (HalpInterruptIsMsiSupported.c)
+ *     PopDirectedDripsQueryEnabledMitigations @ 0x1407CF2DC (PopDirectedDripsQueryEnabledMitigations.c)
+ *     PopPolicyDeviceHandleWakeAlarmNotification @ 0x1407DAE34 (PopPolicyDeviceHandleWakeAlarmNotification.c)
+ *     PopEnableHiberFile @ 0x1409BEEB4 (PopEnableHiberFile.c)
+ *     PopFilterCapabilities @ 0x1409C06CC (PopFilterCapabilities.c)
+ *     PoInitSystem @ 0x140CD49D0 (PoInitSystem.c)
+ *     PopHiberEvaluateSkippingMemoryMapValidation @ 0x140CD7708 (PopHiberEvaluateSkippingMemoryMapValidation.c)
+ *     PopEvaluateInputSuppressionRequired @ 0x140CD922C (PopEvaluateInputSuppressionRequired.c)
+ *     PopReadErrataForIncorrectLidNotification @ 0x140CDC334 (PopReadErrataForIncorrectLidNotification.c)
+ *     KeInitializeClock @ 0x140D117AC (KeInitializeClock.c)
  * Callees:
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     ExfTryToWakePushLock @ 0x1403170A0 (ExfTryToWakePushLock.c)
- *     EmpSearchTargetRuleList @ 0x14047FA90 (EmpSearchTargetRuleList.c)
- *     EmpSearchRuleDatabase @ 0x140483480 (EmpSearchRuleDatabase.c)
- *     EmpUpdateRuleState @ 0x1404D1E5C (EmpUpdateRuleState.c)
- *     EmpAcquirePagingReference @ 0x140C03BCC (EmpAcquirePagingReference.c)
- *     EmpReleasePagingReference @ 0x140C03C8C (EmpReleasePagingReference.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     ExfTryToWakePushLock @ 0x1403190D0 (ExfTryToWakePushLock.c)
+ *     EmpSearchTargetRuleList @ 0x14047A4FC (EmpSearchTargetRuleList.c)
+ *     EmpSearchRuleDatabase @ 0x14047D298 (EmpSearchRuleDatabase.c)
+ *     EmpUpdateRuleState @ 0x1404CBA0C (EmpUpdateRuleState.c)
+ *     EmpAcquirePagingReference @ 0x140C09DDC (EmpAcquirePagingReference.c)
+ *     EmpReleasePagingReference @ 0x140C09E9C (EmpReleasePagingReference.c)
  */
 
 __int64 __fastcall EmClientQueryRuleState(_QWORD *a1, _DWORD *a2)
@@ -32,8 +32,8 @@ __int64 __fastcall EmClientQueryRuleState(_QWORD *a1, _DWORD *a2)
   void *v7; // rdx
   signed __int8 v8; // cf
   AutoBoost *v9; // rbx
-  _QWORD *v10; // rax
-  _QWORD *v11; // rbp
+  struct _LIST_ENTRY **v10; // rax
+  struct _LIST_ENTRY **v11; // rbp
   volatile signed __int32 *v12; // rax
   __int64 v13; // rcx
   volatile signed __int32 *v14; // rsi
@@ -44,14 +44,11 @@ __int64 __fastcall EmClientQueryRuleState(_QWORD *a1, _DWORD *a2)
     *a2 = 1;
     if ( (unsigned __int8)EmpAcquirePagingReference() )
     {
-      v6 = (AutoBoost *)KeAbPreAcquire((__int64)&EmpParseLock.KernelStack, 0LL, 0LL, v5);
-      v8 = _interlockedbittestandset64((volatile signed __int32 *)&EmpParseLock.KernelStack, 0LL);
+      v6 = (AutoBoost *)KeAbPreAcquire((__int64)&EmpParseLock.QuantumTarget, 0LL, 0LL, v5);
+      v8 = _interlockedbittestandset64((volatile signed __int32 *)&EmpParseLock.QuantumTarget, 0LL);
       v9 = v6;
       if ( v8 )
-        ExfAcquirePushLockExclusiveEx(
-          (unsigned __int64 *)&EmpParseLock.KernelStack,
-          v6,
-          (__int64)&EmpParseLock.KernelStack);
+        ExfAcquirePushLockExclusiveEx(&EmpParseLock.QuantumTarget, v6, (__int64)&EmpParseLock.QuantumTarget);
       if ( v9 )
       {
         if ( (KiAbpGlobalState & 1) != 0 )
@@ -72,9 +69,9 @@ __int64 __fastcall EmClientQueryRuleState(_QWORD *a1, _DWORD *a2)
       {
         v2 = -1073741275;
       }
-      if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&EmpParseLock.KernelStack, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-        ExfTryToWakePushLock((volatile signed __int64 *)&EmpParseLock.KernelStack);
-      KeAbPostRelease((unsigned __int64)&EmpParseLock.KernelStack);
+      if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&EmpParseLock.QuantumTarget, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+        ExfTryToWakePushLock((volatile signed __int64 *)&EmpParseLock.QuantumTarget);
+      KeAbPostRelease((unsigned __int64)&EmpParseLock.QuantumTarget);
       EmpReleasePagingReference();
     }
     else

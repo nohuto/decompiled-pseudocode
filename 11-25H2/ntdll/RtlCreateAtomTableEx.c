@@ -28,7 +28,7 @@ __int64 __fastcall RtlCreateAtomTableEx(unsigned int a1, __int64 a2, _QWORD *a3)
     v7 = v6 + 80;
     if ( v6 + 80 < v6 )
       return 3221225621LL;
-    Atom = (_DWORD *)RtlpAllocateAtom();
+    Atom = RtlpAllocateAtom(v6 + 80);
     v10 = Atom;
     if ( Atom )
     {

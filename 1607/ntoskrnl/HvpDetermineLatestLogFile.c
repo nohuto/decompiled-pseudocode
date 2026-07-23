@@ -1,7 +1,7 @@
 /*
- * XREFs of HvpDetermineLatestLogFile @ 0x1406129BC
+ * XREFs of HvpDetermineLatestLogFile @ 0x140612A70
  * Callers:
- *     HvpGetLogHeader @ 0x140610A74 (HvpGetLogHeader.c)
+ *     HvpGetLogHeader @ 0x140610B28 (HvpGetLogHeader.c)
  * Callees:
  *     <none>
  */

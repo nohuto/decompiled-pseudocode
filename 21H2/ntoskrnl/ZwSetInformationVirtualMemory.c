@@ -1,15 +1,21 @@
 /*
- * XREFs of ZwSetInformationVirtualMemory @ 0x1403FD7A0
+ * XREFs of ZwSetInformationVirtualMemory @ 0x1403FD980
  * Callers:
- *     CmSiPrefetchVirtualMemoryRange @ 0x1403628AC (CmSiPrefetchVirtualMemoryRange.c)
- *     PspMapSystemDll @ 0x140712408 (PspMapSystemDll.c)
+ *     CmSiPrefetchVirtualMemoryRange @ 0x1402F7A9C (CmSiPrefetchVirtualMemoryRange.c)
+ *     PspMapSystemDll @ 0x1406C0A58 (PspMapSystemDll.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwSetInformationVirtualMemory(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwSetInformationVirtualMemory(
+        HANDLE ProcessHandle,
+        VIRTUAL_MEMORY_INFORMATION_CLASS VmInformationClass,
+        ULONG_PTR NumberOfEntries,
+        PMEMORY_RANGE_ENTRY VirtualAddresses,
+        PVOID VmInformation,
+        ULONG VmInformationLength)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(ProcessHandle);
 }

@@ -1,17 +1,23 @@
 /*
- * XREFs of DifNtSetCachedSigningLevel2Wrapper @ 0x14068A9A0
+ * XREFs of DifNtSetCachedSigningLevel2Wrapper @ 0x14068E580
  * Callers:
  *     <none>
  * Callees:
- *     DifGetReturnAddressForWrappers @ 0x140260EA4 (DifGetReturnAddressForWrappers.c)
- *     ExReleaseRundownProtection_0 @ 0x140266240 (ExReleaseRundownProtection_0.c)
- *     ExAcquireRundownProtection_0 @ 0x1402F0590 (ExAcquireRundownProtection_0.c)
- *     DifGetAPIThunkContextById @ 0x1404C17A4 (DifGetAPIThunkContextById.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     NtSetCachedSigningLevel2 @ 0x140B0CB70 (NtSetCachedSigningLevel2.c)
+ *     DifGetReturnAddressForWrappers @ 0x14026040C (DifGetReturnAddressForWrappers.c)
+ *     ExReleaseRundownProtection_0 @ 0x1402657B0 (ExReleaseRundownProtection_0.c)
+ *     ExAcquireRundownProtection_0 @ 0x1402D2610 (ExAcquireRundownProtection_0.c)
+ *     DifGetAPIThunkContextById @ 0x1404BAFF4 (DifGetAPIThunkContextById.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     NtSetCachedSigningLevel2 @ 0x140B0E2C0 (NtSetCachedSigningLevel2.c)
  */
 
-__int64 __fastcall DifNtSetCachedSigningLevel2Wrapper(int a1, char a2, __int64 a3, int a4, __int64 a5, void *a6)
+__int64 __fastcall DifNtSetCachedSigningLevel2Wrapper(
+        ULONG a1,
+        SE_SIGNING_LEVEL a2,
+        HANDLE *a3,
+        ULONG a4,
+        HANDLE TargetFile,
+        SE_SET_FILE_CACHE_INFORMATION *CacheInformation)
 {
   __int128 *APIThunkContextById; // rax
   __int64 v10; // rdx
@@ -52,8 +58,8 @@ __int64 __fastcall DifNtSetCachedSigningLevel2Wrapper(int a1, char a2, __int64 a
 LABEL_7:
   v14 = 0;
   HIDWORD(v22) = a1;
-  *(_QWORD *)&v21 = a5;
-  *((_QWORD *)&v20 + 1) = a6;
+  *(_QWORD *)&v21 = TargetFile;
+  *((_QWORD *)&v20 + 1) = CacheInformation;
   BYTE8(v22) = a2;
   *(_QWORD *)&v22 = a3;
   DWORD2(v21) = a4;
@@ -69,8 +75,7 @@ LABEL_7:
       ExReleaseRundownProtection_0(&DifRebootlessRundown);
   }
 LABEL_17:
-  LOBYTE(v10) = a2;
-  LODWORD(v23) = NtSetCachedSigningLevel2(a1, v10, a3, a4, a5, a6);
+  LODWORD(v23) = NtSetCachedSigningLevel2(a1, a2, a3, a4, TargetFile, CacheInformation);
   if ( v11 )
   {
     if ( (v17 = 0, !VfDifRunningWithoutReboot) && (VfOptionFlags & 0x800) == 0

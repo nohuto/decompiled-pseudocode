@@ -1,7 +1,8 @@
 /*
- * XREFs of PsIsSystemProcess @ 0x14025C0F0
+ * XREFs of PsIsSystemProcess @ 0x14027D660
  * Callers:
- *     PspAllocateProcess @ 0x1406D6638 (PspAllocateProcess.c)
+ *     PspAllocateProcess @ 0x1406AD918 (PspAllocateProcess.c)
+ *     NtPssCaptureVaSpaceBulk @ 0x14095C110 (NtPssCaptureVaSpaceBulk.c)
  * Callees:
  *     <none>
  */

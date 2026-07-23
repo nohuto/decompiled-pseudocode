@@ -1,35 +1,35 @@
 /*
- * XREFs of RtlStdReleaseStackTrace @ 0x18007C530
+ * XREFs of RtlStdReleaseStackTrace @ 0x18006AD50
  * Callers:
- *     RtlInitializeResource @ 0x180079E50 (RtlInitializeResource.c)
- *     RtlpAddDebugInfoToCriticalSection @ 0x18007AED0 (RtlpAddDebugInfoToCriticalSection.c)
- *     RtlLogStackBackTraceEx @ 0x18007C250 (RtlLogStackBackTraceEx.c)
- *     RtlReleaseStackTrace @ 0x1801010C0 (RtlReleaseStackTrace.c)
+ *     RtlInitializeResource @ 0x180068670 (RtlInitializeResource.c)
+ *     RtlpAddDebugInfoToCriticalSection @ 0x1800696F0 (RtlpAddDebugInfoToCriticalSection.c)
+ *     RtlLogStackBackTraceEx @ 0x18006AA70 (RtlLogStackBackTraceEx.c)
+ *     RtlReleaseStackTrace @ 0x180100810 (RtlReleaseStackTrace.c)
  * Callees:
- *     RtlpStdLockAcquire @ 0x18007C4EC (RtlpStdLockAcquire.c)
- *     RtlpStdLockRelease @ 0x18007C50C (RtlpStdLockRelease.c)
- *     RtlpInterlockedPushEntrySList @ 0x180162D10 (RtlpInterlockedPushEntrySList.c)
+ *     RtlpStdLockAcquire @ 0x18006AD0C (RtlpStdLockAcquire.c)
+ *     RtlpStdLockRelease @ 0x18006AD2C (RtlpStdLockRelease.c)
+ *     RtlpInterlockedPushEntrySList @ 0x180162C10 (RtlpInterlockedPushEntrySList.c)
  */
 
-struct _TEB *__fastcall RtlStdReleaseStackTrace(__int64 a1, __int64 *a2)
+void __fastcall RtlStdReleaseStackTrace(__int64 a1, __int64 a2)
 {
   int v4; // r14d
   unsigned int v5; // eax
   __int64 v6; // rcx
   _DWORD *v7; // rdx
-  unsigned int v8; // edx
-  __int64 *v9; // rsi
-  volatile signed __int64 *v10; // r15
-  _WORD *v11; // rdi
-  struct _TEB *result; // rax
+  _RTL_SRWLOCK *Value; // rsi
+  _RTL_SRWLOCK *v9; // r15
+  _WORD *v10; // rdi
+  __int64 v11; // r8
+  __int64 v12; // r9
   __int16 v13; // cx
 
   v4 = 0;
   v5 = 0;
-  if ( *((_WORD *)a2 + 7) )
+  if ( *(_WORD *)(a2 + 14) )
   {
-    v6 = *((unsigned __int16 *)a2 + 7);
-    v7 = a2 + 2;
+    v6 = *(unsigned __int16 *)(a2 + 14);
+    v7 = (_DWORD *)(a2 + 16);
     do
     {
       v5 += *v7;
@@ -38,39 +38,35 @@ struct _TEB *__fastcall RtlStdReleaseStackTrace(__int64 a1, __int64 *a2)
     }
     while ( v6 );
   }
-  v8 = v5 % *(_DWORD *)(a1 + 720);
-  v9 = (__int64 *)(a1 + 16LL * v8 + 728);
-  v10 = v9 + 1;
-  RtlpStdLockAcquire(v9 + 1, v8);
-  v11 = a2 + 1;
-  if ( (a2[1] & 0x7FF) != 0x7FF )
+  Value = (_RTL_SRWLOCK *)(a1 + 16LL * (v5 % *(_DWORD *)(a1 + 720)) + 728);
+  v9 = Value + 1;
+  RtlpStdLockAcquire(Value + 1);
+  v10 = (_WORD *)(a2 + 8);
+  if ( (*(_WORD *)(a2 + 8) & 0x7FF) != 0x7FF )
   {
-    v13 = *v11 - 1;
-    *v11 ^= (*v11 ^ v13) & 0x7FF;
+    v13 = *v10 - 1;
+    *v10 ^= (*v10 ^ v13) & 0x7FF;
     if ( (v13 & 0x7FF) == 0 )
     {
-      while ( *v9 )
+      while ( Value->Value )
       {
-        if ( (__int64 *)*v9 == a2 )
+        if ( Value->Value == a2 )
         {
-          *v9 = *a2;
+          Value->0 = *($2F38BEDF952D5DA5F266621B11247D04 *)a2;
           goto LABEL_13;
         }
-        v9 = (__int64 *)*v9;
+        Value = (_RTL_SRWLOCK *)Value->Value;
       }
       __debugbreak();
 LABEL_13:
       v4 = 1;
-      v11 = a2 + 1;
+      v10 = (_WORD *)(a2 + 8);
     }
   }
-  result = RtlpStdLockRelease(v10);
+  RtlpStdLockRelease(v9);
   if ( v4 )
   {
-    result = (struct _TEB *)RtlpInterlockedPushEntrySList(
-                              a1 + 16 * (((unsigned __int64)(unsigned __int16)*v11 >> 11) + 13),
-                              a2 + 2);
+    RtlpInterlockedPushEntrySList(a1 + 16 * (((unsigned __int64)(unsigned __int16)*v10 >> 11) + 13), a2 + 16, v11, v12);
     _InterlockedAdd((volatile signed __int32 *)(a1 + 196), 1u);
   }
-  return result;
 }

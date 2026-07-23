@@ -1,9 +1,9 @@
 /*
- * XREFs of MiCheckLogPinDriverAddresses @ 0x1402A6B50
+ * XREFs of MiCheckLogPinDriverAddresses @ 0x1402A5F6C
  * Callers:
- *     MiSystemPeriodicTick @ 0x1402A6FA0 (MiSystemPeriodicTick.c)
+ *     MiSystemPeriodicTick @ 0x1402A63BC (MiSystemPeriodicTick.c)
  * Callees:
- *     ExQueueWorkItem @ 0x140381C70 (ExQueueWorkItem.c)
+ *     ExQueueWorkItem @ 0x140383A20 (ExQueueWorkItem.c)
  */
 
 void MiCheckLogPinDriverAddresses()
@@ -20,7 +20,7 @@ void MiCheckLogPinDriverAddresses()
   int v9; // edx
   bool v10; // zf
 
-  if ( !stru_140E36558.FirstArgument )
+  if ( !stru_140E366D8.FirstArgument )
     return;
   if ( !BitMapHeader.SizeOfBitMap )
     goto LABEL_25;
@@ -55,12 +55,12 @@ LABEL_22:
   if ( !v0 )
   {
 LABEL_25:
-    if ( !_InterlockedCompareExchange16(&word_140EF8C10, 1, 0) )
+    if ( !_InterlockedCompareExchange16(&word_140EF8F70, 1, 0) )
     {
-      stru_140EF8BF0.Parameter = 0LL;
-      stru_140EF8BF0.WorkerRoutine = (void (__fastcall *)(void *))MiLogPinDriverAddressesWorker;
-      stru_140EF8BF0.List.Flink = 0LL;
-      ExQueueWorkItem(&stru_140EF8BF0, DelayedWorkQueue);
+      stru_140EF8F50.Parameter = 0LL;
+      stru_140EF8F50.WorkerRoutine = (void (__fastcall *)(void *))MiLogPinDriverAddressesWorker;
+      stru_140EF8F50.List.Flink = 0LL;
+      ExQueueWorkItem(&stru_140EF8F50, DelayedWorkQueue);
     }
     return;
   }

@@ -1,19 +1,19 @@
 /*
- * XREFs of FsRtlCreateSectionForDataScan @ 0x140305100
+ * XREFs of FsRtlCreateSectionForDataScan @ 0x140305390
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14022F5B0 (ObfDereferenceObjectWithTag.c)
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     KeDelayExecutionThread @ 0x140246810 (KeDelayExecutionThread.c)
- *     CcZeroEndOfLastPage @ 0x1402A22E8 (CcZeroEndOfLastPage.c)
- *     ObfReferenceObjectWithTag @ 0x1402B68C0 (ObfReferenceObjectWithTag.c)
+ *     ObfDereferenceObjectWithTag @ 0x14022F6C0 (ObfDereferenceObjectWithTag.c)
+ *     KeLeaveCriticalRegionThread @ 0x14022F7F0 (KeLeaveCriticalRegionThread.c)
+ *     KeDelayExecutionThread @ 0x1402468E0 (KeDelayExecutionThread.c)
+ *     CcZeroEndOfLastPage @ 0x1402A2578 (CcZeroEndOfLastPage.c)
+ *     ObfReferenceObjectWithTag @ 0x1402B6B50 (ObfReferenceObjectWithTag.c)
  *     FsRtlGetFileSize @ 0x1406AA1A0 (FsRtlGetFileSize.c)
- *     FsRtlAcquireToCreateMappedSection @ 0x14072380C (FsRtlAcquireToCreateMappedSection.c)
- *     FsRtlReleaseFile @ 0x140723910 (FsRtlReleaseFile.c)
- *     ObInsertObject @ 0x14076B590 (ObInsertObject.c)
- *     MmGetFileObjectForSection @ 0x14076C200 (MmGetFileObjectForSection.c)
- *     MmCreateSectionEx @ 0x14076C6A8 (MmCreateSectionEx.c)
+ *     FsRtlAcquireToCreateMappedSection @ 0x140723A0C (FsRtlAcquireToCreateMappedSection.c)
+ *     FsRtlReleaseFile @ 0x140723B10 (FsRtlReleaseFile.c)
+ *     ObInsertObject @ 0x14076B780 (ObInsertObject.c)
+ *     MmGetFileObjectForSection @ 0x14076C3F0 (MmGetFileObjectForSection.c)
+ *     MmCreateSectionEx @ 0x14076C898 (MmCreateSectionEx.c)
  */
 
 NTSTATUS __stdcall FsRtlCreateSectionForDataScan(

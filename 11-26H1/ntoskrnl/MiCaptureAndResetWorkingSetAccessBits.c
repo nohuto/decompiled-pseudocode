@@ -1,11 +1,11 @@
 /*
- * XREFs of MiCaptureAndResetWorkingSetAccessBits @ 0x1403BB06C
+ * XREFs of MiCaptureAndResetWorkingSetAccessBits @ 0x1403C4EDC
  * Callers:
- *     MiCaptureTargetedWorkingSetAccessBits @ 0x1403B9D78 (MiCaptureTargetedWorkingSetAccessBits.c)
+ *     MiCaptureTargetedWorkingSetAccessBits @ 0x1403C3BE8 (MiCaptureTargetedWorkingSetAccessBits.c)
  * Callees:
- *     MiWalkPageTables @ 0x140326A80 (MiWalkPageTables.c)
- *     MiDrainSystemAccessLog @ 0x1403BB21C (MiDrainSystemAccessLog.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     MiWalkPageTables @ 0x140328AB0 (MiWalkPageTables.c)
+ *     MiDrainSystemAccessLog @ 0x1403C508C (MiDrainSystemAccessLog.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall MiCaptureAndResetWorkingSetAccessBits(__int64 a1, char a2, int a3)
@@ -61,7 +61,7 @@ LABEL_6:
   if ( (*(_DWORD *)(a1 + 184) & 0xF) == 1 )
     v9 = &MiSystemPartition;
   else
-    v9 = *(ULONG **)(stru_140E2EB88.ThreadLock + 8LL * *(unsigned __int16 *)(a1 + 174));
+    v9 = *(ULONG **)(stru_140E2ED08.ThreadLock + 8LL * *(unsigned __int16 *)(a1 + 174));
   LODWORD(v11[1]) = v9[4539];
   v19 = &v11[1];
   MiWalkPageTables((__int64)v13);

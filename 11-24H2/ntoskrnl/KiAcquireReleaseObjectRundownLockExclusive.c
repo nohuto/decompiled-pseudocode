@@ -1,13 +1,13 @@
 /*
- * XREFs of KiAcquireReleaseObjectRundownLockExclusive @ 0x14041BCD0
+ * XREFs of KiAcquireReleaseObjectRundownLockExclusive @ 0x14040F810
  * Callers:
- *     KeReleaseMutantEx @ 0x1403379F0 (KeReleaseMutantEx.c)
- *     KeRundownQueueEx @ 0x14041B7C8 (KeRundownQueueEx.c)
- *     KeDeleteMutant @ 0x14041BA48 (KeDeleteMutant.c)
- *     KeRundownPriQueue @ 0x1405C9434 (KeRundownPriQueue.c)
+ *     KeReleaseMutantEx @ 0x1402DEAA0 (KeReleaseMutantEx.c)
+ *     KeRundownQueueEx @ 0x14040F308 (KeRundownQueueEx.c)
+ *     KeDeleteMutant @ 0x14040F588 (KeDeleteMutant.c)
+ *     KeRundownPriQueue @ 0x1405C6B64 (KeRundownPriQueue.c)
  * Callees:
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14020FA40 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140210170 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140338DA0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1403394D0 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
  */
 
 void __fastcall KiAcquireReleaseObjectRundownLockExclusive(unsigned __int64 a1)

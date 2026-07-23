@@ -1,7 +1,7 @@
 /*
- * XREFs of KiFindNextTimerDueTime @ 0x140225880
+ * XREFs of KiFindNextTimerDueTime @ 0x1402CA180
  * Callers:
- *     KiGetNextTimerExpirationDueTime @ 0x1402255A0 (KiGetNextTimerExpirationDueTime.c)
+ *     KiGetNextTimerExpirationDueTime @ 0x1402C9EA0 (KiGetNextTimerExpirationDueTime.c)
  * Callees:
  *     <none>
  */

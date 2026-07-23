@@ -23,16 +23,16 @@ __int64 __fastcall MmQueryMemoryRanges(__int64 a1)
   void ***v8; // r12
   int v9; // r15d
   void ***v11; // rax
-  unsigned __int64 SetBits; // rax
-  unsigned __int64 v13; // r14
+  ULONG64 SetBits; // rax
+  ULONG64 v13; // r14
   unsigned __int64 NextForwardRunClear; // rax
-  __int64 v15; // rsi
+  unsigned __int64 SizeOfBitMap; // rsi
   unsigned __int64 v16; // rsi
   __int128 v17; // [rsp+30h] [rbp-20h] BYREF
   PVOID P; // [rsp+40h] [rbp-10h]
   unsigned __int64 v19; // [rsp+90h] [rbp+40h] BYREF
   int v20; // [rsp+98h] [rbp+48h]
-  __int64 v21; // [rsp+A0h] [rbp+50h] BYREF
+  unsigned __int64 v21; // [rsp+A0h] [rbp+50h] BYREF
 
   v1 = 0LL;
   v2 = 0;
@@ -76,7 +76,7 @@ LABEL_10:
   {
     while ( 1 )
     {
-      SetBits = RtlFindSetBitsEx((unsigned __int64 *)&qword_140C67EE0, 1uLL, (unsigned __int64)v3);
+      SetBits = RtlFindSetBitsEx(&stru_140C67EE0, 1uLL, (ULONG64)v3);
       v13 = SetBits;
       if ( SetBits < (unsigned __int64)v3 || SetBits == -1LL )
       {
@@ -84,21 +84,18 @@ LABEL_25:
         v3 = P;
         goto LABEL_11;
       }
-      NextForwardRunClear = RtlFindNextForwardRunClearEx(
-                              (unsigned __int64 *)&qword_140C67EE0,
-                              SetBits,
-                              (unsigned __int64 *)&v21);
-      v15 = v21;
+      NextForwardRunClear = RtlFindNextForwardRunClearEx(&stru_140C67EE0.SizeOfBitMap, SetBits, &v21);
+      SizeOfBitMap = v21;
       v19 = NextForwardRunClear;
       if ( !NextForwardRunClear )
-        v15 = qword_140C67EE0;
-      v16 = v15 - v13;
+        SizeOfBitMap = stru_140C67EE0.SizeOfBitMap;
+      v16 = SizeOfBitMap - v13;
       v1 ^= ((unsigned int)v1 ^ (unsigned int)v13) & 0x3FFFFF;
       v9 = MiAddRuns(a1, (unsigned int)&v17, v1, v16, v20);
       if ( v9 < 0 )
         break;
       v3 = (PVOID)(v19 + v13 + v16);
-      if ( (unsigned __int64)v3 >= qword_140C67EE0 )
+      if ( (unsigned __int64)v3 >= stru_140C67EE0.SizeOfBitMap )
         goto LABEL_25;
     }
     v3 = P;

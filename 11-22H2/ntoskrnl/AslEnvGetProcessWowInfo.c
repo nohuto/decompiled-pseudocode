@@ -14,14 +14,14 @@
 
 __int64 __fastcall AslEnvGetProcessWowInfo(_WORD *a1, _WORD *a2)
 {
-  int SystemInformation; // ebx
+  NTSTATUS v4; // ebx
   __int64 v6; // [rsp+30h] [rbp-38h] BYREF
   int v7; // [rsp+38h] [rbp-30h]
-  __int64 v8; // [rsp+40h] [rbp-28h] BYREF
+  __int64 SystemInformation; // [rsp+40h] [rbp-28h] BYREF
   int v9; // [rsp+48h] [rbp-20h]
 
   v6 = 0LL;
-  v8 = 0LL;
+  SystemInformation = 0LL;
   v7 = 0;
   v9 = 0;
   if ( !a1 )
@@ -29,20 +29,20 @@ __int64 __fastcall AslEnvGetProcessWowInfo(_WORD *a1, _WORD *a2)
 LABEL_5:
     if ( a2 )
     {
-      SystemInformation = ZwQuerySystemInformation(1LL, (__int64)&v8);
-      if ( SystemInformation < 0 )
+      v4 = ZwQuerySystemInformation(SystemProcessorInformation, &SystemInformation, 0xCu, 0LL);
+      if ( v4 < 0 )
         goto LABEL_3;
-      *a2 = v8;
+      *a2 = SystemInformation;
     }
     return 0;
   }
-  SystemInformation = ZwQuerySystemInformation(1LL, (__int64)&v6);
-  if ( SystemInformation >= 0 )
+  v4 = ZwQuerySystemInformation(SystemProcessorInformation, &v6, 0xCu, 0LL);
+  if ( v4 >= 0 )
   {
     *a1 = v6;
     goto LABEL_5;
   }
 LABEL_3:
   AslLogCallPrintf(1LL);
-  return (unsigned int)SystemInformation;
+  return (unsigned int)v4;
 }

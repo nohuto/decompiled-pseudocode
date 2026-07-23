@@ -10,10 +10,10 @@
 
 char __thiscall TppWaitTimerExpiration(int this)
 {
-  int v2; // eax
+  NTSTATUS v2; // eax
   int v3; // ecx
 
-  v2 = ZwCancelWaitCompletionPacket(*(_DWORD *)(this + 228), 0);
+  v2 = ZwCancelWaitCompletionPacket(*(HANDLE *)(this + 228), 0);
   if ( v2 )
   {
     if ( v2 != 259 && v2 != -1073741536 )

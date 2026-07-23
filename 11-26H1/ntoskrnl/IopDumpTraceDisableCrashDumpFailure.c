@@ -1,13 +1,13 @@
 /*
- * XREFs of IopDumpTraceDisableCrashDumpFailure @ 0x1405C90B8
+ * XREFs of IopDumpTraceDisableCrashDumpFailure @ 0x1405CB988
  * Callers:
- *     IopDisableCrashDump @ 0x1405C8BA8 (IopDisableCrashDump.c)
+ *     IopDisableCrashDump @ 0x1405CB478 (IopDisableCrashDump.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212E30 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     EtwWriteEx @ 0x140212F70 (EtwWriteEx.c)
- *     _tlgKeywordOn @ 0x14044F850 (_tlgKeywordOn.c)
- *     IopDumpIsTracingEnabled @ 0x14052CC84 (IopDumpIsTracingEnabled.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212F10 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     EtwWriteEx @ 0x140213050 (EtwWriteEx.c)
+ *     _tlgKeywordOn @ 0x140447980 (_tlgKeywordOn.c)
+ *     IopDumpIsTracingEnabled @ 0x14052F1A4 (IopDumpIsTracingEnabled.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 char __fastcall IopDumpTraceDisableCrashDumpFailure(int a1)
@@ -44,7 +44,7 @@ char __fastcall IopDumpTraceDisableCrashDumpFailure(int a1)
       v9 = 4LL;
       return tlgWriteTransfer_EtwWriteTransfer(
                (__int64)&dword_140E06CD8,
-               (unsigned __int8 *)&dword_140046D94,
+               (unsigned __int8 *)&word_14004730E,
                0LL,
                0LL,
                4u,

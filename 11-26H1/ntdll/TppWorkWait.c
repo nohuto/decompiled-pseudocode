@@ -1,11 +1,11 @@
 /*
- * XREFs of TppWorkWait @ 0x18002B5F0
+ * XREFs of TppWorkWait @ 0x1800166F0
  * Callers:
- *     TpWaitForWait @ 0x18002A2F0 (TpWaitForWait.c)
- *     TpWaitForWork @ 0x180064D50 (TpWaitForWork.c)
+ *     TpWaitForWait @ 0x1800153F0 (TpWaitForWait.c)
+ *     TpWaitForWork @ 0x1800851A0 (TpWaitForWork.c)
  * Callees:
- *     TppBarrierAdjust @ 0x18002D290 (TppBarrierAdjust.c)
- *     TppETWCallbackCancel @ 0x18010DD60 (TppETWCallbackCancel.c)
+ *     TppBarrierAdjust @ 0x180018390 (TppBarrierAdjust.c)
+ *     TppETWCallbackCancel @ 0x18010D8B0 (TppETWCallbackCancel.c)
  */
 
 struct _PEB *__fastcall TppWorkWait(_QWORD *a1, int a2)

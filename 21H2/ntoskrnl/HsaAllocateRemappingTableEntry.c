@@ -1,19 +1,19 @@
 /*
- * XREFs of HsaAllocateRemappingTableEntry @ 0x1404E20C0
+ * XREFs of HsaAllocateRemappingTableEntry @ 0x1404E2300
  * Callers:
  *     <none>
  * Callees:
- *     RtlClearBits @ 0x140206E00 (RtlClearBits.c)
- *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
- *     HalpAcquireHighLevelLock @ 0x140378F20 (HalpAcquireHighLevelLock.c)
+ *     KxReleaseSpinLock @ 0x140212140 (KxReleaseSpinLock.c)
+ *     RtlClearBits @ 0x1402AB730 (RtlClearBits.c)
+ *     HalpAcquireHighLevelLock @ 0x140378A70 (HalpAcquireHighLevelLock.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     memset @ 0x140414200 (memset.c)
- *     ExtEnvAllocateMemory @ 0x1404D50F0 (ExtEnvAllocateMemory.c)
- *     ExtEnvAllocatePhysicalMemory @ 0x1404D5140 (ExtEnvAllocatePhysicalMemory.c)
- *     ExtEnvFreeMemory @ 0x1404D53BC (ExtEnvFreeMemory.c)
- *     ExtEnvFreePhysicalMemory @ 0x1404D53FC (ExtEnvFreePhysicalMemory.c)
- *     HsaGetDeviceAperture @ 0x1404E3784 (HsaGetDeviceAperture.c)
- *     HsaUpdateRemappingTableInDeviceTableEntry @ 0x1404E4A94 (HsaUpdateRemappingTableInDeviceTableEntry.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     ExtEnvAllocateMemory @ 0x1404D5330 (ExtEnvAllocateMemory.c)
+ *     ExtEnvAllocatePhysicalMemory @ 0x1404D5380 (ExtEnvAllocatePhysicalMemory.c)
+ *     ExtEnvFreeMemory @ 0x1404D55FC (ExtEnvFreeMemory.c)
+ *     ExtEnvFreePhysicalMemory @ 0x1404D563C (ExtEnvFreePhysicalMemory.c)
+ *     HsaGetDeviceAperture @ 0x1404E39C4 (HsaGetDeviceAperture.c)
+ *     HsaUpdateRemappingTableInDeviceTableEntry @ 0x1404E4CD4 (HsaUpdateRemappingTableInDeviceTableEntry.c)
  */
 
 __int64 __fastcall HsaAllocateRemappingTableEntry(
@@ -100,7 +100,7 @@ __int64 __fastcall HsaAllocateRemappingTableEntry(
         PhysicalMemory = -1073741811;
         goto LABEL_44;
       }
-      byte_140C48918 = HalpAcquireHighLevelLock(&qword_140C48910);
+      byte_140C48958 = HalpAcquireHighLevelLock(&qword_140C48950);
       DeviceAperture = HsaGetDeviceAperture(a2);
       v20 = DeviceAperture;
       if ( DeviceAperture && *(_QWORD *)(DeviceAperture + 16) )
@@ -112,8 +112,8 @@ __int64 __fastcall HsaAllocateRemappingTableEntry(
       {
         v39 = 1;
       }
-      v21 = (unsigned __int8)byte_140C48918;
-      KxReleaseSpinLock(&qword_140C48910);
+      v21 = (unsigned __int8)byte_140C48958;
+      KxReleaseSpinLock(&qword_140C48950);
       if ( KiIrqlFlags )
       {
         if ( (KiIrqlFlags & 1) != 0 )
@@ -160,7 +160,7 @@ LABEL_45:
         LODWORD(Size[1]) = HIDWORD(Size[0]);
         v46 = v41;
         RtlClearBits((PRTL_BITMAP)&Size[1], 0, HIDWORD(Size[0]));
-        byte_140C48918 = HalpAcquireHighLevelLock(&qword_140C48910);
+        byte_140C48958 = HalpAcquireHighLevelLock(&qword_140C48950);
         if ( !HsaDeviceApertureRanges[v17] )
         {
           HsaDeviceApertureRanges[v17] = (__int64)v40;
@@ -184,8 +184,8 @@ LABEL_45:
           v12 = 0;
         }
         *(_DWORD *)(v20 + 48) += a3;
-        v33 = (unsigned __int8)byte_140C48918;
-        KxReleaseSpinLock(&qword_140C48910);
+        v33 = (unsigned __int8)byte_140C48958;
+        KxReleaseSpinLock(&qword_140C48950);
         if ( KiIrqlFlags )
         {
           if ( (KiIrqlFlags & 1) != 0 )

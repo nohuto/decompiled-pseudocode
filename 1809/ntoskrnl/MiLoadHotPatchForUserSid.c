@@ -1,26 +1,26 @@
 /*
- * XREFs of MiLoadHotPatchForUserSid @ 0x140855C38
+ * XREFs of MiLoadHotPatchForUserSid @ 0x140856E98
  * Callers:
- *     NtManageHotPatch @ 0x140858450 (NtManageHotPatch.c)
+ *     NtManageHotPatch @ 0x1408596B0 (NtManageHotPatch.c)
  * Callees:
  *     RtlLengthSid @ 0x1400162C0 (RtlLengthSid.c)
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     KiLeaveGuardedRegionUnsafe @ 0x14004F090 (KiLeaveGuardedRegionUnsafe.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
- *     RtlAvlInsertNodeEx @ 0x140064B40 (RtlAvlInsertNodeEx.c)
- *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     RtlHashBytes2 @ 0x1402FE2E8 (RtlHashBytes2.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     ObCloseHandle @ 0x1405F5700 (ObCloseHandle.c)
- *     RtlCopySid @ 0x140649190 (RtlCopySid.c)
- *     MiAllocateHotPatchRecord @ 0x140853FFC (MiAllocateHotPatchRecord.c)
- *     MiCompareUserSidHotPatchNodes @ 0x140854AA8 (MiCompareUserSidHotPatchNodes.c)
- *     MiHotPatchAllProcesses @ 0x140855288 (MiHotPatchAllProcesses.c)
- *     MiInsertHotPatchRecord @ 0x140855890 (MiInsertHotPatchRecord.c)
- *     MiOpenHotPatchFile @ 0x1408568EC (MiOpenHotPatchFile.c)
+ *     RtlAvlInsertNodeEx @ 0x140064B30 (RtlAvlInsertNodeEx.c)
+ *     ExfTryToWakePushLock @ 0x140091500 (ExfTryToWakePushLock.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     RtlHashBytes2 @ 0x1402FE4D8 (RtlHashBytes2.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     ObCloseHandle @ 0x1405F6700 (ObCloseHandle.c)
+ *     RtlCopySid @ 0x14064A350 (RtlCopySid.c)
+ *     MiAllocateHotPatchRecord @ 0x14085525C (MiAllocateHotPatchRecord.c)
+ *     MiCompareUserSidHotPatchNodes @ 0x140855D08 (MiCompareUserSidHotPatchNodes.c)
+ *     MiHotPatchAllProcesses @ 0x1408564E8 (MiHotPatchAllProcesses.c)
+ *     MiInsertHotPatchRecord @ 0x140856AF0 (MiInsertHotPatchRecord.c)
+ *     MiOpenHotPatchFile @ 0x140857B4C (MiOpenHotPatchFile.c)
  */
 
 __int64 __fastcall MiLoadHotPatchForUserSid(const void **a1, void *a2, int *a3)

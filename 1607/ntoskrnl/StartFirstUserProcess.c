@@ -3,18 +3,18 @@
  * Callers:
  *     Phase1InitializationIoReady @ 0x1407934EC (Phase1InitializationIoReady.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14002DC60 (RtlInitUnicodeString.c)
- *     RtlCopyUnicodeString @ 0x14002DD60 (RtlCopyUnicodeString.c)
- *     KeDelayExecutionThread @ 0x1400D0580 (KeDelayExecutionThread.c)
- *     InbvIsBootDriverInstalled @ 0x14013C73C (InbvIsBootDriverInstalled.c)
- *     ZwClose @ 0x140159E60 (ZwClose.c)
- *     ZwSetInformationProcess @ 0x14015A000 (ZwSetInformationProcess.c)
- *     ZwResumeThread @ 0x14015A6C0 (ZwResumeThread.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     InbvAcquireLock @ 0x1401C3620 (InbvAcquireLock.c)
- *     InbvGetDisplayState @ 0x1401C36B0 (InbvGetDisplayState.c)
- *     InbvReleaseLock @ 0x1401C371C (InbvReleaseLock.c)
+ *     RtlInitUnicodeString @ 0x14002D7E0 (RtlInitUnicodeString.c)
+ *     RtlCopyUnicodeString @ 0x14002D8E0 (RtlCopyUnicodeString.c)
+ *     KeDelayExecutionThread @ 0x1400CE420 (KeDelayExecutionThread.c)
+ *     InbvIsBootDriverInstalled @ 0x14013CCAC (InbvIsBootDriverInstalled.c)
+ *     ZwClose @ 0x14015A3D0 (ZwClose.c)
+ *     ZwSetInformationProcess @ 0x14015A570 (ZwSetInformationProcess.c)
+ *     ZwResumeThread @ 0x14015AC30 (ZwResumeThread.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     InbvAcquireLock @ 0x1401C3504 (InbvAcquireLock.c)
+ *     InbvGetDisplayState @ 0x1401C3594 (InbvGetDisplayState.c)
+ *     InbvReleaseLock @ 0x1401C3600 (InbvReleaseLock.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
  *     RtlCreateUserProcess @ 0x1407A280C (RtlCreateUserProcess.c)
@@ -103,7 +103,7 @@ void StartFirstUserProcess()
   v10 = ZwResumeThread(ProcessInfo.ThreadHandle, 0LL);
   if ( v10 < 0 )
     KeBugCheckEx(0x6Du, v10, 0LL, 3uLL, 0LL);
-  byte_140323438 = 1;
+  byte_140323478 = 1;
   Interval.QuadPart = -50000000LL;
   KeDelayExecutionThread(0, 0, &Interval);
   ZwClose(ProcessInfo.ThreadHandle);

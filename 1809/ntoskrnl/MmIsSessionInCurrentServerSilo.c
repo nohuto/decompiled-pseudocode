@@ -1,14 +1,14 @@
 /*
- * XREFs of MmIsSessionInCurrentServerSilo @ 0x140158F74
+ * XREFs of MmIsSessionInCurrentServerSilo @ 0x140159074
  * Callers:
- *     PopGetSettingNotificationName @ 0x14058E66C (PopGetSettingNotificationName.c)
+ *     PopGetSettingNotificationName @ 0x14058F66C (PopGetSettingNotificationName.c)
  * Callees:
  *     MmGetSessionIdEx @ 0x14004F060 (MmGetSessionIdEx.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14007DE90 (KeAcquireInStackQueuedSpinLock.c)
- *     PsGetThreadServerSilo @ 0x14007E5E0 (PsGetThreadServerSilo.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
- *     KeIsExecutingInArbitraryThreadContext @ 0x1401B42EC (KeIsExecutingInArbitraryThreadContext.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14007DE80 (KeAcquireInStackQueuedSpinLock.c)
+ *     PsGetThreadServerSilo @ 0x14007E5D0 (PsGetThreadServerSilo.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC6A0 (KxReleaseQueuedSpinLock.c)
+ *     KeIsExecutingInArbitraryThreadContext @ 0x1401B442C (KeIsExecutingInArbitraryThreadContext.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 char __fastcall MmIsSessionInCurrentServerSilo(unsigned int a1)
@@ -34,8 +34,8 @@ char __fastcall MmIsSessionInCurrentServerSilo(unsigned int a1)
     ThreadServerSilo = 0LL;
   else
     ThreadServerSilo = PsGetThreadServerSilo((__int64)KeGetCurrentThread());
-  KeAcquireInStackQueuedSpinLock(&qword_14043AE80, &LockHandle);
-  v7 = (_QWORD *)qword_140439FC8;
+  KeAcquireInStackQueuedSpinLock(&qword_14043BF40, &LockHandle);
+  v7 = (_QWORD *)qword_14043B088;
   while ( v7 )
   {
     v8 = *((_DWORD *)v7 - 38);

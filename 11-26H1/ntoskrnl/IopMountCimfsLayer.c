@@ -1,15 +1,15 @@
 /*
- * XREFs of IopMountCimfsLayer @ 0x140D0336C
+ * XREFs of IopMountCimfsLayer @ 0x140D0970C
  * Callers:
- *     IopMountBootLayerCallout @ 0x140CBDC50 (IopMountBootLayerCallout.c)
+ *     IopMountBootLayerCallout @ 0x140CC3D20 (IopMountBootLayerCallout.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     RtlStringCbPrintfW @ 0x140433060 (RtlStringCbPrintfW.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     RtlDuplicateUnicodeString @ 0x14091E750 (RtlDuplicateUnicodeString.c)
- *     RtlFreeAnsiString @ 0x140A007C0 (RtlFreeAnsiString.c)
- *     RtlStringFromGUID @ 0x140A3DEC0 (RtlStringFromGUID.c)
- *     IoCreateSymbolicLink @ 0x140AB52F0 (IoCreateSymbolicLink.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     RtlStringCbPrintfW @ 0x140420090 (RtlStringCbPrintfW.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     RtlDuplicateUnicodeString @ 0x1409791B0 (RtlDuplicateUnicodeString.c)
+ *     RtlStringFromGUID @ 0x1409F98E0 (RtlStringFromGUID.c)
+ *     RtlFreeAnsiString @ 0x140A169F0 (RtlFreeAnsiString.c)
+ *     IoCreateSymbolicLink @ 0x140AB6690 (IoCreateSymbolicLink.c)
  */
 
 __int64 __fastcall IopMountCimfsLayer(__int64 a1, __int64 a2, UNICODE_STRING *a3)

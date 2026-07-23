@@ -1,12 +1,12 @@
 /*
- * XREFs of PpmEventTraceCoreParkingSelection @ 0x1404213F0
+ * XREFs of PpmEventTraceCoreParkingSelection @ 0x140418C30
  * Callers:
- *     PpmParkComputeUnparkMask @ 0x14025D7A0 (PpmParkComputeUnparkMask.c)
+ *     PpmParkComputeUnparkMask @ 0x14025E0F0 (PpmParkComputeUnparkMask.c)
  * Callees:
- *     EtwEventEnabled @ 0x140212D90 (EtwEventEnabled.c)
- *     EtwWriteEx @ 0x140212F70 (EtwWriteEx.c)
- *     PpmEventAddAffinityMaskAsSubset @ 0x140420DB0 (PpmEventAddAffinityMaskAsSubset.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x140212E70 (EtwEventEnabled.c)
+ *     EtwWriteEx @ 0x140213050 (EtwWriteEx.c)
+ *     PpmEventAddAffinityMaskAsSubset @ 0x1404185F0 (PpmEventAddAffinityMaskAsSubset.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 BOOLEAN __fastcall PpmEventTraceCoreParkingSelection(
@@ -90,9 +90,7 @@ BOOLEAN __fastcall PpmEventTraceCoreParkingSelection(
   v42 = 0;
   if ( PpmEventPerfCheckData && PpmEtwRegistered )
   {
-    result = EtwEventEnabled(
-               (REGHANDLE)PopModernStandbyStateNotify.ApcState.ApcListHead[1].Blink,
-               &PPM_ETW_COREPARKING_SELECTION);
+    result = EtwEventEnabled(PpmEtwHandle, &PPM_ETW_COREPARKING_SELECTION);
     if ( result )
     {
       PpmEventAddAffinityMaskAsSubset(0LL, a1, (__int64)v52, (__int64)v53, (__int64)UserData, &v44, &v43, &v42);
@@ -140,15 +138,7 @@ BOOLEAN __fastcall PpmEventTraceCoreParkingSelection(
       v41 = v39 + 1;
       UserData[v41].Ptr = (ULONGLONG)&a22;
       *(_QWORD *)&UserData[v41].Size = 1LL;
-      return EtwWriteEx(
-               (REGHANDLE)PopModernStandbyStateNotify.ApcState.ApcListHead[1].Blink,
-               &PPM_ETW_COREPARKING_SELECTION,
-               0LL,
-               0,
-               0LL,
-               0LL,
-               v39 + 2,
-               UserData);
+      return EtwWriteEx(PpmEtwHandle, &PPM_ETW_COREPARKING_SELECTION, 0LL, 0, 0LL, 0LL, v39 + 2, UserData);
     }
   }
   return result;

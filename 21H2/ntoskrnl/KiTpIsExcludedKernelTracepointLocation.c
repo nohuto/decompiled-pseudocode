@@ -1,12 +1,12 @@
 /*
- * XREFs of KiTpIsExcludedKernelTracepointLocation @ 0x1408BCA5C
+ * XREFs of KiTpIsExcludedKernelTracepointLocation @ 0x1408BCBBC
  * Callers:
- *     KiTpIsSupportedKernelTracepointLocation @ 0x1408BCB0C (KiTpIsSupportedKernelTracepointLocation.c)
+ *     KiTpIsSupportedKernelTracepointLocation @ 0x1408BCC6C (KiTpIsSupportedKernelTracepointLocation.c)
  * Callees:
- *     RtlFindRange @ 0x140760360 (RtlFindRange.c)
- *     RtlFreeRangeList @ 0x140761590 (RtlFreeRangeList.c)
- *     KiTpBuildExcludedKernelTracepointRangeList @ 0x1408BC974 (KiTpBuildExcludedKernelTracepointRangeList.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     RtlFindRange @ 0x140760520 (RtlFindRange.c)
+ *     RtlFreeRangeList @ 0x140761750 (RtlFreeRangeList.c)
+ *     KiTpBuildExcludedKernelTracepointRangeList @ 0x1408BCAD4 (KiTpBuildExcludedKernelTracepointRangeList.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall KiTpIsExcludedKernelTracepointLocation(unsigned __int64 a1)

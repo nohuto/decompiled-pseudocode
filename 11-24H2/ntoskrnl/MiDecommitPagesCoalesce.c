@@ -1,9 +1,9 @@
 /*
- * XREFs of MiDecommitPagesCoalesce @ 0x1404241F0
+ * XREFs of MiDecommitPagesCoalesce @ 0x1404180A0
  * Callers:
- *     MiDecommitFreePagesTail @ 0x1404F1D60 (MiDecommitFreePagesTail.c)
+ *     MiDecommitFreePagesTail @ 0x1404EF800 (MiDecommitFreePagesTail.c)
  * Callees:
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall MiDecommitPagesCoalesce(__int64 a1, __int64 a2, unsigned int a3)
@@ -31,7 +31,7 @@ __int64 __fastcall MiDecommitPagesCoalesce(__int64 a1, __int64 a2, unsigned int 
   while ( v6 < v4 )
   {
     v10 = (*(_QWORD *)(a2 + 8LL * v6 + 12384) >> 12) & 0xFFFFFFFFFFLL;
-    if ( v10 > qword_140E2DBE0 )
+    if ( v10 > qword_140E2DD20 )
       return 0LL;
     v11 = 48 * v10;
     if ( (*(_QWORD *)(48 * v10 - 0x21FFFFFFFFD8LL) & 0x40000000000000LL) == 0 || v10 != v3 && v3 != -1 )
@@ -40,10 +40,10 @@ __int64 __fastcall MiDecommitPagesCoalesce(__int64 a1, __int64 a2, unsigned int 
     v13 = v11 - 0x220000000000LL;
     if ( (unsigned __int16)*(_DWORD *)(v11 - 0x220000000000LL + 32) != 1 )
       return 0LL;
-    v14 = dword_140E2DAC4;
-    if ( dword_140E2DAC0 > (unsigned int)dword_140E2DAC4
-      || (v15 = (char *)qword_140E2DB20 + 16 * dword_140E2DAC0, v10 < *(_QWORD *)v15)
-      || dword_140E2DAC0 != dword_140E2DAC4 && v10 >= *((_QWORD *)v15 + 2) )
+    v14 = dword_140E2DC04;
+    if ( dword_140E2DC00 > (unsigned int)dword_140E2DC04
+      || (v15 = (char *)qword_140E2DC60 + 16 * dword_140E2DC00, v10 < *(_QWORD *)v15)
+      || dword_140E2DC00 != dword_140E2DC04 && v10 >= *((_QWORD *)v15 + 2) )
     {
       for ( i = 0; ; i = v17 + 1 )
       {
@@ -52,17 +52,17 @@ __int64 __fastcall MiDecommitPagesCoalesce(__int64 a1, __int64 a2, unsigned int 
           if ( v14 < i )
             KeBugCheckEx(0x1Au, 0x5180uLL, v10, 0LL, 0LL);
           v17 = (i + v14) >> 1;
-          v15 = (char *)qword_140E2DB20 + 16 * v17;
+          v15 = (char *)qword_140E2DC60 + 16 * v17;
           if ( v10 >= *(_QWORD *)v15 )
             break;
           if ( !v17 )
-            KeBugCheckEx(0x1Au, 0x5180uLL, v10, (ULONG_PTR)qword_140E2DB20, 0LL);
+            KeBugCheckEx(0x1Au, 0x5180uLL, v10, (ULONG_PTR)qword_140E2DC60, 0LL);
           v14 = v17 - 1;
         }
-        if ( v17 == dword_140E2DAC4 || v10 < *((_QWORD *)v15 + 2) )
+        if ( v17 == dword_140E2DC04 || v10 < *((_QWORD *)v15 + 2) )
           break;
       }
-      dword_140E2DAC0 = (i + v14) >> 1;
+      dword_140E2DC00 = (i + v14) >> 1;
     }
     v18 = *((_DWORD *)v15 + 2);
     if ( v9 == -1 )
@@ -83,16 +83,16 @@ __int64 __fastcall MiDecommitPagesCoalesce(__int64 a1, __int64 a2, unsigned int 
     }
     if ( *(__int64 *)(v13 + 40) < 0 )
       return 0LL;
-    if ( byte_140E3CAE6 )
+    if ( byte_140E3CC26 )
     {
       v19 = (0xAAAAAAAAAAAAAAABuLL * (v11 >> 4)) >> 9;
-      if ( *(_BYTE *)(qword_140E3D140 + 2 * v19) )
+      if ( *(_BYTE *)(qword_140E3D280 + 2 * v19) )
       {
-        if ( *(_BYTE *)(qword_140E3D140 + 2 * v19) != 10 )
+        if ( *(_BYTE *)(qword_140E3D280 + 2 * v19) != 10 )
           return 0LL;
       }
     }
-    if ( *((_QWORD *)qword_140E2FF88 + ((*(_QWORD *)(v13 + 40) >> 43) & 0x3FFLL)) != a1 )
+    if ( *((_QWORD *)qword_140E300C8 + ((*(_QWORD *)(v13 + 40) >> 43) & 0x3FFLL)) != a1 )
       return 0LL;
     ++v6;
   }

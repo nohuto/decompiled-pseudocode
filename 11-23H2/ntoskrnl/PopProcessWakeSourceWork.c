@@ -1,15 +1,15 @@
 /*
- * XREFs of PopProcessWakeSourceWork @ 0x140AA1338
+ * XREFs of PopProcessWakeSourceWork @ 0x140AA11A8
  * Callers:
- *     PopProcessDeviceWakeSource @ 0x140AA1184 (PopProcessDeviceWakeSource.c)
+ *     PopProcessDeviceWakeSource @ 0x140AA0FF4 (PopProcessDeviceWakeSource.c)
  * Callees:
- *     RtlCopyUnicodeString @ 0x1402AEFD0 (RtlCopyUnicodeString.c)
- *     RtlGUIDFromString @ 0x1406CF6C0 (RtlGUIDFromString.c)
- *     PopFreeWakeSource @ 0x1409872D8 (PopFreeWakeSource.c)
- *     PopNewWakeSource @ 0x140987544 (PopNewWakeSource.c)
- *     PopWakeSourceGetDeviceProperty @ 0x140987AA0 (PopWakeSourceGetDeviceProperty.c)
- *     PopWakeSourceIsChild @ 0x140987B68 (PopWakeSourceIsChild.c)
- *     PopWakeSourceIsParent @ 0x140987BE4 (PopWakeSourceIsParent.c)
+ *     RtlCopyUnicodeString @ 0x1402AF260 (RtlCopyUnicodeString.c)
+ *     RtlGUIDFromString @ 0x1406CF6F0 (RtlGUIDFromString.c)
+ *     PopFreeWakeSource @ 0x1409874D8 (PopFreeWakeSource.c)
+ *     PopNewWakeSource @ 0x140987744 (PopNewWakeSource.c)
+ *     PopWakeSourceGetDeviceProperty @ 0x140987CA0 (PopWakeSourceGetDeviceProperty.c)
+ *     PopWakeSourceIsChild @ 0x140987D68 (PopWakeSourceIsChild.c)
+ *     PopWakeSourceIsParent @ 0x140987DE4 (PopWakeSourceIsParent.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

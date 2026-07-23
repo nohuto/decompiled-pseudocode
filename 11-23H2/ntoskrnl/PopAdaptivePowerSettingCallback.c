@@ -1,14 +1,14 @@
 /*
- * XREFs of PopAdaptivePowerSettingCallback @ 0x140824C50
+ * XREFs of PopAdaptivePowerSettingCallback @ 0x140824F50
  * Callers:
- *     PopVideoPowerSettingCallback @ 0x14038A130 (PopVideoPowerSettingCallback.c)
+ *     PopVideoPowerSettingCallback @ 0x14038A310 (PopVideoPowerSettingCallback.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  *     PopSendSessionInfo @ 0x1406831FC (PopSendSessionInfo.c)
- *     PopAcquireAdaptiveLock @ 0x1407EBE9C (PopAcquireAdaptiveLock.c)
- *     PopReleaseAdaptiveLock @ 0x1407EBF48 (PopReleaseAdaptiveLock.c)
- *     PopDiagTracePolicyChange @ 0x140824E84 (PopDiagTracePolicyChange.c)
- *     PopBroadcastSessionInfo @ 0x140824F14 (PopBroadcastSessionInfo.c)
+ *     PopAcquireAdaptiveLock @ 0x1407EC16C (PopAcquireAdaptiveLock.c)
+ *     PopReleaseAdaptiveLock @ 0x1407EC218 (PopReleaseAdaptiveLock.c)
+ *     PopDiagTracePolicyChange @ 0x140825184 (PopDiagTracePolicyChange.c)
+ *     PopBroadcastSessionInfo @ 0x140825214 (PopBroadcastSessionInfo.c)
  */
 
 __int64 __fastcall PopAdaptivePowerSettingCallback(_QWORD *a1, int *a2, int a3)
@@ -102,7 +102,7 @@ LABEL_35:
   }
   else if ( v6 && PopConsoleSession )
   {
-    PopSendSessionInfo(dword_140C39CF8, v8, v9, (__int64)&v11);
+    PopSendSessionInfo(dword_140C39C58, v8, v9, (__int64)&v11);
   }
   return v7;
 }

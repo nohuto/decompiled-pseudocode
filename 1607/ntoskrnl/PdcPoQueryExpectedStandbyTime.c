@@ -1,5 +1,5 @@
 /*
- * XREFs of PdcPoQueryExpectedStandbyTime @ 0x14066FB38
+ * XREFs of PdcPoQueryExpectedStandbyTime @ 0x14066FC1C
  * Callers:
  *     <none>
  * Callees:
@@ -17,14 +17,14 @@ __int64 __fastcall PdcPoQueryExpectedStandbyTime(unsigned __int64 *a1)
   if ( (unsigned int)result <= 1 || PopPdcLastCsEnterReason == 12 )
   {
     PopAcquirePolicyLock();
-    if ( dword_14030338C == -1 || dword_140303388 >= (unsigned int)dword_14030338C )
+    if ( dword_1403032CC == -1 || dword_1403032C8 >= (unsigned int)dword_1403032CC )
     {
-      if ( ((dword_14030338C + 1) & 0xFFFFFFFE) == 0 )
+      if ( ((dword_1403032CC + 1) & 0xFFFFFFFE) == 0 )
         v1 = -1LL;
     }
     else
     {
-      v1 = (unsigned int)PopIdleScanInterval + (unsigned __int64)(unsigned int)(dword_14030338C - dword_140303388);
+      v1 = (unsigned int)PopIdleScanInterval + (unsigned __int64)(unsigned int)(dword_1403032CC - dword_1403032C8);
     }
     result = PopReleasePolicyLock();
   }

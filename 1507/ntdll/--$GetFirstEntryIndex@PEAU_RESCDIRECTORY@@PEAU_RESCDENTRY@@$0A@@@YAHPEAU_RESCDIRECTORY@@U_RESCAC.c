@@ -60,7 +60,7 @@ __int64 __fastcall GetFirstEntryIndex<_RESCDIRECTORY *,_RESCDENTRY *,0>(__int64 
   }
   else
   {
-    RtlSetLastWin32Error(0x57u);
+    RtlSetLastWin32Error(87);
   }
   return v2;
 }

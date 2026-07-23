@@ -1,10 +1,10 @@
 /*
- * XREFs of Feature_TriageDumpDataExtension__private_IsEnabledDeviceUsage @ 0x140410080
+ * XREFs of Feature_TriageDumpDataExtension__private_IsEnabledDeviceUsage @ 0x14041015C
  * Callers:
- *     KeAddTriageDumpDataBlock @ 0x1403A8100 (KeAddTriageDumpDataBlock.c)
- *     KiInvokeBugCheckAddTriageDumpDataCallbacks @ 0x14056A6D4 (KiInvokeBugCheckAddTriageDumpDataCallbacks.c)
+ *     KeAddTriageDumpDataBlock @ 0x1403A82E0 (KeAddTriageDumpDataBlock.c)
+ *     KiInvokeBugCheckAddTriageDumpDataCallbacks @ 0x14056AD94 (KiInvokeBugCheckAddTriageDumpDataCallbacks.c)
  * Callees:
- *     Feature_TriageDumpDataExtension__private_IsEnabledFallback @ 0x1404100B8 (Feature_TriageDumpDataExtension__private_IsEnabledFallback.c)
+ *     Feature_TriageDumpDataExtension__private_IsEnabledFallback @ 0x140410194 (Feature_TriageDumpDataExtension__private_IsEnabledFallback.c)
  */
 
 __int64 Feature_TriageDumpDataExtension__private_IsEnabledDeviceUsage()

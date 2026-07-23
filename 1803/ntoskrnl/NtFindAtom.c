@@ -14,7 +14,7 @@
 NTSTATUS __stdcall NtFindAtom(PWSTR AtomName, ULONG AtomNameLength, PRTL_ATOM Atom)
 {
   size_t v4; // rbx
-  union _RTL_RUN_ONCE *Win32Callouts; // rax
+  _RTL_RUN_ONCE *Win32Callouts; // rax
   NTSTATUS result; // eax
   char PreviousMode; // r15
   WCHAR *v9; // r14

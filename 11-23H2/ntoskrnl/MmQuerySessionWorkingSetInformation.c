@@ -1,11 +1,11 @@
 /*
- * XREFs of MmQuerySessionWorkingSetInformation @ 0x14046C4C4
+ * XREFs of MmQuerySessionWorkingSetInformation @ 0x14046C8C4
  * Callers:
- *     EtwpLogSessionWorkingSetInfo @ 0x1408A6F8C (EtwpLogSessionWorkingSetInfo.c)
+ *     EtwpLogSessionWorkingSetInfo @ 0x1408A71DC (EtwpLogSessionWorkingSetInfo.c)
  * Callees:
- *     KxReleaseQueuedSpinLock @ 0x140260360 (KxReleaseQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140260E60 (KeAcquireInStackQueuedSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseQueuedSpinLock @ 0x1402605F0 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402610F0 (KeAcquireInStackQueuedSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MmQuerySessionWorkingSetInformation(__int64 a1, _DWORD *a2)
@@ -68,10 +68,10 @@ __int64 __fastcall MmQuerySessionWorkingSetInformation(__int64 a1, _DWORD *a2)
   }
   KxReleaseQueuedSpinLock((volatile signed __int64 **)&v20);
   OldIrql = v20.OldIrql;
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v20.OldIrql <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v20.OldIrql <= 0xFu && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -79,7 +79,7 @@ __int64 __fastcall MmQuerySessionWorkingSetInformation(__int64 a1, _DWORD *a2)
       v18 = (v17 & SchedulerAssist[5]) == 0;
       SchedulerAssist[5] &= v17;
       if ( v18 )
-        KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+        KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
     }
   }
   __writecr8(OldIrql);

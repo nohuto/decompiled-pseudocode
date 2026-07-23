@@ -11,10 +11,14 @@
  *     CmOpenKey @ 0x1404128E0 (CmOpenKey.c)
  */
 
-__int64 __fastcall NtOpenKeyTransacted(HANDLE *a1, int a2, __int64 a3, void *a4)
+NTSTATUS __cdecl NtOpenKeyTransacted(
+        PHANDLE KeyHandle,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        HANDLE TransactionHandle)
 {
   struct _KTHREAD *CurrentThread; // rax
-  int v9; // edi
+  NTSTATUS v9; // edi
   PVOID v10; // rbx
   PVOID Object; // [rsp+30h] [rbp-18h] BYREF
 
@@ -23,7 +27,7 @@ __int64 __fastcall NtOpenKeyTransacted(HANDLE *a1, int a2, __int64 a3, void *a4)
   if ( ExAcquireRundownProtection(&CmpShutdownRundown) )
   {
     v9 = ObReferenceObjectByHandle(
-           a4,
+           TransactionHandle,
            4u,
            (POBJECT_TYPE)TmTransactionObjectType,
            KeGetCurrentThread()->PreviousMode,
@@ -32,7 +36,7 @@ __int64 __fastcall NtOpenKeyTransacted(HANDLE *a1, int a2, __int64 a3, void *a4)
     if ( v9 >= 0 )
     {
       v10 = Object;
-      v9 = CmOpenKey(a1, a2, a3, 0, (__int64)Object);
+      v9 = CmOpenKey(KeyHandle, DesiredAccess, (__int64)ObjectAttributes, 0, (__int64)Object);
       ObfDereferenceObject(v10);
     }
     ExReleaseRundownProtection_0(&CmpShutdownRundown);
@@ -42,5 +46,5 @@ __int64 __fastcall NtOpenKeyTransacted(HANDLE *a1, int a2, __int64 a3, void *a4)
     v9 = -1073741431;
   }
   KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
-  return (unsigned int)v9;
+  return v9;
 }

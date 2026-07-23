@@ -1,10 +1,10 @@
 /*
- * XREFs of MiHandleSynchronousFlushError @ 0x14046D9FC
+ * XREFs of MiHandleSynchronousFlushError @ 0x14046717C
  * Callers:
- *     MiFlushSubsection @ 0x1403C1390 (MiFlushSubsection.c)
+ *     MiFlushSubsection @ 0x1403CB290 (MiFlushSubsection.c)
  * Callees:
- *     KeDelayExecutionThread @ 0x140244840 (KeDelayExecutionThread.c)
- *     FsRtlIsTotalDeviceFailure @ 0x14046DC60 (FsRtlIsTotalDeviceFailure.c)
+ *     KeDelayExecutionThread @ 0x1402461A0 (KeDelayExecutionThread.c)
+ *     FsRtlIsTotalDeviceFailure @ 0x1404673E0 (FsRtlIsTotalDeviceFailure.c)
  */
 
 __int64 __fastcall MiHandleSynchronousFlushError(__int64 a1, NTSTATUS *a2, int a3, _DWORD *a4, _DWORD *a5)

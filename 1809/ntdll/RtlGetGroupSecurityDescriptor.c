@@ -1,27 +1,30 @@
 /*
- * XREFs of RtlGetGroupSecurityDescriptor @ 0x18007FE50
+ * XREFs of RtlGetGroupSecurityDescriptor @ 0x18007FE60
  * Callers:
  *     RtlReplaceSidInSd @ 0x1800E79E0 (RtlReplaceSidInSd.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall RtlGetGroupSecurityDescriptor(__int64 a1, _QWORD *a2, bool *a3)
+NTSTATUS __cdecl RtlGetGroupSecurityDescriptor(
+        PSECURITY_DESCRIPTOR SecurityDescriptor,
+        PSID *Group,
+        PBOOLEAN GroupDefaulted)
 {
-  __int64 v3; // rax
+  char *v3; // rax
 
-  if ( *(_BYTE *)a1 != 1 )
-    return 3221225560LL;
+  if ( *(_BYTE *)SecurityDescriptor != 1 )
+    return -1073741736;
   v3 = 0LL;
-  if ( *(__int16 *)(a1 + 2) >= 0 )
+  if ( *((__int16 *)SecurityDescriptor + 1) >= 0 )
   {
-    v3 = *(_QWORD *)(a1 + 16);
+    v3 = (char *)*((_QWORD *)SecurityDescriptor + 2);
   }
-  else if ( *(_DWORD *)(a1 + 8) )
+  else if ( *((_DWORD *)SecurityDescriptor + 2) )
   {
-    v3 = a1 + *(unsigned int *)(a1 + 8);
+    v3 = (char *)SecurityDescriptor + *((unsigned int *)SecurityDescriptor + 2);
   }
-  *a2 = v3;
-  *a3 = (*(_BYTE *)(a1 + 2) & 2) != 0;
-  return 0LL;
+  *Group = v3;
+  *GroupDefaulted = (*((_BYTE *)SecurityDescriptor + 2) & 2) != 0;
+  return 0;
 }

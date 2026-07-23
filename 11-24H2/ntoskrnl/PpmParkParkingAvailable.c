@@ -1,14 +1,14 @@
 /*
- * XREFs of PpmParkParkingAvailable @ 0x140A723C0
+ * XREFs of PpmParkParkingAvailable @ 0x140A6B7A0
  * Callers:
- *     PpmParkRegisterParking @ 0x1405D9FB4 (PpmParkRegisterParking.c)
- *     PpmParkRegisterParkingEx @ 0x1405E3C90 (PpmParkRegisterParkingEx.c)
- *     PpmCheckReInit @ 0x140A72240 (PpmCheckReInit.c)
- *     PpmParkApplyForcedMask @ 0x140ACAD80 (PpmParkApplyForcedMask.c)
- *     PpmParkClearForcedMask @ 0x140ACAF9C (PpmParkClearForcedMask.c)
+ *     PpmParkRegisterParking @ 0x1405D72D0 (PpmParkRegisterParking.c)
+ *     PpmParkRegisterParkingEx @ 0x1405E1218 (PpmParkRegisterParkingEx.c)
+ *     PpmCheckReInit @ 0x140A6B620 (PpmCheckReInit.c)
+ *     PpmParkApplyForcedMask @ 0x140AC893C (PpmParkApplyForcedMask.c)
+ *     PpmParkClearForcedMask @ 0x140AC8B58 (PpmParkClearForcedMask.c)
  * Callees:
- *     KeIsEmptyAffinityEx @ 0x1403B55D0 (KeIsEmptyAffinityEx.c)
- *     Feature_PpmParkEx__private_IsEnabledDeviceUsageNoInline @ 0x1405B4FB0 (Feature_PpmParkEx__private_IsEnabledDeviceUsageNoInline.c)
+ *     KeIsEmptyAffinityEx @ 0x140371960 (KeIsEmptyAffinityEx.c)
+ *     Feature_PpmParkEx__private_IsEnabledDeviceUsageNoInline @ 0x1405B2224 (Feature_PpmParkEx__private_IsEnabledDeviceUsageNoInline.c)
  */
 
 unsigned __int8 PpmParkParkingAvailable()
@@ -29,7 +29,7 @@ unsigned __int8 PpmParkParkingAvailable()
     goto LABEL_10;
   do
   {
-    v3 = PpmParkNodes + 1288LL * v2;
+    v3 = PpmParkNodes + 1296LL * v2;
     if ( *(_WORD *)(v3 + 1168) || *(_WORD *)(v3 + 1172) )
       goto LABEL_9;
     if ( (unsigned int)Feature_PpmParkEx__private_IsEnabledDeviceUsageNoInline() )
@@ -52,7 +52,7 @@ LABEL_9:
       goto LABEL_25;
     while ( 1 )
     {
-      v5 = *(_QWORD *)(v3 + 1280) + 640LL * v4;
+      v5 = *(_QWORD *)(v3 + 1288) + 640LL * v4;
       if ( *(_WORD *)v5 )
         break;
 LABEL_22:

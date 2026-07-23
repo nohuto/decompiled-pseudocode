@@ -1,10 +1,10 @@
 /*
- * XREFs of ExConvertFastResourceExclusiveToShared @ 0x1403D6EE0
+ * XREFs of ExConvertFastResourceExclusiveToShared @ 0x1402F01A0
  * Callers:
- *     DifExConvertFastResourceExclusiveToSharedWrapper @ 0x14061D110 (DifExConvertFastResourceExclusiveToSharedWrapper.c)
+ *     DifExConvertFastResourceExclusiveToSharedWrapper @ 0x14061B6D0 (DifExConvertFastResourceExclusiveToSharedWrapper.c)
  * Callees:
- *     ExpConvertFastResourceExclusiveToShared @ 0x1403D75C8 (ExpConvertFastResourceExclusiveToShared.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
+ *     ExpConvertFastResourceExclusiveToShared @ 0x1402F10A8 (ExpConvertFastResourceExclusiveToShared.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall ExConvertFastResourceExclusiveToShared(ULONG_PTR BugCheckParameter2, __int64 a2)

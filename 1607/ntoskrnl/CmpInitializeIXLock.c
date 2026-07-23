@@ -1,7 +1,7 @@
 /*
- * XREFs of CmpInitializeIXLock @ 0x140581878
+ * XREFs of CmpInitializeIXLock @ 0x140581D28
  * Callers:
- *     CmpCloneToUnbackedKcb @ 0x1401B484C (CmpCloneToUnbackedKcb.c)
+ *     CmpCloneToUnbackedKcb @ 0x1401B4730 (CmpCloneToUnbackedKcb.c)
  * Callees:
  *     <none>
  */

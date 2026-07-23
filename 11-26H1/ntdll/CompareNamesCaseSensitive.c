@@ -1,11 +1,11 @@
 /*
- * XREFs of CompareNamesCaseSensitive @ 0x18013C688
+ * XREFs of CompareNamesCaseSensitive @ 0x18013C548
  * Callers:
- *     PfxFindPrefix @ 0x18013C8E0 (PfxFindPrefix.c)
- *     PfxInsertPrefix @ 0x18013C9E0 (PfxInsertPrefix.c)
+ *     PfxFindPrefix @ 0x18013C790 (PfxFindPrefix.c)
+ *     PfxInsertPrefix @ 0x18013C890 (PfxInsertPrefix.c)
  * Callees:
- *     RtlpIsUtf8Process @ 0x1800832B0 (RtlpIsUtf8Process.c)
- *     RtlCompareMemory @ 0x1801631E0 (RtlCompareMemory.c)
+ *     RtlpIsUtf8Process @ 0x18007A650 (RtlpIsUtf8Process.c)
+ *     RtlCompareMemory @ 0x1801630E0 (RtlCompareMemory.c)
  */
 
 __int64 __fastcall CompareNamesCaseSensitive(__int64 a1, __int64 a2)
@@ -37,8 +37,8 @@ __int64 __fastcall CompareNamesCaseSensitive(__int64 a1, __int64 a2)
   if ( !RtlpIsUtf8Process() )
   {
     _InterlockedOr(v24, 0);
-    v5 = qword_1801C6020;
-    v4 = word_1801C5F9C != 0;
+    v5 = qword_1801C5020;
+    v4 = GlobalRtlNlsState.DBCSCodePage != 0;
   }
   v9 = *v7;
   v10 = *v8;

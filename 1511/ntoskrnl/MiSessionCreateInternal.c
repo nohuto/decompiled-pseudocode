@@ -42,8 +42,8 @@ __int64 __fastcall MiSessionCreateInternal(unsigned int *a1)
   ULONG ClearBitsAndSet; // eax
   int v9; // ecx
   unsigned int v10; // esi
-  struct _RTL_BITMAP *PoolWithTag; // rax
-  struct _RTL_BITMAP *v12; // r14
+  _RTL_BITMAP *PoolWithTag; // rax
+  _RTL_BITMAP *v12; // r14
   unsigned __int64 v13; // r8
   ULONG_PTR v14; // rax
   _QWORD *v15; // r14
@@ -81,7 +81,7 @@ __int64 __fastcall MiSessionCreateInternal(unsigned int *a1)
     if ( v10 > 0x7FFFF )
       v10 = 0x7FFFF;
     LOBYTE(v9) = (v10 & 0x3F) != 0;
-    PoolWithTag = (struct _RTL_BITMAP *)ExAllocatePoolWithTag(PagedPool, 8 * (v9 + (v10 >> 6)) + 16, 0x20206D4Du);
+    PoolWithTag = (_RTL_BITMAP *)ExAllocatePoolWithTag(PagedPool, 8 * (v9 + (v10 >> 6)) + 16, 0x20206D4Du);
     v12 = PoolWithTag;
     if ( !PoolWithTag )
       goto LABEL_27;
@@ -116,7 +116,7 @@ __int64 __fastcall MiSessionCreateInternal(unsigned int *a1)
         *(_QWORD *)v16 = 1LL;
         *(_DWORD *)(v16 + 8) = *a1;
         *(_DWORD *)(v16 + 112) = PsDefaultSystemLocaleId;
-        *(_QWORD *)(v16 + 7992) = KeQueryInterruptTimePrecise(v1 + 2);
+        *(LARGE_INTEGER *)(v16 + 7992) = KeQueryInterruptTimePrecise(v1 + 2);
         PdeAddress = (__int64 *)MiGetPdeAddress(0xFFFFF90000000000uLL);
         v1->QuadPart = MI_READ_PTE_LOCK_FREE(PdeAddress);
         v21 = MI_READ_PTE_LOCK_FREE((__int64 *)((unsigned __int64)v28 & 0xFFFFFFFFFFFFFFE0uLL));

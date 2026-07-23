@@ -1,10 +1,10 @@
 /*
- * XREFs of PopUserShutdownCalloutDelayTimerWorker @ 0x140754280
+ * XREFs of PopUserShutdownCalloutDelayTimerWorker @ 0x1407525A0
  * Callers:
  *     <none>
  * Callees:
- *     SleepstudyHelperBlockerActiveDereference @ 0x14044DC00 (SleepstudyHelperBlockerActiveDereference.c)
- *     PdcTaskClientRequest @ 0x140A8B894 (PdcTaskClientRequest.c)
+ *     SleepstudyHelperBlockerActiveDereference @ 0x140444B00 (SleepstudyHelperBlockerActiveDereference.c)
+ *     PdcTaskClientRequest @ 0x140A87D84 (PdcTaskClientRequest.c)
  */
 
 __int64 PopUserShutdownCalloutDelayTimerWorker()
@@ -18,7 +18,7 @@ __int64 PopUserShutdownCalloutDelayTimerWorker()
     PdcTaskClientRequest(PopUserShutdownTaskClient, 0LL);
     if ( PopUserShutdownPoBlockerHandle )
       SleepstudyHelperBlockerActiveDereference(PopUserShutdownPoBlockerHandle);
-    v0 = _InterlockedExchangeAdd(&dword_140F0C268, 0xFFFFFFFF);
+    v0 = _InterlockedExchangeAdd(&dword_140F0C5C8, 0xFFFFFFFF);
     v1 = v0 <= 1;
     result = (unsigned int)(v0 - 1);
   }

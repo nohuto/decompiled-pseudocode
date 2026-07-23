@@ -1,14 +1,14 @@
 /*
- * XREFs of PfCalculateProcessHash @ 0x140666FA0
+ * XREFs of PfCalculateProcessHash @ 0x140668160
  * Callers:
- *     PfProcessCreateNotification @ 0x140666B5C (PfProcessCreateNotification.c)
- *     PfSnBeginAppLaunch @ 0x140666BF4 (PfSnBeginAppLaunch.c)
- *     PfSnOperationProcess @ 0x1406CF864 (PfSnOperationProcess.c)
+ *     PfProcessCreateNotification @ 0x140667D1C (PfProcessCreateNotification.c)
+ *     PfSnBeginAppLaunch @ 0x140667DB4 (PfSnBeginAppLaunch.c)
+ *     PfSnOperationProcess @ 0x1406D0B04 (PfSnOperationProcess.c)
  * Callees:
- *     PfpLogApplicationEvent @ 0x1400D8498 (PfpLogApplicationEvent.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     RtlUpcaseUnicodeString @ 0x14064B0A0 (RtlUpcaseUnicodeString.c)
- *     PsGetAllocatedFullProcessImageName @ 0x1406671F8 (PsGetAllocatedFullProcessImageName.c)
+ *     PfpLogApplicationEvent @ 0x1400D8518 (PfpLogApplicationEvent.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     RtlUpcaseUnicodeString @ 0x14064C260 (RtlUpcaseUnicodeString.c)
+ *     PsGetAllocatedFullProcessImageName @ 0x1406683B8 (PsGetAllocatedFullProcessImageName.c)
  */
 
 __int64 __fastcall PfCalculateProcessHash(__int64 a1, unsigned __int64 a2)

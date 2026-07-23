@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlEnumProcessHeaps @ 0x1800E9030
+ * XREFs of RtlEnumProcessHeaps @ 0x1800E90F0
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall RtlEnumProcessHeaps(__int64 a1, __int64 a2)
+NTSTATUS __cdecl RtlEnumProcessHeaps(PRTL_ENUM_HEAPS_ROUTINE EnumRoutine, PVOID Parameter)
 {
-  return RtlpEnumProcessHeaps(a1, a2, 0);
+  return RtlpEnumProcessHeaps((__int64)EnumRoutine, (__int64)Parameter, 0);
 }

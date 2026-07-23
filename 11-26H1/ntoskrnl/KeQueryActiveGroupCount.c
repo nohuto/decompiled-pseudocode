@@ -1,15 +1,15 @@
 /*
- * XREFs of KeQueryActiveGroupCount @ 0x1404BB3D0
+ * XREFs of KeQueryActiveGroupCount @ 0x1404B4BB0
  * Callers:
- *     NtSetInformationCpuPartition @ 0x1407F20D0 (NtSetInformationCpuPartition.c)
- *     NtSetInformationJobObject @ 0x1407F4C70 (NtSetInformationJobObject.c)
- *     EtwpProcessorRundown @ 0x14082FBE8 (EtwpProcessorRundown.c)
- *     ExpNodeInitialize @ 0x14083F9C0 (ExpNodeInitialize.c)
- *     PspAllocateProcess @ 0x140964C24 (PspAllocateProcess.c)
- *     NtPowerInformation @ 0x1409DE3E0 (NtPowerInformation.c)
- *     PsCreateSystemThreadEx @ 0x140A03170 (PsCreateSystemThreadEx.c)
- *     IopConnectInterrupt @ 0x140A98890 (IopConnectInterrupt.c)
- *     ExpQuerySystemInformation @ 0x140B145DC (ExpQuerySystemInformation.c)
+ *     NtSetInformationCpuPartition @ 0x1407F7C30 (NtSetInformationCpuPartition.c)
+ *     NtSetInformationJobObject @ 0x1407FA7D0 (NtSetInformationJobObject.c)
+ *     EtwpProcessorRundown @ 0x140835E28 (EtwpProcessorRundown.c)
+ *     ExpNodeInitialize @ 0x140845C00 (ExpNodeInitialize.c)
+ *     NtPowerInformation @ 0x140A1B510 (NtPowerInformation.c)
+ *     PsCreateSystemThreadEx @ 0x140A78DE0 (PsCreateSystemThreadEx.c)
+ *     IopConnectInterrupt @ 0x140A9CA10 (IopConnectInterrupt.c)
+ *     ExpQuerySystemInformation @ 0x140B169CC (ExpQuerySystemInformation.c)
+ *     PspAllocateProcess @ 0x140B7E8A8 (PspAllocateProcess.c)
  * Callees:
  *     <none>
  */

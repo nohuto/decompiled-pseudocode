@@ -1,16 +1,16 @@
 /*
- * XREFs of ExRemovePoolTag @ 0x1403C380C
+ * XREFs of ExRemovePoolTag @ 0x1403C39EC
  * Callers:
- *     MmFreeContiguousMemory @ 0x1403C3600 (MmFreeContiguousMemory.c)
+ *     MmFreeContiguousMemory @ 0x1403C37E0 (MmFreeContiguousMemory.c)
  * Callees:
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402A7C00 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     ExpPoolTrackerReturnLimit @ 0x1402AC350 (ExpPoolTrackerReturnLimit.c)
- *     ExpFreePoolChecks @ 0x1402AC3A0 (ExpFreePoolChecks.c)
- *     ExAcquireSpinLockShared @ 0x140314620 (ExAcquireSpinLockShared.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     ExpRemovePoolTrackerExpansion @ 0x14046B19A (ExpRemovePoolTrackerExpansion.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     EtwTracePool @ 0x1405FD190 (EtwTracePool.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402A7E90 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     ExpPoolTrackerReturnLimit @ 0x1402AC5E0 (ExpPoolTrackerReturnLimit.c)
+ *     ExpFreePoolChecks @ 0x1402AC630 (ExpFreePoolChecks.c)
+ *     ExAcquireSpinLockShared @ 0x1403148B0 (ExAcquireSpinLockShared.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
+ *     ExpRemovePoolTrackerExpansion @ 0x14046B59A (ExpRemovePoolTrackerExpansion.c)
+ *     EtwTracePool @ 0x1405FD700 (EtwTracePool.c)
  */
 
 __int64 __fastcall ExRemovePoolTag(ULONG_PTR BugCheckParameter2, unsigned int *a2, __int64 *a3, int *a4)
@@ -89,10 +89,13 @@ LABEL_20:
   _InterlockedAdd(&ExpPoolBigEntriesInUse, 0xFFFFFFFF);
   _InterlockedIncrement64((volatile signed __int64 *)v14);
   ExReleaseSpinLockSharedFromDpcLevel(&ExpLargePoolTableLock);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v10 <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
+      && (unsigned __int8)v10 <= 0xFu
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       v32 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v10 + 1));

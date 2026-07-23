@@ -10,15 +10,15 @@
  *     KiRemoveSystemWorkPriorityKick @ 0x1403EDAA4 (KiRemoveSystemWorkPriorityKick.c)
  */
 
-__int64 __fastcall IopFindDiskIoAttribution(__int64 a1)
+unsigned __int64 __fastcall IopFindDiskIoAttribution(__int64 a1)
 {
-  __int64 v1; // rbp
+  unsigned __int64 v1; // rbp
   KIRQL v2; // al
-  __int64 v3; // rbx
+  unsigned __int64 Root; // rbx
   unsigned __int64 v4; // rsi
   int v5; // edi
   int v6; // eax
-  __int64 v7; // rax
+  unsigned __int64 v7; // rax
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
@@ -29,36 +29,36 @@ __int64 __fastcall IopFindDiskIoAttribution(__int64 a1)
   v14 = a1;
   v1 = 0LL;
   v2 = ExAcquireSpinLockShared(&IopDiskIoAttributionLock);
-  v3 = IopDiskIoAttributionTree;
+  Root = (unsigned __int64)IopDiskIoAttributionTree.Root;
   v4 = v2;
-  if ( (BYTE8(IopDiskIoAttributionTree) & 1) != 0 && (_QWORD)IopDiskIoAttributionTree )
-    v3 = (unsigned __int64)&IopDiskIoAttributionTree ^ IopDiskIoAttributionTree;
-  v5 = BYTE8(IopDiskIoAttributionTree) & 1;
-  if ( v3 )
+  if ( (*(_BYTE *)&IopDiskIoAttributionTree.0 & 1) != 0 && IopDiskIoAttributionTree.Root )
+    Root = (unsigned __int64)&IopDiskIoAttributionTree ^ (unsigned __int64)IopDiskIoAttributionTree.Root;
+  v5 = *(_BYTE *)&IopDiskIoAttributionTree.0 & 1;
+  if ( Root )
   {
     do
     {
-      v6 = IopDiskIoAttributionTreeCompare(&v14, v3);
+      v6 = IopDiskIoAttributionTreeCompare(&v14, Root);
       if ( v6 >= 0 )
       {
         if ( v6 <= 0 )
           break;
-        v7 = *(_QWORD *)(v3 + 8);
+        v7 = *(_QWORD *)(Root + 8);
       }
       else
       {
-        v7 = *(_QWORD *)v3;
+        v7 = *(_QWORD *)Root;
       }
       if ( v5 && v7 )
-        v3 ^= v7;
+        Root ^= v7;
       else
-        v3 = v7;
+        Root = v7;
     }
-    while ( v3 );
-    if ( v3 )
+    while ( Root );
+    if ( Root )
     {
-      v1 = v3;
-      if ( _InterlockedIncrement64((volatile signed __int64 *)(v3 + 32)) <= 1 )
+      v1 = Root;
+      if ( _InterlockedIncrement64((volatile signed __int64 *)(Root + 32)) <= 1 )
         __fastfail(0xEu);
     }
   }

@@ -1,5 +1,5 @@
 /*
- * XREFs of RtlAreAllAccessesGranted @ 0x1404C2B84
+ * XREFs of RtlAreAllAccessesGranted @ 0x1404AE8B4
  * Callers:
  *     <none>
  * Callees:

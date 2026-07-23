@@ -1,17 +1,17 @@
 /*
- * XREFs of ExpInitializeSvm @ 0x140C43304
+ * XREFs of ExpInitializeSvm @ 0x140C45454
  * Callers:
- *     ExpInitSystemPhase1 @ 0x140C40A64 (ExpInitSystemPhase1.c)
+ *     ExpInitSystemPhase1 @ 0x140C42BB4 (ExpInitSystemPhase1.c)
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 PVOID *ExpInitializeSvm()
 {
   unsigned int v0; // r8d
   bool v1; // zf
-  ULONG_PTR Pool2; // rax
+  __int64 Pool2; // rax
   char *v3; // rdx
   unsigned int v4; // r9d
   __int64 v5; // rax
@@ -21,7 +21,7 @@ PVOID *ExpInitializeSvm()
   unsigned int v9; // [rsp+40h] [rbp+8h] BYREF
 
   v9 = 0;
-  guard_dispatch_icall_no_overrides(0LL, &v9, &ExpSvmAgents, &ExpSvmIommuSystemContext);
+  guard_dispatch_icall_no_overrides(0LL, &v9);
   v0 = v9;
   v1 = v9 == 1;
   if ( v9 > 1 )
@@ -68,9 +68,9 @@ LABEL_9:
   v7[14] = ExpSvmDereferenceAsid;
   v7[15] = ExpSvmServicePageFault;
   result = &ExpAtsSvmDevices;
-  qword_140EFA468 = (__int64)&ExpAtsSvmDevices;
+  qword_140EFA788 = (__int64)&ExpAtsSvmDevices;
   ExpAtsSvmDevices = &ExpAtsSvmDevices;
-  qword_140EFA458 = 0LL;
+  qword_140EFA6D8 = 0LL;
   ExpAtsSvmDeviceListLock = 0LL;
   return result;
 }

@@ -6,7 +6,7 @@
  *     <none>
  */
 
-__int64 __fastcall RtlNumberGenericTableElementsAvl(__int64 a1)
+ULONG __cdecl RtlNumberGenericTableElementsAvl(PRTL_AVL_TABLE Table)
 {
-  return *(unsigned int *)(a1 + 44);
+  return Table->NumberGenericTableElements;
 }

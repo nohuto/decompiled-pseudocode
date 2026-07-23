@@ -1,9 +1,9 @@
 /*
- * XREFs of _ultoa_s @ 0x1801329D0
+ * XREFs of _ultoa_s @ 0x180132740
  * Callers:
  *     <none>
  * Callees:
- *     xtoa_s @ 0x180132B2C (xtoa_s.c)
+ *     xtoa_s @ 0x18013289C (xtoa_s.c)
  */
 
 errno_t __cdecl ultoa_s(unsigned int Value, char *Buffer, size_t BufferCount, int Radix)

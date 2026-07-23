@@ -1,9 +1,11 @@
 /*
- * XREFs of SshSessionManagerTracePreSleepNotification @ 0x140B729AC
+ * XREFs of SshSessionManagerTracePreSleepNotification @ 0x140B77BD0
  * Callers:
- *     PopDiagTracePreSleepNotification @ 0x1407D4844 (PopDiagTracePreSleepNotification.c)
+ *     PopDiagTracePreSleepNotification @ 0x1407D79C4 (PopDiagTracePreSleepNotification.c)
  * Callees:
- *     SshpSessionManagerSendControlEvent @ 0x140B2FF48 (SshpSessionManagerSendControlEvent.c)
+ *     Feature_NU4MP__private_IsEnabledDeviceUsageNoInline @ 0x140602F80 (Feature_NU4MP__private_IsEnabledDeviceUsageNoInline.c)
+ *     SshpSessionManagerTracePreSleepNotificationV1 @ 0x1407E9CD0 (SshpSessionManagerTracePreSleepNotificationV1.c)
+ *     SshpSessionManagerSendControlEvent @ 0x140B31D28 (SshpSessionManagerSendControlEvent.c)
  */
 
 void __fastcall SshSessionManagerTracePreSleepNotification(
@@ -14,88 +16,95 @@ void __fastcall SshSessionManagerTracePreSleepNotification(
         char a5,
         char a6,
         __int64 a7,
-        char a8)
+        char a8,
+        char a9)
 {
-  __int64 v8; // rdx
   int v9; // ecx
   int v10; // r8d
   struct _KLOCK_ENTRIES *v11; // r9
   __int64 v12; // rax
-  int v13; // [rsp+28h] [rbp-99h] BYREF
-  int v14; // [rsp+2Ch] [rbp-95h] BYREF
-  __int64 v15; // [rsp+30h] [rbp-91h] BYREF
-  _QWORD v16[21]; // [rsp+38h] [rbp-89h] BYREF
-  int v17; // [rsp+E0h] [rbp+1Fh]
-  int v18; // [rsp+E4h] [rbp+23h]
-  char *v19; // [rsp+E8h] [rbp+27h]
-  __int64 v20; // [rsp+F0h] [rbp+2Fh]
-  int v21; // [rsp+108h] [rbp+47h] BYREF
-  int v22; // [rsp+110h] [rbp+4Fh] BYREF
-  int v23; // [rsp+118h] [rbp+57h] BYREF
-  int v24; // [rsp+120h] [rbp+5Fh] BYREF
+  int v13; // [rsp+58h] [rbp-B0h] BYREF
+  int v14; // [rsp+5Ch] [rbp-ACh] BYREF
+  int v15; // [rsp+60h] [rbp-A8h] BYREF
+  int v16; // [rsp+64h] [rbp-A4h] BYREF
+  _QWORD v17[21]; // [rsp+68h] [rbp-A0h] BYREF
+  int v18; // [rsp+110h] [rbp+8h]
+  int v19; // [rsp+114h] [rbp+Ch]
+  char *v20; // [rsp+118h] [rbp+10h]
+  __int64 v21; // [rsp+120h] [rbp+18h]
+  int v22; // [rsp+138h] [rbp+30h] BYREF
+  int v23; // [rsp+140h] [rbp+38h] BYREF
+  int v24; // [rsp+148h] [rbp+40h] BYREF
+  int v25; // [rsp+150h] [rbp+48h] BYREF
 
-  v24 = a4;
-  v23 = a3;
-  v22 = a2;
-  v21 = a1;
-  v8 = a7;
-  v16[0] = &v21;
-  v16[1] = 4LL;
-  v16[2] = &v22;
-  v16[4] = &v23;
-  v16[6] = &v24;
-  v16[8] = &a5;
-  v16[10] = &a6;
-  v16[3] = 4LL;
-  v16[5] = 4LL;
-  v16[7] = 4LL;
-  v16[9] = 4LL;
-  v16[11] = 1LL;
-  if ( a7 )
+  v25 = a4;
+  v24 = a3;
+  v23 = a2;
+  v22 = a1;
+  if ( (unsigned int)Feature_NU4MP__private_IsEnabledDeviceUsageNoInline() )
   {
-    LODWORD(a7) = *(_DWORD *)(a7 + 8);
-    if ( (_DWORD)a7 )
+    SshpSessionManagerTracePreSleepNotificationV1(v22, v23, v24, v25, a5, a6, a7, a8, a9);
+  }
+  else
+  {
+    v17[0] = &v22;
+    v17[2] = &v23;
+    v17[4] = &v24;
+    v17[6] = &v25;
+    v17[8] = &a5;
+    v17[10] = &a6;
+    v17[1] = 4LL;
+    v17[3] = 4LL;
+    v17[5] = 4LL;
+    v17[7] = 4LL;
+    v17[9] = 4LL;
+    v17[11] = 1LL;
+    if ( a7 )
     {
-      v9 = *(_DWORD *)(v8 + 28);
-      v10 = *(_DWORD *)(v8 + 24);
+      v13 = *(_DWORD *)(a7 + 8);
+      if ( v13 )
+      {
+        v9 = *(_DWORD *)(a7 + 28);
+        v10 = *(_DWORD *)(a7 + 24);
+      }
+      else
+      {
+        v9 = -1;
+        v10 = -1;
+      }
+      v11 = (struct _KLOCK_ENTRIES *)(a7 + *(_QWORD *)(a7 + 16));
     }
     else
     {
       v9 = -1;
+      v11 = (struct _KLOCK_ENTRIES *)&cchOriginalDestLength;
+      v13 = -1;
       v10 = -1;
     }
-    v11 = (struct _KLOCK_ENTRIES *)(v8 + *(_QWORD *)(v8 + 16));
+    v14 = v10;
+    v17[12] = &v13;
+    v17[14] = &v14;
+    v17[16] = &v15;
+    v12 = -1LL;
+    v15 = v9;
+    v17[13] = 4LL;
+    v17[15] = 4LL;
+    v17[17] = 4LL;
+    do
+      ++v12;
+    while ( *((_WORD *)&v11->Thread + v12) );
+    v16 = v12;
+    v17[18] = &v16;
+    v18 = 2 * v12;
+    v17[19] = 4LL;
+    v20 = &a8;
+    v17[20] = v11;
+    v19 = 0;
+    v21 = 1LL;
+    SshpSessionManagerSendControlEvent(
+      (__int64)SLEEPSTUDY_EVT_PRE_SLEEP_NOTIFICATION_CONTROL_EVENT_V4,
+      0xCu,
+      (__int64)v17,
+      v11);
   }
-  else
-  {
-    v9 = -1;
-    v11 = (struct _KLOCK_ENTRIES *)&cchOriginalDestLength;
-    LODWORD(a7) = -1;
-    v10 = -1;
-  }
-  v13 = v10;
-  v16[12] = &a7;
-  v16[14] = &v13;
-  v16[16] = &v14;
-  v12 = -1LL;
-  v14 = v9;
-  v16[13] = 4LL;
-  v16[15] = 4LL;
-  v16[17] = 4LL;
-  do
-    ++v12;
-  while ( *((_WORD *)&v11->Thread + v12) );
-  LODWORD(v15) = v12;
-  v16[18] = &v15;
-  v17 = 2 * v12;
-  v16[19] = 4LL;
-  v19 = &a8;
-  v16[20] = v11;
-  v18 = 0;
-  v20 = 1LL;
-  SshpSessionManagerSendControlEvent(
-    (__int64)SLEEPSTUDY_EVT_PRE_SLEEP_NOTIFICATION_CONTROL_EVENT,
-    0xCu,
-    (__int64)v16,
-    v11);
 }

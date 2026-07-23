@@ -1,21 +1,21 @@
 /*
- * XREFs of RtlLengthSidAsUnicodeString @ 0x140676DD8
+ * XREFs of RtlLengthSidAsUnicodeString @ 0x14066A4A8
  * Callers:
- *     RtlFormatCurrentUserKeyPath @ 0x140676CD0 (RtlFormatCurrentUserKeyPath.c)
- *     ExpWnfGetPermanentPerUserDataStoreHandle @ 0x14095CD2C (ExpWnfGetPermanentPerUserDataStoreHandle.c)
- *     AdtpBuildSidListString @ 0x14096DB54 (AdtpBuildSidListString.c)
+ *     RtlFormatCurrentUserKeyPath @ 0x14066A3A0 (RtlFormatCurrentUserKeyPath.c)
+ *     ExpWnfGetPermanentPerUserDataStoreHandle @ 0x14095CEEC (ExpWnfGetPermanentPerUserDataStoreHandle.c)
+ *     AdtpBuildSidListString @ 0x14096DD34 (AdtpBuildSidListString.c)
  * Callees:
- *     RtlValidSid @ 0x14065C720 (RtlValidSid.c)
+ *     RtlValidSid @ 0x140651540 (RtlValidSid.c)
  */
 
-__int64 __fastcall RtlLengthSidAsUnicodeString(unsigned __int8 *a1, _DWORD *a2)
+NTSTATUS __cdecl RtlLengthSidAsUnicodeString(PSID Sid, PULONG StringLength)
 {
   int v4; // edx
 
-  if ( RtlValidSid(a1) != 1 )
-    return 3221225592LL;
-  if ( a1[2] || (v4 = 28, a1[3]) )
+  if ( RtlValidSid(Sid) != 1 )
+    return -1073741704;
+  if ( *((_BYTE *)Sid + 2) || (v4 = 28, *((_BYTE *)Sid + 3)) )
     v4 = 36;
-  *a2 = v4 + 22 * a1[1];
-  return 0LL;
+  *StringLength = v4 + 22 * *((unsigned __int8 *)Sid + 1);
+  return 0;
 }

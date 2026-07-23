@@ -1,16 +1,16 @@
 /*
- * XREFs of MiScrubNodeLargePages @ 0x14085F6F4
+ * XREFs of MiScrubNodeLargePages @ 0x140860954
  * Callers:
- *     MiScrubNode @ 0x1402CF6C8 (MiScrubNode.c)
+ *     MiScrubNode @ 0x1402CF8B8 (MiScrubNode.c)
  * Callees:
  *     MiInitializePageColorBase @ 0x14002C4C0 (MiInitializePageColorBase.c)
  *     MiGetNextPageColor @ 0x140031260 (MiGetNextPageColor.c)
- *     MiDeleteUltraThreadContext @ 0x1400E180C (MiDeleteUltraThreadContext.c)
- *     MiCreateUltraThreadContext @ 0x14013CAE4 (MiCreateUltraThreadContext.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     MiGetLargePageListHeadBase @ 0x1402CC918 (MiGetLargePageListHeadBase.c)
- *     MiScrubNodeLargePageList @ 0x1402CCB90 (MiScrubNodeLargePageList.c)
+ *     MiDeleteUltraThreadContext @ 0x1400E188C (MiDeleteUltraThreadContext.c)
+ *     MiCreateUltraThreadContext @ 0x14013CBE4 (MiCreateUltraThreadContext.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     MiGetLargePageListHeadBase @ 0x1402CCB08 (MiGetLargePageListHeadBase.c)
+ *     MiScrubNodeLargePageList @ 0x1402CCD80 (MiScrubNodeLargePageList.c)
  */
 
 __int64 __fastcall MiScrubNodeLargePages(__int64 a1, __int64 a2, unsigned int a3, __int64 a4)
@@ -80,7 +80,7 @@ __int64 __fastcall MiScrubNodeLargePages(__int64 a1, __int64 a2, unsigned int a3
     if ( (_DWORD)result )
     {
       v15 = 0;
-      v16 = dword_14043A100;
+      v16 = dword_14043B1C0;
       v17 = (_QWORD *)v8;
       do
       {
@@ -94,7 +94,7 @@ __int64 __fastcall MiScrubNodeLargePages(__int64 a1, __int64 a2, unsigned int a3
             {
               if ( !i && !v13 )
               {
-                _InterlockedIncrement(&dword_14043AED0);
+                _InterlockedIncrement(&dword_14043BF90);
                 v25 = 1;
               }
               for ( j = 0; j < MmNumberOfChannels; ++j )
@@ -131,7 +131,7 @@ __int64 __fastcall MiScrubNodeLargePages(__int64 a1, __int64 a2, unsigned int a3
       while ( v15 < 3 );
 LABEL_26:
       if ( v25 == 1 )
-        _InterlockedDecrement(&dword_14043AED0);
+        _InterlockedDecrement(&dword_14043BF90);
       return MiDeleteUltraThreadContext((__int64)v36);
     }
   }

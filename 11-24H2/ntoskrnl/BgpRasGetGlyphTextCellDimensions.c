@@ -1,10 +1,10 @@
 /*
- * XREFs of BgpRasGetGlyphTextCellDimensions @ 0x14069AC50
+ * XREFs of BgpRasGetGlyphTextCellDimensions @ 0x14069BCD0
  * Callers:
- *     BgpTxtDisplayCharacter @ 0x140472A28 (BgpTxtDisplayCharacter.c)
- *     BgpFoGetTextMetrics @ 0x1404D99D0 (BgpFoGetTextMetrics.c)
+ *     BgpTxtDisplayCharacter @ 0x14046ECF8 (BgpTxtDisplayCharacter.c)
+ *     BgpFoGetTextMetrics @ 0x1404D344C (BgpFoGetTextMetrics.c)
  * Callees:
- *     BgpFmRoundUp @ 0x1404671A8 (BgpFmRoundUp.c)
+ *     BgpFmRoundUp @ 0x14045EB04 (BgpFmRoundUp.c)
  */
 
 __int64 __fastcall BgpRasGetGlyphTextCellDimensions(__int64 a1, _DWORD *a2, _DWORD *a3)

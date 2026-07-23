@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlXSaveS @ 0x1403D45AC
+ * XREFs of RtlXSaveS @ 0x1403D757C
  * Callers:
- *     KiSaveExtendedAndSupervisorState @ 0x1403D4130 (KiSaveExtendedAndSupervisorState.c)
- *     KeSaveSupervisorState @ 0x1405ECAD4 (KeSaveSupervisorState.c)
- *     PspGetContext @ 0x140A321C0 (PspGetContext.c)
+ *     KiSaveExtendedAndSupervisorState @ 0x1403D7100 (KiSaveExtendedAndSupervisorState.c)
+ *     KeSaveSupervisorState @ 0x1405EF444 (KeSaveSupervisorState.c)
+ *     PspGetContext @ 0x140A4D120 (PspGetContext.c)
  * Callees:
- *     RtlpLocateExtendedOrSupervisorFeature @ 0x1403D4CB0 (RtlpLocateExtendedOrSupervisorFeature.c)
- *     RtlXSave @ 0x1403D4DC0 (RtlXSave.c)
+ *     RtlpLocateExtendedOrSupervisorFeature @ 0x1403D7C80 (RtlpLocateExtendedOrSupervisorFeature.c)
+ *     RtlXSave @ 0x1403D7D90 (RtlXSave.c)
  */
 
 __int64 __fastcall RtlXSaveS(__int64 _RCX, __int64 a2)

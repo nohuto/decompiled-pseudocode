@@ -1,7 +1,7 @@
 /*
- * XREFs of IopLiveDumpGetExtraMergePages @ 0x1405CFBD4
+ * XREFs of IopLiveDumpGetExtraMergePages @ 0x1405D23E4
  * Callers:
- *     IopLiveDumpWriteDumpFileWithExtraPages @ 0x1405D304C (IopLiveDumpWriteDumpFileWithExtraPages.c)
+ *     IopLiveDumpWriteDumpFileWithExtraPages @ 0x1405D583C (IopLiveDumpWriteDumpFileWithExtraPages.c)
  * Callees:
  *     <none>
  */

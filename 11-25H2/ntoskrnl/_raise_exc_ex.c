@@ -10,9 +10,16 @@
  *     __security_check_cookie @ 0x14069A6F0 (__security_check_cookie.c)
  */
 
-__int64 __fastcall raise_exc_ex(ULONG_PTR a1, unsigned __int64 *a2, char a3, int a4, _DWORD *a5, _DWORD *a6, int a7)
+__int64 __fastcall raise_exc_ex(
+        unsigned __int64 a1,
+        unsigned __int64 *a2,
+        char a3,
+        int a4,
+        _DWORD *a5,
+        _DWORD *a6,
+        int a7)
 {
-  unsigned int v10; // ebp
+  int v10; // ebp
   int v11; // ecx
   int v12; // eax
   int v13; // edx
@@ -20,14 +27,7 @@ __int64 __fastcall raise_exc_ex(ULONG_PTR a1, unsigned __int64 *a2, char a3, int
   char v15; // al
   __int64 v16; // rax
   __int64 result; // rax
-  ULONG_PTR v18[5]; // [rsp+20h] [rbp-D8h] BYREF
-  __int128 v19; // [rsp+48h] [rbp-B0h]
-  __int128 v20; // [rsp+58h] [rbp-A0h]
-  __int128 v21; // [rsp+68h] [rbp-90h]
-  __int128 v22; // [rsp+78h] [rbp-80h]
-  __int128 v23; // [rsp+88h] [rbp-70h]
-  __int128 v24; // [rsp+98h] [rbp-60h]
-  __int128 v25; // [rsp+A8h] [rbp-50h]
+  EXCEPTION_RECORD ExceptionRecord; // [rsp+20h] [rbp-D8h] BYREF
 
   *(_QWORD *)(a1 + 4) = 0LL;
   *(_DWORD *)(a1 + 12) = 0;
@@ -113,19 +113,14 @@ __int64 __fastcall raise_exc_ex(ULONG_PTR a1, unsigned __int64 *a2, char a3, int
     *(_QWORD *)(a1 + 80) = *(_QWORD *)a6;
   }
   clrfp();
-  v18[3] = 1LL;
-  v18[0] = v10;
-  v18[2] = (ULONG_PTR)RaiseException;
-  v19 = 0LL;
-  v20 = 0LL;
-  v18[1] = 0LL;
-  v21 = 0LL;
-  v18[4] = a1;
-  v22 = 0LL;
-  v23 = 0LL;
-  v24 = 0LL;
-  v25 = 0LL;
-  RtlRaiseException((ULONG_PTR)v18);
+  *(_QWORD *)&ExceptionRecord.NumberParameters = 1LL;
+  ExceptionRecord.ExceptionCode = v10;
+  ExceptionRecord.ExceptionAddress = RaiseException;
+  memset(&ExceptionRecord.ExceptionInformation[1], 0, 112);
+  ExceptionRecord.ExceptionFlags = 0;
+  ExceptionRecord.ExceptionRecord = 0LL;
+  ExceptionRecord.ExceptionInformation[0] = a1;
+  RtlRaiseException(&ExceptionRecord);
   if ( (*(_DWORD *)(a1 + 8) & 0x10) != 0 )
     *a2 &= ~0x80uLL;
   if ( (*(_DWORD *)(a1 + 8) & 8) != 0 )

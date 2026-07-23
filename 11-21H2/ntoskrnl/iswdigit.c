@@ -1,12 +1,12 @@
 /*
  * XREFs of iswdigit @ 0x1403E1BF0
  * Callers:
- *     PfSnParsePrefetchParam @ 0x1407DC794 (PfSnParsePrefetchParam.c)
+ *     sub_1407DC794 @ 0x1407DC794 (sub_1407DC794.c)
  * Callees:
- *     iswctype @ 0x1403E3CE0 (iswctype.c)
+ *     sub_1403E3CE0 @ 0x1403E3CE0 (sub_1403E3CE0.c)
  */
 
 int __cdecl iswdigit(wint_t C)
 {
-  return iswctype(C, 4u);
+  return sub_1403E3CE0(C, 4LL);
 }

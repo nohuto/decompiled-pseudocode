@@ -7,7 +7,7 @@
  */
 
 // attributes: thunk
-__int64 __fastcall HvlHalStartVirtualProcessor(int a1, struct _SLIST_ENTRY *a2)
+__int64 __fastcall HvlHalStartVirtualProcessor(int a1, _SLIST_ENTRY *a2)
 {
   return HvlpStartVirtualProcessor(a1, a2);
 }

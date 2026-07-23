@@ -1,10 +1,10 @@
 /*
- * XREFs of AlpcpValidateMessage @ 0x1405E3F28
+ * XREFs of AlpcpValidateMessage @ 0x1406D3688
  * Callers:
- *     AlpcpSendLegacySynchronousRequest @ 0x1405DFA58 (AlpcpSendLegacySynchronousRequest.c)
- *     AlpcpValidateConnectionMessage @ 0x1405E1B94 (AlpcpValidateConnectionMessage.c)
- *     AlpcpReplyLegacySynchronousRequest @ 0x1405E1BDC (AlpcpReplyLegacySynchronousRequest.c)
- *     AlpcpSendMessage @ 0x1405E4800 (AlpcpSendMessage.c)
+ *     AlpcpSendLegacySynchronousRequest @ 0x1406CF1B8 (AlpcpSendLegacySynchronousRequest.c)
+ *     AlpcpValidateConnectionMessage @ 0x1406D12F4 (AlpcpValidateConnectionMessage.c)
+ *     AlpcpReplyLegacySynchronousRequest @ 0x1406D133C (AlpcpReplyLegacySynchronousRequest.c)
+ *     AlpcpSendMessage @ 0x1406D3F60 (AlpcpSendMessage.c)
  * Callees:
  *     <none>
  */

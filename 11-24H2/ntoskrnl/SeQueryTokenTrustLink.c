@@ -1,8 +1,8 @@
 /*
- * XREFs of SeQueryTokenTrustLink @ 0x14046743C
+ * XREFs of SeQueryTokenTrustLink @ 0x14045EEDC
  * Callers:
- *     NtOpenThreadTokenEx @ 0x1408553C0 (NtOpenThreadTokenEx.c)
- *     PsRestoreImpersonation @ 0x1409D6E80 (PsRestoreImpersonation.c)
+ *     NtOpenThreadTokenEx @ 0x140851680 (NtOpenThreadTokenEx.c)
+ *     PsRestoreImpersonation @ 0x1409C74E0 (PsRestoreImpersonation.c)
  * Callees:
  *     <none>
  */

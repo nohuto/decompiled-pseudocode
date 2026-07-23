@@ -171,7 +171,7 @@ NTSTATUS __stdcall NtSetInformationThread(
   char v101; // [rsp+61h] [rbp-387h]
   char v102; // [rsp+62h] [rbp-386h]
   __int16 v103[2]; // [rsp+68h] [rbp-380h] BYREF
-  struct _PROCESSOR_NUMBER v104; // [rsp+6Ch] [rbp-37Ch] BYREF
+  _PROCESSOR_NUMBER v104; // [rsp+6Ch] [rbp-37Ch] BYREF
   char v105; // [rsp+70h] [rbp-378h]
   LONG Increment; // [rsp+74h] [rbp-374h]
   void *v107; // [rsp+78h] [rbp-370h]
@@ -231,8 +231,8 @@ NTSTATUS __stdcall NtSetInformationThread(
   if ( (_BYTE)PreviousMode )
   {
     if ( ThreadInformationClass < ThreadEnableAlignmentFaultFixup && ThreadInformationClass >= ThreadImpersonationToken
-      || ThreadInformationClass >= (ThreadSuspendCount|ThreadAffinityMask)
-      && ThreadInformationClass < (ThreadCounterProfiling|ThreadIsIoPending) )
+      || ThreadInformationClass >= ThreadSelectedCpuSets
+      && ThreadInformationClass < ThreadManageWritesToExecutableMemory )
     {
 LABEL_4:
       v10 = 3;
@@ -245,8 +245,8 @@ LABEL_4:
         case ThreadAffinityMask:
         case ThreadGroupInformation:
         case ThreadCpuAccountingInformation:
-        case ThreadCpuAccountingInformation|ThreadAffinityMask:
-        case ThreadCounterProfiling|ThreadIsIoPending:
+        case ThreadNameInformation:
+        case ThreadManageWritesToExecutableMemory:
           v11 = 7LL;
           v10 = 3;
           break;
@@ -328,7 +328,7 @@ LABEL_21:
     }
     return -1073741820;
   }
-  if ( ThreadInformationClass != (ThreadCounterProfiling|ThreadAmILastThread) )
+  if ( ThreadInformationClass != ThreadWorkOnBehalfTicket )
   {
     switch ( ThreadInformationClass )
     {
@@ -913,7 +913,7 @@ LABEL_166:
       case ThreadIdealProcessorEx:
         if ( (_DWORD)v4 != 4 )
           return -1073741820;
-        v104 = *(struct _PROCESSOR_NUMBER *)ThreadInformation;
+        v104 = *(_PROCESSOR_NUMBER *)ThreadInformation;
         result = ObpReferenceObjectByHandleWithTag(
                    BugCheckParameter1,
                    32,
@@ -931,7 +931,7 @@ LABEL_166:
         {
           if ( (v44->MiscFlags & 0x400) == 0 )
             PspWriteTebIdealProcessor(CurrentThread, v44);
-          *(struct _PROCESSOR_NUMBER *)ThreadInformation = v104;
+          *(_PROCESSOR_NUMBER *)ThreadInformation = v104;
         }
         goto LABEL_107;
       case ThreadCpuAccountingInformation:
@@ -974,7 +974,7 @@ LABEL_166:
         }
         CurrentThread[1].ApcState.ApcListHead[1].Flink = v7;
         return 0;
-      case ThreadCounterProfiling|ThreadAffinityMask:
+      case ThreadHeterogeneousCpuPolicy:
         if ( (_DWORD)v4 != 4 )
           return -1073741820;
         v85 = MEMORY[4];
@@ -994,7 +994,7 @@ LABEL_166:
           return v17;
         KeSetUserHeteroCpuPolicyThread((__int64)Thread, v85);
         goto LABEL_32;
-      case ThreadCpuAccountingInformation|ThreadAffinityMask:
+      case ThreadNameInformation:
         v101 = 0;
         v33 = 0LL;
         v107 = 0LL;
@@ -1093,7 +1093,7 @@ LABEL_82:
         if ( v33 )
           ExFreePoolWithTag(v33, 0x6D4E6854u);
         return v25;
-      case ThreadSuspendCount|ThreadAffinityMask:
+      case ThreadSelectedCpuSets:
         if ( (v4 & 7) != 0 || (unsigned int)v4 > 0x100 )
           return -1073741820;
         memmove(v138, ThreadInformation, v4);
@@ -1129,7 +1129,7 @@ LABEL_82:
           return -1073741811;
         _InterlockedAnd((volatile signed __int32 *)&CurrentThread[1].SwapListEntry + 2, 0xFFFBFFFF);
         return 0;
-      case ThreadDynamicCodePolicyInfo|ThreadTimes:
+      case ThreadExplicitCaseSensitivity:
         if ( (_DWORD)v4 != 4 )
           return -1073741820;
         v86 = *(_DWORD *)ThreadInformation;
@@ -1138,7 +1138,9 @@ LABEL_82:
           goto LABEL_294;
         if ( !SeSinglePrivilegeCheck(SeDebugPrivilege, PreviousMode) )
           return -1073741727;
-        if ( !RtlTestProtectedAccess(BYTE2(CurrentThread->Process[2].Header.WaitListHead.Flink), 0x51u) )
+        if ( !RtlTestProtectedAccess(
+                (PS_PROTECTION)SBYTE2(CurrentThread->Process[2].Header.WaitListHead.Flink),
+                (PS_PROTECTION)81) )
           return -1073741790;
         LOBYTE(PreviousMode) = v96;
 LABEL_294:
@@ -1161,7 +1163,7 @@ LABEL_294:
 LABEL_176:
         ObfDereferenceObjectWithTag(Thread, 0x79517350u);
         return v98;
-      case ThreadDynamicCodePolicyInfo|ThreadAffinityMask:
+      case ThreadDbgkWerReportActive:
         if ( (_DWORD)v4 != 4 )
           return -1073741820;
         v87 = *(_DWORD *)ThreadInformation;
@@ -1183,7 +1185,7 @@ LABEL_176:
         else
           _InterlockedAnd((volatile signed __int32 *)&Thread[1].SwapListEntry + 2, 0xFFDFFFFF);
         goto LABEL_176;
-      case ThreadSubsystemInformation|ThreadPriority:
+      case ThreadAttachContainer:
         if ( BugCheckParameter1 != -2LL )
           return -1073741811;
         if ( (_DWORD)v4 != 8 )
@@ -1238,9 +1240,9 @@ LABEL_52:
           ObfDereferenceObjectWithTag(v28, v29);
         }
         return 0;
-      case ThreadCounterProfiling|ThreadIsIoPending:
+      case ThreadManageWritesToExecutableMemory:
         return -1073741637;
-      case ThreadIdealProcessorEx|ThreadIsIoPending:
+      case ThreadPowerThrottlingState:
         if ( (_DWORD)v4 != 12 )
           return -1073741820;
         Object[0] = *(PVOID *)ThreadInformation;
@@ -1269,7 +1271,7 @@ LABEL_52:
           return result;
         PspSetThreadPpmPolicy(Thread, v10);
         goto LABEL_50;
-      case ThreadCpuAccountingInformation|ThreadIsIoPending:
+      case ThreadWorkloadClass:
         if ( BugCheckParameter1 != -2LL || (_BYTE)PreviousMode )
           return -1073741790;
         if ( (_DWORD)v4 != 4 )
@@ -1281,7 +1283,7 @@ LABEL_52:
         *((_DWORD *)&v74[1].SwapListEntry + 3) ^= (*((_DWORD *)&v74[1].SwapListEntry + 3) ^ (v125 << 11)) & 0x800;
         KeUpdateThreadCpuSets((__int64)v74);
         return 0;
-      case ThreadIdealProcessorEx|ThreadIsTerminated:
+      case ThreadStrongerBadHandleChecks:
         if ( (_DWORD)v4 != 4 )
           return -1073741820;
         if ( BugCheckParameter1 != -2LL )

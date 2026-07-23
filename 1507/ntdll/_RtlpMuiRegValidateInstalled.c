@@ -21,19 +21,19 @@
  *     _RtlpRemovePendingDeleteLanguages @ 0x1800EA0D0 (_RtlpRemovePendingDeleteLanguages.c)
  */
 
-__int64 __fastcall RtlpMuiRegValidateInstalled(__int64 a1)
+NTSTATUS __fastcall RtlpMuiRegValidateInstalled(__int64 a1)
 {
   unsigned __int16 v2; // di
   int v3; // esi
   unsigned int v4; // r15d
-  unsigned __int64 v5; // r12
-  int IsUILanguageComitted; // eax
-  unsigned __int16 v7; // dx
+  unsigned __int16 *v5; // r12
+  NTSTATUS IsUILanguageComitted; // eax
+  LANGID v7; // dx
   bool v8; // r13
-  __int64 result; // rax
+  NTSTATUS result; // eax
   int InstalledLanguageIndexByLangId; // eax
   __int64 v11; // rcx
-  __int64 v12; // rax
+  unsigned __int16 *v12; // rax
   __int64 v13; // r8
   int v14; // eax
   unsigned __int16 v15; // cx
@@ -50,26 +50,24 @@ __int64 __fastcall RtlpMuiRegValidateInstalled(__int64 a1)
   __int64 v26; // rcx
   int v27; // edi
   __int64 v28; // rsi
-  unsigned __int16 v29; // [rsp+28h] [rbp-E0h]
+  LANGID InstallUILanguageId[2]; // [rsp+28h] [rbp-E0h] BYREF
   __int16 v30; // [rsp+2Ch] [rbp-DCh] BYREF
   __int64 v31; // [rsp+30h] [rbp-D8h] BYREF
-  unsigned __int64 v32; // [rsp+38h] [rbp-D0h]
-  __int64 v33; // [rsp+40h] [rbp-C8h] BYREF
-  wchar_t *v34; // [rsp+48h] [rbp-C0h]
-  __int64 v35; // [rsp+50h] [rbp-B8h] BYREF
-  WCHAR *v36; // [rsp+58h] [rbp-B0h]
-  int v37; // [rsp+60h] [rbp-A8h] BYREF
-  unsigned __int16 v38; // [rsp+64h] [rbp-A4h]
-  int v39; // [rsp+66h] [rbp-A2h]
-  __int64 v40; // [rsp+6Ch] [rbp-9Ch]
-  __int64 v41; // [rsp+74h] [rbp-94h]
-  _WORD v42[88]; // [rsp+88h] [rbp-80h] BYREF
+  unsigned __int16 *v32; // [rsp+38h] [rbp-D0h]
+  _UNICODE_STRING v33; // [rsp+40h] [rbp-C8h] BYREF
+  _UNICODE_STRING v34; // [rsp+50h] [rbp-B8h] BYREF
+  int v35; // [rsp+60h] [rbp-A8h] BYREF
+  LANGID v36; // [rsp+64h] [rbp-A4h]
+  int v37; // [rsp+66h] [rbp-A2h]
+  __int64 v38; // [rsp+6Ch] [rbp-9Ch]
+  __int64 v39; // [rsp+74h] [rbp-94h]
+  _WORD v40[88]; // [rsp+88h] [rbp-80h] BYREF
 
   v2 = -1;
-  v29 = 0;
+  InstallUILanguageId[0] = 0;
   v30 = -1;
   v32 = 0LL;
-  memset(v42, 0, 170);
+  memset(v40, 0, 170);
   v3 = -1;
   v4 = 0;
   v5 = 0LL;
@@ -78,38 +76,38 @@ __int64 __fastcall RtlpMuiRegValidateInstalled(__int64 a1)
   v8 = IsUILanguageComitted == 0;
   if ( v7 )
   {
-    v29 = *(_WORD *)(a1 + 4);
+    InstallUILanguageId[0] = *(_WORD *)(a1 + 4);
   }
   else
   {
-    result = NtQueryInstallUILanguage();
-    if ( (int)result < 0 )
+    result = NtQueryInstallUILanguage(InstallUILanguageId);
+    if ( result < 0 )
       return result;
-    v7 = 0;
+    v7 = InstallUILanguageId[0];
   }
   InstalledLanguageIndexByLangId = RtlpMuiRegGetInstalledLanguageIndexByLangId(a1, v7, 0, &v30);
   if ( InstalledLanguageIndexByLangId == -1073741772 || InstalledLanguageIndexByLangId == -1073741637 )
   {
     LOWORD(v31) = -1;
-    v12 = MuiRegAllocArray(v11, 0x55u);
+    v12 = (unsigned __int16 *)MuiRegAllocArray(v11, 0x55u);
     v32 = v12;
     v5 = v12;
     if ( !v12 )
-      return 3221225495LL;
-    if ( RtlpInitAndCallLcidToCultureName((__int64)&v35, v12, v29) )
+      return -1073741801;
+    if ( RtlpInitAndCallLcidToCultureName(&v34, v12, InstallUILanguageId[0]) )
     {
       LOBYTE(v13) = 1;
-      v14 = RtlpMuiRegGetOrAddString(a1, v36, v13, (__int16 *)&v31);
+      v14 = RtlpMuiRegGetOrAddString(a1, v34.Buffer, v13, (__int16 *)&v31);
       v15 = -1;
       if ( v14 >= 0 )
         v15 = v31;
-      v39 = v15;
-      v38 = v29;
-      v37 = 49;
-      v40 = 0LL;
-      v41 = 0LL;
-      RtlpMuiRegAddNeutralLanguage(a1, (__int64)&v37, v36);
-      if ( (int)RtlpMuiRegGetOrAddLangInfo((__int64 *)(a1 + 24), (__int64)&v37, 0LL) >= 0 )
+      v37 = v15;
+      v36 = InstallUILanguageId[0];
+      v35 = 49;
+      v38 = 0LL;
+      v39 = 0LL;
+      RtlpMuiRegAddNeutralLanguage(a1, (__int64)&v35, v34.Buffer);
+      if ( (int)RtlpMuiRegGetOrAddLangInfo((__int64 *)(a1 + 24), (__int64)&v35, 0LL) >= 0 )
       {
         v3 = *(unsigned __int16 *)(*(_QWORD *)(a1 + 24) + 6LL) - 1;
         goto LABEL_16;
@@ -122,11 +120,11 @@ __int64 __fastcall RtlpMuiRegValidateInstalled(__int64 a1)
 LABEL_16:
     if ( v3 != -1 )
     {
-      v34 = v42;
-      WORD1(v33) = 170;
-      if ( (int)RtlpGetNameFromLangInfoNode(a1, 28LL * v3 + *(_QWORD *)(*(_QWORD *)(a1 + 24) + 16LL), (__int64)&v33) >= 0 )
+      v33.Buffer = v40;
+      v33.MaximumLength = 170;
+      if ( (int)RtlpGetNameFromLangInfoNode(a1, 28LL * v3 + *(_QWORD *)(*(_QWORD *)(a1 + 24) + 16LL), &v33) >= 0 )
       {
-        if ( (int)RtlpIsALicensedRegularLanguage((_QWORD *)a1, v34) >= 0 )
+        if ( (int)RtlpIsALicensedRegularLanguage((_QWORD *)a1, v33.Buffer) >= 0 )
         {
           v4 = 1;
         }
@@ -210,6 +208,6 @@ LABEL_16:
     while ( v27 < *(unsigned __int16 *)(v26 + 6) );
   }
   if ( v5 )
-    RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v5);
-  return 0LL;
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v5);
+  return 0;
 }

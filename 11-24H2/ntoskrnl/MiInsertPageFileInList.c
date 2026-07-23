@@ -1,27 +1,27 @@
 /*
- * XREFs of MiInsertPageFileInList @ 0x1407EF2F0
+ * XREFs of MiInsertPageFileInList @ 0x1407EF8C0
  * Callers:
- *     MiCreatePagingFile @ 0x1407EE364 (MiCreatePagingFile.c)
- *     MmStoreRegister @ 0x1407FD3A8 (MmStoreRegister.c)
- *     MiCreateSpecialPurposeMemoryPageFile @ 0x1407FE114 (MiCreateSpecialPurposeMemoryPageFile.c)
+ *     MiCreatePagingFile @ 0x1407EE934 (MiCreatePagingFile.c)
+ *     MmStoreRegister @ 0x1407FDB18 (MmStoreRegister.c)
+ *     MiCreateSpecialPurposeMemoryPageFile @ 0x1407FE884 (MiCreateSpecialPurposeMemoryPageFile.c)
  * Callees:
- *     ExfTryToWakePushLock @ 0x14025F9A0 (ExfTryToWakePushLock.c)
- *     KeSetEvent @ 0x1402725A0 (KeSetEvent.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     KiCheckForKernelApcDelivery @ 0x1402BB4D0 (KiCheckForKernelApcDelivery.c)
- *     MiNumberWsSwapPagefiles @ 0x1402D1B3C (MiNumberWsSwapPagefiles.c)
- *     ObfDereferenceObjectWithTag @ 0x1403254A0 (ObfDereferenceObjectWithTag.c)
- *     KeWaitForSingleObject @ 0x14033E960 (KeWaitForSingleObject.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     KeInitializeEvent @ 0x140409D80 (KeInitializeEvent.c)
- *     MiUpdateReserveClusterInfo @ 0x14045C0E4 (MiUpdateReserveClusterInfo.c)
- *     MiMakePartitionActive @ 0x14048A21C (MiMakePartitionActive.c)
- *     MiUpdatePageFileList @ 0x14067A25C (MiUpdatePageFileList.c)
- *     MiIncreaseCommitLimits @ 0x14068620C (MiIncreaseCommitLimits.c)
- *     ObpReferenceObjectByHandleWithTag @ 0x14084B7E0 (ObpReferenceObjectByHandleWithTag.c)
- *     ObCloseHandle @ 0x1408A2B10 (ObCloseHandle.c)
- *     PsCreateSystemThreadEx @ 0x140A224A0 (PsCreateSystemThreadEx.c)
+ *     KeSetEvent @ 0x140227B30 (KeSetEvent.c)
+ *     ExfTryToWakePushLock @ 0x14028FFB0 (ExfTryToWakePushLock.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CE030 (ObfDereferenceObjectWithTag.c)
+ *     KeWaitForSingleObject @ 0x14031DE40 (KeWaitForSingleObject.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     MiNumberWsSwapPagefiles @ 0x140352DB4 (MiNumberWsSwapPagefiles.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     KiCheckForKernelApcDelivery @ 0x140362C10 (KiCheckForKernelApcDelivery.c)
+ *     KeInitializeEvent @ 0x140402260 (KeInitializeEvent.c)
+ *     MiUpdateReserveClusterInfo @ 0x14045147C (MiUpdateReserveClusterInfo.c)
+ *     MiMakePartitionActive @ 0x140485044 (MiMakePartitionActive.c)
+ *     MiUpdatePageFileList @ 0x14067B43C (MiUpdatePageFileList.c)
+ *     MiIncreaseCommitLimits @ 0x14068733C (MiIncreaseCommitLimits.c)
+ *     ObpReferenceObjectByHandleWithTag @ 0x140847AA0 (ObpReferenceObjectByHandleWithTag.c)
+ *     ObCloseHandle @ 0x1408AB1B0 (ObCloseHandle.c)
+ *     PsCreateSystemThreadEx @ 0x1408F8C50 (PsCreateSystemThreadEx.c)
  */
 
 __int64 __fastcall MiInsertPageFileInList(unsigned int *a1)
@@ -32,45 +32,39 @@ __int64 __fastcall MiInsertPageFileInList(unsigned int *a1)
   __int64 v5; // r14
   struct _KTHREAD *CurrentThread; // rsi
   volatile signed __int64 *v7; // rdi
-  _QWORD *v8; // rax
-  _QWORD *v9; // rbx
-  __int64 v10; // rdx
-  bool v11; // zf
+  char *v8; // rax
+  char *v9; // rbx
+  bool v10; // zf
   __int64 result; // rax
-  __int64 v13; // rdx
-  _QWORD *v14; // rax
-  unsigned int v15; // ecx
-  int v16; // r8d
-  __int16 v17; // dx
-  char v18; // r11
-  unsigned int v19; // eax
-  __int64 *v20; // r9
-  __int64 v21; // r10
-  __int64 v22; // rax
-  unsigned __int8 v23; // cf
-  int v24; // eax
-  __int16 v25; // ax
-  __int64 v26; // rdx
-  __int64 v27; // rdx
-  __int64 v28; // rdx
-  __int64 v29; // rcx
-  KPRIORITY v30; // edx
-  BOOLEAN v31; // r8
-  unsigned __int64 v32; // [rsp+50h] [rbp-30h]
+  char *v12; // rax
+  unsigned int v13; // ecx
+  int v14; // r8d
+  __int16 v15; // dx
+  char v16; // r11
+  unsigned int v17; // eax
+  __int64 *v18; // r9
+  __int64 v19; // r10
+  __int64 v20; // rax
+  unsigned __int8 v21; // cf
+  int v22; // eax
+  __int16 v23; // ax
+  KPRIORITY v24; // edx
+  BOOLEAN v25; // r8
+  unsigned __int64 v26; // [rsp+50h] [rbp-30h]
   _QWORD Event[5]; // [rsp+58h] [rbp-28h] BYREF
   int PartitionActive; // [rsp+C0h] [rbp+40h]
-  _QWORD *v35; // [rsp+C0h] [rbp+40h]
-  unsigned int v36; // [rsp+C0h] [rbp+40h]
+  char *v29; // [rsp+C0h] [rbp+40h]
+  unsigned int v30; // [rsp+C0h] [rbp+40h]
   HANDLE Handle; // [rsp+C8h] [rbp+48h] BYREF
   PVOID Object; // [rsp+D0h] [rbp+50h] BYREF
-  unsigned __int64 v39; // [rsp+D8h] [rbp+58h]
+  unsigned __int64 v33; // [rsp+D8h] [rbp+58h]
 
   v1 = *a1;
   Handle = 0LL;
   *((_BYTE *)a1 + 174) |= 1u;
   v2 = 0LL;
-  v32 = v1;
-  v39 = a1[1];
+  v26 = v1;
+  v33 = a1[1];
   memset(Event, 0, 32);
   if ( a1[10] )
   {
@@ -86,20 +80,20 @@ __int64 __fastcall MiInsertPageFileInList(unsigned int *a1)
   CurrentThread = KeGetCurrentThread();
   v7 = (volatile signed __int64 *)(v5 + 1088);
   --CurrentThread->SpecialApcDisable;
-  v8 = KeAbPreAcquire(v5 + 1088, 0LL);
+  v8 = (char *)KeAbPreAcquire(v5 + 1088, 0LL);
   v9 = v8;
   if ( _interlockedbittestandset64((volatile signed __int32 *)(v5 + 1088), 0LL) )
-    ExfAcquirePushLockExclusiveEx((unsigned __int64 *)(v5 + 1088), (__int64)v8, v5 + 1088);
+    ExfAcquirePushLockExclusiveEx((unsigned __int64 *)(v5 + 1088), v8, v5 + 1088);
   if ( v9 )
-    *((_BYTE *)v9 + 10) = 1;
-  if ( dword_140E30044 )
+    v9[10] = 1;
+  if ( dword_140E30184 )
   {
     if ( (_InterlockedExchangeAdd64(v7, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
       ExfTryToWakePushLock((volatile signed __int64 *)(v5 + 1088));
     KeAbPostRelease(v5 + 1088);
-    v11 = CurrentThread->SpecialApcDisable++ == -1;
-    if ( v11 && ($81B80DCEA5A02D890AB7B2872B48AC01 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
-      KiCheckForKernelApcDelivery(1LL, v10);
+    v10 = CurrentThread->SpecialApcDisable++ == -1;
+    if ( v10 && ($727077A9B6E167EAE1398C74674DC5A5 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
+      KiCheckForKernelApcDelivery();
     return 3221225738LL;
   }
   if ( !*(_QWORD *)(v5 + 176) )
@@ -109,9 +103,9 @@ __int64 __fastcall MiInsertPageFileInList(unsigned int *a1)
     if ( (_InterlockedExchangeAdd64(v7, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
       ExfTryToWakePushLock((volatile signed __int64 *)(v5 + 1088));
     KeAbPostRelease(v5 + 1088);
-    v11 = CurrentThread->SpecialApcDisable++ == -1;
-    if ( v11 && ($81B80DCEA5A02D890AB7B2872B48AC01 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
-      KiCheckForKernelApcDelivery(1LL, v13);
+    v10 = CurrentThread->SpecialApcDisable++ == -1;
+    if ( v10 && ($727077A9B6E167EAE1398C74674DC5A5 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
+      KiCheckForKernelApcDelivery();
     if ( !PartitionActive )
       return 3221225773LL;
     Event[0] = v5;
@@ -132,96 +126,96 @@ __int64 __fastcall MiInsertPageFileInList(unsigned int *a1)
     ObpReferenceObjectByHandleWithTag((ULONG_PTR)Handle, 0x66506D4Du, (__int64)&Object, 0LL, 0LL);
     KeWaitForSingleObject(&Event[1], WrKernel, 0, 0, 0LL);
     --CurrentThread->SpecialApcDisable;
-    v14 = KeAbPreAcquire(v5 + 1088, 0LL);
-    v35 = v14;
+    v12 = (char *)KeAbPreAcquire(v5 + 1088, 0LL);
+    v29 = v12;
     if ( _interlockedbittestandset64((volatile signed __int32 *)v7, 0LL) )
     {
-      ExfAcquirePushLockExclusiveEx((unsigned __int64 *)(v5 + 1088), (__int64)v14, v5 + 1088);
-      v14 = v35;
+      ExfAcquirePushLockExclusiveEx((unsigned __int64 *)(v5 + 1088), v12, v5 + 1088);
+      v12 = v29;
     }
-    if ( v14 )
-      *((_BYTE *)v14 + 10) = 1;
+    if ( v12 )
+      v12[10] = 1;
     if ( *(PVOID *)(v5 + 992) == Object )
       *(_QWORD *)(v5 + 176) = Handle;
     else
       ObCloseHandle(Handle, 0);
     ObfDereferenceObjectWithTag(Object, 0x66506D4Du);
   }
-  v15 = *(_DWORD *)(v5 + 18520);
-  v36 = v15;
-  if ( v15 >= 0x10 )
+  v13 = *(_DWORD *)(v5 + 18520);
+  v30 = v13;
+  if ( v13 >= 0x10 )
   {
 LABEL_52:
     if ( (_InterlockedExchangeAdd64(v7, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
       ExfTryToWakePushLock((volatile signed __int64 *)(v5 + 1088));
     KeAbPostRelease(v5 + 1088);
-    v11 = CurrentThread->SpecialApcDisable++ == -1;
-    if ( v11 && ($81B80DCEA5A02D890AB7B2872B48AC01 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
-      KiCheckForKernelApcDelivery(1LL, v27);
+    v10 = CurrentThread->SpecialApcDisable++ == -1;
+    if ( v10 && ($727077A9B6E167EAE1398C74674DC5A5 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
+      KiCheckForKernelApcDelivery();
     return 3221225623LL;
   }
-  v16 = 0;
-  v17 = *((_WORD *)a1 + 86) ^ ((unsigned __int8)*((_WORD *)a1 + 86) ^ (unsigned __int8)v15) & 0xF;
-  v18 = 1;
-  *((_WORD *)a1 + 86) = v17;
-  v19 = *(_DWORD *)(v5 + 18520);
-  if ( !v19 )
+  v14 = 0;
+  v15 = *((_WORD *)a1 + 86) ^ ((unsigned __int8)*((_WORD *)a1 + 86) ^ (unsigned __int8)v13) & 0xF;
+  v16 = 1;
+  *((_WORD *)a1 + 86) = v15;
+  v17 = *(_DWORD *)(v5 + 18520);
+  if ( !v17 )
     goto LABEL_40;
-  v20 = (__int64 *)(v5 + 18528);
-  v21 = v19;
+  v18 = (__int64 *)(v5 + 18528);
+  v19 = v17;
   do
   {
-    v22 = *v20++;
-    v23 = _bittest16((const signed __int16 *)(v22 + 172), 0xBu);
-    v24 = v16 + 1;
-    if ( !v23 )
-      v24 = v16;
-    v16 = v24;
-    --v21;
+    v20 = *v18++;
+    v21 = _bittest16((const signed __int16 *)(v20 + 172), 0xBu);
+    v22 = v14 + 1;
+    if ( !v21 )
+      v22 = v14;
+    v14 = v22;
+    --v19;
   }
-  while ( v21 );
-  if ( !v24 )
+  while ( v19 );
+  if ( !v22 )
   {
 LABEL_40:
-    v25 = *((_WORD *)a1 + 86);
-    if ( (v25 & 0x50) == 0 )
+    v23 = *((_WORD *)a1 + 86);
+    if ( (v23 & 0x50) == 0 )
     {
-      MiIncreaseCommitLimits(v5, v32, v39, 0LL, 0, (__int64)a1);
+      MiIncreaseCommitLimits(v5, v26, v33, 0LL, 0, (__int64)a1);
       if ( (a1[43] & 0x20) == 0 && !*(_DWORD *)(v5 + 1084) )
         *(_DWORD *)(v5 + 1084) = 1;
       goto LABEL_59;
     }
-    if ( (v25 & 0x10) == 0 || !(unsigned int)MiNumberWsSwapPagefiles(v5) )
+    if ( (v23 & 0x10) == 0 || !(unsigned int)MiNumberWsSwapPagefiles(v5) )
     {
-      MiUpdatePageFileList((__int64)a1, v18);
-      *(_QWORD *)(v5 + 8LL * v36 + 18528) = a1;
-      *(_DWORD *)(v5 + 18520) = v36 + 1;
+      MiUpdatePageFileList((__int64)a1, v16);
+      *(_QWORD *)(v5 + 8LL * v30 + 18528) = a1;
+      *(_DWORD *)(v5 + 18520) = v30 + 1;
 LABEL_59:
       if ( (_InterlockedExchangeAdd64(v7, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
         ExfTryToWakePushLock((volatile signed __int64 *)(v5 + 1088));
       KeAbPostRelease(v5 + 1088);
-      v11 = CurrentThread->SpecialApcDisable++ == -1;
-      if ( v11
-        && ($81B80DCEA5A02D890AB7B2872B48AC01 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
+      v10 = CurrentThread->SpecialApcDisable++ == -1;
+      if ( v10
+        && ($727077A9B6E167EAE1398C74674DC5A5 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
       {
-        KiCheckForKernelApcDelivery(v29, v28);
+        KiCheckForKernelApcDelivery();
       }
       MiUpdateReserveClusterInfo(v5, 0LL, 0);
-      KeSetEvent((PRKEVENT)(v5 + 928), v30, v31);
+      KeSetEvent((PRKEVENT)(v5 + 928), v24, v25);
       return 0LL;
     }
     goto LABEL_52;
   }
-  if ( (v17 & 0x810) == 0 )
+  if ( (v15 & 0x810) == 0 )
   {
-    *((_WORD *)a1 + 86) = v17 | 0x20;
+    *((_WORD *)a1 + 86) = v15 | 0x20;
     goto LABEL_40;
   }
   if ( (_InterlockedExchangeAdd64(v7, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
     ExfTryToWakePushLock((volatile signed __int64 *)(v5 + 1088));
   KeAbPostRelease(v5 + 1088);
-  v11 = CurrentThread->SpecialApcDisable++ == -1;
-  if ( v11 && ($81B80DCEA5A02D890AB7B2872B48AC01 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
-    KiCheckForKernelApcDelivery(1LL, v26);
+  v10 = CurrentThread->SpecialApcDisable++ == -1;
+  if ( v10 && ($727077A9B6E167EAE1398C74674DC5A5 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
+    KiCheckForKernelApcDelivery();
   return 3221225659LL;
 }

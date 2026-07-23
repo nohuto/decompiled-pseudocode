@@ -1,7 +1,7 @@
 /*
- * XREFs of PopDiagTracePreSleepCallbacks @ 0x14052FE58
+ * XREFs of PopDiagTracePreSleepCallbacks @ 0x140530398
  * Callers:
- *     PopNotifyCallbacksPreSleep @ 0x14052FE18 (PopNotifyCallbacksPreSleep.c)
+ *     PopNotifyCallbacksPreSleep @ 0x140530358 (PopNotifyCallbacksPreSleep.c)
  * Callees:
  *     <none>
  */

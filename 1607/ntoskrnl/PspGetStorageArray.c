@@ -1,19 +1,19 @@
 /*
- * XREFs of PspGetStorageArray @ 0x14055FB58
+ * XREFs of PspGetStorageArray @ 0x140560098
  * Callers:
- *     PspStorageInsertObject @ 0x14055FA90 (PspStorageInsertObject.c)
- *     PspStorageMakeSlotReadOnly @ 0x140682B3C (PspStorageMakeSlotReadOnly.c)
- *     PspStorageReplaceObject @ 0x140682CE8 (PspStorageReplaceObject.c)
+ *     PspStorageInsertObject @ 0x14055FFD0 (PspStorageInsertObject.c)
+ *     PspStorageMakeSlotReadOnly @ 0x140682C20 (PspStorageMakeSlotReadOnly.c)
+ *     PspStorageReplaceObject @ 0x140682DCC (PspStorageReplaceObject.c)
  * Callees:
- *     PspGetStorageArrayIfPossible @ 0x14013E1E8 (PspGetStorageArrayIfPossible.c)
- *     PspLazyInitializeStorageExpansion @ 0x140682938 (PspLazyInitializeStorageExpansion.c)
+ *     PspGetStorageArrayIfPossible @ 0x14013E758 (PspGetStorageArrayIfPossible.c)
+ *     PspLazyInitializeStorageExpansion @ 0x140682A1C (PspLazyInitializeStorageExpansion.c)
  */
 
 __int64 __fastcall PspGetStorageArray(__int64 a1, unsigned int a2, unsigned int *a3, _QWORD *a4)
 {
   __int64 result; // rax
   __int64 v9; // rcx
-  struct _RTL_BITMAP *v10; // rdx
+  _RTL_BITMAP *v10; // rdx
 
   result = PspGetStorageArrayIfPossible(a1, a2, a3, a4);
   if ( (_DWORD)result == -1073741275 )

@@ -1,18 +1,18 @@
 /*
- * XREFs of WdipTimeoutCheckRoutine @ 0x14051C244
+ * XREFs of WdipTimeoutCheckRoutine @ 0x1404FF634
  * Callers:
  *     <none>
  * Callees:
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x140055FA0 (KiLeaveCriticalRegionUnsafe.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     ExfAcquirePushLockSharedEx @ 0x1400C8280 (ExfAcquirePushLockSharedEx.c)
- *     ExfReleasePushLock @ 0x1400C8620 (ExfReleasePushLock.c)
- *     WdipSemDeleteTransitionalInstance @ 0x1404E418C (WdipSemDeleteTransitionalInstance.c)
- *     WdipSemDisableContextProviders @ 0x1404E4D38 (WdipSemDisableContextProviders.c)
- *     WdipSemMarkNextTimedOutInstanceForDeletion @ 0x14051C360 (WdipSemMarkNextTimedOutInstanceForDeletion.c)
- *     WdipSemSqmLogInflightLimitExceededDataPoints @ 0x14051C458 (WdipSemSqmLogInflightLimitExceededDataPoints.c)
- *     WdipSemLogTimeoutInformation @ 0x14069C088 (WdipSemLogTimeoutInformation.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140055B20 (KiLeaveCriticalRegionUnsafe.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockSharedEx @ 0x1400C6120 (ExfAcquirePushLockSharedEx.c)
+ *     ExfReleasePushLock @ 0x1400C64C0 (ExfReleasePushLock.c)
+ *     WdipSemDeleteTransitionalInstance @ 0x1404C6E44 (WdipSemDeleteTransitionalInstance.c)
+ *     WdipSemDisableContextProviders @ 0x1404C79F0 (WdipSemDisableContextProviders.c)
+ *     WdipSemMarkNextTimedOutInstanceForDeletion @ 0x1404FF750 (WdipSemMarkNextTimedOutInstanceForDeletion.c)
+ *     WdipSemSqmLogInflightLimitExceededDataPoints @ 0x1404FF848 (WdipSemSqmLogInflightLimitExceededDataPoints.c)
+ *     WdipSemLogTimeoutInformation @ 0x14069C16C (WdipSemLogTimeoutInformation.c)
  */
 
 _BOOL8 WdipTimeoutCheckRoutine()

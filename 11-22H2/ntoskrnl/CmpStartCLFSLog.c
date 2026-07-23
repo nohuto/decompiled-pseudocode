@@ -37,7 +37,7 @@ __int64 __fastcall CmpStartCLFSLog(
   UNICODE_STRING Destination; // [rsp+78h] [rbp-61h] BYREF
   PVOID ppvMarshalContext; // [rsp+88h] [rbp-51h] BYREF
   PULONGLONG pcbContainer; // [rsp+90h] [rbp-49h]
-  struct _SE_IMPERSONATION_STATE ImpersonationState; // [rsp+98h] [rbp-41h] BYREF
+  _SE_IMPERSONATION_STATE ImpersonationState; // [rsp+98h] [rbp-41h] BYREF
   $115DCDF994C6370D29323EAB0E0C9502 v26; // [rsp+A8h] [rbp-31h] BYREF
 
   pcbContainer = a6;

@@ -1,16 +1,16 @@
 /*
- * XREFs of ExpWnfRegisterPermanentName @ 0x140A64B40
+ * XREFs of ExpWnfRegisterPermanentName @ 0x140833F7C
  * Callers:
- *     NtCreateWnfStateName @ 0x140836950 (NtCreateWnfStateName.c)
+ *     NtCreateWnfStateName @ 0x1408340B0 (NtCreateWnfStateName.c)
  * Callees:
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ZwSetValueKey @ 0x1406A7010 (ZwSetValueKey.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     RtlLengthSecurityDescriptor @ 0x14085A2E0 (RtlLengthSecurityDescriptor.c)
- *     ExpWnfGetNameStoreRegistryRoot @ 0x14085AE94 (ExpWnfGetNameStoreRegistryRoot.c)
- *     ExpWnfComposeValueName @ 0x14085AF60 (ExpWnfComposeValueName.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ZwSetValueKey @ 0x1406A7FB0 (ZwSetValueKey.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     ExpWnfGetNameStoreRegistryRoot @ 0x140833900 (ExpWnfGetNameStoreRegistryRoot.c)
+ *     ExpWnfComposeValueName @ 0x1408339CC (ExpWnfComposeValueName.c)
+ *     RtlLengthSecurityDescriptor @ 0x1408565C0 (RtlLengthSecurityDescriptor.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall ExpWnfRegisterPermanentName(unsigned __int64 a1, __int64 a2)
@@ -18,7 +18,7 @@ __int64 __fastcall ExpWnfRegisterPermanentName(unsigned __int64 a1, __int64 a2)
   NTSTATUS NameStoreRegistryRoot; // ebx
   ULONG v6; // eax
   __int64 v7; // rbx
-  ULONG v8; // edx
+  ULONG_PTR v8; // rdx
   ULONG DataSize; // ebp
   char *Pool2; // rax
   char *Data; // rdi
@@ -40,7 +40,7 @@ __int64 __fastcall ExpWnfRegisterPermanentName(unsigned __int64 a1, __int64 a2)
     if ( !*(_QWORD *)(a2 + 8) )
       v8 = v6 + 4;
     DataSize = v8;
-    Pool2 = (char *)ExAllocatePool2(0x100uLL);
+    Pool2 = (char *)ExAllocatePool2(0x100uLL, v8, 0x20666E57u);
     Data = Pool2;
     if ( Pool2 )
     {

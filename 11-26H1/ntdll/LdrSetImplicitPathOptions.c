@@ -1,28 +1,33 @@
 /*
- * XREFs of LdrSetImplicitPathOptions @ 0x18015BBE0
+ * XREFs of LdrSetImplicitPathOptions @ 0x18015BAA0
  * Callers:
  *     <none>
  * Callees:
- *     LdrpFindLoadedDllByHandle @ 0x180054BC0 (LdrpFindLoadedDllByHandle.c)
- *     LdrpDereferenceModule @ 0x180054E10 (LdrpDereferenceModule.c)
+ *     LdrpFindLoadedDllByHandle @ 0x18003F140 (LdrpFindLoadedDllByHandle.c)
+ *     LdrpDereferenceModule @ 0x18003F390 (LdrpDereferenceModule.c)
  */
 
-__int64 __fastcall LdrSetImplicitPathOptions(unsigned __int64 a1, int a2, __int64 a3, unsigned __int64 a4)
+// local variable allocation has failed, the output may be wrong!
+NTSTATUS __cdecl LdrSetImplicitPathOptions(ULONG ImplicitPathOptions)
 {
-  int LoadedDllByHandle; // edi
-  __int64 v6; // rcx
-  int v8; // [rsp+38h] [rbp+10h] BYREF
-  __int64 v9; // [rsp+40h] [rbp+18h] BYREF
+  int v1; // edx
+  char *v2; // r9
+  int v3; // ebx
+  NTSTATUS LoadedDllByHandle; // edi
+  char *v5; // rcx
+  int v7; // [rsp+38h] [rbp+10h] BYREF
+  PVOID BaseAddress; // [rsp+40h] [rbp+18h] BYREF
 
-  v9 = 0LL;
-  if ( (~((LdrpPolicyBits & 4 | 0x7B) << 8) & a2) != 0 || !a2 )
-    return 3221225485LL;
-  LoadedDllByHandle = LdrpFindLoadedDllByHandle(a1, &v9, &v8, a4);
+  v3 = v1;
+  BaseAddress = 0LL;
+  if ( (~((LdrpPolicyBits & 4 | 0x7B) << 8) & v1) != 0 || !v1 )
+    return -1073741811;
+  LoadedDllByHandle = LdrpFindLoadedDllByHandle(*(PVOID *)&ImplicitPathOptions, (__int64 *)&BaseAddress, &v7, v2);
   if ( LoadedDllByHandle >= 0 )
   {
-    v6 = v9;
-    *(_DWORD *)(v9 + 272) = a2;
-    LdrpDereferenceModule(v6);
+    v5 = (char *)BaseAddress;
+    *((_DWORD *)BaseAddress + 68) = v3;
+    LdrpDereferenceModule(v5);
   }
-  return (unsigned int)LoadedDllByHandle;
+  return LoadedDllByHandle;
 }

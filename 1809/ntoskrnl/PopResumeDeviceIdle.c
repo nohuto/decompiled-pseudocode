@@ -1,11 +1,11 @@
 /*
- * XREFs of PopResumeDeviceIdle @ 0x140155EA4
+ * XREFs of PopResumeDeviceIdle @ 0x140155FA4
  * Callers:
- *     PoClearBroadcast @ 0x1406E0A48 (PoClearBroadcast.c)
+ *     PoClearBroadcast @ 0x1406E1CE8 (PoClearBroadcast.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x1400630E0 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14008CF40 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1400630D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14008CE80 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 PopResumeDeviceIdle()
@@ -16,7 +16,7 @@ __int64 PopResumeDeviceIdle()
   struct _KPRCB *CurrentPrcb; // rcx
 
   v0 = KeAcquireSpinLockRaiseToDpc(&PopDopeGlobalLock);
-  byte_14043C524 = 0;
+  byte_14043D5E4 = 0;
   v1 = v0;
   KxReleaseSpinLock(&PopDopeGlobalLock);
   if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && KeGetCurrentIrql() >= 2u && v1 < 2u )

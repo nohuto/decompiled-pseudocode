@@ -1,16 +1,16 @@
 /*
- * XREFs of KiGetDeepIdleProcessors @ 0x1402EC7D0
+ * XREFs of KiGetDeepIdleProcessors @ 0x14029DB20
  * Callers:
- *     KeRemoveQueueDpcEx @ 0x1402C8000 (KeRemoveQueueDpcEx.c)
- *     KeFlushQueuedDpcs @ 0x1402EC6E0 (KeFlushQueuedDpcs.c)
+ *     KeRemoveQueueDpcEx @ 0x140246860 (KeRemoveQueueDpcEx.c)
+ *     KeFlushQueuedDpcs @ 0x14029DA30 (KeFlushQueuedDpcs.c)
  * Callees:
- *     KeAndAffinityEx @ 0x14022A080 (KeAndAffinityEx.c)
- *     KeComplementAffinityEx @ 0x14022A230 (KeComplementAffinityEx.c)
- *     PoCopyDeepIdleMask @ 0x1402EC870 (PoCopyDeepIdleMask.c)
+ *     PoCopyDeepIdleMask @ 0x14029DBC0 (PoCopyDeepIdleMask.c)
+ *     KeAndAffinityEx @ 0x1402CE930 (KeAndAffinityEx.c)
+ *     KeComplementAffinityEx @ 0x1402CEAE0 (KeComplementAffinityEx.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
-__int64 __fastcall KiGetDeepIdleProcessors(unsigned __int16 *a1, unsigned __int16 *a2)
+__int64 __fastcall KiGetDeepIdleProcessors(__int64 a1, __int64 a2)
 {
   unsigned __int8 CurrentIrql; // bl
   _DWORD *SchedulerAssist; // r9
@@ -48,6 +48,6 @@ __int64 __fastcall KiGetDeepIdleProcessors(unsigned __int16 *a1, unsigned __int1
     }
   }
   __writecr8(CurrentIrql);
-  KeComplementAffinityEx((__int64)a2, a1);
-  return KeAndAffinityEx(a2, (unsigned __int16 *)KeActiveProcessors, a2);
+  KeComplementAffinityEx(a2, a1);
+  return KeAndAffinityEx(a2, KeActiveProcessors, a2);
 }

@@ -1,12 +1,12 @@
 /*
- * XREFs of PiUEventMovePendingEventToSynchronousQueue @ 0x1406F77B4
+ * XREFs of PiUEventMovePendingEventToSynchronousQueue @ 0x1406F57B4
  * Callers:
- *     PiUEventHandleGetEvent @ 0x14085B5E0 (PiUEventHandleGetEvent.c)
+ *     PiUEventHandleGetEvent @ 0x140857350 (PiUEventHandleGetEvent.c)
  * Callees:
- *     McTemplateK0qqzqqjqzjztx_EtwWriteTransfer @ 0x1405A6398 (McTemplateK0qqzqqjqzjztx_EtwWriteTransfer.c)
- *     PiUEventGatherEventData @ 0x140724AE8 (PiUEventGatherEventData.c)
- *     PiUEventGetProcessImagePath @ 0x140724B20 (PiUEventGetProcessImagePath.c)
- *     PiUEventFreeProcessImagePath @ 0x140ABC988 (PiUEventFreeProcessImagePath.c)
+ *     McTemplateK0qqzqqjqzjztx_EtwWriteTransfer @ 0x1405A32CC (McTemplateK0qqzqqjqzjztx_EtwWriteTransfer.c)
+ *     PiUEventGatherEventData @ 0x140722678 (PiUEventGatherEventData.c)
+ *     PiUEventGetProcessImagePath @ 0x1407226B0 (PiUEventGetProcessImagePath.c)
+ *     PiUEventFreeProcessImagePath @ 0x140AB79A8 (PiUEventFreeProcessImagePath.c)
  */
 
 __int64 __fastcall PiUEventMovePendingEventToSynchronousQueue(__int64 a1, __int64 *a2)
@@ -35,14 +35,14 @@ __int64 __fastcall PiUEventMovePendingEventToSynchronousQueue(__int64 a1, __int6
   *v5 = (__int64 *)v3;
   *(_QWORD *)(v3 + 8) = v5;
   --*(_DWORD *)(a1 + 128);
-  if ( (byte_140EEFD25 & 1) != 0 )
+  if ( (byte_140EEFF65 & 1) != 0 )
   {
     v6 = (MEMORY[0xFFFFF78000000014] - a2[2]) / 10000;
     if ( v6 > (unsigned __int16)PiUEventPendingQueueTimeMs )
     {
       PiUEventGatherEventData(a2[3], &v10, &v13, &v12);
       PiUEventGetProcessImagePath(*(_QWORD *)(a1 + 48), &v11);
-      if ( (byte_140EEFD25 & 1) != 0 )
+      if ( (byte_140EEFF65 & 1) != 0 )
         McTemplateK0qqzqqjqzjztx_EtwWriteTransfer(
           a2[3],
           (const EVENT_DESCRIPTOR *)KMPnPEvt_UEvent_EventPendingLongTime,

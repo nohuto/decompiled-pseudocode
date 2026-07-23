@@ -1,12 +1,12 @@
 /*
- * XREFs of MiProcessLoadConfigForDriver @ 0x1407D4384
+ * XREFs of MiProcessLoadConfigForDriver @ 0x1407D4654
  * Callers:
- *     MmLoadSystemImageEx @ 0x140703DC0 (MmLoadSystemImageEx.c)
+ *     MmLoadSystemImageEx @ 0x140703FD0 (MmLoadSystemImageEx.c)
  *     MiReloadBootLoadedDrivers @ 0x140B469CC (MiReloadBootLoadedDrivers.c)
  * Callees:
- *     ExGenRandom @ 0x1403175D0 (ExGenRandom.c)
- *     MiProcessKernelCfgImageLoadConfig @ 0x1407D43E4 (MiProcessKernelCfgImageLoadConfig.c)
- *     LdrInitSecurityCookie @ 0x1407D4478 (LdrInitSecurityCookie.c)
+ *     ExGenRandom @ 0x140317860 (ExGenRandom.c)
+ *     MiProcessKernelCfgImageLoadConfig @ 0x1407D46B4 (MiProcessKernelCfgImageLoadConfig.c)
+ *     LdrInitSecurityCookie @ 0x1407D4748 (LdrInitSecurityCookie.c)
  */
 
 __int64 __fastcall MiProcessLoadConfigForDriver(__int64 a1, __int64 a2)

@@ -1,7 +1,7 @@
 /*
- * XREFs of XRestoreSHelper @ 0x140408B10
+ * XREFs of XRestoreSHelper @ 0x140408CF0
  * Callers:
- *     RtlXRestoreS @ 0x140381D18 (RtlXRestoreS.c)
+ *     RtlXRestoreS @ 0x140381868 (RtlXRestoreS.c)
  * Callees:
  *     <none>
  */

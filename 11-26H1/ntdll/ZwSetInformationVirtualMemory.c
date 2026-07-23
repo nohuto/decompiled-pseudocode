@@ -1,18 +1,24 @@
 /*
- * XREFs of ZwSetInformationVirtualMemory @ 0x180162550
+ * XREFs of ZwSetInformationVirtualMemory @ 0x180162450
  * Callers:
- *     RtlpHpLfhSubsegmentCommitBlock @ 0x18003F520 (RtlpHpLfhSubsegmentCommitBlock.c)
- *     RtlpHpLfhSubsegmentPrefetchRange @ 0x1800C1570 (RtlpHpLfhSubsegmentPrefetchRange.c)
- *     RtlpGuardGrantSuppressedCallAccess @ 0x1800C7114 (RtlpGuardGrantSuppressedCallAccess.c)
+ *     RtlpHpLfhSubsegmentCommitBlock @ 0x180029A90 (RtlpHpLfhSubsegmentCommitBlock.c)
+ *     RtlpHpLfhSubsegmentPrefetchRange @ 0x1800BED00 (RtlpHpLfhSubsegmentPrefetchRange.c)
+ *     RtlpGuardGrantSuppressedCallAccess @ 0x1800C48D4 (RtlpGuardGrantSuppressedCallAccess.c)
  * Callees:
  *     <none>
  */
 
-__int64 ZwSetInformationVirtualMemory()
+NTSTATUS __cdecl ZwSetInformationVirtualMemory(
+        HANDLE ProcessHandle,
+        VIRTUAL_MEMORY_INFORMATION_CLASS VmInformationClass,
+        ULONG_PTR NumberOfEntries,
+        PMEMORY_RANGE_ENTRY VirtualAddresses,
+        PVOID VmInformation,
+        ULONG VmInformationLength)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 433LL;
+  result = 433;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

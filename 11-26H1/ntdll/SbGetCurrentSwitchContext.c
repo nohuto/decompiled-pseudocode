@@ -1,9 +1,9 @@
 /*
- * XREFs of SbGetCurrentSwitchContext @ 0x180064460
+ * XREFs of SbGetCurrentSwitchContext @ 0x1800848B0
  * Callers:
- *     SbpUpdateCache @ 0x180063EC0 (SbpUpdateCache.c)
- *     SbUpdateSwitchContextBasedOnDll @ 0x180064160 (SbUpdateSwitchContextBasedOnDll.c)
- *     SbCleanupTrace @ 0x180102E00 (SbCleanupTrace.c)
+ *     SbpUpdateCache @ 0x180084310 (SbpUpdateCache.c)
+ *     SbUpdateSwitchContextBasedOnDll @ 0x1800845B0 (SbUpdateSwitchContextBasedOnDll.c)
+ *     SbCleanupTrace @ 0x180102180 (SbCleanupTrace.c)
  * Callees:
  *     <none>
  */

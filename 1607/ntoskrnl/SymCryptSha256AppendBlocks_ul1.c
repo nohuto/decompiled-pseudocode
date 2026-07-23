@@ -1,12 +1,12 @@
 /*
- * XREFs of SymCryptSha256AppendBlocks_ul1 @ 0x1401369D0
+ * XREFs of SymCryptSha256AppendBlocks_ul1 @ 0x140136F40
  * Callers:
- *     SymCryptSha256Result @ 0x1401368E0 (SymCryptSha256Result.c)
- *     SymCryptSha256AppendBlocks @ 0x1401369BC (SymCryptSha256AppendBlocks.c)
- *     SymCryptSha256Append @ 0x140137C78 (SymCryptSha256Append.c)
- *     SymCryptParallelSha256AppendBytes_serial @ 0x1402372B4 (SymCryptParallelSha256AppendBytes_serial.c)
+ *     SymCryptSha256Result @ 0x140136E50 (SymCryptSha256Result.c)
+ *     SymCryptSha256AppendBlocks @ 0x140136F2C (SymCryptSha256AppendBlocks.c)
+ *     SymCryptSha256Append @ 0x1401381E8 (SymCryptSha256Append.c)
+ *     SymCryptParallelSha256AppendBytes_serial @ 0x1402370E0 (SymCryptParallelSha256AppendBytes_serial.c)
  * Callees:
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall SymCryptSha256AppendBlocks_ul1(int *a1, __int64 a2, unsigned __int64 a3, unsigned __int64 *a4)
@@ -298,7 +298,7 @@ __int64 __fastcall SymCryptSha256AppendBlocks_ul1(int *a1, __int64 a2, unsigned 
           + (v126 ^ v56 & (v53 ^ v126));
       v60 = v59 + v49;
       v61 = v59 + (v54 & v51 | v57 & (v54 | v51));
-      v112 = (_DWORD *)&xmmword_140279240 + 2;
+      v112 = (_DWORD *)&xmmword_140279340 + 2;
       v62 = v126;
       v63 = (__ROR4__(v57, 2) ^ __ROR4__(v57, 13) ^ __ROR4__(v57, 22)) + v61;
       do

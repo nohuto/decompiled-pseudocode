@@ -12,7 +12,7 @@
 PSLIST_ENTRY __fastcall ST_STORE<SM_TRAITS>::StAcquireReadContext(__int64 a1)
 {
   PSLIST_ENTRY v2; // rbx
-  struct _SLIST_ENTRY *Pool2; // rax
+  _SLIST_ENTRY *Pool2; // rax
   unsigned __int64 v4; // rcx
   unsigned __int64 v5; // rcx
   unsigned __int64 v6; // rdx
@@ -20,7 +20,7 @@ PSLIST_ENTRY __fastcall ST_STORE<SM_TRAITS>::StAcquireReadContext(__int64 a1)
   v2 = RtlpInterlockedPopEntrySList((PSLIST_HEADER)(a1 + 4848));
   if ( !v2 )
   {
-    Pool2 = (struct _SLIST_ENTRY *)ExAllocatePool2(0x40uLL);
+    Pool2 = (_SLIST_ENTRY *)ExAllocatePool2(0x40uLL);
     v2 = Pool2;
     if ( Pool2 )
     {

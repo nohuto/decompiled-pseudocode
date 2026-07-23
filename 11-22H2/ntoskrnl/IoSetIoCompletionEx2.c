@@ -48,7 +48,7 @@ __int64 __fastcall IoSetIoCompletionEx2(
     *(_DWORD *)(MiniCompletionPacket + 40) = a4;
     CurrentIrql = KeGetCurrentIrql();
     __writecr8(2uLL);
-    if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+    if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
     {
       SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
       if ( CurrentIrql == 2 )
@@ -88,7 +88,7 @@ __int64 __fastcall IoSetIoCompletionEx2(
       *(_QWORD *)MiniCompletionPacket = 0LL;
     }
     _InterlockedAnd((volatile signed __int32 *)v11, 0xFFFFFF7F);
-    KiExitDispatcher((__int64)CurrentPrcb, 0, (struct _PROCESSOR_NUMBER)1, 0, CurrentIrql);
+    KiExitDispatcher((__int64)CurrentPrcb, 0, (_PROCESSOR_NUMBER)1, 0, CurrentIrql);
   }
   else
   {

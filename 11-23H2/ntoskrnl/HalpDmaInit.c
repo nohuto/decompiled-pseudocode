@@ -1,9 +1,9 @@
 /*
  * XREFs of HalpDmaInit @ 0x140B605F8
  * Callers:
- *     HalpDmaInitSystem @ 0x140A90960 (HalpDmaInitSystem.c)
+ *     HalpDmaInitSystem @ 0x140A907E0 (HalpDmaInitSystem.c)
  * Callees:
- *     HalpDmaInitializeControllers @ 0x14039C688 (HalpDmaInitializeControllers.c)
+ *     HalpDmaInitializeControllers @ 0x14039C868 (HalpDmaInitializeControllers.c)
  *     HalpDmaInitializeMasterAdapter @ 0x140B6072C (HalpDmaInitializeMasterAdapter.c)
  *     HalpDmaAllocateEmergencyResources @ 0x140B608F8 (HalpDmaAllocateEmergencyResources.c)
  *     HalpDmaAllocateMappingResources @ 0x140B609CC (HalpDmaAllocateMappingResources.c)

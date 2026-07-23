@@ -1,11 +1,11 @@
 /*
- * XREFs of CmpGetKnownHivePathNode @ 0x140CEF6BC
+ * XREFs of CmpGetKnownHivePathNode @ 0x140CF5A38
  * Callers:
- *     CmpFindRedirectedDriverServiceStateNode @ 0x140CEF2DC (CmpFindRedirectedDriverServiceStateNode.c)
+ *     CmpFindRedirectedDriverServiceStateNode @ 0x140CF5658 (CmpFindRedirectedDriverServiceStateNode.c)
  * Callees:
- *     CmpGetNextName @ 0x14085EB1C (CmpGetNextName.c)
- *     RtlEqualUnicodeString @ 0x14091F0E0 (RtlEqualUnicodeString.c)
- *     CmpFindHiveSubKey @ 0x140CEF1F4 (CmpFindHiveSubKey.c)
+ *     CmpGetNextName @ 0x140864E0C (CmpGetNextName.c)
+ *     RtlEqualUnicodeString @ 0x140979B40 (RtlEqualUnicodeString.c)
+ *     CmpFindHiveSubKey @ 0x140CF5570 (CmpFindHiveSubKey.c)
  */
 
 bool __fastcall CmpGetKnownHivePathNode(

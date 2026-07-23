@@ -1,28 +1,28 @@
 /*
- * XREFs of EtwTelemetryCoverageReport @ 0x140365240
+ * XREFs of EtwTelemetryCoverageReport @ 0x1403653E0
  * Callers:
- *     EtwpCoverageRecordAtHighIrql @ 0x1405FF984 (EtwpCoverageRecordAtHighIrql.c)
+ *     EtwpCoverageRecordAtHighIrql @ 0x1405FFEF4 (EtwpCoverageRecordAtHighIrql.c)
  *     PsSetProcessFaultInformation @ 0x140683030 (PsSetProcessFaultInformation.c)
- *     EtwpCoverageEnsureContext @ 0x140856AD4 (EtwpCoverageEnsureContext.c)
- *     PopTransitionTelemetryOsState @ 0x140859174 (PopTransitionTelemetryOsState.c)
- *     EtwpCoverageProvEnableCallback @ 0x140861C10 (EtwpCoverageProvEnableCallback.c)
- *     EtwpCoverageReset @ 0x1409E845C (EtwpCoverageReset.c)
- *     EtwpCoverageResetCP @ 0x1409E8640 (EtwpCoverageResetCP.c)
+ *     EtwpCoverageEnsureContext @ 0x140856D14 (EtwpCoverageEnsureContext.c)
+ *     PopTransitionTelemetryOsState @ 0x1408593B4 (PopTransitionTelemetryOsState.c)
+ *     EtwpCoverageProvEnableCallback @ 0x140861E50 (EtwpCoverageProvEnableCallback.c)
+ *     EtwpCoverageReset @ 0x1409E86EC (EtwpCoverageReset.c)
+ *     EtwpCoverageResetCP @ 0x1409E88D0 (EtwpCoverageResetCP.c)
  * Callees:
  *     ObGetCurrentIrql @ 0x14020B9A0 (ObGetCurrentIrql.c)
  *     _tlgKeywordOn @ 0x140212E64 (_tlgKeywordOn.c)
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250E80 (KeAcquireSpinLockRaiseToDpc.c)
- *     ExQueueWorkItem @ 0x1402B7C30 (ExQueueWorkItem.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6B24 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     EtwpCoverageValidateCP @ 0x14036536C (EtwpCoverageValidateCP.c)
- *     EtwpCoverageAddToStringBuffer @ 0x1403C33EC (EtwpCoverageAddToStringBuffer.c)
- *     _tlgCreate1Sz_char @ 0x1403C431C (_tlgCreate1Sz_char.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memset @ 0x140435A00 (memset.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     EtwpCoverageRecord @ 0x1407DD580 (EtwpCoverageRecord.c)
- *     EtwpCoverageEnsureContext @ 0x140856AD4 (EtwpCoverageEnsureContext.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140250F40 (KeAcquireSpinLockRaiseToDpc.c)
+ *     ExQueueWorkItem @ 0x1402B7EC0 (ExQueueWorkItem.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6DB4 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     EtwpCoverageValidateCP @ 0x14036550C (EtwpCoverageValidateCP.c)
+ *     EtwpCoverageAddToStringBuffer @ 0x1403C35CC (EtwpCoverageAddToStringBuffer.c)
+ *     _tlgCreate1Sz_char @ 0x1403C44FC (_tlgCreate1Sz_char.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     EtwpCoverageRecord @ 0x1407DD850 (EtwpCoverageRecord.c)
+ *     EtwpCoverageEnsureContext @ 0x140856D14 (EtwpCoverageEnsureContext.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
@@ -112,8 +112,8 @@ __int64 __fastcall EtwTelemetryCoverageReport(__int64 *a1)
     v8 = -1073741811;
 LABEL_57:
     if ( EtwpCoverageCoreTracingEnabled
-      && (unsigned int)dword_140C04358 > 5
-      && tlgKeywordOn((__int64)&dword_140C04358, 1LL) )
+      && (unsigned int)dword_140C04320 > 5
+      && tlgKeywordOn((__int64)&dword_140C04320, 1LL) )
     {
       v33 = *a1;
       v38 = *(_DWORD *)v6;
@@ -138,8 +138,8 @@ LABEL_57:
       v55 = 4LL;
       tlgCreate1Sz_char(v56, v33);
       tlgWriteTransfer_EtwWriteTransfer(
-        (__int64)&dword_140C04358,
-        (unsigned __int8 *)byte_1400354ED,
+        (__int64)&dword_140C04320,
+        (unsigned __int8 *)&unk_140035708,
         0LL,
         0LL,
         9u,
@@ -170,10 +170,13 @@ LABEL_57:
         break;
     }
     KxReleaseSpinLock((volatile signed __int64 *)v7);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v14 <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+        && CurrentIrql <= 0xFu
+        && (unsigned __int8)v14 <= 0xFu
+        && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -222,10 +225,10 @@ LABEL_57:
       v4 = 0LL;
     }
     KxReleaseSpinLock((volatile signed __int64 *)v7);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v28 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v28 <= 0xFu && (unsigned __int8)v25 <= 0xFu && v28 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v28 <= 0xFu && (unsigned __int8)v25 <= 0xFu && v28 >= 2u )
       {
         v29 = KeGetCurrentPrcb();
         v30 = v29->SchedulerAssist;
@@ -244,10 +247,10 @@ LABEL_57:
     *(_DWORD *)(v7 + 72) = 1;
   }
   KxReleaseSpinLock((volatile signed __int64 *)v7);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v15 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v15 <= 0xFu && (unsigned __int8)v14 <= 0xFu && v15 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v15 <= 0xFu && (unsigned __int8)v14 <= 0xFu && v15 >= 2u )
     {
       v16 = KeGetCurrentPrcb();
       v17 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v14 + 1));

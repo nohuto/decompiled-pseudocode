@@ -1,7 +1,7 @@
 /*
- * XREFs of KeGetCurrentNode @ 0x1405BA900
+ * XREFs of KeGetCurrentNode @ 0x1405B7F30
  * Callers:
- *     ExpPartitionCreatePool @ 0x140AB9EF0 (ExpPartitionCreatePool.c)
+ *     ExpPartitionCreatePool @ 0x140AB4F0C (ExpPartitionCreatePool.c)
  * Callees:
  *     <none>
  */

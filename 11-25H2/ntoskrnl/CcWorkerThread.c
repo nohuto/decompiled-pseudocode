@@ -269,7 +269,7 @@ LABEL_16:
     {
       if ( (xmmword_140FC5B10 & 0x20000) != 0 )
         CcPerfLogWorkItemComplete((__int64)NextWorkQueueEntry);
-      CcFreeWorkQueueEntry((struct _SLIST_ENTRY *)NextWorkQueueEntry);
+      CcFreeWorkQueueEntry((_SLIST_ENTRY *)NextWorkQueueEntry);
     }
   }
   if ( !*(_BYTE *)(v5 + 225) )

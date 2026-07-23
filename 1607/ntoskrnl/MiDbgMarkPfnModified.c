@@ -1,16 +1,16 @@
 /*
- * XREFs of MiDbgMarkPfnModified @ 0x140147D2C
+ * XREFs of MiDbgMarkPfnModified @ 0x14014829C
  * Callers:
- *     MiDbgWriteCheck @ 0x14012C5DC (MiDbgWriteCheck.c)
+ *     MiDbgWriteCheck @ 0x14012CB4C (MiDbgWriteCheck.c)
  * Callees:
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14002E9E0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     MiIsPfnInline @ 0x140030920 (MiIsPfnInline.c)
- *     MiIsPfnFileOnly @ 0x14004E980 (MiIsPfnFileOnly.c)
- *     MiAddLockedPageCharge @ 0x14004F188 (MiAddLockedPageCharge.c)
- *     MiGetPagingFileOffset @ 0x1400B9780 (MiGetPagingFileOffset.c)
- *     ExTryAcquireSpinLockExclusiveAtDpcLevel @ 0x1400C2F60 (ExTryAcquireSpinLockExclusiveAtDpcLevel.c)
- *     MI_GET_PAGE_FRAME_FROM_PTE @ 0x1401F2550 (MI_GET_PAGE_FRAME_FROM_PTE.c)
- *     MiGetPrototypePteDirect @ 0x1401F26B0 (MiGetPrototypePteDirect.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14002E560 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiIsPfnInline @ 0x1400304A0 (MiIsPfnInline.c)
+ *     MiIsPfnFileOnly @ 0x14004E500 (MiIsPfnFileOnly.c)
+ *     MiAddLockedPageCharge @ 0x14004ED08 (MiAddLockedPageCharge.c)
+ *     MiGetPagingFileOffset @ 0x1400B7610 (MiGetPagingFileOffset.c)
+ *     ExTryAcquireSpinLockExclusiveAtDpcLevel @ 0x1400C0DF0 (ExTryAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     MI_GET_PAGE_FRAME_FROM_PTE @ 0x1401F237C (MI_GET_PAGE_FRAME_FROM_PTE.c)
+ *     MiGetPrototypePteDirect @ 0x1401F24DC (MiGetPrototypePteDirect.c)
  */
 
 __int64 __fastcall MiDbgMarkPfnModified(unsigned __int64 a1, __int64 a2)
@@ -74,9 +74,9 @@ LABEL_23:
       if ( (v12 & 0x40000) != 0 || !**(_QWORD **)(v11 + 96) )
       {
 LABEL_18:
-        if ( (PrototypePteDirect[32] & 0x3Eu) < 8 && a1 >= qword_140326910 && a1 < qword_140326910 + 0x8000000000LL )
-          byte_1403268A0 = 1;
-        byte_140327201 = 1;
+        if ( (PrototypePteDirect[32] & 0x3Eu) < 8 && a1 >= qword_140326950 && a1 < qword_140326950 + 0x8000000000LL )
+          byte_1403268E0 = 1;
+        byte_140327241 = 1;
         goto LABEL_23;
       }
       if ( (unsigned int)ExTryAcquireSpinLockExclusiveAtDpcLevel((volatile signed __int32 *)(v11 + 72)) )

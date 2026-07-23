@@ -1,11 +1,11 @@
 /*
- * XREFs of PopBatteryQueryEstimatedTime @ 0x1408ED370
+ * XREFs of PopBatteryQueryEstimatedTime @ 0x1408ED4D0
  * Callers:
- *     PopBatteryWorker @ 0x14077F810 (PopBatteryWorker.c)
+ *     PopBatteryWorker @ 0x14077F9D0 (PopBatteryWorker.c)
  * Callees:
- *     IoSynchronousCallDriver @ 0x1402BECC0 (IoSynchronousCallDriver.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     PopPrepareIoctl @ 0x1407C06A4 (PopPrepareIoctl.c)
+ *     IoSynchronousCallDriver @ 0x14023D110 (IoSynchronousCallDriver.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     PopPrepareIoctl @ 0x1407C0BC4 (PopPrepareIoctl.c)
  */
 
 __int64 __fastcall PopBatteryQueryEstimatedTime(__int64 a1, int a2)

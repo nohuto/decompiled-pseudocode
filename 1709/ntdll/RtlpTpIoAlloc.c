@@ -11,78 +11,75 @@
  *     RtlAllocateHeap @ 0x180040DF0 (RtlAllocateHeap.c)
  */
 
-__int64 __fastcall RtlpTpIoAlloc(unsigned __int64 *a1, __int64 a2, __int64 a3)
+__int64 __fastcall RtlpTpIoAlloc(_QWORD *a1, __int64 a2, void *a3)
 {
   __int64 v6; // rdx
-  unsigned __int64 Heap; // rdi
-  __int64 v8; // r8
-  __int64 v9; // r9
-  int v10; // ebx
-  _BYTE *v11; // rsi
-  _DWORD *v12; // r14
-  volatile signed __int32 *v13; // rcx
-  unsigned int v15; // [rsp+20h] [rbp-28h]
-  volatile signed __int32 *v16; // [rsp+68h] [rbp+20h] BYREF
+  char *Heap; // rdi
+  NTSTATUS v8; // ebx
+  char *v9; // rsi
+  _DWORD *v10; // r14
+  volatile signed __int32 *v11; // rcx
+  unsigned __int32 v13; // [rsp+20h] [rbp-28h]
+  volatile signed __int32 *v14; // [rsp+68h] [rbp+20h] BYREF
 
-  v16 = 0LL;
-  Heap = RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 8u, 184LL);
+  v14 = 0LL;
+  Heap = (char *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, 0xB8uLL);
   if ( !Heap )
   {
-    v10 = -1073741801;
+    v8 = -1073741801;
     goto LABEL_7;
   }
-  v10 = TppPoolpReferenceGlobalPool(
-          (volatile signed __int32 **)&TppPoolpGlobalPool,
-          (_PEB_LDR_DATA *)&TppPoolpGlobalPoolLock,
-          &v16,
-          v9);
-  v15 = v10;
-  if ( v10 >= 0 )
+  v8 = TppPoolpReferenceGlobalPool(
+         (volatile signed __int32 **)&TppPoolpGlobalPool,
+         (_PEB_LDR_DATA *)&TppPoolpGlobalPoolLock,
+         &v14);
+  v13 = v8;
+  if ( v8 >= 0 )
   {
     *(_QWORD *)Heap = a2;
-    *(_QWORD *)(Heap + 64) = RtlpTpIoCallback;
-    v11 = (_BYTE *)(Heap + 76);
-    v12 = (_DWORD *)(Heap + 72);
-    if ( v16 )
+    *((_QWORD *)Heap + 8) = RtlpTpIoCallback;
+    v9 = Heap + 76;
+    v10 = Heap + 72;
+    if ( v14 )
     {
-      TppGetCurrentThreadNumaNode((__int64)v16, (_DWORD *)(Heap + 72), (unsigned __int8 *)(Heap + 76));
+      TppGetCurrentThreadNumaNode((__int64)v14, (_DWORD *)Heap + 18, (unsigned __int8 *)Heap + 76);
     }
     else
     {
-      *v12 = 0;
-      *v11 = 0;
+      *v10 = 0;
+      *v9 = 0;
     }
-    *(_QWORD *)(Heap + 40) = 0LL;
-    *(_QWORD *)(Heap + 56) = Heap + 48;
-    *(_QWORD *)(Heap + 48) = Heap + 48;
-    *(_QWORD *)(Heap + 8) = TppDirectTaskVFuncs;
-    *(_DWORD *)(Heap + 16) = *v12;
-    *(_BYTE *)(Heap + 20) = *v11;
-    v13 = v16;
-    *(_QWORD *)(Heap + 80) = v16;
-    v10 = TpBindFileToDirect(a3, Heap + 8, (__int64)v13);
-    v15 = v10;
-    if ( v10 >= 0 )
+    *((_QWORD *)Heap + 5) = 0LL;
+    *((_QWORD *)Heap + 7) = Heap + 48;
+    *((_QWORD *)Heap + 6) = Heap + 48;
+    *((_QWORD *)Heap + 1) = TppDirectTaskVFuncs;
+    *((_DWORD *)Heap + 4) = *v10;
+    Heap[20] = *v9;
+    v11 = v14;
+    *((_QWORD *)Heap + 10) = v14;
+    v8 = TpBindFileToDirect(a3, (__int64)(Heap + 8), (__int64)v11);
+    v13 = v8;
+    if ( v8 >= 0 )
     {
-      ++*(_DWORD *)(Heap + 88);
-      *(_QWORD *)(Heap + 96) = Heap + 96;
-      *(_QWORD *)(Heap + 104) = 0LL;
-      *(_QWORD *)(Heap + 112) = 0LL;
+      ++*((_DWORD *)Heap + 22);
+      *((_QWORD *)Heap + 12) = Heap + 96;
+      *((_QWORD *)Heap + 13) = 0LL;
+      *((_QWORD *)Heap + 14) = 0LL;
       *a1 = Heap;
-      v10 = 0;
+      v8 = 0;
 LABEL_7:
-      v15 = v10;
+      v13 = v8;
     }
   }
-  if ( v10 < 0 )
+  if ( v8 < 0 )
   {
-    if ( v16 )
-      TpDereferenceGlobalPool((__int64)v16, v6, v8, v9);
+    if ( v14 )
+      TpDereferenceGlobalPool((PVOID)v14, v6);
     if ( Heap )
     {
-      RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, Heap);
-      return v15;
+      RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, Heap);
+      return v13;
     }
   }
-  return (unsigned int)v10;
+  return (unsigned int)v8;
 }

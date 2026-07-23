@@ -32,7 +32,7 @@ __int64 __fastcall strtoxlX(__int64 a1, unsigned __int8 *a2, unsigned __int8 **a
   }
   v9 = *a2;
   v10 = a2 + 1;
-  for ( i = 0; (*(_BYTE *)(_pctype_func() + 2 * v9) & 8) != 0; ++v10 )
+  for ( i = 0; (_pctype_func()[v9] & 8) != 0; ++v10 )
     v9 = *v10;
   v12 = a5;
   if ( (_BYTE)v9 == 45 )
@@ -79,13 +79,13 @@ LABEL_26:
   v13 = 0xFFFFFFFF / v6;
   while ( 1 )
   {
-    if ( (*(_BYTE *)(_pctype_func() + 2LL * (unsigned __int8)v9) & 4) != 0 )
+    if ( (_pctype_func()[(unsigned __int8)v9] & 4) != 0 )
     {
       v14 = (char)v9 - 48;
     }
     else
     {
-      if ( (*(_WORD *)(_pctype_func() + 2LL * (unsigned __int8)v9) & 0x103) == 0 )
+      if ( (_pctype_func()[(unsigned __int8)v9] & 0x103) == 0 )
         break;
       v15 = (char)v9 - 32;
       if ( (unsigned __int8)(v9 - 97) > 0x19u )

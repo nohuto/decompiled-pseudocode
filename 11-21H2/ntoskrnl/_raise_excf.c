@@ -1,9 +1,9 @@
 /*
  * XREFs of _raise_excf @ 0x1403E5BC0
  * Callers:
- *     _handle_errorf @ 0x1403E54DC (_handle_errorf.c)
+ *     sub_1403E54DC @ 0x1403E54DC (sub_1403E54DC.c)
  * Callees:
- *     _raise_exc_ex @ 0x1403E5930 (_raise_exc_ex.c)
+ *     sub_1403E5930 @ 0x1403E5930 (sub_1403E5930.c)
  */
 
 __int64 __fastcall raise_excf(
@@ -14,5 +14,5 @@ __int64 __fastcall raise_excf(
         unsigned int *a5,
         unsigned int *a6)
 {
-  return raise_exc_ex(a1, a2, a3, a4, a5, a6, 1);
+  return sub_1403E5930(a1, a2, a3, a4, a5, a6, 1);
 }

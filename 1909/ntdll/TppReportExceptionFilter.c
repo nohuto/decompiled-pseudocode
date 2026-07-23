@@ -7,8 +7,8 @@
  *     RtlReportException @ 0x1800DB9E0 (RtlReportException.c)
  */
 
-__int64 __fastcall TppReportExceptionFilter(__int64 *a1)
+__int64 __fastcall TppReportExceptionFilter(__int64 a1)
 {
-  RtlReportException(*a1, a1[1], 3u);
+  RtlReportException(*(PEXCEPTION_RECORD *)a1, *(PCONTEXT *)(a1 + 8), 3u);
   return 0LL;
 }

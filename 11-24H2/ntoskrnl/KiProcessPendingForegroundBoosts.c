@@ -1,15 +1,15 @@
 /*
- * XREFs of KiProcessPendingForegroundBoosts @ 0x1404BA9A0
+ * XREFs of KiProcessPendingForegroundBoosts @ 0x1404B5840
  * Callers:
  *     <none>
  * Callees:
- *     KxAcquireSpinLock @ 0x140254AE0 (KxAcquireSpinLock.c)
- *     KxReleaseSpinLock @ 0x140279CC0 (KxReleaseSpinLock.c)
- *     HvlNotifyLongSpinWait @ 0x140293260 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140293290 (KiCheckVpBackingLongSpinWaitHypercall.c)
- *     KiReadyDeferredReadyList @ 0x140299320 (KiReadyDeferredReadyList.c)
- *     KeSetTimer2 @ 0x1403C20A0 (KeSetTimer2.c)
- *     KiApplyForegroundBoostThread @ 0x1404F6D4C (KiApplyForegroundBoostThread.c)
+ *     KxReleaseSpinLock @ 0x14022F250 (KxReleaseSpinLock.c)
+ *     KxAcquireSpinLock @ 0x1402850F0 (KxAcquireSpinLock.c)
+ *     HvlNotifyLongSpinWait @ 0x1402A2E60 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1402A2E90 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     KiReadyDeferredReadyList @ 0x1402A7E10 (KiReadyDeferredReadyList.c)
+ *     KeSetTimer2 @ 0x1403B0C60 (KeSetTimer2.c)
+ *     KiApplyForegroundBoostThread @ 0x1404F4630 (KiApplyForegroundBoostThread.c)
  */
 
 void __fastcall KiProcessPendingForegroundBoosts(
@@ -35,9 +35,9 @@ void __fastcall KiProcessPendingForegroundBoosts(
   v4 = 0LL;
   v15 = 0LL;
   v5 = MEMORY[0xFFFFF78000000320];
-  KxAcquireSpinLock(&qword_140F222B8);
-  v6 = (__int64 *)qword_140F222A8;
-  while ( v6 != &qword_140F222A8 )
+  KxAcquireSpinLock(&qword_140F224F8);
+  v6 = (__int64 *)qword_140F224E8;
+  while ( v6 != &qword_140F224E8 )
   {
     v7 = v6;
     v6 = (__int64 *)*v6;
@@ -54,12 +54,12 @@ void __fastcall KiProcessPendingForegroundBoosts(
       _InterlockedAdd16((volatile signed __int16 *)v7 - 6, 1u);
     }
   }
-  v9 = qword_140F222A8 != (_QWORD)&qword_140F222A8;
-  KxReleaseSpinLock((volatile signed __int64 *)&qword_140F222B8);
+  v9 = qword_140F224E8 != (_QWORD)&qword_140F224E8;
+  KxReleaseSpinLock((volatile signed __int64 *)&qword_140F224F8);
   if ( v9 )
   {
     *((_QWORD *)&v15 + 1) = -1LL;
-    KeSetTimer2((__int64)&KiForegroundState, -150000LL, 0LL, (__int64)&v15);
+    KeSetTimer2((__int64)&KiForegroundState, (LARGE_INTEGER)-150000LL, 0LL, (__int64)&v15);
   }
   while ( v4 )
   {

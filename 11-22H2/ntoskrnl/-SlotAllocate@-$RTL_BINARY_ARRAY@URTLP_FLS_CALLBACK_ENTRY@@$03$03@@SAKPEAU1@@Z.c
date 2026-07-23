@@ -15,8 +15,8 @@ __int64 __fastcall RTL_BINARY_ARRAY<RTLP_FLS_CALLBACK_ENTRY,4,4>::SlotAllocate(u
   unsigned int i; // edx
   unsigned int v6; // ebx
   _OWORD *v8; // rax
-  union _RTL_RUN_ONCE *v9; // rdx
-  union _RTL_RUN_ONCE *v10; // rdx
+  _RTL_RUN_ONCE *v9; // rdx
+  _RTL_RUN_ONCE *v10; // rdx
   __int64 v11; // r9
 
   v2 = 4;
@@ -35,7 +35,7 @@ __int64 __fastcall RTL_BINARY_ARRAY<RTLP_FLS_CALLBACK_ENTRY,4,4>::SlotAllocate(u
       v8[2] = 0LL;
       if ( v4 )
       {
-        v9 = (union _RTL_RUN_ONCE *)(v8 + 2);
+        v9 = (_RTL_RUN_ONCE *)(v8 + 2);
         do
         {
           CmSiRWLockInitialize(v9 - 3);

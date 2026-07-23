@@ -30,10 +30,10 @@ BOOLEAN __stdcall RtlValidRelativeSecurityDescriptor(
   int v13; // ecx
   __int64 v14; // rcx
   __int64 v15; // rcx
-  char *v16; // rcx
+  ACL *v16; // rcx
   __int64 v18; // rcx
   __int64 v19; // rcx
-  char *v20; // rcx
+  ACL *v20; // rcx
   unsigned int v21; // [rsp+20h] [rbp-10h] BYREF
   unsigned int v22[3]; // [rsp+24h] [rbp-Ch] BYREF
   unsigned int v23; // [rsp+58h] [rbp+28h] BYREF
@@ -85,8 +85,8 @@ BOOLEAN __stdcall RtlValidRelativeSecurityDescriptor(
   if ( (v6 & 4) == 0
     || (v14 = *((unsigned int *)SecurityDescriptorInput + 4), !(_DWORD)v14)
     || (unsigned __int8)RtlpValidateSDOffsetAndSize(v14, SecurityDescriptorLength, 8LL, &v21)
-    && (v16 = (char *)SecurityDescriptorInput + v15, v21 >= *((unsigned __int16 *)v16 + 1))
-    && RtlValidAcl((__int64)v16) )
+    && (v16 = (ACL *)((char *)SecurityDescriptorInput + v15), v21 >= v16->AclSize)
+    && RtlValidAcl(v16) )
   {
     if ( (*((_BYTE *)SecurityDescriptorInput + 2) & 0x10) == 0 )
       return 1;
@@ -95,10 +95,10 @@ BOOLEAN __stdcall RtlValidRelativeSecurityDescriptor(
       return 1;
     if ( (unsigned __int8)RtlpValidateSDOffsetAndSize(v18, SecurityDescriptorLength, 8LL, v22) )
     {
-      v20 = (char *)SecurityDescriptorInput + v19;
-      if ( v22[0] >= *((unsigned __int16 *)v20 + 1) )
+      v20 = (ACL *)((char *)SecurityDescriptorInput + v19);
+      if ( v22[0] >= v20->AclSize )
       {
-        if ( RtlValidAcl((__int64)v20) )
+        if ( RtlValidAcl(v20) )
           return 1;
       }
     }

@@ -4,14 +4,14 @@
  *     VrpLoadDifferencingHive @ 0x1405D5E44 (VrpLoadDifferencingHive.c)
  *     VrpUnloadDifferencingHive @ 0x1405D6264 (VrpUnloadDifferencingHive.c)
  * Callees:
- *     KeAbPreAcquire @ 0x14034A230 (KeAbPreAcquire.c)
+ *     KeAbPreAcquire @ 0x140354F80 (KeAbPreAcquire.c)
  */
 
 char __fastcall VrpBecomeDiffHiveEntryTransitionOwner(__int64 a1)
 {
   _QWORD *v1; // rcx
   struct _KTHREAD *CurrentThread; // rax
-  __int64 v3; // rax
+  PRTL_BALANCED_NODE v3; // rax
 
   v1 = (_QWORD *)(a1 + 40);
   if ( *v1 )
@@ -21,6 +21,6 @@ char __fastcall VrpBecomeDiffHiveEntryTransitionOwner(__int64 a1)
   *v1 = KeGetCurrentThread();
   v3 = KeAbPreAcquire((ULONG_PTR)v1, 0LL, 0);
   if ( v3 )
-    *(_BYTE *)(v3 + 26) |= 1u;
+    BYTE2(v3[1].Left) |= 1u;
   return 1;
 }

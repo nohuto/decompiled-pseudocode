@@ -1,23 +1,23 @@
 /*
- * XREFs of MiTransformValidPteInPlace @ 0x140342458
+ * XREFs of MiTransformValidPteInPlace @ 0x1403444D8
  * Callers:
- *     MiTradeActivePage @ 0x140295898 (MiTradeActivePage.c)
- *     MiTradePageWritePte @ 0x14029F8EC (MiTradePageWritePte.c)
- *     MiInitializeSystemPageTable @ 0x14033AB8C (MiInitializeSystemPageTable.c)
- *     MiShadowTopLevelPxes @ 0x1403422E0 (MiShadowTopLevelPxes.c)
- *     MiMakeLargePageTable @ 0x14052B10C (MiMakeLargePageTable.c)
- *     MiPfnRangeIsZero @ 0x1406E9BA0 (MiPfnRangeIsZero.c)
- *     MiDemoteValidLargePageOneLevel @ 0x1406F259C (MiDemoteValidLargePageOneLevel.c)
- *     MiInitializeDynamicBitmap @ 0x1406F50F4 (MiInitializeDynamicBitmap.c)
- *     MiReplicatePteChangeToProcess @ 0x14070BB80 (MiReplicatePteChangeToProcess.c)
+ *     MiTradeActivePage @ 0x140294DF8 (MiTradeActivePage.c)
+ *     MiTradePageWritePte @ 0x14029EE3C (MiTradePageWritePte.c)
+ *     MiInitializeSystemPageTable @ 0x14033CC0C (MiInitializeSystemPageTable.c)
+ *     MiShadowTopLevelPxes @ 0x140344360 (MiShadowTopLevelPxes.c)
+ *     MiMakeLargePageTable @ 0x14052D62C (MiMakeLargePageTable.c)
+ *     MiPfnRangeIsZero @ 0x1406EE840 (MiPfnRangeIsZero.c)
+ *     MiDemoteValidLargePageOneLevel @ 0x1406F720C (MiDemoteValidLargePageOneLevel.c)
+ *     MiInitializeDynamicBitmap @ 0x1406F9D64 (MiInitializeDynamicBitmap.c)
+ *     MiReplicatePteChangeToProcess @ 0x140710830 (MiReplicatePteChangeToProcess.c)
  * Callees:
- *     MiIssueFlushTbEntire @ 0x140250040 (MiIssueFlushTbEntire.c)
- *     MiGetContainingPageTable @ 0x1402D9BF0 (MiGetContainingPageTable.c)
- *     MiWritePteShadow @ 0x14031C28C (MiWritePteShadow.c)
- *     MiTransformValidPteUsingAccessedBit @ 0x140342588 (MiTransformValidPteUsingAccessedBit.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     VslWriteNtPtes @ 0x1405C441C (VslWriteNtPtes.c)
- *     MiWritePteHighLevel @ 0x1406F2B98 (MiWritePteHighLevel.c)
+ *     MiIssueFlushTbEntire @ 0x1402519A0 (MiIssueFlushTbEntire.c)
+ *     MiGetContainingPageTable @ 0x1402BB9B0 (MiGetContainingPageTable.c)
+ *     MiWritePteShadow @ 0x14031E2BC (MiWritePteShadow.c)
+ *     MiTransformValidPteUsingAccessedBit @ 0x140344608 (MiTransformValidPteUsingAccessedBit.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     VslWriteNtPtes @ 0x1405C6C8C (VslWriteNtPtes.c)
+ *     MiWritePteHighLevel @ 0x1406F7808 (MiWritePteHighLevel.c)
  */
 
 __int64 __fastcall MiTransformValidPteInPlace(

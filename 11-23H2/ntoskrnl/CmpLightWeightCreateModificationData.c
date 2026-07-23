@@ -1,14 +1,14 @@
 /*
- * XREFs of CmpLightWeightCreateModificationData @ 0x140A289F8
+ * XREFs of CmpLightWeightCreateModificationData @ 0x140A28CA8
  * Callers:
- *     CmpLightWeightPrepareAddKeyUoW @ 0x140A28CF0 (CmpLightWeightPrepareAddKeyUoW.c)
- *     CmpLightWeightPrepareDeleteKeyUoW @ 0x140A28FA8 (CmpLightWeightPrepareDeleteKeyUoW.c)
- *     CmpLightWeightPrepareRenameKeyUoW @ 0x140A293A0 (CmpLightWeightPrepareRenameKeyUoW.c)
+ *     CmpLightWeightPrepareAddKeyUoW @ 0x140A28FA0 (CmpLightWeightPrepareAddKeyUoW.c)
+ *     CmpLightWeightPrepareDeleteKeyUoW @ 0x140A29258 (CmpLightWeightPrepareDeleteKeyUoW.c)
+ *     CmpLightWeightPrepareRenameKeyUoW @ 0x140A29650 (CmpLightWeightPrepareRenameKeyUoW.c)
  * Callees:
- *     CmpAllocatePool @ 0x14022CEEC (CmpAllocatePool.c)
- *     CmpLightWeightCleanupModifyKeyDataUoW @ 0x140A27F04 (CmpLightWeightCleanupModifyKeyDataUoW.c)
- *     CmpLightWeightDuplicateParentLists @ 0x140A28C00 (CmpLightWeightDuplicateParentLists.c)
- *     CmpLightWeightUpdateModificationActions @ 0x140A29F9C (CmpLightWeightUpdateModificationActions.c)
+ *     CmpAllocatePool @ 0x14022CFFC (CmpAllocatePool.c)
+ *     CmpLightWeightCleanupModifyKeyDataUoW @ 0x140A281B4 (CmpLightWeightCleanupModifyKeyDataUoW.c)
+ *     CmpLightWeightDuplicateParentLists @ 0x140A28EB0 (CmpLightWeightDuplicateParentLists.c)
+ *     CmpLightWeightUpdateModificationActions @ 0x140A2A24C (CmpLightWeightUpdateModificationActions.c)
  */
 
 __int64 __fastcall CmpLightWeightCreateModificationData(__int64 a1, unsigned int **a2)

@@ -1,19 +1,19 @@
 /*
- * XREFs of MiTerminateWsleCluster @ 0x14007B968
+ * XREFs of MiTerminateWsleCluster @ 0x14007B958
  * Callers:
- *     MiRemoveMappedPtes @ 0x1400855D0 (MiRemoveMappedPtes.c)
- *     MiAppendWsleCluster @ 0x1400859FC (MiAppendWsleCluster.c)
+ *     MiRemoveMappedPtes @ 0x1400855C0 (MiRemoveMappedPtes.c)
+ *     MiAppendWsleCluster @ 0x1400859EC (MiAppendWsleCluster.c)
  * Callees:
  *     MiUnlockWsle @ 0x14001A18C (MiUnlockWsle.c)
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
- *     MiRemoveWsle @ 0x14006A870 (MiRemoveWsle.c)
- *     MiFlushTbList @ 0x1400740C0 (MiFlushTbList.c)
- *     MiDeleteValidSystemPage @ 0x14007A860 (MiDeleteValidSystemPage.c)
- *     MiRebuildPageTableLeafAges @ 0x14007AE10 (MiRebuildPageTableLeafAges.c)
- *     MiInsertTbFlushEntry @ 0x1400B3AF0 (MiInsertTbFlushEntry.c)
- *     MiTbFlushType @ 0x1400EDBA4 (MiTbFlushType.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     memset @ 0x1401D1880 (memset.c)
+ *     MiRemoveWsle @ 0x14006A860 (MiRemoveWsle.c)
+ *     MiFlushTbList @ 0x1400740B0 (MiFlushTbList.c)
+ *     MiDeleteValidSystemPage @ 0x14007A850 (MiDeleteValidSystemPage.c)
+ *     MiRebuildPageTableLeafAges @ 0x14007AE00 (MiRebuildPageTableLeafAges.c)
+ *     MiInsertTbFlushEntry @ 0x1400B3A30 (MiInsertTbFlushEntry.c)
+ *     MiTbFlushType @ 0x1400EDC24 (MiTbFlushType.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     memset @ 0x1401D1980 (memset.c)
  */
 
 __int64 __fastcall MiTerminateWsleCluster(_QWORD *a1)

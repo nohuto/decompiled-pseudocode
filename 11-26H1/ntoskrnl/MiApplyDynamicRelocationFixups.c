@@ -1,12 +1,12 @@
 /*
- * XREFs of MiApplyDynamicRelocationFixups @ 0x140480F38
+ * XREFs of MiApplyDynamicRelocationFixups @ 0x14047A8A8
  * Callers:
- *     MiReapplyImportOptimizationIsr @ 0x1406FB670 (MiReapplyImportOptimizationIsr.c)
- *     MiPerformFixups @ 0x1409CED50 (MiPerformFixups.c)
+ *     MiReapplyImportOptimizationIsr @ 0x140700340 (MiReapplyImportOptimizationIsr.c)
+ *     MiPerformFixups @ 0x14099FD30 (MiPerformFixups.c)
  * Callees:
- *     RtlApplyIndirectRelocationToPage @ 0x140472E6C (RtlApplyIndirectRelocationToPage.c)
- *     RtlApplyImportRelocationToPage @ 0x14048113C (RtlApplyImportRelocationToPage.c)
- *     RtlApplySwitchJumpRelocationToPage @ 0x140504914 (RtlApplySwitchJumpRelocationToPage.c)
+ *     RtlApplyIndirectRelocationToPage @ 0x14046C5EC (RtlApplyIndirectRelocationToPage.c)
+ *     RtlApplyImportRelocationToPage @ 0x14047AAAC (RtlApplyImportRelocationToPage.c)
+ *     RtlApplySwitchJumpRelocationToPage @ 0x1404FE258 (RtlApplySwitchJumpRelocationToPage.c)
  */
 
 char __fastcall MiApplyDynamicRelocationFixups(
@@ -38,7 +38,7 @@ char __fastcall MiApplyDynamicRelocationFixups(
                  a1,
                  a2,
                  a3,
-                 *(_DWORD *)&stru_140E2D150.WaitBlockFill11[64] + 4,
+                 *(_DWORD *)&stru_140E2D2D0.WaitBlockFill11[64] + 4,
                  (__int64)(a4 + 4),
                  v10,
                  1,
@@ -49,7 +49,7 @@ char __fastcall MiApplyDynamicRelocationFixups(
                  a1,
                  a2,
                  a3,
-                 *(_DWORD *)&stru_140E2D150.WaitBlockFill11[64] + 4,
+                 *(_DWORD *)&stru_140E2D2D0.WaitBlockFill11[64] + 4,
                  a4 + 4,
                  v10,
                  1);
@@ -59,7 +59,7 @@ char __fastcall MiApplyDynamicRelocationFixups(
                  a1,
                  a2,
                  a3,
-                 *(_DWORD *)&stru_140E2D150.WaitBlockFill11[64] + 4,
+                 *(_DWORD *)&stru_140E2D2D0.WaitBlockFill11[64] + 4,
                  (__int64)(a4 + 4),
                  v10,
                  1);
@@ -73,7 +73,7 @@ char __fastcall MiApplyDynamicRelocationFixups(
                a1,
                a2,
                a3,
-               *(_DWORD *)&stru_140E2D150.WaitBlockFill11[64] + 4,
+               *(_DWORD *)&stru_140E2D2D0.WaitBlockFill11[64] + 4,
                v12,
                v10,
                0,
@@ -87,7 +87,7 @@ char __fastcall MiApplyDynamicRelocationFixups(
                a1,
                a2,
                a3,
-               *(_DWORD *)&stru_140E2D150.WaitBlockFill11[64] + 4,
+               *(_DWORD *)&stru_140E2D2D0.WaitBlockFill11[64] + 4,
                v13++,
                v10,
                0);
@@ -97,7 +97,7 @@ char __fastcall MiApplyDynamicRelocationFixups(
                a1,
                a2,
                a3,
-               *(_DWORD *)&stru_140E2D150.WaitBlockFill11[64] + 4,
+               *(_DWORD *)&stru_140E2D2D0.WaitBlockFill11[64] + 4,
                v14,
                v10,
                0);

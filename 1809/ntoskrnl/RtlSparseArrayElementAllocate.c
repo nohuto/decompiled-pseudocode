@@ -6,7 +6,7 @@
  *     RtlCSparseBitmapLeaveLockingRegion @ 0x14000A75C (RtlCSparseBitmapLeaveLockingRegion.c)
  *     RtlpCSparseBitmapUnlock @ 0x14000A7A0 (RtlpCSparseBitmapUnlock.c)
  *     RtlpCSparseBitmapPageCommit @ 0x14000A9E4 (RtlpCSparseBitmapPageCommit.c)
- *     memmove @ 0x1401D1540 (memmove.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
  */
 
 void *__fastcall RtlSparseArrayElementAllocate(__int64 a1, __int64 a2, const void *a3)

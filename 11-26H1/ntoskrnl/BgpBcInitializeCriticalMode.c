@@ -1,19 +1,19 @@
 /*
- * XREFs of BgpBcInitializeCriticalMode @ 0x140D148A4
+ * XREFs of BgpBcInitializeCriticalMode @ 0x140D1AA6C
  * Callers:
- *     BgpFwLibraryInitialize @ 0x140C545B8 (BgpFwLibraryInitialize.c)
+ *     BgpFwLibraryInitialize @ 0x140C5A5B8 (BgpFwLibraryInitialize.c)
  * Callees:
- *     BgpFwFreeMemory @ 0x140355E00 (BgpFwFreeMemory.c)
- *     BgpFwAllocateMemory @ 0x140355EBC (BgpFwAllocateMemory.c)
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     RtlUShortAdd @ 0x140481650 (RtlUShortAdd.c)
- *     BcpGetMaxResourceProfile @ 0x140717B50 (BcpGetMaxResourceProfile.c)
- *     BcpGetProgressMessages @ 0x140717C10 (BcpGetProgressMessages.c)
- *     Feature_50070238__private_IsEnabledDeviceUsageNoInline @ 0x140718908 (Feature_50070238__private_IsEnabledDeviceUsageNoInline.c)
- *     BgpDisplayCharacterDestroyContext @ 0x140C4FB88 (BgpDisplayCharacterDestroyContext.c)
- *     BgpDisplayCharacterGetContext @ 0x140C4FBB4 (BgpDisplayCharacterGetContext.c)
- *     BgpFoDetermineFontInformation @ 0x140D139B0 (BgpFoDetermineFontInformation.c)
- *     BcpFindMessage @ 0x140D146E4 (BcpFindMessage.c)
+ *     BgpFwFreeMemory @ 0x140357BA8 (BgpFwFreeMemory.c)
+ *     BgpFwAllocateMemory @ 0x140357C64 (BgpFwAllocateMemory.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     RtlUShortAdd @ 0x14047AFC0 (RtlUShortAdd.c)
+ *     BcpGetMaxResourceProfile @ 0x14071C840 (BcpGetMaxResourceProfile.c)
+ *     BcpGetProgressMessages @ 0x14071C900 (BcpGetProgressMessages.c)
+ *     Feature_50070238__private_IsEnabledDeviceUsageNoInline @ 0x14071D5F8 (Feature_50070238__private_IsEnabledDeviceUsageNoInline.c)
+ *     BgpDisplayCharacterDestroyContext @ 0x140C55B88 (BgpDisplayCharacterDestroyContext.c)
+ *     BgpDisplayCharacterGetContext @ 0x140C55BB4 (BgpDisplayCharacterGetContext.c)
+ *     BgpFoDetermineFontInformation @ 0x140D19B78 (BgpFoDetermineFontInformation.c)
+ *     BcpFindMessage @ 0x140D1A8AC (BcpFindMessage.c)
  */
 
 __int64 __fastcall BgpBcInitializeCriticalMode(__int64 a1, int a2)
@@ -68,7 +68,7 @@ __int64 __fastcall BgpBcInitializeCriticalMode(__int64 a1, int a2)
   v43 = 0LL;
   v4 = (unsigned int)Feature_50070238__private_IsEnabledDeviceUsageNoInline() == 0;
   v5 = *(_DWORD *)(a1 + 120);
-  BYTE1(gLoadedDiffHivesLock.Timer.Header.WaitListHead.Blink) = !v4;
+  LOBYTE(gLoadedDiffHivesLock.SchedulerSharedSystemSlot) = !v4;
   if ( (v5 & 0x400000) != 0 )
   {
     *(_DWORD *)&gLoadedDiffHivesLock.WaitBlockFill11[80] |= 0x400000u;
@@ -76,104 +76,104 @@ __int64 __fastcall BgpBcInitializeCriticalMode(__int64 a1, int a2)
   else
   {
     if ( (v5 & 0x2000000) != 0 )
-      WheapPfaLock.SchedulerApcFill3[40] = 1;
+      WheapPfaLock.AbWaitEntryCount = 1;
     v6 = 0LL;
     v45 = 0LL;
     SourceString = 0LL;
     if ( a2 != -1 )
     {
       Message = BcpFindMessage(0xC1008001);
-      RtlInitUnicodeString((PUNICODE_STRING)&stru_140E3E928.SListFaultAddress, Message);
+      RtlInitUnicodeString((PUNICODE_STRING)&stru_140E3EAA8.SListFaultAddress, Message);
       v8 = BcpFindMessage(0xC1008008);
-      RtlInitUnicodeString((PUNICODE_STRING)&stru_140E3E928.StackBase, v8);
+      RtlInitUnicodeString((PUNICODE_STRING)&stru_140E3EAA8.StackBase, v8);
       v9 = BcpFindMessage(0x41008009u);
-      RtlInitUnicodeString((PUNICODE_STRING)&stru_140E3E928.CycleTime, v9);
+      RtlInitUnicodeString((PUNICODE_STRING)&stru_140E3EAA8.CycleTime, v9);
       v10 = BcpFindMessage(0x41008010u);
-      RtlInitUnicodeString((PUNICODE_STRING)&stru_140E3E928.KernelStack, v10);
+      RtlInitUnicodeString((PUNICODE_STRING)&stru_140E3EAA8.KernelStack, v10);
       v11 = BcpFindMessage(0x41008011u);
-      RtlInitUnicodeString((PUNICODE_STRING)&stru_140E3E928.SchedulingGroup, v11);
-      if ( !BYTE1(gLoadedDiffHivesLock.Timer.Header.WaitListHead.Blink) )
+      RtlInitUnicodeString((PUNICODE_STRING)&stru_140E3EAA8.SchedulingGroup, v11);
+      if ( !LOBYTE(gLoadedDiffHivesLock.SchedulerSharedSystemSlot) )
         goto LABEL_64;
-      CycleTime = stru_140E3E928.CycleTime;
-      if ( LOWORD(stru_140E3E928.CycleTime) < LOWORD(stru_140E3E928.SchedulingGroup) )
-        CycleTime = (USHORT)stru_140E3E928.SchedulingGroup;
-      KernelStack = (USHORT)stru_140E3E928.KernelStack;
-      if ( CycleTime >= LOWORD(stru_140E3E928.KernelStack) )
+      CycleTime = stru_140E3EAA8.CycleTime;
+      if ( LOWORD(stru_140E3EAA8.CycleTime) < LOWORD(stru_140E3EAA8.SchedulingGroup) )
+        CycleTime = (USHORT)stru_140E3EAA8.SchedulingGroup;
+      KernelStack = (USHORT)stru_140E3EAA8.KernelStack;
+      if ( CycleTime >= LOWORD(stru_140E3EAA8.KernelStack) )
         KernelStack = CycleTime;
       if ( RtlUShortAdd(
-             (USHORT)stru_140E3E928.SListFaultAddress,
+             (USHORT)stru_140E3EAA8.SListFaultAddress,
              KernelStack,
-             (USHORT *)&stru_140E3E928.WaitBlockFill11[64]) >= 0
-        && RtlUShortAdd(*(USHORT *)&stru_140E3E928.WaitBlockFill11[64], 4u, v14) >= 0 )
+             (USHORT *)&stru_140E3EAA8.WaitBlockFill11[64]) >= 0
+        && RtlUShortAdd(*(USHORT *)&stru_140E3EAA8.WaitBlockFill11[64], 4u, v14) >= 0 )
       {
-        stru_140E3E928.WaitBlock[1].WaitListEntry.Blink = (struct _LIST_ENTRY *)BgpFwAllocateMemory(*(unsigned __int16 *)&stru_140E3E928.WaitBlockFill11[64]);
-        if ( stru_140E3E928.WaitBlock[1].WaitListEntry.Blink )
+        stru_140E3EAA8.WaitBlock[1].WaitListEntry.Blink = (struct _LIST_ENTRY *)BgpFwAllocateMemory(*(unsigned __int16 *)&stru_140E3EAA8.WaitBlockFill11[64]);
+        if ( stru_140E3EAA8.WaitBlock[1].WaitListEntry.Blink )
         {
 LABEL_64:
           v15 = BcpFindMessage(0xC1008003);
-          RtlInitUnicodeString((PUNICODE_STRING)&stru_140E3E928.InitialStack, v15);
+          RtlInitUnicodeString((PUNICODE_STRING)&stru_140E3EAA8.InitialStack, v15);
           v16 = BcpFindMessage(0x41008014u);
-          RtlInitUnicodeString((PUNICODE_STRING)&stru_140E3E928.ApcStateFill[32], v16);
+          RtlInitUnicodeString((PUNICODE_STRING)&stru_140E3EAA8.ApcStateFill[32], v16);
           v17 = BcpFindMessage(0x41008015u);
-          RtlInitUnicodeString((PUNICODE_STRING)&stru_140E3E928.WaitStatus, v17);
+          RtlInitUnicodeString((PUNICODE_STRING)&stru_140E3EAA8.WaitStatus, v17);
           v18 = BcpFindMessage(0x41008016u);
-          RtlInitUnicodeString((PUNICODE_STRING)&stru_140E3E928.216, v18);
+          RtlInitUnicodeString((PUNICODE_STRING)&stru_140E3EAA8.216, v18);
           v19 = BcpFindMessage(0x41008018u);
-          RtlInitUnicodeString((PUNICODE_STRING)&stru_140E3E928.Queue, v19);
+          RtlInitUnicodeString((PUNICODE_STRING)&stru_140E3EAA8.Queue, v19);
           v20 = BcpFindMessage(0x41008017u);
-          RtlInitUnicodeString((PUNICODE_STRING)&stru_140E3E928.RelativeTimerBias, v20);
+          RtlInitUnicodeString((PUNICODE_STRING)&stru_140E3EAA8.RelativeTimerBias, v20);
           v21 = BcpFindMessage(0x41008019u);
-          RtlInitUnicodeString((PUNICODE_STRING)&stru_140E3E928.Timer.Header.WaitListHead, v21);
+          RtlInitUnicodeString((PUNICODE_STRING)&stru_140E3EAA8.Timer.Header.WaitListHead, v21);
           v22 = BcpFindMessage(0x41008020u);
-          RtlInitUnicodeString((PUNICODE_STRING)&stru_140E3E928.Timer.DueTime, v22);
-          if ( !BYTE1(gLoadedDiffHivesLock.Timer.Header.WaitListHead.Blink)
+          RtlInitUnicodeString((PUNICODE_STRING)&stru_140E3EAA8.Timer.DueTime, v22);
+          if ( !LOBYTE(gLoadedDiffHivesLock.SchedulerSharedSystemSlot)
             || RtlUShortAdd(
-                 (USHORT)stru_140E3E928.Timer.Header.WaitListHead.Flink,
-                 stru_140E3E928.Timer.DueTime.QuadPart,
-                 (USHORT *)&stru_140E3E928.WaitBlockFill11[48]) >= 0
-            && RtlUShortAdd(*(USHORT *)&stru_140E3E928.WaitBlockFill11[48], 4u, v23) >= 0
-            && (stru_140E3E928.WaitBlock[0].SparePtr = (PVOID)BgpFwAllocateMemory(*(unsigned __int16 *)&stru_140E3E928.WaitBlockFill11[48])) != 0LL )
+                 (USHORT)stru_140E3EAA8.Timer.Header.WaitListHead.Flink,
+                 stru_140E3EAA8.Timer.DueTime.QuadPart,
+                 (USHORT *)&stru_140E3EAA8.WaitBlockFill11[48]) >= 0
+            && RtlUShortAdd(*(USHORT *)&stru_140E3EAA8.WaitBlockFill11[48], 4u, v23) >= 0
+            && (stru_140E3EAA8.WaitBlock[0].SparePtr = (PVOID)BgpFwAllocateMemory(*(unsigned __int16 *)&stru_140E3EAA8.WaitBlockFill11[48])) != 0LL )
           {
             v24 = BcpFindMessage(0x41008021u);
-            RtlInitUnicodeString((PUNICODE_STRING)&stru_140E3E928.Timer.TimerListEntry.Blink, v24);
+            RtlInitUnicodeString((PUNICODE_STRING)&stru_140E3EAA8.Timer.TimerListEntry.Blink, v24);
             if ( (int)BcpGetProgressMessages(3238035474LL, &SourceString, &v43) >= 0 )
             {
-              RtlInitUnicodeString((PUNICODE_STRING)((char *)&stru_140E3E928.116 + 4), SourceString);
-              RtlInitUnicodeString((PUNICODE_STRING)&stru_140E3E928.FirstArgument, v43);
+              RtlInitUnicodeString((PUNICODE_STRING)((char *)&stru_140E3EAA8.116 + 4), SourceString);
+              RtlInitUnicodeString((PUNICODE_STRING)&stru_140E3EAA8.FirstArgument, v43);
               ProgressMessages = BcpGetProgressMessages(3238035475LL, &v45, &v43);
               v6 = v45;
               if ( ProgressMessages >= 0 )
               {
-                RtlInitUnicodeString((PUNICODE_STRING)&stru_140E3E928.152, v45);
-                RtlInitUnicodeString((PUNICODE_STRING)&stru_140E3E928.ApcStateFill[16], v43);
-                if ( !BYTE1(gLoadedDiffHivesLock.Timer.Header.WaitListHead.Blink)
+                RtlInitUnicodeString((PUNICODE_STRING)&stru_140E3EAA8.152, v45);
+                RtlInitUnicodeString((PUNICODE_STRING)&stru_140E3EAA8.ApcStateFill[16], v43);
+                if ( !LOBYTE(gLoadedDiffHivesLock.SchedulerSharedSystemSlot)
                   || RtlUShortAdd(
-                       *((USHORT *)&stru_140E3E928.MiscFlags + 2),
-                       (USHORT)stru_140E3E928.FirstArgument,
-                       (USHORT *)&stru_140E3E928.WaitBlockFill11[16]) >= 0
+                       *((USHORT *)&stru_140E3EAA8.MiscFlags + 2),
+                       (USHORT)stru_140E3EAA8.FirstArgument,
+                       (USHORT *)&stru_140E3EAA8.WaitBlockFill11[16]) >= 0
                   && RtlUShortAdd(
-                       *(USHORT *)&stru_140E3E928.WaitBlockFill11[16],
-                       (USHORT)stru_140E3E928.ApcState.ApcListHead[0].Flink,
+                       *(USHORT *)&stru_140E3EAA8.WaitBlockFill11[16],
+                       (USHORT)stru_140E3EAA8.ApcState.ApcListHead[0].Flink,
                        v26) >= 0
                   && RtlUShortAdd(
-                       *(USHORT *)&stru_140E3E928.WaitBlockFill11[16],
-                       *(USHORT *)&stru_140E3E928.ApcStateFill[16],
+                       *(USHORT *)&stru_140E3EAA8.WaitBlockFill11[16],
+                       *(USHORT *)&stru_140E3EAA8.ApcStateFill[16],
                        v27) >= 0
-                  && RtlUShortAdd(*(USHORT *)&stru_140E3E928.WaitBlockFill11[16], 8u, v28) >= 0
-                  && (stru_140E3E928.WaitBlock[0].WaitListEntry.Blink = (struct _LIST_ENTRY *)BgpFwAllocateMemory(*(unsigned __int16 *)&stru_140E3E928.WaitBlockFill11[16])) != 0LL
-                  && (stru_140E3E928.WaitBlock[0].WaitListEntry.Flink = (struct _LIST_ENTRY *)BgpFwAllocateMemory(0x400uLL)) != 0LL
+                  && RtlUShortAdd(*(USHORT *)&stru_140E3EAA8.WaitBlockFill11[16], 8u, v28) >= 0
+                  && (stru_140E3EAA8.WaitBlock[0].WaitListEntry.Blink = (struct _LIST_ENTRY *)BgpFwAllocateMemory(*(unsigned __int16 *)&stru_140E3EAA8.WaitBlockFill11[16])) != 0LL
+                  && (stru_140E3EAA8.WaitBlock[0].WaitListEntry.Flink = (struct _LIST_ENTRY *)BgpFwAllocateMemory(0x400uLL)) != 0LL
                   && RtlUShortAdd(
-                       *(USHORT *)&stru_140E3E928.ApcStateFill[32],
+                       *(USHORT *)&stru_140E3EAA8.ApcStateFill[32],
                        4u,
-                       (USHORT *)&stru_140E3E928.WaitBlockFill11[32]) >= 0
-                  && RtlUShortAdd(*(USHORT *)&stru_140E3E928.WaitBlockFill11[32], 0x100u, v29) >= 0
-                  && (stru_140E3E928.WaitBlock[0].Thread = (struct _KTHREAD *)BgpFwAllocateMemory(*(unsigned __int16 *)&stru_140E3E928.WaitBlockFill11[32])) != 0LL )
+                       (USHORT *)&stru_140E3EAA8.WaitBlockFill11[32]) >= 0
+                  && RtlUShortAdd(*(USHORT *)&stru_140E3EAA8.WaitBlockFill11[32], 0x100u, v29) >= 0
+                  && (stru_140E3EAA8.WaitBlock[0].Thread = (struct _KTHREAD *)BgpFwAllocateMemory(*(unsigned __int16 *)&stru_140E3EAA8.WaitBlockFill11[32])) != 0LL )
                 {
                   if ( *BcpFindMessage(0x41008006u) == 48 )
                     *(_DWORD *)&gLoadedDiffHivesLock.WaitBlockFill11[80] |= 0x20000u;
                   v41[0] = (*(_DWORD *)(a1 + 120) & 0x10000000) != 0
                          ? -14389468
-                         : BYTE1(gLoadedDiffHivesLock.Timer.Header.WaitListHead.Blink) != 0
+                         : LOBYTE(gLoadedDiffHivesLock.SchedulerSharedSystemSlot) != 0
                          ? -16777216
                          : -16761454;
                   v41[1] = -1;
@@ -182,14 +182,14 @@ LABEL_64:
                     for ( j = 0LL; j < 4; ++j )
                     {
                       if ( (int)BgpFoDetermineFontInformation(
-                                  dword_140E0F020[i + j],
+                                  dword_140E0F0A0[i + j],
                                   v30,
                                   v31,
                                   &v37,
                                   (unsigned int *)&v42 + 2,
-                                  (__int64 **)&v42) < 0 )
+                                  (struct _LIST_ENTRY **)&v42) < 0 )
                         goto LABEL_46;
-                      dword_140E0F020[i + j] = DWORD2(v42);
+                      dword_140E0F0A0[i + j] = DWORD2(v42);
                     }
                   }
                   HIDWORD(v42) = 0;
@@ -203,11 +203,11 @@ LABEL_64:
                       v38 = __PAIR64__(HIDWORD(v37), DWORD2(v40));
                       gLoadedDiffHivesLock.WaitStatus = v34;
                       gLoadedDiffHivesLock.WaitBlockList = 0LL;
-                      *(_QWORD *)&stru_140E3E928.Timer.Processor = BgpDisplayCharacterGetContext(
+                      *(_QWORD *)&stru_140E3EAA8.Timer.Processor = BgpDisplayCharacterGetContext(
                                                                      (__int64)v41,
                                                                      (int *)&v38,
                                                                      3);
-                      if ( *(_QWORD *)&stru_140E3E928.Timer.Processor )
+                      if ( *(_QWORD *)&stru_140E3EAA8.Timer.Processor )
                       {
                         *(_DWORD *)&gLoadedDiffHivesLock.WaitBlockFill11[80] |= 0x10u;
                         return 0LL;
@@ -225,19 +225,19 @@ LABEL_46:
           }
         }
       }
-      if ( BYTE1(gLoadedDiffHivesLock.Timer.Header.WaitListHead.Blink) )
+      if ( LOBYTE(gLoadedDiffHivesLock.SchedulerSharedSystemSlot) )
       {
-        if ( stru_140E3E928.WaitBlock[0].SparePtr )
-          BgpFwFreeMemory((__int64)stru_140E3E928.WaitBlock[0].SparePtr);
-        if ( stru_140E3E928.WaitBlock[0].WaitListEntry.Blink )
-          BgpFwFreeMemory((__int64)stru_140E3E928.WaitBlock[0].WaitListEntry.Blink);
-        if ( stru_140E3E928.WaitBlock[0].WaitListEntry.Flink )
-          BgpFwFreeMemory((__int64)stru_140E3E928.WaitBlock[0].WaitListEntry.Flink);
-        if ( stru_140E3E928.WaitBlock[0].Thread )
-          BgpFwFreeMemory((__int64)stru_140E3E928.WaitBlock[0].Thread);
+        if ( stru_140E3EAA8.WaitBlock[0].SparePtr )
+          BgpFwFreeMemory((__int64)stru_140E3EAA8.WaitBlock[0].SparePtr);
+        if ( stru_140E3EAA8.WaitBlock[0].WaitListEntry.Blink )
+          BgpFwFreeMemory((__int64)stru_140E3EAA8.WaitBlock[0].WaitListEntry.Blink);
+        if ( stru_140E3EAA8.WaitBlock[0].WaitListEntry.Flink )
+          BgpFwFreeMemory((__int64)stru_140E3EAA8.WaitBlock[0].WaitListEntry.Flink);
+        if ( stru_140E3EAA8.WaitBlock[0].Thread )
+          BgpFwFreeMemory((__int64)stru_140E3EAA8.WaitBlock[0].Thread);
       }
-      if ( *(_QWORD *)&stru_140E3E928.Timer.Processor )
-        BgpDisplayCharacterDestroyContext(*(__int64 *)&stru_140E3E928.Timer.Processor);
+      if ( *(_QWORD *)&stru_140E3EAA8.Timer.Processor )
+        BgpDisplayCharacterDestroyContext(*(__int64 *)&stru_140E3EAA8.Timer.Processor);
     }
   }
   return 0LL;

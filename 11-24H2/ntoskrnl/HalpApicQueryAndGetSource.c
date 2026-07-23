@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpApicQueryAndGetSource @ 0x140568DF0
+ * XREFs of HalpApicQueryAndGetSource @ 0x1405668E0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall HalpApicQueryAndGetSource(__int64 a1, __int64 a2, _DWORD *a3, _BYTE *a4)
@@ -25,7 +25,7 @@ __int64 __fastcall HalpApicQueryAndGetSource(__int64 a1, __int64 a2, _DWORD *a3,
   v9 = 7;
   while ( v8 >= 512 )
   {
-    v10 = guard_dispatch_icall_no_overrides((unsigned int)v8, a2, a3, a4);
+    v10 = guard_dispatch_icall_no_overrides((unsigned int)v8, a2);
     a2 = (unsigned int)(unsigned __int16)-(v9 != 0) - 0x10000;
     v11 = a2 & v10;
     if ( v11 )

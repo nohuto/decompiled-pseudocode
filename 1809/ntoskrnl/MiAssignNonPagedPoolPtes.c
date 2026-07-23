@@ -1,20 +1,20 @@
 /*
- * XREFs of MiAssignNonPagedPoolPtes @ 0x1400992E0
+ * XREFs of MiAssignNonPagedPoolPtes @ 0x140099220
  * Callers:
- *     MiCommitPoolMemory @ 0x140099590 (MiCommitPoolMemory.c)
+ *     MiCommitPoolMemory @ 0x1400994D0 (MiCommitPoolMemory.c)
  * Callees:
  *     MiPteInShadowRange @ 0x14003D740 (MiPteInShadowRange.c)
  *     MiSwizzleInvalidPte @ 0x14003D7C0 (MiSwizzleInvalidPte.c)
  *     MiMakeValidPte @ 0x14003D7F0 (MiMakeValidPte.c)
- *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
- *     MiGetContainingPageTable @ 0x140079850 (MiGetContainingPageTable.c)
- *     MiFlushTbAsNeeded @ 0x140097FD0 (MiFlushTbAsNeeded.c)
- *     MiIsPoolPteInUse @ 0x14009A0D8 (MiIsPoolPteInUse.c)
- *     MiFreeZeroPageSizeIndex @ 0x14009B4AC (MiFreeZeroPageSizeIndex.c)
- *     MiChangePageAttribute @ 0x1400EF920 (MiChangePageAttribute.c)
- *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeYieldProcessorEx @ 0x14006C9E0 (KeYieldProcessorEx.c)
+ *     MiGetContainingPageTable @ 0x140079840 (MiGetContainingPageTable.c)
+ *     MiFlushTbAsNeeded @ 0x140097F10 (MiFlushTbAsNeeded.c)
+ *     MiIsPoolPteInUse @ 0x14009A018 (MiIsPoolPteInUse.c)
+ *     MiFreeZeroPageSizeIndex @ 0x14009B3EC (MiFreeZeroPageSizeIndex.c)
+ *     MiChangePageAttribute @ 0x1400EF9A0 (MiChangePageAttribute.c)
+ *     MiWritePteShadow @ 0x140120F40 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120FA0 (MiPteHasShadow.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiAssignNonPagedPoolPtes(unsigned __int64 a1, __int64 a2, _QWORD *a3)
@@ -139,7 +139,7 @@ __int64 __fastcall MiAssignNonPagedPoolPtes(unsigned __int64 a1, __int64 a2, _QW
       {
         if ( (unsigned int)MiPteHasShadow(v23, ValidPte) )
         {
-          if ( !HIBYTE(word_14043A1AC) && (ValidPte & 1) != 0 )
+          if ( !HIBYTE(word_14043B26C) && (ValidPte & 1) != 0 )
             v13 |= 0x8000000000000000uLL;
           *(_QWORD *)v6 = v13;
           MiWritePteShadow(v6);

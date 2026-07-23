@@ -1,25 +1,25 @@
 /*
- * XREFs of KeStartThread @ 0x140277A6C
+ * XREFs of KeStartThread @ 0x140265A0C
  * Callers:
- *     PspInsertThread @ 0x140649028 (PspInsertThread.c)
- *     KiInitializeIdleThread @ 0x14099E424 (KiInitializeIdleThread.c)
+ *     PspInsertThread @ 0x14063DE48 (PspInsertThread.c)
+ *     KiInitializeIdleThread @ 0x14099F354 (KiInitializeIdleThread.c)
  * Callees:
- *     KiUpdateSharedReadyQueueAffinityThread @ 0x140230DF0 (KiUpdateSharedReadyQueueAffinityThread.c)
- *     KiUpdateThreadPriority @ 0x140230E50 (KiUpdateThreadPriority.c)
- *     KiAcquireKobjectLockSafe @ 0x14024C4A0 (KiAcquireKobjectLockSafe.c)
- *     KiUpdateNodeAffinitizedFlag @ 0x140277ED4 (KiUpdateNodeAffinitizedFlag.c)
- *     KeSelectIdealProcessor @ 0x140277F88 (KeSelectIdealProcessor.c)
- *     KiFreezeSingleThread @ 0x1402831E8 (KiFreezeSingleThread.c)
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     KeFirstGroupAffinityEx @ 0x1402C2670 (KeFirstGroupAffinityEx.c)
- *     KeSelectNodeForAffinity @ 0x1402ECD60 (KeSelectNodeForAffinity.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140314D90 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14033BD80 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KxAcquireQueuedSpinLock @ 0x140350970 (KxAcquireQueuedSpinLock.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402042B0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KiFreezeSingleThread @ 0x14023A74C (KiFreezeSingleThread.c)
+ *     KeFirstGroupAffinityEx @ 0x140240B10 (KeFirstGroupAffinityEx.c)
+ *     KiUpdateNodeAffinitizedFlag @ 0x140265E74 (KiUpdateNodeAffinitizedFlag.c)
+ *     KeSelectIdealProcessor @ 0x140265F28 (KeSelectIdealProcessor.c)
+ *     KeSelectNodeForAffinity @ 0x14029E0B0 (KeSelectNodeForAffinity.c)
+ *     KiUpdateSharedReadyQueueAffinityThread @ 0x1402D5640 (KiUpdateSharedReadyQueueAffinityThread.c)
+ *     KiUpdateThreadPriority @ 0x1402D56A0 (KiUpdateThreadPriority.c)
+ *     KiAcquireKobjectLockSafe @ 0x1402F0CF0 (KiAcquireKobjectLockSafe.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x14031FAE0 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140346AD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KxAcquireQueuedSpinLock @ 0x14035B6C0 (KxAcquireQueuedSpinLock.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     KiExtendProcessAffinity @ 0x1405243FC (KiExtendProcessAffinity.c)
- *     EtwTraceIdealProcessor @ 0x1405A7844 (EtwTraceIdealProcessor.c)
+ *     KiExtendProcessAffinity @ 0x14052463C (KiExtendProcessAffinity.c)
+ *     EtwTraceIdealProcessor @ 0x1405A7A74 (EtwTraceIdealProcessor.c)
  */
 
 __int64 __fastcall KeStartThread(__int64 a1, __int128 *a2, unsigned int *a3)
@@ -39,7 +39,7 @@ __int64 __fastcall KeStartThread(__int64 a1, __int128 *a2, unsigned int *a3)
   _LIST_ENTRY *p_ThreadListHead; // rsi
   __int64 v18; // r15
   int QuantumReset; // eax
-  __int64 v20; // rdx
+  int v20; // edx
   __int64 v21; // rax
   struct _LIST_ENTRY *Blink; // rcx
   struct _LIST_ENTRY *v23; // rax
@@ -114,7 +114,7 @@ __int64 __fastcall KeStartThread(__int64 a1, __int128 *a2, unsigned int *a3)
     }
     else
     {
-      KeFirstGroupAffinityEx(&v44, &v9->Affinity);
+      KeFirstGroupAffinityEx((__int64)&v44, &v9->Affinity.Count);
     }
     v4 = &v44;
   }
@@ -152,26 +152,26 @@ __int64 __fastcall KeStartThread(__int64 a1, __int128 *a2, unsigned int *a3)
   {
     LockHandle.LockQueue.Next = 0LL;
     LockHandle.LockQueue.Lock = (unsigned __int64 *volatile)&KiProcessListLock;
-    KxAcquireQueuedSpinLock(&LockHandle, &KiProcessListLock, v12);
-    v28 = (_LIST_ENTRY **)qword_140C31D58;
+    KxAcquireQueuedSpinLock(&LockHandle, &KiProcessListLock, v12, v13);
+    v28 = (_LIST_ENTRY **)qword_140C31C08;
     p_ProcessListEntry = &v9->ProcessListEntry;
-    if ( *(__int64 **)qword_140C31D58 != &KiProcessListHead )
+    if ( *(__int64 **)qword_140C31C08 != &KiProcessListHead )
       goto LABEL_50;
-    v9->ProcessListEntry.Blink = (struct _LIST_ENTRY *)qword_140C31D58;
+    v9->ProcessListEntry.Blink = (struct _LIST_ENTRY *)qword_140C31C08;
     p_ProcessListEntry->Flink = (struct _LIST_ENTRY *)&KiProcessListHead;
     *v28 = p_ProcessListEntry;
-    qword_140C31D58 = (__int64)&v9->ProcessListEntry;
+    qword_140C31C08 = (__int64)&v9->ProcessListEntry;
     KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
   }
   *(_DWORD *)(a1 + 120) ^= (*(_DWORD *)(a1 + 120) ^ (*(_DWORD *)&v9->0 << 6)) & 0x100;
   QuantumReset = (unsigned __int8)v9->QuantumReset;
-  v20 = *(unsigned int *)(a1 + 120);
+  v20 = *(_DWORD *)(a1 + 120);
   *(_BYTE *)(a1 + 651) = QuantumReset;
   v21 = (unsigned int)(KiCyclesPerClockQuantum * QuantumReset);
   if ( (v20 & 0x20) != 0 )
     _interlockedbittestandreset((volatile signed __int32 *)(a1 + 120), 5u);
   *(_QWORD *)(a1 + 32) = v21;
-  KiAcquireKobjectLockSafe(&v9->Header.Lock, v20, v12, v13);
+  KiAcquireKobjectLockSafe(v9);
   Blink = v9->ThreadListHead.Blink;
   v23 = (struct _LIST_ENTRY *)(a1 + 760);
   if ( Blink->Flink != p_ThreadListHead )
@@ -183,7 +183,7 @@ LABEL_50:
   v9->ThreadListHead.Blink = v23;
   _InterlockedAnd(&v9->Header.Lock, 0xFFFFFF7F);
   if ( (*(_DWORD *)&v9->0 & 8) != 0 )
-    KiFreezeSingleThread(KeGetCurrentPrcb(), a1);
+    KiFreezeSingleThread((__int64)KeGetCurrentPrcb(), a1);
   *(_QWORD *)(a1 + 104) = v9->SchedulingGroup;
   if ( v9->SchedulingGroup )
     _interlockedbittestandset((volatile signed __int32 *)a1, 0x12u);
@@ -199,7 +199,7 @@ LABEL_50:
       if ( v27 > v26 )
       {
         *(_BYTE *)(a1 + 564) = (v27 - v26) & 0xF;
-        KiUpdateThreadPriority(0LL, a1, (_SINGLE_LIST_ENTRY *)(unsigned int)v27, 0);
+        KiUpdateThreadPriority(0LL, a1, (unsigned int)v27, 0LL);
         KiUpdateSharedReadyQueueAffinityThread(0LL, a1);
       }
     }

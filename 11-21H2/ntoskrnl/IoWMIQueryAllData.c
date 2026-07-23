@@ -5,7 +5,7 @@
  * Callees:
  *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
  *     memset @ 0x140435E00 (memset.c)
- *     WmipQueryAllData @ 0x14078CD70 (WmipQueryAllData.c)
+ *     sub_14078CD70 @ 0x14078CD70 (sub_14078CD70.c)
  */
 
 NTSTATUS __stdcall IoWMIQueryAllData(PVOID DataBlockObject, PULONG InOutBufferSize, PVOID OutBuffer)
@@ -29,7 +29,7 @@ NTSTATUS __stdcall IoWMIQueryAllData(PVOID DataBlockObject, PULONG InOutBufferSi
   *((_DWORD *)OutBuffer + 3) = 0;
   *((_DWORD *)OutBuffer + 11) = 1;
   *(_DWORD *)OutBuffer = 48;
-  v7 = WmipQueryAllData(DataBlockObject, 0LL, 0, (__int64)OutBuffer, v6, &v11);
+  v7 = sub_14078CD70(DataBlockObject, 0LL, 0, (__int64)OutBuffer, v6, &v11);
   if ( v7 >= 0 )
   {
     v8 = *((_DWORD *)OutBuffer + 11);

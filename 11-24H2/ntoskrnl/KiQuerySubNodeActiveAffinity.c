@@ -1,12 +1,12 @@
 /*
- * XREFs of KiQuerySubNodeActiveAffinity @ 0x1403A8720
+ * XREFs of KiQuerySubNodeActiveAffinity @ 0x14026FE00
  * Callers:
- *     MiGetClosestNodeWithProcessors @ 0x1403A85A4 (MiGetClosestNodeWithProcessors.c)
- *     KeQueryNodeActiveAffinity @ 0x1403A8640 (KeQueryNodeActiveAffinity.c)
- *     KeQueryNodeActiveProcessorCount @ 0x1405BAA40 (KeQueryNodeActiveProcessorCount.c)
- *     KiSynchNumaCounterSetCallback @ 0x140A60920 (KiSynchNumaCounterSetCallback.c)
- *     KiConfigureSchedulingInformation @ 0x140B560D8 (KiConfigureSchedulingInformation.c)
- *     KiComputeNumaCosts @ 0x140C278AC (KiComputeNumaCosts.c)
+ *     MiGetClosestNodeWithProcessors @ 0x14026FC80 (MiGetClosestNodeWithProcessors.c)
+ *     KeQueryNodeActiveAffinity @ 0x14026FD20 (KeQueryNodeActiveAffinity.c)
+ *     KeQueryNodeActiveProcessorCount @ 0x1405B8070 (KeQueryNodeActiveProcessorCount.c)
+ *     KiSynchNumaCounterSetCallback @ 0x140A58E70 (KiSynchNumaCounterSetCallback.c)
+ *     KiConfigureSchedulingInformation @ 0x140B58128 (KiConfigureSchedulingInformation.c)
+ *     KiComputeNumaCosts @ 0x140C29888 (KiComputeNumaCosts.c)
  * Callees:
  *     <none>
  */

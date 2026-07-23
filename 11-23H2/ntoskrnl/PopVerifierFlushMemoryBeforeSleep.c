@@ -1,10 +1,10 @@
 /*
- * XREFs of PopVerifierFlushMemoryBeforeSleep @ 0x140AA7834
+ * XREFs of PopVerifierFlushMemoryBeforeSleep @ 0x140AA76A4
  * Callers:
- *     PoBroadcastSystemState @ 0x140AA6A68 (PoBroadcastSystemState.c)
+ *     PoBroadcastSystemState @ 0x140AA68D8 (PoBroadcastSystemState.c)
  * Callees:
  *     MmPerformMemoryListCommand @ 0x140A884BC (MmPerformMemoryListCommand.c)
- *     MmIsVerifierEnabled @ 0x140ABD2C0 (MmIsVerifierEnabled.c)
+ *     MmIsVerifierEnabled @ 0x140ABD2B0 (MmIsVerifierEnabled.c)
  */
 
 __int64 PopVerifierFlushMemoryBeforeSleep()

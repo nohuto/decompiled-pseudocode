@@ -1,10 +1,10 @@
 /*
- * XREFs of KiDetectBpbMsr @ 0x1401D980C
+ * XREFs of KiDetectBpbMsr @ 0x1401D9638
  * Callers:
  *     KiInitializeKernel @ 0x1403D3DE0 (KiInitializeKernel.c)
  * Callees:
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
- *     KiDetectHardwareSpecControlFeatures @ 0x1401D989C (KiDetectHardwareSpecControlFeatures.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
+ *     KiDetectHardwareSpecControlFeatures @ 0x1401D96C8 (KiDetectHardwareSpecControlFeatures.c)
  */
 
 char __fastcall KiDetectBpbMsr(__int64 a1, __int64 a2)

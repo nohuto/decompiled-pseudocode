@@ -50,10 +50,13 @@ char __fastcall CcForceWriteThrough(__int64 a1, unsigned int a2, __int64 a3, cha
       PrivateVolumeCacheMapFromFileObject = CcGetPrivateVolumeCacheMapFromFileObject((_QWORD *)a1, v9);
       KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
       OldIrql = LockHandle.OldIrql;
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         CurrentIrql = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && LockHandle.OldIrql <= 0xFu && CurrentIrql >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+          && CurrentIrql <= 0xFu
+          && LockHandle.OldIrql <= 0xFu
+          && CurrentIrql >= 2u )
         {
           CurrentPrcb = KeGetCurrentPrcb();
           SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -82,10 +85,10 @@ char __fastcall CcForceWriteThrough(__int64 a1, unsigned int a2, __int64 a3, cha
         *(_DWORD *)(a3 + 152) |= 0x400u;
         KxReleaseQueuedSpinLock((volatile signed __int64 **)&v23);
         v17 = v23.OldIrql;
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
           v18 = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && v18 <= 0xFu && v23.OldIrql <= 0xFu && v18 >= 2u )
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v18 <= 0xFu && v23.OldIrql <= 0xFu && v18 >= 2u )
           {
             v19 = KeGetCurrentPrcb();
             v20 = v19->SchedulerAssist;

@@ -3,11 +3,11 @@
  * Callers:
  *     <none>
  * Callees:
- *     FsRtlPrivateFastUnlockAll @ 0x14021D404 (FsRtlPrivateFastUnlockAll.c)
+ *     sub_14021D404 @ 0x14021D404 (sub_14021D404.c)
  *     IoGetRequestorProcess @ 0x14021DC00 (IoGetRequestorProcess.c)
  *     FsRtlFastUnlockSingle @ 0x14021DDD0 (FsRtlFastUnlockSingle.c)
  *     FsRtlPrivateLock @ 0x14021E2B0 (FsRtlPrivateLock.c)
- *     FsRtlCompleteLockIrpReal @ 0x14021F5E4 (FsRtlCompleteLockIrpReal.c)
+ *     sub_14021F5E4 @ 0x14021F5E4 (sub_14021F5E4.c)
  *     IofCompleteRequest @ 0x1402B59A0 (IofCompleteRequest.c)
  */
 
@@ -67,11 +67,11 @@ NTSTATUS __stdcall FsRtlProcessFileLock(PFILE_LOCK FileLock, PIRP Irp, PVOID Con
         break;
       case 3u:
         v15 = (unsigned int)IoGetRequestorProcess(Irp);
-        v12 = FsRtlPrivateFastUnlockAll((_DWORD)FileLock, CurrentStackLocation->FileObject, v15, 0, 0, (__int64)Context);
+        v12 = sub_14021D404((_DWORD)FileLock, CurrentStackLocation->FileObject, v15, 0, 0, (__int64)Context);
         break;
       case 4u:
         v14 = (unsigned int)IoGetRequestorProcess(Irp);
-        v12 = FsRtlPrivateFastUnlockAll(
+        v12 = sub_14021D404(
                 (_DWORD)FileLock,
                 CurrentStackLocation->FileObject,
                 v14,
@@ -87,7 +87,7 @@ NTSTATUS __stdcall FsRtlProcessFileLock(PFILE_LOCK FileLock, PIRP Irp, PVOID Con
     }
     CompleteLockIrpRoutine = FileLock->CompleteLockIrpRoutine;
     Iosb.Status = v12;
-    FsRtlCompleteLockIrpReal(CompleteLockIrpRoutine, Context, Irp, v12, &Iosb, 0LL);
+    sub_14021F5E4(CompleteLockIrpRoutine, Context, Irp, v12, &Iosb, 0LL);
   }
   return Iosb.Status;
 }

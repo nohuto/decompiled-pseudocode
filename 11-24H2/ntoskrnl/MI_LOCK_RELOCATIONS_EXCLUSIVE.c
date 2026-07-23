@@ -1,30 +1,30 @@
 /*
- * XREFs of MI_LOCK_RELOCATIONS_EXCLUSIVE @ 0x14045B1E0
+ * XREFs of MI_LOCK_RELOCATIONS_EXCLUSIVE @ 0x1404505E0
  * Callers:
- *     MiRelocateImage @ 0x1408F5784 (MiRelocateImage.c)
- *     MiRelocateImageAgain @ 0x1408F642C (MiRelocateImageAgain.c)
- *     MiCaptureRetpolineImportInfo @ 0x140A877D0 (MiCaptureRetpolineImportInfo.c)
- *     MiFreeRetpolineImportInfo @ 0x140A981A0 (MiFreeRetpolineImportInfo.c)
- *     MiCaptureSecureImageBaseAddress @ 0x140AA8678 (MiCaptureSecureImageBaseAddress.c)
+ *     MiCaptureRetpolineImportInfo @ 0x140A83CC0 (MiCaptureRetpolineImportInfo.c)
+ *     MiCaptureSecureImageBaseAddress @ 0x140A8D9F4 (MiCaptureSecureImageBaseAddress.c)
+ *     MiFreeRetpolineImportInfo @ 0x140A9495C (MiFreeRetpolineImportInfo.c)
+ *     MiRelocateImage @ 0x140AEA57C (MiRelocateImage.c)
+ *     MiRelocateImageAgain @ 0x140AEAE48 (MiRelocateImageAgain.c)
  * Callees:
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
  */
 
-__int64 __fastcall MI_LOCK_RELOCATIONS_EXCLUSIVE(__int64 a1, __int64 a2)
+char *__fastcall MI_LOCK_RELOCATIONS_EXCLUSIVE(__int64 a1, __int64 a2)
 {
   unsigned __int64 *v2; // rdi
-  __int64 result; // rax
-  __int64 v6; // rbx
+  char *result; // rax
+  char *v6; // rbx
 
   --*(_WORD *)(a1 + 486);
   v2 = (unsigned __int64 *)(a2 + 24);
-  result = (__int64)KeAbPreAcquire(a2 + 24, 0LL);
+  result = (char *)KeAbPreAcquire(a2 + 24, 0LL);
   v6 = result;
   if ( _interlockedbittestandset64((volatile signed __int32 *)v2, 0LL) )
-    result = ExfAcquirePushLockExclusiveEx(v2, result, (__int64)v2);
+    result = (char *)ExfAcquirePushLockExclusiveEx(v2, result, (__int64)v2);
   if ( v6 )
-    *(_BYTE *)(v6 + 10) = 1;
+    v6[10] = 1;
   *(_QWORD *)(a2 + 8) = a1;
   return result;
 }

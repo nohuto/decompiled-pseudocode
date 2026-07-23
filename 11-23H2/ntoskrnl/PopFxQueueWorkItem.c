@@ -1,16 +1,16 @@
 /*
- * XREFs of PopFxQueueWorkItem @ 0x14028C22C
+ * XREFs of PopFxQueueWorkItem @ 0x14028C4BC
  * Callers:
- *     PopFxQueueWorkOrder @ 0x14028C1CC (PopFxQueueWorkOrder.c)
- *     PopFxHandleReportDevicePoweredOn @ 0x14028D050 (PopFxHandleReportDevicePoweredOn.c)
- *     PopHandleDevicePowerIrpCompletion @ 0x14028E1A0 (PopHandleDevicePowerIrpCompletion.c)
+ *     PopFxQueueWorkOrder @ 0x14028C45C (PopFxQueueWorkOrder.c)
+ *     PopFxHandleReportDevicePoweredOn @ 0x14028D2E0 (PopFxHandleReportDevicePoweredOn.c)
+ *     PopHandleDevicePowerIrpCompletion @ 0x14028E430 (PopHandleDevicePowerIrpCompletion.c)
  * Callees:
- *     ExInterlockedInsertTailList @ 0x14028C2A0 (ExInterlockedInsertTailList.c)
- *     KeReleaseSemaphoreEx @ 0x1402B71A0 (KeReleaseSemaphoreEx.c)
- *     ExTryQueueWorkItem @ 0x1402B9B30 (ExTryQueueWorkItem.c)
+ *     ExInterlockedInsertTailList @ 0x14028C530 (ExInterlockedInsertTailList.c)
+ *     KeReleaseSemaphoreEx @ 0x1402B7430 (KeReleaseSemaphoreEx.c)
+ *     ExTryQueueWorkItem @ 0x1402B9DC0 (ExTryQueueWorkItem.c)
  */
 
-__int64 __fastcall PopFxQueueWorkItem(__int64 a1, struct _LIST_ENTRY *a2)
+__int64 __fastcall PopFxQueueWorkItem(__int64 a1, _LIST_ENTRY *a2)
 {
   __int64 result; // rax
   int v5; // r9d

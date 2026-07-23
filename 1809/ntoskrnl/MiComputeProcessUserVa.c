@@ -1,12 +1,12 @@
 /*
- * XREFs of MiComputeProcessUserVa @ 0x14067A0FC
+ * XREFs of MiComputeProcessUserVa @ 0x14067B2BC
  * Callers:
- *     MmInitializeProcessAddressSpace @ 0x1406798B8 (MmInitializeProcessAddressSpace.c)
+ *     MmInitializeProcessAddressSpace @ 0x14067AA78 (MmInitializeProcessAddressSpace.c)
  * Callees:
- *     MiSectionControlArea @ 0x140075E70 (MiSectionControlArea.c)
- *     MiCreateSystemWsles @ 0x1400F31A4 (MiCreateSystemWsles.c)
- *     MiUpdateChargedWsles @ 0x1402CB68C (MiUpdateChargedWsles.c)
- *     MiChargeFullProcessCommitment @ 0x1405E0510 (MiChargeFullProcessCommitment.c)
+ *     MiSectionControlArea @ 0x140075E60 (MiSectionControlArea.c)
+ *     MiCreateSystemWsles @ 0x1400F3224 (MiCreateSystemWsles.c)
+ *     MiUpdateChargedWsles @ 0x1402CB87C (MiUpdateChargedWsles.c)
+ *     MiChargeFullProcessCommitment @ 0x1405E1510 (MiChargeFullProcessCommitment.c)
  */
 
 __int64 __fastcall MiComputeProcessUserVa(__int64 a1, __int64 a2, __int64 a3, _QWORD *a4)
@@ -61,7 +61,7 @@ __int64 __fastcall MiComputeProcessUserVa(__int64 a1, __int64 a2, __int64 a3, _Q
       *a4 = 0x100000000LL;
     }
   }
-  if ( dword_140540190 )
+  if ( dword_140541190 )
   {
     if ( v10 > 0x80000000 )
       _InterlockedOr((volatile signed __int32 *)(a1 + 772), 0x200000u);

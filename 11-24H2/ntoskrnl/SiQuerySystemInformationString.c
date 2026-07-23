@@ -1,34 +1,38 @@
 /*
- * XREFs of SiQuerySystemInformationString @ 0x140A7FFF8
+ * XREFs of SiQuerySystemInformationString @ 0x140A7AA58
  * Callers:
- *     SyspartGetFirmwarePartition @ 0x1406F6790 (SyspartGetFirmwarePartition.c)
- *     SyspartGetSystemPartition @ 0x140A7FF8C (SyspartGetSystemPartition.c)
+ *     SyspartGetFirmwarePartition @ 0x1406F4790 (SyspartGetFirmwarePartition.c)
+ *     SyspartGetSystemPartition @ 0x140A7A9EC (SyspartGetSystemPartition.c)
  * Callees:
- *     ZwQuerySystemInformation @ 0x1406A6AD0 (ZwQuerySystemInformation.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ZwQuerySystemInformation @ 0x1406A7A70 (ZwQuerySystemInformation.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall SiQuerySystemInformationString(__int64 a1, void *a2, unsigned int a3, unsigned int *a4)
+__int64 __fastcall SiQuerySystemInformationString(
+        SYSTEM_INFORMATION_CLASS SystemInformationClass,
+        void *a2,
+        unsigned int a3,
+        unsigned int *a4)
 {
-  unsigned int v7; // esi
-  int SystemInformation; // eax
-  int v9; // ebx
-  __int64 Pool2; // rax
+  NTSTATUS SystemInformation; // eax
+  NTSTATUS v9; // ebx
+  const void **Pool2; // rax
   const void **v11; // rdi
   unsigned int v12; // eax
+  ULONG ReturnLength[10]; // [rsp+20h] [rbp-28h] BYREF
 
-  v7 = a1;
-  SystemInformation = ZwQuerySystemInformation(a1, 0LL);
+  ReturnLength[0] = 0;
+  SystemInformation = ZwQuerySystemInformation(SystemInformationClass, 0LL, 0, ReturnLength);
   v9 = SystemInformation;
   if ( SystemInformation == -1073741789 )
   {
-    Pool2 = ExAllocatePool2(0x100uLL);
-    v11 = (const void **)Pool2;
+    Pool2 = (const void **)ExAllocatePool2(0x100uLL, ReturnLength[0], 0x4B505953u);
+    v11 = Pool2;
     if ( Pool2 )
     {
-      v9 = ZwQuerySystemInformation(v7, Pool2);
+      v9 = ZwQuerySystemInformation(SystemInformationClass, Pool2, ReturnLength[0], ReturnLength);
       if ( v9 >= 0 )
       {
         v12 = *(unsigned __int16 *)v11 + 2;

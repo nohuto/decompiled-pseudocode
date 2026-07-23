@@ -1,12 +1,12 @@
 /*
- * XREFs of CcRegisterExternalCache @ 0x140169E10
+ * XREFs of CcRegisterExternalCache @ 0x140169F10
  * Callers:
  *     <none>
  * Callees:
- *     CcAddExternalCache @ 0x140169E94 (CcAddExternalCache.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
+ *     CcAddExternalCache @ 0x140169F94 (CcAddExternalCache.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall CcRegisterExternalCache(__int64 a1, _QWORD *a2)

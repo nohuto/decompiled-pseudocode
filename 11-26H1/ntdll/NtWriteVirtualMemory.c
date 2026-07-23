@@ -1,20 +1,25 @@
 /*
- * XREFs of NtWriteVirtualMemory @ 0x18015F680
+ * XREFs of NtWriteVirtualMemory @ 0x18015F580
  * Callers:
- *     RtlpHeapPerformCrossProcessQuery @ 0x180113660 (RtlpHeapPerformCrossProcessQuery.c)
- *     RtlpProcessReflectionStartup @ 0x180139D90 (RtlpProcessReflectionStartup.c)
- *     RtlRemoteCall @ 0x180148280 (RtlRemoteCall.c)
- *     PsspDuplicateSnapshotLocalToRemote @ 0x180159B6C (PsspDuplicateSnapshotLocalToRemote.c)
- *     PsspDuplicateSnapshotRemoteToRemote @ 0x18015A108 (PsspDuplicateSnapshotRemoteToRemote.c)
+ *     RtlpHeapPerformCrossProcessQuery @ 0x1800926EC (RtlpHeapPerformCrossProcessQuery.c)
+ *     RtlpProcessReflectionStartup @ 0x180139B00 (RtlpProcessReflectionStartup.c)
+ *     RtlRemoteCall @ 0x180148130 (RtlRemoteCall.c)
+ *     PsspDuplicateSnapshotLocalToRemote @ 0x180159A3C (PsspDuplicateSnapshotLocalToRemote.c)
+ *     PsspDuplicateSnapshotRemoteToRemote @ 0x180159FD8 (PsspDuplicateSnapshotRemoteToRemote.c)
  * Callees:
  *     <none>
  */
 
-__int64 NtWriteVirtualMemory()
+NTSTATUS __cdecl NtWriteVirtualMemory(
+        HANDLE ProcessHandle,
+        PVOID BaseAddress,
+        PVOID Buffer,
+        SIZE_T BufferSize,
+        PSIZE_T NumberOfBytesWritten)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 58LL;
+  result = 58;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

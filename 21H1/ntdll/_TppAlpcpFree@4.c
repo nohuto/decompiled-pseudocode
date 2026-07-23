@@ -10,10 +10,10 @@
  *     __SEH_prolog4 @ 0x4B307AC4 (__SEH_prolog4.c)
  */
 
-int __stdcall TppAlpcpFree(_DWORD *a1)
+LOGICAL __stdcall TppAlpcpFree(int a1)
 {
-  TpAdjustBindingCount(a1[23], 0xFFFFFFFF);
-  *(a1 - 4) = 0;
+  TpAdjustBindingCount(*(_DWORD *)(a1 + 92), 0xFFFFFFFF);
+  *(_DWORD *)(a1 - 48 + 32) = 0;
   TppCleanupGroupMemberDestroy(a1);
-  return RtlFreeHeap((int)NtCurrentPeb()->ProcessHeap, TppHeapTag + 0x80000, (int)(a1 - 12));
+  return RtlFreeHeap(NtCurrentPeb()->ProcessHeap, TppHeapTag + 0x80000, (PVOID)(a1 - 48));
 }

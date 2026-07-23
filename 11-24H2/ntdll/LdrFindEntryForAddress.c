@@ -1,35 +1,30 @@
 /*
- * XREFs of LdrFindEntryForAddress @ 0x180064BF0
+ * XREFs of LdrFindEntryForAddress @ 0x18007AA10
  * Callers:
- *     LdrLoadAlternateResourceModuleEx @ 0x18005FF20 (LdrLoadAlternateResourceModuleEx.c)
- *     LdrpIsReparsePoint @ 0x180064A20 (LdrpIsReparsePoint.c)
- *     LdrInitShimEngineDynamic @ 0x180064C50 (LdrInitShimEngineDynamic.c)
+ *     LdrLoadAlternateResourceModuleEx @ 0x180075B00 (LdrLoadAlternateResourceModuleEx.c)
+ *     LdrpIsReparsePoint @ 0x18007A600 (LdrpIsReparsePoint.c)
+ *     LdrInitShimEngineDynamic @ 0x1800ACB80 (LdrInitShimEngineDynamic.c)
  * Callees:
- *     LdrpFindLoadedDllByAddress @ 0x1800104F0 (LdrpFindLoadedDllByAddress.c)
- *     LdrpDereferenceModule @ 0x18001B350 (LdrpDereferenceModule.c)
+ *     LdrpFindLoadedDllByAddress @ 0x18003CEF0 (LdrpFindLoadedDllByAddress.c)
+ *     LdrpDereferenceModule @ 0x180047D50 (LdrpDereferenceModule.c)
  */
 
-__int64 __fastcall LdrFindEntryForAddress(unsigned __int64 a1, __int64 *a2)
+NTSTATUS __cdecl LdrFindEntryForAddress(PVOID DllHandle, PLDR_DATA_TABLE_ENTRY *Entry)
 {
-  int LoadedDllByAddress; // ebx
-  __int64 v4; // rcx
+  NTSTATUS LoadedDllByAddress; // ebx
+  char *v4; // rcx
   int v6; // [rsp+30h] [rbp+8h] BYREF
-  __int64 v7; // [rsp+40h] [rbp+18h] BYREF
+  PVOID BaseAddress; // [rsp+40h] [rbp+18h] BYREF
 
-  v7 = 0LL;
-  if ( a1 )
+  BaseAddress = 0LL;
+  if ( !DllHandle )
+    return -1073741515;
+  LoadedDllByAddress = LdrpFindLoadedDllByAddress((unsigned __int64)DllHandle, (unsigned __int64 *)&BaseAddress, &v6);
+  if ( LoadedDllByAddress >= 0 )
   {
-    LoadedDllByAddress = LdrpFindLoadedDllByAddress(a1, (unsigned __int64 *)&v7, &v6);
-    if ( LoadedDllByAddress >= 0 )
-    {
-      v4 = v7;
-      *a2 = v7;
-      LdrpDereferenceModule(v4);
-    }
+    v4 = (char *)BaseAddress;
+    *Entry = (PLDR_DATA_TABLE_ENTRY)BaseAddress;
+    LdrpDereferenceModule(v4);
   }
-  else
-  {
-    return (unsigned int)-1073741515;
-  }
-  return (unsigned int)LoadedDllByAddress;
+  return LoadedDllByAddress;
 }

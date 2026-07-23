@@ -1,21 +1,21 @@
 /*
- * XREFs of PiProcessDriverInstance @ 0x140AD5550
+ * XREFs of PiProcessDriverInstance @ 0x140AD2500
  * Callers:
  *     <none>
  * Callees:
- *     RtlStringCchPrintfExW @ 0x14044E030 (RtlStringCchPrintfExW.c)
- *     McTemplateK0zzzd_EtwWriteTransfer @ 0x1405DC438 (McTemplateK0zzzd_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     ZwSetValueKey @ 0x140723FF0 (ZwSetValueKey.c)
- *     ZwDeleteValueKey @ 0x140724FD0 (ZwDeleteValueKey.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     PipOpenServiceEnumKeys @ 0x140A12308 (PipOpenServiceEnumKeys.c)
- *     PiFindDevInstMatch @ 0x140AD5814 (PiFindDevInstMatch.c)
- *     PiRearrangeDeviceInstances @ 0x140AD5A5C (PiRearrangeDeviceInstances.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePool @ 0x140C10E30 (ExFreePool.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     RtlStringCchPrintfExW @ 0x140446160 (RtlStringCchPrintfExW.c)
+ *     McTemplateK0zzzd_EtwWriteTransfer @ 0x1405DECE8 (McTemplateK0zzzd_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     ZwSetValueKey @ 0x140728BC0 (ZwSetValueKey.c)
+ *     ZwDeleteValueKey @ 0x140729BA0 (ZwDeleteValueKey.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     PipOpenServiceEnumKeys @ 0x140A114F8 (PipOpenServiceEnumKeys.c)
+ *     PiFindDevInstMatch @ 0x140AD27C4 (PiFindDevInstMatch.c)
+ *     PiRearrangeDeviceInstances @ 0x140AD2A0C (PiRearrangeDeviceInstances.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePool @ 0x140C16E30 (ExFreePool.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PiProcessDriverInstance(unsigned __int16 *a1, __int64 a2, const wchar_t *a3, char *a4)
@@ -121,7 +121,7 @@ LABEL_16:
     v12 = P[1];
     goto LABEL_14;
   }
-  if ( *a4 && (byte_140EF3DCB & 0x40) != 0 )
+  if ( *a4 && (byte_140EF412B & 0x40) != 0 )
     McTemplateK0zzzd_EtwWriteTransfer(
       *(_QWORD *)(a2 + 8),
       (const EVENT_DESCRIPTOR *)KMPnPEvt_ServiceOpenFailure,

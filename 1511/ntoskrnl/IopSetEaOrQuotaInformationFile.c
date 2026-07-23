@@ -43,7 +43,7 @@ __int64 __fastcall IopSetEaOrQuotaInformationFile(void *a1, ULONG64 a2, char *a3
   IRP *Irp; // rsi
   struct _KTHREAD *v20; // rdi
   ULONG Flags; // eax
-  struct _FILE_QUOTA_INFORMATION *v22; // rdi
+  _FILE_QUOTA_INFORMATION *v22; // rdi
   int v23; // eax
   struct _MDL *Mdl; // rcx
   char v25; // r12
@@ -157,7 +157,7 @@ LABEL_23:
           if ( (_DWORD)v4 )
           {
             v28 = 0;
-            v22 = (struct _FILE_QUOTA_INFORMATION *)sub_1400CC928(NonPagedPoolNx, v4);
+            v22 = (_FILE_QUOTA_INFORMATION *)sub_1400CC928(NonPagedPoolNx, v4);
             Irp->AssociatedIrp.MasterIrp = (struct _IRP *)v22;
             memmove(v22, a3, v4);
             LODWORD(v4) = a4;

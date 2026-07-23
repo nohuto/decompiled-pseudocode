@@ -1,11 +1,11 @@
 /*
- * XREFs of SdbpGetMappedStringFromTable @ 0x1409E7AD0
+ * XREFs of SdbpGetMappedStringFromTable @ 0x1409D44E8
  * Callers:
- *     SdbGetStringTagPtr @ 0x1409E7DF4 (SdbGetStringTagPtr.c)
+ *     SdbGetStringTagPtr @ 0x1409D4804 (SdbGetStringTagPtr.c)
  * Callees:
- *     SdbpGetMappedTagData @ 0x1409E7A4C (SdbpGetMappedTagData.c)
- *     SdbpGetStringTableItemFromStringRef @ 0x1409E7B3C (SdbpGetStringTableItemFromStringRef.c)
- *     AslLogCallPrintf @ 0x1409E8884 (AslLogCallPrintf.c)
+ *     SdbpGetMappedTagData @ 0x1409D4464 (SdbpGetMappedTagData.c)
+ *     SdbpGetStringTableItemFromStringRef @ 0x1409D4554 (SdbpGetStringTableItemFromStringRef.c)
+ *     AslLogCallPrintf @ 0x1409D5294 (AslLogCallPrintf.c)
  */
 
 __int64 __fastcall SdbpGetMappedStringFromTable(void *a1)

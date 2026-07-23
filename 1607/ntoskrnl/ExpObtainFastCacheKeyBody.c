@@ -1,19 +1,19 @@
 /*
- * XREFs of ExpObtainFastCacheKeyBody @ 0x14057A65C
+ * XREFs of ExpObtainFastCacheKeyBody @ 0x14057AB9C
  * Callers:
  *     ExpTimeRefreshWork @ 0x1403C9110 (ExpTimeRefreshWork.c)
- *     ExReArmFastCache @ 0x1406AE05C (ExReArmFastCache.c)
- *     sub_1406AE414 @ 0x1406AE414 (sub_1406AE414.c)
- *     sub_1406AF6C0 @ 0x1406AF6C0 (sub_1406AF6C0.c)
+ *     ExReArmFastCache @ 0x1406AE194 (ExReArmFastCache.c)
+ *     sub_1406AE54C @ 0x1406AE54C (sub_1406AE54C.c)
+ *     sub_1406AF7F8 @ 0x1406AF7F8 (sub_1406AF7F8.c)
  *     ExpInitFastCache @ 0x1407B5348 (ExpInitFastCache.c)
  *     sub_1407D22C0 @ 0x1407D22C0 (sub_1407D22C0.c)
  * Callees:
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
- *     ZwClose @ 0x140159E60 (ZwClose.c)
- *     ZwOpenKey @ 0x140159EC0 (ZwOpenKey.c)
- *     ZwLockRegistryKey @ 0x14015BC80 (ZwLockRegistryKey.c)
- *     ObReferenceObjectByHandle @ 0x140450D40 (ObReferenceObjectByHandle.c)
- *     ExpCreateRestrictedFastCacheRegistryKey @ 0x1406AED54 (ExpCreateRestrictedFastCacheRegistryKey.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
+ *     ZwClose @ 0x14015A3D0 (ZwClose.c)
+ *     ZwOpenKey @ 0x14015A430 (ZwOpenKey.c)
+ *     ZwLockRegistryKey @ 0x14015C1F0 (ZwLockRegistryKey.c)
+ *     ObReferenceObjectByHandle @ 0x14044FC10 (ObReferenceObjectByHandle.c)
+ *     ExpCreateRestrictedFastCacheRegistryKey @ 0x1406AEE8C (ExpCreateRestrictedFastCacheRegistryKey.c)
  */
 
 __int64 __fastcall ExpObtainFastCacheKeyBody(UNICODE_STRING *String1, PVOID *a2)

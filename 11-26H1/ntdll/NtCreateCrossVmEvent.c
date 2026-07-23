@@ -1,5 +1,5 @@
 /*
- * XREFs of NtCreateCrossVmEvent @ 0x180160450
+ * XREFs of NtCreateCrossVmEvent @ 0x180160350
  * Callers:
  *     <none>
  * Callees:

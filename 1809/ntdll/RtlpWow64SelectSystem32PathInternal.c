@@ -6,7 +6,7 @@
  *     RtlInitUnicodeString @ 0x180040650 (RtlInitUnicodeString.c)
  */
 
-__int64 __fastcall RtlpWow64SelectSystem32PathInternal(__int16 a1, char a2, UNICODE_STRING *a3)
+__int64 __fastcall RtlpWow64SelectSystem32PathInternal(__int16 a1, char a2, _UNICODE_STRING *a3)
 {
   const wchar_t *v5; // rax
   const WCHAR *v6; // rdx

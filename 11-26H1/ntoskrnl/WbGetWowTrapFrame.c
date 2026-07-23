@@ -1,10 +1,10 @@
 /*
- * XREFs of WbGetWowTrapFrame @ 0x14088037C
+ * XREFs of WbGetWowTrapFrame @ 0x14088677C
  * Callers:
- *     sub_1409EBEA0 @ 0x1409EBEA0 (sub_1409EBEA0.c)
+ *     sub_1409E8670 @ 0x1409E8670 (sub_1409E8670.c)
  * Callees:
- *     PsWow64GetProcessMachine @ 0x1409EBB90 (PsWow64GetProcessMachine.c)
- *     PspWow64GetContextThread @ 0x140A214E8 (PspWow64GetContextThread.c)
+ *     PsWow64GetProcessMachine @ 0x1409E8360 (PsWow64GetProcessMachine.c)
+ *     PspWow64GetContextThread @ 0x140A2AB08 (PspWow64GetContextThread.c)
  */
 
 __int64 __fastcall WbGetWowTrapFrame(_DWORD *a1, __int64 a2)

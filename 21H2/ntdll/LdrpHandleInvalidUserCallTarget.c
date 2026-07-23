@@ -6,7 +6,7 @@
  *     LdrpDispatchUserCallTarget @ 0x18008CD30 (LdrpDispatchUserCallTarget.c)
  *     LdrpDispatchUserCallTargetES @ 0x18008CD80 (LdrpDispatchUserCallTargetES.c)
  * Callees:
- *     RtlpHandleInvalidUserCallTarget @ 0x1800FD950 (RtlpHandleInvalidUserCallTarget.c)
+ *     RtlpHandleInvalidUserCallTarget @ 0x1800FD910 (RtlpHandleInvalidUserCallTarget.c)
  */
 
 void __fastcall LdrpHandleInvalidUserCallTarget()

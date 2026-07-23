@@ -29,7 +29,7 @@ void __fastcall EtwTraceProcess(PEPROCESS Process, __int16 a2)
   PVOID P; // [rsp+40h] [rbp-248h]
   PVOID v11; // [rsp+48h] [rbp-240h] BYREF
   char v12[112]; // [rsp+50h] [rbp-238h] BYREF
-  int v13[104]; // [rsp+C0h] [rbp-1C8h] BYREF
+  ULONG_PTR v13[52]; // [rsp+C0h] [rbp-1C8h] BYREF
 
   if ( a2 == 770 )
   {

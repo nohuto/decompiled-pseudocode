@@ -1,12 +1,12 @@
 /*
- * XREFs of KsepDsEventPoolFree @ 0x1402A12A8
+ * XREFs of KsepDsEventPoolFree @ 0x1402A1498
  * Callers:
- *     KseDsHookExFreePool @ 0x1402A0580 (KseDsHookExFreePool.c)
- *     KseDsHookExFreePoolWithTag @ 0x1402A05C0 (KseDsHookExFreePoolWithTag.c)
+ *     KseDsHookExFreePool @ 0x1402A0770 (KseDsHookExFreePool.c)
+ *     KseDsHookExFreePoolWithTag @ 0x1402A07B0 (KseDsHookExFreePoolWithTag.c)
  * Callees:
  *     EtwEventEnabled @ 0x14005B2D0 (EtwEventEnabled.c)
- *     EtwWriteEx @ 0x1400CAD60 (EtwWriteEx.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     EtwWriteEx @ 0x1400CAE40 (EtwWriteEx.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
  */
 
 char __fastcall KsepDsEventPoolFree(__int64 a1, __int64 a2, int a3)

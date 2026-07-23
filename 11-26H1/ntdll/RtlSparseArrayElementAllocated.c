@@ -1,14 +1,14 @@
 /*
- * XREFs of RtlSparseArrayElementAllocated @ 0x18008CD44
+ * XREFs of RtlSparseArrayElementAllocated @ 0x1800706A0
  * Callers:
- *     RtlpHpVaMgrCtxQuery @ 0x180089DFC (RtlpHpVaMgrCtxQuery.c)
- *     RtlpHpVaMgrCtxFree @ 0x18008C0B4 (RtlpHpVaMgrCtxFree.c)
- *     RtlpHpVaMgrRangeFind @ 0x18008C698 (RtlpHpVaMgrRangeFind.c)
- *     RtlpHpVaMgrRangeCommitProcess @ 0x18008D0C0 (RtlpHpVaMgrRangeCommitProcess.c)
- *     RtlpHpVaMgrCtxCommit @ 0x18011D560 (RtlpHpVaMgrCtxCommit.c)
- *     RtlpHpVaMgrCtxDecommit @ 0x18011D928 (RtlpHpVaMgrCtxDecommit.c)
+ *     RtlpHpVaMgrCtxFree @ 0x18006F4F4 (RtlpHpVaMgrCtxFree.c)
+ *     RtlpHpVaMgrRangeFind @ 0x18006FAD4 (RtlpHpVaMgrRangeFind.c)
+ *     RtlpHpVaMgrRangeCommitProcess @ 0x180070A20 (RtlpHpVaMgrRangeCommitProcess.c)
+ *     RtlpHpVaMgrCtxQuery @ 0x180070DFC (RtlpHpVaMgrCtxQuery.c)
+ *     RtlpHpVaMgrCtxCommit @ 0x18011D310 (RtlpHpVaMgrCtxCommit.c)
+ *     RtlpHpVaMgrCtxDecommit @ 0x18011D6D8 (RtlpHpVaMgrCtxDecommit.c)
  * Callees:
- *     RtlCSparseBitmapFindBitSetCapped @ 0x18008CDA0 (RtlCSparseBitmapFindBitSetCapped.c)
+ *     RtlCSparseBitmapFindBitSetCapped @ 0x1800706FC (RtlCSparseBitmapFindBitSetCapped.c)
  */
 
 __int64 __fastcall RtlSparseArrayElementAllocated(__int64 a1, __int64 a2)

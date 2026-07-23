@@ -1,7 +1,7 @@
 /*
- * XREFs of MiPageAlreadyLocked @ 0x14043C190
+ * XREFs of MiPageAlreadyLocked @ 0x14042EA40
  * Callers:
- *     MiSynchronizeFastPageInsert @ 0x1402CE960 (MiSynchronizeFastPageInsert.c)
+ *     MiSynchronizeFastPageInsert @ 0x1402B0720 (MiSynchronizeFastPageInsert.c)
  * Callees:
  *     <none>
  */

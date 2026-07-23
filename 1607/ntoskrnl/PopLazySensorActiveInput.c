@@ -1,14 +1,14 @@
 /*
- * XREFs of PopLazySensorActiveInput @ 0x140674B58
+ * XREFs of PopLazySensorActiveInput @ 0x140674C3C
  * Callers:
  *     PopSessionWinlogonNotification @ 0x1403E2A1C (PopSessionWinlogonNotification.c)
  * Callees:
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
- *     MmDetachSession @ 0x1400764B8 (MmDetachSession.c)
- *     MmAttachSession @ 0x14007651C (MmAttachSession.c)
- *     MmGetSessionById @ 0x1400765C0 (MmGetSessionById.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     PopConsoleSessionActiveInput @ 0x14052E33C (PopConsoleSessionActiveInput.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
+ *     MmDetachSession @ 0x140076538 (MmDetachSession.c)
+ *     MmAttachSession @ 0x14007659C (MmAttachSession.c)
+ *     MmGetSessionById @ 0x140076640 (MmGetSessionById.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     PopConsoleSessionActiveInput @ 0x14052E87C (PopConsoleSessionActiveInput.c)
  */
 
 ULONG_PTR __fastcall PopLazySensorActiveInput(unsigned int a1, __int64 a2, __int64 a3)
@@ -21,10 +21,10 @@ ULONG_PTR __fastcall PopLazySensorActiveInput(unsigned int a1, __int64 a2, __int
   _BYTE v9[48]; // [rsp+28h] [rbp-40h] BYREF
 
   v3 = 0;
-  BYTE2(qword_140302410) = 1;
+  BYTE2(qword_140302430) = 1;
   v8 = 0LL;
   v5 = 0;
-  HIDWORD(qword_140302410) = 10;
+  HIDWORD(qword_140302430) = 10;
   result = MmGetSessionById(a1, a2, a3);
   v7 = (void *)result;
   if ( result )
@@ -41,7 +41,7 @@ ULONG_PTR __fastcall PopLazySensorActiveInput(unsigned int a1, __int64 a2, __int
     }
     result = ObfDereferenceObject(v7);
     HIDWORD(PopLazyContext) = v5;
-    LOWORD(qword_140302410) = 257;
+    LOWORD(qword_140302430) = 257;
     DWORD2(PopLazyContext) = v3;
   }
   return result;

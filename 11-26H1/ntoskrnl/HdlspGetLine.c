@@ -1,18 +1,18 @@
 /*
- * XREFs of HdlspGetLine @ 0x140C4CAA8
+ * XREFs of HdlspGetLine @ 0x140C52AA8
  * Callers:
- *     HdlspBugCheckProcessing @ 0x140C4C1F8 (HdlspBugCheckProcessing.c)
- *     HdlspDispatch @ 0x140C4C320 (HdlspDispatch.c)
- *     HdlspPutMore @ 0x140C4D228 (HdlspPutMore.c)
+ *     HdlspBugCheckProcessing @ 0x140C521F8 (HdlspBugCheckProcessing.c)
+ *     HdlspDispatch @ 0x140C52320 (HdlspDispatch.c)
+ *     HdlspPutMore @ 0x140C53228 (HdlspPutMore.c)
  * Callees:
- *     KeReleaseSpinLock @ 0x1402BE860 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14032F300 (KeAcquireSpinLockRaiseToDpc.c)
- *     sprintf_s @ 0x14053C4C0 (sprintf_s.c)
- *     strcpy_s @ 0x14053C650 (strcpy_s.c)
- *     InbvPortGetByte @ 0x14071E7B0 (InbvPortGetByte.c)
- *     InbvPortPollOnly @ 0x14071E964 (InbvPortPollOnly.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     HdlspSendStringAtBaud @ 0x140C4D5CC (HdlspSendStringAtBaud.c)
+ *     KeReleaseSpinLock @ 0x140309520 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140331330 (KeAcquireSpinLockRaiseToDpc.c)
+ *     sprintf_s @ 0x14053E940 (sprintf_s.c)
+ *     strcpy_s @ 0x14053EAD0 (strcpy_s.c)
+ *     InbvPortGetByte @ 0x140723440 (InbvPortGetByte.c)
+ *     InbvPortPollOnly @ 0x1407235F4 (InbvPortPollOnly.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     HdlspSendStringAtBaud @ 0x140C535CC (HdlspSendStringAtBaud.c)
  */
 
 char __fastcall HdlspGetLine(void *a1, size_t Size)

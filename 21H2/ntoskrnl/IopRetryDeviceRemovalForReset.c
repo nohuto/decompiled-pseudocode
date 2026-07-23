@@ -1,13 +1,13 @@
 /*
- * XREFs of IopRetryDeviceRemovalForReset @ 0x1408A09D0
+ * XREFs of IopRetryDeviceRemovalForReset @ 0x1408A0B30
  * Callers:
  *     <none>
  * Callees:
- *     PipIsDevNodeEffectivelyRemoved @ 0x14050DB3C (PipIsDevNodeEffectivelyRemoved.c)
- *     PpDevNodeUnlockTree @ 0x140639BC0 (PpDevNodeUnlockTree.c)
- *     PpDevNodeLockTree @ 0x140639C54 (PpDevNodeLockTree.c)
- *     PnpSetTargetDeviceRemove @ 0x140738FD4 (PnpSetTargetDeviceRemove.c)
- *     IopFreeResetRemovalContext @ 0x1408A08D0 (IopFreeResetRemovalContext.c)
+ *     PipIsDevNodeEffectivelyRemoved @ 0x14050DD7C (PipIsDevNodeEffectivelyRemoved.c)
+ *     PpDevNodeUnlockTree @ 0x14062E9D0 (PpDevNodeUnlockTree.c)
+ *     PpDevNodeLockTree @ 0x14062EA64 (PpDevNodeLockTree.c)
+ *     PnpSetTargetDeviceRemove @ 0x140739194 (PnpSetTargetDeviceRemove.c)
+ *     IopFreeResetRemovalContext @ 0x1408A0A30 (IopFreeResetRemovalContext.c)
  */
 
 void __fastcall IopRetryDeviceRemovalForReset(__int64 a1)

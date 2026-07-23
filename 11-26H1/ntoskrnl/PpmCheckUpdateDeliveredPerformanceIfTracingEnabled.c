@@ -1,21 +1,17 @@
 /*
- * XREFs of PpmCheckUpdateDeliveredPerformanceIfTracingEnabled @ 0x1404DFFB0
+ * XREFs of PpmCheckUpdateDeliveredPerformanceIfTracingEnabled @ 0x1404D9690
  * Callers:
  *     <none>
  * Callees:
- *     EtwEventEnabled @ 0x140212D90 (EtwEventEnabled.c)
- *     PpmCheckSnapAllDeliveredPerformance @ 0x140252E50 (PpmCheckSnapAllDeliveredPerformance.c)
+ *     EtwEventEnabled @ 0x140212E70 (EtwEventEnabled.c)
+ *     PpmCheckSnapAllDeliveredPerformance @ 0x1402547B0 (PpmCheckSnapAllDeliveredPerformance.c)
  */
 
 void PpmCheckUpdateDeliveredPerformanceIfTracingEnabled()
 {
   if ( PpmEtwRegistered )
   {
-    if ( EtwEventEnabled(
-           (REGHANDLE)PopModernStandbyStateNotify.ApcState.ApcListHead[1].Blink,
-           &PPM_ETW_DELIVERED_PERF_CHANGE) )
-    {
+    if ( EtwEventEnabled(PpmEtwHandle, &PPM_ETW_DELIVERED_PERF_CHANGE) )
       PpmCheckSnapAllDeliveredPerformance();
-    }
   }
 }

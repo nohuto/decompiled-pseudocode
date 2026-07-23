@@ -1,11 +1,11 @@
 /*
- * XREFs of DbgkCreateMinimalThread @ 0x1408FF638
+ * XREFs of DbgkCreateMinimalThread @ 0x140921F18
  * Callers:
- *     PspUserThreadStartup @ 0x1408FEA00 (PspUserThreadStartup.c)
+ *     PspUserThreadStartup @ 0x1409212E0 (PspUserThreadStartup.c)
  * Callees:
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     DbgkpSendApiMessage @ 0x14093A238 (DbgkpSendApiMessage.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     DbgkpSendApiMessage @ 0x140A5A2C0 (DbgkpSendApiMessage.c)
  */
 
 void *__fastcall DbgkCreateMinimalThread(__int64 a1)

@@ -1,16 +1,16 @@
 /*
- * XREFs of RtlIsUntrustedObject @ 0x1404CE5D0
+ * XREFs of RtlIsUntrustedObject @ 0x1404C8000
  * Callers:
- *     SeGetImageRequiredSigningLevel @ 0x140A8876C (SeGetImageRequiredSigningLevel.c)
+ *     SeGetImageRequiredSigningLevel @ 0x140A8F9E8 (SeGetImageRequiredSigningLevel.c)
  * Callees:
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     ZwQuerySecurityObject @ 0x140726110 (ZwQuerySecurityObject.c)
- *     ObQuerySecurityObject @ 0x140AAE4C8 (ObQuerySecurityObject.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     ZwQuerySecurityObject @ 0x14072ACE0 (ZwQuerySecurityObject.c)
+ *     ObQuerySecurityObject @ 0x140AA74AC (ObQuerySecurityObject.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
-NTSTATUS __fastcall RtlIsUntrustedObject(HANDLE Handle, __int64 a2, _BYTE *a3)
+NTSTATUS __cdecl RtlIsUntrustedObject(HANDLE Handle, PVOID Object, PBOOLEAN IsUntrustedObject)
 {
   int v4; // r15d
   __int16 *Pool2; // rdi
@@ -29,15 +29,15 @@ NTSTATUS __fastcall RtlIsUntrustedObject(HANDLE Handle, __int64 a2, _BYTE *a3)
   _BYTE P[128]; // [rsp+40h] [rbp-B8h] BYREF
 
   LengthNeeded[0] = 0;
-  *a3 = 1;
-  v4 = a2;
+  *IsUntrustedObject = 1;
+  v4 = (int)Object;
   Pool2 = (__int16 *)P;
-  if ( a2 )
+  if ( Object )
   {
     if ( !Handle )
     {
       v7 = 0;
-      result = ObQuerySecurityObject(a2, 16, (unsigned int)P, 124, (__int64)LengthNeeded);
+      result = ObQuerySecurityObject((_DWORD)Object, 16, (unsigned int)P, 124, (__int64)LengthNeeded);
       v9 = result;
       if ( result >= 0 )
         goto LABEL_6;
@@ -117,7 +117,7 @@ LABEL_12:
         }
       }
 LABEL_21:
-      *a3 = 0;
+      *IsUntrustedObject = 0;
 LABEL_22:
       if ( !v7 )
         return v9;

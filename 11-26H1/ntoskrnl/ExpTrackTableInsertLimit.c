@@ -1,17 +1,17 @@
 /*
- * XREFs of ExpTrackTableInsertLimit @ 0x1406CCD60
+ * XREFs of ExpTrackTableInsertLimit @ 0x1406D0D90
  * Callers:
- *     ExPoolSetLimit @ 0x1406CBD38 (ExPoolSetLimit.c)
+ *     ExPoolSetLimit @ 0x1406CFD68 (ExPoolSetLimit.c)
  * Callees:
- *     KeAcquireInStackQueuedSpinLock @ 0x1402B4730 (KeAcquireInStackQueuedSpinLock.c)
- *     KeReleaseInStackQueuedSpinLock @ 0x1402B98C0 (KeReleaseInStackQueuedSpinLock.c)
- *     KeGenericCallDpcEx @ 0x1403C2284 (KeGenericCallDpcEx.c)
- *     ExpPlFindLimitEntry @ 0x1404D6E00 (ExpPlFindLimitEntry.c)
- *     ExpPlGrowTableIfNeeded @ 0x1406CC960 (ExpPlGrowTableIfNeeded.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     ZwCreateWnfStateName @ 0x140724E70 (ZwCreateWnfStateName.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402FF400 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x140304580 (KeReleaseInStackQueuedSpinLock.c)
+ *     KeGenericCallDpcEx @ 0x1403CC184 (KeGenericCallDpcEx.c)
+ *     ExpPlFindLimitEntry @ 0x1404D05D0 (ExpPlFindLimitEntry.c)
+ *     ExpPlGrowTableIfNeeded @ 0x1406D0990 (ExpPlGrowTableIfNeeded.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     ZwCreateWnfStateName @ 0x140729A40 (ZwCreateWnfStateName.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall ExpTrackTableInsertLimit(__int64 a1)
@@ -20,7 +20,7 @@ __int64 __fastcall ExpTrackTableInsertLimit(__int64 a1)
   int v3; // esi
   unsigned int *Pool2; // rdi
   __int64 v5; // rsi
-  __int64 v6; // r14
+  _WNF_STATE_NAME *v6; // r14
   __int64 v7; // r8
   unsigned int *v8; // rcx
   __int64 *v9; // r8
@@ -40,7 +40,7 @@ __int64 __fastcall ExpTrackTableInsertLimit(__int64 a1)
   unsigned int k; // ebx
   void *v24; // rcx
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+40h] [rbp-48h] BYREF
-  __int64 v27; // [rsp+58h] [rbp-30h] BYREF
+  _WNF_STATE_NAME StateName; // [rsp+58h] [rbp-30h] BYREF
 
   memset(&LockHandle, 0, sizeof(LockHandle));
   v2 = 0LL;
@@ -54,7 +54,7 @@ __int64 __fastcall ExpTrackTableInsertLimit(__int64 a1)
       *Pool2 = *(_DWORD *)(a1 + 4);
       while ( (unsigned int)v5 < *(_DWORD *)(a1 + 4) )
       {
-        v6 = ExAllocatePool2(0x40uLL);
+        v6 = (_WNF_STATE_NAME *)ExAllocatePool2(0x40uLL);
         v7 = 14LL * (unsigned int)v5;
         *(_QWORD *)&Pool2[v7 + 2] = v6;
         if ( !v6 )
@@ -62,7 +62,7 @@ __int64 __fastcall ExpTrackTableInsertLimit(__int64 a1)
           v3 = -1073741670;
           goto LABEL_23;
         }
-        *(_QWORD *)(v6 + 8) = *(unsigned int *)(48 * v5 + a1 + 8);
+        v6[1] = (_WNF_STATE_NAME)*(unsigned int *)(48 * v5 + a1 + 8);
         v8 = &Pool2[v7 + 6];
         v9 = (__int64 *)(48 * v5 + a1 + 24);
         v10 = 2LL;
@@ -76,12 +76,19 @@ __int64 __fastcall ExpTrackTableInsertLimit(__int64 a1)
           --v10;
         }
         while ( v10 );
-        v27 = 0LL;
-        if ( (int)ZwCreateWnfStateName(&v27, 3LL, 0LL, 0LL, 0LL, 4, &stru_140E28440.KernelShadowStackInitial) >= 0 )
-          *(_QWORD *)(v6 + 64) = v27;
+        StateName = 0LL;
+        if ( ZwCreateWnfStateName(
+               &StateName,
+               WnfTemporaryStateName,
+               WnfDataScopeSystem,
+               0,
+               0LL,
+               4u,
+               &stru_140E285C0.KernelShadowStackInitial) >= 0 )
+          v6[8] = StateName;
         v5 = (unsigned int)(v5 + 1);
       }
-      KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)&stru_140EFEF90.Header.WaitListHead.Blink, &LockHandle);
+      KeAcquireInStackQueuedSpinLock(&ExpTaggedPoolLock, &LockHandle);
       for ( i = 0; i < *Pool2; i = v17 + 1 )
       {
         v13 = 14LL * i;
@@ -96,26 +103,26 @@ __int64 __fastcall ExpTrackTableInsertLimit(__int64 a1)
         }
         else
         {
-          v27 = *v15 & (-1LL << (stru_140E28440.RealtimePriorityFloor & 0x1F));
-          KernelShadowStack = stru_140E28440.KernelShadowStack;
-          v19 = (((unsigned int)stru_140E28440.RealtimePriorityFloor >> 5) - 1) & (HIBYTE(v27)
+          StateName = (_WNF_STATE_NAME)(*v15 & (-1LL << (stru_140E285C0.RealtimePriorityFloor & 0x1F)));
+          KernelShadowStack = stru_140E285C0.KernelShadowStack;
+          v19 = (((unsigned int)stru_140E285C0.RealtimePriorityFloor >> 5) - 1) & (HIBYTE(StateName.Data[1])
                                                                                  + 37
-                                                                                 * (BYTE6(v27)
+                                                                                 * (BYTE2(StateName.Data[1])
                                                                                   + 37
-                                                                                  * (BYTE5(v27)
+                                                                                  * (BYTE1(StateName.Data[1])
                                                                                    + 37
-                                                                                   * (BYTE4(v27)
+                                                                                   * (LOBYTE(StateName.Data[1])
                                                                                     + 37
-                                                                                    * (BYTE3(v27)
+                                                                                    * (HIBYTE(StateName.Data[0])
                                                                                      + 374026047
                                                                                      + 37
-                                                                                     * (BYTE2(v27)
+                                                                                     * (BYTE2(StateName.Data[0])
                                                                                       + 37
-                                                                                      * (BYTE1(v27)
-                                                                                       + 37 * (unsigned __int8)v27)))))));
-          *v14 = *((_QWORD *)stru_140E28440.KernelShadowStack + v19);
+                                                                                      * (BYTE1(StateName.Data[0])
+                                                                                       + 37 * LOBYTE(StateName.Data[0]))))))));
+          *v14 = *((_QWORD *)stru_140E285C0.KernelShadowStack + v19);
           KernelShadowStack[v19] = v14;
-          ++stru_140E28440.SchedulerAssistPriorityFloor;
+          ++stru_140E285C0.SchedulerAssistPriorityFloor;
         }
       }
       KeReleaseInStackQueuedSpinLock(&LockHandle);

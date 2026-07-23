@@ -1,7 +1,7 @@
 /*
- * XREFs of iswdigit @ 0x18012AD80
+ * XREFs of iswdigit @ 0x18012AAF0
  * Callers:
- *     RtlpIsDosDeviceName_Ustr @ 0x180048E70 (RtlpIsDosDeviceName_Ustr.c)
+ *     RtlpIsDosDeviceName_Ustr @ 0x1800333F0 (RtlpIsDosDeviceName_Ustr.c)
  * Callees:
  *     <none>
  */

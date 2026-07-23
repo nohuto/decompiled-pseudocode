@@ -1,14 +1,14 @@
 /*
- * XREFs of PpmResetPerfTimes @ 0x1403C22F0
+ * XREFs of PpmResetPerfTimes @ 0x1403C2720
  * Callers:
- *     PpmCheckResetProcessors @ 0x1403C2064 (PpmCheckResetProcessors.c)
- *     PpmCheckReset @ 0x1403C22D0 (PpmCheckReset.c)
- *     PpmCheckProcessorInit @ 0x1403CEC90 (PpmCheckProcessorInit.c)
+ *     PpmCheckResetProcessors @ 0x1403C2494 (PpmCheckResetProcessors.c)
+ *     PpmCheckReset @ 0x1403C2700 (PpmCheckReset.c)
+ *     PpmCheckProcessorInit @ 0x1403CEE00 (PpmCheckProcessorInit.c)
  *     PpmResetPerfEngineForProcessorEx @ 0x1403F81B0 (PpmResetPerfEngineForProcessorEx.c)
  * Callees:
- *     PpmSnapPerformanceAccumulation @ 0x140221190 (PpmSnapPerformanceAccumulation.c)
- *     PpmResetPerformanceAccumulation @ 0x1403C23B4 (PpmResetPerformanceAccumulation.c)
- *     PpmHvSnapPerformanceAccumulation @ 0x14057C4E0 (PpmHvSnapPerformanceAccumulation.c)
+ *     PpmSnapPerformanceAccumulation @ 0x1402C5A90 (PpmSnapPerformanceAccumulation.c)
+ *     PpmResetPerformanceAccumulation @ 0x1403C27E4 (PpmResetPerformanceAccumulation.c)
+ *     PpmHvSnapPerformanceAccumulation @ 0x14057C720 (PpmHvSnapPerformanceAccumulation.c)
  */
 
 __int64 __fastcall PpmResetPerfTimes(__int64 a1, __int64 a2)

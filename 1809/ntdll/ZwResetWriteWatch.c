@@ -1,16 +1,16 @@
 /*
- * XREFs of ZwResetWriteWatch @ 0x1800A3110
+ * XREFs of ZwResetWriteWatch @ 0x1800A3130
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 ZwResetWriteWatch()
+NTSTATUS __cdecl ZwResetWriteWatch(HANDLE ProcessHandle, PVOID BaseAddress, SIZE_T RegionSize)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 370LL;
+  result = 370;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

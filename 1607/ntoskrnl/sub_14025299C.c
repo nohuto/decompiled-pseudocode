@@ -1,7 +1,7 @@
 /*
  * XREFs of sub_14025299C @ 0x14025299C
  * Callers:
- *     RtlpComputeEpilogueOffset @ 0x1401590FC (RtlpComputeEpilogueOffset.c)
+ *     RtlpComputeEpilogueOffset @ 0x14015966C (RtlpComputeEpilogueOffset.c)
  * Callees:
  *     SdbpCheckDll @ 0x1402534D0 (SdbpCheckDll.c)
  */

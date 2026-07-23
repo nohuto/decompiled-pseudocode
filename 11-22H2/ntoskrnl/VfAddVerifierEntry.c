@@ -31,7 +31,7 @@ __int64 __fastcall VfAddVerifierEntry(const void **String2)
 
   v11 = 0;
   DestinationString = 0LL;
-  if ( (_DWORD)InitSafeBootMode )
+  if ( InitSafeBootMode )
   {
     v2 = -1073738742;
 LABEL_13:

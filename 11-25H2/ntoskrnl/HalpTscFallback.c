@@ -16,9 +16,9 @@ __int64 __fastcall HalpTscFallback(ULONG_PTR Argument)
   bool v2; // di
   __int64 result; // rax
   signed __int32 v4[8]; // [rsp+0h] [rbp-38h] BYREF
-  int v5; // [rsp+48h] [rbp+10h] BYREF
+  char Buffer; // [rsp+48h] [rbp+10h] BYREF
 
-  LOBYTE(v5) = 0;
+  Buffer = 0;
   v2 = HalpDisableInterrupts();
   if ( _InterlockedExchangeAdd((volatile signed __int32 *)Argument, 0xFFFFFFFF) == 1 )
   {
@@ -33,7 +33,7 @@ __int64 __fastcall HalpTscFallback(ULONG_PTR Argument)
     HalpPerformanceCounter = HalpFallbackPerformanceCounter;
     if ( HalpAlwaysOnCounter )
       HalpTimerMaximumAllowableDrift = HalpTimerCalculateMaximumAllowableDrift();
-    RtlSetSystemGlobalData(16, &v5, 1);
+    RtlSetSystemGlobalData(GlobalDataIdQpcShift, &Buffer, 1u);
     _InterlockedDecrement((volatile signed __int32 *)Argument);
   }
   else

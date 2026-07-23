@@ -12,7 +12,7 @@
  *     RtlpHeapExceptionFilter @ 0x1800E3178 (RtlpHeapExceptionFilter.c)
  */
 
-__int64 __fastcall RtlpHpAllocWithExceptionProtection(__int64 a1, __int64 a2, __int64 a3)
+__int64 __fastcall RtlpHpAllocWithExceptionProtection(_DWORD *a1, __int64 a2, int a3)
 {
   unsigned __int8 *v4; // r8
   __int64 v5; // r9
@@ -31,9 +31,8 @@ __int64 __fastcall RtlpHpAllocWithExceptionProtection(__int64 a1, __int64 a2, __
   __int64 v19; // [rsp+28h] [rbp-A0h]
   __int64 *v20; // [rsp+30h] [rbp-98h]
   void **v21; // [rsp+38h] [rbp-90h]
-  unsigned int v22; // [rsp+40h] [rbp-88h]
   unsigned __int64 v23; // [rsp+48h] [rbp-80h]
-  __int64 v24; // [rsp+50h] [rbp-78h]
+  _DWORD *BaseAddress; // [rsp+50h] [rbp-78h]
   __int64 v25; // [rsp+58h] [rbp-70h] BYREF
   __int64 v26; // [rsp+60h] [rbp-68h]
   __int64 v27; // [rsp+68h] [rbp-60h]
@@ -41,11 +40,10 @@ __int64 __fastcall RtlpHpAllocWithExceptionProtection(__int64 a1, __int64 a2, __
   void *SubProcessTag; // [rsp+78h] [rbp-50h] BYREF
   __int64 v30; // [rsp+80h] [rbp-48h]
 
-  v22 = a3;
-  v24 = a1;
+  BaseAddress = a1;
   if ( (RtlpHpHeapFeatures & 2) != 0 )
   {
-    if ( *(_DWORD *)(a1 + 16) != -571548178
+    if ( a1[4] != -571548178
       || a1 == RtlpHpMetadataHeap
       || (SubProcessTag = 0LL,
           v30 = 0LL,
@@ -207,18 +205,17 @@ LABEL_45:
       }
       RtlReleaseSRWLockShared(&RtlpHpTagContext);
       if ( !v8 )
-        v8 = RtlpHpTagContextAllocateTag(v14, &SubProcessTag, v6, v13, v18, v19, v20, v21);
-      a1 = v24;
-      a3 = v22;
+        v8 = RtlpHpTagContextAllocateTag(v14, &SubProcessTag, v6, v13, v18, v19, v20, v21, a3);
+      a1 = BaseAddress;
     }
-    HeapInternal = RtlpAllocateHeapInternal(a1, a2, a3, v8);
+    HeapInternal = RtlpAllocateHeapInternal(a1);
     if ( !HeapInternal && v8 )
       RtlpHpTagFree(v15, v8, a2);
     v27 = HeapInternal;
   }
   else
   {
-    HeapInternal = RtlpAllocateHeapInternal(a1, a2, a3, 0LL);
+    HeapInternal = RtlpAllocateHeapInternal(a1);
     v27 = HeapInternal;
   }
   return HeapInternal;

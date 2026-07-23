@@ -1,15 +1,15 @@
 /*
- * XREFs of ExGetLicenseTamperState @ 0x1408CE940
+ * XREFs of ExGetLicenseTamperState @ 0x1408CFC00
  * Callers:
  *     <none>
  * Callees:
  *     ExpLicUpdateChecksum @ 0x1400077F0 (ExpLicUpdateChecksum.c)
  *     ExAcquirePushLockSharedEx @ 0x14004EE20 (ExAcquirePushLockSharedEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
- *     ExfReleasePushLockShared @ 0x1400914B0 (ExfReleasePushLockShared.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
- *     ExpSetKernelDataProtection @ 0x1405A15F4 (ExpSetKernelDataProtection.c)
- *     ExpGetKernelDataProtection @ 0x1405A1B24 (ExpGetKernelDataProtection.c)
+ *     ExfReleasePushLockShared @ 0x1400913F0 (ExfReleasePushLockShared.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B78F0 (KiLeaveCriticalRegionUnsafe.c)
+ *     ExpSetKernelDataProtection @ 0x1405A25F4 (ExpSetKernelDataProtection.c)
+ *     ExpGetKernelDataProtection @ 0x1405A2B24 (ExpGetKernelDataProtection.c)
  */
 
 bool __fastcall ExGetLicenseTamperState(int *a1)
@@ -29,7 +29,7 @@ bool __fastcall ExGetLicenseTamperState(int *a1)
 
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
-  ExAcquirePushLockSharedEx((ULONG_PTR)&qword_14096E4E0, 0LL);
+  ExAcquirePushLockSharedEx((ULONG_PTR)&qword_14096F4E0, 0LL);
   if ( Data )
   {
     KernelDataProtection = ExpGetKernelDataProtection(v14);
@@ -54,7 +54,7 @@ bool __fastcall ExGetLicenseTamperState(int *a1)
               v8 = 16LL * (unsigned int)v6;
               updated = v5 < v8 ? 0xC0000095 : 0;
               if ( v8 <= v5 )
-                updated = ExpLicUpdateChecksum((__int64)qword_14096FD00, v6, &v11);
+                updated = ExpLicUpdateChecksum((__int64)qword_140970D00, v6, &v11);
             }
           }
           if ( updated )
@@ -85,13 +85,13 @@ bool __fastcall ExGetLicenseTamperState(int *a1)
   }
   else
   {
-    v3 = dword_14096D0A4;
+    v3 = dword_14096E0B8;
   }
   if ( a1 )
     *a1 = v3;
-  if ( _InterlockedCompareExchange64((volatile signed __int64 *)&qword_14096E4E0, 0LL, 17LL) != 17 )
-    ExfReleasePushLockShared((signed __int64 *)&qword_14096E4E0);
-  KeAbPostRelease((ULONG_PTR)&qword_14096E4E0);
+  if ( _InterlockedCompareExchange64((volatile signed __int64 *)&qword_14096F4E0, 0LL, 17LL) != 17 )
+    ExfReleasePushLockShared((signed __int64 *)&qword_14096F4E0);
+  KeAbPostRelease((ULONG_PTR)&qword_14096F4E0);
   KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
   return v3 != 0;
 }

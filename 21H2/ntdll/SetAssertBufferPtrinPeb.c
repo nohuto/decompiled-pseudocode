@@ -1,9 +1,9 @@
 /*
- * XREFs of SetAssertBufferPtrinPeb @ 0x1800DDED4
+ * XREFs of SetAssertBufferPtrinPeb @ 0x1800DDE94
  * Callers:
- *     GetShipAssertBuffer @ 0x1800DDDD4 (GetShipAssertBuffer.c)
+ *     GetShipAssertBuffer @ 0x1800DDD94 (GetShipAssertBuffer.c)
  * Callees:
- *     NtQueryInformationProcess @ 0x18009D960 (NtQueryInformationProcess.c)
+ *     NtQueryInformationProcess @ 0x18009D920 (NtQueryInformationProcess.c)
  */
 
 __int64 __fastcall SetAssertBufferPtrinPeb(void *a1)

@@ -1,15 +1,14 @@
 /*
- * XREFs of IoCreateSymbolicLink @ 0x140AB52F0
+ * XREFs of IoCreateSymbolicLink @ 0x140AB6690
  * Callers:
- *     DifIoCreateSymbolicLinkWrapper @ 0x14065B070 (DifIoCreateSymbolicLinkWrapper.c)
- *     IopCreateArcName @ 0x140B1C9D8 (IopCreateArcName.c)
- *     IopCreateArcNamesCd @ 0x140CBC66C (IopCreateArcNamesCd.c)
- *     WmipDriverEntry @ 0x140CE01C0 (WmipDriverEntry.c)
- *     IopMountCimfsLayer @ 0x140D0336C (IopMountCimfsLayer.c)
- *     IopMountCompositeLayer @ 0x140D034D4 (IopMountCompositeLayer.c)
- *     RamdiskCreateSymbolicLink @ 0x140D03C90 (RamdiskCreateSymbolicLink.c)
+ *     DifIoCreateSymbolicLinkWrapper @ 0x14065EC50 (DifIoCreateSymbolicLinkWrapper.c)
+ *     IopCreateArcName @ 0x140B1EBE8 (IopCreateArcName.c)
+ *     IopCreateArcNamesCd @ 0x140CC26E4 (IopCreateArcNamesCd.c)
+ *     WmipDriverEntry @ 0x140CE6560 (WmipDriverEntry.c)
+ *     IopMountCimfsLayer @ 0x140D0970C (IopMountCimfsLayer.c)
+ *     RamdiskCreateSymbolicLink @ 0x140D09F60 (RamdiskCreateSymbolicLink.c)
  * Callees:
- *     IoCreateSymbolicLink2 @ 0x140AB5330 (IoCreateSymbolicLink2.c)
+ *     IoCreateSymbolicLink2 @ 0x140AB66D0 (IoCreateSymbolicLink2.c)
  */
 
 NTSTATUS __stdcall IoCreateSymbolicLink(PUNICODE_STRING SymbolicLinkName, PUNICODE_STRING DeviceName)

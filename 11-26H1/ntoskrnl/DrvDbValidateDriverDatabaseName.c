@@ -1,9 +1,9 @@
 /*
- * XREFs of DrvDbValidateDriverDatabaseName @ 0x14089F1E8
+ * XREFs of DrvDbValidateDriverDatabaseName @ 0x1408A55E8
  * Callers:
- *     DrvDbDispatchDriverDatabase @ 0x140A82250 (DrvDbDispatchDriverDatabase.c)
+ *     DrvDbDispatchDriverDatabase @ 0x140A880C0 (DrvDbDispatchDriverDatabase.c)
  * Callees:
- *     wcschr @ 0x140537F60 (wcschr.c)
+ *     wcschr @ 0x14053A3E0 (wcschr.c)
  */
 
 __int64 __fastcall DrvDbValidateDriverDatabaseName(__int64 a1, const wchar_t *a2)

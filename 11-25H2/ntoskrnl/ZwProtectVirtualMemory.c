@@ -10,9 +10,14 @@
  *     <none>
  */
 
-__int64 __fastcall ZwProtectVirtualMemory(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwProtectVirtualMemory(
+        HANDLE ProcessHandle,
+        PVOID *BaseAddress,
+        PSIZE_T RegionSize,
+        ULONG NewProtect,
+        PULONG OldProtect)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(ProcessHandle);
 }

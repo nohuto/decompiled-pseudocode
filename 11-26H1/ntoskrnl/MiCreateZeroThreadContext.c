@@ -1,15 +1,15 @@
 /*
- * XREFs of MiCreateZeroThreadContext @ 0x140773624
+ * XREFs of MiCreateZeroThreadContext @ 0x140776624
  * Callers:
- *     MiStartZeroEngineThreads @ 0x140B276E4 (MiStartZeroEngineThreads.c)
+ *     MiStartZeroEngineThreads @ 0x140B29FA4 (MiStartZeroEngineThreads.c)
  * Callees:
  *     MiGetClosestNodeWithProcessors @ 0x140200B4C (MiGetClosestNodeWithProcessors.c)
- *     MiCreateUltraThreadContext @ 0x1402F45F0 (MiCreateUltraThreadContext.c)
- *     MiInitializePageColorBase @ 0x14036FE20 (MiInitializePageColorBase.c)
- *     ExAllocatePoolMm @ 0x1403985B0 (ExAllocatePoolMm.c)
- *     KeInitializeEvent @ 0x140466F30 (KeInitializeEvent.c)
- *     MiSetZeroThreadState @ 0x1404B1D20 (MiSetZeroThreadState.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     MiCreateUltraThreadContext @ 0x1402D6670 (MiCreateUltraThreadContext.c)
+ *     MiInitializePageColorBase @ 0x140371BD0 (MiInitializePageColorBase.c)
+ *     ExAllocatePoolMm @ 0x14039A310 (ExAllocatePoolMm.c)
+ *     KeInitializeEvent @ 0x140460680 (KeInitializeEvent.c)
+ *     MiSetZeroThreadState @ 0x1404AB3E0 (MiSetZeroThreadState.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall MiCreateZeroThreadContext(__int64 a1)

@@ -1,9 +1,9 @@
 /*
- * XREFs of wcstol @ 0x1801281D0
+ * XREFs of wcstol @ 0x180126400
  * Callers:
- *     RtlIpv6StringToAddressW @ 0x1800BAC80 (RtlIpv6StringToAddressW.c)
+ *     RtlIpv6StringToAddressW @ 0x1800B2A40 (RtlIpv6StringToAddressW.c)
  * Callees:
- *     wcstoxlX @ 0x180127F9C (wcstoxlX.c)
+ *     wcstoxlX @ 0x1801261CC (wcstoxlX.c)
  */
 
 int __cdecl wcstol(const wchar_t *String, wchar_t **EndPtr, int Radix)

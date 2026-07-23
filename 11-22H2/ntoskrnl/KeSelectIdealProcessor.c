@@ -17,7 +17,7 @@ ULONG __fastcall KeSelectIdealProcessor(__int64 a1, _WORD *a2, _QWORD *a3, unsig
   __int64 *v7; // rdx
   unsigned int v8; // eax
   unsigned __int8 v9; // al
-  struct _PROCESSOR_NUMBER ProcNumber; // [rsp+30h] [rbp+8h] BYREF
+  _PROCESSOR_NUMBER ProcNumber; // [rsp+30h] [rbp+8h] BYREF
 
   v4 = *(_QWORD *)a1;
   v7 = &KiGroupBlock[4 * *(unsigned __int16 *)(a1 + 8)];

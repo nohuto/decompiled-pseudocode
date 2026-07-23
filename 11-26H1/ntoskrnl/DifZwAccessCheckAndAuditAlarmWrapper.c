@@ -1,29 +1,29 @@
 /*
- * XREFs of DifZwAccessCheckAndAuditAlarmWrapper @ 0x1406972B0
+ * XREFs of DifZwAccessCheckAndAuditAlarmWrapper @ 0x14069AE90
  * Callers:
  *     <none>
  * Callees:
- *     DifGetReturnAddressForWrappers @ 0x140260EA4 (DifGetReturnAddressForWrappers.c)
- *     ExReleaseRundownProtection_0 @ 0x140266240 (ExReleaseRundownProtection_0.c)
- *     ExAcquireRundownProtection_0 @ 0x1402F0590 (ExAcquireRundownProtection_0.c)
- *     DifGetAPIThunkContextById @ 0x1404C17A4 (DifGetAPIThunkContextById.c)
- *     ZwAccessCheckAndAuditAlarm @ 0x140723910 (ZwAccessCheckAndAuditAlarm.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     DifGetReturnAddressForWrappers @ 0x14026040C (DifGetReturnAddressForWrappers.c)
+ *     ExReleaseRundownProtection_0 @ 0x1402657B0 (ExReleaseRundownProtection_0.c)
+ *     ExAcquireRundownProtection_0 @ 0x1402D2610 (ExAcquireRundownProtection_0.c)
+ *     DifGetAPIThunkContextById @ 0x1404BAFF4 (DifGetAPIThunkContextById.c)
+ *     ZwAccessCheckAndAuditAlarm @ 0x1407284E0 (ZwAccessCheckAndAuditAlarm.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall DifZwAccessCheckAndAuditAlarmWrapper(
-        __int64 a1,
-        __int64 a2,
-        __int64 a3,
-        __int64 a4,
-        __int64 a5,
-        int a6,
-        __int64 a7,
-        char a8,
-        __int64 a9,
-        __int64 a10,
-        __int64 a11)
+        UNICODE_STRING *a1,
+        void *a2,
+        UNICODE_STRING *a3,
+        UNICODE_STRING *a4,
+        PSECURITY_DESCRIPTOR SecurityDescriptor,
+        ACCESS_MASK DesiredAccess,
+        GENERIC_MAPPING *GenericMapping,
+        BOOLEAN ObjectCreation,
+        ACCESS_MASK *GrantedAccess,
+        NTSTATUS *AccessStatus,
+        BOOLEAN *GenerateOnClose)
 {
   __int128 *APIThunkContextById; // rax
   __int64 v15; // rdx
@@ -36,14 +36,14 @@ __int64 __fastcall DifZwAccessCheckAndAuditAlarmWrapper(
   BOOLEAN v22; // di
   __int128 *j; // rbx
   _QWORD v25[4]; // [rsp+68h] [rbp-69h] BYREF
-  char v26; // [rsp+88h] [rbp-49h]
-  __int64 v27; // [rsp+90h] [rbp-41h]
-  int v28; // [rsp+98h] [rbp-39h]
-  __int64 v29; // [rsp+A0h] [rbp-31h]
-  __int64 v30; // [rsp+A8h] [rbp-29h]
-  __int64 v31; // [rsp+B0h] [rbp-21h]
-  __int64 v32; // [rsp+B8h] [rbp-19h]
-  __int64 v33; // [rsp+C0h] [rbp-11h]
+  BOOLEAN v26; // [rsp+88h] [rbp-49h]
+  GENERIC_MAPPING *v27; // [rsp+90h] [rbp-41h]
+  ACCESS_MASK v28; // [rsp+98h] [rbp-39h]
+  PSECURITY_DESCRIPTOR v29; // [rsp+A0h] [rbp-31h]
+  UNICODE_STRING *v30; // [rsp+A8h] [rbp-29h]
+  UNICODE_STRING *v31; // [rsp+B0h] [rbp-21h]
+  void *v32; // [rsp+B8h] [rbp-19h]
+  UNICODE_STRING *v33; // [rsp+C0h] [rbp-11h]
   unsigned int v34; // [rsp+C8h] [rbp-9h]
   void *retaddr; // [rsp+100h] [rbp+2Fh]
 
@@ -67,13 +67,13 @@ __int64 __fastcall DifZwAccessCheckAndAuditAlarmWrapper(
 LABEL_7:
   v19 = 0;
   v33 = a1;
-  v29 = a5;
-  v28 = a6;
-  v27 = a7;
-  v26 = a8;
-  v25[3] = a9;
-  v25[2] = a10;
-  v25[1] = a11;
+  v29 = SecurityDescriptor;
+  v28 = DesiredAccess;
+  v27 = GenericMapping;
+  v26 = ObjectCreation;
+  v25[3] = GrantedAccess;
+  v25[2] = AccessStatus;
+  v25[1] = GenerateOnClose;
   v32 = a2;
   v31 = a3;
   v30 = a4;
@@ -89,7 +89,18 @@ LABEL_7:
       ExReleaseRundownProtection_0(&DifRebootlessRundown);
   }
 LABEL_17:
-  v34 = ZwAccessCheckAndAuditAlarm(a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11);
+  v34 = ZwAccessCheckAndAuditAlarm(
+          a1,
+          a2,
+          a3,
+          a4,
+          SecurityDescriptor,
+          DesiredAccess,
+          GenericMapping,
+          ObjectCreation,
+          GrantedAccess,
+          AccessStatus,
+          GenerateOnClose);
   if ( v16 )
   {
     if ( (v22 = 0, !VfDifRunningWithoutReboot) && (VfOptionFlags & 0x800) == 0

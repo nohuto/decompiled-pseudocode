@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlAvlInsertNodeEx @ 0x180081B40
+ * XREFs of RtlAvlInsertNodeEx @ 0x180078EE0
  * Callers:
- *     RtlAddGrowableFunctionTable @ 0x180081550 (RtlAddGrowableFunctionTable.c)
- *     RtlInstallFunctionTableCallback @ 0x1800CCB20 (RtlInstallFunctionTableCallback.c)
- *     RtlAddFunctionTable @ 0x1800E56B0 (RtlAddFunctionTable.c)
+ *     RtlAddGrowableFunctionTable @ 0x1800788F0 (RtlAddGrowableFunctionTable.c)
+ *     RtlInstallFunctionTableCallback @ 0x1800CA290 (RtlInstallFunctionTableCallback.c)
+ *     RtlAddFunctionTable @ 0x1800E3560 (RtlAddFunctionTable.c)
  * Callees:
- *     RtlpTreeDoubleRotateNodes @ 0x1800DC8F8 (RtlpTreeDoubleRotateNodes.c)
- *     RtlpRbReportFatalError @ 0x1801417C8 (RtlpRbReportFatalError.c)
+ *     RtlpTreeDoubleRotateNodes @ 0x1800D9868 (RtlpTreeDoubleRotateNodes.c)
+ *     RtlpRbReportFatalError @ 0x1801416C8 (RtlpRbReportFatalError.c)
  */
 
 char __fastcall RtlAvlInsertNodeEx(unsigned __int64 *a1, unsigned __int64 a2, bool a3, _QWORD *a4)

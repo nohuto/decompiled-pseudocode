@@ -1,20 +1,20 @@
 /*
- * XREFs of MiWaitForExtentDeletions @ 0x1405426E0
+ * XREFs of MiWaitForExtentDeletions @ 0x140542920
  * Callers:
- *     MiDeleteExtentPfns @ 0x140540780 (MiDeleteExtentPfns.c)
+ *     MiDeleteExtentPfns @ 0x1405409C0 (MiDeleteExtentPfns.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     KeAbPostReleaseEx @ 0x14028DE10 (KeAbPostReleaseEx.c)
- *     KeWaitForGate @ 0x140299F74 (KeWaitForGate.c)
- *     KeAbPreWait @ 0x1402F30C0 (KeAbPreWait.c)
- *     KeAbPreAcquire @ 0x14034A230 (KeAbPreAcquire.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402042B0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KeAbPostReleaseEx @ 0x14020AFB0 (KeAbPostReleaseEx.c)
+ *     KeWaitForGate @ 0x14022A4E4 (KeWaitForGate.c)
+ *     KeAbPreWait @ 0x1402FDE10 (KeAbPreWait.c)
+ *     KeAbPreAcquire @ 0x140354F80 (KeAbPreAcquire.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiWaitForExtentDeletions(PKLOCK_QUEUE_HANDLE LockHandle)
 {
-  __int64 v2; // rax
-  ULONG_PTR v3; // rbx
+  PRTL_BALANCED_NODE v2; // rax
+  _RTL_BALANCED_NODE *v3; // rbx
   unsigned __int64 OldIrql; // rdi
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
@@ -30,16 +30,16 @@ __int64 __fastcall MiWaitForExtentDeletions(PKLOCK_QUEUE_HANDLE LockHandle)
   _QWORD v16[2]; // [rsp+30h] [rbp-10h] BYREF
 
   v14 = 0;
-  v2 = KeAbPreAcquire((ULONG_PTR)&qword_140C4CB10, 0LL, 0);
+  v2 = KeAbPreAcquire((ULONG_PTR)&qword_140C4CB50, 0LL, 0);
   v3 = v2;
   if ( v2 )
-    KeAbPreWait(v2);
+    KeAbPreWait((__int64)v2);
   v15 = 0;
   v16[1] = v16;
   v12 = 263;
   v16[0] = v16;
-  v11 = qword_140C4CB10;
-  qword_140C4CB10 = (ULONG_PTR)&v11;
+  v11 = qword_140C4CB50;
+  qword_140C4CB50 = (ULONG_PTR)&v11;
   v13 = 6;
   KeReleaseInStackQueuedSpinLockFromDpcLevel(LockHandle);
   OldIrql = LockHandle->OldIrql;
@@ -61,11 +61,11 @@ __int64 __fastcall MiWaitForExtentDeletions(PKLOCK_QUEUE_HANDLE LockHandle)
     }
   }
   __writecr8(OldIrql);
-  result = KeWaitForGate((__int64)&v12, 18);
+  result = KeWaitForGate((__int64)&v12, 0x12u);
   if ( v3 )
   {
-    KeAbPreAcquire((ULONG_PTR)&qword_140C4CB10, v3, 0);
-    return KeAbPostReleaseEx((ULONG_PTR)&qword_140C4CB10, v3);
+    KeAbPreAcquire((ULONG_PTR)&qword_140C4CB50, v3, 0);
+    return KeAbPostReleaseEx((ULONG_PTR)&qword_140C4CB50, (ULONG_PTR)v3);
   }
   return result;
 }

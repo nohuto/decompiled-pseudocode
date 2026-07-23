@@ -1,5 +1,5 @@
 /*
- * XREFs of PsIsComponentEnabled @ 0x1404F5350
+ * XREFs of PsIsComponentEnabled @ 0x1404EE930
  * Callers:
  *     <none>
  * Callees:

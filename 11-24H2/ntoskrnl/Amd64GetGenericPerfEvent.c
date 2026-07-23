@@ -1,8 +1,8 @@
 /*
- * XREFs of Amd64GetGenericPerfEvent @ 0x14056B3FC
+ * XREFs of Amd64GetGenericPerfEvent @ 0x14056888C
  * Callers:
- *     Amd64InitializeProfilingEnhanced @ 0x140B50EC8 (Amd64InitializeProfilingEnhanced.c)
- *     Amd64InitializeProfilingOriginal @ 0x140B51488 (Amd64InitializeProfilingOriginal.c)
+ *     Amd64InitializeProfilingEnhanced @ 0x140B52F18 (Amd64InitializeProfilingEnhanced.c)
+ *     Amd64InitializeProfilingOriginal @ 0x140B534D8 (Amd64InitializeProfilingOriginal.c)
  * Callees:
  *     <none>
  */
@@ -55,7 +55,7 @@ __int64 __fastcall Amd64GetGenericPerfEvent(int a1)
   else
   {
 LABEL_13:
-    v10 = Amd64F0FEvents;
+    v10 = (__int64 *)L"\n";
   }
 LABEL_14:
   for ( i = 0; i < 2; ++i )

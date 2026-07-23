@@ -1,16 +1,16 @@
 /*
- * XREFs of ExReinitializeResourceLite @ 0x1402F7920
+ * XREFs of ExReinitializeResourceLite @ 0x140302670
  * Callers:
  *     <none>
  * Callees:
- *     PsBoostThreadIoQoS @ 0x140287458 (PsBoostThreadIoQoS.c)
- *     ExpOwnerEntryToThread @ 0x1402F7A88 (ExpOwnerEntryToThread.c)
- *     ObDereferenceObjectDeferDeleteWithTag @ 0x140342370 (ObDereferenceObjectDeferDeleteWithTag.c)
- *     ExpResourceEnforcesOwnershipTransfer @ 0x14034D1A0 (ExpResourceEnforcesOwnershipTransfer.c)
- *     PsBoostThreadIoEx @ 0x14034D800 (PsBoostThreadIoEx.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
- *     memset @ 0x140414200 (memset.c)
- *     PerfLogExecutiveResourceInitialize @ 0x1405AAEA0 (PerfLogExecutiveResourceInitialize.c)
+ *     PsBoostThreadIoQoS @ 0x1402045F8 (PsBoostThreadIoQoS.c)
+ *     ExpOwnerEntryToThread @ 0x1403027D8 (ExpOwnerEntryToThread.c)
+ *     ObDereferenceObjectDeferDeleteWithTag @ 0x14034D0C0 (ObDereferenceObjectDeferDeleteWithTag.c)
+ *     ExpResourceEnforcesOwnershipTransfer @ 0x140357EF0 (ExpResourceEnforcesOwnershipTransfer.c)
+ *     PsBoostThreadIoEx @ 0x140358550 (PsBoostThreadIoEx.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     PerfLogExecutiveResourceInitialize @ 0x1405AB0D0 (PerfLogExecutiveResourceInitialize.c)
  */
 
 NTSTATUS __stdcall ExReinitializeResourceLite(PERESOURCE Resource)
@@ -61,7 +61,7 @@ NTSTATUS __stdcall ExReinitializeResourceLite(PERESOURCE Resource)
           }
           if ( (*(_BYTE *)&v14 & 4) != 0 )
           {
-            PsBoostThreadIoQoS((__int64)v12, 1LL);
+            PsBoostThreadIoQoS((__int64)v12, 1);
             v14 = (struct _OWNER_ENTRY::$818A6BB8E639852A52D20A2B257A1D60::$E71B718CD8428E7C8AA4A0868051E710)v10->TableSize;
           }
           if ( (*(_BYTE *)&v14 & 2) != 0 )
@@ -111,7 +111,7 @@ NTSTATUS __stdcall ExReinitializeResourceLite(PERESOURCE Resource)
     }
     if ( (*(_BYTE *)&v6 & 4) != 0 )
     {
-      PsBoostThreadIoQoS(OwnerThread, 1LL);
+      PsBoostThreadIoQoS(OwnerThread, 1);
       v6 = (struct _OWNER_ENTRY::$818A6BB8E639852A52D20A2B257A1D60::$E71B718CD8428E7C8AA4A0868051E710)Resource->OwnerEntry.TableSize;
     }
     if ( (*(_BYTE *)&v6 & 2) != 0 )

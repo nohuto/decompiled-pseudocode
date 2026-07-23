@@ -9,128 +9,128 @@
  *     __statfp @ 0x4B2FE04F (__statfp.c)
  */
 
-void __cdecl __noreturn _raise_exc_ex(ULONG_PTR Arguments, _DWORD *a2, char a3, int a4, float *a5, float *a6, int a7)
+void __cdecl __noreturn _raise_exc_ex(ULONG_PTR Arguments, char a2, int a3, float *a4, float *a5, int a6)
 {
-  ULONG_PTR v7; // esi
-  DWORD v8; // ebx
-  char v9; // al
-  _DWORD *v10; // edi
-  int v11; // eax
-  int v12; // edx
-  int v13; // ecx
-  char v14; // al
-  int v15; // eax
-  unsigned int v16; // eax
-  int v17; // eax
-  unsigned int v18; // eax
-  int v19; // eax
+  int v6; // esi
+  DWORD v7; // ebx
+  char v8; // al
+  _DWORD *v9; // edi
+  int v10; // eax
+  int v11; // edx
+  int v12; // ecx
+  char v13; // al
+  int v14; // eax
+  unsigned int v15; // eax
+  int v16; // eax
+  unsigned int v17; // eax
+  int v18; // eax
 
-  v7 = Arguments;
-  v8 = 0;
+  v6 = Arguments;
+  v7 = 0;
   *(_DWORD *)(Arguments + 4) = 0;
-  *(_DWORD *)(v7 + 8) = 0;
-  *(_DWORD *)(v7 + 12) = 0;
-  v9 = a3;
-  if ( (a3 & 0x10) != 0 )
+  *(_DWORD *)(v6 + 8) = 0;
+  *(_DWORD *)(v6 + 12) = 0;
+  v8 = a2;
+  if ( (a2 & 0x10) != 0 )
   {
-    *(_DWORD *)(v7 + 4) |= 1u;
-    v8 = -1073741681;
+    *(_DWORD *)(v6 + 4) |= 1u;
+    v7 = -1073741681;
   }
-  if ( (v9 & 2) != 0 )
+  if ( (v8 & 2) != 0 )
   {
-    *(_DWORD *)(v7 + 4) |= 2u;
-    v8 = -1073741677;
+    *(_DWORD *)(v6 + 4) |= 2u;
+    v7 = -1073741677;
   }
-  if ( (v9 & 1) != 0 )
+  if ( (v8 & 1) != 0 )
   {
-    *(_DWORD *)(v7 + 4) |= 4u;
-    v8 = -1073741679;
+    *(_DWORD *)(v6 + 4) |= 4u;
+    v7 = -1073741679;
   }
-  if ( (v9 & 4) != 0 )
+  if ( (v8 & 4) != 0 )
   {
-    *(_DWORD *)(v7 + 4) |= 8u;
-    v8 = -1073741682;
+    *(_DWORD *)(v6 + 4) |= 8u;
+    v7 = -1073741682;
   }
-  if ( (v9 & 8) != 0 )
+  if ( (v8 & 8) != 0 )
   {
-    *(_DWORD *)(v7 + 4) |= 0x10u;
-    v8 = -1073741680;
+    *(_DWORD *)(v6 + 4) |= 0x10u;
+    v7 = -1073741680;
   }
-  v10 = a2;
-  *(_DWORD *)(v7 + 8) ^= (*(_DWORD *)(v7 + 8) ^ ~(16 * *a2)) & 0x10;
-  v11 = *(_DWORD *)(v7 + 8) ^ (*(_DWORD *)(v7 + 8) ^ ~(2 * *v10)) & 8;
-  *(_DWORD *)(v7 + 8) = v11;
-  v12 = v11 ^ ((unsigned __int8)v11 ^ (unsigned __int8)~(unsigned __int8)(*v10 >> 1)) & 4;
-  *(_DWORD *)(v7 + 8) = v12;
-  v13 = v12 ^ ((unsigned __int8)v12 ^ (unsigned __int8)~(unsigned __int8)(*v10 >> 3)) & 2;
-  *(_DWORD *)(v7 + 8) = v13;
-  *(_DWORD *)(v7 + 8) = v13 ^ ((unsigned __int8)v13 ^ (unsigned __int8)~(unsigned __int8)(*v10 >> 5)) & 1;
-  v14 = _statfp();
-  if ( (v14 & 1) != 0 )
-    *(_DWORD *)(v7 + 12) |= 0x10u;
-  if ( (v14 & 4) != 0 )
-    *(_DWORD *)(v7 + 12) |= 8u;
-  if ( (v14 & 8) != 0 )
-    *(_DWORD *)(v7 + 12) |= 4u;
-  if ( (v14 & 0x10) != 0 )
-    *(_DWORD *)(v7 + 12) |= 2u;
-  if ( (v14 & 0x20) != 0 )
-    *(_DWORD *)(v7 + 12) |= 1u;
-  v15 = *v10 & 0xC00;
-  if ( v15 )
+  v9 = (_DWORD *)HIDWORD(Arguments);
+  *(_DWORD *)(v6 + 8) ^= (*(_DWORD *)(v6 + 8) ^ ~(16 * *(_DWORD *)HIDWORD(Arguments))) & 0x10;
+  v10 = *(_DWORD *)(v6 + 8) ^ (*(_DWORD *)(v6 + 8) ^ ~(2 * *v9)) & 8;
+  *(_DWORD *)(v6 + 8) = v10;
+  v11 = v10 ^ ((unsigned __int8)v10 ^ (unsigned __int8)~(unsigned __int8)(*v9 >> 1)) & 4;
+  *(_DWORD *)(v6 + 8) = v11;
+  v12 = v11 ^ ((unsigned __int8)v11 ^ (unsigned __int8)~(unsigned __int8)(*v9 >> 3)) & 2;
+  *(_DWORD *)(v6 + 8) = v12;
+  *(_DWORD *)(v6 + 8) = v12 ^ ((unsigned __int8)v12 ^ (unsigned __int8)~(unsigned __int8)(*v9 >> 5)) & 1;
+  v13 = _statfp();
+  if ( (v13 & 1) != 0 )
+    *(_DWORD *)(v6 + 12) |= 0x10u;
+  if ( (v13 & 4) != 0 )
+    *(_DWORD *)(v6 + 12) |= 8u;
+  if ( (v13 & 8) != 0 )
+    *(_DWORD *)(v6 + 12) |= 4u;
+  if ( (v13 & 0x10) != 0 )
+    *(_DWORD *)(v6 + 12) |= 2u;
+  if ( (v13 & 0x20) != 0 )
+    *(_DWORD *)(v6 + 12) |= 1u;
+  v14 = *v9 & 0xC00;
+  if ( v14 )
   {
-    if ( v15 == 1024 )
+    if ( v14 == 1024 )
     {
-      v16 = *(_DWORD *)v7 & 0xFFFFFFFC | 1;
+      v15 = *(_DWORD *)v6 & 0xFFFFFFFC | 1;
     }
     else
     {
-      if ( v15 != 2048 )
+      if ( v14 != 2048 )
       {
-        if ( v15 == 3072 )
-          *(_DWORD *)v7 |= 3u;
+        if ( v14 == 3072 )
+          *(_DWORD *)v6 |= 3u;
 LABEL_30:
-        v17 = *v10 & 0x300;
-        if ( v17 )
+        v16 = *v9 & 0x300;
+        if ( v16 )
         {
-          if ( v17 != 512 )
+          if ( v16 != 512 )
           {
-            if ( v17 == 768 )
-              *(_DWORD *)v7 &= 0xFFFFFFE3;
+            if ( v16 == 768 )
+              *(_DWORD *)v6 &= 0xFFFFFFE3;
 LABEL_37:
-            *(_DWORD *)v7 ^= (*(_DWORD *)v7 ^ (32 * a4)) & 0x1FFE0;
-            v19 = *(_DWORD *)(v7 + 32);
-            if ( a7 )
+            *(_DWORD *)v6 ^= (*(_DWORD *)v6 ^ (32 * a3)) & 0x1FFE0;
+            v18 = *(_DWORD *)(v6 + 32);
+            if ( a6 )
             {
-              *(_DWORD *)(v7 + 32) = v19 & 0xFFFFFFE0 | 1;
-              *(float *)(v7 + 16) = *a5;
-              *(_DWORD *)(v7 + 96) = *(_DWORD *)(v7 + 96) & 0xFFFFFFE0 | 1;
-              *(float *)(v7 + 80) = *a6;
+              *(_DWORD *)(v6 + 32) = v18 & 0xFFFFFFE0 | 1;
+              *(float *)(v6 + 16) = *a4;
+              *(_DWORD *)(v6 + 96) = *(_DWORD *)(v6 + 96) & 0xFFFFFFE0 | 1;
+              *(float *)(v6 + 80) = *a5;
             }
             else
             {
-              *(_DWORD *)(v7 + 32) = v19 & 0xFFFFFFE0 | 3;
-              *(double *)(v7 + 16) = *(double *)a5;
-              *(_DWORD *)(v7 + 96) = *(_DWORD *)(v7 + 96) & 0xFFFFFFE0 | 3;
-              *(double *)(v7 + 80) = *(double *)a6;
+              *(_DWORD *)(v6 + 32) = v18 & 0xFFFFFFE0 | 3;
+              *(double *)(v6 + 16) = *(double *)a4;
+              *(_DWORD *)(v6 + 96) = *(_DWORD *)(v6 + 96) & 0xFFFFFFE0 | 3;
+              *(double *)(v6 + 80) = *(double *)a5;
             }
             _clrfp();
-            RaiseException(v8, 0, 1u, &Arguments);
+            RaiseException(v7, 0, 1u, &Arguments);
           }
-          v18 = *(_DWORD *)v7 & 0xFFFFFFE3 | 4;
+          v17 = *(_DWORD *)v6 & 0xFFFFFFE3 | 4;
         }
         else
         {
-          v18 = *(_DWORD *)v7 & 0xFFFFFFE3 | 8;
+          v17 = *(_DWORD *)v6 & 0xFFFFFFE3 | 8;
         }
-        *(_DWORD *)v7 = v18;
+        *(_DWORD *)v6 = v17;
         goto LABEL_37;
       }
-      v16 = *(_DWORD *)v7 & 0xFFFFFFFC | 2;
+      v15 = *(_DWORD *)v6 & 0xFFFFFFFC | 2;
     }
-    *(_DWORD *)v7 = v16;
+    *(_DWORD *)v6 = v15;
     goto LABEL_30;
   }
-  *(_DWORD *)v7 &= 0xFFFFFFFC;
+  *(_DWORD *)v6 &= 0xFFFFFFFC;
   goto LABEL_30;
 }

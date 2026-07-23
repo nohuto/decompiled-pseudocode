@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpPostPnpInitialize @ 0x1408358F0
+ * XREFs of HalpPostPnpInitialize @ 0x140835BF0
  * Callers:
- *     HalpAddDevice @ 0x140834C20 (HalpAddDevice.c)
+ *     HalpAddDevice @ 0x140834F20 (HalpAddDevice.c)
  * Callees:
- *     KeInitializeEvent @ 0x1402AF870 (KeInitializeEvent.c)
+ *     KeInitializeEvent @ 0x1402AFB00 (KeInitializeEvent.c)
  *     IoRegisterPlugPlayNotification @ 0x140687F00 (IoRegisterPlugPlayNotification.c)
  *     HalpInitializeSecondaryInterruptServices @ 0x140B5D878 (HalpInitializeSecondaryInterruptServices.c)
  */

@@ -1,11 +1,11 @@
 /*
- * XREFs of CcFreeVirtualAddress @ 0x1400AF6D0
+ * XREFs of CcFreeVirtualAddress @ 0x1400AF610
  * Callers:
- *     CcPinMappedData @ 0x1406385A0 (CcPinMappedData.c)
- *     CcMapAndCopyFromCache @ 0x140638760 (CcMapAndCopyFromCache.c)
- *     CcMdlRead @ 0x140662B90 (CcMdlRead.c)
+ *     CcPinMappedData @ 0x1406395C0 (CcPinMappedData.c)
+ *     CcMapAndCopyFromCache @ 0x140639780 (CcMapAndCopyFromCache.c)
+ *     CcMdlRead @ 0x140663D50 (CcMdlRead.c)
  * Callees:
- *     KeSetEvent @ 0x1400C2B00 (KeSetEvent.c)
+ *     KeSetEvent @ 0x1400C2A40 (KeSetEvent.c)
  */
 
 int __fastcall CcFreeVirtualAddress(__int64 a1)

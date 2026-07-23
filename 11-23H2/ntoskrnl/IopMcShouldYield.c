@@ -1,10 +1,10 @@
 /*
- * XREFs of IopMcShouldYield @ 0x14055F3D0
+ * XREFs of IopMcShouldYield @ 0x14055FA90
  * Callers:
- *     IopMcAddMdlPagesToTable @ 0x14055EB30 (IopMcAddMdlPagesToTable.c)
- *     IopMcRemoveMdlPagesFromTable @ 0x14055F220 (IopMcRemoveMdlPagesFromTable.c)
+ *     IopMcAddMdlPagesToTable @ 0x14055F1F0 (IopMcAddMdlPagesToTable.c)
+ *     IopMcRemoveMdlPagesFromTable @ 0x14055F8E0 (IopMcRemoveMdlPagesFromTable.c)
  * Callees:
- *     KeShouldYieldProcessor @ 0x140333C70 (KeShouldYieldProcessor.c)
+ *     KeShouldYieldProcessor @ 0x140333F00 (KeShouldYieldProcessor.c)
  */
 
 bool __fastcall IopMcShouldYield(int a1, unsigned __int8 a2)

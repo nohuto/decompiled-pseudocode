@@ -1,14 +1,14 @@
 /*
- * XREFs of AccelpSiovIaaOperationHandler @ 0x1406DFFF4
+ * XREFs of AccelpSiovIaaOperationHandler @ 0x1406E4274
  * Callers:
- *     AccelpSiovInternalOperationHandler @ 0x140511B88 (AccelpSiovInternalOperationHandler.c)
+ *     AccelpSiovInternalOperationHandler @ 0x14050B5F8 (AccelpSiovInternalOperationHandler.c)
  * Callees:
- *     IaaBuildDescriptorCommon @ 0x1404BFAB4 (IaaBuildDescriptorCommon.c)
- *     AccelpSiovIaaCompressionDecompression @ 0x1406DFC80 (AccelpSiovIaaCompressionDecompression.c)
- *     AccelpSiovIaaGetCompressionWorkspaceSize @ 0x1406DFF10 (AccelpSiovIaaGetCompressionWorkspaceSize.c)
- *     AccelpSiovIaaQueryCompletionInformation @ 0x1406E02C0 (AccelpSiovIaaQueryCompletionInformation.c)
- *     AccelpSiovIaaSetCompressionWorkspace @ 0x1406E0518 (AccelpSiovIaaSetCompressionWorkspace.c)
- *     IaaGetStatusFromCompletionRecord @ 0x1406E16F4 (IaaGetStatusFromCompletionRecord.c)
+ *     IaaBuildDescriptorCommon @ 0x1404B9304 (IaaBuildDescriptorCommon.c)
+ *     AccelpSiovIaaCompressionDecompression @ 0x1406E3F00 (AccelpSiovIaaCompressionDecompression.c)
+ *     AccelpSiovIaaGetCompressionWorkspaceSize @ 0x1406E4190 (AccelpSiovIaaGetCompressionWorkspaceSize.c)
+ *     AccelpSiovIaaQueryCompletionInformation @ 0x1406E4540 (AccelpSiovIaaQueryCompletionInformation.c)
+ *     AccelpSiovIaaSetCompressionWorkspace @ 0x1406E4798 (AccelpSiovIaaSetCompressionWorkspace.c)
+ *     IaaGetStatusFromCompletionRecord @ 0x1406E5974 (IaaGetStatusFromCompletionRecord.c)
  */
 
 int __fastcall AccelpSiovIaaOperationHandler(__int64 a1, int *a2, __int64 a3)

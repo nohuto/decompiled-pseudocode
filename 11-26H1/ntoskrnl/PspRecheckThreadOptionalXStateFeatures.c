@@ -1,14 +1,14 @@
 /*
- * XREFs of PspRecheckThreadOptionalXStateFeatures @ 0x140A036E0
+ * XREFs of PspRecheckThreadOptionalXStateFeatures @ 0x140A7BC1C
  * Callers:
- *     PspInsertThread @ 0x140A026D0 (PspInsertThread.c)
+ *     PspInsertThread @ 0x140A7B188 (PspInsertThread.c)
  * Callees:
- *     KeInsertQueueApc @ 0x14020AD90 (KeInsertQueueApc.c)
- *     MmCreateKernelStack @ 0x1403D0D34 (MmCreateKernelStack.c)
- *     KeInitializeApc @ 0x140457520 (KeInitializeApc.c)
- *     KeGetIdealNodeNumberThread @ 0x14048C2AC (KeGetIdealNodeNumberThread.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     KeInsertQueueApc @ 0x14020AE70 (KeInsertQueueApc.c)
+ *     MmCreateKernelStack @ 0x1403D3D00 (MmCreateKernelStack.c)
+ *     KeInitializeApc @ 0x14044ED90 (KeInitializeApc.c)
+ *     KeGetIdealNodeNumberThread @ 0x140485DEC (KeGetIdealNodeNumberThread.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PspRecheckThreadOptionalXStateFeatures(__int64 a1, __int64 a2)

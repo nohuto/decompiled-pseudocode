@@ -1,14 +1,14 @@
 /*
- * XREFs of _PnpDispatchDevicePanel @ 0x14089C760
+ * XREFs of _PnpDispatchDevicePanel @ 0x1408A2B60
  * Callers:
  *     <none>
  * Callees:
- *     _CmGetDevicePanelMappedProperty @ 0x14089A6C0 (_CmGetDevicePanelMappedProperty.c)
- *     _CmGetDevicePanelMappedPropertyKeys @ 0x14089A7E0 (_CmGetDevicePanelMappedPropertyKeys.c)
- *     _CmGetMatchingDevicePanelList @ 0x14089A928 (_CmGetMatchingDevicePanelList.c)
- *     _CmOpenDevicePanelRegKey @ 0x14089ABBC (_CmOpenDevicePanelRegKey.c)
- *     _CmSetDevicePanelMappedProperty @ 0x14089B010 (_CmSetDevicePanelMappedProperty.c)
- *     _CmValidateDevicePanelName @ 0x14089B06C (_CmValidateDevicePanelName.c)
+ *     _CmGetDevicePanelMappedProperty @ 0x1408A0AC0 (_CmGetDevicePanelMappedProperty.c)
+ *     _CmGetDevicePanelMappedPropertyKeys @ 0x1408A0BE0 (_CmGetDevicePanelMappedPropertyKeys.c)
+ *     _CmGetMatchingDevicePanelList @ 0x1408A0D28 (_CmGetMatchingDevicePanelList.c)
+ *     _CmOpenDevicePanelRegKey @ 0x1408A0FBC (_CmOpenDevicePanelRegKey.c)
+ *     _CmSetDevicePanelMappedProperty @ 0x1408A1410 (_CmSetDevicePanelMappedProperty.c)
+ *     _CmValidateDevicePanelName @ 0x1408A146C (_CmValidateDevicePanelName.c)
  */
 
 __int64 __fastcall PnpDispatchDevicePanel(__int64 a1, const wchar_t *a2, __int64 a3, int a4, __int64 a5)
@@ -123,7 +123,7 @@ __int64 __fastcall PnpDispatchDevicePanel(__int64 a1, const wchar_t *a2, __int64
   *v19 = 0;
   while ( v18 < 3 )
   {
-    v23 = (&off_14000F498)[2 * v18];
+    v23 = (&off_14000F7C8)[2 * v18];
     if ( *(_DWORD *)(v22 + 16) == *((_DWORD *)v23 + 4) )
     {
       v24 = *(_QWORD *)v22 - *v23;

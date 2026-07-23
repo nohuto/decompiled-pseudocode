@@ -1,11 +1,11 @@
 /*
- * XREFs of TtmiLogQueueDestroyed @ 0x1409A8E94
+ * XREFs of TtmiLogQueueDestroyed @ 0x1409A9094
  * Callers:
- *     TtmpDeleteQueue @ 0x1409AC460 (TtmpDeleteQueue.c)
+ *     TtmpDeleteQueue @ 0x1409AC660 (TtmpDeleteQueue.c)
  * Callees:
  *     _tlgKeywordOn @ 0x140212E64 (_tlgKeywordOn.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6B24 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6DB4 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  */
 
 void TtmiLogQueueDestroyed()
@@ -25,7 +25,13 @@ void TtmiLogQueueDestroyed()
       v3 = &v1;
       v1 = v0;
       v4 = 8;
-      tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140D53918, (unsigned __int8 *)byte_1400337C7, 0LL, 0LL, 3u, &v2);
+      tlgWriteTransfer_EtwWriteTransfer(
+        (__int64)&dword_140D53918,
+        (unsigned __int8 *)&word_140033CD6,
+        0LL,
+        0LL,
+        3u,
+        &v2);
     }
   }
 }

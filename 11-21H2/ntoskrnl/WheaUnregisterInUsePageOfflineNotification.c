@@ -3,9 +3,9 @@
  * Callers:
  *     HvlUnregisterWheaErrorNotification @ 0x140931030 (HvlUnregisterWheaErrorNotification.c)
  * Callees:
- *     ExfAcquirePushLockExclusiveEx @ 0x14029F120 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x1402AFC00 (KeAbPostRelease.c)
- *     KeAbPreAcquire @ 0x140347C10 (KeAbPreAcquire.c)
+ *     sub_14029F120 @ 0x14029F120 (sub_14029F120.c)
+ *     sub_1402AFC00 @ 0x1402AFC00 (sub_1402AFC00.c)
+ *     sub_140347C10 @ 0x140347C10 (sub_140347C10.c)
  *     ExfTryToWakePushLock @ 0x140359F40 (ExfTryToWakePushLock.c)
  *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
  */
@@ -21,17 +21,17 @@ NTSTATUS __stdcall WheaUnregisterInUsePageOfflineNotification(PFN_IN_USE_PAGE_OF
   PVOID *v9; // rdx
 
   v1 = 0;
-  if ( WheapInUsePageOfflineNotifyInit != 1 )
+  if ( byte_140CE1AD0 != 1 )
     return -1073741823;
-  v4 = KeAbPreAcquire((__int64)&WheapInUsePageOfflineNotifyLock, 0LL);
-  v5 = _interlockedbittestandset64((volatile signed __int32 *)&WheapInUsePageOfflineNotifyLock, 0LL);
+  v4 = sub_140347C10((__int64)&qword_140D00C28, 0LL);
+  v5 = _interlockedbittestandset64((volatile signed __int32 *)&qword_140D00C28, 0LL);
   v6 = v4;
   if ( v5 )
-    ExfAcquirePushLockExclusiveEx(&WheapInUsePageOfflineNotifyLock, v4, (__int64)&WheapInUsePageOfflineNotifyLock);
+    sub_14029F120(&qword_140D00C28, v4, (__int64)&qword_140D00C28);
   if ( v6 )
     *(_BYTE *)(v6 + 18) = 1;
-  v7 = (PFN_IN_USE_PAGE_OFFLINE_NOTIFY *)WheapInUsePageOfflineNotifyList;
-  if ( WheapInUsePageOfflineNotifyList != &WheapInUsePageOfflineNotifyList )
+  v7 = (PFN_IN_USE_PAGE_OFFLINE_NOTIFY *)qword_140D00C30;
+  if ( qword_140D00C30 != &qword_140D00C30 )
   {
     while ( 1 )
     {
@@ -39,7 +39,7 @@ NTSTATUS __stdcall WheaUnregisterInUsePageOfflineNotification(PFN_IN_USE_PAGE_OF
       if ( Callback == v7[2] )
         break;
       v7 = (PFN_IN_USE_PAGE_OFFLINE_NOTIFY *)*v7;
-      if ( (char *)v8 == (char *)&WheapInUsePageOfflineNotifyList )
+      if ( (char *)v8 == (char *)&qword_140D00C30 )
         goto LABEL_10;
     }
     if ( *((PFN_IN_USE_PAGE_OFFLINE_NOTIFY **)v8 + 1) != v7 || (v9 = (PVOID *)v7[1], *v9 != v7) )
@@ -50,8 +50,8 @@ NTSTATUS __stdcall WheaUnregisterInUsePageOfflineNotification(PFN_IN_USE_PAGE_OF
     v1 = 1;
   }
 LABEL_10:
-  if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&WheapInUsePageOfflineNotifyLock, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-    ExfTryToWakePushLock(&WheapInUsePageOfflineNotifyLock);
-  KeAbPostRelease((ULONG_PTR)&WheapInUsePageOfflineNotifyLock);
+  if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_140D00C28, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+    ExfTryToWakePushLock(&qword_140D00C28);
+  sub_1402AFC00((ULONG_PTR)&qword_140D00C28);
   return v1 == 0 ? 0xC0000008 : 0;
 }

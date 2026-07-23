@@ -1,17 +1,17 @@
 /*
- * XREFs of MiInSwapStore @ 0x140AE9990
+ * XREFs of MiInSwapStore @ 0x140AEC480
  * Callers:
- *     MmInSwapWorkingSet @ 0x1404D58CC (MmInSwapWorkingSet.c)
+ *     MmInSwapWorkingSet @ 0x1404CF090 (MmInSwapWorkingSet.c)
  * Callees:
- *     KeQueryPriorityThread @ 0x1402052D0 (KeQueryPriorityThread.c)
- *     KeWaitForSingleObject @ 0x140278560 (KeWaitForSingleObject.c)
- *     ObfReferenceObjectWithTag @ 0x140278B30 (ObfReferenceObjectWithTag.c)
- *     ExQueueWorkItemToPartition @ 0x1403830D0 (ExQueueWorkItemToPartition.c)
- *     ExAllocatePoolMm @ 0x1403985B0 (ExAllocatePoolMm.c)
- *     MmGetCurrentProcessorColor @ 0x14044ADC0 (MmGetCurrentProcessorColor.c)
- *     MiGetProcessPartition @ 0x14044C0C0 (MiGetProcessPartition.c)
- *     KeInitializeEvent @ 0x140466F30 (KeInitializeEvent.c)
- *     MiInSwapStoreContextDereference @ 0x140AEA190 (MiInSwapStoreContextDereference.c)
+ *     KeQueryPriorityThread @ 0x1402053B0 (KeQueryPriorityThread.c)
+ *     KeWaitForSingleObject @ 0x140277AD0 (KeWaitForSingleObject.c)
+ *     ObfReferenceObjectWithTag @ 0x1402780A0 (ObfReferenceObjectWithTag.c)
+ *     ExQueueWorkItemToPartition @ 0x140384E80 (ExQueueWorkItemToPartition.c)
+ *     ExAllocatePoolMm @ 0x14039A310 (ExAllocatePoolMm.c)
+ *     MmGetCurrentProcessorColor @ 0x140442EF0 (MmGetCurrentProcessorColor.c)
+ *     MiGetProcessPartition @ 0x1404441E0 (MiGetProcessPartition.c)
+ *     KeInitializeEvent @ 0x140460680 (KeInitializeEvent.c)
+ *     MiInSwapStoreContextDereference @ 0x140AECC80 (MiInSwapStoreContextDereference.c)
  */
 
 __int64 __fastcall MiInSwapStore(PVOID Object)

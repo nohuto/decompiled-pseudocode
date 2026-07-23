@@ -1,37 +1,45 @@
 /*
- * XREFs of WerpEscalationReadUlongFromKey @ 0x1800DE75C
+ * XREFs of WerpEscalationReadUlongFromKey @ 0x1800DE71C
  * Callers:
- *     WerpEscalationIsDisabled @ 0x1800DE5FC (WerpEscalationIsDisabled.c)
- *     WerpEscalationIsWMRSendStringSet @ 0x1800DE6AC (WerpEscalationIsWMRSendStringSet.c)
+ *     WerpEscalationIsDisabled @ 0x1800DE5BC (WerpEscalationIsDisabled.c)
+ *     WerpEscalationIsWMRSendStringSet @ 0x1800DE66C (WerpEscalationIsWMRSendStringSet.c)
  * Callees:
  *     RtlInitUnicodeString @ 0x18003BA40 (RtlInitUnicodeString.c)
  *     __security_check_cookie @ 0x18008C940 (__security_check_cookie.c)
- *     NtQueryValueKey @ 0x18009D920 (NtQueryValueKey.c)
+ *     NtQueryValueKey @ 0x18009D8E0 (NtQueryValueKey.c)
  */
 
-__int64 __fastcall WerpEscalationReadUlongFromKey(__int64 a1, const WCHAR *a2, _DWORD *a3)
+NTSTATUS __fastcall WerpEscalationReadUlongFromKey(HANDLE KeyHandle, const WCHAR *a2, _DWORD *a3)
 {
-  __int64 result; // rax
-  UNICODE_STRING DestinationString; // [rsp+38h] [rbp-40h] BYREF
-  int v6; // [rsp+4Ch] [rbp-2Ch]
-  int v7; // [rsp+50h] [rbp-28h]
-  int v8; // [rsp+54h] [rbp-24h]
+  NTSTATUS result; // eax
+  ULONG ResultLength; // [rsp+30h] [rbp-48h] BYREF
+  _UNICODE_STRING DestinationString; // [rsp+38h] [rbp-40h] BYREF
+  _BYTE KeyValueInformation[4]; // [rsp+48h] [rbp-30h] BYREF
+  int v9; // [rsp+4Ch] [rbp-2Ch]
+  int v10; // [rsp+50h] [rbp-28h]
+  int v11; // [rsp+54h] [rbp-24h]
 
   *a3 = 0;
   RtlInitUnicodeString(&DestinationString, a2);
-  result = NtQueryValueKey();
-  if ( (_DWORD)result == -1073741772 )
-    return 3221225524LL;
-  if ( (int)result >= 0 )
+  result = NtQueryValueKey(
+             KeyHandle,
+             &DestinationString,
+             KeyValuePartialInformation,
+             KeyValueInformation,
+             0x14u,
+             &ResultLength);
+  if ( result == -1073741772 )
+    return -1073741772;
+  if ( result >= 0 )
   {
-    if ( v6 == 4 && v7 == 4 )
+    if ( v9 == 4 && v10 == 4 )
     {
-      *a3 = v8;
-      return 0LL;
+      *a3 = v11;
+      return 0;
     }
     else
     {
-      return 3221225473LL;
+      return -1073741823;
     }
   }
   return result;

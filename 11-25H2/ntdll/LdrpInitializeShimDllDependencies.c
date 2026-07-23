@@ -10,41 +10,42 @@
  *     memset$thunk$772440563353939046 @ 0x180174030 (memset$thunk$772440563353939046.c)
  */
 
-__int64 *LdrpInitializeShimDllDependencies()
+int LdrpInitializeShimDllDependencies()
 {
   __int64 v0; // rbx
-  int v1; // edx
-  char v2; // r14
+  NTSTATUS v1; // edx
+  __int64 v2; // r14
   __int64 v3; // rax
   __int64 *v4; // rsi
   __int64 *v5; // rdi
   __int64 v6; // rax
-  __int64 *result; // rax
-  _BYTE v8[32]; // [rsp+40h] [rbp-C0h] BYREF
-  int v9; // [rsp+60h] [rbp-A0h]
-  int *v10; // [rsp+68h] [rbp-98h]
-  char v11; // [rsp+140h] [rbp+40h] BYREF
-  int v12; // [rsp+148h] [rbp+48h] BYREF
+  __int64 *v7; // rax
+  NTSTATUS v9; // [rsp+30h] [rbp-D0h]
+  _BYTE v10[32]; // [rsp+40h] [rbp-C0h] BYREF
+  int v11; // [rsp+60h] [rbp-A0h]
+  NTSTATUS *p_ExitStatus; // [rsp+68h] [rbp-98h]
+  char v13; // [rsp+140h] [rbp+40h] BYREF
+  NTSTATUS ExitStatus; // [rsp+148h] [rbp+48h] BYREF
 
-  v12 = 0;
-  memset_thunk_772440563353939046(v8, 0, 0xD0uLL);
+  ExitStatus = 0;
+  memset_thunk_772440563353939046(v10, 0, 0xD0uLL);
   v0 = qword_1801D4950;
-  v9 = 0x80000;
-  v10 = &v12;
+  v11 = 0x80000;
+  p_ExitStatus = &ExitStatus;
   if ( (__int64 *)qword_1801D4950 != &qword_1801D4950 )
   {
     do
     {
       if ( *(_DWORD *)(*(_QWORD *)(v0 + 152) + 56LL) == 7 && !*(_QWORD *)(v0 + 176) )
-        *(_QWORD *)(v0 + 176) = v8;
+        *(_QWORD *)(v0 + 176) = v10;
       v0 = *(_QWORD *)v0;
     }
     while ( (__int64 *)v0 != &qword_1801D4950 );
     v0 = qword_1801D4950;
   }
   v1 = 0;
-  v12 = 0;
-  v2 = 0;
+  ExitStatus = 0;
+  v2 = 0LL;
   while ( 1 )
   {
     if ( (__int64 *)v0 == &qword_1801D4950 )
@@ -69,10 +70,10 @@ LABEL_8:
       v6 = v5[1];
       if ( *(_DWORD *)(v6 + 56) == 7 )
       {
-        v11 = 0;
-        v12 = LdrpInitializeGraphRecurse((__int64 *)v6, (__int64)&v12, &v11);
-        v1 = v12;
-        if ( v12 < 0 )
+        v13 = 0;
+        ExitStatus = LdrpInitializeGraphRecurse((__int64 *)v6, (__int64)&ExitStatus, &v13);
+        v1 = ExitStatus;
+        if ( ExitStatus < 0 )
           goto LABEL_14;
         goto LABEL_24;
       }
@@ -84,32 +85,34 @@ LABEL_24:
       goto LABEL_8;
   }
   v1 = -1073741502;
-  v12 = -1073741502;
+  ExitStatus = -1073741502;
 LABEL_14:
-  result = (__int64 *)qword_1801D4950;
+  v7 = (__int64 *)qword_1801D4950;
   if ( (__int64 *)qword_1801D4950 != &qword_1801D4950 )
   {
     do
     {
-      v2 = (char)result;
-      if ( (_BYTE *)result[22] == v8 )
-        result[22] = 0LL;
-      result = (__int64 *)*result;
+      v2 = (__int64)v7;
+      if ( (_BYTE *)v7[22] == v10 )
+        v7[22] = 0LL;
+      v7 = (__int64 *)*v7;
     }
-    while ( result != &qword_1801D4950 );
-    v1 = v12;
+    while ( v7 != &qword_1801D4950 );
+    v1 = ExitStatus;
   }
   if ( v1 < 0 )
   {
+    v9 = v1;
     LdrpLogInternal(
-      (__int64)"minkernel\\ldr\\ldrinit.c",
+      "minkernel\\ldr\\ldrinit.c",
       3638,
       (__int64)"LdrpInitializeShimDllDependencies",
       0,
       "Initializing a shim dependency \"%wZ\" failed with status 0x%08lx\n",
-      v2 + 72);
-    LdrpInitializationFailure((unsigned int)v12);
-    return (__int64 *)ZwTerminateProcess(-1LL, (unsigned int)v12);
+      v2 + 72,
+      v9);
+    LdrpInitializationFailure((unsigned int)ExitStatus);
+    LODWORD(v7) = ZwTerminateProcess((HANDLE)0xFFFFFFFFFFFFFFFFLL, ExitStatus);
   }
-  return result;
+  return (int)v7;
 }

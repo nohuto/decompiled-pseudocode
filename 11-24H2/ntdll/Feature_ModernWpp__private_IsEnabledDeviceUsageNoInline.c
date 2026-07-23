@@ -1,7 +1,7 @@
 /*
- * XREFs of Feature_ModernWpp__private_IsEnabledDeviceUsageNoInline @ 0x18015BF80
+ * XREFs of Feature_ModernWpp__private_IsEnabledDeviceUsageNoInline @ 0x18015A340
  * Callers:
- *     EtwpTrackProviderBinary @ 0x18011A13C (EtwpTrackProviderBinary.c)
+ *     EtwpTrackProviderBinary @ 0x18011836C (EtwpTrackProviderBinary.c)
  * Callees:
  *     <none>
  */

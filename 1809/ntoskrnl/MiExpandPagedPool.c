@@ -1,16 +1,16 @@
 /*
- * XREFs of MiExpandPagedPool @ 0x1401641EC
+ * XREFs of MiExpandPagedPool @ 0x1401642EC
  * Callers:
- *     MiAllocatePagedPoolPages @ 0x140162C70 (MiAllocatePagedPoolPages.c)
+ *     MiAllocatePagedPoolPages @ 0x140162D70 (MiAllocatePagedPoolPages.c)
  * Callees:
  *     MiSplitBitmapPages @ 0x1400265A8 (MiSplitBitmapPages.c)
  *     RtlClearBitsEx @ 0x140027F20 (RtlClearBitsEx.c)
  *     MiReturnSystemVa @ 0x14002840C (MiReturnSystemVa.c)
  *     MiGetAnyMultiplexedVm @ 0x140028884 (MiGetAnyMultiplexedVm.c)
  *     MiChargeCommit @ 0x14004CF20 (MiChargeCommit.c)
- *     MiReturnCommit @ 0x140065D40 (MiReturnCommit.c)
- *     MmAllocatePoolMemory @ 0x140099140 (MmAllocatePoolMemory.c)
- *     MiFreeExcessSegments @ 0x1401643D4 (MiFreeExcessSegments.c)
+ *     MiReturnCommit @ 0x140065D30 (MiReturnCommit.c)
+ *     MmAllocatePoolMemory @ 0x140099080 (MmAllocatePoolMemory.c)
+ *     MiFreeExcessSegments @ 0x1401644D4 (MiFreeExcessSegments.c)
  */
 
 __int64 __fastcall MiExpandPagedPool(ULONG_PTR *a1, unsigned __int64 a2)
@@ -36,7 +36,7 @@ __int64 __fastcall MiExpandPagedPool(ULONG_PTR *a1, unsigned __int64 a2)
 
   v2 = 1;
   v20 = 1;
-  if ( a1 == &qword_14043AF58 )
+  if ( a1 == &qword_14043C018 )
   {
     MiFreeExcessSegments(a1);
     v5 = 0LL;
@@ -64,34 +64,34 @@ LABEL_4:
   {
     if ( !v5 )
     {
-      ++dword_140438AA0;
+      ++dword_140439B60;
       goto LABEL_21;
     }
-    ++dword_140438AA4;
+    ++dword_140439B64;
 LABEL_32:
     if ( v5 )
     {
-      ++dword_140438A88;
+      ++dword_140439B48;
       ++*(_DWORD *)(v5 + 92);
       return -1LL;
     }
 LABEL_21:
-    ++dword_140438A7C;
+    ++dword_140439B3C;
     return -1LL;
   }
   v9 = v22;
   v10 = ((v22 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
   if ( a2 >= 0x80000 )
   {
-    v15 = *(_QWORD *)(qword_14043A748 + 8LL * *((unsigned __int16 *)AnyMultiplexedVm + 87));
+    v15 = *(_QWORD *)(qword_14043B808 + 8LL * *((unsigned __int16 *)AnyMultiplexedVm + 87));
     if ( !(unsigned int)MiChargeCommit(v15, a2, 1u) )
     {
-      ++dword_140438AA8;
+      ++dword_140439B68;
 LABEL_26:
       if ( v5 )
-        ++dword_140438AAC;
+        ++dword_140439B6C;
       else
-        ++dword_140438AA8;
+        ++dword_140439B68;
       if ( v22 )
         MiReturnSystemVa(v22, (__int64)((v7 << 28) + (v10 << 25)) >> 16, v19);
       goto LABEL_32;

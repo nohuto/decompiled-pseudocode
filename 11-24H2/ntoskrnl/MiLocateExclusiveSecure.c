@@ -1,9 +1,9 @@
 /*
- * XREFs of MiLocateExclusiveSecure @ 0x140481B8C
+ * XREFs of MiLocateExclusiveSecure @ 0x14047CE4C
  * Callers:
- *     MiMapViewOfDataSection @ 0x1408E0820 (MiMapViewOfDataSection.c)
- *     MiAddSecureEntry @ 0x1409C3F30 (MiAddSecureEntry.c)
- *     MiSecureVad @ 0x1409EA8FC (MiSecureVad.c)
+ *     MiAddSecureEntry @ 0x1408DC0A0 (MiAddSecureEntry.c)
+ *     MiMapViewOfDataSection @ 0x1409173D0 (MiMapViewOfDataSection.c)
+ *     MiSecureVad @ 0x1409E51EC (MiSecureVad.c)
  * Callees:
  *     <none>
  */

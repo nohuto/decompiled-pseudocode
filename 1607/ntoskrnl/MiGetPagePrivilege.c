@@ -1,24 +1,24 @@
 /*
- * XREFs of MiGetPagePrivilege @ 0x1400E3730
+ * XREFs of MiGetPagePrivilege @ 0x1400E15D0
  * Callers:
- *     MiClearPfnImageVerified @ 0x14001DCB8 (MiClearPfnImageVerified.c)
- *     MiFlushSectionInternal @ 0x140029DB0 (MiFlushSectionInternal.c)
- *     MiCompleteProtoPteFault @ 0x140039AF0 (MiCompleteProtoPteFault.c)
- *     MiAllocateWsle @ 0x14003C0F0 (MiAllocateWsle.c)
- *     MiInsertPageInFreeOrZeroedList @ 0x1400671C0 (MiInsertPageInFreeOrZeroedList.c)
- *     MiRevertValidPte @ 0x1400E17F0 (MiRevertValidPte.c)
- *     MiCopyPage @ 0x1400E3260 (MiCopyPage.c)
- *     MiReferencePageForModifiedWrite @ 0x140101FB8 (MiReferencePageForModifiedWrite.c)
- *     MiStealPage @ 0x140107E84 (MiStealPage.c)
- *     MiMarkPfnVerified @ 0x14010A2D4 (MiMarkPfnVerified.c)
- *     MiTradeActivePage @ 0x14010B184 (MiTradeActivePage.c)
- *     MiDbgWriteCheck @ 0x14012C5DC (MiDbgWriteCheck.c)
- *     MiCombineCandidate @ 0x1401F7E78 (MiCombineCandidate.c)
+ *     MiClearPfnImageVerified @ 0x14001D838 (MiClearPfnImageVerified.c)
+ *     MiFlushSectionInternal @ 0x140029930 (MiFlushSectionInternal.c)
+ *     MiCompleteProtoPteFault @ 0x140039670 (MiCompleteProtoPteFault.c)
+ *     MiAllocateWsle @ 0x14003BC70 (MiAllocateWsle.c)
+ *     MiInsertPageInFreeOrZeroedList @ 0x140066D40 (MiInsertPageInFreeOrZeroedList.c)
+ *     MiRevertValidPte @ 0x1400DF690 (MiRevertValidPte.c)
+ *     MiCopyPage @ 0x1400E1100 (MiCopyPage.c)
+ *     MiReferencePageForModifiedWrite @ 0x1400FFD38 (MiReferencePageForModifiedWrite.c)
+ *     MiStealPage @ 0x140105C04 (MiStealPage.c)
+ *     MiMarkPfnVerified @ 0x140108054 (MiMarkPfnVerified.c)
+ *     MiTradeActivePage @ 0x140108F04 (MiTradeActivePage.c)
+ *     MiDbgWriteCheck @ 0x14012CB4C (MiDbgWriteCheck.c)
+ *     MiCombineCandidate @ 0x1401F7CA4 (MiCombineCandidate.c)
  * Callees:
- *     MiLockPageInline @ 0x140022E70 (MiLockPageInline.c)
- *     MiIsPfnFileOnly @ 0x14004E980 (MiIsPfnFileOnly.c)
- *     MiGetTopLevelPfn @ 0x14010A970 (MiGetTopLevelPfn.c)
- *     MiGetPrototypePteDirect @ 0x1401F26B0 (MiGetPrototypePteDirect.c)
+ *     MiLockPageInline @ 0x1400229F0 (MiLockPageInline.c)
+ *     MiIsPfnFileOnly @ 0x14004E500 (MiIsPfnFileOnly.c)
+ *     MiGetTopLevelPfn @ 0x1401086F0 (MiGetTopLevelPfn.c)
+ *     MiGetPrototypePteDirect @ 0x1401F24DC (MiGetPrototypePteDirect.c)
  */
 
 __int64 __fastcall MiGetPagePrivilege(__int64 a1, int a2, unsigned __int64 a3)

@@ -1,41 +1,43 @@
 /*
- * XREFs of RtlReleaseActivationContext @ 0x18005E4D0
+ * XREFs of RtlReleaseActivationContext @ 0x1800740B0
  * Callers:
- *     RtlFreeActivationContextStack @ 0x180004030 (RtlFreeActivationContextStack.c)
- *     LdrGetProcedureAddressForCaller @ 0x180004FF0 (LdrGetProcedureAddressForCaller.c)
- *     LdrpLoadDependentModuleInternal @ 0x18000D2E0 (LdrpLoadDependentModuleInternal.c)
- *     LdrpFindOrPrepareLoadingModule @ 0x18000FA80 (LdrpFindOrPrepareLoadingModule.c)
- *     TppCleanupGroupMemberInitialize @ 0x18001A830 (TppCleanupGroupMemberInitialize.c)
- *     LdrpDereferenceModule @ 0x18001B350 (LdrpDereferenceModule.c)
- *     TppCleanupGroupMemberDestroy @ 0x180021980 (TppCleanupGroupMemberDestroy.c)
- *     LdrpResolveProcedureAddress @ 0x180057F30 (LdrpResolveProcedureAddress.c)
- *     sxsisol_SearchActCtxForDllName @ 0x18005D5B0 (sxsisol_SearchActCtxForDllName.c)
- *     LdrRemoveLoadAsDataTable @ 0x1800643D0 (LdrRemoveLoadAsDataTable.c)
- *     RtlQueueWorkItem @ 0x18006D9E0 (RtlQueueWorkItem.c)
- *     RtlpTpWorkUnposted @ 0x18006F660 (RtlpTpWorkUnposted.c)
- *     RtlpTpWorkCallback @ 0x18006F790 (RtlpTpWorkCallback.c)
- *     RtlDispatchAPC @ 0x18006FE60 (RtlDispatchAPC.c)
- *     RtlDeactivateActivationContext @ 0x18006FF10 (RtlDeactivateActivationContext.c)
- *     LdrpFindDllActivationContext @ 0x180098000 (LdrpFindDllActivationContext.c)
+ *     LdrpFindDllActivationContext @ 0x18002CE50 (LdrpFindDllActivationContext.c)
+ *     LdrGetProcedureAddressForCaller @ 0x1800319F0 (LdrGetProcedureAddressForCaller.c)
+ *     LdrpLoadDependentModuleInternal @ 0x180039CE0 (LdrpLoadDependentModuleInternal.c)
+ *     LdrpFindOrPrepareLoadingModule @ 0x18003C480 (LdrpFindOrPrepareLoadingModule.c)
+ *     TppCleanupGroupMemberInitialize @ 0x180047230 (TppCleanupGroupMemberInitialize.c)
+ *     LdrpDereferenceModule @ 0x180047D50 (LdrpDereferenceModule.c)
+ *     TppCleanupGroupMemberDestroy @ 0x18004E380 (TppCleanupGroupMemberDestroy.c)
+ *     LdrpResolveProcedureAddress @ 0x18006DB10 (LdrpResolveProcedureAddress.c)
+ *     sxsisol_SearchActCtxForDllName @ 0x180073190 (sxsisol_SearchActCtxForDllName.c)
+ *     LdrRemoveLoadAsDataTable @ 0x180079FB0 (LdrRemoveLoadAsDataTable.c)
+ *     RtlQueueWorkItem @ 0x18008A2C0 (RtlQueueWorkItem.c)
+ *     RtlpTpWorkUnposted @ 0x18008BF40 (RtlpTpWorkUnposted.c)
+ *     RtlpTpWorkCallback @ 0x18008C070 (RtlpTpWorkCallback.c)
+ *     RtlDispatchAPC @ 0x18008C740 (RtlDispatchAPC.c)
+ *     RtlDeactivateActivationContext @ 0x18008C7F0 (RtlDeactivateActivationContext.c)
+ *     RtlFreeActivationContextStack @ 0x1800AB5A0 (RtlFreeActivationContextStack.c)
  * Callees:
- *     RtlCaptureStackBackTrace @ 0x18003C700 (RtlCaptureStackBackTrace.c)
- *     RtlpFreeActivationContext @ 0x180080B3C (RtlpFreeActivationContext.c)
+ *     RtlpFreeActivationContext @ 0x1800029B8 (RtlpFreeActivationContext.c)
+ *     RtlCaptureStackBackTrace @ 0x18001C980 (RtlCaptureStackBackTrace.c)
  */
 
-void __fastcall RtlReleaseActivationContext(volatile signed __int32 *a1)
+void __cdecl RtlReleaseActivationContext(PACTIVATION_CONTEXT ActivationContext)
 {
-  signed __int32 v2; // eax
+  LONG RefCount; // eax
   int v3; // edi
 
-  if ( a1 && (((unsigned __int64)a1 - 1) | 7) != 0xFFFFFFFFFFFFFFFFuLL && (unsigned int)(*a1 - 1) <= 0x7FFFFFFD )
+  if ( ActivationContext
+    && (((unsigned __int64)&ActivationContext[-1].InlineStorageMapEntries[31] + 7) | 7) != 0xFFFFFFFFFFFFFFFFuLL
+    && (unsigned int)(ActivationContext->RefCount - 1) <= 0x7FFFFFFD )
   {
     while ( 1 )
     {
-      v2 = *a1;
-      if ( *a1 == 0x7FFFFFFF )
+      RefCount = ActivationContext->RefCount;
+      if ( ActivationContext->RefCount == 0x7FFFFFFF )
         break;
-      v3 = v2 - 1;
-      if ( v2 == _InterlockedCompareExchange(a1, v2 - 1, v2) )
+      v3 = RefCount - 1;
+      if ( RefCount == _InterlockedCompareExchange(&ActivationContext->RefCount, RefCount - 1, RefCount) )
         goto LABEL_6;
     }
     v3 = 0x7FFFFFFF;
@@ -44,14 +46,19 @@ LABEL_6:
       RtlCaptureStackBackTrace(
         1u,
         4u,
-        (PVOID *)&a1[8 * (((unsigned __int8)_InterlockedExchangeAdd(a1 + 96, 1u) + 1) & 3) + 98],
+        &ActivationContext[1].NotificationContext
+      + 4
+      * (((unsigned __int8)_InterlockedExchangeAdd(
+                             (volatile signed __int32 *)&ActivationContext[1].NotificationRoutine,
+                             1u)
+        + 1) & 3),
         0LL);
     if ( !v3 )
     {
       if ( g_SxsKeepActivationContextsAlive )
-        RtlpMoveActCtxToFreeList(a1);
+        RtlpMoveActCtxToFreeList((__int64)ActivationContext);
       else
-        RtlpFreeActivationContext(a1);
+        RtlpFreeActivationContext((__int64)ActivationContext);
     }
   }
 }

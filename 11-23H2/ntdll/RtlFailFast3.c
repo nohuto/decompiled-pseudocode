@@ -1,7 +1,7 @@
 /*
  * XREFs of RtlFailFast3 @ 0x1800A5F00
  * Callers:
- *     RtlpHandleInvalidUserCallTarget @ 0x18010BB50 (RtlpHandleInvalidUserCallTarget.c)
+ *     RtlpHandleInvalidUserCallTarget @ 0x18010BB20 (RtlpHandleInvalidUserCallTarget.c)
  * Callees:
  *     <none>
  */

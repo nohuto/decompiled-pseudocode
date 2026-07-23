@@ -3,8 +3,8 @@
  * Callers:
  *     VfInitBootDriversLoaded @ 0x140B577A4 (VfInitBootDriversLoaded.c)
  * Callees:
- *     RtlEqualUnicodeString @ 0x1406DA2F0 (RtlEqualUnicodeString.c)
- *     ViXdvDriverLoadImage @ 0x140ACAA4C (ViXdvDriverLoadImage.c)
+ *     RtlEqualUnicodeString @ 0x1406DA320 (RtlEqualUnicodeString.c)
+ *     ViXdvDriverLoadImage @ 0x140ACAA3C (ViXdvDriverLoadImage.c)
  */
 
 void __fastcall ViLogAndLoadXdv(__int64 a1)

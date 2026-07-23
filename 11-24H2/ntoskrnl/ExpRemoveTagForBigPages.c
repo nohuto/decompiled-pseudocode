@@ -1,27 +1,28 @@
 /*
- * XREFs of ExpRemoveTagForBigPages @ 0x1402C3EB0
+ * XREFs of ExpRemoveTagForBigPages @ 0x14021B1B0
  * Callers:
- *     ExQueryPoolBlockSize @ 0x140654750 (ExQueryPoolBlockSize.c)
- *     ExpCleanupBigTag @ 0x140654834 (ExpCleanupBigTag.c)
- *     ExpSizeHeapPool @ 0x14065A448 (ExpSizeHeapPool.c)
+ *     ExQueryPoolBlockSize @ 0x140652E50 (ExQueryPoolBlockSize.c)
+ *     ExpCleanupBigTag @ 0x140652F34 (ExpCleanupBigTag.c)
+ *     ExpSizeHeapPool @ 0x140658B18 (ExpSizeHeapPool.c)
  * Callees:
- *     ExpReleaseSpinLockSharedFromDpcLevelInstrumented @ 0x1402465FC (ExpReleaseSpinLockSharedFromDpcLevelInstrumented.c)
- *     ExpWaitForSpinLockSharedAndAcquire @ 0x1402C4AD0 (ExpWaitForSpinLockSharedAndAcquire.c)
- *     ExpAcquireSpinLockSharedAtDpcLevelInstrumented @ 0x1402DFAA0 (ExpAcquireSpinLockSharedAtDpcLevelInstrumented.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
+ *     ExpReleaseSpinLockSharedFromDpcLevelInstrumented @ 0x140219638 (ExpReleaseSpinLockSharedFromDpcLevelInstrumented.c)
+ *     ExpWaitForSpinLockSharedAndAcquire @ 0x140219B50 (ExpWaitForSpinLockSharedAndAcquire.c)
+ *     ExpAcquireSpinLockSharedAtDpcLevelInstrumented @ 0x140241380 (ExpAcquireSpinLockSharedAtDpcLevelInstrumented.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall ExpRemoveTagForBigPages(
         ULONG_PTR BugCheckParameter2,
         ULONG_PTR BugCheckParameter3,
-        int a3,
+        __int64 a3,
         _DWORD *a4,
         _QWORD *a5,
         _QWORD *a6,
         ULONG_PTR *a7)
 {
+  int v8; // esi
   unsigned int v9; // ebp
   unsigned __int8 CurrentIrql; // bl
   int v12; // r10d
@@ -34,6 +35,7 @@ __int64 __fastcall ExpRemoveTagForBigPages(
   signed __int32 v19; // ett
   __int64 retaddr; // [rsp+38h] [rbp+0h]
 
+  v8 = a3;
   v9 = BugCheckParameter3;
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
@@ -51,7 +53,7 @@ __int64 __fastcall ExpRemoveTagForBigPages(
         break;
       if ( v18 < 0 )
       {
-        ExpWaitForSpinLockSharedAndAcquire(&ExpLargePoolTableLock, CurrentIrql);
+        ExpWaitForSpinLockSharedAndAcquire(&ExpLargePoolTableLock, CurrentIrql, a3, (__int64)a4);
         break;
       }
     }
@@ -87,7 +89,7 @@ LABEL_10:
   else
     v16 = -1LL;
   *a7 = v16;
-  if ( a3 )
+  if ( v8 )
   {
     _InterlockedDecrement(&ExpPoolBigEntriesInUse);
     *((_QWORD *)v14 + 3) = 0LL;

@@ -1,14 +1,14 @@
 /*
- * XREFs of HvpViewMapReleaseLockExclusive @ 0x1401B6ABC
+ * XREFs of HvpViewMapReleaseLockExclusive @ 0x1401B69A0
  * Callers:
- *     HvViewMapPinFile @ 0x1401B6704 (HvViewMapPinFile.c)
- *     HvViewMapUnpinFile @ 0x1401B673C (HvViewMapUnpinFile.c)
- *     HvViewMapChangeFileSize @ 0x14060FAD0 (HvViewMapChangeFileSize.c)
- *     HvViewMapPinForFileOffset @ 0x14060FC6C (HvViewMapPinForFileOffset.c)
- *     HvViewMapUnpinForFileOffset @ 0x14060FE80 (HvViewMapUnpinForFileOffset.c)
+ *     HvViewMapPinFile @ 0x1401B65E8 (HvViewMapPinFile.c)
+ *     HvViewMapUnpinFile @ 0x1401B6620 (HvViewMapUnpinFile.c)
+ *     HvViewMapChangeFileSize @ 0x14060FB84 (HvViewMapChangeFileSize.c)
+ *     HvViewMapPinForFileOffset @ 0x14060FD20 (HvViewMapPinForFileOffset.c)
+ *     HvViewMapUnpinForFileOffset @ 0x14060FF34 (HvViewMapUnpinForFileOffset.c)
  * Callees:
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1400C8738 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     ExfTryToWakePushLock @ 0x1400C65D8 (ExfTryToWakePushLock.c)
  */
 
 __int64 __fastcall HvpViewMapReleaseLockExclusive(__int64 a1)

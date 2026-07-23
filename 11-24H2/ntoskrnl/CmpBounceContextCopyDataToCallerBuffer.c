@@ -1,10 +1,10 @@
 /*
- * XREFs of CmpBounceContextCopyDataToCallerBuffer @ 0x1409DF4D0
+ * XREFs of CmpBounceContextCopyDataToCallerBuffer @ 0x1409D9280
  * Callers:
- *     NtEnumerateKey @ 0x140AE3CA0 (NtEnumerateKey.c)
- *     NtQueryValueKey @ 0x140AE41C0 (NtQueryValueKey.c)
+ *     NtEnumerateKey @ 0x140AE5580 (NtEnumerateKey.c)
+ *     NtQueryValueKey @ 0x140AE5AA0 (NtQueryValueKey.c)
  * Callees:
- *     memmove @ 0x1406BFC40 (memmove.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
  */
 
 void *__fastcall CmpBounceContextCopyDataToCallerBuffer(__int64 a1, size_t a2)

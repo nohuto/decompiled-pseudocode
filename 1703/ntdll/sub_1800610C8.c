@@ -15,15 +15,15 @@
  *     memmove @ 0x1800ABA80 (memmove.c)
  */
 
-char __fastcall sub_1800610C8(void **Src, char a2)
+char __fastcall sub_1800610C8(PVOID *Src, char a2)
 {
-  void **v3; // rdi
+  PVOID *v3; // rdi
   size_t v4; // r8
   SIZE_T v5; // rsi
-  size_t v6; // rax
+  ULONG_PTR v6; // rax
   unsigned int v7; // ebx
   __int64 v8; // rax
-  size_t v10; // [rsp+50h] [rbp+18h] BYREF
+  ULONG_PTR v10; // [rsp+50h] [rbp+18h] BYREF
 
   if ( !byte_18015C7CC )
     return 1;
@@ -31,7 +31,7 @@ char __fastcall sub_1800610C8(void **Src, char a2)
   if ( Src[27] )
     goto LABEL_5;
   v10 = *((unsigned __int16 *)Src + 105);
-  if ( (int)ZwAllocateVirtualMemory(-1LL, v3, 0LL, &v10, 4096, 4) < 0 )
+  if ( ZwAllocateVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, v3, 0LL, &v10, 0x1000u, 4u) < 0 )
     return 1;
   a2 = 1;
 LABEL_5:

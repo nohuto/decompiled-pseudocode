@@ -1,9 +1,9 @@
 /*
- * XREFs of ExFreeCacheAwareRundownProtection @ 0x140321D90
+ * XREFs of ExFreeCacheAwareRundownProtection @ 0x140322020
  * Callers:
- *     MiDeletePartitionResources @ 0x140659488 (MiDeletePartitionResources.c)
- *     RawCleanupVcb @ 0x140791614 (RawCleanupVcb.c)
- *     EtwpCleanupSiloState @ 0x1409E32D0 (EtwpCleanupSiloState.c)
+ *     MiDeletePartitionResources @ 0x1406599D8 (MiDeletePartitionResources.c)
+ *     RawCleanupVcb @ 0x140791804 (RawCleanupVcb.c)
+ *     EtwpCleanupSiloState @ 0x1409E3560 (EtwpCleanupSiloState.c)
  * Callees:
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */

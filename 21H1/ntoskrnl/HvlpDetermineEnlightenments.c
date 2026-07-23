@@ -46,54 +46,51 @@ __int64 (__fastcall *__fastcall HvlpDetermineEnlightenments(
   int v24; // ecx
   int v25; // r14d
   __int64 *v26; // rdi
-  __int64 v27; // r9
-  int v28; // ecx
-  int v29; // edi
-  int v30; // ebx
-  char v31; // al
-  __int64 v32; // rax
-  int v33; // edx
+  int v27; // ecx
+  int v28; // edi
+  int v29; // ebx
+  char v30; // al
+  __int64 v31; // rax
+  int v32; // edx
   __int64 (__fastcall *result)(_DWORD *); // rax
-  __int64 v35; // [rsp+28h] [rbp-59h] BYREF
-  __int128 v36; // [rsp+38h] [rbp-49h] BYREF
-  __int128 v37; // [rsp+48h] [rbp-39h]
-  __int128 v38; // [rsp+58h] [rbp-29h] BYREF
-  __int128 v39; // [rsp+68h] [rbp-19h] BYREF
-  __int128 v40; // [rsp+78h] [rbp-9h] BYREF
-  __int128 v41; // [rsp+88h] [rbp+7h] BYREF
-  __int128 v42; // [rsp+98h] [rbp+17h] BYREF
-  _BYTE v43[16]; // [rsp+A8h] [rbp+27h] BYREF
+  __int64 v34; // [rsp+28h] [rbp-59h] BYREF
+  _OWORD v35[2]; // [rsp+38h] [rbp-49h] BYREF
+  __int128 v36; // [rsp+58h] [rbp-29h] BYREF
+  __int128 v37; // [rsp+68h] [rbp-19h] BYREF
+  __int128 v38; // [rsp+78h] [rbp-9h] BYREF
+  __int128 v39; // [rsp+88h] [rbp+7h] BYREF
+  __int128 v40; // [rsp+98h] [rbp+17h] BYREF
+  _BYTE v41[16]; // [rsp+A8h] [rbp+27h] BYREF
 
-  v35 = 0LL;
+  v34 = 0LL;
   v4 = 0;
-  v39 = 0LL;
-  HvlEnableIdleYield = 0;
-  v38 = 0LL;
-  v42 = 0LL;
-  v40 = 0LL;
-  v36 = 0LL;
   v37 = 0LL;
-  HviGetEnlightenmentInformation(&v38, a2, a3, a4);
-  v41 = 0LL;
-  HviGetHypervisorFeatures(&v41, v5, v6, v7);
-  HviGetHypervisorFeatures(&v42, v8, v9, v10);
-  HviGetHardwareFeatures(&v40);
-  v11 = v38;
-  if ( (v38 & 1) != 0 )
+  HvlEnableIdleYield = 0;
+  v36 = 0LL;
+  v40 = 0LL;
+  v38 = 0LL;
+  memset(v35, 0, sizeof(v35));
+  HviGetEnlightenmentInformation(&v36, a2, a3, a4);
+  v39 = 0LL;
+  HviGetHypervisorFeatures(&v39, v5, v6, v7);
+  HviGetHypervisorFeatures(&v40, v8, v9, v10);
+  HviGetHardwareFeatures(&v38);
+  v11 = v36;
+  if ( (v36 & 1) != 0 )
   {
     v4 = 8388615;
   }
-  else if ( (v38 & 2) != 0 )
+  else if ( (v36 & 2) != 0 )
   {
     v4 = 8388614;
   }
-  else if ( (v38 & 4) != 0 )
+  else if ( (v36 & 4) != 0 )
   {
-    if ( (v38 & 0x20000) != 0 || (v4 = 8388612, v11 = v38, KeGetCurrentPrcb()->CpuVendor == 2) )
+    if ( (v36 & 0x20000) != 0 || (v4 = 8388612, v11 = v36, KeGetCurrentPrcb()->CpuVendor == 2) )
       v4 = 4;
   }
-  v12 = v41;
-  if ( (v41 & 0x10) != 0 )
+  v12 = v39;
+  if ( (v39 & 0x10) != 0 )
     HvlpFlags |= 0x80000u;
   if ( (v11 & 8) != 0 )
   {
@@ -105,8 +102,8 @@ __int64 (__fastcall *__fastcall HvlpDetermineEnlightenments(
     v4 |= 0x1000u;
     HvlpFlags |= 0x10u;
   }
-  v13 = HIDWORD(v42);
-  if ( (HIDWORD(v42) & 0x40000) != 0 )
+  v13 = HIDWORD(v40);
+  if ( (HIDWORD(v40) & 0x40000) != 0 )
   {
     v14 = __readmsr(0x40000001u);
     if ( (v14 & 2) == 0 )
@@ -118,7 +115,7 @@ __int64 (__fastcall *__fastcall HvlpDetermineEnlightenments(
   if ( (v11 & 0x10000) != 0 )
     HvlpFlags |= 0x800000u;
   v15 = v4 | 0x80;
-  if ( ((HIDWORD(v42) >> 4) & 1) == 0 )
+  if ( ((HIDWORD(v40) >> 4) & 1) == 0 )
     v15 = v4;
   if ( (v11 & 0x800) != 0 )
     HvlpFlags |= 0x80u;
@@ -129,15 +126,15 @@ __int64 (__fastcall *__fastcall HvlpDetermineEnlightenments(
   if ( (v11 & 0x400) == 0 )
     v17 = v16;
   v18 = v17 | 0x200;
-  if ( (BYTE12(v42) & 0x20) == 0 )
+  if ( (BYTE12(v40) & 0x20) == 0 )
     v18 = v17;
-  if ( SDWORD1(v38) > 0 )
+  if ( SDWORD1(v36) > 0 )
   {
-    _BitScanReverse(&v19, DWORD1(v38));
+    _BitScanReverse(&v19, DWORD1(v36));
     v18 |= 0x40u;
-    HvlLongSpinCountMask = DWORD1(v38) | ((1 << v19) - 1);
+    HvlLongSpinCountMask = DWORD1(v36) | ((1 << v19) - 1);
   }
-  if ( (v41 & 0x100000000000LL) != 0 && (unsigned __int8)HvlpTryToLockCpuManagementVersion() )
+  if ( (v39 & 0x100000000000LL) != 0 && (unsigned __int8)HvlpTryToLockCpuManagementVersion() )
     HvlpFlags |= 2u;
   if ( (v13 & 0x10000000) != 0 )
   {
@@ -147,22 +144,22 @@ __int64 (__fastcall *__fastcall HvlpDetermineEnlightenments(
   }
   if ( (HvlpFlags & 2) != 0 )
   {
-    HvlpGetRegister128(516LL, &v39);
-    v20 = v39;
+    HvlpGetRegister128(516, &v37);
+    v20 = v37;
     v21 = v18 | 0x400;
-    if ( (BYTE4(v39) & 1) == 0 )
+    if ( (BYTE4(v37) & 1) == 0 )
       v21 = v18;
     v22 = v21 | 0x20000;
-    if ( (BYTE4(v39) & 2) == 0 )
+    if ( (BYTE4(v37) & 2) == 0 )
       v22 = v21;
     v18 = v22 | 0x40000;
-    if ( (BYTE4(v39) & 4) == 0 )
+    if ( (BYTE4(v37) & 4) == 0 )
       v18 = v22;
-    if ( (v39 & 1) != 0 )
+    if ( (v37 & 1) != 0 )
       HvlpRootFlags |= 0x20u;
-    if ( (v39 & 2) != 0 )
+    if ( (v37 & 2) != 0 )
       HvlpRootFlags |= 0x40u;
-    if ( (int)v39 < 0 )
+    if ( (int)v37 < 0 )
     {
       HvlpRootFlags |= 0x187u;
       v18 |= 0x10008u;
@@ -194,63 +191,63 @@ __int64 (__fastcall *__fastcall HvlpDetermineEnlightenments(
     v25 = v24;
   if ( (v12 & 0x200000000LL) != 0 )
   {
-    v26 = HvlpAcquireHypercallPage((PHYSICAL_ADDRESS *)&v36, 2, (__int64)v43, 8LL);
-    HvcallInitiateHypercall(70, 0LL, *((__int64 *)&v37 + 1), v27);
-    HvlpReleaseHypercallPage((__int64)&v36);
+    v26 = HvlpAcquireHypercallPage((PHYSICAL_ADDRESS *)v35, 2, (__int64)v41, 8LL);
+    HvcallInitiateHypercall(70);
+    HvlpReleaseHypercallPage((__int64)v35);
     HvlPartitionId = *v26;
   }
-  v28 = v25 | 0x2000;
+  v27 = v25 | 0x2000;
   if ( (v13 & 0x400) == 0 )
-    v28 = v25;
+    v27 = v25;
   if ( (v12 & 4) != 0 )
     HvlpFlags |= 0x20u;
   if ( (v13 & 0x4000) == 0 )
     HvlpFlags |= 0x2000u;
   if ( (v12 & 0x1000000000000LL) != 0 )
     HvlpFlags |= 0x40u;
-  v29 = v28 | 0x8000;
+  v28 = v27 | 0x8000;
   if ( (v12 & 0x20000000000000LL) == 0 )
-    v29 = v28;
+    v28 = v27;
   if ( (v11 & 0x2000) != 0 )
   {
-    v30 = v29 | 0x80000;
+    v29 = v28 | 0x80000;
     if ( (VslGetNestedPageProtectionFlags() & 2) == 0 )
-      v30 = v29;
+      v29 = v28;
   }
   else
   {
-    v30 = v29;
+    v29 = v28;
     if ( (HvlpFlags & 0x40) != 0 )
       HvlpFlags |= 0x20000u;
   }
-  if ( (v40 & 0x800000) != 0 )
+  if ( (v38 & 0x800000) != 0 )
     HvlpFlags |= 0x1000000u;
-  if ( (v11 & 0x8000) != 0 && (v30 & 0x100) != 0 )
+  if ( (v11 & 0x8000) != 0 && (v29 & 0x100) != 0 )
     HvlpFlags |= 0x4000u;
-  if ( (v40 & 0x10000) != 0 )
+  if ( (v38 & 0x10000) != 0 )
     HvlpFlags |= 0x40000u;
-  v31 = HvlpQueryExtendedCapabilities(&v35);
-  v32 = v35 & -(__int64)(v31 != 0);
-  if ( (v32 & 0x10) != 0 )
+  v30 = HvlpQueryExtendedCapabilities(&v34);
+  v31 = v34 & -(__int64)(v30 != 0);
+  if ( (v31 & 0x10) != 0 )
     HvlpFlags |= 0x8000u;
-  if ( (v32 & 0x20) != 0 )
+  if ( (v31 & 0x20) != 0 )
     HvlpFlags |= 0x10000u;
-  if ( (v32 & 8) != 0 )
+  if ( (v31 & 8) != 0 )
     HvlpFlags |= 0x100000u;
-  if ( (v32 & 0x40) != 0 )
+  if ( (v31 & 0x40) != 0 )
     HvlpFlags |= 0x200000u;
-  v33 = v30 | 0x200000;
-  if ( (v32 & 2) == 0 )
-    v33 = v30;
-  if ( (v32 & 4) != 0 )
+  v32 = v29 | 0x200000;
+  if ( (v31 & 2) == 0 )
+    v32 = v29;
+  if ( (v31 & 4) != 0 )
   {
-    v33 |= 0x400000u;
-    if ( (v32 & 0x80u) != 0LL )
-      v33 |= 0x8000000u;
+    v32 |= 0x400000u;
+    if ( (v31 & 0x80u) != 0LL )
+      v32 |= 0x8000000u;
   }
   result = HvlGetEnlightenmentInfo;
   qword_140C00710 = (__int64)HvlGetEnlightenmentInfo;
-  HvlpEnlightenments = ~HvlpRescindedEnlightenments & v33;
-  HvlEnlightenments = ~HvlpRescindedEnlightenments & v33;
+  HvlpEnlightenments = ~HvlpRescindedEnlightenments & v32;
+  HvlEnlightenments = ~HvlpRescindedEnlightenments & v32;
   return result;
 }

@@ -116,7 +116,7 @@ LABEL_27:
     *(_QWORD *)(a2 + 56) = a3;
     v10 = ST_STORE<SM_TRAITS>::StDmSinglePageTransfer(
             a1,
-            *(_QWORD *)(a2 + 16),
+            *(void **)(a2 + 16),
             v20 | v6,
             a4,
             *(_QWORD *)(a3 + 8),

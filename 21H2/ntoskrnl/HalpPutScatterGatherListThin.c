@@ -1,11 +1,11 @@
 /*
- * XREFs of HalpPutScatterGatherListThin @ 0x1404CBA8C
+ * XREFs of HalpPutScatterGatherListThin @ 0x1404CBCCC
  * Callers:
- *     HalPutScatterGatherListThin @ 0x1404CB290 (HalPutScatterGatherListThin.c)
- *     HalpConstructScatterGatherListThin @ 0x1404CB818 (HalpConstructScatterGatherListThin.c)
+ *     HalPutScatterGatherListThin @ 0x1404CB4D0 (HalPutScatterGatherListThin.c)
+ *     HalpConstructScatterGatherListThin @ 0x1404CBA58 (HalpConstructScatterGatherListThin.c)
  * Callees:
- *     HalpDomainLaDelete @ 0x1404C4DF4 (HalpDomainLaDelete.c)
- *     HalpIommuDomainUnmapLogicalRange @ 0x1404C9334 (HalpIommuDomainUnmapLogicalRange.c)
+ *     HalpDomainLaDelete @ 0x1404C5034 (HalpDomainLaDelete.c)
+ *     HalpIommuDomainUnmapLogicalRange @ 0x1404C9574 (HalpIommuDomainUnmapLogicalRange.c)
  */
 
 char __fastcall HalpPutScatterGatherListThin(__int64 a1, _DWORD *a2)

@@ -1,22 +1,22 @@
 /*
- * XREFs of KiInitializeProcessor @ 0x14099F1D4
+ * XREFs of KiInitializeProcessor @ 0x1409A0104
  * Callers:
- *     KiInitializeDynamicProcessorDpc @ 0x1409AF390 (KiInitializeDynamicProcessorDpc.c)
- *     KeInitSystem @ 0x140A4C33C (KeInitSystem.c)
+ *     KiInitializeDynamicProcessorDpc @ 0x1409B02C0 (KiInitializeDynamicProcessorDpc.c)
+ *     KeInitSystem @ 0x140A4D33C (KeInitSystem.c)
  * Callees:
- *     KeSetCoalescableTimer @ 0x14025FC70 (KeSetCoalescableTimer.c)
- *     KeInitializeTimerEx @ 0x140278AE0 (KeInitializeTimerEx.c)
- *     KeInitializeGate @ 0x1402D2C10 (KeInitializeGate.c)
- *     KiInitializeDpcList @ 0x1402D3E44 (KiInitializeDpcList.c)
- *     KeInitializeThreadedDpc @ 0x1403B5050 (KeInitializeThreadedDpc.c)
- *     memset @ 0x140414200 (memset.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     KeInitializeGate @ 0x140251190 (KeInitializeGate.c)
+ *     KiInitializeDpcList @ 0x1402520B4 (KiInitializeDpcList.c)
+ *     KeInitializeTimerEx @ 0x140266A80 (KeInitializeTimerEx.c)
+ *     KeSetCoalescableTimer @ 0x1402813E0 (KeSetCoalescableTimer.c)
+ *     KeInitializeThreadedDpc @ 0x1403B51C0 (KeInitializeThreadedDpc.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall KiInitializeProcessor(__int64 a1)
 {
   int v2; // ecx
-  int v3; // r9d
+  ULONG v3; // r9d
   __int64 v4; // r8
   unsigned __int64 v5; // rax
   unsigned __int64 v6; // r8
@@ -43,9 +43,8 @@ __int64 __fastcall KiInitializeProcessor(__int64 a1)
       *(_WORD *)(a1 + 33370) = v2 + 1280;
     KeInitializeTimerEx((PKTIMER)(a1 + 33432), NotificationTimer);
     v3 = KeMaximumIncrement;
-    v4 = (unsigned int)KeMaximumIncrement;
-    v5 = ((unsigned int)KeMaximumIncrement + 10000 * (unsigned __int64)(unsigned int)KeDpcWatchdogPeriod - 1)
-       / (unsigned int)KeMaximumIncrement;
+    v4 = KeMaximumIncrement;
+    v5 = (KeMaximumIncrement + 10000 * (unsigned __int64)(unsigned int)KeDpcWatchdogPeriod - 1) / KeMaximumIncrement;
     if ( v5 > 0xFFFFFFFF )
       v5 = 0xFFFFFFFFLL;
     *(_DWORD *)(a1 + 31724) = 0;
@@ -54,12 +53,11 @@ __int64 __fastcall KiInitializeProcessor(__int64 a1)
     v6 = v5 * v4 / 0x4E20;
     if ( v6 > 0xFFFFFFFF )
       LODWORD(v6) = -1;
-    KeSetCoalescableTimer((PKTIMER)(a1 + 33432), (LARGE_INTEGER)(unsigned int)-v3, v6, 0xFAu, (PKDPC)(a1 + 33368));
+    KeSetCoalescableTimer((PKTIMER)(a1 + 33432), (LARGE_INTEGER)-v3, v6, 0xFAu, (PKDPC)(a1 + 33368));
   }
   if ( KiDPCTimeout )
   {
-    v7 = (10000LL * (unsigned int)KiDPCTimeout + (unsigned __int64)(unsigned int)KeMaximumIncrement - 1)
-       / (unsigned int)KeMaximumIncrement;
+    v7 = (10000LL * (unsigned int)KiDPCTimeout + (unsigned __int64)KeMaximumIncrement - 1) / KeMaximumIncrement;
     if ( v7 > 0xFFFFFFFF )
       LODWORD(v7) = -1;
     *(_DWORD *)(a1 + 32416) = v7;
@@ -76,11 +74,11 @@ __int64 __fastcall KiInitializeProcessor(__int64 a1)
       v9 = 8LL * (unsigned int)KiDpcWatchdogProfileArrayLength;
       *(_QWORD *)(a1 + 33968) = PoolWithTag;
       memset(PoolWithTag, 0, v9);
-      v10 = (unsigned int)KeMaximumIncrement;
+      v10 = KeMaximumIncrement;
       v11 = (10000LL * (unsigned int)KiDpcWatchdogProfileCumulativeDpcThreshold
-           + (unsigned __int64)(unsigned int)KeMaximumIncrement
+           + (unsigned __int64)KeMaximumIncrement
            - 1)
-          / (unsigned int)KeMaximumIncrement;
+          / KeMaximumIncrement;
       if ( v11 > 0xFFFFFFFF )
         LODWORD(v11) = -1;
       *(_DWORD *)(a1 + 31732) = v11;

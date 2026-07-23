@@ -1,19 +1,19 @@
 /*
- * XREFs of MiInitializeSystemImageRegion @ 0x140D00924
+ * XREFs of MiInitializeSystemImageRegion @ 0x140D06CC4
  * Callers:
- *     MiInitSystem @ 0x140CF15C4 (MiInitSystem.c)
+ *     MiInitSystem @ 0x140CF7944 (MiInitSystem.c)
  * Callees:
- *     MI_IS_PHYSICAL_ADDRESS @ 0x14024C8D0 (MI_IS_PHYSICAL_ADDRESS.c)
- *     RtlClearBitsEx @ 0x14024EFA0 (RtlClearBitsEx.c)
- *     MiSplitBitmapPages @ 0x1402A5028 (MiSplitBitmapPages.c)
- *     ExAllocatePoolMm @ 0x1403985B0 (ExAllocatePoolMm.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     MiInitializeDriverPtes @ 0x140CF46C4 (MiInitializeDriverPtes.c)
- *     MiCreateInitialSystemWsles @ 0x140CF893C (MiCreateInitialSystemWsles.c)
- *     MiInitializeDynamicRegion @ 0x140CF97C4 (MiInitializeDynamicRegion.c)
- *     MiFreeKernelPadSections @ 0x140CFFD44 (MiFreeKernelPadSections.c)
- *     MiInitializeBootLoadedDriverPfns @ 0x140D002A4 (MiInitializeBootLoadedDriverPfns.c)
- *     MxMarkActiveDriverBits @ 0x140D01348 (MxMarkActiveDriverBits.c)
+ *     MI_IS_PHYSICAL_ADDRESS @ 0x14024E230 (MI_IS_PHYSICAL_ADDRESS.c)
+ *     RtlClearBitsEx @ 0x140250900 (RtlClearBitsEx.c)
+ *     MiSplitBitmapPages @ 0x1402A4578 (MiSplitBitmapPages.c)
+ *     ExAllocatePoolMm @ 0x14039A310 (ExAllocatePoolMm.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     MiInitializeDriverPtes @ 0x140CFAA44 (MiInitializeDriverPtes.c)
+ *     MiCreateInitialSystemWsles @ 0x140CFECBC (MiCreateInitialSystemWsles.c)
+ *     MiInitializeDynamicRegion @ 0x140CFFB44 (MiInitializeDynamicRegion.c)
+ *     MiFreeKernelPadSections @ 0x140D060E4 (MiFreeKernelPadSections.c)
+ *     MiInitializeBootLoadedDriverPfns @ 0x140D06644 (MiInitializeBootLoadedDriverPfns.c)
+ *     MxMarkActiveDriverBits @ 0x140D076E8 (MxMarkActiveDriverBits.c)
  */
 
 __int64 __fastcall MiInitializeSystemImageRegion(__int64 a1)
@@ -33,8 +33,8 @@ __int64 __fastcall MiInitializeSystemImageRegion(__int64 a1)
   char v15; // [rsp+30h] [rbp-68h] BYREF
   char v16; // [rsp+38h] [rbp-60h] BYREF
 
-  v1 = qword_140E37C80;
-  v3 = qword_140E37C88;
+  v1 = qword_140E37E00;
+  v3 = qword_140E37E08;
   if ( !(unsigned int)MiInitializeDynamicRegion(11) )
     return 0LL;
   v4 = v1 + v3 - 1;
@@ -50,24 +50,24 @@ __int64 __fastcall MiInitializeSystemImageRegion(__int64 a1)
     --v6;
   }
   while ( v6 );
-  MxMarkActiveDriverBits((unsigned int)&stru_140E2D930.WaitBlockFill11[64], v1, v4, (unsigned int)&v15, 3);
-  Thread = stru_140E2D930.WaitBlock[1].Thread;
-  v8 = (_QWORD *)((((unsigned __int64)stru_140E2D930.WaitBlock[1].Thread >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL);
-  for ( i = 0LL; i < *(_QWORD *)&stru_140E2D930.WaitBlockFill11[64]; i += 0x8000LL )
+  MxMarkActiveDriverBits((unsigned int)&stru_140E2DAB0.WaitBlockFill11[64], v1, v4, (unsigned int)&v15, 3);
+  Thread = stru_140E2DAB0.WaitBlock[1].Thread;
+  v8 = (_QWORD *)((((unsigned __int64)stru_140E2DAB0.WaitBlock[1].Thread >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL);
+  for ( i = 0LL; i < *(_QWORD *)&stru_140E2DAB0.WaitBlockFill11[64]; i += 0x8000LL )
   {
     if ( (*v8 & 0x800LL) == 0 )
     {
       if ( !(unsigned int)MiSplitBitmapPages(4LL) )
         return 0LL;
-      RtlClearBitsEx((__int64)&stru_140E2D930.WaitBlockFill11[64], i, 0x8000uLL);
+      RtlClearBitsEx((__int64)&stru_140E2DAB0.WaitBlockFill11[64], i, 0x8000uLL);
     }
     Thread = (struct _KTHREAD *)((char *)Thread + 4096);
     ++v8;
   }
-  *(_QWORD *)&stru_140E2D930.WaitBlockFill11[64] = i;
-  stru_140E2D150.SchedulerApc.NormalContext = 0LL;
+  *(_QWORD *)&stru_140E2DAB0.WaitBlockFill11[64] = i;
+  stru_140E2D2D0.SchedulerApc.NormalContext = 0LL;
   v10 = 0LL;
-  stru_140E2D150.SuspendEvent.Header.WaitListHead.Flink = 0LL;
+  stru_140E2D2D0.SuspendEvent.Header.WaitListHead.Flink = 0LL;
   while ( !(_DWORD)v10 )
   {
     v11 = *((_QWORD *)&MiState + v10 + 463);
@@ -92,7 +92,7 @@ __int64 __fastcall MiInitializeSystemImageRegion(__int64 a1)
     return 0LL;
   }
   MiFreeKernelPadSections(
-    *((_QWORD *)stru_140E2D150.SchedulerApc.Reserved[0] + 6),
-    *((_QWORD *)stru_140E2D150.SchedulerApc.Reserved[0] + 6) + *((_DWORD *)stru_140E2D150.SchedulerApc.Reserved[0] + 16));
+    *((_QWORD **)stru_140E2D2D0.SchedulerApc.Reserved[0] + 6),
+    *((_QWORD *)stru_140E2D2D0.SchedulerApc.Reserved[0] + 6) + *((_DWORD *)stru_140E2D2D0.SchedulerApc.Reserved[0] + 16));
   return 1LL;
 }

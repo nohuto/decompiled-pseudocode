@@ -1,7 +1,7 @@
 /*
  * XREFs of sub_1407E3D20 @ 0x1407E3D20
  * Callers:
- *     WbHeapExecuteCall @ 0x1407E3070 (WbHeapExecuteCall.c)
+ *     sub_1407E3070 @ 0x1407E3070 (sub_1407E3070.c)
  * Callees:
  *     memmove @ 0x140435B40 (memmove.c)
  *     ExRaiseAccessViolation @ 0x140A021F0 (ExRaiseAccessViolation.c)

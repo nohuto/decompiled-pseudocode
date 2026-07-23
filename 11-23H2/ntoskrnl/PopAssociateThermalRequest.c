@@ -1,17 +1,17 @@
 /*
- * XREFs of PopAssociateThermalRequest @ 0x14084E000
+ * XREFs of PopAssociateThermalRequest @ 0x14084E300
  * Callers:
- *     PoCreateThermalRequest @ 0x14084DF10 (PoCreateThermalRequest.c)
+ *     PoCreateThermalRequest @ 0x14084E210 (PoCreateThermalRequest.c)
  * Callees:
- *     PopReleaseRwLock @ 0x14032C480 (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x14032C5E4 (PopAcquireRwLockExclusive.c)
- *     PopThermalUpdateTelemetryClientCount @ 0x140389E70 (PopThermalUpdateTelemetryClientCount.c)
- *     PopGetDope @ 0x1403C5248 (PopGetDope.c)
- *     PopAcquireCoolingInterface @ 0x14084E1C4 (PopAcquireCoolingInterface.c)
- *     PopDiagTraceThermalRequest @ 0x140860AF4 (PopDiagTraceThermalRequest.c)
- *     PopDiagTraceCoolingExtension @ 0x1408615EC (PopDiagTraceCoolingExtension.c)
- *     PopCleanCoolingExtension @ 0x140982D9C (PopCleanCoolingExtension.c)
- *     PopRegisterCoolingExtensionProtection @ 0x140983294 (PopRegisterCoolingExtensionProtection.c)
+ *     PopReleaseRwLock @ 0x14032C710 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x14032C874 (PopAcquireRwLockExclusive.c)
+ *     PopThermalUpdateTelemetryClientCount @ 0x14038A050 (PopThermalUpdateTelemetryClientCount.c)
+ *     PopGetDope @ 0x1403C5428 (PopGetDope.c)
+ *     PopAcquireCoolingInterface @ 0x14084E4C4 (PopAcquireCoolingInterface.c)
+ *     PopDiagTraceThermalRequest @ 0x140860D34 (PopDiagTraceThermalRequest.c)
+ *     PopDiagTraceCoolingExtension @ 0x14086182C (PopDiagTraceCoolingExtension.c)
+ *     PopCleanCoolingExtension @ 0x140982F9C (PopCleanCoolingExtension.c)
+ *     PopRegisterCoolingExtensionProtection @ 0x140983494 (PopRegisterCoolingExtensionProtection.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
 
@@ -70,13 +70,13 @@ LABEL_17:
     }
     goto LABEL_9;
   }
-  v11 = (_QWORD *)qword_140C3CC08;
-  if ( *(__int64 **)qword_140C3CC08 != &PopCoolingExtensionList )
+  v11 = (_QWORD *)qword_140C3CBB8;
+  if ( *(__int64 **)qword_140C3CBB8 != &PopCoolingExtensionList )
     goto LABEL_24;
   *v6 = &PopCoolingExtensionList;
   v6[1] = v11;
   *v11 = v6;
-  qword_140C3CC08 = (__int64)v6;
+  qword_140C3CBB8 = (__int64)v6;
   *(_QWORD *)(Dope + 64) = v6;
   PopDiagTraceCoolingExtension(v6, POP_ETW_EVENT_COOLING_EXTENSION_ADD);
   v6 = 0LL;

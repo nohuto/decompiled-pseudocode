@@ -1,8 +1,8 @@
 /*
  * XREFs of HalWheaUpdateCmciPolicy @ 0x1403DA050
  * Callers:
- *     WheapApplyPolicyChanges @ 0x140A09578 (WheapApplyPolicyChanges.c)
- *     WheapLoadPolicy @ 0x140B2A640 (WheapLoadPolicy.c)
+ *     sub_140A09578 @ 0x140A09578 (sub_140A09578.c)
+ *     sub_140B2A640 @ 0x140B2A640 (sub_140B2A640.c)
  * Callees:
  *     KeQueryPerformanceCounter @ 0x1403027F0 (KeQueryPerformanceCounter.c)
  */
@@ -36,13 +36,13 @@ LONGLONG __fastcall HalWheaUpdateCmciPolicy(int a1, unsigned int a2)
           if ( v7 )
           {
             if ( v7 == 1 )
-              HalpCmcPollCount = a2;
+              dword_140C09784 = a2;
           }
           else
           {
             KeQueryPerformanceCounter(&PerformanceFrequency);
             result = PerformanceFrequency.QuadPart * v2;
-            HalpCmciThresholdTime = PerformanceFrequency.QuadPart * v2;
+            qword_140C54990 = PerformanceFrequency.QuadPart * v2;
           }
         }
         else
@@ -50,7 +50,7 @@ LONGLONG __fastcall HalWheaUpdateCmciPolicy(int a1, unsigned int a2)
           result = 2LL;
           if ( a2 <= 2 )
             LODWORD(v2) = 2;
-          HalpCmciThresholdCount = v2;
+          dword_140C549A4 = v2;
         }
       }
       else

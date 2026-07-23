@@ -1,14 +1,14 @@
 /*
- * XREFs of KiAdjustGroupConfiguration @ 0x1405BABD4
+ * XREFs of KiAdjustGroupConfiguration @ 0x1405B8204
  * Callers:
- *     KiAllocateProcessorNumber @ 0x1405BAF4C (KiAllocateProcessorNumber.c)
+ *     KiAllocateProcessorNumber @ 0x1405B857C (KiAllocateProcessorNumber.c)
  * Callees:
- *     qsort @ 0x1404FED20 (qsort.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     qsort @ 0x1404FC5E0 (qsort.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __fastcall KiAdjustGroupConfiguration(__int64 a1)
@@ -141,7 +141,7 @@ void __fastcall KiAdjustGroupConfiguration(__int64 a1)
       }
       while ( v19 );
     }
-    Pool2 = (_QWORD *)ExAllocatePool2(0x40uLL);
+    Pool2 = (_QWORD *)ExAllocatePool2(0x40uLL, 8LL * (unsigned __int16)KiSubNodeCount, 0x4347414Bu);
     if ( Pool2 )
     {
       LOWORD(v23) = 0;

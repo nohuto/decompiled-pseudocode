@@ -1,10 +1,10 @@
 /*
- * XREFs of WheaHwErrorReportGetLogDataBufferDeviceDriver @ 0x14065C140
+ * XREFs of WheaHwErrorReportGetLogDataBufferDeviceDriver @ 0x14065A860
  * Callers:
- *     WheaReportFatalHwErrorDeviceDriverEx @ 0x14065C3D0 (WheaReportFatalHwErrorDeviceDriverEx.c)
- *     WheaReportHwErrorDeviceDriverEx @ 0x14065C4F0 (WheaReportHwErrorDeviceDriverEx.c)
+ *     WheaReportFatalHwErrorDeviceDriverEx @ 0x14065AAF0 (WheaReportFatalHwErrorDeviceDriverEx.c)
+ *     WheaReportHwErrorDeviceDriverEx @ 0x14065AC10 (WheaReportHwErrorDeviceDriverEx.c)
  * Callees:
- *     WheapErrorHandleIsValid @ 0x14065C6FC (WheapErrorHandleIsValid.c)
+ *     WheapErrorHandleIsValid @ 0x14065AE1C (WheapErrorHandleIsValid.c)
  */
 
 __int64 WheaHwErrorReportGetLogDataBufferDeviceDriver()

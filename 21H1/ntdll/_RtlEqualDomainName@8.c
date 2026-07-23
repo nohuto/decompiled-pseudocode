@@ -8,18 +8,18 @@
  *     _RtlCanonicalizeDomainName@12 @ 0x4B34D8C0 (_RtlCanonicalizeDomainName@12.c)
  */
 
-char __stdcall RtlEqualDomainName(unsigned __int16 *a1, unsigned __int16 *a2)
+BOOLEAN __cdecl RtlEqualDomainName(PUNICODE_STRING String1, PUNICODE_STRING String2)
 {
-  char v2; // bl
-  UNICODE_STRING UnicodeString; // [esp+8h] [ebp-10h] BYREF
-  UNICODE_STRING v5; // [esp+10h] [ebp-8h] BYREF
+  BOOLEAN v2; // bl
+  _UNICODE_STRING UnicodeString; // [esp+8h] [ebp-10h] BYREF
+  _UNICODE_STRING v5; // [esp+10h] [ebp-8h] BYREF
 
   v2 = 0;
-  if ( RtlCanonicalizeDomainName((int)&v5, a1, 1u) >= 0 )
+  if ( RtlCanonicalizeDomainName(&v5, String1, 1u) >= 0 )
   {
-    if ( RtlCanonicalizeDomainName((int)&UnicodeString, a2, 1u) >= 0 )
+    if ( RtlCanonicalizeDomainName(&UnicodeString, String2, 1u) >= 0 )
     {
-      v2 = RtlEqualUnicodeString(&v5.Length, &UnicodeString.Length, 0);
+      v2 = RtlEqualUnicodeString(&v5, &UnicodeString, 0);
       RtlFreeAnsiString(&UnicodeString);
     }
     RtlFreeAnsiString(&v5);

@@ -6,14 +6,23 @@
  *     sub_18005E120 @ 0x18005E120 (sub_18005E120.c)
  */
 
-__int64 __fastcall EtwEventWriteFull(
-        __int64 a1,
-        __int128 *a2,
-        unsigned __int16 a3,
-        struct _GUID *a4,
-        __int128 *a5,
-        int a6,
-        __int64 a7)
+ULONG __cdecl EtwEventWriteFull(
+        REGHANDLE RegHandle,
+        PCEVENT_DESCRIPTOR EventDescriptor,
+        USHORT EventProperty,
+        LPCGUID ActivityId,
+        LPCGUID RelatedActivityId,
+        ULONG UserDataCount,
+        PEVENT_DATA_DESCRIPTOR UserData)
 {
-  return sub_18005E120(a1, a2, 0LL, 0, a3, a4, a5, a6, a7);
+  return sub_18005E120(
+           RegHandle,
+           (__int128 *)EventDescriptor,
+           0LL,
+           0,
+           EventProperty,
+           (GUID *)ActivityId,
+           (__int128 *)RelatedActivityId,
+           UserDataCount,
+           (__int64)UserData);
 }

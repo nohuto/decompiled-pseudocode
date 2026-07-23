@@ -11,23 +11,23 @@
  *     RtlGetAppContainerSidType @ 0x1406FB810 (RtlGetAppContainerSidType.c)
  */
 
-char __fastcall RtlIsParentOfChildAppContainer(PSID Sid, PSID a2)
+BOOLEAN __cdecl RtlIsParentOfChildAppContainer(PSID ParentAppContainerSid, PSID ChildAppContainerSid)
 {
   ULONG v4; // edi
   PULONG v5; // rbx
-  int v7; // [rsp+40h] [rbp+18h] BYREF
+  _APPCONTAINER_SID_TYPE AppContainerSidType; // [rsp+40h] [rbp+18h] BYREF
 
-  v7 = 0;
-  if ( (int)RtlGetAppContainerSidType((char *)Sid, &v7) >= 0
-    && v7 == 2
-    && (int)RtlGetAppContainerSidType((char *)a2, &v7) >= 0
-    && v7 == 1 )
+  AppContainerSidType = NotAppContainerSidType;
+  if ( RtlGetAppContainerSidType(ParentAppContainerSid, &AppContainerSidType) >= 0
+    && AppContainerSidType == ParentAppContainerSidType
+    && RtlGetAppContainerSidType(ChildAppContainerSid, &AppContainerSidType) >= 0
+    && AppContainerSidType == ChildAppContainerSidType )
   {
     v4 = 1;
     while ( 1 )
     {
-      v5 = RtlSubAuthoritySid(Sid, v4);
-      if ( *v5 != *RtlSubAuthoritySid(a2, v4) )
+      v5 = RtlSubAuthoritySid(ParentAppContainerSid, v4);
+      if ( *v5 != *RtlSubAuthoritySid(ChildAppContainerSid, v4) )
         break;
       if ( ++v4 >= 8 )
         return 1;

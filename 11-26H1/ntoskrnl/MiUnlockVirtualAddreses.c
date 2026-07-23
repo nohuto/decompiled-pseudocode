@@ -1,17 +1,17 @@
 /*
- * XREFs of MiUnlockVirtualAddreses @ 0x1404AA608
+ * XREFs of MiUnlockVirtualAddreses @ 0x1404A3C98
  * Callers:
- *     NtUnlockVirtualMemory @ 0x140960970 (NtUnlockVirtualMemory.c)
+ *     NtUnlockVirtualMemory @ 0x140A06230 (NtUnlockVirtualMemory.c)
  * Callees:
- *     MiUnlockPageTableInternal @ 0x1402D13E0 (MiUnlockPageTableInternal.c)
- *     MiUnlockWorkingSetShared @ 0x1402EB6C0 (MiUnlockWorkingSetShared.c)
- *     MiLockWorkingSetShared @ 0x1402EDD60 (MiLockWorkingSetShared.c)
- *     MiLockLowestValidPageTableEx @ 0x140300610 (MiLockLowestValidPageTableEx.c)
- *     MiLockVirtualMemoryGoodCitizen @ 0x140306B00 (MiLockVirtualMemoryGoodCitizen.c)
- *     MiGetNextVad @ 0x140326018 (MiGetNextVad.c)
- *     MiLocateAddress @ 0x140326730 (MiLocateAddress.c)
- *     MiVadPagesTradable @ 0x14035C9E0 (MiVadPagesTradable.c)
- *     MiUnlockVa @ 0x1404AA78C (MiUnlockVa.c)
+ *     MiUnlockPageTableInternal @ 0x1402B31A0 (MiUnlockPageTableInternal.c)
+ *     MiUnlockWorkingSetShared @ 0x1402CD700 (MiUnlockWorkingSetShared.c)
+ *     MiLockWorkingSetShared @ 0x1402CFDE0 (MiLockWorkingSetShared.c)
+ *     MiLockLowestValidPageTableEx @ 0x1402E2690 (MiLockLowestValidPageTableEx.c)
+ *     MiLockVirtualMemoryGoodCitizen @ 0x1402E8B80 (MiLockVirtualMemoryGoodCitizen.c)
+ *     MiGetNextVad @ 0x140328048 (MiGetNextVad.c)
+ *     MiLocateAddress @ 0x140328760 (MiLocateAddress.c)
+ *     MiVadPagesTradable @ 0x14035E780 (MiVadPagesTradable.c)
+ *     MiUnlockVa @ 0x1404A3E1C (MiUnlockVa.c)
  */
 
 void __fastcall MiUnlockVirtualAddreses(__int64 a1, __int64 a2, __int64 a3)

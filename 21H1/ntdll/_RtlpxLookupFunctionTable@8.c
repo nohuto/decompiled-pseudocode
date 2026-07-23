@@ -22,140 +22,144 @@
  *     _RtlRaiseStatus@4 @ 0x4B308980 (_RtlRaiseStatus@4.c)
  */
 
-int __usercall RtlpxLookupFunctionTable@<eax>(_DWORD *a1@<edx>, _DWORD *a2@<ecx>, int a3@<ebp>)
+unsigned int __usercall RtlpxLookupFunctionTable@<eax>(
+        PVOID BaseAddress@<ecx>,
+        int a2@<edx>,
+        int a3@<ebp>,
+        ULONG_PTR *a4@<edi>)
 {
-  bool v3; // zf
-  _DWORD *v4; // edi
-  unsigned int v5; // esi
-  int v6; // ecx
-  int v7; // edi
-  int v8; // edx
-  int *v9; // eax
-  unsigned int v10; // esi
-  unsigned int v11; // ecx
-  signed __int32 v12; // eax
-  signed __int32 v13; // ecx
-  int result; // eax
-  int v15; // ecx
-  _DWORD *v16; // esi
-  unsigned int v17; // ecx
-  int v18; // eax
-  __int16 v19; // ax
-  unsigned int v20; // esi
-  int v21; // edx
-  __int16 v22; // ax
-  unsigned int v23; // edx
-  unsigned int v24; // esi
-  signed __int32 v25; // eax
-  _DWORD *v26; // eax
+  bool v4; // zf
+  char *v5; // edi
+  PVOID v6; // esi
+  int v7; // ecx
+  int v8; // edi
+  int v9; // edx
+  int *v10; // eax
+  unsigned int v11; // esi
+  unsigned int v12; // ecx
+  signed __int32 v13; // eax
+  signed __int32 v14; // ecx
+  unsigned int result; // eax
+  void *v16; // ecx
+  char *v17; // esi
+  PVOID v18; // ecx
+  NTSTATUS v19; // eax
+  WORD Magic; // ax
+  ULONG VirtualAddress; // esi
+  unsigned int Size; // edx
+  unsigned __int16 Machine; // ax
+  unsigned int v24; // edx
+  unsigned int v25; // esi
+  signed __int32 v26; // eax
+  _DWORD *v27; // eax
   int i; // edx
-  int v28; // edi
-  int v29; // eax
-  signed __int32 v30; // edx
-  signed __int32 v31; // eax
-  int v32; // eax
-  _DWORD v33[2]; // [esp-30h] [ebp-3Ch] BYREF
-  char v34; // [esp-28h] [ebp-34h]
-  int v35; // [esp-24h] [ebp-30h] BYREF
-  int v36; // [esp-20h] [ebp-2Ch] BYREF
-  int v37; // [esp-1Ch] [ebp-28h] BYREF
-  int v38; // [esp-18h] [ebp-24h] BYREF
-  int v39; // [esp-14h] [ebp-20h]
-  int v40; // [esp-10h] [ebp-1Ch] BYREF
-  unsigned int v41; // [esp-Ch] [ebp-18h]
-  _DWORD *v42; // [esp-8h] [ebp-14h] BYREF
-  char v43; // [esp-1h] [ebp-Dh]
-  int v44; // [esp+0h] [ebp-Ch]
-  void *v45; // [esp+4h] [ebp-8h]
+  PIMAGE_NT_HEADERS v29; // edi
+  char *p_FileHeader; // eax
+  char *v31; // edx
+  signed __int32 v32; // eax
+  _BYTE *v33; // eax
+  _DWORD v35[2]; // [esp-30h] [ebp-3Ch] BYREF
+  char v36; // [esp-28h] [ebp-34h]
+  PIMAGE_NT_HEADERS v37; // [esp-24h] [ebp-30h] BYREF
+  unsigned int v38; // [esp-20h] [ebp-2Ch] BYREF
+  int v39; // [esp-1Ch] [ebp-28h] BYREF
+  PIMAGE_NT_HEADERS v40; // [esp-18h] [ebp-24h] BYREF
+  int v41; // [esp-14h] [ebp-20h]
+  int v42; // [esp-10h] [ebp-1Ch] BYREF
+  unsigned int v43; // [esp-Ch] [ebp-18h]
+  char *v44; // [esp-8h] [ebp-14h] BYREF
+  char v45; // [esp-1h] [ebp-Dh]
+  int v46; // [esp+0h] [ebp-Ch]
+  void *v47; // [esp+4h] [ebp-8h]
   void *retaddr; // [esp+Ch] [ebp+0h]
 
-  v44 = a3;
-  v45 = retaddr;
-  v3 = LdrInitState == 3;
-  v4 = a1;
-  v39 = 0;
-  v5 = (unsigned int)a2;
-  v42 = a1;
-  v41 = (unsigned int)a2;
-  a1[1] = 0;
-  a1[2] = 0;
-  if ( !v3 )
+  v46 = a3;
+  v47 = retaddr;
+  v4 = LdrInitState == 3;
+  v5 = (char *)a2;
+  v41 = 0;
+  v6 = BaseAddress;
+  v44 = (char *)a2;
+  v43 = (unsigned int)BaseAddress;
+  *(_DWORD *)(a2 + 4) = 0;
+  *(_DWORD *)(a2 + 8) = 0;
+  if ( !v4 )
   {
 LABEL_15:
-    if ( (int)NtQueryVirtualMemory(-1, v5, 6, v33, 12, 0) < 0
-      || (v15 = v33[0], (v41 = v33[0]) == 0)
-      || (v34 & 3) != 0
-      || v5 < v33[0] )
+    if ( NtQueryVirtualMemory((HANDLE)0xFFFFFFFF, v6, MemoryImageInformation, v35, 0xCuLL, a4) < 0
+      || (v16 = (void *)v35[0], (v43 = v35[0]) == 0)
+      || (v36 & 3) != 0
+      || (unsigned int)v6 < v35[0] )
     {
-      v15 = 0;
-      v41 = 0;
+      v16 = 0;
+      v43 = 0;
     }
     else
     {
-      v4[2] = v33[1];
+      *((_DWORD *)v5 + 2) = v35[1];
     }
-    v4[1] = v15;
-    if ( !v15 )
-      return v39;
-    v40 = 0;
-    RtlImageNtHeaderEx(1, v15, 0, 0, &v40);
-    if ( (*(_WORD *)(v40 + 94) & 0x400) != 0 )
+    *((_DWORD *)v5 + 1) = v16;
+    if ( !v16 )
+      return v41;
+    v42 = 0;
+    RtlImageNtHeaderEx(1u, v16, 0LL, (PIMAGE_NT_HEADERS *)&v42);
+    if ( (*(_WORD *)(v42 + 94) & 0x400) != 0 )
     {
 LABEL_48:
       result = -1;
-      v4[3] = -1;
-      *v4 = -1;
+      *((_DWORD *)v5 + 3) = -1;
+      *(_DWORD *)v5 = -1;
       return result;
     }
-    RtlImageNtHeaderEx(1, v41, 0, 0, &v35);
-    v16 = 0;
-    v43 = 1;
-    v17 = v41;
-    v42 = (_DWORD *)v41;
-    v38 = 0;
-    v37 = 0;
-    if ( (v41 & 3) != 0 )
+    RtlImageNtHeaderEx(1u, (PVOID)v43, 0LL, &v37);
+    v17 = 0;
+    v45 = 1;
+    v18 = (PVOID)v43;
+    v44 = (char *)v43;
+    v40 = 0;
+    v39 = 0;
+    if ( (v43 & 3) != 0 )
     {
-      v17 = v41 & 0xFFFFFFFC;
-      v42 = (_DWORD *)(v41 & 0xFFFFFFFC);
-      v43 = (v41 & 1) == 0;
+      v18 = (PVOID)(v43 & 0xFFFFFFFC);
+      v44 = (char *)(v43 & 0xFFFFFFFC);
+      v45 = (v43 & 1) == 0;
     }
-    v18 = RtlImageNtHeaderEx(1, v17, 0, 0, &v38);
-    if ( v38 )
+    v19 = RtlImageNtHeaderEx(1u, v18, 0LL, &v40);
+    if ( v40 )
     {
-      v19 = *(_WORD *)(v38 + 24);
-      if ( v19 == 267 )
+      Magic = v40->OptionalHeader.Magic;
+      if ( Magic == 267 )
       {
-        if ( *(_DWORD *)(v38 + 116) <= 0xAu )
+        if ( HIDWORD(v40->OptionalHeader.SizeOfHeapReserve) <= 0xA )
           goto LABEL_72;
-        v20 = *(_DWORD *)(v38 + 200);
-        if ( !v20 )
+        VirtualAddress = v40->OptionalHeader.DataDirectory[8].VirtualAddress;
+        if ( !VirtualAddress )
           goto LABEL_72;
-        v21 = *(_DWORD *)(v38 + 204);
-        v36 = v21;
-        if ( v43 || v20 < *(_DWORD *)(v38 + 84) )
+        Size = v40->OptionalHeader.DataDirectory[8].Size;
+        v38 = Size;
+        if ( v45 || VirtualAddress < v40->OptionalHeader.SizeOfHeaders )
         {
-          v16 = (_DWORD *)((char *)v42 + v20);
+          v17 = &v44[VirtualAddress];
           goto LABEL_30;
         }
-        v16 = (_DWORD *)RtlAddressInSectionTable(v38, (int)v42, v20);
-        if ( !v16 )
+        v17 = (char *)RtlAddressInSectionTable(v40, v44, VirtualAddress);
+        if ( !v17 )
           goto LABEL_72;
 LABEL_78:
-        v21 = v36;
+        Size = v38;
 LABEL_30:
-        if ( v16 && v21 && (v21 == 64 || v21 == *v16) )
+        if ( v17 && Size && (Size == 64 || Size == *(_DWORD *)v17) )
         {
-          v22 = *(_WORD *)(v35 + 4);
-          if ( (v22 == 14948 || v22 == 332) && *v16 >= 0x48u )
+          Machine = v37->FileHeader.Machine;
+          if ( (Machine == 14948 || Machine == 332) && *(_DWORD *)v17 >= 0x48u )
           {
-            v23 = v16[16];
-            if ( v23 )
+            v24 = *((_DWORD *)v17 + 16);
+            if ( v24 )
             {
-              v24 = v16[17];
-              if ( v24 )
+              v25 = *((_DWORD *)v17 + 17);
+              if ( v25 )
               {
-                if ( v23 >= v41 + *(_DWORD *)(v40 + 84) && v24 <= (v41 + *(_DWORD *)(v40 + 80) - v23) >> 2 )
+                if ( v24 >= v43 + *(_DWORD *)(v42 + 84) && v25 <= (v43 + *(_DWORD *)(v42 + 80) - v24) >> 2 )
                   goto LABEL_41;
                 goto LABEL_48;
               }
@@ -163,120 +167,126 @@ LABEL_30:
           }
         }
 LABEL_72:
-        v32 = RtlImageDirectoryEntryToData(v41, 1, 14, &v42);
-        if ( !v32 || (*(_BYTE *)(v32 + 16) & 1) == 0 )
+        v33 = RtlImageDirectoryEntryToData((PVOID)v43, 1u, 0xEu, (PULONG)&v44);
+        if ( !v33 || (v33[16] & 1) == 0 )
         {
-          v23 = 0;
           v24 = 0;
+          v25 = 0;
 LABEL_41:
-          v4[3] = v24;
-          *v4 = v23;
-          return v23;
+          *((_DWORD *)v5 + 3) = v25;
+          *(_DWORD *)v5 = v24;
+          return v24;
         }
         goto LABEL_48;
       }
-      if ( v19 != 523 )
+      if ( Magic != 523 )
         goto LABEL_72;
-      v18 = RtlpImageDirectoryEntryToData64((int)v42, v43, 0xAu, &v36, v38, &v37);
-      v16 = (_DWORD *)v37;
+      v19 = RtlpImageDirectoryEntryToData64(v44, v45, 0xAu, &v38, v40, &v39);
+      v17 = (char *)v39;
     }
-    if ( v18 < 0 )
+    if ( v19 < 0 )
       goto LABEL_72;
     goto LABEL_78;
   }
   RtlAcquireSRWLockShared(&LdrpInvertedFunctionTableSRWLock);
   if ( LdrpInvertedFunctionTable == 1 )
     goto LABEL_12;
-  v6 = 1;
-  v7 = LdrpInvertedFunctionTable - 1;
-  while ( v7 >= v6 )
+  v7 = 1;
+  v8 = LdrpInvertedFunctionTable - 1;
+  while ( v8 >= v7 )
   {
-    v8 = (v6 + v7) >> 1;
-    v9 = &dword_4B3A9370[4 * v8];
-    v10 = v9[1];
-    if ( v41 < v10 )
+    v9 = (v7 + v8) >> 1;
+    v10 = &dword_4B3A9370[4 * v9];
+    v11 = v10[1];
+    if ( v43 < v11 )
     {
-      v5 = v41;
-      if ( !v8 )
+      v6 = (PVOID)v43;
+      if ( !v9 )
         break;
-      v7 = v8 - 1;
+      v8 = v9 - 1;
     }
     else
     {
-      v11 = v10 + v9[2];
-      v5 = v41;
-      if ( v41 < v11 )
+      v12 = v11 + v10[2];
+      v6 = (PVOID)v43;
+      if ( v43 < v12 )
       {
-        v4 = v42;
-        *v42 = *v9;
-        v4[1] = v9[1];
-        v4[2] = v9[2];
-        v4[3] = v9[3];
-        v39 = MEMORY[0x7FFE0330] ^ __ROR4__(*v4, 32 - (MEMORY[0x7FFE0330] & 0x1F));
-        *v4 = v39;
+        v5 = v44;
+        *(_DWORD *)v44 = *v10;
+        *((_DWORD *)v5 + 1) = v10[1];
+        *((_DWORD *)v5 + 2) = v10[2];
+        *((_DWORD *)v5 + 3) = v10[3];
+        v41 = MEMORY[0x7FFE0330] ^ __ROR4__(*(_DWORD *)v5, 32 - (MEMORY[0x7FFE0330] & 0x1F));
+        *(_DWORD *)v5 = v41;
         goto LABEL_12;
       }
-      v6 = v8 + 1;
+      v7 = v9 + 1;
     }
   }
-  v4 = v42;
+  v5 = v44;
 LABEL_12:
-  v12 = _InterlockedCompareExchange(&LdrpInvertedFunctionTableSRWLock, 0, 17);
-  v13 = v12;
-  if ( v12 != 17 )
+  v13 = _InterlockedCompareExchange((volatile signed __int32 *)&LdrpInvertedFunctionTableSRWLock, 0, 17);
+  v14 = v13;
+  if ( v13 != 17 )
   {
-    if ( (v12 & 1) == 0 )
+    if ( (v13 & 1) == 0 )
       RtlRaiseStatus(-1073741212);
-    if ( (v12 & 2) != 0 )
+    if ( (v13 & 2) != 0 )
     {
 LABEL_55:
-      if ( (v13 & 8) != 0 )
+      if ( (v14 & 8) != 0 )
       {
-        v26 = (_DWORD *)(v13 & 0xFFFFFFF0);
-        for ( i = *(_DWORD *)((v13 & 0xFFFFFFF0) + 4); !i; i = v26[1] )
-          v26 = (_DWORD *)*v26;
+        v27 = (_DWORD *)(v14 & 0xFFFFFFF0);
+        for ( i = *(_DWORD *)((v14 & 0xFFFFFFF0) + 4); !i; i = v27[1] )
+          v27 = (_DWORD *)*v27;
         if ( _InterlockedDecrement((volatile signed __int32 *)(i + 16)) > 0 )
           goto LABEL_13;
-        v40 = -9;
+        v42 = -9;
       }
       else
       {
-        v40 = -1;
+        v42 = -1;
       }
-      v28 = v40;
+      v29 = (PIMAGE_NT_HEADERS)v42;
       while ( 1 )
       {
-        v37 = v13 & 6;
-        v29 = v28 + 4;
-        if ( v37 != 2 )
-          v29 = v28;
-        v30 = v13 + v29;
-        v31 = _InterlockedCompareExchange(&LdrpInvertedFunctionTableSRWLock, v13 + v29, v13);
-        v28 = v40;
-        if ( v31 == v13 )
+        v39 = v14 & 6;
+        p_FileHeader = (char *)&v29->FileHeader;
+        if ( v39 != 2 )
+          p_FileHeader = (char *)v29;
+        v31 = &p_FileHeader[v14];
+        v32 = _InterlockedCompareExchange(
+                (volatile signed __int32 *)&LdrpInvertedFunctionTableSRWLock,
+                (signed __int32)&p_FileHeader[v14],
+                v14);
+        v29 = (PIMAGE_NT_HEADERS)v42;
+        if ( v32 == v14 )
           break;
-        v13 = v31;
+        v14 = v32;
       }
-      v4 = v42;
-      if ( v37 == 2 )
-        RtlpWakeSRWLock(v30);
-      v5 = v41;
+      v5 = v44;
+      if ( v39 == 2 )
+        RtlpWakeSRWLock(v31);
+      v6 = (PVOID)v43;
       goto LABEL_13;
     }
     while ( 1 )
     {
-      v25 = _InterlockedCompareExchange(&LdrpInvertedFunctionTableSRWLock, (v13 & 0xFFFFFFF0) != 16 ? v13 - 16 : 0, v13);
-      v4 = v42;
-      if ( v25 == v13 )
+      v26 = _InterlockedCompareExchange(
+              (volatile signed __int32 *)&LdrpInvertedFunctionTableSRWLock,
+              (v14 & 0xFFFFFFF0) != 16 ? v14 - 16 : 0,
+              v14);
+      v5 = v44;
+      if ( v26 == v14 )
         break;
-      v13 = v25;
-      if ( (v25 & 2) != 0 )
+      v14 = v26;
+      if ( (v26 & 2) != 0 )
         goto LABEL_55;
     }
   }
 LABEL_13:
-  result = v39;
-  if ( !v39 && (byte_4B3A936C || SLOBYTE(NtCurrentPeb()->CrossProcessFlags) < 0) )
+  result = v41;
+  if ( !v41 && (byte_4B3A936C || SLOBYTE(NtCurrentPeb()->CrossProcessFlags) < 0) )
     goto LABEL_15;
   return result;
 }

@@ -1,12 +1,12 @@
 /*
- * XREFs of TtmiLogDeviceFromTerminalRemoved @ 0x1407E8FD8
+ * XREFs of TtmiLogDeviceFromTerminalRemoved @ 0x1407EEB38
  * Callers:
- *     TtmiEvacuateDevices @ 0x1407E51B0 (TtmiEvacuateDevices.c)
+ *     TtmiEvacuateDevices @ 0x1407EAD10 (TtmiEvacuateDevices.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212E30 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgKeywordOn @ 0x14044F850 (_tlgKeywordOn.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     TtmiGetSessionId @ 0x140A3A3A8 (TtmiGetSessionId.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212F10 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x140447980 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     TtmiGetSessionId @ 0x1409F5FA8 (TtmiGetSessionId.c)
  */
 
 char __fastcall TtmiLogDeviceFromTerminalRemoved(int a1, int a2, __int64 a3, int a4)
@@ -34,9 +34,9 @@ char __fastcall TtmiLogDeviceFromTerminalRemoved(int a1, int a2, __int64 a3, int
   _UNKNOWN *retaddr; // [rsp+E0h] [rbp+5Fh] BYREF
 
   v4 = &retaddr;
-  if ( (unsigned int)dword_140FD58A8 > 5 )
+  if ( (unsigned int)dword_140FD68B8 > 5 )
   {
-    LOBYTE(v4) = tlgKeywordOn((__int64)&dword_140FD58A8, 1LL);
+    LOBYTE(v4) = tlgKeywordOn((__int64)&dword_140FD68B8, 1LL);
     if ( (_BYTE)v4 )
     {
       SessionId = TtmiGetSessionId(v10, v9, v11);
@@ -55,8 +55,8 @@ char __fastcall TtmiLogDeviceFromTerminalRemoved(int a1, int a2, __int64 a3, int
       v16 = a4;
       v28 = 4LL;
       LOBYTE(v4) = tlgWriteTransfer_EtwWriteTransfer(
-                     (__int64)&dword_140FD58A8,
-                     (unsigned __int8 *)&byte_140050EC7,
+                     (__int64)&dword_140FD68B8,
+                     (unsigned __int8 *)&byte_140053137,
                      0LL,
                      0LL,
                      7u,

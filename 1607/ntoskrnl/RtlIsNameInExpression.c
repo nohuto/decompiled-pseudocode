@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlIsNameInExpression @ 0x1400814C0
+ * XREFs of RtlIsNameInExpression @ 0x140081540
  * Callers:
- *     AuthzBasepCompareFQBNOperands @ 0x140234658 (AuthzBasepCompareFQBNOperands.c)
- *     AuthzBasepCompareUnicodeStringOperands @ 0x140234B30 (AuthzBasepCompareUnicodeStringOperands.c)
+ *     AuthzBasepCompareFQBNOperands @ 0x140234484 (AuthzBasepCompareFQBNOperands.c)
+ *     AuthzBasepCompareUnicodeStringOperands @ 0x14023495C (AuthzBasepCompareUnicodeStringOperands.c)
  * Callees:
- *     RtlpIsNameInExpressionPrivate @ 0x140081540 (RtlpIsNameInExpressionPrivate.c)
- *     RtlRaiseStatus @ 0x1400F6738 (RtlRaiseStatus.c)
- *     RtlpUpcaseUnicodeStringPrivate @ 0x140132944 (RtlpUpcaseUnicodeStringPrivate.c)
- *     RtlFreeAnsiString @ 0x140458CF0 (RtlFreeAnsiString.c)
+ *     RtlpIsNameInExpressionPrivate @ 0x1400815C0 (RtlpIsNameInExpressionPrivate.c)
+ *     RtlRaiseStatus @ 0x1400F4588 (RtlRaiseStatus.c)
+ *     RtlpUpcaseUnicodeStringPrivate @ 0x140132EB4 (RtlpUpcaseUnicodeStringPrivate.c)
+ *     RtlFreeAnsiString @ 0x140457BC0 (RtlFreeAnsiString.c)
  */
 
 // local variable allocation has failed, the output may be wrong!

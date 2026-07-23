@@ -1,12 +1,12 @@
 /*
- * XREFs of VmpLogAccessFault @ 0x14081DF48
+ * XREFs of VmpLogAccessFault @ 0x140824158
  * Callers:
- *     VmpAccessFault @ 0x14081C2B4 (VmpAccessFault.c)
+ *     VmpAccessFault @ 0x1408224C4 (VmpAccessFault.c)
  * Callees:
- *     _tlgKeywordOn @ 0x14044F850 (_tlgKeywordOn.c)
- *     PsGetProcessId @ 0x140466BE0 (PsGetProcessId.c)
- *     _tlgWriteEx_EtwWriteEx @ 0x1404E33C4 (_tlgWriteEx_EtwWriteEx.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     _tlgKeywordOn @ 0x140447980 (_tlgKeywordOn.c)
+ *     PsGetProcessId @ 0x140460330 (PsGetProcessId.c)
+ *     _tlgWriteEx_EtwWriteEx @ 0x1404DC958 (_tlgWriteEx_EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 char __fastcall VmpLogAccessFault(
@@ -23,7 +23,7 @@ char __fastcall VmpLogAccessFault(
         int a11)
 {
   _UNKNOWN **v11; // rax
-  unsigned __int64 QuantumTarget; // rbx
+  void *InitialStack; // rbx
   __int64 v16; // r8
   int v18; // [rsp+28h] [rbp-E0h]
   int v19; // [rsp+30h] [rbp-D8h]
@@ -64,10 +64,10 @@ char __fastcall VmpLogAccessFault(
   _UNKNOWN *retaddr; // [rsp+180h] [rbp+78h] BYREF
 
   v11 = &retaddr;
-  QuantumTarget = stru_140F066E8.QuantumTarget;
-  if ( *(_DWORD *)stru_140F066E8.QuantumTarget > 5u )
+  InitialStack = stru_140F06A28.InitialStack;
+  if ( *(_DWORD *)stru_140F06A28.InitialStack > 5u )
   {
-    LOBYTE(v11) = tlgKeywordOn(stru_140F066E8.QuantumTarget, 8LL);
+    LOBYTE(v11) = tlgKeywordOn((__int64)stru_140F06A28.InitialStack, 8LL);
     if ( (_BYTE)v11 )
     {
       ProcessId = (unsigned int)PsGetProcessId(KeGetCurrentThread()->ApcState.Process);
@@ -104,8 +104,8 @@ char __fastcall VmpLogAccessFault(
       v51 = 4LL;
       v53 = 8LL;
       LOBYTE(v11) = tlgWriteEx_EtwWriteEx(
-                      QuantumTarget,
-                      (unsigned __int8 *)&word_1400536DA,
+                      (__int64)InitialStack,
+                      (unsigned __int8 *)&byte_140053E4F,
                       v16,
                       0,
                       v18,

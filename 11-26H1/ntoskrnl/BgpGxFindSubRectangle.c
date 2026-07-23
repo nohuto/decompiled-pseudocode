@@ -1,10 +1,10 @@
 /*
- * XREFs of BgpGxFindSubRectangle @ 0x140C5343C
+ * XREFs of BgpGxFindSubRectangle @ 0x140C5943C
  * Callers:
- *     AnFwDisplayFade @ 0x140C52BA0 (AnFwDisplayFade.c)
+ *     AnFwDisplayFade @ 0x140C58BA0 (AnFwDisplayFade.c)
  * Callees:
- *     memmove @ 0x14073D480 (memmove.c)
- *     BgpGxRectangleCreate @ 0x140C53640 (BgpGxRectangleCreate.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     BgpGxRectangleCreate @ 0x140C59640 (BgpGxRectangleCreate.c)
  */
 
 __int64 __fastcall BgpGxFindSubRectangle(unsigned int *a1, int a2, __int64 a3, unsigned int *a4, _BYTE *a5)

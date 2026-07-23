@@ -1,19 +1,19 @@
 /*
- * XREFs of PfpCreateEvent @ 0x140846CB4
+ * XREFs of PfpCreateEvent @ 0x140846FB4
  * Callers:
- *     PfTStart @ 0x140845ED0 (PfTStart.c)
- *     PfpScenCtxStart @ 0x140846260 (PfpScenCtxStart.c)
+ *     PfTStart @ 0x1408461D0 (PfTStart.c)
+ *     PfpScenCtxStart @ 0x140846560 (PfpScenCtxStart.c)
  *     PfSnInitializePrefetcher @ 0x140B618C0 (PfSnInitializePrefetcher.c)
  *     PfpParametersInitialize @ 0x140B61A40 (PfpParametersInitialize.c)
  * Callees:
- *     RtlLengthSid @ 0x140227A40 (RtlLengthSid.c)
- *     ZwClose @ 0x14041AF40 (ZwClose.c)
- *     ZwCreateEvent @ 0x14041B660 (ZwCreateEvent.c)
- *     RtlSetDaclSecurityDescriptor @ 0x1406BD500 (RtlSetDaclSecurityDescriptor.c)
- *     ObReferenceObjectByHandle @ 0x1406E62C0 (ObReferenceObjectByHandle.c)
- *     RtlpAddKnownAce @ 0x140735270 (RtlpAddKnownAce.c)
- *     RtlCreateSecurityDescriptor @ 0x140736580 (RtlCreateSecurityDescriptor.c)
- *     RtlCreateAcl @ 0x140736620 (RtlCreateAcl.c)
+ *     RtlLengthSid @ 0x140227B50 (RtlLengthSid.c)
+ *     ZwClose @ 0x14041B2D0 (ZwClose.c)
+ *     ZwCreateEvent @ 0x14041B9F0 (ZwCreateEvent.c)
+ *     RtlSetDaclSecurityDescriptor @ 0x1406BD530 (RtlSetDaclSecurityDescriptor.c)
+ *     ObReferenceObjectByHandle @ 0x1406E62F0 (ObReferenceObjectByHandle.c)
+ *     RtlpAddKnownAce @ 0x140735460 (RtlpAddKnownAce.c)
+ *     RtlCreateSecurityDescriptor @ 0x140736770 (RtlCreateSecurityDescriptor.c)
+ *     RtlCreateAcl @ 0x140736810 (RtlCreateAcl.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
@@ -47,10 +47,10 @@ __int64 __fastcall PfpCreateEvent(UNICODE_STRING *a1, EVENT_TYPE a2, PVOID *a3)
       Acl = RtlCreateAcl(Pool2, v8, 2u);
       if ( Acl >= 0 )
       {
-        Acl = RtlpAddKnownAce((__int64)v10, 2u, 0, 2031619, (unsigned __int8 *)SeAliasAdminsSid, 0);
+        Acl = RtlpAddKnownAce(v10, 2u, 0, 2031619, (unsigned __int8 *)SeAliasAdminsSid, 0);
         if ( Acl >= 0 )
         {
-          Acl = RtlpAddKnownAce((__int64)v10, 2u, 0, 2031619, (unsigned __int8 *)SeLocalSystemSid, 0);
+          Acl = RtlpAddKnownAce(v10, 2u, 0, 2031619, (unsigned __int8 *)SeLocalSystemSid, 0);
           if ( Acl >= 0 )
           {
             Acl = RtlSetDaclSecurityDescriptor(SecurityDescriptor, 1u, v10, 0);

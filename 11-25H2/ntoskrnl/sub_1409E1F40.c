@@ -15,60 +15,47 @@
 __int64 __fastcall sub_1409E1F40(PVOID BaseAddress, unsigned int a2, int a3)
 {
   __int64 v3; // rsi
-  NTSTATUS v6; // eax
-  __int64 v7; // rdx
-  NTSTATUS v8; // r8d
-  __int64 v9; // rcx
-  ULONG_PTR v11; // [rsp+30h] [rbp-50h] BYREF
+  NTSTATUS v6; // r8d
+  ULONG_PTR v8; // [rsp+30h] [rbp-50h] BYREF
   __int128 MemoryInformation; // [rsp+38h] [rbp-48h] BYREF
-  __int64 v13; // [rsp+48h] [rbp-38h]
-  __int128 v14; // [rsp+50h] [rbp-30h] BYREF
-  __int128 v15; // [rsp+60h] [rbp-20h]
-  __int128 v16; // [rsp+70h] [rbp-10h]
+  __int64 v10; // [rsp+48h] [rbp-38h]
+  __int128 v11; // [rsp+50h] [rbp-30h] BYREF
+  __int128 v12; // [rsp+60h] [rbp-20h]
+  __int128 v13; // [rsp+70h] [rbp-10h]
   ULONG_PTR ReturnLength; // [rsp+A8h] [rbp+28h] BYREF
 
   v3 = a2;
-  v11 = 0LL;
+  v8 = 0LL;
   ReturnLength = 0LL;
+  v10 = 0LL;
+  v11 = 0LL;
+  v12 = 0LL;
   v13 = 0LL;
-  v14 = 0LL;
-  v15 = 0LL;
-  v16 = 0LL;
   MemoryInformation = 0LL;
   v6 = ZwQueryVirtualMemory(
          (HANDLE)0xFFFFFFFFFFFFFFFFLL,
          BaseAddress,
-         (MEMORY_INFORMATION_CLASS)6,
+         MemoryImageInformation,
          &MemoryInformation,
          0x18uLL,
          &ReturnLength);
-  v8 = v6;
   if ( v6 >= 0 )
   {
-    LOBYTE(v7) = 12;
-    v9 = (unsigned int)v13 >> 2;
-    LOBYTE(v9) = v9 & 0xF;
-    v8 = NtCompareSigningLevels(v9, v7, (unsigned int)v6);
-    if ( v8 >= 0 )
+    v6 = NtCompareSigningLevels(((unsigned int)v10 >> 2) & 0xF, 0xCu);
+    if ( v6 >= 0 )
     {
       if ( a3 )
       {
-        v8 = ZwQueryVirtualMemory(
-               (HANDLE)0xFFFFFFFFFFFFFFFFLL,
-               BaseAddress,
-               MemoryBasicInformation,
-               &v14,
-               0x30uLL,
-               &v11);
-        if ( v8 >= 0
-          && ((unsigned __int64)BaseAddress < (unsigned __int64)v14
-           || (unsigned __int64)BaseAddress + v3 > *((_QWORD *)&v15 + 1) + (_QWORD)v14
-           || DWORD1(v16) != 32) )
+        v6 = ZwQueryVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, BaseAddress, MemoryBasicInformation, &v11, 0x30uLL, &v8);
+        if ( v6 >= 0
+          && ((unsigned __int64)BaseAddress < (unsigned __int64)v11
+           || (unsigned __int64)BaseAddress + v3 > *((_QWORD *)&v12 + 1) + (_QWORD)v11
+           || DWORD1(v13) != 32) )
         {
           return (unsigned int)-1073741811;
         }
       }
     }
   }
-  return (unsigned int)v8;
+  return (unsigned int)v6;
 }

@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlpHpHeapCheckCommitLimit @ 0x1403246B8
+ * XREFs of RtlpHpHeapCheckCommitLimit @ 0x140324948
  * Callers:
- *     RtlpHpSegHeapCheckCommitLimit @ 0x140324688 (RtlpHpSegHeapCheckCommitLimit.c)
- *     RtlpAllocateHeap @ 0x1405AB248 (RtlpAllocateHeap.c)
- *     RtlpExtendHeap @ 0x1405ACDF8 (RtlpExtendHeap.c)
- *     RtlpFindAndCommitPages @ 0x1405AD04C (RtlpFindAndCommitPages.c)
- *     RtlpInitializeHeapSegment @ 0x1405AD8FC (RtlpInitializeHeapSegment.c)
+ *     RtlpHpSegHeapCheckCommitLimit @ 0x140324918 (RtlpHpSegHeapCheckCommitLimit.c)
+ *     RtlpAllocateHeap @ 0x1405AB7B8 (RtlpAllocateHeap.c)
+ *     RtlpExtendHeap @ 0x1405AD368 (RtlpExtendHeap.c)
+ *     RtlpFindAndCommitPages @ 0x1405AD5BC (RtlpFindAndCommitPages.c)
+ *     RtlpInitializeHeapSegment @ 0x1405ADE6C (RtlpInitializeHeapSegment.c)
  * Callees:
- *     RtlpLogHeapFailure @ 0x1405B4ACC (RtlpLogHeapFailure.c)
+ *     RtlpLogHeapFailure @ 0x1405B503C (RtlpLogHeapFailure.c)
  */
 
 __int64 __fastcall RtlpHpHeapCheckCommitLimit(__int64 a1, __int64 a2, int a3, unsigned __int64 *a4)

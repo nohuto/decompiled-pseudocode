@@ -16,13 +16,13 @@ __int64 __fastcall MiLockControlAreaSectionExtend(ULONG_PTR BugCheckParameter2, 
 {
   struct _KTHREAD *CurrentThread; // rax
   volatile LONG *v5; // r12
-  __int64 v6; // rbp
+  _RTL_BALANCED_NODE *v6; // rbp
   KIRQL v7; // al
   __int64 **v8; // rbx
   KIRQL v9; // si
-  __int64 v10; // rax
+  PRTL_BALANCED_NODE v10; // rax
   __int64 result; // rax
-  __int64 v12; // rax
+  PRTL_BALANCED_NODE v12; // rax
   struct _KPRCB *CurrentPrcb; // rcx
   struct _KPRCB *v14; // rcx
 
@@ -81,7 +81,7 @@ __int64 __fastcall MiLockControlAreaSectionExtend(ULONG_PTR BugCheckParameter2, 
   }
   v10 = KeAbPreAcquire(BugCheckParameter2, 0LL, 0);
   if ( v10 )
-    *(_BYTE *)(v10 + 26) |= 1u;
+    BYTE2(v10[1].Left) |= 1u;
   ExReleaseSpinLockExclusiveFromDpcLevel(v5);
   if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && KeGetCurrentIrql() >= 2u && v9 < 2u )
   {

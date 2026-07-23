@@ -1,20 +1,20 @@
 /*
- * XREFs of CmpCommitLightWeightTransaction @ 0x1408AE64C
+ * XREFs of CmpCommitLightWeightTransaction @ 0x1408B4A8C
  * Callers:
- *     NtCommitRegistryTransaction @ 0x1408ACC60 (NtCommitRegistryTransaction.c)
- *     CmpTransMgrCommit @ 0x1408AF444 (CmpTransMgrCommit.c)
+ *     NtCommitRegistryTransaction @ 0x1408B30A0 (NtCommitRegistryTransaction.c)
+ *     CmpTransMgrCommit @ 0x1408B5850 (CmpTransMgrCommit.c)
  * Callees:
- *     CmpDrainDelayDerefContext @ 0x140446E30 (CmpDrainDelayDerefContext.c)
- *     CmpInitializeDelayDerefContext @ 0x14044EE20 (CmpInitializeDelayDerefContext.c)
- *     ExfUnblockPushLock @ 0x1404CE970 (ExfUnblockPushLock.c)
- *     CmpCleanupLightWeightUoWData @ 0x14085BE94 (CmpCleanupLightWeightUoWData.c)
- *     CmpAbortLightWeightTransaction @ 0x1408AE518 (CmpAbortLightWeightTransaction.c)
- *     CmpCommitPreparedLightWeightTransaction @ 0x1408AE814 (CmpCommitPreparedLightWeightTransaction.c)
- *     CmpPrepareLightWeightTransaction @ 0x1408AE99C (CmpPrepareLightWeightTransaction.c)
- *     CmpCleanupLightWeightTransaction @ 0x1408AECE8 (CmpCleanupLightWeightTransaction.c)
- *     CmpLockRegistryExclusive @ 0x1408C2148 (CmpLockRegistryExclusive.c)
- *     CmpUnlockRegistry @ 0x140C58970 (CmpUnlockRegistry.c)
- *     CmListGetNextElement @ 0x140C58A70 (CmListGetNextElement.c)
+ *     CmpDrainDelayDerefContext @ 0x14043F920 (CmpDrainDelayDerefContext.c)
+ *     CmpInitializeDelayDerefContext @ 0x140446F50 (CmpInitializeDelayDerefContext.c)
+ *     ExfUnblockPushLock @ 0x1404C83A0 (ExfUnblockPushLock.c)
+ *     CmpCleanupLightWeightUoWData @ 0x140862184 (CmpCleanupLightWeightUoWData.c)
+ *     CmpAbortLightWeightTransaction @ 0x1408B4958 (CmpAbortLightWeightTransaction.c)
+ *     CmpCommitPreparedLightWeightTransaction @ 0x1408B4C54 (CmpCommitPreparedLightWeightTransaction.c)
+ *     CmpPrepareLightWeightTransaction @ 0x1408B4DDC (CmpPrepareLightWeightTransaction.c)
+ *     CmpCleanupLightWeightTransaction @ 0x1408B5128 (CmpCleanupLightWeightTransaction.c)
+ *     CmpLockRegistryExclusive @ 0x1408C8718 (CmpLockRegistryExclusive.c)
+ *     CmpUnlockRegistry @ 0x140C5E970 (CmpUnlockRegistry.c)
+ *     CmListGetNextElement @ 0x140C5EA70 (CmListGetNextElement.c)
  */
 
 __int64 __fastcall CmpCommitLightWeightTransaction(__int64 a1)

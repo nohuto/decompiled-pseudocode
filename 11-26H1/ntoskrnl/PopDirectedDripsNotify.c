@@ -1,25 +1,25 @@
 /*
- * XREFs of PopDirectedDripsNotify @ 0x140B08694
+ * XREFs of PopDirectedDripsNotify @ 0x140B0A610
  * Callers:
- *     PopCaptureSleepStudyStatistics @ 0x14042AB54 (PopCaptureSleepStudyStatistics.c)
- *     PopPowerAggregatorEngageModernStandby @ 0x1407D683C (PopPowerAggregatorEngageModernStandby.c)
- *     PopDirectedDripsUmMarkTestDevices @ 0x140A3CEBC (PopDirectedDripsUmMarkTestDevices.c)
- *     PopAcquireTransitionLock @ 0x140B39914 (PopAcquireTransitionLock.c)
- *     PopDripsWatchdogCallbackHandler @ 0x140B3FB6C (PopDripsWatchdogCallbackHandler.c)
- *     PopReleaseTransitionLock @ 0x140B4C040 (PopReleaseTransitionLock.c)
+ *     PopCaptureSleepStudyStatistics @ 0x140421FC8 (PopCaptureSleepStudyStatistics.c)
+ *     PopPowerAggregatorEngageModernStandby @ 0x1407D99CC (PopPowerAggregatorEngageModernStandby.c)
+ *     PopDirectedDripsUmMarkTestDevices @ 0x1409F88DC (PopDirectedDripsUmMarkTestDevices.c)
+ *     PopAcquireTransitionLock @ 0x140B3BB24 (PopAcquireTransitionLock.c)
+ *     PopDripsWatchdogCallbackHandler @ 0x140B41B9C (PopDripsWatchdogCallbackHandler.c)
+ *     PopReleaseTransitionLock @ 0x140B4DDD0 (PopReleaseTransitionLock.c)
  * Callees:
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     ExfTryToWakePushLock @ 0x1403170A0 (ExfTryToWakePushLock.c)
- *     PopDirectedDripsClearDisengageReason @ 0x140483348 (PopDirectedDripsClearDisengageReason.c)
- *     PopDirectedDripsSetDisengageReason @ 0x1404833B0 (PopDirectedDripsSetDisengageReason.c)
- *     PopQueueDirectedDripsWork @ 0x140483414 (PopQueueDirectedDripsWork.c)
- *     PopDirectedDripsEngage @ 0x1404C7D1C (PopDirectedDripsEngage.c)
- *     PopDirectedDripsNotifyAppsAndServices @ 0x1407CC0E0 (PopDirectedDripsNotifyAppsAndServices.c)
- *     PopDirectedDripsSendSessionData @ 0x140B089C0 (PopDirectedDripsSendSessionData.c)
- *     PopDirectedDripsDiagNotifySessionStart @ 0x140B094F4 (PopDirectedDripsDiagNotifySessionStart.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     ExfTryToWakePushLock @ 0x1403190D0 (ExfTryToWakePushLock.c)
+ *     PopDirectedDripsClearDisengageReason @ 0x14047CCB8 (PopDirectedDripsClearDisengageReason.c)
+ *     PopDirectedDripsSetDisengageReason @ 0x14047CD20 (PopDirectedDripsSetDisengageReason.c)
+ *     PopQueueDirectedDripsWork @ 0x14047CD84 (PopQueueDirectedDripsWork.c)
+ *     PopDirectedDripsEngage @ 0x1404C1A5C (PopDirectedDripsEngage.c)
+ *     PopDirectedDripsNotifyAppsAndServices @ 0x1407CF180 (PopDirectedDripsNotifyAppsAndServices.c)
+ *     PopDirectedDripsSendSessionData @ 0x140B0A93C (PopDirectedDripsSendSessionData.c)
+ *     PopDirectedDripsDiagNotifySessionStart @ 0x140B0B470 (PopDirectedDripsDiagNotifySessionStart.c)
  */
 
 void __fastcall PopDirectedDripsNotify(int a1, char *a2, __int64 a3, struct _KLOCK_ENTRIES *a4)
@@ -37,7 +37,7 @@ void __fastcall PopDirectedDripsNotify(int a1, char *a2, __int64 a3, struct _KLO
   signed __int8 v15; // cf
   AutoBoost *v16; // rsi
   __int64 v17; // rcx
-  __int64 v18; // rsi
+  struct _KTHREAD *v18; // rsi
   AutoBoost *v19; // rax
   void *v20; // rdx
   AutoBoost *v21; // rdi
@@ -57,13 +57,13 @@ void __fastcall PopDirectedDripsNotify(int a1, char *a2, __int64 a3, struct _KLO
   signed __int32 v35; // eax
   signed __int32 v36; // ett
 
-  _m_prefetchw(dword_140F12AC0);
-  v5 = dword_140F12AC0[0];
+  _m_prefetchw(&PopDirectedDripsState);
+  v5 = PopDirectedDripsState;
   do
   {
     v6 = v5;
     v7 = v5;
-    v5 = _InterlockedCompareExchange(dword_140F12AC0, v5, v5);
+    v5 = _InterlockedCompareExchange(&PopDirectedDripsState, v5, v5);
   }
   while ( v7 != v5 );
   if ( (v5 & 1) == 0 )
@@ -85,11 +85,11 @@ void __fastcall PopDirectedDripsNotify(int a1, char *a2, __int64 a3, struct _KLO
       {
         if ( v28 != 1 )
           return;
-        v29 = (AutoBoost *)KeAbPreAcquire((__int64)&unk_140F12B60, 0LL, 0LL, a4);
-        v15 = _interlockedbittestandset64(&unk_140F12B60.Header.Lock, 0LL);
+        v29 = (AutoBoost *)KeAbPreAcquire((__int64)&stru_140F12EA0, 0LL, 0LL, a4);
+        v15 = _interlockedbittestandset64(&stru_140F12EA0.Header.Lock, 0LL);
         v31 = v29;
         if ( v15 )
-          ExfAcquirePushLockExclusiveEx((unsigned __int64 *)&unk_140F12B60, v29, (__int64)&unk_140F12B60);
+          ExfAcquirePushLockExclusiveEx((unsigned __int64 *)&stru_140F12EA0, v29, (__int64)&stru_140F12EA0);
         if ( v31 )
         {
           if ( (KiAbpGlobalState & 1) != 0 )
@@ -97,16 +97,16 @@ void __fastcall PopDirectedDripsNotify(int a1, char *a2, __int64 a3, struct _KLO
           else
             *((_BYTE *)v31 + 10) = 1;
         }
-        if ( !--unk_140F12BA0 )
+        if ( !--LODWORD(stru_140F12EA0.ThreadLock) )
           PopDirectedDripsClearDisengageReason(1);
       }
       else
       {
-        v32 = (AutoBoost *)KeAbPreAcquire((__int64)&unk_140F12B60, 0LL, 0LL, a4);
-        v15 = _interlockedbittestandset64(&unk_140F12B60.Header.Lock, 0LL);
+        v32 = (AutoBoost *)KeAbPreAcquire((__int64)&stru_140F12EA0, 0LL, 0LL, a4);
+        v15 = _interlockedbittestandset64(&stru_140F12EA0.Header.Lock, 0LL);
         v34 = v32;
         if ( v15 )
-          ExfAcquirePushLockExclusiveEx((unsigned __int64 *)&unk_140F12B60, v32, (__int64)&unk_140F12B60);
+          ExfAcquirePushLockExclusiveEx((unsigned __int64 *)&stru_140F12EA0, v32, (__int64)&stru_140F12EA0);
         if ( v34 )
         {
           if ( (KiAbpGlobalState & 1) != 0 )
@@ -114,21 +114,21 @@ void __fastcall PopDirectedDripsNotify(int a1, char *a2, __int64 a3, struct _KLO
           else
             *((_BYTE *)v34 + 10) = 1;
         }
-        if ( ++unk_140F12BA0 == 1 )
+        if ( ++LODWORD(stru_140F12EA0.ThreadLock) == 1 )
           PopDirectedDripsSetDisengageReason(1);
       }
       goto LABEL_16;
     }
-    _m_prefetchw(dword_140F12AC0);
-    v35 = dword_140F12AC0[0];
+    _m_prefetchw(&PopDirectedDripsState);
+    v35 = PopDirectedDripsState;
     do
     {
       v36 = v35;
-      v35 = _InterlockedCompareExchange(dword_140F12AC0, v35, v35);
+      v35 = _InterlockedCompareExchange(&PopDirectedDripsState, v35, v35);
     }
     while ( v36 != v35 );
     if ( (v35 & 0x800) != 0 )
-      PopDirectedDripsNotifyAppsAndServices((__int64)dword_140F12AC0, dword_140F12AF8, 0);
+      PopDirectedDripsNotifyAppsAndServices((__int64)&PopDirectedDripsState, dword_140F12E38, 0);
   }
   else
   {
@@ -150,11 +150,11 @@ void __fastcall PopDirectedDripsNotify(int a1, char *a2, __int64 a3, struct _KLO
           {
 LABEL_10:
             v12 = v8 | 0x1000;
-            v13 = (AutoBoost *)KeAbPreAcquire((__int64)&unk_140F12B60, 0LL, 0LL, a4);
-            v15 = _interlockedbittestandset64(&unk_140F12B60.Header.Lock, 0LL);
+            v13 = (AutoBoost *)KeAbPreAcquire((__int64)&stru_140F12EA0, 0LL, 0LL, a4);
+            v15 = _interlockedbittestandset64(&stru_140F12EA0.Header.Lock, 0LL);
             v16 = v13;
             if ( v15 )
-              ExfAcquirePushLockExclusiveEx((unsigned __int64 *)&unk_140F12B60, v13, (__int64)&unk_140F12B60);
+              ExfAcquirePushLockExclusiveEx((unsigned __int64 *)&stru_140F12EA0, v13, (__int64)&stru_140F12EA0);
             if ( v16 )
             {
               if ( (KiAbpGlobalState & 1) != 0 )
@@ -162,34 +162,34 @@ LABEL_10:
               else
                 *((_BYTE *)v16 + 10) = 1;
             }
-            if ( qword_140F12CE8 == *(_QWORD *)a2 )
+            if ( stru_140F12EA0.WaitBlock[1].Thread == *(struct _KTHREAD **)a2 )
             {
-              if ( dword_140F12CF0 )
+              if ( *(_DWORD *)&stru_140F12EA0.WaitBlockFill11[80] )
               {
-                _m_prefetchw(dword_140F12AC0);
-                v22 = _InterlockedOr(dword_140F12AC0, v12) & v12;
-                if ( (_DWORD)v22 != v12 || unk_140F12AF4 )
+                _m_prefetchw(&PopDirectedDripsState);
+                v22 = _InterlockedOr(&PopDirectedDripsState, v12) & v12;
+                if ( (_DWORD)v22 != v12 || dword_140F12E34 )
                   PopQueueDirectedDripsWork(v22, 0x800uLL);
               }
             }
 LABEL_16:
-            if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&unk_140F12B60, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-              ExfTryToWakePushLock((volatile signed __int64 *)&unk_140F12B60.Header.Lock);
-            KeAbPostRelease((unsigned __int64)&unk_140F12B60);
+            if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&stru_140F12EA0, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+              ExfTryToWakePushLock((volatile signed __int64 *)&stru_140F12EA0.Header.Lock);
+            KeAbPostRelease((unsigned __int64)&stru_140F12EA0);
             return;
           }
           if ( v11 != 1 )
             return;
         }
-        unk_140F12AF4 = 0;
+        dword_140F12E34 = 0;
         return;
       }
-      v18 = *(_QWORD *)a2;
-      v19 = (AutoBoost *)KeAbPreAcquire((__int64)&unk_140F12B60, 0LL, 0LL, a4);
-      v15 = _interlockedbittestandset64(&unk_140F12B60.Header.Lock, 0LL);
+      v18 = *(struct _KTHREAD **)a2;
+      v19 = (AutoBoost *)KeAbPreAcquire((__int64)&stru_140F12EA0, 0LL, 0LL, a4);
+      v15 = _interlockedbittestandset64(&stru_140F12EA0.Header.Lock, 0LL);
       v21 = v19;
       if ( v15 )
-        ExfAcquirePushLockExclusiveEx((unsigned __int64 *)&unk_140F12B60, v19, (__int64)&unk_140F12B60);
+        ExfAcquirePushLockExclusiveEx((unsigned __int64 *)&stru_140F12EA0, v19, (__int64)&stru_140F12EA0);
       if ( v21 )
       {
         if ( (KiAbpGlobalState & 1) != 0 )
@@ -197,21 +197,21 @@ LABEL_16:
         else
           *((_BYTE *)v21 + 10) = 1;
       }
-      *(_DWORD *)(v18 + 220) = unk_140F12B50;
-      qword_140F12CE8 = 0LL;
-      if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&unk_140F12B60, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-        ExfTryToWakePushLock((volatile signed __int64 *)&unk_140F12B60.Header.Lock);
-      KeAbPostRelease((unsigned __int64)&unk_140F12B60);
+      HIDWORD(v18->SwapListEntry.Next) = dword_140F12E90;
+      stru_140F12EA0.WaitBlock[1].Thread = 0LL;
+      if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&stru_140F12EA0, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+        ExfTryToWakePushLock((volatile signed __int64 *)&stru_140F12EA0.Header.Lock);
+      KeAbPostRelease((unsigned __int64)&stru_140F12EA0);
       PopDirectedDripsSendSessionData();
     }
     else
     {
-      unk_140F12B50 = 0;
-      v23 = (AutoBoost *)KeAbPreAcquire((__int64)&unk_140F12B60, 0LL, 0LL, a4);
-      v15 = _interlockedbittestandset64(&unk_140F12B60.Header.Lock, 0LL);
+      dword_140F12E90 = 0;
+      v23 = (AutoBoost *)KeAbPreAcquire((__int64)&stru_140F12EA0, 0LL, 0LL, a4);
+      v15 = _interlockedbittestandset64(&stru_140F12EA0.Header.Lock, 0LL);
       v25 = v23;
       if ( v15 )
-        ExfAcquirePushLockExclusiveEx((unsigned __int64 *)&unk_140F12B60, v23, (__int64)&unk_140F12B60);
+        ExfAcquirePushLockExclusiveEx((unsigned __int64 *)&stru_140F12EA0, v23, (__int64)&stru_140F12EA0);
       if ( v25 )
       {
         if ( (KiAbpGlobalState & 1) != 0 )
@@ -219,14 +219,14 @@ LABEL_16:
         else
           *((_BYTE *)v25 + 10) = 1;
       }
-      qword_140F12CE8 = *(_QWORD *)a2;
-      if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&unk_140F12B60, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-        ExfTryToWakePushLock((volatile signed __int64 *)&unk_140F12B60.Header.Lock);
-      KeAbPostRelease((unsigned __int64)&unk_140F12B60);
-      _InterlockedOr(dword_140F12AC0, 0);
-      v26 = dword_140F12AF0 & 1 | 2;
-      if ( (dword_140F12AF0 & 2) == 0 )
-        v26 = dword_140F12AF0 & 1;
+      stru_140F12EA0.WaitBlock[1].Thread = *(struct _KTHREAD **)a2;
+      if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&stru_140F12EA0, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+        ExfTryToWakePushLock((volatile signed __int64 *)&stru_140F12EA0.Header.Lock);
+      KeAbPostRelease((unsigned __int64)&stru_140F12EA0);
+      _InterlockedOr(&PopDirectedDripsState, 0);
+      v26 = dword_140F12E30 & 1 | 2u;
+      if ( (dword_140F12E30 & 2) == 0 )
+        v26 = dword_140F12E30 & 1;
       PopDirectedDripsDiagNotifySessionStart(*(_QWORD *)a2, v26);
     }
   }

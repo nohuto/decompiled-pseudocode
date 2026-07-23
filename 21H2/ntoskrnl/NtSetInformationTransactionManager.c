@@ -1,5 +1,5 @@
 /*
- * XREFs of NtSetInformationTransactionManager @ 0x1403D0FC0
+ * XREFs of NtSetInformationTransactionManager @ 0x1403D1130
  * Callers:
  *     <none>
  * Callees:

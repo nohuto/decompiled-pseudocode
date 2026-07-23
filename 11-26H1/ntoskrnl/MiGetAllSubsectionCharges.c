@@ -1,14 +1,14 @@
 /*
- * XREFs of MiGetAllSubsectionCharges @ 0x1404CE844
+ * XREFs of MiGetAllSubsectionCharges @ 0x1404C8274
  * Callers:
- *     MiAppendSubsectionChain @ 0x1404C7AA8 (MiAppendSubsectionChain.c)
+ *     MiAppendSubsectionChain @ 0x1404C17E8 (MiAppendSubsectionChain.c)
  * Callees:
- *     ExReleaseSpinLockExclusive @ 0x14021AA80 (ExReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x140249CD0 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     MiAllocateSubsectionProtos @ 0x140458B54 (MiAllocateSubsectionProtos.c)
- *     MiGetSubsectionCharges @ 0x1404B69E0 (MiGetSubsectionCharges.c)
- *     MiChargeSubsectionProtos @ 0x14086AE9C (MiChargeSubsectionProtos.c)
+ *     ExReleaseSpinLockExclusive @ 0x14021C410 (ExReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024B630 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiAllocateSubsectionProtos @ 0x1404503C4 (MiAllocateSubsectionProtos.c)
+ *     MiGetSubsectionCharges @ 0x1404AFE30 (MiGetSubsectionCharges.c)
+ *     MiChargeSubsectionProtos @ 0x14087127C (MiChargeSubsectionProtos.c)
  */
 
 __int64 __fastcall MiGetAllSubsectionCharges(

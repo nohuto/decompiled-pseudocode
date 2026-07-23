@@ -1,7 +1,7 @@
 /*
- * XREFs of MiBuildForkPte @ 0x1402C7BF0
+ * XREFs of MiBuildForkPte @ 0x1402C7DE0
  * Callers:
- *     MiCloneVads @ 0x1402C8B68 (MiCloneVads.c)
+ *     MiCloneVads @ 0x1402C8D58 (MiCloneVads.c)
  * Callees:
  *     MiFinalizePageAttribute @ 0x140029658 (MiFinalizePageAttribute.c)
  *     MiReleasePageFileInfo @ 0x14002A628 (MiReleasePageFileInfo.c)
@@ -12,40 +12,40 @@
  *     MiLockPageTablePage @ 0x1400403C0 (MiLockPageTablePage.c)
  *     MiGetPage @ 0x140049D50 (MiGetPage.c)
  *     MiChargeCommit @ 0x14004CF20 (MiChargeCommit.c)
- *     MiUnlockWorkingSetExclusive @ 0x140063CE0 (MiUnlockWorkingSetExclusive.c)
- *     MiGetSharedVm @ 0x140064D30 (MiGetSharedVm.c)
- *     MiReturnCommit @ 0x140065D40 (MiReturnCommit.c)
- *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
- *     MiFlushTbList @ 0x1400740C0 (MiFlushTbList.c)
- *     MiTransferSoftwarePte @ 0x140081D98 (MiTransferSoftwarePte.c)
- *     MiGetWsleContents @ 0x140085F40 (MiGetWsleContents.c)
- *     MiCaptureDirtyBitToPfn @ 0x140087910 (MiCaptureDirtyBitToPfn.c)
- *     MiWriteValidPteNewProtection @ 0x140087970 (MiWriteValidPteNewProtection.c)
- *     MiMakeSystemAddressValid @ 0x140088180 (MiMakeSystemAddressValid.c)
- *     IS_PTE_NOT_DEMAND_ZERO @ 0x1400947A4 (IS_PTE_NOT_DEMAND_ZERO.c)
- *     MiInsertTbFlushEntry @ 0x1400B3AF0 (MiInsertTbFlushEntry.c)
- *     MiGetWsleProtection @ 0x1400B5C20 (MiGetWsleProtection.c)
- *     ExAcquireSpinLockExclusive @ 0x1400BC4E0 (ExAcquireSpinLockExclusive.c)
- *     MiSetWsleProtection @ 0x1400DB164 (MiSetWsleProtection.c)
- *     MiPrefetchVirtualMemory @ 0x1400EA140 (MiPrefetchVirtualMemory.c)
- *     MiIncreaseUsedPtesCount @ 0x140110064 (MiIncreaseUsedPtesCount.c)
- *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
- *     MiCaptureWriteWatchDirtyBit @ 0x1401256DC (MiCaptureWriteWatchDirtyBit.c)
- *     MiUpdateWorkingSetPrivateSize @ 0x140126BA0 (MiUpdateWorkingSetPrivateSize.c)
- *     MI_PROTO_FORMAT_COMBINED @ 0x140128C90 (MI_PROTO_FORMAT_COMBINED.c)
- *     MI_MAKE_PROTECT_WRITE_COPY @ 0x14012A210 (MI_MAKE_PROTECT_WRITE_COPY.c)
- *     MiLockAndInsertPageInFreeList @ 0x140188C1C (MiLockAndInsertPageInFreeList.c)
- *     MiDuplicateCloneLeaf @ 0x1402C99D8 (MiDuplicateCloneLeaf.c)
- *     MiFindZeroCloneBlock @ 0x1402C9DB4 (MiFindZeroCloneBlock.c)
- *     MiGetCrossPartitionCloneCharges @ 0x1402CA0AC (MiGetCrossPartitionCloneCharges.c)
- *     MiHandleForkTransitionPte @ 0x1402CA118 (MiHandleForkTransitionPte.c)
- *     MiReferenceCloneProto @ 0x1402CAA70 (MiReferenceCloneProto.c)
- *     MiReturnCrossPartitionCloneCharges @ 0x1402CABB8 (MiReturnCrossPartitionCloneCharges.c)
- *     MiWriteSharedDemandZeroPte @ 0x1402CAEA8 (MiWriteSharedDemandZeroPte.c)
- *     MiWriteUselessChildPte @ 0x1402CB038 (MiWriteUselessChildPte.c)
- *     MiWaitForFreePage @ 0x1402CB4A4 (MiWaitForFreePage.c)
- *     MiIncrementCombinedPte @ 0x1402CBFEC (MiIncrementCombinedPte.c)
+ *     MiUnlockWorkingSetExclusive @ 0x140063CD0 (MiUnlockWorkingSetExclusive.c)
+ *     MiGetSharedVm @ 0x140064D20 (MiGetSharedVm.c)
+ *     MiReturnCommit @ 0x140065D30 (MiReturnCommit.c)
+ *     KeYieldProcessorEx @ 0x14006C9E0 (KeYieldProcessorEx.c)
+ *     MiFlushTbList @ 0x1400740B0 (MiFlushTbList.c)
+ *     MiTransferSoftwarePte @ 0x140081D88 (MiTransferSoftwarePte.c)
+ *     MiGetWsleContents @ 0x140085F30 (MiGetWsleContents.c)
+ *     MiCaptureDirtyBitToPfn @ 0x140087900 (MiCaptureDirtyBitToPfn.c)
+ *     MiWriteValidPteNewProtection @ 0x140087960 (MiWriteValidPteNewProtection.c)
+ *     MiMakeSystemAddressValid @ 0x140088170 (MiMakeSystemAddressValid.c)
+ *     IS_PTE_NOT_DEMAND_ZERO @ 0x1400946E4 (IS_PTE_NOT_DEMAND_ZERO.c)
+ *     MiInsertTbFlushEntry @ 0x1400B3A30 (MiInsertTbFlushEntry.c)
+ *     MiGetWsleProtection @ 0x1400B5B60 (MiGetWsleProtection.c)
+ *     ExAcquireSpinLockExclusive @ 0x1400BC420 (ExAcquireSpinLockExclusive.c)
+ *     MiSetWsleProtection @ 0x1400DB1E4 (MiSetWsleProtection.c)
+ *     MiPrefetchVirtualMemory @ 0x1400EA1C0 (MiPrefetchVirtualMemory.c)
+ *     MiIncreaseUsedPtesCount @ 0x1401100E4 (MiIncreaseUsedPtesCount.c)
+ *     MiWritePteShadow @ 0x140120F40 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120FA0 (MiPteHasShadow.c)
+ *     MiCaptureWriteWatchDirtyBit @ 0x1401257AC (MiCaptureWriteWatchDirtyBit.c)
+ *     MiUpdateWorkingSetPrivateSize @ 0x140126C70 (MiUpdateWorkingSetPrivateSize.c)
+ *     MI_PROTO_FORMAT_COMBINED @ 0x140128D60 (MI_PROTO_FORMAT_COMBINED.c)
+ *     MI_MAKE_PROTECT_WRITE_COPY @ 0x14012A2E0 (MI_MAKE_PROTECT_WRITE_COPY.c)
+ *     MiLockAndInsertPageInFreeList @ 0x140188D5C (MiLockAndInsertPageInFreeList.c)
+ *     MiDuplicateCloneLeaf @ 0x1402C9BC8 (MiDuplicateCloneLeaf.c)
+ *     MiFindZeroCloneBlock @ 0x1402C9FA4 (MiFindZeroCloneBlock.c)
+ *     MiGetCrossPartitionCloneCharges @ 0x1402CA29C (MiGetCrossPartitionCloneCharges.c)
+ *     MiHandleForkTransitionPte @ 0x1402CA308 (MiHandleForkTransitionPte.c)
+ *     MiReferenceCloneProto @ 0x1402CAC60 (MiReferenceCloneProto.c)
+ *     MiReturnCrossPartitionCloneCharges @ 0x1402CADA8 (MiReturnCrossPartitionCloneCharges.c)
+ *     MiWriteSharedDemandZeroPte @ 0x1402CB098 (MiWriteSharedDemandZeroPte.c)
+ *     MiWriteUselessChildPte @ 0x1402CB228 (MiWriteUselessChildPte.c)
+ *     MiWaitForFreePage @ 0x1402CB694 (MiWaitForFreePage.c)
+ *     MiIncrementCombinedPte @ 0x1402CC1DC (MiIncrementCombinedPte.c)
  */
 
 _BOOL8 __fastcall MiBuildForkPte(
@@ -238,7 +238,7 @@ _BOOL8 __fastcall MiBuildForkPte(
     {
       MiInitializePageColorBase(v128, 0, (__int64)&v134);
       v45 = _InterlockedExchangeAdd(v134, 1u);
-      v46 = *(_QWORD *)(qword_14043A748 + 8LL * *(unsigned __int16 *)(v123 + 174));
+      v46 = *(_QWORD *)(qword_14043B808 + 8LL * *(unsigned __int16 *)(v123 + 174));
       if ( Page != -1 || (Page = MiGetPage(v46, v136 | (unsigned int)(unsigned __int16)(v45 & v135), 0), Page != -1) )
       {
         v94 = Page;
@@ -287,7 +287,7 @@ LABEL_103:
             if ( (unsigned int)MiPteHasShadow() )
             {
               v93 = 1;
-              if ( !HIBYTE(word_14043A1AC) )
+              if ( !HIBYTE(word_14043B26C) )
               {
 LABEL_108:
                 if ( (v86 & 1) != 0 )
@@ -327,9 +327,9 @@ LABEL_195:
     v120 = 0;
     v41 = ZeroPte;
     v125 = v38;
-    v43 = *(struct _KEVENT **)(qword_14043A748 + 8 * ((v42 >> 40) & 0x3FF));
+    v43 = *(struct _KEVENT **)(qword_14043B808 + 8 * ((v42 >> 40) & 0x3FF));
     v124 = v43;
-    if ( *(struct _KEVENT **)(qword_14043A748 + 8 * v40) != v43 )
+    if ( *(struct _KEVENT **)(qword_14043B808 + 8 * v40) != v43 )
     {
       if ( (i & 1) != 0 )
       {
@@ -395,8 +395,8 @@ LABEL_195:
       if ( (v69 & 2) != 0 )
       {
         v70 = *(_QWORD *)(v34 + 16);
-        if ( qword_14043A0C0 && (v69 & 0x10) == 0 )
-          v70 = ~qword_14043A0C0 & v69;
+        if ( qword_14043B180 && (v69 & 0x10) == 0 )
+          v70 = ~qword_14043B180 & v69;
         v41 = MiTransferSoftwarePte(
                 *(_QWORD *)(v34 + 16),
                 *((_QWORD *)&v124[297].Header.WaitListHead.Flink + ((unsigned __int16)v69 >> 12)),
@@ -427,7 +427,7 @@ LABEL_195:
         if ( (unsigned int)MiPteHasShadow() )
         {
           v75 = 1;
-          if ( !HIBYTE(word_14043A1AC) )
+          if ( !HIBYTE(word_14043B26C) )
             goto LABEL_72;
         }
         else
@@ -473,7 +473,7 @@ LABEL_72:
         if ( (unsigned int)MiPteHasShadow() )
         {
           v82 = 1;
-          if ( !HIBYTE(word_14043A1AC) )
+          if ( !HIBYTE(word_14043B26C) )
             goto LABEL_87;
         }
         else if ( (KeGetCurrentThread()->ApcState.Process[2].ActiveProcessors.Bitmap[0] & 0x100000000000LL) != 0 )
@@ -534,7 +534,7 @@ LABEL_181:
       if ( (unsigned int)MiPteHasShadow() )
       {
         v93 = 1;
-        if ( HIBYTE(word_14043A1AC) )
+        if ( HIBYTE(word_14043B26C) )
           goto LABEL_193;
       }
       else if ( (KeGetCurrentThread()->ApcState.Process[2].ActiveProcessors.Bitmap[0] & 0x100000000000LL) == 0 )
@@ -604,7 +604,7 @@ LABEL_163:
       if ( (unsigned int)MiPteHasShadow() )
       {
         v111 = 1;
-        if ( !HIBYTE(word_14043A1AC) )
+        if ( !HIBYTE(word_14043B26C) )
         {
 LABEL_168:
           if ( (v20 & 1) != 0 )
@@ -648,8 +648,8 @@ LABEL_31:
   }
   v96 = 0;
   v122 = 0;
-  v97 = *(_QWORD *)(qword_14043A748 + 8LL * *(unsigned __int16 *)(a1 + 1454));
-  if ( *(_QWORD *)(qword_14043A748 + 8LL * *(unsigned __int16 *)(v57 + 174)) == v97 )
+  v97 = *(_QWORD *)(qword_14043B808 + 8LL * *(unsigned __int16 *)(a1 + 1454));
+  if ( *(_QWORD *)(qword_14043B808 + 8LL * *(unsigned __int16 *)(v57 + 174)) == v97 )
   {
 LABEL_121:
     MI_MAKE_PROTECT_WRITE_COPY((unsigned __int64)&v119);
@@ -666,7 +666,7 @@ LABEL_121:
       if ( (unsigned int)MiPteHasShadow() )
       {
         v99 = 1;
-        if ( HIBYTE(word_14043A1AC) != v100 )
+        if ( HIBYTE(word_14043B26C) != v100 )
           goto LABEL_130;
       }
       else if ( (KeGetCurrentThread()->ApcState.Process[2].ActiveProcessors.Bitmap[0] & 0x100000000000LL) == 0 )
@@ -688,7 +688,7 @@ LABEL_130:
       if ( (unsigned int)MiPteHasShadow() )
       {
         v102 = 1;
-        if ( HIBYTE(word_14043A1AC) != (_BYTE)v104 )
+        if ( HIBYTE(word_14043B26C) != (_BYTE)v104 )
           goto LABEL_139;
       }
       else if ( (KeGetCurrentThread()->ApcState.Process[2].ActiveProcessors.Bitmap[0] & 0x100000000000LL) == 0 )
@@ -729,7 +729,7 @@ LABEL_139:
     if ( (unsigned int)MiPteHasShadow() )
     {
       v109 = 1;
-      if ( HIBYTE(word_14043A1AC) == v110 )
+      if ( HIBYTE(word_14043B26C) == v110 )
       {
 LABEL_156:
         if ( (v108 & 1) != 0 )
@@ -749,7 +749,7 @@ LABEL_158:
   }
   if ( (v56 & 1) != 0 )
   {
-    if ( !(unsigned int)MiChargeCommit(*(_QWORD *)(qword_14043A748 + 8LL * *(unsigned __int16 *)(a1 + 1454)), 1uLL, 0) )
+    if ( !(unsigned int)MiChargeCommit(*(_QWORD *)(qword_14043B808 + 8LL * *(unsigned __int16 *)(a1 + 1454)), 1uLL, 0) )
     {
       MiWriteUselessChildPte(a4);
       *v29 = 1;

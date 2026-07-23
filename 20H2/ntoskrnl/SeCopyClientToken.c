@@ -51,7 +51,7 @@ LABEL_15:
     *a6 = 0LL;
     return (unsigned int)inserted;
   }
-  inserted = SepAppendAceToTokenObjectAcl((__int64)DmaAdapter, 983551, v8);
+  inserted = SepAppendAceToTokenObjectAcl((__int64)DmaAdapter, 0xF01FFu, v8);
   if ( inserted < 0 )
   {
     HalPutDmaAdapter(DmaAdapter);
@@ -61,7 +61,7 @@ LABEL_11:
   if ( (unsigned int)Feature_Servicing_HardenTokenPPLRestrictions__private_IsEnabled() )
     SepFinalizeTokenAcls(DmaAdapter);
   else
-    SepAppendAceToTokenObjectAcl((__int64)DmaAdapter, 8, SeAliasAdminsSid);
+    SepAppendAceToTokenObjectAcl((__int64)DmaAdapter, 8u, SeAliasAdminsSid);
   *a6 = DmaAdapter;
   return (unsigned int)inserted;
 }

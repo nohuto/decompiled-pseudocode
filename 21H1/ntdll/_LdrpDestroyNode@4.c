@@ -8,21 +8,21 @@
  *     _RtlFreeHeap@12 @ 0x4B2C3B70 (_RtlFreeHeap@12.c)
  */
 
-int __thiscall LdrpDestroyNode(_DWORD *this)
+LOGICAL __thiscall LdrpDestroyNode(_DWORD *BaseAddress)
 {
   _DWORD *v2; // eax
   _DWORD *v4; // esi
 
-  v2 = (_DWORD *)this[2];
+  v2 = (_DWORD *)BaseAddress[2];
   if ( v2 )
   {
     do
     {
       v4 = (_DWORD *)*v2;
-      RtlFreeHeap(LdrpHeap, 0, (int)v2);
+      RtlFreeHeap(LdrpHeap, 0, v2);
       v2 = v4;
     }
     while ( v4 );
   }
-  return RtlFreeHeap(LdrpHeap, 0, (int)this);
+  return RtlFreeHeap(LdrpHeap, 0, BaseAddress);
 }

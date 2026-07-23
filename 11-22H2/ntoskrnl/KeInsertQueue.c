@@ -29,7 +29,7 @@ LONG __stdcall KeInsertQueue(PRKQUEUE Queue, PLIST_ENTRY Entry)
   p_WaitListHead = &Queue->Header.WaitListHead;
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     LODWORD(v11) = 4;
@@ -68,6 +68,6 @@ LONG __stdcall KeInsertQueue(PRKQUEUE Queue, PLIST_ENTRY Entry)
     Entry->Flink = 0LL;
   }
   _InterlockedAnd(&Queue->Header.Lock, 0xFFFFFF7F);
-  KiExitDispatcher((__int64)CurrentPrcb, 0, (struct _PROCESSOR_NUMBER)1, 0, CurrentIrql);
+  KiExitDispatcher((__int64)CurrentPrcb, 0, (_PROCESSOR_NUMBER)1, 0, CurrentIrql);
   return SignalState;
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of TtmpInitializeWatchdogTimeouts @ 0x1408FCEF8
+ * XREFs of TtmpInitializeWatchdogTimeouts @ 0x1408FD058
  * Callers:
- *     TtmpStartCallout @ 0x1408FD31C (TtmpStartCallout.c)
+ *     TtmpStartCallout @ 0x1408FD47C (TtmpStartCallout.c)
  * Callees:
- *     TtmpGetConfigOverride @ 0x1408FCDDC (TtmpGetConfigOverride.c)
+ *     TtmpGetConfigOverride @ 0x1408FCF3C (TtmpGetConfigOverride.c)
  */
 
 char __fastcall TtmpInitializeWatchdogTimeouts(__int64 a1)
@@ -14,7 +14,7 @@ char __fastcall TtmpInitializeWatchdogTimeouts(__int64 a1)
   int v5; // [rsp+38h] [rbp+10h] BYREF
 
   v5 = 0;
-  v1 = &unk_140C0EE50;
+  v1 = &unk_140C0EE60;
   v4 = 0;
   v2 = 6LL;
   do

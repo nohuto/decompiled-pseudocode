@@ -3,8 +3,8 @@
  * Callers:
  *     KseInitialize @ 0x140B495CC (KseInitialize.c)
  * Callees:
- *     RtlAssert @ 0x1405AA0C0 (RtlAssert.c)
- *     KsepCacheInitialize @ 0x140844524 (KsepCacheInitialize.c)
+ *     RtlAssert @ 0x1405AA630 (RtlAssert.c)
+ *     KsepCacheInitialize @ 0x140844824 (KsepCacheInitialize.c)
  *     KsepEngineReadFlags @ 0x140B6126C (KsepEngineReadFlags.c)
  */
 

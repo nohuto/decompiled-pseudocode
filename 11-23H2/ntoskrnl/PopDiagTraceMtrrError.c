@@ -1,11 +1,11 @@
 /*
- * XREFs of PopDiagTraceMtrrError @ 0x140AA7EF4
+ * XREFs of PopDiagTraceMtrrError @ 0x140AA7D64
  * Callers:
- *     PopTransitionSystemPowerStateEx @ 0x140AA90F0 (PopTransitionSystemPowerStateEx.c)
+ *     PopTransitionSystemPowerStateEx @ 0x140AA8F60 (PopTransitionSystemPowerStateEx.c)
  * Callees:
- *     EtwWrite @ 0x1402578A0 (EtwWrite.c)
- *     EtwEventEnabled @ 0x140258420 (EtwEventEnabled.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     EtwWrite @ 0x140257960 (EtwWrite.c)
+ *     EtwEventEnabled @ 0x1402584E0 (EtwEventEnabled.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  */
 
 void PopDiagTraceMtrrError()
@@ -19,7 +19,7 @@ void PopDiagTraceMtrrError()
     if ( EtwEventEnabled(PopDiagHandle, &POP_ETW_EVENT_MTRR_CHANGED) )
     {
       UserData.Reserved = 0;
-      UserData.Ptr = (ULONGLONG)&dword_140C3D0EC;
+      UserData.Ptr = (ULONGLONG)&dword_140C3CDAC;
       UserData.Size = 4;
       EtwWrite(v0, &POP_ETW_EVENT_MTRR_CHANGED, 0LL, 1u, &UserData);
     }

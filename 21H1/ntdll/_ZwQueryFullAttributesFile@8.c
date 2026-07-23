@@ -6,7 +6,9 @@
  *     _Wow64SystemServiceCall@0 @ 0x4B308730 (_Wow64SystemServiceCall@0.c)
  */
 
-int __stdcall ZwQueryFullAttributesFile(int a1, int a2)
+NTSTATUS __cdecl ZwQueryFullAttributesFile(
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        PFILE_NETWORK_OPEN_INFORMATION FileInformation)
 {
   return Wow64SystemServiceCall();
 }

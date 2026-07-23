@@ -1,12 +1,12 @@
 /*
- * XREFs of PpmEventIdleDurationExpiration @ 0x1402E56FC
+ * XREFs of PpmEventIdleDurationExpiration @ 0x1402E58EC
  * Callers:
  *     KeClockInterruptNotify @ 0x140060C40 (KeClockInterruptNotify.c)
- *     PoExecuteIdleCheck @ 0x1402D3830 (PoExecuteIdleCheck.c)
+ *     PoExecuteIdleCheck @ 0x1402D3A20 (PoExecuteIdleCheck.c)
  * Callees:
  *     EtwEventEnabled @ 0x14005B2D0 (EtwEventEnabled.c)
- *     EtwWriteEx @ 0x1400CAD60 (EtwWriteEx.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     EtwWriteEx @ 0x1400CAE40 (EtwWriteEx.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
  */
 
 void __fastcall PpmEventIdleDurationExpiration(unsigned __int16 *a1)

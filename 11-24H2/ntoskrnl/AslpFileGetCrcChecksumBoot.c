@@ -1,15 +1,15 @@
 /*
- * XREFs of AslpFileGetCrcChecksumBoot @ 0x14080D344
+ * XREFs of AslpFileGetCrcChecksumBoot @ 0x14080DA84
  * Callers:
- *     AslpFileGetChecksumAttributes @ 0x14080CCA0 (AslpFileGetChecksumAttributes.c)
+ *     AslpFileGetChecksumAttributes @ 0x14080D3E0 (AslpFileGetChecksumAttributes.c)
  * Callees:
- *     AslpMemoryRangeCheckBounds @ 0x140696A84 (AslpMemoryRangeCheckBounds.c)
- *     AslComputeCrc32 @ 0x14080866C (AslComputeCrc32.c)
- *     AslpFileGetImageCodeSectionHeader @ 0x14080DE08 (AslpFileGetImageCodeSectionHeader.c)
- *     AslpFileGetImageResourceDirectoryRoot @ 0x14080E06C (AslpFileGetImageResourceDirectoryRoot.c)
- *     AslpFileGetVersionBlockFromResourceRoot @ 0x14080EB1C (AslpFileGetVersionBlockFromResourceRoot.c)
- *     AslpImageRvaToVa @ 0x14080FE44 (AslpImageRvaToVa.c)
- *     AslLogCallPrintf @ 0x1409601DC (AslLogCallPrintf.c)
+ *     AslpMemoryRangeCheckBounds @ 0x140697B54 (AslpMemoryRangeCheckBounds.c)
+ *     AslComputeCrc32 @ 0x140808DAC (AslComputeCrc32.c)
+ *     AslpFileGetImageCodeSectionHeader @ 0x14080E548 (AslpFileGetImageCodeSectionHeader.c)
+ *     AslpFileGetImageResourceDirectoryRoot @ 0x14080E7AC (AslpFileGetImageResourceDirectoryRoot.c)
+ *     AslpFileGetVersionBlockFromResourceRoot @ 0x14080F25C (AslpFileGetVersionBlockFromResourceRoot.c)
+ *     AslpImageRvaToVa @ 0x140810584 (AslpImageRvaToVa.c)
+ *     AslLogCallPrintf @ 0x140947C9C (AslLogCallPrintf.c)
  */
 
 __int64 __fastcall AslpFileGetCrcChecksumBoot(int *a1, __int64 a2, __int64 a3)

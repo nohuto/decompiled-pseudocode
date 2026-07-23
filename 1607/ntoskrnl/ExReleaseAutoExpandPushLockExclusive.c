@@ -1,21 +1,21 @@
 /*
- * XREFs of ExReleaseAutoExpandPushLockExclusive @ 0x140097430
+ * XREFs of ExReleaseAutoExpandPushLockExclusive @ 0x140096C30
  * Callers:
- *     MiStealPage @ 0x140107E84 (MiStealPage.c)
- *     MiAweViewInserter @ 0x14065C078 (MiAweViewInserter.c)
- *     MiAweViewRemover @ 0x14065C150 (MiAweViewRemover.c)
- *     MiCleanPhysicalProcessPages @ 0x14065C30C (MiCleanPhysicalProcessPages.c)
- *     MiProtectAweRegion @ 0x14065C4E0 (MiProtectAweRegion.c)
- *     MiRemoveUserPhysicalPagesVad @ 0x14065C694 (MiRemoveUserPhysicalPagesVad.c)
- *     MiResizeAweBitMap @ 0x14065C82C (MiResizeAweBitMap.c)
- *     NtFreeUserPhysicalPages @ 0x14065D220 (NtFreeUserPhysicalPages.c)
- *     MiScrubProcesses @ 0x140664E40 (MiScrubProcesses.c)
+ *     MiStealPage @ 0x140105C04 (MiStealPage.c)
+ *     MiAweViewInserter @ 0x14065C15C (MiAweViewInserter.c)
+ *     MiAweViewRemover @ 0x14065C234 (MiAweViewRemover.c)
+ *     MiCleanPhysicalProcessPages @ 0x14065C3F0 (MiCleanPhysicalProcessPages.c)
+ *     MiProtectAweRegion @ 0x14065C5C4 (MiProtectAweRegion.c)
+ *     MiRemoveUserPhysicalPagesVad @ 0x14065C778 (MiRemoveUserPhysicalPagesVad.c)
+ *     MiResizeAweBitMap @ 0x14065C910 (MiResizeAweBitMap.c)
+ *     NtFreeUserPhysicalPages @ 0x14065D304 (NtFreeUserPhysicalPages.c)
+ *     MiScrubProcesses @ 0x140664F24 (MiScrubProcesses.c)
  * Callees:
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     ExpAeUpdateStatsForExclusiveRelease @ 0x1400974CC (ExpAeUpdateStatsForExclusiveRelease.c)
- *     ExfReleasePushLock @ 0x1400C8620 (ExfReleasePushLock.c)
- *     ExpReleaseFannedOutPushLockExclusive @ 0x1401334BC (ExpReleaseFannedOutPushLockExclusive.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     ExpAeUpdateStatsForExclusiveRelease @ 0x140096CCC (ExpAeUpdateStatsForExclusiveRelease.c)
+ *     ExfReleasePushLock @ 0x1400C64C0 (ExfReleasePushLock.c)
+ *     ExpReleaseFannedOutPushLockExclusive @ 0x140133A2C (ExpReleaseFannedOutPushLockExclusive.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
  */
 
 unsigned __int64 __fastcall ExReleaseAutoExpandPushLockExclusive(

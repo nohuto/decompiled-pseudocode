@@ -16,7 +16,7 @@
  */
 
 // attributes: thunk
-__int64 __fastcall LdrImageDirectoryEntryToLoadConfig(__int64 a1)
+__int64 __fastcall LdrImageDirectoryEntryToLoadConfig(void *a1)
 {
   return LdrImageDirectoryEntryToLoadConfigEx(a1);
 }

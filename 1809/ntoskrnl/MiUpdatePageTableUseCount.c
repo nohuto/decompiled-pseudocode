@@ -1,13 +1,13 @@
 /*
- * XREFs of MiUpdatePageTableUseCount @ 0x14010FBF8
+ * XREFs of MiUpdatePageTableUseCount @ 0x14010FC78
  * Callers:
  *     MiUserFault @ 0x140044870 (MiUserFault.c)
- *     MiActOnPte @ 0x14009410C (MiActOnPte.c)
- *     MiExpandSharedZeroCluster @ 0x14010F710 (MiExpandSharedZeroCluster.c)
- *     MiFillPteWithProto @ 0x1402BBEBC (MiFillPteWithProto.c)
+ *     MiActOnPte @ 0x14009404C (MiActOnPte.c)
+ *     MiExpandSharedZeroCluster @ 0x14010F790 (MiExpandSharedZeroCluster.c)
+ *     MiFillPteWithProto @ 0x1402BC0AC (MiFillPteWithProto.c)
  * Callees:
- *     MiGetUsedPtesHandle @ 0x140098700 (MiGetUsedPtesHandle.c)
- *     MiIncreaseUsedPtesCount @ 0x140110064 (MiIncreaseUsedPtesCount.c)
+ *     MiGetUsedPtesHandle @ 0x140098640 (MiGetUsedPtesHandle.c)
+ *     MiIncreaseUsedPtesCount @ 0x1401100E4 (MiIncreaseUsedPtesCount.c)
  */
 
 __int64 __fastcall MiUpdatePageTableUseCount(unsigned __int64 a1)

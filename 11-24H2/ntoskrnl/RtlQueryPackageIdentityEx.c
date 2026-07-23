@@ -1,29 +1,29 @@
 /*
- * XREFs of RtlQueryPackageIdentityEx @ 0x140355EF0
+ * XREFs of RtlQueryPackageIdentityEx @ 0x140422890
  * Callers:
- *     PspIdentityBasedJobBreakaway @ 0x140A31394 (PspIdentityBasedJobBreakaway.c)
+ *     PspIdentityBasedJobBreakaway @ 0x140A6D0A4 (PspIdentityBasedJobBreakaway.c)
  * Callees:
- *     RtlStringCbPrintfExW @ 0x140356698 (RtlStringCbPrintfExW.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     RtlGUIDFromString @ 0x1408CA240 (RtlGUIDFromString.c)
- *     SeQuerySecurityAttributesToken @ 0x1409ECEB0 (SeQuerySecurityAttributesToken.c)
+ *     RtlStringCbPrintfExW @ 0x140423038 (RtlStringCbPrintfExW.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     RtlGUIDFromString @ 0x1408C7C70 (RtlGUIDFromString.c)
+ *     SeQuerySecurityAttributesToken @ 0x1409E61E0 (SeQuerySecurityAttributesToken.c)
  */
 
-__int64 __fastcall RtlQueryPackageIdentityEx(
-        size_t a1,
-        NTSTRSAFE_PWSTR pszDest,
-        size_t *a3,
-        wchar_t *a4,
-        size_t *a5,
-        GUID *Guid,
-        _QWORD *a7)
+NTSTATUS __cdecl RtlQueryPackageIdentityEx(
+        HANDLE TokenHandle,
+        PWSTR PackageFullName,
+        PSIZE_T PackageSize,
+        PWSTR AppId,
+        PSIZE_T AppIdSize,
+        PGUID DynamicId,
+        PULONG64 Flags)
 {
   int v9; // ebx
   _QWORD *v10; // rdi
   char v12; // r14
   int SecurityAttributesToken; // eax
-  NTSTATUS v14; // ebx
+  int v14; // ebx
   __int64 v15; // rdx
   size_t *v16; // rdi
   size_t dwFlags; // [rsp+20h] [rbp-E0h]
@@ -34,25 +34,25 @@ __int64 __fastcall RtlQueryPackageIdentityEx(
   __int64 v23; // [rsp+58h] [rbp-A8h] BYREF
   size_t pcbRemaining; // [rsp+60h] [rbp-A0h] BYREF
   size_t *v25; // [rsp+68h] [rbp-98h]
-  _QWORD *v26; // [rsp+70h] [rbp-90h]
+  PULONG64 v26; // [rsp+70h] [rbp-90h]
   _BYTE v27[4]; // [rsp+78h] [rbp-88h] BYREF
   int v28; // [rsp+7Ch] [rbp-84h]
   __int64 v29; // [rsp+80h] [rbp-80h]
 
-  v25 = a5;
-  v9 = a1;
-  v26 = a7;
-  pcbRemaining = a1;
+  v25 = AppIdSize;
+  v9 = (int)TokenHandle;
+  v26 = Flags;
+  pcbRemaining = (size_t)TokenHandle;
   v23 = 0LL;
   v22 = 0LL;
-  v10 = (_QWORD *)((unsigned __int64)&v23 & -(__int64)(a7 != 0LL));
+  v10 = (_QWORD *)((unsigned __int64)&v23 & -(__int64)(Flags != 0LL));
   memset_0(v27, 0, 0x330uLL);
   ppszDestEnd = 0LL;
   v12 = 1;
   LODWORD(dwFlags) = 816;
   SecurityAttributesToken = SeQuerySecurityAttributesToken(
                               v9,
-                              (int)&qword_140002D18,
+                              (int)&qword_140002DC0,
                               (unsigned int)(v10 != 0LL) + 1,
                               v27,
                               dwFlags,
@@ -61,17 +61,17 @@ __int64 __fastcall RtlQueryPackageIdentityEx(
   if ( SecurityAttributesToken < 0 )
   {
     if ( SecurityAttributesToken != -1073741275 )
-      return (unsigned int)v14;
+      return v14;
     if ( !v10 )
-      return (unsigned int)v14;
+      return v14;
     LODWORD(dwFlagsa) = 816;
-    v14 = SeQuerySecurityAttributesToken(pcbRemaining, (int)&qword_140002D18, 1, v27, dwFlagsa, (__int64)&v20);
+    v14 = SeQuerySecurityAttributesToken(pcbRemaining, (int)&qword_140002DC0, 1, v27, dwFlagsa, (__int64)&v20);
     if ( v14 < 0 )
-      return (unsigned int)v14;
+      return v14;
     v12 = 0;
   }
   if ( !v28 )
-    return (unsigned int)-1073741275;
+    return -1073741275;
   v15 = v29;
   if ( v10 )
   {
@@ -81,38 +81,45 @@ __int64 __fastcall RtlQueryPackageIdentityEx(
       *v10 = 0LL;
   }
   v14 = 0;
-  if ( pszDest )
+  if ( PackageFullName )
   {
-    if ( a3 )
+    if ( PackageSize )
     {
-      v14 = RtlStringCbPrintfExW(pszDest, *a3, &ppszDestEnd, &pcbRemaining, 0x800u, L"%wZ", *(_QWORD *)(v15 + 32));
+      v14 = RtlStringCbPrintfExW(
+              PackageFullName,
+              *PackageSize,
+              &ppszDestEnd,
+              &pcbRemaining,
+              0x800u,
+              L"%wZ",
+              *(_QWORD *)(v15 + 32));
       if ( v14 < 0 )
-        return (unsigned int)v14;
+        return v14;
       v15 = v29;
-      *a3 = (char *)ppszDestEnd - (char *)pszDest + 2;
+      *PackageSize = (char *)ppszDestEnd - (char *)PackageFullName + 2;
       goto LABEL_14;
     }
-    return (unsigned int)-1073741811;
+    return -1073741811;
   }
-  if ( a3 )
-    return (unsigned int)-1073741811;
+  if ( PackageSize )
+    return -1073741811;
 LABEL_14:
-  if ( a4 )
+  if ( AppId )
   {
     v16 = v25;
-    v14 = RtlStringCbPrintfExW(a4, *v25, &v22, 0LL, 0x800u, L"%wZ", *(_QWORD *)(v15 + 32) + 16LL);
+    v14 = RtlStringCbPrintfExW(AppId, *v25, &v22, 0LL, 0x800u, L"%wZ", *(_QWORD *)(v15 + 32) + 16LL);
     if ( v14 < 0 )
-      return (unsigned int)v14;
+      return v14;
     v15 = v29;
-    *v16 = (char *)v22 - (char *)a4 + 2;
+    *v16 = (char *)v22 - (char *)AppId + 2;
   }
-  if ( Guid )
+  if ( DynamicId )
   {
-    *Guid = 0LL;
+    *DynamicId = 0LL;
     if ( *(_DWORD *)(v15 + 24) > 3u )
-      RtlGUIDFromString((PCUNICODE_STRING)(*(_QWORD *)(v15 + 32) + 48LL), Guid);
+      RtlGUIDFromString((PCUNICODE_STRING)(*(_QWORD *)(v15 + 32) + 48LL), DynamicId);
   }
   if ( v26 )
     *v26 = (unsigned int)v23;
-  return (unsigned int)v14;
+  return v14;
 }

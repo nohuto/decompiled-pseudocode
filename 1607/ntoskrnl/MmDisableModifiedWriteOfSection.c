@@ -1,11 +1,11 @@
 /*
- * XREFs of MmDisableModifiedWriteOfSection @ 0x1400AA6AC
+ * XREFs of MmDisableModifiedWriteOfSection @ 0x1400A8C2C
  * Callers:
- *     CcInitializeCacheMapEx @ 0x1400E8440 (CcInitializeCacheMapEx.c)
- *     CcSetPrivateWriteFile @ 0x1401B240C (CcSetPrivateWriteFile.c)
+ *     CcInitializeCacheMapEx @ 0x1400E62E0 (CcInitializeCacheMapEx.c)
+ *     CcSetPrivateWriteFile @ 0x1401B22F0 (CcSetPrivateWriteFile.c)
  * Callees:
- *     MiLockSectionControlArea @ 0x1400218CC (MiLockSectionControlArea.c)
- *     ExReleaseSpinLockExclusive @ 0x14002E9A0 (ExReleaseSpinLockExclusive.c)
+ *     MiLockSectionControlArea @ 0x14002144C (MiLockSectionControlArea.c)
+ *     ExReleaseSpinLockExclusive @ 0x14002E520 (ExReleaseSpinLockExclusive.c)
  */
 
 char __fastcall MmDisableModifiedWriteOfSection(_QWORD *a1)

@@ -1,15 +1,15 @@
 /*
- * XREFs of SymCryptFdefModSetRandomGeneric @ 0x1405368D0
+ * XREFs of SymCryptFdefModSetRandomGeneric @ 0x140530D70
  * Callers:
- *     SymCryptModSetRandom @ 0x140523EF0 (SymCryptModSetRandom.c)
+ *     SymCryptModSetRandom @ 0x140521808 (SymCryptModSetRandom.c)
  * Callees:
- *     xHalTimerWatchdogStop @ 0x140493990 (xHalTimerWatchdogStop.c)
- *     SymCryptWipe @ 0x14051DC34 (SymCryptWipe.c)
- *     SymCryptFdefRawAddUint32 @ 0x14052F344 (SymCryptFdefRawAddUint32.c)
- *     SymCryptFdefRawIsLessThan @ 0x14052F5CC (SymCryptFdefRawIsLessThan.c)
- *     SymCryptFdefRawSubUint32 @ 0x14052F81C (SymCryptFdefRawSubUint32.c)
- *     SymCryptFatal @ 0x1405B1490 (SymCryptFatal.c)
- *     SymCryptCallbackRandom @ 0x1406A5864 (SymCryptCallbackRandom.c)
+ *     xHalTimerWatchdogStop @ 0x14048E2E0 (xHalTimerWatchdogStop.c)
+ *     SymCryptWipe @ 0x14051B504 (SymCryptWipe.c)
+ *     SymCryptFdefRawAddUint32 @ 0x1405297EC (SymCryptFdefRawAddUint32.c)
+ *     SymCryptFdefRawIsLessThan @ 0x140529A74 (SymCryptFdefRawIsLessThan.c)
+ *     SymCryptFdefRawSubUint32 @ 0x140529CC4 (SymCryptFdefRawSubUint32.c)
+ *     SymCryptFatal @ 0x1405AE400 (SymCryptFatal.c)
+ *     SymCryptCallbackRandom @ 0x1406A6864 (SymCryptCallbackRandom.c)
  */
 
 void __fastcall __noreturn SymCryptFdefModSetRandomGeneric(int *a1, __int64 a2, char a3, _DWORD *a4, __int64 a5)

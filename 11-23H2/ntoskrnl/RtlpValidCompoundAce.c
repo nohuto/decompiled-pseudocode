@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlpValidCompoundAce @ 0x1409BBC04
+ * XREFs of RtlpValidCompoundAce @ 0x1409BBE04
  * Callers:
- *     RtlValidAcl @ 0x140736880 (RtlValidAcl.c)
+ *     RtlValidAcl @ 0x140736A70 (RtlValidAcl.c)
  * Callees:
  *     <none>
  */

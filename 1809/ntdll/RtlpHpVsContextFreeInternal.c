@@ -1,17 +1,17 @@
 /*
- * XREFs of RtlpHpVsContextFreeInternal @ 0x18009FBDC
+ * XREFs of RtlpHpVsContextFreeInternal @ 0x18009FBFC
  * Callers:
- *     RtlpHpVsContextFreeList @ 0x18009FD74 (RtlpHpVsContextFreeList.c)
+ *     RtlpHpVsContextFreeList @ 0x18009FD94 (RtlpHpVsContextFreeList.c)
  * Callees:
  *     RtlReleaseSRWLockExclusive @ 0x180015B60 (RtlReleaseSRWLockExclusive.c)
  *     RtlAcquireSRWLockExclusive @ 0x180015FF0 (RtlAcquireSRWLockExclusive.c)
  *     RtlpHpVsChunkFree @ 0x18001F6B0 (RtlpHpVsChunkFree.c)
  *     RtlpHpVsSubsegmentFree @ 0x180065640 (RtlpHpVsSubsegmentFree.c)
- *     RtlpLogHeapFailure @ 0x18009F7AC (RtlpLogHeapFailure.c)
+ *     RtlpLogHeapFailure @ 0x18009F7CC (RtlpLogHeapFailure.c)
  */
 
 __int64 __fastcall RtlpHpVsContextFreeInternal(
-        unsigned __int64 a1,
+        PRTL_SRWLOCK SRWLock,
         __int64 a2,
         __int64 a3,
         unsigned int a4,
@@ -27,9 +27,6 @@ __int64 __fastcall RtlpHpVsContextFreeInternal(
   unsigned __int64 v14; // rdx
   int v15; // ecx
   __int64 v16; // r14
-  unsigned __int64 v17; // rdx
-  unsigned __int64 *v18; // r8
-  __int64 v19; // r9
 
   v5 = *(_QWORD *)a3;
   v8 = 0;
@@ -66,7 +63,7 @@ LABEL_10:
     a3 = v14;
     v15 = 18;
 LABEL_12:
-    RtlpLogHeapFailure(v15, *(_QWORD *)(a1 + 128), a3, 0LL, 0LL, 0LL);
+    RtlpLogHeapFailure(v15, SRWLock[16].Value, a3, 0LL, 0LL, 0LL);
     return v8;
   }
   if ( ((a3 ^ RtlpHpHeapGlobals ^ v5) & 0xFF000000000000LL) == 0 )
@@ -74,21 +71,21 @@ LABEL_12:
     v15 = 8;
     goto LABEL_12;
   }
-  v16 = RtlpHpVsChunkFree(a1, v14, a3, a4, a5);
+  v16 = RtlpHpVsChunkFree((__int64)SRWLock, v14, a3, a4, a5);
   if ( v16 )
   {
     if ( (a4 & 1) == 0 )
     {
-      RtlReleaseSRWLockExclusive(*(volatile signed __int64 **)(a5 + 8));
+      RtlReleaseSRWLockExclusive(*(PRTL_SRWLOCK *)(a5 + 8));
       *(_QWORD *)(a5 + 8) = 0LL;
     }
-    RtlpHpVsSubsegmentFree(a1, v16, a4);
+    RtlpHpVsSubsegmentFree((__int64)SRWLock, v16, a4);
     if ( (a4 & 1) == 0 )
     {
       *(_QWORD *)a5 = 0LL;
       *(_QWORD *)(a5 + 16) = 0LL;
-      *(_QWORD *)(a5 + 8) = a1;
-      RtlAcquireSRWLockExclusive(a1, v17, v18, v19);
+      *(_QWORD *)(a5 + 8) = SRWLock;
+      RtlAcquireSRWLockExclusive(SRWLock);
     }
   }
   return 1;

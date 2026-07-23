@@ -1,12 +1,12 @@
 /*
- * XREFs of CmpTestRegistryLock @ 0x1406680A4
+ * XREFs of CmpTestRegistryLock @ 0x140666994
  * Callers:
- *     CmpDoReOpenTransKey @ 0x1407E6EF4 (CmpDoReOpenTransKey.c)
- *     CmpLockRegistryExclusive @ 0x14087DD80 (CmpLockRegistryExclusive.c)
- *     CmpLockRegistry @ 0x140BB9E60 (CmpLockRegistry.c)
+ *     CmpDoReOpenTransKey @ 0x1407E74C4 (CmpDoReOpenTransKey.c)
+ *     CmpLockRegistryExclusive @ 0x140881C30 (CmpLockRegistryExclusive.c)
+ *     CmpLockRegistry @ 0x140BBBE60 (CmpLockRegistry.c)
  * Callees:
- *     ExIsResourceAcquiredSharedLite @ 0x140274B00 (ExIsResourceAcquiredSharedLite.c)
- *     CmpIsRegistryLockAcquired @ 0x14041EE80 (CmpIsRegistryLockAcquired.c)
+ *     ExIsResourceAcquiredSharedLite @ 0x14022A090 (ExIsResourceAcquiredSharedLite.c)
+ *     CmpIsRegistryLockAcquired @ 0x140414BC0 (CmpIsRegistryLockAcquired.c)
  */
 
 bool CmpTestRegistryLock()
@@ -15,7 +15,7 @@ bool CmpTestRegistryLock()
 
   if ( BYTE5(NlsMbOemCodePageTag) )
     return 1;
-  if ( dword_140EF6D28 )
+  if ( dword_140EF6F68 )
     IsRegistryLockAcquired = CmpIsRegistryLockAcquired();
   else
     IsRegistryLockAcquired = ExIsResourceAcquiredSharedLite(CmpRegistryLock);

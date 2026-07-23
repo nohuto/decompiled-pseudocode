@@ -1,18 +1,18 @@
 /*
- * XREFs of HvpRemapAndEnlistHiveBins @ 0x140514194
+ * XREFs of HvpRemapAndEnlistHiveBins @ 0x1404F7584
  * Callers:
- *     HvLoadHive @ 0x14047ECF8 (HvLoadHive.c)
+ *     HvLoadHive @ 0x14047DA4C (HvLoadHive.c)
  * Callees:
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
- *     memmove @ 0x140171280 (memmove.c)
- *     HvpFreeMap @ 0x1404EA6E8 (HvpFreeMap.c)
- *     HvpMarkDirty @ 0x1405137E0 (HvpMarkDirty.c)
- *     HvpPointMapEntriesToBuffer @ 0x140513AF8 (HvpPointMapEntriesToBuffer.c)
- *     HvpGetCellMap @ 0x140513BC0 (HvpGetCellMap.c)
- *     HvpAllocateBin @ 0x140513E48 (HvpAllocateBin.c)
- *     HvpValidateLoadedBin @ 0x140513FA8 (HvpValidateLoadedBin.c)
- *     HvpEnlistBinInMap @ 0x140513FE0 (HvpEnlistBinInMap.c)
- *     HvpFreeBin @ 0x14051450C (HvpFreeBin.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
+ *     memmove @ 0x140171780 (memmove.c)
+ *     HvpFreeMap @ 0x1404CC7DC (HvpFreeMap.c)
+ *     HvpMarkDirty @ 0x1404F6BD0 (HvpMarkDirty.c)
+ *     HvpPointMapEntriesToBuffer @ 0x1404F6EE8 (HvpPointMapEntriesToBuffer.c)
+ *     HvpGetCellMap @ 0x1404F6FB0 (HvpGetCellMap.c)
+ *     HvpAllocateBin @ 0x1404F7238 (HvpAllocateBin.c)
+ *     HvpValidateLoadedBin @ 0x1404F7398 (HvpValidateLoadedBin.c)
+ *     HvpEnlistBinInMap @ 0x1404F73D0 (HvpEnlistBinInMap.c)
+ *     HvpFreeBin @ 0x1404F78FC (HvpFreeBin.c)
  */
 
 __int64 __fastcall HvpRemapAndEnlistHiveBins(ULONG_PTR BugCheckParameter2)

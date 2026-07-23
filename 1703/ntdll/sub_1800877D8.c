@@ -6,10 +6,10 @@
  *     RtlAcquireSRWLockExclusive @ 0x180028EC0 (RtlAcquireSRWLockExclusive.c)
  */
 
-signed __int64 __fastcall sub_1800877D8(_QWORD *a1)
+void __fastcall sub_1800877D8(_QWORD *a1)
 {
   __int64 v1; // rbx
-  unsigned int NumberOfProcessors; // esi
+  ULONG NumberOfProcessors; // esi
   __int64 v4; // rcx
   __int64 v5; // rax
   __int64 *v6; // rax
@@ -18,7 +18,7 @@ signed __int64 __fastcall sub_1800877D8(_QWORD *a1)
   if ( (v1 & 0x2FFFFFF) == 0x2000000 )
     v1 |= 0x7D0uLL;
   NumberOfProcessors = NtCurrentPeb()->NumberOfProcessors;
-  RtlAcquireSRWLockExclusive(&qword_18015C1F8);
+  RtlAcquireSRWLockExclusive(&stru_18015C1F8);
   v4 = *a1 + 16LL;
   if ( !*(_QWORD *)v4 )
   {
@@ -34,5 +34,5 @@ signed __int64 __fastcall sub_1800877D8(_QWORD *a1)
     *v6 = v4;
     off_180155628[0] = (_UNKNOWN *)v4;
   }
-  return RtlReleaseSRWLockExclusive(&qword_18015C1F8);
+  RtlReleaseSRWLockExclusive(&stru_18015C1F8);
 }

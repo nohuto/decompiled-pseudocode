@@ -1,17 +1,17 @@
 /*
- * XREFs of PpmEndHighPerfRequest @ 0x14036EAF0
+ * XREFs of PpmEndHighPerfRequest @ 0x14036EC90
  * Callers:
  *     PopSwitchUpdateUserShutdownScenarioState @ 0x1406822E8 (PopSwitchUpdateUserShutdownScenarioState.c)
- *     PopSetupHighPerfPowerRequest @ 0x140822924 (PopSetupHighPerfPowerRequest.c)
- *     PopIssueActionRequest @ 0x140989CA4 (PopIssueActionRequest.c)
- *     PoClearBroadcast @ 0x14098BB8C (PoClearBroadcast.c)
- *     PdcPoPerfOverride @ 0x1409979A8 (PdcPoPerfOverride.c)
+ *     PopSetupHighPerfPowerRequest @ 0x140822C24 (PopSetupHighPerfPowerRequest.c)
+ *     PopIssueActionRequest @ 0x140989EA4 (PopIssueActionRequest.c)
+ *     PoClearBroadcast @ 0x14098BD8C (PoClearBroadcast.c)
+ *     PdcPoPerfOverride @ 0x140997BA8 (PdcPoPerfOverride.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250E80 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiSetTimerEx @ 0x140252820 (KiSetTimerEx.c)
- *     PopPowerRequestReferenceRelease @ 0x14032B428 (PopPowerRequestReferenceRelease.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140250F40 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiSetTimerEx @ 0x1402528E0 (KiSetTimerEx.c)
+ *     PopPowerRequestReferenceRelease @ 0x14032B6B8 (PopPowerRequestReferenceRelease.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall PpmEndHighPerfRequest(int a1)
@@ -44,10 +44,10 @@ __int64 __fastcall PpmEndHighPerfRequest(int a1)
     KiSetTimerEx((__int64)&PpmHighPerfEndTimer, MEMORY[0xFFFFF78000000008] - v4, 0, 0, (__int64)&PpmHighPerfEndDpc);
   }
   result = KxReleaseSpinLock((volatile signed __int64 *)&PpmHighPerfRequestLock);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     result = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
       && (unsigned __int8)result <= 0xFu
       && (unsigned __int8)v2 <= 0xFu
       && (unsigned __int8)result >= 2u )

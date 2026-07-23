@@ -26,28 +26,29 @@
  *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x180174020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
  */
 
-__int64 __fastcall RtlRunOnceExecuteOnce(
-        volatile signed __int64 *a1,
-        unsigned int (__fastcall *a2)(volatile signed __int64 *, __int64, unsigned __int64 *),
-        __int64 a3,
-        unsigned __int64 *a4)
+NTSTATUS __cdecl RtlRunOnceExecuteOnce(
+        PRTL_RUN_ONCE RunOnce,
+        PRTL_RUN_ONCE_INIT_FN InitFn,
+        PVOID Parameter,
+        PVOID *Context)
 {
-  signed __int64 v4; // rax
+  signed __int64 Value; // rax
   char v6; // cl
   signed __int64 v10; // rcx
   signed __int64 v11; // rcx
-  unsigned int v12; // esi
-  int v13; // ebx
-  char v15[24]; // [rsp+20h] [rbp-18h] BYREF
+  NTSTATUS v12; // esi
+  PVOID v13; // r8
+  int v14; // ebx
+  char v16[24]; // [rsp+20h] [rbp-18h] BYREF
 
-  v4 = *a1;
-  v6 = *a1;
-  v15[0] = 0;
+  Value = RunOnce->Value;
+  v6 = RunOnce->Value;
+  v16[0] = 0;
   if ( (v6 & 3) == 2 )
   {
-LABEL_7:
-    if ( a4 )
-      *a4 = v4 & 0xFFFFFFFFFFFFFFFCuLL;
+LABEL_9:
+    if ( Context )
+      *Context = (PVOID)(Value & 0xFFFFFFFFFFFFFFFCuLL);
     return 0;
   }
   else
@@ -56,39 +57,46 @@ LABEL_7:
     {
       while ( 1 )
       {
-        v10 = v4 & 3;
-        if ( (v4 & 3) == 0 )
+        v10 = Value & 3;
+        if ( (Value & 3) == 0 )
           break;
         if ( v10 != 1 )
         {
           if ( v10 != 3 )
-            goto LABEL_7;
-          v13 = -1073741584;
-          goto LABEL_14;
+            goto LABEL_9;
+          v14 = -1073741584;
+          goto LABEL_16;
         }
-        v4 = RtlpRunOnceWaitForInit(v4, a1);
+        Value = RtlpRunOnceWaitForInit(Value, (volatile signed __int64 *)RunOnce);
       }
-      v11 = v4;
-      v4 = _InterlockedCompareExchange64(a1, 1LL, v4);
+      v11 = Value;
+      Value = _InterlockedCompareExchange64((volatile signed __int64 *)RunOnce, 1LL, Value);
     }
-    while ( v4 != v11 );
-    if ( a2(a1, a3, a4) )
+    while ( Value != v11 );
+    if ( ((unsigned int (__fastcall *)(PRTL_RUN_ONCE, PVOID, PVOID *))InitFn)(RunOnce, Parameter, Context) )
     {
       v12 = 0;
-      v13 = RtlRunOnceComplete(a1, 0LL);
-      if ( v13 >= 0 )
-        return v12;
-      v15[0] = 1;
-      goto LABEL_14;
+      v13 = 0LL;
+      if ( Context )
+        v13 = *Context;
+      v14 = RtlRunOnceComplete(RunOnce, 0, v13);
+      if ( v14 < 0 )
+      {
+        v16[0] = 1;
+LABEL_16:
+        RtlReportCriticalFailure((unsigned int)v14, v16, 1LL);
+        return v14;
+      }
     }
-    v12 = -1073741823;
-    v13 = RtlRunOnceComplete(a1, 4LL);
-    if ( v13 < 0 )
+    else
     {
-      v15[0] = 2;
-LABEL_14:
-      RtlReportCriticalFailure((unsigned int)v13, v15, 1LL);
-      return (unsigned int)v13;
+      v12 = -1073741823;
+      v14 = RtlRunOnceComplete(RunOnce, 4u, 0LL);
+      if ( v14 < 0 )
+      {
+        v16[0] = 2;
+        goto LABEL_16;
+      }
     }
   }
   return v12;

@@ -6,14 +6,23 @@
  *     RtlpImageDirectoryEntryToDataEx @ 0x18003C720 (RtlpImageDirectoryEntryToDataEx.c)
  */
 
-__int64 __fastcall RtlImageDirectoryEntryToData(unsigned __int64 a1, char a2, unsigned __int16 a3, _DWORD *a4)
+PVOID __cdecl RtlImageDirectoryEntryToData(
+        PVOID BaseOfImage,
+        BOOLEAN MappedAsImage,
+        USHORT DirectoryEntry,
+        PULONG Size)
 {
-  int v4; // eax
-  __int64 v5; // rcx
-  _QWORD v7[3]; // [rsp+30h] [rbp-18h] BYREF
+  NTSTATUS v4; // eax
+  void *v5; // rcx
+  void *OutHeaders; // [rsp+30h] [rbp-18h] BYREF
 
-  v4 = RtlpImageDirectoryEntryToDataEx(a1, a2, a3, a4, (__int64)v7);
-  v5 = v7[0];
+  v4 = RtlpImageDirectoryEntryToDataEx(
+         (unsigned __int64)BaseOfImage,
+         MappedAsImage,
+         DirectoryEntry,
+         Size,
+         (PIMAGE_NT_HEADERS)&OutHeaders);
+  v5 = OutHeaders;
   if ( v4 < 0 )
     return 0LL;
   return v5;

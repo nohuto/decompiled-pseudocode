@@ -1,15 +1,15 @@
 /*
- * XREFs of PopDirectedDripsClearDisengageReason @ 0x140483348
+ * XREFs of PopDirectedDripsClearDisengageReason @ 0x14047CCB8
  * Callers:
- *     PnpRemoveDeviceActionRequests @ 0x1404822A4 (PnpRemoveDeviceActionRequests.c)
- *     PnpDeviceActionWorker @ 0x140482AA0 (PnpDeviceActionWorker.c)
- *     PnpRemoveDeviceActionRequestFromQueue @ 0x1405DB7F8 (PnpRemoveDeviceActionRequestFromQueue.c)
- *     PopDirectedDripsDisengageTimerCallback @ 0x140603B10 (PopDirectedDripsDisengageTimerCallback.c)
- *     PopPowerAggregatorEngageModernStandby @ 0x1407D683C (PopPowerAggregatorEngageModernStandby.c)
- *     PopDripsWatchdogCallbackWorker @ 0x1407DE0A0 (PopDripsWatchdogCallbackWorker.c)
- *     PopDirectedDripsNotify @ 0x140B08694 (PopDirectedDripsNotify.c)
+ *     PnpRemoveDeviceActionRequests @ 0x14047BC14 (PnpRemoveDeviceActionRequests.c)
+ *     PnpDeviceActionWorker @ 0x14047C410 (PnpDeviceActionWorker.c)
+ *     PnpRemoveDeviceActionRequestFromQueue @ 0x1405DE0A8 (PnpRemoveDeviceActionRequestFromQueue.c)
+ *     PopDirectedDripsDisengageTimerCallback @ 0x1406065C0 (PopDirectedDripsDisengageTimerCallback.c)
+ *     PopPowerAggregatorEngageModernStandby @ 0x1407D99CC (PopPowerAggregatorEngageModernStandby.c)
+ *     PopDripsWatchdogCallbackWorker @ 0x1407E2720 (PopDripsWatchdogCallbackWorker.c)
+ *     PopDirectedDripsNotify @ 0x140B0A610 (PopDirectedDripsNotify.c)
  * Callees:
- *     PopQueueDirectedDripsWork @ 0x140483414 (PopQueueDirectedDripsWork.c)
+ *     PopQueueDirectedDripsWork @ 0x14047CD84 (PopQueueDirectedDripsWork.c)
  */
 
 __int64 __fastcall PopDirectedDripsClearDisengageReason(char a1)
@@ -21,15 +21,15 @@ __int64 __fastcall PopDirectedDripsClearDisengageReason(char a1)
   int v5; // ett
 
   v1 = 1 << a1;
-  _m_prefetchw(dword_140F12B58);
-  v2 = _InterlockedAnd(dword_140F12B58, ~(1 << a1));
-  _m_prefetchw(dword_140F12AC0);
-  LODWORD(result) = dword_140F12AC0[0];
+  _m_prefetchw(&dword_140F12E98);
+  v2 = _InterlockedAnd(&dword_140F12E98, ~(1 << a1));
+  _m_prefetchw(&PopDirectedDripsState);
+  LODWORD(result) = PopDirectedDripsState;
   do
   {
     v4 = (unsigned int)result;
     v5 = result;
-    result = (unsigned int)_InterlockedCompareExchange(dword_140F12AC0, result, result);
+    result = (unsigned int)_InterlockedCompareExchange(&PopDirectedDripsState, result, result);
   }
   while ( v5 != (_DWORD)result );
   if ( (result & 1) != 0 && (v2 & v1) != 0 )

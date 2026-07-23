@@ -1,7 +1,7 @@
 /*
- * XREFs of MiGenerateCompatibleWorkingSetRequestFlags @ 0x1404E1974
+ * XREFs of MiGenerateCompatibleWorkingSetRequestFlags @ 0x1404DB054
  * Callers:
- *     MiLogProcessWorkingSetsStart @ 0x1404E17A4 (MiLogProcessWorkingSetsStart.c)
+ *     MiLogProcessWorkingSetsStart @ 0x1404DAE84 (MiLogProcessWorkingSetsStart.c)
  * Callees:
  *     <none>
  */

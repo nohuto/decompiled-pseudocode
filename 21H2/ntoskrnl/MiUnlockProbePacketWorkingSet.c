@@ -1,16 +1,16 @@
 /*
- * XREFs of MiUnlockProbePacketWorkingSet @ 0x1402B7B00
+ * XREFs of MiUnlockProbePacketWorkingSet @ 0x140235CE0
  * Callers:
- *     MiProbeAndLockPages @ 0x14020A860 (MiProbeAndLockPages.c)
- *     MiProbeLeafPteAccess @ 0x14020B6F0 (MiProbeLeafPteAccess.c)
- *     MmProbeAndLockSelectedPages @ 0x1402B7460 (MmProbeAndLockSelectedPages.c)
- *     MiProbeAndLockComplete @ 0x1402B76D0 (MiProbeAndLockComplete.c)
- *     MmStoreProbeAndLockPages @ 0x1402B7720 (MmStoreProbeAndLockPages.c)
- *     MiFaultInProbeAddress @ 0x1402B7988 (MiFaultInProbeAddress.c)
- *     MiSplitReducedCommitClonePage @ 0x140530D94 (MiSplitReducedCommitClonePage.c)
+ *     MmProbeAndLockSelectedPages @ 0x140235640 (MmProbeAndLockSelectedPages.c)
+ *     MiProbeAndLockComplete @ 0x1402358B0 (MiProbeAndLockComplete.c)
+ *     MmStoreProbeAndLockPages @ 0x140235900 (MmStoreProbeAndLockPages.c)
+ *     MiFaultInProbeAddress @ 0x140235B68 (MiFaultInProbeAddress.c)
+ *     MiProbeAndLockPages @ 0x1402AF160 (MiProbeAndLockPages.c)
+ *     MiProbeLeafPteAccess @ 0x1402AFFF0 (MiProbeLeafPteAccess.c)
+ *     MiSplitReducedCommitClonePage @ 0x140530FD4 (MiSplitReducedCommitClonePage.c)
  * Callees:
- *     MiUnlockWorkingSetShared @ 0x14020F790 (MiUnlockWorkingSetShared.c)
- *     MiUnlockPageTableInternal @ 0x1402855F0 (MiUnlockPageTableInternal.c)
+ *     MiUnlockPageTableInternal @ 0x140202790 (MiUnlockPageTableInternal.c)
+ *     MiUnlockWorkingSetShared @ 0x1402B4090 (MiUnlockWorkingSetShared.c)
  */
 
 __int64 __fastcall MiUnlockProbePacketWorkingSet(__int64 a1)
@@ -23,5 +23,6 @@ __int64 __fastcall MiUnlockProbePacketWorkingSet(__int64 a1)
     MiUnlockPageTableInternal(*(_QWORD *)(a1 + 96), v1);
     *(_QWORD *)(a1 + 32) = 0LL;
   }
-  return MiUnlockWorkingSetShared(*(_QWORD *)(a1 + 96), *(_BYTE *)(a1 + 68));
+  LOBYTE(v1) = *(_BYTE *)(a1 + 68);
+  return MiUnlockWorkingSetShared(*(_QWORD *)(a1 + 96), v1);
 }

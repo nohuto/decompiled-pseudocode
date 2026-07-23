@@ -1,8 +1,8 @@
 /*
- * XREFs of RtlHashBytes2 @ 0x1404331E0
+ * XREFs of RtlHashBytes2 @ 0x140425320
  * Callers:
- *     MiFindUserSidHotPatchContext @ 0x1407F279C (MiFindUserSidHotPatchContext.c)
- *     MiLoadHotPatchForUserSid @ 0x140A9F6C0 (MiLoadHotPatchForUserSid.c)
+ *     MiFindUserSidHotPatchContext @ 0x1407F2D6C (MiFindUserSidHotPatchContext.c)
+ *     MiLoadHotPatchForUserSid @ 0x140A9AA90 (MiLoadHotPatchForUserSid.c)
  * Callees:
  *     <none>
  */

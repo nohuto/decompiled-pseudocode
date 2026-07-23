@@ -1,13 +1,13 @@
 /*
- * XREFs of AlpcpStartInitialization @ 0x1409BC4D8
+ * XREFs of AlpcpStartInitialization @ 0x14098D4B8
  * Callers:
- *     AlpcpCreateSection @ 0x1409BB8D8 (AlpcpCreateSection.c)
- *     AlpcpCreateReserve @ 0x1409BC024 (AlpcpCreateReserve.c)
- *     AlpcpCreateSecurityContext @ 0x1409BC550 (AlpcpCreateSecurityContext.c)
+ *     AlpcpCreateSection @ 0x14098C8B8 (AlpcpCreateSection.c)
+ *     AlpcpCreateReserve @ 0x14098D004 (AlpcpCreateReserve.c)
+ *     AlpcpCreateSecurityContext @ 0x14098D530 (AlpcpCreateSecurityContext.c)
  * Callees:
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
  */
 
 void __fastcall AlpcpStartInitialization(__int64 a1, __int64 a2, __int64 a3, struct _KLOCK_ENTRIES *a4)

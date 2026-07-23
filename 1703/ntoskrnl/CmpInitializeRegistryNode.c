@@ -38,7 +38,7 @@ NTSTATUS __fastcall CmpInitializeRegistryNode(__int64 a1, void *a2, HANDLE *a3, 
   ULONG Disposition; // [rsp+48h] [rbp-99h] BYREF
   UNICODE_STRING ValueName; // [rsp+50h] [rbp-91h] BYREF
   UNICODE_STRING v24; // [rsp+60h] [rbp-81h] BYREF
-  STRING DestinationString; // [rsp+70h] [rbp-71h] BYREF
+  _STRING DestinationString; // [rsp+70h] [rbp-71h] BYREF
   UNICODE_STRING UnicodeString; // [rsp+80h] [rbp-61h] BYREF
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+90h] [rbp-51h] BYREF
   CHAR String[16]; // [rsp+C0h] [rbp-21h] BYREF

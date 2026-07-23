@@ -1,11 +1,11 @@
 /*
- * XREFs of PnprIsProcessorDevice @ 0x1409663F8
+ * XREFs of PnprIsProcessorDevice @ 0x1409665F8
  * Callers:
- *     PnprAddDeviceResources @ 0x140965550 (PnprAddDeviceResources.c)
+ *     PnprAddDeviceResources @ 0x140965750 (PnprAddDeviceResources.c)
  * Callees:
- *     HalGetProcessorIdByNtNumber @ 0x140384B00 (HalGetProcessorIdByNtNumber.c)
+ *     HalGetProcessorIdByNtNumber @ 0x140384CE0 (HalGetProcessorIdByNtNumber.c)
  *     IoGetDeviceInterfaces @ 0x1406878A0 (IoGetDeviceInterfaces.c)
- *     IoGetDevicePropertyData @ 0x140790FE0 (IoGetDevicePropertyData.c)
+ *     IoGetDevicePropertyData @ 0x1407911D0 (IoGetDevicePropertyData.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

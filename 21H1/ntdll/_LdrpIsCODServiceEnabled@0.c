@@ -10,21 +10,21 @@
 bool __stdcall LdrpIsCODServiceEnabled()
 {
   bool v0; // bl
-  _DWORD v2[6]; // [esp+4h] [ebp-24h] BYREF
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [esp+4h] [ebp-24h] BYREF
   _DWORD v3[2]; // [esp+1Ch] [ebp-Ch] BYREF
-  HANDLE Handle; // [esp+24h] [ebp-4h] BYREF
+  HANDLE KeyHandle; // [esp+24h] [ebp-4h] BYREF
 
   v3[0] = 13500620;
-  Handle = 0;
-  v2[2] = v3;
+  KeyHandle = 0;
+  ObjectAttributes.ObjectName = (PUNICODE_STRING)v3;
   v3[1] = L"\\Registry\\Machine\\Software\\Microsoft\\Windows NT\\CurrentVersion\\AppCompatFlags\\Compatibility Assistant\\";
-  v2[0] = 24;
-  v2[1] = 0;
-  v2[3] = 64;
-  v2[4] = 0;
-  v2[5] = 0;
-  v0 = ZwOpenKeyEx((int)&Handle, 131353, (int)v2, 0) >= 0;
-  if ( Handle )
-    NtClose(Handle);
+  ObjectAttributes.Length = 24;
+  ObjectAttributes.RootDirectory = 0;
+  ObjectAttributes.Attributes = 64;
+  ObjectAttributes.SecurityDescriptor = 0;
+  ObjectAttributes.SecurityQualityOfService = 0;
+  v0 = ZwOpenKeyEx(&KeyHandle, 0x20119u, &ObjectAttributes, 0) >= 0;
+  if ( KeyHandle )
+    NtClose(KeyHandle);
   return v0;
 }

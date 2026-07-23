@@ -22,7 +22,7 @@ struct _EX_RUNDOWN_REF *__fastcall ExpWnfEnumerateScopeInstances(unsigned int a1
   __int64 v6; // rdx
   unsigned __int64 *v7; // rdi
   struct _EX_RUNDOWN_REF **v8; // r14
-  __int64 v9; // rbx
+  PRTL_BALANCED_NODE v9; // rbx
   struct _EX_RUNDOWN_REF *Count; // rbx
   __int64 HostSilo; // rax
 
@@ -46,7 +46,7 @@ struct _EX_RUNDOWN_REF *__fastcall ExpWnfEnumerateScopeInstances(unsigned int a1
   if ( _InterlockedCompareExchange64((volatile signed __int64 *)v7, 17LL, 0LL) )
     ExfAcquirePushLockSharedEx(v7, v9, (ULONG_PTR)v7);
   if ( v9 )
-    *(_BYTE *)(v9 + 26) |= 1u;
+    BYTE2(v9[1].Left) |= 1u;
   if ( a2 )
     Count = (struct _EX_RUNDOWN_REF *)a2[4].Count;
   else

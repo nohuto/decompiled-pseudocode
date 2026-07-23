@@ -1,28 +1,28 @@
 /*
- * XREFs of PopFxUnregisterDevice @ 0x1407B4F70
+ * XREFs of PopFxUnregisterDevice @ 0x1407B46BC
  * Callers:
- *     PopFxUnregisterDeviceOrWait @ 0x140736750 (PopFxUnregisterDeviceOrWait.c)
- *     PoFxUnregisterDevice @ 0x1407D5160 (PoFxUnregisterDevice.c)
+ *     PopFxUnregisterDeviceOrWait @ 0x140736910 (PopFxUnregisterDeviceOrWait.c)
+ *     PoFxUnregisterDevice @ 0x1407D52D0 (PoFxUnregisterDevice.c)
  * Callees:
- *     EtwEventEnabled @ 0x14021BF30 (EtwEventEnabled.c)
- *     EtwWrite @ 0x14025DC90 (EtwWrite.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14025FAE0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     PopFxAddLogEntry @ 0x140260CB4 (PopFxAddLogEntry.c)
- *     PoFxActivateComponent @ 0x1402627E0 (PoFxActivateComponent.c)
- *     KeSetEvent @ 0x1403435A0 (KeSetEvent.c)
- *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
- *     IoReleaseRemoveLockAndWaitEx @ 0x14039AE40 (IoReleaseRemoveLockAndWaitEx.c)
- *     PopFxAssignDeviceToDevNode @ 0x1403BECA4 (PopFxAssignDeviceToDevNode.c)
- *     PopFxRemoveDevice @ 0x1403BF3FC (PopFxRemoveDevice.c)
- *     PopFxDestroyDeviceDpm @ 0x1403CD618 (PopFxDestroyDeviceDpm.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     PopPluginUnregisterDevice @ 0x14056E0FC (PopPluginUnregisterDevice.c)
- *     PopPlCalculateDevicePowerDraw @ 0x14057E364 (PopPlCalculateDevicePowerDraw.c)
- *     PopPlLockPowerPlane @ 0x14057E4B0 (PopPlLockPowerPlane.c)
- *     PopPlPublishSystemPowerChange @ 0x14057E778 (PopPlPublishSystemPowerChange.c)
- *     PopPlUnlockPowerPlane @ 0x14057EF40 (PopPlUnlockPowerPlane.c)
- *     PopPepUnregisterDevice @ 0x1407B52D0 (PopPepUnregisterDevice.c)
- *     PopPlUnregisterComponent @ 0x1408F9ACC (PopPlUnregisterComponent.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14027E1A4 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     EtwWrite @ 0x14027F7C0 (EtwWrite.c)
+ *     PopFxAddLogEntry @ 0x140282184 (PopFxAddLogEntry.c)
+ *     PoFxActivateComponent @ 0x140283CB0 (PoFxActivateComponent.c)
+ *     EtwEventEnabled @ 0x1402C0830 (EtwEventEnabled.c)
+ *     KeSetEvent @ 0x14034E2F0 (KeSetEvent.c)
+ *     KeWaitForSingleObject @ 0x1403504C0 (KeWaitForSingleObject.c)
+ *     IoReleaseRemoveLockAndWaitEx @ 0x14039AF90 (IoReleaseRemoveLockAndWaitEx.c)
+ *     PopFxAssignDeviceToDevNode @ 0x1403BE604 (PopFxAssignDeviceToDevNode.c)
+ *     PopFxRemoveDevice @ 0x1403BF014 (PopFxRemoveDevice.c)
+ *     PopFxDestroyDeviceDpm @ 0x1403CD788 (PopFxDestroyDeviceDpm.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     PopPluginUnregisterDevice @ 0x14056E33C (PopPluginUnregisterDevice.c)
+ *     PopPlCalculateDevicePowerDraw @ 0x14057E5A4 (PopPlCalculateDevicePowerDraw.c)
+ *     PopPlLockPowerPlane @ 0x14057E6F0 (PopPlLockPowerPlane.c)
+ *     PopPlPublishSystemPowerChange @ 0x14057E9B8 (PopPlPublishSystemPowerChange.c)
+ *     PopPlUnlockPowerPlane @ 0x14057F180 (PopPlUnlockPowerPlane.c)
+ *     PopPepUnregisterDevice @ 0x1407B4A1C (PopPepUnregisterDevice.c)
+ *     PopPlUnregisterComponent @ 0x1408F9C2C (PopPlUnregisterComponent.c)
  */
 
 __int64 __fastcall PopFxUnregisterDevice(ULONG_PTR BugCheckParameter2)
@@ -155,7 +155,7 @@ __int64 __fastcall PopFxUnregisterDevice(ULONG_PTR BugCheckParameter2)
       v42 = 4LL;
       tlgWriteTransfer_EtwWriteTransfer(
         (__int64)&dword_140C02228,
-        (unsigned __int8 *)&dword_14002A494,
+        (unsigned __int8 *)byte_14002A405,
         0LL,
         0LL,
         9u,

@@ -6,21 +6,21 @@
  *     <none>
  */
 
-char __fastcall RtlIsElevatedRid(_BYTE *a1)
+BOOLEAN __cdecl RtlIsElevatedRid(PSID_AND_ATTRIBUTES SidAttr)
 {
   int v1; // edx
-  __int64 v2; // r8
+  _DWORD *Sid; // r8
   _DWORD *i; // rax
 
   v1 = 0;
-  if ( !a1 )
+  if ( !SidAttr )
     return 0;
-  if ( (a1[8] & 0x30) != 0 )
+  if ( (SidAttr->Attributes & 0x30) != 0 )
     return 0;
-  v2 = *(_QWORD *)a1;
-  if ( !*(_BYTE *)(*(_QWORD *)a1 + 1LL) || (unsigned int)(*(_DWORD *)(v2 + 8) - 80) <= 0x1F )
+  Sid = SidAttr->Sid;
+  if ( !*((_BYTE *)SidAttr->Sid + 1) || (unsigned int)(Sid[2] - 80) <= 0x1F )
     return 0;
-  for ( i = &unk_180146300; *(_DWORD *)(v2 + 4LL * ((unsigned int)*(unsigned __int8 *)(v2 + 1) - 1) + 8) != *i; ++i )
+  for ( i = &unk_180146300; Sid[*((unsigned __int8 *)Sid + 1) + 1] != *i; ++i )
   {
     if ( (unsigned int)++v1 >= 0x13 )
       return 0;

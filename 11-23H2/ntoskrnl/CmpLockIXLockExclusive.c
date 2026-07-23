@@ -1,16 +1,16 @@
 /*
- * XREFs of CmpLockIXLockExclusive @ 0x14076AF0C
+ * XREFs of CmpLockIXLockExclusive @ 0x14076B0FC
  * Callers:
  *     CmpUndoDeleteKeyForTransEx @ 0x140680518 (CmpUndoDeleteKeyForTransEx.c)
- *     CmpCreateChild @ 0x1406D0F70 (CmpCreateChild.c)
- *     CmSetValueKey @ 0x1406D3240 (CmSetValueKey.c)
- *     CmpSetKeySecurity @ 0x14070C3BC (CmpSetKeySecurity.c)
- *     CmDeleteValueKey @ 0x14070EF24 (CmDeleteValueKey.c)
- *     CmDeleteKey @ 0x14070FFEC (CmDeleteKey.c)
- *     CmSetKeyFlags @ 0x140A159B4 (CmSetKeyFlags.c)
- *     CmSetLastWriteTimeKey @ 0x140A15EE8 (CmSetLastWriteTimeKey.c)
+ *     CmpCreateChild @ 0x1406D0FA0 (CmpCreateChild.c)
+ *     CmSetValueKey @ 0x1406D3270 (CmSetValueKey.c)
+ *     CmpSetKeySecurity @ 0x14070C5CC (CmpSetKeySecurity.c)
+ *     CmDeleteValueKey @ 0x14070F134 (CmDeleteValueKey.c)
+ *     CmDeleteKey @ 0x1407101FC (CmDeleteKey.c)
+ *     CmSetKeyFlags @ 0x140A15C64 (CmSetKeyFlags.c)
+ *     CmSetLastWriteTimeKey @ 0x140A16198 (CmSetLastWriteTimeKey.c)
  * Callees:
- *     CmEqualTrans @ 0x1407691C0 (CmEqualTrans.c)
+ *     CmEqualTrans @ 0x1407693B0 (CmEqualTrans.c)
  */
 
 char __fastcall CmpLockIXLockExclusive(__int64 a1, _QWORD *a2, int a3)

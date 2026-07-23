@@ -1,23 +1,23 @@
 /*
- * XREFs of MiCopyPfnEntryEx @ 0x1402247E0
+ * XREFs of MiCopyPfnEntryEx @ 0x140251B90
  * Callers:
- *     MiReplaceTransitionPage @ 0x140224B14 (MiReplaceTransitionPage.c)
- *     MiStealPage @ 0x1402263B0 (MiStealPage.c)
- *     MiMigratePfn @ 0x14022C0A0 (MiMigratePfn.c)
- *     MiReplacePageTablePage @ 0x140311CD4 (MiReplacePageTablePage.c)
- *     MiCombineInitialInstance @ 0x14036C3E0 (MiCombineInitialInstance.c)
- *     MiSwapHardFaultPage @ 0x140394570 (MiSwapHardFaultPage.c)
- *     MiSwapNumaStandbyPage @ 0x14039474C (MiSwapNumaStandbyPage.c)
- *     MiTradeActivePage @ 0x1403A0758 (MiTradeActivePage.c)
- *     MiSwapStackPageNoDpc @ 0x1404307F4 (MiSwapStackPageNoDpc.c)
- *     MiSplitDirectMapPage @ 0x1404D14D0 (MiSplitDirectMapPage.c)
- *     MiSwitchKstackPages @ 0x140675564 (MiSwitchKstackPages.c)
- *     MiTradeBootImagePage @ 0x140C5BB90 (MiTradeBootImagePage.c)
+ *     MiTradeActivePage @ 0x1402172BC (MiTradeActivePage.c)
+ *     MiReplaceTransitionPage @ 0x140251EC4 (MiReplaceTransitionPage.c)
+ *     MiStealPage @ 0x140253D10 (MiStealPage.c)
+ *     MiCombineInitialInstance @ 0x140294F94 (MiCombineInitialInstance.c)
+ *     MiMigratePfn @ 0x1402FF9B0 (MiMigratePfn.c)
+ *     MiSwapHardFaultPage @ 0x14038DB8C (MiSwapHardFaultPage.c)
+ *     MiReplacePageTablePage @ 0x1403F2DE8 (MiReplacePageTablePage.c)
+ *     MiSwapNumaStandbyPage @ 0x1403F7A6C (MiSwapNumaStandbyPage.c)
+ *     MiSwapStackPageNoDpc @ 0x1404221A4 (MiSwapStackPageNoDpc.c)
+ *     MiSplitDirectMapPage @ 0x1404CA510 (MiSplitDirectMapPage.c)
+ *     MiSwitchKstackPages @ 0x140676734 (MiSwitchKstackPages.c)
+ *     MiTradeBootImagePage @ 0x140C5DD20 (MiTradeBootImagePage.c)
  * Callees:
- *     MiIsFreeZeroPfnCold @ 0x14022418C (MiIsFreeZeroPfnCold.c)
- *     MiPfnIsActivePageTable @ 0x140224A0C (MiPfnIsActivePageTable.c)
- *     MiSetNonResidentPteHeat @ 0x140224A40 (MiSetNonResidentPteHeat.c)
- *     MiUpdatePageFileHighInPte @ 0x140368F40 (MiUpdatePageFileHighInPte.c)
+ *     MiIsFreeZeroPfnCold @ 0x140250EDC (MiIsFreeZeroPfnCold.c)
+ *     MiPfnIsActivePageTable @ 0x140251DBC (MiPfnIsActivePageTable.c)
+ *     MiSetNonResidentPteHeat @ 0x140251DF0 (MiSetNonResidentPteHeat.c)
+ *     MiUpdatePageFileHighInPte @ 0x1402EACE0 (MiUpdatePageFileHighInPte.c)
  */
 
 __int128 *__fastcall MiCopyPfnEntryEx(__int64 a1, __int64 a2)
@@ -97,11 +97,11 @@ __int128 *__fastcall MiCopyPfnEntryEx(__int64 a1, __int64 a2)
   v9 = 1023LL;
   *((_QWORD *)&v19 + 1) = v8;
   if ( (((unsigned __int16)(*(_QWORD *)(a1 + 40) >> 43) ^ (unsigned __int16)(*(_QWORD *)(a2 + 40) >> 43)) & 0x3FF) != 0
-    && (*(_DWORD *)(*((_QWORD *)qword_140E2FF88 + ((*(_QWORD *)(a1 + 40) >> 43) & 0x3FFLL)) + 4LL) & 0x80u) == 0
-    && (*(_DWORD *)(*((_QWORD *)qword_140E2FF88 + ((*(_QWORD *)(a2 + 40) >> 43) & 0x3FFLL)) + 4LL) & 0x80u) == 0
+    && (*(_DWORD *)(*((_QWORD *)qword_140E300C8 + ((*(_QWORD *)(a1 + 40) >> 43) & 0x3FFLL)) + 4LL) & 0x80u) == 0
+    && (*(_DWORD *)(*((_QWORD *)qword_140E300C8 + ((*(_QWORD *)(a2 + 40) >> 43) & 0x3FFLL)) + 4LL) & 0x80u) == 0
     && (*(_DWORD *)(a2 + 16) & 0x400LL) == 0 )
   {
-    *(_QWORD *)&v18 = MiUpdatePageFileHighInPte(v18, 0LL, v5) & 0xFFFFFFFFFFFF0FFFuLL;
+    *(_QWORD *)&v18 = MiUpdatePageFileHighInPte(v18, 0LL) & 0xFFFFFFFFFFFF0FFFuLL;
   }
   if ( (BYTE2(v19) & 7) != 6 )
   {

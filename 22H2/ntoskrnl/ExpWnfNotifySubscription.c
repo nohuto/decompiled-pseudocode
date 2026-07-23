@@ -22,7 +22,7 @@ char __fastcall ExpWnfNotifySubscription(__int64 a1, __int64 a2, int a3, unsigne
 
   v4 = (unsigned __int64 *)(a1 + 112);
   v8 = 0LL;
-  v9 = KeAbPreAcquire(a1 + 112, 0LL, 0LL);
+  v9 = KeAbPreAcquire(a1 + 112, 0LL, 0);
   if ( _InterlockedCompareExchange64((volatile signed __int64 *)v4, 17LL, 0LL) )
     ExfAcquirePushLockSharedEx(v4, v9, (ULONG_PTR)v4);
   if ( v9 )

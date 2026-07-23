@@ -11,16 +11,16 @@
  *     _TppRaiseInvalidParameter@0 @ 0x4B3848BD (_TppRaiseInvalidParameter@0.c)
  */
 
-int __stdcall TpPostWork(int a1)
+void __cdecl TpPostWork(PTP_WORK Work)
 {
   char v1; // dl
 
-  if ( !a1
-    || !TppValidateCleanupGroupMember(a1, 0)
-    || *(int (__stdcall ***)(int))(a1 + 4) != TppWorkpCleanupGroupMemberVFuncs
+  if ( !Work
+    || !TppValidateCleanupGroupMember(Work, 0)
+    || *((int (__stdcall ***)(PVOID))Work + 1) != &TppWorkpCleanupGroupMemberVFuncs
     || NtCurrentPeb()->Ldr->ShutdownInProgress != v1 )
   {
     TppRaiseInvalidParameter();
   }
-  return TppWorkPost(a1);
+  TppWorkPost(Work);
 }

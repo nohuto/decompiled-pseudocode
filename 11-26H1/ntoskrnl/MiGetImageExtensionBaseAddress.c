@@ -1,8 +1,8 @@
 /*
- * XREFs of MiGetImageExtensionBaseAddress @ 0x140A883F4
+ * XREFs of MiGetImageExtensionBaseAddress @ 0x140A8F524
  * Callers:
- *     MiMapImageScpCfgPages @ 0x14036A450 (MiMapImageScpCfgPages.c)
- *     MiQueryImageExtensionInformation @ 0x1404E6410 (MiQueryImageExtensionInformation.c)
+ *     MiMapImageScpCfgPages @ 0x14036C1F0 (MiMapImageScpCfgPages.c)
+ *     MiQueryImageExtensionInformation @ 0x1404DF9B0 (MiQueryImageExtensionInformation.c)
  * Callees:
  *     <none>
  */

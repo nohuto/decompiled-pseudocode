@@ -1,14 +1,14 @@
 /*
- * XREFs of CmpPopulateKeyNodeStackFromKcbStack @ 0x14072A2C0
+ * XREFs of CmpPopulateKeyNodeStackFromKcbStack @ 0x14072A770
  * Callers:
- *     CmSaveKey @ 0x140728BCC (CmSaveKey.c)
- *     CmpStartKeyNodeStackFromKcbStack @ 0x1408766AC (CmpStartKeyNodeStackFromKcbStack.c)
- *     CmpSubtreeEnumeratorBeginForKcbStack @ 0x1408766F8 (CmpSubtreeEnumeratorBeginForKcbStack.c)
+ *     CmSaveKey @ 0x14072907C (CmSaveKey.c)
+ *     CmpStartKeyNodeStackFromKcbStack @ 0x14087680C (CmpStartKeyNodeStackFromKcbStack.c)
+ *     CmpSubtreeEnumeratorBeginForKcbStack @ 0x140876858 (CmpSubtreeEnumeratorBeginForKcbStack.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     CmpGetEffectiveKcbSemantics @ 0x1405EF510 (CmpGetEffectiveKcbSemantics.c)
- *     CmpGetKcbAtLayerHeight @ 0x1405EF550 (CmpGetKcbAtLayerHeight.c)
- *     CmpKeyNodeStackGetEntryAtLayerHeight @ 0x140699C98 (CmpKeyNodeStackGetEntryAtLayerHeight.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     CmpKeyNodeStackGetEntryAtLayerHeight @ 0x1405F8E58 (CmpKeyNodeStackGetEntryAtLayerHeight.c)
+ *     CmpGetEffectiveKcbSemantics @ 0x1406DEC70 (CmpGetEffectiveKcbSemantics.c)
+ *     CmpGetKcbAtLayerHeight @ 0x1406DECB0 (CmpGetKcbAtLayerHeight.c)
  */
 
 _UNKNOWN **__fastcall CmpPopulateKeyNodeStackFromKcbStack(__int64 a1, __int64 a2, __int64 a3)

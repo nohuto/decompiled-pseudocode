@@ -1,7 +1,7 @@
 /*
- * XREFs of KeQueryCycleTimeStatsProcessor @ 0x14047B760
+ * XREFs of KeQueryCycleTimeStatsProcessor @ 0x1404773E0
  * Callers:
- *     ExpQuerySystemInformation @ 0x140ADC240 (ExpQuerySystemInformation.c)
+ *     ExpQuerySystemInformation @ 0x140ADDAE0 (ExpQuerySystemInformation.c)
  * Callees:
  *     <none>
  */

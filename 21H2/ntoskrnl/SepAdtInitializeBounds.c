@@ -1,11 +1,11 @@
 /*
- * XREFs of SepAdtInitializeBounds @ 0x14079E224
+ * XREFs of SepAdtInitializeBounds @ 0x14079E424
  * Callers:
- *     SepAdtRegNotificationCallback @ 0x14079E1C0 (SepAdtRegNotificationCallback.c)
- *     SepAdtInitializeAuditingOptions @ 0x140A4BB0C (SepAdtInitializeAuditingOptions.c)
+ *     SepAdtRegNotificationCallback @ 0x14079E3C0 (SepAdtRegNotificationCallback.c)
+ *     SepAdtInitializeAuditingOptions @ 0x140A4CB0C (SepAdtInitializeAuditingOptions.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     SepRegQueryValue @ 0x140717098 (SepRegQueryValue.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     SepRegQueryValue @ 0x1406C56E8 (SepRegQueryValue.c)
  */
 
 void SepAdtInitializeBounds()

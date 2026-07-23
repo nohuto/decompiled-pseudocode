@@ -1,33 +1,33 @@
 /*
- * XREFs of CmpReorganizeHive @ 0x140720AB8
+ * XREFs of CmpReorganizeHive @ 0x1406F7F2C
  * Callers:
- *     CmpCreateHive @ 0x14071E618 (CmpCreateHive.c)
+ *     CmpCreateHive @ 0x1406F756C (CmpCreateHive.c)
  * Callees:
- *     CmSiFreeMemory @ 0x140201A30 (CmSiFreeMemory.c)
- *     CmpAllocateTransientPoolWithTag @ 0x140206F90 (CmpAllocateTransientPoolWithTag.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14025FAE0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgKeywordOn @ 0x1402605BC (_tlgKeywordOn.c)
- *     ExIsSoftBoot @ 0x14039B470 (ExIsSoftBoot.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     memset @ 0x140414200 (memset.c)
- *     CmpReleaseShutdownRundown @ 0x140655680 (CmpReleaseShutdownRundown.c)
- *     CmpAcquireShutdownRundown @ 0x140656AB0 (CmpAcquireShutdownRundown.c)
- *     HvUnlockHiveFlusherShared @ 0x14066628C (HvUnlockHiveFlusherShared.c)
- *     HvLockHiveFlusherShared @ 0x1406662C4 (HvLockHiveFlusherShared.c)
- *     CmpClearKeyAccessBits @ 0x1406A961C (CmpClearKeyAccessBits.c)
- *     HvMarkBaseBlockDirty @ 0x1406BCFEC (HvMarkBaseBlockDirty.c)
- *     CmpUnlockRegistry @ 0x1406F5ED0 (CmpUnlockRegistry.c)
- *     CmpLockRegistry @ 0x1406F5F10 (CmpLockRegistry.c)
- *     HvUnlockHiveWriter @ 0x140720A6C (HvUnlockHiveWriter.c)
- *     HvLockHiveWriter @ 0x140720A9C (HvLockHiveWriter.c)
- *     CmCheckRegistry @ 0x1407216C8 (CmCheckRegistry.c)
- *     CmpDestroyHive @ 0x140728F38 (CmpDestroyHive.c)
- *     CmpCopyKeyPartial @ 0x14076F88C (CmpCopyKeyPartial.c)
- *     CmpUpdateReorganizeRegistryValues @ 0x1407CEF8C (CmpUpdateReorganizeRegistryValues.c)
- *     CmpLogReorganizeEvent @ 0x14086B7CC (CmpLogReorganizeEvent.c)
- *     CmpCreateEmptyHiveClone @ 0x140872E48 (CmpCreateEmptyHiveClone.c)
- *     CmpSwapHiveStorage @ 0x14087310C (CmpSwapHiveStorage.c)
- *     CmpCopySyncTree @ 0x1408784E4 (CmpCopySyncTree.c)
+ *     CmSiFreeMemory @ 0x1402253C0 (CmSiFreeMemory.c)
+ *     CmpAllocateTransientPoolWithTag @ 0x14023EDD0 (CmpAllocateTransientPoolWithTag.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14027E1A4 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x1402864F4 (_tlgKeywordOn.c)
+ *     ExIsSoftBoot @ 0x14039B5C0 (ExIsSoftBoot.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     CmpClearKeyAccessBits @ 0x14060759C (CmpClearKeyAccessBits.c)
+ *     HvMarkBaseBlockDirty @ 0x14061C16C (HvMarkBaseBlockDirty.c)
+ *     CmpReleaseShutdownRundown @ 0x14064A4A0 (CmpReleaseShutdownRundown.c)
+ *     CmpAcquireShutdownRundown @ 0x14064B8D0 (CmpAcquireShutdownRundown.c)
+ *     HvUnlockHiveFlusherShared @ 0x14065B0AC (HvUnlockHiveFlusherShared.c)
+ *     HvLockHiveFlusherShared @ 0x14065B0E4 (HvLockHiveFlusherShared.c)
+ *     HvUnlockHiveWriter @ 0x1406F7EE0 (HvUnlockHiveWriter.c)
+ *     HvLockHiveWriter @ 0x1406F7F10 (HvLockHiveWriter.c)
+ *     CmCheckRegistry @ 0x1406F8F20 (CmCheckRegistry.c)
+ *     CmpUnlockRegistry @ 0x14070D2B0 (CmpUnlockRegistry.c)
+ *     CmpLockRegistry @ 0x14070D2F0 (CmpLockRegistry.c)
+ *     CmpDestroyHive @ 0x1407293E8 (CmpDestroyHive.c)
+ *     CmpCopyKeyPartial @ 0x14076FA4C (CmpCopyKeyPartial.c)
+ *     CmpUpdateReorganizeRegistryValues @ 0x1407CF0FC (CmpUpdateReorganizeRegistryValues.c)
+ *     CmpLogReorganizeEvent @ 0x14086B92C (CmpLogReorganizeEvent.c)
+ *     CmpCreateEmptyHiveClone @ 0x140872FA8 (CmpCreateEmptyHiveClone.c)
+ *     CmpSwapHiveStorage @ 0x14087326C (CmpSwapHiveStorage.c)
+ *     CmpCopySyncTree @ 0x140878644 (CmpCopySyncTree.c)
  */
 
 __int64 __fastcall CmpReorganizeHive(ULONG_PTR a1, __int128 *a2, int a3)
@@ -40,91 +40,103 @@ __int64 __fastcall CmpReorganizeHive(ULONG_PTR a1, __int128 *a2, int a3)
   __int64 v12; // r9
   unsigned int v13; // edx
   unsigned __int64 v14; // r8
-  __int64 v15; // r9
-  unsigned __int16 v16; // cx
-  int v17; // eax
-  _QWORD *v18; // rsi
-  int v19; // ebx
-  struct _LOOKASIDE_LIST_EX *v20; // r9
+  __int64 v15; // rcx
+  __int64 v16; // rdx
+  __int64 v17; // rcx
+  __int64 v18; // r9
+  unsigned __int16 v19; // cx
+  int v20; // eax
+  _QWORD *v21; // rsi
+  int v22; // ebx
+  struct _LOOKASIDE_LIST_EX *v23; // r9
   struct _PRIVILEGE_SET *TransientPoolWithTag; // rax
+  __int64 v25; // rcx
   int LowPart_low; // edx
   int LowPart_high; // r9d
-  int v24; // r10d
-  int v25; // r9d
-  int v26; // r10d
-  unsigned int v27; // r12d
-  unsigned int v28; // r14d
-  __int64 v29; // rcx
-  LARGE_INTEGER v30; // rbx
-  unsigned __int64 v31; // [rsp+40h] [rbp-C0h] BYREF
-  __int16 v32; // [rsp+48h] [rbp-B8h] BYREF
-  __int16 v33; // [rsp+4Ch] [rbp-B4h] BYREF
-  __int16 v34; // [rsp+50h] [rbp-B0h] BYREF
-  int v35; // [rsp+54h] [rbp-ACh] BYREF
-  int v36; // [rsp+58h] [rbp-A8h] BYREF
-  int v37; // [rsp+5Ch] [rbp-A4h] BYREF
-  unsigned int v38; // [rsp+60h] [rbp-A0h] BYREF
-  unsigned int v39; // [rsp+64h] [rbp-9Ch] BYREF
+  int v28; // r10d
+  __int64 v29; // rdx
+  __int64 v30; // rcx
+  __int64 v31; // rcx
+  int v32; // r9d
+  int v33; // r10d
+  __int64 v34; // rdx
+  __int64 v35; // rcx
+  unsigned int v36; // r12d
+  unsigned int v37; // r14d
+  __int64 v38; // rcx
+  __int64 v39; // rcx
+  LARGE_INTEGER v40; // rbx
+  __int64 v41; // rdx
+  __int64 v42; // rcx
+  unsigned __int64 v43; // [rsp+40h] [rbp-C0h] BYREF
+  __int16 v44; // [rsp+48h] [rbp-B8h] BYREF
+  __int16 v45; // [rsp+4Ch] [rbp-B4h] BYREF
+  __int16 v46; // [rsp+50h] [rbp-B0h] BYREF
+  int v47; // [rsp+54h] [rbp-ACh] BYREF
+  int v48; // [rsp+58h] [rbp-A8h] BYREF
+  int v49; // [rsp+5Ch] [rbp-A4h] BYREF
+  unsigned int v50; // [rsp+60h] [rbp-A0h] BYREF
+  unsigned int v51; // [rsp+64h] [rbp-9Ch] BYREF
   PVOID P; // [rsp+68h] [rbp-98h] BYREF
-  __int64 v41; // [rsp+70h] [rbp-90h] BYREF
-  __int64 v42; // [rsp+78h] [rbp-88h] BYREF
-  __int64 v43; // [rsp+80h] [rbp-80h] BYREF
-  __int64 v44; // [rsp+88h] [rbp-78h] BYREF
-  __int64 v45; // [rsp+90h] [rbp-70h] BYREF
-  __int128 v46; // [rsp+98h] [rbp-68h] BYREF
-  struct _EVENT_DATA_DESCRIPTOR v47; // [rsp+B0h] [rbp-50h] BYREF
-  int *v48; // [rsp+D0h] [rbp-30h]
-  __int64 v49; // [rsp+D8h] [rbp-28h]
-  __int16 *v50; // [rsp+E0h] [rbp-20h]
-  __int64 v51; // [rsp+E8h] [rbp-18h]
-  __int16 *v52; // [rsp+F0h] [rbp-10h]
-  __int64 v53; // [rsp+F8h] [rbp-8h]
-  __int16 *v54; // [rsp+100h] [rbp+0h]
-  __int64 v55; // [rsp+108h] [rbp+8h]
+  __int64 v53; // [rsp+70h] [rbp-90h] BYREF
+  __int64 v54; // [rsp+78h] [rbp-88h] BYREF
+  __int64 v55; // [rsp+80h] [rbp-80h] BYREF
+  __int64 v56; // [rsp+88h] [rbp-78h] BYREF
+  __int64 v57; // [rsp+90h] [rbp-70h] BYREF
+  __int128 v58; // [rsp+98h] [rbp-68h] BYREF
+  struct _EVENT_DATA_DESCRIPTOR v59; // [rsp+B0h] [rbp-50h] BYREF
+  int *v60; // [rsp+D0h] [rbp-30h]
+  __int64 v61; // [rsp+D8h] [rbp-28h]
+  __int16 *v62; // [rsp+E0h] [rbp-20h]
+  __int64 v63; // [rsp+E8h] [rbp-18h]
+  __int16 *v64; // [rsp+F0h] [rbp-10h]
+  __int64 v65; // [rsp+F8h] [rbp-8h]
+  __int16 *v66; // [rsp+100h] [rbp+0h]
+  __int64 v67; // [rsp+108h] [rbp+8h]
   LUID_AND_ATTRIBUTES *Privilege; // [rsp+110h] [rbp+10h]
-  __int64 v57; // [rsp+118h] [rbp+18h]
+  __int64 v69; // [rsp+118h] [rbp+18h]
   LONG *p_HighPart; // [rsp+120h] [rbp+20h]
-  int v59; // [rsp+128h] [rbp+28h]
-  int v60; // [rsp+12Ch] [rbp+2Ch]
-  char *v61; // [rsp+130h] [rbp+30h]
-  __int64 v62; // [rsp+138h] [rbp+38h]
-  LUID_AND_ATTRIBUTES *v63; // [rsp+140h] [rbp+40h]
-  int v64; // [rsp+148h] [rbp+48h]
-  int v65; // [rsp+14Ch] [rbp+4Ch]
-  char *v66; // [rsp+150h] [rbp+50h]
-  __int64 v67; // [rsp+158h] [rbp+58h]
+  int v71; // [rsp+128h] [rbp+28h]
+  int v72; // [rsp+12Ch] [rbp+2Ch]
+  char *v73; // [rsp+130h] [rbp+30h]
+  __int64 v74; // [rsp+138h] [rbp+38h]
+  LUID_AND_ATTRIBUTES *v75; // [rsp+140h] [rbp+40h]
+  int v76; // [rsp+148h] [rbp+48h]
+  int v77; // [rsp+14Ch] [rbp+4Ch]
+  char *v78; // [rsp+150h] [rbp+50h]
+  __int64 v79; // [rsp+158h] [rbp+58h]
   ULONG *p_Attributes; // [rsp+160h] [rbp+60h]
-  int v69; // [rsp+168h] [rbp+68h]
-  int v70; // [rsp+16Ch] [rbp+6Ch]
-  __int64 *v71; // [rsp+170h] [rbp+70h]
-  __int64 v72; // [rsp+178h] [rbp+78h]
-  struct _EVENT_DATA_DESCRIPTOR v73; // [rsp+180h] [rbp+80h] BYREF
-  __int64 *v74; // [rsp+1A0h] [rbp+A0h]
-  __int64 v75; // [rsp+1A8h] [rbp+A8h]
-  int *v76; // [rsp+1B0h] [rbp+B0h]
-  __int64 v77; // [rsp+1B8h] [rbp+B8h]
-  int *v78; // [rsp+1C0h] [rbp+C0h]
-  __int64 v79; // [rsp+1C8h] [rbp+C8h]
-  __int64 *v80; // [rsp+1D0h] [rbp+D0h]
-  __int64 v81; // [rsp+1D8h] [rbp+D8h]
-  struct _EVENT_DATA_DESCRIPTOR v82; // [rsp+1E0h] [rbp+E0h] BYREF
-  int *v83; // [rsp+200h] [rbp+100h]
-  __int64 v84; // [rsp+208h] [rbp+108h]
-  int *v85; // [rsp+210h] [rbp+110h]
-  __int64 v86; // [rsp+218h] [rbp+118h]
-  __int64 *v87; // [rsp+220h] [rbp+120h]
-  __int64 v88; // [rsp+228h] [rbp+128h]
-  struct _EVENT_DATA_DESCRIPTOR v89; // [rsp+230h] [rbp+130h] BYREF
-  unsigned __int64 *v90; // [rsp+250h] [rbp+150h]
-  __int64 v91; // [rsp+258h] [rbp+158h]
-  __int64 *v92; // [rsp+260h] [rbp+160h]
-  __int64 v93; // [rsp+268h] [rbp+168h]
+  int v81; // [rsp+168h] [rbp+68h]
+  int v82; // [rsp+16Ch] [rbp+6Ch]
+  __int64 *v83; // [rsp+170h] [rbp+70h]
+  __int64 v84; // [rsp+178h] [rbp+78h]
+  struct _EVENT_DATA_DESCRIPTOR v85; // [rsp+180h] [rbp+80h] BYREF
+  __int64 *v86; // [rsp+1A0h] [rbp+A0h]
+  __int64 v87; // [rsp+1A8h] [rbp+A8h]
+  int *v88; // [rsp+1B0h] [rbp+B0h]
+  __int64 v89; // [rsp+1B8h] [rbp+B8h]
+  int *v90; // [rsp+1C0h] [rbp+C0h]
+  __int64 v91; // [rsp+1C8h] [rbp+C8h]
+  __int64 *v92; // [rsp+1D0h] [rbp+D0h]
+  __int64 v93; // [rsp+1D8h] [rbp+D8h]
+  struct _EVENT_DATA_DESCRIPTOR v94; // [rsp+1E0h] [rbp+E0h] BYREF
+  int *v95; // [rsp+200h] [rbp+100h]
+  __int64 v96; // [rsp+208h] [rbp+108h]
+  int *v97; // [rsp+210h] [rbp+110h]
+  __int64 v98; // [rsp+218h] [rbp+118h]
+  __int64 *v99; // [rsp+220h] [rbp+120h]
+  __int64 v100; // [rsp+228h] [rbp+128h]
+  struct _EVENT_DATA_DESCRIPTOR v101; // [rsp+230h] [rbp+130h] BYREF
+  unsigned __int64 *v102; // [rsp+250h] [rbp+150h]
+  __int64 v103; // [rsp+258h] [rbp+158h]
+  __int64 *v104; // [rsp+260h] [rbp+160h]
+  __int64 v105; // [rsp+268h] [rbp+168h]
 
   v3 = *(_QWORD *)(a1 + 64);
   P = 0LL;
   v7 = 0LL;
   v8 = *(_DWORD *)(v3 + 144);
-  v46 = 0LL;
+  v58 = 0LL;
   if ( (v8 & 1) != 0 )
     return 0;
   v9 = *(_DWORD *)(a1 + 160);
@@ -138,19 +150,19 @@ __int64 __fastcall CmpReorganizeHive(ULONG_PTR a1, __int128 *a2, int a3)
 LABEL_25:
     if ( (unsigned int)dword_140C02130 > 5 && tlgKeywordOn((__int64)&dword_140C02130, 0x400000000000LL) )
     {
-      LODWORD(v31) = v10;
-      v90 = &v31;
-      v91 = 4LL;
-      v92 = &v45;
-      v45 = 0x1000000LL;
-      v93 = 8LL;
+      LODWORD(v43) = v10;
+      v102 = &v43;
+      v103 = 4LL;
+      v104 = &v57;
+      v57 = 0x1000000LL;
+      v105 = 8LL;
       tlgWriteTransfer_EtwWriteTransfer(
         (__int64)&dword_140C02130,
-        (unsigned __int8 *)&byte_140023587,
+        (unsigned __int8 *)byte_1400236C3,
         0LL,
         0LL,
         4u,
-        &v89);
+        &v101);
     }
     return (unsigned int)v10;
   }
@@ -158,7 +170,7 @@ LABEL_25:
     goto LABEL_12;
   v12 = *(_QWORD *)(a1 + 64);
   v13 = MEMORY[0xFFFFF78000000014] & 0xFFFFFFFC;
-  v31 = MEMORY[0xFFFFF78000000014] & 0xFFFFFFFFFFFFFFFCuLL;
+  v43 = MEMORY[0xFFFFF78000000014] & 0xFFFFFFFFFFFFFFFCuLL;
   v14 = *(_QWORD *)(v12 + 168);
   if ( v14 <= (MEMORY[0xFFFFF78000000014] & 0xFFFFFFFFFFFFFFFCuLL)
     && (MEMORY[0xFFFFF78000000014] & 0xFFFFFFFFFFFFFFFCuLL) - v14 < 864000000000LL
@@ -168,107 +180,108 @@ LABEL_25:
   }
   if ( !a2 )
   {
-    v15 = v12 + 48;
-    v16 = 0;
-    *((_QWORD *)&v46 + 1) = v15;
+    v18 = v12 + 48;
+    v19 = 0;
+    *((_QWORD *)&v58 + 1) = v18;
     do
     {
-      if ( !*(_WORD *)(v15 + 2LL * v16) )
+      if ( !*(_WORD *)(v18 + 2LL * v19) )
         break;
-      ++v16;
+      ++v19;
     }
-    while ( v16 < 0x1Fu );
-    a2 = &v46;
-    LOWORD(v46) = 2 * v16;
+    while ( v19 < 0x1Fu );
+    a2 = &v58;
+    LOWORD(v58) = 2 * v19;
   }
   if ( v14 == 2 || v14 != 1 && (*(_DWORD *)(a1 + 4152) & 0x400) == 0 )
   {
-    LODWORD(v31) = v13 | 2;
+    LODWORD(v43) = v13 | 2;
     CmpClearKeyAccessBits(a1, (__int64)a2);
-    CmpLockRegistry();
+    CmpLockRegistry(v15);
     HvLockHiveFlusherShared(a1);
     HvLockHiveWriter(a1);
     HvMarkBaseBlockDirty(a1);
-    *(_QWORD *)(*(_QWORD *)(a1 + 64) + 168LL) = v31;
+    *(_QWORD *)(*(_QWORD *)(a1 + 64) + 168LL) = v43;
     HvUnlockHiveWriter(a1);
     HvUnlockHiveFlusherShared(a1);
-    CmpUnlockRegistry();
+    CmpUnlockRegistry(v17, v16);
 LABEL_12:
     v10 = 0;
     goto LABEL_13;
   }
   if ( *(_DWORD *)(*(_QWORD *)(a1 + 64) + 36LL) == -1 )
     goto LABEL_12;
-  LODWORD(v31) = v13 | 1;
-  v17 = CmpCreateEmptyHiveClone(&P, a1);
-  v18 = P;
-  v10 = v17;
-  if ( v17 >= 0 )
+  LODWORD(v43) = v13 | 1;
+  v20 = CmpCreateEmptyHiveClone(&P, a1);
+  v21 = P;
+  v10 = v20;
+  if ( v20 >= 0 )
   {
-    v19 = CmpCopyKeyPartial(a1, *(unsigned int *)(*(_QWORD *)(a1 + 64) + 36LL), P, 0xFFFFFFFFLL, 6);
-    if ( v19 != -1
-      && (*(_DWORD *)(v18[8] + 36LL) = v19,
-          HvMarkBaseBlockDirty((__int64)v18),
+    v22 = CmpCopyKeyPartial(a1, *(unsigned int *)(*(_QWORD *)(a1 + 64) + 36LL), P, 0xFFFFFFFFLL, 6);
+    if ( v22 != -1
+      && (*(_DWORD *)(v21[8] + 36LL) = v22,
+          HvMarkBaseBlockDirty((__int64)v21),
           (unsigned __int8)CmpCopySyncTree(a1, 66, 0))
       && (TransientPoolWithTag = (struct _PRIVILEGE_SET *)CmpAllocateTransientPoolWithTag(
                                                             PagedPool,
                                                             0x1B0uLL,
                                                             0x33394D43u,
-                                                            v20),
+                                                            v23),
           (v7 = TransientPoolWithTag) != 0LL) )
     {
       memset(TransientPoolWithTag, 0, 0x1B0uLL);
-      v10 = CmCheckRegistry(v18, 2031616LL, v7);
+      v10 = CmCheckRegistry(v21, 2031616LL, v7);
       if ( v10 >= 0 )
       {
-        if ( (*(_DWORD *)(*(_QWORD *)(a1 + 64) + 4088LL) & 4) != 0 || *(_DWORD *)(a1 + 4804) == *((_DWORD *)v18 + 1201) )
+        v31 = *(unsigned int *)(*(_QWORD *)(a1 + 64) + 4088LL);
+        if ( (v31 & 4) != 0 || *(_DWORD *)(a1 + 4804) == *((_DWORD *)v21 + 1201) )
         {
-          v18[7] = 0LL;
-          v27 = *((_DWORD *)v18 + 68);
-          v28 = *(_DWORD *)(a1 + 272);
-          CmpSwapHiveStorage(a1, v18);
+          v21[7] = 0LL;
+          v36 = *((_DWORD *)v21 + 68);
+          v37 = *(_DWORD *)(a1 + 272);
+          CmpSwapHiveStorage(a1, v21);
           if ( (unsigned int)dword_140C02130 > 5 && tlgKeywordOn((__int64)&dword_140C02130, 0x400000000000LL) )
           {
-            v29 = *(_QWORD *)(*(_QWORD *)(a1 + 64) + 168LL);
-            v74 = &v43;
-            v76 = (int *)&v38;
-            v78 = (int *)&v39;
-            v80 = &v44;
-            v43 = v29;
-            v75 = 8LL;
-            v38 = v28;
-            v77 = 4LL;
-            v39 = v27;
-            v79 = 4LL;
-            v44 = 0x1000000LL;
-            v81 = 8LL;
+            v39 = *(_QWORD *)(*(_QWORD *)(a1 + 64) + 168LL);
+            v86 = &v55;
+            v88 = (int *)&v50;
+            v90 = (int *)&v51;
+            v92 = &v56;
+            v55 = v39;
+            v87 = 8LL;
+            v50 = v37;
+            v89 = 4LL;
+            v51 = v36;
+            v91 = 4LL;
+            v56 = 0x1000000LL;
+            v93 = 8LL;
             tlgWriteTransfer_EtwWriteTransfer(
               (__int64)&dword_140C02130,
-              (unsigned __int8 *)byte_1400235C9,
+              (unsigned __int8 *)byte_140023705,
               0LL,
               0LL,
               6u,
-              &v73);
+              &v85);
           }
-          CmpLockRegistry();
+          CmpLockRegistry(v38);
           HvLockHiveFlusherShared(a1);
           HvLockHiveWriter(a1);
           HvMarkBaseBlockDirty(a1);
-          v30.QuadPart = v31;
-          *(_QWORD *)(*(_QWORD *)(a1 + 64) + 168LL) = v31;
+          v40.QuadPart = v43;
+          *(_QWORD *)(*(_QWORD *)(a1 + 64) + 168LL) = v43;
           HvUnlockHiveWriter(a1);
           HvUnlockHiveFlusherShared(a1);
-          CmpUnlockRegistry();
-          CmpLogReorganizeEvent(a2, v28, v27);
-          if ( v27 < v28 )
+          CmpUnlockRegistry(v42, v41);
+          CmpLogReorganizeEvent(a2, v37, v36);
+          if ( v36 < v37 )
           {
             if ( CmpFirstReorganize )
             {
               CmpReorganizeTotalBytesSaved = 0LL;
-              CmpReorganizeLastRun = v30;
+              CmpReorganizeLastRun = v40;
               CmpFirstReorganize = 0;
             }
-            CmpReorganizeTotalBytesSaved += v28 - v27;
+            CmpReorganizeTotalBytesSaved += v37 - v36;
             CmpUpdateReorganizeRegistryValues();
           }
           v10 = 0;
@@ -277,31 +290,31 @@ LABEL_12:
         {
           if ( (unsigned int)dword_140C02130 > 5 && tlgKeywordOn((__int64)&dword_140C02130, 0x400000000000LL) )
           {
-            v36 = v25;
-            v83 = &v36;
-            v84 = 4LL;
-            v85 = &v37;
-            v37 = v26;
-            v87 = &v42;
-            v86 = 4LL;
-            v42 = 0x1000000LL;
-            v88 = 8LL;
+            v48 = v32;
+            v95 = &v48;
+            v96 = 4LL;
+            v97 = &v49;
+            v49 = v33;
+            v99 = &v54;
+            v98 = 4LL;
+            v54 = 0x1000000LL;
+            v100 = 8LL;
             tlgWriteTransfer_EtwWriteTransfer(
               (__int64)&dword_140C02130,
-              (unsigned __int8 *)&byte_14002361F,
+              (unsigned __int8 *)&word_1400234EE,
               0LL,
               0LL,
               5u,
-              &v82);
+              &v94);
           }
-          CmpLockRegistry();
+          CmpLockRegistry(v31);
           HvLockHiveFlusherShared(a1);
           HvLockHiveWriter(a1);
           HvMarkBaseBlockDirty(a1);
-          *(_QWORD *)(*(_QWORD *)(a1 + 64) + 168LL) = v31;
+          *(_QWORD *)(*(_QWORD *)(a1 + 64) + 168LL) = v43;
           HvUnlockHiveWriter(a1);
           HvUnlockHiveFlusherShared(a1);
-          CmpUnlockRegistry();
+          CmpUnlockRegistry(v35, v34);
           v10 = -1073741492;
         }
       }
@@ -309,57 +322,57 @@ LABEL_12:
       {
         if ( (unsigned int)dword_140C02130 > 5 && tlgKeywordOn((__int64)&dword_140C02130, 0x400000000000LL) )
         {
-          v35 = v10;
-          v48 = &v35;
-          v50 = &v32;
+          v47 = v10;
+          v60 = &v47;
+          v62 = &v44;
           LowPart_low = LOWORD(v7->Privilege[0].Luid.LowPart);
           LowPart_high = HIWORD(v7->Privilege[0].Luid.LowPart);
           Privilege = v7->Privilege;
-          v52 = &v33;
+          v64 = &v45;
           p_HighPart = &v7->Privilege[0].Luid.HighPart;
-          v24 = BYTE2(v7[19].Privilege[0].Luid.HighPart);
-          v59 = 12 * LowPart_low;
-          v63 = v7[5].Privilege;
-          v64 = 12 * LowPart_high;
+          v28 = BYTE2(v7[19].Privilege[0].Luid.HighPart);
+          v71 = 12 * LowPart_low;
+          v75 = v7[5].Privilege;
+          v76 = 12 * LowPart_high;
           p_Attributes = &v7[19].Privilege[0].Attributes;
-          v71 = &v41;
-          v34 = v24;
-          v32 = LowPart_low;
-          v33 = LowPart_high;
-          v61 = (char *)&v7->Privilege[0].Luid + 2;
-          v66 = (char *)&v7[19].Privilege[0].Luid.HighPart + 2;
-          v49 = 4LL;
-          v51 = 2LL;
-          v53 = 2LL;
-          v54 = &v34;
-          v55 = 2LL;
-          v57 = 2LL;
-          v60 = 0;
-          v62 = 2LL;
-          v65 = 0;
+          v83 = &v53;
+          v46 = v28;
+          v44 = LowPart_low;
+          v45 = LowPart_high;
+          v73 = (char *)&v7->Privilege[0].Luid + 2;
+          v78 = (char *)&v7[19].Privilege[0].Luid.HighPart + 2;
+          v61 = 4LL;
+          v63 = 2LL;
+          v65 = 2LL;
+          v66 = &v46;
           v67 = 2LL;
-          v69 = 8 * v24;
-          v70 = 0;
-          v41 = 0x1000000LL;
-          v72 = 8LL;
+          v69 = 2LL;
+          v72 = 0;
+          v74 = 2LL;
+          v77 = 0;
+          v79 = 2LL;
+          v81 = 8 * v28;
+          v82 = 0;
+          v53 = 0x1000000LL;
+          v84 = 8LL;
           tlgWriteTransfer_EtwWriteTransfer(
             (__int64)&dword_140C02130,
-            (unsigned __int8 *)&byte_140023687,
+            (unsigned __int8 *)&word_140023556,
             0LL,
             0LL,
             0xDu,
-            &v47);
+            &v59);
         }
         if ( v10 == -1073741492 || v10 == -2147483606 )
         {
-          CmpLockRegistry();
+          CmpLockRegistry(v25);
           HvLockHiveFlusherShared(a1);
           HvLockHiveWriter(a1);
           HvMarkBaseBlockDirty(a1);
-          *(_QWORD *)(*(_QWORD *)(a1 + 64) + 168LL) = v31;
+          *(_QWORD *)(*(_QWORD *)(a1 + 64) + 168LL) = v43;
           HvUnlockHiveWriter(a1);
           HvUnlockHiveFlusherShared(a1);
-          CmpUnlockRegistry();
+          CmpUnlockRegistry(v30, v29);
         }
       }
     }
@@ -368,8 +381,8 @@ LABEL_12:
       v10 = -1073741670;
     }
   }
-  if ( v18 )
-    CmpDestroyHive(v18);
+  if ( v21 )
+    CmpDestroyHive(v21);
 LABEL_13:
   CmpReleaseShutdownRundown();
   if ( v7 )

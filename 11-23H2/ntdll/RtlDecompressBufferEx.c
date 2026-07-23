@@ -6,18 +6,25 @@
  *     _guard_xfg_dispatch_icall_nop @ 0x1800A4B90 (_guard_xfg_dispatch_icall_nop.c)
  */
 
-__int64 __fastcall RtlDecompressBufferEx(
-        unsigned __int8 a1,
-        __int64 a2,
-        unsigned int a3,
-        __int64 a4,
-        unsigned int a5,
-        __int64 a6,
-        __int64 a7)
+NTSTATUS __cdecl RtlDecompressBufferEx(
+        USHORT CompressionFormat,
+        PUCHAR UncompressedBuffer,
+        ULONG UncompressedBufferSize,
+        PUCHAR CompressedBuffer,
+        ULONG CompressedBufferSize,
+        PULONG FinalUncompressedSize,
+        PVOID WorkSpace)
 {
-  if ( a1 < 2u )
-    return 3221225485LL;
-  if ( a1 > 5u )
-    return 3221226079LL;
-  return RtlDecompressBufferProcs[a1](a2, a3, a4, a5, 0, a6, a7);
+  if ( (unsigned __int8)CompressionFormat < 2u )
+    return -1073741811;
+  if ( (unsigned __int8)CompressionFormat > 5u )
+    return -1073741217;
+  return RtlDecompressBufferProcs[(unsigned __int8)CompressionFormat](
+           UncompressedBuffer,
+           UncompressedBufferSize,
+           CompressedBuffer,
+           CompressedBufferSize,
+           0,
+           FinalUncompressedSize,
+           WorkSpace);
 }

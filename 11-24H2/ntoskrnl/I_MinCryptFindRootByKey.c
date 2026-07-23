@@ -1,9 +1,9 @@
 /*
- * XREFs of I_MinCryptFindRootByKey @ 0x140824CAC
+ * XREFs of I_MinCryptFindRootByKey @ 0x140825478
  * Callers:
- *     MinCryptVerifyCertificateWithPolicy2 @ 0x140824ED4 (MinCryptVerifyCertificateWithPolicy2.c)
+ *     MinCryptVerifyCertificateWithPolicy2 @ 0x1408256A0 (MinCryptVerifyCertificateWithPolicy2.c)
  * Callees:
- *     RtlCompareMemory @ 0x1406B3990 (RtlCompareMemory.c)
+ *     RtlCompareMemory @ 0x1406B4930 (RtlCompareMemory.c)
  */
 
 __int64 *__fastcall I_MinCryptFindRootByKey(const void **a1)

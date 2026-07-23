@@ -1,16 +1,16 @@
 /*
- * XREFs of VfAvlDeleteAllTreeNodes @ 0x140B83BAC
+ * XREFs of VfAvlDeleteAllTreeNodes @ 0x140B85BAC
  * Callers:
- *     VfDeleteLookasideTree @ 0x140B9FE18 (VfDeleteLookasideTree.c)
- *     VfDeleteResourceTree @ 0x140BA1984 (VfDeleteResourceTree.c)
+ *     VfDeleteLookasideTree @ 0x140BA1E18 (VfDeleteLookasideTree.c)
+ *     VfDeleteResourceTree @ 0x140BA3984 (VfDeleteResourceTree.c)
  * Callees:
- *     RtlEnumerateGenericTableAvl @ 0x1403EA300 (RtlEnumerateGenericTableAvl.c)
- *     RtlDeleteElementGenericTableAvl @ 0x1403F0610 (RtlDeleteElementGenericTableAvl.c)
- *     ViAvlAcquireTableLockAtDpcLevelSafe @ 0x1403F1260 (ViAvlAcquireTableLockAtDpcLevelSafe.c)
- *     ViAvlRaiseIrqlSafe @ 0x1403F12C4 (ViAvlRaiseIrqlSafe.c)
- *     VfAvlCleanupLockContext @ 0x1403F142C (VfAvlCleanupLockContext.c)
- *     ViAvlReleaseTableLockFromDpcLevel @ 0x1403F1490 (ViAvlReleaseTableLockFromDpcLevel.c)
- *     VfAvlInitializeLockContext @ 0x14049C0D8 (VfAvlInitializeLockContext.c)
+ *     RtlEnumerateGenericTableAvl @ 0x1403D9CC0 (RtlEnumerateGenericTableAvl.c)
+ *     RtlDeleteElementGenericTableAvl @ 0x1403E4330 (RtlDeleteElementGenericTableAvl.c)
+ *     ViAvlAcquireTableLockAtDpcLevelSafe @ 0x1403E4F80 (ViAvlAcquireTableLockAtDpcLevelSafe.c)
+ *     ViAvlRaiseIrqlSafe @ 0x1403E4FE4 (ViAvlRaiseIrqlSafe.c)
+ *     VfAvlCleanupLockContext @ 0x1403E514C (VfAvlCleanupLockContext.c)
+ *     ViAvlReleaseTableLockFromDpcLevel @ 0x1403E51B0 (ViAvlReleaseTableLockFromDpcLevel.c)
+ *     VfAvlInitializeLockContext @ 0x140496D08 (VfAvlInitializeLockContext.c)
  */
 
 __int64 __fastcall VfAvlDeleteAllTreeNodes(PRTL_AVL_TABLE Table)

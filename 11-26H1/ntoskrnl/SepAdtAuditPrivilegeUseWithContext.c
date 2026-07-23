@@ -1,11 +1,11 @@
 /*
- * XREFs of SepAdtAuditPrivilegeUseWithContext @ 0x140932DB0
+ * XREFs of SepAdtAuditPrivilegeUseWithContext @ 0x14090E960
  * Callers:
- *     SeOpenObjectForDeleteAuditAlarmWithTransaction @ 0x1409F8930 (SeOpenObjectForDeleteAuditAlarmWithTransaction.c)
+ *     SeOpenObjectForDeleteAuditAlarmWithTransaction @ 0x140A61470 (SeOpenObjectForDeleteAuditAlarmWithTransaction.c)
  * Callees:
- *     SepAdtCheckPrivilegeForSensitivity @ 0x1404BBEA8 (SepAdtCheckPrivilegeForSensitivity.c)
- *     SepAdtAuditThisEventWithContext @ 0x140932EA0 (SepAdtAuditThisEventWithContext.c)
- *     SepFilterPrivilegeAudits @ 0x1409F7460 (SepFilterPrivilegeAudits.c)
+ *     SepAdtCheckPrivilegeForSensitivity @ 0x1404B60C8 (SepAdtCheckPrivilegeForSensitivity.c)
+ *     SepAdtAuditThisEventWithContext @ 0x14090EA50 (SepAdtAuditThisEventWithContext.c)
+ *     SepFilterPrivilegeAudits @ 0x140A5FFB0 (SepFilterPrivilegeAudits.c)
  */
 
 char __fastcall SepAdtAuditPrivilegeUseWithContext(unsigned int *a1, __int64 a2, __int64 a3, __int64 a4, _WORD *a5)

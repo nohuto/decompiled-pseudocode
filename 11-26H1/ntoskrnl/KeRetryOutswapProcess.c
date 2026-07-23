@@ -1,13 +1,13 @@
 /*
- * XREFs of KeRetryOutswapProcess @ 0x1404AA98C
+ * XREFs of KeRetryOutswapProcess @ 0x1404A401C
  * Callers:
- *     MiAskKeToOutswapProcess @ 0x1404D8150 (MiAskKeToOutswapProcess.c)
- *     MmReleaseCommitForMemResetPages @ 0x1406E54FC (MmReleaseCommitForMemResetPages.c)
+ *     MiAskKeToOutswapProcess @ 0x1404D1920 (MiAskKeToOutswapProcess.c)
+ *     MmReleaseCommitForMemResetPages @ 0x1406EA1AC (MmReleaseCommitForMemResetPages.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiAcquireKobjectLockSafe @ 0x140277760 (KiAcquireKobjectLockSafe.c)
- *     KeSetEvent @ 0x1402DE9C0 (KeSetEvent.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiAcquireKobjectLockSafe @ 0x140276CD0 (KiAcquireKobjectLockSafe.c)
+ *     KeSetEvent @ 0x1402C0780 (KeSetEvent.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 int __fastcall KeRetryOutswapProcess(volatile signed __int32 *a1, __int64 a2, __int64 a3)
@@ -16,9 +16,9 @@ int __fastcall KeRetryOutswapProcess(volatile signed __int32 *a1, __int64 a2, __
   unsigned __int8 CurrentIrql; // si
   __int64 v5; // rdx
   int v6; // ebx
-  void *SListFaultAddress; // rax
-  _QWORD *v8; // rdi
-  void *v9; // rcx
+  signed __int64 QuadPart; // rax
+  signed __int64 *v8; // rdi
+  signed __int64 v9; // rcx
 
   v3 = a1;
   CurrentIrql = KeGetCurrentIrql();
@@ -37,25 +37,25 @@ int __fastcall KeRetryOutswapProcess(volatile signed __int32 *a1, __int64 a2, __
   _InterlockedAnd(v3, 0xFFFFFF7F);
   if ( KiIrqlFlags )
     KiLowerIrqlProcessIrqlFlags(KeGetCurrentIrql(), CurrentIrql);
-  LODWORD(SListFaultAddress) = CurrentIrql;
+  LODWORD(QuadPart) = CurrentIrql;
   __writecr8(CurrentIrql);
   if ( v6 == 1 )
   {
-    v8 = v3 + 30;
-    _m_prefetchw(&KiSupervisorXStateFeaturesLock.SListFaultAddress);
-    SListFaultAddress = KiSupervisorXStateFeaturesLock.SListFaultAddress;
+    v8 = (signed __int64 *)(v3 + 30);
+    _m_prefetchw(&KiSupervisorXStateFeaturesLock.Timer.DueTime);
+    QuadPart = KiSupervisorXStateFeaturesLock.Timer.DueTime.QuadPart;
     do
     {
-      *v8 = SListFaultAddress;
-      v9 = SListFaultAddress;
-      SListFaultAddress = (void *)_InterlockedCompareExchange64(
-                                    (volatile signed __int64 *)&KiSupervisorXStateFeaturesLock.SListFaultAddress,
-                                    (signed __int64)v8,
-                                    (signed __int64)SListFaultAddress);
+      *v8 = QuadPart;
+      v9 = QuadPart;
+      QuadPart = _InterlockedCompareExchange64(
+                   (volatile signed __int64 *)&KiSupervisorXStateFeaturesLock.Timer.DueTime.QuadPart,
+                   (signed __int64)v8,
+                   QuadPart);
     }
-    while ( SListFaultAddress != v9 );
-    if ( !SListFaultAddress )
-      LODWORD(SListFaultAddress) = KeSetEvent((PRKEVENT)&KiSupervisorXStateFeaturesLock.StackLimit, 10, 0);
+    while ( QuadPart != v9 );
+    if ( !QuadPart )
+      LODWORD(QuadPart) = KeSetEvent((PRKEVENT)&KiSupervisorXStateFeaturesLock.Timer.TimerListEntry, 10, 0);
   }
-  return (int)SListFaultAddress;
+  return QuadPart;
 }

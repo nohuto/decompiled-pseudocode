@@ -34,7 +34,7 @@ __int64 __fastcall PfpParametersRead(__int64 a1)
   LODWORD(v14) = 4;
   v15 = v1;
   v5 = 0;
-  if ( (int)PfpGetParameter(v2, (__int64)&v14) < 0 || (_DWORD)InitSafeBootMode )
+  if ( (int)PfpGetParameter(v2, (__int64)&v14) < 0 || InitSafeBootMode )
     LODWORD(v15) = 0x80000000;
   LODWORD(v14) = 4;
   PfpGetParameter(v2, (__int64)&v14);

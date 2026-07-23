@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlQueryThreadPlaceholderCompatibilityMode @ 0x180084960
+ * XREFs of RtlQueryThreadPlaceholderCompatibilityMode @ 0x180084970
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-char RtlQueryThreadPlaceholderCompatibilityMode()
+CHAR RtlQueryThreadPlaceholderCompatibilityMode(void)
 {
   struct _TEB *v0; // rax
 

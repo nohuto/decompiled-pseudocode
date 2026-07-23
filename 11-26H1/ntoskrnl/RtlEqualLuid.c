@@ -1,5 +1,5 @@
 /*
- * XREFs of RtlEqualLuid @ 0x140804000
+ * XREFs of RtlEqualLuid @ 0x140809AA0
  * Callers:
  *     <none>
  * Callees:

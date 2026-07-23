@@ -5,7 +5,7 @@
  * Callees:
  *     wil_details_FeatureReporting_ReportUsageToServiceDirect @ 0x18009C090 (wil_details_FeatureReporting_ReportUsageToServiceDirect.c)
  *     wil_details_MapReportingKind @ 0x18009C4C0 (wil_details_MapReportingKind.c)
- *     _guard_dispatch_icall_nop @ 0x1800A1160 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1800A1120 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 (__fastcall *__fastcall wil_details_FeatureReporting_ReportUsageToService(

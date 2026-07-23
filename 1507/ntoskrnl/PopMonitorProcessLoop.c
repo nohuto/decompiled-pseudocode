@@ -14,51 +14,64 @@
  *     PopSetPowerSettingValueAcDc @ 0x14055E1B0 (PopSetPowerSettingValueAcDc.c)
  */
 
-__int64 PopMonitorProcessLoop()
+NTSTATUS PopMonitorProcessLoop()
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
   _QWORD *v1; // rcx
   __int64 v2; // [rsp+58h] [rbp-B0h] BYREF
-  __int64 v3; // [rsp+60h] [rbp-A8h]
-  __int64 v4; // [rsp+68h] [rbp-A0h]
-  __int64 v5; // [rsp+70h] [rbp-98h]
-  __int64 v6; // [rsp+78h] [rbp-90h]
-  int v7; // [rsp+80h] [rbp-88h]
-  __int128 v8; // [rsp+88h] [rbp-80h]
+  ULONG_PTR BufferLength; // [rsp+60h] [rbp-A8h] BYREF
+  OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+68h] [rbp-A0h] BYREF
   _QWORD Src[10]; // [rsp+98h] [rbp-70h] BYREF
-  _QWORD v10[20]; // [rsp+E8h] [rbp-20h] BYREF
-  __int16 v11; // [rsp+18Ch] [rbp+84h]
-  int v12; // [rsp+1B0h] [rbp+A8h]
-  int v13; // [rsp+1B4h] [rbp+ACh]
+  _DWORD v6[20]; // [rsp+E8h] [rbp-20h] BYREF
+  _ALPC_PORT_ATTRIBUTES PortAttributes; // [rsp+138h] [rbp+30h] BYREF
+  _PORT_MESSAGE ConnectionRequest; // [rsp+188h] [rbp+80h] BYREF
+  int v9; // [rsp+1B0h] [rbp+A8h]
+  int v10; // [rsp+1B4h] [rbp+ACh]
 
-  v3 = 48LL;
-  for ( result = ZwAlpcSendWaitReceivePort((__int64)PopAlpcMonitorServerPort, 0LL, 0LL);
-        !(_DWORD)result;
-        result = ZwAlpcSendWaitReceivePort((__int64)PopAlpcMonitorServerPort, 0LL, 0LL) )
+  BufferLength = 48LL;
+  for ( result = ZwAlpcSendWaitReceivePort(
+                   PopAlpcMonitorServerPort,
+                   0,
+                   0LL,
+                   0LL,
+                   &ConnectionRequest,
+                   &BufferLength,
+                   0LL,
+                   0LL);
+        !result;
+        result = ZwAlpcSendWaitReceivePort(
+                   PopAlpcMonitorServerPort,
+                   0,
+                   0LL,
+                   0LL,
+                   &ConnectionRequest,
+                   &BufferLength,
+                   0LL,
+                   0LL) )
   {
-    if ( (unsigned __int8)v11 == 3 )
+    if ( LOBYTE(ConnectionRequest.u2.ZeroInit) == 3 )
     {
-      LODWORD(v2) = v13;
-      if ( v12 )
+      LODWORD(v2) = v10;
+      if ( v9 )
       {
-        if ( v12 != 2 )
+        if ( v9 != 2 )
         {
-          if ( v12 == 3 )
+          if ( v9 == 3 )
             PopSetPowerSettingValueAcDc(&GUID_VIDEO_CURRENT_MONITOR_BRIGHTNESS, 4u, &v2);
           goto LABEL_28;
         }
-        memset(v10, 0, 0x48uLL);
-        LODWORD(v10[0]) = 12;
-        LODWORD(v10[1]) = v13;
+        memset(v6, 0, 0x48uLL);
+        v6[0] = 12;
+        v6[2] = v10;
         if ( (PoDebug & 0x10000000) != 0 )
           DbgPrint("%s: Sending hot-key action to UMPO.", "PopUmpoSendHotKey");
-        v1 = v10;
+        v1 = v6;
       }
       else
       {
         memset(Src, 0, 0x48uLL);
         LODWORD(Src[0]) = 8;
-        LODWORD(Src[3]) = v13;
+        LODWORD(Src[3]) = v10;
         *(GUID *)&Src[1] = GUID_DEVICE_POWER_POLICY_VIDEO_BRIGHTNESS;
         if ( (PoDebug & 0x10000000) != 0 )
           DbgPrint("%s: Sending new brightness value to UMPO.", "PopUmpoSendBrightness");
@@ -68,9 +81,9 @@ __int64 PopMonitorProcessLoop()
     }
     else
     {
-      if ( (unsigned __int8)v11 <= 4u )
+      if ( LOBYTE(ConnectionRequest.u2.ZeroInit) <= 4u )
         goto LABEL_15;
-      if ( (unsigned __int8)v11 <= 6u )
+      if ( LOBYTE(ConnectionRequest.u2.ZeroInit) <= 6u )
       {
         ZwClose(PopAlpcMonitorClientPort);
         if ( (PoDebug & 2) != 0 )
@@ -78,40 +91,61 @@ __int64 PopMonitorProcessLoop()
         PopAlpcMonitorClientPort = 0LL;
         goto LABEL_28;
       }
-      if ( (unsigned __int8)v11 == 10 )
+      if ( LOBYTE(ConnectionRequest.u2.ZeroInit) == 10 )
       {
         if ( PopAlpcMonitorClientPort )
         {
           ZwClose(PopAlpcMonitorClientPort);
           PopAlpcMonitorClientPort = 0LL;
         }
-        memset(&v10[10], 0, 0x48uLL);
-        LODWORD(v10[10]) = 0x100000;
-        v10[12] = 256LL;
-        LODWORD(v4) = 48;
-        v5 = 0LL;
-        v7 = 512;
-        v6 = 0LL;
-        v8 = 0LL;
-        if ( (int)ZwAlpcAcceptConnectPort((__int64)&PopAlpcMonitorClientPort, (__int64)PopAlpcMonitorServerPort, 0LL) >= 0 )
+        memset(&PortAttributes, 0, sizeof(PortAttributes));
+        PortAttributes.Flags = 0x100000;
+        PortAttributes.MaxMessageLength = 256LL;
+        ObjectAttributes.Length = 48;
+        ObjectAttributes.RootDirectory = 0LL;
+        ObjectAttributes.Attributes = 512;
+        ObjectAttributes.ObjectName = 0LL;
+        *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+        if ( ZwAlpcAcceptConnectPort(
+               &PopAlpcMonitorClientPort,
+               PopAlpcMonitorServerPort,
+               0,
+               &ObjectAttributes,
+               &PortAttributes,
+               0LL,
+               &ConnectionRequest,
+               0LL,
+               1u) >= 0 )
         {
           if ( (PoDebug & 0x10000000) != 0 )
             DbgPrint("%s: Monitor Connected, port=%p\n", "PopMonitorProcessLoop", PopAlpcMonitorServerPort);
         }
         else
         {
-          ZwAlpcAcceptConnectPort((__int64)&PopAlpcMonitorClientPort, (__int64)PopAlpcMonitorServerPort, 0LL);
+          ZwAlpcAcceptConnectPort(
+            &PopAlpcMonitorClientPort,
+            PopAlpcMonitorServerPort,
+            0,
+            &ObjectAttributes,
+            &PortAttributes,
+            0LL,
+            &ConnectionRequest,
+            0LL,
+            0);
         }
       }
       else
       {
 LABEL_15:
         if ( (PoDebug & 1) != 0 )
-          DbgPrint("%s: Not expecting message type=0x%x\n", "PopMonitorProcessLoop", (unsigned __int8)v11);
+          DbgPrint(
+            "%s: Not expecting message type=0x%x\n",
+            "PopMonitorProcessLoop",
+            LOBYTE(ConnectionRequest.u2.ZeroInit));
       }
     }
 LABEL_28:
-    v3 = 48LL;
+    BufferLength = 48LL;
   }
   return result;
 }

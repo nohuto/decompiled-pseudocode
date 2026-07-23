@@ -1,42 +1,42 @@
 /*
- * XREFs of RtlEqualString @ 0x180082740
+ * XREFs of RtlEqualString @ 0x180079AE0
  * Callers:
  *     <none>
  * Callees:
- *     RtlUpperChar @ 0x180082DC0 (RtlUpperChar.c)
- *     RtlCompareMemory @ 0x1801631E0 (RtlCompareMemory.c)
+ *     RtlUpperChar @ 0x18007A160 (RtlUpperChar.c)
+ *     RtlCompareMemory @ 0x1801630E0 (RtlCompareMemory.c)
  */
 
-bool __fastcall RtlEqualString(unsigned __int16 *a1, unsigned __int16 *a2, char a3)
+BOOLEAN __cdecl RtlEqualString(PSTRING String1, PSTRING String2, BOOLEAN CaseInSensitive)
 {
-  SIZE_T v3; // rax
+  SIZE_T Length; // rax
   SIZE_T v5; // rbx
-  unsigned __int8 *v6; // rsi
-  _BYTE *v7; // rdi
+  char *Buffer; // rsi
+  char *v7; // rdi
   int v8; // r14d
-  _BYTE *v9; // rbp
+  char *v9; // rbp
   SIZE_T v10; // rax
   int v11; // ebx
-  unsigned __int8 v12; // r15
+  CHAR v12; // r15
   int v13; // r12d
   unsigned __int8 v14; // al
 
-  v3 = *a1;
-  if ( (_WORD)v3 != *a2 )
+  Length = String1->Length;
+  if ( (_WORD)Length != String2->Length )
     return 0;
-  v5 = *a1;
-  v6 = (unsigned __int8 *)*((_QWORD *)a2 + 1);
-  v7 = (_BYTE *)*((_QWORD *)a1 + 1);
-  v8 = *a2;
-  v9 = &v7[v3];
-  if ( a3 )
+  v5 = String1->Length;
+  Buffer = String2->Buffer;
+  v7 = String1->Buffer;
+  v8 = String2->Length;
+  v9 = &v7[Length];
+  if ( CaseInSensitive )
   {
     while ( v7 < v9 )
     {
-      v12 = *v6;
-      if ( *v7 != *v6 )
+      v12 = *Buffer;
+      if ( *v7 != *Buffer )
       {
-        v13 = (unsigned __int8)((__int64 (*)(void))RtlUpperChar)();
+        v13 = (unsigned __int8)RtlUpperChar(*v7);
         v14 = RtlUpperChar(v12);
         if ( (_BYTE)v13 != v14 )
         {
@@ -45,15 +45,15 @@ bool __fastcall RtlEqualString(unsigned __int16 *a1, unsigned __int16 *a2, char 
         }
       }
       ++v7;
-      ++v6;
+      ++Buffer;
     }
   }
   else
   {
-    v10 = RtlCompareMemory(v7, v6, v3);
+    v10 = RtlCompareMemory(v7, Buffer, Length);
     if ( v10 < v5 )
     {
-      v11 = (unsigned __int8)v7[v10] - v6[v10];
+      v11 = (unsigned __int8)v7[v10] - (unsigned __int8)Buffer[v10];
       return v11 == 0;
     }
   }

@@ -1,9 +1,9 @@
 /*
- * XREFs of VmMergeMemoryRanges @ 0x1408B03A0
+ * XREFs of VmMergeMemoryRanges @ 0x1408B1600
  * Callers:
  *     <none>
  * Callees:
- *     VmpMergeMemoryRanges @ 0x14030CC10 (VmpMergeMemoryRanges.c)
+ *     VmpMergeMemoryRanges @ 0x14030CE00 (VmpMergeMemoryRanges.c)
  */
 
 __int64 __fastcall VmMergeMemoryRanges(unsigned __int64 a1, __int64 a2)

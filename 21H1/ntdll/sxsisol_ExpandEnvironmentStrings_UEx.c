@@ -12,49 +12,50 @@
  *     sxsisol_ExpandEnvironmentStrings_UEx @ 0x4B33D614 (sxsisol_ExpandEnvironmentStrings_UEx.c)
  */
 
-int __fastcall sxsisol_ExpandEnvironmentStrings_UEx(int a1, unsigned __int16 *a2, unsigned __int16 *a3)
+NTSTATUS __fastcall sxsisol_ExpandEnvironmentStrings_UEx(int a1, _UNICODE_STRING *a2, PUNICODE_STRING a3)
 {
-  int v4; // esi
+  NTSTATUS v4; // esi
   unsigned int v6; // eax
-  int *v7; // esi
-  int v8; // ecx
-  unsigned __int16 v9; // cx
+  wchar_t **v7; // esi
+  wchar_t *v8; // ecx
+  unsigned __int16 Length; // cx
   unsigned __int16 v10; // ax
-  int v11; // eax
+  NTSTATUS v11; // eax
   unsigned int v12; // eax
-  _DWORD v13[2]; // [esp+14h] [ebp-28h] BYREF
-  unsigned int v14; // [esp+1Ch] [ebp-20h] BYREF
-  int v15; // [esp+20h] [ebp-1Ch]
+  size_t v13; // [esp-4h] [ebp-40h]
+  _UNICODE_STRING Destination; // [esp+14h] [ebp-28h] BYREF
+  ULONG ReturnedLength; // [esp+1Ch] [ebp-20h] BYREF
+  int v16; // [esp+20h] [ebp-1Ch]
   CPPEH_RECORD ms_exc; // [esp+24h] [ebp-18h]
 
-  v15 = -1073741595;
+  v16 = -1073741595;
   if ( !a2 || !a3 || a2 == a3 )
     return -1073741811;
-  if ( *a2 )
+  if ( a2->Length )
   {
-    v13[0] = 0;
-    v13[1] = 0;
-    RtlEnterCriticalSection((int)&FastPebLock);
+    *(_DWORD *)&Destination.Length = 0;
+    Destination.Buffer = 0;
+    RtlEnterCriticalSection(&FastPebLock);
     ms_exc.registration.TryLevel = 0;
-    v11 = RtlExpandEnvironmentStrings_U(0, a2, (int)v13, &v14);
+    v11 = RtlExpandEnvironmentStrings_U(0, a2, &Destination, &ReturnedLength);
     v4 = v11;
-    v15 = v11;
+    v16 = v11;
     if ( v11 >= 0 || v11 == -1073741789 )
     {
-      if ( v14 <= 0xFFFE )
+      if ( ReturnedLength <= 0xFFFE )
       {
-        v12 = v14 + 4;
-        if ( v14 + 4 <= 0xFFFE )
+        v12 = ReturnedLength + 4;
+        if ( ReturnedLength + 4 <= 0xFFFE )
         {
-          if ( (a3 == (unsigned __int16 *)-8 || v12 > *((_DWORD *)a3 + 4))
-            && RtlpEnsureBufferSize(0, (int)(a3 + 4), v12) < 0 )
+          if ( (a3 == (PUNICODE_STRING)-8 || v12 > *(_DWORD *)&a3[2].Length)
+            && RtlpEnsureBufferSize(0, (int)&a3[1], v12) < 0 )
           {
             v4 = -1073741801;
           }
           else
           {
-            *((_DWORD *)a3 + 1) = *((_DWORD *)a3 + 2);
-            a3[1] = a3[8];
+            a3->Buffer = *(wchar_t **)&a3[1].Length;
+            a3->MaximumLength = a3[2].Length;
             v4 = 0;
           }
         }
@@ -62,11 +63,11 @@ int __fastcall sxsisol_ExpandEnvironmentStrings_UEx(int a1, unsigned __int16 *a2
         {
           v4 = -1073741562;
         }
-        v15 = v4;
+        v16 = v4;
         if ( v4 < 0 )
           goto LABEL_29;
-        v4 = RtlExpandEnvironmentStrings_U(0, a2, (int)a3, 0);
-        v15 = v4;
+        v4 = RtlExpandEnvironmentStrings_U(0, a2, a3, 0);
+        v16 = v4;
         if ( v4 < 0 )
           goto LABEL_29;
         v4 = 0;
@@ -75,27 +76,31 @@ int __fastcall sxsisol_ExpandEnvironmentStrings_UEx(int a1, unsigned __int16 *a2
       {
         v4 = -1073741562;
       }
-      v15 = v4;
+      v16 = v4;
     }
 LABEL_29:
     ms_exc.registration.TryLevel = -2;
-    RtlLeaveCriticalSection((int)&FastPebLock);
+    RtlLeaveCriticalSection(&FastPebLock);
     return v4;
   }
-  *a3 = 0;
-  v6 = *a2 + 2;
+  a3->Length = 0;
+  v6 = a2->Length + 2;
   if ( v6 > 0xFFFE )
     return -1073741562;
-  v7 = (int *)(a3 + 4);
-  if ( (a3 == (unsigned __int16 *)-8 || v6 > *((_DWORD *)a3 + 4)) && RtlpEnsureBufferSize(0, (int)(a3 + 4), *a2 + 2) < 0 )
+  v7 = (wchar_t **)&a3[1];
+  if ( (a3 == (PUNICODE_STRING)-8 || v6 > *(_DWORD *)&a3[2].Length)
+    && RtlpEnsureBufferSize(0, (int)&a3[1], a2->Length + 2) < 0 )
+  {
     return -1073741801;
+  }
   v8 = *v7;
-  *((_DWORD *)a3 + 1) = *v7;
-  memmove((void *)(v8 + 2 * (*a3 >> 1)), *((const void **)a2 + 1), *a2);
-  v9 = *a3;
-  a3[1] = *a3 + *a2 + 2;
-  v10 = v9 + *a2;
-  *a3 = v10;
-  *(_WORD *)(*((_DWORD *)a3 + 1) + 2 * (v10 >> 1)) = 0;
+  a3->Buffer = *v7;
+  LODWORD(v13) = a2->Length;
+  memmove(&v8[a3->Length >> 1], a2->Buffer, v13);
+  Length = a3->Length;
+  a3->MaximumLength = a3->Length + a2->Length + 2;
+  v10 = Length + a2->Length;
+  a3->Length = v10;
+  a3->Buffer[v10 >> 1] = 0;
   return 0;
 }

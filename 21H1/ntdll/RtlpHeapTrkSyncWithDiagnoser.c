@@ -10,23 +10,20 @@
 
 char RtlpHeapTrkSyncWithDiagnoser()
 {
-  int v0; // eax
-  int v1; // eax
-  _DWORD v3[2]; // [esp+0h] [ebp-10h] BYREF
-  _DWORD v4[2]; // [esp+8h] [ebp-8h] BYREF
+  NTSTATUS v0; // eax
+  HANDLE Handles[2]; // [esp+0h] [ebp-10h] BYREF
+  LARGE_INTEGER Timeout; // [esp+8h] [ebp-8h] BYREF
 
   if ( !TrkContext
-    || (v3[0] = *(_DWORD *)(TrkContext + 4),
-        v0 = *(_DWORD *)(TrkContext + 12),
-        v4[1] = -1,
-        v3[1] = v0,
-        v4[0] = -100000000,
-        NtSetEvent(*(_DWORD *)(TrkContext + 8), 0),
-        v1 = NtWaitForMultipleObjects(2, (int)v3, 1, 0, (int)v4),
-        v1 != 1) )
+    || (Handles[0] = *((HANDLE *)TrkContext + 1),
+        Handles[1] = *((HANDLE *)TrkContext + 3),
+        Timeout.QuadPart = -100000000LL,
+        NtSetEvent(*((HANDLE *)TrkContext + 2), 0),
+        v0 = NtWaitForMultipleObjects(2u, Handles, WaitAny, 0, &Timeout),
+        v0 != 1) )
   {
     byte_4B3A6DA8 = 1;
-    LOBYTE(v1) = 0;
+    LOBYTE(v0) = 0;
   }
-  return v1;
+  return v0;
 }

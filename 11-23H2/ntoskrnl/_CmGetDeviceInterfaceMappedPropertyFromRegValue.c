@@ -1,15 +1,15 @@
 /*
- * XREFs of _CmGetDeviceInterfaceMappedPropertyFromRegValue @ 0x1406C93DC
+ * XREFs of _CmGetDeviceInterfaceMappedPropertyFromRegValue @ 0x1406C940C
  * Callers:
- *     _CmGetDeviceInterfaceMappedProperty @ 0x1406CC674 (_CmGetDeviceInterfaceMappedProperty.c)
- *     _CmGetDeviceInterfaceMappedPropertyKeys @ 0x140A683E8 (_CmGetDeviceInterfaceMappedPropertyKeys.c)
+ *     _CmGetDeviceInterfaceMappedProperty @ 0x1406CC6A4 (_CmGetDeviceInterfaceMappedProperty.c)
+ *     _CmGetDeviceInterfaceMappedPropertyKeys @ 0x140A68698 (_CmGetDeviceInterfaceMappedPropertyKeys.c)
  * Callees:
- *     ZwClose @ 0x14041AF40 (ZwClose.c)
- *     _CmOpenDeviceInterfaceRegKey @ 0x1406CC1F8 (_CmOpenDeviceInterfaceRegKey.c)
- *     _PnpCtxRegQueryValueIndirect @ 0x1406CD9A4 (_PnpCtxRegQueryValueIndirect.c)
- *     _RegRtlQueryValue @ 0x1406CE868 (_RegRtlQueryValue.c)
- *     _CmIsDeviceInterfaceEnabled @ 0x1406CECC0 (_CmIsDeviceInterfaceEnabled.c)
- *     _SysCtxRegOpenKey @ 0x1406CED20 (_SysCtxRegOpenKey.c)
+ *     ZwClose @ 0x14041B2D0 (ZwClose.c)
+ *     _CmOpenDeviceInterfaceRegKey @ 0x1406CC228 (_CmOpenDeviceInterfaceRegKey.c)
+ *     _PnpCtxRegQueryValueIndirect @ 0x1406CD9D4 (_PnpCtxRegQueryValueIndirect.c)
+ *     _RegRtlQueryValue @ 0x1406CE898 (_RegRtlQueryValue.c)
+ *     _CmIsDeviceInterfaceEnabled @ 0x1406CECF0 (_CmIsDeviceInterfaceEnabled.c)
+ *     _SysCtxRegOpenKey @ 0x1406CED50 (_SysCtxRegOpenKey.c)
  */
 
 __int64 __fastcall CmGetDeviceInterfaceMappedPropertyFromRegValue(
@@ -76,7 +76,7 @@ __int64 __fastcall CmGetDeviceInterfaceMappedPropertyFromRegValue(
   if ( v17 < 2 )
     return (unsigned int)-1073741264;
   v18 = 0;
-  v19 = &off_140A77E08;
+  v19 = &off_140A780B8;
   while ( 1 )
   {
     v20 = *v19;

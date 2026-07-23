@@ -1,10 +1,10 @@
 /*
- * XREFs of MiObtainProtoBaseFromNode @ 0x14044BE20
+ * XREFs of MiObtainProtoBaseFromNode @ 0x140443F40
  * Callers:
- *     MiGetPrototypePteRanges @ 0x14044BB34 (MiGetPrototypePteRanges.c)
- *     MiReferencePfBackedSection @ 0x1404D1764 (MiReferencePfBackedSection.c)
- *     MiGetPrototypePteBoundaries @ 0x14070FFA4 (MiGetPrototypePteBoundaries.c)
- *     MiReplaceSystemProtoPtesNode @ 0x140710048 (MiReplaceSystemProtoPtesNode.c)
+ *     MiGetPrototypePteRanges @ 0x140443C58 (MiGetPrototypePteRanges.c)
+ *     MiReferencePfBackedSection @ 0x1404CB310 (MiReferencePfBackedSection.c)
+ *     MiGetPrototypePteBoundaries @ 0x140714CA0 (MiGetPrototypePteBoundaries.c)
+ *     MiReplaceSystemProtoPtesNode @ 0x140714D44 (MiReplaceSystemProtoPtesNode.c)
  * Callees:
  *     <none>
  */

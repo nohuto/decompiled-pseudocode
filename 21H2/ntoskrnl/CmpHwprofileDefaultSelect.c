@@ -1,5 +1,5 @@
 /*
- * XREFs of CmpHwprofileDefaultSelect @ 0x140A390C0
+ * XREFs of CmpHwprofileDefaultSelect @ 0x140A3A0C0
  * Callers:
  *     <none>
  * Callees:

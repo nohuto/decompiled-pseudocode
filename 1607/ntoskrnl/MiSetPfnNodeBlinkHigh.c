@@ -1,8 +1,8 @@
 /*
- * XREFs of MiSetPfnNodeBlinkHigh @ 0x140107E3C
+ * XREFs of MiSetPfnNodeBlinkHigh @ 0x140105BBC
  * Callers:
- *     MiReplaceNumaStandbyPage @ 0x140107C6C (MiReplaceNumaStandbyPage.c)
- *     MiUnlinkNumaStandbyPage @ 0x140120E54 (MiUnlinkNumaStandbyPage.c)
+ *     MiReplaceNumaStandbyPage @ 0x1401059EC (MiReplaceNumaStandbyPage.c)
+ *     MiUnlinkNumaStandbyPage @ 0x1401213C4 (MiUnlinkNumaStandbyPage.c)
  * Callees:
  *     <none>
  */

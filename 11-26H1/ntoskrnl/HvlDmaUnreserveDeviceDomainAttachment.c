@@ -1,10 +1,10 @@
 /*
- * XREFs of HvlDmaUnreserveDeviceDomainAttachment @ 0x1405BC800
+ * XREFs of HvlDmaUnreserveDeviceDomainAttachment @ 0x1405BF070
  * Callers:
  *     <none>
  * Callees:
- *     HvcallFastExtended @ 0x14032BFB0 (HvcallFastExtended.c)
- *     HvlpHvToNtStatus @ 0x1403E7DC0 (HvlpHvToNtStatus.c)
+ *     HvlpHvToNtStatus @ 0x1402F4CA0 (HvlpHvToNtStatus.c)
+ *     HvcallFastExtended @ 0x14032DFE0 (HvcallFastExtended.c)
  */
 
 __int64 __fastcall HvlDmaUnreserveDeviceDomainAttachment(__int64 a1)

@@ -2,18 +2,18 @@
  * XREFs of MiInitializeTransitionPfn @ 0x140028D84
  * Callers:
  *     MiCopyDataPageToImagePage @ 0x14002D340 (MiCopyDataPageToImagePage.c)
- *     MiSectionCreated @ 0x140092720 (MiSectionCreated.c)
- *     MiInitializeImageProtos @ 0x140093198 (MiInitializeImageProtos.c)
+ *     MiSectionCreated @ 0x140092660 (MiSectionCreated.c)
+ *     MiInitializeImageProtos @ 0x1400930D8 (MiInitializeImageProtos.c)
  * Callees:
  *     MiFinalizePageAttribute @ 0x140029658 (MiFinalizePageAttribute.c)
  *     MiProtectionToCacheAttribute @ 0x14002BD80 (MiProtectionToCacheAttribute.c)
  *     MiPteInShadowRange @ 0x14003D740 (MiPteInShadowRange.c)
  *     MiSwizzleInvalidPte @ 0x14003D7C0 (MiSwizzleInvalidPte.c)
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
- *     MiGetContainingPageTable @ 0x140079850 (MiGetContainingPageTable.c)
- *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
- *     MiLockNestedPageAtDpcInline @ 0x140120F04 (MiLockNestedPageAtDpcInline.c)
+ *     MiGetContainingPageTable @ 0x140079840 (MiGetContainingPageTable.c)
+ *     MiWritePteShadow @ 0x140120F40 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120FA0 (MiPteHasShadow.c)
+ *     MiLockNestedPageAtDpcInline @ 0x140120FD4 (MiLockNestedPageAtDpcInline.c)
  */
 
 __int64 __fastcall MiInitializeTransitionPfn(__int64 a1, _QWORD *a2)
@@ -63,7 +63,7 @@ __int64 __fastcall MiInitializeTransitionPfn(__int64 a1, _QWORD *a2)
     if ( (unsigned int)MiPteHasShadow(v14, v13) )
     {
       v15 = 1;
-      if ( HIBYTE(word_14043A1AC) )
+      if ( HIBYTE(word_14043B26C) )
         goto LABEL_4;
       v19 = (v18 & 1) == 0;
     }

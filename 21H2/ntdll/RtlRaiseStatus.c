@@ -1,5 +1,5 @@
 /*
- * XREFs of RtlRaiseStatus @ 0x1801026C0
+ * XREFs of RtlRaiseStatus @ 0x180102680
  * Callers:
  *     RtlpSubSegmentInitialize @ 0x18000A090 (RtlpSubSegmentInitialize.c)
  *     RtlInitializeResource @ 0x1800112E0 (RtlInitializeResource.c)
@@ -36,51 +36,38 @@
  *     RtlConvertSRWLockExclusiveToShared @ 0x1800858A0 (RtlConvertSRWLockExclusiveToShared.c)
  *     RtlpUnwindOpSlots @ 0x180088B78 (RtlpUnwindOpSlots.c)
  *     RtlConvertExclusiveToShared @ 0x18008A610 (RtlConvertExclusiveToShared.c)
- *     KiUserApcDispatcher @ 0x1800A1390 (KiUserApcDispatcher.c)
- *     KiUserCallbackDispatcherHandler @ 0x1800A1420 (KiUserCallbackDispatcherHandler.c)
- *     KiUserCallbackDispatcher @ 0x1800A14B0 (KiUserCallbackDispatcher.c)
- *     KiUserExceptionDispatcher @ 0x1800A1500 (KiUserExceptionDispatcher.c)
- *     LdrpLogFatalUserCallbackException @ 0x1800CF530 (LdrpLogFatalUserCallbackException.c)
- *     LdrpInitializeProcess @ 0x1800D1EC0 (LdrpInitializeProcess.c)
- *     LdrpFatalExceptionFilter @ 0x1800D54B0 (LdrpFatalExceptionFilter.c)
- *     RtlGrowFunctionTable @ 0x1800E0BD0 (RtlGrowFunctionTable.c)
- *     RtlTryConvertSRWLockSharedToExclusiveOrRelease @ 0x1800E8DA0 (RtlTryConvertSRWLockSharedToExclusiveOrRelease.c)
- *     RtlpNotOwnerCriticalSection @ 0x1800E9110 (RtlpNotOwnerCriticalSection.c)
- *     RtlpPossibleDeadlock @ 0x1800E9268 (RtlpPossibleDeadlock.c)
- *     RtlpUnWaitCriticalSection @ 0x1800E9440 (RtlpUnWaitCriticalSection.c)
- *     RtlIsNameInExpression @ 0x1800FB5A0 (RtlIsNameInExpression.c)
- *     RtlIsNameInUnUpcasedExpression @ 0x1800FB650 (RtlIsNameInUnUpcasedExpression.c)
- *     RtlpIsNameInExpressionPrivate @ 0x1800FB72C (RtlpIsNameInExpressionPrivate.c)
- *     RtlInitializeContext @ 0x1800FEFD0 (RtlInitializeContext.c)
- *     RtlRaiseStatus @ 0x1801026C0 (RtlRaiseStatus.c)
- *     RtlpInitRandomExVector @ 0x180102720 (RtlpInitRandomExVector.c)
- *     TppExceptionFilter @ 0x180112394 (TppExceptionFilter.c)
+ *     KiUserApcDispatcher @ 0x1800A1350 (KiUserApcDispatcher.c)
+ *     KiUserCallbackDispatcherHandler @ 0x1800A13E0 (KiUserCallbackDispatcherHandler.c)
+ *     KiUserCallbackDispatcher @ 0x1800A1470 (KiUserCallbackDispatcher.c)
+ *     KiUserExceptionDispatcher @ 0x1800A14C0 (KiUserExceptionDispatcher.c)
+ *     LdrpLogFatalUserCallbackException @ 0x1800CF4F0 (LdrpLogFatalUserCallbackException.c)
+ *     LdrpInitializeProcess @ 0x1800D1E80 (LdrpInitializeProcess.c)
+ *     LdrpFatalExceptionFilter @ 0x1800D5470 (LdrpFatalExceptionFilter.c)
+ *     RtlGrowFunctionTable @ 0x1800E0B90 (RtlGrowFunctionTable.c)
+ *     RtlTryConvertSRWLockSharedToExclusiveOrRelease @ 0x1800E8D60 (RtlTryConvertSRWLockSharedToExclusiveOrRelease.c)
+ *     RtlpNotOwnerCriticalSection @ 0x1800E90D0 (RtlpNotOwnerCriticalSection.c)
+ *     RtlpPossibleDeadlock @ 0x1800E9228 (RtlpPossibleDeadlock.c)
+ *     RtlpUnWaitCriticalSection @ 0x1800E9400 (RtlpUnWaitCriticalSection.c)
+ *     RtlIsNameInExpression @ 0x1800FB560 (RtlIsNameInExpression.c)
+ *     RtlIsNameInUnUpcasedExpression @ 0x1800FB610 (RtlIsNameInUnUpcasedExpression.c)
+ *     RtlpIsNameInExpressionPrivate @ 0x1800FB6EC (RtlpIsNameInExpressionPrivate.c)
+ *     RtlInitializeContext @ 0x1800FEF90 (RtlInitializeContext.c)
+ *     RtlRaiseStatus @ 0x180102680 (RtlRaiseStatus.c)
+ *     RtlpInitRandomExVector @ 0x1801026E0 (RtlpInitRandomExVector.c)
+ *     TppExceptionFilter @ 0x180112354 (TppExceptionFilter.c)
  * Callees:
- *     RtlRaiseNoncontinuableException @ 0x1800A1F70 (RtlRaiseNoncontinuableException.c)
- *     RtlRaiseStatus @ 0x1801026C0 (RtlRaiseStatus.c)
+ *     RtlRaiseNoncontinuableException @ 0x1800A1F30 (RtlRaiseNoncontinuableException.c)
+ *     RtlRaiseStatus @ 0x180102680 (RtlRaiseStatus.c)
  */
 
-void __fastcall __noreturn RtlRaiseStatus(int a1)
+void __cdecl __noreturn RtlRaiseStatus(NTSTATUS Status)
 {
-  char v1; // bl
-  unsigned int v2; // eax
-  _DWORD v3[2]; // [rsp+20h] [rbp-578h] BYREF
-  __int64 v4; // [rsp+28h] [rbp-570h]
-  int v5; // [rsp+38h] [rbp-560h]
-  _BYTE v6[1240]; // [rsp+C0h] [rbp-4D8h] BYREF
+  EXCEPTION_RECORD ExceptionRecord; // [rsp+20h] [rbp-578h] BYREF
+  struct _CONTEXT ContextRecord; // [rsp+C0h] [rbp-4D8h] BYREF
 
-  v4 = 0LL;
-  v1 = 1;
-  v5 = 0;
-  v3[1] = 1;
-  v3[0] = a1;
-  do
-  {
-    LOBYTE(v2) = RtlRaiseNoncontinuableException((__int64)v3, (__int64)v6);
-    if ( NtCurrentPeb()->BeingDebugged )
-      break;
-    --v1;
-  }
-  while ( !v1 );
-  RtlRaiseStatus(v2);
+  ExceptionRecord.ExceptionRecord = 0LL;
+  ExceptionRecord.NumberParameters = 0;
+  ExceptionRecord.ExceptionFlags = 1;
+  ExceptionRecord.ExceptionCode = Status;
+  RtlRaiseNoncontinuableException(&ExceptionRecord, &ContextRecord);
 }

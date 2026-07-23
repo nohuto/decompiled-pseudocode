@@ -1,16 +1,16 @@
 /*
- * XREFs of _CmDeleteInstallerClassWorker @ 0x140818B70
+ * XREFs of _CmDeleteInstallerClassWorker @ 0x1408192B0
  * Callers:
- *     _CmDeleteInstallerClass @ 0x140818A18 (_CmDeleteInstallerClass.c)
+ *     _CmDeleteInstallerClass @ 0x140819158 (_CmDeleteInstallerClass.c)
  * Callees:
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     _CmDeleteInstallerClassRegKey @ 0x140818B44 (_CmDeleteInstallerClassRegKey.c)
- *     _CmRaiseDeleteEvent @ 0x14081C2C0 (_CmRaiseDeleteEvent.c)
- *     _CmGetInstallerClassMappedPropertyKeys @ 0x14081EDE0 (_CmGetInstallerClassMappedPropertyKeys.c)
- *     _CmSetInstallerClassMappedProperty @ 0x14081F7C4 (_CmSetInstallerClassMappedProperty.c)
- *     _CmGetMatchingFilteredDeviceList @ 0x140A1A490 (_CmGetMatchingFilteredDeviceList.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     _CmDeleteInstallerClassRegKey @ 0x140819284 (_CmDeleteInstallerClassRegKey.c)
+ *     _CmRaiseDeleteEvent @ 0x14081CA00 (_CmRaiseDeleteEvent.c)
+ *     _CmGetInstallerClassMappedPropertyKeys @ 0x14081F520 (_CmGetInstallerClassMappedPropertyKeys.c)
+ *     _CmSetInstallerClassMappedProperty @ 0x14081FF04 (_CmSetInstallerClassMappedProperty.c)
+ *     _CmGetMatchingFilteredDeviceList @ 0x140A163D4 (_CmGetMatchingFilteredDeviceList.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall CmDeleteInstallerClassWorker(__int64 a1, __int64 a2, __int16 a3)
@@ -24,21 +24,22 @@ __int64 __fastcall CmDeleteInstallerClassWorker(__int64 a1, __int64 a2, __int16 
   void *Pool2; // rbx
   unsigned int v12; // ebp
   int InstallerClassMappedPropertyKeys; // eax
+  unsigned __int64 v14; // r14
   __int64 i; // rbp
-  int v15; // eax
-  unsigned int v17; // [rsp+50h] [rbp-48h] BYREF
-  int v18; // [rsp+54h] [rbp-44h] BYREF
-  _DWORD v19[4]; // [rsp+58h] [rbp-40h] BYREF
+  int v16; // eax
+  unsigned int v18; // [rsp+50h] [rbp-48h] BYREF
+  int v19; // [rsp+54h] [rbp-44h] BYREF
+  _DWORD v20[4]; // [rsp+58h] [rbp-40h] BYREF
 
   v3 = 0;
-  v18 = 0;
+  v19 = 0;
   if ( a3 )
   {
     return (unsigned int)-1073741811;
   }
   else
   {
-    MatchingFilteredDeviceList = CmGetMatchingFilteredDeviceList(a1, a2, 128, 0, 0LL, 0LL, 0, (__int64)&v18);
+    MatchingFilteredDeviceList = CmGetMatchingFilteredDeviceList(a1, a2, 128, 0, 0LL, 0LL, 0, (__int64)&v19);
     if ( MatchingFilteredDeviceList == -1073741789 )
     {
       return (unsigned int)-1073741535;
@@ -49,11 +50,11 @@ __int64 __fastcall CmDeleteInstallerClassWorker(__int64 a1, __int64 a2, __int16 
     }
     else
     {
-      v19[0] = 800;
-      v8 = v19;
-      v19[1] = 544;
+      v20[0] = 800;
+      v8 = v20;
+      v20[1] = 544;
       v9 = 0;
-      v19[2] = 288;
+      v20[2] = 288;
       while ( v9 < 3 )
       {
         v10 = CmDeleteInstallerClassRegKey(a1, a2, *v8);
@@ -69,7 +70,7 @@ __int64 __fastcall CmDeleteInstallerClassWorker(__int64 a1, __int64 a2, __int16 
       }
       Pool2 = 0LL;
       v12 = 0;
-      v17 = 0;
+      v18 = 0;
       while ( 1 )
       {
         LOBYTE(v7) = 1;
@@ -80,18 +81,19 @@ __int64 __fastcall CmDeleteInstallerClassWorker(__int64 a1, __int64 a2, __int16 
                                              v7,
                                              (__int64)Pool2,
                                              v12,
-                                             (__int64)&v17);
+                                             (__int64)&v18);
         if ( InstallerClassMappedPropertyKeys != -1073741789 )
           break;
-        v12 = v17;
-        if ( 20 * (unsigned __int64)v17 > 0xFFFFFFFF )
+        v12 = v18;
+        v14 = 20LL * v18;
+        if ( v14 > 0xFFFFFFFF )
         {
           InstallerClassMappedPropertyKeys = -1073741811;
           goto LABEL_25;
         }
         if ( Pool2 )
           ExFreePoolWithTag(Pool2, 0);
-        Pool2 = (void *)ExAllocatePool2(0x100uLL);
+        Pool2 = (void *)ExAllocatePool2(0x100uLL, (unsigned int)v14, 0x52504E50u);
         if ( !Pool2 )
         {
           InstallerClassMappedPropertyKeys = -1073741801;
@@ -102,12 +104,12 @@ LABEL_25:
       }
       if ( InstallerClassMappedPropertyKeys && InstallerClassMappedPropertyKeys != -1073741275 )
         goto LABEL_25;
-      for ( i = 0LL; (unsigned int)i < v17; i = (unsigned int)(i + 1) )
+      for ( i = 0LL; (unsigned int)i < v18; i = (unsigned int)(i + 1) )
       {
-        v15 = CmSetInstallerClassMappedProperty(a1, a2, 0, 0, (__int64)Pool2 + 20 * i, 0, 0LL, 0);
-        if ( v15 && v15 != -1073741275 && v15 != -1073741790 && v15 != -1073741802 && v15 != -1073741637 )
+        v16 = CmSetInstallerClassMappedProperty(a1, a2, 0, 0, (__int64)Pool2 + 20 * i, 0, 0LL, 0);
+        if ( v16 && v16 != -1073741275 && v16 != -1073741790 && v16 != -1073741802 && v16 != -1073741637 )
         {
-          v3 = v15;
+          v3 = v16;
           break;
         }
       }

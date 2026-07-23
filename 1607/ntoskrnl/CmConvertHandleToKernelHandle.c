@@ -1,15 +1,15 @@
 /*
- * XREFs of CmConvertHandleToKernelHandle @ 0x14049C210
+ * XREFs of CmConvertHandleToKernelHandle @ 0x1404A43A8
  * Callers:
- *     CmLoadDifferencingKey @ 0x14049B648 (CmLoadDifferencingKey.c)
- *     NtRestoreKey @ 0x1405FA570 (NtRestoreKey.c)
- *     NtSaveKey @ 0x1405FA800 (NtSaveKey.c)
- *     NtSaveKeyEx @ 0x1405FAA3C (NtSaveKeyEx.c)
- *     NtSaveMergedKeys @ 0x1405FACD4 (NtSaveMergedKeys.c)
+ *     CmLoadDifferencingKey @ 0x1404A37E0 (CmLoadDifferencingKey.c)
+ *     NtRestoreKey @ 0x1405FA624 (NtRestoreKey.c)
+ *     NtSaveKey @ 0x1405FA8B4 (NtSaveKey.c)
+ *     NtSaveKeyEx @ 0x1405FAAF0 (NtSaveKeyEx.c)
+ *     NtSaveMergedKeys @ 0x1405FAD88 (NtSaveMergedKeys.c)
  * Callees:
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
- *     ObOpenObjectByPointer @ 0x1404203C0 (ObOpenObjectByPointer.c)
- *     ObReferenceObjectByHandle @ 0x140450D40 (ObReferenceObjectByHandle.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
+ *     ObOpenObjectByPointer @ 0x14041F280 (ObOpenObjectByPointer.c)
+ *     ObReferenceObjectByHandle @ 0x14044FC10 (ObReferenceObjectByHandle.c)
  */
 
 __int64 __fastcall CmConvertHandleToKernelHandle(

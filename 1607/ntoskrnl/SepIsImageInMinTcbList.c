@@ -1,13 +1,13 @@
 /*
- * XREFs of SepIsImageInMinTcbList @ 0x14045DDCC
+ * XREFs of SepIsImageInMinTcbList @ 0x14045CC9C
  * Callers:
- *     SepIsMinTCB @ 0x14045CC48 (SepIsMinTCB.c)
+ *     SepIsMinTCB @ 0x14045BB18 (SepIsMinTCB.c)
  * Callees:
- *     ZwClose @ 0x140159E60 (ZwClose.c)
- *     RtlEqualUnicodeString @ 0x14040F720 (RtlEqualUnicodeString.c)
- *     SeCompareSigningLevels @ 0x14045D1E0 (SeCompareSigningLevels.c)
- *     RtlQueryImageFileKeyOption @ 0x1404732C4 (RtlQueryImageFileKeyOption.c)
- *     RtlpOpenImageFileOptionsKey @ 0x1404D3154 (RtlpOpenImageFileOptionsKey.c)
+ *     ZwClose @ 0x14015A3D0 (ZwClose.c)
+ *     RtlEqualUnicodeString @ 0x14040E5E0 (RtlEqualUnicodeString.c)
+ *     SeCompareSigningLevels @ 0x14045C0B0 (SeCompareSigningLevels.c)
+ *     RtlQueryImageFileKeyOption @ 0x140472194 (RtlQueryImageFileKeyOption.c)
+ *     RtlpOpenImageFileOptionsKey @ 0x1404B6BF4 (RtlpOpenImageFileOptionsKey.c)
  */
 
 __int64 __fastcall SepIsImageInMinTcbList(
@@ -40,7 +40,7 @@ __int64 __fastcall SepIsImageInMinTcbList(
   v13 = 0;
   if ( !a2 )
     return (unsigned int)-1073741275;
-  v14 = dword_1402FD0D0;
+  v14 = dword_1402FD030;
   for ( i = (_DWORD *)(a1 + 20);
         !RtlEqualUnicodeString(a3, (PCUNICODE_STRING)(a1 + 24LL * v13), 1u) || *i && *i != v14;
         i += 6 )

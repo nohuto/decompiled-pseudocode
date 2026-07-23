@@ -1,23 +1,23 @@
 /*
- * XREFs of IopSymlinkRememberJunction @ 0x14099D708
+ * XREFs of IopSymlinkRememberJunction @ 0x1408ACA10
  * Callers:
- *     IopSymlinkProcessReparse @ 0x14099D29C (IopSymlinkProcessReparse.c)
- *     IopGraftName @ 0x14099D348 (IopGraftName.c)
+ *     IopSymlinkProcessReparse @ 0x140A2F13C (IopSymlinkProcessReparse.c)
+ *     IopGraftName @ 0x140A2F1E8 (IopGraftName.c)
  * Callees:
- *     RtlAppendUnicodeToString @ 0x14040BAE0 (RtlAppendUnicodeToString.c)
- *     RtlAppendUnicodeStringToString @ 0x14040BBA0 (RtlAppendUnicodeStringToString.c)
- *     IopSymlinkGetECP @ 0x1404513D8 (IopSymlinkGetECP.c)
- *     IopSymlinkGetMostRecentlyUsedName @ 0x140477F50 (IopSymlinkGetMostRecentlyUsedName.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     IopGetRelatedFileName @ 0x140712180 (IopGetRelatedFileName.c)
- *     IopSymlinkFreeRelatedMountPointChain @ 0x1408A2AC8 (IopSymlinkFreeRelatedMountPointChain.c)
- *     IopSymlinkGetRelatedMountPoint @ 0x14099D80C (IopSymlinkGetRelatedMountPoint.c)
- *     IopSymlinkUpdateECP @ 0x14099DACC (IopSymlinkUpdateECP.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     RtlAppendUnicodeToString @ 0x140403FC0 (RtlAppendUnicodeToString.c)
+ *     RtlAppendUnicodeStringToString @ 0x140404080 (RtlAppendUnicodeStringToString.c)
+ *     IopSymlinkGetECP @ 0x140446838 (IopSymlinkGetECP.c)
+ *     IopSymlinkGetMostRecentlyUsedName @ 0x140474550 (IopSymlinkGetMostRecentlyUsedName.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     IopGetRelatedFileName @ 0x14070FD10 (IopGetRelatedFileName.c)
+ *     IopSymlinkFreeRelatedMountPointChain @ 0x1408AB168 (IopSymlinkFreeRelatedMountPointChain.c)
+ *     IopSymlinkUpdateECP @ 0x1408ABA8C (IopSymlinkUpdateECP.c)
+ *     IopSymlinkGetRelatedMountPoint @ 0x1408ACB14 (IopSymlinkGetRelatedMountPoint.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall IopSymlinkRememberJunction(unsigned __int16 a1, __int64 a2, __int64 a3, const UNICODE_STRING *a4)
+__int64 __fastcall IopSymlinkRememberJunction(unsigned __int16 a1, __int64 a2, __int64 a3, UNICODE_STRING *a4)
 {
   int RelatedFileName; // esi
   unsigned __int16 *RelatedMountPoint; // rax
@@ -61,7 +61,7 @@ __int64 __fastcall IopSymlinkRememberJunction(unsigned __int16 a1, __int64 a2, _
         {
           RtlAppendUnicodeToString(&Destination, L"\\");
           RtlAppendUnicodeStringToString(&Destination, a4 + 1);
-          RelatedFileName = IopSymlinkUpdateECP((PIRP)a3, v20, a4->MaximumLength);
+          RelatedFileName = IopSymlinkUpdateECP((PIRP)a3, a4, a1, &Destination, v20, a4->MaximumLength);
           ExFreePoolWithTag(Destination.Buffer, 0);
           if ( RelatedFileName < 0 )
             return (unsigned int)RelatedFileName;
@@ -71,7 +71,7 @@ __int64 __fastcall IopSymlinkRememberJunction(unsigned __int16 a1, __int64 a2, _
       }
     }
   }
-  Pool2 = ExAllocatePool2(0x100uLL);
+  Pool2 = ExAllocatePool2(0x100uLL, *(unsigned __int16 *)(a2 + 88) + 32LL, 0x69536F49u);
   *((_QWORD *)MostRecentlyUsedName + 1) = Pool2;
   v15 = Pool2;
   if ( Pool2 )

@@ -1,11 +1,11 @@
 /*
- * XREFs of SepDuplicateSid @ 0x1409F4D58
+ * XREFs of SepDuplicateSid @ 0x1409E90B8
  * Callers:
- *     SepSetTokenUserAndGroups @ 0x1409F49B0 (SepSetTokenUserAndGroups.c)
- *     SepDuplicateTokenUserAndGroups @ 0x1409F4CB4 (SepDuplicateTokenUserAndGroups.c)
+ *     SepSetTokenUserAndGroups @ 0x1409E8D10 (SepSetTokenUserAndGroups.c)
+ *     SepDuplicateTokenUserAndGroups @ 0x1409E9014 (SepDuplicateTokenUserAndGroups.c)
  * Callees:
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall SepDuplicateSid(unsigned __int8 *Src, _QWORD *a2)
@@ -20,7 +20,7 @@ __int64 __fastcall SepDuplicateSid(unsigned __int8 *Src, _QWORD *a2)
   v4 = Src[1];
   *a2 = 0LL;
   v5 = 4 * v4 + 8;
-  Pool2 = (void *)ExAllocatePool2(0x100uLL);
+  Pool2 = (void *)ExAllocatePool2(0x100uLL, v5, 0x69536553u);
   if ( !Pool2 )
     return 3221225626LL;
   v7 = 4 * Src[1] + 8;

@@ -1,15 +1,15 @@
 /*
- * XREFs of PopDiagTraceIrpStart @ 0x140218C6C
+ * XREFs of PopDiagTraceIrpStart @ 0x1403BD9D4
  * Callers:
- *     PopRequestPowerIrp @ 0x14026FDC4 (PopRequestPowerIrp.c)
- *     PopQueueQuerySetIrp @ 0x1403B2B18 (PopQueueQuerySetIrp.c)
- *     PopDequeueQuerySetIrp @ 0x1403B3D2C (PopDequeueQuerySetIrp.c)
+ *     PopRequestPowerIrp @ 0x14026F334 (PopRequestPowerIrp.c)
+ *     PopQueueQuerySetIrp @ 0x1403BC828 (PopQueueQuerySetIrp.c)
+ *     PopDequeueQuerySetIrp @ 0x1403BDC38 (PopDequeueQuerySetIrp.c)
  * Callees:
- *     EtwEventEnabled @ 0x140212D90 (EtwEventEnabled.c)
- *     EtwWriteEx @ 0x140212F70 (EtwWriteEx.c)
- *     PopFxAddLogEntry @ 0x14021A640 (PopFxAddLogEntry.c)
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x140212E70 (EtwEventEnabled.c)
+ *     EtwWriteEx @ 0x140213050 (EtwWriteEx.c)
+ *     PopFxAddLogEntry @ 0x14021BFD0 (PopFxAddLogEntry.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 void __fastcall PopDiagTraceIrpStart(__int64 a1, __int64 a2)
@@ -69,9 +69,8 @@ void __fastcall PopDiagTraceIrpStart(__int64 a1, __int64 a2)
     v5 = v15;
   }
   if ( v5 == 1 && v4 == 2 )
-    PopFxAddLogEntry(v7, 0LL, 22LL, *(int *)(v3 + 192));
-  if ( byte_140E67628
-    && EtwEventEnabled(*(REGHANDLE *)&PopSleepstudySessionLock.PriorityFloorCounts[16], &POP_ETW_EVENT_IRPSTART) )
+    PopFxAddLogEntry(v7, 0, 22, *(int *)(v3 + 192));
+  if ( PopDiagHandleRegistered && EtwEventEnabled(PopDiagHandle, &POP_ETW_EVENT_IRPSTART) )
   {
     *(_QWORD *)&UserData.Size = 8LL;
     v9 = 5;
@@ -95,14 +94,6 @@ void __fastcall PopDiagTraceIrpStart(__int64 a1, __int64 a2)
     v11 = 2LL * v9;
     *(&UserData.Ptr + v11) = (ULONGLONG)&v13;
     *((_QWORD *)&UserData.Size + v11) = 1LL;
-    EtwWriteEx(
-      *(REGHANDLE *)&PopSleepstudySessionLock.PriorityFloorCounts[16],
-      &POP_ETW_EVENT_IRPSTART,
-      0LL,
-      0,
-      0LL,
-      0LL,
-      v9 + 1,
-      &UserData);
+    EtwWriteEx(PopDiagHandle, &POP_ETW_EVENT_IRPSTART, 0LL, 0, 0LL, 0LL, v9 + 1, &UserData);
   }
 }

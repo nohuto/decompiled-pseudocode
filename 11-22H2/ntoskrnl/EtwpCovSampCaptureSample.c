@@ -87,7 +87,7 @@ __int64 __fastcall EtwpCovSampCaptureSample(unsigned __int64 a1, unsigned int a2
       }
     }
     if ( v4 )
-      return EtwpCovSampCaptureReleaseToLookaside(v5, *(_QWORD *)(v4 + 48), (struct _SLIST_ENTRY *)v4);
+      return EtwpCovSampCaptureReleaseToLookaside(v5, *(_QWORD *)(v4 + 48), (_SLIST_ENTRY *)v4);
   }
   return result;
 }

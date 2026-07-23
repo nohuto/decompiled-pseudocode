@@ -1,25 +1,25 @@
 /*
- * XREFs of KiResumeClockTimer @ 0x140383480
+ * XREFs of KiResumeClockTimer @ 0x140383630
  * Callers:
- *     KeResumeClockTimer @ 0x140383468 (KeResumeClockTimer.c)
- *     KeResumeClockTimerSafe @ 0x140513D14 (KeResumeClockTimerSafe.c)
+ *     KeResumeClockTimer @ 0x140383618 (KeResumeClockTimer.c)
+ *     KeResumeClockTimerSafe @ 0x140513F54 (KeResumeClockTimerSafe.c)
  * Callees:
- *     RtlGetInterruptTimePrecise @ 0x14022A7B0 (RtlGetInterruptTimePrecise.c)
- *     KiEventClockStateChange @ 0x140293778 (KiEventClockStateChange.c)
- *     KiRestoreClockTickRate @ 0x1402937B8 (KiRestoreClockTickRate.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     KiEventClockStateChange @ 0x1402116E8 (KiEventClockStateChange.c)
+ *     KiRestoreClockTickRate @ 0x140211728 (KiRestoreClockTickRate.c)
+ *     RtlGetInterruptTimePrecise @ 0x1402CF060 (RtlGetInterruptTimePrecise.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
  */
 
-__int64 KiResumeClockTimer()
+LONGLONG KiResumeClockTimer()
 {
   char v0; // di
   int v1; // ebx
-  __int64 result; // rax
+  LONGLONG result; // rax
   __int64 v3; // rcx
-  __int64 InterruptTimePrecise; // rdi
+  LARGE_INTEGER InterruptTimePrecise; // rdi
   __int64 v5; // [rsp+30h] [rbp+8h] BYREF
   __int64 v6; // [rsp+38h] [rbp+10h] BYREF
-  LARGE_INTEGER v7; // [rsp+40h] [rbp+18h] BYREF
+  LARGE_INTEGER PerformanceCounter; // [rsp+40h] [rbp+18h] BYREF
 
   v6 = 0LL;
   v0 = 0;
@@ -41,12 +41,12 @@ __int64 KiResumeClockTimer()
   {
     ++dword_140C31B84;
     KeGetCurrentPrcb()->ClockOwner = 1;
-    InterruptTimePrecise = RtlGetInterruptTimePrecise(&v7);
-    KiRestoreClockTickRate(InterruptTimePrecise, &v5);
+    InterruptTimePrecise = RtlGetInterruptTimePrecise(&PerformanceCounter);
+    KiRestoreClockTickRate(InterruptTimePrecise.QuadPart, &v5);
     if ( v1 == 2 )
       LOBYTE(v1) = _InterlockedExchange(&KiClockState, 0);
     KiEventClockStateChange(0, v1, &v6, &v5);
-    result = InterruptTimePrecise + (unsigned int)KeTimeIncrement;
+    result = InterruptTimePrecise.QuadPart + (unsigned int)KeTimeIncrement;
     KiClockTimerNextTickTime = result;
   }
   return result;

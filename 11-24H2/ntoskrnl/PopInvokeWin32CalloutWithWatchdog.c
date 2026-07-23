@@ -1,13 +1,13 @@
 /*
- * XREFs of PopInvokeWin32CalloutWithWatchdog @ 0x1409BB330
+ * XREFs of PopInvokeWin32CalloutWithWatchdog @ 0x1409A1980
  * Callers:
- *     PopPowerAggregatorNotifyCsStateExited @ 0x140902C54 (PopPowerAggregatorNotifyCsStateExited.c)
- *     PopNotifyConsoleUserPresent @ 0x1409BB660 (PopNotifyConsoleUserPresent.c)
- *     PopInvokeWin32Callout @ 0x1409BE358 (PopInvokeWin32Callout.c)
+ *     PopNotifyConsoleUserPresent @ 0x1409A1CB0 (PopNotifyConsoleUserPresent.c)
+ *     PopInvokeWin32Callout @ 0x1409A49A8 (PopInvokeWin32Callout.c)
+ *     PopPowerAggregatorNotifyCsStateExited @ 0x140A6E534 (PopPowerAggregatorNotifyCsStateExited.c)
  * Callees:
- *     ZwPowerInformation @ 0x1406A6FF0 (ZwPowerInformation.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     PsInvokeWin32Callout @ 0x1409BADD0 (PsInvokeWin32Callout.c)
+ *     ZwPowerInformation @ 0x1406A7F90 (ZwPowerInformation.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     PsInvokeWin32Callout @ 0x1409A1420 (PsInvokeWin32Callout.c)
  */
 
 __int64 __fastcall PopInvokeWin32CalloutWithWatchdog(int a1, __int128 *a2, int a3, int *a4, __int64 a5)

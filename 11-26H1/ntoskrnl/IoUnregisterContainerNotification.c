@@ -1,17 +1,17 @@
 /*
- * XREFs of IoUnregisterContainerNotification @ 0x140797540
+ * XREFs of IoUnregisterContainerNotification @ 0x14079A070
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     ExfReleasePushLock @ 0x1402E3120 (ExfReleasePushLock.c)
- *     ExUnregisterCallback @ 0x1404ECF50 (ExUnregisterCallback.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ExfReleasePushLock @ 0x14021B220 (ExfReleasePushLock.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     ExUnregisterCallback @ 0x1404E6530 (ExUnregisterCallback.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __stdcall IoUnregisterContainerNotification(PVOID CallbackRegistration)
@@ -22,23 +22,20 @@ void __stdcall IoUnregisterContainerNotification(PVOID CallbackRegistration)
   void *v5; // rdx
   signed __int8 v6; // cf
   AutoBoost *v7; // rbx
-  struct _KTHREAD *Flink; // rax
+  struct _KTHREAD *v8; // rax
   PVOID *v9; // rbx
   PVOID *v10; // rcx
   PVOID **v11; // rax
   signed __int64 v12; // rdx
-  __int64 v13; // rtt
+  unsigned __int64 v13; // rtt
 
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
-  v4 = (AutoBoost *)KeAbPreAcquire((__int64)&IopSessionNotificationLock, 0LL, 0LL, v1);
-  v6 = _interlockedbittestandset64(&IopSessionNotificationLock.Header.Lock, 0LL);
+  v4 = (AutoBoost *)KeAbPreAcquire((__int64)&IopPerfIoTrackingLock.Padding[3], 0LL, 0LL, v1);
+  v6 = _interlockedbittestandset64((volatile signed __int32 *)&IopPerfIoTrackingLock.Padding[3], 0LL);
   v7 = v4;
   if ( v6 )
-    ExfAcquirePushLockExclusiveEx(
-      (unsigned __int64 *)&IopSessionNotificationLock,
-      v4,
-      (__int64)&IopSessionNotificationLock);
+    ExfAcquirePushLockExclusiveEx(&IopPerfIoTrackingLock.Padding[3], v4, (__int64)&IopPerfIoTrackingLock.Padding[3]);
   if ( v7 )
   {
     if ( (KiAbpGlobalState & 1) != 0 )
@@ -46,13 +43,13 @@ void __stdcall IoUnregisterContainerNotification(PVOID CallbackRegistration)
     else
       *((_BYTE *)v7 + 10) = 1;
   }
-  Flink = (struct _KTHREAD *)IopSessionNotificationLock.Header.WaitListHead.Flink;
-  if ( IopSessionNotificationLock.Header.WaitListHead.Flink != &IopSessionNotificationLock.Header.WaitListHead )
+  v8 = (struct _KTHREAD *)IopPerfIoTrackingLock.Padding[1];
+  if ( (unsigned __int64 *)IopPerfIoTrackingLock.Padding[1] != &IopPerfIoTrackingLock.Padding[1] )
   {
-    while ( Flink != (struct _KTHREAD *)&IopSessionNotificationLock.Header.WaitListHead )
+    while ( v8 != (struct _KTHREAD *)&IopPerfIoTrackingLock.Padding[1] )
     {
-      v9 = (PVOID *)Flink;
-      Flink = *(struct _KTHREAD **)&Flink->Header.Lock;
+      v9 = (PVOID *)v8;
+      v8 = *(struct _KTHREAD **)&v8->Header.Lock;
       if ( v9[4] == CallbackRegistration )
       {
         ObfDereferenceObject(v9[2]);
@@ -67,19 +64,19 @@ void __stdcall IoUnregisterContainerNotification(PVOID CallbackRegistration)
       }
     }
   }
-  _m_prefetchw(&IopSessionNotificationLock);
-  v12 = *(_QWORD *)&IopSessionNotificationLock.Header.Lock - 16LL;
-  if ( (*(_QWORD *)&IopSessionNotificationLock.Header.Lock & 0xFFFFFFFFFFFFFFF0uLL) <= 0x10 )
+  _m_prefetchw(&IopPerfIoTrackingLock.Padding[3]);
+  v12 = IopPerfIoTrackingLock.Padding[3] - 16;
+  if ( (IopPerfIoTrackingLock.Padding[3] & 0xFFFFFFFFFFFFFFF0uLL) <= 0x10 )
     v12 = 0LL;
-  if ( (IopSessionNotificationLock.Header.Type & 2) != 0
-    || (v13 = *(_QWORD *)&IopSessionNotificationLock.Header.Lock,
+  if ( (IopPerfIoTrackingLock.Padding[3] & 2) != 0
+    || (v13 = IopPerfIoTrackingLock.Padding[3],
         v13 != _InterlockedCompareExchange64(
-                 (volatile signed __int64 *)&IopSessionNotificationLock,
+                 (volatile signed __int64 *)&IopPerfIoTrackingLock.Padding[3],
                  v12,
-                 *(signed __int64 *)&IopSessionNotificationLock.Header.Lock)) )
+                 IopPerfIoTrackingLock.Padding[3])) )
   {
-    ExfReleasePushLock(&IopSessionNotificationLock);
+    ExfReleasePushLock(&IopPerfIoTrackingLock.Padding[3]);
   }
-  KeAbPostRelease((unsigned __int64)&IopSessionNotificationLock);
+  KeAbPostRelease((unsigned __int64)&IopPerfIoTrackingLock.Padding[3]);
   KeLeaveCriticalRegion();
 }

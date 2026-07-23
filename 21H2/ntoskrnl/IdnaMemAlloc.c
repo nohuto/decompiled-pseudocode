@@ -1,12 +1,12 @@
 /*
- * XREFs of IdnaMemAlloc @ 0x14058D190
+ * XREFs of IdnaMemAlloc @ 0x14058D3C0
  * Callers:
- *     RtlpIdnToUnicodeWorker @ 0x14058D204 (RtlpIdnToUnicodeWorker.c)
- *     RtlIdnToUnicode @ 0x140916600 (RtlIdnToUnicode.c)
- *     RtlpNameprepAsciiWorker @ 0x140916690 (RtlpNameprepAsciiWorker.c)
+ *     RtlpIdnToUnicodeWorker @ 0x14058D434 (RtlpIdnToUnicodeWorker.c)
+ *     RtlIdnToUnicode @ 0x140916760 (RtlIdnToUnicode.c)
+ *     RtlpNameprepAsciiWorker @ 0x1409167F0 (RtlpNameprepAsciiWorker.c)
  * Callees:
- *     memset @ 0x140414200 (memset.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 PVOID __fastcall IdnaMemAlloc(size_t Size)

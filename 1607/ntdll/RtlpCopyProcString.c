@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlpCopyProcString @ 0x18005ED68
+ * XREFs of RtlpCopyProcString @ 0x18005ED58
  * Callers:
- *     RtlCreateProcessParametersEx @ 0x18005E900 (RtlCreateProcessParametersEx.c)
+ *     RtlCreateProcessParametersEx @ 0x18005E8F0 (RtlCreateProcessParametersEx.c)
  * Callees:
  *     memmove @ 0x1800AC980 (memmove.c)
  *     memset @ 0x1800ACCC0 (memset.c)

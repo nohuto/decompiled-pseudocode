@@ -1,17 +1,17 @@
 /*
- * XREFs of SmGetRegistrationInfo @ 0x140818E2C
+ * XREFs of SmGetRegistrationInfo @ 0x14081F03C
  * Callers:
- *     SmProcessRegistrationRequest @ 0x140819E3C (SmProcessRegistrationRequest.c)
+ *     SmProcessRegistrationRequest @ 0x14082004C (SmProcessRegistrationRequest.c)
  * Callees:
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     ExfTryToWakePushLock @ 0x1403170A0 (ExfTryToWakePushLock.c)
- *     ObOpenObjectByPointer @ 0x14092AFF0 (ObOpenObjectByPointer.c)
- *     ObCloseHandle @ 0x140A00740 (ObCloseHandle.c)
- *     SmRegistrationCtxStart @ 0x140B4ED90 (SmRegistrationCtxStart.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     ExfTryToWakePushLock @ 0x1403190D0 (ExfTryToWakePushLock.c)
+ *     ObOpenObjectByPointer @ 0x140906B20 (ObOpenObjectByPointer.c)
+ *     ObCloseHandle @ 0x14091D2C0 (ObCloseHandle.c)
+ *     SmRegistrationCtxStart @ 0x140B51620 (SmRegistrationCtxStart.c)
  */
 
 __int64 __fastcall SmGetRegistrationInfo(__int64 a1, KPROCESSOR_MODE a2, __int64 a3, struct _KLOCK_ENTRIES *a4)

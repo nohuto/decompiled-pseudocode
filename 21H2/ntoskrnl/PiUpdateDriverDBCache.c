@@ -1,21 +1,21 @@
 /*
- * XREFs of PiUpdateDriverDBCache @ 0x14077E48C
+ * XREFs of PiUpdateDriverDBCache @ 0x14077E64C
  * Callers:
- *     PiIsDriverBlocked @ 0x14077E304 (PiIsDriverBlocked.c)
+ *     PiIsDriverBlocked @ 0x14077E4C4 (PiIsDriverBlocked.c)
  * Callees:
- *     RtlLookupElementGenericTableAvl @ 0x140264810 (RtlLookupElementGenericTableAvl.c)
- *     RtlDeleteElementGenericTableAvl @ 0x1402648C0 (RtlDeleteElementGenericTableAvl.c)
- *     RtlInsertElementGenericTableAvl @ 0x140264B20 (RtlInsertElementGenericTableAvl.c)
- *     RtlNumberGenericTableElementsAvl @ 0x1402AE5C0 (RtlNumberGenericTableElementsAvl.c)
- *     RtlImageNtHeader @ 0x14031C950 (RtlImageNtHeader.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     wcsrchr @ 0x1403D4100 (wcsrchr.c)
- *     memmove @ 0x140413F40 (memmove.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     RtlNumberGenericTableElementsAvl @ 0x14022C920 (RtlNumberGenericTableElementsAvl.c)
+ *     RtlLookupElementGenericTableAvl @ 0x1402528A0 (RtlLookupElementGenericTableAvl.c)
+ *     RtlDeleteElementGenericTableAvl @ 0x140252950 (RtlDeleteElementGenericTableAvl.c)
+ *     RtlInsertElementGenericTableAvl @ 0x140252BB0 (RtlInsertElementGenericTableAvl.c)
+ *     RtlImageNtHeader @ 0x1403276A0 (RtlImageNtHeader.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     wcsrchr @ 0x1403D4270 (wcsrchr.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
-_QWORD *__fastcall PiUpdateDriverDBCache(__int64 a1, __int64 a2, __int64 a3, int a4, __int128 *a5)
+_QWORD *__fastcall PiUpdateDriverDBCache(__int64 a1, void *a2, __int64 a3, int a4, __int128 *a5)
 {
   _QWORD *result; // rax
   _QWORD *v8; // r14
@@ -40,7 +40,7 @@ _QWORD *__fastcall PiUpdateDriverDBCache(__int64 a1, __int64 a2, __int64 a3, int
   Buffer = 0LL;
   v24 = 0LL;
   memset(v25, 0, sizeof(v25));
-  result = (_QWORD *)RtlImageNtHeader(a2);
+  result = RtlImageNtHeader(a2);
   v8 = result;
   if ( !result )
     return result;

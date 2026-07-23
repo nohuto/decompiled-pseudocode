@@ -1,11 +1,11 @@
 /*
- * XREFs of PsTlsSetValue @ 0x1407BD5F0
+ * XREFs of PsTlsSetValue @ 0x1407BD8C0
  * Callers:
  *     <none>
  * Callees:
- *     KiCheckForKernelApcDelivery @ 0x14030F820 (KiCheckForKernelApcDelivery.c)
- *     RtlpFlsCallbackEntryGetContext @ 0x1403346BC (RtlpFlsCallbackEntryGetContext.c)
- *     RtlpFlsSetValue @ 0x1407BD6B4 (RtlpFlsSetValue.c)
+ *     KiCheckForKernelApcDelivery @ 0x14030FAB0 (KiCheckForKernelApcDelivery.c)
+ *     RtlpFlsCallbackEntryGetContext @ 0x14033494C (RtlpFlsCallbackEntryGetContext.c)
+ *     RtlpFlsSetValue @ 0x1407BD984 (RtlpFlsSetValue.c)
  */
 
 __int64 __fastcall PsTlsSetValue(__int64 a1, int a2)

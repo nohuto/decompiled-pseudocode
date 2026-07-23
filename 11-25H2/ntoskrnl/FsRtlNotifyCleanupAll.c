@@ -13,8 +13,8 @@
 void __stdcall FsRtlNotifyCleanupAll(PNOTIFY_SYNC NotifySync, PLIST_ENTRY NotifyList)
 {
   struct _KTHREAD *CurrentThread; // rdi
-  struct _LIST_ENTRY *Flink; // rdi
-  struct _LIST_ENTRY *v6; // rcx
+  _LIST_ENTRY *Flink; // rdi
+  _LIST_ENTRY *v6; // rcx
 
   CurrentThread = KeGetCurrentThread();
   if ( CurrentThread != *((struct _KTHREAD **)NotifySync + 7) )

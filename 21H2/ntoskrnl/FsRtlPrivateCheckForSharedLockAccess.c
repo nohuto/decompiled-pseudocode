@@ -1,12 +1,12 @@
 /*
- * XREFs of FsRtlPrivateCheckForSharedLockAccess @ 0x14035966C
+ * XREFs of FsRtlPrivateCheckForSharedLockAccess @ 0x1403643BC
  * Callers:
- *     FsRtlPrivateCheckWaitingLocks @ 0x14029FDB4 (FsRtlPrivateCheckWaitingLocks.c)
- *     FsRtlPrivateLock @ 0x140358360 (FsRtlPrivateLock.c)
+ *     FsRtlPrivateCheckWaitingLocks @ 0x14021D334 (FsRtlPrivateCheckWaitingLocks.c)
+ *     FsRtlPrivateLock @ 0x1403630B0 (FsRtlPrivateLock.c)
  * Callees:
- *     RtlRealSuccessor @ 0x14029FD70 (RtlRealSuccessor.c)
- *     FsRtlFindFirstOverlappingExclusiveNode @ 0x1402ADCBC (FsRtlFindFirstOverlappingExclusiveNode.c)
- *     RtlSplay @ 0x140359770 (RtlSplay.c)
+ *     RtlRealSuccessor @ 0x14021D2F0 (RtlRealSuccessor.c)
+ *     FsRtlFindFirstOverlappingExclusiveNode @ 0x14022C01C (FsRtlFindFirstOverlappingExclusiveNode.c)
+ *     RtlSplay @ 0x1403644C0 (RtlSplay.c)
  */
 
 char __fastcall FsRtlPrivateCheckForSharedLockAccess(__int64 a1, __int64 a2)

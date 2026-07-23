@@ -1,9 +1,9 @@
 /*
- * XREFs of ViPostPoolAllocation @ 0x140AD1638
+ * XREFs of ViPostPoolAllocation @ 0x140AD1628
  * Callers:
- *     VfHandlePoolAlloc @ 0x140AD0FE0 (VfHandlePoolAlloc.c)
+ *     VfHandlePoolAlloc @ 0x140AD0FD0 (VfHandlePoolAlloc.c)
  * Callees:
- *     ExpSizeHeapPool @ 0x14060F4A0 (ExpSizeHeapPool.c)
+ *     ExpSizeHeapPool @ 0x14060F9F0 (ExpSizeHeapPool.c)
  */
 
 unsigned __int64 __fastcall ViPostPoolAllocation(unsigned __int64 *a1, char a2)

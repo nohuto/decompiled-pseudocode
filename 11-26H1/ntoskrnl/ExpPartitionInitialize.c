@@ -1,14 +1,14 @@
 /*
- * XREFs of ExpPartitionInitialize @ 0x14083FCA4
+ * XREFs of ExpPartitionInitialize @ 0x140845EE4
  * Callers:
- *     PspAllocatePartition @ 0x1407FDBD8 (PspAllocatePartition.c)
- *     ExpWorkerInitialization @ 0x140CE6768 (ExpWorkerInitialization.c)
+ *     PspAllocatePartition @ 0x140803608 (PspAllocatePartition.c)
+ *     ExpWorkerInitialization @ 0x140CECB08 (ExpWorkerInitialization.c)
  * Callees:
- *     KeIsNodeInitialized @ 0x14038227C (KeIsNodeInitialized.c)
- *     ExpPartitionDestroy @ 0x14083FAC8 (ExpPartitionDestroy.c)
- *     ExpWorkQueueManagerInitialize @ 0x1408402B8 (ExpWorkQueueManagerInitialize.c)
- *     ExpPartitionCreatePoolInternal @ 0x140B6C40C (ExpPartitionCreatePoolInternal.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
+ *     KeIsNodeInitialized @ 0x14038402C (KeIsNodeInitialized.c)
+ *     ExpPartitionDestroy @ 0x140845D08 (ExpPartitionDestroy.c)
+ *     ExpWorkQueueManagerInitialize @ 0x1408464F8 (ExpWorkQueueManagerInitialize.c)
+ *     ExpPartitionCreatePoolInternal @ 0x140B6F508 (ExpPartitionCreatePoolInternal.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall ExpPartitionInitialize(__int64 a1)

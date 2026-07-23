@@ -19,7 +19,7 @@ NTSTATUS __stdcall RtlGetVersion(PRTL_OSVERSIONINFOW lpVersionInformation)
   __int16 v3; // ax
   bool v4; // zf
   __int16 SuiteMask; // ax
-  enum _NT_PRODUCT_TYPE ProductType; // [rsp+30h] [rbp+8h] BYREF
+  _NT_PRODUCT_TYPE ProductType; // [rsp+30h] [rbp+8h] BYREF
 
   v1 = lpVersionInformation->dwOSVersionInfoSize - 284;
   *(_QWORD *)&lpVersionInformation->dwMajorVersion = 10LL;

@@ -1,20 +1,20 @@
 /*
- * XREFs of KiSetAddressPolicy @ 0x140247450
+ * XREFs of KiSetAddressPolicy @ 0x140248DB0
  * Callers:
- *     KiUnstackDetachProcess @ 0x1402307C0 (KiUnstackDetachProcess.c)
- *     KiDetachProcess @ 0x140246EA0 (KiDetachProcess.c)
- *     KiLoadDirectoryTableBase @ 0x140247600 (KiLoadDirectoryTableBase.c)
- *     KiStackAttachProcess @ 0x140247880 (KiStackAttachProcess.c)
- *     MiUnlockStealVm @ 0x140294D10 (MiUnlockStealVm.c)
- *     KeForceDetachProcess @ 0x1402C6C30 (KeForceDetachProcess.c)
- *     KeUnstackDetachProcess @ 0x1402C7110 (KeUnstackDetachProcess.c)
- *     KiAttachProcess @ 0x1402C76D0 (KiAttachProcess.c)
- *     KiSynchronizeAddressPolicyTarget @ 0x1404CC940 (KiSynchronizeAddressPolicyTarget.c)
- *     KiEnableKvaShadowing @ 0x140BF8180 (KiEnableKvaShadowing.c)
+ *     KiUnstackDetachProcess @ 0x140232120 (KiUnstackDetachProcess.c)
+ *     KiDetachProcess @ 0x140248800 (KiDetachProcess.c)
+ *     KiLoadDirectoryTableBase @ 0x140248F60 (KiLoadDirectoryTableBase.c)
+ *     KiStackAttachProcess @ 0x1402491E0 (KiStackAttachProcess.c)
+ *     MiUnlockStealVm @ 0x140294270 (MiUnlockStealVm.c)
+ *     KeForceDetachProcess @ 0x1403118D0 (KeForceDetachProcess.c)
+ *     KeUnstackDetachProcess @ 0x140311DB0 (KeUnstackDetachProcess.c)
+ *     KiAttachProcess @ 0x140312370 (KiAttachProcess.c)
+ *     KiSynchronizeAddressPolicyTarget @ 0x1404C60E0 (KiSynchronizeAddressPolicyTarget.c)
+ *     KiEnableKvaShadowing @ 0x140BFE180 (KiEnableKvaShadowing.c)
  * Callees:
- *     KeDisableInterrupts @ 0x1402BA170 (KeDisableInterrupts.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14052FA20 (KiRemoveSystemWorkPriorityKick.c)
- *     KxSetAddressPolicy @ 0x1407284D0 (KxSetAddressPolicy.c)
+ *     KeDisableInterrupts @ 0x140304E30 (KeDisableInterrupts.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x140531F20 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxSetAddressPolicy @ 0x14072D0A0 (KxSetAddressPolicy.c)
  */
 
 __int64 __fastcall KiSetAddressPolicy(__int64 a1, __int64 a2)

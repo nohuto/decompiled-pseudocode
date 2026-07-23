@@ -1,12 +1,12 @@
 /*
- * XREFs of MiAllocateHotPatchRecord @ 0x140853FFC
+ * XREFs of MiAllocateHotPatchRecord @ 0x14085525C
  * Callers:
- *     MiLoadHotPatch @ 0x1408559D8 (MiLoadHotPatch.c)
- *     MiLoadHotPatchForUserSid @ 0x140855C38 (MiLoadHotPatchForUserSid.c)
- *     MmRegisterHotPatch @ 0x1409F71D0 (MmRegisterHotPatch.c)
+ *     MiLoadHotPatch @ 0x140856C38 (MiLoadHotPatch.c)
+ *     MiLoadHotPatchForUserSid @ 0x140856E98 (MiLoadHotPatchForUserSid.c)
+ *     MmRegisterHotPatch @ 0x1409F81D0 (MmRegisterHotPatch.c)
  * Callees:
- *     memmove @ 0x1401D1540 (memmove.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
  */
 
 _DWORD *__fastcall MiAllocateHotPatchRecord(int a1, int a2, const void **a3)

@@ -1,14 +1,14 @@
 /*
- * XREFs of _vsnwprintf @ 0x180128E20
+ * XREFs of _vsnwprintf @ 0x180128B90
  * Callers:
- *     RtlStringCchPrintfExW @ 0x1800496E0 (RtlStringCchPrintfExW.c)
- *     StringCbPrintfW @ 0x180056694 (StringCbPrintfW.c)
- *     RtlStringCchPrintfW @ 0x180059060 (RtlStringCchPrintfW.c)
- *     StringCchPrintfW @ 0x180077D64 (StringCchPrintfW.c)
- *     RtlStringCbPrintfExW @ 0x1800C27B4 (RtlStringCbPrintfExW.c)
- *     RtlStringCbPrintfW @ 0x18011F008 (RtlStringCbPrintfW.c)
+ *     RtlStringCchPrintfExW @ 0x180033C60 (RtlStringCchPrintfExW.c)
+ *     StringCbPrintfW @ 0x180040C14 (StringCbPrintfW.c)
+ *     RtlStringCchPrintfW @ 0x1800435E0 (RtlStringCchPrintfW.c)
+ *     StringCchPrintfW @ 0x180066584 (StringCchPrintfW.c)
+ *     RtlStringCbPrintfExW @ 0x1800BFE84 (RtlStringCbPrintfExW.c)
+ *     RtlStringCbPrintfW @ 0x18011EDB8 (RtlStringCbPrintfW.c)
  * Callees:
- *     _vsnwprintf_l @ 0x180128E3C (_vsnwprintf_l.c)
+ *     _vsnwprintf_l @ 0x180128BAC (_vsnwprintf_l.c)
  */
 
 int __cdecl vsnwprintf(wchar_t *Buffer, size_t BufferCount, const wchar_t *Format, va_list Args)

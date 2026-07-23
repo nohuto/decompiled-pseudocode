@@ -1,11 +1,11 @@
 /*
- * XREFs of HalpIommuFreeDomain @ 0x140515384
+ * XREFs of HalpIommuFreeDomain @ 0x1405158D4
  * Callers:
- *     HalpIommuDereferenceHardwareDomain @ 0x140517AEC (HalpIommuDereferenceHardwareDomain.c)
+ *     HalpIommuDereferenceHardwareDomain @ 0x14051803C (HalpIommuDereferenceHardwareDomain.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     HalpIommuFlushDomainTB @ 0x14045D0AA (HalpIommuFlushDomainTB.c)
- *     HalpIommuFreeDomainId @ 0x1405153E8 (HalpIommuFreeDomainId.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     HalpIommuFlushDomainTB @ 0x14045D4AA (HalpIommuFlushDomainTB.c)
+ *     HalpIommuFreeDomainId @ 0x140515938 (HalpIommuFreeDomainId.c)
  */
 
 void __fastcall HalpIommuFreeDomain(__int64 a1, __int64 a2)

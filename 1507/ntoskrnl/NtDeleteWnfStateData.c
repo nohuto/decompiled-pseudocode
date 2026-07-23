@@ -20,7 +20,7 @@
  *     ExpWnfDeletePermanentStateData @ 0x1406FC328 (ExpWnfDeletePermanentStateData.c)
  */
 
-__int64 __fastcall NtDeleteWnfStateData(__int64 *a1, unsigned __int8 *a2)
+NTSTATUS __cdecl NtDeleteWnfStateData(PCWNF_STATE_NAME StateName, const void *ExplicitScope)
 {
   struct _KTHREAD *CurrentThread; // rax
   char PreviousMode; // r14
@@ -44,9 +44,9 @@ __int64 __fastcall NtDeleteWnfStateData(__int64 *a1, unsigned __int8 *a2)
   struct _KTHREAD *v22; // rcx
   __int16 v23; // ax
   void *v25; // rdi
-  int v26; // eax
+  NTSTATUS v26; // eax
   PPRIVILEGE_SET *Privileges; // [rsp+28h] [rbp-100h]
-  int v28; // [rsp+50h] [rbp-D8h]
+  NTSTATUS v28; // [rsp+50h] [rbp-D8h]
   unsigned int v29; // [rsp+58h] [rbp-D0h]
   struct _EX_RUNDOWN_REF *v30; // [rsp+60h] [rbp-C8h] BYREF
   int v31[2]; // [rsp+68h] [rbp-C0h] BYREF
@@ -71,20 +71,20 @@ __int64 __fastcall NtDeleteWnfStateData(__int64 *a1, unsigned __int8 *a2)
   v29 = 0;
   v37[0] = 0LL;
   v37[1] = 0LL;
-  v28 = ExpCaptureWnfStateName(a1, &v35, PreviousMode);
+  v28 = ExpCaptureWnfStateName((__int64 *)StateName, &v35, PreviousMode);
   if ( v28 >= 0 )
   {
     v6 = v35;
     v7 = (v35 >> 4) & 3;
     v34 = (v35 >> 4) & 3;
     v29 = (v35 >> 6) & 0xF;
-    v28 = ExpWnfCaptureScopeInstanceId(v29, a2, v5, &Sid, v37);
+    v28 = ExpWnfCaptureScopeInstanceId(v29, (unsigned __int8 *)ExplicitScope, v5, &Sid, v37);
     if ( v28 >= 0 )
     {
       if ( PreviousMode )
       {
         v8 = 0;
-        if ( a2 )
+        if ( ExplicitScope )
         {
           v28 = ExpWnfCheckCrossScopeAccess(v6);
           if ( v28 < 0 )
@@ -225,5 +225,5 @@ LABEL_19:
   {
     KiCheckForKernelApcDelivery();
   }
-  return (unsigned int)v28;
+  return v28;
 }

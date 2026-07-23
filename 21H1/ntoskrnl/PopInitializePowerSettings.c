@@ -6,11 +6,11 @@
  *     <none>
  */
 
-__int64 *PopInitializePowerSettings()
+const WNF_STATE_NAME *PopInitializePowerSettings()
 {
   _QWORD *v0; // rax
   __int64 v1; // rcx
-  __int64 *result; // rax
+  const WNF_STATE_NAME *result; // rax
 
   v0 = &PopSessionSpecificLists;
   v1 = 2LL;

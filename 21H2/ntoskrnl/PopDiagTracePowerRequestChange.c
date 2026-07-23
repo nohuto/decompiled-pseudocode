@@ -1,14 +1,14 @@
 /*
- * XREFs of PopDiagTracePowerRequestChange @ 0x140282394
+ * XREFs of PopDiagTracePowerRequestChange @ 0x1402705D4
  * Callers:
- *     PoClearPowerRequestInternal @ 0x140281F9C (PoClearPowerRequestInternal.c)
- *     PoSetPowerRequestInternal @ 0x140282160 (PoSetPowerRequestInternal.c)
- *     PopClearSpecialRequest @ 0x1408E17FC (PopClearSpecialRequest.c)
- *     PopSetSpecialRequest @ 0x1408E1BAC (PopSetSpecialRequest.c)
+ *     PoClearPowerRequestInternal @ 0x1402701DC (PoClearPowerRequestInternal.c)
+ *     PoSetPowerRequestInternal @ 0x1402703A0 (PoSetPowerRequestInternal.c)
+ *     PopClearSpecialRequest @ 0x1408E195C (PopClearSpecialRequest.c)
+ *     PopSetSpecialRequest @ 0x1408E1D0C (PopSetSpecialRequest.c)
  * Callees:
- *     EtwEventEnabled @ 0x14021BF30 (EtwEventEnabled.c)
- *     EtwWriteEx @ 0x14025DD10 (EtwWriteEx.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     EtwWriteEx @ 0x14027F840 (EtwWriteEx.c)
+ *     EtwEventEnabled @ 0x1402C0830 (EtwEventEnabled.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  */
 
 char __fastcall PopDiagTracePowerRequestChange(__int64 a1)

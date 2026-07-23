@@ -10,7 +10,7 @@ __int64 *LdrpInitializeEnclaves()
 {
   __int64 *result; // rax
 
-  RtlInitializeCriticalSectionEx((__int64)&LdrpEnclaveListLock, 0, 0);
+  RtlInitializeCriticalSectionEx(&LdrpEnclaveListLock, 0, 0);
   result = &LdrpEnclaveList;
   qword_180165AD8 = (__int64)&LdrpEnclaveList;
   LdrpEnclaveList = (__int64)&LdrpEnclaveList;

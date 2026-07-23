@@ -1,12 +1,12 @@
 /*
- * XREFs of MiRemoveUserPhysicalPagesView @ 0x1408D644C
+ * XREFs of MiRemoveUserPhysicalPagesView @ 0x1408D65AC
  * Callers:
- *     MiDeleteVad @ 0x14021BFF0 (MiDeleteVad.c)
+ *     MiDeleteVad @ 0x1402C08F0 (MiDeleteVad.c)
  * Callees:
- *     RtlAvlRemoveNode @ 0x140234B20 (RtlAvlRemoveNode.c)
- *     MiLocatePhysicalViewInTree @ 0x14054CF68 (MiLocatePhysicalViewInTree.c)
- *     MiLockAweVadsExclusive @ 0x14054D000 (MiLockAweVadsExclusive.c)
- *     MiUnlockAweVadsExclusive @ 0x14054DFF8 (MiUnlockAweVadsExclusive.c)
+ *     RtlAvlRemoveNode @ 0x1402D9370 (RtlAvlRemoveNode.c)
+ *     MiLocatePhysicalViewInTree @ 0x14054D1A8 (MiLocatePhysicalViewInTree.c)
+ *     MiLockAweVadsExclusive @ 0x14054D240 (MiLockAweVadsExclusive.c)
+ *     MiUnlockAweVadsExclusive @ 0x14054E238 (MiUnlockAweVadsExclusive.c)
  */
 
 unsigned __int64 *__fastcall MiRemoveUserPhysicalPagesView(__int64 a1)

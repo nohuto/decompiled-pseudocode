@@ -1,25 +1,25 @@
 /*
- * XREFs of VhdiMountVhdFile @ 0x140A94C98
+ * XREFs of VhdiMountVhdFile @ 0x140A95C98
  * Callers:
- *     VhdInitialize @ 0x140A73778 (VhdInitialize.c)
+ *     VhdInitialize @ 0x140A74778 (VhdInitialize.c)
  * Callees:
- *     IopBuildDeviceIoControlRequest @ 0x14022B990 (IopBuildDeviceIoControlRequest.c)
- *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
- *     ExFreeHeapPool @ 0x140341AC0 (ExFreeHeapPool.c)
- *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
- *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
- *     IoGetRelatedDeviceObject @ 0x140351920 (IoGetRelatedDeviceObject.c)
- *     IofCallDriver @ 0x1403519C0 (IofCallDriver.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     wcscat_s @ 0x1403D81D0 (wcscat_s.c)
- *     ZwCreateFile @ 0x1403FAE40 (ZwCreateFile.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
- *     memmove @ 0x140413F40 (memmove.c)
- *     memset @ 0x140414200 (memset.c)
- *     IoGetDeviceObjectPointer @ 0x140620E20 (IoGetDeviceObjectPointer.c)
- *     IoGetDeviceInterfaces @ 0x1406C6BC0 (IoGetDeviceInterfaces.c)
- *     ObReferenceObjectByHandle @ 0x1406F0BC0 (ObReferenceObjectByHandle.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     RtlInitUnicodeString @ 0x14026A4C0 (RtlInitUnicodeString.c)
+ *     IopBuildDeviceIoControlRequest @ 0x1402D0240 (IopBuildDeviceIoControlRequest.c)
+ *     ExFreeHeapPool @ 0x14034C810 (ExFreeHeapPool.c)
+ *     KeWaitForSingleObject @ 0x1403504C0 (KeWaitForSingleObject.c)
+ *     ObfDereferenceObjectWithTag @ 0x140355E90 (ObfDereferenceObjectWithTag.c)
+ *     IoGetRelatedDeviceObject @ 0x14035C670 (IoGetRelatedDeviceObject.c)
+ *     IofCallDriver @ 0x14035C710 (IofCallDriver.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     wcscat_s @ 0x1403D8340 (wcscat_s.c)
+ *     ZwCreateFile @ 0x1403FB020 (ZwCreateFile.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     IoGetDeviceInterfaces @ 0x1406754B0 (IoGetDeviceInterfaces.c)
+ *     IoGetDeviceObjectPointer @ 0x14068AA90 (IoGetDeviceObjectPointer.c)
+ *     ObReferenceObjectByHandle @ 0x140707FA0 (ObReferenceObjectByHandle.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall VhdiMountVhdFile(wchar_t *Src)
@@ -40,53 +40,44 @@ __int64 __fastcall VhdiMountVhdFile(wchar_t *Src)
   PZZWSTR v15; // r14
   struct _DEVICE_OBJECT *RelatedDeviceObject; // rbx
   IRP *v17; // rax
-  __int64 v18; // rdx
-  __int64 v19; // r8
-  _DWORD *v20; // r9
-  __int64 v21; // rdx
-  __int64 v22; // r8
-  _DWORD *v23; // r9
-  __int64 v24; // rdx
-  __int64 v25; // r8
-  _DWORD *v26; // r9
   struct _KEVENT Object_8; // [rsp+68h] [rbp-A0h] BYREF
   PZZWSTR SymbolicLinkList; // [rsp+80h] [rbp-88h] BYREF
   PDEVICE_OBJECT DeviceObject; // [rsp+88h] [rbp-80h] BYREF
   PFILE_OBJECT FileObject; // [rsp+90h] [rbp-78h] BYREF
   struct _IO_STATUS_BLOCK IoStatusBlock; // [rsp+98h] [rbp-70h] BYREF
   UNICODE_STRING DestinationString; // [rsp+A8h] [rbp-60h] BYREF
-  UNICODE_STRING v34; // [rsp+B8h] [rbp-50h] BYREF
+  UNICODE_STRING v25; // [rsp+B8h] [rbp-50h] BYREF
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+C8h] [rbp-40h] BYREF
-  _OWORD v36[6]; // [rsp+F8h] [rbp-10h] BYREF
-  _OWORD v37[3]; // [rsp+158h] [rbp+50h] BYREF
-  __int64 v38; // [rsp+188h] [rbp+80h]
+  _OWORD v27[6]; // [rsp+F8h] [rbp-10h] BYREF
+  _OWORD v28[3]; // [rsp+158h] [rbp+50h] BYREF
+  __int64 v29; // [rsp+188h] [rbp+80h]
   _DWORD EaBuffer[2]; // [rsp+198h] [rbp+90h] BYREF
-  __int64 v40; // [rsp+1A0h] [rbp+98h]
-  GUID v41; // [rsp+1A8h] [rbp+A0h]
-  __int128 v42; // [rsp+1B8h] [rbp+B0h]
-  __int128 v43; // [rsp+1C8h] [rbp+C0h]
-  __int128 v44; // [rsp+1D8h] [rbp+D0h]
-  __int128 v45; // [rsp+1E8h] [rbp+E0h]
-  int v46; // [rsp+1F8h] [rbp+F0h]
-  int v47; // [rsp+1FCh] [rbp+F4h]
+  __int64 v31; // [rsp+1A0h] [rbp+98h]
+  GUID v32; // [rsp+1A8h] [rbp+A0h]
+  __int128 v33; // [rsp+1B8h] [rbp+B0h]
+  __int128 v34; // [rsp+1C8h] [rbp+C0h]
+  __int128 v35; // [rsp+1D8h] [rbp+D0h]
+  __int128 v36; // [rsp+1E8h] [rbp+E0h]
+  int v37; // [rsp+1F8h] [rbp+F0h]
+  int v38; // [rsp+1FCh] [rbp+F4h]
   __int64 retaddr; // [rsp+240h] [rbp+138h]
 
   DeviceObject = 0LL;
   SymbolicLinkList = 0LL;
-  v38 = 0LL;
+  v29 = 0LL;
   FileObject = 0LL;
   DestinationString = 0LL;
   memset(&Object_8, 0, sizeof(Object_8));
-  v34 = 0LL;
+  v25 = 0LL;
   IoStatusBlock = 0LL;
   memset(&ObjectAttributes, 0, sizeof(ObjectAttributes));
-  memset(v37, 0, sizeof(v37));
+  memset(v28, 0, sizeof(v28));
   if ( !Src )
   {
     DeviceInterfaces = -1073741811;
     goto LABEL_3;
   }
-  memset(v36, 0, 0x54uLL);
+  memset(v27, 0, 0x54uLL);
   DeviceInterfaces = IoGetDeviceInterfaces(&GUID_DEVINTERFACE_SURFACE_VIRTUAL_DRIVE, 0LL, 0, &SymbolicLinkList);
   if ( DeviceInterfaces < 0 )
     goto LABEL_3;
@@ -158,26 +149,26 @@ LABEL_11:
     ++v4;
   while ( Src[v4] );
   wcscat_s((wchar_t *)v13, (unsigned int)(v4 + 257), Src);
-  RtlInitUnicodeString(&v34, (PCWSTR)v13);
-  ObjectAttributes.ObjectName = &v34;
+  RtlInitUnicodeString(&v25, (PCWSTR)v13);
+  ObjectAttributes.ObjectName = &v25;
   ObjectAttributes.Length = 48;
-  v47 = 0;
+  v38 = 0;
   ObjectAttributes.RootDirectory = 0LL;
   *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
   ObjectAttributes.Attributes = 512;
-  *(_QWORD *)((char *)&v36[2] + 4) = 0x400000054LL;
-  v40 = 0x4B534454524956LL;
+  *(_QWORD *)((char *)&v27[2] + 4) = 0x400000054LL;
+  v31 = 0x4B534454524956LL;
   EaBuffer[0] = 0;
   EaBuffer[1] = 5506944;
   v14 = *(_OWORD *)v11;
-  LODWORD(v36[2]) = v11[4];
-  v42 = v14;
-  DWORD1(v36[3]) = 2;
-  v46 = v36[5];
-  v41 = GUID_DEVINTERFACE_SURFACE_VIRTUAL_DRIVE;
-  v43 = v36[2];
-  v44 = v36[3];
-  v45 = v36[4];
+  LODWORD(v27[2]) = v11[4];
+  v33 = v14;
+  DWORD1(v27[3]) = 2;
+  v37 = v27[5];
+  v32 = GUID_DEVINTERFACE_SURFACE_VIRTUAL_DRIVE;
+  v34 = v27[2];
+  v35 = v27[3];
+  v36 = v27[4];
   DeviceInterfaces = ZwCreateFile(
                        &FileHandle,
                        0x80000000,
@@ -198,7 +189,7 @@ LABEL_11:
     goto LABEL_3;
   v15 = SymbolicLinkList;
   RelatedDeviceObject = IoGetRelatedDeviceObject((PFILE_OBJECT)SymbolicLinkList);
-  LODWORD(v37[0]) = 1;
+  LODWORD(v28[0]) = 1;
   LOWORD(Object_8.Header.Lock) = 1;
   Object_8.Header.WaitListHead.Blink = &Object_8.Header.WaitListHead;
   Object_8.Header.Size = 6;
@@ -207,7 +198,7 @@ LABEL_11:
   v17 = IopBuildDeviceIoControlRequest(
           2955548,
           (__int64)RelatedDeviceObject,
-          v37,
+          v28,
           0x38u,
           0LL,
           0,
@@ -231,12 +222,12 @@ LABEL_14:
   if ( DeviceInterfaces < 0 )
 LABEL_3:
     KeBugCheckEx(0x12Fu, 5uLL, DeviceInterfaces, 0LL, 0LL);
-  ExFreeHeapPool((ULONG_PTR)v9, v18, v19, v20);
-  ExFreeHeapPool((ULONG_PTR)v11, v21, v22, v23);
+  ExFreeHeapPool((ULONG_PTR)v9);
+  ExFreeHeapPool((ULONG_PTR)v11);
   if ( v15 )
     ObfDereferenceObjectWithTag(v15, 0x746C6644u);
   if ( FileObject )
     ObfDereferenceObjectWithTag(FileObject, 0x746C6644u);
-  ExFreeHeapPool((ULONG_PTR)v3, v24, v25, v26);
+  ExFreeHeapPool((ULONG_PTR)v3);
   return (unsigned int)DeviceInterfaces;
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of Xp10BitCopy @ 0x14080A7CC
+ * XREFs of Xp10BitCopy @ 0x14081025C
  * Callers:
- *     Xp10ScatteredCopyBits @ 0x14080EBA8 (Xp10ScatteredCopyBits.c)
+ *     Xp10ScatteredCopyBits @ 0x140814638 (Xp10ScatteredCopyBits.c)
  * Callees:
- *     memmove @ 0x14073D480 (memmove.c)
+ *     memmove @ 0x140742080 (memmove.c)
  */
 
 void __fastcall Xp10BitCopy(char *a1, int a2, unsigned __int8 *a3, unsigned int a4, unsigned __int64 a5)
@@ -56,7 +56,7 @@ void __fastcall Xp10BitCopy(char *a1, int a2, unsigned __int8 *a3, unsigned int 
       }
       v15 = (unsigned int)v12;
       v9 = v14 - 8;
-      v16 = byte_140035A10[4 * v12];
+      v16 = byte_140035FA0[4 * v12];
       v5 = a5 - v15;
       v17 = v16 << v7;
       v18 = ((unsigned __int8)v13 & (unsigned __int8)v16) << v7;
@@ -100,7 +100,7 @@ void __fastcall Xp10BitCopy(char *a1, int a2, unsigned __int8 *a3, unsigned int 
       v24 = (unsigned __int8)*v6 >> v9;
       if ( v23 > v10 )
         LOBYTE(v24) = (v6[1] << v10) | v24;
-      *v8 = (((unsigned __int8)v24 & (unsigned __int8)byte_140035A10[4 * v23]) << v7) | *v8 & ~(byte_140035A10[4 * v23] << v7);
+      *v8 = (((unsigned __int8)v24 & (unsigned __int8)byte_140035FA0[4 * v23]) << v7) | *v8 & ~(byte_140035FA0[4 * v23] << v7);
     }
   }
 }

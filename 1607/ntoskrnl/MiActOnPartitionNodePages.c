@@ -1,24 +1,24 @@
 /*
- * XREFs of MiActOnPartitionNodePages @ 0x1401F07A4
+ * XREFs of MiActOnPartitionNodePages @ 0x1401F05D0
  * Callers:
- *     MiClearPartitionPageBitMap @ 0x1401F1248 (MiClearPartitionPageBitMap.c)
- *     MiFreePartitionNodePages @ 0x1401F19C8 (MiFreePartitionNodePages.c)
- *     MiInsertPartitionPages @ 0x1401F1B74 (MiInsertPartitionPages.c)
- *     MiReturnPartitionPagesToParent @ 0x1401F1F74 (MiReturnPartitionPagesToParent.c)
- *     MiHotAddPartitionMemory @ 0x1406605D8 (MiHotAddPartitionMemory.c)
- *     MiMakePartitionMemoryBlock @ 0x1406607FC (MiMakePartitionMemoryBlock.c)
- *     MiUpdatePartitionLargePfnBitMap @ 0x140661134 (MiUpdatePartitionLargePfnBitMap.c)
+ *     MiClearPartitionPageBitMap @ 0x1401F1074 (MiClearPartitionPageBitMap.c)
+ *     MiFreePartitionNodePages @ 0x1401F17F4 (MiFreePartitionNodePages.c)
+ *     MiInsertPartitionPages @ 0x1401F19A0 (MiInsertPartitionPages.c)
+ *     MiReturnPartitionPagesToParent @ 0x1401F1DA0 (MiReturnPartitionPagesToParent.c)
+ *     MiHotAddPartitionMemory @ 0x1406606BC (MiHotAddPartitionMemory.c)
+ *     MiMakePartitionMemoryBlock @ 0x1406608E0 (MiMakePartitionMemoryBlock.c)
+ *     MiUpdatePartitionLargePfnBitMap @ 0x140661218 (MiUpdatePartitionLargePfnBitMap.c)
  * Callees:
- *     RtlClearBitsEx @ 0x140013C68 (RtlClearBitsEx.c)
- *     RtlFindNextForwardRunClearCappedEx @ 0x14001AC80 (RtlFindNextForwardRunClearCappedEx.c)
- *     MiUpdateLargePageBitMap @ 0x140022BE0 (MiUpdateLargePageBitMap.c)
- *     RtlAvlInsertNodeEx @ 0x1400273B0 (RtlAvlInsertNodeEx.c)
- *     RtlAvlRemoveNode @ 0x140028500 (RtlAvlRemoveNode.c)
- *     MiLockPageAtDpcInline @ 0x14002EB30 (MiLockPageAtDpcInline.c)
- *     MiFreePartitionPageRun @ 0x1401F1A20 (MiFreePartitionPageRun.c)
- *     MiTransferPartitionPageRun @ 0x1401F2058 (MiTransferPartitionPageRun.c)
- *     MiSplitLargePfnBitMap @ 0x1405760E4 (MiSplitLargePfnBitMap.c)
- *     MiAddPhysicalMemoryChunks @ 0x140657B58 (MiAddPhysicalMemoryChunks.c)
+ *     RtlClearBitsEx @ 0x1400137E8 (RtlClearBitsEx.c)
+ *     RtlFindNextForwardRunClearCappedEx @ 0x14001A800 (RtlFindNextForwardRunClearCappedEx.c)
+ *     MiUpdateLargePageBitMap @ 0x140022760 (MiUpdateLargePageBitMap.c)
+ *     RtlAvlInsertNodeEx @ 0x140026F30 (RtlAvlInsertNodeEx.c)
+ *     RtlAvlRemoveNode @ 0x140028080 (RtlAvlRemoveNode.c)
+ *     MiLockPageAtDpcInline @ 0x14002E6B0 (MiLockPageAtDpcInline.c)
+ *     MiFreePartitionPageRun @ 0x1401F184C (MiFreePartitionPageRun.c)
+ *     MiTransferPartitionPageRun @ 0x1401F1E84 (MiTransferPartitionPageRun.c)
+ *     MiSplitLargePfnBitMap @ 0x140576624 (MiSplitLargePfnBitMap.c)
+ *     MiAddPhysicalMemoryChunks @ 0x140657C3C (MiAddPhysicalMemoryChunks.c)
  */
 
 void __fastcall MiActOnPartitionNodePages(__int64 a1, int a2, __int16 **a3)
@@ -155,7 +155,7 @@ LABEL_7:
         if ( *a3 == (__int16 *)MiSystemPartition )
           MiUpdateLargePageBitMap((__int64)*a3, v20, v19, 0, 0);
         LOBYTE(v43) = *((_BYTE *)a3 + 16);
-        _InterlockedExchangeAdd64(&qword_140327000, -MiTransferPartitionPageRun(a3[1], *a3, v20, v19, v43));
+        _InterlockedExchangeAdd64(&qword_140327040, -MiTransferPartitionPageRun(a3[1], *a3, v20, v19, v43));
         goto LABEL_75;
       case 7:
         v24 = (int *)a3[1];

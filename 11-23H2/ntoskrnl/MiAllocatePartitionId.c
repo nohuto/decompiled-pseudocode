@@ -1,15 +1,15 @@
 /*
- * XREFs of MiAllocatePartitionId @ 0x140A2F880
+ * XREFs of MiAllocatePartitionId @ 0x140A2FB30
  * Callers:
- *     MmCreatePartition @ 0x1403AC6AC (MmCreatePartition.c)
+ *     MmCreatePartition @ 0x1403AC88C (MmCreatePartition.c)
  * Callees:
- *     KeAbPreAcquire @ 0x140230EE0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     RtlFindClearBitsAndSet @ 0x140295EA0 (RtlFindClearBitsAndSet.c)
- *     ExfTryToWakePushLock @ 0x1402BD960 (ExfTryToWakePushLock.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1402FCE10 (ExfAcquirePushLockExclusiveEx.c)
- *     KiCheckForKernelApcDelivery @ 0x14030F820 (KiCheckForKernelApcDelivery.c)
- *     MiExpandPartitionIds @ 0x140A44920 (MiExpandPartitionIds.c)
+ *     KeAbPreAcquire @ 0x140230FD0 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     RtlFindClearBitsAndSet @ 0x140296130 (RtlFindClearBitsAndSet.c)
+ *     ExfTryToWakePushLock @ 0x1402BDBF0 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402FD0A0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KiCheckForKernelApcDelivery @ 0x14030FAB0 (KiCheckForKernelApcDelivery.c)
+ *     MiExpandPartitionIds @ 0x140A44BD0 (MiExpandPartitionIds.c)
  */
 
 __int64 __fastcall MiAllocatePartitionId(__int64 a1)

@@ -1,16 +1,16 @@
 /*
- * XREFs of RtlDispatchAPC @ 0x180086140
+ * XREFs of RtlDispatchAPC @ 0x180086130
  * Callers:
  *     <none>
  * Callees:
- *     RtlActivateActivationContextUnsafeFast @ 0x180016370 (RtlActivateActivationContextUnsafeFast.c)
- *     RtlDeactivateActivationContextUnsafeFast @ 0x180018750 (RtlDeactivateActivationContextUnsafeFast.c)
- *     RtlReleaseActivationContext @ 0x18003B790 (RtlReleaseActivationContext.c)
+ *     RtlActivateActivationContextUnsafeFast @ 0x180016360 (RtlActivateActivationContextUnsafeFast.c)
+ *     RtlDeactivateActivationContextUnsafeFast @ 0x180018740 (RtlDeactivateActivationContextUnsafeFast.c)
+ *     RtlReleaseActivationContext @ 0x18003B780 (RtlReleaseActivationContext.c)
  *     _guard_dispatch_icall_nop @ 0x1800A9C80 (_guard_dispatch_icall_nop.c)
  *     memset @ 0x1800ACCC0 (memset.c)
  */
 
-void __fastcall RtlDispatchAPC(void (__fastcall *a1)(__int64), __int64 a2, volatile signed __int32 *a3)
+void __fastcall RtlDispatchAPC(void (__fastcall *a1)(__int64), __int64 a2, _ACTIVATION_CONTEXT *a3)
 {
   __int64 v6; // [rsp+20h] [rbp-58h] BYREF
   int v7; // [rsp+28h] [rbp-50h]
@@ -19,7 +19,7 @@ void __fastcall RtlDispatchAPC(void (__fastcall *a1)(__int64), __int64 a2, volat
   v6 = 72LL;
   v7 = 1;
   memset(v8, 0, sizeof(v8));
-  if ( a3 == (volatile signed __int32 *)-1LL )
+  if ( a3 == (_ACTIVATION_CONTEXT *)-1LL )
   {
     a1(a2);
   }

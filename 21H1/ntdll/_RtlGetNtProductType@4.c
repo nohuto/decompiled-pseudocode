@@ -11,10 +11,10 @@
  *     _RtlpGetNtProductTypeFromRegistry@4 @ 0x4B36374F (_RtlpGetNtProductTypeFromRegistry@4.c)
  */
 
-char __stdcall RtlGetNtProductType(_DWORD *a1)
+BOOLEAN __cdecl RtlGetNtProductType(PNT_PRODUCT_TYPE NtProductType)
 {
-  int v1; // ecx
-  char result; // al
+  _NT_PRODUCT_TYPE v1; // ecx
+  BOOLEAN result; // al
 
   if ( RtlGetCurrentServiceSessionId() )
   {
@@ -25,12 +25,12 @@ char __stdcall RtlGetNtProductType(_DWORD *a1)
   {
     v1 = MEMORY[0x7FFE0264];
 LABEL_4:
-    *a1 = v1;
+    *NtProductType = v1;
     return 1;
   }
-  if ( RtlpGetNtProductTypeFromRegistry(a1) >= 0 )
+  if ( RtlpGetNtProductTypeFromRegistry(NtProductType) >= 0 )
     return 1;
   result = 0;
-  *a1 = 1;
+  *NtProductType = NtProductWinNt;
   return result;
 }

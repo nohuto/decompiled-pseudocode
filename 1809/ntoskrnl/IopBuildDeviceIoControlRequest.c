@@ -1,27 +1,27 @@
 /*
- * XREFs of IopBuildDeviceIoControlRequest @ 0x1400DDCF0
+ * XREFs of IopBuildDeviceIoControlRequest @ 0x1400DDD70
  * Callers:
- *     IoBuildDeviceIoControlRequest @ 0x1400DDC90 (IoBuildDeviceIoControlRequest.c)
- *     FsRtlGetVirtualDiskNestingLevel @ 0x14015FC30 (FsRtlGetVirtualDiskNestingLevel.c)
- *     IopAssignBootDriveLetter @ 0x1409D65AC (IopAssignBootDriveLetter.c)
- *     IopCreateArcNamesCd @ 0x1409D6910 (IopCreateArcNamesCd.c)
- *     IopGetBootDiskInformation @ 0x1409F4AA4 (IopGetBootDiskInformation.c)
- *     VhdiMountVhdFile @ 0x1409F9784 (VhdiMountVhdFile.c)
- *     SbpAddTransportToInstance @ 0x1409FA08C (SbpAddTransportToInstance.c)
- *     SbpStartLanman @ 0x1409FA274 (SbpStartLanman.c)
+ *     IoBuildDeviceIoControlRequest @ 0x1400DDD10 (IoBuildDeviceIoControlRequest.c)
+ *     FsRtlGetVirtualDiskNestingLevel @ 0x14015FD30 (FsRtlGetVirtualDiskNestingLevel.c)
+ *     IopAssignBootDriveLetter @ 0x1409D75AC (IopAssignBootDriveLetter.c)
+ *     IopCreateArcNamesCd @ 0x1409D7910 (IopCreateArcNamesCd.c)
+ *     IopGetBootDiskInformation @ 0x1409F5AA4 (IopGetBootDiskInformation.c)
+ *     VhdiMountVhdFile @ 0x1409FA784 (VhdiMountVhdFile.c)
+ *     SbpAddTransportToInstance @ 0x1409FB08C (SbpAddTransportToInstance.c)
+ *     SbpStartLanman @ 0x1409FB274 (SbpStartLanman.c)
  * Callees:
  *     KxAcquireSpinLock @ 0x140062A90 (KxAcquireSpinLock.c)
- *     KxReleaseSpinLock @ 0x1400630E0 (KxReleaseSpinLock.c)
- *     PsGetIoPriorityThread @ 0x1400B6B40 (PsGetIoPriorityThread.c)
- *     IopAllocateIrpExReturn @ 0x1400B92E0 (IopAllocateIrpExReturn.c)
- *     IoFreeIrp @ 0x1400B9670 (IoFreeIrp.c)
- *     IopVerifierExAllocatePool_0 @ 0x1400DD85C (IopVerifierExAllocatePool_0.c)
- *     IoAllocateMdl @ 0x1400DFCD0 (IoAllocateMdl.c)
- *     IoFreeMdl @ 0x1400E0B60 (IoFreeMdl.c)
- *     IopProbeAndLockPages @ 0x1400E106C (IopProbeAndLockPages.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     memmove @ 0x1401D1540 (memmove.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
+ *     KxReleaseSpinLock @ 0x1400630D0 (KxReleaseSpinLock.c)
+ *     PsGetIoPriorityThread @ 0x1400B6A80 (PsGetIoPriorityThread.c)
+ *     IopAllocateIrpExReturn @ 0x1400B9220 (IopAllocateIrpExReturn.c)
+ *     IoFreeIrp @ 0x1400B95B0 (IoFreeIrp.c)
+ *     IopVerifierExAllocatePool_0 @ 0x1400DD8DC (IopVerifierExAllocatePool_0.c)
+ *     IoAllocateMdl @ 0x1400DFD50 (IoAllocateMdl.c)
+ *     IoFreeMdl @ 0x1400E0BE0 (IoFreeMdl.c)
+ *     IopProbeAndLockPages @ 0x1400E10EC (IopProbeAndLockPages.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall IopBuildDeviceIoControlRequest(

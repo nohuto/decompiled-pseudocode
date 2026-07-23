@@ -8,8 +8,8 @@
  *     KiAbThreadRemoveBoosts @ 0x14004EFD0 (KiAbThreadRemoveBoosts.c)
  *     MmGetSessionIdEx @ 0x14004F060 (MmGetSessionIdEx.c)
  *     KiLeaveGuardedRegionUnsafe @ 0x14004F090 (KiLeaveGuardedRegionUnsafe.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
- *     EtwTraceAutoBoostEntryExhaustion @ 0x14030FA34 (EtwTraceAutoBoostEntryExhaustion.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
+ *     EtwTraceAutoBoostEntryExhaustion @ 0x14030FC24 (EtwTraceAutoBoostEntryExhaustion.c)
  */
 
 __int64 __fastcall ExEnterCriticalRegionAndAcquireFastMutexUnsafe(ULONG_PTR BugCheckParameter2)
@@ -69,7 +69,7 @@ LABEL_7:
   KiAbThreadRemoveBoosts(v3, BugCheckParameter2, &v10);
   result = KiLeaveGuardedRegionUnsafe(v3);
   if ( !_interlockedbittestandreset((volatile signed __int32 *)BugCheckParameter2, 0) )
-    result = ExpAcquireFastMutexContended(BugCheckParameter2, v4);
+    result = ExpAcquireFastMutexContended(BugCheckParameter2, (PRTL_BALANCED_NODE)v4);
   if ( v4 )
     *(_BYTE *)(v4 + 26) |= 1u;
   *(_QWORD *)(BugCheckParameter2 + 8) = v3;

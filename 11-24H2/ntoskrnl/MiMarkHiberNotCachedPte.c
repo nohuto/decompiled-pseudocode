@@ -1,10 +1,10 @@
 /*
- * XREFs of MiMarkHiberNotCachedPte @ 0x140B62700
+ * XREFs of MiMarkHiberNotCachedPte @ 0x140B647D0
  * Callers:
  *     <none>
  * Callees:
- *     PoSetHiberRange @ 0x1402649E0 (PoSetHiberRange.c)
- *     MiIsPfn @ 0x14045A380 (MiIsPfn.c)
+ *     MiIsPfn @ 0x14044F7D0 (MiIsPfn.c)
+ *     PoSetHiberRange @ 0x14046AD10 (PoSetHiberRange.c)
  */
 
 __int64 __fastcall MiMarkHiberNotCachedPte(__int64 a1, unsigned __int64 *a2, int a3)

@@ -1,8 +1,8 @@
 /*
  * XREFs of KeQueryUnbiasedInterruptTime @ 0x1402A0850
  * Callers:
- *     MiGetSlabCurrentTime @ 0x1404192EC (MiGetSlabCurrentTime.c)
- *     PspAllocateProcess @ 0x14070BD10 (PspAllocateProcess.c)
+ *     sub_1404192EC @ 0x1404192EC (sub_1404192EC.c)
+ *     sub_14070BD10 @ 0x14070BD10 (sub_14070BD10.c)
  * Callees:
  *     <none>
  */

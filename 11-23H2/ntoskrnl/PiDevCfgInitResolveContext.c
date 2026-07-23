@@ -1,14 +1,14 @@
 /*
- * XREFs of PiDevCfgInitResolveContext @ 0x14087CEB4
+ * XREFs of PiDevCfgInitResolveContext @ 0x14087D0F4
  * Callers:
- *     PiDevCfgVerifyDeviceAllowed @ 0x140878E1C (PiDevCfgVerifyDeviceAllowed.c)
- *     PiDevCfgConfigureDeviceKeys @ 0x14087CAA4 (PiDevCfgConfigureDeviceKeys.c)
+ *     PiDevCfgVerifyDeviceAllowed @ 0x14087905C (PiDevCfgVerifyDeviceAllowed.c)
+ *     PiDevCfgConfigureDeviceKeys @ 0x14087CCE4 (PiDevCfgConfigureDeviceKeys.c)
  * Callees:
- *     ZwClose @ 0x14041AF40 (ZwClose.c)
- *     ZwOpenKey @ 0x14041AFA0 (ZwOpenKey.c)
- *     _RegRtlDeleteTreeInternal @ 0x14086B268 (_RegRtlDeleteTreeInternal.c)
- *     PiDevCfgFreeResolveContext @ 0x14087D25C (PiDevCfgFreeResolveContext.c)
- *     PiDrvDbResolveKeyFilePaths @ 0x140970F5C (PiDrvDbResolveKeyFilePaths.c)
+ *     ZwClose @ 0x14041B2D0 (ZwClose.c)
+ *     ZwOpenKey @ 0x14041B330 (ZwOpenKey.c)
+ *     _RegRtlDeleteTreeInternal @ 0x14086B4A8 (_RegRtlDeleteTreeInternal.c)
+ *     PiDevCfgFreeResolveContext @ 0x14087D49C (PiDevCfgFreeResolveContext.c)
+ *     PiDrvDbResolveKeyFilePaths @ 0x14097115C (PiDrvDbResolveKeyFilePaths.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
 

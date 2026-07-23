@@ -1,19 +1,19 @@
 /*
- * XREFs of ExShutdownSystem @ 0x140BFF170
+ * XREFs of ExShutdownSystem @ 0x140C05380
  * Callers:
- *     PopGracefulShutdown @ 0x140BF9180 (PopGracefulShutdown.c)
+ *     PopGracefulShutdown @ 0x140BFF180 (PopGracefulShutdown.c)
  * Callees:
- *     PsGetServerSiloGlobals @ 0x140216B70 (PsGetServerSiloGlobals.c)
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     ExfReleasePushLock @ 0x1402E3120 (ExfReleasePushLock.c)
- *     ExpRecordShutdownTime @ 0x1406CB23C (ExpRecordShutdownTime.c)
- *     ExSwapinWorkerThreads @ 0x140956958 (ExSwapinWorkerThreads.c)
- *     ObCloseHandle @ 0x140A00740 (ObCloseHandle.c)
+ *     PsGetServerSiloGlobals @ 0x140216EA0 (PsGetServerSiloGlobals.c)
+ *     ExfReleasePushLock @ 0x14021B220 (ExfReleasePushLock.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     ExpRecordShutdownTime @ 0x1406CF26C (ExpRecordShutdownTime.c)
+ *     ObCloseHandle @ 0x14091D2C0 (ObCloseHandle.c)
+ *     ExSwapinWorkerThreads @ 0x14094A380 (ExSwapinWorkerThreads.c)
  */
 
 void ExShutdownSystem()
@@ -34,7 +34,7 @@ void ExShutdownSystem()
   ServerSiloGlobals = PsGetServerSiloGlobals(0LL);
   if ( v0 )
   {
-    if ( v0 == 1 && ((__int64)stru_140F10828.KernelShadowStackInitial & 2) != 0 )
+    if ( v0 == 1 && (PopShutdownCleanly & 2) != 0 )
       ExSwapinWorkerThreads(v1);
   }
   else
@@ -69,25 +69,25 @@ void ExShutdownSystem()
       else
         *((_BYTE *)v9 + 10) = 1;
     }
-    if ( ExpSysDbgLock.ApcState.ApcListHead[0].Flink )
+    if ( *(_QWORD *)&ExpSysDbgLock.ApcStateFill[40] )
     {
-      ObfDereferenceObject(ExpSysDbgLock.ApcState.ApcListHead[0].Flink);
-      ExpSysDbgLock.ApcState.ApcListHead[0].Flink = 0LL;
+      ObfDereferenceObject(*(PVOID *)&ExpSysDbgLock.ApcStateFill[40]);
+      *(_QWORD *)&ExpSysDbgLock.ApcStateFill[40] = 0LL;
+    }
+    if ( ExpSysDbgLock.WaitStatus )
+    {
+      ObfDereferenceObject((PVOID)ExpSysDbgLock.WaitStatus);
+      ExpSysDbgLock.WaitStatus = 0LL;
     }
     if ( ExpSysDbgLock.ApcState.ApcListHead[0].Blink )
     {
-      ObfDereferenceObject(ExpSysDbgLock.ApcState.ApcListHead[0].Blink);
+      ObCloseHandle(ExpSysDbgLock.ApcState.ApcListHead[0].Blink, 0);
       ExpSysDbgLock.ApcState.ApcListHead[0].Blink = 0LL;
     }
     if ( ExpSysDbgLock.ApcState.ApcListHead[1].Flink )
     {
       ObCloseHandle(ExpSysDbgLock.ApcState.ApcListHead[1].Flink, 0);
       ExpSysDbgLock.ApcState.ApcListHead[1].Flink = 0LL;
-    }
-    if ( ExpSysDbgLock.FirstArgument )
-    {
-      ObCloseHandle(ExpSysDbgLock.FirstArgument, 0);
-      ExpSysDbgLock.FirstArgument = 0LL;
     }
     _m_prefetchw(&ExpSysDbgLock.ApcStateFill[24]);
     v10 = ExpSysDbgLock.ApcState.ApcListHead[1].Blink - 1;

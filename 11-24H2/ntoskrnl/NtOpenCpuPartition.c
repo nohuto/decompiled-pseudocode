@@ -1,9 +1,9 @@
 /*
- * XREFs of NtOpenCpuPartition @ 0x140775C20
+ * XREFs of NtOpenCpuPartition @ 0x140775E40
  * Callers:
  *     <none>
  * Callees:
- *     ObOpenObjectByName @ 0x14089B210 (ObOpenObjectByName.c)
+ *     ObOpenObjectByName @ 0x1408A38B0 (ObOpenObjectByName.c)
  */
 
 __int64 __fastcall NtOpenCpuPartition(_QWORD *a1, int a2, int a3)

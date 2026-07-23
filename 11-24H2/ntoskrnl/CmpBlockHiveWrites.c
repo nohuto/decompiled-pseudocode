@@ -1,13 +1,13 @@
 /*
- * XREFs of CmpBlockHiveWrites @ 0x140A2BEB0
+ * XREFs of CmpBlockHiveWrites @ 0x140A1FD70
  * Callers:
- *     CmpVEExecuteOpenLogic @ 0x1408745A0 (CmpVEExecuteOpenLogic.c)
- *     CmpVEExecuteVirtualStoreParseLogic @ 0x140A5F1F8 (CmpVEExecuteVirtualStoreParseLogic.c)
+ *     CmpVEExecuteOpenLogic @ 0x1408788D0 (CmpVEExecuteOpenLogic.c)
+ *     CmpVEExecuteVirtualStoreParseLogic @ 0x140A57370 (CmpVEExecuteVirtualStoreParseLogic.c)
  * Callees:
- *     CmpGetNextHive @ 0x14084425C (CmpGetNextHive.c)
- *     CmpDereferenceHive @ 0x1408443C0 (CmpDereferenceHive.c)
- *     CmpReferenceHive @ 0x140844680 (CmpReferenceHive.c)
- *     HvLockHiveFlusherExclusive @ 0x140BB9AB4 (HvLockHiveFlusherExclusive.c)
+ *     CmpGetNextHive @ 0x14084051C (CmpGetNextHive.c)
+ *     CmpDereferenceHive @ 0x140840680 (CmpDereferenceHive.c)
+ *     CmpReferenceHive @ 0x140840940 (CmpReferenceHive.c)
+ *     HvLockHiveFlusherExclusive @ 0x140BBBAB4 (HvLockHiveFlusherExclusive.c)
  */
 
 __int64 __fastcall CmpBlockHiveWrites(volatile signed __int32 *a1, int a2, volatile signed __int32 **a3)

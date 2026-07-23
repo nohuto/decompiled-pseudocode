@@ -1,16 +1,16 @@
 /*
- * XREFs of KiComputeGroupSchedulingRank @ 0x140305838
+ * XREFs of KiComputeGroupSchedulingRank @ 0x140305AC8
  * Callers:
- *     KiQueueReadyThread @ 0x140234510 (KiQueueReadyThread.c)
- *     KiSwapThread @ 0x14023F3F0 (KiSwapThread.c)
- *     KiGroupSchedulingQuantumEnd @ 0x140307F54 (KiGroupSchedulingQuantumEnd.c)
+ *     KiQueueReadyThread @ 0x1402345E0 (KiQueueReadyThread.c)
+ *     KiSwapThread @ 0x14023F4C0 (KiSwapThread.c)
+ *     KiGroupSchedulingQuantumEnd @ 0x1403081E4 (KiGroupSchedulingQuantumEnd.c)
  * Callees:
  *     KiCheckForEffectivePriorityChange @ 0x1402064E4 (KiCheckForEffectivePriorityChange.c)
  *     KiRemoveSchedulingGroupQueue @ 0x140206878 (KiRemoveSchedulingGroupQueue.c)
- *     KiResortScbQueue @ 0x140305700 (KiResortScbQueue.c)
- *     KiCheckMaxOverQuotaTransition @ 0x140305988 (KiCheckMaxOverQuotaTransition.c)
- *     KeInterlockedSetProcessorAffinityEx @ 0x140348BA0 (KeInterlockedSetProcessorAffinityEx.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiResortScbQueue @ 0x140305990 (KiResortScbQueue.c)
+ *     KiCheckMaxOverQuotaTransition @ 0x140305C18 (KiCheckMaxOverQuotaTransition.c)
+ *     KeInterlockedSetProcessorAffinityEx @ 0x140348E30 (KeInterlockedSetProcessorAffinityEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 void __fastcall KiComputeGroupSchedulingRank(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
@@ -67,9 +67,9 @@ void __fastcall KiComputeGroupSchedulingRank(__int64 a1, __int64 a2, __int64 a3,
   if ( (v12 & 1) != 0 )
   {
     if ( (v12 & 2) != 0 )
-      KiRemoveSchedulingGroupQueue(a2, a4, 1);
+      KiRemoveSchedulingGroupQueue((_RTL_RB_TREE *)a2, a4, 1);
     else
-      KiResortScbQueue(a2, a4, 1);
+      KiResortScbQueue((_RTL_RB_TREE *)a2, a4, 1);
   }
   if ( (*(_BYTE *)(a4 + 112) & 4) != 0 && !*(_BYTE *)(a2 + 33113) )
   {
@@ -80,7 +80,7 @@ void __fastcall KiComputeGroupSchedulingRank(__int64 a1, __int64 a2, __int64 a3,
     {
       CurrentIrql = KeGetCurrentIrql();
       __writecr8(0xFuLL);
-      if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+      if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
       {
         SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
         if ( CurrentIrql == 15 )
@@ -90,10 +90,10 @@ void __fastcall KiComputeGroupSchedulingRank(__int64 a1, __int64 a2, __int64 a3,
         SchedulerAssist[5] |= v21;
       }
       *(_BYTE *)(a2 + 36452) &= ~2u;
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v22 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v22 <= 0xFu && CurrentIrql <= 0xFu && v22 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v22 <= 0xFu && CurrentIrql <= 0xFu && v22 >= 2u )
         {
           CurrentPrcb = KeGetCurrentPrcb();
           v24 = CurrentPrcb->SchedulerAssist;

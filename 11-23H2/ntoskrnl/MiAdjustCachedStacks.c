@@ -5,8 +5,8 @@
  * Callees:
  *     MiAdjustCachedStackList @ 0x14021E9F0 (MiAdjustCachedStackList.c)
  *     MiDeleteCachedKernelStack @ 0x14021EB64 (MiDeleteCachedKernelStack.c)
- *     KeGetPrcb @ 0x140257330 (KeGetPrcb.c)
- *     MiDeleteCachedKernelShadowStack @ 0x140644354 (MiDeleteCachedKernelShadowStack.c)
+ *     KeGetPrcb @ 0x1402573F0 (KeGetPrcb.c)
+ *     MiDeleteCachedKernelShadowStack @ 0x1406448A4 (MiDeleteCachedKernelShadowStack.c)
  */
 
 __int64 __fastcall MiAdjustCachedStacks(__int64 a1)

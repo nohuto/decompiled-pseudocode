@@ -1,15 +1,15 @@
 /*
- * XREFs of ExpCancelTimer @ 0x14024A190
+ * XREFs of ExpCancelTimer @ 0x1402EE9E0
  * Callers:
- *     NtCancelTimer @ 0x140248B00 (NtCancelTimer.c)
- *     ExTimerRundown @ 0x140279748 (ExTimerRundown.c)
+ *     ExTimerRundown @ 0x1402676E8 (ExTimerRundown.c)
+ *     NtCancelTimer @ 0x1402ED350 (NtCancelTimer.c)
  * Callees:
- *     KxAcquireSpinLock @ 0x1402295B0 (KxAcquireSpinLock.c)
- *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
- *     KeCancelTimer @ 0x140260240 (KeCancelTimer.c)
- *     KeRemoveQueueApc @ 0x1402C4D4C (KeRemoveQueueApc.c)
- *     KeRemoveQueueDpcEx @ 0x1402C8000 (KeRemoveQueueDpcEx.c)
- *     KiCancelTimer @ 0x1403482D0 (KiCancelTimer.c)
+ *     KxReleaseSpinLock @ 0x140212140 (KxReleaseSpinLock.c)
+ *     KeRemoveQueueApc @ 0x1402432CC (KeRemoveQueueApc.c)
+ *     KeRemoveQueueDpcEx @ 0x140246860 (KeRemoveQueueDpcEx.c)
+ *     KeCancelTimer @ 0x1402819B0 (KeCancelTimer.c)
+ *     KxAcquireSpinLock @ 0x1402CDEB0 (KxAcquireSpinLock.c)
+ *     KiCancelTimer @ 0x140353020 (KiCancelTimer.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
@@ -43,11 +43,11 @@ __int64 __fastcall ExpCancelTimer(PKTIMER a1, __int64 a2)
     LOBYTE(a1[4].Dpc) &= ~1u;
     if ( ((__int64)a1[4].Dpc & 2) != 0 && LOBYTE(a1[3].Processor)
       || KeCancelTimer(a1)
-      || (unsigned __int8)KeRemoveQueueDpcEx(&a1[2].TimerListEntry, 0LL) )
+      || KeRemoveQueueDpcEx((__int64)&a1[2].TimerListEntry, 0) )
     {
       v2 = 1;
     }
-    if ( (unsigned __int8)KeRemoveQueueApc(&a1[1].Header.WaitListHead) )
+    if ( KeRemoveQueueApc((__int64)&a1[1].Header.WaitListHead) )
       ++v2;
   }
   else

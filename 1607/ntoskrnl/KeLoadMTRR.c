@@ -3,8 +3,8 @@
  * Callers:
  *     KiLoadMTRRTarget @ 0x1403D6AD8 (KiLoadMTRRTarget.c)
  * Callees:
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     KeFlushCurrentTbImmediately @ 0x1401D60A0 (KeFlushCurrentTbImmediately.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     KeFlushCurrentTbImmediately @ 0x1401D5ECC (KeFlushCurrentTbImmediately.c)
  *     KiLockStepExecution @ 0x1403D2744 (KiLockStepExecution.c)
  *     KiWriteFixedMtrr @ 0x1403D2784 (KiWriteFixedMtrr.c)
  *     KiReadFixedMtrr @ 0x1403D288C (KiReadFixedMtrr.c)
@@ -30,7 +30,7 @@ __int64 __fastcall KeLoadMTRR(__int64 a1)
   _BYTE v17[96]; // [rsp+20h] [rbp-98h] BYREF
   int v18; // [rsp+B0h] [rbp-8h]
 
-  if ( byte_140307B70 )
+  if ( byte_140307BB0 )
   {
     v2 = v18;
     _disable();
@@ -50,29 +50,29 @@ __int64 __fastcall KeLoadMTRR(__int64 a1)
     if ( !(unsigned __int8)KiCompareVarMtrr(767LL, v7) )
       KeMtrrComparisonFailed = 1;
     v9 = 0;
-    if ( (_BYTE)qword_140307B68 )
+    if ( (_BYTE)qword_140307BA8 )
     {
       v10 = 0LL;
       v11 = 513;
       do
       {
         v12 = 2 * v10;
-        __writemsr(v11 - 1, *((_QWORD *)qword_140307B78 + v12));
-        v8 = HIDWORD(*((_QWORD *)qword_140307B78 + v12 + 1));
-        __writemsr(v11, *((_QWORD *)qword_140307B78 + v12 + 1));
+        __writemsr(v11 - 1, *((_QWORD *)qword_140307BB8 + v12));
+        v8 = HIDWORD(*((_QWORD *)qword_140307BB8 + v12 + 1));
+        __writemsr(v11, *((_QWORD *)qword_140307BB8 + v12 + 1));
         v10 = ++v9;
         v11 += 2;
       }
-      while ( v9 < (unsigned __int64)(unsigned __int8)qword_140307B68 );
+      while ( v9 < (unsigned __int64)(unsigned __int8)qword_140307BA8 );
     }
-    if ( qword_140307B80 )
+    if ( qword_140307BC0 )
     {
       KiReadFixedMtrr(v17, v8);
-      v14 = qword_140307B80;
+      v14 = qword_140307BC0;
       if ( !KeGetCurrentPrcb()->Number )
       {
         v13 = 0LL;
-        v14 = (PVOID)((_BYTE *)qword_140307B80 - v17);
+        v14 = (PVOID)((_BYTE *)qword_140307BC0 - v17);
         v15 = v17;
         while ( *(_QWORD *)((char *)v15 + (_QWORD)v14) == *v15 )
         {
@@ -84,7 +84,7 @@ __int64 __fastcall KeLoadMTRR(__int64 a1)
         KeMtrrComparisonFailed = 1;
       }
 LABEL_17:
-      KiWriteFixedMtrr(qword_140307B80, v13, v14);
+      KiWriteFixedMtrr(qword_140307BC0, v13, v14);
     }
     __writemsr(0x2FFu, v6 | 0x800);
     __wbinvd();

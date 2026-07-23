@@ -1,9 +1,9 @@
 /*
- * XREFs of MiClearVadCellBits @ 0x1402FE120
+ * XREFs of MiClearVadCellBits @ 0x140308E70
  * Callers:
- *     MiClearVadBits @ 0x1402FE000 (MiClearVadBits.c)
+ *     MiClearVadBits @ 0x140308D50 (MiClearVadBits.c)
  * Callees:
- *     RtlClearBitsEx @ 0x1402FE300 (RtlClearBitsEx.c)
+ *     RtlClearBitsEx @ 0x140309050 (RtlClearBitsEx.c)
  */
 
 void __fastcall MiClearVadCellBits(
@@ -31,7 +31,7 @@ void __fastcall MiClearVadCellBits(
   unsigned __int64 v22; // r9
 
   v6 = a3;
-  v7 = a1[1] - qword_140C4E360;
+  v7 = a1[1] - qword_140C4E3A0;
   v9 = a2;
   if ( !a2 )
   {

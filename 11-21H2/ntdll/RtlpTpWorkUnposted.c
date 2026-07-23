@@ -12,13 +12,13 @@
  *     RtlTpETWCallbackDequeue @ 0x180125488 (RtlTpETWCallbackDequeue.c)
  */
 
-__int64 __fastcall RtlpTpWorkUnposted(__int64 a1, __int64 a2)
+LOGICAL __fastcall RtlpTpWorkUnposted(__int64 a1, __int64 a2)
 {
   __int64 v4; // rcx
   int v5; // eax
   void *v6; // rcx
-  volatile signed __int32 *v7; // rcx
-  __int64 v8; // rcx
+  _ACTIVATION_CONTEXT *v7; // rcx
+  void *v8; // rcx
   int v10; // [rsp+30h] [rbp-58h] BYREF
   __int64 v11; // [rsp+38h] [rbp-50h]
   __int64 v12; // [rsp+40h] [rbp-48h]
@@ -29,7 +29,7 @@ __int64 __fastcall RtlpTpWorkUnposted(__int64 a1, __int64 a2)
   int v17; // [rsp+6Ch] [rbp-1Ch]
   int v18; // [rsp+70h] [rbp-18h]
 
-  if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+  if ( RtlGetCurrentServiceSessionId() )
     v4 = (__int64)NtCurrentPeb()->SharedData + 556;
   else
     v4 = 2147353478LL;
@@ -55,11 +55,11 @@ __int64 __fastcall RtlpTpWorkUnposted(__int64 a1, __int64 a2)
   v6 = *(void **)(a1 + 40);
   if ( v6 )
     NtClose(v6);
-  v7 = *(volatile signed __int32 **)(a1 + 72);
-  if ( v7 != (volatile signed __int32 *)-1LL )
+  v7 = *(_ACTIVATION_CONTEXT **)(a1 + 72);
+  if ( v7 != (_ACTIVATION_CONTEXT *)-1LL )
     RtlReleaseActivationContext(v7);
-  v8 = *(_QWORD *)(a1 + 80);
+  v8 = *(void **)(a1 + 80);
   if ( v8 )
     LdrUnloadDll(v8);
-  return RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, a1);
+  return RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, (PVOID)a1);
 }

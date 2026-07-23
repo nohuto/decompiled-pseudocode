@@ -1,19 +1,18 @@
 /*
- * XREFs of RtlpUnlockFlsCallbackVector @ 0x1800D44F8
+ * XREFs of RtlpUnlockFlsCallbackVector @ 0x1800D45B8
  * Callers:
- *     RtlCloneUserProcess @ 0x1800D3D00 (RtlCloneUserProcess.c)
- *     RtlCompleteProcessCloning @ 0x1800D3FD0 (RtlCompleteProcessCloning.c)
- *     RtlPrepareForProcessCloning @ 0x1800D4250 (RtlPrepareForProcessCloning.c)
+ *     RtlCloneUserProcess @ 0x1800D3DC0 (RtlCloneUserProcess.c)
+ *     RtlCompleteProcessCloning @ 0x1800D4090 (RtlCompleteProcessCloning.c)
+ *     RtlPrepareForProcessCloning @ 0x1800D4310 (RtlPrepareForProcessCloning.c)
  * Callees:
- *     RtlReleaseSRWLockExclusive @ 0x18001C550 (RtlReleaseSRWLockExclusive.c)
+ *     RtlReleaseSRWLockExclusive @ 0x18001C540 (RtlReleaseSRWLockExclusive.c)
  */
 
-signed __int64 __fastcall RtlpUnlockFlsCallbackVector(int a1)
+void __fastcall RtlpUnlockFlsCallbackVector(int a1)
 {
   struct _PEB *v1; // rdi
   __int64 v3; // rbx
   __int64 v4; // rsi
-  signed __int64 result; // rax
 
   v1 = NtCurrentPeb();
   if ( v1->FlsCallback )
@@ -24,11 +23,10 @@ signed __int64 __fastcall RtlpUnlockFlsCallbackVector(int a1)
     {
       if ( a1 )
         *(_QWORD *)((char *)v1->FlsCallback + v3 + 8) = 1LL;
-      result = RtlReleaseSRWLockExclusive((volatile signed __int64 *)((char *)v1->FlsCallback + v3 + 8));
+      RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)((char *)v1->FlsCallback + v3 + 8));
       v3 -= 16LL;
       --v4;
     }
     while ( v4 );
   }
-  return result;
 }

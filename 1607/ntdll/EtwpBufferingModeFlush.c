@@ -3,13 +3,13 @@
  * Callers:
  *     EtwpFlushUmLogger @ 0x1800FD8D4 (EtwpFlushUmLogger.c)
  * Callees:
- *     RtlEnterCriticalSection @ 0x180019B50 (RtlEnterCriticalSection.c)
- *     RtlLeaveCriticalSection @ 0x180019DC0 (RtlLeaveCriticalSection.c)
- *     EtwpFlushBuffer @ 0x180052EC4 (EtwpFlushBuffer.c)
- *     EtwpWaitForBufferReferenceCount @ 0x180053094 (EtwpWaitForBufferReferenceCount.c)
- *     EtwpFinalizeLogFileHeader @ 0x1800530C0 (EtwpFinalizeLogFileHeader.c)
- *     EtwpAddLogHeaderToLogFile @ 0x180054914 (EtwpAddLogHeaderToLogFile.c)
- *     RtlNtStatusToDosError @ 0x18005A4E0 (RtlNtStatusToDosError.c)
+ *     RtlEnterCriticalSection @ 0x180019B40 (RtlEnterCriticalSection.c)
+ *     RtlLeaveCriticalSection @ 0x180019DB0 (RtlLeaveCriticalSection.c)
+ *     EtwpFlushBuffer @ 0x180052EB4 (EtwpFlushBuffer.c)
+ *     EtwpWaitForBufferReferenceCount @ 0x180053084 (EtwpWaitForBufferReferenceCount.c)
+ *     EtwpFinalizeLogFileHeader @ 0x1800530B0 (EtwpFinalizeLogFileHeader.c)
+ *     EtwpAddLogHeaderToLogFile @ 0x180054904 (EtwpAddLogHeaderToLogFile.c)
+ *     RtlNtStatusToDosError @ 0x18005A4D0 (RtlNtStatusToDosError.c)
  *     NtClose @ 0x1800A6600 (NtClose.c)
  *     EtwpFindAndLockBufferForFlushing @ 0x1800FD874 (EtwpFindAndLockBufferForFlushing.c)
  */
@@ -38,7 +38,7 @@ __int64 __fastcall EtwpBufferingModeFlush(__int64 a1)
   {
     v4 = 0;
   }
-  RtlEnterCriticalSection(a1 + 88);
+  RtlEnterCriticalSection((PRTL_CRITICAL_SECTION)(a1 + 88));
   for ( i = 0LL; (unsigned int)i < *(_DWORD *)(a1 + 204); i = (unsigned int)(i + 1) )
   {
     v6 = *(_QWORD *)(a1 + 8 * i + 528);
@@ -56,7 +56,7 @@ __int64 __fastcall EtwpBufferingModeFlush(__int64 a1)
       _InterlockedIncrement((volatile signed __int32 *)(a1 + 228));
     }
   }
-  RtlLeaveCriticalSection(a1 + 88);
+  RtlLeaveCriticalSection((PRTL_CRITICAL_SECTION)(a1 + 88));
   v8 = *(_QWORD *)(a1 + 416);
   for ( j = EtwpFindAndLockBufferForFlushing(a1, v8); j; j = EtwpFindAndLockBufferForFlushing(a1, --v8) )
   {

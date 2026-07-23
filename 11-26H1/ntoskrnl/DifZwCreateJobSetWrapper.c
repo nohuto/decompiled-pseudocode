@@ -1,17 +1,17 @@
 /*
- * XREFs of DifZwCreateJobSetWrapper @ 0x14069F8D0
+ * XREFs of DifZwCreateJobSetWrapper @ 0x1406A34B0
  * Callers:
  *     <none>
  * Callees:
- *     DifGetReturnAddressForWrappers @ 0x140260EA4 (DifGetReturnAddressForWrappers.c)
- *     ExReleaseRundownProtection_0 @ 0x140266240 (ExReleaseRundownProtection_0.c)
- *     ExAcquireRundownProtection_0 @ 0x1402F0590 (ExAcquireRundownProtection_0.c)
- *     DifGetAPIThunkContextById @ 0x1404C17A4 (DifGetAPIThunkContextById.c)
- *     ZwCreateJobSet @ 0x140724A90 (ZwCreateJobSet.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     DifGetReturnAddressForWrappers @ 0x14026040C (DifGetReturnAddressForWrappers.c)
+ *     ExReleaseRundownProtection_0 @ 0x1402657B0 (ExReleaseRundownProtection_0.c)
+ *     ExAcquireRundownProtection_0 @ 0x1402D2610 (ExAcquireRundownProtection_0.c)
+ *     DifGetAPIThunkContextById @ 0x1404BAFF4 (DifGetAPIThunkContextById.c)
+ *     ZwCreateJobSet @ 0x140729660 (ZwCreateJobSet.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
-__int64 __fastcall DifZwCreateJobSetWrapper(unsigned int a1, __int64 a2, unsigned int a3)
+__int64 __fastcall DifZwCreateJobSetWrapper(ULONG NumJob, PJOB_SET_ARRAY UserJobSet, ULONG Flags)
 {
   __int128 *APIThunkContextById; // rax
   __int64 v7; // rdx
@@ -43,9 +43,9 @@ __int64 __fastcall DifZwCreateJobSetWrapper(unsigned int a1, __int64 a2, unsigne
       *(_QWORD *)&v17 = DifGetReturnAddressForWrappers();
     }
     v10 = 0;
-    DWORD2(v18) = a1;
-    *(_QWORD *)&v18 = a2;
-    DWORD2(v17) = a3;
+    DWORD2(v18) = NumJob;
+    *(_QWORD *)&v18 = UserJobSet;
+    DWORD2(v17) = Flags;
     if ( !VfDifRunningWithoutReboot && (VfOptionFlags & 0x800) == 0
       || (v10 = ExAcquireRundownProtection_0(&DifRebootlessRundown)) != 0 )
     {
@@ -58,7 +58,7 @@ __int64 __fastcall DifZwCreateJobSetWrapper(unsigned int a1, __int64 a2, unsigne
         ExReleaseRundownProtection_0(&DifRebootlessRundown);
     }
   }
-  HIDWORD(v18) = ZwCreateJobSet(a1, a2, a3);
+  HIDWORD(v18) = ZwCreateJobSet(NumJob, UserJobSet, Flags);
   if ( v8 )
   {
     if ( (v13 = 0, !VfDifRunningWithoutReboot) && (VfOptionFlags & 0x800) == 0

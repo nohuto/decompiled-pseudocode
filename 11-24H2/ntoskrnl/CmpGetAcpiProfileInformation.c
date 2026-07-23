@@ -1,19 +1,19 @@
 /*
- * XREFs of CmpGetAcpiProfileInformation @ 0x1407D3D9C
+ * XREFs of CmpGetAcpiProfileInformation @ 0x1407D428C
  * Callers:
- *     CmSetAcpiHwProfile @ 0x1407D25A4 (CmSetAcpiHwProfile.c)
+ *     CmSetAcpiHwProfile @ 0x1407D2A94 (CmSetAcpiHwProfile.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     ZwOpenKey @ 0x1406A6650 (ZwOpenKey.c)
- *     ZwQueryKey @ 0x1406A66D0 (ZwQueryKey.c)
- *     ZwQueryValueKey @ 0x1406A66F0 (ZwQueryValueKey.c)
- *     ZwEnumerateKey @ 0x1406A6A50 (ZwEnumerateKey.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     RtlUnicodeStringToInteger @ 0x1409933D0 (RtlUnicodeStringToInteger.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     ZwOpenKey @ 0x1406A75F0 (ZwOpenKey.c)
+ *     ZwQueryKey @ 0x1406A7670 (ZwQueryKey.c)
+ *     ZwQueryValueKey @ 0x1406A7690 (ZwQueryValueKey.c)
+ *     ZwEnumerateKey @ 0x1406A79F0 (ZwEnumerateKey.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     RtlUnicodeStringToInteger @ 0x14097E410 (RtlUnicodeStringToInteger.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall CmpGetAcpiProfileInformation(
@@ -41,31 +41,32 @@ __int64 __fastcall CmpGetAcpiProfileInformation(
   __int64 v23; // rbx
   __int128 v24; // xmm1
   __int64 v25; // rax
-  __int64 v26; // rcx
-  unsigned int v27; // edx
-  void *v28; // rcx
-  _DWORD *v29; // rcx
-  unsigned int v30; // edi
-  void *v31; // rcx
-  _DWORD *v32; // rcx
-  unsigned int v33; // edi
-  void *v34; // rcx
+  unsigned int v26; // eax
+  __int64 v27; // rcx
+  unsigned int v28; // edx
+  void *v29; // rcx
+  _DWORD *v30; // rcx
+  unsigned int v31; // edi
+  void *v32; // rcx
+  _DWORD *v33; // rcx
+  unsigned int v34; // edi
+  void *v35; // rcx
   ULONG ResultLength; // [rsp+30h] [rbp-B9h] BYREF
   HANDLE Handle; // [rsp+38h] [rbp-B1h] BYREF
   UNICODE_STRING DestinationString; // [rsp+40h] [rbp-A9h] BYREF
-  HANDLE v39; // [rsp+50h] [rbp-99h] BYREF
+  HANDLE v40; // [rsp+50h] [rbp-99h] BYREF
   HANDLE KeyHandle; // [rsp+58h] [rbp-91h] BYREF
-  __int128 v41; // [rsp+60h] [rbp-89h]
+  __int128 v42; // [rsp+60h] [rbp-89h]
   ULONG Value[4]; // [rsp+70h] [rbp-79h] BYREF
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+80h] [rbp-69h] BYREF
   __int128 Src; // [rsp+B0h] [rbp-39h] BYREF
   __int128 KeyInformation; // [rsp+C0h] [rbp-29h] BYREF
-  __int128 v46; // [rsp+D0h] [rbp-19h]
-  __int128 v47; // [rsp+E0h] [rbp-9h]
+  __int128 v47; // [rsp+D0h] [rbp-19h]
+  __int128 v48; // [rsp+E0h] [rbp-9h]
 
   v5 = 0;
   *a2 = 0LL;
-  v39 = 0LL;
+  v40 = 0LL;
   KeyHandle = 0LL;
   Handle = 0LL;
   ResultLength = 0;
@@ -74,8 +75,8 @@ __int64 __fastcall CmpGetAcpiProfileInformation(
   DestinationString = 0LL;
   *(_QWORD *)a3 = 0LL;
   KeyInformation = 0LL;
-  v46 = 0LL;
   v47 = 0LL;
+  v48 = 0LL;
   RtlInitUnicodeString(&DestinationString, L"Hardware Profiles");
   ObjectAttributes.RootDirectory = a1;
   ObjectAttributes.ObjectName = &DestinationString;
@@ -88,17 +89,17 @@ __int64 __fastcall CmpGetAcpiProfileInformation(
     v9 = ZwQueryKey(KeyHandle, KeyFullInformation, &KeyInformation, 0x30u, &ResultLength);
     if ( v9 >= 0 )
     {
-      ResultLength = 32 * (DWORD1(v46) - 1) + 40;
-      Pool2 = (_DWORD *)ExAllocatePool2(0x100uLL);
+      ResultLength = 32 * (DWORD1(v47) - 1) + 40;
+      Pool2 = (_DWORD *)ExAllocatePool2(0x100uLL, ResultLength, 0x20204D43u);
       *a2 = (__int64)Pool2;
       if ( Pool2 )
       {
         v11 = 0;
-        *Pool2 = DWORD1(v46);
+        *Pool2 = DWORD1(v47);
         *(_DWORD *)(*a2 + 4) = 0;
-        while ( v11 < DWORD1(v46) )
+        while ( v11 < DWORD1(v47) )
         {
-          DWORD1(v41) = 0;
+          DWORD1(v42) = 0;
           *(_QWORD *)Value = 0LL;
           if ( ZwEnumerateKey(KeyHandle, v11, KeyBasicInformation, KeyValueInformation, 0xFEu, &ResultLength) < 0 )
             break;
@@ -141,10 +142,10 @@ __int64 __fastcall CmpGetAcpiProfileInformation(
                  &ResultLength) >= 0
             && *((_DWORD *)KeyValueInformation + 1) == 1 )
           {
-            v13 = (void *)ExAllocatePool2(0x100uLL);
+            v13 = (void *)ExAllocatePool2(0x100uLL, *((unsigned int *)KeyValueInformation + 3), 0x20204D43u);
             v14 = *((_DWORD *)KeyValueInformation + 3);
-            LODWORD(v41) = v14;
-            *((_QWORD *)&v41 + 1) = v13;
+            LODWORD(v42) = v14;
+            *((_QWORD *)&v42 + 1) = v13;
             if ( !v13 )
               goto LABEL_37;
             v15 = v14;
@@ -153,9 +154,9 @@ __int64 __fastcall CmpGetAcpiProfileInformation(
           else
           {
             Src = *(_OWORD *)L"-------";
-            v13 = (void *)ExAllocatePool2(0x100uLL);
-            LODWORD(v41) = 16;
-            *((_QWORD *)&v41 + 1) = v13;
+            v13 = (void *)ExAllocatePool2(0x100uLL, 0x10uLL, 0x20204D43u);
+            LODWORD(v42) = 16;
+            *((_QWORD *)&v42 + 1) = v13;
             if ( !v13 )
             {
 LABEL_37:
@@ -220,7 +221,7 @@ LABEL_60:
           v22 = *a2;
           v23 = 32 * v20;
           v24 = *(_OWORD *)Value;
-          *(_OWORD *)(v23 + v22 + 8) = v41;
+          *(_OWORD *)(v23 + v22 + 8) = v42;
           *(_OWORD *)(v23 + v22 + 24) = v24;
           ++*(_DWORD *)(*a2 + 4);
           ZwClose(Handle);
@@ -233,31 +234,31 @@ LABEL_60:
         ObjectAttributes.RootDirectory = a1;
         ObjectAttributes.Attributes = 576;
         *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
-        if ( ZwOpenKey(&v39, 0x20019u, &ObjectAttributes) < 0 )
+        if ( ZwOpenKey(&v40, 0x20019u, &ObjectAttributes) < 0 )
         {
           v9 = 0;
-          v39 = 0LL;
+          v40 = 0LL;
           goto LABEL_63;
         }
-        v9 = ZwQueryKey(v39, KeyFullInformation, &KeyInformation, 0x30u, &ResultLength);
+        v9 = ZwQueryKey(v40, KeyFullInformation, &KeyInformation, 0x30u, &ResultLength);
         if ( v9 >= 0 )
         {
-          v25 = ExAllocatePool2(0x100uLL);
+          v25 = ExAllocatePool2(0x100uLL, 32LL * (unsigned int)(DWORD1(v47) - 1) + 40, 0x20204D43u);
           *(_QWORD *)a3 = v25;
           if ( !v25 )
             goto LABEL_5;
-          *(_DWORD *)(v25 + 4) = DWORD1(v46);
-          **(_DWORD **)a3 = DWORD1(v46);
-          while ( v5 < DWORD1(v46) )
+          *(_DWORD *)(v25 + 4) = DWORD1(v47);
+          **(_DWORD **)a3 = DWORD1(v47);
+          while ( v5 < DWORD1(v47) )
           {
-            v9 = ZwEnumerateKey(v39, v5, KeyBasicInformation, KeyValueInformation, 0xFEu, &ResultLength);
+            v9 = ZwEnumerateKey(v40, v5, KeyBasicInformation, KeyValueInformation, 0xFEu, &ResultLength);
             if ( v9 < 0 )
               break;
             KeyValueInformation[((unsigned __int64)*((unsigned int *)KeyValueInformation + 3) >> 1) + 8] = 0;
             DestinationString.Length = KeyValueInformation[6];
             DestinationString.MaximumLength = DestinationString.Length + 2;
             DestinationString.Buffer = KeyValueInformation + 8;
-            ObjectAttributes.RootDirectory = v39;
+            ObjectAttributes.RootDirectory = v40;
             ObjectAttributes.ObjectName = &DestinationString;
             ObjectAttributes.Length = 48;
             ObjectAttributes.Attributes = 576;
@@ -302,18 +303,19 @@ LABEL_60:
               goto LABEL_60;
             }
             *(_DWORD *)(*(_QWORD *)a3 + 24LL * v5 + 16) = *((_DWORD *)KeyValueInformation + 3);
-            if ( *((_DWORD *)KeyValueInformation + 3) )
-              v26 = ExAllocatePool2(0x100uLL);
+            v26 = *((_DWORD *)KeyValueInformation + 3);
+            if ( v26 )
+              v27 = ExAllocatePool2(0x100uLL, v26, 0x20204D43u);
             else
-              v26 = 0LL;
-            *(_QWORD *)(*(_QWORD *)a3 + 24LL * v5 + 24) = v26;
-            v27 = *((_DWORD *)KeyValueInformation + 3);
-            if ( v27 )
+              v27 = 0LL;
+            *(_QWORD *)(*(_QWORD *)a3 + 24LL * v5 + 24) = v27;
+            v28 = *((_DWORD *)KeyValueInformation + 3);
+            if ( v28 )
             {
-              v28 = *(void **)(*(_QWORD *)a3 + 24LL * v5 + 24);
-              if ( !v28 )
+              v29 = *(void **)(*(_QWORD *)a3 + 24LL * v5 + 24);
+              if ( !v29 )
                 goto LABEL_37;
-              memmove(v28, (char *)KeyValueInformation + *((unsigned int *)KeyValueInformation + 2), v27);
+              memmove(v29, (char *)KeyValueInformation + *((unsigned int *)KeyValueInformation + 2), v28);
             }
             ZwClose(Handle);
             ++v5;
@@ -332,49 +334,49 @@ LABEL_5:
     KeyHandle = 0LL;
   }
 LABEL_61:
-  if ( v39 )
-    ZwClose(v39);
+  if ( v40 )
+    ZwClose(v40);
 LABEL_63:
   if ( KeyHandle )
     ZwClose(KeyHandle);
   if ( v9 < 0 )
   {
-    v29 = (_DWORD *)*a2;
+    v30 = (_DWORD *)*a2;
     if ( *a2 )
     {
-      v30 = 0;
-      if ( v29[1] )
+      v31 = 0;
+      if ( v30[1] )
       {
         do
         {
-          v31 = *(void **)&v29[8 * v30 + 4];
-          if ( v31 )
-            ExFreePoolWithTag(v31, 0);
-          v29 = (_DWORD *)*a2;
-          ++v30;
+          v32 = *(void **)&v30[8 * v31 + 4];
+          if ( v32 )
+            ExFreePoolWithTag(v32, 0);
+          v30 = (_DWORD *)*a2;
+          ++v31;
         }
-        while ( v30 < *(_DWORD *)(*a2 + 4) );
+        while ( v31 < *(_DWORD *)(*a2 + 4) );
       }
-      ExFreePoolWithTag(v29, 0);
+      ExFreePoolWithTag(v30, 0);
       *a2 = 0LL;
     }
-    v32 = *(_DWORD **)a3;
+    v33 = *(_DWORD **)a3;
     if ( *(_QWORD *)a3 )
     {
-      v33 = 0;
-      if ( v32[1] )
+      v34 = 0;
+      if ( v33[1] )
       {
         do
         {
-          v34 = *(void **)&v32[6 * v33 + 6];
-          if ( v34 )
-            ExFreePoolWithTag(v34, 0);
-          v32 = *(_DWORD **)a3;
-          ++v33;
+          v35 = *(void **)&v33[6 * v34 + 6];
+          if ( v35 )
+            ExFreePoolWithTag(v35, 0);
+          v33 = *(_DWORD **)a3;
+          ++v34;
         }
-        while ( v33 < *(_DWORD *)(*(_QWORD *)a3 + 4LL) );
+        while ( v34 < *(_DWORD *)(*(_QWORD *)a3 + 4LL) );
       }
-      ExFreePoolWithTag(v32, 0);
+      ExFreePoolWithTag(v33, 0);
       *(_QWORD *)a3 = 0LL;
     }
   }

@@ -1,10 +1,10 @@
 /*
- * XREFs of CmpLogFlushPhaseEnd @ 0x140752DEC
+ * XREFs of CmpLogFlushPhaseEnd @ 0x140752FDC
  * Callers:
- *     CmpFlushHive @ 0x140752E88 (CmpFlushHive.c)
+ *     CmpFlushHive @ 0x140753078 (CmpFlushHive.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6B24 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6DB4 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall CmpLogFlushPhaseEnd(__int64 a1, char a2, int a3)
@@ -20,7 +20,7 @@ NTSTATUS __fastcall CmpLogFlushPhaseEnd(__int64 a1, char a2, int a3)
   int v11; // [rsp+78h] [rbp-20h]
   int v12; // [rsp+7Ch] [rbp-1Ch]
 
-  if ( (unsigned int)dword_140C043C8 > 4 )
+  if ( (unsigned int)dword_140C04390 > 4 )
   {
     v4 = a2;
     v7 = &v4;
@@ -31,8 +31,8 @@ NTSTATUS __fastcall CmpLogFlushPhaseEnd(__int64 a1, char a2, int a3)
     v5 = a3;
     v11 = 4;
     return tlgWriteTransfer_EtwWriteTransfer(
-             (__int64)&dword_140C043C8,
-             (unsigned __int8 *)&word_140036ABE,
+             (__int64)&dword_140C04390,
+             (unsigned __int8 *)word_140036B92,
              0LL,
              0LL,
              4u,

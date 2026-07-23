@@ -7,11 +7,11 @@
  *     InterlockedPushListSList @ 0x140405370 (InterlockedPushListSList.c)
  */
 
-PSLIST_ENTRY __fastcall EtwpCovSampPushListSList(union _SLIST_HEADER *a1, struct _SLIST_ENTRY *a2, ULONG *a3)
+PSLIST_ENTRY __fastcall EtwpCovSampPushListSList(_SLIST_HEADER *a1, _SLIST_ENTRY *a2, ULONG *a3)
 {
-  struct _SLIST_ENTRY *Next; // r9
+  _SLIST_ENTRY *Next; // r9
   ULONG v5; // ebx
-  struct _SLIST_ENTRY *i; // r8
+  _SLIST_ENTRY *i; // r8
   PSLIST_ENTRY result; // rax
 
   Next = a2->Next;

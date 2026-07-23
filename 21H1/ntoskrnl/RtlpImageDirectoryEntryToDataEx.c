@@ -8,56 +8,40 @@
  *     RtlpImageDirectoryEntryToData32 @ 0x14033AC20 (RtlpImageDirectoryEntryToData32.c)
  */
 
-__int64 __fastcall RtlpImageDirectoryEntryToDataEx(
-        unsigned __int64 a1,
-        char a2,
-        unsigned __int16 a3,
-        int a4,
+NTSTATUS __fastcall RtlpImageDirectoryEntryToDataEx(
+        unsigned __int64 BaseOfImage,
+        __int64 a2,
+        __int64 a3,
+        __int64 a4,
         _QWORD *a5)
 {
   __int64 v5; // rsi
-  char v8; // di
-  unsigned __int64 v9; // rbx
-  __int64 result; // rax
-  __int16 v11; // ax
-  int v12; // edx
-  int v13; // edx
-  __int64 v14; // [rsp+50h] [rbp+8h] BYREF
+  PVOID v6; // rbx
+  NTSTATUS result; // eax
+  unsigned __int16 Magic; // ax
+  PIMAGE_NT_HEADERS OutHeaders; // [rsp+50h] [rbp+8h] BYREF
 
   v5 = (__int64)a5;
-  v14 = 0LL;
-  v8 = a2;
-  v9 = a1;
+  OutHeaders = 0LL;
+  v6 = (PVOID)BaseOfImage;
   *a5 = 0LL;
-  if ( (a1 & 3) != 0 )
+  if ( (BaseOfImage & 3) != 0 )
+    v6 = (PVOID)(BaseOfImage & 0xFFFFFFFFFFFFFFFCuLL);
+  result = RtlImageNtHeaderEx(1u, v6, 0LL, &OutHeaders);
+  if ( OutHeaders )
   {
-    v8 = 0;
-    v9 = a1 & 0xFFFFFFFFFFFFFFFCuLL;
-    if ( (a1 & 1) == 0 )
-      v8 = a2;
-  }
-  result = RtlImageNtHeaderEx(1, v9, 0LL, &v14);
-  if ( v14 )
-  {
-    v11 = *(_WORD *)(v14 + 24);
-    v12 = 267;
-    if ( v11 == 267 )
+    Magic = OutHeaders->OptionalHeader.Magic;
+    if ( Magic == 267 )
     {
-      LOBYTE(v12) = v8;
-      return RtlpImageDirectoryEntryToData32(v9, v12, a3, a4, v14, v5);
+      return RtlpImageDirectoryEntryToData32(v6, OutHeaders, v5);
+    }
+    else if ( Magic == 523 )
+    {
+      return RtlpImageDirectoryEntryToData64(v6, OutHeaders, v5);
     }
     else
     {
-      v13 = 523;
-      if ( v11 == 523 )
-      {
-        LOBYTE(v13) = v8;
-        return RtlpImageDirectoryEntryToData64(v9, v13, a3, a4, v14, v5);
-      }
-      else
-      {
-        return 3221225485LL;
-      }
+      return -1073741811;
     }
   }
   return result;

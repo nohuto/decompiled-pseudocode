@@ -1,12 +1,12 @@
 /*
- * XREFs of XmMoveRegImmediate @ 0x140468BA0
+ * XREFs of XmMoveRegImmediate @ 0x140461550
  * Callers:
  *     <none>
  * Callees:
- *     XmGetWordImmediate @ 0x140468D7C (XmGetWordImmediate.c)
- *     XmGetCodeByte @ 0x140469218 (XmGetCodeByte.c)
- *     XmGetRegisterAddress @ 0x140469318 (XmGetRegisterAddress.c)
- *     XmGetLongImmediate @ 0x14056C8F0 (XmGetLongImmediate.c)
+ *     XmGetWordImmediate @ 0x14046172C (XmGetWordImmediate.c)
+ *     XmGetCodeByte @ 0x140461BC8 (XmGetCodeByte.c)
+ *     XmGetRegisterAddress @ 0x140461CC8 (XmGetRegisterAddress.c)
+ *     XmGetLongImmediate @ 0x140569D80 (XmGetLongImmediate.c)
  */
 
 __int64 __fastcall XmMoveRegImmediate(__int64 a1)

@@ -1,13 +1,13 @@
 /*
- * XREFs of PopUmpoSendLegacyEvent @ 0x140A8CC14
+ * XREFs of PopUmpoSendLegacyEvent @ 0x140A89144
  * Callers:
- *     PopDirectedDripsSendSuspendResumeNotification @ 0x14074CA54 (PopDirectedDripsSendSuspendResumeNotification.c)
- *     PopSendSuspendResumeServiceNotification @ 0x140753C5C (PopSendSuspendResumeServiceNotification.c)
- *     NtPowerInformation @ 0x1409F0230 (NtPowerInformation.c)
+ *     PopDirectedDripsSendSuspendResumeNotification @ 0x14074AD84 (PopDirectedDripsSendSuspendResumeNotification.c)
+ *     PopSendSuspendResumeServiceNotification @ 0x140751F7C (PopSendSuspendResumeServiceNotification.c)
+ *     NtPowerInformation @ 0x1409EDB00 (NtPowerInformation.c)
  * Callees:
- *     PopUmpoSendPowerMessage @ 0x140331990 (PopUmpoSendPowerMessage.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     PfIoPowerEventNotify @ 0x140745AE4 (PfIoPowerEventNotify.c)
+ *     PopUmpoSendPowerMessage @ 0x1402BB090 (PopUmpoSendPowerMessage.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     PfIoPowerEventNotify @ 0x140743DD4 (PfIoPowerEventNotify.c)
  */
 
 __int64 __fastcall PopUmpoSendLegacyEvent(__int128 *a1)
@@ -26,5 +26,5 @@ __int64 __fastcall PopUmpoSendLegacyEvent(__int128 *a1)
   v7 = v4;
   if ( !v3 )
     PfIoPowerEventNotify(*((_DWORD *)a1 + 1), v2, 0);
-  return PopUmpoSendPowerMessage(Src, 0x48uLL, *((_BYTE *)a1 + 13), 0LL);
+  return PopUmpoSendPowerMessage(Src, 0x48uLL, *((_BYTE *)a1 + 13));
 }

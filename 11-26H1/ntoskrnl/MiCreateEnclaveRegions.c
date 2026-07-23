@@ -1,11 +1,11 @@
 /*
- * XREFs of MiCreateEnclaveRegions @ 0x140CFCF74
+ * XREFs of MiCreateEnclaveRegions @ 0x140D032F4
  * Callers:
- *     MiInitSystem @ 0x140CF15C4 (MiInitSystem.c)
+ *     MiInitSystem @ 0x140CF7944 (MiInitSystem.c)
  * Callees:
- *     RtlAvlInsertNodeEx @ 0x14030CA60 (RtlAvlInsertNodeEx.c)
- *     ExAllocatePoolMm @ 0x1403985B0 (ExAllocatePoolMm.c)
- *     MiUpdateLargePageBitMap @ 0x1403C5418 (MiUpdateLargePageBitMap.c)
+ *     RtlAvlInsertNodeEx @ 0x1402EEAE0 (RtlAvlInsertNodeEx.c)
+ *     ExAllocatePoolMm @ 0x14039A310 (ExAllocatePoolMm.c)
+ *     MiUpdateLargePageBitMap @ 0x1403CF324 (MiUpdateLargePageBitMap.c)
  */
 
 __int64 __fastcall MiCreateEnclaveRegions(__int64 a1)
@@ -27,10 +27,10 @@ __int64 __fastcall MiCreateEnclaveRegions(__int64 a1)
   _QWORD *v15; // rax
 
   v1 = 0LL;
-  stru_140E36558.KernelStack = &stru_140E36558.CurrentRunTime;
-  *(_QWORD *)&stru_140E36558.CurrentRunTime = &stru_140E36558.CurrentRunTime;
-  stru_140E36558.StateSaveArea = 0LL;
-  stru_140E36558.SchedulingGroup = 0LL;
+  stru_140E366D8.KernelStack = &stru_140E366D8.CurrentRunTime;
+  *(_QWORD *)&stru_140E366D8.CurrentRunTime = &stru_140E366D8.CurrentRunTime;
+  stru_140E366D8.StateSaveArea = 0LL;
+  stru_140E366D8.SchedulingGroup = 0LL;
   v2 = *(_QWORD *)(a1 + 360);
   if ( (v2 & 1) != 0 )
   {
@@ -70,8 +70,8 @@ __int64 __fastcall MiCreateEnclaveRegions(__int64 a1)
     *(_QWORD *)(PoolMm + 24) = v5;
     v9 = 0;
     *(_QWORD *)(PoolMm + 32) = v6;
-    InitialStack = stru_140E36558.InitialStack;
-    if ( !stru_140E36558.InitialStack )
+    InitialStack = stru_140E366D8.InitialStack;
+    if ( !stru_140E366D8.InitialStack )
       goto LABEL_17;
     while ( v5 < InitialStack[3] )
     {
@@ -86,7 +86,7 @@ LABEL_24:
       goto LABEL_24;
     v9 = 1;
 LABEL_17:
-    RtlAvlInsertNodeEx((unsigned __int64 *)&stru_140E36558.InitialStack, (unsigned __int64)InitialStack, v9, v1);
+    RtlAvlInsertNodeEx((unsigned __int64 *)&stru_140E366D8.InitialStack, (unsigned __int64)InitialStack, v9, v1);
 LABEL_18:
     MiUpdateLargePageBitMap((__int64)&MiSystemPartition, v5, v6, 0);
 LABEL_19:
@@ -109,7 +109,7 @@ LABEL_19:
       }
     }
   }
-  if ( !stru_140E36558.InitialStack )
+  if ( !stru_140E366D8.InitialStack )
     return 1LL;
   v15 = (_QWORD *)ExAllocatePoolMm(
                     64LL,
@@ -121,9 +121,9 @@ LABEL_19:
     *(_DWORD *)v15 = 512;
     v15[1] = v15 + 2;
     *((_BYTE *)v15 + 16) |= 1u;
-    stru_140E36558.StackBase = v15;
-    stru_140E36558.ThreadLock = 0LL;
-    LODWORD(stru_140E36558.CycleTime) = 0;
+    stru_140E366D8.StackBase = v15;
+    stru_140E366D8.ThreadLock = 0LL;
+    LODWORD(stru_140E366D8.CycleTime) = 0;
     return 1LL;
   }
   return 0LL;

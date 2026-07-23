@@ -1,15 +1,15 @@
 /*
- * XREFs of FsRtlAddBaseMcbEntryEx @ 0x1403B5030
+ * XREFs of FsRtlAddBaseMcbEntryEx @ 0x1403BEF30
  * Callers:
- *     FsRtlAddBaseMcbEntry @ 0x1403B5010 (FsRtlAddBaseMcbEntry.c)
+ *     FsRtlAddBaseMcbEntry @ 0x1403BEF10 (FsRtlAddBaseMcbEntry.c)
  * Callees:
- *     RtlRaiseStatus @ 0x1402E84A0 (RtlRaiseStatus.c)
- *     FsRtlAddEntry @ 0x1403B58C0 (FsRtlAddEntry.c)
- *     FsRtlRemoveLargeEntry @ 0x1403B5A04 (FsRtlRemoveLargeEntry.c)
- *     ExFreeToNPagedLookasideList @ 0x1403B5A60 (ExFreeToNPagedLookasideList.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     ExAllocatePoolWithTag @ 0x140C10340 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     RtlRaiseStatus @ 0x1402CA4E0 (RtlRaiseStatus.c)
+ *     FsRtlAddEntry @ 0x1403BF7C0 (FsRtlAddEntry.c)
+ *     FsRtlRemoveLargeEntry @ 0x1403BF904 (FsRtlRemoveLargeEntry.c)
+ *     ExFreeToNPagedLookasideList @ 0x1403BF960 (ExFreeToNPagedLookasideList.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     ExAllocatePoolWithTag @ 0x140C16340 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 NTSTATUS __stdcall FsRtlAddBaseMcbEntryEx(PBASE_MCB Mcb, LONGLONG Vbn, LONGLONG Lbn, LONGLONG SectorCount)
@@ -443,7 +443,7 @@ LABEL_81:
           {
             v84 = Mcb->Mapping;
             if ( Mcb->PoolType == 1 )
-              ExFreeToNPagedLookasideList(&FsRtlFirstPagedMappingLookasideList, v84);
+              ExFreeToNPagedLookasideList((PPAGED_LOOKASIDE_LIST)&FsRtlFirstPagedMappingLookasideList, v84);
             else
               ExFreeToNPagedLookasideList(&FsRtlFirstNonPagedMappingLookasideList, v84);
             Mcb->Mapping = v46;
@@ -511,7 +511,7 @@ LABEL_28:
         {
           v74 = Mcb->Mapping;
           if ( Mcb->PoolType == 1 )
-            ExFreeToNPagedLookasideList(&FsRtlFirstPagedMappingLookasideList, v74);
+            ExFreeToNPagedLookasideList((PPAGED_LOOKASIDE_LIST)&FsRtlFirstPagedMappingLookasideList, v74);
           else
             ExFreeToNPagedLookasideList(&FsRtlFirstNonPagedMappingLookasideList, v74);
           Mcb->Mapping = v53;

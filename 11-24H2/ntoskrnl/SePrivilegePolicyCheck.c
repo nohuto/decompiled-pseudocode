@@ -1,10 +1,11 @@
 /*
- * XREFs of SePrivilegePolicyCheck @ 0x14035F1D0
+ * XREFs of SePrivilegePolicyCheck @ 0x140415500
  * Callers:
- *     SepAccessCheckAndAuditAlarm @ 0x14091DB90 (SepAccessCheckAndAuditAlarm.c)
+ *     SeAccessCheckByType @ 0x14042DC70 (SeAccessCheckByType.c)
+ *     SepAccessCheckAndAuditAlarm @ 0x140A07A00 (SepAccessCheckAndAuditAlarm.c)
  * Callees:
- *     SepSinglePrivilegeCheck @ 0x14035F3EC (SepSinglePrivilegeCheck.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     SepSinglePrivilegeCheck @ 0x14041571C (SepSinglePrivilegeCheck.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall SePrivilegePolicyCheck(
@@ -81,7 +82,7 @@ __int64 __fastcall SePrivilegePolicyCheck(
 LABEL_4:
   if ( !v12 )
     return 0LL;
-  Pool2 = (int *)ExAllocatePool2(0x100uLL);
+  Pool2 = (int *)ExAllocatePool2(0x100uLL, (unsigned int)(12 * (v12 - 1) + 20), 0x72506553u);
   *(_QWORD *)a5 = Pool2;
   if ( Pool2 )
   {

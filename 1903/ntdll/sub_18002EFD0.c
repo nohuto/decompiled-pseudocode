@@ -8,14 +8,14 @@
  *     ZwClose @ 0x18009C8C0 (ZwClose.c)
  */
 
-__int64 __fastcall sub_18002EFD0(_QWORD *a1)
+LOGICAL __fastcall sub_18002EFD0(__int64 a1)
 {
-  __int64 v2; // rcx
+  void *v2; // rcx
 
-  v2 = a1[10];
+  v2 = *(void **)(a1 + 80);
   if ( v2 )
     ZwSetEvent(v2, 0LL);
-  if ( *a1 )
-    ZwClose(*a1);
-  return RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0LL, a1);
+  if ( *(_QWORD *)a1 )
+    ZwClose(*(HANDLE *)a1);
+  return RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, (PVOID)a1);
 }

@@ -1,5 +1,5 @@
 /*
- * XREFs of RtlpUpdateTagEntry @ 0x1800F4D30
+ * XREFs of RtlpUpdateTagEntry @ 0x1800F4CF0
  * Callers:
  *     RtlpGrowBlockInPlace @ 0x18001F630 (RtlpGrowBlockInPlace.c)
  *     RtlpReAllocateHeap @ 0x1800219E4 (RtlpReAllocateHeap.c)

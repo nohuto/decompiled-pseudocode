@@ -1,9 +1,9 @@
 /*
- * XREFs of VfMiscObfReferenceObjectWithTag_Entry @ 0x140B9E5F0
+ * XREFs of VfMiscObfReferenceObjectWithTag_Entry @ 0x140BA05F0
  * Callers:
  *     <none>
  * Callees:
- *     VfMiscCheckKernelAddress @ 0x1404B2134 (VfMiscCheckKernelAddress.c)
+ *     VfMiscCheckKernelAddress @ 0x1404AC9C4 (VfMiscCheckKernelAddress.c)
  */
 
 unsigned __int64 __fastcall VfMiscObfReferenceObjectWithTag_Entry(__int64 a1)

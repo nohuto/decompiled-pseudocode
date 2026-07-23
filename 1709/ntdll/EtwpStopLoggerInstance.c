@@ -24,7 +24,7 @@ __int64 __fastcall EtwpStopLoggerInstance(__int64 a1)
     *(_QWORD *)(a1 + 544) = 0LL;
   }
   _InterlockedExchange64((volatile __int64 *)(EtwpLoggerArray + 16LL * *(unsigned int *)(a1 + 20)), 3LL);
-  RtlWakeAllConditionVariable(a1 + 80);
+  RtlWakeAllConditionVariable((PRTL_CONDITION_VARIABLE)(a1 + 80));
   EtwpSendSessionNotification(a1, 2LL, *(unsigned int *)(a1 + 40));
   return 0LL;
 }

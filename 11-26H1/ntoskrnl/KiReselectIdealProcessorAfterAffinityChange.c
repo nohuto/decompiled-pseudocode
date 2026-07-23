@@ -1,8 +1,8 @@
 /*
- * XREFs of KiReselectIdealProcessorAfterAffinityChange @ 0x140229950
+ * XREFs of KiReselectIdealProcessorAfterAffinityChange @ 0x14022B2E0
  * Callers:
- *     KiComputeThreadAffinity @ 0x140229B90 (KiComputeThreadAffinity.c)
- *     KiSetUserAffinityThread @ 0x14022A784 (KiSetUserAffinityThread.c)
+ *     KiComputeThreadAffinity @ 0x14022B520 (KiComputeThreadAffinity.c)
+ *     KiSetUserAffinityThread @ 0x14022C114 (KiSetUserAffinityThread.c)
  * Callees:
  *     <none>
  */
@@ -99,8 +99,7 @@ __int64 __fastcall KiReselectIdealProcessorAfterAffinityChange(__int64 a1, __int
     }
     else
     {
-      v24 = *((_DWORD *)&KiSupervisorXStateFeaturesLock.WaitBlock[2].Thread->Header.Lock
-            + 64 * v23
+      v24 = *((_DWORD *)&KiSupervisorXStateFeaturesLock.SchedulerApc.ApcListEntry.Flink[16 * v23].Flink
             + (unsigned __int8)v22);
       if ( !v24 )
         LOWORD(v24) = -1;

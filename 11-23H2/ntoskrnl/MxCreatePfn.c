@@ -3,8 +3,8 @@
  * Callers:
  *     MxCreatePfnsForPtes @ 0x140B586A0 (MxCreatePfnsForPtes.c)
  * Callees:
- *     MiSwizzleInvalidPte @ 0x1402857A0 (MiSwizzleInvalidPte.c)
- *     MiSetPfnPteFrame @ 0x1402E15A0 (MiSetPfnPteFrame.c)
+ *     MiSwizzleInvalidPte @ 0x140285A30 (MiSwizzleInvalidPte.c)
+ *     MiSetPfnPteFrame @ 0x1402E1830 (MiSetPfnPteFrame.c)
  */
 
 __int64 __fastcall MxCreatePfn(__int64 a1, __int64 a2, char a3, __int64 a4, int a5, int a6)

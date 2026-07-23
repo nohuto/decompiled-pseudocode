@@ -1,5 +1,5 @@
 /*
- * XREFs of MmAllocateNonCachedMemory @ 0x14084DC40
+ * XREFs of MmAllocateNonCachedMemory @ 0x14084EEA0
  * Callers:
  *     <none>
  * Callees:
@@ -7,10 +7,10 @@
  *     MiPteInShadowRange @ 0x14003D740 (MiPteInShadowRange.c)
  *     MiMakeValidPte @ 0x14003D7F0 (MiMakeValidPte.c)
  *     MiReservePtes @ 0x14005C890 (MiReservePtes.c)
- *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
- *     MmFreePagesFromMdl @ 0x1401373D0 (MmFreePagesFromMdl.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
+ *     MiWritePteShadow @ 0x140120F40 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120FA0 (MiPteHasShadow.c)
+ *     MmFreePagesFromMdl @ 0x1401374D0 (MmFreePagesFromMdl.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
  */
 
 PVOID __stdcall MmAllocateNonCachedMemory(SIZE_T NumberOfBytes)
@@ -39,7 +39,7 @@ PVOID __stdcall MmAllocateNonCachedMemory(SIZE_T NumberOfBytes)
                                  4u);
   if ( !PagesForMdl )
     return 0LL;
-  v3 = MiReservePtes((__int64)&qword_14043AFA0, (unsigned __int64 *)(unsigned int)v1);
+  v3 = MiReservePtes((__int64)&qword_14043C060, (unsigned __int64 *)(unsigned int)v1);
   if ( !v3 )
   {
     MmFreePagesFromMdl(PagesForMdl);
@@ -56,7 +56,7 @@ PVOID __stdcall MmAllocateNonCachedMemory(SIZE_T NumberOfBytes)
     if ( (unsigned int)MiPteHasShadow() )
     {
       v7 = 1;
-      if ( HIBYTE(word_14043A1AC) )
+      if ( HIBYTE(word_14043B26C) )
         goto LABEL_15;
       v9 = (v8 & 1) == 0;
     }

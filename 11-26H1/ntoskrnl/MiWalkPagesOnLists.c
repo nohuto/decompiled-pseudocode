@@ -1,18 +1,18 @@
 /*
- * XREFs of MiWalkPagesOnLists @ 0x140C05688
+ * XREFs of MiWalkPagesOnLists @ 0x140C0B898
  * Callers:
- *     MiMirrorBrownPhasePartition @ 0x14044B2EC (MiMirrorBrownPhasePartition.c)
- *     MiCreatePfnBitMaps @ 0x140879CE0 (MiCreatePfnBitMaps.c)
+ *     MiMirrorBrownPhasePartition @ 0x14044341C (MiMirrorBrownPhasePartition.c)
+ *     MiCreatePfnBitMaps @ 0x1408800DC (MiCreatePfnBitMaps.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     MiUpdateLargePageCandidateValue @ 0x1402DD890 (MiUpdateLargePageCandidateValue.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402DED10 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     MiIsDecayPfn @ 0x1402F9850 (MiIsDecayPfn.c)
- *     MiIsPfnFileOnly @ 0x1404611D0 (MiIsPfnFileOnly.c)
- *     MiMirrorAddPagesToBrownList @ 0x14048C10C (MiMirrorAddPagesToBrownList.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     MiMirrorNodeFreeZeroPages @ 0x140BE94D4 (MiMirrorNodeFreeZeroPages.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     MiUpdateLargePageCandidateValue @ 0x1402BF650 (MiUpdateLargePageCandidateValue.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402C0B20 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     MiIsDecayPfn @ 0x1402DB8D0 (MiIsDecayPfn.c)
+ *     MiIsPfnFileOnly @ 0x1404595D0 (MiIsPfnFileOnly.c)
+ *     MiMirrorAddPagesToBrownList @ 0x140485C4C (MiMirrorAddPagesToBrownList.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     MiMirrorNodeFreeZeroPages @ 0x140BEF4D4 (MiMirrorNodeFreeZeroPages.c)
  */
 
 __int64 __fastcall MiWalkPagesOnLists(__int64 a1, __int64 a2, int a3, __int64 a4, int a5)
@@ -90,8 +90,8 @@ LABEL_37:
               if ( v5 == 2 && MiIsDecayPfn(v23) )
               {
                 v26 = v24[2];
-                if ( qword_140E2D740 && (v26 & 0x10) == 0 )
-                  v26 &= qword_140E2D748;
+                if ( qword_140E2D8C0 && (v26 & 0x10) == 0 )
+                  v26 &= qword_140E2D8C8;
                 v28 = (v26 >> 12) & 0xFFFFFFFFFFLL;
                 if ( v28 != v23 )
                 {

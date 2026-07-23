@@ -1,10 +1,10 @@
 /*
- * XREFs of MiSetActivePfnHeat @ 0x140403070
+ * XREFs of MiSetActivePfnHeat @ 0x1403FD670
  * Callers:
- *     MiUpdatePfnForPrefetchByPte @ 0x140215E80 (MiUpdatePfnForPrefetchByPte.c)
- *     MiWalkEntireImage @ 0x1402E85C0 (MiWalkEntireImage.c)
- *     MmSetPfnListInfo @ 0x140308064 (MmSetPfnListInfo.c)
- *     MiMakeTransitionHeatBatch @ 0x140402D04 (MiMakeTransitionHeatBatch.c)
+ *     MmSetPfnListInfo @ 0x140311F44 (MmSetPfnListInfo.c)
+ *     MiUpdatePfnForPrefetchByPte @ 0x140334220 (MiUpdatePfnForPrefetchByPte.c)
+ *     MiWalkEntireImage @ 0x140349C00 (MiWalkEntireImage.c)
+ *     MiMakeTransitionHeatBatch @ 0x1403FD304 (MiMakeTransitionHeatBatch.c)
  * Callees:
  *     <none>
  */
@@ -22,7 +22,7 @@ unsigned __int64 __fastcall MiSetActivePfnHeat(__int64 a1, int a2)
   __int64 v11; // rdx
 
   if ( a2 && (*(_BYTE *)(a1 + 34) & 7) != 6 )
-    _InterlockedIncrement(&dword_140E35C54);
+    _InterlockedIncrement(&dword_140E35D94);
   v3 = a1 + 16;
   v4 = *(_QWORD *)(a1 + 16);
   if ( v3 >= 0xFFFFF6FB7DBED000uLL && v3 <= 0xFFFFF6FB7DBED7F8uLL )

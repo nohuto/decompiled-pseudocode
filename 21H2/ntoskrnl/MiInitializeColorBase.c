@@ -1,13 +1,13 @@
 /*
- * XREFs of MiInitializeColorBase @ 0x1402FD478
+ * XREFs of MiInitializeColorBase @ 0x1403081C8
  * Callers:
- *     MiMakeZeroedPageTablesEx @ 0x1402FCDFC (MiMakeZeroedPageTablesEx.c)
- *     MiDemoteValidLargePageOneLevel @ 0x1403BA228 (MiDemoteValidLargePageOneLevel.c)
- *     MmCreateShadowMapping @ 0x1407A00AC (MmCreateShadowMapping.c)
+ *     MiMakeZeroedPageTablesEx @ 0x140307B4C (MiMakeZeroedPageTablesEx.c)
+ *     MiDemoteValidLargePageOneLevel @ 0x1403BA398 (MiDemoteValidLargePageOneLevel.c)
+ *     MmCreateShadowMapping @ 0x1407A02AC (MmCreateShadowMapping.c)
  * Callees:
- *     MiInitializePageColorBase @ 0x14023F280 (MiInitializePageColorBase.c)
- *     MiGetSessionVm @ 0x14031219C (MiGetSessionVm.c)
- *     MiGetSystemRegionType @ 0x14034A950 (MiGetSystemRegionType.c)
+ *     MiInitializePageColorBase @ 0x1402E3AD0 (MiInitializePageColorBase.c)
+ *     MiGetSessionVm @ 0x14031CEEC (MiGetSessionVm.c)
+ *     MiGetSystemRegionType @ 0x1403556A0 (MiGetSystemRegionType.c)
  */
 
 unsigned int *__fastcall MiInitializeColorBase(unsigned __int64 a1, int a2, __int64 a3)
@@ -22,7 +22,7 @@ unsigned int *__fastcall MiInitializeColorBase(unsigned __int64 a1, int a2, __in
     SessionVm = (unsigned __int64 *)MiGetSessionVm(v7, v6, v8);
   }
   else if ( a1 > 0x7FFFFFFEFFFFLL
-         && (a1 < qword_140C4FB38 || a1 > qword_140C4E368)
+         && (a1 < qword_140C4FB78 || a1 > qword_140C4E3A8)
          && (a1 < 0xFFFFF68000000000uLL || a1 > 0xFFFFF6FFFFFFFFFFuLL) )
   {
     SessionVm = 0LL;

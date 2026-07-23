@@ -1,12 +1,12 @@
 /*
- * XREFs of ObpRemoveObjectRoutine @ 0x1406F0440
+ * XREFs of ObpRemoveObjectRoutine @ 0x140707820
  * Callers:
- *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
- *     ObpProcessRemoveObjectQueue @ 0x140684B90 (ObpProcessRemoveObjectQueue.c)
+ *     ObfDereferenceObjectWithTag @ 0x140355E90 (ObfDereferenceObjectWithTag.c)
+ *     ObpProcessRemoveObjectQueue @ 0x1405E2E40 (ObpProcessRemoveObjectQueue.c)
  * Callees:
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     ObpFreeObject @ 0x1406F0520 (ObpFreeObject.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     ObpFreeObject @ 0x140707900 (ObpFreeObject.c)
  */
 
 __int64 __fastcall ObpRemoveObjectRoutine(__int64 a1, char a2)

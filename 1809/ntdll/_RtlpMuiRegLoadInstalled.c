@@ -6,13 +6,13 @@
  *     RtlInitUnicodeString @ 0x180040650 (RtlInitUnicodeString.c)
  *     RtlpMuiRegFreeRegistryInfo @ 0x18004BA00 (RtlpMuiRegFreeRegistryInfo.c)
  *     LdrpQueryValueKey @ 0x18004C2EC (LdrpQueryValueKey.c)
- *     RtlpLoadInstallLanguageFallback @ 0x18008F224 (RtlpLoadInstallLanguageFallback.c)
- *     __security_check_cookie @ 0x18008FEC0 (__security_check_cookie.c)
- *     NtClose @ 0x1800A04C0 (NtClose.c)
- *     NtOpenKey @ 0x1800A0520 (NtOpenKey.c)
- *     NtEnumerateKey @ 0x1800A0920 (NtEnumerateKey.c)
- *     NtIsUILanguageComitted @ 0x1800A2270 (NtIsUILanguageComitted.c)
- *     NtQueryInstallUILanguage @ 0x1800A2BF0 (NtQueryInstallUILanguage.c)
+ *     RtlpLoadInstallLanguageFallback @ 0x18008F234 (RtlpLoadInstallLanguageFallback.c)
+ *     __security_check_cookie @ 0x18008FED0 (__security_check_cookie.c)
+ *     NtClose @ 0x1800A04E0 (NtClose.c)
+ *     NtOpenKey @ 0x1800A0540 (NtOpenKey.c)
+ *     NtEnumerateKey @ 0x1800A0940 (NtEnumerateKey.c)
+ *     NtIsUILanguageComitted @ 0x1800A2290 (NtIsUILanguageComitted.c)
+ *     NtQueryInstallUILanguage @ 0x1800A2C10 (NtQueryInstallUILanguage.c)
  *     RtlpMuiRegAddLanguageByName @ 0x1800FFCE4 (RtlpMuiRegAddLanguageByName.c)
  *     RtlpMuiRegCreateLanguages @ 0x1801001F0 (RtlpMuiRegCreateLanguages.c)
  *     RtlpMuiRegCreateStringPool @ 0x180100288 (RtlpMuiRegCreateStringPool.c)
@@ -23,20 +23,20 @@
 __int64 __fastcall RtlpMuiRegLoadInstalled(__int64 a1)
 {
   unsigned __int64 v1; // rbp
-  int InstallUILanguage; // edi
+  NTSTATUS InstallUILanguage; // edi
   __int64 result; // rax
   unsigned int v5; // ecx
-  __int64 Languages; // rax
-  __int64 StringPool; // rax
-  int v8; // esi
+  _QWORD *Languages; // rax
+  _QWORD *StringPool; // rax
+  ULONG v8; // esi
   unsigned __int64 v9; // rcx
-  __int64 v10; // rcx
+  void *v10; // rcx
   __int16 v11; // cx
   unsigned int v12; // ecx
   char v13; // r8
   void *v14; // rcx
   void *v15; // rcx
-  int v16; // [rsp+20h] [rbp-30h]
+  int Length; // [rsp+20h] [rbp-30h]
   int v17; // [rsp+50h] [rbp+0h] BYREF
 
   v1 = (unsigned __int64)&v17 & 0xFFFFFFFFFFFFFFE0uLL;
@@ -48,9 +48,9 @@ __int64 __fastcall RtlpMuiRegLoadInstalled(__int64 a1)
   *(_WORD *)(v1 + 4) = -1;
   if ( !a1 )
     return 3221225485LL;
-  if ( (int)NtIsUILanguageComitted() >= 0 )
+  if ( NtIsUILanguageComitted() >= 0 )
   {
-    InstallUILanguage = NtQueryInstallUILanguage();
+    InstallUILanguage = NtQueryInstallUILanguage((LANGID *)(a1 + 4));
     if ( InstallUILanguage < 0 || ((*(_WORD *)(a1 + 4) - 4096) & 0xFBFF) == 0 )
       goto LABEL_33;
     RtlpLoadInstallLanguageFallback(a1, (_WORD *)(a1 + 6), (_WORD *)(a1 + 8));
@@ -81,12 +81,18 @@ LABEL_33:
   *(_QWORD *)(((unsigned __int64)&v17 & 0xFFFFFFFFFFFFFFE0uLL) + 0x40) = 0LL;
   *(_DWORD *)(((unsigned __int64)&v17 & 0xFFFFFFFFFFFFFFE0uLL) + 0x50) = 64;
   *(_OWORD *)(((unsigned __int64)&v17 & 0xFFFFFFFFFFFFFFE0uLL) + 0x58) = 0LL;
-  if ( (int)NtOpenKey() >= 0 )
+  if ( NtOpenKey((PHANDLE)(v1 + 16), 0x20019u, (POBJECT_ATTRIBUTES)(v1 + 56)) >= 0 )
   {
     v8 = 0;
     do
     {
-      InstallUILanguage = NtEnumerateKey();
+      InstallUILanguage = NtEnumerateKey(
+                            *(HANDLE *)(((unsigned __int64)&v17 & 0xFFFFFFFFFFFFFFE0uLL) + 0x10),
+                            v8,
+                            KeyBasicInformation,
+                            (PVOID)(v1 + 128),
+                            0x200u,
+                            (PULONG)(v1 + 24));
       if ( InstallUILanguage < 0 )
       {
         if ( InstallUILanguage != -2147483622 )
@@ -107,18 +113,18 @@ LABEL_33:
           *(_DWORD *)(((unsigned __int64)&v17 & 0xFFFFFFFFFFFFFFE0uLL) + 0x38) = 48;
           *(_DWORD *)(((unsigned __int64)&v17 & 0xFFFFFFFFFFFFFFE0uLL) + 0x50) = 64;
           *(_OWORD *)(((unsigned __int64)&v17 & 0xFFFFFFFFFFFFFFE0uLL) + 0x58) = 0LL;
-          if ( (int)NtOpenKey() >= 0 )
+          if ( NtOpenKey((PHANDLE)(v1 + 8), 0x20019u, (POBJECT_ATTRIBUTES)(v1 + 56)) >= 0 )
           {
             RtlInitUnicodeString((PUNICODE_STRING)(v1 + 40), L"Type");
-            v10 = *(_QWORD *)(((unsigned __int64)&v17 & 0xFFFFFFFFFFFFFFE0uLL) + 8);
+            v10 = *(void **)(((unsigned __int64)&v17 & 0xFFFFFFFFFFFFFFE0uLL) + 8);
             *(_DWORD *)(((unsigned __int64)&v17 & 0xFFFFFFFFFFFFFFE0uLL) + 0x20) = 4;
             *(_DWORD *)(((unsigned __int64)&v17 & 0xFFFFFFFFFFFFFFE0uLL) + 0x1C) = 4;
             if ( (int)LdrpQueryValueKey(
                         v10,
-                        v1 + 40,
+                        (PUNICODE_STRING)(v1 + 40),
                         (_DWORD *)(v1 + 32),
                         (void *)((unsigned __int64)&v17 & 0xFFFFFFFFFFFFFFE0uLL),
-                        (unsigned int *)(v1 + 28)) >= 0
+                        (ULONG *)(v1 + 28)) >= 0
               && (int)ValidateRegistrLangType(*(_DWORD *)v1) >= 0 )
             {
               v12 = v11 & 0x419F;
@@ -134,10 +140,10 @@ LABEL_33:
                 if ( (v13 & 0x18) != 0 && (v13 & 0x18 & -(v13 & 0x18)) == (v13 & 0x18) && (v13 & 0xC) != 8 )
                   RtlpMuiRegAddLanguageByName(
                     (_QWORD *)a1,
-                    *(_QWORD *)(((unsigned __int64)&v17 & 0xFFFFFFFFFFFFFFE0uLL) + 8),
+                    *(void **)(((unsigned __int64)&v17 & 0xFFFFFFFFFFFFFFE0uLL) + 8),
                     (wchar_t *)(v1 + 144),
                     v12,
-                    v16,
+                    Length,
                     v1 + 4);
               }
             }

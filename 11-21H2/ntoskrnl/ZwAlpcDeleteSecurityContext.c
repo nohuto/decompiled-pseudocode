@@ -6,9 +6,10 @@
  *     <none>
  */
 
-__int64 __fastcall ZwAlpcDeleteSecurityContext(__int64 a1, __int64 a2)
+// local variable allocation has failed, the output may be wrong!
+NTSTATUS __cdecl ZwAlpcDeleteSecurityContext(HANDLE PortHandle, ULONG Flags, ALPC_HANDLE ContextHandle)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return sub_140433F80(PortHandle, *(_QWORD *)&Flags);
 }

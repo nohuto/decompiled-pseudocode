@@ -1,9 +1,9 @@
 /*
- * XREFs of MiBuildMappedClusterInitialize @ 0x14040DE80
+ * XREFs of MiBuildMappedClusterInitialize @ 0x14042ADAC
  * Callers:
- *     MiBuildMappedCluster @ 0x14040D8F0 (MiBuildMappedCluster.c)
+ *     MiBuildMappedCluster @ 0x14042A81C (MiBuildMappedCluster.c)
  * Callees:
- *     MiGetSubsectionFromPte @ 0x1402836C0 (MiGetSubsectionFromPte.c)
+ *     MiGetSubsectionFromPte @ 0x140282C30 (MiGetSubsectionFromPte.c)
  */
 
 __int64 __fastcall MiBuildMappedClusterInitialize(_QWORD *a1, _QWORD *a2, __int64 a3, int a4)
@@ -21,7 +21,7 @@ __int64 __fastcall MiBuildMappedClusterInitialize(_QWORD *a1, _QWORD *a2, __int6
   a1[5] = (v7 >> 63) + v7;
   v8 = a2[1] | 0x8000000000000000uLL;
   a1[6] = v8;
-  *a1 = *(_QWORD *)(stru_140E2EB88.ThreadLock + 8 * ((a2[5] >> 43) & 0x3FFLL));
+  *a1 = *(_QWORD *)(stru_140E2ED08.ThreadLock + 8 * ((a2[5] >> 43) & 0x3FFLL));
   a1[1] = a3;
   a1[7] = v8 & 0xFFFFFFFFFFFFF000uLL;
   SubsectionFromPte = MiGetSubsectionFromPte(a2[2]);

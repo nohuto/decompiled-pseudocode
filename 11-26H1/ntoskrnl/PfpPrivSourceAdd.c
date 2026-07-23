@@ -1,11 +1,11 @@
 /*
- * XREFs of PfpPrivSourceAdd @ 0x14096A114
+ * XREFs of PfpPrivSourceAdd @ 0x14091E774
  * Callers:
- *     PfpPrivSourceEnum @ 0x14096984C (PfpPrivSourceEnum.c)
+ *     PfpPrivSourceEnum @ 0x14091DEAC (PfpPrivSourceEnum.c)
  * Callees:
- *     RtlCopyToUser @ 0x14077F284 (RtlCopyToUser.c)
- *     RtlReadULongFromUser @ 0x14077F590 (RtlReadULongFromUser.c)
- *     RtlWriteULongToUser @ 0x14077F7A0 (RtlWriteULongToUser.c)
+ *     RtlCopyToUser @ 0x140781D84 (RtlCopyToUser.c)
+ *     RtlReadULongFromUser @ 0x140782090 (RtlReadULongFromUser.c)
+ *     RtlWriteULongToUser @ 0x1407822A0 (RtlWriteULongToUser.c)
  */
 
 __int64 __fastcall PfpPrivSourceAdd(unsigned int *a1, void *a2)

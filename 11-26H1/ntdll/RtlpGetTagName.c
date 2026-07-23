@@ -1,53 +1,61 @@
 /*
- * XREFs of RtlpGetTagName @ 0x1800FFAF0
+ * XREFs of RtlpGetTagName @ 0x1800FF240
  * Callers:
- *     RtlDebugAllocateHeap @ 0x180014940 (RtlDebugAllocateHeap.c)
- *     RtlDebugReAllocateHeap @ 0x180022780 (RtlDebugReAllocateHeap.c)
- *     RtlDebugFreeHeap @ 0x1800FF818 (RtlDebugFreeHeap.c)
+ *     RtlDebugReAllocateHeap @ 0x18000D850 (RtlDebugReAllocateHeap.c)
+ *     RtlDebugAllocateHeap @ 0x180060070 (RtlDebugAllocateHeap.c)
+ *     RtlDebugFreeHeap @ 0x1800FEF68 (RtlDebugFreeHeap.c)
  * Callees:
- *     RtlStringCbPrintfW @ 0x18011F008 (RtlStringCbPrintfW.c)
+ *     RtlStringCbPrintfW @ 0x18011EDB8 (RtlStringCbPrintfW.c)
  */
 
 void *__fastcall RtlpGetTagName(__int64 a1, unsigned __int16 a2)
 {
   unsigned __int16 v2; // dx
-  __int64 v4; // r8
+  __int64 v3; // r9
+  const wchar_t *v4; // r8
+  __int64 v6; // r8
 
   if ( !RtlpGlobalTagHeap || !a2 )
     return 0LL;
-  if ( (a2 & 0x8000u) == 0 )
+  if ( (a2 & 0x8000u) != 0 )
   {
-    if ( (a2 & 0x800) != 0 )
+    v2 = a2 & 0x7FFF;
+    if ( v2 < 0x81u && *(_QWORD *)(a1 + 328) )
     {
-      a2 &= ~0x800u;
-      if ( a2 < *(_WORD *)(RtlpGlobalTagHeap + 224) )
+      if ( v2 )
       {
-        v4 = *(_QWORD *)(RtlpGlobalTagHeap + 232);
-        goto LABEL_16;
+        if ( v2 >= 0x80u )
+        {
+          RtlStringCbPrintfW(&unk_1801C6238, 48LL, L"VirtualAlloc", 0LL);
+          return &unk_1801C6238;
+        }
+        v4 = L"Objects=%4u";
+        v3 = 16 * (unsigned int)v2;
       }
-    }
-    else if ( a2 < *(_WORD *)(a1 + 224) )
-    {
-      v4 = *(_QWORD *)(a1 + 232);
-LABEL_16:
-      if ( v4 )
-        return (void *)(v4 + 20 + 72LL * a2);
+      else
+      {
+        v3 = 2048LL;
+        v4 = L"Objects>%4u";
+      }
+      RtlStringCbPrintfW(&unk_1801C6238, 48LL, v4, v3);
+      return &unk_1801C6238;
     }
     return 0LL;
   }
-  v2 = a2 & 0x7FFF;
-  if ( v2 >= 0x81u || !*(_QWORD *)(a1 + 328) )
-    return 0LL;
-  if ( v2 )
+  if ( (a2 & 0x800) != 0 )
   {
-    if ( v2 >= 0x80u )
-      RtlStringCbPrintfW(&unk_1801C7238, 48LL, L"VirtualAlloc", 0LL);
-    else
-      RtlStringCbPrintfW(&unk_1801C7238, 48LL, L"Objects=%4u", 16 * (unsigned int)v2);
+    a2 &= ~0x800u;
+    if ( a2 >= *(_WORD *)(RtlpGlobalTagHeap + 224) )
+      return 0LL;
+    v6 = *(_QWORD *)(RtlpGlobalTagHeap + 232);
   }
   else
   {
-    RtlStringCbPrintfW(&unk_1801C7238, 48LL, L"Objects>%4u", 2048LL);
+    if ( a2 >= *(_WORD *)(a1 + 224) )
+      return 0LL;
+    v6 = *(_QWORD *)(a1 + 232);
   }
-  return &unk_1801C7238;
+  if ( v6 )
+    return (void *)(v6 + 20 + 72LL * a2);
+  return 0LL;
 }

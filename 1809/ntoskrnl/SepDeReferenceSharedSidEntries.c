@@ -1,15 +1,15 @@
 /*
- * XREFs of SepDeReferenceSharedSidEntries @ 0x1408A3DBC
+ * XREFs of SepDeReferenceSharedSidEntries @ 0x1408A501C
  * Callers:
  *     SepFreeTokenCapabilities @ 0x140023058 (SepFreeTokenCapabilities.c)
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     KeLeaveCriticalRegion @ 0x14004F410 (KeLeaveCriticalRegion.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     RtlRemoveEntryHashTable @ 0x1400D9C60 (RtlRemoveEntryHashTable.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     SepFindSharedSidEntry @ 0x1408A4274 (SepFindSharedSidEntry.c)
+ *     ExfTryToWakePushLock @ 0x140091500 (ExfTryToWakePushLock.c)
+ *     RtlRemoveEntryHashTable @ 0x1400D9CE0 (RtlRemoveEntryHashTable.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     SepFindSharedSidEntry @ 0x1408A54D4 (SepFindSharedSidEntry.c)
  */
 
 void __fastcall SepDeReferenceSharedSidEntries(PSID *a1, unsigned int a2)

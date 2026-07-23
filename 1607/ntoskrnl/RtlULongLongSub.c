@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlULongLongSub @ 0x1400C2ED4
+ * XREFs of RtlULongLongSub @ 0x1400C0D64
  * Callers:
- *     LdrpResSearchResourceInsideDirectory @ 0x1404A6230 (LdrpResSearchResourceInsideDirectory.c)
+ *     LdrpResSearchResourceInsideDirectory @ 0x14051E630 (LdrpResSearchResourceInsideDirectory.c)
  * Callees:
  *     <none>
  */

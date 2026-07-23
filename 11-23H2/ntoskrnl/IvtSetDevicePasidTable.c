@@ -1,12 +1,12 @@
 /*
- * XREFs of IvtSetDevicePasidTable @ 0x14052D580
+ * XREFs of IvtSetDevicePasidTable @ 0x14052DAD0
  * Callers:
  *     <none>
  * Callees:
- *     KxReleaseQueuedSpinLock @ 0x140260360 (KxReleaseQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x14029CBD0 (KeAcquireInStackQueuedSpinLockAtDpcLevel.c)
- *     IvtUpdateScalableModeContextEntry @ 0x14052DC64 (IvtUpdateScalableModeContextEntry.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseQueuedSpinLock @ 0x1402605F0 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x14029CE60 (KeAcquireInStackQueuedSpinLockAtDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     IvtUpdateScalableModeContextEntry @ 0x14052E1B4 (IvtUpdateScalableModeContextEntry.c)
  */
 
 __int64 __fastcall IvtSetDevicePasidTable(__int64 a1, int a2, __int64 a3)
@@ -34,7 +34,7 @@ __int64 __fastcall IvtSetDevicePasidTable(__int64 a1, int a2, __int64 a3)
     LODWORD(v5) = 0;
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(0xFuLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     if ( CurrentIrql == 15 )
@@ -48,10 +48,10 @@ __int64 __fastcall IvtSetDevicePasidTable(__int64 a1, int a2, __int64 a3)
   v16 = a2;
   IvtUpdateScalableModeContextEntry(v4, (unsigned int)&v16, v5, 0, 1);
   KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v9 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v9 <= 0xFu && CurrentIrql <= 0xFu && v9 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v9 <= 0xFu && CurrentIrql <= 0xFu && v9 >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       v11 = CurrentPrcb->SchedulerAssist;
@@ -59,7 +59,7 @@ __int64 __fastcall IvtSetDevicePasidTable(__int64 a1, int a2, __int64 a3)
       v13 = (v12 & v11[5]) == 0;
       v11[5] &= v12;
       if ( v13 )
-        KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+        KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
     }
   }
   result = CurrentIrql;

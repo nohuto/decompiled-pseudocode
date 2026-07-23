@@ -1,7 +1,7 @@
 /*
- * XREFs of HalpMcaReadErrorCorrectedAMD @ 0x1404BD3E8
+ * XREFs of HalpMcaReadErrorCorrectedAMD @ 0x1404BD628
  * Callers:
- *     HalpMcaReadErrorCorrected @ 0x1404BD370 (HalpMcaReadErrorCorrected.c)
+ *     HalpMcaReadErrorCorrected @ 0x1404BD5B0 (HalpMcaReadErrorCorrected.c)
  * Callees:
  *     <none>
  */

@@ -1,11 +1,11 @@
 /*
- * XREFs of __asan_wrap_wcsncpy @ 0x1405E2DD0
+ * XREFs of __asan_wrap_wcsncpy @ 0x1405E5740
  * Callers:
  *     <none>
  * Callees:
- *     wcsncpy @ 0x1405381E0 (wcsncpy.c)
- *     KasaniReport @ 0x1405DDA50 (KasaniReport.c)
- *     KcsanValidateAddress @ 0x1405E31F0 (KcsanValidateAddress.c)
+ *     wcsncpy @ 0x14053A660 (wcsncpy.c)
+ *     KasaniReport @ 0x1405E03C0 (KasaniReport.c)
+ *     KcsanValidateAddress @ 0x1405E5B60 (KcsanValidateAddress.c)
  */
 
 wchar_t *__fastcall _asan_wrap_wcsncpy(wchar_t *BugCheckParameter1, const wchar_t *a2, size_t Count)

@@ -1,15 +1,15 @@
 /*
- * XREFs of KiUpdateTimeAssist @ 0x14021E0C8
+ * XREFs of KiUpdateTimeAssist @ 0x14021FA58
  * Callers:
- *     KeClockInterruptNotify @ 0x1402216C0 (KeClockInterruptNotify.c)
- *     KeSynchronizeTimeToQpc @ 0x1405183E0 (KeSynchronizeTimeToQpc.c)
- *     KeResumeClockTimerFromIdle @ 0x1405EDA84 (KeResumeClockTimerFromIdle.c)
+ *     KeClockInterruptNotify @ 0x140223050 (KeClockInterruptNotify.c)
+ *     KeSynchronizeTimeToQpc @ 0x140511E50 (KeSynchronizeTimeToQpc.c)
+ *     KeResumeClockTimerFromIdle @ 0x1405F03F4 (KeResumeClockTimerFromIdle.c)
  * Callees:
- *     KeQueryPerformanceCounter @ 0x14021C3F0 (KeQueryPerformanceCounter.c)
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     KiComputeNewSystemTime @ 0x14046AB90 (KiComputeNewSystemTime.c)
- *     RtlWriteAcquireTickLock @ 0x14046AC24 (RtlWriteAcquireTickLock.c)
- *     RtlWriteTryAcquireTickLock @ 0x140497E4C (RtlWriteTryAcquireTickLock.c)
+ *     KeQueryPerformanceCounter @ 0x14021DD80 (KeQueryPerformanceCounter.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     KiComputeNewSystemTime @ 0x140464310 (KiComputeNewSystemTime.c)
+ *     RtlWriteAcquireTickLock @ 0x1404643A4 (RtlWriteAcquireTickLock.c)
+ *     RtlWriteTryAcquireTickLock @ 0x14049199C (RtlWriteTryAcquireTickLock.c)
  */
 
 __int64 __fastcall KiUpdateTimeAssist(LARGE_INTEGER *a1, char a2, __int64 *a3, _QWORD *a4)
@@ -86,7 +86,7 @@ __int64 __fastcall KiUpdateTimeAssist(LARGE_INTEGER *a1, char a2, __int64 *a3, _
   v5 = v31;
   v7 = a1;
   v6 = v30;
-  if ( (struct _LIST_ENTRY *)*((_QWORD *)&v12 + 1) > stru_140FC01F0.SavedApcState.ApcListHead[0].Flink )
+  if ( *((_QWORD *)&v12 + 1) > stru_140FC11F0.NpxState )
   {
     if ( KiTimeUpdateTryAcquireTickLock )
     {
@@ -135,11 +135,11 @@ LABEL_15:
     *v5 = MEMORY[0xFFFFF78000000320];
     if ( v24 <= 0 )
     {
-      v24 += (unsigned int)KeMaximumIncrement;
+      v24 += KeMaximumIncrement;
       if ( v24 <= 0 )
       {
         v27 = (unsigned __int64)(((unsigned __int64)-v24
-                                * (unsigned __int128)*(unsigned __int64 *)&stru_140FC01F0.SavedApcStateFill[40]) >> 64) >> KiMaximumIncrementShiftCount;
+                                * (unsigned __int128)(unsigned __int64)stru_140FC11F0.SavedApcState.Process) >> 64) >> KiMaximumIncrementShiftCount;
         v8 = v27 + 2;
         LODWORD(v24) = KeMaximumIncrement * (v27 + 1) + v24;
       }

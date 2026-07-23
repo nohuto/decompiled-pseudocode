@@ -1,25 +1,25 @@
 /*
- * XREFs of DbgkCreateThread @ 0x14076FC1C
+ * XREFs of DbgkCreateThread @ 0x14076FE0C
  * Callers:
- *     PspNotifyThreadCreation @ 0x14076F800 (PspNotifyThreadCreation.c)
+ *     PspNotifyThreadCreation @ 0x14076F9F0 (PspNotifyThreadCreation.c)
  * Callees:
  *     RtlImageNtHeader @ 0x140214B30 (RtlImageNtHeader.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     ObFastDereferenceObject @ 0x140297C80 (ObFastDereferenceObject.c)
- *     MiSectionControlArea @ 0x14029F880 (MiSectionControlArea.c)
- *     MiReferenceControlAreaFileWithTag @ 0x1402A23F0 (MiReferenceControlAreaFileWithTag.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memset @ 0x140435A00 (memset.c)
+ *     ObfDereferenceObject @ 0x140231660 (ObfDereferenceObject.c)
+ *     ObFastDereferenceObject @ 0x140297F10 (ObFastDereferenceObject.c)
+ *     MiSectionControlArea @ 0x14029FB10 (MiSectionControlArea.c)
+ *     MiReferenceControlAreaFileWithTag @ 0x1402A2680 (MiReferenceControlAreaFileWithTag.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     memset @ 0x140435E00 (memset.c)
  *     PsReferenceProcessFilePointer @ 0x14069A0A0 (PsReferenceProcessFilePointer.c)
- *     PsCallImageNotifyRoutines @ 0x1406AFC10 (PsCallImageNotifyRoutines.c)
- *     ObCloseHandle @ 0x14076B890 (ObCloseHandle.c)
- *     PsQuerySystemDllInfo @ 0x14076F1B4 (PsQuerySystemDllInfo.c)
- *     PsWow64GetProcessNtdllType @ 0x1407A1740 (PsWow64GetProcessNtdllType.c)
- *     PspReferenceSystemDll @ 0x1407A34A4 (PspReferenceSystemDll.c)
- *     DbgkSendSystemDllMessages @ 0x140936DD4 (DbgkSendSystemDllMessages.c)
- *     DbgkpPostModuleMessages @ 0x140937BA8 (DbgkpPostModuleMessages.c)
- *     DbgkpSectionToFileHandle @ 0x1409393C8 (DbgkpSectionToFileHandle.c)
- *     DbgkpSendApiMessage @ 0x14093A050 (DbgkpSendApiMessage.c)
+ *     PsCallImageNotifyRoutines @ 0x1406AFC40 (PsCallImageNotifyRoutines.c)
+ *     ObCloseHandle @ 0x14076BA80 (ObCloseHandle.c)
+ *     PsQuerySystemDllInfo @ 0x14076F3A4 (PsQuerySystemDllInfo.c)
+ *     PsWow64GetProcessNtdllType @ 0x1407A1930 (PsWow64GetProcessNtdllType.c)
+ *     PspReferenceSystemDll @ 0x1407A3694 (PspReferenceSystemDll.c)
+ *     DbgkSendSystemDllMessages @ 0x140936FD4 (DbgkSendSystemDllMessages.c)
+ *     DbgkpPostModuleMessages @ 0x140937DA8 (DbgkpPostModuleMessages.c)
+ *     DbgkpSectionToFileHandle @ 0x1409395C8 (DbgkpSectionToFileHandle.c)
+ *     DbgkpSendApiMessage @ 0x14093A250 (DbgkpSendApiMessage.c)
  */
 
 __int64 __fastcall DbgkCreateThread(__int64 a1)
@@ -27,16 +27,16 @@ __int64 __fastcall DbgkCreateThread(__int64 a1)
   __int64 v2; // rdi
   __int64 result; // rax
   char v4; // r12
-  __int64 v5; // rax
+  PIMAGE_NT_HEADERS v5; // rax
   int i; // esi
   __int64 v7; // r15
-  __int64 v8; // rax
+  PIMAGE_NT_HEADERS v8; // rax
   __int64 v9; // r13
   unsigned __int64 v10; // rax
   void *v11; // rax
   __int16 v12; // ax
   char v13; // al
-  __int64 v14; // rax
+  PIMAGE_NT_HEADERS v14; // rax
   char v15; // [rsp+20h] [rbp-1A8h]
   PVOID Object; // [rsp+28h] [rbp-1A0h] BYREF
   int v17; // [rsp+30h] [rbp-198h]
@@ -74,9 +74,9 @@ __int64 __fastcall DbgkCreateThread(__int64 a1)
     BYTE8(v20) = 3;
     *(_QWORD *)&v21 = *(_QWORD *)(v2 + 1312);
     *(_QWORD *)&v22 = 0LL;
-    v5 = RtlImageNtHeader(v21);
+    v5 = RtlImageNtHeader((PVOID)v21);
     if ( v5 )
-      *(_QWORD *)&v22 = *(unsigned int *)(v5 + 80);
+      *(_QWORD *)&v22 = v5->OptionalHeader.SizeOfImage;
     DWORD2(v21) = 0;
     DWORD2(v22) = 0;
     PsReferenceProcessFilePointer((struct _EX_RUNDOWN_REF *)v2, (unsigned __int64 *)&Object);
@@ -98,9 +98,9 @@ __int64 __fastcall DbgkCreateThread(__int64 a1)
           DWORD2(v20) = 3;
           *(_QWORD *)&v21 = *(_QWORD *)(v7 + 24);
           *(_QWORD *)&v22 = 0LL;
-          v8 = RtlImageNtHeader(*(_QWORD *)(v7 + 24));
+          v8 = RtlImageNtHeader(*(PVOID *)(v7 + 24));
           if ( v8 )
-            *(_QWORD *)&v22 = *(unsigned int *)(v8 + 80);
+            *(_QWORD *)&v22 = v8->OptionalHeader.SizeOfImage;
           DWORD2(v21) = 0;
           DWORD2(v22) = 0;
           v9 = PspReferenceSystemDll(*(_QWORD *)(v7 - 8));
@@ -138,14 +138,14 @@ __int64 __fastcall DbgkCreateThread(__int64 a1)
       v26[8] = *(_QWORD *)(v2 + 1312);
       v26[11] = 0LL;
       v26[9] = 0LL;
-      v14 = RtlImageNtHeader(*(_QWORD *)(v2 + 1312));
+      v14 = RtlImageNtHeader(*(PVOID *)(v2 + 1312));
       if ( v14 )
       {
         if ( v15 )
-          v26[11] = (unsigned int)(*(_DWORD *)(v14 + 40) + *(_DWORD *)(v14 + 52));
+          v26[11] = v14->OptionalHeader.AddressOfEntryPoint + HIDWORD(v14->OptionalHeader.ImageBase);
         else
-          v26[11] = *(_QWORD *)(v14 + 48) + *(unsigned int *)(v14 + 40);
-        v26[9] = *(_QWORD *)(v14 + 12);
+          v26[11] = v14->OptionalHeader.ImageBase + v14->OptionalHeader.AddressOfEntryPoint;
+        v26[9] = *(_QWORD *)&v14->FileHeader.PointerToSymbolTable;
       }
       v26[0] = 0x800600038LL;
       LODWORD(v26[5]) = 2;

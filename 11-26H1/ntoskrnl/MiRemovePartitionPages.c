@@ -1,12 +1,12 @@
 /*
- * XREFs of MiRemovePartitionPages @ 0x14070967C
+ * XREFs of MiRemovePartitionPages @ 0x14070E330
  * Callers:
- *     MiActOnPartitionNodePages @ 0x140707C4C (MiActOnPartitionNodePages.c)
+ *     MiActOnPartitionNodePages @ 0x14070C91C (MiActOnPartitionNodePages.c)
  * Callees:
- *     RtlClearBitsEx @ 0x14024EFA0 (RtlClearBitsEx.c)
- *     RtlAvlRemoveNode @ 0x14030C5E0 (RtlAvlRemoveNode.c)
- *     RtlAvlInsertNodeEx @ 0x14030CA60 (RtlAvlInsertNodeEx.c)
- *     MiUpdatePhysicalPages @ 0x140709FC0 (MiUpdatePhysicalPages.c)
+ *     RtlClearBitsEx @ 0x140250900 (RtlClearBitsEx.c)
+ *     RtlAvlRemoveNode @ 0x1402EE660 (RtlAvlRemoveNode.c)
+ *     RtlAvlInsertNodeEx @ 0x1402EEAE0 (RtlAvlInsertNodeEx.c)
+ *     MiUpdatePhysicalPages @ 0x14070EC74 (MiUpdatePhysicalPages.c)
  */
 
 char __fastcall MiRemovePartitionPages(unsigned __int64 *a1, __int64 a2, __int64 a3, unsigned __int64 a4)

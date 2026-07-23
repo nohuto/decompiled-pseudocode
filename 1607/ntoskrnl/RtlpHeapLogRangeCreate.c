@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlpHeapLogRangeCreate @ 0x140218908
+ * XREFs of RtlpHeapLogRangeCreate @ 0x140218734
  * Callers:
- *     RtlCreateHeap @ 0x140540228 (RtlCreateHeap.c)
+ *     RtlCreateHeap @ 0x140540768 (RtlCreateHeap.c)
  * Callees:
- *     EtwTraceKernelEvent @ 0x140014190 (EtwTraceKernelEvent.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     EtwTraceKernelEvent @ 0x140013D10 (EtwTraceKernelEvent.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     memset @ 0x140171AC0 (memset.c)
  */
 
 __int64 __fastcall RtlpHeapLogRangeCreate(__int64 a1, __int64 a2, int a3)

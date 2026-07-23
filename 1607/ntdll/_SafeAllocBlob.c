@@ -1,16 +1,16 @@
 /*
- * XREFs of _SafeAllocBlob @ 0x1800144BC
+ * XREFs of _SafeAllocBlob @ 0x1800144AC
  * Callers:
- *     LdrpCreateLangFallbackList @ 0x180014408 (LdrpCreateLangFallbackList.c)
- *     RtlpMuiRegCreateLanguageList @ 0x180071974 (RtlpMuiRegCreateLanguageList.c)
- *     RtlpMuiRegCreateLanguageConfigList @ 0x180071C24 (RtlpMuiRegCreateLanguageConfigList.c)
+ *     LdrpCreateLangFallbackList @ 0x1800143F8 (LdrpCreateLangFallbackList.c)
+ *     RtlpMuiRegCreateLanguageList @ 0x180071964 (RtlpMuiRegCreateLanguageList.c)
+ *     RtlpMuiRegCreateLanguageConfigList @ 0x180071C14 (RtlpMuiRegCreateLanguageConfigList.c)
  *     RtlpMuiRegCreateLanguages @ 0x1800F4310 (RtlpMuiRegCreateLanguages.c)
  *     RtlpMuiRegCreateStringPool @ 0x1800F43A8 (RtlpMuiRegCreateStringPool.c)
  * Callees:
- *     RtlAllocateHeap @ 0x180022DB0 (RtlAllocateHeap.c)
+ *     RtlAllocateHeap @ 0x180022DA0 (RtlAllocateHeap.c)
  */
 
-__int64 __fastcall SafeAllocBlob(
+PVOID __fastcall SafeAllocBlob(
         unsigned int a1,
         unsigned int a2,
         unsigned int a3,
@@ -40,6 +40,6 @@ __int64 __fastcall SafeAllocBlob(
   if ( a6 )
     *a6 = v10;
   if ( v10 )
-    return RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8LL, v10);
-  return v11;
+    return RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, v10);
+  return (PVOID)v11;
 }

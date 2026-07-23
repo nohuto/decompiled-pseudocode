@@ -1,12 +1,11 @@
 /*
- * XREFs of ZwCreateTransaction @ 0x14015B3E0
+ * XREFs of ZwCreateTransaction @ 0x14015B950
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-// local variable allocation has failed, the output may be wrong!
 NTSTATUS __stdcall ZwCreateTransaction(
         PHANDLE TransactionHandle,
         ACCESS_MASK DesiredAccess,
@@ -21,5 +20,5 @@ NTSTATUS __stdcall ZwCreateTransaction(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(TransactionHandle, *(_QWORD *)&DesiredAccess, ObjectAttributes);
+  return KiServiceInternal(TransactionHandle);
 }

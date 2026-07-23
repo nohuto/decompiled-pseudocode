@@ -1,19 +1,19 @@
 /*
- * XREFs of MiLockLoadedDataTableEntry @ 0x1402C6F3C
+ * XREFs of MiLockLoadedDataTableEntry @ 0x1402BBABC
  * Callers:
- *     MmLockLoadedDataTableEntry @ 0x1402C6E88 (MmLockLoadedDataTableEntry.c)
- *     MiLockLoadedDataTableEntryIfNecessary @ 0x1402C6EFC (MiLockLoadedDataTableEntryIfNecessary.c)
- *     LdrpKrnGetDataTableEntry @ 0x1402C830C (LdrpKrnGetDataTableEntry.c)
- *     MmLockLoadedDataTableEntryShared @ 0x1402C85E8 (MmLockLoadedDataTableEntryShared.c)
- *     MmVerifyCallbackFunctionCheckFlags @ 0x1404F64C4 (MmVerifyCallbackFunctionCheckFlags.c)
- *     KasaniGetModuleFromAddress @ 0x1405A9FD0 (KasaniGetModuleFromAddress.c)
- *     MmWriteSystemImageTracepoint @ 0x14067DBF0 (MmWriteSystemImageTracepoint.c)
- *     MmDiscardDriverSection @ 0x140C5BF00 (MmDiscardDriverSection.c)
+ *     MmLockLoadedDataTableEntryShared @ 0x1402BA46C (MmLockLoadedDataTableEntryShared.c)
+ *     LdrpKrnGetDataTableEntry @ 0x1402BA56C (LdrpKrnGetDataTableEntry.c)
+ *     MmLockLoadedDataTableEntry @ 0x1402BBA08 (MmLockLoadedDataTableEntry.c)
+ *     MiLockLoadedDataTableEntryIfNecessary @ 0x1402BBA7C (MiLockLoadedDataTableEntryIfNecessary.c)
+ *     MmVerifyCallbackFunctionCheckFlags @ 0x1404F3DC4 (MmVerifyCallbackFunctionCheckFlags.c)
+ *     KasaniGetModuleFromAddress @ 0x1405A6F40 (KasaniGetModuleFromAddress.c)
+ *     MmWriteSystemImageTracepoint @ 0x14067EDF0 (MmWriteSystemImageTracepoint.c)
+ *     MmDiscardDriverSection @ 0x140C5E090 (MmDiscardDriverSection.c)
  * Callees:
- *     MiAcquireLoadLock @ 0x1402C6F98 (MiAcquireLoadLock.c)
- *     MmFindDataTableEntryByAddress @ 0x1402C724C (MmFindDataTableEntryByAddress.c)
- *     MiLockLoaderEntry @ 0x1402C7520 (MiLockLoaderEntry.c)
- *     MmReleaseLoadLockShared @ 0x1402C75F0 (MmReleaseLoadLockShared.c)
+ *     MiAcquireLoadLock @ 0x1402BBB18 (MiAcquireLoadLock.c)
+ *     MmFindDataTableEntryByAddress @ 0x1402BBDCC (MmFindDataTableEntryByAddress.c)
+ *     MiLockLoaderEntry @ 0x1402BC0A0 (MiLockLoaderEntry.c)
+ *     MmReleaseLoadLockShared @ 0x1402BC170 (MmReleaseLoadLockShared.c)
  */
 
 __int64 __fastcall MiLockLoadedDataTableEntry(__int64 a1, int a2)

@@ -1,11 +1,11 @@
 /*
- * XREFs of CmpRestampVersion @ 0x140856534
+ * XREFs of CmpRestampVersion @ 0x14085C8CC
  * Callers:
- *     CmpSetVersionData @ 0x1408566EC (CmpSetVersionData.c)
+ *     CmpSetVersionData @ 0x14085CA84 (CmpSetVersionData.c)
  * Callees:
- *     swprintf_s @ 0x14053B0E0 (swprintf_s.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     ZwSetValueKey @ 0x140723FF0 (ZwSetValueKey.c)
+ *     swprintf_s @ 0x14053D560 (swprintf_s.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     ZwSetValueKey @ 0x140728BC0 (ZwSetValueKey.c)
  */
 
 __int64 __fastcall CmpRestampVersion(HANDLE KeyHandle)
@@ -21,14 +21,14 @@ __int64 __fastcall CmpRestampVersion(HANDLE KeyHandle)
   int v11; // eax
   wchar_t Dst[128]; // [rsp+30h] [rbp-118h] BYREF
 
-  v1 = *(_QWORD *)&CmpFreezeListLock.WaitBlockFill11[112];
-  if ( (*(_DWORD *)(*(_QWORD *)&CmpFreezeListLock.WaitBlockFill11[112] + 1312LL) & 0x20) != 0 )
+  v1 = *(__int64 *)((char *)&CmpFreezeListLock.116 + 4);
+  if ( (*(_DWORD *)(*(_QWORD *)((char *)&CmpFreezeListLock.116 + 4) + 1312LL) & 0x20) != 0 )
   {
     v3 = swprintf_s(
            Dst,
            0x80uLL,
            L"%u",
-           (unsigned __int16)*(_DWORD *)(*(_QWORD *)&CmpFreezeListLock.WaitBlockFill11[112] + 8LL));
+           (unsigned __int16)*(_DWORD *)(*(_QWORD *)((char *)&CmpFreezeListLock.116 + 4) + 8LL));
     if ( v3 == -1 )
       return 2147483653LL;
     DataSize = (unsigned __int16)(2 * v3) + 2;

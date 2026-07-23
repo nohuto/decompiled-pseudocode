@@ -1,10 +1,10 @@
 /*
- * XREFs of _vsnprintf_s @ 0x18012CD80
+ * XREFs of _vsnprintf_s @ 0x18012AFB0
  * Callers:
- *     _snprintf_s @ 0x18012CD50 (_snprintf_s.c)
+ *     _snprintf_s @ 0x18012AF80 (_snprintf_s.c)
  * Callees:
- *     _invalid_parameter @ 0x180120778 (_invalid_parameter.c)
- *     _soutput_s @ 0x18012EC94 (_soutput_s.c)
+ *     _invalid_parameter @ 0x18011E9A8 (_invalid_parameter.c)
+ *     _soutput_s @ 0x18012CEC4 (_soutput_s.c)
  */
 
 int __cdecl vsnprintf_s(

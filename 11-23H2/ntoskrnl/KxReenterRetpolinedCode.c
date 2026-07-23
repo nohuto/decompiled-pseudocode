@@ -1,10 +1,10 @@
 /*
- * XREFs of KxReenterRetpolinedCode @ 0x140573DB4
+ * XREFs of KxReenterRetpolinedCode @ 0x1405742F4
  * Callers:
- *     ExpWorkerThread @ 0x1402BEB90 (ExpWorkerThread.c)
- *     KeReenterRetpolinedCode @ 0x1404109D0 (KeReenterRetpolinedCode.c)
+ *     ExpWorkerThread @ 0x1402BEE20 (ExpWorkerThread.c)
+ *     KeReenterRetpolinedCode @ 0x140410C30 (KeReenterRetpolinedCode.c)
  * Callees:
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 KxReenterRetpolinedCode()

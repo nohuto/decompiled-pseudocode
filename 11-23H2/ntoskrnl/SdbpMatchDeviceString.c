@@ -1,14 +1,14 @@
 /*
- * XREFs of SdbpMatchDeviceString @ 0x140A51650
+ * XREFs of SdbpMatchDeviceString @ 0x140A51900
  * Callers:
- *     SdbpMatchOem @ 0x140863290 (SdbpMatchOem.c)
- *     SdbpMatchCpu @ 0x1408632E4 (SdbpMatchCpu.c)
- *     SdbpMatchBios @ 0x140863338 (SdbpMatchBios.c)
- *     SdbpMatchAcpi @ 0x14086338C (SdbpMatchAcpi.c)
+ *     SdbpMatchOem @ 0x1408634D0 (SdbpMatchOem.c)
+ *     SdbpMatchCpu @ 0x140863524 (SdbpMatchCpu.c)
+ *     SdbpMatchBios @ 0x140863578 (SdbpMatchBios.c)
+ *     SdbpMatchAcpi @ 0x1408635CC (SdbpMatchAcpi.c)
  * Callees:
- *     _wcsicmp @ 0x1403D9A50 (_wcsicmp.c)
- *     SdbGetStringTagPtr @ 0x140757368 (SdbGetStringTagPtr.c)
- *     SdbFindFirstTag @ 0x1407579A4 (SdbFindFirstTag.c)
+ *     _wcsicmp @ 0x1403D9C30 (_wcsicmp.c)
+ *     SdbGetStringTagPtr @ 0x140757558 (SdbGetStringTagPtr.c)
+ *     SdbFindFirstTag @ 0x140757B94 (SdbFindFirstTag.c)
  */
 
 __int64 __fastcall SdbpMatchDeviceString(__int64 a1, const wchar_t *a2, unsigned int a3, unsigned __int16 a4)

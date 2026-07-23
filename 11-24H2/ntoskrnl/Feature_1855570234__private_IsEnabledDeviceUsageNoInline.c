@@ -1,9 +1,9 @@
 /*
- * XREFs of Feature_1855570234__private_IsEnabledDeviceUsageNoInline @ 0x140653528
+ * XREFs of Feature_1855570234__private_IsEnabledDeviceUsageNoInline @ 0x140651C88
  * Callers:
- *     BapdpProcessVsmKeyBlobs @ 0x140C3F25C (BapdpProcessVsmKeyBlobs.c)
+ *     BapdpProcessVsmKeyBlobs @ 0x140C413AC (BapdpProcessVsmKeyBlobs.c)
  * Callees:
- *     Feature_1855570234__private_IsEnabledFallback @ 0x140653560 (Feature_1855570234__private_IsEnabledFallback.c)
+ *     Feature_1855570234__private_IsEnabledFallback @ 0x140651CC0 (Feature_1855570234__private_IsEnabledFallback.c)
  */
 
 __int64 Feature_1855570234__private_IsEnabledDeviceUsageNoInline()

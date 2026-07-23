@@ -3,7 +3,7 @@
  * Callers:
  *     InitBootProcessor @ 0x1407937C4 (InitBootProcessor.c)
  * Callees:
- *     memmove @ 0x140171280 (memmove.c)
+ *     memmove @ 0x140171780 (memmove.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
  */
@@ -17,8 +17,8 @@ void __fastcall BootApplicationPersistentDataInitialize(__int64 a1)
   PVOID v5; // rax
   _QWORD *v6; // rax
 
-  qword_140341430 = &qword_140341428;
-  qword_140341428 = (__int64)&qword_140341428;
+  qword_140341470 = &qword_140341468;
+  qword_140341468 = (__int64)&qword_140341468;
   v1 = (_QWORD **)(*(_QWORD *)(a1 + 240) + 128LL);
   v2 = *v1;
   while ( v2 != v1 )
@@ -39,13 +39,13 @@ void __fastcall BootApplicationPersistentDataInitialize(__int64 a1)
       *((_DWORD *)PoolWithTag + 6) = *((_DWORD *)v3 + 6);
       PoolWithTag[2] = v5;
       memmove(v5, (const void *)v3[2], *((unsigned int *)v3 + 6));
-      v6 = qword_140341430;
-      if ( *(__int64 **)qword_140341430 != &qword_140341428 )
+      v6 = qword_140341470;
+      if ( *(__int64 **)qword_140341470 != &qword_140341468 )
         __fastfail(3u);
-      *PoolWithTag = &qword_140341428;
+      *PoolWithTag = &qword_140341468;
       PoolWithTag[1] = v6;
       *v6 = PoolWithTag;
-      qword_140341430 = PoolWithTag;
+      qword_140341470 = PoolWithTag;
     }
   }
 }

@@ -1,12 +1,12 @@
 /*
- * XREFs of PopDripsWatchdogScheduleNextTimer @ 0x14099C6A8
+ * XREFs of PopDripsWatchdogScheduleNextTimer @ 0x14099C8A8
  * Callers:
- *     PopDripsWatchdogCallbackWorker @ 0x14099C190 (PopDripsWatchdogCallbackWorker.c)
- *     PopDripsWatchdogDiagnosticWorker @ 0x14099C470 (PopDripsWatchdogDiagnosticWorker.c)
- *     PopDripsWatchdogStartWatchdog @ 0x14099C718 (PopDripsWatchdogStartWatchdog.c)
+ *     PopDripsWatchdogCallbackWorker @ 0x14099C390 (PopDripsWatchdogCallbackWorker.c)
+ *     PopDripsWatchdogDiagnosticWorker @ 0x14099C670 (PopDripsWatchdogDiagnosticWorker.c)
+ *     PopDripsWatchdogStartWatchdog @ 0x14099C918 (PopDripsWatchdogStartWatchdog.c)
  * Callees:
- *     KeSetTimer2 @ 0x140250150 (KeSetTimer2.c)
- *     PopOkayToQueueNextWorkItem @ 0x14032EF00 (PopOkayToQueueNextWorkItem.c)
+ *     KeSetTimer2 @ 0x140250220 (KeSetTimer2.c)
+ *     PopOkayToQueueNextWorkItem @ 0x14032F190 (PopOkayToQueueNextWorkItem.c)
  */
 
 _BOOL8 __fastcall PopDripsWatchdogScheduleNextTimer(__int64 a1)

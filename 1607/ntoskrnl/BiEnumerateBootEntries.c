@@ -1,19 +1,19 @@
 /*
- * XREFs of BiEnumerateBootEntries @ 0x1406D48E0
+ * XREFs of BiEnumerateBootEntries @ 0x1406D4A18
  * Callers:
- *     BiBuildIdentifierList @ 0x1406D3A28 (BiBuildIdentifierList.c)
+ *     BiBuildIdentifierList @ 0x1406D3B60 (BiBuildIdentifierList.c)
  * Callees:
- *     ZwEnumerateBootEntries @ 0x14015B6C0 (ZwEnumerateBootEntries.c)
+ *     ZwEnumerateBootEntries @ 0x14015BC30 (ZwEnumerateBootEntries.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     BiReleasePrivilege @ 0x14053BD20 (BiReleasePrivilege.c)
- *     BiAcquirePrivilege @ 0x14053BD6C (BiAcquirePrivilege.c)
+ *     BiReleasePrivilege @ 0x14053C260 (BiReleasePrivilege.c)
+ *     BiAcquirePrivilege @ 0x14053C2AC (BiAcquirePrivilege.c)
  */
 
 __int64 __fastcall BiEnumerateBootEntries(_QWORD *a1, _DWORD *a2)
 {
   PVOID PoolWithTag; // rbx
-  int v5; // edi
+  NTSTATUS v5; // edi
   SIZE_T NumberOfBytes; // [rsp+50h] [rbp+18h] BYREF
   unsigned int v8; // [rsp+58h] [rbp+20h] BYREF
 

@@ -1,11 +1,11 @@
 /*
- * XREFs of VfIovPluginEntry @ 0x140642690
+ * XREFs of VfIovPluginEntry @ 0x140646270
  * Callers:
  *     <none>
  * Callees:
- *     DifRegisterPlugin @ 0x14064BBB0 (DifRegisterPlugin.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     ViIovInitialization @ 0x140C2AC6C (ViIovInitialization.c)
+ *     DifRegisterPlugin @ 0x14064F790 (DifRegisterPlugin.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     ViIovInitialization @ 0x140C30C7C (ViIovInitialization.c)
  */
 
 __int64 VfIovPluginEntry()
@@ -66,7 +66,7 @@ __int64 VfIovPluginEntry()
   ViIovInitialization();
   v2 = 329;
   v4 = 0LL;
-  qword_140F085E8 = (__int64)ViIovPluginUnload;
+  qword_140F08988 = (__int64)ViIovPluginUnload;
   v1 = "IoInitializeRemoveLockEx";
   v3 = ViSpIoAllocateIrp_Exit;
   v5 = "IoAcquireRemoveLockEx";

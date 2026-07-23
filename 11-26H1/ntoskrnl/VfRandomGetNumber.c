@@ -1,10 +1,10 @@
 /*
- * XREFs of VfRandomGetNumber @ 0x140C215A4
+ * XREFs of VfRandomGetNumber @ 0x140C275B4
  * Callers:
- *     VfPendingShouldForce @ 0x140C3004C (VfPendingShouldForce.c)
- *     VfFaultsInjectResourceFailure @ 0x140C347B4 (VfFaultsInjectResourceFailure.c)
- *     DifpLwSPProcessPrePoolAlloc @ 0x140C43204 (DifpLwSPProcessPrePoolAlloc.c)
- *     ViInitPickRandomTargets @ 0x140CDEC58 (ViInitPickRandomTargets.c)
+ *     VfPendingShouldForce @ 0x140C3605C (VfPendingShouldForce.c)
+ *     VfFaultsInjectResourceFailure @ 0x140C3A7C4 (VfFaultsInjectResourceFailure.c)
+ *     DifpLwSPProcessPrePoolAlloc @ 0x140C49214 (DifpLwSPProcessPrePoolAlloc.c)
+ *     ViInitPickRandomTargets @ 0x140CE4FF0 (ViInitPickRandomTargets.c)
  * Callees:
  *     RtlRandomEx @ 0x140200BE0 (RtlRandomEx.c)
  */

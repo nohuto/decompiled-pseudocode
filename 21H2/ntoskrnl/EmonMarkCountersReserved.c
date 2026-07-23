@@ -1,11 +1,11 @@
 /*
- * XREFs of EmonMarkCountersReserved @ 0x1404D36D4
+ * XREFs of EmonMarkCountersReserved @ 0x1404D3914
  * Callers:
- *     EmonAllocateResources @ 0x1404D31B8 (EmonAllocateResources.c)
+ *     EmonAllocateResources @ 0x1404D33F8 (EmonAllocateResources.c)
  * Callees:
- *     KeRevertToUserGroupAffinityThread @ 0x1402EB390 (KeRevertToUserGroupAffinityThread.c)
- *     KeSetSystemGroupAffinityThread @ 0x1402EB4F0 (KeSetSystemGroupAffinityThread.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     KeRevertToUserGroupAffinityThread @ 0x14029C6E0 (KeRevertToUserGroupAffinityThread.c)
+ *     KeSetSystemGroupAffinityThread @ 0x14029C840 (KeSetSystemGroupAffinityThread.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
@@ -28,8 +28,8 @@ __int64 __fastcall EmonMarkCountersReserved(int a1, unsigned __int64 a2)
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *v18; // r9
   int v19; // edx
-  struct _GROUP_AFFINITY Affinity; // [rsp+28h] [rbp-28h] BYREF
-  struct _GROUP_AFFINITY PreviousAffinity; // [rsp+38h] [rbp-18h] BYREF
+  _GROUP_AFFINITY Affinity; // [rsp+28h] [rbp-28h] BYREF
+  _GROUP_AFFINITY PreviousAffinity; // [rsp+38h] [rbp-18h] BYREF
 
   v2 = 0;
   v4 = a2;

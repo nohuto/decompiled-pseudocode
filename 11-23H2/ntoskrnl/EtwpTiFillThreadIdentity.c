@@ -1,17 +1,17 @@
 /*
- * XREFs of EtwpTiFillThreadIdentity @ 0x1403041F8
+ * XREFs of EtwpTiFillThreadIdentity @ 0x140304488
  * Callers:
  *     EtwTiLogMapExecView @ 0x140682E58 (EtwTiLogMapExecView.c)
- *     EtwTiLogAllocExecVm @ 0x14076BB88 (EtwTiLogAllocExecVm.c)
- *     EtwTiLogReadWriteVm @ 0x14076BE3C (EtwTiLogReadWriteVm.c)
- *     EtwTiLogSetContextThread @ 0x1407A2E7C (EtwTiLogSetContextThread.c)
- *     EtwTiLogProtectExecVm @ 0x1408A75EA (EtwTiLogProtectExecVm.c)
- *     EtwTiLogSuspendResumeThread @ 0x1408A78C4 (EtwTiLogSuspendResumeThread.c)
- *     EtwTiLogSuspendResumeProcess @ 0x1409E8CA4 (EtwTiLogSuspendResumeProcess.c)
- *     EtwTimLogProhibitChildProcessCreation @ 0x1409E9A08 (EtwTimLogProhibitChildProcessCreation.c)
- *     EtwTimLogProhibitLowILImageMap @ 0x1409E9F94 (EtwTimLogProhibitLowILImageMap.c)
- *     EtwTimLogProhibitNonMicrosoftBinaries @ 0x1409EA2A4 (EtwTimLogProhibitNonMicrosoftBinaries.c)
- *     EtwpTimLogMitigationForProcess @ 0x1409EB76C (EtwpTimLogMitigationForProcess.c)
+ *     EtwTiLogAllocExecVm @ 0x14076BD78 (EtwTiLogAllocExecVm.c)
+ *     EtwTiLogReadWriteVm @ 0x14076C02C (EtwTiLogReadWriteVm.c)
+ *     EtwTiLogSetContextThread @ 0x1407A306C (EtwTiLogSetContextThread.c)
+ *     EtwTiLogProtectExecVm @ 0x1408A783A (EtwTiLogProtectExecVm.c)
+ *     EtwTiLogSuspendResumeThread @ 0x1408A7B14 (EtwTiLogSuspendResumeThread.c)
+ *     EtwTiLogSuspendResumeProcess @ 0x1409E8F34 (EtwTiLogSuspendResumeProcess.c)
+ *     EtwTimLogProhibitChildProcessCreation @ 0x1409E9C98 (EtwTimLogProhibitChildProcessCreation.c)
+ *     EtwTimLogProhibitLowILImageMap @ 0x1409EA224 (EtwTimLogProhibitLowILImageMap.c)
+ *     EtwTimLogProhibitNonMicrosoftBinaries @ 0x1409EA534 (EtwTimLogProhibitNonMicrosoftBinaries.c)
+ *     EtwpTimLogMitigationForProcess @ 0x1409EB9FC (EtwpTimLogMitigationForProcess.c)
  * Callees:
  *     <none>
  */

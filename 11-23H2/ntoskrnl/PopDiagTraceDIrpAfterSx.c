@@ -1,13 +1,13 @@
 /*
- * XREFs of PopDiagTraceDIrpAfterSx @ 0x1405924F8
+ * XREFs of PopDiagTraceDIrpAfterSx @ 0x1405929E8
  * Callers:
- *     PoHandleIrp @ 0x14028D77C (PoHandleIrp.c)
+ *     PoHandleIrp @ 0x14028DA0C (PoHandleIrp.c)
  * Callees:
  *     _tlgKeywordOn @ 0x140212E64 (_tlgKeywordOn.c)
- *     _tlgCreate1Sz_wchar_t @ 0x1402F6BE4 (_tlgCreate1Sz_wchar_t.c)
- *     _tlgWriteEx_EtwWriteEx @ 0x140367F70 (_tlgWriteEx_EtwWriteEx.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     PopDiagGetDriverName @ 0x1405918C4 (PopDiagGetDriverName.c)
+ *     _tlgCreate1Sz_wchar_t @ 0x1402F6E74 (_tlgCreate1Sz_wchar_t.c)
+ *     _tlgWriteEx_EtwWriteEx @ 0x140368110 (_tlgWriteEx_EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     PopDiagGetDriverName @ 0x140591DB4 (PopDiagGetDriverName.c)
  */
 
 char __fastcall PopDiagTraceDIrpAfterSx(__int64 a1)
@@ -42,7 +42,7 @@ char __fastcall PopDiagTraceDIrpAfterSx(__int64 a1)
       tlgCreate1Sz_wchar_t((__int64)v14, v2);
       return tlgWriteEx_EtwWriteEx(
                (__int64)&dword_140C03950,
-               (unsigned __int8 *)&dword_140030584,
+               (unsigned __int8 *)&dword_14003066C,
                v6,
                v5 - 3,
                v7,

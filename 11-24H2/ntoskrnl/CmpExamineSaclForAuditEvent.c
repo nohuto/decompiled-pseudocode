@@ -1,14 +1,14 @@
 /*
- * XREFs of CmpExamineSaclForAuditEvent @ 0x1407DCEC0
+ * XREFs of CmpExamineSaclForAuditEvent @ 0x1407DD410
  * Callers:
- *     CmKeyBodyReplicateToVirtual @ 0x140978D18 (CmKeyBodyReplicateToVirtual.c)
- *     CmpVEExecuteCreateLogic @ 0x140A203DC (CmpVEExecuteCreateLogic.c)
+ *     CmKeyBodyReplicateToVirtual @ 0x140961528 (CmKeyBodyReplicateToVirtual.c)
+ *     CmpVEExecuteCreateLogic @ 0x140A154DC (CmpVEExecuteCreateLogic.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     SeExamineSacl @ 0x140889B70 (SeExamineSacl.c)
- *     SeExamineGlobalSacl @ 0x140889DD8 (SeExamineGlobalSacl.c)
- *     CmpEffectiveTokenForSubject @ 0x1409B0CB0 (CmpEffectiveTokenForSubject.c)
- *     RtlGetSaclSecurityDescriptor @ 0x140A2C790 (RtlGetSaclSecurityDescriptor.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     SeExamineSacl @ 0x14088DA20 (SeExamineSacl.c)
+ *     SeExamineGlobalSacl @ 0x14088DC88 (SeExamineGlobalSacl.c)
+ *     CmpEffectiveTokenForSubject @ 0x14099A770 (CmpEffectiveTokenForSubject.c)
+ *     RtlGetSaclSecurityDescriptor @ 0x140A211D0 (RtlGetSaclSecurityDescriptor.c)
  */
 
 __int64 __fastcall CmpExamineSaclForAuditEvent(void *a1, __int64 a2, _BYTE *a3)

@@ -13,7 +13,7 @@
 
 char __fastcall ExTryAcquireAutoExpandPushLockExclusive(ULONG_PTR BugCheckParameter2, ULONG_PTR BugCheckParameter1)
 {
-  unsigned __int64 v2; // rdi
+  PRTL_BALANCED_NODE v2; // rdi
   int v4; // ecx
   char v5; // si
   int v7; // [rsp+48h] [rbp+10h] BYREF
@@ -47,9 +47,9 @@ char __fastcall ExTryAcquireAutoExpandPushLockExclusive(ULONG_PTR BugCheckParame
   if ( v2 )
   {
     if ( v5 )
-      *(_BYTE *)(v2 + 26) |= 1u;
+      BYTE2(v2[1].Left) |= 1u;
     else
-      KeAbPostReleaseEx(BugCheckParameter2, v2);
+      KeAbPostReleaseEx(BugCheckParameter2, (unsigned __int64)v2);
   }
   return v5;
 }

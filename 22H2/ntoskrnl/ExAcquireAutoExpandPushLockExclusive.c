@@ -23,7 +23,7 @@ __int64 __fastcall ExAcquireAutoExpandPushLockExclusive(ULONG_PTR BugCheckParame
   if ( (BugCheckParameter1 & 0xFFFFFFFC) != 0 )
     KeBugCheckEx(0x152u, (unsigned int)BugCheckParameter1, BugCheckParameter2, 0LL, 0LL);
   if ( (BugCheckParameter1 & 2) == 0 )
-    v2 = KeAbPreAcquire(BugCheckParameter2, 0LL, 0LL);
+    v2 = KeAbPreAcquire(BugCheckParameter2, 0LL, 0);
   if ( _interlockedbittestandset64((volatile signed __int32 *)BugCheckParameter2, 0LL) )
     ExfAcquirePushLockExclusiveEx((unsigned __int64 *)BugCheckParameter2, v2, BugCheckParameter2);
   result = *(unsigned int *)(BugCheckParameter2 + 8);

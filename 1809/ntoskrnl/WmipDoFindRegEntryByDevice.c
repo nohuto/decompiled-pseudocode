@@ -1,8 +1,8 @@
 /*
- * XREFs of WmipDoFindRegEntryByDevice @ 0x14012E9D8
+ * XREFs of WmipDoFindRegEntryByDevice @ 0x14012EAA8
  * Callers:
- *     IoWMIDeviceObjectToProviderId @ 0x14012E8E0 (IoWMIDeviceObjectToProviderId.c)
- *     WmipFindRegEntryByDevice @ 0x14012E948 (WmipFindRegEntryByDevice.c)
+ *     IoWMIDeviceObjectToProviderId @ 0x14012E9B0 (IoWMIDeviceObjectToProviderId.c)
+ *     WmipFindRegEntryByDevice @ 0x14012EA18 (WmipFindRegEntryByDevice.c)
  * Callees:
  *     <none>
  */

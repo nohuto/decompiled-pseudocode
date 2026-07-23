@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpIsProtectedHeap @ 0x18007E874
+ * XREFs of RtlpIsProtectedHeap @ 0x18007E864
  * Callers:
- *     RtlSetHeapInformation @ 0x18007E700 (RtlSetHeapInformation.c)
- *     RtlpSetRequestedFrontEndHeap @ 0x18007E7C8 (RtlpSetRequestedFrontEndHeap.c)
- *     RtlSetHeapDebuggingInformation @ 0x18008F850 (RtlSetHeapDebuggingInformation.c)
+ *     RtlSetHeapInformation @ 0x18007E6F0 (RtlSetHeapInformation.c)
+ *     RtlpSetRequestedFrontEndHeap @ 0x18007E7B8 (RtlpSetRequestedFrontEndHeap.c)
+ *     RtlSetHeapDebuggingInformation @ 0x18008F840 (RtlSetHeapDebuggingInformation.c)
  * Callees:
  *     <none>
  */

@@ -1,9 +1,9 @@
 /*
- * XREFs of KiSaveThreadIptState @ 0x1405B8CD0
+ * XREFs of KiSaveThreadIptState @ 0x1405B6310
  * Callers:
- *     SwapContext @ 0x1406B2B40 (SwapContext.c)
+ *     SwapContext @ 0x1406B3AE0 (SwapContext.c)
  * Callees:
- *     KiSaveIptState @ 0x1404BD15C (KiSaveIptState.c)
+ *     KiSaveIptState @ 0x1404B82CC (KiSaveIptState.c)
  */
 
 void __fastcall KiSaveThreadIptState(__int64 a1)

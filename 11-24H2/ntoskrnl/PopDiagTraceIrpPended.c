@@ -1,12 +1,12 @@
 /*
- * XREFs of PopDiagTraceIrpPended @ 0x1404D547C
+ * XREFs of PopDiagTraceIrpPended @ 0x1404CE754
  * Callers:
- *     PopFxNotifyPostSIrpCompletion @ 0x1405D1818 (PopFxNotifyPostSIrpCompletion.c)
- *     PopSystemIrpCompletion @ 0x140B6F8E0 (PopSystemIrpCompletion.c)
+ *     PopFxNotifyPostSIrpCompletion @ 0x1405CEF38 (PopFxNotifyPostSIrpCompletion.c)
+ *     PopSystemIrpCompletion @ 0x140B71950 (PopSystemIrpCompletion.c)
  * Callees:
- *     EtwWriteEx @ 0x140259680 (EtwWriteEx.c)
- *     EtwEventEnabled @ 0x1402A1BD0 (EtwEventEnabled.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     EtwWriteEx @ 0x140289C90 (EtwWriteEx.c)
+ *     EtwEventEnabled @ 0x1402D1300 (EtwEventEnabled.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 void __fastcall PopDiagTraceIrpPended(__int64 a1)

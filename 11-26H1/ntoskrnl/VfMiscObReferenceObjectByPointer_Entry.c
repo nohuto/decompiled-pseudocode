@@ -1,10 +1,10 @@
 /*
- * XREFs of VfMiscObReferenceObjectByPointer_Entry @ 0x140C3D590
+ * XREFs of VfMiscObReferenceObjectByPointer_Entry @ 0x140C435A0
  * Callers:
  *     <none>
  * Callees:
- *     VfMiscCheckKernelAddress @ 0x1404FD268 (VfMiscCheckKernelAddress.c)
- *     CarReportRuleViolationFromNt @ 0x140C2BF1C (CarReportRuleViolationFromNt.c)
+ *     VfMiscCheckKernelAddress @ 0x1404F67A8 (VfMiscCheckKernelAddress.c)
+ *     CarReportRuleViolationFromNt @ 0x140C31F2C (CarReportRuleViolationFromNt.c)
  */
 
 __int64 __fastcall VfMiscObReferenceObjectByPointer_Entry(__int64 a1)

@@ -14,15 +14,15 @@
  *     _BuildStandardOverlayFilePath @ 0x180128F68 (_BuildStandardOverlayFilePath.c)
  */
 
-__int64 __fastcall GetOverlayFilePathUsingChecksum(
-        __int64 a1,
-        _WORD *a2,
+NTSTATUS __fastcall GetOverlayFilePathUsingChecksum(
+        PCWSTR Source,
+        const WCHAR *a2,
         __int64 a3,
         __int64 a4,
         unsigned int *a5,
         _WORD *Destination)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
   unsigned int v10; // esi
   int OverlayPackageKeyForLanguage; // ebx
   int OverlayPackagePathFromKey; // eax
@@ -30,38 +30,36 @@ __int64 __fastcall GetOverlayFilePathUsingChecksum(
   __int64 v14; // rdx
   __int64 v15; // rdx
   unsigned int v16; // eax
-  unsigned int v17; // [rsp+50h] [rbp-B0h] BYREF
-  int v18; // [rsp+54h] [rbp-ACh] BYREF
-  HANDLE Handle[2]; // [rsp+58h] [rbp-A8h] BYREF
-  __int64 v20; // [rsp+68h] [rbp-98h] BYREF
-  __int64 v21; // [rsp+70h] [rbp-90h] BYREF
-  char v22; // [rsp+80h] [rbp-80h] BYREF
+  __int64 v17; // [rsp+50h] [rbp-B0h] BYREF
+  _UNICODE_STRING Handle; // [rsp+58h] [rbp-A8h] BYREF
+  wchar_t *v19; // [rsp+68h] [rbp-98h] BYREF
+  __int64 v20; // [rsp+70h] [rbp-90h] BYREF
+  char v21; // [rsp+80h] [rbp-80h] BYREF
 
-  Handle[1] = &v22;
-  LODWORD(Handle[0]) = 46006272;
-  v21 = 0LL;
+  Handle.Buffer = (wchar_t *)&v21;
+  *(_DWORD *)&Handle.Length = 46006272;
   v20 = 0LL;
-  result = ValidateAndStandardizeOverlayPaths(a1, a2, (__int64)a5, (__int64)Handle, &v21, &v20);
-  if ( (int)result >= 0 )
+  v19 = 0LL;
+  result = ValidateAndStandardizeOverlayPaths((__int64)Source, a2, (__int64)a5, &Handle, &v20, &v19);
+  if ( result >= 0 )
   {
     v10 = *a5;
     v17 = *a5;
-    v18 = 0;
     if ( Destination && v10 >= 2 )
       *Destination = 0;
-    Handle[0] = 0LL;
-    OverlayPackageKeyForLanguage = GetOverlayPackageKeyForLanguage(a1, Handle);
+    *(_QWORD *)&Handle.Length = 0LL;
+    OverlayPackageKeyForLanguage = GetOverlayPackageKeyForLanguage(Source, (PHANDLE)&Handle);
     if ( OverlayPackageKeyForLanguage >= 0 )
     {
-      OverlayPackageKeyForLanguage = GetOverlayPackageTypeFromKey(Handle[0], &v18);
+      OverlayPackageKeyForLanguage = GetOverlayPackageTypeFromKey(*(HANDLE *)&Handle.Length);
       if ( OverlayPackageKeyForLanguage >= 0 )
       {
-        OverlayPackagePathFromKey = GetOverlayPackagePathFromKey(Handle[0], &v17, Destination);
+        OverlayPackagePathFromKey = GetOverlayPackagePathFromKey(*(HANDLE *)&Handle.Length, (__int64)&v17);
         v10 = v17;
         OverlayPackageKeyForLanguage = OverlayPackagePathFromKey;
       }
-      if ( Handle[0] )
-        NtClose(Handle[0]);
+      if ( *(_QWORD *)&Handle.Length )
+        NtClose(*(HANDLE *)&Handle.Length);
       if ( OverlayPackageKeyForLanguage >= 0 )
         goto LABEL_18;
     }
@@ -74,20 +72,20 @@ LABEL_18:
       v14 = -1LL;
       do
         ++v14;
-      while ( *(_WORD *)(v20 + 2 * v14) );
+      while ( v19[v14] );
       v15 = (unsigned int)(2 * v14);
       do
         ++v13;
-      while ( *(_WORD *)(v21 + 2 * v13) );
+      while ( *(_WORD *)(v20 + 2 * v13) );
       v16 = 2 * v13;
-      if ( (v18 & 1) != 0 && a4 && a3 )
-        return BuildCumulativeOverlayFilePath(v10, v21, a3, a4, (__int64)a5, Destination);
+      if ( (v17 & 0x100000000LL) != 0 && a4 && a3 )
+        return BuildCumulativeOverlayFilePath(v10, v20, a3, a4, (__int64)a5, Destination);
       else
-        return BuildStandardOverlayFilePath(v10, v15, v20, v16, v21, a5, Destination);
+        return BuildStandardOverlayFilePath(v10, v15, v19, v16, v20, a5, Destination);
     }
     else
     {
-      return (unsigned int)OverlayPackageKeyForLanguage;
+      return OverlayPackageKeyForLanguage;
     }
   }
   return result;

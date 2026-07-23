@@ -1,20 +1,20 @@
 /*
- * XREFs of BiIsOfflineHandle @ 0x1404AB350
+ * XREFs of BiIsOfflineHandle @ 0x1404A5974
  * Callers:
- *     BcdFlushStore @ 0x140811C1C (BcdFlushStore.c)
- *     BcdForciblyUnloadStore @ 0x140811C84 (BcdForciblyUnloadStore.c)
- *     BcdMarkAsSystemStore @ 0x140811D3C (BcdMarkAsSystemStore.c)
- *     BcdEnumerateObjects @ 0x140811F1C (BcdEnumerateObjects.c)
- *     BcdQueryObject @ 0x1408121E4 (BcdQueryObject.c)
- *     BcdCreateObject @ 0x14085E224 (BcdCreateObject.c)
- *     BcdCloseStore @ 0x14085EED8 (BcdCloseStore.c)
- *     BcdOpenObject @ 0x1409BE0D4 (BcdOpenObject.c)
- *     BcdGetElementDataWithFlags @ 0x1409BE80C (BcdGetElementDataWithFlags.c)
- *     BcdSetElementDataWithFlags @ 0x1409BEB2C (BcdSetElementDataWithFlags.c)
- *     BcdCloseObject @ 0x1409BF5DC (BcdCloseObject.c)
- *     BiDeleteElement @ 0x1409BF8D0 (BiDeleteElement.c)
- *     BiBindEfiBootManager @ 0x1409C0574 (BiBindEfiBootManager.c)
- *     BcdDeleteObject @ 0x1409C2520 (BcdDeleteObject.c)
+ *     BcdFlushStore @ 0x14081235C (BcdFlushStore.c)
+ *     BcdForciblyUnloadStore @ 0x1408123C4 (BcdForciblyUnloadStore.c)
+ *     BcdMarkAsSystemStore @ 0x14081247C (BcdMarkAsSystemStore.c)
+ *     BcdEnumerateObjects @ 0x14081265C (BcdEnumerateObjects.c)
+ *     BcdQueryObject @ 0x140812924 (BcdQueryObject.c)
+ *     BcdCreateObject @ 0x140859F94 (BcdCreateObject.c)
+ *     BcdOpenObject @ 0x1409A4724 (BcdOpenObject.c)
+ *     BcdGetElementDataWithFlags @ 0x1409A4E5C (BcdGetElementDataWithFlags.c)
+ *     BcdSetElementDataWithFlags @ 0x1409A517C (BcdSetElementDataWithFlags.c)
+ *     BcdCloseObject @ 0x1409A5C2C (BcdCloseObject.c)
+ *     BiDeleteElement @ 0x1409A5F20 (BiDeleteElement.c)
+ *     BiBindEfiBootManager @ 0x1409A6BC4 (BiBindEfiBootManager.c)
+ *     BcdDeleteObject @ 0x1409A8B70 (BcdDeleteObject.c)
+ *     BcdCloseStore @ 0x140A81A08 (BcdCloseStore.c)
  * Callees:
  *     <none>
  */

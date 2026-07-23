@@ -37,21 +37,22 @@ __int64 __fastcall PopDirectedDripsInitializeBroadcast(volatile signed __int32 *
   __int64 v20; // rdx
   __int64 v21; // rcx
   __int64 v22; // r8
-  __int128 v24; // [rsp+20h] [rbp-18h] BYREF
-  int v25; // [rsp+80h] [rbp+48h] BYREF
-  int v26; // [rsp+88h] [rbp+50h] BYREF
-  int v27; // [rsp+90h] [rbp+58h] BYREF
-  int v28; // [rsp+98h] [rbp+60h] BYREF
+  __int64 v23; // r9
+  __int128 v25; // [rsp+20h] [rbp-18h] BYREF
+  int v26; // [rsp+80h] [rbp+48h] BYREF
+  int v27; // [rsp+88h] [rbp+50h] BYREF
+  int v28; // [rsp+90h] [rbp+58h] BYREF
+  int v29; // [rsp+98h] [rbp+60h] BYREF
 
+  v29 = 0;
+  v25 = 0LL;
   v28 = 0;
-  v24 = 0LL;
-  v27 = 0;
-  v25 = 0;
+  v26 = 0;
   _InterlockedOr(a1, 0);
   v2 = 0;
-  PopDirectedDripsQueryMitigationStatus(&v27, &v28, &v25);
-  v3 = v25;
-  v4 = v25 | v28 & v27;
+  PopDirectedDripsQueryMitigationStatus(&v28, &v29, &v26);
+  v3 = v26;
+  v4 = v26 | v29 & v28;
   if ( v4 )
   {
     IoControlPnpDeviceActionQueue(1);
@@ -90,17 +91,17 @@ __int64 __fastcall PopDirectedDripsInitializeBroadcast(volatile signed __int32 *
         }
       }
       while ( v6 != IopRootDeviceNode );
-      v3 = v25;
+      v3 = v26;
     }
-    PopFxBuildDirectedDripsCandidateDeviceList(&v24);
-    v10 = (__int128 *)v24;
-    v26 = 0;
+    PopFxBuildDirectedDripsCandidateDeviceList(&v25);
+    v10 = (__int128 *)v25;
+    v27 = 0;
     v11 = 0;
-    if ( (__int128 *)v24 == &v24 )
+    if ( (__int128 *)v25 == &v25 )
       goto LABEL_42;
     do
     {
-      v12 = PopDirectedDripsBuildBroadcastTreePartial(*((_QWORD *)v10 - 103), v4, &v26);
+      v12 = PopDirectedDripsBuildBroadcastTreePartial(*((_QWORD *)v10 - 103), v4, &v27);
       v5 = v12;
       if ( v12 < 0 )
       {
@@ -113,14 +114,14 @@ __int64 __fastcall PopDirectedDripsInitializeBroadcast(volatile signed __int32 *
       }
       v10 = *(__int128 **)v10;
     }
-    while ( v10 != &v24 );
-    if ( v11 && (v13 = v26, v26) )
+    while ( v10 != &v25 );
+    if ( v11 && (v13 = v27, v27) )
     {
-      if ( (v26 & 1) != 0 && (v3 & 1) == 0 )
+      if ( (v27 & 1) != 0 && (v3 & 1) == 0 )
       {
         _InterlockedOr(a1, 0x400u);
-        v3 = v25;
-        v13 = v26;
+        v3 = v26;
+        v13 = v27;
       }
       if ( (v13 & 2) != 0 && (v3 & 2) == 0 )
       {
@@ -174,14 +175,14 @@ LABEL_42:
       v5 = -1073741823;
     }
 LABEL_43:
-    PopFxDestroyDirectedDripsCandidateDeviceList((struct _KEVENT **)&v24);
+    PopFxDestroyDirectedDripsCandidateDeviceList((struct _KEVENT **)&v25);
     if ( v5 < 0 )
       IoControlPnpDeviceActionQueue(0);
     if ( v2 )
     {
       PopAcquirePolicyLock(v19);
       PopPowerAggregatorHandleIntent(4u, 0LL, 0, 0x2Au);
-      PopReleasePolicyLock(v21, v20, v22);
+      PopReleasePolicyLock(v21, v20, v22, v23, v25, *((_QWORD *)&v25 + 1));
     }
   }
   else

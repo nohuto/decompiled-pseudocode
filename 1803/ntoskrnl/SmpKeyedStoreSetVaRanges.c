@@ -75,7 +75,7 @@ __int64 SmpKeyedStoreSetVaRanges(ULONG_PTR BugCheckParameter2, __int64 a2, __int
         {
           v17->CrossThreadReleasableAndBusyByte |= 2u;
           if ( (__int64)v17->LockState.LockState < 0 )
-            KiAbEntryRemoveFromTree(&v9->LockEntries[v16]);
+            KiAbEntryRemoveFromTree(&v9->LockEntries[v16].TreeNode);
           LODWORD(v20) = 0;
           LODWORD(v20) = v17->BoostBitmap.AllFields & 0x1FFFF;
           v17->BoostBitmap.AllFields &= 0xFFFE0000;

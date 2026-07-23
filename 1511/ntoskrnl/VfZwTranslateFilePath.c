@@ -7,7 +7,7 @@
  *     ViZwShouldCheck @ 0x1406D4C58 (ViZwShouldCheck.c)
  */
 
-NTSTATUS __fastcall VfZwTranslateFilePath(struct _FILE_PATH *a1, ULONG OutputType, struct _FILE_PATH *a3, ULONG a4)
+NTSTATUS __fastcall VfZwTranslateFilePath(_FILE_PATH *a1, ULONG OutputType, _FILE_PATH *a3, ULONG a4)
 {
   _UNKNOWN *retaddr; // [rsp+28h] [rbp+0h]
 

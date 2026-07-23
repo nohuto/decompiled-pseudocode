@@ -8,7 +8,7 @@
  *     <none>
  */
 
-__int64 RtlAcquirePebLock()
+NTSTATUS RtlAcquirePebLock(void)
 {
-  return RtlEnterCriticalSection((__int64)NtCurrentPeb()->FastPebLock);
+  return RtlEnterCriticalSection(NtCurrentPeb()->FastPebLock);
 }

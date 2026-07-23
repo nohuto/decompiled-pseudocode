@@ -91,16 +91,17 @@ LABEL_10:
       }
     }
 LABEL_18:
-    if ( ControlPc < *((_QWORD *)&xmmword_180157330 + 1)
-      || ControlPc >= *((_QWORD *)&xmmword_180157330 + 1) + (unsigned __int64)(unsigned int)qword_180157340 )
+    if ( ControlPc < LdrSystemDllInitBlock.MitigationOptionsMap.Map[1]
+      || ControlPc >= LdrSystemDllInitBlock.MitigationOptionsMap.Map[1]
+                    + LODWORD(LdrSystemDllInitBlock.MitigationOptionsMap.Map[2]) )
     {
-      v16 = RtlpxLookupFunctionTable(ControlPc);
+      v16 = RtlpxLookupFunctionTable((PVOID)ControlPc);
     }
     else
     {
-      v30 = *((_QWORD *)&xmmword_180157330 + 1);
-      v16 = xmmword_180157330;
-      v31 = HIDWORD(qword_180157340);
+      v16 = LdrSystemDllInitBlock.MitigationOptionsMap.Map[0];
+      v30 = LdrSystemDllInitBlock.MitigationOptionsMap.Map[1];
+      v31 = HIDWORD(LdrSystemDllInitBlock.MitigationOptionsMap.Map[2]);
     }
     if ( v16 )
     {

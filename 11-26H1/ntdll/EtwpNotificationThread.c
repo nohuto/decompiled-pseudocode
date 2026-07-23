@@ -1,38 +1,37 @@
 /*
- * XREFs of EtwpNotificationThread @ 0x1800509C0
+ * XREFs of EtwpNotificationThread @ 0x18003AF40
  * Callers:
  *     <none>
  * Callees:
- *     RtlFreeHeap_0 @ 0x18003FD10 (RtlFreeHeap_0.c)
- *     RtlAllocateHeap_0 @ 0x1800439E0 (RtlAllocateHeap_0.c)
- *     TpSetWaitEx @ 0x18004F8E0 (TpSetWaitEx.c)
- *     EtwDeliverDataBlock @ 0x1800525B0 (EtwDeliverDataBlock.c)
- *     NtTraceControl @ 0x180162A10 (NtTraceControl.c)
- *     __security_check_cookie @ 0x180162C90 (__security_check_cookie.c)
+ *     RtlFreeHeap_0 @ 0x18002A280 (RtlFreeHeap_0.c)
+ *     RtlAllocateHeap_0 @ 0x18002DF50 (RtlAllocateHeap_0.c)
+ *     TpSetWaitEx @ 0x180039E60 (TpSetWaitEx.c)
+ *     EtwDeliverDataBlock @ 0x18003CB30 (EtwDeliverDataBlock.c)
+ *     NtTraceControl @ 0x180162910 (NtTraceControl.c)
+ *     __security_check_cookie @ 0x180162B90 (__security_check_cookie.c)
  */
 
-_BYTE *__fastcall EtwpNotificationThread(__int64 a1, volatile signed __int32 **a2, __int64 a3)
+void __fastcall EtwpNotificationThread(PTP_CALLBACK_INSTANCE a1, PVOID a2, PTP_WAIT a3)
 {
-  _BYTE *Heap_0; // rdi
+  _ETW_NOTIFICATION_HEADER *Heap_0; // rdi
   char v4; // bp
-  int v7; // esi
-  int v8; // ebx
-  __int64 *v9; // r8
-  _BYTE *result; // rax
-  int v11; // [rsp+30h] [rbp-148h] BYREF
-  __int64 v12; // [rsp+38h] [rbp-140h] BYREF
-  _BYTE v13[256]; // [rsp+40h] [rbp-138h] BYREF
+  ULONG OutputBufferLength; // esi
+  NTSTATUS v8; // ebx
+  LARGE_INTEGER *v9; // r8
+  ULONG ReturnLength; // [rsp+30h] [rbp-148h] BYREF
+  __int64 v11; // [rsp+38h] [rbp-140h] BYREF
+  _BYTE OutputBuffer[256]; // [rsp+40h] [rbp-138h] BYREF
 
-  v12 = -600000000LL;
-  v11 = 0;
-  Heap_0 = v13;
+  v11 = -600000000LL;
+  ReturnLength = 0;
+  Heap_0 = (_ETW_NOTIFICATION_HEADER *)OutputBuffer;
   v4 = 0;
-  v7 = 256;
+  OutputBufferLength = 256;
   while ( 1 )
   {
     while ( 1 )
     {
-      v8 = NtTraceControl(16LL, 0LL, 0LL, Heap_0, v7, &v11);
+      v8 = NtTraceControl(EtwReceiveNotification, 0LL, 0, Heap_0, OutputBufferLength, &ReturnLength);
       if ( v8 < 0 )
         break;
       EtwDeliverDataBlock(Heap_0);
@@ -41,10 +40,10 @@ _BYTE *__fastcall EtwpNotificationThread(__int64 a1, volatile signed __int32 **a
     }
     if ( v8 != -1073741789 )
       break;
-    if ( Heap_0 != v13 )
-      RtlFreeHeap_0();
-    v7 = v11;
-    Heap_0 = (_BYTE *)RtlAllocateHeap_0();
+    if ( Heap_0 != (_ETW_NOTIFICATION_HEADER *)OutputBuffer )
+      RtlFreeHeap_0(NtCurrentPeb()->ProcessHeap, 0, Heap_0);
+    OutputBufferLength = ReturnLength;
+    Heap_0 = (_ETW_NOTIFICATION_HEADER *)RtlAllocateHeap_0(NtCurrentPeb()->ProcessHeap, 8u, ReturnLength);
     if ( !Heap_0 )
     {
       v4 = 1;
@@ -52,15 +51,13 @@ _BYTE *__fastcall EtwpNotificationThread(__int64 a1, volatile signed __int32 **a
     }
   }
 LABEL_4:
-  v9 = &v12;
+  v9 = (LARGE_INTEGER *)&v11;
   if ( !v4 )
     v9 = 0LL;
   TpSetWaitEx(a3, a2, v9, 0LL);
-  result = v13;
-  if ( Heap_0 != v13 )
+  if ( Heap_0 != (_ETW_NOTIFICATION_HEADER *)OutputBuffer )
   {
     if ( Heap_0 )
-      return (_BYTE *)RtlFreeHeap_0();
+      RtlFreeHeap_0(NtCurrentPeb()->ProcessHeap, 0, Heap_0);
   }
-  return result;
 }

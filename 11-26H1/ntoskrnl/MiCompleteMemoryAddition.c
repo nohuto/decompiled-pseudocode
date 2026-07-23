@@ -1,16 +1,16 @@
 /*
- * XREFs of MiCompleteMemoryAddition @ 0x140865B8C
+ * XREFs of MiCompleteMemoryAddition @ 0x14086BF6C
  * Callers:
- *     MiAddPhysicalMemory @ 0x14086501C (MiAddPhysicalMemory.c)
+ *     MiAddPhysicalMemory @ 0x14086B3FC (MiAddPhysicalMemory.c)
  * Callees:
- *     MiUpdateLargePageBitMap @ 0x1403C5418 (MiUpdateLargePageBitMap.c)
- *     MiComputeNodeMemory @ 0x1406E7EF4 (MiComputeNodeMemory.c)
- *     MiEnableNewPfns @ 0x1406E8478 (MiEnableNewPfns.c)
- *     MiPerformMemoryChange @ 0x1406E9974 (MiPerformMemoryChange.c)
- *     MiHotRemoveHugeRange @ 0x1406EBF04 (MiHotRemoveHugeRange.c)
- *     MiIncreaseCommitLimits @ 0x140705868 (MiIncreaseCommitLimits.c)
- *     MiNotifyMemoryChange @ 0x140866CA4 (MiNotifyMemoryChange.c)
- *     MiFinishChildPartitionHotAdd @ 0x14087BDA0 (MiFinishChildPartitionHotAdd.c)
+ *     MiUpdateLargePageBitMap @ 0x1403CF324 (MiUpdateLargePageBitMap.c)
+ *     MiComputeNodeMemory @ 0x1406ECB90 (MiComputeNodeMemory.c)
+ *     MiEnableNewPfns @ 0x1406ED114 (MiEnableNewPfns.c)
+ *     MiPerformMemoryChange @ 0x1406EE614 (MiPerformMemoryChange.c)
+ *     MiHotRemoveHugeRange @ 0x1406F0BA4 (MiHotRemoveHugeRange.c)
+ *     MiIncreaseCommitLimits @ 0x14070A538 (MiIncreaseCommitLimits.c)
+ *     MiNotifyMemoryChange @ 0x14086D084 (MiNotifyMemoryChange.c)
+ *     MiFinishChildPartitionHotAdd @ 0x1408821A0 (MiFinishChildPartitionHotAdd.c)
  */
 
 __int64 __fastcall MiCompleteMemoryAddition(__int64 a1)
@@ -26,7 +26,7 @@ __int64 __fastcall MiCompleteMemoryAddition(__int64 a1)
   MiPerformMemoryChange(a1);
   if ( (*(_DWORD *)(a1 + 40) & 8) != 0 )
     MiComputeNodeMemory(*(ULONG **)(a1 + 48), 1);
-  _InterlockedIncrement64(&qword_140E2D7C8);
+  _InterlockedIncrement64(&qword_140E2D948);
   v2 = *(_QWORD **)(a1 + 104);
   if ( v2 )
   {

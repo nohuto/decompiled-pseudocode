@@ -52,7 +52,7 @@ __int64 __fastcall RtlpLocateActivationContextSection(_DWORD *a1, _QWORD *a2, un
   if ( v5 < 0x20 || a1[1] < 0x20u )
   {
     DbgPrintEx(
-      51,
+      0x33u,
       0,
       "SXS/RTL: Activation context data at %p too small; TotalSize = %lu; HeaderSize = %lu\n",
       a1,
@@ -69,7 +69,7 @@ __int64 __fastcall RtlpLocateActivationContextSection(_DWORD *a1, _QWORD *a2, un
     if ( !(unsigned __int8)ARRAY_FITS(v23, 1LL, 16LL, v5) )
     {
       DbgPrintEx(
-        51,
+        0x33u,
         0,
         "SXS/RTL: Extended TOC offset (%ld) is outside bounds of activation context data (%lu bytes)\n",
         v24,
@@ -83,7 +83,7 @@ __int64 __fastcall RtlpLocateActivationContextSection(_DWORD *a1, _QWORD *a2, un
                              v25) )
     {
       DbgPrintEx(
-        51,
+        0x33u,
         0,
         "SXS/RTL: Extended TOC entry array (starting at offset %ld; count = %lu; entry size = %u) is outside bounds of ac"
         "tivation context data (%lu bytes)\n",
@@ -111,7 +111,7 @@ __int64 __fastcall RtlpLocateActivationContextSection(_DWORD *a1, _QWORD *a2, un
     if ( !(unsigned __int8)ARRAY_FITS(*((unsigned int *)v34 + 4), 1LL, 16LL, v30) )
     {
       DbgPrintEx(
-        51,
+        0x33u,
         0,
         "SXS/RTL: Extended TOC section TOC %d (offset: %ld, size: %u) is outside activation context data bounds (%lu bytes)\n",
         v32,
@@ -142,7 +142,7 @@ __int64 __fastcall RtlpLocateActivationContextSection(_DWORD *a1, _QWORD *a2, un
     || (int)v15 + (int)v14 > v5 )
   {
     DbgPrintEx(
-      51,
+      0x33u,
       0,
       "SXS/RTL: TOC entry array (offset: %ld; count = %lu; entry size = %u) is outside bounds of activation context data (%lu bytes)\n",
       v14,
@@ -191,7 +191,7 @@ LABEL_16:
   if ( (unsigned int)v19 + v20 < v20 || (unsigned int)v19 >= v21 || (unsigned int)v19 + v20 > v21 )
   {
     DbgPrintEx(
-      51,
+      0x33u,
       0,
       "SXS/RTL: Section found (offset %ld; length %lu) extends past end of activation context data (%lu bytes)\n",
       v19,

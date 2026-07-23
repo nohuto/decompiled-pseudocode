@@ -6,11 +6,11 @@
  *     <none>
  */
 
-__int64 NtFlushInstructionCache()
+NTSTATUS __cdecl NtFlushInstructionCache(HANDLE ProcessHandle, PVOID BaseAddress, SIZE_T Length)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 217LL;
+  result = 217;
   __asm { syscall; Low latency system call }
   return result;
 }

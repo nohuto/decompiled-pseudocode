@@ -1,10 +1,10 @@
 /*
- * XREFs of MiGetExceptionInfo @ 0x1406EF49C
+ * XREFs of MiGetExceptionInfo @ 0x1406F413C
  * Callers:
- *     MiDecommitRemoveEnclavePageForce @ 0x140341DE0 (MiDecommitRemoveEnclavePageForce.c)
- *     MiCopyVmWriteBytes @ 0x140A22BB0 (MiCopyVmWriteBytes.c)
+ *     MiDecommitRemoveEnclavePageForce @ 0x140343E60 (MiDecommitRemoveEnclavePageForce.c)
+ *     MiCopyVmWriteBytes @ 0x140A2C1D0 (MiCopyVmWriteBytes.c)
  * Callees:
- *     MiModeCopyExceptionFilterEx @ 0x1404E5578 (MiModeCopyExceptionFilterEx.c)
+ *     MiModeCopyExceptionFilterEx @ 0x1404DEB18 (MiModeCopyExceptionFilterEx.c)
  */
 
 __int64 __fastcall MiGetExceptionInfo(ULONG_PTR *a1, __int64 a2)

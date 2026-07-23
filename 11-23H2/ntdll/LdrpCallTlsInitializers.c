@@ -16,43 +16,41 @@
  *     RtlReportException @ 0x1800E8040 (RtlReportException.c)
  */
 
-char __fastcall LdrpCallTlsInitializers(unsigned int a1, unsigned __int64 a2, unsigned __int64 a3, unsigned __int64 a4)
+void __fastcall LdrpCallTlsInitializers(unsigned int a1, __int64 a2)
 {
   __int64 TlsEntry; // rbx
-  char result; // al
-  __int64 *v8; // rbx
-  __int64 v9; // rdi
+  __int64 *v5; // rbx
+  __int64 v6; // rdi
 
-  RtlAcquireSRWLockShared(&LdrpTlsLock, a2, a3, a4);
+  RtlAcquireSRWLockShared(&LdrpTlsLock);
   TlsEntry = LdrpFindTlsEntry(a2);
-  result = RtlReleaseSRWLockShared(&LdrpTlsLock);
+  RtlReleaseSRWLockShared(&LdrpTlsLock);
   if ( TlsEntry )
   {
-    v8 = *(__int64 **)(TlsEntry + 40);
-    if ( v8 )
+    v5 = *(__int64 **)(TlsEntry + 40);
+    if ( v5 )
     {
       while ( 1 )
       {
-        v9 = *v8;
-        if ( !*v8 )
+        v6 = *v5;
+        if ( !*v5 )
           break;
-        ++v8;
+        ++v5;
         LdrpLogInternal(
           (unsigned int)"minkernel\\ntdll\\ldrtls.c",
-          1180LL,
+          1180,
           (__int64)"LdrpCallTlsInitializers",
-          2LL,
+          2u,
           "Calling TLS callback %p for DLL \"%wZ\" at %p\n",
-          v9,
+          v6,
           a2 + 72,
           *(_QWORD *)(a2 + 48));
-        result = LdrpCallInitRoutine(
-                   (__int64 (__fastcall *)(__int64, _QWORD, __int64))ImageTlsCallbackCaller,
-                   *(_QWORD *)(a2 + 48),
-                   a1,
-                   v9);
+        LdrpCallInitRoutine(
+          (__int64 (__fastcall *)(__int64, _QWORD, __int64))ImageTlsCallbackCaller,
+          *(_QWORD *)(a2 + 48),
+          a1,
+          v6);
       }
     }
   }
-  return result;
 }

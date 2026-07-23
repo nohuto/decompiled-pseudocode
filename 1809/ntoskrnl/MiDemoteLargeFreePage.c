@@ -1,11 +1,11 @@
 /*
- * XREFs of MiDemoteLargeFreePage @ 0x14012BAA4
+ * XREFs of MiDemoteLargeFreePage @ 0x14012BB74
  * Callers:
- *     MiTradePage @ 0x14009C0F0 (MiTradePage.c)
+ *     MiTradePage @ 0x14009C030 (MiTradePage.c)
  * Callees:
  *     MiInsertLargePageInFreeOrZeroList @ 0x140036320 (MiInsertLargePageInFreeOrZeroList.c)
- *     MiTryUnlinkNodeLargePage @ 0x14012BBB0 (MiTryUnlinkNodeLargePage.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiTryUnlinkNodeLargePage @ 0x14012BC80 (MiTryUnlinkNodeLargePage.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiDemoteLargeFreePage(__int64 a1, __int64 a2, unsigned int a3)

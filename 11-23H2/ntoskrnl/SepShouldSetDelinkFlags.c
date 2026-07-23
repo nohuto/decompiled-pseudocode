@@ -1,10 +1,10 @@
 /*
- * XREFs of SepShouldSetDelinkFlags @ 0x1407F1070
+ * XREFs of SepShouldSetDelinkFlags @ 0x1407F1340
  * Callers:
- *     SepInternalSetSecurityAttributesToken @ 0x1403709B4 (SepInternalSetSecurityAttributesToken.c)
- *     NtSetInformationToken @ 0x1407EF480 (NtSetInformationToken.c)
+ *     SepInternalSetSecurityAttributesToken @ 0x140370B54 (SepInternalSetSecurityAttributesToken.c)
+ *     NtSetInformationToken @ 0x1407EF750 (NtSetInformationToken.c)
  * Callees:
- *     SepPotentialGlobalTableAttribute @ 0x14022CE54 (SepPotentialGlobalTableAttribute.c)
+ *     SepPotentialGlobalTableAttribute @ 0x14022CF64 (SepPotentialGlobalTableAttribute.c)
  */
 
 char __fastcall SepShouldSetDelinkFlags(_DWORD *a1, __int64 a2)

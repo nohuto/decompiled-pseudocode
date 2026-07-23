@@ -9,17 +9,17 @@
  *     <none>
  */
 
-__int64 __fastcall NtQueryInstallUILanguage(_WORD *a1)
+NTSTATUS __cdecl NtQueryInstallUILanguage(LANGID *InstallUILanguageId)
 {
   __int64 v2; // rcx
 
   if ( KeGetCurrentThread()->PreviousMode )
   {
     v2 = 0x7FFFFFFF0000LL;
-    if ( (unsigned __int64)a1 < 0x7FFFFFFF0000LL )
-      v2 = (__int64)a1;
+    if ( (unsigned __int64)InstallUILanguageId < 0x7FFFFFFF0000LL )
+      v2 = (__int64)InstallUILanguageId;
     *(_WORD *)v2 = *(_WORD *)v2;
   }
-  *a1 = PsInstallUILanguageId;
-  return 0LL;
+  *InstallUILanguageId = PsInstallUILanguageId;
+  return 0;
 }

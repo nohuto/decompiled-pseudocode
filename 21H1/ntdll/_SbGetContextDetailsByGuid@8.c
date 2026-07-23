@@ -7,36 +7,41 @@
  *     _memcmp @ 0x4B2F8860 (_memcmp.c)
  */
 
-int __fastcall SbGetContextDetailsByGuid(void *Buf1, _DWORD *a2)
+int __usercall SbGetContextDetailsByGuid@<eax>(void *Buf1@<ecx>, _DWORD *a2@<edx>, int a3@<ebx>)
 {
-  const void *v3; // eax
-  int v4; // esi
-  int *v5; // ecx
-  int v6; // ebx
-  int *v9; // [esp+Ch] [ebp-8h]
-  unsigned int v10; // [esp+10h] [ebp-4h]
+  const void *v4; // eax
+  int v5; // esi
+  int *v6; // ecx
+  int v7; // ebx
+  size_t v9; // [esp-8h] [ebp-1Ch]
+  int *v11; // [esp+Ch] [ebp-8h]
+  unsigned int v12; // [esp+10h] [ebp-4h]
 
-  v3 = Buf1;
-  v4 = 0;
+  v4 = Buf1;
+  v5 = 0;
   if ( a2 && Buf1 )
   {
-    v5 = dword_4B2810C4;
+    v6 = dword_4B2810C4;
     *a2 = 0;
-    v6 = 0;
-    v9 = dword_4B2810C4;
-    v10 = 0;
-    while ( memcmp(v3, v5, 0x10u) )
+    HIDWORD(v9) = a3;
+    v7 = 0;
+    v11 = dword_4B2810C4;
+    v12 = 0;
+    while ( 1 )
     {
-      ++v6;
-      v5 = v9 + 7;
-      v10 += 28;
-      v9 += 7;
-      v3 = Buf1;
-      if ( v10 >= 0x8C )
-        return v4;
+      LODWORD(v9) = 16;
+      if ( !memcmp(v4, v6, v9) )
+        break;
+      ++v7;
+      v6 = v11 + 7;
+      v12 += 28;
+      v11 += 7;
+      v4 = Buf1;
+      if ( v12 >= 0x8C )
+        return v5;
     }
-    v4 = 1;
-    *a2 = &SbSupportedOsList[7 * v6];
+    v5 = 1;
+    *a2 = &SbSupportedOsList[7 * v7];
   }
-  return v4;
+  return v5;
 }

@@ -1,13 +1,13 @@
 /*
- * XREFs of KiPriQueueThreadPriorityChanged @ 0x1404337D0
+ * XREFs of KiPriQueueThreadPriorityChanged @ 0x1402D8290
  * Callers:
- *     KeSetActualBasePriorityThread @ 0x14020A160 (KeSetActualBasePriorityThread.c)
- *     KeSetPriorityAndQuantumProcess @ 0x14045201C (KeSetPriorityAndQuantumProcess.c)
- *     KeSetBasePriorityThread @ 0x1404E7260 (KeSetBasePriorityThread.c)
+ *     KeSetActualBasePriorityThread @ 0x140331740 (KeSetActualBasePriorityThread.c)
+ *     KeSetPriorityAndQuantumProcess @ 0x1404470CC (KeSetPriorityAndQuantumProcess.c)
+ *     KeSetBasePriorityThread @ 0x1404DDF20 (KeSetBasePriorityThread.c)
  * Callees:
- *     KiActivateWaiterQueueWithNoLocks @ 0x1402A5864 (KiActivateWaiterQueueWithNoLocks.c)
- *     KiProcessThreadWaitList @ 0x14031EA20 (KiProcessThreadWaitList.c)
- *     KiActivateWaiterPriQueue @ 0x1404338A8 (KiActivateWaiterPriQueue.c)
+ *     KiProcessThreadWaitList @ 0x1402C75B0 (KiProcessThreadWaitList.c)
+ *     KiActivateWaiterQueueWithNoLocks @ 0x1402D4F94 (KiActivateWaiterQueueWithNoLocks.c)
+ *     KiActivateWaiterPriQueue @ 0x1402D6C08 (KiActivateWaiterPriQueue.c)
  */
 
 __int64 __fastcall KiPriQueueThreadPriorityChanged(volatile signed __int32 *a1, __int64 a2)
@@ -48,9 +48,9 @@ LABEL_2:
     v10 = _interlockedbittestandset(a1, 7u);
     *(_QWORD *)(a2 + 64) = 0LL;
     if ( v10 )
-      result = KiActivateWaiterQueueWithNoLocks(a2, (unsigned __int64)a1, 0LL);
+      result = KiActivateWaiterQueueWithNoLocks(a2, (unsigned __int64)a1, 0LL, a2);
     else
-      result = KiActivateWaiterPriQueue(a1);
+      result = (__int64)KiActivateWaiterPriQueue((ULONG_PTR)a1);
     CurrentPrcb = KeGetCurrentPrcb();
     if ( CurrentPrcb->DeferredReadyListHead.Next )
       return KiProcessThreadWaitList((__int64)CurrentPrcb, 1u, 0, 0);

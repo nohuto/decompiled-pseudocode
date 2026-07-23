@@ -1,13 +1,13 @@
 /*
- * XREFs of MmChangeKernelCfgBitmap @ 0x14085BF50
+ * XREFs of MmChangeKernelCfgBitmap @ 0x14085D1B0
  * Callers:
- *     PsDispatchIumService @ 0x1402EAB94 (PsDispatchIumService.c)
+ *     PsDispatchIumService @ 0x1402EAD84 (PsDispatchIumService.c)
  * Callees:
  *     MiPteInShadowRange @ 0x14003D740 (MiPteInShadowRange.c)
  *     MiMakeValidPte @ 0x14003D7F0 (MiMakeValidPte.c)
- *     MiGetPteAddress @ 0x140065DE8 (MiGetPteAddress.c)
- *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
+ *     MiGetPteAddress @ 0x140065DD8 (MiGetPteAddress.c)
+ *     MiWritePteShadow @ 0x140120F40 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120FA0 (MiPteHasShadow.c)
  */
 
 char __fastcall MmChangeKernelCfgBitmap(unsigned __int64 a1)
@@ -35,7 +35,7 @@ char __fastcall MmChangeKernelCfgBitmap(unsigned __int64 a1)
     if ( (_DWORD)CurrentThread )
     {
       v7 = 1;
-      if ( HIBYTE(word_14043A1AC) )
+      if ( HIBYTE(word_14043B26C) )
         goto LABEL_12;
       v8 = (v6 & 1) == 0;
     }

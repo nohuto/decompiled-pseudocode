@@ -10,51 +10,51 @@
  *     memmove @ 0x1800A1380 (memmove.c)
  */
 
-__int64 __fastcall sub_180050C1C(unsigned int *a1, _BYTE *a2)
+__int64 __fastcall sub_180050C1C(ULONG *a1, _BYTE *a2)
 {
-  unsigned int v2; // ebx
-  unsigned int ClearBitsAndSet; // eax
-  void *Heap; // rax
-  void *v8; // r14
+  ULONG SizeOfBitMap; // ebx
+  ULONG ClearBitsAndSet; // eax
+  ULONG *Heap; // rax
+  ULONG *v8; // r14
 
-  v2 = dword_18015C1D0;
-  if ( !dword_18015C1D0 )
+  SizeOfBitMap = BitMapHeader.SizeOfBitMap;
+  if ( !BitMapHeader.SizeOfBitMap )
   {
-    dword_18015C1D0 = 8;
-    Src = &unk_18015C1C8;
+    BitMapHeader.SizeOfBitMap = 8;
+    BitMapHeader.Buffer = (PULONG)&unk_18015C1C8;
     qword_18015C1E0 = 1LL;
 LABEL_6:
-    RtlClearBits(&dword_18015C1D0, v2 + 1, 7LL);
-    _bittestandset((signed __int32 *)Src, v2);
-    *a1 = v2;
+    RtlClearBits(&BitMapHeader, SizeOfBitMap + 1, 7u);
+    _bittestandset((signed __int32 *)BitMapHeader.Buffer, SizeOfBitMap);
+    *a1 = SizeOfBitMap;
     *a2 = 1;
     return 0LL;
   }
-  ClearBitsAndSet = RtlFindClearBitsAndSet(&dword_18015C1D0, 1LL, 0LL);
+  ClearBitsAndSet = RtlFindClearBitsAndSet(&BitMapHeader, 1u, 0);
   if ( ClearBitsAndSet != -1 )
   {
     *a1 = ClearBitsAndSet;
     *a2 = 0;
     return 0LL;
   }
-  if ( ((unsigned __int64)(unsigned int)(dword_18015C1D0 + 8) + 31) >> 5 <= qword_18015C1E0 )
+  if ( ((unsigned __int64)(BitMapHeader.SizeOfBitMap + 8) + 31) >> 5 <= qword_18015C1E0 )
   {
-    dword_18015C1D0 += 8;
+    BitMapHeader.SizeOfBitMap += 8;
     goto LABEL_6;
   }
-  Heap = (void *)RtlAllocateHeap(
-                   (__int64)NtCurrentPeb()->ProcessHeap,
-                   dword_18015C294 + 786432,
-                   4 * (((unsigned __int64)(v2 + 8) + 31) >> 5));
+  Heap = (ULONG *)RtlAllocateHeap(
+                    NtCurrentPeb()->ProcessHeap,
+                    Flags + 786432,
+                    4 * (((unsigned __int64)(SizeOfBitMap + 8) + 31) >> 5));
   v8 = Heap;
   if ( Heap )
   {
-    qword_18015C1E0 = ((unsigned __int64)(v2 + 8) + 31) >> 5;
-    memmove(Heap, Src, (unsigned __int64)(v2 + 7) >> 3);
-    if ( Src != &unk_18015C1C8 )
-      RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, (unsigned __int64)Src);
-    dword_18015C1D0 = v2 + 8;
-    Src = v8;
+    qword_18015C1E0 = ((unsigned __int64)(SizeOfBitMap + 8) + 31) >> 5;
+    memmove(Heap, BitMapHeader.Buffer, (unsigned __int64)(SizeOfBitMap + 7) >> 3);
+    if ( (_UNKNOWN *)BitMapHeader.Buffer != &unk_18015C1C8 )
+      RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, BitMapHeader.Buffer);
+    BitMapHeader.SizeOfBitMap = SizeOfBitMap + 8;
+    BitMapHeader.Buffer = v8;
     goto LABEL_6;
   }
   return 3221225495LL;

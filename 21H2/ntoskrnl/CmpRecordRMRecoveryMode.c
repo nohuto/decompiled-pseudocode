@@ -1,9 +1,9 @@
 /*
- * XREFs of CmpRecordRMRecoveryMode @ 0x14071CA88
+ * XREFs of CmpRecordRMRecoveryMode @ 0x1405E08DC
  * Callers:
- *     CmpCompleteUnloadKey @ 0x14071CB34 (CmpCompleteUnloadKey.c)
+ *     CmpCompleteUnloadKey @ 0x1405E0268 (CmpCompleteUnloadKey.c)
  * Callees:
- *     HvMarkBaseBlockDirty @ 0x1406BCFEC (HvMarkBaseBlockDirty.c)
+ *     HvMarkBaseBlockDirty @ 0x14061C16C (HvMarkBaseBlockDirty.c)
  */
 
 char __fastcall CmpRecordRMRecoveryMode(__int64 a1)
@@ -30,7 +30,7 @@ char __fastcall CmpRecordRMRecoveryMode(__int64 a1)
       v6 = v5 | 1;
     }
     *(_DWORD *)(v4 + 144) = v6;
-    HvMarkBaseBlockDirty(a1);
+    HvMarkBaseBlockDirty();
   }
   return v2;
 }

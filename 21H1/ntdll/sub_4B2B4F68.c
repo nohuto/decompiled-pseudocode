@@ -8,10 +8,10 @@
 
 int __usercall sub_4B2B4F68@<eax>(int a1@<ebp>)
 {
-  int v1; // ecx
+  void *v1; // ecx
   int result; // eax
 
-  v1 = *(_DWORD *)(a1 - 40);
+  v1 = *(void **)(a1 - 40);
   if ( v1 )
     return LdrpDereferenceModule(v1);
   return result;

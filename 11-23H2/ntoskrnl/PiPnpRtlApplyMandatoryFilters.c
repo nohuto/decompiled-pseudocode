@@ -1,20 +1,20 @@
 /*
- * XREFs of PiPnpRtlApplyMandatoryFilters @ 0x140741438
+ * XREFs of PiPnpRtlApplyMandatoryFilters @ 0x140741628
  * Callers:
- *     PiUEventApplyAdditionalFilters @ 0x14077E4E0 (PiUEventApplyAdditionalFilters.c)
- *     PiDqQueryApplyObjectEvent @ 0x140786C94 (PiDqQueryApplyObjectEvent.c)
- *     IopGetDeviceInterfaces @ 0x1407873F0 (IopGetDeviceInterfaces.c)
- *     PiDqQueryEnumObject @ 0x140788234 (PiDqQueryEnumObject.c)
- *     PiCMValidateDeviceInstance @ 0x140799EB8 (PiCMValidateDeviceInstance.c)
- *     IoGetDeviceInterfaceAlias @ 0x1407C54D0 (IoGetDeviceInterfaceAlias.c)
- *     IopDeviceInterfaceFilterCallback @ 0x1407CE340 (IopDeviceInterfaceFilterCallback.c)
- *     PiCMMandatoryFilterCallback @ 0x1407CF2B0 (PiCMMandatoryFilterCallback.c)
+ *     PiUEventApplyAdditionalFilters @ 0x14077E6D0 (PiUEventApplyAdditionalFilters.c)
+ *     PiDqQueryApplyObjectEvent @ 0x140786E84 (PiDqQueryApplyObjectEvent.c)
+ *     IopGetDeviceInterfaces @ 0x1407875E0 (IopGetDeviceInterfaces.c)
+ *     PiDqQueryEnumObject @ 0x140788424 (PiDqQueryEnumObject.c)
+ *     PiCMValidateDeviceInstance @ 0x14079A0A8 (PiCMValidateDeviceInstance.c)
+ *     IoGetDeviceInterfaceAlias @ 0x1407C57A0 (IoGetDeviceInterfaceAlias.c)
+ *     IopDeviceInterfaceFilterCallback @ 0x1407CE610 (IopDeviceInterfaceFilterCallback.c)
+ *     PiCMMandatoryFilterCallback @ 0x1407CF580 (PiCMMandatoryFilterCallback.c)
  * Callees:
- *     PiPnpRtlApplyMandatoryDeviceInterfaceFilters @ 0x1406C9768 (PiPnpRtlApplyMandatoryDeviceInterfaceFilters.c)
- *     PiPnpRtlApplyMandatoryDeviceFilters @ 0x140740830 (PiPnpRtlApplyMandatoryDeviceFilters.c)
- *     SeQuerySessionIdTokenEx @ 0x140741DD0 (SeQuerySessionIdTokenEx.c)
- *     PiAuVerifyAccessToObject @ 0x14079A8CC (PiAuVerifyAccessToObject.c)
- *     PiPnpRtlApplyMandatoryDeviceContainerFilters @ 0x1407E65A4 (PiPnpRtlApplyMandatoryDeviceContainerFilters.c)
+ *     PiPnpRtlApplyMandatoryDeviceInterfaceFilters @ 0x1406C9798 (PiPnpRtlApplyMandatoryDeviceInterfaceFilters.c)
+ *     PiPnpRtlApplyMandatoryDeviceFilters @ 0x140740A20 (PiPnpRtlApplyMandatoryDeviceFilters.c)
+ *     SeQuerySessionIdTokenEx @ 0x140741FC0 (SeQuerySessionIdTokenEx.c)
+ *     PiAuVerifyAccessToObject @ 0x14079AABC (PiAuVerifyAccessToObject.c)
+ *     PiPnpRtlApplyMandatoryDeviceContainerFilters @ 0x1407E6874 (PiPnpRtlApplyMandatoryDeviceContainerFilters.c)
  */
 
 __int64 __fastcall PiPnpRtlApplyMandatoryFilters(

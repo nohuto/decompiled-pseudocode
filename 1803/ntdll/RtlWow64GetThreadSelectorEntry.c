@@ -6,15 +6,15 @@
  *     ZwQueryInformationThread @ 0x18009AF60 (ZwQueryInformationThread.c)
  */
 
-__int64 __fastcall RtlWow64GetThreadSelectorEntry(__int64 a1, __int64 a2, int a3, _DWORD *a4)
+__int64 __fastcall RtlWow64GetThreadSelectorEntry(void *a1, __int64 a2, int a3, _DWORD *a4)
 {
-  int InformationThread; // r8d
+  NTSTATUS InformationThread; // r8d
   unsigned int v7; // eax
   unsigned int v8; // eax
   int v9; // eax
   int v10; // edx
   unsigned int v11; // eax
-  _BYTE v13[8]; // [rsp+40h] [rbp-38h] BYREF
+  _BYTE ThreadInformation[8]; // [rsp+40h] [rbp-38h] BYREF
   __int64 v14; // [rsp+48h] [rbp-30h]
 
   if ( a3 != 12 )
@@ -35,7 +35,7 @@ __int64 __fastcall RtlWow64GetThreadSelectorEntry(__int64 a1, __int64 a2, int a3
       {
         if ( v7 == 80 )
         {
-          InformationThread = ZwQueryInformationThread(a1, 0LL, v13, 48LL, 0LL);
+          InformationThread = ZwQueryInformationThread(a1, ThreadBasicInformation, ThreadInformation, 0x30u, 0LL);
           if ( InformationThread >= 0 )
           {
             v10 = v14 + 0x2000;

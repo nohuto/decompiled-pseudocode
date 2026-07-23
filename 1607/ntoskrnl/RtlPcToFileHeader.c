@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlPcToFileHeader @ 0x1400A5558
+ * XREFs of RtlPcToFileHeader @ 0x1400A3AD0
  * Callers:
- *     EtwpProviderArrivalCallback @ 0x1404D0D5C (EtwpProviderArrivalCallback.c)
+ *     EtwpProviderArrivalCallback @ 0x1404B47FC (EtwpProviderArrivalCallback.c)
  *     sub_140778D9C @ 0x140778D9C (sub_140778D9C.c)
  * Callees:
- *     RtlpxLookupFunctionTable @ 0x140051540 (RtlpxLookupFunctionTable.c)
+ *     RtlpxLookupFunctionTable @ 0x1400510C0 (RtlpxLookupFunctionTable.c)
  */
 
 PVOID __stdcall RtlPcToFileHeader(PVOID PcValue, PVOID *BaseOfImage)

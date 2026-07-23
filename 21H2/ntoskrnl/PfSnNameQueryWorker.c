@@ -1,15 +1,15 @@
 /*
- * XREFs of PfSnNameQueryWorker @ 0x1402B0BD0
+ * XREFs of PfSnNameQueryWorker @ 0x14022EF30
  * Callers:
  *     <none>
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x14021D060 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseRundownProtection_0 @ 0x14027C4F0 (ExReleaseRundownProtection_0.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14033BD80 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
+ *     ExReleaseRundownProtection @ 0x14026A490 (ExReleaseRundownProtection.c)
+ *     ExAcquireSpinLockExclusive @ 0x1402C1960 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140346AD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ObfDereferenceObjectWithTag @ 0x140355E90 (ObfDereferenceObjectWithTag.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     PfSnVolumeKeyQuery @ 0x14069543C (PfSnVolumeKeyQuery.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     PfSnVolumeKeyQuery @ 0x1405F498C (PfSnVolumeKeyQuery.c)
  */
 
 void __fastcall PfSnNameQueryWorker(struct _EX_RUNDOWN_REF *a1)
@@ -61,7 +61,7 @@ void __fastcall PfSnNameQueryWorker(struct _EX_RUNDOWN_REF *a1)
     }
     __writecr8(v5);
     v6 = (void *)Count[1];
-    if ( (*(int (__fastcall **)(unsigned __int64, void *, __int64 *))(qword_140C503F8 + 16))(a1[44].Count, v6, &v16) >= 0 )
+    if ( (*(int (__fastcall **)(unsigned __int64, void *, __int64 *))(qword_140C50438 + 16))(a1[44].Count, v6, &v16) >= 0 )
       PfSnVolumeKeyQuery(a1, v16, v6);
     ObfDereferenceObjectWithTag(v6, 0x746C6644u);
   }
@@ -85,5 +85,5 @@ void __fastcall PfSnNameQueryWorker(struct _EX_RUNDOWN_REF *a1)
     }
   }
   __writecr8(v5);
-  ExReleaseRundownProtection_0(a1 + 45);
+  ExReleaseRundownProtection(a1 + 45);
 }

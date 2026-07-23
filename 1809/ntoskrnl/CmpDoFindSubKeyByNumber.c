@@ -1,13 +1,13 @@
 /*
- * XREFs of CmpDoFindSubKeyByNumber @ 0x1405D3470
+ * XREFs of CmpDoFindSubKeyByNumber @ 0x1405D4470
  * Callers:
- *     CmpFindSubKeyByNumberEx @ 0x1405D30B0 (CmpFindSubKeyByNumberEx.c)
- *     CmpFindSubKeyByNumber @ 0x1406B2C88 (CmpFindSubKeyByNumber.c)
- *     CmpKeyEnumStackEntryAdvance @ 0x1407FF380 (CmpKeyEnumStackEntryAdvance.c)
- *     CmpKeyEnumStackEntryBegin @ 0x1407FF484 (CmpKeyEnumStackEntryBegin.c)
- *     CmpKeyEnumStackEntryNotifyPromotion @ 0x1407FF6C4 (CmpKeyEnumStackEntryNotifyPromotion.c)
+ *     CmpFindSubKeyByNumberEx @ 0x1405D40B0 (CmpFindSubKeyByNumberEx.c)
+ *     CmpFindSubKeyByNumber @ 0x1406B3F28 (CmpFindSubKeyByNumber.c)
+ *     CmpKeyEnumStackEntryAdvance @ 0x140800580 (CmpKeyEnumStackEntryAdvance.c)
+ *     CmpKeyEnumStackEntryBegin @ 0x140800684 (CmpKeyEnumStackEntryBegin.c)
+ *     CmpKeyEnumStackEntryNotifyPromotion @ 0x1408008C4 (CmpKeyEnumStackEntryNotifyPromotion.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall CmpDoFindSubKeyByNumber(__int64 a1, __int16 *a2, unsigned int a3)

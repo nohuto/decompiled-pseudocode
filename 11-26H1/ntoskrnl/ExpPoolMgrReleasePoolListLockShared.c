@@ -1,12 +1,12 @@
 /*
- * XREFs of ExpPoolMgrReleasePoolListLockShared @ 0x1404CA9F4
+ * XREFs of ExpPoolMgrReleasePoolListLockShared @ 0x1404C4424
  * Callers:
- *     ExpPoolMgrGetNextPoolCommon @ 0x140AC379C (ExpPoolMgrGetNextPoolCommon.c)
- *     ExpPoolMgrResolveMaintenanceHint @ 0x140AC3850 (ExpPoolMgrResolveMaintenanceHint.c)
+ *     ExpPoolMgrGetNextPoolCommon @ 0x140AC540C (ExpPoolMgrGetNextPoolCommon.c)
+ *     ExpPoolMgrResolveMaintenanceHint @ 0x140AC54C0 (ExpPoolMgrResolveMaintenanceHint.c)
  * Callees:
- *     ExfReleasePushLockShared @ 0x140278BD0 (ExfReleasePushLockShared.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
+ *     ExfReleasePushLockShared @ 0x140278140 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
  */
 
 void __fastcall ExpPoolMgrReleasePoolListLockShared(__int64 a1)

@@ -1,17 +1,17 @@
 /*
- * XREFs of MiCheckVirtualAddress @ 0x1403A55E0
+ * XREFs of MiCheckVirtualAddress @ 0x1403A7340
  * Callers:
- *     MiIsFaultPteIntact @ 0x14031C508 (MiIsFaultPteIntact.c)
- *     MiFindActualFaultingPte @ 0x14031C6A4 (MiFindActualFaultingPte.c)
- *     MiFinishHardFault @ 0x14031D830 (MiFinishHardFault.c)
- *     MiTranslatePageForCopy @ 0x140338D4C (MiTranslatePageForCopy.c)
- *     MiInPagePageTable @ 0x1403A4C70 (MiInPagePageTable.c)
+ *     MiIsFaultPteIntact @ 0x14031E538 (MiIsFaultPteIntact.c)
+ *     MiFindActualFaultingPte @ 0x14031E6D4 (MiFindActualFaultingPte.c)
+ *     MiFinishHardFault @ 0x14031F860 (MiFinishHardFault.c)
+ *     MiTranslatePageForCopy @ 0x14033ADCC (MiTranslatePageForCopy.c)
+ *     MiInPagePageTable @ 0x1403A69D0 (MiInPagePageTable.c)
  * Callees:
- *     ExpWaitForSpinLockSharedAndAcquire @ 0x14029BC90 (ExpWaitForSpinLockSharedAndAcquire.c)
- *     MiCheckUserVirtualAddress @ 0x1402D1920 (MiCheckUserVirtualAddress.c)
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402DC6D0 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     ExpAcquireSpinLockSharedAtDpcLevelInstrumented @ 0x1402EE000 (ExpAcquireSpinLockSharedAtDpcLevelInstrumented.c)
- *     ExpReleaseSpinLockSharedFromDpcLevelInstrumented @ 0x14036A848 (ExpReleaseSpinLockSharedFromDpcLevelInstrumented.c)
+ *     ExpWaitForSpinLockSharedAndAcquire @ 0x14029B1F0 (ExpWaitForSpinLockSharedAndAcquire.c)
+ *     MiCheckUserVirtualAddress @ 0x1402B36E0 (MiCheckUserVirtualAddress.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402BE490 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     ExpAcquireSpinLockSharedAtDpcLevelInstrumented @ 0x1402D0080 (ExpAcquireSpinLockSharedAtDpcLevelInstrumented.c)
+ *     ExpReleaseSpinLockSharedFromDpcLevelInstrumented @ 0x14036C5E8 (ExpReleaseSpinLockSharedFromDpcLevelInstrumented.c)
  */
 
 __int64 __fastcall MiCheckVirtualAddress(unsigned __int64 a1, int *a2, __int64 *a3)
@@ -55,19 +55,19 @@ LABEL_56:
     v8 = a1 & 0x7FFFFFFFF000LL;
     if ( (a1 & 0xFFFFFFFFFFFFF000uLL) == 0x7FFE0000 )
     {
-      result = qword_140E2D628;
+      result = qword_140E2D7A8;
       *a2 = 1;
       return result;
     }
-    if ( v8 == qword_140E2D638 && v8 )
+    if ( v8 == qword_140E2D7B8 && v8 )
     {
-      result = qword_140E2D630;
+      result = qword_140E2D7B0;
       *a2 = 1;
       return result;
     }
   }
   v10 = (_DWORD *)&KeGetCurrentThread()->ApcState.Process[2].ActiveProcessors[4].StaticBitmap[8] + 1;
-  if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+  if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || PopHibernateInProgress )
   {
     _m_prefetchw(v10);
     v12 = *v10 & 0x7FFFFFFF;
@@ -129,7 +129,7 @@ LABEL_29:
     v13[3].Header.WaitListHead.Flink = (struct _LIST_ENTRY *)Flink;
   }
   v3 = Flink;
-  if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+  if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || PopHibernateInProgress )
   {
     _m_prefetchw((const void *)(Flink + 64));
     v19 = *(_DWORD *)(Flink + 64) & 0x7FFFFFFF;
@@ -160,7 +160,7 @@ LABEL_40:
   {
     ExReleaseSpinLockSharedFromDpcLevel((PEX_SPIN_LOCK)&v20[2].ActiveProcessors[4].StaticBitmap[8] + 1);
   }
-  else if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+  else if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || PopHibernateInProgress )
   {
     _InterlockedAnd(v21, 0xBFFFFFFF);
     _InterlockedDecrement(v21);
@@ -177,7 +177,7 @@ LABEL_40:
   {
     *a3 = v3;
   }
-  else if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+  else if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || PopHibernateInProgress )
   {
     _InterlockedAnd((volatile signed __int32 *)(v3 + 64), 0xBFFFFFFF);
     _InterlockedDecrement((volatile signed __int32 *)(v3 + 64));

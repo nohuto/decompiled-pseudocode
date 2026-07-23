@@ -1,14 +1,14 @@
 /*
- * XREFs of MiNotifyUserOfLostData @ 0x140672438
+ * XREFs of MiNotifyUserOfLostData @ 0x140673608
  * Callers:
- *     MiDeleteCachedSubsection @ 0x14023C35C (MiDeleteCachedSubsection.c)
- *     MiWriteComplete @ 0x14036B660 (MiWriteComplete.c)
+ *     MiDeleteCachedSubsection @ 0x140204084 (MiDeleteCachedSubsection.c)
+ *     MiWriteComplete @ 0x1402ED400 (MiWriteComplete.c)
  * Callees:
- *     MiReleaseSpinLockExclusive @ 0x14028EE30 (MiReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x14028F370 (ExAcquireSpinLockExclusive.c)
- *     MiAllocatePool @ 0x1402ACA70 (MiAllocatePool.c)
- *     ExQueueWorkItem @ 0x140325850 (ExQueueWorkItem.c)
- *     ObFastReferenceObjectLocked @ 0x140397714 (ObFastReferenceObjectLocked.c)
+ *     MiAllocatePool @ 0x140277450 (MiAllocatePool.c)
+ *     MiReleaseSpinLockExclusive @ 0x14029EA30 (MiReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14029EF70 (ExAcquireSpinLockExclusive.c)
+ *     ExQueueWorkItem @ 0x1402CE3E0 (ExQueueWorkItem.c)
+ *     ObFastReferenceObjectLocked @ 0x1403517CC (ObFastReferenceObjectLocked.c)
  */
 
 __int64 __fastcall MiNotifyUserOfLostData(__int64 a1, int a2)

@@ -1,12 +1,12 @@
 /*
- * XREFs of PspRecheckThreadOptionalXStateFeatures @ 0x14073F758
+ * XREFs of PspRecheckThreadOptionalXStateFeatures @ 0x14073F948
  * Callers:
- *     PspInsertThread @ 0x14073EE9C (PspInsertThread.c)
+ *     PspInsertThread @ 0x14073F08C (PspInsertThread.c)
  * Callees:
- *     MmCreateKernelStack @ 0x1402716A0 (MmCreateKernelStack.c)
- *     KeInitializeApc @ 0x1402BE6D0 (KeInitializeApc.c)
- *     KeInsertQueueApc @ 0x1402CC640 (KeInsertQueueApc.c)
- *     KeGetProcessorNodeNumberByIndex @ 0x14030AFBC (KeGetProcessorNodeNumberByIndex.c)
+ *     MmCreateKernelStack @ 0x140271930 (MmCreateKernelStack.c)
+ *     KeInitializeApc @ 0x1402BE960 (KeInitializeApc.c)
+ *     KeInsertQueueApc @ 0x1402CC8D0 (KeInsertQueueApc.c)
+ *     KeGetProcessorNodeNumberByIndex @ 0x14030B24C (KeGetProcessorNodeNumberByIndex.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

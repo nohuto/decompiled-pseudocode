@@ -1,17 +1,17 @@
 /*
- * XREFs of PiSwProcessParentRemoveIrp @ 0x1404C62E4
+ * XREFs of PiSwProcessParentRemoveIrp @ 0x140484AEC
  * Callers:
- *     IopRemoveDevice @ 0x1404C6038 (IopRemoveDevice.c)
+ *     IopRemoveDevice @ 0x140484840 (IopRemoveDevice.c)
  * Callees:
- *     KiLeaveCriticalRegionUnsafe @ 0x140055FA0 (KiLeaveCriticalRegionUnsafe.c)
- *     ExReleaseResourceLite @ 0x140068940 (ExReleaseResourceLite.c)
- *     PiSwFindPdoAssociation @ 0x1403F1654 (PiSwFindPdoAssociation.c)
- *     PiSwLock @ 0x1403F1A74 (PiSwLock.c)
- *     PiSwFindChildren @ 0x1403F1A94 (PiSwFindChildren.c)
- *     PiSwProcessRemove @ 0x1404C36B0 (PiSwProcessRemove.c)
- *     PiSwDestroyDeviceObject @ 0x1404C3958 (PiSwDestroyDeviceObject.c)
- *     PiSwCloseDescendants @ 0x1404C6390 (PiSwCloseDescendants.c)
- *     PiSwFindSwDevice @ 0x1404C63C0 (PiSwFindSwDevice.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140055B20 (KiLeaveCriticalRegionUnsafe.c)
+ *     ExReleaseResourceLite @ 0x1400684C0 (ExReleaseResourceLite.c)
+ *     PiSwFindPdoAssociation @ 0x1403F0518 (PiSwFindPdoAssociation.c)
+ *     PiSwLock @ 0x1403F0938 (PiSwLock.c)
+ *     PiSwFindChildren @ 0x1403F0958 (PiSwFindChildren.c)
+ *     PiSwProcessRemove @ 0x140483A18 (PiSwProcessRemove.c)
+ *     PiSwDestroyDeviceObject @ 0x140483C74 (PiSwDestroyDeviceObject.c)
+ *     PiSwCloseDescendants @ 0x140484B98 (PiSwCloseDescendants.c)
+ *     PiSwFindSwDevice @ 0x1404867FC (PiSwFindSwDevice.c)
  */
 
 _UNKNOWN **__fastcall PiSwProcessParentRemoveIrp(__int64 a1)

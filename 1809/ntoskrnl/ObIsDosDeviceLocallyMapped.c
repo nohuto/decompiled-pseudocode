@@ -1,12 +1,12 @@
 /*
- * XREFs of ObIsDosDeviceLocallyMapped @ 0x14075E170
+ * XREFs of ObIsDosDeviceLocallyMapped @ 0x14075F360
  * Callers:
  *     <none>
  * Callees:
  *     ExAcquirePushLockSharedEx @ 0x14004EE20 (ExAcquirePushLockSharedEx.c)
  *     KiLeaveGuardedRegionUnsafe @ 0x14004F090 (KiLeaveGuardedRegionUnsafe.c)
  *     ExReleasePushLockEx @ 0x14004F160 (ExReleasePushLockEx.c)
- *     PsGetCurrentServerSiloGlobals @ 0x140109D40 (PsGetCurrentServerSiloGlobals.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x140109DC0 (PsGetCurrentServerSiloGlobals.c)
  */
 
 __int64 __fastcall ObIsDosDeviceLocallyMapped(int a1, bool *a2)

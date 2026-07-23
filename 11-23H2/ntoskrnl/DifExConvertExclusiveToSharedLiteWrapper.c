@@ -1,12 +1,12 @@
 /*
- * XREFs of DifExConvertExclusiveToSharedLiteWrapper @ 0x1405D8020
+ * XREFs of DifExConvertExclusiveToSharedLiteWrapper @ 0x1405D8590
  * Callers:
  *     <none>
  * Callees:
- *     ExConvertExclusiveToSharedLite @ 0x1403476C0 (ExConvertExclusiveToSharedLite.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     DifGetAPIThunkContextById @ 0x1404664BE (DifGetAPIThunkContextById.c)
- *     DifGetReturnAddressForWrappers @ 0x1405F88C4 (DifGetReturnAddressForWrappers.c)
+ *     ExConvertExclusiveToSharedLite @ 0x140347950 (ExConvertExclusiveToSharedLite.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     DifGetAPIThunkContextById @ 0x1404668BE (DifGetAPIThunkContextById.c)
+ *     DifGetReturnAddressForWrappers @ 0x1405F8E34 (DifGetReturnAddressForWrappers.c)
  */
 
 void __fastcall DifExConvertExclusiveToSharedLiteWrapper(PERESOURCE Resource)

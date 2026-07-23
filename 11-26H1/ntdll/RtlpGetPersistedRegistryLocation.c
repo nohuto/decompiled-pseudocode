@@ -1,40 +1,54 @@
 /*
- * XREFs of RtlpGetPersistedRegistryLocation @ 0x180148940
+ * XREFs of RtlpGetPersistedRegistryLocation @ 0x1801487F0
  * Callers:
- *     RtlpEtcGetDwordFromPersistedState @ 0x180148714 (RtlpEtcGetDwordFromPersistedState.c)
+ *     RtlpEtcGetDwordFromPersistedState @ 0x1801485C4 (RtlpEtcGetDwordFromPersistedState.c)
  * Callees:
- *     RtlpAllocateAtom @ 0x180037BF0 (RtlpAllocateAtom.c)
- *     RtlpSysVolFree @ 0x180038000 (RtlpSysVolFree.c)
- *     RtlGetPersistedStateLocation @ 0x18003E210 (RtlGetPersistedStateLocation.c)
+ *     RtlpAllocateAtom @ 0x1800018C0 (RtlpAllocateAtom.c)
+ *     RtlpSysVolFree @ 0x180001CD0 (RtlpSysVolFree.c)
+ *     RtlGetPersistedStateLocation @ 0x180028780 (RtlGetPersistedStateLocation.c)
  */
 
-__int64 __fastcall RtlpGetPersistedRegistryLocation(wchar_t *String, _WORD *a2, _QWORD *a3, _DWORD *a4)
+__int64 __fastcall RtlpGetPersistedRegistryLocation(PCWSTR SourceID, PCWSTR DefaultPath, WCHAR **a3, _DWORD *a4)
 {
-  int PersistedStateLocation; // eax
-  int v9; // ebx
-  unsigned int v10; // ebx
-  void *Atom; // rdi
-  unsigned int v13[4]; // [rsp+40h] [rbp-28h] BYREF
+  NTSTATUS PersistedStateLocation; // eax
+  NTSTATUS v9; // ebx
+  ULONG BufferLengthIn; // ebx
+  WCHAR *TargetPath; // rdi
+  ULONG BufferLengthOut[4]; // [rsp+40h] [rbp-28h] BYREF
 
-  v13[0] = 0;
-  PersistedStateLocation = RtlGetPersistedStateLocation(String, L"TargetNtPath", a2, 0, 0LL, 0, v13);
+  BufferLengthOut[0] = 0;
+  PersistedStateLocation = RtlGetPersistedStateLocation(
+                             SourceID,
+                             L"TargetNtPath",
+                             DefaultPath,
+                             LocationTypeRegistry,
+                             0LL,
+                             0,
+                             BufferLengthOut);
   v9 = PersistedStateLocation;
   if ( PersistedStateLocation == -2147483643 )
   {
-    v10 = v13[0];
-    Atom = (void *)RtlpAllocateAtom(v13[0]);
-    if ( Atom )
+    BufferLengthIn = BufferLengthOut[0];
+    TargetPath = (WCHAR *)RtlpAllocateAtom(BufferLengthOut[0]);
+    if ( TargetPath )
     {
-      v9 = RtlGetPersistedStateLocation(String, L"TargetNtPath", a2, 0, Atom, v10, v13);
+      v9 = RtlGetPersistedStateLocation(
+             SourceID,
+             L"TargetNtPath",
+             DefaultPath,
+             LocationTypeRegistry,
+             TargetPath,
+             BufferLengthIn,
+             BufferLengthOut);
       if ( v9 < 0 )
       {
-        RtlpSysVolFree((__int64)Atom);
+        RtlpSysVolFree(TargetPath);
       }
       else
       {
-        *a3 = Atom;
+        *a3 = TargetPath;
         if ( a4 )
-          *a4 = (v13[0] >> 1) - 1;
+          *a4 = (BufferLengthOut[0] >> 1) - 1;
       }
     }
     else

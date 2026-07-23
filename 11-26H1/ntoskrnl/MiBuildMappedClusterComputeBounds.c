@@ -1,12 +1,12 @@
 /*
- * XREFs of MiBuildMappedClusterComputeBounds @ 0x14040D9C0
+ * XREFs of MiBuildMappedClusterComputeBounds @ 0x14042A8EC
  * Callers:
- *     MiBuildMappedCluster @ 0x14040D8F0 (MiBuildMappedCluster.c)
+ *     MiBuildMappedCluster @ 0x14042A81C (MiBuildMappedCluster.c)
  * Callees:
- *     MiMapPageInHyperSpaceWorker @ 0x140287EE0 (MiMapPageInHyperSpaceWorker.c)
- *     ExAllocatePoolMm @ 0x1403985B0 (ExAllocatePoolMm.c)
- *     MiPteContentsOkToMappedWrite @ 0x14040DDD0 (MiPteContentsOkToMappedWrite.c)
- *     MiUnmapPageInHyperSpaceWorker @ 0x14040DF60 (MiUnmapPageInHyperSpaceWorker.c)
+ *     MiMapPageInHyperSpaceWorker @ 0x140287440 (MiMapPageInHyperSpaceWorker.c)
+ *     ExAllocatePoolMm @ 0x14039A310 (ExAllocatePoolMm.c)
+ *     MiPteContentsOkToMappedWrite @ 0x14042ACFC (MiPteContentsOkToMappedWrite.c)
+ *     MiUnmapPageInHyperSpaceWorker @ 0x14042AE90 (MiUnmapPageInHyperSpaceWorker.c)
  */
 
 __int16 *__fastcall MiBuildMappedClusterComputeBounds(__int16 **a1)

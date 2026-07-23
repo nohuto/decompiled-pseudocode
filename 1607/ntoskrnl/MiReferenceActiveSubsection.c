@@ -1,15 +1,15 @@
 /*
- * XREFs of MiReferenceActiveSubsection @ 0x14002CE80
+ * XREFs of MiReferenceActiveSubsection @ 0x14002CA00
  * Callers:
- *     MiAddViewsForSection @ 0x14002C690 (MiAddViewsForSection.c)
+ *     MiAddViewsForSection @ 0x14002C210 (MiAddViewsForSection.c)
  * Callees:
- *     MiIncrementSubsectionViewCount @ 0x14002CF20 (MiIncrementSubsectionViewCount.c)
- *     ExReleaseSpinLockExclusive @ 0x14002E9A0 (ExReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x14002EB90 (ExAcquireSpinLockExclusive.c)
- *     MiRemoveUnusedSubsection @ 0x1400904A4 (MiRemoveUnusedSubsection.c)
- *     MiSubsectionRequiresCharge @ 0x1400FC9C4 (MiSubsectionRequiresCharge.c)
- *     MiGetSubsectionCharges @ 0x1401F50F8 (MiGetSubsectionCharges.c)
- *     MiReturnSubsectionCharges @ 0x1401F5310 (MiReturnSubsectionCharges.c)
+ *     MiIncrementSubsectionViewCount @ 0x14002CAA0 (MiIncrementSubsectionViewCount.c)
+ *     ExReleaseSpinLockExclusive @ 0x14002E520 (ExReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14002E710 (ExAcquireSpinLockExclusive.c)
+ *     MiRemoveUnusedSubsection @ 0x14008FC04 (MiRemoveUnusedSubsection.c)
+ *     MiSubsectionRequiresCharge @ 0x1400FA744 (MiSubsectionRequiresCharge.c)
+ *     MiGetSubsectionCharges @ 0x1401F4F24 (MiGetSubsectionCharges.c)
+ *     MiReturnSubsectionCharges @ 0x1401F513C (MiReturnSubsectionCharges.c)
  */
 
 __int64 __fastcall MiReferenceActiveSubsection(__int64 *a1, char a2, KIRQL a3)

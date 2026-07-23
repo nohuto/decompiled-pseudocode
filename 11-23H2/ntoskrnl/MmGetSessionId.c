@@ -1,21 +1,21 @@
 /*
- * XREFs of MmGetSessionId @ 0x1402A3C40
+ * XREFs of MmGetSessionId @ 0x1402A3ED0
  * Callers:
  *     PspBindProcessSessionToJob @ 0x14069FBC4 (PspBindProcessSessionToJob.c)
- *     PsInvokeWin32Callout @ 0x1406AF850 (PsInvokeWin32Callout.c)
- *     PspInitializeProcessSecurity @ 0x1406B64F0 (PspInitializeProcessSecurity.c)
- *     EtwpStartLogger @ 0x1406BBFB0 (EtwpStartLogger.c)
- *     NtQueryInformationProcess @ 0x1406FCA90 (NtQueryInformationProcess.c)
- *     PsGetThreadSessionId @ 0x1407249E0 (PsGetThreadSessionId.c)
- *     ExpGetProcessInformation @ 0x140742DC0 (ExpGetProcessInformation.c)
- *     EtwpPsProvTraceProcess @ 0x1407523D0 (EtwpPsProvTraceProcess.c)
- *     NtSetInformationProcess @ 0x140774540 (NtSetInformationProcess.c)
- *     MmCreatePeb @ 0x1407A189C (MmCreatePeb.c)
- *     ExCallSessionCallBack @ 0x1407C5C90 (ExCallSessionCallBack.c)
- *     PopInvokeWin32Callout @ 0x1407D38BC (PopInvokeWin32Callout.c)
- *     SeExchangePrimaryToken @ 0x1408402F8 (SeExchangePrimaryToken.c)
- *     PopDirectedDripsSendSuspendResumeNotification @ 0x140983CF0 (PopDirectedDripsSendSuspendResumeNotification.c)
- *     PopSendSuspendResumeApplicationNotification @ 0x14098A528 (PopSendSuspendResumeApplicationNotification.c)
+ *     PsInvokeWin32Callout @ 0x1406AF880 (PsInvokeWin32Callout.c)
+ *     PspInitializeProcessSecurity @ 0x1406B66A0 (PspInitializeProcessSecurity.c)
+ *     EtwpStartLogger @ 0x1406BBFE0 (EtwpStartLogger.c)
+ *     NtQueryInformationProcess @ 0x1406FCCA0 (NtQueryInformationProcess.c)
+ *     PsGetThreadSessionId @ 0x140724BE0 (PsGetThreadSessionId.c)
+ *     ExpGetProcessInformation @ 0x140742FB0 (ExpGetProcessInformation.c)
+ *     EtwpPsProvTraceProcess @ 0x1407525C0 (EtwpPsProvTraceProcess.c)
+ *     NtSetInformationProcess @ 0x140774730 (NtSetInformationProcess.c)
+ *     MmCreatePeb @ 0x1407A1A8C (MmCreatePeb.c)
+ *     ExCallSessionCallBack @ 0x1407C5F60 (ExCallSessionCallBack.c)
+ *     PopInvokeWin32Callout @ 0x1407D3B8C (PopInvokeWin32Callout.c)
+ *     SeExchangePrimaryToken @ 0x1408405F8 (SeExchangePrimaryToken.c)
+ *     PopDirectedDripsSendSuspendResumeNotification @ 0x140983EF0 (PopDirectedDripsSendSuspendResumeNotification.c)
+ *     PopSendSuspendResumeApplicationNotification @ 0x14098A728 (PopSendSuspendResumeApplicationNotification.c)
  * Callees:
  *     <none>
  */

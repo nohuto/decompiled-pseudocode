@@ -1,24 +1,24 @@
 /*
- * XREFs of ViLookasideAdd @ 0x14093F00C
+ * XREFs of ViLookasideAdd @ 0x14094000C
  * Callers:
- *     VerifierExInitializeLookasideListEx @ 0x14093EC00 (VerifierExInitializeLookasideListEx.c)
- *     ViLookasideTrackList @ 0x14093F204 (ViLookasideTrackList.c)
+ *     VerifierExInitializeLookasideListEx @ 0x14093FC00 (VerifierExInitializeLookasideListEx.c)
+ *     ViLookasideTrackList @ 0x140940204 (ViLookasideTrackList.c)
  * Callees:
- *     ExFreeToNPagedLookasideList @ 0x1400922D8 (ExFreeToNPagedLookasideList.c)
- *     VfAvlCleanupLockContext @ 0x1400F5688 (VfAvlCleanupLockContext.c)
- *     VfAvlInsertReservedTreeNode @ 0x1400F56D8 (VfAvlInsertReservedTreeNode.c)
- *     VfAvlReserveNode @ 0x1400F5850 (VfAvlReserveNode.c)
- *     VfUtilFreePoolCheckIRQL @ 0x14016C310 (VfUtilFreePoolCheckIRQL.c)
- *     VfAvlDeleteTreeNode @ 0x14016C378 (VfAvlDeleteTreeNode.c)
- *     VfAvlLookupTreeNode @ 0x14016C430 (VfAvlLookupTreeNode.c)
- *     VfAvlInitializeLockContext @ 0x14030B5B4 (VfAvlInitializeLockContext.c)
- *     VerifierBugCheckIfAppropriate @ 0x14092FD84 (VerifierBugCheckIfAppropriate.c)
+ *     ExFreeToNPagedLookasideList @ 0x140092218 (ExFreeToNPagedLookasideList.c)
+ *     VfAvlCleanupLockContext @ 0x1400F5708 (VfAvlCleanupLockContext.c)
+ *     VfAvlInsertReservedTreeNode @ 0x1400F5758 (VfAvlInsertReservedTreeNode.c)
+ *     VfAvlReserveNode @ 0x1400F58D0 (VfAvlReserveNode.c)
+ *     VfUtilFreePoolCheckIRQL @ 0x14016C410 (VfUtilFreePoolCheckIRQL.c)
+ *     VfAvlDeleteTreeNode @ 0x14016C478 (VfAvlDeleteTreeNode.c)
+ *     VfAvlLookupTreeNode @ 0x14016C530 (VfAvlLookupTreeNode.c)
+ *     VfAvlInitializeLockContext @ 0x14030B7A4 (VfAvlInitializeLockContext.c)
+ *     VerifierBugCheckIfAppropriate @ 0x140930D84 (VerifierBugCheckIfAppropriate.c)
  */
 
 void __fastcall ViLookasideAdd(ULONG_PTR BugCheckParameter2)
 {
   char *v2; // rsi
-  struct _SLIST_ENTRY *v3; // rbx
+  _SLIST_ENTRY *v3; // rbx
   _BYTE v4[24]; // [rsp+30h] [rbp-18h] BYREF
 
   if ( ViLookasideInitialized )
@@ -32,13 +32,13 @@ void __fastcall ViLookasideAdd(ULONG_PTR BugCheckParameter2)
       {
         if ( !ViLookasideAllocationFailures && !ViLookasideAlreadyLoadedDrivers && (MmVerifierData & 0x800) != 0 )
           VerifierBugCheckIfAppropriate(0xC4u, 0xCAuLL, BugCheckParameter2, 0LL, 0LL);
-        v3 = (struct _SLIST_ENTRY *)VfAvlDeleteTreeNode((__int64)ViLookasideAvl, (__int64)v4, BugCheckParameter2, 0LL);
+        v3 = (_SLIST_ENTRY *)VfAvlDeleteTreeNode((__int64)ViLookasideAvl, (__int64)v4, BugCheckParameter2, 0LL);
       }
       VfAvlInsertReservedTreeNode((__int64)ViLookasideAvl, (__int64)v4, v2);
       VfAvlCleanupLockContext((__int64)v4);
       if ( v3 )
       {
-        if ( dword_140987010 == 1 )
+        if ( dword_140988010 == 1 )
           ExFreeToNPagedLookasideList(&ViAvlNodeLookaside, v3);
         else
           VfUtilFreePoolCheckIRQL(v3);

@@ -1,9 +1,9 @@
 /*
- * XREFs of ExpTimeRefreshCallback @ 0x140653710
+ * XREFs of ExpTimeRefreshCallback @ 0x140651E70
  * Callers:
  *     <none>
  * Callees:
- *     KeInsertQueueDpc @ 0x1402542F0 (KeInsertQueueDpc.c)
+ *     KeInsertQueueDpc @ 0x140284900 (KeInsertQueueDpc.c)
  */
 
 BOOLEAN ExpTimeRefreshCallback()

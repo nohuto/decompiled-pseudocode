@@ -1,9 +1,9 @@
 /*
- * XREFs of PspHardenMitigationOptions @ 0x140A612C0
+ * XREFs of PspHardenMitigationOptions @ 0x140A599A0
  * Callers:
- *     PspAllocateProcess @ 0x140A1C4C0 (PspAllocateProcess.c)
+ *     PspAllocateProcess @ 0x1409FACD0 (PspAllocateProcess.c)
  * Callees:
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 void __fastcall PspHardenMitigationOptions(__m128i *a1)
@@ -27,7 +27,7 @@ void __fastcall PspHardenMitigationOptions(__m128i *a1)
     v6 = _mm_srli_si128(v1, 8).m128i_u64[0];
     v5 = v6 - *((_QWORD *)&PspHardenedMitigationOptionsMap + 1);
     if ( v6 == *((_QWORD *)&PspHardenedMitigationOptionsMap + 1) )
-      v5 = v3 - qword_140FC6550;
+      v5 = v3 - qword_140FC75B8;
   }
   if ( v5 )
   {

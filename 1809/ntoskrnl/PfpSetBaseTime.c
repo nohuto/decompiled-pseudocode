@@ -1,10 +1,10 @@
 /*
- * XREFs of PfpSetBaseTime @ 0x14075205C
+ * XREFs of PfpSetBaseTime @ 0x14075324C
  * Callers:
- *     PfpParametersInitialize @ 0x1409D472C (PfpParametersInitialize.c)
+ *     PfpParametersInitialize @ 0x1409D572C (PfpParametersInitialize.c)
  * Callees:
- *     PfpSetParameter @ 0x1407520F0 (PfpSetParameter.c)
- *     PfpGetParameter @ 0x140752888 (PfpGetParameter.c)
+ *     PfpSetParameter @ 0x1407532E0 (PfpSetParameter.c)
+ *     PfpGetParameter @ 0x140753A78 (PfpGetParameter.c)
  */
 
 __int64 __fastcall PfpSetBaseTime(HANDLE KeyHandle, _DWORD *a2)

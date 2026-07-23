@@ -72,7 +72,7 @@ void __fastcall MiUnlockWorkingSetExclusive(__int64 a1, unsigned __int8 a2)
   _SLIST_ENTRY *v5; // r15
   _DWORD **v6; // r14
   _KPROCESS *Process; // rbx
-  union _SLIST_HEADER *v8; // rcx
+  _SLIST_HEADER *v8; // rcx
   PSLIST_ENTRY v9; // rdi
   int v10; // ebp
   _DWORD *v11; // r14
@@ -80,7 +80,7 @@ void __fastcall MiUnlockWorkingSetExclusive(__int64 a1, unsigned __int8 a2)
   _DWORD *v13; // rbx
   _SLIST_ENTRY *Next; // rbx
   unsigned __int64 *p_IdealProcessorAssignmentBlock; // rbp
-  struct _SLIST_ENTRY *v16; // rbx
+  _SLIST_ENTRY *v16; // rbx
   void *retaddr; // [rsp+48h] [rbp+0h]
 
   v3 = a2;
@@ -95,7 +95,7 @@ void __fastcall MiUnlockWorkingSetExclusive(__int64 a1, unsigned __int8 a2)
     if ( *(_QWORD *)(a1 + 16) )
     {
       Process = KeGetCurrentThread()->ApcState.Process;
-      v8 = (union _SLIST_HEADER *)&Process[2].ActiveProcessors[4].StaticBitmap[1];
+      v8 = (_SLIST_HEADER *)&Process[2].ActiveProcessors[4].StaticBitmap[1];
       if ( LOWORD(v8->Alignment) )
       {
         v9 = RtlpInterlockedFlushSList(v8);

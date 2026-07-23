@@ -1,16 +1,16 @@
 /*
- * XREFs of AlpcpCaptureHandleAttributeInternal @ 0x14068513C
+ * XREFs of AlpcpCaptureHandleAttributeInternal @ 0x1405E2350
  * Callers:
- *     AlpcpCaptureHandleAttribute @ 0x1406850E8 (AlpcpCaptureHandleAttribute.c)
- *     AlpcpCaptureHandleAttribute32 @ 0x1407732E4 (AlpcpCaptureHandleAttribute32.c)
+ *     AlpcpCaptureHandleAttribute @ 0x1405E22FC (AlpcpCaptureHandleAttribute.c)
+ *     AlpcpCaptureHandleAttribute32 @ 0x1407734A4 (AlpcpCaptureHandleAttribute32.c)
  * Callees:
- *     memset @ 0x140414200 (memset.c)
- *     AlpcpDereferenceBlobEx @ 0x1405E9FC0 (AlpcpDereferenceBlobEx.c)
- *     AlpcpAllocateBlob @ 0x140660A8C (AlpcpAllocateBlob.c)
- *     ObCaptureObjectStateForDuplication @ 0x140685408 (ObCaptureObjectStateForDuplication.c)
- *     ExRaiseDatatypeMisalignment @ 0x14077BDF0 (ExRaiseDatatypeMisalignment.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     ObCaptureObjectStateForDuplication @ 0x1405E261C (ObCaptureObjectStateForDuplication.c)
+ *     AlpcpAllocateBlob @ 0x1406558AC (AlpcpAllocateBlob.c)
+ *     AlpcpDereferenceBlobEx @ 0x1406D9720 (AlpcpDereferenceBlobEx.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BFB0 (ExRaiseDatatypeMisalignment.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall AlpcpCaptureHandleAttributeInternal(__int64 a1, __int64 a2)
@@ -19,7 +19,7 @@ __int64 __fastcall AlpcpCaptureHandleAttributeInternal(__int64 a1, __int64 a2)
   __int64 v4; // rsi
   ULONG_PTR v5; // rdi
   char *PoolWithTag; // r14
-  _OWORD *Blob; // rax
+  void *Blob; // rax
   _KPROCESS *Process; // r13
   int v9; // ebx
   __int64 j; // r12
@@ -80,7 +80,7 @@ __int64 __fastcall AlpcpCaptureHandleAttributeInternal(__int64 a1, __int64 a2)
     return 3221225485LL;
   }
 LABEL_3:
-  Blob = AlpcpAllocateBlob((__int64)AlpcHandleDataType, 48LL * (unsigned int)v4, 0);
+  Blob = (void *)AlpcpAllocateBlob(AlpcHandleDataType, 48LL * (unsigned int)v4, 0LL);
   v5 = (ULONG_PTR)Blob;
   if ( Blob )
   {
@@ -119,7 +119,7 @@ LABEL_3:
   }
 LABEL_12:
   if ( v5 )
-    AlpcpDereferenceBlobEx(v5, 1);
+    AlpcpDereferenceBlobEx(v5);
   if ( PoolWithTag )
     ExFreePoolWithTag(PoolWithTag, 0x4863704Cu);
   return (unsigned int)v9;

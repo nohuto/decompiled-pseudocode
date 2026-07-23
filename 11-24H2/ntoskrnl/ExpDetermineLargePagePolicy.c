@@ -1,7 +1,7 @@
 /*
- * XREFs of ExpDetermineLargePagePolicy @ 0x14065A0E4
+ * XREFs of ExpDetermineLargePagePolicy @ 0x140658784
  * Callers:
- *     ExInitializePoolHeapManagement @ 0x140659E80 (ExInitializePoolHeapManagement.c)
+ *     ExInitializePoolHeapManagement @ 0x140658520 (ExInitializePoolHeapManagement.c)
  * Callees:
  *     <none>
  */
@@ -17,7 +17,7 @@ __int64 __fastcall ExpDetermineLargePagePolicy(__int64 a1)
 
   *(_OWORD *)a1 = 0LL;
   *(_QWORD *)(a1 + 16) = 0LL;
-  v1 = qword_140E2FF88;
+  v1 = qword_140E300C8;
   *(_BYTE *)(a1 + 16) = 80;
   v2 = *(_QWORD *)(*(_QWORD *)v1 + 18512LL);
   v3 = v2 >> 9;

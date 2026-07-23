@@ -11,7 +11,7 @@
  *     KiInsertSchedulingGroupQueue @ 0x140308A1C (KiInsertSchedulingGroupQueue.c)
  */
 
-void __fastcall KiResortScbQueue(__int64 a1, __int64 a2, char a3)
+void __fastcall KiResortScbQueue(_RTL_RB_TREE *a1, __int64 a2, char a3)
 {
   unsigned __int64 *v3; // r9
   unsigned __int64 v6; // rcx

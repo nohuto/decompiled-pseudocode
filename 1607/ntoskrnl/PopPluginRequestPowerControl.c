@@ -1,7 +1,7 @@
 /*
- * XREFs of PopPluginRequestPowerControl @ 0x140204A4C
+ * XREFs of PopPluginRequestPowerControl @ 0x140204878
  * Callers:
- *     PoFxPowerControl @ 0x140126260 (PoFxPowerControl.c)
+ *     PoFxPowerControl @ 0x1401267D0 (PoFxPowerControl.c)
  * Callees:
  *     <none>
  */

@@ -98,7 +98,7 @@ __int64 __fastcall CmpCheckKey(
   unsigned int *v81; // r15
   _WORD *v82; // r12
   int v83; // eax
-  RTL_BITMAP *v84; // r14
+  _RTL_BITMAP *v84; // r14
   ULONG_PTR v85; // rdx
   _WORD *v86; // rax
   __int16 *v87; // r12

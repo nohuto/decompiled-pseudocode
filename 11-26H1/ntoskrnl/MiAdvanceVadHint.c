@@ -1,12 +1,12 @@
 /*
- * XREFs of MiAdvanceVadHint @ 0x14095CE00
+ * XREFs of MiAdvanceVadHint @ 0x140A026C0
  * Callers:
- *     MiReserveUserMemoryInsertVad @ 0x14095BBAC (MiReserveUserMemoryInsertVad.c)
- *     MiMapViewOfPhysicalSection @ 0x14095C9CC (MiMapViewOfPhysicalSection.c)
- *     MiMapLockedPagesInUserSpace @ 0x14095D148 (MiMapLockedPagesInUserSpace.c)
- *     MiAllocateNewSubAllocatedRegion @ 0x1409CA420 (MiAllocateNewSubAllocatedRegion.c)
- *     MiHandleInsertedImageVad @ 0x1409CDFA4 (MiHandleInsertedImageVad.c)
- *     MiAllocateEnclaveVad @ 0x140B693A0 (MiAllocateEnclaveVad.c)
+ *     MiAllocateNewSubAllocatedRegion @ 0x14099B400 (MiAllocateNewSubAllocatedRegion.c)
+ *     MiHandleInsertedImageVad @ 0x14099EF84 (MiHandleInsertedImageVad.c)
+ *     MiReserveUserMemoryInsertVad @ 0x140A0146C (MiReserveUserMemoryInsertVad.c)
+ *     MiMapViewOfPhysicalSection @ 0x140A0228C (MiMapViewOfPhysicalSection.c)
+ *     MiMapLockedPagesInUserSpace @ 0x140A02A08 (MiMapLockedPagesInUserSpace.c)
+ *     MiAllocateEnclaveVad @ 0x140B6C330 (MiAllocateEnclaveVad.c)
  * Callees:
  *     <none>
  */
@@ -28,7 +28,7 @@ unsigned __int64 __fastcall MiAdvanceVadHint(unsigned __int64 a1, unsigned __int
 
   v3 = (a2 >> 4) & 0xFFFFFFFFFFFFLL;
   v4 = (a1 >> 4) & 0xFFFFFFFFFFFFLL;
-  result = (unsigned __int64)(-524288 * qword_140E2DE48 + (a3[1] << 19)) >> 16;
+  result = (unsigned __int64)(-524288 * qword_140E2DFC8 + (a3[1] << 19)) >> 16;
   if ( v3 < result )
     return result;
   v6 = result + *a3;
@@ -36,7 +36,7 @@ unsigned __int64 __fastcall MiAdvanceVadHint(unsigned __int64 a1, unsigned __int
     return result;
   v7 = v4;
   if ( v4 < result )
-    v7 = (unsigned __int64)(-524288 * qword_140E2DE48 + (a3[1] << 19)) >> 16;
+    v7 = (unsigned __int64)(-524288 * qword_140E2DFC8 + (a3[1] << 19)) >> 16;
   v8 = 0;
   v9 = v4 < result;
   if ( v3 >= v6 )

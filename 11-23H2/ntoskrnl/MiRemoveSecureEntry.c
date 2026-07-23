@@ -1,15 +1,15 @@
 /*
  * XREFs of MiRemoveSecureEntry @ 0x1402172F0
  * Callers:
- *     MmUnsecureVirtualMemory @ 0x1406B0260 (MmUnsecureVirtualMemory.c)
- *     MiUnmapLockedPagesInUserSpace @ 0x1407E6160 (MiUnmapLockedPagesInUserSpace.c)
+ *     MmUnsecureVirtualMemory @ 0x1406B0290 (MmUnsecureVirtualMemory.c)
+ *     MiUnmapLockedPagesInUserSpace @ 0x1407E6430 (MiUnmapLockedPagesInUserSpace.c)
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x14024D360 (ExAcquireSpinLockExclusive.c)
- *     MiGetSharedVm @ 0x140286E74 (MiGetSharedVm.c)
- *     MiSetVadFlags @ 0x1402876B0 (MiSetVadFlags.c)
- *     MiUnlockWorkingSetExclusive @ 0x14028A2F0 (MiUnlockWorkingSetExclusive.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     MiUnsecureVirtualMemoryAgainstWrites @ 0x1407C760C (MiUnsecureVirtualMemoryAgainstWrites.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024D430 (ExAcquireSpinLockExclusive.c)
+ *     MiGetSharedVm @ 0x140287104 (MiGetSharedVm.c)
+ *     MiSetVadFlags @ 0x140287940 (MiSetVadFlags.c)
+ *     MiUnlockWorkingSetExclusive @ 0x14028A580 (MiUnlockWorkingSetExclusive.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
+ *     MiUnsecureVirtualMemoryAgainstWrites @ 0x1407C78DC (MiUnsecureVirtualMemoryAgainstWrites.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

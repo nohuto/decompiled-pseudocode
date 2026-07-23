@@ -1,25 +1,25 @@
 /*
- * XREFs of SmpKeyedStoreEntryGet @ 0x140344AE4
+ * XREFs of SmpKeyedStoreEntryGet @ 0x140344D74
  * Callers:
- *     SmpKeyedStoreSetVaRanges @ 0x140342A48 (SmpKeyedStoreSetVaRanges.c)
- *     SmStoreExistsForProcess @ 0x140344A94 (SmStoreExistsForProcess.c)
- *     ?SmpProcessQueryStoreStats@@YAJPEAU_EPROCESS@@PEAU_ST_STATS@@@Z @ 0x1405C2EC0 (-SmpProcessQueryStoreStats@@YAJPEAU_EPROCESS@@PEAU_ST_STATS@@@Z.c)
- *     SmpKeyedStoreReference @ 0x1405C9D08 (SmpKeyedStoreReference.c)
+ *     SmpKeyedStoreSetVaRanges @ 0x140342CD8 (SmpKeyedStoreSetVaRanges.c)
+ *     SmStoreExistsForProcess @ 0x140344D24 (SmStoreExistsForProcess.c)
+ *     ?SmpProcessQueryStoreStats@@YAJPEAU_EPROCESS@@PEAU_ST_STATS@@@Z @ 0x1405C3430 (-SmpProcessQueryStoreStats@@YAJPEAU_EPROCESS@@PEAU_ST_STATS@@@Z.c)
+ *     SmpKeyedStoreReference @ 0x1405CA278 (SmpKeyedStoreReference.c)
  *     SmSwapStore @ 0x140681864 (SmSwapStore.c)
- *     SmpKeyedStoreCreate @ 0x1407B7490 (SmpKeyedStoreCreate.c)
- *     SmpKeyedStoreDeleteInitiate @ 0x1407B8180 (SmpKeyedStoreDeleteInitiate.c)
- *     SmProcessStoreMemoryPriorityRequest @ 0x1407E7E24 (SmProcessStoreMemoryPriorityRequest.c)
- *     SmStoreCompressionStart @ 0x1409D7828 (SmStoreCompressionStart.c)
- *     SmStoreCompressionStop @ 0x1409D78C8 (SmStoreCompressionStop.c)
+ *     SmpKeyedStoreCreate @ 0x1407B7770 (SmpKeyedStoreCreate.c)
+ *     SmpKeyedStoreDeleteInitiate @ 0x1407B8460 (SmpKeyedStoreDeleteInitiate.c)
+ *     SmProcessStoreMemoryPriorityRequest @ 0x1407E80F4 (SmProcessStoreMemoryPriorityRequest.c)
+ *     SmStoreCompressionStart @ 0x1409D7A28 (SmStoreCompressionStart.c)
+ *     SmStoreCompressionStop @ 0x1409D7AC8 (SmStoreCompressionStop.c)
  * Callees:
  *     CmSiFreeMemory @ 0x140208C40 (CmSiFreeMemory.c)
- *     ExAcquirePushLockSharedEx @ 0x140230D90 (ExAcquirePushLockSharedEx.c)
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     ExfReleasePushLockShared @ 0x1402BD860 (ExfReleasePushLockShared.c)
- *     ExfTryToWakePushLock @ 0x1402BD960 (ExfTryToWakePushLock.c)
- *     ?SmAllocWrapper@@YAPEAX_KPEAX@Z @ 0x1403B6BBC (-SmAllocWrapper@@YAPEAX_KPEAX@Z.c)
+ *     ExAcquirePushLockSharedEx @ 0x140230E80 (ExAcquirePushLockSharedEx.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140231120 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     KeLeaveCriticalRegion @ 0x140231550 (KeLeaveCriticalRegion.c)
+ *     ExfReleasePushLockShared @ 0x1402BDAF0 (ExfReleasePushLockShared.c)
+ *     ExfTryToWakePushLock @ 0x1402BDBF0 (ExfTryToWakePushLock.c)
+ *     ?SmAllocWrapper@@YAPEAX_KPEAX@Z @ 0x1403B6D9C (-SmAllocWrapper@@YAPEAX_KPEAX@Z.c)
  */
 
 __int64 __fastcall SmpKeyedStoreEntryGet(ULONG_PTR BugCheckParameter2, _QWORD *a2, int a3, int a4)

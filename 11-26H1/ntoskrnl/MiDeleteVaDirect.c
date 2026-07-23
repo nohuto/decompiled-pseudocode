@@ -1,27 +1,27 @@
 /*
- * XREFs of MiDeleteVaDirect @ 0x140361EF0
+ * XREFs of MiDeleteVaDirect @ 0x140363C90
  * Callers:
- *     MiDeleteEmptyPageTables @ 0x140315248 (MiDeleteEmptyPageTables.c)
- *     MiDeletePagablePteRange @ 0x140361860 (MiDeletePagablePteRange.c)
+ *     MiDeleteEmptyPageTables @ 0x140317278 (MiDeleteEmptyPageTables.c)
+ *     MiDeletePagablePteRange @ 0x140363600 (MiDeletePagablePteRange.c)
  * Callees:
- *     MiLockPageTableInternal @ 0x1402B34E0 (MiLockPageTableInternal.c)
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402B9F90 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     MiUnlockPageTableInternal @ 0x1402D13E0 (MiUnlockPageTableInternal.c)
- *     ExReleaseSpinLockRegardlessFromDpcLevel @ 0x1402E5E00 (ExReleaseSpinLockRegardlessFromDpcLevel.c)
- *     MiFastLockLeafPageTable @ 0x1402ED250 (MiFastLockLeafPageTable.c)
- *     MiPteHasShadow @ 0x1403011E0 (MiPteHasShadow.c)
- *     EtwTraceShouldYieldProcessor @ 0x1403142E8 (EtwTraceShouldYieldProcessor.c)
- *     MiReadPteShadow @ 0x140314FF0 (MiReadPteShadow.c)
- *     MiGetLeafVa @ 0x140326060 (MiGetLeafVa.c)
- *     MiGetPageWalkLocks @ 0x140362E18 (MiGetPageWalkLocks.c)
- *     MiReleaseWalkLocks @ 0x140362F00 (MiReleaseWalkLocks.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14052FA20 (KiRemoveSystemWorkPriorityKick.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     MiUnlockPageTableInternal @ 0x1402B31A0 (MiUnlockPageTableInternal.c)
+ *     ExReleaseSpinLockRegardlessFromDpcLevel @ 0x1402C7E40 (ExReleaseSpinLockRegardlessFromDpcLevel.c)
+ *     MiFastLockLeafPageTable @ 0x1402CF2D0 (MiFastLockLeafPageTable.c)
+ *     MiPteHasShadow @ 0x1402E3260 (MiPteHasShadow.c)
+ *     MiLockPageTableInternal @ 0x1402FE1B0 (MiLockPageTableInternal.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140304C50 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     EtwTraceShouldYieldProcessor @ 0x140316318 (EtwTraceShouldYieldProcessor.c)
+ *     MiReadPteShadow @ 0x140317020 (MiReadPteShadow.c)
+ *     MiGetLeafVa @ 0x140328090 (MiGetLeafVa.c)
+ *     MiGetPageWalkLocks @ 0x140364BB8 (MiGetPageWalkLocks.c)
+ *     MiReleaseWalkLocks @ 0x140364CA0 (MiReleaseWalkLocks.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x140531F20 (KiRemoveSystemWorkPriorityKick.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 char __fastcall MiDeleteVaDirect(__int64 a1)
 {
-  signed __int64 v1; // rsi
+  __int64 v1; // rsi
   unsigned int v3; // r8d
   __int64 v4; // r15
   unsigned __int64 v5; // rdx
@@ -250,7 +250,7 @@ LABEL_90:
           if ( v25 == 5 || v25 <= 4u )
           {
             if ( (*(_DWORD *)(Process + 184) & 0xF) == 1 )
-              v26 = (unsigned __int64 *)&qword_140E37800;
+              v26 = (unsigned __int64 *)&qword_140E37980;
             else
               v26 = (unsigned __int64 *)(Process + 192);
             CurrentPrcb = *v26;

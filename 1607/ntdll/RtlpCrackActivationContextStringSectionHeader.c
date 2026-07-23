@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlpCrackActivationContextStringSectionHeader @ 0x18007BF70
+ * XREFs of RtlpCrackActivationContextStringSectionHeader @ 0x18007BF60
  * Callers:
- *     RtlpQueryInformationActivationContextDetailedInformation @ 0x18007BB8C (RtlpQueryInformationActivationContextDetailedInformation.c)
- *     RtlpQueryInformationActivationContextManifestResourceName @ 0x1800DB0E4 (RtlpQueryInformationActivationContextManifestResourceName.c)
+ *     RtlpQueryInformationActivationContextDetailedInformation @ 0x18007BB7C (RtlpQueryInformationActivationContextDetailedInformation.c)
+ *     RtlpQueryInformationActivationContextManifestResourceName @ 0x1800DB1A4 (RtlpQueryInformationActivationContextManifestResourceName.c)
  * Callees:
- *     DbgPrintEx @ 0x18005BFC0 (DbgPrintEx.c)
+ *     DbgPrintEx @ 0x18005BFB0 (DbgPrintEx.c)
  */
 
 __int64 __fastcall RtlpCrackActivationContextStringSectionHeader(
@@ -26,7 +26,7 @@ __int64 __fastcall RtlpCrackActivationContextStringSectionHeader(
   unsigned int v16; // eax
   unsigned int v17; // r9d
   unsigned int v18; // edi
-  const char *v20; // r8
+  const CHAR *v20; // r8
   int v21; // [rsp+20h] [rbp-28h]
   int v22; // [rsp+28h] [rbp-20h]
   int v23; // [rsp+28h] [rbp-20h]
@@ -43,7 +43,7 @@ __int64 __fastcall RtlpCrackActivationContextStringSectionHeader(
   if ( a2 < 8 )
   {
     DbgPrintEx(
-      51,
+      0x33u,
       0,
       "SXS: %s() passed string section at %p only %Iu bytes long; that's not even enough for the 4-byte magic and 4-byte "
       "header length!\n",
@@ -57,7 +57,7 @@ __int64 __fastcall RtlpCrackActivationContextStringSectionHeader(
     v23 = *a1;
     v21 = 1682469715;
     DbgPrintEx(
-      51,
+      0x33u,
       0,
       "SXS: %s() found assembly information section with wrong magic value\n   Expected %lu; got %lu\n",
       "RtlpCrackActivationContextStringSectionHeader",
@@ -70,7 +70,7 @@ __int64 __fastcall RtlpCrackActivationContextStringSectionHeader(
   {
     v22 = v14;
     DbgPrintEx(
-      51,
+      0x33u,
       0,
       "SXS: %s() passed string section at %p claims %lu byte header size; that doesn't even include the HeaderSize member!\n",
       "RtlpCrackActivationContextStringSectionHeader",
@@ -85,7 +85,7 @@ __int64 __fastcall RtlpCrackActivationContextStringSectionHeader(
 LABEL_35:
     v24 = v14;
 LABEL_37:
-    DbgPrintEx(51, 0, v20, "RtlpCrackActivationContextStringSectionHeader", a1, v24, v25);
+    DbgPrintEx(0x33u, 0, v20, "RtlpCrackActivationContextStringSectionHeader", a1, v24, v25);
     return (unsigned int)-1072365565;
   }
   v15 = a1[6];
@@ -131,7 +131,7 @@ LABEL_37:
   if ( v18 + v17 > a2 )
   {
     DbgPrintEx(
-      51,
+      0x33u,
       0,
       "SXS: %s() found assembly information section with user data extending beyond section data\n"
       "   Section header: %p\n"

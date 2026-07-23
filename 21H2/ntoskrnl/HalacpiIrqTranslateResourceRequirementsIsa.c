@@ -1,13 +1,13 @@
 /*
- * XREFs of HalacpiIrqTranslateResourceRequirementsIsa @ 0x1407C0AD0
+ * XREFs of HalacpiIrqTranslateResourceRequirementsIsa @ 0x1407C0FF0
  * Callers:
  *     <none>
  * Callees:
- *     HalpIsInterruptTypeSecondary @ 0x1403C5290 (HalpIsInterruptTypeSecondary.c)
- *     memmove @ 0x140413F40 (memmove.c)
- *     memset @ 0x140414200 (memset.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     HalpIsInterruptTypeSecondary @ 0x1403C56C0 (HalpIsInterruptTypeSecondary.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall HalacpiIrqTranslateResourceRequirementsIsa(
@@ -123,9 +123,9 @@ LABEL_29:
       *(_DWORD *)&v14[v36 + 12] = 9;
     }
   }
-  v16 = word_140C4A00E;
+  v16 = word_140C4A04E;
   v17 = 0;
-  v43 = word_140C4A00E;
+  v43 = word_140C4A04E;
   v18 = 0;
   if ( (_DWORD)v7 )
   {

@@ -1,23 +1,23 @@
 /*
- * XREFs of MiFinalizePageAttribute @ 0x14021F4F0
+ * XREFs of MiFinalizePageAttribute @ 0x14024C240
  * Callers:
- *     MiMapBackgroundPagesToZero @ 0x14020B740 (MiMapBackgroundPagesToZero.c)
- *     MiMigratePfn @ 0x14022C0A0 (MiMigratePfn.c)
- *     MiBuildForkPte @ 0x1402C53E8 (MiBuildForkPte.c)
- *     MiCopyOnWrite @ 0x1402E47DC (MiCopyOnWrite.c)
- *     MiInitializeHardFaultPfn @ 0x1402E6618 (MiInitializeHardFaultPfn.c)
- *     MiInitializeTransitionPfn @ 0x14031359C (MiInitializeTransitionPfn.c)
- *     MiCopyDataPageToImagePage @ 0x1403142D8 (MiCopyDataPageToImagePage.c)
- *     MiCombineInitialInstance @ 0x14036C3E0 (MiCombineInitialInstance.c)
- *     MiHandleForkTransitionPte @ 0x14036D640 (MiHandleForkTransitionPte.c)
- *     MiSwapNumaStandbyPage @ 0x14039474C (MiSwapNumaStandbyPage.c)
- *     MiAllocateKernelStackPages @ 0x14039F96C (MiAllocateKernelStackPages.c)
- *     MiTradeActivePage @ 0x1403A0758 (MiTradeActivePage.c)
- *     MiSwapStackPage @ 0x1404303C4 (MiSwapStackPage.c)
- *     MiSplitDirectMapPage @ 0x1404D14D0 (MiSplitDirectMapPage.c)
- *     MiInitializeCacheFlushing @ 0x140C5A2D8 (MiInitializeCacheFlushing.c)
+ *     MiAllocateKernelStackPages @ 0x14021639C (MiAllocateKernelStackPages.c)
+ *     MiTradeActivePage @ 0x1402172BC (MiTradeActivePage.c)
+ *     MiHandleForkTransitionPte @ 0x1402678C4 (MiHandleForkTransitionPte.c)
+ *     MiBuildForkPte @ 0x1402687D0 (MiBuildForkPte.c)
+ *     MiCombineInitialInstance @ 0x140294F94 (MiCombineInitialInstance.c)
+ *     MiMigratePfn @ 0x1402FF9B0 (MiMigratePfn.c)
+ *     MiMapBackgroundPagesToZero @ 0x140331C80 (MiMapBackgroundPagesToZero.c)
+ *     MiCopyOnWrite @ 0x140346A74 (MiCopyOnWrite.c)
+ *     MiInitializeHardFaultPfn @ 0x140347C54 (MiInitializeHardFaultPfn.c)
+ *     MiCopyDataPageToImagePage @ 0x1403F1624 (MiCopyDataPageToImagePage.c)
+ *     MiInitializeTransitionPfn @ 0x1403F2C1C (MiInitializeTransitionPfn.c)
+ *     MiSwapNumaStandbyPage @ 0x1403F7A6C (MiSwapNumaStandbyPage.c)
+ *     MiSwapStackPage @ 0x140421D74 (MiSwapStackPage.c)
+ *     MiSplitDirectMapPage @ 0x1404CA510 (MiSplitDirectMapPage.c)
+ *     MiInitializeCacheFlushing @ 0x140C5C468 (MiInitializeCacheFlushing.c)
  * Callees:
- *     MiChangePageAttribute @ 0x14021F58C (MiChangePageAttribute.c)
+ *     MiChangePageAttribute @ 0x14024C2DC (MiChangePageAttribute.c)
  */
 
 __int64 __fastcall MiFinalizePageAttribute(__int64 a1, __int64 a2, __int64 a3)

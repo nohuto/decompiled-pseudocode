@@ -1,13 +1,13 @@
 /*
- * XREFs of CmpReserveRollbackPacketSpace @ 0x1406FA4CC
+ * XREFs of CmpReserveRollbackPacketSpace @ 0x1406F810C
  * Callers:
- *     CmpSnapshotTxOwnerArrayToRollbackPacket @ 0x1407E0348 (CmpSnapshotTxOwnerArrayToRollbackPacket.c)
- *     CmSnapshotRMTxArray @ 0x14097ABF4 (CmSnapshotRMTxArray.c)
+ *     CmpSnapshotTxOwnerArrayToRollbackPacket @ 0x1407E0898 (CmpSnapshotTxOwnerArrayToRollbackPacket.c)
+ *     CmSnapshotRMTxArray @ 0x140963404 (CmSnapshotRMTxArray.c)
  * Callees:
- *     CmpAllocatePool @ 0x1403E1834 (CmpAllocatePool.c)
- *     CmSiFreeMemory @ 0x14046B8D0 (CmSiFreeMemory.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     CmpAllocatePool @ 0x1403C9EA4 (CmpAllocatePool.c)
+ *     CmSiFreeMemory @ 0x140464550 (CmSiFreeMemory.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 __int64 __fastcall CmpReserveRollbackPacketSpace(unsigned int *a1, unsigned int a2)
@@ -26,7 +26,7 @@ __int64 __fastcall CmpReserveRollbackPacketSpace(unsigned int *a1, unsigned int 
   if ( a1[1] - v4 < a2 )
   {
     v6 = v4 + a2;
-    Pool = (char *)CmpAllocatePool(0x100uLL);
+    Pool = (char *)CmpAllocatePool(0x100uLL, 8LL * (v4 + a2), 0x36344D43u);
     v8 = Pool;
     if ( Pool )
     {

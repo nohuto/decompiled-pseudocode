@@ -1,15 +1,15 @@
 /*
- * XREFs of PsDisableImpersonation @ 0x140706410
+ * XREFs of PsDisableImpersonation @ 0x14071D7F0
  * Callers:
- *     NtOpenThreadTokenEx @ 0x140705F00 (NtOpenThreadTokenEx.c)
- *     CmpAddRemoveContainerToCLFSLog @ 0x14077C9DC (CmpAddRemoveContainerToCLFSLog.c)
- *     CmpStartCLFSLog @ 0x14077D984 (CmpStartCLFSLog.c)
+ *     NtOpenThreadTokenEx @ 0x14071D2E0 (NtOpenThreadTokenEx.c)
+ *     CmpAddRemoveContainerToCLFSLog @ 0x14077CB9C (CmpAddRemoveContainerToCLFSLog.c)
+ *     CmpStartCLFSLog @ 0x14077DB44 (CmpStartCLFSLog.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
- *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     KeLeaveCriticalRegionThread @ 0x1402AB8C0 (KeLeaveCriticalRegionThread.c)
+ *     ExfTryToWakePushLock @ 0x1402FC2C0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x1403539D0 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1403556E0 (ExAcquirePushLockExclusiveEx.c)
  */
 
 BOOLEAN __stdcall PsDisableImpersonation(PETHREAD Thread, PSE_IMPERSONATION_STATE ImpersonationState)
@@ -18,8 +18,11 @@ BOOLEAN __stdcall PsDisableImpersonation(PETHREAD Thread, PSE_IMPERSONATION_STAT
   struct _KTHREAD *CurrentThread; // rbp
   struct _KTHREAD *v6; // rax
   char v7; // al
+  __int64 v8; // rdx
+  __int64 v9; // r8
+  __int64 v10; // r9
   BOOLEAN result; // al
-  struct _DMA_ADAPTER *v9; // rcx
+  struct _DMA_ADAPTER *v12; // rcx
 
   v2 = 0;
   if ( (*(_DWORD *)(&Thread[1].SwapListEntry + 1) & 8) != 0 )
@@ -37,9 +40,9 @@ BOOLEAN __stdcall PsDisableImpersonation(PETHREAD Thread, PSE_IMPERSONATION_STAT
       if ( v6 )
       {
         ImpersonationState->Token = v6;
-        v9 = (struct _DMA_ADAPTER *)(*(_QWORD *)((char *)&Thread[1].116 + 4) & 0xFFFFFFFFFFFFFFF8uLL);
+        v12 = (struct _DMA_ADAPTER *)(*(_QWORD *)((char *)&Thread[1].116 + 4) & 0xFFFFFFFFFFFFFFF8uLL);
         Thread[1].WaitBlock[1].Thread = 0LL;
-        HalPutDmaAdapter(v9);
+        HalPutDmaAdapter(v12);
       }
       else
       {
@@ -50,7 +53,7 @@ BOOLEAN __stdcall PsDisableImpersonation(PETHREAD Thread, PSE_IMPERSONATION_STAT
     if ( (v7 & 2) != 0 && (v7 & 4) == 0 )
       ExfTryToWakePushLock(&Thread[1].WaitBlockList);
     KeAbPostRelease((ULONG_PTR)&Thread[1].WaitBlockList);
-    KeLeaveCriticalRegionThread((__int64)CurrentThread);
+    KeLeaveCriticalRegionThread((__int64)CurrentThread, v8, v9, v10);
     if ( v2 )
       return 1;
   }

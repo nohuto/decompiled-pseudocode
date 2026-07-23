@@ -11,91 +11,84 @@
  *     _guard_xfg_dispatch_icall_nop @ 0x1800AAAD0 (_guard_xfg_dispatch_icall_nop.c)
  */
 
-_UNKNOWN **__fastcall RtlpFlsDataCleanup(__int64 a1, unsigned __int64 a2, unsigned __int64 a3, unsigned __int64 a4)
+void __fastcall RtlpFlsDataCleanup(__int64 a1, char *a2, char a3)
 {
-  _UNKNOWN **result; // rax
-  char v5; // r15
-  __int64 v6; // rbx
-  unsigned int v7; // esi
-  __int64 v8; // rbp
-  unsigned int v9; // ecx
-  __int64 v10; // rcx
-  _QWORD *v11; // r14
-  int v12; // ecx
-  __int64 v13; // r8
-  __int64 v14; // rdi
-  void (*v15)(void); // rax
-  __int64 v16; // rdx
-  _QWORD *v17; // rax
-  __int64 *v18; // rdi
-  __int64 v19; // rsi
-  _UNKNOWN *retaddr; // [rsp+38h] [rbp+0h] BYREF
+  unsigned int v5; // esi
+  __int64 v6; // rbp
+  unsigned int v7; // ecx
+  unsigned int v8; // edx
+  __int64 v9; // rcx
+  _QWORD *v10; // r14
+  int v11; // ecx
+  __int64 v12; // r8
+  _RTL_SRWLOCK *v13; // rdi
+  void (*Value)(void); // rax
+  _QWORD *v15; // rdx
+  void **v16; // rax
+  PVOID *v17; // rdi
+  __int64 v18; // rsi
 
-  result = &retaddr;
-  v5 = a3;
-  v6 = a2;
   if ( (a3 & 1) != 0 )
   {
     if ( (_DWORD)qword_18017ABE8 )
     {
-      v7 = 17;
-      v8 = (unsigned int)qword_18017ABE8;
+      v5 = 17;
+      v6 = (unsigned int)qword_18017ABE8;
       do
       {
-        _BitScanReverse(&v9, v7);
-        a2 = v7 ^ (1 << v9);
-        v10 = *(_QWORD *)(v6 + 8LL * (v9 - 4) + 16);
-        if ( v10 )
+        _BitScanReverse(&v7, v5);
+        v8 = v5 ^ (1 << v7);
+        v9 = *(_QWORD *)&a2[8 * v7 - 16];
+        if ( v9 )
         {
-          v11 = (_QWORD *)(v10 + 8 * ((unsigned int)a2 + 1LL));
-          if ( v11 )
+          v10 = (_QWORD *)(v9 + 8 * (v8 + 1LL));
+          if ( v10 )
           {
-            if ( *v11 )
+            if ( *v10 )
             {
-              _BitScanReverse((unsigned int *)&v12, v7);
-              v13 = *((_QWORD *)&RtlpFlsContext + (unsigned int)(v12 - 4) + 1);
-              if ( v13 )
-                v14 = v13 + 8 * ((v7 ^ (1 << v12)) + 2LL * (v7 ^ (1 << v12)) + 1);
+              _BitScanReverse((unsigned int *)&v11, v5);
+              v12 = *((_QWORD *)&RtlpFlsContext + (unsigned int)(v11 - 4) + 1);
+              if ( v12 )
+                v13 = (_RTL_SRWLOCK *)(v12 + 8 * ((v5 ^ (1 << v11)) + 2LL * (v5 ^ (1 << v11)) + 1));
               else
-                v14 = 0LL;
-              RtlAcquireSRWLockShared((volatile signed __int64 *)v14);
-              v15 = *(void (**)(void))(v14 + 8);
-              if ( (unsigned __int64)v15 - 1 <= 0xFFFFFFFFFFFFFFFDuLL && *v11 )
+                v13 = 0LL;
+              RtlAcquireSRWLockShared(v13);
+              Value = (void (*)(void))v13[1].Value;
+              if ( (unsigned __int64)Value - 1 <= 0xFFFFFFFFFFFFFFFDuLL && *v10 )
               {
-                v15();
-                *v11 = 0LL;
-                *(_DWORD *)(v6 + 80) &= ~1u;
+                Value();
+                *v10 = 0LL;
+                *((_DWORD *)a2 + 20) &= ~1u;
               }
-              RtlReleaseSRWLockShared((volatile signed __int64 *)v14);
+              RtlReleaseSRWLockShared(v13);
             }
           }
         }
-        ++v7;
-        --v8;
+        ++v5;
+        --v6;
       }
-      while ( v8 );
+      while ( v6 );
     }
-    RtlAcquireSRWLockExclusive((unsigned __int64)&RtlpFlsContext, a2, a3, a4);
-    v16 = *(_QWORD *)v6;
-    if ( *(_QWORD *)(*(_QWORD *)v6 + 8LL) != v6 || (v17 = *(_QWORD **)(v6 + 8), *v17 != v6) )
+    RtlAcquireSRWLockExclusive(&RtlpFlsContext);
+    v15 = *(_QWORD **)a2;
+    if ( *(char **)(*(_QWORD *)a2 + 8LL) != a2 || (v16 = (void **)*((_QWORD *)a2 + 1), *v16 != a2) )
       __fastfail(3u);
-    *v17 = v16;
-    *(_QWORD *)(v16 + 8) = v17;
-    result = (_UNKNOWN **)RtlReleaseSRWLockExclusive((volatile signed __int64 *)&RtlpFlsContext);
+    *v16 = v15;
+    v15[1] = v16;
+    RtlReleaseSRWLockExclusive(&RtlpFlsContext);
   }
-  if ( (v5 & 2) != 0 )
+  if ( (a3 & 2) != 0 )
   {
-    v18 = (__int64 *)(v6 + 16);
-    v19 = 8LL;
+    v17 = (PVOID *)(a2 + 16);
+    v18 = 8LL;
     do
     {
-      if ( *v18 )
-        RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, *v18);
-      ++v18;
-      --v19;
+      if ( *v17 )
+        RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, *v17);
+      ++v17;
+      --v18;
     }
-    while ( v19 );
-    return (_UNKNOWN **)RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v6);
+    while ( v18 );
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, a2);
   }
-  return result;
 }

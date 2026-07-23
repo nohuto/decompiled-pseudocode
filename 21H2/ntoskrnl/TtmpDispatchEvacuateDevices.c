@@ -1,15 +1,15 @@
 /*
- * XREFs of TtmpDispatchEvacuateDevices @ 0x140900D64
+ * XREFs of TtmpDispatchEvacuateDevices @ 0x140900EC4
  * Callers:
- *     TtmDispatchApi @ 0x140900694 (TtmDispatchApi.c)
+ *     TtmDispatchApi @ 0x1409007F4 (TtmDispatchApi.c)
  * Callees:
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     KeLeaveCriticalRegion @ 0x14034B3B0 (KeLeaveCriticalRegion.c)
- *     ExReleaseResourceLite @ 0x14034B3F0 (ExReleaseResourceLite.c)
- *     TtmiEvacuateDevices @ 0x1408FC2A8 (TtmiEvacuateDevices.c)
- *     TtmiScheduleSessionWorker @ 0x1408FF140 (TtmiScheduleSessionWorker.c)
- *     TtmpAcquireSessionFromTerminalHandle @ 0x140900934 (TtmpAcquireSessionFromTerminalHandle.c)
- *     TtmiLogError @ 0x140902AC4 (TtmiLogError.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     KeLeaveCriticalRegion @ 0x140356100 (KeLeaveCriticalRegion.c)
+ *     ExReleaseResourceLite @ 0x140356140 (ExReleaseResourceLite.c)
+ *     TtmiEvacuateDevices @ 0x1408FC408 (TtmiEvacuateDevices.c)
+ *     TtmiScheduleSessionWorker @ 0x1408FF2A0 (TtmiScheduleSessionWorker.c)
+ *     TtmpAcquireSessionFromTerminalHandle @ 0x140900A94 (TtmpAcquireSessionFromTerminalHandle.c)
+ *     TtmiLogError @ 0x140902C24 (TtmiLogError.c)
  */
 
 __int64 __fastcall TtmpDispatchEvacuateDevices(__int64 a1)

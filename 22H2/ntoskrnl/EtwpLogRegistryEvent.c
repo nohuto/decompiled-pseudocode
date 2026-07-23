@@ -7,7 +7,7 @@
  *     __security_check_cookie @ 0x1403CFD60 (__security_check_cookie.c)
  */
 
-_QWORD *__fastcall EtwpLogRegistryEvent(
+unsigned int *__fastcall EtwpLogRegistryEvent(
         unsigned int a1,
         unsigned __int8 a2,
         unsigned int a3,

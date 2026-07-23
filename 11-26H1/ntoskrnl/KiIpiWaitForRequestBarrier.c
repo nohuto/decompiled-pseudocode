@@ -1,10 +1,10 @@
 /*
- * XREFs of KiIpiWaitForRequestBarrier @ 0x1402515A0
+ * XREFs of KiIpiWaitForRequestBarrier @ 0x140252F00
  * Callers:
- *     KxFlushNonGlobalTb @ 0x140250FF0 (KxFlushNonGlobalTb.c)
- *     KxFlushEntireTb @ 0x14025128C (KxFlushEntireTb.c)
+ *     KxFlushNonGlobalTb @ 0x140252950 (KxFlushNonGlobalTb.c)
+ *     KxFlushEntireTb @ 0x140252BEC (KxFlushEntireTb.c)
  * Callees:
- *     HvlNotifyLongSpinWait @ 0x1402BBF00 (HvlNotifyLongSpinWait.c)
+ *     HvlNotifyLongSpinWait @ 0x140306BC0 (HvlNotifyLongSpinWait.c)
  */
 
 __int64 __fastcall KiIpiWaitForRequestBarrier(__int64 a1)

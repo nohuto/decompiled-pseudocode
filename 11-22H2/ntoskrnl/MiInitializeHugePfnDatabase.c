@@ -21,14 +21,14 @@ __int64 MiInitializeHugePfnDatabase()
   int v4; // edx
   bool v5; // zf
   __int64 v6; // rcx
-  PVOID Pool; // rax
-  void *v8; // rbx
+  unsigned __int64 *Pool; // rax
+  unsigned __int64 *v8; // rbx
   unsigned __int8 v9; // al
   struct _KPRCB *v10; // r9
   _DWORD *v11; // r8
   int v12; // eax
   __int64 result; // rax
-  __int64 v14; // rdi
+  unsigned __int64 *v14; // rdi
   PVOID v15; // rax
   unsigned __int64 v16; // rdi
   unsigned __int8 v17; // al
@@ -47,10 +47,10 @@ __int64 MiInitializeHugePfnDatabase()
   {
     KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
     OldIrql = LockHandle.OldIrql;
-    if ( !KiIrqlFlags )
+    if ( !(_DWORD)KiIrqlFlags )
       goto LABEL_35;
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) == 0 )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) == 0 )
       goto LABEL_35;
     if ( CurrentIrql > 0xFu )
       goto LABEL_35;
@@ -74,16 +74,16 @@ LABEL_36:
     __writecr8(OldIrql);
     return result;
   }
-  Pool = MiAllocatePool(64, 0x100000uLL, 0x7048694Du);
+  Pool = (unsigned __int64 *)MiAllocatePool(64, 0x100000uLL, 0x7048694Du);
   v8 = Pool;
   if ( !Pool )
   {
     KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
     OldIrql = LockHandle.OldIrql;
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v9 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v9 <= 0xFu && LockHandle.OldIrql <= 0xFu && v9 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v9 <= 0xFu && LockHandle.OldIrql <= 0xFu && v9 >= 2u )
       {
         v10 = KeGetCurrentPrcb();
         v11 = v10->SchedulerAssist;
@@ -97,20 +97,20 @@ LABEL_36:
     result = 0LL;
     goto LABEL_36;
   }
-  v14 = (__int64)Pool + 0x80000;
+  v14 = Pool + 0x10000;
   v15 = MiAllocatePool(64, 0x2000000uLL, 0x7048694Du);
   if ( v15 )
   {
     qword_140C67EF8 = (__int64)v8;
-    qword_140C67EE0 = 0x400000LL;
-    qword_140C67EE8 = v14;
+    stru_140C67EE0.SizeOfBitMap = 0x400000LL;
+    stru_140C67EE0.Buffer = v14;
     qword_140C67EF0 = (__int64)v15;
     KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
     OldIrql = LockHandle.OldIrql;
-    if ( !KiIrqlFlags )
+    if ( !(_DWORD)KiIrqlFlags )
       goto LABEL_35;
     v21 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) == 0 )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) == 0 )
       goto LABEL_35;
     if ( v21 > 0xFu )
       goto LABEL_35;
@@ -130,10 +130,10 @@ LABEL_36:
   }
   KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
   v16 = LockHandle.OldIrql;
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v17 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v17 <= 0xFu && LockHandle.OldIrql <= 0xFu && v17 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v17 <= 0xFu && LockHandle.OldIrql <= 0xFu && v17 >= 2u )
     {
       v18 = KeGetCurrentPrcb();
       v19 = v18->SchedulerAssist;

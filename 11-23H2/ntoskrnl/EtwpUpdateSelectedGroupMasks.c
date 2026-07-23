@@ -1,20 +1,20 @@
 /*
- * XREFs of EtwpUpdateSelectedGroupMasks @ 0x140382DA8
+ * XREFs of EtwpUpdateSelectedGroupMasks @ 0x140382F48
  * Callers:
- *     EtwpEnableMetaProviderGuid @ 0x14031CFAC (EtwpEnableMetaProviderGuid.c)
- *     EtwpUpdateGroupMasks @ 0x14081FFA8 (EtwpUpdateGroupMasks.c)
+ *     EtwpEnableMetaProviderGuid @ 0x14031D23C (EtwpEnableMetaProviderGuid.c)
+ *     EtwpUpdateGroupMasks @ 0x1408202A8 (EtwpUpdateGroupMasks.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1402BD960 (ExfTryToWakePushLock.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     SeSinglePrivilegeCheck @ 0x140737B00 (SeSinglePrivilegeCheck.c)
- *     EtwpUpdateGlobalGroupMasks @ 0x1407D4E7C (EtwpUpdateGlobalGroupMasks.c)
- *     EtwpLogGroupMask @ 0x140820040 (EtwpLogGroupMask.c)
- *     EtwpKernelTraceRundown @ 0x1408200C8 (EtwpKernelTraceRundown.c)
- *     EtwpLogAlwaysPresentRundown @ 0x140820A18 (EtwpLogAlwaysPresentRundown.c)
- *     EtwpCCSwapStart @ 0x140820D54 (EtwpCCSwapStart.c)
- *     EtwpCCSwapStop @ 0x140820E0C (EtwpCCSwapStop.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140231120 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     ExfTryToWakePushLock @ 0x1402BDBF0 (ExfTryToWakePushLock.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     SeSinglePrivilegeCheck @ 0x140737CF0 (SeSinglePrivilegeCheck.c)
+ *     EtwpUpdateGlobalGroupMasks @ 0x1407D514C (EtwpUpdateGlobalGroupMasks.c)
+ *     EtwpLogGroupMask @ 0x140820340 (EtwpLogGroupMask.c)
+ *     EtwpKernelTraceRundown @ 0x1408203C8 (EtwpKernelTraceRundown.c)
+ *     EtwpLogAlwaysPresentRundown @ 0x140820D18 (EtwpLogAlwaysPresentRundown.c)
+ *     EtwpCCSwapStart @ 0x140821054 (EtwpCCSwapStart.c)
+ *     EtwpCCSwapStop @ 0x14082110C (EtwpCCSwapStop.c)
  */
 
 __int64 __fastcall EtwpUpdateSelectedGroupMasks(int *a1, _DWORD *a2, _DWORD *a3)

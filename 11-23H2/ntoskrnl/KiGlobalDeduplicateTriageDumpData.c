@@ -1,9 +1,9 @@
 /*
- * XREFs of KiGlobalDeduplicateTriageDumpData @ 0x14056A644
+ * XREFs of KiGlobalDeduplicateTriageDumpData @ 0x14056AD04
  * Callers:
- *     KiInvokeBugCheckAddTriageDumpDataCallbacks @ 0x14056A6D4 (KiInvokeBugCheckAddTriageDumpDataCallbacks.c)
+ *     KiInvokeBugCheckAddTriageDumpDataCallbacks @ 0x14056AD94 (KiInvokeBugCheckAddTriageDumpDataCallbacks.c)
  * Callees:
- *     KiDeduplicateTriageDumpDataArrays @ 0x140569F38 (KiDeduplicateTriageDumpDataArrays.c)
+ *     KiDeduplicateTriageDumpDataArrays @ 0x14056A5F8 (KiDeduplicateTriageDumpDataArrays.c)
  */
 
 void __fastcall KiGlobalDeduplicateTriageDumpData(_DWORD *a1)

@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlGetEnabledExtendedFeatures @ 0x1404EEFB0
+ * XREFs of RtlGetEnabledExtendedFeatures @ 0x1404E71D0
  * Callers:
- *     SymCryptInitEnvWindowsKernelmodeWin8_1nLater @ 0x14051AC68 (SymCryptInitEnvWindowsKernelmodeWin8_1nLater.c)
- *     sub_140BE10B0 @ 0x140BE10B0 (sub_140BE10B0.c)
+ *     SymCryptInitEnvWindowsKernelmodeWin8_1nLater @ 0x140518538 (SymCryptInitEnvWindowsKernelmodeWin8_1nLater.c)
+ *     sub_140BE30B0 @ 0x140BE30B0 (sub_140BE30B0.c)
  * Callees:
- *     RtlpRemoveArchDisallowedXStateFeatures @ 0x140464F6C (RtlpRemoveArchDisallowedXStateFeatures.c)
- *     RtlpArchContextFlagFromMachine @ 0x1409E62DC (RtlpArchContextFlagFromMachine.c)
+ *     RtlpRemoveArchDisallowedXStateFeatures @ 0x14045B69C (RtlpRemoveArchDisallowedXStateFeatures.c)
+ *     RtlpArchContextFlagFromMachine @ 0x1409E0B6C (RtlpArchContextFlagFromMachine.c)
  */
 
 ULONG64 __stdcall RtlGetEnabledExtendedFeatures(ULONG64 FeatureMask)

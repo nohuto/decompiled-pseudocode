@@ -1,7 +1,7 @@
 /*
- * XREFs of HalpBlkIdlePortRead @ 0x140C7C8E0
+ * XREFs of HalpBlkIdlePortRead @ 0x140C828E0
  * Callers:
- *     HalpBlkIdleLoop @ 0x140C7C7E0 (HalpBlkIdleLoop.c)
+ *     HalpBlkIdleLoop @ 0x140C827E0 (HalpBlkIdleLoop.c)
  * Callees:
  *     <none>
  */

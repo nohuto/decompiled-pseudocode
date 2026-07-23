@@ -1,14 +1,14 @@
 /*
- * XREFs of PpmPerfTelemetryWorker @ 0x140B290E0
+ * XREFs of PpmPerfTelemetryWorker @ 0x140B2B620
  * Callers:
  *     <none>
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212E30 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     PpmReleaseLock @ 0x14037AFBC (PpmReleaseLock.c)
- *     PpmAcquireLock @ 0x140394F80 (PpmAcquireLock.c)
- *     PpmPerfUpdateQosDisableReasons @ 0x1404C76FC (PpmPerfUpdateQosDisableReasons.c)
- *     PopOkayToQueueNextWorkItem @ 0x1404DE3B8 (PopOkayToQueueNextWorkItem.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212F10 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     PpmReleaseLock @ 0x14037CD6C (PpmReleaseLock.c)
+ *     PpmAcquireLock @ 0x140396D00 (PpmAcquireLock.c)
+ *     PpmPerfUpdateQosDisableReasons @ 0x1404C100C (PpmPerfUpdateQosDisableReasons.c)
+ *     PopOkayToQueueNextWorkItem @ 0x1404D7A98 (PopOkayToQueueNextWorkItem.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall PpmPerfTelemetryWorker(__int64 a1, __int64 a2, unsigned int a3)
@@ -34,16 +34,16 @@ __int64 __fastcall PpmPerfTelemetryWorker(__int64 a1, __int64 a2, unsigned int a
   __int64 v22; // [rsp+A0h] [rbp+1Fh]
   _BYTE v23[40]; // [rsp+A8h] [rbp+27h] BYREF
 
-  PpmAcquireLock((struct _KTHREAD **)&stru_140F10070.SchedulerAssistLastYieldBoostTime, a2, a3);
+  PpmAcquireLock((struct _KTHREAD **)&PpmIdlePolicyLock.ThreadLock, a2, a3);
   PpmPerfUpdateQosDisableReasons(0LL);
-  v3 = &unk_140FC08F0;
+  v3 = &unk_140FC18F0;
   v4 = v23;
-  v5 = qword_140FC0888 - qword_140FC0890;
-  qword_140FC0890 = qword_140FC0888;
+  v5 = qword_140FC1888 - qword_140FC1890;
+  qword_140FC1890 = qword_140FC1888;
   v6 = 9LL;
   v7 = v5 / 0x989680;
-  v8 = qword_140FC0898 - qword_140FC08A0;
-  qword_140FC08A0 = qword_140FC0898;
+  v8 = qword_140FC1898 - qword_140FC18A0;
+  qword_140FC18A0 = qword_140FC1898;
   do
   {
     v9 = (unsigned __int64)(*(v3 - 9) - *v3) * (unsigned __int128)0xD6BF94D5E57A42BDuLL;
@@ -53,10 +53,10 @@ __int64 __fastcall PpmPerfTelemetryWorker(__int64 a1, __int64 a2, unsigned int a
     --v6;
   }
   while ( v6 );
-  PpmReleaseLock(&stru_140F10070.SchedulerAssistLastYieldBoostTime);
-  if ( (unsigned int)dword_140E07598 > 5
-    && (qword_140E075A8 & 0x400000000000LL) != 0
-    && (qword_140E075B0 & 0x400000000000LL) == qword_140E075B0 )
+  PpmReleaseLock((__int64 *)&PpmIdlePolicyLock.ThreadLock);
+  if ( (unsigned int)dword_140E07560 > 5
+    && (qword_140E07570 & 0x400000000000LL) != 0
+    && (qword_140E07578 & 0x400000000000LL) == qword_140E07578 )
   {
     v11 = v7;
     v15 = &v11;
@@ -69,7 +69,7 @@ __int64 __fastcall PpmPerfTelemetryWorker(__int64 a1, __int64 a2, unsigned int a
     v20 = 36LL;
     v13 = 0x1000000LL;
     v22 = 8LL;
-    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140E07598, (unsigned __int8 *)&word_140049BA6, 0LL, 0LL, 6u, &v14);
+    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140E07560, (unsigned __int8 *)&word_14004A1A6, 0LL, 0LL, 6u, &v14);
   }
-  return PopOkayToQueueNextWorkItem((__int64)&unk_140F12208);
+  return PopOkayToQueueNextWorkItem((__int64)&unk_140F124E8);
 }

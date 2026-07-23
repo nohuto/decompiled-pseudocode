@@ -1,10 +1,10 @@
 /*
- * XREFs of MiPfIssueCoalesceCandidates @ 0x1405391D0
+ * XREFs of MiPfIssueCoalesceCandidates @ 0x140539410
  * Callers:
- *     MiPfCoalesceAndIssueIOs @ 0x1402C2704 (MiPfCoalesceAndIssueIOs.c)
+ *     MiPfCoalesceAndIssueIOs @ 0x140240BA4 (MiPfCoalesceAndIssueIOs.c)
  * Callees:
- *     MiIssueHardFaultIo @ 0x1402AF824 (MiIssueHardFaultIo.c)
- *     MiPfIssueCoalescedSupport @ 0x1405392A8 (MiPfIssueCoalescedSupport.c)
+ *     MiIssueHardFaultIo @ 0x14022DB84 (MiIssueHardFaultIo.c)
+ *     MiPfIssueCoalescedSupport @ 0x1405394E8 (MiPfIssueCoalescedSupport.c)
  */
 
 __int64 __fastcall MiPfIssueCoalesceCandidates(__int64 **a1, __int64 a2, __int64 a3)

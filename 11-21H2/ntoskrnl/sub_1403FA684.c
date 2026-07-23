@@ -2,11 +2,11 @@
  * XREFs of sub_1403FA684 @ 0x1403FA684
  * Callers:
  *     sub_1403ED150 @ 0x1403ED150 (sub_1403ED150.c)
- *     FsRtlMdlReadCompleteDevEx @ 0x140AB9010 (FsRtlMdlReadCompleteDevEx.c)
+ *     sub_140AB9010 @ 0x140AB9010 (sub_140AB9010.c)
  * Callees:
  *     sub_1403F966C @ 0x1403F966C (sub_1403F966C.c)
- *     $$b9 @ 0x140AD049C ($$b9.c)
- *     KeGuardDispatchICall @ 0x140AD23B0 (KeGuardDispatchICall.c)
+ *     sub_140AD049C @ 0x140AD049C (sub_140AD049C.c)
+ *     j__guard_dispatch_icall_nop @ 0x140AD23B0 (j__guard_dispatch_icall_nop.c)
  */
 
 unsigned __int64 __fastcall sub_1403FA684(__int64 a1, int *a2, __int64 a3)
@@ -205,7 +205,7 @@ LABEL_45:
           *(_QWORD *)(v4 + 2264) = *a2;
           *(_QWORD *)(v4 + 2272) = v37;
           *(_DWORD *)(v4 + 2240) = 1;
-          result = __b9(v4, 0LL, 0xA3A03F5891C8B4E8uLL, 0xB3B74BDEE4453415uLL);
+          result = sub_140AD049C(v4, 0LL, 0xA3A03F5891C8B4E8uLL, 0xB3B74BDEE4453415uLL);
         }
       }
     }
@@ -299,7 +299,7 @@ LABEL_66:
         *(_QWORD *)(v4 + 2264) = *a2;
         *(_QWORD *)(v4 + 2272) = v50;
         *(_DWORD *)(v4 + 2240) = 1;
-        result = __b9(v4, 0LL, v39, v40);
+        result = sub_140AD049C(v4, 0LL, v39, v40);
       }
     }
 LABEL_68:
@@ -340,7 +340,7 @@ LABEL_6:
         *(_QWORD *)(v4 + 2264) = *a2;
         *(_QWORD *)(v4 + 2272) = v7;
         *(_DWORD *)(v4 + 2240) = 1;
-        result = __b9(v4, 0LL, a3, v9);
+        result = sub_140AD049C(v4, 0LL, a3, v9);
       }
     }
     *(_DWORD *)(v4 + 2032) += 256;

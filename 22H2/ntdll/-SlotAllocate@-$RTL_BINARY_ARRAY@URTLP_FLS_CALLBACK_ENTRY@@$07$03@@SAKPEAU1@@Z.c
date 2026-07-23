@@ -6,10 +6,10 @@
  *     RtlAllocateHeap @ 0x18002A9A0 (RtlAllocateHeap.c)
  */
 
-__int64 __fastcall RTL_BINARY_ARRAY<RTLP_FLS_CALLBACK_ENTRY,8,4>::SlotAllocate(__int64 *a1)
+__int64 __fastcall RTL_BINARY_ARRAY<RTLP_FLS_CALLBACK_ENTRY,8,4>::SlotAllocate(PVOID *a1)
 {
   int v2; // ebx
-  __int64 Heap; // r8
+  _QWORD *Heap; // r8
   int v4; // r9d
   unsigned int i; // edx
   unsigned int v8; // esi
@@ -23,14 +23,14 @@ __int64 __fastcall RTL_BINARY_ARRAY<RTLP_FLS_CALLBACK_ENTRY,8,4>::SlotAllocate(_
     if ( !*a1 )
     {
       v8 = 1 << v2;
-      Heap = RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, (unsigned int)((16 << v2) + 8));
+      Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, (unsigned int)((16 << v2) + 8));
       if ( Heap )
       {
         *(_OWORD *)Heap = 0LL;
-        *(_QWORD *)(Heap + 16) = 0LL;
+        Heap[2] = 0LL;
         if ( v8 )
         {
-          v9 = (_QWORD *)(Heap + 8);
+          v9 = Heap + 1;
           v10 = v8;
           do
           {
@@ -54,7 +54,7 @@ __int64 __fastcall RTL_BINARY_ARRAY<RTLP_FLS_CALLBACK_ENTRY,8,4>::SlotAllocate(_
     if ( (unsigned int)(v2 - 4) >= 8 )
       return (unsigned int)-1;
   }
-  for ( i = *(_DWORD *)Heap; *(_QWORD *)(Heap + 16 * (i + 1LL)); i = (v4 - 1) & (i + 1) )
+  for ( i = *(_DWORD *)Heap; Heap[2 * i + 2]; i = (v4 - 1) & (i + 1) )
     ;
   ++*(_DWORD *)Heap;
   return v4 | i;

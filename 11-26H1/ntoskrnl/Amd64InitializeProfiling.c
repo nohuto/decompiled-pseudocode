@@ -1,14 +1,14 @@
 /*
- * XREFs of Amd64InitializeProfiling @ 0x140BEF590
+ * XREFs of Amd64InitializeProfiling @ 0x140BF5590
  * Callers:
  *     <none>
  * Callees:
- *     KeAddProcessorAffinityEx @ 0x140246720 (KeAddProcessorAffinityEx.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     HalpQueryMaximumRegisteredProcessorCount @ 0x14057CE5C (HalpQueryMaximumRegisteredProcessorCount.c)
- *     HalpMmAllocateMemory @ 0x14057DCD4 (HalpMmAllocateMemory.c)
- *     Amd64FreeCounter @ 0x1405A3CF4 (Amd64FreeCounter.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     KeAddProcessorAffinityEx @ 0x140248080 (KeAddProcessorAffinityEx.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     HalpQueryMaximumRegisteredProcessorCount @ 0x14057F37C (HalpQueryMaximumRegisteredProcessorCount.c)
+ *     HalpMmAllocateMemory @ 0x1405801F4 (HalpMmAllocateMemory.c)
+ *     Amd64FreeCounter @ 0x1405A6504 (Amd64FreeCounter.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 Amd64InitializeProfiling()
@@ -65,7 +65,7 @@ __int64 Amd64InitializeProfiling()
   Number = KeGetPcr()->Prcb.Number;
   v1 = 0;
   v58 = 0LL;
-  v2 = (unsigned int *)&xmmword_140F87600;
+  v2 = (unsigned int *)&xmmword_140F879E0;
   v3 = 0;
   v4 = 0;
   v5 = 35LL;
@@ -75,7 +75,7 @@ __int64 Amd64InitializeProfiling()
     __asm { cpuid }
     if ( (_RCX & 0x800000) != 0 )
     {
-      dword_140F875F0 |= 1u;
+      dword_140F87970 |= 1u;
       v11 = 6;
       v60 = 6;
       v12 = -1073675776;
@@ -83,8 +83,8 @@ __int64 Amd64InitializeProfiling()
       v14 = 6LL;
       do
       {
-        *(_DWORD *)((char *)&xmmword_140F87600 + v13) = v12;
-        *(_DWORD *)((char *)&xmmword_140F875A0 + v13) = v12 + 1;
+        *(_DWORD *)((char *)&xmmword_140F879E0 + v13) = v12;
+        *(_DWORD *)((char *)&xmmword_140F87980 + v13) = v12 + 1;
         v12 += 2;
         v13 += 4LL;
         --v14;
@@ -94,24 +94,24 @@ __int64 Amd64InitializeProfiling()
     else
     {
       v11 = 4;
-      xmmword_140F875A0 = (__int128)_mm_load_si128((const __m128i *)&_xmm_c0010007c0010006c0010005c0010004);
+      xmmword_140F87980 = (__int128)_mm_load_si128((const __m128i *)&_xmm_c0010007c0010006c0010005c0010004);
       v60 = 4;
-      xmmword_140F87600 = (__int128)_mm_load_si128((const __m128i *)&_xmm_c0010003c0010002c0010001c0010000);
+      xmmword_140F879E0 = (__int128)_mm_load_si128((const __m128i *)&_xmm_c0010003c0010002c0010001c0010000);
     }
     if ( (_RCX & 0x1000000) != 0 && (_RCX & 0x400000) != 0 )
     {
       v4 = 4;
-      dword_140F875F0 |= 2u;
-      *(__int128 *)((char *)&xmmword_140F875A0 + 4 * v11) = (__int128)_mm_load_si128((const __m128i *)&_xmm_c0010247c0010245c0010243c0010241);
-      *(__int128 *)((char *)&xmmword_140F87600 + 4 * v11) = (__int128)_mm_load_si128((const __m128i *)&_xmm_c0010246c0010244c0010242c0010240);
-      qword_140F87598 = (__int64)&qword_140F87590;
-      qword_140F87590 = (__int64)&qword_140F87590;
+      dword_140F87970 |= 2u;
+      *(__int128 *)((char *)&xmmword_140F87980 + 4 * v11) = (__int128)_mm_load_si128((const __m128i *)&_xmm_c0010247c0010245c0010243c0010241);
+      *(__int128 *)((char *)&xmmword_140F879E0 + 4 * v11) = (__int128)_mm_load_si128((const __m128i *)&_xmm_c0010246c0010244c0010242c0010240);
+      qword_140F87968 = (__int64)&qword_140F87960;
+      qword_140F87960 = (__int64)&qword_140F87960;
     }
     if ( (_RCX & 0x10000000) != 0 && (_RCX & 0x400000) != 0 )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       v16 = v4 + v11;
-      dword_140F875F0 |= 4u;
+      dword_140F87970 |= 4u;
       v3 = 4;
       if ( CurrentPrcb->CpuType != 22 )
         v3 = 6;
@@ -119,15 +119,15 @@ __int64 Amd64InitializeProfiling()
       v18 = v3;
       do
       {
-        *((_DWORD *)&xmmword_140F87600 + v16) = v17;
-        *((_DWORD *)&xmmword_140F875A0 + v16) = v17 + 1;
+        *((_DWORD *)&xmmword_140F879E0 + v16) = v17;
+        *((_DWORD *)&xmmword_140F87980 + v16) = v17 + 1;
         v17 += 2;
         v16 = (unsigned int)(v16 + 1);
         --v18;
       }
       while ( v18 );
-      qword_140F875E8 = (__int64)&qword_140F875E0;
-      qword_140F875E0 = (__int64)&qword_140F875E0;
+      qword_140F879C8 = (__int64)&qword_140F879C0;
+      qword_140F879C0 = (__int64)&qword_140F879C0;
     }
     _RAX = 0x80000000LL;
     __asm { cpuid }
@@ -136,7 +136,7 @@ __int64 Amd64InitializeProfiling()
       _RAX = 2147483656LL;
       __asm { cpuid }
       if ( (_RBX & 2) != 0 && (KeGetCurrentPrcb()->CpuType != 23 || KeGetCurrentPrcb()->CpuModel >= 0x1Fu) )
-        dword_140F875F0 |= 8u;
+        dword_140F87970 |= 8u;
     }
     HalpProfileIntervalLimits = (__int64)Amd64ProfileIntervalLimits;
     MaximumRegisteredProcessorCount = HalpQueryMaximumRegisteredProcessorCount();
@@ -213,7 +213,7 @@ __int64 Amd64InitializeProfiling()
       v32 = v39;
     }
     HalpProfileSourceDescriptorListLock = 0LL;
-    qword_140FBBF48 = (__int64)&HalpProfileSourceDescriptorListHead;
+    qword_140FBC2E8 = (__int64)&HalpProfileSourceDescriptorListHead;
     HalpProfileSourceDescriptorListHead = (__int64)&HalpProfileSourceDescriptorListHead;
     v50 = 0;
     v5 = 35LL;
@@ -222,31 +222,31 @@ __int64 Amd64InitializeProfiling()
       v51 = 320LL * v50;
       if ( !byte_140E03F0D[v51] )
         goto LABEL_46;
-      if ( *(_DWORD *)((char *)&Amd64ProfileSourceDescriptorTable + v51) == 50 && (dword_140F875F0 & 8) != 0 )
+      if ( *(_DWORD *)((char *)&Amd64ProfileSourceDescriptorTable + v51) == 50 && (dword_140F87970 & 8) != 0 )
         break;
 LABEL_48:
       if ( ++v50 >= 0x23 )
       {
         Number = 0;
-        v2 = (unsigned int *)&xmmword_140F87600;
+        v2 = (unsigned int *)&xmmword_140F879E0;
         goto LABEL_50;
       }
     }
     byte_140E03F0D[v51] = 0;
 LABEL_46:
     v52 = (_QWORD *)((char *)&unk_140E03EF8 + v51);
-    v53 = (_QWORD *)qword_140FBBF48;
-    if ( *(__int64 **)qword_140FBBF48 != &HalpProfileSourceDescriptorListHead )
+    v53 = (_QWORD *)qword_140FBC2E8;
+    if ( *(__int64 **)qword_140FBC2E8 != &HalpProfileSourceDescriptorListHead )
       __fastfail(3u);
     ++HalpProfileSourceDescriptorCount;
     *v52 = &HalpProfileSourceDescriptorListHead;
     v52[1] = v53;
     *v53 = v52;
-    qword_140FBBF48 = (__int64)v52;
+    qword_140FBC2E8 = (__int64)v52;
     goto LABEL_48;
   }
 LABEL_50:
-  if ( (dword_140F875F0 & 8) != 0 )
+  if ( (dword_140F87970 & 8) != 0 )
     __writemsr(0xC0010015, __readmsr(0xC0010015) | 0x40000000);
   v54 = (unsigned __int16 *)&unk_140E03F10;
   do

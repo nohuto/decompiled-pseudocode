@@ -1,13 +1,13 @@
 /*
- * XREFs of VfTargetDriversEnableVerifier @ 0x140B8B364
+ * XREFs of VfTargetDriversEnableVerifier @ 0x140B8D364
  * Callers:
- *     VfSuspectApplyDifVolatileVerification @ 0x140B9A568 (VfSuspectApplyDifVolatileVerification.c)
+ *     VfSuspectApplyDifVolatileVerification @ 0x140B9C568 (VfSuspectApplyDifVolatileVerification.c)
  * Callees:
- *     VfAvlLookupTreeNode @ 0x1403F1074 (VfAvlLookupTreeNode.c)
- *     VfAvlCleanupLockContext @ 0x1403F142C (VfAvlCleanupLockContext.c)
- *     VfAvlInitializeLockContext @ 0x14049C0D8 (VfAvlInitializeLockContext.c)
- *     ViTargetDriversFreeVerifiedData @ 0x140611344 (ViTargetDriversFreeVerifiedData.c)
- *     ViTargetDriversAllocateVerifiedData @ 0x140B8B994 (ViTargetDriversAllocateVerifiedData.c)
+ *     VfAvlLookupTreeNode @ 0x1403E4D94 (VfAvlLookupTreeNode.c)
+ *     VfAvlCleanupLockContext @ 0x1403E514C (VfAvlCleanupLockContext.c)
+ *     VfAvlInitializeLockContext @ 0x140496D08 (VfAvlInitializeLockContext.c)
+ *     ViTargetDriversFreeVerifiedData @ 0x14060F904 (ViTargetDriversFreeVerifiedData.c)
+ *     ViTargetDriversAllocateVerifiedData @ 0x140B8D994 (ViTargetDriversAllocateVerifiedData.c)
  */
 
 __int64 __fastcall VfTargetDriversEnableVerifier(unsigned __int64 a1, __int64 a2)
@@ -35,7 +35,7 @@ __int64 __fastcall VfTargetDriversEnableVerifier(unsigned __int64 a1, __int64 a2
         {
           v5[8] = VerifiedData;
           v2 = 1;
-          ++dword_140F045C0;
+          ++dword_140F047A0;
         }
         VfAvlCleanupLockContext((__int64)&v8, v6);
         if ( !v2 )

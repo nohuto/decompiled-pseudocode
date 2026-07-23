@@ -1,12 +1,12 @@
 /*
- * XREFs of CarDeregisterRuleClassConfiguration @ 0x140616860
+ * XREFs of CarDeregisterRuleClassConfiguration @ 0x140614E20
  * Callers:
- *     VfVolatileClearDifRuleClass @ 0x1406148D0 (VfVolatileClearDifRuleClass.c)
- *     CarRegisterRuleClassConfiguration @ 0x140616F40 (CarRegisterRuleClassConfiguration.c)
+ *     VfVolatileClearDifRuleClass @ 0x140612E90 (VfVolatileClearDifRuleClass.c)
+ *     CarRegisterRuleClassConfiguration @ 0x140615500 (CarRegisterRuleClassConfiguration.c)
  * Callees:
- *     CarDeleteRuleOverrideEntry @ 0x1406167CC (CarDeleteRuleOverrideEntry.c)
- *     CarFindRuleClassConfigurationEntryByRuleClassId @ 0x14061696C (CarFindRuleClassConfigurationEntryByRuleClassId.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     CarDeleteRuleOverrideEntry @ 0x140614D8C (CarDeleteRuleOverrideEntry.c)
+ *     CarFindRuleClassConfigurationEntryByRuleClassId @ 0x140614F2C (CarFindRuleClassConfigurationEntryByRuleClassId.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __fastcall CarDeregisterRuleClassConfiguration(__int64 a1)

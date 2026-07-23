@@ -8,15 +8,15 @@
  *     TppJobpRundownJob @ 0x1800D6F9C (TppJobpRundownJob.c)
  */
 
-struct _TEB *__fastcall TpWaitForJobNotification(__int64 a1)
+int __fastcall TpWaitForJobNotification(_RTL_SRWLOCK *a1)
 {
-  struct _TEB *result; // rax
+  int result; // eax
 
-  result = (struct _TEB *)TppJobpValidateJob(a1, 0LL);
-  if ( (_DWORD)result )
+  result = TppJobpValidateJob(a1, 0LL);
+  if ( result )
   {
     TppJobpRundownJob(a1);
-    return TppBarrierAdjust((volatile signed __int64 *)(a1 + 128), 0, 1);
+    return TppBarrierAdjust(a1 + 16, 0, 1);
   }
   return result;
 }

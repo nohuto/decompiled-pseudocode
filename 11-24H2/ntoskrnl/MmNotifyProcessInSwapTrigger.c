@@ -1,13 +1,13 @@
 /*
- * XREFs of MmNotifyProcessInSwapTrigger @ 0x140467A70
+ * XREFs of MmNotifyProcessInSwapTrigger @ 0x1402D6BB8
  * Callers:
- *     KiInSwapSingleProcess @ 0x1402A67C4 (KiInSwapSingleProcess.c)
- *     KiRequestProcessInSwap @ 0x140338230 (KiRequestProcessInSwap.c)
+ *     KiInSwapSingleProcess @ 0x1402D5EF4 (KiInSwapSingleProcess.c)
+ *     KiRequestProcessInSwap @ 0x1402DFA90 (KiRequestProcessInSwap.c)
  * Callees:
- *     _tlgKeywordOn @ 0x140426AF0 (_tlgKeywordOn.c)
- *     _tlgCreate1Sz_char @ 0x1404397B4 (_tlgCreate1Sz_char.c)
- *     _tlgWriteEx_EtwWriteEx @ 0x1404A083C (_tlgWriteEx_EtwWriteEx.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     _tlgKeywordOn @ 0x14041A970 (_tlgKeywordOn.c)
+ *     _tlgCreate1Sz_char @ 0x14042C374 (_tlgCreate1Sz_char.c)
+ *     _tlgWriteEx_EtwWriteEx @ 0x14049AEBC (_tlgWriteEx_EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 char __fastcall MmNotifyProcessInSwapTrigger(__int64 a1)
@@ -32,12 +32,12 @@ char __fastcall MmNotifyProcessInSwapTrigger(__int64 a1)
   int v18; // [rsp+9Ch] [rbp+43h]
 
   result = HIBYTE(*(_DWORD *)(a1 + 1208)) & 0x30;
-  if ( result == 32 && *(_QWORD *)&qword_140E37518 && **(_DWORD **)&qword_140E37518 > 5u )
+  if ( result == 32 && *(_QWORD *)&qword_140E37658 && **(_DWORD **)&qword_140E37658 > 5u )
   {
-    result = tlgKeywordOn(*(__int64 *)&qword_140E37518, 8LL);
+    result = tlgKeywordOn(*(_QWORD *)&qword_140E37658, 8LL);
     if ( result )
     {
-      tlgCreate1Sz_char((__int64)v12, (const CHAR *)(v2 + 824));
+      tlgCreate1Sz_char(v12, v2 + 824);
       v4 = *(_DWORD *)(v3 + 464);
       v15 = 0;
       v18 = 0;
@@ -47,7 +47,7 @@ char __fastcall MmNotifyProcessInSwapTrigger(__int64 a1)
       v14 = 4;
       v10 = 0x1000000LL;
       v17 = v5;
-      return tlgWriteEx_EtwWriteEx(v6, (int)&byte_140055FD3, v6, v5 - 7, v7, v8, 5u, (__int64)v11);
+      return tlgWriteEx_EtwWriteEx(v6, (int)&byte_140056ACD, v6, v5 - 7, v7, v8, 5u, (__int64)v11);
     }
   }
   return result;

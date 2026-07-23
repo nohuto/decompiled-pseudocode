@@ -1,16 +1,16 @@
 /*
- * XREFs of VmpPrefetchVirtualAddresses @ 0x1405FA69C
+ * XREFs of VmpPrefetchVirtualAddresses @ 0x1405FAC0C
  * Callers:
- *     VmPrefetchVirtualAddresses @ 0x1409DBEE4 (VmPrefetchVirtualAddresses.c)
- *     VmpPrefetchWorker @ 0x1409DD680 (VmpPrefetchWorker.c)
+ *     VmPrefetchVirtualAddresses @ 0x1409DC0E4 (VmPrefetchVirtualAddresses.c)
+ *     VmpPrefetchWorker @ 0x1409DD880 (VmpPrefetchWorker.c)
  * Callees:
- *     ExReleaseRundownProtection_0 @ 0x14028B390 (ExReleaseRundownProtection_0.c)
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402A7C00 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     ExGetExtensionTable @ 0x1402FA440 (ExGetExtensionTable.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     VmpProcessContextLockShared @ 0x140466D94 (VmpProcessContextLockShared.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     VmpFillGpnRanges @ 0x1405F8FAC (VmpFillGpnRanges.c)
+ *     ExReleaseRundownProtection_0 @ 0x14028B620 (ExReleaseRundownProtection_0.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402A7E90 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     ExGetExtensionTable @ 0x1402FA6D0 (ExGetExtensionTable.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     VmpProcessContextLockShared @ 0x140467194 (VmpProcessContextLockShared.c)
+ *     VmpFillGpnRanges @ 0x1405F951C (VmpFillGpnRanges.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
@@ -78,10 +78,10 @@ __int64 __fastcall VmpPrefetchVirtualAddresses(volatile LONG *SpinLock, _QWORD *
           {
             v23 = *((_QWORD *)SpinLock + 5);
             ExReleaseSpinLockSharedFromDpcLevel(SpinLock);
-            if ( KiIrqlFlags )
+            if ( (_DWORD)KiIrqlFlags )
             {
               CurrentIrql = KeGetCurrentIrql();
-              if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v10 <= 0xFu && CurrentIrql >= 2u )
+              if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v10 <= 0xFu && CurrentIrql >= 2u )
               {
                 CurrentPrcb = KeGetCurrentPrcb();
                 SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -108,10 +108,10 @@ __int64 __fastcall VmpPrefetchVirtualAddresses(volatile LONG *SpinLock, _QWORD *
         a2 += 2;
       }
       ExReleaseSpinLockSharedFromDpcLevel(SpinLock);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v17 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v17 <= 0xFu && v10 <= 0xFu && v17 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v17 <= 0xFu && v10 <= 0xFu && v17 >= 2u )
         {
           v18 = KeGetCurrentPrcb();
           v19 = v18->SchedulerAssist;

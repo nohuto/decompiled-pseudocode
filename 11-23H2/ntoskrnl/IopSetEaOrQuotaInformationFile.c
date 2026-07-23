@@ -1,27 +1,27 @@
 /*
- * XREFs of IopSetEaOrQuotaInformationFile @ 0x140945AC0
+ * XREFs of IopSetEaOrQuotaInformationFile @ 0x140945CC0
  * Callers:
- *     NtSetQuotaInformationFile @ 0x14094B9D0 (NtSetQuotaInformationFile.c)
+ *     NtSetQuotaInformationFile @ 0x14094BBD0 (NtSetQuotaInformationFile.c)
  * Callees:
- *     IoAllocateMdl @ 0x14022E2A0 (IoAllocateMdl.c)
- *     IopAllocateIrpExReturn @ 0x14022EF70 (IopAllocateIrpExReturn.c)
- *     IoGetRelatedDeviceObject @ 0x14022F510 (IoGetRelatedDeviceObject.c)
- *     KeAbPreAcquire @ 0x140230EE0 (KeAbPreAcquire.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     ObfReferenceObject @ 0x140233C40 (ObfReferenceObject.c)
- *     KeInitializeEvent @ 0x1402AF870 (KeInitializeEvent.c)
- *     KeResetEvent @ 0x1402AF940 (KeResetEvent.c)
- *     IopReferenceFileObject @ 0x1403016DC (IopReferenceFileObject.c)
- *     RtlRaiseStatus @ 0x1403217B0 (RtlRaiseStatus.c)
- *     memmove @ 0x140435700 (memmove.c)
- *     IopProbeAndLockPages_1 @ 0x140555AD0 (IopProbeAndLockPages_1.c)
+ *     IoAllocateMdl @ 0x14022E3B0 (IoAllocateMdl.c)
+ *     IopAllocateIrpExReturn @ 0x14022F080 (IopAllocateIrpExReturn.c)
+ *     IoGetRelatedDeviceObject @ 0x14022F620 (IoGetRelatedDeviceObject.c)
+ *     KeAbPreAcquire @ 0x140230FD0 (KeAbPreAcquire.c)
+ *     ObfDereferenceObject @ 0x140231660 (ObfDereferenceObject.c)
+ *     ObfReferenceObject @ 0x140233D10 (ObfReferenceObject.c)
+ *     KeInitializeEvent @ 0x1402AFB00 (KeInitializeEvent.c)
+ *     KeResetEvent @ 0x1402AFE30 (KeResetEvent.c)
+ *     IopReferenceFileObject @ 0x14030196C (IopReferenceFileObject.c)
+ *     RtlRaiseStatus @ 0x140321A40 (RtlRaiseStatus.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     IopProbeAndLockPages_1 @ 0x140556190 (IopProbeAndLockPages_1.c)
  *     IopSynchronousApiServiceTail @ 0x140687008 (IopSynchronousApiServiceTail.c)
- *     IopSynchronousServiceTail @ 0x1406E3E90 (IopSynchronousServiceTail.c)
- *     IopWaitAndAcquireFileObjectLock @ 0x140765200 (IopWaitAndAcquireFileObjectLock.c)
- *     IopAllocateIrpCleanup @ 0x140944144 (IopAllocateIrpCleanup.c)
- *     IopExceptionCleanupEx @ 0x140944978 (IopExceptionCleanupEx.c)
- *     IoCheckQuotaBufferValidity @ 0x140946EE0 (IoCheckQuotaBufferValidity.c)
- *     ExRaiseDatatypeMisalignment @ 0x140A00B60 (ExRaiseDatatypeMisalignment.c)
+ *     IopSynchronousServiceTail @ 0x1406E3EC0 (IopSynchronousServiceTail.c)
+ *     IopWaitAndAcquireFileObjectLock @ 0x1407653F0 (IopWaitAndAcquireFileObjectLock.c)
+ *     IopAllocateIrpCleanup @ 0x140944344 (IopAllocateIrpCleanup.c)
+ *     IopExceptionCleanupEx @ 0x140944B78 (IopExceptionCleanupEx.c)
+ *     IoCheckQuotaBufferValidity @ 0x1409470E0 (IoCheckQuotaBufferValidity.c)
+ *     ExRaiseDatatypeMisalignment @ 0x140A00DF0 (ExRaiseDatatypeMisalignment.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
@@ -50,8 +50,8 @@ __int64 __fastcall IopSetEaOrQuotaInformationFile(void *a1, unsigned __int64 a2,
   struct _KTHREAD *v26; // rbx
   ULONG Flags; // eax
   ULONG v28; // r13d
-  struct _FILE_QUOTA_INFORMATION *v29; // rdi
-  NTSTATUS v30; // eax
+  _FILE_QUOTA_INFORMATION *v29; // rdi
+  int v30; // eax
   PMDL Mdl; // rcx
   char v32; // bl
   char v33; // [rsp+40h] [rbp-78h]
@@ -172,7 +172,7 @@ LABEL_23:
           v28 = a4;
           if ( a4 )
           {
-            v29 = (struct _FILE_QUOTA_INFORMATION *)ExAllocatePool2(99LL, a4, 1112764233LL);
+            v29 = (_FILE_QUOTA_INFORMATION *)ExAllocatePool2(99LL, a4, 1112764233LL);
             Irp->AssociatedIrp.MasterIrp = (struct _IRP *)v29;
             memmove(v29, a3, a4);
             v30 = IoCheckQuotaBufferValidity(v29, a4, &ErrorOffset);

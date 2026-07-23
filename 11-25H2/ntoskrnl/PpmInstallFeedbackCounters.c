@@ -35,8 +35,8 @@ void __fastcall PpmInstallFeedbackCounters(__int64 a1, __int64 a2, char a3)
   unsigned __int32 v19; // eax
   unsigned __int32 v20; // ett
   int v21; // [rsp+30h] [rbp-58h] BYREF
-  struct _GROUP_AFFINITY v22; // [rsp+38h] [rbp-50h] BYREF
-  struct _GROUP_AFFINITY PreviousAffinity; // [rsp+48h] [rbp-40h] BYREF
+  _GROUP_AFFINITY v22; // [rsp+38h] [rbp-50h] BYREF
+  _GROUP_AFFINITY PreviousAffinity; // [rsp+48h] [rbp-40h] BYREF
 
   v4 = *(unsigned int *)(a1 + 36);
   v21 = 0;

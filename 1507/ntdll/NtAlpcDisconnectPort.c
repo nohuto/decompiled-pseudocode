@@ -6,11 +6,11 @@
  *     <none>
  */
 
-__int64 NtAlpcDisconnectPort()
+NTSTATUS __cdecl NtAlpcDisconnectPort(HANDLE PortHandle, ULONG Flags)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 128LL;
+  result = 128;
   __asm { syscall; Low latency system call }
   return result;
 }

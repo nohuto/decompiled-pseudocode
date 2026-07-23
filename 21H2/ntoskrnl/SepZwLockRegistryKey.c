@@ -1,12 +1,12 @@
 /*
- * XREFs of SepZwLockRegistryKey @ 0x1407D57D0
+ * XREFs of SepZwLockRegistryKey @ 0x1407D5940
  * Callers:
  *     <none>
  * Callees:
- *     ZwLockRegistryKey @ 0x1403FC540 (ZwLockRegistryKey.c)
+ *     ZwLockRegistryKey @ 0x1403FC720 (ZwLockRegistryKey.c)
  */
 
-__int64 __fastcall SepZwLockRegistryKey(__int64 a1, __int64 a2)
+NTSTATUS __fastcall SepZwLockRegistryKey(void *a1)
 {
-  return ZwLockRegistryKey(a1, a2);
+  return ZwLockRegistryKey(a1);
 }

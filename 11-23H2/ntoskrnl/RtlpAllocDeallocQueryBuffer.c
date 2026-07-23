@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlpAllocDeallocQueryBuffer @ 0x1406C5E54
+ * XREFs of RtlpAllocDeallocQueryBuffer @ 0x1406C5E84
  * Callers:
- *     RtlpQueryRegistryValues @ 0x1406C59D0 (RtlpQueryRegistryValues.c)
+ *     RtlpQueryRegistryValues @ 0x1406C5A00 (RtlpQueryRegistryValues.c)
  * Callees:
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)

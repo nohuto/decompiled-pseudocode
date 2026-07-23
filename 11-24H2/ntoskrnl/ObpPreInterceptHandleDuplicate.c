@@ -1,9 +1,9 @@
 /*
- * XREFs of ObpPreInterceptHandleDuplicate @ 0x1409A651C
+ * XREFs of ObpPreInterceptHandleDuplicate @ 0x140977BF0
  * Callers:
- *     ObCompleteObjectDuplication @ 0x140940288 (ObCompleteObjectDuplication.c)
+ *     ObCompleteObjectDuplication @ 0x1408948C8 (ObCompleteObjectDuplication.c)
  * Callees:
- *     ObpCallPreOperationCallbacks @ 0x1409A65F0 (ObpCallPreOperationCallbacks.c)
+ *     ObpCallPreOperationCallbacks @ 0x140977CD0 (ObpCallPreOperationCallbacks.c)
  */
 
 __int64 __fastcall ObpPreInterceptHandleDuplicate(__int64 a1, char a2, int *a3, __int64 a4, __int64 a5, __int64 a6)

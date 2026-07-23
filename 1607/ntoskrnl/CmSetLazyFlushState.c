@@ -1,13 +1,13 @@
 /*
- * XREFs of CmSetLazyFlushState @ 0x14052EE18
+ * XREFs of CmSetLazyFlushState @ 0x14052F358
  * Callers:
  *     PopUnlockAfterSleepWorker @ 0x1403C95C8 (PopUnlockAfterSleepWorker.c)
  *     NtSetSystemPowerState @ 0x1403CF658 (NtSetSystemPowerState.c)
  * Callees:
- *     KiSetTimerEx @ 0x140006E00 (KiSetTimerEx.c)
- *     CmpDisableLazyFlush @ 0x1400B5FC0 (CmpDisableLazyFlush.c)
- *     KeCancelTimer @ 0x1400C3480 (KeCancelTimer.c)
- *     CmpEnableLazyFlush @ 0x140131B00 (CmpEnableLazyFlush.c)
+ *     KiSetTimerEx @ 0x140006F70 (KiSetTimerEx.c)
+ *     CmpDisableLazyFlush @ 0x1400B3DE8 (CmpDisableLazyFlush.c)
+ *     KeCancelTimer @ 0x1400C1310 (KeCancelTimer.c)
+ *     CmpEnableLazyFlush @ 0x140132070 (CmpEnableLazyFlush.c)
  */
 
 void __fastcall CmSetLazyFlushState(char a1)

@@ -18,7 +18,7 @@
  *     ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x140264044 (ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented.c)
  */
 
-__int64 __fastcall MiSetPagingOfDriver(__int64 a1, unsigned __int64 *a2, unsigned __int64 a3)
+PVOID __fastcall MiSetPagingOfDriver(__int64 a1, unsigned __int64 *a2, unsigned __int64 a3)
 {
   unsigned __int64 *v3; // r14
   unsigned __int64 *v5; // rsi
@@ -37,7 +37,7 @@ __int64 __fastcall MiSetPagingOfDriver(__int64 a1, unsigned __int64 *a2, unsigne
   __int64 v19; // rcx
   __int16 v20; // ax
   unsigned __int64 v21; // r9
-  __int64 result; // rax
+  PVOID result; // rax
   unsigned __int64 v23; // [rsp+20h] [rbp-B9h] BYREF
   __int64 CurrentIrql; // [rsp+28h] [rbp-B1h]
   int v25; // [rsp+30h] [rbp-A9h] BYREF
@@ -141,10 +141,10 @@ __int64 __fastcall MiSetPagingOfDriver(__int64 a1, unsigned __int64 *a2, unsigne
       v8 += MiTrimSystemImagePages(v3, a3);
     }
   }
-  result = MiUnlockWorkingSetExclusive((__int64)dword_14034FF40, CurrentIrql);
+  result = (PVOID)MiUnlockWorkingSetExclusive((__int64)dword_14034FF40, CurrentIrql);
   if ( v8 )
   {
-    result = *(_QWORD *)(a1 + 48);
+    result = *(PVOID *)(a1 + 48);
     if ( result == PsNtosImageBase || result == PsHalImageBase )
       _InterlockedExchangeAdd((_DWORD *)&xmmword_14034EA58 + 2, v8);
     else

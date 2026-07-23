@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpHpPgSamplingProcessInitialize @ 0x18011D254
+ * XREFs of RtlpHpPgSamplingProcessInitialize @ 0x18011D004
  * Callers:
- *     RtlSetGlobalHeapFeatures @ 0x180144518 (RtlSetGlobalHeapFeatures.c)
- *     RtlpHpApplyGlobalSegmentHeapConfigurations @ 0x180144FA4 (RtlpHpApplyGlobalSegmentHeapConfigurations.c)
- *     RtlpHpSetHeapFeatures @ 0x180145214 (RtlpHpSetHeapFeatures.c)
+ *     RtlSetGlobalHeapFeatures @ 0x180144408 (RtlSetGlobalHeapFeatures.c)
+ *     RtlpHpApplyGlobalSegmentHeapConfigurations @ 0x180144E54 (RtlpHpApplyGlobalSegmentHeapConfigurations.c)
+ *     RtlpHpSetHeapFeatures @ 0x1801450C4 (RtlpHpSetHeapFeatures.c)
  * Callees:
  *     <none>
  */

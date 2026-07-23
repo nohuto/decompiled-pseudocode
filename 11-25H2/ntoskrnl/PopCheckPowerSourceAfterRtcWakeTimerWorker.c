@@ -12,24 +12,20 @@
 
 LONG PopCheckPowerSourceAfterRtcWakeTimerWorker()
 {
-  __int64 v0; // r9
-  __int128 v2; // [rsp+20h] [rbp-28h] BYREF
-  int v3; // [rsp+58h] [rbp+10h] BYREF
-  int v4; // [rsp+60h] [rbp+18h] BYREF
+  __int128 v1; // [rsp+20h] [rbp-28h] BYREF
+  int v2; // [rsp+58h] [rbp+10h] BYREF
+  int v3; // [rsp+60h] [rbp+18h] BYREF
 
-  v2 = 0LL;
+  v1 = 0LL;
   if ( PopSleepStats )
   {
-    PopCurrentPowerStatePrecise((__int64)&v2, 0LL);
-    if ( !(_BYTE)v2 )
+    PopCurrentPowerStatePrecise((__int64)&v1, 0LL);
+    if ( !(_BYTE)v1 )
     {
-      v3 = 0;
-      PopQueryPowerSettingUlong(&GUID_ALLOW_RTC_WAKE, &v4, &v3);
-      if ( !v3 )
-      {
-        LOBYTE(v0) = 1;
-        NtInitiatePowerAction(dword_140F0B3C0, (unsigned int)dword_140F0B3C4, 0x80000000LL, v0);
-      }
+      v2 = 0;
+      PopQueryPowerSettingUlong(&GUID_ALLOW_RTC_WAKE, &v3, &v2);
+      if ( !v2 )
+        NtInitiatePowerAction(SystemAction, LightestSystemState, 0x80000000, 1u);
     }
   }
   PopOkayToQueueNextWorkItem((__int64)&unk_140F0A448);

@@ -30,7 +30,7 @@ LONG __stdcall RtlEthernetStringToAddressW(PCWSTR S, LPCWSTR *Terminator, DL_EUI
       v8 = *S;
       C = *S;
       v11 = v5;
-      if ( !*S || v8 >= 0x80u )
+      if ( !*S || (unsigned __int16)v8 >= 0x80u )
         break;
       if ( iswctype(v8, 4u) )
       {
@@ -51,7 +51,7 @@ LONG __stdcall RtlEthernetStringToAddressW(PCWSTR S, LPCWSTR *Terminator, DL_EUI
       ++S;
       v5 = v11 + 1;
     }
-    v9 = *S;
+    v9 = *(unsigned __int16 *)S;
     if ( v9 != 45 && v9 != 58 )
       break;
     if ( v4 < (DL_EUI48 *)&v13.Ei48.Byte[2] )

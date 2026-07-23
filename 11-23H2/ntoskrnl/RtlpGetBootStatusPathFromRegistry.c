@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlpGetBootStatusPathFromRegistry @ 0x1403C6370
+ * XREFs of RtlpGetBootStatusPathFromRegistry @ 0x1403C6550
  * Callers:
- *     RtlpGetBootStatusPath @ 0x1403C6314 (RtlpGetBootStatusPath.c)
+ *     RtlpGetBootStatusPath @ 0x1403C64F4 (RtlpGetBootStatusPath.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1B0 (RtlInitUnicodeString.c)
- *     ZwClose @ 0x14041AF40 (ZwClose.c)
- *     ZwOpenKey @ 0x14041AFA0 (ZwOpenKey.c)
- *     ZwQueryValueKey @ 0x14041B040 (ZwQueryValueKey.c)
- *     memmove @ 0x140435700 (memmove.c)
+ *     RtlInitUnicodeString @ 0x14022E2C0 (RtlInitUnicodeString.c)
+ *     ZwClose @ 0x14041B2D0 (ZwClose.c)
+ *     ZwOpenKey @ 0x14041B330 (ZwOpenKey.c)
+ *     ZwQueryValueKey @ 0x14041B3D0 (ZwQueryValueKey.c)
+ *     memmove @ 0x140435B00 (memmove.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

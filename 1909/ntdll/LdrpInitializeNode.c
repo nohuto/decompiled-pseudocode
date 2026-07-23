@@ -25,16 +25,14 @@ __int64 __fastcall LdrpInitializeNode(__int64 a1)
   __int64 i; // rsi
   __int64 v7; // rbx
   char v8; // r13
-  unsigned __int64 v9; // r8
-  unsigned __int64 v10; // r9
-  char v11; // al
-  __int64 v13; // [rsp+48h] [rbp-F0h]
-  __int64 v14; // [rsp+70h] [rbp-C8h]
-  _QWORD v15[4]; // [rsp+80h] [rbp-B8h] BYREF
-  __int64 v16; // [rsp+B0h] [rbp-88h] BYREF
-  int v17; // [rsp+B8h] [rbp-80h]
-  _BYTE v18[56]; // [rsp+C0h] [rbp-78h] BYREF
-  int v19; // [rsp+158h] [rbp+20h] BYREF
+  char v9; // al
+  __int64 v11; // [rsp+48h] [rbp-F0h]
+  __int64 v12; // [rsp+70h] [rbp-C8h]
+  _MEMORY_RANGE_ENTRY VirtualAddresses; // [rsp+80h] [rbp-B8h] BYREF
+  __int64 v14; // [rsp+B0h] [rbp-88h] BYREF
+  int v15; // [rsp+B8h] [rbp-80h]
+  _BYTE v16[56]; // [rsp+C0h] [rbp-78h] BYREF
+  int VmInformation; // [rsp+158h] [rbp+20h] BYREF
 
   v1 = a1;
   *(_DWORD *)(a1 + 56) = 8;
@@ -63,13 +61,19 @@ __int64 __fastcall LdrpInitializeNode(__int64 a1)
     v7 = i - 160;
     if ( i - 160 != v2 )
     {
-      v19 = 1;
-      v15[0] = *(_QWORD *)(v7 + 48);
-      v15[1] = 4096LL;
-      ZwSetInformationVirtualMemory(-1LL, 4LL, 1LL, v15, &v19, 4);
-      v14 = LdrpCurrentDllInitializer;
+      VmInformation = 1;
+      VirtualAddresses.VirtualAddress = *(PVOID *)(v7 + 48);
+      VirtualAddresses.NumberOfBytes = 4096LL;
+      ZwSetInformationVirtualMemory(
+        (HANDLE)0xFFFFFFFFFFFFFFFFLL,
+        VmImageHotPatchInformation,
+        1uLL,
+        &VirtualAddresses,
+        &VmInformation,
+        4u);
+      v12 = LdrpCurrentDllInitializer;
       LdrpCurrentDllInitializer = i - 160;
-      v13 = *(_QWORD *)(v7 + 56);
+      v11 = *(_QWORD *)(v7 + 56);
       if ( (LdrpDebugFlags & 5) != 0 )
         LdrpLogDbgPrint(
           (unsigned int)"minkernel\\ntdll\\ldrsnap.c",
@@ -80,21 +84,21 @@ __int64 __fastcall LdrpInitializeNode(__int64 a1)
           *(_QWORD *)(v7 + 56),
           v7 + 72);
       v8 = 1;
-      v16 = 72LL;
-      v17 = 1;
-      memset(v18, 0, sizeof(v18));
-      RtlActivateActivationContextUnsafeFast((__int64)&v16, *(_QWORD *)(v7 + 136));
+      v14 = 72LL;
+      v15 = 1;
+      memset(v16, 0, sizeof(v16));
+      RtlActivateActivationContextUnsafeFast((__int64)&v14, *(_QWORD *)(v7 + 136));
       if ( *(_WORD *)(v7 + 110) )
-        LdrpCallTlsInitializers(1, i - 160, v9, v10);
-      if ( v13 )
-        v8 = LdrpCallInitRoutine(v13, *(_QWORD *)(v7 + 48), 1);
-      RtlDeactivateActivationContextUnsafeFast((__int64)&v16);
-      v11 = LdrpDebugFlags;
-      LdrpCurrentDllInitializer = v14;
+        LdrpCallTlsInitializers(1, i - 160);
+      if ( v11 )
+        v8 = LdrpCallInitRoutine(v11, *(_QWORD *)(v7 + 48), 1);
+      RtlDeactivateActivationContextUnsafeFast((__int64)&v14);
+      v9 = LdrpDebugFlags;
+      LdrpCurrentDllInitializer = v12;
       *(_DWORD *)(v7 + 104) |= 0x80000u;
       if ( !v8 )
       {
-        if ( (v11 & 3) != 0 )
+        if ( (v9 & 3) != 0 )
         {
           LdrpLogDbgPrint(
             (unsigned int)"minkernel\\ntdll\\ldrsnap.c",
@@ -102,11 +106,11 @@ __int64 __fastcall LdrpInitializeNode(__int64 a1)
             (unsigned int)"LdrpInitializeNode",
             0,
             (__int64)"Init routine %p for DLL \"%wZ\" failed during DLL_PROCESS_ATTACH\n",
-            v13,
+            v11,
             v7 + 72);
-          v11 = LdrpDebugFlags;
+          v9 = LdrpDebugFlags;
         }
-        if ( (v11 & 0x10) != 0 )
+        if ( (v9 & 0x10) != 0 )
           __debugbreak();
         v5 = -1073741502;
         *(_DWORD *)(v7 + 104) |= 0x100000u;

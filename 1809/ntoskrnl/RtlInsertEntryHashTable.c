@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlInsertEntryHashTable @ 0x1400D9CC0
+ * XREFs of RtlInsertEntryHashTable @ 0x1400D9D40
  * Callers:
- *     SepAddLuidToIndexEntry @ 0x14064EFAC (SepAddLuidToIndexEntry.c)
- *     SepGetCachedHandlesEntry @ 0x14065BF58 (SepGetCachedHandlesEntry.c)
- *     SepGetLowBoxNumberEntry @ 0x14065C240 (SepGetLowBoxNumberEntry.c)
- *     SepInsertOrReferenceSharedSidEntries @ 0x1408A4304 (SepInsertOrReferenceSharedSidEntries.c)
- *     SepReadAndInsertCaps @ 0x1408A4844 (SepReadAndInsertCaps.c)
+ *     SepAddLuidToIndexEntry @ 0x14065016C (SepAddLuidToIndexEntry.c)
+ *     SepGetCachedHandlesEntry @ 0x14065D118 (SepGetCachedHandlesEntry.c)
+ *     SepGetLowBoxNumberEntry @ 0x14065D400 (SepGetLowBoxNumberEntry.c)
+ *     SepInsertOrReferenceSharedSidEntries @ 0x1408A5564 (SepInsertOrReferenceSharedSidEntries.c)
+ *     SepReadAndInsertCaps @ 0x1408A5AA4 (SepReadAndInsertCaps.c)
  * Callees:
- *     RtlpPopulateContext @ 0x1400D9D40 (RtlpPopulateContext.c)
+ *     RtlpPopulateContext @ 0x1400D9DC0 (RtlpPopulateContext.c)
  */
 
 BOOLEAN __stdcall RtlInsertEntryHashTable(

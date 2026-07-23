@@ -3,8 +3,8 @@
  * Callers:
  *     MiAbortCombineScan @ 0x14021AAAC (MiAbortCombineScan.c)
  *     MiSignalLargePageRebuild @ 0x14021D424 (MiSignalLargePageRebuild.c)
- *     MiChangePageAttribute @ 0x14036F3BC (MiChangePageAttribute.c)
- *     MiInitializeDynamicPfns @ 0x14061AEF8 (MiInitializeDynamicPfns.c)
+ *     MiChangePageAttribute @ 0x14036F55C (MiChangePageAttribute.c)
+ *     MiInitializeDynamicPfns @ 0x14061B448 (MiInitializeDynamicPfns.c)
  * Callees:
  *     <none>
  */

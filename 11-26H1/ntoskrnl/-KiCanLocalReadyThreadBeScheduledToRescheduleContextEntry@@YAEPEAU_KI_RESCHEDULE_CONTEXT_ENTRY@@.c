@@ -1,11 +1,11 @@
 /*
- * XREFs of ?KiCanLocalReadyThreadBeScheduledToRescheduleContextEntry@@YAEPEAU_KI_RESCHEDULE_CONTEXT_ENTRY@@PEAU_KTHREAD@@PEAU_KPRCB@@PEAU_KSHARED_READY_QUEUE@@PEAU_KSCB@@@Z @ 0x14022F880
+ * XREFs of ?KiCanLocalReadyThreadBeScheduledToRescheduleContextEntry@@YAEPEAU_KI_RESCHEDULE_CONTEXT_ENTRY@@PEAU_KTHREAD@@PEAU_KPRCB@@PEAU_KSHARED_READY_QUEUE@@PEAU_KSCB@@@Z @ 0x140231210
  * Callers:
- *     KiSearchForNewThreadsForRescheduleContext @ 0x14022CBE0 (KiSearchForNewThreadsForRescheduleContext.c)
+ *     KiSearchForNewThreadsForRescheduleContext @ 0x14022E570 (KiSearchForNewThreadsForRescheduleContext.c)
  * Callees:
- *     KiIsThreadExemptFromForcePark @ 0x14022F9EC (KiIsThreadExemptFromForcePark.c)
- *     KiShouldPreemptionBeDeferred @ 0x140230510 (KiShouldPreemptionBeDeferred.c)
- *     KiComputeThreadQos @ 0x1402BC220 (KiComputeThreadQos.c)
+ *     KiIsThreadExemptFromForcePark @ 0x14023137C (KiIsThreadExemptFromForcePark.c)
+ *     KiShouldPreemptionBeDeferred @ 0x140231EA0 (KiShouldPreemptionBeDeferred.c)
+ *     KiComputeThreadQos @ 0x140306EE0 (KiComputeThreadQos.c)
  */
 
 bool __fastcall KiCanLocalReadyThreadBeScheduledToRescheduleContextEntry(

@@ -21,22 +21,22 @@
  *     RtlSetProtectedPolicy @ 0x180081550 (RtlSetProtectedPolicy.c)
  *     RtlpAddVectoredHandler @ 0x1800820B0 (RtlpAddVectoredHandler.c)
  *     RtlpRemoveVectoredHandler @ 0x1800828A0 (RtlpRemoveVectoredHandler.c)
- *     LdrpInitializeExecutionOptions @ 0x1800D108C (LdrpInitializeExecutionOptions.c)
- *     RtlGrowFunctionTable @ 0x1800E0BD0 (RtlGrowFunctionTable.c)
- *     RtlRemoteCall @ 0x1800FF100 (RtlRemoteCall.c)
- *     RtlpFreeReadOnlyHeap @ 0x18010B2A0 (RtlpFreeReadOnlyHeap.c)
+ *     LdrpInitializeExecutionOptions @ 0x1800D104C (LdrpInitializeExecutionOptions.c)
+ *     RtlGrowFunctionTable @ 0x1800E0B90 (RtlGrowFunctionTable.c)
+ *     RtlRemoteCall @ 0x1800FF0C0 (RtlRemoteCall.c)
+ *     RtlpFreeReadOnlyHeap @ 0x18010B260 (RtlpFreeReadOnlyHeap.c)
  * Callees:
  *     <none>
  */
 
-__int64 LdrControlFlowGuardEnforced()
+BOOLEAN LdrControlFlowGuardEnforced(void)
 {
-  __int64 result; // rax
+  BOOLEAN result; // al
 
-  if ( !qword_1801813A8 )
-    return 0LL;
-  result = 1LL;
-  if ( (byte_18018138C & 1) != 0 )
-    return 0LL;
+  if ( !LdrSystemDllInitBlock.CfgBitMap )
+    return 0;
+  result = 1;
+  if ( (LdrSystemDllInitBlock.Flags & 1) != 0 )
+    return 0;
   return result;
 }

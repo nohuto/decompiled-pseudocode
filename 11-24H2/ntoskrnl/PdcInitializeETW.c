@@ -1,10 +1,10 @@
 /*
- * XREFs of PdcInitializeETW @ 0x140607A64
+ * XREFs of PdcInitializeETW @ 0x14060506C
  * Callers:
- *     Pdcv2ActivationClientRegister @ 0x14078D95C (Pdcv2ActivationClientRegister.c)
+ *     Pdcv2ActivationClientRegister @ 0x14078D88C (Pdcv2ActivationClientRegister.c)
  * Callees:
- *     McGenEventRegister_EtwRegister @ 0x14057D754 (McGenEventRegister_EtwRegister.c)
- *     TraceLoggingRegisterEx_EtwRegister_EtwSetInformation @ 0x140A57414 (TraceLoggingRegisterEx_EtwRegister_EtwSetInformation.c)
+ *     McGenEventRegister_EtwRegister @ 0x14057ABE4 (McGenEventRegister_EtwRegister.c)
+ *     TraceLoggingRegisterEx_EtwRegister_EtwSetInformation @ 0x1409EA0B8 (TraceLoggingRegisterEx_EtwRegister_EtwSetInformation.c)
  */
 
 __int64 __fastcall PdcInitializeETW(__int64 a1, __int64 a2)
@@ -19,7 +19,7 @@ __int64 __fastcall PdcInitializeETW(__int64 a1, __int64 a2)
       a2,
       PDC_EVENT_PROVIDER_Context,
       PDC_EVENT_PROVIDER_Context);
-    return TraceLoggingRegisterEx_EtwRegister_EtwSetInformation(&dword_140E08838, 0LL, 0LL);
+    return TraceLoggingRegisterEx_EtwRegister_EtwSetInformation(&dword_140E088A8, 0LL, 0LL);
   }
   return result;
 }

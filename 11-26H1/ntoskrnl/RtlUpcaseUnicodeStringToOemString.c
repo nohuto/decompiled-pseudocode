@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlUpcaseUnicodeStringToOemString @ 0x140B09690
+ * XREFs of RtlUpcaseUnicodeStringToOemString @ 0x14097E750
  * Callers:
- *     DifRtlUpcaseUnicodeStringToOemStringWrapper @ 0x140696C50 (DifRtlUpcaseUnicodeStringToOemStringWrapper.c)
+ *     DifRtlUpcaseUnicodeStringToOemStringWrapper @ 0x14069A830 (DifRtlUpcaseUnicodeStringToOemStringWrapper.c)
  * Callees:
- *     AllocateOrValidateCharStringBuffer @ 0x140477200 (AllocateOrValidateCharStringBuffer.c)
- *     RtlUpcaseUnicodeToOemN @ 0x14096B750 (RtlUpcaseUnicodeToOemN.c)
- *     RtlpDidUnicodeToOemWork @ 0x14096B810 (RtlpDidUnicodeToOemWork.c)
- *     RtlUnicodeToMultiByteSize @ 0x14096C100 (RtlUnicodeToMultiByteSize.c)
- *     ExFreePool @ 0x140C10E30 (ExFreePool.c)
+ *     AllocateOrValidateCharStringBuffer @ 0x140470980 (AllocateOrValidateCharStringBuffer.c)
+ *     RtlUpcaseUnicodeToOemN @ 0x14097C090 (RtlUpcaseUnicodeToOemN.c)
+ *     RtlpDidUnicodeToOemWork @ 0x14097C150 (RtlpDidUnicodeToOemWork.c)
+ *     RtlUnicodeToMultiByteSize @ 0x14097CA40 (RtlUnicodeToMultiByteSize.c)
+ *     ExFreePool @ 0x140C16E30 (ExFreePool.c)
  */
 
 NTSTATUS __stdcall RtlUpcaseUnicodeStringToOemString(

@@ -1,10 +1,10 @@
 /*
- * XREFs of VfFailSystemBIOS @ 0x140610760
+ * XREFs of VfFailSystemBIOS @ 0x14060ED20
  * Callers:
  *     <none>
  * Callees:
- *     VfIsVerificationEnabled @ 0x1404AE5A0 (VfIsVerificationEnabled.c)
- *     CarReportRuleViolationFromNt @ 0x140B8D914 (CarReportRuleViolationFromNt.c)
+ *     VfIsVerificationEnabled @ 0x1404A8EB0 (VfIsVerificationEnabled.c)
+ *     CarReportRuleViolationFromNt @ 0x140B8F914 (CarReportRuleViolationFromNt.c)
  */
 
 LOGICAL __fastcall VfFailSystemBIOS(

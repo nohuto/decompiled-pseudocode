@@ -1,12 +1,12 @@
 /*
- * XREFs of MiInitializePageFaultResources @ 0x140375890
+ * XREFs of MiInitializePageFaultResources @ 0x140375A30
  * Callers:
  *     MiInitNucleus @ 0x140B41888 (MiInitNucleus.c)
  * Callees:
  *     InitializeSListHead @ 0x140221420 (InitializeSListHead.c)
- *     MiReservePtes @ 0x14027D190 (MiReservePtes.c)
- *     MiInsertInPageBlock @ 0x1402BD398 (MiInsertInPageBlock.c)
- *     MiAllocateInPageSupportBlock @ 0x140362E34 (MiAllocateInPageSupportBlock.c)
+ *     MiReservePtes @ 0x14027D420 (MiReservePtes.c)
+ *     MiInsertInPageBlock @ 0x1402BD628 (MiInsertInPageBlock.c)
+ *     MiAllocateInPageSupportBlock @ 0x140362FD4 (MiAllocateInPageSupportBlock.c)
  */
 
 __int64 MiInitializePageFaultResources()

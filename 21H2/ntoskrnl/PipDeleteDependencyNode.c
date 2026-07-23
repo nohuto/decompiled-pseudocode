@@ -1,17 +1,17 @@
 /*
- * XREFs of PipDeleteDependencyNode @ 0x1407CD6B0
+ * XREFs of PipDeleteDependencyNode @ 0x1407CD820
  * Callers:
- *     PipDereferenceDependencyNode @ 0x14074CAC0 (PipDereferenceDependencyNode.c)
- *     PipCreateDependencyNode @ 0x1407B4C9C (PipCreateDependencyNode.c)
- *     PipDeleteAllDependencyRelations @ 0x1407CD600 (PipDeleteAllDependencyRelations.c)
- *     IoDuplicateDependency @ 0x14089D670 (IoDuplicateDependency.c)
- *     PipMergeDependencyEdgeList @ 0x14089DD70 (PipMergeDependencyEdgeList.c)
- *     PipMergeDependencyNodes @ 0x14089DEF4 (PipMergeDependencyNodes.c)
- *     PipSetDependency @ 0x14089DFF4 (PipSetDependency.c)
- *     PipUnlinkDeviceObjectAndDependencyNode @ 0x14089E0A4 (PipUnlinkDeviceObjectAndDependencyNode.c)
+ *     PipDereferenceDependencyNode @ 0x14074CC80 (PipDereferenceDependencyNode.c)
+ *     PipCreateDependencyNode @ 0x1407B65BC (PipCreateDependencyNode.c)
+ *     PipDeleteAllDependencyRelations @ 0x1407CD770 (PipDeleteAllDependencyRelations.c)
+ *     IoDuplicateDependency @ 0x14089D7D0 (IoDuplicateDependency.c)
+ *     PipMergeDependencyEdgeList @ 0x14089DED0 (PipMergeDependencyEdgeList.c)
+ *     PipMergeDependencyNodes @ 0x14089E054 (PipMergeDependencyNodes.c)
+ *     PipSetDependency @ 0x14089E154 (PipSetDependency.c)
+ *     PipUnlinkDeviceObjectAndDependencyNode @ 0x14089E204 (PipUnlinkDeviceObjectAndDependencyNode.c)
  * Callees:
- *     PipDeleteBindingIds @ 0x1407CD780 (PipDeleteBindingIds.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     PipDeleteBindingIds @ 0x1407CD8F0 (PipDeleteBindingIds.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 void __fastcall PipDeleteDependencyNode(_QWORD *P)

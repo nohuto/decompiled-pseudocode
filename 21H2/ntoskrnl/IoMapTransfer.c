@@ -1,10 +1,10 @@
 /*
- * XREFs of IoMapTransfer @ 0x140388C70
+ * XREFs of IoMapTransfer @ 0x140388DC0
  * Callers:
- *     HalpAllocateAdapterCallbackV2 @ 0x1404CCB50 (HalpAllocateAdapterCallbackV2.c)
+ *     HalpAllocateAdapterCallbackV2 @ 0x1404CCD90 (HalpAllocateAdapterCallbackV2.c)
  * Callees:
- *     IoMapTransferInternal @ 0x140388CEC (IoMapTransferInternal.c)
- *     HalpIommuDomainMapLogicalRange @ 0x1404C92D4 (HalpIommuDomainMapLogicalRange.c)
+ *     IoMapTransferInternal @ 0x140388E3C (IoMapTransferInternal.c)
+ *     HalpIommuDomainMapLogicalRange @ 0x1404C9514 (HalpIommuDomainMapLogicalRange.c)
  */
 
 PHYSICAL_ADDRESS __stdcall IoMapTransfer(

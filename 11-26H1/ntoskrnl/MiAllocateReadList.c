@@ -1,12 +1,12 @@
 /*
- * XREFs of MiAllocateReadList @ 0x140A524C0
+ * XREFs of MiAllocateReadList @ 0x140A5B7B0
  * Callers:
- *     MiPfPrepareSequentialReadList @ 0x140A50EA0 (MiPfPrepareSequentialReadList.c)
- *     MiPfPrepareReadList @ 0x140A51E30 (MiPfPrepareReadList.c)
+ *     MiPfPrepareSequentialReadList @ 0x140A5A190 (MiPfPrepareSequentialReadList.c)
+ *     MiPfPrepareReadList @ 0x140A5B120 (MiPfPrepareReadList.c)
  * Callees:
- *     ExAllocatePoolMm @ 0x1403985B0 (ExAllocatePoolMm.c)
- *     MiInitializePageChainHead @ 0x140449C90 (MiInitializePageChainHead.c)
- *     MmGetCurrentProcessorColor @ 0x14044ADC0 (MmGetCurrentProcessorColor.c)
+ *     ExAllocatePoolMm @ 0x14039A310 (ExAllocatePoolMm.c)
+ *     MiInitializePageChainHead @ 0x140441DC0 (MiInitializePageChainHead.c)
+ *     MmGetCurrentProcessorColor @ 0x140442EF0 (MmGetCurrentProcessorColor.c)
  */
 
 __int64 __fastcall MiAllocateReadList(int a1)

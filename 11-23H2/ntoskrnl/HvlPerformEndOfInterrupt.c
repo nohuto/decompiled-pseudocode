@@ -1,10 +1,10 @@
 /*
- * XREFs of HvlPerformEndOfInterrupt @ 0x14045F4A0
+ * XREFs of HvlPerformEndOfInterrupt @ 0x14045F8A0
  * Callers:
- *     HvlDummyInterruptCallback @ 0x14053F5A0 (HvlDummyInterruptCallback.c)
+ *     HvlDummyInterruptCallback @ 0x14053FC60 (HvlDummyInterruptCallback.c)
  * Callees:
- *     HalPerformEndOfInterrupt @ 0x140331810 (HalPerformEndOfInterrupt.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     HalPerformEndOfInterrupt @ 0x140331AA0 (HalPerformEndOfInterrupt.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 HvlPerformEndOfInterrupt()
@@ -29,7 +29,7 @@ __int64 HvlPerformEndOfInterrupt()
     }
     while ( v3 != (_DWORD)result );
     if ( (result & 0x200000) != 0 )
-      result = KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+      result = KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
   }
   _enable();
   return result;

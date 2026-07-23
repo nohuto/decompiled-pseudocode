@@ -1,41 +1,41 @@
 /*
- * XREFs of IopProcessSetInterfaceState @ 0x1403F26A4
+ * XREFs of IopProcessSetInterfaceState @ 0x1403F1568
  * Callers:
- *     IoSetDeviceInterfaceState @ 0x1403F1060 (IoSetDeviceInterfaceState.c)
- *     IopDoDeferredSetInterfaceState @ 0x1404E7110 (IopDoDeferredSetInterfaceState.c)
+ *     IoSetDeviceInterfaceState @ 0x1403EFF24 (IoSetDeviceInterfaceState.c)
+ *     IopDoDeferredSetInterfaceState @ 0x14050D724 (IopDoDeferredSetInterfaceState.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14002DC60 (RtlInitUnicodeString.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x140055FA0 (KiLeaveCriticalRegionUnsafe.c)
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     RtlInitUnicodeStringEx @ 0x1400C39C0 (RtlInitUnicodeStringEx.c)
- *     ExfReleasePushLock @ 0x1400C8620 (ExfReleasePushLock.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     ZwClose @ 0x140159E60 (ZwClose.c)
- *     ZwCreateSymbolicLinkObject @ 0x14015B320 (ZwCreateSymbolicLinkObject.c)
- *     ZwOpenSymbolicLinkObject @ 0x14015C040 (ZwOpenSymbolicLinkObject.c)
+ *     RtlInitUnicodeString @ 0x14002D7E0 (RtlInitUnicodeString.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140055B20 (KiLeaveCriticalRegionUnsafe.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     RtlInitUnicodeStringEx @ 0x1400C1850 (RtlInitUnicodeStringEx.c)
+ *     ExfReleasePushLock @ 0x1400C64C0 (ExfReleasePushLock.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     ZwClose @ 0x14015A3D0 (ZwClose.c)
+ *     ZwCreateSymbolicLinkObject @ 0x14015B890 (ZwCreateSymbolicLinkObject.c)
+ *     ZwOpenSymbolicLinkObject @ 0x14015C5B0 (ZwOpenSymbolicLinkObject.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     PnpSetDeviceClassChange @ 0x1403EEEB4 (PnpSetDeviceClassChange.c)
- *     IopBuildGlobalSymbolicLinkString @ 0x1403F2484 (IopBuildGlobalSymbolicLinkString.c)
- *     PnpDeviceObjectFromDeviceInstance @ 0x1403F4A34 (PnpDeviceObjectFromDeviceInstance.c)
- *     RtlEqualUnicodeString @ 0x14040F720 (RtlEqualUnicodeString.c)
- *     RtlFreeAnsiString @ 0x140458CF0 (RtlFreeAnsiString.c)
- *     PiDeferSetInterfaceState @ 0x1404ECF18 (PiDeferSetInterfaceState.c)
- *     _CmGetDeviceInterfaceClassGuid @ 0x1404F8A48 (_CmGetDeviceInterfaceClassGuid.c)
- *     IoGetDeviceProperty @ 0x1404F936C (IoGetDeviceProperty.c)
- *     _PnpGetObjectProperty @ 0x1404FE7B0 (_PnpGetObjectProperty.c)
- *     PiDmObjectRelease @ 0x1404FEFC0 (PiDmObjectRelease.c)
- *     PiDmGetObject @ 0x1404FF000 (PiDmGetObject.c)
- *     PnpUnicodeStringToWstrFree @ 0x140500F80 (PnpUnicodeStringToWstrFree.c)
- *     PnpUnicodeStringToWstr @ 0x140500FB4 (PnpUnicodeStringToWstr.c)
- *     PiDmObjectAcquireExclusiveLock @ 0x140506124 (PiDmObjectAcquireExclusiveLock.c)
- *     PiDmRemoveCacheReferenceForObject @ 0x140506180 (PiDmRemoveCacheReferenceForObject.c)
- *     PiDmAddCacheReferenceForObject @ 0x140506288 (PiDmAddCacheReferenceForObject.c)
- *     _PnpObjectRaisePropertyChangeEvent @ 0x1405067F4 (_PnpObjectRaisePropertyChangeEvent.c)
+ *     IopBuildGlobalSymbolicLinkString @ 0x1403F1348 (IopBuildGlobalSymbolicLinkString.c)
+ *     PnpDeviceObjectFromDeviceInstance @ 0x1403F38F8 (PnpDeviceObjectFromDeviceInstance.c)
+ *     RtlEqualUnicodeString @ 0x14040E5E0 (RtlEqualUnicodeString.c)
+ *     RtlFreeAnsiString @ 0x140457BC0 (RtlFreeAnsiString.c)
+ *     PnpSetDeviceClassChange @ 0x140488DB8 (PnpSetDeviceClassChange.c)
+ *     PiDeferSetInterfaceState @ 0x1404CF084 (PiDeferSetInterfaceState.c)
+ *     _CmGetDeviceInterfaceClassGuid @ 0x1404DB9D4 (_CmGetDeviceInterfaceClassGuid.c)
+ *     IoGetDeviceProperty @ 0x1404DC2F8 (IoGetDeviceProperty.c)
+ *     _PnpGetObjectProperty @ 0x1404E1740 (_PnpGetObjectProperty.c)
+ *     PiDmObjectRelease @ 0x1404E1F50 (PiDmObjectRelease.c)
+ *     PiDmGetObject @ 0x1404E1F90 (PiDmGetObject.c)
+ *     PnpUnicodeStringToWstrFree @ 0x1404E3F10 (PnpUnicodeStringToWstrFree.c)
+ *     PnpUnicodeStringToWstr @ 0x1404E3F44 (PnpUnicodeStringToWstr.c)
+ *     PiDmObjectAcquireExclusiveLock @ 0x1404E90B4 (PiDmObjectAcquireExclusiveLock.c)
+ *     PiDmRemoveCacheReferenceForObject @ 0x1404E9110 (PiDmRemoveCacheReferenceForObject.c)
+ *     PiDmAddCacheReferenceForObject @ 0x1404E9218 (PiDmAddCacheReferenceForObject.c)
+ *     _PnpObjectRaisePropertyChangeEvent @ 0x1404E9784 (_PnpObjectRaisePropertyChangeEvent.c)
  */
 
-__int64 __fastcall IopProcessSetInterfaceState(const void **String2, char a2, char a3)
+__int64 __fastcall IopProcessSetInterfaceState(PCUNICODE_STRING String2, char a2, char a3)
 {
   char v3; // al
   char v5; // di
@@ -80,7 +80,7 @@ __int64 __fastcall IopProcessSetInterfaceState(const void **String2, char a2, ch
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+B8h] [rbp-50h] BYREF
   UNICODE_STRING DestinationString; // [rsp+E8h] [rbp-20h] BYREF
   UNICODE_STRING Name; // [rsp+F8h] [rbp-10h] BYREF
-  __int128 v50; // [rsp+108h] [rbp+0h] BYREF
+  _BYTE v50[16]; // [rsp+108h] [rbp+0h] BYREF
 
   v3 = 0;
   *(_QWORD *)&UnicodeString.MaximumLength = 0LL;
@@ -97,7 +97,7 @@ __int64 __fastcall IopProcessSetInterfaceState(const void **String2, char a2, ch
   DeviceObject = 0LL;
   v42 = 0LL;
   v36 = 0;
-  if ( !String2 || !String2[1] || !*(_WORD *)String2 )
+  if ( !String2 || !String2->Buffer || !String2->Length )
   {
     inited = -1073741811;
 LABEL_41:
@@ -106,7 +106,7 @@ LABEL_41:
       v29 = &GUID_DEVICE_INTERFACE_ARRIVAL;
       if ( !v5 )
         v29 = &GUID_DEVICE_INTERFACE_REMOVAL;
-      PnpSetDeviceClassChange(v29, &v50, String2);
+      PnpSetDeviceClassChange(v29, v50, String2);
       PnpObjectRaisePropertyChangeEvent(PiPnpRtlCtx, v9, 3, 0, 0LL, (__int64)&DEVPKEY_DeviceInterface_Enabled);
     }
     if ( v8 )
@@ -117,7 +117,7 @@ LABEL_41:
   v9 = v42;
   inited = v10;
   if ( v10 < 0
-    || (inited = CmGetDeviceInterfaceClassGuid(v11, v42, &v50), inited < 0)
+    || (inited = CmGetDeviceInterfaceClassGuid(v11, v42, v50), inited < 0)
     || (inited = IopBuildGlobalSymbolicLinkString((__int64)String2, &UnicodeString), inited < 0) )
   {
     v14 = 0LL;
@@ -177,7 +177,7 @@ LABEL_41:
             v32 = (UNICODE_STRING **)(DeviceNode + 608);
             for ( i = *v32; i != (UNICODE_STRING *)v32; i = *(UNICODE_STRING **)&i->Length )
             {
-              if ( RtlEqualUnicodeString(i + 1, (PCUNICODE_STRING)String2, 1u) )
+              if ( RtlEqualUnicodeString(i + 1, String2, 1u) )
               {
                 v34 = *(_QWORD *)&i->Length;
                 Buffer = i->Buffer;

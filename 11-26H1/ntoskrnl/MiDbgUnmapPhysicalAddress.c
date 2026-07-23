@@ -1,14 +1,14 @@
 /*
- * XREFs of MiDbgUnmapPhysicalAddress @ 0x1406FEC6C
+ * XREFs of MiDbgUnmapPhysicalAddress @ 0x14070393C
  * Callers:
- *     MiDbgCopyMemoryInternal @ 0x1406FD8F0 (MiDbgCopyMemoryInternal.c)
- *     MiDbgMapPhysicalAddress @ 0x1406FE368 (MiDbgMapPhysicalAddress.c)
+ *     MiDbgCopyMemoryInternal @ 0x1407025C0 (MiDbgCopyMemoryInternal.c)
+ *     MiDbgMapPhysicalAddress @ 0x140703038 (MiDbgMapPhysicalAddress.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     MiFlushSingleTbEntry @ 0x140285050 (MiFlushSingleTbEntry.c)
- *     KeFlushSingleCurrentTb @ 0x1405F0C70 (KeFlushSingleCurrentTb.c)
- *     KeFlushSingleTb @ 0x1405F0DF4 (KeFlushSingleTb.c)
- *     MiUnfreezeIoPfnNode @ 0x1406F4E3C (MiUnfreezeIoPfnNode.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     MiFlushSingleTbEntry @ 0x1402845B0 (MiFlushSingleTbEntry.c)
+ *     KeFlushSingleCurrentTb @ 0x1405F35E0 (KeFlushSingleCurrentTb.c)
+ *     KeFlushSingleTb @ 0x1405F3764 (KeFlushSingleTb.c)
+ *     MiUnfreezeIoPfnNode @ 0x1406F9AAC (MiUnfreezeIoPfnNode.c)
  */
 
 void __fastcall MiDbgUnmapPhysicalAddress(unsigned int *a1, __int64 a2, __int64 a3, __int64 a4)

@@ -1,29 +1,29 @@
 /*
- * XREFs of CmpUndoDeleteKeyForTrans @ 0x140A2E074
+ * XREFs of CmpUndoDeleteKeyForTrans @ 0x140A22AB4
  * Callers:
- *     CmpCreateChild @ 0x14091788C (CmpCreateChild.c)
+ *     CmpCreateChild @ 0x14090B2FC (CmpCreateChild.c)
  * Callees:
- *     CmpFindSecurityCellCacheIndex @ 0x14041FBC0 (CmpFindSecurityCellCacheIndex.c)
- *     CmpTransEnlistUowInCmTrans @ 0x14048052C (CmpTransEnlistUowInCmTrans.c)
- *     CmpTransEnlistUowInKcb @ 0x140484100 (CmpTransEnlistUowInKcb.c)
- *     CmpDereferenceSecurityNode @ 0x14049BFAC (CmpDereferenceSecurityNode.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     HvUnlockHiveFlusherShared @ 0x14086A604 (HvUnlockHiveFlusherShared.c)
- *     HvpGetCellFlat @ 0x140874470 (HvpGetCellFlat.c)
- *     HvpGetCellPaged @ 0x1408744C0 (HvpGetCellPaged.c)
- *     HvpReleaseCellPaged @ 0x140875760 (HvpReleaseCellPaged.c)
- *     CmpRundownUnitOfWork @ 0x14087B024 (CmpRundownUnitOfWork.c)
- *     HvLockHiveFlusherShared @ 0x14087DD28 (HvLockHiveFlusherShared.c)
- *     CmLockHiveSecurityExclusive @ 0x1408803CC (CmLockHiveSecurityExclusive.c)
- *     CmpGetSecurityDescriptorNodeEx @ 0x14088067C (CmpGetSecurityDescriptorNodeEx.c)
- *     HvFreeCell @ 0x140881C04 (HvFreeCell.c)
- *     HvpReleaseCellFlat @ 0x140884BB0 (HvpReleaseCellFlat.c)
- *     CmpLockIXLockIntent @ 0x140A2E5B4 (CmpLockIXLockIntent.c)
- *     CmpAllocateUnitOfWork @ 0x140A2E660 (CmpAllocateUnitOfWork.c)
- *     CmpLockIXLockExclusive @ 0x140A2E6B8 (CmpLockIXLockExclusive.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
- *     CmUnlockHiveSecurity @ 0x140BB99C8 (CmUnlockHiveSecurity.c)
+ *     CmpFindSecurityCellCacheIndex @ 0x140415340 (CmpFindSecurityCellCacheIndex.c)
+ *     CmpTransEnlistUowInCmTrans @ 0x14047B08C (CmpTransEnlistUowInCmTrans.c)
+ *     CmpTransEnlistUowInKcb @ 0x14047F6A0 (CmpTransEnlistUowInKcb.c)
+ *     CmpDereferenceSecurityNode @ 0x140496BD8 (CmpDereferenceSecurityNode.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     HvUnlockHiveFlusherShared @ 0x14086E934 (HvUnlockHiveFlusherShared.c)
+ *     HvpGetCellFlat @ 0x1408787A0 (HvpGetCellFlat.c)
+ *     HvpGetCellPaged @ 0x1408787F0 (HvpGetCellPaged.c)
+ *     HvpReleaseCellPaged @ 0x140879A90 (HvpReleaseCellPaged.c)
+ *     CmpRundownUnitOfWork @ 0x14087EED4 (CmpRundownUnitOfWork.c)
+ *     HvLockHiveFlusherShared @ 0x140881BD8 (HvLockHiveFlusherShared.c)
+ *     CmLockHiveSecurityExclusive @ 0x14088427C (CmLockHiveSecurityExclusive.c)
+ *     CmpGetSecurityDescriptorNodeEx @ 0x14088452C (CmpGetSecurityDescriptorNodeEx.c)
+ *     HvFreeCell @ 0x140885AB4 (HvFreeCell.c)
+ *     HvpReleaseCellFlat @ 0x140888A60 (HvpReleaseCellFlat.c)
+ *     CmpLockIXLockIntent @ 0x140A22FF4 (CmpLockIXLockIntent.c)
+ *     CmpAllocateUnitOfWork @ 0x140A230A0 (CmpAllocateUnitOfWork.c)
+ *     CmpLockIXLockExclusive @ 0x140A230F8 (CmpLockIXLockExclusive.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
+ *     CmUnlockHiveSecurity @ 0x140BBB9C8 (CmUnlockHiveSecurity.c)
  */
 
 __int64 __fastcall CmpUndoDeleteKeyForTrans(ULONG_PTR BugCheckParameter3, __int64 a2, void *a3)
@@ -52,7 +52,7 @@ __int64 __fastcall CmpUndoDeleteKeyForTrans(ULONG_PTR BugCheckParameter3, __int6
   ULONG_PTR v26; // rcx
   ULONG_PTR v27; // rdx
   __int64 v28; // rax
-  unsigned int v29; // edx
+  ULONG_PTR v29; // rdx
   ULONG_PTR v30; // rcx
   _DWORD *v31; // rax
   __int64 v32; // rax
@@ -146,7 +146,7 @@ __int64 __fastcall CmpUndoDeleteKeyForTrans(ULONG_PTR BugCheckParameter3, __int6
   }
   if ( !v14 )
     goto LABEL_27;
-  Pool2 = (_QWORD *)ExAllocatePool2(0x100uLL);
+  Pool2 = (_QWORD *)ExAllocatePool2(0x100uLL, 8LL * v14, 0x37344D43u);
   if ( !Pool2 )
     return 3221225626LL;
   v16 = *v13;
@@ -231,10 +231,10 @@ LABEL_37:
       v28 = HvpGetCellFlat(v26, v27, v48);
     else
       v28 = HvpGetCellPaged(v26, v27, v48);
-    v29 = *(_DWORD *)(BugCheckParameter3 + 40);
+    v29 = *(unsigned int *)(BugCheckParameter3 + 40);
     v30 = *v13;
     v49 = v28;
-    SecurityDescriptorNode = CmpGetSecurityDescriptorNodeEx(v30, v29, v28, 1u, Src, 1, (unsigned int *)&v52);
+    SecurityDescriptorNode = CmpGetSecurityDescriptorNodeEx(v30, v29, v28, 1, Src, 1, (unsigned int *)&v52);
     if ( SecurityDescriptorNode < 0 )
     {
       v25 = v52;

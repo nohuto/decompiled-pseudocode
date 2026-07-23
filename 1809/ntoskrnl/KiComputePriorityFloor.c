@@ -1,8 +1,8 @@
 /*
- * XREFs of KiComputePriorityFloor @ 0x14011F8D0
+ * XREFs of KiComputePriorityFloor @ 0x14011F940
  * Callers:
  *     ExpReleaseResourceExclusiveForThreadLite @ 0x14004FB40 (ExpReleaseResourceExclusiveForThreadLite.c)
- *     KiReadGuestSchedulerAssistPriority @ 0x1401B49D0 (KiReadGuestSchedulerAssistPriority.c)
+ *     KiReadGuestSchedulerAssistPriority @ 0x1401B4B10 (KiReadGuestSchedulerAssistPriority.c)
  * Callees:
  *     <none>
  */

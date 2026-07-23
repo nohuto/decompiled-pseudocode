@@ -1,13 +1,13 @@
 /*
  * XREFs of sub_1407E3B7C @ 0x1407E3B7C
  * Callers:
- *     WbHeapExecutionUnloadModule @ 0x1406D5CF8 (WbHeapExecutionUnloadModule.c)
- *     WbPopStackEntries @ 0x1406E62FC (WbPopStackEntries.c)
- *     WbFreeWarbirdProcess @ 0x1407E17A4 (WbFreeWarbirdProcess.c)
- *     WbReleaseLeastRecentlyUsedHeapExecutedBlocks @ 0x1407E1968 (WbReleaseLeastRecentlyUsedHeapExecutedBlocks.c)
+ *     sub_1406D5CF8 @ 0x1406D5CF8 (sub_1406D5CF8.c)
+ *     sub_1406E62FC @ 0x1406E62FC (sub_1406E62FC.c)
+ *     sub_1407E17A4 @ 0x1407E17A4 (sub_1407E17A4.c)
+ *     sub_1407E1968 @ 0x1407E1968 (sub_1407E1968.c)
  *     sub_1407E2434 @ 0x1407E2434 (sub_1407E2434.c)
- *     WbHeapExecuteCall @ 0x1407E3070 (WbHeapExecuteCall.c)
- *     WbGetHeapExecutedBlock @ 0x1407E3260 (WbGetHeapExecutedBlock.c)
+ *     sub_1407E3070 @ 0x1407E3070 (sub_1407E3070.c)
+ *     sub_1407E3260 @ 0x1407E3260 (sub_1407E3260.c)
  *     sub_1407E3F30 @ 0x1407E3F30 (sub_1407E3F30.c)
  * Callees:
  *     sub_1407E1B90 @ 0x1407E1B90 (sub_1407E1B90.c)

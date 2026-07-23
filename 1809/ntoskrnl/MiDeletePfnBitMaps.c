@@ -1,17 +1,17 @@
 /*
- * XREFs of MiDeletePfnBitMaps @ 0x14085F510
+ * XREFs of MiDeletePfnBitMaps @ 0x140860770
  * Callers:
- *     MiDeletePartitionResources @ 0x1402D0FAC (MiDeletePartitionResources.c)
- *     MiCreatePfnBitMaps @ 0x14072A8C0 (MiCreatePfnBitMaps.c)
+ *     MiDeletePartitionResources @ 0x1402D119C (MiDeletePartitionResources.c)
+ *     MiCreatePfnBitMaps @ 0x14072BAB0 (MiCreatePfnBitMaps.c)
  * Callees:
  *     MiReleasePtes @ 0x1400340E0 (MiReleasePtes.c)
  *     MiMakeValidPte @ 0x14003D7F0 (MiMakeValidPte.c)
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
- *     MiSetPfnLink @ 0x140065CA4 (MiSetPfnLink.c)
- *     MiGetPteAddress @ 0x140065DE8 (MiGetPteAddress.c)
- *     MiLockAndDecrementShareCount @ 0x1401180A8 (MiLockAndDecrementShareCount.c)
- *     MiReturnPfnList @ 0x140185C3C (MiReturnPfnList.c)
- *     MiReturnSplitPageCharges @ 0x1401927D4 (MiReturnSplitPageCharges.c)
+ *     MiSetPfnLink @ 0x140065C94 (MiSetPfnLink.c)
+ *     MiGetPteAddress @ 0x140065DD8 (MiGetPteAddress.c)
+ *     MiLockAndDecrementShareCount @ 0x140118118 (MiLockAndDecrementShareCount.c)
+ *     MiReturnPfnList @ 0x140185D7C (MiReturnPfnList.c)
+ *     MiReturnSplitPageCharges @ 0x140192914 (MiReturnSplitPageCharges.c)
  */
 
 void __fastcall MiDeletePfnBitMaps(ULONG_PTR *a1)
@@ -57,7 +57,7 @@ void __fastcall MiDeletePfnBitMaps(ULONG_PTR *a1)
     if ( *v6 )
     {
       PteAddress = MiGetPteAddress(*v6);
-      ValidPte = MiMakeValidPte(PteAddress, qword_14043ADE0, 1);
+      ValidPte = MiMakeValidPte(PteAddress, qword_14043BEA0, 1);
       v9 = (((0x1000000000LL / v5 + 7 + (0x1000000000LL % v5 != 0)) >> 3) + 4095) >> 12;
       v10 = (unsigned int)v9;
       v16 = (unsigned int)v9;
@@ -84,7 +84,7 @@ void __fastcall MiDeletePfnBitMaps(ULONG_PTR *a1)
         v4 = a1;
         v10 = v16;
       }
-      MiReleasePtes((__int64)&qword_14043AFA0, PteAddress - 8 * v10, v9);
+      MiReleasePtes((__int64)&qword_14043C060, PteAddress - 8 * v10, v9);
       *v6 = 0LL;
     }
 LABEL_14:

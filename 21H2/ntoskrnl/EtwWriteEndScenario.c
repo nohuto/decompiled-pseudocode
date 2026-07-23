@@ -1,19 +1,19 @@
 /*
- * XREFs of EtwWriteEndScenario @ 0x1407883D0
+ * XREFs of EtwWriteEndScenario @ 0x140788590
  * Callers:
- *     PnpCompleteSystemStartProcess @ 0x1403C3418 (PnpCompleteSystemStartProcess.c)
- *     PopDiagTracePowerTransitionEnd @ 0x1407748F8 (PopDiagTracePowerTransitionEnd.c)
- *     PopGracefulShutdown @ 0x1409B0F60 (PopGracefulShutdown.c)
+ *     PnpCompleteSystemStartProcess @ 0x1403C3848 (PnpCompleteSystemStartProcess.c)
+ *     PopDiagTracePowerTransitionEnd @ 0x140774AB8 (PopDiagTracePowerTransitionEnd.c)
+ *     PopGracefulShutdown @ 0x1409B1E90 (PopGracefulShutdown.c)
  * Callees:
- *     EtwEventEnabled @ 0x14021BF30 (EtwEventEnabled.c)
- *     EtwWrite @ 0x14025DC90 (EtwWrite.c)
- *     EtwGetProviderIdFromHandle @ 0x14039F028 (EtwGetProviderIdFromHandle.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     WdipStartEndScenario @ 0x14078956C (WdipStartEndScenario.c)
+ *     EtwWrite @ 0x14027F7C0 (EtwWrite.c)
+ *     EtwEventEnabled @ 0x1402C0830 (EtwEventEnabled.c)
+ *     EtwGetProviderIdFromHandle @ 0x14039F178 (EtwGetProviderIdFromHandle.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     WdipStartEndScenario @ 0x14078972C (WdipStartEndScenario.c)
  */
 
 NTSTATUS __fastcall EtwWriteEndScenario(
-        ULONG_PTR *RegHandle,
+        PVOID *RegHandle,
         PCEVENT_DESCRIPTOR EventDescriptor,
         LPCGUID ActivityId,
         ULONG UserDataCount,

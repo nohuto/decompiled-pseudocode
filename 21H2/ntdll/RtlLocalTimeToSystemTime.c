@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlLocalTimeToSystemTime @ 0x1800E5E50
+ * XREFs of RtlLocalTimeToSystemTime @ 0x1800E5E10
  * Callers:
  *     <none>
  * Callees:
  *     __security_check_cookie @ 0x18008C940 (__security_check_cookie.c)
- *     NtQuerySystemInformation @ 0x18009DD00 (NtQuerySystemInformation.c)
+ *     NtQuerySystemInformation @ 0x18009DCC0 (NtQuerySystemInformation.c)
  */
 
 NTSTATUS __stdcall RtlLocalTimeToSystemTime(PLARGE_INTEGER LocalTime, PLARGE_INTEGER SystemTime)

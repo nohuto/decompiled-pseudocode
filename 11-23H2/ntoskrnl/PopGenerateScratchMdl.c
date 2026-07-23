@@ -1,9 +1,9 @@
 /*
- * XREFs of PopGenerateScratchMdl @ 0x14058EB74
+ * XREFs of PopGenerateScratchMdl @ 0x14058F064
  * Callers:
- *     PopGenerateUnHibernatedMdl @ 0x140AA2B1C (PopGenerateUnHibernatedMdl.c)
+ *     PopGenerateUnHibernatedMdl @ 0x140AA298C (PopGenerateUnHibernatedMdl.c)
  * Callees:
- *     MmAllocatePagesForMdlEx @ 0x1402F8740 (MmAllocatePagesForMdlEx.c)
+ *     MmAllocatePagesForMdlEx @ 0x1402F89D0 (MmAllocatePagesForMdlEx.c)
  */
 
 PMDL __fastcall PopGenerateScratchMdl(__int64 a1, __int64 a2)

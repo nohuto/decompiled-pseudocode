@@ -190,7 +190,7 @@ LABEL_9:
       }
       if ( (*(_BYTE *)(v11 + 129) & 2) != 0 )
         v10 = 1;
-      KiExpireTimer2((__int64)v14, (__int64)a1, a2, a5);
+      KiExpireTimer2((__int64)v14, (__int64)a1, (LARGE_INTEGER)a2, a5);
       goto LABEL_9;
     }
 LABEL_12:
@@ -199,7 +199,7 @@ LABEL_12:
     v15 = qword_140F21748;
     if ( qword_140F21760 < (unsigned __int64)qword_140F21748 )
       v15 = qword_140F21760;
-    result = MEMORY[0xFFFFF78000000008] + (unsigned int)KeMaximumIncrement;
+    result = MEMORY[0xFFFFF78000000008] + KeMaximumIncrement;
     if ( v15 < result )
     {
       if ( !KiClockOwnerOneShotRequest )

@@ -1,13 +1,13 @@
 /*
- * XREFs of KsepCacheLookup @ 0x14075F7B0
+ * XREFs of KsepCacheLookup @ 0x14075F970
  * Callers:
- *     KsepDbCacheQueryDevice @ 0x14075F5A8 (KsepDbCacheQueryDevice.c)
- *     KseAddHardwareId @ 0x14075F69C (KseAddHardwareId.c)
- *     KsepDbCacheInsertDevice @ 0x1407CCD18 (KsepDbCacheInsertDevice.c)
- *     KseQueryDeviceDataList @ 0x1408BF3E0 (KseQueryDeviceDataList.c)
- *     KseLookupHardwareId @ 0x1408C0B04 (KseLookupHardwareId.c)
+ *     KsepDbCacheQueryDevice @ 0x14075F768 (KsepDbCacheQueryDevice.c)
+ *     KseAddHardwareId @ 0x14075F85C (KseAddHardwareId.c)
+ *     KsepDbCacheInsertDevice @ 0x1407CCE88 (KsepDbCacheInsertDevice.c)
+ *     KseQueryDeviceDataList @ 0x1408BF540 (KseQueryDeviceDataList.c)
+ *     KseLookupHardwareId @ 0x1408C0C64 (KseLookupHardwareId.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
  */
 
 _QWORD *__fastcall KsepCacheLookup(__int64 a1, __int64 a2)

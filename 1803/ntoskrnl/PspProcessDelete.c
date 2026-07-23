@@ -100,7 +100,7 @@ void __fastcall PspProcessDelete(ULONG_PTR BugCheckParameter1)
   }
   ObDereferenceDeviceMap(BugCheckParameter1);
   if ( *(_QWORD *)(BugCheckParameter1 + 2040) )
-    ZwDeleteWnfStateName();
+    ZwDeleteWnfStateName((PCWNF_STATE_NAME)(BugCheckParameter1 + 2040));
   v10 = *(void **)(BugCheckParameter1 + 1056);
   if ( v10 )
   {

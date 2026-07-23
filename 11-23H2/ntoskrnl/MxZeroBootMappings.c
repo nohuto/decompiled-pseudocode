@@ -4,10 +4,10 @@
  *     MiZeroBootMappings @ 0x140B57D74 (MiZeroBootMappings.c)
  *     MxZeroBootMappings @ 0x140B58EC8 (MxZeroBootMappings.c)
  * Callees:
- *     MI_READ_PTE_LOCK_FREE @ 0x1402712F0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiPteInShadowRange @ 0x140271360 (MiPteInShadowRange.c)
- *     MiWritePteShadow @ 0x14035734C (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x1403573AC (MiPteHasShadow.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140271580 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiPteInShadowRange @ 0x1402715F0 (MiPteInShadowRange.c)
+ *     MiWritePteShadow @ 0x1403574EC (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x14035754C (MiPteHasShadow.c)
  *     MxZeroBootMappings @ 0x140B58EC8 (MxZeroBootMappings.c)
  *     MiFreeBootPageTable @ 0x140B58FE4 (MiFreeBootPageTable.c)
  */

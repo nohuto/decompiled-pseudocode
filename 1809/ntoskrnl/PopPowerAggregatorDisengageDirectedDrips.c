@@ -1,11 +1,11 @@
 /*
- * XREFs of PopPowerAggregatorDisengageDirectedDrips @ 0x140875B04
+ * XREFs of PopPowerAggregatorDisengageDirectedDrips @ 0x140876D64
  * Callers:
- *     PopPowerAggregatorExecuteActiveCallback @ 0x140875B50 (PopPowerAggregatorExecuteActiveCallback.c)
- *     PopPowerAggregatorExecuteModernStandbyCallback @ 0x140875BF0 (PopPowerAggregatorExecuteModernStandbyCallback.c)
+ *     PopPowerAggregatorExecuteActiveCallback @ 0x140876DB0 (PopPowerAggregatorExecuteActiveCallback.c)
+ *     PopPowerAggregatorExecuteModernStandbyCallback @ 0x140876E50 (PopPowerAggregatorExecuteModernStandbyCallback.c)
  * Callees:
- *     PopDisengageDirectedDrips @ 0x140868874 (PopDisengageDirectedDrips.c)
- *     PopDripsWatchdogResetInternalState @ 0x14086E748 (PopDripsWatchdogResetInternalState.c)
+ *     PopDisengageDirectedDrips @ 0x140869AD4 (PopDisengageDirectedDrips.c)
+ *     PopDripsWatchdogResetInternalState @ 0x14086F9A8 (PopDripsWatchdogResetInternalState.c)
  */
 
 void __fastcall PopPowerAggregatorDisengageDirectedDrips(__int64 a1, __int64 a2)

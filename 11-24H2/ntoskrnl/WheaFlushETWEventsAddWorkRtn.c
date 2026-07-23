@@ -1,14 +1,14 @@
 /*
- * XREFs of WheaFlushETWEventsAddWorkRtn @ 0x14065DDDC
+ * XREFs of WheaFlushETWEventsAddWorkRtn @ 0x14065C5A4
  * Callers:
- *     WheaProcessWaitingETWEvents @ 0x14065E260 (WheaProcessWaitingETWEvents.c)
+ *     WheaProcessWaitingETWEvents @ 0x14065CA30 (WheaProcessWaitingETWEvents.c)
  * Callees:
- *     KeInsertQueueDpc @ 0x1402542F0 (KeInsertQueueDpc.c)
- *     ExQueueWorkItem @ 0x140325850 (ExQueueWorkItem.c)
- *     KeSetTargetProcessorDpcEx @ 0x140352B60 (KeSetTargetProcessorDpcEx.c)
- *     KeGetProcessorNumberFromIndex @ 0x1403B41E0 (KeGetProcessorNumberFromIndex.c)
- *     KeGetCurrentProcessorNumberEx @ 0x1404015D0 (KeGetCurrentProcessorNumberEx.c)
- *     KeEnumerateNextProcessor @ 0x14040D4F0 (KeEnumerateNextProcessor.c)
+ *     KeInsertQueueDpc @ 0x140284900 (KeInsertQueueDpc.c)
+ *     ExQueueWorkItem @ 0x1402CE3E0 (ExQueueWorkItem.c)
+ *     KeSetTargetProcessorDpcEx @ 0x1403703F0 (KeSetTargetProcessorDpcEx.c)
+ *     KeGetProcessorNumberFromIndex @ 0x140370900 (KeGetProcessorNumberFromIndex.c)
+ *     KeGetCurrentProcessorNumberEx @ 0x1403FBF40 (KeGetCurrentProcessorNumberEx.c)
+ *     KeEnumerateNextProcessor @ 0x140405740 (KeEnumerateNextProcessor.c)
  */
 
 void WheaFlushETWEventsAddWorkRtn()
@@ -18,16 +18,16 @@ void WheaFlushETWEventsAddWorkRtn()
   __int16 v2; // [rsp+30h] [rbp-10h]
   int v3; // [rsp+32h] [rbp-Eh]
   __int16 v4; // [rsp+36h] [rbp-Ah]
-  struct _PROCESSOR_NUMBER ProcNumber; // [rsp+50h] [rbp+10h] BYREF
+  _PROCESSOR_NUMBER ProcNumber; // [rsp+50h] [rbp+10h] BYREF
   ULONG ProcIndex; // [rsp+58h] [rbp+18h] BYREF
 
   ProcNumber = 0;
-  _InterlockedAdd(&dword_140EF9A80, 1u);
-  if ( dword_140EF9A80 <= 1 )
+  _InterlockedAdd(&dword_140EF7D00, 1u);
+  if ( dword_140EF7D00 <= 1 )
   {
     if ( KeGetCurrentIrql() <= 2u )
     {
-      ExQueueWorkItem(&stru_140EF9A60, DelayedWorkQueue);
+      ExQueueWorkItem(&stru_140EF7CE0, DelayedWorkQueue);
     }
     else
     {
@@ -47,8 +47,8 @@ void WheaFlushETWEventsAddWorkRtn()
           break;
         }
       }
-      KeSetTargetProcessorDpcEx(&WheaFlushETWEventsDpcWorker, &ProcNumber);
-      KeInsertQueueDpc(&WheaFlushETWEventsDpcWorker, 0LL, 0LL);
+      KeSetTargetProcessorDpcEx((PKDPC)&WheapDispatchPtr.DeviceObjectExtension, &ProcNumber);
+      KeInsertQueueDpc((PRKDPC)&WheapDispatchPtr.DeviceObjectExtension, 0LL, 0LL);
     }
   }
 }

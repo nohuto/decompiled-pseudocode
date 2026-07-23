@@ -1,32 +1,32 @@
 /*
- * XREFs of PspCallThreadNotifyRoutines @ 0x1409EB6AC
+ * XREFs of PspCallThreadNotifyRoutines @ 0x1409E7E7C
  * Callers:
- *     PspExitThread @ 0x14095771C (PspExitThread.c)
- *     PspInitializeThunkContext @ 0x1409EB378 (PspInitializeThunkContext.c)
- *     PspInsertThread @ 0x140A026D0 (PspInsertThread.c)
+ *     PspExitThread @ 0x14094B14C (PspExitThread.c)
+ *     PspInitializeThunkContext @ 0x1409E7B48 (PspInitializeThunkContext.c)
+ *     PspInsertThread @ 0x140A7B188 (PspInsertThread.c)
  * Callees:
- *     ExReferenceCallBackBlock @ 0x14029BA90 (ExReferenceCallBackBlock.c)
- *     ExDereferenceCallBackBlock @ 0x140435D80 (ExDereferenceCallBackBlock.c)
- *     KeCallbackValidationEpilogue @ 0x1404E07B8 (KeCallbackValidationEpilogue.c)
- *     KeCallbackValidationPrologue @ 0x1404E921C (KeCallbackValidationPrologue.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     ExReferenceCallBackBlock @ 0x14029AFF0 (ExReferenceCallBackBlock.c)
+ *     ExDereferenceCallBackBlock @ 0x140424890 (ExDereferenceCallBackBlock.c)
+ *     KeCallbackValidationEpilogue @ 0x1404D9E98 (KeCallbackValidationEpilogue.c)
+ *     KeCallbackValidationPrologue @ 0x1404E22FC (KeCallbackValidationPrologue.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 void __fastcall PspCallThreadNotifyRoutines(_QWORD *a1, signed __int64 a2, char a3)
 {
   __int64 v3; // r12
-  signed __int64 *v5; // rdi
+  _RTL_RUN_ONCE *v5; // rdi
   __int64 v6; // rsi
   struct _EX_RUNDOWN_REF *v7; // rax
   struct _EX_RUNDOWN_REF *v8; // rbp
   int v9; // eax
   ULONG_PTR v10; // rbx
-  signed __int64 *p_PropagateBoostsEntry; // rdi
+  _RTL_RUN_ONCE *v11; // rdi
   __int64 v12; // rsi
   struct _EX_RUNDOWN_REF *v13; // rax
   struct _EX_RUNDOWN_REF *v14; // rbp
   ULONG_PTR Count; // rbx
-  signed __int64 *v16; // rdi
+  _RTL_RUN_ONCE *v16; // rdi
   __int64 v17; // rsi
   struct _EX_RUNDOWN_REF *v18; // rax
   struct _EX_RUNDOWN_REF *v19; // rbp
@@ -41,11 +41,11 @@ void __fastcall PspCallThreadNotifyRoutines(_QWORD *a1, signed __int64 a2, char 
     {
       if ( (PspNotifyEnableMask & 0x10) != 0 )
       {
-        p_PropagateBoostsEntry = (signed __int64 *)&NormalizationListLock.PropagateBoostsEntry;
+        v11 = &PspCreateThreadNotifyRoutine;
         v12 = 64LL;
         do
         {
-          v13 = ExReferenceCallBackBlock(p_PropagateBoostsEntry, a2);
+          v13 = ExReferenceCallBackBlock((signed __int64 *)v11, a2);
           v14 = v13;
           if ( v13 )
           {
@@ -56,9 +56,9 @@ void __fastcall PspCallThreadNotifyRoutines(_QWORD *a1, signed __int64 a2, char 
               guard_dispatch_icall_no_overrides(*(_QWORD *)(a1[68] + 464LL), a1[162]);
               KeCallbackValidationEpilogue((__int64)&v21, Count, 0x107u);
             }
-            ExDereferenceCallBackBlock(p_PropagateBoostsEntry, v14);
+            ExDereferenceCallBackBlock((signed __int64 *)v11, v14);
           }
-          ++p_PropagateBoostsEntry;
+          ++v11;
           --v12;
         }
         while ( v12 );
@@ -66,11 +66,11 @@ void __fastcall PspCallThreadNotifyRoutines(_QWORD *a1, signed __int64 a2, char 
     }
     else if ( (PspNotifyEnableMask & 8) != 0 )
     {
-      v5 = (signed __int64 *)&NormalizationListLock.PropagateBoostsEntry;
+      v5 = &PspCreateThreadNotifyRoutine;
       v6 = 64LL;
       do
       {
-        v7 = ExReferenceCallBackBlock(v5, a2);
+        v7 = ExReferenceCallBackBlock((signed __int64 *)v5, a2);
         v8 = v7;
         if ( v7 )
         {
@@ -82,7 +82,7 @@ void __fastcall PspCallThreadNotifyRoutines(_QWORD *a1, signed __int64 a2, char 
             guard_dispatch_icall_no_overrides(*(_QWORD *)(a1[68] + 464LL), a1[162]);
             KeCallbackValidationEpilogue((__int64)&v21, v10, 0x108u);
           }
-          ExDereferenceCallBackBlock(v5, v8);
+          ExDereferenceCallBackBlock((signed __int64 *)v5, v8);
         }
         ++v5;
         --v6;
@@ -92,11 +92,11 @@ void __fastcall PspCallThreadNotifyRoutines(_QWORD *a1, signed __int64 a2, char 
   }
   else if ( (PspNotifyEnableMask & 0x10) != 0 || (PspNotifyEnableMask & 8) != 0 )
   {
-    v16 = (signed __int64 *)&NormalizationListLock.PropagateBoostsEntry;
+    v16 = &PspCreateThreadNotifyRoutine;
     v17 = 64LL;
     do
     {
-      v18 = ExReferenceCallBackBlock(v16, a2);
+      v18 = ExReferenceCallBackBlock((signed __int64 *)v16, a2);
       v19 = v18;
       if ( v18 )
       {
@@ -107,7 +107,7 @@ void __fastcall PspCallThreadNotifyRoutines(_QWORD *a1, signed __int64 a2, char 
           guard_dispatch_icall_no_overrides(*(_QWORD *)(a1[68] + 464LL), a1[162]);
           KeCallbackValidationEpilogue((__int64)&v21, v20, 0x106u);
         }
-        ExDereferenceCallBackBlock(v16, v19);
+        ExDereferenceCallBackBlock((signed __int64 *)v16, v19);
       }
       ++v16;
       --v17;

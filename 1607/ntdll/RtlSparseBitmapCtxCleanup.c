@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlSparseBitmapCtxCleanup @ 0x180100440
+ * XREFs of RtlSparseBitmapCtxCleanup @ 0x180100380
  * Callers:
  *     <none>
  * Callees:
- *     RtlpSparseBitmapCheckRangeArrayPage @ 0x18004FE58 (RtlpSparseBitmapCheckRangeArrayPage.c)
+ *     RtlpSparseBitmapCheckRangeArrayPage @ 0x18004FE48 (RtlpSparseBitmapCheckRangeArrayPage.c)
  *     _guard_dispatch_icall_nop @ 0x1800A9C80 (_guard_dispatch_icall_nop.c)
- *     RtlpSparseBitmapRangeArrayCleanup @ 0x1801014B4 (RtlpSparseBitmapRangeArrayCleanup.c)
+ *     RtlpSparseBitmapRangeArrayCleanup @ 0x1801013F4 (RtlpSparseBitmapRangeArrayCleanup.c)
  */
 
 void __fastcall RtlSparseBitmapCtxCleanup(__int64 a1)

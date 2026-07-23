@@ -1,16 +1,16 @@
 /*
- * XREFs of ZwFreezeTransactions @ 0x18009F430
+ * XREFs of ZwFreezeTransactions @ 0x18009F3F0
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 ZwFreezeTransactions()
+NTSTATUS __cdecl ZwFreezeTransactions(PLARGE_INTEGER FreezeTimeout, PLARGE_INTEGER ThawTimeout)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 240LL;
+  result = 240;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

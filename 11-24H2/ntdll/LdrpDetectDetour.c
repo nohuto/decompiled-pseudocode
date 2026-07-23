@@ -1,13 +1,13 @@
 /*
- * XREFs of LdrpDetectDetour @ 0x18006CBA0
+ * XREFs of LdrpDetectDetour @ 0x180089480
  * Callers:
- *     LdrpLoadDllInternal @ 0x18000B460 (LdrpLoadDllInternal.c)
- *     LdrpEnableParallelLoading @ 0x1800AB384 (LdrpEnableParallelLoading.c)
+ *     LdrpLoadDllInternal @ 0x180037E60 (LdrpLoadDllInternal.c)
+ *     LdrpEnableParallelLoading @ 0x180085804 (LdrpEnableParallelLoading.c)
  * Callees:
- *     LdrpLogInternal @ 0x180013D80 (LdrpLogInternal.c)
- *     TpReleaseWork @ 0x18006CCA0 (TpReleaseWork.c)
- *     TpWaitForWork @ 0x18006D890 (TpWaitForWork.c)
- *     ZwQueryInformationThread @ 0x180162130 (ZwQueryInformationThread.c)
+ *     LdrpLogInternal @ 0x180040780 (LdrpLogInternal.c)
+ *     TpReleaseWork @ 0x180089580 (TpReleaseWork.c)
+ *     TpWaitForWork @ 0x18008A170 (TpWaitForWork.c)
+ *     ZwQueryInformationThread @ 0x1801604F0 (ZwQueryInformationThread.c)
  */
 
 void LdrpDetectDetour()
@@ -16,12 +16,9 @@ void LdrpDetectDetour()
   unsigned int i; // ecx
   _QWORD *v2; // r8
   __int64 v3; // rax
-  __int64 v4; // rdx
-  __int64 v5; // r8
-  char v6; // [rsp+28h] [rbp-10h]
-  int v7; // [rsp+40h] [rbp+8h] BYREF
+  int ThreadInformation; // [rsp+40h] [rbp+8h] BYREF
 
-  v7 = 0;
+  ThreadInformation = 0;
   if ( !LdrpDetourExist )
   {
     v0 = &LdrpThunkSignature;
@@ -34,18 +31,23 @@ void LdrpDetectDetour()
       if ( v3 )
       {
         LdrpLogInternal(
-          (__int64)"minkernel\\ldr\\ldrmap.c",
+          "minkernel\\ldr\\ldrmap.c",
           4203,
           (__int64)"LdrpDetectDetour",
           2,
-          "!!! Detour detected, disable parallel loading\n",
-          v6);
+          "!!! Detour detected, disable parallel loading\n");
         LdrpDetourExist = 1;
         break;
       }
       v0 += 2;
     }
-    if ( (int)ZwQueryInformationThread(-2LL, 42LL, &v7, 4LL, 0LL) >= 0 && v7 == 1 )
+    if ( ZwQueryInformationThread(
+           (HANDLE)0xFFFFFFFFFFFFFFFELL,
+           ThreadDynamicCodePolicyInfo,
+           &ThreadInformation,
+           4u,
+           0LL) >= 0
+      && ThreadInformation == 1 )
     {
       LdrpDetourExist = 1;
     }
@@ -55,8 +57,8 @@ void LdrpDetectDetour()
     }
     if ( LdrpMapAndSnapWork )
     {
-      TpWaitForWork(LdrpMapAndSnapWork, 1LL);
-      TpReleaseWork(LdrpMapAndSnapWork, v4, v5);
+      TpWaitForWork(LdrpMapAndSnapWork, 1u);
+      TpReleaseWork(LdrpMapAndSnapWork);
       LdrpMapAndSnapWork = 0LL;
     }
   }

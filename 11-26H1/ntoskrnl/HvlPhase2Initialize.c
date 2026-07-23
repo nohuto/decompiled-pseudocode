@@ -1,29 +1,29 @@
 /*
- * XREFs of HvlPhase2Initialize @ 0x1405B8B08
+ * XREFs of HvlPhase2Initialize @ 0x1405BB378
  * Callers:
- *     IoInitSystemPreDrivers @ 0x140CBACA0 (IoInitSystemPreDrivers.c)
+ *     IoInitSystemPreDrivers @ 0x140CC0D18 (IoInitSystemPreDrivers.c)
  * Callees:
- *     KeResetEvent @ 0x140395BB0 (KeResetEvent.c)
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     ExNotifyWithProcessing @ 0x140439330 (ExNotifyWithProcessing.c)
- *     HvlpCheckTscSync @ 0x1404EE8C4 (HvlpCheckTscSync.c)
- *     ExRegisterCallback @ 0x1404F0710 (ExRegisterCallback.c)
- *     HvlpQueryHypervisorSchedulerType @ 0x1405BB934 (HvlpQueryHypervisorSchedulerType.c)
- *     HvlpInitializeHvCrashdumpPhase2 @ 0x1405C0E60 (HvlpInitializeHvCrashdumpPhase2.c)
- *     HvlpInitializeSvmIommuSupport @ 0x1405C0FF4 (HvlpInitializeSvmIommuSupport.c)
- *     HvlpEtwRegister @ 0x1405C1174 (HvlpEtwRegister.c)
- *     HvlpLogGuestStateScrubbingStatus @ 0x1405C11BC (HvlpLogGuestStateScrubbingStatus.c)
- *     HvlpLogIommuInitStatus @ 0x1405C1454 (HvlpLogIommuInitStatus.c)
- *     HvlpLogProcessorStartupFailure @ 0x1405C164C (HvlpLogProcessorStartupFailure.c)
- *     HvlpWriteEventLog @ 0x1405C1714 (HvlpWriteEventLog.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     EtwUnregister @ 0x140A84ED0 (EtwUnregister.c)
- *     ExCreateCallback @ 0x140AFB990 (ExCreateCallback.c)
- *     IoCreateNotificationEvent @ 0x140B00140 (IoCreateNotificationEvent.c)
- *     PoRegisterPowerSettingCallback @ 0x140B05F90 (PoRegisterPowerSettingCallback.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     HvlpDiscoverTopologyComplete @ 0x140CB94E0 (HvlpDiscoverTopologyComplete.c)
+ *     KeResetEvent @ 0x140397930 (KeResetEvent.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     ExNotifyWithProcessing @ 0x140427F90 (ExNotifyWithProcessing.c)
+ *     HvlpCheckTscSync @ 0x1404E7EA4 (HvlpCheckTscSync.c)
+ *     ExRegisterCallback @ 0x1404E9CF0 (ExRegisterCallback.c)
+ *     HvlpQueryHypervisorSchedulerType @ 0x1405BE1A4 (HvlpQueryHypervisorSchedulerType.c)
+ *     HvlpInitializeHvCrashdumpPhase2 @ 0x1405C36D0 (HvlpInitializeHvCrashdumpPhase2.c)
+ *     HvlpInitializeSvmIommuSupport @ 0x1405C3864 (HvlpInitializeSvmIommuSupport.c)
+ *     HvlpEtwRegister @ 0x1405C39E4 (HvlpEtwRegister.c)
+ *     HvlpLogGuestStateScrubbingStatus @ 0x1405C3A2C (HvlpLogGuestStateScrubbingStatus.c)
+ *     HvlpLogIommuInitStatus @ 0x1405C3CC4 (HvlpLogIommuInitStatus.c)
+ *     HvlpLogProcessorStartupFailure @ 0x1405C3EBC (HvlpLogProcessorStartupFailure.c)
+ *     HvlpWriteEventLog @ 0x1405C3F84 (HvlpWriteEventLog.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     EtwUnregister @ 0x1409BE550 (EtwUnregister.c)
+ *     ExCreateCallback @ 0x140AFD610 (ExCreateCallback.c)
+ *     IoCreateNotificationEvent @ 0x140B01E70 (IoCreateNotificationEvent.c)
+ *     PoRegisterPowerSettingCallback @ 0x140B080C0 (PoRegisterPowerSettingCallback.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     HvlpDiscoverTopologyComplete @ 0x140CBF520 (HvlpDiscoverTopologyComplete.c)
  */
 
 NTSTATUS __fastcall HvlPhase2Initialize(__int64 a1)
@@ -154,23 +154,22 @@ LABEL_24:
         }
         while ( v14 );
       }
-      VslpReservedTransferLock.AffinityVersion = 0LL;
-      *(_QWORD *)&VslpReservedTransferLock.AffinityPrimaryGroup = IoCreateNotificationEvent(
-                                                                    &EventName,
-                                                                    (PHANDLE)&VslpReservedTransferLock.NpxState);
+      VslpReservedTransferLock.SavedApcState.ApcListHead[1].Flink = 0LL;
+      VslpReservedTransferLock.SavedApcState.Process = (_KPROCESS *)IoCreateNotificationEvent(
+                                                                      &EventName,
+                                                                      (PHANDLE)&VslpReservedTransferLock.SavedApcStateFill[40]);
       if ( *(_DWORD *)(*(_QWORD *)(a1 + 240) + 2552LL) )
       {
-        LOBYTE(VslpReservedTransferLock.Affinity) = 1;
-        VslpReservedTransferLock.SavedApcState.ApcListHead[0].Flink = (struct _LIST_ENTRY *)ExAllocatePool2(0x100uLL);
-        if ( !VslpReservedTransferLock.SavedApcState.ApcListHead[0].Flink )
+        VslpReservedTransferLock.SavedApcStateFill[24] = 1;
+        *(_QWORD *)&VslpReservedTransferLock.SchedulerApc.Type = ExAllocatePool2(0x100uLL);
+        if ( !*(_QWORD *)&VslpReservedTransferLock.SchedulerApc.Type )
           return -1073741670;
-        LODWORD(VslpReservedTransferLock.SavedApcState.ApcListHead[0].Flink->Flink) = *(_DWORD *)(*(_QWORD *)(a1 + 240)
-                                                                                                + 2552LL);
+        **(_DWORD **)&VslpReservedTransferLock.SchedulerApc.Type = *(_DWORD *)(*(_QWORD *)(a1 + 240) + 2552LL);
         memmove(
-          &VslpReservedTransferLock.SavedApcState.ApcListHead[0].Flink->Blink,
+          (void *)(*(_QWORD *)&VslpReservedTransferLock.SchedulerApc.Type + 8LL),
           *(const void **)(*(_QWORD *)(a1 + 240) + 2544LL),
-          8LL * (unsigned int)VslpReservedTransferLock.SavedApcState.ApcListHead[0].Flink->Flink);
-        KeResetEvent(*(PRKEVENT *)&VslpReservedTransferLock.AffinityPrimaryGroup);
+          8LL * (unsigned int)**(_DWORD **)&VslpReservedTransferLock.SchedulerApc.Type);
+        KeResetEvent((PRKEVENT)VslpReservedTransferLock.SavedApcState.Process);
       }
       return 0;
     }

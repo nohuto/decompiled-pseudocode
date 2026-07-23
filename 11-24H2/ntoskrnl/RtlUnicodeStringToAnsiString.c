@@ -1,28 +1,28 @@
 /*
- * XREFs of RtlUnicodeStringToAnsiString @ 0x1408AEF80
+ * XREFs of RtlUnicodeStringToAnsiString @ 0x1409051E0
  * Callers:
- *     DbgUnicodeStringToAnsiString @ 0x1404A40A0 (DbgUnicodeStringToAnsiString.c)
- *     DifRtlUnicodeStringToAnsiStringWrapper @ 0x14063A5C0 (DifRtlUnicodeStringToAnsiStringWrapper.c)
- *     KsepGetModuleInfoByName @ 0x140740124 (KsepGetModuleInfoByName.c)
- *     NtQuerySystemEnvironmentValue @ 0x1407BE5B0 (NtQuerySystemEnvironmentValue.c)
- *     NtSetSystemEnvironmentValue @ 0x1407BEC50 (NtSetSystemEnvironmentValue.c)
- *     CmpLoadLayerVersion @ 0x1407D6B20 (CmpLoadLayerVersion.c)
- *     MmGetSystemRoutineAddress @ 0x1408B0D70 (MmGetSystemRoutineAddress.c)
- *     EtwpBuildProcessEvent @ 0x14094B5C0 (EtwpBuildProcessEvent.c)
- *     ExpQueryModuleInformationImage @ 0x140A24000 (ExpQueryModuleInformationImage.c)
- *     CmpQueryDowncastString @ 0x140A4A454 (CmpQueryDowncastString.c)
- *     ExpConvertLdrEntryToModuleInfo @ 0x140A92EF4 (ExpConvertLdrEntryToModuleInfo.c)
- *     ObCreateObjectTypeEx @ 0x140A9DB20 (ObCreateObjectTypeEx.c)
- *     ExpSystemErrorHandler2 @ 0x140B61470 (ExpSystemErrorHandler2.c)
- *     ViThunkHookExportAddress @ 0x140B978F8 (ViThunkHookExportAddress.c)
- *     HdlspProcessDumpCommand @ 0x140BADFDC (HdlspProcessDumpCommand.c)
- *     IopReassignSystemRoot @ 0x140C1CFA0 (IopReassignSystemRoot.c)
+ *     DbgUnicodeStringToAnsiString @ 0x14049EE30 (DbgUnicodeStringToAnsiString.c)
+ *     DifRtlUnicodeStringToAnsiStringWrapper @ 0x140638B80 (DifRtlUnicodeStringToAnsiStringWrapper.c)
+ *     KsepGetModuleInfoByName @ 0x14073E054 (KsepGetModuleInfoByName.c)
+ *     NtQuerySystemEnvironmentValue @ 0x1407BEA00 (NtQuerySystemEnvironmentValue.c)
+ *     NtSetSystemEnvironmentValue @ 0x1407BF0A0 (NtSetSystemEnvironmentValue.c)
+ *     CmpLoadLayerVersion @ 0x1407D7094 (CmpLoadLayerVersion.c)
+ *     EtwpBuildProcessEvent @ 0x1408EFB30 (EtwpBuildProcessEvent.c)
+ *     MmGetSystemRoutineAddress @ 0x140906FD0 (MmGetSystemRoutineAddress.c)
+ *     ExpQueryModuleInformationImage @ 0x140A183D0 (ExpQueryModuleInformationImage.c)
+ *     CmpQueryDowncastString @ 0x140A41174 (CmpQueryDowncastString.c)
+ *     ExpConvertLdrEntryToModuleInfo @ 0x140A8F6A4 (ExpConvertLdrEntryToModuleInfo.c)
+ *     ObCreateObjectTypeEx @ 0x140A99090 (ObCreateObjectTypeEx.c)
+ *     ExpSystemErrorHandler2 @ 0x140B63540 (ExpSystemErrorHandler2.c)
+ *     ViThunkHookExportAddress @ 0x140B998F8 (ViThunkHookExportAddress.c)
+ *     HdlspProcessDumpCommand @ 0x140BAFFDC (HdlspProcessDumpCommand.c)
+ *     IopReassignSystemRoot @ 0x140C1EFE0 (IopReassignSystemRoot.c)
  * Callees:
- *     PsGetCurrentServerSiloGlobals @ 0x140347D10 (PsGetCurrentServerSiloGlobals.c)
- *     RtlpIsUtf8Process @ 0x1408AF8F0 (RtlpIsUtf8Process.c)
- *     RtlUnicodeToUTF8N @ 0x1408AF980 (RtlUnicodeToUTF8N.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePool @ 0x140B72CB0 (ExFreePool.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x140326710 (PsGetCurrentServerSiloGlobals.c)
+ *     RtlpIsUtf8Process @ 0x140905B50 (RtlpIsUtf8Process.c)
+ *     RtlUnicodeToUTF8N @ 0x140905BE0 (RtlUnicodeToUTF8N.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePool @ 0x140B74850 (ExFreePool.c)
  */
 
 NTSTATUS __stdcall RtlUnicodeStringToAnsiString(
@@ -42,7 +42,7 @@ NTSTATUS __stdcall RtlUnicodeStringToAnsiString(
   wchar_t *v15; // r14
   unsigned int v16; // edi
   char *v17; // rbx
-  struct _CPTABLEINFO *p_Blink; // rax
+  _CPTABLEINFO *p_Blink; // rax
   ULONG v19; // esi
   int v20; // r9d
   _WORD *v21; // r8
@@ -104,7 +104,7 @@ NTSTATUS __stdcall RtlUnicodeStringToAnsiString(
     return -1073741584;
   if ( AllocateDestinationString )
   {
-    Pool2 = (char *)ExAllocatePool2(0x100uLL);
+    Pool2 = (char *)ExAllocatePool2(0x100uLL, v12, 0x67727453u);
     DestinationString->Buffer = Pool2;
     if ( !Pool2 )
       return -1073741801;
@@ -133,7 +133,7 @@ NTSTATUS __stdcall RtlUnicodeStringToAnsiString(
   else
   {
     _InterlockedOr(v29, 0);
-    p_Blink = (struct _CPTABLEINFO *)&PsGetCurrentServerSiloGlobals()[64].Blink;
+    p_Blink = (_CPTABLEINFO *)&PsGetCurrentServerSiloGlobals()[64].Blink;
   }
   v37 = v15;
   v32 = v16;

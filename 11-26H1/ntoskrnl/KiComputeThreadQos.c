@@ -1,23 +1,23 @@
 /*
- * XREFs of KiComputeThreadQos @ 0x1402BC220
+ * XREFs of KiComputeThreadQos @ 0x140306EE0
  * Callers:
- *     KiUpdateProcessThreadQos @ 0x1402040A4 (KiUpdateProcessThreadQos.c)
- *     KiUpdateRunTime @ 0x14021F420 (KiUpdateRunTime.c)
- *     KiSearchForNewThreadsForRescheduleContext @ 0x14022CBE0 (KiSearchForNewThreadsForRescheduleContext.c)
- *     ?KiCanLocalReadyThreadBeScheduledToRescheduleContextEntry@@YAEPEAU_KI_RESCHEDULE_CONTEXT_ENTRY@@PEAU_KTHREAD@@PEAU_KPRCB@@PEAU_KSHARED_READY_QUEUE@@PEAU_KSCB@@@Z @ 0x14022F880 (-KiCanLocalReadyThreadBeScheduledToRescheduleContextEntry@@YAEPEAU_KI_RESCHEDULE_CONTEXT_ENTRY@@.c)
- *     KiDeferredReadySingleThread @ 0x140231820 (KiDeferredReadySingleThread.c)
- *     KeYieldExecution @ 0x1402387B0 (KeYieldExecution.c)
- *     KiDirectSwitchThread @ 0x140239BE0 (KiDirectSwitchThread.c)
- *     KiSearchForNewThreadsOnTarget @ 0x1402404D0 (KiSearchForNewThreadsOnTarget.c)
- *     KeSetThreadPpmPolicy @ 0x1402C4470 (KeSetThreadPpmPolicy.c)
- *     KeUpdateThreadTag @ 0x1402C4800 (KeUpdateThreadTag.c)
- *     KiQuantumEnd @ 0x140331070 (KiQuantumEnd.c)
- *     KiUpdateThreadPriority @ 0x14037EAA0 (KiUpdateThreadPriority.c)
- *     KiSetPriorityThread @ 0x14037F250 (KiSetPriorityThread.c)
+ *     KiUpdateProcessThreadQos @ 0x140204184 (KiUpdateProcessThreadQos.c)
+ *     KiUpdateRunTime @ 0x140220DB0 (KiUpdateRunTime.c)
+ *     KiSearchForNewThreadsForRescheduleContext @ 0x14022E570 (KiSearchForNewThreadsForRescheduleContext.c)
+ *     ?KiCanLocalReadyThreadBeScheduledToRescheduleContextEntry@@YAEPEAU_KI_RESCHEDULE_CONTEXT_ENTRY@@PEAU_KTHREAD@@PEAU_KPRCB@@PEAU_KSHARED_READY_QUEUE@@PEAU_KSCB@@@Z @ 0x140231210 (-KiCanLocalReadyThreadBeScheduledToRescheduleContextEntry@@YAEPEAU_KI_RESCHEDULE_CONTEXT_ENTRY@@.c)
+ *     KiDeferredReadySingleThread @ 0x140233180 (KiDeferredReadySingleThread.c)
+ *     KeYieldExecution @ 0x14023A110 (KeYieldExecution.c)
+ *     KiDirectSwitchThread @ 0x14023B540 (KiDirectSwitchThread.c)
+ *     KiSearchForNewThreadsOnTarget @ 0x140241E30 (KiSearchForNewThreadsOnTarget.c)
+ *     KeSetThreadPpmPolicy @ 0x14030F130 (KeSetThreadPpmPolicy.c)
+ *     KeUpdateThreadTag @ 0x14030F4C0 (KeUpdateThreadTag.c)
+ *     KiQuantumEnd @ 0x1403330A0 (KiQuantumEnd.c)
+ *     KiUpdateThreadPriority @ 0x140380850 (KiUpdateThreadPriority.c)
+ *     KiSetPriorityThread @ 0x140381000 (KiSetPriorityThread.c)
  * Callees:
- *     Feature_ServerQosExcludesWindowState__private_IsEnabledNoReportingNoInline @ 0x140450220 (Feature_ServerQosExcludesWindowState__private_IsEnabledNoReportingNoInline.c)
- *     Feature_UserPresenceThrottling__private_IsEnabledDeviceUsageNoInline @ 0x140455510 (Feature_UserPresenceThrottling__private_IsEnabledDeviceUsageNoInline.c)
- *     Feature_DisableSystemThreadsQosPolicy__private_IsEnabledDeviceUsageNoInline @ 0x140467DE0 (Feature_DisableSystemThreadsQosPolicy__private_IsEnabledDeviceUsageNoInline.c)
+ *     Feature_ServerQosExcludesWindowState__private_IsEnabledNoReportingNoInline @ 0x140448350 (Feature_ServerQosExcludesWindowState__private_IsEnabledNoReportingNoInline.c)
+ *     Feature_UserPresenceThrottling__private_IsEnabledDeviceUsageNoInline @ 0x14044D640 (Feature_UserPresenceThrottling__private_IsEnabledDeviceUsageNoInline.c)
+ *     Feature_DisableSystemThreadsQosPolicy__private_IsEnabledDeviceUsageNoInline @ 0x140461530 (Feature_DisableSystemThreadsQosPolicy__private_IsEnabledDeviceUsageNoInline.c)
  */
 
 __int64 __fastcall KiComputeThreadQos(__int64 a1)

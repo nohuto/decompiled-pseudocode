@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlTlsSetValue @ 0x180093850
+ * XREFs of RtlTlsSetValue @ 0x1800BCB60
  * Callers:
- *     RtlpHpEnvTlsSetValue @ 0x18009345C (RtlpHpEnvTlsSetValue.c)
+ *     RtlpHpEnvTlsSetValue @ 0x1800723C0 (RtlpHpEnvTlsSetValue.c)
  * Callees:
- *     RtlpTlsHeapAlloc @ 0x180093918 (RtlpTlsHeapAlloc.c)
- *     memset$thunk$772440563353939046 @ 0x180170030 (memset$thunk$772440563353939046.c)
+ *     RtlpTlsHeapAlloc @ 0x1800BCC00 (RtlpTlsHeapAlloc.c)
+ *     memset$thunk$772440563353939046 @ 0x18016F030 (memset$thunk$772440563353939046.c)
  */
 
 __int64 __fastcall RtlTlsSetValue(unsigned int a1, void *a2)

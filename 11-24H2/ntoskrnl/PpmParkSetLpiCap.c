@@ -1,13 +1,13 @@
 /*
- * XREFs of PpmParkSetLpiCap @ 0x1404CF9C8
+ * XREFs of PpmParkSetLpiCap @ 0x1404C8A78
  * Callers:
- *     NtPowerInformation @ 0x1409F0230 (NtPowerInformation.c)
+ *     NtPowerInformation @ 0x1409EDB00 (NtPowerInformation.c)
  * Callees:
- *     PpmReleaseLock @ 0x1402A1504 (PpmReleaseLock.c)
- *     PpmCheckCustomRun @ 0x1403B45DC (PpmCheckCustomRun.c)
- *     PpmAcquireLock @ 0x1403B64F8 (PpmAcquireLock.c)
- *     PpmParkApplyPolicy @ 0x1404ED2F4 (PpmParkApplyPolicy.c)
- *     PpmCheckReInit @ 0x140A72240 (PpmCheckReInit.c)
+ *     PpmReleaseLock @ 0x1402AE140 (PpmReleaseLock.c)
+ *     PpmAcquireLock @ 0x1402AE7DC (PpmAcquireLock.c)
+ *     PpmCheckCustomRun @ 0x14044C05C (PpmCheckCustomRun.c)
+ *     PpmParkApplyPolicy @ 0x1404E4B18 (PpmParkApplyPolicy.c)
+ *     PpmCheckReInit @ 0x140A6B620 (PpmCheckReInit.c)
  */
 
 __int64 __fastcall PpmParkSetLpiCap(int a1, __int64 a2, unsigned int *a3)
@@ -47,7 +47,7 @@ __int64 __fastcall PpmParkSetLpiCap(int a1, __int64 a2, unsigned int *a3)
       v11 = *v10;
       if ( (unsigned __int16)v11 > (unsigned __int16)PpmParkGranularity )
         v8 += v11 - (unsigned __int16)PpmParkGranularity;
-      v10 += 644;
+      v10 += 648;
       --v9;
     }
     while ( v9 );
@@ -71,7 +71,7 @@ LABEL_11:
       v16 = *v15;
       if ( (unsigned __int16)v16 > (unsigned __int16)PpmParkGranularity )
         v13 += v16 - (unsigned __int16)PpmParkGranularity;
-      v15 += 644;
+      v15 += 648;
       --v14;
     }
     while ( v14 );

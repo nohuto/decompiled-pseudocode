@@ -1,23 +1,23 @@
 /*
- * XREFs of RtlpHpSegAlloc @ 0x18003E7CC
+ * XREFs of RtlpHpSegAlloc @ 0x18003E7BC
  * Callers:
- *     RtlpAllocateHeapInternal @ 0x180022DF0 (RtlpAllocateHeapInternal.c)
- *     RtlpHpSegLfhAllocate @ 0x18003E7A0 (RtlpHpSegLfhAllocate.c)
- *     RtlpHpAllocateHeapInternal @ 0x1800431C8 (RtlpHpAllocateHeapInternal.c)
- *     RtlpHpMetadataAlloc @ 0x180050764 (RtlpHpMetadataAlloc.c)
- *     RtlpHpSegVsAllocate @ 0x180072250 (RtlpHpSegVsAllocate.c)
+ *     RtlpAllocateHeapInternal @ 0x180022DE0 (RtlpAllocateHeapInternal.c)
+ *     RtlpHpSegLfhAllocate @ 0x18003E790 (RtlpHpSegLfhAllocate.c)
+ *     RtlpHpAllocateHeapInternal @ 0x1800431B8 (RtlpHpAllocateHeapInternal.c)
+ *     RtlpHpMetadataAlloc @ 0x180050754 (RtlpHpMetadataAlloc.c)
+ *     RtlpHpSegVsAllocate @ 0x180072240 (RtlpHpSegVsAllocate.c)
  * Callees:
- *     RtlpHpSegPageRangeShrink @ 0x18003E92C (RtlpHpSegPageRangeShrink.c)
- *     RtlpHpSegPageRangeAllocate @ 0x18003EA8C (RtlpHpSegPageRangeAllocate.c)
- *     RtlpHpSegPageRangeDecommit @ 0x180041808 (RtlpHpSegPageRangeDecommit.c)
- *     RtlpHpSegPageRangeCommit @ 0x180043488 (RtlpHpSegPageRangeCommit.c)
+ *     RtlpHpSegPageRangeShrink @ 0x18003E91C (RtlpHpSegPageRangeShrink.c)
+ *     RtlpHpSegPageRangeAllocate @ 0x18003EA7C (RtlpHpSegPageRangeAllocate.c)
+ *     RtlpHpSegPageRangeDecommit @ 0x1800417F8 (RtlpHpSegPageRangeDecommit.c)
+ *     RtlpHpSegPageRangeCommit @ 0x180043478 (RtlpHpSegPageRangeCommit.c)
  *     memset @ 0x1800ACCC0 (memset.c)
  */
 
-void *__fastcall RtlpHpSegAlloc(__int64 a1, size_t a2, __int64 a3, unsigned int a4)
+void *__fastcall RtlpHpSegAlloc(PVOID BaseAddress, size_t Size, __int64 a3, unsigned int a4)
 {
   unsigned __int64 v4; // rdi
-  unsigned int v5; // r14d
+  int v5; // r14d
   int v9; // r15d
   __int64 v10; // rax
   __int64 v11; // rbx
@@ -34,12 +34,12 @@ void *__fastcall RtlpHpSegAlloc(__int64 a1, size_t a2, __int64 a3, unsigned int 
   v9 = a4 & 4;
   if ( (a4 & 4) != 0 )
     LODWORD(v4) = v4 + 1;
-  v10 = RtlpHpSegPageRangeAllocate(a1, (unsigned int)v4, a4);
+  v10 = RtlpHpSegPageRangeAllocate(BaseAddress);
   v11 = v10;
   if ( !v10 )
     return 0LL;
   v12 = (unsigned __int8)~*(_BYTE *)(v10 + 26);
-  if ( v5 && (int)RtlpHpSegPageRangeCommit(a1, v10, v10, v5) < 0 )
+  if ( v5 && (int)RtlpHpSegPageRangeCommit(BaseAddress) < 0 )
   {
     v15 = 0LL;
     goto LABEL_16;
@@ -48,19 +48,19 @@ void *__fastcall RtlpHpSegAlloc(__int64 a1, size_t a2, __int64 a3, unsigned int 
   {
     v17 = 32LL * (unsigned int)v4 + v11 - 32;
     if ( (*(_BYTE *)(v17 + 24) & 2) != 0 )
-      RtlpHpSegPageRangeDecommit(a1, v11, v17, 1LL);
+      RtlpHpSegPageRangeDecommit(BaseAddress, v11, v17, 1LL);
   }
   v13 = v11 & 0xFFFFFFFFFFF00000uLL;
-  *(_WORD *)(v11 + 6) = ((_WORD)v4 << 12) - a2;
+  *(_WORD *)(v11 + 6) = ((_WORD)v4 << 12) - Size;
   v14 = (unsigned int)((__int64)(v11 - (v11 & 0xFFFFFFFFFFF00000uLL)) >> 5) << 12;
   v11 = 0LL;
   v15 = (void *)(v13 + v14);
   if ( (a4 & 2) != 0 && v12 )
   {
-    memset(v15, 0, a2);
+    memset(v15, 0, Size);
 LABEL_16:
     if ( v11 )
-      RtlpHpSegPageRangeShrink(a1, v11, 0LL, a4);
+      RtlpHpSegPageRangeShrink(BaseAddress, v11, 0LL, a4);
   }
   return v15;
 }

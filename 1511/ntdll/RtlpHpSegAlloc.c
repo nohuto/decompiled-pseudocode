@@ -13,7 +13,7 @@
  *     memset @ 0x1800AB900 (memset.c)
  */
 
-void *__fastcall RtlpHpSegAlloc(__int64 a1, size_t a2, __int64 a3, unsigned int a4)
+void *__fastcall RtlpHpSegAlloc(PVOID BaseAddress, size_t Size, __int64 a3, unsigned int a4)
 {
   unsigned __int64 v4; // rdi
   unsigned int v5; // r14d
@@ -33,12 +33,12 @@ void *__fastcall RtlpHpSegAlloc(__int64 a1, size_t a2, __int64 a3, unsigned int 
   v9 = a4 & 4;
   if ( (a4 & 4) != 0 )
     LODWORD(v4) = v4 + 1;
-  v10 = RtlpHpSegPageRangeAllocate(a1, (unsigned int)v4, a4);
+  v10 = RtlpHpSegPageRangeAllocate(BaseAddress);
   v11 = v10;
   if ( !v10 )
     return 0LL;
   v13 = (unsigned __int8)~*(_BYTE *)(v10 + 26);
-  if ( v5 && (int)RtlpHpSegPageRangeCommit(a1, v10, v10, v5) < 0 )
+  if ( v5 && RtlpHpSegPageRangeCommit((volatile signed __int64 *)BaseAddress, v10, v10, v5) < 0 )
   {
     v12 = 0LL;
     goto LABEL_16;
@@ -47,19 +47,19 @@ void *__fastcall RtlpHpSegAlloc(__int64 a1, size_t a2, __int64 a3, unsigned int 
   {
     v14 = 32LL * (unsigned int)v4 + v11 - 32;
     if ( (*(_BYTE *)(v14 + 24) & 2) != 0 )
-      RtlpHpSegPageRangeDecommit(a1, v11, v14, 1);
+      RtlpHpSegPageRangeDecommit((__int64)BaseAddress, v11, v14, 1);
   }
   v15 = v11 & 0xFFFFFFFFFFF00000uLL;
-  *(_WORD *)(v11 + 6) = ((_WORD)v4 << 12) - a2;
+  *(_WORD *)(v11 + 6) = ((_WORD)v4 << 12) - Size;
   v16 = (unsigned int)((__int64)(v11 - (v11 & 0xFFFFFFFFFFF00000uLL)) >> 5) << 12;
   v11 = 0LL;
   v12 = (void *)(v15 + v16);
   if ( (a4 & 2) != 0 && v13 )
   {
-    memset(v12, 0, a2);
+    memset(v12, 0, Size);
 LABEL_16:
     if ( v11 )
-      RtlpHpSegPageRangeShrink(a1, v11, 0LL, a4);
+      RtlpHpSegPageRangeShrink(BaseAddress, v11, 0LL, a4);
   }
   return v12;
 }

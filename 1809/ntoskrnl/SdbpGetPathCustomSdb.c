@@ -1,12 +1,12 @@
 /*
- * XREFs of SdbpGetPathCustomSdb @ 0x1408E8B90
+ * XREFs of SdbpGetPathCustomSdb @ 0x1408E9E50
  * Callers:
  *     <none>
  * Callees:
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     AslLogCallPrintf @ 0x140680C60 (AslLogCallPrintf.c)
- *     SdbpGetPathAppPatch @ 0x1408E8960 (SdbpGetPathAppPatch.c)
- *     AslPathCombine @ 0x1408EA214 (AslPathCombine.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     AslLogCallPrintf @ 0x140681E20 (AslLogCallPrintf.c)
+ *     SdbpGetPathAppPatch @ 0x1408E9C20 (SdbpGetPathAppPatch.c)
+ *     AslPathCombine @ 0x1408EB4D4 (AslPathCombine.c)
  */
 
 __int64 __fastcall SdbpGetPathCustomSdb(wchar_t *a1, size_t a2)

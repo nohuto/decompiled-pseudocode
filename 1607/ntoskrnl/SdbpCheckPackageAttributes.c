@@ -1,17 +1,17 @@
 /*
- * XREFs of SdbpCheckPackageAttributes @ 0x1406C2EC4
+ * XREFs of SdbpCheckPackageAttributes @ 0x1406C2FFC
  * Callers:
  *     <none>
  * Callees:
- *     ULongLongMult @ 0x1401B7584 (ULongLongMult.c)
- *     SdbReadDWORDTag @ 0x1404EA9AC (SdbReadDWORDTag.c)
- *     SdbFindFirstTag @ 0x1405049C4 (SdbFindFirstTag.c)
- *     SdbReadQWORDTag @ 0x140573C10 (SdbReadQWORDTag.c)
- *     SdbGetStringTagPtr @ 0x140573D10 (SdbGetStringTagPtr.c)
- *     AslStringPatternMatchW @ 0x140578D34 (AslStringPatternMatchW.c)
- *     SdbpCheckFromVersion @ 0x1406C4ECC (SdbpCheckFromVersion.c)
- *     SdbpCheckUptoVersion @ 0x1406C4F08 (SdbpCheckUptoVersion.c)
- *     SdbpCheckVersion @ 0x1406C4F44 (SdbpCheckVersion.c)
+ *     ULongLongMult @ 0x1401B7468 (ULongLongMult.c)
+ *     SdbReadDWORDTag @ 0x1404CCBB0 (SdbReadDWORDTag.c)
+ *     SdbFindFirstTag @ 0x1404E7954 (SdbFindFirstTag.c)
+ *     SdbReadQWORDTag @ 0x140574150 (SdbReadQWORDTag.c)
+ *     SdbGetStringTagPtr @ 0x140574250 (SdbGetStringTagPtr.c)
+ *     AslStringPatternMatchW @ 0x140579274 (AslStringPatternMatchW.c)
+ *     SdbpCheckFromVersion @ 0x1406C5004 (SdbpCheckFromVersion.c)
+ *     SdbpCheckUptoVersion @ 0x1406C5040 (SdbpCheckUptoVersion.c)
+ *     SdbpCheckVersion @ 0x1406C507C (SdbpCheckVersion.c)
  */
 
 __int64 __fastcall SdbpCheckPackageAttributes(
@@ -45,14 +45,14 @@ __int64 __fastcall SdbpCheckPackageAttributes(
   *a1 = 0;
   do
   {
-    FirstTag = SdbFindFirstTag(*(_QWORD *)(a2 + 8), a5, *(_WORD *)((char *)&unk_140287160 + v10));
+    FirstTag = SdbFindFirstTag(*(_QWORD *)(a2 + 8), a5, *(_WORD *)((char *)&unk_140287250 + v10));
     if ( !FirstTag )
       goto LABEL_33;
     v13 = v11[2];
     v14 = 0LL;
     if ( !v13 )
       return v6;
-    v15 = *(_WORD *)((char *)&unk_140287160 + v10);
+    v15 = *(_WORD *)((char *)&unk_140287250 + v10);
     do
     {
       v16 = 0LL;

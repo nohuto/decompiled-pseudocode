@@ -1,29 +1,29 @@
 /*
- * XREFs of SeDefaultObjectMethod @ 0x140728FB0
+ * XREFs of SeDefaultObjectMethod @ 0x1407291B0
  * Callers:
  *     <none>
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     ExReleasePushLockEx @ 0x140231190 (ExReleasePushLockEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1402BD960 (ExfTryToWakePushLock.c)
- *     OBJECT_HEADER_TO_QUOTA_INFO @ 0x1402F8670 (OBJECT_HEADER_TO_QUOTA_INFO.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
+ *     KeLeaveCriticalRegionThread @ 0x14022F7F0 (KeLeaveCriticalRegionThread.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140231120 (ExAcquirePushLockExclusiveEx.c)
+ *     ExReleasePushLockEx @ 0x140231280 (ExReleasePushLockEx.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     ExfTryToWakePushLock @ 0x1402BDBF0 (ExfTryToWakePushLock.c)
+ *     OBJECT_HEADER_TO_QUOTA_INFO @ 0x1402F8900 (OBJECT_HEADER_TO_QUOTA_INFO.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
  *     PsReturnSharedPoolQuota @ 0x14069ECA8 (PsReturnSharedPoolQuota.c)
- *     ObQuerySecurityDescriptorInfo @ 0x1406C09BC (ObQuerySecurityDescriptorInfo.c)
- *     ObDereferenceSecurityDescriptor @ 0x140728A50 (ObDereferenceSecurityDescriptor.c)
- *     SeComputeQuotaInformationSize @ 0x140728B80 (SeComputeQuotaInformationSize.c)
- *     ObLogSecurityDescriptor @ 0x140728CC0 (ObLogSecurityDescriptor.c)
- *     RtlpSetSecurityObject @ 0x14072BD70 (RtlpSetSecurityObject.c)
- *     PsChargeSharedPoolQuota @ 0x14075C144 (PsChargeSharedPoolQuota.c)
+ *     ObQuerySecurityDescriptorInfo @ 0x1406C09EC (ObQuerySecurityDescriptorInfo.c)
+ *     ObDereferenceSecurityDescriptor @ 0x140728C50 (ObDereferenceSecurityDescriptor.c)
+ *     SeComputeQuotaInformationSize @ 0x140728D80 (SeComputeQuotaInformationSize.c)
+ *     ObLogSecurityDescriptor @ 0x140728EC0 (ObLogSecurityDescriptor.c)
+ *     RtlpSetSecurityObject @ 0x14072BF70 (RtlpSetSecurityObject.c)
+ *     PsChargeSharedPoolQuota @ 0x14075C334 (PsChargeSharedPoolQuota.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall SeDefaultObjectMethod(
         __int64 a1,
         int a2,
-        ULONG *a3,
+        DWORD *a3,
         void *a4,
         ULONG *a5,
         __int64 *a6,

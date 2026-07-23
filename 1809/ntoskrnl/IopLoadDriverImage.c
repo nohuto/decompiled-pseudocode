@@ -1,17 +1,17 @@
 /*
- * XREFs of IopLoadDriverImage @ 0x1401354A0
+ * XREFs of IopLoadDriverImage @ 0x140135570
  * Callers:
- *     NtLoadDriver @ 0x1406C6730 (NtLoadDriver.c)
+ *     NtLoadDriver @ 0x1406C79D0 (NtLoadDriver.c)
  * Callees:
  *     KeWaitForSingleObject @ 0x140054880 (KeWaitForSingleObject.c)
- *     PsIsCurrentThreadInServerSilo @ 0x1400B9C20 (PsIsCurrentThreadInServerSilo.c)
- *     ExQueueWorkItem @ 0x1400D1A00 (ExQueueWorkItem.c)
- *     IopVerifierExAllocatePoolWithQuota_1 @ 0x140135678 (IopVerifierExAllocatePoolWithQuota_1.c)
- *     memmove @ 0x1401D1540 (memmove.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     SeSinglePrivilegeCheck @ 0x140612160 (SeSinglePrivilegeCheck.c)
- *     IopLoadUnloadDriver @ 0x1406C6750 (IopLoadUnloadDriver.c)
- *     ExRaiseDatatypeMisalignment @ 0x1408D65C0 (ExRaiseDatatypeMisalignment.c)
+ *     PsIsCurrentThreadInServerSilo @ 0x1400B9B60 (PsIsCurrentThreadInServerSilo.c)
+ *     ExQueueWorkItem @ 0x1400D1A80 (ExQueueWorkItem.c)
+ *     IopVerifierExAllocatePoolWithQuota_1 @ 0x140135748 (IopVerifierExAllocatePoolWithQuota_1.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     SeSinglePrivilegeCheck @ 0x140613160 (SeSinglePrivilegeCheck.c)
+ *     IopLoadUnloadDriver @ 0x1406C79F0 (IopLoadUnloadDriver.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408D7880 (ExRaiseDatatypeMisalignment.c)
  */
 
 __int64 __fastcall IopLoadDriverImage(_OWORD *a1)

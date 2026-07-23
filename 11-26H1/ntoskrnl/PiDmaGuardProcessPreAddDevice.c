@@ -1,18 +1,18 @@
 /*
- * XREFs of PiDmaGuardProcessPreAddDevice @ 0x140915648
+ * XREFs of PiDmaGuardProcessPreAddDevice @ 0x1409700B4
  * Callers:
- *     PipCallDriverAddDevice @ 0x1409156CC (PipCallDriverAddDevice.c)
+ *     PipCallDriverAddDevice @ 0x140970138 (PipCallDriverAddDevice.c)
  * Callees:
- *     HalCvmDmaEnabled @ 0x140501ADC (HalCvmDmaEnabled.c)
- *     PiIommuGetDmaRemappingPolicy @ 0x1405DD45C (PiIommuGetDmaRemappingPolicy.c)
- *     PiIommuSaveDeviceAtsSettings @ 0x14077EF50 (PiIommuSaveDeviceAtsSettings.c)
- *     PipDmgSaveDeviceDmarPolicy @ 0x140914594 (PipDmgSaveDeviceDmarPolicy.c)
- *     PipDmgSaveDeviceDmarAvailability @ 0x140914778 (PipDmgSaveDeviceDmarAvailability.c)
- *     PipDmgGetDriversDmarPolicy @ 0x140B2423C (PipDmgGetDriversDmarPolicy.c)
- *     PipDmgGetDeviceDmarPolicy @ 0x140B38730 (PipDmgGetDeviceDmarPolicy.c)
+ *     HalCvmDmaEnabled @ 0x1404FB2CC (HalCvmDmaEnabled.c)
+ *     PiIommuGetDmaRemappingPolicy @ 0x1405DFDCC (PiIommuGetDmaRemappingPolicy.c)
+ *     PiIommuSaveDeviceAtsSettings @ 0x140781A50 (PiIommuSaveDeviceAtsSettings.c)
+ *     PipDmgSaveDeviceDmarPolicy @ 0x14096F000 (PipDmgSaveDeviceDmarPolicy.c)
+ *     PipDmgSaveDeviceDmarAvailability @ 0x14096F1E4 (PipDmgSaveDeviceDmarAvailability.c)
+ *     PipDmgGetDriversDmarPolicy @ 0x140B266DC (PipDmgGetDriversDmarPolicy.c)
+ *     PipDmgGetDeviceDmarPolicy @ 0x140B3A940 (PipDmgGetDeviceDmarPolicy.c)
  */
 
-__int64 __fastcall PiDmaGuardProcessPreAddDevice(__int64 *a1, int a2)
+__int64 __fastcall PiDmaGuardProcessPreAddDevice(__int64 *a1, __int64 a2)
 {
   __int64 v2; // rsi
   __int64 *v5; // r14
@@ -57,7 +57,7 @@ LABEL_4:
           DriversDmarPolicy = PipDmgGetDriversDmarPolicy(a1);
       }
     }
-    v8 = PiIommuSaveDeviceAtsSettings(v2, a2);
+    v8 = PiIommuSaveDeviceAtsSettings(v2);
     if ( v8 < 0 )
       goto LABEL_4;
   }

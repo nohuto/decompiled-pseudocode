@@ -1,11 +1,11 @@
 /*
- * XREFs of MiFreeEnclaveModules @ 0x140A3DE28
+ * XREFs of MiFreeEnclaveModules @ 0x140A3E0D8
  * Callers:
- *     MiCanDeleteEnclave @ 0x140647148 (MiCanDeleteEnclave.c)
- *     MmFreeVirtualMemory @ 0x1407450C0 (MmFreeVirtualMemory.c)
+ *     MiCanDeleteEnclave @ 0x140647698 (MiCanDeleteEnclave.c)
+ *     MmFreeVirtualMemory @ 0x1407452B0 (MmFreeVirtualMemory.c)
  * Callees:
- *     DbgkUnMapViewOfSection @ 0x1407CB830 (DbgkUnMapViewOfSection.c)
- *     MiDereferenceEnclaveModule @ 0x140A3DE04 (MiDereferenceEnclaveModule.c)
+ *     DbgkUnMapViewOfSection @ 0x1407CBB00 (DbgkUnMapViewOfSection.c)
+ *     MiDereferenceEnclaveModule @ 0x140A3E0B4 (MiDereferenceEnclaveModule.c)
  */
 
 void __fastcall MiFreeEnclaveModules(volatile signed __int32 **a1, _KPROCESS *a2)

@@ -1,18 +1,15 @@
 /*
- * XREFs of RtlClearBit @ 0x180106B10
+ * XREFs of RtlClearBit @ 0x180101A40
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-int __fastcall RtlClearBit(__int64 a1, unsigned int a2)
+void __cdecl RtlClearBit(PRTL_BITMAP BitMapHeader, ULONG BitNumber)
 {
   _BYTE *v2; // r8
-  int result; // eax
 
-  v2 = (_BYTE *)(*(_QWORD *)(a1 + 8) + ((unsigned __int64)a2 >> 3));
-  result = (char)*v2 & ~(1 << (a2 & 7));
-  *v2 = result;
-  return result;
+  v2 = (char *)BitMapHeader->Buffer + ((unsigned __int64)BitNumber >> 3);
+  *v2 &= ~(1 << (BitNumber & 7));
 }

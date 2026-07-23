@@ -1,12 +1,12 @@
 /*
- * XREFs of HvlIterateSecurePagesForHibernation @ 0x1404F7DE0
+ * XREFs of HvlIterateSecurePagesForHibernation @ 0x1404F7D60
  * Callers:
- *     PopWriteSecurePages @ 0x14056F3B8 (PopWriteSecurePages.c)
+ *     PopWriteSecurePages @ 0x14056F5F8 (PopWriteSecurePages.c)
  * Callees:
- *     HvlpEndSecurePageListIteration @ 0x1404FB5BC (HvlpEndSecurePageListIteration.c)
- *     HvlpStartSecurePageListIteration @ 0x1404FB874 (HvlpStartSecurePageListIteration.c)
- *     VslGetSecurePageList @ 0x1404FC6D0 (VslGetSecurePageList.c)
- *     PopWriteSecurePagesCallback @ 0x14056F460 (PopWriteSecurePagesCallback.c)
+ *     HvlpEndSecurePageListIteration @ 0x1404FB53C (HvlpEndSecurePageListIteration.c)
+ *     HvlpStartSecurePageListIteration @ 0x1404FB7F4 (HvlpStartSecurePageListIteration.c)
+ *     VslGetSecurePageList @ 0x1404FC650 (VslGetSecurePageList.c)
+ *     PopWriteSecurePagesCallback @ 0x14056F6A0 (PopWriteSecurePagesCallback.c)
  */
 
 __int64 __fastcall HvlIterateSecurePagesForHibernation(__int64 a1, __int64 a2, __int64 a3, __int64 a4)

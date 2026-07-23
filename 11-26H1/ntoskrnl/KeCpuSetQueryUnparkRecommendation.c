@@ -1,9 +1,9 @@
 /*
- * XREFs of KeCpuSetQueryUnparkRecommendation @ 0x14025D6AC
+ * XREFs of KeCpuSetQueryUnparkRecommendation @ 0x14025DFFC
  * Callers:
- *     PpmParkCalculateCoreParkingMask @ 0x14025C720 (PpmParkCalculateCoreParkingMask.c)
+ *     PpmParkCalculateCoreParkingMask @ 0x14025D070 (PpmParkCalculateCoreParkingMask.c)
  * Callees:
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall KeCpuSetQueryUnparkRecommendation(unsigned __int16 *a1, unsigned __int16 *a2)

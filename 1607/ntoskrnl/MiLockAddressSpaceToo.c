@@ -1,15 +1,15 @@
 /*
- * XREFs of MiLockAddressSpaceToo @ 0x1400C65CC
+ * XREFs of MiLockAddressSpaceToo @ 0x1400C446C
  * Callers:
- *     MiDeleteVad @ 0x1400288D0 (MiDeleteVad.c)
- *     MiPrepareVadDelete @ 0x14042E184 (MiPrepareVadDelete.c)
+ *     MiDeleteVad @ 0x140028450 (MiDeleteVad.c)
+ *     MiPrepareVadDelete @ 0x14042D054 (MiPrepareVadDelete.c)
  * Callees:
- *     KiLeaveGuardedRegionUnsafe @ 0x140013B70 (KiLeaveGuardedRegionUnsafe.c)
- *     MiUnlockVad @ 0x1400144A0 (MiUnlockVad.c)
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     LOCK_ADDRESS_SPACE @ 0x14002C390 (LOCK_ADDRESS_SPACE.c)
- *     KeAbPostReleaseEx @ 0x1400C66BC (KeAbPostReleaseEx.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1400C8070 (ExfAcquirePushLockExclusiveEx.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x1400136F0 (KiLeaveGuardedRegionUnsafe.c)
+ *     MiUnlockVad @ 0x140014020 (MiUnlockVad.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     LOCK_ADDRESS_SPACE @ 0x14002BF10 (LOCK_ADDRESS_SPACE.c)
+ *     KeAbPostReleaseEx @ 0x1400C455C (KeAbPostReleaseEx.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1400C5F10 (ExfAcquirePushLockExclusiveEx.c)
  */
 
 __int64 __fastcall MiLockAddressSpaceToo(__int64 a1, __int64 a2)

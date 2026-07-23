@@ -1,32 +1,32 @@
 /*
- * XREFs of MiInsertVadCharges @ 0x1406ECC70
+ * XREFs of MiInsertVadCharges @ 0x140704050
  * Callers:
- *     MiDeletePartialVad @ 0x1402FD8DC (MiDeletePartialVad.c)
- *     MiMapViewOfImageSection @ 0x14061CEB0 (MiMapViewOfImageSection.c)
- *     MiAllocateNewSubAllocatedRegion @ 0x14069F198 (MiAllocateNewSubAllocatedRegion.c)
- *     MiReserveUserMemory @ 0x1406EA4D0 (MiReserveUserMemory.c)
- *     MiMapViewOfDataSection @ 0x1406EC100 (MiMapViewOfDataSection.c)
- *     MiInsertProcessVads @ 0x140711718 (MiInsertProcessVads.c)
- *     MiMapLockedPagesInUserSpace @ 0x14076B6A0 (MiMapLockedPagesInUserSpace.c)
- *     MiMapViewOfPhysicalSection @ 0x1407C2C08 (MiMapViewOfPhysicalSection.c)
- *     MiAllocateEnclaveVad @ 0x1408D1E58 (MiAllocateEnclaveVad.c)
- *     MiInsertChildVads @ 0x1408D9780 (MiInsertChildVads.c)
+ *     MiDeletePartialVad @ 0x14030862C (MiDeletePartialVad.c)
+ *     MiAllocateNewSubAllocatedRegion @ 0x1405FE4DC (MiAllocateNewSubAllocatedRegion.c)
+ *     MiMapViewOfImageSection @ 0x140686B20 (MiMapViewOfImageSection.c)
+ *     MiInsertProcessVads @ 0x1406BFD68 (MiInsertProcessVads.c)
+ *     MiReserveUserMemory @ 0x1407018B0 (MiReserveUserMemory.c)
+ *     MiMapViewOfDataSection @ 0x1407034E0 (MiMapViewOfDataSection.c)
+ *     MiMapLockedPagesInUserSpace @ 0x14076B860 (MiMapLockedPagesInUserSpace.c)
+ *     MiMapViewOfPhysicalSection @ 0x1407C3128 (MiMapViewOfPhysicalSection.c)
+ *     MiAllocateEnclaveVad @ 0x1408D1FB8 (MiAllocateEnclaveVad.c)
+ *     MiInsertChildVads @ 0x1408D98E0 (MiInsertChildVads.c)
  * Callees:
- *     MiGetProcessPartition @ 0x14021AD40 (MiGetProcessPartition.c)
- *     PspChargeQuota @ 0x14021ADE0 (PspChargeQuota.c)
- *     MiVadPureReserve @ 0x14021B990 (MiVadPureReserve.c)
- *     MiChargeResident @ 0x14025A658 (MiChargeResident.c)
- *     MiReturnResident @ 0x140296E9C (MiReturnResident.c)
- *     MiLocateVadEvent @ 0x1402FE3B4 (MiLocateVadEvent.c)
- *     UNLOCK_PAGE_TABLE_COMMITMENT @ 0x140316788 (UNLOCK_PAGE_TABLE_COMMITMENT.c)
- *     LOCK_PAGE_TABLE_COMMITMENT @ 0x14031698C (LOCK_PAGE_TABLE_COMMITMENT.c)
- *     PsChargeProcessNonPagedPoolQuota @ 0x1403169C0 (PsChargeProcessNonPagedPoolQuota.c)
- *     PsReturnProcessNonPagedPoolQuota @ 0x1403183E0 (PsReturnProcessNonPagedPoolQuota.c)
- *     PsReturnProcessPagedPoolQuota @ 0x140318410 (PsReturnProcessPagedPoolQuota.c)
- *     MiCommitPageTablesForVad @ 0x1405F91A0 (MiCommitPageTablesForVad.c)
- *     MiResidentPagesForSpan @ 0x1406B5F44 (MiResidentPagesForSpan.c)
- *     MiSetVadBits @ 0x1406ECE60 (MiSetVadBits.c)
- *     MiComputeAweCharges @ 0x1408D5900 (MiComputeAweCharges.c)
+ *     MiReturnResident @ 0x140273F7C (MiReturnResident.c)
+ *     MiChargeResident @ 0x14027BBC8 (MiChargeResident.c)
+ *     MiGetProcessPartition @ 0x1402BF640 (MiGetProcessPartition.c)
+ *     PspChargeQuota @ 0x1402BF6E0 (PspChargeQuota.c)
+ *     MiVadPureReserve @ 0x1402C0290 (MiVadPureReserve.c)
+ *     MiLocateVadEvent @ 0x140309104 (MiLocateVadEvent.c)
+ *     UNLOCK_PAGE_TABLE_COMMITMENT @ 0x1403214D8 (UNLOCK_PAGE_TABLE_COMMITMENT.c)
+ *     LOCK_PAGE_TABLE_COMMITMENT @ 0x1403216DC (LOCK_PAGE_TABLE_COMMITMENT.c)
+ *     PsChargeProcessNonPagedPoolQuota @ 0x140321710 (PsChargeProcessNonPagedPoolQuota.c)
+ *     PsReturnProcessNonPagedPoolQuota @ 0x140323130 (PsReturnProcessNonPagedPoolQuota.c)
+ *     PsReturnProcessPagedPoolQuota @ 0x140323160 (PsReturnProcessPagedPoolQuota.c)
+ *     MiResidentPagesForSpan @ 0x140615404 (MiResidentPagesForSpan.c)
+ *     MiCommitPageTablesForVad @ 0x1406E8900 (MiCommitPageTablesForVad.c)
+ *     MiSetVadBits @ 0x140704240 (MiSetVadBits.c)
+ *     MiComputeAweCharges @ 0x1408D5A60 (MiComputeAweCharges.c)
  */
 
 __int64 __fastcall MiInsertVadCharges(__int64 a1, struct _KPROCESS *a2)
@@ -48,10 +48,9 @@ __int64 __fastcall MiInsertVadCharges(__int64 a1, struct _KPROCESS *a2)
   int v18; // ebp
   __int64 v19; // rax
   ULONG_PTR *ProcessPartition; // rax
-  __int64 v21; // r9
-  __int64 v22; // rax
-  __int64 v23; // rcx
-  __int64 v24; // rax
+  __int64 v21; // rax
+  __int64 v22; // rcx
+  __int64 v23; // rax
 
   v3 = 0LL;
   v4 = 0LL;
@@ -94,10 +93,10 @@ __int64 __fastcall MiInsertVadCharges(__int64 a1, struct _KPROCESS *a2)
   if ( v13 == 48 )
   {
     if ( (*(_DWORD *)(a1 + 48) & 0x3100000) == 0x2100000 )
-      v22 = 0LL;
+      v21 = 0LL;
     else
-      v22 = MiLocateVadEvent(a1, 256LL) + 8;
-    v19 = MiComputeAweCharges(a1, v22);
+      v21 = MiLocateVadEvent(a1) + 8;
+    v19 = MiComputeAweCharges(a1, v21);
   }
   else
   {
@@ -108,7 +107,7 @@ __int64 __fastcall MiInsertVadCharges(__int64 a1, struct _KPROCESS *a2)
   v4 = v19;
   if ( !v19
     || (ProcessPartition = (ULONG_PTR *)MiGetProcessPartition((__int64)a2),
-        (unsigned int)MiChargeResident(ProcessPartition, v4, 128LL, v21)) )
+        (unsigned int)MiChargeResident(ProcessPartition, v4, 128LL)) )
   {
 LABEL_10:
     v14 = *(unsigned int *)(a1 + 52);
@@ -129,16 +128,16 @@ LABEL_10:
   v4 = 0LL;
   v18 = -1073741670;
 LABEL_27:
-  v23 = *(unsigned int *)(a1 + 52);
-  LODWORD(v23) = v23 & 0x7FFFFFFF;
-  if ( (v23 | ((unsigned __int64)*(unsigned __int8 *)(a1 + 34) << 31)) < 0x7FFFFFFFDLL )
+  v22 = *(unsigned int *)(a1 + 52);
+  LODWORD(v22) = v22 & 0x7FFFFFFF;
+  if ( (v22 | ((unsigned __int64)*(unsigned __int8 *)(a1 + 34) << 31)) < 0x7FFFFFFFDLL )
     PsReturnProcessNonPagedPoolQuota(a2, 136LL);
   if ( v3 )
     PsReturnProcessPagedPoolQuota(a2, v3);
   if ( v4 )
   {
-    v24 = MiGetProcessPartition((__int64)a2);
-    MiReturnResident(v24, v4);
+    v23 = MiGetProcessPartition((__int64)a2);
+    MiReturnResident(v23, v4);
   }
   return (unsigned int)v18;
 }

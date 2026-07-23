@@ -1,8 +1,8 @@
 /*
  * XREFs of Normalization__GuessCharCountBySize @ 0x1800F1D9C
  * Callers:
- *     RtlpNormalizeStringWorker @ 0x180058480 (RtlpNormalizeStringWorker.c)
- *     Normalization__Normalize @ 0x180058508 (Normalization__Normalize.c)
+ *     RtlpNormalizeStringWorker @ 0x180058470 (RtlpNormalizeStringWorker.c)
+ *     Normalization__Normalize @ 0x1800584F8 (Normalization__Normalize.c)
  * Callees:
  *     <none>
  */

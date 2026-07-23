@@ -1,14 +1,14 @@
 /*
- * XREFs of ZwReleaseSemaphore @ 0x140723530
+ * XREFs of ZwReleaseSemaphore @ 0x140728100
  * Callers:
- *     DifZwReleaseSemaphoreWrapper @ 0x1406B6A30 (DifZwReleaseSemaphoreWrapper.c)
+ *     DifZwReleaseSemaphoreWrapper @ 0x1406BA610 (DifZwReleaseSemaphoreWrapper.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwReleaseSemaphore(__int64 a1, __int64 a2, __int64 a3)
+NTSTATUS __cdecl ZwReleaseSemaphore(HANDLE SemaphoreHandle, LONG ReleaseCount, PLONG PreviousCount)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2, a3);
+  return KiServiceInternal(SemaphoreHandle);
 }

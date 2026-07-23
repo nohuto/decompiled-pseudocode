@@ -1,11 +1,11 @@
 /*
- * XREFs of DefaultInitializeProfiling @ 0x140BEAD10
+ * XREFs of DefaultInitializeProfiling @ 0x140BF0D10
  * Callers:
  *     <none>
  * Callees:
- *     KeAddProcessorAffinityEx @ 0x140246720 (KeAddProcessorAffinityEx.c)
- *     InitCounterGroupAps @ 0x140BEADF8 (InitCounterGroupAps.c)
- *     InitCounterGroupBsp @ 0x140BEAEC0 (InitCounterGroupBsp.c)
+ *     KeAddProcessorAffinityEx @ 0x140248080 (KeAddProcessorAffinityEx.c)
+ *     InitCounterGroupAps @ 0x140BF0DF8 (InitCounterGroupAps.c)
+ *     InitCounterGroupBsp @ 0x140BF0EC0 (InitCounterGroupBsp.c)
  */
 
 __int64 DefaultInitializeProfiling()
@@ -28,7 +28,7 @@ __int64 DefaultInitializeProfiling()
     qword_140E02508 = (__int64)&HalpProfileSourceDescriptorListHead;
     qword_140E02510 = (__int64)&HalpProfileSourceDescriptorListHead;
     HalpProfileSourceDescriptorListHead = (__int64)&qword_140E02508;
-    qword_140FBBF48 = (__int64)&qword_140E02508;
+    qword_140FBC2E8 = (__int64)&qword_140E02508;
     InitCounterGroupBsp(1LL, 1LL);
     InitCounterGroupBsp(0LL, 0LL);
     InitCounterGroupBsp(100LL, 0LL);

@@ -1,21 +1,21 @@
 /*
- * XREFs of FsRtlKernelFsControlFile @ 0x140A1A200
+ * XREFs of FsRtlKernelFsControlFile @ 0x140A23830
  * Callers:
- *     sub_140A195D0 @ 0x140A195D0 (sub_140A195D0.c)
- *     sub_140A19B9C @ 0x140A19B9C (sub_140A19B9C.c)
- *     sub_140A1A764 @ 0x140A1A764 (sub_140A1A764.c)
+ *     sub_140A22C00 @ 0x140A22C00 (sub_140A22C00.c)
+ *     sub_140A231CC @ 0x140A231CC (sub_140A231CC.c)
+ *     sub_140A23D94 @ 0x140A23D94 (sub_140A23D94.c)
  * Callees:
- *     IofCallDriver @ 0x1402655A0 (IofCallDriver.c)
- *     IoFreeIrp @ 0x140268860 (IoFreeIrp.c)
- *     IoAllocateIrpEx @ 0x14026C530 (IoAllocateIrpEx.c)
- *     IoGetRelatedDeviceObject @ 0x14026CA30 (IoGetRelatedDeviceObject.c)
- *     KeWaitForSingleObject @ 0x140278560 (KeWaitForSingleObject.c)
- *     MmProbeAndLockPages @ 0x14039FC20 (MmProbeAndLockPages.c)
- *     IoAllocateMdl @ 0x14040BA40 (IoAllocateMdl.c)
- *     KeInitializeEvent @ 0x140466F30 (KeInitializeEvent.c)
- *     IoCancelIrp @ 0x14049B940 (IoCancelIrp.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     FsRtlpFreeMdlChain @ 0x140A19588 (FsRtlpFreeMdlChain.c)
+ *     IofCallDriver @ 0x140264B10 (IofCallDriver.c)
+ *     IoFreeIrp @ 0x140267DD0 (IoFreeIrp.c)
+ *     IoAllocateIrpEx @ 0x14026BAA0 (IoAllocateIrpEx.c)
+ *     IoGetRelatedDeviceObject @ 0x14026BFA0 (IoGetRelatedDeviceObject.c)
+ *     KeWaitForSingleObject @ 0x140277AD0 (KeWaitForSingleObject.c)
+ *     MmProbeAndLockPages @ 0x1403A1980 (MmProbeAndLockPages.c)
+ *     IoAllocateMdl @ 0x1404046D0 (IoAllocateMdl.c)
+ *     KeInitializeEvent @ 0x140460680 (KeInitializeEvent.c)
+ *     IoCancelIrp @ 0x140495490 (IoCancelIrp.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     FsRtlpFreeMdlChain @ 0x140A22BB8 (FsRtlpFreeMdlChain.c)
  */
 
 __int64 __fastcall FsRtlKernelFsControlFile(

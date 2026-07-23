@@ -34,7 +34,7 @@ __int64 __fastcall PfpParametersRead(__int64 a1)
   LODWORD(v14) = 4;
   v15 = v1;
   v5 = 0;
-  if ( PfpGetParameter(v2, L"EnableSuperfetch", 4, &v15, (unsigned int *)&v14) < 0 || (_DWORD)InitSafeBootMode )
+  if ( PfpGetParameter(v2, L"EnableSuperfetch", 4, &v15, (unsigned int *)&v14) < 0 || InitSafeBootMode )
     LODWORD(v15) = 0x80000000;
   LODWORD(v14) = 4;
   PfpGetParameter(v2, L"SavedSectInfoTracesMax", 4, (char *)&v15 + 8, (unsigned int *)&v14);

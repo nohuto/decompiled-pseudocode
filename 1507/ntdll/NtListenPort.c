@@ -6,11 +6,11 @@
  *     <none>
  */
 
-__int64 NtListenPort()
+NTSTATUS __cdecl NtListenPort(HANDLE PortHandle, PPORT_MESSAGE ConnectionRequest)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 244LL;
+  result = 244;
   __asm { syscall; Low latency system call }
   return result;
 }

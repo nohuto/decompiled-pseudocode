@@ -48,13 +48,13 @@ __int64 __fastcall SepFilterToken(
         int a6,
         __int64 a7,
         unsigned int a8,
-        __int64 *a9,
+        PSID *a9,
         int a10,
         _QWORD *a11)
 {
   char v11; // bl
   unsigned int v14; // esi
-  __int64 *v15; // rbx
+  PSID *v15; // rbx
   _DWORD *PoolWithTag; // rax
   _DWORD *v17; // r14
   _QWORD *v18; // rax
@@ -76,17 +76,17 @@ __int64 __fastcall SepFilterToken(
   __int128 v34; // xmm0
   _DWORD *v35; // rcx
   PACCESS_TOKEN v36; // rbx
-  struct _SID_AND_ATTRIBUTES *v37; // r14
+  _SID_AND_ATTRIBUTES *v37; // r14
   int v38; // eax
   unsigned int v39; // ecx
   int v40; // r15d
-  struct _SID_AND_ATTRIBUTES *SidArea; // r15
+  _SID_AND_ATTRIBUTES *SidArea; // r15
   __int64 v42; // r8
   ULONG v43; // r8d
   NTSTATUS v44; // eax
   int v45; // eax
-  struct _SID_AND_ATTRIBUTES *v46; // r14
-  __int64 *v47; // r13
+  _SID_AND_ATTRIBUTES *v46; // r14
+  PSID *v47; // r13
   unsigned int v48; // ebx
   __int64 v49; // rdx
   NTSTATUS v50; // eax
@@ -102,7 +102,7 @@ __int64 __fastcall SepFilterToken(
   __int64 v60; // rdx
   __int64 v61; // rcx
   __int64 v62; // rdx
-  _DWORD *v63; // rbx
+  char *v63; // rbx
   int v64; // ecx
   struct _KTHREAD *v65; // rax
   PERESOURCE *PrimaryToken; // rbx
@@ -112,16 +112,16 @@ __int64 __fastcall SepFilterToken(
   char PreviousMode; // [rsp+68h] [rbp-A0h]
   char v71; // [rsp+69h] [rbp-9Fh] BYREF
   PSID RemainingSidArea; // [rsp+70h] [rbp-98h] BYREF
-  __int64 **v73; // [rsp+78h] [rbp-90h]
+  PSID_AND_ATTRIBUTES *v73; // [rsp+78h] [rbp-90h]
   _BYTE *v74; // [rsp+80h] [rbp-88h]
   unsigned int v75; // [rsp+88h] [rbp-80h]
   int v76; // [rsp+8Ch] [rbp-7Ch]
-  __int64 **v77; // [rsp+90h] [rbp-78h]
+  PSID_AND_ATTRIBUTES *v77; // [rsp+90h] [rbp-78h]
   _QWORD *v78; // [rsp+98h] [rbp-70h]
-  __int64 **v79; // [rsp+A0h] [rbp-68h]
-  _QWORD *v80; // [rsp+A8h] [rbp-60h]
+  PSID_AND_ATTRIBUTES *v79; // [rsp+A0h] [rbp-68h]
+  PSID_AND_ATTRIBUTES_HASH SidAttrHash; // [rsp+A8h] [rbp-60h]
   _DWORD *v81; // [rsp+B0h] [rbp-58h]
-  unsigned int *v82; // [rsp+B8h] [rbp-50h]
+  ULONG *v82; // [rsp+B8h] [rbp-50h]
   _QWORD *v83; // [rsp+C0h] [rbp-48h]
   _QWORD *v84; // [rsp+C8h] [rbp-40h]
   struct _SECURITY_SUBJECT_CONTEXT v85; // [rsp+D0h] [rbp-38h] BYREF
@@ -242,11 +242,11 @@ LABEL_10:
     *((_QWORD *)v30 + 136) = 0LL;
     v84 = v30 + 1088;
     *((_QWORD *)v30 + 99) = 0LL;
-    v79 = (__int64 **)(v30 + 792);
+    v79 = (PSID_AND_ATTRIBUTES *)(v30 + 792);
     *((_QWORD *)v30 + 98) = 0LL;
-    v82 = (unsigned int *)(v30 + 800);
+    v82 = (ULONG *)(v30 + 800);
     *((_DWORD *)v30 + 200) = 0;
-    v80 = v30 + 808;
+    SidAttrHash = (PSID_AND_ATTRIBUTES_HASH)(v30 + 808);
     memset(v30 + 808, 0, 0x110uLL);
     *((_QWORD *)v30 + 22) = 0LL;
     *((_QWORD *)v30 + 138) = 0LL;
@@ -271,11 +271,11 @@ LABEL_10:
             ObfDereferenceObject(v36);
             v30 = (char *)Object;
           }
-          v37 = (struct _SID_AND_ATTRIBUTES *)(v30 + 1152);
+          v37 = (_SID_AND_ATTRIBUTES *)(v30 + 1152);
           v38 = ((_BYTE)v30 + 0x80) & 7;
           if ( (((_BYTE)v30 + 0x80) & 7) != 0 )
           {
-            v37 = (struct _SID_AND_ATTRIBUTES *)((char *)v37 + (unsigned int)(8 - v38));
+            v37 = (_SID_AND_ATTRIBUTES *)((char *)v37 + (unsigned int)(8 - v38));
             SidAreaSize -= 8 - v38;
           }
           v39 = a8;
@@ -284,7 +284,7 @@ LABEL_10:
             v39 = *(_DWORD *)(a1 + 128);
           *((_QWORD *)v30 + 19) = v37;
           SidArea = &v37[v39 + v40];
-          v77 = (__int64 **)(v30 + 152);
+          v77 = (PSID_AND_ATTRIBUTES *)(v30 + 152);
           RemainingSidArea = SidArea;
           if ( SepTokenSidSharingEnabled )
           {
@@ -307,13 +307,13 @@ LABEL_10:
                     SidArea,
                     &RemainingSidArea,
                     &SidAreaSize);
-            SidArea = (struct _SID_AND_ATTRIBUTES *)RemainingSidArea;
+            SidArea = (_SID_AND_ATTRIBUTES *)RemainingSidArea;
             v21 = v44;
           }
           v45 = *(_DWORD *)(a1 + 124);
           v75 = 0;
-          v46 = (struct _SID_AND_ATTRIBUTES *)((char *)v37 + (unsigned int)(16 * v45));
-          v73 = (__int64 **)(v30 + 160);
+          v46 = (_SID_AND_ATTRIBUTES *)((char *)v37 + (unsigned int)(16 * v45));
+          v73 = (PSID_AND_ATTRIBUTES *)(v30 + 160);
           *((_QWORD *)v30 + 20) = v46;
           if ( a8 )
           {
@@ -335,8 +335,8 @@ LABEL_10:
                 v51 = v74;
                 v21 = v50;
                 ++v46;
-                SidArea = (struct _SID_AND_ATTRIBUTES *)RemainingSidArea;
-                LODWORD((*v73)[2 * *((unsigned int *)v74 + 32) + 1]) = 7;
+                SidArea = (_SID_AND_ATTRIBUTES *)RemainingSidArea;
+                (*v73)[*((unsigned int *)v74 + 32)].Attributes = 7;
                 ++*((_DWORD *)v51 + 32);
               }
               ++v48;
@@ -412,12 +412,12 @@ LABEL_10:
                   {
                     ExReleaseResourceLite(*(PERESOURCE *)(a1 + 48));
                     KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
-                    v63 = Object;
+                    v63 = (char *)Object;
                     v64 = (int)Object;
                     *((_QWORD *)Object + 21) = &v55[v58];
                     SepRemoveDisabledGroupsAndPrivileges(v64, a3, a4, a5, a6, a7);
-                    RtlSidHashInitialize(*v77, v63[31], (_QWORD *)v63 + 29);
-                    RtlSidHashInitialize(*v73, *((_DWORD *)v56 + 32), (_QWORD *)v63 + 63);
+                    RtlSidHashInitialize(*v77, *((_DWORD *)v63 + 31), (PSID_AND_ATTRIBUTES_HASH)(v63 + 232));
+                    RtlSidHashInitialize(*v73, *((_DWORD *)v56 + 32), (PSID_AND_ATTRIBUTES_HASH)(v63 + 504));
                     SeCaptureSubjectContext(&SubjectContext);
                     v85.PrimaryToken = SubjectContext.PrimaryToken;
                     if ( (unsigned __int8)RtlIsSandboxedToken(&SubjectContext)
@@ -436,11 +436,11 @@ LABEL_10:
                         SeReleaseSubjectContext(&SubjectContext);
                         return (unsigned int)v21;
                       }
-                      v63 = Object;
+                      v63 = (char *)Object;
                     }
                     SeReleaseSubjectContext(&SubjectContext);
                     if ( *v79 )
-                      RtlSidHashInitialize(*v79, *v82, v80);
+                      RtlSidHashInitialize(*v79, *v82, SidAttrHash);
                     *a11 = v63;
                     return (unsigned int)v21;
                   }

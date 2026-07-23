@@ -1,9 +1,9 @@
 /*
- * XREFs of SdbpRemoveSDBLookupEntry @ 0x14095BD88
+ * XREFs of SdbpRemoveSDBLookupEntry @ 0x140943848
  * Callers:
- *     SdbpCleanupUserSDBCache @ 0x14095CD4C (SdbpCleanupUserSDBCache.c)
+ *     SdbpCleanupUserSDBCache @ 0x14094480C (SdbpCleanupUserSDBCache.c)
  * Callees:
- *     AslFree @ 0x14095CD24 (AslFree.c)
+ *     AslFree @ 0x1409447E4 (AslFree.c)
  */
 
 __int64 __fastcall SdbpRemoveSDBLookupEntry(__int64 a1, _QWORD **a2)

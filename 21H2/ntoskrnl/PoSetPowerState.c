@@ -1,10 +1,10 @@
 /*
- * XREFs of PoSetPowerState @ 0x14037C8A0
+ * XREFs of PoSetPowerState @ 0x14037C3F0
  * Callers:
- *     IopPowerDispatch @ 0x14038B1A0 (IopPowerDispatch.c)
+ *     IopPowerDispatch @ 0x14038B2F0 (IopPowerDispatch.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KxReleaseSpinLock @ 0x140212140 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140362F80 (KeAcquireSpinLockRaiseToDpc.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 

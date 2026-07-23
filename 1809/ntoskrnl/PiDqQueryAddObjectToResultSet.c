@@ -1,8 +1,8 @@
 /*
- * XREFs of PiDqQueryAddObjectToResultSet @ 0x1406C991C
+ * XREFs of PiDqQueryAddObjectToResultSet @ 0x1406CABBC
  * Callers:
- *     PiDqQueryEnumObject @ 0x140595674 (PiDqQueryEnumObject.c)
- *     PiDqQueryApplyObjectEvent @ 0x1406F7878 (PiDqQueryApplyObjectEvent.c)
+ *     PiDqQueryEnumObject @ 0x140596674 (PiDqQueryEnumObject.c)
+ *     PiDqQueryApplyObjectEvent @ 0x1406F8B18 (PiDqQueryApplyObjectEvent.c)
  * Callees:
  *     RtlInsertElementGenericTableAvl @ 0x140006F00 (RtlInsertElementGenericTableAvl.c)
  */

@@ -13,36 +13,32 @@
  *     _guard_dispatch_icall_nop @ 0x1800A8C20 (_guard_dispatch_icall_nop.c)
  */
 
-char __fastcall TpReleaseTimer(__int64 a1)
+void __cdecl TpReleaseTimer(PTP_TIMER Timer)
 {
   int v2; // edi
-  signed __int32 v3; // eax
-  __int64 v4; // r9
-  __int64 (__fastcall *v5)(__int64); // rax
+  int v3; // eax
+  void (__fastcall *v4)(PTP_TIMER); // rax
   _UNKNOWN *retaddr; // [rsp+28h] [rbp+0h]
 
   v2 = 1;
-  v3 = sub_18001770C((struct _PEB_LDR_DATA *)a1, 1LL, 0LL);
-  if ( v3 )
+  if ( (unsigned int)sub_18001770C((PPEB_LDR_DATA)Timer, 1LL, 0LL) )
   {
-    LOBYTE(v3) = sub_1800144B8(a1, 1LL);
+    LOBYTE(v3) = sub_1800144B8((__int64)Timer, 1LL);
     if ( v3 )
     {
-      *(_QWORD *)(a1 + 184) = retaddr;
-      RtlAcquireSRWLockExclusive(a1 + 240);
-      ++*(_BYTE *)(a1 + 355);
-      if ( sub_1800177A0(a1, *(_QWORD *)(a1 + 144) + 112LL, 0LL, v4) )
+      *((_QWORD *)Timer + 23) = retaddr;
+      RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)Timer + 30);
+      ++*((_BYTE *)Timer + 355);
+      if ( sub_1800177A0((__int64)Timer, (_RTL_SRWLOCK *)(*((_QWORD *)Timer + 18) + 112LL), 0) )
         v2 = 2;
-      v3 = _InterlockedExchangeAdd((volatile signed __int32 *)a1, -v2);
-      if ( v3 == v2 )
+      if ( _InterlockedExchangeAdd((volatile signed __int32 *)Timer, -v2) == v2 )
       {
-        v5 = **(__int64 (__fastcall ***)(__int64))(a1 + 8);
-        if ( v5 == sub_1800196E0 )
-          LOBYTE(v3) = sub_1800196E0(a1);
+        v4 = (void (__fastcall *)(PTP_TIMER))**((_QWORD **)Timer + 1);
+        if ( (char *)v4 == (char *)sub_1800196E0 )
+          sub_1800196E0(Timer);
         else
-          LOBYTE(v3) = v5(a1);
+          v4(Timer);
       }
     }
   }
-  return v3;
 }

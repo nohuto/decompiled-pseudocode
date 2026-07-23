@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlFindClearBitsAndSetEx @ 0x14001766C
+ * XREFs of RtlFindClearBitsAndSetEx @ 0x1400171EC
  * Callers:
- *     MiReplenishNonPagedSlists @ 0x1400174C0 (MiReplenishNonPagedSlists.c)
- *     MiScanLeafNonPagedPool @ 0x14001ADE0 (MiScanLeafNonPagedPool.c)
- *     ExpSaPageGroupAllocateMemory @ 0x1401337EC (ExpSaPageGroupAllocateMemory.c)
- *     MiAllocateNewTebRegion @ 0x1404BA720 (MiAllocateNewTebRegion.c)
- *     MiCreatePebOrTeb @ 0x14050B230 (MiCreatePebOrTeb.c)
+ *     MiReplenishNonPagedSlists @ 0x140017040 (MiReplenishNonPagedSlists.c)
+ *     MiScanLeafNonPagedPool @ 0x14001A960 (MiScanLeafNonPagedPool.c)
+ *     ExpSaPageGroupAllocateMemory @ 0x140133D5C (ExpSaPageGroupAllocateMemory.c)
+ *     MiAllocateNewTebRegion @ 0x1404A6450 (MiAllocateNewTebRegion.c)
+ *     MiCreatePebOrTeb @ 0x1404EE1C0 (MiCreatePebOrTeb.c)
  * Callees:
- *     RtlSetBitsEx @ 0x1400179FC (RtlSetBitsEx.c)
+ *     RtlSetBitsEx @ 0x14001757C (RtlSetBitsEx.c)
  */
 
 unsigned __int64 __fastcall RtlFindClearBitsAndSetEx(unsigned __int64 *a1, unsigned __int64 a2, unsigned __int64 a3)

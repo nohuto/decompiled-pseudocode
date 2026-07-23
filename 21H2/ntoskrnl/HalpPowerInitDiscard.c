@@ -1,11 +1,11 @@
 /*
- * XREFs of HalpPowerInitDiscard @ 0x140A6949C
+ * XREFs of HalpPowerInitDiscard @ 0x140A6A49C
  * Callers:
- *     HalpPowerInitSystem @ 0x1409A0D80 (HalpPowerInitSystem.c)
+ *     HalpPowerInitSystem @ 0x1409A1CB0 (HalpPowerInitSystem.c)
  * Callees:
- *     RtlClearBits @ 0x140206E00 (RtlClearBits.c)
- *     RtlSetAllBits @ 0x1402E2160 (RtlSetAllBits.c)
- *     HalpPowerInitNvsRegionData @ 0x140A69594 (HalpPowerInitNvsRegionData.c)
+ *     RtlSetAllBits @ 0x1402934B0 (RtlSetAllBits.c)
+ *     RtlClearBits @ 0x1402AB730 (RtlClearBits.c)
+ *     HalpPowerInitNvsRegionData @ 0x140A6A594 (HalpPowerInitNvsRegionData.c)
  */
 
 __int64 __fastcall HalpPowerInitDiscard(__int64 a1)

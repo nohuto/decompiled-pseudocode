@@ -1,15 +1,15 @@
 /*
- * XREFs of PipFreeDependencyEdge @ 0x1401CD294
+ * XREFs of PipFreeDependencyEdge @ 0x1401CD0E0
  * Callers:
- *     IoClearDependency @ 0x14062AA60 (IoClearDependency.c)
- *     PipDeleteAllDependencyRelations @ 0x14062B078 (PipDeleteAllDependencyRelations.c)
- *     PipMergeDependencyEdgeList @ 0x14062B378 (PipMergeDependencyEdgeList.c)
+ *     IoClearDependency @ 0x14062AB14 (IoClearDependency.c)
+ *     PipDeleteAllDependencyRelations @ 0x14062B12C (PipDeleteAllDependencyRelations.c)
+ *     PipMergeDependencyEdgeList @ 0x14062B42C (PipMergeDependencyEdgeList.c)
  * Callees:
- *     KeReleaseSpinLock @ 0x1400E9A70 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x1400EFE30 (KeAcquireSpinLockRaiseToDpc.c)
- *     PipDereferenceDependencyNode @ 0x140567ECC (PipDereferenceDependencyNode.c)
- *     PipFreeBindingRequestEntry @ 0x14062B300 (PipFreeBindingRequestEntry.c)
- *     PipNotifyDependenciesChanged @ 0x14062B51C (PipNotifyDependenciesChanged.c)
+ *     KeReleaseSpinLock @ 0x1400EB600 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1400EDCB0 (KeAcquireSpinLockRaiseToDpc.c)
+ *     PipDereferenceDependencyNode @ 0x14056840C (PipDereferenceDependencyNode.c)
+ *     PipFreeBindingRequestEntry @ 0x14062B3B4 (PipFreeBindingRequestEntry.c)
+ *     PipNotifyDependenciesChanged @ 0x14062B5D0 (PipNotifyDependenciesChanged.c)
  */
 
 void __fastcall PipFreeDependencyEdge(char *a1, __int64 a2)

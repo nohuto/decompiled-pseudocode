@@ -1,7 +1,7 @@
 /*
- * XREFs of SymCryptInverseMod2e64 @ 0x140405B98
+ * XREFs of SymCryptInverseMod2e64 @ 0x140405D78
  * Callers:
- *     SymCryptFdefModulusInitMontgomeryInternal @ 0x140405370 (SymCryptFdefModulusInitMontgomeryInternal.c)
+ *     SymCryptFdefModulusInitMontgomeryInternal @ 0x140405550 (SymCryptFdefModulusInitMontgomeryInternal.c)
  * Callees:
  *     <none>
  */

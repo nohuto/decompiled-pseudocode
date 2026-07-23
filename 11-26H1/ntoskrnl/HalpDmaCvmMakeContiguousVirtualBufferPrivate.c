@@ -1,11 +1,11 @@
 /*
- * XREFs of HalpDmaCvmMakeContiguousVirtualBufferPrivate @ 0x140782EFC
+ * XREFs of HalpDmaCvmMakeContiguousVirtualBufferPrivate @ 0x140785A30
  * Callers:
- *     HalFreeCommonBufferV3 @ 0x140589E20 (HalFreeCommonBufferV3.c)
+ *     HalFreeCommonBufferV3 @ 0x14058C550 (HalFreeCommonBufferV3.c)
  * Callees:
- *     MmGetPhysicalAddress @ 0x14024D8F0 (MmGetPhysicalAddress.c)
- *     MmUnmapIoSpace @ 0x140343610 (MmUnmapIoSpace.c)
- *     HalpDmaCvmSetPageShareability @ 0x140783234 (HalpDmaCvmSetPageShareability.c)
+ *     MmGetPhysicalAddress @ 0x14024F250 (MmGetPhysicalAddress.c)
+ *     MmUnmapIoSpace @ 0x140345690 (MmUnmapIoSpace.c)
+ *     HalpDmaCvmSetPageShareability @ 0x140785D68 (HalpDmaCvmSetPageShareability.c)
  */
 
 __int64 __fastcall HalpDmaCvmMakeContiguousVirtualBufferPrivate(PVOID BaseAddress, SIZE_T NumberOfBytes)
@@ -15,9 +15,9 @@ __int64 __fastcall HalpDmaCvmMakeContiguousVirtualBufferPrivate(PVOID BaseAddres
   char v6; // [rsp+40h] [rbp+18h] BYREF
 
   PhysicalAddress = MmGetPhysicalAddress(BaseAddress);
-  if ( byte_140FBA981 )
+  if ( byte_140FBAD41 )
     return 0LL;
-  if ( (PhysicalAddress.QuadPart & qword_140FBA988) == 0 )
+  if ( (PhysicalAddress.QuadPart & qword_140FBAD48) == 0 )
     return 3221225711LL;
   result = ((__int64 (__fastcall *)(_QWORD, _QWORD, _QWORD, _QWORD))HalpDmaCvmSetPageShareability)(
              (PHYSICAL_ADDRESS)PhysicalAddress.QuadPart,

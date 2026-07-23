@@ -1,33 +1,33 @@
 /*
- * XREFs of CmpSaveBootControlSet @ 0x140A0A518
+ * XREFs of CmpSaveBootControlSet @ 0x140A0A7C8
  * Callers:
- *     CmpAcceptBoot @ 0x1407E8CD8 (CmpAcceptBoot.c)
+ *     CmpAcceptBoot @ 0x1407E8FA8 (CmpAcceptBoot.c)
  * Callees:
  *     CmSiFreeMemory @ 0x140208C40 (CmSiFreeMemory.c)
  *     _tlgKeywordOn @ 0x140212E64 (_tlgKeywordOn.c)
- *     CmpAllocatePool @ 0x14022CEEC (CmpAllocatePool.c)
- *     CmpDrainDelayDerefContext @ 0x14022D4F0 (CmpDrainDelayDerefContext.c)
- *     CmpInitializeDelayDerefContext @ 0x1402314A4 (CmpInitializeDelayDerefContext.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6B24 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     RtlUnicodeStringPrintf @ 0x1403C4AEC (RtlUnicodeStringPrintf.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     ZwClose @ 0x14041AF40 (ZwClose.c)
- *     ZwOpenKey @ 0x14041AFA0 (ZwOpenKey.c)
- *     ZwCreateKey @ 0x14041B100 (ZwCreateKey.c)
- *     ZwQuerySecurityObject @ 0x14041DA20 (ZwQuerySecurityObject.c)
+ *     CmpAllocatePool @ 0x14022CFFC (CmpAllocatePool.c)
+ *     CmpDrainDelayDerefContext @ 0x14022D600 (CmpDrainDelayDerefContext.c)
+ *     CmpInitializeDelayDerefContext @ 0x140231594 (CmpInitializeDelayDerefContext.c)
+ *     ObfDereferenceObject @ 0x140231660 (ObfDereferenceObject.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6DB4 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     RtlUnicodeStringPrintf @ 0x1403C4CCC (RtlUnicodeStringPrintf.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     ZwClose @ 0x14041B2D0 (ZwClose.c)
+ *     ZwOpenKey @ 0x14041B330 (ZwOpenKey.c)
+ *     ZwCreateKey @ 0x14041B490 (ZwCreateKey.c)
+ *     ZwQuerySecurityObject @ 0x14041DDB0 (ZwQuerySecurityObject.c)
  *     CmpCleanupRollbackPacket @ 0x140693528 (CmpCleanupRollbackPacket.c)
  *     CmpPrepareForSubtreeInvalidation @ 0x140699DD0 (CmpPrepareForSubtreeInvalidation.c)
  *     CmpTryAcquireKcbIXLocks @ 0x140699E30 (CmpTryAcquireKcbIXLocks.c)
  *     CmpInvalidateSubtree @ 0x140699EE8 (CmpInvalidateSubtree.c)
  *     CmpAbortRollbackPacket @ 0x140699F88 (CmpAbortRollbackPacket.c)
- *     CmpLockRegistryExclusive @ 0x1407691EC (CmpLockRegistryExclusive.c)
- *     CmpRebuildKcbCache @ 0x140769230 (CmpRebuildKcbCache.c)
- *     CmpLogTransactionAbortedWithChildName @ 0x1407E9CF8 (CmpLogTransactionAbortedWithChildName.c)
- *     CmpRetryBackOff @ 0x140A1E6C8 (CmpRetryBackOff.c)
- *     CmpEnumerateAllHigherLayerKcbs @ 0x140A1FABC (CmpEnumerateAllHigherLayerKcbs.c)
- *     CmpPrepareToInvalidateAllHigherLayerKcbs @ 0x140A20080 (CmpPrepareToInvalidateAllHigherLayerKcbs.c)
- *     CmpCopySyncTree @ 0x140A213F8 (CmpCopySyncTree.c)
+ *     CmpLockRegistryExclusive @ 0x1407693DC (CmpLockRegistryExclusive.c)
+ *     CmpRebuildKcbCache @ 0x140769420 (CmpRebuildKcbCache.c)
+ *     CmpLogTransactionAbortedWithChildName @ 0x1407E9FC8 (CmpLogTransactionAbortedWithChildName.c)
+ *     CmpRetryBackOff @ 0x140A1E978 (CmpRetryBackOff.c)
+ *     CmpEnumerateAllHigherLayerKcbs @ 0x140A1FD6C (CmpEnumerateAllHigherLayerKcbs.c)
+ *     CmpPrepareToInvalidateAllHigherLayerKcbs @ 0x140A20330 (CmpPrepareToInvalidateAllHigherLayerKcbs.c)
+ *     CmpCopySyncTree @ 0x140A216A8 (CmpCopySyncTree.c)
  *     CmpPerformKeyBodyDeletionCheck @ 0x140AF5160 (CmpPerformKeyBodyDeletionCheck.c)
  *     CmpDetachFromRegistryProcess @ 0x140AF5230 (CmpDetachFromRegistryProcess.c)
  *     CmpAttachToRegistryProcess @ 0x140AF5250 (CmpAttachToRegistryProcess.c)
@@ -80,7 +80,7 @@ __int64 __fastcall CmpSaveBootControlSet(unsigned __int16 a1)
   __int64 v39; // r9
   __int64 v40; // rdx
   HANDLE v41; // rcx
-  unsigned __int8 *v42; // rdx
+  __int16 *v42; // rdx
   char v44; // [rsp+48h] [rbp-C0h]
   int v45; // [rsp+4Ch] [rbp-BCh] BYREF
   __int64 v46; // [rsp+50h] [rbp-B8h] BYREF
@@ -282,16 +282,16 @@ LABEL_34:
     CmpReleaseShutdownRundown(v41, v40);
   if ( v10 < 0 )
   {
-    if ( (unsigned int)dword_140C043C8 > 5 && tlgKeywordOn((__int64)&dword_140C043C8, 0x400000000000LL) )
+    if ( (unsigned int)dword_140C04390 > 5 && tlgKeywordOn((__int64)&dword_140C04390, 0x400000000000LL) )
     {
       v45 = v10;
-      v42 = (unsigned __int8 *)word_1400367EA;
+      v42 = &word_140036926;
       goto LABEL_55;
     }
   }
-  else if ( (unsigned int)dword_140C043C8 > 5 && tlgKeywordOn((__int64)&dword_140C043C8, 0x400000000000LL) )
+  else if ( (unsigned int)dword_140C04390 > 5 && tlgKeywordOn((__int64)&dword_140C04390, 0x400000000000LL) )
   {
-    v42 = (unsigned __int8 *)&byte_14003682F;
+    v42 = word_1400368D2;
     v45 = v49;
 LABEL_55:
     v46 = 0x1000000LL;
@@ -299,7 +299,7 @@ LABEL_55:
     v58 = &v45;
     v61 = 8LL;
     v60 = &v46;
-    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140C043C8, v42, 0LL, 0LL, 4u, &v57);
+    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140C04390, (unsigned __int8 *)v42, 0LL, 0LL, 4u, &v57);
   }
   return (unsigned int)v10;
 }

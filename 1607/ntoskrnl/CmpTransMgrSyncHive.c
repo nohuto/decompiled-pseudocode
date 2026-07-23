@@ -1,16 +1,16 @@
 /*
- * XREFs of CmpTransMgrSyncHive @ 0x1404DAA3C
+ * XREFs of CmpTransMgrSyncHive @ 0x1404BE040
  * Callers:
- *     CmpTransMgrPrepare @ 0x1404DA8E8 (CmpTransMgrPrepare.c)
+ *     CmpTransMgrPrepare @ 0x1404BDEEC (CmpTransMgrPrepare.c)
  * Callees:
- *     ExAcquireResourceExclusiveLite @ 0x140068160 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x140068940 (ExReleaseResourceLite.c)
- *     ExAcquireFastMutexUnsafe @ 0x1400F05A0 (ExAcquireFastMutexUnsafe.c)
- *     ExReleaseFastMutexUnsafe @ 0x1400F0700 (ExReleaseFastMutexUnsafe.c)
- *     CmpFlushHive @ 0x1403FA0CC (CmpFlushHive.c)
- *     CmpUnlockRegistry @ 0x14040476C (CmpUnlockRegistry.c)
- *     CmpLockRegistry @ 0x1404047A0 (CmpLockRegistry.c)
- *     HvpMarkDirty @ 0x1405137E0 (HvpMarkDirty.c)
+ *     ExAcquireResourceExclusiveLite @ 0x140067CE0 (ExAcquireResourceExclusiveLite.c)
+ *     ExReleaseResourceLite @ 0x1400684C0 (ExReleaseResourceLite.c)
+ *     ExAcquireFastMutexUnsafe @ 0x1400EE420 (ExAcquireFastMutexUnsafe.c)
+ *     ExReleaseFastMutexUnsafe @ 0x1400EE580 (ExReleaseFastMutexUnsafe.c)
+ *     CmpFlushHive @ 0x1403F8F8C (CmpFlushHive.c)
+ *     CmpUnlockRegistry @ 0x14040362C (CmpUnlockRegistry.c)
+ *     CmpLockRegistry @ 0x140403660 (CmpLockRegistry.c)
+ *     HvpMarkDirty @ 0x1404F6BD0 (HvpMarkDirty.c)
  */
 
 __int64 __fastcall CmpTransMgrSyncHive(ULONG_PTR BugCheckParameter2)

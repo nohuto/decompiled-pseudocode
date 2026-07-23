@@ -6,11 +6,11 @@
  *     <none>
  */
 
-__int64 NtQueryBootOptions()
+NTSTATUS __cdecl NtQueryBootOptions(PBOOT_OPTIONS BootOptions, PULONG BootOptionsLength)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 300LL;
+  result = 300;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

@@ -1,17 +1,17 @@
 /*
- * XREFs of PpmApplyProfile @ 0x140A46E88
+ * XREFs of PpmApplyProfile @ 0x140A3CDF8
  * Callers:
- *     PdcPoPpmApplyProfile @ 0x140A46E70 (PdcPoPpmApplyProfile.c)
+ *     PdcPoPpmApplyProfile @ 0x140A3CDE0 (PdcPoPpmApplyProfile.c)
  * Callees:
- *     PpmReleaseLock @ 0x1402A1504 (PpmReleaseLock.c)
- *     PopReleaseRwLock @ 0x1403B5EC8 (PopReleaseRwLock.c)
- *     PpmAcquireLock @ 0x1403B64F8 (PpmAcquireLock.c)
- *     PopAcquireRwLockExclusive @ 0x1404283D4 (PopAcquireRwLockExclusive.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     PpmCompareAndApplyPolicySettings @ 0x140A4706C (PpmCompareAndApplyPolicySettings.c)
- *     PpmEventTraceProfileChange @ 0x140A47280 (PpmEventTraceProfileChange.c)
- *     PpmEndProfileAccumulation @ 0x140A47330 (PpmEndProfileAccumulation.c)
- *     PpmPostProcessMediaBuffering @ 0x140A4737C (PpmPostProcessMediaBuffering.c)
+ *     PpmReleaseLock @ 0x1402AE140 (PpmReleaseLock.c)
+ *     PpmAcquireLock @ 0x1402AE7DC (PpmAcquireLock.c)
+ *     PopReleaseRwLock @ 0x1402AE8FC (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x14041C564 (PopAcquireRwLockExclusive.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     PpmCompareAndApplyPolicySettings @ 0x140A3CFDC (PpmCompareAndApplyPolicySettings.c)
+ *     PpmEventTraceProfileChange @ 0x140A3D1F0 (PpmEventTraceProfileChange.c)
+ *     PpmEndProfileAccumulation @ 0x140A3D2A0 (PpmEndProfileAccumulation.c)
+ *     PpmPostProcessMediaBuffering @ 0x140A3D2EC (PpmPostProcessMediaBuffering.c)
  */
 
 LONG __fastcall PpmApplyProfile(__int64 *a1, __int64 a2, unsigned int a3)
@@ -34,7 +34,7 @@ LONG __fastcall PpmApplyProfile(__int64 *a1, __int64 a2, unsigned int a3)
   __m128i v19; // [rsp+20h] [rbp-48h] BYREF
   __m128 v20; // [rsp+30h] [rbp-38h] BYREF
 
-  v3 = dword_140F0BA4C;
+  v3 = dword_140F0B38C;
   v19 = 0LL;
   PpmAcquireLock((struct _KTHREAD **)&PpmPerfPolicyLock, a2, a3);
   PopAcquireRwLockExclusive(&PpmIdlePolicyLock);

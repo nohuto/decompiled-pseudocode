@@ -10,41 +10,39 @@
  *     ZwQueryAttributesFile @ 0x1800A5AA0 (ZwQueryAttributesFile.c)
  */
 
-__int64 __fastcall sub_18004AB20(__m128i *a1, __int64 a2)
+NTSTATUS __fastcall sub_18004AB20(_UNICODE_STRING *a1, _UNICODE_STRING *a2)
 {
-  __int64 result; // rax
-  int v4; // eax
-  __int128 v5; // xmm0
-  unsigned __int16 *v6; // [rsp+40h] [rbp-39h] BYREF
-  __int128 v7; // [rsp+48h] [rbp-31h] BYREF
-  int v8; // [rsp+58h] [rbp-21h] BYREF
-  __int64 v9; // [rsp+60h] [rbp-19h]
-  __int64 v10; // [rsp+68h] [rbp-11h]
-  int v11; // [rsp+70h] [rbp-9h]
-  __int128 v12; // [rsp+78h] [rbp-1h]
-  _BYTE v13[40]; // [rsp+88h] [rbp+Fh] BYREF
+  NTSTATUS result; // eax
+  ULONG v4; // eax
+  _OBJECT_BOUNDARY_DESCRIPTOR *Buffer; // rcx
+  _UNICODE_STRING v6; // xmm0
+  _UNICODE_STRING *v7; // [rsp+40h] [rbp-39h] BYREF
+  _UNICODE_STRING v8; // [rsp+48h] [rbp-31h] BYREF
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+58h] [rbp-21h] BYREF
+  _FILE_BASIC_INFORMATION FileInformation; // [rsp+88h] [rbp+Fh] BYREF
 
-  result = sub_18003E060(1, 0, a1, (unsigned __int16 *)a2, (unsigned __int16 *)&v7, &v6, 0LL, 0LL);
-  if ( (int)result >= 0 )
+  result = sub_18003E060(1, 0, a1, a2, &v8, &v7, 0LL, 0LL);
+  if ( result >= 0 )
   {
-    if ( v6 == (unsigned __int16 *)&v7 )
+    if ( v7 == &v8 )
     {
-      if ( a2 + 16 != *(_QWORD *)(a2 + 8) )
-        RtlDeleteBoundaryDescriptor();
-      v5 = v7;
-      *(_DWORD *)a2 = 0x1000000;
-      *(_WORD *)(a2 + 16) = 0;
-      *(_OWORD *)a2 = v5;
+      Buffer = (_OBJECT_BOUNDARY_DESCRIPTOR *)a2->Buffer;
+      if ( &a2[1] != (_UNICODE_STRING *)Buffer )
+        RtlDeleteBoundaryDescriptor(Buffer);
+      v6 = v8;
+      *(_DWORD *)&a2->Length = 0x1000000;
+      a2[1].Length = 0;
+      *a2 = v6;
     }
     v4 = 64;
-    v8 = 48;
-    v9 = 0LL;
+    ObjectAttributes.Length = 48;
+    ObjectAttributes.RootDirectory = 0LL;
     if ( !byte_18015B2E8 )
       v4 = 2112;
-    v10 = a2;
-    v11 = v4;
-    v12 = 0LL;
-    return ZwQueryAttributesFile(&v8, v13);
+    ObjectAttributes.ObjectName = a2;
+    ObjectAttributes.Attributes = v4;
+    *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+    return ZwQueryAttributesFile(&ObjectAttributes, &FileInformation);
   }
   return result;
 }

@@ -1,10 +1,10 @@
 /*
- * XREFs of CcShouldLazyWriteCacheMap @ 0x1403894B0
+ * XREFs of CcShouldLazyWriteCacheMap @ 0x14038B260
  * Callers:
- *     CcLazyWriteScanVolume @ 0x140388CAC (CcLazyWriteScanVolume.c)
- *     CcLazyWriteScan @ 0x1404FB788 (CcLazyWriteScan.c)
+ *     CcLazyWriteScanVolume @ 0x14038AA5C (CcLazyWriteScanVolume.c)
+ *     CcLazyWriteScan @ 0x1404F4BD4 (CcLazyWriteScan.c)
  * Callees:
- *     CcCanIWriteStreamEx @ 0x140383E50 (CcCanIWriteStreamEx.c)
+ *     CcCanIWriteStreamEx @ 0x140385C00 (CcCanIWriteStreamEx.c)
  */
 
 char __fastcall CcShouldLazyWriteCacheMap(__int64 a1, __int64 a2, __int64 a3, __int64 a4, __int64 a5, __int64 a6)
@@ -52,8 +52,7 @@ LABEL_5:
   {
     v12 = *(_QWORD *)(a1 + 248);
     return *(_DWORD *)(v12 + 104)
-        || MEMORY[0xFFFFF78000000320] > (__int64)(*(_QWORD *)(v12 + 136)
-                                                + 0x9896800uLL / (unsigned int)KeMaximumIncrement)
+        || MEMORY[0xFFFFF78000000320] > (__int64)(*(_QWORD *)(v12 + 136) + 0x9896800uLL / KeMaximumIncrement)
         || *(_DWORD *)(a1 + 112) >= 0x40u;
   }
   if ( (v8 & 0x200) == 0 )

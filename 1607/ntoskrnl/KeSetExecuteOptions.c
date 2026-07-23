@@ -1,10 +1,10 @@
 /*
- * XREFs of KeSetExecuteOptions @ 0x1400AE824
+ * XREFs of KeSetExecuteOptions @ 0x1400ACD8C
  * Callers:
- *     NtSetInformationProcess @ 0x140425A10 (NtSetInformationProcess.c)
+ *     NtSetInformationProcess @ 0x1404248E0 (NtSetInformationProcess.c)
  * Callees:
- *     KiReleaseProcessLockExclusive @ 0x1400F2E8C (KiReleaseProcessLockExclusive.c)
- *     KiAcquireProcessLockExclusive @ 0x1400F2F50 (KiAcquireProcessLockExclusive.c)
+ *     KiReleaseProcessLockExclusive @ 0x1400F0CDC (KiReleaseProcessLockExclusive.c)
+ *     KiAcquireProcessLockExclusive @ 0x1400F0DA0 (KiAcquireProcessLockExclusive.c)
  */
 
 __int64 __fastcall KeSetExecuteOptions(__int64 a1, int a2)

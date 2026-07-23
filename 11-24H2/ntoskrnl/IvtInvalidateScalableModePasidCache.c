@@ -1,14 +1,14 @@
 /*
- * XREFs of IvtInvalidateScalableModePasidCache @ 0x14056F638
+ * XREFs of IvtInvalidateScalableModePasidCache @ 0x14056CAC8
  * Callers:
- *     IvtInvalidateScalableModeContextEntry @ 0x14056F5C0 (IvtInvalidateScalableModeContextEntry.c)
- *     IvtLegacySetPasidAddressSpace @ 0x140570C50 (IvtLegacySetPasidAddressSpace.c)
- *     IvtSetPasidAddressSpace @ 0x1405712B0 (IvtSetPasidAddressSpace.c)
- *     IvtInitializeIommu @ 0x140B51B90 (IvtInitializeIommu.c)
+ *     IvtInvalidateScalableModeContextEntry @ 0x14056CA50 (IvtInvalidateScalableModeContextEntry.c)
+ *     IvtLegacySetPasidAddressSpace @ 0x14056E0E0 (IvtLegacySetPasidAddressSpace.c)
+ *     IvtSetPasidAddressSpace @ 0x14056E740 (IvtSetPasidAddressSpace.c)
+ *     IvtInitializeIommu @ 0x140B53BE0 (IvtInitializeIommu.c)
  * Callees:
- *     IvtIommuWaitCommand @ 0x1403BB7F4 (IvtIommuWaitCommand.c)
- *     IvtIommuSendCommand @ 0x1403BB944 (IvtIommuSendCommand.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     IvtIommuWaitCommand @ 0x140374F34 (IvtIommuWaitCommand.c)
+ *     IvtIommuSendCommand @ 0x140375084 (IvtIommuSendCommand.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 __int64 __fastcall IvtInvalidateScalableModePasidCache(
@@ -16,7 +16,7 @@ __int64 __fastcall IvtInvalidateScalableModePasidCache(
         unsigned __int16 a2,
         __int64 a3,
         int a4,
-        unsigned int a5,
+        int a5,
         char a6,
         char a7)
 {

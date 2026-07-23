@@ -1,17 +1,17 @@
 /*
- * XREFs of MiUnlinkStandbyBatch @ 0x1400358F0
+ * XREFs of MiUnlinkStandbyBatch @ 0x140035470
  * Callers:
- *     MmCheckCachedPageStates @ 0x140033AB0 (MmCheckCachedPageStates.c)
+ *     MmCheckCachedPageStates @ 0x140033630 (MmCheckCachedPageStates.c)
  * Callees:
- *     MI_SHOULD_PTE_BE_GLOBAL @ 0x140036D30 (MI_SHOULD_PTE_BE_GLOBAL.c)
- *     MiUnlinkPageFromList @ 0x140065A40 (MiUnlinkPageFromList.c)
- *     MiPteInShadowRange @ 0x1401EF3B8 (MiPteInShadowRange.c)
- *     MiWritePteShadow @ 0x1401EF658 (MiWritePteShadow.c)
- *     MI_GET_PAGE_FRAME_FROM_PTE @ 0x1401F2550 (MI_GET_PAGE_FRAME_FROM_PTE.c)
- *     MI_GET_PAGE_FRAME_FROM_TRANSITION_PTE @ 0x1401F2570 (MI_GET_PAGE_FRAME_FROM_TRANSITION_PTE.c)
- *     MI_GET_PROTECTION_FROM_SOFT_PROTOTYPE_PTE @ 0x1401F25B8 (MI_GET_PROTECTION_FROM_SOFT_PROTOTYPE_PTE.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1401F25D0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiInvalidPteConforms @ 0x1401F26C4 (MiInvalidPteConforms.c)
+ *     MI_SHOULD_PTE_BE_GLOBAL @ 0x1400368B0 (MI_SHOULD_PTE_BE_GLOBAL.c)
+ *     MiUnlinkPageFromList @ 0x1400655C0 (MiUnlinkPageFromList.c)
+ *     MiPteInShadowRange @ 0x1401EF1E4 (MiPteInShadowRange.c)
+ *     MiWritePteShadow @ 0x1401EF484 (MiWritePteShadow.c)
+ *     MI_GET_PAGE_FRAME_FROM_PTE @ 0x1401F237C (MI_GET_PAGE_FRAME_FROM_PTE.c)
+ *     MI_GET_PAGE_FRAME_FROM_TRANSITION_PTE @ 0x1401F239C (MI_GET_PAGE_FRAME_FROM_TRANSITION_PTE.c)
+ *     MI_GET_PROTECTION_FROM_SOFT_PROTOTYPE_PTE @ 0x1401F23E4 (MI_GET_PROTECTION_FROM_SOFT_PROTOTYPE_PTE.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1401F23FC (MI_READ_PTE_LOCK_FREE.c)
+ *     MiInvalidPteConforms @ 0x1401F24F0 (MiInvalidPteConforms.c)
  */
 
 __int64 __fastcall MiUnlinkStandbyBatch(__int64 a1, __int64 a2, int a3, __int64 a4, __int64 a5, ULONG_PTR *a6)
@@ -52,7 +52,7 @@ __int64 __fastcall MiUnlinkStandbyBatch(__int64 a1, __int64 a2, int a3, __int64 
       {
         v12 = MI_GET_PAGE_FRAME_FROM_TRANSITION_PTE(&v27);
 LABEL_8:
-        if ( v12 <= qword_140326A90
+        if ( v12 <= qword_140326AD0
           && (!MmPhysicalMemoryBlock || (*(_QWORD *)(v14 + 48 * v12) & 0x20000000000000LL) != 0) )
         {
           v15 = v13 + 48 * v12;
@@ -86,7 +86,7 @@ LABEL_8:
             MI_GET_PROTECTION_FROM_SOFT_PROTOTYPE_PTE(v15 + 16);
             if ( (unsigned int)MI_SHOULD_PTE_BE_GLOBAL(a4) )
               v22 |= 0x100uLL;
-            v23 = v22 & 0xFFFFFFFFFFFFFE7FuLL | ((unsigned __int64)(word_140326AA8 & 1) << 8);
+            v23 = v22 & 0xFFFFFFFFFFFFFE7FuLL | ((unsigned __int64)(word_140326AE8 & 1) << 8);
             *v21 = v23;
             if ( (unsigned int)MiPteInShadowRange(v21, v23) )
               MiWritePteShadow(v25, v24);

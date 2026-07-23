@@ -14,26 +14,30 @@
  *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall PiGetStateRootPath(PCWSTR SourceString, _WORD *a2, unsigned int a3, UNICODE_STRING *a4)
+__int64 __fastcall PiGetStateRootPath(
+        PCWSTR SourceID,
+        PCWSTR DefaultPath,
+        STATE_LOCATION_TYPE StateLocationType,
+        PUNICODE_STRING DestinationString)
 {
-  int PersistedStateLocation; // eax
+  NTSTATUS PersistedStateLocation; // eax
   NTSTATUS inited; // ebx
-  unsigned int v11; // ebx
-  PVOID PoolWithTag; // rdi
-  int v13; // eax
+  ULONG BufferLengthIn; // ebx
+  WCHAR *TargetPath; // rdi
+  NTSTATUS v13; // eax
   SIZE_T NumberOfBytes; // [rsp+88h] [rbp+20h] BYREF
 
-  if ( a4 )
+  if ( DestinationString )
   {
     LODWORD(NumberOfBytes) = 0;
     PersistedStateLocation = RtlGetPersistedStateLocation(
-                               SourceString,
+                               SourceID,
                                0LL,
-                               a2,
-                               a3,
+                               DefaultPath,
+                               StateLocationType,
                                0LL,
                                0,
-                               (unsigned int *)&NumberOfBytes);
+                               (PULONG)&NumberOfBytes);
     inited = PersistedStateLocation;
     if ( PersistedStateLocation >= 0 )
     {
@@ -41,11 +45,18 @@ __int64 __fastcall PiGetStateRootPath(PCWSTR SourceString, _WORD *a2, unsigned i
     }
     else if ( PersistedStateLocation == -2147483643 )
     {
-      v11 = NumberOfBytes;
-      PoolWithTag = ExAllocatePoolWithTag(PagedPool, (unsigned int)NumberOfBytes, 0x6F697050u);
-      if ( PoolWithTag )
+      BufferLengthIn = NumberOfBytes;
+      TargetPath = (WCHAR *)ExAllocatePoolWithTag(PagedPool, (unsigned int)NumberOfBytes, 0x6F697050u);
+      if ( TargetPath )
       {
-        v13 = RtlGetPersistedStateLocation(SourceString, 0LL, a2, a3, PoolWithTag, v11, (unsigned int *)&NumberOfBytes);
+        v13 = RtlGetPersistedStateLocation(
+                SourceID,
+                0LL,
+                DefaultPath,
+                StateLocationType,
+                TargetPath,
+                BufferLengthIn,
+                (PULONG)&NumberOfBytes);
         inited = v13;
         if ( v13 == -1073741772 )
         {
@@ -53,12 +64,12 @@ __int64 __fastcall PiGetStateRootPath(PCWSTR SourceString, _WORD *a2, unsigned i
         }
         else if ( v13 >= 0 )
         {
-          inited = RtlInitUnicodeStringEx(a4, (PCWSTR)PoolWithTag);
+          inited = RtlInitUnicodeStringEx(DestinationString, TargetPath);
           if ( inited >= 0 )
-            PoolWithTag = 0LL;
+            TargetPath = 0LL;
         }
-        if ( PoolWithTag )
-          ExFreePoolWithTag(PoolWithTag, 0);
+        if ( TargetPath )
+          ExFreePoolWithTag(TargetPath, 0);
       }
       else
       {

@@ -1,14 +1,14 @@
 /*
- * XREFs of EtwpGetPrivateLoggerContextByName @ 0x18008D154
+ * XREFs of EtwpGetPrivateLoggerContextByName @ 0x1800A8C14
  * Callers:
- *     EtwpStartUmLogger @ 0x18008CCDC (EtwpStartUmLogger.c)
- *     EtwpGetPrivateLoggerContext @ 0x18008DAF4 (EtwpGetPrivateLoggerContext.c)
+ *     EtwpStartUmLogger @ 0x1800A879C (EtwpStartUmLogger.c)
+ *     EtwpGetPrivateLoggerContext @ 0x1800A95B4 (EtwpGetPrivateLoggerContext.c)
  * Callees:
- *     EtwpDemuxUmTraceHandle @ 0x18003D4D0 (EtwpDemuxUmTraceHandle.c)
- *     RtlEqualUnicodeString @ 0x18008BA40 (RtlEqualUnicodeString.c)
+ *     EtwpDemuxUmTraceHandle @ 0x18001D750 (EtwpDemuxUmTraceHandle.c)
+ *     RtlEqualUnicodeString @ 0x1800A7500 (RtlEqualUnicodeString.c)
  */
 
-__int64 __fastcall EtwpGetPrivateLoggerContextByName(__int64 a1, _QWORD *a2)
+__int64 __fastcall EtwpGetPrivateLoggerContextByName(PUNICODE_STRING String2, _QWORD *a2)
 {
   unsigned int i; // ebx
   unsigned int v5; // eax
@@ -17,7 +17,7 @@ __int64 __fastcall EtwpGetPrivateLoggerContextByName(__int64 a1, _QWORD *a2)
   unsigned int v9; // [rsp+30h] [rbp+8h] BYREF
 
   *a2 = 0LL;
-  if ( a1 )
+  if ( String2 )
   {
     for ( i = 0; ; ++i )
     {
@@ -41,7 +41,7 @@ __int64 __fastcall EtwpGetPrivateLoggerContextByName(__int64 a1, _QWORD *a2)
         }
         else
         {
-          if ( RtlEqualUnicodeString((unsigned __int16 *)(v6 + 136), a1, 1) )
+          if ( RtlEqualUnicodeString((PUNICODE_STRING)(v6 + 136), String2, 1u) )
           {
             *a2 = v6;
             return 0LL;

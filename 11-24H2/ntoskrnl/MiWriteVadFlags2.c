@@ -1,11 +1,11 @@
 /*
- * XREFs of MiWriteVadFlags2 @ 0x1403FD470
+ * XREFs of MiWriteVadFlags2 @ 0x1403DAD90
  * Callers:
- *     MiMapViewOfDataSection @ 0x1408E0820 (MiMapViewOfDataSection.c)
- *     MiMapViewOfImageSection @ 0x1408E3418 (MiMapViewOfImageSection.c)
+ *     MiMapViewOfDataSection @ 0x1409173D0 (MiMapViewOfDataSection.c)
+ *     MiMapViewOfImageSection @ 0x140AE8594 (MiMapViewOfImageSection.c)
  * Callees:
- *     MiLockVadCore @ 0x1403FD500 (MiLockVadCore.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
+ *     MiLockVadCore @ 0x1403DAE20 (MiLockVadCore.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
  */
 
 void __fastcall MiWriteVadFlags2(__int64 a1, int a2, int a3)

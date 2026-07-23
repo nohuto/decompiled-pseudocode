@@ -1,18 +1,18 @@
 /*
- * XREFs of PfpParametersWatcher @ 0x1407C7CE0
+ * XREFs of PfpParametersWatcher @ 0x1407CAD40
  * Callers:
  *     <none>
  * Callees:
- *     KeSetEvent @ 0x1402DE9C0 (KeSetEvent.c)
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     PfLockExclusiveAcquire @ 0x1404C3BA0 (PfLockExclusiveAcquire.c)
- *     PfLockExclusiveRelease @ 0x1404C761C (PfLockExclusiveRelease.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     ZwCreateKey @ 0x140723790 (ZwCreateKey.c)
- *     ZwNotifyChangeKey @ 0x140725870 (ZwNotifyChangeKey.c)
- *     PfpRpShutdown @ 0x1407C6CD0 (PfpRpShutdown.c)
- *     PfSnParametersRead @ 0x1407C7510 (PfSnParametersRead.c)
- *     PfpParametersRead @ 0x1407C7B10 (PfpParametersRead.c)
+ *     KeSetEvent @ 0x1402C0780 (KeSetEvent.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     PfLockExclusiveAcquire @ 0x1404BD3F0 (PfLockExclusiveAcquire.c)
+ *     PfLockExclusiveRelease @ 0x1404C0F38 (PfLockExclusiveRelease.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     ZwCreateKey @ 0x140728360 (ZwCreateKey.c)
+ *     ZwNotifyChangeKey @ 0x14072A440 (ZwNotifyChangeKey.c)
+ *     PfpRpShutdown @ 0x1407C9D30 (PfpRpShutdown.c)
+ *     PfSnParametersRead @ 0x1407CA570 (PfSnParametersRead.c)
+ *     PfpParametersRead @ 0x1407CAB70 (PfpParametersRead.c)
  */
 
 void __fastcall PfpParametersWatcher(__int64 a1, __int64 a2, __int64 a3, struct _KLOCK_ENTRIES *a4)
@@ -79,16 +79,16 @@ LABEL_8:
           v9 = 0;
           if ( (int)PfpParametersRead(a1) >= 0 )
           {
-            if ( ((*(_DWORD *)(a1 + 68) & 2) != 0) != (stru_140E66B30.Padding[1] & 1) )
+            if ( ((*(_DWORD *)(a1 + 68) & 2) != 0) != (stru_140E66D40.Padding[1] & 1) )
             {
               if ( (*(_DWORD *)(a1 + 68) & 2) != 0 )
               {
-                _InterlockedExchange64(&stru_140E66B30.SchedulerAssistLastYieldBoostTime, 0LL);
-                LODWORD(stru_140E66B30.Padding[1]) |= 1u;
+                _InterlockedExchange64(&stru_140E66D40.SchedulerAssistLastYieldBoostTime, 0LL);
+                LODWORD(stru_140E66D40.Padding[1]) |= 1u;
               }
               else
               {
-                PfpRpShutdown((__int64)&stru_140E66B30.KernelShadowStack);
+                PfpRpShutdown((__int64)&stru_140E66D40.KernelShadowStack);
               }
             }
             v9 = 1;

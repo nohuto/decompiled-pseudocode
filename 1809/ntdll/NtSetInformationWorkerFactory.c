@@ -1,5 +1,5 @@
 /*
- * XREFs of NtSetInformationWorkerFactory @ 0x1800A35D0
+ * XREFs of NtSetInformationWorkerFactory @ 0x1800A35F0
  * Callers:
  *     TppWorkerThread @ 0x180016320 (TppWorkerThread.c)
  *     TppCallbackEpilog @ 0x180016F10 (TppCallbackEpilog.c)
@@ -12,18 +12,22 @@
  *     TpSetPoolStackInformation @ 0x180032BC0 (TpSetPoolStackInformation.c)
  *     TpTrimPools @ 0x1800586A0 (TpTrimPools.c)
  *     TpCallbackIndependent @ 0x18006CA90 (TpCallbackIndependent.c)
- *     TpSetPoolMinThreads @ 0x180085300 (TpSetPoolMinThreads.c)
- *     TpSetPoolThreadBasePriority @ 0x180088880 (TpSetPoolThreadBasePriority.c)
+ *     TpSetPoolMinThreads @ 0x180085310 (TpSetPoolMinThreads.c)
+ *     TpSetPoolThreadBasePriority @ 0x180088890 (TpSetPoolThreadBasePriority.c)
  *     TppAdjustRunningThreadGoal @ 0x180110414 (TppAdjustRunningThreadGoal.c)
  * Callees:
  *     <none>
  */
 
-__int64 NtSetInformationWorkerFactory()
+NTSTATUS __cdecl NtSetInformationWorkerFactory(
+        HANDLE WorkerFactoryHandle,
+        WORKERFACTORYINFOCLASS WorkerFactoryInformationClass,
+        PVOID WorkerFactoryInformation,
+        ULONG WorkerFactoryInformationLength)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 408LL;
+  result = 408;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

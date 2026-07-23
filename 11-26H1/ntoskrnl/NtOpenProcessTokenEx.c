@@ -1,16 +1,16 @@
 /*
- * XREFs of NtOpenProcessTokenEx @ 0x140A81910
+ * XREFs of NtOpenProcessTokenEx @ 0x140A87780
  * Callers:
- *     DifNtOpenProcessTokenExWrapper @ 0x14067E4D0 (DifNtOpenProcessTokenExWrapper.c)
- *     RtlpSysVolTakeOwnership @ 0x14080620C (RtlpSysVolTakeOwnership.c)
- *     NtOpenProcessToken @ 0x140A818F0 (NtOpenProcessToken.c)
+ *     DifNtOpenProcessTokenExWrapper @ 0x1406820B0 (DifNtOpenProcessTokenExWrapper.c)
+ *     RtlpSysVolTakeOwnership @ 0x14080BCAC (RtlpSysVolTakeOwnership.c)
+ *     NtOpenProcessToken @ 0x140A87760 (NtOpenProcessToken.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     PsReferencePrimaryTokenWithTag @ 0x140279DC0 (PsReferencePrimaryTokenWithTag.c)
- *     RtlWriteULong64ToUser @ 0x14077F758 (RtlWriteULong64ToUser.c)
- *     ObpReferenceObjectByHandleWithTag @ 0x1408FA680 (ObpReferenceObjectByHandleWithTag.c)
- *     ObOpenObjectByPointer @ 0x14092AFF0 (ObOpenObjectByPointer.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     PsReferencePrimaryTokenWithTag @ 0x140279330 (PsReferencePrimaryTokenWithTag.c)
+ *     RtlWriteULong64ToUser @ 0x140782258 (RtlWriteULong64ToUser.c)
+ *     ObOpenObjectByPointer @ 0x140906B20 (ObOpenObjectByPointer.c)
+ *     ObpReferenceObjectByHandleWithTag @ 0x14092A610 (ObpReferenceObjectByHandleWithTag.c)
  */
 
 NTSTATUS __stdcall NtOpenProcessTokenEx(
@@ -35,8 +35,8 @@ NTSTATUS __stdcall NtOpenProcessTokenEx(
   Object = 0LL;
   result = ObpReferenceObjectByHandleWithTag(
              (ULONG_PTR)ProcessHandle,
-             4096LL,
-             PsProcessType,
+             4096,
+             (__int64)PsProcessType,
              KeGetCurrentThread()->PreviousMode,
              0x65537350u,
              &Object,

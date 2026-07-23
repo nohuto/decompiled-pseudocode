@@ -1,10 +1,10 @@
 /*
- * XREFs of SepGetSidValuesDump @ 0x14063B654
+ * XREFs of SepGetSidValuesDump @ 0x14063E770
  * Callers:
- *     SepLogTokenSidManagement @ 0x140B2B4E0 (SepLogTokenSidManagement.c)
+ *     SepLogTokenSidManagement @ 0x140B2D560 (SepLogTokenSidManagement.c)
  * Callees:
- *     RtlCopySid @ 0x140A2AE10 (RtlCopySid.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
+ *     RtlCopySid @ 0x140A3DEA0 (RtlCopySid.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall SepGetSidValuesDump(__int64 a1, _DWORD *a2)

@@ -1,9 +1,9 @@
 /*
- * XREFs of PpmInitHeteroPolicy @ 0x140CD46B4
+ * XREFs of PpmInitHeteroPolicy @ 0x140CDAA34
  * Callers:
- *     PoInitSystem @ 0x140CCE870 (PoInitSystem.c)
+ *     PoInitSystem @ 0x140CD49D0 (PoInitSystem.c)
  * Callees:
- *     Feature_Servicing_WpsContaintmentDefaultDisabled__private_IsEnabledDeviceUsageNoInline @ 0x14060C2B8 (Feature_Servicing_WpsContaintmentDefaultDisabled__private_IsEnabledDeviceUsageNoInline.c)
+ *     Feature_Servicing_WpsContaintmentDefaultDisabled__private_IsEnabledDeviceUsageNoInline @ 0x14060F418 (Feature_Servicing_WpsContaintmentDefaultDisabled__private_IsEnabledDeviceUsageNoInline.c)
  */
 
 __int64 PpmInitHeteroPolicy()
@@ -16,7 +16,7 @@ __int64 PpmInitHeteroPolicy()
   char v5; // cl
   __int64 result; // rax
 
-  v0 = (char *)&unk_140F0B598;
+  v0 = (char *)&unk_140F0B958;
   v1 = 3LL;
   do
   {
@@ -36,39 +36,39 @@ __int64 PpmInitHeteroPolicy()
     --v1;
   }
   while ( v1 );
-  byte_140F0B20E = 3;
-  dword_140F0B39C = 5;
-  dword_140F0B664 = 5;
-  dword_140F0B398 = 5;
-  dword_140F0B660 = 5;
-  dword_140F0B3A8 = 4;
-  dword_140F0B670 = 4;
-  byte_140F0B4D6 = 3;
-  word_140F0B390 = 12850;
-  word_140F0B658 = 12850;
-  word_140F0B3A2 = -1;
-  word_140F0B66A = -1;
-  dword_140F0B3C0 = 0;
-  dword_140F0B688 = 0;
-  dword_140F0B3AC = 3;
-  dword_140F0B674 = 3;
-  qword_140F0B3B0 = 3LL;
-  qword_140F0B678 = 3LL;
-  dword_140F0B3B8 = 0;
-  dword_140F0B680 = 0;
+  byte_140F0B5CE = 3;
+  dword_140F0B75C = 5;
+  dword_140F0BA24 = 5;
+  dword_140F0B758 = 5;
+  dword_140F0BA20 = 5;
+  dword_140F0B768 = 4;
+  dword_140F0BA30 = 4;
+  byte_140F0B896 = 3;
+  word_140F0B750 = 12850;
+  word_140F0BA18 = 12850;
+  word_140F0B762 = -1;
+  word_140F0BA2A = -1;
+  dword_140F0B780 = 0;
+  dword_140F0BA48 = 0;
+  dword_140F0B76C = 3;
+  dword_140F0BA34 = 3;
+  qword_140F0B770 = 3LL;
+  qword_140F0BA38 = 3LL;
+  dword_140F0B778 = 0;
+  dword_140F0BA40 = 0;
   result = Feature_Servicing_WpsContaintmentDefaultDisabled__private_IsEnabledDeviceUsageNoInline();
   if ( (_DWORD)result )
   {
     PpmHeteroContainmentPolicy = 0;
-    dword_140F0B3BC = 0;
-    dword_140F0B684 = 0;
+    dword_140F0B77C = 0;
+    dword_140F0BA44 = 0;
   }
   else
   {
-    dword_140F0B3BC = 1;
-    dword_140F0B684 = 1;
+    dword_140F0B77C = 1;
+    dword_140F0BA44 = 1;
   }
-  qword_140F0B3C4 = 0LL;
-  qword_140F0B68C = 0LL;
+  qword_140F0B784 = 0LL;
+  qword_140F0BA4C = 0LL;
   return result;
 }

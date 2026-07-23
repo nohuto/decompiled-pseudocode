@@ -1,43 +1,42 @@
 /*
- * XREFs of IopIsNotNativeDriverImage @ 0x140891924
+ * XREFs of IopIsNotNativeDriverImage @ 0x140891A84
  * Callers:
- *     IopCheckIfNotNativeDriver @ 0x1408912F0 (IopCheckIfNotNativeDriver.c)
+ *     IopCheckIfNotNativeDriver @ 0x140891450 (IopCheckIfNotNativeDriver.c)
  * Callees:
- *     KiUnstackDetachProcess @ 0x140207000 (KiUnstackDetachProcess.c)
- *     KiStackAttachProcess @ 0x14025C2E0 (KiStackAttachProcess.c)
- *     RtlImageNtHeader @ 0x14031C950 (RtlImageNtHeader.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     ZwClose @ 0x1403FA580 (ZwClose.c)
- *     ZwMapViewOfSection @ 0x1403FA8A0 (ZwMapViewOfSection.c)
- *     ZwUnmapViewOfSection @ 0x1403FA8E0 (ZwUnmapViewOfSection.c)
- *     ZwOpenFile @ 0x1403FAA00 (ZwOpenFile.c)
- *     ZwCreateSection @ 0x1403FACE0 (ZwCreateSection.c)
+ *     KiStackAttachProcess @ 0x14027D850 (KiStackAttachProcess.c)
+ *     KiUnstackDetachProcess @ 0x1402AB900 (KiUnstackDetachProcess.c)
+ *     RtlImageNtHeader @ 0x1403276A0 (RtlImageNtHeader.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     ZwClose @ 0x1403FA760 (ZwClose.c)
+ *     ZwMapViewOfSection @ 0x1403FAA80 (ZwMapViewOfSection.c)
+ *     ZwUnmapViewOfSection @ 0x1403FAAC0 (ZwUnmapViewOfSection.c)
+ *     ZwOpenFile @ 0x1403FABE0 (ZwOpenFile.c)
+ *     ZwCreateSection @ 0x1403FAEC0 (ZwCreateSection.c)
  */
 
 bool __fastcall IopIsNotNativeDriverImage(UNICODE_STRING *a1)
 {
   bool v1; // bl
-  _DWORD *v3; // r9
-  __int64 v4; // rax
+  PIMAGE_NT_HEADERS v3; // rax
   HANDLE FileHandle; // [rsp+58h] [rbp-A0h] BYREF
   HANDLE SectionHandle; // [rsp+60h] [rbp-98h] BYREF
   PVOID BaseAddress; // [rsp+68h] [rbp-90h] BYREF
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+70h] [rbp-88h] BYREF
   ULONG_PTR ViewSize; // [rsp+A0h] [rbp-58h] BYREF
-  struct _IO_STATUS_BLOCK v10; // [rsp+A8h] [rbp-50h] BYREF
-  _BYTE v11[48]; // [rsp+B8h] [rbp-40h] BYREF
+  struct _IO_STATUS_BLOCK v9; // [rsp+A8h] [rbp-50h] BYREF
+  _BYTE v10[48]; // [rsp+B8h] [rbp-40h] BYREF
 
   v1 = 0;
   FileHandle = 0LL;
-  v10 = 0LL;
+  v9 = 0LL;
   *(_QWORD *)&ObjectAttributes.Length = 48LL;
   *(_QWORD *)&ObjectAttributes.Attributes = 576LL;
   SectionHandle = 0LL;
-  memset(v11, 0, sizeof(v11));
+  memset(v10, 0, sizeof(v10));
   ObjectAttributes.RootDirectory = 0LL;
   ObjectAttributes.ObjectName = a1;
   *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
-  if ( ZwOpenFile(&FileHandle, 0x20u, &ObjectAttributes, &v10, 5u, 0) < 0 )
+  if ( ZwOpenFile(&FileHandle, 0x20u, &ObjectAttributes, &v9, 5u, 0) < 0 )
     return 0;
   ObjectAttributes.Length = 48;
   ObjectAttributes.RootDirectory = 0LL;
@@ -52,7 +51,7 @@ LABEL_4:
   }
   BaseAddress = 0LL;
   ViewSize = 0LL;
-  KiStackAttachProcess(PsInitialSystemProcess, 0LL, (__int64)v11, v3);
+  KiStackAttachProcess(PsInitialSystemProcess, 0, (__int64)v10);
   if ( ZwMapViewOfSection(
          SectionHandle,
          (HANDLE)0xFFFFFFFFFFFFFFFFLL,
@@ -65,15 +64,15 @@ LABEL_4:
          0,
          2u) < 0 )
   {
-    KiUnstackDetachProcess((__int64)v11, 0);
+    KiUnstackDetachProcess((__int64)v10, 0LL);
     ZwClose(SectionHandle);
     goto LABEL_4;
   }
-  v4 = RtlImageNtHeader((__int64)BaseAddress);
-  if ( v4 )
-    v1 = *(_WORD *)(v4 + 4) != 0x8664;
+  v3 = RtlImageNtHeader(BaseAddress);
+  if ( v3 )
+    v1 = v3->FileHeader.Machine != 0x8664;
   ZwUnmapViewOfSection((HANDLE)0xFFFFFFFFFFFFFFFFLL, BaseAddress);
-  KiUnstackDetachProcess((__int64)v11, 0);
+  KiUnstackDetachProcess((__int64)v10, 0LL);
   ZwClose(SectionHandle);
   ZwClose(FileHandle);
   return v1;

@@ -1,10 +1,10 @@
 /*
- * XREFs of SddlpUuidToString @ 0x14081874C
+ * XREFs of SddlpUuidToString @ 0x14081E95C
  * Callers:
- *     LocalConvertAclToString @ 0x140A607C4 (LocalConvertAclToString.c)
+ *     LocalConvertAclToString @ 0x140A6D784 (LocalConvertAclToString.c)
  * Callees:
- *     swprintf_s @ 0x14053B0E0 (swprintf_s.c)
- *     ExAllocatePoolWithTag @ 0x140C10340 (ExAllocatePoolWithTag.c)
+ *     swprintf_s @ 0x14053D560 (swprintf_s.c)
+ *     ExAllocatePoolWithTag @ 0x140C16340 (ExAllocatePoolWithTag.c)
  */
 
 wchar_t *__fastcall SddlpUuidToString(unsigned int *a1, _QWORD *a2)

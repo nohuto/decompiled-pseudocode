@@ -20,9 +20,11 @@ int __fastcall RtlpHpLfhContextInitialize(
 {
   int v9; // eax
   unsigned int v10; // eax
-  int v12[2]; // [esp+Ch] [ebp-8h] BYREF
+  size_t v12; // [esp-4h] [ebp-18h]
+  int v13[2]; // [esp+Ch] [ebp-8h] BYREF
 
-  memset((void *)a1, 0, 0x2C0u);
+  LODWORD(v12) = 704;
+  memset((void *)a1, 0, v12);
   *(_BYTE *)(a1 + 29) = a4;
   *(_DWORD *)a1 = a2;
   *(_WORD *)(a1 + 30) = a6 - a1;
@@ -35,8 +37,8 @@ int __fastcall RtlpHpLfhContextInitialize(
   v9 = *(_DWORD *)(a1 + 20);
   if ( v9 )
     *(_DWORD *)(a1 + 20) = a1 ^ RtlpHpHeapGlobals ^ v9;
-  RtlRunOnceExecuteOnce((int)&RtlpTestHookInit, RtlpTestHookInitialize, 0, 0);
-  if ( RtlpQueryPhysicalMemoryPolicy(v12) < 0 || (v10 = 1, v12[0] > 10) )
+  RtlRunOnceExecuteOnce(&RtlpTestHookInit, (PRTL_RUN_ONCE_INIT_FN)RtlpTestHookInitialize, 0, 0);
+  if ( RtlpQueryPhysicalMemoryPolicy(v13) < 0 || (v10 = 1, v13[0] > 10) )
     v10 = a3;
   if ( v10 > 8 )
     LOBYTE(v10) = 8;
@@ -44,7 +46,7 @@ int __fastcall RtlpHpLfhContextInitialize(
   if ( (unsigned __int8)v10 > 1u )
     *(_DWORD *)(a1 + 24) = (char *)dword_4B2A4F78
                          + (((64 - (unsigned __int8)v10 + 61) * (62 - (64 - (unsigned int)(unsigned __int8)v10))) >> 1);
-  v12[1] = 1;
+  v13[1] = 1;
   memset32((void *)(a1 + 128), 1, 0x81u);
   return RtlpInitializeLfhRandomDataArray();
 }

@@ -1,10 +1,10 @@
 /*
- * XREFs of IopLiveDumpValidateParameters @ 0x1405D2DBC
+ * XREFs of IopLiveDumpValidateParameters @ 0x1405D55AC
  * Callers:
- *     IoCaptureLiveDump @ 0x14051255C (IoCaptureLiveDump.c)
+ *     IoCaptureLiveDump @ 0x14050BFCC (IoCaptureLiveDump.c)
  * Callees:
- *     IopLiveDumpValidateDumpFileHandle @ 0x1405D2D58 (IopLiveDumpValidateDumpFileHandle.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
+ *     IopLiveDumpValidateDumpFileHandle @ 0x1405D5548 (IopLiveDumpValidateDumpFileHandle.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
  */
 
 NTSTATUS __fastcall IopLiveDumpValidateParameters(__int64 a1, __int64 a2)

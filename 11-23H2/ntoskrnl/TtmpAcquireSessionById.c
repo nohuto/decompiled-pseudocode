@@ -1,23 +1,23 @@
 /*
- * XREFs of TtmpAcquireSessionById @ 0x1409A4F30
+ * XREFs of TtmpAcquireSessionById @ 0x1409A5130
  * Callers:
- *     TtmNotifyConsoleUserPresent @ 0x1409A4214 (TtmNotifyConsoleUserPresent.c)
- *     TtmNotifyLowPowerStateExited @ 0x1409A42A8 (TtmNotifyLowPowerStateExited.c)
- *     TtmNotifySessionDisplayBurst @ 0x1409A4324 (TtmNotifySessionDisplayBurst.c)
- *     TtmNotifySessionDisplayRequiredChange @ 0x1409A43C0 (TtmNotifySessionDisplayRequiredChange.c)
- *     TtmNotifySessionPowerRequestDeleted @ 0x1409A4558 (TtmNotifySessionPowerRequestDeleted.c)
- *     TtmNotifySessionPowerStateChange @ 0x1409A4758 (TtmNotifySessionPowerStateChange.c)
- *     TtmNotifySessionTerminalInput @ 0x1409A47E8 (TtmNotifySessionTerminalInput.c)
- *     TtmSessionMonitorControl @ 0x1409A4880 (TtmSessionMonitorControl.c)
- *     TtmiAcquireCurrentSession @ 0x1409A4930 (TtmiAcquireCurrentSession.c)
- *     TtmpInsertPowerRequestToSession @ 0x1409A5468 (TtmpInsertPowerRequestToSession.c)
- *     TtmpUpdatePowerRequestAttribute @ 0x1409A5E1C (TtmpUpdatePowerRequestAttribute.c)
+ *     TtmNotifyConsoleUserPresent @ 0x1409A4414 (TtmNotifyConsoleUserPresent.c)
+ *     TtmNotifyLowPowerStateExited @ 0x1409A44A8 (TtmNotifyLowPowerStateExited.c)
+ *     TtmNotifySessionDisplayBurst @ 0x1409A4524 (TtmNotifySessionDisplayBurst.c)
+ *     TtmNotifySessionDisplayRequiredChange @ 0x1409A45C0 (TtmNotifySessionDisplayRequiredChange.c)
+ *     TtmNotifySessionPowerRequestDeleted @ 0x1409A4758 (TtmNotifySessionPowerRequestDeleted.c)
+ *     TtmNotifySessionPowerStateChange @ 0x1409A4958 (TtmNotifySessionPowerStateChange.c)
+ *     TtmNotifySessionTerminalInput @ 0x1409A49E8 (TtmNotifySessionTerminalInput.c)
+ *     TtmSessionMonitorControl @ 0x1409A4A80 (TtmSessionMonitorControl.c)
+ *     TtmiAcquireCurrentSession @ 0x1409A4B30 (TtmiAcquireCurrentSession.c)
+ *     TtmpInsertPowerRequestToSession @ 0x1409A5668 (TtmpInsertPowerRequestToSession.c)
+ *     TtmpUpdatePowerRequestAttribute @ 0x1409A601C (TtmpUpdatePowerRequestAttribute.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     ExAcquireResourceExclusiveLite @ 0x1402390E0 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x14023D410 (ExReleaseResourceLite.c)
- *     TtmIsEnabled @ 0x1407A6090 (TtmIsEnabled.c)
- *     TtmiLogError @ 0x1409A8344 (TtmiLogError.c)
+ *     KeLeaveCriticalRegion @ 0x140231550 (KeLeaveCriticalRegion.c)
+ *     ExAcquireResourceExclusiveLite @ 0x1402391B0 (ExAcquireResourceExclusiveLite.c)
+ *     ExReleaseResourceLite @ 0x14023D4E0 (ExReleaseResourceLite.c)
+ *     TtmIsEnabled @ 0x1407A6280 (TtmIsEnabled.c)
+ *     TtmiLogError @ 0x1409A8544 (TtmiLogError.c)
  */
 
 __int64 __fastcall TtmpAcquireSessionById(_QWORD *a1, int a2)

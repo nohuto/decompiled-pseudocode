@@ -6,10 +6,10 @@
  *     ZwUpdateWnfStateData @ 0x1401C39D0 (ZwUpdateWnfStateData.c)
  */
 
-__int64 __fastcall PopUpdateWakeOnVoiceState(char a1)
+NTSTATUS __fastcall PopUpdateWakeOnVoiceState(char a1)
 {
-  char v2; // [rsp+50h] [rbp+8h] BYREF
+  char Buffer; // [rsp+50h] [rbp+8h] BYREF
 
-  v2 = a1;
-  return ZwUpdateWnfStateData((__int64)&WNF_PO_WAKE_ON_VOICE_STATE, (__int64)&v2, 1LL);
+  Buffer = a1;
+  return ZwUpdateWnfStateData(&WNF_PO_WAKE_ON_VOICE_STATE, &Buffer, 1u, 0LL, 0LL, 0, 0);
 }

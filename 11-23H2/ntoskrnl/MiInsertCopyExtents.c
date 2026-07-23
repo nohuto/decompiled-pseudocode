@@ -1,14 +1,14 @@
 /*
- * XREFs of MiInsertCopyExtents @ 0x14063DE1C
+ * XREFs of MiInsertCopyExtents @ 0x14063E36C
  * Callers:
- *     MiAllocateEntireImageFileExtents @ 0x140A32F24 (MiAllocateEntireImageFileExtents.c)
- *     MiAllocateFileExtents @ 0x140A33068 (MiAllocateFileExtents.c)
+ *     MiAllocateEntireImageFileExtents @ 0x140A331D4 (MiAllocateEntireImageFileExtents.c)
+ *     MiAllocateFileExtents @ 0x140A33318 (MiAllocateFileExtents.c)
  * Callees:
- *     RtlAvlRemoveNode @ 0x14028AF50 (RtlAvlRemoveNode.c)
- *     MiFormCopyExtents @ 0x14063D5D8 (MiFormCopyExtents.c)
- *     MiInsertExtentList @ 0x14063DEC8 (MiInsertExtentList.c)
- *     MiLockFileExtentsExclusive @ 0x140A34140 (MiLockFileExtentsExclusive.c)
- *     MiUnlockFileExtentsExclusive @ 0x140A341A4 (MiUnlockFileExtentsExclusive.c)
+ *     RtlAvlRemoveNode @ 0x14028B1E0 (RtlAvlRemoveNode.c)
+ *     MiFormCopyExtents @ 0x14063DB28 (MiFormCopyExtents.c)
+ *     MiInsertExtentList @ 0x14063E418 (MiInsertExtentList.c)
+ *     MiLockFileExtentsExclusive @ 0x140A343F0 (MiLockFileExtentsExclusive.c)
+ *     MiUnlockFileExtentsExclusive @ 0x140A34454 (MiUnlockFileExtentsExclusive.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

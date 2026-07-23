@@ -12,55 +12,64 @@
  *     LdrpLogVsmEnclaveLdrInitializeEnclaveTelemetry @ 0x1800DC328 (LdrpLogVsmEnclaveLdrInitializeEnclaveTelemetry.c)
  */
 
-__int64 __fastcall LdrInitializeEnclave(__int64 a1, __int64 a2)
+NTSTATUS __cdecl LdrInitializeEnclave(
+        HANDLE ProcessHandle,
+        PVOID BaseAddress,
+        PVOID EnclaveInformation,
+        ULONG EnclaveInformationLength,
+        PULONG EnclaveError)
 {
-  __int64 v2; // rcx
-  int v3; // edi
+  PVOID v5; // rsi
+  PVOID v7; // rcx
+  int v10; // edi
   __int64 locked; // rax
-  __int64 v5; // rbx
-  bool v6; // zf
+  __int64 v12; // rbx
+  bool v13; // zf
+  PVOID v15; // [rsp+30h] [rbp-28h] BYREF
 
-  v2 = a2;
-  LOBYTE(a2) = 1;
-  v3 = 0;
-  locked = LdrpObtainLockedEnclave(v2, a2);
-  v5 = locked;
+  v5 = BaseAddress;
+  v7 = BaseAddress;
+  LOBYTE(BaseAddress) = 1;
+  v10 = 0;
+  locked = LdrpObtainLockedEnclave(v7, BaseAddress);
+  v12 = locked;
   if ( locked && *(_DWORD *)(locked + 56) == 16 && *(_DWORD *)(locked + 64) )
   {
     if ( *(_DWORD *)(locked + 64) != 1 )
     {
-      v3 = -1073741502;
+      v10 = -1073741502;
       goto LABEL_13;
     }
     goto LABEL_8;
   }
-  v3 = ZwInitializeEnclave();
-  if ( v3 < 0 )
+  v10 = ZwInitializeEnclave(ProcessHandle, v5, EnclaveInformation, EnclaveInformationLength, EnclaveError);
+  if ( v10 < 0 )
   {
-    if ( v5 )
+    if ( v12 )
       goto LABEL_13;
   }
-  else if ( v5 )
+  else if ( v12 )
   {
 LABEL_8:
-    v6 = *(_DWORD *)(v5 + 56) == 16;
-    *(_DWORD *)(v5 + 64) = 1;
-    if ( !v6 )
+    v13 = *(_DWORD *)(v12 + 56) == 16;
+    *(_DWORD *)(v12 + 64) = 1;
+    if ( !v13 )
     {
 LABEL_15:
-      RtlLeaveCriticalSection(v5 + 16);
-      LdrpDereferenceEnclave(v5);
-      return (unsigned int)v3;
+      RtlLeaveCriticalSection((PRTL_CRITICAL_SECTION)(v12 + 16));
+      LdrpDereferenceEnclave((PVOID)v12);
+      return v10;
     }
-    v3 = RtlCallEnclave();
-    if ( v3 < 0 )
-      NtTerminateEnclave();
+    v15 = 0LL;
+    v10 = RtlCallEnclave(*(LPVOID (__cdecl **)(LPVOID))(v12 + 72), 0LL, 0, &v15);
+    if ( v10 < 0 )
+      NtTerminateEnclave(*(PVOID *)(v12 + 72), 0);
     else
-      *(_DWORD *)(v5 + 64) = 2;
+      *(_DWORD *)(v12 + 64) = 2;
 LABEL_13:
-    if ( *(_DWORD *)(v5 + 56) == 16 )
-      LdrpLogVsmEnclaveLdrInitializeEnclaveTelemetry((unsigned int)v3);
+    if ( *(_DWORD *)(v12 + 56) == 16 )
+      LdrpLogVsmEnclaveLdrInitializeEnclaveTelemetry((unsigned int)v10);
     goto LABEL_15;
   }
-  return (unsigned int)v3;
+  return v10;
 }

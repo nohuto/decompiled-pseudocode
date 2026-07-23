@@ -19,5 +19,5 @@ NTSTATUS __stdcall ZwSetSystemInformation(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(*(_QWORD *)&SystemInformationClass, SystemInformation, SystemInformationLength);
+  return KiServiceInternal(*(_QWORD *)&SystemInformationClass);
 }

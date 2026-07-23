@@ -1,5 +1,5 @@
 /*
- * XREFs of BgpFoGetAdvanceWidth @ 0x140239854
+ * XREFs of BgpFoGetAdvanceWidth @ 0x140239738
  * Callers:
  *     BgpTxtDisplayString @ 0x14072B0B0 (BgpTxtDisplayString.c)
  * Callees:

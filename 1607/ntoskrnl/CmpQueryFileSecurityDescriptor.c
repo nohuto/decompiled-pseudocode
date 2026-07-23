@@ -1,12 +1,12 @@
 /*
- * XREFs of CmpQueryFileSecurityDescriptor @ 0x1403F6164
+ * XREFs of CmpQueryFileSecurityDescriptor @ 0x1403F5028
  * Callers:
- *     CmpOpenHiveFile @ 0x1403F9400 (CmpOpenHiveFile.c)
- *     CmpInitHiveFromFile @ 0x1403F9AEC (CmpInitHiveFromFile.c)
- *     CmpInitCmRM @ 0x14049EB58 (CmpInitCmRM.c)
- *     CmpStartRMLog @ 0x1404DAAE0 (CmpStartRMLog.c)
+ *     CmpOpenHiveFile @ 0x1403F82C0 (CmpOpenHiveFile.c)
+ *     CmpInitHiveFromFile @ 0x1403F89AC (CmpInitHiveFromFile.c)
+ *     CmpStartRMLog @ 0x1404BE0E4 (CmpStartRMLog.c)
+ *     CmpInitCmRM @ 0x140516F64 (CmpInitCmRM.c)
  * Callees:
- *     ZwQuerySecurityObject @ 0x14015C580 (ZwQuerySecurityObject.c)
+ *     ZwQuerySecurityObject @ 0x14015CAF0 (ZwQuerySecurityObject.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
  */

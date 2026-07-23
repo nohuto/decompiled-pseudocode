@@ -3,8 +3,8 @@
  * Callers:
  *     PiInitCacheGroupInformation @ 0x1407B25EC (PiInitCacheGroupInformation.c)
  * Callees:
- *     PnpFreeUnicodeStringList @ 0x1401452DC (PnpFreeUnicodeStringList.c)
- *     memmove @ 0x140171280 (memmove.c)
+ *     PnpFreeUnicodeStringList @ 0x14014584C (PnpFreeUnicodeStringList.c)
+ *     memmove @ 0x140171780 (memmove.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
  */
 

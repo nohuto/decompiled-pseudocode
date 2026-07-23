@@ -15,23 +15,27 @@
  *     ExAllocatePoolWithTag @ 0x1409B1160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall NtTranslateFilePath(char *Src, unsigned int a2, volatile void *a3, unsigned int *a4)
+NTSTATUS __cdecl NtTranslateFilePath(
+        PFILE_PATH InputFilePath,
+        ULONG OutputType,
+        PFILE_PATH OutputFilePath,
+        PULONG OutputFilePathLength)
 {
   KPROCESSOR_MODE v7; // dl
-  unsigned __int64 v8; // rax
+  unsigned __int64 p_Length; // rax
   __int64 v9; // rcx
   unsigned int v10; // r15d
   char *v11; // rdx
-  unsigned int v12; // edi
-  unsigned int v13; // ebx
+  ULONG v12; // edi
+  ULONG v13; // ebx
   _DWORD *PoolWithTag; // rax
   _DWORD *v15; // r14
-  PVOID v16; // rsi
-  int v17; // ebx
+  _DWORD *v16; // rsi
+  NTSTATUS v17; // ebx
   unsigned int v18; // eax
-  int v19; // eax
+  NTSTATUS v19; // eax
   KPROCESSOR_MODE PreviousMode; // [rsp+20h] [rbp-68h]
-  unsigned int v21; // [rsp+24h] [rbp-64h] BYREF
+  ULONG v21; // [rsp+24h] [rbp-64h] BYREF
   _DWORD NumberOfBytes[3]; // [rsp+2Ch] [rbp-5Ch]
   PVOID P; // [rsp+38h] [rbp-50h]
   struct _KTHREAD *CurrentThread; // [rsp+50h] [rbp-38h]
@@ -40,59 +44,59 @@ __int64 __fastcall NtTranslateFilePath(char *Src, unsigned int a2, volatile void
   P = 0LL;
   *(_QWORD *)&NumberOfBytes[1] = 0LL;
   if ( dword_140C19590 != 2 )
-    return 3221225474LL;
-  if ( a2 - 1 <= 4 )
+    return -1073741822;
+  if ( OutputType - 1 <= 4 )
   {
     CurrentThread = KeGetCurrentThread();
     v7 = CurrentThread->PreviousMode;
     PreviousMode = v7;
-    v8 = (unsigned __int64)(Src + 4);
+    p_Length = (unsigned __int64)&InputFilePath->Length;
     v9 = 0x7FFFFFFF0000LL;
     if ( v7 )
     {
-      if ( v8 >= 0x7FFFFFFF0000LL )
-        v8 = 0x7FFFFFFF0000LL;
-      v10 = *(_DWORD *)v8;
-      NumberOfBytes[0] = *(_DWORD *)v8;
+      if ( p_Length >= 0x7FFFFFFF0000LL )
+        p_Length = 0x7FFFFFFF0000LL;
+      v10 = *(_DWORD *)p_Length;
+      NumberOfBytes[0] = *(_DWORD *)p_Length;
     }
     else
     {
-      v10 = *(_DWORD *)v8;
-      NumberOfBytes[0] = *(_DWORD *)v8;
+      v10 = *(_DWORD *)p_Length;
+      NumberOfBytes[0] = *(_DWORD *)p_Length;
     }
     if ( v10 < 0xC )
-      return 3221225485LL;
+      return -1073741811;
     if ( v7 )
     {
-      if ( ((unsigned __int8)Src & 3) != 0 )
+      if ( ((unsigned __int8)InputFilePath & 3) != 0 )
         ExRaiseDatatypeMisalignment();
-      v11 = &Src[v10];
-      if ( (unsigned __int64)v11 > 0x7FFFFFFF0000LL || v11 < Src )
+      v11 = (char *)InputFilePath + v10;
+      if ( (unsigned __int64)v11 > 0x7FFFFFFF0000LL || v11 < (char *)InputFilePath )
         MEMORY[0x7FFFFFFF0000] = 0;
-      if ( (unsigned __int64)a4 < 0x7FFFFFFF0000LL )
-        v9 = (__int64)a4;
+      if ( (unsigned __int64)OutputFilePathLength < 0x7FFFFFFF0000LL )
+        v9 = (__int64)OutputFilePathLength;
       *(_DWORD *)v9 = *(_DWORD *)v9;
-      v12 = *a4;
+      v12 = *OutputFilePathLength;
       v21 = v12;
       v13 = v12;
-      if ( !a3 )
+      if ( !OutputFilePath )
       {
         v12 = 0;
         v21 = 0;
         v13 = 0;
       }
       if ( v13 )
-        ProbeForWrite(a3, v13, 4u);
+        ProbeForWrite(OutputFilePath, v13, 4u);
       if ( !SeSinglePrivilegeCheck(SeSystemEnvironmentPrivilege, PreviousMode) )
-        return 3221225569LL;
+        return -1073741727;
       v10 = NumberOfBytes[0];
     }
     else
     {
-      v12 = *a4;
+      v12 = *OutputFilePathLength;
       v21 = v12;
       v13 = v12;
-      if ( !a3 )
+      if ( !OutputFilePath )
       {
         v12 = 0;
         v21 = 0;
@@ -103,8 +107,8 @@ __int64 __fastcall NtTranslateFilePath(char *Src, unsigned int a2, volatile void
     v15 = PoolWithTag;
     P = PoolWithTag;
     if ( !PoolWithTag )
-      return 3221225626LL;
-    memmove(PoolWithTag, Src, v10);
+      return -1073741670;
+    memmove(PoolWithTag, InputFilePath, v10);
     v15[1] = v10;
     if ( v13 )
     {
@@ -114,7 +118,7 @@ __int64 __fastcall NtTranslateFilePath(char *Src, unsigned int a2, volatile void
       {
         ExFreePoolWithTag(v15, 0);
         P = 0LL;
-        return 3221225626LL;
+        return -1073741670;
       }
     }
     else
@@ -132,10 +136,10 @@ LABEL_49:
         if ( !v16 )
         {
 LABEL_54:
-          *a4 = v12;
-          return (unsigned int)v17;
+          *OutputFilePathLength = v12;
+          return v17;
         }
-        memmove((void *)a3, v16, v12);
+        memmove(OutputFilePath, v16, v12);
       }
       if ( v16 )
       {
@@ -145,7 +149,7 @@ LABEL_54:
       goto LABEL_54;
     }
     v18 = v15[2];
-    if ( a2 == v18 )
+    if ( OutputType == v18 )
     {
       if ( v12 < v10 )
         v17 = -1073741789;
@@ -159,17 +163,17 @@ LABEL_54:
     {
       if ( v18 <= 2 )
       {
-        v19 = ExpTranslateArcPath((__int64)v15, a2, v16, (__int64)&v21);
+        v19 = ExpTranslateArcPath((__int64)v15, OutputType, v16, (__int64)&v21);
         goto LABEL_47;
       }
       if ( v18 == 3 )
       {
-        v19 = ExpTranslateNtPath((__int64)v15, a2, (char *)v16, &v21);
+        v19 = ExpTranslateNtPath((__int64)v15, OutputType, (char *)v16, &v21);
         goto LABEL_47;
       }
       if ( v18 == 4 )
       {
-        v19 = ExpTranslateEfiPath((__int64)v15, a2, (__int64)v16, (__int64)&v21);
+        v19 = ExpTranslateEfiPath((__int64)v15, OutputType, v16, &v21);
 LABEL_47:
         v17 = v19;
         v12 = v21;
@@ -179,5 +183,5 @@ LABEL_47:
     v17 = -1073741811;
     goto LABEL_49;
   }
-  return 3221225485LL;
+  return -1073741811;
 }

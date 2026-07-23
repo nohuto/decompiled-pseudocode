@@ -1,5 +1,5 @@
 /*
- * XREFs of CmpLazyCommitWorker @ 0x1407F6240
+ * XREFs of CmpLazyCommitWorker @ 0x1407F7440
  * Callers:
  *     <none>
  * Callees:
@@ -10,13 +10,13 @@
  *     ExAcquireRundownProtection_0 @ 0x14004D320 (ExAcquireRundownProtection_0.c)
  *     ExAcquirePushLockSharedEx @ 0x14004EE20 (ExAcquirePushLockSharedEx.c)
  *     ExReleasePushLockEx @ 0x14004F160 (ExReleasePushLockEx.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
- *     CmCleanupThreadInfo @ 0x1401B2F3C (CmCleanupThreadInfo.c)
- *     CmpInitializeThreadInfo @ 0x1401B2F7C (CmpInitializeThreadInfo.c)
- *     UNLOCK_HIVE_LOAD @ 0x1405B1514 (UNLOCK_HIVE_LOAD.c)
- *     LOCK_HIVE_LOAD @ 0x1405B1690 (LOCK_HIVE_LOAD.c)
- *     CmpTransMgrCommit @ 0x1406FCFB0 (CmpTransMgrCommit.c)
- *     CmpCleanupTransactionState @ 0x140701C2C (CmpCleanupTransactionState.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B78F0 (KiLeaveCriticalRegionUnsafe.c)
+ *     CmCleanupThreadInfo @ 0x1401B307C (CmCleanupThreadInfo.c)
+ *     CmpInitializeThreadInfo @ 0x1401B30BC (CmpInitializeThreadInfo.c)
+ *     UNLOCK_HIVE_LOAD @ 0x1405B2514 (UNLOCK_HIVE_LOAD.c)
+ *     LOCK_HIVE_LOAD @ 0x1405B2690 (LOCK_HIVE_LOAD.c)
+ *     CmpTransMgrCommit @ 0x1406FE250 (CmpTransMgrCommit.c)
+ *     CmpCleanupTransactionState @ 0x140702ECC (CmpCleanupTransactionState.c)
  */
 
 PVOID CmpLazyCommitWorker()
@@ -114,13 +114,13 @@ LABEL_11:
         v12[1] = (__int64)&v16;
         if ( v11 == (__int64 **)&v16 )
           break;
-        v14 = (__int64 *)qword_140437CE8;
-        if ( *(__int64 **)qword_140437CE8 == &CmpLazyCommitListHead )
+        v14 = (__int64 *)qword_140438DA8;
+        if ( *(__int64 **)qword_140438DA8 == &CmpLazyCommitListHead )
         {
           *v11 = &CmpLazyCommitListHead;
           v11[1] = v14;
           *v14 = (__int64)v11;
-          qword_140437CE8 = (__int64)v11;
+          qword_140438DA8 = (__int64)v11;
           v11 = v16;
           v13 = (__int64 *)v16;
           v12 = *v16;

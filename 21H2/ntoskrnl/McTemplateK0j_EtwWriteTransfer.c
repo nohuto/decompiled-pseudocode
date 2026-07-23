@@ -1,10 +1,10 @@
 /*
- * XREFs of McTemplateK0j_EtwWriteTransfer @ 0x14050DC08
+ * XREFs of McTemplateK0j_EtwWriteTransfer @ 0x14050DE48
  * Callers:
- *     PpCheckInDriverDatabase @ 0x14073DAC0 (PpCheckInDriverDatabase.c)
+ *     PpCheckInDriverDatabase @ 0x14073DC80 (PpCheckInDriverDatabase.c)
  * Callees:
- *     McGenEventWrite_EtwWriteTransfer @ 0x14036EE44 (McGenEventWrite_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     McGenEventWrite_EtwWriteTransfer @ 0x14036EFF4 (McGenEventWrite_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall McTemplateK0j_EtwWriteTransfer(__int64 a1, __int64 a2, __int64 a3, __int64 a4)

@@ -1,12 +1,12 @@
 /*
- * XREFs of BapdpProcessHSTIResults @ 0x1409D0F74
+ * XREFs of BapdpProcessHSTIResults @ 0x1409D1F74
  * Callers:
- *     BootApplicationPersistentDataProcess @ 0x1409D1004 (BootApplicationPersistentDataProcess.c)
+ *     BootApplicationPersistentDataProcess @ 0x1409D2004 (BootApplicationPersistentDataProcess.c)
  * Callees:
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     BapdpQueryData @ 0x1409D160C (BapdpQueryData.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     BapdpQueryData @ 0x1409D260C (BapdpQueryData.c)
  */
 
 void __fastcall BapdpProcessHSTIResults(__int64 a1)
@@ -33,9 +33,9 @@ void __fastcall BapdpProcessHSTIResults(__int64 a1)
   }
   if ( v2 >= 0 && (int)BapdpQueryData(v3, v5, 0LL, PoolWithTag, &NumberOfBytes) >= 0 )
   {
-    qword_14097EF48 = PoolWithTag;
+    qword_14097FF48 = PoolWithTag;
     PoolWithTag = 0LL;
-    LODWORD(dword_14097EF40) = NumberOfBytes;
+    LODWORD(dword_14097FF40) = NumberOfBytes;
   }
   if ( PoolWithTag )
     ExFreePoolWithTag(PoolWithTag, 0);

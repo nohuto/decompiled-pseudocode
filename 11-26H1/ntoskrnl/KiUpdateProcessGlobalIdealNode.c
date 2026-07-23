@@ -1,11 +1,11 @@
 /*
- * XREFs of KiUpdateProcessGlobalIdealNode @ 0x1405F4C14
+ * XREFs of KiUpdateProcessGlobalIdealNode @ 0x1405F75D4
  * Callers:
- *     KeSetAffinityProcess @ 0x14050BCE4 (KeSetAffinityProcess.c)
- *     KiUpdateProcessAvailableCpuState @ 0x1405E5BB8 (KiUpdateProcessAvailableCpuState.c)
+ *     KeSetAffinityProcess @ 0x140505754 (KeSetAffinityProcess.c)
+ *     KiUpdateProcessAvailableCpuState @ 0x1405E8528 (KiUpdateProcessAvailableCpuState.c)
  * Callees:
- *     KeSelectNodeForAffinityAndPartition @ 0x1405EEAC4 (KeSelectNodeForAffinityAndPartition.c)
- *     KiDoesNodeIntersectAffinity @ 0x1405EF7EC (KiDoesNodeIntersectAffinity.c)
+ *     KeSelectNodeForAffinityAndPartition @ 0x1405F1434 (KeSelectNodeForAffinityAndPartition.c)
+ *     KiDoesNodeIntersectAffinity @ 0x1405F215C (KiDoesNodeIntersectAffinity.c)
  */
 
 char __fastcall KiUpdateProcessGlobalIdealNode(__int64 a1, _WORD *a2)

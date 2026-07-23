@@ -6,27 +6,27 @@
  * Callees:
  *     memmove @ 0x140435B40 (memmove.c)
  *     WheaReportHwError @ 0x140643630 (WheaReportHwError.c)
- *     WheapGetErrorSource @ 0x140643F2C (WheapGetErrorSource.c)
- *     WheapErrDescIsDeviceDriver @ 0x1406447D0 (WheapErrDescIsDeviceDriver.c)
- *     WheapErrorHandleIsValid @ 0x1406447EC (WheapErrorHandleIsValid.c)
- *     WheapFreeDriverPacketBuffer @ 0x140644808 (WheapFreeDriverPacketBuffer.c)
+ *     sub_140643F2C @ 0x140643F2C (sub_140643F2C.c)
+ *     sub_1406447D0 @ 0x1406447D0 (sub_1406447D0.c)
+ *     sub_1406447EC @ 0x1406447EC (sub_1406447EC.c)
+ *     sub_140644808 @ 0x140644808 (sub_140644808.c)
  */
 
 __int64 __fastcall WheaHwErrorReportSubmitDeviceDriver(ULONG_PTR BugCheckParameter3)
 {
   __int64 v2; // rcx
   unsigned int v3; // edi
-  __int64 *ErrorSource; // rax
+  __int64 *v4; // rax
   __int64 v5; // rsi
   int v6; // edx
   unsigned __int64 v7; // rdi
 
-  if ( (unsigned __int8)WheapErrorHandleIsValid() )
+  if ( (unsigned __int8)sub_1406447EC() )
   {
     *(_DWORD *)(*(_QWORD *)(v2 + 40) + 8LL) = *(_DWORD *)(BugCheckParameter3 + 8);
-    ErrorSource = WheapGetErrorSource((__int64)&WheapErrorSourceTable, *(_DWORD *)(BugCheckParameter3 + 12));
-    v5 = (unsigned __int64)(ErrorSource + 12) & -(__int64)(ErrorSource != 0LL);
-    if ( (unsigned __int8)WheapErrDescIsDeviceDriver(v5) )
+    v4 = sub_140643F2C((__int64)&unk_140CE1A98, *(_DWORD *)(BugCheckParameter3 + 12));
+    v5 = (unsigned __int64)(v4 + 12) & -(__int64)(v4 != 0LL);
+    if ( (unsigned __int8)sub_1406447D0(v5) )
     {
       if ( (**(_DWORD **)(BugCheckParameter3 + 16) & 0x3FF0u) >= 0x10 )
       {
@@ -51,7 +51,7 @@ __int64 __fastcall WheaHwErrorReportSubmitDeviceDriver(ULONG_PTR BugCheckParamet
           *(_QWORD *)(v7 + 80) = *(_QWORD *)(BugCheckParameter3 + 56);
           PshedRetrieveErrorInfo(*(_QWORD *)(BugCheckParameter3 + 40), v5);
           v3 = WheaReportHwError(*(_QWORD *)(BugCheckParameter3 + 40));
-          WheapFreeDriverPacketBuffer(BugCheckParameter3);
+          sub_140644808(BugCheckParameter3);
         }
         else
         {

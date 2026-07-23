@@ -1,14 +1,14 @@
 /*
- * XREFs of MiCaptureDeleteHierarchy @ 0x14028ACA0
+ * XREFs of MiCaptureDeleteHierarchy @ 0x14028AF30
  * Callers:
- *     MiRemoveVad @ 0x14028A470 (MiRemoveVad.c)
- *     MiDeleteEmptyPageTableCommit @ 0x14033CF3C (MiDeleteEmptyPageTableCommit.c)
+ *     MiRemoveVad @ 0x14028A700 (MiRemoveVad.c)
+ *     MiDeleteEmptyPageTableCommit @ 0x14033D1CC (MiDeleteEmptyPageTableCommit.c)
  * Callees:
- *     MiFastLockLeafPageTable @ 0x140237280 (MiFastLockLeafPageTable.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1402712F0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiMakeSystemAddressValid @ 0x140277430 (MiMakeSystemAddressValid.c)
- *     MiFillPteHierarchy @ 0x14028AEF0 (MiFillPteHierarchy.c)
- *     MiUnlockPageTableInternal @ 0x1403195C0 (MiUnlockPageTableInternal.c)
+ *     MiFastLockLeafPageTable @ 0x140237350 (MiFastLockLeafPageTable.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140271580 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiMakeSystemAddressValid @ 0x1402776C0 (MiMakeSystemAddressValid.c)
+ *     MiFillPteHierarchy @ 0x14028B180 (MiFillPteHierarchy.c)
+ *     MiUnlockPageTableInternal @ 0x140319850 (MiUnlockPageTableInternal.c)
  */
 
 char __fastcall MiCaptureDeleteHierarchy(__int64 a1, __int64 a2, unsigned __int8 a3, __int64 a4)

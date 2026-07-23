@@ -1,13 +1,13 @@
 /*
- * XREFs of MiExchangeWsle @ 0x1400B1E68
+ * XREFs of MiExchangeWsle @ 0x1400AFDA8
  * Callers:
- *     MiSwapWslEntries @ 0x140049E70 (MiSwapWslEntries.c)
+ *     MiSwapWslEntries @ 0x1400499F0 (MiSwapWslEntries.c)
  * Callees:
- *     MiGetSharedWorkingSetList @ 0x140047070 (MiGetSharedWorkingSetList.c)
- *     MI_READ_PDE @ 0x1400E5F70 (MI_READ_PDE.c)
- *     MiWriteValidPteVolatile @ 0x1400FF0F4 (MiWriteValidPteVolatile.c)
- *     MiReplaceWsleHash @ 0x1400FF144 (MiReplaceWsleHash.c)
- *     MI_GET_PAGE_FRAME_FROM_PTE @ 0x1401F2550 (MI_GET_PAGE_FRAME_FROM_PTE.c)
+ *     MiGetSharedWorkingSetList @ 0x140046BF0 (MiGetSharedWorkingSetList.c)
+ *     MI_READ_PDE @ 0x1400E3E10 (MI_READ_PDE.c)
+ *     MiWriteValidPteVolatile @ 0x1400FCE74 (MiWriteValidPteVolatile.c)
+ *     MiReplaceWsleHash @ 0x1400FCEC4 (MiReplaceWsleHash.c)
+ *     MI_GET_PAGE_FRAME_FROM_PTE @ 0x1401F237C (MI_GET_PAGE_FRAME_FROM_PTE.c)
  */
 
 __int64 __fastcall MiExchangeWsle(__int64 a1, char a2, __int64 a3)

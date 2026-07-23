@@ -1,16 +1,16 @@
 /*
- * XREFs of PopPepLockActivityLink @ 0x1400C270C
+ * XREFs of PopPepLockActivityLink @ 0x1400C059C
  * Callers:
- *     PopPepProcessEvent @ 0x1400C2248 (PopPepProcessEvent.c)
- *     PopPepComponentSetLatency @ 0x140141D40 (PopPepComponentSetLatency.c)
- *     PopPepComponentSetResidency @ 0x14014BD30 (PopPepComponentSetResidency.c)
- *     PopPepCompleteComponentIdleState @ 0x140205E80 (PopPepCompleteComponentIdleState.c)
- *     PopPepComponentSetWakeHint @ 0x140205F58 (PopPepComponentSetWakeHint.c)
+ *     PopPepProcessEvent @ 0x1400C00D8 (PopPepProcessEvent.c)
+ *     PopPepComponentSetLatency @ 0x1401422B0 (PopPepComponentSetLatency.c)
+ *     PopPepComponentSetResidency @ 0x14014C2A0 (PopPepComponentSetResidency.c)
+ *     PopPepCompleteComponentIdleState @ 0x140205CAC (PopPepCompleteComponentIdleState.c)
+ *     PopPepComponentSetWakeHint @ 0x140205D84 (PopPepComponentSetWakeHint.c)
  * Callees:
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140026F70 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     ExAcquireSpinLockExclusive @ 0x14002EB90 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockShared @ 0x1400EA240 (ExReleaseSpinLockShared.c)
- *     ExAcquireSpinLockShared @ 0x1400EB1D0 (ExAcquireSpinLockShared.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140026AF0 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     ExAcquireSpinLockExclusive @ 0x14002E710 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockShared @ 0x1400E80B0 (ExReleaseSpinLockShared.c)
+ *     ExAcquireSpinLockShared @ 0x1400E9040 (ExAcquireSpinLockShared.c)
  */
 
 char __fastcall PopPepLockActivityLink(__int64 a1, volatile LONG *a2, unsigned int a3, unsigned int a4, KIRQL *a5)

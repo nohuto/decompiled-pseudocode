@@ -1,11 +1,11 @@
 /*
- * XREFs of PspSetupUserFiberShadowStack @ 0x140B31688
+ * XREFs of PspSetupUserFiberShadowStack @ 0x140B33888
  * Callers:
- *     NtSetInformationProcess @ 0x140B72B10 (NtSetInformationProcess.c)
+ *     NtSetInformationProcess @ 0x140B781E0 (NtSetInformationProcess.c)
  * Callees:
- *     RtlWriteULong64ToUser @ 0x14077F758 (RtlWriteULong64ToUser.c)
- *     MmFreeVirtualMemory @ 0x14095F3F0 (MmFreeVirtualMemory.c)
- *     PspReserveAndCommitUserShadowStack @ 0x1409F1E60 (PspReserveAndCommitUserShadowStack.c)
+ *     RtlWriteULong64ToUser @ 0x140782258 (RtlWriteULong64ToUser.c)
+ *     PspReserveAndCommitUserShadowStack @ 0x1409EE630 (PspReserveAndCommitUserShadowStack.c)
+ *     MmFreeVirtualMemory @ 0x140A04CB0 (MmFreeVirtualMemory.c)
  */
 
 __int64 __fastcall PspSetupUserFiberShadowStack(unsigned __int64 a1, ULONG_PTR a2, unsigned int a3, _QWORD *a4)
@@ -20,7 +20,7 @@ __int64 __fastcall PspSetupUserFiberShadowStack(unsigned __int64 a1, ULONG_PTR a
   if ( v4 >= 0 )
   {
     _RDI = v11[0] - 8LL;
-    _RAX = stru_140FC01F0.SchedulerAssist;
+    _RAX = stru_140FC11F0.SchedulerAssist;
     __asm { wrussq  qword ptr [rdi], rax }
     _RSI = v11[0] - 16LL;
     RtlWriteULong64ToUser(a4, v11[0] - 16LL);

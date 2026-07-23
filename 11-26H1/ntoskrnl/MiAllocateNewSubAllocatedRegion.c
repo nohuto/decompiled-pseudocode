@@ -1,29 +1,29 @@
 /*
- * XREFs of MiAllocateNewSubAllocatedRegion @ 0x1409CA420
+ * XREFs of MiAllocateNewSubAllocatedRegion @ 0x14099B400
  * Callers:
- *     MiAllocateFromSubAllocatedRegion @ 0x1409C8F44 (MiAllocateFromSubAllocatedRegion.c)
+ *     MiAllocateFromSubAllocatedRegion @ 0x140999F24 (MiAllocateFromSubAllocatedRegion.c)
  * Callees:
  *     ExGenRandom @ 0x140200C10 (ExGenRandom.c)
- *     MiLockVad @ 0x14027EBC0 (MiLockVad.c)
- *     MiUnlockVad @ 0x14027F670 (MiUnlockVad.c)
- *     LOCK_PAGE_TABLE_COMMITMENT @ 0x14027F6FC (LOCK_PAGE_TABLE_COMMITMENT.c)
- *     MiInsertVad @ 0x140316000 (MiInsertVad.c)
- *     UNLOCK_PAGE_TABLE_COMMITMENT @ 0x140316ED0 (UNLOCK_PAGE_TABLE_COMMITMENT.c)
- *     ExAllocatePoolMm @ 0x1403985B0 (ExAllocatePoolMm.c)
- *     MmGetCurrentProcessorColor @ 0x14044ADC0 (MmGetCurrentProcessorColor.c)
- *     MiReadVadFlags @ 0x1404655D0 (MiReadVadFlags.c)
- *     MiUpdateVadStartVpn @ 0x14049B0E4 (MiUpdateVadStartVpn.c)
- *     MiInsertVadEvent @ 0x14049B0F8 (MiInsertVadEvent.c)
- *     MiLocateExclusiveSecure @ 0x1404B8DBC (MiLocateExclusiveSecure.c)
- *     MiWriteSecureFlags @ 0x1404CD974 (MiWriteSecureFlags.c)
- *     MiReleaseVadEventBlocks @ 0x14095C4CC (MiReleaseVadEventBlocks.c)
- *     MiAdvanceVadHint @ 0x14095CE00 (MiAdvanceVadHint.c)
- *     MiInitializeQuotaTracker @ 0x1409C4B54 (MiInitializeQuotaTracker.c)
- *     MiSelectUserAddress @ 0x1409C4FA0 (MiSelectUserAddress.c)
- *     MiInsertVadCharges @ 0x1409C5DC0 (MiInsertVadCharges.c)
- *     MiGetUserReservationHighestAddress @ 0x1409CB5D0 (MiGetUserReservationHighestAddress.c)
- *     MiCreateVadEvent @ 0x1409CE5DC (MiCreateVadEvent.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     MiLockVad @ 0x14027E130 (MiLockVad.c)
+ *     MiUnlockVad @ 0x14027EBE0 (MiUnlockVad.c)
+ *     LOCK_PAGE_TABLE_COMMITMENT @ 0x14027EC6C (LOCK_PAGE_TABLE_COMMITMENT.c)
+ *     MiInsertVad @ 0x140318030 (MiInsertVad.c)
+ *     UNLOCK_PAGE_TABLE_COMMITMENT @ 0x140318F00 (UNLOCK_PAGE_TABLE_COMMITMENT.c)
+ *     ExAllocatePoolMm @ 0x14039A310 (ExAllocatePoolMm.c)
+ *     MmGetCurrentProcessorColor @ 0x140442EF0 (MmGetCurrentProcessorColor.c)
+ *     MiReadVadFlags @ 0x14045E590 (MiReadVadFlags.c)
+ *     MiUpdateVadStartVpn @ 0x140494C34 (MiUpdateVadStartVpn.c)
+ *     MiInsertVadEvent @ 0x140494C48 (MiInsertVadEvent.c)
+ *     MiLocateExclusiveSecure @ 0x1404B25EC (MiLocateExclusiveSecure.c)
+ *     MiWriteSecureFlags @ 0x1404C73A4 (MiWriteSecureFlags.c)
+ *     MiInitializeQuotaTracker @ 0x140995B34 (MiInitializeQuotaTracker.c)
+ *     MiSelectUserAddress @ 0x140995F80 (MiSelectUserAddress.c)
+ *     MiInsertVadCharges @ 0x140996DA0 (MiInsertVadCharges.c)
+ *     MiGetUserReservationHighestAddress @ 0x14099C5B0 (MiGetUserReservationHighestAddress.c)
+ *     MiCreateVadEvent @ 0x14099F5BC (MiCreateVadEvent.c)
+ *     MiReleaseVadEventBlocks @ 0x140A01D8C (MiReleaseVadEventBlocks.c)
+ *     MiAdvanceVadHint @ 0x140A026C0 (MiAdvanceVadHint.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall MiAllocateNewSubAllocatedRegion(__int64 a1, unsigned __int64 a2)
@@ -61,7 +61,7 @@ __int64 __fastcall MiAllocateNewSubAllocatedRegion(__int64 a1, unsigned __int64 
   __int64 v32; // r8
   struct _KLOCK_ENTRIES *v33; // r9
   struct _KLOCK_ENTRIES *v34; // r9
-  _QWORD *v35; // r8
+  __int64 v35; // r8
   _QWORD *v36; // rax
   __int64 v37; // rcx
   unsigned __int64 v39; // rax
@@ -71,7 +71,7 @@ __int64 __fastcall MiAllocateNewSubAllocatedRegion(__int64 a1, unsigned __int64 
   __int64 v43; // [rsp+58h] [rbp-40h]
   unsigned __int64 v44; // [rsp+A8h] [rbp+10h] BYREF
   __int64 v45; // [rsp+B0h] [rbp+18h] BYREF
-  _QWORD *v46; // [rsp+B8h] [rbp+20h] BYREF
+  __int64 v46; // [rsp+B8h] [rbp+20h] BYREF
 
   CurrentThread = KeGetCurrentThread();
   v45 = 0LL;
@@ -167,8 +167,8 @@ LABEL_14:
   MiUnlockVad((__int64)CurrentThread, v7);
   v35 = v46;
   if ( v46 )
-    MiAdvanceVadHint(v15, v42, v46);
-  LOCK_PAGE_TABLE_COMMITMENT((__int64)CurrentThread, Process, (__int64)v35, v34);
+    MiAdvanceVadHint(v15, v42);
+  LOCK_PAGE_TABLE_COMMITMENT((__int64)CurrentThread, Process, v35, v34);
   v36 = (_QWORD *)(v43 + 1160);
   v37 = *(_QWORD *)(v43 + 1160);
   if ( *(_QWORD *)(v37 + 8) != v43 + 1160 )

@@ -1,18 +1,18 @@
 /*
- * XREFs of PoFxPrepareDevice @ 0x140321814
+ * XREFs of PoFxPrepareDevice @ 0x140321AA4
  * Callers:
- *     PnpStartDevice @ 0x140321A48 (PnpStartDevice.c)
- *     PipProcessDevNodeTree @ 0x1406CB690 (PipProcessDevNodeTree.c)
- *     PiProcessAddBootDevices @ 0x140854330 (PiProcessAddBootDevices.c)
+ *     PnpStartDevice @ 0x140321CD8 (PnpStartDevice.c)
+ *     PipProcessDevNodeTree @ 0x1406CB6C0 (PipProcessDevNodeTree.c)
+ *     PiProcessAddBootDevices @ 0x140854630 (PiProcessAddBootDevices.c)
  * Callees:
- *     ExAcquirePushLockSharedEx @ 0x140230D90 (ExAcquirePushLockSharedEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     KeSetEvent @ 0x14023C5E0 (KeSetEvent.c)
- *     ExfReleasePushLockShared @ 0x1402BD860 (ExfReleasePushLockShared.c)
- *     PopPluginPrepareDevice @ 0x1403219A0 (PopPluginPrepareDevice.c)
- *     PopFxFindDeviceAndAllocateUniqueId @ 0x140790E0C (PopFxFindDeviceAndAllocateUniqueId.c)
- *     PopDiagTraceFxDevicePreparation @ 0x14086733C (PopDiagTraceFxDevicePreparation.c)
+ *     ExAcquirePushLockSharedEx @ 0x140230E80 (ExAcquirePushLockSharedEx.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     KeLeaveCriticalRegion @ 0x140231550 (KeLeaveCriticalRegion.c)
+ *     KeSetEvent @ 0x14023C6B0 (KeSetEvent.c)
+ *     ExfReleasePushLockShared @ 0x1402BDAF0 (ExfReleasePushLockShared.c)
+ *     PopPluginPrepareDevice @ 0x140321C30 (PopPluginPrepareDevice.c)
+ *     PopFxFindDeviceAndAllocateUniqueId @ 0x140790FFC (PopFxFindDeviceAndAllocateUniqueId.c)
+ *     PopDiagTraceFxDevicePreparation @ 0x14086757C (PopDiagTraceFxDevicePreparation.c)
  */
 
 void __fastcall PoFxPrepareDevice(__int64 a1, char a2)

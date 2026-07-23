@@ -1,22 +1,22 @@
 /*
- * XREFs of MiRemoveLockedPageCharge @ 0x14031D180
+ * XREFs of MiRemoveLockedPageCharge @ 0x14031F1B0
  * Callers:
- *     MiWalkImageReleasePage @ 0x1402CC6DC (MiWalkImageReleasePage.c)
- *     MiHandleTransitionFault @ 0x1402F6550 (MiHandleTransitionFault.c)
- *     MiMigratePfn @ 0x1402F6990 (MiMigratePfn.c)
- *     MiHardFaultPageRelease @ 0x14031C920 (MiHardFaultPageRelease.c)
- *     MiSwapHardFaultPage @ 0x14031CCEC (MiSwapHardFaultPage.c)
- *     MiCanBatchHardFaultPages @ 0x14031CEC0 (MiCanBatchHardFaultPages.c)
- *     MiPurgeSubsection @ 0x140422170 (MiPurgeSubsection.c)
- *     MiFileOnlyPfnMarkedBad @ 0x1406F9B58 (MiFileOnlyPfnMarkedBad.c)
+ *     MiWalkImageReleasePage @ 0x1402AE49C (MiWalkImageReleasePage.c)
+ *     MiHandleTransitionFault @ 0x1402D85D0 (MiHandleTransitionFault.c)
+ *     MiMigratePfn @ 0x1402D8A10 (MiMigratePfn.c)
+ *     MiHardFaultPageRelease @ 0x14031E950 (MiHardFaultPageRelease.c)
+ *     MiSwapHardFaultPage @ 0x14031ED1C (MiSwapHardFaultPage.c)
+ *     MiCanBatchHardFaultPages @ 0x14031EEF0 (MiCanBatchHardFaultPages.c)
+ *     MiPurgeSubsection @ 0x1404199B0 (MiPurgeSubsection.c)
+ *     MiFileOnlyPfnMarkedBad @ 0x1406FE828 (MiFileOnlyPfnMarkedBad.c)
  * Callees:
- *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x14021AAD4 (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     ExAcquireSpinLockExclusive @ 0x140249CD0 (ExAcquireSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402DED10 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     MiSignalCommitSignals @ 0x14043CAA0 (MiSignalCommitSignals.c)
- *     MiRestockOverCommit @ 0x1404F9494 (MiRestockOverCommit.c)
- *     MiBadRefCount @ 0x1405067A4 (MiBadRefCount.c)
+ *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x14021C464 (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024B630 (ExAcquireSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402C0B20 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     MiSignalCommitSignals @ 0x14042F350 (MiSignalCommitSignals.c)
+ *     MiRestockOverCommit @ 0x1404F2AA4 (MiRestockOverCommit.c)
+ *     MiBadRefCount @ 0x140500054 (MiBadRefCount.c)
  */
 
 __int64 __fastcall MiRemoveLockedPageCharge(__int64 a1)
@@ -82,7 +82,7 @@ __int64 __fastcall MiRemoveLockedPageCharge(__int64 a1)
       return (_WORD)v3 == 0;
     }
   }
-  v11 = *(_QWORD *)(stru_140E2EB88.ThreadLock + 8 * ((*(_QWORD *)(a1 + 40) >> 43) & 0x3FFLL));
+  v11 = *(_QWORD *)(stru_140E2ED08.ThreadLock + 8 * ((*(_QWORD *)(a1 + 40) >> 43) & 0x3FFLL));
   if ( (*(__int64 *)(a1 + 40) >= 0 || (*(_DWORD *)(a1 + 16) & 0x400LL) == 0)
     && ((*(_QWORD *)(a1 + 8) | 0x8000000000000000uLL) > 0xFFFFF6BFFFFFFF78uLL
      || (*(_QWORD *)(a1 + 8) | 0x8000000000000000uLL) < 0xFFFFF68000000000uLL
@@ -107,7 +107,7 @@ __int64 __fastcall MiRemoveLockedPageCharge(__int64 a1)
       v12 = MiRestockOverCommit(v11, 1LL);
       if ( (_BYTE)v15 != 17 )
       {
-        if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+        if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || PopHibernateInProgress )
           *v13 = 0;
         else
           ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented((_DWORD *)(v11 + 17272), retaddr);
@@ -120,7 +120,7 @@ LABEL_43:
         goto LABEL_44;
       }
     }
-    if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+    if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || PopHibernateInProgress )
       *v13 = 0;
     else
       ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented((_DWORD *)(v11 + 17272), retaddr);

@@ -1,14 +1,14 @@
 /*
- * XREFs of KeSetSchedulingGroupRankBias @ 0x1400A6B30
+ * XREFs of KeSetSchedulingGroupRankBias @ 0x1400A50A8
  * Callers:
- *     NtSetInformationJobObject @ 0x140464BD8 (NtSetInformationJobObject.c)
+ *     NtSetInformationJobObject @ 0x140463AA8 (NtSetInformationJobObject.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x14002ECB0 (KeYieldProcessorEx.c)
- *     KiRemoveSchedulingGroupQueue @ 0x140099478 (KiRemoveSchedulingGroupQueue.c)
- *     KiResortScbQueue @ 0x1400996DC (KiResortScbQueue.c)
- *     KiCheckForEffectivePriorityChange @ 0x1400A6E74 (KiCheckForEffectivePriorityChange.c)
- *     KiProcessDeferredReadyList @ 0x1400D3450 (KiProcessDeferredReadyList.c)
- *     KiMoveScbThreadsToNewReadylist @ 0x1400D3B50 (KiMoveScbThreadsToNewReadylist.c)
+ *     KeYieldProcessorEx @ 0x14002E830 (KeYieldProcessorEx.c)
+ *     KiRemoveSchedulingGroupQueue @ 0x140098C78 (KiRemoveSchedulingGroupQueue.c)
+ *     KiResortScbQueue @ 0x140098EDC (KiResortScbQueue.c)
+ *     KiCheckForEffectivePriorityChange @ 0x1400A53EC (KiCheckForEffectivePriorityChange.c)
+ *     KiProcessDeferredReadyList @ 0x1400D12F0 (KiProcessDeferredReadyList.c)
+ *     KiMoveScbThreadsToNewReadylist @ 0x1400D19F0 (KiMoveScbThreadsToNewReadylist.c)
  */
 
 __int64 __fastcall KeSetSchedulingGroupRankBias(__int64 a1, char a2, __int64 a3)
@@ -93,7 +93,7 @@ LABEL_7:
           }
           KiMoveScbThreadsToNewReadylist(v9, v15, 0LL, v17);
           if ( !*(_QWORD *)(v9 + 392) )
-            KiRemoveSchedulingGroupQueue(v8, v9, 1);
+            KiRemoveSchedulingGroupQueue((_RTL_RB_TREE *)v8, v9, 1);
         }
         *(_BYTE *)(v9 + 112) &= ~4u;
         goto LABEL_7;
@@ -111,7 +111,7 @@ LABEL_9:
     {
       v14 = 1;
 LABEL_20:
-      KiResortScbQueue(v8, v9, v14);
+      KiResortScbQueue((_RTL_RB_TREE *)v8, v9, v14);
     }
     goto LABEL_7;
   }

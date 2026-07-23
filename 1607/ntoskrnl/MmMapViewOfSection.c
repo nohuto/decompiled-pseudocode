@@ -1,16 +1,16 @@
 /*
- * XREFs of MmMapViewOfSection @ 0x14046BFE8
+ * XREFs of MmMapViewOfSection @ 0x14046AEB8
  * Callers:
- *     AlpcpCreateView @ 0x14040D220 (AlpcpCreateView.c)
- *     MmMapApiSetView @ 0x14046BD4C (MmMapApiSetView.c)
- *     PspMapSystemDll @ 0x14046BED8 (PspMapSystemDll.c)
- *     MmCreatePeb @ 0x14046C0B8 (MmCreatePeb.c)
- *     MiMapProcessExecutable @ 0x14046CDE8 (MiMapProcessExecutable.c)
- *     NtGetNlsSectionPtr @ 0x14047557C (NtGetNlsSectionPtr.c)
- *     NtMapCMFModule @ 0x1404D014C (NtMapCMFModule.c)
- *     NtInitializeNlsFiles @ 0x1404D2C2C (NtInitializeNlsFiles.c)
+ *     AlpcpCreateView @ 0x14040C0E0 (AlpcpCreateView.c)
+ *     MmMapApiSetView @ 0x14046AC1C (MmMapApiSetView.c)
+ *     PspMapSystemDll @ 0x14046ADA8 (PspMapSystemDll.c)
+ *     MmCreatePeb @ 0x14046AF88 (MmCreatePeb.c)
+ *     MiMapProcessExecutable @ 0x14046BCB8 (MiMapProcessExecutable.c)
+ *     NtGetNlsSectionPtr @ 0x14047444C (NtGetNlsSectionPtr.c)
+ *     NtMapCMFModule @ 0x1404B3BEC (NtMapCMFModule.c)
+ *     NtInitializeNlsFiles @ 0x1404B66CC (NtInitializeNlsFiles.c)
  * Callees:
- *     MiMapViewOfSection @ 0x140433010 (MiMapViewOfSection.c)
+ *     MiMapViewOfSection @ 0x140431EE0 (MiMapViewOfSection.c)
  */
 
 __int64 __fastcall MmMapViewOfSection(
@@ -31,9 +31,9 @@ __int64 __fastcall MmMapViewOfSection(
   if ( (int)result < 0 )
   {
     if ( *a3 )
-      ++dword_140327138;
+      ++dword_140327178;
     else
-      ++dword_140327134;
+      ++dword_140327174;
   }
   return result;
 }

@@ -1,14 +1,15 @@
 /*
- * XREFs of ZwQueryIntervalProfile @ 0x140725FB0
+ * XREFs of ZwQueryIntervalProfile @ 0x14072AB80
  * Callers:
- *     DifZwQueryIntervalProfileWrapper @ 0x1406B2450 (DifZwQueryIntervalProfileWrapper.c)
+ *     DifZwQueryIntervalProfileWrapper @ 0x1406B6030 (DifZwQueryIntervalProfileWrapper.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwQueryIntervalProfile(__int64 a1, __int64 a2)
+// local variable allocation has failed, the output may be wrong!
+NTSTATUS __cdecl ZwQueryIntervalProfile(KPROFILE_SOURCE ProfileSource, PULONG Interval)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(*(_QWORD *)&ProfileSource);
 }

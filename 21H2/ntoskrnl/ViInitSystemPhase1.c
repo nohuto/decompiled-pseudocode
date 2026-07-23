@@ -1,12 +1,12 @@
 /*
- * XREFs of ViInitSystemPhase1 @ 0x140A6FD8C
+ * XREFs of ViInitSystemPhase1 @ 0x140A70D8C
  * Callers:
- *     VerifierInitSystem @ 0x140A6FA84 (VerifierInitSystem.c)
+ *     VerifierInitSystem @ 0x140A70A84 (VerifierInitSystem.c)
  * Callees:
- *     PsSetCreateProcessNotifyRoutine @ 0x14078FDB0 (PsSetCreateProcessNotifyRoutine.c)
- *     VfPendingInitPhase1 @ 0x1409D579C (VfPendingInitPhase1.c)
- *     VfPoolInitPhase1 @ 0x1409E0220 (VfPoolInitPhase1.c)
- *     VfSettingsMiscellaneousChecksInitPhase1 @ 0x1409E0578 (VfSettingsMiscellaneousChecksInitPhase1.c)
+ *     PsSetCreateProcessNotifyRoutine @ 0x140791360 (PsSetCreateProcessNotifyRoutine.c)
+ *     VfPendingInitPhase1 @ 0x1409D679C (VfPendingInitPhase1.c)
+ *     VfPoolInitPhase1 @ 0x1409E1220 (VfPoolInitPhase1.c)
+ *     VfSettingsMiscellaneousChecksInitPhase1 @ 0x1409E1578 (VfSettingsMiscellaneousChecksInitPhase1.c)
  */
 
 __int64 ViInitSystemPhase1()

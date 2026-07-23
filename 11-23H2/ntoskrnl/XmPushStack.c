@@ -1,15 +1,15 @@
 /*
- * XREFs of XmPushStack @ 0x1403B9590
+ * XREFs of XmPushStack @ 0x1403B9770
  * Callers:
- *     XmPushaOp @ 0x1403A0990 (XmPushaOp.c)
- *     XmCallOp @ 0x1403B8B10 (XmCallOp.c)
- *     XmPushOp @ 0x1403B9030 (XmPushOp.c)
- *     XmEnterOp @ 0x140533C70 (XmEnterOp.c)
- *     XmIntOp @ 0x140533D40 (XmIntOp.c)
+ *     XmPushaOp @ 0x1403A0B70 (XmPushaOp.c)
+ *     XmCallOp @ 0x1403B8CF0 (XmCallOp.c)
+ *     XmPushOp @ 0x1403B9210 (XmPushOp.c)
+ *     XmEnterOp @ 0x1405341C0 (XmEnterOp.c)
+ *     XmIntOp @ 0x140534290 (XmIntOp.c)
  * Callees:
- *     XmStoreResult @ 0x1403B9608 (XmStoreResult.c)
- *     x86BiosTranslateAddress @ 0x1403BEFC0 (x86BiosTranslateAddress.c)
- *     longjmp @ 0x1403D7EE0 (longjmp.c)
+ *     XmStoreResult @ 0x1403B97E8 (XmStoreResult.c)
+ *     x86BiosTranslateAddress @ 0x1403BF1A0 (x86BiosTranslateAddress.c)
+ *     longjmp @ 0x1403D80C0 (longjmp.c)
  */
 
 __int64 __fastcall XmPushStack(__int64 a1, unsigned int a2)

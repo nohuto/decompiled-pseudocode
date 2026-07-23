@@ -1,12 +1,12 @@
 /*
- * XREFs of AslGuidToString_UStr @ 0x14080824C
+ * XREFs of AslGuidToString_UStr @ 0x14080898C
  * Callers:
- *     SdbResolveDatabaseEx @ 0x1408065C4 (SdbResolveDatabaseEx.c)
+ *     SdbResolveDatabaseEx @ 0x140806D04 (SdbResolveDatabaseEx.c)
  * Callees:
- *     RtlStringCchPrintfW @ 0x140476998 (RtlStringCchPrintfW.c)
- *     AslFree @ 0x14095CD24 (AslFree.c)
- *     AslAlloc @ 0x14095D3E4 (AslAlloc.c)
- *     AslLogCallPrintf @ 0x1409601DC (AslLogCallPrintf.c)
+ *     RtlStringCchPrintfW @ 0x140472F38 (RtlStringCchPrintfW.c)
+ *     AslFree @ 0x1409447E4 (AslFree.c)
+ *     AslAlloc @ 0x140944EA4 (AslAlloc.c)
+ *     AslLogCallPrintf @ 0x140947C9C (AslLogCallPrintf.c)
  */
 
 __int64 __fastcall AslGuidToString_UStr(__int64 a1, unsigned int *a2)

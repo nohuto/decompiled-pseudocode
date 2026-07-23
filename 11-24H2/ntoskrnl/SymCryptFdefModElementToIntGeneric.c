@@ -1,12 +1,12 @@
 /*
- * XREFs of SymCryptFdefModElementToIntGeneric @ 0x140535F94
+ * XREFs of SymCryptFdefModElementToIntGeneric @ 0x140530434
  * Callers:
- *     SymCryptModElementToInt @ 0x140523D88 (SymCryptModElementToInt.c)
- *     SymCryptFdefModInvGeneric @ 0x140536010 (SymCryptFdefModInvGeneric.c)
+ *     SymCryptModElementToInt @ 0x1405216A0 (SymCryptModElementToInt.c)
+ *     SymCryptFdefModInvGeneric @ 0x1405304B0 (SymCryptFdefModInvGeneric.c)
  * Callees:
- *     xHalTimerWatchdogStop @ 0x140493990 (xHalTimerWatchdogStop.c)
- *     SymCryptWipe @ 0x14051DC34 (SymCryptWipe.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
+ *     xHalTimerWatchdogStop @ 0x14048E2E0 (xHalTimerWatchdogStop.c)
+ *     SymCryptWipe @ 0x14051B504 (SymCryptWipe.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
  */
 
 void __fastcall SymCryptFdefModElementToIntGeneric(__int64 a1, const void *a2, __int64 a3)

@@ -1,13 +1,13 @@
 /*
- * XREFs of CmpReferenceKeyControlBlockLockNotHeld @ 0x1408443F0
+ * XREFs of CmpReferenceKeyControlBlockLockNotHeld @ 0x1408406B0
  * Callers:
- *     CmpCreateKeyControlBlock @ 0x1408717C0 (CmpCreateKeyControlBlock.c)
- *     CmpWalkOneLevel @ 0x140872560 (CmpWalkOneLevel.c)
+ *     CmpCreateKeyControlBlock @ 0x140875AF0 (CmpCreateKeyControlBlock.c)
+ *     CmpWalkOneLevel @ 0x140876890 (CmpWalkOneLevel.c)
  * Callees:
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     CmpReferenceKeyControlBlock @ 0x140845AD0 (CmpReferenceKeyControlBlock.c)
- *     CmpUnlockKcb @ 0x140BB92C0 (CmpUnlockKcb.c)
- *     CmpLockKcbShared @ 0x140BB9A1C (CmpLockKcbShared.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     CmpReferenceKeyControlBlock @ 0x140841D90 (CmpReferenceKeyControlBlock.c)
+ *     CmpUnlockKcb @ 0x140BBB2C0 (CmpUnlockKcb.c)
+ *     CmpLockKcbShared @ 0x140BBBA1C (CmpLockKcbShared.c)
  */
 
 signed __int64 __fastcall CmpReferenceKeyControlBlockLockNotHeld(volatile signed __int64 *BugCheckParameter2)

@@ -1,21 +1,21 @@
 /*
- * XREFs of MiUnlockOpportunisticPagesInPageTable @ 0x14031391C
+ * XREFs of MiUnlockOpportunisticPagesInPageTable @ 0x14031594C
  * Callers:
- *     MiSwitchToTransition @ 0x1402A2130 (MiSwitchToTransition.c)
- *     MiReplaceRotateWithDemandZeroNoCopy @ 0x140312684 (MiReplaceRotateWithDemandZeroNoCopy.c)
+ *     MiSwitchToTransition @ 0x1402A1680 (MiSwitchToTransition.c)
+ *     MiReplaceRotateWithDemandZeroNoCopy @ 0x1403146B4 (MiReplaceRotateWithDemandZeroNoCopy.c)
  * Callees:
- *     MiLockPageTableInternal @ 0x1402B34E0 (MiLockPageTableInternal.c)
- *     MiUnlockPageTableInternal @ 0x1402D13E0 (MiUnlockPageTableInternal.c)
- *     MiUnlockWorkingSetShared @ 0x1402EB6C0 (MiUnlockWorkingSetShared.c)
- *     MiLockWorkingSetShared @ 0x1402EDD60 (MiLockWorkingSetShared.c)
- *     MiReadPteShadow @ 0x140314FF0 (MiReadPteShadow.c)
- *     MiInsertTbFlushEntry @ 0x14035E7E0 (MiInsertTbFlushEntry.c)
- *     MiInitializeTbFlushList @ 0x140360920 (MiInitializeTbFlushList.c)
- *     MiInvokeIoReleasePages @ 0x1405141E4 (MiInvokeIoReleasePages.c)
- *     MiLockIoPfnTree @ 0x1406F4668 (MiLockIoPfnTree.c)
- *     MiUnlockIoPfnTree @ 0x1406F4E8C (MiUnlockIoPfnTree.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     MiUnlockPageTableInternal @ 0x1402B31A0 (MiUnlockPageTableInternal.c)
+ *     MiUnlockWorkingSetShared @ 0x1402CD700 (MiUnlockWorkingSetShared.c)
+ *     MiLockWorkingSetShared @ 0x1402CFDE0 (MiLockWorkingSetShared.c)
+ *     MiLockPageTableInternal @ 0x1402FE1B0 (MiLockPageTableInternal.c)
+ *     MiReadPteShadow @ 0x140317020 (MiReadPteShadow.c)
+ *     MiInsertTbFlushEntry @ 0x140360580 (MiInsertTbFlushEntry.c)
+ *     MiInitializeTbFlushList @ 0x1403626C0 (MiInitializeTbFlushList.c)
+ *     MiInvokeIoReleasePages @ 0x14050DC54 (MiInvokeIoReleasePages.c)
+ *     MiLockIoPfnTree @ 0x1406F92D4 (MiLockIoPfnTree.c)
+ *     MiUnlockIoPfnTree @ 0x1406F9AFC (MiUnlockIoPfnTree.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 unsigned __int64 __fastcall MiUnlockOpportunisticPagesInPageTable(
@@ -68,15 +68,15 @@ unsigned __int64 __fastcall MiUnlockOpportunisticPagesInPageTable(
       if ( a3 >= 0xFFFFF6FB7DBED000uLL && a3 <= 0xFFFFF6FB7DBED7F8uLL )
         PteShadow = MiReadPteShadow(a3, PteShadow);
       v18 = v15 & (PteShadow >> 12);
-      if ( v18 <= qword_140E2D7A0 )
+      if ( v18 <= qword_140E2D920 )
       {
         v12 = 6 * v18;
         v13 = 1LL;
         if ( ((*(_QWORD *)(48 * v18 - 0x21FFFFFFFFD8LL) >> 54) & 1) != 0 )
           break;
       }
-      v12 = qword_140E35E40[0];
-      if ( !qword_140E35E40[0] )
+      v12 = qword_140E35FC0[0];
+      if ( !qword_140E35FC0[0] )
         goto LABEL_8;
       v13 = v18 & 0xFFFFFFFFFFFFFE00uLL;
       if ( v11 != -1LL && v11 == v13 )
@@ -107,7 +107,7 @@ unsigned __int64 __fastcall MiUnlockOpportunisticPagesInPageTable(
       }
       v13 = 1LL;
       if ( *(_WORD *)(v9
-                    + 2 * ((v18 & ((1LL << ((unsigned __int8)dword_140E2D6F8 - 12)) - 1)) - *(_QWORD *)(v9 + 24))
+                    + 2 * ((v18 & ((1LL << ((unsigned __int8)dword_140E2D878 - 12)) - 1)) - *(_QWORD *)(v9 + 24))
                     + 176) )
         goto LABEL_24;
 LABEL_8:

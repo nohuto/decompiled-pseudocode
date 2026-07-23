@@ -1,11 +1,11 @@
 /*
- * XREFs of ?StringCchCopyNW@@YAJPEAG_KPEBG1@Z @ 0x1405056D0
+ * XREFs of ?StringCchCopyNW@@YAJPEAG_KPEBG1@Z @ 0x1404FEF80
  * Callers:
- *     LdrpResSearchResourceMappedFile @ 0x1403DAAE8 (LdrpResSearchResourceMappedFile.c)
- *     LdrLoadAlternateResourceModuleEx @ 0x1403DCBD0 (LdrLoadAlternateResourceModuleEx.c)
- *     DownLevelLangIDToLanguageName @ 0x1404EF488 (DownLevelLangIDToLanguageName.c)
- *     LdrpGetParentLangId @ 0x1404F40D0 (LdrpGetParentLangId.c)
- *     DownLevelGetParentLanguageName @ 0x1406D8D50 (DownLevelGetParentLanguageName.c)
+ *     LdrpResSearchResourceMappedFile @ 0x1403DDCD8 (LdrpResSearchResourceMappedFile.c)
+ *     LdrLoadAlternateResourceModuleEx @ 0x1403DFDC0 (LdrLoadAlternateResourceModuleEx.c)
+ *     DownLevelLangIDToLanguageName @ 0x1404E8A68 (DownLevelLangIDToLanguageName.c)
+ *     LdrpGetParentLangId @ 0x1404ED6B0 (LdrpGetParentLangId.c)
+ *     DownLevelGetParentLanguageName @ 0x1406DCEE0 (DownLevelGetParentLanguageName.c)
  * Callees:
  *     <none>
  */

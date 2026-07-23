@@ -1,24 +1,24 @@
 /*
- * XREFs of MiRelocateImagePfn @ 0x1409CEA4C
+ * XREFs of MiRelocateImagePfn @ 0x14099FA2C
  * Callers:
- *     MiValidateInPageEntries @ 0x14038C410 (MiValidateInPageEntries.c)
- *     MiPrivateFixup @ 0x14051D784 (MiPrivateFixup.c)
- *     MiWalkImageApplyRelocationToPage @ 0x1409CE970 (MiWalkImageApplyRelocationToPage.c)
+ *     MiValidateInPageEntries @ 0x14038E1C0 (MiValidateInPageEntries.c)
+ *     MiPrivateFixup @ 0x14051FCB0 (MiPrivateFixup.c)
+ *     MiWalkImageApplyRelocationToPage @ 0x14099F950 (MiWalkImageApplyRelocationToPage.c)
  * Callees:
- *     ExfAcquirePushLockSharedEx @ 0x140277CC0 (ExfAcquirePushLockSharedEx.c)
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     ExfReleasePushLockShared @ 0x140278BD0 (ExfReleasePushLockShared.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     KiCheckForKernelApcDelivery @ 0x14027DB80 (KiCheckForKernelApcDelivery.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     MiReleasePtes @ 0x140281CE0 (MiReleasePtes.c)
- *     MiFlushSingleTbEntry @ 0x140285050 (MiFlushSingleTbEntry.c)
- *     MiMakeValidPte @ 0x1402DA020 (MiMakeValidPte.c)
- *     MiMakeProtectionPfnCompatible @ 0x14033C7D0 (MiMakeProtectionPfnCompatible.c)
- *     MiReservePtes @ 0x14035DE50 (MiReservePtes.c)
- *     HalSystemVectorDispatchEntry @ 0x1404BD660 (HalSystemVectorDispatchEntry.c)
- *     MiPerformFixups @ 0x1409CED50 (MiPerformFixups.c)
- *     RtlDoesRequireFunctionOverrideFixups @ 0x1409CF294 (RtlDoesRequireFunctionOverrideFixups.c)
+ *     ExfAcquirePushLockSharedEx @ 0x140277230 (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     ExfReleasePushLockShared @ 0x140278140 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     KiCheckForKernelApcDelivery @ 0x14027D0F0 (KiCheckForKernelApcDelivery.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     MiReleasePtes @ 0x140281250 (MiReleasePtes.c)
+ *     MiFlushSingleTbEntry @ 0x1402845B0 (MiFlushSingleTbEntry.c)
+ *     MiMakeValidPte @ 0x1402BBDE0 (MiMakeValidPte.c)
+ *     MiMakeProtectionPfnCompatible @ 0x14033E850 (MiMakeProtectionPfnCompatible.c)
+ *     MiReservePtes @ 0x14035FBF0 (MiReservePtes.c)
+ *     HalSystemVectorDispatchEntry @ 0x1404B6E40 (HalSystemVectorDispatchEntry.c)
+ *     MiPerformFixups @ 0x14099FD30 (MiPerformFixups.c)
+ *     RtlDoesRequireFunctionOverrideFixups @ 0x1409A0274 (RtlDoesRequireFunctionOverrideFixups.c)
  */
 
 __int64 __fastcall MiRelocateImagePfn(
@@ -73,7 +73,7 @@ __int64 __fastcall MiRelocateImagePfn(
         else
         {
           v17 = a2;
-          v18 = MiReservePtes((__int64)&stru_140E36558.WaitBlockList, 1u, a3, a4);
+          v18 = MiReservePtes((__int64)&stru_140E366D8.WaitBlockList, 1u, a3, a4);
           if ( !v18 )
           {
             if ( !a2 )
@@ -113,7 +113,7 @@ __int64 __fastcall MiRelocateImagePfn(
           KeAbPostRelease((unsigned __int64)v21);
           v26 = CurrentThread->SpecialApcDisable++ == -1;
           if ( v26
-            && ($7A85BAF4F1FA08634C1C4A3E45B775B3 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
+            && ($241382875694CED3D471BC5892DE3337 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
           {
             KiCheckForKernelApcDelivery(1LL, v25);
           }
@@ -127,7 +127,7 @@ __int64 __fastcall MiRelocateImagePfn(
           }
           else
           {
-            MiReleasePtes((__int64)&stru_140E36558.WaitBlockList, (unsigned __int64 *)v18, 1u);
+            MiReleasePtes((__int64)&stru_140E366D8.WaitBlockList, (unsigned __int64 *)v18, 1u);
           }
         }
         return 0LL;

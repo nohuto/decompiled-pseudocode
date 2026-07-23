@@ -74,7 +74,7 @@ __int64 __fastcall EtwpEnableKernelTrace(char *a1, _DWORD *a2, _QWORD *a3, unsig
       *((_QWORD *)&v24[0] + 1) = -1LL;
       KeSetTimer2(
         (__int64)&EtwpMemInfoTimer,
-        -10000LL * (unsigned int)EtwpMemInfoInterval,
+        (LARGE_INTEGER)(-10000LL * (unsigned int)EtwpMemInfoInterval),
         10000LL * (unsigned int)EtwpMemInfoInterval,
         (__int64)v24);
       v6 = a3;

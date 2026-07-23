@@ -1,13 +1,13 @@
 /*
- * XREFs of HalpTimerSwitchToNormalClock @ 0x1404BF678
+ * XREFs of HalpTimerSwitchToNormalClock @ 0x1404BF8B8
  * Callers:
- *     HalpTimerClockArm @ 0x14024DBE0 (HalpTimerClockArm.c)
- *     HalpTimerAlwaysOnClockInterrupt @ 0x1404D47D0 (HalpTimerAlwaysOnClockInterrupt.c)
+ *     HalpTimerClockArm @ 0x1402F2430 (HalpTimerClockArm.c)
+ *     HalpTimerAlwaysOnClockInterrupt @ 0x1404D4A10 (HalpTimerAlwaysOnClockInterrupt.c)
  * Callees:
- *     HalpTimerGetInternalData @ 0x14022AA30 (HalpTimerGetInternalData.c)
- *     HalpTimerClockArm @ 0x14024DBE0 (HalpTimerClockArm.c)
+ *     HalpTimerGetInternalData @ 0x1402CF2E0 (HalpTimerGetInternalData.c)
+ *     HalpTimerClockArm @ 0x1402F2430 (HalpTimerClockArm.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall HalpTimerSwitchToNormalClock(char a1)

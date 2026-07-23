@@ -1,13 +1,13 @@
 /*
- * XREFs of PpmParkReportUnparkedCores @ 0x1400D5294
+ * XREFs of PpmParkReportUnparkedCores @ 0x1400D3134
  * Callers:
  *     <none>
  * Callees:
- *     KeCountSetBitsAffinityEx @ 0x1400C8A70 (KeCountSetBitsAffinityEx.c)
- *     KeGetPrcb @ 0x1400D3FF8 (KeGetPrcb.c)
- *     KeEnumerateNextProcessor @ 0x1400D53B0 (KeEnumerateNextProcessor.c)
- *     PpmPerfQueueAction @ 0x14012F6DC (PpmPerfQueueAction.c)
- *     KeSubtractAffinityEx @ 0x14014428C (KeSubtractAffinityEx.c)
+ *     KeCountSetBitsAffinityEx @ 0x1400C6910 (KeCountSetBitsAffinityEx.c)
+ *     KeGetPrcb @ 0x1400D1E98 (KeGetPrcb.c)
+ *     KeEnumerateNextProcessor @ 0x1400D3250 (KeEnumerateNextProcessor.c)
+ *     PpmPerfQueueAction @ 0x14012FC4C (PpmPerfQueueAction.c)
+ *     KeSubtractAffinityEx @ 0x1401447FC (KeSubtractAffinityEx.c)
  */
 
 char PpmParkReportUnparkedCores()

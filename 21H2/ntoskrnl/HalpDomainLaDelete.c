@@ -1,25 +1,25 @@
 /*
- * XREFs of HalpDomainLaDelete @ 0x1404C4DF4
+ * XREFs of HalpDomainLaDelete @ 0x1404C5034
  * Callers:
- *     HalpAllocateDomainCommonBufferInternal @ 0x1403A11F4 (HalpAllocateDomainCommonBufferInternal.c)
- *     HalDmaAllocateCrashDumpRegistersEx @ 0x1403A6380 (HalDmaAllocateCrashDumpRegistersEx.c)
- *     HalDmaFreeCrashDumpRegistersEx @ 0x1403A7070 (HalDmaFreeCrashDumpRegistersEx.c)
- *     HalJoinDmaDomain @ 0x1403C7110 (HalJoinDmaDomain.c)
- *     HalpDmaAllocateAndPremapLa @ 0x1404B6D70 (HalpDmaAllocateAndPremapLa.c)
- *     HalpDmaFreeLa @ 0x1404B78F8 (HalpDmaFreeLa.c)
- *     HalFreeCommonBufferV3 @ 0x1404C45F0 (HalFreeCommonBufferV3.c)
- *     HalpLeaveDmaDomain @ 0x1404C4EAC (HalpLeaveDmaDomain.c)
- *     HalAllocateCommonBufferVector @ 0x1404C5700 (HalAllocateCommonBufferVector.c)
- *     HalFreeCommonBufferVector @ 0x1404C6020 (HalFreeCommonBufferVector.c)
- *     HalFreeCommonBufferThin @ 0x1404CADB0 (HalFreeCommonBufferThin.c)
- *     HalpAllocateCommonBufferThin @ 0x1404CB2F0 (HalpAllocateCommonBufferThin.c)
- *     HalpConstructScatterGatherListThin @ 0x1404CB818 (HalpConstructScatterGatherListThin.c)
- *     HalpPutScatterGatherListThin @ 0x1404CBA8C (HalpPutScatterGatherListThin.c)
+ *     HalpAllocateDomainCommonBufferInternal @ 0x1403A1344 (HalpAllocateDomainCommonBufferInternal.c)
+ *     HalDmaAllocateCrashDumpRegistersEx @ 0x1403A64D0 (HalDmaAllocateCrashDumpRegistersEx.c)
+ *     HalDmaFreeCrashDumpRegistersEx @ 0x1403A71C0 (HalDmaFreeCrashDumpRegistersEx.c)
+ *     HalJoinDmaDomain @ 0x1403C72B0 (HalJoinDmaDomain.c)
+ *     HalpDmaAllocateAndPremapLa @ 0x1404B6FB0 (HalpDmaAllocateAndPremapLa.c)
+ *     HalpDmaFreeLa @ 0x1404B7B38 (HalpDmaFreeLa.c)
+ *     HalFreeCommonBufferV3 @ 0x1404C4830 (HalFreeCommonBufferV3.c)
+ *     HalpLeaveDmaDomain @ 0x1404C50EC (HalpLeaveDmaDomain.c)
+ *     HalAllocateCommonBufferVector @ 0x1404C5940 (HalAllocateCommonBufferVector.c)
+ *     HalFreeCommonBufferVector @ 0x1404C6260 (HalFreeCommonBufferVector.c)
+ *     HalFreeCommonBufferThin @ 0x1404CAFF0 (HalFreeCommonBufferThin.c)
+ *     HalpAllocateCommonBufferThin @ 0x1404CB530 (HalpAllocateCommonBufferThin.c)
+ *     HalpConstructScatterGatherListThin @ 0x1404CBA58 (HalpConstructScatterGatherListThin.c)
+ *     HalpPutScatterGatherListThin @ 0x1404CBCCC (HalpPutScatterGatherListThin.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KxReleaseSpinLock @ 0x140212140 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140362F80 (KeAcquireSpinLockRaiseToDpc.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     HalpLaDeleteBlt @ 0x1404DB0C4 (HalpLaDeleteBlt.c)
+ *     HalpLaDeleteBlt @ 0x1404DB304 (HalpLaDeleteBlt.c)
  */
 
 __int64 __fastcall HalpDomainLaDelete(__int64 a1, __int64 a2)

@@ -49,7 +49,7 @@ __int64 __fastcall RtlpHpLfhSubsegmentFreeBlock(unsigned __int64 a1, __int64 a2,
   int v29; // ebp
   unsigned __int16 v30; // dx
   signed __int64 v32; // rdi
-  volatile signed __int64 *v33; // r12
+  _RTL_SRWLOCK *v33; // r12
   int v34; // r10d
   char v35; // al
   signed __int64 v36; // rcx
@@ -59,7 +59,7 @@ __int64 __fastcall RtlpHpLfhSubsegmentFreeBlock(unsigned __int64 a1, __int64 a2,
   __int64 v40; // r8
   _QWORD *v41; // rcx
   __int64 *v42; // rcx
-  volatile signed __int64 *v43; // rbx
+  _RTL_SRWLOCK *v43; // rbx
   unsigned int v44; // ebp
   unsigned int v45; // edi
   int v46; // ebx
@@ -71,21 +71,19 @@ __int64 __fastcall RtlpHpLfhSubsegmentFreeBlock(unsigned __int64 a1, __int64 a2,
   unsigned __int64 v52; // rax
   unsigned __int64 v53; // r14
   unsigned __int64 v54; // rbp
-  unsigned __int64 v55; // r8
-  unsigned __int64 v56; // r9
-  char v57; // cl
-  unsigned int v58; // edi
-  unsigned int v59; // ebp
-  __int64 v60; // r8
-  __int64 v61; // rcx
-  bool v62; // zf
-  signed __int64 v63; // rax
-  int v64[22]; // [rsp+30h] [rbp-58h] BYREF
-  unsigned int EmptyUnits; // [rsp+98h] [rbp+10h]
-  unsigned int v67; // [rsp+A0h] [rbp+18h] BYREF
-  int v68; // [rsp+A8h] [rbp+20h]
+  char v55; // cl
+  unsigned int v56; // edi
+  unsigned int v57; // ebp
+  __int64 v58; // r8
+  __int64 v59; // rcx
+  bool v60; // zf
+  signed __int64 v61; // rax
+  int v62[22]; // [rsp+30h] [rbp-58h] BYREF
+  int EmptyUnits; // [rsp+98h] [rbp+10h]
+  unsigned int v65; // [rsp+A0h] [rbp+18h] BYREF
+  int v66; // [rsp+A8h] [rbp+20h]
 
-  v68 = a4;
+  v66 = a4;
   v4 = a3;
   v5 = 0;
   v6 = a2;
@@ -178,47 +176,47 @@ LABEL_85:
     {
       do
       {
-        EmptyUnits = RtlpHpLfhSubsegmentFindEmptyUnits(v6, (unsigned int)v24, &v67);
+        EmptyUnits = RtlpHpLfhSubsegmentFindEmptyUnits(v6, (unsigned int)v24, &v65);
         if ( EmptyUnits == -1 )
           break;
-        if ( v67 < 2 )
+        if ( v65 < 2 )
         {
           if ( !v49 )
             break;
-          LODWORD(v24) = v67 + EmptyUnits;
+          LODWORD(v24) = v65 + EmptyUnits;
         }
         else if ( v48 )
         {
-          v57 = *(_BYTE *)(v6 + 44);
-          v58 = v67 << v57;
-          v59 = EmptyUnits << v57;
+          v55 = *(_BYTE *)(v6 + 44);
+          v56 = v65 << v55;
+          v57 = EmptyUnits << v55;
           ((void (__fastcall *)(_QWORD, __int64, _QWORD))(a1 ^ RtlpHpHeapGlobals ^ *(_QWORD *)(a1 + 32)))(
             *(_QWORD *)a1,
-            v6 + (EmptyUnits << v57),
-            v67 << v57);
-          v60 = v59;
+            v6 + (unsigned int)(EmptyUnits << v55),
+            v65 << v55);
+          v58 = v57;
           v7 = a1;
-          RtlpHpLfhSubsegmentDecBlockCounts(a1, v6, v60, v58);
+          RtlpHpLfhSubsegmentDecBlockCounts(a1, v6, v58, v56);
           if ( !v49 )
             goto LABEL_98;
-          LODWORD(v24) = EmptyUnits + v67;
+          LODWORD(v24) = EmptyUnits + v65;
         }
         else
         {
           LODWORD(v24) = EmptyUnits;
-          if ( (v68 & 1) == 0 )
-            RtlAcquireSRWLockShared((volatile signed __int64 *)(v7 + 72), EmptyUnits, v55, v56);
+          if ( (v66 & 1) == 0 )
+            RtlAcquireSRWLockShared((PRTL_SRWLOCK)(v7 + 72));
           v48 = 2;
-          RtlAcquireSRWLockExclusive((volatile signed __int64 *)(v6 + 24));
+          RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)(v6 + 24));
         }
       }
       while ( (unsigned int)v24 < *(unsigned __int8 *)(v6 + 45) );
       if ( !v48 )
         goto LABEL_16;
 LABEL_98:
-      RtlReleaseSRWLockExclusive((volatile signed __int64 *)(v6 + 24));
-      if ( (v68 & 1) == 0 )
-        RtlReleaseSRWLockShared((volatile signed __int64 *)(v7 + 72));
+      RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(v6 + 24));
+      if ( (v66 & 1) == 0 )
+        RtlReleaseSRWLockShared((PRTL_SRWLOCK)(v7 + 72));
     }
     goto LABEL_16;
   }
@@ -248,25 +246,25 @@ LABEL_16:
       {
         while ( !v32 )
         {
-          v63 = _InterlockedCompareExchange64((volatile signed __int64 *)(v6 + 16), 3LL, 0LL);
-          v62 = v63 == 0;
+          v61 = _InterlockedCompareExchange64((volatile signed __int64 *)(v6 + 16), 3LL, 0LL);
+          v60 = v61 == 0;
 LABEL_109:
-          v32 = v63;
-          if ( v62 )
+          v32 = v61;
+          if ( v60 )
             return 1;
         }
         if ( (v32 & 1) != 0 )
         {
-          v63 = _InterlockedCompareExchange64(
+          v61 = _InterlockedCompareExchange64(
                   (volatile signed __int64 *)(v6 + 16),
                   v32 & 1 | (v32 + 2) & 0xFFFFFFFFFFFFFFFEuLL,
                   v32);
-          v62 = v32 == v63;
+          v60 = v32 == v61;
           goto LABEL_109;
         }
-        v33 = (volatile signed __int64 *)(v32 + 16);
+        v33 = (_RTL_SRWLOCK *)(v32 + 16);
         v8 = v32;
-        RtlAcquireSRWLockExclusive((volatile signed __int64 *)(v32 + 16));
+        RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)(v32 + 16));
         v32 = *(_QWORD *)(v6 + 16);
         if ( v8 == v32 )
           break;
@@ -350,11 +348,11 @@ LABEL_43:
         v6 = *v38;
         if ( *(__int64 **)(*v38 + 8) != v38 )
           goto LABEL_119;
-        v61 = *(_QWORD *)v6;
+        v59 = *(_QWORD *)v6;
         if ( *(_QWORD *)(*(_QWORD *)v6 + 8LL) != v6 )
           goto LABEL_119;
-        *v38 = v61;
-        *(_QWORD *)(v61 + 8) = v38;
+        *v38 = v59;
+        *(_QWORD *)(v59 + 8) = v38;
         --*v39;
         *(_BYTE *)(v6 + 38) = 2;
       }
@@ -362,14 +360,14 @@ LABEL_43:
         *(_QWORD *)(v6 + 16) = 0LL;
       break;
   }
-  RtlReleaseSRWLockExclusive((volatile signed __int64 *)(v8 + 16));
+  RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(v8 + 16));
   v8 = 0LL;
   if ( v6 )
   {
-    v43 = *(volatile signed __int64 **)(a1
-                                      + 8LL
-                                      * RtlpLfhBucketIndexMap[(unsigned __int64)((unsigned int)(unsigned __int16)v9 + 15) >> 4]
-                                      + 128);
+    v43 = *(_RTL_SRWLOCK **)(a1
+                           + 8LL
+                           * RtlpLfhBucketIndexMap[(unsigned __int64)((unsigned int)(unsigned __int16)v9 + 15) >> 4]
+                           + 128);
     if ( *(_WORD *)(v6 + 32) == *(_WORD *)(v6 + 34)
       || ((RtlAcquireSRWLockExclusive(v43 + 2),
            RtlpHpLfhSubsegmentSetOwner(v6, v43),
@@ -379,22 +377,22 @@ LABEL_43:
           RtlReleaseSRWLockExclusive(v43 + 2),
           v6) )
     {
-      _InterlockedDecrement64(v43 + 8);
-      v44 = v68 & 1;
-      _InterlockedExchangeAdd64(v43 + 7, -*(__int16 *)(v6 + 34));
+      _InterlockedDecrement64((volatile signed __int64 *)&v43[8]);
+      v44 = v66 & 1;
+      _InterlockedExchangeAdd64((volatile signed __int64 *)&v43[7], -*(__int16 *)(v6 + 34));
       v45 = *(unsigned __int8 *)(v6 + 45);
       v46 = 0;
       if ( *(_BYTE *)(v6 + 45) )
       {
         do
         {
-          v47 = RtlpHpLfhSubsegmentFindEmptyUnits(v6, v5, v64);
+          v47 = RtlpHpLfhSubsegmentFindEmptyUnits(v6, v5, v62);
           if ( v47 == -1 )
             break;
-          v46 += v64[0];
-          v5 = v64[0] + v47;
+          v46 += v62[0];
+          v5 = v62[0] + v47;
         }
-        while ( v64[0] + v47 < v45 );
+        while ( v62[0] + v47 < v45 );
         if ( v46 && (RtlpHpLfhPerfFlags & 0x20) != 0 )
           _InterlockedExchangeAdd64(
             (volatile signed __int64 *)(*(__int16 *)(a1 + 58) + a1 + 24),
@@ -410,6 +408,6 @@ LABEL_43:
 LABEL_23:
   v5 = 1;
   if ( v8 )
-    RtlReleaseSRWLockExclusive((volatile signed __int64 *)(v8 + 16));
+    RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(v8 + 16));
   return v5;
 }

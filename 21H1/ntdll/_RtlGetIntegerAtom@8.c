@@ -7,37 +7,36 @@
  *     _RtlUnicodeStringToInteger@12 @ 0x4B2E07A0 (_RtlUnicodeStringToInteger@12.c)
  */
 
-char __stdcall RtlGetIntegerAtom(unsigned int a1, __int16 *a2)
+BOOLEAN __cdecl RtlGetIntegerAtom(PWSTR AtomName, PUSHORT IntegerAtom)
 {
   __int16 v3; // dx
-  unsigned __int16 *v4; // ecx
-  unsigned __int16 v5; // si
-  __int16 v6; // cx
-  _WORD v7[2]; // [esp+8h] [ebp-Ch] BYREF
-  _WORD *v8; // [esp+Ch] [ebp-8h]
-  unsigned int v9; // [esp+10h] [ebp-4h] BYREF
+  PWSTR v4; // ecx
+  WCHAR v5; // si
+  USHORT v6; // cx
+  _UNICODE_STRING String; // [esp+8h] [ebp-Ch] BYREF
+  ULONG Value; // [esp+10h] [ebp-4h] BYREF
 
-  if ( (a1 & 0xFFFF0000) == 0 )
+  if ( ((unsigned int)AtomName & 0xFFFF0000) == 0 )
   {
-    v6 = a1;
-    if ( (unsigned __int16)a1 < 0xC000u )
+    v6 = (unsigned __int16)AtomName;
+    if ( (unsigned __int16)AtomName < 0xC000u )
     {
-      if ( !(_WORD)a1 )
+      if ( !(_WORD)AtomName )
         v6 = -16384;
-      if ( a2 )
-        *a2 = v6;
+      if ( IntegerAtom )
+        *IntegerAtom = v6;
       return 1;
     }
     return 0;
   }
-  if ( *(_WORD *)a1 != 35 )
+  if ( *AtomName != 35 )
     return 0;
-  v3 = a1 + 2;
-  v4 = (unsigned __int16 *)(a1 + 2);
-  if ( *(_WORD *)(a1 + 2) )
+  v3 = (_WORD)AtomName + 2;
+  v4 = AtomName + 1;
+  if ( AtomName[1] )
   {
     v5 = *v4;
-    while ( v5 >= 0x30u && v5 <= 0x39u )
+    while ( (unsigned __int16)v5 >= 0x30u && (unsigned __int16)v5 <= 0x39u )
     {
       v5 = *++v4;
       if ( !*v4 )
@@ -46,18 +45,18 @@ char __stdcall RtlGetIntegerAtom(unsigned int a1, __int16 *a2)
     return 0;
   }
 LABEL_9:
-  v9 = 0;
-  v8 = (_WORD *)(a1 + 2);
-  v7[0] = (_WORD)v4 - v3;
-  v7[1] = (_WORD)v4 - v3;
-  if ( (int)RtlUnicodeStringToInteger(v7, 10, &v9) < 0 )
+  Value = 0;
+  String.Buffer = (wchar_t *)(AtomName + 1);
+  String.Length = (_WORD)v4 - v3;
+  String.MaximumLength = (_WORD)v4 - v3;
+  if ( RtlUnicodeStringToInteger(&String, 0xAu, &Value) < 0 )
     return 0;
-  if ( a2 )
+  if ( IntegerAtom )
   {
-    if ( v9 && v9 <= 0xC000 )
-      *a2 = v9;
+    if ( Value && Value <= 0xC000 )
+      *IntegerAtom = Value;
     else
-      *a2 = -16384;
+      *IntegerAtom = -16384;
   }
   return 1;
 }

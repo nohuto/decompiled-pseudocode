@@ -1,15 +1,15 @@
 /*
- * XREFs of PspInheritSyscallProvider @ 0x1406B9F50
+ * XREFs of PspInheritSyscallProvider @ 0x1406B9F80
  * Callers:
- *     PspInsertProcess @ 0x1406B9FA4 (PspInsertProcess.c)
+ *     PspInsertProcess @ 0x1406B9FD4 (PspInsertProcess.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExAcquirePushLockSharedEx @ 0x140230D90 (ExAcquirePushLockSharedEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExAcquireRundownProtection_0 @ 0x14028B360 (ExAcquireRundownProtection_0.c)
- *     ExReleaseRundownProtection_0 @ 0x14028B390 (ExReleaseRundownProtection_0.c)
- *     ExfReleasePushLockShared @ 0x1402BD860 (ExfReleasePushLockShared.c)
- *     PspAttachProcessToSyscallProvider @ 0x1409B488C (PspAttachProcessToSyscallProvider.c)
+ *     KeLeaveCriticalRegionThread @ 0x14022F7F0 (KeLeaveCriticalRegionThread.c)
+ *     ExAcquirePushLockSharedEx @ 0x140230E80 (ExAcquirePushLockSharedEx.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     ExAcquireRundownProtection_0 @ 0x14028B5F0 (ExAcquireRundownProtection_0.c)
+ *     ExReleaseRundownProtection_0 @ 0x14028B620 (ExReleaseRundownProtection_0.c)
+ *     ExfReleasePushLockShared @ 0x1402BDAF0 (ExfReleasePushLockShared.c)
+ *     PspAttachProcessToSyscallProvider @ 0x1409B4A8C (PspAttachProcessToSyscallProvider.c)
  */
 
 __int64 __fastcall PspInheritSyscallProvider(__int64 a1, __int64 a2)

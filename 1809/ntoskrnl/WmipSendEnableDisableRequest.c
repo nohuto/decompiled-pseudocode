@@ -1,18 +1,18 @@
 /*
- * XREFs of WmipSendEnableDisableRequest @ 0x14070A86C
+ * XREFs of WmipSendEnableDisableRequest @ 0x14070BB0C
  * Callers:
- *     WmipSendEnableRequest @ 0x1406CE2D4 (WmipSendEnableRequest.c)
- *     WmipDoDisableRequest @ 0x1407022A8 (WmipDoDisableRequest.c)
+ *     WmipSendEnableRequest @ 0x1406CF574 (WmipSendEnableRequest.c)
+ *     WmipDoDisableRequest @ 0x140703548 (WmipDoDisableRequest.c)
  * Callees:
  *     KeReleaseMutex @ 0x140006340 (KeReleaseMutex.c)
  *     KeWaitForSingleObject @ 0x140054880 (KeWaitForSingleObject.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     WmipSendWmiIrp @ 0x1405FBEA0 (WmipSendWmiIrp.c)
- *     WmipUnreferenceEntry @ 0x1405FC204 (WmipUnreferenceEntry.c)
- *     WmipReferenceEntry @ 0x140612C30 (WmipReferenceEntry.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     WmipSendWmiIrp @ 0x1405FCEA0 (WmipSendWmiIrp.c)
+ *     WmipUnreferenceEntry @ 0x1405FD204 (WmipUnreferenceEntry.c)
+ *     WmipReferenceEntry @ 0x140613C30 (WmipReferenceEntry.c)
  */
 
 __int64 __fastcall WmipSendEnableDisableRequest(UCHAR a1, __int64 a2, char a3)

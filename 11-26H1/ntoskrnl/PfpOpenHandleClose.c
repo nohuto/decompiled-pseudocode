@@ -1,21 +1,21 @@
 /*
- * XREFs of PfpOpenHandleClose @ 0x1409BA288
+ * XREFs of PfpOpenHandleClose @ 0x14098B268
  * Callers:
- *     PfpQueryFileExtentsRequest @ 0x1407C589C (PfpQueryFileExtentsRequest.c)
- *     PfpPrefetchDirectoryStream @ 0x1409AE4F8 (PfpPrefetchDirectoryStream.c)
- *     PfpPrefetchRequestPerform @ 0x1409AF298 (PfpPrefetchRequestPerform.c)
- *     PfpPrefetchVolumesCleanup @ 0x1409AF77C (PfpPrefetchVolumesCleanup.c)
- *     PfpVolumeOpenAndVerify @ 0x1409AF914 (PfpVolumeOpenAndVerify.c)
- *     PfSnQueryVolumeInfo @ 0x1409B1250 (PfSnQueryVolumeInfo.c)
- *     PfSnOpenVolumesForPrefetch @ 0x1409B2A78 (PfSnOpenVolumesForPrefetch.c)
- *     PfSnCleanupPrefetchHeader @ 0x1409B878C (PfSnCleanupPrefetchHeader.c)
- *     PfSnPopulateReadList @ 0x1409B9120 (PfSnPopulateReadList.c)
- *     PfSnCleanupPrefetchSectionInfo @ 0x1409BA1B4 (PfSnCleanupPrefetchSectionInfo.c)
- *     PfpPrefetchEntireDirectory @ 0x140A4F588 (PfpPrefetchEntireDirectory.c)
- *     PfpFileBuildReadSupport @ 0x140A4F6FC (PfpFileBuildReadSupport.c)
- *     PfpReadSupportCleanup @ 0x140A4FB00 (PfpReadSupportCleanup.c)
+ *     PfpQueryFileExtentsRequest @ 0x1407C88FC (PfpQueryFileExtentsRequest.c)
+ *     PfpPrefetchDirectoryStream @ 0x14097F5AC (PfpPrefetchDirectoryStream.c)
+ *     PfpPrefetchRequestPerform @ 0x14098034C (PfpPrefetchRequestPerform.c)
+ *     PfpPrefetchVolumesCleanup @ 0x140980830 (PfpPrefetchVolumesCleanup.c)
+ *     PfpVolumeOpenAndVerify @ 0x1409809C8 (PfpVolumeOpenAndVerify.c)
+ *     PfSnQueryVolumeInfo @ 0x140982310 (PfSnQueryVolumeInfo.c)
+ *     PfSnOpenVolumesForPrefetch @ 0x140983B38 (PfSnOpenVolumesForPrefetch.c)
+ *     PfSnCleanupPrefetchHeader @ 0x14098976C (PfSnCleanupPrefetchHeader.c)
+ *     PfSnPopulateReadList @ 0x14098A100 (PfSnPopulateReadList.c)
+ *     PfSnCleanupPrefetchSectionInfo @ 0x14098B194 (PfSnCleanupPrefetchSectionInfo.c)
+ *     PfpPrefetchEntireDirectory @ 0x140A58878 (PfpPrefetchEntireDirectory.c)
+ *     PfpFileBuildReadSupport @ 0x140A589EC (PfpFileBuildReadSupport.c)
+ *     PfpReadSupportCleanup @ 0x140A58DF0 (PfpReadSupportCleanup.c)
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall PfpOpenHandleClose(__int64 a1, __int64 a2)

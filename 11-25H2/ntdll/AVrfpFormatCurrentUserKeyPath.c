@@ -8,19 +8,19 @@
  *     AVrfpAppendCurrentUserSid @ 0x1801131DC (AVrfpAppendCurrentUserSid.c)
  */
 
-int __fastcall AVrfpFormatCurrentUserKeyPath(__int64 a1)
+int __fastcall AVrfpFormatCurrentUserKeyPath(PUNICODE_STRING Destination)
 {
   int result; // eax
 
-  *(_OWORD *)a1 = 0LL;
-  *(_WORD *)(a1 + 2) = 1252;
-  *(_QWORD *)(a1 + 8) = &AVrfpCurrentUserKeyPath;
-  result = RtlAppendUnicodeToString((unsigned __int16 *)a1, L"\\REGISTRY\\USER\\");
+  *Destination = 0LL;
+  Destination->MaximumLength = 1252;
+  Destination->Buffer = (wchar_t *)&AVrfpCurrentUserKeyPath;
+  result = RtlAppendUnicodeToString(Destination, L"\\REGISTRY\\USER\\");
   if ( result >= 0 )
   {
-    result = AVrfpAppendCurrentUserSid((unsigned __int16 *)a1);
+    result = AVrfpAppendCurrentUserSid(&Destination->Length);
     if ( result >= 0 )
-      return RtlAppendUnicodeStringToString((unsigned __int16 *)a1, &qword_180176770);
+      return RtlAppendUnicodeStringToString(Destination, &stru_180176770);
   }
   return result;
 }

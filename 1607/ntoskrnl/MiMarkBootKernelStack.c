@@ -3,11 +3,11 @@
  * Callers:
  *     MiInitializeKernelStacks @ 0x14078E3DC (MiInitializeKernelStacks.c)
  * Callees:
- *     MiMarkKernelStack @ 0x140001BA0 (MiMarkKernelStack.c)
- *     MiInsertTbFlushEntry @ 0x1400E0240 (MiInsertTbFlushEntry.c)
- *     MiFlushTbList @ 0x1400E0490 (MiFlushTbList.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1401F25D0 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiMarkKernelStack @ 0x140001D14 (MiMarkKernelStack.c)
+ *     MiInsertTbFlushEntry @ 0x1400DE0E0 (MiInsertTbFlushEntry.c)
+ *     MiFlushTbList @ 0x1400DE330 (MiFlushTbList.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1401F23FC (MI_READ_PTE_LOCK_FREE.c)
  */
 
 void __fastcall MiMarkBootKernelStack(unsigned __int64 a1, unsigned __int64 a2)

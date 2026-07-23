@@ -1,14 +1,14 @@
 /*
- * XREFs of ExpPartitionCreatePoolInternal @ 0x1407C25B0
+ * XREFs of ExpPartitionCreatePoolInternal @ 0x1407C2AD0
  * Callers:
- *     ExpPartitionCreatePool @ 0x1407C2288 (ExpPartitionCreatePool.c)
- *     ExpPartitionInitialize @ 0x1407C23AC (ExpPartitionInitialize.c)
- *     ExpPartitionCreatePoolDelayed @ 0x140955DD8 (ExpPartitionCreatePoolDelayed.c)
+ *     ExpPartitionCreatePool @ 0x1407C27A8 (ExpPartitionCreatePool.c)
+ *     ExpPartitionInitialize @ 0x1407C28CC (ExpPartitionInitialize.c)
+ *     ExpPartitionCreatePoolDelayed @ 0x140955FA8 (ExpPartitionCreatePoolDelayed.c)
  * Callees:
- *     ExpWorkQueueInitializeWithMinimumThreads @ 0x1407C267C (ExpWorkQueueInitializeWithMinimumThreads.c)
- *     ExpWorkQueueDestroy @ 0x140956058 (ExpWorkQueueDestroy.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     ExpWorkQueueInitializeWithMinimumThreads @ 0x1407C2B9C (ExpWorkQueueInitializeWithMinimumThreads.c)
+ *     ExpWorkQueueDestroy @ 0x140956228 (ExpWorkQueueDestroy.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall ExpPartitionCreatePoolInternal(__int64 a1, int a2, int a3, __int64 a4, int a5)

@@ -1,21 +1,21 @@
 /*
- * XREFs of bsearch @ 0x180129FE0
+ * XREFs of bsearch @ 0x180129D50
  * Callers:
- *     RtlpLocateActivationContextSection @ 0x180041090 (RtlpLocateActivationContextSection.c)
- *     RtlpFindUnicodeStringInSection @ 0x180042150 (RtlpFindUnicodeStringInSection.c)
- *     RtlUnwindEx @ 0x180049930 (RtlUnwindEx.c)
- *     RtlpAddVectoredHandler @ 0x18007FCD4 (RtlpAddVectoredHandler.c)
- *     RtlGuardRestoreContext @ 0x180080B50 (RtlGuardRestoreContext.c)
- *     RtlGuardCheckLongJumpTarget @ 0x180080E50 (RtlGuardCheckLongJumpTarget.c)
- *     RtlFindActivationContextSectionGuid @ 0x1800C09D0 (RtlFindActivationContextSectionGuid.c)
- *     RtlQueryProtectedPolicy @ 0x1800E7CF0 (RtlQueryProtectedPolicy.c)
- *     RtlSetProtectedPolicy @ 0x1800F9120 (RtlSetProtectedPolicy.c)
- *     RtlCompareExchangePropertyStore @ 0x180145A60 (RtlCompareExchangePropertyStore.c)
- *     RtlQueryPropertyStore @ 0x180145D50 (RtlQueryPropertyStore.c)
- *     RtlRemovePropertyStore @ 0x180145EC0 (RtlRemovePropertyStore.c)
+ *     RtlpLocateActivationContextSection @ 0x18002B600 (RtlpLocateActivationContextSection.c)
+ *     RtlpFindUnicodeStringInSection @ 0x18002C6C0 (RtlpFindUnicodeStringInSection.c)
+ *     RtlUnwindEx @ 0x180033EB0 (RtlUnwindEx.c)
+ *     RtlpAddVectoredHandler @ 0x180077074 (RtlpAddVectoredHandler.c)
+ *     RtlGuardRestoreContext @ 0x180077EF0 (RtlGuardRestoreContext.c)
+ *     RtlGuardCheckLongJumpTarget @ 0x1800781F0 (RtlGuardCheckLongJumpTarget.c)
+ *     RtlFindActivationContextSectionGuid @ 0x1800BE160 (RtlFindActivationContextSectionGuid.c)
+ *     RtlQueryProtectedPolicy @ 0x1800E6750 (RtlQueryProtectedPolicy.c)
+ *     RtlSetProtectedPolicy @ 0x1800F8890 (RtlSetProtectedPolicy.c)
+ *     RtlCompareExchangePropertyStore @ 0x180145910 (RtlCompareExchangePropertyStore.c)
+ *     RtlQueryPropertyStore @ 0x180145C00 (RtlQueryPropertyStore.c)
+ *     RtlRemovePropertyStore @ 0x180145D70 (RtlRemovePropertyStore.c)
  * Callees:
- *     _invalid_parameter @ 0x180126898 (_invalid_parameter.c)
- *     _guard_check_icall$thunk$15021643654165956172 @ 0x180170010 (_guard_check_icall$thunk$15021643654165956172.c)
+ *     _invalid_parameter @ 0x180126608 (_invalid_parameter.c)
+ *     _guard_check_icall$thunk$15021643654165956172 @ 0x18016F010 (_guard_check_icall$thunk$15021643654165956172.c)
  */
 
 void *__cdecl bsearch(

@@ -1,11 +1,11 @@
 /*
- * XREFs of ObpInsertDirectoryEntry @ 0x1404CC0A8
+ * XREFs of ObpInsertDirectoryEntry @ 0x1404B1AD4
  * Callers:
- *     ObpLookupObjectName @ 0x14044F450 (ObpLookupObjectName.c)
- *     ObCreateObjectTypeEx @ 0x140552054 (ObCreateObjectTypeEx.c)
+ *     ObpLookupObjectName @ 0x14044E320 (ObpLookupObjectName.c)
+ *     ObCreateObjectTypeEx @ 0x140552594 (ObCreateObjectTypeEx.c)
  *     ObInitSystem @ 0x1407A0370 (ObInitSystem.c)
  * Callees:
- *     ObfReferenceObject @ 0x14006A060 (ObfReferenceObject.c)
+ *     ObfReferenceObject @ 0x140069BE0 (ObfReferenceObject.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
  */
 

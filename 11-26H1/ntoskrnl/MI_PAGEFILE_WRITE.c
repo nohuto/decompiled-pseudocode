@@ -1,8 +1,8 @@
 /*
- * XREFs of MI_PAGEFILE_WRITE @ 0x140408C3C
+ * XREFs of MI_PAGEFILE_WRITE @ 0x140401D2C
  * Callers:
- *     MiModwriterIssueWrite @ 0x140408928 (MiModwriterIssueWrite.c)
- *     MiWriteComplete @ 0x14040A870 (MiWriteComplete.c)
+ *     MiModwriterIssueWrite @ 0x140401A18 (MiModwriterIssueWrite.c)
+ *     MiWriteComplete @ 0x140403960 (MiWriteComplete.c)
  * Callees:
  *     <none>
  */

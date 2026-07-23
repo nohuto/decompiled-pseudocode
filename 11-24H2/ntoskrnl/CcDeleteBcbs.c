@@ -1,16 +1,16 @@
 /*
- * XREFs of CcDeleteBcbs @ 0x1402CE42C
+ * XREFs of CcDeleteBcbs @ 0x1404B21D4
  * Callers:
- *     CcDeleteSharedCacheMap @ 0x1402CCE98 (CcDeleteSharedCacheMap.c)
- *     CcSetFileSizesEx @ 0x1404A6800 (CcSetFileSizesEx.c)
+ *     CcDeleteSharedCacheMap @ 0x1402E5B98 (CcDeleteSharedCacheMap.c)
+ *     CcSetFileSizesEx @ 0x1404A10D0 (CcSetFileSizesEx.c)
  * Callees:
- *     KeSetEvent @ 0x1402725A0 (KeSetEvent.c)
- *     KeReleaseInStackQueuedSpinLock @ 0x140275CD0 (KeReleaseInStackQueuedSpinLock.c)
- *     CcDeductDirtyPages @ 0x1402CD7A8 (CcDeductDirtyPages.c)
- *     CcDeallocateBcb @ 0x1402CD8E4 (CcDeallocateBcb.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x1402D8540 (KeAcquireInStackQueuedSpinLock.c)
- *     CcAdjustVacbLevelLockCount @ 0x1403654E4 (CcAdjustVacbLevelLockCount.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
+ *     KeSetEvent @ 0x140227B30 (KeSetEvent.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x14022B260 (KeReleaseInStackQueuedSpinLock.c)
+ *     CcDeductDirtyPages @ 0x1402E53FC (CcDeductDirtyPages.c)
+ *     CcDeallocateBcb @ 0x1402E5568 (CcDeallocateBcb.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1403597C0 (KeAcquireInStackQueuedSpinLock.c)
+ *     CcAdjustVacbLevelLockCount @ 0x1403EAB94 (CcAdjustVacbLevelLockCount.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
  */
 
 void __fastcall CcDeleteBcbs(__int64 a1)
@@ -45,7 +45,7 @@ void __fastcall CcDeleteBcbs(__int64 a1)
       *v7 = v3;
       v3[1] = v7;
       if ( *(__int64 *)(a1 + 32) > 0x2000000 && (*(_DWORD *)(a1 + 152) & 0x200) != 0 )
-        CcAdjustVacbLevelLockCount(a1, v6[1], 0xFFFFFFFFLL);
+        CcAdjustVacbLevelLockCount(a1, v6[1], -1);
       if ( v6[23] )
       {
         v8 = *(_QWORD *)(v6[7] + 8LL);

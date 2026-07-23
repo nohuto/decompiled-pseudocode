@@ -1,11 +1,11 @@
 /*
- * XREFs of HalpDmaIsAutomaticDomain @ 0x1404C4C50
+ * XREFs of HalpDmaIsAutomaticDomain @ 0x1404C4E90
  * Callers:
- *     HalGetAdapterV2 @ 0x140764810 (HalGetAdapterV2.c)
- *     HalGetAdapterV3 @ 0x1407C33B0 (HalGetAdapterV3.c)
+ *     HalGetAdapterV2 @ 0x1407649D0 (HalGetAdapterV2.c)
+ *     HalGetAdapterV3 @ 0x1407C38D0 (HalGetAdapterV3.c)
  * Callees:
- *     HalpDmaReferenceDomainObject @ 0x1403A1414 (HalpDmaReferenceDomainObject.c)
- *     HalpDmaDereferenceDomainObject @ 0x1404C4AF8 (HalpDmaDereferenceDomainObject.c)
+ *     HalpDmaReferenceDomainObject @ 0x1403A1564 (HalpDmaReferenceDomainObject.c)
+ *     HalpDmaDereferenceDomainObject @ 0x1404C4D38 (HalpDmaDereferenceDomainObject.c)
  */
 
 bool __fastcall HalpDmaIsAutomaticDomain(__int64 *BugCheckParameter3)

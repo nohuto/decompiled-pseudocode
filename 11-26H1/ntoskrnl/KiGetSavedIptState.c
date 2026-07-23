@@ -1,10 +1,10 @@
 /*
- * XREFs of KiGetSavedIptState @ 0x1405ECC80
+ * XREFs of KiGetSavedIptState @ 0x1405EF5F0
  * Callers:
  *     <none>
  * Callees:
- *     RtlpLocateExtendedOrSupervisorFeature @ 0x1403D4CB0 (RtlpLocateExtendedOrSupervisorFeature.c)
- *     KiGetSavedSupervisorState @ 0x1405ECD60 (KiGetSavedSupervisorState.c)
+ *     RtlpLocateExtendedOrSupervisorFeature @ 0x1403D7C80 (RtlpLocateExtendedOrSupervisorFeature.c)
+ *     KiGetSavedSupervisorState @ 0x1405EF6D0 (KiGetSavedSupervisorState.c)
  */
 
 __int64 __fastcall KiGetSavedIptState(__int64 a1, char **a2, _DWORD *a3)

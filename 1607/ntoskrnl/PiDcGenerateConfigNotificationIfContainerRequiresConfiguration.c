@@ -1,15 +1,15 @@
 /*
- * XREFs of PiDcGenerateConfigNotificationIfContainerRequiresConfiguration @ 0x1404DF7C0
+ * XREFs of PiDcGenerateConfigNotificationIfContainerRequiresConfiguration @ 0x1404C2DC4
  * Callers:
- *     PiDcHandleContainerEvent @ 0x1404DF9CC (PiDcHandleContainerEvent.c)
+ *     PiDcHandleContainerEvent @ 0x1404C2FD0 (PiDcHandleContainerEvent.c)
  *     PiDcInit @ 0x14079D9B0 (PiDcInit.c)
  * Callees:
- *     ZwUpdateWnfStateData @ 0x14015D3C0 (ZwUpdateWnfStateData.c)
- *     _PnpSetObjectProperty @ 0x140488D1C (_PnpSetObjectProperty.c)
- *     _PnpGetObjectProperty @ 0x1404FE7B0 (_PnpGetObjectProperty.c)
+ *     ZwUpdateWnfStateData @ 0x14015D930 (ZwUpdateWnfStateData.c)
+ *     _PnpGetObjectProperty @ 0x1404E1740 (_PnpGetObjectProperty.c)
+ *     _PnpSetObjectProperty @ 0x140511490 (_PnpSetObjectProperty.c)
  */
 
-__int64 __fastcall PiDcGenerateConfigNotificationIfContainerRequiresConfiguration(__int64 a1)
+__int64 __fastcall PiDcGenerateConfigNotificationIfContainerRequiresConfiguration(int a1)
 {
   int ObjectProperty; // ebx
   int v3; // eax
@@ -53,20 +53,19 @@ __int64 __fastcall PiDcGenerateConfigNotificationIfContainerRequiresConfiguratio
       {
 LABEL_9:
         ObjectProperty = PnpSetObjectProperty(
-                           *(__int64 *)&PiPnpRtlCtx,
+                           PiPnpRtlCtx,
                            a1,
-                           5u,
-                           0LL,
+                           5,
                            0LL,
                            (__int64)&DEVPKEY_DeviceContainer_ConfigFlags,
                            7,
                            (__int64)&unconfiguredConfigFlags,
-                           4u,
+                           4,
                            0);
         if ( ObjectProperty < 0 )
           return (unsigned int)ObjectProperty;
 LABEL_10:
-        ZwUpdateWnfStateData((__int64)&WNF_PNPC_CONTAINER_CONFIG_REQUESTED, 0LL, 0LL);
+        ZwUpdateWnfStateData(&WNF_PNPC_CONTAINER_CONFIG_REQUESTED, 0LL, 0, 0LL, 0LL, 0, 0);
         return (unsigned int)ObjectProperty;
       }
       if ( !v5[0] )

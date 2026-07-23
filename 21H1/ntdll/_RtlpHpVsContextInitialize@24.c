@@ -10,8 +10,10 @@ int __fastcall RtlpHpVsContextInitialize(unsigned int a1, int a2, const void *a3
 {
   int v8; // eax
   int result; // eax
+  size_t v10; // [esp-4h] [ebp-10h]
 
-  memset((void *)a1, 0, 0xC0u);
+  LODWORD(v10) = 192;
+  memset((void *)a1, 0, v10);
   *(_DWORD *)(a1 + 128) = a2 ^ a1;
   *(_DWORD *)(a1 + 4) = a4;
   qmemcpy((void *)(a1 + 132), a3, 0x14u);

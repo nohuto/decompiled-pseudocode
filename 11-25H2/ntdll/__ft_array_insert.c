@@ -10,13 +10,13 @@
  *     memmove @ 0x180168980 (memmove.c)
  */
 
-void *__fastcall _ft_array_insert(const void **a1, __int64 *a2, __int64 *a3, __int64 a4, __int64 a5)
+PVOID __fastcall _ft_array_insert(const void **a1, __int64 *a2, __int64 *a3, __int64 a4, __int64 a5)
 {
   __int64 v5; // rdi
   __int64 v7; // rax
   __int64 v11; // rbx
-  void *result; // rax
-  const void *v13; // r14
+  PVOID result; // rax
+  PVOID v13; // r14
   __int64 v14; // rbx
 
   v5 = *a2;
@@ -27,21 +27,21 @@ LABEL_8:
     v14 = (__int64)*a1 + a5 * a4;
     if ( a5 < v5 )
       memmove((void *)(v14 + a4), (char *)*a1 + a5 * a4, a4 * (v5 - a5));
-    result = (void *)v14;
+    result = (PVOID)v14;
     *a2 = v5 + 1;
     return result;
   }
   v11 = 2 * v7;
   if ( v7 <= 0 )
     v11 = 20LL;
-  result = (void *)RtlAllocateHeap((char *)NtCurrentPeb()->ProcessHeap, 0, a4 * v11);
+  result = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, a4 * v11);
   v13 = result;
   if ( result )
   {
     if ( *a1 )
     {
       memmove(result, *a1, a4 * v5);
-      RtlpSysVolFree((__int64)*a1);
+      RtlpSysVolFree((void *)*a1);
     }
     *a1 = v13;
     *a3 = v11;

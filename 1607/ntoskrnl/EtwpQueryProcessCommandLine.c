@@ -1,16 +1,16 @@
 /*
- * XREFs of EtwpQueryProcessCommandLine @ 0x14045DC34
+ * XREFs of EtwpQueryProcessCommandLine @ 0x14045CB04
  * Callers:
- *     EtwpBuildProcessEvent @ 0x14045D860 (EtwpBuildProcessEvent.c)
- *     EtwTraceAppStateChange @ 0x1404A3048 (EtwTraceAppStateChange.c)
- *     EtwQueryProcessTelemetryInfo @ 0x1404B1BB0 (EtwQueryProcessTelemetryInfo.c)
- *     EtwTimLogRedirectionTrustPolicy @ 0x1406A0764 (EtwTimLogRedirectionTrustPolicy.c)
- *     EtwTraceDeniedTokenCreation @ 0x1406A133C (EtwTraceDeniedTokenCreation.c)
+ *     EtwpBuildProcessEvent @ 0x14045C730 (EtwpBuildProcessEvent.c)
+ *     EtwQueryProcessTelemetryInfo @ 0x14049BF90 (EtwQueryProcessTelemetryInfo.c)
+ *     EtwTraceAppStateChange @ 0x14051B448 (EtwTraceAppStateChange.c)
+ *     EtwTimLogRedirectionTrustPolicy @ 0x1406A089C (EtwTimLogRedirectionTrustPolicy.c)
+ *     EtwTraceDeniedTokenCreation @ 0x1406A1474 (EtwTraceDeniedTokenCreation.c)
  * Callees:
- *     memmove @ 0x140171280 (memmove.c)
+ *     memmove @ 0x140171780 (memmove.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     ExRaiseDatatypeMisalignment @ 0x1406B6058 (ExRaiseDatatypeMisalignment.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1406B6190 (ExRaiseDatatypeMisalignment.c)
  */
 
 __int64 __fastcall EtwpQueryProcessCommandLine(__int64 a1, __int64 a2)

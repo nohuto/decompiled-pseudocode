@@ -5,24 +5,24 @@
  * Callees:
  *     ObfReferenceObjectWithTag @ 0x1402A6D50 (ObfReferenceObjectWithTag.c)
  *     ObfDereferenceObjectWithTag @ 0x1402AC540 (ObfDereferenceObjectWithTag.c)
- *     KeLeaveCriticalRegionThread @ 0x1402AC800 (KeLeaveCriticalRegionThread.c)
+ *     sub_1402AC800 @ 0x1402AC800 (sub_1402AC800.c)
  *     ExAcquirePushLockSharedEx @ 0x1402AD220 (ExAcquirePushLockSharedEx.c)
  *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
- *     KeAbPostRelease @ 0x1402AFC00 (KeAbPostRelease.c)
- *     ObFastDereferenceObject @ 0x1402F89B0 (ObFastDereferenceObject.c)
- *     PsReferencePrimaryTokenWithTag @ 0x140347920 (PsReferencePrimaryTokenWithTag.c)
+ *     sub_1402AFC00 @ 0x1402AFC00 (sub_1402AFC00.c)
+ *     sub_1402F89B0 @ 0x1402F89B0 (sub_1402F89B0.c)
+ *     sub_140347920 @ 0x140347920 (sub_140347920.c)
  *     ObfReferenceObject @ 0x140347CF0 (ObfReferenceObject.c)
  *     ExfReleasePushLockShared @ 0x140359E40 (ExfReleasePushLockShared.c)
- *     SepSetTokenTrust @ 0x1407259B0 (SepSetTokenTrust.c)
+ *     sub_1407259B0 @ 0x1407259B0 (sub_1407259B0.c)
  *     PsDisableImpersonation @ 0x140725F50 (PsDisableImpersonation.c)
  *     PsRestoreImpersonation @ 0x140726090 (PsRestoreImpersonation.c)
- *     PsSwapImpersonationToken @ 0x1407261F4 (PsSwapImpersonationToken.c)
+ *     sub_1407261F4 @ 0x1407261F4 (sub_1407261F4.c)
  *     RtlSetDaclSecurityDescriptor @ 0x140726330 (RtlSetDaclSecurityDescriptor.c)
  *     ObOpenObjectByPointer @ 0x1407277A0 (ObOpenObjectByPointer.c)
- *     ObInsertObjectEx @ 0x140729C30 (ObInsertObjectEx.c)
+ *     sub_140729C30 @ 0x140729C30 (sub_140729C30.c)
  *     ObReferenceObjectByHandle @ 0x140732D00 (ObReferenceObjectByHandle.c)
- *     SepCreateImpersonationTokenDacl @ 0x1407B468C (SepCreateImpersonationTokenDacl.c)
- *     SepDuplicateToken @ 0x1407CDED0 (SepDuplicateToken.c)
+ *     sub_1407B468C @ 0x1407B468C (sub_1407B468C.c)
+ *     sub_1407CDED0 @ 0x1407CDED0 (sub_1407CDED0.c)
  *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
  */
 
@@ -34,7 +34,7 @@ NTSTATUS __stdcall NtOpenThreadTokenEx(
         PHANDLE TokenHandle)
 {
   void *v6; // r12
-  KPROCESSOR_MODE PreviousMode; // r15
+  KPROCESSOR_MODE v7; // r15
   int v8; // esi
   ULONG v9; // esi
   PHANDLE v10; // r14
@@ -49,7 +49,7 @@ NTSTATUS __stdcall NtOpenThreadTokenEx(
   int v19; // r13d
   __int64 v20; // rdi
   unsigned __int64 v21; // rbx
-  NTSTATUS inserted; // r15d
+  NTSTATUS v22; // r15d
   PACL v23; // rbx
   __int64 v24; // rdx
   bool v25; // [rsp+40h] [rbp-D8h]
@@ -88,12 +88,12 @@ NTSTATUS __stdcall NtOpenThreadTokenEx(
   Dacl = 0LL;
   v33 = 0LL;
   v25 = 0;
-  PreviousMode = KeGetCurrentThread()->PreviousMode;
+  v7 = *((_BYTE *)KeGetCurrentThread() + 562);
   v8 = 73714;
-  if ( PreviousMode )
+  if ( v7 )
     v8 = 7666;
   v9 = HandleAttributes & v8;
-  if ( PreviousMode )
+  if ( v7 )
   {
     v10 = TokenHandle;
     v11 = (__int64)TokenHandle;
@@ -105,7 +105,7 @@ NTSTATUS __stdcall NtOpenThreadTokenEx(
   {
     v10 = TokenHandle;
   }
-  v12 = KeGetCurrentThread()->PreviousMode;
+  v12 = *((_BYTE *)KeGetCurrentThread() + 562);
   Object = 0LL;
   result = ObReferenceObjectByHandle(ThreadHandle, 0x800u, (POBJECT_TYPE)PsThreadType, v12, &Object, 0LL);
   if ( result >= 0 )
@@ -115,7 +115,7 @@ NTSTATUS __stdcall NtOpenThreadTokenEx(
       goto LABEL_9;
     CurrentThread = KeGetCurrentThread();
     v35 = CurrentThread;
-    --CurrentThread->KernelApcDisable;
+    --*((_WORD *)CurrentThread + 242);
     v16 = (signed __int64 *)((char *)Object + 1360);
     ExAcquirePushLockSharedEx((ULONG_PTR)Object + 1360, 0LL);
     if ( (v14[344] & 8) != 0 )
@@ -135,8 +135,8 @@ NTSTATUS __stdcall NtOpenThreadTokenEx(
     }
     if ( _InterlockedCompareExchange64(v16, 0LL, 17LL) != 17 )
       ExfReleasePushLockShared(v16);
-    KeAbPostRelease((ULONG_PTR)v16);
-    KeLeaveCriticalRegionThread((__int64)CurrentThread);
+    sub_1402AFC00((ULONG_PTR)v16);
+    sub_1402AC800((__int64)CurrentThread);
     if ( v6 )
     {
       v19 = v31;
@@ -162,11 +162,11 @@ NTSTATUS __stdcall NtOpenThreadTokenEx(
             v25 = v24 != 0;
           }
           v20 = *((_QWORD *)Object + 68);
-          v21 = PsReferencePrimaryTokenWithTag(v20, 0x746C6644u);
-          inserted = SepCreateImpersonationTokenDacl(v6, v21, &Dacl);
-          ObFastDereferenceObject((signed __int64 *)(v20 + 1208), v21, 0x746C6644u);
+          v21 = sub_140347920(v20, 0x746C6644u);
+          v22 = sub_1407B468C(v6, v21, &Dacl);
+          sub_1402F89B0((signed __int64 *)(v20 + 1208), v21, 0x746C6644u);
           v23 = Dacl;
-          if ( inserted >= 0 )
+          if ( v22 >= 0 )
           {
             if ( Dacl )
             {
@@ -182,15 +182,15 @@ NTSTATUS __stdcall NtOpenThreadTokenEx(
             else
               v39 = 0LL;
             v40 = 0LL;
-            inserted = SepDuplicateToken((_DWORD)v6, (unsigned int)&v37, v26, 2, v19, 0, 0, (__int64)&v30);
-            if ( inserted >= 0 )
+            v22 = sub_1407CDED0((_DWORD)v6, (unsigned int)&v37, v26, 2, v19, 0, 0, (__int64)&v30);
+            if ( v22 >= 0 )
             {
               if ( v25 )
-                inserted = SepSetTokenTrust((__int64)v30, v33);
-              if ( inserted >= 0 )
+                v22 = sub_1407259B0((__int64)v30, v33);
+              if ( v22 >= 0 )
               {
                 ObfReferenceObject(v30);
-                inserted = ObInsertObjectEx(v30, 0LL, 0, 0LL, (__int64)&Handle);
+                v22 = sub_140729C30(v30, 0LL, 0, 0LL, (__int64)&Handle);
               }
             }
           }
@@ -198,29 +198,22 @@ NTSTATUS __stdcall NtOpenThreadTokenEx(
         }
         else
         {
-          inserted = ObOpenObjectByPointer(
-                       v6,
-                       v9,
-                       0LL,
-                       DesiredAccess,
-                       (POBJECT_TYPE)SeTokenObjectType,
-                       PreviousMode,
-                       &Handle);
+          v22 = ObOpenObjectByPointer(v6, v9, 0LL, DesiredAccess, (POBJECT_TYPE)SeTokenObjectType, v7, &Handle);
           v23 = Dacl;
         }
         if ( v23 )
           ExFreePoolWithTag(v23, 0);
         if ( v27 )
           PsRestoreImpersonation(KeGetCurrentThread(), &ImpersonationState);
-        if ( inserted >= 0 && v18 )
-          PsSwapImpersonationToken(Object, v6, v30);
+        if ( v22 >= 0 && v18 )
+          sub_1407261F4(Object, v6, v30);
         ObfDereferenceObjectWithTag(v6, 0x74726853u);
         if ( v30 )
           ObfDereferenceObject(v30);
         ObfDereferenceObject(Object);
-        if ( inserted >= 0 )
+        if ( v22 >= 0 )
           *v10 = Handle;
-        return inserted;
+        return v22;
       }
       else
       {

@@ -1,15 +1,15 @@
 /*
- * XREFs of KeSetSystemMultipleGroupAffinityThread @ 0x14050FB94
+ * XREFs of KeSetSystemMultipleGroupAffinityThread @ 0x140509604
  * Callers:
- *     PsSetSystemMultipleGroupAffinityThread @ 0x1406156F0 (PsSetSystemMultipleGroupAffinityThread.c)
- *     MiCombineAllPhysicalMemory @ 0x14087A848 (MiCombineAllPhysicalMemory.c)
+ *     PsSetSystemMultipleGroupAffinityThread @ 0x140618710 (PsSetSystemMultipleGroupAffinityThread.c)
+ *     MiCombineAllPhysicalMemory @ 0x140880C48 (MiCombineAllPhysicalMemory.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     KiSetSystemAffinityThread @ 0x14037C620 (KiSetSystemAffinityThread.c)
- *     KiProcessDeferredReadyList @ 0x14037C920 (KiProcessDeferredReadyList.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     KiCpuPartitionCheckAffinitization @ 0x1405F416C (KiCpuPartitionCheckAffinitization.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     KiSetSystemAffinityThread @ 0x14037E3D0 (KiSetSystemAffinityThread.c)
+ *     KiProcessDeferredReadyList @ 0x14037E6D0 (KiProcessDeferredReadyList.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KiCpuPartitionCheckAffinitization @ 0x1405F6B2C (KiCpuPartitionCheckAffinitization.c)
  */
 
 __int64 __fastcall KeSetSystemMultipleGroupAffinityThread(__int64 *a1, unsigned __int16 a2, __int64 a3)
@@ -51,7 +51,7 @@ __int64 __fastcall KeSetSystemMultipleGroupAffinityThread(__int64 *a1, unsigned 
   KeGetCurrentIrql();
   if ( KeGetCurrentIrql() > 2u )
     return (unsigned int)-1073741811;
-  if ( a2 > *(_WORD *)&stru_140FC01F0.WaitRegister.Flags )
+  if ( a2 > *(_WORD *)&stru_140FC11F0.WaitRegister.Flags )
     return (unsigned int)-1073741811;
   if ( *(_BYTE *)(a3 + 18) >= 3u )
     return (unsigned int)-1073741811;
@@ -62,7 +62,7 @@ __int64 __fastcall KeSetSystemMultipleGroupAffinityThread(__int64 *a1, unsigned 
   v8 = v6[1];
   if ( (unsigned __int16)v7 > (unsigned __int16)v8
     || *((_DWORD *)v6 + 1)
-    || (unsigned __int16)v8 < *(_WORD *)&stru_140FC01F0.WaitRegister.Flags )
+    || (unsigned __int16)v8 < *(_WORD *)&stru_140FC11F0.WaitRegister.Flags )
   {
     return (unsigned int)-1073741811;
   }
@@ -72,9 +72,9 @@ __int64 __fastcall KeSetSystemMultipleGroupAffinityThread(__int64 *a1, unsigned 
     if ( WORD1(a1[v10 + 1]) | (unsigned __int16)(WORD2(a1[v10 + 1]) | HIWORD(a1[v10 + 1])) )
       return (unsigned int)-1073741811;
     v11 = LOWORD(a1[v10 + 1]);
-    if ( (unsigned __int16)v11 >= *(_WORD *)&stru_140FC01F0.WaitRegister.Flags )
+    if ( (unsigned __int16)v11 >= *(_WORD *)&stru_140FC11F0.WaitRegister.Flags )
       return (unsigned int)-1073741811;
-    v8 = *(__int64 *)((char *)&stru_140FC01F0.116 + 8 * v11 + 4);
+    v8 = *(__int64 *)((char *)&stru_140FC11F0.116 + 8 * v11 + 4);
     v7 = a1[v10];
     if ( (v8 & v7) != v7 )
       return (unsigned int)-1073741811;
@@ -202,7 +202,7 @@ LABEL_44:
   LOBYTE(v28) = CurrentIrql;
   KiProcessDeferredReadyList(CurrentPrcb, v35, v28, v29);
   v31 = 0;
-  if ( (WORD2(xmmword_140FBFC10) & 0x200) != 0 )
+  if ( (WORD2(xmmword_140FC0C10) & 0x200) != 0 )
   {
     LOBYTE(v30) = 1;
     KiCpuPartitionCheckAffinitization(

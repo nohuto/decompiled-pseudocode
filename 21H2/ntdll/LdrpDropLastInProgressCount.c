@@ -11,24 +11,22 @@
  *     LdrGetProcedureAddressForCaller @ 0x18002FDC0 (LdrGetProcedureAddressForCaller.c)
  *     LdrEnumerateLoadedModules @ 0x18005EDF0 (LdrEnumerateLoadedModules.c)
  *     LdrpInitializeImportRedirection @ 0x180082514 (LdrpInitializeImportRedirection.c)
- *     LdrInitShimEngineDynamic @ 0x1800D05B0 (LdrInitShimEngineDynamic.c)
- *     LdrpInitializeProcess @ 0x1800D1EC0 (LdrpInitializeProcess.c)
- *     LdrpCompleteProcessCloning @ 0x1800D4B68 (LdrpCompleteProcessCloning.c)
+ *     LdrInitShimEngineDynamic @ 0x1800D0570 (LdrInitShimEngineDynamic.c)
+ *     LdrpInitializeProcess @ 0x1800D1E80 (LdrpInitializeProcess.c)
+ *     LdrpCompleteProcessCloning @ 0x1800D4B28 (LdrpCompleteProcessCloning.c)
  * Callees:
  *     RtlLeaveCriticalSection @ 0x18002F230 (RtlLeaveCriticalSection.c)
  *     RtlEnterCriticalSection @ 0x18002FAA0 (RtlEnterCriticalSection.c)
  */
 
-__int64 LdrpDropLastInProgressCount()
+NTSTATUS LdrpDropLastInProgressCount()
 {
   struct _TEB *v0; // rax
-  __int64 v1; // rdx
-  __int64 v2; // r8
 
   v0 = NtCurrentTeb();
   v0->SameTebFlags &= ~0x1000u;
-  RtlEnterCriticalSection((__int64)&LdrpWorkQueueLock);
+  RtlEnterCriticalSection(&LdrpWorkQueueLock);
   LdrpWorkInProgress = 0;
-  RtlLeaveCriticalSection((__int64)&LdrpWorkQueueLock, v1, v2);
+  RtlLeaveCriticalSection(&LdrpWorkQueueLock);
   return ZwSetEvent(LdrpLoadCompleteEvent, 0LL);
 }

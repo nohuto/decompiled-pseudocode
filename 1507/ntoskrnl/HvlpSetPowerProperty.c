@@ -14,11 +14,11 @@
 __int64 __fastcall HvlpSetPowerProperty(_OWORD *a1)
 {
   char v2; // bp
-  union _SLIST_HEADER *CurrentPrcb; // rbx
+  _SLIST_HEADER *CurrentPrcb; // rbx
   _QWORD *HypercallCachedPages; // rcx
   _SLIST_ENTRY *Next; // r14
   PSLIST_ENTRY v6; // rax
-  struct _SLIST_ENTRY *v7; // r15
+  _SLIST_ENTRY *v7; // r15
   char v8; // si
   __int16 v9; // ax
   __int64 v10; // rax
@@ -34,8 +34,8 @@ __int64 __fastcall HvlpSetPowerProperty(_OWORD *a1)
   bool v20; // zf
   __int64 v21; // rax
   struct _KPRCB *v22; // rcx
-  union _SLIST_HEADER *v24; // [rsp+28h] [rbp-40h]
-  struct _SLIST_ENTRY *v25; // [rsp+30h] [rbp-38h]
+  _SLIST_HEADER *v24; // [rsp+28h] [rbp-40h]
+  _SLIST_ENTRY *v25; // [rsp+30h] [rbp-38h]
   _SLIST_ENTRY *v26; // [rsp+38h] [rbp-30h]
   __int16 v27; // [rsp+60h] [rbp-8h]
 
@@ -54,7 +54,7 @@ LABEL_6:
     HIDWORD(v24) = 1;
     goto LABEL_7;
   }
-  CurrentPrcb = (union _SLIST_HEADER *)KeGetCurrentPrcb();
+  CurrentPrcb = (_SLIST_HEADER *)KeGetCurrentPrcb();
   v6 = RtlpInterlockedPopEntrySList(CurrentPrcb + 1535);
   HypercallCachedPages = &v6->Next;
   if ( !v6 )

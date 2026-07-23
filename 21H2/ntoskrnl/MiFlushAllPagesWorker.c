@@ -1,21 +1,24 @@
 /*
- * XREFs of MiFlushAllPagesWorker @ 0x14038479C
+ * XREFs of MiFlushAllPagesWorker @ 0x1403848EC
  * Callers:
- *     MiFlushAllPages @ 0x1403846E4 (MiFlushAllPages.c)
+ *     MiFlushAllPages @ 0x140384834 (MiFlushAllPages.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
- *     KiQueryUnbiasedInterruptTime @ 0x1402546F4 (KiQueryUnbiasedInterruptTime.c)
- *     KeDelayExecutionThread @ 0x140257490 (KeDelayExecutionThread.c)
- *     MiStoreUpdateMemoryConditions @ 0x1402712E4 (MiStoreUpdateMemoryConditions.c)
- *     KeSetEvent @ 0x1403435A0 (KeSetEvent.c)
- *     MiCanFlushMakeProgress @ 0x14035BAF0 (MiCanFlushMakeProgress.c)
- *     MiWakeModifiedPageWriter @ 0x14035BB54 (MiWakeModifiedPageWriter.c)
- *     CcNotifyWriteBehindEx @ 0x140384778 (CcNotifyWriteBehindEx.c)
+ *     MiStoreUpdateMemoryConditions @ 0x14025F284 (MiStoreUpdateMemoryConditions.c)
+ *     KiQueryUnbiasedInterruptTime @ 0x140275C64 (KiQueryUnbiasedInterruptTime.c)
+ *     KeDelayExecutionThread @ 0x140278A00 (KeDelayExecutionThread.c)
+ *     MiCanFlushMakeProgress @ 0x1402A0A20 (MiCanFlushMakeProgress.c)
+ *     MiWakeModifiedPageWriter @ 0x1402A0A84 (MiWakeModifiedPageWriter.c)
+ *     KeLeaveCriticalRegionThread @ 0x1402AB8C0 (KeLeaveCriticalRegionThread.c)
+ *     KeSetEvent @ 0x14034E2F0 (KeSetEvent.c)
+ *     CcNotifyWriteBehindEx @ 0x1403848C8 (CcNotifyWriteBehindEx.c)
  */
 
 _QWORD *__fastcall MiFlushAllPagesWorker(__int64 a1, __int64 a2, unsigned __int64 a3, __int64 a4)
 {
   struct _KTHREAD *CurrentThread; // rsi
+  __int64 v9; // rdx
+  __int64 v10; // r8
+  __int64 v11; // r9
 
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
@@ -37,5 +40,5 @@ _QWORD *__fastcall MiFlushAllPagesWorker(__int64 a1, __int64 a2, unsigned __int6
   while ( *(_QWORD *)(a1 + 7488) > 0x32uLL );
   _InterlockedAdd((volatile signed __int32 *)(a1 + 784), 0xFFFFFFFF);
   _InterlockedAdd((volatile signed __int32 *)(a1 + 788), 0xFFFFFFFF);
-  return KeLeaveCriticalRegionThread((__int64)CurrentThread);
+  return KeLeaveCriticalRegionThread((__int64)CurrentThread, v9, v10, v11);
 }

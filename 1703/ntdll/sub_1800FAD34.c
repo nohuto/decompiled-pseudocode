@@ -18,11 +18,10 @@ __int64 __fastcall sub_1800FAD34(__int64 a1, __int64 a2, unsigned __int16 a3, ch
   __int64 v12; // r10
   __int64 v13; // rdx
   __int64 v14; // rcx
-  __int64 Heap; // rax
-  unsigned __int64 v17; // rsi
+  WCHAR *Heap; // rax
+  WCHAR *v17; // rsi
   unsigned int v18; // ebx
-  int v19; // [rsp+30h] [rbp-38h] BYREF
-  __int64 v20; // [rsp+38h] [rbp-30h]
+  _UNICODE_STRING String; // [rsp+30h] [rbp-38h] BYREF
 
   if ( !a1 || !a2 || !a5 )
     return 3221225485LL;
@@ -55,19 +54,21 @@ __int64 __fastcall sub_1800FAD34(__int64 a1, __int64 a2, unsigned __int16 a3, ch
     }
     ++v9;
   }
-  Heap = RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 8u, 170LL);
+  Heap = (WCHAR *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, 0xAAuLL);
   v17 = Heap;
   if ( !Heap )
     return 3221225495LL;
-  if ( a4 && *(__int16 *)(a2 + 6) > 0 && (v20 = Heap, v19 = 11141120, RtlLCIDToCultureName(a3, (__int64)&v19)) )
+  if ( a4
+    && *(__int16 *)(a2 + 6) > 0
+    && (String.Buffer = Heap, *(_DWORD *)&String.Length = 11141120, RtlLCIDToCultureName(a3, &String)) )
   {
-    v18 = sub_1800FAF00(a1, a2, v20, 0LL, a5);
-    RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v17);
+    v18 = sub_1800FAF00(a1, a2, String.Buffer, 0LL, a5);
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v17);
     return v18;
   }
   else
   {
-    RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v17);
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v17);
     return 3221225524LL;
   }
 }

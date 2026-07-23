@@ -1,11 +1,11 @@
 /*
- * XREFs of SdbpUmaInit_PCVOID @ 0x140714934
+ * XREFs of SdbpUmaInit_PCVOID @ 0x140719624
  * Callers:
- *     SdbpCheckMatchingRegistryValue @ 0x140882FC0 (SdbpCheckMatchingRegistryValue.c)
+ *     SdbpCheckMatchingRegistryValue @ 0x1408893C0 (SdbpCheckMatchingRegistryValue.c)
  * Callees:
- *     RtlCopyFromUser @ 0x140533E38 (RtlCopyFromUser.c)
- *     AslAlloc @ 0x1409E4C90 (AslAlloc.c)
- *     AslFree @ 0x1409E6BD8 (AslFree.c)
+ *     RtlCopyFromUser @ 0x1405362B8 (RtlCopyFromUser.c)
+ *     AslFree @ 0x1409D6144 (AslFree.c)
+ *     AslAlloc @ 0x1409D8260 (AslAlloc.c)
  */
 
 __int64 (*__fastcall SdbpUmaInit_PCVOID(__int64 (*Src)(void), size_t Size, __int64 (**a3)(void)))(void)

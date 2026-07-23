@@ -1,14 +1,14 @@
 /*
- * XREFs of RtlpNameprepAsciiRealWorker @ 0x1405EEC18
+ * XREFs of RtlpNameprepAsciiRealWorker @ 0x1405EC1F8
  * Callers:
- *     RtlpNameprepAsciiWorker @ 0x14078463C (RtlpNameprepAsciiWorker.c)
+ *     RtlpNameprepAsciiWorker @ 0x14078456C (RtlpNameprepAsciiWorker.c)
  * Callees:
- *     RtlStringCchLengthW @ 0x14042EE70 (RtlStringCchLengthW.c)
- *     FindEmailAt @ 0x1405EE894 (FindEmailAt.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     RtlpValidateAsciiStd3AndLength @ 0x140784718 (RtlpValidateAsciiStd3AndLength.c)
- *     punycode_encode @ 0x140784EA4 (punycode_encode.c)
- *     RtlNormalizeString @ 0x140786DF0 (RtlNormalizeString.c)
+ *     RtlStringCchLengthW @ 0x140420BA0 (RtlStringCchLengthW.c)
+ *     FindEmailAt @ 0x1405EBE74 (FindEmailAt.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     RtlpValidateAsciiStd3AndLength @ 0x140784648 (RtlpValidateAsciiStd3AndLength.c)
+ *     punycode_encode @ 0x140784DD4 (punycode_encode.c)
+ *     RtlNormalizeString @ 0x140786D20 (RtlNormalizeString.c)
  */
 
 NTSTATUS __fastcall RtlpNameprepAsciiRealWorker(

@@ -1,15 +1,15 @@
 /*
- * XREFs of HalpMcaInitializePcrContext @ 0x140BEA068
+ * XREFs of HalpMcaInitializePcrContext @ 0x140BF0068
  * Callers:
- *     HalpWheaInitSystem @ 0x140BEB670 (HalpWheaInitSystem.c)
+ *     HalpWheaInitSystem @ 0x140BF1670 (HalpWheaInitSystem.c)
  * Callees:
- *     HalpMmAllocCtxAlloc @ 0x140357FFC (HalpMmAllocCtxAlloc.c)
- *     KeSetTargetProcessorDpcEx @ 0x140428940 (KeSetTargetProcessorDpcEx.c)
- *     KeGetCurrentProcessorNumberEx @ 0x1404481A0 (KeGetCurrentProcessorNumberEx.c)
- *     KeInitializeDpc @ 0x140481A50 (KeInitializeDpc.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     HalpQueryMaximumRegisteredProcessorCount @ 0x14057CE5C (HalpQueryMaximumRegisteredProcessorCount.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     KeSetTargetProcessorDpcEx @ 0x14021AC20 (KeSetTargetProcessorDpcEx.c)
+ *     HalpMmAllocCtxAlloc @ 0x140359D9C (HalpMmAllocCtxAlloc.c)
+ *     KeGetCurrentProcessorNumberEx @ 0x140440C90 (KeGetCurrentProcessorNumberEx.c)
+ *     KeInitializeDpc @ 0x14047B3C0 (KeInitializeDpc.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     HalpQueryMaximumRegisteredProcessorCount @ 0x14057F37C (HalpQueryMaximumRegisteredProcessorCount.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 int HalpMcaInitializePcrContext()
@@ -21,7 +21,7 @@ int HalpMcaInitializePcrContext()
   KPCR *Pcr; // r8
   __int64 v5; // rdx
   __int64 v6; // rdi
-  struct _PROCESSOR_NUMBER ProcNumber; // [rsp+40h] [rbp+8h] BYREF
+  _PROCESSOR_NUMBER ProcNumber; // [rsp+40h] [rbp+8h] BYREF
 
   ProcNumber = 0;
   LODWORD(v0) = KeGetCurrentProcessorNumberEx(&ProcNumber);

@@ -1,9 +1,9 @@
 /*
- * XREFs of WbValidateHeapExecuteCallArguments @ 0x1407639E4
+ * XREFs of WbValidateHeapExecuteCallArguments @ 0x140763BD4
  * Callers:
- *     WbHeapExecuteCall @ 0x140762C10 (WbHeapExecuteCall.c)
+ *     WbHeapExecuteCall @ 0x140762E00 (WbHeapExecuteCall.c)
  * Callees:
- *     memset @ 0x140435A00 (memset.c)
+ *     memset @ 0x140435E00 (memset.c)
  */
 
 __int64 __fastcall WbValidateHeapExecuteCallArguments(__int64 a1, unsigned int a2, int *a3)

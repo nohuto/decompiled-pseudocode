@@ -1,9 +1,9 @@
 /*
- * XREFs of KeReinitializeAffinityEx @ 0x14046AE00
+ * XREFs of KeReinitializeAffinityEx @ 0x140464580
  * Callers:
  *     <none>
  * Callees:
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 void *__fastcall KeReinitializeAffinityEx(unsigned __int16 *a1)

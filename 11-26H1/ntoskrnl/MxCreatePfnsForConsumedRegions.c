@@ -1,9 +1,9 @@
 /*
- * XREFs of MxCreatePfnsForConsumedRegions @ 0x140CF5F9C
+ * XREFs of MxCreatePfnsForConsumedRegions @ 0x140CFC31C
  * Callers:
- *     MxCreatePfnsForPfns @ 0x140CF6108 (MxCreatePfnsForPfns.c)
+ *     MxCreatePfnsForPfns @ 0x140CFC488 (MxCreatePfnsForPfns.c)
  * Callees:
- *     MxCreatePfnsForDescriptor @ 0x140CF60C4 (MxCreatePfnsForDescriptor.c)
+ *     MxCreatePfnsForDescriptor @ 0x140CFC444 (MxCreatePfnsForDescriptor.c)
  */
 
 __int64 __fastcall MxCreatePfnsForConsumedRegions(_QWORD *a1, _DWORD *a2)
@@ -42,7 +42,7 @@ __int64 __fastcall MxCreatePfnsForConsumedRegions(_QWORD *a1, _DWORD *a2)
       }
       else
       {
-        v10 = qword_14101EC20;
+        v10 = qword_14101FC20;
         v11 = v4[1];
         v16 = *v4;
         v17 = v11;
@@ -50,7 +50,7 @@ __int64 __fastcall MxCreatePfnsForConsumedRegions(_QWORD *a1, _DWORD *a2)
         v18 = v7 + v6;
         if ( !(unsigned int)MxCreatePfnsForDescriptor(&v16) )
           return 0LL;
-        if ( v10 != qword_14101EC20 )
+        if ( v10 != qword_14101FC20 )
           return 1LL;
         v6 = *(v8 - 1);
         v7 = *v8;

@@ -11,21 +11,20 @@
 
 char __fastcall sub_180047C5C(unsigned __int8 a1, __int64 a2)
 {
-  __int64 v4; // rcx
+  void *v4; // rcx
   __int64 v5; // rbx
   unsigned int v6; // esi
   unsigned int v7; // edi
   int v8; // edx
-  int v10; // [rsp+20h] [rbp-28h] BYREF
-  __int16 v11; // [rsp+24h] [rbp-24h]
-  _BYTE v12[8]; // [rsp+28h] [rbp-20h] BYREF
-  int v13; // [rsp+30h] [rbp-18h]
+  _SID_IDENTIFIER_AUTHORITY v10; // [rsp+20h] [rbp-28h] BYREF
+  _BYTE Sid2[8]; // [rsp+28h] [rbp-20h] BYREF
+  int v12; // [rsp+30h] [rbp-18h]
 
-  v10 = 0;
-  v11 = 768;
-  if ( (int)RtlInitializeSid((__int64)v12, (__int64)&v10, 1u) < 0 )
+  *(_DWORD *)v10.Value = 0;
+  *(_WORD *)&v10.Value[4] = 768;
+  if ( RtlInitializeSid(Sid2, &v10, 1u) < 0 )
     return 0;
-  v13 = 4;
+  v12 = 4;
   if ( !a2 )
     return 0;
   v5 = a2 + 8;
@@ -38,19 +37,19 @@ char __fastcall sub_180047C5C(unsigned __int8 a1, __int64 a2)
     if ( (*(_BYTE *)(v5 + 1) & 8) == 0 )
     {
       LOBYTE(v4) = *(_BYTE *)v5;
-      if ( *(_BYTE *)v5 <= 0x10u && (v8 = 104928, _bittest(&v8, v4)) )
+      if ( *(_BYTE *)v5 <= 0x10u && (v8 = 104928, _bittest(&v8, (unsigned int)v4)) )
       {
-        v4 = v5 + ((16LL * (*(_DWORD *)(v5 + 8) & 1)) | 0xC) + 8LL * (*(_DWORD *)(v5 + 8) & 2);
+        v4 = (void *)(v5 + ((16LL * (*(_DWORD *)(v5 + 8) & 1)) | 0xC) + 8LL * (*(_DWORD *)(v5 + 8) & 2));
       }
       else if ( (_BYTE)v4 == 4 )
       {
-        v4 = v5 + 12;
+        v4 = (void *)(v5 + 12);
       }
       else
       {
-        v4 = (unsigned __int8)v4 <= 0xAu || (unsigned __int8)(v4 - 13) <= 1u ? v5 + 8 : 0LL;
+        v4 = (unsigned __int8)v4 <= 0xAu || (unsigned __int8)((_BYTE)v4 - 13) <= 1u ? (void *)(v5 + 8) : 0LL;
       }
-      if ( v4 && (unsigned __int8)RtlEqualSid(v4, v12) && (!a1 || (a1 & *(_BYTE *)(v5 + 1)) != 0) )
+      if ( v4 && RtlEqualSid(v4, Sid2) && (!a1 || (a1 & *(_BYTE *)(v5 + 1)) != 0) )
         break;
     }
     ++v6;

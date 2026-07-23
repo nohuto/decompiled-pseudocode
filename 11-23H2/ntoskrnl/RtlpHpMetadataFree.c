@@ -1,15 +1,15 @@
 /*
- * XREFs of RtlpHpMetadataFree @ 0x14032405C
+ * XREFs of RtlpHpMetadataFree @ 0x1403242EC
  * Callers:
- *     RtlpHpLargeFree @ 0x140323E6C (RtlpHpLargeFree.c)
- *     RtlpHpLargeAlloc @ 0x14032409C (RtlpHpLargeAlloc.c)
- *     RtlpHpCustomVaCallbacksRegistrarRegister @ 0x1405B5F20 (RtlpHpCustomVaCallbacksRegistrarRegister.c)
- *     RtlpHpCustomVaCallbacksRegistrarUnregister @ 0x1405B62E0 (RtlpHpCustomVaCallbacksRegistrarUnregister.c)
- *     RtlpHpHeapDestroy @ 0x1405B6630 (RtlpHpHeapDestroy.c)
- *     RtlpHpLargeAllocationDestroy @ 0x1405B72C0 (RtlpHpLargeAllocationDestroy.c)
+ *     RtlpHpLargeFree @ 0x1403240FC (RtlpHpLargeFree.c)
+ *     RtlpHpLargeAlloc @ 0x14032432C (RtlpHpLargeAlloc.c)
+ *     RtlpHpCustomVaCallbacksRegistrarRegister @ 0x1405B6490 (RtlpHpCustomVaCallbacksRegistrarRegister.c)
+ *     RtlpHpCustomVaCallbacksRegistrarUnregister @ 0x1405B6850 (RtlpHpCustomVaCallbacksRegistrarUnregister.c)
+ *     RtlpHpHeapDestroy @ 0x1405B6BA0 (RtlpHpHeapDestroy.c)
+ *     RtlpHpLargeAllocationDestroy @ 0x1405B7830 (RtlpHpLargeAllocationDestroy.c)
  * Callees:
- *     RtlpHpFreeHeap @ 0x1402AC4C0 (RtlpHpFreeHeap.c)
- *     RtlpHpMetadataHeapCtxGet @ 0x140324628 (RtlpHpMetadataHeapCtxGet.c)
+ *     RtlpHpFreeHeap @ 0x1402AC750 (RtlpHpFreeHeap.c)
+ *     RtlpHpMetadataHeapCtxGet @ 0x1403248B8 (RtlpHpMetadataHeapCtxGet.c)
  */
 
 __int64 __fastcall RtlpHpMetadataFree(__int64 a1, __int128 *a2)

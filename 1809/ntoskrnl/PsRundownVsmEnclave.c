@@ -1,10 +1,10 @@
 /*
- * XREFs of PsRundownVsmEnclave @ 0x14088E3E8
+ * XREFs of PsRundownVsmEnclave @ 0x14088F648
  * Callers:
- *     MiCanDeleteEnclave @ 0x1402BCE14 (MiCanDeleteEnclave.c)
+ *     MiCanDeleteEnclave @ 0x1402BD004 (MiCanDeleteEnclave.c)
  * Callees:
- *     VslpEnterIumSecureMode @ 0x140129CB0 (VslpEnterIumSecureMode.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     VslpEnterIumSecureMode @ 0x140129D80 (VslpEnterIumSecureMode.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall PsRundownVsmEnclave(__int64 a1)

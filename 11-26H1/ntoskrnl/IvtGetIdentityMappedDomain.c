@@ -1,7 +1,7 @@
 /*
- * XREFs of IvtGetIdentityMappedDomain @ 0x1405A67D4
+ * XREFs of IvtGetIdentityMappedDomain @ 0x1405A8FE4
  * Callers:
- *     IvtInitializeIommu @ 0x140BEFC90 (IvtInitializeIommu.c)
+ *     IvtInitializeIommu @ 0x140BF5C90 (IvtInitializeIommu.c)
  * Callees:
  *     <none>
  */

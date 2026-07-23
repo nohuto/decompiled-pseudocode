@@ -13,13 +13,14 @@
 
 __int64 __fastcall RtlpConsoleFallbackNameFromLocaleName(
         wchar_t *String2,
-        char a2,
+        __int64 a2,
         bool *a3,
-        UNICODE_STRING *a4,
+        _UNICODE_STRING *a4,
         __int64 a5,
         unsigned __int16 a6)
 {
   bool v6; // bl
+  char v9; // r14
   bool v11; // zf
   int LcidIndex; // eax
   int v13; // edx
@@ -45,6 +46,7 @@ __int64 __fastcall RtlpConsoleFallbackNameFromLocaleName(
 
   v6 = 0;
   v32[0] = 0LL;
+  v9 = a2;
   if ( !String2 )
     return 3221225711LL;
   if ( !a3 )
@@ -53,7 +55,7 @@ __int64 __fastcall RtlpConsoleFallbackNameFromLocaleName(
     return 3221225714LL;
   v11 = pTblPtrs == 0;
   *a3 = 0;
-  if ( !v11 || RtlpLoadNlsData() )
+  if ( !v11 || RtlpLoadNlsData((__int64)String2, a2, (__int64)a3, (ULONG *)&a4->Length) )
   {
     LcidIndex = RtlpNlsGetLcidIndex(gSystemLocale);
     if ( LcidIndex >= 0 )
@@ -86,7 +88,7 @@ LABEL_24:
           }
         }
         v24 = (const wchar_t *)(*(_QWORD *)(pTblPtrs + 32) + 2LL + 2LL * *(unsigned int *)(v17 + v16 + 276));
-        if ( a2 && !wcsicmp(v24, String2) )
+        if ( v9 && !wcsicmp(v24, String2) )
         {
           v25 = String2;
 LABEL_23:

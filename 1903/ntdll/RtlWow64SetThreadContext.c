@@ -6,7 +6,7 @@
  *     <none>
  */
 
-__int64 RtlWow64SetThreadContext()
+NTSTATUS __cdecl RtlWow64SetThreadContext(HANDLE ThreadHandle, PWOW64_CONTEXT ThreadContext)
 {
-  return ZwSetInformationThread();
+  return ZwSetInformationThread(ThreadHandle, ThreadWow64Context, ThreadContext, 0x2CCu);
 }

@@ -1,14 +1,14 @@
 /*
- * XREFs of AdtpBuildSecurityDescriptorUnicodeString @ 0x140A5AF64
+ * XREFs of AdtpBuildSecurityDescriptorUnicodeString @ 0x140A5B214
  * Callers:
- *     AdtpPackageParameters @ 0x140399604 (AdtpPackageParameters.c)
- *     AdtpBuildSecurityDescriptorChangeString @ 0x140A5AE98 (AdtpBuildSecurityDescriptorChangeString.c)
+ *     AdtpPackageParameters @ 0x1403997E4 (AdtpPackageParameters.c)
+ *     AdtpBuildSecurityDescriptorChangeString @ 0x140A5B148 (AdtpBuildSecurityDescriptorChangeString.c)
  * Callees:
  *     SeConvertSecurityDescriptorToStringSecurityDescriptor @ 0x14020BC70 (SeConvertSecurityDescriptorToStringSecurityDescriptor.c)
- *     RtlStringCbPrintfW @ 0x140229604 (RtlStringCbPrintfW.c)
- *     StringCchPrintfW @ 0x1403662E8 (StringCchPrintfW.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memmove @ 0x140435700 (memmove.c)
+ *     RtlStringCbPrintfW @ 0x140229714 (RtlStringCbPrintfW.c)
+ *     StringCchPrintfW @ 0x140366488 (StringCchPrintfW.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     memmove @ 0x140435B00 (memmove.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

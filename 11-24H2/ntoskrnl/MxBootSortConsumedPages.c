@@ -1,5 +1,5 @@
 /*
- * XREFs of MxBootSortConsumedPages @ 0x140C521C0
+ * XREFs of MxBootSortConsumedPages @ 0x140C54350
  * Callers:
  *     <none>
  * Callees:

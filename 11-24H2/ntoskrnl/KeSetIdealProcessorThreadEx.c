@@ -1,16 +1,16 @@
 /*
- * XREFs of KeSetIdealProcessorThreadEx @ 0x1403B422C
+ * XREFs of KeSetIdealProcessorThreadEx @ 0x140370A64
  * Callers:
- *     MiRevertProcessorMove @ 0x14030AAFC (MiRevertProcessorMove.c)
- *     KeSetIdealProcessorThread @ 0x1403B40B0 (KeSetIdealProcessorThread.c)
- *     KeSetIdealProcessorThreadByNumber @ 0x1403B4160 (KeSetIdealProcessorThreadByNumber.c)
- *     MiSetIdealProcessorThread @ 0x1403B4508 (MiSetIdealProcessorThread.c)
- *     ?SmCompressCtxUpdateThreadTopology@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU_SM_COMPRESS_CONTEXT@1@PEAU_ETHREAD@@@Z @ 0x14044A2C8 (-SmCompressCtxUpdateThreadTopology@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU_SM_COMPRESS_CONTEXT@1@.c)
+ *     MiRevertProcessorMove @ 0x1403149DC (MiRevertProcessorMove.c)
+ *     KeSetIdealProcessorThreadByNumber @ 0x140370880 (KeSetIdealProcessorThreadByNumber.c)
+ *     KeSetIdealProcessorThread @ 0x140370950 (KeSetIdealProcessorThread.c)
+ *     MiSetIdealProcessorThread @ 0x140370F20 (MiSetIdealProcessorThread.c)
+ *     ?SmCompressCtxUpdateThreadTopology@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU_SM_COMPRESS_CONTEXT@1@PEAU_ETHREAD@@@Z @ 0x140376550 (-SmCompressCtxUpdateThreadTopology@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU_SM_COMPRESS_CONTEXT@1@.c)
  * Callees:
- *     KiAcquireThreadLockRaiseToDpc @ 0x1402A1A20 (KiAcquireThreadLockRaiseToDpc.c)
- *     KiCheckForThreadDispatch @ 0x14031D21C (KiCheckForThreadDispatch.c)
- *     ?KiSetIdealProcessorThread@@YAJPEAU_KTHREAD@@KEPEAKE@Z @ 0x1403B4344 (-KiSetIdealProcessorThread@@YAJPEAU_KTHREAD@@KEPEAKE@Z.c)
- *     EtwTraceIdealProcessor @ 0x1404B1DCC (EtwTraceIdealProcessor.c)
+ *     KiCheckForThreadDispatch @ 0x1402C5DAC (KiCheckForThreadDispatch.c)
+ *     KiAcquireThreadLockRaiseToDpc @ 0x1402D1150 (KiAcquireThreadLockRaiseToDpc.c)
+ *     ?KiSetIdealProcessorThread@@YAJPEAU_KTHREAD@@KEPEAKE@Z @ 0x140370B7C (-KiSetIdealProcessorThread@@YAJPEAU_KTHREAD@@KEPEAKE@Z.c)
+ *     EtwTraceIdealProcessor @ 0x1404AC65C (EtwTraceIdealProcessor.c)
  */
 
 __int64 __fastcall KeSetIdealProcessorThreadEx(struct _KTHREAD *a1, unsigned int a2, unsigned int *a3)
@@ -29,10 +29,10 @@ __int64 __fastcall KeSetIdealProcessorThreadEx(struct _KTHREAD *a1, unsigned int
   if ( v8 >= 0 && !v6 )
     _interlockedbittestandset((volatile signed __int32 *)&a1->116 + 1, 0);
   a1->ThreadLock = 0LL;
-  if ( (xmmword_140FC5B10 & 0x8000000) != 0 )
+  if ( (xmmword_140FC6B50 & 0x8000000) != 0 )
   {
     EtwTraceIdealProcessor(a1, 1350LL);
-    if ( (xmmword_140FC5B10 & 0x8000000) != 0 )
+    if ( (xmmword_140FC6B50 & 0x8000000) != 0 )
       EtwTraceIdealProcessor(a1, 1351LL);
   }
   LOBYTE(v7) = v10;

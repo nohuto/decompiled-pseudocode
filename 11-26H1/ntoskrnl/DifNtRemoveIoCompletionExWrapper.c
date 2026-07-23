@@ -1,18 +1,24 @@
 /*
- * XREFs of DifNtRemoveIoCompletionExWrapper @ 0x140688990
+ * XREFs of DifNtRemoveIoCompletionExWrapper @ 0x14068C570
  * Callers:
  *     <none>
  * Callees:
- *     DifGetReturnAddressForWrappers @ 0x140260EA4 (DifGetReturnAddressForWrappers.c)
- *     ExReleaseRundownProtection_0 @ 0x140266240 (ExReleaseRundownProtection_0.c)
- *     ExAcquireRundownProtection_0 @ 0x1402F0590 (ExAcquireRundownProtection_0.c)
- *     DifGetAPIThunkContextById @ 0x1404C17A4 (DifGetAPIThunkContextById.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     NtRemoveIoCompletionEx @ 0x140A5DAF0 (NtRemoveIoCompletionEx.c)
+ *     DifGetReturnAddressForWrappers @ 0x14026040C (DifGetReturnAddressForWrappers.c)
+ *     ExReleaseRundownProtection_0 @ 0x1402657B0 (ExReleaseRundownProtection_0.c)
+ *     ExAcquireRundownProtection_0 @ 0x1402D2610 (ExAcquireRundownProtection_0.c)
+ *     DifGetAPIThunkContextById @ 0x1404BAFF4 (DifGetAPIThunkContextById.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     NtRemoveIoCompletionEx @ 0x140A6AAB0 (NtRemoveIoCompletionEx.c)
  */
 
-__int64 __fastcall DifNtRemoveIoCompletionExWrapper(__int64 a1, __int64 a2, int a3, __int64 a4, __int64 a5, char a6)
+__int64 __fastcall DifNtRemoveIoCompletionExWrapper(
+        void *a1,
+        _FILE_IO_COMPLETION_INFORMATION *a2,
+        ULONG a3,
+        ULONG *a4,
+        LARGE_INTEGER *Timeout,
+        BOOLEAN Alertable)
 {
   __int128 *APIThunkContextById; // rax
   __int64 v10; // rdx
@@ -25,12 +31,12 @@ __int64 __fastcall DifNtRemoveIoCompletionExWrapper(__int64 a1, __int64 a2, int 
   BOOLEAN v17; // di
   __int128 *j; // rbx
   PVOID v20; // [rsp+30h] [rbp-40h] BYREF
-  __int64 v21; // [rsp+38h] [rbp-38h]
-  __int64 v22; // [rsp+40h] [rbp-30h]
-  __int64 v23; // [rsp+48h] [rbp-28h]
-  __int64 v24; // [rsp+50h] [rbp-20h]
-  __int64 v25; // [rsp+58h] [rbp-18h]
-  __int64 v26; // [rsp+60h] [rbp-10h]
+  BOOLEAN v21; // [rsp+38h] [rbp-38h]
+  LARGE_INTEGER *v22; // [rsp+40h] [rbp-30h]
+  ULONG *v23; // [rsp+48h] [rbp-28h]
+  ULONG v24; // [rsp+50h] [rbp-20h]
+  _FILE_IO_COMPLETION_INFORMATION *v25; // [rsp+58h] [rbp-18h]
+  void *v26; // [rsp+60h] [rbp-10h]
   unsigned int v27; // [rsp+68h] [rbp-8h]
   void *retaddr; // [rsp+98h] [rbp+28h]
 
@@ -54,10 +60,10 @@ __int64 __fastcall DifNtRemoveIoCompletionExWrapper(__int64 a1, __int64 a2, int 
 LABEL_7:
   v14 = 0;
   v26 = a1;
-  v22 = a5;
-  LOBYTE(v21) = a6;
+  v22 = Timeout;
+  v21 = Alertable;
   v25 = a2;
-  LODWORD(v24) = a3;
+  v24 = a3;
   v23 = a4;
   if ( !VfDifRunningWithoutReboot && (VfOptionFlags & 0x800) == 0
     || (v14 = ExAcquireRundownProtection_0(&DifRebootlessRundown)) != 0 )
@@ -71,7 +77,7 @@ LABEL_7:
       ExReleaseRundownProtection_0(&DifRebootlessRundown);
   }
 LABEL_17:
-  v27 = NtRemoveIoCompletionEx(a1, a2, a3, a4, a5, a6, v20, v21, v22, v23, v24, v25, v26);
+  v27 = NtRemoveIoCompletionEx(a1, a2, a3, a4, Timeout, Alertable);
   if ( v11 )
   {
     if ( (v17 = 0, !VfDifRunningWithoutReboot) && (VfOptionFlags & 0x800) == 0

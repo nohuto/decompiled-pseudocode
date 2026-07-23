@@ -1,12 +1,12 @@
 /*
- * XREFs of DbgPrompt @ 0x140211374
+ * XREFs of DbgPrompt @ 0x1402111A0
  * Callers:
- *     RtlAssert @ 0x140213458 (RtlAssert.c)
- *     VfReportIssueWithOptions @ 0x140223544 (VfReportIssueWithOptions.c)
- *     PspCatchCriticalBreak @ 0x14067FBF8 (PspCatchCriticalBreak.c)
- *     ViErrorFinishReport @ 0x14070EBC4 (ViErrorFinishReport.c)
+ *     RtlAssert @ 0x140213284 (RtlAssert.c)
+ *     VfReportIssueWithOptions @ 0x140223370 (VfReportIssueWithOptions.c)
+ *     PspCatchCriticalBreak @ 0x14067FCDC (PspCatchCriticalBreak.c)
+ *     ViErrorFinishReport @ 0x14070EBF4 (ViErrorFinishReport.c)
  * Callees:
- *     DebugPrompt @ 0x140166DB0 (DebugPrompt.c)
+ *     DebugPrompt @ 0x140167320 (DebugPrompt.c)
  */
 
 ULONG __stdcall DbgPrompt(PCCH Prompt, PCH Response, ULONG Length)

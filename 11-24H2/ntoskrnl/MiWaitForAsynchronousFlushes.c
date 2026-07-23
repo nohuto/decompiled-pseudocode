@@ -1,11 +1,11 @@
 /*
- * XREFs of MiWaitForAsynchronousFlushes @ 0x1404CF344
+ * XREFs of MiWaitForAsynchronousFlushes @ 0x1404C860C
  * Callers:
- *     MiFlushSection @ 0x14023A550 (MiFlushSection.c)
+ *     MiFlushSection @ 0x140272630 (MiFlushSection.c)
  * Callees:
- *     KeWaitForMultipleObjects @ 0x14033D720 (KeWaitForMultipleObjects.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KeWaitForMultipleObjects @ 0x14031CC00 (KeWaitForMultipleObjects.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 __int64 __fastcall MiWaitForAsynchronousFlushes(unsigned int *a1, __int64 a2)

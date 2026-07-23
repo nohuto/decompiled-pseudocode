@@ -1,18 +1,18 @@
 /*
- * XREFs of PiDevCfgResolveMultiSzValue @ 0x140B442E8
+ * XREFs of PiDevCfgResolveMultiSzValue @ 0x140B461D8
  * Callers:
- *     PiDevCfgCopyDeviceKey @ 0x140A731C8 (PiDevCfgCopyDeviceKey.c)
+ *     PiDevCfgCopyDeviceKey @ 0x140A49C64 (PiDevCfgCopyDeviceKey.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     PnpValidateStringData @ 0x1404ED05C (PnpValidateStringData.c)
- *     PnpValidateMultiSzData @ 0x1404F5374 (PnpValidateMultiSzData.c)
- *     PnpMultiSzContainsString @ 0x1404FAAEC (PnpMultiSzContainsString.c)
- *     PnpValidateRegistryMultiSz @ 0x140506D2C (PnpValidateRegistryMultiSz.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     RtlEqualUnicodeString @ 0x14091F0E0 (RtlEqualUnicodeString.c)
- *     IopGetRegistryValue @ 0x140A121A8 (IopGetRegistryValue.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     PnpValidateStringData @ 0x1404E663C (PnpValidateStringData.c)
+ *     PnpValidateMultiSzData @ 0x1404EE954 (PnpValidateMultiSzData.c)
+ *     PnpMultiSzContainsString @ 0x1404F40FC (PnpMultiSzContainsString.c)
+ *     PnpValidateRegistryMultiSz @ 0x1405006FC (PnpValidateRegistryMultiSz.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     RtlEqualUnicodeString @ 0x140979B40 (RtlEqualUnicodeString.c)
+ *     IopGetRegistryValue @ 0x140A11398 (IopGetRegistryValue.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PiDevCfgResolveMultiSzValue(

@@ -1,10 +1,10 @@
 /*
- * XREFs of PiPnpRtlApplyMandatoryDeviceInterfaceFilters @ 0x1406C9768
+ * XREFs of PiPnpRtlApplyMandatoryDeviceInterfaceFilters @ 0x1406C9798
  * Callers:
- *     PiPnpRtlApplyMandatoryFilters @ 0x140741438 (PiPnpRtlApplyMandatoryFilters.c)
+ *     PiPnpRtlApplyMandatoryFilters @ 0x140741628 (PiPnpRtlApplyMandatoryFilters.c)
  * Callees:
- *     PnpGetObjectProperty @ 0x1406D00B0 (PnpGetObjectProperty.c)
- *     PiPnpRtlApplyMandatoryDeviceFilters @ 0x140740830 (PiPnpRtlApplyMandatoryDeviceFilters.c)
+ *     PnpGetObjectProperty @ 0x1406D00E0 (PnpGetObjectProperty.c)
+ *     PiPnpRtlApplyMandatoryDeviceFilters @ 0x140740A20 (PiPnpRtlApplyMandatoryDeviceFilters.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

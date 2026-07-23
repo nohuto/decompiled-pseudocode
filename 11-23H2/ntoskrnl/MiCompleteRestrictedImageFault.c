@@ -1,22 +1,22 @@
 /*
- * XREFs of MiCompleteRestrictedImageFault @ 0x1402E2E50
+ * XREFs of MiCompleteRestrictedImageFault @ 0x1402E30E0
  * Callers:
  *     MiSoftFaultMappedView @ 0x140217E90 (MiSoftFaultMappedView.c)
  * Callees:
  *     MiLockAndDecrementShareCount @ 0x140211BAC (MiLockAndDecrementShareCount.c)
- *     KeYieldProcessorEx @ 0x140242E40 (KeYieldProcessorEx.c)
- *     MiAllocateWsle @ 0x14026B7D0 (MiAllocateWsle.c)
- *     MiGetSessionIdForVa @ 0x1402A16D0 (MiGetSessionIdForVa.c)
- *     MiReferenceControlAreaFileWithTag @ 0x1402A23F0 (MiReferenceControlAreaFileWithTag.c)
- *     ObFastDereferenceObjectDeferDelete @ 0x1402A2500 (ObFastDereferenceObjectDeferDelete.c)
- *     MiMakeValidPte @ 0x1402CF2B0 (MiMakeValidPte.c)
- *     MiGetContainingPageTable @ 0x1402E1270 (MiGetContainingPageTable.c)
- *     MiStartingOffset @ 0x1402E2310 (MiStartingOffset.c)
- *     PfSnLogPageFault @ 0x1402E2510 (PfSnLogPageFault.c)
- *     MiQueueCoreWorkingSetEntries @ 0x1402E3190 (MiQueueCoreWorkingSetEntries.c)
- *     MiGetUsedPtesHandle @ 0x1402E5A70 (MiGetUsedPtesHandle.c)
- *     MiIncreaseUsedPtesCount @ 0x1402F18D4 (MiIncreaseUsedPtesCount.c)
- *     MiEmptyDeferredWorkingSetEntries @ 0x140339CD0 (MiEmptyDeferredWorkingSetEntries.c)
+ *     KeYieldProcessorEx @ 0x140242F10 (KeYieldProcessorEx.c)
+ *     MiAllocateWsle @ 0x14026BA60 (MiAllocateWsle.c)
+ *     MiGetSessionIdForVa @ 0x1402A1960 (MiGetSessionIdForVa.c)
+ *     MiReferenceControlAreaFileWithTag @ 0x1402A2680 (MiReferenceControlAreaFileWithTag.c)
+ *     ObFastDereferenceObjectDeferDelete @ 0x1402A2790 (ObFastDereferenceObjectDeferDelete.c)
+ *     MiMakeValidPte @ 0x1402CF540 (MiMakeValidPte.c)
+ *     MiGetContainingPageTable @ 0x1402E1500 (MiGetContainingPageTable.c)
+ *     MiStartingOffset @ 0x1402E25A0 (MiStartingOffset.c)
+ *     PfSnLogPageFault @ 0x1402E27A0 (PfSnLogPageFault.c)
+ *     MiQueueCoreWorkingSetEntries @ 0x1402E3420 (MiQueueCoreWorkingSetEntries.c)
+ *     MiGetUsedPtesHandle @ 0x1402E5D00 (MiGetUsedPtesHandle.c)
+ *     MiIncreaseUsedPtesCount @ 0x1402F1B64 (MiIncreaseUsedPtesCount.c)
+ *     MiEmptyDeferredWorkingSetEntries @ 0x140339F60 (MiEmptyDeferredWorkingSetEntries.c)
  */
 
 __int64 __fastcall MiCompleteRestrictedImageFault(__int64 a1, unsigned __int64 a2, __int64 *a3, unsigned int a4)

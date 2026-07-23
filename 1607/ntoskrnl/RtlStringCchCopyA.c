@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlStringCchCopyA @ 0x14013CD74
+ * XREFs of RtlStringCchCopyA @ 0x14013D2E4
  * Callers:
- *     AslpFileQueryExportName @ 0x1406C8CA4 (AslpFileQueryExportName.c)
+ *     AslpFileQueryExportName @ 0x1406C8DDC (AslpFileQueryExportName.c)
  *     EmpParseStrings @ 0x1407A83F0 (EmpParseStrings.c)
  * Callees:
- *     RtlStringCopyWorkerA_0 @ 0x14013CDB4 (RtlStringCopyWorkerA_0.c)
+ *     RtlStringCopyWorkerA_0 @ 0x14013D324 (RtlStringCopyWorkerA_0.c)
  */
 
 NTSTATUS __stdcall RtlStringCchCopyA(NTSTRSAFE_PSTR pszDest, size_t cchDest, NTSTRSAFE_PCSTR pszSrc)

@@ -1,11 +1,11 @@
 /*
- * XREFs of PipConvertResolutionsToReservations @ 0x1407CD718
+ * XREFs of PipConvertResolutionsToReservations @ 0x1407CD888
  * Callers:
- *     PnpSurpriseRemoveLockedDeviceNode @ 0x140736198 (PnpSurpriseRemoveLockedDeviceNode.c)
- *     PipDeleteAllDependencyRelations @ 0x1407CD600 (PipDeleteAllDependencyRelations.c)
+ *     PnpSurpriseRemoveLockedDeviceNode @ 0x140736358 (PnpSurpriseRemoveLockedDeviceNode.c)
+ *     PipDeleteAllDependencyRelations @ 0x1407CD770 (PipDeleteAllDependencyRelations.c)
  * Callees:
- *     PipDeleteBindingIds @ 0x1407CD780 (PipDeleteBindingIds.c)
- *     PipSetDependency @ 0x14089DFF4 (PipSetDependency.c)
+ *     PipDeleteBindingIds @ 0x1407CD8F0 (PipDeleteBindingIds.c)
+ *     PipSetDependency @ 0x14089E154 (PipSetDependency.c)
  */
 
 __int64 __fastcall PipConvertResolutionsToReservations(__int64 a1, __int64 a2)

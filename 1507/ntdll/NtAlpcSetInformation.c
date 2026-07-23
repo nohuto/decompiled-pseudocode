@@ -10,11 +10,15 @@
  *     <none>
  */
 
-__int64 NtAlpcSetInformation()
+NTSTATUS __cdecl NtAlpcSetInformation(
+        HANDLE PortHandle,
+        ALPC_PORT_INFORMATION_CLASS PortInformationClass,
+        PVOID PortInformation,
+        ULONG Length)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 137LL;
+  result = 137;
   __asm { syscall; Low latency system call }
   return result;
 }

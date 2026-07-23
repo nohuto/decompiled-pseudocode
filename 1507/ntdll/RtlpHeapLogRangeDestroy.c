@@ -9,12 +9,12 @@
  *     memset @ 0x180098540 (memset.c)
  */
 
-__int64 __fastcall RtlpHeapLogRangeDestroy(__int64 a1)
+NTSTATUS __fastcall RtlpHeapLogRangeDestroy(__int64 a1)
 {
-  _DWORD v3[9]; // [rsp+24h] [rbp-34h] BYREF
+  _QWORD Fields[5]; // [rsp+20h] [rbp-38h] BYREF
 
-  memset(v3, 0, sizeof(v3));
-  *(_QWORD *)&v3[7] = a1;
-  HIWORD(v3[0]) = 616;
-  return NtTraceEvent();
+  memset(Fields, 0, sizeof(Fields));
+  Fields[4] = a1;
+  HIWORD(Fields[0]) = 616;
+  return NtTraceEvent((HANDLE)MEMORY[0x7FFE0388], 0x20402u, 8u, Fields);
 }

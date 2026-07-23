@@ -11,17 +11,17 @@
  *     PpDevNodeUnlockTree @ 0x140A0AA84 (PpDevNodeUnlockTree.c)
  */
 
-__int64 __fastcall IopWarmEjectDevice(_QWORD *a1, unsigned int a2)
+__int64 __fastcall IopWarmEjectDevice(_QWORD *a1, SYSTEM_POWER_STATE a2)
 {
   __int64 v4; // rdx
-  int v5; // ebx
+  NTSTATUS v5; // ebx
   __int64 v6; // r8
 
   KeWaitForSingleObject(&IopWarmEjectLock, Executive, 0, 0, 0LL);
   PpDevNodeLockTree(1LL);
   IopWarmEjectPdo = (__int64)a1;
   PpDevNodeUnlockTree(1LL);
-  v5 = NtInitiatePowerAction(7LL, a2, 3LL);
+  v5 = NtInitiatePowerAction(PowerActionWarmEject, a2, 3u, 0);
   if ( v5 == -1073741727 )
     PnpSetPowerVetoEvent(7, v4, v6, a1, 12, 0LL);
   PpDevNodeLockTree(1LL);

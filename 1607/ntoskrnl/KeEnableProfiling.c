@@ -1,12 +1,12 @@
 /*
- * XREFs of KeEnableProfiling @ 0x14064FBC0
+ * XREFs of KeEnableProfiling @ 0x14064FCA4
  * Callers:
- *     NtSetInformationThread @ 0x14050E5D0 (NtSetInformationThread.c)
+ *     NtSetInformationThread @ 0x1404F1560 (NtSetInformationThread.c)
  * Callees:
- *     ExAllocatePoolWithQuotaTag @ 0x1400127B0 (ExAllocatePoolWithQuotaTag.c)
- *     KeUpdateTotalCyclesCurrentThread @ 0x140095D9C (KeUpdateTotalCyclesCurrentThread.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     KiBeginCounterAccumulation @ 0x1401D6F18 (KiBeginCounterAccumulation.c)
+ *     ExAllocatePoolWithQuotaTag @ 0x140012330 (ExAllocatePoolWithQuotaTag.c)
+ *     KeUpdateTotalCyclesCurrentThread @ 0x14009559C (KeUpdateTotalCyclesCurrentThread.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     KiBeginCounterAccumulation @ 0x1401D6D44 (KiBeginCounterAccumulation.c)
  */
 
 __int64 __fastcall KeEnableProfiling(__int64 a1, int a2, __int64 a3, __int64 a4)

@@ -19,9 +19,9 @@ __int64 __fastcall PfpProcessScenarioPhase(_DWORD *a1, char a2)
   unsigned int v2; // edi
   int v3; // r9d
   int v4; // ecx
-  int v5; // ebx
+  ULONG v5; // ebx
   int v7; // ecx
-  int ActiveConsoleId; // ebx
+  ULONG ActiveConsoleId; // ebx
   int v9; // ebp
   void *NextSession; // rax
 

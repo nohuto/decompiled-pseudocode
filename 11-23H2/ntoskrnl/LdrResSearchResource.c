@@ -1,26 +1,26 @@
 /*
- * XREFs of LdrResSearchResource @ 0x140759C40
+ * XREFs of LdrResSearchResource @ 0x140759E30
  * Callers:
- *     AslpFileGetVersionBlock @ 0x1407595FC (AslpFileGetVersionBlock.c)
- *     PspLocateInPEManifest @ 0x1407A2A40 (PspLocateInPEManifest.c)
- *     PopEtGetProcessVersionInfo @ 0x1407B1324 (PopEtGetProcessVersionInfo.c)
- *     LdrResFindResource @ 0x1407DCFC0 (LdrResFindResource.c)
- *     LdrResFindResourceDirectory @ 0x1407E9C70 (LdrResFindResourceDirectory.c)
- *     SeRegisterElamCertResources @ 0x140810C80 (SeRegisterElamCertResources.c)
- *     RtlLoadString @ 0x1409BA2C0 (RtlLoadString.c)
+ *     AslpFileGetVersionBlock @ 0x1407597EC (AslpFileGetVersionBlock.c)
+ *     PspLocateInPEManifest @ 0x1407A2C30 (PspLocateInPEManifest.c)
+ *     PopEtGetProcessVersionInfo @ 0x1407B1514 (PopEtGetProcessVersionInfo.c)
+ *     LdrResFindResource @ 0x1407DD290 (LdrResFindResource.c)
+ *     LdrResFindResourceDirectory @ 0x1407E9F40 (LdrResFindResourceDirectory.c)
+ *     SeRegisterElamCertResources @ 0x140810F50 (SeRegisterElamCertResources.c)
+ *     RtlLoadString @ 0x1409BA4C0 (RtlLoadString.c)
  *     KeHwPolicyLocateResource @ 0x140B60390 (KeHwPolicyLocateResource.c)
  * Callees:
- *     LdrLoadAlternateResourceModuleEx @ 0x1402F77DC (LdrLoadAlternateResourceModuleEx.c)
- *     LdrpResSearchResourceMappedFile @ 0x1402F7FA8 (LdrpResSearchResourceMappedFile.c)
- *     DownLevelLangIDToLanguageName @ 0x140371A5C (DownLevelLangIDToLanguageName.c)
- *     DownLevelLanguageNameToLangID @ 0x14038D264 (DownLevelLanguageNameToLangID.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memmove @ 0x140435700 (memmove.c)
- *     LdrpResGetMappingSize @ 0x14075A008 (LdrpResGetMappingSize.c)
+ *     LdrLoadAlternateResourceModuleEx @ 0x1402F7A6C (LdrLoadAlternateResourceModuleEx.c)
+ *     LdrpResSearchResourceMappedFile @ 0x1402F8238 (LdrpResSearchResourceMappedFile.c)
+ *     DownLevelLangIDToLanguageName @ 0x140371BFC (DownLevelLangIDToLanguageName.c)
+ *     DownLevelLanguageNameToLangID @ 0x14038D444 (DownLevelLanguageNameToLangID.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     LdrpResGetMappingSize @ 0x14075A1F8 (LdrpResGetMappingSize.c)
  */
 
 __int64 __fastcall LdrResSearchResource(
-        ULONGLONG a1,
+        unsigned __int64 a1,
         const void *a2,
         unsigned int a3,
         int a4,
@@ -29,7 +29,7 @@ __int64 __fastcall LdrResSearchResource(
         void *a7,
         __int64 a8)
 {
-  ULONGLONG v10; // r14
+  void *v10; // r14
   unsigned int v11; // ebx
   int v12; // ecx
   unsigned int v13; // edi
@@ -39,8 +39,8 @@ __int64 __fastcall LdrResSearchResource(
   int v17; // esi
   unsigned __int16 v18; // ax
   __int64 v19; // r12
-  __int64 v20; // [rsp+58h] [rbp-80h] BYREF
-  ULONGLONG v21; // [rsp+60h] [rbp-78h] BYREF
+  ULONG64 v20; // [rsp+58h] [rbp-80h] BYREF
+  PVOID ResourceDllBase; // [rsp+60h] [rbp-78h] BYREF
   unsigned int **v22; // [rsp+68h] [rbp-70h]
   __int64 v23; // [rsp+70h] [rbp-68h]
   unsigned __int64 v24[2]; // [rsp+78h] [rbp-60h] BYREF
@@ -119,12 +119,12 @@ LABEL_29:
       if ( *(_WORD *)v25 )
       {
         v18 = DownLevelLanguageNameToLangID((const void *)v25, 2);
-        LODWORD(v21) = v18;
+        LODWORD(ResourceDllBase) = v18;
       }
       else
       {
         v18 = 0;
-        LODWORD(v21) = 0;
+        LODWORD(ResourceDllBase) = 0;
       }
       v25 = v18;
       goto LABEL_57;
@@ -135,12 +135,12 @@ LABEL_29:
 LABEL_57:
   if ( (v13 & 0x300) == 0 )
     goto LABEL_63;
-  v10 = a1;
+  v10 = (void *)a1;
   if ( (v13 & 0x200) != 0 )
   {
-    v10 = a1 | 1;
+    v10 = (void *)(a1 | 1);
     if ( (a1 & 1) != 0 )
-      v10 = a1;
+      v10 = (void *)a1;
   }
   result = LdrpResGetMappingSize(v10, &v20, v13);
   if ( (int)result >= 0 || (v13 & 0x1000) == 0 )
@@ -150,12 +150,21 @@ LABEL_63:
     v11 = LdrpResSearchResourceMappedFile(v10, v20, v13, v24, v17, v22, a6, a7, v23);
     if ( v11 == -1073741686 && ((v24[0] - 16) & 0xFFFFFFFFFFFFFFF7uLL) != 0 )
     {
-      v21 = 0LL;
-      if ( (int)LdrLoadAlternateResourceModuleEx(v10, 0xF2EEu, &v21, 0LL, 0x1000000) >= 0 )
+      ResourceDllBase = 0LL;
+      if ( LdrLoadAlternateResourceModuleEx(v10, 0xF2EEu, &ResourceDllBase, 0LL, 0x1000000u) >= 0 )
       {
         v20 = 0LL;
-        if ( (int)LdrpResGetMappingSize(v21, &v20, v13) >= 0 )
-          return (unsigned int)LdrpResSearchResourceMappedFile(v21, v20, v13 | 0x1000000, v24, v17, v22, a6, a7, v19);
+        if ( (int)LdrpResGetMappingSize(ResourceDllBase, &v20, v13) >= 0 )
+          return (unsigned int)LdrpResSearchResourceMappedFile(
+                                 ResourceDllBase,
+                                 v20,
+                                 v13 | 0x1000000,
+                                 v24,
+                                 v17,
+                                 v22,
+                                 a6,
+                                 a7,
+                                 v19);
       }
     }
     return v11;

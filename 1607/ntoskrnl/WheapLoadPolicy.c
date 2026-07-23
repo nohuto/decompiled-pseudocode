@@ -3,8 +3,8 @@
  * Callers:
  *     WheaInitialize @ 0x1407A0948 (WheaInitialize.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14002DC60 (RtlInitUnicodeString.c)
- *     ZwQueryLicenseValue @ 0x14015C480 (ZwQueryLicenseValue.c)
+ *     RtlInitUnicodeString @ 0x14002D7E0 (RtlInitUnicodeString.c)
+ *     ZwQueryLicenseValue @ 0x14015C9F0 (ZwQueryLicenseValue.c)
  */
 
 int WheapLoadPolicy()
@@ -15,9 +15,9 @@ int WheapLoadPolicy()
   int v3; // r10d
   int result; // eax
   UNICODE_STRING DestinationString; // [rsp+30h] [rbp-38h] BYREF
-  int v6; // [rsp+70h] [rbp+8h] BYREF
-  int v7; // [rsp+78h] [rbp+10h]
-  int v8; // [rsp+80h] [rbp+18h] BYREF
+  ULONG Type; // [rsp+70h] [rbp+8h] BYREF
+  ULONG ResultDataSize; // [rsp+78h] [rbp+10h] BYREF
+  int Data; // [rsp+80h] [rbp+18h] BYREF
 
   v0 = WheaRegPolicyDisableOffline;
   if ( WheaRegPolicyDisableOffline != -1 )
@@ -26,8 +26,12 @@ int WheapLoadPolicy()
   if ( WheaRegPolicyMemPersistOffline == -1 )
   {
     RtlInitUnicodeString(&DestinationString, L"Kernel-PersistDefectiveMemoryList");
-    if ( (int)ZwQueryLicenseValue((__int64)&DestinationString, (__int64)&v6, (__int64)&v8) >= 0 && v6 == 4 && v7 == 4 )
-      WheapPolicyMemPersistOffline = v8 != 0;
+    if ( ZwQueryLicenseValue(&DestinationString, &Type, &Data, 4u, &ResultDataSize) >= 0
+      && Type == 4
+      && ResultDataSize == 4 )
+    {
+      WheapPolicyMemPersistOffline = Data != 0;
+    }
     v1 = WheaRegPolicyMemPersistOffline;
     v0 = WheaRegPolicyDisableOffline;
   }

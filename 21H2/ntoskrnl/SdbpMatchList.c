@@ -1,17 +1,17 @@
 /*
- * XREFs of SdbpMatchList @ 0x1407548A8
+ * XREFs of SdbpMatchList @ 0x140754A68
  * Callers:
- *     SdbpCheckForMatch @ 0x1407547A4 (SdbpCheckForMatch.c)
- *     SdbpMatchOne @ 0x140966000 (SdbpMatchOne.c)
+ *     SdbpCheckForMatch @ 0x140754964 (SdbpCheckForMatch.c)
+ *     SdbpMatchOne @ 0x1409661E0 (SdbpMatchOne.c)
  * Callees:
- *     Feature_CompatBuildInVb__private_IsEnabledDeviceUsage @ 0x1403F96BC (Feature_CompatBuildInVb__private_IsEnabledDeviceUsage.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     Feature_CompatBuildInVb__private_IsEnabledDeviceUsage @ 0x1403F989C (Feature_CompatBuildInVb__private_IsEnabledDeviceUsage.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
  *     SdbpIsSdbCapabilityPresent @ 0x1405D1F50 (SdbpIsSdbCapabilityPresent.c)
- *     SdbpFindMatcher @ 0x140754A7C (SdbpFindMatcher.c)
- *     SdbGetStringTagPtr @ 0x140756580 (SdbGetStringTagPtr.c)
- *     SdbFindFirstTag @ 0x14075A184 (SdbFindFirstTag.c)
- *     SdbGetNextChild @ 0x14075A1F8 (SdbGetNextChild.c)
- *     SdbGetFirstChild @ 0x14075A470 (SdbGetFirstChild.c)
+ *     SdbpFindMatcher @ 0x140754C3C (SdbpFindMatcher.c)
+ *     SdbGetStringTagPtr @ 0x140756740 (SdbGetStringTagPtr.c)
+ *     SdbFindFirstTag @ 0x14075A344 (SdbFindFirstTag.c)
+ *     SdbGetNextChild @ 0x14075A3B8 (SdbGetNextChild.c)
+ *     SdbGetFirstChild @ 0x14075A630 (SdbGetFirstChild.c)
  */
 
 __int64 __fastcall SdbpMatchList(

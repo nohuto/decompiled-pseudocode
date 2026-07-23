@@ -1,7 +1,7 @@
 /*
- * XREFs of HalpInterruptUpdateLinesPostSwap @ 0x1409A8E04
+ * XREFs of HalpInterruptUpdateLinesPostSwap @ 0x1409A9D34
  * Callers:
- *     HalpInterruptSwapProcessorIdentifiers @ 0x1409A8C54 (HalpInterruptSwapProcessorIdentifiers.c)
+ *     HalpInterruptSwapProcessorIdentifiers @ 0x1409A9B84 (HalpInterruptSwapProcessorIdentifiers.c)
  * Callees:
  *     <none>
  */

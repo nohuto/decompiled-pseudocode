@@ -10,135 +10,138 @@
  *     KiShouldActivateHRTimerClock @ 0x140144020 (KiShouldActivateHRTimerClock.c)
  */
 
-__int64 __fastcall KiAdjustTimer2DueTimes(__int64 a1, __int64 a2, unsigned __int64 a3)
+__int64 __fastcall KiAdjustTimer2DueTimes(__int64 a1)
 {
-  int v3; // r14d
-  _QWORD *v4; // rsi
-  _QWORD *v6; // r15
-  _QWORD *v7; // rbx
-  char v8; // bl
+  int v1; // r14d
+  _QWORD *v2; // rsi
+  _QWORD *v4; // r15
+  _QWORD *v5; // rbx
+  char v6; // bl
   __int64 result; // rax
-  _QWORD *v10; // rax
-  _QWORD *v11; // rdi
-  _QWORD *v12; // rcx
-  char v13; // al
-  unsigned __int64 v14; // rcx
+  _QWORD *v8; // rax
+  _QWORD *v9; // rdi
+  _QWORD *v10; // rcx
+  char v11; // al
+  __int64 v12; // rdx
+  unsigned __int64 v13; // rcx
+  __int64 v14; // rdx
   __int64 v15; // r8
-  __int64 v16; // rax
-  __int64 v17; // rcx
+  unsigned __int64 v16; // r8
+  __int64 v17; // rax
   __int64 v18; // rcx
-  unsigned __int64 v19; // rax
+  __int64 v19; // rcx
   unsigned __int64 v20; // rax
-  unsigned __int64 v21; // rcx
-  _QWORD v22[2]; // [rsp+20h] [rbp-10h] BYREF
-  char v23; // [rsp+68h] [rbp+38h] BYREF
+  unsigned __int64 v21; // rax
+  unsigned __int64 v22; // rcx
+  _QWORD v23[2]; // [rsp+20h] [rbp-10h] BYREF
+  char v24; // [rsp+68h] [rbp+38h] BYREF
 
-  v3 = 0;
-  v4 = v22;
-  v22[1] = v22;
-  v22[0] = v22;
-  v6 = &unk_140356748;
+  v1 = 0;
+  v2 = v23;
+  v23[1] = v23;
+  v23[0] = v23;
+  v4 = &unk_140356748;
   do
   {
-    v7 = (_QWORD *)(*v6 & 0xFFFFFFFFFFFFFFFEuLL);
-    while ( v7 )
+    v5 = (_QWORD *)(*v4 & 0xFFFFFFFFFFFFFFFEuLL);
+    while ( v5 )
     {
-      v10 = (_QWORD *)v7[1];
-      v11 = &v7[-3 * ((unsigned __int64)(unsigned int)v3 >> 1)];
-      v12 = v7;
-      if ( v10 )
+      v8 = (_QWORD *)v5[1];
+      v9 = &v5[-3 * ((unsigned __int64)(unsigned int)v1 >> 1)];
+      v10 = v5;
+      if ( v8 )
       {
         do
         {
-          v7 = v10;
-          v10 = (_QWORD *)*v10;
+          v5 = v8;
+          v8 = (_QWORD *)*v8;
         }
-        while ( v10 );
+        while ( v8 );
       }
       else
       {
         while ( 1 )
         {
-          v7 = (_QWORD *)(v7[2] & 0xFFFFFFFFFFFFFFFCuLL);
-          if ( !v7 || (_QWORD *)*v7 == v12 )
+          v5 = (_QWORD *)(v5[2] & 0xFFFFFFFFFFFFFFFCuLL);
+          if ( !v5 || (_QWORD *)*v5 == v10 )
             break;
-          v12 = v7;
+          v10 = v5;
         }
       }
-      v13 = *((_BYTE *)v11 + 104);
-      if ( v13 != *(_BYTE *)a1 && (v13 || (*((_BYTE *)v11 + 105) & 2) == 0) )
+      v11 = *((_BYTE *)v9 + 104);
+      if ( v11 != *(_BYTE *)a1 && (v11 || (*((_BYTE *)v9 + 105) & 2) == 0) )
       {
-        KiRemoveTimer2((__int64)(v11 - 3), a2, a3);
-        a2 = *(_QWORD *)(a1 + 24);
-        if ( a2 >= 0 )
+        KiRemoveTimer2((__int64)(v9 - 3));
+        v12 = *(_QWORD *)(a1 + 24);
+        if ( v12 >= 0 )
         {
-          v19 = v11[6];
-          if ( v19 < a2 )
+          v20 = v9[6];
+          if ( v20 < v12 )
           {
-            v11[6] = -1LL;
-            v11[6] = 0LL;
+            v9[6] = -1LL;
+            v9[6] = 0LL;
           }
           else
           {
-            v11[6] = v19 - a2;
+            v9[6] = v20 - v12;
           }
-          v20 = v11[7];
-          if ( v20 != -1LL )
+          v21 = v9[7];
+          if ( v21 != -1LL )
           {
-            v21 = *(_QWORD *)(a1 + 24);
-            if ( v20 < v21 )
+            v22 = *(_QWORD *)(a1 + 24);
+            if ( v21 < v22 )
             {
-              v11[7] = -1LL;
-              v11[7] = 0LL;
+              v9[7] = -1LL;
+              v9[7] = 0LL;
             }
             else
             {
-              v11[7] = v20 - v21;
+              v9[7] = v21 - v22;
             }
           }
         }
         else
         {
-          v14 = v11[6];
-          a2 = -a2;
-          if ( v14 + a2 < v14 || (v15 = v14 + a2, v14 + a2 == -1LL) )
+          v13 = v9[6];
+          v14 = -v12;
+          if ( v13 + v14 < v13 || (v15 = v13 + v14, v13 + v14 == -1LL) )
             v15 = -2LL;
-          v11[6] = v15;
-          a3 = v11[7];
-          if ( a3 != -1LL )
+          v9[6] = v15;
+          v16 = v9[7];
+          if ( v16 != -1LL )
           {
-            if ( a3 + a2 < a3 || (v17 = a3 + a2, a3 + a2 == -1LL) )
-              v17 = -2LL;
-            v11[7] = v17;
+            if ( v16 + v14 < v16 || (v18 = v16 + v14, v16 + v14 == -1LL) )
+              v18 = -2LL;
+            v9[7] = v18;
           }
         }
-        v16 = v22[0];
-        v4 = v11;
-        if ( *(_QWORD **)(v22[0] + 8LL) != v22 )
+        v17 = v23[0];
+        v2 = v9;
+        if ( *(_QWORD **)(v23[0] + 8LL) != v23 )
           __fastfail(3u);
-        *v11 = v22[0];
-        v11[1] = v22;
-        *(_QWORD *)(v16 + 8) = v11;
-        v22[0] = v11;
+        *v9 = v23[0];
+        v9[1] = v23;
+        *(_QWORD *)(v17 + 8) = v9;
+        v23[0] = v9;
       }
     }
-    ++v3;
-    v6 += 3;
+    ++v1;
+    v4 += 3;
   }
-  while ( v3 < 4 );
-  v8 = 0;
-  if ( v4 != v22 )
+  while ( v1 < 4 );
+  v6 = 0;
+  if ( v2 != v23 )
   {
     do
     {
-      v18 = (__int64)(v4 - 3);
-      v4 = (_QWORD *)*v4;
-      KiInsertTimer2(v18, 1, (unsigned __int64)&v23);
-      if ( v23 )
-        v8 = 1;
+      v19 = (__int64)(v2 - 3);
+      v2 = (_QWORD *)*v2;
+      KiInsertTimer2(v19, 1, &v24);
+      if ( v24 )
+        v6 = 1;
     }
-    while ( v4 != v22 );
-    if ( v8 )
+    while ( v2 != v23 );
+    if ( v6 )
       KiRequestTimer2Expiration();
   }
   result = KiShouldActivateHRTimerClock(MEMORY[0xFFFFF78000000008], qword_140356768);

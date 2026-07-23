@@ -32,7 +32,7 @@
 __int64 __fastcall ExAllocatePoolMm(ULONG_PTR BugCheckParameter3, ULONG_PTR a2, int a3, ULONG_PTR a4)
 {
   ULONG_PTR v4; // rbx
-  int v5; // ecx
+  NTSTATUS v5; // ecx
   __int64 result; // rax
   ULONG_PTR v7; // r8
   __int64 v8[2]; // [rsp+40h] [rbp-18h] BYREF

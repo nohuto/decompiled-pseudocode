@@ -1,12 +1,12 @@
 /*
- * XREFs of EtwpUpdateGuidFilterData @ 0x140780B00
+ * XREFs of EtwpUpdateGuidFilterData @ 0x140780CF0
  * Callers:
- *     EtwpClearSessionAndUnreferenceEntry @ 0x1406BFE40 (EtwpClearSessionAndUnreferenceEntry.c)
- *     EtwpUpdateGuidEnableInfo @ 0x140780878 (EtwpUpdateGuidEnableInfo.c)
+ *     EtwpClearSessionAndUnreferenceEntry @ 0x1406BFE70 (EtwpClearSessionAndUnreferenceEntry.c)
+ *     EtwpUpdateGuidEnableInfo @ 0x140780A68 (EtwpUpdateGuidEnableInfo.c)
  * Callees:
- *     KeGenericCallDpc @ 0x14036BDB0 (KeGenericCallDpc.c)
- *     EtwpFreeEventNameFilter @ 0x1409F5268 (EtwpFreeEventNameFilter.c)
- *     EtwpUpdateEventFilterAndFree @ 0x1409F5298 (EtwpUpdateEventFilterAndFree.c)
+ *     KeGenericCallDpc @ 0x14036BF50 (KeGenericCallDpc.c)
+ *     EtwpFreeEventNameFilter @ 0x1409F54F8 (EtwpFreeEventNameFilter.c)
+ *     EtwpUpdateEventFilterAndFree @ 0x1409F5528 (EtwpUpdateEventFilterAndFree.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

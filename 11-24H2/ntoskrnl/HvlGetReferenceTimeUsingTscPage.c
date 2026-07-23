@@ -1,8 +1,8 @@
 /*
- * XREFs of HvlGetReferenceTimeUsingTscPage @ 0x140352810
+ * XREFs of HvlGetReferenceTimeUsingTscPage @ 0x14036FFF0
  * Callers:
- *     PpmUpdatePerformanceFeedback @ 0x1403505D0 (PpmUpdatePerformanceFeedback.c)
- *     HvlGetReferenceTime @ 0x1403527D4 (HvlGetReferenceTime.c)
+ *     PpmUpdatePerformanceFeedback @ 0x14036EAB0 (PpmUpdatePerformanceFeedback.c)
+ *     HvlGetReferenceTime @ 0x14036FFB8 (HvlGetReferenceTime.c)
  * Callees:
  *     <none>
  */

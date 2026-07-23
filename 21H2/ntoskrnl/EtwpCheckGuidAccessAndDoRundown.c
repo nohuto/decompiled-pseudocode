@@ -1,13 +1,13 @@
 /*
- * XREFs of EtwpCheckGuidAccessAndDoRundown @ 0x14093D74C
+ * XREFs of EtwpCheckGuidAccessAndDoRundown @ 0x14093D91C
  * Callers:
- *     EtwpEnableDisableSpecialGuids @ 0x1406E2E4C (EtwpEnableDisableSpecialGuids.c)
+ *     EtwpEnableDisableSpecialGuids @ 0x1406BA12C (EtwpEnableDisableSpecialGuids.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     memmove @ 0x140413F40 (memmove.c)
- *     EtwpCheckGuidAccess @ 0x1406E3280 (EtwpCheckGuidAccess.c)
- *     EtwpCheckLoggerAccessAndDoRundown @ 0x14093D884 (EtwpCheckLoggerAccessAndDoRundown.c)
- *     EtwpLogKernelTraceRundown @ 0x14093DBE0 (EtwpLogKernelTraceRundown.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     EtwpCheckGuidAccess @ 0x1406BA560 (EtwpCheckGuidAccess.c)
+ *     EtwpCheckLoggerAccessAndDoRundown @ 0x14093DA54 (EtwpCheckLoggerAccessAndDoRundown.c)
+ *     EtwpLogKernelTraceRundown @ 0x14093DDB0 (EtwpLogKernelTraceRundown.c)
  */
 
 __int64 __fastcall EtwpCheckGuidAccessAndDoRundown(
@@ -31,7 +31,7 @@ __int64 __fastcall EtwpCheckGuidAccessAndDoRundown(
   _OWORD v19[2]; // [rsp+30h] [rbp-68h] BYREF
 
   memset(v19, 0, sizeof(v19));
-  result = EtwpCheckGuidAccess((unsigned int *)&SystemTraceControlGuid, 0x80u, 0LL);
+  result = EtwpCheckGuidAccess(&SystemTraceControlGuid.Data1, 0x80u, 0LL);
   v11 = result;
   if ( (int)result >= 0 )
   {

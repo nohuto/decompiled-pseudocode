@@ -1,13 +1,13 @@
 /*
- * XREFs of WmiTraceRundownNotify @ 0x140753BFC
+ * XREFs of WmiTraceRundownNotify @ 0x140754DEC
  * Callers:
- *     EtwpUpdateFileInfoDriverState @ 0x1406C5BB8 (EtwpUpdateFileInfoDriverState.c)
- *     EtwpKernelTraceRundown @ 0x140726174 (EtwpKernelTraceRundown.c)
- *     EtwpLogFileNameRundown @ 0x1408BE914 (EtwpLogFileNameRundown.c)
+ *     EtwpUpdateFileInfoDriverState @ 0x1406C6E58 (EtwpUpdateFileInfoDriverState.c)
+ *     EtwpKernelTraceRundown @ 0x140727414 (EtwpKernelTraceRundown.c)
+ *     EtwpLogFileNameRundown @ 0x1408BFBD4 (EtwpLogFileNameRundown.c)
  * Callees:
- *     WmipBuildTraceDeviceList @ 0x14018C50C (WmipBuildTraceDeviceList.c)
- *     WmipFreeTraceDeviceList @ 0x140753C9C (WmipFreeTraceDeviceList.c)
- *     WmipSendWmiIrpToTraceDeviceList @ 0x140753CEC (WmipSendWmiIrpToTraceDeviceList.c)
+ *     WmipBuildTraceDeviceList @ 0x14018C64C (WmipBuildTraceDeviceList.c)
+ *     WmipFreeTraceDeviceList @ 0x140754E8C (WmipFreeTraceDeviceList.c)
+ *     WmipSendWmiIrpToTraceDeviceList @ 0x140754EDC (WmipSendWmiIrpToTraceDeviceList.c)
  */
 
 __int64 __fastcall WmiTraceRundownNotify(__int64 a1, int a2)

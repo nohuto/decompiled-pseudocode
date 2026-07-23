@@ -1,24 +1,35 @@
 /*
  * XREFs of ZwCreateFile @ 0x1800A6EC0
  * Callers:
- *     LdrpMapResourceFile @ 0x18000E970 (LdrpMapResourceFile.c)
- *     EtwpCreateFile @ 0x180054F48 (EtwpCreateFile.c)
- *     RtlpFileIsWin32WithRCManifest @ 0x18006A95C (RtlpFileIsWin32WithRCManifest.c)
- *     RtlpQueryDiskSpacePolicy @ 0x180086C84 (RtlpQueryDiskSpacePolicy.c)
- *     RtlpGetVolumeHandle @ 0x18008B8C0 (RtlpGetVolumeHandle.c)
- *     RtlCreateSystemVolumeInformationFolder @ 0x18008C150 (RtlCreateSystemVolumeInformationFolder.c)
- *     LdrpResMapFile @ 0x1800DD12C (LdrpResMapFile.c)
- *     RtlCreateBootStatusDataFile @ 0x1800E5150 (RtlCreateBootStatusDataFile.c)
- *     _ResCreateFile @ 0x180103B80 (_ResCreateFile.c)
+ *     LdrpMapResourceFile @ 0x18000E960 (LdrpMapResourceFile.c)
+ *     EtwpCreateFile @ 0x180054F38 (EtwpCreateFile.c)
+ *     RtlpFileIsWin32WithRCManifest @ 0x18006A94C (RtlpFileIsWin32WithRCManifest.c)
+ *     RtlpQueryDiskSpacePolicy @ 0x180086C74 (RtlpQueryDiskSpacePolicy.c)
+ *     RtlpGetVolumeHandle @ 0x18008B8B0 (RtlpGetVolumeHandle.c)
+ *     RtlCreateSystemVolumeInformationFolder @ 0x18008C140 (RtlCreateSystemVolumeInformationFolder.c)
+ *     LdrpResMapFile @ 0x1800DD1EC (LdrpResMapFile.c)
+ *     RtlCreateBootStatusDataFile @ 0x1800E5210 (RtlCreateBootStatusDataFile.c)
+ *     _ResCreateFile @ 0x180103AC0 (_ResCreateFile.c)
  * Callees:
  *     <none>
  */
 
-__int64 ZwCreateFile()
+NTSTATUS __cdecl ZwCreateFile(
+        PHANDLE FileHandle,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        PIO_STATUS_BLOCK IoStatusBlock,
+        PLARGE_INTEGER AllocationSize,
+        ULONG FileAttributes,
+        ULONG ShareAccess,
+        ULONG CreateDisposition,
+        ULONG CreateOptions,
+        PVOID EaBuffer,
+        ULONG EaLength)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 85LL;
+  result = 85;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

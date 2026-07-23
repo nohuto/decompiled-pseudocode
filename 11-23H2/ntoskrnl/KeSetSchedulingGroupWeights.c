@@ -1,14 +1,14 @@
 /*
  * XREFs of KeSetSchedulingGroupWeights @ 0x140200D84
  * Callers:
- *     PsSetCpuQuotaInformation @ 0x1405A3984 (PsSetCpuQuotaInformation.c)
+ *     PsSetCpuQuotaInformation @ 0x1405A3E74 (PsSetCpuQuotaInformation.c)
  *     NtSetInformationJobObject @ 0x1406A4040 (NtSetInformationJobObject.c)
  * Callees:
  *     KiAssignSchedulingGroupWeights @ 0x140205544 (KiAssignSchedulingGroupWeights.c)
  *     KiUpdateMinimumWeight @ 0x1402055F8 (KiUpdateMinimumWeight.c)
- *     KxReleaseQueuedSpinLock @ 0x140260360 (KxReleaseQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140260E60 (KeAcquireInStackQueuedSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseQueuedSpinLock @ 0x1402605F0 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402610F0 (KeAcquireInStackQueuedSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall KeSetSchedulingGroupWeights(unsigned int a1, __int64 a2, __int64 a3)
@@ -58,10 +58,10 @@ __int64 __fastcall KeSetSchedulingGroupWeights(unsigned int a1, __int64 a2, __in
   KiAssignSchedulingGroupWeights(0LL, v12, *(_QWORD *)(*(_QWORD *)a2 + 96LL));
   result = KxReleaseQueuedSpinLock(&v18);
   OldIrql = v18.OldIrql;
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     result = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
       && (unsigned __int8)result <= 0xFu
       && v18.OldIrql <= 0xFu
       && (unsigned __int8)result >= 2u )

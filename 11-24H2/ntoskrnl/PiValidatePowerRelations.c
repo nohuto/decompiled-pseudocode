@@ -1,11 +1,11 @@
 /*
- * XREFs of PiValidatePowerRelations @ 0x140A8CA94
+ * XREFs of PiValidatePowerRelations @ 0x140A88FC4
  * Callers:
- *     PiQueryPowerRelations @ 0x140A8C2C8 (PiQueryPowerRelations.c)
+ *     PiQueryPowerRelations @ 0x140A887F8 (PiQueryPowerRelations.c)
  * Callees:
- *     PnpAcquirePowerRelationsQueueLock @ 0x1404AEDD8 (PnpAcquirePowerRelationsQueueLock.c)
- *     PnpReleasePowerRelationsQueueLock @ 0x1404B4398 (PnpReleasePowerRelationsQueueLock.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
+ *     PnpAcquirePowerRelationsQueueLock @ 0x1404A97B0 (PnpAcquirePowerRelationsQueueLock.c)
+ *     PnpReleasePowerRelationsQueueLock @ 0x1404AEBE4 (PnpReleasePowerRelationsQueueLock.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
  */
 
 void __fastcall PiValidatePowerRelations(__int64 a1)

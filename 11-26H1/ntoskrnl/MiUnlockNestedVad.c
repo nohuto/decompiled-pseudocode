@@ -1,14 +1,14 @@
 /*
- * XREFs of MiUnlockNestedVad @ 0x140A9F610
+ * XREFs of MiUnlockNestedVad @ 0x140A9F940
  * Callers:
- *     MiLockAddressSpaceToo @ 0x140315064 (MiLockAddressSpaceToo.c)
- *     MiPerformVadSplitting @ 0x140315B44 (MiPerformVadSplitting.c)
- *     MiFreeVadRange @ 0x1403BC958 (MiFreeVadRange.c)
- *     MiUnlockAndDereferenceNestedVad @ 0x14041D518 (MiUnlockAndDereferenceNestedVad.c)
- *     MiUpControlAreaRefs @ 0x1404DE558 (MiUpControlAreaRefs.c)
+ *     MiLockAddressSpaceToo @ 0x140317094 (MiLockAddressSpaceToo.c)
+ *     MiPerformVadSplitting @ 0x140317B74 (MiPerformVadSplitting.c)
+ *     MiFreeVadRange @ 0x1403C67C8 (MiFreeVadRange.c)
+ *     MiUnlockAndDereferenceNestedVad @ 0x140414D68 (MiUnlockAndDereferenceNestedVad.c)
+ *     MiUpControlAreaRefs @ 0x1404D7C38 (MiUpControlAreaRefs.c)
  * Callees:
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1403170A0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     ExfTryToWakePushLock @ 0x1403190D0 (ExfTryToWakePushLock.c)
  */
 
 void __fastcall MiUnlockNestedVad(__int64 a1)

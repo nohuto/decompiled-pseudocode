@@ -1,38 +1,38 @@
 /*
- * XREFs of AuthzBasepEvaluateAceCondition @ 0x1400A6300
+ * XREFs of AuthzBasepEvaluateAceCondition @ 0x1400A6240
  * Callers:
  *     SeAccessCheckWithHintWithAdminlessChecks @ 0x1400516C0 (SeAccessCheckWithHintWithAdminlessChecks.c)
  *     SepFilterCheck @ 0x140052760 (SepFilterCheck.c)
- *     SeAccessCheckByTypeWithAdminlessChecks @ 0x1400A9470 (SeAccessCheckByTypeWithAdminlessChecks.c)
- *     SepMaximumAccessCheck @ 0x1400AADA0 (SepMaximumAccessCheck.c)
- *     SepNormalAccessCheck @ 0x1400AB370 (SepNormalAccessCheck.c)
- *     SepCommonAccessCheckExWithAdminlessChecks @ 0x14015B6C4 (SepCommonAccessCheckExWithAdminlessChecks.c)
- *     SepMaximumAccessCheckEx @ 0x14015C1B4 (SepMaximumAccessCheckEx.c)
- *     SepNormalAccessCheckEx @ 0x14015C2D4 (SepNormalAccessCheckEx.c)
- *     SepVerifyDesktopAppxPackageName @ 0x1402FF1CC (SepVerifyDesktopAppxPackageName.c)
- *     SepAccessCheckAndAuditAlarmWithAdminlessChecks @ 0x1405BA530 (SepAccessCheckAndAuditAlarmWithAdminlessChecks.c)
- *     SeExamineSacl @ 0x1408A0690 (SeExamineSacl.c)
- *     SepExamineSaclEx @ 0x1408A0FC0 (SepExamineSaclEx.c)
+ *     SeAccessCheckByTypeWithAdminlessChecks @ 0x1400A93B0 (SeAccessCheckByTypeWithAdminlessChecks.c)
+ *     SepMaximumAccessCheck @ 0x1400AACE0 (SepMaximumAccessCheck.c)
+ *     SepNormalAccessCheck @ 0x1400AB2B0 (SepNormalAccessCheck.c)
+ *     SepCommonAccessCheckExWithAdminlessChecks @ 0x14015B7C4 (SepCommonAccessCheckExWithAdminlessChecks.c)
+ *     SepMaximumAccessCheckEx @ 0x14015C2B4 (SepMaximumAccessCheckEx.c)
+ *     SepNormalAccessCheckEx @ 0x14015C3D4 (SepNormalAccessCheckEx.c)
+ *     SepVerifyDesktopAppxPackageName @ 0x1402FF3BC (SepVerifyDesktopAppxPackageName.c)
+ *     SepAccessCheckAndAuditAlarmWithAdminlessChecks @ 0x1405BB530 (SepAccessCheckAndAuditAlarmWithAdminlessChecks.c)
+ *     SeExamineSacl @ 0x1408A18F0 (SeExamineSacl.c)
+ *     SepExamineSaclEx @ 0x1408A2220 (SepExamineSaclEx.c)
  * Callees:
  *     SepPotentialGlobalTableAttribute @ 0x140014114 (SepPotentialGlobalTableAttribute.c)
  *     AuthzBasepUnicodeStringFromOperandValue @ 0x1400175F0 (AuthzBasepUnicodeStringFromOperandValue.c)
  *     AuthzBasepFreeSecurityAttributesList @ 0x140021130 (AuthzBasepFreeSecurityAttributesList.c)
- *     AuthzBasepGetConstantOperand @ 0x1400A4998 (AuthzBasepGetConstantOperand.c)
- *     AuthzBasepEvaluateExpression @ 0x1400A4A40 (AuthzBasepEvaluateExpression.c)
- *     AuthzBasepEvaluateAttribute @ 0x1400A5720 (AuthzBasepEvaluateAttribute.c)
- *     AuthzBasepIsValidExpression @ 0x1400A5C84 (AuthzBasepIsValidExpression.c)
- *     AuthzBasepPushResult @ 0x1400A5DC0 (AuthzBasepPushResult.c)
- *     AuthzBasepResetOperands @ 0x1400A6944 (AuthzBasepResetOperands.c)
- *     AuthzBasepQuerySecurityAttributeAndValues @ 0x1400A6FA8 (AuthzBasepQuerySecurityAttributeAndValues.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     __report_rangecheckfailure @ 0x140268DCC (__report_rangecheckfailure.c)
- *     SepValidateAndCopyGlobalEntry @ 0x140300738 (SepValidateAndCopyGlobalEntry.c)
- *     AuthzBasepComputeExpression @ 0x1403256EC (AuthzBasepComputeExpression.c)
- *     AuthzBasepDeviceMemberOf @ 0x140325774 (AuthzBasepDeviceMemberOf.c)
- *     AuthzBasepMemberOf @ 0x1403258A8 (AuthzBasepMemberOf.c)
- *     AuthzBasepPopResult @ 0x1403259AC (AuthzBasepPopResult.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
+ *     AuthzBasepGetConstantOperand @ 0x1400A48D8 (AuthzBasepGetConstantOperand.c)
+ *     AuthzBasepEvaluateExpression @ 0x1400A4980 (AuthzBasepEvaluateExpression.c)
+ *     AuthzBasepEvaluateAttribute @ 0x1400A5660 (AuthzBasepEvaluateAttribute.c)
+ *     AuthzBasepIsValidExpression @ 0x1400A5BC4 (AuthzBasepIsValidExpression.c)
+ *     AuthzBasepPushResult @ 0x1400A5D00 (AuthzBasepPushResult.c)
+ *     AuthzBasepResetOperands @ 0x1400A6884 (AuthzBasepResetOperands.c)
+ *     AuthzBasepQuerySecurityAttributeAndValues @ 0x1400A6EE8 (AuthzBasepQuerySecurityAttributeAndValues.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     __report_rangecheckfailure @ 0x140268FBC (__report_rangecheckfailure.c)
+ *     SepValidateAndCopyGlobalEntry @ 0x140300928 (SepValidateAndCopyGlobalEntry.c)
+ *     AuthzBasepComputeExpression @ 0x1403258DC (AuthzBasepComputeExpression.c)
+ *     AuthzBasepDeviceMemberOf @ 0x140325964 (AuthzBasepDeviceMemberOf.c)
+ *     AuthzBasepMemberOf @ 0x140325A98 (AuthzBasepMemberOf.c)
+ *     AuthzBasepPopResult @ 0x140325B9C (AuthzBasepPopResult.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall AuthzBasepEvaluateAceCondition(
@@ -86,88 +86,89 @@ __int64 __fastcall AuthzBasepEvaluateAceCondition(
   int v48; // r8d
   int v49; // eax
   char v50; // al
-  char v51; // al
+  bool v51; // al
   __int64 v52; // r10
   int v53; // eax
   PVOID v54; // rbx
-  char v55; // [rsp+30h] [rbp-D0h]
-  _BYTE v56[3]; // [rsp+31h] [rbp-CFh] BYREF
-  _WORD v57[2]; // [rsp+34h] [rbp-CCh] BYREF
-  int v58; // [rsp+38h] [rbp-C8h] BYREF
-  _BYTE v59[4]; // [rsp+3Ch] [rbp-C4h] BYREF
-  _DWORD *v60; // [rsp+40h] [rbp-C0h]
-  int v61; // [rsp+48h] [rbp-B8h]
-  int v62; // [rsp+4Ch] [rbp-B4h] BYREF
-  char v63; // [rsp+50h] [rbp-B0h]
-  bool v64; // [rsp+51h] [rbp-AFh]
-  int v65; // [rsp+54h] [rbp-ACh] BYREF
-  __int64 v66; // [rsp+58h] [rbp-A8h]
-  int v67; // [rsp+60h] [rbp-A0h] BYREF
-  int v68[3]; // [rsp+64h] [rbp-9Ch] BYREF
-  _OWORD v69[5]; // [rsp+70h] [rbp-90h] BYREF
-  __int64 v70; // [rsp+C0h] [rbp-40h]
-  unsigned int v71; // [rsp+C8h] [rbp-38h]
-  __int64 v72; // [rsp+D0h] [rbp-30h]
-  PVOID v73; // [rsp+D8h] [rbp-28h] BYREF
-  __int64 v74; // [rsp+E0h] [rbp-20h] BYREF
-  __int64 v75; // [rsp+E8h] [rbp-18h]
-  __int64 v76; // [rsp+F0h] [rbp-10h]
+  int v55; // [rsp+20h] [rbp-E0h]
+  char v56; // [rsp+30h] [rbp-D0h]
+  _BYTE v57[3]; // [rsp+31h] [rbp-CFh] BYREF
+  _WORD v58[2]; // [rsp+34h] [rbp-CCh] BYREF
+  int v59; // [rsp+38h] [rbp-C8h] BYREF
+  _BYTE v60[4]; // [rsp+3Ch] [rbp-C4h] BYREF
+  _DWORD *v61; // [rsp+40h] [rbp-C0h]
+  int v62; // [rsp+48h] [rbp-B8h]
+  int v63; // [rsp+4Ch] [rbp-B4h] BYREF
+  char v64; // [rsp+50h] [rbp-B0h]
+  bool v65; // [rsp+51h] [rbp-AFh]
+  int v66; // [rsp+54h] [rbp-ACh] BYREF
+  __int64 v67; // [rsp+58h] [rbp-A8h]
+  int v68; // [rsp+60h] [rbp-A0h] BYREF
+  int v69[3]; // [rsp+64h] [rbp-9Ch] BYREF
+  _OWORD v70[5]; // [rsp+70h] [rbp-90h] BYREF
+  __int64 v71; // [rsp+C0h] [rbp-40h]
+  unsigned int v72; // [rsp+C8h] [rbp-38h]
+  __int64 v73; // [rsp+D0h] [rbp-30h]
+  PVOID v74; // [rsp+D8h] [rbp-28h] BYREF
+  __int64 v75; // [rsp+E0h] [rbp-20h] BYREF
+  __int64 v76; // [rsp+E8h] [rbp-18h]
+  __int64 v77; // [rsp+F0h] [rbp-10h]
   PCUNICODE_STRING String2; // [rsp+F8h] [rbp-8h]
-  _DWORD *v78; // [rsp+100h] [rbp+0h]
-  _QWORD v79[5]; // [rsp+108h] [rbp+8h] BYREF
-  __int128 v80; // [rsp+130h] [rbp+30h] BYREF
+  _DWORD *v79; // [rsp+100h] [rbp+0h]
+  _QWORD v80[5]; // [rsp+108h] [rbp+8h] BYREF
+  __int128 v81; // [rsp+130h] [rbp+30h] BYREF
   PVOID P[16]; // [rsp+140h] [rbp+40h] BYREF
-  _DWORD v82[256]; // [rsp+1C0h] [rbp+C0h] BYREF
+  _DWORD v83[256]; // [rsp+1C0h] [rbp+C0h] BYREF
 
   v12 = a8;
   v13 = a12;
-  v76 = a3;
+  v77 = a3;
   ConstantOperand = 0;
-  v72 = a2;
-  v70 = a1;
-  v78 = a8;
-  v60 = a12;
-  v62 = 0;
-  LODWORD(v80) = 0;
-  *((_QWORD *)&v80 + 1) = 0LL;
-  v75 = a4;
-  memset(P, 0, sizeof(P));
-  LOWORD(v69[0]) = 0;
-  BYTE4(v69[0]) = 0;
-  memset((char *)v69 + 5, 0, 0x4BuLL);
-  memset(v79, 0, sizeof(v79));
-  v16 = 0;
-  v58 = -1;
-  v74 = -1LL;
-  v17 = 2LL;
-  v65 = 0;
-  v67 = 0;
-  v68[0] = 0;
-  v57[0] = 0;
-  v59[0] = 0;
-  v56[0] = 0;
+  v73 = a2;
+  v71 = a1;
+  v79 = a8;
+  v61 = a12;
   v63 = 0;
-  v55 = 0;
-  v73 = 0LL;
+  LODWORD(v81) = 0;
+  *((_QWORD *)&v81 + 1) = 0LL;
+  v76 = a4;
+  memset(P, 0, sizeof(P));
+  LOWORD(v70[0]) = 0;
+  BYTE4(v70[0]) = 0;
+  memset((char *)v70 + 5, 0, 0x4BuLL);
+  memset(v80, 0, sizeof(v80));
+  v16 = 0;
+  v59 = -1;
+  v75 = -1LL;
+  v17 = 2LL;
+  v66 = 0;
+  v68 = 0;
+  v69[0] = 0;
+  v58[0] = 0;
+  v60[0] = 0;
+  v57[0] = 0;
+  v64 = 0;
+  v56 = 0;
+  v74 = 0LL;
   *a12 = -1;
   P[1] = 0LL;
   P[10] = 0LL;
-  HIDWORD(v79[1]) = 1;
+  HIDWORD(v80[1]) = 1;
   if ( !a1 || !a8 )
   {
     ConstantOperand = -1073741811;
     goto LABEL_39;
   }
-  v64 = KeGetCurrentIrql() >= 2u;
+  v65 = KeGetCurrentIrql() >= 2u;
   if ( a9 < 4 || *a8 != 2020897377 )
   {
     *a12 = 1;
     ConstantOperand = -2147483601;
     goto LABEL_176;
   }
-  AuthzBasepResetOperands(v69, v57);
+  AuthzBasepResetOperands(v70, v58);
   LODWORD(v18) = 4;
-  v61 = 0;
+  v62 = 0;
   v19 = 0;
   if ( a9 <= 4 )
   {
@@ -183,27 +184,27 @@ LABEL_176:
       if ( v20 == 162 )
       {
         LODWORD(v18) = v18 + 1;
-        if ( !AuthzBasepIsValidExpression(162LL, (__int64)v69, v19, v56) )
+        if ( !AuthzBasepIsValidExpression(162LL, (__int64)v70, v19, v57) )
           goto LABEL_171;
         if ( v21 == 1 )
         {
-          v58 = AuthzBasepEvaluateAttribute(*(__int64 *)&v69[1]);
-          v22 = v58;
-          AuthzBasepResetOperands(v69, v57);
+          v59 = AuthzBasepEvaluateAttribute(*(__int64 *)&v70[1]);
+          v22 = v59;
+          AuthzBasepResetOperands(v70, v58);
         }
         else
         {
-          ConstantOperand = AuthzBasepPopResult(v82, &v62, &v58);
+          ConstantOperand = AuthzBasepPopResult(v83, &v63, &v59);
           if ( ConstantOperand < 0 )
             goto LABEL_172;
-          v22 = v58;
+          v22 = v59;
         }
         if ( v22 == -1 )
           v23 = -1;
         else
           v23 = v22 == 0;
 LABEL_13:
-        ConstantOperand = AuthzBasepPushResult((__int64)v82, &v62, v23);
+        ConstantOperand = AuthzBasepPushResult((__int64)v83, &v63, v23);
         if ( ConstantOperand < 0 )
           goto LABEL_172;
       }
@@ -237,37 +238,37 @@ LABEL_13:
           case 0x51:
             if ( v19 != 2 )
               goto LABEL_54;
-            if ( HIDWORD(v69[0]) == 1 )
+            if ( HIDWORD(v70[0]) == 1 )
               goto LABEL_171;
-            v58 = AuthzBasepEvaluateAttribute(*(__int64 *)&v69[1]);
-            ConstantOperand = AuthzBasepPushResult((__int64)v82, &v62, v58);
+            v59 = AuthzBasepEvaluateAttribute(*(__int64 *)&v70[1]);
+            ConstantOperand = AuthzBasepPushResult((__int64)v83, &v63, v59);
             if ( ConstantOperand < 0 )
               goto LABEL_172;
-            if ( LOBYTE(v57[0]) )
+            if ( LOBYTE(v58[0]) )
               ExFreePoolWithTag(*(PVOID *)(v43 + 24), 0);
-            v80 = *(_OWORD *)&P[7];
+            v81 = *(_OWORD *)&P[7];
             *(_OWORD *)P = *(_OWORD *)&P[9];
             *(_OWORD *)&P[2] = *(_OWORD *)&P[11];
             P[6] = P[15];
             *(_OWORD *)&P[4] = *(_OWORD *)&P[13];
-            v69[0] = *(_OWORD *)((char *)&v69[2] + 8);
-            *(_OWORD *)((char *)&v69[1] + 8) = v69[4];
-            *(_QWORD *)&v69[1] = &v80;
-            v57[0] = HIBYTE(v57[0]);
-            memset((char *)&v69[2] + 8, 0, 0x28uLL);
+            v70[0] = *(_OWORD *)((char *)&v70[2] + 8);
+            *(_OWORD *)((char *)&v70[1] + 8) = v70[4];
+            *(_QWORD *)&v70[1] = &v81;
+            v58[0] = HIBYTE(v58[0]);
+            memset((char *)&v70[2] + 8, 0, 0x28uLL);
             memset(&P[7], 0, 0x48uLL);
             v19 = 1;
-            v61 = 1;
+            v62 = 1;
 LABEL_54:
             ConstantOperand = AuthzBasepGetConstantOperand(
                                 (char *)v12 + (unsigned int)v18,
                                 a9 - (unsigned int)v18,
-                                (__int64)v69 + 40 * v19,
-                                v68);
+                                (__int64)v70 + 40 * v19,
+                                v69);
             if ( ConstantOperand < 0 )
               goto LABEL_172;
-            v19 = v61 + 1;
-            LODWORD(v18) = v68[0] + v18;
+            v19 = v62 + 1;
+            LODWORD(v18) = v69[0] + v18;
             goto LABEL_35;
           case 0x80:
           case 0x81:
@@ -280,37 +281,37 @@ LABEL_54:
           case 0x8E:
           case 0x8F:
             LODWORD(v18) = v18 + 1;
-            if ( !AuthzBasepIsValidExpression((unsigned __int8)v20, (__int64)v69, v19, v56) )
+            if ( !AuthzBasepIsValidExpression((unsigned __int8)v20, (__int64)v70, v19, v57) )
             {
               ConstantOperand = -1073741406;
-              if ( !v56[0] )
+              if ( !v57[0] )
                 goto LABEL_172;
 LABEL_102:
               v23 = -1;
-              v58 = -1;
+              v59 = -1;
               goto LABEL_13;
             }
-            if ( v56[0] )
+            if ( v57[0] )
               goto LABEL_102;
-            AuthzBasepEvaluateExpression(v20, (__int64)v69, &v58);
-            v23 = v58;
-            if ( ((_BYTE)v20 == 0x8E || (_BYTE)v20 == 0x8F) && v58 != -1 )
+            AuthzBasepEvaluateExpression(v20, (__int64)v70, &v59);
+            v23 = v59;
+            if ( ((_BYTE)v20 == 0x8E || (_BYTE)v20 == 0x8F) && v59 != -1 )
             {
-              v23 = v58 == 0;
-              v58 = v23;
+              v23 = v59 == 0;
+              v59 = v23;
             }
             goto LABEL_13;
           case 0x87:
           case 0x8D:
             LODWORD(v18) = v18 + 1;
-            if ( !AuthzBasepIsValidExpression((unsigned __int8)v20, (__int64)v69, v19, v56) )
+            if ( !AuthzBasepIsValidExpression((unsigned __int8)v20, (__int64)v70, v19, v57) )
               goto LABEL_171;
-            v42 = *(_QWORD *)&v69[1] != 0LL;
-            v58 = v42;
+            v42 = *(_QWORD *)&v70[1] != 0LL;
+            v59 = v42;
             if ( (_BYTE)v20 == 0x8D )
             {
-              v42 = *(_QWORD *)&v69[1] == 0LL;
-              v58 = v42;
+              v42 = *(_QWORD *)&v70[1] == 0LL;
+              v59 = v42;
             }
             goto LABEL_70;
           case 0x89:
@@ -318,34 +319,34 @@ LABEL_102:
           case 0x90:
           case 0x92:
             LODWORD(v18) = v18 + 1;
-            if ( !AuthzBasepIsValidExpression((unsigned __int8)v20, (__int64)v69, v19, v56) )
+            if ( !AuthzBasepIsValidExpression((unsigned __int8)v20, (__int64)v70, v19, v57) )
             {
               ConstantOperand = -1073741406;
-              if ( !v56[0] )
+              if ( !v57[0] )
                 goto LABEL_172;
 LABEL_115:
               v42 = -1;
-              v58 = -1;
+              v59 = -1;
               v49 = -1;
               goto LABEL_126;
             }
-            if ( !v56[0] )
+            if ( !v57[0] )
             {
               v50 = (_BYTE)v20 == 0x89 || (_BYTE)v20 == 0x90;
-              ConstantOperand = AuthzBasepMemberOf((unsigned int)v69, v70, a10, a11, v50, (__int64)v59);
+              ConstantOperand = AuthzBasepMemberOf((unsigned int)v70, v71, a10, a11, v50, (__int64)v60);
             }
             if ( ConstantOperand < 0 )
               goto LABEL_115;
-            if ( v59[0] )
+            if ( v60[0] )
             {
               v42 = 1;
-              v58 = 1;
+              v59 = 1;
               v49 = 1;
             }
             else
             {
               v42 = 0;
-              v58 = 0;
+              v59 = 0;
               v49 = 0;
             }
 LABEL_126:
@@ -357,34 +358,35 @@ LABEL_126:
           case 0x91:
           case 0x93:
             LODWORD(v18) = v18 + 1;
-            if ( !AuthzBasepIsValidExpression((unsigned __int8)v20, (__int64)v69, v19, v56) )
+            if ( !AuthzBasepIsValidExpression((unsigned __int8)v20, (__int64)v70, v19, v57) )
             {
               ConstantOperand = -1073741406;
-              if ( !v56[0] )
+              if ( !v57[0] )
                 goto LABEL_172;
 LABEL_131:
               v42 = -1;
-              v58 = -1;
+              v59 = -1;
               v49 = -1;
               goto LABEL_142;
             }
-            if ( !v56[0] )
+            if ( !v57[0] )
             {
               v51 = (_BYTE)v20 == 0x8A || (_BYTE)v20 == 0x91;
-              ConstantOperand = AuthzBasepDeviceMemberOf((unsigned int)v69, v70, a10, a11, v51, (__int64)v59);
+              LOBYTE(v55) = v51;
+              ConstantOperand = AuthzBasepDeviceMemberOf(v70, v71, a10, a11, v55, v60);
             }
             if ( ConstantOperand < 0 )
               goto LABEL_131;
-            if ( v59[0] )
+            if ( v60[0] )
             {
               v42 = 1;
-              v58 = 1;
+              v59 = 1;
               v49 = 1;
             }
             else
             {
               v42 = 0;
-              v58 = 0;
+              v59 = 0;
               v49 = 0;
             }
 LABEL_142:
@@ -392,40 +394,40 @@ LABEL_142:
             {
 LABEL_128:
               v42 = v49 == 0;
-              v58 = v42;
+              v59 = v42;
             }
 LABEL_70:
-            ConstantOperand = AuthzBasepPushResult((__int64)v82, &v62, v42);
+            ConstantOperand = AuthzBasepPushResult((__int64)v83, &v63, v42);
             if ( ConstantOperand < 0 )
               goto LABEL_172;
             break;
           case 0xA0:
           case 0xA1:
             LODWORD(v18) = v18 + 1;
-            if ( !AuthzBasepIsValidExpression((unsigned __int8)v20, (__int64)v69, v19, v56) )
+            if ( !AuthzBasepIsValidExpression((unsigned __int8)v20, (__int64)v70, v19, v57) )
               goto LABEL_171;
             if ( v44 == 2 )
             {
-              v65 = AuthzBasepEvaluateAttribute(*(__int64 *)&v69[1]);
-              v45 = AuthzBasepEvaluateAttribute(*((__int64 *)&v69[3] + 1));
-              v67 = v45;
+              v66 = AuthzBasepEvaluateAttribute(*(__int64 *)&v70[1]);
+              v45 = AuthzBasepEvaluateAttribute(*((__int64 *)&v70[3] + 1));
+              v68 = v45;
             }
             else
             {
               if ( v44 == 1 )
               {
-                v65 = AuthzBasepEvaluateAttribute(*(__int64 *)&v69[1]);
+                v66 = AuthzBasepEvaluateAttribute(*(__int64 *)&v70[1]);
               }
               else
               {
-                ConstantOperand = AuthzBasepPopResult(v82, &v62, &v65);
+                ConstantOperand = AuthzBasepPopResult(v83, &v63, &v66);
                 if ( ConstantOperand < 0 )
                   goto LABEL_172;
               }
-              ConstantOperand = AuthzBasepPopResult(v82, &v62, &v67);
+              ConstantOperand = AuthzBasepPopResult(v83, &v63, &v68);
               if ( ConstantOperand < 0 )
                 goto LABEL_172;
-              v45 = v67;
+              v45 = v68;
             }
             if ( (_BYTE)v20 == 0xA0 )
             {
@@ -440,7 +442,7 @@ LABEL_70:
               {
 LABEL_96:
                 v47 = 0;
-                v58 = 0;
+                v59 = 0;
                 goto LABEL_99;
               }
 LABEL_91:
@@ -449,36 +451,36 @@ LABEL_91:
             }
             v47 = 1;
 LABEL_98:
-            v58 = v47;
+            v59 = v47;
 LABEL_99:
-            ConstantOperand = AuthzBasepPushResult((__int64)v82, &v62, v47);
+            ConstantOperand = AuthzBasepPushResult((__int64)v83, &v63, v47);
             if ( ConstantOperand < 0 )
               goto LABEL_172;
             break;
           case 0xA3:
             LODWORD(v18) = v18 + 1;
-            if ( !AuthzBasepIsValidExpression((unsigned __int8)v20, (__int64)v69, v19, v56) )
+            if ( !AuthzBasepIsValidExpression((unsigned __int8)v20, (__int64)v70, v19, v57) )
             {
               ConstantOperand = -1073741406;
-              if ( !v56[0] )
+              if ( !v57[0] )
                 goto LABEL_172;
 LABEL_107:
               v48 = -1;
               goto LABEL_108;
             }
-            if ( v56[0] )
+            if ( v57[0] )
               goto LABEL_107;
-            AuthzBasepComputeExpression((unsigned __int8)v20, v69, &v74);
-            if ( v74 == -1 )
+            AuthzBasepComputeExpression((unsigned __int8)v20, v70, &v75);
+            if ( v75 == -1 )
               goto LABEL_107;
-            v48 = v74 != 0;
+            v48 = v75 != 0;
 LABEL_108:
-            v58 = v48;
-            ConstantOperand = AuthzBasepPushResult((__int64)v82, &v62, v48);
+            v59 = v48;
+            ConstantOperand = AuthzBasepPushResult((__int64)v83, &v63, v48);
             if ( ConstantOperand < 0 )
               goto LABEL_172;
-            AuthzBasepResetOperands(v69, v57);
-            v19 = v61;
+            AuthzBasepResetOperands(v70, v58);
+            v19 = v62;
             goto LABEL_36;
           case 0xF9:
           case 0xFA:
@@ -489,76 +491,76 @@ LABEL_108:
             goto LABEL_171;
         }
       }
-      AuthzBasepResetOperands(v69, v57);
+      AuthzBasepResetOperands(v70, v58);
       v19 = 0;
-      v61 = 0;
+      v62 = 0;
       goto LABEL_36;
     }
 LABEL_15:
     v24 = (unsigned int)(v18 + 1);
     if ( v19 == 2 )
     {
-      if ( HIDWORD(v69[0]) == 1 )
+      if ( HIDWORD(v70[0]) == 1 )
         goto LABEL_171;
-      v58 = AuthzBasepEvaluateAttribute(*(__int64 *)&v69[1]);
-      ConstantOperand = AuthzBasepPushResult((__int64)v82, &v62, v58);
+      v59 = AuthzBasepEvaluateAttribute(*(__int64 *)&v70[1]);
+      ConstantOperand = AuthzBasepPushResult((__int64)v83, &v63, v59);
       if ( ConstantOperand < 0 )
         goto LABEL_172;
-      if ( LOBYTE(v57[0]) )
+      if ( LOBYTE(v58[0]) )
         ExFreePoolWithTag(*(PVOID *)(v52 + 24), 0);
-      v80 = *(_OWORD *)&P[7];
+      v81 = *(_OWORD *)&P[7];
       *(_OWORD *)P = *(_OWORD *)&P[9];
       *(_OWORD *)&P[2] = *(_OWORD *)&P[11];
       P[6] = P[15];
       *(_OWORD *)&P[4] = *(_OWORD *)&P[13];
-      v69[0] = *(_OWORD *)((char *)&v69[2] + 8);
-      *(_OWORD *)((char *)&v69[1] + 8) = v69[4];
-      *(_QWORD *)&v69[1] = &v80;
-      v57[0] = HIBYTE(v57[0]);
-      memset((char *)&v69[2] + 8, 0, 0x28uLL);
+      v70[0] = *(_OWORD *)((char *)&v70[2] + 8);
+      *(_OWORD *)((char *)&v70[1] + 8) = v70[4];
+      *(_QWORD *)&v70[1] = &v81;
+      v58[0] = HIBYTE(v58[0]);
+      memset((char *)&v70[2] + 8, 0, 0x28uLL);
       memset(&P[7], 0, 0x48uLL);
       v19 = 1;
-      v61 = 1;
+      v62 = 1;
     }
-    if ( a9 - (unsigned int)v24 < 4 || (v25 = *(_DWORD *)((char *)v12 + v24), v26 = v24 + 4, v71 = v25, a9 - v26 < v25) )
+    if ( a9 - (unsigned int)v24 < 4 || (v25 = *(_DWORD *)((char *)v12 + v24), v26 = v24 + 4, v72 = v25, a9 - v26 < v25) )
     {
 LABEL_171:
       ConstantOperand = -1073741406;
 LABEL_172:
-      v13 = v60;
-      v16 = v55;
+      v13 = v61;
+      v16 = v56;
       goto LABEL_39;
     }
     if ( v25 > 0xFFFE )
       break;
-    LODWORD(v79[3]) = v25;
+    LODWORD(v80[3]) = v25;
     v27 = (char *)v12 + v26;
     v28 = v19;
-    v79[4] = v27;
+    v80[4] = v27;
     v29 = 9LL * v19;
-    v66 = v29 * 8;
+    v67 = v29 * 8;
     String2 = (PCUNICODE_STRING)&P[v29];
     ConstantOperand = AuthzBasepUnicodeStringFromOperandValue(
-                        (__int64)v79,
+                        (__int64)v80,
                         0,
                         (unsigned __int16 *)&P[v29],
-                        (_BYTE *)v57 + v19);
+                        (_BYTE *)v58 + v19);
     if ( ConstantOperand < 0 )
       goto LABEL_172;
     if ( (_BYTE)v20 == 0xF9 )
     {
       LODWORD(P[v29 - 2]) = 3;
-      v32 = (PVOID *)((char *)&P[-1] + v66);
+      v32 = (PVOID *)((char *)&P[-1] + v67);
       v30 = &P[v29 - 2];
       if ( a11 )
         v31 = a5;
       else
-        v31 = v75;
+        v31 = v76;
     }
     else if ( (_BYTE)v20 == 0xFB )
     {
       LODWORD(P[v29 - 2]) = 5;
-      v32 = (PVOID *)((char *)&P[-1] + v66);
+      v32 = (PVOID *)((char *)&P[-1] + v67);
       v30 = &P[v29 - 2];
       if ( a11 )
         v31 = a7;
@@ -570,20 +572,20 @@ LABEL_172:
       v30 = &P[v29 - 2];
       if ( (_BYTE)v20 == 0xFA )
       {
-        v31 = v76;
+        v31 = v77;
         *(_DWORD *)v30 = 4;
       }
       else if ( (_BYTE)v20 == 0xFC )
       {
-        v31 = v70;
+        v31 = v71;
         *(_DWORD *)v30 = 6;
       }
       else
       {
-        v31 = v72;
+        v31 = v73;
         *(_DWORD *)v30 = 2;
       }
-      v32 = (PVOID *)((char *)&P[-1] + v66);
+      v32 = (PVOID *)((char *)&P[-1] + v67);
     }
     *v32 = v31;
     v33 = 9 * v28;
@@ -594,31 +596,31 @@ LABEL_172:
       goto LABEL_32;
     if ( *(_DWORD *)v30 == 2
       && (SepSingletonGlobal[4] & 1) != 0
-      && (*(_DWORD *)(v70 + 200) & 0x20000) == 0
+      && (*(_DWORD *)(v71 + 200) & 0x20000) == 0
       && SepPotentialGlobalTableAttribute(String2)
-      && !v63 )
+      && !v64 )
     {
-      if ( !v55 )
+      if ( !v56 )
       {
-        v53 = SepValidateAndCopyGlobalEntry(v72, &v73);
+        v53 = SepValidateAndCopyGlobalEntry(v73, &v74);
         ConstantOperand = v53;
         if ( v53 < 0 )
         {
-          v63 = 1;
+          v64 = 1;
           if ( v53 != -1073741275 )
             goto LABEL_32;
           goto LABEL_29;
         }
-        v55 = 1;
+        v56 = 1;
       }
-      *v32 = v73;
+      *v32 = v74;
       ConstantOperand = AuthzBasepQuerySecurityAttributeAndValues(v30);
       if ( ConstantOperand != -1073741275 )
         goto LABEL_32;
-      *v32 = v72;
+      *v32 = v73;
     }
 LABEL_29:
-    if ( v64 || *(_DWORD *)v30 != 2 )
+    if ( v65 || *(_DWORD *)v30 != 2 )
       goto LABEL_61;
     *(_DWORD *)v30 = 7;
     *v32 = 0LL;
@@ -626,11 +628,11 @@ LABEL_29:
 LABEL_32:
     if ( ConstantOperand >= 0 )
     {
-      v34 = v66;
+      v34 = v67;
       v35 = 40 * v28;
-      *(_WORD *)((char *)v69 + v35) = *(_WORD *)((char *)&P[2] + v66);
-      *(_DWORD *)((char *)v69 + v35 + 4) = *(_DWORD *)((char *)&P[3] + v34);
-      *(_QWORD *)((char *)&v69[1] + v35) = v30;
+      *(_WORD *)((char *)v70 + v35) = *(_WORD *)((char *)&P[2] + v67);
+      *(_DWORD *)((char *)v70 + v35 + 4) = *(_DWORD *)((char *)&P[3] + v34);
+      *(_QWORD *)((char *)&v70[1] + v35) = v30;
       goto LABEL_34;
     }
     if ( ConstantOperand != -1073741275 )
@@ -638,53 +640,53 @@ LABEL_32:
 LABEL_61:
     ConstantOperand = 0;
     v35 = 40 * v28;
-    *(_WORD *)((char *)v69 + v35) = 0;
-    *(_DWORD *)((char *)v69 + v35 + 4) = 0;
-    *(_QWORD *)((char *)&v69[1] + v35) = 0LL;
-    if ( *((_BYTE *)v57 + v28) )
+    *(_WORD *)((char *)v70 + v35) = 0;
+    *(_DWORD *)((char *)v70 + v35 + 4) = 0;
+    *(_QWORD *)((char *)&v70[1] + v35) = 0LL;
+    if ( *((_BYTE *)v58 + v28) )
     {
-      ExFreePoolWithTag(*(PVOID *)((char *)&P[1] + v66), 0);
+      ExFreePoolWithTag(*(PVOID *)((char *)&P[1] + v67), 0);
       if ( v28 >= 2 )
         _report_rangecheckfailure();
-      *((_BYTE *)v57 + v28) = 0;
+      *((_BYTE *)v58 + v28) = 0;
     }
 LABEL_34:
     v36 = *(_DWORD *)v30;
-    v19 = v61 + 1;
-    LODWORD(v18) = v71 + v26;
-    *(_DWORD *)((char *)&v69[1] + v35 + 8) = 0;
-    *(_QWORD *)((char *)&v69[2] + v35) = 0LL;
-    *(_DWORD *)((char *)v69 + v35 + 8) = 0;
-    v12 = v78;
-    *(_DWORD *)((char *)v69 + v35 + 12) = v36;
+    v19 = v62 + 1;
+    LODWORD(v18) = v72 + v26;
+    *(_DWORD *)((char *)&v70[1] + v35 + 8) = 0;
+    *(_QWORD *)((char *)&v70[2] + v35) = 0LL;
+    *(_DWORD *)((char *)v70 + v35 + 8) = 0;
+    v12 = v79;
+    *(_DWORD *)((char *)v70 + v35 + 12) = v36;
 LABEL_35:
-    v61 = v19;
+    v62 = v19;
 LABEL_36:
     if ( (unsigned int)v18 >= a9 )
     {
-      if ( v62 == 1 )
+      if ( v63 == 1 )
       {
-        v13 = v60;
-        v16 = v55;
-        *v60 = v82[0];
+        v13 = v61;
+        v16 = v56;
+        *v61 = v83[0];
         goto LABEL_39;
       }
-      if ( !v62 && v19 == 1 )
+      if ( !v63 && v19 == 1 )
       {
-        v41 = AuthzBasepEvaluateAttribute(*(__int64 *)&v69[1]);
-        v13 = v60;
-        v16 = v55;
-        *v60 = v41;
+        v41 = AuthzBasepEvaluateAttribute(*(__int64 *)&v70[1]);
+        v13 = v61;
+        v16 = v56;
+        *v61 = v41;
         goto LABEL_39;
       }
       goto LABEL_172;
     }
   }
-  v13 = v60;
+  v13 = v61;
   ConstantOperand = -1073741562;
-  v16 = v55;
+  v16 = v56;
 LABEL_39:
-  v37 = v57;
+  v37 = v58;
   v38 = &P[1];
   do
   {
@@ -697,10 +699,10 @@ LABEL_39:
   while ( v17 );
   if ( v16 )
   {
-    v54 = v73;
-    if ( v73 )
+    v54 = v74;
+    if ( v74 )
     {
-      AuthzBasepFreeSecurityAttributesList(v73);
+      AuthzBasepFreeSecurityAttributesList(v74);
       ExFreePoolWithTag(v54, 0x74416553u);
     }
   }

@@ -1,45 +1,45 @@
 /*
- * XREFs of MiDecommitHardwareEnclavePages @ 0x140549A28
+ * XREFs of MiDecommitHardwareEnclavePages @ 0x140549C68
  * Callers:
- *     MiDecommitEnclavePages @ 0x1408D2E84 (MiDecommitEnclavePages.c)
- *     MiTerminateHardwareEnclave @ 0x1409B0DC4 (MiTerminateHardwareEnclave.c)
+ *     MiDecommitEnclavePages @ 0x1408D2FE4 (MiDecommitEnclavePages.c)
+ *     MiTerminateHardwareEnclave @ 0x1409B1CF4 (MiTerminateHardwareEnclave.c)
  * Callees:
- *     MiUnlockWorkingSetShared @ 0x14020F790 (MiUnlockWorkingSetShared.c)
- *     MiLockWorkingSetShared @ 0x140219CB0 (MiLockWorkingSetShared.c)
- *     ExAcquireSpinLockShared @ 0x14021CD80 (ExAcquireSpinLockShared.c)
- *     KiCheckForKernelApcDelivery @ 0x14024A6E0 (KiCheckForKernelApcDelivery.c)
- *     RtlInterlockedSetClearRun @ 0x140268460 (RtlInterlockedSetClearRun.c)
- *     MiUnlockPageTableInternal @ 0x1402855F0 (MiUnlockPageTableInternal.c)
- *     KiAbEntryRemoveFromTree @ 0x14028F490 (KiAbEntryRemoveFromTree.c)
- *     KeShouldYieldProcessor @ 0x140293FD0 (KeShouldYieldProcessor.c)
- *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
- *     MiPageTableLockIsContended @ 0x140308460 (MiPageTableLockIsContended.c)
- *     MiWorkingSetIsContended @ 0x14030B7D0 (MiWorkingSetIsContended.c)
- *     MiMakeSystemAddressValid @ 0x14030E390 (MiMakeSystemAddressValid.c)
- *     MiWriteValidPteNewProtection @ 0x14030FA00 (MiWriteValidPteNewProtection.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140314D90 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14031C800 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x14032DEC0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiMakeValidPte @ 0x14032E730 (MiMakeValidPte.c)
- *     MiInsertTbFlushEntry @ 0x140335D70 (MiInsertTbFlushEntry.c)
- *     MiFlushTbList @ 0x14033B520 (MiFlushTbList.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14033BD80 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     MiPteInShadowRange @ 0x140348AF0 (MiPteInShadowRange.c)
- *     MiGetSystemRegionType @ 0x14034A950 (MiGetSystemRegionType.c)
- *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
- *     KiAbThreadRemoveBoosts @ 0x14034AD00 (KiAbThreadRemoveBoosts.c)
- *     KiLeaveGuardedRegionUnsafe @ 0x14034AD90 (KiLeaveGuardedRegionUnsafe.c)
- *     MmGetSessionIdEx @ 0x14034AE60 (MmGetSessionIdEx.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
- *     memset @ 0x140414200 (memset.c)
- *     KeBlockEnclavePage @ 0x1405150CC (KeBlockEnclavePage.c)
- *     KeCreateEnclaveMetadataPage @ 0x1405152EC (KeCreateEnclaveMetadataPage.c)
- *     KeOutPageEnclavePage @ 0x140515330 (KeOutPageEnclavePage.c)
- *     KeRemoveEnclavePage @ 0x1405153F0 (KeRemoveEnclavePage.c)
- *     KeTrackEnclaveTbFlush @ 0x140515434 (KeTrackEnclaveTbFlush.c)
- *     MiGetExceptionInfo @ 0x1405349C0 (MiGetExceptionInfo.c)
- *     MiDeleteEnclavePage @ 0x14054A440 (MiDeleteEnclavePage.c)
+ *     MiUnlockPageTableInternal @ 0x140202790 (MiUnlockPageTableInternal.c)
+ *     KiAbEntryRemoveFromTree @ 0x14020C630 (KiAbEntryRemoveFromTree.c)
+ *     KeShouldYieldProcessor @ 0x140211F40 (KeShouldYieldProcessor.c)
+ *     RtlInterlockedSetClearRun @ 0x140256400 (RtlInterlockedSetClearRun.c)
+ *     MiUnlockWorkingSetShared @ 0x1402B4090 (MiUnlockWorkingSetShared.c)
+ *     MiLockWorkingSetShared @ 0x1402BE5B0 (MiLockWorkingSetShared.c)
+ *     ExAcquireSpinLockShared @ 0x1402C1680 (ExAcquireSpinLockShared.c)
+ *     KiCheckForKernelApcDelivery @ 0x1402EEF30 (KiCheckForKernelApcDelivery.c)
+ *     ExfTryToWakePushLock @ 0x1402FC2C0 (ExfTryToWakePushLock.c)
+ *     MiPageTableLockIsContended @ 0x1403131B0 (MiPageTableLockIsContended.c)
+ *     MiWorkingSetIsContended @ 0x140316520 (MiWorkingSetIsContended.c)
+ *     MiMakeSystemAddressValid @ 0x1403190E0 (MiMakeSystemAddressValid.c)
+ *     MiWriteValidPteNewProtection @ 0x14031A750 (MiWriteValidPteNewProtection.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x14031FAE0 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x140327550 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140338C10 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiMakeValidPte @ 0x140339480 (MiMakeValidPte.c)
+ *     MiInsertTbFlushEntry @ 0x140340AC0 (MiInsertTbFlushEntry.c)
+ *     MiFlushTbList @ 0x140346270 (MiFlushTbList.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140346AD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiPteInShadowRange @ 0x140353840 (MiPteInShadowRange.c)
+ *     MiGetSystemRegionType @ 0x1403556A0 (MiGetSystemRegionType.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1403556E0 (ExAcquirePushLockExclusiveEx.c)
+ *     KiAbThreadRemoveBoosts @ 0x140355A50 (KiAbThreadRemoveBoosts.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x140355AE0 (KiLeaveGuardedRegionUnsafe.c)
+ *     MmGetSessionIdEx @ 0x140355BB0 (MmGetSessionIdEx.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     KeBlockEnclavePage @ 0x14051530C (KeBlockEnclavePage.c)
+ *     KeCreateEnclaveMetadataPage @ 0x14051552C (KeCreateEnclaveMetadataPage.c)
+ *     KeOutPageEnclavePage @ 0x140515570 (KeOutPageEnclavePage.c)
+ *     KeRemoveEnclavePage @ 0x140515630 (KeRemoveEnclavePage.c)
+ *     KeTrackEnclaveTbFlush @ 0x140515674 (KeTrackEnclaveTbFlush.c)
+ *     MiGetExceptionInfo @ 0x140534C00 (MiGetExceptionInfo.c)
+ *     MiDeleteEnclavePage @ 0x14054A680 (MiDeleteEnclavePage.c)
  */
 
 char __fastcall MiDecommitHardwareEnclavePages(__int64 a1, __int64 a2, ULONG_PTR a3, ULONG_PTR a4, int a5)
@@ -90,70 +90,69 @@ char __fastcall MiDecommitHardwareEnclavePages(__int64 a1, __int64 a2, ULONG_PTR
   bool v50; // zf
   __int64 v51; // rcx
   __int64 v52; // rdx
-  __int64 v53; // rcx
-  unsigned int v54; // ecx
-  volatile signed __int32 *v55; // r9
-  __int64 v56; // r10
-  int v57; // r15d
-  unsigned __int8 v59; // [rsp+30h] [rbp-1A8h]
-  int v60; // [rsp+34h] [rbp-1A4h]
-  unsigned int v61; // [rsp+3Ch] [rbp-19Ch]
-  int v62; // [rsp+40h] [rbp-198h]
-  ULONG_PTR v63; // [rsp+48h] [rbp-190h]
-  int v64; // [rsp+58h] [rbp-180h] BYREF
+  unsigned int v53; // ecx
+  volatile signed __int32 *v54; // r9
+  __int64 v55; // r10
+  int v56; // r15d
+  unsigned __int8 v58; // [rsp+30h] [rbp-1A8h]
+  int v59; // [rsp+34h] [rbp-1A4h]
+  unsigned int v60; // [rsp+3Ch] [rbp-19Ch]
+  int v61; // [rsp+40h] [rbp-198h]
+  ULONG_PTR v62; // [rsp+48h] [rbp-190h]
+  int v63; // [rsp+58h] [rbp-180h] BYREF
   ULONG_PTR BugCheckParameter1; // [rsp+60h] [rbp-178h]
-  unsigned __int64 v66; // [rsp+68h] [rbp-170h]
+  unsigned __int64 v65; // [rsp+68h] [rbp-170h]
   unsigned __int64 ValidPte; // [rsp+70h] [rbp-168h] BYREF
-  __int64 v68; // [rsp+78h] [rbp-160h]
-  int v69; // [rsp+80h] [rbp-158h]
+  __int64 v67; // [rsp+78h] [rbp-160h]
+  int v68; // [rsp+80h] [rbp-158h]
   ULONG_PTR BugCheckParameter2; // [rsp+88h] [rbp-150h]
-  ULONG_PTR v71; // [rsp+90h] [rbp-148h]
-  __int64 v72; // [rsp+98h] [rbp-140h]
-  __int64 v73; // [rsp+A0h] [rbp-138h]
-  __int64 v74; // [rsp+A8h] [rbp-130h]
-  ULONG_PTR v75; // [rsp+B0h] [rbp-128h]
-  __int64 v76; // [rsp+B8h] [rbp-120h]
+  ULONG_PTR v70; // [rsp+90h] [rbp-148h]
+  __int64 v71; // [rsp+98h] [rbp-140h]
+  __int64 v72; // [rsp+A0h] [rbp-138h]
+  __int64 v73; // [rsp+A8h] [rbp-130h]
+  ULONG_PTR v74; // [rsp+B0h] [rbp-128h]
+  __int64 v75; // [rsp+B8h] [rbp-120h]
   struct _KTHREAD *CurrentThread; // [rsp+C0h] [rbp-118h]
-  _QWORD v78[24]; // [rsp+D0h] [rbp-108h] BYREF
+  _QWORD v77[24]; // [rsp+D0h] [rbp-108h] BYREF
 
   BugCheckParameter1 = a3;
-  v68 = a2;
-  v74 = a2;
-  v75 = a3;
+  v67 = a2;
+  v73 = a2;
+  v74 = a3;
   ValidPte = 0LL;
-  memset(v78, 0, 0xB8uLL);
-  v72 = a2;
+  memset(v77, 0, 0xB8uLL);
+  v71 = a2;
   CurrentThread = KeGetCurrentThread();
   v7 = a1 + 1664;
-  v76 = v7;
+  v75 = v7;
   v8 = 0LL;
-  v66 = 0LL;
+  v65 = 0LL;
   v9 = 0;
-  v63 = 0LL;
-  v73 = 0LL;
-  LODWORD(v78[0]) = 1;
-  WORD2(v78[0]) = 0;
-  v78[2] = 0LL;
-  LODWORD(v78[1]) = 20;
-  v78[3] = 0LL;
+  v62 = 0LL;
+  v72 = 0LL;
+  LODWORD(v77[0]) = 1;
+  WORD2(v77[0]) = 0;
+  v77[2] = 0LL;
+  LODWORD(v77[1]) = 20;
+  v77[3] = 0LL;
   v10 = 2;
-  v62 = 2;
-  v59 = MiLockWorkingSetShared(v7, v11, v12, v13);
+  v61 = 2;
+  v58 = MiLockWorkingSetShared(v7, v11, v12, v13);
   v15 = 0;
   while ( 1 )
   {
-    v61 = v15;
+    v60 = v15;
     if ( v15 >= v10 )
       break;
     if ( v15 == 2 )
     {
       KeTrackEnclaveTbFlush();
-      MiInsertTbFlushEntry((__int64)v78, (__int64)(BugCheckParameter1 << 25) >> 16, 1LL, 0);
-      MiFlushTbList((__int64)v78, v16);
+      MiInsertTbFlushEntry((__int64)v77, (__int64)(BugCheckParameter1 << 25) >> 16, 1LL, 0);
+      MiFlushTbList((__int64)v77, v16);
     }
     v17 = BugCheckParameter1;
     v18 = BugCheckParameter1;
-    v71 = BugCheckParameter1;
+    v70 = BugCheckParameter1;
     while ( v18 <= a4 )
     {
       if ( (v18 & 0x78) != 0 || v18 == v17 )
@@ -168,31 +167,31 @@ char __fastcall MiDecommitHardwareEnclavePages(__int64 a1, __int64 a2, ULONG_PTR
       if ( v19 != 1 )
       {
 LABEL_18:
-        v20 = v59;
+        v20 = v58;
       }
       else
       {
         if ( v8 )
         {
-          MiFlushTbList((__int64)v78, v14);
+          MiFlushTbList((__int64)v77, v14);
           MiUnlockPageTableInternal(v7, v8);
           v8 = 0LL;
-          v66 = 0LL;
+          v65 = 0LL;
         }
-        v20 = v59;
-        MiUnlockWorkingSetShared(v7, v59);
+        v20 = v58;
+        MiUnlockWorkingSetShared(v7, v58);
         MiLockWorkingSetShared(v7, v21, v22, v23);
       }
       if ( v8 )
       {
         if ( (v18 & 0xFFF) != 0 )
           goto LABEL_23;
-        MiFlushTbList((__int64)v78, v14);
+        MiFlushTbList((__int64)v77, v14);
         MiUnlockPageTableInternal(v7, v8);
       }
       v8 = ((v18 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
-      v66 = v8;
-      MiMakeSystemAddressValid(v18, 0LL, (*(_DWORD *)(v72 + 48) >> 12) & 0x3F, v20, 0);
+      v65 = v8;
+      MiMakeSystemAddressValid(v18, 0LL, (*(_DWORD *)(v71 + 48) >> 12) & 0x3F, v20, 0);
 LABEL_23:
       v24 = MI_READ_PTE_LOCK_FREE(v18);
       ValidPte = v24;
@@ -200,13 +199,13 @@ LABEL_23:
         goto LABEL_62;
       v25 = (__int64)(v18 << 25) >> 16;
       BugCheckParameter2 = v25;
-      if ( v61 )
+      if ( v60 )
       {
-        if ( v61 == 1 )
+        if ( v60 == 1 )
         {
           v28 = KeRemoveEnclavePage();
           v29 = v28;
-          v60 = v28;
+          v59 = v28;
           if ( v28 < 0 )
           {
             if ( v28 != -1073741757 || a5 )
@@ -215,14 +214,14 @@ LABEL_23:
             }
             else
             {
-              if ( !v63 )
+              if ( !v62 )
               {
                 while ( 1 )
                 {
-                  v30 = *(_DWORD *)qword_140C4EE90;
-                  v31 = *(_QWORD *)(qword_140C4EE90 + 8);
-                  v32 = (*(_DWORD *)(qword_140C4EE90 + 8) & 4) != 0LL ? 0x20 : 0;
-                  v69 = 0;
+                  v30 = *(_DWORD *)qword_140C4EED0;
+                  v31 = *(_QWORD *)(qword_140C4EED0 + 8);
+                  v32 = (*(_DWORD *)(qword_140C4EED0 + 8) & 4) != 0LL ? 0x20 : 0;
+                  v68 = 0;
                   v33 = v32 + v30 - 1;
                   v34 = v31 - ((v31 & 4) != 0 ? 4 : 0);
                   if ( v30 )
@@ -234,7 +233,7 @@ LABEL_23:
                         goto LABEL_43;
                     }
                     _BitScanForward64((unsigned __int64 *)&i, ~i);
-                    v69 = i;
+                    v68 = i;
                     v35 = (unsigned int)i + ((unsigned int)(((__int64)v36 - v34) >> 3) << 6);
                     if ( (unsigned int)v35 > v33 )
                       v35 = 0xFFFFFFFFLL;
@@ -249,22 +248,22 @@ LABEL_43:
                     v9 = -1;
                   if ( v9 == -1 )
                     break;
-                  if ( (unsigned int)RtlInterlockedSetClearRun(qword_140C4EE90, v9, 1u) )
+                  if ( (unsigned int)RtlInterlockedSetClearRun(qword_140C4EED0, v9, 1u) )
                     goto LABEL_56;
                 }
-                MiFlushTbList((__int64)v78, (_KPROCESS *)v35);
-                v38 = v76;
-                MiUnlockPageTableInternal(v76, v8);
-                MiUnlockWorkingSetShared(v38, v59);
+                MiFlushTbList((__int64)v77, (_KPROCESS *)v35);
+                v38 = v75;
+                MiUnlockPageTableInternal(v75, v8);
+                MiUnlockWorkingSetShared(v38, v58);
                 --CurrentThread->SpecialApcDisable;
-                ExAcquirePushLockExclusiveEx((ULONG_PTR)&qword_140C4EE98, 0LL);
+                ExAcquirePushLockExclusiveEx((ULONG_PTR)&qword_140C4EED8, 0LL);
                 v9 = 0;
                 MiLockWorkingSetShared(v38, v39, v40, v41);
-                MiMakeSystemAddressValid(v18, 0LL, (*(_DWORD *)(v72 + 48) >> 12) & 0x3F, v59, 0);
+                MiMakeSystemAddressValid(v18, 0LL, (*(_DWORD *)(v71 + 48) >> 12) & 0x3F, v58, 0);
 LABEL_56:
-                v63 = qword_140C4EE88 + 8 * v9;
-                ++v62;
-                v29 = v60;
+                v62 = qword_140C4EEC8 + 8 * v9;
+                ++v61;
+                v29 = v59;
               }
               KeBlockEnclavePage();
             }
@@ -276,9 +275,9 @@ LABEL_56:
         {
           do
           {
-            ExAcquireSpinLockShared(&dword_140C4EEA0);
-            v42 = KeOutPageEnclavePage(v25, *(_QWORD *)(v68 + 88));
-            ExReleaseSpinLockSharedFromDpcLevel(&dword_140C4EEA0);
+            ExAcquireSpinLockShared(&dword_140C4EEE0);
+            v42 = KeOutPageEnclavePage(v25, *(_QWORD *)(v67 + 88));
+            ExReleaseSpinLockSharedFromDpcLevel(&dword_140C4EEE0);
           }
           while ( v42 == -1073741802 );
           if ( v42 < 0 )
@@ -308,68 +307,68 @@ LABEL_56:
         MiWriteValidPteNewProtection(v18, ValidPte);
       }
 LABEL_61:
-      MiInsertTbFlushEntry((__int64)v78, v25, 1LL, 0);
-      v7 = v76;
+      MiInsertTbFlushEntry((__int64)v77, v25, 1LL, 0);
+      v7 = v75;
 LABEL_62:
       v18 += 8LL;
-      v71 = v18;
+      v70 = v18;
       v17 = BugCheckParameter1;
     }
-    MiFlushTbList((__int64)v78, v14);
+    MiFlushTbList((__int64)v77, v14);
     if ( v8 )
     {
       MiUnlockPageTableInternal(v7, v8);
       v8 = 0LL;
-      v66 = 0LL;
+      v65 = 0LL;
     }
-    v15 = v61 + 1;
-    v10 = v62;
+    v15 = v60 + 1;
+    v10 = v61;
   }
-  LOBYTE(v43) = MiUnlockWorkingSetShared(v7, v59);
-  if ( v63 )
+  LOBYTE(v43) = MiUnlockWorkingSetShared(v7, v58);
+  if ( v62 )
   {
     if ( v9 )
     {
-      v54 = 1;
-      v55 = (volatile signed __int32 *)(*(_QWORD *)(qword_140C4EE90 + 8) + 4 * ((unsigned __int64)v9 >> 5));
-      v56 = v9 & 0x1F;
-      LOBYTE(v43) = v56 + 1;
-      if ( (unsigned __int64)(v56 + 1) > 0x20 )
+      v53 = 1;
+      v54 = (volatile signed __int32 *)(*(_QWORD *)(qword_140C4EED0 + 8) + 4 * ((unsigned __int64)v9 >> 5));
+      v55 = v9 & 0x1F;
+      LOBYTE(v43) = v55 + 1;
+      if ( (unsigned __int64)(v55 + 1) > 0x20 )
       {
-        v57 = v9 & 0x1F;
-        if ( v57 )
+        v56 = v9 & 0x1F;
+        if ( v56 )
         {
-          LODWORD(v43) = ~(((1 << (32 - v57)) - 1) << v56);
-          _InterlockedAnd(v55, v43);
-          v54 = 1 - (32 - v57);
-          ++v55;
+          LODWORD(v43) = ~(((1 << (32 - v56)) - 1) << v55);
+          _InterlockedAnd(v54, v43);
+          v53 = 1 - (32 - v56);
+          ++v54;
         }
-        if ( v54 >= 0x20 )
+        if ( v53 >= 0x20 )
         {
-          v43 = (unsigned __int64)v54 >> 5;
+          v43 = (unsigned __int64)v53 >> 5;
           do
           {
-            *v55++ = 0;
-            v54 -= 32;
+            *v54++ = 0;
+            v53 -= 32;
             --v43;
           }
           while ( v43 );
         }
-        if ( v54 )
-          _InterlockedAnd(v55, -1 << v54);
+        if ( v53 )
+          _InterlockedAnd(v54, -1 << v53);
       }
       else
       {
-        _InterlockedAnd(v55, ~(1 << v56));
+        _InterlockedAnd(v54, ~(1 << v55));
       }
     }
     else
     {
-      if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_140C4EE98, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-        ExfTryToWakePushLock(&qword_140C4EE98);
-      v64 = 0;
+      if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_140C4EED8, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+        ExfTryToWakePushLock(&qword_140C4EED8);
+      v63 = 0;
       v44 = KeGetCurrentThread();
-      if ( (unsigned int)MiGetSystemRegionType((unsigned __int64)&qword_140C4EE98) == 1 )
+      if ( (unsigned int)MiGetSystemRegionType((unsigned __int64)&qword_140C4EED8) == 1 )
         SessionId = (unsigned int)MmGetSessionIdEx((__int64)v44->ApcState.Process);
       else
         SessionId = 0xFFFFFFFFLL;
@@ -386,7 +385,7 @@ LABEL_62:
         v49 = (__int64)&v44->LockEntries[v51];
         if ( (*(_BYTE *)(v49 + 26) & 1) != 0
           && (*(_DWORD *)(v49 + 32) & 1) == 0
-          && (*(_QWORD *)(v49 + 32) & 0x7FFFFFFFFFFFFFFCLL) == ((unsigned __int64)&qword_140C4EE98 & 0x7FFFFFFFFFFFFFFCLL)
+          && (*(_QWORD *)(v49 + 32) & 0x7FFFFFFFFFFFFFFCLL) == ((unsigned __int64)&qword_140C4EED8 & 0x7FFFFFFFFFFFFFFCLL)
           && *(_DWORD *)(v49 + 40) == (_DWORD)SessionId )
         {
           *(_BYTE *)(v49 + 26) &= ~1u;
@@ -401,8 +400,8 @@ LABEL_62:
       {
         *(_BYTE *)(v47 + 32) |= 2u;
         if ( *(__int64 *)(v47 + 32) < 0 )
-          KiAbEntryRemoveFromTree(v47);
-        v64 = *(_DWORD *)(v47 + 88) & 0x1FFFF;
+          KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)v47);
+        v63 = *(_DWORD *)(v47 + 88) & 0x1FFFF;
         *(_DWORD *)(v47 + 88) &= 0xFFFE0000;
         *(_BYTE *)(v47 + 25) &= ~1u;
         *(_QWORD *)(v47 + 32) = 0LL;
@@ -414,13 +413,13 @@ LABEL_62:
       }
       else if ( (*((_DWORD *)&v44->0 + 1) & 0x10000) == 0 )
       {
-        KeBugCheckEx(0x162u, (ULONG_PTR)v44, (ULONG_PTR)&qword_140C4EE98, SessionId, 0LL);
+        KeBugCheckEx(0x162u, (ULONG_PTR)v44, (ULONG_PTR)&qword_140C4EED8, SessionId, 0LL);
       }
       --v44->AbAllocationRegionCount;
-      KiAbThreadRemoveBoosts((ULONG_PTR)v44, (__int64)&qword_140C4EE98, (__int64)&v64, (_DWORD *)SessionId);
+      KiAbThreadRemoveBoosts((ULONG_PTR)v44, (__int64)&qword_140C4EED8, (unsigned int *)&v63);
       v50 = v44->SpecialApcDisable++ == -1;
       if ( v50 && ($C459BD0D405E8E46662177FB3D0A143F *)v44->ApcState.ApcListHead[0].Flink != &v44->152 )
-        KiCheckForKernelApcDelivery(v53);
+        KiCheckForKernelApcDelivery();
       LOBYTE(v43) = KiLeaveGuardedRegionUnsafe((__int64)CurrentThread);
     }
   }

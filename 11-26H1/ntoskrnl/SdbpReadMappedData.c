@@ -1,21 +1,21 @@
 /*
- * XREFs of SdbpReadMappedData @ 0x1409E85D8
+ * XREFs of SdbpReadMappedData @ 0x1409D4FE8
  * Callers:
- *     SdbOpenDatabaseEx @ 0x140880C68 (SdbOpenDatabaseEx.c)
- *     SdbpOpenCompressedDatabase @ 0x140887044 (SdbpOpenCompressedDatabase.c)
- *     SdbpOpenDatabaseInMemory @ 0x1409E4018 (SdbpOpenDatabaseInMemory.c)
- *     SdbpValidateRootTagSizes @ 0x1409E6A38 (SdbpValidateRootTagSizes.c)
- *     SdbpReadTagData @ 0x1409E8130 (SdbpReadTagData.c)
- *     SdbGetTagDataSize @ 0x1409E81F0 (SdbGetTagDataSize.c)
- *     SdbGetTagFromTagID @ 0x1409E8584 (SdbGetTagFromTagID.c)
- *     SdbpGetTagHeadSize @ 0x1409E88C0 (SdbpGetTagHeadSize.c)
+ *     SdbOpenDatabaseEx @ 0x140887068 (SdbOpenDatabaseEx.c)
+ *     SdbpOpenCompressedDatabase @ 0x14088D444 (SdbpOpenCompressedDatabase.c)
+ *     SdbpReadTagData @ 0x1409D4B40 (SdbpReadTagData.c)
+ *     SdbGetTagDataSize @ 0x1409D4C00 (SdbGetTagDataSize.c)
+ *     SdbGetTagFromTagID @ 0x1409D4F94 (SdbGetTagFromTagID.c)
+ *     SdbpGetTagHeadSize @ 0x1409D52D0 (SdbpGetTagHeadSize.c)
+ *     SdbpValidateRootTagSizes @ 0x1409D616C (SdbpValidateRootTagSizes.c)
+ *     SdbpOpenDatabaseInMemory @ 0x1409D8A34 (SdbpOpenDatabaseInMemory.c)
  * Callees:
- *     MmIsUserAddress @ 0x14044E7C0 (MmIsUserAddress.c)
- *     RtlCopyFromUser @ 0x140533E38 (RtlCopyFromUser.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     RtlCopyToUser @ 0x14077F284 (RtlCopyToUser.c)
- *     RtlCopyToUserFromUser @ 0x14077F2E8 (RtlCopyToUserFromUser.c)
- *     AslLogCallPrintf @ 0x1409E8884 (AslLogCallPrintf.c)
+ *     MmIsUserAddress @ 0x1404468F0 (MmIsUserAddress.c)
+ *     RtlCopyFromUser @ 0x1405362B8 (RtlCopyFromUser.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     RtlCopyToUser @ 0x140781D84 (RtlCopyToUser.c)
+ *     RtlCopyToUserFromUser @ 0x140781DE8 (RtlCopyToUserFromUser.c)
+ *     AslLogCallPrintf @ 0x1409D5294 (AslLogCallPrintf.c)
  */
 
 __int64 __fastcall SdbpReadMappedData(__int64 a1, unsigned int a2, void *a3, unsigned int a4)

@@ -14,14 +14,14 @@ __int64 __fastcall LdrpBuildSystem32FileName(unsigned __int16 *a1, unsigned __in
 {
   unsigned int v2; // ebx
   const WCHAR *NtSystemRoot; // rax
-  UNICODE_STRING DestinationString; // [rsp+20h] [rbp-18h] BYREF
+  _UNICODE_STRING DestinationString; // [rsp+20h] [rbp-18h] BYREF
 
   v2 = 0;
   *a1 = 0;
-  NtSystemRoot = (const WCHAR *)RtlGetNtSystemRoot();
+  NtSystemRoot = RtlGetNtSystemRoot();
   RtlInitUnicodeString(&DestinationString, NtSystemRoot);
   LdrpAppendUnicodeStringToFilenameBuffer(a1, &DestinationString.Length);
-  LdrpAppendUnicodeStringToFilenameBuffer(a1, SlashSystem32SlashString);
+  LdrpAppendUnicodeStringToFilenameBuffer(a1, &SlashSystem32SlashString.Length);
   if ( a2 )
     return (unsigned int)LdrpAppendUnicodeStringToFilenameBuffer(a1, a2);
   return v2;

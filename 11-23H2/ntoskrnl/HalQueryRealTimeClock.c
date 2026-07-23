@@ -1,25 +1,25 @@
 /*
- * XREFs of HalQueryRealTimeClock @ 0x14033B130
+ * XREFs of HalQueryRealTimeClock @ 0x14033B3C0
  * Callers:
- *     HalpCheckWakeupTimeAndAdjust @ 0x14051C384 (HalpCheckWakeupTimeAndAdjust.c)
- *     ExpRefreshSystemTime @ 0x14083EAF4 (ExpRefreshSystemTime.c)
- *     NtSetSystemTime @ 0x1409F8290 (NtSetSystemTime.c)
+ *     HalpCheckWakeupTimeAndAdjust @ 0x14051C8D4 (HalpCheckWakeupTimeAndAdjust.c)
+ *     ExpRefreshSystemTime @ 0x14083EDF4 (ExpRefreshSystemTime.c)
+ *     NtSetSystemTime @ 0x1409F8520 (NtSetSystemTime.c)
  *     ExUpdateSystemTimeFromCmos @ 0x140A88304 (ExUpdateSystemTimeFromCmos.c)
- *     HaliSetWakeAlarm @ 0x140A96500 (HaliSetWakeAlarm.c)
+ *     HaliSetWakeAlarm @ 0x140A96370 (HaliSetWakeAlarm.c)
  *     GetBootSystemTime @ 0x140B7333C (GetBootSystemTime.c)
  * Callees:
- *     ExLocalTimeToSystemTime @ 0x14033B2A0 (ExLocalTimeToSystemTime.c)
- *     ExSystemTimeToLocalTime @ 0x14033B2F0 (ExSystemTimeToLocalTime.c)
- *     RtlpTimeFieldsToTimeNoLeapSeconds @ 0x14033B3E0 (RtlpTimeFieldsToTimeNoLeapSeconds.c)
- *     HalpSetVirtualRtc @ 0x14033B5F0 (HalpSetVirtualRtc.c)
- *     RtlpTimeToTimeFields @ 0x14033B6C8 (RtlpTimeToTimeFields.c)
- *     HalpReadCmosTime @ 0x14033BA1C (HalpReadCmosTime.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     HalpQueryVirtualRtc @ 0x14050B920 (HalpQueryVirtualRtc.c)
- *     HalEfiGetTime @ 0x14050CE4C (HalEfiGetTime.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     HalpAcpiRealTimeToUtcTime @ 0x140932D40 (HalpAcpiRealTimeToUtcTime.c)
- *     HalpQueryAcpiRealTimeClock @ 0x140932E08 (HalpQueryAcpiRealTimeClock.c)
+ *     ExLocalTimeToSystemTime @ 0x14033B530 (ExLocalTimeToSystemTime.c)
+ *     ExSystemTimeToLocalTime @ 0x14033B580 (ExSystemTimeToLocalTime.c)
+ *     RtlpTimeFieldsToTimeNoLeapSeconds @ 0x14033B670 (RtlpTimeFieldsToTimeNoLeapSeconds.c)
+ *     HalpSetVirtualRtc @ 0x14033B880 (HalpSetVirtualRtc.c)
+ *     RtlpTimeToTimeFields @ 0x14033B958 (RtlpTimeToTimeFields.c)
+ *     HalpReadCmosTime @ 0x14033BCAC (HalpReadCmosTime.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     HalpQueryVirtualRtc @ 0x14050BE70 (HalpQueryVirtualRtc.c)
+ *     HalEfiGetTime @ 0x14050D39C (HalEfiGetTime.c)
+ *     HalpAcpiRealTimeToUtcTime @ 0x140932F40 (HalpAcpiRealTimeToUtcTime.c)
+ *     HalpQueryAcpiRealTimeClock @ 0x140933008 (HalpQueryAcpiRealTimeClock.c)
  */
 
 char __fastcall HalQueryRealTimeClock(__int64 a1)
@@ -158,7 +158,7 @@ LABEL_34:
     {
       CurrentIrql = KeGetCurrentIrql();
       __writecr8(2uLL);
-      if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+      if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
       {
         SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
         if ( CurrentIrql == 2 )
@@ -168,10 +168,10 @@ LABEL_34:
         SchedulerAssist[5] |= v16;
       }
       Time = HalEfiGetTime(&LocalTime);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v18 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v18 <= 0xFu && CurrentIrql <= 0xFu && v18 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v18 <= 0xFu && CurrentIrql <= 0xFu && v18 >= 2u )
         {
           CurrentPrcb = KeGetCurrentPrcb();
           v20 = CurrentPrcb->SchedulerAssist;

@@ -1,11 +1,11 @@
 /*
- * XREFs of DrvDbUnregisterDatabase @ 0x1408239A4
+ * XREFs of DrvDbUnregisterDatabase @ 0x1408240E4
  * Callers:
- *     PiDrvDbRegisterNode @ 0x140738408 (PiDrvDbRegisterNode.c)
- *     PiDrvDbUnregisterNode @ 0x140739CA8 (PiDrvDbUnregisterNode.c)
+ *     PiDrvDbRegisterNode @ 0x140736338 (PiDrvDbRegisterNode.c)
+ *     PiDrvDbUnregisterNode @ 0x140737BD8 (PiDrvDbUnregisterNode.c)
  * Callees:
- *     DrvDbDestroyDatabaseNode @ 0x140823D38 (DrvDbDestroyDatabaseNode.c)
- *     DrvDbFindDatabaseNode @ 0x140926C58 (DrvDbFindDatabaseNode.c)
+ *     DrvDbDestroyDatabaseNode @ 0x140824478 (DrvDbDestroyDatabaseNode.c)
+ *     DrvDbFindDatabaseNode @ 0x140928D98 (DrvDbFindDatabaseNode.c)
  */
 
 __int64 __fastcall DrvDbUnregisterDatabase(__int64 a1, __int64 a2)

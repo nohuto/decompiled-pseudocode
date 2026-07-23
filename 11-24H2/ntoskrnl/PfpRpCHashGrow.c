@@ -1,13 +1,13 @@
 /*
- * XREFs of PfpRpCHashGrow @ 0x1406F8A38
+ * XREFs of PfpRpCHashGrow @ 0x1406F6670
  * Callers:
- *     PfpRpCHashAddEntries @ 0x140950428 (PfpRpCHashAddEntries.c)
+ *     PfpRpCHashAddEntries @ 0x140A5EF34 (PfpRpCHashAddEntries.c)
  * Callees:
- *     FsRtlAcquirePushLockExclusive @ 0x1403C5B9C (FsRtlAcquirePushLockExclusive.c)
- *     VmpReleasePushLockExclusive @ 0x1404860F0 (VmpReleasePushLockExclusive.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     FsRtlAcquirePushLockExclusive @ 0x1403B475C (FsRtlAcquirePushLockExclusive.c)
+ *     VmpReleasePushLockExclusive @ 0x1404816E0 (VmpReleasePushLockExclusive.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall PfpRpCHashGrow(__int64 a1, __int64 a2, unsigned __int64 *a3, _QWORD *a4)
@@ -52,7 +52,7 @@ __int64 __fastcall PfpRpCHashGrow(__int64 a1, __int64 a2, unsigned __int64 *a3, 
       v8 = 8;
     v9 = v8 << *(_DWORD *)(v5 + 8);
     v7 = 0;
-    Pool2 = (char *)ExAllocatePool2(0x100uLL);
+    Pool2 = (char *)ExAllocatePool2(0x100uLL, v9, 0x48436650u);
     if ( Pool2 )
     {
       v10 = -1;

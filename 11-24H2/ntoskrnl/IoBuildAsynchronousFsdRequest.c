@@ -1,12 +1,12 @@
 /*
- * XREFs of IoBuildAsynchronousFsdRequest @ 0x140375460
+ * XREFs of IoBuildAsynchronousFsdRequest @ 0x14025DD20
  * Callers:
- *     ?Read@NT_DISK@@UEAAJ_KKPEAE@Z @ 0x14070DE70 (-Read@NT_DISK@@UEAAJ_KKPEAE@Z.c)
- *     ?Write@NT_DISK@@UEAAJ_KKPEAE@Z @ 0x14070DF10 (-Write@NT_DISK@@UEAAJ_KKPEAE@Z.c)
- *     FsRtlPrepareMdlWriteEx @ 0x140A5CD70 (FsRtlPrepareMdlWriteEx.c)
- *     FsRtlMdlReadEx @ 0x140A65BD0 (FsRtlMdlReadEx.c)
+ *     ?Read@NT_DISK@@UEAAJ_KKPEAE@Z @ 0x14070BA10 (-Read@NT_DISK@@UEAAJ_KKPEAE@Z.c)
+ *     ?Write@NT_DISK@@UEAAJ_KKPEAE@Z @ 0x14070BAB0 (-Write@NT_DISK@@UEAAJ_KKPEAE@Z.c)
+ *     FsRtlPrepareMdlWriteEx @ 0x140A54590 (FsRtlPrepareMdlWriteEx.c)
+ *     FsRtlMdlReadEx @ 0x140A5E3A0 (FsRtlMdlReadEx.c)
  * Callees:
- *     IopBuildAsynchronousFsdRequest @ 0x1403754A0 (IopBuildAsynchronousFsdRequest.c)
+ *     IopBuildAsynchronousFsdRequest @ 0x14025DD60 (IopBuildAsynchronousFsdRequest.c)
  */
 
 PIRP __stdcall IoBuildAsynchronousFsdRequest(

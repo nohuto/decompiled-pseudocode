@@ -1,13 +1,13 @@
 /*
- * XREFs of PsFreeSiloContextSlot @ 0x140905A30
+ * XREFs of PsFreeSiloContextSlot @ 0x140905B90
  * Callers:
- *     VrpRegistryUnload @ 0x140882810 (VrpRegistryUnload.c)
+ *     VrpRegistryUnload @ 0x140882970 (VrpRegistryUnload.c)
  * Callees:
  *     PspStorageGetObject @ 0x1402005D0 (PspStorageGetObject.c)
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
- *     PspGetNextSilo @ 0x140617AF0 (PspGetNextSilo.c)
- *     PspStorageFreeSlot @ 0x14090EF44 (PspStorageFreeSlot.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
+ *     PspGetNextSilo @ 0x140681750 (PspGetNextSilo.c)
+ *     PspStorageFreeSlot @ 0x14090F0A4 (PspStorageFreeSlot.c)
  */
 
 __int64 __fastcall PsFreeSiloContextSlot(unsigned int a1)

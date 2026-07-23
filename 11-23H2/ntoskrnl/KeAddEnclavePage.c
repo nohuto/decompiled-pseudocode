@@ -1,12 +1,12 @@
 /*
- * XREFs of KeAddEnclavePage @ 0x140570238
+ * XREFs of KeAddEnclavePage @ 0x140570778
  * Callers:
- *     MiAddPagesToEnclave @ 0x140646A10 (MiAddPagesToEnclave.c)
- *     MiCopyPagesIntoEnclave @ 0x140A3CFC4 (MiCopyPagesIntoEnclave.c)
+ *     MiAddPagesToEnclave @ 0x140646F60 (MiAddPagesToEnclave.c)
+ *     MiCopyPagesIntoEnclave @ 0x140A3D274 (MiCopyPagesIntoEnclave.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     KiEncls @ 0x14041FC80 (KiEncls.c)
- *     memset @ 0x140435A00 (memset.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     KiEncls @ 0x140420010 (KiEncls.c)
+ *     memset @ 0x140435E00 (memset.c)
  */
 
 __int64 __fastcall KeAddEnclavePage(__int64 a1, __int64 a2, __int64 a3, __int64 a4, char a5, _DWORD *a6)

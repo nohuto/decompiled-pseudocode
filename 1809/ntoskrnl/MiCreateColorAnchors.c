@@ -1,11 +1,11 @@
 /*
- * XREFs of MiCreateColorAnchors @ 0x14085CF64
+ * XREFs of MiCreateColorAnchors @ 0x14085E1C4
  * Callers:
- *     MiAllocateLargeZeroPages @ 0x14085C8E0 (MiAllocateLargeZeroPages.c)
+ *     MiAllocateLargeZeroPages @ 0x14085DB40 (MiAllocateLargeZeroPages.c)
  * Callees:
- *     KeQueryNodeActiveAffinity @ 0x1400E3C40 (KeQueryNodeActiveAffinity.c)
- *     MiGetClosestNodeWithProcessors @ 0x1402BB7E4 (MiGetClosestNodeWithProcessors.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
+ *     KeQueryNodeActiveAffinity @ 0x1400E3CC0 (KeQueryNodeActiveAffinity.c)
+ *     MiGetClosestNodeWithProcessors @ 0x1402BB9D4 (MiGetClosestNodeWithProcessors.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall MiCreateColorAnchors(__int64 a1, unsigned int a2, int a3)
@@ -31,7 +31,7 @@ __int64 __fastcall MiCreateColorAnchors(__int64 a1, unsigned int a2, int a3)
   }
   else
   {
-    v6 = dword_14043A08C;
+    v6 = dword_14043B14C;
   }
   v7 = v6;
   result = (__int64)ExAllocatePoolWithTag(NonPagedPoolNx, 24LL * v6, 0x6C646D4Du);

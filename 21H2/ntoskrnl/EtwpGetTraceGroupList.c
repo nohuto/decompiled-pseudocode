@@ -1,9 +1,9 @@
 /*
- * XREFs of EtwpGetTraceGroupList @ 0x1409349C8
+ * XREFs of EtwpGetTraceGroupList @ 0x140934B98
  * Callers:
- *     NtTraceControl @ 0x1405EAF60 (NtTraceControl.c)
+ *     NtTraceControl @ 0x1406DA6C0 (NtTraceControl.c)
  * Callees:
- *     EtwpGetNextGuidEntry @ 0x1406E100C (EtwpGetNextGuidEntry.c)
+ *     EtwpGetNextGuidEntry @ 0x1406B82EC (EtwpGetNextGuidEntry.c)
  */
 
 __int64 __fastcall EtwpGetTraceGroupList(__int64 a1, _OWORD *a2, _DWORD *a3)
@@ -11,7 +11,7 @@ __int64 __fastcall EtwpGetTraceGroupList(__int64 a1, _OWORD *a2, _DWORD *a3)
   int v3; // ebx
   unsigned int v4; // ebp
   unsigned int v5; // edi
-  __int64 *v8; // rdx
+  signed __int64 *v8; // rdx
   __int64 i; // r15
   signed __int64 *NextGuidEntry; // rax
 

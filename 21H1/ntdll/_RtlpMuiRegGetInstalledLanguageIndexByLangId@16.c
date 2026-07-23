@@ -22,14 +22,14 @@ int __fastcall RtlpMuiRegGetInstalledLanguageIndexByLangId(int a1, unsigned __in
   int v7; // ecx
   int v8; // eax
   _WORD *v9; // edx
-  const WCHAR *Heap; // eax
-  int v12; // edi
-  char v13; // [esp+Fh] [ebp-11h]
-  int v14; // [esp+10h] [ebp-10h]
-  int v16; // [esp+18h] [ebp-8h] BYREF
-  const WCHAR *v17; // [esp+1Ch] [ebp-4h]
+  wchar_t *Heap; // eax
+  wchar_t *v12; // edi
+  SIZE_T v13; // [esp-4h] [ebp-24h]
+  char v14; // [esp+Fh] [ebp-11h]
+  int v15; // [esp+10h] [ebp-10h]
+  _UNICODE_STRING String; // [esp+18h] [ebp-8h] BYREF
 
-  v13 = 0;
+  v14 = 0;
   InstalledLanguageIndexByName = -1073741772;
   if ( !a1 || !a2 )
     return -1073741811;
@@ -38,20 +38,21 @@ int __fastcall RtlpMuiRegGetInstalledLanguageIndexByLangId(int a1, unsigned __in
   v6 = *(_DWORD *)(a1 + 20);
   v7 = 0;
   v8 = *(unsigned __int16 *)(v6 + 6);
-  v14 = v8;
+  v15 = v8;
   if ( !*(_WORD *)(v6 + 6) )
   {
 LABEL_12:
-    Heap = (const WCHAR *)RtlAllocateHeap((int)NtCurrentPeb()->ProcessHeap, 8, 170);
-    v12 = (int)Heap;
+    LODWORD(v13) = 170;
+    Heap = (wchar_t *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, v13);
+    v12 = Heap;
     if ( !Heap )
       return -1073741801;
-    v17 = Heap;
-    v16 = 11141120;
-    if ( a3 && RtlLCIDToCultureName(a2, (unsigned __int16 *)&v16) )
-      InstalledLanguageIndexByName = RtlpMuiRegGetInstalledLanguageIndexByName(a1, v17, 0, a4);
-    RtlFreeHeap((int)NtCurrentPeb()->ProcessHeap, 0, v12);
-    if ( v13 && InstalledLanguageIndexByName == -1073741772 )
+    String.Buffer = Heap;
+    *(_DWORD *)&String.Length = 11141120;
+    if ( a3 && RtlLCIDToCultureName(a2, &String) )
+      InstalledLanguageIndexByName = RtlpMuiRegGetInstalledLanguageIndexByName(a1, (const WCHAR *)String.Buffer, 0, a4);
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v12);
+    if ( v14 && InstalledLanguageIndexByName == -1073741772 )
       return -1073741637;
     return InstalledLanguageIndexByName;
   }
@@ -66,9 +67,9 @@ LABEL_11:
   }
   if ( (*v9 & 0x1020) != 0x20 )
   {
-    v8 = v14;
+    v8 = v15;
     if ( (*v9 & 0x1000) != 0 )
-      v13 = 1;
+      v14 = 1;
     goto LABEL_11;
   }
   if ( a4 )

@@ -1,21 +1,21 @@
 /*
- * XREFs of DifRegisterKernelPlugin @ 0x1405D4F40
+ * XREFs of DifRegisterKernelPlugin @ 0x1405D54B0
  * Callers:
- *     VfVolatileSetDifRuleClass @ 0x140ADDC1C (VfVolatileSetDifRuleClass.c)
+ *     VfVolatileSetDifRuleClass @ 0x140ADDC0C (VfVolatileSetDifRuleClass.c)
  *     VfInitBootDriversLoaded @ 0x140B577A4 (VfInitBootDriversLoaded.c)
  * Callees:
- *     VfSecurityEntry @ 0x1405D0074 (VfSecurityEntry.c)
- *     VfIovPluginEntry @ 0x1405D1C30 (VfIovPluginEntry.c)
- *     VfDmaPluginEntry @ 0x1405D1F90 (VfDmaPluginEntry.c)
- *     VfPoolTrackingEntry @ 0x1405D2128 (VfPoolTrackingEntry.c)
- *     CarRegisterDefaultRuleClassConfiguration @ 0x1405D4040 (CarRegisterDefaultRuleClassConfiguration.c)
- *     CarSetCustomRuleIdRange @ 0x1405D4660 (CarSetCustomRuleIdRange.c)
- *     DifUtilDbgPrint @ 0x1405D4B40 (DifUtilDbgPrint.c)
- *     VfLwSPEntry @ 0x1405F8698 (VfLwSPEntry.c)
- *     VfIrqlPluginEntry @ 0x14067BFE4 (VfIrqlPluginEntry.c)
- *     VfSpecialPoolEntry @ 0x14067C204 (VfSpecialPoolEntry.c)
- *     VfDeadlockPluginEntry @ 0x140AD78F8 (VfDeadlockPluginEntry.c)
- *     VfMiscPluginEntry @ 0x140AE06B4 (VfMiscPluginEntry.c)
+ *     VfSecurityEntry @ 0x1405D05E4 (VfSecurityEntry.c)
+ *     VfIovPluginEntry @ 0x1405D21A0 (VfIovPluginEntry.c)
+ *     VfDmaPluginEntry @ 0x1405D2500 (VfDmaPluginEntry.c)
+ *     VfPoolTrackingEntry @ 0x1405D2698 (VfPoolTrackingEntry.c)
+ *     CarRegisterDefaultRuleClassConfiguration @ 0x1405D45B0 (CarRegisterDefaultRuleClassConfiguration.c)
+ *     CarSetCustomRuleIdRange @ 0x1405D4BD0 (CarSetCustomRuleIdRange.c)
+ *     DifUtilDbgPrint @ 0x1405D50B0 (DifUtilDbgPrint.c)
+ *     VfLwSPEntry @ 0x1405F8C08 (VfLwSPEntry.c)
+ *     VfIrqlPluginEntry @ 0x14067C534 (VfIrqlPluginEntry.c)
+ *     VfSpecialPoolEntry @ 0x14067C754 (VfSpecialPoolEntry.c)
+ *     VfDeadlockPluginEntry @ 0x140AD78E8 (VfDeadlockPluginEntry.c)
+ *     VfMiscPluginEntry @ 0x140AE06A4 (VfMiscPluginEntry.c)
  */
 
 __int64 DifRegisterKernelPlugin()

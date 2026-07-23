@@ -1,13 +1,13 @@
 /*
- * XREFs of MmManagePartitionInitialAddMemory @ 0x140A456CC
+ * XREFs of MmManagePartitionInitialAddMemory @ 0x140A4597C
  * Callers:
- *     NtManagePartition @ 0x14075FD70 (NtManagePartition.c)
+ *     NtManagePartition @ 0x14075FF60 (NtManagePartition.c)
  * Callees:
- *     MiValidateSpecialPurposeMemoryAttributes @ 0x140660B80 (MiValidateSpecialPurposeMemoryAttributes.c)
- *     MiHotAddPartitionMemory @ 0x140A44CA0 (MiHotAddPartitionMemory.c)
- *     MiAddSpecialPurposeMemoryCleanup @ 0x140A46CC4 (MiAddSpecialPurposeMemoryCleanup.c)
- *     MiAddSpecialPurposeMemoryComplete @ 0x140A46D3C (MiAddSpecialPurposeMemoryComplete.c)
- *     MiAddSpecialPurposeMemoryPrepare @ 0x140A46DC0 (MiAddSpecialPurposeMemoryPrepare.c)
+ *     MiValidateSpecialPurposeMemoryAttributes @ 0x1406610D0 (MiValidateSpecialPurposeMemoryAttributes.c)
+ *     MiHotAddPartitionMemory @ 0x140A44F50 (MiHotAddPartitionMemory.c)
+ *     MiAddSpecialPurposeMemoryCleanup @ 0x140A46F74 (MiAddSpecialPurposeMemoryCleanup.c)
+ *     MiAddSpecialPurposeMemoryComplete @ 0x140A46FEC (MiAddSpecialPurposeMemoryComplete.c)
+ *     MiAddSpecialPurposeMemoryPrepare @ 0x140A47070 (MiAddSpecialPurposeMemoryPrepare.c)
  */
 
 __int64 __fastcall MmManagePartitionInitialAddMemory(__int64 *a1, __int64 a2, __int64 a3, char a4)

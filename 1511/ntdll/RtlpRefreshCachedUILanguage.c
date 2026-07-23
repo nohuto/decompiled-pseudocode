@@ -12,41 +12,50 @@
  *     NtQueryInstallUILanguage @ 0x1800A77F0 (NtQueryInstallUILanguage.c)
  */
 
-__int64 __fastcall RtlpRefreshCachedUILanguage(PCWSTR SourceString)
+__int64 __fastcall RtlpRefreshCachedUILanguage(PCWSTR SourceString, char a2)
 {
-  int InstallUILanguage; // ebx
-  unsigned __int16 v3; // si
-  __int64 v4; // rdx
-  __int64 v5; // r8
-  __int64 v7; // [rsp+20h] [rbp-20h] BYREF
-  UNICODE_STRING DestinationString; // [rsp+28h] [rbp-18h] BYREF
-  __int16 v9; // [rsp+80h] [rbp+40h] BYREF
-  int v10; // [rsp+88h] [rbp+48h] BYREF
+  ULONG v2; // edi
+  int InstalledLanguageIndexByLangId; // ebx
+  unsigned __int16 v6; // si
+  __int64 v7; // rdx
+  __int64 v8; // r8
+  __int64 v10; // [rsp+20h] [rbp-20h] BYREF
+  _UNICODE_STRING DestinationString; // [rsp+28h] [rbp-18h] BYREF
+  LANGID InstallUILanguageId; // [rsp+70h] [rbp+30h] BYREF
+  __int16 v13; // [rsp+80h] [rbp+40h] BYREF
+  DWORD Lcid; // [rsp+88h] [rbp+48h] BYREF
 
-  v10 = 0;
-  v9 = -1;
-  v7 = 0LL;
+  v2 = 0;
+  Lcid = 0;
+  InstallUILanguageId = 0;
+  v13 = -1;
+  v10 = 0LL;
   if ( SourceString )
   {
-    InstallUILanguage = NtQueryInstallUILanguage();
-    if ( InstallUILanguage >= 0 )
+    InstalledLanguageIndexByLangId = NtQueryInstallUILanguage(&InstallUILanguageId);
+    if ( InstalledLanguageIndexByLangId >= 0 )
     {
       RtlInitUnicodeString(&DestinationString, SourceString);
-      if ( RtlCultureNameToLCID(&DestinationString.Length, &v10) )
+      if ( RtlCultureNameToLCID(&DestinationString, &Lcid) )
       {
-        v3 = v10;
-        InstallUILanguage = NtFlushInstallUILanguage();
-        if ( InstallUILanguage >= 0 )
+        v6 = Lcid;
+        InstalledLanguageIndexByLangId = NtFlushInstallUILanguage(Lcid, 0);
+        if ( InstalledLanguageIndexByLangId >= 0 )
         {
-          InstallUILanguage = RtlpCreateProcessRegistryInfo(&v7, v4, v5);
-          if ( InstallUILanguage >= 0 )
+          InstalledLanguageIndexByLangId = RtlpCreateProcessRegistryInfo(&v10, v7, v8);
+          if ( InstalledLanguageIndexByLangId >= 0 )
           {
-            InstallUILanguage = RtlpMuiRegGetInstalledLanguageIndexByLangId(v7, v3, 1, &v9);
-            if ( InstallUILanguage < 0 )
-              NtFlushInstallUILanguage();
+            InstalledLanguageIndexByLangId = RtlpMuiRegGetInstalledLanguageIndexByLangId(v10, v6, 1, &v13);
+            if ( InstalledLanguageIndexByLangId < 0 )
+            {
+              NtFlushInstallUILanguage(InstallUILanguageId, 0);
+            }
             else
-              InstallUILanguage = NtFlushInstallUILanguage();
-            ZwGetMUIRegistryInfo();
+            {
+              LOBYTE(v2) = a2 != 0;
+              InstalledLanguageIndexByLangId = NtFlushInstallUILanguage(v6, v2);
+            }
+            ZwGetMUIRegistryInfo(0xAu, 0LL, 0LL);
           }
         }
       }
@@ -60,5 +69,5 @@ __int64 __fastcall RtlpRefreshCachedUILanguage(PCWSTR SourceString)
   {
     return (unsigned int)-1073741811;
   }
-  return (unsigned int)InstallUILanguage;
+  return (unsigned int)InstalledLanguageIndexByLangId;
 }

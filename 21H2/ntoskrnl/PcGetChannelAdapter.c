@@ -1,5 +1,5 @@
 /*
- * XREFs of PcGetChannelAdapter @ 0x1404D22A0
+ * XREFs of PcGetChannelAdapter @ 0x1404D24E0
  * Callers:
  *     <none>
  * Callees:

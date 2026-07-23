@@ -1,21 +1,21 @@
 /*
- * XREFs of PsBoostThreadIoQoS @ 0x14024E3A0
+ * XREFs of PsBoostThreadIoQoS @ 0x14027E9B0
  * Callers:
- *     KiAbSetMinimumThreadPriority @ 0x14024E520 (KiAbSetMinimumThreadPriority.c)
- *     KiAbIoBoostOwners @ 0x14024EA60 (KiAbIoBoostOwners.c)
- *     KiAbCpuBoostOwners @ 0x14024F2F0 (KiAbCpuBoostOwners.c)
- *     ExDeleteResourceLite @ 0x1402CD920 (ExDeleteResourceLite.c)
- *     ExReinitializeResourceLite @ 0x1402CDC90 (ExReinitializeResourceLite.c)
- *     ExpSetResourceOwnerPointerEx @ 0x1402CEC30 (ExpSetResourceOwnerPointerEx.c)
- *     KiAbThreadRemoveBoostsSlow @ 0x140340980 (KiAbThreadRemoveBoostsSlow.c)
+ *     KiAbSetMinimumThreadPriority @ 0x14027EB30 (KiAbSetMinimumThreadPriority.c)
+ *     KiAbIoBoostOwners @ 0x14027F070 (KiAbIoBoostOwners.c)
+ *     KiAbCpuBoostOwners @ 0x14027F900 (KiAbCpuBoostOwners.c)
+ *     ExDeleteResourceLite @ 0x1402E55A0 (ExDeleteResourceLite.c)
+ *     ExReinitializeResourceLite @ 0x1402E5910 (ExReinitializeResourceLite.c)
+ *     KiAbThreadRemoveBoostsSlow @ 0x14031FE60 (KiAbThreadRemoveBoostsSlow.c)
+ *     ExpSetResourceOwnerPointerEx @ 0x1403FE770 (ExpSetResourceOwnerPointerEx.c)
  * Callees:
- *     KiAbThreadInsertList @ 0x14024E470 (KiAbThreadInsertList.c)
- *     KiAbQueueAutoBoostDpc @ 0x140253AF0 (KiAbQueueAutoBoostDpc.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KiAbThreadInsertList @ 0x14027EA80 (KiAbThreadInsertList.c)
+ *     KiAbQueueAutoBoostDpc @ 0x140284100 (KiAbQueueAutoBoostDpc.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
-void __fastcall PsBoostThreadIoQoS(__int64 a1, int a2, __int64 a3)
+void __fastcall PsBoostThreadIoQoS(__int64 a1, int a2)
 {
   unsigned __int8 CurrentIrql; // di
   struct _KPRCB *CurrentPrcb; // rsi
@@ -29,7 +29,7 @@ void __fastcall PsBoostThreadIoQoS(__int64 a1, int a2, __int64 a3)
     CurrentIrql = KeGetCurrentIrql();
     __writecr8(2uLL);
     if ( KiIrqlFlags )
-      KiRaiseIrqlProcessIrqlFlags(CurrentIrql, 2LL, a3);
+      KiRaiseIrqlProcessIrqlFlags(CurrentIrql, 2LL);
     CurrentPrcb = KeGetCurrentPrcb();
     if ( (unsigned int)KiAbThreadInsertList(a1, &CurrentPrcb->AbPropagateBoostsList, a1 + 808) )
       KiAbQueueAutoBoostDpc(CurrentPrcb);

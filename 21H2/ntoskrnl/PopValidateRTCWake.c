@@ -1,11 +1,11 @@
 /*
- * XREFs of PopValidateRTCWake @ 0x1409985FC
+ * XREFs of PopValidateRTCWake @ 0x1409995FC
  * Callers:
- *     PopHandleWakeSources @ 0x140998410 (PopHandleWakeSources.c)
+ *     PopHandleWakeSources @ 0x140999410 (PopHandleWakeSources.c)
  * Callees:
- *     PopDiagTraceRtcWakeInfo @ 0x14038BD68 (PopDiagTraceRtcWakeInfo.c)
- *     PopCurrentPowerStatePrecise @ 0x14078E444 (PopCurrentPowerStatePrecise.c)
- *     PopCalculateWakeTimeAdjustment @ 0x1408E693C (PopCalculateWakeTimeAdjustment.c)
+ *     PopDiagTraceRtcWakeInfo @ 0x14038BEB8 (PopDiagTraceRtcWakeInfo.c)
+ *     PopCurrentPowerStatePrecise @ 0x14078E604 (PopCurrentPowerStatePrecise.c)
+ *     PopCalculateWakeTimeAdjustment @ 0x1408E6A9C (PopCalculateWakeTimeAdjustment.c)
  */
 
 unsigned __int8 __fastcall PopValidateRTCWake(_BYTE *a1)
@@ -31,23 +31,23 @@ unsigned __int8 __fastcall PopValidateRTCWake(_BYTE *a1)
   if ( v2 == 16 )
   {
     v8 = 1;
-    dword_140C234A0 = 1;
+    dword_140C23AC0 = 1;
     goto LABEL_6;
   }
   if ( v2 == 8 )
   {
     v8 = 0;
     v4 = 1;
-    dword_140C234A0 = 0;
+    dword_140C23AC0 = 0;
     goto LABEL_6;
   }
   if ( v2 )
   {
     PopCurrentPowerStatePrecise(&v12, 0LL);
-    dword_140C234A0 = dword_140C23E8C;
+    dword_140C23AC0 = dword_140C2332C;
   }
-  v8 = dword_140C234A0;
-  if ( dword_140C234A0 >= 0 )
+  v8 = dword_140C23AC0;
+  if ( dword_140C23AC0 >= 0 )
   {
 LABEL_6:
     if ( (unsigned __int64)v8 < 3 )
@@ -55,23 +55,23 @@ LABEL_6:
   }
   if ( (PopFixedWakeSourceMask & 4) == 0 )
     *a1 = 1;
-  if ( qword_140C234C8 && qword_140C234B0[0] > (unsigned __int64)qword_140C234C8 )
+  if ( qword_140C23AE8 && qword_140C23AD0[0] > (unsigned __int64)qword_140C23AE8 )
   {
     v8 = 1;
-    dword_140C234A0 = 1;
+    dword_140C23AC0 = 1;
   }
   else
   {
     v8 = 0;
     *a1 = 0;
-    dword_140C234A0 = 0;
+    dword_140C23AC0 = 0;
     v4 = 1;
   }
 LABEL_11:
-  v9 = qword_140C234B0[3 * v8];
+  v9 = qword_140C23AD0[3 * v8];
   if ( v9 )
   {
-    v11 = qword_140C23488;
+    v11 = qword_140C23AA8;
     v1 = v11 - 10000 * (unsigned int)PopCalculateWakeTimeAdjustment();
     if ( v9 - 100000000 < v1 )
     {
@@ -82,14 +82,14 @@ LABEL_11:
       }
       else
       {
-        dword_140C234A0 = 3;
+        dword_140C23AC0 = 3;
         v3 = 3;
         *a1 = 0;
       }
     }
     else
     {
-      dword_140C234A0 = 3;
+      dword_140C23AC0 = 3;
       v3 = 2;
       *a1 = 0;
     }
@@ -97,7 +97,7 @@ LABEL_11:
   }
   else
   {
-    dword_140C234A0 = 3;
+    dword_140C23AC0 = 3;
     v3 = 1;
     *a1 = 0;
   }

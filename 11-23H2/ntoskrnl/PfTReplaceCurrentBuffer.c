@@ -1,11 +1,11 @@
 /*
- * XREFs of PfTReplaceCurrentBuffer @ 0x14074BA00
+ * XREFs of PfTReplaceCurrentBuffer @ 0x14074BBF0
  * Callers:
- *     PfpLogPageAccess @ 0x14074B320 (PfpLogPageAccess.c)
- *     PfTAcquireLogEntry @ 0x14074B984 (PfTAcquireLogEntry.c)
+ *     PfpLogPageAccess @ 0x14074B510 (PfpLogPageAccess.c)
+ *     PfTAcquireLogEntry @ 0x14074BB74 (PfTAcquireLogEntry.c)
  * Callees:
- *     KeSetEvent @ 0x14023C5E0 (KeSetEvent.c)
- *     PfTGetFreeBuffer @ 0x14074BAA0 (PfTGetFreeBuffer.c)
+ *     KeSetEvent @ 0x14023C6B0 (KeSetEvent.c)
+ *     PfTGetFreeBuffer @ 0x14074BC90 (PfTGetFreeBuffer.c)
  */
 
 __int64 PfTReplaceCurrentBuffer()

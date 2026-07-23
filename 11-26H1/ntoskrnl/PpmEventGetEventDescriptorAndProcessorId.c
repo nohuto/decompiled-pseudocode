@@ -1,7 +1,7 @@
 /*
- * XREFs of PpmEventGetEventDescriptorAndProcessorId @ 0x14044F8A0
+ * XREFs of PpmEventGetEventDescriptorAndProcessorId @ 0x1404479D0
  * Callers:
- *     PpmEventAutonomousModeChange @ 0x14060DF10 (PpmEventAutonomousModeChange.c)
+ *     PpmEventAutonomousModeChange @ 0x140611010 (PpmEventAutonomousModeChange.c)
  * Callees:
  *     <none>
  */

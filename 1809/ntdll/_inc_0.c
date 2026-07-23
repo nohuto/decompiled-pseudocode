@@ -1,10 +1,10 @@
 /*
- * XREFs of _inc_0 @ 0x18009CB38
+ * XREFs of _inc_0 @ 0x18009CB48
  * Callers:
- *     ReadString_0 @ 0x18009C800 (ReadString_0.c)
- *     _input_s @ 0x18009CB6C (_input_s.c)
+ *     ReadString_0 @ 0x18009C810 (ReadString_0.c)
+ *     _input_s @ 0x18009CB7C (_input_s.c)
  * Callees:
- *     _filbuf_s @ 0x180099E84 (_filbuf_s.c)
+ *     _filbuf_s @ 0x180099E94 (_filbuf_s.c)
  */
 
 __int64 __fastcall inc_0(__int64 a1)

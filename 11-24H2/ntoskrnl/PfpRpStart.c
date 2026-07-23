@@ -1,7 +1,7 @@
 /*
- * XREFs of PfpRpStart @ 0x1407471A8
+ * XREFs of PfpRpStart @ 0x140745498
  * Callers:
- *     PfInitializeSuperfetch @ 0x140C2C91C (PfInitializeSuperfetch.c)
+ *     PfInitializeSuperfetch @ 0x140C2EA3C (PfInitializeSuperfetch.c)
  * Callees:
  *     <none>
  */

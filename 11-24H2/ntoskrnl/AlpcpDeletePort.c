@@ -1,18 +1,18 @@
 /*
- * XREFs of AlpcpDeletePort @ 0x14088B9B0
+ * XREFs of AlpcpDeletePort @ 0x14088E9A0
  * Callers:
  *     <none>
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     ObfDereferenceObjectWithTag @ 0x1403254A0 (ObfDereferenceObjectWithTag.c)
- *     ObfDereferenceObject @ 0x140325680 (ObfDereferenceObject.c)
- *     AlpcpFreeCompletionPacketLookaside @ 0x140470198 (AlpcpFreeCompletionPacketLookaside.c)
- *     AlpcpDestroyPort @ 0x14088BB1C (AlpcpDestroyPort.c)
- *     AlpcpSendCloseMessage @ 0x14088BBEC (AlpcpSendCloseMessage.c)
- *     SeDeleteClientSecurity @ 0x14088D080 (SeDeleteClientSecurity.c)
- *     AlpcpDereferenceBlobEx @ 0x140890420 (AlpcpDereferenceBlobEx.c)
- *     AlpcpUnlockBlobUncachedExclusive @ 0x1408963A0 (AlpcpUnlockBlobUncachedExclusive.c)
- *     AlpcpLockBlobExclusive @ 0x14089666C (AlpcpLockBlobExclusive.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CE030 (ObfDereferenceObjectWithTag.c)
+ *     ObfDereferenceObject @ 0x1402CE210 (ObfDereferenceObject.c)
+ *     AlpcpFreeCompletionPacketLookaside @ 0x14046A5C0 (AlpcpFreeCompletionPacketLookaside.c)
+ *     AlpcpDestroyPort @ 0x14088EB0C (AlpcpDestroyPort.c)
+ *     AlpcpSendCloseMessage @ 0x14088EBDC (AlpcpSendCloseMessage.c)
+ *     SeDeleteClientSecurity @ 0x140890300 (SeDeleteClientSecurity.c)
+ *     AlpcpUnlockBlobUncachedExclusive @ 0x14089E840 (AlpcpUnlockBlobUncachedExclusive.c)
+ *     AlpcpLockBlobExclusive @ 0x14089EB0C (AlpcpLockBlobExclusive.c)
+ *     AlpcpDereferenceBlobEx @ 0x14089EBC0 (AlpcpDereferenceBlobEx.c)
  */
 
 void __fastcall AlpcpDeletePort(__int64 a1)

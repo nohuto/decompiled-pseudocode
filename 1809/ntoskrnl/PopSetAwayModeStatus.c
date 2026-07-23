@@ -1,11 +1,11 @@
 /*
- * XREFs of PopSetAwayModeStatus @ 0x14086C058
+ * XREFs of PopSetAwayModeStatus @ 0x14086D2B8
  * Callers:
- *     PopSetSystemAwayMode @ 0x14086C0E0 (PopSetSystemAwayMode.c)
+ *     PopSetSystemAwayMode @ 0x14086D340 (PopSetSystemAwayMode.c)
  * Callees:
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     PopSetPowerSettingValueAcDc @ 0x14058AA3C (PopSetPowerSettingValueAcDc.c)
- *     PopBroadcastSessionInfo @ 0x14072985C (PopBroadcastSessionInfo.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     PopSetPowerSettingValueAcDc @ 0x14058BA3C (PopSetPowerSettingValueAcDc.c)
+ *     PopBroadcastSessionInfo @ 0x14072AA4C (PopBroadcastSessionInfo.c)
  */
 
 __int64 __fastcall PopSetAwayModeStatus(char a1)
@@ -20,6 +20,6 @@ __int64 __fastcall PopSetAwayModeStatus(char a1)
   v4 = GUID_SYSTEM_AWAYMODE;
   PopBroadcastSessionInfo(0, 20, (__int64)&v4);
   result = PopSetPowerSettingValueAcDc(&GUID_SYSTEM_AWAYMODE, 4LL, &v3);
-  byte_1404180D1 = a1;
+  byte_140419191 = a1;
   return result;
 }

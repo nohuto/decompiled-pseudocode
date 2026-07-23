@@ -1,8 +1,8 @@
 /*
- * XREFs of SSHSupportQueryIsLibraryEnabled @ 0x1403A3890
+ * XREFs of SSHSupportQueryIsLibraryEnabled @ 0x1403A3A70
  * Callers:
- *     PopPowerInformationInternal @ 0x1407ED06C (PopPowerInformationInternal.c)
- *     SleepstudyHelperCreateLibrary @ 0x140848930 (SleepstudyHelperCreateLibrary.c)
+ *     PopPowerInformationInternal @ 0x1407ED33C (PopPowerInformationInternal.c)
+ *     SleepstudyHelperCreateLibrary @ 0x140848C30 (SleepstudyHelperCreateLibrary.c)
  * Callees:
  *     <none>
  */

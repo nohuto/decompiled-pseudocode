@@ -1,22 +1,22 @@
 /*
- * XREFs of MiInitializeMdlBatchPages @ 0x140413004
+ * XREFs of MiInitializeMdlBatchPages @ 0x140393678
  * Callers:
- *     MiAllocatePagesForMdl @ 0x14041225C (MiAllocatePagesForMdl.c)
- *     MiReturnMdlExcess @ 0x140671F10 (MiReturnMdlExcess.c)
+ *     MiAllocatePagesForMdl @ 0x14039469C (MiAllocatePagesForMdl.c)
+ *     MiReturnMdlExcess @ 0x1406730E0 (MiReturnMdlExcess.c)
  * Callees:
- *     MiPageToNode @ 0x14026C1E0 (MiPageToNode.c)
- *     HvlNotifyLongSpinWait @ 0x140293260 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140293290 (KiCheckVpBackingLongSpinWaitHypercall.c)
- *     KeShouldYieldProcessor @ 0x1402DA180 (KeShouldYieldProcessor.c)
- *     MiMakeDemandZeroPte @ 0x1402E3CC0 (MiMakeDemandZeroPte.c)
- *     MiConvertSmallPageRangeToLarge @ 0x1402EE2CC (MiConvertSmallPageRangeToLarge.c)
- *     MiInitializeMdlSinglePage @ 0x1404132BC (MiInitializeMdlSinglePage.c)
- *     MiInitializeMdlOneNodeBatchPages @ 0x1404133A0 (MiInitializeMdlOneNodeBatchPages.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     MiPageToNode @ 0x140221770 (MiPageToNode.c)
+ *     KeShouldYieldProcessor @ 0x14023BA60 (KeShouldYieldProcessor.c)
+ *     HvlNotifyLongSpinWait @ 0x1402A2E60 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1402A2E90 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     MiConvertSmallPageRangeToLarge @ 0x14034F90C (MiConvertSmallPageRangeToLarge.c)
+ *     MiMakeDemandZeroPte @ 0x140392C40 (MiMakeDemandZeroPte.c)
+ *     MiInitializeMdlSinglePage @ 0x140393930 (MiInitializeMdlSinglePage.c)
+ *     MiInitializeMdlOneNodeBatchPages @ 0x140393A14 (MiInitializeMdlOneNodeBatchPages.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
-int __fastcall MiInitializeMdlBatchPages(__int64 a1, __int64 a2)
+LOGICAL __fastcall MiInitializeMdlBatchPages(__int64 a1, __int64 a2)
 {
   __int64 v2; // r15
   int v4; // edi
@@ -31,7 +31,7 @@ int __fastcall MiInitializeMdlBatchPages(__int64 a1, __int64 a2)
   unsigned int v13; // r14d
   int v14; // eax
   int DemandZeroPte; // ebx
-  int result; // eax
+  LOGICAL result; // eax
   unsigned __int8 CurrentIrql; // di
   unsigned __int64 v18; // rbp
   __int64 *v19; // r15

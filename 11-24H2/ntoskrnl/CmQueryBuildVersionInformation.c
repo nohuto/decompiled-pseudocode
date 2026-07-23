@@ -1,10 +1,10 @@
 /*
- * XREFs of CmQueryBuildVersionInformation @ 0x140A4A2E0
+ * XREFs of CmQueryBuildVersionInformation @ 0x140A41000
  * Callers:
- *     ExpQuerySystemInformation @ 0x140ADC240 (ExpQuerySystemInformation.c)
+ *     ExpQuerySystemInformation @ 0x140ADDAE0 (ExpQuerySystemInformation.c)
  * Callees:
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     CmpQueryDowncastString @ 0x140A4A454 (CmpQueryDowncastString.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     CmpQueryDowncastString @ 0x140A41174 (CmpQueryDowncastString.c)
  */
 
 __int64 __fastcall CmQueryBuildVersionInformation(int *a1, int a2, _WORD *a3, unsigned int a4, _DWORD *a5)

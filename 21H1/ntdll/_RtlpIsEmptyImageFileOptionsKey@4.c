@@ -16,44 +16,45 @@
 
 char __thiscall RtlpIsEmptyImageFileOptionsKey(void *this)
 {
-  int v1; // ebx
-  int i; // edi
-  int inited; // esi
-  int v4; // edi
-  int v5; // esi
+  void *v1; // ebx
+  ULONG i; // edi
+  NTSTATUS inited; // esi
+  ULONG v4; // edi
+  NTSTATUS v5; // esi
   char IsEmptyImageFileOptionsKey; // bl
-  unsigned __int16 v8[4]; // [esp+Ch] [ebp-274h] BYREF
-  unsigned __int16 v9[4]; // [esp+14h] [ebp-26Ch] BYREF
-  _DWORD v10[6]; // [esp+1Ch] [ebp-264h] BYREF
-  int v11; // [esp+34h] [ebp-24Ch]
-  char v12[4]; // [esp+38h] [ebp-248h] BYREF
-  HANDLE Handle; // [esp+3Ch] [ebp-244h] BYREF
-  unsigned __int16 v14; // [esp+40h] [ebp-240h] BYREF
-  unsigned __int16 v15; // [esp+42h] [ebp-23Eh]
-  unsigned __int16 *v16; // [esp+44h] [ebp-23Ch]
-  _BYTE v17[8]; // [esp+48h] [ebp-238h] BYREF
-  unsigned __int16 v18; // [esp+50h] [ebp-230h]
-  unsigned __int16 v19; // [esp+54h] [ebp-22Ch] BYREF
-  char v20; // [esp+58h] [ebp-228h] BYREF
+  _UNICODE_STRING String2; // [esp+Ch] [ebp-274h] BYREF
+  _UNICODE_STRING DestinationString; // [esp+14h] [ebp-26Ch] BYREF
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [esp+1Ch] [ebp-264h] BYREF
+  void *v11; // [esp+34h] [ebp-24Ch]
+  ULONG ResultLength; // [esp+38h] [ebp-248h] BYREF
+  HANDLE KeyHandle; // [esp+3Ch] [ebp-244h] BYREF
+  _UNICODE_STRING String1; // [esp+40h] [ebp-240h] BYREF
+  _BYTE KeyValueInformation[8]; // [esp+48h] [ebp-238h] BYREF
+  unsigned __int16 v16; // [esp+50h] [ebp-230h]
+  unsigned __int16 v17; // [esp+54h] [ebp-22Ch] BYREF
+  char v18; // [esp+58h] [ebp-228h] BYREF
 
-  Handle = 0;
-  v1 = (int)this;
-  v11 = (int)this;
+  KeyHandle = 0;
+  v1 = this;
+  v11 = this;
   for ( i = 0; ; ++i )
   {
-    inited = NtEnumerateValueKey(v1, i, 0, (int)v17, 560, (int)v12);
+    inited = NtEnumerateValueKey(v1, i, KeyValueBasicInformation, KeyValueInformation, 0x230u, &ResultLength);
     if ( inited >= 0 )
     {
       if ( i )
         break;
-      v14 = v18;
-      v15 = v18;
-      v16 = &v19;
-      if ( RtlInitUnicodeStringEx((int)v9, L"UseFilter") < 0 )
+      String1.Length = v16;
+      String1.MaximumLength = v16;
+      String1.Buffer = &v17;
+      if ( RtlInitUnicodeStringEx(&DestinationString, L"UseFilter") < 0 )
         break;
-      inited = RtlInitUnicodeStringEx((int)v8, L"FilterFullPath");
-      if ( inited < 0 || RtlCompareUnicodeString(&v14, v9, 1) && RtlCompareUnicodeString(&v14, v8, 1) )
+      inited = RtlInitUnicodeStringEx(&String2, L"FilterFullPath");
+      if ( inited < 0
+        || RtlCompareUnicodeString(&String1, &DestinationString, 1u) && RtlCompareUnicodeString(&String1, &String2, 1u) )
+      {
         break;
+      }
     }
     if ( inited < 0 )
     {
@@ -62,23 +63,23 @@ char __thiscall RtlpIsEmptyImageFileOptionsKey(void *this)
         v4 = 0;
         do
         {
-          v5 = ZwEnumerateKey(v1, v4, 0, (int)v17, 560, (int)v12);
+          v5 = ZwEnumerateKey(v1, v4, KeyBasicInformation, KeyValueInformation, 0x230u, &ResultLength);
           if ( v5 >= 0 )
           {
-            v10[4] = 0;
-            v10[5] = 0;
-            v14 = v19;
-            v15 = v19;
-            v16 = (unsigned __int16 *)&v20;
-            v10[2] = &v14;
-            v10[0] = 24;
-            v10[1] = v1;
-            v10[3] = 576;
-            v5 = ZwOpenKey((int)&Handle, 9, (int)v10);
+            ObjectAttributes.SecurityDescriptor = 0;
+            ObjectAttributes.SecurityQualityOfService = 0;
+            String1.Length = v17;
+            String1.MaximumLength = v17;
+            String1.Buffer = (wchar_t *)&v18;
+            ObjectAttributes.ObjectName = &String1;
+            ObjectAttributes.Length = 24;
+            ObjectAttributes.RootDirectory = v1;
+            ObjectAttributes.Attributes = 576;
+            v5 = ZwOpenKey(&KeyHandle, 9u, &ObjectAttributes);
             if ( v5 >= 0 )
             {
-              IsEmptyImageFileOptionsKey = RtlpIsEmptyImageFileOptionsKey(Handle);
-              NtClose(Handle);
+              IsEmptyImageFileOptionsKey = RtlpIsEmptyImageFileOptionsKey(KeyHandle);
+              NtClose(KeyHandle);
               if ( !IsEmptyImageFileOptionsKey )
                 return 0;
               v1 = v11;

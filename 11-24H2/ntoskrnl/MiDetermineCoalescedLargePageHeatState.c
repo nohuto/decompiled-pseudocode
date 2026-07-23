@@ -1,7 +1,7 @@
 /*
- * XREFs of MiDetermineCoalescedLargePageHeatState @ 0x140431A1C
+ * XREFs of MiDetermineCoalescedLargePageHeatState @ 0x140423F5C
  * Callers:
- *     MiLargePagePromote @ 0x1404316D4 (MiLargePagePromote.c)
+ *     MiLargePagePromote @ 0x140423C14 (MiLargePagePromote.c)
  * Callees:
  *     <none>
  */

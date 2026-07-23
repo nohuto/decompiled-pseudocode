@@ -1,14 +1,14 @@
 /*
- * XREFs of _SysCtxOpenMachine @ 0x140579704
+ * XREFs of _SysCtxOpenMachine @ 0x140579C44
  * Callers:
- *     _PnpCtxOpenMachine @ 0x140579548 (_PnpCtxOpenMachine.c)
+ *     _PnpCtxOpenMachine @ 0x140579A88 (_PnpCtxOpenMachine.c)
  * Callees:
- *     ZwClose @ 0x140159E60 (ZwClose.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     ZwClose @ 0x14015A3D0 (ZwClose.c)
+ *     memset @ 0x140171AC0 (memset.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     _RegRtlOpenKeyTransacted @ 0x1404FDBD4 (_RegRtlOpenKeyTransacted.c)
- *     _SysCtxOpenControlSet @ 0x1405798B4 (_SysCtxOpenControlSet.c)
+ *     _RegRtlOpenKeyTransacted @ 0x1404E0B64 (_RegRtlOpenKeyTransacted.c)
+ *     _SysCtxOpenControlSet @ 0x140579DF4 (_SysCtxOpenControlSet.c)
  */
 
 __int64 __fastcall SysCtxOpenMachine(

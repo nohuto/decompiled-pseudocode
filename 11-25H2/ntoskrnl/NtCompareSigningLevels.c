@@ -6,12 +6,13 @@
  *     _guard_dispatch_icall_no_overrides @ 0x1406A8B20 (_guard_dispatch_icall_no_overrides.c)
  */
 
-__int64 __fastcall NtCompareSigningLevels(__int64 a1)
+// local variable allocation has failed, the output may be wrong!
+NTSTATUS __cdecl NtCompareSigningLevels(SE_SIGNING_LEVEL FirstSigningLevel, SE_SIGNING_LEVEL SecondSigningLevel)
 {
-  int v1; // eax
+  int v2; // eax
 
-  v1 = 0;
+  v2 = 0;
   if ( qword_140F044E0 )
-    v1 = guard_dispatch_icall_no_overrides(a1);
-  return v1 == 0 ? 0xC0000428 : 0;
+    v2 = guard_dispatch_icall_no_overrides(FirstSigningLevel);
+  return v2 == 0 ? 0xC0000428 : 0;
 }

@@ -1,11 +1,11 @@
 /*
- * XREFs of MiComputeIdealFirstSubsection @ 0x1408529C4
+ * XREFs of MiComputeIdealFirstSubsection @ 0x140853C24
  * Callers:
- *     MiCreateDataFileMap @ 0x14061BFCC (MiCreateDataFileMap.c)
+ *     MiCreateDataFileMap @ 0x14061CFCC (MiCreateDataFileMap.c)
  * Callees:
- *     FsRtlGetFileExtents @ 0x14026E678 (FsRtlGetFileExtents.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
+ *     FsRtlGetFileExtents @ 0x14026E868 (FsRtlGetFileExtents.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
  */
 
 _DWORD *__fastcall MiComputeIdealFirstSubsection(struct _FILE_OBJECT *a1)

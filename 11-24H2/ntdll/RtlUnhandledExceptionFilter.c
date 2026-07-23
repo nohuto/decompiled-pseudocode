@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlUnhandledExceptionFilter @ 0x180147170
+ * XREFs of RtlUnhandledExceptionFilter @ 0x180145520
  * Callers:
- *     __raise_securityfailure @ 0x180120888 (__raise_securityfailure.c)
- *     __report_gsfailure @ 0x1801208B0 (__report_gsfailure.c)
+ *     __raise_securityfailure @ 0x18011EAB8 (__raise_securityfailure.c)
+ *     __report_gsfailure @ 0x18011EAE0 (__report_gsfailure.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall RtlUnhandledExceptionFilter(const void **a1)
+LONG __cdecl RtlUnhandledExceptionFilter(PEXCEPTION_POINTERS ExceptionPointers)
 {
-  return RtlUnhandledExceptionFilter2(a1);
+  return RtlUnhandledExceptionFilter2(ExceptionPointers, (ULONG)&Flags);
 }

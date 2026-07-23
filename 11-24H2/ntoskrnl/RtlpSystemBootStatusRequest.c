@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlpSystemBootStatusRequest @ 0x140A75404
+ * XREFs of RtlpSystemBootStatusRequest @ 0x140A6F8A4
  * Callers:
- *     PoClearTransitionMarker @ 0x140748F9C (PoClearTransitionMarker.c)
- *     RtlGetSystemBootStatus @ 0x140782DB0 (RtlGetSystemBootStatus.c)
- *     RtlGetSystemBootStatusEx @ 0x140782DF0 (RtlGetSystemBootStatusEx.c)
- *     RtlSetSystemBootStatusEx @ 0x140A753E0 (RtlSetSystemBootStatusEx.c)
+ *     PoClearTransitionMarker @ 0x1407472C8 (PoClearTransitionMarker.c)
+ *     RtlGetSystemBootStatus @ 0x140782CE0 (RtlGetSystemBootStatus.c)
+ *     RtlGetSystemBootStatusEx @ 0x140782D20 (RtlGetSystemBootStatusEx.c)
+ *     RtlSetSystemBootStatusEx @ 0x140A6F880 (RtlSetSystemBootStatusEx.c)
  * Callees:
- *     ZwPowerInformation @ 0x1406A6FF0 (ZwPowerInformation.c)
+ *     ZwPowerInformation @ 0x1406A7F90 (ZwPowerInformation.c)
  */
 
 NTSTATUS __fastcall RtlpSystemBootStatusRequest(int a1, __int64 a2, unsigned int a3, void *a4)

@@ -1,15 +1,15 @@
 /*
- * XREFs of MiPartitionTransferAllocateHugeRange @ 0x14087C900
+ * XREFs of MiPartitionTransferAllocateHugeRange @ 0x140882D00
  * Callers:
- *     MiAllocatePartitionPhysicalPages @ 0x140B60228 (MiAllocatePartitionPhysicalPages.c)
+ *     MiAllocatePartitionPhysicalPages @ 0x140B632C4 (MiAllocatePartitionPhysicalPages.c)
  * Callees:
- *     MiInitializePageColorBase @ 0x14036FE20 (MiInitializePageColorBase.c)
- *     MiGetNextPageColor @ 0x14044ADA0 (MiGetNextPageColor.c)
- *     MiGetHugeBadRangeFromNode @ 0x1406EB6AC (MiGetHugeBadRangeFromNode.c)
- *     MiGetHugeRange @ 0x1406EB880 (MiGetHugeRange.c)
- *     MiHugeRangeIsZeroed @ 0x1406EC42C (MiHugeRangeIsZeroed.c)
- *     MiAddRangeToPartitionTree @ 0x14070821C (MiAddRangeToPartitionTree.c)
- *     MiInsertHugeRangeInPartition @ 0x140708E54 (MiInsertHugeRangeInPartition.c)
+ *     MiInitializePageColorBase @ 0x140371BD0 (MiInitializePageColorBase.c)
+ *     MiGetNextPageColor @ 0x140442ED0 (MiGetNextPageColor.c)
+ *     MiGetHugeBadRangeFromNode @ 0x1406F034C (MiGetHugeBadRangeFromNode.c)
+ *     MiGetHugeRange @ 0x1406F0520 (MiGetHugeRange.c)
+ *     MiHugeRangeIsZeroed @ 0x1406F10CC (MiHugeRangeIsZeroed.c)
+ *     MiAddRangeToPartitionTree @ 0x14070CED0 (MiAddRangeToPartitionTree.c)
+ *     MiInsertHugeRangeInPartition @ 0x14070DB08 (MiInsertHugeRangeInPartition.c)
  */
 
 __int64 __fastcall MiPartitionTransferAllocateHugeRange(__int64 a1)

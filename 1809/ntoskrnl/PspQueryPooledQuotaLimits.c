@@ -1,10 +1,10 @@
 /*
- * XREFs of PspQueryPooledQuotaLimits @ 0x140888B48
+ * XREFs of PspQueryPooledQuotaLimits @ 0x140889DA8
  * Callers:
- *     NtQueryInformationProcess @ 0x14066DB70 (NtQueryInformationProcess.c)
+ *     NtQueryInformationProcess @ 0x14066ED30 (NtQueryInformationProcess.c)
  * Callees:
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
- *     ObpReferenceObjectByHandleWithTag @ 0x1405E8390 (ObpReferenceObjectByHandleWithTag.c)
+ *     ObpReferenceObjectByHandleWithTag @ 0x1405E9390 (ObpReferenceObjectByHandleWithTag.c)
  */
 
 __int64 __fastcall PspQueryPooledQuotaLimits(ULONG_PTR a1, __int64 a2, int a3, _DWORD *a4, char a5)

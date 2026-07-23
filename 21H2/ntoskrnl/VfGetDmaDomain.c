@@ -1,10 +1,10 @@
 /*
- * XREFs of VfGetDmaDomain @ 0x1405A1030
+ * XREFs of VfGetDmaDomain @ 0x1405A1260
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     ViGetRealDmaOperation @ 0x1409CEA50 (ViGetRealDmaOperation.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     ViGetRealDmaOperation @ 0x1409CFA50 (ViGetRealDmaOperation.c)
  */
 
 __int64 __fastcall VfGetDmaDomain(__int64 a1)

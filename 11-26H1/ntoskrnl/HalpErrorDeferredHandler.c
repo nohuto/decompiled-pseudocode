@@ -1,14 +1,14 @@
 /*
- * XREFs of HalpErrorDeferredHandler @ 0x14058EE00
+ * XREFs of HalpErrorDeferredHandler @ 0x140591580
  * Callers:
  *     <none>
  * Callees:
- *     HalpFreeDrsPool @ 0x14058EE9C (HalpFreeDrsPool.c)
- *     HalpMemoryErrorDeferredHandler @ 0x14058F0C8 (HalpMemoryErrorDeferredHandler.c)
- *     HalpPmemErrorDeferredHandler @ 0x14058F2A8 (HalpPmemErrorDeferredHandler.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     HalpFreeDrsPool @ 0x14059161C (HalpFreeDrsPool.c)
+ *     HalpMemoryErrorDeferredHandler @ 0x140591848 (HalpMemoryErrorDeferredHandler.c)
+ *     HalpPmemErrorDeferredHandler @ 0x140591A28 (HalpPmemErrorDeferredHandler.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __fastcall HalpErrorDeferredHandler(__int64 a1, const void *a2)

@@ -1,12 +1,12 @@
 /*
- * XREFs of MiComputeZeroClusterMaximum @ 0x14027449C
+ * XREFs of MiComputeZeroClusterMaximum @ 0x14026243C
  * Callers:
- *     MiResolvePrivateZeroFault @ 0x140210120 (MiResolvePrivateZeroFault.c)
- *     MiExpandSharedZeroCluster @ 0x140270F88 (MiExpandSharedZeroCluster.c)
- *     MiGetClusterPage @ 0x140555970 (MiGetClusterPage.c)
+ *     MiExpandSharedZeroCluster @ 0x14025EF28 (MiExpandSharedZeroCluster.c)
+ *     MiResolvePrivateZeroFault @ 0x1402B4A20 (MiResolvePrivateZeroFault.c)
+ *     MiGetClusterPage @ 0x140555BB0 (MiGetClusterPage.c)
  * Callees:
- *     MiGetAvailablePagesBelowPriority @ 0x14027191C (MiGetAvailablePagesBelowPriority.c)
- *     MiSufficientAvailablePages @ 0x140275470 (MiSufficientAvailablePages.c)
+ *     MiGetAvailablePagesBelowPriority @ 0x14025F8BC (MiGetAvailablePagesBelowPriority.c)
+ *     MiSufficientAvailablePages @ 0x140263410 (MiSufficientAvailablePages.c)
  */
 
 unsigned __int64 __fastcall MiComputeZeroClusterMaximum(__int64 a1, __int64 a2, __int64 a3)
@@ -42,7 +42,7 @@ unsigned __int64 __fastcall MiComputeZeroClusterMaximum(__int64 a1, __int64 a2, 
   }
   v10 = *(unsigned __int16 *)(a2 + 174);
   v11 = 20000LL;
-  v12 = *(_QWORD **)(qword_140C4E648 + 8 * v10);
+  v12 = *(_QWORD **)(qword_140C4E688 + 8 * v10);
   v13 = *(_QWORD *)(v12[856] + 2384LL);
   v14 = 20000LL;
   if ( v13 > 0x4E20 )

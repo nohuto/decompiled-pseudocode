@@ -45,7 +45,7 @@ __int64 __fastcall MiTrimOrAgeWorkingSet(_BYTE *SpinLock, __int64 a2, unsigned i
   char v22; // al
   char v23; // al
   char v24; // al
-  struct _SLIST_ENTRY *v25; // rsi
+  _SLIST_ENTRY *v25; // rsi
   __int64 v27; // rax
   __int64 VmPartition; // rax
   unsigned __int64 v29; // r12
@@ -209,7 +209,7 @@ __int64 __fastcall MiTrimOrAgeWorkingSet(_BYTE *SpinLock, __int64 a2, unsigned i
   {
     if ( qword_1402FED80 )
     {
-      v25 = (struct _SLIST_ENTRY *)_InterlockedExchange64(&qword_1402FED80, 0LL);
+      v25 = (_SLIST_ENTRY *)_InterlockedExchange64(&qword_1402FED80, 0LL);
       if ( v25 )
       {
         if ( v18 - (unsigned __int64)v25[1].Next > PfKernelGlobals || (a3 & 0x18) != 0 )

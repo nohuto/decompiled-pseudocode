@@ -1,8 +1,8 @@
 /*
- * XREFs of MmCreateMdl @ 0x140086A14
+ * XREFs of MmCreateMdl @ 0x140088304
  * Callers:
- *     MiPfAllocateMdls @ 0x140499560 (MiPfAllocateMdls.c)
- *     SmKmStoreFileWriteHeader @ 0x1406998CC (SmKmStoreFileWriteHeader.c)
+ *     MiPfAllocateMdls @ 0x140499FF0 (MiPfAllocateMdls.c)
+ *     SmKmStoreFileWriteHeader @ 0x1406999B0 (SmKmStoreFileWriteHeader.c)
  * Callees:
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
  */

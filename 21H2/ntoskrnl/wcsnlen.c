@@ -1,16 +1,16 @@
 /*
- * XREFs of wcsnlen @ 0x1403D40D0
+ * XREFs of wcsnlen @ 0x1403D4240
  * Callers:
- *     _wcslwr_s @ 0x1403D2190 (_wcslwr_s.c)
- *     EmonAddProfileSource @ 0x1404D2DC0 (EmonAddProfileSource.c)
- *     Amd64AddProfileSource @ 0x1404DD4C0 (Amd64AddProfileSource.c)
- *     NtSetInformationJobObject @ 0x140614200 (NtSetInformationJobObject.c)
- *     RtlpQueryTimeZoneKeyNameRoutine @ 0x1407D1FB0 (RtlpQueryTimeZoneKeyNameRoutine.c)
- *     RtlpSetTimeZoneInformationWorker @ 0x14091510C (RtlpSetTimeZoneInformationWorker.c)
- *     EtwSetPerformanceTraceInformation @ 0x140938560 (EtwSetPerformanceTraceInformation.c)
- *     EtwpLoadMicroarchitecturalProfileSource @ 0x14093A870 (EtwpLoadMicroarchitecturalProfileSource.c)
- *     BiGetObjectReferenceFromEfiEntry @ 0x140972338 (BiGetObjectReferenceFromEfiEntry.c)
- *     SiIsValidWindowsBootEntry @ 0x1409743C8 (SiIsValidWindowsBootEntry.c)
+ *     _wcslwr_s @ 0x1403D2300 (_wcslwr_s.c)
+ *     EmonAddProfileSource @ 0x1404D3000 (EmonAddProfileSource.c)
+ *     Amd64AddProfileSource @ 0x1404DD700 (Amd64AddProfileSource.c)
+ *     NtSetInformationJobObject @ 0x14067DE60 (NtSetInformationJobObject.c)
+ *     RtlpQueryTimeZoneKeyNameRoutine @ 0x1407D2120 (RtlpQueryTimeZoneKeyNameRoutine.c)
+ *     RtlpSetTimeZoneInformationWorker @ 0x14091526C (RtlpSetTimeZoneInformationWorker.c)
+ *     EtwSetPerformanceTraceInformation @ 0x140938730 (EtwSetPerformanceTraceInformation.c)
+ *     EtwpLoadMicroarchitecturalProfileSource @ 0x14093AA40 (EtwpLoadMicroarchitecturalProfileSource.c)
+ *     BiGetObjectReferenceFromEfiEntry @ 0x140972518 (BiGetObjectReferenceFromEfiEntry.c)
+ *     SiIsValidWindowsBootEntry @ 0x1409745A8 (SiIsValidWindowsBootEntry.c)
  * Callees:
  *     <none>
  */

@@ -3,7 +3,7 @@
  * Callers:
  *     KiPerformGroupConfiguration @ 0x140B69430 (KiPerformGroupConfiguration.c)
  * Callees:
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
 

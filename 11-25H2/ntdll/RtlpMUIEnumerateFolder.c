@@ -17,193 +17,198 @@
  *     memset$thunk$772440563353939046 @ 0x180174030 (memset$thunk$772440563353939046.c)
  */
 
-char __fastcall RtlpMUIEnumerateFolder(const wchar_t *a1, _QWORD *a2, __int64 *a3, __int64 a4)
+char __fastcall RtlpMUIEnumerateFolder(PCWSTR SourceString, _QWORD *a2, PVOID *a3)
 {
-  char v5; // r15
-  char v6; // r12
-  unsigned int v7; // r13d
-  unsigned int *Heap; // rsi
-  unsigned __int64 v9; // rax
-  __int64 v10; // rbx
-  void *v11; // rax
-  NTSTATUS v12; // r14d
-  __int64 v13; // r14
-  int v14; // eax
+  BOOLEAN RestartScan; // r15
+  char v5; // r12
+  unsigned int v6; // r13d
+  _DWORD *Heap; // rsi
+  unsigned __int64 v8; // rax
+  PVOID v9; // rbx
+  HANDLE ContainingDirectory; // rax
+  NTSTATUS v11; // r14d
+  __int64 v12; // r14
+  NTSTATUS v13; // eax
   unsigned int *i; // rbx
-  bool v16; // zf
-  __int64 v17; // r10
-  unsigned int v18; // r15d
-  unsigned int v19; // edx
-  __int64 v21; // rax
-  __int64 v22; // r15
-  __int64 v23; // rax
-  int v24; // [rsp+40h] [rbp-99h]
-  int v25; // [rsp+50h] [rbp-89h]
+  bool v15; // zf
+  char *v16; // r10
+  unsigned int v17; // r15d
+  unsigned int v18; // edx
+  char *v20; // rax
+  void *v21; // r15
+  char *v22; // rax
   HANDLE FileHandle; // [rsp+60h] [rbp-79h] BYREF
-  __int128 v27; // [rsp+68h] [rbp-71h] BYREF
-  __int128 v28; // [rsp+78h] [rbp-61h] BYREF
-  __int128 v29; // [rsp+88h] [rbp-51h] BYREF
-  __int128 v30; // [rsp+98h] [rbp-41h]
-  OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+A8h] [rbp-31h] BYREF
-  __int128 v32; // [rsp+D8h] [rbp-1h] BYREF
-  struct _IO_STATUS_BLOCK IoStatusBlock; // [rsp+E8h] [rbp+Fh] BYREF
-  int v34; // [rsp+140h] [rbp+67h]
-  int v36; // [rsp+158h] [rbp+7Fh] BYREF
+  PVOID BaseAddress[2]; // [rsp+68h] [rbp-71h] BYREF
+  _UNICODE_STRING String; // [rsp+78h] [rbp-61h] BYREF
+  _RTL_RELATIVE_NAME_U RelativeName; // [rsp+88h] [rbp-51h] BYREF
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+A8h] [rbp-31h] BYREF
+  _UNICODE_STRING DestinationString; // [rsp+D8h] [rbp-1h] BYREF
+  _IO_STATUS_BLOCK IoStatusBlock; // [rsp+E8h] [rbp+Fh] BYREF
+  int v30; // [rsp+140h] [rbp+67h]
+  DWORD Lcid; // [rsp+158h] [rbp+7Fh] BYREF
 
-  v36 = 0;
-  v34 = 0;
+  Lcid = 0;
+  v30 = 0;
   FileHandle = 0LL;
-  v5 = 1;
+  RestartScan = 1;
+  v5 = 0;
   v6 = 0;
-  v7 = 0;
   Heap = 0LL;
-  v27 = 0LL;
-  v28 = 0LL;
+  *(_OWORD *)BaseAddress = 0LL;
+  String = 0LL;
   IoStatusBlock = 0LL;
   memset(&ObjectAttributes, 0, 44);
-  v29 = 0LL;
-  v30 = 0LL;
-  if ( !a1 )
+  memset(&RelativeName, 0, sizeof(RelativeName));
+  if ( !SourceString )
     goto LABEL_49;
   if ( !a3 )
-    return v6;
+    return v5;
   if ( !a2 )
     goto LABEL_50;
-  v9 = -1LL;
+  v8 = -1LL;
   do
-    ++v9;
-  while ( a1[v9] );
-  if ( v9 >= 0x104 )
+    ++v8;
+  while ( SourceString[v8] );
+  if ( v8 >= 0x104 )
     goto LABEL_50;
   *a3 = 0LL;
-  v32 = 0LL;
-  if ( (int)RtlInitUnicodeStringEx((__int64)&v32, a1) >= 0
+  DestinationString = 0LL;
+  if ( RtlInitUnicodeStringEx(&DestinationString, SourceString) >= 0
     && (int)RtlpDosPathNameToRelativeNtPathName(
               2,
-              (unsigned __int16 *)&v32,
+              &DestinationString.Length,
               0LL,
-              (unsigned __int16 *)&v27,
+              (unsigned __int16 *)BaseAddress,
               0LL,
               0LL,
-              (__int64)&v29) >= 0 )
+              (__int64)&RelativeName) >= 0 )
   {
-    v10 = *((_QWORD *)&v27 + 1);
-    if ( (_WORD)v29 )
+    v9 = BaseAddress[1];
+    if ( RelativeName.RelativeName.Length )
     {
-      v11 = (void *)v30;
-      v27 = v29;
+      ContainingDirectory = RelativeName.ContainingDirectory;
+      *(UNICODE_STRING *)BaseAddress = RelativeName.RelativeName;
     }
     else
     {
-      v11 = 0LL;
-      *(_QWORD *)&v30 = 0LL;
+      ContainingDirectory = 0LL;
+      RelativeName.ContainingDirectory = 0LL;
     }
-    ObjectAttributes.RootDirectory = v11;
-    ObjectAttributes.ObjectName = (PUNICODE_STRING)&v27;
+    ObjectAttributes.RootDirectory = ContainingDirectory;
+    ObjectAttributes.ObjectName = (PUNICODE_STRING)BaseAddress;
     ObjectAttributes.Length = 48;
     ObjectAttributes.Attributes = 64;
     *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
-    v12 = NtOpenFile(&FileHandle, 0x100001u, &ObjectAttributes, &IoStatusBlock, 5u, 0x21u);
-    RtlReleaseRelativeName((__int64)&v29);
-    if ( v10 )
-      RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v10, a4);
-    if ( v12 >= 0 )
+    v11 = NtOpenFile(&FileHandle, 0x100001u, &ObjectAttributes, &IoStatusBlock, 5u, 0x21u);
+    RtlReleaseRelativeName(&RelativeName);
+    if ( v9 )
+      RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v9);
+    if ( v11 >= 0 )
     {
       if ( FileHandle )
       {
-        Heap = (unsigned int *)RtlAllocateHeap((char *)NtCurrentPeb()->ProcessHeap, 8u, 0x1000uLL);
+        Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, 0x1000uLL);
         if ( !Heap )
           goto LABEL_31;
-        v13 = 0LL;
+        v12 = 0LL;
 LABEL_17:
-        LOBYTE(v25) = v5;
-        LOBYTE(v24) = 0;
-        v14 = NtQueryDirectoryFile(FileHandle, 0LL, 0LL, 0LL, &IoStatusBlock, Heap, 4096, 1, v24, 0LL, v25);
-        if ( v14 < 0 )
+        v13 = NtQueryDirectoryFile(
+                FileHandle,
+                0LL,
+                0LL,
+                0LL,
+                &IoStatusBlock,
+                Heap,
+                0x1000u,
+                FileDirectoryInformation,
+                0,
+                0LL,
+                RestartScan);
+        if ( v13 < 0 )
         {
-          if ( v14 != -2147483642 )
+          if ( v13 != -2147483642 )
             goto LABEL_31;
         }
         else if ( Heap[15] || *Heap )
         {
           for ( i = Heap; ; i = (unsigned int *)((char *)i + *i) )
           {
-            v16 = (i[14] & 0x10) == 0;
-            WORD1(v28) = *((_WORD *)i + 30);
-            LOWORD(v28) = WORD1(v28);
-            *((_QWORD *)&v28 + 1) = i + 16;
-            if ( !v16 && RtlCultureNameToLCID((unsigned __int16 *)&v28, &v36) )
+            v15 = (i[14] & 0x10) == 0;
+            String.MaximumLength = *((_WORD *)i + 30);
+            String.Length = String.MaximumLength;
+            String.Buffer = (wchar_t *)(i + 16);
+            if ( !v15 && RtlCultureNameToLCID(&String, &Lcid) )
             {
-              v17 = *a3;
-              ++v13;
+              v16 = (char *)*a3;
+              ++v12;
               if ( *a3 )
               {
-                v18 = v34;
+                v17 = v30;
               }
               else
               {
-                v21 = RtlAllocateHeap((char *)NtCurrentPeb()->ProcessHeap, 8u, 0x208uLL);
-                *a3 = v21;
-                v17 = v21;
-                if ( !v21 )
+                v20 = (char *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, 0x208uLL);
+                *a3 = v20;
+                v16 = v20;
+                if ( !v20 )
                   goto LABEL_31;
-                v18 = 0;
-                v7 = 520;
-                v34 = 0;
+                v17 = 0;
+                v6 = 520;
+                v30 = 0;
               }
-              v19 = i[15];
-              if ( (unsigned __int64)(v19 + v18) + 2 > v7 )
+              v18 = i[15];
+              if ( (unsigned __int64)(v18 + v17) + 2 > v6 )
               {
-                if ( v19 > 0x208 )
-                  v7 += v19 + 2;
+                if ( v18 > 0x208 )
+                  v6 += v18 + 2;
                 else
-                  v7 += 520;
-                v22 = v17;
-                v23 = RtlReAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 8u, v17, v7);
-                *a3 = v23;
-                v17 = v23;
-                if ( !v23 )
+                  v6 += 520;
+                v21 = v16;
+                v22 = (char *)RtlReAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, v16, v6);
+                *a3 = v22;
+                v16 = v22;
+                if ( !v22 )
                 {
-                  *a3 = v22;
+                  *a3 = v21;
                   goto LABEL_31;
                 }
-                v18 = v34;
+                v17 = v30;
               }
-              memmove((void *)(v17 + v18), i + 16, i[15]);
-              v34 = i[15] + v18 + 2;
+              memmove(&v16[v17], i + 16, i[15]);
+              v30 = i[15] + v17 + 2;
             }
             if ( !*i )
             {
               memset_thunk_772440563353939046(Heap, 0, 0x1000uLL);
-              v5 = 0;
+              RestartScan = 0;
               goto LABEL_17;
             }
           }
         }
-        v6 = 1;
-        *a2 = v13;
+        v5 = 1;
+        *a2 = v12;
         goto LABEL_31;
       }
 LABEL_50:
       if ( *a3 )
       {
-        RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, *a3, a4);
+        RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, *a3);
         *a3 = 0LL;
       }
-      return v6;
+      return v5;
     }
   }
 LABEL_31:
   if ( FileHandle )
     NtClose(FileHandle);
   if ( Heap )
-    RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, (__int64)Heap, a4);
-  if ( !v6 )
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, Heap);
+  if ( !v5 )
   {
 LABEL_49:
     if ( !a3 )
-      return v6;
+      return v5;
     goto LABEL_50;
   }
-  return v6;
+  return v5;
 }

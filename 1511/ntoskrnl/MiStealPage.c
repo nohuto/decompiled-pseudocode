@@ -1084,8 +1084,8 @@ LABEL_23:
     else if ( BugCheckParameter2 + 0x80000000000LL > 0x7FFFFFFFFFLL )
     {
       if ( PsNtosImageBase
-        && (BugCheckParameter2 >= PsNtosImageBase && BugCheckParameter2 < PsNtosImageEnd
-         || BugCheckParameter2 >= PsHalImageBase && BugCheckParameter2 < PsHalImageEnd) )
+        && (BugCheckParameter2 >= (unsigned __int64)PsNtosImageBase && BugCheckParameter2 < PsNtosImageEnd
+         || BugCheckParameter2 >= (unsigned __int64)PsHalImageBase && BugCheckParameter2 < PsHalImageEnd) )
       {
         v8 = 64;
       }
@@ -1167,8 +1167,8 @@ LABEL_58:
       v15 = BugCheckParameter2;
       if ( BugCheckParameter2 + 0x80000000000LL <= 0x7FFFFFFFFFLL
         || PsNtosImageBase
-        && (BugCheckParameter2 >= PsNtosImageBase && BugCheckParameter2 < PsNtosImageEnd
-         || BugCheckParameter2 >= PsHalImageBase && BugCheckParameter2 < PsHalImageEnd) )
+        && (BugCheckParameter2 >= (unsigned __int64)PsNtosImageBase && BugCheckParameter2 < PsNtosImageEnd
+         || BugCheckParameter2 >= (unsigned __int64)PsHalImageBase && BugCheckParameter2 < PsHalImageEnd) )
       {
         goto LABEL_92;
       }

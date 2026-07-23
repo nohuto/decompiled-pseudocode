@@ -35,7 +35,7 @@ ACL *CmpAdminSystemSecurityDescriptor()
   ULONG_PTR v14; // r14
   NTSTATUS v15; // eax
   ULONG_PTR v16; // r14
-  struct _SID_IDENTIFIER_AUTHORITY IdentifierAuthority; // [rsp+60h] [rbp+8h] BYREF
+  _SID_IDENTIFIER_AUTHORITY IdentifierAuthority; // [rsp+60h] [rbp+8h] BYREF
 
   *(_WORD *)&IdentifierAuthority.Value[4] = 1280;
   *(_DWORD *)IdentifierAuthority.Value = 0;

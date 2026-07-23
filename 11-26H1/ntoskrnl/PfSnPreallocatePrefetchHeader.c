@@ -1,10 +1,10 @@
 /*
- * XREFs of PfSnPreallocatePrefetchHeader @ 0x1409B7678
+ * XREFs of PfSnPreallocatePrefetchHeader @ 0x140988658
  * Callers:
- *     PfSnAsyncPrefetchWorker @ 0x1409B77C0 (PfSnAsyncPrefetchWorker.c)
+ *     PfSnAsyncPrefetchWorker @ 0x1409887A0 (PfSnAsyncPrefetchWorker.c)
  * Callees:
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall PfSnPreallocatePrefetchHeader(__int64 *a1)

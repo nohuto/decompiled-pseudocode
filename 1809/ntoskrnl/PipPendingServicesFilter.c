@@ -1,9 +1,9 @@
 /*
- * XREFs of PipPendingServicesFilter @ 0x1409F5FE0
+ * XREFs of PipPendingServicesFilter @ 0x1409F6FE0
  * Callers:
  *     <none>
  * Callees:
- *     _wcsicmp @ 0x140195930 (_wcsicmp.c)
+ *     _wcsicmp @ 0x140195A70 (_wcsicmp.c)
  */
 
 __int64 __fastcall PipPendingServicesFilter(const wchar_t *a1, __int64 a2, __int64 a3, _BYTE *a4)

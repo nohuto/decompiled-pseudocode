@@ -1,21 +1,21 @@
 /*
- * XREFs of KiEnterLongDpcProcessing @ 0x14022EA74
+ * XREFs of KiEnterLongDpcProcessing @ 0x140230404
  * Callers:
- *     KiExecuteAllDpcs @ 0x14032DD00 (KiExecuteAllDpcs.c)
+ *     KiExecuteAllDpcs @ 0x14032FD30 (KiExecuteAllDpcs.c)
  * Callees:
- *     KiSearchForNewThreadsForRescheduleContext @ 0x14022CBE0 (KiSearchForNewThreadsForRescheduleContext.c)
- *     KiScheduleThreadToRescheduleContext @ 0x14022E2A0 (KiScheduleThreadToRescheduleContext.c)
- *     KiAcquirePrcbLocksForPreemptionAttempt @ 0x14022F050 (KiAcquirePrcbLocksForPreemptionAttempt.c)
- *     KiAffinityContainsProcessorsOtherThanSelf @ 0x14022F660 (KiAffinityContainsProcessorsOtherThanSelf.c)
- *     ?KiCommitRescheduleContextEntry@@YAEPEAU_KI_RESCHEDULE_CONTEXT_ENTRY@@PEAU_KPRCB@@KPEAU_SINGLE_LIST_ENTRY@@@Z @ 0x14023F140 (-KiCommitRescheduleContextEntry@@YAEPEAU_KI_RESCHEDULE_CONTEXT_ENTRY@@PEAU_KPRCB@@KPEAU_SINGLE_L.c)
- *     KiFlushSoftwareInterruptBatch @ 0x1402436D0 (KiFlushSoftwareInterruptBatch.c)
- *     EtwTraceScheduleThread @ 0x1402467D0 (EtwTraceScheduleThread.c)
- *     KiStartRescheduleContext @ 0x14032F5E0 (KiStartRescheduleContext.c)
- *     KiReadyDeferredReadyList @ 0x14032F930 (KiReadyDeferredReadyList.c)
- *     EtwTraceXSchedulerPriorityKickSend @ 0x140527744 (EtwTraceXSchedulerPriorityKickSend.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14052FA20 (KiRemoveSystemWorkPriorityKick.c)
- *     EtwTraceLongDpcMitigationEvent @ 0x1406C4BD4 (EtwTraceLongDpcMitigationEvent.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     KiSearchForNewThreadsForRescheduleContext @ 0x14022E570 (KiSearchForNewThreadsForRescheduleContext.c)
+ *     KiScheduleThreadToRescheduleContext @ 0x14022FC30 (KiScheduleThreadToRescheduleContext.c)
+ *     KiAcquirePrcbLocksForPreemptionAttempt @ 0x1402309E0 (KiAcquirePrcbLocksForPreemptionAttempt.c)
+ *     KiAffinityContainsProcessorsOtherThanSelf @ 0x140230FF0 (KiAffinityContainsProcessorsOtherThanSelf.c)
+ *     ?KiCommitRescheduleContextEntry@@YAEPEAU_KI_RESCHEDULE_CONTEXT_ENTRY@@PEAU_KPRCB@@KPEAU_SINGLE_LIST_ENTRY@@@Z @ 0x140240AA0 (-KiCommitRescheduleContextEntry@@YAEPEAU_KI_RESCHEDULE_CONTEXT_ENTRY@@PEAU_KPRCB@@KPEAU_SINGLE_L.c)
+ *     KiFlushSoftwareInterruptBatch @ 0x140245030 (KiFlushSoftwareInterruptBatch.c)
+ *     EtwTraceScheduleThread @ 0x140248130 (EtwTraceScheduleThread.c)
+ *     KiStartRescheduleContext @ 0x140331610 (KiStartRescheduleContext.c)
+ *     KiReadyDeferredReadyList @ 0x140331960 (KiReadyDeferredReadyList.c)
+ *     EtwTraceXSchedulerPriorityKickSend @ 0x140529DB4 (EtwTraceXSchedulerPriorityKickSend.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x140531F20 (KiRemoveSystemWorkPriorityKick.c)
+ *     EtwTraceLongDpcMitigationEvent @ 0x1406C8814 (EtwTraceLongDpcMitigationEvent.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 bool __fastcall KiEnterLongDpcProcessing(struct _KPRCB *a1, _KTHREAD *a2, __int64 a3, __int64 a4)
@@ -140,7 +140,7 @@ bool __fastcall KiEnterLongDpcProcessing(struct _KPRCB *a1, _KTHREAD *a2, __int6
     if ( v17 )
       KiSearchForNewThreadsForRescheduleContext(&StaticRescheduleContext->ProcessorCount, &v50);
     v19 = 0;
-    if ( (WORD2(xmmword_140FBFC10) & 0x400) != 0 )
+    if ( (WORD2(xmmword_140FC0C10) & 0x400) != 0 )
       v19 = 2;
     v20 = 0LL;
     if ( StaticRescheduleContext->ProcessorCount )
@@ -213,8 +213,8 @@ LABEL_24:
             if ( SingleTargetIndex == Prcb->Number )
               goto LABEL_28;
             a1->DeferredDispatchInterrupts.TargetType = 2;
-            v36 = *(_DWORD *)(*(_QWORD *)&KiSupervisorXStateFeaturesLock.WaitBlockFill11[112] + 4LL * SingleTargetIndex) & 0x3F;
-            v37 = *(_DWORD *)(*(_QWORD *)&KiSupervisorXStateFeaturesLock.WaitBlockFill11[112] + 4LL * SingleTargetIndex) >> 6;
+            v36 = *(&KiSupervisorXStateFeaturesLock.SchedulerApc.Thread->Header.LockNV + SingleTargetIndex) & 0x3F;
+            v37 = (unsigned int)*(&KiSupervisorXStateFeaturesLock.SchedulerApc.Thread->Header.LockNV + SingleTargetIndex) >> 6;
             if ( a1->DeferredDispatchInterrupts.MultipleTargetAffinity.Count <= (unsigned int)v37 )
             {
               if ( a1->DeferredDispatchInterrupts.MultipleTargetAffinity.Size <= (unsigned int)v37 )
@@ -264,7 +264,7 @@ LABEL_28:
                     if ( v43 )
                       LODWORD(Number) = (unsigned __int8)HvlpVirtualProcessorMapping[2 * Number + 1] | ((unsigned __int8)HvlpVirtualProcessorMapping[2 * Number] << 6);
                     v44[2] = Number;
-                    if ( (BYTE4(xmmword_140FBFC10) & 0x20) != 0 )
+                    if ( (BYTE4(xmmword_140FC0C10) & 0x20) != 0 )
                       EtwTraceXSchedulerPriorityKickSend(Prcb->Number, 2LL, v42);
                     GroupSetMember = 0LL;
                     __writemsr(0x400000C2u, (unsigned int)Number);

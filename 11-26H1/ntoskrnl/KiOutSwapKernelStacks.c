@@ -1,17 +1,17 @@
 /*
- * XREFs of KiOutSwapKernelStacks @ 0x1404102F4
+ * XREFs of KiOutSwapKernelStacks @ 0x14040FA14
  * Callers:
- *     KeSwapProcessOrStack @ 0x1405F7C80 (KeSwapProcessOrStack.c)
+ *     KeSwapProcessOrStack @ 0x1405FA6A0 (KeSwapProcessOrStack.c)
  * Callees:
- *     KeQueryActiveProcessorCountEx @ 0x140211EA0 (KeQueryActiveProcessorCountEx.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     KeSwappablePageDereference @ 0x14041053C (KeSwappablePageDereference.c)
- *     KiDecrementProcessStackCount @ 0x1404108F0 (KiDecrementProcessStackCount.c)
- *     KiWaitForContextSwap @ 0x1404109FC (KiWaitForContextSwap.c)
- *     MmOutPageKernelStack @ 0x140410A60 (MmOutPageKernelStack.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     KeQueryActiveProcessorCountEx @ 0x140211F80 (KeQueryActiveProcessorCountEx.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     KeSwappablePageDereference @ 0x14040FC5C (KeSwappablePageDereference.c)
+ *     KiDecrementProcessStackCount @ 0x140410010 (KiDecrementProcessStackCount.c)
+ *     KiWaitForContextSwap @ 0x14041011C (KiWaitForContextSwap.c)
+ *     MmOutPageKernelStack @ 0x140410180 (MmOutPageKernelStack.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 ULONG __fastcall KiOutSwapKernelStacks(__int64 a1)
@@ -41,7 +41,7 @@ ULONG __fastcall KiOutSwapKernelStacks(__int64 a1)
 
   memset(v21, 0, sizeof(v21));
   v1 = 0LL;
-  v2 = MEMORY[0xFFFFF78000000320] - LODWORD(KsepShimDbLock.KernelWaitTime);
+  v2 = MEMORY[0xFFFFF78000000320] - LODWORD(KsepShimDbLock.UserWaitTime);
   v22 = 0LL;
   v3 = KiProcessorBlock[KiLastProcessor];
   CurrentIrql = KeGetCurrentIrql();

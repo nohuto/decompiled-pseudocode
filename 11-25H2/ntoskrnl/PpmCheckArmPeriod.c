@@ -36,7 +36,7 @@ LABEL_8:
     {
       v2[0] = 0LL;
       v2[1] = -1LL;
-      return KeSetTimer2((__int64)&PpmCheckTimer, -v0, v0, (__int64)v2);
+      return KeSetTimer2((__int64)&PpmCheckTimer, (LARGE_INTEGER)-v0, v0, (__int64)v2);
     }
   }
   return result;

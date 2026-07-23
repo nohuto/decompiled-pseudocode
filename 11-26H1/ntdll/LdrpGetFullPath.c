@@ -1,20 +1,20 @@
 /*
- * XREFs of LdrpGetFullPath @ 0x1800850A0
+ * XREFs of LdrpGetFullPath @ 0x18007C440
  * Callers:
- *     LdrpPreprocessDllName @ 0x180045C10 (LdrpPreprocessDllName.c)
- *     LdrpLoadDll @ 0x180051A00 (LdrpLoadDll.c)
- *     LdrpResolveDllName @ 0x180084BE0 (LdrpResolveDllName.c)
+ *     LdrpPreprocessDllName @ 0x180030180 (LdrpPreprocessDllName.c)
+ *     LdrpLoadDll @ 0x18003BF80 (LdrpLoadDll.c)
+ *     LdrpResolveDllName @ 0x18007BF80 (LdrpResolveDllName.c)
  * Callees:
- *     RtlpAllocateAtom @ 0x180037BF0 (RtlpAllocateAtom.c)
- *     RtlpSysVolFree @ 0x180038000 (RtlpSysVolFree.c)
- *     RtlGetFullPathName_Ustr @ 0x180047AE0 (RtlGetFullPathName_Ustr.c)
+ *     RtlpAllocateAtom @ 0x1800018C0 (RtlpAllocateAtom.c)
+ *     RtlpSysVolFree @ 0x180001CD0 (RtlpSysVolFree.c)
+ *     RtlGetFullPathName_Ustr @ 0x180032060 (RtlGetFullPathName_Ustr.c)
  */
 
 __int64 __fastcall LdrpGetFullPath(unsigned __int16 *a1, __int64 a2)
 {
-  __int64 FullPathName_Ustr; // rdi
+  SIZE_T FullPathName_Ustr; // rdi
   _WORD *Atom; // r14
-  __int64 v7; // rcx
+  void *v7; // rcx
   char v8; // [rsp+68h] [rbp+10h] BYREF
   __int64 v9; // [rsp+70h] [rbp+18h] BYREF
   int *v10; // [rsp+78h] [rbp+20h] BYREF
@@ -42,11 +42,11 @@ __int64 __fastcall LdrpGetFullPath(unsigned __int16 *a1, __int64 a2)
       *(_WORD *)a2 = FullPathName_Ustr;
       return 0LL;
     }
-    Atom = (_WORD *)RtlpAllocateAtom(FullPathName_Ustr);
+    Atom = RtlpAllocateAtom(FullPathName_Ustr);
     if ( !Atom )
       return 3221225495LL;
-    v7 = *(_QWORD *)(a2 + 8);
-    if ( a2 + 16 != v7 )
+    v7 = *(void **)(a2 + 8);
+    if ( (void *)(a2 + 16) != v7 )
       RtlpSysVolFree(v7);
     *(_WORD *)(a2 + 16) = 0;
     *(_QWORD *)(a2 + 8) = Atom;

@@ -18,7 +18,7 @@
 
 int __fastcall EtwpProcessorRundown(__int64 a1)
 {
-  struct _PROCESSOR_NUMBER *Pool2; // rdi
+  _PROCESSOR_NUMBER *Pool2; // rdi
   ULONG ActiveProcessorCount; // eax
   __int64 v4; // rbx
   unsigned int v5; // r8d
@@ -43,17 +43,17 @@ int __fastcall EtwpProcessorRundown(__int64 a1)
   unsigned int *v25; // [rsp+440h] [rbp+340h] BYREF
   int v26; // [rsp+448h] [rbp+348h]
   int v27; // [rsp+44Ch] [rbp+34Ch]
-  struct _PROCESSOR_NUMBER *v28; // [rsp+450h] [rbp+350h]
+  _PROCESSOR_NUMBER *v28; // [rsp+450h] [rbp+350h]
   int v29; // [rsp+458h] [rbp+358h]
   int v30; // [rsp+45Ch] [rbp+35Ch]
 
   memset_0(P, 0, sizeof(P));
-  Pool2 = (struct _PROCESSOR_NUMBER *)P;
+  Pool2 = (_PROCESSOR_NUMBER *)P;
   ActiveProcessorCount = KeQueryActiveProcessorCountEx(0xFFFFu);
   v21 = ActiveProcessorCount;
   if ( ActiveProcessorCount > 0x20 )
   {
-    Pool2 = (struct _PROCESSOR_NUMBER *)ExAllocatePool2(0x100uLL);
+    Pool2 = (_PROCESSOR_NUMBER *)ExAllocatePool2(0x100uLL);
     if ( !Pool2 )
       goto LABEL_8;
     ActiveProcessorCount = v21;
@@ -78,7 +78,7 @@ int __fastcall EtwpProcessorRundown(__int64 a1)
   v28 = Pool2;
   v29 = 4 * ActiveProcessorCount;
   EtwpLogKernelEvent((struct _KTHREAD *)&v25, v6, v5, 2u, 0xB1Bu, 0x501802u);
-  if ( Pool2 != (struct _PROCESSOR_NUMBER *)P )
+  if ( Pool2 != (_PROCESSOR_NUMBER *)P )
     ExFreePoolWithTag(Pool2, 0);
 LABEL_8:
   ActiveGroupCount = KeQueryActiveGroupCount();
@@ -100,7 +100,7 @@ LABEL_8:
   v27 = 0;
   v30 = 0;
   v25 = (unsigned int *)&v23;
-  v28 = (struct _PROCESSOR_NUMBER *)P;
+  v28 = (_PROCESSOR_NUMBER *)P;
   v29 = 8 * v8;
   v26 = 4;
   EtwpLogKernelEvent((struct _KTHREAD *)&v25, v13, v12, 2u, 0xB1Au, 0x501802u);
@@ -124,7 +124,7 @@ LABEL_8:
   v18 = *(_DWORD *)a1;
   v19 = *(_QWORD *)(a1 + 1360);
   v25 = &v22;
-  v28 = (struct _PROCESSOR_NUMBER *)P;
+  v28 = (_PROCESSOR_NUMBER *)P;
   v26 = 4;
   v29 = 16 * v17;
   return EtwpLogKernelEvent((struct _KTHREAD *)&v25, v19, v18, 2u, 0xB18u, 0x501802u);

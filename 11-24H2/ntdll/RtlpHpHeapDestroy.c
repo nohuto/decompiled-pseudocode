@@ -1,24 +1,24 @@
 /*
- * XREFs of RtlpHpHeapDestroy @ 0x180090050
+ * XREFs of RtlpHpHeapDestroy @ 0x1800270BC
  * Callers:
- *     RtlDestroyHeap @ 0x18008F580 (RtlDestroyHeap.c)
- *     RtlpHpHeapCreate @ 0x1800A6374 (RtlpHpHeapCreate.c)
- *     RtlpCreateHeap @ 0x1800A7550 (RtlpCreateHeap.c)
+ *     RtlpCreateHeap @ 0x1800248B0 (RtlpCreateHeap.c)
+ *     RtlpHpHeapCreate @ 0x180026120 (RtlpHpHeapCreate.c)
+ *     RtlDestroyHeap @ 0x1800280C0 (RtlDestroyHeap.c)
  * Callees:
- *     RtlpHpMetadataFree @ 0x18004EF28 (RtlpHpMetadataFree.c)
- *     RtlpHpVsContextCleanup @ 0x18004F098 (RtlpHpVsContextCleanup.c)
- *     RtlGetCurrentServiceSessionId @ 0x180055A20 (RtlGetCurrentServiceSessionId.c)
- *     RtlpLogHeapDestroyEvent @ 0x18008EC6C (RtlpLogHeapDestroyEvent.c)
- *     RtlpHpLfhContextCleanup @ 0x18008EF4C (RtlpHpLfhContextCleanup.c)
- *     RtlpHeapLogRangeDestroy @ 0x18008FDA8 (RtlpHeapLogRangeDestroy.c)
- *     RtlpHpSegContextCleanup @ 0x1800902C4 (RtlpHpSegContextCleanup.c)
- *     RtlpHpRegisterEnvironment @ 0x180090838 (RtlpHpRegisterEnvironment.c)
- *     RtlpHpVaMgrCtxFree @ 0x180092700 (RtlpHpVaMgrCtxFree.c)
- *     RtlpHpTlLogVAChange @ 0x180092B90 (RtlpHpTlLogVAChange.c)
- *     RtlpHpLargeAllocationDestroy @ 0x1800FAE54 (RtlpHpLargeAllocationDestroy.c)
+ *     RtlpHpLfhContextCleanup @ 0x180026920 (RtlpHpLfhContextCleanup.c)
+ *     RtlpHpSegContextCleanup @ 0x180026F44 (RtlpHpSegContextCleanup.c)
+ *     RtlpHeapLogRangeDestroy @ 0x180027F40 (RtlpHeapLogRangeDestroy.c)
+ *     RtlpHpMetadataFree @ 0x180064B08 (RtlpHpMetadataFree.c)
+ *     RtlpHpVsContextCleanup @ 0x180064C78 (RtlpHpVsContextCleanup.c)
+ *     RtlGetCurrentServiceSessionId @ 0x18006B600 (RtlGetCurrentServiceSessionId.c)
+ *     RtlpHpRegisterEnvironment @ 0x18009B3C4 (RtlpHpRegisterEnvironment.c)
+ *     RtlpHpVaMgrCtxFree @ 0x18009D290 (RtlpHpVaMgrCtxFree.c)
+ *     RtlpHpTlLogVAChange @ 0x18009D720 (RtlpHpTlLogVAChange.c)
+ *     RtlpHpLargeAllocationDestroy @ 0x1800F5BB4 (RtlpHpLargeAllocationDestroy.c)
+ *     RtlpLogHeapDestroyEvent @ 0x18010D118 (RtlpLogHeapDestroyEvent.c)
  */
 
-unsigned int *__fastcall RtlpHpHeapDestroy(unsigned __int64 a1)
+int __fastcall RtlpHpHeapDestroy(unsigned __int64 a1)
 {
   unsigned __int64 v1; // rbx
   bool v2; // zf
@@ -29,19 +29,19 @@ unsigned int *__fastcall RtlpHpHeapDestroy(unsigned __int64 a1)
   unsigned __int64 v8; // rcx
   unsigned __int64 v9; // rcx
   __int64 v10; // rcx
-  unsigned int *result; // rax
+  struct _PEB *v11; // rax
   __int64 v12; // rbx
   __int64 v13; // rcx
   unsigned __int64 *v14; // rax
   unsigned __int64 v15; // rdi
   _QWORD *v16; // rdx
-  __int128 v17; // [rsp+20h] [rbp-20h] BYREF
-  __int128 v18; // [rsp+30h] [rbp-10h] BYREF
-  unsigned __int64 v19; // [rsp+70h] [rbp+30h] BYREF
-  unsigned __int64 v20; // [rsp+80h] [rbp+40h] BYREF
+  __int128 v18; // [rsp+20h] [rbp-20h] BYREF
+  __int128 v19; // [rsp+30h] [rbp-10h] BYREF
+  unsigned __int64 v20; // [rsp+70h] [rbp+30h] BYREF
+  unsigned __int64 v21; // [rsp+80h] [rbp+40h] BYREF
 
-  v19 = a1;
-  v20 = 0LL;
+  v20 = a1;
+  v21 = 0LL;
   v1 = a1 + 72;
   v2 = (*(_BYTE *)(a1 + 80) & 1) == 0;
   v4 = *(_QWORD *)(a1 + 72);
@@ -86,45 +86,45 @@ unsigned int *__fastcall RtlpHpHeapDestroy(unsigned __int64 a1)
   *(_QWORD *)(v1 + 8) = 0LL;
   if ( (v6 & 1) != 0 )
     *(_BYTE *)(v1 + 8) = 1;
-  RtlpHpVsContextCleanup((_WORD *)(v19 + 704));
-  RtlpHpLfhContextCleanup(v19 + 832);
-  RtlpHpSegContextCleanup(v19 + 320);
-  RtlpHpSegContextCleanup(v19 + 512);
-  v7 = *(_OWORD *)v19;
-  v8 = *(_QWORD *)(v19 + 264) - v19;
-  v20 = v8;
-  v2 = (*(_BYTE *)(v19 + 30) & 1) == 0;
-  v18 = v7;
+  RtlpHpVsContextCleanup(v20 + 704);
+  RtlpHpLfhContextCleanup(v20 + 832);
+  RtlpHpSegContextCleanup(v20 + 320);
+  RtlpHpSegContextCleanup(v20 + 512);
+  v7 = *(_OWORD *)v20;
+  v8 = *(_QWORD *)(v20 + 264) - v20;
+  v21 = v8;
+  v2 = (*(_BYTE *)(v20 + 30) & 1) == 0;
+  v19 = v7;
   if ( v2 )
   {
-    v9 = v19 + v8 - ((v19 + 0xFFFFF) & 0xFFFFFFFFFFF00000uLL);
-    v19 = (v19 + 0xFFFFF) & 0xFFFFFFFFFFF00000uLL;
-    v20 = v9;
+    v9 = v20 + v8 - ((v20 + 0xFFFFF) & 0xFFFFFFFFFFF00000uLL);
+    v20 = (v20 + 0xFFFFF) & 0xFFFFFFFFFFF00000uLL;
+    v21 = v9;
     if ( v9 )
     {
-      RtlpHpVaMgrCtxFree(&unk_1801CE978, &v19, &v20);
+      RtlpHpVaMgrCtxFree(&unk_1801CD968, &v20, &v21);
       if ( (RtlpHpHeapFeatures & 8) != 0 )
-        RtlpHpTlLogVAChange(0x8000LL, v20, v19, 0LL);
+        RtlpHpTlLogVAChange(0x8000LL, v21, v20, 0LL);
     }
   }
   else
   {
-    v17 = *(_OWORD *)v19;
-    RtlpHpMetadataFree(v19, &v17);
+    v18 = *(_OWORD *)v20;
+    RtlpHpMetadataFree(v20, &v18);
   }
-  RtlpHpRegisterEnvironment(&v18, 0LL);
-  if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+  RtlpHpRegisterEnvironment(&v19, 0LL);
+  if ( RtlGetCurrentServiceSessionId() )
     v10 = (__int64)NtCurrentPeb()->SharedData + 558;
   else
     v10 = 2147353480LL;
   if ( *(_BYTE *)v10 )
-    RtlpHeapLogRangeDestroy(v19);
-  result = RtlGetCurrentServiceSessionId();
+    RtlpHeapLogRangeDestroy(v20);
+  LODWORD(v11) = RtlGetCurrentServiceSessionId();
   v12 = 2147353472LL;
-  if ( (_DWORD)result )
+  if ( (_DWORD)v11 )
   {
-    result = (unsigned int *)NtCurrentPeb();
-    v13 = *((_QWORD *)result + 18) + 550LL;
+    v11 = NtCurrentPeb();
+    v13 = (__int64)v11->SharedData + 550;
   }
   else
   {
@@ -132,13 +132,13 @@ unsigned int *__fastcall RtlpHpHeapDestroy(unsigned __int64 a1)
   }
   if ( *(_BYTE *)v13 )
   {
-    result = (unsigned int *)NtCurrentPeb();
-    if ( (result[222] & 1) != 0 )
+    v11 = NtCurrentPeb();
+    if ( (v11->TracingFlags & 1) != 0 )
     {
-      if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+      if ( RtlGetCurrentServiceSessionId() )
         v12 = (__int64)NtCurrentPeb()->SharedData + 550;
-      return (unsigned int *)RtlpLogHeapDestroyEvent(v19, *(unsigned __int8 *)v12);
+      LODWORD(v11) = RtlpLogHeapDestroyEvent(v20, *(unsigned __int8 *)v12);
     }
   }
-  return result;
+  return (int)v11;
 }

@@ -16,6 +16,7 @@ char __fastcall LdrpGetFileDriverStoreRoot(const wchar_t *a1, int a2, _WORD *a3)
   const wchar_t *v9; // esi
   int v10; // ecx
   unsigned int v12; // esi
+  size_t v13; // [esp-4h] [ebp-10h]
 
   v4 = 0;
   v5 = a1;
@@ -33,17 +34,21 @@ char __fastcall LdrpGetFileDriverStoreRoot(const wchar_t *a1, int a2, _WORD *a3)
     }
     ++v9;
 LABEL_9:
-    if ( v8 == 4 && !_wcsnicmp(L"DriverStore", v9, 0xBu) )
+    if ( v8 == 4 )
     {
-      v12 = v9 - a1 + 11;
-      if ( v12 <= 0x7FFFFFFE )
+      LODWORD(v13) = 11;
+      if ( !_wcsnicmp(L"DriverStore", v9, v13) )
       {
-        if ( (int)RtlStringCopyWorkerW_3(v10, a1, v12) >= 0 )
-          return 1;
-      }
-      else
-      {
-        *a3 = 0;
+        v12 = v9 - a1 + 11;
+        if ( v12 <= 0x7FFFFFFE )
+        {
+          if ( (int)RtlStringCopyWorkerW_3(v10, a1, v12) >= 0 )
+            return 1;
+        }
+        else
+        {
+          *a3 = 0;
+        }
       }
     }
   }

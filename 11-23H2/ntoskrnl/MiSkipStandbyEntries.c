@@ -1,10 +1,10 @@
 /*
- * XREFs of MiSkipStandbyEntries @ 0x140330FEC
+ * XREFs of MiSkipStandbyEntries @ 0x14033127C
  * Callers:
- *     MiRebuildStandbyLookasideList @ 0x140330D9C (MiRebuildStandbyLookasideList.c)
+ *     MiRebuildStandbyLookasideList @ 0x14033102C (MiRebuildStandbyLookasideList.c)
  * Callees:
- *     MiIsDecayPfn @ 0x14026EBD0 (MiIsDecayPfn.c)
- *     MiGetStandbyPageType @ 0x140650774 (MiGetStandbyPageType.c)
+ *     MiIsDecayPfn @ 0x14026EE60 (MiIsDecayPfn.c)
+ *     MiGetStandbyPageType @ 0x140650CC4 (MiGetStandbyPageType.c)
  */
 
 ULONG_PTR __fastcall MiSkipStandbyEntries(__int64 a1, ULONG_PTR a2, int StandbyPageType, int a4, unsigned __int64 a5)

@@ -1,10 +1,10 @@
 /*
- * XREFs of EtwpEventWriteProviderEnabled @ 0x140A6EB7C
+ * XREFs of EtwpEventWriteProviderEnabled @ 0x140A68000
  * Callers:
- *     EtwpEnableGuid @ 0x14083B040 (EtwpEnableGuid.c)
+ *     EtwpEnableGuid @ 0x140A3EA20 (EtwpEnableGuid.c)
  * Callees:
- *     EtwWrite @ 0x14041C1B0 (EtwWrite.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     EtwWrite @ 0x14040FFB0 (EtwWrite.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall EtwpEventWriteProviderEnabled(
@@ -22,7 +22,7 @@ NTSTATUS __fastcall EtwpEventWriteProviderEnabled(
   __int64 v11; // [rsp+40h] [rbp-41h]
   int v12; // [rsp+48h] [rbp-39h]
   int v13; // [rsp+4Ch] [rbp-35h]
-  __int64 *v14; // [rsp+50h] [rbp-31h]
+  int *v14; // [rsp+50h] [rbp-31h]
   __int64 v15; // [rsp+58h] [rbp-29h]
   char *v16; // [rsp+60h] [rbp-21h]
   __int64 v17; // [rsp+68h] [rbp-19h]

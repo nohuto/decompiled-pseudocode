@@ -1,18 +1,18 @@
 /*
- * XREFs of KiStartThreadCycleAccumulation @ 0x1400D37A0
+ * XREFs of KiStartThreadCycleAccumulation @ 0x1400D1640
  * Callers:
- *     KiSwapThread @ 0x14005B200 (KiSwapThread.c)
- *     KeDelayExecutionThread @ 0x1400D0580 (KeDelayExecutionThread.c)
- *     KiUpdateTotalCyclesCurrentThread @ 0x1400D14F4 (KiUpdateTotalCyclesCurrentThread.c)
- *     KiGroupSchedulingGenerationEnd @ 0x1400D24A0 (KiGroupSchedulingGenerationEnd.c)
- *     KiIdleSchedule @ 0x1400D2630 (KiIdleSchedule.c)
- *     KeSetActualBasePriorityThread @ 0x1400D2840 (KeSetActualBasePriorityThread.c)
- *     KeSetThreadChargeOnlySchedulingGroup @ 0x1400D2A60 (KeSetThreadChargeOnlySchedulingGroup.c)
- *     KeSetPriorityThread @ 0x1400D2F20 (KeSetPriorityThread.c)
- *     KeUpdateThreadTag @ 0x14010D1D8 (KeUpdateThreadTag.c)
+ *     KiSwapThread @ 0x14005AD80 (KiSwapThread.c)
+ *     KeDelayExecutionThread @ 0x1400CE420 (KeDelayExecutionThread.c)
+ *     KiUpdateTotalCyclesCurrentThread @ 0x1400CF394 (KiUpdateTotalCyclesCurrentThread.c)
+ *     KiGroupSchedulingGenerationEnd @ 0x1400D0340 (KiGroupSchedulingGenerationEnd.c)
+ *     KiIdleSchedule @ 0x1400D04D0 (KiIdleSchedule.c)
+ *     KeSetActualBasePriorityThread @ 0x1400D06E0 (KeSetActualBasePriorityThread.c)
+ *     KeSetThreadChargeOnlySchedulingGroup @ 0x1400D0900 (KeSetThreadChargeOnlySchedulingGroup.c)
+ *     KeSetPriorityThread @ 0x1400D0DC0 (KeSetPriorityThread.c)
+ *     KeUpdateThreadTag @ 0x14010D73C (KeUpdateThreadTag.c)
  * Callees:
- *     PpmPerfGetCurrentFrequency @ 0x140149980 (PpmPerfGetCurrentFrequency.c)
- *     KiBeginCounterAccumulation @ 0x1401D6F18 (KiBeginCounterAccumulation.c)
+ *     PpmPerfGetCurrentFrequency @ 0x140149EF0 (PpmPerfGetCurrentFrequency.c)
+ *     KiBeginCounterAccumulation @ 0x1401D6D44 (KiBeginCounterAccumulation.c)
  */
 
 __int64 __fastcall KiStartThreadCycleAccumulation(__int64 a1, __int64 a2, char a3)

@@ -1,9 +1,9 @@
 /*
- * XREFs of KeQueryEffectiveBasePriorityThread @ 0x1400EEF1C
+ * XREFs of KeQueryEffectiveBasePriorityThread @ 0x1400EEF9C
  * Callers:
- *     MiStoreUpdateMemoryConditions @ 0x1400EEDCC (MiStoreUpdateMemoryConditions.c)
+ *     MiStoreUpdateMemoryConditions @ 0x1400EEE4C (MiStoreUpdateMemoryConditions.c)
  * Callees:
- *     KiIsThreadRankNonZero @ 0x1400D1480 (KiIsThreadRankNonZero.c)
+ *     KiIsThreadRankNonZero @ 0x1400D1500 (KiIsThreadRankNonZero.c)
  */
 
 __int64 __fastcall KeQueryEffectiveBasePriorityThread(__int64 a1)

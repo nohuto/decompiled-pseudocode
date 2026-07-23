@@ -1,9 +1,9 @@
 /*
- * XREFs of PssNtQuerySnapshot @ 0x180089630
+ * XREFs of PssNtQuerySnapshot @ 0x180089640
  * Callers:
  *     <none>
  * Callees:
- *     PssNtValidateDescriptor @ 0x1800898A0 (PssNtValidateDescriptor.c)
+ *     PssNtValidateDescriptor @ 0x1800898B0 (PssNtValidateDescriptor.c)
  *     PsspQueryInfoClass_PSS_QUERY_PROCESS_INFORMATION @ 0x1801140C0 (PsspQueryInfoClass_PSS_QUERY_PROCESS_INFORMATION.c)
  */
 

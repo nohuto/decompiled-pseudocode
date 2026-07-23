@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlpHpAllocVirtBlockCommitFirst @ 0x14061CBCC
+ * XREFs of RtlpHpAllocVirtBlockCommitFirst @ 0x14061FC1C
  * Callers:
- *     RtlpAllocateHeap @ 0x14052125C (RtlpAllocateHeap.c)
+ *     RtlpAllocateHeap @ 0x1405238C8 (RtlpAllocateHeap.c)
  * Callees:
- *     ZwAllocateVirtualMemory @ 0x1407236F0 (ZwAllocateVirtualMemory.c)
- *     ZwFreeVirtualMemory @ 0x1407237B0 (ZwFreeVirtualMemory.c)
+ *     ZwAllocateVirtualMemory @ 0x1407282C0 (ZwAllocateVirtualMemory.c)
+ *     ZwFreeVirtualMemory @ 0x140728380 (ZwFreeVirtualMemory.c)
  */
 
 char *__fastcall RtlpHpAllocVirtBlockCommitFirst(void *a1, _QWORD *a2, ULONG_PTR a3, ULONG_PTR *a4)

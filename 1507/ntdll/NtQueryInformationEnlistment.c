@@ -6,11 +6,16 @@
  *     <none>
  */
 
-__int64 NtQueryInformationEnlistment()
+NTSTATUS __cdecl NtQueryInformationEnlistment(
+        HANDLE EnlistmentHandle,
+        ENLISTMENT_INFORMATION_CLASS EnlistmentInformationClass,
+        PVOID EnlistmentInformation,
+        ULONG EnlistmentInformationLength,
+        PULONG ReturnLength)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 304LL;
+  result = 304;
   __asm { syscall; Low latency system call }
   return result;
 }

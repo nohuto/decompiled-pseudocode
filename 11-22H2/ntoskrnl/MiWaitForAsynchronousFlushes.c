@@ -36,10 +36,10 @@ __int64 __fastcall MiWaitForAsynchronousFlushes(unsigned int *a1)
     }
     else
     {
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v5 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v5 <= 0xFu && CurrentIrql <= 0xFu && v5 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v5 <= 0xFu && CurrentIrql <= 0xFu && v5 >= 2u )
         {
           CurrentPrcb = KeGetCurrentPrcb();
           SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -58,10 +58,10 @@ __int64 __fastcall MiWaitForAsynchronousFlushes(unsigned int *a1)
     }
   }
   while ( a1 < (unsigned int *)v2 );
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v10 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v10 <= 0xFu && CurrentIrql <= 0xFu && v10 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v10 <= 0xFu && CurrentIrql <= 0xFu && v10 >= 2u )
     {
       v11 = KeGetCurrentPrcb();
       v12 = v11->SchedulerAssist;

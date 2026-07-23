@@ -1,16 +1,16 @@
 /*
- * XREFs of MiSetIoPfnNodeCellsActive @ 0x140312050
+ * XREFs of MiSetIoPfnNodeCellsActive @ 0x140314080
  * Callers:
- *     MiReferenceIoPages @ 0x1402EFF98 (MiReferenceIoPages.c)
+ *     MiReferenceIoPages @ 0x1402D2018 (MiReferenceIoPages.c)
  * Callees:
- *     MiFlushEntireTbDueToAttributeChange @ 0x14024FD8C (MiFlushEntireTbDueToAttributeChange.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402DED10 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     MiIoSpaceGetBounds @ 0x140313748 (MiIoSpaceGetBounds.c)
- *     MiIsPageInIoHugeRangeTransition @ 0x14031388C (MiIsPageInIoHugeRangeTransition.c)
- *     MiFlushCachedIoPfnRange @ 0x14052448C (MiFlushCachedIoPfnRange.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     MiFlushEntireTbDueToAttributeChange @ 0x1402516EC (MiFlushEntireTbDueToAttributeChange.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402C0B20 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     MiIoSpaceGetBounds @ 0x140315778 (MiIoSpaceGetBounds.c)
+ *     MiIsPageInIoHugeRangeTransition @ 0x1403158BC (MiIsPageInIoHugeRangeTransition.c)
+ *     MiFlushCachedIoPfnRange @ 0x140526AFC (MiFlushCachedIoPfnRange.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall MiSetIoPfnNodeCellsActive(__int64 a1, __int64 a2, int a3)
@@ -94,7 +94,7 @@ LABEL_7:
     if ( *(_DWORD *)(a1 + 24) != (_DWORD)v15 || *(_DWORD *)(a1 + 68) == 3 )
     {
       v17 = v11 + *(_QWORD *)(a2 + 24);
-      if ( v17 <= qword_140E2D7A0 && ((unsigned __int16)v15 & (*(_QWORD *)(48 * v17 - 0x21FFFFFFFFD8LL) >> 54)) != 0 )
+      if ( v17 <= qword_140E2D920 && ((unsigned __int16)v15 & (*(_QWORD *)(48 * v17 - 0x21FFFFFFFFD8LL) >> 54)) != 0 )
       {
         v22 = -1073741800;
         goto LABEL_23;
@@ -103,12 +103,12 @@ LABEL_7:
       v19 = (*(_DWORD *)(a2
                        + 4
                        * ((unsigned __int64)(2
-                                           * (((unsigned int)v6 & ((unsigned int)(v15 << ((unsigned __int8)dword_140E2D6F8
+                                           * (((unsigned int)v6 & ((unsigned int)(v15 << ((unsigned __int8)dword_140E2D878
                                                                                         - 12))
                                                                  - (_DWORD)v15))
                                             - *(_DWORD *)(a2 + 24))) >> 5)
                        + 44) >> (2
-                               * ((v6 & ((v15 << ((unsigned __int8)dword_140E2D6F8 - 12)) - v15)) - *(_BYTE *)(a2 + 24)))) & 3;
+                               * ((v6 & ((v15 << ((unsigned __int8)dword_140E2D878 - 12)) - v15)) - *(_BYTE *)(a2 + 24)))) & 3;
       v37 = v19;
       if ( v18 == -1 )
       {
@@ -147,7 +147,7 @@ LABEL_23:
         }
         if ( v19 == (_DWORD)v15 && v32 == (_DWORD)v14 )
         {
-          _InterlockedAdd(&dword_140E35EFC, v15);
+          _InterlockedAdd(&dword_140E3607C, v15);
           if ( !v7 )
             goto LABEL_53;
           if ( v31 != v21 )
@@ -177,9 +177,9 @@ LABEL_53:
           }
         }
       }
-      v24 = (2 * ((v6 & ((v15 << ((unsigned __int8)dword_140E2D6F8 - 12)) - v15)) - *(_BYTE *)(a2 + 24))) & 0x1F;
+      v24 = (2 * ((v6 & ((v15 << ((unsigned __int8)dword_140E2D878 - 12)) - v15)) - *(_BYTE *)(a2 + 24))) & 0x1F;
       v25 = (unsigned __int64)(2
-                             * (((unsigned int)v6 & ((unsigned int)(v15 << ((unsigned __int8)dword_140E2D6F8 - 12))
+                             * (((unsigned int)v6 & ((unsigned int)(v15 << ((unsigned __int8)dword_140E2D878 - 12))
                                                    - (_DWORD)v15))
                               - *(_DWORD *)(a2 + 24))) >> 5;
       *(_DWORD *)(a2 + 4 * v25 + 44) = (v21 << v24) | *(_DWORD *)(a2 + 4 * v25 + 44) & ~(3 << v24);

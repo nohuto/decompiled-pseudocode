@@ -1,9 +1,9 @@
 /*
- * XREFs of KsepCompletionSafeWrapper @ 0x1401DCB8C
+ * XREFs of KsepCompletionSafeWrapper @ 0x1401DC9B8
  * Callers:
  *     <none>
  * Callees:
- *     KsepPoolFreeNonPaged @ 0x1400B0130 (KsepPoolFreeNonPaged.c)
+ *     KsepPoolFreeNonPaged @ 0x14010B608 (KsepPoolFreeNonPaged.c)
  */
 
 __int64 __fastcall KsepCompletionSafeWrapper(__int64 a1, __int64 a2, _QWORD *a3)

@@ -1,14 +1,14 @@
 /*
- * XREFs of KiVerifyContextIpForUserCet @ 0x1403D7500
+ * XREFs of KiVerifyContextIpForUserCet @ 0x1403DA4D0
  * Callers:
- *     KiContinuePreviousModeUser @ 0x1403D5A70 (KiContinuePreviousModeUser.c)
- *     KeVerifyContextIpForUserCet @ 0x1403D72A0 (KeVerifyContextIpForUserCet.c)
- *     KeVerifyContextRecord @ 0x1403D7370 (KeVerifyContextRecord.c)
+ *     KiContinuePreviousModeUser @ 0x1403D8A40 (KiContinuePreviousModeUser.c)
+ *     KeVerifyContextIpForUserCet @ 0x1403DA270 (KeVerifyContextIpForUserCet.c)
+ *     KeVerifyContextRecord @ 0x1403DA340 (KeVerifyContextRecord.c)
  * Callees:
- *     RtlGetImageBaseAndLoadConfig @ 0x14043BE50 (RtlGetImageBaseAndLoadConfig.c)
- *     RtlReadULong64FromUser @ 0x14077F554 (RtlReadULong64FromUser.c)
- *     ProbeForRead @ 0x1408EF880 (ProbeForRead.c)
- *     RtlVerifyUserUnwindTarget @ 0x140A902C8 (RtlVerifyUserUnwindTarget.c)
+ *     RtlGetImageBaseAndLoadConfig @ 0x14042E700 (RtlGetImageBaseAndLoadConfig.c)
+ *     RtlReadULong64FromUser @ 0x140782054 (RtlReadULong64FromUser.c)
+ *     ProbeForRead @ 0x1408F5E40 (ProbeForRead.c)
+ *     RtlVerifyUserUnwindTarget @ 0x140A94E18 (RtlVerifyUserUnwindTarget.c)
  */
 
 __int64 __fastcall KiVerifyContextIpForUserCet(__int64 a1, __int64 a2, unsigned int *a3, char a4, unsigned __int64 *a5)
@@ -52,7 +52,7 @@ __int64 __fastcall KiVerifyContextIpForUserCet(__int64 a1, __int64 a2, unsigned 
     if ( !v12 )
       return 0LL;
   }
-  if ( !v13 && v8 == stru_140FC01F0.TracingPrivate[0] )
+  if ( !v13 && v8 == stru_140FC11F0.TracingPrivate[0] )
     *a3 = 1;
   *(_OWORD *)Address = 0LL;
   v18 = 0LL;

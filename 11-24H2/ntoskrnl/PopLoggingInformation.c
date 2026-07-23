@@ -1,11 +1,11 @@
 /*
- * XREFs of PopLoggingInformation @ 0x140A38750
+ * XREFs of PopLoggingInformation @ 0x140A2D810
  * Callers:
- *     NtPowerInformation @ 0x1409F0230 (NtPowerInformation.c)
- *     PopDiagTraceControlCallback @ 0x140A37E50 (PopDiagTraceControlCallback.c)
+ *     NtPowerInformation @ 0x1409EDB00 (NtPowerInformation.c)
+ *     PopDiagTraceControlCallback @ 0x140A2CF10 (PopDiagTraceControlCallback.c)
  * Callees:
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall PopLoggingInformation(unsigned int **a1, unsigned int *a2)
@@ -41,7 +41,7 @@ __int64 __fastcall PopLoggingInformation(unsigned int **a1, unsigned int *a2)
   if ( v6 )
     v8 = v7;
   v10 = v8;
-  Pool2 = (unsigned int *)ExAllocatePool2(0x100uLL);
+  Pool2 = (unsigned int *)ExAllocatePool2(0x100uLL, v8, 0x66756263u);
   if ( Pool2 )
   {
     *a2 = v10;

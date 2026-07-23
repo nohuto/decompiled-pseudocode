@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlpAutoCompleteLanguageFallback @ 0x1800E6484
+ * XREFs of RtlpAutoCompleteLanguageFallback @ 0x1800E6544
  * Callers:
- *     RtlpSetPreferredUILanguages @ 0x1800E7E30 (RtlpSetPreferredUILanguages.c)
+ *     RtlpSetPreferredUILanguages @ 0x1800E7EF0 (RtlpSetPreferredUILanguages.c)
  * Callees:
- *     RtlpMuiRegGetInstalledLanguageIndexByName @ 0x180040C30 (RtlpMuiRegGetInstalledLanguageIndexByName.c)
- *     __security_check_cookie @ 0x180096C40 (__security_check_cookie.c)
- *     RtlpGetCompleteLanguageFallback @ 0x1800E6E84 (RtlpGetCompleteLanguageFallback.c)
+ *     RtlpMuiRegGetInstalledLanguageIndexByName @ 0x180040C20 (RtlpMuiRegGetInstalledLanguageIndexByName.c)
+ *     __security_check_cookie @ 0x180096C30 (__security_check_cookie.c)
+ *     RtlpGetCompleteLanguageFallback @ 0x1800E6F44 (RtlpGetCompleteLanguageFallback.c)
  *     RtlpMuiRegGetFallbackLanguageInfoByName @ 0x1800F48E0 (RtlpMuiRegGetFallbackLanguageInfoByName.c)
  */
 

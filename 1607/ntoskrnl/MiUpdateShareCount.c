@@ -1,7 +1,7 @@
 /*
- * XREFs of MiUpdateShareCount @ 0x140023630
+ * XREFs of MiUpdateShareCount @ 0x1400231B0
  * Callers:
- *     MiFillPagedPoolLockedDown @ 0x14065A01C (MiFillPagedPoolLockedDown.c)
+ *     MiFillPagedPoolLockedDown @ 0x14065A100 (MiFillPagedPoolLockedDown.c)
  * Callees:
  *     <none>
  */

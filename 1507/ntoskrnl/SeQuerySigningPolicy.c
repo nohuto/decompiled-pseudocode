@@ -13,7 +13,7 @@
  */
 
 __int64 __fastcall SeQuerySigningPolicy(
-        PACCESS_TOKEN Token,
+        HANDLE TokenHandle,
         PCUNICODE_STRING String2,
         __int64 a3,
         __int64 a4,
@@ -39,7 +39,7 @@ LABEL_5:
     IsMinTCB = SepIsMinTCB(String2, (__int64)a6, (__int64)a7);
     if ( IsMinTCB < 0 )
     {
-      IsMinTCB = SeQuerySigningPolicyWorker(Token, (__int64)a5, (__int64)a6, (__int64)a7);
+      IsMinTCB = SeQuerySigningPolicyWorker(TokenHandle, (__int64)a5, (__int64)a6, (__int64)a7);
       if ( IsMinTCB < 0 )
         return (unsigned int)IsMinTCB;
     }

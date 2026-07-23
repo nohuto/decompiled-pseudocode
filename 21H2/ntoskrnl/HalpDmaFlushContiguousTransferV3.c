@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpDmaFlushContiguousTransferV3 @ 0x1404B75EC
+ * XREFs of HalpDmaFlushContiguousTransferV3 @ 0x1404B782C
  * Callers:
- *     HalFlushAdapterBuffersEx @ 0x1403A2D30 (HalFlushAdapterBuffersEx.c)
- *     IoFlushAdapterBuffersV3 @ 0x1404CA910 (IoFlushAdapterBuffersV3.c)
+ *     HalFlushAdapterBuffersEx @ 0x1403A2E80 (HalFlushAdapterBuffersEx.c)
+ *     IoFlushAdapterBuffersV3 @ 0x1404CAB50 (IoFlushAdapterBuffersV3.c)
  * Callees:
- *     HalpDmaNextContiguousPiece @ 0x1404B8CB0 (HalpDmaNextContiguousPiece.c)
- *     HalpDmaFlushBuffer @ 0x1404C755C (HalpDmaFlushBuffer.c)
- *     HalpDmaSyncMapBuffers @ 0x1404C81F4 (HalpDmaSyncMapBuffers.c)
+ *     HalpDmaNextContiguousPiece @ 0x1404B8EF0 (HalpDmaNextContiguousPiece.c)
+ *     HalpDmaFlushBuffer @ 0x1404C779C (HalpDmaFlushBuffer.c)
+ *     HalpDmaSyncMapBuffers @ 0x1404C8434 (HalpDmaSyncMapBuffers.c)
  */
 
 __int64 __fastcall HalpDmaFlushContiguousTransferV3(

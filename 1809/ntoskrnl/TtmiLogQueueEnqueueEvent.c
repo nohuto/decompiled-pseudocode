@@ -1,11 +1,11 @@
 /*
- * XREFs of TtmiLogQueueEnqueueEvent @ 0x1408847DC
+ * XREFs of TtmiLogQueueEnqueueEvent @ 0x140885A3C
  * Callers:
- *     TtmiWriteEventToSingleQueue @ 0x140882594 (TtmiWriteEventToSingleQueue.c)
+ *     TtmiWriteEventToSingleQueue @ 0x1408837F4 (TtmiWriteEventToSingleQueue.c)
  * Callees:
  *     _TlgKeywordOn @ 0x140012A04 (_TlgKeywordOn.c)
  *     _TlgWrite @ 0x140012EE4 (_TlgWrite.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
  */
 
 void TtmiLogQueueEnqueueEvent()
@@ -23,9 +23,9 @@ void TtmiLogQueueEnqueueEvent()
   int *v10; // [rsp+90h] [rbp+37h]
   __int64 v11; // [rsp+98h] [rbp+3Fh]
 
-  if ( stru_14096D820.LevelPlus1 > 5 )
+  if ( stru_14096E820.LevelPlus1 > 5 )
   {
-    if ( TlgKeywordOn(&stru_14096D820, 1uLL) )
+    if ( TlgKeywordOn(&stru_14096E820, 1uLL) )
     {
       v2 = *v0;
       v6 = &v3;
@@ -36,7 +36,7 @@ void TtmiLogQueueEnqueueEvent()
       v7 = 8LL;
       v9 = 8LL;
       v11 = 4LL;
-      TlgWrite(&stru_14096D820, &unk_14037182A, 0LL, 0LL, 5u, &pData);
+      TlgWrite(&stru_14096E820, &unk_14037280E, 0LL, 0LL, 5u, &pData);
     }
   }
 }

@@ -3,12 +3,12 @@
  * Callers:
  *     <none>
  * Callees:
- *     CcDecrementOpenCount @ 0x140282AF4 (CcDecrementOpenCount.c)
+ *     sub_140282AF4 @ 0x140282AF4 (sub_140282AF4.c)
  *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140282BA0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
  *     MmUnlockPages @ 0x1402B8AD0 (MmUnlockPages.c)
  *     KeAcquireInStackQueuedSpinLock @ 0x140311930 (KeAcquireInStackQueuedSpinLock.c)
  *     IoFreeMdl @ 0x140349550 (IoFreeMdl.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     sub_140418E4C @ 0x140418E4C (sub_140418E4C.c)
  */
 
 void __stdcall CcMdlWriteAbort(PFILE_OBJECT FileObject, PMDL MdlChain)
@@ -23,7 +23,7 @@ void __stdcall CcMdlWriteAbort(PFILE_OBJECT FileObject, PMDL MdlChain)
   unsigned __int64 OldIrql; // rbx
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
-  _DWORD *SchedulerAssist; // r9
+  __int64 v12; // r9
   int v13; // eax
   bool v14; // zf
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+20h] [rbp-28h] BYREF
@@ -45,23 +45,23 @@ void __stdcall CcMdlWriteAbort(PFILE_OBJECT FileObject, PMDL MdlChain)
   if ( v4 )
   {
     KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)(SharedCacheMap[66] + 704LL), &LockHandle);
-    CcDecrementOpenCount((__int64)SharedCacheMap, v7, v8);
+    sub_140282AF4((__int64)SharedCacheMap, v7, v8);
     KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
     OldIrql = LockHandle.OldIrql;
-    if ( KiIrqlFlags )
+    if ( dword_140D06B08 )
     {
-      if ( (KiIrqlFlags & 1) != 0 )
+      if ( (dword_140D06B08 & 1) != 0 )
       {
         CurrentIrql = KeGetCurrentIrql();
         if ( CurrentIrql <= 0xFu && LockHandle.OldIrql <= 0xFu && CurrentIrql >= 2u )
         {
           CurrentPrcb = KeGetCurrentPrcb();
-          SchedulerAssist = CurrentPrcb->SchedulerAssist;
+          v12 = *((_QWORD *)CurrentPrcb + 4375);
           v13 = ~(unsigned __int16)(-1LL << (LockHandle.OldIrql + 1));
-          v14 = (v13 & SchedulerAssist[5]) == 0;
-          SchedulerAssist[5] &= v13;
+          v14 = (v13 & *(_DWORD *)(v12 + 20)) == 0;
+          *(_DWORD *)(v12 + 20) &= v13;
           if ( v14 )
-            KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+            sub_140418E4C((__int64)CurrentPrcb);
         }
       }
     }

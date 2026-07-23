@@ -1,11 +1,11 @@
 /*
- * XREFs of ExpPrepareNewSvmDevice @ 0x140658D8C
+ * XREFs of ExpPrepareNewSvmDevice @ 0x14065742C
  * Callers:
- *     ExpShareAddressSpaceWithDevice @ 0x14065902C (ExpShareAddressSpaceWithDevice.c)
+ *     ExpShareAddressSpaceWithDevice @ 0x1406576CC (ExpShareAddressSpaceWithDevice.c)
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall ExpPrepareNewSvmDevice(__int64 a1, __int64 a2, __int64 a3, __int64 a4, _QWORD *a5)
@@ -16,24 +16,22 @@ __int64 __fastcall ExpPrepareNewSvmDevice(__int64 a1, __int64 a2, __int64 a3, __
   __int64 Pool2; // rax
   _QWORD *v12; // rdi
   __int64 v13; // rcx
-  __int64 v14; // r8
-  __int64 v15; // r9
+  __int64 v14; // rdx
+  _QWORD *v15; // rax
   __int64 v16; // rdx
-  _QWORD *v17; // rax
-  __int64 v18; // rdx
-  int v20; // [rsp+78h] [rbp+20h] BYREF
+  int v18; // [rsp+78h] [rbp+20h] BYREF
 
   v5 = a5;
-  v20 = 0;
+  v18 = 0;
   a5 = 0LL;
   *v5 = 0LL;
-  v9 = guard_dispatch_icall_no_overrides(*(_QWORD *)(a3 + 8), 0LL, 0LL, &a5);
+  v9 = guard_dispatch_icall_no_overrides(*(_QWORD *)(a3 + 8), 0LL);
   v10 = v9;
   if ( v9 == -1073741789 )
   {
     if ( !a5 )
       return (unsigned int)-1073741823;
-    Pool2 = ExAllocatePool2(0x40uLL);
+    Pool2 = ExAllocatePool2(0x40uLL, (ULONG_PTR)(a5 + 24), 0x65447845u);
     v12 = (_QWORD *)Pool2;
     if ( !Pool2 )
       return (unsigned int)-1073741670;
@@ -47,33 +45,33 @@ __int64 __fastcall ExpPrepareNewSvmDevice(__int64 a1, __int64 a2, __int64 a3, __
     *(_OWORD *)(Pool2 + 104) = *(_OWORD *)(a3 + 64);
     v13 = *(_QWORD *)(Pool2 + 48);
     *(_QWORD *)(Pool2 + 168) = Pool2 + 192;
-    v10 = guard_dispatch_icall_no_overrides(v13, a5, Pool2 + 192, 0LL);
+    v10 = guard_dispatch_icall_no_overrides(v13, a5);
     if ( v10 >= 0 )
     {
       if ( v12[9] )
       {
-        v10 = guard_dispatch_icall_no_overrides(v12[6], &v20, v14, v15);
+        v10 = guard_dispatch_icall_no_overrides(v12[6], &v18);
         if ( v10 >= 0 )
         {
-          if ( (v20 & 1) != 0
-            && (v20 & 2) != 0
-            && (v20 & 4) != 0
-            && 1 << ((unsigned __int8)v20 >> 3) >= (unsigned int)ExpSvmAgents )
+          if ( (v18 & 1) != 0
+            && (v18 & 2) != 0
+            && (v18 & 4) != 0
+            && 1 << ((unsigned __int8)v18 >> 3) >= (unsigned int)ExpSvmAgents )
           {
             _InterlockedAdd(&ExTbFlushActive, 1u);
-            v10 = guard_dispatch_icall_no_overrides(a2, v12[21], a1, &v20);
+            v10 = guard_dispatch_icall_no_overrides(a2, v12[21]);
             if ( v10 >= 0 )
             {
-              v10 = guard_dispatch_icall_no_overrides(v12[6], &v20, ExAtsSvmDevicePowerCallback, v12[22]);
+              v10 = guard_dispatch_icall_no_overrides(v12[6], &v18);
               if ( v10 >= 0 )
               {
-                guard_dispatch_icall_no_overrides(*(_QWORD *)(a3 + 8), v16, v14, v15);
-                v17 = ExpAtsSvmDevices;
+                guard_dispatch_icall_no_overrides(*(_QWORD *)(a3 + 8), v14);
+                v15 = ExpAtsSvmDevices;
                 if ( *((PVOID **)ExpAtsSvmDevices + 1) != &ExpAtsSvmDevices )
                   __fastfail(3u);
                 *v12 = ExpAtsSvmDevices;
                 v12[1] = &ExpAtsSvmDevices;
-                v17[1] = v12;
+                v15[1] = v12;
                 ExpAtsSvmDevices = v12;
                 *v5 = v12;
                 return (unsigned int)v10;
@@ -95,10 +93,10 @@ __int64 __fastcall ExpPrepareNewSvmDevice(__int64 a1, __int64 a2, __int64 a3, __
         v10 = -1073741637;
       }
     }
-    v18 = v12[22];
-    if ( v18 )
+    v16 = v12[22];
+    if ( v16 )
     {
-      guard_dispatch_icall_no_overrides(a2, v18, v14, v15);
+      guard_dispatch_icall_no_overrides(a2, v16);
       _InterlockedDecrement(&ExTbFlushActive);
     }
     ExFreePoolWithTag(v12, 0);

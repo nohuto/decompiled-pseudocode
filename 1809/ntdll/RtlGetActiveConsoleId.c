@@ -1,15 +1,15 @@
 /*
- * XREFs of RtlGetActiveConsoleId @ 0x1800863D0
+ * XREFs of RtlGetActiveConsoleId @ 0x1800863E0
  * Callers:
  *     <none>
  * Callees:
  *     RtlGetCurrentServiceSessionId @ 0x180018440 (RtlGetCurrentServiceSessionId.c)
  */
 
-__int64 RtlGetActiveConsoleId()
+ULONG RtlGetActiveConsoleId(void)
 {
-  if ( (unsigned int)RtlGetCurrentServiceSessionId() )
-    return *((unsigned int *)NtCurrentPeb()->SharedData + 1);
+  if ( RtlGetCurrentServiceSessionId() )
+    return *((_DWORD *)NtCurrentPeb()->SharedData + 1);
   else
     return MEMORY[0x7FFE02D8];
 }

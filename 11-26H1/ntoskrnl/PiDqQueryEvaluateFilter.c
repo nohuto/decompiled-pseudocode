@@ -1,16 +1,16 @@
 /*
- * XREFs of PiDqQueryEvaluateFilter @ 0x1409A7950
+ * XREFs of PiDqQueryEvaluateFilter @ 0x1409683B0
  * Callers:
- *     PiDqQueryApplyObjectEvent @ 0x14098F6F0 (PiDqQueryApplyObjectEvent.c)
- *     PiDqQueryEnumObject @ 0x1409A83F4 (PiDqQueryEnumObject.c)
+ *     PiDqQueryApplyObjectEvent @ 0x140950150 (PiDqQueryApplyObjectEvent.c)
+ *     PiDqQueryEnumObject @ 0x140968E04 (PiDqQueryEnumObject.c)
  * Callees:
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     PiPnpRtlBeginOperation @ 0x1409A7AC8 (PiPnpRtlBeginOperation.c)
- *     PiPnpRtlEndOperation @ 0x1409A7CB4 (PiPnpRtlEndOperation.c)
- *     FilterEvalStrict @ 0x1409A7F40 (FilterEvalStrict.c)
- *     FilterEvalImpliedAnd @ 0x1409A8D0C (FilterEvalImpliedAnd.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     PiPnpRtlBeginOperation @ 0x140968528 (PiPnpRtlBeginOperation.c)
+ *     PiPnpRtlEndOperation @ 0x140968708 (PiPnpRtlEndOperation.c)
+ *     FilterEvalStrict @ 0x140968990 (FilterEvalStrict.c)
+ *     FilterEvalImpliedAnd @ 0x14096971C (FilterEvalImpliedAnd.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PiDqQueryEvaluateFilter(__int64 a1, __int64 a2, bool *a3)

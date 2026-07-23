@@ -1,17 +1,17 @@
 /*
- * XREFs of MiAllocateDriverPage @ 0x140526790
+ * XREFs of MiAllocateDriverPage @ 0x1405097F0
  * Callers:
- *     MiLockCode @ 0x1400155F0 (MiLockCode.c)
- *     MiMakeDriverPagesPrivate @ 0x140086098 (MiMakeDriverPagesPrivate.c)
- *     MiPrivateFixup @ 0x14010B3F0 (MiPrivateFixup.c)
- *     MiFillPerSessionProtos @ 0x140661E34 (MiFillPerSessionProtos.c)
+ *     MiLockCode @ 0x140015170 (MiLockCode.c)
+ *     MiMakeDriverPagesPrivate @ 0x140087988 (MiMakeDriverPagesPrivate.c)
+ *     MiPrivateFixup @ 0x140109170 (MiPrivateFixup.c)
+ *     MiFillPerSessionProtos @ 0x140661F18 (MiFillPerSessionProtos.c)
  *     MiReloadBootLoadedDrivers @ 0x1407A57F0 (MiReloadBootLoadedDrivers.c)
  * Callees:
- *     MiGetPage @ 0x14003DA50 (MiGetPage.c)
- *     MiInitializePageColorBase @ 0x1400E60A0 (MiInitializePageColorBase.c)
- *     MiPreInitializeSystemImagePage @ 0x140104440 (MiPreInitializeSystemImagePage.c)
- *     MiFindContiguousPages @ 0x1401044A0 (MiFindContiguousPages.c)
- *     MiWaitForFreePage @ 0x1401F41DC (MiWaitForFreePage.c)
+ *     MiGetPage @ 0x14003D5D0 (MiGetPage.c)
+ *     MiInitializePageColorBase @ 0x1400E3F40 (MiInitializePageColorBase.c)
+ *     MiPreInitializeSystemImagePage @ 0x1401021C0 (MiPreInitializeSystemImagePage.c)
+ *     MiFindContiguousPages @ 0x140102220 (MiFindContiguousPages.c)
+ *     MiWaitForFreePage @ 0x1401F4008 (MiWaitForFreePage.c)
  */
 
 __int64 MiAllocateDriverPage()
@@ -27,7 +27,7 @@ __int64 MiAllocateDriverPage()
   if ( (int)MiFindContiguousPages(
               (__int64)MiSystemPartition,
               0LL,
-              qword_140326818,
+              qword_140326858,
               0LL,
               1LL,
               1u,
@@ -36,7 +36,7 @@ __int64 MiAllocateDriverPage()
               0x20000000,
               (__int64 *)((unsigned __int64)v6 & 0xFFFFFFFFFFFFFFE0uLL)) < 0 )
   {
-    qword_140326818 = -1LL;
+    qword_140326858 = -1LL;
     MiInitializePageColorBase(0LL, 0, (unsigned __int64)v6 & 0xFFFFFFFFFFFFFFE0uLL);
     v3 = (_WORD *)*v0;
     v4 = *(_WORD *)(((unsigned __int64)v6 & 0xFFFFFFFFFFFFFFE0uLL) + 8);
@@ -54,10 +54,10 @@ __int64 MiAllocateDriverPage()
   else
   {
     Page = *v0;
-    if ( (++qword_140326860 & 0x1FF) != 0 )
-      qword_140326818 = Page - 1;
+    if ( (++qword_1403268A0 & 0x1FF) != 0 )
+      qword_140326858 = Page - 1;
     else
-      qword_140326818 = -1LL;
+      qword_140326858 = -1LL;
     MiPreInitializeSystemImagePage(48 * Page - 0x58000000000LL);
   }
   return Page;

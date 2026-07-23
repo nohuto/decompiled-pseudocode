@@ -2,9 +2,9 @@
  * XREFs of PsAssignProcessToJobObject @ 0x14069FF70
  * Callers:
  *     NtAssignProcessToJobObject @ 0x14069FE70 (NtAssignProcessToJobObject.c)
- *     PsCreateMinimalProcess @ 0x140852EAC (PsCreateMinimalProcess.c)
- *     PspAssignProcessToJobList @ 0x1409B0EB0 (PspAssignProcessToJobList.c)
- *     PspSetJobMemoryPartition @ 0x1409B2C24 (PspSetJobMemoryPartition.c)
+ *     PsCreateMinimalProcess @ 0x1408531AC (PsCreateMinimalProcess.c)
+ *     PspAssignProcessToJobList @ 0x1409B10B0 (PspAssignProcessToJobList.c)
+ *     PspSetJobMemoryPartition @ 0x1409B2E24 (PspSetJobMemoryPartition.c)
  * Callees:
  *     PspAssignProcessToJob @ 0x14069FFF0 (PspAssignProcessToJob.c)
  *     PspGetJobAssignmentDisposition @ 0x1406A05A0 (PspGetJobAssignmentDisposition.c)

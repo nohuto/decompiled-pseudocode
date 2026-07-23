@@ -1,12 +1,12 @@
 /*
- * XREFs of ObInitializeFastReference @ 0x1406D65FC
+ * XREFs of ObInitializeFastReference @ 0x1406AD8DC
  * Callers:
- *     PspInitializeProcessSecurity @ 0x1406D6400 (PspInitializeProcessSecurity.c)
- *     PspLocateSystemDll @ 0x140798B78 (PspLocateSystemDll.c)
- *     SeAssignPrimaryToken @ 0x1407BBBD0 (SeAssignPrimaryToken.c)
- *     SepInitializationPhase0 @ 0x140A47920 (SepInitializationPhase0.c)
+ *     PspInitializeProcessSecurity @ 0x1406AD6E0 (PspInitializeProcessSecurity.c)
+ *     PspLocateSystemDll @ 0x140798D78 (PspLocateSystemDll.c)
+ *     SeAssignPrimaryToken @ 0x1407BC360 (SeAssignPrimaryToken.c)
+ *     SepInitializationPhase0 @ 0x140A48920 (SepInitializationPhase0.c)
  * Callees:
- *     ObReferenceObjectExWithTag @ 0x14029E140 (ObReferenceObjectExWithTag.c)
+ *     ObReferenceObjectExWithTag @ 0x14021B6A0 (ObReferenceObjectExWithTag.c)
  */
 
 ULONG_PTR __fastcall ObInitializeFastReference(ULONG_PTR *a1, ULONG_PTR a2)

@@ -1,14 +1,14 @@
 /*
- * XREFs of RtlpOpenImageFileOptionsKeyEx @ 0x140A31C68
+ * XREFs of RtlpOpenImageFileOptionsKeyEx @ 0x140A25BD8
  * Callers:
- *     SepCheckAndSetAuditModeForProcess @ 0x140A1C0F8 (SepCheckAndSetAuditModeForProcess.c)
- *     PspAllocateProcess @ 0x140A1C4C0 (PspAllocateProcess.c)
- *     RtlOpenImageFileOptionsKey @ 0x140A31C50 (RtlOpenImageFileOptionsKey.c)
+ *     SepCheckAndSetAuditModeForProcess @ 0x1409FA668 (SepCheckAndSetAuditModeForProcess.c)
+ *     PspAllocateProcess @ 0x1409FACD0 (PspAllocateProcess.c)
+ *     RtlOpenImageFileOptionsKey @ 0x140A25BC0 (RtlOpenImageFileOptionsKey.c)
  * Callees:
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     ZwOpenKey @ 0x1406A6650 (ZwOpenKey.c)
- *     RtlpOpenBaseImageFileOptionsKey @ 0x140A31DB4 (RtlpOpenBaseImageFileOptionsKey.c)
- *     RtlpProcessIFEOKeyFilter @ 0x140A31E38 (RtlpProcessIFEOKeyFilter.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     ZwOpenKey @ 0x1406A75F0 (ZwOpenKey.c)
+ *     RtlpOpenBaseImageFileOptionsKey @ 0x140A25D24 (RtlpOpenBaseImageFileOptionsKey.c)
+ *     RtlpProcessIFEOKeyFilter @ 0x140A25DA8 (RtlpProcessIFEOKeyFilter.c)
  */
 
 __int64 __fastcall RtlpOpenImageFileOptionsKeyEx(unsigned __int16 *a1, __int64 a2, __int64 a3, HANDLE *a4)

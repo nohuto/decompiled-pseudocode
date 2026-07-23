@@ -1,15 +1,15 @@
 /*
- * XREFs of SshpTracingRundownCollectionState @ 0x140A76764
+ * XREFs of SshpTracingRundownCollectionState @ 0x140A70884
  * Callers:
- *     SshpEtwEnableCallback @ 0x140A76640 (SshpEtwEnableCallback.c)
+ *     SshpEtwEnableCallback @ 0x140A70760 (SshpEtwEnableCallback.c)
  * Callees:
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     SSHSupportEtwEventEnabled @ 0x140477F70 (SSHSupportEtwEventEnabled.c)
- *     SSHSupportReleasePushLockExclusive @ 0x14048939C (SSHSupportReleasePushLockExclusive.c)
- *     SSHSupportEtwWrite @ 0x1404A3E6C (SSHSupportEtwWrite.c)
- *     SSHSupportQueryInterruptTime @ 0x1404B1668 (SSHSupportQueryInterruptTime.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     SSHSupportEtwEventEnabled @ 0x140474570 (SSHSupportEtwEventEnabled.c)
+ *     SSHSupportReleasePushLockExclusive @ 0x1404843BC (SSHSupportReleasePushLockExclusive.c)
+ *     SSHSupportEtwWrite @ 0x14049EA8C (SSHSupportEtwWrite.c)
+ *     SSHSupportQueryInterruptTime @ 0x1404ABEF8 (SSHSupportQueryInterruptTime.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 char __fastcall SshpTracingRundownCollectionState(__int64 a1)
@@ -17,8 +17,8 @@ char __fastcall SshpTracingRundownCollectionState(__int64 a1)
   char result; // al
   ULONG_PTR *v2; // rbx
   __int64 v3; // rsi
-  _QWORD *v4; // rax
-  _QWORD *v5; // rdi
+  char *v4; // rax
+  char *v5; // rdi
   ULONG_PTR v6; // rcx
   __int64 v7; // rax
   __int64 v8; // rcx
@@ -47,12 +47,12 @@ char __fastcall SshpTracingRundownCollectionState(__int64 a1)
     v3 = 9LL;
     do
     {
-      v4 = KeAbPreAcquire((__int64)v2, 0LL);
+      v4 = (char *)KeAbPreAcquire((__int64)v2, 0LL);
       v5 = v4;
       if ( _interlockedbittestandset64((volatile signed __int32 *)v2, 0LL) )
-        ExfAcquirePushLockExclusiveEx(v2, (__int64)v4, (__int64)v2);
+        ExfAcquirePushLockExclusiveEx(v2, v4, (__int64)v2);
       if ( v5 )
-        *((_BYTE *)v5 + 10) = 1;
+        v5[10] = 1;
       v6 = v2[2];
       v11 = *((_DWORD *)v2 + 7) & 1;
       v7 = -1LL;

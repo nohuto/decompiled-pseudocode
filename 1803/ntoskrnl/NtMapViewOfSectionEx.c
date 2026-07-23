@@ -6,16 +6,29 @@
  *     MiMapViewOfSectionExCommon @ 0x1404E8D2C (MiMapViewOfSectionExCommon.c)
  */
 
-__int64 __fastcall NtMapViewOfSectionEx(
-        int a1,
-        int a2,
-        _QWORD *a3,
-        _QWORD *a4,
-        _QWORD *a5,
-        int a6,
-        int a7,
-        unsigned __int64 *a8,
-        unsigned int a9)
+NTSTATUS __cdecl NtMapViewOfSectionEx(
+        HANDLE SectionHandle,
+        HANDLE ProcessHandle,
+        PVOID *BaseAddress,
+        PLARGE_INTEGER SectionOffset,
+        PSIZE_T ViewSize,
+        ULONG AllocationType,
+        ULONG PageProtection,
+        PMEM_EXTENDED_PARAMETER ExtendedParameters,
+        ULONG ExtendedParameterCount)
 {
-  return MiMapViewOfSectionExCommon(a1, a2, 0, a3, a4, a5, a6, a7, a8, a9, 0, 0LL, KeGetCurrentThread()->PreviousMode);
+  return MiMapViewOfSectionExCommon(
+           (int)SectionHandle,
+           (int)ProcessHandle,
+           0,
+           BaseAddress,
+           SectionOffset,
+           ViewSize,
+           AllocationType,
+           PageProtection,
+           (unsigned __int64 *)ExtendedParameters,
+           ExtendedParameterCount,
+           0,
+           0LL,
+           KeGetCurrentThread()->PreviousMode);
 }

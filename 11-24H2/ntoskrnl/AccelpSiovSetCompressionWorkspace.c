@@ -1,9 +1,9 @@
 /*
- * XREFs of AccelpSiovSetCompressionWorkspace @ 0x140666874
+ * XREFs of AccelpSiovSetCompressionWorkspace @ 0x140665164
  * Callers:
- *     AccelpSiovIaaOperationHandler @ 0x140666390 (AccelpSiovIaaOperationHandler.c)
+ *     AccelpSiovIaaOperationHandler @ 0x140664C80 (AccelpSiovIaaOperationHandler.c)
  * Callees:
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 __int64 __fastcall AccelpSiovSetCompressionWorkspace(

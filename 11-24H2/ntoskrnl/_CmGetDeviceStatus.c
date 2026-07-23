@@ -1,19 +1,19 @@
 /*
- * XREFs of _CmGetDeviceStatus @ 0x1408BC8C8
+ * XREFs of _CmGetDeviceStatus @ 0x1408BA218
  * Callers:
- *     PpDevCfgProcessDevices @ 0x14072D090 (PpDevCfgProcessDevices.c)
- *     PiCMDeleteDeviceWorker @ 0x1407310F0 (PiCMDeleteDeviceWorker.c)
- *     PiCMGenerateDeviceInstance @ 0x14073136C (PiCMGenerateDeviceInstance.c)
- *     PiCMSetProblem @ 0x1407316B4 (PiCMSetProblem.c)
- *     _CmIsDeviceSafeRemovalRequired @ 0x1408BC37C (_CmIsDeviceSafeRemovalRequired.c)
- *     PiCMGetDeviceStatus @ 0x1408BD37C (PiCMGetDeviceStatus.c)
- *     _CmGetDeviceMappedPropertyFromComposite @ 0x1409B4770 (_CmGetDeviceMappedPropertyFromComposite.c)
- *     PiCMDeviceAction @ 0x140A85618 (PiCMDeviceAction.c)
- *     PiCMQueryRemove @ 0x140ABB70C (PiCMQueryRemove.c)
+ *     PpDevCfgProcessDevices @ 0x14072B0A4 (PpDevCfgProcessDevices.c)
+ *     PiCMDeleteDeviceWorker @ 0x14072F100 (PiCMDeleteDeviceWorker.c)
+ *     PiCMGenerateDeviceInstance @ 0x14072F37C (PiCMGenerateDeviceInstance.c)
+ *     PiCMSetProblem @ 0x14072F6C4 (PiCMSetProblem.c)
+ *     _CmIsDeviceSafeRemovalRequired @ 0x1408B9CCC (_CmIsDeviceSafeRemovalRequired.c)
+ *     PiCMGetDeviceStatus @ 0x1408BACCC (PiCMGetDeviceStatus.c)
+ *     _CmGetDeviceMappedPropertyFromComposite @ 0x1409ABB00 (_CmGetDeviceMappedPropertyFromComposite.c)
+ *     PiCMDeviceAction @ 0x140A80158 (PiCMDeviceAction.c)
+ *     PiCMQueryRemove @ 0x140AB672C (PiCMQueryRemove.c)
  * Callees:
- *     RtlInitUnicodeStringEx @ 0x14045AA10 (RtlInitUnicodeStringEx.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     _CmGetDeviceRegProp @ 0x1408C5BB0 (_CmGetDeviceRegProp.c)
+ *     RtlInitUnicodeStringEx @ 0x14044FE60 (RtlInitUnicodeStringEx.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     _CmGetDeviceRegProp @ 0x1408C35E0 (_CmGetDeviceRegProp.c)
  */
 
 __int64 __fastcall CmGetDeviceStatus(
@@ -50,7 +50,7 @@ __int64 __fastcall CmGetDeviceStatus(
   {
     if ( *(_QWORD *)(a1 + 264) )
     {
-      v14 = guard_dispatch_icall_no_overrides(a1, &DestinationString, a4, v7);
+      v14 = guard_dispatch_icall_no_overrides(a1, &DestinationString);
       inited = v14;
       if ( v14 == -2147483643 )
       {

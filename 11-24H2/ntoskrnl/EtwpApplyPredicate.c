@@ -1,13 +1,13 @@
 /*
- * XREFs of EtwpApplyPredicate @ 0x14032BA20
+ * XREFs of EtwpApplyPredicate @ 0x1403E8DC0
  * Callers:
- *     EtwpApplyPayloadFilterInternal @ 0x14032B140 (EtwpApplyPayloadFilterInternal.c)
+ *     EtwpApplyPayloadFilterInternal @ 0x1403E84E0 (EtwpApplyPayloadFilterInternal.c)
  * Callees:
- *     EtwpGetFieldValue @ 0x14032BAE0 (EtwpGetFieldValue.c)
- *     wcsncmp @ 0x1404FFFD0 (wcsncmp.c)
- *     EtwpGetSignedFieldValue @ 0x140652668 (EtwpGetSignedFieldValue.c)
- *     strncmp @ 0x1406BFB20 (strncmp.c)
- *     ExSystemExceptionFilter @ 0x1407B6F80 (ExSystemExceptionFilter.c)
+ *     EtwpGetFieldValue @ 0x1403E8E80 (EtwpGetFieldValue.c)
+ *     wcsncmp @ 0x1404FD890 (wcsncmp.c)
+ *     EtwpGetSignedFieldValue @ 0x140650D68 (EtwpGetSignedFieldValue.c)
+ *     strncmp @ 0x1406C0A20 (strncmp.c)
+ *     ExSystemExceptionFilter @ 0x1407B73D0 (ExSystemExceptionFilter.c)
  */
 
 char __fastcall EtwpApplyPredicate(unsigned __int16 *a1, int a2, __int64 a3, const char *a4, unsigned int a5, bool *a6)

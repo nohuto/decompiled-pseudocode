@@ -1,7 +1,7 @@
 /*
- * XREFs of PiCMConvertDeviceListFilters @ 0x1406BB9B0
+ * XREFs of PiCMConvertDeviceListFilters @ 0x1406BCC50
  * Callers:
- *     PiCMGetDeviceIdList @ 0x1406BB674 (PiCMGetDeviceIdList.c)
+ *     PiCMGetDeviceIdList @ 0x1406BC914 (PiCMGetDeviceIdList.c)
  * Callees:
  *     <none>
  */

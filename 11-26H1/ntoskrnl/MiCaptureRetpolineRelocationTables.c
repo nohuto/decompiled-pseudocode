@@ -1,21 +1,21 @@
 /*
- * XREFs of MiCaptureRetpolineRelocationTables @ 0x140AD69F0
+ * XREFs of MiCaptureRetpolineRelocationTables @ 0x140AD3700
  * Callers:
- *     MiCaptureBootDriverRetpolineInfo @ 0x14086D520 (MiCaptureBootDriverRetpolineInfo.c)
- *     MiParseImageLoadConfig @ 0x1409CC9F0 (MiParseImageLoadConfig.c)
+ *     MiCaptureBootDriverRetpolineInfo @ 0x1408738F0 (MiCaptureBootDriverRetpolineInfo.c)
+ *     MiParseImageLoadConfig @ 0x14099D9D0 (MiParseImageLoadConfig.c)
  * Callees:
- *     ExAllocatePoolMm @ 0x1403985B0 (ExAllocatePoolMm.c)
- *     RtlImageDirectoryEntryToData @ 0x14040E290 (RtlImageDirectoryEntryToData.c)
- *     MmGetCurrentProcessorColor @ 0x14044ADC0 (MmGetCurrentProcessorColor.c)
- *     RtlValidateDynamicFixupRelocation @ 0x140473128 (RtlValidateDynamicFixupRelocation.c)
- *     MiIsRetpolineEnabled @ 0x14047FA5C (MiIsRetpolineEnabled.c)
- *     MiModeCopyExceptionFilterEx @ 0x1404E5578 (MiModeCopyExceptionFilterEx.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     MiFreeImageRetpolineContext @ 0x140AD6C1C (MiFreeImageRetpolineContext.c)
+ *     ExAllocatePoolMm @ 0x14039A310 (ExAllocatePoolMm.c)
+ *     RtlImageDirectoryEntryToData @ 0x14042B1C0 (RtlImageDirectoryEntryToData.c)
+ *     MmGetCurrentProcessorColor @ 0x140442EF0 (MmGetCurrentProcessorColor.c)
+ *     RtlValidateDynamicFixupRelocation @ 0x14046C8A8 (RtlValidateDynamicFixupRelocation.c)
+ *     MiIsRetpolineEnabled @ 0x1404793CC (MiIsRetpolineEnabled.c)
+ *     MiModeCopyExceptionFilterEx @ 0x1404DEB18 (MiModeCopyExceptionFilterEx.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     MiFreeImageRetpolineContext @ 0x140AD392C (MiFreeImageRetpolineContext.c)
  */
 
 __int64 __fastcall MiCaptureRetpolineRelocationTables(
-        unsigned __int64 a1,
+        char *a1,
         unsigned int a2,
         unsigned int a3,
         int a4,
@@ -23,12 +23,12 @@ __int64 __fastcall MiCaptureRetpolineRelocationTables(
         char a6,
         unsigned int *a7)
 {
-  unsigned __int64 v9; // rbx
-  __int64 v10; // rax
+  char *v9; // rbx
+  PVOID v10; // rax
   unsigned int v11; // eax
   unsigned int v12; // r12d
   __int64 v13; // rsi
-  const void *v14; // r14
+  char *v14; // r14
   __int64 v15; // r13
   unsigned int v16; // eax
   int v17; // ebx
@@ -39,17 +39,17 @@ __int64 __fastcall MiCaptureRetpolineRelocationTables(
   bool IsRetpolineEnabled; // al
   unsigned __int64 v24; // rcx
   unsigned int v25; // [rsp+20h] [rbp-58h] BYREF
-  int v26; // [rsp+24h] [rbp-54h] BYREF
+  ULONG v26; // [rsp+24h] [rbp-54h] BYREF
   __int64 v27; // [rsp+28h] [rbp-50h]
   char v31; // [rsp+A8h] [rbp+30h]
 
   v9 = a1;
   v25 = 0;
   v31 = 0;
-  v10 = RtlImageDirectoryEntryToData(a1, 1, 0xCu, &v26);
+  v10 = RtlImageDirectoryEntryToData(a1, 1u, 0xCu, &v26);
   if ( v10 )
   {
-    v11 = v10 - v9;
+    v11 = (_DWORD)v10 - (_DWORD)v9;
     *a7 = v11;
     if ( v11 > a2 )
     {
@@ -75,9 +75,9 @@ LABEL_9:
   {
     if ( v13 + 12 > (unsigned __int64)v12 )
       goto LABEL_8;
-    v14 = (const void *)(v13 + v9);
-    v27 = *(_QWORD *)(v13 + v9);
-    v15 = *(unsigned int *)(v13 + v9 + 8);
+    v14 = &v9[v13];
+    v27 = *(_QWORD *)&v9[v13];
+    v15 = *(unsigned int *)&v9[v13 + 8];
     v16 = v13 + 12;
     if ( (int)v13 + 12 < (unsigned int)v13 )
       goto LABEL_8;

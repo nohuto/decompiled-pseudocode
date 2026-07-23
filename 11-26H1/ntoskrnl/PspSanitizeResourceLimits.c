@@ -1,8 +1,8 @@
 /*
- * XREFs of PspSanitizeResourceLimits @ 0x1407F01D0
+ * XREFs of PspSanitizeResourceLimits @ 0x1407F5D30
  * Callers:
- *     PspReadUserQuotaLimits @ 0x140AB9230 (PspReadUserQuotaLimits.c)
- *     PsInitializeQuotaSystem @ 0x140CD8E40 (PsInitializeQuotaSystem.c)
+ *     PspReadUserQuotaLimits @ 0x140ABA648 (PspReadUserQuotaLimits.c)
+ *     PsInitializeQuotaSystem @ 0x140CDF1C0 (PsInitializeQuotaSystem.c)
  * Callees:
  *     <none>
  */
@@ -18,7 +18,7 @@ __int64 __fastcall PspSanitizeResourceLimits(unsigned int *a1, int a2)
   unsigned int v9; // eax
 
   v2 = 0;
-  v3 = &stru_140FC01F0.SchedulerApc.Reserved[2];
+  v3 = &stru_140FC11F0.SchedulerApc.Reserved[1];
   v5 = a1;
   while ( v2 < 4 )
   {

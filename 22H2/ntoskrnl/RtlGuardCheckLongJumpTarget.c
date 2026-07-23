@@ -10,25 +10,23 @@
  *     LdrImageDirectoryEntryToLoadConfig @ 0x14075C6CC (LdrImageDirectoryEntryToLoadConfig.c)
  */
 
-__int64 __fastcall RtlGuardCheckLongJumpTarget(unsigned __int64 a1)
+NTSTATUS __cdecl RtlGuardCheckLongJumpTarget(PVOID PcValue, BOOL IsFastFail, PBOOL IsLongJumpTarget)
 {
-  __int64 v2; // r8
-  __int64 v3; // r9
   __int64 Config; // rax
   rsize_t v5; // r8
   int Key; // [rsp+48h] [rbp+10h] BYREF
-  __int64 v8; // [rsp+50h] [rbp+18h] BYREF
+  PVOID BaseOfImage; // [rsp+50h] [rbp+18h] BYREF
 
   Key = 0;
-  v8 = 0LL;
+  BaseOfImage = 0LL;
   if ( (unsigned int)RtlpControlFlowGuardEnforced() )
   {
-    RtlPcToFileHeader(a1, &v8, v2, v3);
-    if ( !v8
-      || (Config = LdrImageDirectoryEntryToLoadConfig(v8)) != 0
+    RtlPcToFileHeader(PcValue, &BaseOfImage);
+    if ( !BaseOfImage
+      || (Config = LdrImageDirectoryEntryToLoadConfig(BaseOfImage)) != 0
       && *(_DWORD *)Config >= 0xC0u
       && (*(_DWORD *)(Config + 144) & 0x10000) != 0
-      && ((Key = a1 - v8, (v5 = *(_QWORD *)(Config + 184)) == 0)
+      && ((Key = (_DWORD)PcValue - (_DWORD)BaseOfImage, (v5 = *(_QWORD *)(Config + 184)) == 0)
        || !bsearch_s(
              &Key,
              *(const void **)(Config + 176),
@@ -40,5 +38,5 @@ __int64 __fastcall RtlGuardCheckLongJumpTarget(unsigned __int64 a1)
       RtlFailFast2(0x26u);
     }
   }
-  return 0LL;
+  return 0;
 }

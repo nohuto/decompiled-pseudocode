@@ -17,7 +17,7 @@ __int64 PopBootStatRestoreDefaults()
 {
   KPROCESSOR_MODE PreviousMode; // bp
   struct _KTHREAD *CurrentThread; // rax
-  int v2; // esi
+  NTSTATUS v2; // esi
   __int64 v3; // rdx
   __int64 v4; // r8
   __int64 v5; // r9

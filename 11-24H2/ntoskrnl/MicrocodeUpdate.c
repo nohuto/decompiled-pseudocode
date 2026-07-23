@@ -1,16 +1,16 @@
 /*
- * XREFs of MicrocodeUpdate @ 0x140664918
+ * XREFs of MicrocodeUpdate @ 0x140663208
  * Callers:
- *     PrExtApplyPatch @ 0x1404D1CF4 (PrExtApplyPatch.c)
+ *     PrExtApplyPatch @ 0x1404CAD34 (PrExtApplyPatch.c)
  * Callees:
- *     HviIsHypervisorVendorMicrosoft @ 0x140663DA0 (HviIsHypervisorVendorMicrosoft.c)
- *     Feature_Microcode_Client_CD__private_IsEnabledDeviceUsageNoInline @ 0x140663E98 (Feature_Microcode_Client_CD__private_IsEnabledDeviceUsageNoInline.c)
- *     MicrocodeInitLogging @ 0x1406647A0 (MicrocodeInitLogging.c)
- *     MicrocodePrePatchCheckAndLogging @ 0x140664878 (MicrocodePrePatchCheckAndLogging.c)
- *     IntelMicrocodeChecksumValidate @ 0x140664DA0 (IntelMicrocodeChecksumValidate.c)
- *     IntelMicrocodeGetRecordData @ 0x140664DEC (IntelMicrocodeGetRecordData.c)
- *     GetCpuManufacturer @ 0x140664FCC (GetCpuManufacturer.c)
- *     AMDMicrocodeGetRecordData @ 0x140665138 (AMDMicrocodeGetRecordData.c)
+ *     HviIsHypervisorVendorMicrosoft @ 0x140662690 (HviIsHypervisorVendorMicrosoft.c)
+ *     Feature_Microcode_Client_CD__private_IsEnabledDeviceUsageNoInline @ 0x140662788 (Feature_Microcode_Client_CD__private_IsEnabledDeviceUsageNoInline.c)
+ *     MicrocodeInitLogging @ 0x140663090 (MicrocodeInitLogging.c)
+ *     MicrocodePrePatchCheckAndLogging @ 0x140663168 (MicrocodePrePatchCheckAndLogging.c)
+ *     IntelMicrocodeChecksumValidate @ 0x140663690 (IntelMicrocodeChecksumValidate.c)
+ *     IntelMicrocodeGetRecordData @ 0x1406636DC (IntelMicrocodeGetRecordData.c)
+ *     GetCpuManufacturer @ 0x1406638BC (GetCpuManufacturer.c)
+ *     AMDMicrocodeGetRecordData @ 0x140663A28 (AMDMicrocodeGetRecordData.c)
  */
 
 __int64 __fastcall MicrocodeUpdate(__int64 a1, __int64 a2, int a3)
@@ -47,7 +47,7 @@ LABEL_7:
     if ( !(unsigned __int8)GetCpuManufacturer(2LL) )
     {
 LABEL_8:
-      HIDWORD(qword_140EF7840) = 8;
+      HIDWORD(qword_140EF7B00) = 8;
       return 3221225659LL;
     }
     v16 = __readmsr(0x8Bu);
@@ -69,7 +69,7 @@ LABEL_14:
       goto LABEL_16;
     }
 LABEL_26:
-    HIDWORD(qword_140EF7840) = 9;
+    HIDWORD(qword_140EF7B00) = 9;
     return 3221225659LL;
   }
   v15 = v14 - 1;
@@ -90,7 +90,7 @@ LABEL_26:
     result = IntelMicrocodeChecksumValidate(v30, v29[0], v22, *(unsigned int *)(v30 + 4));
     if ( (int)result < 0 )
     {
-      HIDWORD(qword_140EF7840) = 8;
+      HIDWORD(qword_140EF7B00) = 8;
       return result;
     }
   }
@@ -106,15 +106,15 @@ LABEL_26:
   __asm { cpuid }
   v20 = __readmsr(0x8Bu) >> 32;
 LABEL_16:
-  DWORD2(xmmword_140EF7830) = v20;
+  DWORD2(xmmword_140EF7AF0) = v20;
   if ( v19 == (_DWORD)v20 )
   {
-    HIDWORD(qword_140EF7840) = 0;
+    HIDWORD(qword_140EF7B00) = 0;
     return 0LL;
   }
   else
   {
-    HIDWORD(qword_140EF7840) = 3;
+    HIDWORD(qword_140EF7B00) = 3;
     return 3221225534LL;
   }
 }

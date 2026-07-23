@@ -1,9 +1,9 @@
 /*
- * XREFs of HaliRunPlatformDebugTriggers @ 0x1405A2660
+ * XREFs of HaliRunPlatformDebugTriggers @ 0x1405A4E70
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall HaliRunPlatformDebugTriggers(char a1, __int64 a2)
@@ -26,8 +26,8 @@ __int64 __fastcall HaliRunPlatformDebugTriggers(char a1, __int64 a2)
       do
       {
         v6 = 136LL * v5;
-        v7 = v6 + qword_140E10C08 + 8;
-        if ( (*(_BYTE *)(*(_QWORD *)(v6 + qword_140E10C08) + 1LL) & 1) != 0 && !a1 && v7 )
+        v7 = v6 + qword_140E10D38 + 8;
+        if ( (*(_BYTE *)(*(_QWORD *)(v6 + qword_140E10D38) + 1LL) & 1) != 0 && !a1 && v7 )
         {
           v8 = *(_QWORD *)(v7 + 56);
           result = guard_dispatch_icall_no_overrides(v8, a2);

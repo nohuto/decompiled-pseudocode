@@ -3,32 +3,32 @@
  * Callers:
  *     <none>
  * Callees:
- *     IopSetLockOperationProcess @ 0x1402A36D0 (IopSetLockOperationProcess.c)
+ *     sub_1402A36D0 @ 0x1402A36D0 (sub_1402A36D0.c)
  *     PsGetCurrentProcess @ 0x1402A3820 (PsGetCurrentProcess.c)
  *     KeResetEvent @ 0x1402A40D0 (KeResetEvent.c)
- *     IopMarkApcRoutineIfAsynchronousIo32 @ 0x1402AAB50 (IopMarkApcRoutineIfAsynchronousIo32.c)
- *     IopResetEvent @ 0x1402AABB0 (IopResetEvent.c)
- *     IopAllocateIrpExReturn @ 0x1402AACA0 (IopAllocateIrpExReturn.c)
+ *     sub_1402AAB50 @ 0x1402AAB50 (sub_1402AAB50.c)
+ *     sub_1402AABB0 @ 0x1402AABB0 (sub_1402AABB0.c)
+ *     sub_1402AACA0 @ 0x1402AACA0 (sub_1402AACA0.c)
  *     IoGetRelatedDeviceObject @ 0x1402AC1B0 (IoGetRelatedDeviceObject.c)
- *     IopReferenceFileObject @ 0x1402AC790 (IopReferenceFileObject.c)
+ *     sub_1402AC790 @ 0x1402AC790 (sub_1402AC790.c)
  *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
  *     KeSetEvent @ 0x1402AFD30 (KeSetEvent.c)
  *     MmIsDriverVerifying @ 0x1402D87B0 (MmIsDriverVerifying.c)
- *     KeAbPreAcquire @ 0x140347C10 (KeAbPreAcquire.c)
+ *     sub_140347C10 @ 0x140347C10 (sub_140347C10.c)
  *     ObfReferenceObject @ 0x140347CF0 (ObfReferenceObject.c)
- *     IopDecrementCompletionContextUsageCount @ 0x1404178E8 (IopDecrementCompletionContextUsageCount.c)
- *     IopIncrementCompletionContextUsageCountAndReadData @ 0x1404179B0 (IopIncrementCompletionContextUsageCountAndReadData.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     IopExceptionCleanupEx @ 0x140658670 (IopExceptionCleanupEx.c)
- *     IopWaitAndAcquireFileObjectLock @ 0x140709FAC (IopWaitAndAcquireFileObjectLock.c)
- *     IopSynchronousServiceTail @ 0x140731680 (IopSynchronousServiceTail.c)
+ *     sub_1404178E8 @ 0x1404178E8 (sub_1404178E8.c)
+ *     sub_1404179B0 @ 0x1404179B0 (sub_1404179B0.c)
+ *     sub_14042A5E0 @ 0x14042A5E0 (sub_14042A5E0.c)
+ *     sub_140658670 @ 0x140658670 (sub_140658670.c)
+ *     sub_140709FAC @ 0x140709FAC (sub_140709FAC.c)
+ *     sub_140731680 @ 0x140731680 (sub_140731680.c)
  *     ObReferenceObjectByHandle @ 0x140732D00 (ObReferenceObjectByHandle.c)
  *     IoSetIoCompletion @ 0x1407D55B0 (IoSetIoCompletion.c)
- *     IopAllocateIrpCleanup @ 0x140933BA4 (IopAllocateIrpCleanup.c)
+ *     sub_140933BA4 @ 0x140933BA4 (sub_140933BA4.c)
  *     ExRaiseDatatypeMisalignment @ 0x140A02210 (ExRaiseDatatypeMisalignment.c)
  *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
- *     VfFastIoCheckState @ 0x140A8A8D4 (VfFastIoCheckState.c)
- *     VfFastIoSnapState @ 0x140A8A9AC (VfFastIoSnapState.c)
+ *     sub_140A8A8D4 @ 0x140A8A8D4 (sub_140A8A8D4.c)
+ *     sub_140A8A9AC @ 0x140A8A9AC (sub_140A8A9AC.c)
  */
 
 NTSTATUS __stdcall NtLockFile(
@@ -44,17 +44,17 @@ NTSTATUS __stdcall NtLockFile(
         BOOLEAN ExclusiveLock)
 {
   struct _KEVENT *v11; // rsi
-  KPROCESSOR_MODE PreviousMode; // r12
+  KPROCESSOR_MODE v12; // r12
   NTSTATUS result; // eax
   __int64 v14; // rcx
   struct _FILE_OBJECT *v15; // rbx
-  _KPROCESS *CurrentProcess; // rax
+  __int64 CurrentProcess; // rax
   NTSTATUS v17; // eax
   PDEVICE_OBJECT RelatedDeviceObject; // r13
   struct _DRIVER_OBJECT *DriverObject; // rcx
   PFAST_IO_DISPATCH FastIoDispatch; // rdx
-  __int64 (__fastcall *FastIoLock)(struct _FILE_OBJECT *, LONGLONG *, LONGLONG *, _KPROCESS *, ULONG, int, BOOLEAN, __int128 *, PDEVICE_OBJECT); // r15
-  void *v22; // r14
+  PFAST_IO_LOCK FastIoLock; // r15
+  __int64 v22; // r14
   char v23; // al
   PIO_STATUS_BLOCK v24; // rcx
   int v25; // esi
@@ -75,38 +75,37 @@ NTSTATUS __stdcall NtLockFile(
   struct _IO_STACK_LOCATION *CurrentStackLocation; // rsi
   char v41; // al
   CHAR *Pool2; // rax
-  int HandleInformation; // [rsp+28h] [rbp-B0h]
-  char v44; // [rsp+50h] [rbp-88h] BYREF
-  char v45; // [rsp+51h] [rbp-87h]
+  char v43; // [rsp+50h] [rbp-88h] BYREF
+  char v44; // [rsp+51h] [rbp-87h]
   PVOID Object; // [rsp+58h] [rbp-80h] BYREF
-  __int128 v47; // [rsp+60h] [rbp-78h] BYREF
+  __int128 v46; // [rsp+60h] [rbp-78h]
   LONGLONG QuadPart; // [rsp+70h] [rbp-68h] BYREF
-  LONGLONG v49; // [rsp+78h] [rbp-60h] BYREF
+  LONGLONG v48; // [rsp+78h] [rbp-60h]
   PIRP Irp; // [rsp+80h] [rbp-58h] BYREF
-  PVOID v51; // [rsp+88h] [rbp-50h]
-  struct _OBJECT_HANDLE_INFORMATION v52; // [rsp+90h] [rbp-48h] BYREF
-  PVOID v53; // [rsp+98h] [rbp-40h] BYREF
-  __int64 v54; // [rsp+A0h] [rbp-38h] BYREF
+  PVOID v50; // [rsp+88h] [rbp-50h]
+  struct _OBJECT_HANDLE_INFORMATION v51; // [rsp+90h] [rbp-48h] BYREF
+  PVOID v52; // [rsp+98h] [rbp-40h] BYREF
+  __int64 v53; // [rsp+A0h] [rbp-38h] BYREF
   struct _KTHREAD *CurrentThread; // [rsp+A8h] [rbp-30h]
-  LARGE_INTEGER v56; // [rsp+F0h] [rbp+18h] BYREF
-  PVOID v57; // [rsp+F8h] [rbp+20h]
+  LARGE_INTEGER v55; // [rsp+F0h] [rbp+18h] BYREF
+  PVOID v56; // [rsp+F8h] [rbp+20h]
 
-  v57 = ApcContext;
-  v56.QuadPart = (LONGLONG)ApcRoutine;
+  v56 = ApcContext;
+  v55.QuadPart = (LONGLONG)ApcRoutine;
   Object = 0LL;
   v11 = 0LL;
-  v51 = 0LL;
+  v50 = 0LL;
   QuadPart = 0LL;
-  v49 = 0LL;
-  v52 = 0LL;
+  v48 = 0LL;
+  v51 = 0LL;
   CurrentThread = KeGetCurrentThread();
-  PreviousMode = CurrentThread->PreviousMode;
-  result = IopReferenceFileObject(FileHandle, 0, PreviousMode, &Object, &v52);
+  v12 = *((_BYTE *)CurrentThread + 562);
+  result = sub_1402AC790(FileHandle, 0, v12, &Object, &v51);
   if ( result >= 0 )
   {
-    if ( PreviousMode )
+    if ( v12 )
     {
-      if ( (v52.GrantedAccess & 3) == 0 )
+      if ( (v51.GrantedAccess & 3) == 0 )
       {
         ObfDereferenceObject(Object);
         return -1073741790;
@@ -115,15 +114,15 @@ NTSTATUS __stdcall NtLockFile(
       if ( (unsigned __int64)IoStatusBlock >= 0x7FFFFFFF0000LL )
         v14 = 0x7FFFFFFF0000LL;
       *(_DWORD *)v14 = *(_DWORD *)v14;
-      IopMarkApcRoutineIfAsynchronousIo32((unsigned int **)&IoStatusBlock, (__int64 *)&v56, *((_BYTE *)Object + 80) & 2);
+      sub_1402AAB50((unsigned int **)&IoStatusBlock, (__int64 *)&v55, *((_BYTE *)Object + 80) & 2);
       if ( ((unsigned __int8)ByteOffset & 3) != 0 )
         ExRaiseDatatypeMisalignment();
       QuadPart = ByteOffset->QuadPart;
       if ( ((unsigned __int8)Length & 3) != 0 )
         ExRaiseDatatypeMisalignment();
-      v49 = Length->QuadPart;
+      v48 = Length->QuadPart;
       v15 = (struct _FILE_OBJECT *)Object;
-      if ( *((_QWORD *)Object + 22) && (v56.QuadPart & 0xFFFFFFFFFFFFFFFEuLL) != 0 )
+      if ( *((_QWORD *)Object + 22) && (v55.QuadPart & 0xFFFFFFFFFFFFFFFEuLL) != 0 )
       {
         ObfDereferenceObject(Object);
         return -1073741811;
@@ -132,64 +131,54 @@ NTSTATUS __stdcall NtLockFile(
     else
     {
       QuadPart = ByteOffset->QuadPart;
-      v49 = Length->QuadPart;
+      v48 = Length->QuadPart;
       v15 = (struct _FILE_OBJECT *)Object;
     }
     v15->LockOperation = 1;
     CurrentProcess = PsGetCurrentProcess();
-    result = IopSetLockOperationProcess((__int64)v15, (__int64)CurrentProcess, 0);
+    result = sub_1402A36D0((__int64)v15, CurrentProcess, 0);
     if ( result >= 0 )
     {
       if ( Event )
       {
-        v53 = 0LL;
-        v17 = ObReferenceObjectByHandle(Event, 2u, (POBJECT_TYPE)ExEventObjectType, PreviousMode, &v53, 0LL);
-        v11 = (struct _KEVENT *)v53;
-        v51 = v53;
+        v52 = 0LL;
+        v17 = ObReferenceObjectByHandle(Event, 2u, (POBJECT_TYPE)ExEventObjectType, v12, &v52, 0LL);
+        v11 = (struct _KEVENT *)v52;
+        v50 = v52;
         if ( v17 >= 0 )
-          KeResetEvent((PRKEVENT)v53);
+          KeResetEvent((PRKEVENT)v52);
       }
       RelatedDeviceObject = IoGetRelatedDeviceObject(v15);
       DriverObject = RelatedDeviceObject->DriverObject;
       FastIoDispatch = DriverObject->FastIoDispatch;
       if ( FastIoDispatch )
       {
-        FastIoLock = (__int64 (__fastcall *)(struct _FILE_OBJECT *, LONGLONG *, LONGLONG *, _KPROCESS *, ULONG, int, BOOLEAN, __int128 *, PDEVICE_OBJECT))FastIoDispatch->FastIoLock;
+        FastIoLock = FastIoDispatch->FastIoLock;
         if ( FastIoLock )
         {
-          v47 = 0LL;
-          if ( (MmVerifierData & 0x10) != 0 && MmIsDriverVerifying(DriverObject) )
-            v22 = (void *)VfFastIoSnapState();
+          v46 = 0LL;
+          if ( (dword_140C29FC0 & 0x10) != 0 && MmIsDriverVerifying(DriverObject) )
+            v22 = sub_140A8A9AC();
           else
             v22 = 0LL;
-          LOBYTE(HandleInformation) = FailImmediately;
-          v23 = FastIoLock(
-                  v15,
-                  &QuadPart,
-                  &v49,
-                  CurrentThread->ApcState.Process,
-                  Key,
-                  HandleInformation,
-                  ExclusiveLock,
-                  &v47,
-                  RelatedDeviceObject);
-          v45 = v23;
+          v23 = sub_14042A5E0(v15, &QuadPart);
+          v44 = v23;
           if ( v22 )
           {
-            VfFastIoCheckState(v22);
-            v23 = v45;
+            sub_140A8A8D4(v22, FastIoLock);
+            v23 = v44;
           }
           if ( v23 )
           {
-            if ( (v56.LowPart & 1) != 0 )
+            if ( (v55.LowPart & 1) != 0 )
             {
               v24 = IoStatusBlock;
-              HIDWORD(IoStatusBlock->Pointer) = DWORD2(v47);
-              v24->Status = v47;
+              HIDWORD(IoStatusBlock->Pointer) = DWORD2(v46);
+              v24->Status = v46;
             }
             else
             {
-              *(_OWORD *)&IoStatusBlock->Status = v47;
+              *(_OWORD *)&IoStatusBlock->Status = v46;
             }
             if ( v11 )
             {
@@ -199,30 +188,30 @@ NTSTATUS __stdcall NtLockFile(
             }
             if ( v15->CompletionContext )
             {
-              v25 = (int)v57;
-              if ( v57 )
+              v25 = (int)v56;
+              if ( v56 )
               {
                 if ( (v15->Flags & 0x2000000) == 0 )
                 {
-                  v54 = 0LL;
+                  v53 = 0LL;
                   Irp = 0LL;
-                  v44 = 0;
-                  IopIncrementCompletionContextUsageCountAndReadData((ULONG_PTR)v15, &v44, &v54, &Irp);
-                  if ( v54 )
+                  v43 = 0;
+                  sub_1404179B0((ULONG_PTR)v15, &v43, &v53, &Irp);
+                  if ( v53 )
                   {
-                    v26 = IoSetIoCompletion(v54, (_DWORD)Irp, v25, v47, *((__int64 *)&v47 + 1), 1);
-                    v27 = v47;
+                    v26 = IoSetIoCompletion(v53, (_DWORD)Irp, v25, v46, *((__int64 *)&v46 + 1), 1);
+                    v27 = v46;
                     if ( v26 < 0 )
                       v27 = -1073741670;
-                    LODWORD(v47) = v27;
+                    LODWORD(v46) = v27;
                   }
-                  if ( v44 )
-                    IopDecrementCompletionContextUsageCount((ULONG_PTR)v15);
+                  if ( v43 )
+                    sub_1404178E8((ULONG_PTR)v15);
                 }
               }
             }
             ObfDereferenceObject(v15);
-            return v47;
+            return v46;
           }
         }
       }
@@ -230,16 +219,16 @@ NTSTATUS __stdcall NtLockFile(
       {
         v28 = (v15->Flags & 4) != 0;
         v29 = KeGetCurrentThread();
-        --v29->KernelApcDisable;
+        --*((_WORD *)v29 + 242);
         v30 = (volatile __int32 *)Object;
-        v31 = KeAbPreAcquire((__int64)Object + 128, 0LL);
-        v44 = 0;
+        v31 = sub_140347C10((__int64)Object + 128, 0LL);
+        v43 = 0;
         if ( _InterlockedExchange(v30 + 29, 1) )
         {
           LOBYTE(v33) = v28;
-          LOBYTE(v32) = PreviousMode;
+          LOBYTE(v32) = v12;
           v15 = (struct _FILE_OBJECT *)Object;
-          v34 = IopWaitAndAcquireFileObjectLock((volatile signed __int32 *)Object, v32, v33, v31, &v44);
+          v34 = sub_140709FAC((volatile signed __int32 *)Object, v32, v33, v31, &v43);
         }
         else
         {
@@ -249,7 +238,7 @@ NTSTATUS __stdcall NtLockFile(
           ObfReferenceObject(Object);
           v34 = 0;
         }
-        if ( v44 )
+        if ( v43 )
         {
           if ( v11 )
             ObfDereferenceObject(v11);
@@ -262,21 +251,21 @@ NTSTATUS __stdcall NtLockFile(
       {
         v35 = 0;
       }
-      IopResetEvent((__int64)v15);
+      sub_1402AABB0((__int64)v15);
       LOBYTE(v36) = v35 ^ 1;
       LOBYTE(v37) = RelatedDeviceObject->StackSize;
-      v38 = (IRP *)IopAllocateIrpExReturn((__int64)RelatedDeviceObject, v37, v36);
+      v38 = (IRP *)sub_1402AACA0((__int64)RelatedDeviceObject, v37, v36);
       v39 = v38;
       Irp = v38;
       if ( v38 )
       {
         v38->Tail.Overlay.OriginalFileObject = v15;
         v38->Tail.Overlay.Thread = CurrentThread;
-        v38->RequestorMode = PreviousMode;
+        v38->RequestorMode = v12;
         v38->UserEvent = v11;
         v38->UserIosb = IoStatusBlock;
-        v38->Overlay.AllocationSize = v56;
-        v38->Overlay.AsynchronousParameters.UserApcContext = v57;
+        v38->Overlay.AllocationSize = v55;
+        v38->Overlay.AsynchronousParameters.UserApcContext = v56;
         CurrentStackLocation = v38->Tail.Overlay.CurrentStackLocation;
         *(_WORD *)&CurrentStackLocation[-1].MajorFunction = 273;
         CurrentStackLocation[-1].FileObject = v15;
@@ -292,14 +281,14 @@ NTSTATUS __stdcall NtLockFile(
         CurrentStackLocation[-1].Parameters.Create.Options = Key;
         CurrentStackLocation[-1].Parameters.Read.ByteOffset.QuadPart = QuadPart;
         Pool2 = (CHAR *)ExAllocatePool2(97LL, 8LL, 538996553LL);
-        *(_QWORD *)Pool2 = v49;
+        *(_QWORD *)Pool2 = v48;
         v39->Tail.Overlay.AuxiliaryBuffer = Pool2;
         CurrentStackLocation[-1].Parameters.WMI.ProviderId = (ULONG_PTR)Pool2;
-        return IopSynchronousServiceTail(RelatedDeviceObject, v39, PreviousMode, v35, 2);
+        return sub_140731680(RelatedDeviceObject, v39, v12, v35, 2);
       }
       else
       {
-        IopAllocateIrpCleanup(v15, v11);
+        sub_140933BA4(v15, v11);
         return -1073741670;
       }
     }

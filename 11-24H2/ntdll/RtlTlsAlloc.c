@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlTlsAlloc @ 0x1800B9670
+ * XREFs of RtlTlsAlloc @ 0x1800B1410
  * Callers:
- *     RtlpHpEnvTlsAlloc @ 0x1800B9008 (RtlpHpEnvTlsAlloc.c)
+ *     RtlpHpEnvTlsAlloc @ 0x1800B0DA8 (RtlpHpEnvTlsAlloc.c)
  * Callees:
- *     RtlSetBits @ 0x180006260 (RtlSetBits.c)
- *     RtlEnterCriticalSection @ 0x1800148F0 (RtlEnterCriticalSection.c)
- *     RtlLeaveCriticalSection @ 0x1800149F0 (RtlLeaveCriticalSection.c)
- *     RtlpTlsHeapAlloc @ 0x1800B9940 (RtlpTlsHeapAlloc.c)
- *     memset$thunk$772440563353939046 @ 0x180172030 (memset$thunk$772440563353939046.c)
+ *     RtlSetBits @ 0x180032C60 (RtlSetBits.c)
+ *     RtlEnterCriticalSection @ 0x1800412F0 (RtlEnterCriticalSection.c)
+ *     RtlLeaveCriticalSection @ 0x1800413F0 (RtlLeaveCriticalSection.c)
+ *     RtlpTlsHeapAlloc @ 0x1800B16E0 (RtlpTlsHeapAlloc.c)
+ *     memset$thunk$772440563353939046 @ 0x180171030 (memset$thunk$772440563353939046.c)
  */
 
 __int64 __fastcall RtlTlsAlloc(_DWORD *a1)
@@ -24,13 +24,13 @@ __int64 __fastcall RtlTlsAlloc(_DWORD *a1)
   void **TlsExpansionSlots; // rsi
   _RTL_BITMAP *TlsExpansionBitmap; // r10
   int v13; // r9d
-  unsigned int v14; // r11d
+  ULONG v14; // r11d
   __int64 v15; // rax
   _QWORD *v16; // r8
   __int64 *v17; // rbx
   __int64 j; // rax
   __int64 v19; // rbx
-  unsigned int v21; // ebx
+  ULONG v21; // ebx
   void **v22; // rax
   void **v23; // rbx
 
@@ -38,7 +38,7 @@ __int64 __fastcall RtlTlsAlloc(_DWORD *a1)
   ProcessEnvironmentBlock = v1->ProcessEnvironmentBlock;
   while ( 1 )
   {
-    RtlEnterCriticalSection((__int64)&FastPebLock);
+    RtlEnterCriticalSection(&FastPebLock);
     TlsBitmap = ProcessEnvironmentBlock->TlsBitmap;
     v5 = ((__int64)TlsBitmap->Buffer & 4) != 0LL ? 0x20 : 0;
     v6 = v5 + TlsBitmap->SizeOfBitMap - 1;
@@ -58,8 +58,8 @@ __int64 __fastcall RtlTlsAlloc(_DWORD *a1)
         v19 = v10 - v5;
         if ( (_DWORD)v19 != -1 )
         {
-          RtlSetBits((__int64)TlsBitmap, v19, 1u);
-          RtlLeaveCriticalSection((__int64)&FastPebLock);
+          RtlSetBits(TlsBitmap, v19, 1u);
+          RtlLeaveCriticalSection(&FastPebLock);
           v1->TlsSlots[v19] = 0LL;
 LABEL_17:
           *a1 = v19;
@@ -71,7 +71,7 @@ LABEL_8:
     TlsExpansionSlots = v1->TlsExpansionSlots;
     if ( TlsExpansionSlots )
       break;
-    RtlLeaveCriticalSection((__int64)&FastPebLock);
+    RtlLeaveCriticalSection(&FastPebLock);
     v22 = (void **)RtlpTlsHeapAlloc();
     v23 = v22;
     if ( !v22 )
@@ -100,7 +100,7 @@ LABEL_8:
     {
       v21 -= v13;
       if ( v21 != -1 )
-        RtlSetBits((__int64)ProcessEnvironmentBlock->TlsExpansionBitmap, v21, 1u);
+        RtlSetBits(ProcessEnvironmentBlock->TlsExpansionBitmap, v21, 1u);
     }
   }
   else
@@ -108,7 +108,7 @@ LABEL_8:
 LABEL_19:
     v21 = -1;
   }
-  RtlLeaveCriticalSection((__int64)&FastPebLock);
+  RtlLeaveCriticalSection(&FastPebLock);
   if ( v21 != -1 )
   {
     TlsExpansionSlots[v21] = 0LL;

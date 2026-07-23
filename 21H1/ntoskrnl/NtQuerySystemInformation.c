@@ -7,7 +7,11 @@
  *     ExpQuerySystemInformation @ 0x1405E5DF0 (ExpQuerySystemInformation.c)
  */
 
-__int64 __fastcall NtQuerySystemInformation(__int64 a1, __int64 a2, int a3, __int64 a4)
+NTSTATUS __cdecl NtQuerySystemInformation(
+        SYSTEM_INFORMATION_CLASS SystemInformationClass,
+        PVOID SystemInformation,
+        ULONG SystemInformationLength,
+        PULONG ReturnLength)
 {
   __int16 *p_Group; // r10
   __int64 v6; // r8
@@ -15,35 +19,48 @@ __int64 __fastcall NtQuerySystemInformation(__int64 a1, __int64 a2, int a3, __in
 
   p_Group = 0LL;
   Group = 0;
-  if ( (int)a1 < 74 || (int)a1 >= 83 )
+  if ( SystemInformationClass < SystemWow64SharedInformationObsolete
+    || SystemInformationClass >= SystemProcessorIdleCycleTimeInformation )
   {
-    switch ( (int)a1 )
+    switch ( SystemInformationClass )
     {
-      case 8:
-      case 23:
-      case 42:
-      case 61:
-      case 83:
-      case 100:
-      case 108:
-      case 141:
+      case SystemProcessorPerformanceInformation:
+      case SystemInterruptInformation:
+      case SystemProcessorIdleInformation:
+      case SystemProcessorPowerInformation:
+      case SystemProcessorIdleCycleTimeInformation:
+      case SystemProcessorPerformanceDistribution:
+      case SystemProcessorCycleTimeInformation:
+      case SystemProcessorPerformanceInformationEx:
         Group = KeGetCurrentPrcb()->Group;
         goto LABEL_8;
-      case 73:
+      case SystemLogicalProcessorInformation:
 LABEL_8:
         p_Group = &Group;
         v6 = 2LL;
-        return ExpQuerySystemInformation(a1, p_Group, v6, a2, a3, a4);
-      case 107:
-      case 121:
-      case 180:
-      case 210:
-      case 211:
-        return 3221225475LL;
+        return ExpQuerySystemInformation(
+                 SystemInformationClass,
+                 p_Group,
+                 v6,
+                 SystemInformation,
+                 SystemInformationLength,
+                 ReturnLength);
+      case SystemLogicalProcessorAndGroupInformation:
+      case SystemNodeDistanceInformation:
+      case SystemInterruptSteeringInformation:
+      case SystemFeatureConfigurationInformation:
+      case SystemFeatureConfigurationSectionInformation:
+        return -1073741821;
       default:
         break;
     }
   }
   v6 = 0LL;
-  return ExpQuerySystemInformation(a1, p_Group, v6, a2, a3, a4);
+  return ExpQuerySystemInformation(
+           SystemInformationClass,
+           p_Group,
+           v6,
+           SystemInformation,
+           SystemInformationLength,
+           ReturnLength);
 }

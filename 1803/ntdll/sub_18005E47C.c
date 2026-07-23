@@ -8,21 +8,21 @@
  *     sub_18005E16C @ 0x18005E16C (sub_18005E16C.c)
  */
 
-__int64 __fastcall sub_18005E47C(__int64 a1, char *a2, __int64 a3, _DWORD *a4, __int64 a5)
+__int64 __fastcall sub_18005E47C(_RTL_SRWLOCK *a1, __int64 a2, __int64 a3, _DWORD *a4)
 {
-  __int64 v9; // rdi
-  volatile signed __int64 *v11; // rbx
+  _RTL_SRWLOCK *v6; // rdi
+  _RTL_SRWLOCK *v8; // rbx
 
   if ( *a4 == -1 )
   {
-    v11 = (volatile signed __int64 *)(a1 + 96);
-    RtlAcquireSRWLockShared((volatile signed __int64 *)(a1 + 96), a2, a3, (__int64)a4);
-    v9 = sub_18005E16C(a1, (__int64)a4, 0, 0LL);
-    RtlReleaseSRWLockShared(v11);
+    v8 = a1 + 12;
+    RtlAcquireSRWLockShared(a1 + 12);
+    v6 = (_RTL_SRWLOCK *)sub_18005E16C((__int64)a1, (__int64)a4, 0, 0LL);
+    RtlReleaseSRWLockShared(v8);
   }
   else
   {
-    v9 = 48LL * (unsigned int)*a4 + a1 + 112;
+    v6 = &a1[6 * (unsigned int)*a4 + 14];
   }
-  return sub_18005E4EC(v9, a2, a3, a5);
+  return sub_18005E4EC(v6);
 }

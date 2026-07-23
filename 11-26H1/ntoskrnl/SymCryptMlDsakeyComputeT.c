@@ -1,14 +1,14 @@
 /*
- * XREFs of SymCryptMlDsakeyComputeT @ 0x1405747F8
+ * XREFs of SymCryptMlDsakeyComputeT @ 0x140573A5C
  * Callers:
- *     SymCryptMlDsaKeyGenerateEx @ 0x14055D64C (SymCryptMlDsaKeyGenerateEx.c)
- *     SymCryptMlDsaSkDecode @ 0x140573AF4 (SymCryptMlDsaSkDecode.c)
+ *     SymCryptMlDsaKeyGenerateEx @ 0x14055FB34 (SymCryptMlDsaKeyGenerateEx.c)
+ *     SymCryptMlDsaSkDecode @ 0x140572D4C (SymCryptMlDsaSkDecode.c)
  * Callees:
- *     SymCryptMlDsaMatrixVectorMontMul @ 0x140572CA0 (SymCryptMlDsaMatrixVectorMontMul.c)
- *     SymCryptMlDsaPolyElementMulR @ 0x140573454 (SymCryptMlDsaPolyElementMulR.c)
- *     SymCryptMlDsaVectorAdd @ 0x140574290 (SymCryptMlDsaVectorAdd.c)
- *     SymCryptMlDsaVectorINTT @ 0x14057448C (SymCryptMlDsaVectorINTT.c)
- *     SymCryptMlDsaVectorPower2Round @ 0x1405746E0 (SymCryptMlDsaVectorPower2Round.c)
+ *     SymCryptMlDsaMatrixVectorMontMul @ 0x140571EAC (SymCryptMlDsaMatrixVectorMontMul.c)
+ *     SymCryptMlDsaPolyElementMulR @ 0x140572660 (SymCryptMlDsaPolyElementMulR.c)
+ *     SymCryptMlDsaVectorAdd @ 0x1405734F4 (SymCryptMlDsaVectorAdd.c)
+ *     SymCryptMlDsaVectorINTT @ 0x1405736F0 (SymCryptMlDsaVectorINTT.c)
+ *     SymCryptMlDsaVectorPower2Round @ 0x140573944 (SymCryptMlDsaVectorPower2Round.c)
  */
 
 __int64 __fastcall SymCryptMlDsakeyComputeT(

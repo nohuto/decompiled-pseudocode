@@ -1,14 +1,14 @@
 /*
- * XREFs of WheaPageOfflineAndPersist @ 0x1407C7504
+ * XREFs of WheaPageOfflineAndPersist @ 0x1407C79A4
  * Callers:
- *     WheapWmiExecuteMethod @ 0x14065F348 (WheapWmiExecuteMethod.c)
+ *     WheapWmiExecuteMethod @ 0x14065DB18 (WheapWmiExecuteMethod.c)
  * Callees:
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     WheapAttemptPhysicalPageOffline @ 0x1407C791C (WheapAttemptPhysicalPageOffline.c)
- *     WheapOfflinePage @ 0x1407C7F20 (WheapOfflinePage.c)
- *     WheapOfflineRow @ 0x1407C8078 (WheapOfflineRow.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     WheapAttemptPhysicalPageOffline @ 0x1407C7DBC (WheapAttemptPhysicalPageOffline.c)
+ *     WheapOfflinePage @ 0x1407C83C0 (WheapOfflinePage.c)
+ *     WheapOfflineRow @ 0x1407C8518 (WheapOfflineRow.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall WheaPageOfflineAndPersist(__int64 a1)
@@ -32,7 +32,7 @@ __int64 __fastcall WheaPageOfflineAndPersist(__int64 a1)
   v12 = 0LL;
   if ( (v2 & 3) == 0 || (v2 & 3) == 3 || v2 >= 4u )
     return (unsigned int)-1073741811;
-  Pool2 = (void *)ExAllocatePool2(0x100uLL);
+  Pool2 = (void *)ExAllocatePool2(0x100uLL, 0x1828uLL, 0x61656857u);
   if ( Pool2 )
   {
     v6 = *(_BYTE *)(a1 + 52) & 3;

@@ -1,27 +1,27 @@
 /*
- * XREFs of MiUnlockPageTableCharges @ 0x140318F40
+ * XREFs of MiUnlockPageTableCharges @ 0x14031AF70
  * Callers:
- *     MiProbeUnlockPage @ 0x14028B900 (MiProbeUnlockPage.c)
- *     MiUnlockPageTableRange @ 0x140317220 (MiUnlockPageTableRange.c)
- *     MiLockVirtualMemoryVa @ 0x140318C10 (MiLockVirtualMemoryVa.c)
- *     MiUnlockWsle @ 0x140324658 (MiUnlockWsle.c)
- *     MiDecrementCloneBlock @ 0x14036A250 (MiDecrementCloneBlock.c)
- *     MiCopyOnWriteReturnCharges @ 0x14036B1E0 (MiCopyOnWriteReturnCharges.c)
- *     MmUnlockPages @ 0x140410C10 (MmUnlockPages.c)
- *     MiUnlockPhysicalPageByVa @ 0x1406EA3E0 (MiUnlockPhysicalPageByVa.c)
+ *     MiProbeUnlockPage @ 0x14028AE60 (MiProbeUnlockPage.c)
+ *     MiUnlockPageTableRange @ 0x140319250 (MiUnlockPageTableRange.c)
+ *     MiLockVirtualMemoryVa @ 0x14031AC40 (MiLockVirtualMemoryVa.c)
+ *     MiUnlockWsle @ 0x140326688 (MiUnlockWsle.c)
+ *     MiDecrementCloneBlock @ 0x14036BFF0 (MiDecrementCloneBlock.c)
+ *     MiCopyOnWriteReturnCharges @ 0x14036CF80 (MiCopyOnWriteReturnCharges.c)
+ *     MmUnlockPages @ 0x140410330 (MmUnlockPages.c)
+ *     MiUnlockPhysicalPageByVa @ 0x1406EF080 (MiUnlockPhysicalPageByVa.c)
  * Callees:
- *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x14021AAD4 (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     ExAcquireSpinLockExclusive @ 0x140249CD0 (ExAcquireSpinLockExclusive.c)
- *     HvlNotifyLongSpinWait @ 0x1402BBF00 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1402BC760 (KiCheckVpBackingLongSpinWaitHypercall.c)
- *     MiPfnShareCountIsZero @ 0x1402DC770 (MiPfnShareCountIsZero.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402DED10 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     MiIsProtoPoolPfnInNonPagedPool @ 0x14031C220 (MiIsProtoPoolPfnInNonPagedPool.c)
- *     MiSignalCommitSignals @ 0x14043CAA0 (MiSignalCommitSignals.c)
- *     MiIsLowestPageTablePage @ 0x140467D50 (MiIsLowestPageTablePage.c)
- *     MiRestockOverCommit @ 0x1404F9494 (MiRestockOverCommit.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
+ *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x14021C464 (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024B630 (ExAcquireSpinLockExclusive.c)
+ *     MiPfnShareCountIsZero @ 0x1402BE530 (MiPfnShareCountIsZero.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402C0B20 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     HvlNotifyLongSpinWait @ 0x140306BC0 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140307420 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     MiIsProtoPoolPfnInNonPagedPool @ 0x14031E250 (MiIsProtoPoolPfnInNonPagedPool.c)
+ *     MiSignalCommitSignals @ 0x14042F350 (MiSignalCommitSignals.c)
+ *     MiIsLowestPageTablePage @ 0x1404614A0 (MiIsLowestPageTablePage.c)
+ *     MiRestockOverCommit @ 0x1404F2AA4 (MiRestockOverCommit.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
  */
 
 unsigned __int64 __fastcall MiUnlockPageTableCharges(ULONG_PTR BugCheckParameter2, int a2)
@@ -101,7 +101,7 @@ LABEL_66:
     if ( (*(_QWORD *)(v3 + 24) & 0x3FFFFFFFFFFFFFFFuLL) >= 0x10000 )
       break;
     if ( !v2 )
-      v2 = *(_QWORD *)(stru_140E2EB88.ThreadLock + 8 * ((*(_QWORD *)(v3 + 40) >> 43) & 0x3FFLL));
+      v2 = *(_QWORD *)(stru_140E2ED08.ThreadLock + 8 * ((*(_QWORD *)(v3 + 40) >> 43) & 0x3FFLL));
     result = *(_QWORD *)(v3 + 24);
     ++v6;
     if ( (result & 0x3FFFFFFFFFFFFFFFLL) == 0 )
@@ -186,7 +186,7 @@ LABEL_42:
       if ( (_BYTE)v15 != 17 )
       {
         if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0
-          || (result = LODWORD(stru_140F11D08.WaitStatus), LODWORD(stru_140F11D08.WaitStatus)) )
+          || (result = (unsigned int)PopHibernateInProgress, PopHibernateInProgress) )
         {
           *v13 = 0;
         }
@@ -204,7 +204,7 @@ LABEL_58:
       }
     }
     if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0
-      || (result = LODWORD(stru_140F11D08.WaitStatus), LODWORD(stru_140F11D08.WaitStatus)) )
+      || (result = (unsigned int)PopHibernateInProgress, PopHibernateInProgress) )
     {
       *v13 = 0;
     }

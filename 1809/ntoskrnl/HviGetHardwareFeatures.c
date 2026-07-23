@@ -1,16 +1,16 @@
 /*
- * XREFs of HviGetHardwareFeatures @ 0x140322350
+ * XREFs of HviGetHardwareFeatures @ 0x140322540
  * Callers:
- *     HvlSvmGetSystemCapabilities @ 0x140275E40 (HvlSvmGetSystemCapabilities.c)
- *     HvlpDetermineEnlightenments @ 0x140278CB4 (HvlpDetermineEnlightenments.c)
- *     HvipApertureDetectParameters @ 0x1402FC804 (HvipApertureDetectParameters.c)
- *     HviIsIommuInUse @ 0x1403224B0 (HviIsIommuInUse.c)
- *     HvlQueryDetailInfo @ 0x140817518 (HvlQueryDetailInfo.c)
- *     HvlQueryVsmProtectionInfo @ 0x140817634 (HvlQueryVsmProtectionInfo.c)
- *     EtwpTraceSystemInitialization @ 0x1409D1A58 (EtwpTraceSystemInitialization.c)
+ *     HvlSvmGetSystemCapabilities @ 0x140276030 (HvlSvmGetSystemCapabilities.c)
+ *     HvlpDetermineEnlightenments @ 0x140278EA4 (HvlpDetermineEnlightenments.c)
+ *     HvipApertureDetectParameters @ 0x1402FC9F4 (HvipApertureDetectParameters.c)
+ *     HviIsIommuInUse @ 0x1403226A0 (HviIsIommuInUse.c)
+ *     HvlQueryDetailInfo @ 0x140818718 (HvlQueryDetailInfo.c)
+ *     HvlQueryVsmProtectionInfo @ 0x140818834 (HvlQueryVsmProtectionInfo.c)
+ *     EtwpTraceSystemInitialization @ 0x1409D2A58 (EtwpTraceSystemInitialization.c)
  * Callees:
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     HviGetHypervisorVendorAndMaxFunction @ 0x1403223C0 (HviGetHypervisorVendorAndMaxFunction.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     HviGetHypervisorVendorAndMaxFunction @ 0x1403225B0 (HviGetHypervisorVendorAndMaxFunction.c)
  */
 
 __int64 __fastcall HviGetHardwareFeatures(__int64 a1, __int64 a2, __int64 a3, __int64 a4)

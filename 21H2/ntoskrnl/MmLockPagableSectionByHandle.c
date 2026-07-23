@@ -1,18 +1,18 @@
 /*
- * XREFs of MmLockPagableSectionByHandle @ 0x1406EF0C0
+ * XREFs of MmLockPagableSectionByHandle @ 0x1407064A0
  * Callers:
- *     PoRunDownDeviceObject @ 0x140360EE8 (PoRunDownDeviceObject.c)
- *     HalpPowerStateCallback @ 0x1403A6EF0 (HalpPowerStateCallback.c)
- *     HalStartDynamicProcessor @ 0x1404BC2E0 (HalStartDynamicProcessor.c)
- *     PopTransitionSystemPowerStateEx @ 0x1409910F4 (PopTransitionSystemPowerStateEx.c)
- *     MmDuplicateMemory @ 0x14099525C (MmDuplicateMemory.c)
- *     IoUnregisterShutdownNotification @ 0x1409AB010 (IoUnregisterShutdownNotification.c)
- *     MiShutdownSystem @ 0x1409AFDB8 (MiShutdownSystem.c)
- *     ExQuerySystemLockInformation @ 0x1409B2C64 (ExQuerySystemLockInformation.c)
- *     ExpSystemErrorHandler2 @ 0x1409B3000 (ExpSystemErrorHandler2.c)
- *     KiInitializeMTRR @ 0x140A4CEC4 (KiInitializeMTRR.c)
+ *     PoRunDownDeviceObject @ 0x1402A5F48 (PoRunDownDeviceObject.c)
+ *     HalpPowerStateCallback @ 0x1403A7040 (HalpPowerStateCallback.c)
+ *     HalStartDynamicProcessor @ 0x1404BC520 (HalStartDynamicProcessor.c)
+ *     PopTransitionSystemPowerStateEx @ 0x1409920F4 (PopTransitionSystemPowerStateEx.c)
+ *     MmDuplicateMemory @ 0x14099625C (MmDuplicateMemory.c)
+ *     IoUnregisterShutdownNotification @ 0x1409ABF40 (IoUnregisterShutdownNotification.c)
+ *     MiShutdownSystem @ 0x1409B0CE8 (MiShutdownSystem.c)
+ *     ExQuerySystemLockInformation @ 0x1409B3B94 (ExQuerySystemLockInformation.c)
+ *     ExpSystemErrorHandler2 @ 0x1409B3F30 (ExpSystemErrorHandler2.c)
+ *     KiInitializeMTRR @ 0x140A4DEC4 (KiInitializeMTRR.c)
  * Callees:
- *     MiLockPagableImageSection @ 0x14031C4F0 (MiLockPagableImageSection.c)
+ *     MiLockPagableImageSection @ 0x140327240 (MiLockPagableImageSection.c)
  */
 
 void __stdcall MmLockPagableSectionByHandle(PVOID ImageSectionHandle)

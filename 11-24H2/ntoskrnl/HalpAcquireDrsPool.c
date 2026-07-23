@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpAcquireDrsPool @ 0x1405550F8
+ * XREFs of HalpAcquireDrsPool @ 0x140552A38
  * Callers:
- *     HalpMemoryErrorDeferredRecovery @ 0x1405554D8 (HalpMemoryErrorDeferredRecovery.c)
- *     HalpPmemErrorDeferredRecovery @ 0x1405556E4 (HalpPmemErrorDeferredRecovery.c)
+ *     HalpMemoryErrorDeferredRecovery @ 0x140552E18 (HalpMemoryErrorDeferredRecovery.c)
+ *     HalpPmemErrorDeferredRecovery @ 0x140553024 (HalpPmemErrorDeferredRecovery.c)
  * Callees:
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 __int64 HalpAcquireDrsPool()
@@ -25,7 +25,7 @@ __int64 HalpAcquireDrsPool()
   }
   else
   {
-    result = ExAllocatePool2(0x100uLL);
+    result = ExAllocatePool2(0x100uLL, 0x1858uLL, 0x61656857u);
     v1 = (volatile signed __int32 *)result;
     if ( !result )
       return result;

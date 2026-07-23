@@ -1,10 +1,10 @@
 /*
- * XREFs of AccelpCpuInternalOperationHandler @ 0x1406E07A8
+ * XREFs of AccelpCpuInternalOperationHandler @ 0x1406E4A28
  * Callers:
- *     AccelpInternalOperationHandler @ 0x140531E58 (AccelpInternalOperationHandler.c)
+ *     AccelpInternalOperationHandler @ 0x1405342F8 (AccelpInternalOperationHandler.c)
  * Callees:
- *     AccelpWaitForCompletionBusySpin @ 0x140524954 (AccelpWaitForCompletionBusySpin.c)
- *     AccelpSubmitWorkToCpu @ 0x1406E0964 (AccelpSubmitWorkToCpu.c)
+ *     AccelpWaitForCompletionBusySpin @ 0x140526FC4 (AccelpWaitForCompletionBusySpin.c)
+ *     AccelpSubmitWorkToCpu @ 0x1406E4BE4 (AccelpSubmitWorkToCpu.c)
  */
 
 __int64 __fastcall AccelpCpuInternalOperationHandler(__int64 a1, _DWORD *a2)

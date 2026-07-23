@@ -1,23 +1,23 @@
 /*
- * XREFs of MmGetSectionInformation @ 0x1408E5780
+ * XREFs of MmGetSectionInformation @ 0x1408EBD40
  * Callers:
- *     PspLocateSystemDll @ 0x1407EE38C (PspLocateSystemDll.c)
- *     AlpcpMapLegacyPortView @ 0x1408E53FC (AlpcpMapLegacyPortView.c)
- *     NtQuerySection @ 0x1408E55F0 (NtQuerySection.c)
- *     DbgkpSendErrorMessage @ 0x140954DF4 (DbgkpSendErrorMessage.c)
- *     PspAllocateProcess @ 0x140964C24 (PspAllocateProcess.c)
- *     NtQueryInformationProcess @ 0x140A4A1F0 (NtQueryInformationProcess.c)
+ *     PspLocateSystemDll @ 0x1407F3EEC (PspLocateSystemDll.c)
+ *     AlpcpMapLegacyPortView @ 0x1408EB9BC (AlpcpMapLegacyPortView.c)
+ *     NtQuerySection @ 0x1408EBBB0 (NtQuerySection.c)
+ *     NtQueryInformationProcess @ 0x140A534E0 (NtQueryInformationProcess.c)
+ *     DbgkpSendErrorMessage @ 0x140B5CE74 (DbgkpSendErrorMessage.c)
+ *     PspAllocateProcess @ 0x140B7E8A8 (PspAllocateProcess.c)
  * Callees:
- *     MiSectionControlArea @ 0x14038A9B0 (MiSectionControlArea.c)
- *     MmIsUserAddress @ 0x14044E7C0 (MmIsUserAddress.c)
- *     MiAweControlArea @ 0x14048FC84 (MiAweControlArea.c)
- *     MiGetControlAreaLoadConfig @ 0x140495994 (MiGetControlAreaLoadConfig.c)
- *     MiModeCopyExceptionFilterEx @ 0x1404E5578 (MiModeCopyExceptionFilterEx.c)
- *     RtlCopyVolatileMemory @ 0x140733080 (RtlCopyVolatileMemory.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     RtlCopyToUser @ 0x14077F284 (RtlCopyToUser.c)
- *     RtlWriteULong64ToUser @ 0x14077F758 (RtlWriteULong64ToUser.c)
- *     MiRelocateAmount @ 0x140B26E3C (MiRelocateAmount.c)
+ *     MiSectionControlArea @ 0x14038C760 (MiSectionControlArea.c)
+ *     MmIsUserAddress @ 0x1404468F0 (MmIsUserAddress.c)
+ *     MiAweControlArea @ 0x140489730 (MiAweControlArea.c)
+ *     MiGetControlAreaLoadConfig @ 0x14048F4E4 (MiGetControlAreaLoadConfig.c)
+ *     MiModeCopyExceptionFilterEx @ 0x1404DEB18 (MiModeCopyExceptionFilterEx.c)
+ *     RtlCopyVolatileMemory @ 0x140737C50 (RtlCopyVolatileMemory.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     RtlCopyToUser @ 0x140781D84 (RtlCopyToUser.c)
+ *     RtlWriteULong64ToUser @ 0x140782258 (RtlWriteULong64ToUser.c)
+ *     MiRelocateAmount @ 0x140B2909C (MiRelocateAmount.c)
  */
 
 __int64 __fastcall MmGetSectionInformation(__int64 a1, int a2, __int64 *a3)
@@ -103,7 +103,7 @@ __int64 __fastcall MmGetSectionInformation(__int64 a1, int a2, __int64 *a3)
       if ( a2 == 2 )
       {
         if ( (*(_DWORD *)(v6 + 56) & 0x8000) != 0 && (*(_DWORD *)(v6 + 56) & 0x20) != 0 )
-          v27 += stru_140E2D150.Padding[3] - *(_QWORD *)(v9 + 32);
+          v27 += stru_140E2D2D0.Padding[3] - *(_QWORD *)(v9 + 32);
         if ( IsUserAddress )
           RtlWriteULong64ToUser(a3, v27);
         else
@@ -125,7 +125,7 @@ __int64 __fastcall MmGetSectionInformation(__int64 a1, int a2, __int64 *a3)
     v31 = v11[2];
     v32 = v11[3];
     if ( (*(_DWORD *)(v6 + 56) & 0x8000) != 0 && (*(_DWORD *)(v6 + 56) & 0x20) != 0 )
-      *(_QWORD *)&Src = stru_140E2D150.Padding[3] | (unsigned __int16)Src;
+      *(_QWORD *)&Src = stru_140E2D2D0.Padding[3] | (unsigned __int16)Src;
     if ( a2 != 1 )
     {
       ControlAreaLoadConfig = (int *)MiGetControlAreaLoadConfig(v6);

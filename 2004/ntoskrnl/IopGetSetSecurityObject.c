@@ -33,7 +33,7 @@
 __int64 __fastcall IopGetSetSecurityObject(
         _QWORD *Object,
         int a2,
-        ULONG *a3,
+        DWORD *a3,
         char *a4,
         PULONG Length,
         int a6,
@@ -64,7 +64,7 @@ __int64 __fastcall IopGetSetSecurityObject(
   struct _KTHREAD *v33; // rdi
   PSECURITY_DESCRIPTOR SecurityDescriptor; // rbx
   ULONG *v35; // r8
-  ULONG *v36; // rcx
+  DWORD *v36; // rcx
   _DWORD *DevicePDO; // rax
   struct _KTHREAD *v38; // rdi
   PSECURITY_DESCRIPTOR ObjectsSecurityDescriptor; // [rsp+38h] [rbp-60h] BYREF
@@ -73,7 +73,7 @@ __int64 __fastcall IopGetSetSecurityObject(
   struct _KEVENT Event; // [rsp+58h] [rbp-40h] BYREF
   __int64 retaddr; // [rsp+98h] [rbp+0h]
   __int64 v44; // [rsp+A0h] [rbp+8h] BYREF
-  ULONG *v45; // [rsp+B0h] [rbp+18h]
+  DWORD *v45; // [rsp+B0h] [rbp+18h]
 
   v45 = a3;
   v40 = 0LL;
@@ -149,7 +149,7 @@ __int64 __fastcall IopGetSetSecurityObject(
     v17 = (v16 & 4) != 0;
     v18 = KeGetCurrentThread();
     --v18->KernelApcDisable;
-    v19 = KeAbPreAcquire((ULONG_PTR)(v13 + 16), 0LL, 0LL);
+    v19 = KeAbPreAcquire((ULONG_PTR)(v13 + 16), 0LL, 0);
     LOBYTE(v44) = 0;
     if ( _InterlockedExchange((volatile __int32 *)v13 + 29, 1) )
     {

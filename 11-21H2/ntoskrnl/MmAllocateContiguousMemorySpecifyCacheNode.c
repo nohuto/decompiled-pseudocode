@@ -2,8 +2,8 @@
  * XREFs of MmAllocateContiguousMemorySpecifyCacheNode @ 0x1403DE8E0
  * Callers:
  *     MmAllocateContiguousMemorySpecifyCache @ 0x1403DE8B0 (MmAllocateContiguousMemorySpecifyCache.c)
- *     ExtEnvAllocatePhysicalMemory @ 0x140522410 (ExtEnvAllocatePhysicalMemory.c)
- *     DifMmAllocateContiguousMemorySpecifyCacheWrapper @ 0x140616630 (DifMmAllocateContiguousMemorySpecifyCacheWrapper.c)
+ *     sub_140522410 @ 0x140522410 (sub_140522410.c)
+ *     sub_140616630 @ 0x140616630 (sub_140616630.c)
  * Callees:
  *     MmAllocateContiguousNodeMemory @ 0x140214190 (MmAllocateContiguousNodeMemory.c)
  */

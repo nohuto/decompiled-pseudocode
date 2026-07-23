@@ -4,7 +4,7 @@
  *     EtwpProviderArrivalCallback @ 0x18010FE08 (EtwpProviderArrivalCallback.c)
  * Callees:
  *     RtlAllocateHeap @ 0x18000F2A0 (RtlAllocateHeap.c)
- *     RtlCompareMemory @ 0x1800A4A60 (RtlCompareMemory.c)
+ *     RtlCompareMemory @ 0x1800A4A80 (RtlCompareMemory.c)
  *     memmove @ 0x1800A6DC0 (memmove.c)
  */
 
@@ -15,15 +15,15 @@ __int64 __fastcall EtwpTrackBinaryForSession(__int64 a1, const void **a2, _QWORD
   __int64 *v5; // rbx
   unsigned int v6; // edi
   SIZE_T v10; // rcx
-  __int64 v11; // rbx
-  __int64 v12; // r14
-  __int64 v13; // rax
+  _DWORD *v11; // rbx
+  char *v12; // r14
+  _OWORD *v13; // rax
   __int64 v14; // rcx
   __int64 v15; // rax
-  __int64 *v17; // rsi
-  __int64 *i; // rax
+  _QWORD *v17; // rsi
+  _QWORD *i; // rax
   __int64 v19; // rcx
-  __int64 Heap; // rax
+  _OWORD *Heap; // rax
   __int64 v21; // rcx
 
   v3 = *(unsigned __int16 *)a2;
@@ -40,7 +40,7 @@ __int64 __fastcall EtwpTrackBinaryForSession(__int64 a1, const void **a2, _QWORD
         if ( RtlCompareMemory((char *)v5 + 44, a2[1], v3) == v3 )
         {
           v17 = v5 + 3;
-          for ( i = (__int64 *)v5[3]; i != v17; i = (__int64 *)*i )
+          for ( i = (_QWORD *)v5[3]; i != v17; i = (_QWORD *)*i )
           {
             v19 = *a3 - i[2];
             if ( *a3 == i[2] )
@@ -48,15 +48,15 @@ __int64 __fastcall EtwpTrackBinaryForSession(__int64 a1, const void **a2, _QWORD
             if ( !v19 )
               return v6;
           }
-          Heap = RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 8u, 32LL);
+          Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, 0x20uLL);
           if ( !Heap )
             return 14;
-          *(_OWORD *)(Heap + 16) = *(_OWORD *)a3;
+          Heap[1] = *(_OWORD *)a3;
           v21 = *v17;
-          if ( *(__int64 **)(*v17 + 8) == v17 )
+          if ( *(_QWORD **)(*v17 + 8LL) == v17 )
           {
             *(_QWORD *)Heap = v21;
-            *(_QWORD *)(Heap + 8) = v17;
+            *((_QWORD *)Heap + 1) = v17;
             *(_QWORD *)(v21 + 8) = Heap;
             *v17 = Heap;
             ++*((_DWORD *)v5 + 4);
@@ -71,36 +71,36 @@ LABEL_24:
     }
     while ( v5 != v4 );
   }
-  v11 = RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 8u, (unsigned int)(v3 + 46));
+  v11 = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, (unsigned int)(v3 + 46));
   if ( !v11 )
     return 14;
-  *(_DWORD *)(v11 + 40) = v3 + 2;
-  memmove((void *)(v11 + 44), a2[1], v3);
-  v12 = v11 + 24;
-  *(_WORD *)(v3 + v11 + 44) = 0;
-  *(_QWORD *)(v11 + 32) = v11 + 24;
-  *(_QWORD *)(v11 + 24) = v11 + 24;
-  *(_DWORD *)(v11 + 16) = 0;
-  v13 = RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 8u, 32LL);
+  v11[10] = v3 + 2;
+  memmove(v11 + 11, a2[1], v3);
+  v12 = (char *)(v11 + 6);
+  *(_WORD *)((char *)v11 + v3 + 44) = 0;
+  *((_QWORD *)v11 + 4) = v11 + 6;
+  *((_QWORD *)v11 + 3) = v11 + 6;
+  v11[4] = 0;
+  v13 = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, 0x20uLL);
   if ( !v13 )
     return 14;
-  *(_OWORD *)(v13 + 16) = *(_OWORD *)a3;
+  v13[1] = *(_OWORD *)a3;
   v14 = *(_QWORD *)v12;
-  if ( *(_QWORD *)(*(_QWORD *)v12 + 8LL) != v12 )
+  if ( *(char **)(*(_QWORD *)v12 + 8LL) != v12 )
     goto LABEL_24;
   *(_QWORD *)v13 = v14;
-  *(_QWORD *)(v13 + 8) = v12;
+  *((_QWORD *)v13 + 1) = v12;
   *(_QWORD *)(v14 + 8) = v13;
   *(_QWORD *)v12 = v13;
-  *(_DWORD *)(v11 + 16) = 1;
+  v11[4] = 1;
   *(_DWORD *)(a1 + 332) |= 0x10u;
   v15 = *v4;
   if ( *(__int64 **)(*v4 + 8) != v4 )
     goto LABEL_24;
   *(_QWORD *)v11 = v15;
-  *(_QWORD *)(v11 + 8) = v4;
+  *((_QWORD *)v11 + 1) = v4;
   *(_QWORD *)(v15 + 8) = v11;
-  *v4 = v11;
+  *v4 = (__int64)v11;
 LABEL_12:
   *(_DWORD *)(a1 + 332) |= 0x10u;
   return v6;

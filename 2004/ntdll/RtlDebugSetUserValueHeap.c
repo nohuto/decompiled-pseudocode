@@ -14,37 +14,35 @@
  *     RtlpHeapExceptionFilter @ 0x18010DCF4 (RtlpHeapExceptionFilter.c)
  */
 
-char __fastcall RtlDebugSetUserValueHeap(unsigned __int64 a1, int a2, __int64 a3, __int64 a4)
+BOOLEAN __fastcall RtlDebugSetUserValueHeap(PRTL_CRITICAL_SECTION *HeapHandle, int a2, char *a3, void *a4)
 {
-  char v8; // si
+  BOOLEAN v8; // si
   char v9; // r14
-  __int64 v11; // rdx
-  __int64 v12; // r8
-  unsigned int v13; // edi
-  unsigned __int64 v14; // rdx
+  ULONG v11; // edi
+  unsigned __int64 v12; // rdx
 
   v8 = 0;
   v9 = 0;
-  if ( (*(_DWORD *)(a1 + 116) & 0x1000000) != 0 )
+  if ( (*((_DWORD *)HeapHandle + 29) & 0x1000000) != 0 )
     return ((__int64 (*)(void))qword_180164A30)();
-  if ( RtlpCheckHeapSignature((_DWORD *)a1, "RtlSetUserValueHeap") )
+  if ( RtlpCheckHeapSignature(HeapHandle, "RtlSetUserValueHeap") )
   {
-    v13 = *(_DWORD *)(a1 + 116) | 0x10000000 | a2;
-    if ( (v13 & 1) == 0 )
+    v11 = *((_DWORD *)HeapHandle + 29) | 0x10000000 | a2;
+    if ( (v11 & 1) == 0 )
     {
-      RtlEnterCriticalSection(*(_QWORD *)(a1 + 352));
+      RtlEnterCriticalSection(HeapHandle[44]);
       v9 = 1;
-      v13 |= 1u;
+      v11 |= 1u;
     }
-    RtlpValidateHeap(a1, 0LL);
-    v14 = a3 - 16;
-    _m_prefetchw((const void *)(a3 - 16));
-    if ( *(_BYTE *)(a3 - 16 + 15) == 5 )
-      v14 -= 16LL * *(unsigned __int8 *)(v14 + 14);
-    if ( RtlpValidateHeapEntry(a1, v14, "RtlSetUserValueHeap") )
+    RtlpValidateHeap((_DWORD)HeapHandle);
+    v12 = (unsigned __int64)(a3 - 16);
+    _m_prefetchw(a3 - 16);
+    if ( *(a3 - 1) == 5 )
+      v12 -= 16LL * *(unsigned __int8 *)(v12 + 14);
+    if ( RtlpValidateHeapEntry((unsigned __int64)HeapHandle, v12, "RtlSetUserValueHeap") )
     {
-      v8 = RtlSetUserValueHeap(a1, v13, a3, a4);
-      RtlpValidateHeap(a1, 0LL);
+      v8 = RtlSetUserValueHeap(HeapHandle, v11, a3, a4);
+      RtlpValidateHeap((_DWORD)HeapHandle);
     }
   }
   else
@@ -52,6 +50,6 @@ char __fastcall RtlDebugSetUserValueHeap(unsigned __int64 a1, int a2, __int64 a3
     v8 = 0;
   }
   if ( v9 )
-    RtlLeaveCriticalSection(*(_QWORD *)(a1 + 352), v11, v12);
+    RtlLeaveCriticalSection(HeapHandle[44]);
   return v8;
 }

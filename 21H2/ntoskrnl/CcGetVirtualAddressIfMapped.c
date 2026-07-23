@@ -1,12 +1,12 @@
 /*
- * XREFs of CcGetVirtualAddressIfMapped @ 0x14030F444
+ * XREFs of CcGetVirtualAddressIfMapped @ 0x14031A194
  * Callers:
- *     CcFlushCachePriv @ 0x14022CBA0 (CcFlushCachePriv.c)
+ *     CcFlushCachePriv @ 0x1402D13F0 (CcFlushCachePriv.c)
  * Callees:
- *     CcGetVacbLargeOffset @ 0x1402AE538 (CcGetVacbLargeOffset.c)
- *     CcIncrementVacbActiveCount @ 0x140310D64 (CcIncrementVacbActiveCount.c)
- *     ExAcquirePushLockSharedEx @ 0x14034AB50 (ExAcquirePushLockSharedEx.c)
- *     ExReleasePushLockEx @ 0x14034AE90 (ExReleasePushLockEx.c)
+ *     CcGetVacbLargeOffset @ 0x14022C898 (CcGetVacbLargeOffset.c)
+ *     CcIncrementVacbActiveCount @ 0x14031BAB4 (CcIncrementVacbActiveCount.c)
+ *     ExAcquirePushLockSharedEx @ 0x1403558A0 (ExAcquirePushLockSharedEx.c)
+ *     ExReleasePushLockEx @ 0x140355BE0 (ExReleasePushLockEx.c)
  */
 
 __int64 __fastcall CcGetVirtualAddressIfMapped(__int64 a1, __int64 a2, __int64 *a3, _DWORD *a4)

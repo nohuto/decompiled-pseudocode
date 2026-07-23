@@ -1,25 +1,25 @@
 /*
- * XREFs of PiDqObjectManagerServiceActionQueue @ 0x140786490
+ * XREFs of PiDqObjectManagerServiceActionQueue @ 0x140786680
  * Callers:
  *     <none>
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExAcquireFastMutex @ 0x140230720 (ExAcquireFastMutex.c)
- *     ExReleaseFastMutex @ 0x140230860 (ExReleaseFastMutex.c)
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     ExReleasePushLockEx @ 0x140231190 (ExReleasePushLockEx.c)
- *     ExAcquireResourceExclusiveLite @ 0x1402390E0 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x14023D410 (ExReleaseResourceLite.c)
- *     IoSetActivityIdThread @ 0x14031E670 (IoSetActivityIdThread.c)
- *     IoClearActivityIdThread @ 0x14031E690 (IoClearActivityIdThread.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     McTemplateK0p_EtwWriteTransfer @ 0x140561100 (McTemplateK0p_EtwWriteTransfer.c)
- *     PnpIsNullGuid @ 0x140786834 (PnpIsNullGuid.c)
- *     PiDqQueryApplyObjectEvent @ 0x140786C94 (PiDqQueryApplyObjectEvent.c)
- *     PiDqQueryRelease @ 0x14078722C (PiDqQueryRelease.c)
- *     PiPnpRtlObjectEventRelease @ 0x140788948 (PiPnpRtlObjectEventRelease.c)
- *     PiDqQueryFreeActiveData @ 0x1407DFD48 (PiDqQueryFreeActiveData.c)
- *     PiDqQueryCompletePendedIrp @ 0x1407FC260 (PiDqQueryCompletePendedIrp.c)
+ *     KeLeaveCriticalRegionThread @ 0x14022F7F0 (KeLeaveCriticalRegionThread.c)
+ *     ExAcquireFastMutex @ 0x140230810 (ExAcquireFastMutex.c)
+ *     ExReleaseFastMutex @ 0x140230950 (ExReleaseFastMutex.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140231120 (ExAcquirePushLockExclusiveEx.c)
+ *     ExReleasePushLockEx @ 0x140231280 (ExReleasePushLockEx.c)
+ *     ExAcquireResourceExclusiveLite @ 0x1402391B0 (ExAcquireResourceExclusiveLite.c)
+ *     ExReleaseResourceLite @ 0x14023D4E0 (ExReleaseResourceLite.c)
+ *     IoSetActivityIdThread @ 0x14031E900 (IoSetActivityIdThread.c)
+ *     IoClearActivityIdThread @ 0x14031E920 (IoClearActivityIdThread.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     McTemplateK0p_EtwWriteTransfer @ 0x1405617C0 (McTemplateK0p_EtwWriteTransfer.c)
+ *     PnpIsNullGuid @ 0x140786A24 (PnpIsNullGuid.c)
+ *     PiDqQueryApplyObjectEvent @ 0x140786E84 (PiDqQueryApplyObjectEvent.c)
+ *     PiDqQueryRelease @ 0x14078741C (PiDqQueryRelease.c)
+ *     PiPnpRtlObjectEventRelease @ 0x140788B38 (PiPnpRtlObjectEventRelease.c)
+ *     PiDqQueryFreeActiveData @ 0x1407E0018 (PiDqQueryFreeActiveData.c)
+ *     PiDqQueryCompletePendedIrp @ 0x1407FC530 (PiDqQueryCompletePendedIrp.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

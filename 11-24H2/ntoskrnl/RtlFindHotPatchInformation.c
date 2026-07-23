@@ -1,28 +1,28 @@
 /*
- * XREFs of RtlFindHotPatchInformation @ 0x14082F0C4
+ * XREFs of RtlFindHotPatchInformation @ 0x14082F8F4
  * Callers:
- *     MiApplyDriverHotPatch @ 0x1407F0C5C (MiApplyDriverHotPatch.c)
- *     MiCaptureHotPatchInfo @ 0x1407F2308 (MiCaptureHotPatchInfo.c)
- *     MiOpenHotPatchFile @ 0x140A9FE3C (MiOpenHotPatchFile.c)
+ *     MiApplyDriverHotPatch @ 0x1407F122C (MiApplyDriverHotPatch.c)
+ *     MiCaptureHotPatchInfo @ 0x1407F28D8 (MiCaptureHotPatchInfo.c)
+ *     MiOpenHotPatchFile @ 0x140A9B20C (MiOpenHotPatchFile.c)
  * Callees:
- *     RtlImageNtHeaderEx @ 0x14041E7E0 (RtlImageNtHeaderEx.c)
- *     RtlImageDirectoryEntryToData @ 0x14042CAF0 (RtlImageDirectoryEntryToData.c)
- *     RtlFindHotPatchBase @ 0x14082F024 (RtlFindHotPatchBase.c)
- *     RtlGetHotPatchBaseMachine @ 0x14082F308 (RtlGetHotPatchBaseMachine.c)
+ *     RtlImageDirectoryEntryToData @ 0x1402EEB70 (RtlImageDirectoryEntryToData.c)
+ *     RtlImageNtHeaderEx @ 0x140414520 (RtlImageNtHeaderEx.c)
+ *     RtlFindHotPatchBase @ 0x14082F854 (RtlFindHotPatchBase.c)
+ *     RtlGetHotPatchBaseMachine @ 0x14082FB38 (RtlGetHotPatchBaseMachine.c)
  */
 
-__int64 __fastcall RtlFindHotPatchInformation(unsigned __int64 a1, int *a2)
+__int64 __fastcall RtlFindHotPatchInformation(char *BaseOfImage, int *a2)
 {
   int v4; // ebx
-  unsigned int *v5; // rbp
-  unsigned int *v6; // rsi
-  __int64 v7; // r15
-  __int16 v8; // di
-  unsigned int *v9; // rcx
-  unsigned int v10; // eax
+  ULONG *v5; // rbp
+  ULONG *v6; // rsi
+  PIMAGE_NT_HEADERS v7; // r15
+  unsigned __int16 Machine; // di
+  ULONG *v9; // rcx
+  ULONG v10; // eax
   bool v11; // cf
   char *v12; // rdx
-  __int64 v13; // r9
+  __int64 SizeOfImage; // r9
   unsigned int v14; // r8d
   unsigned int *v15; // r10
   unsigned int v16; // eax
@@ -33,39 +33,39 @@ __int64 __fastcall RtlFindHotPatchInformation(unsigned __int64 a1, int *a2)
   __int16 HotPatchBaseMachine; // ax
   __int64 v22; // r10
   int v23; // r11d
-  unsigned int v25; // [rsp+70h] [rbp+18h] BYREF
-  __int64 v26; // [rsp+78h] [rbp+20h] BYREF
+  ULONG Size; // [rsp+70h] [rbp+18h] BYREF
+  PIMAGE_NT_HEADERS v26; // [rsp+78h] [rbp+20h] BYREF
 
-  v25 = 0;
+  Size = 0;
   v26 = 0LL;
   v4 = 1;
   v5 = 0LL;
   v6 = 0LL;
-  RtlImageNtHeaderEx(1, a1, 0LL, &v26);
+  RtlImageNtHeaderEx(1u, BaseOfImage, 0LL, &v26);
   v7 = v26;
-  v8 = *(_WORD *)(v26 + 4);
-  v9 = (unsigned int *)RtlImageDirectoryEntryToData(a1, 1, 0xAu, &v25);
+  Machine = v26->FileHeader.Machine;
+  v9 = (ULONG *)RtlImageDirectoryEntryToData(BaseOfImage, 1u, 0xAu, &Size);
   if ( !v9 )
     return 0LL;
-  if ( v8 == -31132 || v8 == -21916 )
+  if ( Machine == 0x8664 || Machine == 0xAA64 )
   {
-    v10 = v25;
-    if ( v25 <= 4 )
+    v10 = Size;
+    if ( Size <= 4 )
       return 0LL;
     v6 = v9;
-    if ( v25 != *v9 )
+    if ( Size != *v9 )
       return 0LL;
-    v11 = v25 < 0xF4;
+    v11 = Size < 0xF4;
   }
   else
   {
-    if ( v8 != 332 )
+    if ( Machine != 332 )
       return 0LL;
-    v10 = v25;
-    if ( v25 <= 4 )
+    v10 = Size;
+    if ( Size <= 4 )
       return 0LL;
     v5 = v9;
-    if ( v25 == 64 )
+    if ( Size == 64 )
       v10 = *v9;
     if ( v10 != *v9 )
       return 0LL;
@@ -76,13 +76,13 @@ __int64 __fastcall RtlFindHotPatchInformation(unsigned __int64 a1, int *a2)
   v12 = (char *)v9 + v10;
   if ( v12 < (char *)v9 )
     return 0LL;
-  v13 = *(unsigned int *)(v7 + 80);
-  if ( (unsigned __int64)v9 >= a1 + v13 || (unsigned __int64)v12 > a1 + v13 )
+  SizeOfImage = v7->OptionalHeader.SizeOfImage;
+  if ( v9 >= (ULONG *)&BaseOfImage[SizeOfImage] || v12 > &BaseOfImage[SizeOfImage] )
     return 0LL;
-  v14 = v8 == -31132 || v8 == -21916 ? v6[60] : v5[37];
-  if ( v14 >= 0xFFFFFFF8 || v14 == 0 || v14 + 8 > (unsigned int)v13 )
+  v14 = Machine == 0x8664 || Machine == 0xAA64 ? v6[60] : v5[37];
+  if ( v14 >= 0xFFFFFFF8 || v14 == 0 || v14 + 8 > (unsigned int)SizeOfImage )
     return 0LL;
-  v15 = (unsigned int *)(a1 + v14);
+  v15 = (unsigned int *)&BaseOfImage[v14];
   switch ( *v15 )
   {
     case 1u:
@@ -107,7 +107,7 @@ __int64 __fastcall RtlFindHotPatchInformation(unsigned __int64 a1, int *a2)
     return 0LL;
   if ( v17 + v14 <= v17 )
     return 0LL;
-  if ( v17 + v14 > (unsigned int)v13 )
+  if ( v17 + v14 > (unsigned int)SizeOfImage )
     return 0LL;
   v18 = v15[4];
   if ( v18 > 0x3FFFFFF7 )
@@ -123,14 +123,14 @@ __int64 __fastcall RtlFindHotPatchInformation(unsigned __int64 a1, int *a2)
   HotPatchBaseMachine = RtlGetHotPatchBaseMachine(HotPatchBase);
   if ( HotPatchBaseMachine )
   {
-    if ( HotPatchBaseMachine != v8 )
+    if ( HotPatchBaseMachine != Machine )
       return 0LL;
   }
-  if ( v8 == -31132 )
+  if ( Machine == 0x8664 )
   {
     v4 = 2;
   }
-  else if ( v8 == -21916 )
+  else if ( Machine == 0xAA64 )
   {
     v4 = v23;
   }

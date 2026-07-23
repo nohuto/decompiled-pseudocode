@@ -1,23 +1,23 @@
 /*
- * XREFs of BapdpProcessVsmKeyBlobs @ 0x140A4140C
+ * XREFs of BapdpProcessVsmKeyBlobs @ 0x140A4240C
  * Callers:
- *     BootApplicationPersistentDataProcess @ 0x140A4117C (BootApplicationPersistentDataProcess.c)
+ *     BootApplicationPersistentDataProcess @ 0x140A4217C (BootApplicationPersistentDataProcess.c)
  * Callees:
- *     RtlInitUnicodeStringEx @ 0x140265AF0 (RtlInitUnicodeStringEx.c)
- *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
- *     RtlStringCchCatW @ 0x140371960 (RtlStringCchCatW.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     ZwWriteFile @ 0x1403FA4A0 (ZwWriteFile.c)
- *     ZwClose @ 0x1403FA580 (ZwClose.c)
- *     ZwQueryValueKey @ 0x1403FA680 (ZwQueryValueKey.c)
- *     ZwCreateFile @ 0x1403FAE40 (ZwCreateFile.c)
- *     ZwSetValueKey @ 0x1403FAFA0 (ZwSetValueKey.c)
- *     ZwDeleteValueKey @ 0x1403FBE80 (ZwDeleteValueKey.c)
- *     RtlIsStateSeparationEnabled @ 0x1406B7BC0 (RtlIsStateSeparationEnabled.c)
- *     BapdGetISRegistryKey @ 0x14099B000 (BapdGetISRegistryKey.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
- *     BapdpQueryData @ 0x140A41734 (BapdpQueryData.c)
+ *     RtlInitUnicodeStringEx @ 0x140253A90 (RtlInitUnicodeStringEx.c)
+ *     RtlInitUnicodeString @ 0x14026A4C0 (RtlInitUnicodeString.c)
+ *     RtlStringCchCatW @ 0x1403714B0 (RtlStringCchCatW.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     ZwWriteFile @ 0x1403FA680 (ZwWriteFile.c)
+ *     ZwClose @ 0x1403FA760 (ZwClose.c)
+ *     ZwQueryValueKey @ 0x1403FA860 (ZwQueryValueKey.c)
+ *     ZwCreateFile @ 0x1403FB020 (ZwCreateFile.c)
+ *     ZwSetValueKey @ 0x1403FB180 (ZwSetValueKey.c)
+ *     ZwDeleteValueKey @ 0x1403FC060 (ZwDeleteValueKey.c)
+ *     RtlIsStateSeparationEnabled @ 0x1406170D0 (RtlIsStateSeparationEnabled.c)
+ *     BapdGetISRegistryKey @ 0x14099C000 (BapdGetISRegistryKey.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
+ *     BapdpQueryData @ 0x140A42734 (BapdpQueryData.c)
  */
 
 void __fastcall BapdpProcessVsmKeyBlobs(int a1)
@@ -32,7 +32,7 @@ void __fastcall BapdpProcessVsmKeyBlobs(int a1)
   int Data; // eax
   PVOID v10; // rax
   __int64 v11; // rsi
-  bool IsStateSeparationEnabled; // al
+  BOOLEAN IsStateSeparationEnabled; // al
   __int64 v13; // rdx
   WCHAR *v14; // rcx
   WCHAR v15; // ax

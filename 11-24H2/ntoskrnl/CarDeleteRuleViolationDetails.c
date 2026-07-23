@@ -1,9 +1,9 @@
 /*
- * XREFs of CarDeleteRuleViolationDetails @ 0x140616800
+ * XREFs of CarDeleteRuleViolationDetails @ 0x140614DC0
  * Callers:
- *     CarReportDifPluginRuleViolation @ 0x140617240 (CarReportDifPluginRuleViolation.c)
+ *     CarReportDifPluginRuleViolation @ 0x140615800 (CarReportDifPluginRuleViolation.c)
  * Callees:
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __fastcall CarDeleteRuleViolationDetails(PVOID *a1)

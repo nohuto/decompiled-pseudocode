@@ -1,14 +1,14 @@
 /*
  * XREFs of RtlInitializeHistoryTable @ 0x180079C8C
  * Callers:
- *     LdrpInitializeProcess @ 0x1800D1EC0 (LdrpInitializeProcess.c)
+ *     LdrpInitializeProcess @ 0x1800D1E80 (LdrpInitializeProcess.c)
  * Callees:
  *     LdrProtectMrdata @ 0x180012224 (LdrProtectMrdata.c)
  *     RtlLookupFunctionEntry @ 0x180032BE0 (RtlLookupFunctionEntry.c)
  *     RtlpFunctionAddressTableEntry @ 0x180079D64 (RtlpFunctionAddressTableEntry.c)
  */
 
-__int64 RtlInitializeHistoryTable()
+void RtlInitializeHistoryTable()
 {
   unsigned int i; // ebx
   void (__stdcall *v1)(PEXCEPTION_RECORD); // rax
@@ -51,5 +51,5 @@ __int64 RtlInitializeHistoryTable()
     qword_180181430 = v10;
   }
   RtlpUnwindHistoryTable[0] = i;
-  return LdrProtectMrdata(1);
+  LdrProtectMrdata(1);
 }

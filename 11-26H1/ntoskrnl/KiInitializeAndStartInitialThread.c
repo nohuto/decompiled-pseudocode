@@ -1,11 +1,11 @@
 /*
- * XREFs of KiInitializeAndStartInitialThread @ 0x1405F685C
+ * XREFs of KiInitializeAndStartInitialThread @ 0x1405F921C
  * Callers:
- *     KiInitializeKernel @ 0x140BF6190 (KiInitializeKernel.c)
+ *     KiInitializeKernel @ 0x140BFC190 (KiInitializeKernel.c)
  * Callees:
- *     PsInitializeThreadRngState @ 0x1404936B8 (PsInitializeThreadRngState.c)
- *     KiStartIdleThread @ 0x1405F6B40 (KiStartIdleThread.c)
- *     KeInitThread @ 0x140C07424 (KeInitThread.c)
+ *     PsInitializeThreadRngState @ 0x14048D204 (PsInitializeThreadRngState.c)
+ *     KiStartIdleThread @ 0x1405F9500 (KiStartIdleThread.c)
+ *     KeInitThread @ 0x140C0D634 (KeInitThread.c)
  */
 
 __int64 __fastcall KiInitializeAndStartInitialThread(unsigned __int64 a1, __int64 a2, __int64 a3, __int64 a4)
@@ -22,7 +22,7 @@ __int64 __fastcall KiInitializeAndStartInitialThread(unsigned __int64 a1, __int6
   void *v17; // [rsp+68h] [rbp-18h]
   __int64 v18; // [rsp+70h] [rbp-10h]
 
-  qword_140FCA110 = 1LL;
+  qword_140FCB110 = 1LL;
   v7 = 6;
   if ( (_BYTE)KiKernelCetEnabled )
   {
@@ -37,9 +37,9 @@ __int64 __fastcall KiInitializeAndStartInitialThread(unsigned __int64 a1, __int6
   v11[2] = 0LL;
   v11[3] = 0LL;
   v15 = v7;
-  v13 = &unk_140FC8F40;
+  v13 = &unk_140FC9F40;
   v12 = 0LL;
-  v17 = &unk_140FCA8D8;
+  v17 = &unk_140FCB8D8;
   v11[0] = a2;
   v11[1] = KiIdleLoop;
   v18 = 1104LL;

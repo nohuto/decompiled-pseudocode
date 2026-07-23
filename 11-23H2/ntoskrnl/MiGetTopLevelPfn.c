@@ -2,17 +2,17 @@
  * XREFs of MiGetTopLevelPfn @ 0x140215FA0
  * Callers:
  *     MiCapturePfnVm @ 0x140215CDC (MiCapturePfnVm.c)
- *     MiIdentifyPfn @ 0x14023E4C0 (MiIdentifyPfn.c)
- *     MiGetPagePrivilege @ 0x140282D60 (MiGetPagePrivilege.c)
- *     MiRestoreTransitionPte @ 0x1403351BC (MiRestoreTransitionPte.c)
- *     MiReferenceOwningSession @ 0x14034904C (MiReferenceOwningSession.c)
- *     MiRecheckCombineVm @ 0x14035A564 (MiRecheckCombineVm.c)
- *     MiLockStealUserVm @ 0x1403BDF18 (MiLockStealUserVm.c)
- *     MiStoreCheckCandidatePage @ 0x14046D640 (MiStoreCheckCandidatePage.c)
+ *     MiIdentifyPfn @ 0x14023E590 (MiIdentifyPfn.c)
+ *     MiGetPagePrivilege @ 0x140282FF0 (MiGetPagePrivilege.c)
+ *     MiRestoreTransitionPte @ 0x14033544C (MiRestoreTransitionPte.c)
+ *     MiReferenceOwningSession @ 0x1403492DC (MiReferenceOwningSession.c)
+ *     MiRecheckCombineVm @ 0x14035A704 (MiRecheckCombineVm.c)
+ *     MiLockStealUserVm @ 0x1403BE0F8 (MiLockStealUserVm.c)
+ *     MiStoreCheckCandidatePage @ 0x14046DA40 (MiStoreCheckCandidatePage.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x140242E40 (KeYieldProcessorEx.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
+ *     KeYieldProcessorEx @ 0x140242F10 (KeYieldProcessorEx.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall MiGetTopLevelPfn(ULONG_PTR BugCheckParameter2)

@@ -1,11 +1,11 @@
 /*
- * XREFs of LdrIsResItemExist @ 0x1400FA910
+ * XREFs of LdrIsResItemExist @ 0x1400F869C
  * Callers:
- *     LdrpResSearchResourceMappedFile @ 0x1400F7358 (LdrpResSearchResourceMappedFile.c)
- *     LdrpSearchResourceSection_U @ 0x14051C944 (LdrpSearchResourceSection_U.c)
+ *     LdrpResSearchResourceMappedFile @ 0x1400F5198 (LdrpResSearchResourceMappedFile.c)
+ *     LdrpSearchResourceSection_U @ 0x1404FFD34 (LdrpSearchResourceSection_U.c)
  * Callees:
- *     LdrRscIsTypeExist @ 0x1400FA988 (LdrRscIsTypeExist.c)
- *     LdrpGetRcConfig @ 0x1400FAB68 (LdrpGetRcConfig.c)
+ *     LdrRscIsTypeExist @ 0x1400F8714 (LdrRscIsTypeExist.c)
+ *     LdrpGetRcConfig @ 0x1400F88F4 (LdrpGetRcConfig.c)
  */
 
 __int64 __fastcall LdrIsResItemExist(void *a1, _QWORD *a2)

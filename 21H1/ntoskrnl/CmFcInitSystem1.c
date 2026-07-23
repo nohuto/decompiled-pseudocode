@@ -6,7 +6,7 @@
  *     wil_RegisterFeatureStagingChangeNotification @ 0x1405C6564 (wil_RegisterFeatureStagingChangeNotification.c)
  */
 
-__int64 *CmFcInitSystem1()
+int CmFcInitSystem1()
 {
   return wil_RegisterFeatureStagingChangeNotification();
 }

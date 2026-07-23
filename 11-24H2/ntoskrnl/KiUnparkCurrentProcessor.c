@@ -1,14 +1,14 @@
 /*
- * XREFs of KiUnparkCurrentProcessor @ 0x1403E9EF8
+ * XREFs of KiUnparkCurrentProcessor @ 0x1403D7B98
  * Callers:
- *     KeTransitionProcessorParkState @ 0x1403E9560 (KeTransitionProcessorParkState.c)
+ *     KeTransitionProcessorParkState @ 0x1403D720C (KeTransitionProcessorParkState.c)
  * Callees:
- *     KiAdjustReadyQueueScanOwnerOnParkingChange @ 0x140204120 (KiAdjustReadyQueueScanOwnerOnParkingChange.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14020FA40 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KiSendHeteroRescheduleIntRequest @ 0x140297180 (KiSendHeteroRescheduleIntRequest.c)
- *     KiReleasePrcbLocksForIsolationUnit @ 0x140339330 (KiReleasePrcbLocksForIsolationUnit.c)
- *     KiUpdateThreadPriority @ 0x140429720 (KiUpdateThreadPriority.c)
- *     EtwTraceParkTransition @ 0x14064DC44 (EtwTraceParkTransition.c)
+ *     KiSendHeteroRescheduleIntRequest @ 0x1402A5E60 (KiSendHeteroRescheduleIntRequest.c)
+ *     KiUpdateThreadPriority @ 0x1402E0E50 (KiUpdateThreadPriority.c)
+ *     KiReleasePrcbLocksForIsolationUnit @ 0x140318810 (KiReleasePrcbLocksForIsolationUnit.c)
+ *     KiAdjustReadyQueueScanOwnerOnParkingChange @ 0x14032B704 (KiAdjustReadyQueueScanOwnerOnParkingChange.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140338DA0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     EtwTraceParkTransition @ 0x14064C254 (EtwTraceParkTransition.c)
  */
 
 __int64 __fastcall KiUnparkCurrentProcessor(__int64 a1, __int64 a2, __int64 *a3, unsigned int a4, unsigned int a5)
@@ -16,7 +16,7 @@ __int64 __fastcall KiUnparkCurrentProcessor(__int64 a1, __int64 a2, __int64 *a3,
   bool v9; // bp
   unsigned __int64 v10; // r14
   __int64 v11; // rdx
-  int v12; // edx
+  __int64 v12; // rdx
   char v13; // bl
   char v14; // bl
   char v15; // bl
@@ -48,7 +48,7 @@ __int64 __fastcall KiUnparkCurrentProcessor(__int64 a1, __int64 a2, __int64 *a3,
   result = KiReleasePrcbLocksForIsolationUnit(a3);
   if ( v15 && KeHeteroSystem && !KeHeteroSystemVirtual )
     result = KiSendHeteroRescheduleIntRequest((_QWORD *)a1);
-  if ( (WORD2(xmmword_140FC5B10) & 0x2000) != 0 )
+  if ( (WORD2(xmmword_140FC6B50) & 0x2000) != 0 )
     return EtwTraceParkTransition(a1, a5, a4);
   return result;
 }

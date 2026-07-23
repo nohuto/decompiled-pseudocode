@@ -1,22 +1,22 @@
 /*
- * XREFs of SdbpCheckAllAttributes @ 0x140B45B64
+ * XREFs of SdbpCheckAllAttributes @ 0x140B47B94
  * Callers:
- *     SdbpCheckMatchingWildcardFiles @ 0x14077E1F0 (SdbpCheckMatchingWildcardFiles.c)
- *     SdbpCheckMatchingFiles @ 0x1408829B0 (SdbpCheckMatchingFiles.c)
+ *     SdbpCheckMatchingWildcardFiles @ 0x140780CF0 (SdbpCheckMatchingWildcardFiles.c)
+ *     SdbpCheckMatchingFiles @ 0x140888DB0 (SdbpCheckMatchingFiles.c)
  * Callees:
- *     SdbpUmaInit_PCWSTR @ 0x1407149BC (SdbpUmaInit_PCWSTR.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     SdbReadQWORDTag @ 0x140885B50 (SdbReadQWORDTag.c)
- *     SdbpCheckAttribute @ 0x140887228 (SdbpCheckAttribute.c)
- *     AslFileAllocAndGetAttributes @ 0x14088BC84 (AslFileAllocAndGetAttributes.c)
- *     AslFileFreeAttributes @ 0x14088C1F4 (AslFileFreeAttributes.c)
- *     AslAlloc @ 0x1409E4C90 (AslAlloc.c)
- *     AslFree @ 0x1409E6BD8 (AslFree.c)
- *     SdbGetStringTagPtr @ 0x1409E7DF4 (SdbGetStringTagPtr.c)
- *     SdbFindFirstTag @ 0x1409E8510 (SdbFindFirstTag.c)
- *     AslLogCallPrintf @ 0x1409E8884 (AslLogCallPrintf.c)
- *     SdbReadWORDTag @ 0x1409E89B0 (SdbReadWORDTag.c)
- *     SdbReadDWORDTag @ 0x1409E8A54 (SdbReadDWORDTag.c)
+ *     SdbpUmaInit_PCWSTR @ 0x1407196AC (SdbpUmaInit_PCWSTR.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     SdbReadQWORDTag @ 0x14088BF50 (SdbReadQWORDTag.c)
+ *     SdbpCheckAttribute @ 0x14088D628 (SdbpCheckAttribute.c)
+ *     AslFileAllocAndGetAttributes @ 0x140892080 (AslFileAllocAndGetAttributes.c)
+ *     AslFileFreeAttributes @ 0x1408925F0 (AslFileFreeAttributes.c)
+ *     SdbGetStringTagPtr @ 0x1409D4804 (SdbGetStringTagPtr.c)
+ *     SdbFindFirstTag @ 0x1409D4F20 (SdbFindFirstTag.c)
+ *     AslLogCallPrintf @ 0x1409D5294 (AslLogCallPrintf.c)
+ *     SdbReadWORDTag @ 0x1409D53C0 (SdbReadWORDTag.c)
+ *     SdbReadDWORDTag @ 0x1409D5464 (SdbReadDWORDTag.c)
+ *     AslFree @ 0x1409D6144 (AslFree.c)
+ *     AslAlloc @ 0x1409D8260 (AslAlloc.c)
  */
 
 __int64 __fastcall SdbpCheckAllAttributes(int *a1, __int64 a2, void *a3, unsigned int a4, __int64 a5)
@@ -80,7 +80,7 @@ LABEL_4:
   if ( v13 )
   {
     v14 = 0;
-    for ( i = (int *)&unk_140E0EE14; ; i = v30 + 2 )
+    for ( i = (int *)&unk_140E0EE94; ; i = v30 + 2 )
     {
       v30 = i;
       v27 = v14;

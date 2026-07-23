@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlQueryProcessModuleInformation @ 0x18007D98C
+ * XREFs of RtlQueryProcessModuleInformation @ 0x18007D99C
  * Callers:
- *     RtlQueryProcessDebugInformation @ 0x18007D750 (RtlQueryProcessDebugInformation.c)
+ *     RtlQueryProcessDebugInformation @ 0x18007D760 (RtlQueryProcessDebugInformation.c)
  * Callees:
- *     LdrQueryProcessModuleInformationEx @ 0x18007DA78 (LdrQueryProcessModuleInformationEx.c)
- *     RtlpCommitQueryDebugInfo @ 0x18007DD5C (RtlpCommitQueryDebugInfo.c)
+ *     LdrQueryProcessModuleInformationEx @ 0x18007DA88 (LdrQueryProcessModuleInformationEx.c)
+ *     RtlpCommitQueryDebugInfo @ 0x18007DD6C (RtlpCommitQueryDebugInfo.c)
  *     memset @ 0x1800A7100 (memset.c)
  *     LdrQueryProcessModuleInformationEx2 @ 0x1800D0074 (LdrQueryProcessModuleInformationEx2.c)
  *     RtlpDeCommitQueryDebugInfo @ 0x1800DA06C (RtlpDeCommitQueryDebugInfo.c)

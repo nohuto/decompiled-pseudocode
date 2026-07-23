@@ -1,16 +1,17 @@
 /*
- * XREFs of PpmConvertTime @ 0x14032D070
+ * XREFs of PpmConvertTime @ 0x140437380
  * Callers:
- *     PpmConvertTimeFrom @ 0x14032D050 (PpmConvertTimeFrom.c)
- *     PpmHvSnapPerformanceAccumulation @ 0x140448064 (PpmHvSnapPerformanceAccumulation.c)
- *     PoNotifySystemTimeSet @ 0x1404CA740 (PoNotifySystemTimeSet.c)
- *     PpmParkApplyPolicy @ 0x1404ED2F4 (PpmParkApplyPolicy.c)
- *     PpmParkApplyPolicyEx @ 0x1405E1344 (PpmParkApplyPolicyEx.c)
- *     PopCalculateWakeTimeAdjustment @ 0x1407513AC (PopCalculateWakeTimeAdjustment.c)
- *     PopDiagTraceHiberStats @ 0x140A5B7EC (PopDiagTraceHiberStats.c)
- *     PopPotsLogHibernatePerformance @ 0x140A5C06C (PopPotsLogHibernatePerformance.c)
- *     PopSstDiagInitializeResumeTimer @ 0x140B661C8 (PopSstDiagInitializeResumeTimer.c)
- *     PopDiagComputeEarlyHiberStats @ 0x140B6DD64 (PopDiagComputeEarlyHiberStats.c)
+ *     PpmPerfSnapDeliveredPerformance @ 0x1402AFD50 (PpmPerfSnapDeliveredPerformance.c)
+ *     PpmConvertTimeFrom @ 0x140437360 (PpmConvertTimeFrom.c)
+ *     PpmHvSnapPerformanceAccumulation @ 0x140440784 (PpmHvSnapPerformanceAccumulation.c)
+ *     PoNotifySystemTimeSet @ 0x1404C3C60 (PoNotifySystemTimeSet.c)
+ *     PpmParkApplyPolicy @ 0x1404E4B18 (PpmParkApplyPolicy.c)
+ *     PpmParkApplyPolicyEx @ 0x1405DE964 (PpmParkApplyPolicyEx.c)
+ *     PopCalculateWakeTimeAdjustment @ 0x14074F6CC (PopCalculateWakeTimeAdjustment.c)
+ *     PopDiagTraceHiberStats @ 0x140A533BC (PopDiagTraceHiberStats.c)
+ *     PopPotsLogHibernatePerformance @ 0x140A53C3C (PopPotsLogHibernatePerformance.c)
+ *     PopSstDiagInitializeResumeTimer @ 0x140B68308 (PopSstDiagInitializeResumeTimer.c)
+ *     PopDiagComputeEarlyHiberStats @ 0x140B6F604 (PopDiagComputeEarlyHiberStats.c)
  * Callees:
  *     <none>
  */

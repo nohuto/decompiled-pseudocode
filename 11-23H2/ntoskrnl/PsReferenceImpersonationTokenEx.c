@@ -1,20 +1,20 @@
 /*
- * XREFs of PsReferenceImpersonationTokenEx @ 0x14071D7A0
+ * XREFs of PsReferenceImpersonationTokenEx @ 0x14071D9A0
  * Callers:
- *     SepReferenceTokenUsingPseudoHandle @ 0x1402B2E70 (SepReferenceTokenUsingPseudoHandle.c)
+ *     SepReferenceTokenUsingPseudoHandle @ 0x1402B3100 (SepReferenceTokenUsingPseudoHandle.c)
  *     CmpCmdHiveOpen @ 0x14068B2C0 (CmpCmdHiveOpen.c)
  *     CmpOpenHiveFile @ 0x14068BA80 (CmpOpenHiveFile.c)
- *     ObpReferenceCurrentDeviceMap @ 0x1406FC8F0 (ObpReferenceCurrentDeviceMap.c)
- *     SeCreateClientSecurityEx @ 0x14071D1B0 (SeCreateClientSecurityEx.c)
- *     SeCreateClientSecurity @ 0x14071D350 (SeCreateClientSecurity.c)
- *     EtwpGetSidExtendedHeaderItem @ 0x14071D4E0 (EtwpGetSidExtendedHeaderItem.c)
- *     PsReferenceEffectiveToken @ 0x14071D6EC (PsReferenceEffectiveToken.c)
+ *     ObpReferenceCurrentDeviceMap @ 0x1406FCB00 (ObpReferenceCurrentDeviceMap.c)
+ *     SeCreateClientSecurityEx @ 0x14071D3B0 (SeCreateClientSecurityEx.c)
+ *     SeCreateClientSecurity @ 0x14071D550 (SeCreateClientSecurity.c)
+ *     EtwpGetSidExtendedHeaderItem @ 0x14071D6E0 (EtwpGetSidExtendedHeaderItem.c)
+ *     PsReferenceEffectiveToken @ 0x14071D8EC (PsReferenceEffectiveToken.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExAcquirePushLockSharedEx @ 0x140230D90 (ExAcquirePushLockSharedEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ObfReferenceObjectWithTag @ 0x1402B68C0 (ObfReferenceObjectWithTag.c)
- *     ExfReleasePushLockShared @ 0x1402BD860 (ExfReleasePushLockShared.c)
+ *     KeLeaveCriticalRegionThread @ 0x14022F7F0 (KeLeaveCriticalRegionThread.c)
+ *     ExAcquirePushLockSharedEx @ 0x140230E80 (ExAcquirePushLockSharedEx.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     ObfReferenceObjectWithTag @ 0x1402B6B50 (ObfReferenceObjectWithTag.c)
+ *     ExfReleasePushLockShared @ 0x1402BDAF0 (ExfReleasePushLockShared.c)
  */
 
 void *__fastcall PsReferenceImpersonationTokenEx(

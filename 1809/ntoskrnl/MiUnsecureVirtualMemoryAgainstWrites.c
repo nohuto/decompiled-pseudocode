@@ -1,10 +1,10 @@
 /*
- * XREFs of MiUnsecureVirtualMemoryAgainstWrites @ 0x1406ADEF4
+ * XREFs of MiUnsecureVirtualMemoryAgainstWrites @ 0x1406AF194
  * Callers:
- *     MiRemoveSecureEntry @ 0x1400860C0 (MiRemoveSecureEntry.c)
- *     MmSecureVirtualMemoryAgainstWrites @ 0x140618664 (MmSecureVirtualMemoryAgainstWrites.c)
+ *     MiRemoveSecureEntry @ 0x1400860B0 (MiRemoveSecureEntry.c)
+ *     MmSecureVirtualMemoryAgainstWrites @ 0x140619664 (MmSecureVirtualMemoryAgainstWrites.c)
  * Callees:
- *     MiSetProtectionOnSection @ 0x140071E80 (MiSetProtectionOnSection.c)
+ *     MiSetProtectionOnSection @ 0x140071E70 (MiSetProtectionOnSection.c)
  */
 
 __int64 __fastcall MiUnsecureVirtualMemoryAgainstWrites(ULONG_PTR a1, unsigned __int64 a2, unsigned __int64 a3)

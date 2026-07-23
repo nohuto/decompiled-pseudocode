@@ -1,20 +1,20 @@
 /*
- * XREFs of _CmSetInstallerClassRegPropWorker @ 0x140975A50
+ * XREFs of _CmSetInstallerClassRegPropWorker @ 0x140975C30
  * Callers:
- *     _CmSetInstallerClassRegProp @ 0x1409758EC (_CmSetInstallerClassRegProp.c)
+ *     _CmSetInstallerClassRegProp @ 0x140975ACC (_CmSetInstallerClassRegProp.c)
  * Callees:
- *     RtlInitUnicodeStringEx @ 0x140265AF0 (RtlInitUnicodeStringEx.c)
- *     _MapCmClassPropertyToRegValue @ 0x14036F688 (_MapCmClassPropertyToRegValue.c)
- *     _CmClassPropertyRead @ 0x14036F700 (_CmClassPropertyRead.c)
- *     ZwClose @ 0x1403FA580 (ZwClose.c)
- *     ZwDeleteValueKey @ 0x1403FBE80 (ZwDeleteValueKey.c)
- *     _CmClassPropertyWrite @ 0x1405C64B8 (_CmClassPropertyWrite.c)
- *     _PnpOpenPropertiesKey @ 0x1406454C4 (_PnpOpenPropertiesKey.c)
- *     _CmOpenInstallerClassRegKey @ 0x140645BF0 (_CmOpenInstallerClassRegKey.c)
- *     RtlLengthSecurityDescriptor @ 0x1406600D0 (RtlLengthSecurityDescriptor.c)
- *     RtlValidRelativeSecurityDescriptor @ 0x14066DC80 (RtlValidRelativeSecurityDescriptor.c)
- *     _CmRaisePropertyChangeEvent @ 0x1407443D4 (_CmRaisePropertyChangeEvent.c)
- *     _RegRtlSetValue @ 0x140768AF4 (_RegRtlSetValue.c)
+ *     RtlInitUnicodeStringEx @ 0x140253A90 (RtlInitUnicodeStringEx.c)
+ *     _MapCmClassPropertyToRegValue @ 0x14036F838 (_MapCmClassPropertyToRegValue.c)
+ *     _CmClassPropertyRead @ 0x14036F8B0 (_CmClassPropertyRead.c)
+ *     ZwClose @ 0x1403FA760 (ZwClose.c)
+ *     ZwDeleteValueKey @ 0x1403FC060 (ZwDeleteValueKey.c)
+ *     _CmClassPropertyWrite @ 0x1405C66E8 (_CmClassPropertyWrite.c)
+ *     _PnpOpenPropertiesKey @ 0x14063A2D4 (_PnpOpenPropertiesKey.c)
+ *     _CmOpenInstallerClassRegKey @ 0x14063A9DC (_CmOpenInstallerClassRegKey.c)
+ *     RtlLengthSecurityDescriptor @ 0x140654EF0 (RtlLengthSecurityDescriptor.c)
+ *     RtlValidRelativeSecurityDescriptor @ 0x140662AA0 (RtlValidRelativeSecurityDescriptor.c)
+ *     _CmRaisePropertyChangeEvent @ 0x140744594 (_CmRaisePropertyChangeEvent.c)
+ *     _RegRtlSetValue @ 0x140768CB4 (_RegRtlSetValue.c)
  */
 
 __int64 __fastcall CmSetInstallerClassRegPropWorker(
@@ -30,7 +30,7 @@ __int64 __fastcall CmSetInstallerClassRegPropWorker(
   int inited; // ebx
   void *v12; // r15
   int v13; // ecx
-  __int64 v14; // rdx
+  const WCHAR *v14; // rdx
   __int64 v15; // rcx
   __int64 v16; // r8
   __int64 v17; // r9
@@ -163,7 +163,7 @@ LABEL_55:
   if ( RtlValidRelativeSecurityDescriptor(v12, SecurityDescriptorLength, 0)
     && RtlLengthSecurityDescriptor(v12) == SecurityDescriptorLength )
   {
-    v14 = a2;
+    v14 = (const WCHAR *)a2;
     goto LABEL_31;
   }
   inited = -1073741811;

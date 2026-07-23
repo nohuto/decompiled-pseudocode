@@ -1,5 +1,5 @@
 /*
- * XREFs of InbvInstallDisplayStringFilter @ 0x1401C36F4
+ * XREFs of InbvInstallDisplayStringFilter @ 0x1401C35D8
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 void __fastcall InbvInstallDisplayStringFilter(__int64 (__fastcall *a1)(_QWORD))
 {
-  qword_140323440 = a1;
+  qword_140323480 = a1;
 }

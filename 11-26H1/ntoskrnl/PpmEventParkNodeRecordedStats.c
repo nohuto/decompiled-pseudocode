@@ -1,12 +1,12 @@
 /*
- * XREFs of PpmEventParkNodeRecordedStats @ 0x14041F52C
+ * XREFs of PpmEventParkNodeRecordedStats @ 0x140416D6C
  * Callers:
- *     PpmParkRecordNodeStatistics @ 0x14041EFE0 (PpmParkRecordNodeStatistics.c)
+ *     PpmParkRecordNodeStatistics @ 0x140416820 (PpmParkRecordNodeStatistics.c)
  * Callees:
- *     EtwEventEnabled @ 0x140212D90 (EtwEventEnabled.c)
- *     EtwWriteEx @ 0x140212F70 (EtwWriteEx.c)
- *     PpmEventAddAffinityMaskAsSubset @ 0x140420DB0 (PpmEventAddAffinityMaskAsSubset.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x140212E70 (EtwEventEnabled.c)
+ *     EtwWriteEx @ 0x140213050 (EtwWriteEx.c)
+ *     PpmEventAddAffinityMaskAsSubset @ 0x1404185F0 (PpmEventAddAffinityMaskAsSubset.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 void __fastcall PpmEventParkNodeRecordedStats(__int16 a1, unsigned __int16 *a2, __int16 a3, __int64 a4, char a5)
@@ -58,9 +58,7 @@ void __fastcall PpmEventParkNodeRecordedStats(__int16 a1, unsigned __int16 *a2, 
   v22 = 0;
   v27[0] = 0;
   v26 = 0;
-  if ( PpmEventPerfCheckData
-    && PpmEtwRegistered
-    && EtwEventEnabled((REGHANDLE)PopModernStandbyStateNotify.ApcState.ApcListHead[1].Blink, &PPM_ETW_PARK_NODE_STATS) )
+  if ( PpmEventPerfCheckData && PpmEtwRegistered && EtwEventEnabled(PpmEtwHandle, &PPM_ETW_PARK_NODE_STATS) )
   {
     v8 = *a2;
     v9 = 32;
@@ -99,15 +97,7 @@ void __fastcall PpmEventParkNodeRecordedStats(__int16 a1, unsigned __int16 *a2, 
       v39 = 1LL;
       v41 = v12;
       v42 = 0;
-      EtwWriteEx(
-        (REGHANDLE)PopModernStandbyStateNotify.ApcState.ApcListHead[1].Blink,
-        &PPM_ETW_PARK_NODE_STATS_V2,
-        0LL,
-        0,
-        0LL,
-        0LL,
-        7u,
-        &UserData);
+      EtwWriteEx(PpmEtwHandle, &PPM_ETW_PARK_NODE_STATS_V2, 0LL, 0, 0LL, 0LL, 7u, &UserData);
       return;
     }
 LABEL_14:
@@ -142,14 +132,6 @@ LABEL_14:
     v20 = v13 + 4;
     v5[v20].Ptr = *(_QWORD *)(a4 + 16);
     *(_QWORD *)&v5[v20].Size = v19;
-    EtwWriteEx(
-      (REGHANDLE)PopModernStandbyStateNotify.ApcState.ApcListHead[1].Blink,
-      &PPM_ETW_PARK_NODE_STATS,
-      0LL,
-      0,
-      0LL,
-      0LL,
-      v13 + 5,
-      v5);
+    EtwWriteEx(PpmEtwHandle, &PPM_ETW_PARK_NODE_STATS, 0LL, 0, 0LL, 0LL, v13 + 5, v5);
   }
 }

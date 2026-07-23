@@ -1,13 +1,13 @@
 /*
- * XREFs of GxpReadFrameBufferPixels @ 0x140BB3F2C
+ * XREFs of GxpReadFrameBufferPixels @ 0x140BB5F2C
  * Callers:
- *     BgpGxReadRectangle @ 0x140BB3D18 (BgpGxReadRectangle.c)
+ *     BgpGxReadRectangle @ 0x140BB5D18 (BgpGxReadRectangle.c)
  * Callees:
- *     BgpGetBitsPerPixel @ 0x1404822C8 (BgpGetBitsPerPixel.c)
- *     GxpAdjustRectangleToFrameBuffer @ 0x1404822F0 (GxpAdjustRectangleToFrameBuffer.c)
- *     GxpGetRotatedPixelOffset @ 0x140489300 (GxpGetRotatedPixelOffset.c)
- *     BgpGetResolution @ 0x1404D8C1C (BgpGetResolution.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
+ *     BgpGetBitsPerPixel @ 0x14047D508 (BgpGetBitsPerPixel.c)
+ *     GxpAdjustRectangleToFrameBuffer @ 0x14047D530 (GxpAdjustRectangleToFrameBuffer.c)
+ *     GxpGetRotatedPixelOffset @ 0x140484320 (GxpGetRotatedPixelOffset.c)
+ *     BgpGetResolution @ 0x1404D206C (BgpGetResolution.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
  */
 
 __int64 __fastcall GxpReadFrameBufferPixels(__int64 a1, unsigned int *a2)
@@ -68,11 +68,11 @@ __int64 __fastcall GxpReadFrameBufferPixels(__int64 a1, unsigned int *a2)
   v10 = *(_DWORD *)a1;
   if ( !*(_DWORD *)a1 || *(_DWORD *)(a1 + 8) != v7 || !v3 || v9 + *v3 > (unsigned int)v21 || v10 + v3[1] > HIDWORD(v21) )
     return 3221225485LL;
-  if ( (dword_140EF0050 & 8) != 0 )
+  if ( (dword_140EF0270 & 8) != 0 )
     return 3221225659LL;
   if ( *(_DWORD *)(a1 + 12) < v5 * v9 * v10 )
     return 3221225507LL;
-  if ( (dword_140EF0050 & 2) == 0 )
+  if ( (dword_140EF0270 & 2) == 0 )
     return 3221225473LL;
   result = GxpAdjustRectangleToFrameBuffer(
              (unsigned int *)a1,
@@ -90,7 +90,7 @@ __int64 __fastcall GxpReadFrameBufferPixels(__int64 a1, unsigned int *a2)
     {
       v14 = *(char **)(a1 + 24);
       v15 = *(_DWORD *)a1;
-      v28 = (char *)qword_140EF0000;
+      v28 = (char *)qword_140EF0220;
       if ( BYTE2(BgInternal) )
       {
         HIDWORD(v20) = 0;
@@ -120,7 +120,7 @@ __int64 __fastcall GxpReadFrameBufferPixels(__int64 a1, unsigned int *a2)
       }
       else
       {
-        v16 = (char *)qword_140EF0000 + v5 * (*v3 + v3[1] * v22);
+        v16 = (char *)qword_140EF0220 + v5 * (*v3 + v3[1] * v22);
         if ( v15 )
         {
           v17 = *(_DWORD *)(a1 + 4) * v5;
@@ -143,12 +143,12 @@ __int64 __fastcall GxpReadFrameBufferPixels(__int64 a1, unsigned int *a2)
       v31[0] = *(_DWORD *)a1;
       v31[1] = *(_DWORD *)(a1 + 4);
       v31[3] = *(_DWORD *)(a1 + 12);
-      v31[2] = xmmword_140EEFFF0;
+      v31[2] = xmmword_140EF0210;
       v32 = *(_QWORD *)(a1 + 24);
-      if ( qword_140EF0000 )
+      if ( qword_140EF0220 )
       {
         LOBYTE(v12) = 1;
-        RotatedPixelOffset = ((__int64 (__fastcall *)(_DWORD *, unsigned int *, __int64))qword_140EF0000)(v31, v3, v12);
+        RotatedPixelOffset = ((__int64 (__fastcall *)(_DWORD *, unsigned int *, __int64))qword_140EF0220)(v31, v3, v12);
       }
       else
       {

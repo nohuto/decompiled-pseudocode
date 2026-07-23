@@ -1,12 +1,12 @@
 /*
- * XREFs of IvtGetScalableModePasidTables @ 0x14056E9DC
+ * XREFs of IvtGetScalableModePasidTables @ 0x14056BE6C
  * Callers:
- *     IvtLegacyGetDomainId @ 0x140570894 (IvtLegacyGetDomainId.c)
- *     IvtLegacyUpdateScalableModeContextEntry @ 0x140570E38 (IvtLegacyUpdateScalableModeContextEntry.c)
- *     IvtLegacyUpdateScalableModeTranslationStructures @ 0x140570FFC (IvtLegacyUpdateScalableModeTranslationStructures.c)
- *     IvtProcessDeviceExceptions @ 0x140B527F4 (IvtProcessDeviceExceptions.c)
+ *     IvtLegacyGetDomainId @ 0x14056DD24 (IvtLegacyGetDomainId.c)
+ *     IvtLegacyUpdateScalableModeContextEntry @ 0x14056E2C8 (IvtLegacyUpdateScalableModeContextEntry.c)
+ *     IvtLegacyUpdateScalableModeTranslationStructures @ 0x14056E48C (IvtLegacyUpdateScalableModeTranslationStructures.c)
+ *     IvtProcessDeviceExceptions @ 0x140B54844 (IvtProcessDeviceExceptions.c)
  * Callees:
- *     Feature_Test57481295__private_IsEnabledDeviceUsageNoInline @ 0x14053C180 (Feature_Test57481295__private_IsEnabledDeviceUsageNoInline.c)
+ *     Feature_Test57481295__private_IsEnabledDeviceUsageNoInline @ 0x140539A0C (Feature_Test57481295__private_IsEnabledDeviceUsageNoInline.c)
  */
 
 __int64 *__fastcall IvtGetScalableModePasidTables(__int64 a1, int a2)

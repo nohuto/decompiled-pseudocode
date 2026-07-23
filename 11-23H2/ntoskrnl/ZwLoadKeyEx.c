@@ -1,14 +1,22 @@
 /*
- * XREFs of ZwLoadKeyEx @ 0x14041CF80
+ * XREFs of ZwLoadKeyEx @ 0x14041D310
  * Callers:
- *     PiDrvDbLoadHive @ 0x140867268 (PiDrvDbLoadHive.c)
+ *     PiDrvDbLoadHive @ 0x1408674A8 (PiDrvDbLoadHive.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwLoadKeyEx(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwLoadKeyEx(
+        POBJECT_ATTRIBUTES TargetKey,
+        POBJECT_ATTRIBUTES SourceFile,
+        ULONG Flags,
+        HANDLE TrustClassKey,
+        HANDLE Event,
+        ACCESS_MASK DesiredAccess,
+        PHANDLE RootHandle,
+        PVOID Reserved)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(TargetKey);
 }

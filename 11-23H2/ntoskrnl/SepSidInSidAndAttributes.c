@@ -1,10 +1,10 @@
 /*
- * XREFs of SepSidInSidAndAttributes @ 0x1407F3A20
+ * XREFs of SepSidInSidAndAttributes @ 0x1407F3CF0
  * Callers:
- *     SepFilterToken @ 0x1407F1C00 (SepFilterToken.c)
- *     SepRemoveDisabledGroupsAndPrivileges @ 0x1407F3834 (SepRemoveDisabledGroupsAndPrivileges.c)
+ *     SepFilterToken @ 0x1407F1ED0 (SepFilterToken.c)
+ *     SepRemoveDisabledGroupsAndPrivileges @ 0x1407F3B04 (SepRemoveDisabledGroupsAndPrivileges.c)
  * Callees:
- *     memcmp @ 0x1403DA350 (memcmp.c)
+ *     memcmp @ 0x1403DA530 (memcmp.c)
  */
 
 char __fastcall SepSidInSidAndAttributes(unsigned __int8 **a1, unsigned int a2, __int64 a3, char *a4)

@@ -1,40 +1,40 @@
 /*
- * XREFs of RtlEnumerateGenericTable @ 0x180063200
+ * XREFs of RtlEnumerateGenericTable @ 0x1800631F0
  * Callers:
  *     <none>
  * Callees:
- *     RtlSplay @ 0x180063510 (RtlSplay.c)
- *     RtlRealSuccessor @ 0x180063A80 (RtlRealSuccessor.c)
+ *     RtlSplay @ 0x180063500 (RtlSplay.c)
+ *     RtlRealSuccessor @ 0x180063A70 (RtlRealSuccessor.c)
  */
 
-__int64 __fastcall RtlEnumerateGenericTable(__int64 *a1, char a2)
+PVOID __cdecl RtlEnumerateGenericTable(PRTL_GENERIC_TABLE Table, BOOLEAN Restart)
 {
-  __int64 v2; // rbx
-  __int64 v3; // rdi
-  __int64 i; // rax
-  __int64 v6; // rcx
-  __int64 v8; // rax
+  PRTL_SPLAY_LINKS TableRoot; // rbx
+  void *v3; // rdi
+  _RTL_SPLAY_LINKS *i; // rax
+  _RTL_SPLAY_LINKS *v6; // rcx
+  PRTL_SPLAY_LINKS v8; // rax
 
-  v2 = *a1;
+  TableRoot = Table->TableRoot;
   v3 = 0LL;
-  if ( *a1 )
+  if ( Table->TableRoot )
   {
-    if ( a2 )
+    if ( Restart )
     {
-      for ( i = *(_QWORD *)(v2 + 8); i; i = *(_QWORD *)(i + 8) )
-        v2 = i;
-      v6 = v2;
+      for ( i = TableRoot->LeftChild; i; i = i->LeftChild )
+        TableRoot = i;
+      v6 = TableRoot;
     }
     else
     {
-      v8 = RtlRealSuccessor(*a1);
-      v2 = v8;
+      v8 = RtlRealSuccessor(Table->TableRoot);
+      TableRoot = v8;
       if ( !v8 )
         return v3;
       v6 = v8;
     }
-    *a1 = RtlSplay(v6);
-    return v2 + 40;
+    Table->TableRoot = RtlSplay(v6);
+    return &TableRoot[1].RightChild;
   }
   return 0LL;
 }

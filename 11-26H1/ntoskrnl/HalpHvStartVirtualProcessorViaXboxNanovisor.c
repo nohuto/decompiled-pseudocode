@@ -1,11 +1,11 @@
 /*
- * XREFs of HalpHvStartVirtualProcessorViaXboxNanovisor @ 0x140585E58
+ * XREFs of HalpHvStartVirtualProcessorViaXboxNanovisor @ 0x140588378
  * Callers:
- *     HalpHvStartProcessor @ 0x140592C34 (HalpHvStartProcessor.c)
+ *     HalpHvStartProcessor @ 0x1405953B4 (HalpHvStartProcessor.c)
  * Callees:
- *     MmGetPhysicalAddress @ 0x14024D8F0 (MmGetPhysicalAddress.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     _alloca_probe @ 0x140731080 (_alloca_probe.c)
+ *     MmGetPhysicalAddress @ 0x14024F250 (MmGetPhysicalAddress.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     _alloca_probe @ 0x140735C50 (_alloca_probe.c)
  */
 
 __int64 __fastcall HalpHvStartVirtualProcessorViaXboxNanovisor(unsigned __int8 a1, _OWORD *a2)

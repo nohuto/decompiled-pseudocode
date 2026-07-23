@@ -1,17 +1,17 @@
 /*
- * XREFs of EtwpQueuePerfMemInfoWorkItem @ 0x1403D41C4
+ * XREFs of EtwpQueuePerfMemInfoWorkItem @ 0x140262144
  * Callers:
- *     EtwpLogMemInfoTimerCallback @ 0x1403D3DF0 (EtwpLogMemInfoTimerCallback.c)
+ *     EtwpLogMemInfoTimerCallback @ 0x140261D70 (EtwpLogMemInfoTimerCallback.c)
  * Callees:
- *     ExQueueWorkItem @ 0x140325850 (ExQueueWorkItem.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     ExQueueWorkItem @ 0x1402CE3E0 (ExQueueWorkItem.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 void __fastcall EtwpQueuePerfMemInfoWorkItem(struct _LIST_ENTRY *a1)
 {
   struct _WORK_QUEUE_ITEM *Pool2; // rax
 
-  Pool2 = (struct _WORK_QUEUE_ITEM *)ExAllocatePool2(0x40uLL);
+  Pool2 = (struct _WORK_QUEUE_ITEM *)ExAllocatePool2(0x40uLL, 0x28uLL, 0x57777445u);
   if ( Pool2 )
   {
     Pool2->List.Flink = 0LL;

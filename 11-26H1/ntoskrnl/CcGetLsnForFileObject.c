@@ -1,10 +1,10 @@
 /*
- * XREFs of CcGetLsnForFileObject @ 0x1405B1B20
+ * XREFs of CcGetLsnForFileObject @ 0x1405B4330
  * Callers:
  *     <none>
  * Callees:
- *     ExAcquireFastMutex @ 0x140278070 (ExAcquireFastMutex.c)
- *     KeReleaseGuardedMutex @ 0x140278D40 (KeReleaseGuardedMutex.c)
+ *     ExAcquireFastMutex @ 0x1402775E0 (ExAcquireFastMutex.c)
+ *     KeReleaseGuardedMutex @ 0x1402782B0 (KeReleaseGuardedMutex.c)
  */
 
 __int64 __fastcall CcGetLsnForFileObject(__int64 a1, _QWORD *a2)

@@ -19,97 +19,89 @@
  *     _DbgPrintEx @ 0x4B33EE00 (_DbgPrintEx.c)
  */
 
-void __thiscall LdrpCheckNXCompatibility(unsigned int *this)
+void __thiscall LdrpCheckNXCompatibility(int this)
 {
   char v2; // al
   int v3; // edx
   unsigned int v5; // eax
-  wchar_t *v6; // eax
-  wchar_t *v7; // esi
-  wchar_t *v8; // ebx
-  unsigned int *v9; // [esp-4h] [ebp-244h]
-  _BYTE v10[4]; // [esp+Ch] [ebp-234h] BYREF
-  int v11; // [esp+10h] [ebp-230h] BYREF
-  unsigned int v12; // [esp+14h] [ebp-22Ch] BYREF
-  int v13; // [esp+18h] [ebp-228h] BYREF
-  wchar_t *v14; // [esp+1Ch] [ebp-224h] BYREF
+  wchar_t *v6; // esi
+  wchar_t *v7; // ebx
+  size_t v8; // [esp-4h] [ebp-244h]
+  _BYTE v9[4]; // [esp+Ch] [ebp-234h] BYREF
+  PIMAGE_NT_HEADERS OutHeaders; // [esp+10h] [ebp-230h] BYREF
+  unsigned int v11; // [esp+14h] [ebp-22Ch] BYREF
+  int ProcessInformation; // [esp+18h] [ebp-228h] BYREF
+  int v13; // [esp+1Ch] [ebp-224h] BYREF
   wchar_t Str[270]; // [esp+20h] [ebp-220h] BYREF
 
   if ( Kernel32BaseQueryModuleData )
   {
-    RtlImageNtHeaderEx(3, this[6], 0, 0, &v11);
+    RtlImageNtHeaderEx(3u, *(PVOID *)(this + 24), 0LL, &OutHeaders);
     if ( (MEMORY[0x7FFE02D5] & 3) != 0 )
-      v2 = *(_BYTE *)(v11 + 95) & 1;
+      v2 = HIBYTE(OutHeaders->OptionalHeader.DllCharacteristics) & 1;
     else
       v2 = 0;
     if ( v2 )
       goto LABEL_5;
-    v13 = 0;
+    ProcessInformation = 0;
     if ( (unsigned __int8)LdrpCheckSafeDiscDll(this) )
       goto LABEL_17;
-    v14 = 0;
-    if ( LdrpQueryDllExecuteOptions(this + 11, &v14) >= 0 )
+    v13 = 0;
+    if ( LdrpQueryDllExecuteOptions(this + 44, &v13) >= 0 )
     {
-      if ( v14 )
+      if ( v13 )
       {
-        DbgPrintEx(
-          85,
-          3,
-          "CLIENT(ntdll): Found CheckAppHelp = %d for %wZ in ImageFileExecutionOptions\n",
-          v14,
-          this + 9);
-        v12 = 532;
-        memset(Str, 0, 0x214u);
-        if ( (unsigned __int8)Kernel32BaseQueryModuleData(
+        DbgPrintEx(85, 3u, (int)"CLIENT(ntdll): Found CheckAppHelp = %d for %wZ in ImageFileExecutionOptions\n", v13);
+        v11 = 532;
+        LODWORD(v8) = 532;
+        memset(Str, 0, v8);
+        if ( (unsigned __int8)((int (__thiscall *)(PVOID, _DWORD, _DWORD, _DWORD, const WCHAR *, _BYTE *, wchar_t *, unsigned int *))Kernel32BaseQueryModuleData)(
                                 Kernel32BaseQueryModuleData,
-                                this[10],
-                                this[6],
-                                this[8],
+                                *(_DWORD *)(this + 40),
+                                *(_DWORD *)(this + 24),
+                                *(_DWORD *)(this + 32),
                                 L"ExecuteOptions",
-                                v10,
+                                v9,
                                 Str,
-                                &v12) )
+                                &v11) )
         {
-          if ( v12 && v12 < 0x214 )
+          if ( v11 && v11 < 0x214 )
           {
-            v5 = 2 * (v12 >> 1) - 2;
+            v5 = 2 * (v11 >> 1) - 2;
             if ( v5 >= 0x214 )
               __report_rangecheckfailure();
             *(wchar_t *)((char *)Str + v5) = 0;
             DbgPrintEx(
               85,
-              3,
-              "CLIENT(ntdll): Found ExecuteOptions = %ws for %wZ in application compatibility database\n",
-              Str,
-              this + 9);
-            v6 = wcsstr(Str, L"Execute=1");
-            v9 = this + 9;
-            if ( v6 )
+              3u,
+              (int)"CLIENT(ntdll): Found ExecuteOptions = %ws for %wZ in application compatibility database\n",
+              (int)Str);
+            if ( wcsstr(Str, L"Execute=1") )
             {
               DbgPrintEx(
                 85,
-                3,
-                "CLIENT(ntdll): Found Execute=1, turning off execution protection for the process because of %wZ\n",
-                v9);
+                3u,
+                (int)"CLIENT(ntdll): Found Execute=1, turning off execution protection for the process because of %wZ\n",
+                this + 36);
               goto LABEL_17;
             }
-            DbgPrintEx(85, 3, "CLIENT(ntdll): Processing %ws for patching section protection for %wZ\n", Str, v9);
-            v7 = Str;
-            v14 = (wchar_t *)((char *)Str + v12);
-            if ( Str < (wchar_t *)((char *)Str + v12) )
+            DbgPrintEx(85, 3u, (int)"CLIENT(ntdll): Processing %ws for patching section protection for %wZ\n", (int)Str);
+            v6 = Str;
+            v13 = (int)Str + v11;
+            if ( Str < (wchar_t *)((char *)Str + v11) )
             {
               do
               {
-                v8 = wcschr(v7, 0x20u);
-                if ( v8 )
-                  *v8 = 0;
-                DbgPrintEx(85, 3, "CLIENT(ntdll): Processing section info %ws...\n", v7);
-                LdrpProcessImageProtectionParameter(this, v7);
-                if ( !v8 )
+                v7 = wcschr(v6, 0x20u);
+                if ( v7 )
+                  *v7 = 0;
+                DbgPrintEx(85, 3u, (int)"CLIENT(ntdll): Processing section info %ws...\n", (int)v6);
+                LdrpProcessImageProtectionParameter(this, v6);
+                if ( !v7 )
                   break;
-                v7 = v8 + 1;
+                v6 = v7 + 1;
               }
-              while ( v8 + 1 < v14 );
+              while ( (unsigned int)(v7 + 1) < v13 );
             }
           }
         }
@@ -117,22 +109,22 @@ void __thiscall LdrpCheckNXCompatibility(unsigned int *this)
     }
     if ( !(unsigned __int8)LdrpCheckNxIncompatibleDllSection(this) )
     {
-      v3 = v13;
+      v3 = ProcessInformation;
 LABEL_11:
-      if ( (MEMORY[0x7FFE02D5] & 0xC) != 4 && (unsigned __int8)LdrpIsImageArmadilloProtected(v11) != 0 )
+      if ( (MEMORY[0x7FFE02D5] & 0xC) != 4 && (unsigned __int8)LdrpIsImageArmadilloProtected(OutHeaders) != 0 )
       {
         v3 |= 0x40u;
-        v13 = v3;
+        ProcessInformation = v3;
       }
       if ( v3 )
-        ZwSetInformationProcess(-1, 34, &v13, 4);
+        ZwSetInformationProcess((HANDLE)0xFFFFFFFF, ProcessExecuteFlags, &ProcessInformation, 4u);
 LABEL_5:
-      this[13] |= 0x80000000;
+      *(_DWORD *)(this + 52) |= 0x80000000;
       return;
     }
 LABEL_17:
     v3 = 2;
-    v13 = 2;
+    ProcessInformation = 2;
     goto LABEL_11;
   }
 }

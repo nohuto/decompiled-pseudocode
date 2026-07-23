@@ -1,31 +1,31 @@
 /*
- * XREFs of BuildQueryDirectoryIrp @ 0x1408C48F0
+ * XREFs of BuildQueryDirectoryIrp @ 0x1408C22B0
  * Callers:
- *     NtQueryDirectoryFileEx @ 0x1408C4800 (NtQueryDirectoryFileEx.c)
- *     NtQueryDirectoryFile @ 0x1408C5120 (NtQueryDirectoryFile.c)
+ *     NtQueryDirectoryFileEx @ 0x1408C21C0 (NtQueryDirectoryFileEx.c)
+ *     NtQueryDirectoryFile @ 0x1408C2AE0 (NtQueryDirectoryFile.c)
  * Callees:
- *     IopAllocateIrpExReturn @ 0x140253DC0 (IopAllocateIrpExReturn.c)
- *     IoAllocateMdl @ 0x140267BF0 (IoAllocateMdl.c)
- *     RtlRaiseStatus @ 0x140280B30 (RtlRaiseStatus.c)
- *     KeResetEvent @ 0x14028EEC0 (KeResetEvent.c)
- *     ObfDereferenceObject @ 0x140325680 (ObfDereferenceObject.c)
- *     PsReferenceSiloContext @ 0x14033FA90 (PsReferenceSiloContext.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     IoGetRelatedDeviceObject @ 0x140373C70 (IoGetRelatedDeviceObject.c)
- *     IopResetEvent @ 0x1403C4670 (IopResetEvent.c)
- *     IopMarkApcRoutineIfAsynchronousIo32 @ 0x14040ADE0 (IopMarkApcRoutineIfAsynchronousIo32.c)
- *     IopProbeAndLockPages_2 @ 0x1404A7238 (IopProbeAndLockPages_2.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     ObReferenceObjectByHandle @ 0x14084AF40 (ObReferenceObjectByHandle.c)
- *     PsIsProcessAppContainer @ 0x14085D560 (PsIsProcessAppContainer.c)
- *     ExRaiseDatatypeMisalignment @ 0x14089B1F0 (ExRaiseDatatypeMisalignment.c)
- *     ProbeForWrite @ 0x1408C0590 (ProbeForWrite.c)
- *     ExRaiseAccessViolation @ 0x1408C10E0 (ExRaiseAccessViolation.c)
- *     IopExceptionCleanupEx @ 0x140970628 (IopExceptionCleanupEx.c)
- *     IopWaitAndAcquireFileObjectLock @ 0x140970738 (IopWaitAndAcquireFileObjectLock.c)
- *     IopAllocateIrpCleanup @ 0x140A0C064 (IopAllocateIrpCleanup.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     RtlRaiseStatus @ 0x1402360C0 (RtlRaiseStatus.c)
+ *     IoGetRelatedDeviceObject @ 0x14025C530 (IoGetRelatedDeviceObject.c)
+ *     IoAllocateMdl @ 0x14025F1D0 (IoAllocateMdl.c)
+ *     IopAllocateIrpExReturn @ 0x1402843D0 (IopAllocateIrpExReturn.c)
+ *     KeResetEvent @ 0x14029EAC0 (KeResetEvent.c)
+ *     ObfDereferenceObject @ 0x1402CE210 (ObfDereferenceObject.c)
+ *     PsReferenceSiloContext @ 0x14031EF70 (PsReferenceSiloContext.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     IopResetEvent @ 0x1403B3230 (IopResetEvent.c)
+ *     IopMarkApcRoutineIfAsynchronousIo32 @ 0x1404032C0 (IopMarkApcRoutineIfAsynchronousIo32.c)
+ *     IopProbeAndLockPages_2 @ 0x1404A1C64 (IopProbeAndLockPages_2.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     ObReferenceObjectByHandle @ 0x140847200 (ObReferenceObjectByHandle.c)
+ *     PsIsProcessAppContainer @ 0x1408592D0 (PsIsProcessAppContainer.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408A3890 (ExRaiseDatatypeMisalignment.c)
+ *     ProbeForWrite @ 0x1408BDF50 (ProbeForWrite.c)
+ *     ExRaiseAccessViolation @ 0x1408BEAA0 (ExRaiseAccessViolation.c)
+ *     IopExceptionCleanupEx @ 0x140958E38 (IopExceptionCleanupEx.c)
+ *     IopWaitAndAcquireFileObjectLock @ 0x140958F48 (IopWaitAndAcquireFileObjectLock.c)
+ *     IopAllocateIrpCleanup @ 0x140A0B2A4 (IopAllocateIrpCleanup.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall BuildQueryDirectoryIrp(
@@ -216,7 +216,7 @@ LABEL_7:
       if ( v28 >= 0x200u )
         RtlRaiseStatus(-1073741811);
     }
-    Pool2 = (UNICODE_STRING *)ExAllocatePool2(0x61uLL);
+    Pool2 = (UNICODE_STRING *)ExAllocatePool2(0x61uLL, v28 + 16LL, 0x69446F49u);
     P = Pool2;
     memmove(&Pool2[1], v27, v28);
     Pool2->Length = v28;
@@ -338,7 +338,7 @@ LABEL_68:
           v40->Flags |= 0x800u;
           return 0LL;
         }
-        v45 = ExAllocatePool2(0x41uLL);
+        v45 = ExAllocatePool2(0x41uLL, (unsigned int)Length, 0x42536F49u);
         v40->AssociatedIrp.MasterIrp = (struct _IRP *)v45;
         if ( v45 )
         {

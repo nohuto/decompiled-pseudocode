@@ -1,10 +1,10 @@
 /*
- * XREFs of MiConvertHiberPhasePte @ 0x140C05BC0
+ * XREFs of MiConvertHiberPhasePte @ 0x140C0BDD0
  * Callers:
  *     <none>
  * Callees:
- *     MiReadPteShadow @ 0x140314FF0 (MiReadPteShadow.c)
- *     MiIsPfn @ 0x14042D9E0 (MiIsPfn.c)
+ *     MiReadPteShadow @ 0x140317020 (MiReadPteShadow.c)
+ *     MiIsPfn @ 0x14041A8F0 (MiIsPfn.c)
  */
 
 __int64 __fastcall MiConvertHiberPhasePte(__int64 a1, unsigned __int64 *a2, int a3)
@@ -38,8 +38,8 @@ LABEL_7:
   {
     v10 = (PVOID)((v3 >> 12) & 0xFFFFFFFFFFLL);
     if ( MiIsPfn((unsigned __int64)v10)
-      && v10 != qword_140E36000[0]
-      && v10 != (PVOID)qword_140E36038
+      && v10 != qword_140E36180[0]
+      && v10 != (PVOID)qword_140E361B8
       && !_bittest64(*(const signed __int64 **)(*(_QWORD *)(a1 + 184) + 8LL), (unsigned int)v10) )
     {
       v8 = v3 & 0xFFFFFFFFFFFFFBFAuLL | 0x404;

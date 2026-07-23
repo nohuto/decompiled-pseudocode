@@ -1,9 +1,9 @@
 /*
- * XREFs of PpmPerfInitialize @ 0x140A6CCFC
+ * XREFs of PpmPerfInitialize @ 0x140A6DCFC
  * Callers:
- *     PoInitSystem @ 0x140A3F948 (PoInitSystem.c)
+ *     PoInitSystem @ 0x140A40948 (PoInitSystem.c)
  * Callees:
- *     PopInitializeTimer @ 0x1407C870C (PopInitializeTimer.c)
+ *     PopInitializeTimer @ 0x1407C8A2C (PopInitializeTimer.c)
  */
 
 __int64 PpmPerfInitialize()
@@ -16,9 +16,9 @@ __int64 PpmPerfInitialize()
   qword_140CFC4F8 = (__int64)&PpmPerfDomainHead;
   v0 = 2LL;
   PpmPerfDomainHead = (__int64)&PpmPerfDomainHead;
-  dword_140C1EEBC = 50;
-  dword_140C1F96C = 50;
-  v1 = &unk_140C1F970;
+  dword_140C1EE7C = 50;
+  dword_140C1F92C = 50;
+  v1 = &unk_140C1F930;
   do
   {
     *(v1 - 2736) = 1;
@@ -36,18 +36,18 @@ __int64 PpmPerfInitialize()
   }
   while ( v0 );
   v2 = PpmPerfQosTransitionHysteresisOverride;
-  stru_140C245D0.WorkerRoutine = (void (__fastcall *)(void *))PpmMediaBufferingWorker;
-  dword_140C1EEE0 = 2;
+  stru_140C24630.WorkerRoutine = (void (__fastcall *)(void *))PpmMediaBufferingWorker;
+  dword_140C1EEA0 = 2;
   PpmPerfLatencyBoostWorkItem.WorkerRoutine = (void (__fastcall *)(void *))PpmPerfLatencySensitivityHintWorker;
-  dword_140C1F990 = 2;
+  dword_140C1F950 = 2;
   v3 = PpmPerfQosTransitionHysteresisOverride;
-  dword_140C1EEDC = 100;
-  dword_140C1F98C = 100;
+  dword_140C1EE9C = 100;
+  dword_140C1F94C = 100;
   if ( PpmPerfQosTransitionHysteresisOverride == -1 )
     v3 = PpmPerfQosTransitionHysteresis;
   PpmMediaBufferingWork = 0LL;
-  stru_140C245D0.Parameter = 0LL;
-  stru_140C245D0.List.Flink = 0LL;
+  stru_140C24630.Parameter = 0LL;
+  stru_140C24630.List.Flink = 0LL;
   PpmPerfLatencyBoostWorkItem.Parameter = 0LL;
   PpmPerfLatencyBoostWorkItem.List.Flink = 0LL;
   if ( v3 > 0x1F4 )

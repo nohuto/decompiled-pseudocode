@@ -1,10 +1,10 @@
 /*
- * XREFs of __asan_store8_volatile @ 0x1405AD130
+ * XREFs of __asan_store8_volatile @ 0x1405AA0A0
  * Callers:
  *     <none>
  * Callees:
- *     KasaniReport @ 0x1405AA0B0 (KasaniReport.c)
- *     KcsanValidateAddress @ 0x1405AE5E0 (KcsanValidateAddress.c)
+ *     KasaniReport @ 0x1405A7020 (KasaniReport.c)
+ *     KcsanValidateAddress @ 0x1405AB550 (KcsanValidateAddress.c)
  */
 
 char __fastcall _asan_store8_volatile(ULONG_PTR BugCheckParameter1)
@@ -14,7 +14,7 @@ char __fastcall _asan_store8_volatile(ULONG_PTR BugCheckParameter1)
   int v4; // r9d
   signed __int8 v5; // cl
 
-  if ( !byte_140FCDC2A )
+  if ( !byte_140FCECAA )
     return v3;
   LOBYTE(v3) = 0;
   if ( BugCheckParameter1 < 0xFFFF800000000000uLL )

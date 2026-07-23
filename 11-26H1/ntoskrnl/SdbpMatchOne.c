@@ -1,10 +1,10 @@
 /*
- * XREFs of SdbpMatchOne @ 0x1408853E0
+ * XREFs of SdbpMatchOne @ 0x14088B7E0
  * Callers:
  *     <none>
  * Callees:
- *     SdbpMatchList @ 0x1408850CC (SdbpMatchList.c)
- *     SdbFindFirstTag @ 0x1409E8510 (SdbFindFirstTag.c)
+ *     SdbpMatchList @ 0x14088B4CC (SdbpMatchList.c)
+ *     SdbFindFirstTag @ 0x1409D4F20 (SdbFindFirstTag.c)
  */
 
 __int64 __fastcall SdbpMatchOne(int *a1, __int64 a2, __int64 a3, __int64 a4, unsigned int a5, __int64 a6)

@@ -1,14 +1,14 @@
 /*
- * XREFs of PiDmListAddList @ 0x14076E9E4
+ * XREFs of PiDmListAddList @ 0x14076EBA4
  * Callers:
- *     PiPnpRtlCmActionCallback @ 0x140635920 (PiPnpRtlCmActionCallback.c)
+ *     PiPnpRtlCmActionCallback @ 0x14062A730 (PiPnpRtlCmActionCallback.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
- *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
- *     ExAcquirePushLockSharedEx @ 0x14034AB50 (ExAcquirePushLockSharedEx.c)
- *     ExReleasePushLockEx @ 0x14034AE90 (ExReleasePushLockEx.c)
- *     PiDmGetObjectManagerForObjectType @ 0x140636D90 (PiDmGetObjectManagerForObjectType.c)
- *     PiDmListAddObjectWorker @ 0x1407353F0 (PiDmListAddObjectWorker.c)
+ *     KeLeaveCriticalRegionThread @ 0x1402AB8C0 (KeLeaveCriticalRegionThread.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1403556E0 (ExAcquirePushLockExclusiveEx.c)
+ *     ExAcquirePushLockSharedEx @ 0x1403558A0 (ExAcquirePushLockSharedEx.c)
+ *     ExReleasePushLockEx @ 0x140355BE0 (ExReleasePushLockEx.c)
+ *     PiDmGetObjectManagerForObjectType @ 0x14062BBA0 (PiDmGetObjectManagerForObjectType.c)
+ *     PiDmListAddObjectWorker @ 0x1407355B0 (PiDmListAddObjectWorker.c)
  */
 
 _QWORD *__fastcall PiDmListAddList(__int64 a1, ULONG_PTR a2, __int64 a3, ULONG_PTR a4)
@@ -20,9 +20,21 @@ _QWORD *__fastcall PiDmListAddList(__int64 a1, ULONG_PTR a2, __int64 a3, ULONG_P
   _QWORD **v10; // r15
   struct _KTHREAD *v11; // rax
   _QWORD *i; // r14
-  ULONG_PTR v13; // rcx
-  struct _KTHREAD *v15; // rax
-  struct _KTHREAD *v16; // rax
+  __int64 v13; // rdx
+  __int64 v14; // r8
+  __int64 v15; // r9
+  ULONG_PTR v16; // rcx
+  __int64 v17; // rdx
+  __int64 v18; // r8
+  __int64 v19; // r9
+  struct _KTHREAD *v21; // rax
+  struct _KTHREAD *v22; // rax
+  __int64 v23; // rdx
+  __int64 v24; // r8
+  __int64 v25; // r9
+  __int64 v26; // rdx
+  __int64 v27; // r8
+  __int64 v28; // r9
 
   ObjectManagerForObjectType = (struct _ERESOURCE *)PiDmGetObjectManagerForObjectType(*(_DWORD *)(a2 + 28));
   CurrentThread = KeGetCurrentThread();
@@ -34,8 +46,8 @@ _QWORD *__fastcall PiDmListAddList(__int64 a1, ULONG_PTR a2, __int64 a3, ULONG_P
     if ( a2 > v7 )
     {
       ExAcquirePushLockSharedEx(a4, 0LL);
-      v15 = KeGetCurrentThread();
-      --v15->KernelApcDisable;
+      v21 = KeGetCurrentThread();
+      --v21->KernelApcDisable;
     }
     ExAcquirePushLockExclusiveEx(a2, 0LL);
   }
@@ -49,30 +61,30 @@ _QWORD *__fastcall PiDmListAddList(__int64 a1, ULONG_PTR a2, __int64 a3, ULONG_P
   }
   for ( i = *v10; i != v10; i = (_QWORD *)*i )
   {
-    v16 = KeGetCurrentThread();
-    --v16->KernelApcDisable;
+    v22 = KeGetCurrentThread();
+    --v22->KernelApcDisable;
     ExAcquirePushLockSharedEx((ULONG_PTR)(i - 8), 0LL);
     PiDmListAddObjectWorker(2, v9, a2, (__int64)(i - 8), 0LL);
     ExReleasePushLockEx((ULONG_PTR)(i - 8), 0LL);
-    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v23, v24, v25);
   }
   if ( a2 >= a4 )
   {
     if ( a2 > a4 )
     {
       ExReleasePushLockEx(a2, 0LL);
-      KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
-      v13 = a4;
+      KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v26, v27, v28);
+      v16 = a4;
       goto LABEL_8;
     }
   }
   else
   {
     ExReleasePushLockEx(a4, 0LL);
-    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v13, v14, v15);
   }
-  v13 = a2;
+  v16 = a2;
 LABEL_8:
-  ExReleasePushLockEx(v13, 0LL);
-  return KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+  ExReleasePushLockEx(v16, 0LL);
+  return KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v17, v18, v19);
 }

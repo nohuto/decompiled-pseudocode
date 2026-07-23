@@ -9,7 +9,7 @@
  *     RtlDeleteNoSplay @ 0x1402F3A80 (RtlDeleteNoSplay.c)
  */
 
-__int64 __fastcall FsRtlRemoveNodeFromTunnel(__int64 a1, RTL_SPLAY_LINKS *a2, __int64 a3, _BYTE *a4)
+__int64 __fastcall FsRtlRemoveNodeFromTunnel(__int64 a1, _RTL_SPLAY_LINKS *a2, __int64 a3, _BYTE *a4)
 {
   _RTL_SPLAY_LINKS *Parent; // rcx
   _RTL_SPLAY_LINKS *LeftChild; // rdx

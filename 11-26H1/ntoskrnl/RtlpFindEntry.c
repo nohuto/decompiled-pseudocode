@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlpFindEntry @ 0x140521BB0
+ * XREFs of RtlpFindEntry @ 0x14052421C
  * Callers:
- *     RtlpAllocateHeap @ 0x14052125C (RtlpAllocateHeap.c)
- *     RtlpCreateSplitBlock @ 0x14061B414 (RtlpCreateSplitBlock.c)
- *     RtlpFreeHeap @ 0x14061C6E0 (RtlpFreeHeap.c)
- *     RtlpInsertFreeBlock @ 0x14061CF78 (RtlpInsertFreeBlock.c)
- *     RtlZeroHeap @ 0x140805E00 (RtlZeroHeap.c)
+ *     RtlpAllocateHeap @ 0x1405238C8 (RtlpAllocateHeap.c)
+ *     RtlpCreateSplitBlock @ 0x14061E464 (RtlpCreateSplitBlock.c)
+ *     RtlpFreeHeap @ 0x14061F730 (RtlpFreeHeap.c)
+ *     RtlpInsertFreeBlock @ 0x14061FFC8 (RtlpInsertFreeBlock.c)
+ *     RtlZeroHeap @ 0x14080B8A0 (RtlZeroHeap.c)
  * Callees:
- *     RtlpHeapFindListLookupEntry @ 0x14051AA48 (RtlpHeapFindListLookupEntry.c)
+ *     RtlpHeapFindListLookupEntry @ 0x1405144B8 (RtlpHeapFindListLookupEntry.c)
  */
 
 _QWORD *__fastcall RtlpFindEntry(__int64 a1, unsigned __int64 a2)

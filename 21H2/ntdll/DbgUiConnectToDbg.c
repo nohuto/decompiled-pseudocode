@@ -1,17 +1,23 @@
 /*
- * XREFs of DbgUiConnectToDbg @ 0x1800CC740
+ * XREFs of DbgUiConnectToDbg @ 0x1800CC700
  * Callers:
  *     <none>
  * Callees:
- *     NtCreateDebugObject @ 0x18009EAF0 (NtCreateDebugObject.c)
+ *     NtCreateDebugObject @ 0x18009EAB0 (NtCreateDebugObject.c)
  */
 
-__int64 DbgUiConnectToDbg()
+NTSTATUS DbgUiConnectToDbg(void)
 {
-  unsigned int v0; // ecx
+  NTSTATUS v0; // ecx
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+20h] [rbp-38h] BYREF
 
   v0 = 0;
   if ( !NtCurrentTeb()->DbgSsReserved[1] )
-    return (unsigned int)NtCreateDebugObject();
+  {
+    memset(&ObjectAttributes.RootDirectory, 0, 20);
+    *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+    ObjectAttributes.Length = 48;
+    return NtCreateDebugObject(&NtCurrentTeb()->DbgSsReserved[1], 0x1F000Fu, &ObjectAttributes, 1u);
+  }
   return v0;
 }

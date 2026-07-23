@@ -1,13 +1,13 @@
 /*
- * XREFs of VmInitSystem @ 0x140BDE898
+ * XREFs of VmInitSystem @ 0x140BE0898
  * Callers:
- *     InitBootProcessor @ 0x140C0AC88 (InitBootProcessor.c)
- *     Phase1InitializationDiscard @ 0x140C0C048 (Phase1InitializationDiscard.c)
+ *     InitBootProcessor @ 0x140C0CC88 (InitBootProcessor.c)
+ *     Phase1InitializationDiscard @ 0x140C0E048 (Phase1InitializationDiscard.c)
  * Callees:
- *     ExInitializeLookasideListExInternal @ 0x14045FC80 (ExInitializeLookasideListExInternal.c)
- *     ExRegisterHost @ 0x1407C071C (ExRegisterHost.c)
- *     TraceLoggingRegisterEx_EtwRegister_EtwSetInformation @ 0x140A57414 (TraceLoggingRegisterEx_EtwRegister_EtwSetInformation.c)
- *     VmInitializeProcessor @ 0x140B6E698 (VmInitializeProcessor.c)
+ *     ExInitializeLookasideListExInternal @ 0x140454B40 (ExInitializeLookasideListExInternal.c)
+ *     ExRegisterHost @ 0x1407C0B6C (ExRegisterHost.c)
+ *     TraceLoggingRegisterEx_EtwRegister_EtwSetInformation @ 0x1409EA0B8 (TraceLoggingRegisterEx_EtwRegister_EtwSetInformation.c)
+ *     VmInitializeProcessor @ 0x140B7054C (VmInitializeProcessor.c)
  */
 
 __int64 __fastcall VmInitSystem(int a1)
@@ -35,7 +35,7 @@ __int64 __fastcall VmInitSystem(int a1)
       if ( (int)result < 0 )
         return result;
       ExInitializeLookasideListExInternal(
-        &VmpLargeFaultBatchLookasideList.L.ListHead,
+        &VmpLargeFaultBatchLookasideList,
         0LL,
         0LL,
         512,
@@ -48,10 +48,10 @@ __int64 __fastcall VmInitSystem(int a1)
     else if ( a1 == 2 )
     {
       TraceLoggingRegisterEx_EtwRegister_EtwSetInformation(
-        (__int64)&unk_140E09088,
+        (__int64)&unk_140E090F8,
         (__int64)VmpTracingEnabledCallback,
         0LL);
-      *(_QWORD *)&VmpTraceLoggingProvider = &unk_140E09088;
+      *(_QWORD *)&VmpTraceLoggingProvider = &unk_140E090F8;
     }
     return 0LL;
   }

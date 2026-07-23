@@ -1,22 +1,22 @@
 /*
- * XREFs of SdbGetDatabaseMatchEx @ 0x14095D42C
+ * XREFs of SdbGetDatabaseMatchEx @ 0x140944EEC
  * Callers:
- *     KsepDbGetDriverShimsInternal @ 0x14095AE14 (KsepDbGetDriverShimsInternal.c)
- *     KsepDbCacheReadDeviceInternal @ 0x14095CE24 (KsepDbCacheReadDeviceInternal.c)
+ *     KsepDbGetDriverShimsInternal @ 0x1409428D4 (KsepDbGetDriverShimsInternal.c)
+ *     KsepDbCacheReadDeviceInternal @ 0x1409448E4 (KsepDbCacheReadDeviceInternal.c)
  * Callees:
- *     wcsrchr @ 0x140500180 (wcsrchr.c)
- *     SdbpFindFirstTagWithoutIndex @ 0x140804310 (SdbpFindFirstTagWithoutIndex.c)
- *     SdbpFindFirstWildcardTagWithoutIndex @ 0x1408043C8 (SdbpFindFirstWildcardTagWithoutIndex.c)
- *     SdbpFindNextTagWithoutIndex @ 0x140804484 (SdbpFindNextTagWithoutIndex.c)
- *     SdbpFindNextWildcardTagWithoutIndex @ 0x140804500 (SdbpFindNextWildcardTagWithoutIndex.c)
- *     SdbTagIDToTagRef @ 0x140805C7C (SdbTagIDToTagRef.c)
- *     SdbpCheckKObject @ 0x140959920 (SdbpCheckKObject.c)
- *     SdbpFindNextIndexedWildCardTag @ 0x14095B554 (SdbpFindNextIndexedWildCardTag.c)
- *     SdbFindFirstStringIndexedTag @ 0x14095D844 (SdbFindFirstStringIndexedTag.c)
- *     SdbpFindFirstIndexedWildCardTag @ 0x14095FB48 (SdbpFindFirstIndexedWildCardTag.c)
- *     AslLogCallPrintf @ 0x1409601DC (AslLogCallPrintf.c)
- *     SdbpFindMatchingName @ 0x140A79168 (SdbpFindMatchingName.c)
- *     SdbpGetNextIndexedRecord @ 0x140A79268 (SdbpGetNextIndexedRecord.c)
+ *     wcsrchr @ 0x1404FDA40 (wcsrchr.c)
+ *     SdbpFindFirstTagWithoutIndex @ 0x140804A50 (SdbpFindFirstTagWithoutIndex.c)
+ *     SdbpFindFirstWildcardTagWithoutIndex @ 0x140804B08 (SdbpFindFirstWildcardTagWithoutIndex.c)
+ *     SdbpFindNextTagWithoutIndex @ 0x140804BC4 (SdbpFindNextTagWithoutIndex.c)
+ *     SdbpFindNextWildcardTagWithoutIndex @ 0x140804C40 (SdbpFindNextWildcardTagWithoutIndex.c)
+ *     SdbTagIDToTagRef @ 0x1408063BC (SdbTagIDToTagRef.c)
+ *     SdbpCheckKObject @ 0x1409413E0 (SdbpCheckKObject.c)
+ *     SdbpFindNextIndexedWildCardTag @ 0x140943014 (SdbpFindNextIndexedWildCardTag.c)
+ *     SdbFindFirstStringIndexedTag @ 0x140945304 (SdbFindFirstStringIndexedTag.c)
+ *     SdbpFindFirstIndexedWildCardTag @ 0x140947608 (SdbpFindFirstIndexedWildCardTag.c)
+ *     AslLogCallPrintf @ 0x140947C9C (AslLogCallPrintf.c)
+ *     SdbpFindMatchingName @ 0x140A73468 (SdbpFindMatchingName.c)
+ *     SdbpGetNextIndexedRecord @ 0x140A73568 (SdbpGetNextIndexedRecord.c)
  */
 
 __int64 __fastcall SdbGetDatabaseMatchEx(

@@ -10,11 +10,11 @@
  *     KiRemoveSystemWorkPriorityKick @ 0x1401BE818 (KiRemoveSystemWorkPriorityKick.c)
  */
 
-__int64 KeResumeClockTimerSafe()
+LONGLONG KeResumeClockTimerSafe()
 {
   unsigned __int8 CurrentIrql; // bl
   struct _KPRCB *CurrentPrcb; // rcx
-  __int64 result; // rax
+  LONGLONG result; // rax
 
   if ( KeGetEffectiveIrql() >= 0xDu )
     return KiResumeClockTimer();

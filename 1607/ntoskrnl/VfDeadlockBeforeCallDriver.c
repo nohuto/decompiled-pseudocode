@@ -1,11 +1,11 @@
 /*
  * XREFs of VfDeadlockBeforeCallDriver @ 0x140713C50
  * Callers:
- *     VfBeforeCallDriver @ 0x14070BAA8 (VfBeforeCallDriver.c)
+ *     VfBeforeCallDriver @ 0x14070BAD8 (VfBeforeCallDriver.c)
  * Callees:
- *     ViDeadlockDetectionTryConvertSharedToExclusive @ 0x140223994 (ViDeadlockDetectionTryConvertSharedToExclusive.c)
- *     ViLowerIrql @ 0x140223C44 (ViLowerIrql.c)
- *     ViRaiseIrqlToDpcLevel @ 0x140223C54 (ViRaiseIrqlToDpcLevel.c)
+ *     ViDeadlockDetectionTryConvertSharedToExclusive @ 0x1402237C0 (ViDeadlockDetectionTryConvertSharedToExclusive.c)
+ *     ViLowerIrql @ 0x140223A70 (ViLowerIrql.c)
+ *     ViRaiseIrqlToDpcLevel @ 0x140223A80 (ViRaiseIrqlToDpcLevel.c)
  *     ViDeadlockAddThread @ 0x140714984 (ViDeadlockAddThread.c)
  *     ViDeadlockAllocate @ 0x140714A40 (ViDeadlockAllocate.c)
  *     ViDeadlockDetectionLock @ 0x14071518C (ViDeadlockDetectionLock.c)

@@ -1,10 +1,10 @@
 /*
- * XREFs of MmAllocatePagesForMdl @ 0x140411EB0
+ * XREFs of MmAllocatePagesForMdl @ 0x140395650
  * Callers:
- *     DifMmAllocatePagesForMdlWrapper @ 0x140632A30 (DifMmAllocatePagesForMdlWrapper.c)
- *     HalpDmaAllocateScatterMemory @ 0x140A8AB00 (HalpDmaAllocateScatterMemory.c)
+ *     DifMmAllocatePagesForMdlWrapper @ 0x140630FF0 (DifMmAllocatePagesForMdlWrapper.c)
+ *     HalpDmaAllocateScatterMemory @ 0x140A86E40 (HalpDmaAllocateScatterMemory.c)
  * Callees:
- *     MiAllocatePagesForMdl @ 0x14041225C (MiAllocatePagesForMdl.c)
+ *     MiAllocatePagesForMdl @ 0x14039469C (MiAllocatePagesForMdl.c)
  */
 
 PMDL __stdcall MmAllocatePagesForMdl(
@@ -14,10 +14,10 @@ PMDL __stdcall MmAllocatePagesForMdl(
         SIZE_T TotalBytes)
 {
   return (PMDL)MiAllocatePagesForMdl(
-                 (unsigned int)&MiSystemPartition,
+                 (int)&MiSystemPartition,
                  LowAddress.LowPart,
                  HighAddress.LowPart,
-                 SkipBytes.LowPart,
+                 SkipBytes.QuadPart,
                  TotalBytes,
                  3,
                  *(unsigned __int16 *)(*(_QWORD *)(KiProcessorBlock[KeGetCurrentThread()->IdealProcessor] + 192) + 138LL),

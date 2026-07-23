@@ -1,10 +1,10 @@
 /*
- * XREFs of PopUmpoSendPowerAdaptiveReserveConfigurationQuery @ 0x1407DB584
+ * XREFs of PopUmpoSendPowerAdaptiveReserveConfigurationQuery @ 0x1407DF590
  * Callers:
- *     PopAdaptiveStandbyQueryReserveConfiguration @ 0x140610F34 (PopAdaptiveStandbyQueryReserveConfiguration.c)
+ *     PopAdaptiveStandbyQueryReserveConfiguration @ 0x1407E4E04 (PopAdaptiveStandbyQueryReserveConfiguration.c)
  * Callees:
- *     PopUmpoSendPowerMessage @ 0x140437684 (PopUmpoSendPowerMessage.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     PopUmpoSendPowerMessage @ 0x140426614 (PopUmpoSendPowerMessage.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall PopUmpoSendPowerAdaptiveReserveConfigurationQuery(__int64 *a1)
@@ -17,5 +17,5 @@ __int64 __fastcall PopUmpoSendPowerAdaptiveReserveConfigurationQuery(__int64 *a1
   v2 = *a1;
   Src = 20;
   v5 = v2;
-  return PopUmpoSendPowerMessage(&Src, 0x48uLL, 0, 0LL);
+  return PopUmpoSendPowerMessage(&Src, 0x48uLL, 0);
 }

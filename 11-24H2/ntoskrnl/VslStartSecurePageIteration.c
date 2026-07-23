@@ -1,11 +1,11 @@
 /*
- * XREFs of VslStartSecurePageIteration @ 0x14058E6C8
+ * XREFs of VslStartSecurePageIteration @ 0x14058B6FC
  * Callers:
- *     HvlpStartSecurePageListIteration @ 0x14058C5B8 (HvlpStartSecurePageListIteration.c)
+ *     HvlpStartSecurePageListIteration @ 0x140589958 (HvlpStartSecurePageListIteration.c)
  * Callees:
- *     VslpEnterIumSecureMode @ 0x140265D90 (VslpEnterIumSecureMode.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     VslpEnterIumSecureMode @ 0x1403AADB0 (VslpEnterIumSecureMode.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 __int64 __fastcall VslStartSecurePageIteration(
@@ -32,5 +32,5 @@ __int64 __fastcall VslStartSecurePageIteration(
   v12 = a2;
   v13 = a3;
   v14 = v7;
-  return VslpEnterIumSecureMode(2u, 2048LL, 0, (__int64)v10);
+  return VslpEnterIumSecureMode(2u, 0x800u, 0, (__int64)v10);
 }

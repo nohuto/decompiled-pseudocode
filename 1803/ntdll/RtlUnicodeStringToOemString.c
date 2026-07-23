@@ -15,9 +15,9 @@ NTSTATUS __stdcall RtlUnicodeStringToOemString(
         BOOLEAN AllocateDestinationString)
 {
   unsigned int v6; // eax
-  NTSTATUS v7; // edi
-  char *v9; // rax
-  int v10; // [rsp+78h] [rbp+20h] BYREF
+  int v7; // edi
+  CHAR *v9; // rax
+  ULONG BytesInOemString; // [rsp+78h] [rbp+20h] BYREF
 
   if ( NlsMbOemCodePageTag )
     v6 = RtlxUnicodeStringToOemSize(SourceString);
@@ -29,7 +29,7 @@ NTSTATUS __stdcall RtlUnicodeStringToOemString(
   if ( AllocateDestinationString )
   {
     DestinationString->MaximumLength = v6;
-    v9 = (char *)sub_18003B5E0(v6);
+    v9 = (CHAR *)sub_18003B5E0(v6);
     DestinationString->Buffer = v9;
     if ( !v9 )
       return -1073741801;
@@ -41,19 +41,19 @@ NTSTATUS __stdcall RtlUnicodeStringToOemString(
   v7 = RtlUnicodeToOemN(
          DestinationString->Buffer,
          DestinationString->Length,
-         (unsigned int)&v10,
+         &BytesInOemString,
          SourceString->Buffer,
          SourceString->Length);
   if ( v7 >= 0 )
   {
-    DestinationString->Buffer[v10] = 0;
+    DestinationString->Buffer[BytesInOemString] = 0;
     v7 = 0;
   }
   if ( v7 < 0 )
   {
     if ( AllocateDestinationString )
     {
-      RtlDeleteBoundaryDescriptor((__int64)DestinationString->Buffer);
+      RtlDeleteBoundaryDescriptor((POBJECT_BOUNDARY_DESCRIPTOR)DestinationString->Buffer);
       DestinationString->Buffer = 0LL;
     }
   }

@@ -1,14 +1,14 @@
 /*
- * XREFs of MmQuerySystemWorkingSetInformation @ 0x14046FF88
+ * XREFs of MmQuerySystemWorkingSetInformation @ 0x14046A3B0
  * Callers:
- *     ExpQuerySystemInformation @ 0x140ADC240 (ExpQuerySystemInformation.c)
+ *     ExpQuerySystemInformation @ 0x140ADDAE0 (ExpQuerySystemInformation.c)
  * Callees:
- *     MiLockWorkingSetShared @ 0x1402DF970 (MiLockWorkingSetShared.c)
- *     MiUnlockWorkingSetShared @ 0x1402E0410 (MiUnlockWorkingSetShared.c)
- *     MiLockWorkingSetCoreExclusive @ 0x140379CE4 (MiLockWorkingSetCoreExclusive.c)
- *     MiUnlockWorkingSetCoreExclusive @ 0x140379DAC (MiUnlockWorkingSetCoreExclusive.c)
- *     MiMapWorkingSetTypeToVm @ 0x14047013C (MiMapWorkingSetTypeToVm.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     MiLockWorkingSetShared @ 0x140241250 (MiLockWorkingSetShared.c)
+ *     MiUnlockWorkingSetShared @ 0x140241CF0 (MiUnlockWorkingSetShared.c)
+ *     MiLockWorkingSetCoreExclusive @ 0x140296038 (MiLockWorkingSetCoreExclusive.c)
+ *     MiUnlockWorkingSetCoreExclusive @ 0x140296808 (MiUnlockWorkingSetCoreExclusive.c)
+ *     MiMapWorkingSetTypeToVm @ 0x14046A564 (MiMapWorkingSetTypeToVm.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 unsigned __int64 __fastcall MmQuerySystemWorkingSetInformation(__int64 a1, _QWORD *a2)
@@ -17,19 +17,22 @@ unsigned __int64 __fastcall MmQuerySystemWorkingSetInformation(__int64 a1, _QWOR
   unsigned __int64 result; // rax
   int *v4; // rsi
   int v6; // r15d
-  __int64 v7; // rbp
-  int *v8; // r12
-  __int64 v9; // rcx
-  __int64 v10; // r13
-  __int64 v11; // rdx
-  __int64 v12; // r8
-  int v13; // ebx
-  _DWORD *v14; // rax
-  __int64 v15; // rcx
-  __int64 v16; // rdx
-  unsigned __int64 v17; // rax
-  unsigned __int64 v18; // rcx
-  unsigned __int8 v19; // [rsp+50h] [rbp+8h]
+  __int64 Blink_high; // rdx
+  __int64 v8; // rbp
+  __int64 v9; // r8
+  __int64 v10; // r9
+  int *v11; // r12
+  __int64 v12; // r13
+  __int64 v13; // rdx
+  __int64 v14; // r8
+  __int64 v15; // r9
+  int v16; // ebx
+  _DWORD *v17; // rax
+  __int64 v18; // rcx
+  __int64 v19; // rdx
+  unsigned __int64 v20; // rax
+  unsigned __int64 v21; // rcx
+  unsigned __int8 v22; // [rsp+50h] [rbp+8h]
 
   v2 = 0;
   result = (unsigned int)(a1 - 1);
@@ -38,52 +41,54 @@ unsigned __int64 __fastcall MmQuerySystemWorkingSetInformation(__int64 a1, _QWOR
   v6 = a1;
   if ( (unsigned int)result <= 3 )
   {
-    v7 = MiMapWorkingSetTypeToVm(a1);
-    v8 = v4;
+    v8 = MiMapWorkingSetTypeToVm(a1);
+    v11 = v4;
     if ( v6 == 1 )
     {
-      v9 = *((_QWORD *)qword_140E2FF88 + HIWORD(KeGetCurrentThread()->ApcState.Process[2].ProcessListEntry.Blink));
-      v7 = (v9 + 18816) & -(__int64)(*(_BYTE *)(v9 + 18524) != 0);
-      if ( !v7 )
+      Blink_high = HIWORD(KeGetCurrentThread()->ApcState.Process[2].ProcessListEntry.Blink);
+      v8 = (*((_QWORD *)qword_140E300C8 + Blink_high) + 18816LL) & -(__int64)(*(_BYTE *)(*((_QWORD *)qword_140E300C8
+                                                                                         + Blink_high)
+                                                                                       + 18524LL) != 0);
+      if ( !v8 )
         return (unsigned __int64)memset_0(a2, 0, 0x40uLL);
-      v8 = (int *)a2 + 15;
+      v11 = (int *)a2 + 15;
     }
-    v10 = *((_QWORD *)qword_140E2FF88 + *(unsigned __int16 *)(v7 + 174));
-    v19 = MiLockWorkingSetShared(v7);
-    MiLockWorkingSetCoreExclusive(v7, v11, v12);
-    *a2 = *(_QWORD *)(v7 + 128);
-    a2[1] = *(_QWORD *)(v7 + 160);
-    *((_DWORD *)a2 + 4) = *(_DWORD *)(v7 + 4);
-    a2[3] = *(_QWORD *)(v7 + 112);
-    a2[4] = *(_QWORD *)(v7 + 120);
-    v13 = *(_DWORD *)(v7 + 184);
-    a2[6] = *(_QWORD *)(v10 + 8LL * (unsigned int)(v6 - 1) + 7240);
-    MiUnlockWorkingSetCoreExclusive(v7);
-    if ( (v13 & 0x80u) != 0 )
+    v12 = *((_QWORD *)qword_140E300C8 + *(unsigned __int16 *)(v8 + 174));
+    v22 = MiLockWorkingSetShared(v8, Blink_high, v9, v10);
+    MiLockWorkingSetCoreExclusive(v8, v13, v14, v15);
+    *a2 = *(_QWORD *)(v8 + 128);
+    a2[1] = *(_QWORD *)(v8 + 160);
+    *((_DWORD *)a2 + 4) = *(_DWORD *)(v8 + 4);
+    a2[3] = *(_QWORD *)(v8 + 112);
+    a2[4] = *(_QWORD *)(v8 + 120);
+    v16 = *(_DWORD *)(v8 + 184);
+    a2[6] = *(_QWORD *)(v12 + 8LL * (unsigned int)(v6 - 1) + 7240);
+    MiUnlockWorkingSetCoreExclusive(v8);
+    if ( (v16 & 0x80u) != 0 )
       *v4 |= 4u;
     else
-      v8 = v4;
-    if ( (v13 & 0x40) != 0 )
-      *v8 = *v4 | 1;
-    MiUnlockWorkingSetShared(v7, v19);
-    v14 = (_DWORD *)(v10 + 7204);
-    v15 = 7LL;
+      v11 = v4;
+    if ( (v16 & 0x40) != 0 )
+      *v11 = *v4 | 1;
+    MiUnlockWorkingSetShared(v8, v22);
+    v17 = (_DWORD *)(v12 + 7204);
+    v18 = 7LL;
     do
     {
-      v2 += *v14++;
-      --v15;
+      v2 += *v17++;
+      --v18;
     }
-    while ( v15 );
-    v16 = *a2;
-    v17 = a2[6];
+    while ( v18 );
+    v19 = *a2;
+    v20 = a2[6];
     *((_DWORD *)a2 + 14) = v2;
-    v18 = v16 + *(_QWORD *)(v10 + 7232);
-    a2[5] = v18;
-    if ( v18 > v17 )
-      a2[5] = v17;
+    v21 = v19 + *(_QWORD *)(v12 + 7232);
+    a2[5] = v21;
+    if ( v21 > v20 )
+      a2[5] = v20;
     result = a2[1] << 12;
     a2[1] = result;
-    *a2 = v16 << 12;
+    *a2 = v19 << 12;
   }
   return result;
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of PopPowerAggregatorHandleResumeIntent @ 0x140598310
+ * XREFs of PopPowerAggregatorHandleResumeIntent @ 0x140598800
  * Callers:
- *     PopPowerAggregatorHandleIntentUnsafe @ 0x1407A93D4 (PopPowerAggregatorHandleIntentUnsafe.c)
+ *     PopPowerAggregatorHandleIntentUnsafe @ 0x1407A95C4 (PopPowerAggregatorHandleIntentUnsafe.c)
  * Callees:
- *     PopPowerAggregatorDetermineTargetSystemPowerState @ 0x140884A90 (PopPowerAggregatorDetermineTargetSystemPowerState.c)
+ *     PopPowerAggregatorDetermineTargetSystemPowerState @ 0x140884CD0 (PopPowerAggregatorDetermineTargetSystemPowerState.c)
  */
 
 __int64 __fastcall PopPowerAggregatorHandleResumeIntent(__int64 a1, __int64 a2)

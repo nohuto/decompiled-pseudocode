@@ -1,11 +1,11 @@
 /*
- * XREFs of MiInitializeZeroedPfns @ 0x14013C9BC
+ * XREFs of MiInitializeZeroedPfns @ 0x14013CABC
  * Callers:
- *     MiZeroInParallelWorker @ 0x14013C6C0 (MiZeroInParallelWorker.c)
+ *     MiZeroInParallelWorker @ 0x14013C7C0 (MiZeroInParallelWorker.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
- *     KeShouldYieldProcessor @ 0x1400F9CE0 (KeShouldYieldProcessor.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeYieldProcessorEx @ 0x14006C9E0 (KeYieldProcessorEx.c)
+ *     KeShouldYieldProcessor @ 0x1400F9D60 (KeShouldYieldProcessor.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiInitializeZeroedPfns(_QWORD *a1, __int64 a2, unsigned __int64 a3)

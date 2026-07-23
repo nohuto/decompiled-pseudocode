@@ -1,16 +1,16 @@
 /*
- * XREFs of WritePortWithIndex8 @ 0x1406A5720
+ * XREFs of WritePortWithIndex8 @ 0x1406A6720
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
  */
 
-__int64 __fastcall WritePortWithIndex8(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+__int64 __fastcall WritePortWithIndex8(__int64 a1, __int64 a2, char a3)
 {
-  int v4; // eax
+  int v3; // eax
 
-  v4 = (unsigned __int8)a2;
+  v3 = (unsigned __int8)a2;
   LOBYTE(a2) = a3;
-  return guard_dispatch_icall_no_overrides(*(_QWORD *)a1 + v4 * (unsigned int)*(unsigned __int8 *)(a1 + 14), a2, a3, a4);
+  return guard_dispatch_icall_no_overrides(*(_QWORD *)a1 + v3 * (unsigned int)*(unsigned __int8 *)(a1 + 14), a2);
 }

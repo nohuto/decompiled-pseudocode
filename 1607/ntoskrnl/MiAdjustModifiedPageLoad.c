@@ -1,15 +1,15 @@
 /*
- * XREFs of MiAdjustModifiedPageLoad @ 0x1400BEA50
+ * XREFs of MiAdjustModifiedPageLoad @ 0x1400BC8E0
  * Callers:
- *     MiWorkingSetManager @ 0x1400BDF08 (MiWorkingSetManager.c)
+ *     MiWorkingSetManager @ 0x1400BBD98 (MiWorkingSetManager.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLock @ 0x140012750 (KeReleaseInStackQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14001BD40 (KeAcquireInStackQueuedSpinLock.c)
- *     MiUpdateReserveClusterInfo @ 0x1400B5470 (MiUpdateReserveClusterInfo.c)
- *     MiStoreUpdateMemoryConditions @ 0x1400BF048 (MiStoreUpdateMemoryConditions.c)
- *     KiQueryUnbiasedInterruptTime @ 0x1400F02D4 (KiQueryUnbiasedInterruptTime.c)
- *     MiWakeModifiedPageWriter @ 0x140113248 (MiWakeModifiedPageWriter.c)
- *     MiUseLowIoPriorityForModifiedPages @ 0x140124224 (MiUseLowIoPriorityForModifiedPages.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x1400122D0 (KeReleaseInStackQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14001B8C0 (KeAcquireInStackQueuedSpinLock.c)
+ *     MiUpdateReserveClusterInfo @ 0x1400B32A8 (MiUpdateReserveClusterInfo.c)
+ *     MiStoreUpdateMemoryConditions @ 0x1400BCED8 (MiStoreUpdateMemoryConditions.c)
+ *     KiQueryUnbiasedInterruptTime @ 0x1400EE154 (KiQueryUnbiasedInterruptTime.c)
+ *     MiWakeModifiedPageWriter @ 0x1401137B8 (MiWakeModifiedPageWriter.c)
+ *     MiUseLowIoPriorityForModifiedPages @ 0x140124794 (MiUseLowIoPriorityForModifiedPages.c)
  */
 
 void __fastcall MiAdjustModifiedPageLoad(__int64 a1, unsigned __int64 a2, char a3)

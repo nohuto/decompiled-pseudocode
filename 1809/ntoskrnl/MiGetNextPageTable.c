@@ -1,22 +1,22 @@
 /*
- * XREFs of MiGetNextPageTable @ 0x140084240
+ * XREFs of MiGetNextPageTable @ 0x140084230
  * Callers:
  *     NtLockVirtualMemory @ 0x14001A570 (NtLockVirtualMemory.c)
- *     MiComputePageCommitment @ 0x140083950 (MiComputePageCommitment.c)
- *     MiSplitPrivatePage @ 0x140083B70 (MiSplitPrivatePage.c)
- *     MiWalkVaRange @ 0x140093C90 (MiWalkVaRange.c)
- *     MiFlushDirtyBitsToPfn @ 0x14012C20C (MiFlushDirtyBitsToPfn.c)
- *     MiGetNextNonGapPfnPage @ 0x140184468 (MiGetNextNonGapPfnPage.c)
- *     MiCheckCommitReleaseFromVad @ 0x1402A39CC (MiCheckCommitReleaseFromVad.c)
- *     MiCloneCaptureVadCommit @ 0x1402B9F18 (MiCloneCaptureVadCommit.c)
- *     MiUpdateForkMaps @ 0x1402CAC08 (MiUpdateForkMaps.c)
+ *     MiComputePageCommitment @ 0x140083940 (MiComputePageCommitment.c)
+ *     MiSplitPrivatePage @ 0x140083B60 (MiSplitPrivatePage.c)
+ *     MiWalkVaRange @ 0x140093BD0 (MiWalkVaRange.c)
+ *     MiFlushDirtyBitsToPfn @ 0x14012C2DC (MiFlushDirtyBitsToPfn.c)
+ *     MiGetNextNonGapPfnPage @ 0x1401845A8 (MiGetNextNonGapPfnPage.c)
+ *     MiCheckCommitReleaseFromVad @ 0x1402A3BBC (MiCheckCommitReleaseFromVad.c)
+ *     MiCloneCaptureVadCommit @ 0x1402BA108 (MiCloneCaptureVadCommit.c)
+ *     MiUpdateForkMaps @ 0x1402CADF8 (MiUpdateForkMaps.c)
  * Callees:
  *     MiGetAnyMultiplexedVm @ 0x140028884 (MiGetAnyMultiplexedVm.c)
  *     MiFastLockLeafPageTable @ 0x140045BC0 (MiFastLockLeafPageTable.c)
- *     MiWalkPageTables @ 0x14006E940 (MiWalkPageTables.c)
- *     MiGetLeafVa @ 0x140076410 (MiGetLeafVa.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     memset @ 0x1401D1880 (memset.c)
+ *     MiWalkPageTables @ 0x14006E930 (MiWalkPageTables.c)
+ *     MiGetLeafVa @ 0x140076400 (MiGetLeafVa.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     memset @ 0x1401D1980 (memset.c)
  */
 
 __int64 __fastcall MiGetNextPageTable(__int64 a1, __int64 a2, __int64 a3, char a4, char a5, _DWORD *a6)
@@ -49,7 +49,7 @@ __int64 __fastcall MiGetNextPageTable(__int64 a1, __int64 a2, __int64 a3, char a
   if ( (a5 & 2) != 0 )
     LODWORD(v21[0]) = v12 | 0x200;
   LeafVa = MiGetLeafVa(v10);
-  if ( LeafVa >= 0xFFFF800000000000uLL && (LeafVa > qword_14043A530 || LeafVa < qword_14043BAC0) )
+  if ( LeafVa >= 0xFFFF800000000000uLL && (LeafVa > qword_14043B5F0 || LeafVa < qword_14043CB80) )
     AnyMultiplexedVm = MiGetAnyMultiplexedVm(1);
   else
     AnyMultiplexedVm = (char *)&KeGetCurrentThread()->ApcState.Process[1].IdealNode[12];

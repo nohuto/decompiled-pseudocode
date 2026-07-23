@@ -6,11 +6,11 @@
  *     <none>
  */
 
-__int64 NtRegisterThreadTerminatePort()
+NTSTATUS __cdecl NtRegisterThreadTerminatePort(HANDLE PortHandle)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 339LL;
+  result = 339;
   __asm { syscall; Low latency system call }
   return result;
 }

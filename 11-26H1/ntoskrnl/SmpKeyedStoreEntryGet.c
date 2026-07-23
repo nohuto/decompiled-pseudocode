@@ -1,27 +1,27 @@
 /*
- * XREFs of SmpKeyedStoreEntryGet @ 0x140409DF0
+ * XREFs of SmpKeyedStoreEntryGet @ 0x140402EE0
  * Callers:
- *     ?SmpProcessQueryStoreStats@@YAJPEAU_EPROCESS@@PEAU_ST_STATS@@@Z @ 0x140354BA0 (-SmpProcessQueryStoreStats@@YAJPEAU_EPROCESS@@PEAU_ST_STATS@@@Z.c)
- *     SmpKeyedStoreReference @ 0x140409CFC (SmpKeyedStoreReference.c)
- *     SmStoreExistsForProcess @ 0x140513B48 (SmStoreExistsForProcess.c)
- *     SmGetStoreOwnerProcessId @ 0x14063EE98 (SmGetStoreOwnerProcessId.c)
- *     PspProcessDelete @ 0x1407FB2E0 (PspProcessDelete.c)
- *     SmpKeyedStoreCreate @ 0x140966FB8 (SmpKeyedStoreCreate.c)
- *     SmStoreCompressionStart @ 0x140AE9D90 (SmStoreCompressionStart.c)
- *     SmStoreCompressionStop @ 0x140AE9E34 (SmStoreCompressionStop.c)
- *     SmSwapStore @ 0x140AEA064 (SmSwapStore.c)
- *     SmProcessStoreMemoryPriorityRequest @ 0x140B522A4 (SmProcessStoreMemoryPriorityRequest.c)
+ *     ?SmpProcessQueryStoreStats@@YAJPEAU_EPROCESS@@PEAU_ST_STATS@@@Z @ 0x140356940 (-SmpProcessQueryStoreStats@@YAJPEAU_EPROCESS@@PEAU_ST_STATS@@@Z.c)
+ *     SmpKeyedStoreReference @ 0x140402DEC (SmpKeyedStoreReference.c)
+ *     SmStoreExistsForProcess @ 0x14050D5B8 (SmStoreExistsForProcess.c)
+ *     SmGetStoreOwnerProcessId @ 0x140642A78 (SmGetStoreOwnerProcessId.c)
+ *     PspProcessDelete @ 0x140800D10 (PspProcessDelete.c)
+ *     SmpKeyedStoreCreate @ 0x140ADC25C (SmpKeyedStoreCreate.c)
+ *     SmStoreCompressionStart @ 0x140AEC880 (SmStoreCompressionStart.c)
+ *     SmStoreCompressionStop @ 0x140AEC924 (SmStoreCompressionStop.c)
+ *     SmSwapStore @ 0x140AECB54 (SmSwapStore.c)
+ *     SmProcessStoreMemoryPriorityRequest @ 0x140B54B44 (SmProcessStoreMemoryPriorityRequest.c)
  * Callees:
- *     ExfAcquirePushLockSharedEx @ 0x140277CC0 (ExfAcquirePushLockSharedEx.c)
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     ExfReleasePushLockShared @ 0x140278BD0 (ExfReleasePushLockShared.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     KeLeaveCriticalRegionThread @ 0x1402B8A60 (KeLeaveCriticalRegionThread.c)
- *     ExfTryToWakePushLock @ 0x1403170A0 (ExfTryToWakePushLock.c)
- *     ExAllocatePool3 @ 0x140C10010 (ExAllocatePool3.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ExfAcquirePushLockSharedEx @ 0x140277230 (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     ExfReleasePushLockShared @ 0x140278140 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     KeLeaveCriticalRegionThread @ 0x140303720 (KeLeaveCriticalRegionThread.c)
+ *     ExfTryToWakePushLock @ 0x1403190D0 (ExfTryToWakePushLock.c)
+ *     ExAllocatePool3 @ 0x140C16010 (ExAllocatePool3.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 unsigned __int64 *__fastcall SmpKeyedStoreEntryGet(
@@ -38,28 +38,26 @@ unsigned __int64 *__fastcall SmpKeyedStoreEntryGet(
   struct _KTHREAD *CurrentThread; // rax
   AutoBoost *v14; // rax
   AutoBoost *v15; // rdi
-  __int64 v16; // rdx
-  __int64 v17; // r8
   unsigned __int64 *i; // rcx
   LIST_ENTRY *p_WaitListHead; // r9
-  unsigned __int64 v20; // rdi
+  unsigned __int64 v18; // rdi
   unsigned int Flink_high; // r8d
-  unsigned __int64 v22; // rdi
-  struct _LIST_ENTRY **v23; // rcx
+  unsigned __int64 v20; // rdi
+  struct _LIST_ENTRY **v21; // rcx
   struct _LIST_ENTRY *Pool3; // r9
-  char v25; // cl
-  LIST_ENTRY *v26; // r8
-  unsigned int v27; // r10d
-  unsigned __int64 v28; // rcx
-  __int64 v29; // r11
-  _QWORD **v30; // r8
-  _QWORD *v31; // rcx
-  int v32; // edx
-  int v33; // eax
-  __int64 v34; // rdx
+  char v23; // cl
+  LIST_ENTRY *v24; // r8
+  unsigned int v25; // r10d
+  unsigned __int64 v26; // rcx
+  __int64 v27; // r11
+  _QWORD **v28; // r8
+  _QWORD *v29; // rcx
+  int v30; // edx
+  int v31; // eax
+  __int64 v32; // rdx
   struct _LIST_ENTRY *Blink; // rcx
-  _QWORD *v36; // [rsp+38h] [rbp-40h]
-  int v37; // [rsp+98h] [rbp+20h]
+  _QWORD *v34; // [rsp+38h] [rbp-40h]
+  int v35; // [rsp+98h] [rbp+20h]
 
   v5 = (int)a4;
   if ( !(_DWORD)a4 )
@@ -176,80 +174,80 @@ LABEL_14:
   }
   p_WaitListHead = &a1->Header.WaitListHead;
   SListFaultAddress = a2 - 1;
-  v20 = (unsigned int)(2 * (HIDWORD(a1->Header.WaitListHead.Flink) >> 5));
-  if ( LODWORD(a1->Header.WaitListHead.Flink) >= (unsigned int)v20 )
+  v18 = (unsigned int)(2 * (HIDWORD(a1->Header.WaitListHead.Flink) >> 5));
+  if ( LODWORD(a1->Header.WaitListHead.Flink) >= (unsigned int)v18 )
   {
-    if ( (unsigned int)v20 < 4 )
-      v20 = 4LL;
+    if ( (unsigned int)v18 < 4 )
+      v18 = 4LL;
     Pool3 = (struct _LIST_ENTRY *)ExAllocatePool3(
                                     64LL,
-                                    8LL * (unsigned int)v20,
+                                    8LL * (unsigned int)v18,
                                     1414032755LL,
-                                    &stru_140E27B08.Header.WaitListHead.Blink,
+                                    &stru_140E27C48.Header.WaitListHead.Blink,
                                     1);
     if ( Pool3 )
     {
-      if ( (((_DWORD)v20 - 1) & (unsigned int)v20) != 0 )
+      if ( (((_DWORD)v18 - 1) & (unsigned int)v18) != 0 )
       {
-        v25 = -1;
+        v23 = -1;
         do
         {
-          ++v25;
-          LODWORD(v20) = (unsigned int)v20 >> 1;
+          ++v23;
+          LODWORD(v18) = (unsigned int)v18 >> 1;
         }
-        while ( (_DWORD)v20 );
-        v20 = (unsigned int)(1 << v25);
+        while ( (_DWORD)v18 );
+        v18 = (unsigned int)(1 << v23);
       }
-      v26 = &a1->Header.WaitListHead;
-      v27 = 0;
-      if ( (unsigned int)v20 > 0x4000000 )
-        v20 = 0x4000000LL;
-      v28 = (unsigned int)v20;
-      v37 = v20;
-      if ( Pool3 > (struct _LIST_ENTRY *)((char *)Pool3 + 8 * v20) )
-        v28 = 0LL;
-      if ( v28 )
-        memset64(Pool3, (unsigned __int64)v26 | 1, v28);
-      v29 = -1LL << (BYTE4(a1->Header.WaitListHead.Flink) & 0x1F);
+      v24 = &a1->Header.WaitListHead;
+      v25 = 0;
+      if ( (unsigned int)v18 > 0x4000000 )
+        v18 = 0x4000000LL;
+      v26 = (unsigned int)v18;
+      v35 = v18;
+      if ( Pool3 > (struct _LIST_ENTRY *)((char *)Pool3 + 8 * v18) )
+        v26 = 0LL;
+      if ( v26 )
+        memset64(Pool3, (unsigned __int64)v24 | 1, v26);
+      v27 = -1LL << (BYTE4(a1->Header.WaitListHead.Flink) & 0x1F);
       if ( (HIDWORD(a1->Header.WaitListHead.Flink) & 0xFFFFFFE0) != 0 )
       {
         do
         {
-          v30 = (_QWORD **)v26->Blink + v27;
+          v28 = (_QWORD **)v24->Blink + v25;
           while ( 1 )
           {
-            v31 = *v30;
-            v36 = *v30;
-            if ( ((unsigned __int8)*v30 & 1) != 0 )
+            v29 = *v28;
+            v34 = *v28;
+            if ( ((unsigned __int8)*v28 & 1) != 0 )
               break;
-            *v30 = (_QWORD *)*v31;
-            v20 = v31[1] & v29;
-            v32 = HIBYTE(v20)
+            *v28 = (_QWORD *)*v29;
+            v18 = v29[1] & v27;
+            v30 = HIBYTE(v18)
                 + 37
-                * (BYTE6(v20)
+                * (BYTE6(v18)
                  + 37
-                 * (BYTE5(v20)
+                 * (BYTE5(v18)
                   + 37
-                  * (BYTE4(v20)
+                  * (BYTE4(v18)
                    + 37
-                   * ((((_DWORD)v31[1] & (unsigned int)v29) >> 24)
+                   * ((((_DWORD)v29[1] & (unsigned int)v27) >> 24)
                     + 37
-                    * ((unsigned __int8)(((_DWORD)v31[1] & (unsigned int)v29) >> 16)
-                     + 37 * (unsigned __int8)((unsigned __int16)(v31[1] & v29) >> 8))))));
-            v33 = (unsigned __int8)v20;
-            LODWORD(v20) = v37;
-            v34 = (v37 - 1) & (unsigned int)(442596621 * v33 - 877075889 + v32);
-            *v36 = *((_QWORD *)&Pool3->Flink + v34);
-            *((_QWORD *)&Pool3->Flink + v34) = v36;
+                    * ((unsigned __int8)(((_DWORD)v29[1] & (unsigned int)v27) >> 16)
+                     + 37 * (unsigned __int8)((unsigned __int16)(v29[1] & v27) >> 8))))));
+            v31 = (unsigned __int8)v18;
+            LODWORD(v18) = v35;
+            v32 = (v35 - 1) & (unsigned int)(442596621 * v31 - 877075889 + v30);
+            *v34 = *((_QWORD *)&Pool3->Flink + v32);
+            *((_QWORD *)&Pool3->Flink + v32) = v34;
           }
-          v26 = &a1->Header.WaitListHead;
-          ++v27;
+          v24 = &a1->Header.WaitListHead;
+          ++v25;
         }
-        while ( v27 < HIDWORD(a1->Header.WaitListHead.Flink) >> 5 );
+        while ( v25 < HIDWORD(a1->Header.WaitListHead.Flink) >> 5 );
       }
-      Blink = v26->Blink;
-      v26->Blink = Pool3;
-      HIDWORD(v26->Flink) = (32 * v20) | HIDWORD(v26->Flink) & 0x1F;
+      Blink = v24->Blink;
+      v24->Blink = Pool3;
+      HIDWORD(v24->Flink) = (32 * v18) | HIDWORD(v24->Flink) & 0x1F;
       if ( Blink )
         ExFreePoolWithTag(Blink, 0);
       p_WaitListHead = &a1->Header.WaitListHead;
@@ -265,18 +263,18 @@ LABEL_14:
     }
   }
   Flink_high = HIDWORD(p_WaitListHead->Flink);
-  v22 = *a2 & (-1LL << (Flink_high & 0x1F));
-  v23 = &p_WaitListHead->Blink->Flink
-      + (((Flink_high >> 5) - 1) & (442596621 * (unsigned __int8)v22
-                                  + HIBYTE(v22)
+  v20 = *a2 & (-1LL << (Flink_high & 0x1F));
+  v21 = &p_WaitListHead->Blink->Flink
+      + (((Flink_high >> 5) - 1) & (442596621 * (unsigned __int8)v20
+                                  + HIBYTE(v20)
                                   + 37
-                                  * (BYTE6(v22)
+                                  * (BYTE6(v20)
                                    + 37
-                                   * (BYTE5(v22)
-                                    + 37 * (BYTE4(v22) + 37 * (BYTE3(v22) + 37 * (BYTE2(v22) + 37 * BYTE1(v22))))))
+                                   * (BYTE5(v20)
+                                    + 37 * (BYTE4(v20) + 37 * (BYTE3(v20) + 37 * (BYTE2(v20) + 37 * BYTE1(v20))))))
                                   - 877075889));
-  *SListFaultAddress = (unsigned __int64)*v23;
-  *v23 = (struct _LIST_ENTRY *)SListFaultAddress;
+  *SListFaultAddress = (unsigned __int64)*v21;
+  *v21 = (struct _LIST_ENTRY *)SListFaultAddress;
   ++LODWORD(p_WaitListHead->Flink);
   if ( a1->QuantumTarget == *a2 )
     a1->QuantumTarget = 0LL;
@@ -293,7 +291,7 @@ LABEL_5:
       ExfReleasePushLockShared((signed __int64 *)&a1->Header.Lock);
     }
     KeAbPostRelease((unsigned __int64)a1);
-    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v16, v17);
+    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
   }
   return SListFaultAddress;
 }

@@ -1,16 +1,16 @@
 /*
- * XREFs of SmStorePhysicalRequestIssue @ 0x1408ABA2C
+ * XREFs of SmStorePhysicalRequestIssue @ 0x1408ACC8C
  * Callers:
- *     SmStoreCreate @ 0x1408AB894 (SmStoreCreate.c)
- *     SmStoreDelete @ 0x1408AB9A0 (SmStoreDelete.c)
- *     SmStoreResize @ 0x1408ABB7C (SmStoreResize.c)
+ *     SmStoreCreate @ 0x1408ACAF4 (SmStoreCreate.c)
+ *     SmStoreDelete @ 0x1408ACC00 (SmStoreDelete.c)
+ *     SmStoreResize @ 0x1408ACDDC (SmStoreResize.c)
  * Callees:
  *     KeWaitForSingleObject @ 0x140054880 (KeWaitForSingleObject.c)
- *     IofCallDriver @ 0x1400B8DF0 (IofCallDriver.c)
- *     KeInitializeEvent @ 0x1400B8E70 (KeInitializeEvent.c)
- *     IoInitializeIrp @ 0x14011A1A0 (IoInitializeIrp.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     _alloca_probe @ 0x1401C5DC0 (_alloca_probe.c)
+ *     IofCallDriver @ 0x1400B8D30 (IofCallDriver.c)
+ *     KeInitializeEvent @ 0x1400B8DB0 (KeInitializeEvent.c)
+ *     IoInitializeIrp @ 0x14011A210 (IoInitializeIrp.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     _alloca_probe @ 0x1401C5F20 (_alloca_probe.c)
  */
 
 __int64 __fastcall SmStorePhysicalRequestIssue(

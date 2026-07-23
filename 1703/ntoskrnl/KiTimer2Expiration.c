@@ -60,7 +60,7 @@ unsigned __int64 __fastcall KiTimer2Expiration(__int64 a1, unsigned __int64 a2, 
   int v39; // [rsp+58h] [rbp-29h] BYREF
   __int64 v40; // [rsp+60h] [rbp-21h]
   __int64 v41; // [rsp+68h] [rbp-19h]
-  LARGE_INTEGER v42; // [rsp+70h] [rbp-11h] BYREF
+  LARGE_INTEGER PerformanceCounter; // [rsp+70h] [rbp-11h] BYREF
   _QWORD v43[2]; // [rsp+78h] [rbp-9h] BYREF
   unsigned __int64 v44; // [rsp+88h] [rbp+7h] BYREF
   char v45; // [rsp+90h] [rbp+Fh]
@@ -191,7 +191,8 @@ LABEL_18:
     {
       goto LABEL_47;
     }
-    v7 = RtlGetInterruptTimePrecise(&v42) + 10000000LL * (unsigned int)KiForceIdleGracePeriodInSec;
+    v7 = *(_QWORD *)&RtlGetInterruptTimePrecise(&PerformanceCounter)
+       + 10000000LL * (unsigned int)KiForceIdleGracePeriodInSec;
     KiForceIdleStartTime = v7;
 LABEL_47:
     _InterlockedAnd64(&KiForceIdleLock, 0LL);

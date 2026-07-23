@@ -1,12 +1,12 @@
 /*
- * XREFs of MiLockAndIncrementShareCount @ 0x1402E3DA8
+ * XREFs of MiLockAndIncrementShareCount @ 0x1402E4038
  * Callers:
- *     MiLinkPoolCommitChain @ 0x1402862A0 (MiLinkPoolCommitChain.c)
- *     MiInitializePfnForOtherProcess @ 0x1402E3F60 (MiInitializePfnForOtherProcess.c)
- *     MiMapRetpolineStubs @ 0x1406406DC (MiMapRetpolineStubs.c)
+ *     MiLinkPoolCommitChain @ 0x140286530 (MiLinkPoolCommitChain.c)
+ *     MiInitializePfnForOtherProcess @ 0x1402E41F0 (MiInitializePfnForOtherProcess.c)
+ *     MiMapRetpolineStubs @ 0x140640C2C (MiMapRetpolineStubs.c)
  * Callees:
- *     MiLockPageInline @ 0x1402EF680 (MiLockPageInline.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiLockPageInline @ 0x1402EF910 (MiLockPageInline.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiLockAndIncrementShareCount(__int64 a1)
@@ -23,10 +23,10 @@ __int64 __fastcall MiLockAndIncrementShareCount(__int64 a1)
   result = 0x7FFFFFFFFFFFFFFFLL;
   *(_QWORD *)(v1 + 24) ^= ((*(_QWORD *)(v1 + 24) + 1LL) ^ *(_QWORD *)(v1 + 24)) & 0x3FFFFFFFFFFFFFFFLL;
   _InterlockedAnd64((volatile signed __int64 *)(v1 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     result = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
       && (unsigned __int8)result <= 0xFu
       && (unsigned __int8)v2 <= 0xFu
       && (unsigned __int8)result >= 2u )

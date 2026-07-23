@@ -1,12 +1,12 @@
 /*
- * XREFs of MiSetWsleAge @ 0x1400BDC94
+ * XREFs of MiSetWsleAge @ 0x1400BBB24
  * Callers:
- *     MiTrimThisWsle @ 0x140016960 (MiTrimThisWsle.c)
- *     MiActOnPte @ 0x1400BBC88 (MiActOnPte.c)
- *     MiReplaceWorkingSetEntryLarge @ 0x140100DD4 (MiReplaceWorkingSetEntryLarge.c)
- *     MiReplaceWorkingSetEntrySmall @ 0x1401E9EEC (MiReplaceWorkingSetEntrySmall.c)
+ *     MiTrimThisWsle @ 0x1400164E0 (MiTrimThisWsle.c)
+ *     MiActOnPte @ 0x1400B9B18 (MiActOnPte.c)
+ *     MiReplaceWorkingSetEntryLarge @ 0x1400FEB54 (MiReplaceWorkingSetEntryLarge.c)
+ *     MiReplaceWorkingSetEntrySmall @ 0x1401E9D18 (MiReplaceWorkingSetEntrySmall.c)
  * Callees:
- *     MiRemoveEntryWsle @ 0x1400E2580 (MiRemoveEntryWsle.c)
+ *     MiRemoveEntryWsle @ 0x1400E0420 (MiRemoveEntryWsle.c)
  */
 
 __int64 __fastcall MiSetWsleAge(__int64 a1, _QWORD *a2, int a3)

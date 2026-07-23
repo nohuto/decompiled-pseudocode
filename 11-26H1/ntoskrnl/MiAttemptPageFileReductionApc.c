@@ -1,15 +1,15 @@
 /*
- * XREFs of MiAttemptPageFileReductionApc @ 0x14070D510
+ * XREFs of MiAttemptPageFileReductionApc @ 0x1407121C0
  * Callers:
  *     <none>
  * Callees:
- *     KeSetEvent @ 0x1402DE9C0 (KeSetEvent.c)
- *     MiGetPageFileResizeCandidates @ 0x1404E7480 (MiGetPageFileResizeCandidates.c)
- *     MiExcessCommitExists @ 0x1405069F0 (MiExcessCommitExists.c)
- *     qsort @ 0x140536F00 (qsort.c)
- *     MiTargetedPageFileReductionApc @ 0x14070D818 (MiTargetedPageFileReductionApc.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     KeSetEvent @ 0x1402C0780 (KeSetEvent.c)
+ *     MiGetPageFileResizeCandidates @ 0x1404E083C (MiGetPageFileResizeCandidates.c)
+ *     MiExcessCommitExists @ 0x1405002A0 (MiExcessCommitExists.c)
+ *     qsort @ 0x140539380 (qsort.c)
+ *     MiTargetedPageFileReductionApc @ 0x1407124C8 (MiTargetedPageFileReductionApc.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 LONG __fastcall MiAttemptPageFileReductionApc(PRKEVENT Event)

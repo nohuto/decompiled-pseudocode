@@ -1,14 +1,14 @@
 /*
- * XREFs of PopAdaptiveWnfCallback @ 0x14099BA20
+ * XREFs of PopAdaptiveWnfCallback @ 0x14099BC20
  * Callers:
  *     <none>
  * Callees:
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     ExQueryWnfStateData @ 0x1407E21C0 (ExQueryWnfStateData.c)
- *     PopAcquireAdaptiveLock @ 0x1407EBE9C (PopAcquireAdaptiveLock.c)
- *     PopReleaseAdaptiveLock @ 0x1407EBF48 (PopReleaseAdaptiveLock.c)
- *     PopDiagTraceAdaptiveOverrideTriggered @ 0x14098C66C (PopDiagTraceAdaptiveOverrideTriggered.c)
- *     PopAdaptiveConsoleSessionOverrideClear @ 0x14099B780 (PopAdaptiveConsoleSessionOverrideClear.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     ExQueryWnfStateData @ 0x1407E2490 (ExQueryWnfStateData.c)
+ *     PopAcquireAdaptiveLock @ 0x1407EC16C (PopAcquireAdaptiveLock.c)
+ *     PopReleaseAdaptiveLock @ 0x1407EC218 (PopReleaseAdaptiveLock.c)
+ *     PopDiagTraceAdaptiveOverrideTriggered @ 0x14098C86C (PopDiagTraceAdaptiveOverrideTriggered.c)
+ *     PopAdaptiveConsoleSessionOverrideClear @ 0x14099B980 (PopAdaptiveConsoleSessionOverrideClear.c)
  */
 
 __int64 __fastcall PopAdaptiveWnfCallback(__int64 a1, _QWORD *a2)
@@ -41,10 +41,10 @@ __int64 __fastcall PopAdaptiveWnfCallback(__int64 a1, _QWORD *a2)
       {
         v5 = PopAdaptiveSensorInattentiveDimTimeout;
 LABEL_16:
-        qword_140C39D08 = v8;
-        byte_140C39D00[0] = 1;
-        dword_140C39D10 = v4;
-        dword_140C39D14 = v5;
+        qword_140C39C68 = v8;
+        byte_140C39C60[0] = 1;
+        dword_140C39C70 = v4;
+        dword_140C39C74 = v5;
         PopDiagTraceAdaptiveOverrideTriggered(v8);
 LABEL_18:
         PopReleaseAdaptiveLock();

@@ -393,13 +393,7 @@ LABEL_11:
         if ( *((_QWORD *)DeviceNode + 6) )
         {
           *ResultLength = BufferLength;
-          DeviceRegProp = PiGetDeviceRegProperty(
-                            *((_QWORD *)DeviceNode + 6),
-                            0,
-                            v14,
-                            v15,
-                            PropertyBuffer,
-                            (__int64)ResultLength);
+          DeviceRegProp = PiGetDeviceRegProperty(*((_QWORD *)DeviceNode + 6), 0, v14, v15, PropertyBuffer, ResultLength);
           v17 = DeviceRegProp == -1073741275;
 LABEL_13:
           if ( !v17 )

@@ -7,15 +7,14 @@
  *     ViZwShouldCheck @ 0x14075882C (ViZwShouldCheck.c)
  */
 
-__int64 __fastcall VfZwQueryDriverEntryOrder(__int64 a1, __int64 a2)
+NTSTATUS __fastcall VfZwQueryDriverEntryOrder(ULONG *a1, ULONG *a2)
 {
-  __int64 v4; // r8
   _UNKNOWN *retaddr; // [rsp+28h] [rbp+0h]
 
   if ( (unsigned int)ViZwShouldCheck() )
   {
-    ViZwCheckVirtualAddress(a1, (int)retaddr);
-    ViZwCheckVirtualAddress(a2, (int)retaddr);
+    ViZwCheckVirtualAddress((int)a1, (int)retaddr);
+    ViZwCheckVirtualAddress((int)a2, (int)retaddr);
   }
-  return pXdvZwQueryDriverEntryOrder(a1, a2, v4);
+  return pXdvZwQueryDriverEntryOrder(a1, a2);
 }

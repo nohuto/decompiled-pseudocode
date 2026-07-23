@@ -1,16 +1,16 @@
 /*
- * XREFs of PpmCheckSnapAllDeliveredPerformance @ 0x140252E50
+ * XREFs of PpmCheckSnapAllDeliveredPerformance @ 0x1402547B0
  * Callers:
- *     PpmCheckUpdateDeliveredPerformanceIfTracingEnabled @ 0x1404DFFB0 (PpmCheckUpdateDeliveredPerformanceIfTracingEnabled.c)
+ *     PpmCheckUpdateDeliveredPerformanceIfTracingEnabled @ 0x1404D9690 (PpmCheckUpdateDeliveredPerformanceIfTracingEnabled.c)
  * Callees:
- *     PpmCheckQueuePhaseActions @ 0x140252698 (PpmCheckQueuePhaseActions.c)
- *     PpmPerfSnapDeliveredPerformance @ 0x140253660 (PpmPerfSnapDeliveredPerformance.c)
- *     KeGetPrcb @ 0x1402916D0 (KeGetPrcb.c)
- *     HvlUpdatePerformanceStateCountersForLp @ 0x14032BD30 (HvlUpdatePerformanceStateCountersForLp.c)
- *     HvlGetReferenceTime @ 0x140419B10 (HvlGetReferenceTime.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     PpmCheckQueuePhaseActions @ 0x140253FF8 (PpmCheckQueuePhaseActions.c)
+ *     PpmPerfSnapDeliveredPerformance @ 0x140254FC0 (PpmPerfSnapDeliveredPerformance.c)
+ *     KeGetPrcb @ 0x140290C30 (KeGetPrcb.c)
+ *     HvlUpdatePerformanceStateCountersForLp @ 0x14032DD60 (HvlUpdatePerformanceStateCountersForLp.c)
+ *     HvlGetReferenceTime @ 0x140411360 (HvlGetReferenceTime.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 PpmCheckSnapAllDeliveredPerformance()
@@ -23,7 +23,7 @@ __int64 PpmCheckSnapAllDeliveredPerformance()
   unsigned int i; // esi
   unsigned __int16 v6; // cx
   unsigned __int16 v7; // bx
-  unsigned __int16 v8; // di
+  unsigned __int16 Count; // di
   __int64 v9; // rax
   unsigned __int64 v10; // rdi
   __int64 v11; // rbx
@@ -73,17 +73,17 @@ __int64 PpmCheckSnapAllDeliveredPerformance()
   memset_0(v27, 0, 0x100uLL);
   v6 = 32;
   v7 = 0;
-  v8 = 32;
+  Count = 32;
   v26 = 0;
-  if ( (unsigned __int16)PpmCheckRegistered <= 0x20u )
-    v8 = PpmCheckRegistered;
-  v24 = v8;
-  if ( v8 )
+  if ( PpmCheckRegistered.Count <= 0x20u )
+    Count = PpmCheckRegistered.Count;
+  v24 = Count;
+  if ( Count )
   {
-    memmove(v27, qword_140E0B638, 8LL * v8);
+    memmove(v27, &PpmCheckRegistered.8, 8LL * Count);
     do
       ++v7;
-    while ( v7 < v8 );
+    while ( v7 < Count );
     v6 = v25;
   }
   if ( v7 < v6 )
@@ -103,13 +103,12 @@ __int64 PpmCheckSnapAllDeliveredPerformance()
     {
       _BitScanForward64(&v12, v10);
       v10 &= ~(1LL << v12);
-      v13 = *((unsigned int *)&KiSupervisorXStateFeaturesLock.WaitBlock[2].Thread->Header.Lock
-            + 64 * (unsigned __int16)v11
+      v13 = *((unsigned int *)&KiSupervisorXStateFeaturesLock.SchedulerApc.ApcListEntry.Flink[16 * (unsigned __int16)v11].Flink
             + (unsigned __int8)v12);
       Prcb = KeGetPrcb(v13);
       if ( (unsigned __int8)PpmPerfSnapDeliveredPerformance(Prcb + 35264, 0LL, 0LL) )
       {
-        v15 = *(_DWORD *)(*(_QWORD *)&KiSupervisorXStateFeaturesLock.WaitBlockFill11[112] + 4 * v13);
+        v15 = *((_DWORD *)&KiSupervisorXStateFeaturesLock.SchedulerApc.Thread->Header.Lock + v13);
         if ( v24 > v15 >> 6 )
           v27[v15 >> 6] &= ~(1LL << (v15 & 0x3F));
       }

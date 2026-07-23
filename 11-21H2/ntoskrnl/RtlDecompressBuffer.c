@@ -3,7 +3,7 @@
  * Callers:
  *     RtlDecompressChunks @ 0x1409B60C0 (RtlDecompressChunks.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
+ *     sub_14042A5E0 @ 0x14042A5E0 (sub_14042A5E0.c)
  */
 
 NTSTATUS __stdcall RtlDecompressBuffer(
@@ -17,13 +17,6 @@ NTSTATUS __stdcall RtlDecompressBuffer(
   if ( (unsigned __int8)CompressionFormat < 2u )
     return -1073741811;
   if ( (unsigned __int8)CompressionFormat <= 5u )
-    return ((__int64 (__fastcall *)(PUCHAR, _QWORD, PUCHAR, _QWORD, _DWORD, PULONG, _QWORD))RtlDecompressBufferProcs[(unsigned __int8)CompressionFormat])(
-             UncompressedBuffer,
-             UncompressedBufferSize,
-             CompressedBuffer,
-             CompressedBufferSize,
-             0,
-             FinalUncompressedSize,
-             0LL);
+    return sub_14042A5E0(UncompressedBuffer, UncompressedBufferSize);
   return -1073741217;
 }

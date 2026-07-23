@@ -1,12 +1,12 @@
 /*
- * XREFs of WmipGetGuidSecurityDescriptor @ 0x140474120
+ * XREFs of WmipGetGuidSecurityDescriptor @ 0x140472FF0
  * Callers:
- *     WmipCreateGuidObject @ 0x140473F48 (WmipCreateGuidObject.c)
+ *     WmipCreateGuidObject @ 0x140472E18 (WmipCreateGuidObject.c)
  * Callees:
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     memset @ 0x140171AC0 (memset.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
- *     RtlpQueryRegistryValues @ 0x1404F8018 (RtlpQueryRegistryValues.c)
+ *     RtlpQueryRegistryValues @ 0x1404DAFA4 (RtlpQueryRegistryValues.c)
  */
 
 __int64 __fastcall WmipGetGuidSecurityDescriptor(__int64 a1, PVOID *a2)

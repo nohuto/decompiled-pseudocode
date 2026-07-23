@@ -26,37 +26,37 @@ void __fastcall SmKmStoreHelperCommandProcess(__int64 a1, int a2, __int64 a3)
   __int64 v9; // rdx
   unsigned int v10; // r15d
   int v11; // ebx
-  void *v12; // rcx
-  void *v13; // rcx
+  PVOID v12; // rcx
+  PVOID v13; // rcx
   int v14; // eax
   ULONG_PTR v15; // rcx
   int v16; // edx
   struct _MDL *v17; // r12
   int v18; // eax
   _QWORD v19[2]; // [rsp+30h] [rbp-10h] BYREF
-  void *VirtualMemory; // [rsp+80h] [rbp+40h] BYREF
-  unsigned __int64 v21; // [rsp+88h] [rbp+48h] BYREF
+  PVOID BaseAddress; // [rsp+80h] [rbp+40h] BYREF
+  ULONG_PTR RegionSize; // [rsp+88h] [rbp+48h] BYREF
 
-  VirtualMemory = 0LL;
-  v21 = 0LL;
+  BaseAddress = 0LL;
+  RegionSize = 0LL;
   v5 = a2 - 2;
   if ( !v5 )
   {
-    v21 = *(_QWORD *)(a3 + 8);
-    VirtualMemory = (void *)MmStoreAllocateVirtualMemory();
-    v12 = VirtualMemory;
-    if ( VirtualMemory )
+    RegionSize = *(_QWORD *)(a3 + 8);
+    BaseAddress = (PVOID)MmStoreAllocateVirtualMemory();
+    v12 = BaseAddress;
+    if ( BaseAddress )
     {
       if ( *(_QWORD *)(a1 + 112) )
       {
         if ( (*(_DWORD *)(a3 + 32) & 1) == 0 )
         {
           v18 = SmKmVirtualLockCtxLockMemory(*(_QWORD *)(a1 + 112));
-          v12 = VirtualMemory;
+          v12 = BaseAddress;
           v11 = v18;
           if ( v18 < 0 )
           {
-            MmStoreFreeVirtualMemory(VirtualMemory);
+            MmStoreFreeVirtualMemory(BaseAddress);
             goto LABEL_12;
           }
         }
@@ -69,10 +69,10 @@ void __fastcall SmKmStoreHelperCommandProcess(__int64 a1, int a2, __int64 a3)
   v6 = v5 - 1;
   if ( !v6 )
   {
-    v13 = *(void **)a3;
-    v21 = *(_QWORD *)(a3 + 8);
+    v13 = *(PVOID *)a3;
+    RegionSize = *(_QWORD *)(a3 + 8);
     v14 = *(_DWORD *)(a3 + 16);
-    VirtualMemory = v13;
+    BaseAddress = v13;
     if ( (v14 & 1) == 0 )
     {
       MmStoreFreeVirtualMemory(v13);
@@ -85,19 +85,19 @@ void __fastcall SmKmStoreHelperCommandProcess(__int64 a1, int a2, __int64 a3)
   v7 = v6 - 1;
   if ( !v7 )
   {
-    VirtualMemory = *(void **)a3;
-    v21 = *(_QWORD *)(a3 + 8);
+    BaseAddress = *(PVOID *)a3;
+    RegionSize = *(_QWORD *)(a3 + 8);
     v8 = (struct _MDL *)SmFpAllocate(*(PEX_SPIN_LOCK *)(a1 + 120), *(_DWORD *)(a3 + 20) & 1);
     if ( v8 )
     {
       v9 = *(unsigned int *)(a3 + 16);
       v19[0] = KeGetCurrentThread();
       v10 = SmSetThreadPagePriority(v19, v9);
-      v11 = SmKmProbeAndLockAddress((unsigned __int64)VirtualMemory, v21, v8);
+      v11 = SmKmProbeAndLockAddress((unsigned __int64)BaseAddress, RegionSize, v8);
       if ( v11 == -1073741395 && (*(_DWORD *)(a3 + 20) & 1) != 0 )
       {
         v17 = (struct _MDL *)SmFpAllocate(*(PEX_SPIN_LOCK *)(a1 + 120), 1);
-        v11 = SmKmProbeAndLockAddress((unsigned __int64)VirtualMemory, v21, v8);
+        v11 = SmKmProbeAndLockAddress((unsigned __int64)BaseAddress, RegionSize, v8);
         if ( v11 >= 0 )
           v8->Next = v17;
         else
@@ -107,8 +107,8 @@ void __fastcall SmKmStoreHelperCommandProcess(__int64 a1, int a2, __int64 a3)
         SmSetThreadPagePriority(v19, v10);
       if ( v11 >= 0 )
       {
-        VirtualMemory = (void *)SmFpAllocate(*(PEX_SPIN_LOCK *)(a1 + 120), *(_DWORD *)(a3 + 20) & 1);
-        if ( VirtualMemory )
+        BaseAddress = (PVOID)SmFpAllocate(*(PEX_SPIN_LOCK *)(a1 + 120), *(_DWORD *)(a3 + 20) & 1);
+        if ( BaseAddress )
         {
           *(_QWORD *)(a3 + 24) = v8;
           goto LABEL_11;
@@ -134,9 +134,9 @@ LABEL_24:
     v11 = -1073741811;
     goto LABEL_12;
   }
-  VirtualMemory = *(void **)a3;
-  v21 = *(_QWORD *)(a3 + 8);
-  ZwUnlockVirtualMemory(-1LL, &VirtualMemory, &v21, 1LL);
+  BaseAddress = *(PVOID *)a3;
+  RegionSize = *(_QWORD *)(a3 + 8);
+  ZwUnlockVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &BaseAddress, &RegionSize, 1u);
 LABEL_11:
   v11 = 0;
 LABEL_12:

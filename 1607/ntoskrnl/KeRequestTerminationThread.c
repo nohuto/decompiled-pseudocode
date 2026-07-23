@@ -1,17 +1,17 @@
 /*
- * XREFs of KeRequestTerminationThread @ 0x1400C9DE0
+ * XREFs of KeRequestTerminationThread @ 0x1400C7C80
  * Callers:
- *     MiCommitRequestFailed @ 0x1401ECDEC (MiCommitRequestFailed.c)
- *     PspTerminateThreadByPointer @ 0x140509A30 (PspTerminateThreadByPointer.c)
+ *     MiCommitRequestFailed @ 0x1401ECC18 (MiCommitRequestFailed.c)
+ *     PspTerminateThreadByPointer @ 0x1404EC9C0 (PspTerminateThreadByPointer.c)
  * Callees:
- *     KiExitDispatcher @ 0x140056700 (KiExitDispatcher.c)
- *     VslpEnterIumSecureMode @ 0x1400AA174 (VslpEnterIumSecureMode.c)
- *     KeAlertThread @ 0x1400C9CF4 (KeAlertThread.c)
- *     KiSignalThreadForApc @ 0x1400CA134 (KiSignalThreadForApc.c)
- *     KiInsertQueueApc @ 0x1400CA2B4 (KiInsertQueueApc.c)
- *     KeForceResumeThread @ 0x1400CB374 (KeForceResumeThread.c)
- *     KiAcquireThreadLockRaiseToDpc @ 0x1400CEDEC (KiAcquireThreadLockRaiseToDpc.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
+ *     KiExitDispatcher @ 0x140056280 (KiExitDispatcher.c)
+ *     VslpEnterIumSecureMode @ 0x1400A86F4 (VslpEnterIumSecureMode.c)
+ *     KeAlertThread @ 0x1400C7B94 (KeAlertThread.c)
+ *     KiSignalThreadForApc @ 0x1400C7FD4 (KiSignalThreadForApc.c)
+ *     KiInsertQueueApc @ 0x1400C8154 (KiInsertQueueApc.c)
+ *     KeForceResumeThread @ 0x1400C9214 (KeForceResumeThread.c)
+ *     KiAcquireThreadLockRaiseToDpc @ 0x1400CCC8C (KiAcquireThreadLockRaiseToDpc.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
  */
 
 void __fastcall KeRequestTerminationThread(__int64 a1)

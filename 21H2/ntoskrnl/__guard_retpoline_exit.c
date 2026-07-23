@@ -1,114 +1,114 @@
 /*
- * XREFs of __guard_retpoline_exit @ 0x140A17560
+ * XREFs of __guard_retpoline_exit @ 0x140A18560
  * Callers:
- *     KeExitRetpoline @ 0x14035E888 (KeExitRetpoline.c)
- *     __guard_retpoline_exit_indirect_rax @ 0x140A173A0 (__guard_retpoline_exit_indirect_rax.c)
- *     __guard_retpoline_import_r10 @ 0x140A17420 (__guard_retpoline_import_r10.c)
+ *     KeExitRetpoline @ 0x1402A37B8 (KeExitRetpoline.c)
+ *     __guard_retpoline_exit_indirect_rax @ 0x140A183A0 (__guard_retpoline_exit_indirect_rax.c)
+ *     __guard_retpoline_import_r10 @ 0x140A18420 (__guard_retpoline_import_r10.c)
  * Callees:
- *     __guard_retpoline_exit @ 0x140A17560 (__guard_retpoline_exit.c)
+ *     __guard_retpoline_exit @ 0x140A18560 (__guard_retpoline_exit.c)
  */
 
 /*
- * Hex-Rays decompilation failed for __guard_retpoline_exit @ 0x140A17560
- * Reason: Hex-Rays returned no pseudocode for 0x140A17560
+ * Hex-Rays decompilation failed for __guard_retpoline_exit @ 0x140A18560
+ * Reason: Hex-Rays returned no pseudocode for 0x140A18560
  * Fallback: raw IDA disassembly follows.
  *
- * 0000000140A17560: pushfq
- * 0000000140A17562: sub     rsp, 18h
- * 0000000140A17566: mov     [rsp+20h+var_20], rax
- * 0000000140A1756A: mov     [rsp+20h+var_18], rcx
- * 0000000140A1756F: mov     [rsp+20h+var_10], rdx
- * 0000000140A17574: cli
- * 0000000140A17575: movzx   eax, word ptr gs:852h
- * 0000000140A1757E: cmp     gs:864h, ax
- * 0000000140A17587: jz      short loc_140A1759B
- * 0000000140A17589: mov     gs:864h, ax
- * 0000000140A17592: mov     ecx, 48h ; 'H'
- * 0000000140A17597: xor     edx, edx
- * 0000000140A17599: wrmsr
- * 0000000140A1759B: movzx   edx, byte ptr gs:854h
- * 0000000140A175A4: test    edx, 10h
- * 0000000140A175AA: jz      short loc_140A175C3
- * 0000000140A175AC: mov     eax, 1
- * 0000000140A175B1: xor     edx, edx
- * 0000000140A175B3: mov     ecx, 49h ; 'I'
- * 0000000140A175B8: wrmsr
- * 0000000140A175BA: movzx   edx, byte ptr gs:854h
- * 0000000140A175C3: test    edx, 40h
- * 0000000140A175C9: jz      loc_140A176F4
- * 0000000140A175CF: call    loc_140A176E2
- * 0000000140A175D4: add     rsp, 8
- * 0000000140A175D8: call    loc_140A176EB
- * 0000000140A175DD: add     rsp, 8
- * 0000000140A175E1: call    loc_140A175D4
- * 0000000140A175E6: add     rsp, 8
- * 0000000140A175EA: call    loc_140A175DD
- * 0000000140A175EF: add     rsp, 8
- * 0000000140A175F3: call    loc_140A175E6
- * 0000000140A175F8: add     rsp, 8
- * 0000000140A175FC: call    loc_140A175EF
- * 0000000140A17601: add     rsp, 8
- * 0000000140A17605: call    loc_140A175F8
- * 0000000140A1760A: add     rsp, 8
- * 0000000140A1760E: call    loc_140A17601
- * 0000000140A17613: add     rsp, 8
- * 0000000140A17617: call    loc_140A1760A
- * 0000000140A1761C: add     rsp, 8
- * 0000000140A17620: call    loc_140A17613
- * 0000000140A17625: add     rsp, 8
- * 0000000140A17629: call    loc_140A1761C
- * 0000000140A1762E: add     rsp, 8
- * 0000000140A17632: call    loc_140A17625
- * 0000000140A17637: add     rsp, 8
- * 0000000140A1763B: call    loc_140A1762E
- * 0000000140A17640: add     rsp, 8
- * 0000000140A17644: call    loc_140A17637
- * 0000000140A17649: add     rsp, 8
- * 0000000140A1764D: call    loc_140A17640
- * 0000000140A17652: add     rsp, 8
- * 0000000140A17656: call    loc_140A17649
- * 0000000140A1765B: add     rsp, 8
- * 0000000140A1765F: call    loc_140A17652
- * 0000000140A17664: add     rsp, 8
- * 0000000140A17668: call    loc_140A1765B
- * 0000000140A1766D: add     rsp, 8
- * 0000000140A17671: call    loc_140A17664
- * 0000000140A17676: add     rsp, 8
- * 0000000140A1767A: call    loc_140A1766D
- * 0000000140A1767F: add     rsp, 8
- * 0000000140A17683: call    loc_140A17676
- * 0000000140A17688: add     rsp, 8
- * 0000000140A1768C: call    loc_140A1767F
- * 0000000140A17691: add     rsp, 8
- * 0000000140A17695: call    loc_140A17688
- * 0000000140A1769A: add     rsp, 8
- * 0000000140A1769E: call    loc_140A17691
- * 0000000140A176A3: add     rsp, 8
- * 0000000140A176A7: call    loc_140A1769A
- * 0000000140A176AC: add     rsp, 8
- * 0000000140A176B0: call    loc_140A176A3
- * 0000000140A176B5: add     rsp, 8
- * 0000000140A176B9: call    loc_140A176AC
- * 0000000140A176BE: add     rsp, 8
- * 0000000140A176C2: call    loc_140A176B5
- * 0000000140A176C7: add     rsp, 8
- * 0000000140A176CB: call    loc_140A176BE
- * 0000000140A176D0: add     rsp, 8
- * 0000000140A176D4: call    loc_140A176C7
- * 0000000140A176D9: add     rsp, 8
- * 0000000140A176DD: call    loc_140A176D0
- * 0000000140A176E2: add     rsp, 8
- * 0000000140A176E6: call    loc_140A176D9
- * 0000000140A176EB: add     rsp, 8
- * 0000000140A176EF: mov     eax, 0DADAh
- * 0000000140A176F4: lfence
- * 0000000140A176F7: or      byte ptr gs:856h, 2
- * 0000000140A17700: bt      [rsp-0E0h+arg_F0], 9
- * 0000000140A17707: jnb     short loc_140A1770A
- * 0000000140A17709: sti
- * 0000000140A1770A: mov     rax, [rsp-0E0h+arg_D8]
- * 0000000140A1770E: mov     rcx, [rsp-0E0h+arg_E0]
- * 0000000140A17713: mov     rdx, [rsp-0E0h+arg_E8]
- * 0000000140A17718: add     rsp, 20h
- * 0000000140A1771C: retn
+ * 0000000140A18560: pushfq
+ * 0000000140A18562: sub     rsp, 18h
+ * 0000000140A18566: mov     [rsp+20h+var_20], rax
+ * 0000000140A1856A: mov     [rsp+20h+var_18], rcx
+ * 0000000140A1856F: mov     [rsp+20h+var_10], rdx
+ * 0000000140A18574: cli
+ * 0000000140A18575: movzx   eax, word ptr gs:852h
+ * 0000000140A1857E: cmp     gs:864h, ax
+ * 0000000140A18587: jz      short loc_140A1859B
+ * 0000000140A18589: mov     gs:864h, ax
+ * 0000000140A18592: mov     ecx, 48h ; 'H'
+ * 0000000140A18597: xor     edx, edx
+ * 0000000140A18599: wrmsr
+ * 0000000140A1859B: movzx   edx, byte ptr gs:854h
+ * 0000000140A185A4: test    edx, 10h
+ * 0000000140A185AA: jz      short loc_140A185C3
+ * 0000000140A185AC: mov     eax, 1
+ * 0000000140A185B1: xor     edx, edx
+ * 0000000140A185B3: mov     ecx, 49h ; 'I'
+ * 0000000140A185B8: wrmsr
+ * 0000000140A185BA: movzx   edx, byte ptr gs:854h
+ * 0000000140A185C3: test    edx, 40h
+ * 0000000140A185C9: jz      loc_140A186F4
+ * 0000000140A185CF: call    loc_140A186E2
+ * 0000000140A185D4: add     rsp, 8
+ * 0000000140A185D8: call    loc_140A186EB
+ * 0000000140A185DD: add     rsp, 8
+ * 0000000140A185E1: call    loc_140A185D4
+ * 0000000140A185E6: add     rsp, 8
+ * 0000000140A185EA: call    loc_140A185DD
+ * 0000000140A185EF: add     rsp, 8
+ * 0000000140A185F3: call    loc_140A185E6
+ * 0000000140A185F8: add     rsp, 8
+ * 0000000140A185FC: call    loc_140A185EF
+ * 0000000140A18601: add     rsp, 8
+ * 0000000140A18605: call    loc_140A185F8
+ * 0000000140A1860A: add     rsp, 8
+ * 0000000140A1860E: call    loc_140A18601
+ * 0000000140A18613: add     rsp, 8
+ * 0000000140A18617: call    loc_140A1860A
+ * 0000000140A1861C: add     rsp, 8
+ * 0000000140A18620: call    loc_140A18613
+ * 0000000140A18625: add     rsp, 8
+ * 0000000140A18629: call    loc_140A1861C
+ * 0000000140A1862E: add     rsp, 8
+ * 0000000140A18632: call    loc_140A18625
+ * 0000000140A18637: add     rsp, 8
+ * 0000000140A1863B: call    loc_140A1862E
+ * 0000000140A18640: add     rsp, 8
+ * 0000000140A18644: call    loc_140A18637
+ * 0000000140A18649: add     rsp, 8
+ * 0000000140A1864D: call    loc_140A18640
+ * 0000000140A18652: add     rsp, 8
+ * 0000000140A18656: call    loc_140A18649
+ * 0000000140A1865B: add     rsp, 8
+ * 0000000140A1865F: call    loc_140A18652
+ * 0000000140A18664: add     rsp, 8
+ * 0000000140A18668: call    loc_140A1865B
+ * 0000000140A1866D: add     rsp, 8
+ * 0000000140A18671: call    loc_140A18664
+ * 0000000140A18676: add     rsp, 8
+ * 0000000140A1867A: call    loc_140A1866D
+ * 0000000140A1867F: add     rsp, 8
+ * 0000000140A18683: call    loc_140A18676
+ * 0000000140A18688: add     rsp, 8
+ * 0000000140A1868C: call    loc_140A1867F
+ * 0000000140A18691: add     rsp, 8
+ * 0000000140A18695: call    loc_140A18688
+ * 0000000140A1869A: add     rsp, 8
+ * 0000000140A1869E: call    loc_140A18691
+ * 0000000140A186A3: add     rsp, 8
+ * 0000000140A186A7: call    loc_140A1869A
+ * 0000000140A186AC: add     rsp, 8
+ * 0000000140A186B0: call    loc_140A186A3
+ * 0000000140A186B5: add     rsp, 8
+ * 0000000140A186B9: call    loc_140A186AC
+ * 0000000140A186BE: add     rsp, 8
+ * 0000000140A186C2: call    loc_140A186B5
+ * 0000000140A186C7: add     rsp, 8
+ * 0000000140A186CB: call    loc_140A186BE
+ * 0000000140A186D0: add     rsp, 8
+ * 0000000140A186D4: call    loc_140A186C7
+ * 0000000140A186D9: add     rsp, 8
+ * 0000000140A186DD: call    loc_140A186D0
+ * 0000000140A186E2: add     rsp, 8
+ * 0000000140A186E6: call    loc_140A186D9
+ * 0000000140A186EB: add     rsp, 8
+ * 0000000140A186EF: mov     eax, 0DADAh
+ * 0000000140A186F4: lfence
+ * 0000000140A186F7: or      byte ptr gs:856h, 2
+ * 0000000140A18700: bt      [rsp-0E0h+arg_F0], 9
+ * 0000000140A18707: jnb     short loc_140A1870A
+ * 0000000140A18709: sti
+ * 0000000140A1870A: mov     rax, [rsp-0E0h+arg_D8]
+ * 0000000140A1870E: mov     rcx, [rsp-0E0h+arg_E0]
+ * 0000000140A18713: mov     rdx, [rsp-0E0h+arg_E8]
+ * 0000000140A18718: add     rsp, 20h
+ * 0000000140A1871C: retn
  */

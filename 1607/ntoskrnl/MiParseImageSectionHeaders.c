@@ -1,13 +1,13 @@
 /*
- * XREFs of MiParseImageSectionHeaders @ 0x140523B00
+ * XREFs of MiParseImageSectionHeaders @ 0x140506B60
  * Callers:
- *     MiBuildImageControlArea @ 0x140523584 (MiBuildImageControlArea.c)
+ *     MiBuildImageControlArea @ 0x1405065E4 (MiBuildImageControlArea.c)
  * Callees:
- *     memset @ 0x1401715C0 (memset.c)
- *     MiPteInShadowRange @ 0x1401EF3B8 (MiPteInShadowRange.c)
- *     MiWritePteShadow @ 0x1401EF658 (MiWritePteShadow.c)
- *     MiMakeDemandZeroPte @ 0x1401F2734 (MiMakeDemandZeroPte.c)
- *     MiMakeSubsectionPte @ 0x1401F277C (MiMakeSubsectionPte.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     MiPteInShadowRange @ 0x1401EF1E4 (MiPteInShadowRange.c)
+ *     MiWritePteShadow @ 0x1401EF484 (MiWritePteShadow.c)
+ *     MiMakeDemandZeroPte @ 0x1401F2560 (MiMakeDemandZeroPte.c)
+ *     MiMakeSubsectionPte @ 0x1401F25A8 (MiMakeSubsectionPte.c)
  */
 
 __int64 __fastcall MiParseImageSectionHeaders(int a1, __int64 *a2, __int64 a3, int a4, __int64 a5, unsigned int a6)
@@ -99,14 +99,14 @@ __int64 __fastcall MiParseImageSectionHeaders(int a1, __int64 *a2, __int64 a3, i
         {
           if ( (a1 & 0x10000) != 0 )
           {
-            dword_140326780 = 61;
+            dword_1403267C0 = 61;
             return 3221225595LL;
           }
           *v21 = v22;
         }
         if ( *v21 + v25 < *v21 )
         {
-          dword_140326780 = 25;
+          dword_1403267C0 = 25;
           return 3221225595LL;
         }
         *(_QWORD *)(v7 + 16) = v7 + 56;
@@ -117,19 +117,19 @@ __int64 __fastcall MiParseImageSectionHeaders(int a1, __int64 *a2, __int64 a3, i
         *(_DWORD *)(v7 + 52) = v22;
         if ( v18 != *(_QWORD *)v16 + *(v21 - 2) || !v24 )
         {
-          dword_140326780 = 26;
+          dword_1403267C0 = 26;
           return 3221225595LL;
         }
         if ( v19 + v24 - 1 <= v24 )
         {
-          dword_140326780 = 43;
+          dword_1403267C0 = 43;
           return 3221225595LL;
         }
         v26 = (~(v19 - 1) >> 12) & ((v19 + (unsigned __int64)v24 - 1) >> 12);
         *(_DWORD *)(v7 + 44) = v26;
         if ( v26 > v23 )
         {
-          dword_140326780 = 27;
+          dword_1403267C0 = 27;
           return 3221225595LL;
         }
         if ( v9 == 1 )
@@ -147,7 +147,7 @@ __int64 __fastcall MiParseImageSectionHeaders(int a1, __int64 *a2, __int64 a3, i
         v30 = ~(v27 - 1) & (*v21 + *(v21 - 1) + v27 - 1);
         if ( v30 < *v21 )
         {
-          dword_140326780 = 54;
+          dword_1403267C0 = 54;
           return 3221225595LL;
         }
         *(_QWORD *)(v7 + 8) = v11;
@@ -273,13 +273,13 @@ LABEL_61:
       }
       else
       {
-        dword_140326780 = 34;
+        dword_1403267C0 = 34;
         return 3221225595LL;
       }
     }
     else
     {
-      dword_140326780 = 33;
+      dword_1403267C0 = 33;
       return 3221225595LL;
     }
   }
@@ -295,12 +295,12 @@ LABEL_61:
       break;
     if ( *i != *(i - 2) || v13 > v14 )
     {
-      dword_140326780 = 21;
+      dword_1403267C0 = 21;
       return 3221225595LL;
     }
     if ( !--v9 )
       return 0LL;
   }
-  dword_140326780 = 20;
+  dword_1403267C0 = 20;
   return 3221225595LL;
 }

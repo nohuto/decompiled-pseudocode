@@ -1,20 +1,20 @@
 /*
- * XREFs of EtwpUpdateFileHeader @ 0x1409DAB48
+ * XREFs of EtwpUpdateFileHeader @ 0x1409D5658
  * Callers:
- *     EtwpCreateLogFile @ 0x1409DA6AC (EtwpCreateLogFile.c)
+ *     EtwpCreateLogFile @ 0x1409D51BC (EtwpCreateLogFile.c)
  * Callees:
- *     EtwpQueryUsedProcessorCount @ 0x14024CFF4 (EtwpQueryUsedProcessorCount.c)
- *     EtwpResetBufferHeader @ 0x140458490 (EtwpResetBufferHeader.c)
- *     EtwpInitializeBufferHeader @ 0x140479B7C (EtwpInitializeBufferHeader.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ZwReadFile @ 0x1406A64D0 (ZwReadFile.c)
- *     ZwWriteFile @ 0x1406A6510 (ZwWriteFile.c)
- *     ZwQueryInformationFile @ 0x1406A6630 (ZwQueryInformationFile.c)
- *     ZwSetInformationFile @ 0x1406A68F0 (ZwSetInformationFile.c)
- *     EtwpAddLogHeader @ 0x1409DAEEC (EtwpAddLogHeader.c)
- *     EtwpIsWow64Logger @ 0x1409DC0DC (EtwpIsWow64Logger.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     EtwpQueryUsedProcessorCount @ 0x14027D604 (EtwpQueryUsedProcessorCount.c)
+ *     EtwpResetBufferHeader @ 0x14044D7A0 (EtwpResetBufferHeader.c)
+ *     EtwpInitializeBufferHeader @ 0x14047540C (EtwpInitializeBufferHeader.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ZwReadFile @ 0x1406A7470 (ZwReadFile.c)
+ *     ZwWriteFile @ 0x1406A74B0 (ZwWriteFile.c)
+ *     ZwQueryInformationFile @ 0x1406A75D0 (ZwQueryInformationFile.c)
+ *     ZwSetInformationFile @ 0x1406A7890 (ZwSetInformationFile.c)
+ *     EtwpAddLogHeader @ 0x1409D59FC (EtwpAddLogHeader.c)
+ *     EtwpIsWow64Logger @ 0x1409D68EC (EtwpIsWow64Logger.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall EtwpUpdateFileHeader(__int64 a1, char a2, int a3)
@@ -42,7 +42,7 @@ __int64 __fastcall EtwpUpdateFileHeader(__int64 a1, char a2, int a3)
     Length = -a3 & (a3 + 383);
   else
     Length = *(_DWORD *)(a1 + 4);
-  Pool2 = (_DWORD *)ExAllocatePool2(0x100uLL);
+  Pool2 = (_DWORD *)ExAllocatePool2(0x100uLL, (Length + 4095LL) & 0xFFFFFFFFFFFFF000uLL, 0x50777445u);
   Buffer = (__int64)Pool2;
   if ( Pool2 )
   {

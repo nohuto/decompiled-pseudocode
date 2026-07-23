@@ -1,12 +1,12 @@
 /*
- * XREFs of IvtInvalidateScalableModeContextEntry @ 0x14056F5C0
+ * XREFs of IvtInvalidateScalableModeContextEntry @ 0x14056CA50
  * Callers:
- *     IvtUpdateScalableModeContextEntry @ 0x1404CB910 (IvtUpdateScalableModeContextEntry.c)
- *     IvtLegacyUpdateScalableModeContextEntry @ 0x140570E38 (IvtLegacyUpdateScalableModeContextEntry.c)
+ *     IvtUpdateScalableModeContextEntry @ 0x1404C4D8C (IvtUpdateScalableModeContextEntry.c)
+ *     IvtLegacyUpdateScalableModeContextEntry @ 0x14056E2C8 (IvtLegacyUpdateScalableModeContextEntry.c)
  * Callees:
- *     Feature_Test57481295__private_IsEnabledDeviceUsageNoInline @ 0x14053C180 (Feature_Test57481295__private_IsEnabledDeviceUsageNoInline.c)
- *     IvtInvalidateContextEntry @ 0x14056F534 (IvtInvalidateContextEntry.c)
- *     IvtInvalidateScalableModePasidCache @ 0x14056F638 (IvtInvalidateScalableModePasidCache.c)
+ *     Feature_Test57481295__private_IsEnabledDeviceUsageNoInline @ 0x140539A0C (Feature_Test57481295__private_IsEnabledDeviceUsageNoInline.c)
+ *     IvtInvalidateContextEntry @ 0x14056C9C4 (IvtInvalidateContextEntry.c)
+ *     IvtInvalidateScalableModePasidCache @ 0x14056CAC8 (IvtInvalidateScalableModePasidCache.c)
  */
 
 __int64 __fastcall IvtInvalidateScalableModeContextEntry(__int64 a1, int *a2, int a3, __int64 a4, char a5)

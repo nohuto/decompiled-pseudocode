@@ -1,12 +1,12 @@
 /*
- * XREFs of XmRcrOp @ 0x1405ACEE0
+ * XREFs of XmRcrOp @ 0x1405AF6F0
  * Callers:
  *     <none>
  * Callees:
- *     XmStoreResult @ 0x1404A8E3C (XmStoreResult.c)
+ *     XmStoreResult @ 0x1404A24CC (XmStoreResult.c)
  */
 
-_WORD *__fastcall XmRcrOp(_DWORD *a1)
+__int64 __fastcall XmRcrOp(_DWORD *a1)
 {
   unsigned int v2; // r10d
   int v3; // r8d
@@ -15,9 +15,9 @@ _WORD *__fastcall XmRcrOp(_DWORD *a1)
   unsigned int v6; // edx
   int v7; // r11d
   int v8; // r8d
-  _WORD *result; // rax
-  __int64 v10; // r9
-  int v11; // r11d
+  __int64 v9; // r9
+  unsigned __int8 v10; // r11
+  __int64 result; // rax
 
   v2 = a1[26];
   v3 = 8 * a1[30];
@@ -38,7 +38,8 @@ _WORD *__fastcall XmRcrOp(_DWORD *a1)
     }
     while ( v6 );
   }
-  result = XmStoreResult((__int64)a1, v2);
-  *(_DWORD *)(v10 + 16) = v11 | *(_DWORD *)(v10 + 16) & 0xFFFFFFFE;
+  XmStoreResult((__int64)a1, v2);
+  result = *(_DWORD *)(v9 + 16) ^ (v10 ^ (unsigned __int8)*(_DWORD *)(v9 + 16)) & 1u;
+  *(_DWORD *)(v9 + 16) = result;
   return result;
 }

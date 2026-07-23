@@ -1,11 +1,11 @@
 /*
- * XREFs of PiDaDispatch @ 0x1407BC540
+ * XREFs of PiDaDispatch @ 0x1407BC810
  * Callers:
  *     <none>
  * Callees:
- *     IofCompleteRequest @ 0x1402C9980 (IofCompleteRequest.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     PiDqDispatch @ 0x1407F8E60 (PiDqDispatch.c)
+ *     IofCompleteRequest @ 0x1402C9C10 (IofCompleteRequest.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     PiDqDispatch @ 0x1407F9130 (PiDqDispatch.c)
  */
 
 __int64 __fastcall PiDaDispatch(__int64 a1, IRP *a2)
@@ -62,7 +62,7 @@ __int64 __fastcall PiDaDispatch(__int64 a1, IRP *a2)
         CurrentStackLocation->FileObject->FsContext = v11;
         v7 = 3LL * (_QWORD)v11;
         a2 = v3;
-        return ((unsigned int (__fastcall *)(__int64, IRP *, IRP *))*(&funcs_1407BC588 + v7))(a1, a2, v3);
+        return ((unsigned int (__fastcall *)(__int64, IRP *, IRP *))*(&funcs_1407BC858 + v7))(a1, a2, v3);
       }
     }
 LABEL_13:
@@ -80,5 +80,5 @@ LABEL_17:
     goto LABEL_17;
   }
   v7 = 3 * FsContext;
-  return ((unsigned int (__fastcall *)(__int64, IRP *, IRP *))*(&funcs_1407BC588 + v7))(a1, a2, v3);
+  return ((unsigned int (__fastcall *)(__int64, IRP *, IRP *))*(&funcs_1407BC858 + v7))(a1, a2, v3);
 }

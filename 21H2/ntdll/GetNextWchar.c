@@ -1,9 +1,9 @@
 /*
- * XREFs of GetNextWchar @ 0x1800FC6D4
+ * XREFs of GetNextWchar @ 0x1800FC694
  * Callers:
- *     RtlGenerate8dot3Name @ 0x1800FC840 (RtlGenerate8dot3Name.c)
+ *     RtlGenerate8dot3Name @ 0x1800FC800 (RtlGenerate8dot3Name.c)
  * Callees:
- *     RtlIsValidOemCharacter @ 0x1800FCE7C (RtlIsValidOemCharacter.c)
+ *     RtlIsValidOemCharacter @ 0x1800FCE3C (RtlIsValidOemCharacter.c)
  */
 
 __int64 __fastcall GetNextWchar(unsigned __int16 *a1, unsigned int *a2, char a3, char a4)

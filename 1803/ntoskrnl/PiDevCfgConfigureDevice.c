@@ -577,8 +577,8 @@ LABEL_44:
           v21,
           a2,
           a3 != 0 ? a3 + 224 : 0,
-          (_DWORD)Handle,
-          (unsigned __int64)&Source2 & -(__int64)(v72 != 0));
+          (int)Handle,
+          (PGUID)((unsigned __int64)&Source2 & -(__int64)(v72 != 0)));
         if ( *(_QWORD *)&PiPnpRtlCtx && (v49 = *(_QWORD *)(*(_QWORD *)&PiPnpRtlCtx + 224LL)) != 0 )
           v50 = *(_QWORD *)(v49 + 8);
         else

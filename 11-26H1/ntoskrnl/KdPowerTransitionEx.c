@@ -1,21 +1,21 @@
 /*
- * XREFs of KdPowerTransitionEx @ 0x14050A220
+ * XREFs of KdPowerTransitionEx @ 0x140503C90
  * Callers:
- *     PpmExitCoordinatedIdle @ 0x1403EC374 (PpmExitCoordinatedIdle.c)
- *     PpmEnterCoordinatedIdle @ 0x1403EC920 (PpmEnterCoordinatedIdle.c)
- *     KdPowerTransition @ 0x14052B940 (KdPowerTransition.c)
- *     HalReturnToFirmware @ 0x14057F640 (HalReturnToFirmware.c)
- *     KdDisableDebuggerWithLock @ 0x1405E39E8 (KdDisableDebuggerWithLock.c)
- *     KdEnableDebuggerWithLock @ 0x1405E3B4C (KdEnableDebuggerWithLock.c)
- *     PopFxDebuggerPowerCriticalTransitionCallback @ 0x14060DDB0 (PopFxDebuggerPowerCriticalTransitionCallback.c)
+ *     PpmExitCoordinatedIdle @ 0x1402F93B8 (PpmExitCoordinatedIdle.c)
+ *     PpmEnterCoordinatedIdle @ 0x1402F9960 (PpmEnterCoordinatedIdle.c)
+ *     KdPowerTransition @ 0x14052DE60 (KdPowerTransition.c)
+ *     HalReturnToFirmware @ 0x140581B60 (HalReturnToFirmware.c)
+ *     KdDisableDebuggerWithLock @ 0x1405E6358 (KdDisableDebuggerWithLock.c)
+ *     KdEnableDebuggerWithLock @ 0x1405E64BC (KdEnableDebuggerWithLock.c)
+ *     PopFxDebuggerPowerCriticalTransitionCallback @ 0x140610EB0 (PopFxDebuggerPowerCriticalTransitionCallback.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     KeGetEffectiveIrql @ 0x1402642B0 (KeGetEffectiveIrql.c)
- *     KxReleaseSpinLock @ 0x1402BDEF0 (KxReleaseSpinLock.c)
- *     KxAcquireSpinLock @ 0x14032F2C0 (KxAcquireSpinLock.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     PpmCancelExitLatencyTrace @ 0x140601658 (PpmCancelExitLatencyTrace.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KeGetEffectiveIrql @ 0x140263820 (KeGetEffectiveIrql.c)
+ *     KxReleaseSpinLock @ 0x140308BB0 (KxReleaseSpinLock.c)
+ *     KxAcquireSpinLock @ 0x1403312F0 (KxAcquireSpinLock.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     PpmCancelExitLatencyTrace @ 0x140604108 (PpmCancelExitLatencyTrace.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall KdPowerTransitionEx(int a1, char a2)

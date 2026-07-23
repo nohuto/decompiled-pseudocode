@@ -1,10 +1,10 @@
 /*
- * XREFs of ExAcquireCacheAwarePushLockExclusive @ 0x1400C7670
+ * XREFs of ExAcquireCacheAwarePushLockExclusive @ 0x1400C5510
  * Callers:
  *     <none>
  * Callees:
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     ExfAcquireCacheAwarePushLockExclusiveEx @ 0x1400C76B0 (ExfAcquireCacheAwarePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     ExfAcquireCacheAwarePushLockExclusiveEx @ 0x1400C5550 (ExfAcquireCacheAwarePushLockExclusiveEx.c)
  */
 
 __int64 __fastcall ExAcquireCacheAwarePushLockExclusive(ULONG_PTR a1)

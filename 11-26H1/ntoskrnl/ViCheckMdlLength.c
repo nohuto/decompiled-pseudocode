@@ -1,12 +1,12 @@
 /*
- * XREFs of ViCheckMdlLength @ 0x140C26518
+ * XREFs of ViCheckMdlLength @ 0x140C2C528
  * Callers:
- *     VfBuildScatterGatherList @ 0x140C23A10 (VfBuildScatterGatherList.c)
- *     VfBuildScatterGatherListEx @ 0x140C23D40 (VfBuildScatterGatherListEx.c)
- *     VfGetScatterGatherList @ 0x140C24B80 (VfGetScatterGatherList.c)
- *     VfGetScatterGatherListEx @ 0x140C24F00 (VfGetScatterGatherListEx.c)
- *     VfMapTransfer @ 0x140C252F0 (VfMapTransfer.c)
- *     VfMapTransferEx @ 0x140C254B0 (VfMapTransferEx.c)
+ *     VfBuildScatterGatherList @ 0x140C29A20 (VfBuildScatterGatherList.c)
+ *     VfBuildScatterGatherListEx @ 0x140C29D50 (VfBuildScatterGatherListEx.c)
+ *     VfGetScatterGatherList @ 0x140C2AB90 (VfGetScatterGatherList.c)
+ *     VfGetScatterGatherListEx @ 0x140C2AF10 (VfGetScatterGatherListEx.c)
+ *     VfMapTransfer @ 0x140C2B300 (VfMapTransfer.c)
+ *     VfMapTransferEx @ 0x140C2B4C0 (VfMapTransferEx.c)
  * Callees:
  *     <none>
  */

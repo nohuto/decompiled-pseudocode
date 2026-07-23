@@ -1,19 +1,19 @@
 /*
- * XREFs of MiDemoteSlabEntriesDpc @ 0x1402BDB50
+ * XREFs of MiDemoteSlabEntriesDpc @ 0x140308810
  * Callers:
  *     <none>
  * Callees:
- *     MiPageToNode @ 0x140289710 (MiPageToNode.c)
- *     MiCheckMdlSlabFragmentation @ 0x1402A793C (MiCheckMdlSlabFragmentation.c)
- *     MiDemoteSlabEntry @ 0x1402AA3B4 (MiDemoteSlabEntry.c)
- *     KeWakeAddressAll @ 0x1402BA1F0 (KeWakeAddressAll.c)
- *     HvlNotifyLongSpinWait @ 0x1402BBF00 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1402BC760 (KiCheckVpBackingLongSpinWaitHypercall.c)
- *     KeShouldYieldProcessor @ 0x1402D49D0 (KeShouldYieldProcessor.c)
- *     KeCanUseHaltOnAddress @ 0x1403E5790 (KeCanUseHaltOnAddress.c)
- *     KiHaltOnAddress @ 0x1403E57E8 (KiHaltOnAddress.c)
- *     MiEnumerateSlabAllocatorsEx @ 0x1404A0C04 (MiEnumerateSlabAllocatorsEx.c)
- *     MiGatherSlabDemoteCandidates @ 0x1404FAC70 (MiGatherSlabDemoteCandidates.c)
+ *     MiPageToNode @ 0x140288C70 (MiPageToNode.c)
+ *     MiCheckMdlSlabFragmentation @ 0x1402A6D4C (MiCheckMdlSlabFragmentation.c)
+ *     MiDemoteSlabEntry @ 0x1402A97C4 (MiDemoteSlabEntry.c)
+ *     KeShouldYieldProcessor @ 0x1402B6790 (KeShouldYieldProcessor.c)
+ *     KeWakeAddressAll @ 0x140304EB0 (KeWakeAddressAll.c)
+ *     HvlNotifyLongSpinWait @ 0x140306BC0 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140307420 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     KeCanUseHaltOnAddress @ 0x1403E8980 (KeCanUseHaltOnAddress.c)
+ *     KiHaltOnAddress @ 0x1403E89D8 (KiHaltOnAddress.c)
+ *     MiEnumerateSlabAllocatorsEx @ 0x14049A754 (MiEnumerateSlabAllocatorsEx.c)
+ *     MiGatherSlabDemoteCandidates @ 0x1404F4280 (MiGatherSlabDemoteCandidates.c)
  */
 
 __int64 __fastcall MiDemoteSlabEntriesDpc(__int64 a1, __int64 *a2, volatile signed __int32 *a3, __int64 a4)

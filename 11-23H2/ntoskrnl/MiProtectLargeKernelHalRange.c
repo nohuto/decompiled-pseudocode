@@ -1,24 +1,24 @@
 /*
- * XREFs of MiProtectLargeKernelHalRange @ 0x14081CAB0
+ * XREFs of MiProtectLargeKernelHalRange @ 0x14081CD80
  * Callers:
  *     <none>
  * Callees:
  *     MiInitializeTbFlushList @ 0x14020B29C (MiInitializeTbFlushList.c)
  *     MiGetPdeAddress @ 0x14020B2BC (MiGetPdeAddress.c)
  *     MiGetAnyMultiplexedVm @ 0x1402146B4 (MiGetAnyMultiplexedVm.c)
- *     MiUnlockWorkingSetShared @ 0x14023C500 (MiUnlockWorkingSetShared.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1402712F0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiFlushTbList @ 0x140279880 (MiFlushTbList.c)
- *     MiInsertTbFlushEntry @ 0x14027F570 (MiInsertTbFlushEntry.c)
- *     MiLockWorkingSetShared @ 0x140283C90 (MiLockWorkingSetShared.c)
- *     MiMakeValidPte @ 0x1402CF2B0 (MiMakeValidPte.c)
- *     MiGetPteAddress @ 0x1402DE00C (MiGetPteAddress.c)
- *     MiRewritePteWithLockBit @ 0x140376490 (MiRewritePteWithLockBit.c)
- *     MiUnlockPageTable @ 0x1403764D8 (MiUnlockPageTable.c)
- *     MiLockPageTable @ 0x1403764F0 (MiLockPageTable.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memset @ 0x140435A00 (memset.c)
- *     MiComputeDriverProtection @ 0x14081CFD8 (MiComputeDriverProtection.c)
+ *     MiUnlockWorkingSetShared @ 0x14023C5D0 (MiUnlockWorkingSetShared.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140271580 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiFlushTbList @ 0x140279B10 (MiFlushTbList.c)
+ *     MiInsertTbFlushEntry @ 0x14027F800 (MiInsertTbFlushEntry.c)
+ *     MiLockWorkingSetShared @ 0x140283F20 (MiLockWorkingSetShared.c)
+ *     MiMakeValidPte @ 0x1402CF540 (MiMakeValidPte.c)
+ *     MiGetPteAddress @ 0x1402DE29C (MiGetPteAddress.c)
+ *     MiRewritePteWithLockBit @ 0x140376630 (MiRewritePteWithLockBit.c)
+ *     MiUnlockPageTable @ 0x140376678 (MiUnlockPageTable.c)
+ *     MiLockPageTable @ 0x140376690 (MiLockPageTable.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     MiComputeDriverProtection @ 0x14081D2A8 (MiComputeDriverProtection.c)
  */
 
 __int64 __fastcall MiProtectLargeKernelHalRange(unsigned __int64 a1, unsigned __int64 a2, unsigned int a3)

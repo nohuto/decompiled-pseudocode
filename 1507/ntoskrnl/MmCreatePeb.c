@@ -39,7 +39,7 @@ __int64 __fastcall MmCreatePeb(_KPROCESS *a1, char *a2, __int64 *a3, _QWORD *a4)
   USHORT v26; // [rsp+60h] [rbp-178h]
   __int64 v27; // [rsp+68h] [rbp-170h] BYREF
   __int64 v28; // [rsp+70h] [rbp-168h] BYREF
-  struct _IMAGE_NT_HEADERS64 *v29; // [rsp+78h] [rbp-160h]
+  _IMAGE_NT_HEADERS64 *v29; // [rsp+78h] [rbp-160h]
   __int64 v30; // [rsp+80h] [rbp-158h] BYREF
   __int64 v31; // [rsp+90h] [rbp-148h] BYREF
   int MinorSubsystemVersion; // [rsp+98h] [rbp-140h]

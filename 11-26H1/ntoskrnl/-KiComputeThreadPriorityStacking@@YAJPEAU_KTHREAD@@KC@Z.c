@@ -1,8 +1,8 @@
 /*
- * XREFs of ?KiComputeThreadPriorityStacking@@YAJPEAU_KTHREAD@@KC@Z @ 0x14051F508
+ * XREFs of ?KiComputeThreadPriorityStacking@@YAJPEAU_KTHREAD@@KC@Z @ 0x140521BAC
  * Callers:
- *     KiComputeThreadPriority @ 0x140239AB4 (KiComputeThreadPriority.c)
- *     KiRemoveBoostThread @ 0x1402742E0 (KiRemoveBoostThread.c)
+ *     KiComputeThreadPriority @ 0x14023B414 (KiComputeThreadPriority.c)
+ *     KiRemoveBoostThread @ 0x140273850 (KiRemoveBoostThread.c)
  * Callees:
  *     <none>
  */

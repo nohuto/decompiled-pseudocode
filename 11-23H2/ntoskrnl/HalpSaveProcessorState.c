@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpSaveProcessorState @ 0x14041AA70
+ * XREFs of HalpSaveProcessorState @ 0x14041AE00
  * Callers:
- *     HaliAcpiSleep @ 0x140527F40 (HaliAcpiSleep.c)
+ *     HaliAcpiSleep @ 0x140528490 (HaliAcpiSleep.c)
  * Callees:
- *     KeSaveStateForHibernate @ 0x14041FAF0 (KeSaveStateForHibernate.c)
+ *     KeSaveStateForHibernate @ 0x14041FE80 (KeSaveStateForHibernate.c)
  */
 
 __int64 __fastcall HalpSaveProcessorState(__int64 a1)

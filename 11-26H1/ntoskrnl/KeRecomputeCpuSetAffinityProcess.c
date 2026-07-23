@@ -1,13 +1,13 @@
 /*
- * XREFs of KeRecomputeCpuSetAffinityProcess @ 0x140525C20
+ * XREFs of KeRecomputeCpuSetAffinityProcess @ 0x140528290
  * Callers:
- *     PspAssignCpuPartitionsToProcess @ 0x1407F28E8 (PspAssignCpuPartitionsToProcess.c)
- *     NtSetInformationProcess @ 0x140B72B10 (NtSetInformationProcess.c)
+ *     PspAssignCpuPartitionsToProcess @ 0x1407F8448 (PspAssignCpuPartitionsToProcess.c)
+ *     NtSetInformationProcess @ 0x140B781E0 (NtSetInformationProcess.c)
  * Callees:
- *     KiAcquireProcessLockExclusive @ 0x140203690 (KiAcquireProcessLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KiProcessDeferredReadyList @ 0x14037C920 (KiProcessDeferredReadyList.c)
- *     KiUpdateThreadCpuSetAffinitiesProcess @ 0x140525C7C (KiUpdateThreadCpuSetAffinitiesProcess.c)
+ *     KiAcquireProcessLockExclusive @ 0x140203770 (KiAcquireProcessLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiProcessDeferredReadyList @ 0x14037E6D0 (KiProcessDeferredReadyList.c)
+ *     KiUpdateThreadCpuSetAffinitiesProcess @ 0x1405282EC (KiUpdateThreadCpuSetAffinitiesProcess.c)
  */
 
 __int64 __fastcall KeRecomputeCpuSetAffinityProcess(__int64 a1)

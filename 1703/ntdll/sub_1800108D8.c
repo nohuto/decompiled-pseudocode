@@ -8,15 +8,15 @@
  *     RtlImageNtHeaderEx @ 0x180033760 (RtlImageNtHeaderEx.c)
  */
 
-__int64 __fastcall sub_1800108D8(__int64 a1, int a2, __int64 a3)
+NTSTATUS __fastcall sub_1800108D8(PVOID BaseOfImage, int a2)
 {
-  __int64 result; // rax
-  _QWORD v6[7]; // [rsp+40h] [rbp-38h] BYREF
+  NTSTATUS result; // eax
+  PIMAGE_NT_HEADERS v4; // [rsp+40h] [rbp-38h] BYREF
 
-  if ( a2 || (result = RtlImageNtHeaderEx(3LL, a1, 0LL, v6), (int)result >= 0) )
+  if ( a2 || (result = RtlImageNtHeaderEx(3u, BaseOfImage, 0LL, &v4), result >= 0) )
   {
-    sub_18001094C(a1, a3);
-    return 0LL;
+    sub_18001094C(BaseOfImage);
+    return 0;
   }
   return result;
 }

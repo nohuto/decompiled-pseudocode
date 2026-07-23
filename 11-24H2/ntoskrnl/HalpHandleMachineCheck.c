@@ -1,19 +1,19 @@
 /*
- * XREFs of HalpHandleMachineCheck @ 0x14053F7A8
+ * XREFs of HalpHandleMachineCheck @ 0x14053D0A8
  * Callers:
- *     HalHandleMcheck @ 0x140543080 (HalHandleMcheck.c)
+ *     HalHandleMcheck @ 0x1405409D0 (HalHandleMcheck.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140279CC0 (KxReleaseSpinLock.c)
- *     KxTryToAcquireSpinLock @ 0x1404633C8 (KxTryToAcquireSpinLock.c)
- *     HalpMceHandler @ 0x140540304 (HalpMceHandler.c)
- *     HalpMceHandlerWithRendezvous @ 0x1405405C0 (HalpMceHandlerWithRendezvous.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
+ *     KxReleaseSpinLock @ 0x14022F250 (KxReleaseSpinLock.c)
+ *     KxTryToAcquireSpinLock @ 0x140459EB8 (KxTryToAcquireSpinLock.c)
+ *     HalpMceHandler @ 0x14053DC04 (HalpMceHandler.c)
+ *     HalpMceHandlerWithRendezvous @ 0x14053DEC0 (HalpMceHandlerWithRendezvous.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
  */
 
-__int64 __fastcall HalpHandleMachineCheck(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+__int64 __fastcall HalpHandleMachineCheck(__int64 a1)
 {
   __int64 i; // rbx
-  __int64 v6; // rdx
+  __int64 v3; // rdx
   __int64 result; // rax
 
   _InterlockedIncrement(&WheapCriticalStateRefCount);
@@ -26,13 +26,13 @@ __int64 __fastcall HalpHandleMachineCheck(__int64 a1, __int64 a2, __int64 a3, __
         result = HalpMceHandlerWithRendezvous(a1);
         goto LABEL_12;
       }
-      if ( (guard_dispatch_icall_no_overrides(*(_QWORD *)(i + 172), 378LL, 0LL, a4) & 8) != 0 )
+      if ( (guard_dispatch_icall_no_overrides(*(_QWORD *)(i + 172), 378LL) & 8) != 0 )
         break;
     }
     while ( !KxTryToAcquireSpinLock((volatile signed __int32 *)&HalpMceLocalHandlingLock) )
       _mm_pause();
-    LOBYTE(v6) = 1;
-    HalpMceHandler(a1, v6);
+    LOBYTE(v3) = 1;
+    HalpMceHandler(a1, v3);
     result = KxReleaseSpinLock(&HalpMceLocalHandlingLock);
   }
   else

@@ -1,7 +1,7 @@
 /*
- * XREFs of MmCreateProcessAddressSpace @ 0x1406D1898
+ * XREFs of MmCreateProcessAddressSpace @ 0x1406D2B38
  * Callers:
- *     PspAllocateProcess @ 0x14064BCB8 (PspAllocateProcess.c)
+ *     PspAllocateProcess @ 0x14064CE78 (PspAllocateProcess.c)
  * Callees:
  *     MiReturnResidentAvailable @ 0x140022D18 (MiReturnResidentAvailable.c)
  *     MiChargeResident @ 0x14002DF50 (MiChargeResident.c)
@@ -10,25 +10,25 @@
  *     MiMakeValidPte @ 0x14003D7F0 (MiMakeValidPte.c)
  *     MiChargeCommit @ 0x14004CF20 (MiChargeCommit.c)
  *     MiReservePtes @ 0x14005C890 (MiReservePtes.c)
- *     MiReturnCommit @ 0x140065D40 (MiReturnCommit.c)
- *     MiDeleteProcessShadow @ 0x1400686D0 (MiDeleteProcessShadow.c)
- *     PsReturnProcessQuota @ 0x140091888 (PsReturnProcessQuota.c)
- *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
- *     MiCheckWsLimits @ 0x14013C2F8 (MiCheckWsLimits.c)
- *     MiSyncSystemPdes @ 0x14013CC58 (MiSyncSystemPdes.c)
- *     KeMakeKernelDirectoryTableBase @ 0x14013CCBC (KeMakeKernelDirectoryTableBase.c)
- *     MiCreateNewProcessTopLevelMappings @ 0x14013CCD4 (MiCreateNewProcessTopLevelMappings.c)
- *     MiInsertNewProcess @ 0x14013CEF0 (MiInsertNewProcess.c)
- *     PsChargeProcessQuota @ 0x14013DA78 (PsChargeProcessQuota.c)
- *     PsGetDefaultWsMaximum @ 0x14013DAAC (PsGetDefaultWsMaximum.c)
- *     RtlRandomEx @ 0x14013DAC0 (RtlRandomEx.c)
- *     MiSetProcessPartitionId @ 0x14013DAE8 (MiSetProcessPartitionId.c)
- *     MiPartitionActive @ 0x14013DAF8 (MiPartitionActive.c)
- *     MiReturnPartitionResidentAvailable @ 0x1402C0040 (MiReturnPartitionResidentAvailable.c)
- *     MiAllocateProcessShadow @ 0x1406D1AEC (MiAllocateProcessShadow.c)
- *     MiAllocateTopLevelPage @ 0x1406D1BCC (MiAllocateTopLevelPage.c)
- *     MiJoinSession @ 0x1406D1DD8 (MiJoinSession.c)
+ *     MiReturnCommit @ 0x140065D30 (MiReturnCommit.c)
+ *     MiDeleteProcessShadow @ 0x1400686C0 (MiDeleteProcessShadow.c)
+ *     PsReturnProcessQuota @ 0x1400917C8 (PsReturnProcessQuota.c)
+ *     MiWritePteShadow @ 0x140120F40 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120FA0 (MiPteHasShadow.c)
+ *     MiCheckWsLimits @ 0x14013C3F8 (MiCheckWsLimits.c)
+ *     MiSyncSystemPdes @ 0x14013CD58 (MiSyncSystemPdes.c)
+ *     KeMakeKernelDirectoryTableBase @ 0x14013CDBC (KeMakeKernelDirectoryTableBase.c)
+ *     MiCreateNewProcessTopLevelMappings @ 0x14013CDD4 (MiCreateNewProcessTopLevelMappings.c)
+ *     MiInsertNewProcess @ 0x14013CFF0 (MiInsertNewProcess.c)
+ *     PsChargeProcessQuota @ 0x14013DB78 (PsChargeProcessQuota.c)
+ *     PsGetDefaultWsMaximum @ 0x14013DBAC (PsGetDefaultWsMaximum.c)
+ *     RtlRandomEx @ 0x14013DBC0 (RtlRandomEx.c)
+ *     MiSetProcessPartitionId @ 0x14013DBE8 (MiSetProcessPartitionId.c)
+ *     MiPartitionActive @ 0x14013DBF8 (MiPartitionActive.c)
+ *     MiReturnPartitionResidentAvailable @ 0x1402C0230 (MiReturnPartitionResidentAvailable.c)
+ *     MiAllocateProcessShadow @ 0x1406D2D8C (MiAllocateProcessShadow.c)
+ *     MiAllocateTopLevelPage @ 0x1406D2E6C (MiAllocateTopLevelPage.c)
+ *     MiJoinSession @ 0x1406D3078 (MiJoinSession.c)
  */
 
 char __fastcall MmCreateProcessAddressSpace(
@@ -97,7 +97,7 @@ LABEL_32:
     PsReturnProcessQuota((struct _KPROCESS *)v8, v12, v6);
     goto LABEL_33;
   }
-  v13 = MiReservePtes((__int64)&qword_14043AFA0, (unsigned __int64 *)1);
+  v13 = MiReservePtes((__int64)&qword_14043C060, (unsigned __int64 *)1);
   if ( !v13 )
   {
 LABEL_23:
@@ -110,7 +110,7 @@ LABEL_23:
   if ( (int)MiAllocateProcessShadow(v8, a5) < 0 )
   {
 LABEL_22:
-    MiReleasePtes((__int64)&qword_14043AFA0, v13, 1u);
+    MiReleasePtes((__int64)&qword_14043C060, v13, 1u);
     goto LABEL_23;
   }
   if ( !(unsigned int)MiJoinSession(&v23) )
@@ -138,7 +138,7 @@ LABEL_22:
   if ( (unsigned int)MiPteHasShadow() )
   {
     v20 = 1;
-    if ( !HIBYTE(word_14043A1AC) )
+    if ( !HIBYTE(word_14043B26C) )
     {
 LABEL_29:
       if ( (v19 & 1) != 0 )
@@ -155,6 +155,6 @@ LABEL_16:
     MiWritePteShadow(v18, v19);
   *(_QWORD *)(v8 + 40) = KeMakeKernelDirectoryTableBase(v17 << 12);
   MiSyncSystemPdes(v8);
-  MiReleasePtes((__int64)&qword_14043AFA0, v13, 1u);
+  MiReleasePtes((__int64)&qword_14043C060, v13, 1u);
   return 1;
 }

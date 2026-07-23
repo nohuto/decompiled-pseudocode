@@ -1,31 +1,31 @@
 /*
- * XREFs of VfDriverEnableVerifierForAll @ 0x140ACA648
+ * XREFs of VfDriverEnableVerifierForAll @ 0x140ACA638
  * Callers:
- *     VfAddVerifierEntry @ 0x140ADD660 (VfAddVerifierEntry.c)
+ *     VfAddVerifierEntry @ 0x140ADD650 (VfAddVerifierEntry.c)
  * Callees:
  *     RtlImageNtHeaderEx @ 0x140214B60 (RtlImageNtHeaderEx.c)
- *     ExReleaseResourceLite @ 0x14023D410 (ExReleaseResourceLite.c)
- *     ExAcquireResourceSharedLite @ 0x14023D680 (ExAcquireResourceSharedLite.c)
- *     KeReleaseMutex @ 0x1402AFF70 (KeReleaseMutex.c)
- *     MmIsSessionAddress @ 0x1402BC7E0 (MmIsSessionAddress.c)
+ *     ExReleaseResourceLite @ 0x14023D4E0 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceSharedLite @ 0x14023D750 (ExAcquireResourceSharedLite.c)
+ *     KeReleaseMutex @ 0x1402B0200 (KeReleaseMutex.c)
+ *     MmIsSessionAddress @ 0x1402BCA70 (MmIsSessionAddress.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
- *     VfUtilIsProtectedDriver @ 0x140AC27FC (VfUtilIsProtectedDriver.c)
- *     VfDriverEnableVerifier @ 0x140ACA4C8 (VfDriverEnableVerifier.c)
- *     VfDriverLock @ 0x140ACA76C (VfDriverLock.c)
- *     VfSuspectDriversAllocateEntry @ 0x140ADA3C4 (VfSuspectDriversAllocateEntry.c)
+ *     VfUtilIsProtectedDriver @ 0x140AC27EC (VfUtilIsProtectedDriver.c)
+ *     VfDriverEnableVerifier @ 0x140ACA4B8 (VfDriverEnableVerifier.c)
+ *     VfDriverLock @ 0x140ACA75C (VfDriverLock.c)
+ *     VfSuspectDriversAllocateEntry @ 0x140ADA3B4 (VfSuspectDriversAllocateEntry.c)
  */
 
 __int64 VfDriverEnableVerifierForAll()
 {
   int v0; // edi
   PVOID *i; // rbx
-  unsigned __int64 v2; // rsi
+  PVOID v2; // rsi
   __int64 Entry; // rax
   void *v4; // rsi
   int v6; // [rsp+40h] [rbp+8h] BYREF
-  __int64 v7; // [rsp+48h] [rbp+10h] BYREF
+  PIMAGE_NT_HEADERS OutHeaders; // [rsp+48h] [rbp+10h] BYREF
 
-  v7 = 0LL;
+  OutHeaders = 0LL;
   v0 = 0;
   v6 = 0;
   VfDriverLock();
@@ -34,8 +34,8 @@ __int64 VfDriverEnableVerifierForAll()
   {
     if ( !(unsigned int)VfUtilIsProtectedDriver() )
     {
-      v2 = (unsigned __int64)i[6];
-      if ( MmIsSessionAddress(v2) || (int)RtlImageNtHeaderEx(1, v2, 0LL, &v7) >= 0 )
+      v2 = i[6];
+      if ( MmIsSessionAddress((__int64)v2) || RtlImageNtHeaderEx(1u, v2, 0LL, &OutHeaders) >= 0 )
       {
         Entry = VfSuspectDriversAllocateEntry(i + 11);
         v4 = (void *)Entry;

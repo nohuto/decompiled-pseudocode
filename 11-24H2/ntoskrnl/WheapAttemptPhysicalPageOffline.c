@@ -1,23 +1,23 @@
 /*
- * XREFs of WheapAttemptPhysicalPageOffline @ 0x1407C791C
+ * XREFs of WheapAttemptPhysicalPageOffline @ 0x1407C7DBC
  * Callers:
- *     WheaAttemptClearPoison @ 0x1407C7210 (WheaAttemptClearPoison.c)
- *     WheaAttemptPhysicalPageOffline @ 0x1407C72F0 (WheaAttemptPhysicalPageOffline.c)
- *     WheaPageOfflineAndPersist @ 0x1407C7504 (WheaPageOfflineAndPersist.c)
- *     WheapAttemptPhysicalPageOfflineWorker @ 0x1407C7B40 (WheapAttemptPhysicalPageOfflineWorker.c)
- *     WheapOfflinePage @ 0x1407C7F20 (WheapOfflinePage.c)
- *     WheapOfflineRow @ 0x1407C8078 (WheapOfflineRow.c)
+ *     WheaAttemptClearPoison @ 0x1407C76B0 (WheaAttemptClearPoison.c)
+ *     WheaAttemptPhysicalPageOffline @ 0x1407C7790 (WheaAttemptPhysicalPageOffline.c)
+ *     WheaPageOfflineAndPersist @ 0x1407C79A4 (WheaPageOfflineAndPersist.c)
+ *     WheapAttemptPhysicalPageOfflineWorker @ 0x1407C7FE0 (WheapAttemptPhysicalPageOfflineWorker.c)
+ *     WheapOfflinePage @ 0x1407C83C0 (WheapOfflinePage.c)
+ *     WheapOfflineRow @ 0x1407C8518 (WheapOfflineRow.c)
  * Callees:
- *     WheaGetNotifyAllOfflinesPolicy @ 0x14065CDC0 (WheaGetNotifyAllOfflinesPolicy.c)
- *     WheaPersistBadPageToBcd @ 0x14065CE90 (WheaPersistBadPageToBcd.c)
- *     WheaPersistBadPageToRegistry @ 0x14065D04C (WheaPersistBadPageToRegistry.c)
- *     WheaLogInternalEvent @ 0x14065E070 (WheaLogInternalEvent.c)
- *     MmMarkPhysicalMemoryAsBad @ 0x140674B50 (MmMarkPhysicalMemoryAsBad.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     WheaAddressTranslateAndAddToDefectList @ 0x1407C715C (WheaAddressTranslateAndAddToDefectList.c)
- *     WheapCallInUsePageNotificationCallbacks @ 0x1407C7B98 (WheapCallInUsePageNotificationCallbacks.c)
- *     WheapClearPoison @ 0x1407C7D6C (WheapClearPoison.c)
- *     WheapLogPageOfflineAttemptEvent @ 0x1407C8590 (WheapLogPageOfflineAttemptEvent.c)
+ *     WheaGetNotifyAllOfflinesPolicy @ 0x14065B4E0 (WheaGetNotifyAllOfflinesPolicy.c)
+ *     WheaPersistBadPageToBcd @ 0x14065B5B0 (WheaPersistBadPageToBcd.c)
+ *     WheaPersistBadPageToRegistry @ 0x14065B76C (WheaPersistBadPageToRegistry.c)
+ *     WheaLogInternalEvent @ 0x14065C840 (WheaLogInternalEvent.c)
+ *     MmMarkPhysicalMemoryAsBad @ 0x140675D20 (MmMarkPhysicalMemoryAsBad.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     WheaAddressTranslateAndAddToDefectList @ 0x1407C75FC (WheaAddressTranslateAndAddToDefectList.c)
+ *     WheapCallInUsePageNotificationCallbacks @ 0x1407C8038 (WheapCallInUsePageNotificationCallbacks.c)
+ *     WheapClearPoison @ 0x1407C820C (WheapClearPoison.c)
+ *     WheapLogPageOfflineAttemptEvent @ 0x1407C8A78 (WheapLogPageOfflineAttemptEvent.c)
  */
 
 __int64 __fastcall WheapAttemptPhysicalPageOffline(
@@ -111,16 +111,16 @@ __int64 __fastcall WheapAttemptPhysicalPageOffline(
     BYTE4(v33) = v12;
     *(_DWORD *)((char *)&v33 + 5) = a2;
     HIBYTE(v33) = v21;
-    WheaLogInternalEvent(&Src);
+    WheaLogInternalEvent(&Src, v20);
     LODWORD(v9) = v29;
     v8 = 0;
   }
-  if ( *(_BYTE *)off_140E09558 )
+  if ( *(_BYTE *)off_140E095C8 )
   {
-    v14 = *(_DWORD *)off_140E09718;
-    if ( *(_DWORD *)off_140E09718 == 1 )
+    v14 = *(_DWORD *)off_140E09788;
+    if ( *(_DWORD *)off_140E09788 == 1 )
     {
-      WheaPersistBadPageToBcd(a2);
+      WheaPersistBadPageToBcd((UNICODE_STRING *)a2);
 LABEL_23:
       v8 = 1;
       WheaAddressTranslateAndAddToDefectList((__int64)&v26, v30);

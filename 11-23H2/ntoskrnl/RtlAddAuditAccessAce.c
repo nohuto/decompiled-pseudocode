@@ -1,13 +1,19 @@
 /*
- * XREFs of RtlAddAuditAccessAce @ 0x1409BB0A0
+ * XREFs of RtlAddAuditAccessAce @ 0x1409BB2A0
  * Callers:
- *     SepInitProcessAuditSd @ 0x14038848C (SepInitProcessAuditSd.c)
+ *     SepInitProcessAuditSd @ 0x14038866C (SepInitProcessAuditSd.c)
  *     ObInitSystem @ 0x140B4B2F8 (ObInitSystem.c)
  * Callees:
- *     RtlpAddKnownAce @ 0x140735270 (RtlpAddKnownAce.c)
+ *     RtlpAddKnownAce @ 0x140735460 (RtlpAddKnownAce.c)
  */
 
-__int64 __fastcall RtlAddAuditAccessAce(__int64 a1, __int64 a2, int a3)
+NTSTATUS __cdecl RtlAddAuditAccessAce(
+        PACL Acl,
+        ULONG AceRevision,
+        ACCESS_MASK AccessMask,
+        PSID Sid,
+        BOOLEAN AuditSuccess,
+        BOOLEAN AuditFailure)
 {
-  return RtlpAddKnownAce(a1, 2u, 192, a3, (unsigned __int8 *)SeWorldSid, 2);
+  return RtlpAddKnownAce(Acl, 2u, 192, AccessMask, (unsigned __int8 *)SeWorldSid, 2u);
 }

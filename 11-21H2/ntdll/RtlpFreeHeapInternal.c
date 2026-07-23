@@ -144,8 +144,8 @@ __int64 __fastcall RtlpFreeHeapInternal(__int64 a1, unsigned __int64 a2, __int64
   __int64 *v112; // r8
   unsigned __int16 ReservedBlockSize; // ax
   __int64 v114; // r8
-  __int64 v115; // rcx
-  unsigned int HeapProtection; // eax
+  _DWORD *v115; // rcx
+  ULONG HeapProtection; // eax
   int v117; // r9d
   signed __int64 v118; // rtt
   volatile signed __int32 *v119; // rax
@@ -162,11 +162,11 @@ __int64 __fastcall RtlpFreeHeapInternal(__int64 a1, unsigned __int64 a2, __int64
   __int64 *v130; // [rsp+40h] [rbp-78h]
   _QWORD **v131; // [rsp+48h] [rbp-70h]
   int v132; // [rsp+50h] [rbp-68h]
-  unsigned int v133; // [rsp+58h] [rbp-60h] BYREF
-  __int64 v134; // [rsp+60h] [rbp-58h] BYREF
+  __int64 v133; // [rsp+58h] [rbp-60h] BYREF
+  ULONG OldProtect[2]; // [rsp+60h] [rbp-58h] BYREF
   __int64 v135; // [rsp+68h] [rbp-50h]
-  unsigned __int64 v136; // [rsp+70h] [rbp-48h] BYREF
-  unsigned __int64 v137; // [rsp+78h] [rbp-40h] BYREF
+  ULONG_PTR RegionSize; // [rsp+70h] [rbp-48h] BYREF
+  PVOID BaseAddress; // [rsp+78h] [rbp-40h] BYREF
   __int128 v138; // [rsp+80h] [rbp-38h] BYREF
   unsigned __int64 v139; // [rsp+C0h] [rbp+8h] BYREF
 
@@ -302,7 +302,7 @@ LABEL_127:
                + v83 * (((unsigned int)v135 ^ (unsigned int)RtlpLFHKey ^ (unsigned int)v84) >> 16)
                + (unsigned __int16)(v135 ^ RtlpLFHKey ^ v84) == v10 )
             {
-              if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+              if ( RtlGetCurrentServiceSessionId() )
                 v87 = (__int64)NtCurrentPeb()->SharedData + 550;
               else
                 v87 = 2147353472LL;
@@ -493,12 +493,17 @@ LABEL_255:
               v130 = v112;
               if ( !v111 )
               {
-                v137 = ((unsigned __int64)v98[1] + 4151) & 0xFFFFFFFFFFFFF000uLL;
+                BaseAddress = (PVOID)(((unsigned __int64)v98[1] + 4151) & 0xFFFFFFFFFFFFF000uLL);
                 ReservedBlockSize = RtlpGetReservedBlockSize(v98, v129, v112, v101);
-                v115 = *(_QWORD *)(v114 + 24);
-                v136 = 16 * ReservedBlockSize * (unsigned __int64)*((unsigned __int16 *)v98 + 20);
+                v115 = *(_DWORD **)(v114 + 24);
+                RegionSize = 16 * ReservedBlockSize * (unsigned __int64)*((unsigned __int16 *)v98 + 20);
                 HeapProtection = RtlpGetHeapProtection(v115, 1);
-                ZwProtectVirtualMemory(-1LL, &v137, &v136, HeapProtection, &v134);
+                ZwProtectVirtualMemory(
+                  (HANDLE)0xFFFFFFFFFFFFFFFFLL,
+                  &BaseAddress,
+                  &RegionSize,
+                  HeapProtection,
+                  OldProtect);
                 v112 = v130;
               }
               *((_DWORD *)v98[1] + 5) = 0;
@@ -551,12 +556,12 @@ LABEL_182:
   }
   if ( (RtlpHpAppCompatFlags & 2) != 0 && a2 )
   {
-    v134 = *(_QWORD *)(a2 - 16);
-    v8 = a2 - v134;
+    *(_QWORD *)OldProtect = *(_QWORD *)(a2 - 16);
+    v8 = a2 - *(_QWORD *)OldProtect;
   }
   else
   {
-    v134 = 0LL;
+    *(_QWORD *)OldProtect = 0LL;
   }
   if ( (_DWORD)a3 )
   {
@@ -602,7 +607,7 @@ LABEL_182:
     }
     else
     {
-      v64 = RtlCSparseBitmapBitmaskRead(&unk_18017B720, 2 * ((v8 - qword_18017B718) >> 20));
+      v64 = RtlCSparseBitmapBitmaskRead(&::BaseAddress, 2 * ((v8 - qword_18017B718) >> 20));
       if ( !v64 || (v18 = v64 - 1, v18 == 2) )
       {
         v40 = RtlpHpLargeAllocSize(a1, v8, v14, &v139);
@@ -816,7 +821,7 @@ LABEL_55:
             {
               RtlpHpSegPageRangeShrink(v49, v51, 0, v14);
               v56 = 1;
-              if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+              if ( RtlGetCurrentServiceSessionId() )
                 v69 = (__int64)NtCurrentPeb()->SharedData + 550;
               else
                 v69 = 2147353472LL;
@@ -831,14 +836,14 @@ LABEL_55:
               }
               else
               {
-                v56 = RtlpHpVsContextFree(*(_QWORD *)(v49 + 32), v55, v8, v14, &v133);
+                v56 = RtlpHpVsContextFree(*(PRTL_SRWLOCK *)(v49 + 32), v55, v8, v14, (unsigned int *)&v133);
                 v5 = 1;
                 if ( v56 )
                 {
                   v60 = *(_QWORD *)(v49 + 24);
-                  if ( v133 <= (unsigned int)*(unsigned __int16 *)(v60 + 60) - 16 )
+                  if ( (unsigned int)v133 <= (unsigned int)*(unsigned __int16 *)(v60 + 60) - 16 )
                   {
-                    v61 = RtlpLfhBucketIndexMap[(unsigned __int64)(v133 + 15) >> 4];
+                    v61 = RtlpLfhBucketIndexMap[(unsigned __int64)(unsigned int)(v133 + 15) >> 4];
                     if ( (*(_QWORD *)(v60 + 8 * v61 + 128) & 1) != 0 )
                     {
                       do
@@ -892,7 +897,7 @@ LABEL_61:
     v17 = v56;
     goto LABEL_62;
   }
-  v65 = RtlCSparseBitmapBitmaskRead(&unk_18017B720, 2 * ((v8 - qword_18017B718) >> 20));
+  v65 = RtlCSparseBitmapBitmaskRead(&::BaseAddress, 2 * ((v8 - qword_18017B718) >> 20));
   if ( v65 )
   {
     v47 = v65 - 1;
@@ -901,7 +906,7 @@ LABEL_61:
   }
   if ( !RtlpHpLargeFree(a1, v8, v14) )
     v17 = 0;
-  if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+  if ( RtlGetCurrentServiceSessionId() )
     v66 = (__int64)NtCurrentPeb()->SharedData + 550;
   else
     v66 = 2147353472LL;
@@ -921,7 +926,7 @@ LABEL_161:
     return v17;
   }
   if ( a4 )
-    *a4 -= v134;
+    *a4 -= *(_QWORD *)OldProtect;
   if ( (dword_18017AE98 & 1) != 0 && (dword_18017AE98 & 2) != 0 )
   {
     if ( NtCurrentPeb()->ProcessHeap )

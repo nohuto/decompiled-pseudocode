@@ -1,11 +1,11 @@
 /*
- * XREFs of MiCleanupPageTablePages @ 0x1403A679C
+ * XREFs of MiCleanupPageTablePages @ 0x14026DA8C
  * Callers:
- *     MiMakeZeroedPageTablesEx @ 0x1403A62E0 (MiMakeZeroedPageTablesEx.c)
- *     MmCreateShadowMapping @ 0x1407F674C (MmCreateShadowMapping.c)
+ *     MiMakeZeroedPageTablesEx @ 0x14026D5D0 (MiMakeZeroedPageTablesEx.c)
+ *     MmCreateShadowMapping @ 0x1407F6EC0 (MmCreateShadowMapping.c)
  * Callees:
- *     MiFreeLargeZeroPages @ 0x1403A67F0 (MiFreeLargeZeroPages.c)
- *     MiReturnSystemCharges @ 0x14045A7E8 (MiReturnSystemCharges.c)
+ *     MiFreeLargeZeroPages @ 0x14026DAE0 (MiFreeLargeZeroPages.c)
+ *     MiReturnSystemCharges @ 0x14044FC38 (MiReturnSystemCharges.c)
  */
 
 __int64 __fastcall MiCleanupPageTablePages(__int64 a1)

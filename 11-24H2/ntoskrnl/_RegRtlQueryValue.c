@@ -1,30 +1,31 @@
 /*
- * XREFs of _RegRtlQueryValue @ 0x1409D73A0
+ * XREFs of _RegRtlQueryValue @ 0x1409C7A00
  * Callers:
- *     _SysCtxOpenControlSet @ 0x1408201E0 (_SysCtxOpenControlSet.c)
+ *     _SysCtxOpenControlSet @ 0x140820920 (_SysCtxOpenControlSet.c)
  * Callees:
- *     RtlInitUnicodeStringEx @ 0x14045AA10 (RtlInitUnicodeStringEx.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ZwQueryValueKey @ 0x1406A66F0 (ZwQueryValueKey.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     RtlInitUnicodeStringEx @ 0x14044FE60 (RtlInitUnicodeStringEx.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ZwQueryValueKey @ 0x1406A7690 (ZwQueryValueKey.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 NTSTATUS __fastcall RegRtlQueryValue(HANDLE KeyHandle, const WCHAR *a2, _DWORD *a3, void *a4, unsigned int *a5)
 {
   void *v6; // rdi
   NTSTATUS result; // eax
+  unsigned int v10; // eax
   ULONG Length; // ebp
   __int64 Pool2; // rax
-  char *v12; // rbx
-  NTSTATUS v13; // eax
-  int v14; // ebp
-  unsigned int v15; // r8d
-  unsigned int v16; // edx
+  char *v13; // rbx
+  NTSTATUS v14; // eax
+  int v15; // ebp
+  unsigned int v16; // r8d
+  unsigned int v17; // edx
   ULONG ResultLength; // [rsp+30h] [rbp-E8h] BYREF
   UNICODE_STRING DestinationString; // [rsp+38h] [rbp-E0h] BYREF
-  char v19; // [rsp+48h] [rbp-D0h] BYREF
+  char v20; // [rsp+48h] [rbp-D0h] BYREF
 
   v6 = 0LL;
   DestinationString = 0LL;
@@ -34,37 +35,38 @@ NTSTATUS __fastcall RegRtlQueryValue(HANDLE KeyHandle, const WCHAR *a2, _DWORD *
   {
     if ( a4 && *a5 > 0x80 )
     {
-      if ( *a5 + 12 < 0xC )
+      v10 = *a5 + 12;
+      if ( v10 < 0xC )
         return -1073741675;
       Length = *a5 + 12;
-      Pool2 = ExAllocatePool2(0x100uLL);
+      Pool2 = ExAllocatePool2(0x100uLL, v10, 0x4C474552u);
       v6 = (void *)Pool2;
       if ( !Pool2 )
         return -1073741801;
-      v12 = (char *)Pool2;
+      v13 = (char *)Pool2;
     }
     else
     {
-      v12 = &v19;
+      v13 = &v20;
       Length = 140;
     }
-    v13 = ZwQueryValueKey(KeyHandle, &DestinationString, KeyValuePartialInformation, v12, Length, &ResultLength);
-    v14 = v13;
-    if ( !v13 || v13 == -2147483643 )
+    v14 = ZwQueryValueKey(KeyHandle, &DestinationString, KeyValuePartialInformation, v13, Length, &ResultLength);
+    v15 = v14;
+    if ( !v14 || v14 == -2147483643 )
     {
-      v15 = *a5;
-      v16 = *((_DWORD *)v12 + 2);
-      *a5 = v16;
-      if ( v15 < v16 )
-        v14 = -1073741789;
+      v16 = *a5;
+      v17 = *((_DWORD *)v13 + 2);
+      *a5 = v17;
+      if ( v16 < v17 )
+        v15 = -1073741789;
       else
-        memmove(a4, v12 + 12, *((unsigned int *)v12 + 2));
+        memmove(a4, v13 + 12, *((unsigned int *)v13 + 2));
       if ( a3 )
-        *a3 = *((_DWORD *)v12 + 1);
+        *a3 = *((_DWORD *)v13 + 1);
     }
     if ( v6 )
       ExFreePoolWithTag(v6, 0);
-    return v14;
+    return v15;
   }
   return result;
 }

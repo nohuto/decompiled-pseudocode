@@ -1,17 +1,17 @@
 /*
- * XREFs of HsaFlushTbInternal @ 0x1404E2DFC
+ * XREFs of HsaFlushTbInternal @ 0x1404E303C
  * Callers:
- *     HsaAttachDeviceDomainInternal @ 0x1404E24F8 (HsaAttachDeviceDomainInternal.c)
- *     HsaFlushDomainTb @ 0x1404E2D50 (HsaFlushDomainTb.c)
- *     HsaFlushTb @ 0x1404E2DB0 (HsaFlushTb.c)
+ *     HsaAttachDeviceDomainInternal @ 0x1404E2738 (HsaAttachDeviceDomainInternal.c)
+ *     HsaFlushDomainTb @ 0x1404E2F90 (HsaFlushDomainTb.c)
+ *     HsaFlushTb @ 0x1404E2FF0 (HsaFlushTb.c)
  * Callees:
- *     ExReleaseRundownProtection_0 @ 0x14027C4F0 (ExReleaseRundownProtection_0.c)
- *     ExAcquireRundownProtection_0 @ 0x14027C9B0 (ExAcquireRundownProtection_0.c)
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     KxAcquireQueuedSpinLock @ 0x140350970 (KxAcquireQueuedSpinLock.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402042B0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     ExReleaseRundownProtection @ 0x14026A490 (ExReleaseRundownProtection.c)
+ *     ExAcquireRundownProtection @ 0x14026A950 (ExAcquireRundownProtection.c)
+ *     KxAcquireQueuedSpinLock @ 0x14035B6C0 (KxAcquireQueuedSpinLock.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     HalpIommuGetNextFlushDevice @ 0x1404CBF7C (HalpIommuGetNextFlushDevice.c)
- *     HsaIommuSendCommand @ 0x1404E3D08 (HsaIommuSendCommand.c)
+ *     HalpIommuGetNextFlushDevice @ 0x1404CC1BC (HalpIommuGetNextFlushDevice.c)
+ *     HsaIommuSendCommand @ 0x1404E3F48 (HsaIommuSendCommand.c)
  */
 
 __int64 __fastcall HsaFlushTbInternal(
@@ -212,7 +212,7 @@ LABEL_50:
             *(_QWORD *)&v63 = v44;
             if ( !*v59 )
             {
-              if ( !ExAcquireRundownProtection_0(RunRef) )
+              if ( !ExAcquireRundownProtection(RunRef) )
                 goto LABEL_66;
               v45 = v59;
             }
@@ -302,7 +302,7 @@ LABEL_66:
     v20 = a7;
     while ( (v19 || !v13) && HalpIommuGetNextFlushDevice(v20, &v67, &v66, &v72, &RunRef, &v59) )
     {
-      if ( ExAcquireRundownProtection_0(RunRef) )
+      if ( ExAcquireRundownProtection(RunRef) )
       {
         *v59 = 1;
         *(_QWORD *)&v63 = (unsigned __int16)v66 | v63 & 0xFFFFFFFF00FF0000uLL | ((unsigned __int64)(unsigned __int8)v72 << 24);
@@ -352,7 +352,7 @@ LABEL_80:
     {
       v54 = RunRef;
       *v59 = 0;
-      ExReleaseRundownProtection_0(v54);
+      ExReleaseRundownProtection(v54);
     }
     --v51;
   }

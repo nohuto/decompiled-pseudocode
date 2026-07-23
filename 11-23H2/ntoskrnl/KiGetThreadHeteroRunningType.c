@@ -1,8 +1,8 @@
 /*
- * XREFs of KiGetThreadHeteroRunningType @ 0x140577278
+ * XREFs of KiGetThreadHeteroRunningType @ 0x140577768
  * Callers:
- *     KiRemoveBoostThread @ 0x1402BB250 (KiRemoveBoostThread.c)
- *     KiApplyForegroundBoostThread @ 0x1403504D8 (KiApplyForegroundBoostThread.c)
+ *     KiRemoveBoostThread @ 0x1402BB4E0 (KiRemoveBoostThread.c)
+ *     KiApplyForegroundBoostThread @ 0x140350678 (KiApplyForegroundBoostThread.c)
  * Callees:
  *     <none>
  */

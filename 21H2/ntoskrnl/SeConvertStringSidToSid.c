@@ -1,13 +1,13 @@
 /*
- * XREFs of SeConvertStringSidToSid @ 0x1403C0380
+ * XREFs of SeConvertStringSidToSid @ 0x1403C07B0
  * Callers:
  *     <none>
  * Callees:
- *     LookupSidInTable @ 0x14067432C (LookupSidInTable.c)
- *     SddlpAlloc @ 0x140674548 (SddlpAlloc.c)
- *     RtlCopySid @ 0x140706ED0 (RtlCopySid.c)
- *     LocalpConvertStringSidToSid @ 0x1407B7BB0 (LocalpConvertStringSidToSid.c)
- *     SddlpFree @ 0x1409269D0 (SddlpFree.c)
+ *     LookupSidInTable @ 0x14066955C (LookupSidInTable.c)
+ *     SddlpAlloc @ 0x140669778 (SddlpAlloc.c)
+ *     RtlCopySid @ 0x14071E2B0 (RtlCopySid.c)
+ *     LocalpConvertStringSidToSid @ 0x1407B80D0 (LocalpConvertStringSidToSid.c)
+ *     SddlpFree @ 0x140926B30 (SddlpFree.c)
  */
 
 __int64 __fastcall SeConvertStringSidToSid(wchar_t *Str1, __int64 *a2)

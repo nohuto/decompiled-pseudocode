@@ -56,10 +56,10 @@ __int64 __fastcall MmAttachSession(_KPROCESS *BugCheckParameter1, __int64 a2)
   {
     KxReleaseQueuedSpinLock((volatile signed __int64 **)v19);
     OldIrql = v19[0].OldIrql;
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v19[0].OldIrql <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v19[0].OldIrql <= 0xFu && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -78,10 +78,10 @@ __int64 __fastcall MmAttachSession(_KPROCESS *BugCheckParameter1, __int64 a2)
     ++*(_DWORD *)(v2 + 76);
     KxReleaseQueuedSpinLock((volatile signed __int64 **)v19);
     v7 = v19[0].OldIrql;
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v15 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v15 <= 0xFu && v19[0].OldIrql <= 0xFu && v15 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v15 <= 0xFu && v19[0].OldIrql <= 0xFu && v15 >= 2u )
       {
         v16 = KeGetCurrentPrcb();
         v17 = v16->SchedulerAssist;

@@ -1,20 +1,20 @@
 /*
- * XREFs of MiMappedPageWriter @ 0x14013D554
+ * XREFs of MiMappedPageWriter @ 0x14013DAC4
  * Callers:
  *     <none>
  * Callees:
- *     KiLeaveGuardedRegionUnsafe @ 0x140013B70 (KiLeaveGuardedRegionUnsafe.c)
- *     MiGatherMappedPages @ 0x1400201F0 (MiGatherMappedPages.c)
- *     KeWaitForMultipleObjects @ 0x14005A2E0 (KeWaitForMultipleObjects.c)
- *     MiFreeModWriterEntry @ 0x14008EF68 (MiFreeModWriterEntry.c)
- *     KeWaitForGate @ 0x140097C98 (KeWaitForGate.c)
- *     KeDelayExecutionThread @ 0x1400D0580 (KeDelayExecutionThread.c)
- *     KeSetActualBasePriorityThread @ 0x1400D2840 (KeSetActualBasePriorityThread.c)
- *     KeSetPriorityThread @ 0x1400D2F20 (KeSetPriorityThread.c)
- *     MiAllocateModWriterEntry @ 0x140102A50 (MiAllocateModWriterEntry.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     MiDeleteMappedMdls @ 0x1401E5C18 (MiDeleteMappedMdls.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x1400136F0 (KiLeaveGuardedRegionUnsafe.c)
+ *     MiGatherMappedPages @ 0x14001FD70 (MiGatherMappedPages.c)
+ *     KeWaitForMultipleObjects @ 0x140059E60 (KeWaitForMultipleObjects.c)
+ *     MiFreeModWriterEntry @ 0x14008E6C8 (MiFreeModWriterEntry.c)
+ *     KeWaitForGate @ 0x140097498 (KeWaitForGate.c)
+ *     KeDelayExecutionThread @ 0x1400CE420 (KeDelayExecutionThread.c)
+ *     KeSetActualBasePriorityThread @ 0x1400D06E0 (KeSetActualBasePriorityThread.c)
+ *     KeSetPriorityThread @ 0x1400D0DC0 (KeSetPriorityThread.c)
+ *     MiAllocateModWriterEntry @ 0x1401007D0 (MiAllocateModWriterEntry.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     MiDeleteMappedMdls @ 0x1401E5A44 (MiDeleteMappedMdls.c)
  */
 
 void __fastcall MiMappedPageWriter(char *StartContext)

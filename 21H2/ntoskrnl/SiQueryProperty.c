@@ -1,15 +1,15 @@
 /*
- * XREFs of SiQueryProperty @ 0x1409738E8
+ * XREFs of SiQueryProperty @ 0x140973AC8
  * Callers:
- *     SyspartGetPhysicalPartitions @ 0x14097349C (SyspartGetPhysicalPartitions.c)
- *     SyspartIsSpace @ 0x14097360C (SyspartIsSpace.c)
+ *     SyspartGetPhysicalPartitions @ 0x14097367C (SyspartGetPhysicalPartitions.c)
+ *     SyspartIsSpace @ 0x1409737EC (SyspartIsSpace.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     ZwDeviceIoControlFile @ 0x1403FA480 (ZwDeviceIoControlFile.c)
- *     ZwClose @ 0x1403FA580 (ZwClose.c)
- *     SiOpenDevice @ 0x1406A4E74 (SiOpenDevice.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     ZwDeviceIoControlFile @ 0x1403FA660 (ZwDeviceIoControlFile.c)
+ *     ZwClose @ 0x1403FA760 (ZwClose.c)
+ *     SiOpenDevice @ 0x140602AA4 (SiOpenDevice.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall SiQueryProperty(const WCHAR *a1, unsigned int a2, unsigned int a3, _QWORD *a4)

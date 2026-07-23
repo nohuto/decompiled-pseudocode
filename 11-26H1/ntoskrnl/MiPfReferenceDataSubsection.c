@@ -1,11 +1,11 @@
 /*
- * XREFs of MiPfReferenceDataSubsection @ 0x140396C90
+ * XREFs of MiPfReferenceDataSubsection @ 0x140398A10
  * Callers:
- *     MiPfConvertFileOffsetToProto @ 0x14036CC30 (MiPfConvertFileOffsetToProto.c)
+ *     MiPfConvertFileOffsetToProto @ 0x14036E9D0 (MiPfConvertFileOffsetToProto.c)
  * Callees:
- *     MiAddViewsForSection @ 0x1402E31A0 (MiAddViewsForSection.c)
- *     ExAllocatePoolMm @ 0x1403985B0 (ExAllocatePoolMm.c)
- *     MiRemoveViewsFromSectionWithPfn @ 0x14045ED08 (MiRemoveViewsFromSectionWithPfn.c)
+ *     MiAddViewsForSection @ 0x1402C51E0 (MiAddViewsForSection.c)
+ *     ExAllocatePoolMm @ 0x14039A310 (ExAllocatePoolMm.c)
+ *     MiRemoveViewsFromSectionWithPfn @ 0x140458404 (MiRemoveViewsFromSectionWithPfn.c)
  */
 
 __int64 __fastcall MiPfReferenceDataSubsection(__int64 *a1, ULONG_PTR a2, __int64 a3, struct _KLOCK_ENTRIES *a4)

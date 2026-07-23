@@ -1,11 +1,11 @@
 /*
- * XREFs of _CmSetDeviceMappedPropertyFromInstanceKeyRegValue @ 0x1406DEBB0
+ * XREFs of _CmSetDeviceMappedPropertyFromInstanceKeyRegValue @ 0x1406DECE8
  * Callers:
- *     _CmSetDeviceMappedProperty @ 0x1404CE608 (_CmSetDeviceMappedProperty.c)
+ *     _CmSetDeviceMappedProperty @ 0x14050B6D4 (_CmSetDeviceMappedProperty.c)
  * Callees:
- *     ZwClose @ 0x140159E60 (ZwClose.c)
- *     _PnpCtxRegSetValue @ 0x1404870E4 (_PnpCtxRegSetValue.c)
- *     _CmOpenDeviceRegKey @ 0x1404FCD30 (_CmOpenDeviceRegKey.c)
+ *     ZwClose @ 0x14015A3D0 (ZwClose.c)
+ *     _CmOpenDeviceRegKey @ 0x1404DFCC0 (_CmOpenDeviceRegKey.c)
+ *     _PnpCtxRegSetValue @ 0x140512E00 (_PnpCtxRegSetValue.c)
  */
 
 __int64 __fastcall CmSetDeviceMappedPropertyFromInstanceKeyRegValue(
@@ -25,8 +25,8 @@ __int64 __fastcall CmSetDeviceMappedPropertyFromInstanceKeyRegValue(
   unsigned int i; // r10d
   DEVPROPKEY *v16; // r8
   DEVPROPKEY **v17; // rdi
-  __int64 v18; // r8
-  __int64 v19; // r9
+  const WCHAR *v18; // r8
+  ULONG v19; // r9d
   __int64 v20; // rax
   _BOOL8 v21; // rcx
   int v22; // eax
@@ -37,7 +37,7 @@ __int64 __fastcall CmSetDeviceMappedPropertyFromInstanceKeyRegValue(
   v7 = *(_DWORD *)(a4 + 16);
   v8 = 0;
   v11 = 0LL;
-  v12 = &off_1406E9DA0;
+  v12 = &off_1406E9ED0;
   Handle = 0LL;
   v14 = a1;
   for ( i = 0; i < 2; ++i )
@@ -66,8 +66,8 @@ __int64 __fastcall CmSetDeviceMappedPropertyFromInstanceKeyRegValue(
       goto LABEL_29;
     v11 = Handle;
   }
-  v18 = (__int64)v17[2];
-  v19 = *((unsigned int *)v17 + 6);
+  v18 = (const WCHAR *)v17[2];
+  v19 = *((_DWORD *)v17 + 6);
   if ( *(_DWORD *)(a4 + 16) != 2 )
     goto LABEL_24;
   v20 = *(_QWORD *)a4 - *(_QWORD *)&DEVPKEY_Device_Reported.fmtid.Data1;
@@ -78,7 +78,7 @@ __int64 __fastcall CmSetDeviceMappedPropertyFromInstanceKeyRegValue(
 LABEL_24:
     if ( a3 )
       v11 = a3;
-    v23 = PnpCtxRegSetValue(a1, v11, v18, v19, (__int64)a6, a7);
+    v23 = PnpCtxRegSetValue(a1, v11, v18, v19, a6, a7);
     if ( v23 != -1073741444 )
     {
       if ( v23 < 0 )
@@ -92,7 +92,7 @@ LABEL_24:
     v25 = *a6 == 0xFF;
     if ( a3 )
       v11 = a3;
-    v22 = PnpCtxRegSetValue(v21, v11, v18, v19, (__int64)&v25, 4u);
+    v22 = PnpCtxRegSetValue(v21, v11, v18, v19, &v25, 4u);
     if ( v22 != -1073741444 )
     {
       if ( v22 < 0 )

@@ -1,7 +1,7 @@
 /*
- * XREFs of PpmResetPerformanceAccumulation @ 0x14013025C
+ * XREFs of PpmResetPerformanceAccumulation @ 0x1401307CC
  * Callers:
- *     PpmResetPerfTimes @ 0x1401301F8 (PpmResetPerfTimes.c)
+ *     PpmResetPerfTimes @ 0x140130768 (PpmResetPerfTimes.c)
  * Callees:
  *     <none>
  */

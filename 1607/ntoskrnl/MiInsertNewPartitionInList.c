@@ -1,11 +1,11 @@
 /*
- * XREFs of MiInsertNewPartitionInList @ 0x1400B5A48
+ * XREFs of MiInsertNewPartitionInList @ 0x1400B3870
  * Callers:
- *     MiCreatePartition @ 0x1406601A8 (MiCreatePartition.c)
+ *     MiCreatePartition @ 0x14066028C (MiCreatePartition.c)
  *     MiCreatePfnDatabase @ 0x14078F270 (MiCreatePfnDatabase.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLock @ 0x140012750 (KeReleaseInStackQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14001BD40 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x1400122D0 (KeReleaseInStackQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14001B8C0 (KeAcquireInStackQueuedSpinLock.c)
  */
 
 void __fastcall MiInsertNewPartitionInList(__int64 a1)
@@ -15,13 +15,13 @@ void __fastcall MiInsertNewPartitionInList(__int64 a1)
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+20h] [rbp-28h] BYREF
 
   KeAcquireInStackQueuedSpinLock(&SpinLock, &LockHandle);
-  v2 = (_QWORD *)qword_140326FD0;
+  v2 = (_QWORD *)qword_140327010;
   v3 = (_QWORD *)(a1 + 32);
-  if ( *(__int64 **)qword_140326FD0 != &qword_140326FC8 )
+  if ( *(__int64 **)qword_140327010 != &qword_140327008 )
     __fastfail(3u);
-  *v3 = &qword_140326FC8;
+  *v3 = &qword_140327008;
   v3[1] = v2;
   *v2 = v3;
-  qword_140326FD0 = (__int64)v3;
+  qword_140327010 = (__int64)v3;
   KeReleaseInStackQueuedSpinLock(&LockHandle);
 }

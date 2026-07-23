@@ -1,9 +1,9 @@
 /*
- * XREFs of ExpIoPoolDeadlockWorker @ 0x140A00780
+ * XREFs of ExpIoPoolDeadlockWorker @ 0x140A00A10
  * Callers:
  *     <none>
  * Callees:
- *     DbgkWerCaptureLiveKernelDump @ 0x1408834E0 (DbgkWerCaptureLiveKernelDump.c)
+ *     DbgkWerCaptureLiveKernelDump @ 0x140883720 (DbgkWerCaptureLiveKernelDump.c)
  */
 
 __int64 __fastcall ExpIoPoolDeadlockWorker(int *a1)

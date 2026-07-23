@@ -76,7 +76,7 @@ __int64 __fastcall MiReplacePageOfProtoPool(unsigned __int64 a1, __int64 a2, __i
   int v63; // [rsp+20h] [rbp-99h]
   unsigned int v64; // [rsp+28h] [rbp-91h]
   unsigned __int64 UltraMapping; // [rsp+40h] [rbp-79h]
-  RTL_BITMAP v67; // [rsp+48h] [rbp-71h] BYREF
+  _RTL_BITMAP v67; // [rsp+48h] [rbp-71h] BYREF
   __int64 v68; // [rsp+58h] [rbp-61h]
   _BYTE *v69; // [rsp+60h] [rbp-59h]
   ULONG_PTR *v70; // [rsp+68h] [rbp-51h]

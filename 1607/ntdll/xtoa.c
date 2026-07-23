@@ -1,9 +1,9 @@
 /*
- * XREFs of xtoa @ 0x180097520
+ * XREFs of xtoa @ 0x180097510
  * Callers:
- *     _itoa @ 0x1800973E0 (_itoa.c)
- *     _ltoa @ 0x180097410 (_ltoa.c)
- *     _ultoa @ 0x1800974A0 (_ultoa.c)
+ *     _itoa @ 0x1800973D0 (_itoa.c)
+ *     _ltoa @ 0x180097400 (_ltoa.c)
+ *     _ultoa @ 0x180097490 (_ultoa.c)
  * Callees:
  *     <none>
  */

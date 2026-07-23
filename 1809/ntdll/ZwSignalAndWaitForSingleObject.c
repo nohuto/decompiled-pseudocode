@@ -1,16 +1,20 @@
 /*
- * XREFs of ZwSignalAndWaitForSingleObject @ 0x1800A38B0
+ * XREFs of ZwSignalAndWaitForSingleObject @ 0x1800A38D0
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 ZwSignalAndWaitForSingleObject()
+NTSTATUS __cdecl ZwSignalAndWaitForSingleObject(
+        HANDLE SignalHandle,
+        HANDLE WaitHandle,
+        BOOLEAN Alertable,
+        PLARGE_INTEGER Timeout)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 431LL;
+  result = 431;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

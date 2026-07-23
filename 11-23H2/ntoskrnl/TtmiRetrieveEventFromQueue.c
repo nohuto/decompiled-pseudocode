@@ -1,14 +1,14 @@
 /*
- * XREFs of TtmiRetrieveEventFromQueue @ 0x1409AC140
+ * XREFs of TtmiRetrieveEventFromQueue @ 0x1409AC340
  * Callers:
- *     TtmpDispatchGetTerminalEvent @ 0x1409A6708 (TtmpDispatchGetTerminalEvent.c)
+ *     TtmpDispatchGetTerminalEvent @ 0x1409A6908 (TtmpDispatchGetTerminalEvent.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     ExAcquireResourceExclusiveLite @ 0x1402390E0 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x14023D410 (ExReleaseResourceLite.c)
- *     KeResetEvent @ 0x1402AF940 (KeResetEvent.c)
- *     TtmiLogError @ 0x1409A8344 (TtmiLogError.c)
- *     TtmiLogQueueDequeueEvent @ 0x1409A8DD0 (TtmiLogQueueDequeueEvent.c)
+ *     KeLeaveCriticalRegion @ 0x140231550 (KeLeaveCriticalRegion.c)
+ *     ExAcquireResourceExclusiveLite @ 0x1402391B0 (ExAcquireResourceExclusiveLite.c)
+ *     ExReleaseResourceLite @ 0x14023D4E0 (ExReleaseResourceLite.c)
+ *     KeResetEvent @ 0x1402AFE30 (KeResetEvent.c)
+ *     TtmiLogError @ 0x1409A8544 (TtmiLogError.c)
+ *     TtmiLogQueueDequeueEvent @ 0x1409A8FD0 (TtmiLogQueueDequeueEvent.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

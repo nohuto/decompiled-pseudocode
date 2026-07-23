@@ -1,9 +1,9 @@
 /*
- * XREFs of BiGetSystemPartition @ 0x140802308
+ * XREFs of BiGetSystemPartition @ 0x1408025D8
  * Callers:
- *     BcdGetSystemStorePath @ 0x14080316C (BcdGetSystemStorePath.c)
+ *     BcdGetSystemStorePath @ 0x14080343C (BcdGetSystemStorePath.c)
  * Callees:
- *     SyspartGetFirmwarePartition @ 0x140802394 (SyspartGetFirmwarePartition.c)
+ *     SyspartGetFirmwarePartition @ 0x140802664 (SyspartGetFirmwarePartition.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
@@ -12,20 +12,18 @@ __int64 __fastcall BiGetSystemPartition(_QWORD *a1)
 {
   int FirmwarePartition; // eax
   int v3; // ebx
-  __int64 Pool2; // rax
+  void *Pool2; // rax
   void *v5; // rdi
-  unsigned int v7; // [rsp+38h] [rbp+10h] BYREF
 
-  v7 = 0;
-  FirmwarePartition = SyspartGetFirmwarePartition(0LL, 0LL, &v7);
+  FirmwarePartition = SyspartGetFirmwarePartition(0LL);
   v3 = FirmwarePartition;
   if ( FirmwarePartition == -1073741789 )
   {
-    Pool2 = ExAllocatePool2(258LL, v7, 1262764866LL);
-    v5 = (void *)Pool2;
+    Pool2 = (void *)ExAllocatePool2(258LL, 0LL, 1262764866LL);
+    v5 = Pool2;
     if ( Pool2 )
     {
-      v3 = SyspartGetFirmwarePartition(Pool2, v7, &v7);
+      v3 = SyspartGetFirmwarePartition(Pool2);
       if ( v3 < 0 )
         ExFreePoolWithTag(v5, 0x4B444342u);
       else

@@ -1,26 +1,26 @@
 /*
- * XREFs of MiAllocateLargeZeroPages @ 0x14055DA5C
+ * XREFs of MiAllocateLargeZeroPages @ 0x14055DC9C
  * Callers:
- *     MiAllocateFastLargePagesForMdl @ 0x140533CE4 (MiAllocateFastLargePagesForMdl.c)
- *     MiCreateLargePfnList @ 0x14055DEFC (MiCreateLargePfnList.c)
- *     MiCreatePagingFileMap @ 0x14061C548 (MiCreatePagingFileMap.c)
- *     MiGetLargePagesForSystemMapping @ 0x1408C8A44 (MiGetLargePagesForSystemMapping.c)
+ *     MiAllocateFastLargePagesForMdl @ 0x140533F24 (MiAllocateFastLargePagesForMdl.c)
+ *     MiCreateLargePfnList @ 0x14055E13C (MiCreateLargePfnList.c)
+ *     MiCreatePagingFileMap @ 0x1406861B8 (MiCreatePagingFileMap.c)
+ *     MiGetLargePagesForSystemMapping @ 0x1408C8BA4 (MiGetLargePagesForSystemMapping.c)
  * Callees:
- *     RtlAvlRemoveNode @ 0x140234B20 (RtlAvlRemoveNode.c)
- *     MiProtectionToCacheAttribute @ 0x140241E40 (MiProtectionToCacheAttribute.c)
- *     MiZeroLargePage @ 0x1402B71F8 (MiZeroLargePage.c)
- *     MiCreateColorAnchors @ 0x1402E2394 (MiCreateColorAnchors.c)
- *     MiZeroInParallel @ 0x1402E2D60 (MiZeroInParallel.c)
- *     MiInsertMdlPageNeedsZero @ 0x1402E4048 (MiInsertMdlPageNeedsZero.c)
- *     MiDeleteColorAnchors @ 0x1402E40AC (MiDeleteColorAnchors.c)
- *     MiIsFreshPfnFromZeroedList @ 0x140303D1C (MiIsFreshPfnFromZeroedList.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     MiZeroLargePage @ 0x1402353D8 (MiZeroLargePage.c)
+ *     MiCreateColorAnchors @ 0x1402936E4 (MiCreateColorAnchors.c)
+ *     MiZeroInParallel @ 0x1402940B0 (MiZeroInParallel.c)
+ *     MiInsertMdlPageNeedsZero @ 0x140295398 (MiInsertMdlPageNeedsZero.c)
+ *     MiDeleteColorAnchors @ 0x1402953FC (MiDeleteColorAnchors.c)
+ *     RtlAvlRemoveNode @ 0x1402D9370 (RtlAvlRemoveNode.c)
+ *     MiProtectionToCacheAttribute @ 0x1402E6690 (MiProtectionToCacheAttribute.c)
+ *     MiIsFreshPfnFromZeroedList @ 0x14030EA6C (MiIsFreshPfnFromZeroedList.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  *     MiConvertSmallPageRangeToLarge @ 0x1403F6180 (MiConvertSmallPageRangeToLarge.c)
  *     MiGetPfnPageSizeIndex @ 0x1403F6AD8 (MiGetPfnPageSizeIndex.c)
  *     MiGetFastLargePages @ 0x1403F7B20 (MiGetFastLargePages.c)
- *     MiAssembleLargePagePfnList @ 0x14055DE20 (MiAssembleLargePagePfnList.c)
- *     MiFindLargePageMemory @ 0x1408DA0E4 (MiFindLargePageMemory.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     MiAssembleLargePagePfnList @ 0x14055E060 (MiAssembleLargePagePfnList.c)
+ *     MiFindLargePageMemory @ 0x1408DA244 (MiFindLargePageMemory.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 unsigned __int64 __fastcall MiAllocateLargeZeroPages(

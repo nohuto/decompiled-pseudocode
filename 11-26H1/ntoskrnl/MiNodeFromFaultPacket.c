@@ -1,8 +1,8 @@
 /*
- * XREFs of MiNodeFromFaultPacket @ 0x1403A5910
+ * XREFs of MiNodeFromFaultPacket @ 0x1403A7670
  * Callers:
- *     MiComputeFaultNode @ 0x140370A58 (MiComputeFaultNode.c)
- *     MiInPagePageTable @ 0x1403A4C70 (MiInPagePageTable.c)
+ *     MiComputeFaultNode @ 0x140372808 (MiComputeFaultNode.c)
+ *     MiInPagePageTable @ 0x1403A69D0 (MiInPagePageTable.c)
  * Callees:
  *     <none>
  */

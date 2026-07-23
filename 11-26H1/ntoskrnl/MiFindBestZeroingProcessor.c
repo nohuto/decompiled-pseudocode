@@ -1,16 +1,16 @@
 /*
- * XREFs of MiFindBestZeroingProcessor @ 0x1403E9158
+ * XREFs of MiFindBestZeroingProcessor @ 0x1402F6038
  * Callers:
- *     MiSelectBestZeroingProcessor @ 0x1403E8AC4 (MiSelectBestZeroingProcessor.c)
- *     MiAddZeroingThread @ 0x14051F7F0 (MiAddZeroingThread.c)
- *     MiFindOptimalEngineToAddThread @ 0x14051F998 (MiFindOptimalEngineToAddThread.c)
- *     MiSuitableZeroingProcessorAvailable @ 0x1405280BC (MiSuitableZeroingProcessorAvailable.c)
+ *     MiSelectBestZeroingProcessor @ 0x1402F59A4 (MiSelectBestZeroingProcessor.c)
+ *     MiAddZeroingThread @ 0x140521E94 (MiAddZeroingThread.c)
+ *     MiFindOptimalEngineToAddThread @ 0x14052203C (MiFindOptimalEngineToAddThread.c)
+ *     MiSuitableZeroingProcessorAvailable @ 0x14052A72C (MiSuitableZeroingProcessorAvailable.c)
  * Callees:
- *     MiInitializeEngineWorkAffinity @ 0x1403E94E4 (MiInitializeEngineWorkAffinity.c)
- *     MiEngineAffinity @ 0x1403E9844 (MiEngineAffinity.c)
- *     MiGetNextAffinityWalker @ 0x1403E99EC (MiGetNextAffinityWalker.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     MiInitializeEngineWorkAffinity @ 0x1402F63C4 (MiInitializeEngineWorkAffinity.c)
+ *     MiEngineAffinity @ 0x1402F6724 (MiEngineAffinity.c)
+ *     MiGetNextAffinityWalker @ 0x1402F68CC (MiGetNextAffinityWalker.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall MiFindBestZeroingProcessor(__int64 a1, int *a2, int a3, unsigned int a4)

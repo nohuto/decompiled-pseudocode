@@ -1,48 +1,53 @@
 /*
- * XREFs of ExpExpandResourceOwnerTable @ 0x1403E912C
+ * XREFs of ExpExpandResourceOwnerTable @ 0x1403D6CCC
  * Callers:
- *     ExpAcquireSharedStarveExclusive @ 0x1402744C0 (ExpAcquireSharedStarveExclusive.c)
- *     ExpAcquireResourceSharedLite @ 0x140342300 (ExpAcquireResourceSharedLite.c)
- *     ExpFindCurrentThread @ 0x1403E8F80 (ExpFindCurrentThread.c)
- *     ExpFindEmptyEntry @ 0x1403E90D0 (ExpFindEmptyEntry.c)
+ *     ExpAcquireSharedStarveExclusive @ 0x140229A50 (ExpAcquireSharedStarveExclusive.c)
+ *     ExpAcquireResourceSharedLite @ 0x1403217E0 (ExpAcquireResourceSharedLite.c)
+ *     ExpFindCurrentThread @ 0x1403D6B20 (ExpFindCurrentThread.c)
+ *     ExpFindEmptyEntry @ 0x1403D6C70 (ExpFindEmptyEntry.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLock @ 0x140275CD0 (KeReleaseInStackQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x1402D8540 (KeAcquireInStackQueuedSpinLock.c)
- *     KeDelayExecutionThread @ 0x14033BC60 (KeDelayExecutionThread.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x14022B260 (KeReleaseInStackQueuedSpinLock.c)
+ *     KeDelayExecutionThread @ 0x14031B140 (KeDelayExecutionThread.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1403597C0 (KeAcquireInStackQueuedSpinLock.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __fastcall ExpExpandResourceOwnerTable(__int64 a1, struct _KLOCK_QUEUE_HANDLE *a2)
 {
   _DWORD *v2; // rdi
   unsigned int v5; // ebx
-  unsigned int v6; // r15d
+  unsigned __int64 v6; // rsi
+  unsigned int v7; // r15d
   _DWORD *Pool2; // rsi
 
   v2 = *(_DWORD **)(a1 + 16);
   if ( v2 )
   {
     v5 = v2[2];
-    v6 = v5 + 4;
-    if ( v5 + 4 < v5 || 16 * (unsigned __int64)v6 > 0xFFFFFFFF )
+    v7 = v5 + 4;
+    if ( v5 + 4 < v5 )
+      return;
+    v6 = 16LL * v7;
+    if ( v6 > 0xFFFFFFFF )
       return;
   }
   else
   {
     v5 = 0;
-    v6 = 3;
+    LODWORD(v6) = 48;
+    v7 = 3;
   }
   KeReleaseInStackQueuedSpinLock(a2);
-  Pool2 = (_DWORD *)ExAllocatePool2(0x40uLL);
+  Pool2 = (_DWORD *)ExAllocatePool2(0x40uLL, (unsigned int)v6, 0x61546552u);
   if ( Pool2 )
   {
     KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)(a1 + 96), a2);
     if ( v2 == *(_DWORD **)(a1 + 16) && (!v2 || v5 == v2[2]) )
     {
       memmove(Pool2, v2, 16LL * v5);
-      Pool2[2] = v6;
+      Pool2[2] = v7;
       *(_QWORD *)(a1 + 16) = Pool2;
       KeReleaseInStackQueuedSpinLock(a2);
       if ( v2 )

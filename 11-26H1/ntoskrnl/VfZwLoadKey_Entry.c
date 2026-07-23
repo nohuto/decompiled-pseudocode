@@ -1,10 +1,10 @@
 /*
- * XREFs of VfZwLoadKey_Entry @ 0x140C329F0
+ * XREFs of VfZwLoadKey_Entry @ 0x140C38A00
  * Callers:
  *     <none>
  * Callees:
- *     ViZwCheckObjectAttributes @ 0x140C33120 (ViZwCheckObjectAttributes.c)
- *     ViZwShouldCheck @ 0x140C47B84 (ViZwShouldCheck.c)
+ *     ViZwCheckObjectAttributes @ 0x140C39130 (ViZwCheckObjectAttributes.c)
+ *     ViZwShouldCheck @ 0x140C4DB94 (ViZwShouldCheck.c)
  */
 
 __int64 __fastcall VfZwLoadKey_Entry(_QWORD *a1, __int64 a2, __int64 a3)

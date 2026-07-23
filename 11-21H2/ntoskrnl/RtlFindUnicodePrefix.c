@@ -4,8 +4,8 @@
  *     <none>
  * Callees:
  *     RtlSplay @ 0x14021ECC0 (RtlSplay.c)
- *     CompareUnicodeStrings @ 0x14069498C (CompareUnicodeStrings.c)
- *     ComputeUnicodeNameLength @ 0x140694AF0 (ComputeUnicodeNameLength.c)
+ *     sub_14069498C @ 0x14069498C (sub_14069498C.c)
+ *     sub_140694AF0 @ 0x140694AF0 (sub_140694AF0.c)
  */
 
 PUNICODE_PREFIX_TABLE_ENTRY __stdcall RtlFindUnicodePrefix(
@@ -16,15 +16,15 @@ PUNICODE_PREFIX_TABLE_ENTRY __stdcall RtlFindUnicodePrefix(
   PUNICODE_PREFIX_TABLE_ENTRY NextPrefixTree; // rdi
   PUNICODE_PREFIX_TABLE v4; // rbp
   CSHORT v7; // ax
-  RTL_SPLAY_LINKS *i; // rsi
-  UNICODE_PREFIX_TABLE_ENTRY *v10; // r14
+  _RTL_SPLAY_LINKS *i; // rsi
+  _UNICODE_PREFIX_TABLE_ENTRY *v10; // r14
   int v11; // eax
-  struct _UNICODE_PREFIX_TABLE_ENTRY *v12; // rbx
-  UNICODE_PREFIX_TABLE_ENTRY *v13; // rbx
+  _UNICODE_PREFIX_TABLE_ENTRY *v12; // rbx
+  _UNICODE_PREFIX_TABLE_ENTRY *v13; // rbx
 
   NextPrefixTree = PrefixTable->NextPrefixTree;
   v4 = PrefixTable;
-  v7 = ComputeUnicodeNameLength(FullName);
+  v7 = sub_140694AF0(FullName);
   while ( NextPrefixTree->NameLength > v7 )
   {
     v4 = (PUNICODE_PREFIX_TABLE)NextPrefixTree;
@@ -44,8 +44,8 @@ LABEL_16:
         NextPrefixTree = NextPrefixTree->NextPrefixTree;
         goto LABEL_4;
       }
-      v10 = (UNICODE_PREFIX_TABLE_ENTRY *)&i[-1];
-      v11 = CompareUnicodeStrings(i[1].Parent, FullName, 0LL);
+      v10 = (_UNICODE_PREFIX_TABLE_ENTRY *)&i[-1];
+      v11 = sub_14069498C(i[1].Parent, FullName, 0LL);
       if ( v11 != 3 )
         break;
       i = i->LeftChild;
@@ -55,8 +55,8 @@ LABEL_16:
   }
   if ( CaseInsensitiveIndex )
   {
-    v13 = (UNICODE_PREFIX_TABLE_ENTRY *)&i[-1];
-    while ( (unsigned int)CompareUnicodeStrings(v13->Prefix, FullName, CaseInsensitiveIndex) - 1 > 1 )
+    v13 = (_UNICODE_PREFIX_TABLE_ENTRY *)&i[-1];
+    while ( (unsigned int)sub_14069498C(v13->Prefix, FullName, CaseInsensitiveIndex) - 1 > 1 )
     {
       v13 = v13->CaseMatch;
       if ( v13 == v10 )
@@ -71,7 +71,7 @@ LABEL_16:
       v12 = NextPrefixTree->NextPrefixTree;
       NextPrefixTree->NextPrefixTree = 0LL;
       NextPrefixTree->NodeTypeCode = 2050;
-      v10 = (UNICODE_PREFIX_TABLE_ENTRY *)&RtlSplay(i)[-1];
+      v10 = (_UNICODE_PREFIX_TABLE_ENTRY *)&RtlSplay(i)[-1];
       v10->NodeTypeCode = 2049;
       v4->NextPrefixTree = v10;
       v10->NextPrefixTree = v12;

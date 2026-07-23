@@ -1,9 +1,9 @@
 /*
- * XREFs of PpmCheckArmPeriod @ 0x1403C1B34
+ * XREFs of PpmCheckArmPeriod @ 0x1403C1F64
  * Callers:
- *     PpmCheckReInit @ 0x1407BA7E4 (PpmCheckReInit.c)
+ *     PpmCheckReInit @ 0x1407BAF74 (PpmCheckReInit.c)
  * Callees:
- *     PpmCheckResetProcessors @ 0x1403C2064 (PpmCheckResetProcessors.c)
+ *     PpmCheckResetProcessors @ 0x1403C2494 (PpmCheckResetProcessors.c)
  */
 
 char PpmCheckArmPeriod()
@@ -13,8 +13,8 @@ char PpmCheckArmPeriod()
 
   result = PpmCheckArmed;
   v1 = PpmCheckMinimumPeriod;
-  if ( (unsigned int)(10000 * HIDWORD(PpmCurrentProfile[342 * dword_140C23E8C + 7])) > (unsigned __int64)PpmCheckMinimumPeriod )
-    v1 = (unsigned int)(10000 * HIDWORD(PpmCurrentProfile[342 * dword_140C23E8C + 7]));
+  if ( (unsigned int)(10000 * HIDWORD(PpmCurrentProfile[342 * dword_140C2332C + 7])) > (unsigned __int64)PpmCheckMinimumPeriod )
+    v1 = (unsigned int)(10000 * HIDWORD(PpmCurrentProfile[342 * dword_140C2332C + 7]));
   if ( !PpmCheckArmed )
     goto LABEL_7;
   if ( v1 != PpmCheckPeriod )

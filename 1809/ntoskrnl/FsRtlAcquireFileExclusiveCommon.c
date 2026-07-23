@@ -1,8 +1,8 @@
 /*
- * XREFs of FsRtlAcquireFileExclusiveCommon @ 0x1405DEB10
+ * XREFs of FsRtlAcquireFileExclusiveCommon @ 0x1405DFB10
  * Callers:
- *     FsRtlAcquireToCreateMappedSection @ 0x1405DE85C (FsRtlAcquireToCreateMappedSection.c)
- *     FsRtlAcquireFileExclusive @ 0x1405DE920 (FsRtlAcquireFileExclusive.c)
+ *     FsRtlAcquireToCreateMappedSection @ 0x1405DF85C (FsRtlAcquireToCreateMappedSection.c)
+ *     FsRtlAcquireFileExclusive @ 0x1405DF920 (FsRtlAcquireFileExclusive.c)
  * Callees:
  *     IoGetDeviceAttachmentBaseRef @ 0x140002E10 (IoGetDeviceAttachmentBaseRef.c)
  *     FsFilterCtrlFree @ 0x14001C628 (FsFilterCtrlFree.c)
@@ -13,9 +13,9 @@
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
  *     KeLeaveCriticalRegion @ 0x14004F410 (KeLeaveCriticalRegion.c)
  *     ExAcquireResourceExclusiveLite @ 0x1400505F0 (ExAcquireResourceExclusiveLite.c)
- *     IoGetRelatedDeviceObject @ 0x1400B8B90 (IoGetRelatedDeviceObject.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     IoGetRelatedDeviceObject @ 0x1400B8AD0 (IoGetRelatedDeviceObject.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall FsRtlAcquireFileExclusiveCommon(PFILE_OBJECT FileObject, int a2, int a3, __int64 a4)

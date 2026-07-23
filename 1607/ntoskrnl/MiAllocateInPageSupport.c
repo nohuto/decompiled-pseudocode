@@ -1,13 +1,13 @@
 /*
- * XREFs of MiAllocateInPageSupport @ 0x1400E6F94
+ * XREFs of MiAllocateInPageSupport @ 0x1400E4E34
  * Callers:
- *     MiResolveMappedFileFault @ 0x1400E68A0 (MiResolveMappedFileFault.c)
- *     MiResolvePageFileFault @ 0x140121360 (MiResolvePageFileFault.c)
+ *     MiResolveMappedFileFault @ 0x1400E4740 (MiResolveMappedFileFault.c)
+ *     MiResolvePageFileFault @ 0x1401218D0 (MiResolvePageFileFault.c)
  * Callees:
- *     MiUnlockProtoPoolPage @ 0x14004C4E0 (MiUnlockProtoPoolPage.c)
- *     MiLockProtoPoolPage @ 0x14004ED80 (MiLockProtoPoolPage.c)
- *     MiFreeInPageSupportBlock @ 0x1400C63A0 (MiFreeInPageSupportBlock.c)
- *     MiGetInPageSupportBlock @ 0x1400E7520 (MiGetInPageSupportBlock.c)
+ *     MiUnlockProtoPoolPage @ 0x14004C060 (MiUnlockProtoPoolPage.c)
+ *     MiLockProtoPoolPage @ 0x14004E900 (MiLockProtoPoolPage.c)
+ *     MiFreeInPageSupportBlock @ 0x1400C4240 (MiFreeInPageSupportBlock.c)
+ *     MiGetInPageSupportBlock @ 0x1400E53C0 (MiGetInPageSupportBlock.c)
  */
 
 __int64 __fastcall MiAllocateInPageSupport(unsigned __int64 a1, unsigned int a2, _DWORD *a3, __int64 *a4)

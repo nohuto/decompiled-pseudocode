@@ -1,18 +1,18 @@
 /*
- * XREFs of VfTargetDriversAdd @ 0x1403B7B18
+ * XREFs of VfTargetDriversAdd @ 0x1403C1A18
  * Callers:
- *     VfSuspectDriversLoadCallback @ 0x140C38A50 (VfSuspectDriversLoadCallback.c)
- *     VfDriverLoadImage @ 0x140C46AD0 (VfDriverLoadImage.c)
+ *     VfSuspectDriversLoadCallback @ 0x140C3EA60 (VfSuspectDriversLoadCallback.c)
+ *     VfDriverLoadImage @ 0x140C4CAE0 (VfDriverLoadImage.c)
  * Callees:
- *     VfAvlCleanupLockContext @ 0x1403B84FC (VfAvlCleanupLockContext.c)
- *     VfUpdateWhitelist @ 0x1403B85C0 (VfUpdateWhitelist.c)
- *     VfAssignRuleClassIdToClassDriver @ 0x1403B8648 (VfAssignRuleClassIdToClassDriver.c)
- *     VfAvlInsertReservedTreeNode @ 0x1403B86F4 (VfAvlInsertReservedTreeNode.c)
- *     VfAvlReserveNode @ 0x1403B8790 (VfAvlReserveNode.c)
- *     ViTargetDriversFreeVerifiedData @ 0x140641790 (ViTargetDriversFreeVerifiedData.c)
- *     DifAddPerDriverDataForPlugins @ 0x14064AAA8 (DifAddPerDriverDataForPlugins.c)
- *     ViTargetDriversAllocateVerifiedData @ 0x140C2963C (ViTargetDriversAllocateVerifiedData.c)
- *     VfThunkAddTargetNotify @ 0x140C43FA0 (VfThunkAddTargetNotify.c)
+ *     VfAvlCleanupLockContext @ 0x1403C23FC (VfAvlCleanupLockContext.c)
+ *     VfUpdateWhitelist @ 0x1403C24C0 (VfUpdateWhitelist.c)
+ *     VfAssignRuleClassIdToClassDriver @ 0x1403C2548 (VfAssignRuleClassIdToClassDriver.c)
+ *     VfAvlInsertReservedTreeNode @ 0x1403C25F4 (VfAvlInsertReservedTreeNode.c)
+ *     VfAvlReserveNode @ 0x1403C2690 (VfAvlReserveNode.c)
+ *     ViTargetDriversFreeVerifiedData @ 0x140645370 (ViTargetDriversFreeVerifiedData.c)
+ *     DifAddPerDriverDataForPlugins @ 0x14064E688 (DifAddPerDriverDataForPlugins.c)
+ *     ViTargetDriversAllocateVerifiedData @ 0x140C2F64C (ViTargetDriversAllocateVerifiedData.c)
+ *     VfThunkAddTargetNotify @ 0x140C49FB0 (VfThunkAddTargetNotify.c)
  */
 
 __int64 __fastcall VfTargetDriversAdd(__int64 a1, char a2, __int64 a3)
@@ -69,7 +69,7 @@ LABEL_18:
   VfAvlInsertReservedTreeNode(&ViTargetDriversAvl, &v12, v7);
   if ( v3 )
   {
-    ++dword_140F08DA0;
+    ++dword_140F09120;
     *(_BYTE *)(v3 + 48) = a2;
   }
   VfAvlCleanupLockContext(&v12);

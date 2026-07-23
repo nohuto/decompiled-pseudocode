@@ -1,12 +1,12 @@
 /*
- * XREFs of MiApplyCommitDelay @ 0x14065614C
+ * XREFs of MiApplyCommitDelay @ 0x14065669C
  * Callers:
- *     MiChargeCommit @ 0x1402764C0 (MiChargeCommit.c)
+ *     MiChargeCommit @ 0x140276750 (MiChargeCommit.c)
  * Callees:
- *     KeWaitForSingleObject @ 0x140243CE0 (KeWaitForSingleObject.c)
- *     ExAcquireSpinLockExclusive @ 0x14024D360 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402894C0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeWaitForSingleObject @ 0x140243DB0 (KeWaitForSingleObject.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024D430 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140289750 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 void __fastcall MiApplyCommitDelay(__int64 a1, char a2, __int64 a3)
@@ -50,10 +50,13 @@ void __fastcall MiApplyCommitDelay(__int64 a1, char a2, __int64 a3)
       *(_DWORD *)(a1 + 2088) = 1;
     }
     ExReleaseSpinLockExclusiveFromDpcLevel(v4);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v5 <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+        && CurrentIrql <= 0xFu
+        && (unsigned __int8)v5 <= 0xFu
+        && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -71,10 +74,10 @@ void __fastcall MiApplyCommitDelay(__int64 a1, char a2, __int64 a3)
     --*(_DWORD *)(a1 + 2088);
     v13 = v12;
     ExReleaseSpinLockExclusiveFromDpcLevel(v4);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v14 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v14 <= 0xFu && (unsigned __int8)v13 <= 0xFu && v14 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v14 <= 0xFu && (unsigned __int8)v13 <= 0xFu && v14 >= 2u )
       {
         v15 = KeGetCurrentPrcb();
         v16 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v13 + 1));

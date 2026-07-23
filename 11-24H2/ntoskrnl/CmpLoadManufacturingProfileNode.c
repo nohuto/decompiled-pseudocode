@@ -1,15 +1,15 @@
 /*
- * XREFs of CmpLoadManufacturingProfileNode @ 0x140C4C5D8
+ * XREFs of CmpLoadManufacturingProfileNode @ 0x140C4E774
  * Callers:
- *     CmpLoadManufacturingProfileServicesNode @ 0x140C4C6C4 (CmpLoadManufacturingProfileServicesNode.c)
+ *     CmpLoadManufacturingProfileServicesNode @ 0x140C4E860 (CmpLoadManufacturingProfileServicesNode.c)
  * Callees:
- *     RtlInitUnicodeStringEx @ 0x14045AA10 (RtlInitUnicodeStringEx.c)
- *     HvpGetCellFlat @ 0x140874470 (HvpGetCellFlat.c)
- *     HvpGetCellPaged @ 0x1408744C0 (HvpGetCellPaged.c)
- *     HvpReleaseCellPaged @ 0x140875760 (HvpReleaseCellPaged.c)
- *     HvpReleaseCellFlat @ 0x140884BB0 (HvpReleaseCellFlat.c)
- *     CmpFindSubKeyByName @ 0x140A3D268 (CmpFindSubKeyByName.c)
- *     CmpLoadManufacturingModeNode @ 0x140C4C4A4 (CmpLoadManufacturingModeNode.c)
+ *     RtlInitUnicodeStringEx @ 0x14044FE60 (RtlInitUnicodeStringEx.c)
+ *     HvpGetCellFlat @ 0x1408787A0 (HvpGetCellFlat.c)
+ *     HvpGetCellPaged @ 0x1408787F0 (HvpGetCellPaged.c)
+ *     HvpReleaseCellPaged @ 0x140879A90 (HvpReleaseCellPaged.c)
+ *     HvpReleaseCellFlat @ 0x140888A60 (HvpReleaseCellFlat.c)
+ *     CmpFindSubKeyByName @ 0x140A32B78 (CmpFindSubKeyByName.c)
+ *     CmpLoadManufacturingModeNode @ 0x140C4E640 (CmpLoadManufacturingModeNode.c)
  */
 
 bool __fastcall CmpLoadManufacturingProfileNode(

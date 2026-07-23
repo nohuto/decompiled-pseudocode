@@ -19,11 +19,18 @@
  *     <none>
  */
 
-__int64 ZwDuplicateObject()
+NTSTATUS __cdecl ZwDuplicateObject(
+        HANDLE SourceProcessHandle,
+        HANDLE SourceHandle,
+        HANDLE TargetProcessHandle,
+        PHANDLE TargetHandle,
+        ACCESS_MASK DesiredAccess,
+        ULONG HandleAttributes,
+        ULONG Options)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 60LL;
+  result = 60;
   __asm { syscall; Low latency system call }
   return result;
 }

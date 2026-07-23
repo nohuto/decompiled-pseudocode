@@ -1,5 +1,5 @@
 /*
- * XREFs of ExClearPoolFlags @ 0x140171A4C
+ * XREFs of ExClearPoolFlags @ 0x140171F4C
  * Callers:
  *     VfSettingsApplyMiscellaneousChecks @ 0x140716718 (VfSettingsApplyMiscellaneousChecks.c)
  * Callees:

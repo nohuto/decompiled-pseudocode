@@ -16,70 +16,78 @@
 
 char __fastcall sub_1800D5D50(unsigned __int16 *a1)
 {
-  int v2; // esi
-  wchar_t *v3; // rcx
-  char v4; // di
   _QWORD *pShimData; // rbx
+  int v3; // esi
+  wchar_t *v4; // rcx
+  char v5; // di
   int v6; // eax
+  HANDLE EventHandle; // [rsp+30h] [rbp-19h] BYREF
   int UniqueProcess; // [rsp+38h] [rbp-11h] BYREF
-  int v9; // [rsp+3Ch] [rbp-Dh] BYREF
-  __int64 v10; // [rsp+40h] [rbp-9h]
+  int v10; // [rsp+3Ch] [rbp-Dh] BYREF
+  LARGE_INTEGER Timeout; // [rsp+40h] [rbp-9h] BYREF
   int *p_UniqueProcess; // [rsp+48h] [rbp-1h] BYREF
-  int v12; // [rsp+50h] [rbp+7h]
-  int v13; // [rsp+54h] [rbp+Bh]
-  int *v14; // [rsp+58h] [rbp+Fh]
-  int v15; // [rsp+60h] [rbp+17h]
-  int v16; // [rsp+64h] [rbp+1Bh]
-  __int64 v17; // [rsp+68h] [rbp+1Fh]
-  int v18; // [rsp+70h] [rbp+27h]
-  int v19; // [rsp+74h] [rbp+2Bh]
+  int v13; // [rsp+50h] [rbp+7h]
+  int v14; // [rsp+54h] [rbp+Bh]
+  int *v15; // [rsp+58h] [rbp+Fh]
+  int v16; // [rsp+60h] [rbp+17h]
+  int v17; // [rsp+64h] [rbp+1Bh]
+  __int64 v18; // [rsp+68h] [rbp+1Fh]
+  int v19; // [rsp+70h] [rbp+27h]
+  int v20; // [rsp+74h] [rbp+2Bh]
 
-  v9 = 1;
-  v2 = 0;
-  v3 = (wchar_t *)*((_QWORD *)a1 + 1);
-  v4 = 0;
+  EventHandle = 0LL;
+  v10 = 1;
+  pShimData = 0LL;
+  v3 = 0;
+  v4 = (wchar_t *)*((_QWORD *)a1 + 1);
+  v5 = 0;
   UniqueProcess = (int)NtCurrentTeb()->ClientId.UniqueProcess;
-  if ( (unsigned int)sub_1800798B8(v3, 256) )
+  if ( (unsigned int)sub_1800798B8(v4, 256) )
   {
     pShimData = NtCurrentPeb()->pShimData;
     if ( pShimData )
     {
       if ( (unsigned __int8)sub_1800D5FB0() )
       {
-        if ( (int)ZwCreateEvent() >= 0 )
+        if ( ZwCreateEvent(&EventHandle, 0x1F0003u, 0LL, NotificationEvent, 0) >= 0 )
         {
-          RtlAcquireSRWLockExclusive(&qword_18015C488);
-          v2 = 1;
-          v4 = 1;
+          RtlAcquireSRWLockExclusive(&stru_18015C488);
+          v3 = 1;
+          v5 = 1;
           if ( !byte_18015C484 )
           {
-            pShimData[494] = 0LL;
-            v13 = 0;
-            v16 = 0;
-            v19 = 0;
+            pShimData[494] = EventHandle;
+            v14 = 0;
+            v17 = 0;
+            v20 = 0;
             p_UniqueProcess = &UniqueProcess;
-            v14 = &v9;
-            v17 = *((_QWORD *)a1 + 1);
+            v15 = &v10;
+            v18 = *((_QWORD *)a1 + 1);
             v6 = *a1 + 2;
-            v12 = 4;
-            v15 = 4;
-            v18 = v6;
+            v13 = 4;
+            v16 = 4;
+            v19 = v6;
             byte_18015C484 = 1;
-            if ( !(unsigned int)EtwEventWriteNoRegistration(
-                                  (__int64)&unk_180113E90,
-                                  &xmmword_1801246A0,
-                                  3,
-                                  (__int64)&p_UniqueProcess) )
+            if ( !EtwEventWriteNoRegistration(
+                    &stru_180113E90,
+                    &stru_1801246A0,
+                    3u,
+                    (PEVENT_DATA_DESCRIPTOR)&p_UniqueProcess) )
             {
-              v10 = -100000000LL;
-              ZwWaitForSingleObject();
+              Timeout.QuadPart = -100000000LL;
+              ZwWaitForSingleObject(EventHandle, 0, &Timeout);
             }
           }
         }
       }
     }
   }
-  if ( v2 )
-    RtlReleaseSRWLockExclusive(&qword_18015C488);
-  return v4;
+  if ( EventHandle )
+  {
+    ZwClose(EventHandle);
+    pShimData[494] = 0LL;
+  }
+  if ( v3 )
+    RtlReleaseSRWLockExclusive(&stru_18015C488);
+  return v5;
 }

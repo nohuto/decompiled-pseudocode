@@ -1,15 +1,15 @@
 /*
- * XREFs of EtwpInitializeCoverageSampler @ 0x140A42AE8
+ * XREFs of EtwpInitializeCoverageSampler @ 0x140A43AE8
  * Callers:
- *     EtwpInitialize @ 0x140A42414 (EtwpInitialize.c)
+ *     EtwpInitialize @ 0x140A43414 (EtwpInitialize.c)
  * Callees:
- *     ExRundownCompleted @ 0x140251F40 (ExRundownCompleted.c)
- *     ExInitializePushLock @ 0x140278EE0 (ExInitializePushLock.c)
- *     ExWaitForRundownProtectionRelease @ 0x1402797E0 (ExWaitForRundownProtectionRelease.c)
- *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
- *     memset @ 0x140414200 (memset.c)
- *     ObCreateObjectType @ 0x1407958D0 (ObCreateObjectType.c)
+ *     ExInitializePushLock @ 0x140266E80 (ExInitializePushLock.c)
+ *     ExWaitForRundownProtectionRelease @ 0x140267780 (ExWaitForRundownProtectionRelease.c)
+ *     RtlInitUnicodeString @ 0x14026A4C0 (RtlInitUnicodeString.c)
+ *     ExRundownCompleted @ 0x1402F6750 (ExRundownCompleted.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     ObCreateObjectType @ 0x140795AD0 (ObCreateObjectType.c)
  */
 
 __int64 EtwpInitializeCoverageSampler()

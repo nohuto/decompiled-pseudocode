@@ -51,7 +51,7 @@ __int64 __fastcall SepCheckCapabilities(PACCESS_TOKEN Token, unsigned int a2, __
       InformationToken = v9;
       if ( v9 >= 0 )
       {
-        InformationToken = SeQueryInformationToken(v7, TokenIsRestricted|TokenDefaultDacl, (PVOID *)TokenInformation_4);
+        InformationToken = SeQueryInformationToken(v7, TokenIsLessPrivilegedAppContainer, (PVOID *)TokenInformation_4);
         if ( InformationToken >= 0 )
         {
           TokenInformation = 0;

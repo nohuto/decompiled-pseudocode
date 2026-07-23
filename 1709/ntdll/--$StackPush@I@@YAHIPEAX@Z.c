@@ -15,9 +15,9 @@ __int64 __fastcall StackPush<unsigned int>(int a1, unsigned int *a2)
   __int64 v5; // rax
   unsigned __int64 v6; // rax
   unsigned int v7; // edi
-  unsigned __int64 v8; // r8
-  void *Heap; // rax
-  void *v10; // rsi
+  SIZE_T v8; // r8
+  PVOID Heap; // rax
+  PVOID v10; // rsi
 
   if ( !a2 || !*((_QWORD *)a2 + 1) )
     return 0LL;
@@ -31,12 +31,12 @@ __int64 __fastcall StackPush<unsigned int>(int a1, unsigned int *a2)
       v8 = 4LL * (unsigned int)v6;
       if ( v8 <= 0xFFFFFFFF )
       {
-        Heap = (void *)RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v8);
+        Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, v8);
         v10 = Heap;
         if ( Heap )
         {
           memmove(Heap, *((const void **)a2 + 1), 4LL * a2[1]);
-          RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, *((_QWORD *)a2 + 1));
+          RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, *((PVOID *)a2 + 1));
           *((_QWORD *)a2 + 1) = v10;
           a2[1] = v7;
           goto LABEL_9;

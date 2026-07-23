@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpMcaReadErrorUncorrectedUnknown @ 0x1404BD49C
+ * XREFs of HalpMcaReadErrorUncorrectedUnknown @ 0x1404BD6DC
  * Callers:
- *     HalpMcaReadError @ 0x1404BA810 (HalpMcaReadError.c)
+ *     HalpMcaReadError @ 0x1404BAA50 (HalpMcaReadError.c)
  * Callees:
- *     HalpWheaWriteMsrStatus @ 0x1403A0E70 (HalpWheaWriteMsrStatus.c)
+ *     HalpWheaWriteMsrStatus @ 0x1403A0FC0 (HalpWheaWriteMsrStatus.c)
  */
 
 __int64 __fastcall HalpMcaReadErrorUncorrectedUnknown(__int64 a1, _BYTE *a2)

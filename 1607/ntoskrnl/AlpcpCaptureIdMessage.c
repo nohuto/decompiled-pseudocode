@@ -1,9 +1,9 @@
 /*
- * XREFs of AlpcpCaptureIdMessage @ 0x1404093D8
+ * XREFs of AlpcpCaptureIdMessage @ 0x140408298
  * Callers:
- *     NtAlpcQueryInformationMessage @ 0x1404089C0 (NtAlpcQueryInformationMessage.c)
+ *     NtAlpcQueryInformationMessage @ 0x140407880 (NtAlpcQueryInformationMessage.c)
  * Callees:
- *     ExRaiseDatatypeMisalignment @ 0x1406B6058 (ExRaiseDatatypeMisalignment.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1406B6190 (ExRaiseDatatypeMisalignment.c)
  */
 
 __int64 __fastcall AlpcpCaptureIdMessage(__int64 a1, _DWORD *a2, _DWORD *a3)

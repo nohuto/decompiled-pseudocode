@@ -1,11 +1,11 @@
 /*
- * XREFs of PnpDeferNotification @ 0x1407034FC
+ * XREFs of PnpDeferNotification @ 0x14070479C
  * Callers:
- *     IoRegisterPlugPlayNotification @ 0x140703140 (IoRegisterPlugPlayNotification.c)
+ *     IoRegisterPlugPlayNotification @ 0x1407043E0 (IoRegisterPlugPlayNotification.c)
  * Callees:
  *     KeReleaseGuardedMutex @ 0x140014E30 (KeReleaseGuardedMutex.c)
  *     ExAcquireFastMutex @ 0x14004E530 (ExAcquireFastMutex.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PnpDeferNotification(__int64 a1)
@@ -27,13 +27,13 @@ __int64 __fastcall PnpDeferNotification(__int64 a1)
       ++*(_WORD *)(a1 + 56);
       *(_BYTE *)(a1 + 58) = 1;
       ExAcquireFastMutex(&PnpDeferredRegistrationLock);
-      v6 = (_QWORD *)qword_14096E9E8;
-      if ( *(PVOID **)qword_14096E9E8 != &PnpDeferredRegistrationList )
+      v6 = (_QWORD *)qword_14096F9E8;
+      if ( *(PVOID **)qword_14096F9E8 != &PnpDeferredRegistrationList )
         __fastfail(3u);
       *v5 = &PnpDeferredRegistrationList;
       v5[1] = v6;
       *v6 = v5;
-      qword_14096E9E8 = (__int64)v5;
+      qword_14096F9E8 = (__int64)v5;
       KeReleaseGuardedMutex(&PnpDeferredRegistrationLock);
     }
     else

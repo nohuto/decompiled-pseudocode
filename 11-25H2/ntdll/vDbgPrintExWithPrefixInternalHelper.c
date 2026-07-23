@@ -16,8 +16,8 @@
 
 __int64 __fastcall vDbgPrintExWithPrefixInternalHelper(
         $C9D07D6EB863460955B0DD5F998611AD *a1,
-        unsigned int a2,
-        unsigned int a3,
+        ULONG a2,
+        ULONG a3,
         __int64 a4,
         __int64 a5,
         char a6,
@@ -36,7 +36,7 @@ __int64 __fastcall vDbgPrintExWithPrefixInternalHelper(
   unsigned __int64 v18; // rsi
   size_t v19; // rbx
   unsigned int v20; // [rsp+20h] [rbp+0h] BYREF
-  unsigned int v21; // [rsp+24h] [rbp+4h]
+  ULONG v21; // [rsp+24h] [rbp+4h]
   $C9D07D6EB863460955B0DD5F998611AD *v22; // [rsp+28h] [rbp+8h]
   int v23; // [rsp+30h] [rbp+10h]
   __int64 v24; // [rsp+38h] [rbp+18h]
@@ -57,7 +57,7 @@ __int64 __fastcall vDbgPrintExWithPrefixInternalHelper(
   v26 = v11;
   if ( a2 != -1 && (!NtCurrentPeb()->BeingDebugged || a2 != 101) )
   {
-    if ( !(unsigned int)ZwQueryDebugFilterState(a2, a3) )
+    if ( !ZwQueryDebugFilterState(a2, a3) )
       return 0LL;
     v10 = v20;
     v9 = v22;
@@ -115,7 +115,7 @@ __int64 __fastcall vDbgPrintExWithPrefixInternalHelper(
       result = DebugPrint(&v27, a2, v21);
       if ( a6 != 1 || (_DWORD)result != -2147483645 )
         goto LABEL_21;
-      DbgBreakPointWithStatus(1LL);
+      DbgBreakPointWithStatus(1u);
     }
     result = 0LL;
   }

@@ -15,7 +15,7 @@
  *     RtlFreeAnsiString @ 0x14065EA70 (RtlFreeAnsiString.c)
  */
 
-void __fastcall MiLogFailedDriverLoad(unsigned __int16 *a1, unsigned __int16 *a2, const char *a3, NTSTATUS a4)
+void __fastcall MiLogFailedDriverLoad(unsigned __int16 *a1, unsigned __int16 *a2, const CHAR *a3, NTSTATUS a4)
 {
   int v4; // esi
   __int64 v5; // rdi

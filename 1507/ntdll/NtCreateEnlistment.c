@@ -6,11 +6,19 @@
  *     <none>
  */
 
-__int64 NtCreateEnlistment()
+NTSTATUS __cdecl NtCreateEnlistment(
+        PHANDLE EnlistmentHandle,
+        ACCESS_MASK DesiredAccess,
+        HANDLE ResourceManagerHandle,
+        HANDLE TransactionHandle,
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        ULONG CreateOptions,
+        NOTIFICATION_MASK NotificationMask,
+        PVOID EnlistmentKey)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 157LL;
+  result = 157;
   __asm { syscall; Low latency system call }
   return result;
 }

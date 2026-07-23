@@ -22,20 +22,20 @@ struct _TEB *__fastcall RtlpHpHeapLock(int a1, _BYTE *a2)
     }
     else
     {
-      RtlAcquireSRWLockExclusive((volatile signed __int32 *)(a1 + 772));
+      RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)(a1 + 772));
       v6 = *(_DWORD *)(a1 + 12);
       *a2 = -1;
       if ( (v6 & 1) == 0 )
       {
-        RtlAcquireSRWLockExclusive((volatile signed __int32 *)(a1 + 512));
+        RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)(a1 + 512));
         if ( (*(_DWORD *)(a1 + 12) & 1) == 0 )
         {
-          RtlAcquireSRWLockExclusive((volatile signed __int32 *)(a1 + 320));
+          RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)(a1 + 320));
           if ( (*(_DWORD *)(a1 + 12) & 1) == 0 )
           {
-            RtlAcquireSRWLockExclusive((volatile signed __int32 *)(a1 + 448));
+            RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)(a1 + 448));
             if ( (*(_DWORD *)(a1 + 12) & 1) == 0 )
-              RtlAcquireSRWLockExclusive((volatile signed __int32 *)(a1 + 64));
+              RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)(a1 + 64));
           }
         }
       }

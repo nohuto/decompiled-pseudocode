@@ -1,14 +1,14 @@
 /*
- * XREFs of ExpHpIsSpecialPoolHeap @ 0x1403CDD4C
+ * XREFs of ExpHpIsSpecialPoolHeap @ 0x1403CDEBC
  * Callers:
- *     ExReturnPoolQuota @ 0x1402AEBCC (ExReturnPoolQuota.c)
- *     ExFreeHeapPool @ 0x140341AC0 (ExFreeHeapPool.c)
- *     IopVerifierExAllocatePoolWithQuota_1 @ 0x140351F10 (IopVerifierExAllocatePoolWithQuota_1.c)
- *     ExAllocatePoolWithQuotaTag @ 0x140353020 (ExAllocatePoolWithQuotaTag.c)
- *     ExQueryPoolBlockSize @ 0x1403CDD00 (ExQueryPoolBlockSize.c)
- *     ExIsSpecialPoolAddress @ 0x1405BA0C0 (ExIsSpecialPoolAddress.c)
+ *     ExReturnPoolQuota @ 0x14022CF2C (ExReturnPoolQuota.c)
+ *     ExFreeHeapPool @ 0x14034C810 (ExFreeHeapPool.c)
+ *     IopVerifierExAllocatePoolWithQuota_1 @ 0x14035CC60 (IopVerifierExAllocatePoolWithQuota_1.c)
+ *     ExAllocatePoolWithQuotaTag @ 0x14035DD70 (ExAllocatePoolWithQuotaTag.c)
+ *     ExQueryPoolBlockSize @ 0x1403CDE70 (ExQueryPoolBlockSize.c)
+ *     ExIsSpecialPoolAddress @ 0x1405BA2F0 (ExIsSpecialPoolAddress.c)
  * Callees:
- *     MiDeterminePoolType @ 0x1402FAD9C (MiDeterminePoolType.c)
+ *     MiDeterminePoolType @ 0x140305AEC (MiDeterminePoolType.c)
  */
 
 __int64 __fastcall ExpHpIsSpecialPoolHeap(__int64 a1)
@@ -30,10 +30,10 @@ __int64 __fastcall ExpHpIsSpecialPoolHeap(__int64 a1)
   }
   else
   {
-    v5 = qword_140CDB0C0;
+    v5 = qword_140CDB100;
     while ( a1 != *v5 )
     {
-      if ( (__int64)++v5 >= (__int64)qword_140CDB0E0 )
+      if ( (__int64)++v5 >= (__int64)qword_140CDB120 )
         return v2;
     }
     return 1;

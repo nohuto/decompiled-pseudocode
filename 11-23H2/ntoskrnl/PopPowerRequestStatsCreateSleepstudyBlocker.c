@@ -1,14 +1,14 @@
 /*
- * XREFs of PopPowerRequestStatsCreateSleepstudyBlocker @ 0x1407A7FE4
+ * XREFs of PopPowerRequestStatsCreateSleepstudyBlocker @ 0x1407A81D4
  * Callers:
- *     PopPowerRequestStatsCreate @ 0x1407A77DC (PopPowerRequestStatsCreate.c)
+ *     PopPowerRequestStatsCreate @ 0x1407A79CC (PopPowerRequestStatsCreate.c)
  *     PopPowerRequestStatsInitialize @ 0x140B64EBC (PopPowerRequestStatsInitialize.c)
  * Callees:
  *     SleepstudyHelperCreateBlockerFromGuid @ 0x1402099A0 (SleepstudyHelperCreateBlockerFromGuid.c)
- *     RtlRandomEx @ 0x1402925A0 (RtlRandomEx.c)
- *     SleepstudyHelperBuildBlocker @ 0x1407A80C0 (SleepstudyHelperBuildBlocker.c)
- *     SleepstudyHelperDestroyBlockerBuilder @ 0x1407A8290 (SleepstudyHelperDestroyBlockerBuilder.c)
- *     SleepstudyHelperSetBlockerVerboseDescription @ 0x1409A20C0 (SleepstudyHelperSetBlockerVerboseDescription.c)
+ *     RtlRandomEx @ 0x140292830 (RtlRandomEx.c)
+ *     SleepstudyHelperBuildBlocker @ 0x1407A82B0 (SleepstudyHelperBuildBlocker.c)
+ *     SleepstudyHelperDestroyBlockerBuilder @ 0x1407A8480 (SleepstudyHelperDestroyBlockerBuilder.c)
+ *     SleepstudyHelperSetBlockerVerboseDescription @ 0x1409A22C0 (SleepstudyHelperSetBlockerVerboseDescription.c)
  */
 
 __int64 __fastcall PopPowerRequestStatsCreateSleepstudyBlocker(__int64 a1, __int64 a2, __int64 a3)

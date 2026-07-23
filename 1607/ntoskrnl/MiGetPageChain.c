@@ -1,22 +1,22 @@
 /*
- * XREFs of MiGetPageChain @ 0x14003D480
+ * XREFs of MiGetPageChain @ 0x14003D000
  * Callers:
- *     MiCreateSharedZeroPages @ 0x1400390B0 (MiCreateSharedZeroPages.c)
- *     MiResolvePrivateZeroFault @ 0x14003B240 (MiResolvePrivateZeroFault.c)
- *     MiStealPage @ 0x140107E84 (MiStealPage.c)
- *     MiResolvePageFileFault @ 0x140121360 (MiResolvePageFileFault.c)
- *     MiGetClusterPage @ 0x1401F6318 (MiGetClusterPage.c)
+ *     MiCreateSharedZeroPages @ 0x140038C30 (MiCreateSharedZeroPages.c)
+ *     MiResolvePrivateZeroFault @ 0x14003ADC0 (MiResolvePrivateZeroFault.c)
+ *     MiStealPage @ 0x140105C04 (MiStealPage.c)
+ *     MiResolvePageFileFault @ 0x1401218D0 (MiResolvePageFileFault.c)
+ *     MiGetClusterPage @ 0x1401F6144 (MiGetClusterPage.c)
  * Callees:
- *     MiChangePageAttribute @ 0x14001D088 (MiChangePageAttribute.c)
- *     MiChangePageAttributeBatch @ 0x14001D640 (MiChangePageAttributeBatch.c)
- *     MiGetPage @ 0x14003DA50 (MiGetPage.c)
- *     MiWorkingSetIsContended @ 0x1400BA9E0 (MiWorkingSetIsContended.c)
- *     MiSetPfnTbFlushStamp @ 0x1400E7490 (MiSetPfnTbFlushStamp.c)
- *     MiZeroPhysicalPage @ 0x14010A488 (MiZeroPhysicalPage.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     KiResetGlobalDpcWatchdogProfiler @ 0x1401D1EAC (KiResetGlobalDpcWatchdogProfiler.c)
- *     MiPerformFinalZeroing @ 0x1401F2E40 (MiPerformFinalZeroing.c)
- *     EtwTraceShouldYieldProcessor @ 0x1402261BC (EtwTraceShouldYieldProcessor.c)
+ *     MiChangePageAttribute @ 0x14001CC08 (MiChangePageAttribute.c)
+ *     MiChangePageAttributeBatch @ 0x14001D1C0 (MiChangePageAttributeBatch.c)
+ *     MiGetPage @ 0x14003D5D0 (MiGetPage.c)
+ *     MiWorkingSetIsContended @ 0x1400B8870 (MiWorkingSetIsContended.c)
+ *     MiSetPfnTbFlushStamp @ 0x1400E5330 (MiSetPfnTbFlushStamp.c)
+ *     MiZeroPhysicalPage @ 0x140108208 (MiZeroPhysicalPage.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     KiResetGlobalDpcWatchdogProfiler @ 0x1401D1CD8 (KiResetGlobalDpcWatchdogProfiler.c)
+ *     MiPerformFinalZeroing @ 0x1401F2C6C (MiPerformFinalZeroing.c)
+ *     EtwTraceShouldYieldProcessor @ 0x140225FE8 (EtwTraceShouldYieldProcessor.c)
  */
 
 __int64 __fastcall MiGetPageChain(
@@ -86,14 +86,14 @@ __int64 __fastcall MiGetPageChain(
   if ( a3 )
   {
     CurrentPrcb = KeGetCurrentPrcb();
-    LOWORD(a3) = ((_WORD)a3 - 1) << byte_1403269C9;
+    LOWORD(a3) = ((_WORD)a3 - 1) << byte_140326A09;
   }
   else
   {
     CurrentPrcb = (struct _KPRCB *)KiProcessorBlock[KeGetCurrentThread()->IdealProcessor];
     LOWORD(a3) = CurrentPrcb->NodeShiftedColor;
   }
-  v11 = (1 << byte_1403269D8) - 1;
+  v11 = (1 << byte_140326A18) - 1;
   if ( a2 && (*(_BYTE *)(a2 + 184) & 7u) < 2 )
     p_PageColor = (unsigned int *)a2;
   else
@@ -126,7 +126,7 @@ __int64 __fastcall MiGetPageChain(
   if ( a6 != -1 )
   {
     v17 = a5 & 0xFFFFEC3F | 0x1000;
-    v19 = (unsigned int)(dword_1403269F8 + 1) >> 4;
+    v19 = (unsigned int)(dword_140326A38 + 1) >> 4;
     if ( !v19 )
       v19 = 1;
     v47 = v19;
@@ -146,8 +146,8 @@ __int64 __fastcall MiGetPageChain(
     if ( v15 == -1 )
       break;
     v23 = 15LL;
-    if ( (unsigned int)dword_1403269F8 < 0xFuLL )
-      v23 = (unsigned int)dword_1403269F8;
+    if ( (unsigned int)dword_140326A38 < 0xFuLL )
+      v23 = (unsigned int)dword_140326A38;
     v24 = v23 & v15;
     v25 = 0;
     v22 = v24 | v22 & 0xFFFFFFF0;
@@ -160,7 +160,7 @@ __int64 __fastcall MiGetPageChain(
           break;
         v9 = v50;
         ++v25;
-        v22 = v22 & ~dword_1403269F8 | dword_1403269F8 & (v22 + 16);
+        v22 = v22 & ~dword_140326A38 | dword_140326A38 & (v22 + 16);
         if ( v25 >= v47 )
           goto LABEL_27;
       }
@@ -182,7 +182,7 @@ LABEL_31:
     v18 = 48 * Page - 0x58000000000LL;
     v26 = 1;
     v27 = *(unsigned __int8 *)(v18 + 34) >> 6;
-    if ( v27 != v13 && ((unsigned __int8)((1 << v27) | (1 << v13)) & (unsigned __int8)byte_140326A60) != 0 )
+    if ( v27 != v13 && ((unsigned __int8)((1 << v27) | (1 << v13)) & (unsigned __int8)byte_140326AA0) != 0 )
     {
       v28 = v46;
       v57[v46] = Page;

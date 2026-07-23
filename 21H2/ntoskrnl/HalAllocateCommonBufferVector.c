@@ -1,25 +1,25 @@
 /*
- * XREFs of HalAllocateCommonBufferVector @ 0x1404C5700
+ * XREFs of HalAllocateCommonBufferVector @ 0x1404C5940
  * Callers:
  *     <none>
  * Callees:
- *     MmMapLockedPagesSpecifyCache @ 0x140226CC0 (MmMapLockedPagesSpecifyCache.c)
- *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
- *     MmAllocatePartitionNodePagesForMdlEx @ 0x1402E32F0 (MmAllocatePartitionNodePagesForMdlEx.c)
- *     MiFreePagesFromMdl @ 0x1402FF4EC (MiFreePagesFromMdl.c)
- *     MmUnmapLockedPages @ 0x14031CA30 (MmUnmapLockedPages.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
- *     HalpMmAllocCtxFree @ 0x140379460 (HalpMmAllocCtxFree.c)
- *     HalpMmAllocCtxAlloc @ 0x14037CA48 (HalpMmAllocCtxAlloc.c)
- *     HalpDmaReferenceDomainObject @ 0x1403A1414 (HalpDmaReferenceDomainObject.c)
+ *     KxReleaseSpinLock @ 0x140212140 (KxReleaseSpinLock.c)
+ *     MmAllocatePartitionNodePagesForMdlEx @ 0x140294640 (MmAllocatePartitionNodePagesForMdlEx.c)
+ *     MmMapLockedPagesSpecifyCache @ 0x1402CB5C0 (MmMapLockedPagesSpecifyCache.c)
+ *     MiFreePagesFromMdl @ 0x14030A23C (MiFreePagesFromMdl.c)
+ *     MmUnmapLockedPages @ 0x140327780 (MmUnmapLockedPages.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140362F80 (KeAcquireSpinLockRaiseToDpc.c)
+ *     HalpMmAllocCtxFree @ 0x140378FB0 (HalpMmAllocCtxFree.c)
+ *     HalpMmAllocCtxAlloc @ 0x14037C598 (HalpMmAllocCtxAlloc.c)
+ *     HalpDmaReferenceDomainObject @ 0x1403A1564 (HalpDmaReferenceDomainObject.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
- *     memset @ 0x140414200 (memset.c)
- *     HalpDmaDereferenceDomainObject @ 0x1404C4AF8 (HalpDmaDereferenceDomainObject.c)
- *     HalpDomainLaAllocate @ 0x1404C4D14 (HalpDomainLaAllocate.c)
- *     HalpDomainLaDelete @ 0x1404C4DF4 (HalpDomainLaDelete.c)
- *     HalpIommuDomainMapLogical @ 0x1404C9270 (HalpIommuDomainMapLogical.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     HalpDmaDereferenceDomainObject @ 0x1404C4D38 (HalpDmaDereferenceDomainObject.c)
+ *     HalpDomainLaAllocate @ 0x1404C4F54 (HalpDomainLaAllocate.c)
+ *     HalpDomainLaDelete @ 0x1404C5034 (HalpDomainLaDelete.c)
+ *     HalpIommuDomainMapLogical @ 0x1404C94B0 (HalpIommuDomainMapLogical.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall HalAllocateCommonBufferVector(
@@ -78,22 +78,21 @@ __int64 __fastcall HalAllocateCommonBufferVector(
   int v52; // eax
   bool v53; // zf
   __int64 v54; // rcx
-  __int64 v55; // r8
   unsigned int Priority; // [rsp+28h] [rbp-90h]
-  _QWORD *v57; // [rsp+40h] [rbp-78h]
+  _QWORD *v56; // [rsp+40h] [rbp-78h]
   ULONG_PTR BugCheckParameter3; // [rsp+48h] [rbp-70h]
-  __int64 v59; // [rsp+58h] [rbp-60h] BYREF
-  unsigned __int64 v60; // [rsp+60h] [rbp-58h]
-  __int64 v62; // [rsp+C8h] [rbp+10h] BYREF
-  __int64 v63; // [rsp+D0h] [rbp+18h] BYREF
+  __int64 v58; // [rsp+58h] [rbp-60h] BYREF
+  unsigned __int64 v59; // [rsp+60h] [rbp-58h]
+  __int64 v61; // [rsp+C8h] [rbp+10h] BYREF
+  __int64 v62; // [rsp+D0h] [rbp+18h] BYREF
   MEMORY_CACHING_TYPE CacheType; // [rsp+D8h] [rbp+20h]
 
   CacheType = a4;
-  v63 = a3;
-  v62 = a2;
+  v62 = a3;
+  v61 = a2;
   v9 = a3;
   v10 = 0LL;
-  v59 = 0LL;
+  v58 = 0LL;
   v11 = 0LL;
   v12 = 0LL;
   v13 = a2;
@@ -119,7 +118,7 @@ __int64 __fastcall HalAllocateCommonBufferVector(
   *(_QWORD *)(v19 + 32) = BugCheckParameter3;
   v22 = 16 * v21;
   v24 = (_QWORD *)HalpMmAllocCtxAlloc(v23, v22);
-  v57 = v24;
+  v56 = v24;
   v11 = (__int64)v24;
   if ( !v24 )
     goto LABEL_47;
@@ -142,7 +141,7 @@ LABEL_15:
       v26 = v25;
       goto LABEL_17;
     }
-    v11 = (__int64)v57;
+    v11 = (__int64)v56;
 LABEL_47:
     v33 = 0LL;
     goto LABEL_31;
@@ -155,7 +154,7 @@ LABEL_17:
   *(_DWORD *)(v19 + 24) = a7;
   Priority = a5;
   v29 = CacheType;
-  v60 = v25 * v20;
+  v59 = v25 * v20;
   *(_QWORD *)(v19 + 16) = v25;
   PartitionNodePagesForMdl = (struct _MDL *)MmAllocatePartitionNodePagesForMdlEx(
                                               v13,
@@ -180,7 +179,7 @@ LABEL_17:
   *(_QWORD *)(v19 + 48) = v31;
   if ( v20 )
   {
-    v34 = v57;
+    v34 = v56;
     v35 = v33;
     v36 = v20;
     do
@@ -196,7 +195,7 @@ LABEL_17:
   {
     if ( v20 )
     {
-      v41 = v57 + 1;
+      v41 = v56 + 1;
       v42 = 8 * (v25 >> 12);
       v43 = v10 + 1;
       do
@@ -211,18 +210,18 @@ LABEL_17:
     }
     goto LABEL_35;
   }
-  v37 = v60;
-  if ( (int)HalpDomainLaAllocate(BugCheckParameter3, v60, v32, (int)&v62, (__int64)&v63, (__int64)&v59) < 0 )
+  v37 = v59;
+  if ( (int)HalpDomainLaAllocate(BugCheckParameter3, v59, v32, (int)&v61, (__int64)&v62, (__int64)&v58) < 0 )
   {
-    v12 = v59;
+    v12 = v58;
     goto LABEL_30;
   }
   v39 = v37 + 4095;
-  v12 = v59;
-  if ( (int)HalpIommuDomainMapLogical(*(_QWORD *)(BugCheckParameter3 + 40), v38, (int)v10 + 48, v39 >> 12, v59) < 0 )
+  v12 = v58;
+  if ( (int)HalpIommuDomainMapLogical(*(_QWORD *)(BugCheckParameter3 + 40), v38, (int)v10 + 48, v39 >> 12, v58) < 0 )
   {
 LABEL_30:
-    v11 = (__int64)v57;
+    v11 = (__int64)v56;
 LABEL_31:
     v14 = a1;
 LABEL_49:
@@ -235,7 +234,7 @@ LABEL_49:
     {
       if ( v33 )
         MmUnmapLockedPages(v33, v10);
-      MiFreePagesFromMdl((ULONG_PTR)v10, 0, v55);
+      MiFreePagesFromMdl((ULONG_PTR)v10, 0);
       ExFreePoolWithTag(v10, 0);
     }
     if ( v12 )
@@ -244,7 +243,7 @@ LABEL_49:
   }
   if ( v20 )
   {
-    v40 = v57 + 1;
+    v40 = v56 + 1;
     do
     {
       *v40 = v12;

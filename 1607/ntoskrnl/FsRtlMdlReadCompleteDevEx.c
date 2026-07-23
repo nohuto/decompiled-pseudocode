@@ -1,14 +1,14 @@
 /*
  * XREFs of FsRtlMdlReadCompleteDevEx @ 0x140242000
  * Callers:
- *     KiDecodeMcaFault @ 0x140156830 (KiDecodeMcaFault.c)
- *     sub_140158168 @ 0x140158168 (sub_140158168.c)
+ *     KiDecodeMcaFault @ 0x140156DA0 (KiDecodeMcaFault.c)
+ *     sub_1401586D8 @ 0x1401586D8 (sub_1401586D8.c)
  *     FsRtlUninitializeSmallMcb @ 0x140253520 (FsRtlUninitializeSmallMcb.c)
  * Callees:
- *     sub_140158348 @ 0x140158348 (sub_140158348.c)
- *     sub_140158428 @ 0x140158428 (sub_140158428.c)
- *     sub_140158DFC @ 0x140158DFC (sub_140158DFC.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
+ *     sub_1401588B8 @ 0x1401588B8 (sub_1401588B8.c)
+ *     sub_140158998 @ 0x140158998 (sub_140158998.c)
+ *     sub_14015936C @ 0x14015936C (sub_14015936C.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
  *     sub_14024FE34 @ 0x14024FE34 (sub_14024FE34.c)
  *     sub_140251E08 @ 0x140251E08 (sub_140251E08.c)
  *     $$6d @ 0x140252664 ($$6d.c)
@@ -3729,7 +3729,7 @@ LABEL_232:
           v217 = *((_DWORD *)v99 + 4);
           if ( !v217 )
             goto LABEL_185;
-          sub_140158348(v85, *((_QWORD *)v99 + 1), v217, (__int64)(v1 + 410));
+          sub_1401588B8(v85, *((_QWORD *)v99 + 1), v217, (__int64)(v1 + 410));
           v218 = 16;
           v219 = (__int64 *)(v99 + 28);
           v220 = (__int64 *)(v1 + 410);
@@ -3856,12 +3856,12 @@ LABEL_225:
     {
       if ( v108 == 32 )
       {
-        sub_140158DFC(v85, (int *)v99);
+        sub_14015936C(v85, (int *)v99);
         goto LABEL_185;
       }
       if ( v108 == 33 )
       {
-        sub_140158428(v85, (int *)v99);
+        sub_140158998(v85, (int *)v99);
         goto LABEL_185;
       }
       if ( v108 != 35 )
@@ -5543,7 +5543,7 @@ LABEL_912:
                     *(_QWORD *)(v685 + 8) = v689;
                     if ( v682 == 32 && (_DWORD)v687 )
                     {
-                      sub_140158348((__int64)v674, (__int64)v689, v687, v685 + 24);
+                      sub_1401588B8((__int64)v674, (__int64)v689, v687, v685 + 24);
                       v683 = *(unsigned int **)(((unsigned __int64)v2133 & 0xFFFFFFFFFFFFFF80uLL) + 0x20);
                       v686 = *(_QWORD *)(((unsigned __int64)v2133 & 0xFFFFFFFFFFFFFF80uLL) + 8);
                     }
@@ -5702,7 +5702,7 @@ LABEL_912:
                     v719 = *(_DWORD *)(((unsigned __int64)v2133 & 0xFFFFFFFFFFFFFF80uLL) + 0x18);
                     *(_QWORD *)(v714 + 8) = v718;
                     if ( v124 && v719 )
-                      sub_140158348(v706, v718, v719, v714 + 24);
+                      sub_1401588B8(v706, v718, v719, v714 + 24);
                     *(_DWORD *)(v714 + 16) = v719;
                     v699 = v718;
                     *(_DWORD *)(v706 + 1504) += v719;
@@ -5755,7 +5755,7 @@ LABEL_912:
                     *(_DWORD *)(v706 + 1504) += v719;
                   }
                   if ( (*(_DWORD *)(v706 + 1752) & 0x40000000) != 0 && v719 )
-                    sub_140158348(
+                    sub_1401588B8(
                       v706,
                       v718,
                       v719,
@@ -10214,7 +10214,7 @@ LABEL_2404:
         *(_DWORD *)(v1609 + 1504) += v1605;
 LABEL_2420:
         if ( (*((_DWORD *)v1157 + 438) & 0x40000000) != 0 && (_DWORD)v1605 )
-          sub_140158348(
+          sub_1401588B8(
             (__int64)v1157,
             v1620,
             v1605,
@@ -11160,7 +11160,7 @@ LABEL_1934:
     *(_DWORD *)v1309 = v1298;
     *(_QWORD *)(v1309 + 8) = v1273;
     if ( v1298 == 32 )
-      sub_140158348(v1301, v1273, 0x20u, v1309 + 24);
+      sub_1401588B8(v1301, v1273, 0x20u, v1309 + 24);
     *(_DWORD *)(v1309 + 16) = 32;
     *(_DWORD *)(v1301 + 1504) += 32;
     v1263 = v1273;
@@ -11401,7 +11401,7 @@ LABEL_2005:
     *(_DWORD *)v1356 = v1345;
     *(_QWORD *)(v1356 + 8) = v1360;
     if ( v1345 == 32 )
-      sub_140158348(v1348, v1360, 0x20u, v1356 + 24);
+      sub_1401588B8(v1348, v1360, 0x20u, v1356 + 24);
     *(_DWORD *)(v1356 + 16) = 32;
     *(_DWORD *)(v1348 + 1504) += 32;
     v1263 = v1360;

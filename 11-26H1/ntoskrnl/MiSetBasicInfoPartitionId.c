@@ -1,7 +1,7 @@
 /*
- * XREFs of MiSetBasicInfoPartitionId @ 0x1404B820C
+ * XREFs of MiSetBasicInfoPartitionId @ 0x1404B1A3C
  * Callers:
- *     MiQueryBasicInfo @ 0x140AA3200 (MiQueryBasicInfo.c)
+ *     MiQueryBasicInfo @ 0x140923490 (MiQueryBasicInfo.c)
  * Callees:
  *     <none>
  */

@@ -31,7 +31,7 @@ __int64 __fastcall RtlpHpHeapWalk(__int64 a1, __int64 *a2, __int64 a3)
       v7 = 0;
       goto LABEL_6;
     }
-    v9 = RtlCSparseBitmapBitmaskRead(&unk_180166A70, 2 * ((unsigned __int64)(v5 - qword_180166A68) >> 20));
+    v9 = RtlCSparseBitmapBitmaskRead(&BaseAddress, 2 * ((unsigned __int64)(v5 - qword_180166A68) >> 20));
     if ( v9 )
     {
       v7 = v9 - 1;

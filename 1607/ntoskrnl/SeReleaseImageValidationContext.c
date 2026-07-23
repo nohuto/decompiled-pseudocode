@@ -1,8 +1,8 @@
 /*
- * XREFs of SeReleaseImageValidationContext @ 0x1405278E0
+ * XREFs of SeReleaseImageValidationContext @ 0x14050A940
  * Callers:
- *     MiDeleteControlArea @ 0x1400A4F50 (MiDeleteControlArea.c)
- *     MiValidateSectionCreate @ 0x140526D8C (MiValidateSectionCreate.c)
+ *     MiDeleteControlArea @ 0x1400A34C8 (MiDeleteControlArea.c)
+ *     MiValidateSectionCreate @ 0x140509DEC (MiValidateSectionCreate.c)
  * Callees:
  *     <none>
  */

@@ -1,9 +1,9 @@
 /*
- * XREFs of ExpQueryModuleInformationImage @ 0x140A24000
+ * XREFs of ExpQueryModuleInformationImage @ 0x140A183D0
  * Callers:
  *     <none>
  * Callees:
- *     RtlUnicodeStringToAnsiString @ 0x1408AEF80 (RtlUnicodeStringToAnsiString.c)
+ *     RtlUnicodeStringToAnsiString @ 0x1409051E0 (RtlUnicodeStringToAnsiString.c)
  */
 
 __int64 __fastcall ExpQueryModuleInformationImage(__int64 a1, __int64 a2)
@@ -15,7 +15,7 @@ __int64 __fastcall ExpQueryModuleInformationImage(__int64 a1, __int64 a2)
   NTSTATUS v7; // eax
   char *v8; // rax
   __int64 result; // rax
-  STRING DestinationString; // [rsp+38h] [rbp-30h] BYREF
+  _STRING DestinationString; // [rsp+38h] [rbp-30h] BYREF
 
   DestinationString = 0LL;
   v3 = *(_QWORD *)(a2 + 8);

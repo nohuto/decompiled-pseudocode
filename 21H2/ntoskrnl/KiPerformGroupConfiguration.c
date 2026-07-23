@@ -1,22 +1,22 @@
 /*
- * XREFs of KiPerformGroupConfiguration @ 0x140A4DDCC
+ * XREFs of KiPerformGroupConfiguration @ 0x140A4EDCC
  * Callers:
- *     KePerformGroupConfiguration @ 0x140A4D3D8 (KePerformGroupConfiguration.c)
+ *     KePerformGroupConfiguration @ 0x140A4E3D8 (KePerformGroupConfiguration.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     strstr @ 0x1403D1880 (strstr.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     memmove @ 0x140413F40 (memmove.c)
- *     memset @ 0x140414200 (memset.c)
- *     HviGetImplementationLimits @ 0x1405BF090 (HviGetImplementationLimits.c)
- *     MmGetChannelInformation @ 0x14077DC94 (MmGetChannelInformation.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
- *     KiAssignAllNodesToGroup0 @ 0x140A4E164 (KiAssignAllNodesToGroup0.c)
- *     KiAssignAdjustableNodes @ 0x140A9191C (KiAssignAdjustableNodes.c)
- *     KiAssignFixedNodes @ 0x140A919C4 (KiAssignFixedNodes.c)
- *     KiShuffleAssignedNodes @ 0x140A91BD8 (KiShuffleAssignedNodes.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     strstr @ 0x1403D19F0 (strstr.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     HviGetImplementationLimits @ 0x1405BF2C0 (HviGetImplementationLimits.c)
+ *     MmGetChannelInformation @ 0x14077DE54 (MmGetChannelInformation.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
+ *     KiAssignAllNodesToGroup0 @ 0x140A4F164 (KiAssignAllNodesToGroup0.c)
+ *     KiAssignAdjustableNodes @ 0x140A9291C (KiAssignAdjustableNodes.c)
+ *     KiAssignFixedNodes @ 0x140A929C4 (KiAssignFixedNodes.c)
+ *     KiShuffleAssignedNodes @ 0x140A92BD8 (KiShuffleAssignedNodes.c)
  */
 
 __int64 __fastcall KiPerformGroupConfiguration(void *a1)

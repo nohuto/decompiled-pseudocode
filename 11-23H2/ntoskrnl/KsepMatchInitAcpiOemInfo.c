@@ -3,8 +3,8 @@
  * Callers:
  *     KsepMatchInitMachineInfo @ 0x140B6137C (KsepMatchInitMachineInfo.c)
  * Callees:
- *     HalpAcpiGetTable @ 0x140336FF0 (HalpAcpiGetTable.c)
- *     KsepStringAnsiToUnicode @ 0x140844690 (KsepStringAnsiToUnicode.c)
+ *     HalpAcpiGetTable @ 0x140337280 (HalpAcpiGetTable.c)
+ *     KsepStringAnsiToUnicode @ 0x140844990 (KsepStringAnsiToUnicode.c)
  */
 
 __int64 __fastcall KsepMatchInitAcpiOemInfo(__int64 a1)

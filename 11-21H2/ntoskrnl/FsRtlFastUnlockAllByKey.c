@@ -3,7 +3,7 @@
  * Callers:
  *     <none>
  * Callees:
- *     FsRtlPrivateFastUnlockAll @ 0x14021D404 (FsRtlPrivateFastUnlockAll.c)
+ *     sub_14021D404 @ 0x14021D404 (sub_14021D404.c)
  */
 
 NTSTATUS __stdcall FsRtlFastUnlockAllByKey(
@@ -13,11 +13,5 @@ NTSTATUS __stdcall FsRtlFastUnlockAllByKey(
         ULONG Key,
         PVOID Context)
 {
-  return FsRtlPrivateFastUnlockAll(
-           (__int64)FileLock,
-           (_RTL_SPLAY_LINKS *)FileObject,
-           ProcessId,
-           Key,
-           1,
-           (__int64)Context);
+  return sub_14021D404((__int64)FileLock, (_RTL_SPLAY_LINKS *)FileObject, ProcessId, Key, 1, (__int64)Context);
 }

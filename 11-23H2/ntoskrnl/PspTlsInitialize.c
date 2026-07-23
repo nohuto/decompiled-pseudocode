@@ -3,9 +3,9 @@
  * Callers:
  *     PspInitPhase0 @ 0x140B4A894 (PspInitPhase0.c)
  * Callees:
- *     ExGenRandom @ 0x1403175D0 (ExGenRandom.c)
- *     PsTlsAlloc @ 0x14084BF60 (PsTlsAlloc.c)
- *     RtlpFlsInitialize @ 0x14084C1E4 (RtlpFlsInitialize.c)
+ *     ExGenRandom @ 0x140317860 (ExGenRandom.c)
+ *     PsTlsAlloc @ 0x14084C260 (PsTlsAlloc.c)
+ *     RtlpFlsInitialize @ 0x14084C4E4 (RtlpFlsInitialize.c)
  */
 
 __int64 PspTlsInitialize()

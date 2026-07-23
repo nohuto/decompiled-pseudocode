@@ -1,51 +1,51 @@
 /*
- * XREFs of RtlpQueryPseudoEnvironmentVariable @ 0x18009D6F8
+ * XREFs of RtlpQueryPseudoEnvironmentVariable @ 0x18009C828
  * Callers:
- *     RtlQueryEnvironmentVariable @ 0x18009CD10 (RtlQueryEnvironmentVariable.c)
+ *     RtlQueryEnvironmentVariable @ 0x18009BE40 (RtlQueryEnvironmentVariable.c)
  * Callees:
- *     RtlFreeHeap_0 @ 0x18003FD10 (RtlFreeHeap_0.c)
- *     RtlAllocateHeap_0 @ 0x1800439E0 (RtlAllocateHeap_0.c)
- *     RtlEnterCriticalSection @ 0x180048D70 (RtlEnterCriticalSection.c)
- *     RtlLeaveCriticalSection @ 0x18004A3E0 (RtlLeaveCriticalSection.c)
- *     RtlFindCharInUnicodeString @ 0x18009A730 (RtlFindCharInUnicodeString.c)
- *     RtlStringCbPrintfExW @ 0x1800C27B4 (RtlStringCbPrintfExW.c)
- *     NtQuerySystemInformation @ 0x18015F600 (NtQuerySystemInformation.c)
- *     NtQuerySystemInformationEx @ 0x180161D10 (NtQuerySystemInformationEx.c)
- *     __security_check_cookie @ 0x180162C90 (__security_check_cookie.c)
- *     memmove @ 0x180164700 (memmove.c)
+ *     RtlFreeHeap_0 @ 0x18002A280 (RtlFreeHeap_0.c)
+ *     RtlAllocateHeap_0 @ 0x18002DF50 (RtlAllocateHeap_0.c)
+ *     RtlEnterCriticalSection @ 0x1800332F0 (RtlEnterCriticalSection.c)
+ *     RtlLeaveCriticalSection @ 0x180034960 (RtlLeaveCriticalSection.c)
+ *     RtlFindCharInUnicodeString @ 0x180099860 (RtlFindCharInUnicodeString.c)
+ *     RtlStringCbPrintfExW @ 0x1800BFE84 (RtlStringCbPrintfExW.c)
+ *     NtQuerySystemInformation @ 0x18015F500 (NtQuerySystemInformation.c)
+ *     NtQuerySystemInformationEx @ 0x180161C10 (NtQuerySystemInformationEx.c)
+ *     __security_check_cookie @ 0x180162B90 (__security_check_cookie.c)
+ *     memmove @ 0x180164600 (memmove.c)
  */
 
 __int64 __fastcall RtlpQueryPseudoEnvironmentVariable(int a1, _WORD *a2, unsigned __int64 a3, unsigned __int64 *a4)
 {
   char v7; // r14
-  __int64 Heap_0; // rdi
+  unsigned __int16 *Heap_0; // rdi
   int v9; // ecx
-  int v10; // ebx
+  NTSTATUS v10; // ebx
   int Args; // r8d
   unsigned int i; // edx
   const wchar_t *Buffer; // rdx
   unsigned __int64 v14; // rbx
   size_t v15; // rbx
   _RTL_USER_PROCESS_PARAMETERS *v16; // rbx
-  int CharInUnicodeString; // eax
+  NTSTATUS CharInUnicodeString; // eax
   unsigned __int64 Length; // rbx
   _RTL_USER_PROCESS_PARAMETERS *ProcessParameters; // rbx
-  unsigned __int16 v21; // [rsp+44h] [rbp-94h] BYREF
-  int v22; // [rsp+48h] [rbp-90h] BYREF
-  int v23; // [rsp+4Ch] [rbp-8Ch] BYREF
+  USHORT NonInclusivePrefixLength; // [rsp+44h] [rbp-94h] BYREF
+  ULONG ReturnLength; // [rsp+48h] [rbp-90h] BYREF
+  int InputBuffer; // [rsp+4Ch] [rbp-8Ch] BYREF
   int v24; // [rsp+50h] [rbp-88h]
   unsigned int v25; // [rsp+54h] [rbp-84h]
   __int64 v26; // [rsp+58h] [rbp-80h]
-  __int64 v27; // [rsp+60h] [rbp-78h]
+  unsigned __int16 *v27; // [rsp+60h] [rbp-78h]
   __int128 SystemInformation; // [rsp+68h] [rbp-70h] BYREF
   __int128 v29; // [rsp+78h] [rbp-60h]
   wchar_t Src[16]; // [rsp+88h] [rbp-50h] BYREF
 
   SystemInformation = 0LL;
   v29 = 0LL;
-  v21 = 0;
-  v23 = 0;
-  v22 = 0;
+  NonInclusivePrefixLength = 0;
+  InputBuffer = 0;
+  ReturnLength = 0;
   v26 = 0LL;
   v7 = 0;
   Heap_0 = 0LL;
@@ -53,7 +53,7 @@ __int64 __fastcall RtlpQueryPseudoEnvironmentVariable(int a1, _WORD *a2, unsigne
   if ( !a1 )
   {
     ProcessParameters = NtCurrentPeb()->ProcessParameters;
-    RtlEnterCriticalSection((__int64)&FastPebLock);
+    RtlEnterCriticalSection(&FastPebLock);
     v7 = 1;
     Buffer = ProcessParameters->CurrentDirectory.DosPath.Buffer;
     Length = ProcessParameters->CurrentDirectory.DosPath.Length;
@@ -64,14 +64,14 @@ __int64 __fastcall RtlpQueryPseudoEnvironmentVariable(int a1, _WORD *a2, unsigne
   {
     v16 = NtCurrentPeb()->ProcessParameters;
     CharInUnicodeString = RtlFindCharInUnicodeString(
-                            1,
-                            (__int16 *)&v16->ImagePathName,
-                            RtlDosPathSeperatorsString,
-                            &v21);
+                            1u,
+                            &v16->ImagePathName,
+                            &RtlDosPathSeperatorsString,
+                            &NonInclusivePrefixLength);
     Buffer = v16->ImagePathName.Buffer;
     if ( CharInUnicodeString >= 0 )
     {
-      v14 = (v21 >> 1) + 1;
+      v14 = (NonInclusivePrefixLength >> 1) + 1;
       goto LABEL_10;
     }
     Length = v16->ImagePathName.Length;
@@ -96,17 +96,23 @@ LABEL_22:
     }
     goto LABEL_10;
   }
-  v23 = 4;
-  v22 = 0;
-  NtQuerySystemInformationEx(107LL, &v23, 4LL, 0LL, 0, &v22);
-  Heap_0 = RtlAllocateHeap_0();
+  InputBuffer = 4;
+  ReturnLength = 0;
+  NtQuerySystemInformationEx(SystemLogicalProcessorAndGroupInformation, &InputBuffer, 4u, 0LL, 0, &ReturnLength);
+  Heap_0 = (unsigned __int16 *)RtlAllocateHeap_0(NtCurrentPeb()->ProcessHeap, 8u, ReturnLength);
   v27 = Heap_0;
   if ( !Heap_0 )
   {
     v10 = -1073741801;
     goto LABEL_27;
   }
-  v10 = NtQuerySystemInformationEx(107LL, &v23, 4LL, Heap_0, v22, &v22);
+  v10 = NtQuerySystemInformationEx(
+          SystemLogicalProcessorAndGroupInformation,
+          &InputBuffer,
+          4u,
+          Heap_0,
+          ReturnLength,
+          &ReturnLength);
   if ( v10 >= 0 )
   {
     Args = 0;
@@ -114,9 +120,9 @@ LABEL_22:
     for ( i = 0; ; ++i )
     {
       v25 = i;
-      if ( i >= *(unsigned __int16 *)(Heap_0 + 10) )
+      if ( i >= Heap_0[5] )
         break;
-      Args += *(unsigned __int8 *)(Heap_0 + 48LL * i + 33);
+      Args += HIBYTE(Heap_0[24 * i + 16]);
       v24 = Args;
     }
     v10 = RtlStringCbPrintfExW(Src, 0, (wchar_t *)L"%u", Args);
@@ -145,8 +151,8 @@ LABEL_10:
   }
 LABEL_27:
   if ( v7 )
-    RtlLeaveCriticalSection((__int64)&FastPebLock);
+    RtlLeaveCriticalSection(&FastPebLock);
   if ( Heap_0 )
-    RtlFreeHeap_0();
+    RtlFreeHeap_0(NtCurrentPeb()->ProcessHeap, 0, Heap_0);
   return (unsigned int)v10;
 }

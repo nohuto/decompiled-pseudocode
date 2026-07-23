@@ -8,9 +8,7 @@
 
 NTSTATUS __stdcall ZwExtendSection(HANDLE SectionHandle, PLARGE_INTEGER NewMaximumSize)
 {
-  __int64 v2; // r8
-
   _disable();
   __readeflags();
-  return KiServiceInternal(SectionHandle, NewMaximumSize, v2);
+  return KiServiceInternal(SectionHandle);
 }

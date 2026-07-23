@@ -1,29 +1,29 @@
 /*
- * XREFs of toupper @ 0x18009C3D0
+ * XREFs of toupper @ 0x18009C3C0
  * Callers:
  *     <none>
  * Callees:
- *     RtlAnsiCharToUnicodeChar @ 0x1800183D0 (RtlAnsiCharToUnicodeChar.c)
- *     RtlUpcaseUnicodeToMultiByteN @ 0x180080070 (RtlUpcaseUnicodeToMultiByteN.c)
+ *     RtlAnsiCharToUnicodeChar @ 0x1800183C0 (RtlAnsiCharToUnicodeChar.c)
+ *     RtlUpcaseUnicodeToMultiByteN @ 0x180080060 (RtlUpcaseUnicodeToMultiByteN.c)
  */
 
 int __cdecl toupper(int C)
 {
   int result; // eax
-  unsigned __int8 *v2; // [rsp+30h] [rbp-10h] BYREF
+  PUCHAR SourceCharacter; // [rsp+30h] [rbp-10h] BYREF
   int v3; // [rsp+50h] [rbp+10h] BYREF
-  unsigned __int8 v4; // [rsp+58h] [rbp+18h] BYREF
+  CHAR MultiByteString; // [rsp+58h] [rbp+18h] BYREF
   unsigned __int8 v5; // [rsp+59h] [rbp+19h]
-  unsigned __int16 v6; // [rsp+60h] [rbp+20h] BYREF
-  unsigned int v7; // [rsp+68h] [rbp+28h] BYREF
+  WCHAR UnicodeString; // [rsp+60h] [rbp+20h] BYREF
+  ULONG BytesInMultiByteString; // [rsp+68h] [rbp+28h] BYREF
 
   v3 = C;
-  v2 = (unsigned __int8 *)&v3;
-  v6 = RtlAnsiCharToUnicodeChar(&v2);
-  if ( (int)RtlUpcaseUnicodeToMultiByteN(&v4, 2u, &v7, &v6, 2u) < 0 )
+  SourceCharacter = (PUCHAR)&v3;
+  UnicodeString = RtlAnsiCharToUnicodeChar(&SourceCharacter);
+  if ( RtlUpcaseUnicodeToMultiByteN(&MultiByteString, 2u, &BytesInMultiByteString, &UnicodeString, 2u) < 0 )
     return v3;
-  result = v4;
-  if ( v7 != 1 )
-    return v5 | (v4 << 8);
+  result = (unsigned __int8)MultiByteString;
+  if ( BytesInMultiByteString != 1 )
+    return v5 | ((unsigned __int8)MultiByteString << 8);
   return result;
 }

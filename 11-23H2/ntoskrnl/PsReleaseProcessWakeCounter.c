@@ -1,18 +1,18 @@
 /*
- * XREFs of PsReleaseProcessWakeCounter @ 0x140715700
+ * XREFs of PsReleaseProcessWakeCounter @ 0x140715900
  * Callers:
- *     AlpcpAcceptConnectPort @ 0x14071697C (AlpcpAcceptConnectPort.c)
- *     AlpcpCancelMessagesByRequestor @ 0x1407191F4 (AlpcpCancelMessagesByRequestor.c)
- *     AlpcMessageCleanupProcedure @ 0x140738780 (AlpcMessageCleanupProcedure.c)
- *     AlpcpSendMessage @ 0x1407390A0 (AlpcpSendMessage.c)
- *     AlpcpCancelMessage @ 0x14077920C (AlpcpCancelMessage.c)
- *     EtwpReleaseQueueEntry @ 0x140781810 (EtwpReleaseQueueEntry.c)
- *     PopPowerRequestDelete @ 0x1407A6790 (PopPowerRequestDelete.c)
- *     PspCloseActivityReference @ 0x1408013F0 (PspCloseActivityReference.c)
- *     PopPowerRequestSpecialRequestClear @ 0x140981900 (PopPowerRequestSpecialRequestClear.c)
- *     PopPowerRequestSpecialRequestSet @ 0x1409819DC (PopPowerRequestSpecialRequestSet.c)
+ *     AlpcpAcceptConnectPort @ 0x140716B7C (AlpcpAcceptConnectPort.c)
+ *     AlpcpCancelMessagesByRequestor @ 0x1407193F4 (AlpcpCancelMessagesByRequestor.c)
+ *     AlpcMessageCleanupProcedure @ 0x140738970 (AlpcMessageCleanupProcedure.c)
+ *     AlpcpSendMessage @ 0x140739290 (AlpcpSendMessage.c)
+ *     AlpcpCancelMessage @ 0x1407793FC (AlpcpCancelMessage.c)
+ *     EtwpReleaseQueueEntry @ 0x140781A00 (EtwpReleaseQueueEntry.c)
+ *     PopPowerRequestDelete @ 0x1407A6980 (PopPowerRequestDelete.c)
+ *     PspCloseActivityReference @ 0x1408016C0 (PspCloseActivityReference.c)
+ *     PopPowerRequestSpecialRequestClear @ 0x140981B00 (PopPowerRequestSpecialRequestClear.c)
+ *     PopPowerRequestSpecialRequestSet @ 0x140981BDC (PopPowerRequestSpecialRequestSet.c)
  * Callees:
- *     PspChargeProcessWakeCounter @ 0x1407383D0 (PspChargeProcessWakeCounter.c)
+ *     PspChargeProcessWakeCounter @ 0x1407385C0 (PspChargeProcessWakeCounter.c)
  */
 
 __int64 __fastcall PsReleaseProcessWakeCounter(__int64 a1)

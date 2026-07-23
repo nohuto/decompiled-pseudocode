@@ -1,10 +1,10 @@
 /*
- * XREFs of MiFreePageToSlabEntry @ 0x140369DBC
+ * XREFs of MiFreePageToSlabEntry @ 0x14036BB5C
  * Callers:
- *     MiFreePageToSlabAllocator @ 0x140369964 (MiFreePageToSlabAllocator.c)
+ *     MiFreePageToSlabAllocator @ 0x14036B704 (MiFreePageToSlabAllocator.c)
  * Callees:
- *     MiSlabEntryBecameEmpty @ 0x14036A070 (MiSlabEntryBecameEmpty.c)
- *     MiUpdateSlabTypeAvailablePages @ 0x14036A0D8 (MiUpdateSlabTypeAvailablePages.c)
+ *     MiSlabEntryBecameEmpty @ 0x14036BE10 (MiSlabEntryBecameEmpty.c)
+ *     MiUpdateSlabTypeAvailablePages @ 0x14036BE78 (MiUpdateSlabTypeAvailablePages.c)
  */
 
 __int64 __fastcall MiFreePageToSlabEntry(int a1, __int64 a2, __int64 a3)

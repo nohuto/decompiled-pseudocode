@@ -7,7 +7,7 @@
  *     RtlDestroyAtomTable @ 0x14091D100 (RtlDestroyAtomTable.c)
  */
 
-__int64 RtlDereferenceAtomTable()
+NTSTATUS __fastcall RtlDereferenceAtomTable(void *a1)
 {
-  return RtlDestroyAtomTable();
+  return RtlDestroyAtomTable(a1);
 }

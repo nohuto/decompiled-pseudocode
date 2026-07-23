@@ -6,7 +6,20 @@
  *     _ReportExceptionInternal@24 @ 0x4B33A3B1 (_ReportExceptionInternal@24.c)
  */
 
-int __stdcall RtlWerpReportException(unsigned int a1, int a2, int a3, unsigned int a4, unsigned int a5, _DWORD *a6)
+NTSTATUS __cdecl RtlWerpReportException(
+        ULONG ProcessId,
+        HANDLE CrashReportSharedMem,
+        ULONG Flags,
+        PHANDLE CrashVerticalProcessHandle)
 {
-  return ReportExceptionInternal(a1, a2, a3, a4, a5, a6);
+  int v5; // [esp+18h] [ebp+18h]
+  _DWORD *v6; // [esp+1Ch] [ebp+1Ch]
+
+  return ReportExceptionInternal(
+           ProcessId,
+           (int)CrashReportSharedMem,
+           Flags,
+           (unsigned int)CrashVerticalProcessHandle,
+           v5,
+           v6);
 }

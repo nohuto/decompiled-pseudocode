@@ -58,7 +58,7 @@ LABEL_7:
             ZwQueryVirtualMemory(
               (HANDLE)0xFFFFFFFFFFFFFFFFLL,
               v5,
-              (MEMORY_INFORMATION_CLASS)7,
+              MemoryRegionInformationEx,
               &MemoryInformation,
               0x30uLL,
               0LL) < 0)

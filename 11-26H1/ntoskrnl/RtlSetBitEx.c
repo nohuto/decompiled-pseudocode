@@ -1,18 +1,12 @@
 /*
- * XREFs of RtlSetBitEx @ 0x140464D90
+ * XREFs of RtlSetBitEx @ 0x14045DD50
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-int __fastcall RtlSetBitEx(__int64 a1, unsigned __int64 a2)
+void __cdecl RtlSetBitEx(PRTL_BITMAP_EX BitMapHeader, ULONG64 BitNumber)
 {
-  __int64 v2; // rcx
-  int result; // eax
-
-  v2 = *(_QWORD *)(a1 + 8);
-  result = *(char *)(v2 + (a2 >> 3)) | (1 << (a2 & 7));
-  *(_BYTE *)(v2 + (a2 >> 3)) = result;
-  return result;
+  *((_BYTE *)BitMapHeader->Buffer + (BitNumber >> 3)) |= 1 << (BitNumber & 7);
 }

@@ -26,8 +26,8 @@ __int64 __fastcall HvSynchronizeAndDropTemporaryBins(
         unsigned int a4,
         char a5)
 {
-  char *PoolWithTag; // rax
-  char *v11; // r12
+  unsigned int *PoolWithTag; // rax
+  unsigned int *v11; // r12
   int v12; // ebx
   unsigned int v13; // edi
   __int64 CellMap; // rcx
@@ -43,8 +43,8 @@ __int64 __fastcall HvSynchronizeAndDropTemporaryBins(
   unsigned __int64 v24; // r10
   unsigned int v25; // r14d
   unsigned int v26; // ecx
-  char *v27; // r8
-  char *v28; // r9
+  unsigned int *v27; // r8
+  unsigned int *v28; // r9
   int v29; // eax
   bool i; // zf
   unsigned int v31; // r14d
@@ -52,35 +52,37 @@ __int64 __fastcall HvSynchronizeAndDropTemporaryBins(
   struct _EX_RUNDOWN_REF *v33; // rbp
   __int64 v34; // [rsp+30h] [rbp-58h]
   unsigned __int64 v35; // [rsp+38h] [rbp-50h]
-  unsigned int v36; // [rsp+40h] [rbp-48h] BYREF
-  char *v37; // [rsp+48h] [rbp-40h]
-  int v38; // [rsp+90h] [rbp+8h]
+  _RTL_BITMAP Destination; // [rsp+40h] [rbp-48h] BYREF
+  int v37; // [rsp+90h] [rbp+8h]
 
   if ( (*(_BYTE *)(BugCheckParameter2 + 124) & 4) == 0 )
     return 0LL;
-  PoolWithTag = (char *)ExAllocatePoolWithTag(PagedPool, *(unsigned int *)(BugCheckParameter2 + 92), 0x30364D43u);
+  PoolWithTag = (unsigned int *)ExAllocatePoolWithTag(
+                                  PagedPool,
+                                  *(unsigned int *)(BugCheckParameter2 + 92),
+                                  0x30364D43u);
   v11 = PoolWithTag;
   if ( PoolWithTag )
   {
-    v37 = PoolWithTag;
-    v36 = *(_DWORD *)(BugCheckParameter2 + 72);
+    Destination.Buffer = PoolWithTag;
+    Destination.SizeOfBitMap = *(_DWORD *)(BugCheckParameter2 + 72);
     if ( !a2 )
     {
       memset(PoolWithTag, 0, *(unsigned int *)(BugCheckParameter2 + 92));
       goto LABEL_13;
     }
-    RtlCopyBitMap((unsigned int *)(BugCheckParameter2 + 72), (__int64)&v36, 0);
-    RtlMergeBitMaps(&v36, BugCheckParameter2 + 96);
+    RtlCopyBitMap((PRTL_BITMAP)(BugCheckParameter2 + 72), &Destination, 0);
+    RtlMergeBitMaps(&Destination, BugCheckParameter2 + 96);
     if ( (*(_DWORD *)(BugCheckParameter2 + 5488) & 1) != 0 )
     {
       if ( *(struct _KTHREAD **)(BugCheckParameter2 + 5440) == KeGetCurrentThread() && !a5 )
         goto LABEL_13;
-      RtlMergeBitMaps(&v36, BugCheckParameter2 + 2856);
+      RtlMergeBitMaps(&Destination, BugCheckParameter2 + 2856);
     }
     if ( a5 )
-      RtlMergeBitMaps(&v36, BugCheckParameter2 + 2904);
+      RtlMergeBitMaps(&Destination, BugCheckParameter2 + 2904);
 LABEL_13:
-    v38 = 0;
+    v37 = 0;
     if ( !a4 )
       goto LABEL_44;
     while ( 1 )
@@ -118,13 +120,13 @@ LABEL_13:
           while ( 1 )
           {
             v26 = (v25 + v19) >> 9;
-            if ( v26 + 7 >= v36 )
+            if ( v26 + 7 >= Destination.SizeOfBitMap )
               goto LABEL_26;
-            v27 = &v11[4 * ((unsigned __int64)v26 >> 5)];
-            v28 = &v11[4 * ((unsigned __int64)(v26 + 7) >> 5)];
+            v27 = &v11[(unsigned __int64)v26 >> 5];
+            v28 = &v11[(unsigned __int64)(v26 + 7) >> 5];
             if ( v27 != v28 )
               break;
-            if ( ((255 << v26) & *(_DWORD *)v27) != 0 )
+            if ( ((255 << v26) & *v27) != 0 )
               goto LABEL_26;
 LABEL_35:
             HvViewMapUnpinForFileOffset(BugCheckParameter2 + 200, v25 + v19 + 4096, 4096LL);
@@ -138,13 +140,12 @@ LABEL_27:
             }
           }
           v29 = 0;
-          for ( i = ((-1 << v26) & *(_DWORD *)v27) == 0; ; i = *(_DWORD *)v27 == 0 )
+          for ( i = ((-1 << v26) & *v27) == 0; ; i = *v27 == 0 )
           {
             LOBYTE(v29) = i;
             if ( !v29 )
               break;
-            v27 += 4;
-            if ( v27 == v28 )
+            if ( ++v27 == v28 )
               goto LABEL_35;
             v29 = 0;
           }
@@ -177,10 +178,10 @@ LABEL_29:
         }
       }
       while ( v19 < *a3 + a3[4] - 4096 );
-      v18 = v38;
+      v18 = v37;
 LABEL_43:
       a3 += 6;
-      v38 = v18 + 1;
+      v37 = v18 + 1;
       if ( v18 + 1 >= a4 )
       {
 LABEL_44:

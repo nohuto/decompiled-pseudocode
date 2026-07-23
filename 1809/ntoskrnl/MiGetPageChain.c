@@ -3,26 +3,26 @@
  * Callers:
  *     MiGetHardFaultPages @ 0x140029BE0 (MiGetHardFaultPages.c)
  *     MiResolvePrivateZeroFault @ 0x140047430 (MiResolvePrivateZeroFault.c)
- *     MiStealPage @ 0x1400EBF44 (MiStealPage.c)
- *     MiCreateSharedZeroPages @ 0x1401091C0 (MiCreateSharedZeroPages.c)
- *     MiResolvePageFileFault @ 0x140154B44 (MiResolvePageFileFault.c)
- *     MiGetClusterPage @ 0x1402C67BC (MiGetClusterPage.c)
- *     MiPfPrepareSequentialReadList @ 0x1405EBA20 (MiPfPrepareSequentialReadList.c)
+ *     MiStealPage @ 0x1400EBFC4 (MiStealPage.c)
+ *     MiCreateSharedZeroPages @ 0x140109240 (MiCreateSharedZeroPages.c)
+ *     MiResolvePageFileFault @ 0x140154C44 (MiResolvePageFileFault.c)
+ *     MiGetClusterPage @ 0x1402C69AC (MiGetClusterPage.c)
+ *     MiPfPrepareSequentialReadList @ 0x1405ECA20 (MiPfPrepareSequentialReadList.c)
  * Callees:
  *     MiGet64KPage @ 0x14002B8B0 (MiGet64KPage.c)
  *     MiZeroPhysicalPage @ 0x140032010 (MiZeroPhysicalPage.c)
  *     MiGetPage @ 0x140049D50 (MiGetPage.c)
- *     MiSetPfnBlink @ 0x140065CB0 (MiSetPfnBlink.c)
- *     MiChangePageAttributeBatch @ 0x1400823F0 (MiChangePageAttributeBatch.c)
- *     MiWorkingSetIsContended @ 0x1400992A0 (MiWorkingSetIsContended.c)
- *     MiChangePageAttribute @ 0x1400EF920 (MiChangePageAttribute.c)
- *     KeShouldYieldProcessor @ 0x1400F9CE0 (KeShouldYieldProcessor.c)
- *     KiResetGlobalDpcWatchdogProfiler @ 0x1400FB3C8 (KiResetGlobalDpcWatchdogProfiler.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     MiPerformFinalZeroing @ 0x1402BFCFC (MiPerformFinalZeroing.c)
- *     MiNotifyPageHeat @ 0x1402CEF40 (MiNotifyPageHeat.c)
- *     EtwTraceShouldYieldProcessor @ 0x14031050C (EtwTraceShouldYieldProcessor.c)
+ *     MiSetPfnBlink @ 0x140065CA0 (MiSetPfnBlink.c)
+ *     MiChangePageAttributeBatch @ 0x1400823E0 (MiChangePageAttributeBatch.c)
+ *     MiWorkingSetIsContended @ 0x1400991E0 (MiWorkingSetIsContended.c)
+ *     MiChangePageAttribute @ 0x1400EF9A0 (MiChangePageAttribute.c)
+ *     KeShouldYieldProcessor @ 0x1400F9D60 (KeShouldYieldProcessor.c)
+ *     KiResetGlobalDpcWatchdogProfiler @ 0x1400FB448 (KiResetGlobalDpcWatchdogProfiler.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiPerformFinalZeroing @ 0x1402BFEEC (MiPerformFinalZeroing.c)
+ *     MiNotifyPageHeat @ 0x1402CF130 (MiNotifyPageHeat.c)
+ *     EtwTraceShouldYieldProcessor @ 0x1403106FC (EtwTraceShouldYieldProcessor.c)
  */
 
 __int64 __fastcall MiGetPageChain(
@@ -115,14 +115,14 @@ __int64 __fastcall MiGetPageChain(
   if ( a3 )
   {
     CurrentPrcb = KeGetCurrentPrcb();
-    LOWORD(v8) = ((_WORD)a3 - 1) << byte_14043A049;
+    LOWORD(v8) = ((_WORD)a3 - 1) << byte_14043B109;
   }
   else
   {
     CurrentPrcb = (struct _KPRCB *)KiProcessorBlock[KeGetCurrentThread()->IdealProcessor];
     LODWORD(v8) = LOWORD(CurrentPrcb->NodeShiftedColor);
   }
-  v13 = (1 << byte_14043A04A) - 1;
+  v13 = (1 << byte_14043B10A) - 1;
   v64 = v8;
   v65 = v13;
   if ( v9 && (*(_BYTE *)(v9 + 184) & 7u) < 2 )
@@ -238,8 +238,8 @@ __int64 __fastcall MiGetPageChain(
       if ( v19 != -1 )
       {
         v54 = 15LL;
-        if ( (unsigned int)dword_14043A088 < 0xFuLL )
-          v54 = (unsigned int)dword_14043A088;
+        if ( (unsigned int)dword_14043B148 < 0xFuLL )
+          v54 = (unsigned int)dword_14043B148;
         v55 = v54 & v19;
         v72 = v54;
         v22 = v55 | v22 & 0xFFFFFFF0;
@@ -261,7 +261,7 @@ LABEL_16:
       v24 = v62;
       v17 = 48 * v23 - 0x58000000000LL;
       v25 = *(unsigned __int8 *)(v17 + 34) >> 6;
-      if ( v25 != v62 && ((unsigned __int8)((1 << v25) | (1 << v62)) & (unsigned __int8)byte_14043A158) != 0 )
+      if ( v25 != v62 && ((unsigned __int8)((1 << v25) | (1 << v62)) & (unsigned __int8)byte_14043B218) != 0 )
       {
         v57 = v63;
         v77[v63] = v23;
@@ -355,7 +355,7 @@ LABEL_22:
       if ( (unsigned __int8)v68 < 2u )
         goto LABEL_32;
       if ( (*(_BYTE *)(v9 + 184) & 7) == 2 )
-        v31 = &dword_14043B700;
+        v31 = &dword_14043C7C0;
       else
         v31 = (LONG *)(v9 + 192);
       if ( (*v31 & 0x40000000) != 0 )

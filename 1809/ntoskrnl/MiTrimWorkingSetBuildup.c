@@ -1,14 +1,14 @@
 /*
- * XREFs of MiTrimWorkingSetBuildup @ 0x14011C718
+ * XREFs of MiTrimWorkingSetBuildup @ 0x14011C788
  * Callers:
- *     MiTrimPte @ 0x140087BD0 (MiTrimPte.c)
- *     MiTrimWorkingSetTail @ 0x14011C6B0 (MiTrimWorkingSetTail.c)
- *     MiTrimPteWorker @ 0x1402B3D34 (MiTrimPteWorker.c)
+ *     MiTrimPte @ 0x140087BC0 (MiTrimPte.c)
+ *     MiTrimWorkingSetTail @ 0x14011C720 (MiTrimWorkingSetTail.c)
+ *     MiTrimPteWorker @ 0x1402B3F24 (MiTrimPteWorker.c)
  * Callees:
  *     RtlClearBits @ 0x140017890 (RtlClearBits.c)
  *     RtlFindNextForwardRunClearCapped @ 0x14002B750 (RtlFindNextForwardRunClearCapped.c)
  *     MiSetVaAgeList @ 0x14003E2D0 (MiSetVaAgeList.c)
- *     MiFreeWsleList @ 0x1400B2AB0 (MiFreeWsleList.c)
+ *     MiFreeWsleList @ 0x1400B29F0 (MiFreeWsleList.c)
  */
 
 void __fastcall MiTrimWorkingSetBuildup(__int64 a1, __int64 a2)
@@ -36,7 +36,7 @@ void __fastcall MiTrimWorkingSetBuildup(__int64 a1, __int64 a2)
   int v23; // r14d
   unsigned int v24; // edi
   unsigned int SizeOfBitMap; // eax
-  struct _RTL_BITMAP BitMapHeader; // [rsp+20h] [rbp-58h] BYREF
+  _RTL_BITMAP BitMapHeader; // [rsp+20h] [rbp-58h] BYREF
   unsigned int v27; // [rsp+88h] [rbp+10h] BYREF
   int v28; // [rsp+90h] [rbp+18h]
   __int64 v29; // [rsp+98h] [rbp+20h]

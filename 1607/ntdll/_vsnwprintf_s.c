@@ -2,9 +2,9 @@
  * XREFs of _vsnwprintf_s @ 0x1800A1440
  * Callers:
  *     _snwprintf_s @ 0x1800A1410 (_snwprintf_s.c)
- *     ?StringCchPrintfW@@YAJPEAG_KPEBGZZ @ 0x180102DF8 (-StringCchPrintfW@@YAJPEAG_KPEBGZZ.c)
+ *     ?StringCchPrintfW@@YAJPEAG_KPEBGZZ @ 0x180102D38 (-StringCchPrintfW@@YAJPEAG_KPEBGZZ.c)
  * Callees:
- *     _invalid_parameter @ 0x180096B68 (_invalid_parameter.c)
+ *     _invalid_parameter @ 0x180096B58 (_invalid_parameter.c)
  *     _swoutput_s @ 0x1800A4098 (_swoutput_s.c)
  */
 

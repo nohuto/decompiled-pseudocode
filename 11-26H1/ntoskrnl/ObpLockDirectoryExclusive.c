@@ -1,15 +1,15 @@
 /*
- * XREFs of ObpLockDirectoryExclusive @ 0x1409E21B8
+ * XREFs of ObpLockDirectoryExclusive @ 0x1409DF1C8
  * Callers:
- *     ObpLookupObjectName @ 0x1408FE2F0 (ObpLookupObjectName.c)
- *     NtSetInformationObject @ 0x140970880 (NtSetInformationObject.c)
- *     ObpMarkDirectoryObjectsTemporary @ 0x1409E1F80 (ObpMarkDirectoryObjectsTemporary.c)
- *     ObCreateObjectTypeEx @ 0x140A5A0C0 (ObCreateObjectTypeEx.c)
- *     ObInitSystem @ 0x140D0936C (ObInitSystem.c)
+ *     ObpLookupObjectName @ 0x14092E280 (ObpLookupObjectName.c)
+ *     NtSetInformationObject @ 0x1409BA9F0 (NtSetInformationObject.c)
+ *     ObpMarkDirectoryObjectsTemporary @ 0x1409DEF90 (ObpMarkDirectoryObjectsTemporary.c)
+ *     ObCreateObjectTypeEx @ 0x140A67030 (ObCreateObjectTypeEx.c)
+ *     ObInitSystem @ 0x140D0F63C (ObInitSystem.c)
  * Callees:
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
  */
 
 void __fastcall ObpLockDirectoryExclusive(__int64 a1, __int64 a2, __int64 a3, struct _KLOCK_ENTRIES *a4)

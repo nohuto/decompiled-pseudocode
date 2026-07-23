@@ -14,7 +14,7 @@ unsigned __int64 __fastcall ExTryAcquireCacheAwarePushLockSharedEx(
         ULONG_PTR BugCheckParameter1)
 {
   volatile signed __int64 *v3; // rbp
-  unsigned __int64 v4; // rbx
+  PRTL_BALANCED_NODE v4; // rbx
   bool v5; // di
 
   if ( (BugCheckParameter1 & 0xFFFFFFFC) != 0 )
@@ -28,9 +28,9 @@ unsigned __int64 __fastcall ExTryAcquireCacheAwarePushLockSharedEx(
   if ( v4 )
   {
     if ( v5 )
-      *(_BYTE *)(v4 + 26) |= 1u;
+      BYTE2(v4[1].Left) |= 1u;
     else
-      KeAbPostReleaseEx(BugCheckParameter2, v4);
+      KeAbPostReleaseEx(BugCheckParameter2, (unsigned __int64)v4);
   }
   return (unsigned __int64)v3 & -(__int64)v5;
 }

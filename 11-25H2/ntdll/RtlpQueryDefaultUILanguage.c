@@ -16,58 +16,58 @@
  *     RtlpGetSystemDefaultUILanguage @ 0x1800A8000 (RtlpGetSystemDefaultUILanguage.c)
  */
 
-__int64 __fastcall RtlpQueryDefaultUILanguage(_WORD *a1, char a2, __int64 a3, __int64 a4)
+__int64 __fastcall RtlpQueryDefaultUILanguage(_WORD *DefaultUILanguageId, char a2)
 {
-  __int64 v6; // rdx
-  __int64 LanguageList; // rdi
-  __int64 v8; // rbx
+  DWORD *v4; // rdx
+  _WORD *LanguageList; // rdi
+  DWORD *v6; // rbx
   int RegistryInfo; // ebx
-  int v10; // eax
-  int v11; // eax
-  int SystemDefaultUILanguage; // ebp
-  char v14; // [rsp+60h] [rbp+8h] BYREF
-  __int64 v15; // [rsp+70h] [rbp+18h] BYREF
+  int v8; // eax
+  int v9; // eax
+  NTSTATUS SystemDefaultUILanguage; // ebp
+  char v12; // [rsp+60h] [rbp+8h] BYREF
+  _WORD *v13; // [rsp+70h] [rbp+18h] BYREF
 
-  v6 = 0LL;
+  v4 = 0LL;
   LanguageList = 0LL;
-  if ( !a1 )
+  if ( !DefaultUILanguageId )
   {
 LABEL_21:
-    SystemDefaultUILanguage = RtlpGetSystemDefaultUILanguage(a1, v6);
+    SystemDefaultUILanguage = RtlpGetSystemDefaultUILanguage((LANGID)DefaultUILanguageId, v4);
     if ( SystemDefaultUILanguage < 0 )
-      *a1 = 0;
+      *DefaultUILanguageId = 0;
     goto LABEL_29;
   }
-  *a1 = 0;
-  v8 = g_RegInfo;
+  *DefaultUILanguageId = 0;
+  v6 = (DWORD *)g_RegInfo;
   if ( !g_RegInfo )
   {
-    RtlpInitMuiCriticalSection((__int64)a1, 0LL, a3, a4);
-    RtlEnterCriticalSection((__int64)&RegistryInfoCritSect);
+    RtlpInitMuiCriticalSection();
+    RtlEnterCriticalSection(&RegistryInfoCritSect);
     RegistryInfo = 0;
     if ( !g_RegInfo )
       RegistryInfo = RtlpMuiRegCreateAndLoadRegistryInfo(&g_RegInfo);
-    RtlLeaveCriticalSection((__int64)&RegistryInfoCritSect);
+    RtlLeaveCriticalSection(&RegistryInfoCritSect);
     if ( RegistryInfo < 0 )
     {
-      v6 = 0LL;
+      v4 = 0LL;
       goto LABEL_21;
     }
-    v8 = g_RegInfo;
+    v6 = (DWORD *)g_RegInfo;
   }
-  v10 = InitializeTEBUserLangList(a2, v8);
-  v6 = v8;
-  if ( v10 < 0 )
+  v8 = InitializeTEBUserLangList(a2, (__int64)v6);
+  v4 = v6;
+  if ( v8 < 0 )
     goto LABEL_21;
   if ( NtCurrentTeb()->UserPrefLanguages )
   {
-    LanguageList = *(_QWORD *)NtCurrentTeb()->UserPrefLanguages;
-    v15 = LanguageList;
+    LanguageList = *(_WORD **)NtCurrentTeb()->UserPrefLanguages;
+    v13 = LanguageList;
     if ( !LanguageList )
       goto LABEL_13;
-    if ( *(_WORD *)(LanguageList + 4) )
+    if ( LanguageList[2] )
     {
-      SystemDefaultUILanguage = GetLCIDFromLangListNode(v8, *(_QWORD *)(LanguageList + 24), a1);
+      SystemDefaultUILanguage = GetLCIDFromLangListNode(v6, *((_QWORD *)LanguageList + 3), DefaultUILanguageId);
       if ( SystemDefaultUILanguage >= 0 )
       {
         LanguageList = 0LL;
@@ -76,46 +76,52 @@ LABEL_21:
     }
     LanguageList = 0LL;
   }
-  v15 = 0LL;
+  v13 = 0LL;
 LABEL_13:
-  v14 = 0;
-  if ( !v8 )
+  v12 = 0;
+  if ( !v6 )
   {
-    v6 = 0LL;
+    v4 = 0LL;
     goto LABEL_21;
   }
   if ( a2 )
   {
-    v11 = RtlpMuiRegLoadPreferredUILanguages(v8, v6, 0, 3 - (unsigned int)(a2 != 0), &v14, &v15);
-    LanguageList = v15;
-    if ( v15 )
+    v9 = RtlpMuiRegLoadPreferredUILanguages(
+           (__int64)v6,
+           (ULONG)v4,
+           0,
+           3 - (unsigned int)(a2 != 0),
+           &v12,
+           (__int64 *)&v13);
+    LanguageList = v13;
+    if ( v13 )
     {
-      if ( v11 && v14 && v11 != -1073741801 )
-        v11 = 0;
+      if ( v9 && v12 && v9 != -1073741801 )
+        v9 = 0;
     }
     else
     {
-      LanguageList = RtlpMuiRegCreateLanguageList(1, 1, v8);
-      v11 = 0;
+      LanguageList = RtlpMuiRegCreateLanguageList(1, 1, (__int64)v6);
+      v9 = 0;
       if ( !LanguageList )
-        v11 = -1073741801;
+        v9 = -1073741801;
     }
   }
   else
   {
-    v11 = RtlpSetProcUserMachineLangList(v8, 0);
-    if ( v11 >= 0 )
-      LanguageList = *(_QWORD *)(v8 + 56);
+    v9 = RtlpSetProcUserMachineLangList((__int64)v6, 0);
+    if ( v9 >= 0 )
+      LanguageList = (_WORD *)*((_QWORD *)v6 + 7);
   }
-  v6 = v8;
-  if ( v11 < 0 )
+  v4 = v6;
+  if ( v9 < 0 )
     goto LABEL_21;
   if ( !LanguageList )
     goto LABEL_21;
-  if ( !*(_WORD *)(LanguageList + 4) )
+  if ( !LanguageList[2] )
     goto LABEL_21;
-  SystemDefaultUILanguage = GetLCIDFromLangListNode(v8, *(_QWORD *)(LanguageList + 24), a1);
-  v6 = v8;
+  SystemDefaultUILanguage = GetLCIDFromLangListNode(v6, *((_QWORD *)LanguageList + 3), DefaultUILanguageId);
+  v4 = v6;
   if ( SystemDefaultUILanguage < 0 )
     goto LABEL_21;
 LABEL_29:

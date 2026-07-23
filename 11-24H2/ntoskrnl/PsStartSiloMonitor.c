@@ -1,18 +1,18 @@
 /*
- * XREFs of PsStartSiloMonitor @ 0x140779270
+ * XREFs of PsStartSiloMonitor @ 0x140779370
  * Callers:
  *     <none>
  * Callees:
- *     KiStackAttachProcess @ 0x1403209E0 (KiStackAttachProcess.c)
- *     KiUnstackDetachProcess @ 0x140321EC0 (KiUnstackDetachProcess.c)
- *     PdcCreateWatchdogAroundClientCall @ 0x140484160 (PdcCreateWatchdogAroundClientCall.c)
- *     PspGetServerSiloStatePointer @ 0x1404FB1C0 (PspGetServerSiloStatePointer.c)
- *     PspAcquirePushLockExclusive @ 0x1405E607C (PspAcquirePushLockExclusive.c)
- *     PspReleasePushLockExclusive @ 0x1405E60E0 (PspReleasePushLockExclusive.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     PspInvokeCreateCallback @ 0x140779644 (PspInvokeCreateCallback.c)
- *     PspInvokeTerminateCallback @ 0x1407796A8 (PspInvokeTerminateCallback.c)
- *     PspGetNextSilo @ 0x1408EBA34 (PspGetNextSilo.c)
+ *     KiStackAttachProcess @ 0x1402C9570 (KiStackAttachProcess.c)
+ *     KiUnstackDetachProcess @ 0x1402CAA50 (KiUnstackDetachProcess.c)
+ *     PdcCreateWatchdogAroundClientCall @ 0x14047F700 (PdcCreateWatchdogAroundClientCall.c)
+ *     PspGetServerSiloStatePointer @ 0x1404F8AA0 (PspGetServerSiloStatePointer.c)
+ *     PspAcquirePushLockExclusive @ 0x1405E367C (PspAcquirePushLockExclusive.c)
+ *     PspReleasePushLockExclusive @ 0x1405E36E0 (PspReleasePushLockExclusive.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     PspInvokeCreateCallback @ 0x140779744 (PspInvokeCreateCallback.c)
+ *     PspInvokeTerminateCallback @ 0x1407797A8 (PspInvokeTerminateCallback.c)
+ *     PspGetNextSilo @ 0x14085D264 (PspGetNextSilo.c)
  */
 
 __int64 __fastcall PsStartSiloMonitor(__int64 a1)
@@ -23,22 +23,28 @@ __int64 __fastcall PsStartSiloMonitor(__int64 a1)
   __int64 NextSilo; // rax
   __int64 v6; // r8
   __int64 v7; // rsi
-  char v8; // si
-  int v9; // ebp
-  __int64 v10; // rdx
+  __int64 v8; // r8
+  __int64 v9; // r9
+  char v10; // si
+  int v11; // ebp
+  __int64 v12; // rdx
   __int64 j; // rcx
-  __int64 v12; // rax
-  __int64 v13; // rdi
-  __int64 *v14; // rax
-  int v15; // esi
-  __int64 v16; // rdx
+  __int64 v14; // rax
+  __int64 v15; // r8
+  __int64 v16; // r9
+  __int64 v17; // rdi
+  __int64 *v18; // rax
+  int v19; // esi
+  __int64 v20; // rdx
   __int64 k; // rcx
-  __int64 v18; // rax
-  __int64 v19; // rdi
-  __int64 v20; // rax
-  _OWORD v22[3]; // [rsp+20h] [rbp-58h] BYREF
+  __int64 v22; // rax
+  __int64 v23; // r8
+  __int64 v24; // r9
+  __int64 v25; // rdi
+  __int64 v26; // rax
+  _OWORD v28[3]; // [rsp+20h] [rbp-58h] BYREF
 
-  memset(v22, 0, sizeof(v22));
+  memset(v28, 0, sizeof(v28));
   v2 = 0;
   PspAcquirePushLockExclusive();
   if ( !*(_QWORD *)a1 && !*(_QWORD *)(a1 + 8) )
@@ -62,73 +68,73 @@ __int64 __fastcall PsStartSiloMonitor(__int64 a1)
     {
       if ( !*(_BYTE *)(a1 + 16) )
         goto LABEL_15;
-      KiStackAttachProcess(PsInitialSystemProcess, 0, (__int64)v22);
+      KiStackAttachProcess(PsInitialSystemProcess, 0, (__int64)v28);
       v7 = PdcCreateWatchdogAroundClientCall();
       v2 = PspInvokeCreateCallback(v7, a1);
       if ( v2 < 0 && *(_QWORD *)(a1 + 32) )
         PspInvokeTerminateCallback(v7, a1);
-      KiUnstackDetachProcess((__int64)v22, 0);
+      KiUnstackDetachProcess((__int64)v28, 0, v8, v9);
       if ( v2 >= 0 )
       {
 LABEL_15:
-        v8 = 0;
-        v9 = 0;
-        KiStackAttachProcess(PsInitialSystemProcess, 0, (__int64)v22);
-        for ( j = 0LL; ; j = v13 )
+        v10 = 0;
+        v11 = 0;
+        KiStackAttachProcess(PsInitialSystemProcess, 0, (__int64)v28);
+        for ( j = 0LL; ; j = v17 )
         {
-          LOBYTE(v10) = 1;
-          v12 = PspGetNextSilo(j, v10);
-          v13 = v12;
-          if ( !v12 )
+          LOBYTE(v12) = 1;
+          v14 = PspGetNextSilo(j, v12);
+          v17 = v14;
+          if ( !v14 )
             break;
-          if ( (unsigned int)(*(_DWORD *)PspGetServerSiloStatePointer(v12) - 1) <= 2 )
+          if ( (unsigned int)(*(_DWORD *)PspGetServerSiloStatePointer(v14) - 1) <= 2 )
           {
-            ++v9;
-            if ( (int)PspInvokeCreateCallback(v13, a1) < 0 )
-              v8 = 1;
+            ++v11;
+            if ( (int)PspInvokeCreateCallback(v17, a1) < 0 )
+              v10 = 1;
           }
         }
-        KiUnstackDetachProcess((__int64)v22, 0);
-        if ( v8 )
+        KiUnstackDetachProcess((__int64)v28, 0, v15, v16);
+        if ( v10 )
         {
           if ( *(_QWORD *)(a1 + 32) )
           {
-            v15 = 0;
-            KiStackAttachProcess(PsInitialSystemProcess, 0, (__int64)v22);
-            for ( k = 0LL; ; k = v19 )
+            v19 = 0;
+            KiStackAttachProcess(PsInitialSystemProcess, 0, (__int64)v28);
+            for ( k = 0LL; ; k = v25 )
             {
-              LOBYTE(v16) = 1;
-              v18 = PspGetNextSilo(k, v16);
-              v19 = v18;
-              if ( !v18 )
+              LOBYTE(v20) = 1;
+              v22 = PspGetNextSilo(k, v20);
+              v25 = v22;
+              if ( !v22 )
                 break;
-              if ( (unsigned int)(*(_DWORD *)PspGetServerSiloStatePointer(v18) - 1) <= 2 )
+              if ( (unsigned int)(*(_DWORD *)PspGetServerSiloStatePointer(v22) - 1) <= 2 )
               {
-                PspInvokeTerminateCallback(v19, a1);
-                ++v15;
+                PspInvokeTerminateCallback(v25, a1);
+                ++v19;
               }
             }
-            if ( v9 != v15 )
+            if ( v11 != v19 )
               NT_ASSERT("CreateCount == TerminateCount");
             if ( *(_BYTE *)(a1 + 16) )
             {
-              v20 = PdcCreateWatchdogAroundClientCall();
-              PspInvokeCreateCallback(v20, a1);
+              v26 = PdcCreateWatchdogAroundClientCall();
+              PspInvokeCreateCallback(v26, a1);
             }
-            KiUnstackDetachProcess((__int64)v22, 0);
+            KiUnstackDetachProcess((__int64)v28, 0, v23, v24);
           }
           v2 = -1073741248;
         }
         else
         {
-          v14 = (__int64 *)qword_140FD9050;
-          if ( *(__int64 **)qword_140FD9050 != &PspSiloMonitorList )
+          v18 = (__int64 *)qword_140FDA060;
+          if ( *(__int64 **)qword_140FDA060 != &PspSiloMonitorList )
             __fastfail(3u);
           *(_QWORD *)a1 = &PspSiloMonitorList;
           v2 = 0;
-          *(_QWORD *)(a1 + 8) = v14;
-          *v14 = a1;
-          qword_140FD9050 = a1;
+          *(_QWORD *)(a1 + 8) = v18;
+          *v18 = a1;
+          qword_140FDA060 = a1;
         }
       }
     }

@@ -1,7 +1,7 @@
 /*
- * XREFs of ExpTimerSetParametersAreValid @ 0x1400FD0D8
+ * XREFs of ExpTimerSetParametersAreValid @ 0x1400FD158
  * Callers:
- *     ExSetTimer @ 0x1400FD030 (ExSetTimer.c)
+ *     ExSetTimer @ 0x1400FD0B0 (ExSetTimer.c)
  * Callees:
  *     <none>
  */

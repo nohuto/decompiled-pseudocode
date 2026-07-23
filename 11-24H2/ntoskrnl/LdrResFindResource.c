@@ -1,19 +1,19 @@
 /*
- * XREFs of LdrResFindResource @ 0x1409069E0
+ * XREFs of LdrResFindResource @ 0x140A6A760
  * Callers:
- *     sub_140BE10B0 @ 0x140BE10B0 (sub_140BE10B0.c)
+ *     sub_140BE30B0 @ 0x140BE30B0 (sub_140BE30B0.c)
  * Callees:
- *     LdrResSearchResource @ 0x140908A90 (LdrResSearchResource.c)
+ *     LdrResSearchResource @ 0x1408E01B0 (LdrResSearchResource.c)
  */
 
 __int64 __fastcall LdrResFindResource(
-        int a1,
+        unsigned __int64 a1,
         __int64 a2,
         __int64 a3,
         __int64 a4,
-        __int64 a5,
-        __int64 a6,
-        __int64 a7,
+        _QWORD *a5,
+        __int64 *a6,
+        void *a7,
         __int64 a8,
         int a9)
 {
@@ -24,5 +24,5 @@ __int64 __fastcall LdrResFindResource(
   v10[2] = a4;
   v10[0] = a2;
   v10[1] = a3;
-  return LdrResSearchResource(a1, (unsigned int)v10, 3, a9, a5, a6, a7, a8);
+  return LdrResSearchResource(a1, v10, 3u, a9, a5, a6, a7, a8);
 }

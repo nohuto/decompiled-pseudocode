@@ -1,7 +1,7 @@
 /*
- * XREFs of KiLockStepExecution @ 0x14056E738
+ * XREFs of KiLockStepExecution @ 0x14056F738
  * Callers:
- *     KeLoadMTRR @ 0x14056E550 (KeLoadMTRR.c)
+ *     KeLoadMTRR @ 0x14056F550 (KeLoadMTRR.c)
  * Callees:
  *     <none>
  */

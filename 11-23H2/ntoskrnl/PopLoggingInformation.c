@@ -1,10 +1,10 @@
 /*
- * XREFs of PopLoggingInformation @ 0x140980DE4
+ * XREFs of PopLoggingInformation @ 0x140980FE4
  * Callers:
- *     NtPowerInformation @ 0x140783F20 (NtPowerInformation.c)
- *     PopDiagTraceControlCallback @ 0x1408629E0 (PopDiagTraceControlCallback.c)
+ *     NtPowerInformation @ 0x140784110 (NtPowerInformation.c)
+ *     PopDiagTraceControlCallback @ 0x140862C20 (PopDiagTraceControlCallback.c)
  * Callees:
- *     memmove @ 0x140435700 (memmove.c)
+ *     memmove @ 0x140435B00 (memmove.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
 

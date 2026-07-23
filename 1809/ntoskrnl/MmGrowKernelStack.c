@@ -1,9 +1,9 @@
 /*
- * XREFs of MmGrowKernelStack @ 0x1402AB6A0
+ * XREFs of MmGrowKernelStack @ 0x1402AB890
  * Callers:
  *     <none>
  * Callees:
- *     MmGrowKernelStackEx @ 0x140132ED0 (MmGrowKernelStackEx.c)
+ *     MmGrowKernelStackEx @ 0x140132FA0 (MmGrowKernelStackEx.c)
  */
 
 __int64 __fastcall MmGrowKernelStack(__int64 a1)

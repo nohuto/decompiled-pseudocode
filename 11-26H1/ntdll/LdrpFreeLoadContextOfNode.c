@@ -1,39 +1,39 @@
 /*
- * XREFs of LdrpFreeLoadContextOfNode @ 0x1800C73C0
+ * XREFs of LdrpFreeLoadContextOfNode @ 0x1800C4B80
  * Callers:
- *     LdrpLoadDllInternal @ 0x1800520B0 (LdrpLoadDllInternal.c)
- *     LdrpFreeLoadContextOfNode @ 0x1800C73C0 (LdrpFreeLoadContextOfNode.c)
- *     LdrpInitializeProcess @ 0x1800CF8B8 (LdrpInitializeProcess.c)
+ *     LdrpLoadDllInternal @ 0x18003C630 (LdrpLoadDllInternal.c)
+ *     LdrpFreeLoadContextOfNode @ 0x1800C4B80 (LdrpFreeLoadContextOfNode.c)
+ *     LdrpInitializeProcess @ 0x1800CD028 (LdrpInitializeProcess.c)
  * Callees:
- *     LdrpFreeLoadContextOfNode @ 0x1800C73C0 (LdrpFreeLoadContextOfNode.c)
- *     LdrpFreeLoadContext @ 0x1800C7460 (LdrpFreeLoadContext.c)
+ *     LdrpFreeLoadContextOfNode @ 0x1800C4B80 (LdrpFreeLoadContextOfNode.c)
+ *     LdrpFreeLoadContext @ 0x1800C4C20 (LdrpFreeLoadContext.c)
  */
 
 void __fastcall LdrpFreeLoadContextOfNode(__int64 a1, __int64 a2)
 {
   _QWORD *v2; // rbx
-  __int64 v4; // rcx
+  _QWORD *v4; // rcx
   _QWORD *v6; // rdi
-  _QWORD *v7; // rbx
+  __int64 v7; // rbx
   __int64 v8; // rax
   _QWORD *v9; // rdi
   _QWORD *v10; // rbx
 
   v2 = *(_QWORD **)a1;
-  v4 = *(_QWORD *)(*(_QWORD *)a1 + 16LL);
+  v4 = *(_QWORD **)(*(_QWORD *)a1 + 16LL);
   v6 = v2 - 20;
-  if ( v4 && *(_QWORD *)(v4 + 40) == a2 )
+  if ( v4 && v4[5] == a2 )
   {
     LdrpFreeLoadContext(v4);
     if ( a1 != *v2 )
     {
       do
       {
-        v7 = (_QWORD *)v6[20];
-        v6 = v7 - 20;
-        LdrpFreeLoadContext(v7[2]);
+        v7 = v6[20];
+        v6 = (_QWORD *)(v7 - 160);
+        LdrpFreeLoadContext(*(PVOID *)(v7 + 16));
       }
-      while ( a1 != *v7 );
+      while ( a1 != *(_QWORD *)v7 );
     }
     v8 = v6[19];
     v9 = *(_QWORD **)(v8 + 40);

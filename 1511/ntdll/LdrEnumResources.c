@@ -7,68 +7,68 @@
  *     RtlImageDirectoryEntryToData @ 0x180032000 (RtlImageDirectoryEntryToData.c)
  */
 
-__int64 __fastcall LdrEnumResources(
-        unsigned __int64 a1,
-        const wchar_t **a2,
-        unsigned int a3,
-        unsigned int *a4,
-        __int64 a5)
+NTSTATUS __cdecl LdrEnumResources(
+        PVOID DllHandle,
+        PLDR_RESOURCE_INFO ResourceInfo,
+        ULONG Level,
+        ULONG *ResourceCount,
+        PLDR_ENUM_RESOURCE_ENTRY Resources)
 {
-  unsigned int v5; // edi
-  unsigned int v7; // esi
+  ULONG v5; // edi
+  ULONG v7; // esi
   const wchar_t **v8; // r15
-  __int64 v9; // rax
+  unsigned __int16 *v9; // rax
   __int64 v10; // rbx
   int v12; // ecx
   int *v13; // r14
   int v14; // eax
-  unsigned int v15; // ebp
+  NTSTATUS v15; // ebp
   bool v16; // zf
   unsigned int v17; // ecx
   int v18; // eax
   __int64 v19; // rax
   __int64 v20; // rdi
-  __int64 v21; // rdi
+  ULONG_PTR v21; // rdi
   int *v22; // rbp
   int v23; // edx
   int v24; // eax
-  unsigned int v25; // edx
+  ULONG v25; // edx
   int v26; // eax
   __int64 v27; // rax
   __int64 v28; // rsi
-  __int64 v29; // rsi
+  ULONG_PTR v29; // rsi
   int *v30; // r15
   unsigned int v31; // r13d
   __int64 v32; // rcx
-  __int64 v33; // rcx
+  ULONG_PTR v33; // rcx
   __int64 v34; // r8
-  __int64 v35; // rdx
-  __int64 v36; // r9
+  unsigned __int64 v35; // rdx
+  PLDR_ENUM_RESOURCE_ENTRY v36; // r9
   unsigned int v37; // [rsp+20h] [rbp-68h]
-  unsigned int v38; // [rsp+24h] [rbp-64h]
-  unsigned int v39; // [rsp+28h] [rbp-60h]
-  unsigned int v40; // [rsp+2Ch] [rbp-5Ch]
+  ULONG v38; // [rsp+24h] [rbp-64h]
+  ULONG v39; // [rsp+28h] [rbp-60h]
+  ULONG v40; // [rsp+2Ch] [rbp-5Ch]
   int v41; // [rsp+30h] [rbp-58h]
   int v42; // [rsp+34h] [rbp-54h]
   unsigned int v43; // [rsp+38h] [rbp-50h]
-  unsigned int v47; // [rsp+A8h] [rbp+20h] BYREF
+  ULONG Size; // [rsp+A8h] [rbp+20h] BYREF
 
   v5 = 0;
-  v7 = a3;
-  v8 = a2;
+  v7 = Level;
+  v8 = (const wchar_t **)ResourceInfo;
   v38 = 0;
-  if ( a5 )
-    v39 = *a4;
+  if ( Resources )
+    v39 = *ResourceCount;
   else
     v39 = 0;
-  *a4 = 0;
-  v9 = RtlImageDirectoryEntryToData(a1, 1, 2u, &v47);
-  v10 = v9;
+  *ResourceCount = 0;
+  v9 = (unsigned __int16 *)RtlImageDirectoryEntryToData(DllHandle, 1u, 2u, &Size);
+  v10 = (__int64)v9;
   if ( !v9 )
-    return 3221225609LL;
-  v12 = *(unsigned __int16 *)(v9 + 14);
-  v13 = (int *)(v9 + 16);
-  v14 = *(unsigned __int16 *)(v9 + 12);
+    return -1073741687;
+  v12 = v9[7];
+  v13 = (int *)(v9 + 8);
+  v14 = v9[6];
   v15 = 0;
   v16 = v14 + v12 == 0;
   v17 = v14 + v12;
@@ -78,7 +78,7 @@ __int64 __fastcall LdrEnumResources(
   if ( v16 )
   {
 LABEL_37:
-    *a4 = v5;
+    *ResourceCount = v5;
     return v15;
   }
   while ( v7 )
@@ -116,16 +116,16 @@ LABEL_35:
     v24 = *(unsigned __int16 *)(v19 + v10 + 12);
     v16 = v24 + v23 == 0;
     v25 = v24 + v23;
-    v47 = v25;
+    Size = v25;
     if ( !v16 )
     {
       do
       {
-        if ( v7 <= 1 || (v26 = LdrpCompareResourceNames_U(v8[1], v10, v22), v25 = v47, !v26) )
+        if ( v7 <= 1 || (v26 = LdrpCompareResourceNames_U(v8[1], v10, v22), v25 = Size, !v26) )
         {
           v27 = (unsigned int)v22[1];
           if ( (v27 & 0x80000000) == 0 )
-            return 3221225595LL;
+            return -1073741701;
           v28 = (unsigned int)*v22;
           if ( (v28 & 0x80000000) != 0 )
           {
@@ -144,10 +144,11 @@ LABEL_35:
           {
             do
             {
-              if ( a3 <= 2 || !(unsigned int)LdrpCompareResourceNames_U(a2[2], v10, v30) )
+              if ( Level <= 2
+                || !(unsigned int)LdrpCompareResourceNames_U((const wchar_t *)ResourceInfo->Language, v10, v30) )
               {
                 if ( v30[1] < 0 )
-                  return 3221225595LL;
+                  return -1073741701;
                 v32 = (unsigned int)*v30;
                 if ( (v32 & 0x80000000) != 0 )
                 {
@@ -159,29 +160,29 @@ LABEL_35:
                   v33 = *(unsigned __int16 *)v30;
                 }
                 v34 = (unsigned int)v30[1];
-                v35 = 5LL * v38++;
+                v35 = v38++;
                 if ( v38 > v39 )
                 {
                   v42 = -1073741820;
                 }
                 else
                 {
-                  v36 = a5;
-                  *(_QWORD *)(a5 + 8 * v35) = v21;
-                  *(_QWORD *)(v36 + 8 * v35 + 8) = v29;
-                  *(_QWORD *)(v36 + 8 * v35 + 16) = v33;
-                  *(_QWORD *)(v36 + 8 * v35 + 24) = a1 + *(unsigned int *)(v34 + v10);
-                  *(_QWORD *)(v36 + 8 * v35 + 32) = *(unsigned int *)(v34 + v10 + 4);
+                  v36 = Resources;
+                  Resources[v35].Path[0].NameOrId = v21;
+                  v36[v35].Path[1].NameOrId = v29;
+                  v36[v35].Path[2].NameOrId = v33;
+                  v36[v35].Data = (char *)DllHandle + *(unsigned int *)(v34 + v10);
+                  *(_QWORD *)&v36[v35].Size = *(unsigned int *)(v34 + v10 + 4);
                 }
               }
               ++v31;
               v30 += 2;
             }
             while ( v31 < v43 );
-            v25 = v47;
+            v25 = Size;
           }
-          v8 = a2;
-          v7 = a3;
+          v8 = (const wchar_t **)ResourceInfo;
+          v7 = Level;
         }
         v22 += 2;
         ++v40;
@@ -191,5 +192,5 @@ LABEL_35:
     }
     goto LABEL_35;
   }
-  return 3221225595LL;
+  return -1073741701;
 }

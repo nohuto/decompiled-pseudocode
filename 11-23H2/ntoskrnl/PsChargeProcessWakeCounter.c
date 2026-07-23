@@ -1,13 +1,13 @@
 /*
- * XREFs of PsChargeProcessWakeCounter @ 0x14077F020
+ * XREFs of PsChargeProcessWakeCounter @ 0x14077F210
  * Callers:
- *     AlpcpCompleteDispatchMessage @ 0x140739E80 (AlpcpCompleteDispatchMessage.c)
- *     EtwpQueueNotification @ 0x1407811E4 (EtwpQueueNotification.c)
- *     PspCreateActivityReference @ 0x140800D04 (PspCreateActivityReference.c)
- *     PopPowerRequestSpecialRequestSet @ 0x1409819DC (PopPowerRequestSpecialRequestSet.c)
+ *     AlpcpCompleteDispatchMessage @ 0x14073A070 (AlpcpCompleteDispatchMessage.c)
+ *     EtwpQueueNotification @ 0x1407813D4 (EtwpQueueNotification.c)
+ *     PspCreateActivityReference @ 0x140800FD4 (PspCreateActivityReference.c)
+ *     PopPowerRequestSpecialRequestSet @ 0x140981BDC (PopPowerRequestSpecialRequestSet.c)
  * Callees:
- *     PsGetProcessInheritedFromUniqueProcessId @ 0x1402B6B20 (PsGetProcessInheritedFromUniqueProcessId.c)
- *     PspChargeProcessWakeCounter @ 0x1407383D0 (PspChargeProcessWakeCounter.c)
+ *     PsGetProcessInheritedFromUniqueProcessId @ 0x1402B6DB0 (PsGetProcessInheritedFromUniqueProcessId.c)
+ *     PspChargeProcessWakeCounter @ 0x1407385C0 (PspChargeProcessWakeCounter.c)
  */
 
 unsigned __int64 __fastcall PsChargeProcessWakeCounter(__int64 Object, int a2, unsigned int a3, __int64 a4)

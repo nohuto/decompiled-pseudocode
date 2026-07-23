@@ -1,21 +1,21 @@
 /*
- * XREFs of CmpAddProcessorConfigurationEntry @ 0x1407D4D18
+ * XREFs of CmpAddProcessorConfigurationEntry @ 0x1407D5208
  * Callers:
- *     CmInitializeProcessor @ 0x1407D4BCC (CmInitializeProcessor.c)
- *     CmpInitializeMachineDependentConfiguration @ 0x140C4953C (CmpInitializeMachineDependentConfiguration.c)
+ *     CmInitializeProcessor @ 0x1407D50BC (CmInitializeProcessor.c)
+ *     CmpInitializeMachineDependentConfiguration @ 0x140C4B660 (CmpInitializeMachineDependentConfiguration.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     RtlInitAnsiString @ 0x1404654C0 (RtlInitAnsiString.c)
- *     KeBugCheck @ 0x1404FB970 (KeBugCheck.c)
- *     sprintf_s @ 0x140504170 (sprintf_s.c)
- *     strcpy_s @ 0x1405042E0 (strcpy_s.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     ZwSetValueKey @ 0x1406A7010 (ZwSetValueKey.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     CmpInitializeRegistryNode @ 0x1407DEA4C (CmpInitializeRegistryNode.c)
- *     RtlFreeAnsiString @ 0x1408A4990 (RtlFreeAnsiString.c)
- *     RtlAnsiStringToUnicodeString @ 0x1408ADC70 (RtlAnsiStringToUnicodeString.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     RtlInitAnsiString @ 0x14045BBA0 (RtlInitAnsiString.c)
+ *     KeBugCheck @ 0x1404F9230 (KeBugCheck.c)
+ *     sprintf_s @ 0x140501A30 (sprintf_s.c)
+ *     strcpy_s @ 0x140501BA0 (strcpy_s.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     ZwSetValueKey @ 0x1406A7FB0 (ZwSetValueKey.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     CmpInitializeRegistryNode @ 0x1407DEF9C (CmpInitializeRegistryNode.c)
+ *     RtlFreeAnsiString @ 0x1408B69C0 (RtlFreeAnsiString.c)
+ *     RtlAnsiStringToUnicodeString @ 0x140903ED0 (RtlAnsiStringToUnicodeString.c)
  */
 
 __int64 __fastcall CmpAddProcessorConfigurationEntry(__int64 a1, int a2, int a3)
@@ -29,7 +29,7 @@ __int64 __fastcall CmpAddProcessorConfigurationEntry(__int64 a1, int a2, int a3)
   int v12; // eax
   HANDLE v13; // rsi
   NTSTATUS v14; // edi
-  const char *v16; // r15
+  const CHAR *v16; // r15
   _DWORD *v21; // r8
   unsigned int v22; // r9d
   __int64 v28; // rcx
@@ -125,7 +125,7 @@ __int64 __fastcall CmpAddProcessorConfigurationEntry(__int64 a1, int a2, int a3)
     {
       ZwClose(Handle);
       _RAX = 0x80000000LL;
-      v16 = (const char *)((a1 + 36752) & -(__int64)(*(_BYTE *)(a1 + 65) != 0));
+      v16 = (const CHAR *)((a1 + 36752) & -(__int64)(*(_BYTE *)(a1 + 65) != 0));
       __asm { cpuid }
       if ( (unsigned int)_RAX < 0x80000004 )
         goto LABEL_39;

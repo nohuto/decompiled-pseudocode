@@ -1,10 +1,10 @@
 /*
- * XREFs of PsRemoveSiloContext @ 0x1409AC6D0
+ * XREFs of PsRemoveSiloContext @ 0x1409AC8D0
  * Callers:
- *     VrpHandleIoctlInitializeJobForVreg @ 0x14077A068 (VrpHandleIoctlInitializeJobForVreg.c)
- *     PspSiloInitializeSystemRootBuffer @ 0x1409AD718 (PspSiloInitializeSystemRootBuffer.c)
+ *     VrpHandleIoctlInitializeJobForVreg @ 0x14077A258 (VrpHandleIoctlInitializeJobForVreg.c)
+ *     PspSiloInitializeSystemRootBuffer @ 0x1409AD918 (PspSiloInitializeSystemRootBuffer.c)
  * Callees:
- *     PspStorageRemoveObject @ 0x1409B7F14 (PspStorageRemoveObject.c)
+ *     PspStorageRemoveObject @ 0x1409B8114 (PspStorageRemoveObject.c)
  */
 
 __int64 __fastcall PsRemoveSiloContext(__int64 a1, __int64 a2, _QWORD *a3)

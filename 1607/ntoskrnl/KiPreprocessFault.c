@@ -1,10 +1,10 @@
 /*
- * XREFs of KiPreprocessFault @ 0x1400F42E8
+ * XREFs of KiPreprocessFault @ 0x1400F2138
  * Callers:
- *     KiDispatchException @ 0x1400F3D60 (KiDispatchException.c)
+ *     KiDispatchException @ 0x1400F1BB0 (KiDispatchException.c)
  * Callees:
- *     KiOpDecode @ 0x1400F4AA0 (KiOpDecode.c)
- *     KiCheckForAtlThunk @ 0x1401DB110 (KiCheckForAtlThunk.c)
+ *     KiOpDecode @ 0x1400F28F0 (KiOpDecode.c)
+ *     KiCheckForAtlThunk @ 0x1401DAF3C (KiCheckForAtlThunk.c)
  */
 
 char __fastcall KiPreprocessFault(__int64 a1, __int64 a2, char a3)

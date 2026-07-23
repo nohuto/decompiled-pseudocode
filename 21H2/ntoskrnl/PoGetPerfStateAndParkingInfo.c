@@ -1,18 +1,18 @@
 /*
- * XREFs of PoGetPerfStateAndParkingInfo @ 0x1402C3774
+ * XREFs of PoGetPerfStateAndParkingInfo @ 0x140241CF4
  * Callers:
- *     ExpQueryProcessorInformationCounters @ 0x14064E480 (ExpQueryProcessorInformationCounters.c)
- *     ExpQuerySystemInformation @ 0x140651070 (ExpQuerySystemInformation.c)
+ *     ExpQueryProcessorInformationCounters @ 0x1406432A0 (ExpQueryProcessorInformationCounters.c)
+ *     ExpQuerySystemInformation @ 0x140645E90 (ExpQuerySystemInformation.c)
  * Callees:
- *     KeGetPrcb @ 0x140228E30 (KeGetPrcb.c)
- *     KeAddProcessorAffinityEx @ 0x140229380 (KeAddProcessorAffinityEx.c)
- *     PopExecuteOnTargetProcessors @ 0x14027B7DC (PopExecuteOnTargetProcessors.c)
- *     KeGetProcessorIndexFromNumber @ 0x14027BE80 (KeGetProcessorIndexFromNumber.c)
- *     PpmPerfGetCurrentState @ 0x1402C38B4 (PpmPerfGetCurrentState.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     PpmPerfGetCurrentState @ 0x140241E34 (PpmPerfGetCurrentState.c)
+ *     PopExecuteOnTargetProcessors @ 0x14026977C (PopExecuteOnTargetProcessors.c)
+ *     KeGetProcessorIndexFromNumber @ 0x140269E20 (KeGetProcessorIndexFromNumber.c)
+ *     KeGetPrcb @ 0x1402CD730 (KeGetPrcb.c)
+ *     KeAddProcessorAffinityEx @ 0x1402CDC80 (KeAddProcessorAffinityEx.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     memset @ 0x140414200 (memset.c)
- *     PpmGetThroughputInfoCallback @ 0x1405770B0 (PpmGetThroughputInfoCallback.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     PpmGetThroughputInfoCallback @ 0x1405772F0 (PpmGetThroughputInfoCallback.c)
  */
 
 char __fastcall PoGetPerfStateAndParkingInfo(PPROCESSOR_NUMBER ProcNumber, __int64 a2, __int64 a3, _QWORD *a4)
@@ -109,7 +109,7 @@ char __fastcall PoGetPerfStateAndParkingInfo(PPROCESSOR_NUMBER ProcNumber, __int
       memset(&v27[1], 0, 0xA4uLL);
       v24 = KeGetProcessorIndexFromNumber(ProcNumber);
       KeAddProcessorAffinityEx(v27, v24);
-      LOBYTE(v14) = PopExecuteOnTargetProcessors((__int64)v27, (__int64)PpmGetThroughputInfoCallback, a3, v17);
+      LOBYTE(v14) = PopExecuteOnTargetProcessors(v27, PpmGetThroughputInfoCallback, a3, v17);
     }
   }
   return v14;

@@ -26,10 +26,10 @@ __int64 __fastcall EtwpEnableDisableSpecialGuids(
   char v15; // bl
   char v16; // r11
   unsigned int v17; // r8d
-  _UNKNOWN **v18; // r14
+  GUID **v18; // r14
   __int64 v19; // rax
   __int64 v20; // rcx
-  unsigned __int64 v21; // rcx
+  __int64 v21; // rcx
   __int64 result; // rax
   __int64 v23; // r11
   unsigned int v24; // ebx
@@ -55,14 +55,14 @@ LABEL_4:
       do
       {
         v19 = *a2;
-        v20 = *(_QWORD *)*v18 - *a2;
+        v20 = *(_QWORD *)&(*v18)->Data1 - *a2;
         if ( !v20 )
-          v20 = *((_QWORD *)*v18 + 1) - a2[1];
+          v20 = *(_QWORD *)(*v18)->Data4 - a2[1];
         if ( !v20 )
         {
           LOBYTE(v9) = a5;
           LOBYTE(v14) = v16;
-          return EtwpEnableDisableUMGL(a1, v14, a3, v9, *((unsigned __int8 *)&EtwpUmglProviders + 16 * v17 + 8));
+          return EtwpEnableDisableUMGL(a1, v14, a3, v9, *((unsigned __int8 *)&(&EtwpUmglProviders)[2 * v17] + 8));
         }
         ++v17;
         v18 += 2;
@@ -70,9 +70,9 @@ LABEL_4:
       while ( v17 < 0xA );
       if ( a1 == EtwpHostSiloState )
       {
-        v21 = KernelRundownGuid - v19;
-        if ( KernelRundownGuid == v19 )
-          v21 = 0xCDF584518E9C7793uLL - a2[1];
+        v21 = *(_QWORD *)&KernelRundownGuid.Data1 - v19;
+        if ( *(_QWORD *)&KernelRundownGuid.Data1 == v19 )
+          v21 = *(_QWORD *)KernelRundownGuid.Data4 - a2[1];
         if ( v21 )
         {
           *a8 = 0;
@@ -118,9 +118,9 @@ LABEL_21:
     *a8 = 0;
     return result;
   }
-  v23 = SystemTraceControlGuid - *a2;
-  if ( SystemTraceControlGuid == *a2 )
-    v23 = 0x3969A8086000829ALL - a2[1];
+  v23 = *(_QWORD *)&SystemTraceControlGuid.Data1 - *a2;
+  if ( *(_QWORD *)&SystemTraceControlGuid.Data1 == *a2 )
+    v23 = *(_QWORD *)SystemTraceControlGuid.Data4 - a2[1];
   v24 = 0;
   if ( v23 || a1 != EtwpHostSiloState )
     goto LABEL_20;

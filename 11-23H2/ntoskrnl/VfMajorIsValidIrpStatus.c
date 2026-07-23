@@ -1,10 +1,10 @@
 /*
- * XREFs of VfMajorIsValidIrpStatus @ 0x140AD3088
+ * XREFs of VfMajorIsValidIrpStatus @ 0x140AD3078
  * Callers:
- *     ViGenericVerifyIrpStackDownward @ 0x140AC30F0 (ViGenericVerifyIrpStackDownward.c)
- *     ViGenericVerifyIrpStackUpward @ 0x140AC32F0 (ViGenericVerifyIrpStackUpward.c)
+ *     ViGenericVerifyIrpStackDownward @ 0x140AC30E0 (ViGenericVerifyIrpStackDownward.c)
+ *     ViGenericVerifyIrpStackUpward @ 0x140AC32E0 (ViGenericVerifyIrpStackUpward.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall VfMajorIsValidIrpStatus(_BYTE *a1, unsigned int a2)

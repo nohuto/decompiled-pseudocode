@@ -1,20 +1,20 @@
 /*
- * XREFs of ExpPartitionDestroy @ 0x14083FAC8
+ * XREFs of ExpPartitionDestroy @ 0x140845D08
  * Callers:
- *     PspTeardownPartition @ 0x1407FE050 (PspTeardownPartition.c)
- *     ExpPartitionInitialize @ 0x14083FCA4 (ExpPartitionInitialize.c)
+ *     PspTeardownPartition @ 0x140803A80 (PspTeardownPartition.c)
+ *     ExpPartitionInitialize @ 0x140845EE4 (ExpPartitionInitialize.c)
  * Callees:
- *     KeSetEvent @ 0x1402DE9C0 (KeSetEvent.c)
- *     KeIsNodeInitialized @ 0x14038227C (KeIsNodeInitialized.c)
- *     KeCancelTimer2 @ 0x1403AA4E0 (KeCancelTimer2.c)
- *     KeCancelTimer @ 0x1403AD790 (KeCancelTimer.c)
- *     KeFlushQueuedDpcs @ 0x14051BE50 (KeFlushQueuedDpcs.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     ZwWaitForSingleObject @ 0x140723470 (ZwWaitForSingleObject.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     ExpWorkQueueDestroy @ 0x14083FEE0 (ExpWorkQueueDestroy.c)
- *     ExpWorkQueueHealthMetricsFree @ 0x140840068 (ExpWorkQueueHealthMetricsFree.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     KeSetEvent @ 0x1402C0780 (KeSetEvent.c)
+ *     KeIsNodeInitialized @ 0x14038402C (KeIsNodeInitialized.c)
+ *     KeCancelTimer2 @ 0x1403B40F0 (KeCancelTimer2.c)
+ *     KeCancelTimer @ 0x1403B74A0 (KeCancelTimer.c)
+ *     KeFlushQueuedDpcs @ 0x1405163E0 (KeFlushQueuedDpcs.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     ZwWaitForSingleObject @ 0x140728040 (ZwWaitForSingleObject.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     ExpWorkQueueDestroy @ 0x140846120 (ExpWorkQueueDestroy.c)
+ *     ExpWorkQueueHealthMetricsFree @ 0x1408462A8 (ExpWorkQueueHealthMetricsFree.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __fastcall ExpPartitionDestroy(PVOID P)
@@ -66,7 +66,7 @@ void __fastcall ExpPartitionDestroy(PVOID P)
         {
           v8 = 0LL;
           v9 = *((_QWORD *)P + 1);
-          v10 = m + *(_DWORD *)&ExSaPageGroupDescriptorArrayLock.SavedApcStateFill[32] * (k + 8 * *v5);
+          v10 = m + *(_DWORD *)&ExSaPageGroupDescriptorArrayLock.WaitBlockFill11[72] * (k + 8 * *v5);
           if ( (*(_QWORD *)(v9 + 8 * v10) & 1) == 0 )
             v8 = *(_QWORD *)(v9 + 8 * v10);
           if ( v8 )

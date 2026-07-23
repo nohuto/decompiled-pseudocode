@@ -24,10 +24,10 @@ __int64 __fastcall MiMarkPxeAsShadowed(unsigned int a1)
   *((_BYTE *)qword_140C67084 + ((unsigned __int64)v1 >> 3)) |= 1 << (v1 & 7);
   result = KxReleaseQueuedSpinLock((volatile signed __int64 **)&v7);
   OldIrql = v7.OldIrql;
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     result = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
       && (unsigned __int8)result <= 0xFu
       && v7.OldIrql <= 0xFu
       && (unsigned __int8)result >= 2u )

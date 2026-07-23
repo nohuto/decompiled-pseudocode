@@ -27,7 +27,7 @@ void __fastcall HvlEnlightenProcessor(char a1)
   unsigned int LpIndexFromProcessorIndex; // eax
   unsigned __int64 v10; // rbx
   unsigned __int64 v11; // [rsp+48h] [rbp+10h] BYREF
-  unsigned __int64 v12; // [rsp+50h] [rbp+18h] BYREF
+  __int64 v12; // [rsp+50h] [rbp+18h] BYREF
 
   v11 = 0LL;
   v12 = 0LL;

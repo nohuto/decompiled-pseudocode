@@ -1,15 +1,15 @@
 /*
- * XREFs of KiDecrementProcessStackCount @ 0x1402699D0
+ * XREFs of KiDecrementProcessStackCount @ 0x14021EF60
  * Callers:
- *     KiOutSwapKernelStacks @ 0x140268FB8 (KiOutSwapKernelStacks.c)
- *     KeDeleteThread @ 0x140269E64 (KeDeleteThread.c)
- *     KiSuspendThread @ 0x140338B00 (KiSuspendThread.c)
- *     KiCommitThreadWait @ 0x140340C20 (KiCommitThreadWait.c)
+ *     KeDeleteThread @ 0x14021F3F4 (KeDeleteThread.c)
+ *     KiOutSwapKernelStacks @ 0x1402600D4 (KiOutSwapKernelStacks.c)
+ *     KiSuspendThread @ 0x1402DE060 (KiSuspendThread.c)
+ *     KiCommitThreadWait @ 0x140320100 (KiCommitThreadWait.c)
  * Callees:
- *     KeSetEvent @ 0x1402725A0 (KeSetEvent.c)
- *     KiAcquireKobjectLockSafe @ 0x14031E740 (KiAcquireKobjectLockSafe.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KeSetEvent @ 0x140227B30 (KeSetEvent.c)
+ *     KiAcquireKobjectLockSafe @ 0x1402C72D0 (KiAcquireKobjectLockSafe.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 __int64 __fastcall KiDecrementProcessStackCount(__int64 a1)

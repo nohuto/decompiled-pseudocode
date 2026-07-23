@@ -1,10 +1,10 @@
 /*
- * XREFs of PfSnAltProfileTreeCompareByProcess @ 0x140939A14
+ * XREFs of PfSnAltProfileTreeCompareByProcess @ 0x14094BEF8
  * Callers:
- *     PfSnSetAltPrefetchParam @ 0x140747784 (PfSnSetAltPrefetchParam.c)
- *     PfSnAltProfileFindByProcess @ 0x140939988 (PfSnAltProfileFindByProcess.c)
+ *     PfSnSetAltPrefetchParam @ 0x140745A74 (PfSnSetAltPrefetchParam.c)
+ *     PfSnAltProfileFindByProcess @ 0x14094BE6C (PfSnAltProfileFindByProcess.c)
  * Callees:
- *     memcmp @ 0x1406BFF10 (memcmp.c)
+ *     memcmp @ 0x1406C0E10 (memcmp.c)
  */
 
 int __fastcall PfSnAltProfileTreeCompareByProcess(__int64 a1, __int64 a2)

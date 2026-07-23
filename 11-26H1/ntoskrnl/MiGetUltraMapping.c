@@ -1,38 +1,38 @@
 /*
- * XREFs of MiGetUltraMapping @ 0x1402881D0
+ * XREFs of MiGetUltraMapping @ 0x140287730
  * Callers:
- *     MiMapPageInHyperSpaceWorker @ 0x140287EE0 (MiMapPageInHyperSpaceWorker.c)
- *     MiDeleteUltraThreadContext @ 0x14028F5E0 (MiDeleteUltraThreadContext.c)
- *     MiZeroWithUltraSpace @ 0x1402A0EE0 (MiZeroWithUltraSpace.c)
- *     MiZeroLargePage @ 0x1402A1A04 (MiZeroLargePage.c)
- *     MiComputeCombineHash @ 0x1402F39F0 (MiComputeCombineHash.c)
- *     MiSharePages @ 0x140306F88 (MiSharePages.c)
- *     MiReplacePageTablePage @ 0x14033C35C (MiReplacePageTablePage.c)
- *     MiScrubPage @ 0x140413AE4 (MiScrubPage.c)
- *     MiReplacePageOfProtoPool @ 0x14044B400 (MiReplacePageOfProtoPool.c)
- *     MiGetPteMappingSet @ 0x14044FFD0 (MiGetPteMappingSet.c)
- *     MiAllocateHyperSpace @ 0x14045E5F0 (MiAllocateHyperSpace.c)
- *     MiDeleteUltraMapContext @ 0x1404655E0 (MiDeleteUltraMapContext.c)
- *     MiInitializeNewUltraHugeContext @ 0x14048DA98 (MiInitializeNewUltraHugeContext.c)
- *     MmMapMdl @ 0x1404E1360 (MmMapMdl.c)
- *     MiMapBackgroundPageToZero @ 0x14051F110 (MiMapBackgroundPageToZero.c)
- *     MiHugePageOperation @ 0x140705138 (MiHugePageOperation.c)
- *     MiUseProcessorHugeMappingAtDpc @ 0x1407054FC (MiUseProcessorHugeMappingAtDpc.c)
- *     MiAcquireScrubProtection @ 0x14070BC8C (MiAcquireScrubProtection.c)
- *     MiUpdateForkMaps @ 0x140AF443C (MiUpdateForkMaps.c)
+ *     MiMapPageInHyperSpaceWorker @ 0x140287440 (MiMapPageInHyperSpaceWorker.c)
+ *     MiDeleteUltraThreadContext @ 0x14028EB40 (MiDeleteUltraThreadContext.c)
+ *     MiZeroWithUltraSpace @ 0x1402A0430 (MiZeroWithUltraSpace.c)
+ *     MiZeroLargePage @ 0x1402A0F54 (MiZeroLargePage.c)
+ *     MiComputeCombineHash @ 0x1402D5A70 (MiComputeCombineHash.c)
+ *     MiSharePages @ 0x1402E9008 (MiSharePages.c)
+ *     MiReplacePageTablePage @ 0x14033E3DC (MiReplacePageTablePage.c)
+ *     MiScrubPage @ 0x140408114 (MiScrubPage.c)
+ *     MiReplacePageOfProtoPool @ 0x140443530 (MiReplacePageOfProtoPool.c)
+ *     MiGetPteMappingSet @ 0x140448100 (MiGetPteMappingSet.c)
+ *     MiAllocateHyperSpace @ 0x140458190 (MiAllocateHyperSpace.c)
+ *     MiDeleteUltraMapContext @ 0x14045E5A0 (MiDeleteUltraMapContext.c)
+ *     MiInitializeNewUltraHugeContext @ 0x1404875D8 (MiInitializeNewUltraHugeContext.c)
+ *     MmMapMdl @ 0x1404DAA40 (MmMapMdl.c)
+ *     MiMapBackgroundPageToZero @ 0x1405217B4 (MiMapBackgroundPageToZero.c)
+ *     MiHugePageOperation @ 0x140709E08 (MiHugePageOperation.c)
+ *     MiUseProcessorHugeMappingAtDpc @ 0x14070A1CC (MiUseProcessorHugeMappingAtDpc.c)
+ *     MiAcquireScrubProtection @ 0x14071093C (MiAcquireScrubProtection.c)
+ *     MiUpdateForkMaps @ 0x140AF6AB0 (MiUpdateForkMaps.c)
  * Callees:
- *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x14021AAD4 (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     ExpWaitForSpinLockExclusiveAndAcquire @ 0x1402474C0 (ExpWaitForSpinLockExclusiveAndAcquire.c)
- *     ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x140249B40 (ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented.c)
- *     MiGetHighestUltraLevel @ 0x14024EE20 (MiGetHighestUltraLevel.c)
- *     MiDeleteUltraMapHierarchy @ 0x14029F45C (MiDeleteUltraMapHierarchy.c)
- *     MiRewritePteWithLockBit @ 0x14029F518 (MiRewritePteWithLockBit.c)
- *     MiReuseUltraPageTable @ 0x14029F784 (MiReuseUltraPageTable.c)
- *     HvlNotifyLongSpinWait @ 0x1402BBF00 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1402BC760 (KiCheckVpBackingLongSpinWaitHypercall.c)
- *     MiMakeValidPte @ 0x1402DA020 (MiMakeValidPte.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x14021C464 (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     ExpWaitForSpinLockExclusiveAndAcquire @ 0x140248E20 (ExpWaitForSpinLockExclusiveAndAcquire.c)
+ *     ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x14024B4A0 (ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented.c)
+ *     MiGetHighestUltraLevel @ 0x140250780 (MiGetHighestUltraLevel.c)
+ *     MiDeleteUltraMapHierarchy @ 0x14029E9AC (MiDeleteUltraMapHierarchy.c)
+ *     MiRewritePteWithLockBit @ 0x14029EA68 (MiRewritePteWithLockBit.c)
+ *     MiReuseUltraPageTable @ 0x14029ECD4 (MiReuseUltraPageTable.c)
+ *     MiMakeValidPte @ 0x1402BBDE0 (MiMakeValidPte.c)
+ *     HvlNotifyLongSpinWait @ 0x140306BC0 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140307420 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 __int64 __fastcall MiGetUltraMapping(__int64 a1, unsigned __int64 a2, __int64 a3, char a4)
@@ -110,7 +110,7 @@ __int64 __fastcall MiGetUltraMapping(__int64 a1, unsigned __int64 a2, __int64 a3
           v17 = (_QWORD *)(v14 + 8);
           if ( ((v14 + 8) & 0xFFF) != 0 )
           {
-            if ( byte_140E2D71A )
+            if ( byte_140E2D89A )
               MiReuseUltraPageTable(a1, 1LL);
             v18 = v14 + 8;
             v19 = (__int64)((_QWORD)v17 << 25) >> 16 << 25 >> 16;
@@ -129,19 +129,19 @@ __int64 __fastcall MiGetUltraMapping(__int64 a1, unsigned __int64 a2, __int64 a3
   if ( (a4 & 4) != 0 )
   {
     CurrentIrql = 17;
-    if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+    if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || PopHibernateInProgress )
     {
       v20 = 0;
-      if ( _interlockedbittestandset(&dword_140E34BA8, 0x1Fu) )
-        v20 = ExpWaitForSpinLockExclusiveAndAcquire(&dword_140E34BA8, 0xFFu);
-      v21 = (unsigned int)dword_140E34BA8;
-      v22 = (unsigned int)dword_140E34BA8;
-      for ( LODWORD(v22) = dword_140E34BA8 & 0xBFFFFFFF;
-            (dword_140E34BA8 & 0xBFFFFFFF) != 0x80000000;
-            v21 = (unsigned int)dword_140E34BA8 )
+      if ( _interlockedbittestandset(&dword_140E34D28, 0x1Fu) )
+        v20 = ExpWaitForSpinLockExclusiveAndAcquire(&dword_140E34D28, 0xFFu);
+      v21 = (unsigned int)dword_140E34D28;
+      v22 = (unsigned int)dword_140E34D28;
+      for ( LODWORD(v22) = dword_140E34D28 & 0xBFFFFFFF;
+            (dword_140E34D28 & 0xBFFFFFFF) != 0x80000000;
+            v21 = (unsigned int)dword_140E34D28 )
       {
         if ( (v21 & 0x40000000) == 0 )
-          _InterlockedOr(&dword_140E34BA8, 0x40000000u);
+          _InterlockedOr(&dword_140E34D28, 0x40000000u);
         if ( (++v20 & HvlLongSpinCountMask) == 0
           && (HvlEnlightenments & 0x40) != 0
           && (unsigned __int8)KiCheckVpBackingLongSpinWaitHypercall(v22, v21, a3) )
@@ -156,7 +156,7 @@ __int64 __fastcall MiGetUltraMapping(__int64 a1, unsigned __int64 a2, __int64 a3
     }
     else
     {
-      ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented(&dword_140E34BA8, 0xFFu);
+      ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented(&dword_140E34D28, 0xFFu);
     }
   }
   else
@@ -169,19 +169,19 @@ __int64 __fastcall MiGetUltraMapping(__int64 a1, unsigned __int64 a2, __int64 a3
       LOBYTE(a2) = 2;
       KiRaiseIrqlProcessIrqlFlags(CurrentIrql, a2);
     }
-    if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+    if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || PopHibernateInProgress )
     {
       v23 = 0;
-      if ( _interlockedbittestandset(&dword_140E34BA8, 0x1Fu) )
-        v23 = ExpWaitForSpinLockExclusiveAndAcquire(&dword_140E34BA8, CurrentIrql);
-      v24 = (unsigned int)dword_140E34BA8;
-      v25 = (unsigned int)dword_140E34BA8;
-      for ( LODWORD(v25) = dword_140E34BA8 & 0xBFFFFFFF;
-            (dword_140E34BA8 & 0xBFFFFFFF) != 0x80000000;
-            v24 = (unsigned int)dword_140E34BA8 )
+      if ( _interlockedbittestandset(&dword_140E34D28, 0x1Fu) )
+        v23 = ExpWaitForSpinLockExclusiveAndAcquire(&dword_140E34D28, CurrentIrql);
+      v24 = (unsigned int)dword_140E34D28;
+      v25 = (unsigned int)dword_140E34D28;
+      for ( LODWORD(v25) = dword_140E34D28 & 0xBFFFFFFF;
+            (dword_140E34D28 & 0xBFFFFFFF) != 0x80000000;
+            v24 = (unsigned int)dword_140E34D28 )
       {
         if ( (v24 & 0x40000000) == 0 )
-          _InterlockedOr(&dword_140E34BA8, 0x40000000u);
+          _InterlockedOr(&dword_140E34D28, 0x40000000u);
         if ( (++v23 & HvlLongSpinCountMask) == 0
           && (HvlEnlightenments & 0x40) != 0
           && (unsigned __int8)KiCheckVpBackingLongSpinWaitHypercall(v25, v24, a3) )
@@ -196,19 +196,19 @@ __int64 __fastcall MiGetUltraMapping(__int64 a1, unsigned __int64 a2, __int64 a3
     }
     else
     {
-      ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented(&dword_140E34BA8, CurrentIrql);
+      ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented(&dword_140E34D28, CurrentIrql);
     }
   }
   if ( v4 )
   {
-    v26 = (v4 - qword_140E34BB0) >> 30;
+    v26 = (v4 - qword_140E34D30) >> 30;
     v27 = (_QWORD *)(((v4 >> 27) & 0x1FFFF8) - 0x90482600000LL);
     if ( *v27 )
       MiRewritePteWithLockBit(0LL, 0LL, v27, *(_QWORD *)&CLFS_LSN_NULL_EXT);
     v28 = a4 & 2;
-    if ( (a4 & 2) == 0 && byte_140E2D71A && *(_QWORD *)(a1 + 8) != -1LL )
+    if ( (a4 & 2) == 0 && byte_140E2D89A && *(_QWORD *)(a1 + 8) != -1LL )
       MiReuseUltraPageTable(a1, 0LL);
-    *(_BYTE *)(qword_140E34BD8 + (v26 >> 3)) |= 1 << (v26 & 7);
+    *(_BYTE *)(qword_140E34D58 + (v26 >> 3)) |= 1 << (v26 & 7);
   }
   else
   {
@@ -219,23 +219,23 @@ __int64 __fastcall MiGetUltraMapping(__int64 a1, unsigned __int64 a2, __int64 a3
     *(_QWORD *)a1 = 0LL;
     if ( CurrentIrql == 17 )
     {
-      if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+      if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || PopHibernateInProgress )
       {
-        dword_140E34BA8 = 0;
+        dword_140E34D28 = 0;
         return 0LL;
       }
       else
       {
-        ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented(&dword_140E34BA8, retaddr);
+        ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented(&dword_140E34D28, retaddr);
         return 0LL;
       }
     }
     else
     {
-      if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
-        dword_140E34BA8 = 0;
+      if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || PopHibernateInProgress )
+        dword_140E34D28 = 0;
       else
-        ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented(&dword_140E34BA8, retaddr);
+        ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented(&dword_140E34D28, retaddr);
       if ( KiIrqlFlags )
         KiLowerIrqlProcessIrqlFlags(KeGetCurrentIrql(), CurrentIrql);
       __writecr8(CurrentIrql);
@@ -244,20 +244,20 @@ __int64 __fastcall MiGetUltraMapping(__int64 a1, unsigned __int64 a2, __int64 a3
   }
   else
   {
-    HighestUltraLevel = MiGetHighestUltraLevel((__int64)&dword_140E34BA8);
+    HighestUltraLevel = MiGetHighestUltraLevel((__int64)&dword_140E34D28);
     if ( CurrentIrql == 17 )
     {
-      if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
-        dword_140E34BA8 = 0;
+      if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || PopHibernateInProgress )
+        dword_140E34D28 = 0;
       else
-        ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented(&dword_140E34BA8, retaddr);
+        ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented(&dword_140E34D28, retaddr);
     }
     else
     {
-      if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
-        dword_140E34BA8 = 0;
+      if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || PopHibernateInProgress )
+        dword_140E34D28 = 0;
       else
-        ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented(&dword_140E34BA8, retaddr);
+        ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented(&dword_140E34D28, retaddr);
       if ( KiIrqlFlags )
         KiLowerIrqlProcessIrqlFlags(KeGetCurrentIrql(), CurrentIrql);
       __writecr8(CurrentIrql);

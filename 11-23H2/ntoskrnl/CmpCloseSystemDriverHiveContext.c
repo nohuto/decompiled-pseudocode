@@ -3,9 +3,9 @@
  * Callers:
  *     CmGetSystemDriverList @ 0x140B3E4A0 (CmGetSystemDriverList.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14022F5B0 (ObfDereferenceObjectWithTag.c)
- *     ZwClose @ 0x14041AF40 (ZwClose.c)
- *     RtlFreeUnicodeString @ 0x14076F3D0 (RtlFreeUnicodeString.c)
+ *     ObfDereferenceObjectWithTag @ 0x14022F6C0 (ObfDereferenceObjectWithTag.c)
+ *     ZwClose @ 0x14041B2D0 (ZwClose.c)
+ *     RtlFreeUnicodeString @ 0x14076F5C0 (RtlFreeUnicodeString.c)
  */
 
 void __fastcall CmpCloseSystemDriverHiveContext(__int64 a1)

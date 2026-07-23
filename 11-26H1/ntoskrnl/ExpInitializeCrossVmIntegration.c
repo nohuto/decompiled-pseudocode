@@ -1,9 +1,9 @@
 /*
- * XREFs of ExpInitializeCrossVmIntegration @ 0x140CE76EC
+ * XREFs of ExpInitializeCrossVmIntegration @ 0x140CEDA8C
  * Callers:
- *     ExpInitSystemPhase1 @ 0x140CE4380 (ExpInitSystemPhase1.c)
+ *     ExpInitSystemPhase1 @ 0x140CEA720 (ExpInitSystemPhase1.c)
  * Callees:
- *     ExRegisterHost @ 0x140840A68 (ExRegisterHost.c)
+ *     ExRegisterHost @ 0x140846CA8 (ExRegisterHost.c)
  */
 
 void __fastcall ExpInitializeCrossVmIntegration(__int64 a1, __int64 a2)

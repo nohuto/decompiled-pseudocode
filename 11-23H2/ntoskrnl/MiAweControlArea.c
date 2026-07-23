@@ -1,12 +1,12 @@
 /*
- * XREFs of MiAweControlArea @ 0x1402A0EA4
+ * XREFs of MiAweControlArea @ 0x1402A1134
  * Callers:
- *     MiReleaseControlAreaCharges @ 0x1402A0E14 (MiReleaseControlAreaCharges.c)
- *     MiReferenceAweHandle @ 0x14064BD18 (MiReferenceAweHandle.c)
- *     MiMapViewOfDataSection @ 0x140720280 (MiMapViewOfDataSection.c)
- *     MmGetSectionInformation @ 0x1407BA090 (MmGetSectionInformation.c)
- *     MiDeletePageFileSectionNodes @ 0x1407CDAC0 (MiDeletePageFileSectionNodes.c)
- *     MiDereferenceFailedControlArea @ 0x1408633E0 (MiDereferenceFailedControlArea.c)
+ *     MiReleaseControlAreaCharges @ 0x1402A10A4 (MiReleaseControlAreaCharges.c)
+ *     MiReferenceAweHandle @ 0x14064C268 (MiReferenceAweHandle.c)
+ *     MiMapViewOfDataSection @ 0x140720480 (MiMapViewOfDataSection.c)
+ *     MmGetSectionInformation @ 0x1407BA370 (MmGetSectionInformation.c)
+ *     MiDeletePageFileSectionNodes @ 0x1407CDD90 (MiDeletePageFileSectionNodes.c)
+ *     MiDereferenceFailedControlArea @ 0x140863620 (MiDereferenceFailedControlArea.c)
  * Callees:
  *     <none>
  */

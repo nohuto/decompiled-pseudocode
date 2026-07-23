@@ -1,13 +1,13 @@
 /*
- * XREFs of CmpSortDriverList @ 0x1409CD05C
+ * XREFs of CmpSortDriverList @ 0x1409CE05C
  * Callers:
- *     CmGetSystemDriverList @ 0x1409CC66C (CmGetSystemDriverList.c)
+ *     CmGetSystemDriverList @ 0x1409CD66C (CmGetSystemDriverList.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     CmpFindSubKeyByName @ 0x14073D0DC (CmpFindSubKeyByName.c)
- *     CmpFindValueByName @ 0x14073D858 (CmpFindValueByName.c)
- *     CmpValueToData @ 0x14073D888 (CmpValueToData.c)
- *     CmpDoSort @ 0x1409CD210 (CmpDoSort.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     CmpFindSubKeyByName @ 0x14073E2CC (CmpFindSubKeyByName.c)
+ *     CmpFindValueByName @ 0x14073EA48 (CmpFindValueByName.c)
+ *     CmpValueToData @ 0x14073EA78 (CmpValueToData.c)
+ *     CmpDoSort @ 0x1409CE210 (CmpDoSort.c)
  */
 
 char __fastcall CmpSortDriverList(ULONG_PTR BugCheckParameter3, __int64 a2, __int64 a3)

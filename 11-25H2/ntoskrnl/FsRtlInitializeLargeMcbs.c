@@ -9,7 +9,14 @@
 
 void FsRtlInitializeLargeMcbs()
 {
-  ExInitializePagedLookasideList(&FsRtlFirstPagedMappingLookasideList, 0LL, 0LL, 0, 0x78uLL, 0x6D695346u, 4u);
+  ExInitializePagedLookasideList(
+    (PPAGED_LOOKASIDE_LIST)&FsRtlFirstPagedMappingLookasideList,
+    0LL,
+    0LL,
+    0,
+    0x78uLL,
+    0x6D695346u,
+    4u);
   ExInitializeNPagedLookasideListInternal(
     (__int64)&FsRtlFirstNonPagedMappingLookasideList,
     0LL,

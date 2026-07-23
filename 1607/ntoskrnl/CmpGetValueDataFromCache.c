@@ -1,10 +1,10 @@
 /*
- * XREFs of CmpGetValueDataFromCache @ 0x1404029F0
+ * XREFs of CmpGetValueDataFromCache @ 0x1404018B0
  * Callers:
- *     CmpCompareNewValueDataAgainstKCBCache @ 0x140402E58 (CmpCompareNewValueDataAgainstKCBCache.c)
- *     CmpQueryKeyValueData @ 0x140440360 (CmpQueryKeyValueData.c)
+ *     CmpCompareNewValueDataAgainstKCBCache @ 0x140401D18 (CmpCompareNewValueDataAgainstKCBCache.c)
+ *     CmpQueryKeyValueData @ 0x14043F230 (CmpQueryKeyValueData.c)
  * Callees:
- *     CmpGetValueData @ 0x140442F60 (CmpGetValueData.c)
+ *     CmpGetValueData @ 0x140441E30 (CmpGetValueData.c)
  */
 
 __int64 __fastcall CmpGetValueDataFromCache(__int64 a1, int a2, int a3, __int64 a4, __int64 a5)

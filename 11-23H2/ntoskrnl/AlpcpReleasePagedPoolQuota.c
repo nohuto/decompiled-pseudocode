@@ -1,11 +1,11 @@
 /*
- * XREFs of AlpcpReleasePagedPoolQuota @ 0x14071DBC0
+ * XREFs of AlpcpReleasePagedPoolQuota @ 0x14071DDC0
  * Callers:
- *     AlpcSecurityDestroyProcedure @ 0x14071C950 (AlpcSecurityDestroyProcedure.c)
- *     AlpcpCreateSecurityContext @ 0x14071C9C8 (AlpcpCreateSecurityContext.c)
- *     AlpcpCaptureMessageData @ 0x14073AA20 (AlpcpCaptureMessageData.c)
- *     AlpcMessageDestroyProcedure @ 0x1407B6140 (AlpcMessageDestroyProcedure.c)
- *     AlpcpCreateReserve @ 0x1407CFE74 (AlpcpCreateReserve.c)
+ *     AlpcSecurityDestroyProcedure @ 0x14071CB50 (AlpcSecurityDestroyProcedure.c)
+ *     AlpcpCreateSecurityContext @ 0x14071CBC8 (AlpcpCreateSecurityContext.c)
+ *     AlpcpCaptureMessageData @ 0x14073AC10 (AlpcpCaptureMessageData.c)
+ *     AlpcMessageDestroyProcedure @ 0x1407B6420 (AlpcMessageDestroyProcedure.c)
+ *     AlpcpCreateReserve @ 0x1407D0144 (AlpcpCreateReserve.c)
  * Callees:
  *     PsReturnProcessPagedPoolQuota @ 0x1402085B0 (PsReturnProcessPagedPoolQuota.c)
  */

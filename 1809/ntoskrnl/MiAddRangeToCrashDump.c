@@ -1,15 +1,15 @@
 /*
- * XREFs of MiAddRangeToCrashDump @ 0x1402ADCF8
+ * XREFs of MiAddRangeToCrashDump @ 0x1402ADEE8
  * Callers:
- *     MiAddRangeToCrashDump @ 0x1402ADCF8 (MiAddRangeToCrashDump.c)
- *     MmAddRangeToCrashDump @ 0x1402AE210 (MmAddRangeToCrashDump.c)
+ *     MiAddRangeToCrashDump @ 0x1402ADEE8 (MiAddRangeToCrashDump.c)
+ *     MmAddRangeToCrashDump @ 0x1402AE400 (MmAddRangeToCrashDump.c)
  * Callees:
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
  *     MiGetSystemRegionType @ 0x14004EC30 (MiGetSystemRegionType.c)
- *     MiIsPageSecured @ 0x1400EA7E0 (MiIsPageSecured.c)
- *     KdCheckForDebugBreak @ 0x140144678 (KdCheckForDebugBreak.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     MiAddRangeToCrashDump @ 0x1402ADCF8 (MiAddRangeToCrashDump.c)
+ *     MiIsPageSecured @ 0x1400EA860 (MiIsPageSecured.c)
+ *     KdCheckForDebugBreak @ 0x140144778 (KdCheckForDebugBreak.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     MiAddRangeToCrashDump @ 0x1402ADEE8 (MiAddRangeToCrashDump.c)
  */
 
 __int64 __fastcall MiAddRangeToCrashDump(
@@ -103,8 +103,8 @@ __int64 __fastcall MiAddRangeToCrashDump(
         if ( (v12 & 0x400) != 0 || (v12 & 0x800) == 0 )
           goto LABEL_64;
         v26 = v12;
-        if ( qword_14043A0C0 && (v12 & 0x10) == 0 )
-          v26 = v12 & ~qword_14043A0C0;
+        if ( qword_14043B180 && (v12 & 0x10) == 0 )
+          v26 = v12 & ~qword_14043B180;
         v14 = (v26 >> 12) & 0xFFFFFFFFFLL;
       }
       v27 = (__int64)((v6 << 25) - (v18 << 25)) >> 16;
@@ -124,7 +124,7 @@ __int64 __fastcall MiAddRangeToCrashDump(
           && ((*(_QWORD *)(v28 + 24) & 0x3FFFFFFFFFFFFFFFLL) == 0
            || (*(_BYTE *)(v28 + 34) & 7) != 6
            || (*(_QWORD *)(v28 + 40) & 0xFFFFFFFFFLL) != 0xFFFFFFFFDLL)
-          && v29 != qword_14043A810 )
+          && v29 != qword_14043B8D0 )
         {
           v30 = 0;
         }

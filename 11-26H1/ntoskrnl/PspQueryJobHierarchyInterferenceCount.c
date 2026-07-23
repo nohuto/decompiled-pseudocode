@@ -1,14 +1,14 @@
 /*
- * XREFs of PspQueryJobHierarchyInterferenceCount @ 0x1407F8EFC
+ * XREFs of PspQueryJobHierarchyInterferenceCount @ 0x1407FE9FC
  * Callers:
- *     NtQueryInformationJobObject @ 0x1407F2FB0 (NtQueryInformationJobObject.c)
+ *     NtQueryInformationJobObject @ 0x1407F8B10 (NtQueryInformationJobObject.c)
  * Callees:
- *     ExInitializeFastOwnerEntry @ 0x14043D670 (ExInitializeFastOwnerEntry.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     RtlWriteULong64ToUser @ 0x14077F758 (RtlWriteULong64ToUser.c)
- *     PspEnumJobsAndProcessesInJobHierarchy @ 0x14095A350 (PspEnumJobsAndProcessesInJobHierarchy.c)
- *     PspLockJobShared @ 0x140A81FE8 (PspLockJobShared.c)
- *     PspUnlockJobShared @ 0x140AAD180 (PspUnlockJobShared.c)
+ *     ExInitializeFastOwnerEntry @ 0x14042FF20 (ExInitializeFastOwnerEntry.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     RtlWriteULong64ToUser @ 0x140782258 (RtlWriteULong64ToUser.c)
+ *     PspEnumJobsAndProcessesInJobHierarchy @ 0x1409FFC10 (PspEnumJobsAndProcessesInJobHierarchy.c)
+ *     PspLockJobShared @ 0x140A87E58 (PspLockJobShared.c)
+ *     PspUnlockJobShared @ 0x140AAB240 (PspUnlockJobShared.c)
  */
 
 __int64 __fastcall PspQueryJobHierarchyInterferenceCount(PVOID Object, _QWORD *a2, char a3)

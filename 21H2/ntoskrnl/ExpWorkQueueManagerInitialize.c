@@ -1,21 +1,21 @@
 /*
- * XREFs of ExpWorkQueueManagerInitialize @ 0x1407C2798
+ * XREFs of ExpWorkQueueManagerInitialize @ 0x1407C2CB8
  * Callers:
- *     ExpPartitionInitialize @ 0x1407C23AC (ExpPartitionInitialize.c)
+ *     ExpPartitionInitialize @ 0x1407C28CC (ExpPartitionInitialize.c)
  * Callees:
- *     KeSelectIdealProcessor @ 0x140277F88 (KeSelectIdealProcessor.c)
- *     KeInitializeTimerEx @ 0x140278AE0 (KeInitializeTimerEx.c)
- *     KeQueryNodeActiveAffinity @ 0x1402E2F80 (KeQueryNodeActiveAffinity.c)
- *     KeInitializeTimer2 @ 0x1402E9260 (KeInitializeTimer2.c)
- *     KeInitializeEvent @ 0x1403538F0 (KeInitializeEvent.c)
- *     memset @ 0x140414200 (memset.c)
+ *     KeSelectIdealProcessor @ 0x140265F28 (KeSelectIdealProcessor.c)
+ *     KeInitializeTimerEx @ 0x140266A80 (KeInitializeTimerEx.c)
+ *     KeQueryNodeActiveAffinity @ 0x1402942D0 (KeQueryNodeActiveAffinity.c)
+ *     KeInitializeTimer2 @ 0x14029A5B0 (KeInitializeTimer2.c)
+ *     KeInitializeEvent @ 0x14035E640 (KeInitializeEvent.c)
+ *     memset @ 0x140414300 (memset.c)
  */
 
 unsigned __int64 __fastcall ExpWorkQueueManagerInitialize(__int64 a1, __int64 a2, __int64 a3)
 {
   __int16 v6; // cx
   unsigned __int64 result; // rax
-  struct _GROUP_AFFINITY Affinity; // [rsp+20h] [rbp-18h] BYREF
+  _GROUP_AFFINITY Affinity; // [rsp+20h] [rbp-18h] BYREF
 
   Affinity = 0LL;
   memset((void *)(a1 + 16), 0, 0x108uLL);

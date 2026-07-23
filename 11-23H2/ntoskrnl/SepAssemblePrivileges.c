@@ -1,8 +1,8 @@
 /*
- * XREFs of SepAssemblePrivileges @ 0x1407CB764
+ * XREFs of SepAssemblePrivileges @ 0x1407CBA34
  * Callers:
- *     SepAccessCheckEx @ 0x140228844 (SepAccessCheckEx.c)
- *     SepAccessCheck @ 0x140232CA0 (SepAccessCheck.c)
+ *     SepAccessCheckEx @ 0x140228954 (SepAccessCheckEx.c)
+ *     SepAccessCheck @ 0x140232D70 (SepAccessCheck.c)
  * Callees:
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

@@ -210,22 +210,22 @@ void *__cdecl memcpy(void *a1, const void *Src, size_t Size)
 {
   char *v3; // esi
   char *v4; // edi
-  size_t v5; // ecx
+  unsigned int v5; // ecx
   void *result; // eax
   char *v7; // esi
   char *v8; // edi
-  size_t v9; // ecx
+  unsigned int v9; // ecx
 
   v3 = (char *)Src;
   v4 = (char *)a1;
-  if ( a1 > Src && a1 < (char *)Src + Size )
+  if ( a1 > Src && a1 < (char *)Src + (unsigned int)Size )
   {
     v7 = (char *)Src + Size - 4;
     v8 = (char *)a1 + Size - 4;
     if ( ((unsigned __int8)v8 & 3) == 0 )
     {
-      v9 = Size >> 2;
-      if ( Size >> 2 >= 8 )
+      v9 = (unsigned int)Size >> 2;
+      if ( (unsigned int)Size >> 2 >= 8 )
       {
         while ( v9 )
         {
@@ -236,46 +236,46 @@ void *__cdecl memcpy(void *a1, const void *Src, size_t Size)
         }
         switch ( Size & 3 )
         {
-          case 0u:
+          case 0uLL:
             goto LABEL_32;
-          case 1u:
+          case 1uLL:
             goto LABEL_33;
-          case 2u:
+          case 2uLL:
             goto LABEL_34;
-          case 3u:
+          case 3uLL:
             goto LABEL_35;
         }
       }
       switch ( Size & 3 )
       {
-        case 0u:
+        case 0uLL:
           goto LABEL_32;
-        case 1u:
+        case 1uLL:
           goto LABEL_33;
-        case 2u:
+        case 2uLL:
           goto LABEL_34;
-        case 3u:
+        case 3uLL:
           goto LABEL_35;
       }
     }
-    switch ( Size )
+    switch ( (int)Size )
     {
-      case 0u:
+      case 0:
 LABEL_32:
         result = a1;
         break;
-      case 1u:
+      case 1:
 LABEL_33:
         v8[3] = v7[3];
         result = a1;
         break;
-      case 2u:
+      case 2:
 LABEL_34:
         v8[3] = v7[3];
         v8[2] = v7[2];
         result = a1;
         break;
-      case 3u:
+      case 3:
 LABEL_35:
         v8[3] = v7[3];
         v8[2] = v7[2];
@@ -291,11 +291,11 @@ LABEL_35:
   {
     if ( ((unsigned __int8)a1 & 3) != 0 )
     {
-      if ( Size >= 4 )
+      if ( (unsigned int)Size >= 4 )
         __asm { jmp     dword ptr ds:(loc_4B2F890C+4)[eax*4] }
       __asm { jmp     dword ptr ds:loc_4B2F8A0C[ecx*4]; jumptable 4B2F88E5 case 0 }
     }
-    v5 = Size >> 2;
+    v5 = (unsigned int)Size >> 2;
     switch ( v5 )
     {
       case 0u:
@@ -331,13 +331,13 @@ LABEL_16:
 LABEL_17:
         switch ( Size & 3 )
         {
-          case 0u:
+          case 0uLL:
             goto LABEL_18;
-          case 1u:
+          case 1uLL:
             goto LABEL_19;
-          case 2u:
+          case 2uLL:
             goto LABEL_20;
-          case 3u:
+          case 3uLL:
             goto LABEL_21;
         }
       default:
@@ -346,22 +346,22 @@ LABEL_17:
         v4 = (char *)a1 + 4 * v5;
         switch ( Size & 3 )
         {
-          case 0u:
+          case 0uLL:
 LABEL_18:
             result = a1;
             break;
-          case 1u:
+          case 1uLL:
 LABEL_19:
             *v4 = *v3;
             result = a1;
             break;
-          case 2u:
+          case 2uLL:
 LABEL_20:
             *v4 = *v3;
             v4[1] = v3[1];
             result = a1;
             break;
-          case 3u:
+          case 3uLL:
 LABEL_21:
             *v4 = *v3;
             v4[1] = v3[1];

@@ -6,14 +6,14 @@
  *     _RtlQueryCriticalSectionOwner@8 @ 0x4B34A6A0 (_RtlQueryCriticalSectionOwner@8.c)
  */
 
-int __fastcall RtlpQueryCriticalSectionOwnerInformation(int a1, __int16 a2)
+int __thiscall RtlpQueryCriticalSectionOwnerInformation(int this)
 {
-  int v2; // esi
+  int v1; // esi
 
-  v2 = 0;
-  *(_DWORD *)(a1 + 84) = 0;
-  if ( !*(_DWORD *)(a1 + 80) )
+  v1 = 0;
+  *(_DWORD *)(this + 84) = 0;
+  if ( !*(_DWORD *)(this + 80) )
     return -1073741811;
-  *(_DWORD *)(a1 + 84) = RtlQueryCriticalSectionOwner(*(_DWORD *)(a1 + 80), (a2 & 0x800) != 0);
-  return v2;
+  *(_DWORD *)(this + 84) = RtlQueryCriticalSectionOwner(*(HANDLE *)(this + 80));
+  return v1;
 }

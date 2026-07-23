@@ -1,10 +1,10 @@
 /*
- * XREFs of IopErrorLogRequeueEntry @ 0x1404CEE50
+ * XREFs of IopErrorLogRequeueEntry @ 0x1404C801C
  * Callers:
- *     IopErrorLogThread @ 0x140A48EE0 (IopErrorLogThread.c)
+ *     IopErrorLogThread @ 0x140A3FC00 (IopErrorLogThread.c)
  * Callees:
- *     KeReleaseSpinLock @ 0x14024DD30 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140254B20 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KeReleaseSpinLock @ 0x14027E340 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140285130 (KeAcquireSpinLockRaiseToDpc.c)
  */
 
 void __fastcall IopErrorLogRequeueEntry(_QWORD *a1)

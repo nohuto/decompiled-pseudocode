@@ -1,21 +1,21 @@
 /*
- * XREFs of KsepGetShimsForDriver @ 0x140484638
+ * XREFs of KsepGetShimsForDriver @ 0x1405139C0
  * Callers:
- *     KseDriverLoadImage @ 0x1404859F4 (KseDriverLoadImage.c)
+ *     KseDriverLoadImage @ 0x140514D7C (KseDriverLoadImage.c)
  * Callees:
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x140055FA0 (KiLeaveCriticalRegionUnsafe.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     KsepPoolAllocatePaged @ 0x140084D74 (KsepPoolAllocatePaged.c)
- *     KsepLogInfo @ 0x140084DC8 (KsepLogInfo.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1400C8070 (ExfAcquirePushLockExclusiveEx.c)
- *     ExfTryToWakePushLock @ 0x1400C8738 (ExfTryToWakePushLock.c)
- *     KsepDebugPrint @ 0x1401DCC3C (KsepDebugPrint.c)
- *     KsepDbGetDriverShims @ 0x14048471C (KsepDbGetDriverShims.c)
- *     KsepDbFreeDriverShims @ 0x140484914 (KsepDbFreeDriverShims.c)
- *     KsepEngineGetShimsFromRegistry @ 0x140485B50 (KsepEngineGetShimsFromRegistry.c)
- *     KsepIsModuleShimmed @ 0x140485CC8 (KsepIsModuleShimmed.c)
- *     KsepResolveApplicableShimsForDriver @ 0x140653468 (KsepResolveApplicableShimsForDriver.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140055B20 (KiLeaveCriticalRegionUnsafe.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1400C5F10 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfTryToWakePushLock @ 0x1400C65D8 (ExfTryToWakePushLock.c)
+ *     KsepPoolAllocatePaged @ 0x14010B37C (KsepPoolAllocatePaged.c)
+ *     KsepLogInfo @ 0x14010B3D0 (KsepLogInfo.c)
+ *     KsepDebugPrint @ 0x1401DCA68 (KsepDebugPrint.c)
+ *     KsepDbGetDriverShims @ 0x140513AA4 (KsepDbGetDriverShims.c)
+ *     KsepDbFreeDriverShims @ 0x140513C9C (KsepDbFreeDriverShims.c)
+ *     KsepEngineGetShimsFromRegistry @ 0x140514ED8 (KsepEngineGetShimsFromRegistry.c)
+ *     KsepIsModuleShimmed @ 0x140515050 (KsepIsModuleShimmed.c)
+ *     KsepResolveApplicableShimsForDriver @ 0x14065354C (KsepResolveApplicableShimsForDriver.c)
  */
 
 __int64 __fastcall KsepGetShimsForDriver(__int64 a1, int a2, __int64 a3, int a4, _QWORD *a5, unsigned int *a6)
@@ -80,22 +80,22 @@ LABEL_12:
   Paged[2] = a3;
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
-  v18 = (_BYTE *)KeAbPreAcquire((ULONG_PTR)&qword_140328F20, 0LL, 0);
+  v18 = (_BYTE *)KeAbPreAcquire((ULONG_PTR)&qword_140328F60, 0LL, 0);
   v19 = v18;
-  if ( _interlockedbittestandset64((volatile signed __int32 *)&qword_140328F20, 0LL) )
-    ExfAcquirePushLockExclusiveEx(&qword_140328F20, v18, (ULONG_PTR)&qword_140328F20);
+  if ( _interlockedbittestandset64((volatile signed __int32 *)&qword_140328F60, 0LL) )
+    ExfAcquirePushLockExclusiveEx(&qword_140328F60, v18, (ULONG_PTR)&qword_140328F60);
   if ( v19 )
     v19[26] |= 1u;
-  v20 = (_QWORD *)qword_140328F18;
-  if ( *(_UNKNOWN **)qword_140328F18 != &unk_140328F10 )
+  v20 = (_QWORD *)qword_140328F58;
+  if ( *(_UNKNOWN **)qword_140328F58 != &unk_140328F50 )
     __fastfail(3u);
-  *v16 = &unk_140328F10;
+  *v16 = &unk_140328F50;
   v16[1] = v20;
   *v20 = v16;
-  qword_140328F18 = (__int64)v16;
-  if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_140328F20, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-    ExfTryToWakePushLock((volatile signed __int64 *)&qword_140328F20);
-  KeAbPostRelease((ULONG_PTR)&qword_140328F20);
+  qword_140328F58 = (__int64)v16;
+  if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_140328F60, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+    ExfTryToWakePushLock((volatile signed __int64 *)&qword_140328F60);
+  KeAbPostRelease((ULONG_PTR)&qword_140328F60);
   KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread(), v21, v22, v23);
 LABEL_5:
   *a5 = v27;

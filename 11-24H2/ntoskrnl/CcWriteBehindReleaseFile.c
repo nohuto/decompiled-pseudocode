@@ -1,11 +1,11 @@
 /*
- * XREFs of CcWriteBehindReleaseFile @ 0x1404DE6F8
+ * XREFs of CcWriteBehindReleaseFile @ 0x1404D8118
  * Callers:
- *     CcWriteBehindPostProcess @ 0x1402A883C (CcWriteBehindPostProcess.c)
- *     CcQueueAsyncLazywriteCompletion @ 0x14057E2B0 (CcQueueAsyncLazywriteCompletion.c)
+ *     CcWriteBehindPostProcess @ 0x14027A62C (CcWriteBehindPostProcess.c)
+ *     CcQueueAsyncLazywriteCompletion @ 0x14057B740 (CcQueueAsyncLazywriteCompletion.c)
  * Callees:
- *     CcApplyLowIoPriorityToThread @ 0x1404DAC78 (CcApplyLowIoPriorityToThread.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
+ *     CcApplyLowIoPriorityToThread @ 0x1404D4698 (CcApplyLowIoPriorityToThread.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
  */
 
 char __fastcall CcWriteBehindReleaseFile(__int64 a1)
@@ -47,6 +47,6 @@ char __fastcall CcWriteBehindReleaseFile(__int64 a1)
   else
     v7 = *(_QWORD *)(v5 + 328);
   *(_QWORD *)(v5 + 328) = v7;
-  guard_dispatch_icall_no_overrides(*(_QWORD *)(v3 + 224), *(_QWORD *)(v3 + 216), v5, 208LL);
+  guard_dispatch_icall_no_overrides(*(_QWORD *)(v3 + 224), *(_QWORD *)(v3 + 216));
   return 1;
 }

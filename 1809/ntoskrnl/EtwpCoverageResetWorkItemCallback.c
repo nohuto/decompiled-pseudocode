@@ -1,9 +1,9 @@
 /*
- * XREFs of EtwpCoverageResetWorkItemCallback @ 0x1408B6EE0
+ * XREFs of EtwpCoverageResetWorkItemCallback @ 0x1408B81A0
  * Callers:
  *     <none>
  * Callees:
- *     EtwpCoverageReset @ 0x1408B6A28 (EtwpCoverageReset.c)
+ *     EtwpCoverageReset @ 0x1408B7CE8 (EtwpCoverageReset.c)
  */
 
 struct _KTHREAD *__fastcall EtwpCoverageResetWorkItemCallback(__int64 a1)

@@ -1,11 +1,11 @@
 /*
- * XREFs of HvpEnlistFreeCells @ 0x1405140A0
+ * XREFs of HvpEnlistFreeCells @ 0x1404F7490
  * Callers:
- *     HvpEnlistBinInMap @ 0x140513FE0 (HvpEnlistBinInMap.c)
- *     HvpBuildMapForLoaderHive @ 0x140563D50 (HvpBuildMapForLoaderHive.c)
+ *     HvpEnlistBinInMap @ 0x1404F73D0 (HvpEnlistBinInMap.c)
+ *     HvpBuildMapForLoaderHive @ 0x140564290 (HvpBuildMapForLoaderHive.c)
  * Callees:
- *     memset @ 0x1401715C0 (memset.c)
- *     HvpEnlistFreeCell @ 0x140514E4C (HvpEnlistFreeCell.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     HvpEnlistFreeCell @ 0x1404F823C (HvpEnlistFreeCell.c)
  */
 
 __int64 __fastcall HvpEnlistFreeCells(ULONG_PTR BugCheckParameter2, __int64 a2, int a3)

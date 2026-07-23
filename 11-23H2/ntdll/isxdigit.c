@@ -5,7 +5,7 @@
  *     RtlIpv4StringToAddressA @ 0x18007F940 (RtlIpv4StringToAddressA.c)
  *     RtlIpv6StringToAddressExA @ 0x180084280 (RtlIpv6StringToAddressExA.c)
  *     RtlIpv6StringToAddressA @ 0x180084310 (RtlIpv6StringToAddressA.c)
- *     RtlEthernetStringToAddressA @ 0x1801097B0 (RtlEthernetStringToAddressA.c)
+ *     RtlEthernetStringToAddressA @ 0x180109780 (RtlEthernetStringToAddressA.c)
  * Callees:
  *     <none>
  */

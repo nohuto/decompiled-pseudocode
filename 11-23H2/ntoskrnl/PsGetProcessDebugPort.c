@@ -1,5 +1,5 @@
 /*
- * XREFs of PsGetProcessDebugPort @ 0x14036B570
+ * XREFs of PsGetProcessDebugPort @ 0x14036B710
  * Callers:
  *     <none>
  * Callees:

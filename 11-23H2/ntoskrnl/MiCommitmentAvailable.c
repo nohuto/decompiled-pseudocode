@@ -1,7 +1,7 @@
 /*
- * XREFs of MiCommitmentAvailable @ 0x1402EE868
+ * XREFs of MiCommitmentAvailable @ 0x1402EEAF8
  * Callers:
- *     MiPrefetchVirtualMemory @ 0x1402EE1C8 (MiPrefetchVirtualMemory.c)
+ *     MiPrefetchVirtualMemory @ 0x1402EE458 (MiPrefetchVirtualMemory.c)
  * Callees:
  *     <none>
  */

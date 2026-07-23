@@ -29,7 +29,7 @@ __int64 __fastcall EtwpQueryPartitionRegistryInformation(GUID *a1, _DWORD *a2, _
   UNICODE_STRING *p_UnicodeString; // [rsp+B8h] [rbp-48h]
   int v20; // [rsp+C0h] [rbp-40h] BYREF
   UNICODE_STRING *v21; // [rsp+C8h] [rbp-38h]
-  _QWORD v22[28]; // [rsp+E0h] [rbp-20h] BYREF
+  _RTL_QUERY_REGISTRY_TABLE QueryTable[4]; // [rsp+E0h] [rbp-20h] BYREF
 
   *a2 = 0;
   v10 = 0;
@@ -46,28 +46,28 @@ __int64 __fastcall EtwpQueryPartitionRegistryInformation(GUID *a1, _DWORD *a2, _
   RegistryValues = ZwOpenKey(&KeyHandle, 0x20019u, &ObjectAttributes);
   if ( RegistryValues >= 0 )
   {
-    memset(v22, 0, sizeof(v22));
+    memset(QueryTable, 0, sizeof(QueryTable));
     v17 = a2;
-    LODWORD(v22[11]) = 1;
-    v22[0] = &EtwpQueryRegistryCallback;
-    v22[3] = &v16;
-    v22[7] = &EtwpQueryRegistryCallback;
-    v22[2] = L"ContainerType";
+    QueryTable[1].DefaultType = 1;
+    QueryTable[0].QueryRoutine = (PRTL_QUERY_REGISTRY_ROUTINE)&EtwpQueryRegistryCallback;
+    QueryTable[0].EntryContext = &v16;
+    QueryTable[1].QueryRoutine = (PRTL_QUERY_REGISTRY_ROUTINE)&EtwpQueryRegistryCallback;
+    QueryTable[0].Name = L"ContainerType";
     v18 = 1;
-    LODWORD(v22[4]) = 4;
+    QueryTable[0].DefaultType = 4;
     v16 = 4;
-    v22[10] = &v18;
-    v22[9] = L"ContainerId";
-    v22[12] = &v10;
+    QueryTable[1].EntryContext = &v18;
+    QueryTable[1].Name = L"ContainerId";
+    QueryTable[1].DefaultData = &v10;
     p_UnicodeString = &UnicodeString;
-    v22[17] = &v20;
-    v22[16] = L"ContainerCorrelationId";
-    v22[19] = &v10;
-    v22[14] = &EtwpQueryRegistryCallback;
-    LODWORD(v22[18]) = 1;
+    QueryTable[2].EntryContext = &v20;
+    QueryTable[2].Name = L"ContainerCorrelationId";
+    QueryTable[2].DefaultData = &v10;
+    QueryTable[2].QueryRoutine = (PRTL_QUERY_REGISTRY_ROUTINE)&EtwpQueryRegistryCallback;
+    QueryTable[2].DefaultType = 1;
     v20 = 1;
     v21 = &v13;
-    RegistryValues = RtlQueryRegistryValuesEx(0x40000000LL, KeyHandle, v22, 0LL, 0LL);
+    RegistryValues = RtlQueryRegistryValuesEx(0x40000000u, (PCWSTR)KeyHandle, QueryTable, 0LL, 0LL);
     if ( RegistryValues >= 0 )
     {
       *a3 = 0LL;

@@ -6,11 +6,7 @@
  *     <none>
  */
 
-void *__stdcall DbgUiSetThreadDebugObject(void *a1)
+void __cdecl DbgUiSetThreadDebugObject(HANDLE DebugObject)
 {
-  void *result; // eax
-
-  result = a1;
-  NtCurrentTeb()->DbgSsReserved[1] = a1;
-  return result;
+  NtCurrentTeb()->DbgSsReserved[1] = DebugObject;
 }

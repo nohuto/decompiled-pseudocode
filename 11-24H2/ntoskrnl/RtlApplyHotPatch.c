@@ -1,21 +1,21 @@
 /*
- * XREFs of RtlApplyHotPatch @ 0x140B63AD0
+ * XREFs of RtlApplyHotPatch @ 0x140B65BA0
  * Callers:
- *     MiApplyHotPatchToDriverDataPages @ 0x1407F1288 (MiApplyHotPatchToDriverDataPages.c)
- *     MiApplyImageHotPatch @ 0x1407F16A0 (MiApplyImageHotPatch.c)
- *     MiApplyImageHotPatchRequest @ 0x1407F191C (MiApplyImageHotPatchRequest.c)
- *     MiApplyImageHotPatchDpc @ 0x140B63260 (MiApplyImageHotPatchDpc.c)
+ *     MiApplyHotPatchToDriverDataPages @ 0x1407F1858 (MiApplyHotPatchToDriverDataPages.c)
+ *     MiApplyImageHotPatch @ 0x1407F1C70 (MiApplyImageHotPatch.c)
+ *     MiApplyImageHotPatchRequest @ 0x1407F1EEC (MiApplyImageHotPatchRequest.c)
+ *     MiApplyImageHotPatchDpc @ 0x140B65330 (MiApplyImageHotPatchDpc.c)
  * Callees:
- *     RtlFindClearBitsAndSet @ 0x14024B8D0 (RtlFindClearBitsAndSet.c)
- *     RtlGetHotPatchSize @ 0x1406A345C (RtlGetHotPatchSize.c)
- *     RtlGetHpatEntryAddress @ 0x1406A3474 (RtlGetHpatEntryAddress.c)
- *     RtlpRevertFunctionPatchFromUndoEntry @ 0x1406A3498 (RtlpRevertFunctionPatchFromUndoEntry.c)
- *     RtlPopulateHpatEntry @ 0x1406A3614 (RtlPopulateHpatEntry.c)
- *     RtlpApplyFunctionPatch @ 0x1406A3678 (RtlpApplyFunctionPatch.c)
- *     RtlpCheckFunctionPatchAppliedInOriginalImage @ 0x1406A3694 (RtlpCheckFunctionPatchAppliedInOriginalImage.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     RtlIsCodeInEcRanges @ 0x14082F334 (RtlIsCodeInEcRanges.c)
- *     RtlpDetermineHotPatchExtent @ 0x140B64050 (RtlpDetermineHotPatchExtent.c)
+ *     RtlFindClearBitsAndSet @ 0x14027BEE0 (RtlFindClearBitsAndSet.c)
+ *     RtlGetHotPatchSize @ 0x1406A44AC (RtlGetHotPatchSize.c)
+ *     RtlGetHpatEntryAddress @ 0x1406A44C4 (RtlGetHpatEntryAddress.c)
+ *     RtlpRevertFunctionPatchFromUndoEntry @ 0x1406A44E8 (RtlpRevertFunctionPatchFromUndoEntry.c)
+ *     RtlPopulateHpatEntry @ 0x1406A4664 (RtlPopulateHpatEntry.c)
+ *     RtlpApplyFunctionPatch @ 0x1406A46C8 (RtlpApplyFunctionPatch.c)
+ *     RtlpCheckFunctionPatchAppliedInOriginalImage @ 0x1406A46E4 (RtlpCheckFunctionPatchAppliedInOriginalImage.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     RtlIsCodeInEcRanges @ 0x140B66104 (RtlIsCodeInEcRanges.c)
+ *     RtlpDetermineHotPatchExtent @ 0x140B66158 (RtlpDetermineHotPatchExtent.c)
  */
 
 __int64 __fastcall RtlApplyHotPatch(
@@ -25,7 +25,7 @@ __int64 __fastcall RtlApplyHotPatch(
         unsigned int a4,
         unsigned int *a5,
         char a6,
-        unsigned int *a7,
+        __int64 a7,
         unsigned int a8,
         __int64 a9,
         int a10,
@@ -35,7 +35,7 @@ __int64 __fastcall RtlApplyHotPatch(
         unsigned int a14,
         unsigned int *a15,
         unsigned int a16,
-        unsigned int *a17,
+        __int64 a17,
         unsigned int a18,
         _DWORD *a19,
         unsigned int *a20,
@@ -44,8 +44,8 @@ __int64 __fastcall RtlApplyHotPatch(
         PRTL_BITMAP BitMapHeader,
         __int64 a24,
         __int128 *a25,
-        unsigned int a26,
-        unsigned int *a27,
+        int a26,
+        __int64 a27,
         __int64 a28,
         unsigned int a29)
 {
@@ -54,15 +54,15 @@ __int64 __fastcall RtlApplyHotPatch(
   __int64 v31; // r14
   __int64 v32; // rdi
   int HotPatchSize; // edx
-  unsigned int v34; // r8d
-  unsigned int *v35; // r9
+  __int64 v34; // r8
+  __int64 v35; // r9
   __int64 v36; // r10
   unsigned int v37; // r11d
   int v38; // r12d
   __int64 v39; // r15
   unsigned int v40; // r13d
   int v41; // r12d
-  unsigned int v42; // edi
+  int v42; // edi
   __int64 v43; // r8
   __int64 v44; // r9
   unsigned __int16 v45; // r14
@@ -82,7 +82,7 @@ __int64 __fastcall RtlApplyHotPatch(
   __int64 v59; // rax
   __int64 v60; // r10
   _BYTE *v61; // rcx
-  RTL_BITMAP *v62; // rbx
+  _RTL_BITMAP *v62; // rbx
   ULONG ClearBitsAndSet; // r8d
   __int64 v64; // rsi
   _DWORD *v65; // rdx
@@ -191,12 +191,12 @@ LABEL_14:
             }
             v42 = *v30;
             v45 = -21916;
-            if ( !RtlIsCodeInEcRanges(*v30, v35, v34) )
+            if ( !(unsigned __int8)RtlIsCodeInEcRanges(*v30, v35, v34) )
               v45 = a22;
             if ( !*(_QWORD *)v29 )
               break;
             RtlpDetermineHotPatchExtent(v40, v45, &a10, &a26);
-            result = guard_dispatch_icall_no_overrides(v72, v42 + a10, v30[1], a26);
+            result = guard_dispatch_icall_no_overrides(v72, (unsigned int)(v42 + a10));
             if ( (int)result < 0 )
               return result;
             HotPatchSize = (int)a25;

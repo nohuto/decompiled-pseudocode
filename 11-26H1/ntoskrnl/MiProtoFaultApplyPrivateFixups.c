@@ -1,17 +1,17 @@
 /*
- * XREFs of MiProtoFaultApplyPrivateFixups @ 0x1402DA280
+ * XREFs of MiProtoFaultApplyPrivateFixups @ 0x1402BC040
  * Callers:
- *     MiCompleteProtoPteFault @ 0x1402D8E50 (MiCompleteProtoPteFault.c)
+ *     MiCompleteProtoPteFault @ 0x1402BAC10 (MiCompleteProtoPteFault.c)
  * Callees:
- *     ExpWaitForSpinLockSharedAndAcquire @ 0x14029BC90 (ExpWaitForSpinLockSharedAndAcquire.c)
- *     ExpAcquireSpinLockSharedAtDpcLevelInstrumented @ 0x1402EE000 (ExpAcquireSpinLockSharedAtDpcLevelInstrumented.c)
- *     MiMakeTransitionPteValid @ 0x1403035C0 (MiMakeTransitionPteValid.c)
- *     MiLockAndDecrementShareCount @ 0x1403091DC (MiLockAndDecrementShareCount.c)
- *     MiOffsetToProtos @ 0x140340254 (MiOffsetToProtos.c)
- *     ExpReleaseSpinLockSharedFromDpcLevelInstrumented @ 0x14036A848 (ExpReleaseSpinLockSharedFromDpcLevelInstrumented.c)
- *     MiLocateCloneAddress @ 0x14036BA4C (MiLocateCloneAddress.c)
- *     MiSystemImageHasPrivateFixups @ 0x140499228 (MiSystemImageHasPrivateFixups.c)
- *     MiPrivateFixup @ 0x14051D784 (MiPrivateFixup.c)
+ *     ExpWaitForSpinLockSharedAndAcquire @ 0x14029B1F0 (ExpWaitForSpinLockSharedAndAcquire.c)
+ *     ExpAcquireSpinLockSharedAtDpcLevelInstrumented @ 0x1402D0080 (ExpAcquireSpinLockSharedAtDpcLevelInstrumented.c)
+ *     MiMakeTransitionPteValid @ 0x1402E5640 (MiMakeTransitionPteValid.c)
+ *     MiLockAndDecrementShareCount @ 0x1402EB25C (MiLockAndDecrementShareCount.c)
+ *     MiOffsetToProtos @ 0x1403422D4 (MiOffsetToProtos.c)
+ *     ExpReleaseSpinLockSharedFromDpcLevelInstrumented @ 0x14036C5E8 (ExpReleaseSpinLockSharedFromDpcLevelInstrumented.c)
+ *     MiLocateCloneAddress @ 0x14036D7EC (MiLocateCloneAddress.c)
+ *     MiSystemImageHasPrivateFixups @ 0x140492D78 (MiSystemImageHasPrivateFixups.c)
+ *     MiPrivateFixup @ 0x14051FCB0 (MiPrivateFixup.c)
  */
 
 __int64 __fastcall MiProtoFaultApplyPrivateFixups(__int64 a1, unsigned __int64 Blink_high)
@@ -97,7 +97,7 @@ __int64 __fastcall MiProtoFaultApplyPrivateFixups(__int64 a1, unsigned __int64 B
   if ( !KeGetCurrentThread()->ApcState.Process[2].ActiveProcessors[4].StaticBitmap[28] )
     return 0LL;
   v15 = (_DWORD *)&KeGetCurrentThread()->ApcState.Process[2].ActiveProcessors[4].StaticBitmap[8] + 1;
-  if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+  if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || PopHibernateInProgress )
   {
     _m_prefetchw(v15);
     v17 = *v15 & 0x7FFFFFFF;
@@ -161,7 +161,7 @@ LABEL_35:
     Flink = 0LL;
   }
   ActiveProcessors = KeGetCurrentThread()->ApcState.Process[2].ActiveProcessors;
-  if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+  if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || PopHibernateInProgress )
   {
     _InterlockedAnd((volatile signed __int32 *)&ActiveProcessors[4].StaticBitmap[8] + 1, 0xBFFFFFFF);
     _InterlockedDecrement((volatile signed __int32 *)&ActiveProcessors[4].StaticBitmap[8] + 1);
@@ -175,7 +175,7 @@ LABEL_35:
   v22 = (int)Flink[3].Flink;
   if ( (v22 & 0x80000) != 0 || (v22 & 0x1C) != 8 || (v22 & 0x100000) == 0 )
     return 0LL;
-  if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+  if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || PopHibernateInProgress )
   {
     _m_prefetchw(&Flink[4]);
     v24 = (__int64)Flink[4].Flink & 0x7FFFFFFF;
@@ -205,7 +205,7 @@ LABEL_53:
       break;
   }
   v26 = (volatile signed __int32 *)&Flink[4];
-  if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+  if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || PopHibernateInProgress )
   {
     _InterlockedAnd(v26, 0xBFFFFFFF);
     _InterlockedDecrement(v26);

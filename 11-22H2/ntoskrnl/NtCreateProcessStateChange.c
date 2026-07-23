@@ -10,11 +10,16 @@
  *     ObInsertObjectEx @ 0x140735ED0 (ObInsertObjectEx.c)
  */
 
-__int64 __fastcall NtCreateProcessStateChange(HANDLE *a1, int a2, __int64 a3, ULONG_PTR a4, int a5)
+NTSTATUS __cdecl NtCreateProcessStateChange(
+        PHANDLE ProcessStateChangeHandle,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        HANDLE ProcessHandle,
+        ULONG64 Reserved)
 {
   char PreviousMode; // r14
   __int64 v9; // rcx
-  int inserted; // edi
+  NTSTATUS inserted; // edi
   PVOID *v11; // rcx
   __int64 Tag; // [rsp+20h] [rbp-68h]
   PVOID Object; // [rsp+58h] [rbp-30h] BYREF
@@ -28,18 +33,18 @@ __int64 __fastcall NtCreateProcessStateChange(HANDLE *a1, int a2, __int64 a3, UL
   if ( PreviousMode )
   {
     v9 = 0x7FFFFFFF0000LL;
-    if ( (unsigned __int64)a1 < 0x7FFFFFFF0000LL )
-      v9 = (__int64)a1;
+    if ( (unsigned __int64)ProcessStateChangeHandle < 0x7FFFFFFF0000LL )
+      v9 = (__int64)ProcessStateChangeHandle;
     *(_QWORD *)v9 = *(_QWORD *)v9;
   }
-  if ( a5 )
+  if ( (_DWORD)Reserved )
   {
     inserted = -1073741811;
   }
   else
   {
     inserted = ObpReferenceObjectByHandleWithTag(
-                 a4,
+                 (ULONG_PTR)ProcessHandle,
                  512,
                  (__int64)PsProcessType,
                  PreviousMode,
@@ -52,7 +57,7 @@ __int64 __fastcall NtCreateProcessStateChange(HANDLE *a1, int a2, __int64 a3, UL
       inserted = ObCreateObjectEx(
                    PreviousMode,
                    (_DWORD *)PspProcessStateChangeType,
-                   a3,
+                   (__int64)ObjectAttributes,
                    PreviousMode,
                    Tag,
                    24,
@@ -69,10 +74,10 @@ __int64 __fastcall NtCreateProcessStateChange(HANDLE *a1, int a2, __int64 a3, UL
         *v11 = Object;
         *((_DWORD *)v11 + 4) = 0;
         Object = 0LL;
-        inserted = ObInsertObjectEx((char *)v11, 0LL, a2, 0, 0, 0LL, &Handle);
+        inserted = ObInsertObjectEx((char *)v11, 0LL, DesiredAccess, 0, 0, 0LL, &Handle);
         if ( inserted >= 0 )
         {
-          *a1 = Handle;
+          *ProcessStateChangeHandle = Handle;
           Handle = 0LL;
         }
       }
@@ -82,5 +87,5 @@ __int64 __fastcall NtCreateProcessStateChange(HANDLE *a1, int a2, __int64 a3, UL
     ObfDereferenceObjectWithTag(Object, 0x63507350u);
   if ( Handle )
     NtClose(Handle);
-  return (unsigned int)inserted;
+  return inserted;
 }

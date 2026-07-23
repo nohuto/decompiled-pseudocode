@@ -1,8 +1,8 @@
 /*
- * XREFs of MiDoesPageRequireRetpolineImportFixups @ 0x140325440
+ * XREFs of MiDoesPageRequireRetpolineImportFixups @ 0x1403256D0
  * Callers:
- *     MiUpdateImagePfnImportRelocations @ 0x140325150 (MiUpdateImagePfnImportRelocations.c)
- *     MiWalkEntireImagePageNeedsProcessing @ 0x1406560D0 (MiWalkEntireImagePageNeedsProcessing.c)
+ *     MiUpdateImagePfnImportRelocations @ 0x1403253E0 (MiUpdateImagePfnImportRelocations.c)
+ *     MiWalkEntireImagePageNeedsProcessing @ 0x140656620 (MiWalkEntireImagePageNeedsProcessing.c)
  * Callees:
  *     <none>
  */

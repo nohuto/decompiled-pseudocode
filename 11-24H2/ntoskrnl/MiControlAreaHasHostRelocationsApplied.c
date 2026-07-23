@@ -1,8 +1,8 @@
 /*
- * XREFs of MiControlAreaHasHostRelocationsApplied @ 0x140436E7C
+ * XREFs of MiControlAreaHasHostRelocationsApplied @ 0x1404298FC
  * Callers:
- *     MiValidateInPage @ 0x140436770 (MiValidateInPage.c)
- *     MiValidateImagePfn @ 0x140957464 (MiValidateImagePfn.c)
+ *     MiValidateInPage @ 0x1404291F0 (MiValidateInPage.c)
+ *     MiValidateImagePfn @ 0x14093AE5C (MiValidateImagePfn.c)
  * Callees:
  *     <none>
  */

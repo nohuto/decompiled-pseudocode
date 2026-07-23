@@ -6,8 +6,8 @@
  *     ?KiInitializeMutant@@YAXPEAU_KMUTANT@@EEK@Z @ 0x14044F2EC (-KiInitializeMutant@@YAXPEAU_KMUTANT@@EEK@Z.c)
  */
 
-__int64 __fastcall NtdllRunOnceInitMuiCrits(PRTL_RUN_ONCE RunOnce, struct _KMUTANT **Parameter, PVOID *Context)
+__int64 __fastcall NtdllRunOnceInitMuiCrits(PRTL_RUN_ONCE a1, struct _KMUTANT **a2, PVOID *a3)
 {
-  KiInitializeMutant(*Parameter, 0, 1u, 0);
+  KiInitializeMutant(*a2, 0, 1u, 0);
   return 1LL;
 }

@@ -1,17 +1,17 @@
 /*
- * XREFs of ExpWaitForBootDevices @ 0x140609720
+ * XREFs of ExpWaitForBootDevices @ 0x140609C70
  * Callers:
  *     <none>
  * Callees:
  *     KeThawExecution @ 0x14020D410 (KeThawExecution.c)
  *     KeFreezeExecution @ 0x14020D540 (KeFreezeExecution.c)
- *     KeWaitForSingleObject @ 0x140243CE0 (KeWaitForSingleObject.c)
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250E80 (KeAcquireSpinLockRaiseToDpc.c)
- *     KeStallExecutionProcessor @ 0x1402C3030 (KeStallExecutionProcessor.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeWaitForSingleObject @ 0x140243DB0 (KeWaitForSingleObject.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140250F40 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KeStallExecutionProcessor @ 0x1402C32C0 (KeStallExecutionProcessor.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
  */
 
 void __fastcall __noreturn ExpWaitForBootDevices(PVOID StartContext)
@@ -45,10 +45,13 @@ void __fastcall __noreturn ExpWaitForBootDevices(PVOID StartContext)
         KxReleaseSpinLock((volatile signed __int64 *)&ExBootDeviceListSpinLock);
         if ( v2 == &ExBootDeviceList )
           break;
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
           CurrentIrql = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v4 <= 0xFu && CurrentIrql >= 2u )
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+            && CurrentIrql <= 0xFu
+            && (unsigned __int8)v4 <= 0xFu
+            && CurrentIrql >= 2u )
           {
             CurrentPrcb = KeGetCurrentPrcb();
             SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -68,10 +71,10 @@ void __fastcall __noreturn ExpWaitForBootDevices(PVOID StartContext)
           goto LABEL_24;
         }
       }
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v10 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v10 <= 0xFu && (unsigned __int8)v4 <= 0xFu && v10 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v10 <= 0xFu && (unsigned __int8)v4 <= 0xFu && v10 >= 2u )
         {
           v11 = KeGetCurrentPrcb();
           v12 = v11->SchedulerAssist;

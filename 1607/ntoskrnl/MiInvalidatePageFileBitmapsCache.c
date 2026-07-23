@@ -1,26 +1,26 @@
 /*
- * XREFs of MiInvalidatePageFileBitmapsCache @ 0x1400B6934
+ * XREFs of MiInvalidatePageFileBitmapsCache @ 0x1400B475C
  * Callers:
- *     MiFindFreePageFileSpace @ 0x1400B65FC (MiFindFreePageFileSpace.c)
- *     MiGatherPagefilePages @ 0x140119444 (MiGatherPagefilePages.c)
- *     MiAttemptPageFileReductionApc @ 0x1401EDF10 (MiAttemptPageFileReductionApc.c)
+ *     MiFindFreePageFileSpace @ 0x1400B4424 (MiFindFreePageFileSpace.c)
+ *     MiGatherPagefilePages @ 0x1401199B4 (MiGatherPagefilePages.c)
+ *     MiAttemptPageFileReductionApc @ 0x1401EDD3C (MiAttemptPageFileReductionApc.c)
  * Callees:
- *     MiBitmapsCachedEntryLengthChanged @ 0x14001BDE8 (MiBitmapsCachedEntryLengthChanged.c)
- *     RtlRbRemoveNode @ 0x140031320 (RtlRbRemoveNode.c)
- *     RtlRbInsertNodeEx @ 0x1400ECEC0 (RtlRbInsertNodeEx.c)
+ *     MiBitmapsCachedEntryLengthChanged @ 0x14001B968 (MiBitmapsCachedEntryLengthChanged.c)
+ *     RtlRbRemoveNode @ 0x140030EA0 (RtlRbRemoveNode.c)
+ *     RtlRbInsertNodeEx @ 0x1400EAD30 (RtlRbInsertNodeEx.c)
  */
 
-void __fastcall MiInvalidatePageFileBitmapsCache(__int64 a1, unsigned int a2, int a3, __int64 a4)
+void __fastcall MiInvalidatePageFileBitmapsCache(__int64 a1, unsigned int a2, int a3, unsigned __int64 a4)
 {
-  char v5; // di
+  BOOLEAN v5; // di
   int v8; // r8d
   int v9; // ecx
-  __int64 v10; // rdx
+  unsigned __int64 v10; // rdx
   __int64 *v11; // rbx
   unsigned int v12; // r8d
   unsigned int v13; // ecx
   __int64 v14; // rsi
-  __int64 *v15; // rax
+  unsigned __int64 *v15; // rax
   int v16; // r10d
   int v17; // ecx
   _QWORD **v18; // rax
@@ -28,12 +28,11 @@ void __fastcall MiInvalidatePageFileBitmapsCache(__int64 a1, unsigned int a2, in
   unsigned int v20; // edx
   _QWORD **v21; // r14
   _QWORD *v22; // r8
-  __int64 v23; // r8
-  _QWORD *v24; // rdx
-  _QWORD *v25; // rax
-  __int64 v26; // r8
-  __int64 *v27; // rdx
-  __int64 *v28; // rax
+  BOOLEAN v23; // r8
+  _RTL_BALANCED_NODE *v24; // rdx
+  _RTL_BALANCED_NODE *v25; // rax
+  __int64 *v26; // rdx
+  __int64 *v27; // rax
 
   v5 = 0;
   if ( !a4 )
@@ -49,7 +48,7 @@ void __fastcall MiInvalidatePageFileBitmapsCache(__int64 a1, unsigned int a2, in
       {
         if ( a2 < *((_DWORD *)v11 + 7) + v13 )
         {
-          a4 = (__int64)(v11 - 3);
+          a4 = (unsigned __int64)(v11 - 3);
           break;
         }
         v11 = (__int64 *)v11[1];
@@ -72,10 +71,10 @@ void __fastcall MiInvalidatePageFileBitmapsCache(__int64 a1, unsigned int a2, in
     v10 = a4;
     if ( !v9 )
     {
-      RtlRbRemoveNode((unsigned __int64 *)(a1 + 144), (unsigned __int64 *)a4);
-      RtlRbRemoveNode((unsigned __int64 *)(a1 + 160), (unsigned __int64 *)(a4 + 24));
+      RtlRbRemoveNode((PRTL_RB_TREE)(a1 + 144), (PRTL_BALANCED_NODE)a4);
+      RtlRbRemoveNode((PRTL_RB_TREE)(a1 + 160), (PRTL_BALANCED_NODE)(a4 + 24));
       v14 = a1 + 176;
-      v15 = *(__int64 **)(v14 + 8);
+      v15 = *(unsigned __int64 **)(v14 + 8);
       if ( *v15 != v14 )
         __fastfail(3u);
       *(_QWORD *)a4 = v14;
@@ -85,7 +84,7 @@ void __fastcall MiInvalidatePageFileBitmapsCache(__int64 a1, unsigned int a2, in
       return;
     }
 LABEL_6:
-    MiBitmapsCachedEntryLengthChanged(a1, v10, 0);
+    MiBitmapsCachedEntryLengthChanged((_RTL_RB_TREE *)a1, v10, 0);
     return;
   }
   v18 = (_QWORD **)(a1 + 176);
@@ -120,52 +119,50 @@ LABEL_6:
   *((_DWORD *)v21 + 13) = v19;
   *((_DWORD *)v21 + 12) = v16;
   *(_DWORD *)(a4 + 52) = v20;
-  MiBitmapsCachedEntryLengthChanged(a1, a4, 0);
-  LOBYTE(v23) = 0;
-  v24 = *(_QWORD **)(a1 + 144);
+  MiBitmapsCachedEntryLengthChanged((_RTL_RB_TREE *)a1, a4, 0);
+  v23 = 0;
+  v24 = *(_RTL_BALANCED_NODE **)(a1 + 144);
   if ( !v24 )
-    goto LABEL_28;
-  v23 = *((unsigned int *)v21 + 13);
-  while ( (unsigned __int64)v21[6] >= v24[6] )
+    goto LABEL_27;
+  while ( (_RTL_BALANCED_NODE *)v21[6] >= v24[2].Children[0] )
   {
-    v25 = (_QWORD *)v24[1];
+    v25 = v24->Children[1];
     if ( !v25 )
     {
-      LOBYTE(v23) = 1;
-      goto LABEL_28;
+      v23 = 1;
+      goto LABEL_27;
     }
-LABEL_35:
+LABEL_34:
     v24 = v25;
   }
-  v25 = (_QWORD *)*v24;
-  if ( *v24 )
-    goto LABEL_35;
-  LOBYTE(v23) = 0;
-LABEL_28:
-  RtlRbInsertNodeEx(a1 + 144, v24, v23, v21);
-  v27 = *(__int64 **)(a1 + 160);
-  if ( !v27 )
-    goto LABEL_32;
+  v25 = v24->Children[0];
+  if ( v24->Children[0] )
+    goto LABEL_34;
+  v23 = 0;
+LABEL_27:
+  RtlRbInsertNodeEx((PRTL_RB_TREE)(a1 + 144), v24, v23, (PRTL_BALANCED_NODE)v21);
+  v26 = *(__int64 **)(a1 + 160);
+  if ( !v26 )
+    goto LABEL_31;
   while ( 2 )
   {
-    if ( *((_DWORD *)v21 + 12) < *((_DWORD *)v27 + 6) )
+    if ( *((_DWORD *)v21 + 12) < *((_DWORD *)v26 + 6) )
     {
-      v28 = (__int64 *)*v27;
-      if ( !*v27 )
-        goto LABEL_32;
-      goto LABEL_37;
+      v27 = (__int64 *)*v26;
+      if ( !*v26 )
+        goto LABEL_31;
+      goto LABEL_36;
     }
-    v28 = (__int64 *)v27[1];
-    if ( v28 )
+    v27 = (__int64 *)v26[1];
+    if ( v27 )
     {
-LABEL_37:
-      v27 = v28;
+LABEL_36:
+      v26 = v27;
       continue;
     }
     break;
   }
   v5 = 1;
-LABEL_32:
-  LOBYTE(v26) = v5;
-  RtlRbInsertNodeEx(a1 + 160, v27, v26, v21 + 3);
+LABEL_31:
+  RtlRbInsertNodeEx((PRTL_RB_TREE)(a1 + 160), (PRTL_BALANCED_NODE)v26, v5, (PRTL_BALANCED_NODE)v21 + 1);
 }

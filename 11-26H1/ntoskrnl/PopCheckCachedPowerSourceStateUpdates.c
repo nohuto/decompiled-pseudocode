@@ -1,11 +1,11 @@
 /*
- * XREFs of PopCheckCachedPowerSourceStateUpdates @ 0x140946990
+ * XREFs of PopCheckCachedPowerSourceStateUpdates @ 0x1409C2300
  * Callers:
- *     PopBatteryApplyCompositeState @ 0x140946EB0 (PopBatteryApplyCompositeState.c)
+ *     PopBatteryApplyCompositeState @ 0x1409C2820 (PopBatteryApplyCompositeState.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212E30 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     ZwUpdateWnfStateData @ 0x140727030 (ZwUpdateWnfStateData.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212F10 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     ZwUpdateWnfStateData @ 0x14072BC00 (ZwUpdateWnfStateData.c)
  */
 
 NTSTATUS PopCheckCachedPowerSourceStateUpdates()
@@ -16,35 +16,29 @@ NTSTATUS PopCheckCachedPowerSourceStateUpdates()
   NTSTATUS *v3; // [rsp+68h] [rbp-20h]
   __int64 v4; // [rsp+70h] [rbp-18h]
 
-  if ( *(_WORD *)((char *)&stru_140F10070.ExpectedRunTime + 1) != LOWORD(stru_140F10070.Header.WaitListHead.Blink)
-    || LODWORD(stru_140F10070.KernelStack) != LODWORD(stru_140F10070.SListFaultAddress)
-    || *(_OWORD *)((char *)&stru_140F10070.KernelStack + 4) != __PAIR128__(
-                                                                 __PAIR64__(
-                                                                   stru_140F10070.ThreadLock,
-                                                                   (unsigned int)stru_140F10070.StackBase),
-                                                                 __PAIR64__(
-                                                                   (unsigned int)stru_140F10070.StackLimit,
-                                                                   HIDWORD(stru_140F10070.SListFaultAddress)))
-    || HIDWORD(stru_140F10070.SchedulingGroup) != HIDWORD(stru_140F10070.ThreadLock)
-    || (result = stru_140F10070.CycleTime,
-        *(_DWORD *)&stru_140F10070.WaitRegister.Flags != LODWORD(stru_140F10070.CycleTime)) )
+  if ( word_140F10885 != (_WORD)xmmword_140F10840
+    || qword_140F10888 != *((_QWORD *)&xmmword_140F10840 + 1)
+    || dword_140F10890 != (_DWORD)xmmword_140F10860
+    || qword_140F10894 != __PAIR64__(xmmword_140F10870, DWORD2(xmmword_140F10860))
+    || unk_140F1089C != DWORD1(xmmword_140F10870)
+    || (result = DWORD2(xmmword_140F10870), dword_140F108A0 != DWORD2(xmmword_140F10870)) )
   {
-    stru_140F10070.KernelStack = stru_140F10070.SListFaultAddress;
-    LODWORD(stru_140F10070.StateSaveArea) = stru_140F10070.StackLimit;
-    HIDWORD(stru_140F10070.StateSaveArea) = stru_140F10070.StackBase;
-    stru_140F10070.SchedulingGroup = (_KSCHEDULING_GROUP *volatile)stru_140F10070.ThreadLock;
-    *(_WORD *)((char *)&stru_140F10070.ExpectedRunTime + 1) = stru_140F10070.Header.WaitListHead.Blink;
-    *(_DWORD *)&stru_140F10070.WaitRegister.Flags = stru_140F10070.CycleTime;
-    LOBYTE(stru_140F10070.ExpectedRunTime) = 0;
-    result = ZwUpdateWnfStateData((__int64)&WNF_PO_POWER_SOURCE_STATE_CHANGE, (__int64)&stru_140F10070.ExpectedRunTime);
-    if ( (unsigned int)dword_140E07598 > 5 )
+    qword_140F10888 = *((_QWORD *)&xmmword_140F10840 + 1);
+    dword_140F10890 = xmmword_140F10860;
+    LODWORD(qword_140F10894) = DWORD2(xmmword_140F10860);
+    *(__int64 *)((char *)&qword_140F10894 + 4) = xmmword_140F10870;
+    word_140F10885 = xmmword_140F10840;
+    dword_140F108A0 = DWORD2(xmmword_140F10870);
+    byte_140F10884 = 0;
+    result = ZwUpdateWnfStateData(&WNF_PO_POWER_SOURCE_STATE_CHANGE, &byte_140F10884, 0x20u, 0LL, 0LL, 0, 0);
+    if ( (unsigned int)dword_140E07560 > 5 )
     {
       v1 = result;
       v4 = 4LL;
       v3 = &v1;
       return tlgWriteTransfer_EtwWriteTransfer(
-               (__int64)&dword_140E07598,
-               (unsigned __int8 *)&word_14004D54E,
+               (__int64)&dword_140E07560,
+               (unsigned __int8 *)byte_14004E8E3,
                0LL,
                0LL,
                3u,

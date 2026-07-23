@@ -1,19 +1,19 @@
 /*
- * XREFs of AslPathCombine @ 0x140809C70
+ * XREFs of AslPathCombine @ 0x14080A3B0
  * Callers:
- *     SdbpGetPathAppPatchPreRS3 @ 0x1406963E0 (SdbpGetPathAppPatchPreRS3.c)
- *     SdbpGetPathCustomSdbPreRS3 @ 0x140696570 (SdbpGetPathCustomSdbPreRS3.c)
- *     SdbpGetPathAppPatch @ 0x1408069A0 (SdbpGetPathAppPatch.c)
- *     SdbpGetPathAppraiser @ 0x140806AA0 (SdbpGetPathAppraiser.c)
- *     SdbpGetPathCustomSdb @ 0x140806BF0 (SdbpGetPathCustomSdb.c)
- *     SdbpGetPathMergeSource @ 0x140806CF0 (SdbpGetPathMergeSource.c)
- *     AslEnvGetSysNativeDirPathForGuestBuf @ 0x14080BCF4 (AslEnvGetSysNativeDirPathForGuestBuf.c)
- *     AslEnvGetSystem32DirPathBuf @ 0x14080BE2C (AslEnvGetSystem32DirPathBuf.c)
+ *     SdbpGetPathAppPatchPreRS3 @ 0x1406974B0 (SdbpGetPathAppPatchPreRS3.c)
+ *     SdbpGetPathCustomSdbPreRS3 @ 0x140697640 (SdbpGetPathCustomSdbPreRS3.c)
+ *     SdbpGetPathAppPatch @ 0x1408070E0 (SdbpGetPathAppPatch.c)
+ *     SdbpGetPathAppraiser @ 0x1408071E0 (SdbpGetPathAppraiser.c)
+ *     SdbpGetPathCustomSdb @ 0x140807330 (SdbpGetPathCustomSdb.c)
+ *     SdbpGetPathMergeSource @ 0x140807430 (SdbpGetPathMergeSource.c)
+ *     AslEnvGetSysNativeDirPathForGuestBuf @ 0x14080C434 (AslEnvGetSysNativeDirPathForGuestBuf.c)
+ *     AslEnvGetSystem32DirPathBuf @ 0x14080C56C (AslEnvGetSystem32DirPathBuf.c)
  * Callees:
- *     RtlStringCchLengthW @ 0x14042EE70 (RtlStringCchLengthW.c)
- *     RtlStringCchCopyW @ 0x14043FE9C (RtlStringCchCopyW.c)
- *     RtlStringCchCatW @ 0x1404BC4A0 (RtlStringCchCatW.c)
- *     AslLogCallPrintf @ 0x1409601DC (AslLogCallPrintf.c)
+ *     RtlStringCchLengthW @ 0x140420BA0 (RtlStringCchLengthW.c)
+ *     RtlStringCchCopyW @ 0x14043615C (RtlStringCchCopyW.c)
+ *     RtlStringCchCatW @ 0x1404B73B0 (RtlStringCchCatW.c)
+ *     AslLogCallPrintf @ 0x140947C9C (AslLogCallPrintf.c)
  */
 
 __int64 __fastcall AslPathCombine(NTSTRSAFE_PCWSTR pszSrc, __int64 a2, wchar_t *a3, size_t a4)

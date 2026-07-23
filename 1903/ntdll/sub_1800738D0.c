@@ -8,22 +8,22 @@
  *     RtlUnlockModuleSection @ 0x180073B70 (RtlUnlockModuleSection.c)
  */
 
-signed __int64 sub_1800738D0()
+void sub_1800738D0()
 {
-  __int64 (__fastcall **v1)(); // rbx
-  __int64 v2; // rdi
+  PVOID *v0; // rbx
+  __int64 v1; // rdi
 
-  RtlAcquireSRWLockExclusive(&qword_180166350);
+  RtlAcquireSRWLockExclusive(&stru_180166350);
   if ( !--dword_180166030 )
   {
-    v1 = off_180118CD0;
-    v2 = 4LL;
+    v0 = (PVOID *)off_180118CD0;
+    v1 = 4LL;
     do
     {
-      RtlUnlockModuleSection(*v1++);
-      --v2;
+      RtlUnlockModuleSection(*v0++);
+      --v1;
     }
-    while ( v2 );
+    while ( v1 );
   }
-  return RtlReleaseSRWLockExclusive(&qword_180166350);
+  RtlReleaseSRWLockExclusive(&stru_180166350);
 }

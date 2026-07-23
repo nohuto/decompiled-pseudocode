@@ -1,14 +1,14 @@
 /*
- * XREFs of WmipProbeAndCaptureGuidObjectAttributes @ 0x140A0CA78
+ * XREFs of WmipProbeAndCaptureGuidObjectAttributes @ 0x140A0BAA0
  * Callers:
- *     WmipIoControl @ 0x140A0D940 (WmipIoControl.c)
+ *     WmipIoControl @ 0x140A0BC50 (WmipIoControl.c)
  * Callees:
- *     IoIs32bitProcess @ 0x1404336A0 (IoIs32bitProcess.c)
- *     RtlCopyFromUser @ 0x140533E38 (RtlCopyFromUser.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     RtlReadULong64FromUser @ 0x14077F554 (RtlReadULong64FromUser.c)
- *     RtlReadULongFromUser @ 0x14077F590 (RtlReadULongFromUser.c)
- *     ExRaiseDatatypeMisalignment @ 0x1408F29F0 (ExRaiseDatatypeMisalignment.c)
+ *     IoIs32bitProcess @ 0x140428770 (IoIs32bitProcess.c)
+ *     RtlCopyFromUser @ 0x1405362B8 (RtlCopyFromUser.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     RtlReadULong64FromUser @ 0x140782054 (RtlReadULong64FromUser.c)
+ *     RtlReadULongFromUser @ 0x140782090 (RtlReadULongFromUser.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408F8FB0 (ExRaiseDatatypeMisalignment.c)
  */
 
 __int64 __fastcall WmipProbeAndCaptureGuidObjectAttributes(_QWORD *a1, __int64 a2, _WORD *a3, void *a4)

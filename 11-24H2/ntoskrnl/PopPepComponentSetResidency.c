@@ -1,15 +1,15 @@
 /*
- * XREFs of PopPepComponentSetResidency @ 0x1405DB904
+ * XREFs of PopPepComponentSetResidency @ 0x1405D87D4
  * Callers:
- *     PoFxSetComponentResidency @ 0x1405D0900 (PoFxSetComponentResidency.c)
+ *     PoFxSetComponentResidency @ 0x1405CE020 (PoFxSetComponentResidency.c)
  * Callees:
- *     PopPepLockActivityLink @ 0x140312A80 (PopPepLockActivityLink.c)
- *     PopPepUpdateIdleState @ 0x140316D20 (PopPepUpdateIdleState.c)
- *     PopPepRequestWork @ 0x1403170D0 (PopPepRequestWork.c)
- *     PopPepReleaseActivityLink @ 0x140319150 (PopPepReleaseActivityLink.c)
- *     PopPepPromoteActivities @ 0x140319590 (PopPepPromoteActivities.c)
- *     PopPepCountReadyActivities @ 0x140435920 (PopPepCountReadyActivities.c)
- *     PopPepComponentGetResidencyIdleState @ 0x140452CA0 (PopPepComponentGetResidencyIdleState.c)
+ *     PopPepUpdateIdleState @ 0x1402BF8D0 (PopPepUpdateIdleState.c)
+ *     PopPepRequestWork @ 0x1402BFC80 (PopPepRequestWork.c)
+ *     PopPepReleaseActivityLink @ 0x1402C1CE0 (PopPepReleaseActivityLink.c)
+ *     PopPepPromoteActivities @ 0x1402C2120 (PopPepPromoteActivities.c)
+ *     PopPepLockActivityLink @ 0x1403A76F0 (PopPepLockActivityLink.c)
+ *     PopPepCountReadyActivities @ 0x1404283A0 (PopPepCountReadyActivities.c)
+ *     PopPepComponentGetResidencyIdleState @ 0x140447D50 (PopPepComponentGetResidencyIdleState.c)
  */
 
 void __fastcall PopPepComponentSetResidency(unsigned int *a1, int a2, unsigned __int64 a3)
@@ -29,7 +29,7 @@ void __fastcall PopPepComponentSetResidency(unsigned int *a1, int a2, unsigned _
   if ( a3 != -1LL )
     v3 = a3;
   ResidencyIdleState = PopPepComponentGetResidencyIdleState(v5, v3);
-  v7 = PopPepLockActivityLink((__int64)a1, (volatile LONG *)v5, 6LL, 1u, &v11);
+  v7 = PopPepLockActivityLink((__int64)a1, (volatile LONG *)v5, 6u, 1u, &v11);
   *(_QWORD *)(v5 + 128) = v3;
   v8 = v7;
   *(_QWORD *)(v5 + 120) = v3;

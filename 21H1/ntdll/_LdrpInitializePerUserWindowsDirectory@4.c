@@ -17,39 +17,39 @@
 int __thiscall LdrpInitializePerUserWindowsDirectory(int (__stdcall *this)(_BYTE *, int))
 {
   int v1; // ecx
-  __int16 v3; // si
+  unsigned __int16 v3; // si
   char v4; // al
-  int v5; // [esp+8h] [ebp-224h] BYREF
-  void *Heap; // [esp+Ch] [ebp-220h]
-  const void *v7[2]; // [esp+10h] [ebp-21Ch] BYREF
-  _BYTE v8[4]; // [esp+18h] [ebp-214h] BYREF
+  SIZE_T v5; // [esp+0h] [ebp-22Ch]
+  _UNICODE_STRING Destination; // [esp+8h] [ebp-224h] BYREF
+  UNICODE_STRING Source; // [esp+10h] [ebp-21Ch] BYREF
+  PVOID Cookie; // [esp+18h] [ebp-214h] BYREF
   _BYTE v9[524]; // [esp+1Ch] [ebp-210h] BYREF
 
   v1 = 2 * this(v9, 260);
   if ( !v1 )
     return 0;
-  v7[1] = v9;
-  LOWORD(v7[0]) = v1;
-  HIWORD(v7[0]) = 520;
-  if ( !dword_4B3A660C )
+  Source.Buffer = (wchar_t *)v9;
+  Source.Length = v1;
+  Source.MaximumLength = 520;
+  if ( !RtlpSystemDirs.Buffer )
   {
 LABEL_11:
-    LdrAddDllDirectory(v7, v8);
+    LdrAddDllDirectory(&Source, &Cookie);
     return 0;
   }
-  v3 = v1 + RtlpSystemDirs + 2;
-  Heap = (void *)RtlAllocateHeap((int)NtCurrentPeb()->ProcessHeap, 0, v1 + (unsigned __int16)RtlpSystemDirs + 2);
-  if ( Heap )
+  v3 = v1 + RtlpSystemDirs.Length + 2;
+  LODWORD(v5) = v1 + RtlpSystemDirs.Length + 2;
+  Destination.Buffer = (wchar_t *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, v5);
+  if ( Destination.Buffer )
   {
-    HIWORD(v5) = v3;
-    LOWORD(v5) = 0;
-    RtlAppendUnicodeStringToString((unsigned __int16 *)&v5, (const void **)&RtlpSystemDirs);
-    RtlAppendUnicodeStringToString((unsigned __int16 *)&v5, v7);
-    RtlAppendUnicodeToString((unsigned __int16 *)&v5, L";");
-    RtlFreeHeap((int)NtCurrentPeb()->ProcessHeap, 0, (int)dword_4B3A660C);
-    RtlpSystemDirs = v5;
-    dword_4B3A660C = Heap;
-    dword_4B3A6604 = Heap;
+    Destination.MaximumLength = v3;
+    Destination.Length = 0;
+    RtlAppendUnicodeStringToString(&Destination, &RtlpSystemDirs);
+    RtlAppendUnicodeStringToString(&Destination, &Source);
+    RtlAppendUnicodeToString(&Destination, (PCWSTR)L";");
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, RtlpSystemDirs.Buffer);
+    RtlpSystemDirs = Destination;
+    dword_4B3A6604 = Destination.Buffer;
     RtlpSignalSystemDirsModification();
     goto LABEL_11;
   }

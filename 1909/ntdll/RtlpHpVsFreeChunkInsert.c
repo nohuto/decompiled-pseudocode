@@ -9,10 +9,10 @@
  *     RtlpHpVsChunkComputeCost @ 0x180068830 (RtlpHpVsChunkComputeCost.c)
  */
 
-char __fastcall RtlpHpVsFreeChunkInsert(__int64 a1, __int64 a2, _WORD *a3)
+BOOLEAN __fastcall RtlpHpVsFreeChunkInsert(__int64 a1, __int64 a2, __int64 a3)
 {
   __int16 v5; // r10
-  bool v6; // r8
+  BOOLEAN v6; // r8
   unsigned __int64 v7; // rax
   __int64 v8; // rbx
   unsigned __int64 v9; // rdx
@@ -29,7 +29,7 @@ char __fastcall RtlpHpVsFreeChunkInsert(__int64 a1, __int64 a2, _WORD *a3)
           + (((v13 - ((v13 >> 1) & 0x5555555555555555LL)) >> 2) & 0x3333333333333333LL)) >> 4)) & 0xF0F0F0F0F0F0F0FLL)) >> 56;
   *(_QWORD *)(a1 + 56) += v7;
   v8 = a1 + 16;
-  *a3 = (unsigned __int16)a3 ^ RtlpHpHeapGlobals ^ (v12 + v5 - v7);
+  *(_WORD *)a3 = a3 ^ RtlpHpHeapGlobals ^ (v12 + v5 - v7);
   v9 = *(_QWORD *)v8;
   if ( (*(_BYTE *)(v8 + 8) & 1) != 0 )
   {
@@ -48,11 +48,11 @@ char __fastcall RtlpHpVsFreeChunkInsert(__int64 a1, __int64 a2, _WORD *a3)
         if ( (*(_BYTE *)(v8 + 8) & 1) != 0 )
         {
           if ( !v10 )
-            return RtlRbInsertNodeEx((unsigned __int64 *)v8, v9, v6, (unsigned __int64)(a3 + 4));
+            return RtlRbInsertNodeEx((PRTL_RB_TREE)v8, (PRTL_BALANCED_NODE)v9, v6, (PRTL_BALANCED_NODE)(a3 + 8));
           v10 ^= v9;
         }
         if ( !v10 )
-          return RtlRbInsertNodeEx((unsigned __int64 *)v8, v9, v6, (unsigned __int64)(a3 + 4));
+          return RtlRbInsertNodeEx((PRTL_RB_TREE)v8, (PRTL_BALANCED_NODE)v9, v6, (PRTL_BALANCED_NODE)(a3 + 8));
       }
       else
       {
@@ -67,11 +67,11 @@ char __fastcall RtlpHpVsFreeChunkInsert(__int64 a1, __int64 a2, _WORD *a3)
         {
 LABEL_17:
           v6 = 1;
-          return RtlRbInsertNodeEx((unsigned __int64 *)v8, v9, v6, (unsigned __int64)(a3 + 4));
+          return RtlRbInsertNodeEx((PRTL_RB_TREE)v8, (PRTL_BALANCED_NODE)v9, v6, (PRTL_BALANCED_NODE)(a3 + 8));
         }
       }
       v9 = v10;
     }
   }
-  return RtlRbInsertNodeEx((unsigned __int64 *)v8, v9, v6, (unsigned __int64)(a3 + 4));
+  return RtlRbInsertNodeEx((PRTL_RB_TREE)v8, (PRTL_BALANCED_NODE)v9, v6, (PRTL_BALANCED_NODE)(a3 + 8));
 }

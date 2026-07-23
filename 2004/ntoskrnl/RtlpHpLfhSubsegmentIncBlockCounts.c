@@ -180,7 +180,7 @@ LABEL_10:
             {
               *(_BYTE *)(v31 + 32) |= 2u;
               if ( *(__int64 *)(v31 + 32) < 0 )
-                KiAbEntryRemoveFromTree(v31);
+                KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)v31);
               v37 = *(_DWORD *)(v31 + 88) & 0x1FFFF;
               *(_DWORD *)(v31 + 88) &= 0xFFFE0000;
               *(_BYTE *)(v31 + 25) &= ~1u;

@@ -2,8 +2,8 @@
  * XREFs of MiReduceUnusedSubsectionCount @ 0x14021BA00
  * Callers:
  *     MiRemoveUnusedSubsection @ 0x14021B974 (MiRemoveUnusedSubsection.c)
- *     MiDeleteEmptySubsections @ 0x140361A68 (MiDeleteEmptySubsections.c)
- *     MiDeleteCachedSubsection @ 0x140623B48 (MiDeleteCachedSubsection.c)
+ *     MiDeleteEmptySubsections @ 0x140361C08 (MiDeleteEmptySubsections.c)
+ *     MiDeleteCachedSubsection @ 0x140624098 (MiDeleteCachedSubsection.c)
  * Callees:
  *     <none>
  */

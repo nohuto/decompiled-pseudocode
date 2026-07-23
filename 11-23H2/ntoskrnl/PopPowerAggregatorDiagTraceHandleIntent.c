@@ -1,12 +1,12 @@
 /*
- * XREFs of PopPowerAggregatorDiagTraceHandleIntent @ 0x1407A974C
+ * XREFs of PopPowerAggregatorDiagTraceHandleIntent @ 0x1407A993C
  * Callers:
- *     PopPowerAggregatorRecordIntent @ 0x1407A95B4 (PopPowerAggregatorRecordIntent.c)
+ *     PopPowerAggregatorRecordIntent @ 0x1407A97A4 (PopPowerAggregatorRecordIntent.c)
  * Callees:
  *     _tlgKeywordOn @ 0x140212E64 (_tlgKeywordOn.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6B24 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     PopPowerAggregatorDiagTraceEvent @ 0x1407A9940 (PopPowerAggregatorDiagTraceEvent.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6DB4 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     PopPowerAggregatorDiagTraceEvent @ 0x1407A9B30 (PopPowerAggregatorDiagTraceEvent.c)
  */
 
 char __fastcall PopPowerAggregatorDiagTraceHandleIntent(int a1, int a2, int a3, _DWORD *a4, _DWORD *a5, int a6)
@@ -98,7 +98,7 @@ char __fastcall PopPowerAggregatorDiagTraceHandleIntent(int a1, int a2, int a3, 
       v44 = 8LL;
       return tlgWriteTransfer_EtwWriteTransfer(
                (__int64)&dword_140C03950,
-               (unsigned __int8 *)word_1400329FA,
+               (unsigned __int8 *)word_140032AE2,
                0LL,
                0LL,
                8u,

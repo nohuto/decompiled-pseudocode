@@ -1,7 +1,7 @@
 /*
- * XREFs of KiComputeTopologyConstantsAmd @ 0x1405FBB7C
+ * XREFs of KiComputeTopologyConstantsAmd @ 0x1405FE5CC
  * Callers:
- *     KiComputeTopologyConstants @ 0x1405FBA98 (KiComputeTopologyConstants.c)
+ *     KiComputeTopologyConstants @ 0x1405FE4E8 (KiComputeTopologyConstants.c)
  * Callees:
  *     <none>
  */

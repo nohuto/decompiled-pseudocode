@@ -1,10 +1,10 @@
 /*
- * XREFs of SepAdtMarshallAuditRecord @ 0x140215680
+ * XREFs of SepAdtMarshallAuditRecord @ 0x1402159B0
  * Callers:
- *     SepAdtLogAuditRecord @ 0x1402153F8 (SepAdtLogAuditRecord.c)
+ *     SepAdtLogAuditRecord @ 0x140215728 (SepAdtLogAuditRecord.c)
  * Callees:
- *     memmove @ 0x14073D480 (memmove.c)
- *     ExAllocatePoolWithTag @ 0x140C10340 (ExAllocatePoolWithTag.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     ExAllocatePoolWithTag @ 0x140C16340 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall SepAdtMarshallAuditRecord(char *Src, void **a2, _DWORD *a3, int a4)

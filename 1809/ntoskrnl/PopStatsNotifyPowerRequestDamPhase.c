@@ -1,14 +1,14 @@
 /*
- * XREFs of PopStatsNotifyPowerRequestDamPhase @ 0x14087B1F0
+ * XREFs of PopStatsNotifyPowerRequestDamPhase @ 0x14087C450
  * Callers:
- *     PdcPoCurrentPdcPhase @ 0x1402DE260 (PdcPoCurrentPdcPhase.c)
+ *     PdcPoCurrentPdcPhase @ 0x1402DE450 (PdcPoCurrentPdcPhase.c)
  * Callees:
  *     PopAcquireRwLockExclusive @ 0x140003970 (PopAcquireRwLockExclusive.c)
  *     PopReleaseRwLock @ 0x140005EC4 (PopReleaseRwLock.c)
- *     PoArmStopWatchCollection @ 0x1402E91D0 (PoArmStopWatchCollection.c)
- *     PoIsArmedStopWatchCollection @ 0x1402E9220 (PoIsArmedStopWatchCollection.c)
- *     PoUnarmStopWatchCollection @ 0x1402E92A4 (PoUnarmStopWatchCollection.c)
- *     PopLogPowerRequestAction @ 0x140589C44 (PopLogPowerRequestAction.c)
+ *     PoArmStopWatchCollection @ 0x1402E93C0 (PoArmStopWatchCollection.c)
+ *     PoIsArmedStopWatchCollection @ 0x1402E9410 (PoIsArmedStopWatchCollection.c)
+ *     PoUnarmStopWatchCollection @ 0x1402E9494 (PoUnarmStopWatchCollection.c)
+ *     PopLogPowerRequestAction @ 0x14058AC44 (PopLogPowerRequestAction.c)
  */
 
 void __fastcall PopStatsNotifyPowerRequestDamPhase(char a1)

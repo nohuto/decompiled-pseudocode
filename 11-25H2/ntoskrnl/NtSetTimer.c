@@ -11,23 +11,30 @@
  *     ObReferenceObjectByHandle @ 0x14084F190 (ObReferenceObjectByHandle.c)
  */
 
-__int64 __fastcall NtSetTimer(HANDLE Handle, unsigned __int64 a2, __int64 a3, __int64 a4, char a5, int a6, __int64 a7)
+NTSTATUS __cdecl NtSetTimer(
+        HANDLE TimerHandle,
+        PLARGE_INTEGER DueTime,
+        PTIMER_APC_ROUTINE TimerApcRoutine,
+        PVOID TimerContext,
+        BOOLEAN ResumeTimer,
+        LONG Period,
+        PBOOLEAN PreviousState)
 {
-  __int64 v7; // r12
+  PVOID v7; // r12
   bool v10; // r15
   unsigned __int8 PreviousMode; // si
   __int64 v12; // rax
-  char v13; // al
-  NTSTATUS v14; // ebx
+  BOOLEAN v13; // al
+  int v14; // ebx
   struct _OBJECT_TYPE *v15; // rax
-  NTSTATUS v16; // eax
-  __int64 result; // rax
+  int v16; // eax
+  NTSTATUS result; // eax
   char v18[8]; // [rsp+50h] [rbp-48h] BYREF
   PVOID P; // [rsp+58h] [rbp-40h] BYREF
   __int64 v20; // [rsp+60h] [rbp-38h] BYREF
   PVOID Object[3]; // [rsp+68h] [rbp-30h] BYREF
 
-  v7 = a4;
+  v7 = TimerContext;
   v20 = 0LL;
   v18[0] = 0;
   P = 0LL;
@@ -36,34 +43,34 @@ __int64 __fastcall NtSetTimer(HANDLE Handle, unsigned __int64 a2, __int64 a3, __
   if ( PreviousMode )
   {
     v12 = 0x7FFFFFFF0000LL;
-    if ( a2 < 0x7FFFFFFF0000LL )
-      v12 = a2;
+    if ( (unsigned __int64)DueTime < 0x7FFFFFFF0000LL )
+      v12 = (__int64)DueTime;
     v20 = *(_QWORD *)v12;
     Object[1] = &v20;
-    v13 = a5;
+    v13 = ResumeTimer;
   }
   else
   {
-    v13 = a5;
-    if ( a5 )
+    v13 = ResumeTimer;
+    if ( ResumeTimer )
       v10 = PoPowerDownActionInProgress != 0;
   }
-  if ( a6 < 0 )
-    return 3221225716LL;
+  if ( Period < 0 )
+    return -1073741580;
   if ( !v13
     || v10
-    || (LOBYTE(a4) = 1,
-        result = PoCaptureReasonContext(0, PreviousMode, 0, a4, (__int64)v18, (__int64)&P),
-        (int)result >= 0) )
+    || (LOBYTE(TimerContext) = 1,
+        result = PoCaptureReasonContext(0, PreviousMode, 0, (_DWORD)TimerContext, (__int64)v18, (__int64)&P),
+        result >= 0) )
   {
     Object[0] = 0LL;
-    v14 = ObReferenceObjectByHandle(Handle, 2u, 0LL, PreviousMode, Object, 0LL);
+    v14 = ObReferenceObjectByHandle(TimerHandle, 2u, 0LL, PreviousMode, Object, 0LL);
     if ( v14 >= 0 )
     {
       v15 = (struct _OBJECT_TYPE *)ObTypeIndexTable[(unsigned __int8)ObHeaderCookie ^ *((unsigned __int8 *)Object[0] - 24) ^ (unsigned __int64)(unsigned __int8)((unsigned __int16)(LOWORD(Object[0]) - 48) >> 8)];
       if ( v15 == ExpIRTimerObjectType )
       {
-        if ( a3 || v7 || P || a7 )
+        if ( TimerApcRoutine || v7 || P || PreviousState )
         {
           ObfDereferenceObjectWithTag(Object[0], 0x746C6644u);
           v14 = -1073741811;
@@ -79,7 +86,14 @@ __int64 __fastcall NtSetTimer(HANDLE Handle, unsigned __int64 a2, __int64 a3, __
           v14 = -1073741788;
           goto LABEL_28;
         }
-        v16 = ExpSetTimerObject((ULONG_PTR)Object[0], v7, (__int64)P, v18[0], a6, 0, a7);
+        v16 = ExpSetTimerObject(
+                (ULONG_PTR)Object[0],
+                (__int64)v7,
+                (__int64)P,
+                v18[0],
+                Period,
+                0,
+                (__int64)PreviousState);
       }
       v14 = v16;
     }
@@ -88,7 +102,7 @@ __int64 __fastcall NtSetTimer(HANDLE Handle, unsigned __int64 a2, __int64 a3, __
 LABEL_14:
       if ( v14 >= 0 && v10 )
         return 1073741861;
-      return (unsigned int)v14;
+      return v14;
     }
 LABEL_28:
     if ( P )

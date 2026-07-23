@@ -8,23 +8,23 @@
  *     memset$thunk$772440563353939046 @ 0x180174030 (memset$thunk$772440563353939046.c)
  */
 
-__int64 __fastcall RtlpFreeHandleForAtom(__int64 a1, __int64 a2)
+char __fastcall RtlpFreeHandleForAtom(__int64 a1, __int64 a2)
 {
   unsigned int v3; // esi
-  __int64 v4; // rcx
-  __int64 *v5; // rbx
-  __int64 result; // rax
+  _RTL_HANDLE_TABLE *v4; // rcx
+  _RTL_HANDLE_TABLE_ENTRY *v5; // rbx
+  _RTL_HANDLE_TABLE_ENTRY *v6; // rax
 
   v3 = *(_DWORD *)(a1 + 20);
-  v4 = a1 + 16;
-  v5 = (__int64 *)(*(_QWORD *)(v4 + 24) + v3 * *(unsigned __int16 *)(a2 + 8));
-  result = RtlIsValidHandle(v4, v5);
-  if ( (_BYTE)result )
+  v4 = (_RTL_HANDLE_TABLE *)(a1 + 16);
+  v5 = (PRTL_HANDLE_TABLE_ENTRY)((char *)v4->CommittedHandles + v3 * *(unsigned __int16 *)(a2 + 8));
+  LOBYTE(v6) = RtlIsValidHandle(v4, v5);
+  if ( (_BYTE)v6 )
   {
     memset_thunk_772440563353939046(v5, 0, v3);
-    result = *(_QWORD *)(a1 + 32);
-    *v5 = result;
+    v6 = *(_RTL_HANDLE_TABLE_ENTRY **)(a1 + 32);
+    v5->NextFree = v6;
     *(_QWORD *)(a1 + 32) = v5;
   }
-  return result;
+  return (char)v6;
 }

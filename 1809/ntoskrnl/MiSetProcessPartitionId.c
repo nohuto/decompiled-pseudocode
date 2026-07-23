@@ -1,7 +1,7 @@
 /*
- * XREFs of MiSetProcessPartitionId @ 0x14013DAE8
+ * XREFs of MiSetProcessPartitionId @ 0x14013DBE8
  * Callers:
- *     MmCreateProcessAddressSpace @ 0x1406D1898 (MmCreateProcessAddressSpace.c)
+ *     MmCreateProcessAddressSpace @ 0x1406D2B38 (MmCreateProcessAddressSpace.c)
  * Callees:
  *     <none>
  */

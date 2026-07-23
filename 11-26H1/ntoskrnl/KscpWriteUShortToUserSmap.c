@@ -1,5 +1,5 @@
 /*
- * XREFs of KscpWriteUShortToUserSmap @ 0x140C5EA40
+ * XREFs of KscpWriteUShortToUserSmap @ 0x140C64A40
  * Callers:
  *     <none>
  * Callees:

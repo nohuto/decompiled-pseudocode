@@ -1,10 +1,10 @@
 /*
- * XREFs of HaliWheaInitProcessorGenericSection @ 0x140453418
+ * XREFs of HaliWheaInitProcessorGenericSection @ 0x14044B548
  * Callers:
- *     HalpWheaInitProcessorGenericSection @ 0x1404533C0 (HalpWheaInitProcessorGenericSection.c)
+ *     HalpWheaInitProcessorGenericSection @ 0x14044B4F0 (HalpWheaInitProcessorGenericSection.c)
  * Callees:
- *     HalpGetCpuVendor @ 0x140453A00 (HalpGetCpuVendor.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     HalpGetCpuVendor @ 0x14044BB30 (HalpGetCpuVendor.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall HaliWheaInitProcessorGenericSection(_QWORD *a1)

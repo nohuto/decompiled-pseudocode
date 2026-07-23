@@ -25,8 +25,8 @@ __int64 __fastcall sub_180044EDC(__int64 a1, int a2, unsigned __int64 a3, unsign
   __int64 v15; // rax
   __int64 v16; // rdi
   unsigned __int64 v17; // rbx
-  _DWORD *HotpatchInformation; // rcx
-  __int64 v19; // rcx
+  PSILO_USER_SHARED_DATA SharedData; // rcx
+  __int64 UserModeGlobalLogger; // rcx
   __int16 v21; // ax
   __int64 v22; // rax
   unsigned __int64 v23; // rbx
@@ -59,12 +59,12 @@ __int64 __fastcall sub_180044EDC(__int64 a1, int a2, unsigned __int64 a3, unsign
   {
     v16 = a3;
 LABEL_20:
-    HotpatchInformation = NtCurrentPeb()->HotpatchInformation;
-    if ( HotpatchInformation && *HotpatchInformation )
-      v19 = (__int64)NtCurrentPeb()->HotpatchInformation + 550;
+    SharedData = NtCurrentPeb()->SharedData;
+    if ( SharedData && SharedData->ServiceSessionId )
+      UserModeGlobalLogger = (__int64)NtCurrentPeb()->SharedData->UserModeGlobalLogger;
     else
-      v19 = 2147353472LL;
-    if ( *(_BYTE *)v19 && (NtCurrentPeb()->TracingFlags & 1) != 0 && v16 )
+      UserModeGlobalLogger = 2147353472LL;
+    if ( *(_BYTE *)UserModeGlobalLogger && (NtCurrentPeb()->TracingFlags & 1) != 0 && v16 )
       sub_180103570(a1, v16, a3, v25[0], v26, 3);
     return v16;
   }
@@ -95,7 +95,7 @@ LABEL_20:
   }
   else
   {
-    v22 = sub_1800515E8(&unk_180166A60, 2 * ((a3 - qword_180166A58) >> 20));
+    v22 = sub_1800515E8(&qword_180166A60, 2 * ((a3 - qword_180166A58) >> 20));
     if ( !v22 )
       goto LABEL_40;
     v14 = v22 - 1;

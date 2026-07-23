@@ -1,7 +1,7 @@
 /*
- * XREFs of VrpFreeCallbackContext @ 0x140612EC4
+ * XREFs of VrpFreeCallbackContext @ 0x140612F78
  * Callers:
- *     VrpPostOpenOrCreate @ 0x140615588 (VrpPostOpenOrCreate.c)
+ *     VrpPostOpenOrCreate @ 0x14061563C (VrpPostOpenOrCreate.c)
  * Callees:
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  */

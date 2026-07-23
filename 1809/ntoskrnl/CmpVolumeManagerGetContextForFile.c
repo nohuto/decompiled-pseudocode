@@ -1,23 +1,23 @@
 /*
- * XREFs of CmpVolumeManagerGetContextForFile @ 0x1405A4298
+ * XREFs of CmpVolumeManagerGetContextForFile @ 0x1405A5298
  * Callers:
- *     CmpCreateHive @ 0x1405A6574 (CmpCreateHive.c)
- *     CmpVolumeManagerGetContextForFilePath @ 0x140759810 (CmpVolumeManagerGetContextForFilePath.c)
+ *     CmpCreateHive @ 0x1405A7574 (CmpCreateHive.c)
+ *     CmpVolumeManagerGetContextForFilePath @ 0x14075AA00 (CmpVolumeManagerGetContextForFilePath.c)
  * Callees:
  *     CmSiFreeMemory @ 0x140013000 (CmSiFreeMemory.c)
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     ExAcquirePushLockSharedEx @ 0x14004EE20 (ExAcquirePushLockSharedEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
- *     ExfReleasePushLockShared @ 0x1400914B0 (ExfReleasePushLockShared.c)
- *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     IoGetAttachedDeviceReference @ 0x1400ACE40 (IoGetAttachedDeviceReference.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     CmpVolumeManagerGetContextForGuidUnsafe @ 0x1405A4450 (CmpVolumeManagerGetContextForGuidUnsafe.c)
- *     IoVolumeDeviceToGuid @ 0x1405A44B0 (IoVolumeDeviceToGuid.c)
- *     ObReferenceObjectByHandle @ 0x1405E8350 (ObReferenceObjectByHandle.c)
- *     CmpVolumeContextCreate @ 0x14075F680 (CmpVolumeContextCreate.c)
- *     CmpVolumeContextCleanup @ 0x1407F6514 (CmpVolumeContextCleanup.c)
+ *     ExfReleasePushLockShared @ 0x1400913F0 (ExfReleasePushLockShared.c)
+ *     ExfTryToWakePushLock @ 0x140091500 (ExfTryToWakePushLock.c)
+ *     IoGetAttachedDeviceReference @ 0x1400ACD80 (IoGetAttachedDeviceReference.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     CmpVolumeManagerGetContextForGuidUnsafe @ 0x1405A5450 (CmpVolumeManagerGetContextForGuidUnsafe.c)
+ *     IoVolumeDeviceToGuid @ 0x1405A54B0 (IoVolumeDeviceToGuid.c)
+ *     ObReferenceObjectByHandle @ 0x1405E9350 (ObReferenceObjectByHandle.c)
+ *     CmpVolumeContextCreate @ 0x140760870 (CmpVolumeContextCreate.c)
+ *     CmpVolumeContextCleanup @ 0x1407F7714 (CmpVolumeContextCleanup.c)
  */
 
 __int64 __fastcall CmpVolumeManagerGetContextForFile(__int64 a1, void *a2, __int64 a3, PPRIVILEGE_SET *a4)
@@ -52,15 +52,15 @@ __int64 __fastcall CmpVolumeManagerGetContextForFile(__int64 a1, void *a2, __int
     if ( v5 >= 0 )
     {
       ExAcquirePushLockExclusiveEx((ULONG_PTR)&CmpVolumeManager, 0LL);
-      v18 = (PPRIVILEGE_SET *)qword_14096EE90;
-      if ( *(__int64 **)qword_14096EE90 == &qword_14096EE88 )
+      v18 = (PPRIVILEGE_SET *)qword_14096FE90;
+      if ( *(__int64 **)qword_14096FE90 == &qword_14096FE88 )
       {
         ContextForGuidUnsafe = Privileges;
         Privileges = 0LL;
-        *(_QWORD *)&ContextForGuidUnsafe->PrivilegeCount = &qword_14096EE88;
+        *(_QWORD *)&ContextForGuidUnsafe->PrivilegeCount = &qword_14096FE88;
         ContextForGuidUnsafe->Privilege[0].Luid = (LUID)v18;
         *v18 = ContextForGuidUnsafe;
-        qword_14096EE90 = (__int64)ContextForGuidUnsafe;
+        qword_14096FE90 = (__int64)ContextForGuidUnsafe;
         v17 = (_InterlockedExchangeAdd64((volatile signed __int64 *)&CmpVolumeManager, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2;
         goto LABEL_27;
       }
@@ -108,15 +108,15 @@ LABEL_27:
           ExfTryToWakePushLock((volatile signed __int64 *)&CmpVolumeManager);
         goto LABEL_22;
       }
-      v15 = (PPRIVILEGE_SET *)qword_14096EE90;
-      if ( *(__int64 **)qword_14096EE90 == &qword_14096EE88 )
+      v15 = (PPRIVILEGE_SET *)qword_14096FE90;
+      if ( *(__int64 **)qword_14096FE90 == &qword_14096FE88 )
       {
         ContextForGuidUnsafe = Privileges;
         Privileges = 0LL;
-        *(_QWORD *)&ContextForGuidUnsafe->PrivilegeCount = &qword_14096EE88;
+        *(_QWORD *)&ContextForGuidUnsafe->PrivilegeCount = &qword_14096FE88;
         ContextForGuidUnsafe->Privilege[0].Luid = (LUID)v15;
         *v15 = ContextForGuidUnsafe;
-        qword_14096EE90 = (__int64)ContextForGuidUnsafe;
+        qword_14096FE90 = (__int64)ContextForGuidUnsafe;
         goto LABEL_21;
       }
 LABEL_29:

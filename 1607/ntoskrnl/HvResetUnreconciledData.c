@@ -1,10 +1,10 @@
 /*
- * XREFs of HvResetUnreconciledData @ 0x14047E8D0
+ * XREFs of HvResetUnreconciledData @ 0x14047D624
  * Callers:
- *     HvStoreModifiedData @ 0x140480EEC (HvStoreModifiedData.c)
- *     HvSyncHive @ 0x14060635C (HvSyncHive.c)
+ *     HvStoreModifiedData @ 0x14047FC40 (HvStoreModifiedData.c)
+ *     HvSyncHive @ 0x140606410 (HvSyncHive.c)
  * Callees:
- *     RtlClearAllBits @ 0x14008487C (RtlClearAllBits.c)
+ *     RtlClearAllBits @ 0x1400829DC (RtlClearAllBits.c)
  */
 
 void __fastcall HvResetUnreconciledData(__int64 a1)

@@ -1,14 +1,14 @@
 /*
- * XREFs of SmKmEtwLogStoreChange @ 0x1409D8774
+ * XREFs of SmKmEtwLogStoreChange @ 0x1409D8974
  * Callers:
- *     SmKmStoreDelete @ 0x1407B72E8 (SmKmStoreDelete.c)
- *     SmKmStoreAdd @ 0x1407B7A6C (SmKmStoreAdd.c)
- *     SmEtwEnableCallback @ 0x140841750 (SmEtwEnableCallback.c)
+ *     SmKmStoreDelete @ 0x1407B75C8 (SmKmStoreDelete.c)
+ *     SmKmStoreAdd @ 0x1407B7D4C (SmKmStoreAdd.c)
+ *     SmEtwEnableCallback @ 0x140841A50 (SmEtwEnableCallback.c)
  * Callees:
- *     EtwWriteEx @ 0x1402581E0 (EtwWriteEx.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memset @ 0x140435A00 (memset.c)
- *     ?SmStEtwFillStoreEvent@?$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@PEAU_SMKM_EVENT_DESCRIPTOR@@@Z @ 0x1405CCC48 (-SmStEtwFillStoreEvent@-$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@PEAU_SMKM_EVENT_DESCRIPTOR@@@Z.c)
+ *     EtwWriteEx @ 0x1402582A0 (EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     ?SmStEtwFillStoreEvent@?$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@PEAU_SMKM_EVENT_DESCRIPTOR@@@Z @ 0x1405CD1B8 (-SmStEtwFillStoreEvent@-$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@PEAU_SMKM_EVENT_DESCRIPTOR@@@Z.c)
  */
 
 NTSTATUS __fastcall SmKmEtwLogStoreChange(REGHANDLE *a1, __int64 a2, __int64 *a3)

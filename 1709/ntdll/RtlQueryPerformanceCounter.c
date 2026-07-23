@@ -10,13 +10,14 @@
  *     NtQueryPerformanceCounter @ 0x1800A06E0 (NtQueryPerformanceCounter.c)
  */
 
-__int64 __fastcall RtlQueryPerformanceCounter(unsigned __int64 *a1, __int64 a2)
+LOGICAL __cdecl RtlQueryPerformanceCounter(PLARGE_INTEGER PerformanceCounter)
 {
-  unsigned __int64 v2; // rax
-  unsigned __int64 v4; // rax
-  unsigned __int64 v6; // [rsp+40h] [rbp+18h] BYREF
+  unsigned __int64 v1; // rax
+  __int64 v2; // rdx
+  __int64 QuadPart; // rax
+  LARGE_INTEGER PerformanceCountera; // [rsp+40h] [rbp+18h] BYREF
 
-  LOBYTE(v2) = MEMORY[0x7FFE03C6];
+  LOBYTE(v1) = MEMORY[0x7FFE03C6];
   if ( (MEMORY[0x7FFE03C6] & 1) != 0 )
   {
     if ( MEMORY[0x7FFE03C6] >= 0 )
@@ -29,22 +30,22 @@ __int64 __fastcall RtlQueryPerformanceCounter(unsigned __int64 *a1, __int64 a2)
       {
         _mm_mfence();
       }
-      v2 = __rdtsc();
-      LODWORD(a2) = HIDWORD(v2);
+      v1 = __rdtsc();
+      LODWORD(v2) = HIDWORD(v1);
+      v1 = (unsigned int)v1;
       v2 = (unsigned int)v2;
-      a2 = (unsigned int)a2;
     }
     else
     {
       __asm { rdtscp }
     }
-    v4 = (MEMORY[0x7FFE03B8] + ((a2 << 32) | v2)) >> MEMORY[0x7FFE03C7];
+    QuadPart = (MEMORY[0x7FFE03B8] + ((v2 << 32) | v1)) >> MEMORY[0x7FFE03C7];
   }
   else
   {
-    NtQueryPerformanceCounter(&v6, 0LL);
-    v4 = v6;
+    NtQueryPerformanceCounter(&PerformanceCountera, 0LL);
+    QuadPart = PerformanceCountera.QuadPart;
   }
-  *a1 = v4;
-  return 1LL;
+  PerformanceCounter->QuadPart = QuadPart;
+  return 1;
 }

@@ -1,14 +1,14 @@
 /*
- * XREFs of PspSiloInitializeUserSharedData @ 0x14067EDB8
+ * XREFs of PspSiloInitializeUserSharedData @ 0x14067EE9C
  * Callers:
- *     PspInitializeServerSiloDeferred @ 0x14067E960 (PspInitializeServerSiloDeferred.c)
+ *     PspInitializeServerSiloDeferred @ 0x14067EA44 (PspInitializeServerSiloDeferred.c)
  * Callees:
- *     PsDetachSiloFromCurrentThread @ 0x140009D20 (PsDetachSiloFromCurrentThread.c)
- *     PsAttachSiloToCurrentThread @ 0x140009D40 (PsAttachSiloToCurrentThread.c)
- *     PsGetServerSiloGlobals @ 0x1400766B0 (PsGetServerSiloGlobals.c)
- *     ExIsMultiSessionSku @ 0x14057F37C (ExIsMultiSessionSku.c)
- *     PspSiloInitializeSuiteMask @ 0x14067ED58 (PspSiloInitializeSuiteMask.c)
- *     RtlpGetNtProductTypeFromRegistry @ 0x140689108 (RtlpGetNtProductTypeFromRegistry.c)
+ *     PsDetachSiloFromCurrentThread @ 0x1400098A0 (PsDetachSiloFromCurrentThread.c)
+ *     PsAttachSiloToCurrentThread @ 0x1400098C0 (PsAttachSiloToCurrentThread.c)
+ *     PsGetServerSiloGlobals @ 0x140076730 (PsGetServerSiloGlobals.c)
+ *     ExIsMultiSessionSku @ 0x14057F828 (ExIsMultiSessionSku.c)
+ *     PspSiloInitializeSuiteMask @ 0x14067EE3C (PspSiloInitializeSuiteMask.c)
+ *     RtlpGetNtProductTypeFromRegistry @ 0x1406891EC (RtlpGetNtProductTypeFromRegistry.c)
  */
 
 __int64 __fastcall PspSiloInitializeUserSharedData(__int64 a1)

@@ -6,11 +6,11 @@
  *     <none>
  */
 
-__int64 ZwAddAtomEx()
+NTSTATUS __cdecl ZwAddAtomEx(PWSTR AtomName, ULONG Length, PRTL_ATOM Atom, ULONG Flags)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 103LL;
+  result = 103;
   __asm { syscall; Low latency system call }
   return result;
 }

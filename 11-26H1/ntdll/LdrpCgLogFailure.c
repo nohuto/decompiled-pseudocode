@@ -1,17 +1,17 @@
 /*
- * XREFs of LdrpCgLogFailure @ 0x18015CE90
+ * XREFs of LdrpCgLogFailure @ 0x18015CD50
  * Callers:
  *     <none>
  * Callees:
- *     RtlCaptureStackBackTrace @ 0x180010460 (RtlCaptureStackBackTrace.c)
- *     _tlgWriteTransfer_EtwEventWriteTransfer @ 0x18006A8B0 (_tlgWriteTransfer_EtwEventWriteTransfer.c)
- *     _tlgCreate1Sz_char @ 0x18006E99C (_tlgCreate1Sz_char.c)
- *     RtlRunOnceExecuteOnce @ 0x18006EED0 (RtlRunOnceExecuteOnce.c)
- *     LdrpFindLoadedDllByAddress @ 0x1800C6170 (LdrpFindLoadedDllByAddress.c)
- *     _tlgKeywordOn @ 0x1800EB8E8 (_tlgKeywordOn.c)
- *     LdrpGetPdbSignature @ 0x18015D3E0 (LdrpGetPdbSignature.c)
- *     __security_check_cookie @ 0x180162C90 (__security_check_cookie.c)
- *     memset$thunk$772440563353939046 @ 0x180170030 (memset$thunk$772440563353939046.c)
+ *     RtlCaptureStackBackTrace @ 0x18005BB90 (RtlCaptureStackBackTrace.c)
+ *     _tlgWriteTransfer_EtwEventWriteTransfer @ 0x18008AD00 (_tlgWriteTransfer_EtwEventWriteTransfer.c)
+ *     _tlgCreate1Sz_char @ 0x18008EDEC (_tlgCreate1Sz_char.c)
+ *     RtlRunOnceExecuteOnce @ 0x18008F320 (RtlRunOnceExecuteOnce.c)
+ *     LdrpFindLoadedDllByAddress @ 0x1800C3930 (LdrpFindLoadedDllByAddress.c)
+ *     _tlgKeywordOn @ 0x1800EAAF8 (_tlgKeywordOn.c)
+ *     LdrpGetPdbSignature @ 0x18015D2A0 (LdrpGetPdbSignature.c)
+ *     __security_check_cookie @ 0x180162B90 (__security_check_cookie.c)
+ *     memset$thunk$772440563353939046 @ 0x18016F030 (memset$thunk$772440563353939046.c)
  */
 
 char __fastcall LdrpCgLogFailure(__int64 a1)
@@ -19,10 +19,10 @@ char __fastcall LdrpCgLogFailure(__int64 a1)
   unsigned __int64 v1; // rbx
   __int64 v2; // rsi
   __int64 v3; // rdi
-  char *v4; // r14
-  char *v5; // r13
+  const ULONG *v4; // r14
+  const ULONG *v5; // r13
   int LoadedDllByAddress; // eax
-  _QWORD *v7; // r9
+  char *v7; // r9
   unsigned __int64 v8; // r15
   _BYTE *v9; // rdi
   unsigned __int64 *v10; // rsi
@@ -51,8 +51,8 @@ char __fastcall LdrpCgLogFailure(__int64 a1)
   __int64 v34; // [rsp+78h] [rbp-90h] BYREF
   const char *v35; // [rsp+80h] [rbp-88h] BYREF
   const char *v36; // [rsp+88h] [rbp-80h]
-  char *v37; // [rsp+90h] [rbp-78h]
-  char *v38; // [rsp+98h] [rbp-70h]
+  const ULONG *v37; // [rsp+90h] [rbp-78h]
+  const ULONG *v38; // [rsp+98h] [rbp-70h]
   __int64 v39; // [rsp+A0h] [rbp-68h] BYREF
   __int128 v40; // [rsp+A8h] [rbp-60h]
   __int64 v41; // [rsp+B8h] [rbp-50h]
@@ -62,7 +62,7 @@ char __fastcall LdrpCgLogFailure(__int64 a1)
   PVOID BackTrace; // [rsp+F0h] [rbp-18h] BYREF
   __int128 v46; // [rsp+F8h] [rbp-10h]
   __int64 v47; // [rsp+108h] [rbp+0h]
-  _BYTE v48[32]; // [rsp+118h] [rbp+10h] BYREF
+  _EVENT_DATA_DESCRIPTOR v48; // [rsp+118h] [rbp+10h] BYREF
   __int64 *v49; // [rsp+138h] [rbp+30h]
   __int64 v50; // [rsp+140h] [rbp+38h]
   __int16 *v51; // [rsp+148h] [rbp+40h]
@@ -144,20 +144,16 @@ char __fastcall LdrpCgLogFailure(__int64 a1)
   v43 = 0LL;
   v44 = 0LL;
   memset_thunk_772440563353939046(v112, 0, 0x40uLL);
-  v4 = "unknown";
+  v4 = (const ULONG *)"unknown";
   v109 = 0LL;
   v35 = "unknown";
   v36 = "unknown";
   v111 = 0LL;
-  v37 = "unknown";
-  v38 = "unknown";
-  v5 = "unknown";
+  v37 = (const ULONG *)"unknown";
+  v38 = (const ULONG *)"unknown";
+  v5 = (const ULONG *)"unknown";
   v110 = 0LL;
-  RtlRunOnceExecuteOnce(
-    &CastGuardTelemetryInitRunOnce,
-    (unsigned int (__fastcall *)(volatile signed __int64 *, __int64, unsigned __int64 *))CastGuardTelemetryInitOnce,
-    0LL,
-    0LL);
+  RtlRunOnceExecuteOnce(&CastGuardTelemetryInitRunOnce, (PRTL_RUN_ONCE_INIT_FN)CastGuardTelemetryInitOnce, 0LL, 0LL);
   v32[0] = NtCurrentPeb()->ImageBaseAddress;
   LOWORD(LoadedDllByAddress) = RtlCaptureStackBackTrace(1u, 4u, &BackTrace, &BackTraceHash);
   v8 = (unsigned __int16)LoadedDllByAddress;
@@ -189,12 +185,12 @@ char __fastcall LdrpCgLogFailure(__int64 a1)
     while ( v1 < v8 );
     v2 = v41;
     v3 = v39;
-    v5 = (char *)v36;
-    v4 = (char *)v35;
+    v5 = (const ULONG *)v36;
+    v4 = (const ULONG *)v35;
   }
-  if ( (unsigned int)dword_1801C5A38 > 5 )
+  if ( (unsigned int)dword_1801C4A38 > 5 )
   {
-    LOBYTE(LoadedDllByAddress) = tlgKeywordOn((__int64)&dword_1801C5A38, 0x400000000000LL);
+    LOBYTE(LoadedDllByAddress) = tlgKeywordOn((__int64)&dword_1801C4A38, 0x400000000000LL);
     if ( (_BYTE)LoadedDllByAddress )
     {
       v33 = v32[0];
@@ -291,12 +287,12 @@ char __fastcall LdrpCgLogFailure(__int64 a1)
       v32[1] = 0x1000000LL;
       v108 = 8LL;
       LOBYTE(LoadedDllByAddress) = tlgWriteTransfer_EtwEventWriteTransfer(
-                                     (__int64)&dword_1801C5A38,
-                                     byte_18019C69E,
+                                     (__int64)&dword_1801C4A38,
+                                     (unsigned __int8 *)dword_18019B6B6,
                                      v23,
                                      v22,
-                                     31,
-                                     (__int64)v48);
+                                     0x1Fu,
+                                     &v48);
     }
   }
   return LoadedDllByAddress;

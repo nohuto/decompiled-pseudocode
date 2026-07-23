@@ -1,18 +1,18 @@
 /*
- * XREFs of CcWriteBehindInternal @ 0x140384680
+ * XREFs of CcWriteBehindInternal @ 0x140386430
  * Callers:
- *     CcWriteBehind @ 0x14038338C (CcWriteBehind.c)
+ *     CcWriteBehind @ 0x14038513C (CcWriteBehind.c)
  * Callees:
- *     KeQueryPerformanceCounter @ 0x14021C3F0 (KeQueryPerformanceCounter.c)
- *     CcWriteBehindPreProcess @ 0x1403848C4 (CcWriteBehindPreProcess.c)
- *     CcWriteBehindPostProcess @ 0x140384CD4 (CcWriteBehindPostProcess.c)
- *     DbgPrintEx @ 0x140397530 (DbgPrintEx.c)
- *     CcFlushCachePreProcess @ 0x1403991C8 (CcFlushCachePreProcess.c)
- *     CcFlushCachePostProcess @ 0x1403998E0 (CcFlushCachePostProcess.c)
- *     CcFlushCacheAcquireRange @ 0x140399CFC (CcFlushCacheAcquireRange.c)
- *     CcFlushCachePostProcessOneRange @ 0x140399E5C (CcFlushCachePostProcessOneRange.c)
- *     CcFlushCacheOneRange @ 0x14039A180 (CcFlushCacheOneRange.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     KeQueryPerformanceCounter @ 0x14021DD80 (KeQueryPerformanceCounter.c)
+ *     CcWriteBehindPreProcess @ 0x140386674 (CcWriteBehindPreProcess.c)
+ *     CcWriteBehindPostProcess @ 0x140386A84 (CcWriteBehindPostProcess.c)
+ *     DbgPrintEx @ 0x1403992B0 (DbgPrintEx.c)
+ *     CcFlushCachePreProcess @ 0x14039AF28 (CcFlushCachePreProcess.c)
+ *     CcFlushCachePostProcess @ 0x14039B640 (CcFlushCachePostProcess.c)
+ *     CcFlushCacheAcquireRange @ 0x14039BA5C (CcFlushCacheAcquireRange.c)
+ *     CcFlushCachePostProcessOneRange @ 0x14039BBBC (CcFlushCachePostProcessOneRange.c)
+ *     CcFlushCacheOneRange @ 0x14039BEE0 (CcFlushCacheOneRange.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 ULONG __fastcall CcWriteBehindInternal(__int64 a1)
@@ -34,7 +34,7 @@ ULONG __fastcall CcWriteBehindInternal(__int64 a1)
   __int64 v16; // [rsp+A8h] [rbp-58h]
   __int64 v17; // [rsp+B0h] [rbp-50h] BYREF
   __int64 *v18; // [rsp+B8h] [rbp-48h]
-  unsigned int *p_ForegroundLossTime; // [rsp+C0h] [rbp-40h]
+  struct _LIST_ENTRY **p_Blink; // [rsp+C0h] [rbp-40h]
   int v20; // [rsp+C8h] [rbp-38h]
   char v21; // [rsp+CCh] [rbp-34h]
   __int128 *v22; // [rsp+D0h] [rbp-30h]
@@ -58,7 +58,7 @@ ULONG __fastcall CcWriteBehindInternal(__int64 a1)
     if ( (unsigned int)CcWriteBehindPreProcess(v13) == 1 )
       break;
     v4 = v15;
-    p_ForegroundLossTime = &EmpParseLock.ForegroundLossTime;
+    p_Blink = &EmpParseLock.GlobalForegroundListEntry.Blink;
     v5 = &v12;
     if ( v1 )
       v5 = v1;
@@ -75,7 +75,7 @@ ULONG __fastcall CcWriteBehindInternal(__int64 a1)
     if ( (unsigned __int8)CcFlushCachePreProcess(v13) )
     {
       if ( v23 )
-        p_ForegroundLossTime = 0LL;
+        p_Blink = 0LL;
       if ( v14 && (*(_DWORD *)(v14 + 152) & 0x4000000) == 0 )
       {
         do

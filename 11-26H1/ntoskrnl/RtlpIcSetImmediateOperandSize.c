@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlpIcSetImmediateOperandSize @ 0x140C578E0
+ * XREFs of RtlpIcSetImmediateOperandSize @ 0x140C5D8E0
  * Callers:
- *     RtlpIcEmulateInstruction @ 0x140C569F8 (RtlpIcEmulateInstruction.c)
+ *     RtlpIcEmulateInstruction @ 0x140C5C9F8 (RtlpIcEmulateInstruction.c)
  * Callees:
  *     <none>
  */

@@ -1,19 +1,19 @@
 /*
- * XREFs of WbGetHeapExecutedBlock @ 0x140762918
+ * XREFs of WbGetHeapExecutedBlock @ 0x140762B08
  * Callers:
- *     WbHeapExecuteCall @ 0x140762C10 (WbHeapExecuteCall.c)
+ *     WbHeapExecuteCall @ 0x140762E00 (WbHeapExecuteCall.c)
  * Callees:
- *     KeAbPreAcquire @ 0x140230EE0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfReleasePushLockShared @ 0x1402BD860 (ExfReleasePushLockShared.c)
- *     ExfAcquirePushLockSharedEx @ 0x1402FD040 (ExfAcquirePushLockSharedEx.c)
- *     KiCheckForKernelApcDelivery @ 0x14030F820 (KiCheckForKernelApcDelivery.c)
- *     WbReleaseLeastRecentlyUsedHeapExecutedBlocks @ 0x1407617D0 (WbReleaseLeastRecentlyUsedHeapExecutedBlocks.c)
- *     WbAddHeapExecutedBlockToCache @ 0x140761B10 (WbAddHeapExecutedBlockToCache.c)
- *     sub_140762140 @ 0x140762140 (sub_140762140.c)
- *     sub_140762AA4 @ 0x140762AA4 (sub_140762AA4.c)
- *     WbMoveHeapExecutedBlockToBackOfLRU @ 0x140762B0C (WbMoveHeapExecutedBlockToBackOfLRU.c)
- *     sub_140763150 @ 0x140763150 (sub_140763150.c)
+ *     KeAbPreAcquire @ 0x140230FD0 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     ExfReleasePushLockShared @ 0x1402BDAF0 (ExfReleasePushLockShared.c)
+ *     ExfAcquirePushLockSharedEx @ 0x1402FD2D0 (ExfAcquirePushLockSharedEx.c)
+ *     KiCheckForKernelApcDelivery @ 0x14030FAB0 (KiCheckForKernelApcDelivery.c)
+ *     WbReleaseLeastRecentlyUsedHeapExecutedBlocks @ 0x1407619C0 (WbReleaseLeastRecentlyUsedHeapExecutedBlocks.c)
+ *     WbAddHeapExecutedBlockToCache @ 0x140761D00 (WbAddHeapExecutedBlockToCache.c)
+ *     sub_140762330 @ 0x140762330 (sub_140762330.c)
+ *     sub_140762C94 @ 0x140762C94 (sub_140762C94.c)
+ *     WbMoveHeapExecutedBlockToBackOfLRU @ 0x140762CFC (WbMoveHeapExecutedBlockToBackOfLRU.c)
+ *     sub_140763340 @ 0x140763340 (sub_140763340.c)
  */
 
 __int64 __fastcall WbGetHeapExecutedBlock(__int64 a1, __int64 a2, __int64 *a3)
@@ -41,7 +41,7 @@ __int64 __fastcall WbGetHeapExecutedBlock(__int64 a1, __int64 a2, __int64 *a3)
     ExfAcquirePushLockSharedEx((signed __int64 *)(a1 + 48), 0LL, v8, a1 + 48);
   if ( v8 )
     *(_BYTE *)(v8 + 18) = 1;
-  v9 = sub_140763150(a1, *(_QWORD *)(a2 + 272), &v16, 0LL);
+  v9 = sub_140763340(a1, *(_QWORD *)(a2 + 272), &v16, 0LL);
   if ( _InterlockedCompareExchange64((volatile signed __int64 *)(a1 + 48), 0LL, 17LL) != 17 )
     ExfReleasePushLockShared((signed __int64 *)(a1 + 48));
   KeAbPostRelease(a1 + 48);
@@ -51,7 +51,7 @@ __int64 __fastcall WbGetHeapExecutedBlock(__int64 a1, __int64 a2, __int64 *a3)
     KiCheckForKernelApcDelivery();
   if ( v9 == -1073741198 )
   {
-    v14 = sub_140762140(a1, a2, (void **)&v16);
+    v14 = sub_140762330(a1, a2, (void **)&v16);
     v12 = v16;
     v9 = v14;
     if ( v14 < 0 )
@@ -62,7 +62,7 @@ __int64 __fastcall WbGetHeapExecutedBlock(__int64 a1, __int64 a2, __int64 *a3)
     v15 = v17;
     if ( v17 )
     {
-      sub_140762AA4(a1, v12);
+      sub_140762C94(a1, v12);
       v12 = v15;
       v17 = 0LL;
     }
@@ -80,7 +80,7 @@ __int64 __fastcall WbGetHeapExecutedBlock(__int64 a1, __int64 a2, __int64 *a3)
     v12 = 0LL;
   }
 LABEL_14:
-  sub_140762AA4(a1, v12);
-  sub_140762AA4(a1, v17);
+  sub_140762C94(a1, v12);
+  sub_140762C94(a1, v17);
   return (unsigned int)v9;
 }

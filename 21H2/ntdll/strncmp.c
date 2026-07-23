@@ -1,7 +1,7 @@
 /*
  * XREFs of strncmp @ 0x180091730
  * Callers:
- *     RtlValidateCorrelationVector @ 0x1800FC230 (RtlValidateCorrelationVector.c)
+ *     RtlValidateCorrelationVector @ 0x1800FC1F0 (RtlValidateCorrelationVector.c)
  * Callees:
  *     <none>
  */

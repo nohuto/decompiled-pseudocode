@@ -1,12 +1,12 @@
 /*
- * XREFs of _ctrlfp @ 0x1403DE2AC
+ * XREFs of _ctrlfp @ 0x1403DE48C
  * Callers:
- *     _call_matherr @ 0x1403DD8E0 (_call_matherr.c)
- *     _handle_error @ 0x1403DDA20 (_handle_error.c)
- *     _handle_errorf @ 0x1403DDB5C (_handle_errorf.c)
+ *     _call_matherr @ 0x1403DDAC0 (_call_matherr.c)
+ *     _handle_error @ 0x1403DDC00 (_handle_error.c)
+ *     _handle_errorf @ 0x1403DDD3C (_handle_errorf.c)
  * Callees:
- *     _set_fpsr @ 0x1403DE390 (_set_fpsr.c)
- *     _get_fpsr @ 0x14042B030 (_get_fpsr.c)
+ *     _set_fpsr @ 0x1403DE570 (_set_fpsr.c)
+ *     _get_fpsr @ 0x14042B3C0 (_get_fpsr.c)
  */
 
 __int64 __fastcall ctrlfp(int a1, int a2)

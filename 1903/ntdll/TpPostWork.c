@@ -8,12 +8,8 @@
  *     sub_180038510 @ 0x180038510 (sub_180038510.c)
  */
 
-__int64 __fastcall TpPostWork(struct _PEB_LDR_DATA *a1)
+void __cdecl TpPostWork(PTP_WORK Work)
 {
-  __int64 result; // rax
-
-  result = sub_1800364D8(a1, 0LL, 1LL);
-  if ( (_DWORD)result )
-    return sub_180038510(a1);
-  return result;
+  if ( (unsigned int)sub_1800364D8((PPEB_LDR_DATA)Work, 0LL, 1LL) )
+    sub_180038510(Work);
 }

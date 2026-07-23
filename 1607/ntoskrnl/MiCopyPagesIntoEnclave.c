@@ -1,34 +1,34 @@
 /*
- * XREFs of MiCopyPagesIntoEnclave @ 0x14065E84C
+ * XREFs of MiCopyPagesIntoEnclave @ 0x14065E930
  * Callers:
- *     NtLoadEnclaveData @ 0x14065FF84 (NtLoadEnclaveData.c)
+ *     NtLoadEnclaveData @ 0x140660068 (NtLoadEnclaveData.c)
  * Callees:
- *     KiLeaveGuardedRegionUnsafe @ 0x140013B70 (KiLeaveGuardedRegionUnsafe.c)
- *     MiGetPteAddress @ 0x14002BA64 (MiGetPteAddress.c)
- *     MiMakeProtectionMask @ 0x14002BD00 (MiMakeProtectionMask.c)
- *     MiUnlockAndDereferenceVad @ 0x14002BDA0 (MiUnlockAndDereferenceVad.c)
- *     MmProbeAndLockPages @ 0x14002F120 (MmProbeAndLockPages.c)
- *     MiGetPteFromCopyList @ 0x140034B80 (MiGetPteFromCopyList.c)
- *     MiObtainReferencedVad @ 0x14003E320 (MiObtainReferencedVad.c)
- *     MmUnlockPages @ 0x140051A80 (MmUnlockPages.c)
- *     ExReleaseAutoExpandPushLockShared @ 0x14008BE60 (ExReleaseAutoExpandPushLockShared.c)
- *     ExAcquireAutoExpandPushLockShared @ 0x1400C7740 (ExAcquireAutoExpandPushLockShared.c)
- *     KiStackAttachProcess @ 0x1400CD1F0 (KiStackAttachProcess.c)
- *     KiUnstackDetachProcess @ 0x1400CE820 (KiUnstackDetachProcess.c)
- *     MmMapLockedPagesSpecifyCache @ 0x1400DE220 (MmMapLockedPagesSpecifyCache.c)
- *     MiReleasePteCopyList @ 0x140107034 (MiReleasePteCopyList.c)
- *     MiCreatePteCopyList @ 0x140107178 (MiCreatePteCopyList.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     memmove @ 0x140171280 (memmove.c)
- *     MiGetVmPartition @ 0x1401E8344 (MiGetVmPartition.c)
- *     MiPteInShadowRange @ 0x1401EF3B8 (MiPteInShadowRange.c)
- *     MiWritePteShadow @ 0x1401EF658 (MiWritePteShadow.c)
- *     MiInitializeEnclavePfn @ 0x1401F059C (MiInitializeEnclavePfn.c)
- *     MiReturnEnclavePage @ 0x1401F06EC (MiReturnEnclavePage.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x1400136F0 (KiLeaveGuardedRegionUnsafe.c)
+ *     MiGetPteAddress @ 0x14002B5E4 (MiGetPteAddress.c)
+ *     MiMakeProtectionMask @ 0x14002B880 (MiMakeProtectionMask.c)
+ *     MiUnlockAndDereferenceVad @ 0x14002B920 (MiUnlockAndDereferenceVad.c)
+ *     MmProbeAndLockPages @ 0x14002ECA0 (MmProbeAndLockPages.c)
+ *     MiGetPteFromCopyList @ 0x140034700 (MiGetPteFromCopyList.c)
+ *     MiObtainReferencedVad @ 0x14003DEA0 (MiObtainReferencedVad.c)
+ *     MmUnlockPages @ 0x140051600 (MmUnlockPages.c)
+ *     ExReleaseAutoExpandPushLockShared @ 0x14008B5C0 (ExReleaseAutoExpandPushLockShared.c)
+ *     ExAcquireAutoExpandPushLockShared @ 0x1400C55E0 (ExAcquireAutoExpandPushLockShared.c)
+ *     KiStackAttachProcess @ 0x1400CB090 (KiStackAttachProcess.c)
+ *     KiUnstackDetachProcess @ 0x1400CC6C0 (KiUnstackDetachProcess.c)
+ *     MmMapLockedPagesSpecifyCache @ 0x1400DC0C0 (MmMapLockedPagesSpecifyCache.c)
+ *     MiReleasePteCopyList @ 0x140104DB4 (MiReleasePteCopyList.c)
+ *     MiCreatePteCopyList @ 0x140104EF8 (MiCreatePteCopyList.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     memmove @ 0x140171780 (memmove.c)
+ *     MiGetVmPartition @ 0x1401E8170 (MiGetVmPartition.c)
+ *     MiPteInShadowRange @ 0x1401EF1E4 (MiPteInShadowRange.c)
+ *     MiWritePteShadow @ 0x1401EF484 (MiWritePteShadow.c)
+ *     MiInitializeEnclavePfn @ 0x1401F03C8 (MiInitializeEnclavePfn.c)
+ *     MiReturnEnclavePage @ 0x1401F0518 (MiReturnEnclavePage.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     MiGetPageForEnclave @ 0x14065F514 (MiGetPageForEnclave.c)
- *     KeAddEnclavePage @ 0x1406E5BA4 (KeAddEnclavePage.c)
+ *     MiGetPageForEnclave @ 0x14065F5F8 (MiGetPageForEnclave.c)
+ *     KeAddEnclavePage @ 0x1406E5CDC (KeAddEnclavePage.c)
  */
 
 __int64 __fastcall MiCopyPagesIntoEnclave(
@@ -218,7 +218,7 @@ __int64 __fastcall MiCopyPagesIntoEnclave(
             goto LABEL_59;
           }
           MiInitializeEnclavePfn(v29, (__int64)PteAddress, v41);
-          v32 = MmProtectToPteMask[v41] & 0xFFFFFFFFFFFFFF7FuLL | ((HIBYTE(word_140326AA8) & 1 | (16
+          v32 = MmProtectToPteMask[v41] & 0xFFFFFFFFFFFFFF7FuLL | ((HIBYTE(word_140326AE8) & 1 | (16
                                                                                                 * (v29 & 0xFFFFFFFFFLL))) << 8) | 0x25;
           if ( (v41 & 4) != 0 )
             v32 |= 0x42uLL;

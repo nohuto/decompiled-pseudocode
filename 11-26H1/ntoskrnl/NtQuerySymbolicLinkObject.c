@@ -1,39 +1,39 @@
 /*
- * XREFs of NtQuerySymbolicLinkObject @ 0x140A907B0
+ * XREFs of NtQuerySymbolicLinkObject @ 0x140A95300
  * Callers:
- *     DifNtQuerySymbolicLinkObjectWrapper @ 0x140685A10 (DifNtQuerySymbolicLinkObjectWrapper.c)
- *     AdtpInitializeDriveLetters @ 0x140890D7C (AdtpInitializeDriveLetters.c)
- *     IopReassignSystemRoot @ 0x140CBDDA4 (IopReassignSystemRoot.c)
- *     IopStoreSystemPartitionInformation @ 0x140CBE34C (IopStoreSystemPartitionInformation.c)
+ *     DifNtQuerySymbolicLinkObjectWrapper @ 0x1406895F0 (DifNtQuerySymbolicLinkObjectWrapper.c)
+ *     AdtpInitializeDriveLetters @ 0x140897178 (AdtpInitializeDriveLetters.c)
+ *     IopReassignSystemRoot @ 0x140CC3E74 (IopReassignSystemRoot.c)
+ *     IopStoreSystemPartitionInformation @ 0x140CC441C (IopStoreSystemPartitionInformation.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     ExfReleasePushLock @ 0x1402E3120 (ExfReleasePushLock.c)
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     RtlCopyFromUser @ 0x140533E38 (RtlCopyFromUser.c)
- *     RtlCopyVolatileMemory @ 0x140733080 (RtlCopyVolatileMemory.c)
- *     RtlCopyToUser @ 0x14077F284 (RtlCopyToUser.c)
- *     RtlReadULongFromUser @ 0x14077F590 (RtlReadULongFromUser.c)
- *     RtlReadUShortFromUser @ 0x14077F5CC (RtlReadUShortFromUser.c)
- *     RtlWriteULongToUser @ 0x14077F7A0 (RtlWriteULongToUser.c)
- *     RtlWriteUShortToUser @ 0x14077F7E4 (RtlWriteUShortToUser.c)
- *     ExRaiseDatatypeMisalignment @ 0x1408F29F0 (ExRaiseDatatypeMisalignment.c)
- *     ProbeForWrite @ 0x1408F5D00 (ProbeForWrite.c)
- *     ObReferenceObjectByHandle @ 0x1408F9550 (ObReferenceObjectByHandle.c)
+ *     ExfReleasePushLock @ 0x14021B220 (ExfReleasePushLock.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     RtlCopyFromUser @ 0x1405362B8 (RtlCopyFromUser.c)
+ *     RtlCopyVolatileMemory @ 0x140737C50 (RtlCopyVolatileMemory.c)
+ *     RtlCopyToUser @ 0x140781D84 (RtlCopyToUser.c)
+ *     RtlReadULongFromUser @ 0x140782090 (RtlReadULongFromUser.c)
+ *     RtlReadUShortFromUser @ 0x1407820CC (RtlReadUShortFromUser.c)
+ *     RtlWriteULongToUser @ 0x1407822A0 (RtlWriteULongToUser.c)
+ *     RtlWriteUShortToUser @ 0x1407822E4 (RtlWriteUShortToUser.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408F8FB0 (ExRaiseDatatypeMisalignment.c)
+ *     ProbeForWrite @ 0x140925C90 (ProbeForWrite.c)
+ *     ObReferenceObjectByHandle @ 0x1409294E0 (ObReferenceObjectByHandle.c)
  */
 
-__int64 __fastcall NtQuerySymbolicLinkObject(HANDLE Handle, unsigned __int16 *a2, unsigned int *a3)
+NTSTATUS __cdecl NtQuerySymbolicLinkObject(HANDLE LinkHandle, PUNICODE_STRING LinkTarget, PULONG ReturnedLength)
 {
   KPROCESSOR_MODE PreviousMode; // r15
   __int16 UShortFromUser; // ax
   __int16 v8; // ax
   int ULongFromUser; // eax
   struct _KLOCK_ENTRIES *v10; // r9
-  NTSTATUS v11; // r14d
+  int v11; // r14d
   char *v12; // r13
   char *v13; // rcx
   struct _KTHREAD *CurrentThread; // rax
@@ -58,26 +58,26 @@ __int64 __fastcall NtQuerySymbolicLinkObject(HANDLE Handle, unsigned __int16 *a2
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   if ( PreviousMode )
   {
-    if ( ((unsigned __int8)a2 & 1) != 0 )
+    if ( ((unsigned __int8)LinkTarget & 1) != 0 )
       ExRaiseDatatypeMisalignment();
-    RtlCopyFromUser(Address, a2, 0x10uLL);
-    UShortFromUser = RtlReadUShortFromUser(a2);
-    RtlWriteUShortToUser(a2, UShortFromUser);
-    v8 = RtlReadUShortFromUser(a2 + 1);
-    RtlWriteUShortToUser(a2 + 1, v8);
+    RtlCopyFromUser(Address, LinkTarget, 0x10uLL);
+    UShortFromUser = RtlReadUShortFromUser(&LinkTarget->Length);
+    RtlWriteUShortToUser(LinkTarget, UShortFromUser);
+    v8 = RtlReadUShortFromUser(&LinkTarget->MaximumLength);
+    RtlWriteUShortToUser(&LinkTarget->MaximumLength, v8);
     ProbeForWrite(Address[1], WORD1(Address[0]), 1u);
-    if ( a3 )
+    if ( ReturnedLength )
     {
-      ULongFromUser = RtlReadULongFromUser(a3);
-      RtlWriteULongToUser(a3, ULongFromUser);
+      ULongFromUser = RtlReadULongFromUser(ReturnedLength);
+      RtlWriteULongToUser(ReturnedLength, ULongFromUser);
     }
   }
   else
   {
-    *(_OWORD *)Address = *(_OWORD *)a2;
+    *(UNICODE_STRING *)Address = *LinkTarget;
   }
   Object = 0LL;
-  v11 = ObReferenceObjectByHandle(Handle, 1u, (POBJECT_TYPE)ObpSymbolicLinkObjectType, PreviousMode, &Object, 0LL);
+  v11 = ObReferenceObjectByHandle(LinkHandle, 1u, (POBJECT_TYPE)ObpSymbolicLinkObjectType, PreviousMode, &Object, 0LL);
   if ( v11 >= 0 )
   {
     v12 = (char *)Object;
@@ -98,10 +98,10 @@ __int64 __fastcall NtQuerySymbolicLinkObject(HANDLE Handle, unsigned __int16 *a2
         *((_BYTE *)v16 + 10) = 1;
     }
     if ( (*((_DWORD *)v12 + 7) & 0x10) != 0 )
-      RtlInitUnicodeString((PUNICODE_STRING)Src, &word_140B814F0);
+      RtlInitUnicodeString((PUNICODE_STRING)Src, &word_140B8A320);
     else
       *(_OWORD *)Src = *(_OWORD *)(v12 + 8);
-    if ( a3 )
+    if ( ReturnedLength )
     {
       v18 = (unsigned __int64)Src[0] >> 16;
       if ( WORD1(Src[0]) <= WORD1(Address[0]) )
@@ -122,11 +122,11 @@ LABEL_16:
 LABEL_17:
     if ( v11 < 0 )
     {
-      if ( !a3 )
+      if ( !ReturnedLength )
         goto LABEL_28;
       if ( !PreviousMode )
       {
-        *a3 = WORD1(Src[0]);
+        *ReturnedLength = WORD1(Src[0]);
         goto LABEL_28;
       }
     }
@@ -137,18 +137,18 @@ LABEL_17:
       else
         RtlCopyVolatileMemory((void *)Address[1], Src[1], (unsigned int)v18);
       if ( PreviousMode )
-        RtlWriteUShortToUser(a2, (__int16)Src[0]);
+        RtlWriteUShortToUser(LinkTarget, (__int16)Src[0]);
       else
-        *a2 = (unsigned __int16)Src[0];
-      if ( !a3 )
+        LinkTarget->Length = (unsigned __int16)Src[0];
+      if ( !ReturnedLength )
         goto LABEL_28;
       if ( !PreviousMode )
       {
-        *a3 = WORD1(Src[0]);
+        *ReturnedLength = WORD1(Src[0]);
         goto LABEL_28;
       }
     }
-    RtlWriteULongToUser(a3, WORD1(Src[0]));
+    RtlWriteULongToUser(ReturnedLength, WORD1(Src[0]));
 LABEL_28:
     v19 = v29;
     v20 = (signed __int64 *)(v29 + 16);
@@ -163,5 +163,5 @@ LABEL_28:
     KeLeaveCriticalRegion();
     ObfDereferenceObject(v12);
   }
-  return (unsigned int)v11;
+  return v11;
 }

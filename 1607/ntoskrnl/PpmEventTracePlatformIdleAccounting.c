@@ -1,13 +1,13 @@
 /*
- * XREFs of PpmEventTracePlatformIdleAccounting @ 0x140673FC4
+ * XREFs of PpmEventTracePlatformIdleAccounting @ 0x1406740A8
  * Callers:
- *     PpmEventTraceControlCallback @ 0x14058174C (PpmEventTraceControlCallback.c)
+ *     PpmEventTraceControlCallback @ 0x140581BF8 (PpmEventTraceControlCallback.c)
  * Callees:
- *     EtwWrite @ 0x140013320 (EtwWrite.c)
- *     EtwEventEnabled @ 0x1400D54D0 (EtwEventEnabled.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     PpmTranslatePlatformIdleAccounting @ 0x14020AAF0 (PpmTranslatePlatformIdleAccounting.c)
+ *     EtwWrite @ 0x140012EA0 (EtwWrite.c)
+ *     EtwEventEnabled @ 0x1400D3370 (EtwEventEnabled.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     PpmTranslatePlatformIdleAccounting @ 0x14020A91C (PpmTranslatePlatformIdleAccounting.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
  */

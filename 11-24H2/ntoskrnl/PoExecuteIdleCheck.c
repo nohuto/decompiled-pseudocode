@@ -1,16 +1,16 @@
 /*
- * XREFs of PoExecuteIdleCheck @ 0x14029D050
+ * XREFs of PoExecuteIdleCheck @ 0x1402ABB40
  * Callers:
- *     KiUpdateTime @ 0x14029B7C0 (KiUpdateTime.c)
- *     KeClockInterruptNotify @ 0x14033A5E0 (KeClockInterruptNotify.c)
+ *     KiUpdateTime @ 0x1402AA2B0 (KiUpdateTime.c)
+ *     KeClockInterruptNotify @ 0x140319AC0 (KeClockInterruptNotify.c)
  * Callees:
- *     KeAddProcessorAffinityEx @ 0x140257130 (KeAddProcessorAffinityEx.c)
- *     KeGetPrcb @ 0x140352980 (KeGetPrcb.c)
- *     HalRequestIpi @ 0x1403B67D0 (HalRequestIpi.c)
- *     PpmGetIdleConstrainedMask @ 0x1404B2AEC (PpmGetIdleConstrainedMask.c)
- *     PpmEventAffinityMask @ 0x1405D8D90 (PpmEventAffinityMask.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     KeAddProcessorAffinityEx @ 0x140287740 (KeAddProcessorAffinityEx.c)
+ *     KeGetPrcb @ 0x1402B0A10 (KeGetPrcb.c)
+ *     HalRequestIpi @ 0x140371AA0 (HalRequestIpi.c)
+ *     PpmGetIdleConstrainedMask @ 0x1404AD2F4 (PpmGetIdleConstrainedMask.c)
+ *     PpmEventAffinityMask @ 0x1405D6230 (PpmEventAffinityMask.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 __int64 __fastcall PoExecuteIdleCheck(unsigned __int64 a1)
@@ -48,7 +48,7 @@ __int64 __fastcall PoExecuteIdleCheck(unsigned __int64 a1)
           {
             _BitScanForward64(&v5, v3);
             v3 &= ~(1LL << v5);
-            v6 = *((_DWORD *)qword_140F21E78 + 64 * i + (unsigned __int8)v5);
+            v6 = *((_DWORD *)qword_140F22998 + 64 * i + (unsigned __int8)v5);
             Prcb = (struct _KPRCB *)KeGetPrcb(v6);
             if ( Prcb != KeGetCurrentPrcb() && Prcb->PowerState.IdleTimeExpiration <= a1 )
               KeAddProcessorAffinityEx((unsigned __int16 *)&v9, v6);

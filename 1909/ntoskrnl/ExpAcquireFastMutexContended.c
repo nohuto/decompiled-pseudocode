@@ -21,7 +21,7 @@
  *     KeAbPreWait @ 0x1400EFB30 (KeAbPreWait.c)
  */
 
-__int64 __fastcall ExpAcquireFastMutexContended(ULONG_PTR BugCheckParameter2, __int64 a2)
+__int64 __fastcall ExpAcquireFastMutexContended(ULONG_PTR BugCheckParameter2, PRTL_BALANCED_NODE Node)
 {
   int v2; // ebp
   int v5; // esi
@@ -42,14 +42,14 @@ LABEL_2:
       LODWORD(result) = _InterlockedCompareExchange((volatile signed __int32 *)BugCheckParameter2, result + v5, result);
       if ( v8 == (_DWORD)result )
       {
-        if ( a2 )
-          KeAbPreWait(a2);
+        if ( Node )
+          KeAbPreWait(Node);
         KeWaitForSingleObject((PVOID)(BugCheckParameter2 + 24), WrFastMutex, 0, 0, 0LL);
         _m_prefetchw((const void *)BugCheckParameter2);
         v2 = 3;
         v5 = 2;
-        if ( a2 )
-          a2 = KeAbPreAcquire(BugCheckParameter2, a2, 0);
+        if ( Node )
+          Node = KeAbPreAcquire(BugCheckParameter2, Node, 0);
         goto LABEL_2;
       }
     }

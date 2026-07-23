@@ -1,8 +1,8 @@
 /*
- * XREFs of SepConvertTokenPrivileges @ 0x14045AC48
+ * XREFs of SepConvertTokenPrivileges @ 0x140450078
  * Callers:
- *     SeQueryInformationToken @ 0x14090D870 (SeQueryInformationToken.c)
- *     NtQueryInformationToken @ 0x140AD3370 (NtQueryInformationToken.c)
+ *     SeQueryInformationToken @ 0x1408E4F90 (SeQueryInformationToken.c)
+ *     NtQueryInformationToken @ 0x140AD09E0 (NtQueryInformationToken.c)
  * Callees:
  *     <none>
  */

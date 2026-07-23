@@ -13,7 +13,7 @@
  *     TppReportExceptionFilter @ 0x1801126BC (TppReportExceptionFilter.c)
  */
 
-void __fastcall TpCheckTerminateWorker(const void *a1)
+void __cdecl TpCheckTerminateWorker(HANDLE Thread)
 {
   struct _TEB *v2; // rbx
   bool v3; // zf
@@ -23,7 +23,7 @@ void __fastcall TpCheckTerminateWorker(const void *a1)
   __int64 *v7; // [rsp+50h] [rbp-F8h] BYREF
   int v8; // [rsp+58h] [rbp-F0h]
   int v9; // [rsp+5Ch] [rbp-ECh]
-  _BYTE v10[16]; // [rsp+60h] [rbp-E8h] BYREF
+  _BYTE ThreadInformation[16]; // [rsp+60h] [rbp-E8h] BYREF
   void *v11; // [rsp+70h] [rbp-D8h]
   void *v12; // [rsp+78h] [rbp-D0h]
   EXCEPTION_RECORD ExceptionRecord; // [rsp+90h] [rbp-B8h] BYREF
@@ -31,11 +31,12 @@ void __fastcall TpCheckTerminateWorker(const void *a1)
   v6 = 0LL;
   Handle = 0LL;
   v2 = NtCurrentTeb();
-  if ( !a1 )
+  if ( !Thread )
     goto LABEL_2;
-  if ( (int)ZwDuplicateObject(-1LL, a1, -1LL, &Handle, 2072, 0, 0) >= 0 )
+  if ( ZwDuplicateObject((HANDLE)0xFFFFFFFFFFFFFFFFLL, Thread, (HANDLE)0xFFFFFFFFFFFFFFFFLL, &Handle, 0x818u, 0, 0) >= 0 )
   {
-    if ( (int)ZwQueryInformationThread(Handle, 0LL, v10) >= 0 && v2->ClientId.UniqueProcess == v11 )
+    if ( ZwQueryInformationThread(Handle, ThreadBasicInformation, ThreadInformation, 0x30u, 0LL) >= 0
+      && v2->ClientId.UniqueProcess == v11 )
     {
       if ( v2->ClientId.UniqueThread == v12 )
       {
@@ -48,7 +49,7 @@ LABEL_3:
       v7 = &v6;
       v9 = 8;
       v8 = 6008;
-      if ( (int)ZwQueryInformationThread(Handle, 26LL, &v7) >= 0 )
+      if ( ZwQueryInformationThread(Handle, ThreadTebInformation, &v7, 0x10u, 0LL) >= 0 )
       {
         v3 = v6 == 0;
         goto LABEL_3;
@@ -66,15 +67,15 @@ LABEL_4:
   if ( v4 )
   {
     DbgPrintEx(
-      84,
+      0x54u,
       0,
       "ThreadPool: attempt to terminate a worker thread via handle %p\n"
       "Contact the owner of the function calling Terminate/Exit thread.\n",
-      a1);
+      Thread);
     memset(&ExceptionRecord, 0, sizeof(ExceptionRecord));
     ExceptionRecord.ExceptionCode = -1073740004;
     ExceptionRecord.NumberParameters = 1;
-    ExceptionRecord.ExceptionInformation[0] = (unsigned __int64)a1;
+    ExceptionRecord.ExceptionInformation[0] = (unsigned __int64)Thread;
     RtlRaiseException(&ExceptionRecord);
   }
 }

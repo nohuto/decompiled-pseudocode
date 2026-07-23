@@ -1,9 +1,9 @@
 /*
- * XREFs of KsepMatchInitCpuInfo @ 0x140A6A58C
+ * XREFs of KsepMatchInitCpuInfo @ 0x140A6B58C
  * Callers:
- *     KsepMatchInitMachineInfo @ 0x140A6A0D0 (KsepMatchInitMachineInfo.c)
+ *     KsepMatchInitMachineInfo @ 0x140A6B0D0 (KsepMatchInitMachineInfo.c)
  * Callees:
- *     KsepStringAnsiToUnicode @ 0x1407BEA80 (KsepStringAnsiToUnicode.c)
+ *     KsepStringAnsiToUnicode @ 0x1407BF210 (KsepStringAnsiToUnicode.c)
  */
 
 NTSTATUS KsepMatchInitCpuInfo()
@@ -13,22 +13,22 @@ NTSTATUS KsepMatchInitCpuInfo()
   char *VendorString; // r8
   NTSTATUS result; // eax
 
-  xmmword_140C54268 = 0LL;
-  qword_140C54298 = 0LL;
+  xmmword_140C542A8 = 0LL;
+  qword_140C542D8 = 0LL;
   v0 = -1LL;
-  xmmword_140C54278 = 0LL;
-  xmmword_140C54288 = 0LL;
+  xmmword_140C542B8 = 0LL;
+  xmmword_140C542C8 = 0LL;
   CurrentPrcb = KeGetCurrentPrcb();
   VendorString = (char *)CurrentPrcb->VendorString;
   do
     ++v0;
   while ( VendorString[v0] );
-  result = KsepStringAnsiToUnicode(word_140CF27D0, 0x20Au, VendorString, v0);
+  result = KsepStringAnsiToUnicode(word_140CF2810, 0x20Au, VendorString, v0);
   if ( result >= 0 )
   {
-    DWORD1(xmmword_140C54288) = CurrentPrcb->CpuType;
-    LODWORD(xmmword_140C54288) = CurrentPrcb->CpuModel;
-    *(_QWORD *)&xmmword_140C54268 = word_140CF27D0;
+    DWORD1(xmmword_140C542C8) = CurrentPrcb->CpuType;
+    LODWORD(xmmword_140C542C8) = CurrentPrcb->CpuModel;
+    *(_QWORD *)&xmmword_140C542A8 = word_140CF2810;
   }
   return result;
 }

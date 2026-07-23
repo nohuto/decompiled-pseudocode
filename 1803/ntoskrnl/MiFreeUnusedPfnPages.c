@@ -152,7 +152,7 @@ __int64 __fastcall MiFreeUnusedPfnPages(ULONG_PTR *a1)
       {
         v57->CrossThreadReleasableAndBusyByte |= 2u;
         if ( (__int64)v57->LockState.LockState < 0 )
-          KiAbEntryRemoveFromTree((__int64)&v51->LockEntries[v56], v53);
+          KiAbEntryRemoveFromTree(&v51->LockEntries[v56].TreeNode, v53);
         v74 = 0;
         v74 = v57->BoostBitmap.AllFields & 0x1FFFF;
         v57->BoostBitmap.AllFields &= 0xFFFE0000;
@@ -247,7 +247,7 @@ LABEL_61:
     }
     v49->CrossThreadReleasableAndBusyByte |= 2u;
     if ( (__int64)v49->LockState.LockState < 0 )
-      KiAbEntryRemoveFromTree((__int64)&v42->LockEntries[v48], v43);
+      KiAbEntryRemoveFromTree(&v42->LockEntries[v48].TreeNode, v43);
     v73 = 0;
     v73 = v49->BoostBitmap.AllFields & 0x1FFFF;
     v49->BoostBitmap.AllFields &= 0xFFFE0000;
@@ -364,7 +364,7 @@ LABEL_18:
         {
           v31->CrossThreadReleasableAndBusyByte |= 2u;
           if ( (__int64)v31->LockState.LockState < 0 )
-            KiAbEntryRemoveFromTree((__int64)&v24->LockEntries[v30], v26);
+            KiAbEntryRemoveFromTree(&v24->LockEntries[v30].TreeNode, v26);
           v75 = 0;
           v75 = v31->BoostBitmap.AllFields & 0x1FFFF;
           v31->BoostBitmap.AllFields &= 0xFFFE0000;

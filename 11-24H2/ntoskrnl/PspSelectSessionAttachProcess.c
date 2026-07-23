@@ -1,11 +1,11 @@
 /*
- * XREFs of PspSelectSessionAttachProcess @ 0x140A19C04
+ * XREFs of PspSelectSessionAttachProcess @ 0x140A12D74
  * Callers:
- *     PsGetSessionById @ 0x140349430 (PsGetSessionById.c)
- *     PsGetNextSession @ 0x140AA4550 (PsGetNextSession.c)
+ *     PsGetSessionById @ 0x1403C2E70 (PsGetSessionById.c)
+ *     PsGetNextSession @ 0x140A9F8E0 (PsGetNextSession.c)
  * Callees:
- *     ObReferenceObjectSafeWithTag @ 0x14033E7D0 (ObReferenceObjectSafeWithTag.c)
- *     MmProcessAttachAllowed @ 0x140456E08 (MmProcessAttachAllowed.c)
+ *     ObReferenceObjectSafeWithTag @ 0x14031DCB0 (ObReferenceObjectSafeWithTag.c)
+ *     MmProcessAttachAllowed @ 0x14044C648 (MmProcessAttachAllowed.c)
  */
 
 _QWORD *__fastcall PspSelectSessionAttachProcess(__int64 a1)

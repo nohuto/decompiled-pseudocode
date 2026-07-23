@@ -1,13 +1,13 @@
 /*
- * XREFs of PopFxNextComponentChildRelationSafe @ 0x140314824
+ * XREFs of PopFxNextComponentChildRelationSafe @ 0x140314AB4
  * Callers:
- *     PopFxActivateComponentDependents @ 0x14031475C (PopFxActivateComponentDependents.c)
- *     PoFxRemoveComponentRelation @ 0x140588110 (PoFxRemoveComponentRelation.c)
- *     PoFxRemoveDeviceRelation @ 0x140588500 (PoFxRemoveDeviceRelation.c)
- *     PopFxComponentRelationsCleanup @ 0x140589914 (PopFxComponentRelationsCleanup.c)
+ *     PopFxActivateComponentDependents @ 0x1403149EC (PopFxActivateComponentDependents.c)
+ *     PoFxRemoveComponentRelation @ 0x140588600 (PoFxRemoveComponentRelation.c)
+ *     PoFxRemoveDeviceRelation @ 0x1405889F0 (PoFxRemoveDeviceRelation.c)
+ *     PopFxComponentRelationsCleanup @ 0x140589E04 (PopFxComponentRelationsCleanup.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KxAcquireSpinLock @ 0x1402515B0 (KxAcquireSpinLock.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KxAcquireSpinLock @ 0x140251670 (KxAcquireSpinLock.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

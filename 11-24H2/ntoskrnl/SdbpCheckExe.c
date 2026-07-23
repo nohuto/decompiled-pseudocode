@@ -1,11 +1,11 @@
 /*
- * XREFs of SdbpCheckExe @ 0x140A08164
+ * XREFs of SdbpCheckExe @ 0x140A04694
  * Callers:
- *     SdbpSearchDB @ 0x140A08258 (SdbpSearchDB.c)
+ *     SdbpSearchDB @ 0x140A04788 (SdbpSearchDB.c)
  * Callees:
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     AslLogCallPrintf @ 0x1409601DC (AslLogCallPrintf.c)
- *     SdbpCheckForMatch @ 0x140A08780 (SdbpCheckForMatch.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     AslLogCallPrintf @ 0x140947C9C (AslLogCallPrintf.c)
+ *     SdbpCheckForMatch @ 0x140A04CB0 (SdbpCheckForMatch.c)
  */
 
 __int64 __fastcall SdbpCheckExe(int a1, int a2, int a3, _DWORD *a4, __int64 a5, int a6, int *a7, void *a8)
@@ -43,11 +43,7 @@ __int64 __fastcall SdbpCheckExe(int a1, int a2, int a3, _DWORD *a4, __int64 a5, 
       }
       else
       {
-        AslLogCallPrintf(
-          1LL,
-          (__int64)"SdbpCheckExe",
-          4323LL,
-          (__int64)"The number of matching EXEs exceeded the max allowed");
+        AslLogCallPrintf(1LL, (__int64)"SdbpCheckExe");
         ++*a4;
         return 0;
       }

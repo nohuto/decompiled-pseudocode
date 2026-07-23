@@ -1,15 +1,15 @@
 /*
- * XREFs of PspInitPhase2 @ 0x140CD842C
+ * XREFs of PspInitPhase2 @ 0x140CDE7AC
  * Callers:
- *     PsInitSystem @ 0x140C7FD24 (PsInitSystem.c)
+ *     PsInitSystem @ 0x140C85D24 (PsInitSystem.c)
  * Callees:
- *     PsGetServerSiloGlobals @ 0x140216B70 (PsGetServerSiloGlobals.c)
- *     RtlGetSystemTimePrecise @ 0x14021C830 (RtlGetSystemTimePrecise.c)
- *     KiQueryUnbiasedInterruptTime @ 0x140446880 (KiQueryUnbiasedInterruptTime.c)
- *     PspInitializeProtectedProcessParameters @ 0x1407EE148 (PspInitializeProtectedProcessParameters.c)
- *     TraceLoggingRegisterEx_EtwRegister_EtwSetInformation @ 0x14093BE80 (TraceLoggingRegisterEx_EtwRegister_EtwSetInformation.c)
- *     RtlRandom @ 0x140AEAE20 (RtlRandom.c)
- *     PspInitializeSystemDlls @ 0x140CD8B80 (PspInitializeSystemDlls.c)
+ *     PsGetServerSiloGlobals @ 0x140216EA0 (PsGetServerSiloGlobals.c)
+ *     RtlGetSystemTimePrecise @ 0x14021E1C0 (RtlGetSystemTimePrecise.c)
+ *     KiQueryUnbiasedInterruptTime @ 0x14043F380 (KiQueryUnbiasedInterruptTime.c)
+ *     PspInitializeProtectedProcessParameters @ 0x1407F3CA8 (PspInitializeProtectedProcessParameters.c)
+ *     TraceLoggingRegisterEx_EtwRegister_EtwSetInformation @ 0x140917A20 (TraceLoggingRegisterEx_EtwRegister_EtwSetInformation.c)
+ *     RtlRandom @ 0x140AEDBF0 (RtlRandom.c)
+ *     PspInitializeSystemDlls @ 0x140CDEF00 (PspInitializeSystemDlls.c)
  */
 
 bool PspInitPhase2()
@@ -25,7 +25,7 @@ bool PspInitPhase2()
 
   TraceLoggingRegisterEx_EtwRegister_EtwSetInformation((__int64)&SshpBlockerCollections.SavedApcStateFill[40], 0LL, 0LL);
   v0 = PsInitialSystemProcess;
-  v0[1].ThreadListHead.Flink = (struct _LIST_ENTRY *)RtlGetSystemTimePrecise();
+  v0[1].ThreadListHead.Flink = (struct _LIST_ENTRY *)RtlGetSystemTimePrecise().QuadPart;
   PsInitialSystemProcess[3].ContextSwitches = MEMORY[0xFFFFF78000000008];
   UnbiasedInterruptTime = (_KSCHEDULING_GROUP *)KiQueryUnbiasedInterruptTime();
   v2 = PsIdleProcess;
@@ -34,8 +34,8 @@ bool PspInitPhase2()
   v2[208] = PsInitialSystemProcess[3].ContextSwitches;
   v2[209] = PsInitialSystemProcess[3].SchedulingGroup;
   RtlGetSystemTimePrecise();
-  PspSiloMonitorLock.SavedApcState.ApcListHead[0].Blink = (struct _LIST_ENTRY *)((unsigned __int64)RtlRandom(&Seed) << 32);
-  PspSiloMonitorLock.SavedApcState.ApcListHead[0].Blink = (struct _LIST_ENTRY *)((__int64)PspSiloMonitorLock.SavedApcState.ApcListHead[0].Blink | RtlRandom(&Seed));
+  PspSiloMonitorLock.SavedApcState.ApcListHead[1].Blink = (struct _LIST_ENTRY *)((unsigned __int64)RtlRandom(&Seed) << 32);
+  PspSiloMonitorLock.SavedApcState.ApcListHead[1].Blink = (struct _LIST_ENTRY *)((__int64)PspSiloMonitorLock.SavedApcState.ApcListHead[1].Blink | RtlRandom(&Seed));
   if ( PspSehValidationPolicy )
   {
     if ( PspSehValidationPolicy == 2 )

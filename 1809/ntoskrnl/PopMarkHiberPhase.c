@@ -1,10 +1,10 @@
 /*
- * XREFs of PopMarkHiberPhase @ 0x14057CFF4
+ * XREFs of PopMarkHiberPhase @ 0x14057DFF4
  * Callers:
- *     PopMarkComponentsBootPhase @ 0x14056B53C (PopMarkComponentsBootPhase.c)
+ *     PopMarkComponentsBootPhase @ 0x14056C53C (PopMarkComponentsBootPhase.c)
  * Callees:
- *     MmSizeOfMdl @ 0x14011A740 (MmSizeOfMdl.c)
- *     PoSetHiberRange @ 0x1401447D0 (PoSetHiberRange.c)
+ *     MmSizeOfMdl @ 0x14011A7B0 (MmSizeOfMdl.c)
+ *     PoSetHiberRange @ 0x1401448D0 (PoSetHiberRange.c)
  */
 
 void __fastcall PopMarkHiberPhase(unsigned int *Address)
@@ -17,7 +17,7 @@ void __fastcall PopMarkHiberPhase(unsigned int *Address)
   void *v7; // r8
 
   PoSetHiberRange(0LL, 0x10000u, Address, 0x1C8uLL, 0);
-  PoSetHiberRange(0LL, 0x10000u, qword_140417870, Length, 0);
+  PoSetHiberRange(0LL, 0x10000u, qword_140418910, Length, 0);
   v2 = (void *)*((_QWORD *)Address + 36);
   if ( v2 )
     PoSetHiberRange(0LL, 0x10000u, v2, *((_QWORD *)Address + 37), 0);
@@ -26,7 +26,7 @@ void __fastcall PopMarkHiberPhase(unsigned int *Address)
   v4 = MmSizeOfMdl(0LL, v3[10]);
   PoSetHiberRange(0LL, 0x10000u, v3, v4, 0);
   PoSetHiberRange(0LL, 0x10000u, *((PVOID *)Address + 30), (unsigned __int64)Address[62] << 12, 0);
-  PoSetHiberRange(0LL, 0x10000u, qword_140417838, (unsigned int)dword_140417840, 0);
+  PoSetHiberRange(0LL, 0x10000u, qword_1404188D8, (unsigned int)dword_1404188E0, 0);
   v5 = (_QWORD **)(Address + 16);
   v6 = *v5;
   while ( v6 != v5 )

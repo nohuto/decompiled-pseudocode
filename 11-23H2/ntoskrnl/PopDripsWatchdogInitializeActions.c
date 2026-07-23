@@ -3,8 +3,8 @@
  * Callers:
  *     PoInitSystem @ 0x140B50BBC (PoInitSystem.c)
  * Callees:
- *     PopCapturePlatformRole @ 0x1407E5D34 (PopCapturePlatformRole.c)
- *     PopIsDirectedDripsEnabled @ 0x140869CA4 (PopIsDirectedDripsEnabled.c)
+ *     PopCapturePlatformRole @ 0x1407E6004 (PopCapturePlatformRole.c)
+ *     PopIsDirectedDripsEnabled @ 0x140869EE4 (PopIsDirectedDripsEnabled.c)
  */
 
 __int64 PopDripsWatchdogInitializeActions()
@@ -18,6 +18,6 @@ __int64 PopDripsWatchdogInitializeActions()
     if ( v1 != 2 && v1 != 8 )
       v0 |= 1u;
   }
-  dword_140C3996C = v0;
+  dword_140C398EC = v0;
   return 0LL;
 }

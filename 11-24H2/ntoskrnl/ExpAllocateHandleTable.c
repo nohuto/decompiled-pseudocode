@@ -1,16 +1,16 @@
 /*
- * XREFs of ExpAllocateHandleTable @ 0x14093BFFC
+ * XREFs of ExpAllocateHandleTable @ 0x14094D2D4
  * Callers:
- *     RtlpInitializeHandleTableForAtomTable @ 0x14093B9E0 (RtlpInitializeHandleTableForAtomTable.c)
- *     ExCreateHandleTable @ 0x14093BEF4 (ExCreateHandleTable.c)
- *     ExDupHandleTable @ 0x14093D080 (ExDupHandleTable.c)
+ *     ExDupHandleTable @ 0x140891770 (ExDupHandleTable.c)
+ *     RtlpInitializeHandleTableForAtomTable @ 0x14094CFD0 (RtlpInitializeHandleTableForAtomTable.c)
+ *     ExCreateHandleTable @ 0x14094D1CC (ExCreateHandleTable.c)
  * Callees:
- *     PsReturnProcessPagedPoolQuota @ 0x1404066F0 (PsReturnProcessPagedPoolQuota.c)
- *     PsChargeProcessPagedPoolQuota @ 0x140896630 (PsChargeProcessPagedPoolQuota.c)
- *     ExpAllocateLowLevelTable @ 0x14093C120 (ExpAllocateLowLevelTable.c)
- *     ExpInsertLowLevelTableIntoFreeList @ 0x14093CD5C (ExpInsertLowLevelTableIntoFreeList.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     PsReturnProcessPagedPoolQuota @ 0x1403C8EA0 (PsReturnProcessPagedPoolQuota.c)
+ *     PsChargeProcessPagedPoolQuota @ 0x14089EAD0 (PsChargeProcessPagedPoolQuota.c)
+ *     ExpAllocateLowLevelTable @ 0x14094D3F8 (ExpAllocateLowLevelTable.c)
+ *     ExpInsertLowLevelTableIntoFreeList @ 0x14094D60C (ExpInsertLowLevelTableIntoFreeList.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall ExpAllocateHandleTable(ULONG_PTR BugCheckParameter1, char a2)
@@ -23,7 +23,7 @@ __int64 __fastcall ExpAllocateHandleTable(ULONG_PTR BugCheckParameter1, char a2)
   __int64 v9; // rbp
   __int64 result; // rax
 
-  Pool2 = ExAllocatePool2(0x108uLL);
+  Pool2 = ExAllocatePool2(0x108uLL, (unsigned int)((ExpFreeListCount + 1) << 6), 0x6274624Fu);
   if ( !Pool2 )
     return 0LL;
   if ( BugCheckParameter1 && (int)PsChargeProcessPagedPoolQuota(BugCheckParameter1, 0x80uLL) < 0 )

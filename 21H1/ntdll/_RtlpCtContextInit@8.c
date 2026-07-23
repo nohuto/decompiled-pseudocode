@@ -10,25 +10,27 @@
  *     _RtlpCtContextFree@4 @ 0x4B369E26 (_RtlpCtContextFree@4.c)
  */
 
-int __thiscall RtlpCtContextInit(_DWORD *this)
+int __thiscall RtlpCtContextInit(PVOID **this)
 {
   struct _PEB *v1; // eax
-  _DWORD *Heap; // eax
-  _DWORD *v4; // esi
-  int Event; // edi
+  PVOID *Heap; // eax
+  PVOID *v4; // esi
+  NTSTATUS Event; // edi
+  SIZE_T v7; // [esp-4h] [ebp-14h]
 
   v1 = NtCurrentPeb();
+  LODWORD(v7) = 12;
   *this = 0;
-  Heap = (_DWORD *)RtlAllocateHeap((int)v1->ProcessHeap, 0, 12);
+  Heap = (PVOID *)RtlAllocateHeap(v1->ProcessHeap, 0, v7);
   v4 = Heap;
   if ( !Heap )
     return -1073741670;
   *Heap = 0;
   Heap[1] = 0;
   Heap[2] = 0;
-  Event = NtCreateEvent((int)(Heap + 2), 2031619, 0, 0, 0);
+  Event = NtCreateEvent(Heap + 2, 0x1F0003u, 0, NotificationEvent, 0);
   if ( Event < 0
-    || (Event = TpAllocWork(v4, (int)RtlpRtlpCtWaitForWnfQuiescentWorker, (int)v4, 0), Event < 0)
+    || (Event = TpAllocWork((PTP_WORK *)v4, RtlpRtlpCtWaitForWnfQuiescentWorker, v4, 0), Event < 0)
     || (Event = RtlpSubscribeWnfStateChangeNotificationInternal(
                   v4 + 1,
                   (int)RtlpRtlpCtSelfSubscribeCallback,
@@ -41,7 +43,7 @@ int __thiscall RtlpCtContextInit(_DWORD *this)
                   1099172670),
         Event < 0) )
   {
-    RtlpCtContextFree((int)v4);
+    RtlpCtContextFree(v4);
   }
   else
   {

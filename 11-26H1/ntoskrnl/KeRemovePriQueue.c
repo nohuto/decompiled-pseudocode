@@ -1,31 +1,31 @@
 /*
- * XREFs of KeRemovePriQueue @ 0x1403F5D50
+ * XREFs of KeRemovePriQueue @ 0x1403EF700
  * Callers:
- *     ExpWorkerThread @ 0x1403F5680 (ExpWorkerThread.c)
+ *     ExpWorkerThread @ 0x1403EF030 (ExpWorkerThread.c)
  * Callees:
- *     KiRcuCheckQuiescent @ 0x140221E10 (KiRcuCheckQuiescent.c)
- *     KiCommitThreadWait @ 0x1402229B0 (KiCommitThreadWait.c)
- *     KiActivateWaiterQueueWithNoLocks @ 0x140223020 (KiActivateWaiterQueueWithNoLocks.c)
- *     KiUpdateTotalCyclesCurrentThread @ 0x140226F90 (KiUpdateTotalCyclesCurrentThread.c)
- *     KiQueryQuantumReset @ 0x140239A30 (KiQueryQuantumReset.c)
- *     KiComputeThreadPriority @ 0x140239AB4 (KiComputeThreadPriority.c)
- *     KiProcessThreadWaitList @ 0x14023BDB0 (KiProcessThreadWaitList.c)
- *     KiDeliverApc @ 0x1402439F0 (KiDeliverApc.c)
- *     KiFastExitThreadWait @ 0x140244040 (KiFastExitThreadWait.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiAcquireKobjectLockSafe @ 0x140277760 (KiAcquireKobjectLockSafe.c)
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     HvlNotifyLongSpinWait @ 0x1402BBF00 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1402BC760 (KiCheckVpBackingLongSpinWaitHypercall.c)
- *     KiSetBasePriorityAndClearDecrement @ 0x1402BE8C0 (KiSetBasePriorityAndClearDecrement.c)
- *     KiProcessDeferredReadyList @ 0x14037C920 (KiProcessDeferredReadyList.c)
- *     KiSetPriorityThread @ 0x14037F250 (KiSetPriorityThread.c)
- *     KiAttemptFastRemovePriQueue @ 0x1403F68C0 (KiAttemptFastRemovePriQueue.c)
- *     KiAdjustRealtimePriorityFloor @ 0x1403F6A80 (KiAdjustRealtimePriorityFloor.c)
- *     KiPerformWaitDeferredWork @ 0x1403F6F20 (KiPerformWaitDeferredWork.c)
- *     EtwTracePriQDequeueWork @ 0x1403F70E8 (EtwTracePriQDequeueWork.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14052FA20 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiRcuCheckQuiescent @ 0x1402237A0 (KiRcuCheckQuiescent.c)
+ *     KiCommitThreadWait @ 0x140224340 (KiCommitThreadWait.c)
+ *     KiActivateWaiterQueueWithNoLocks @ 0x1402249B0 (KiActivateWaiterQueueWithNoLocks.c)
+ *     KiUpdateTotalCyclesCurrentThread @ 0x140228920 (KiUpdateTotalCyclesCurrentThread.c)
+ *     KiQueryQuantumReset @ 0x14023B390 (KiQueryQuantumReset.c)
+ *     KiComputeThreadPriority @ 0x14023B414 (KiComputeThreadPriority.c)
+ *     KiProcessThreadWaitList @ 0x14023D710 (KiProcessThreadWaitList.c)
+ *     KiDeliverApc @ 0x140245350 (KiDeliverApc.c)
+ *     KiFastExitThreadWait @ 0x1402459A0 (KiFastExitThreadWait.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiAcquireKobjectLockSafe @ 0x140276CD0 (KiAcquireKobjectLockSafe.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     HvlNotifyLongSpinWait @ 0x140306BC0 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140307420 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     KiSetBasePriorityAndClearDecrement @ 0x140309580 (KiSetBasePriorityAndClearDecrement.c)
+ *     KiProcessDeferredReadyList @ 0x14037E6D0 (KiProcessDeferredReadyList.c)
+ *     KiSetPriorityThread @ 0x140381000 (KiSetPriorityThread.c)
+ *     KiAttemptFastRemovePriQueue @ 0x1403F0270 (KiAttemptFastRemovePriQueue.c)
+ *     KiAdjustRealtimePriorityFloor @ 0x1403F0430 (KiAdjustRealtimePriorityFloor.c)
+ *     KiPerformWaitDeferredWork @ 0x1403F08D0 (KiPerformWaitDeferredWork.c)
+ *     EtwTracePriQDequeueWork @ 0x1403F0A98 (EtwTracePriQDequeueWork.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x140531F20 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall KeRemovePriQueue(ULONG_PTR a1, char a2, char a3, __int64 a4)
@@ -55,7 +55,7 @@ __int64 __fastcall KeRemovePriQueue(ULONG_PTR a1, char a2, char a3, __int64 a4)
   __int64 v27; // rax
   __int64 v28; // rdx
   unsigned __int8 v30; // si
-  $21A6EA393ADDDF0D13424531359FF08A *v31; // rbp
+  $08E725EC6134F01F525383E5528526A8 *v31; // rbp
   __int64 v32; // r9
   unsigned __int64 v33; // rax
   unsigned __int64 v34; // rcx

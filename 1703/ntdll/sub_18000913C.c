@@ -18,5 +18,5 @@
 
 __int64 __fastcall sub_18000913C(int a1)
 {
-  return sub_180025780(qword_18015BFE0, a1, 0x1000000, 0, 0LL);
+  return sub_180025780((int)qword_18015BFE0, a1, 0x1000000, 0, 0LL);
 }

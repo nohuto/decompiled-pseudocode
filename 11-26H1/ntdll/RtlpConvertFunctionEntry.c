@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlpConvertFunctionEntry @ 0x1800E2F84
+ * XREFs of RtlpConvertFunctionEntry @ 0x1800E17E4
  * Callers:
- *     RtlpLookupFunctionEntryForStackWalks @ 0x1800E2DE4 (RtlpLookupFunctionEntryForStackWalks.c)
+ *     RtlpLookupFunctionEntryForStackWalks @ 0x1800E1644 (RtlpLookupFunctionEntryForStackWalks.c)
  * Callees:
  *     <none>
  */

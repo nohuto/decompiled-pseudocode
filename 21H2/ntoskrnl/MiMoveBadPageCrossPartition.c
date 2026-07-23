@@ -1,15 +1,15 @@
 /*
- * XREFs of MiMoveBadPageCrossPartition @ 0x14054EFEC
+ * XREFs of MiMoveBadPageCrossPartition @ 0x14054F22C
  * Callers:
- *     MiMoveLargeFreePage @ 0x140556BC0 (MiMoveLargeFreePage.c)
- *     MiActOnPartitionNodePages @ 0x1405608A0 (MiActOnPartitionNodePages.c)
- *     MiTransferPartitionPageRun @ 0x140562E10 (MiTransferPartitionPageRun.c)
+ *     MiMoveLargeFreePage @ 0x140556E00 (MiMoveLargeFreePage.c)
+ *     MiActOnPartitionNodePages @ 0x140560AE0 (MiActOnPartitionNodePages.c)
+ *     MiTransferPartitionPageRun @ 0x140563050 (MiTransferPartitionPageRun.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     MiAcquireNonPagedResources @ 0x1402E5C90 (MiAcquireNonPagedResources.c)
- *     MiReturnCommit @ 0x1403182A0 (MiReturnCommit.c)
- *     MiSearchNumaNodeTable @ 0x14032B790 (MiSearchNumaNodeTable.c)
- *     KxAcquireQueuedSpinLock @ 0x140350970 (KxAcquireQueuedSpinLock.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402042B0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     MiAcquireNonPagedResources @ 0x140296FE0 (MiAcquireNonPagedResources.c)
+ *     MiReturnCommit @ 0x140322FF0 (MiReturnCommit.c)
+ *     MiSearchNumaNodeTable @ 0x1403364E0 (MiSearchNumaNodeTable.c)
+ *     KxAcquireQueuedSpinLock @ 0x14035B6C0 (KxAcquireQueuedSpinLock.c)
  */
 
 __int64 __fastcall MiMoveBadPageCrossPartition(__int64 a1, __int64 a2, ULONG_PTR *a3)

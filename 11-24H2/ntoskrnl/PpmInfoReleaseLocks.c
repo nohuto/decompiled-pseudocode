@@ -1,11 +1,11 @@
 /*
- * XREFs of PpmInfoReleaseLocks @ 0x1409BDB24
+ * XREFs of PpmInfoReleaseLocks @ 0x1409A4174
  * Callers:
- *     PpmSetProfilePolicySetting @ 0x1409BD414 (PpmSetProfilePolicySetting.c)
- *     PpmInfoApplySettingUpdate @ 0x1409BDA78 (PpmInfoApplySettingUpdate.c)
+ *     PpmSetProfilePolicySetting @ 0x1409A3A64 (PpmSetProfilePolicySetting.c)
+ *     PpmInfoApplySettingUpdate @ 0x1409A40C8 (PpmInfoApplySettingUpdate.c)
  * Callees:
- *     PpmReleaseLock @ 0x1402A1504 (PpmReleaseLock.c)
- *     PopReleaseRwLock @ 0x1403B5EC8 (PopReleaseRwLock.c)
+ *     PpmReleaseLock @ 0x1402AE140 (PpmReleaseLock.c)
+ *     PopReleaseRwLock @ 0x1402AE8FC (PopReleaseRwLock.c)
  */
 
 LONG __fastcall PpmInfoReleaseLocks(__int64 a1)

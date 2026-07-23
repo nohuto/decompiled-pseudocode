@@ -1,11 +1,11 @@
 /*
- * XREFs of PopPepGetDevicePlatformStateDependents @ 0x14059EE9C
+ * XREFs of PopPepGetDevicePlatformStateDependents @ 0x14059F38C
  * Callers:
- *     PopDiagTraceDeviceVerboseRundown @ 0x14098E3E8 (PopDiagTraceDeviceVerboseRundown.c)
+ *     PopDiagTraceDeviceVerboseRundown @ 0x14098E5E8 (PopDiagTraceDeviceVerboseRundown.c)
  * Callees:
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402A7C00 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     ExAcquireSpinLockShared @ 0x140314620 (ExAcquireSpinLockShared.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402A7E90 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     ExAcquireSpinLockShared @ 0x1403148B0 (ExAcquireSpinLockShared.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 char __fastcall PopPepGetDevicePlatformStateDependents(__int64 a1, _DWORD *a2)
@@ -54,10 +54,13 @@ char __fastcall PopPepGetDevicePlatformStateDependents(__int64 a1, _DWORD *a2)
     }
   }
   ExReleaseSpinLockSharedFromDpcLevel((PEX_SPIN_LOCK)(a1 + 64));
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v4 <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
+      && (unsigned __int8)v4 <= 0xFu
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;

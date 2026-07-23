@@ -1,24 +1,24 @@
 /*
- * XREFs of ExpSaPageGroupDescriptorAllocate @ 0x14047BB30
+ * XREFs of ExpSaPageGroupDescriptorAllocate @ 0x14026E450
  * Callers:
- *     ExpSaAllocatorAllocate @ 0x14047B930 (ExpSaAllocatorAllocate.c)
+ *     ExpSaAllocatorAllocate @ 0x14026E250 (ExpSaAllocatorAllocate.c)
  * Callees:
- *     ExfTryToWakePushLock @ 0x14025F9A0 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     KeSetSystemGroupAffinityThread @ 0x140339650 (KeSetSystemGroupAffinityThread.c)
- *     KeRevertToUserGroupAffinityThread @ 0x14033A250 (KeRevertToUserGroupAffinityThread.c)
- *     KeQueryMaximumProcessorCountEx @ 0x14033E440 (KeQueryMaximumProcessorCountEx.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     KeGetPrcb @ 0x140352980 (KeGetPrcb.c)
- *     KeQueryNodeActiveAffinity @ 0x1403A8640 (KeQueryNodeActiveAffinity.c)
- *     ExpSaBinaryArrayInsert @ 0x14047BDD8 (ExpSaBinaryArrayInsert.c)
- *     ExpSaBinaryArrayRemove @ 0x1404F6934 (ExpSaBinaryArrayRemove.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
- *     ExAllocatePool3 @ 0x140B746D0 (ExAllocatePool3.c)
+ *     ExpSaBinaryArrayInsert @ 0x14026E6F8 (ExpSaBinaryArrayInsert.c)
+ *     KeQueryNodeActiveAffinity @ 0x14026FD20 (KeQueryNodeActiveAffinity.c)
+ *     ExfTryToWakePushLock @ 0x14028FFB0 (ExfTryToWakePushLock.c)
+ *     KeGetPrcb @ 0x1402B0A10 (KeGetPrcb.c)
+ *     KeSetSystemGroupAffinityThread @ 0x140318B30 (KeSetSystemGroupAffinityThread.c)
+ *     KeRevertToUserGroupAffinityThread @ 0x140319730 (KeRevertToUserGroupAffinityThread.c)
+ *     KeQueryMaximumProcessorCountEx @ 0x14031D920 (KeQueryMaximumProcessorCountEx.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     ExpSaBinaryArrayRemove @ 0x1404F4218 (ExpSaBinaryArrayRemove.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
+ *     ExAllocatePool3 @ 0x140B76270 (ExAllocatePool3.c)
  */
 
 char *__fastcall ExpSaPageGroupDescriptorAllocate(__int64 a1, char a2)
@@ -29,8 +29,8 @@ char *__fastcall ExpSaPageGroupDescriptorAllocate(__int64 a1, char a2)
   ULONG_PTR v7; // r12
   char *result; // rax
   char *v9; // rdi
-  _QWORD *v10; // rax
-  _QWORD *v11; // rbx
+  __int64 v10; // rax
+  __int64 v11; // rbx
   int v12; // eax
   unsigned int v13; // edx
   __int64 v14; // r13
@@ -38,15 +38,15 @@ char *__fastcall ExpSaPageGroupDescriptorAllocate(__int64 a1, char a2)
   USHORT v16; // si
   void *Pool3; // rbx
   char v18; // si
-  struct _GROUP_AFFINITY *p_PreviousAffinity; // rdx
+  _GROUP_AFFINITY *p_PreviousAffinity; // rdx
   __int64 v20; // rbx
   unsigned int v21; // eax
   unsigned int v22; // ecx
   ULONG MaximumProcessorCount; // [rsp+34h] [rbp-4Ch]
   unsigned int v25; // [rsp+38h] [rbp-48h]
-  struct _GROUP_AFFINITY Affinity; // [rsp+40h] [rbp-40h] BYREF
+  _GROUP_AFFINITY Affinity; // [rsp+40h] [rbp-40h] BYREF
   __int128 v27; // [rsp+50h] [rbp-30h]
-  struct _GROUP_AFFINITY PreviousAffinity; // [rsp+60h] [rbp-20h] BYREF
+  _GROUP_AFFINITY PreviousAffinity; // [rsp+60h] [rbp-20h] BYREF
 
   Affinity = 0LL;
   v4 = 0;
@@ -56,7 +56,7 @@ char *__fastcall ExpSaPageGroupDescriptorAllocate(__int64 a1, char a2)
   v5 = 0LL;
   v6 = MaximumProcessorCount;
   v7 = a2 != 0 ? 256LL : 64LL;
-  result = (char *)ExAllocatePool2(v7);
+  result = (char *)ExAllocatePool2(v7, 0x80uLL, 0x61537845u);
   v9 = result;
   if ( !result )
     return result;
@@ -65,15 +65,12 @@ char *__fastcall ExpSaPageGroupDescriptorAllocate(__int64 a1, char a2)
   *((_QWORD *)v9 + 7) = v9 + 64;
   *((_DWORD *)v9 + 9) = 512;
   *((_QWORD *)v9 + 2) = a1;
-  v10 = KeAbPreAcquire((__int64)&ExSaPageGroupDescriptorArrayLock, 0LL);
+  v10 = KeAbPreAcquire(&ExSaPageGroupDescriptorArrayLock, 0LL, 0LL);
   v11 = v10;
   if ( _interlockedbittestandset64((volatile signed __int32 *)&ExSaPageGroupDescriptorArrayLock, 0LL) )
-    ExfAcquirePushLockExclusiveEx(
-      &ExSaPageGroupDescriptorArrayLock,
-      (__int64)v10,
-      (__int64)&ExSaPageGroupDescriptorArrayLock);
+    ExfAcquirePushLockExclusiveEx(&ExSaPageGroupDescriptorArrayLock, v10, &ExSaPageGroupDescriptorArrayLock);
   if ( v11 )
-    *((_BYTE *)v11 + 10) = 1;
+    *(_BYTE *)(v11 + 10) = 1;
   v12 = ExpSaBinaryArrayInsert(
           ExSaPageGroupDescriptorArray,
           v9,
@@ -92,7 +89,7 @@ char *__fastcall ExpSaPageGroupDescriptorAllocate(__int64 a1, char a2)
       goto LABEL_17;
     }
     v14 = *(_QWORD *)(ExSaPageArrays + 8 * v5);
-    v15 = (unsigned int)v5 >= v13 ? KeGetCurrentPrcb() : (struct _KPRCB *)KeGetPrcb(v5);
+    v15 = (unsigned int)v5 >= v13 ? KeGetCurrentPrcb() : (struct _KPRCB *)KeGetPrcb((unsigned int)v5);
     v16 = v15->SchedulerSubNode->Affinity.Reserved[0];
     if ( a2 )
       break;
@@ -119,7 +116,7 @@ LABEL_13:
     p_PreviousAffinity = &PreviousAffinity;
   }
   KeSetSystemGroupAffinityThread(&Affinity, p_PreviousAffinity);
-  Pool3 = (void *)ExAllocatePool2(v7);
+  Pool3 = (void *)ExAllocatePool2(v7, 0x1000uLL, 0x61537845u);
   if ( Pool3 )
     goto LABEL_13;
 LABEL_27:
@@ -149,7 +146,7 @@ LABEL_28:
     v9 = 0LL;
   }
   if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&ExSaPageGroupDescriptorArrayLock, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-    ExfTryToWakePushLock((volatile signed __int64 *)&ExSaPageGroupDescriptorArrayLock);
+    ExfTryToWakePushLock(&ExSaPageGroupDescriptorArrayLock);
   KeAbPostRelease((ULONG_PTR)&ExSaPageGroupDescriptorArrayLock);
   return v9;
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of IoReserveKsrPersistentMemory @ 0x140952980
+ * XREFs of IoReserveKsrPersistentMemory @ 0x140952B80
  * Callers:
  *     <none>
  * Callees:
- *     IoReserveKsrPersistentMemoryEx @ 0x1409529C0 (IoReserveKsrPersistentMemoryEx.c)
+ *     IoReserveKsrPersistentMemoryEx @ 0x140952BC0 (IoReserveKsrPersistentMemoryEx.c)
  */
 
 __int64 __fastcall IoReserveKsrPersistentMemory(__int64 a1, __int64 a2, __int64 a3, int a4, __int64 a5)

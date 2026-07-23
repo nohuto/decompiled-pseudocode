@@ -1,12 +1,12 @@
 /*
- * XREFs of ExpQueryChannelInformation @ 0x1408CBBB0
+ * XREFs of ExpQueryChannelInformation @ 0x1408CCE70
  * Callers:
- *     ExpQuerySystemInformation @ 0x140626390 (ExpQuerySystemInformation.c)
+ *     ExpQuerySystemInformation @ 0x1406273B0 (ExpQuerySystemInformation.c)
  * Callees:
- *     MmGetProcessPartitionId @ 0x1400F0CCC (MmGetProcessPartitionId.c)
- *     memmove @ 0x1401D1540 (memmove.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     MmGetChannelInformation @ 0x14085F258 (MmGetChannelInformation.c)
+ *     MmGetProcessPartitionId @ 0x1400F0D4C (MmGetProcessPartitionId.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     MmGetChannelInformation @ 0x1408604B8 (MmGetChannelInformation.c)
  */
 
 __int64 __fastcall ExpQueryChannelInformation(unsigned int *a1, unsigned int a2, _DWORD *a3)

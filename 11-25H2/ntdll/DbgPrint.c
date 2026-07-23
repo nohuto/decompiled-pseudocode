@@ -71,10 +71,10 @@
  *     vDbgPrintExWithPrefixInternal @ 0x1800EC740 (vDbgPrintExWithPrefixInternal.c)
  */
 
-__int64 DbgPrint(const char *a1, ...)
+ULONG DbgPrint(PCSTR Format, ...)
 {
   va_list va; // [rsp+58h] [rbp+10h] BYREF
 
-  va_start(va, a1);
-  return vDbgPrintExWithPrefixInternal((unsigned int)&unk_18017BF30, 101, 3, (_DWORD)a1, (__int64)va, 1);
+  va_start(va, Format);
+  return vDbgPrintExWithPrefixInternal((unsigned int)&Flags, 101, 3, (_DWORD)Format, (__int64)va, 1);
 }

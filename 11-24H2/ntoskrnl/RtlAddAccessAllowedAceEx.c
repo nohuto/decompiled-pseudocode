@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlAddAccessAllowedAceEx @ 0x1408651F0
+ * XREFs of RtlAddAccessAllowedAceEx @ 0x140869800
  * Callers:
- *     PiAuCreateLocalSystemSecurityObject @ 0x140C24360 (PiAuCreateLocalSystemSecurityObject.c)
- *     PiAuCreateStandardSecurityObject @ 0x140C24500 (PiAuCreateStandardSecurityObject.c)
- *     PiAuGetDriverDataDirectorySecurityObject @ 0x140C24CDC (PiAuGetDriverDataDirectorySecurityObject.c)
+ *     PiAuCreateLocalSystemSecurityObject @ 0x140C26390 (PiAuCreateLocalSystemSecurityObject.c)
+ *     PiAuCreateStandardSecurityObject @ 0x140C26530 (PiAuCreateStandardSecurityObject.c)
+ *     PiAuGetDriverDataDirectorySecurityObject @ 0x140C26D0C (PiAuGetDriverDataDirectorySecurityObject.c)
  * Callees:
- *     RtlValidSid @ 0x140866F20 (RtlValidSid.c)
- *     RtlCopySid @ 0x140910120 (RtlCopySid.c)
- *     RtlValidAcl @ 0x14091CB10 (RtlValidAcl.c)
+ *     RtlValidSid @ 0x14086B530 (RtlValidSid.c)
+ *     RtlCopySid @ 0x1408E7870 (RtlCopySid.c)
+ *     RtlValidAcl @ 0x140910580 (RtlValidAcl.c)
  */
 
 NTSTATUS __stdcall RtlAddAccessAllowedAceEx(
@@ -38,7 +38,7 @@ NTSTATUS __stdcall RtlAddAccessAllowedAceEx(
     v13 = v12;
   if ( (AceFlags & 0xFFFFFFE0) != 0 && (AceFlags & 0xFFFFFFC0) != 0 )
     return -1073741811;
-  if ( !(unsigned __int8)RtlValidAcl(Acl) )
+  if ( !RtlValidAcl(Acl) )
     return -1073741705;
   v14 = Acl + 1;
   for ( i = 0; i < Acl->AceCount; ++i )

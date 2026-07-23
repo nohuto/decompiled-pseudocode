@@ -1,17 +1,15 @@
 /*
  * XREFs of InbvSetTextColor @ 0x140550D30
  * Callers:
- *     DisplayBootBitmap @ 0x1403D8274 (DisplayBootBitmap.c)
+ *     sub_1403D8274 @ 0x1403D8274 (sub_1403D8274.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
+ *     sub_14042A5E0 @ 0x14042A5E0 (sub_14042A5E0.c)
  */
 
-__int64 InbvSetTextColor()
+__int64 __fastcall InbvSetTextColor(__int64 a1, __int64 a2)
 {
-  __int64 (*v0)(void); // rax
-
-  if ( qword_140C54D10 && (v0 = *(__int64 (**)(void))(qword_140C54D10 + 80)) != 0LL )
-    return v0();
+  if ( qword_140C54D10 && *(_QWORD *)(qword_140C54D10 + 80) )
+    return sub_14042A5E0(a1, a2);
   else
     return 0xFFFFFFFFLL;
 }

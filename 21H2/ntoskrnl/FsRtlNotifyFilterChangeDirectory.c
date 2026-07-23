@@ -1,20 +1,20 @@
 /*
- * XREFs of FsRtlNotifyFilterChangeDirectory @ 0x140690480
+ * XREFs of FsRtlNotifyFilterChangeDirectory @ 0x1405F02F0
  * Callers:
- *     FsRtlNotifyChangeDirectory @ 0x14088D4E0 (FsRtlNotifyChangeDirectory.c)
- *     FsRtlNotifyFullChangeDirectory @ 0x14088D670 (FsRtlNotifyFullChangeDirectory.c)
+ *     FsRtlNotifyChangeDirectory @ 0x14088D640 (FsRtlNotifyChangeDirectory.c)
+ *     FsRtlNotifyFullChangeDirectory @ 0x14088D7D0 (FsRtlNotifyFullChangeDirectory.c)
  * Callees:
- *     ExAcquireFastMutexUnsafe @ 0x1402067E0 (ExAcquireFastMutexUnsafe.c)
- *     ExReleaseFastMutexUnsafe @ 0x140206970 (ExReleaseFastMutexUnsafe.c)
- *     IofCompleteRequest @ 0x140243490 (IofCompleteRequest.c)
- *     FsRtlNotifySetCancelRoutine @ 0x1402AA638 (FsRtlNotifySetCancelRoutine.c)
- *     memset @ 0x140414200 (memset.c)
- *     SeReleaseSubjectContext @ 0x1406568F0 (SeReleaseSubjectContext.c)
- *     FsRtlNotifyCompleteIrp @ 0x140690DE4 (FsRtlNotifyCompleteIrp.c)
- *     FsRtlIsNotifyOnList @ 0x140691314 (FsRtlIsNotifyOnList.c)
- *     FsRtlCheckNotifyForDelete @ 0x14088D430 (FsRtlCheckNotifyForDelete.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     FsRtlNotifySetCancelRoutine @ 0x140228778 (FsRtlNotifySetCancelRoutine.c)
+ *     ExAcquireFastMutexUnsafe @ 0x1402AB110 (ExAcquireFastMutexUnsafe.c)
+ *     ExReleaseFastMutexUnsafe @ 0x1402AB2A0 (ExReleaseFastMutexUnsafe.c)
+ *     IofCompleteRequest @ 0x1402E7CE0 (IofCompleteRequest.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     FsRtlNotifyCompleteIrp @ 0x1405F0C54 (FsRtlNotifyCompleteIrp.c)
+ *     FsRtlIsNotifyOnList @ 0x1405F1184 (FsRtlIsNotifyOnList.c)
+ *     SeReleaseSubjectContext @ 0x14064B710 (SeReleaseSubjectContext.c)
+ *     FsRtlCheckNotifyForDelete @ 0x14088D590 (FsRtlCheckNotifyForDelete.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 void __stdcall FsRtlNotifyFilterChangeDirectory(

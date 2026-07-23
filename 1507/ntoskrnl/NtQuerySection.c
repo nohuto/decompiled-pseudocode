@@ -44,7 +44,7 @@ NTSTATUS __stdcall NtQuerySection(
     }
     else
     {
-      if ( SectionInformationClass != 2 )
+      if ( SectionInformationClass != SectionRelocationInformation )
         return -1073741821;
       v10 = 8LL;
     }

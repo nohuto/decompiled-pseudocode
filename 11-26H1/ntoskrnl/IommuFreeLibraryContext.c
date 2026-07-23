@@ -1,10 +1,10 @@
 /*
- * XREFs of IommuFreeLibraryContext @ 0x14059C3BC
+ * XREFs of IommuFreeLibraryContext @ 0x14059EB3C
  * Callers:
- *     IommupPasidDeviceDelete @ 0x140588584 (IommupPasidDeviceDelete.c)
+ *     IommupPasidDeviceDelete @ 0x14058AC50 (IommupPasidDeviceDelete.c)
  * Callees:
- *     HalpMmAllocCtxFree @ 0x140359004 (HalpMmAllocCtxFree.c)
- *     IommupFreeSystemContext @ 0x14059CE04 (IommupFreeSystemContext.c)
+ *     HalpMmAllocCtxFree @ 0x14035ADA4 (HalpMmAllocCtxFree.c)
+ *     IommupFreeSystemContext @ 0x14059F584 (IommupFreeSystemContext.c)
  */
 
 __int64 __fastcall IommuFreeLibraryContext(__int64 *a1)

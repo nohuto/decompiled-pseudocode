@@ -1,11 +1,11 @@
 /*
- * XREFs of EtwpQueueApcPoolDpc @ 0x1405097A4
+ * XREFs of EtwpQueueApcPoolDpc @ 0x140503254
  * Callers:
- *     EtwpQueueApc @ 0x14020AA10 (EtwpQueueApc.c)
+ *     EtwpQueueApc @ 0x14020AAF0 (EtwpQueueApc.c)
  * Callees:
- *     ExAcquireRundownProtectionCacheAwareEx @ 0x140218100 (ExAcquireRundownProtectionCacheAwareEx.c)
- *     ExReleaseRundownProtectionCacheAwareEx @ 0x140257080 (ExReleaseRundownProtectionCacheAwareEx.c)
- *     KiInsertQueueDpc @ 0x1402BD330 (KiInsertQueueDpc.c)
+ *     ExAcquireRundownProtectionCacheAwareEx @ 0x140218430 (ExAcquireRundownProtectionCacheAwareEx.c)
+ *     ExReleaseRundownProtectionCacheAwareEx @ 0x140258A10 (ExReleaseRundownProtectionCacheAwareEx.c)
+ *     KiInsertQueueDpc @ 0x140307FF0 (KiInsertQueueDpc.c)
  */
 
 __int64 __fastcall EtwpQueueApcPoolDpc(

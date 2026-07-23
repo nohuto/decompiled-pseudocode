@@ -1,20 +1,20 @@
 /*
- * XREFs of KeRegisterObjectNotification @ 0x1400EDDA0
+ * XREFs of KeRegisterObjectNotification @ 0x1400EBC20
  * Callers:
- *     NtWaitForWorkViaWorkerFactory @ 0x14005E910 (NtWaitForWorkViaWorkerFactory.c)
- *     NtAssociateWaitCompletionPacket @ 0x1400ED7E0 (NtAssociateWaitCompletionPacket.c)
- *     ExpTryEnterWorkerFactoryAwayMode @ 0x1400F8638 (ExpTryEnterWorkerFactoryAwayMode.c)
- *     ExpWorkerFactoryManagerThread @ 0x14013D78C (ExpWorkerFactoryManagerThread.c)
- *     NtCreateWorkerFactory @ 0x140470E94 (NtCreateWorkerFactory.c)
+ *     NtWaitForWorkViaWorkerFactory @ 0x14005E490 (NtWaitForWorkViaWorkerFactory.c)
+ *     NtAssociateWaitCompletionPacket @ 0x1400EB670 (NtAssociateWaitCompletionPacket.c)
+ *     ExpTryEnterWorkerFactoryAwayMode @ 0x1400F6478 (ExpTryEnterWorkerFactoryAwayMode.c)
+ *     ExpWorkerFactoryManagerThread @ 0x14013DCFC (ExpWorkerFactoryManagerThread.c)
+ *     NtCreateWorkerFactory @ 0x14046FD64 (NtCreateWorkerFactory.c)
  *     ExpWorkerFactoryInitialization @ 0x1407BB3A4 (ExpWorkerFactoryInitialization.c)
  * Callees:
- *     KiExitDispatcher @ 0x140056700 (KiExitDispatcher.c)
- *     KiWaitSatisfyOther @ 0x140098114 (KiWaitSatisfyOther.c)
- *     KiAcquireKobjectLockSafe @ 0x1400EE7C0 (KiAcquireKobjectLockSafe.c)
- *     KiWakeQueueWaiter @ 0x1400EE800 (KiWakeQueueWaiter.c)
- *     KiWakeOtherQueueWaiters @ 0x1400F9DBC (KiWakeOtherQueueWaiters.c)
- *     KeIsThreadRunning @ 0x1401D2C78 (KeIsThreadRunning.c)
- *     EtwTraceEnqueueWork @ 0x140225C20 (EtwTraceEnqueueWork.c)
+ *     KiExitDispatcher @ 0x140056280 (KiExitDispatcher.c)
+ *     KiWaitSatisfyOther @ 0x140097914 (KiWaitSatisfyOther.c)
+ *     KiAcquireKobjectLockSafe @ 0x1400EC640 (KiAcquireKobjectLockSafe.c)
+ *     KiWakeQueueWaiter @ 0x1400EC680 (KiWakeQueueWaiter.c)
+ *     KiWakeOtherQueueWaiters @ 0x1400F7B48 (KiWakeOtherQueueWaiters.c)
+ *     KeIsThreadRunning @ 0x1401D2AA4 (KeIsThreadRunning.c)
+ *     EtwTraceEnqueueWork @ 0x140225A4C (EtwTraceEnqueueWork.c)
  */
 
 char __fastcall KeRegisterObjectNotification(__int64 a1, __int64 a2, __int64 a3)

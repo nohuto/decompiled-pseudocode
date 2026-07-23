@@ -1,10 +1,10 @@
 /*
- * XREFs of IvtBuildScalableModePasidTableS1Entry @ 0x14052BD9C
+ * XREFs of IvtBuildScalableModePasidTableS1Entry @ 0x14052C2EC
  * Callers:
- *     IvtSetPasidAddressSpace @ 0x14052D700 (IvtSetPasidAddressSpace.c)
- *     IvtUpdateScalableModePasidTablesForPasid @ 0x14052DE30 (IvtUpdateScalableModePasidTablesForPasid.c)
+ *     IvtSetPasidAddressSpace @ 0x14052DC50 (IvtSetPasidAddressSpace.c)
+ *     IvtUpdateScalableModePasidTablesForPasid @ 0x14052E380 (IvtUpdateScalableModePasidTablesForPasid.c)
  * Callees:
- *     memset @ 0x140435A00 (memset.c)
+ *     memset @ 0x140435E00 (memset.c)
  */
 
 unsigned __int64 __fastcall IvtBuildScalableModePasidTableS1Entry(

@@ -32,7 +32,7 @@ __int64 __fastcall KiConnectInterrupt(__int64 a1)
   bool v20; // zf
   char v21[8]; // [rsp+20h] [rbp-48h] BYREF
   __int64 (__fastcall *v22)(); // [rsp+28h] [rbp-40h]
-  struct _GROUP_AFFINITY PreviousAffinity; // [rsp+30h] [rbp-38h] BYREF
+  _GROUP_AFFINITY PreviousAffinity; // [rsp+30h] [rbp-38h] BYREF
 
   v1 = *(unsigned int *)(a1 + 88);
   v2 = 0;
@@ -117,7 +117,9 @@ LABEL_27:
       }
     }
   }
-  if ( KiIrqlFlags && (CurrentIrql = KeGetCurrentIrql(), (KiIrqlFlags & 1) != 0) && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags
+    && (CurrentIrql = KeGetCurrentIrql(), ((unsigned __int8)KiIrqlFlags & 1) != 0)
+    && CurrentIrql <= 0xFu )
   {
     v14 = v21[0];
     if ( v21[0] <= 0xFu && CurrentIrql >= 2u )

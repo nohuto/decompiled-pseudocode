@@ -1,10 +1,10 @@
 /*
- * XREFs of IopCleanupExtraCreateParameters @ 0x140405BB0
+ * XREFs of IopCleanupExtraCreateParameters @ 0x140404A70
  * Callers:
- *     NtQueryFullAttributesFile @ 0x140405988 (NtQueryFullAttributesFile.c)
- *     NtDeleteFile @ 0x14057D42C (NtDeleteFile.c)
+ *     NtQueryFullAttributesFile @ 0x140404848 (NtQueryFullAttributesFile.c)
+ *     NtDeleteFile @ 0x14057D8D8 (NtDeleteFile.c)
  * Callees:
- *     FsRtlpCleanupEcps @ 0x140415010 (FsRtlpCleanupEcps.c)
+ *     FsRtlpCleanupEcps @ 0x140413ED0 (FsRtlpCleanupEcps.c)
  */
 
 void __fastcall IopCleanupExtraCreateParameters(__int64 a1)

@@ -1,12 +1,12 @@
 /*
- * XREFs of IopEnableTimer @ 0x1405CA78C
+ * XREFs of IopEnableTimer @ 0x1405CD05C
  * Callers:
- *     IoStartTimer @ 0x1405CB480 (IoStartTimer.c)
+ *     IoStartTimer @ 0x1405CDD50 (IoStartTimer.c)
  * Callees:
- *     KeSetCoalescableTimer @ 0x140219B40 (KeSetCoalescableTimer.c)
- *     KeReleaseSpinLock @ 0x1402BE860 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14032F300 (KeAcquireSpinLockRaiseToDpc.c)
- *     EtwTraceIoTimerEvent @ 0x1406C4A0C (EtwTraceIoTimerEvent.c)
+ *     KeSetCoalescableTimer @ 0x140219CA0 (KeSetCoalescableTimer.c)
+ *     KeReleaseSpinLock @ 0x140309520 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140331330 (KeAcquireSpinLockRaiseToDpc.c)
+ *     EtwTraceIoTimerEvent @ 0x1406C864C (EtwTraceIoTimerEvent.c)
  */
 
 void __fastcall IopEnableTimer(__int64 a1)
@@ -16,9 +16,14 @@ void __fastcall IopEnableTimer(__int64 a1)
   v2 = KeAcquireSpinLockRaiseToDpc(&IopTimerLock);
   if ( !*(_WORD *)(a1 + 2) )
   {
-    if ( !IopTimerCount )
-      KeSetCoalescableTimer(&qword_140F85400, (LARGE_INTEGER)-10000000LL, 0x3E8u, 0x23u, &dword_140F85440);
-    ++IopTimerCount;
+    if ( !*(_DWORD *)&IopPerfIoTrackingLock.WaitBlockFill11[80] )
+      KeSetCoalescableTimer(
+        (PKTIMER)&IopPerfIoTrackingLock.WaitBlockFill11[160],
+        (LARGE_INTEGER)-10000000LL,
+        0x3E8u,
+        0x23u,
+        (PKDPC)&IopPerfIoTrackingLock.WaitBlockFill11[96]);
+    ++*(_DWORD *)&IopPerfIoTrackingLock.WaitBlockFill11[80];
     *(_WORD *)(a1 + 2) = 1;
   }
   KeReleaseSpinLock(&IopTimerLock, v2);

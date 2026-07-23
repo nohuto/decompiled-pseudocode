@@ -1,14 +1,14 @@
 /*
- * XREFs of HvpViewMapAcquireLockShared @ 0x1401B67C0
+ * XREFs of HvpViewMapAcquireLockShared @ 0x1401B66A4
  * Callers:
- *     HvpMapHiveImageFromSystemCache @ 0x1401B72D8 (HvpMapHiveImageFromSystemCache.c)
- *     CmpDoSystemCacheRead @ 0x140603F98 (CmpDoSystemCacheRead.c)
- *     HvExtendHivePrimaryFileValidDataLength @ 0x140605D14 (HvExtendHivePrimaryFileValidDataLength.c)
- *     HvViewMapAddressForFileOffset @ 0x14060FA68 (HvViewMapAddressForFileOffset.c)
- *     HvViewMapFlush @ 0x14060FB24 (HvViewMapFlush.c)
+ *     HvpMapHiveImageFromSystemCache @ 0x1401B71BC (HvpMapHiveImageFromSystemCache.c)
+ *     CmpDoSystemCacheRead @ 0x14060404C (CmpDoSystemCacheRead.c)
+ *     HvExtendHivePrimaryFileValidDataLength @ 0x140605DC8 (HvExtendHivePrimaryFileValidDataLength.c)
+ *     HvViewMapAddressForFileOffset @ 0x14060FB1C (HvViewMapAddressForFileOffset.c)
+ *     HvViewMapFlush @ 0x14060FBD8 (HvViewMapFlush.c)
  * Callees:
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     ExfAcquirePushLockSharedEx @ 0x1400C8280 (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     ExfAcquirePushLockSharedEx @ 0x1400C6120 (ExfAcquirePushLockSharedEx.c)
  */
 
 signed __int64 __fastcall HvpViewMapAcquireLockShared(__int64 a1)

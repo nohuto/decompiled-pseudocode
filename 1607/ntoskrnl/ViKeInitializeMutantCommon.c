@@ -4,7 +4,7 @@
  *     VerifierKeInitializeMutant @ 0x140711FD0 (VerifierKeInitializeMutant.c)
  *     VerifierKeInitializeMutantNoReboot @ 0x140712024 (VerifierKeInitializeMutantNoReboot.c)
  * Callees:
- *     VfUtilSynchronizationObjectSanityChecks @ 0x140703048 (VfUtilSynchronizationObjectSanityChecks.c)
+ *     VfUtilSynchronizationObjectSanityChecks @ 0x140703078 (VfUtilSynchronizationObjectSanityChecks.c)
  */
 
 __int64 __fastcall ViKeInitializeMutantCommon(void *a1, char a2)

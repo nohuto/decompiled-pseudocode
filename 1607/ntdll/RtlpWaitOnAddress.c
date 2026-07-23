@@ -1,14 +1,14 @@
 /*
- * XREFs of RtlpWaitOnAddress @ 0x1800668E4
+ * XREFs of RtlpWaitOnAddress @ 0x1800668D4
  * Callers:
- *     RtlWaitOnAddress @ 0x180065A10 (RtlWaitOnAddress.c)
- *     RtlUnsubscribeWnfNotificationWaitForCompletion @ 0x180065A60 (RtlUnsubscribeWnfNotificationWaitForCompletion.c)
- *     RtlpWaitOnCriticalSection @ 0x18006674C (RtlpWaitOnCriticalSection.c)
- *     RtlPosixBarrier @ 0x1800E4E74 (RtlPosixBarrier.c)
+ *     RtlWaitOnAddress @ 0x180065A00 (RtlWaitOnAddress.c)
+ *     RtlUnsubscribeWnfNotificationWaitForCompletion @ 0x180065A50 (RtlUnsubscribeWnfNotificationWaitForCompletion.c)
+ *     RtlpWaitOnCriticalSection @ 0x18006673C (RtlpWaitOnCriticalSection.c)
+ *     RtlPosixBarrier @ 0x1800E4F34 (RtlPosixBarrier.c)
  * Callees:
- *     RtlpAddWaitBlockToWaitList @ 0x1800669DC (RtlpAddWaitBlockToWaitList.c)
- *     RtlpWaitOnAddressWithTimeout @ 0x180066A4C (RtlpWaitOnAddressWithTimeout.c)
- *     RtlpWaitOnAddressRemoveWaitBlock @ 0x180066B7C (RtlpWaitOnAddressRemoveWaitBlock.c)
+ *     RtlpAddWaitBlockToWaitList @ 0x1800669CC (RtlpAddWaitBlockToWaitList.c)
+ *     RtlpWaitOnAddressWithTimeout @ 0x180066A3C (RtlpWaitOnAddressWithTimeout.c)
+ *     RtlpWaitOnAddressRemoveWaitBlock @ 0x180066B6C (RtlpWaitOnAddressRemoveWaitBlock.c)
  */
 
 __int64 __fastcall RtlpWaitOnAddress(_QWORD *a1, _QWORD *a2, __int64 a3, __int64 a4, unsigned int a5)

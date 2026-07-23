@@ -1,16 +1,16 @@
 /*
- * XREFs of KeUserModeCallback @ 0x1406F0030
+ * XREFs of KeUserModeCallback @ 0x140707410
  * Callers:
  *     <none>
  * Callees:
- *     MmCreateKernelStack @ 0x14032A560 (MmCreateKernelStack.c)
- *     MmDeleteKernelStack @ 0x14032AB70 (MmDeleteKernelStack.c)
- *     KeExitRetpoline @ 0x14035E888 (KeExitRetpoline.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
- *     KiCallUserMode @ 0x1404022D0 (KiCallUserMode.c)
- *     memmove @ 0x140413F40 (memmove.c)
- *     PsInvokeWin32Callout @ 0x14061B140 (PsInvokeWin32Callout.c)
- *     ExRaiseAccessViolation @ 0x1409560F0 (ExRaiseAccessViolation.c)
+ *     KeExitRetpoline @ 0x1402A37B8 (KeExitRetpoline.c)
+ *     MmCreateKernelStack @ 0x1403352B0 (MmCreateKernelStack.c)
+ *     MmDeleteKernelStack @ 0x1403358C0 (MmDeleteKernelStack.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
+ *     KiCallUserMode @ 0x1404024B0 (KiCallUserMode.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     PsInvokeWin32Callout @ 0x140684DA0 (PsInvokeWin32Callout.c)
+ *     ExRaiseAccessViolation @ 0x1409562C0 (ExRaiseAccessViolation.c)
  */
 
 __int64 __fastcall KeUserModeCallback(int a1, const void *a2, unsigned int a3, __int64 a4, __int64 a5)
@@ -106,7 +106,7 @@ __int64 __fastcall KeUserModeCallback(int a1, const void *a2, unsigned int a3, _
         __writemsr(0x6A7u, v16);
       TrapFrame->Rsp = Rsp;
       --CurrentThread->CallbackNestingLevel;
-      MmDeleteKernelStack(v9, 0LL);
+      MmDeleteKernelStack(v9, 0);
       return v20;
     }
     else

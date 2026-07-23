@@ -1,9 +1,9 @@
 /*
- * XREFs of PpmResetPerformanceAccumulation @ 0x1403C23B4
+ * XREFs of PpmResetPerformanceAccumulation @ 0x1403C27E4
  * Callers:
- *     PpmResetPerfTimes @ 0x1403C22F0 (PpmResetPerfTimes.c)
+ *     PpmResetPerfTimes @ 0x1403C2720 (PpmResetPerfTimes.c)
  * Callees:
- *     KeQueryPerformanceCounter @ 0x14022C340 (KeQueryPerformanceCounter.c)
+ *     KeQueryPerformanceCounter @ 0x1402D0BC0 (KeQueryPerformanceCounter.c)
  */
 
 LARGE_INTEGER __fastcall PpmResetPerformanceAccumulation(LARGE_INTEGER *a1)

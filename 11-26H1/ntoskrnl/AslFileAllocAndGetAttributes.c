@@ -1,21 +1,21 @@
 /*
- * XREFs of AslFileAllocAndGetAttributes @ 0x14088BC84
+ * XREFs of AslFileAllocAndGetAttributes @ 0x140892080
  * Callers:
- *     SdbpCheckAllAttributes @ 0x140B45B64 (SdbpCheckAllAttributes.c)
+ *     SdbpCheckAllAttributes @ 0x140B47B94 (SdbpCheckAllAttributes.c)
  * Callees:
- *     Feature_Arm64XMatching__private_IsEnabledDeviceUsageNoInline @ 0x140714F34 (Feature_Arm64XMatching__private_IsEnabledDeviceUsageNoInline.c)
- *     AslpFileLargeEnsureLargeFileMapping @ 0x14077DAD8 (AslpFileLargeEnsureLargeFileMapping.c)
- *     AslFileMappingEnsure @ 0x1408889EC (AslFileMappingEnsure.c)
- *     AslpFileGetChecksumAttributes @ 0x14088C584 (AslpFileGetChecksumAttributes.c)
- *     AslpFileGetClrVersionAttribute @ 0x14088C914 (AslpFileGetClrVersionAttribute.c)
- *     AslpFileGetExeWrapperAttribute @ 0x14088CE08 (AslpFileGetExeWrapperAttribute.c)
- *     AslpFileGetFileKindDetailAttribute @ 0x14088CF90 (AslpFileGetFileKindDetailAttribute.c)
- *     AslpFileGetHeaderAttributesNE @ 0x14088D018 (AslpFileGetHeaderAttributesNE.c)
- *     AslpFileGetHeaderAttributesPE @ 0x14088D1C0 (AslpFileGetHeaderAttributesPE.c)
- *     AslpFileGetPeExportNameAttribute @ 0x14088D92C (AslpFileGetPeExportNameAttribute.c)
- *     AslpFileGetVersionAttributes @ 0x14088DA10 (AslpFileGetVersionAttributes.c)
- *     AslpFileIsArm64XBinary @ 0x14088E8A8 (AslpFileIsArm64XBinary.c)
- *     AslLogCallPrintf @ 0x1409E8884 (AslLogCallPrintf.c)
+ *     Feature_Arm64XMatching__private_IsEnabledDeviceUsageNoInline @ 0x140719C24 (Feature_Arm64XMatching__private_IsEnabledDeviceUsageNoInline.c)
+ *     AslpFileLargeEnsureLargeFileMapping @ 0x1407805D8 (AslpFileLargeEnsureLargeFileMapping.c)
+ *     AslFileMappingEnsure @ 0x14088EDE8 (AslFileMappingEnsure.c)
+ *     AslpFileGetChecksumAttributes @ 0x140892980 (AslpFileGetChecksumAttributes.c)
+ *     AslpFileGetClrVersionAttribute @ 0x140892D10 (AslpFileGetClrVersionAttribute.c)
+ *     AslpFileGetExeWrapperAttribute @ 0x140893204 (AslpFileGetExeWrapperAttribute.c)
+ *     AslpFileGetFileKindDetailAttribute @ 0x14089338C (AslpFileGetFileKindDetailAttribute.c)
+ *     AslpFileGetHeaderAttributesNE @ 0x140893414 (AslpFileGetHeaderAttributesNE.c)
+ *     AslpFileGetHeaderAttributesPE @ 0x1408935BC (AslpFileGetHeaderAttributesPE.c)
+ *     AslpFileGetPeExportNameAttribute @ 0x140893D28 (AslpFileGetPeExportNameAttribute.c)
+ *     AslpFileGetVersionAttributes @ 0x140893E0C (AslpFileGetVersionAttributes.c)
+ *     AslpFileIsArm64XBinary @ 0x140894CA4 (AslpFileIsArm64XBinary.c)
+ *     AslLogCallPrintf @ 0x1409D5294 (AslLogCallPrintf.c)
  */
 
 __int64 __fastcall AslFileAllocAndGetAttributes(__int64 a1, __int64 a2, unsigned __int64 a3)

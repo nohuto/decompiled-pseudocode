@@ -1,17 +1,17 @@
 /*
- * XREFs of MmPerformMemoryListCommand @ 0x14056EA20
+ * XREFs of MmPerformMemoryListCommand @ 0x14056FA20
  * Callers:
- *     PopVerifierFlushMemoryBeforeSleep @ 0x1405652FC (PopVerifierFlushMemoryBeforeSleep.c)
- *     PfpPowerActionStartScenarioTracing @ 0x140566844 (PfpPowerActionStartScenarioTracing.c)
- *     PfPowerActionNotify @ 0x140567F10 (PfPowerActionNotify.c)
- *     PfpLogScenarioEvent @ 0x14071BCB4 (PfpLogScenarioEvent.c)
- *     MmIssueMemoryListCommand @ 0x14071BED8 (MmIssueMemoryListCommand.c)
+ *     PopVerifierFlushMemoryBeforeSleep @ 0x1405662FC (PopVerifierFlushMemoryBeforeSleep.c)
+ *     PfpPowerActionStartScenarioTracing @ 0x140567844 (PfpPowerActionStartScenarioTracing.c)
+ *     PfPowerActionNotify @ 0x140568F10 (PfPowerActionNotify.c)
+ *     PfpLogScenarioEvent @ 0x14071CF54 (PfpLogScenarioEvent.c)
+ *     MmIssueMemoryListCommand @ 0x14071D178 (MmIssueMemoryListCommand.c)
  * Callees:
  *     MiGetProcessPartition @ 0x14004D19C (MiGetProcessPartition.c)
- *     MiPurgePartitionStandby @ 0x140151E1C (MiPurgePartitionStandby.c)
- *     MiFlushAllPages @ 0x140153138 (MiFlushAllPages.c)
- *     MiCaptureAllWorkingSetAccessBits @ 0x140175CD4 (MiCaptureAllWorkingSetAccessBits.c)
- *     MiEmptyAllWorkingSets @ 0x1402B2FAC (MiEmptyAllWorkingSets.c)
+ *     MiPurgePartitionStandby @ 0x140151F1C (MiPurgePartitionStandby.c)
+ *     MiFlushAllPages @ 0x140153238 (MiFlushAllPages.c)
+ *     MiCaptureAllWorkingSetAccessBits @ 0x140175DD4 (MiCaptureAllWorkingSetAccessBits.c)
+ *     MiEmptyAllWorkingSets @ 0x1402B319C (MiEmptyAllWorkingSets.c)
  */
 
 __int64 MmPerformMemoryListCommand()

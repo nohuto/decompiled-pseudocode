@@ -10,9 +10,9 @@
 errno_t __cdecl strncpy_s(char *Destination, rsize_t SizeInBytes, const char *Source, rsize_t MaxCount)
 {
   char *v4; // edx
-  rsize_t v5; // esi
-  rsize_t v7; // ebx
-  const char *v8; // edi
+  int v5; // esi
+  int v7; // ebx
+  char *v8; // edi
   char v9; // al
   char *v10; // edx
   char v11; // al
@@ -21,15 +21,15 @@ errno_t __cdecl strncpy_s(char *Destination, rsize_t SizeInBytes, const char *So
   char *v14; // [esp+Ch] [ebp-4h]
 
   v4 = Destination;
-  v5 = MaxCount;
-  if ( MaxCount )
+  v5 = (int)Source;
+  if ( Source )
   {
     if ( !Destination )
       goto LABEL_4;
   }
   else if ( !Destination )
   {
-    if ( SizeInBytes )
+    if ( (_DWORD)SizeInBytes )
     {
 LABEL_4:
       _invalid_parameter();
@@ -38,22 +38,22 @@ LABEL_4:
     return 0;
   }
   v7 = SizeInBytes;
-  if ( !SizeInBytes )
+  if ( !(_DWORD)SizeInBytes )
     goto LABEL_4;
-  if ( !MaxCount )
+  if ( !Source )
   {
     *Destination = 0;
     return 0;
   }
-  v8 = Source;
-  if ( Source )
+  v8 = (char *)HIDWORD(SizeInBytes);
+  if ( HIDWORD(SizeInBytes) )
   {
-    if ( MaxCount == -1 )
+    if ( Source == (const char *)-1 )
     {
       do
       {
         v9 = *v8;
-        v8[Destination - Source] = *v8;
+        Destination[(_DWORD)v8 - HIDWORD(SizeInBytes)] = *v8;
         ++v8;
         v5 = -1;
         if ( !v9 )
@@ -67,7 +67,7 @@ LABEL_4:
       v10 = Destination;
       do
       {
-        v11 = v10[Source - Destination];
+        v11 = v10[HIDWORD(SizeInBytes) - (_DWORD)Destination];
         *v10++ = v11;
         if ( !v11 )
           break;
@@ -86,7 +86,7 @@ LABEL_4:
     if ( v5 == -1 )
     {
       v12 = 80;
-      v4[SizeInBytes - 1] = 0;
+      v4[(_DWORD)SizeInBytes - 1] = 0;
       return v12;
     }
     v13 = 34;

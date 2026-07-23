@@ -1,13 +1,13 @@
 /*
- * XREFs of PipCreateDependencyNode @ 0x140739F58
+ * XREFs of PipCreateDependencyNode @ 0x14073B148
  * Callers:
- *     IoResolveDependency @ 0x140181BD0 (IoResolveDependency.c)
- *     IoDuplicateDependency @ 0x1408238C0 (IoDuplicateDependency.c)
- *     PipSetDependency @ 0x140824210 (PipSetDependency.c)
+ *     IoResolveDependency @ 0x140181D10 (IoResolveDependency.c)
+ *     IoDuplicateDependency @ 0x140824AC0 (IoDuplicateDependency.c)
+ *     PipSetDependency @ 0x140825410 (PipSetDependency.c)
  * Callees:
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     PipAddBindingId @ 0x140739E18 (PipAddBindingId.c)
- *     PipDeleteDependencyNode @ 0x14075D8AC (PipDeleteDependencyNode.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     PipAddBindingId @ 0x14073B008 (PipAddBindingId.c)
+ *     PipDeleteDependencyNode @ 0x14075EA9C (PipDeleteDependencyNode.c)
  */
 
 __int64 __fastcall PipCreateDependencyNode(__int64 a1)
@@ -34,13 +34,13 @@ __int64 __fastcall PipCreateDependencyNode(__int64 a1)
     *(_DWORD *)(v3 + 88) = 0;
     *(_QWORD *)(v3 + 48) = 0LL;
     *(_DWORD *)(v3 + 92) = 0;
-    v5 = (__int64 *)qword_140435748;
-    if ( *(__int64 **)qword_140435748 != &PiDependencyNodeListHead )
+    v5 = (__int64 *)qword_1404367E8;
+    if ( *(__int64 **)qword_1404367E8 != &PiDependencyNodeListHead )
       __fastfail(3u);
     *(_QWORD *)v3 = &PiDependencyNodeListHead;
     *(_QWORD *)(v3 + 8) = v5;
     *v5 = v3;
-    qword_140435748 = v3;
+    qword_1404367E8 = v3;
     if ( *(_DWORD *)a1 == 1 )
     {
       if ( PipAddBindingId(v3, *(const UNICODE_STRING **)(a1 + 8)) < 0 )

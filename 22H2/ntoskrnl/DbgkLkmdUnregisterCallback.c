@@ -13,7 +13,7 @@
 __int64 __fastcall DbgkLkmdUnregisterCallback(__int64 a1)
 {
   unsigned int v2; // edi
-  union _RTL_RUN_ONCE *v3; // rsi
+  _RTL_RUN_ONCE *v3; // rsi
   struct _EX_RUNDOWN_REF *v4; // rax
   struct _EX_RUNDOWN_REF *v5; // rbx
 

@@ -1,10 +1,10 @@
 /*
- * XREFs of MiWriteProtectSystemImages @ 0x140864660
+ * XREFs of MiWriteProtectSystemImages @ 0x14086AA40
  * Callers:
  *     <none>
  * Callees:
- *     MiSectionControlArea @ 0x14038A9B0 (MiSectionControlArea.c)
- *     MiProtectSystemImage @ 0x140A7935C (MiProtectSystemImage.c)
+ *     MiSectionControlArea @ 0x14038C760 (MiSectionControlArea.c)
+ *     MiProtectSystemImage @ 0x1409E4B80 (MiProtectSystemImage.c)
  */
 
 __int64 __fastcall MiWriteProtectSystemImages(__int64 a1)

@@ -1,11 +1,11 @@
 /*
- * XREFs of HalpMcaExtendedLogInitialize @ 0x14057AF58
+ * XREFs of HalpMcaExtendedLogInitialize @ 0x14057D488
  * Callers:
- *     HalpInitializeMce @ 0x140BE9EA4 (HalpInitializeMce.c)
+ *     HalpInitializeMce @ 0x140BEFEA4 (HalpInitializeMce.c)
  * Callees:
- *     MiUnmapContiguousMemory @ 0x140343628 (MiUnmapContiguousMemory.c)
- *     MmMapIoSpaceEx @ 0x140363DC0 (MmMapIoSpaceEx.c)
- *     HalpMcaExtendedLogGetL1DirectoryBase @ 0x14057AE4C (HalpMcaExtendedLogGetL1DirectoryBase.c)
+ *     MiUnmapContiguousMemory @ 0x1403456A8 (MiUnmapContiguousMemory.c)
+ *     MmMapIoSpaceEx @ 0x140365B60 (MmMapIoSpaceEx.c)
+ *     HalpMcaExtendedLogGetL1DirectoryBase @ 0x14057D37C (HalpMcaExtendedLogGetL1DirectoryBase.c)
  */
 
 __int64 HalpMcaExtendedLogInitialize()
@@ -45,19 +45,19 @@ __int64 HalpMcaExtendedLogInitialize()
     v3 = v6;
     if ( !v6 )
       goto LABEL_4;
-    stru_140E3E928.WaitBlock[1].Thread = (struct _KTHREAD *)v6;
-    *(_DWORD *)&stru_140E3E928.WaitBlockFill11[88] = *(_DWORD *)(v6 + 48);
-    stru_140E3E928.WaitBlock[1].Object = (PVOID)((*(_QWORD *)(v6 + 8) - (unsigned __int64)*(unsigned int *)(v6 + 4)) >> 3);
-    if ( stru_140E3E928.WaitBlock[1].Object >= (PVOID)*(unsigned int *)&stru_140E3E928.WaitBlockFill11[88] )
+    stru_140E3EAA8.WaitBlock[1].Thread = (struct _KTHREAD *)v6;
+    *(_DWORD *)&stru_140E3EAA8.WaitBlockFill11[88] = *(_DWORD *)(v6 + 48);
+    stru_140E3EAA8.WaitBlock[1].Object = (PVOID)((*(_QWORD *)(v6 + 8) - (unsigned __int64)*(unsigned int *)(v6 + 4)) >> 3);
+    if ( stru_140E3EAA8.WaitBlock[1].Object >= (PVOID)*(unsigned int *)&stru_140E3EAA8.WaitBlockFill11[88] )
     {
-      stru_140E3E928.WaitBlock[2].WaitListEntry.Blink = (struct _LIST_ENTRY *)MmMapIoSpaceEx(
+      stru_140E3EAA8.WaitBlock[2].WaitListEntry.Blink = (struct _LIST_ENTRY *)MmMapIoSpaceEx(
                                                                                 *(_QWORD *)(v6 + 16),
                                                                                 *(_QWORD *)(v6 + 24),
                                                                                 0x204u);
-      if ( stru_140E3E928.WaitBlock[2].WaitListEntry.Blink )
+      if ( stru_140E3EAA8.WaitBlock[2].WaitListEntry.Blink )
       {
-        stru_140E3E928.WaitBlock[2].WaitListEntry.Flink = *(struct _LIST_ENTRY **)(v3 + 16);
-        *(_QWORD *)&stru_140E3E928.WaitBlockFill11[112] = *(_QWORD *)(v3 + 24);
+        stru_140E3EAA8.WaitBlock[2].WaitListEntry.Flink = *(struct _LIST_ENTRY **)(v3 + 16);
+        *(_QWORD *)&stru_140E3EAA8.WaitBlockFill11[112] = *(_QWORD *)(v3 + 24);
         *(_DWORD *)(v3 + 32) |= 1u;
         return 0;
       }
@@ -69,9 +69,9 @@ LABEL_6:
       v4 = -1073741637;
     }
     HalpMcaExtendedLoggingSupported = 0;
-    if ( stru_140E3E928.WaitBlock[2].WaitListEntry.Blink )
+    if ( stru_140E3EAA8.WaitBlock[2].WaitListEntry.Blink )
       MiUnmapContiguousMemory(
-        (unsigned __int64)stru_140E3E928.WaitBlock[2].WaitListEntry.Blink,
+        (unsigned __int64)stru_140E3EAA8.WaitBlock[2].WaitListEntry.Blink,
         *(_QWORD *)(v3 + 24),
         1);
     MiUnmapContiguousMemory(v3, v0, 1);
@@ -83,7 +83,7 @@ LABEL_18:
   HalpMcaExtendedLoggingSupported = 0;
 LABEL_19:
   v7 = 48LL;
-  p_Thread = (union _KWAIT_BLOCK::$2ACC67C642B9E501E8652DFF4606A234 *)&stru_140E3E928.WaitBlock[1].Thread;
+  p_Thread = (union _KWAIT_BLOCK::$2ACC67C642B9E501E8652DFF4606A234 *)&stru_140E3EAA8.WaitBlock[1].Thread;
   do
   {
     LOBYTE(p_Thread->Thread) = 0;

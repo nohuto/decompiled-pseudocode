@@ -1,7 +1,7 @@
 /*
- * XREFs of KeCopyPageNt @ 0x1406B3460
+ * XREFs of KeCopyPageNt @ 0x1406B4400
  * Callers:
- *     KeCopyPageNtMfence @ 0x1406B34C0 (KeCopyPageNtMfence.c)
+ *     KeCopyPageNtMfence @ 0x1406B4460 (KeCopyPageNtMfence.c)
  * Callees:
  *     <none>
  */

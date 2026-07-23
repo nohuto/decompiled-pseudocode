@@ -1,11 +1,11 @@
 /*
- * XREFs of MI_UNLOCK_RELOCATIONS_SHARED @ 0x1404815D4
+ * XREFs of MI_UNLOCK_RELOCATIONS_SHARED @ 0x14047AF44
  * Callers:
- *     MiUpdateImagePfnImportRelocations @ 0x140480C40 (MiUpdateImagePfnImportRelocations.c)
+ *     MiUpdateImagePfnImportRelocations @ 0x14047A5B0 (MiUpdateImagePfnImportRelocations.c)
  * Callees:
- *     ExfReleasePushLockShared @ 0x140278BD0 (ExfReleasePushLockShared.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     KiCheckForKernelApcDelivery @ 0x14027DB80 (KiCheckForKernelApcDelivery.c)
+ *     ExfReleasePushLockShared @ 0x140278140 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     KiCheckForKernelApcDelivery @ 0x14027D0F0 (KiCheckForKernelApcDelivery.c)
  */
 
 void __fastcall MI_UNLOCK_RELOCATIONS_SHARED(__int64 a1, __int64 a2)

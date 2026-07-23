@@ -15,78 +15,92 @@
 void __fastcall LdrpLogEtwDllSearchResults(int a1, __int64 a2)
 {
   void *ProcessHeap; // rcx
-  __int64 Heap; // rax
-  __int64 v6; // rbx
+  PVOID Heap; // rax
+  void *v6; // rbx
+  unsigned int v7; // r14d
+  __int64 v8; // rsi
+  char *v9; // rcx
   int UnicodeStringFromPathElement; // eax
-  __int64 v8; // rcx
-  int v9; // r12d
-  int v10; // r13d
-  __int64 v11; // rax
-  __int64 v12; // r14
-  __int64 v13; // rbx
-  unsigned int v14; // edi
-  _WORD *v15; // rbx
-  unsigned int v16; // edi
-  _WORD *v17; // rbx
-  UNICODE_STRING UnicodeString; // [rsp+20h] [rbp-40h] BYREF
-  UNICODE_STRING v19; // [rsp+30h] [rbp-30h] BYREF
-  UNICODE_STRING v20; // [rsp+40h] [rbp-20h] BYREF
-  UNICODE_STRING v21; // [rsp+50h] [rbp-10h] BYREF
-  unsigned int v22; // [rsp+B0h] [rbp+50h] BYREF
-  int v23; // [rsp+B8h] [rbp+58h]
+  __int64 v11; // rcx
+  int v12; // r12d
+  int v13; // r13d
+  char *v14; // rax
+  char *v15; // r14
+  char *v16; // rbx
+  unsigned int v17; // edi
+  unsigned int v18; // r15d
+  char *v19; // rbx
+  unsigned int v20; // edi
+  unsigned int v21; // r15d
+  char *v22; // rbx
+  unsigned int v23; // r15d
+  ULONG v24; // r15d
+  _UNICODE_STRING UnicodeString; // [rsp+20h] [rbp-40h] BYREF
+  _UNICODE_STRING v26; // [rsp+30h] [rbp-30h] BYREF
+  _UNICODE_STRING v27; // [rsp+40h] [rbp-20h] BYREF
+  _UNICODE_STRING v28; // [rsp+50h] [rbp-10h] BYREF
+  unsigned int v29; // [rsp+B0h] [rbp+50h] BYREF
+  int v30; // [rsp+B8h] [rbp+58h]
 
-  v19 = 0LL;
+  v26 = 0LL;
   ProcessHeap = NtCurrentPeb()->ProcessHeap;
   UnicodeString = 0LL;
-  v21 = 0LL;
-  v20 = 0LL;
-  Heap = RtlAllocateHeap((__int64)ProcessHeap, 0, 584LL);
+  v28 = 0LL;
+  v27 = 0LL;
+  Heap = RtlAllocateHeap(ProcessHeap, 0, 0x248uLL);
   v6 = Heap;
   if ( Heap )
   {
-    *(_WORD *)(Heap + 6) = 5332;
-    *(_DWORD *)(Heap + 32) = *(_DWORD *)(a2 + 32);
-    *(_DWORD *)(Heap + 36) = *(_DWORD *)(*(_QWORD *)(a2 + 16) + 24LL);
-    *(_DWORD *)(Heap + 40) = a1;
-    *(_DWORD *)(Heap + 44) = *(_DWORD *)(a2 + 36);
-    LdrpEventAddUnicodeString(a2, (_WORD *)(Heap + 48), 0x214u, (int *)&v22);
-    RtlGetCurrentServiceSessionId();
-    NtTraceEvent();
-    RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v6);
+    *((_WORD *)Heap + 3) = 5332;
+    *((_DWORD *)Heap + 8) = *(_DWORD *)(a2 + 32);
+    *((_DWORD *)Heap + 9) = *(_DWORD *)(*(_QWORD *)(a2 + 16) + 24LL);
+    *((_DWORD *)Heap + 10) = a1;
+    *((_DWORD *)Heap + 11) = *(_DWORD *)(a2 + 36);
+    LdrpEventAddUnicodeString(a2, (_WORD *)Heap + 24, 0x214u, (int *)&v29);
+    v7 = v29;
+    v8 = 2147353476LL;
+    v9 = RtlGetCurrentServiceSessionId() ? (char *)NtCurrentPeb()->SharedData + 554 : (char *)2147353476;
+    NtTraceEvent((HANDLE)(unsigned __int8)*v9, 0x402u, v7 + 16, v6);
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v6);
     if ( (a1 & 0x100) != 0 && (int)LdrpMakeUnicodeStringFromPathElement(*(_QWORD *)(a2 + 16), 4LL, &UnicodeString) >= 0 )
     {
-      UnicodeStringFromPathElement = LdrpMakeUnicodeStringFromPathElement(*(_QWORD *)(a2 + 16), 1LL, &v19);
-      v8 = *(_QWORD *)(a2 + 16);
-      v23 = UnicodeStringFromPathElement;
-      v9 = LdrpMakeUnicodeStringFromPathElement(v8, 0LL, &v21);
-      v10 = LdrpMakeUnicodeStringFromPathElement(*(_QWORD *)(a2 + 16), 5LL, &v20);
-      v11 = RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, 3232LL);
-      v12 = v11;
-      if ( v11 )
+      UnicodeStringFromPathElement = LdrpMakeUnicodeStringFromPathElement(*(_QWORD *)(a2 + 16), 1LL, &v26);
+      v11 = *(_QWORD *)(a2 + 16);
+      v30 = UnicodeStringFromPathElement;
+      v12 = LdrpMakeUnicodeStringFromPathElement(v11, 0LL, &v28);
+      v13 = LdrpMakeUnicodeStringFromPathElement(*(_QWORD *)(a2 + 16), 5LL, &v27);
+      v14 = (char *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, 0xCA0uLL);
+      v15 = v14;
+      if ( v14 )
       {
-        v22 = 0;
-        v13 = v11 + 36;
-        *(_DWORD *)(v11 + 32) = a1;
-        *(_WORD *)(v11 + 6) = 5333;
-        LdrpEventAddUnicodeString((__int64)&UnicodeString, (_WORD *)(v11 + 36), 0xC78u, (int *)&v22);
-        v14 = 3192 - v22;
-        v15 = (_WORD *)(v13 + 2 * ((unsigned __int64)v22 >> 1));
-        LdrpEventAddUnicodeString((__int64)&v19, v15, 3192 - v22, (int *)&v22);
-        v16 = v14 - v22;
-        v17 = &v15[(unsigned __int64)v22 >> 1];
-        LdrpEventAddUnicodeString((__int64)&v21, v17, v16, (int *)&v22);
-        LdrpEventAddUnicodeString((__int64)&v20, &v17[(unsigned __int64)v22 >> 1], v16 - v22, (int *)&v22);
-        RtlGetCurrentServiceSessionId();
-        NtTraceEvent();
-        RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v12);
+        v29 = 0;
+        v16 = v14 + 36;
+        *((_DWORD *)v14 + 8) = a1;
+        *((_WORD *)v14 + 3) = 5333;
+        LdrpEventAddUnicodeString((__int64)&UnicodeString, (_WORD *)v14 + 18, 0xC78u, (int *)&v29);
+        v17 = 3192 - v29;
+        v18 = v29 + 4;
+        v19 = &v16[2 * ((unsigned __int64)v29 >> 1)];
+        LdrpEventAddUnicodeString((__int64)&v26, v19, 3192 - v29, (int *)&v29);
+        v20 = v17 - v29;
+        v21 = v29 + v18;
+        v22 = &v19[2 * ((unsigned __int64)v29 >> 1)];
+        LdrpEventAddUnicodeString((__int64)&v28, v22, v20, (int *)&v29);
+        v23 = v29 + v21;
+        LdrpEventAddUnicodeString((__int64)&v27, &v22[2 * ((unsigned __int64)v29 >> 1)], v20 - v29, (int *)&v29);
+        v24 = v29 + v23;
+        if ( RtlGetCurrentServiceSessionId() )
+          v8 = (__int64)NtCurrentPeb()->SharedData + 554;
+        NtTraceEvent((HANDLE)*(unsigned __int8 *)v8, 0x402u, v24, v15);
+        RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v15);
       }
       RtlFreeUnicodeString(&UnicodeString);
-      if ( v23 >= 0 )
-        RtlFreeUnicodeString(&v19);
-      if ( v10 >= 0 )
-        RtlFreeUnicodeString(&v20);
-      if ( v9 >= 0 )
-        RtlFreeUnicodeString(&v21);
+      if ( v30 >= 0 )
+        RtlFreeUnicodeString(&v26);
+      if ( v13 >= 0 )
+        RtlFreeUnicodeString(&v27);
+      if ( v12 >= 0 )
+        RtlFreeUnicodeString(&v28);
     }
   }
 }

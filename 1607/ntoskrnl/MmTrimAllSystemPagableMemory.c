@@ -1,5 +1,5 @@
 /*
- * XREFs of MmTrimAllSystemPagableMemory @ 0x1401EA4F4
+ * XREFs of MmTrimAllSystemPagableMemory @ 0x1401EA320
  * Callers:
  *     MmShutdownSystem @ 0x1403DEC00 (MmShutdownSystem.c)
  * Callees:

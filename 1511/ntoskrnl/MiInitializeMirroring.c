@@ -19,13 +19,13 @@ __int64 MiInitializeMirroring()
   PVOID PoolWithTag; // rax
   __int64 v2; // rbx
   unsigned __int64 v3; // r8
-  __int64 *v4; // rdi
+  _RTL_BITMAP_EX *v4; // rdi
   struct _KTHREAD *CurrentThread; // rbp
   __int64 v6; // r14
   unsigned __int64 v7; // rsi
   unsigned int v8; // ebx
   ULONG_PTR v9; // rax
-  __int128 v11; // [rsp+20h] [rbp-18h] BYREF
+  _RTL_BITMAP_EX v11; // [rsp+20h] [rbp-18h] BYREF
 
   stru_1402FEC68.Parameter = (void *)-1LL;
   stru_1402FEC68.List.Flink = 0LL;
@@ -42,7 +42,7 @@ __int64 MiInitializeMirroring()
   {
     memset(PoolWithTag, 0, v0);
     qword_140301088 = v2;
-    v4 = qword_1402FEC98;
+    v4 = &stru_1402FEC98;
     CurrentThread = KeGetCurrentThread();
     v6 = qword_1402FE758;
     v7 = (((unsigned __int64)(qword_1402FE758 + 8) >> 3) + 4095) >> 12;
@@ -52,10 +52,9 @@ __int64 MiInitializeMirroring()
       v9 = MiReservePtes((__int64)&qword_1402FF7B0, v7, v3);
       if ( !v9 || !(unsigned int)MiInitializeDynamicBitmap(&v11, (__int64)(v9 << 25) >> 16, v6 + 1, 24) )
         break;
-      *(_QWORD *)&v11 = 0LL;
+      v11.SizeOfBitMap = 0LL;
       ++v8;
-      *(_OWORD *)v4 = v11;
-      v4 += 2;
+      *v4++ = v11;
       if ( v8 >= 2 )
       {
         if ( (dword_1403810FC & 1) != 0 )

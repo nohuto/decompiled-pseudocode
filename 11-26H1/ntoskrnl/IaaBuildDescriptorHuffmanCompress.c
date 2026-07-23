@@ -1,10 +1,10 @@
 /*
- * XREFs of IaaBuildDescriptorHuffmanCompress @ 0x1406E14B0
+ * XREFs of IaaBuildDescriptorHuffmanCompress @ 0x1406E5730
  * Callers:
- *     AccelpSiovIaaCompressionDecompression @ 0x1406DFC80 (AccelpSiovIaaCompressionDecompression.c)
+ *     AccelpSiovIaaCompressionDecompression @ 0x1406E3F00 (AccelpSiovIaaCompressionDecompression.c)
  * Callees:
- *     IaaBuildDescriptorCommon @ 0x1404BFAB4 (IaaBuildDescriptorCommon.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     IaaBuildDescriptorCommon @ 0x1404B9304 (IaaBuildDescriptorCommon.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall IaaBuildDescriptorHuffmanCompress(

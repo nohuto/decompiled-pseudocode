@@ -204,7 +204,7 @@ LABEL_14:
     --v19;
   }
   while ( v19 );
-  MiFreeClonePool((union _SLIST_HEADER *)a1);
+  MiFreeClonePool((_SLIST_HEADER *)a1);
   v21 = **(_QWORD **)(*(_QWORD *)(a1 + 176) + 56LL);
   *(_QWORD *)(a1 + 7592) -= MiDeletePagingFiles(a1);
   MiEnumerateSlabAllocators(
@@ -394,7 +394,7 @@ LABEL_80:
   }
   *(_BYTE *)(v46 + 32) |= 2u;
   if ( *(__int64 *)(v46 + 32) < 0 )
-    KiAbEntryRemoveFromTree(v46);
+    KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)v46);
   v48 = *(_DWORD *)(v46 + 88) & 0x1FFFF;
   v49 = *(_DWORD *)(v46 + 88) & 0xFFFE0000;
   *(_BYTE *)(v46 + 25) &= ~1u;

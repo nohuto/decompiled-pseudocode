@@ -1,16 +1,16 @@
 /*
- * XREFs of CmpSortDriverList @ 0x140CF024C
+ * XREFs of CmpSortDriverList @ 0x140CF65C4
  * Callers:
- *     CmGetSystemDriverList @ 0x140D04720 (CmGetSystemDriverList.c)
+ *     CmGetSystemDriverList @ 0x140D0A9F0 (CmGetSystemDriverList.c)
  * Callees:
- *     HvpGetCellFlat @ 0x14085EB00 (HvpGetCellFlat.c)
- *     CmpValueToData @ 0x140860380 (CmpValueToData.c)
- *     HvpReleaseCellFlat @ 0x1408D51E0 (HvpReleaseCellFlat.c)
- *     HvpReleaseCellPaged @ 0x1408D73B0 (HvpReleaseCellPaged.c)
- *     HvpGetCellPaged @ 0x1408D7410 (HvpGetCellPaged.c)
- *     CmpFindValueByName @ 0x140AB231C (CmpFindValueByName.c)
- *     CmpFindSubKeyByName @ 0x140AC351C (CmpFindSubKeyByName.c)
- *     CmpDoSort @ 0x140CEECEC (CmpDoSort.c)
+ *     HvpGetCellFlat @ 0x140864DF0 (HvpGetCellFlat.c)
+ *     CmpValueToData @ 0x140866670 (CmpValueToData.c)
+ *     HvpReleaseCellFlat @ 0x1408DB7A0 (HvpReleaseCellFlat.c)
+ *     HvpReleaseCellPaged @ 0x1408DD970 (HvpReleaseCellPaged.c)
+ *     HvpGetCellPaged @ 0x1408DD9D0 (HvpGetCellPaged.c)
+ *     CmpFindValueByName @ 0x140AAFFF0 (CmpFindValueByName.c)
+ *     CmpFindSubKeyByName @ 0x140AC518C (CmpFindSubKeyByName.c)
+ *     CmpDoSort @ 0x140CF5068 (CmpDoSort.c)
  */
 
 char __fastcall CmpSortDriverList(ULONG_PTR BugCheckParameter3, __int64 a2, __int64 **a3)

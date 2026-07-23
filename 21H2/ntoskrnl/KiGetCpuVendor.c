@@ -1,20 +1,20 @@
 /*
- * XREFs of KiGetCpuVendor @ 0x14099BF68
+ * XREFs of KiGetCpuVendor @ 0x14099CF68
  * Callers:
- *     KiGetIptInfo @ 0x1403AD944 (KiGetIptInfo.c)
- *     HvlpProcessIommu @ 0x1404F97D8 (HvlpProcessIommu.c)
- *     EtwSetPerformanceTraceInformation @ 0x140938560 (EtwSetPerformanceTraceInformation.c)
- *     EtwpAddMicroarchitecturalPmcToPmcGroup @ 0x140939160 (EtwpAddMicroarchitecturalPmcToPmcGroup.c)
- *     EtwpAddMicroarchitecturalPmcToRegistry @ 0x140939480 (EtwpAddMicroarchitecturalPmcToRegistry.c)
- *     EtwpLoadMicroarchitecturalProfileGroup @ 0x14093A58C (EtwpLoadMicroarchitecturalProfileGroup.c)
- *     EtwpLoadMicroarchitecturalProfileSource @ 0x14093A870 (EtwpLoadMicroarchitecturalProfileSource.c)
- *     EtwpRemoveMicroarchitecturalPmcFromRegistry @ 0x14093AE40 (EtwpRemoveMicroarchitecturalPmcFromRegistry.c)
- *     KiIsNXSupported @ 0x14099BBF0 (KiIsNXSupported.c)
- *     KiGetProcessorSignature @ 0x14099BEA8 (KiGetProcessorSignature.c)
- *     KiInitializeNxSupportDiscard @ 0x140A3A9E4 (KiInitializeNxSupportDiscard.c)
+ *     KiGetIptInfo @ 0x1403ADA94 (KiGetIptInfo.c)
+ *     HvlpProcessIommu @ 0x1404F9758 (HvlpProcessIommu.c)
+ *     EtwSetPerformanceTraceInformation @ 0x140938730 (EtwSetPerformanceTraceInformation.c)
+ *     EtwpAddMicroarchitecturalPmcToPmcGroup @ 0x140939330 (EtwpAddMicroarchitecturalPmcToPmcGroup.c)
+ *     EtwpAddMicroarchitecturalPmcToRegistry @ 0x140939650 (EtwpAddMicroarchitecturalPmcToRegistry.c)
+ *     EtwpLoadMicroarchitecturalProfileGroup @ 0x14093A75C (EtwpLoadMicroarchitecturalProfileGroup.c)
+ *     EtwpLoadMicroarchitecturalProfileSource @ 0x14093AA40 (EtwpLoadMicroarchitecturalProfileSource.c)
+ *     EtwpRemoveMicroarchitecturalPmcFromRegistry @ 0x14093B010 (EtwpRemoveMicroarchitecturalPmcFromRegistry.c)
+ *     KiIsNXSupported @ 0x14099CBF0 (KiIsNXSupported.c)
+ *     KiGetProcessorSignature @ 0x14099CEA8 (KiGetProcessorSignature.c)
+ *     KiInitializeNxSupportDiscard @ 0x140A3B9E4 (KiInitializeNxSupportDiscard.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     strncmp @ 0x1403D1540 (strncmp.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     strncmp @ 0x1403D16B0 (strncmp.c)
  */
 
 __int64 KiGetCpuVendor()

@@ -55,7 +55,7 @@ __int64 __fastcall HvStoreModifiedData(ULONG_PTR a1, char a2, char a3)
   int v40; // [rsp+50h] [rbp-29h] BYREF
   PVOID v41; // [rsp+58h] [rbp-21h] BYREF
   PVOID P; // [rsp+60h] [rbp-19h]
-  RTL_BITMAP BitMapHeader; // [rsp+68h] [rbp-11h] BYREF
+  _RTL_BITMAP BitMapHeader; // [rsp+68h] [rbp-11h] BYREF
   void *v44; // [rsp+78h] [rbp-1h] BYREF
   __int128 v45; // [rsp+80h] [rbp+7h] BYREF
   unsigned int v46; // [rsp+E0h] [rbp+67h]

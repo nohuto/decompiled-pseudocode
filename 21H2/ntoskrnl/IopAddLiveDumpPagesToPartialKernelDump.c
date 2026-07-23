@@ -1,16 +1,16 @@
 /*
- * XREFs of IopAddLiveDumpPagesToPartialKernelDump @ 0x14050B798
+ * XREFs of IopAddLiveDumpPagesToPartialKernelDump @ 0x14050B9D8
  * Callers:
- *     IoAddPagesForPartialKernelDump @ 0x14050B6A0 (IoAddPagesForPartialKernelDump.c)
+ *     IoAddPagesForPartialKernelDump @ 0x14050B8E0 (IoAddPagesForPartialKernelDump.c)
  * Callees:
- *     KeEnumerateNextProcessor @ 0x140229400 (KeEnumerateNextProcessor.c)
- *     IoSaveBugCheckProgress @ 0x140502780 (IoSaveBugCheckProgress.c)
- *     IopDumpCallAddPagesCallbacks @ 0x140503D00 (IopDumpCallAddPagesCallbacks.c)
- *     IopMarkPagesForDeviceNode @ 0x14050BDAC (IopMarkPagesForDeviceNode.c)
- *     IopMarkPagesForProcessorData @ 0x14050BFEC (IopMarkPagesForProcessorData.c)
- *     MmAddPrivateDataToCrashDump @ 0x140538490 (MmAddPrivateDataToCrashDump.c)
- *     MmAddRangeToCrashDump @ 0x1405385D8 (MmAddRangeToCrashDump.c)
- *     ExAddPrivateDataToCrashDump @ 0x1405B3550 (ExAddPrivateDataToCrashDump.c)
+ *     KeEnumerateNextProcessor @ 0x1402CDD00 (KeEnumerateNextProcessor.c)
+ *     IoSaveBugCheckProgress @ 0x140502700 (IoSaveBugCheckProgress.c)
+ *     IopDumpCallAddPagesCallbacks @ 0x140503C80 (IopDumpCallAddPagesCallbacks.c)
+ *     IopMarkPagesForDeviceNode @ 0x14050BFEC (IopMarkPagesForDeviceNode.c)
+ *     IopMarkPagesForProcessorData @ 0x14050C22C (IopMarkPagesForProcessorData.c)
+ *     MmAddPrivateDataToCrashDump @ 0x1405386D0 (MmAddPrivateDataToCrashDump.c)
+ *     MmAddRangeToCrashDump @ 0x140538818 (MmAddRangeToCrashDump.c)
+ *     ExAddPrivateDataToCrashDump @ 0x1405B3780 (ExAddPrivateDataToCrashDump.c)
  */
 
 __int64 __fastcall IopAddLiveDumpPagesToPartialKernelDump(int a1, __int64 a2, __int64 a3, __int64 a4, __int64 a5)

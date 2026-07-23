@@ -1,8 +1,8 @@
 /*
- * XREFs of KiUserCallForwarder @ 0x1800A1340
+ * XREFs of KiUserCallForwarder @ 0x1800A1300
  * Callers:
- *     KiUserApcDispatcher @ 0x1800A1390 (KiUserApcDispatcher.c)
- *     KiUserCallbackDispatcher @ 0x1800A14B0 (KiUserCallbackDispatcher.c)
+ *     KiUserApcDispatcher @ 0x1800A1350 (KiUserApcDispatcher.c)
+ *     KiUserCallbackDispatcher @ 0x1800A1470 (KiUserCallbackDispatcher.c)
  * Callees:
  *     _guard_check_icall_nop @ 0x18008CB90 (_guard_check_icall_nop.c)
  */

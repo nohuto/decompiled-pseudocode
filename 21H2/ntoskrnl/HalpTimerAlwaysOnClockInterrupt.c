@@ -1,14 +1,14 @@
 /*
- * XREFs of HalpTimerAlwaysOnClockInterrupt @ 0x1404D47D0
+ * XREFs of HalpTimerAlwaysOnClockInterrupt @ 0x1404D4A10
  * Callers:
  *     <none>
  * Callees:
- *     KeClockInterruptNotify @ 0x140221640 (KeClockInterruptNotify.c)
- *     HalpTimerGetInternalData @ 0x14022AA30 (HalpTimerGetInternalData.c)
- *     HalpMcaQueueDpc @ 0x1402D06F8 (HalpMcaQueueDpc.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     HalpTimerSwitchToNormalClock @ 0x1404BF678 (HalpTimerSwitchToNormalClock.c)
- *     HalpTimerWatchdogTriggerSystemReset @ 0x1404C2760 (HalpTimerWatchdogTriggerSystemReset.c)
+ *     HalpMcaQueueDpc @ 0x14024EA78 (HalpMcaQueueDpc.c)
+ *     KeClockInterruptNotify @ 0x1402C5F40 (KeClockInterruptNotify.c)
+ *     HalpTimerGetInternalData @ 0x1402CF2E0 (HalpTimerGetInternalData.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     HalpTimerSwitchToNormalClock @ 0x1404BF8B8 (HalpTimerSwitchToNormalClock.c)
+ *     HalpTimerWatchdogTriggerSystemReset @ 0x1404C29A0 (HalpTimerWatchdogTriggerSystemReset.c)
  */
 
 char __fastcall HalpTimerAlwaysOnClockInterrupt(__int64 a1)

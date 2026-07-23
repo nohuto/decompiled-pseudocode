@@ -1,7 +1,7 @@
 /*
- * XREFs of ExGetHeapFromType @ 0x140413870
+ * XREFs of ExGetHeapFromType @ 0x140407EA0
  * Callers:
- *     ExAllocateHeapSpecialPool @ 0x14051A678 (ExAllocateHeapSpecialPool.c)
+ *     ExAllocateHeapSpecialPool @ 0x1405140E8 (ExAllocateHeapSpecialPool.c)
  * Callees:
  *     <none>
  */
@@ -13,13 +13,13 @@ __int64 __fastcall ExGetHeapFromType(__int16 a1, unsigned int a2, int a3)
 
   if ( a2 == 0x80000000 )
     a2 = KeGetCurrentPrcb()->SchedulerSubNode->Affinity.Reserved[0];
-  if ( a2 >= HIDWORD(stru_140E6BCE8.Header.WaitListHead.Flink) )
+  if ( a2 >= HIDWORD(stru_140E6BFE8.Header.WaitListHead.Flink) )
     a2 = 0;
-  v3 = &stru_140E6BCE8.SListFaultAddress + 1048 * a2;
+  v3 = &stru_140E6BFE8.SListFaultAddress + 1048 * a2;
   if ( (a1 & 0x10) != 0 )
   {
     if ( a3 )
-      return qword_140EEED18;
+      return qword_140EEF018;
     else
       return (__int64)v3[3];
   }
@@ -30,7 +30,7 @@ __int64 __fastcall ExGetHeapFromType(__int16 a1, unsigned int a2, int a3)
     else
       v4 = (a1 & 0x80u) == 0;
     if ( a3 )
-      v3 = (void **)&qword_140EEED00;
+      v3 = (void **)&qword_140EEF000;
     return (__int64)v3[v4];
   }
 }

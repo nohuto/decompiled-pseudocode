@@ -1,19 +1,19 @@
 /*
- * XREFs of RtlpHpSegPageRangeShrink @ 0x14034DB40
+ * XREFs of RtlpHpSegPageRangeShrink @ 0x14034FBC0
  * Callers:
- *     RtlpHpSegContextCompact @ 0x14034742C (RtlpHpSegContextCompact.c)
- *     RtlpHpSegAlloc @ 0x14034B0CC (RtlpHpSegAlloc.c)
- *     RtlpHpSegFreeInternal @ 0x140352AC8 (RtlpHpSegFreeInternal.c)
- *     RtlpHpSegSuballocatorFree @ 0x1404DC6E0 (RtlpHpSegSuballocatorFree.c)
+ *     RtlpHpSegContextCompact @ 0x1403494AC (RtlpHpSegContextCompact.c)
+ *     RtlpHpSegAlloc @ 0x14034D14C (RtlpHpSegAlloc.c)
+ *     RtlpHpSegFreeInternal @ 0x140354B48 (RtlpHpSegFreeInternal.c)
+ *     RtlpHpSegSuballocatorFree @ 0x1404D5DC0 (RtlpHpSegSuballocatorFree.c)
  * Callees:
- *     RtlpHpSegLockAcquire @ 0x14027F770 (RtlpHpSegLockAcquire.c)
- *     RtlpHpReleaseLockExclusive @ 0x14034D300 (RtlpHpReleaseLockExclusive.c)
- *     RtlpHpSegPageRangeCoalesce @ 0x14034D840 (RtlpHpSegPageRangeCoalesce.c)
- *     MmIsAddressValidEx @ 0x14034DFD0 (MmIsAddressValidEx.c)
- *     RtlCSparseBitmapBitsClear @ 0x14034E15C (RtlCSparseBitmapBitsClear.c)
- *     RtlpHpSegMgrRelease @ 0x14034E480 (RtlpHpSegMgrRelease.c)
- *     RtlpHpSegPageRangeComputeLargePageCost @ 0x14034F200 (RtlpHpSegPageRangeComputeLargePageCost.c)
- *     RtlRbInsertNodeEx @ 0x1403774B0 (RtlRbInsertNodeEx.c)
+ *     RtlpHpSegLockAcquire @ 0x14027ECE0 (RtlpHpSegLockAcquire.c)
+ *     RtlpHpReleaseLockExclusive @ 0x14034F380 (RtlpHpReleaseLockExclusive.c)
+ *     RtlpHpSegPageRangeCoalesce @ 0x14034F8C0 (RtlpHpSegPageRangeCoalesce.c)
+ *     MmIsAddressValidEx @ 0x140350050 (MmIsAddressValidEx.c)
+ *     RtlCSparseBitmapBitsClear @ 0x1403501DC (RtlCSparseBitmapBitsClear.c)
+ *     RtlpHpSegMgrRelease @ 0x140350500 (RtlpHpSegMgrRelease.c)
+ *     RtlpHpSegPageRangeComputeLargePageCost @ 0x140351280 (RtlpHpSegPageRangeComputeLargePageCost.c)
+ *     RtlRbInsertNodeEx @ 0x140379260 (RtlRbInsertNodeEx.c)
  */
 
 void __fastcall RtlpHpSegPageRangeShrink(
@@ -27,7 +27,7 @@ void __fastcall RtlpHpSegPageRangeShrink(
   unsigned int v7; // r13d
   char *v8; // rax
   char v9; // cl
-  char *v10; // rdi
+  _QWORD *v10; // rdi
   unsigned __int64 v11; // rsi
   __int64 v12; // rbp
   char v13; // al
@@ -37,11 +37,11 @@ void __fastcall RtlpHpSegPageRangeShrink(
   __int64 v17; // rsi
   char v18; // al
   __int64 v19; // rdx
-  unsigned __int8 v20; // al
+  BOOLEAN v20; // al
   __int64 v21; // rax
   signed __int64 v22; // rax
   __int64 v23; // rcx
-  char **v24; // rax
+  _QWORD *v24; // rax
   unsigned int v25; // esi
   __int64 v26; // rax
   unsigned __int64 v27; // rdx
@@ -94,7 +94,7 @@ void __fastcall RtlpHpSegPageRangeShrink(
               v22 = _InterlockedCompareExchange64(a3, i & 0xFFFFFFFFFFFFFDDFuLL | 0x20, i);
               if ( i == v22 )
               {
-                _InterlockedDecrement64(&qword_140E2C740);
+                _InterlockedDecrement64(&qword_140E2C8C0);
                 break;
               }
             }
@@ -148,7 +148,7 @@ void __fastcall RtlpHpSegPageRangeShrink(
 LABEL_49:
         v20 = 0;
 LABEL_24:
-        RtlRbInsertNodeEx(a1 + 96, v19, v20, v17);
+        RtlRbInsertNodeEx((PRTL_RB_TREE)(a1 + 96), (PRTL_BALANCED_NODE)v19, v20, (PRTL_BALANCED_NODE)v17);
         _InterlockedAdd64(
           (volatile signed __int64 *)(*(__int16 *)(a1 + 22) + a1 + 16),
           (unsigned __int16)~*(_WORD *)(v17 + 28));
@@ -189,14 +189,14 @@ LABEL_24:
     }
     goto LABEL_24;
   }
-  v10 = (char *)(v15 & *(_QWORD *)a1);
+  v10 = (_QWORD *)(v15 & *(_QWORD *)a1);
   *(_DWORD *)v15 = -857879297;
   if ( v10 )
   {
-    v23 = *(_QWORD *)v10;
-    if ( *(char **)(*(_QWORD *)v10 + 8LL) != v10 || (v24 = (char **)*((_QWORD *)v10 + 1), *v24 != v10) )
+    v23 = *v10;
+    if ( *(_QWORD **)(*v10 + 8LL) != v10 || (v24 = (_QWORD *)v10[1], (_QWORD *)*v24 != v10) )
       __fastfail(3u);
-    *v24 = (char *)v23;
+    *v24 = v23;
     *(_QWORD *)(v23 + 8) = v24;
     --*(_QWORD *)(a1 + 88);
   }
@@ -205,13 +205,13 @@ LABEL_38:
   if ( v10 )
   {
     RtlCSparseBitmapBitsClear(
-      &ExpUuidLock.ThreadLock,
-      2 * ((unsigned __int64)(v10 - (char *)ExpUuidLock.StackBase) >> 20),
+      &ExpUuidLock.CycleTime,
+      2 * (((unsigned __int64)v10 - ExpUuidLock.ThreadLock) >> 20),
       2 * ((unsigned __int64)(unsigned int)-*(_DWORD *)a1 >> 20));
     v25 = 2;
-    v26 = 32LL * *(unsigned __int8 *)(a1 + 10);
+    v26 = 4LL * *(unsigned __int8 *)(a1 + 10);
     v27 = (unsigned __int64)&v10[v26];
-    if ( &v10[v26] < v10 + 0x2000 )
+    if ( &v10[v26] < v10 + 1024 )
     {
       do
       {
@@ -219,7 +219,7 @@ LABEL_38:
         v27 += 32 * ((unsigned __int64)*(unsigned int *)(v27 + 28) >> 24);
         v25 += v28;
       }
-      while ( v27 < (unsigned __int64)(v10 + 0x2000) );
+      while ( v27 < (unsigned __int64)(v10 + 1024) );
     }
     RtlpHpSegMgrRelease(a1, v10, v25);
     _InterlockedAdd64((volatile signed __int64 *)(*(__int16 *)(a1 + 22) + a1 + 8), -(__int64)v25);

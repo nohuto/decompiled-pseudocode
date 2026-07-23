@@ -1,12 +1,12 @@
 /*
- * XREFs of _CmGetDeviceInterfaceMappedPropertyFromComposite @ 0x1406C9F84
+ * XREFs of _CmGetDeviceInterfaceMappedPropertyFromComposite @ 0x1406C9FB4
  * Callers:
- *     _CmGetDeviceInterfaceMappedProperty @ 0x1406CC674 (_CmGetDeviceInterfaceMappedProperty.c)
- *     _CmGetDeviceInterfaceMappedPropertyKeys @ 0x140A683E8 (_CmGetDeviceInterfaceMappedPropertyKeys.c)
+ *     _CmGetDeviceInterfaceMappedProperty @ 0x1406CC6A4 (_CmGetDeviceInterfaceMappedProperty.c)
+ *     _CmGetDeviceInterfaceMappedPropertyKeys @ 0x140A68698 (_CmGetDeviceInterfaceMappedPropertyKeys.c)
  * Callees:
- *     _CmGetDeviceInterfaceClassGuid @ 0x1406C9EC0 (_CmGetDeviceInterfaceClassGuid.c)
- *     _PnpGetObjectProperty @ 0x1406D01F0 (_PnpGetObjectProperty.c)
- *     _CmGetDeviceInterfaceReferenceString @ 0x1407C58C8 (_CmGetDeviceInterfaceReferenceString.c)
+ *     _CmGetDeviceInterfaceClassGuid @ 0x1406C9EF0 (_CmGetDeviceInterfaceClassGuid.c)
+ *     _PnpGetObjectProperty @ 0x1406D0220 (_PnpGetObjectProperty.c)
+ *     _CmGetDeviceInterfaceReferenceString @ 0x1407C5B98 (_CmGetDeviceInterfaceReferenceString.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

@@ -12,13 +12,18 @@
  *     _RtlInitUnicodeStringEx@8 @ 0x4B2D1CE0 (_RtlInitUnicodeStringEx@8.c)
  */
 
-int __fastcall RtlpDosPathNameToRelativeNtPathName_U(int a1, int a2, unsigned __int16 *a3, int a4, _DWORD *a5)
+NTSTATUS __fastcall RtlpDosPathNameToRelativeNtPathName_U(
+        int a1,
+        const WCHAR *a2,
+        _UNICODE_STRING *Destination,
+        _DWORD *a4,
+        _DWORD *a5)
 {
-  int result; // eax
-  int v7[3]; // [esp+8h] [ebp-Ch] BYREF
+  NTSTATUS result; // eax
+  _UNICODE_STRING DestinationString; // [esp+8h] [ebp-Ch] BYREF
 
-  result = RtlInitUnicodeStringEx(v7, a2);
+  result = RtlInitUnicodeStringEx(&DestinationString, a2);
   if ( result >= 0 )
-    return RtlpDosPathNameToRelativeNtPathName(a1, v7, 0, a3, 0, a4, a5);
+    return RtlpDosPathNameToRelativeNtPathName(a1, &DestinationString, 0, Destination, 0, a4, a5);
   return result;
 }

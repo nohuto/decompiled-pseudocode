@@ -1,22 +1,23 @@
 /*
- * XREFs of _PnpRaiseNtPlugPlayInterfacePropertyChangeEvent @ 0x140910488
+ * XREFs of _PnpRaiseNtPlugPlayInterfacePropertyChangeEvent @ 0x1409AB44C
  * Callers:
- *     IopProcessSetInterfaceState @ 0x1409D82B0 (IopProcessSetInterfaceState.c)
+ *     IopProcessSetInterfaceState @ 0x1409A91A0 (IopProcessSetInterfaceState.c)
  * Callees:
- *     _PnpInterfaceRaisePropertyChangeEventWorker @ 0x14090F130 (_PnpInterfaceRaisePropertyChangeEventWorker.c)
+ *     _PnpInterfaceRaisePropertyChangeEventWorker @ 0x1409B1260 (_PnpInterfaceRaisePropertyChangeEventWorker.c)
  */
 
-__int64 __fastcall PnpRaiseNtPlugPlayInterfacePropertyChangeEvent(__int64 a1, __int64 a2)
+__int64 __fastcall PnpRaiseNtPlugPlayInterfacePropertyChangeEvent(__int64 a1, int a2)
 {
   __int64 result; // rax
 
   result = *(_QWORD *)(*(_QWORD *)&PiPnpRtlCtx + 496LL);
   if ( result )
     return PnpInterfaceRaisePropertyChangeEventWorker(
-             *(__int64 *)&PiPnpRtlCtx,
+             PiPnpRtlCtx,
              a2,
-             0LL,
-             0LL,
-             (__int64)&DEVPKEY_DeviceInterface_Enabled);
+             0,
+             0,
+             (__int64)&DEVPKEY_DeviceInterface_Enabled,
+             *(_QWORD *)(*(_QWORD *)&PiPnpRtlCtx + 496LL));
   return result;
 }

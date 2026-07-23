@@ -1,23 +1,23 @@
 /*
- * XREFs of MiInPageSingleKernelStack @ 0x14013D4A0
+ * XREFs of MiInPageSingleKernelStack @ 0x14013D5A0
  * Callers:
- *     KeSwapProcessOrStack @ 0x14017FDA0 (KeSwapProcessOrStack.c)
+ *     KeSwapProcessOrStack @ 0x14017FEE0 (KeSwapProcessOrStack.c)
  * Callees:
  *     MiReleasePageFileInfo @ 0x14002A628 (MiReleasePageFileInfo.c)
  *     MiLockPageInline @ 0x14002CE40 (MiLockPageInline.c)
  *     MiSwizzleInvalidPte @ 0x14003D7C0 (MiSwizzleInvalidPte.c)
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
  *     MmAccessFault @ 0x140043DA0 (MmAccessFault.c)
- *     MiPrefetchVirtualMemory @ 0x1400EA140 (MiPrefetchVirtualMemory.c)
- *     MiReleaseWsSwapReservationPfn @ 0x14013D8B0 (MiReleaseWsSwapReservationPfn.c)
- *     MiSetPfnKernelStack @ 0x14013D900 (MiSetPfnKernelStack.c)
- *     MiKernelStackVaToStackNode @ 0x140155AC0 (MiKernelStackVaToStackNode.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
- *     MiFlushAllFilesystemPages @ 0x1402AAFF0 (MiFlushAllFilesystemPages.c)
- *     MiDeleteKernelStackNode @ 0x1402AB604 (MiDeleteKernelStackNode.c)
- *     MiLogKernelStackEvent @ 0x1402BB764 (MiLogKernelStackEvent.c)
+ *     MiPrefetchVirtualMemory @ 0x1400EA1C0 (MiPrefetchVirtualMemory.c)
+ *     MiReleaseWsSwapReservationPfn @ 0x14013D9B0 (MiReleaseWsSwapReservationPfn.c)
+ *     MiSetPfnKernelStack @ 0x14013DA00 (MiSetPfnKernelStack.c)
+ *     MiKernelStackVaToStackNode @ 0x140155BC0 (MiKernelStackVaToStackNode.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
+ *     MiFlushAllFilesystemPages @ 0x1402AB1E0 (MiFlushAllFilesystemPages.c)
+ *     MiDeleteKernelStackNode @ 0x1402AB7F4 (MiDeleteKernelStackNode.c)
+ *     MiLogKernelStackEvent @ 0x1402BB954 (MiLogKernelStackEvent.c)
  */
 
 void *__fastcall MiInPageSingleKernelStack(ULONG_PTR BugCheckParameter3, _QWORD *a2)
@@ -80,7 +80,7 @@ void *__fastcall MiInPageSingleKernelStack(ULONG_PTR BugCheckParameter3, _QWORD 
   v7 = (((unsigned __int64)(*a2 - 4096LL) >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
   v8 = (((unsigned __int64)(a2[2] - 8LL) >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
   v9 = 0LL;
-  v38 = *(struct _KEVENT **)(qword_14043A748
+  v38 = *(struct _KEVENT **)(qword_14043B808
                            + 8LL * *(unsigned __int16 *)(*(_QWORD *)(BugCheckParameter3 + 544) + 1454LL));
   if ( v38 == (struct _KEVENT *)&MiSystemPartition )
   {

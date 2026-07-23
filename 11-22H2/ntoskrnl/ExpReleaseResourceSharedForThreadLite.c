@@ -36,7 +36,7 @@ __int64 __fastcall ExpReleaseResourceSharedForThreadLite(
   unsigned int v8; // eax
   unsigned int v9; // ebp
   signed __int64 v10; // rbp
-  struct _PROCESSOR_NUMBER v11; // ebp
+  _PROCESSOR_NUMBER v11; // ebp
   _DWORD *v12; // rsi
   int v13; // ecx
   bool v14; // zf
@@ -179,7 +179,7 @@ LABEL_85:
     }
 LABEL_14:
     *(_QWORD *)v7 = 0LL;
-    v11 = (struct _PROCESSOR_NUMBER)1;
+    v11 = (_PROCESSOR_NUMBER)1;
     v12 = (_DWORD *)(BugCheckParameter1 + 76);
     v82 = *(_DWORD *)(BugCheckParameter1 + 68);
     v73 = 0LL;
@@ -237,10 +237,13 @@ LABEL_18:
       }
 LABEL_28:
       v17 = *((unsigned __int8 *)a3 + 16);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         CurrentIrql = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v17 <= 0xFu && CurrentIrql >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+          && CurrentIrql <= 0xFu
+          && (unsigned __int8)v17 <= 0xFu
+          && CurrentIrql >= 2u )
         {
           CurrentPrcb = KeGetCurrentPrcb();
           SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -261,7 +264,7 @@ LABEL_28:
       v31 = KeGetCurrentIrql();
       v79 = v31;
       __writecr8(2uLL);
-      if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && (unsigned __int8)v31 <= 0xFu )
+      if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && (unsigned __int8)v31 <= 0xFu )
       {
         v42 = KeGetCurrentPrcb()->SchedulerAssist;
         if ( (_BYTE)v31 == 2 )
@@ -299,7 +302,7 @@ LABEL_71:
           v45 = KiRemoveBoostThread(v32, v32->CurrentThread);
           if ( v15 )
           {
-            v11 = (struct _PROCESSOR_NUMBER)2;
+            v11 = (_PROCESSOR_NUMBER)2;
             if ( v45 > (char)v15 )
               v15 = v45;
           }
@@ -348,7 +351,7 @@ LABEL_61:
             *(_QWORD *)v39 = 0LL;
             v55 = KeGetCurrentIrql();
             __writecr8(2uLL);
-            if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && v55 <= 0xFu )
+            if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && v55 <= 0xFu )
             {
               v56 = KeGetCurrentPrcb()->SchedulerAssist;
               if ( v55 == 2 )
@@ -451,10 +454,10 @@ LABEL_17:
 LABEL_53:
   result = (unsigned int)KiIrqlFlags;
   v30 = *((unsigned __int8 *)a3 + 16);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v47 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v47 <= 0xFu && (unsigned __int8)v30 <= 0xFu && v47 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v47 <= 0xFu && (unsigned __int8)v30 <= 0xFu && v47 >= 2u )
     {
       v48 = KeGetCurrentPrcb();
       v49 = v48->SchedulerAssist;

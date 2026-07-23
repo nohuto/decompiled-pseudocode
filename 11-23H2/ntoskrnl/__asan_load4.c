@@ -1,9 +1,9 @@
 /*
- * XREFs of __asan_load4 @ 0x140565E40
+ * XREFs of __asan_load4 @ 0x140566500
  * Callers:
  *     <none>
  * Callees:
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
  */
 
 char __fastcall _asan_load4(ULONG_PTR BugCheckParameter1)

@@ -1,10 +1,10 @@
 /*
- * XREFs of ExpNewThreadNecessary @ 0x140242890
+ * XREFs of ExpNewThreadNecessary @ 0x1402E70E0
  * Callers:
- *     ExpQueueWorkItem @ 0x1402414A0 (ExpQueueWorkItem.c)
- *     ExpWorkerThread @ 0x140241E80 (ExpWorkerThread.c)
- *     ExpPartitionCreateThreadIfNecessary @ 0x1402BFB8C (ExpPartitionCreateThreadIfNecessary.c)
- *     ExpWorkQueueManagerThread @ 0x1407AF840 (ExpWorkQueueManagerThread.c)
+ *     ExpPartitionCreateThreadIfNecessary @ 0x14023DFDC (ExpPartitionCreateThreadIfNecessary.c)
+ *     ExpQueueWorkItem @ 0x1402E5CF0 (ExpQueueWorkItem.c)
+ *     ExpWorkerThread @ 0x1402E66D0 (ExpWorkerThread.c)
+ *     ExpWorkQueueManagerThread @ 0x1407AF9E0 (ExpWorkQueueManagerThread.c)
  * Callees:
  *     <none>
  */

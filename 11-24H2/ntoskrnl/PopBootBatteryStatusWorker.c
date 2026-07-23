@@ -1,13 +1,13 @@
 /*
- * XREFs of PopBootBatteryStatusWorker @ 0x140A6FF70
+ * XREFs of PopBootBatteryStatusWorker @ 0x140A69400
  * Callers:
  *     <none>
  * Callees:
- *     PopAcquireRwLockShared @ 0x1403B5E64 (PopAcquireRwLockShared.c)
- *     PopReleaseRwLock @ 0x1403B5EC8 (PopReleaseRwLock.c)
- *     Feature_SleepStudySlimControlEtl__private_ReportDeviceUsage @ 0x1404FAA10 (Feature_SleepStudySlimControlEtl__private_ReportDeviceUsage.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     SshpSessionManagerSendControlEventSlimEtl @ 0x140A701D0 (SshpSessionManagerSendControlEventSlimEtl.c)
+ *     PopReleaseRwLock @ 0x1402AE8FC (PopReleaseRwLock.c)
+ *     PopAcquireRwLockShared @ 0x1402AE968 (PopAcquireRwLockShared.c)
+ *     Feature_SleepStudySlimControlEtl__private_ReportDeviceUsage @ 0x1404F82F0 (Feature_SleepStudySlimControlEtl__private_ReportDeviceUsage.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     SshpSessionManagerSendControlEventSlimEtl @ 0x140A69660 (SshpSessionManagerSendControlEventSlimEtl.c)
  */
 
 __int64 PopBootBatteryStatusWorker()
@@ -20,9 +20,9 @@ __int64 PopBootBatteryStatusWorker()
   int v6; // [rsp+68h] [rbp-18h]
   int v7; // [rsp+6Ch] [rbp-14h]
 
-  PopAcquireRwLockShared((volatile signed __int64 *)&xmmword_140F0B050);
-  v4 = xmmword_140F0B060;
-  PopReleaseRwLock((signed __int64 *)&xmmword_140F0B050);
+  PopAcquireRwLockShared((volatile signed __int64 *)&xmmword_140F0BE90);
+  v4 = xmmword_140F0BEA0;
+  PopReleaseRwLock((signed __int64 *)&xmmword_140F0BE90);
   v0 = (__m128i)v4;
   v7 = 0;
   *(_QWORD *)&v4 = &v2;

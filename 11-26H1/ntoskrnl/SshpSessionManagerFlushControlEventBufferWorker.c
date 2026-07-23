@@ -1,24 +1,24 @@
 /*
- * XREFs of SshpSessionManagerFlushControlEventBufferWorker @ 0x140AFC980
+ * XREFs of SshpSessionManagerFlushControlEventBufferWorker @ 0x140AFE4F0
  * Callers:
  *     <none>
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212E30 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     KeSetEvent @ 0x1402DE9C0 (KeSetEvent.c)
- *     _tlgKeywordOn @ 0x14044F850 (_tlgKeywordOn.c)
- *     SSHSupportReleasePushLockExclusive @ 0x1404B32FC (SSHSupportReleasePushLockExclusive.c)
- *     SshpWorkItemTryAllowNextWorker @ 0x1404ED840 (SshpWorkItemTryAllowNextWorker.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     ZwWriteFile @ 0x1407234F0 (ZwWriteFile.c)
- *     ZwFlushBuffersFile @ 0x140723D50 (ZwFlushBuffersFile.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     SshpSessionManagerWriteBytes @ 0x140AFCDBC (SshpSessionManagerWriteBytes.c)
- *     SshpSessionManagerNormalizeLogHeader @ 0x140B3B490 (SshpSessionManagerNormalizeLogHeader.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212F10 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     KeSetEvent @ 0x1402C0780 (KeSetEvent.c)
+ *     _tlgKeywordOn @ 0x140447980 (_tlgKeywordOn.c)
+ *     SSHSupportReleasePushLockExclusive @ 0x1404AC97C (SSHSupportReleasePushLockExclusive.c)
+ *     SshpWorkItemTryAllowNextWorker @ 0x1404E6E20 (SshpWorkItemTryAllowNextWorker.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     ZwWriteFile @ 0x1407280C0 (ZwWriteFile.c)
+ *     ZwFlushBuffersFile @ 0x140728920 (ZwFlushBuffersFile.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     SshpSessionManagerWriteBytes @ 0x140AFE92C (SshpSessionManagerWriteBytes.c)
+ *     SshpSessionManagerNormalizeLogHeader @ 0x140B3D710 (SshpSessionManagerNormalizeLogHeader.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 char SshpSessionManagerFlushControlEventBufferWorker()
@@ -62,7 +62,7 @@ char SshpSessionManagerFlushControlEventBufferWorker()
   __int64 v36; // [rsp+E0h] [rbp-28h]
   __int64 *v37; // [rsp+E8h] [rbp-20h]
   __int64 v38; // [rsp+F0h] [rbp-18h]
-  char **v39; // [rsp+F8h] [rbp-10h]
+  void **v39; // [rsp+F8h] [rbp-10h]
   __int64 v40; // [rsp+100h] [rbp-8h]
   LARGE_INTEGER *p_ByteOffset; // [rsp+108h] [rbp+0h]
   __int64 v42; // [rsp+110h] [rbp+8h]
@@ -74,14 +74,11 @@ char SshpSessionManagerFlushControlEventBufferWorker()
   memset(Buffer, 0, 24);
   IoStatusBlock = 0LL;
   Pool2 = (char *)ExAllocatePool2(0x100uLL);
-  v2 = (AutoBoost *)KeAbPreAcquire((__int64)&PsAltSystemCallRegistrationLock.Spare35[1], 0LL, 0LL, v1);
-  v4 = _interlockedbittestandset64((volatile signed __int32 *)&PsAltSystemCallRegistrationLock.Spare35[1], 0LL);
+  v2 = (AutoBoost *)KeAbPreAcquire((__int64)&qword_140F0A858, 0LL, 0LL, v1);
+  v4 = _interlockedbittestandset64((volatile signed __int32 *)&qword_140F0A858, 0LL);
   v5 = v2;
   if ( v4 )
-    ExfAcquirePushLockExclusiveEx(
-      &PsAltSystemCallRegistrationLock.Spare35[1],
-      v2,
-      (__int64)&PsAltSystemCallRegistrationLock.Spare35[1]);
+    ExfAcquirePushLockExclusiveEx((unsigned __int64 *)&qword_140F0A858, v2, (__int64)&qword_140F0A858);
   if ( v5 )
   {
     if ( (KiAbpGlobalState & 1) != 0 )
@@ -94,31 +91,31 @@ char SshpSessionManagerFlushControlEventBufferWorker()
   v7 = 0;
   v8 = 0LL;
   v9 = 0;
-  if ( !SshpWorkItemTryAllowNextWorker((__int64)&PsAltSystemCallRegistrationLock.SystemAffinityTokenListHead) )
+  if ( !SshpWorkItemTryAllowNextWorker((__int64)&qword_140F0A868) )
   {
     while ( 1 )
     {
-      v11 = LODWORD(PsAltSystemCallRegistrationLock.Padding[2]);
+      v11 = (unsigned int)dword_140F0A8C0;
       v12 = 0;
-      LODWORD(PsAltSystemCallRegistrationLock.Padding[2]) = 0;
+      LODWORD(dword_140F0A8C0) = 0;
       if ( (_DWORD)v11 )
         break;
 LABEL_22:
-      if ( SshpWorkItemTryAllowNextWorker((__int64)&PsAltSystemCallRegistrationLock.SystemAffinityTokenListHead) )
+      if ( SshpWorkItemTryAllowNextWorker((__int64)&qword_140F0A868) )
         goto LABEL_23;
     }
     HIDWORD(v27) = v10 + 1;
-    *(_QWORD *)&Buffer[1] = *(_QWORD *)&PsAltSystemCallRegistrationLock.SchedulerAssistYieldCounter;
-    Buffer[0] = *(_OWORD *)&PsAltSystemCallRegistrationLock.Spare32;
+    *(_QWORD *)&Buffer[1] = qword_140F0A8A0;
+    Buffer[0] = xmmword_140F0A890;
     if ( Pool2 )
     {
-      memmove(Pool2, (char *)&PsAltSystemCallRegistrationLock.Padding[2] + 4, v11);
+      memmove(Pool2, &unk_140F0A8C4, v11);
       v28 = Pool2;
-      SSHSupportReleasePushLockExclusive((struct _KTHREAD *)&PsAltSystemCallRegistrationLock.Spare35[1]);
+      SSHSupportReleasePushLockExclusive((struct _KTHREAD *)&qword_140F0A858);
     }
     else
     {
-      v28 = (char *)&PsAltSystemCallRegistrationLock.Padding[2] + 4;
+      v28 = (char *)&unk_140F0A8C4;
     }
     v13 = HIDWORD(Buffer[0]);
     v14 = Buffer[1];
@@ -129,7 +126,7 @@ LABEL_22:
       if ( HIDWORD(Buffer[0]) > LODWORD(Buffer[1]) )
         *(_QWORD *)((char *)Buffer + 12) = 0LL;
       SshpSessionManagerNormalizeLogHeader(Buffer);
-      v26 = SshpSessionManagerWriteBytes(*(_QWORD *)&PsAltSystemCallRegistrationLock.Spare36, 0LL, Buffer, 24LL);
+      v26 = SshpSessionManagerWriteBytes(qword_140F0A860, 0LL, Buffer, 24LL);
       v15 = DWORD1(Buffer[1]);
       v12 = v26;
       v14 = Buffer[1];
@@ -152,11 +149,7 @@ LABEL_22:
       goto LABEL_14;
     if ( v16 )
     {
-      v23 = SshpSessionManagerWriteBytes(
-              *(_QWORD *)&PsAltSystemCallRegistrationLock.Spare36,
-              v14 % v15 + 4096,
-              v28,
-              v16);
+      v23 = SshpSessionManagerWriteBytes(qword_140F0A860, v14 % v15 + 4096, v28, v16);
       if ( v23 < 0 )
         v7 = v23;
       else
@@ -171,17 +164,14 @@ LABEL_22:
 LABEL_14:
         v6 = v27;
 LABEL_15:
-        ZwFlushBuffersFile(*(HANDLE *)&PsAltSystemCallRegistrationLock.Spare36, &IoStatusBlock);
+        ZwFlushBuffersFile(qword_140F0A860, &IoStatusBlock);
         if ( v28 == Pool2 )
         {
-          v19 = (AutoBoost *)KeAbPreAcquire((__int64)&PsAltSystemCallRegistrationLock.Spare35[1], 0LL, 0LL, v18);
-          v4 = _interlockedbittestandset64((volatile signed __int32 *)&PsAltSystemCallRegistrationLock.Spare35[1], 0LL);
+          v19 = (AutoBoost *)KeAbPreAcquire((__int64)&qword_140F0A858, 0LL, 0LL, v18);
+          v4 = _interlockedbittestandset64((volatile signed __int32 *)&qword_140F0A858, 0LL);
           v21 = v19;
           if ( v4 )
-            ExfAcquirePushLockExclusiveEx(
-              &PsAltSystemCallRegistrationLock.Spare35[1],
-              v19,
-              (__int64)&PsAltSystemCallRegistrationLock.Spare35[1]);
+            ExfAcquirePushLockExclusiveEx((unsigned __int64 *)&qword_140F0A858, v19, (__int64)&qword_140F0A858);
           if ( v21 )
           {
             if ( (KiAbpGlobalState & 1) != 0 )
@@ -190,18 +180,14 @@ LABEL_15:
               *((_BYTE *)v21 + 10) = 1;
           }
         }
-        *(_OWORD *)&PsAltSystemCallRegistrationLock.Spare32 = Buffer[0];
-        *(_QWORD *)&PsAltSystemCallRegistrationLock.SchedulerAssistYieldCounter = *(_QWORD *)&Buffer[1];
+        xmmword_140F0A890 = Buffer[0];
+        qword_140F0A8A0 = *(_QWORD *)&Buffer[1];
         goto LABEL_22;
       }
     }
     if ( v17 )
     {
-      v24 = SshpSessionManagerWriteBytes(
-              *(_QWORD *)&PsAltSystemCallRegistrationLock.Spare36,
-              v14 % v15 + 4096,
-              &v28[v16],
-              v17);
+      v24 = SshpSessionManagerWriteBytes(qword_140F0A860, v14 % v15 + 4096, &v28[v16], v17);
       if ( v24 < 0 )
         v7 = v24;
       else
@@ -230,16 +216,7 @@ LABEL_15:
     DWORD2(Buffer[0]) = ~(v15 + v14 + v13 + LODWORD(Buffer[0]) + DWORD1(Buffer[0]));
     ByteOffset.QuadPart = 0LL;
     v30 = 0LL;
-    v25 = ZwWriteFile(
-            *(HANDLE *)&PsAltSystemCallRegistrationLock.Spare36,
-            0LL,
-            0LL,
-            0LL,
-            &v30,
-            Buffer,
-            0x18u,
-            &ByteOffset,
-            0LL);
+    v25 = ZwWriteFile(qword_140F0A860, 0LL, 0LL, 0LL, &v30, Buffer, 0x18u, &ByteOffset, 0LL);
     if ( v25 >= 0 )
     {
       if ( v30.Information == 24 )
@@ -255,8 +232,8 @@ LABEL_15:
     goto LABEL_15;
   }
 LABEL_23:
-  KeSetEvent((PRKEVENT)&PsAltSystemCallRegistrationLock.SchedulerAssistLastYieldBoostTime, 0, 0);
-  SSHSupportReleasePushLockExclusive((struct _KTHREAD *)&PsAltSystemCallRegistrationLock.Spare35[1]);
+  KeSetEvent(&word_140F0A8A8, 0, 0);
+  SSHSupportReleasePushLockExclusive((struct _KTHREAD *)&qword_140F0A858);
   if ( Pool2 )
     ExFreePoolWithTag(Pool2, 0x5250535Fu);
   result = SshpTelemetryHandleRegistered;
@@ -271,7 +248,7 @@ LABEL_23:
       v46 = 8LL;
       v37 = &v27;
       LODWORD(v27) = v6;
-      v39 = &v28;
+      v39 = (void **)&v28;
       v38 = 4LL;
       p_ByteOffset = &ByteOffset;
       v43 = (char *)&v27 + 4;
@@ -284,7 +261,7 @@ LABEL_23:
       v30.Pointer = (PVOID)0x1000000;
       return tlgWriteTransfer_EtwWriteTransfer(
                (__int64)&SshpBlockerCollections.WaitBlockFill11[112],
-               (unsigned __int8 *)byte_140050CA1,
+               (unsigned __int8 *)&dword_140051C94,
                0LL,
                0LL,
                8u,

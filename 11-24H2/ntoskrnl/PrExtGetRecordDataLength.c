@@ -1,10 +1,10 @@
 /*
- * XREFs of PrExtGetRecordDataLength @ 0x140664210
+ * XREFs of PrExtGetRecordDataLength @ 0x140662B00
  * Callers:
- *     IntelMicrocodeGetRecordData @ 0x140664DEC (IntelMicrocodeGetRecordData.c)
- *     AMDMicrocodeGetRecordData @ 0x140665138 (AMDMicrocodeGetRecordData.c)
- *     AMDMicrocodeV1GetRecordData @ 0x14066536C (AMDMicrocodeV1GetRecordData.c)
- *     HalpLoadMicrocode @ 0x140701A80 (HalpLoadMicrocode.c)
+ *     IntelMicrocodeGetRecordData @ 0x1406636DC (IntelMicrocodeGetRecordData.c)
+ *     AMDMicrocodeGetRecordData @ 0x140663A28 (AMDMicrocodeGetRecordData.c)
+ *     AMDMicrocodeV1GetRecordData @ 0x140663C5C (AMDMicrocodeV1GetRecordData.c)
+ *     HalpLoadMicrocode @ 0x1406FF6C0 (HalpLoadMicrocode.c)
  * Callees:
  *     <none>
  */

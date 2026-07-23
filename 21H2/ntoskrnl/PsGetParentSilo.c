@@ -1,13 +1,13 @@
 /*
- * XREFs of PsGetParentSilo @ 0x140905AF0
+ * XREFs of PsGetParentSilo @ 0x140905C50
  * Callers:
  *     VRegEnabledInJob @ 0x1405D5B40 (VRegEnabledInJob.c)
- *     NtQueryInformationJobObject @ 0x140616880 (NtQueryInformationJobObject.c)
- *     IopParseDevice @ 0x140700F60 (IopParseDevice.c)
- *     CmpGetRegistryNamespaceRootForSilo @ 0x140715CC0 (CmpGetRegistryNamespaceRootForSilo.c)
- *     PspConvertSiloToServerSilo @ 0x140906054 (PspConvertSiloToServerSilo.c)
- *     ObCreateSiloRootDirectory @ 0x1409804D0 (ObCreateSiloRootDirectory.c)
- *     ObGetSiloRootDirectoryPath @ 0x14098080C (ObGetSiloRootDirectoryPath.c)
+ *     NtQueryInformationJobObject @ 0x1406804E0 (NtQueryInformationJobObject.c)
+ *     CmpGetRegistryNamespaceRootForSilo @ 0x1406C4310 (CmpGetRegistryNamespaceRootForSilo.c)
+ *     IopParseDevice @ 0x140718340 (IopParseDevice.c)
+ *     PspConvertSiloToServerSilo @ 0x1409061B4 (PspConvertSiloToServerSilo.c)
+ *     ObCreateSiloRootDirectory @ 0x1409806B0 (ObCreateSiloRootDirectory.c)
+ *     ObGetSiloRootDirectoryPath @ 0x1409809EC (ObGetSiloRootDirectoryPath.c)
  * Callees:
  *     PspGetJobSilo @ 0x140200084 (PspGetJobSilo.c)
  */

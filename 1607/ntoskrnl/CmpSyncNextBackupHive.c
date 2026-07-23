@@ -1,15 +1,15 @@
 /*
- * XREFs of CmpSyncNextBackupHive @ 0x140604D28
+ * XREFs of CmpSyncNextBackupHive @ 0x140604DDC
  * Callers:
- *     NtInitializeRegistry @ 0x140547164 (NtInitializeRegistry.c)
+ *     NtInitializeRegistry @ 0x1405476A4 (NtInitializeRegistry.c)
  * Callees:
- *     KiLeaveCriticalRegionUnsafe @ 0x140055FA0 (KiLeaveCriticalRegionUnsafe.c)
- *     ExAcquireRundownProtection @ 0x1400D3ED0 (ExAcquireRundownProtection.c)
- *     ExReleaseRundownProtection @ 0x1400D3F00 (ExReleaseRundownProtection.c)
- *     CmSetValueKey @ 0x1404037B0 (CmSetValueKey.c)
- *     UnlockShutdown @ 0x1404A0FFC (UnlockShutdown.c)
- *     TryLockShutdownShared @ 0x140603F00 (TryLockShutdownShared.c)
- *     CmpFlushBackupHive @ 0x1406044B0 (CmpFlushBackupHive.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140055B20 (KiLeaveCriticalRegionUnsafe.c)
+ *     ExAcquireRundownProtection @ 0x1400D1D70 (ExAcquireRundownProtection.c)
+ *     ExReleaseRundownProtection @ 0x1400D1DA0 (ExReleaseRundownProtection.c)
+ *     CmSetValueKey @ 0x140402670 (CmSetValueKey.c)
+ *     UnlockShutdown @ 0x140519408 (UnlockShutdown.c)
+ *     TryLockShutdownShared @ 0x140603FB4 (TryLockShutdownShared.c)
+ *     CmpFlushBackupHive @ 0x140604564 (CmpFlushBackupHive.c)
  */
 
 __int64 CmpSyncNextBackupHive()

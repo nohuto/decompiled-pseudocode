@@ -23,11 +23,11 @@ __int64 __fastcall EtwpSetProviderTraitsUm(__int64 a1, int a2, int a3)
   __int64 v11; // rax
   unsigned __int64 v12; // rcx
   __int64 Pool2; // rax
-  void *v14; // rbx
+  _RTL_BALANCED_NODE *v14; // rbx
   __int64 v16; // rdx
   __int64 v17; // rcx
   __int64 v18; // r8
-  PVOID v19; // [rsp+20h] [rbp-58h]
+  PRTL_BALANCED_NODE Node; // [rsp+20h] [rbp-58h]
   PVOID Object; // [rsp+80h] [rbp+8h] BYREF
   PVOID v21; // [rsp+98h] [rbp+20h]
 
@@ -59,7 +59,7 @@ __int64 __fastcall EtwpSetProviderTraitsUm(__int64 a1, int a2, int a3)
           v9 = (int)Object;
       }
       Pool2 = ExAllocatePool2(0x100uLL);
-      v14 = (void *)Pool2;
+      v14 = (_RTL_BALANCED_NODE *)Pool2;
       if ( Pool2 )
       {
         memmove((void *)(Pool2 + 28), *(const void **)(a1 + 8), *(unsigned __int16 *)(a1 + 16));
@@ -71,7 +71,7 @@ __int64 __fastcall EtwpSetProviderTraitsUm(__int64 a1, int a2, int a3)
                v14,
                *(unsigned __int16 *)(a1 + 16),
                &EtwpProviderTraitsUmMutex,
-               (__int64)&EtwpProviderTraitsUmTree);
+               &EtwpProviderTraitsUmTree);
       }
       else
       {
@@ -89,8 +89,8 @@ LABEL_14:
   {
     if ( v8 && EtwEventEnabled(EtwpEventTracingProvRegHandle, &ETW_EVENT_SET_TRAITS_FAILED) )
     {
-      LODWORD(v19) = v8;
-      EtwpEventWriteRegistrationStatus(v17, v16, v18, (__int64)v6, (__int64)v19);
+      LODWORD(Node) = v8;
+      EtwpEventWriteRegistrationStatus(v17, v16, v18, (__int64)v6, (__int64)Node);
     }
     ObfDereferenceObject(v6);
   }

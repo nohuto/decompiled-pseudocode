@@ -1,11 +1,11 @@
 /*
- * XREFs of MiCaptureDeleteHierarchy @ 0x1400961C0
+ * XREFs of MiCaptureDeleteHierarchy @ 0x1400959C0
  * Callers:
- *     MiDeletePartialVad @ 0x140095DC0 (MiDeletePartialVad.c)
+ *     MiDeletePartialVad @ 0x1400955C0 (MiDeletePartialVad.c)
  * Callees:
- *     MiMakeSystemAddressValid @ 0x140015DAC (MiMakeSystemAddressValid.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1401F25D0 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiMakeSystemAddressValid @ 0x14001592C (MiMakeSystemAddressValid.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1401F23FC (MI_READ_PTE_LOCK_FREE.c)
  */
 
 char __fastcall MiCaptureDeleteHierarchy(unsigned __int64 a1, unsigned __int64 a2, KIRQL a3, _DWORD *a4)

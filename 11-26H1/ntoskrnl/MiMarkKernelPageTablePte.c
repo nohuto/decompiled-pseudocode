@@ -1,9 +1,9 @@
 /*
- * XREFs of MiMarkKernelPageTablePte @ 0x1406EFB60
+ * XREFs of MiMarkKernelPageTablePte @ 0x1406F47D0
  * Callers:
  *     <none>
  * Callees:
- *     PoSetHiberRange @ 0x1404AFD60 (PoSetHiberRange.c)
+ *     PoSetHiberRange @ 0x1404A93F0 (PoSetHiberRange.c)
  */
 
 __int64 __fastcall MiMarkKernelPageTablePte(__int64 a1, unsigned __int64 *a2)

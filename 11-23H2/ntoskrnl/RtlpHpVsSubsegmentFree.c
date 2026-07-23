@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlpHpVsSubsegmentFree @ 0x140356D4C
+ * XREFs of RtlpHpVsSubsegmentFree @ 0x140356EEC
  * Callers:
- *     RtlpHpVsContextFreeList @ 0x14024EDF0 (RtlpHpVsContextFreeList.c)
- *     RtlpHpFreeHeap @ 0x1402AC4C0 (RtlpHpFreeHeap.c)
- *     RtlpHpHeapDestroy @ 0x1405B6630 (RtlpHpHeapDestroy.c)
+ *     RtlpHpVsContextFreeList @ 0x14024EEC0 (RtlpHpVsContextFreeList.c)
+ *     RtlpHpFreeHeap @ 0x1402AC750 (RtlpHpFreeHeap.c)
+ *     RtlpHpHeapDestroy @ 0x1405B6BA0 (RtlpHpHeapDestroy.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall RtlpHpVsSubsegmentFree(__int64 a1, __int64 a2, unsigned int a3)

@@ -1,9 +1,9 @@
 /*
- * XREFs of ExQueueDpcEventWait @ 0x1406CFC10
+ * XREFs of ExQueueDpcEventWait @ 0x1406D3C40
  * Callers:
  *     <none>
  * Callees:
- *     KeRegisterObjectDpc @ 0x1405E55DC (KeRegisterObjectDpc.c)
+ *     KeRegisterObjectDpc @ 0x1405E7F4C (KeRegisterObjectDpc.c)
  */
 
 char __fastcall ExQueueDpcEventWait(__int64 a1, char a2)

@@ -1,17 +1,17 @@
 /*
- * XREFs of MmAllocatePoolMemory @ 0x140099140
+ * XREFs of MmAllocatePoolMemory @ 0x140099080
  * Callers:
  *     RtlpHpEnvAllocVA @ 0x14000D060 (RtlpHpEnvAllocVA.c)
- *     MiExpandNonPagedPool @ 0x1401626E8 (MiExpandNonPagedPool.c)
- *     MiAllocatePoolPages @ 0x140162B10 (MiAllocatePoolPages.c)
- *     MiAllocatePagedPoolPages @ 0x140162C70 (MiAllocatePagedPoolPages.c)
- *     MiExpandPagedPool @ 0x1401641EC (MiExpandPagedPool.c)
+ *     MiExpandNonPagedPool @ 0x1401627E8 (MiExpandNonPagedPool.c)
+ *     MiAllocatePoolPages @ 0x140162C10 (MiAllocatePoolPages.c)
+ *     MiAllocatePagedPoolPages @ 0x140162D70 (MiAllocatePagedPoolPages.c)
+ *     MiExpandPagedPool @ 0x1401642EC (MiExpandPagedPool.c)
  * Callees:
- *     MmFreePoolMemory @ 0x14007BD58 (MmFreePoolMemory.c)
- *     MiCommitPoolMemory @ 0x140099590 (MiCommitPoolMemory.c)
- *     MiObtainSystemVa @ 0x1400F6964 (MiObtainSystemVa.c)
- *     MiObtainDynamicVa @ 0x1400F698C (MiObtainDynamicVa.c)
- *     MiObtainSessionVa @ 0x1400F72A4 (MiObtainSessionVa.c)
+ *     MmFreePoolMemory @ 0x14007BD48 (MmFreePoolMemory.c)
+ *     MiCommitPoolMemory @ 0x1400994D0 (MiCommitPoolMemory.c)
+ *     MiObtainSystemVa @ 0x1400F69E4 (MiObtainSystemVa.c)
+ *     MiObtainDynamicVa @ 0x1400F6A0C (MiObtainDynamicVa.c)
+ *     MiObtainSessionVa @ 0x1400F7324 (MiObtainSessionVa.c)
  */
 
 __int64 __fastcall MmAllocatePoolMemory(ULONG_PTR *a1, ULONG_PTR *a2, int a3, int a4, int a5)
@@ -41,7 +41,7 @@ __int64 __fastcall MmAllocatePoolMemory(ULONG_PTR *a1, ULONG_PTR *a2, int a3, in
     if ( (a5 & 1) != 0 )
       v14 = (a5 & 0x20) != 0 ? MiObtainSessionVa((unsigned int)v13) : MiObtainSystemVa((unsigned int)v13, 6LL);
     else
-      v14 = MiObtainDynamicVa((char *)&qword_14043A058[25 * v11 + 11].HeaderX64 + 8, (unsigned int)v13, 5LL);
+      v14 = MiObtainDynamicVa((char *)&qword_14043B118[25 * v11 + 11].HeaderX64 + 8, (unsigned int)v13, 5LL);
     if ( !v14 )
       return 3221225495LL;
     *a1 = v14;

@@ -1,18 +1,18 @@
 /*
- * XREFs of ExPoolQueryLimits @ 0x140654308
+ * XREFs of ExPoolQueryLimits @ 0x140652A00
  * Callers:
- *     ExpQuerySystemInformation @ 0x140ADC240 (ExpQuerySystemInformation.c)
+ *     ExpQuerySystemInformation @ 0x140ADDAE0 (ExpQuerySystemInformation.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLock @ 0x140275CD0 (KeReleaseInStackQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x1402D8540 (KeAcquireInStackQueuedSpinLock.c)
- *     ExpPlFindLimitEntry @ 0x1403A9D04 (ExpPlFindLimitEntry.c)
- *     RtlULongLongMult @ 0x140437830 (RtlULongLongMult.c)
- *     Feature_Servicing_PoolQueryLimitFix__private_IsEnabledDeviceUsageNoInline @ 0x140655608 (Feature_Servicing_PoolQueryLimitFix__private_IsEnabledDeviceUsageNoInline.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     ExSystemExceptionFilter @ 0x1407B6F80 (ExSystemExceptionFilter.c)
- *     SeSinglePrivilegeCheck @ 0x140853E90 (SeSinglePrivilegeCheck.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x14022B260 (KeReleaseInStackQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1403597C0 (KeAcquireInStackQueuedSpinLock.c)
+ *     ExpPlFindLimitEntry @ 0x140396E20 (ExpPlFindLimitEntry.c)
+ *     RtlULongLongMult @ 0x14042A2B0 (RtlULongLongMult.c)
+ *     Feature_Servicing_PoolQueryLimitFix__private_IsEnabledDeviceUsageNoInline @ 0x140653D08 (Feature_Servicing_PoolQueryLimitFix__private_IsEnabledDeviceUsageNoInline.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     ExSystemExceptionFilter @ 0x1407B73D0 (ExSystemExceptionFilter.c)
+ *     SeSinglePrivilegeCheck @ 0x140850150 (SeSinglePrivilegeCheck.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall ExPoolQueryLimits(void *Src, size_t Size, void *a3, size_t a4, KPROCESSOR_MODE PreviousMode)
@@ -44,7 +44,10 @@ __int64 __fastcall ExPoolQueryLimits(void *Src, size_t Size, void *a3, size_t a4
   if ( Size > a4 )
     goto LABEL_7;
   IsEnabledDeviceUsageNoInline = Feature_Servicing_PoolQueryLimitFix__private_IsEnabledDeviceUsageNoInline();
-  Pool2 = (_DWORD *)ExAllocatePool2((-(__int64)(IsEnabledDeviceUsageNoInline != 0) & 0xFFFFFFFFFFFFFF40uLL) + 256);
+  Pool2 = (_DWORD *)ExAllocatePool2(
+                      (-(__int64)(IsEnabledDeviceUsageNoInline != 0) & 0xFFFFFFFFFFFFFF40uLL) + 256,
+                      Size,
+                      0x6C6F6F50u);
   v9 = Pool2;
   pullResult[1] = (ULONGLONG)Pool2;
   if ( !Pool2 )

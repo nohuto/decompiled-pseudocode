@@ -1,16 +1,16 @@
 /*
- * XREFs of ExpRemoveTagForBigPages @ 0x14029AE60
+ * XREFs of ExpRemoveTagForBigPages @ 0x14029A3C0
  * Callers:
- *     ExpSizeHeapPool @ 0x14025ECFC (ExpSizeHeapPool.c)
- *     ExQueryPoolBlockSize @ 0x1406CBF90 (ExQueryPoolBlockSize.c)
- *     ExpCleanupBigTag @ 0x1406CC080 (ExpCleanupBigTag.c)
+ *     ExpSizeHeapPool @ 0x1404FDF40 (ExpSizeHeapPool.c)
+ *     ExQueryPoolBlockSize @ 0x1406CFFC0 (ExQueryPoolBlockSize.c)
+ *     ExpCleanupBigTag @ 0x1406D00B0 (ExpCleanupBigTag.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     ExpWaitForSpinLockSharedAndAcquire @ 0x14029BC90 (ExpWaitForSpinLockSharedAndAcquire.c)
- *     ExpAcquireSpinLockSharedAtDpcLevelInstrumented @ 0x1402EE000 (ExpAcquireSpinLockSharedAtDpcLevelInstrumented.c)
- *     ExpReleaseSpinLockSharedFromDpcLevelInstrumented @ 0x14036A848 (ExpReleaseSpinLockSharedFromDpcLevelInstrumented.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     ExpWaitForSpinLockSharedAndAcquire @ 0x14029B1F0 (ExpWaitForSpinLockSharedAndAcquire.c)
+ *     ExpAcquireSpinLockSharedAtDpcLevelInstrumented @ 0x1402D0080 (ExpAcquireSpinLockSharedAtDpcLevelInstrumented.c)
+ *     ExpReleaseSpinLockSharedFromDpcLevelInstrumented @ 0x14036C5E8 (ExpReleaseSpinLockSharedFromDpcLevelInstrumented.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall ExpRemoveTagForBigPages(
@@ -43,36 +43,35 @@ __int64 __fastcall ExpRemoveTagForBigPages(
     LOBYTE(BugCheckParameter3) = 2;
     KiRaiseIrqlProcessIrqlFlags(CurrentIrql, BugCheckParameter3);
   }
-  if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+  if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || PopHibernateInProgress )
   {
-    _m_prefetchw((char *)&stru_140EFEF90.Header.WaitListHead.Flink + 4);
-    v12 = HIDWORD(stru_140EFEF90.Header.WaitListHead.Flink) & 0x7FFFFFFF;
+    _m_prefetchw(&ExpLargePoolTableLock);
+    v12 = ExpLargePoolTableLock & 0x7FFFFFFF;
     while ( 1 )
     {
       v13 = v12;
-      v12 = _InterlockedCompareExchange((_DWORD *)&stru_140EFEF90.Header.WaitListHead.Flink + 1, v12 + 1, v12);
+      v12 = _InterlockedCompareExchange(&ExpLargePoolTableLock, v12 + 1, v12);
       if ( v13 == v12 )
         break;
       if ( v12 < 0 )
       {
-        ExpWaitForSpinLockSharedAndAcquire((char *)&stru_140EFEF90.Header.WaitListHead.Flink + 4, CurrentIrql);
+        ExpWaitForSpinLockSharedAndAcquire(&ExpLargePoolTableLock, CurrentIrql);
         break;
       }
     }
   }
   else
   {
-    ExpAcquireSpinLockSharedAtDpcLevelInstrumented((char *)&stru_140EFEF90.Header.WaitListHead.Flink + 4, CurrentIrql);
+    ExpAcquireSpinLockSharedAtDpcLevelInstrumented(&ExpLargePoolTableLock, CurrentIrql);
   }
   v14 = 1;
-  v15 = (LODWORD(stru_140EFEF90.SListFaultAddress) - 1) & ((40543 * (BugCheckParameter2 >> 12)) ^ ((40543
-                                                                                                  * (BugCheckParameter2 >> 12)) >> 32));
+  v15 = (PoolBigPageTableSize - 1) & ((40543 * (BugCheckParameter2 >> 12)) ^ ((40543 * (BugCheckParameter2 >> 12)) >> 32));
   while ( 1 )
   {
-    v16 = (char *)stru_140EFEF90.StackLimit + 32 * v15;
+    v16 = (char *)PoolBigPageTable + 32 * v15;
     if ( *(_QWORD *)v16 == BugCheckParameter2 )
       break;
-    if ( (void *)++v15 >= stru_140EFEF90.SListFaultAddress )
+    if ( ++v15 >= (unsigned __int64)PoolBigPageTableSize )
     {
       if ( !v14 )
         goto LABEL_14;
@@ -88,7 +87,7 @@ LABEL_14:
   *a5 = (v17 >> 8) & 0xFFF;
   *a6 = *((_QWORD *)v16 + 2);
   if ( (v17 & 0x100) != 0 )
-    v18 = BugCheckParameter2 ^ (__int64)stru_140FC01F0.WaitBlock[1].WaitListEntry.Blink ^ *((_QWORD *)v16 + 3);
+    v18 = BugCheckParameter2 ^ (__int64)stru_140FC11F0.WaitBlock[1].WaitListEntry.Blink ^ *((_QWORD *)v16 + 3);
   else
     v18 = -1LL;
   *a7 = v18;
@@ -98,14 +97,14 @@ LABEL_14:
     *((_QWORD *)v16 + 3) = 0LL;
     _InterlockedIncrement64((volatile signed __int64 *)v16);
   }
-  if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+  if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || PopHibernateInProgress )
   {
-    _InterlockedAnd((_DWORD *)&stru_140EFEF90.Header.WaitListHead.Flink + 1, 0xBFFFFFFF);
-    _InterlockedDecrement((_DWORD *)&stru_140EFEF90.Header.WaitListHead.Flink + 1);
+    _InterlockedAnd(&ExpLargePoolTableLock, 0xBFFFFFFF);
+    _InterlockedDecrement(&ExpLargePoolTableLock);
   }
   else
   {
-    ExpReleaseSpinLockSharedFromDpcLevelInstrumented((char *)&stru_140EFEF90.Header.WaitListHead.Flink + 4, retaddr);
+    ExpReleaseSpinLockSharedFromDpcLevelInstrumented(&ExpLargePoolTableLock, retaddr);
   }
   if ( KiIrqlFlags )
     KiLowerIrqlProcessIrqlFlags(KeGetCurrentIrql(), CurrentIrql);

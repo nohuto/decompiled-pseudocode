@@ -1,11 +1,11 @@
 /*
- * XREFs of ExpLockCallbackListExclusive @ 0x140148500
+ * XREFs of ExpLockCallbackListExclusive @ 0x140148A70
  * Callers:
- *     ExCreateCallback @ 0x1404EADFC (ExCreateCallback.c)
- *     ExpDeleteCallback @ 0x1406AFC08 (ExpDeleteCallback.c)
+ *     ExCreateCallback @ 0x1404CCE20 (ExCreateCallback.c)
+ *     ExpDeleteCallback @ 0x1406AFD40 (ExpDeleteCallback.c)
  * Callees:
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1400C8070 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1400C5F10 (ExfAcquirePushLockExclusiveEx.c)
  */
 
 _BYTE *__fastcall ExpLockCallbackListExclusive(__int64 a1)

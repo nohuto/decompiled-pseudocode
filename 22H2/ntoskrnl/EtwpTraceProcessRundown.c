@@ -23,14 +23,14 @@ __int64 __fastcall EtwpTraceProcessRundown(PEPROCESS Process, __int64 a2, __int1
   UNICODE_STRING UnicodeString; // [rsp+88h] [rbp-78h] BYREF
   _OWORD v17[2]; // [rsp+98h] [rbp-68h] BYREF
   __int64 v18; // [rsp+B8h] [rbp-48h]
-  int v19[104]; // [rsp+C0h] [rbp-40h] BYREF
+  WCHAR PackageSize[208]; // [rsp+C0h] [rbp-40h] BYREF
   __int64 v20[18]; // [rsp+260h] [rbp+160h] BYREF
 
   v13 = 0;
   LODWORD(v10) = 0;
   P = 0LL;
   UnicodeString = 0LL;
-  memset(v19, 0, 0x198uLL);
+  memset(PackageSize, 0, 0x198uLL);
   v8 = *(_BYTE *)(a4 + 65);
   v15 = 0LL;
   v18 = 0LL;
@@ -46,7 +46,7 @@ __int64 __fastcall EtwpTraceProcessRundown(PEPROCESS Process, __int64 a2, __int1
     &v15,
     (__int64)v20,
     (unsigned int *)&v10,
-    v19,
+    PackageSize,
     (PSTRING)&UnicodeString,
     v12,
     &P);

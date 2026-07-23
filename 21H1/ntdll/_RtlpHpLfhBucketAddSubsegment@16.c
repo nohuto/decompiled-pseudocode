@@ -11,24 +11,21 @@
  *     _RtlpHpLfhSubsegmentSetOwner@8 @ 0x4B377A21 (_RtlpHpLfhSubsegmentSetOwner@8.c)
  */
 
-__int16 __fastcall RtlpHpLfhBucketAddSubsegment(int a1, int a2, int a3, char a4)
+void __fastcall RtlpHpLfhBucketAddSubsegment(int a1, _RTL_SRWLOCK *a2, int a3, char a4)
 {
   int v4; // esi
-  __int16 result; // ax
 
   v4 = a3;
-  result = *(_WORD *)(a3 + 16);
-  if ( result != *(_WORD *)(a3 + 18) )
+  if ( *(_WORD *)(a3 + 16) != *(_WORD *)(a3 + 18) )
   {
-    RtlAcquireSRWLockExclusive((volatile signed __int32 *)(a2 + 8));
+    RtlAcquireSRWLockExclusive(a2 + 2);
     RtlpHpLfhSubsegmentSetOwner(a3, a2);
     if ( *(_WORD *)(a3 + 16) == *(_WORD *)(a3 + 18) )
       *(_DWORD *)(a3 + 8) = 0;
     else
       v4 = RtlpHpLfhOwnerMoveSubsegment(0);
-    result = RtlReleaseSRWLockExclusive((volatile signed __int32 *)(a2 + 8));
+    RtlReleaseSRWLockExclusive(a2 + 2);
   }
   if ( v4 )
-    return RtlpHpLfhSubsegmentFree(a2, a4 & 1);
-  return result;
+    RtlpHpLfhSubsegmentFree(a2, a4 & 1);
 }

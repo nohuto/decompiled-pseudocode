@@ -9,19 +9,19 @@
  *     RtlInitUnicodeStringEx @ 0x180018130 (RtlInitUnicodeStringEx.c)
  */
 
-__int64 __fastcall RtlpDosPathNameToRelativeNtPathName_U(
+NTSTATUS __fastcall RtlpDosPathNameToRelativeNtPathName_U(
         __int64 a1,
         char a2,
-        __int64 a3,
-        unsigned __int16 *a4,
+        const WCHAR *a3,
+        _UNICODE_STRING *a4,
         unsigned __int64 *a5,
         __int64 a6)
 {
-  __int64 result; // rax
-  __m128i v9; // [rsp+40h] [rbp-18h] BYREF
+  NTSTATUS result; // eax
+  _UNICODE_STRING DestinationString; // [rsp+40h] [rbp-18h] BYREF
 
-  result = RtlInitUnicodeStringEx((__int64)&v9, a3);
-  if ( (int)result >= 0 )
-    return RtlDosPathNameToRelativeNtPathName(0, a2, &v9, 0LL, a4, 0LL, a5, a6);
+  result = RtlInitUnicodeStringEx(&DestinationString, a3);
+  if ( result >= 0 )
+    return RtlDosPathNameToRelativeNtPathName(0, a2, &DestinationString, 0LL, a4, 0LL, a5, a6);
   return result;
 }

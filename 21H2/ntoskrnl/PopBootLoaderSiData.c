@@ -1,9 +1,9 @@
 /*
- * XREFs of PopBootLoaderSiData @ 0x140998F34
+ * XREFs of PopBootLoaderSiData @ 0x140999F34
  * Callers:
- *     PoBroadcastSystemState @ 0x1409922E0 (PoBroadcastSystemState.c)
+ *     PoBroadcastSystemState @ 0x1409932E0 (PoBroadcastSystemState.c)
  * Callees:
- *     BapdRegisterSiData @ 0x14099AD08 (BapdRegisterSiData.c)
+ *     BapdRegisterSiData @ 0x14099BD08 (BapdRegisterSiData.c)
  */
 
 __int64 __fastcall PopBootLoaderSiData(__int64 a1)

@@ -1,7 +1,7 @@
 /*
- * XREFs of ZwReplyWaitReceivePort @ 0x140159DE0
+ * XREFs of ZwReplyWaitReceivePort @ 0x14015A350
  * Callers:
- *     SepRmCommandServerThread @ 0x14056B50C (SepRmCommandServerThread.c)
+ *     SepRmCommandServerThread @ 0x14056BA4C (SepRmCommandServerThread.c)
  * Callees:
  *     <none>
  */
@@ -14,5 +14,5 @@ NTSTATUS __stdcall ZwReplyWaitReceivePort(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(PortHandle, PortContext, ReplyMessage);
+  return KiServiceInternal(PortHandle);
 }

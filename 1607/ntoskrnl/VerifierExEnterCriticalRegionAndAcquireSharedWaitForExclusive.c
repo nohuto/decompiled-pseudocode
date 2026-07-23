@@ -1,7 +1,7 @@
 /*
- * XREFs of VerifierExEnterCriticalRegionAndAcquireSharedWaitForExclusive @ 0x14070C3E0
+ * XREFs of VerifierExEnterCriticalRegionAndAcquireSharedWaitForExclusive @ 0x14070C410
  * Callers:
- *     VerifierExEnterCriticalRegionAndAcquireSharedWaitForExclusive @ 0x14070C3E0 (VerifierExEnterCriticalRegionAndAcquireSharedWaitForExclusive.c)
+ *     VerifierExEnterCriticalRegionAndAcquireSharedWaitForExclusive @ 0x14070C410 (VerifierExEnterCriticalRegionAndAcquireSharedWaitForExclusive.c)
  * Callees:
  *     <none>
  */

@@ -1,9 +1,9 @@
 /*
- * XREFs of SymCryptRsaCoreEncScratchSpace @ 0x14055EA48
+ * XREFs of SymCryptRsaCoreEncScratchSpace @ 0x140560F6C
  * Callers:
- *     SymCryptRsaPkcs1Verify @ 0x14055ECB0 (SymCryptRsaPkcs1Verify.c)
+ *     SymCryptRsaPkcs1Verify @ 0x1405611D4 (SymCryptRsaPkcs1Verify.c)
  * Callees:
- *     SymCryptSizeofModElementFromModulus @ 0x14055C9C0 (SymCryptSizeofModElementFromModulus.c)
+ *     SymCryptSizeofModElementFromModulus @ 0x14055EEA8 (SymCryptSizeofModElementFromModulus.c)
  */
 
 __int64 __fastcall SymCryptRsaCoreEncScratchSpace(__int64 a1)

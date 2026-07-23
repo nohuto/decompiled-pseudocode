@@ -14,7 +14,7 @@
  *     sub_180029EA4 @ 0x180029EA4 (sub_180029EA4.c)
  */
 
-__int64 __fastcall sub_180024408(__int64 a1)
+void __fastcall sub_180024408(__int64 a1)
 {
   __int64 v2; // rax
   __int64 v3; // rdx
@@ -23,7 +23,6 @@ __int64 __fastcall sub_180024408(__int64 a1)
   volatile signed __int64 v6; // rbx
   signed __int64 *v7; // rax
   signed __int64 v8; // rbx
-  __int64 result; // rax
 
   v2 = sub_1800244F8();
   v4 = v2;
@@ -41,7 +40,7 @@ __int64 __fastcall sub_180024408(__int64 a1)
     if ( _InterlockedCompareExchange64((volatile signed __int64 *)a1, v4, -1LL) == -1 )
     {
       v6 = *(_QWORD *)a1;
-      RtlAcquireSRWLockExclusive(&qword_18015D258);
+      RtlAcquireSRWLockExclusive(&stru_18015D258);
       v7 = (signed __int64 *)off_180156630[0];
       v8 = v6 + 16;
       if ( *(_UNKNOWN ***)off_180156630[0] != &off_180156628 )
@@ -50,17 +49,15 @@ __int64 __fastcall sub_180024408(__int64 a1)
       *(_QWORD *)(v8 + 8) = v7;
       *v7 = v8;
       off_180156630[0] = (_UNKNOWN **)v8;
-      return RtlReleaseSRWLockExclusive(&qword_18015D258);
+      RtlReleaseSRWLockExclusive(&stru_18015D258);
     }
     else
     {
-      return sub_180029EA4((PSLIST_ENTRY)v4);
+      sub_180029EA4((PSLIST_ENTRY)v4);
     }
   }
   else
   {
-    result = 1LL;
     _InterlockedAdd(&dword_18015BEA8, 1u);
   }
-  return result;
 }

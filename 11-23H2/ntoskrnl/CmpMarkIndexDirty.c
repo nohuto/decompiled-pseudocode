@@ -1,18 +1,18 @@
 /*
- * XREFs of CmpMarkIndexDirty @ 0x14070C058
+ * XREFs of CmpMarkIndexDirty @ 0x14070C268
  * Callers:
- *     CmpMarkKeyDirty @ 0x14070B460 (CmpMarkKeyDirty.c)
- *     CmpMarkKeyParentDirty @ 0x140A21FD0 (CmpMarkKeyParentDirty.c)
+ *     CmpMarkKeyDirty @ 0x14070B670 (CmpMarkKeyDirty.c)
+ *     CmpMarkKeyParentDirty @ 0x140A22280 (CmpMarkKeyParentDirty.c)
  * Callees:
  *     CmSiFreeMemory @ 0x140208C40 (CmSiFreeMemory.c)
- *     CmpAllocatePool @ 0x14022CEEC (CmpAllocatePool.c)
- *     HvpGetCellPaged @ 0x1406E0150 (HvpGetCellPaged.c)
- *     HvpReleaseCellPaged @ 0x1406E0260 (HvpReleaseCellPaged.c)
- *     HvpGetCellContextReinitialize @ 0x1406E029C (HvpGetCellContextReinitialize.c)
- *     CmpCopyCompressedName @ 0x140708CB0 (CmpCopyCompressedName.c)
- *     CmpMarkIndexDirtyInStorageType @ 0x14070C1CC (CmpMarkIndexDirtyInStorageType.c)
- *     HvpReleaseCellFlat @ 0x1407D9470 (HvpReleaseCellFlat.c)
- *     HvpGetCellFlat @ 0x1407FD9F0 (HvpGetCellFlat.c)
+ *     CmpAllocatePool @ 0x14022CFFC (CmpAllocatePool.c)
+ *     HvpGetCellPaged @ 0x1406E0180 (HvpGetCellPaged.c)
+ *     HvpReleaseCellPaged @ 0x1406E0290 (HvpReleaseCellPaged.c)
+ *     HvpGetCellContextReinitialize @ 0x1406E02CC (HvpGetCellContextReinitialize.c)
+ *     CmpCopyCompressedName @ 0x140708EC0 (CmpCopyCompressedName.c)
+ *     CmpMarkIndexDirtyInStorageType @ 0x14070C3DC (CmpMarkIndexDirtyInStorageType.c)
+ *     HvpReleaseCellFlat @ 0x1407D9740 (HvpReleaseCellFlat.c)
+ *     HvpGetCellFlat @ 0x1407FDCC0 (HvpGetCellFlat.c)
  */
 
 __int64 __fastcall CmpMarkIndexDirty(ULONG_PTR BugCheckParameter3, ULONG_PTR BugCheckParameter4, unsigned int a3)

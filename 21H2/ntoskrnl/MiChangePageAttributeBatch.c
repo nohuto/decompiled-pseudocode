@@ -1,18 +1,18 @@
 /*
- * XREFs of MiChangePageAttributeBatch @ 0x1403035A0
+ * XREFs of MiChangePageAttributeBatch @ 0x14030E2F0
  * Callers:
- *     MiGetPageChain @ 0x140212D10 (MiGetPageChain.c)
- *     MiConvertContiguousPages @ 0x1402E3BC4 (MiConvertContiguousPages.c)
- *     MiInitializeMdlOneNodeBatchPages @ 0x1402E3D24 (MiInitializeMdlOneNodeBatchPages.c)
- *     MiSwitchToTransition @ 0x140539F14 (MiSwitchToTransition.c)
- *     MiChangeAwePageAttributes @ 0x14054B840 (MiChangeAwePageAttributes.c)
- *     MiPerformFinalZeroing @ 0x14054F348 (MiPerformFinalZeroing.c)
+ *     MiConvertContiguousPages @ 0x140294F14 (MiConvertContiguousPages.c)
+ *     MiInitializeMdlOneNodeBatchPages @ 0x140295074 (MiInitializeMdlOneNodeBatchPages.c)
+ *     MiGetPageChain @ 0x1402B7610 (MiGetPageChain.c)
+ *     MiSwitchToTransition @ 0x14053A154 (MiSwitchToTransition.c)
+ *     MiChangeAwePageAttributes @ 0x14054BA80 (MiChangeAwePageAttributes.c)
+ *     MiPerformFinalZeroing @ 0x14054F588 (MiPerformFinalZeroing.c)
  * Callees:
- *     MiLockPageInline @ 0x1402FFE30 (MiLockPageInline.c)
- *     MiAbortCombineScan @ 0x140303770 (MiAbortCombineScan.c)
- *     MiFlushCacheForAttributeChange @ 0x140303848 (MiFlushCacheForAttributeChange.c)
- *     MiFlushEntireTbDueToAttributeChange @ 0x14030438C (MiFlushEntireTbDueToAttributeChange.c)
- *     KeInvalidateAllCaches @ 0x1403A4E00 (KeInvalidateAllCaches.c)
+ *     MiLockPageInline @ 0x14030AB80 (MiLockPageInline.c)
+ *     MiAbortCombineScan @ 0x14030E4C0 (MiAbortCombineScan.c)
+ *     MiFlushCacheForAttributeChange @ 0x14030E598 (MiFlushCacheForAttributeChange.c)
+ *     MiFlushEntireTbDueToAttributeChange @ 0x14030F0DC (MiFlushEntireTbDueToAttributeChange.c)
+ *     KeInvalidateAllCaches @ 0x1403A4F50 (KeInvalidateAllCaches.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
@@ -71,13 +71,13 @@ void __fastcall MiChangePageAttributeBatch(__int64 a1, __int64 a2, __int64 a3, _
         ++v8;
       }
       while ( v9 );
-      if ( v10 || (MiFlushEntireTbDueToAttributeChange(a1, a2, a3, SchedulerAssist), v8 < dword_140C4DF0C) || v5 == 1 )
+      if ( v10 || (MiFlushEntireTbDueToAttributeChange(a1, a2, a3, SchedulerAssist), v8 < dword_140C4DF4C) || v5 == 1 )
       {
         LODWORD(a3) = 0;
       }
       else
       {
-        ++dword_140C4DF04;
+        ++dword_140C4DF44;
         KeInvalidateAllCaches();
         LODWORD(a3) = 1;
         v21 = 1;
@@ -94,7 +94,7 @@ void __fastcall MiChangePageAttributeBatch(__int64 a1, __int64 a2, __int64 a3, _
         *(_BYTE *)(v17 + 34) = v13;
         if ( !(_DWORD)a3 && !v10 && v5 != 1 && (_DWORD)a1 != v5 && (_DWORD)a1 == 1 )
         {
-          ++dword_140C4DF08;
+          ++dword_140C4DF48;
           MiFlushCacheForAttributeChange((v17 + 0x58000000000LL) / 48, 1LL, v5);
           v14 = v7 + 1;
         }

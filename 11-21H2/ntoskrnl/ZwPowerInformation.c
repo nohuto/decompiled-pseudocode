@@ -1,20 +1,20 @@
 /*
  * XREFs of ZwPowerInformation @ 0x14041C340
  * Callers:
- *     HalpSetShutdownResetHandler @ 0x14050AA58 (HalpSetShutdownResetHandler.c)
- *     DifZwPowerInformationWrapper @ 0x140623190 (DifZwPowerInformationWrapper.c)
- *     PspRecordCrashedProcessIntoBlackbox @ 0x1406D4270 (PspRecordCrashedProcessIntoBlackbox.c)
- *     RtlpRecordBootStatusData @ 0x1406D6A74 (RtlpRecordBootStatusData.c)
- *     RtlpSystemBootStatusRequest @ 0x1407EDB2C (RtlpSystemBootStatusRequest.c)
- *     PopDisarmIdlePhaseWatchdog @ 0x1407F287C (PopDisarmIdlePhaseWatchdog.c)
- *     PopInvokeWin32Callout @ 0x1407F2AD0 (PopInvokeWin32Callout.c)
- *     PopArmIdlePhaseWatchdog @ 0x140808F30 (PopArmIdlePhaseWatchdog.c)
- *     HaliAcpiMachineStateInit @ 0x14085E510 (HaliAcpiMachineStateInit.c)
- *     PdcPortOpenCommon @ 0x14085F954 (PdcPortOpenCommon.c)
- *     PoGetLightestSystemStateForEject @ 0x14098943C (PoGetLightestSystemStateForEject.c)
+ *     sub_14050AA58 @ 0x14050AA58 (sub_14050AA58.c)
+ *     sub_140623190 @ 0x140623190 (sub_140623190.c)
+ *     sub_1406D4270 @ 0x1406D4270 (sub_1406D4270.c)
+ *     sub_1406D6A74 @ 0x1406D6A74 (sub_1406D6A74.c)
+ *     sub_1407EDB2C @ 0x1407EDB2C (sub_1407EDB2C.c)
+ *     sub_1407F287C @ 0x1407F287C (sub_1407F287C.c)
+ *     sub_1407F2AD0 @ 0x1407F2AD0 (sub_1407F2AD0.c)
+ *     sub_140808F30 @ 0x140808F30 (sub_140808F30.c)
+ *     sub_14085E510 @ 0x14085E510 (sub_14085E510.c)
+ *     sub_14085F954 @ 0x14085F954 (sub_14085F954.c)
+ *     sub_14098943C @ 0x14098943C (sub_14098943C.c)
  *     RtlCheckSystemBootStatusIntegrity @ 0x1409BAB50 (RtlCheckSystemBootStatusIntegrity.c)
  *     RtlRestoreSystemBootStatusDefaults @ 0x1409BAD90 (RtlRestoreSystemBootStatusDefaults.c)
- *     PopCreateIdlePhaseWatchdog @ 0x140B30A10 (PopCreateIdlePhaseWatchdog.c)
+ *     sub_140B30A10 @ 0x140B30A10 (sub_140B30A10.c)
  * Callees:
  *     <none>
  */
@@ -29,5 +29,5 @@ NTSTATUS __stdcall ZwPowerInformation(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(*(_QWORD *)&InformationLevel, InputBuffer);
+  return sub_140433F80(*(_QWORD *)&InformationLevel, InputBuffer);
 }

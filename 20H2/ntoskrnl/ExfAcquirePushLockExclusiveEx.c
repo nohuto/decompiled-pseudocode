@@ -180,7 +180,7 @@ signed __int64 __fastcall ExfAcquirePushLockExclusiveEx(unsigned __int64 *a1, __
       KeWaitForSingleObject(Object, WrPushLock, 0, 0, 0LL);
 LABEL_14:
     if ( a2 )
-      a2 = KeAbPreAcquire(a3, a2, 0LL);
+      a2 = KeAbPreAcquire(a3, a2, 0);
   }
   result = _InterlockedCompareExchange64((volatile signed __int64 *)a1, v6 + 1, v6);
   if ( v6 != result )

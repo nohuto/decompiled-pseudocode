@@ -1,12 +1,12 @@
 /*
- * XREFs of IoPerfInit @ 0x14050EB0C
+ * XREFs of IoPerfInit @ 0x14050857C
  * Callers:
- *     IoRegisterIoTracking @ 0x140797B40 (IoRegisterIoTracking.c)
- *     EtwpEnableKernelTrace @ 0x14095ACA0 (EtwpEnableKernelTrace.c)
+ *     IoRegisterIoTracking @ 0x14079A670 (IoRegisterIoTracking.c)
+ *     EtwpEnableKernelTrace @ 0x140A00560 (EtwpEnableKernelTrace.c)
  * Callees:
- *     KeAcquireInStackQueuedSpinLock @ 0x1402B4730 (KeAcquireInStackQueuedSpinLock.c)
- *     KeReleaseInStackQueuedSpinLock @ 0x1402B98C0 (KeReleaseInStackQueuedSpinLock.c)
- *     IopUpdateFunctionPointers @ 0x1405CAB80 (IopUpdateFunctionPointers.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402FF400 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x140304580 (KeReleaseInStackQueuedSpinLock.c)
+ *     IopUpdateFunctionPointers @ 0x1405CD450 (IopUpdateFunctionPointers.c)
  */
 
 __int64 __fastcall IoPerfInit(int a1)
@@ -15,13 +15,13 @@ __int64 __fastcall IoPerfInit(int a1)
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+20h] [rbp-28h] BYREF
 
   memset(&LockHandle, 0, sizeof(LockHandle));
-  KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)&IopSessionNotificationLock.SuspendEvent.Header.WaitListHead, &LockHandle);
+  KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)&IopPerfIoTrackingLock.Header.WaitListHead, &LockHandle);
   v2 = IopPerfStatus == 0;
   IopPerfStatus |= a1;
   if ( (a1 & 1) != 0 )
-    ++dword_140E65F6C;
+    ++dword_140E66214;
   if ( (a1 & 2) != 0 )
-    ++dword_140E65F70;
+    ++dword_140E66218;
   if ( v2 )
   {
     LOBYTE(v2) = 1;

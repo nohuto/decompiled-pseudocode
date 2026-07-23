@@ -1,36 +1,36 @@
 /*
- * XREFs of MiFreeWsleList @ 0x140287894
+ * XREFs of MiFreeWsleList @ 0x140297494
  * Callers:
- *     MiStealPage @ 0x1402263B0 (MiStealPage.c)
- *     MiAgePteWorker @ 0x14022FCA0 (MiAgePteWorker.c)
- *     NtUnlockVirtualMemory @ 0x1402333D0 (NtUnlockVirtualMemory.c)
- *     MiSetProtectionOnSection @ 0x140236630 (MiSetProtectionOnSection.c)
- *     MiEmptyWorkingSetHelper @ 0x140287320 (MiEmptyWorkingSetHelper.c)
- *     MiEmptyPte @ 0x140287AF0 (MiEmptyPte.c)
- *     MiTrimSharedPageFromViews @ 0x1402BB5D0 (MiTrimSharedPageFromViews.c)
- *     MiAgeTrimListsTail @ 0x1402E36B0 (MiAgeTrimListsTail.c)
- *     MiSharePages @ 0x1402FA880 (MiSharePages.c)
- *     MiTrimWorkingSetBuildup @ 0x14037D1A0 (MiTrimWorkingSetBuildup.c)
- *     MmProtectPool @ 0x1403889FC (MmProtectPool.c)
- *     MiUpdateOldWorkingSetPagesTail @ 0x1403AAA70 (MiUpdateOldWorkingSetPagesTail.c)
- *     MiAgeWorkingSetTail @ 0x1403AAB80 (MiAgeWorkingSetTail.c)
- *     MiDeprioritizeVirtualAddresses @ 0x1403FD5B4 (MiDeprioritizeVirtualAddresses.c)
- *     MiEmptyWorkingSetTail @ 0x140463F60 (MiEmptyWorkingSetTail.c)
- *     MiConvertAndFlushWsleVas @ 0x140486DF0 (MiConvertAndFlushWsleVas.c)
- *     MiMakeVaRangeNoAccess @ 0x140498B94 (MiMakeVaRangeNoAccess.c)
+ *     MiAgeTrimListsTail @ 0x14020B9B0 (MiAgeTrimListsTail.c)
+ *     MiSetProtectionOnSection @ 0x1402107C0 (MiSetProtectionOnSection.c)
+ *     NtUnlockVirtualMemory @ 0x140213FA0 (NtUnlockVirtualMemory.c)
+ *     MiStealPage @ 0x140253D10 (MiStealPage.c)
+ *     MiEmptyWorkingSetTail @ 0x140295FF0 (MiEmptyWorkingSetTail.c)
+ *     MiUpdateOldWorkingSetPagesTail @ 0x140296100 (MiUpdateOldWorkingSetPagesTail.c)
+ *     MiAgeWorkingSetTail @ 0x140296210 (MiAgeWorkingSetTail.c)
+ *     MiEmptyWorkingSetHelper @ 0x140296F20 (MiEmptyWorkingSetHelper.c)
+ *     MiEmptyPte @ 0x1402976F0 (MiEmptyPte.c)
+ *     MiTrimWorkingSetBuildup @ 0x1402EA6B0 (MiTrimWorkingSetBuildup.c)
+ *     MiAgePteWorker @ 0x1403040A0 (MiAgePteWorker.c)
+ *     MiSharePages @ 0x140343830 (MiSharePages.c)
+ *     MiTrimSharedPageFromViews @ 0x140362D10 (MiTrimSharedPageFromViews.c)
+ *     MmProtectPool @ 0x14038233C (MmProtectPool.c)
+ *     MiDeprioritizeVirtualAddresses @ 0x1403DB1C8 (MiDeprioritizeVirtualAddresses.c)
+ *     MiConvertAndFlushWsleVas @ 0x140481E60 (MiConvertAndFlushWsleVas.c)
+ *     MiMakeVaRangeNoAccess @ 0x14049351C (MiMakeVaRangeNoAccess.c)
  * Callees:
- *     MiWsleFree @ 0x14021BFD0 (MiWsleFree.c)
- *     MiRemoveWsleList @ 0x140231F70 (MiRemoveWsleList.c)
- *     MiWsleFlush @ 0x140286410 (MiWsleFlush.c)
- *     MiFlushTbList @ 0x140291730 (MiFlushTbList.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
+ *     MiWsleFlush @ 0x140201004 (MiWsleFlush.c)
+ *     MiWsleFree @ 0x140248D20 (MiWsleFree.c)
+ *     MiFlushTbList @ 0x1402A1330 (MiFlushTbList.c)
+ *     MiRemoveWsleList @ 0x140303100 (MiRemoveWsleList.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
  */
 
-__int64 __fastcall MiFreeWsleList(__int64 a1, ULONG_PTR a2, char a3)
+__int64 __fastcall MiFreeWsleList(__int64 a1, ULONG_PTR a2, unsigned int a3)
 {
   __int64 v3; // r15
   _QWORD *v4; // r14
-  char v5; // r13
+  unsigned int v5; // r13d
   unsigned __int64 v7; // r12
   __int64 v8; // rdi
   struct _KPRCB *CurrentPrcb; // r8
@@ -90,7 +90,7 @@ __int64 __fastcall MiFreeWsleList(__int64 a1, ULONG_PTR a2, char a3)
   {
     *(_QWORD *)(a2 + 32) = (unsigned int)v16;
     *(_DWORD *)(a2 + 28) = v16;
-    MiFlushTbList(a2, MmInternal);
+    MiFlushTbList(a2);
   }
   else
   {

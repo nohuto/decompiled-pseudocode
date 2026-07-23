@@ -1,22 +1,22 @@
 /*
- * XREFs of KeSetTracepoint @ 0x140844E00
+ * XREFs of KeSetTracepoint @ 0x140846060
  * Callers:
  *     <none>
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     RtlImageNtHeader @ 0x14009DAE0 (RtlImageNtHeader.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
- *     RtlSectionTableFromVirtualAddress @ 0x1400F3450 (RtlSectionTableFromVirtualAddress.c)
- *     RtlPcToFileHeader @ 0x14012F670 (RtlPcToFileHeader.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     KiTpWriteMemory @ 0x14029C318 (KiTpWriteMemory.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     KeIsValidTraceCallbackTarget @ 0x140844920 (KeIsValidTraceCallbackTarget.c)
- *     KiTpSetupCompletion @ 0x140845D8C (KiTpSetupCompletion.c)
+ *     ExfTryToWakePushLock @ 0x140091500 (ExfTryToWakePushLock.c)
+ *     RtlImageNtHeader @ 0x14009DA20 (RtlImageNtHeader.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B78F0 (KiLeaveCriticalRegionUnsafe.c)
+ *     RtlSectionTableFromVirtualAddress @ 0x1400F34D0 (RtlSectionTableFromVirtualAddress.c)
+ *     RtlPcToFileHeader @ 0x14012F740 (RtlPcToFileHeader.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     KiTpWriteMemory @ 0x14029C508 (KiTpWriteMemory.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     KeIsValidTraceCallbackTarget @ 0x140845B80 (KeIsValidTraceCallbackTarget.c)
+ *     KiTpSetupCompletion @ 0x140846FEC (KiTpSetupCompletion.c)
  */
 
 __int64 __fastcall KeSetTracepoint(__int64 a1, unsigned __int64 a2, int a3, unsigned __int64 a4, __int64 a5)
@@ -25,8 +25,8 @@ __int64 __fastcall KeSetTracepoint(__int64 a1, unsigned __int64 a2, int a3, unsi
   unsigned __int64 v7; // rsi
   int IsValidTraceCallbackTarget; // edi
   PVOID v9; // rbx
-  PIMAGE_NT_HEADERS v10; // rax
-  _DWORD *v11; // rax
+  _IMAGE_NT_HEADERS64 *v10; // rax
+  PIMAGE_SECTION_HEADER v11; // rax
   _DWORD *v12; // rcx
   int v13; // eax
   _QWORD *PoolWithTag; // rax
@@ -83,13 +83,13 @@ __int64 __fastcall KeSetTracepoint(__int64 a1, unsigned __int64 a2, int a3, unsi
     {
       v9 = BaseOfImage;
       v10 = RtlImageNtHeader(BaseOfImage);
-      v11 = (_DWORD *)RtlSectionTableFromVirtualAddress((unsigned __int64)v10, (__int64)v9, (int)a2 - (int)v9);
+      v11 = RtlSectionTableFromVirtualAddress(v10, v9, (int)a2 - (int)v9);
       v12 = v11;
       if ( v11 )
       {
-        if ( (v11[9] & 0x2000020) == 0x20 )
+        if ( (v11->Characteristics & 0x2000020) == 0x20 )
         {
-          v13 = *v11;
+          v13 = *(_DWORD *)v11->Name;
           if ( *v12 != 1414090313 && v13 != 1396790859 )
           {
             if ( v6 )

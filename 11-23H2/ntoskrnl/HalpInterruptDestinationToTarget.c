@@ -1,15 +1,15 @@
 /*
- * XREFs of HalpInterruptDestinationToTarget @ 0x14031FC7C
+ * XREFs of HalpInterruptDestinationToTarget @ 0x14031FF0C
  * Callers:
- *     HalpInterruptSetRemappedDestination @ 0x14031FB08 (HalpInterruptSetRemappedDestination.c)
- *     HalpInterruptEnableNmi @ 0x14037B5B4 (HalpInterruptEnableNmi.c)
- *     HalpInterruptRemap @ 0x14037C0D8 (HalpInterruptRemap.c)
- *     HalpInterruptSetLineState @ 0x14037C70C (HalpInterruptSetLineState.c)
- *     HalpInterruptGenerateMessage @ 0x14037CD24 (HalpInterruptGenerateMessage.c)
- *     HalpInterruptSetDestinationInternal @ 0x1405043BC (HalpInterruptSetDestinationInternal.c)
+ *     HalpInterruptSetRemappedDestination @ 0x14031FD98 (HalpInterruptSetRemappedDestination.c)
+ *     HalpInterruptEnableNmi @ 0x14037B754 (HalpInterruptEnableNmi.c)
+ *     HalpInterruptRemap @ 0x14037C278 (HalpInterruptRemap.c)
+ *     HalpInterruptSetLineState @ 0x14037C8AC (HalpInterruptSetLineState.c)
+ *     HalpInterruptGenerateMessage @ 0x14037CEC4 (HalpInterruptGenerateMessage.c)
+ *     HalpInterruptSetDestinationInternal @ 0x14050490C (HalpInterruptSetDestinationInternal.c)
  * Callees:
- *     KeGetProcessorIndexFromNumber @ 0x1402551B0 (KeGetProcessorIndexFromNumber.c)
- *     HalpInterruptAddTarget @ 0x14031FD40 (HalpInterruptAddTarget.c)
+ *     KeGetProcessorIndexFromNumber @ 0x140255270 (KeGetProcessorIndexFromNumber.c)
+ *     HalpInterruptAddTarget @ 0x14031FFD0 (HalpInterruptAddTarget.c)
  */
 
 __int64 __fastcall HalpInterruptDestinationToTarget(__int64 a1, __int64 a2, __int64 a3)

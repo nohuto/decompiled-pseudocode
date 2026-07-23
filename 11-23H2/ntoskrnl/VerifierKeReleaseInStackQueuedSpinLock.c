@@ -1,11 +1,11 @@
 /*
- * XREFs of VerifierKeReleaseInStackQueuedSpinLock @ 0x140AC03F0
+ * XREFs of VerifierKeReleaseInStackQueuedSpinLock @ 0x140AC03E0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     VfKeIrqlTransitionReserveLogEntry @ 0x140AC05B0 (VfKeIrqlTransitionReserveLogEntry.c)
- *     VfKeIrqlLogLower @ 0x140AD5CB4 (VfKeIrqlLogLower.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     VfKeIrqlTransitionReserveLogEntry @ 0x140AC05A0 (VfKeIrqlTransitionReserveLogEntry.c)
+ *     VfKeIrqlLogLower @ 0x140AD5CA4 (VfKeIrqlLogLower.c)
  */
 
 __int64 __fastcall VerifierKeReleaseInStackQueuedSpinLock(__int64 a1, __int64 a2)

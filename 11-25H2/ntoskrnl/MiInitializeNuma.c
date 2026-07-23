@@ -37,7 +37,7 @@ void __fastcall MiInitializeNuma(__int64 a1)
   __int64 v23; // r13
   int *v24; // r14
   unsigned int v25; // esi
-  union _SLIST_HEADER *v26; // rbp
+  _SLIST_HEADER *v26; // rbp
   int v27; // eax
   __int64 v28; // rbp
   unsigned int i; // esi
@@ -137,7 +137,7 @@ void __fastcall MiInitializeNuma(__int64 a1)
       while ( v20 );
       v24 = (int *)(v4 - 41684);
       v25 = 0;
-      v26 = (union _SLIST_HEADER *)(v4 - 41724);
+      v26 = (_SLIST_HEADER *)(v4 - 41724);
       do
       {
         InitializeSListHead(v26);

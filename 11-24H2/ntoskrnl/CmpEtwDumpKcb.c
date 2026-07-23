@@ -1,15 +1,15 @@
 /*
- * XREFs of CmpEtwDumpKcb @ 0x14092C050
+ * XREFs of CmpEtwDumpKcb @ 0x14092E190
  * Callers:
- *     CmpLinkHiveToMaster @ 0x14092C240 (CmpLinkHiveToMaster.c)
+ *     CmpLinkHiveToMaster @ 0x14092E380 (CmpLinkHiveToMaster.c)
  * Callees:
- *     CmpFreeTransientPoolWithTag @ 0x140441FC0 (CmpFreeTransientPoolWithTag.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     EtwpTraceRegistry @ 0x140870F40 (EtwpTraceRegistry.c)
- *     CmpConstructName @ 0x1408763E0 (CmpConstructName.c)
- *     CmpAttachToRegistryProcess @ 0x140BB98E0 (CmpAttachToRegistryProcess.c)
- *     CmpDetachFromRegistryProcess @ 0x140BB9920 (CmpDetachFromRegistryProcess.c)
+ *     CmpFreeTransientPoolWithTag @ 0x140438B90 (CmpFreeTransientPoolWithTag.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     EtwpTraceRegistry @ 0x140875270 (EtwpTraceRegistry.c)
+ *     CmpConstructName @ 0x14087A710 (CmpConstructName.c)
+ *     CmpAttachToRegistryProcess @ 0x140BBB8E0 (CmpAttachToRegistryProcess.c)
+ *     CmpDetachFromRegistryProcess @ 0x140BBB920 (CmpDetachFromRegistryProcess.c)
  */
 
 void __fastcall CmpEtwDumpKcb(__int64 a1, unsigned __int8 a2)
@@ -34,7 +34,7 @@ void __fastcall CmpEtwDumpKcb(__int64 a1, unsigned __int8 a2)
       if ( v2 == EtwpTraceRegistry )
         EtwpTraceRegistry(a2, (__int64)v9, 0, 0, a1, (__int64)v8);
       else
-        guard_dispatch_icall_no_overrides(a2, v9, 0LL, 0LL);
+        guard_dispatch_icall_no_overrides(a2, v9);
       CmpFreeTransientPoolWithTag(v8, 0x624E4D43u);
     }
     CmpDetachFromRegistryProcess(&v10);

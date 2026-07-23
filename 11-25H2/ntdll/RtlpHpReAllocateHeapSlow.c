@@ -17,7 +17,7 @@
  *     memset$thunk$772440563353939046 @ 0x180174030 (memset$thunk$772440563353939046.c)
  */
 
-__int64 __fastcall RtlpHpReAllocateHeapSlow(__m128i *a1, int a2, char *a3, unsigned __int64 a4)
+__int64 __fastcall RtlpHpReAllocateHeapSlow(__int64 a1, int a2, char *a3, unsigned __int64 a4)
 {
   int v4; // r12d
   unsigned __int64 v9; // rax
@@ -41,20 +41,20 @@ __int64 __fastcall RtlpHpReAllocateHeapSlow(__m128i *a1, int a2, char *a3, unsig
   unsigned __int64 v28; // [rsp+78h] [rbp-8h]
 
   v4 = 0;
-  if ( a1[1].m128i_i32[2] )
+  if ( *(_DWORD *)(a1 + 24) )
   {
-    v9 = RtlpHpExtrasGet((__int64)a1, (unsigned __int64)a3, a2, 0LL);
+    v9 = RtlpHpExtrasGet((_RTL_SRWLOCK *)a1, (unsigned __int64)a3, a2, 0LL);
     if ( v9 - 1 <= 0xFFFFFFFFFFFFFFFDuLL )
     {
       v4 = *(_BYTE *)(v9 + 2) & 0xF;
       if ( (*(_BYTE *)(v9 + 2) & 0xF) != 0 )
       {
         __writegsqword(0x1858u, 0LL);
-        v10 = RtlpCallInterceptRoutine(v4, (__int64)a1, (unsigned __int64)a3, 5u, v9 + 16);
-        __writegsqword(0x1858u, (unsigned __int64)a1[1].m128i_u64 + 4);
-        v11 = a1[1].m128i_u32[1];
-        if ( (v11 & 0x10) != 0 && a1[14].m128i_i32[0] != (unsigned int)NtCurrentTeb()->ClientId.UniqueThread )
-          RtlpHpEnvAcquireGlobalLockSharedContended((char *)a1[1].m128i_i64 + 4, v11);
+        v10 = RtlpCallInterceptRoutine(v4, (PVOID)a1, (unsigned __int64)a3, 5u, v9 + 16);
+        __writegsqword(0x1858u, a1 + 20);
+        v11 = *(unsigned int *)(a1 + 20);
+        if ( (v11 & 0x10) != 0 && *(_DWORD *)(a1 + 224) != (unsigned int)NtCurrentTeb()->ClientId.UniqueThread )
+          RtlpHpEnvAcquireGlobalLockSharedContended(a1 + 20, v11);
         if ( v10 < 0 )
           return -1LL;
       }
@@ -68,7 +68,7 @@ __int64 __fastcall RtlpHpReAllocateHeapSlow(__m128i *a1, int a2, char *a3, unsig
   v24 = 0LL;
   if ( a4 <= 0x7FFFFFFFFFFFFFFFLL )
   {
-    if ( !(unsigned int)RtlpHpReallocComputeSizes((__int64)a1, (unsigned __int64)a3, a4, a2, (unsigned __int64 *)&v23)
+    if ( !(unsigned int)RtlpHpReallocComputeSizes(a1, (unsigned __int64)a3, a4, a2, (unsigned __int64 *)&v23)
       || v25 < a4 )
     {
       v12 = -1LL;
@@ -87,14 +87,14 @@ __int64 __fastcall RtlpHpReAllocateHeapSlow(__m128i *a1, int a2, char *a3, unsig
     }
     else
     {
-      v15 = RtlCSparseBitmapBitmaskRead((__int64)&unk_1801D0980, 2 * ((unsigned __int64)&a3[-qword_1801D0978] >> 20));
+      v15 = RtlCSparseBitmapBitmaskRead((__int64)&BaseAddress, 2 * ((unsigned __int64)&a3[-qword_1801D0978] >> 20));
       if ( !v15 || (v16 = v15 - 1, v16 == 2) )
       {
         v17 = RtlpHpLargeReAlloc(a1, v14, (unsigned __int64)a3, (__int64)&v23);
         goto LABEL_21;
       }
     }
-    v17 = RtlpHpSegReAlloc((__int64)a1[12 * v16 + 20].m128i_i64, v14, (__int64)a3, (__int64)&v23);
+    v17 = RtlpHpSegReAlloc(a1 + 192LL * v16 + 320, v14, (__int64)a3, (__int64)&v23);
 LABEL_21:
     v12 = v17;
     if ( (unsigned __int64)(v17 - 1) <= 0xFFFFFFFFFFFFFFFDuLL )
@@ -117,23 +117,23 @@ LABEL_29:
     v19 = (unsigned __int64)a3;
     if ( v12 - 1 <= 0xFFFFFFFFFFFFFFFDuLL )
       v19 = v12;
-    v20 = RtlpHpExtrasGet((__int64)a1, v19, a2, 0LL);
+    v20 = RtlpHpExtrasGet((_RTL_SRWLOCK *)a1, v19, a2, 0LL);
     __writegsqword(0x1858u, 0LL);
-    RtlpCallInterceptRoutine(v4, (__int64)a1, v19, 6u, v20 + 16);
-    __writegsqword(0x1858u, (unsigned __int64)a1[1].m128i_u64 + 4);
-    v21 = a1[1].m128i_u32[1];
-    if ( (v21 & 0x10) != 0 && a1[14].m128i_i32[0] != (unsigned int)NtCurrentTeb()->ClientId.UniqueThread )
-      RtlpHpEnvAcquireGlobalLockSharedContended((char *)a1[1].m128i_i64 + 4, v21);
+    RtlpCallInterceptRoutine(v4, (PVOID)a1, v19, 6u, v20 + 16);
+    __writegsqword(0x1858u, a1 + 20);
+    v21 = *(unsigned int *)(a1 + 20);
+    if ( (v21 & 0x10) != 0 && *(_DWORD *)(a1 + 224) != (unsigned int)NtCurrentTeb()->ClientId.UniqueThread )
+      RtlpHpEnvAcquireGlobalLockSharedContended(a1 + 20, v21);
   }
   if ( v12 - 1 <= 0xFFFFFFFFFFFFFFFDuLL )
   {
-    if ( RtlpHpStackLoggingEnabled((__int64)a1) )
+    if ( RtlpHpStackLoggingEnabled(a1) )
     {
-      RtlpHpStackTraceRemoveStack((__int64)a1, a3);
-      RtlpHpStackTraceAddStack((__int64)a1, v12);
+      RtlpHpStackTraceRemoveStack(a1, a3);
+      RtlpHpStackTraceAddStack(a1, v12);
     }
-    if ( a1[1].m128i_i8[4] < 0 )
-      RtlpLogHeapReallocateEvent((__int64)a1, v12, (__int64)a3, v26, *((__int64 *)&v27 + 1), 3);
+    if ( *(char *)(a1 + 20) < 0 )
+      RtlpLogHeapReallocateEvent(a1, v12, (__int64)a3, v26, *((__int64 *)&v27 + 1), 3);
   }
   return v12;
 }

@@ -28,63 +28,68 @@
  *     RtlpHpHeapProtect @ 0x18011F8D8 (RtlpHpHeapProtect.c)
  */
 
-void __fastcall RtlProtectHeap(_DWORD *a1, char a2)
+void __cdecl RtlProtectHeap(PVOID HeapHandle, BOOLEAN MakeReadOnly)
 {
-  unsigned int HeapProtection; // eax
-  unsigned int v5; // edi
+  ULONG HeapProtection; // eax
+  ULONG v5; // edi
   __int64 v6; // rcx
   int v7; // eax
   int v8; // eax
-  signed __int32 v9; // edi
-  __int64 DeferredCriticalSectionEvent; // rbx
+  signed __int32 LockCount; // edi
+  void *LockSemaphore; // rbx
   unsigned int v11; // [rsp+30h] [rbp+8h] BYREF
 
-  if ( a1[4] == -571548178 || (a1[29] & 0x1000000) == 0 )
+  if ( *((_DWORD *)HeapHandle + 4) == -571548178 || (*((_DWORD *)HeapHandle + 29) & 0x1000000) == 0 )
   {
     RtlEnterCriticalSection(&RtlpProcessHeapsListLock);
-    if ( a1[4] == -571548178 )
-      HeapProtection = RtlpHpHeapValidateProtection((__int64)a1, (a1[5] & 0x40000000) != 0 ? 64 : 4);
+    if ( *((_DWORD *)HeapHandle + 4) == -571548178 )
+      HeapProtection = RtlpHpHeapValidateProtection(
+                         HeapHandle,
+                         (*((_DWORD *)HeapHandle + 5) & 0x40000000) != 0 ? 64 : 4);
     else
-      HeapProtection = RtlpGetHeapProtection((__int64)a1, 1);
+      HeapProtection = RtlpGetHeapProtection(HeapHandle, 1);
     v5 = HeapProtection;
-    if ( a2 )
+    if ( MakeReadOnly )
     {
-      RtlpRemoveHeapFromUnprotectedList((__int64)a1);
+      RtlpRemoveHeapFromUnprotectedList((__int64)HeapHandle);
       RtlpAddHeapToProtectedList(v6);
       v7 = 2;
       if ( v5 == 64 )
         v7 = 32;
       v5 = v7;
     }
-    if ( a1[4] == -571548178 )
-      v8 = RtlpHpHeapProtect(a1, v5);
+    if ( *((_DWORD *)HeapHandle + 4) == -571548178 )
+      v8 = RtlpHpHeapProtect(HeapHandle, v5);
     else
-      v8 = RtlpProtectHeap(a1, v5);
-    if ( v8 >= 0 && !a2 )
+      v8 = RtlpProtectHeap(HeapHandle, v5);
+    if ( v8 >= 0 && !MakeReadOnly )
     {
-      RtlpRemoveHeapFromProtectedList(a1);
-      RtlpAddHeapToUnprotectedList((__int64)a1);
+      RtlpRemoveHeapFromProtectedList(HeapHandle);
+      RtlpAddHeapToUnprotectedList((__int64)HeapHandle);
     }
-    if ( !--dword_180178D4C )
+    if ( !--RtlpProcessHeapsListLock.RecursionCount )
     {
-      qword_180178D50 = 0LL;
-      v9 = _InterlockedCompareExchange(&dword_180178D48, -1, -2);
-      if ( v9 != -2 )
+      RtlpProcessHeapsListLock.OwningThread = 0LL;
+      LockCount = _InterlockedCompareExchange(&RtlpProcessHeapsListLock.LockCount, -1, -2);
+      if ( LockCount != -2 )
       {
-        if ( (dword_180178D48 & 1) != 0 )
+        if ( (RtlpProcessHeapsListLock.LockCount & 1) != 0 )
           RtlpNotOwnerCriticalSection(&RtlpProcessHeapsListLock);
-        DeferredCriticalSectionEvent = qword_180178D58;
-        if ( !qword_180178D58 )
-          DeferredCriticalSectionEvent = RtlpCreateDeferredCriticalSectionEvent(&RtlpProcessHeapsListLock);
+        LockSemaphore = RtlpProcessHeapsListLock.LockSemaphore;
+        if ( !RtlpProcessHeapsListLock.LockSemaphore )
+          LockSemaphore = (void *)RtlpCreateDeferredCriticalSectionEvent(&RtlpProcessHeapsListLock);
         v11 = 0;
-        while ( v9 != _InterlockedCompareExchange(&dword_180178D48, (v9 & 2 | 1) + v9, v9) )
+        while ( LockCount != _InterlockedCompareExchange(
+                               &RtlpProcessHeapsListLock.LockCount,
+                               (LockCount & 2 | 1) + LockCount,
+                               LockCount) )
         {
           RtlBackoff(&v11);
-          _m_prefetchw(&dword_180178D48);
-          v9 = dword_180178D48;
+          _m_prefetchw(&RtlpProcessHeapsListLock.LockCount);
+          LockCount = RtlpProcessHeapsListLock.LockCount;
         }
-        if ( (v9 & 2) != 0 )
-          RtlpUnWaitCriticalSectionEx(&RtlpProcessHeapsListLock, DeferredCriticalSectionEvent);
+        if ( (LockCount & 2) != 0 )
+          RtlpUnWaitCriticalSectionEx(&RtlpProcessHeapsListLock, LockSemaphore);
       }
     }
   }

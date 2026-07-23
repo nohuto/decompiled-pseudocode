@@ -1,13 +1,13 @@
 /*
- * XREFs of VerifierExAllocatePoolWithQuota @ 0x1409253D0
+ * XREFs of VerifierExAllocatePoolWithQuota @ 0x1409263D0
  * Callers:
  *     <none>
  * Callees:
- *     RtlRaiseStatus @ 0x140128E90 (RtlRaiseStatus.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     ExAllocatePoolWithQuota @ 0x14031A460 (ExAllocatePoolWithQuota.c)
- *     VfCheckPoolType @ 0x1409275EC (VfCheckPoolType.c)
- *     VerifierBugCheckIfAppropriate @ 0x14092FD84 (VerifierBugCheckIfAppropriate.c)
+ *     RtlRaiseStatus @ 0x140128F60 (RtlRaiseStatus.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     ExAllocatePoolWithQuota @ 0x14031A650 (ExAllocatePoolWithQuota.c)
+ *     VfCheckPoolType @ 0x1409285EC (VfCheckPoolType.c)
+ *     VerifierBugCheckIfAppropriate @ 0x140930D84 (VerifierBugCheckIfAppropriate.c)
  */
 
 PVOID __fastcall VerifierExAllocatePoolWithQuota(__int64 PoolType, SIZE_T NumberOfBytes)
@@ -21,7 +21,7 @@ PVOID __fastcall VerifierExAllocatePoolWithQuota(__int64 PoolType, SIZE_T Number
   if ( (MmVerifierData & 0x400000) == 0 || (MmVerifierData & 1) != 0 )
   {
     VfCheckPoolType(PoolType, retaddr, 0LL);
-    ++dword_14041A99C;
+    ++dword_14041BA7C;
     if ( (MmVerifierData & 8) != 0 )
     {
       if ( KeGetCurrentThread()->ApcState.Process == PsIdleProcess )

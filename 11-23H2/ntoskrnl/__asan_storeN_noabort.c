@@ -1,9 +1,9 @@
 /*
- * XREFs of __asan_storeN_noabort @ 0x140567030
+ * XREFs of __asan_storeN_noabort @ 0x1405676F0
  * Callers:
  *     <none>
  * Callees:
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall _asan_storeN_noabort(ULONG_PTR BugCheckParameter1, ULONG_PTR BugCheckParameter2)

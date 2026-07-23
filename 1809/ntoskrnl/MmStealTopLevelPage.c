@@ -1,19 +1,19 @@
 /*
- * XREFs of MmStealTopLevelPage @ 0x14015DE84
+ * XREFs of MmStealTopLevelPage @ 0x14015DF84
  * Callers:
- *     KiSwapDirectoryTableBaseTarget @ 0x14015DD50 (KiSwapDirectoryTableBaseTarget.c)
+ *     KiSwapDirectoryTableBaseTarget @ 0x14015DE50 (KiSwapDirectoryTableBaseTarget.c)
  * Callees:
  *     MiPteInShadowRange @ 0x14003D740 (MiPteInShadowRange.c)
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
- *     MiUnlockWorkingSetExclusive @ 0x140063CE0 (MiUnlockWorkingSetExclusive.c)
- *     MiGetSharedVm @ 0x140064D30 (MiGetSharedVm.c)
- *     ExAcquireSpinLockExclusive @ 0x1400BC4E0 (ExAcquireSpinLockExclusive.c)
- *     KeFlushSingleTb @ 0x1400ECDF4 (KeFlushSingleTb.c)
- *     MiReplacePageTablePage @ 0x14011BE8C (MiReplacePageTablePage.c)
- *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
- *     KeMakeKernelDirectoryTableBase @ 0x14013CCBC (KeMakeKernelDirectoryTableBase.c)
- *     KeMakeUserDirectoryTableBase @ 0x14013CFA0 (KeMakeUserDirectoryTableBase.c)
+ *     MiUnlockWorkingSetExclusive @ 0x140063CD0 (MiUnlockWorkingSetExclusive.c)
+ *     MiGetSharedVm @ 0x140064D20 (MiGetSharedVm.c)
+ *     ExAcquireSpinLockExclusive @ 0x1400BC420 (ExAcquireSpinLockExclusive.c)
+ *     KeFlushSingleTb @ 0x1400ECE74 (KeFlushSingleTb.c)
+ *     MiReplacePageTablePage @ 0x14011BEFC (MiReplacePageTablePage.c)
+ *     MiWritePteShadow @ 0x140120F40 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120FA0 (MiPteHasShadow.c)
+ *     KeMakeKernelDirectoryTableBase @ 0x14013CDBC (KeMakeKernelDirectoryTableBase.c)
+ *     KeMakeUserDirectoryTableBase @ 0x14013D0A0 (KeMakeUserDirectoryTableBase.c)
  */
 
 __int64 __fastcall MmStealTopLevelPage(unsigned __int64 a1)
@@ -67,7 +67,7 @@ __int64 __fastcall MmStealTopLevelPage(unsigned __int64 a1)
     if ( (unsigned int)MiPteHasShadow() )
     {
       v12 = 1;
-      if ( HIBYTE(word_14043A1AC) )
+      if ( HIBYTE(word_14043B26C) )
         goto LABEL_5;
       v25 = (v11 & 1) == 0;
     }
@@ -89,7 +89,7 @@ LABEL_5:
       if ( (unsigned int)MiPteHasShadow() )
       {
         v15 = 1;
-        if ( HIBYTE(word_14043A1AC) )
+        if ( HIBYTE(word_14043B26C) )
           goto LABEL_8;
         v27 = (v13 & 1) == 0;
       }
@@ -121,7 +121,7 @@ LABEL_12:
       if ( (unsigned int)MiPteHasShadow() )
       {
         v19 = 1;
-        if ( HIBYTE(word_14043A1AC) )
+        if ( HIBYTE(word_14043B26C) )
           goto LABEL_15;
         v28 = (v18 & 1) == 0;
       }
@@ -146,7 +146,7 @@ LABEL_15:
     if ( (unsigned int)MiPteHasShadow() )
     {
       v22 = 1;
-      if ( !HIBYTE(word_14043A1AC) )
+      if ( !HIBYTE(word_14043B26C) )
       {
         v29 = (v23 & 1) == 0;
         goto LABEL_47;

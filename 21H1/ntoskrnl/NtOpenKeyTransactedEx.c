@@ -11,7 +11,12 @@
  *     CmpTransDereferenceTransaction @ 0x140656BF0 (CmpTransDereferenceTransaction.c)
  */
 
-__int64 __fastcall NtOpenKeyTransactedEx(HANDLE *a1, int a2, __int64 a3, unsigned int a4, HANDLE Handle)
+NTSTATUS __cdecl NtOpenKeyTransactedEx(
+        PHANDLE KeyHandle,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        ULONG OpenOptions,
+        HANDLE TransactionHandle)
 {
   struct _KTHREAD *CurrentThread; // rax
   BOOLEAN v10; // al
@@ -22,7 +27,7 @@ __int64 __fastcall NtOpenKeyTransactedEx(HANDLE *a1, int a2, __int64 a3, unsigne
   KPROCESSOR_MODE PreviousMode; // r9
   NTSTATUS v16; // eax
   __int64 v17; // rbx
-  int v18; // edi
+  NTSTATUS v18; // edi
   NTSTATUS v19; // eax
   __int64 v20; // rdx
   __int64 v21; // r8
@@ -37,18 +42,18 @@ __int64 __fastcall NtOpenKeyTransactedEx(HANDLE *a1, int a2, __int64 a3, unsigne
   if ( !v10 )
   {
     KeLeaveCriticalRegionThread((__int64)v14, v11, v12, v13);
-    return (unsigned int)-1073741431;
+    return -1073741431;
   }
   PreviousMode = v14->PreviousMode;
   Object = 0LL;
-  v16 = ObReferenceObjectByHandle(Handle, 4u, CmRegistryTransactionType, PreviousMode, &Object, 0LL);
+  v16 = ObReferenceObjectByHandle(TransactionHandle, 4u, CmRegistryTransactionType, PreviousMode, &Object, 0LL);
   v17 = (__int64)Object;
   v18 = v16;
   if ( v16 == -1073741788 )
   {
     v25 = 0LL;
     v19 = ObReferenceObjectByHandle(
-            Handle,
+            TransactionHandle,
             4u,
             (POBJECT_TYPE)TmTransactionObjectType,
             KeGetCurrentThread()->PreviousMode,
@@ -63,11 +68,11 @@ __int64 __fastcall NtOpenKeyTransactedEx(HANDLE *a1, int a2, __int64 a3, unsigne
     v17 = (unsigned __int64)Object | 1;
 LABEL_4:
     if ( v18 >= 0 )
-      v18 = CmOpenKey(a1, a2, a3, a4, v17);
+      v18 = CmOpenKey(KeyHandle, DesiredAccess, (__int64)ObjectAttributes, OpenOptions, v17);
   }
   if ( v17 )
     CmpTransDereferenceTransaction(v17);
   ExReleaseRundownProtection_0((PEX_RUNDOWN_REF)&CmpShutdownRundown);
   KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v20, v21, v22);
-  return (unsigned int)v18;
+  return v18;
 }

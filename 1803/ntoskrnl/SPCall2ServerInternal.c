@@ -1337,7 +1337,7 @@ LABEL_140:
                                                 SystemInformation = 8LL;
                                                 Acl = 0;
                                                 ZwQuerySystemInformation(
-                                                  MaxSystemInfoClass|SystemProcessInformation,
+                                                  SystemCodeIntegrityInformation,
                                                   &SystemInformation,
                                                   8u,
                                                   &ReturnLength);
@@ -1461,7 +1461,7 @@ LABEL_257:
                                                     v408 = 8LL;
                                                     v228 = 0;
                                                     ZwQuerySystemInformation(
-                                                      MaxSystemInfoClass|SystemProcessInformation,
+                                                      SystemCodeIntegrityInformation,
                                                       &v408,
                                                       8u,
                                                       &v397);
@@ -1979,7 +1979,7 @@ LABEL_498:
                                                 v410 = 8LL;
                                                 v292 = 0;
                                                 ZwQuerySystemInformation(
-                                                  MaxSystemInfoClass|SystemProcessInformation,
+                                                  SystemCodeIntegrityInformation,
                                                   &v410,
                                                   8u,
                                                   &v387);

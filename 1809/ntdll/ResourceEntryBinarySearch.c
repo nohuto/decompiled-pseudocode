@@ -3,7 +3,7 @@
  * Callers:
  *     LdrpSearchResourceSection_U @ 0x18003D2E8 (LdrpSearchResourceSection_U.c)
  * Callees:
- *     LdrpCompareResourceNamesWithValidation @ 0x18009EF7C (LdrpCompareResourceNamesWithValidation.c)
+ *     LdrpCompareResourceNamesWithValidation @ 0x18009EF8C (LdrpCompareResourceNamesWithValidation.c)
  */
 
 char __fastcall ResourceEntryBinarySearch(

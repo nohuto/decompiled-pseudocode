@@ -1,11 +1,11 @@
 /*
- * XREFs of KseQueryDeviceFlags @ 0x140534B30
+ * XREFs of KseQueryDeviceFlags @ 0x140535070
  * Callers:
  *     <none>
  * Callees:
- *     RtlInitUnicodeString @ 0x14002DC60 (RtlInitUnicodeString.c)
- *     KsepEvntLogFlagsApplied @ 0x14014A334 (KsepEvntLogFlagsApplied.c)
- *     KseQueryDeviceData @ 0x140534C50 (KseQueryDeviceData.c)
+ *     RtlInitUnicodeString @ 0x14002D7E0 (RtlInitUnicodeString.c)
+ *     KsepEvntLogFlagsApplied @ 0x14014A8A4 (KsepEvntLogFlagsApplied.c)
+ *     KseQueryDeviceData @ 0x140535190 (KseQueryDeviceData.c)
  */
 
 __int64 __fastcall KseQueryDeviceFlags(PCWSTR SourceString, PCWSTR a2, _QWORD *a3)
@@ -20,7 +20,7 @@ __int64 __fastcall KseQueryDeviceFlags(PCWSTR SourceString, PCWSTR a2, _QWORD *a
   int v14; // [rsp+A8h] [rbp+48h] BYREF
 
   v11 = 0LL;
-  if ( dword_140328EF4 != 2 || (KseEngine & 2) != 0 )
+  if ( dword_140328F34 != 2 || (KseEngine & 2) != 0 )
     return (unsigned int)-1073741275;
   if ( !SourceString || !a2 || !a3 )
     return (unsigned int)-1073741811;

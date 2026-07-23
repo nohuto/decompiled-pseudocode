@@ -1,13 +1,13 @@
 /*
- * XREFs of MiImageLoadConfigSize @ 0x140ACAD2C
+ * XREFs of MiImageLoadConfigSize @ 0x140ACCE3C
  * Callers:
- *     MiParseImageLoadConfig @ 0x1409CC9F0 (MiParseImageLoadConfig.c)
- *     MiCaptureImageHeaderFieldsForPeb @ 0x140ACAAB8 (MiCaptureImageHeaderFieldsForPeb.c)
+ *     MiParseImageLoadConfig @ 0x14099D9D0 (MiParseImageLoadConfig.c)
+ *     MiCaptureImageHeaderFieldsForPeb @ 0x140ACCBC8 (MiCaptureImageHeaderFieldsForPeb.c)
  * Callees:
- *     MmIsKernelAddress @ 0x1404579F0 (MmIsKernelAddress.c)
- *     MiModeCopyExceptionFilterEx @ 0x1404E5578 (MiModeCopyExceptionFilterEx.c)
- *     RtlReadULongFromUser @ 0x14077F590 (RtlReadULongFromUser.c)
- *     ExRaiseDatatypeMisalignment @ 0x1408F29F0 (ExRaiseDatatypeMisalignment.c)
+ *     MmIsKernelAddress @ 0x14044F260 (MmIsKernelAddress.c)
+ *     MiModeCopyExceptionFilterEx @ 0x1404DEB18 (MiModeCopyExceptionFilterEx.c)
+ *     RtlReadULongFromUser @ 0x140782090 (RtlReadULongFromUser.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408F8FB0 (ExRaiseDatatypeMisalignment.c)
  */
 
 __int64 __fastcall MiImageLoadConfigSize(

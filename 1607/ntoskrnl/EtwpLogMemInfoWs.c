@@ -1,19 +1,19 @@
 /*
- * XREFs of EtwpLogMemInfoWs @ 0x1406A1FFC
+ * XREFs of EtwpLogMemInfoWs @ 0x1406A2134
  * Callers:
- *     EtwpPerfMemInfoWork @ 0x1406A2848 (EtwpPerfMemInfoWork.c)
- *     EtwpLogMemInfoRundown @ 0x1406A6F80 (EtwpLogMemInfoRundown.c)
+ *     EtwpPerfMemInfoWork @ 0x1406A2980 (EtwpPerfMemInfoWork.c)
+ *     EtwpLogMemInfoRundown @ 0x1406A70B8 (EtwpLogMemInfoRundown.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14006ACD0 (ObfDereferenceObjectWithTag.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     ZwQuerySystemInformation @ 0x14015A340 (ZwQuerySystemInformation.c)
- *     memmove @ 0x140171280 (memmove.c)
+ *     ObfDereferenceObjectWithTag @ 0x14006A850 (ObfDereferenceObjectWithTag.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     ZwQuerySystemInformation @ 0x14015A8B0 (ZwQuerySystemInformation.c)
+ *     memmove @ 0x140171780 (memmove.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     PsGetNextProcess @ 0x140508FFC (PsGetNextProcess.c)
- *     SmProcessQueryStoreStats @ 0x14054C408 (SmProcessQueryStoreStats.c)
- *     EtwpLogMemInfoWsHelper @ 0x1406A2310 (EtwpLogMemInfoWsHelper.c)
- *     EtwpLogSessionWorkingSetInfo @ 0x1406A258C (EtwpLogSessionWorkingSetInfo.c)
+ *     PsGetNextProcess @ 0x1404EBF8C (PsGetNextProcess.c)
+ *     SmProcessQueryStoreStats @ 0x14054C948 (SmProcessQueryStoreStats.c)
+ *     EtwpLogMemInfoWsHelper @ 0x1406A2448 (EtwpLogMemInfoWsHelper.c)
+ *     EtwpLogSessionWorkingSetInfo @ 0x1406A26C4 (EtwpLogSessionWorkingSetInfo.c)
  */
 
 void __fastcall EtwpLogMemInfoWs(unsigned __int64 a1, unsigned __int64 a2)

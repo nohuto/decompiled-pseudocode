@@ -1,18 +1,18 @@
 /*
- * XREFs of PopCacheDisplayOnPhaseDuration @ 0x1404C8B4C
+ * XREFs of PopCacheDisplayOnPhaseDuration @ 0x1404C2000
  * Callers:
- *     PopSetWatchdog @ 0x140458BDC (PopSetWatchdog.c)
+ *     PopSetWatchdog @ 0x1402BC81C (PopSetWatchdog.c)
  * Callees:
- *     KeReleaseSpinLock @ 0x14024DD30 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140254B20 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KeReleaseSpinLock @ 0x14027E340 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140285130 (KeAcquireSpinLockRaiseToDpc.c)
  */
 
 void __fastcall PopCacheDisplayOnPhaseDuration(int a1, __int64 a2)
 {
   KIRQL v4; // al
 
-  v4 = KeAcquireSpinLockRaiseToDpc(&qword_140F0C178);
-  if ( dword_140F0C180 )
+  v4 = KeAcquireSpinLockRaiseToDpc(&qword_140F0B158);
+  if ( dword_140F0B160 )
   {
     switch ( a1 )
     {
@@ -20,12 +20,12 @@ void __fastcall PopCacheDisplayOnPhaseDuration(int a1, __int64 a2)
         PopDisplayOnPerformance = a2;
         break;
       case '@':
-        qword_140F0C168 = a2;
+        qword_140F0B148 = a2;
         break;
       case '0':
-        qword_140F0C170 = a2;
+        qword_140F0B150 = a2;
         break;
     }
   }
-  KeReleaseSpinLock(&qword_140F0C178, v4);
+  KeReleaseSpinLock(&qword_140F0B158, v4);
 }

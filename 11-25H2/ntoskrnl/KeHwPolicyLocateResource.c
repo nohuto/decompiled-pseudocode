@@ -10,7 +10,7 @@
 
 __int64 __fastcall KeHwPolicyLocateResource(__int64 a1, __int64 a2, wchar_t *a3, _QWORD *a4, __int64 *a5)
 {
-  __int64 v7; // rcx
+  unsigned __int64 v7; // rcx
   int *v10; // rdi
   int *i; // rbx
   __int64 v12; // rcx

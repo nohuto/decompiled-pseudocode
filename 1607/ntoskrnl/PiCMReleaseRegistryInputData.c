@@ -1,12 +1,12 @@
 /*
- * XREFs of PiCMReleaseRegistryInputData @ 0x1404F9E0C
+ * XREFs of PiCMReleaseRegistryInputData @ 0x1404DCD98
  * Callers:
- *     PiCMOpenDeviceKey @ 0x1404D6418 (PiCMOpenDeviceKey.c)
- *     PiCMOpenClassKey @ 0x1404E6B44 (PiCMOpenClassKey.c)
- *     PiCMOpenObjectKey @ 0x1404F9B40 (PiCMOpenObjectKey.c)
- *     PiCMOpenDeviceInterfaceKey @ 0x140647E10 (PiCMOpenDeviceInterfaceKey.c)
+ *     PiCMOpenDeviceKey @ 0x1404B9A1C (PiCMOpenDeviceKey.c)
+ *     PiCMOpenClassKey @ 0x1404C94B4 (PiCMOpenClassKey.c)
+ *     PiCMOpenObjectKey @ 0x1404DCACC (PiCMOpenObjectKey.c)
+ *     PiCMOpenDeviceInterfaceKey @ 0x140647EF4 (PiCMOpenDeviceInterfaceKey.c)
  * Callees:
- *     PiControlFreeUserModeCallersBuffer @ 0x1400C38B0 (PiControlFreeUserModeCallersBuffer.c)
+ *     PiControlFreeUserModeCallersBuffer @ 0x1400C1740 (PiControlFreeUserModeCallersBuffer.c)
  */
 
 __int64 __fastcall PiCMReleaseRegistryInputData(__int64 a1)

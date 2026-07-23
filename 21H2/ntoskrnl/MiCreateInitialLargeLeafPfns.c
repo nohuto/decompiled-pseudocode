@@ -1,10 +1,10 @@
 /*
  * XREFs of MiCreateInitialLargeLeafPfns @ 0x1403F63D4
  * Callers:
- *     MiCoalesceFreePages @ 0x140235CA0 (MiCoalesceFreePages.c)
- *     MiDeleteClusterSection @ 0x1403003E0 (MiDeleteClusterSection.c)
- *     MiInitializeUnusablePfns @ 0x1403B0FE0 (MiInitializeUnusablePfns.c)
- *     MxCreateFreePfns @ 0x140A43ECC (MxCreateFreePfns.c)
+ *     MiCoalesceFreePages @ 0x1402DA4F0 (MiCoalesceFreePages.c)
+ *     MiDeleteClusterSection @ 0x14030B130 (MiDeleteClusterSection.c)
+ *     MiInitializeUnusablePfns @ 0x1403B1150 (MiInitializeUnusablePfns.c)
+ *     MxCreateFreePfns @ 0x140A44ECC (MxCreateFreePfns.c)
  * Callees:
  *     <none>
  */
@@ -25,14 +25,14 @@ char __fastcall MiCreateInitialLargeLeafPfns(__int64 a1, __int64 a2, int a3, cha
   __int128 v18; // [rsp+10h] [rbp-28h] BYREF
   __m128i v19; // [rsp+20h] [rbp-18h] BYREF
 
-  v6 = (__m128i)xmmword_140C4E580;
+  v6 = (__m128i)xmmword_140C4E5C0;
   v8 = a1;
-  v9 = (__m128i)xmmword_140C4E590;
-  v19 = (__m128i)xmmword_140C4E5A0;
-  v10 = _mm_srli_si128((__m128i)xmmword_140C4E5A0, 8).m128i_u64[0];
+  v9 = (__m128i)xmmword_140C4E5D0;
+  v19 = (__m128i)xmmword_140C4E5E0;
+  v10 = _mm_srli_si128((__m128i)xmmword_140C4E5E0, 8).m128i_u64[0];
   v11 = MiLargePageSizes[a3];
   v19.m128i_i64[1] = (v10 ^ ((unsigned __int64)a5 << 39)) & 0x1FF8000000000LL ^ v10;
-  v18 = xmmword_140C4E590;
+  v18 = xmmword_140C4E5D0;
   v12 = (__m128i *)(48 * a1 - 0x58000000000LL);
   if ( a6 )
   {

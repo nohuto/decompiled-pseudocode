@@ -1,14 +1,14 @@
 /*
- * XREFs of IopIncrementVpbRefCount @ 0x14030F0A8
+ * XREFs of IopIncrementVpbRefCount @ 0x140319DF8
  * Callers:
- *     IopMountInitializeVpb @ 0x1402EE2C0 (IopMountInitializeVpb.c)
- *     IopReferenceVerifyVpb @ 0x140500FD4 (IopReferenceVerifyVpb.c)
- *     IopParseDevice @ 0x140700F60 (IopParseDevice.c)
- *     IoCreateStreamFileObjectEx2 @ 0x14071BF10 (IoCreateStreamFileObjectEx2.c)
+ *     IopMountInitializeVpb @ 0x14020DC90 (IopMountInitializeVpb.c)
+ *     IopReferenceVerifyVpb @ 0x140500F54 (IopReferenceVerifyVpb.c)
+ *     IoCreateStreamFileObjectEx2 @ 0x1406C9360 (IoCreateStreamFileObjectEx2.c)
+ *     IopParseDevice @ 0x140718340 (IopParseDevice.c)
  * Callees:
- *     IopInterlockedIncrementUlong @ 0x14030F0EC (IopInterlockedIncrementUlong.c)
- *     IoAddTriageDumpDataBlock @ 0x1403CC828 (IoAddTriageDumpDataBlock.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
+ *     IopInterlockedIncrementUlong @ 0x140319E3C (IopInterlockedIncrementUlong.c)
+ *     IoAddTriageDumpDataBlock @ 0x1403CC998 (IoAddTriageDumpDataBlock.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall IopIncrementVpbRefCount(ULONG_PTR BugCheckParameter2, char a2)

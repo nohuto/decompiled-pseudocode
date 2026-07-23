@@ -1,16 +1,16 @@
 /*
- * XREFs of RtlAnsiCharToUnicodeChar @ 0x14096CA60
+ * XREFs of RtlAnsiCharToUnicodeChar @ 0x14097D3A0
  * Callers:
- *     _safecrt_mbtowc @ 0x140536DF0 (_safecrt_mbtowc.c)
- *     toupper @ 0x140537D60 (toupper.c)
- *     _mbstrlen @ 0x14053A37C (_mbstrlen.c)
+ *     _safecrt_mbtowc @ 0x140539270 (_safecrt_mbtowc.c)
+ *     toupper @ 0x14053A1E0 (toupper.c)
+ *     _mbstrlen @ 0x14053C7FC (_mbstrlen.c)
  * Callees:
- *     PsGetCurrentServerSiloGlobals @ 0x1402150C0 (PsGetCurrentServerSiloGlobals.c)
- *     RtlpIsUtf8Process @ 0x14096CC40 (RtlpIsUtf8Process.c)
- *     RtlUTF8ToUnicodeN @ 0x14096D210 (RtlUTF8ToUnicodeN.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x1402153F0 (PsGetCurrentServerSiloGlobals.c)
+ *     RtlpIsUtf8Process @ 0x14097D580 (RtlpIsUtf8Process.c)
+ *     RtlUTF8ToUnicodeN @ 0x14097DB50 (RtlUTF8ToUnicodeN.c)
  */
 
-__int64 __fastcall RtlAnsiCharToUnicodeChar(const CHAR **a1)
+WCHAR __cdecl RtlAnsiCharToUnicodeChar(PUCHAR *SourceCharacter)
 {
   int v2; // esi
   struct _LIST_ENTRY *CurrentServerSiloGlobals; // rax
@@ -20,7 +20,7 @@ __int64 __fastcall RtlAnsiCharToUnicodeChar(const CHAR **a1)
   WCHAR *p_UnicodeStringDestination; // r8
   ULONG v8; // r10d
   const CHAR *v9; // r9
-  struct _CPTABLEINFO *p_Blink; // rdx
+  _CPTABLEINFO *p_Blink; // rdx
   unsigned __int16 *MultiByteTable; // r9
   __int64 v12; // r8
   WCHAR *v13; // rdx
@@ -28,8 +28,9 @@ __int64 __fastcall RtlAnsiCharToUnicodeChar(const CHAR **a1)
   unsigned __int16 *DBCSOffsets; // r11
   __int64 v17; // rcx
   __int64 v18; // rax
-  CHAR v19; // al
-  signed __int32 v20[8]; // [rsp+0h] [rbp-48h] BYREF
+  UCHAR v19; // al
+  unsigned __int8 *v20; // r9
+  signed __int32 v21[8]; // [rsp+0h] [rbp-48h] BYREF
   WCHAR UnicodeStringDestination; // [rsp+50h] [rbp+8h] BYREF
   ULONG UnicodeStringActualByteCount; // [rsp+58h] [rbp+10h] BYREF
 
@@ -37,31 +38,31 @@ __int64 __fastcall RtlAnsiCharToUnicodeChar(const CHAR **a1)
   v2 = 1;
   if ( (unsigned __int8)RtlpIsUtf8Process(0LL) )
   {
-    v4 = *a1;
-    v19 = **a1;
-    if ( (unsigned __int8)v19 < 0xC0u )
+    v4 = (const CHAR *)*SourceCharacter;
+    v19 = **SourceCharacter;
+    if ( v19 < 0xC0u )
       goto LABEL_3;
-    if ( (unsigned __int8)v19 < 0xE0u )
+    if ( v19 < 0xE0u )
     {
       UTF8StringByteCount = 2;
     }
-    else if ( (unsigned __int8)v19 < 0xF0u )
+    else if ( v19 < 0xF0u )
     {
       UTF8StringByteCount = 3;
     }
     else
     {
       UTF8StringByteCount = 1;
-      if ( (unsigned __int8)v19 < 0xF8u )
+      if ( v19 < 0xF8u )
         UTF8StringByteCount = 4;
     }
   }
   else
   {
-    _InterlockedOr(v20, 0);
+    _InterlockedOr(v21, 0);
     CurrentServerSiloGlobals = PsGetCurrentServerSiloGlobals();
-    v4 = *a1;
-    if ( !*((_WORD *)&CurrentServerSiloGlobals[73].Blink->Flink + *(unsigned __int8 *)*a1) )
+    v4 = (const CHAR *)*SourceCharacter;
+    if ( !*((_WORD *)&CurrentServerSiloGlobals[73].Blink->Flink + **SourceCharacter) )
     {
 LABEL_3:
       UTF8StringByteCount = 1;
@@ -79,12 +80,12 @@ LABEL_4:
   }
   else
   {
-    _InterlockedOr(v20, 0);
+    _InterlockedOr(v21, 0);
     v6 = PsGetCurrentServerSiloGlobals();
     p_UnicodeStringDestination = &UnicodeStringDestination;
     v8 = UTF8StringByteCount;
     v9 = v4;
-    p_Blink = (struct _CPTABLEINFO *)&v6[64].Blink;
+    p_Blink = (_CPTABLEINFO *)&v6[64].Blink;
     if ( v6 == (struct _LIST_ENTRY *)-1032LL )
     {
 LABEL_24:
@@ -110,9 +111,10 @@ LABEL_24:
           *p_UnicodeStringDestination = 0;
           break;
         }
+        v20 = (unsigned __int8 *)(v9 + 1);
         --v8;
-        *p_UnicodeStringDestination++ = DBCSOffsets[v18 + *((unsigned __int8 *)v9 + 1)];
-        v9 += 2;
+        *p_UnicodeStringDestination++ = DBCSOffsets[*v20 + v18];
+        v9 = (const CHAR *)(v20 + 1);
       }
       else
       {
@@ -139,6 +141,6 @@ LABEL_24:
     while ( v12 );
   }
 LABEL_11:
-  *a1 += UTF8StringByteCount;
+  *SourceCharacter += UTF8StringByteCount;
   return UnicodeStringDestination;
 }

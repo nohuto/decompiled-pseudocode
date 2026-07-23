@@ -8,56 +8,57 @@
  *     _ZwQueryValueKey@24 @ 0x4B2F2AD0 (_ZwQueryValueKey@24.c)
  */
 
-int __fastcall LdrpAppxGetBinaryNameKeyInformation(int a1, int *a2, int *a3)
+NTSTATUS __fastcall LdrpAppxGetBinaryNameKeyInformation(HANDLE KeyHandle, _DWORD *a2, _DWORD *a3)
 {
-  int v3; // ebx
-  int Heap; // edi
-  int ValueKey; // esi
-  _WORD v7[2]; // [esp+Ch] [ebp-14h] BYREF
-  const wchar_t *v8; // [esp+10h] [ebp-10h]
-  int *v9; // [esp+14h] [ebp-Ch]
-  int v10; // [esp+18h] [ebp-8h]
-  int v11; // [esp+1Ch] [ebp-4h] BYREF
+  _DWORD *v3; // ebx
+  _DWORD *Heap; // edi
+  NTSTATUS v5; // esi
+  SIZE_T v7; // [esp-4h] [ebp-24h]
+  _UNICODE_STRING ValueName; // [esp+Ch] [ebp-14h] BYREF
+  _DWORD *v9; // [esp+14h] [ebp-Ch]
+  HANDLE KeyHandlea; // [esp+18h] [ebp-8h]
+  ULONG ResultLength; // [esp+1Ch] [ebp-4h] BYREF
 
   v9 = a2;
-  v7[0] = 20;
-  v7[1] = 22;
+  ValueName.Length = 20;
+  ValueName.MaximumLength = 22;
   v3 = 0;
-  v10 = a1;
-  v8 = L"BinaryName";
+  KeyHandlea = KeyHandle;
+  ValueName.Buffer = L"BinaryName";
   Heap = 0;
-  ValueKey = ZwQueryValueKey(a1, (int)v7, 2, 0, 0, (int)&v11);
-  if ( ValueKey >= 0 )
-    ValueKey = -1073739509;
-  if ( ValueKey != -1073741789 )
+  v5 = ZwQueryValueKey(KeyHandle, &ValueName, KeyValuePartialInformation, 0, 0, &ResultLength);
+  if ( v5 >= 0 )
+    v5 = -1073739509;
+  if ( v5 != -1073741789 )
   {
 LABEL_13:
-    if ( ValueKey >= 0 )
+    if ( v5 >= 0 )
     {
       *v9 = v3;
       *a3 = Heap;
-      return ValueKey;
+      return v5;
     }
     goto LABEL_15;
   }
-  Heap = RtlAllocateHeap((int)NtCurrentPeb()->ProcessHeap, 8, v11);
+  LODWORD(v7) = ResultLength;
+  Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, v7);
   if ( !Heap )
     return -1073741801;
-  ValueKey = ZwQueryValueKey(v10, (int)v7, 2, Heap, v11, (int)&v11);
-  if ( ValueKey >= 0 )
+  v5 = ZwQueryValueKey(KeyHandlea, &ValueName, KeyValuePartialInformation, Heap, ResultLength, &ResultLength);
+  if ( v5 >= 0 )
   {
-    if ( *(_DWORD *)(Heap + 4) != 1 || *(_DWORD *)(Heap + 8) < 4u )
-      ValueKey = -1073739509;
-    if ( ValueKey >= 0 )
+    if ( Heap[1] != 1 || Heap[2] < 4u )
+      v5 = -1073739509;
+    if ( v5 >= 0 )
     {
-      v3 = Heap + 12;
-      if ( *(_WORD *)(Heap + 12 + 2 * (*(_DWORD *)(Heap + 8) >> 1) - 2) )
-        ValueKey = -1073739509;
+      v3 = Heap + 3;
+      if ( *((_WORD *)Heap + (Heap[2] >> 1) + 5) )
+        v5 = -1073739509;
       goto LABEL_13;
     }
   }
 LABEL_15:
   if ( Heap )
-    RtlFreeHeap((int)NtCurrentPeb()->ProcessHeap, 0, Heap);
-  return ValueKey;
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, Heap);
+  return v5;
 }

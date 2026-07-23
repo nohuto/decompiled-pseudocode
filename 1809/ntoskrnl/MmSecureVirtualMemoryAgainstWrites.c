@@ -1,20 +1,20 @@
 /*
- * XREFs of MmSecureVirtualMemoryAgainstWrites @ 0x140618664
+ * XREFs of MmSecureVirtualMemoryAgainstWrites @ 0x140619664
  * Callers:
- *     AlpcpPrepareViewForDelivery @ 0x140617954 (AlpcpPrepareViewForDelivery.c)
- *     AlpcpExposeViewAttributeInSenderContext @ 0x140617B88 (AlpcpExposeViewAttributeInSenderContext.c)
+ *     AlpcpPrepareViewForDelivery @ 0x140618954 (AlpcpPrepareViewForDelivery.c)
+ *     AlpcpExposeViewAttributeInSenderContext @ 0x140618B88 (AlpcpExposeViewAttributeInSenderContext.c)
  * Callees:
  *     KiStackAttachProcess @ 0x140016DB0 (KiStackAttachProcess.c)
  *     KiUnstackDetachProcess @ 0x140017190 (KiUnstackDetachProcess.c)
- *     MiUnlockAndDereferenceVad @ 0x140074550 (MiUnlockAndDereferenceVad.c)
- *     MiObtainReferencedVadEx @ 0x1400747E0 (MiObtainReferencedVadEx.c)
- *     MiVadMapsLargeImage @ 0x140074A10 (MiVadMapsLargeImage.c)
- *     MiSetReadOnlyOnSectionView @ 0x140085B00 (MiSetReadOnlyOnSectionView.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     MiAddSecureEntry @ 0x1405F3490 (MiAddSecureEntry.c)
- *     MiIsRangeFullyCommitted @ 0x140618858 (MiIsRangeFullyCommitted.c)
- *     MiCheckSecuredVad @ 0x140618974 (MiCheckSecuredVad.c)
- *     MiUnsecureVirtualMemoryAgainstWrites @ 0x1406ADEF4 (MiUnsecureVirtualMemoryAgainstWrites.c)
+ *     MiUnlockAndDereferenceVad @ 0x140074540 (MiUnlockAndDereferenceVad.c)
+ *     MiObtainReferencedVadEx @ 0x1400747D0 (MiObtainReferencedVadEx.c)
+ *     MiVadMapsLargeImage @ 0x140074A00 (MiVadMapsLargeImage.c)
+ *     MiSetReadOnlyOnSectionView @ 0x140085AF0 (MiSetReadOnlyOnSectionView.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     MiAddSecureEntry @ 0x1405F4490 (MiAddSecureEntry.c)
+ *     MiIsRangeFullyCommitted @ 0x140619858 (MiIsRangeFullyCommitted.c)
+ *     MiCheckSecuredVad @ 0x140619974 (MiCheckSecuredVad.c)
+ *     MiUnsecureVirtualMemoryAgainstWrites @ 0x1406AF194 (MiUnsecureVirtualMemoryAgainstWrites.c)
  */
 
 unsigned __int64 __fastcall MmSecureVirtualMemoryAgainstWrites(__int64 a1, __int64 a2, __int64 a3)
@@ -71,6 +71,6 @@ unsigned __int64 __fastcall MmSecureVirtualMemoryAgainstWrites(__int64 a1, __int
   if ( Process )
     KiUnstackDetachProcess((__int64)v16, 0LL);
   if ( v7 )
-    v7 ^= a1 ^ qword_14043A010;
+    v7 ^= a1 ^ qword_14043B0D0;
   return v7;
 }

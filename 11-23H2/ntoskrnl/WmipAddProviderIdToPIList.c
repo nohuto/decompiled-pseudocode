@@ -1,11 +1,11 @@
 /*
- * XREFs of WmipAddProviderIdToPIList @ 0x1406C6790
+ * XREFs of WmipAddProviderIdToPIList @ 0x1406C67C0
  * Callers:
- *     WmipPrepareWnodeSI @ 0x1406C64E4 (WmipPrepareWnodeSI.c)
- *     WmipPrepareForWnodeAD @ 0x1406C7EB0 (WmipPrepareForWnodeAD.c)
+ *     WmipPrepareWnodeSI @ 0x1406C6514 (WmipPrepareWnodeSI.c)
+ *     WmipPrepareForWnodeAD @ 0x1406C7EE0 (WmipPrepareForWnodeAD.c)
  * Callees:
- *     memmove @ 0x140435700 (memmove.c)
- *     WmipUnreferenceEntry @ 0x1406C6FE0 (WmipUnreferenceEntry.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     WmipUnreferenceEntry @ 0x1406C7010 (WmipUnreferenceEntry.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

@@ -1,17 +1,17 @@
 /*
- * XREFs of CcSetVacbLargeOffset @ 0x14006CBF0
+ * XREFs of CcSetVacbLargeOffset @ 0x14006C770
  * Callers:
- *     SetVacb @ 0x1400185FC (SetVacb.c)
- *     CcAdjustVacbLevelLockCount @ 0x14006CB4C (CcAdjustVacbLevelLockCount.c)
+ *     SetVacb @ 0x14001817C (SetVacb.c)
+ *     CcAdjustVacbLevelLockCount @ 0x14006C6CC (CcAdjustVacbLevelLockCount.c)
  * Callees:
- *     ExFreeToNPagedLookasideList @ 0x14000F4A4 (ExFreeToNPagedLookasideList.c)
- *     CcGetBcbListHeadLargeOffset @ 0x14006C720 (CcGetBcbListHeadLargeOffset.c)
- *     ReferenceVacbLevel @ 0x14006CED8 (ReferenceVacbLevel.c)
- *     VacbLevelReference @ 0x14006CEF8 (VacbLevelReference.c)
- *     CcFreeUnusedVacbLevels @ 0x14006D344 (CcFreeUnusedVacbLevels.c)
- *     CcAllocateVacbLevel @ 0x14006D398 (CcAllocateVacbLevel.c)
- *     CcAllocateVacbLevels @ 0x14006D910 (CcAllocateVacbLevels.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
+ *     ExFreeToNPagedLookasideList @ 0x14000F024 (ExFreeToNPagedLookasideList.c)
+ *     CcGetBcbListHeadLargeOffset @ 0x14006C2A0 (CcGetBcbListHeadLargeOffset.c)
+ *     ReferenceVacbLevel @ 0x14006CA58 (ReferenceVacbLevel.c)
+ *     VacbLevelReference @ 0x14006CA78 (VacbLevelReference.c)
+ *     CcFreeUnusedVacbLevels @ 0x14006CEC4 (CcFreeUnusedVacbLevels.c)
+ *     CcAllocateVacbLevel @ 0x14006CF18 (CcAllocateVacbLevel.c)
+ *     CcAllocateVacbLevels @ 0x14006D490 (CcAllocateVacbLevels.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
  */
 
 char __fastcall CcSetVacbLargeOffset(__int64 a1, __int64 a2, unsigned __int64 a3, _QWORD *a4)

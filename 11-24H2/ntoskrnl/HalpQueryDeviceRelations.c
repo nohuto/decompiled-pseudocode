@@ -1,22 +1,22 @@
 /*
- * XREFs of HalpQueryDeviceRelations @ 0x140A79080
+ * XREFs of HalpQueryDeviceRelations @ 0x140A73380
  * Callers:
- *     HalpDispatchPnp @ 0x140A78F20 (HalpDispatchPnp.c)
+ *     HalpDispatchPnp @ 0x140A73220 (HalpDispatchPnp.c)
  * Callees:
- *     PsReferenceSiloContext @ 0x14033FA90 (PsReferenceSiloContext.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     PsReferenceSiloContext @ 0x14031EF70 (PsReferenceSiloContext.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall HalpQueryDeviceRelations(_QWORD *a1, int a2, __int64 *a3)
 {
   __int64 v3; // rbx
   __int64 v6; // rbx
-  int v7; // edi
+  unsigned int v7; // edi
   __int64 v9; // rax
   __int64 v10; // rbx
   __int64 v11; // rax
-  _DWORD *Pool2; // rax
-  _DWORD *v13; // rsi
+  unsigned int *Pool2; // rax
+  unsigned int *v13; // rsi
   __int64 v14; // rdi
   void *v15; // rcx
 
@@ -37,7 +37,7 @@ __int64 __fastcall HalpQueryDeviceRelations(_QWORD *a1, int a2, __int64 *a3)
       ++v7;
     }
     while ( v11 );
-    Pool2 = (_DWORD *)ExAllocatePool2(0x100uLL);
+    Pool2 = (unsigned int *)ExAllocatePool2(0x100uLL, 16LL * v7, 0x706C6148u);
     v13 = Pool2;
     if ( Pool2 )
     {
@@ -59,7 +59,7 @@ __int64 __fastcall HalpQueryDeviceRelations(_QWORD *a1, int a2, __int64 *a3)
   }
   if ( a2 != 4 )
     return 3221225659LL;
-  v9 = ExAllocatePool2(0x100uLL);
+  v9 = ExAllocatePool2(0x100uLL, 0x10uLL, 0x706C6148u);
   v10 = v9;
   if ( !v9 )
     return 3221225626LL;

@@ -1,8 +1,8 @@
 /*
- * XREFs of PopPluginNotifyIdleState @ 0x1402045C8
+ * XREFs of PopPluginNotifyIdleState @ 0x1402043F4
  * Callers:
- *     PopPluginComponentIdleState @ 0x140130F90 (PopPluginComponentIdleState.c)
- *     PopPepStartComponentIdleStateChangeActivity @ 0x140131280 (PopPepStartComponentIdleStateChangeActivity.c)
+ *     PopPluginComponentIdleState @ 0x140131500 (PopPluginComponentIdleState.c)
+ *     PopPepStartComponentIdleStateChangeActivity @ 0x1401317F0 (PopPepStartComponentIdleStateChangeActivity.c)
  * Callees:
  *     <none>
  */

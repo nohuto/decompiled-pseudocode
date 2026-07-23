@@ -2,11 +2,11 @@
  * XREFs of CmSetCallbackObjectContext @ 0x14068F0A0
  * Callers:
  *     VrpPostOpenOrCreate @ 0x14068DF0C (VrpPostOpenOrCreate.c)
- *     VrpHandleIoctlInitializeJobForVreg @ 0x14077A068 (VrpHandleIoctlInitializeJobForVreg.c)
- *     VrpPreLoadKey @ 0x14077A444 (VrpPreLoadKey.c)
+ *     VrpHandleIoctlInitializeJobForVreg @ 0x14077A258 (VrpHandleIoctlInitializeJobForVreg.c)
+ *     VrpPreLoadKey @ 0x14077A634 (VrpPreLoadKey.c)
  * Callees:
- *     CmpInitializeThreadInfo @ 0x14022E640 (CmpInitializeThreadInfo.c)
- *     CmCleanupThreadInfo @ 0x14022E680 (CmCleanupThreadInfo.c)
+ *     CmpInitializeThreadInfo @ 0x14022E750 (CmpInitializeThreadInfo.c)
+ *     CmCleanupThreadInfo @ 0x14022E790 (CmCleanupThreadInfo.c)
  *     CmpLockContextListExclusive @ 0x14068F02C (CmpLockContextListExclusive.c)
  *     CmpUnlockContextList @ 0x14068F210 (CmpUnlockContextList.c)
  *     CmpUnlockCallbackList @ 0x14068F274 (CmpUnlockCallbackList.c)

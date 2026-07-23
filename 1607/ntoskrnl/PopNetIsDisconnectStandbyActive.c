@@ -1,8 +1,8 @@
 /*
- * XREFs of PopNetIsDisconnectStandbyActive @ 0x140673700
+ * XREFs of PopNetIsDisconnectStandbyActive @ 0x1406737E4
  * Callers:
- *     PopPowerInformationInternal @ 0x14051D314 (PopPowerInformationInternal.c)
- *     PopConnectedStandbySettingCallback @ 0x140547F5C (PopConnectedStandbySettingCallback.c)
+ *     PopPowerInformationInternal @ 0x140500704 (PopPowerInformationInternal.c)
+ *     PopConnectedStandbySettingCallback @ 0x14054849C (PopConnectedStandbySettingCallback.c)
  *     PopPdcCsCheckSystemVolumeDevice @ 0x1407BD360 (PopPdcCsCheckSystemVolumeDevice.c)
  * Callees:
  *     <none>

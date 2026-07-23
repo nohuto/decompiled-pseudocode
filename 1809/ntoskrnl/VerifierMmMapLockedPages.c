@@ -1,14 +1,14 @@
 /*
- * XREFs of VerifierMmMapLockedPages @ 0x140944A30
+ * XREFs of VerifierMmMapLockedPages @ 0x140945A30
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     VerifierBugCheckIfAppropriate @ 0x14092FD84 (VerifierBugCheckIfAppropriate.c)
- *     ViTargetAddToCounter @ 0x140934E3C (ViTargetAddToCounter.c)
- *     VfAllocPoolNotification @ 0x140937DDC (VfAllocPoolNotification.c)
- *     VfFaultsIsSystemSufficientlyBooted @ 0x140938444 (VfFaultsIsSystemSufficientlyBooted.c)
- *     ViMmMapLockedPagesSanityChecks @ 0x1409453E8 (ViMmMapLockedPagesSanityChecks.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     VerifierBugCheckIfAppropriate @ 0x140930D84 (VerifierBugCheckIfAppropriate.c)
+ *     ViTargetAddToCounter @ 0x140935E3C (ViTargetAddToCounter.c)
+ *     VfAllocPoolNotification @ 0x140938DDC (VfAllocPoolNotification.c)
+ *     VfFaultsIsSystemSufficientlyBooted @ 0x140939444 (VfFaultsIsSystemSufficientlyBooted.c)
+ *     ViMmMapLockedPagesSanityChecks @ 0x1409463E8 (ViMmMapLockedPagesSanityChecks.c)
  */
 
 __int64 __fastcall VerifierMmMapLockedPages(ULONG_PTR BugCheckParameter2, __int64 a2)

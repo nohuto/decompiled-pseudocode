@@ -1,17 +1,17 @@
 /*
- * XREFs of MiCleanSection @ 0x14016973C
+ * XREFs of MiCleanSection @ 0x14016983C
  * Callers:
- *     MiCheckControlArea @ 0x1400764A0 (MiCheckControlArea.c)
- *     MiAttemptSectionDelete @ 0x140122170 (MiAttemptSectionDelete.c)
+ *     MiCheckControlArea @ 0x140076490 (MiCheckControlArea.c)
+ *     MiAttemptSectionDelete @ 0x140122240 (MiAttemptSectionDelete.c)
  * Callees:
  *     MiFlushSectionInternal @ 0x14004C270 (MiFlushSectionInternal.c)
- *     MiInsertUnusedSegment @ 0x14007B5A0 (MiInsertUnusedSegment.c)
- *     ExAcquireSpinLockExclusive @ 0x1400BC4E0 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC660 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     MiDestroySection @ 0x1401697BC (MiDestroySection.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     MiRemoveWakeListEntry @ 0x1402A3210 (MiRemoveWakeListEntry.c)
- *     MiReturnCrossPartitionSectionCharges @ 0x1402C4CB4 (MiReturnCrossPartitionSectionCharges.c)
+ *     MiInsertUnusedSegment @ 0x14007B590 (MiInsertUnusedSegment.c)
+ *     ExAcquireSpinLockExclusive @ 0x1400BC420 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC5A0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiDestroySection @ 0x1401698BC (MiDestroySection.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiRemoveWakeListEntry @ 0x1402A3400 (MiRemoveWakeListEntry.c)
+ *     MiReturnCrossPartitionSectionCharges @ 0x1402C4EA4 (MiReturnCrossPartitionSectionCharges.c)
  */
 
 __int64 __fastcall MiCleanSection(__int64 a1, __int64 a2, char a3)
@@ -87,7 +87,7 @@ LABEL_15:
     *(_DWORD *)(a1 + 56) |= 0x40000u;
   inserted = 0LL;
   if ( v12 == 2 && (inserted = MiInsertUnusedSegment(a1)) != 0 )
-    v14 = *(_QWORD *)(qword_14043A748 + 8LL * (*(_WORD *)(a1 + 60) & 0x3FF));
+    v14 = *(_QWORD *)(qword_14043B808 + 8LL * (*(_WORD *)(a1 + 60) & 0x3FF));
   else
     v14 = 0LL;
   ExReleaseSpinLockExclusiveFromDpcLevel(v8);

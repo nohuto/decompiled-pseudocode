@@ -1,13 +1,13 @@
 /*
- * XREFs of _CmGetMatchingDeviceContainerList @ 0x14081A3A4
+ * XREFs of _CmGetMatchingDeviceContainerList @ 0x14081AAE4
  * Callers:
- *     _PnpDispatchDeviceContainer @ 0x1408B5FD0 (_PnpDispatchDeviceContainer.c)
+ *     _PnpDispatchDeviceContainer @ 0x1408B3940 (_PnpDispatchDeviceContainer.c)
  * Callees:
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     _PnpGetGenericObjectList @ 0x1408209CC (_PnpGetGenericObjectList.c)
- *     _PnpCtxGetCachedContextBaseKey @ 0x1408C7E7C (_PnpCtxGetCachedContextBaseKey.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     _PnpGetGenericObjectList @ 0x14082110C (_PnpGetGenericObjectList.c)
+ *     _PnpCtxGetCachedContextBaseKey @ 0x1408C58AC (_PnpCtxGetCachedContextBaseKey.c)
  */
 
 __int64 __fastcall CmGetMatchingDeviceContainerList(
@@ -50,7 +50,7 @@ __int64 __fastcall CmGetMatchingDeviceContainerList(
   v30 = a6;
   if ( v11 )
   {
-    v12 = guard_dispatch_icall_no_overrides(a1, 0LL, 5LL, 4LL);
+    v12 = guard_dispatch_icall_no_overrides(a1, 0LL);
     if ( v12 == -1073741822 )
     {
       v11 = 0LL;
@@ -79,7 +79,7 @@ __int64 __fastcall CmGetMatchingDeviceContainerList(
   if ( v11 )
   {
     v25[0] = CachedContextBaseKey;
-    v19 = guard_dispatch_icall_no_overrides(a1, 0LL, 5LL, 4LL);
+    v19 = guard_dispatch_icall_no_overrides(a1, 0LL);
     if ( v19 != -1073741822 )
     {
       if ( v19 != -1073741536 )

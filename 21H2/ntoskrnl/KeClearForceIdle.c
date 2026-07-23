@@ -1,13 +1,13 @@
 /*
- * XREFs of KeClearForceIdle @ 0x140522E78
+ * XREFs of KeClearForceIdle @ 0x1405230B8
  * Callers:
- *     PopDeepSleepSetDisengageReason @ 0x140281548 (PopDeepSleepSetDisengageReason.c)
+ *     PopDeepSleepSetDisengageReason @ 0x14026F788 (PopDeepSleepSetDisengageReason.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x14024B280 (KeYieldProcessorEx.c)
- *     KeRemoveQueueDpcEx @ 0x1402C8000 (KeRemoveQueueDpcEx.c)
+ *     KeRemoveQueueDpcEx @ 0x140246860 (KeRemoveQueueDpcEx.c)
+ *     KeYieldProcessorEx @ 0x1402EFAD0 (KeYieldProcessorEx.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     KiResetForceIdle @ 0x140523620 (KiResetForceIdle.c)
- *     KiSetForceIdleState @ 0x1405237A0 (KiSetForceIdleState.c)
+ *     KiResetForceIdle @ 0x140523860 (KiResetForceIdle.c)
+ *     KiSetForceIdleState @ 0x1405239E0 (KiSetForceIdleState.c)
  */
 
 char __fastcall KeClearForceIdle(__int64 a1, __int64 a2, __int64 a3, __int64 a4)

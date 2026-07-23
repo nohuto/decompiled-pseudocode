@@ -6,11 +6,14 @@
  *     <none>
  */
 
-__int64 NtOpenIoCompletion()
+NTSTATUS __cdecl NtOpenIoCompletion(
+        PHANDLE IoCompletionHandle,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 266LL;
+  result = 266;
   __asm { syscall; Low latency system call }
   return result;
 }

@@ -10,7 +10,7 @@
  *     RtlUnhandledExceptionFilter @ 0x1800F84F0 (RtlUnhandledExceptionFilter.c)
  */
 
-void __cdecl __noreturn _report_gsfailure(uintptr_t StackCookie)
+void __cdecl __noreturn _report_gsfailure(uintptr_t _StackCookie)
 {
   struct _IMAGE_RUNTIME_FUNCTION_ENTRY *FunctionEntry; // [rsp+40h] [rbp-48h]
   DWORD64 ControlPc; // [rsp+48h] [rbp-40h]
@@ -20,7 +20,7 @@ void __cdecl __noreturn _report_gsfailure(uintptr_t StackCookie)
   DWORD64 retaddr; // [rsp+88h] [rbp+0h]
   uintptr_t v7; // [rsp+90h] [rbp+8h] BYREF
 
-  v7 = StackCookie;
+  v7 = _StackCookie;
   RtlCaptureContext(&ContextRecord);
   ControlPc = ContextRecord.Rip;
   FunctionEntry = RtlLookupFunctionEntry(ContextRecord.Rip, &ImageBase, 0LL);
@@ -40,6 +40,6 @@ void __cdecl __noreturn _report_gsfailure(uintptr_t StackCookie)
   dword_180158E38 = 1;
   unk_180158E40 = 2LL;
   HandlerData[2] = (PVOID)qword_18016E4C8;
-  RtlUnhandledExceptionFilter(&off_180110AF8);
-  ZwTerminateProcess(-1LL, 3221226505LL);
+  RtlUnhandledExceptionFilter((PEXCEPTION_POINTERS)&ExceptionPointers);
+  ZwTerminateProcess((HANDLE)0xFFFFFFFFFFFFFFFFLL, -1073740791);
 }

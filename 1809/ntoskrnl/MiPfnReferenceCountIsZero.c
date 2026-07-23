@@ -13,19 +13,19 @@
  *     MiMigratePfn @ 0x14003C640 (MiMigratePfn.c)
  *     MiResolveProtoPteFault @ 0x140042E60 (MiResolveProtoPteFault.c)
  *     MiResolveDemandZeroFault @ 0x140046D50 (MiResolveDemandZeroFault.c)
- *     MiUnlockCodePage @ 0x14009C770 (MiUnlockCodePage.c)
- *     MmCheckCachedPageStates @ 0x1400B02B0 (MmCheckCachedPageStates.c)
- *     MiConvertStandbyToProto @ 0x14013EA50 (MiConvertStandbyToProto.c)
- *     MiMirrorPerformBrownWrites @ 0x140152394 (MiMirrorPerformBrownWrites.c)
- *     MiPurgeBadFileOnlyPages @ 0x1402B6620 (MiPurgeBadFileOnlyPages.c)
- *     MiNoPagesLastChance @ 0x1402C0520 (MiNoPagesLastChance.c)
- *     MiDeleteClusterPage @ 0x1402C622C (MiDeleteClusterPage.c)
- *     MiSwapHardFaultPage @ 0x1402CFF5C (MiSwapHardFaultPage.c)
+ *     MiUnlockCodePage @ 0x14009C6B0 (MiUnlockCodePage.c)
+ *     MmCheckCachedPageStates @ 0x1400B01F0 (MmCheckCachedPageStates.c)
+ *     MiConvertStandbyToProto @ 0x14013EB50 (MiConvertStandbyToProto.c)
+ *     MiMirrorPerformBrownWrites @ 0x140152494 (MiMirrorPerformBrownWrites.c)
+ *     MiPurgeBadFileOnlyPages @ 0x1402B6810 (MiPurgeBadFileOnlyPages.c)
+ *     MiNoPagesLastChance @ 0x1402C0710 (MiNoPagesLastChance.c)
+ *     MiDeleteClusterPage @ 0x1402C641C (MiDeleteClusterPage.c)
+ *     MiSwapHardFaultPage @ 0x1402D014C (MiSwapHardFaultPage.c)
  * Callees:
  *     MiInsertPageInFreeOrZeroedList @ 0x1400387F0 (MiInsertPageInFreeOrZeroedList.c)
  *     MiInsertPageInList @ 0x140039FD0 (MiInsertPageInList.c)
- *     MiReleasePageFileSpace @ 0x1400823A4 (MiReleasePageFileSpace.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     MiReleasePageFileSpace @ 0x140082394 (MiReleasePageFileSpace.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall MiPfnReferenceCountIsZero(ULONG_PTR a1, ULONG_PTR a2)
@@ -42,7 +42,7 @@ __int64 __fastcall MiPfnReferenceCountIsZero(ULONG_PTR a1, ULONG_PTR a2)
     if ( (v6 & 0x10) != 0 )
       *(_BYTE *)(a1 + 35) = v6 & 0xEF;
     MiReleasePageFileSpace(
-      *(_QWORD *)(qword_14043A748 + 8 * ((*(_QWORD *)(a1 + 40) >> 40) & 0x3FFLL)),
+      *(_QWORD *)(qword_14043B808 + 8 * ((*(_QWORD *)(a1 + 40) >> 40) & 0x3FFLL)),
       *(_QWORD *)(a1 + 16),
       1LL);
     return MiInsertPageInFreeOrZeroedList(a2);

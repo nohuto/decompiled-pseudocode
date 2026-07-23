@@ -1,9 +1,9 @@
 /*
- * XREFs of PpmOpenRegistryKey @ 0x1408F5DB4
+ * XREFs of PpmOpenRegistryKey @ 0x1408F5F14
  * Callers:
- *     PpmRegisterSpmSettings @ 0x1408F60F0 (PpmRegisterSpmSettings.c)
+ *     PpmRegisterSpmSettings @ 0x1408F6250 (PpmRegisterSpmSettings.c)
  * Callees:
- *     ZwOpenKey @ 0x1403FA5E0 (ZwOpenKey.c)
+ *     ZwOpenKey @ 0x1403FA7C0 (ZwOpenKey.c)
  */
 
 NTSTATUS __fastcall PpmOpenRegistryKey(UNICODE_STRING *a1, __int64 a2, __int64 a3, void *a4, PHANDLE KeyHandle)

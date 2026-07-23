@@ -1,14 +1,14 @@
 /*
- * XREFs of ?KiAddThreadToSchedulingGroup@@YAXPEAU_KTHREAD@@PEAU_KSCHEDULING_GROUP@@EPEAU_SINGLE_LIST_ENTRY@@@Z @ 0x140238460
+ * XREFs of ?KiAddThreadToSchedulingGroup@@YAXPEAU_KTHREAD@@PEAU_KSCHEDULING_GROUP@@EPEAU_SINGLE_LIST_ENTRY@@@Z @ 0x140239DC0
  * Callers:
- *     KiSetThreadSchedulingGroup @ 0x140203774 (KiSetThreadSchedulingGroup.c)
+ *     KiSetThreadSchedulingGroup @ 0x140203854 (KiSetThreadSchedulingGroup.c)
  * Callees:
- *     KiUpdateThreadSchedulingProperties @ 0x14020425C (KiUpdateThreadSchedulingProperties.c)
- *     KiActivateScb @ 0x140238544 (KiActivateScb.c)
- *     KiReleaseThreadStateLock @ 0x1402BA4C0 (KiReleaseThreadStateLock.c)
- *     KiInsertDeferredReadyList @ 0x1402BCC40 (KiInsertDeferredReadyList.c)
- *     KiAcquireThreadStateLockForWrite @ 0x1403322B0 (KiAcquireThreadStateLockForWrite.c)
- *     KiRemoveThreadFromSharedReadyQueue @ 0x140336150 (KiRemoveThreadFromSharedReadyQueue.c)
+ *     KiUpdateThreadSchedulingProperties @ 0x14020433C (KiUpdateThreadSchedulingProperties.c)
+ *     KiActivateScb @ 0x140239EA4 (KiActivateScb.c)
+ *     KiReleaseThreadStateLock @ 0x140305180 (KiReleaseThreadStateLock.c)
+ *     KiInsertDeferredReadyList @ 0x140307900 (KiInsertDeferredReadyList.c)
+ *     KiAcquireThreadStateLockForWrite @ 0x1403342E0 (KiAcquireThreadStateLockForWrite.c)
+ *     KiRemoveThreadFromSharedReadyQueue @ 0x140338180 (KiRemoveThreadFromSharedReadyQueue.c)
  */
 
 void __fastcall KiAddThreadToSchedulingGroup(

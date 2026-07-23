@@ -1,9 +1,9 @@
 /*
- * XREFs of SdbpCleanupUserSDBCache @ 0x14095CD4C
+ * XREFs of SdbpCleanupUserSDBCache @ 0x14094480C
  * Callers:
- *     SdbReleaseDatabase @ 0x14095CC2C (SdbReleaseDatabase.c)
+ *     SdbReleaseDatabase @ 0x1409446EC (SdbReleaseDatabase.c)
  * Callees:
- *     SdbpRemoveSDBLookupEntry @ 0x14095BD88 (SdbpRemoveSDBLookupEntry.c)
+ *     SdbpRemoveSDBLookupEntry @ 0x140943848 (SdbpRemoveSDBLookupEntry.c)
  */
 
 void __fastcall SdbpCleanupUserSDBCache(__int64 a1)

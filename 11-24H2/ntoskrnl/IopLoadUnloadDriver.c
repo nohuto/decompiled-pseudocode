@@ -1,78 +1,79 @@
 /*
- * XREFs of IopLoadUnloadDriver @ 0x1409C7700
+ * XREFs of IopLoadUnloadDriver @ 0x140A66EE0
  * Callers:
- *     IopCompleteUnloadOrDelete @ 0x1403F2590 (IopCompleteUnloadOrDelete.c)
- *     IopLoadDriverImage @ 0x1404E691C (IopLoadDriverImage.c)
+ *     IopCompleteUnloadOrDelete @ 0x1403E62B0 (IopCompleteUnloadOrDelete.c)
+ *     IopLoadDriverImage @ 0x1404DD018 (IopLoadDriverImage.c)
  * Callees:
- *     KeSetEvent @ 0x1402725A0 (KeSetEvent.c)
- *     ObfDereferenceObject @ 0x140325680 (ObfDereferenceObject.c)
- *     IopInterlockedRemoveHeadList @ 0x1404AB360 (IopInterlockedRemoveHeadList.c)
- *     VfIsVerifierEnabled @ 0x1404BC290 (VfIsVerifierEnabled.c)
- *     VfDriverProcessUnload @ 0x14061105C (VfDriverProcessUnload.c)
- *     DifIsPluginRunningWithoutReboot @ 0x1406188DC (DifIsPluginRunningWithoutReboot.c)
- *     ZwOpenKey @ 0x1406A6650 (ZwOpenKey.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     IopLoadDriver @ 0x1409C90C0 (IopLoadDriver.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     KeSetEvent @ 0x140227B30 (KeSetEvent.c)
+ *     ObfDereferenceObject @ 0x1402CE210 (ObfDereferenceObject.c)
+ *     IopInterlockedRemoveHeadList @ 0x1404A5984 (IopInterlockedRemoveHeadList.c)
+ *     VfIsVerifierEnabled @ 0x1404B71A0 (VfIsVerifierEnabled.c)
+ *     VfDriverProcessUnload @ 0x14060F61C (VfDriverProcessUnload.c)
+ *     DifIsPluginRunningWithoutReboot @ 0x140616E9C (DifIsPluginRunningWithoutReboot.c)
+ *     ZwOpenKey @ 0x1406A75F0 (ZwOpenKey.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     IopLoadDriver @ 0x1409B6EEC (IopLoadDriver.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
-LONG __fastcall IopLoadUnloadDriver(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+LONG __fastcall IopLoadUnloadDriver(__int64 a1, __int64 a2)
 {
-  __int64 v5; // rcx
-  UNICODE_STRING *v6; // rax
-  NTSTATUS Driver; // ebx
-  PVOID *v9; // rax
-  __int64 v10; // r9
-  PVOID *v11; // rsi
+  __int64 v3; // rcx
+  UNICODE_STRING *v4; // rax
+  int v5; // ebx
+  PVOID *v7; // rax
+  PVOID *v8; // rsi
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+20h] [rbp-30h] BYREF
+  int v10; // [rsp+70h] [rbp+20h] BYREF
   HANDLE KeyHandle; // [rsp+78h] [rbp+28h] BYREF
 
-  v5 = *(_QWORD *)(a1 + 56);
+  v10 = 0;
+  v3 = *(_QWORD *)(a1 + 56);
   KeyHandle = 0LL;
-  if ( v5 )
+  if ( v3 )
   {
-    guard_dispatch_icall_no_overrides(v5, a2, a3, a4);
+    guard_dispatch_icall_no_overrides(v3, a2);
     if ( (unsigned int)VfIsVerifierEnabled() || DifIsPluginRunningWithoutReboot() )
       VfDriverProcessUnload(*(_QWORD *)(a1 + 56));
-    Driver = 0;
+    v5 = 0;
   }
   else
   {
     memset(&ObjectAttributes.Attributes + 1, 0, 20);
     ObjectAttributes.RootDirectory = 0LL;
-    v6 = *(UNICODE_STRING **)(a1 + 64);
+    v4 = *(UNICODE_STRING **)(a1 + 64);
     *(_QWORD *)&ObjectAttributes.Length = 48LL;
     ObjectAttributes.Attributes = 576;
-    ObjectAttributes.ObjectName = v6;
-    Driver = ZwOpenKey(&KeyHandle, 0x20019u, &ObjectAttributes);
-    if ( Driver >= 0 )
+    ObjectAttributes.ObjectName = v4;
+    v5 = ZwOpenKey(&KeyHandle, 0x20019u, &ObjectAttributes);
+    if ( v5 >= 0 )
     {
-      Driver = IopLoadDriver(KeyHandle);
-      if ( Driver == -1073740955 )
+      v5 = IopLoadDriver(KeyHandle, 1, 0, &v10);
+      if ( v5 == -1073740955 )
       {
-        Driver = 0;
+        v5 = v10;
       }
-      else if ( Driver == -1073740914 )
+      else if ( v5 == -1073740914 )
       {
-        Driver = -1073741772;
+        v5 = -1073741772;
       }
       if ( IopInitSystemCompletedEnoughForReInitRoutines )
       {
         while ( 1 )
         {
-          v9 = (PVOID *)IopInterlockedRemoveHeadList((_QWORD **)&IopDriverReinitializeQueueHead);
-          v11 = v9;
-          if ( !v9 )
+          v7 = (PVOID *)IopInterlockedRemoveHeadList((_QWORD **)&IopDriverReinitializeQueueHead);
+          v8 = v7;
+          if ( !v7 )
             break;
-          ++*(_DWORD *)(*((_QWORD *)v9[2] + 6) + 16LL);
-          *((_DWORD *)v9[2] + 4) &= ~8u;
-          guard_dispatch_icall_no_overrides(v9[2], v9[4], *(unsigned int *)(*((_QWORD *)v9[2] + 6) + 16LL), v10);
-          ObfDereferenceObject(v11[2]);
-          ExFreePoolWithTag(v11, 0);
+          ++*(_DWORD *)(*((_QWORD *)v7[2] + 6) + 16LL);
+          *((_DWORD *)v7[2] + 4) &= ~8u;
+          guard_dispatch_icall_no_overrides(v7[2], v7[4]);
+          ObfDereferenceObject(v8[2]);
+          ExFreePoolWithTag(v8, 0);
         }
       }
     }
   }
-  *(_DWORD *)(a1 + 72) = Driver;
+  *(_DWORD *)(a1 + 72) = v5;
   return KeSetEvent((PRKEVENT)(a1 + 32), 0, 0);
 }

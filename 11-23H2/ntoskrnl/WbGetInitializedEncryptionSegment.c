@@ -1,19 +1,19 @@
 /*
- * XREFs of WbGetInitializedEncryptionSegment @ 0x1407D2280
+ * XREFs of WbGetInitializedEncryptionSegment @ 0x1407D2550
  * Callers:
- *     WbReEncryptEncryptionSegment @ 0x1407D1EE4 (WbReEncryptEncryptionSegment.c)
- *     WbDecryptEncryptionSegment @ 0x1407D1FC4 (WbDecryptEncryptionSegment.c)
+ *     WbReEncryptEncryptionSegment @ 0x1407D21B4 (WbReEncryptEncryptionSegment.c)
+ *     WbDecryptEncryptionSegment @ 0x1407D2294 (WbDecryptEncryptionSegment.c)
  * Callees:
- *     KeAbPreAcquire @ 0x140230EE0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1402BD960 (ExfTryToWakePushLock.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1402FCE10 (ExfAcquirePushLockExclusiveEx.c)
- *     KiCheckForKernelApcDelivery @ 0x14030F820 (KiCheckForKernelApcDelivery.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     WbGetWarbirdEncryptionSegment @ 0x1407D2410 (WbGetWarbirdEncryptionSegment.c)
- *     sub_1407D2580 @ 0x1407D2580 (sub_1407D2580.c)
- *     WbValidateEncryptionSegmentArguments @ 0x1407D260C (WbValidateEncryptionSegmentArguments.c)
- *     WbInitializeEncryptionSegment @ 0x1407D28F8 (WbInitializeEncryptionSegment.c)
+ *     KeAbPreAcquire @ 0x140230FD0 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     ExfTryToWakePushLock @ 0x1402BDBF0 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402FD0A0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KiCheckForKernelApcDelivery @ 0x14030FAB0 (KiCheckForKernelApcDelivery.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     WbGetWarbirdEncryptionSegment @ 0x1407D26E0 (WbGetWarbirdEncryptionSegment.c)
+ *     sub_1407D2850 @ 0x1407D2850 (sub_1407D2850.c)
+ *     WbValidateEncryptionSegmentArguments @ 0x1407D28DC (WbValidateEncryptionSegmentArguments.c)
+ *     WbInitializeEncryptionSegment @ 0x1407D2BC8 (WbInitializeEncryptionSegment.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 
@@ -87,7 +87,7 @@ LABEL_16:
     v7 = 0LL;
   }
 LABEL_19:
-  sub_1407D2580(v7);
+  sub_1407D2850(v7);
   if ( P[1] )
     ExFreePoolWithTag(P[1], 0);
   return (unsigned int)WarbirdEncryptionSegment;

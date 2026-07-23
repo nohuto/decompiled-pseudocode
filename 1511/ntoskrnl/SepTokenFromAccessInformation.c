@@ -58,13 +58,22 @@ __int64 __fastcall SepTokenFromAccessInformation(__int64 a1, __int64 a2)
   }
   *(_DWORD *)(a2 + 124) = **(_DWORD **)a1;
   *(_QWORD *)(a2 + 152) = *(_QWORD *)(*(_QWORD *)a1 + 8LL);
-  RtlSidHashInitialize(*(__int64 **)(*(_QWORD *)a1 + 8LL), **(_DWORD **)a1, (_QWORD *)(a2 + 232));
+  RtlSidHashInitialize(
+    *(PSID_AND_ATTRIBUTES *)(*(_QWORD *)a1 + 8LL),
+    **(_DWORD **)a1,
+    (PSID_AND_ATTRIBUTES_HASH)(a2 + 232));
   *(_DWORD *)(a2 + 128) = **(_DWORD **)(a1 + 8);
   *(_QWORD *)(a2 + 160) = *(_QWORD *)(*(_QWORD *)(a1 + 8) + 8LL);
-  RtlSidHashInitialize(*(__int64 **)(*(_QWORD *)(a1 + 8) + 8LL), **(_DWORD **)(a1 + 8), (_QWORD *)(a2 + 504));
+  RtlSidHashInitialize(
+    *(PSID_AND_ATTRIBUTES *)(*(_QWORD *)(a1 + 8) + 8LL),
+    **(_DWORD **)(a1 + 8),
+    (PSID_AND_ATTRIBUTES_HASH)(a2 + 504));
   *(_DWORD *)(a2 + 800) = **(_DWORD **)(a1 + 64);
   *(_QWORD *)(a2 + 792) = *(_QWORD *)(*(_QWORD *)(a1 + 64) + 8LL);
-  RtlSidHashInitialize(*(__int64 **)(*(_QWORD *)(a1 + 64) + 8LL), **(_DWORD **)(a1 + 64), (_QWORD *)(a2 + 808));
+  RtlSidHashInitialize(
+    *(PSID_AND_ATTRIBUTES *)(*(_QWORD *)(a1 + 64) + 8LL),
+    **(_DWORD **)(a1 + 64),
+    (PSID_AND_ATTRIBUTES_HASH)(a2 + 808));
   v11 = *(_QWORD *)(a1 + 56);
   if ( v11 )
     *(_QWORD *)(a2 + 784) = v11;

@@ -1,12 +1,12 @@
 /*
- * XREFs of MiLockControlAreaFileObjectExclusive @ 0x1403167F4
+ * XREFs of MiLockControlAreaFileObjectExclusive @ 0x140318824
  * Callers:
- *     MmMapViewInSystemCache @ 0x1402E29A0 (MmMapViewInSystemCache.c)
- *     MiPostInsertVad @ 0x140316744 (MiPostInsertVad.c)
+ *     MmMapViewInSystemCache @ 0x1402C4A60 (MmMapViewInSystemCache.c)
+ *     MiPostInsertVad @ 0x140318774 (MiPostInsertVad.c)
  * Callees:
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
  */
 
 void __fastcall MiLockControlAreaFileObjectExclusive(__int64 a1, __int64 a2, __int64 a3, struct _KLOCK_ENTRIES *a4)

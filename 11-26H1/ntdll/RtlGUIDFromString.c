@@ -1,33 +1,33 @@
 /*
- * XREFs of RtlGUIDFromString @ 0x1800C29A0
+ * XREFs of RtlGUIDFromString @ 0x1800C0070
  * Callers:
- *     RtlQueryPackageClaims @ 0x1800C24B0 (RtlQueryPackageClaims.c)
- *     RtlRaiseCustomSystemEventTrigger @ 0x1801493F0 (RtlRaiseCustomSystemEventTrigger.c)
+ *     RtlQueryPackageClaims @ 0x1800BFB80 (RtlQueryPackageClaims.c)
+ *     RtlRaiseCustomSystemEventTrigger @ 0x1801492A0 (RtlRaiseCustomSystemEventTrigger.c)
  * Callees:
- *     ScanHexFormat @ 0x1800C2AA0 (ScanHexFormat.c)
- *     __security_check_cookie @ 0x180162C90 (__security_check_cookie.c)
+ *     ScanHexFormat @ 0x1800C0170 (ScanHexFormat.c)
+ *     __security_check_cookie @ 0x180162B90 (__security_check_cookie.c)
  */
 
-__int64 __fastcall RtlGUIDFromString(unsigned __int16 *a1, _BYTE *a2)
+NTSTATUS __cdecl RtlGUIDFromString(PUNICODE_STRING GuidString, PGUID Guid)
 {
-  _BYTE *v2; // r8
-  _BYTE *v4; // rax
-  unsigned int v5; // edx
-  __int64 v6; // rcx
+  unsigned __int16 *p_Data2; // r8
+  unsigned __int16 *p_Data3; // rax
+  unsigned int Length; // edx
+  wchar_t *Buffer; // rcx
   __int128 v8; // [rsp+70h] [rbp-28h] BYREF
 
-  v2 = a2 + 4;
-  v4 = a2 + 6;
-  v5 = *a1;
-  v6 = *((_QWORD *)a1 + 1);
+  p_Data2 = &Guid->Data2;
+  p_Data3 = &Guid->Data3;
+  Length = GuidString->Length;
+  Buffer = GuidString->Buffer;
   v8 = 0LL;
   if ( (unsigned int)ScanHexFormat(
-                       v6,
-                       v5 >> 1,
+                       Buffer,
+                       Length >> 1,
                        L"{%08lx-%04x-%04x-%02x%02x-%02x%02x%02x%02x%02x%02x}",
-                       a2,
-                       v2,
-                       v4,
+                       Guid,
+                       p_Data2,
+                       p_Data3,
                        &v8,
                        (char *)&v8 + 2,
                        (char *)&v8 + 4,
@@ -36,14 +36,14 @@ __int64 __fastcall RtlGUIDFromString(unsigned __int16 *a1, _BYTE *a2)
                        (char *)&v8 + 10,
                        (char *)&v8 + 12,
                        (char *)&v8 + 14) == -1 )
-    return 3221225485LL;
-  a2[8] = v8;
-  a2[9] = BYTE2(v8);
-  a2[10] = BYTE4(v8);
-  a2[11] = BYTE6(v8);
-  a2[12] = BYTE8(v8);
-  a2[13] = BYTE10(v8);
-  a2[14] = BYTE12(v8);
-  a2[15] = BYTE14(v8);
-  return 0LL;
+    return -1073741811;
+  Guid->Data4[0] = v8;
+  Guid->Data4[1] = BYTE2(v8);
+  Guid->Data4[2] = BYTE4(v8);
+  Guid->Data4[3] = BYTE6(v8);
+  Guid->Data4[4] = BYTE8(v8);
+  Guid->Data4[5] = BYTE10(v8);
+  Guid->Data4[6] = BYTE12(v8);
+  Guid->Data4[7] = BYTE14(v8);
+  return 0;
 }

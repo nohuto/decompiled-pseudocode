@@ -1,22 +1,22 @@
 /*
- * XREFs of MiGetPerfectColorHeadPage @ 0x140289A30
+ * XREFs of MiGetPerfectColorHeadPage @ 0x140288F90
  * Callers:
- *     MiGetBestPageFromNode @ 0x140288750 (MiGetBestPageFromNode.c)
- *     MiRemovePageAnyColor @ 0x14028A000 (MiRemovePageAnyColor.c)
+ *     MiGetBestPageFromNode @ 0x140287CB0 (MiGetBestPageFromNode.c)
+ *     MiRemovePageAnyColor @ 0x140289560 (MiRemovePageAnyColor.c)
  * Callees:
- *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x14021AAD4 (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     MiColorGetCache @ 0x140289A00 (MiColorGetCache.c)
- *     MiReplenishPageSlist @ 0x14028A710 (MiReplenishPageSlist.c)
- *     MiUnlinkFreeOrZeroedPage @ 0x14028C8F4 (MiUnlinkFreeOrZeroedPage.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402DED10 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     MiIssuePageHeatList @ 0x1402F383C (MiIssuePageHeatList.c)
- *     ExTryAcquireSpinLockExclusiveAtDpcLevel @ 0x140416FD0 (ExTryAcquireSpinLockExclusiveAtDpcLevel.c)
- *     MiAddPageToHeatRanges @ 0x140491458 (MiAddPageToHeatRanges.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x14021C464 (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     MiColorGetCache @ 0x140288F60 (MiColorGetCache.c)
+ *     MiReplenishPageSlist @ 0x140289C70 (MiReplenishPageSlist.c)
+ *     MiUnlinkFreeOrZeroedPage @ 0x14028BE54 (MiUnlinkFreeOrZeroedPage.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402C0B20 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     MiIssuePageHeatList @ 0x1402D58BC (MiIssuePageHeatList.c)
+ *     ExTryAcquireSpinLockExclusiveAtDpcLevel @ 0x14040B5E0 (ExTryAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     MiAddPageToHeatRanges @ 0x14048AFA8 (MiAddPageToHeatRanges.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall MiGetPerfectColorHeadPage(__int64 *a1)
@@ -90,7 +90,7 @@ __int64 __fastcall MiGetPerfectColorHeadPage(__int64 *a1)
           KiRaiseIrqlProcessIrqlFlags(CurrentIrql, v15);
           LODWORD(v15) = v3 & 2;
         }
-        if ( v12 <= qword_140E2D7A0 && (*(_QWORD *)(v14 + 40) & 0x40000000000000LL) != 0 )
+        if ( v12 <= qword_140E2D920 && (*(_QWORD *)(v14 + 40) & 0x40000000000000LL) != 0 )
           break;
         if ( KiIrqlFlags )
           KiLowerIrqlProcessIrqlFlags(KeGetCurrentIrql(), CurrentIrql);
@@ -167,11 +167,11 @@ LABEL_10:
       if ( (v19 & 0x30000) == 0x30000 && (v19 & 0xC0000) == 0x40000 && *(_QWORD *)v11 != 0x3FFFFFFFFFLL )
       {
         LODWORD(v24[0]) = 129;
-        if ( (stru_140E36558.WaitRegister.Flags & 1) != 0 )
+        if ( (stru_140E366D8.WaitRegister.Flags & 1) != 0 )
         {
           v20 = *(_QWORD *)(v14 + 16);
-          if ( qword_140E2D740 && (v20 & 0x10) == 0 )
-            HIDWORD(v20) &= HIDWORD(qword_140E2D748);
+          if ( qword_140E2D8C0 && (v20 & 0x10) == 0 )
+            HIDWORD(v20) &= HIDWORD(qword_140E2D8C8);
           if ( HIDWORD(v20) == -3 && (unsigned int)MiAddPageToHeatRanges(v24, v12, 3LL) )
             MiIssuePageHeatList(v24);
         }
@@ -180,7 +180,7 @@ LABEL_10:
           MiIssuePageHeatList(v24);
       }
     }
-    if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+    if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || PopHibernateInProgress )
       *(_DWORD *)(v11 + 32) = 0;
     else
       ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented((_DWORD *)(v11 + 32), retaddr);

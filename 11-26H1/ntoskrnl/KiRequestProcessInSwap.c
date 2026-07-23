@@ -1,13 +1,13 @@
 /*
- * XREFs of KiRequestProcessInSwap @ 0x1402C6AEC
+ * XREFs of KiRequestProcessInSwap @ 0x14031178C
  * Callers:
- *     KiInswapAndReadyThread @ 0x1402C6944 (KiInswapAndReadyThread.c)
- *     KiReadyOutSwappedThreads @ 0x14037B7C4 (KiReadyOutSwappedThreads.c)
+ *     KiInswapAndReadyThread @ 0x1403115E4 (KiInswapAndReadyThread.c)
+ *     KiReadyOutSwappedThreads @ 0x14037D574 (KiReadyOutSwappedThreads.c)
  * Callees:
- *     HvlNotifyLongSpinWait @ 0x1402BBF00 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1402BC760 (KiCheckVpBackingLongSpinWaitHypercall.c)
- *     MmNotifyProcessInSwapTrigger @ 0x1402C7BAC (MmNotifyProcessInSwapTrigger.c)
- *     KeSetEvent @ 0x1402DE9C0 (KeSetEvent.c)
+ *     KeSetEvent @ 0x1402C0780 (KeSetEvent.c)
+ *     HvlNotifyLongSpinWait @ 0x140306BC0 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140307420 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     MmNotifyProcessInSwapTrigger @ 0x14031284C (MmNotifyProcessInSwapTrigger.c)
  */
 
 char __fastcall KiRequestProcessInSwap(__int64 a1, __int64 a2)
@@ -16,9 +16,9 @@ char __fastcall KiRequestProcessInSwap(__int64 a1, __int64 a2)
   unsigned int v5; // esi
   _QWORD *v6; // rcx
   _QWORD *v7; // rbx
-  unsigned __int64 AffinityVersion; // rax
-  unsigned __int64 *v9; // rdi
-  unsigned __int64 v10; // rcx
+  signed __int64 v8; // rax
+  signed __int64 *v9; // rdi
+  signed __int64 v10; // rcx
 
   v2 = 0;
   v5 = 0;
@@ -52,8 +52,8 @@ char __fastcall KiRequestProcessInSwap(__int64 a1, __int64 a2)
   v7[1] = v6;
   *v6 = v7;
   *(_QWORD *)(a2 + 112) = v7;
-  LOBYTE(AffinityVersion) = *(_DWORD *)(a2 + 264) & 7;
-  if ( (_BYTE)AffinityVersion == 1 )
+  LOBYTE(v8) = *(_DWORD *)(a2 + 264) & 7;
+  if ( (_BYTE)v8 == 1 )
   {
     _InterlockedXor((volatile signed __int32 *)(a2 + 264), 3u);
     v2 = 1;
@@ -62,21 +62,18 @@ char __fastcall KiRequestProcessInSwap(__int64 a1, __int64 a2)
   if ( v2 )
   {
     MmNotifyProcessInSwapTrigger(a2);
-    v9 = (unsigned __int64 *)(a2 + 120);
-    _m_prefetchw(&KiSupervisorXStateFeaturesLock.AffinityVersion);
-    AffinityVersion = KiSupervisorXStateFeaturesLock.AffinityVersion;
+    v9 = (signed __int64 *)(a2 + 120);
+    _m_prefetchw(&qword_140F26B90);
+    v8 = qword_140F26B90;
     do
     {
-      *v9 = AffinityVersion;
-      v10 = AffinityVersion;
-      AffinityVersion = _InterlockedCompareExchange64(
-                          (volatile signed __int64 *)&KiSupervisorXStateFeaturesLock.AffinityVersion,
-                          (signed __int64)v9,
-                          AffinityVersion);
+      *v9 = v8;
+      v10 = v8;
+      v8 = _InterlockedCompareExchange64(&qword_140F26B90, (signed __int64)v9, v8);
     }
-    while ( AffinityVersion != v10 );
-    if ( !AffinityVersion )
-      LOBYTE(AffinityVersion) = KeSetEvent((PRKEVENT)&KiSupervisorXStateFeaturesLock.StackLimit, 10, 0);
+    while ( v8 != v10 );
+    if ( !v8 )
+      LOBYTE(v8) = KeSetEvent((PRKEVENT)&KiSupervisorXStateFeaturesLock.Timer.TimerListEntry, 10, 0);
   }
-  return AffinityVersion;
+  return v8;
 }

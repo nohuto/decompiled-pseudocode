@@ -348,10 +348,10 @@ LABEL_127:
               v49 = _InterlockedCompareExchange((volatile signed __int32 *)&CmpDelayedCloseTableLock, 1, 0);
               if ( v49 )
                 ExpReleaseFastMutexContended((volatile signed __int32 *)&CmpDelayedCloseTableLock, v49);
-              if ( KiIrqlFlags )
+              if ( (_DWORD)KiIrqlFlags )
               {
                 v50 = KeGetCurrentIrql();
-                if ( (KiIrqlFlags & 1) != 0 && v50 <= 0xFu && (unsigned __int8)v47 <= 0xFu && v50 >= 2u )
+                if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v50 <= 0xFu && (unsigned __int8)v47 <= 0xFu && v50 >= 2u )
                 {
                   CurrentPrcb = KeGetCurrentPrcb();
                   SchedulerAssist = CurrentPrcb->SchedulerAssist;

@@ -34,11 +34,11 @@ __int64 __fastcall EtwpEventWriteFull(
   __int64 v16; // rdx
   unsigned __int8 v17; // al
   _GUID ActivityId; // xmm0
-  __int64 v19; // rcx
+  void *v19; // rcx
   NTSTATUS v20; // eax
   __int128 v22; // xmm0
   unsigned __int8 v23; // cl
-  _BYTE v26[4]; // [rsp+68h] [rbp-98h] BYREF
+  _BYTE Fields[4]; // [rsp+68h] [rbp-98h] BYREF
   __int16 v27; // [rsp+6Ch] [rbp-94h]
   unsigned __int16 v28; // [rsp+6Eh] [rbp-92h]
   __int128 v29; // [rsp+90h] [rbp-70h]
@@ -111,10 +111,10 @@ LABEL_27:
         v31 = 1;
         v35 = v22;
       }
-      v19 = *(_QWORD *)(v15 + 88);
+      v19 = *(void **)(v15 + 88);
       v32 = v11;
       v36 = v10;
-      v20 = NtTraceEvent(v19, 768LL, 120LL, v26);
+      v20 = NtTraceEvent(v19, 0x300u, 0x78u, Fields);
       if ( v20 )
         v14 = RtlNtStatusToDosError(v20);
       else

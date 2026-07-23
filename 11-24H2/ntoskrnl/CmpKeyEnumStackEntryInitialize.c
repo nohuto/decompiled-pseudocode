@@ -1,12 +1,12 @@
 /*
- * XREFs of CmpKeyEnumStackEntryInitialize @ 0x140916F84
+ * XREFs of CmpKeyEnumStackEntryInitialize @ 0x14090A9F4
  * Callers:
- *     CmpKeyEnumStackStart @ 0x14091554C (CmpKeyEnumStackStart.c)
- *     CmpKeyEnumStackReset @ 0x140916688 (CmpKeyEnumStackReset.c)
- *     CmpKeyEnumStackInitialize @ 0x140916F34 (CmpKeyEnumStackInitialize.c)
+ *     CmpKeyEnumStackStart @ 0x140908FBC (CmpKeyEnumStackStart.c)
+ *     CmpKeyEnumStackReset @ 0x14090A0F8 (CmpKeyEnumStackReset.c)
+ *     CmpKeyEnumStackInitialize @ 0x14090A9A4 (CmpKeyEnumStackInitialize.c)
  * Callees:
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     HvpGetCellContextInitialize @ 0x140875730 (HvpGetCellContextInitialize.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     HvpGetCellContextInitialize @ 0x140879A60 (HvpGetCellContextInitialize.c)
  */
 
 __int64 __fastcall CmpKeyEnumStackEntryInitialize(_QWORD *a1)

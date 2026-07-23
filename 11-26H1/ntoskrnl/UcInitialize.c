@@ -1,14 +1,14 @@
 /*
- * XREFs of UcInitialize @ 0x140712834
+ * XREFs of UcInitialize @ 0x14071752C
  * Callers:
- *     Phase1InitializationDiscard @ 0x140CABD00 (Phase1InitializationDiscard.c)
- *     EtwpInitialize @ 0x140CE08F4 (EtwpInitialize.c)
- *     ExpInitSystemPhase1 @ 0x140CE4380 (ExpInitSystemPhase1.c)
+ *     Phase1InitializationDiscard @ 0x140CB1D40 (Phase1InitializationDiscard.c)
+ *     EtwpInitialize @ 0x140CE6C94 (EtwpInitialize.c)
+ *     ExpInitSystemPhase1 @ 0x140CEA720 (ExpInitSystemPhase1.c)
  * Callees:
- *     KeReleaseSpinLock @ 0x1402BE860 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14032F300 (KeAcquireSpinLockRaiseToDpc.c)
- *     UcpLogUnexpectedCodePathEvent @ 0x140712E1C (UcpLogUnexpectedCodePathEvent.c)
- *     TraceLoggingRegisterEx_EtwRegister_EtwSetInformation @ 0x14093BE80 (TraceLoggingRegisterEx_EtwRegister_EtwSetInformation.c)
+ *     KeReleaseSpinLock @ 0x140309520 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140331330 (KeAcquireSpinLockRaiseToDpc.c)
+ *     UcpLogUnexpectedCodePathEvent @ 0x140717B14 (UcpLogUnexpectedCodePathEvent.c)
+ *     TraceLoggingRegisterEx_EtwRegister_EtwSetInformation @ 0x140917A20 (TraceLoggingRegisterEx_EtwRegister_EtwSetInformation.c)
  */
 
 __int64 __fastcall UcInitialize(int a1)
@@ -23,19 +23,18 @@ __int64 __fastcall UcInitialize(int a1)
   v1 = 259;
   if ( a1 == 2 )
   {
-    WheapPfaLock.Timer.TimerType = 1;
+    WheapPfaLock.WaitBlockFill6[96] = 1;
     return 0;
   }
   if ( a1 )
   {
-    if ( a1 == 1 && !WheapPfaLock.Timer.TimerDifObjTracking )
+    if ( a1 == 1 && !WheapPfaLock.WaitBlockFill6[81] )
     {
       TraceLoggingRegisterEx_EtwRegister_EtwSetInformation(&dword_140E0A020, 0LL, 0LL);
       v2 = KeAcquireSpinLockRaiseToDpc(&UcSpinLock);
       v3 = UcpTriggeredList;
       v4 = v2;
-      HIBYTE(WheapPfaLock.Timer.Processor) = 0;
-      WheapPfaLock.Timer.TimerDifObjTracking = 1;
+      *(_WORD *)&WheapPfaLock.WaitBlockFill11[81] = 1;
       while ( (__int64 *)v3 != &UcpTriggeredList )
       {
         v5 = *(unsigned int *)(v3 - 16);
@@ -49,14 +48,14 @@ __int64 __fastcall UcInitialize(int a1)
       KeReleaseSpinLock(&UcSpinLock, v4);
     }
   }
-  else if ( !LOBYTE(WheapPfaLock.Timer.Processor) )
+  else if ( !WheapPfaLock.WaitBlockFill6[80] )
   {
     UcSpinLock = 0LL;
-    qword_140EF4A58 = (__int64)&UcpTriggeredList;
+    qword_140EF4DB8 = (__int64)&UcpTriggeredList;
     UcpTriggeredList = (__int64)&UcpTriggeredList;
-    qword_140EF4A68 = (__int64)&UcpOneSettingsClientConfigurationList;
+    qword_140EF4DD8 = (__int64)&UcpOneSettingsClientConfigurationList;
     UcpOneSettingsClientConfigurationList = (__int64)&UcpOneSettingsClientConfigurationList;
-    LOBYTE(WheapPfaLock.Timer.Processor) = 1;
+    WheapPfaLock.WaitBlockFill6[80] = 1;
     return 0;
   }
   return v1;

@@ -1,16 +1,16 @@
 /*
- * XREFs of IopSymlinkPropagateToExtensionIfNeeded @ 0x1409035A0
+ * XREFs of IopSymlinkPropagateToExtensionIfNeeded @ 0x140933530
  * Callers:
- *     IopParseDevice @ 0x1409008C0 (IopParseDevice.c)
+ *     IopParseDevice @ 0x140930850 (IopParseDevice.c)
  * Callees:
- *     IopAllocateFileObjectExtension @ 0x140449920 (IopAllocateFileObjectExtension.c)
- *     IopSymlinkRemoveECP @ 0x1404728E0 (IopSymlinkRemoveECP.c)
- *     IopSetTypeSpecificFoExtension @ 0x14047FA30 (IopSetTypeSpecificFoExtension.c)
- *     FsRtlFreeExtraCreateParameter @ 0x140903780 (FsRtlFreeExtraCreateParameter.c)
- *     IopSymlinkInitializeSymlinkInfo @ 0x140903AA8 (IopSymlinkInitializeSymlinkInfo.c)
- *     FsRtlAllocateExtraCreateParameterFromLookasideList @ 0x140903E10 (FsRtlAllocateExtraCreateParameterFromLookasideList.c)
- *     IopSymlinkFreeRelatedMountPointChain @ 0x140904A08 (IopSymlinkFreeRelatedMountPointChain.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     IopAllocateFileObjectExtension @ 0x14021B6F0 (IopAllocateFileObjectExtension.c)
+ *     IopSymlinkRemoveECP @ 0x14046C060 (IopSymlinkRemoveECP.c)
+ *     IopSetTypeSpecificFoExtension @ 0x1404793A0 (IopSetTypeSpecificFoExtension.c)
+ *     FsRtlFreeExtraCreateParameter @ 0x140933710 (FsRtlFreeExtraCreateParameter.c)
+ *     IopSymlinkInitializeSymlinkInfo @ 0x140933A38 (IopSymlinkInitializeSymlinkInfo.c)
+ *     FsRtlAllocateExtraCreateParameterFromLookasideList @ 0x140933DA0 (FsRtlAllocateExtraCreateParameterFromLookasideList.c)
+ *     IopSymlinkFreeRelatedMountPointChain @ 0x140934998 (IopSymlinkFreeRelatedMountPointChain.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall IopSymlinkPropagateToExtensionIfNeeded(__int64 a1, struct _ECP_LIST *a2, unsigned __int16 *a3)

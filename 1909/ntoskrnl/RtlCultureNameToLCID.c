@@ -17,37 +17,37 @@
  *     __report_rangecheckfailure @ 0x14027BAEC (__report_rangecheckfailure.c)
  */
 
-bool __fastcall RtlCultureNameToLCID(unsigned __int16 *a1, _DWORD *a2)
+BOOLEAN __cdecl RtlCultureNameToLCID(PUNICODE_STRING String, PLCID Lcid)
 {
-  char v2; // di
-  unsigned __int16 v4; // r8
-  const void *v5; // rdx
+  BOOLEAN v2; // di
+  unsigned __int16 Length; // r8
+  wchar_t *Buffer; // rdx
   unsigned __int64 v6; // rbx
   unsigned __int64 v7; // rbx
   unsigned __int16 v8; // ax
   _WORD v10[88]; // [rsp+20h] [rbp-C8h] BYREF
 
   v2 = 0;
-  if ( a1 )
+  if ( String )
   {
-    if ( a2 )
+    if ( Lcid )
     {
-      v4 = *a1;
-      if ( *a1 )
+      Length = String->Length;
+      if ( String->Length )
       {
-        v5 = (const void *)*((_QWORD *)a1 + 1);
-        if ( v5 )
+        Buffer = String->Buffer;
+        if ( Buffer )
         {
-          if ( (unsigned int)v4 + 2 <= 0x55 )
+          if ( (unsigned int)Length + 2 <= 0x55 )
           {
-            v6 = v4;
-            memmove(v10, v5, v4);
+            v6 = Length;
+            memmove(v10, Buffer, Length);
             v7 = v6 >> 1;
             if ( v7 >= 85 )
               _report_rangecheckfailure();
             v10[v7] = 0;
             v8 = DownLevelLanguageNameToLangID(v10, 2);
-            *a2 = v8;
+            *Lcid = v8;
             return v8 != 0;
           }
         }

@@ -1,23 +1,23 @@
 /*
- * XREFs of MiFindFreePageFileSpace @ 0x14012413C
+ * XREFs of MiFindFreePageFileSpace @ 0x14012420C
  * Callers:
- *     MiReservePageFileSpace @ 0x140081320 (MiReservePageFileSpace.c)
- *     MiGetKernelStackSwapSupport @ 0x140124034 (MiGetKernelStackSwapSupport.c)
- *     MiFindPageFileWriteCluster @ 0x140150C80 (MiFindPageFileWriteCluster.c)
- *     MiTrimUnusedPageFileRegionsApc @ 0x1402B8970 (MiTrimUnusedPageFileRegionsApc.c)
- *     MiReserveWorkingSetSwapSpaceRuns @ 0x14085EC08 (MiReserveWorkingSetSwapSpaceRuns.c)
+ *     MiReservePageFileSpace @ 0x140081310 (MiReservePageFileSpace.c)
+ *     MiGetKernelStackSwapSupport @ 0x140124104 (MiGetKernelStackSwapSupport.c)
+ *     MiFindPageFileWriteCluster @ 0x140150D80 (MiFindPageFileWriteCluster.c)
+ *     MiTrimUnusedPageFileRegionsApc @ 0x1402B8B60 (MiTrimUnusedPageFileRegionsApc.c)
+ *     MiReserveWorkingSetSwapSpaceRuns @ 0x14085FE68 (MiReserveWorkingSetSwapSpaceRuns.c)
  * Callees:
- *     RtlSetBits @ 0x140076D80 (RtlSetBits.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14007DE90 (KeAcquireInStackQueuedSpinLock.c)
- *     MiTransferSoftwarePte @ 0x140081D98 (MiTransferSoftwarePte.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
- *     MiInvalidatePageFileBitmapsCache @ 0x140124574 (MiInvalidatePageFileBitmapsCache.c)
- *     MiPageFileLargestBitmapsRun @ 0x140124838 (MiPageFileLargestBitmapsRun.c)
- *     MiCheckHintedPageFileSpace @ 0x140124958 (MiCheckHintedPageFileSpace.c)
- *     MiSetPageFileAllocationBits @ 0x140150838 (MiSetPageFileAllocationBits.c)
- *     MiRescanPagefileBitmaps @ 0x14018806C (MiRescanPagefileBitmaps.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     MiFindFreePageFileSpaceForward @ 0x1402B7DDC (MiFindFreePageFileSpaceForward.c)
+ *     RtlSetBits @ 0x140076D70 (RtlSetBits.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14007DE80 (KeAcquireInStackQueuedSpinLock.c)
+ *     MiTransferSoftwarePte @ 0x140081D88 (MiTransferSoftwarePte.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC6A0 (KxReleaseQueuedSpinLock.c)
+ *     MiInvalidatePageFileBitmapsCache @ 0x140124644 (MiInvalidatePageFileBitmapsCache.c)
+ *     MiPageFileLargestBitmapsRun @ 0x140124908 (MiPageFileLargestBitmapsRun.c)
+ *     MiCheckHintedPageFileSpace @ 0x140124A28 (MiCheckHintedPageFileSpace.c)
+ *     MiSetPageFileAllocationBits @ 0x140150938 (MiSetPageFileAllocationBits.c)
+ *     MiRescanPagefileBitmaps @ 0x1401881AC (MiRescanPagefileBitmaps.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiFindFreePageFileSpaceForward @ 0x1402B7FCC (MiFindFreePageFileSpaceForward.c)
  */
 
 __int64 __fastcall MiFindFreePageFileSpace(__int64 a1, unsigned __int64 *a2, unsigned __int64 a3, unsigned int a4)
@@ -76,8 +76,8 @@ __int64 __fastcall MiFindFreePageFileSpace(__int64 a1, unsigned __int64 *a2, uns
   else
   {
     v10 = *a2;
-    if ( qword_14043A0C0 && (v10 & 0x10) == 0 )
-      v10 &= ~qword_14043A0C0;
+    if ( qword_14043B180 && (v10 & 0x10) == 0 )
+      v10 &= ~qword_14043B180;
     v8 = HIDWORD(v10);
   }
   if ( (v4 & 0x10) != 0 )

@@ -21,9 +21,7 @@
 
 NTSTATUS __stdcall ZwUnmapViewOfSection(HANDLE ProcessHandle, PVOID BaseAddress)
 {
-  __int64 v2; // r8
-
   _disable();
   __readeflags();
-  return KiServiceInternal(ProcessHandle, BaseAddress, v2);
+  return KiServiceInternal(ProcessHandle);
 }

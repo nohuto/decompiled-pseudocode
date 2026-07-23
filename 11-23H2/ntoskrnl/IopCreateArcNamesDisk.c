@@ -3,13 +3,13 @@
  * Callers:
  *     IopCreateArcNames @ 0x140B3A004 (IopCreateArcNames.c)
  * Callees:
- *     RtlStringCchPrintfW @ 0x14022A90C (RtlStringCchPrintfW.c)
- *     RtlInitUnicodeString @ 0x14022E1B0 (RtlInitUnicodeString.c)
- *     ObfDereferenceObjectWithTag @ 0x14022F5B0 (ObfDereferenceObjectWithTag.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     IoGetDeviceObjectPointer @ 0x14075B260 (IoGetDeviceObjectPointer.c)
- *     IopCreateArcName @ 0x14086F828 (IopCreateArcName.c)
- *     IoGetConfigurationInformation @ 0x140875820 (IoGetConfigurationInformation.c)
+ *     RtlStringCchPrintfW @ 0x14022AA1C (RtlStringCchPrintfW.c)
+ *     RtlInitUnicodeString @ 0x14022E2C0 (RtlInitUnicodeString.c)
+ *     ObfDereferenceObjectWithTag @ 0x14022F6C0 (ObfDereferenceObjectWithTag.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     IoGetDeviceObjectPointer @ 0x14075B450 (IoGetDeviceObjectPointer.c)
+ *     IopCreateArcName @ 0x14086FA68 (IopCreateArcName.c)
+ *     IoGetConfigurationInformation @ 0x140875A60 (IoGetConfigurationInformation.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     IopFetchConfigurationInformation @ 0x140B39D34 (IopFetchConfigurationInformation.c)
  */

@@ -1,11 +1,11 @@
 /*
- * XREFs of PnpOrphanNotification @ 0x140882DE4
+ * XREFs of PnpOrphanNotification @ 0x140883024
  * Callers:
- *     PpDevNodeRemoveFromTree @ 0x1403D520C (PpDevNodeRemoveFromTree.c)
+ *     PpDevNodeRemoveFromTree @ 0x1403D53EC (PpDevNodeRemoveFromTree.c)
  * Callees:
- *     ExAcquireFastMutex @ 0x140230720 (ExAcquireFastMutex.c)
- *     ExReleaseFastMutex @ 0x140230860 (ExReleaseFastMutex.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
+ *     ExAcquireFastMutex @ 0x140230810 (ExAcquireFastMutex.c)
+ *     ExReleaseFastMutex @ 0x140230950 (ExReleaseFastMutex.c)
+ *     ObfDereferenceObject @ 0x140231660 (ObfDereferenceObject.c)
  */
 
 void __fastcall PnpOrphanNotification(__int64 a1)

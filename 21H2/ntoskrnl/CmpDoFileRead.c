@@ -1,21 +1,21 @@
 /*
- * XREFs of CmpDoFileRead @ 0x1402C781C
+ * XREFs of CmpDoFileRead @ 0x140245F5C
  * Callers:
- *     CmpFileRead @ 0x1406B48F0 (CmpFileRead.c)
+ *     CmpFileRead @ 0x140613AC0 (CmpFileRead.c)
  * Callees:
- *     SetFailureLocation @ 0x1402C4808 (SetFailureLocation.c)
- *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
- *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
- *     ZwReadFile @ 0x1403FA460 (ZwReadFile.c)
- *     ZwClose @ 0x1403FA580 (ZwClose.c)
- *     CmpCreateEvent @ 0x140671E70 (CmpCreateEvent.c)
+ *     SetFailureLocation @ 0x140242D88 (SetFailureLocation.c)
+ *     KeWaitForSingleObject @ 0x1403504C0 (KeWaitForSingleObject.c)
+ *     ObfDereferenceObjectWithTag @ 0x140355E90 (ObfDereferenceObjectWithTag.c)
+ *     ZwReadFile @ 0x1403FA640 (ZwReadFile.c)
+ *     ZwClose @ 0x1403FA760 (ZwClose.c)
+ *     CmpCreateEvent @ 0x1406A3EE0 (CmpCreateEvent.c)
  */
 
 __int64 __fastcall CmpDoFileRead(HANDLE FileHandle, __int64 a2, ULONG a3, char *a4, ULONG a5, int a6, __int64 a7)
 {
   ULONG v7; // edi
   unsigned int v9; // r15d
-  int v10; // eax
+  signed int v10; // eax
   NTSTATUS Status; // ebx
   ULONG v12; // r14d
   char *Buffer; // rcx
@@ -39,7 +39,7 @@ __int64 __fastcall CmpDoFileRead(HANDLE FileHandle, __int64 a2, ULONG a3, char *
   Status = v10;
   if ( v10 < 0 )
   {
-    SetFailureLocation(a7, 1, 12, v10, 16);
+    SetFailureLocation(a7, 1, 12, v10, 0x10u);
     return (unsigned int)Status;
   }
   v12 = a5;

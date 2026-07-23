@@ -25,39 +25,37 @@ __int64 __fastcall MiChangingSubsectionProtos(_QWORD *BugCheckParameter2, char a
   bool v10; // zf
   int v11; // edx
   __int64 **v12; // r14
-  __int64 v13; // rdx
-  __int64 v14; // r8
-  unsigned __int8 v15; // al
-  struct _KPRCB *v16; // r10
-  _DWORD *v17; // r9
-  int v18; // eax
-  unsigned __int8 v19; // al
-  struct _KPRCB *v20; // r9
-  int v21; // eax
-  _DWORD *v22; // r8
+  unsigned __int8 v13; // al
+  struct _KPRCB *v14; // r10
+  _DWORD *v15; // r9
+  int v16; // eax
+  unsigned __int8 v17; // al
+  struct _KPRCB *v18; // r9
+  int v19; // eax
+  _DWORD *v20; // r8
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r9
-  int v25; // eax
+  int v23; // eax
   _DWORD *SchedulerAssist; // r8
-  __int64 v27; // rax
-  unsigned __int8 v28; // al
-  struct _KPRCB *v29; // r9
-  int v30; // eax
-  _DWORD *v31; // r8
-  __int64 v32; // rcx
-  unsigned __int8 v33; // al
-  struct _KPRCB *v34; // r10
-  int v35; // edx
-  _DWORD *v36; // r9
-  __int64 v38; // [rsp+20h] [rbp-48h]
-  __int64 v39; // [rsp+28h] [rbp-40h]
-  int v41; // [rsp+88h] [rbp+20h]
+  __int64 v25; // rax
+  unsigned __int8 v26; // al
+  struct _KPRCB *v27; // r9
+  int v28; // eax
+  _DWORD *v29; // r8
+  __int64 v30; // rcx
+  unsigned __int8 v31; // al
+  struct _KPRCB *v32; // r10
+  int v33; // edx
+  _DWORD *v34; // r9
+  __int64 v36; // [rsp+20h] [rbp-48h]
+  __int64 v37; // [rsp+28h] [rbp-40h]
+  int v39; // [rsp+88h] [rbp+20h]
 
   v3 = *BugCheckParameter2;
   v4 = a2 & 0x10;
-  v38 = *BugCheckParameter2;
+  v36 = *BugCheckParameter2;
   v5 = 0;
-  v41 = v4;
+  v39 = v4;
   v8 = (volatile LONG *)(*BugCheckParameter2 + 72LL);
   while ( 1 )
   {
@@ -87,10 +85,10 @@ __int64 __fastcall MiChangingSubsectionProtos(_QWORD *BugCheckParameter2, char a
           if ( CurrentIrql <= 0xFu && (unsigned __int8)v9 <= 0xFu && CurrentIrql >= 2u )
           {
             CurrentPrcb = KeGetCurrentPrcb();
-            v25 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v9 + 1));
+            v23 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v9 + 1));
             SchedulerAssist = CurrentPrcb->SchedulerAssist;
-            v10 = (v25 & SchedulerAssist[5]) == 0;
-            SchedulerAssist[5] &= v25;
+            v10 = (v23 & SchedulerAssist[5]) == 0;
+            SchedulerAssist[5] &= v23;
             if ( v10 )
               KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
           }
@@ -99,7 +97,7 @@ __int64 __fastcall MiChangingSubsectionProtos(_QWORD *BugCheckParameter2, char a
       v5 = -1073741302;
       goto LABEL_68;
     }
-    v39 = 0LL;
+    v37 = 0LL;
     v12 = 0LL;
     if ( (a2 & 8) == 0 )
     {
@@ -115,9 +113,9 @@ __int64 __fastcall MiChangingSubsectionProtos(_QWORD *BugCheckParameter2, char a
         while ( v12 );
         if ( v12 )
         {
-          v39 = KeAbPreAcquire((ULONG_PTR)BugCheckParameter2, 0LL, 0LL);
-          if ( v39 )
-            KeAbPreWait(v39, v13, v14);
+          v37 = KeAbPreAcquire((ULONG_PTR)BugCheckParameter2, 0LL, 0);
+          if ( v37 )
+            KeAbPreWait(v37);
           v11 = a2 & 8;
         }
       }
@@ -128,10 +126,10 @@ __int64 __fastcall MiChangingSubsectionProtos(_QWORD *BugCheckParameter2, char a
     *(_DWORD *)(a3 + 20) = 0;
     *(_QWORD *)(a3 + 32) = a3 + 24;
     *(_QWORD *)(a3 + 24) = a3 + 24;
-    if ( (*(_DWORD *)(v38 + 56) & 0x20) != 0 )
+    if ( (*(_DWORD *)(v36 + 56) & 0x20) != 0 )
     {
-      *(_QWORD *)a3 = *(_QWORD *)(v38 + 80);
-      *(_QWORD *)(v38 + 80) = a3;
+      *(_QWORD *)a3 = *(_QWORD *)(v36 + 80);
+      *(_QWORD *)(v36 + 80) = a3;
     }
     else
     {
@@ -145,50 +143,50 @@ __int64 __fastcall MiChangingSubsectionProtos(_QWORD *BugCheckParameter2, char a
         goto LABEL_68;
       if ( (KiIrqlFlags & 1) == 0 )
         goto LABEL_68;
-      v33 = KeGetCurrentIrql();
-      if ( v33 > 0xFu )
+      v31 = KeGetCurrentIrql();
+      if ( v31 > 0xFu )
         goto LABEL_68;
       if ( (unsigned __int8)v9 > 0xFu )
         goto LABEL_68;
-      if ( v33 < 2u )
+      if ( v31 < 2u )
         goto LABEL_68;
-      v34 = KeGetCurrentPrcb();
-      v35 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v9 + 1));
-      v36 = v34->SchedulerAssist;
-      v10 = (v35 & v36[5]) == 0;
-      v36[5] &= v35;
+      v32 = KeGetCurrentPrcb();
+      v33 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v9 + 1));
+      v34 = v32->SchedulerAssist;
+      v10 = (v33 & v34[5]) == 0;
+      v34[5] &= v33;
       if ( !v10 )
         goto LABEL_68;
-      v32 = (__int64)v34;
+      v30 = (__int64)v32;
       goto LABEL_67;
     }
     if ( !v12 )
     {
-      v27 = KeAbPreAcquire((ULONG_PTR)BugCheckParameter2, 0LL, 0LL);
-      if ( v27 )
-        *(_BYTE *)(v27 + 26) |= 1u;
+      v25 = KeAbPreAcquire((ULONG_PTR)BugCheckParameter2, 0LL, 0);
+      if ( v25 )
+        *(_BYTE *)(v25 + 26) |= 1u;
       ExReleaseSpinLockExclusiveFromDpcLevel(v8);
       if ( !KiIrqlFlags )
         goto LABEL_68;
       if ( (KiIrqlFlags & 1) == 0 )
         goto LABEL_68;
-      v28 = KeGetCurrentIrql();
-      if ( v28 > 0xFu )
+      v26 = KeGetCurrentIrql();
+      if ( v26 > 0xFu )
         goto LABEL_68;
       if ( (unsigned __int8)v9 > 0xFu )
         goto LABEL_68;
-      if ( v28 < 2u )
+      if ( v26 < 2u )
         goto LABEL_68;
-      v29 = KeGetCurrentPrcb();
-      v30 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v9 + 1));
-      v31 = v29->SchedulerAssist;
-      v10 = (v30 & v31[5]) == 0;
-      v31[5] &= v30;
+      v27 = KeGetCurrentPrcb();
+      v28 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v9 + 1));
+      v29 = v27->SchedulerAssist;
+      v10 = (v28 & v29[5]) == 0;
+      v29[5] &= v28;
       if ( !v10 )
         goto LABEL_68;
-      v32 = (__int64)v29;
+      v30 = (__int64)v27;
 LABEL_67:
-      KiRemoveSystemWorkPriorityKick(v32);
+      KiRemoveSystemWorkPriorityKick(v30);
       goto LABEL_68;
     }
     ExReleaseSpinLockExclusiveFromDpcLevel(v8);
@@ -196,27 +194,27 @@ LABEL_67:
     {
       if ( (KiIrqlFlags & 1) != 0 )
       {
-        v15 = KeGetCurrentIrql();
-        if ( v15 <= 0xFu && (unsigned __int8)v9 <= 0xFu && v15 >= 2u )
+        v13 = KeGetCurrentIrql();
+        if ( v13 <= 0xFu && (unsigned __int8)v9 <= 0xFu && v13 >= 2u )
         {
-          v16 = KeGetCurrentPrcb();
-          v17 = v16->SchedulerAssist;
-          v18 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v9 + 1));
-          v10 = (v18 & v17[5]) == 0;
-          v17[5] &= v18;
+          v14 = KeGetCurrentPrcb();
+          v15 = v14->SchedulerAssist;
+          v16 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v9 + 1));
+          v10 = (v16 & v15[5]) == 0;
+          v15[5] &= v16;
           if ( v10 )
-            KiRemoveSystemWorkPriorityKick((__int64)v16);
+            KiRemoveSystemWorkPriorityKick((__int64)v14);
         }
       }
     }
     __writecr8(v9);
     KeWaitForGate(a3 + 16, 18);
-    v3 = v38;
-    v4 = v41;
-    if ( v39 )
+    v3 = v36;
+    v4 = v39;
+    if ( v37 )
     {
-      KeAbPreAcquire((ULONG_PTR)BugCheckParameter2, v39, 0LL);
-      KeAbPostReleaseEx((ULONG_PTR)BugCheckParameter2, v39);
+      KeAbPreAcquire((ULONG_PTR)BugCheckParameter2, v37, 0);
+      KeAbPostReleaseEx((ULONG_PTR)BugCheckParameter2, v37);
     }
   }
   ExReleaseSpinLockExclusiveFromDpcLevel(v8);
@@ -224,16 +222,16 @@ LABEL_67:
   {
     if ( (KiIrqlFlags & 1) != 0 )
     {
-      v19 = KeGetCurrentIrql();
-      if ( v19 <= 0xFu && (unsigned __int8)v9 <= 0xFu && v19 >= 2u )
+      v17 = KeGetCurrentIrql();
+      if ( v17 <= 0xFu && (unsigned __int8)v9 <= 0xFu && v17 >= 2u )
       {
-        v20 = KeGetCurrentPrcb();
-        v21 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v9 + 1));
-        v22 = v20->SchedulerAssist;
-        v10 = (v21 & v22[5]) == 0;
-        v22[5] &= v21;
+        v18 = KeGetCurrentPrcb();
+        v19 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v9 + 1));
+        v20 = v18->SchedulerAssist;
+        v10 = (v19 & v20[5]) == 0;
+        v20[5] &= v19;
         if ( v10 )
-          KiRemoveSystemWorkPriorityKick((__int64)v20);
+          KiRemoveSystemWorkPriorityKick((__int64)v18);
       }
     }
   }

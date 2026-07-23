@@ -1,17 +1,17 @@
 /*
- * XREFs of EtwpGetSidExtendedHeaderItem @ 0x14070782C
+ * XREFs of EtwpGetSidExtendedHeaderItem @ 0x14071EC0C
  * Callers:
- *     EtwpEventWriteFull @ 0x14025DF60 (EtwpEventWriteFull.c)
- *     EtwpWriteUserEvent @ 0x140627BC0 (EtwpWriteUserEvent.c)
+ *     EtwpEventWriteFull @ 0x14027FA90 (EtwpEventWriteFull.c)
+ *     EtwpWriteUserEvent @ 0x140690950 (EtwpWriteUserEvent.c)
  * Callees:
- *     ObFastDereferenceObject @ 0x14027C610 (ObFastDereferenceObject.c)
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     memmove @ 0x140413F40 (memmove.c)
- *     memset @ 0x140414200 (memset.c)
- *     PsReferenceEffectiveToken @ 0x14065CD50 (PsReferenceEffectiveToken.c)
- *     PsReferencePrimaryToken @ 0x140706D00 (PsReferencePrimaryToken.c)
- *     SeQueryUserSidToken @ 0x140706E24 (SeQueryUserSidToken.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     ObFastDereferenceObject @ 0x14026A5B0 (ObFastDereferenceObject.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     PsReferenceEffectiveToken @ 0x140651B70 (PsReferenceEffectiveToken.c)
+ *     PsReferencePrimaryToken @ 0x14071E0E0 (PsReferencePrimaryToken.c)
+ *     SeQueryUserSidToken @ 0x14071E204 (SeQueryUserSidToken.c)
  */
 
 void *__fastcall EtwpGetSidExtendedHeaderItem(__int64 a1)

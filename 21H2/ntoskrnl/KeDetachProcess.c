@@ -1,9 +1,9 @@
 /*
- * XREFs of KeDetachProcess @ 0x1402CCAB0
+ * XREFs of KeDetachProcess @ 0x14024B110
  * Callers:
  *     <none>
  * Callees:
- *     KiDetachProcess @ 0x140207600 (KiDetachProcess.c)
+ *     KiDetachProcess @ 0x1402ABF00 (KiDetachProcess.c)
  */
 
 void KeDetachProcess(void)
@@ -12,5 +12,5 @@ void KeDetachProcess(void)
 
   CurrentThread = KeGetCurrentThread();
   if ( CurrentThread->ApcStateIndex )
-    KiDetachProcess((struct _KTHREAD *)&CurrentThread->600, 0);
+    KiDetachProcess(&CurrentThread->600, 0LL);
 }

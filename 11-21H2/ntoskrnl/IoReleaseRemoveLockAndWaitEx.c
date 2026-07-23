@@ -1,14 +1,14 @@
 /*
  * XREFs of IoReleaseRemoveLockAndWaitEx @ 0x1403A7530
  * Callers:
- *     PopFxAcpiUnregisterDevice @ 0x1405DE108 (PopFxAcpiUnregisterDevice.c)
- *     DifIoReleaseRemoveLockAndWaitExWrapper @ 0x1406108D0 (DifIoReleaseRemoveLockAndWaitExWrapper.c)
- *     PopFxUnregisterDevice @ 0x14082310C (PopFxUnregisterDevice.c)
- *     ViFilterDispatchPnp @ 0x140A9E540 (ViFilterDispatchPnp.c)
+ *     sub_1405DE108 @ 0x1405DE108 (sub_1405DE108.c)
+ *     sub_1406108D0 @ 0x1406108D0 (sub_1406108D0.c)
+ *     sub_14082310C @ 0x14082310C (sub_14082310C.c)
+ *     sub_140A9E540 @ 0x140A9E540 (sub_140A9E540.c)
  * Callees:
  *     KeWaitForSingleObject @ 0x1402AF080 (KeWaitForSingleObject.c)
  *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     VfRemLockReportBadReleaseAndWaitTag @ 0x140A91E7C (VfRemLockReportBadReleaseAndWaitTag.c)
+ *     sub_140A91E7C @ 0x140A91E7C (sub_140A91E7C.c)
  */
 
 void __stdcall IoReleaseRemoveLockAndWaitEx(PIO_REMOVE_LOCK RemoveLock, PVOID Tag, ULONG RemlockSize)
@@ -24,8 +24,8 @@ void __stdcall IoReleaseRemoveLockAndWaitEx(PIO_REMOVE_LOCK RemoveLock, PVOID Ta
   {
     Blink = RemoveLock[3].Common.RemoveEvent.Header.WaitListHead.Flink->Blink;
     if ( Tag != Blink
-      && ((MmVerifierData & 0x800) == 0
-       || !(unsigned int)VfRemLockReportBadReleaseAndWaitTag((ULONG_PTR)RemoveLock, (ULONG_PTR)Tag, (ULONG_PTR)Blink)) )
+      && ((dword_140C29FC0 & 0x800) == 0
+       || !(unsigned int)sub_140A91E7C((ULONG_PTR)RemoveLock, (ULONG_PTR)Tag, (ULONG_PTR)Blink)) )
     {
       _InterlockedIncrement((volatile signed __int32 *)&RemoveLock[2].Common.RemoveEvent.Header.WaitListHead);
     }

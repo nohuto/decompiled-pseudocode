@@ -1,9 +1,9 @@
 /*
- * XREFs of PpmIdleDefaultExecute @ 0x140140CF4
+ * XREFs of PpmIdleDefaultExecute @ 0x140141264
  * Callers:
  *     <none>
  * Callees:
- *     KeExecuteVerw @ 0x140171240 (KeExecuteVerw.c)
+ *     KeExecuteVerw @ 0x140171740 (KeExecuteVerw.c)
  */
 
 __int64 __fastcall PpmIdleDefaultExecute(__int64 a1, __int64 a2, __int64 a3, int a4)

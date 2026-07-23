@@ -1,19 +1,19 @@
 /*
- * XREFs of RtlpAllowsLowBoxAccess @ 0x1402C7068
+ * XREFs of RtlpAllowsLowBoxAccess @ 0x1402457A8
  * Callers:
- *     RtlpLookupLowBox @ 0x14025AA58 (RtlpLookupLowBox.c)
+ *     RtlpLookupLowBox @ 0x14027BFC8 (RtlpLookupLowBox.c)
  * Callees:
- *     RtlStringCbCopyW @ 0x140264ED8 (RtlStringCbCopyW.c)
- *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
- *     SeClearLearningModeObjectInformation @ 0x14027C5B0 (SeClearLearningModeObjectInformation.c)
- *     SeSetLearningModeObjectInformation @ 0x14027C980 (SeSetLearningModeObjectInformation.c)
- *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
- *     SeAccessCheckWithHint @ 0x14034DC70 (SeAccessCheckWithHint.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     memset @ 0x140414200 (memset.c)
- *     PsReferenceEffectiveToken @ 0x14065CD50 (PsReferenceEffectiveToken.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     RtlStringCbCopyW @ 0x140252F68 (RtlStringCbCopyW.c)
+ *     RtlInitUnicodeString @ 0x14026A4C0 (RtlInitUnicodeString.c)
+ *     SeClearLearningModeObjectInformation @ 0x14026A550 (SeClearLearningModeObjectInformation.c)
+ *     SeSetLearningModeObjectInformation @ 0x14026A920 (SeSetLearningModeObjectInformation.c)
+ *     ObfDereferenceObjectWithTag @ 0x140355E90 (ObfDereferenceObjectWithTag.c)
+ *     SeAccessCheckWithHint @ 0x1403589C0 (SeAccessCheckWithHint.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     PsReferenceEffectiveToken @ 0x140651B70 (PsReferenceEffectiveToken.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 char __fastcall RtlpAllowsLowBoxAccess(__int64 a1)
@@ -63,7 +63,7 @@ char __fastcall RtlpAllowsLowBoxAccess(__int64 a1)
   v13 = 0LL;
   if ( !v3 )
     return 1;
-  if ( byte_140C545F4 )
+  if ( byte_140C5451C )
   {
     RtlInitUnicodeString(&DestinationString, L"Global Atom Table Entry");
     v4 = 1;
@@ -85,7 +85,7 @@ char __fastcall RtlpAllowsLowBoxAccess(__int64 a1)
     RtlInitUnicodeString(&v13, v8);
     *(_QWORD *)&v22 = &DestinationString;
     *((_QWORD *)&v22 + 1) = &v13;
-    SeSetLearningModeObjectInformation((__int64)&v21);
+    SeSetLearningModeObjectInformation(&v21);
     v16 = &v26;
     Object = (PVOID)PsReferenceEffectiveToken(
                       (unsigned int)KeGetCurrentThread(),

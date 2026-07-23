@@ -1,18 +1,18 @@
 /*
- * XREFs of EtwpSynchronizeWithLogger @ 0x140A6FD00
+ * XREFs of EtwpSynchronizeWithLogger @ 0x140AB31F8
  * Callers:
- *     EtwpTransitionToRealtime @ 0x14052ECDC (EtwpTransitionToRealtime.c)
- *     EtwpIncrementTraceFile @ 0x14077B460 (EtwpIncrementTraceFile.c)
- *     EtwpUpdateTrace @ 0x140A6C6F0 (EtwpUpdateTrace.c)
- *     EtwpFlushTrace @ 0x140A6F6CC (EtwpFlushTrace.c)
- *     EtwpRealtimeDisconnectConsumer @ 0x140A71974 (EtwpRealtimeDisconnectConsumer.c)
- *     EtwpRealtimeConnect @ 0x140B294B0 (EtwpRealtimeConnect.c)
+ *     EtwpTransitionToRealtime @ 0x1405311FC (EtwpTransitionToRealtime.c)
+ *     EtwpIncrementTraceFile @ 0x14077E0A0 (EtwpIncrementTraceFile.c)
+ *     EtwpUpdateTrace @ 0x140AB081C (EtwpUpdateTrace.c)
+ *     EtwpRealtimeDisconnectConsumer @ 0x140AB2BB4 (EtwpRealtimeDisconnectConsumer.c)
+ *     EtwpFlushTrace @ 0x140AB2FD0 (EtwpFlushTrace.c)
+ *     EtwpRealtimeConnect @ 0x140AB34A8 (EtwpRealtimeConnect.c)
  * Callees:
- *     KeGetEffectiveIrql @ 0x1402642B0 (KeGetEffectiveIrql.c)
- *     KeWaitForSingleObject @ 0x140278560 (KeWaitForSingleObject.c)
- *     KeInsertQueueDpc @ 0x1402BDB30 (KeInsertQueueDpc.c)
- *     KeSetEvent @ 0x1402DE9C0 (KeSetEvent.c)
- *     KeResetEvent @ 0x140395BB0 (KeResetEvent.c)
+ *     KeGetEffectiveIrql @ 0x140263820 (KeGetEffectiveIrql.c)
+ *     KeWaitForSingleObject @ 0x140277AD0 (KeWaitForSingleObject.c)
+ *     KeSetEvent @ 0x1402C0780 (KeSetEvent.c)
+ *     KeInsertQueueDpc @ 0x1403087F0 (KeInsertQueueDpc.c)
+ *     KeResetEvent @ 0x140397930 (KeResetEvent.c)
  */
 
 __int64 __fastcall EtwpSynchronizeWithLogger(__int64 a1, unsigned int a2)

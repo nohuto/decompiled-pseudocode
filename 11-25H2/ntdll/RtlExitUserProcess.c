@@ -16,36 +16,32 @@
  *     ZwTerminateProcess @ 0x1801637A0 (ZwTerminateProcess.c)
  */
 
-__int64 __fastcall RtlExitUserProcess(unsigned int a1)
+void __cdecl __noreturn RtlExitUserProcess(NTSTATUS ExitStatus)
 {
   __int64 v2; // rcx
   void *UniqueThread; // rdx
-  __int64 v5; // rcx
+  __int64 v4; // rcx
 
   EtwpShutdownPrivateLoggers();
   LdrpDrainWorkQueue((NtCurrentTeb()->SameTebFlags >> 12) & 1);
   LdrpAcquireLoaderLock();
   RtlEnterCriticalSection(&FastPebLock);
   RtlLockProcessHeapOnProcessTerminate();
-  if ( (int)ZwTerminateProcess(0LL, a1) < 0 )
-  {
-    RtlUnlockProcessHeapOnProcessTerminate(0LL);
-    RtlLeaveCriticalSection(&FastPebLock);
-    LdrpReleaseLoaderLock(v5, 18, 0);
-    return NtTerminateThread(-2LL, a1);
-  }
-  else
+  if ( ZwTerminateProcess(0LL, ExitStatus) >= 0 )
   {
     LOBYTE(v2) = 1;
     RtlUnlockProcessHeapOnProcessTerminate(v2);
     UniqueThread = NtCurrentTeb()->ClientId.UniqueThread;
-    qword_1801D47B8 = 0LL;
-    qword_1801D47B0 = (__int64)UniqueThread;
-    dword_1801D47A8 = -2;
-    dword_1801D47AC = 1;
+    FastPebLock.LockSemaphore = 0LL;
+    FastPebLock.OwningThread = UniqueThread;
+    FastPebLock.LockCount = -2;
+    FastPebLock.RecursionCount = 1;
     RtlLeaveCriticalSection(&FastPebLock);
-    RtlReportSilentProcessExit(-1LL, a1);
+    RtlReportSilentProcessExit((HANDLE)0xFFFFFFFFFFFFFFFFLL, ExitStatus);
     LdrShutdownProcess();
-    return ZwTerminateProcess(-1LL, a1);
   }
+  RtlUnlockProcessHeapOnProcessTerminate(0LL);
+  RtlLeaveCriticalSection(&FastPebLock);
+  LdrpReleaseLoaderLock(v4, 18, 0);
+  NtTerminateThread((HANDLE)0xFFFFFFFFFFFFFFFELL, ExitStatus);
 }

@@ -1,15 +1,15 @@
 /*
- * XREFs of MiReadyReservedView @ 0x1404C04A8
+ * XREFs of MiReadyReservedView @ 0x14044D858
  * Callers:
- *     MiObtainSystemCacheView @ 0x140241D90 (MiObtainSystemCacheView.c)
- *     MmMapViewInSystemCache @ 0x1402D5CA4 (MmMapViewInSystemCache.c)
+ *     MiObtainSystemCacheView @ 0x140209EE0 (MiObtainSystemCacheView.c)
+ *     MmMapViewInSystemCache @ 0x140356F24 (MmMapViewInSystemCache.c)
  * Callees:
- *     MiInitializeTbFlushList @ 0x140233BB0 (MiInitializeTbFlushList.c)
- *     MiCompareTbFlushTimeStamp @ 0x14023E0A8 (MiCompareTbFlushTimeStamp.c)
- *     MiInsertTbFlushEntry @ 0x1402432E0 (MiInsertTbFlushEntry.c)
- *     MiFlushTbList @ 0x140291730 (MiFlushTbList.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     MiInsertTbFlushEntry @ 0x1402137F0 (MiInsertTbFlushEntry.c)
+ *     MiInitializeTbFlushList @ 0x140214780 (MiInitializeTbFlushList.c)
+ *     MiFlushTbList @ 0x1402A1330 (MiFlushTbList.c)
+ *     MiCompareTbFlushTimeStamp @ 0x14044D95C (MiCompareTbFlushTimeStamp.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 ULONG_PTR __fastcall MiReadyReservedView(__int64 a1, unsigned __int64 a2)
@@ -21,14 +21,14 @@ ULONG_PTR __fastcall MiReadyReservedView(__int64 a1, unsigned __int64 a2)
 
   v4 = (unsigned __int64 *)(((a2 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL);
   v5 = *v4;
-  if ( qword_140E2DB80 )
+  if ( qword_140E2DCC0 )
   {
     if ( (v5 & 0x10) != 0 )
       v5 &= ~0x10uLL;
     else
-      v5 &= ~qword_140E2DB80;
+      v5 &= ~qword_140E2DCC0;
   }
-  if ( MiCompareTbFlushTimeStamp(HIDWORD(v5)) )
+  if ( (unsigned __int8)MiCompareTbFlushTimeStamp(HIDWORD(v5)) )
   {
     memset_0(v7, 0, 0xC8uLL);
     MiInitializeTbFlushList((__int64)v7, a1 + 18816, 20, 8, 1);

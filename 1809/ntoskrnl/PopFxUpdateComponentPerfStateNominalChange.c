@@ -1,11 +1,11 @@
 /*
- * XREFs of PopFxUpdateComponentPerfStateNominalChange @ 0x1402DA160
+ * XREFs of PopFxUpdateComponentPerfStateNominalChange @ 0x1402DA350
  * Callers:
- *     PopPepDeviceDState @ 0x140171F84 (PopPepDeviceDState.c)
- *     PopPepCompleteComponentIdleStateChangeActivity @ 0x140172360 (PopPepCompleteComponentIdleStateChangeActivity.c)
+ *     PopPepDeviceDState @ 0x140172084 (PopPepDeviceDState.c)
+ *     PopPepCompleteComponentIdleStateChangeActivity @ 0x140172460 (PopPepCompleteComponentIdleStateChangeActivity.c)
  * Callees:
- *     PopFxQueryCurrentComponentPerfState @ 0x1402D8EE4 (PopFxQueryCurrentComponentPerfState.c)
- *     PopDiagTraceFxPerfNominalChange @ 0x1402E1000 (PopDiagTraceFxPerfNominalChange.c)
+ *     PopFxQueryCurrentComponentPerfState @ 0x1402D90D4 (PopFxQueryCurrentComponentPerfState.c)
+ *     PopDiagTraceFxPerfNominalChange @ 0x1402E11F0 (PopDiagTraceFxPerfNominalChange.c)
  */
 
 _BYTE *__fastcall PopFxUpdateComponentPerfStateNominalChange(__int64 a1, int a2, char a3, int a4)

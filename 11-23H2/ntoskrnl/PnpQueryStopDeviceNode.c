@@ -1,15 +1,15 @@
 /*
- * XREFs of PnpQueryStopDeviceNode @ 0x14096E828
+ * XREFs of PnpQueryStopDeviceNode @ 0x14096EA28
  * Callers:
- *     PnpQueryRebalanceWorker @ 0x14096E698 (PnpQueryRebalanceWorker.c)
+ *     PnpQueryRebalanceWorker @ 0x14096E898 (PnpQueryRebalanceWorker.c)
  * Callees:
- *     PipSetDevNodeState @ 0x14022AE84 (PipSetDevNodeState.c)
- *     PoFxActivateDevice @ 0x140322C44 (PoFxActivateDevice.c)
- *     PnpFindMountableDevice @ 0x1403B741C (PnpFindMountableDevice.c)
- *     PnpLockMountableDevice @ 0x1403D51B0 (PnpLockMountableDevice.c)
- *     PiRebalanceOptOut @ 0x140564D90 (PiRebalanceOptOut.c)
- *     PipSetDevNodeFlags @ 0x1407956CC (PipSetDevNodeFlags.c)
- *     IopQueryReconfiguration @ 0x14096D064 (IopQueryReconfiguration.c)
+ *     PipSetDevNodeState @ 0x14022AF94 (PipSetDevNodeState.c)
+ *     PoFxActivateDevice @ 0x140322ED4 (PoFxActivateDevice.c)
+ *     PnpFindMountableDevice @ 0x1403B75FC (PnpFindMountableDevice.c)
+ *     PnpLockMountableDevice @ 0x1403D5390 (PnpLockMountableDevice.c)
+ *     PiRebalanceOptOut @ 0x140565450 (PiRebalanceOptOut.c)
+ *     PipSetDevNodeFlags @ 0x1407958BC (PipSetDevNodeFlags.c)
+ *     IopQueryReconfiguration @ 0x14096D264 (IopQueryReconfiguration.c)
  */
 
 __int64 __fastcall PnpQueryStopDeviceNode(__int64 a1, char a2)

@@ -151,6 +151,6 @@ LABEL_49:
   v25 = v23 | v24;
 LABEL_51:
   *Terminator = S;
-  Addr->S_un.S_addr = _byteswap_ulong(v25);
+  *(_DWORD *)Addr = _byteswap_ulong(v25);
   return 0;
 }

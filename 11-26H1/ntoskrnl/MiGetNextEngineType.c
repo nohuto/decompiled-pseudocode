@@ -1,9 +1,9 @@
 /*
- * XREFs of MiGetNextEngineType @ 0x14051FCA8
+ * XREFs of MiGetNextEngineType @ 0x14052234C
  * Callers:
- *     MiReduceZeroingThreads @ 0x14051EB08 (MiReduceZeroingThreads.c)
- *     MiFindOptimalEngineToAddThread @ 0x14051F998 (MiFindOptimalEngineToAddThread.c)
- *     MiSuitableZeroingProcessorAvailable @ 0x1405280BC (MiSuitableZeroingProcessorAvailable.c)
+ *     MiReduceZeroingThreads @ 0x1405211AC (MiReduceZeroingThreads.c)
+ *     MiFindOptimalEngineToAddThread @ 0x14052203C (MiFindOptimalEngineToAddThread.c)
+ *     MiSuitableZeroingProcessorAvailable @ 0x14052A72C (MiSuitableZeroingProcessorAvailable.c)
  * Callees:
  *     <none>
  */

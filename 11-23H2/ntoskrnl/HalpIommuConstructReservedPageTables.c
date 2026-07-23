@@ -1,7 +1,7 @@
 /*
  * XREFs of HalpIommuConstructReservedPageTables @ 0x140A8A61C
  * Callers:
- *     HalpIommuInitializeAll @ 0x140A90F0C (HalpIommuInitializeAll.c)
+ *     HalpIommuInitializeAll @ 0x140A90D8C (HalpIommuInitializeAll.c)
  * Callees:
  *     HalpIommuConstructReservedPageTable @ 0x140A8A50C (HalpIommuConstructReservedPageTable.c)
  */

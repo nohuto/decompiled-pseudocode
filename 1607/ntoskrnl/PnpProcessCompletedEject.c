@@ -1,17 +1,17 @@
 /*
- * XREFs of PnpProcessCompletedEject @ 0x14062DF9C
+ * XREFs of PnpProcessCompletedEject @ 0x14062E050
  * Callers:
- *     PnpProcessQueryRemoveAndEject @ 0x1404C41D8 (PnpProcessQueryRemoveAndEject.c)
+ *     PnpProcessQueryRemoveAndEject @ 0x140484DD0 (PnpProcessQueryRemoveAndEject.c)
  * Callees:
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
- *     PnpCompleteDeviceEvent @ 0x1403EFD70 (PnpCompleteDeviceEvent.c)
- *     PpDevNodeUnlockTree @ 0x1403F49E0 (PpDevNodeUnlockTree.c)
- *     PpDevNodeLockTree @ 0x1403F4AB8 (PpDevNodeLockTree.c)
- *     PnpInvalidateRelationsInList @ 0x1404C54CC (PnpInvalidateRelationsInList.c)
- *     IopFreeRelationList @ 0x1404C59AC (IopFreeRelationList.c)
- *     PpProfileMarkAllTransitioningDocksEjected @ 0x1406425E8 (PpProfileMarkAllTransitioningDocksEjected.c)
- *     PnpSetDeviceRemovalSafe @ 0x140642D3C (PnpSetDeviceRemovalSafe.c)
- *     IopWarmEjectDevice @ 0x14064C5EC (IopWarmEjectDevice.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
+ *     PpDevNodeUnlockTree @ 0x1403F38A4 (PpDevNodeUnlockTree.c)
+ *     PpDevNodeLockTree @ 0x1403F397C (PpDevNodeLockTree.c)
+ *     PnpInvalidateRelationsInList @ 0x140485900 (PnpInvalidateRelationsInList.c)
+ *     IopFreeRelationList @ 0x140485DE0 (IopFreeRelationList.c)
+ *     PnpCompleteDeviceEvent @ 0x14048D49C (PnpCompleteDeviceEvent.c)
+ *     PpProfileMarkAllTransitioningDocksEjected @ 0x1406426CC (PpProfileMarkAllTransitioningDocksEjected.c)
+ *     PnpSetDeviceRemovalSafe @ 0x140642E20 (PnpSetDeviceRemovalSafe.c)
+ *     IopWarmEjectDevice @ 0x14064C6D0 (IopWarmEjectDevice.c)
  */
 
 void __fastcall PnpProcessCompletedEject(void *a1)

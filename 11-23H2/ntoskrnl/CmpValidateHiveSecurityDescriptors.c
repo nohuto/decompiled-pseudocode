@@ -1,22 +1,22 @@
 /*
- * XREFs of CmpValidateHiveSecurityDescriptors @ 0x14070C9DC
+ * XREFs of CmpValidateHiveSecurityDescriptors @ 0x14070CBEC
  * Callers:
- *     CmCheckRegistry @ 0x140705210 (CmCheckRegistry.c)
+ *     CmCheckRegistry @ 0x140705420 (CmCheckRegistry.c)
  * Callees:
- *     SetFailureLocation @ 0x1402F69F0 (SetFailureLocation.c)
+ *     SetFailureLocation @ 0x1402F6C80 (SetFailureLocation.c)
  *     CmpResetCachedSecurity @ 0x14067F580 (CmpResetCachedSecurity.c)
  *     CmpDestroySecurityCache @ 0x140689124 (CmpDestroySecurityCache.c)
  *     CmpCheckSecurityCellAccess @ 0x14069A11C (CmpCheckSecurityCellAccess.c)
- *     HvIsCellAllocated @ 0x1406DD350 (HvIsCellAllocated.c)
- *     HvpGetCellPaged @ 0x1406E0150 (HvpGetCellPaged.c)
- *     HvpReleaseCellPaged @ 0x1406E0260 (HvpReleaseCellPaged.c)
- *     CmpInitSecurityCache @ 0x140703340 (CmpInitSecurityCache.c)
- *     CmpAddSecurityCellToCache @ 0x14070D6D8 (CmpAddSecurityCellToCache.c)
- *     RtlValidRelativeSecurityDescriptor @ 0x14070DB20 (RtlValidRelativeSecurityDescriptor.c)
- *     HvpMarkCellDirty @ 0x140746FA0 (HvpMarkCellDirty.c)
- *     HvpReleaseCellFlat @ 0x1407D9470 (HvpReleaseCellFlat.c)
- *     CmpAdjustSecurityCacheSize @ 0x1407E07EC (CmpAdjustSecurityCacheSize.c)
- *     HvpGetCellFlat @ 0x1407FD9F0 (HvpGetCellFlat.c)
+ *     HvIsCellAllocated @ 0x1406DD380 (HvIsCellAllocated.c)
+ *     HvpGetCellPaged @ 0x1406E0180 (HvpGetCellPaged.c)
+ *     HvpReleaseCellPaged @ 0x1406E0290 (HvpReleaseCellPaged.c)
+ *     CmpInitSecurityCache @ 0x140703550 (CmpInitSecurityCache.c)
+ *     CmpAddSecurityCellToCache @ 0x14070D8E8 (CmpAddSecurityCellToCache.c)
+ *     RtlValidRelativeSecurityDescriptor @ 0x14070DD30 (RtlValidRelativeSecurityDescriptor.c)
+ *     HvpMarkCellDirty @ 0x140747190 (HvpMarkCellDirty.c)
+ *     HvpReleaseCellFlat @ 0x1407D9740 (HvpReleaseCellFlat.c)
+ *     CmpAdjustSecurityCacheSize @ 0x1407E0ABC (CmpAdjustSecurityCacheSize.c)
+ *     HvpGetCellFlat @ 0x1407FDCC0 (HvpGetCellFlat.c)
  *     HvpGetBinContextInitialize @ 0x140AF5200 (HvpGetBinContextInitialize.c)
  */
 
@@ -24,10 +24,10 @@ __int64 __fastcall CmpValidateHiveSecurityDescriptors(
         ULONG_PTR BugCheckParameter3,
         int a2,
         _BYTE *a3,
-        RTL_BITMAP *a4,
+        _RTL_BITMAP *a4,
         __int64 a5)
 {
-  RTL_BITMAP *v6; // rdi
+  _RTL_BITMAP *v6; // rdi
   _DWORD *v7; // r14
   unsigned int v8; // edx
   __int64 v9; // rcx

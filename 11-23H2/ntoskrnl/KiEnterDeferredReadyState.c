@@ -1,13 +1,13 @@
 /*
- * XREFs of KiEnterDeferredReadyState @ 0x1402B9190
+ * XREFs of KiEnterDeferredReadyState @ 0x1402B9420
  * Callers:
  *     KiSetThreadSchedulingGroup @ 0x140204900 (KiSetThreadSchedulingGroup.c)
- *     KiQueueReadyThread @ 0x140234510 (KiQueueReadyThread.c)
- *     KiCommitRescheduleContextEntry @ 0x140242E90 (KiCommitRescheduleContextEntry.c)
- *     KiWakeQueueWaiter @ 0x1402B8780 (KiWakeQueueWaiter.c)
- *     KiInsertDeferredReadyList @ 0x1402B9C54 (KiInsertDeferredReadyList.c)
- *     KiFastReadyThread @ 0x1402BB984 (KiFastReadyThread.c)
- *     KiReadyOutSwappedThreads @ 0x14034D1F4 (KiReadyOutSwappedThreads.c)
+ *     KiQueueReadyThread @ 0x1402345E0 (KiQueueReadyThread.c)
+ *     KiCommitRescheduleContextEntry @ 0x140242F60 (KiCommitRescheduleContextEntry.c)
+ *     KiWakeQueueWaiter @ 0x1402B8A10 (KiWakeQueueWaiter.c)
+ *     KiInsertDeferredReadyList @ 0x1402B9EE4 (KiInsertDeferredReadyList.c)
+ *     KiFastReadyThread @ 0x1402BBC14 (KiFastReadyThread.c)
+ *     KiReadyOutSwappedThreads @ 0x14034D394 (KiReadyOutSwappedThreads.c)
  * Callees:
  *     <none>
  */

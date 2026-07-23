@@ -10,27 +10,27 @@
  *     PopCheckShutdownMarker @ 0x1409FBC20 (PopCheckShutdownMarker.c)
  */
 
-__int64 PopProcessBootstat()
+int PopProcessBootstat()
 {
-  __int64 result; // rax
-  __int64 v1; // [rsp+20h] [rbp-28h] BYREF
+  int result; // eax
+  __int64 DataBuffer; // [rsp+20h] [rbp-28h] BYREF
   __int64 v2; // [rsp+28h] [rbp-20h]
   int v3; // [rsp+30h] [rbp-18h]
 
   PopCheckShutdownMarker();
-  v1 = 0LL;
+  DataBuffer = 0LL;
   v2 = 0LL;
   v3 = 0;
-  result = RtlGetSystemBootStatus(13, (__int64)&v1, 20, 0LL);
-  if ( (int)result >= 0 )
+  result = RtlGetSystemBootStatus(RtlBsdItemErrorInfo, &DataBuffer, 0x14u, 0LL);
+  if ( result >= 0 )
   {
     if ( HIDWORD(v2) )
     {
       PopTraceBootError();
-      v1 = 0LL;
+      DataBuffer = 0LL;
       v2 = 0LL;
       v3 = 0;
-      return RtlSetSystemBootStatus(13, (__int64)&v1, 20, 0LL);
+      return RtlSetSystemBootStatus(RtlBsdItemErrorInfo, &DataBuffer, 0x14u, 0LL);
     }
   }
   return result;

@@ -1,12 +1,12 @@
 /*
- * XREFs of PopEtEnergyTrackerCleanupAggregates @ 0x140950E24
+ * XREFs of PopEtEnergyTrackerCleanupAggregates @ 0x1409CC764
  * Callers:
- *     PopEtEnergyTrackerCleanup @ 0x1407DBD60 (PopEtEnergyTrackerCleanup.c)
- *     PopEtEnergyTrackerQuery @ 0x140B66F4C (PopEtEnergyTrackerQuery.c)
+ *     PopEtEnergyTrackerCleanup @ 0x1407DFF80 (PopEtEnergyTrackerCleanup.c)
+ *     PopEtEnergyTrackerQuery @ 0x140B69ED8 (PopEtEnergyTrackerQuery.c)
  * Callees:
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     PopEtAggregateKeyCleanup @ 0x140950F58 (PopEtAggregateKeyCleanup.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     PopEtAggregateKeyCleanup @ 0x1409CC898 (PopEtAggregateKeyCleanup.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 char *__fastcall PopEtEnergyTrackerCleanupAggregates(__int64 a1)

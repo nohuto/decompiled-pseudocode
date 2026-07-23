@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlpCallQueryRegistryRoutine @ 0x1404F84B0
+ * XREFs of RtlpCallQueryRegistryRoutine @ 0x1404DB43C
  * Callers:
- *     RtlpQueryRegistryValues @ 0x1404F8018 (RtlpQueryRegistryValues.c)
+ *     RtlpQueryRegistryValues @ 0x1404DAFA4 (RtlpQueryRegistryValues.c)
  * Callees:
- *     memmove @ 0x140171280 (memmove.c)
- *     RtlpValidateKeyTrust @ 0x1404F7538 (RtlpValidateKeyTrust.c)
- *     RtlpQueryRegistryDirect @ 0x1404F877C (RtlpQueryRegistryDirect.c)
+ *     memmove @ 0x140171780 (memmove.c)
+ *     RtlpValidateKeyTrust @ 0x1404DA4C4 (RtlpValidateKeyTrust.c)
+ *     RtlpQueryRegistryDirect @ 0x1404DB708 (RtlpQueryRegistryDirect.c)
  */
 
 NTSTATUS __fastcall RtlpCallQueryRegistryRoutine(

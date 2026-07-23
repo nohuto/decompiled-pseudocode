@@ -1,14 +1,14 @@
 /*
- * XREFs of PspProcessClose @ 0x1406952B0
+ * XREFs of PspProcessClose @ 0x1405F4800
  * Callers:
  *     <none>
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
- *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
- *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
- *     PsTerminateProcess @ 0x1406BC4B8 (PsTerminateProcess.c)
- *     PspRundownProcess @ 0x14090B24C (PspRundownProcess.c)
+ *     KeLeaveCriticalRegionThread @ 0x1402AB8C0 (KeLeaveCriticalRegionThread.c)
+ *     ExfTryToWakePushLock @ 0x1402FC2C0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x1403539D0 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1403556E0 (ExAcquirePushLockExclusiveEx.c)
+ *     PsTerminateProcess @ 0x14061B628 (PsTerminateProcess.c)
+ *     PspRundownProcess @ 0x14090B3AC (PspRundownProcess.c)
  */
 
 __int64 __fastcall PspProcessClose(__int64 a1, __int64 a2, __int64 a3, unsigned __int64 a4)
@@ -17,6 +17,9 @@ __int64 __fastcall PspProcessClose(__int64 a1, __int64 a2, __int64 a3, unsigned 
   struct _KTHREAD *CurrentThread; // r14
   signed __int32 v7; // ebp
   volatile signed __int64 *v8; // rsi
+  __int64 v9; // rdx
+  __int64 v10; // r8
+  __int64 v11; // r9
   _UNKNOWN *retaddr; // [rsp+28h] [rbp+0h] BYREF
 
   result = (__int64)&retaddr;
@@ -48,7 +51,7 @@ __int64 __fastcall PspProcessClose(__int64 a1, __int64 a2, __int64 a3, unsigned 
     if ( (_InterlockedExchangeAdd64(v8, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
       ExfTryToWakePushLock(v8);
     KeAbPostRelease((ULONG_PTR)v8);
-    result = (__int64)KeLeaveCriticalRegionThread((__int64)CurrentThread);
+    result = (__int64)KeLeaveCriticalRegionThread((__int64)CurrentThread, v9, v10, v11);
     if ( (v7 & 0x2000000) == 0 )
       return PspRundownProcess((PVOID)a2);
   }

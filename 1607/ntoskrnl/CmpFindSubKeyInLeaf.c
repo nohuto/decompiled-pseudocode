@@ -1,9 +1,9 @@
 /*
- * XREFs of CmpFindSubKeyInLeaf @ 0x140609F30
+ * XREFs of CmpFindSubKeyInLeaf @ 0x140609FE4
  * Callers:
- *     CmpRemoveSubKeyFromList @ 0x1404D4CD4 (CmpRemoveSubKeyFromList.c)
+ *     CmpRemoveSubKeyFromList @ 0x1404B82D8 (CmpRemoveSubKeyFromList.c)
  * Callees:
- *     CmpFindSubKeyInLeafWithStatus @ 0x140512A60 (CmpFindSubKeyInLeafWithStatus.c)
+ *     CmpFindSubKeyInLeafWithStatus @ 0x1404F5E50 (CmpFindSubKeyInLeafWithStatus.c)
  */
 
 __int64 __fastcall CmpFindSubKeyInLeaf(

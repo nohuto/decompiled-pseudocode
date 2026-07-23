@@ -1,11 +1,11 @@
 /*
- * XREFs of HalpLaReserveRange @ 0x1404DB3D4
+ * XREFs of HalpLaReserveRange @ 0x1404DB614
  * Callers:
- *     HalpDmaAddReservedRangesToDomain @ 0x1404C4A10 (HalpDmaAddReservedRangesToDomain.c)
- *     HalpLaInitializeState @ 0x1404DB200 (HalpLaInitializeState.c)
+ *     HalpDmaAddReservedRangesToDomain @ 0x1404C4C50 (HalpDmaAddReservedRangesToDomain.c)
+ *     HalpLaInitializeState @ 0x1404DB440 (HalpLaInitializeState.c)
  * Callees:
- *     HalpLaBltAdd @ 0x1404DAFF8 (HalpLaBltAdd.c)
- *     HalpLapSplitNode @ 0x1404DB6AC (HalpLapSplitNode.c)
+ *     HalpLaBltAdd @ 0x1404DB238 (HalpLaBltAdd.c)
+ *     HalpLapSplitNode @ 0x1404DB8EC (HalpLapSplitNode.c)
  */
 
 __int64 __fastcall HalpLaReserveRange(__int64 a1, unsigned __int64 a2, __int64 a3)

@@ -1,11 +1,11 @@
 /*
- * XREFs of KiEndDebugAccumulation @ 0x140082A84
+ * XREFs of KiEndDebugAccumulation @ 0x140083704
  * Callers:
- *     KeThawExecution @ 0x1400825DC (KeThawExecution.c)
- *     KiFreezeTargetExecution @ 0x1400828E0 (KiFreezeTargetExecution.c)
+ *     KeThawExecution @ 0x140083258 (KeThawExecution.c)
+ *     KiFreezeTargetExecution @ 0x140083560 (KiFreezeTargetExecution.c)
  * Callees:
- *     PpmPerfGetCurrentFrequency @ 0x140149980 (PpmPerfGetCurrentFrequency.c)
- *     KiBeginCounterAccumulation @ 0x1401D6F18 (KiBeginCounterAccumulation.c)
+ *     PpmPerfGetCurrentFrequency @ 0x140149EF0 (PpmPerfGetCurrentFrequency.c)
+ *     KiBeginCounterAccumulation @ 0x1401D6D44 (KiBeginCounterAccumulation.c)
  */
 
 void __fastcall KiEndDebugAccumulation(__int64 a1)

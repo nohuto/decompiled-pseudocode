@@ -1,17 +1,17 @@
 /*
- * XREFs of CmpInitializeSystemHivesLoad @ 0x140756824
+ * XREFs of CmpInitializeSystemHivesLoad @ 0x140757A14
  * Callers:
- *     CmCompleteRegistryInitialization @ 0x1407455B4 (CmCompleteRegistryInitialization.c)
+ *     CmCompleteRegistryInitialization @ 0x1407467A4 (CmCompleteRegistryInitialization.c)
  * Callees:
  *     RtlAppendUnicodeToString @ 0x140015E00 (RtlAppendUnicodeToString.c)
- *     KeInitializeEvent @ 0x1400B8E70 (KeInitializeEvent.c)
- *     KeSetEvent @ 0x1400C2B00 (KeSetEvent.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     ZwClose @ 0x1401B8370 (ZwClose.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     PsCreateSystemThreadEx @ 0x14066AAC0 (PsCreateSystemThreadEx.c)
- *     CmpQueryHiveRedirectionFileList @ 0x1406C8EC4 (CmpQueryHiveRedirectionFileList.c)
+ *     KeInitializeEvent @ 0x1400B8DB0 (KeInitializeEvent.c)
+ *     KeSetEvent @ 0x1400C2A40 (KeSetEvent.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     ZwClose @ 0x1401B84D0 (ZwClose.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     PsCreateSystemThreadEx @ 0x14066BC80 (PsCreateSystemThreadEx.c)
+ *     CmpQueryHiveRedirectionFileList @ 0x1406CA164 (CmpQueryHiveRedirectionFileList.c)
  */
 
 NTSTATUS CmpInitializeSystemHivesLoad()
@@ -40,7 +40,7 @@ NTSTATUS CmpInitializeSystemHivesLoad()
   KeInitializeEvent(&CmpLoadWorkerEvent, SynchronizationEvent, 0);
   KeInitializeEvent(&CmpLoadWorkerDebugEvent, SynchronizationEvent, 0);
   v0 = 0;
-  v1 = &unk_1403FEEA0;
+  v1 = &unk_1403FFEA0;
   do
   {
     v2 = 19LL * v0;
@@ -73,10 +73,10 @@ NTSTATUS CmpInitializeSystemHivesLoad()
     ++v0;
   }
   while ( v0 < 7 );
-  v5 = &unk_1403FEE30;
+  v5 = &unk_1403FFE30;
   if ( CmpShareSystemHives )
   {
-    v10 = &unk_1403FEE30;
+    v10 = &unk_1403FFE30;
     v11 = 7LL;
     do
     {
@@ -93,7 +93,7 @@ NTSTATUS CmpInitializeSystemHivesLoad()
     if ( (*v5 & 1) != 0 || CmpInitRmLogOnLoad || CmpForceSynchronousMachineHiveLoad || ((i - 2) & 0xFFFFFFFA) == 0 )
     {
       v7 = i;
-      KeSetEvent((struct _KEVENT *)((char *)&stru_1403FEE50 + 152 * i), 0, 0);
+      KeSetEvent((struct _KEVENT *)((char *)&stru_1403FFE50 + 152 * i), 0, 0);
     }
     else
     {

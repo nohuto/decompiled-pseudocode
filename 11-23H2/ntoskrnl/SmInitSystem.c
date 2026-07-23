@@ -5,9 +5,9 @@
  *     Phase1InitializationIoReady @ 0x140B4DC38 (Phase1InitializationIoReady.c)
  *     Phase1InitializationDiscard @ 0x140B4FFBC (Phase1InitializationDiscard.c)
  * Callees:
- *     memset @ 0x140435A00 (memset.c)
- *     EtwRegister @ 0x14078D880 (EtwRegister.c)
- *     SmpSystemStoreCreate @ 0x14085BC80 (SmpSystemStoreCreate.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     EtwRegister @ 0x14078DA70 (EtwRegister.c)
+ *     SmpSystemStoreCreate @ 0x14085BEC0 (SmpSystemStoreCreate.c)
  *     SmGlobalsStart @ 0x140B4D7D4 (SmGlobalsStart.c)
  */
 

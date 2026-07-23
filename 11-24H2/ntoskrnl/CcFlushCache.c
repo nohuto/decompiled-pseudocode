@@ -1,9 +1,9 @@
 /*
- * XREFs of CcFlushCache @ 0x14047B490
+ * XREFs of CcFlushCache @ 0x140476B40
  * Callers:
  *     <none>
  * Callees:
- *     CcFlushCachePriv @ 0x1402AC810 (CcFlushCachePriv.c)
+ *     CcFlushCachePriv @ 0x1402771F0 (CcFlushCachePriv.c)
  */
 
 void __stdcall CcFlushCache(

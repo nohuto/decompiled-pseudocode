@@ -1,13 +1,13 @@
 /*
- * XREFs of PnpTraceRebalanceResult @ 0x1407B1CA8
+ * XREFs of PnpTraceRebalanceResult @ 0x1407B4D08
  * Callers:
- *     PnpRebalance @ 0x1407B3F98 (PnpRebalance.c)
+ *     PnpRebalance @ 0x1407B6FF8 (PnpRebalance.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212E30 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgKeywordOn @ 0x14044F850 (_tlgKeywordOn.c)
- *     McTemplateK0zzqqzttquqqzxt_EtwWriteTransfer @ 0x1405DCBD4 (McTemplateK0zzqqzttquqqzxt_EtwWriteTransfer.c)
- *     McTemplateK0zzqqzttquxt_EtwWriteTransfer @ 0x1405DCDD4 (McTemplateK0zzqqzttquxt_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212F10 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x140447980 (_tlgKeywordOn.c)
+ *     McTemplateK0zzqqzttquqqzxt_EtwWriteTransfer @ 0x1405DF53C (McTemplateK0zzqqzttquqqzxt_EtwWriteTransfer.c)
+ *     McTemplateK0zzqqzttquxt_EtwWriteTransfer @ 0x1405DF73C (McTemplateK0zzqqzttquxt_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 char __fastcall PnpTraceRebalanceResult(unsigned int a1, int a2, __int64 a3)
@@ -79,7 +79,7 @@ char __fastcall PnpTraceRebalanceResult(unsigned int a1, int a2, __int64 a3)
     v10 = &PnpEmptyUnicodeString;
   if ( a2 < 0 )
   {
-    if ( (byte_140EF3DCC & 4) != 0 )
+    if ( (byte_140EF412C & 4) != 0 )
     {
       v11 = *(_DWORD *)(a3 + 56);
       LOBYTE(v8) = McTemplateK0zzqqzttquqqzxt_EtwWriteTransfer(
@@ -102,7 +102,7 @@ char __fastcall PnpTraceRebalanceResult(unsigned int a1, int a2, __int64 a3)
                      (v11 & 2) != 0);
     }
   }
-  else if ( (byte_140EF3DCC & 8) != 0 )
+  else if ( (byte_140EF412C & 8) != 0 )
   {
     LOBYTE(v8) = McTemplateK0zzqqzttquxt_EtwWriteTransfer(
                    *(unsigned __int8 *)(a1 + a3 + 40),
@@ -120,9 +120,9 @@ char __fastcall PnpTraceRebalanceResult(unsigned int a1, int a2, __int64 a3)
                    v9,
                    (*(_DWORD *)(a3 + 56) & 2) != 0);
   }
-  if ( (unsigned int)dword_140E06EA8 > 5 )
+  if ( (unsigned int)dword_140E06E48 > 5 )
   {
-    LOBYTE(v8) = tlgKeywordOn((__int64)&dword_140E06EA8, 0x400000000000LL);
+    LOBYTE(v8) = tlgKeywordOn((__int64)&dword_140E06E48, 0x400000000000LL);
     if ( (_BYTE)v8 )
     {
       v24 = 0x1000000LL;
@@ -173,8 +173,8 @@ char __fastcall PnpTraceRebalanceResult(unsigned int a1, int a2, __int64 a3)
       v57 = 1LL;
       v59 = 1LL;
       LOBYTE(v8) = tlgWriteTransfer_EtwWriteTransfer(
-                     (__int64)&dword_140E06EA8,
-                     (unsigned __int8 *)&byte_14004862F,
+                     (__int64)&dword_140E06E48,
+                     (unsigned __int8 *)&word_140048936,
                      0LL,
                      0LL,
                      0x12u,

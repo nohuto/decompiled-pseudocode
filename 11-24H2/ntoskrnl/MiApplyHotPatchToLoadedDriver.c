@@ -1,22 +1,22 @@
 /*
- * XREFs of MiApplyHotPatchToLoadedDriver @ 0x1407F13E8
+ * XREFs of MiApplyHotPatchToLoadedDriver @ 0x1407F19B8
  * Callers:
- *     MiApplyHotPatchToDriver @ 0x1407F11D4 (MiApplyHotPatchToDriver.c)
+ *     MiApplyHotPatchToDriver @ 0x1407F17A4 (MiApplyHotPatchToDriver.c)
  * Callees:
- *     MI_IS_PHYSICAL_ADDRESS @ 0x1402637E0 (MI_IS_PHYSICAL_ADDRESS.c)
- *     MiSectionControlArea @ 0x1402D4800 (MiSectionControlArea.c)
- *     MiMakeZeroedPageTables @ 0x1403A582C (MiMakeZeroedPageTables.c)
- *     MiGetPteAddress @ 0x140437550 (MiGetPteAddress.c)
- *     MiGetBaseLoaderPortion @ 0x1404D0508 (MiGetBaseLoaderPortion.c)
- *     VslPrepareDriverForPatch @ 0x14058D9AC (VslPrepareDriverForPatch.c)
- *     KeIsImageIATProtected @ 0x1405B07E8 (KeIsImageIATProtected.c)
- *     MiDriverLoadSucceeded @ 0x1406F986C (MiDriverLoadSucceeded.c)
- *     MiApplyDriverHotPatch @ 0x1407F0C5C (MiApplyDriverHotPatch.c)
- *     MmLoadSystemImageEx @ 0x1409C87D8 (MmLoadSystemImageEx.c)
- *     MiHandleDriverNonPagedSections @ 0x140A3DA08 (MiHandleDriverNonPagedSections.c)
- *     MmUnloadSystemImage @ 0x140A8AD10 (MmUnloadSystemImage.c)
- *     MiGenerateSystemImageNames @ 0x140ABF64C (MiGenerateSystemImageNames.c)
- *     MiEnumerateBasePatches @ 0x140B63378 (MiEnumerateBasePatches.c)
+ *     MiMakeZeroedPageTables @ 0x14026CB1C (MiMakeZeroedPageTables.c)
+ *     MI_IS_PHYSICAL_ADDRESS @ 0x140293050 (MI_IS_PHYSICAL_ADDRESS.c)
+ *     MiSectionControlArea @ 0x140355A80 (MiSectionControlArea.c)
+ *     MiGetPteAddress @ 0x140429FD0 (MiGetPteAddress.c)
+ *     MiGetBaseLoaderPortion @ 0x1404C96FC (MiGetBaseLoaderPortion.c)
+ *     VslPrepareDriverForPatch @ 0x14058AC9C (VslPrepareDriverForPatch.c)
+ *     KeIsImageIATProtected @ 0x1405AD758 (KeIsImageIATProtected.c)
+ *     MiDriverLoadSucceeded @ 0x1406F74AC (MiDriverLoadSucceeded.c)
+ *     MiApplyDriverHotPatch @ 0x1407F122C (MiApplyDriverHotPatch.c)
+ *     MmLoadSystemImageEx @ 0x1409B7B70 (MmLoadSystemImageEx.c)
+ *     MiHandleDriverNonPagedSections @ 0x140A33318 (MiHandleDriverNonPagedSections.c)
+ *     MmUnloadSystemImage @ 0x140A87050 (MmUnloadSystemImage.c)
+ *     MiGenerateSystemImageNames @ 0x140ABA72C (MiGenerateSystemImageNames.c)
+ *     MiEnumerateBasePatches @ 0x140B65448 (MiEnumerateBasePatches.c)
  */
 
 __int64 __fastcall MiApplyHotPatchToLoadedDriver(__int64 a1, __int64 a2, int a3)
@@ -63,7 +63,7 @@ __int64 __fastcall MiApplyHotPatchToLoadedDriver(__int64 a1, __int64 a2, int a3)
     v10 = PteAddress + 8 * (((v9 >> 12) + ((v9 & 0xFFF) != 0) + 511) & 0xFFFFFE00);
     if ( !(unsigned int)MiMakeZeroedPageTables(
                           v10,
-                          v10 + 8 * (((unsigned int)dword_140E374AC >> 12) + ((dword_140E374AC & 0xFFF) != 0) - 1),
+                          v10 + 8 * (((unsigned int)dword_140E375EC >> 12) + ((dword_140E375EC & 0xFFF) != 0) - 1),
                           0,
                           11) )
       return 3221225626LL;

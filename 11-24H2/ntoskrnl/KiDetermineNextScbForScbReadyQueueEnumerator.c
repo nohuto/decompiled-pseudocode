@@ -1,8 +1,8 @@
 /*
- * XREFs of KiDetermineNextScbForScbReadyQueueEnumerator @ 0x140299AFC
+ * XREFs of KiDetermineNextScbForScbReadyQueueEnumerator @ 0x1402A85EC
  * Callers:
- *     KiRemoveCurrentThreadScbReadyQueueEnumerator @ 0x14030E650 (KiRemoveCurrentThreadScbReadyQueueEnumerator.c)
- *     KiSearchForNewThreadsOnTarget @ 0x1403DD970 (KiSearchForNewThreadsOnTarget.c)
+ *     KiRemoveCurrentThreadScbReadyQueueEnumerator @ 0x1402D8A9C (KiRemoveCurrentThreadScbReadyQueueEnumerator.c)
+ *     KiSearchForNewThreadsOnTarget @ 0x1403BD660 (KiSearchForNewThreadsOnTarget.c)
  * Callees:
  *     <none>
  */

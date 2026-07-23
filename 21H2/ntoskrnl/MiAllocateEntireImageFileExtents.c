@@ -1,17 +1,17 @@
 /*
- * XREFs of MiAllocateEntireImageFileExtents @ 0x1408CF2A4
+ * XREFs of MiAllocateEntireImageFileExtents @ 0x1408CF404
  * Callers:
- *     MiCreateImageFileMap @ 0x1406D33F4 (MiCreateImageFileMap.c)
+ *     MiCreateImageFileMap @ 0x1406AA6D4 (MiCreateImageFileMap.c)
  * Callees:
- *     RtlAvlRemoveNode @ 0x140234B20 (RtlAvlRemoveNode.c)
- *     MiAllocatePool @ 0x14025AD70 (MiAllocatePool.c)
- *     RtlAvlInsertNodeEx @ 0x140316550 (RtlAvlInsertNodeEx.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
- *     FsRtlGetFileExtents @ 0x1404EED40 (FsRtlGetFileExtents.c)
- *     MiNewPfnsSuitable @ 0x1408C5F20 (MiNewPfnsSuitable.c)
- *     MiLockImageExtentsExclusive @ 0x1408D0284 (MiLockImageExtentsExclusive.c)
- *     MiUnlockImageExtentsExclusive @ 0x1408D02B4 (MiUnlockImageExtentsExclusive.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     MiAllocatePool @ 0x14027C2E0 (MiAllocatePool.c)
+ *     RtlAvlRemoveNode @ 0x1402D9370 (RtlAvlRemoveNode.c)
+ *     RtlAvlInsertNodeEx @ 0x1403212A0 (RtlAvlInsertNodeEx.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
+ *     FsRtlGetFileExtents @ 0x1404EEF80 (FsRtlGetFileExtents.c)
+ *     MiNewPfnsSuitable @ 0x1408C6080 (MiNewPfnsSuitable.c)
+ *     MiLockImageExtentsExclusive @ 0x1408D03E4 (MiLockImageExtentsExclusive.c)
+ *     MiUnlockImageExtentsExclusive @ 0x1408D0414 (MiUnlockImageExtentsExclusive.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall MiAllocateEntireImageFileExtents(
@@ -94,7 +94,7 @@ LABEL_16:
   if ( a3 )
   {
     for ( j = 0LL; (unsigned int)j < *a3; j = (unsigned int)(j + 1) )
-      RtlAvlRemoveNode(&qword_140C4CCA0, (unsigned __int64 *)&a3[12 * j + 2]);
+      RtlAvlRemoveNode(&qword_140C4CCE0, (unsigned __int64 *)&a3[12 * j + 2]);
   }
   v19 = 0;
   v20 = v17 + 2;
@@ -108,8 +108,8 @@ LABEL_16:
     *((_QWORD *)v20 + 5) = *(_QWORD *)&v12[4 * v19 + 4];
     v23 = 0;
     v20[6] = v8;
-    BugCheckParameter4 = (_QWORD *)qword_140C4CCA0;
-    if ( !qword_140C4CCA0 )
+    BugCheckParameter4 = (_QWORD *)qword_140C4CCE0;
+    if ( !qword_140C4CCE0 )
       goto LABEL_29;
     while ( 1 )
     {
@@ -137,7 +137,7 @@ LABEL_29:
     if ( v23 )
       KeBugCheckEx(0x1Au, 0x13003uLL, *((_QWORD *)v20 + 4), *((_QWORD *)v20 + 5), (ULONG_PTR)BugCheckParameter4);
 LABEL_30:
-    RtlAvlInsertNodeEx(&qword_140C4CCA0, (unsigned __int64)BugCheckParameter4, v21, v20);
+    RtlAvlInsertNodeEx(&qword_140C4CCE0, (unsigned __int64)BugCheckParameter4, v21, v20);
     v8 += *((_QWORD *)v20 + 5);
     ++v19;
     v20 += 12;

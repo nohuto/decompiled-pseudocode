@@ -9,5 +9,5 @@
 void __stdcall RtlFreeOemString(POEM_STRING OemString)
 {
   if ( OemString->Buffer )
-    RtlDeleteBoundaryDescriptor((int)OemString->Buffer);
+    RtlDeleteBoundaryDescriptor((POBJECT_BOUNDARY_DESCRIPTOR)OemString->Buffer);
 }

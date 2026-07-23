@@ -1,19 +1,19 @@
 /*
- * XREFs of HalpDmaGetAdapterVersion @ 0x1403B9834
+ * XREFs of HalpDmaGetAdapterVersion @ 0x1403B9A14
  * Callers:
- *     HalJoinDmaDomain @ 0x140390610 (HalJoinDmaDomain.c)
- *     HalpDmaGetAdapterCacheAlignment @ 0x1403B980C (HalpDmaGetAdapterCacheAlignment.c)
- *     HalGetScatterGatherList @ 0x1403D0E00 (HalGetScatterGatherList.c)
- *     HalAllocateAdapterChannel @ 0x14045B300 (HalAllocateAdapterChannel.c)
- *     HalpDmaAllocateContiguousPagesFromContiguousPool @ 0x14045B35A (HalpDmaAllocateContiguousPagesFromContiguousPool.c)
- *     HalpDmaNextContiguousPiece @ 0x14045B428 (HalpDmaNextContiguousPiece.c)
- *     IoMapTransferInternal @ 0x14045B4BE (IoMapTransferInternal.c)
- *     HalpDmaAllocateContiguousPagesFromContiguousPoolAtHighLevel @ 0x140500FE0 (HalpDmaAllocateContiguousPagesFromContiguousPoolAtHighLevel.c)
- *     HalpDmaAllocateScatterPagesFromScatterPoolAtHighLevel @ 0x140501064 (HalpDmaAllocateScatterPagesFromScatterPoolAtHighLevel.c)
- *     IoFreeMapRegistersThunk @ 0x1405010C4 (IoFreeMapRegistersThunk.c)
- *     HalpDmaAllocateMapRegistersAtHighLevel @ 0x140510504 (HalpDmaAllocateMapRegistersAtHighLevel.c)
- *     HalGetAdapterV3 @ 0x140827530 (HalGetAdapterV3.c)
- *     HalGetAdapterV2 @ 0x140827AC0 (HalGetAdapterV2.c)
+ *     HalJoinDmaDomain @ 0x1403907F0 (HalJoinDmaDomain.c)
+ *     HalpDmaGetAdapterCacheAlignment @ 0x1403B99EC (HalpDmaGetAdapterCacheAlignment.c)
+ *     HalGetScatterGatherList @ 0x1403D0FE0 (HalGetScatterGatherList.c)
+ *     HalAllocateAdapterChannel @ 0x14045B700 (HalAllocateAdapterChannel.c)
+ *     HalpDmaAllocateContiguousPagesFromContiguousPool @ 0x14045B75A (HalpDmaAllocateContiguousPagesFromContiguousPool.c)
+ *     HalpDmaNextContiguousPiece @ 0x14045B828 (HalpDmaNextContiguousPiece.c)
+ *     IoMapTransferInternal @ 0x14045B8BE (IoMapTransferInternal.c)
+ *     HalpDmaAllocateContiguousPagesFromContiguousPoolAtHighLevel @ 0x140501530 (HalpDmaAllocateContiguousPagesFromContiguousPoolAtHighLevel.c)
+ *     HalpDmaAllocateScatterPagesFromScatterPoolAtHighLevel @ 0x1405015B4 (HalpDmaAllocateScatterPagesFromScatterPoolAtHighLevel.c)
+ *     IoFreeMapRegistersThunk @ 0x140501614 (IoFreeMapRegistersThunk.c)
+ *     HalpDmaAllocateMapRegistersAtHighLevel @ 0x140510A54 (HalpDmaAllocateMapRegistersAtHighLevel.c)
+ *     HalGetAdapterV3 @ 0x140827830 (HalGetAdapterV3.c)
+ *     HalGetAdapterV2 @ 0x140827DC0 (HalGetAdapterV2.c)
  * Callees:
  *     <none>
  */

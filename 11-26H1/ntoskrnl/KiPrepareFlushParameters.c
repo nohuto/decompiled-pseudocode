@@ -1,8 +1,8 @@
 /*
- * XREFs of KiPrepareFlushParameters @ 0x140470450
+ * XREFs of KiPrepareFlushParameters @ 0x140469BD0
  * Callers:
- *     KeFlushSingleCurrentTb @ 0x1405F0C70 (KeFlushSingleCurrentTb.c)
- *     KeFlushSingleTb @ 0x1405F0DF4 (KeFlushSingleTb.c)
+ *     KeFlushSingleCurrentTb @ 0x1405F35E0 (KeFlushSingleCurrentTb.c)
+ *     KeFlushSingleTb @ 0x1405F3764 (KeFlushSingleTb.c)
  * Callees:
  *     <none>
  */

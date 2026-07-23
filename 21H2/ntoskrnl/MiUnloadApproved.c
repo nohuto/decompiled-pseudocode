@@ -1,17 +1,17 @@
 /*
- * XREFs of MiUnloadApproved @ 0x140771F1C
+ * XREFs of MiUnloadApproved @ 0x1407720DC
  * Callers:
- *     MiDereferenceImports @ 0x140771E90 (MiDereferenceImports.c)
+ *     MiDereferenceImports @ 0x140772050 (MiDereferenceImports.c)
  * Callees:
- *     MiSessionLookupImage @ 0x1402CF668 (MiSessionLookupImage.c)
- *     MiGetSystemRegionType @ 0x14034A950 (MiGetSystemRegionType.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
- *     RtlFindExportedRoutineByName @ 0x140612560 (RtlFindExportedRoutineByName.c)
+ *     MiSessionLookupImage @ 0x14024D9E8 (MiSessionLookupImage.c)
+ *     MiGetSystemRegionType @ 0x1403556A0 (MiGetSystemRegionType.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
+ *     RtlFindExportedRoutineByName @ 0x1406A2010 (RtlFindExportedRoutineByName.c)
  */
 
 __int64 __fastcall MiUnloadApproved(ULONG_PTR BugCheckParameter2)
 {
-  unsigned __int64 v1; // rdi
+  void *v1; // rdi
   __int16 v3; // ax
   _QWORD *v5; // rax
   _QWORD *v6; // rcx
@@ -19,16 +19,16 @@ __int64 __fastcall MiUnloadApproved(ULONG_PTR BugCheckParameter2)
   int (*ExportedRoutineByName)(void); // rax
   unsigned __int64 v9; // rdx
 
-  v1 = *(_QWORD *)(BugCheckParameter2 + 48);
-  if ( (unsigned int)MiGetSystemRegionType(v1) == 1 )
+  v1 = *(void **)(BugCheckParameter2 + 48);
+  if ( (unsigned int)MiGetSystemRegionType((unsigned __int64)v1) == 1 )
   {
-    v5 = MiSessionLookupImage(v1);
+    v5 = MiSessionLookupImage((unsigned __int64)v1);
     v6 = v5;
     if ( !v5 )
     {
       v9 = KeGetCurrentThread()->ApcState.Process[1].AffinityPadding[5];
       if ( (*(_DWORD *)(v9 + 4) & 2) == 0 )
-        KeBugCheckEx(0x1Au, 0x2200uLL, BugCheckParameter2, v1, *(unsigned int *)(v9 + 8));
+        KeBugCheckEx(0x1Au, 0x2200uLL, BugCheckParameter2, (ULONG_PTR)v1, *(unsigned int *)(v9 + 8));
       return 0LL;
     }
     v7 = *((_DWORD *)v5 + 15);

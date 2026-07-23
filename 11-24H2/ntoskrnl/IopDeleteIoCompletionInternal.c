@@ -1,14 +1,14 @@
 /*
- * XREFs of IopDeleteIoCompletionInternal @ 0x14041B6F8
+ * XREFs of IopDeleteIoCompletionInternal @ 0x14040F238
  * Callers:
- *     IopCloseIoCompletion @ 0x140A3C450 (IopCloseIoCompletion.c)
- *     IopDeleteIoCompletion @ 0x140A4ADE0 (IopDeleteIoCompletion.c)
+ *     IopCloseIoCompletion @ 0x140A31C30 (IopCloseIoCompletion.c)
+ *     IopDeleteIoCompletion @ 0x140A41A60 (IopDeleteIoCompletion.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLock @ 0x140275CD0 (KeReleaseInStackQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x1402D8540 (KeAcquireInStackQueuedSpinLock.c)
- *     KeRundownQueueEx @ 0x14041B7C8 (KeRundownQueueEx.c)
- *     IopFreeWaitCompletionPacket @ 0x14041BD10 (IopFreeWaitCompletionPacket.c)
- *     IopFreeCompletionListPackets @ 0x1409A7128 (IopFreeCompletionListPackets.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x14022B260 (KeReleaseInStackQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1403597C0 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeRundownQueueEx @ 0x14040F308 (KeRundownQueueEx.c)
+ *     IopFreeWaitCompletionPacket @ 0x14040F850 (IopFreeWaitCompletionPacket.c)
+ *     IopFreeCompletionListPackets @ 0x1409905F8 (IopFreeCompletionListPackets.c)
  */
 
 void __fastcall IopDeleteIoCompletionInternal(ULONG_PTR a1, char a2)

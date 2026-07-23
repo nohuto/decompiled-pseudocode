@@ -1,11 +1,11 @@
 /*
- * XREFs of PipProcessQueryRemovalInKernelMode @ 0x140971B7C
+ * XREFs of PipProcessQueryRemovalInKernelMode @ 0x140971D7C
  * Callers:
- *     PiProcessQueryAndCancelRemoval @ 0x140971834 (PiProcessQueryAndCancelRemoval.c)
+ *     PiProcessQueryAndCancelRemoval @ 0x140971A34 (PiProcessQueryAndCancelRemoval.c)
  * Callees:
- *     PiSendTargetDeviceRemoveCanceledNotification @ 0x140971A78 (PiSendTargetDeviceRemoveCanceledNotification.c)
- *     PipSendQueryRemoveIrpAndCheckOpenHandles @ 0x140971C9C (PipSendQueryRemoveIrpAndCheckOpenHandles.c)
- *     PipSendTargetDeviceQueryRemoveNotification @ 0x140971E18 (PipSendTargetDeviceQueryRemoveNotification.c)
+ *     PiSendTargetDeviceRemoveCanceledNotification @ 0x140971C78 (PiSendTargetDeviceRemoveCanceledNotification.c)
+ *     PipSendQueryRemoveIrpAndCheckOpenHandles @ 0x140971E9C (PipSendQueryRemoveIrpAndCheckOpenHandles.c)
+ *     PipSendTargetDeviceQueryRemoveNotification @ 0x140972018 (PipSendTargetDeviceQueryRemoveNotification.c)
  */
 
 __int64 __fastcall PipProcessQueryRemovalInKernelMode(

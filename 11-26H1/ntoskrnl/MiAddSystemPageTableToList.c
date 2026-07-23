@@ -1,10 +1,10 @@
 /*
- * XREFs of MiAddSystemPageTableToList @ 0x1403090A8
+ * XREFs of MiAddSystemPageTableToList @ 0x1402EB128
  * Callers:
- *     MiDeleteSystemPageTable @ 0x140309A60 (MiDeleteSystemPageTable.c)
+ *     MiDeleteSystemPageTable @ 0x1402EBAE0 (MiDeleteSystemPageTable.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     MiLockAndDecrementShareCount @ 0x1403091DC (MiLockAndDecrementShareCount.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     MiLockAndDecrementShareCount @ 0x1402EB25C (MiLockAndDecrementShareCount.c)
  */
 
 unsigned __int64 __fastcall MiAddSystemPageTableToList(__int64 a1, __int64 a2)

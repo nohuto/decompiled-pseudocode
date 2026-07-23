@@ -1,12 +1,12 @@
 /*
- * XREFs of MiPerformMemoryChange @ 0x14052EA38
+ * XREFs of MiPerformMemoryChange @ 0x14052EC78
  * Callers:
- *     MiAddPhysicalMemory @ 0x1408C4E90 (MiAddPhysicalMemory.c)
- *     MiRemovePhysicalMemory @ 0x1408C5F8C (MiRemovePhysicalMemory.c)
+ *     MiAddPhysicalMemory @ 0x1408C4FF0 (MiAddPhysicalMemory.c)
+ *     MiRemovePhysicalMemory @ 0x1408C60EC (MiRemovePhysicalMemory.c)
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x14021D060 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14033BD80 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     MiInitializeNonPagedPoolThresholds @ 0x1403B6100 (MiInitializeNonPagedPoolThresholds.c)
+ *     ExAcquireSpinLockExclusive @ 0x1402C1960 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140346AD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiInitializeNonPagedPoolThresholds @ 0x1403B6270 (MiInitializeNonPagedPoolThresholds.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
@@ -25,12 +25,12 @@ __int64 __fastcall MiPerformMemoryChange(__int64 a1, __int64 a2, void **a3, __in
   struct _KPRCB *CurrentPrcb; // r9
   _DWORD *SchedulerAssist; // r8
 
-  v9 = ExAcquireSpinLockExclusive(&dword_140C50E48);
+  v9 = ExAcquireSpinLockExclusive(&dword_140C50E88);
   v10 = *a3;
   v11 = v9;
   v12 = (*((_QWORD *)MmPhysicalMemoryBlock - 1))-- == 1LL;
   v13 = 0LL;
-  v14 = qword_140C50DA0;
+  v14 = qword_140C50DE0;
   if ( v12 )
     v13 = MmPhysicalMemoryBlock;
   MmPhysicalMemoryBlock = v10;
@@ -39,27 +39,27 @@ __int64 __fastcall MiPerformMemoryChange(__int64 a1, __int64 a2, void **a3, __in
   v15 = 0LL;
   v16 = *a4;
   if ( v12 )
-    v15 = qword_140C50DA0;
+    v15 = qword_140C50DE0;
   v17 = a1 + a2 - 1;
   *a4 = v15;
-  qword_140C50DA0 = v16;
+  qword_140C50DE0 = v16;
   if ( (a5 & 1) == 0 )
   {
     if ( v17 == BugCheckParameter3 )
       BugCheckParameter3 = a1 - 1;
-    qword_140C52890 -= a2;
+    qword_140C528D0 -= a2;
     goto LABEL_13;
   }
   if ( v17 > BugCheckParameter3 )
     BugCheckParameter3 = a1 + a2 - 1;
   if ( (a5 & 4) == 0 )
   {
-    qword_140C52890 += a2;
+    qword_140C528D0 += a2;
 LABEL_13:
-    byte_140C50D8C = 1;
+    byte_140C50DCC = 1;
   }
   MiInitializeNonPagedPoolThresholds();
-  ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140C50E48);
+  ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140C50E88);
   result = (unsigned int)KiIrqlFlags;
   if ( KiIrqlFlags )
   {

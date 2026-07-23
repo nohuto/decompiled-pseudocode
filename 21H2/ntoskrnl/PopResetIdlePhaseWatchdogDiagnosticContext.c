@@ -1,21 +1,21 @@
 /*
- * XREFs of PopResetIdlePhaseWatchdogDiagnosticContext @ 0x1408F0278
+ * XREFs of PopResetIdlePhaseWatchdogDiagnosticContext @ 0x1408F03D8
  * Callers:
- *     PopDisarmIdlePhaseWatchdog @ 0x1408EFD2C (PopDisarmIdlePhaseWatchdog.c)
+ *     PopDisarmIdlePhaseWatchdog @ 0x1408EFE8C (PopDisarmIdlePhaseWatchdog.c)
  * Callees:
- *     PopReleaseRwLock @ 0x14027C284 (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x140281AD4 (PopAcquireRwLockExclusive.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     PopReleaseRwLock @ 0x14026A224 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x14026FD14 (PopAcquireRwLockExclusive.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 void PopResetIdlePhaseWatchdogDiagnosticContext()
 {
-  PopAcquireRwLockExclusive((ULONG_PTR)&unk_140C21388);
-  dword_140C213A0 = 0;
-  if ( qword_140C21398 )
+  PopAcquireRwLockExclusive((ULONG_PTR)&unk_140C213C8);
+  dword_140C213E0 = 0;
+  if ( qword_140C213D8 )
   {
-    ExFreePoolWithTag(qword_140C21398, 0x67696450u);
-    qword_140C21398 = 0LL;
+    ExFreePoolWithTag(qword_140C213D8, 0x67696450u);
+    qword_140C213D8 = 0LL;
   }
-  PopReleaseRwLock((ULONG_PTR)&unk_140C21388);
+  PopReleaseRwLock((ULONG_PTR)&unk_140C213C8);
 }

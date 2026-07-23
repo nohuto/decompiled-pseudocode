@@ -1,12 +1,12 @@
 /*
- * XREFs of MmManagePartitionInitialAddMemory @ 0x1407FCE14
+ * XREFs of MmManagePartitionInitialAddMemory @ 0x1407FD584
  * Callers:
- *     NtManagePartition @ 0x140933FF0 (NtManagePartition.c)
+ *     NtManagePartition @ 0x1408F6B10 (NtManagePartition.c)
  * Callees:
- *     MiValidatePartitionInitialAddMemory @ 0x14068BABC (MiValidatePartitionInitialAddMemory.c)
- *     MiHotAddPartitionMemory @ 0x1407FC284 (MiHotAddPartitionMemory.c)
- *     MiSpecialPurposeMemoryChangePrepare @ 0x1407FEBA0 (MiSpecialPurposeMemoryChangePrepare.c)
- *     MiSpecialPurposeMemoryTypeDereference @ 0x1407FEE24 (MiSpecialPurposeMemoryTypeDereference.c)
+ *     MiValidatePartitionInitialAddMemory @ 0x14068CBEC (MiValidatePartitionInitialAddMemory.c)
+ *     MiHotAddPartitionMemory @ 0x1407FC9F4 (MiHotAddPartitionMemory.c)
+ *     MiSpecialPurposeMemoryChangePrepare @ 0x1407FF310 (MiSpecialPurposeMemoryChangePrepare.c)
+ *     MiSpecialPurposeMemoryTypeDereference @ 0x1407FF594 (MiSpecialPurposeMemoryTypeDereference.c)
  */
 
 __int64 __fastcall MmManagePartitionInitialAddMemory(ULONG **a1, int *a2, __int64 a3, char a4)

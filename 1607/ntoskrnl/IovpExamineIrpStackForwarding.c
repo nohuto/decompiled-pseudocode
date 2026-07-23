@@ -1,11 +1,11 @@
 /*
- * XREFs of IovpExamineIrpStackForwarding @ 0x14070B720
+ * XREFs of IovpExamineIrpStackForwarding @ 0x14070B750
  * Callers:
- *     IovpCallDriver1 @ 0x14070A890 (IovpCallDriver1.c)
+ *     IovpCallDriver1 @ 0x14070A8C0 (IovpCallDriver1.c)
  * Callees:
- *     memcmp @ 0x14014DE90 (memcmp.c)
- *     ViErrorReport1 @ 0x140223660 (ViErrorReport1.c)
- *     IovUtilMultipleDevicesSameDriver @ 0x14070E24C (IovUtilMultipleDevicesSameDriver.c)
+ *     memcmp @ 0x14014E450 (memcmp.c)
+ *     ViErrorReport1 @ 0x14022348C (ViErrorReport1.c)
+ *     IovUtilMultipleDevicesSameDriver @ 0x14070E27C (IovUtilMultipleDevicesSameDriver.c)
  */
 
 int *__fastcall IovpExamineIrpStackForwarding(

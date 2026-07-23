@@ -10,35 +10,35 @@
  *     PiPnpRtlObjectEventCompareObjects @ 0x140A01800 (PiPnpRtlObjectEventCompareObjects.c)
  */
 
-__int64 __fastcall FindNodeOrParent(struct _RTL_AVL_TABLE *Table, PVOID FirstStruct, _RTL_BALANCED_LINKS **a3)
+__int64 __fastcall FindNodeOrParent(_RTL_AVL_TABLE *a1, PVOID a2, _RTL_BALANCED_LINKS **a3)
 {
   _RTL_BALANCED_LINKS *i; // rbx
-  _RTL_GENERIC_COMPARE_RESULTS (__fastcall *CompareRoutine)(_RTL_AVL_TABLE *, void *, void *); // rax
+  RTL_GENERIC_COMPARE_RESULTS (__cdecl *CompareRoutine)(_RTL_AVL_TABLE *, PVOID, PVOID); // rax
   _RTL_BALANCED_LINKS *v8; // r8
   RTL_GENERIC_COMPARE_RESULTS v9; // eax
   __int64 result; // rax
 
-  if ( !Table->NumberGenericTableElements )
+  if ( !a1->NumberGenericTableElements )
     return 0LL;
-  for ( i = Table->BalancedRoot.RightChild; ; i = i->LeftChild )
+  for ( i = a1->BalancedRoot.RightChild; ; i = i->LeftChild )
   {
     while ( 1 )
     {
-      CompareRoutine = Table->CompareRoutine;
+      CompareRoutine = (RTL_GENERIC_COMPARE_RESULTS (__cdecl *)(_RTL_AVL_TABLE *, PVOID, PVOID))a1->CompareRoutine;
       v8 = i + 1;
-      if ( (char *)CompareRoutine == (char *)PiDmCompareObjects )
+      if ( CompareRoutine == PiDmCompareObjects )
       {
-        v9 = PiDmCompareObjects(Table, FirstStruct, v8);
+        v9 = PiDmCompareObjects(a1, a2, v8);
       }
       else if ( (char *)CompareRoutine == (char *)PnpCompareInstancePath )
       {
-        v9 = (unsigned int)PnpCompareInstancePath(Table, FirstStruct, v8);
+        v9 = (unsigned int)PnpCompareInstancePath(a1, a2, v8);
       }
       else
       {
-        v9 = (char *)CompareRoutine == (char *)PiPnpRtlObjectEventCompareObjects
-           ? PiPnpRtlObjectEventCompareObjects(Table, FirstStruct, v8)
-           : (unsigned int)guard_dispatch_icall_no_overrides(Table, FirstStruct);
+        v9 = CompareRoutine == PiPnpRtlObjectEventCompareObjects
+           ? PiPnpRtlObjectEventCompareObjects(a1, a2, v8)
+           : (unsigned int)guard_dispatch_icall_no_overrides(a1, a2);
       }
       if ( v9 == GenericLessThan )
         break;

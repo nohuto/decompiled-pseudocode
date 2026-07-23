@@ -36,11 +36,11 @@ __int64 __fastcall AlpcpExposeTokenAttribute(__int64 a1, __int64 a2, PERESOURCE 
   __int64 v15; // rdi
   struct _KTHREAD *CurrentThread; // rax
   __int64 Process; // r13
-  __int64 *v18; // r12
+  PSID *v18; // r12
   int v19; // r13d
   int ClientSecurity; // ebx
-  __int64 *CurrentServerSilo; // rdi
-  __int64 *v22; // rcx
+  PSID *CurrentServerSilo; // rdi
+  PSID *v22; // rcx
   char v23; // [rsp+60h] [rbp-D8h]
   char v24; // [rsp+61h] [rbp-D7h] BYREF
   char v25[2]; // [rsp+62h] [rbp-D6h] BYREF
@@ -90,7 +90,7 @@ __int64 __fastcall AlpcpExposeTokenAttribute(__int64 a1, __int64 a2, PERESOURCE 
               PspLockThreadSecurityShared(v15, (__int64)v30);
               if ( (*(_DWORD *)(v15 + 1724) & 8) != 0 )
               {
-                v18 = (__int64 *)(*(_QWORD *)(v15 + 1624) & 0xFFFFFFFFFFFFFFF8uLL);
+                v18 = (PSID *)(*(_QWORD *)(v15 + 1624) & 0xFFFFFFFFFFFFFFF8uLL);
                 ObfReferenceObject(v18);
                 v26 = *(_DWORD *)(v15 + 1624) & 3;
                 v36 = (*(_BYTE *)(v15 + 1624) & 4) != 0;
@@ -108,11 +108,11 @@ __int64 __fastcall AlpcpExposeTokenAttribute(__int64 a1, __int64 a2, PERESOURCE 
               else
               {
 LABEL_18:
-                v18 = (__int64 *)ObFastReferenceObject((signed __int64 *)(Process + 856));
+                v18 = (PSID *)ObFastReferenceObject((signed __int64 *)(Process + 856));
                 if ( !v18 )
                 {
                   PspLockProcessShared(Process, (__int64)v28);
-                  v18 = (__int64 *)ObFastReferenceObjectLocked((_QWORD *)(Process + 856));
+                  v18 = (PSID *)ObFastReferenceObjectLocked((_QWORD *)(Process + 856));
                   PspUnlockProcessShared(Process, (__int64)v28);
                 }
                 v36 = 0;
@@ -136,7 +136,7 @@ LABEL_18:
               {
                 if ( *(PEPROCESS *)(v15 + 544) != PsInitialSystemProcess )
                   goto LABEL_24;
-                CurrentServerSilo = PsGetCurrentServerSilo();
+                CurrentServerSilo = (PSID *)PsGetCurrentServerSilo();
                 if ( !PsIsHostSilo((__int64)CurrentServerSilo) )
                 {
                   ClientSecurity = SepUpdateSiloInClientSecurity(v34, CurrentServerSilo);

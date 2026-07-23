@@ -1,66 +1,66 @@
 /*
- * XREFs of NtCreateLowBoxToken @ 0x14047BBD8
+ * XREFs of NtCreateLowBoxToken @ 0x14047AAA8
  * Callers:
  *     <none>
  * Callees:
  *     AppContainerPrivilegesEnabledExt_0 @ 0x1400012D8 (AppContainerPrivilegesEnabledExt_0.c)
- *     RtlSubAuthoritySid @ 0x14000D6F8 (RtlSubAuthoritySid.c)
- *     RtlEqualSid @ 0x14000F570 (RtlEqualSid.c)
- *     SepLocateTokenIntegrity @ 0x140012F6C (SepLocateTokenIntegrity.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x140055FA0 (KiLeaveCriticalRegionUnsafe.c)
- *     ExAcquireResourceExclusiveLite @ 0x140068160 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x140068940 (ExReleaseResourceLite.c)
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
- *     SepSetTokenLowboxHandles @ 0x14007F580 (SepSetTokenLowboxHandles.c)
- *     SepAppendAceToTokenDefaultDacl @ 0x1400807C0 (SepAppendAceToTokenDefaultDacl.c)
- *     SepCaptureHandles @ 0x140080970 (SepCaptureHandles.c)
+ *     RtlSubAuthoritySid @ 0x14000D278 (RtlSubAuthoritySid.c)
+ *     RtlEqualSid @ 0x14000F0F0 (RtlEqualSid.c)
+ *     SepLocateTokenIntegrity @ 0x140012AEC (SepLocateTokenIntegrity.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140055B20 (KiLeaveCriticalRegionUnsafe.c)
+ *     ExAcquireResourceExclusiveLite @ 0x140067CE0 (ExAcquireResourceExclusiveLite.c)
+ *     ExReleaseResourceLite @ 0x1400684C0 (ExReleaseResourceLite.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
+ *     SepSetTokenLowboxHandles @ 0x14007F600 (SepSetTokenLowboxHandles.c)
+ *     SepAppendAceToTokenDefaultDacl @ 0x140080840 (SepAppendAceToTokenDefaultDacl.c)
+ *     SepCaptureHandles @ 0x1400809F0 (SepCaptureHandles.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     SepCheckCapabilities @ 0x1403E1D20 (SepCheckCapabilities.c)
- *     SepAppendAceToTokenObjectAcl @ 0x140406AA0 (SepAppendAceToTokenObjectAcl.c)
- *     SepDuplicateToken @ 0x140412BD0 (SepDuplicateToken.c)
- *     ObReferenceObjectByHandle @ 0x140450D40 (ObReferenceObjectByHandle.c)
- *     SeReleaseLuidAndAttributesArray @ 0x140460434 (SeReleaseLuidAndAttributesArray.c)
- *     ObInsertObject @ 0x140471424 (ObInsertObject.c)
- *     SepSetTokenPackage @ 0x1404769B4 (SepSetTokenPackage.c)
- *     SepSetTokenLowboxNumber @ 0x140476A64 (SepSetTokenLowboxNumber.c)
- *     SepSetTokenCapabilities @ 0x140478A4C (SepSetTokenCapabilities.c)
- *     SeCaptureSidAndAttributesArray @ 0x140478C40 (SeCaptureSidAndAttributesArray.c)
- *     SeCaptureSid @ 0x1404791AC (SeCaptureSid.c)
- *     SeReleaseSid @ 0x140479554 (SeReleaseSid.c)
- *     SeSetMandatoryPolicyToken @ 0x14047AB5C (SeSetMandatoryPolicyToken.c)
- *     RtlIsPackageSid @ 0x14047AD70 (RtlIsPackageSid.c)
- *     RtlGetAppContainerSidType @ 0x14047BB60 (RtlGetAppContainerSidType.c)
- *     RtlIsCapabilitySid @ 0x14047C1D8 (RtlIsCapabilitySid.c)
- *     SepCheckCreateLowBox @ 0x14047C9E0 (SepCheckCreateLowBox.c)
- *     ObCloseHandle @ 0x14050C73C (ObCloseHandle.c)
- *     ExRaiseDatatypeMisalignment @ 0x1406B6058 (ExRaiseDatatypeMisalignment.c)
+ *     SepAppendAceToTokenObjectAcl @ 0x140405960 (SepAppendAceToTokenObjectAcl.c)
+ *     SepDuplicateToken @ 0x140411A90 (SepDuplicateToken.c)
+ *     ObReferenceObjectByHandle @ 0x14044FC10 (ObReferenceObjectByHandle.c)
+ *     SeReleaseLuidAndAttributesArray @ 0x14045F304 (SeReleaseLuidAndAttributesArray.c)
+ *     ObInsertObject @ 0x1404702F4 (ObInsertObject.c)
+ *     SepSetTokenPackage @ 0x140475884 (SepSetTokenPackage.c)
+ *     SepSetTokenLowboxNumber @ 0x140475934 (SepSetTokenLowboxNumber.c)
+ *     SepSetTokenCapabilities @ 0x14047791C (SepSetTokenCapabilities.c)
+ *     SeCaptureSidAndAttributesArray @ 0x140477B10 (SeCaptureSidAndAttributesArray.c)
+ *     SeCaptureSid @ 0x14047807C (SeCaptureSid.c)
+ *     SeReleaseSid @ 0x140478424 (SeReleaseSid.c)
+ *     SeSetMandatoryPolicyToken @ 0x140479A2C (SeSetMandatoryPolicyToken.c)
+ *     RtlIsPackageSid @ 0x140479C40 (RtlIsPackageSid.c)
+ *     RtlGetAppContainerSidType @ 0x14047AA30 (RtlGetAppContainerSidType.c)
+ *     RtlIsCapabilitySid @ 0x14047B0A8 (RtlIsCapabilitySid.c)
+ *     SepCheckCreateLowBox @ 0x14047B8B0 (SepCheckCreateLowBox.c)
+ *     ObCloseHandle @ 0x1404EF6CC (ObCloseHandle.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1406B6190 (ExRaiseDatatypeMisalignment.c)
  */
 
-int __fastcall NtCreateLowBoxToken(
-        unsigned __int64 a1,
-        void *a2,
-        ACCESS_MASK a3,
-        int a4,
-        _BYTE *a5,
-        unsigned int a6,
-        char *Src,
-        unsigned int a8,
-        unsigned __int64 a9)
+NTSTATUS __cdecl NtCreateLowBoxToken(
+        PHANDLE TokenHandle,
+        HANDLE ExistingTokenHandle,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        PSID PackageSid,
+        ULONG CapabilityCount,
+        PSID_AND_ATTRIBUTES Capabilities,
+        ULONG HandleCount,
+        HANDLE *Handles)
 {
   int v9; // r14d
   char PreviousMode; // r15
   __int64 v12; // rcx
-  unsigned __int64 v13; // rcx
-  int result; // eax
+  HANDLE *v13; // rcx
+  NTSTATUS result; // eax
   __int64 v15; // r8
   __int64 v16; // r9
-  char *v17; // rsi
-  int AppContainerSidType; // ebx
+  _BYTE *v17; // rsi
+  NTSTATUS appended; // ebx
   ACCESS_MASK GrantedAccess; // r12d
-  unsigned int v20; // ebx
-  _QWORD *v21; // rdi
+  ULONG v20; // ebx
+  PSID *v21; // rdi
   unsigned int v22; // r14d
-  void *v23; // r12
+  PSID v23; // r12
   __int64 v24; // r9
   char v25; // r14
   _QWORD *v26; // rdi
@@ -86,7 +86,7 @@ int __fastcall NtCreateLowBoxToken(
   PVOID v46; // [rsp+58h] [rbp-90h] BYREF
   PSID Sid; // [rsp+60h] [rbp-88h] BYREF
   __int64 v48; // [rsp+68h] [rbp-80h] BYREF
-  int v49; // [rsp+70h] [rbp-78h] BYREF
+  _APPCONTAINER_SID_TYPE AppContainerSidType; // [rsp+70h] [rbp-78h] BYREF
   PVOID v50; // [rsp+78h] [rbp-70h] BYREF
   unsigned int v51; // [rsp+80h] [rbp-68h] BYREF
   ACCESS_MASK v52; // [rsp+84h] [rbp-64h]
@@ -96,11 +96,13 @@ int __fastcall NtCreateLowBoxToken(
   HANDLE Handle; // [rsp+A0h] [rbp-48h] BYREF
   __int64 v57; // [rsp+A8h] [rbp-40h]
   __int64 v58; // [rsp+B0h] [rbp-38h]
-  _QWORD *v59; // [rsp+B8h] [rbp-30h]
+  PHANDLE v59; // [rsp+B8h] [rbp-30h]
   __int64 v60; // [rsp+C0h] [rbp-28h]
+  int v61; // [rsp+108h] [rbp+20h]
 
-  v9 = a4;
-  v59 = (_QWORD *)a1;
+  v61 = (int)ObjectAttributes;
+  v9 = (int)ObjectAttributes;
+  v59 = TokenHandle;
   v48 = 0LL;
   v51 = 0;
   P = 0LL;
@@ -114,44 +116,44 @@ int __fastcall NtCreateLowBoxToken(
   v43 = 0;
   v57 = 0LL;
   v58 = 0LL;
-  v49 = 0;
+  AppContainerSidType = NotAppContainerSidType;
   v45[0] = 0;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   if ( PreviousMode )
   {
-    if ( a1 >= 0x7FFFFFFF0000LL )
-      a1 = 0x7FFFFFFF0000LL;
-    *(_QWORD *)a1 = *(_QWORD *)a1;
-    v12 = 8LL * a8;
-    if ( v12 )
+    if ( (unsigned __int64)TokenHandle >= 0x7FFFFFFF0000LL )
+      TokenHandle = (PHANDLE)0x7FFFFFFF0000LL;
+    *TokenHandle = *TokenHandle;
+    v12 = HandleCount;
+    if ( v12 * 8 )
     {
-      if ( (a9 & 7) != 0 )
+      if ( ((unsigned __int8)Handles & 7) != 0 )
         ExRaiseDatatypeMisalignment();
-      v13 = a9 + v12;
-      if ( v13 > 0x7FFFFFFF0000LL || v13 < a9 )
+      v13 = &Handles[v12];
+      if ( (unsigned __int64)v13 > 0x7FFFFFFF0000LL || v13 < Handles )
         MEMORY[0x7FFFFFFF0000] = 0;
     }
   }
-  if ( !a5 )
+  if ( !PackageSid )
     return -1073741811;
-  if ( !a8 )
+  if ( !HandleCount )
   {
-    if ( !a9 )
+    if ( !Handles )
       goto LABEL_14;
     return -1073741776;
   }
-  if ( !a9 )
+  if ( !Handles )
     return -1073741776;
 LABEL_14:
-  result = ObReferenceObjectByHandle(a2, 2u, (POBJECT_TYPE)SeTokenObjectType, PreviousMode, &v50, &v54);
+  result = ObReferenceObjectByHandle(ExistingTokenHandle, 2u, (POBJECT_TYPE)SeTokenObjectType, PreviousMode, &v50, &v54);
   if ( result < 0 )
     return result;
-  result = SeCaptureSid(a5, PreviousMode, v15, v16, (int)Object, 1, &Sid);
+  result = SeCaptureSid(PackageSid, PreviousMode, v15, v16, (int)Object, 1, &Sid);
   if ( result < 0 )
     return result;
-  v17 = (char *)Sid;
+  v17 = Sid;
   result = SepCheckCreateLowBox(Sid);
-  AppContainerSidType = result;
+  appended = result;
   if ( result < 0 )
     return result;
   if ( *((_DWORD *)v50 + 48) != 1 && *((int *)v50 + 49) < 2 )
@@ -160,42 +162,42 @@ LABEL_14:
     return -1073741659;
   }
   GrantedAccess = v54.GrantedAccess;
-  if ( a3 )
-    GrantedAccess = a3;
+  if ( DesiredAccess )
+    GrantedAccess = DesiredAccess;
   v52 = GrantedAccess;
-  if ( Src )
-    AppContainerSidType = SeCaptureSidAndAttributesArray(
-                            Src,
-                            a6,
-                            PreviousMode,
-                            0LL,
-                            0,
-                            (int)HandleInformation,
-                            v42,
-                            (void **)&v48,
-                            &v51);
-  if ( AppContainerSidType < 0 )
+  if ( Capabilities )
+    appended = SeCaptureSidAndAttributesArray(
+                 (char *)Capabilities,
+                 CapabilityCount,
+                 PreviousMode,
+                 0LL,
+                 0,
+                 (int)HandleInformation,
+                 v42,
+                 (void **)&v48,
+                 &v51);
+  if ( appended < 0 )
     goto LABEL_81;
-  AppContainerSidType = SepCaptureHandles(a8, a9, &P);
-  if ( AppContainerSidType < 0 )
+  appended = SepCaptureHandles(HandleCount, (__int64)Handles, &P);
+  if ( appended < 0 )
     goto LABEL_81;
-  if ( !RtlIsPackageSid((__int64)v17) )
+  if ( !RtlIsPackageSid(v17) )
     goto LABEL_75;
   if ( ((v17[1] - 8) & 0xFB) != 0 )
   {
-    AppContainerSidType = -1073700350;
+    appended = -1073700350;
     goto LABEL_81;
   }
   v20 = 0;
-  if ( a6 )
+  if ( CapabilityCount )
   {
-    v21 = (_QWORD *)v48;
-    while ( (unsigned __int8)RtlIsCapabilitySid(*v21) )
+    v21 = (PSID *)v48;
+    while ( RtlIsCapabilitySid(*v21) )
     {
       v22 = 0;
       if ( v20 )
       {
-        v23 = (void *)*v21;
+        v23 = *v21;
         while ( !RtlEqualSid(v23, *(PSID *)(v48 + 16LL * v22)) )
         {
           if ( ++v22 >= v20 )
@@ -206,44 +208,44 @@ LABEL_14:
 LABEL_33:
       ++v20;
       v21 += 2;
-      if ( v20 >= a6 )
+      if ( v20 >= CapabilityCount )
       {
         GrantedAccess = v52;
-        v9 = a4;
+        v9 = v61;
         goto LABEL_35;
       }
     }
 LABEL_75:
-    AppContainerSidType = -1073741811;
+    appended = -1073741811;
     goto LABEL_81;
   }
 LABEL_35:
-  AppContainerSidType = RtlGetAppContainerSidType(v17, &v49);
-  if ( AppContainerSidType < 0 )
+  appended = RtlGetAppContainerSidType(v17, &AppContainerSidType);
+  if ( appended < 0 )
   {
 LABEL_81:
     v26 = v46;
     goto LABEL_82;
   }
-  if ( v49 == 1 )
+  if ( AppContainerSidType == ChildAppContainerSidType )
   {
-    AppContainerSidType = SepCheckCapabilities(v50, a6, (PSID *)v48, v24, v45);
+    appended = SepCheckCapabilities(v50, CapabilityCount, (PSID *)v48, v24, v45);
     if ( !v45[0] )
     {
-      AppContainerSidType = -1073741790;
+      appended = -1073741790;
       goto LABEL_81;
     }
   }
-  if ( AppContainerSidType < 0 )
+  if ( appended < 0 )
     goto LABEL_81;
-  AppContainerSidType = SepDuplicateToken((__int64)v50, v9, 0, 1, 0, PreviousMode, 0, (char **)&v46);
-  if ( AppContainerSidType < 0 )
+  appended = SepDuplicateToken((__int64)v50, v9, 0, 1, 0, PreviousMode, 0, (char **)&v46);
+  if ( appended < 0 )
     goto LABEL_81;
   v25 = 1;
   v43 = 1;
   v26 = v46;
-  AppContainerSidType = SeSetMandatoryPolicyToken((__int64)v46, &v53);
-  if ( AppContainerSidType >= 0 )
+  appended = SeSetMandatoryPolicyToken((__int64)v46, &v53);
+  if ( appended >= 0 )
   {
     CurrentThread = KeGetCurrentThread();
     --CurrentThread->KernelApcDisable;
@@ -260,12 +262,12 @@ LABEL_81:
       if ( v31 )
         *RtlSubAuthoritySid(v30, (unsigned int)v31 - 1) = 4096;
       v32 = AppContainerPrivilegesEnabledExt_0();
-      AppContainerSidType = v32;
+      appended = v32;
       if ( v32 == -1073741637 )
       {
         v26[9] &= 0x200800000uLL;
         v26[10] &= 0x200800000uLL;
-        AppContainerSidType = 0;
+        appended = 0;
       }
       else
       {
@@ -278,25 +280,25 @@ LABEL_81:
     }
     else
     {
-      AppContainerSidType = -1073740730;
+      appended = -1073740730;
     }
-    if ( AppContainerSidType >= 0 )
+    if ( appended >= 0 )
     {
-      v17 = (char *)Sid;
-      AppContainerSidType = SepSetTokenCapabilities((__int64)v26, Sid, (void *)v48, a6);
-      if ( AppContainerSidType < 0 )
+      v17 = Sid;
+      appended = SepSetTokenCapabilities((__int64)v26, Sid, (void *)v48, CapabilityCount);
+      if ( appended < 0 )
         goto LABEL_82;
-      AppContainerSidType = SepSetTokenLowboxNumber((__int64)v26, (__int64)v17);
-      if ( AppContainerSidType < 0 )
+      appended = SepSetTokenLowboxNumber((__int64)v26, (__int64)v17);
+      if ( appended < 0 )
         goto LABEL_82;
-      AppContainerSidType = SepSetTokenLowboxHandles((__int64)v26, (__int64)v17, a8, (__int64)P);
-      if ( AppContainerSidType < 0 )
+      appended = SepSetTokenLowboxHandles((__int64)v26, (__int64)v17, HandleCount, (__int64)P);
+      if ( appended < 0 )
         goto LABEL_82;
-      AppContainerSidType = SepSetTokenPackage((__int64)v26, (unsigned __int8 *)v17);
-      if ( AppContainerSidType < 0 )
+      appended = SepSetTokenPackage((__int64)v26, v17);
+      if ( appended < 0 )
         goto LABEL_82;
-      AppContainerSidType = SepAppendAceToTokenDefaultDacl((__int64)v26, (__int64)v17);
-      if ( AppContainerSidType < 0 )
+      appended = SepAppendAceToTokenDefaultDacl((__int64)v26, (__int64)v17);
+      if ( appended < 0 )
         goto LABEL_82;
       v26[7] = ExpLuidIncrement + _InterlockedExchangeAdd64(&ExpLuid, ExpLuidIncrement);
       _InterlockedOr(v39, 0);
@@ -304,12 +306,12 @@ LABEL_81:
       KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread(), v33, v34, v35);
       v44 = 0;
       v26 = v46;
-      AppContainerSidType = ObInsertObject(v46, 0LL, GrantedAccess, 1u, 0LL, &Handle);
-      v17 = (char *)Sid;
-      if ( AppContainerSidType < 0 )
+      appended = ObInsertObject(v46, 0LL, GrantedAccess, 1u, 0LL, &Handle);
+      v17 = Sid;
+      if ( appended < 0 )
         goto LABEL_55;
-      AppContainerSidType = SepAppendAceToTokenObjectAcl((__int64)v26, 983551, Sid);
-      if ( AppContainerSidType >= 0 )
+      appended = SepAppendAceToTokenObjectAcl((__int64)v26, 983551, Sid);
+      if ( appended >= 0 )
       {
         SepAppendAceToTokenObjectAcl((__int64)v26, 8, SeAliasAdminsSid);
         ObfDereferenceObject(v26);
@@ -322,21 +324,21 @@ LABEL_82:
       goto LABEL_56;
     }
 LABEL_80:
-    v17 = (char *)Sid;
+    v17 = Sid;
     goto LABEL_82;
   }
 LABEL_56:
   if ( v44 )
   {
-    if ( AppContainerSidType >= 0 )
+    if ( appended >= 0 )
       v26[7] = ExpLuidIncrement + _InterlockedExchangeAdd64(&ExpLuid, ExpLuidIncrement);
     _InterlockedOr(v39, 0);
     ExReleaseResourceLite(*((PERESOURCE *)v46 + 6));
     KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread(), v36, v37, v38);
-    v17 = (char *)Sid;
+    v17 = Sid;
     v26 = v46;
   }
-  if ( AppContainerSidType < 0 )
+  if ( appended < 0 )
   {
     if ( v25 )
       ObfDereferenceObject(v26);
@@ -350,7 +352,7 @@ LABEL_56:
   ObfDereferenceObject(v50);
   if ( P )
     ExFreePoolWithTag(P, 0);
-  if ( AppContainerSidType >= 0 )
+  if ( appended >= 0 )
     *v59 = Handle;
-  return AppContainerSidType;
+  return appended;
 }

@@ -1,20 +1,20 @@
 /*
- * XREFs of IoSetIoCompletionEx2 @ 0x140267520
+ * XREFs of IoSetIoCompletionEx2 @ 0x140266A90
  * Callers:
- *     IopXxxControlFile @ 0x1408F5EA0 (IopXxxControlFile.c)
- *     NtSetIoCompletion @ 0x140A5D840 (NtSetIoCompletion.c)
- *     IoSetIoCompletion @ 0x140A7F600 (IoSetIoCompletion.c)
- *     NtLockFile @ 0x140B6ECE0 (NtLockFile.c)
+ *     IopXxxControlFile @ 0x140925E30 (IopXxxControlFile.c)
+ *     NtSetIoCompletion @ 0x140A6A800 (NtSetIoCompletion.c)
+ *     IoSetIoCompletion @ 0x140A85470 (IoSetIoCompletion.c)
+ *     NtLockFile @ 0x140B720D0 (NtLockFile.c)
  * Callees:
- *     KiExitDispatcher @ 0x140246C20 (KiExitDispatcher.c)
- *     EtwTraceEnqueueWork @ 0x140268108 (EtwTraceEnqueueWork.c)
- *     KiInsertQueueInternal @ 0x140274E80 (KiInsertQueueInternal.c)
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     KiSignalThread @ 0x14027C940 (KiSignalThread.c)
- *     HvlNotifyLongSpinWait @ 0x1402BBF00 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1402BC760 (KiCheckVpBackingLongSpinWaitHypercall.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     IopAllocateMiniCompletionPacket @ 0x140A8405C (IopAllocateMiniCompletionPacket.c)
+ *     KiExitDispatcher @ 0x140248580 (KiExitDispatcher.c)
+ *     EtwTraceEnqueueWork @ 0x140267678 (EtwTraceEnqueueWork.c)
+ *     KiInsertQueueInternal @ 0x1402743F0 (KiInsertQueueInternal.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     KiSignalThread @ 0x14027BEB0 (KiSignalThread.c)
+ *     HvlNotifyLongSpinWait @ 0x140306BC0 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140307420 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     IopAllocateMiniCompletionPacket @ 0x140A893B0 (IopAllocateMiniCompletionPacket.c)
  */
 
 __int64 __fastcall IoSetIoCompletionEx2(

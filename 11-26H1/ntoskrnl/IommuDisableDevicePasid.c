@@ -1,21 +1,21 @@
 /*
- * XREFs of IommuDisableDevicePasid @ 0x14059B9F0
+ * XREFs of IommuDisableDevicePasid @ 0x14059E170
  * Callers:
- *     IommupDomainAttachPasidDevice @ 0x140588004 (IommupDomainAttachPasidDevice.c)
- *     IommupDomainDetachPasidDevice @ 0x140588288 (IommupDomainDetachPasidDevice.c)
- *     IommupDeviceDisablePasidTaggedDma @ 0x140782558 (IommupDeviceDisablePasidTaggedDma.c)
- *     IommupDeviceEnablePasidTaggedDma @ 0x14078268C (IommupDeviceEnablePasidTaggedDma.c)
+ *     IommupDomainAttachPasidDevice @ 0x14058A5DC (IommupDomainAttachPasidDevice.c)
+ *     IommupDomainDetachPasidDevice @ 0x14058A958 (IommupDomainDetachPasidDevice.c)
+ *     IommupDeviceDisablePasidTaggedDma @ 0x140785058 (IommupDeviceDisablePasidTaggedDma.c)
+ *     IommupDeviceEnablePasidTaggedDma @ 0x14078518C (IommupDeviceEnablePasidTaggedDma.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     KxReleaseSpinLock @ 0x1402BDEF0 (KxReleaseSpinLock.c)
- *     KeReleaseSpinLock @ 0x1402BE860 (KeReleaseSpinLock.c)
- *     KxAcquireSpinLock @ 0x14032F2C0 (KxAcquireSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14032F300 (KeAcquireSpinLockRaiseToDpc.c)
- *     HalpMmAllocCtxFree @ 0x140359004 (HalpMmAllocCtxFree.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     IommuHvSetAddressSpace @ 0x14059D7F0 (IommuHvSetAddressSpace.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KxReleaseSpinLock @ 0x140308BB0 (KxReleaseSpinLock.c)
+ *     KeReleaseSpinLock @ 0x140309520 (KeReleaseSpinLock.c)
+ *     KxAcquireSpinLock @ 0x1403312F0 (KxAcquireSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140331330 (KeAcquireSpinLockRaiseToDpc.c)
+ *     HalpMmAllocCtxFree @ 0x14035ADA4 (HalpMmAllocCtxFree.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     IommuHvSetAddressSpace @ 0x14059FF70 (IommuHvSetAddressSpace.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall IommuDisableDevicePasid(__int64 a1, __int64 a2)
@@ -52,7 +52,7 @@ __int64 __fastcall IommuDisableDevicePasid(__int64 a1, __int64 a2)
   v3 = a2;
   v4 = *(_QWORD *)(a1 + 8);
   v5 = *(_QWORD *)(v2 + 24);
-  NewIrql = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)&IommuInterfaceStateChangeCallbackPushLock.StateSaveArea);
+  NewIrql = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)((char *)&IommuInterfaceStateChangeCallbackPushLock.116 + 4));
   CurrentIrql = KeGetCurrentIrql();
   v28 = CurrentIrql;
   if ( CurrentIrql != 15 )
@@ -141,7 +141,7 @@ LABEL_26:
     KiLowerIrqlProcessIrqlFlags(KeGetCurrentIrql(), CurrentIrql);
   __writecr8(CurrentIrql);
   HalpMmAllocCtxFree(v25, (__int64)v10);
-  KeReleaseSpinLock((PKSPIN_LOCK)&IommuInterfaceStateChangeCallbackPushLock.StateSaveArea, NewIrql);
+  KeReleaseSpinLock((PKSPIN_LOCK)((char *)&IommuInterfaceStateChangeCallbackPushLock.116 + 4), NewIrql);
   if ( v7 )
     HalpMmAllocCtxFree(v26, (__int64)v7);
   return 0LL;

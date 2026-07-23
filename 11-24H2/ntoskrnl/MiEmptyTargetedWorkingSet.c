@@ -1,12 +1,12 @@
 /*
- * XREFs of MiEmptyTargetedWorkingSet @ 0x140678830
+ * XREFs of MiEmptyTargetedWorkingSet @ 0x140679A10
  * Callers:
- *     MiTrimAllSystemPagableMemory @ 0x140678D48 (MiTrimAllSystemPagableMemory.c)
+ *     MiTrimAllSystemPagableMemory @ 0x140679F28 (MiTrimAllSystemPagableMemory.c)
  * Callees:
- *     MiReleaseSpinLockExclusive @ 0x14028EE30 (MiReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x14028F370 (ExAcquireSpinLockExclusive.c)
- *     MiReturnWsToExpansionList @ 0x1403D9400 (MiReturnWsToExpansionList.c)
- *     MiEmptyWorkingSetInitiate @ 0x140404B98 (MiEmptyWorkingSetInitiate.c)
+ *     MiReleaseSpinLockExclusive @ 0x14029EA30 (MiReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14029EF70 (ExAcquireSpinLockExclusive.c)
+ *     MiReturnWsToExpansionList @ 0x1402F26D0 (MiReturnWsToExpansionList.c)
+ *     MiEmptyWorkingSetInitiate @ 0x1403C9030 (MiEmptyWorkingSetInitiate.c)
  */
 
 __int64 __fastcall MiEmptyTargetedWorkingSet(__int64 a1)
@@ -20,7 +20,7 @@ __int64 __fastcall MiEmptyTargetedWorkingSet(__int64 a1)
   int v9; // [rsp+30h] [rbp+8h]
 
   v2 = 0;
-  v3 = ExAcquireSpinLockExclusive(&dword_140E373C0);
+  v3 = ExAcquireSpinLockExclusive(&SpinLock);
   v4 = (_QWORD *)(a1 + 24);
   v5 = *(_QWORD *)(a1 + 24);
   if ( v5 )
@@ -33,15 +33,15 @@ __int64 __fastcall MiEmptyTargetedWorkingSet(__int64 a1)
     v8 = *(_DWORD *)(a1 + 184);
     BYTE1(v8) = BYTE1(v8) & 0xF9 | 2;
     *(_WORD *)(a1 + 184) = v8;
-    MiReleaseSpinLockExclusive(&dword_140E373C0, v3);
+    MiReleaseSpinLockExclusive(&SpinLock, v3);
     MiEmptyWorkingSetInitiate(a1, 0, 0LL, -1LL);
     v2 = 1;
-    ExAcquireSpinLockExclusive(&dword_140E373C0);
+    ExAcquireSpinLockExclusive(&SpinLock);
     v9 = *(_DWORD *)(a1 + 184);
     BYTE1(v9) &= 0xF9u;
     *(_WORD *)(a1 + 184) = v9;
     MiReturnWsToExpansionList(a1, 0);
   }
-  MiReleaseSpinLockExclusive(&dword_140E373C0, v3);
+  MiReleaseSpinLockExclusive(&SpinLock, v3);
   return v2;
 }

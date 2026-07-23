@@ -1,10 +1,10 @@
 /*
- * XREFs of MiPreUnlockWorkingSetShared @ 0x14052FB44
+ * XREFs of MiPreUnlockWorkingSetShared @ 0x140532044
  * Callers:
- *     MiUnlockWorkingSetShared @ 0x1402EB6C0 (MiUnlockWorkingSetShared.c)
+ *     MiUnlockWorkingSetShared @ 0x1402CD700 (MiUnlockWorkingSetShared.c)
  * Callees:
- *     KeQueryPriorityThread @ 0x1402052D0 (KeQueryPriorityThread.c)
- *     MiForcedTrim @ 0x1403B9340 (MiForcedTrim.c)
+ *     KeQueryPriorityThread @ 0x1402053B0 (KeQueryPriorityThread.c)
+ *     MiForcedTrim @ 0x1403C3240 (MiForcedTrim.c)
  */
 
 __int64 __fastcall MiPreUnlockWorkingSetShared(__int64 a1, char a2)
@@ -26,7 +26,7 @@ __int64 __fastcall MiPreUnlockWorkingSetShared(__int64 a1, char a2)
       for ( i = 0; i < 2; ++i )
       {
         result = i;
-        if ( CurrentThread == *(struct _KTHREAD **)(*(_QWORD *)(stru_140E2EB88.ThreadLock
+        if ( CurrentThread == *(struct _KTHREAD **)(*(_QWORD *)(stru_140E2ED08.ThreadLock
                                                               + 8LL * *(unsigned __int16 *)(a1 + 174))
                                                   + 8LL * i
                                                   + 18304) )

@@ -1,0 +1,74 @@
+/*
+ * XREFs of sub_1405F616C @ 0x1405F616C
+ * Callers:
+ *     sub_14037EEA8 @ 0x14037EEA8 (sub_14037EEA8.c)
+ *     sub_14045F42A @ 0x14045F42A (sub_14045F42A.c)
+ *     sub_1405F903C @ 0x1405F903C (sub_1405F903C.c)
+ * Callees:
+ *     sub_140381130 @ 0x140381130 (sub_140381130.c)
+ *     sub_1403925F8 @ 0x1403925F8 (sub_1403925F8.c)
+ *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
+ *     __chkstk @ 0x14042A4D0 (__chkstk.c)
+ *     sub_1405F6710 @ 0x1405F6710 (sub_1405F6710.c)
+ */
+
+__int64 __fastcall sub_1405F616C(_DWORD **a1, __int64 a2)
+{
+  __int64 v2; // rbx
+  unsigned int v4; // edi
+  unsigned __int64 v5; // rax
+  __int64 v6; // rcx
+  unsigned __int64 v7; // rcx
+  void *v8; // rsp
+  unsigned int v9; // edx
+  void *v10; // rsp
+  unsigned __int64 v11; // rdx
+  __int64 v12; // rax
+  unsigned __int64 v13; // rdi
+  unsigned __int64 v14; // rcx
+  unsigned __int64 v15; // rax
+  __int64 v17; // [rsp+20h] [rbp+0h] BYREF
+  __int128 v18; // [rsp+28h] [rbp+8h]
+  int v19; // [rsp+38h] [rbp+18h]
+  unsigned int v20; // [rsp+3Ch] [rbp+1Ch]
+  int v21; // [rsp+40h] [rbp+20h]
+  int v22; // [rsp+44h] [rbp+24h]
+
+  v2 = 0LL;
+  if ( *a1 )
+  {
+    v4 = *((unsigned __int8 *)*a1 + 2);
+    if ( v4 == 1 )
+      return v2;
+  }
+  else
+  {
+    v4 = 0;
+  }
+  v5 = 16LL * v4;
+  v6 = v5 + 15;
+  if ( v5 + 15 < v5 )
+    v6 = 0xFFFFFFFFFFFFFF0LL;
+  v7 = v6 & 0xFFFFFFFFFFFFFFF0uLL;
+  v8 = alloca(v7);
+  v9 = *(_DWORD *)(a2 + 16);
+  v22 = 0;
+  v10 = alloca(v7);
+  v19 = 0;
+  v21 = 1;
+  v18 = 0LL;
+  v20 = v4;
+  v17 = (__int64)&v17;
+  sub_140381130((__int64)a1, v9, (__int64)&v17);
+  v11 = *(&v17 + 2 * v4 - 3);
+  v12 = *(&v17 + 2 * v4 - 4);
+  v13 = v11 - 8;
+  v14 = v12 + 16;
+  v15 = v12 + 8;
+  if ( v11 <= v14 )
+    v13 = v15;
+  v2 = sub_1403925F8((__int64)a1, (__int64)&v17);
+  if ( v13 && *a1[2] != -1 )
+    sub_1405F6710(a1 + 2, v13);
+  return v2;
+}

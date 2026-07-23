@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpIommuDetermineReservedPciRid @ 0x140553B0C
+ * XREFs of HalpIommuDetermineReservedPciRid @ 0x14055144C
  * Callers:
- *     HalpIommuProcessReservationsInternal @ 0x1405544C0 (HalpIommuProcessReservationsInternal.c)
+ *     HalpIommuProcessReservationsInternal @ 0x140551E00 (HalpIommuProcessReservationsInternal.c)
  * Callees:
- *     HalpPciConvertDevicePathToRid @ 0x140552828 (HalpPciConvertDevicePathToRid.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
+ *     HalpPciConvertDevicePathToRid @ 0x140550168 (HalpPciConvertDevicePathToRid.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall HalpIommuDetermineReservedPciRid(_QWORD *a1)
@@ -30,7 +30,7 @@ __int64 __fastcall HalpIommuDetermineReservedPciRid(_QWORD *a1)
           break;
         if ( a1[11] )
         {
-          v3 = guard_dispatch_icall_no_overrides(a1[2], *v5, 8LL, v5);
+          v3 = guard_dispatch_icall_no_overrides(a1[2], *v5);
           if ( v3 < 0 )
             break;
         }

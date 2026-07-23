@@ -1,21 +1,21 @@
 /*
- * XREFs of SdbQueryDataExTagID @ 0x140A4EF88
+ * XREFs of SdbQueryDataExTagID @ 0x140A4F238
  * Callers:
- *     SdbQueryDataEx @ 0x140A4EEE4 (SdbQueryDataEx.c)
+ *     SdbQueryDataEx @ 0x140A4F194 (SdbQueryDataEx.c)
  * Callees:
- *     RtlStringCchCopyW @ 0x14022C6B0 (RtlStringCchCopyW.c)
- *     RtlStringCchCopyNW @ 0x1402F7ECC (RtlStringCchCopyNW.c)
- *     wcschr @ 0x1403DB910 (wcschr.c)
- *     memmove @ 0x140435700 (memmove.c)
+ *     RtlStringCchCopyW @ 0x14022C7C0 (RtlStringCchCopyW.c)
+ *     RtlStringCchCopyNW @ 0x1402F815C (RtlStringCchCopyNW.c)
+ *     wcschr @ 0x1403DBAF0 (wcschr.c)
+ *     memmove @ 0x140435B00 (memmove.c)
  *     AslLogCallPrintf @ 0x1406956FC (AslLogCallPrintf.c)
- *     SdbpGetMappedTagData @ 0x14074098C (SdbpGetMappedTagData.c)
- *     SdbReadDWORDTag @ 0x140755458 (SdbReadDWORDTag.c)
- *     SdbGetStringTagPtr @ 0x140757368 (SdbGetStringTagPtr.c)
- *     SdbFindFirstTag @ 0x1407579A4 (SdbFindFirstTag.c)
- *     SdbGetTagDataSize @ 0x140757B90 (SdbGetTagDataSize.c)
- *     AslAlloc @ 0x140758498 (AslAlloc.c)
- *     SdbReadQWORDTag @ 0x140808CB4 (SdbReadQWORDTag.c)
- *     SdbpFindFirstNamedTagHelper @ 0x140A51B40 (SdbpFindFirstNamedTagHelper.c)
+ *     SdbpGetMappedTagData @ 0x140740B7C (SdbpGetMappedTagData.c)
+ *     SdbReadDWORDTag @ 0x140755648 (SdbReadDWORDTag.c)
+ *     SdbGetStringTagPtr @ 0x140757558 (SdbGetStringTagPtr.c)
+ *     SdbFindFirstTag @ 0x140757B94 (SdbFindFirstTag.c)
+ *     SdbGetTagDataSize @ 0x140757D80 (SdbGetTagDataSize.c)
+ *     AslAlloc @ 0x140758688 (AslAlloc.c)
+ *     SdbReadQWORDTag @ 0x140808F84 (SdbReadQWORDTag.c)
+ *     SdbpFindFirstNamedTagHelper @ 0x140A51DF0 (SdbpFindFirstNamedTagHelper.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

@@ -1,21 +1,21 @@
 /*
- * XREFs of SdbGetDatabaseMatchEx @ 0x140756CC0
+ * XREFs of SdbGetDatabaseMatchEx @ 0x140756EB0
  * Callers:
  *     KsepDbGetDriverShimsInternal @ 0x140694B7C (KsepDbGetDriverShimsInternal.c)
- *     KsepDbCacheReadDeviceInternal @ 0x140808608 (KsepDbCacheReadDeviceInternal.c)
+ *     KsepDbCacheReadDeviceInternal @ 0x1408088D8 (KsepDbCacheReadDeviceInternal.c)
  * Callees:
- *     wcsrchr @ 0x1403DBB10 (wcsrchr.c)
+ *     wcsrchr @ 0x1403DBCF0 (wcsrchr.c)
  *     AslLogCallPrintf @ 0x1406956FC (AslLogCallPrintf.c)
- *     SdbpCheckKObject @ 0x140756E58 (SdbpCheckKObject.c)
- *     SdbpFindNextIndexedWildCardTag @ 0x1407570E8 (SdbpFindNextIndexedWildCardTag.c)
- *     SdbpFindFirstIndexedWildCardTag @ 0x1407589F0 (SdbpFindFirstIndexedWildCardTag.c)
- *     SdbFindFirstStringIndexedTag @ 0x1407CB31C (SdbFindFirstStringIndexedTag.c)
- *     SdbFindNextStringIndexedTag @ 0x140849EE4 (SdbFindNextStringIndexedTag.c)
- *     SdbTagIDToTagRef @ 0x1408558A0 (SdbTagIDToTagRef.c)
- *     SdbpFindFirstTagWithoutIndex @ 0x140A50AE0 (SdbpFindFirstTagWithoutIndex.c)
- *     SdbpFindFirstWildcardTagWithoutIndex @ 0x140A50B88 (SdbpFindFirstWildcardTagWithoutIndex.c)
- *     SdbpFindNextTagWithoutIndex @ 0x140A50C34 (SdbpFindNextTagWithoutIndex.c)
- *     SdbpFindNextWildcardTagWithoutIndex @ 0x140A50CB0 (SdbpFindNextWildcardTagWithoutIndex.c)
+ *     SdbpCheckKObject @ 0x140757048 (SdbpCheckKObject.c)
+ *     SdbpFindNextIndexedWildCardTag @ 0x1407572D8 (SdbpFindNextIndexedWildCardTag.c)
+ *     SdbpFindFirstIndexedWildCardTag @ 0x140758BE0 (SdbpFindFirstIndexedWildCardTag.c)
+ *     SdbFindFirstStringIndexedTag @ 0x1407CB5EC (SdbFindFirstStringIndexedTag.c)
+ *     SdbFindNextStringIndexedTag @ 0x14084A1E4 (SdbFindNextStringIndexedTag.c)
+ *     SdbTagIDToTagRef @ 0x140855BA0 (SdbTagIDToTagRef.c)
+ *     SdbpFindFirstTagWithoutIndex @ 0x140A50D90 (SdbpFindFirstTagWithoutIndex.c)
+ *     SdbpFindFirstWildcardTagWithoutIndex @ 0x140A50E38 (SdbpFindFirstWildcardTagWithoutIndex.c)
+ *     SdbpFindNextTagWithoutIndex @ 0x140A50EE4 (SdbpFindNextTagWithoutIndex.c)
+ *     SdbpFindNextWildcardTagWithoutIndex @ 0x140A50F60 (SdbpFindNextWildcardTagWithoutIndex.c)
  */
 
 __int64 __fastcall SdbGetDatabaseMatchEx(

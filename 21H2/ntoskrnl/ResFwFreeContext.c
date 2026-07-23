@@ -1,28 +1,25 @@
 /*
- * XREFs of ResFwFreeContext @ 0x1409F107C
+ * XREFs of ResFwFreeContext @ 0x1409F207C
  * Callers:
- *     BgFreeContext @ 0x1409F1038 (BgFreeContext.c)
+ *     BgFreeContext @ 0x1409F2038 (BgFreeContext.c)
  * Callees:
- *     MmFreePagesFromMdl @ 0x1402D0000 (MmFreePagesFromMdl.c)
- *     BgpFwFreeMemory @ 0x14039BD60 (BgpFwFreeMemory.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     BgpFwReservePoolSwap @ 0x1409F11AC (BgpFwReservePoolSwap.c)
- *     LogFwReport @ 0x1409F1524 (LogFwReport.c)
- *     AnFwFadeCompletion @ 0x1409F21B4 (AnFwFadeCompletion.c)
- *     BgpGxRectangleDestroy @ 0x1409F2290 (BgpGxRectangleDestroy.c)
- *     ResFwBackgroundTransition @ 0x1409F3408 (ResFwBackgroundTransition.c)
- *     AnFwDisableBackgroundUpdateTimer @ 0x1409F34CC (AnFwDisableBackgroundUpdateTimer.c)
- *     RaspClearCache @ 0x1409F35FC (RaspClearCache.c)
+ *     MmFreePagesFromMdl @ 0x14024E380 (MmFreePagesFromMdl.c)
+ *     BgpFwFreeMemory @ 0x14039BEB0 (BgpFwFreeMemory.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     BgpFwReservePoolSwap @ 0x1409F21AC (BgpFwReservePoolSwap.c)
+ *     LogFwReport @ 0x1409F2524 (LogFwReport.c)
+ *     AnFwFadeCompletion @ 0x1409F31B4 (AnFwFadeCompletion.c)
+ *     BgpGxRectangleDestroy @ 0x1409F3290 (BgpGxRectangleDestroy.c)
+ *     ResFwBackgroundTransition @ 0x1409F4408 (ResFwBackgroundTransition.c)
+ *     AnFwDisableBackgroundUpdateTimer @ 0x1409F44CC (AnFwDisableBackgroundUpdateTimer.c)
+ *     RaspClearCache @ 0x1409F45FC (RaspClearCache.c)
  */
 
 void __fastcall ResFwFreeContext(__int64 a1)
 {
   _QWORD *v2; // rbx
   __int64 v3; // rax
-  __int64 v4; // rdx
-  __int64 v5; // r8
-  _DWORD *v6; // r9
-  struct _MDL *v7; // rcx
+  struct _MDL *v4; // rcx
 
   if ( (dword_140C134F0 & 0x100000) != 0 )
   {
@@ -40,7 +37,7 @@ LABEL_15:
       if ( v2 == &TxtpTextCache )
         break;
       BgpGxRectangleDestroy(v2[6]);
-      BgpFwFreeMemory((__int64)v2, v4, v5, v6);
+      BgpFwFreeMemory((__int64)v2);
       v2 = TxtpTextCache;
       if ( *((_UNKNOWN ***)TxtpTextCache + 1) != &TxtpTextCache )
         goto LABEL_15;
@@ -68,10 +65,10 @@ LABEL_15:
   }
   else
   {
-    v7 = *(struct _MDL **)(a1 + 8);
-    if ( v7 )
+    v4 = *(struct _MDL **)(a1 + 8);
+    if ( v4 )
     {
-      MmFreePagesFromMdl(v7);
+      MmFreePagesFromMdl(v4);
       ExFreePoolWithTag(*(PVOID *)(a1 + 8), 0);
     }
   }

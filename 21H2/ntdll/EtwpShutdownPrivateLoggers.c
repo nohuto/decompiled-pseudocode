@@ -5,8 +5,8 @@
  * Callees:
  *     EtwpStopUmLogger @ 0x18004BEF0 (EtwpStopUmLogger.c)
  *     __security_check_cookie @ 0x18008C940 (__security_check_cookie.c)
- *     memset @ 0x1800A4780 (memset.c)
- *     EtwpDemuxUmTraceHandle @ 0x180110E40 (EtwpDemuxUmTraceHandle.c)
+ *     memset @ 0x1800A4740 (memset.c)
+ *     EtwpDemuxUmTraceHandle @ 0x180110E00 (EtwpDemuxUmTraceHandle.c)
  */
 
 void EtwpShutdownPrivateLoggers()

@@ -1,11 +1,11 @@
 /*
- * XREFs of Feature_PrefetchQueueWorkerProactivelyForProcessExit__private_IsEnabledDeviceUsageNoInline @ 0x140245E80
+ * XREFs of Feature_PrefetchQueueWorkerProactivelyForProcessExit__private_IsEnabledDeviceUsageNoInline @ 0x14020EFA8
  * Callers:
- *     MiQueuePageAccessLog @ 0x140244A68 (MiQueuePageAccessLog.c)
- *     PfpReturnAccessBuffer @ 0x14047E840 (PfpReturnAccessBuffer.c)
- *     MiAllocatePfnRepurposeLogDispatch @ 0x14047E990 (MiAllocatePfnRepurposeLogDispatch.c)
+ *     MiQueuePageAccessLog @ 0x14020D250 (MiQueuePageAccessLog.c)
+ *     PfpReturnAccessBuffer @ 0x140479740 (PfpReturnAccessBuffer.c)
+ *     MiAllocatePfnRepurposeLogDispatch @ 0x140479890 (MiAllocatePfnRepurposeLogDispatch.c)
  * Callees:
- *     Feature_PrefetchQueueWorkerProactivelyForProcessExit__private_IsEnabledFallback @ 0x1404FB558 (Feature_PrefetchQueueWorkerProactivelyForProcessExit__private_IsEnabledFallback.c)
+ *     Feature_PrefetchQueueWorkerProactivelyForProcessExit__private_IsEnabledFallback @ 0x1404F8E1C (Feature_PrefetchQueueWorkerProactivelyForProcessExit__private_IsEnabledFallback.c)
  */
 
 __int64 Feature_PrefetchQueueWorkerProactivelyForProcessExit__private_IsEnabledDeviceUsageNoInline()

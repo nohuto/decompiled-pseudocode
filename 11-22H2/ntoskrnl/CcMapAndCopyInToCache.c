@@ -55,7 +55,7 @@ char __fastcall CcMapAndCopyInToCache(
   int v15; // edx
   bool v16; // si
   struct _KTHREAD *CurrentThread; // r8
-  struct _SLIST_ENTRY *v18; // rbx
+  _SLIST_ENTRY *v18; // rbx
   unsigned __int64 v19; // r13
   bool v20; // r9
   __int64 v21; // rsi
@@ -81,7 +81,7 @@ char __fastcall CcMapAndCopyInToCache(
   int v41; // ebx
   unsigned int v42; // ecx
   __int64 v43; // r9
-  int v44; // esi
+  NTSTATUS v44; // esi
   BOOL v45; // r8d
   int v46; // ecx
   int v47; // eax
@@ -102,18 +102,18 @@ char __fastcall CcMapAndCopyInToCache(
   void *v62; // r10
   int v63; // ecx
   unsigned int v64; // ecx
-  int v65; // r14d
+  signed int v65; // r14d
   bool v66; // si
   unsigned int v67; // ecx
   struct _KTHREAD *v68; // rdx
   struct _KTHREAD *v69; // rcx
   char v70; // al
   BOOLEAN IsNtstatusExpected; // al
-  __int64 v72; // rcx
+  NTSTATUS v72; // ecx
   int v73; // r8d
-  unsigned int v74; // esi
+  NTSTATUS v74; // esi
   BOOLEAN v75; // al
-  __int64 v76; // rcx
+  NTSTATUS v76; // ecx
   unsigned int v77; // ecx
   struct _KTHREAD *v78; // rdx
   char v79; // al
@@ -132,7 +132,7 @@ char __fastcall CcMapAndCopyInToCache(
   int v93; // edx
   bool v94; // zf
   _SLIST_ENTRY *Next; // rcx
-  struct _SLIST_ENTRY **v96; // rax
+  _SLIST_ENTRY **v96; // rax
   unsigned __int8 v97; // cl
   struct _KPRCB *v98; // r10
   _DWORD *v99; // r9
@@ -150,7 +150,7 @@ char __fastcall CcMapAndCopyInToCache(
   _DWORD *v111; // r8
   int v112; // eax
   BOOLEAN v113; // al
-  __int64 v114; // rcx
+  NTSTATUS v114; // ecx
   char v115; // [rsp+78h] [rbp-178h]
   bool v116; // [rsp+79h] [rbp-177h]
   char v117; // [rsp+7Ah] [rbp-176h]
@@ -179,13 +179,13 @@ char __fastcall CcMapAndCopyInToCache(
   int v140; // [rsp+C8h] [rbp-128h]
   int v141; // [rsp+CCh] [rbp-124h]
   int v142; // [rsp+D0h] [rbp-120h]
-  unsigned int v143; // [rsp+D4h] [rbp-11Ch] BYREF
-  int v144; // [rsp+D8h] [rbp-118h]
+  NTSTATUS Status; // [rsp+D4h] [rbp-11Ch] BYREF
+  signed int v144; // [rsp+D8h] [rbp-118h]
   NTSTATUS v145[4]; // [rsp+E0h] [rbp-110h] BYREF
   __int64 v146; // [rsp+F0h] [rbp-100h]
   struct _KTHREAD *v147; // [rsp+F8h] [rbp-F8h]
   struct _KLOCK_QUEUE_HANDLE v148; // [rsp+100h] [rbp-F0h] BYREF
-  int v149; // [rsp+118h] [rbp-D8h]
+  NTSTATUS v149; // [rsp+118h] [rbp-D8h]
   int v150; // [rsp+11Ch] [rbp-D4h]
   unsigned int v151; // [rsp+120h] [rbp-D0h]
   NTSTATUS v152; // [rsp+124h] [rbp-CCh]
@@ -259,10 +259,13 @@ LABEL_153:
           *(_DWORD *)(v12 + 152) |= 0x400u;
           KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
           OldIrql = LockHandle.OldIrql;
-          if ( KiIrqlFlags )
+          if ( (_DWORD)KiIrqlFlags )
           {
             CurrentIrql = KeGetCurrentIrql();
-            if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && LockHandle.OldIrql <= 0xFu && CurrentIrql >= 2u )
+            if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+              && CurrentIrql <= 0xFu
+              && LockHandle.OldIrql <= 0xFu
+              && CurrentIrql >= 2u )
             {
               CurrentPrcb = KeGetCurrentPrcb();
               SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -314,16 +317,16 @@ LABEL_10:
       if ( (*(_DWORD *)(v12 + 152) & 0x20) != 0 )
       {
         KeAcquireInStackQueuedSpinLockAtDpcLevel((PKSPIN_LOCK)(v26 + 832), &v161);
-        v18 = *(struct _SLIST_ENTRY **)(v12 + 504);
+        v18 = *(_SLIST_ENTRY **)(v12 + 504);
         if ( !v18 )
         {
           KeReleaseInStackQueuedSpinLockFromDpcLevel(&v161);
           KeReleaseInStackQueuedSpinLock(&v148);
           KeDelayExecutionThread(0, 0, &Cc5Milliseconds);
-          RtlRaiseStatus(3221225688LL);
+          RtlRaiseStatus(-1073741608);
         }
         Next = v18->Next;
-        v96 = (struct _SLIST_ENTRY **)*((_QWORD *)&v18->Next + 1);
+        v96 = (_SLIST_ENTRY **)*((_QWORD *)&v18->Next + 1);
         if ( *(&v18->Next->Next + 1) != v18 || *v96 != v18 )
           __fastfail(3u);
         *v96 = Next;
@@ -339,10 +342,10 @@ LABEL_10:
       v125 = 1;
       KxReleaseQueuedSpinLock((volatile signed __int64 **)&v148);
       v85 = v148.OldIrql;
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v97 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v97 <= 0xFu && v148.OldIrql <= 0xFu && v97 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v97 <= 0xFu && v148.OldIrql <= 0xFu && v97 >= 2u )
         {
           v98 = KeGetCurrentPrcb();
           v99 = v98->SchedulerAssist;
@@ -377,10 +380,10 @@ LABEL_10:
         v29 = 1;
       }
       ExReleaseSpinLockSharedFromDpcLevel(&PspThreadWorkOnBehalfLock);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v101 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v101 <= 0xFu && (unsigned __int8)v87 <= 0xFu && v101 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v101 <= 0xFu && (unsigned __int8)v87 <= 0xFu && v101 >= 2u )
         {
           v102 = KeGetCurrentPrcb();
           v103 = v102->SchedulerAssist;
@@ -409,10 +412,10 @@ LABEL_18:
         v19 = v84;
       }
       ExReleaseSpinLockSharedFromDpcLevel(&IopDiskIoAttributionLock);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v105 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v105 <= 0xFu && (unsigned __int8)v83 <= 0xFu && v105 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v105 <= 0xFu && (unsigned __int8)v83 <= 0xFu && v105 >= 2u )
         {
           v106 = KeGetCurrentPrcb();
           v107 = v106->SchedulerAssist;
@@ -554,9 +557,9 @@ LABEL_18:
           if ( v49 < 0 )
           {
             IsNtstatusExpected = FsRtlIsNtstatusExpected(v49);
-            v72 = 3221225704LL;
+            v72 = -1073741592;
             if ( IsNtstatusExpected )
-              v72 = (unsigned int)v49;
+              v72 = v49;
             RtlRaiseStatus(v72);
           }
           v117 = 1;
@@ -607,9 +610,9 @@ LABEL_18:
           v155 = 0LL;
           v59 = 0LL;
           v157 = 0LL;
-          v143 = 0;
+          Status = 0;
           if ( v44 < 0 )
-            RtlRaiseStatus((unsigned int)v44);
+            RtlRaiseStatus(v44);
           v60 = v120;
           v61 = v136;
           if ( v120 )
@@ -618,10 +621,10 @@ LABEL_18:
             v52 = v133;
             if ( v133 )
               v73 = 4096;
-            v59 = CcLockSystemCacheBuffer(v136, (unsigned int)&v155, v73, 1, (__int64)&v143);
+            v59 = CcLockSystemCacheBuffer(v136, (unsigned int)&v155, v73, 1, (__int64)&Status);
             v157 = v59;
             if ( !v59 )
-              RtlRaiseStatus(v143);
+              RtlRaiseStatus(Status);
             v58 = v155;
             v60 = v120;
           }
@@ -655,7 +658,7 @@ LABEL_18:
           }
           else if ( (*(_DWORD *)(a1 + 152) & 0x40000000) != 0 )
           {
-            v65 = RtlWriteNonVolatileMemory(-1LL, v62, a2, v64, 2);
+            v65 = RtlWriteNonVolatileMemory((PVOID)0xFFFFFFFFFFFFFFFFLL, v62, a2, v64, 2u);
             v144 = v65;
           }
           else
@@ -663,7 +666,7 @@ LABEL_18:
             memmove(v62, a2, v64);
           }
           if ( v65 < 0 )
-            RtlRaiseStatus((unsigned int)v65);
+            RtlRaiseStatus(v65);
           v124 = !v66;
           v117 = 1;
           if ( !v116 )
@@ -734,7 +737,7 @@ LABEL_18:
         if ( v145[0] < 0 )
         {
           v75 = FsRtlIsNtstatusExpected(v145[0]);
-          v76 = 3221225705LL;
+          v76 = -1073741591;
           if ( v75 )
             v76 = v74;
           RtlRaiseStatus(v76);
@@ -793,10 +796,10 @@ LABEL_149:
           --*(_DWORD *)(v12 + 524);
           KxReleaseQueuedSpinLock((volatile signed __int64 **)&v148);
           v86 = v148.OldIrql;
-          if ( KiIrqlFlags )
+          if ( (_DWORD)KiIrqlFlags )
           {
             v109 = KeGetCurrentIrql();
-            if ( (KiIrqlFlags & 1) != 0 && v109 <= 0xFu && v148.OldIrql <= 0xFu && v109 >= 2u )
+            if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v109 <= 0xFu && v148.OldIrql <= 0xFu && v109 >= 2u )
             {
               v110 = KeGetCurrentPrcb();
               v111 = v110->SchedulerAssist;
@@ -813,9 +816,9 @@ LABEL_149:
         if ( v13 < 0 )
         {
           v113 = FsRtlIsNtstatusExpected(v13);
-          v114 = 3221225705LL;
+          v114 = -1073741591;
           if ( v113 )
-            v114 = (unsigned int)v13;
+            v114 = v13;
           RtlRaiseStatus(v114);
         }
         return v126;

@@ -1,12 +1,12 @@
 /*
- * XREFs of IopCreateRootDirectories @ 0x1409D9E34
+ * XREFs of IopCreateRootDirectories @ 0x1409DAE34
  * Callers:
- *     IoInitSystemPreDrivers @ 0x1409B1F54 (IoInitSystemPreDrivers.c)
+ *     IoInitSystemPreDrivers @ 0x1409B2F54 (IoInitSystemPreDrivers.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
- *     ObCloseHandle @ 0x1405F5700 (ObCloseHandle.c)
- *     NtCreateDirectoryObject @ 0x1406ADCC0 (NtCreateDirectoryObject.c)
- *     IopCreateUmdfDirectory @ 0x1409D9F10 (IopCreateUmdfDirectory.c)
+ *     RtlInitUnicodeString @ 0x1400B99D0 (RtlInitUnicodeString.c)
+ *     ObCloseHandle @ 0x1405F6700 (ObCloseHandle.c)
+ *     NtCreateDirectoryObject @ 0x1406AEF60 (NtCreateDirectoryObject.c)
+ *     IopCreateUmdfDirectory @ 0x1409DAF10 (IopCreateUmdfDirectory.c)
  */
 
 bool IopCreateRootDirectories()

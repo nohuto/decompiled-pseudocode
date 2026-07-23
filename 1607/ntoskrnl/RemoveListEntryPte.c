@@ -1,12 +1,12 @@
 /*
- * XREFs of RemoveListEntryPte @ 0x1400AC07C
+ * XREFs of RemoveListEntryPte @ 0x1400AA5E4
  * Callers:
- *     MiReleaseSystemCacheView @ 0x140018374 (MiReleaseSystemCacheView.c)
- *     MiRemoveSpecialPoolRange @ 0x1401EB91C (MiRemoveSpecialPoolRange.c)
+ *     MiReleaseSystemCacheView @ 0x140017EF4 (MiReleaseSystemCacheView.c)
+ *     MiRemoveSpecialPoolRange @ 0x1401EB748 (MiRemoveSpecialPoolRange.c)
  * Callees:
- *     MiPteInShadowRange @ 0x1401EF3B8 (MiPteInShadowRange.c)
- *     MiWritePteShadow @ 0x1401EF658 (MiWritePteShadow.c)
- *     MiGetPteLink @ 0x1401F2680 (MiGetPteLink.c)
+ *     MiPteInShadowRange @ 0x1401EF1E4 (MiPteInShadowRange.c)
+ *     MiWritePteShadow @ 0x1401EF484 (MiWritePteShadow.c)
+ *     MiGetPteLink @ 0x1401F24AC (MiGetPteLink.c)
  */
 
 __int64 __fastcall RemoveListEntryPte(__int64 a1, __int64 a2)

@@ -1,11 +1,11 @@
 /*
- * XREFs of PnprCollectResources @ 0x1407AED90
+ * XREFs of PnprCollectResources @ 0x1407B1DF0
  * Callers:
- *     PnpReplacePartitionUnit @ 0x1407ADDC0 (PnpReplacePartitionUnit.c)
+ *     PnpReplacePartitionUnit @ 0x1407B0E20 (PnpReplacePartitionUnit.c)
  * Callees:
- *     PipForAllChildDeviceNodes @ 0x140AC6D00 (PipForAllChildDeviceNodes.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     PipForAllChildDeviceNodes @ 0x140AC88F0 (PipForAllChildDeviceNodes.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PnprCollectResources(__int64 *a1, _QWORD *a2)
@@ -50,7 +50,7 @@ __int64 __fastcall PnprCollectResources(__int64 *a1, _QWORD *a2)
   a1[2] = Pool2;
   if ( !Pool2 )
   {
-    v5 = 1023;
+    v5 = 946;
 LABEL_3:
     v6 = PnprContext;
     v7 = -1073741670;
@@ -68,7 +68,7 @@ LABEL_3:
   a2[2] = v10;
   if ( !v10 )
   {
-    v5 = 1035;
+    v5 = 958;
     goto LABEL_3;
   }
   *(_DWORD *)(v10 + 12) = 4;
@@ -77,7 +77,7 @@ LABEL_3:
   v12 = a1[2];
   if ( !*(_QWORD *)v12 )
   {
-    v5 = 1053;
+    v5 = 976;
     goto LABEL_3;
   }
   *(_DWORD *)(v12 + 8) = 32;
@@ -85,14 +85,14 @@ LABEL_3:
   a1[3] = v13;
   if ( !v13 )
   {
-    v5 = 1071;
+    v5 = 994;
     goto LABEL_3;
   }
   v14 = ExAllocatePool2(0x40uLL);
   a2[3] = v14;
   if ( !v14 )
   {
-    v5 = 1082;
+    v5 = 1005;
     goto LABEL_3;
   }
   *(_DWORD *)a1[3] = 4;
@@ -112,7 +112,7 @@ LABEL_3:
     v19 = PnprContext;
     v20 = *(_DWORD *)(PnprContext + 33288);
     if ( !v20 )
-      v20 = 1103;
+      v20 = 1026;
     v21 = *(_DWORD *)(PnprContext + 33292);
     *(_DWORD *)(PnprContext + 33288) = v20;
     if ( !v21 )
@@ -139,7 +139,7 @@ LABEL_3:
       v6 = PnprContext;
       v28 = *(_DWORD *)(PnprContext + 33288);
       if ( !v28 )
-        v28 = 1135;
+        v28 = 1058;
       *(_DWORD *)(PnprContext + 33288) = v28;
       v9 = *(_DWORD *)(v6 + 33292);
       if ( !v9 )
@@ -150,7 +150,7 @@ LABEL_3:
       v6 = PnprContext;
       v26 = *(_DWORD *)(PnprContext + 33288);
       if ( !v26 )
-        v26 = 1126;
+        v26 = 1049;
       *(_DWORD *)(PnprContext + 33288) = v26;
       v9 = *(_DWORD *)(v6 + 33292);
       if ( !v9 )
@@ -163,7 +163,7 @@ LABEL_3:
     v6 = PnprContext;
     v24 = *(_DWORD *)(PnprContext + 33288);
     if ( !v24 )
-      v24 = 1114;
+      v24 = 1037;
     *(_DWORD *)(PnprContext + 33288) = v24;
     v9 = *(_DWORD *)(v6 + 33292);
     if ( !v9 )

@@ -31,7 +31,7 @@ __int64 __fastcall CmFcManagerRegisterFeatureUsageProvider(__int64 a1, __int64 a
     v9 = _interlockedbittestandset64((volatile signed __int32 *)&stru_140C143A0, 0LL);
     v10 = v8;
     if ( v9 )
-      ExfAcquirePushLockExclusiveEx(&stru_140C143A0, v8, (__int64)&stru_140C143A0);
+      ExfAcquirePushLockExclusiveEx((unsigned __int64 *)&stru_140C143A0, v8, (__int64)&stru_140C143A0);
     if ( v10 )
       *(_BYTE *)(v10 + 18) = 1;
     v11 = (_QWORD *)qword_140C14538;

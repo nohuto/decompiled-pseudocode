@@ -1,5 +1,5 @@
 /*
- * XREFs of VerifierPoFxRegisterDevice @ 0x14070CBD8
+ * XREFs of VerifierPoFxRegisterDevice @ 0x14070CC08
  * Callers:
  *     <none>
  * Callees:

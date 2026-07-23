@@ -1,8 +1,8 @@
 /*
- * XREFs of CcSetLazyWriteScanQueued @ 0x1400D7470
+ * XREFs of CcSetLazyWriteScanQueued @ 0x1400D74F0
  * Callers:
- *     CcLazyWriteScan @ 0x1400D575C (CcLazyWriteScan.c)
- *     CcQueueLazyWriteScanThread @ 0x140183840 (CcQueueLazyWriteScanThread.c)
+ *     CcLazyWriteScan @ 0x1400D57DC (CcLazyWriteScan.c)
+ *     CcQueueLazyWriteScanThread @ 0x140183980 (CcQueueLazyWriteScanThread.c)
  * Callees:
  *     <none>
  */

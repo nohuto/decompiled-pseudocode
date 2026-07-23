@@ -1,7 +1,7 @@
 /*
- * XREFs of KeIsSystemCpuPartitionRestricted @ 0x1405F3CB8
+ * XREFs of KeIsSystemCpuPartitionRestricted @ 0x1405F6678
  * Callers:
- *     PspSelectNodeForProcess @ 0x1407F2DF0 (PspSelectNodeForProcess.c)
+ *     PspSelectNodeForProcess @ 0x1407F8950 (PspSelectNodeForProcess.c)
  * Callees:
  *     <none>
  */

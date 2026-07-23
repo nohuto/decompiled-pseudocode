@@ -14,39 +14,39 @@
  *     sub_1800F22CC @ 0x1800F22CC (sub_1800F22CC.c)
  */
 
-__int64 __fastcall sub_180101FF0(unsigned __int64 a1, int a2, unsigned __int64 a3)
+SIZE_T __fastcall sub_180101FF0(PRTL_CRITICAL_SECTION *BaseAddress, int a2, char *a3)
 {
   char v6; // r14
-  __int64 v8; // rdi
-  unsigned int v9; // esi
+  SIZE_T v8; // rdi
+  ULONG v9; // esi
   unsigned __int64 v10; // rdx
 
   v6 = 0;
-  if ( (*(_DWORD *)(a1 + 116) & 0x1000000) != 0 )
-    return ((__int64 (__fastcall *)(unsigned __int64))qword_180155490)(a1);
+  if ( (*((_DWORD *)BaseAddress + 29) & 0x1000000) != 0 )
+    return ((__int64 (__fastcall *)(PRTL_CRITICAL_SECTION *))qword_180155490)(BaseAddress);
   v8 = -1LL;
-  if ( sub_18001F9B0((_DWORD *)a1, "RtlSizeHeap") )
+  if ( sub_18001F9B0(BaseAddress, "RtlSizeHeap") )
   {
-    v9 = *(_DWORD *)(a1 + 116) | 0x10000000 | a2;
+    v9 = *((_DWORD *)BaseAddress + 29) | 0x10000000 | a2;
     if ( (v9 & 1) == 0 )
     {
-      RtlEnterCriticalSection(*(_QWORD *)(a1 + 352));
+      RtlEnterCriticalSection(BaseAddress[44]);
       v9 |= 1u;
       v6 = 1;
     }
-    sub_180090710(a1, 0);
-    v10 = a3 - 16;
-    _m_prefetchw((const void *)(a3 - 16));
-    if ( *(_BYTE *)(a3 - 16 + 15) == 5 )
+    sub_180090710((PVOID *)BaseAddress, 0);
+    v10 = (unsigned __int64)(a3 - 16);
+    _m_prefetchw(a3 - 16);
+    if ( *(a3 - 1) == 5 )
       v10 -= 16LL * *(unsigned __int8 *)(v10 + 14);
-    if ( sub_180078084(a1, v10, "RtlSizeHeap") )
-      v8 = RtlSizeHeap(a1, v9, a3);
+    if ( sub_180078084((unsigned __int64)BaseAddress, v10, "RtlSizeHeap") )
+      v8 = RtlSizeHeap(BaseAddress, v9, a3);
   }
   else
   {
     v8 = 0LL;
   }
   if ( v6 )
-    RtlLeaveCriticalSection(*(_QWORD *)(a1 + 352));
+    RtlLeaveCriticalSection(BaseAddress[44]);
   return v8;
 }

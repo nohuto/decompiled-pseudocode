@@ -1,13 +1,13 @@
 /*
- * XREFs of PopDereferenceWakeInfos @ 0x14038B984
+ * XREFs of PopDereferenceWakeInfos @ 0x14038BAD4
  * Callers:
- *     PopGetWakeSource @ 0x1407787B8 (PopGetWakeSource.c)
+ *     PopGetWakeSource @ 0x140778978 (PopGetWakeSource.c)
  * Callees:
- *     KeAcquireInStackQueuedSpinLock @ 0x14022EE10 (KeAcquireInStackQueuedSpinLock.c)
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     PopWakeInfoDereference @ 0x14038BA18 (PopWakeInfoDereference.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402042B0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402D3660 (KeAcquireInStackQueuedSpinLock.c)
+ *     PopWakeInfoDereference @ 0x14038BB68 (PopWakeInfoDereference.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 void __fastcall PopDereferenceWakeInfos(unsigned int a1, _QWORD *a2)

@@ -1,20 +1,20 @@
 /*
- * XREFs of PnpTraceStartDevice @ 0x14037C2A0
+ * XREFs of PnpTraceStartDevice @ 0x14037BDF0
  * Callers:
- *     PnpDeviceCompletionRoutine @ 0x14036F820 (PnpDeviceCompletionRoutine.c)
- *     PnpStartDeviceNode @ 0x14073DF04 (PnpStartDeviceNode.c)
+ *     PnpDeviceCompletionRoutine @ 0x14036F9D0 (PnpDeviceCompletionRoutine.c)
+ *     PnpStartDeviceNode @ 0x14073E0C4 (PnpStartDeviceNode.c)
  * Callees:
- *     RtlImageNtHeader @ 0x14031C950 (RtlImageNtHeader.c)
- *     PnpDiagnosticTraceDeviceOperation @ 0x14037C2F4 (PnpDiagnosticTraceDeviceOperation.c)
+ *     RtlImageNtHeader @ 0x1403276A0 (RtlImageNtHeader.c)
+ *     PnpDiagnosticTraceDeviceOperation @ 0x14037BE44 (PnpDiagnosticTraceDeviceOperation.c)
  */
 
 __int64 __fastcall PnpTraceStartDevice(__int64 a1, __int64 a2, __int64 a3)
 {
-  __int16 v3; // ax
+  unsigned __int16 MinorImageVersion; // ax
 
-  LOBYTE(v3) = 0;
+  LOBYTE(MinorImageVersion) = 0;
   if ( a3 )
-    v3 = *(_WORD *)(RtlImageNtHeader(*(_QWORD *)(a3 + 24)) + 70);
-  PnpDiagnosticTraceDeviceOperation(&KMPnPEvt_DeviceStart_Stop, v3);
+    MinorImageVersion = RtlImageNtHeader(*(PVOID *)(a3 + 24))->OptionalHeader.MinorImageVersion;
+  PnpDiagnosticTraceDeviceOperation(&KMPnPEvt_DeviceStart_Stop, MinorImageVersion);
   return 0LL;
 }

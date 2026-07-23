@@ -1,20 +1,20 @@
 /*
- * XREFs of PspUserThreadStartup @ 0x140459060
+ * XREFs of PspUserThreadStartup @ 0x140457F30
  * Callers:
  *     <none>
  * Callees:
- *     KeWaitForSingleObject @ 0x14005C880 (KeWaitForSingleObject.c)
- *     VslpEnterIumSecureMode @ 0x1400AA174 (VslpEnterIumSecureMode.c)
- *     ExGenRandom @ 0x1400F0494 (ExGenRandom.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     PfProcessCreateNotification @ 0x1403E6410 (PfProcessCreateNotification.c)
- *     DbgkCreateThread @ 0x140459228 (DbgkCreateThread.c)
- *     PspWriteTebIdealProcessor @ 0x14045949C (PspWriteTebIdealProcessor.c)
- *     MmGetSessionLocaleId @ 0x14045964C (MmGetSessionLocaleId.c)
- *     PspDisablePrimaryTokenExchange @ 0x140459688 (PspDisablePrimaryTokenExchange.c)
- *     PspInitializeThunkContext @ 0x140459784 (PspInitializeThunkContext.c)
- *     PspTerminateThreadByPointer @ 0x140509A30 (PspTerminateThreadByPointer.c)
- *     DbgkCreateMinimalThread @ 0x14061AAC8 (DbgkCreateMinimalThread.c)
+ *     KeWaitForSingleObject @ 0x14005C400 (KeWaitForSingleObject.c)
+ *     VslpEnterIumSecureMode @ 0x1400A86F4 (VslpEnterIumSecureMode.c)
+ *     ExGenRandom @ 0x1400EE314 (ExGenRandom.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     PfProcessCreateNotification @ 0x1403E7A40 (PfProcessCreateNotification.c)
+ *     DbgkCreateThread @ 0x1404580F8 (DbgkCreateThread.c)
+ *     PspWriteTebIdealProcessor @ 0x14045836C (PspWriteTebIdealProcessor.c)
+ *     MmGetSessionLocaleId @ 0x14045851C (MmGetSessionLocaleId.c)
+ *     PspDisablePrimaryTokenExchange @ 0x140458558 (PspDisablePrimaryTokenExchange.c)
+ *     PspInitializeThunkContext @ 0x140458654 (PspInitializeThunkContext.c)
+ *     PspTerminateThreadByPointer @ 0x1404EC9C0 (PspTerminateThreadByPointer.c)
+ *     DbgkCreateMinimalThread @ 0x14061AB7C (DbgkCreateMinimalThread.c)
  */
 
 NTSTATUS PspUserThreadStartup()

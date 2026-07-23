@@ -1,42 +1,42 @@
 /*
- * XREFs of BgpConsoleClearScreenEx @ 0x140C4FD78
+ * XREFs of BgpConsoleClearScreenEx @ 0x140C55D78
  * Callers:
- *     BgpConsoleClearScreen @ 0x140C4FD40 (BgpConsoleClearScreen.c)
- *     BgpConsoleInitialize @ 0x140C50420 (BgpConsoleInitialize.c)
+ *     BgpConsoleClearScreen @ 0x140C55D40 (BgpConsoleClearScreen.c)
+ *     BgpConsoleInitialize @ 0x140C56420 (BgpConsoleInitialize.c)
  * Callees:
- *     BgpClearScreen @ 0x140715B44 (BgpClearScreen.c)
+ *     BgpClearScreen @ 0x14071A834 (BgpClearScreen.c)
  */
 
 __int64 BgpConsoleClearScreenEx()
 {
-  struct _LIST_ENTRY *Flink; // rcx
+  _DWORD *NormalContext; // rcx
   int v1; // r8d
-  struct _LIST_ENTRY *v2; // r9
+  _DWORD *v2; // r9
   __int64 v3; // r10
-  unsigned int Flink_high; // eax
+  unsigned int v4; // eax
   __int64 v5; // r11
   unsigned int i; // ebx
   __int64 v7; // rcx
   __int64 v8; // rdx
 
-  Flink = WheapPfaLock.SavedApcState.ApcListHead[1].Flink;
-  *(struct _LIST_ENTRY **)((char *)&WheapPfaLock.SavedApcState.ApcListHead[1].Flink[4].Flink + 4) = 0LL;
-  v1 = BgpClearScreen((unsigned int)Flink[1].Flink);
+  NormalContext = WheapPfaLock.SchedulerApc.NormalContext;
+  *(_QWORD *)((char *)WheapPfaLock.SchedulerApc.NormalContext + 68) = 0LL;
+  v1 = BgpClearScreen(NormalContext[4]);
   if ( v1 >= 0 )
   {
-    v2 = WheapPfaLock.SavedApcState.ApcListHead[1].Flink;
+    v2 = WheapPfaLock.SchedulerApc.NormalContext;
     v3 = 0LL;
-    Flink_high = HIDWORD(WheapPfaLock.SavedApcState.ApcListHead[1].Flink->Flink);
+    v4 = *((_DWORD *)WheapPfaLock.SchedulerApc.NormalContext + 1);
     v5 = 80LL;
     do
     {
-      for ( i = 0; i < Flink_high; Flink_high = HIDWORD(v2->Flink) )
+      for ( i = 0; i < v4; v4 = v2[1] )
       {
         v7 = i++;
         v8 = 3 * (v3 + v7);
-        *((_WORD *)&v2[5].Blink + 2 * v8) = 32;
-        *((_DWORD *)&v2[5].Flink + 3 * v3 + 3 * v7 + 1) = v2[1].Flink;
-        *((_DWORD *)&v2[5].Flink + v8) = HIDWORD(v2->Blink);
+        LOWORD(v2[v8 + 22]) = 32;
+        v2[3 * v3 + 21 + 3 * v7] = v2[4];
+        v2[v8 + 20] = v2[3];
       }
       v3 += 25LL;
       --v5;

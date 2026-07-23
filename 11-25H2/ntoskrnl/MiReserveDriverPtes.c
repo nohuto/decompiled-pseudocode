@@ -29,7 +29,7 @@ __int64 __fastcall MiReserveDriverPtes(int a1, __int64 a2)
   unsigned __int64 v10; // rax
   unsigned __int64 v11; // r12
   unsigned __int64 PteAddress; // rbx
-  RTL_BITMAP *v13; // rcx
+  _RTL_BITMAP *v13; // rcx
   int v14; // eax
   int v15; // eax
   unsigned __int64 v16; // r14
@@ -67,7 +67,7 @@ __int64 __fastcall MiReserveDriverPtes(int a1, __int64 a2)
     if ( v10 )
     {
       PteAddress = MiGetPteAddress(v10);
-      v13 = (RTL_BITMAP *)(Pool + 16);
+      v13 = (_RTL_BITMAP *)(Pool + 16);
       *((_QWORD *)Pool + 3) = Pool + 56;
       *((_DWORD *)Pool + 4) = ((16 * (v5 + (_DWORD)v6) + 511) & 0xFFFFFE00) >> 4;
       *((_DWORD *)Pool + 10) = (v8 + 7) & 0xFFFFFFF8;

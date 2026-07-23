@@ -1,16 +1,16 @@
 /*
- * XREFs of PipProcessStartPhase2 @ 0x1406FD624
+ * XREFs of PipProcessStartPhase2 @ 0x1406FE8C4
  * Callers:
- *     PipProcessDevNodeTree @ 0x1406E655C (PipProcessDevNodeTree.c)
+ *     PipProcessDevNodeTree @ 0x1406E77FC (PipProcessDevNodeTree.c)
  * Callees:
- *     PipSetDevNodeState @ 0x140159DD8 (PipSetDevNodeState.c)
- *     IoRequestDeviceEject @ 0x140287CF0 (IoRequestDeviceEject.c)
- *     McTemplateK0dz @ 0x14028ACE4 (McTemplateK0dz.c)
- *     PnpRequestDeviceRemoval @ 0x1406EF20C (PnpRequestDeviceRemoval.c)
- *     IopDoDeferredSetInterfaceState @ 0x1406FD6CC (IopDoDeferredSetInterfaceState.c)
- *     PpProfileCancelHardwareProfileTransition @ 0x1408327C4 (PpProfileCancelHardwareProfileTransition.c)
- *     PpProfileCommitTransitioningDock @ 0x1408328F4 (PpProfileCommitTransitioningDock.c)
- *     IopAllocateLegacyBootResources @ 0x1409C09B8 (IopAllocateLegacyBootResources.c)
+ *     PipSetDevNodeState @ 0x140159ED8 (PipSetDevNodeState.c)
+ *     IoRequestDeviceEject @ 0x140287EE0 (IoRequestDeviceEject.c)
+ *     McTemplateK0dz @ 0x14028AED4 (McTemplateK0dz.c)
+ *     PnpRequestDeviceRemoval @ 0x1406F04AC (PnpRequestDeviceRemoval.c)
+ *     IopDoDeferredSetInterfaceState @ 0x1406FE96C (IopDoDeferredSetInterfaceState.c)
+ *     PpProfileCancelHardwareProfileTransition @ 0x140833A24 (PpProfileCancelHardwareProfileTransition.c)
+ *     PpProfileCommitTransitioningDock @ 0x140833B54 (PpProfileCommitTransitioningDock.c)
+ *     IopAllocateLegacyBootResources @ 0x1409C19B8 (IopAllocateLegacyBootResources.c)
  */
 
 __int64 __fastcall PipProcessStartPhase2(__int64 a1, __int64 a2, __int64 a3)
@@ -20,7 +20,7 @@ __int64 __fastcall PipProcessStartPhase2(__int64 a1, __int64 a2, __int64 a3)
   __int64 v7; // rcx
   int v8; // r8d
 
-  if ( (byte_140405847 & 0x10) != 0 )
+  if ( (byte_140406847 & 0x10) != 0 )
     McTemplateK0dz(a1, &KMPnPEvt_ProcessDeviceStart_Start, a3, 2, *(const wchar_t **)(a1 + 48));
   v4 = *(_DWORD *)(a1 + 392);
   if ( *(_DWORD *)(a1 + 568) )
@@ -57,7 +57,7 @@ __int64 __fastcall PipProcessStartPhase2(__int64 a1, __int64 a2, __int64 a3)
     }
     PipSetDevNodeState(a1, 775);
   }
-  if ( (byte_140405847 & 0x10) != 0 )
+  if ( (byte_140406847 & 0x10) != 0 )
     McTemplateK0dz(*(_QWORD *)(a1 + 48), &KMPnPEvt_ProcessDeviceStart_Stop, v5, 2, *(const wchar_t **)(a1 + 48));
   return (unsigned int)v4;
 }

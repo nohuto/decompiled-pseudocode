@@ -1,18 +1,18 @@
 /*
- * XREFs of PopQueueQuerySetIrp @ 0x140172A8C
+ * XREFs of PopQueueQuerySetIrp @ 0x140172B8C
  * Callers:
- *     PopRequestPowerIrp @ 0x140172560 (PopRequestPowerIrp.c)
- *     PopNotifyDevice @ 0x140568C68 (PopNotifyDevice.c)
+ *     PopRequestPowerIrp @ 0x140172660 (PopRequestPowerIrp.c)
+ *     PopNotifyDevice @ 0x140569C68 (PopNotifyDevice.c)
  * Callees:
  *     PopDeepSleepSetDisengageReason @ 0x140004DF8 (PopDeepSleepSetDisengageReason.c)
  *     KeReleaseQueuedSpinLock @ 0x140018930 (KeReleaseQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14007DE90 (KeAcquireInStackQueuedSpinLock.c)
- *     KeAcquireQueuedSpinLock @ 0x1400ACF30 (KeAcquireQueuedSpinLock.c)
- *     IofCallDriver @ 0x1400B8DF0 (IofCallDriver.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
- *     PopEnableIrpWatchdog @ 0x140172C4C (PopEnableIrpWatchdog.c)
- *     PopDiagTraceIrpStart @ 0x140172D20 (PopDiagTraceIrpStart.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14007DE80 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeAcquireQueuedSpinLock @ 0x1400ACE70 (KeAcquireQueuedSpinLock.c)
+ *     IofCallDriver @ 0x1400B8D30 (IofCallDriver.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC6A0 (KxReleaseQueuedSpinLock.c)
+ *     PopEnableIrpWatchdog @ 0x140172D4C (PopEnableIrpWatchdog.c)
+ *     PopDiagTraceIrpStart @ 0x140172E20 (PopDiagTraceIrpStart.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 NTSTATUS __fastcall PopQueueQuerySetIrp(PIRP Irp)
@@ -82,14 +82,14 @@ LABEL_24:
   KeAcquireInStackQueuedSpinLock(&PopIrpLock, &LockHandle);
   if ( v1 )
   {
-    v16 = (struct _LIST_ENTRY *)qword_140417DC8;
+    v16 = (struct _LIST_ENTRY *)qword_140418E68;
     p_ListEntry = (struct _IRP::$::$2AD798E65616C4F7304824DBFA27E419::$665C8370128C04AB892B069E6FB086E8 *)&v3->Tail.Overlay.ListEntry;
-    if ( *(__int64 **)qword_140417DC8 != &PopInrushIrpList )
+    if ( *(__int64 **)qword_140418E68 != &PopInrushIrpList )
       goto LABEL_38;
     p_ListEntry->ListEntry.Flink = (struct _LIST_ENTRY *)&PopInrushIrpList;
     v3->Tail.Overlay.ListEntry.Blink = v16;
     v16->Flink = &p_ListEntry->ListEntry;
-    qword_140417DC8 = (__int64)&v3->Tail.Overlay.ListEntry;
+    qword_140418E68 = (__int64)&v3->Tail.Overlay.ListEntry;
   }
   v11 = v10[1];
   if ( v11 )

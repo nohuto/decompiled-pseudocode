@@ -1,12 +1,12 @@
 /*
- * XREFs of VfFreePoolNotification @ 0x140710968
+ * XREFs of VfFreePoolNotification @ 0x140710998
  * Callers:
- *     ExFreeLargePool @ 0x140010BE0 (ExFreeLargePool.c)
- *     ExpFreePoolChecks @ 0x14022D080 (ExpFreePoolChecks.c)
+ *     ExFreeLargePool @ 0x140010760 (ExFreeLargePool.c)
+ *     ExpFreePoolChecks @ 0x14022CEAC (ExpFreePoolChecks.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
- *     VerifierExFreePoolWithTag @ 0x1407023F0 (VerifierExFreePoolWithTag.c)
+ *     VerifierExFreePoolWithTag @ 0x140702420 (VerifierExFreePoolWithTag.c)
  * Callees:
- *     VfFreeMemoryNotification @ 0x140702884 (VfFreeMemoryNotification.c)
+ *     VfFreeMemoryNotification @ 0x1407028B4 (VfFreeMemoryNotification.c)
  *     ViPoolLogStackTrace @ 0x140710BB0 (ViPoolLogStackTrace.c)
  */
 

@@ -1,16 +1,16 @@
 /*
- * XREFs of EtwpCovSampProcessAddModule @ 0x1409F2864
+ * XREFs of EtwpCovSampProcessAddModule @ 0x1409F2AF4
  * Callers:
- *     EtwpCovSampImageNotify @ 0x1408A9820 (EtwpCovSampImageNotify.c)
+ *     EtwpCovSampImageNotify @ 0x1408A9A70 (EtwpCovSampImageNotify.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ObfReferenceObject @ 0x140233C40 (ObfReferenceObject.c)
- *     ExfTryToWakePushLock @ 0x1402BD960 (ExfTryToWakePushLock.c)
- *     memmove @ 0x140435700 (memmove.c)
- *     EtwpCovSampModuleReference @ 0x1408A9972 (EtwpCovSampModuleReference.c)
- *     EtwpCovSampProcessRemoveModule @ 0x1408A9C6C (EtwpCovSampProcessRemoveModule.c)
+ *     KeLeaveCriticalRegionThread @ 0x14022F7F0 (KeLeaveCriticalRegionThread.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140231120 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     ObfReferenceObject @ 0x140233D10 (ObfReferenceObject.c)
+ *     ExfTryToWakePushLock @ 0x1402BDBF0 (ExfTryToWakePushLock.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     EtwpCovSampModuleReference @ 0x1408A9BC2 (EtwpCovSampModuleReference.c)
+ *     EtwpCovSampProcessRemoveModule @ 0x1408A9EBC (EtwpCovSampProcessRemoveModule.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

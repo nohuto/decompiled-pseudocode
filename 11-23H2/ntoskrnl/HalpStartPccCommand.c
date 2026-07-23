@@ -1,13 +1,13 @@
 /*
- * XREFs of HalpStartPccCommand @ 0x140935C3C
+ * XREFs of HalpStartPccCommand @ 0x140935E3C
  * Callers:
- *     HalpSendPccCommand @ 0x140935BD0 (HalpSendPccCommand.c)
+ *     HalpSendPccCommand @ 0x140935DD0 (HalpSendPccCommand.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1B0 (RtlInitUnicodeString.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     memset @ 0x140435A00 (memset.c)
- *     HalpUpdateCoolingPacket @ 0x1405277C0 (HalpUpdateCoolingPacket.c)
- *     HalpAcquirePccInterface @ 0x140935854 (HalpAcquirePccInterface.c)
+ *     RtlInitUnicodeString @ 0x14022E2C0 (RtlInitUnicodeString.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     HalpUpdateCoolingPacket @ 0x140527D10 (HalpUpdateCoolingPacket.c)
+ *     HalpAcquirePccInterface @ 0x140935A54 (HalpAcquirePccInterface.c)
  */
 
 __int64 HalpStartPccCommand()

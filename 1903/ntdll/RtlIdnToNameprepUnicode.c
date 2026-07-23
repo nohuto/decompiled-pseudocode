@@ -6,7 +6,18 @@
  *     sub_18002B040 @ 0x18002B040 (sub_18002B040.c)
  */
 
-__int64 __fastcall RtlIdnToNameprepUnicode(unsigned int a1, __int64 a2, unsigned int a3, __int64 a4, __int64 a5)
+NTSTATUS __cdecl RtlIdnToNameprepUnicode(
+        ULONG Flags,
+        PCWSTR SourceString,
+        LONG SourceStringLength,
+        PWSTR DestinationString,
+        PLONG DestinationStringLength)
 {
-  return sub_18002B040(a1, a2, a3, a4, a5, 0);
+  return sub_18002B040(
+           Flags,
+           (__int64)SourceString,
+           SourceStringLength,
+           (__int64)DestinationString,
+           (__int64)DestinationStringLength,
+           0);
 }

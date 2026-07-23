@@ -99,7 +99,7 @@
  *     sub_180073CD4 @ 0x180073CD4 (sub_180073CD4.c)
  *     sub_180074240 @ 0x180074240 (sub_180074240.c)
  *     sub_180074A2C @ 0x180074A2C (sub_180074A2C.c)
- *     sub_180074B90 @ 0x180074B90 (sub_180074B90.c)
+ *     EnableCallback @ 0x180074B90 (EnableCallback.c)
  *     sub_180075FE0 @ 0x180075FE0 (sub_180075FE0.c)
  *     sub_180076EF0 @ 0x180076EF0 (sub_180076EF0.c)
  *     sub_1800770AC @ 0x1800770AC (sub_1800770AC.c)

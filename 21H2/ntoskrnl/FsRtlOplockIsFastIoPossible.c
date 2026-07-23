@@ -1,5 +1,5 @@
 /*
- * XREFs of FsRtlOplockIsFastIoPossible @ 0x14068FA50
+ * XREFs of FsRtlOplockIsFastIoPossible @ 0x1405EF8C0
  * Callers:
  *     <none>
  * Callees:

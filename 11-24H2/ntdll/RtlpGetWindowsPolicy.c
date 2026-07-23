@@ -1,30 +1,30 @@
 /*
- * XREFs of RtlpGetWindowsPolicy @ 0x180148EF0
+ * XREFs of RtlpGetWindowsPolicy @ 0x1801472A0
  * Callers:
- *     RtlpMuiRegLoadLicInformation @ 0x1800EB31C (RtlpMuiRegLoadLicInformation.c)
+ *     RtlpMuiRegLoadLicInformation @ 0x1800CC41C (RtlpMuiRegLoadLicInformation.c)
  * Callees:
- *     RtlAllocateHeap @ 0x180011260 (RtlAllocateHeap.c)
- *     RtlFreeHeap @ 0x1800269F0 (RtlFreeHeap.c)
- *     RtlInitUnicodeString @ 0x1800DA0A0 (RtlInitUnicodeString.c)
- *     ZwQueryLicenseValue @ 0x180164880 (ZwQueryLicenseValue.c)
+ *     RtlAllocateHeap @ 0x18003DC60 (RtlAllocateHeap.c)
+ *     RtlFreeHeap @ 0x1800533F0 (RtlFreeHeap.c)
+ *     RtlInitUnicodeString @ 0x1800C7EE0 (RtlInitUnicodeString.c)
+ *     ZwQueryLicenseValue @ 0x180162C40 (ZwQueryLicenseValue.c)
  */
 
-__int64 __fastcall RtlpGetWindowsPolicy(PCWSTR SourceString, __int64 a2, _DWORD *a3, unsigned __int64 *a4)
+NTSTATUS __fastcall RtlpGetWindowsPolicy(PCWSTR SourceString, PULONG Type, PULONG ResultDataSize, _QWORD *a4)
 {
-  unsigned __int64 Heap; // rbx
-  __int64 result; // rax
-  unsigned int v9; // edi
-  UNICODE_STRING v10; // [rsp+30h] [rbp-18h] BYREF
+  PVOID Heap; // rbx
+  NTSTATUS result; // eax
+  NTSTATUS v9; // edi
+  _UNICODE_STRING ValueName; // [rsp+30h] [rbp-18h] BYREF
 
   Heap = 0LL;
-  v10 = 0LL;
-  if ( !a2 || !a3 || !a4 || !SourceString )
-    return 3221225485LL;
-  RtlInitUnicodeString(&v10, SourceString);
-  result = ZwQueryLicenseValue(&v10, a2, 0LL, 0LL, a3);
-  if ( (int)result >= 0 )
+  ValueName = 0LL;
+  if ( !Type || !ResultDataSize || !a4 || !SourceString )
+    return -1073741811;
+  RtlInitUnicodeString(&ValueName, SourceString);
+  result = ZwQueryLicenseValue(&ValueName, Type, 0LL, 0, ResultDataSize);
+  if ( result >= 0 )
   {
-    if ( !*a3 )
+    if ( !*ResultDataSize )
     {
       *a4 = 0LL;
       return result;
@@ -32,22 +32,22 @@ __int64 __fastcall RtlpGetWindowsPolicy(PCWSTR SourceString, __int64 a2, _DWORD 
   }
   else
   {
-    if ( (_DWORD)result != -1073741789 )
+    if ( result != -1073741789 )
       goto LABEL_9;
-    if ( !*a3 )
-      return 3221225495LL;
+    if ( !*ResultDataSize )
+      return -1073741801;
   }
-  Heap = RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 8u, (unsigned int)*a3);
+  Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, *ResultDataSize);
   if ( !Heap )
-    return 3221225495LL;
+    return -1073741801;
 LABEL_9:
-  result = ZwQueryLicenseValue(&v10, a2, Heap, (unsigned int)*a3, a3);
+  result = ZwQueryLicenseValue(&ValueName, Type, Heap, *ResultDataSize, ResultDataSize);
   v9 = result;
-  if ( (int)result < 0 )
+  if ( result < 0 )
   {
     if ( Heap )
     {
-      RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, Heap);
+      RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, Heap);
       return v9;
     }
   }

@@ -1,22 +1,22 @@
 /*
- * XREFs of KxWaitForSpinLockAndAcquire @ 0x140250F20
+ * XREFs of KxWaitForSpinLockAndAcquire @ 0x140250FE0
  * Callers:
- *     IopQueueIrpToFileObject @ 0x14022E420 (IopQueueIrpToFileObject.c)
- *     IopQueueThreadIrp @ 0x14022ED60 (IopQueueThreadIrp.c)
- *     KiExecuteAllDpcs @ 0x1402444C0 (KiExecuteAllDpcs.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250E80 (KeAcquireSpinLockRaiseToDpc.c)
- *     KxAcquireSpinLock @ 0x1402515B0 (KxAcquireSpinLock.c)
- *     KiInsertQueueDpc @ 0x140254790 (KiInsertQueueDpc.c)
- *     IopCompleteRequest @ 0x1402AB480 (IopCompleteRequest.c)
- *     IopDequeueIrpFromThread @ 0x1402AF730 (IopDequeueIrpFromThread.c)
- *     IopCancelIrpsInFileObjectList @ 0x1402AFB50 (IopCancelIrpsInFileObjectList.c)
- *     IopfCompleteRequest @ 0x1402C99B0 (IopfCompleteRequest.c)
- *     KiCallInterruptServiceRoutine @ 0x140324950 (KiCallInterruptServiceRoutine.c)
- *     PsGetThreadProperty @ 0x1403324F0 (PsGetThreadProperty.c)
- *     KiAcquireSpinLockInstrumented @ 0x140460430 (KiAcquireSpinLockInstrumented.c)
+ *     IopQueueIrpToFileObject @ 0x14022E530 (IopQueueIrpToFileObject.c)
+ *     IopQueueThreadIrp @ 0x14022EE70 (IopQueueThreadIrp.c)
+ *     KiExecuteAllDpcs @ 0x140244590 (KiExecuteAllDpcs.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140250F40 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KxAcquireSpinLock @ 0x140251670 (KxAcquireSpinLock.c)
+ *     KiInsertQueueDpc @ 0x140254850 (KiInsertQueueDpc.c)
+ *     IopCompleteRequest @ 0x1402AB710 (IopCompleteRequest.c)
+ *     IopDequeueIrpFromThread @ 0x1402AF9C0 (IopDequeueIrpFromThread.c)
+ *     IopCancelIrpsInFileObjectList @ 0x1402AFBD0 (IopCancelIrpsInFileObjectList.c)
+ *     IopfCompleteRequest @ 0x1402C9C40 (IopfCompleteRequest.c)
+ *     KiCallInterruptServiceRoutine @ 0x140324BE0 (KiCallInterruptServiceRoutine.c)
+ *     PsGetThreadProperty @ 0x140332780 (PsGetThreadProperty.c)
+ *     KiAcquireSpinLockInstrumented @ 0x140460830 (KiAcquireSpinLockInstrumented.c)
  * Callees:
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1403CD2C0 (KiCheckVpBackingLongSpinWaitHypercall.c)
- *     HvlNotifyLongSpinWait @ 0x1403CD2F0 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1403CD4A0 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     HvlNotifyLongSpinWait @ 0x1403CD4D0 (HvlNotifyLongSpinWait.c)
  */
 
 __int64 __fastcall KxWaitForSpinLockAndAcquire(volatile signed __int32 *a1)

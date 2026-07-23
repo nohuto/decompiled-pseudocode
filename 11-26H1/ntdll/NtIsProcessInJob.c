@@ -1,16 +1,16 @@
 /*
- * XREFs of NtIsProcessInJob @ 0x18015F920
+ * XREFs of NtIsProcessInJob @ 0x18015F820
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 NtIsProcessInJob()
+NTSTATUS __cdecl NtIsProcessInJob(HANDLE ProcessHandle, HANDLE JobHandle)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 79LL;
+  result = 79;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

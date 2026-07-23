@@ -1,19 +1,19 @@
 /*
- * XREFs of PopBlockSessionSwitch @ 0x14066FD9C
+ * XREFs of PopBlockSessionSwitch @ 0x14066FE80
  * Callers:
- *     PoSessionBuiltinPanelState @ 0x14020D400 (PoSessionBuiltinPanelState.c)
- *     PopScreenOff @ 0x1406701B0 (PopScreenOff.c)
- *     PoSessionPowerControl @ 0x140674D68 (PoSessionPowerControl.c)
+ *     PoSessionBuiltinPanelState @ 0x14020D22C (PoSessionBuiltinPanelState.c)
+ *     PopScreenOff @ 0x140670294 (PopScreenOff.c)
+ *     PoSessionPowerControl @ 0x140674E4C (PoSessionPowerControl.c)
  * Callees:
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     PoBlockConsoleSwitch @ 0x1404EF230 (PoBlockConsoleSwitch.c)
- *     PopDispatchStateCallout @ 0x1404EF278 (PopDispatchStateCallout.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     PoBlockConsoleSwitch @ 0x1404D1324 (PoBlockConsoleSwitch.c)
+ *     PopDispatchStateCallout @ 0x1404D136C (PopDispatchStateCallout.c)
  */
 
-__int64 __fastcall PopBlockSessionSwitch(char a1, int *a2)
+ULONG __fastcall PopBlockSessionSwitch(char a1, ULONG *a2)
 {
-  __int64 result; // rax
-  int v4; // [rsp+20h] [rbp-38h] BYREF
+  ULONG result; // eax
+  ULONG v4; // [rsp+20h] [rbp-38h] BYREF
   _DWORD v5[4]; // [rsp+28h] [rbp-30h] BYREF
   __int64 v6; // [rsp+38h] [rbp-20h]
 

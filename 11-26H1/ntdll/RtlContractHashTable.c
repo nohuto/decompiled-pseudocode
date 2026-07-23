@@ -1,17 +1,17 @@
 /*
- * XREFs of RtlContractHashTable @ 0x1800D8A00
+ * XREFs of RtlContractHashTable @ 0x1800D59C0
  * Callers:
  *     <none>
  * Callees:
- *     RtlFreeHeap_0 @ 0x18003FD10 (RtlFreeHeap_0.c)
- *     RtlpGetChainHead @ 0x1800D8D50 (RtlpGetChainHead.c)
+ *     RtlFreeHeap_0 @ 0x18002A280 (RtlFreeHeap_0.c)
+ *     RtlpGetChainHead @ 0x1800D5D10 (RtlpGetChainHead.c)
  */
 
-char __fastcall RtlContractHashTable(__int64 a1)
+BOOLEAN __cdecl RtlContractHashTable(PRTL_DYNAMIC_HASH_TABLE HashTable)
 {
-  int v1; // edx
-  int v4; // eax
-  int v5; // eax
+  unsigned int TableSize; // edx
+  unsigned int Pivot; // eax
+  unsigned int DivisorMask; // eax
   _QWORD *ChainHead; // r9
   _QWORD *v7; // r10
   _QWORD *i; // rcx
@@ -22,27 +22,27 @@ char __fastcall RtlContractHashTable(__int64 a1)
   __int64 v13; // rdx
   _QWORD *j; // rdx
   _QWORD *v15; // rdx
-  _QWORD *v16; // rdi
+  void **Directory; // rdi
 
-  v1 = *(_DWORD *)(a1 + 8);
-  if ( v1 == 128 || *(_DWORD *)(a1 + 28) )
+  TableSize = HashTable->TableSize;
+  if ( TableSize == 128 || HashTable->NumEnumerators )
     return 0;
-  v4 = *(_DWORD *)(a1 + 12);
-  if ( v4 )
+  Pivot = HashTable->Pivot;
+  if ( Pivot )
   {
-    v5 = v4 - 1;
+    DivisorMask = Pivot - 1;
   }
   else
   {
-    *(_DWORD *)(a1 + 16) >>= 1;
-    v5 = *(_DWORD *)(a1 + 16);
+    HashTable->DivisorMask >>= 1;
+    DivisorMask = HashTable->DivisorMask;
   }
-  *(_DWORD *)(a1 + 12) = v5;
-  RtlpGetChainHead(a1, (unsigned int)(v1 - 1));
-  ChainHead = (_QWORD *)RtlpGetChainHead(a1, *(unsigned int *)(a1 + 12));
-  --*(_DWORD *)(a1 + 8);
+  HashTable->Pivot = DivisorMask;
+  RtlpGetChainHead(HashTable, TableSize - 1);
+  ChainHead = (_QWORD *)RtlpGetChainHead(HashTable, HashTable->Pivot);
+  --HashTable->TableSize;
   if ( (_QWORD *)*v7 != v7 && (_QWORD *)*ChainHead != ChainHead )
-    --*(_DWORD *)(a1 + 24);
+    --HashTable->NonEmptyBuckets;
   for ( i = ChainHead; ; *i = v9 )
   {
     v9 = (_QWORD *)*v7;
@@ -69,18 +69,18 @@ LABEL_19:
     v9[1] = i;
     v15[1] = v9;
   }
-  v10 = *(_DWORD *)(a1 + 8) + 128;
+  v10 = HashTable->TableSize + 128;
   _BitScanReverse(&v11, v10);
   v12 = v11 - 7;
   if ( 1 << v11 == v10 )
   {
-    v16 = *(_QWORD **)(a1 + 32);
-    RtlFreeHeap_0();
-    v16[v12] = 0LL;
-    if ( *(_DWORD *)(a1 + 8) == 128 )
+    Directory = (void **)HashTable->Directory;
+    RtlFreeHeap_0(NtCurrentPeb()->ProcessHeap, 0, Directory[v12]);
+    Directory[v12] = 0LL;
+    if ( HashTable->TableSize == 128 )
     {
-      *(_QWORD *)(a1 + 32) = *v16;
-      RtlFreeHeap_0();
+      HashTable->Directory = *Directory;
+      RtlFreeHeap_0(NtCurrentPeb()->ProcessHeap, 0, Directory);
     }
   }
   return 1;

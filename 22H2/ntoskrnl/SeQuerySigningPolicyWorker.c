@@ -31,15 +31,15 @@ __int64 __fastcall SeQuerySigningPolicyWorker(
   unsigned __int8 v18; // dl
   char v20[4]; // [rsp+30h] [rbp-30h] BYREF
   PVOID TokenInformation; // [rsp+34h] [rbp-2Ch] BYREF
-  __int64 v22; // [rsp+40h] [rbp-20h] BYREF
-  _QWORD v23[3]; // [rsp+48h] [rbp-18h] BYREF
+  _PS_PKG_CLAIM v22; // [rsp+40h] [rbp-20h] BYREF
+  unsigned __int64 v23[3]; // [rsp+48h] [rbp-18h] BYREF
 
   v20[0] = 0;
   v22 = 0LL;
   HIDWORD(TokenInformation) = 0;
   v23[0] = 0LL;
   v23[1] = 0LL;
-  LODWORD(v12) = AppModelPolicy_GetPolicy_Internal((int)Token, a2, (int *)&TokenInformation + 1, &v22, v23);
+  LODWORD(v12) = AppModelPolicy_GetPolicy_Internal(Token, a2, (int *)&TokenInformation + 1, &v22, v23);
   if ( (int)v12 < 0 )
     return (unsigned int)v12;
   v13 = HIDWORD(TokenInformation);
@@ -49,7 +49,7 @@ __int64 __fastcall SeQuerySigningPolicyWorker(
       Feature_WCOSDeveloperMode__private_ReportDeviceUsage();
     else
       Feature_WldpDeveloperMode__private_ReportDeviceUsage();
-    if ( v13 != 3014658 || (unsigned int)BYTE4(v22) - 4 <= 1 )
+    if ( v13 != 3014658 || (unsigned int)LOBYTE(v22.Origin) - 4 <= 1 )
     {
       if ( (a3 & 1) != 0 )
       {
@@ -64,25 +64,25 @@ LABEL_45:
         }
         goto LABEL_23;
       }
-      if ( BYTE4(v22) <= 1u )
+      if ( LOBYTE(v22.Origin) <= 1u )
       {
         v14 = a5;
       }
       else
       {
-        if ( BYTE4(v22) == 2 )
+        if ( LOBYTE(v22.Origin) == 2 )
         {
           *a6 = 8;
           *a7 = a5;
           goto LABEL_44;
         }
-        if ( BYTE4(v22) != 3 )
+        if ( LOBYTE(v22.Origin) != 3 )
         {
-          if ( BYTE4(v22) <= 3u )
+          if ( LOBYTE(v22.Origin) <= 3u )
             goto LABEL_45;
-          if ( BYTE4(v22) > 5u )
+          if ( LOBYTE(v22.Origin) > 5u )
           {
-            if ( BYTE4(v22) != 6 )
+            if ( LOBYTE(v22.Origin) != 6 )
               goto LABEL_45;
             v14 = a5 != 2 ? 0 : 2;
             goto LABEL_22;

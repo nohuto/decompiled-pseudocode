@@ -42,7 +42,7 @@ char __fastcall CcAsyncCopyRead(
   struct _KTHREAD *CurrentThread; // rsi
   _SLIST_ENTRY *PoolWithTagFromNode; // rax
   _SLIST_ENTRY *v21; // r14
-  int v22; // ebp
+  NTSTATUS v22; // ebp
   volatile signed __int64 *DeepFreezeStartTime; // rcx
   unsigned __int64 OldIrql; // rbp
   unsigned __int8 CurrentIrql; // al
@@ -75,7 +75,7 @@ char __fastcall CcAsyncCopyRead(
   if ( (signed __int64)(*a2 + a3) > *(_QWORD *)(v12 + 8) )
     KeBugCheckEx(0x34u, 0x3FDuLL, 0xFFFFFFFFC0000420uLL, 0LL, 0LL);
   if ( !a5 )
-    RtlRaiseStatus(3221225704LL);
+    RtlRaiseStatus(-1073741592);
   CurrentThread = a7;
   if ( CcEnableReadAheadInAsyncRead && (*v17 & 0x20000) != 0 )
     CcScheduleReadAheadNuma(Object, Ahead);
@@ -90,13 +90,13 @@ char __fastcall CcAsyncCopyRead(
                                           0);
   v21 = PoolWithTagFromNode;
   if ( !PoolWithTagFromNode )
-    RtlRaiseStatus(3221225626LL);
+    RtlRaiseStatus(-1073741670);
   PoolWithTagFromNode->Next = 0LL;
   v22 = CcAllocateWorkQueueEntry(v13, *(_QWORD *)(v12 + 600), v18, &ListEntry);
   if ( v22 < 0 )
   {
     ExFreePoolWithTag(v21, 0x73416343u);
-    RtlRaiseStatus((unsigned int)v22);
+    RtlRaiseStatus(v22);
   }
   if ( !CurrentThread )
     CurrentThread = KeGetCurrentThread();
@@ -112,10 +112,13 @@ char __fastcall CcAsyncCopyRead(
   ++*(_DWORD *)(v12 + 544);
   KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
   OldIrql = LockHandle.OldIrql;
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && LockHandle.OldIrql <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
+      && LockHandle.OldIrql <= 0xFu
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;

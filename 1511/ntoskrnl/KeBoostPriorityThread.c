@@ -127,7 +127,7 @@ char __fastcall KeBoostPriorityThread(__int64 a1, __int64 a2)
       v19 = 0LL;
       v21 = 0LL;
       CurrentIrql = (__int64)KeGetCurrentPrcb();
-      KiAbProcessThreadLocks(CurrentThread, 1u, 1, 1, (__int64)&v19, (__int64)&v21, CurrentIrql + 25648);
+      KiAbProcessThreadLocks(CurrentThread, 1, 1, 1, (__int64)&v19, (__int64)&v21, CurrentIrql + 25648);
       KiAbProcessLocksWorker(&v21, (__int64 *)(CurrentIrql + 25648), (__int64)&v19, 0);
       KiReadyDeferredReadyList(CurrentIrql, &v19);
       LOBYTE(CurrentIrql) = v22;

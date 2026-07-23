@@ -1,30 +1,30 @@
 /*
- * XREFs of PspThreadDelete @ 0x140AD1250
+ * XREFs of PspThreadDelete @ 0x140ACF4E0
  * Callers:
  *     <none>
  * Callees:
- *     KeInsertQueueDpc @ 0x1402542F0 (KeInsertQueueDpc.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402595C0 (KiLeaveCriticalRegionUnsafe.c)
- *     ExfTryToWakePushLock @ 0x14025F9A0 (ExfTryToWakePushLock.c)
- *     KeEnumerateKernelStackSegments @ 0x140269F48 (KeEnumerateKernelStackSegments.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     ObfDereferenceObjectWithTag @ 0x1403254A0 (ObfDereferenceObjectWithTag.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     KeFoldProcessStatisticsThread @ 0x14040E8BC (KeFoldProcessStatisticsThread.c)
- *     KiQueryUnbiasedInterruptTime @ 0x1404251D0 (KiQueryUnbiasedInterruptTime.c)
- *     KeCleanupThreadState @ 0x140444DEC (KeCleanupThreadState.c)
- *     ObFastReplaceObject @ 0x1404512EC (ObFastReplaceObject.c)
- *     KeInitializeDpc @ 0x140455470 (KeInitializeDpc.c)
- *     PspLockProcessExclusive @ 0x14045AB10 (PspLockProcessExclusive.c)
- *     PspUnlockProcessExclusive @ 0x140462E74 (PspUnlockProcessExclusive.c)
- *     KeBugCheck @ 0x1404FB970 (KeBugCheck.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     ExMapHandleToPointer @ 0x14084ACF0 (ExMapHandleToPointer.c)
- *     ExDestroyHandle @ 0x14098A050 (ExDestroyHandle.c)
- *     PspDeleteThreadSecurity @ 0x140A29848 (PspDeleteThreadSecurity.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     KeEnumerateKernelStackSegments @ 0x14021F4D8 (KeEnumerateKernelStackSegments.c)
+ *     KeInsertQueueDpc @ 0x140284900 (KeInsertQueueDpc.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140289BD0 (KiLeaveCriticalRegionUnsafe.c)
+ *     ExfTryToWakePushLock @ 0x14028FFB0 (ExfTryToWakePushLock.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CE030 (ObfDereferenceObjectWithTag.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     KeFoldProcessStatisticsThread @ 0x140406ABC (KeFoldProcessStatisticsThread.c)
+ *     KiQueryUnbiasedInterruptTime @ 0x140419080 (KiQueryUnbiasedInterruptTime.c)
+ *     KeCleanupThreadState @ 0x14043CF94 (KeCleanupThreadState.c)
+ *     ObFastReplaceObject @ 0x14044674C (ObFastReplaceObject.c)
+ *     KeInitializeDpc @ 0x14044A220 (KeInitializeDpc.c)
+ *     PspLockProcessExclusive @ 0x14044FF38 (PspLockProcessExclusive.c)
+ *     PspUnlockProcessExclusive @ 0x140458484 (PspUnlockProcessExclusive.c)
+ *     KeBugCheck @ 0x1404F9230 (KeBugCheck.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     ExMapHandleToPointer @ 0x140846FB0 (ExMapHandleToPointer.c)
+ *     ExDestroyHandle @ 0x1408961C0 (ExDestroyHandle.c)
+ *     PspDeleteThreadSecurity @ 0x140A1E208 (PspDeleteThreadSecurity.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 unsigned __int64 __fastcall PspThreadDelete(ULONG_PTR BugCheckParameter1)
@@ -32,31 +32,26 @@ unsigned __int64 __fastcall PspThreadDelete(ULONG_PTR BugCheckParameter1)
   ULONG_PTR v2; // r9
   struct _KTHREAD *CurrentThread; // r12
   signed __int64 *v4; // rax
-  __int64 v5; // rdx
-  __int64 v6; // r8
-  __int64 v7; // r9
-  void *v8; // rcx
+  void *v5; // rcx
   unsigned __int64 result; // rax
-  unsigned __int64 v10; // rdx
-  __int64 v11; // r8
-  __int64 v12; // r9
-  __int64 v13; // rdx
-  unsigned __int64 v14; // r8
-  __int64 *v15; // rdx
-  __int64 v16; // r9
-  __int64 v17; // r10
-  int v18; // r9d
-  _QWORD *v19; // r8
-  const char *v20; // rax
-  __int64 v21; // rax
-  __int64 v22; // rax
+  unsigned __int64 v7; // rdx
+  __int64 v8; // rdx
+  unsigned __int64 v9; // r8
+  __int64 *v10; // rdx
+  __int64 v11; // r9
+  __int64 v12; // r10
+  int v13; // r9d
+  _QWORD *v14; // r8
+  const char *v15; // rax
+  __int64 v16; // rax
+  __int64 v17; // rax
   __int64 UnbiasedInterruptTime; // r11
-  unsigned __int64 *v24; // rsi
-  __int64 *v25; // r14
-  _QWORD *v26; // rax
-  _QWORD *v27; // r15
-  __int64 *v28; // rcx
-  __int64 **v29; // rax
+  unsigned __int64 *v19; // rsi
+  __int64 *v20; // r14
+  char *v21; // rax
+  char *v22; // r15
+  __int64 *v23; // rcx
+  __int64 **v24; // rax
 
   KeCleanupThreadState(BugCheckParameter1);
   if ( *(_DWORD *)(BugCheckParameter1 + 1516) )
@@ -73,7 +68,7 @@ unsigned __int64 __fastcall PspThreadDelete(ULONG_PTR BugCheckParameter1)
   if ( *(_QWORD *)(BugCheckParameter1 + 40) )
     KeEnumerateKernelStackSegments(
       BugCheckParameter1,
-      (__int64 (__fastcall *)(_QWORD, _QWORD, _QWORD))PspDeleteKernelStack,
+      (void (__fastcall *)(__int64, _QWORD *, __int64))PspDeleteKernelStack,
       0LL,
       v2);
   CurrentThread = KeGetCurrentThread();
@@ -84,123 +79,123 @@ unsigned __int64 __fastcall PspThreadDelete(ULONG_PTR BugCheckParameter1)
     if ( !v4 )
       KeBugCheck(0x17u);
     ExDestroyHandle(PspCidTable, *(_QWORD *)(BugCheckParameter1 + 1296), v4);
-    KiLeaveCriticalRegionUnsafe((__int64)CurrentThread, v5, v6, v7);
+    KiLeaveCriticalRegionUnsafe((__int64)CurrentThread);
   }
   PspDeleteThreadSecurity(BugCheckParameter1);
-  v8 = *(void **)(BugCheckParameter1 + 1696);
-  if ( v8 )
-    ExFreePoolWithTag(v8, 0x6D4E6854u);
+  v5 = *(void **)(BugCheckParameter1 + 1696);
+  if ( v5 )
+    ExFreePoolWithTag(v5, 0x6D4E6854u);
   result = KiQueryUnbiasedInterruptTime();
-  if ( result >= qword_140E62440 )
+  if ( result >= qword_140E625D0 )
   {
-    v13 = qword_140E62430;
-    if ( qword_140E62430 )
+    v8 = qword_140E625C0;
+    if ( qword_140E625C0 )
     {
-      if ( (_DWORD)qword_140E62448 )
+      if ( (_DWORD)qword_140E625D8 )
       {
-        v14 = 0LL;
-        v15 = ObpObjectTypes;
-        v16 = (unsigned int)qword_140E62448;
+        v9 = 0LL;
+        v10 = ObpObjectTypes;
+        v11 = (unsigned int)qword_140E625D8;
         do
         {
-          v17 = *v15;
-          if ( ((*(unsigned __int8 *)(*v15 + 66) >> 6) & 1) != _bittest64(qword_140E62450, v14) && !qword_140E62400 )
+          v12 = *v10;
+          if ( ((*(unsigned __int8 *)(*v10 + 66) >> 6) & 1) != _bittest64(&qword_140E625E0, v9) && !qword_140E62590 )
           {
-            qword_140E62400 = (unsigned int)__ROR4__(8480, 101);
-            xmmword_140E62408 = 0LL;
-            qword_140E62418 = 268LL;
-            qword_140E62420 = v17;
+            qword_140E62590 = (unsigned int)__ROR4__(8480, 101);
+            xmmword_140E62598 = 0LL;
+            qword_140E625A8 = 268LL;
+            qword_140E625B0 = v12;
           }
-          ++v14;
-          ++v15;
-          --v16;
+          ++v9;
+          ++v10;
+          --v11;
         }
-        while ( v16 );
-        v13 = qword_140E62430;
+        while ( v11 );
+        v8 = qword_140E625C0;
       }
-      v18 = 64;
-      v19 = (_QWORD *)(qword_140E62470 + 112);
-      v20 = (const char *)(qword_140E62470 + 112);
-      if ( qword_140E62470 + 112 < (unsigned __int64)(qword_140E62470 + 176) )
+      v13 = 64;
+      v14 = (_QWORD *)(qword_140E62600 + 112);
+      v15 = (const char *)(qword_140E62600 + 112);
+      if ( qword_140E62600 + 112 < (unsigned __int64)(qword_140E62600 + 176) )
       {
         do
         {
-          _mm_prefetch(v20, 0);
-          v20 += 64;
+          _mm_prefetch(v15, 0);
+          v15 += 64;
         }
-        while ( (unsigned __int64)v20 < qword_140E62470 + 176 );
+        while ( (unsigned __int64)v15 < qword_140E62600 + 176 );
       }
-      v21 = 8LL;
+      v16 = 8LL;
       do
       {
-        v13 = __ROR8__(v13 - *v19++, qword_140E62438);
-        v18 -= 8;
-        --v21;
+        v8 = __ROR8__(v8 - *v14++, qword_140E625C8);
+        v13 -= 8;
+        --v16;
       }
-      while ( v21 );
-      for ( ; v18; --v18 )
+      while ( v16 );
+      for ( ; v13; --v13 )
       {
-        v22 = *(unsigned __int8 *)v19;
-        v19 = (_QWORD *)((char *)v19 + 1);
-        v13 = __ROR8__(v13 - v22, qword_140E62438);
+        v17 = *(unsigned __int8 *)v14;
+        v14 = (_QWORD *)((char *)v14 + 1);
+        v8 = __ROR8__(v8 - v17, qword_140E625C8);
       }
-      if ( qword_140E62478 != v13 )
+      if ( qword_140E62608 != v8 )
       {
-        if ( qword_140E62400 )
+        if ( qword_140E62590 )
           goto LABEL_32;
-        qword_140E62418 = 268LL;
-        qword_140E62400 = (unsigned int)__ROR4__(4341760, 110);
-        xmmword_140E62408 = 0LL;
-        qword_140E62420 = qword_140E62470;
+        qword_140E625A8 = 268LL;
+        qword_140E62590 = (unsigned int)__ROR4__(4341760, 110);
+        xmmword_140E62598 = 0LL;
+        qword_140E625B0 = qword_140E62600;
       }
     }
-    if ( !qword_140E62400 )
+    if ( !qword_140E62590 )
     {
 LABEL_35:
       UnbiasedInterruptTime = KiQueryUnbiasedInterruptTime();
-      v10 = 41929663 * (__rdtsc() >> 4) % 0x12A05F2000LL;
-      result = UnbiasedInterruptTime + v10 + 288000000000LL;
-      qword_140E62440 = result;
+      v7 = 41929663 * (__rdtsc() >> 4) % 0x12A05F2000LL;
+      result = UnbiasedInterruptTime + v7 + 288000000000LL;
+      qword_140E625D0 = result;
       goto LABEL_36;
     }
 LABEL_32:
-    if ( (void (__fastcall __noreturn *)(struct _KDPC *, _QWORD *, PVOID, PVOID))stru_140E623C0.DeferredRoutine != KiScanQueues )
-      KeInitializeDpc(&stru_140E623C0, (PKDEFERRED_ROUTINE)KiScanQueues, &stru_140E623C0);
-    qword_140E62428 = 1845888LL;
-    KeInsertQueueDpc(&stru_140E623C0, 0LL, 0LL);
+    if ( (void (__fastcall __noreturn *)(struct _KDPC *, _QWORD *, PVOID, PVOID))stru_140E62550.DeferredRoutine != KiScanQueues )
+      KeInitializeDpc(&stru_140E62550, (PKDEFERRED_ROUTINE)KiScanQueues, &stru_140E62550);
+    qword_140E625B8 = 1845888LL;
+    KeInsertQueueDpc(&stru_140E62550, 0LL, 0LL);
     goto LABEL_35;
   }
 LABEL_36:
   if ( *(_QWORD *)(BugCheckParameter1 + 1936) )
     result = ObFastReplaceObject((volatile __int64 *)(BugCheckParameter1 + 1936), 0LL);
-  v24 = *(unsigned __int64 **)(BugCheckParameter1 + 544);
-  if ( v24 )
+  v19 = *(unsigned __int64 **)(BugCheckParameter1 + 544);
+  if ( v19 )
   {
-    v25 = (__int64 *)(BugCheckParameter1 + 1400);
+    v20 = (__int64 *)(BugCheckParameter1 + 1400);
     if ( *(_QWORD *)(BugCheckParameter1 + 1400) )
     {
       PspLockProcessExclusive(*(_QWORD *)(BugCheckParameter1 + 544), (__int64)CurrentThread);
-      v26 = KeAbPreAcquire((__int64)(v24 + 188), 0LL);
-      v27 = v26;
-      if ( _interlockedbittestandset64((volatile signed __int32 *)v24 + 376, 0LL) )
-        ExfAcquirePushLockExclusiveEx(v24 + 188, (__int64)v26, (__int64)(v24 + 188));
-      if ( v27 )
-        *((_BYTE *)v27 + 10) = 1;
+      v21 = (char *)KeAbPreAcquire((__int64)(v19 + 188), 0LL);
+      v22 = v21;
+      if ( _interlockedbittestandset64((volatile signed __int32 *)v19 + 376, 0LL) )
+        ExfAcquirePushLockExclusiveEx(v19 + 188, v21, (__int64)(v19 + 188));
+      if ( v22 )
+        v22[10] = 1;
       KeFoldProcessStatisticsThread(BugCheckParameter1);
-      v28 = (__int64 *)*v25;
-      if ( *(__int64 **)(*v25 + 8) != v25 || (v29 = *(__int64 ***)(BugCheckParameter1 + 1408), *v29 != v25) )
+      v23 = (__int64 *)*v20;
+      if ( *(__int64 **)(*v20 + 8) != v20 || (v24 = *(__int64 ***)(BugCheckParameter1 + 1408), *v24 != v20) )
         __fastfail(3u);
-      *v29 = v28;
-      v28[1] = (__int64)v29;
-      if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)v24 + 188, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-        ExfTryToWakePushLock((volatile signed __int64 *)v24 + 188);
-      KeAbPostRelease((ULONG_PTR)(v24 + 188));
-      result = PspUnlockProcessExclusive((__int64)v24);
+      *v24 = v23;
+      v23[1] = (__int64)v24;
+      if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)v19 + 188, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+        ExfTryToWakePushLock((volatile signed __int64 *)v19 + 188);
+      KeAbPostRelease((ULONG_PTR)(v19 + 188));
+      result = PspUnlockProcessExclusive((__int64)v19);
     }
     if ( (*(_DWORD *)(BugCheckParameter1 + 1440) & 0x100000) != 0 )
-      result = guard_dispatch_icall_no_overrides(BugCheckParameter1, v10, v11, v12);
-    if ( v24 != PsIdleProcess )
-      return ObfDereferenceObjectWithTag(v24, 0x72437350u);
+      result = guard_dispatch_icall_no_overrides(BugCheckParameter1, v7);
+    if ( v19 != PsIdleProcess )
+      return ObfDereferenceObjectWithTag(v19, 0x72437350u);
   }
   return result;
 }

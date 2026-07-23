@@ -17,20 +17,18 @@
  *     sub_180115F88 @ 0x180115F88 (sub_180115F88.c)
  */
 
-__int64 __fastcall sub_180009204(unsigned int a1, __int64 a2, __int64 a3)
+NTSTATUS __fastcall sub_180009204(ACCESS_MASK DesiredAccess, __int64 a2, HANDLE *a3)
 {
   unsigned int v5; // ecx
   unsigned int v6; // ecx
   unsigned int v8; // ecx
-  __int64 v9; // [rsp+38h] [rbp+10h] BYREF
 
-  v9 = a2;
   if ( !a3 )
-    return 3221225485LL;
+    return -1073741811;
   v5 = dword_180166084;
   if ( !dword_180166084 )
   {
-    if ( (unsigned __int8)RtlIsMultiSessionSku() )
+    if ( RtlIsMultiSessionSku() )
       v5 = 1;
     else
       v5 = (MEMORY[0x7FFE02F0] & 0x200 | 0x400u) >> 9;
@@ -38,11 +36,11 @@ __int64 __fastcall sub_180009204(unsigned int a1, __int64 a2, __int64 a3)
   }
   v6 = v5 - 1;
   if ( !v6 )
-    return RtlOpenCurrentUser(a1, a3);
+    return RtlOpenCurrentUser(DesiredAccess, a3);
   v8 = v6 - 1;
   if ( !v8 )
-    return sub_180115F88(a1, a3);
+    return sub_180115F88(DesiredAccess, a3);
   if ( v8 == 1 )
-    return sub_180115D48(a1, a2, a3, &v9);
-  return 3221225701LL;
+    return sub_180115D48(DesiredAccess);
+  return -1073741595;
 }

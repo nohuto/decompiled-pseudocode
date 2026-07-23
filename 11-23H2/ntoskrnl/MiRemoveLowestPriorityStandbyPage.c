@@ -1,29 +1,29 @@
 /*
- * XREFs of MiRemoveLowestPriorityStandbyPage @ 0x140651854
+ * XREFs of MiRemoveLowestPriorityStandbyPage @ 0x140651DA4
  * Callers:
- *     MiGetPage @ 0x14026D360 (MiGetPage.c)
- *     MiPruneStandbyPages @ 0x14046CFB0 (MiPruneStandbyPages.c)
- *     MiPurgePartitionStandby @ 0x140651540 (MiPurgePartitionStandby.c)
- *     MiDeletePartitionResources @ 0x140659488 (MiDeletePartitionResources.c)
+ *     MiGetPage @ 0x14026D5F0 (MiGetPage.c)
+ *     MiPruneStandbyPages @ 0x14046D3B0 (MiPruneStandbyPages.c)
+ *     MiPurgePartitionStandby @ 0x140651A90 (MiPurgePartitionStandby.c)
+ *     MiDeletePartitionResources @ 0x1406599D8 (MiDeletePartitionResources.c)
  * Callees:
- *     MiUnlinkPageFromListEx @ 0x140266630 (MiUnlinkPageFromListEx.c)
- *     MiInsertPageInList @ 0x14026EC00 (MiInsertPageInList.c)
- *     MiUpdatePageFileHighInPte @ 0x14028563C (MiUpdatePageFileHighInPte.c)
- *     MiSetOriginalPtePfnFromFreeList @ 0x1402859D4 (MiSetOriginalPtePfnFromFreeList.c)
- *     MiReleasePageListLock @ 0x1402DDAD0 (MiReleasePageListLock.c)
- *     MiReleaseFreshPage @ 0x1402E7F20 (MiReleaseFreshPage.c)
- *     MiReturnFreeZeroPage @ 0x1402E7F74 (MiReturnFreeZeroPage.c)
- *     MiCheckSlabPfnBitmap @ 0x140324730 (MiCheckSlabPfnBitmap.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memset @ 0x140435A00 (memset.c)
- *     MiLockStandbyLookasidePage @ 0x14046CE70 (MiLockStandbyLookasidePage.c)
- *     MiUnlinkStandbyPage @ 0x14046D3FA (MiUnlinkStandbyPage.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     MiDiscardTransitionPteEx @ 0x140650624 (MiDiscardTransitionPteEx.c)
- *     MiGetExtendedStandbyPage @ 0x1406506B0 (MiGetExtendedStandbyPage.c)
- *     MiLockStandbyOldestPage @ 0x140650D1C (MiLockStandbyOldestPage.c)
- *     MiRepointPteAtExtendedStandby @ 0x140651BCC (MiRepointPteAtExtendedStandby.c)
- *     MiShouldUseExtendedStandby @ 0x140651D40 (MiShouldUseExtendedStandby.c)
+ *     MiUnlinkPageFromListEx @ 0x1402668C0 (MiUnlinkPageFromListEx.c)
+ *     MiInsertPageInList @ 0x14026EE90 (MiInsertPageInList.c)
+ *     MiUpdatePageFileHighInPte @ 0x1402858CC (MiUpdatePageFileHighInPte.c)
+ *     MiSetOriginalPtePfnFromFreeList @ 0x140285C64 (MiSetOriginalPtePfnFromFreeList.c)
+ *     MiReleasePageListLock @ 0x1402DDD60 (MiReleasePageListLock.c)
+ *     MiReleaseFreshPage @ 0x1402E81B0 (MiReleaseFreshPage.c)
+ *     MiReturnFreeZeroPage @ 0x1402E8204 (MiReturnFreeZeroPage.c)
+ *     MiCheckSlabPfnBitmap @ 0x1403249C0 (MiCheckSlabPfnBitmap.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     MiLockStandbyLookasidePage @ 0x14046D270 (MiLockStandbyLookasidePage.c)
+ *     MiUnlinkStandbyPage @ 0x14046D7FA (MiUnlinkStandbyPage.c)
+ *     MiDiscardTransitionPteEx @ 0x140650B74 (MiDiscardTransitionPteEx.c)
+ *     MiGetExtendedStandbyPage @ 0x140650C00 (MiGetExtendedStandbyPage.c)
+ *     MiLockStandbyOldestPage @ 0x14065126C (MiLockStandbyOldestPage.c)
+ *     MiRepointPteAtExtendedStandby @ 0x14065211C (MiRepointPteAtExtendedStandby.c)
+ *     MiShouldUseExtendedStandby @ 0x140652290 (MiShouldUseExtendedStandby.c)
  */
 
 __int64 __fastcall MiRemoveLowestPriorityStandbyPage(__int64 a1, unsigned int a2, __int16 a3)
@@ -84,9 +84,9 @@ __int64 __fastcall MiRemoveLowestPriorityStandbyPage(__int64 a1, unsigned int a2
         {
           CurrentIrql = KeGetCurrentIrql();
           __writecr8(2uLL);
-          if ( KiIrqlFlags )
+          if ( (_DWORD)KiIrqlFlags )
           {
-            if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+            if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
             {
               SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
               if ( CurrentIrql == 2 )
@@ -175,10 +175,10 @@ LABEL_22:
     MiReleaseFreshPage(48 * v6 - 0x220000000000LL);
   if ( CurrentIrql != 17 )
   {
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v23 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v23 <= 0xFu && CurrentIrql <= 0xFu && v23 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v23 <= 0xFu && CurrentIrql <= 0xFu && v23 >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         v25 = CurrentPrcb->SchedulerAssist;

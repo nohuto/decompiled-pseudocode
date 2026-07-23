@@ -1,11 +1,11 @@
 /*
- * XREFs of VrpUpdateKeyInformation @ 0x140928330
+ * XREFs of VrpUpdateKeyInformation @ 0x14092A470
  * Callers:
- *     VrpPostQueryKey @ 0x140927F20 (VrpPostQueryKey.c)
- *     VrpPostEnumerateKey @ 0x1409284D8 (VrpPostEnumerateKey.c)
+ *     VrpPostQueryKey @ 0x14092A060 (VrpPostQueryKey.c)
+ *     VrpPostEnumerateKey @ 0x14092A618 (VrpPostEnumerateKey.c)
  * Callees:
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 __int64 __fastcall VrpUpdateKeyInformation(

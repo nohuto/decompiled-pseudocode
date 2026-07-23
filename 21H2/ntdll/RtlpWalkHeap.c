@@ -1,15 +1,15 @@
 /*
- * XREFs of RtlpWalkHeap @ 0x1800F4F2C
+ * XREFs of RtlpWalkHeap @ 0x1800F4EEC
  * Callers:
  *     RtlpWalkHeapInternal @ 0x180002560 (RtlpWalkHeapInternal.c)
  * Callees:
  *     RtlGetCurrentServiceSessionId @ 0x180024850 (RtlGetCurrentServiceSessionId.c)
- *     _guard_dispatch_icall_nop @ 0x1800A1160 (_guard_dispatch_icall_nop.c)
- *     RtlpGetExtraStuffPointerUnsafe @ 0x1800F4024 (RtlpGetExtraStuffPointerUnsafe.c)
- *     RtlDebugWalkHeap @ 0x1800FA438 (RtlDebugWalkHeap.c)
- *     RtlpLogHeapWalkEvent @ 0x18010AA18 (RtlpLogHeapWalkEvent.c)
- *     RtlpWalkLFHBlock @ 0x18010BEA8 (RtlpWalkLFHBlock.c)
- *     RtlpWalkLowFragHeapSegment @ 0x18010C4E0 (RtlpWalkLowFragHeapSegment.c)
+ *     _guard_dispatch_icall_nop @ 0x1800A1120 (_guard_dispatch_icall_nop.c)
+ *     RtlpGetExtraStuffPointerUnsafe @ 0x1800F3FE4 (RtlpGetExtraStuffPointerUnsafe.c)
+ *     RtlDebugWalkHeap @ 0x1800FA3F8 (RtlDebugWalkHeap.c)
+ *     RtlpLogHeapWalkEvent @ 0x18010A9D8 (RtlpLogHeapWalkEvent.c)
+ *     RtlpWalkLFHBlock @ 0x18010BE68 (RtlpWalkLFHBlock.c)
+ *     RtlpWalkLowFragHeapSegment @ 0x18010C4A0 (RtlpWalkLowFragHeapSegment.c)
  */
 
 __int64 __fastcall RtlpWalkHeap(__int64 a1, __int64 a2, _QWORD *a3)
@@ -552,7 +552,7 @@ LABEL_67:
   }
   v76 = -2147483622;
 LABEL_192:
-  if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+  if ( RtlGetCurrentServiceSessionId() )
     v66 = (__int64)NtCurrentPeb()->SharedData + 550;
   else
     v66 = 2147353472LL;

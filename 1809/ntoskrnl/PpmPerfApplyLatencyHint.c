@@ -1,10 +1,10 @@
 /*
- * XREFs of PpmPerfApplyLatencyHint @ 0x14013F16C
+ * XREFs of PpmPerfApplyLatencyHint @ 0x14013F26C
  * Callers:
- *     PpmPerfApplyLatencyHints @ 0x140122210 (PpmPerfApplyLatencyHints.c)
+ *     PpmPerfApplyLatencyHints @ 0x1401222E0 (PpmPerfApplyLatencyHints.c)
  * Callees:
- *     PpmGetPerfPolicyClass @ 0x1401130C8 (PpmGetPerfPolicyClass.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     PpmGetPerfPolicyClass @ 0x140113138 (PpmGetPerfPolicyClass.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall PpmPerfApplyLatencyHint(__int64 a1)
@@ -21,7 +21,7 @@ __int64 __fastcall PpmPerfApplyLatencyHint(__int64 a1)
 
   v1 = *(_QWORD *)(a1 + 24184);
   v2 = *(_QWORD *)(v1 + 8);
-  v3 = &PpmCurrentProfile[341 * dword_1404180CC];
+  v3 = &PpmCurrentProfile[341 * dword_14041918C];
   PerfPolicyClass = (unsigned __int8)PpmGetPerfPolicyClass(a1);
   result = (unsigned int)(v5 - 1);
   v8 = *((unsigned __int8 *)v3 + PerfPolicyClass + 117);

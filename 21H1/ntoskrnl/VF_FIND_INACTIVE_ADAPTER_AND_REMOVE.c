@@ -8,11 +8,11 @@
  *     KiRemoveSystemWorkPriorityKick @ 0x1403EC9E4 (KiRemoveSystemWorkPriorityKick.c)
  */
 
-struct _LIST_ENTRY *__fastcall VF_FIND_INACTIVE_ADAPTER_AND_REMOVE(struct _LIST_ENTRY *a1)
+_LIST_ENTRY *__fastcall VF_FIND_INACTIVE_ADAPTER_AND_REMOVE(struct _LIST_ENTRY *a1)
 {
-  struct _LIST_ENTRY *v2; // rdi
+  _LIST_ENTRY *v2; // rdi
   unsigned __int64 v3; // rbx
-  struct _LIST_ENTRY *i; // rax
+  _LIST_ENTRY *i; // rax
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9

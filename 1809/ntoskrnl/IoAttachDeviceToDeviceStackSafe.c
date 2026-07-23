@@ -1,9 +1,9 @@
 /*
- * XREFs of IoAttachDeviceToDeviceStackSafe @ 0x140132720
+ * XREFs of IoAttachDeviceToDeviceStackSafe @ 0x1401327F0
  * Callers:
- *     IoAttachDevice @ 0x14081BCD0 (IoAttachDevice.c)
+ *     IoAttachDevice @ 0x14081CED0 (IoAttachDevice.c)
  * Callees:
- *     IopAttachDeviceToDeviceStackSafe @ 0x140132740 (IopAttachDeviceToDeviceStackSafe.c)
+ *     IopAttachDeviceToDeviceStackSafe @ 0x140132810 (IopAttachDeviceToDeviceStackSafe.c)
  */
 
 NTSTATUS __stdcall IoAttachDeviceToDeviceStackSafe(

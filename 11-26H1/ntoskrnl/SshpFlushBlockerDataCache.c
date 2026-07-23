@@ -1,12 +1,12 @@
 /*
- * XREFs of SshpFlushBlockerDataCache @ 0x140ADF458
+ * XREFs of SshpFlushBlockerDataCache @ 0x140ADCCA0
  * Callers:
- *     SshNotifySystemSessionChange @ 0x140ADF00C (SshNotifySystemSessionChange.c)
+ *     SshNotifySystemSessionChange @ 0x140ADC854 (SshNotifySystemSessionChange.c)
  * Callees:
- *     CmpFreeTransientPoolWithTag @ 0x140477290 (CmpFreeTransientPoolWithTag.c)
- *     SSHSupportEtwEventEnabled @ 0x1404AF1CC (SSHSupportEtwEventEnabled.c)
- *     SSHSupportEtwWrite @ 0x1404DBE1C (SSHSupportEtwWrite.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     CmpFreeTransientPoolWithTag @ 0x140470A10 (CmpFreeTransientPoolWithTag.c)
+ *     SSHSupportEtwEventEnabled @ 0x1404A885C (SSHSupportEtwEventEnabled.c)
+ *     SSHSupportEtwWrite @ 0x1404D54FC (SSHSupportEtwWrite.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 void __fastcall SshpFlushBlockerDataCache(ULONG *a1, __int64 a2)

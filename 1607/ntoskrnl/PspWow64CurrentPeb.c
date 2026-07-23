@@ -1,9 +1,9 @@
 /*
- * XREFs of PspWow64CurrentPeb @ 0x1400FA088
+ * XREFs of PspWow64CurrentPeb @ 0x1400F7E14
  * Callers:
- *     PspWow64SetupUserProcessAddressSpace @ 0x1400F72E8 (PspWow64SetupUserProcessAddressSpace.c)
+ *     PspWow64SetupUserProcessAddressSpace @ 0x1400F5128 (PspWow64SetupUserProcessAddressSpace.c)
  * Callees:
- *     ExRaiseDatatypeMisalignment @ 0x1406B6058 (ExRaiseDatatypeMisalignment.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1406B6190 (ExRaiseDatatypeMisalignment.c)
  */
 
 __int64 __fastcall PspWow64CurrentPeb(unsigned __int64 *a1)

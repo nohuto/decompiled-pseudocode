@@ -1,10 +1,10 @@
 /*
- * XREFs of PfSnPowerBoostInitialize @ 0x140963038
+ * XREFs of PfSnPowerBoostInitialize @ 0x14094AAF8
  * Callers:
- *     PfSnAsyncContextInitialize @ 0x140962E58 (PfSnAsyncContextInitialize.c)
+ *     PfSnAsyncContextInitialize @ 0x14094A918 (PfSnAsyncContextInitialize.c)
  * Callees:
- *     KeInitializeTimer @ 0x140455420 (KeInitializeTimer.c)
- *     KeInitializeDpc @ 0x140455470 (KeInitializeDpc.c)
+ *     KeInitializeTimer @ 0x14044A0E0 (KeInitializeTimer.c)
+ *     KeInitializeDpc @ 0x14044A220 (KeInitializeDpc.c)
  */
 
 void __fastcall PfSnPowerBoostInitialize(char *DeferredContext)

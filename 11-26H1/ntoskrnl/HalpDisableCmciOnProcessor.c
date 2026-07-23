@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpDisableCmciOnProcessor @ 0x14057E690
+ * XREFs of HalpDisableCmciOnProcessor @ 0x140580BB0
  * Callers:
  *     <none>
  * Callees:
- *     HalpCmciSetProcessorConfig @ 0x140453A20 (HalpCmciSetProcessorConfig.c)
+ *     HalpCmciSetProcessorConfig @ 0x14044BB50 (HalpCmciSetProcessorConfig.c)
  */
 
 ULONG_PTR __fastcall HalpDisableCmciOnProcessor(ULONG_PTR Argument)

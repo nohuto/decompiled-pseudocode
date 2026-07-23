@@ -1,19 +1,19 @@
 /*
- * XREFs of ExpFindArcName @ 0x1407BBBCC
+ * XREFs of ExpFindArcName @ 0x1407BC01C
  * Callers:
- *     ExpCreateOutputARC @ 0x1407BB90C (ExpCreateOutputARC.c)
+ *     ExpCreateOutputARC @ 0x1407BBD5C (ExpCreateOutputARC.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     wcscpy_s @ 0x1405047E0 (wcscpy_s.c)
- *     wcsncat_s @ 0x140504870 (wcsncat_s.c)
- *     wcsncpy_s @ 0x140504980 (wcsncpy_s.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     ZwOpenDirectoryObject @ 0x1406A6F10 (ZwOpenDirectoryObject.c)
- *     ZwQueryDirectoryObject @ 0x1406A8DD0 (ZwQueryDirectoryObject.c)
- *     RtlEqualUnicodeString @ 0x140927050 (RtlEqualUnicodeString.c)
- *     ExpTranslateSymbolicLink @ 0x140A63CA4 (ExpTranslateSymbolicLink.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     wcscpy_s @ 0x1405020A0 (wcscpy_s.c)
+ *     wcsncat_s @ 0x140502130 (wcsncat_s.c)
+ *     wcsncpy_s @ 0x140502240 (wcsncpy_s.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     ZwOpenDirectoryObject @ 0x1406A7EB0 (ZwOpenDirectoryObject.c)
+ *     ZwQueryDirectoryObject @ 0x1406A9D70 (ZwQueryDirectoryObject.c)
+ *     RtlEqualUnicodeString @ 0x140929190 (RtlEqualUnicodeString.c)
+ *     ExpTranslateSymbolicLink @ 0x140A5C5A4 (ExpTranslateSymbolicLink.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall ExpFindArcName(const UNICODE_STRING *a1, wchar_t **a2)
@@ -23,25 +23,31 @@ __int64 __fastcall ExpFindArcName(const UNICODE_STRING *a1, wchar_t **a2)
   WCHAR *v4; // rbx
   NTSTATUS v6; // edi
   UNICODE_STRING *v7; // rdi
-  int DirectoryObject; // eax
-  wchar_t *v9; // rax
-  wchar_t *v10; // rsi
-  unsigned int v11; // ebx
-  rsize_t v12; // r13
-  int v13; // ebx
+  ULONG_PTR v8; // r14
+  BOOLEAN RestartScan; // r15
+  NTSTATUS v10; // eax
+  ULONG_PTR v11; // rdx
+  wchar_t *v12; // rax
+  wchar_t *v13; // rsi
+  unsigned int v14; // ebx
+  rsize_t v15; // r13
+  int v16; // ebx
   HANDLE DirectoryHandle; // [rsp+48h] [rbp-41h] BYREF
   UNICODE_STRING DestinationString; // [rsp+50h] [rbp-39h] BYREF
   UNICODE_STRING String2; // [rsp+60h] [rbp-29h] BYREF
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+70h] [rbp-19h] BYREF
-  unsigned int v20; // [rsp+100h] [rbp+77h]
+  ULONG Length; // [rsp+100h] [rbp+77h] BYREF
+  ULONG Context; // [rsp+108h] [rbp+7Fh] BYREF
 
   *(&ObjectAttributes.Length + 1) = 0;
   *(&ObjectAttributes.Attributes + 1) = 0;
   DestinationString = 0LL;
   DirectoryHandle = 0LL;
+  Length = 0;
+  Context = 0;
   String2 = 0LL;
   v2 = 0;
-  Pool2 = (wchar_t *)ExAllocatePool2(0x40uLL);
+  Pool2 = (wchar_t *)ExAllocatePool2(0x40uLL, 0x12uLL, 0x72766E45u);
   v4 = Pool2;
   if ( !Pool2 )
     return 3221225626LL;
@@ -57,66 +63,71 @@ __int64 __fastcall ExpFindArcName(const UNICODE_STRING *a1, wchar_t **a2)
   if ( v6 < 0 )
     return (unsigned int)v6;
   v7 = 0LL;
+  LODWORD(v8) = 0;
+  RestartScan = 1;
   RtlInitUnicodeString(&String2, L"SymbolicLink");
   while ( 1 )
   {
-    DirectoryObject = ZwQueryDirectoryObject((__int64)DirectoryHandle, (__int64)v7);
-    if ( DirectoryObject == -1073741789 )
+    v10 = ZwQueryDirectoryObject(DirectoryHandle, v7, v8, 1u, RestartScan, &Context, &Length);
+    if ( v10 == -1073741789 )
     {
+      v8 = Length;
       if ( v7 )
         ExFreePoolWithTag(v7, 0);
-      v7 = (UNICODE_STRING *)ExAllocatePool2(0x40uLL);
+      v7 = (UNICODE_STRING *)ExAllocatePool2(0x40uLL, v8, 0x72766E45u);
       if ( !v7 )
       {
-        v13 = -1073741670;
+        v16 = -1073741670;
         goto LABEL_28;
       }
-      DirectoryObject = ZwQueryDirectoryObject((__int64)DirectoryHandle, (__int64)v7);
+      v10 = ZwQueryDirectoryObject(DirectoryHandle, v7, v8, 1u, RestartScan, &Context, &Length);
     }
-    if ( DirectoryObject < 0 )
+    RestartScan = 0;
+    if ( v10 < 0 )
       break;
     if ( RtlEqualUnicodeString(v7 + 1, &String2, 0) )
     {
-      v20 = v7->Length + 18;
-      v9 = (wchar_t *)ExAllocatePool2(0x40uLL);
-      v10 = v9;
-      if ( !v9 )
+      v11 = (unsigned int)v7->Length + 18 + 2LL;
+      Length = v7->Length + 18;
+      v12 = (wchar_t *)ExAllocatePool2(0x40uLL, v11, 0x72766E45u);
+      v13 = v12;
+      if ( !v12 )
       {
-        v13 = -1073741670;
+        v16 = -1073741670;
         goto LABEL_26;
       }
-      v11 = v7->Length >> 1;
-      wcscpy_s(v9, ((unsigned __int64)v20 >> 1) + 1, L"\\ArcName\\");
-      v12 = v11;
-      wcsncat_s(v10, ((unsigned __int64)v20 >> 1) + 1, v7->Buffer, v11);
-      v10[(unsigned __int64)v20 >> 1] = 0;
-      v13 = ExpTranslateSymbolicLink(v10);
-      if ( v13 < 0 )
+      v14 = v7->Length >> 1;
+      wcscpy_s(v12, ((unsigned __int64)Length >> 1) + 1, L"\\ArcName\\");
+      v15 = v14;
+      wcsncat_s(v13, ((unsigned __int64)Length >> 1) + 1, v7->Buffer, v14);
+      v13[(unsigned __int64)Length >> 1] = 0;
+      v16 = ExpTranslateSymbolicLink(v13);
+      if ( v16 < 0 )
       {
-        ExFreePoolWithTag(v10, 0);
+        ExFreePoolWithTag(v13, 0);
         goto LABEL_26;
       }
       v2 = RtlEqualUnicodeString(&DestinationString, a1, 1u);
       ExFreePoolWithTag(DestinationString.Buffer, 0);
       if ( v2 == 1 )
       {
-        wcsncpy_s(v10, ((unsigned __int64)v20 >> 1) + 1, v7->Buffer, v12);
-        v10[v12] = 0;
-        *a2 = v10;
+        wcsncpy_s(v13, ((unsigned __int64)Length >> 1) + 1, v7->Buffer, v15);
+        v13[v15] = 0;
+        *a2 = v13;
         goto LABEL_26;
       }
-      ExFreePoolWithTag(v10, 0);
+      ExFreePoolWithTag(v13, 0);
     }
   }
-  v13 = 0;
-  if ( DirectoryObject != -2147483622 )
-    v13 = DirectoryObject;
-  if ( v13 >= 0 && !v2 )
-    v13 = -1073741766;
+  v16 = 0;
+  if ( v10 != -2147483622 )
+    v16 = v10;
+  if ( v16 >= 0 && !v2 )
+    v16 = -1073741766;
 LABEL_26:
   if ( v7 )
     ExFreePoolWithTag(v7, 0);
 LABEL_28:
   ZwClose(DirectoryHandle);
-  return (unsigned int)v13;
+  return (unsigned int)v16;
 }

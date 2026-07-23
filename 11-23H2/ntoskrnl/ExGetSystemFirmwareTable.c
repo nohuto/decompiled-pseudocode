@@ -1,11 +1,11 @@
 /*
- * XREFs of ExGetSystemFirmwareTable @ 0x140860C70
+ * XREFs of ExGetSystemFirmwareTable @ 0x140860EB0
  * Callers:
- *     IpmiHwpReadSpmiConfiguration @ 0x1406779DC (IpmiHwpReadSpmiConfiguration.c)
- *     IpmiLibReadSmbiosRecord38 @ 0x140677A94 (IpmiLibReadSmbiosRecord38.c)
+ *     IpmiHwpReadSpmiConfiguration @ 0x140677F2C (IpmiHwpReadSpmiConfiguration.c)
+ *     IpmiLibReadSmbiosRecord38 @ 0x140677FE4 (IpmiLibReadSmbiosRecord38.c)
  * Callees:
- *     memmove @ 0x140435700 (memmove.c)
- *     ExpGetSystemFirmwareTableInformation @ 0x14077E8E0 (ExpGetSystemFirmwareTableInformation.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     ExpGetSystemFirmwareTableInformation @ 0x14077EAD0 (ExpGetSystemFirmwareTableInformation.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

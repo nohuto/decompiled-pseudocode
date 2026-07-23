@@ -1,9 +1,9 @@
 /*
- * XREFs of MmAllocatePagesForMdl @ 0x1401499F0
+ * XREFs of MmAllocatePagesForMdl @ 0x140149F60
  * Callers:
  *     <none>
  * Callees:
- *     MiAllocatePagesForMdl @ 0x140104224 (MiAllocatePagesForMdl.c)
+ *     MiAllocatePagesForMdl @ 0x140101FA4 (MiAllocatePagesForMdl.c)
  */
 
 PMDL __stdcall MmAllocatePagesForMdl(

@@ -1,12 +1,12 @@
 /*
- * XREFs of PopSleepstudyScenarioStopTimerCallback @ 0x1404C15E0
+ * XREFs of PopSleepstudyScenarioStopTimerCallback @ 0x1404BCBD0
  * Callers:
  *     <none>
  * Callees:
- *     ExQueueWorkItem @ 0x140325850 (ExQueueWorkItem.c)
+ *     ExQueueWorkItem @ 0x1402CE3E0 (ExQueueWorkItem.c)
  */
 
 void PopSleepstudyScenarioStopTimerCallback()
 {
-  ExQueueWorkItem(&stru_140F0A008, DelayedWorkQueue);
+  ExQueueWorkItem(&stru_140F0A348, DelayedWorkQueue);
 }

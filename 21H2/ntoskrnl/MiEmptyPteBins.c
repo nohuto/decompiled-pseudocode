@@ -1,14 +1,14 @@
 /*
- * XREFs of MiEmptyPteBins @ 0x14030F280
+ * XREFs of MiEmptyPteBins @ 0x140319FD0
  * Callers:
- *     MiCheckProcessorPteCache @ 0x140225E90 (MiCheckProcessorPteCache.c)
- *     MiReservePtes @ 0x1402265B0 (MiReservePtes.c)
- *     MiInsertCachedPte @ 0x140245C00 (MiInsertCachedPte.c)
- *     MiAdjustPteBins @ 0x1402722D8 (MiAdjustPteBins.c)
+ *     MiAdjustPteBins @ 0x140260278 (MiAdjustPteBins.c)
+ *     MiCheckProcessorPteCache @ 0x1402CA790 (MiCheckProcessorPteCache.c)
+ *     MiReservePtes @ 0x1402CAEB0 (MiReservePtes.c)
+ *     MiInsertCachedPte @ 0x1402EA450 (MiInsertCachedPte.c)
  * Callees:
- *     MiReplenishBitMap @ 0x140288BB0 (MiReplenishBitMap.c)
+ *     MiReplenishBitMap @ 0x140205D50 (MiReplenishBitMap.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     MiReleaseLargePteMappings @ 0x140553FBC (MiReleaseLargePteMappings.c)
+ *     MiReleaseLargePteMappings @ 0x1405541FC (MiReleaseLargePteMappings.c)
  */
 
 __int64 __fastcall MiEmptyPteBins(__int64 a1, int a2)
@@ -50,7 +50,7 @@ __int64 __fastcall MiEmptyPteBins(__int64 a1, int a2)
   v6 = *(_QWORD *)(a1 + 80);
   v7 = 0;
   v8 = 2 * (unsigned __int16)KeNumberNodes;
-  if ( (__int64 *)a1 != &qword_140C4EF40 )
+  if ( (__int64 *)a1 != &qword_140C4EF80 )
     v8 = (unsigned __int16)KeNumberNodes;
   if ( v8 )
   {
@@ -84,7 +84,7 @@ __int64 __fastcall MiEmptyPteBins(__int64 a1, int a2)
               SchedulerAssist[5] |= (-1LL << (CurrentIrql + 1)) & 4;
               v2 = 0LL;
             }
-            if ( CurrentIrql == 2 && (__int64 *)a1 == &qword_140C4EF40 && v7 >= v8 >> 1 )
+            if ( CurrentIrql == 2 && (__int64 *)a1 == &qword_140C4EF80 && v7 >= v8 >> 1 )
             {
               if ( KiIrqlFlags )
               {
@@ -109,7 +109,7 @@ __int64 __fastcall MiEmptyPteBins(__int64 a1, int a2)
               {
                 v2 = 1LL;
               }
-              if ( (__int64 *)a1 == &qword_140C4EF40 && v7 >= v8 >> 1 )
+              if ( (__int64 *)a1 == &qword_140C4EF80 && v7 >= v8 >> 1 )
               {
                 v16 = MiReleaseLargePteMappings(a1, &v30, v2);
                 if ( KiIrqlFlags )

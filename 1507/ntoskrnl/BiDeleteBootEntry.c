@@ -12,7 +12,7 @@ __int64 __fastcall BiDeleteBootEntry(PUNICODE_STRING EntryName)
 {
   unsigned int v1; // edi
   UNICODE_STRING *v2; // rdx
-  int v3; // ebx
+  NTSTATUS v3; // ebx
   unsigned int v5; // [rsp+38h] [rbp+10h] BYREF
 
   v1 = (unsigned int)EntryName;

@@ -1,8 +1,8 @@
 /*
- * XREFs of SepAuditingForSubCategory @ 0x140252C5C
+ * XREFs of SepAuditingForSubCategory @ 0x140285B0C
  * Callers:
- *     SeReportSecurityEventWithSubCategory @ 0x1402529F0 (SeReportSecurityEventWithSubCategory.c)
- *     SeAuditingWithTokenForSubcategory @ 0x140608730 (SeAuditingWithTokenForSubcategory.c)
+ *     SeReportSecurityEventWithSubCategory @ 0x1402858A0 (SeReportSecurityEventWithSubCategory.c)
+ *     SeAuditingWithTokenForSubcategory @ 0x1406981E0 (SeAuditingWithTokenForSubcategory.c)
  * Callees:
  *     <none>
  */

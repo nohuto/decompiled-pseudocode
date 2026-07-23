@@ -29,7 +29,7 @@ void __fastcall CmFcManagerUnregisterFeatureUsageProvider(__int64 a1, int *a2)
   v5 = _interlockedbittestandset64((volatile signed __int32 *)&stru_140C143A0, 0LL);
   v6 = v4;
   if ( v5 )
-    ExfAcquirePushLockExclusiveEx(&stru_140C143A0, v4, (__int64)&stru_140C143A0);
+    ExfAcquirePushLockExclusiveEx((unsigned __int64 *)&stru_140C143A0, v4, (__int64)&stru_140C143A0);
   if ( v6 )
     *(_BYTE *)(v6 + 18) = 1;
   v7 = *(_QWORD *)a2;

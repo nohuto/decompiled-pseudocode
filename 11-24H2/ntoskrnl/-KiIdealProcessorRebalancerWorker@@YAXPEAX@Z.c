@@ -1,11 +1,11 @@
 /*
- * XREFs of ?KiIdealProcessorRebalancerWorker@@YAXPEAX@Z @ 0x140478EA0
+ * XREFs of ?KiIdealProcessorRebalancerWorker@@YAXPEAX@Z @ 0x140474920
  * Callers:
  *     <none>
  * Callees:
- *     ?KiUpdateProcessConcurrencyCounts@@YAXXZ @ 0x140210350 (-KiUpdateProcessConcurrencyCounts@@YAXXZ.c)
- *     KeReleaseSpinLock @ 0x14024DD30 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140254B20 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KeReleaseSpinLock @ 0x14027E340 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140285130 (KeAcquireSpinLockRaiseToDpc.c)
+ *     ?KiUpdateProcessConcurrencyCounts@@YAXXZ @ 0x1403396B0 (-KiUpdateProcessConcurrencyCounts@@YAXXZ.c)
  */
 
 void __fastcall KiIdealProcessorRebalancerWorker(void *a1)
@@ -15,15 +15,15 @@ void __fastcall KiIdealProcessorRebalancerWorker(void *a1)
 
   while ( 1 )
   {
-    v1 = KeAcquireSpinLockRaiseToDpc(&qword_140E16FA8);
-    v2 = byte_140E16FB1;
-    byte_140E16FB1 = 0;
+    v1 = KeAcquireSpinLockRaiseToDpc(&qword_140E170E8);
+    v2 = byte_140E170F1;
+    byte_140E170F1 = 0;
     if ( !v2 )
       break;
-    KeReleaseSpinLock(&qword_140E16FA8, v1);
+    KeReleaseSpinLock(&qword_140E170E8, v1);
     if ( (v2 & 1) != 0 )
       KiUpdateProcessConcurrencyCounts();
   }
-  byte_140E16FB0 = 0;
-  KeReleaseSpinLock(&qword_140E16FA8, v1);
+  byte_140E170F0 = 0;
+  KeReleaseSpinLock(&qword_140E170E8, v1);
 }

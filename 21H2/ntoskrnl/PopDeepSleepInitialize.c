@@ -1,7 +1,7 @@
 /*
- * XREFs of PopDeepSleepInitialize @ 0x140A4082C
+ * XREFs of PopDeepSleepInitialize @ 0x140A4182C
  * Callers:
- *     PoInitSystem @ 0x140A3F948 (PoInitSystem.c)
+ *     PoInitSystem @ 0x140A40948 (PoInitSystem.c)
  * Callees:
  *     <none>
  */
@@ -12,7 +12,7 @@ __int64 (*__fastcall PopDeepSleepInitialize(int a1))()
 
   if ( a1 )
   {
-    if ( a1 == 3 && !byte_140C24074 )
+    if ( a1 == 3 && !byte_140C23434 )
       PopDeepSleepDisengageReasonMask |= 2u;
   }
   else

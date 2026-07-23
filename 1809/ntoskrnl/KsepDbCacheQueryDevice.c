@@ -1,15 +1,15 @@
 /*
- * XREFs of KsepDbCacheQueryDevice @ 0x140720AB8
+ * XREFs of KsepDbCacheQueryDevice @ 0x140721D58
  * Callers:
- *     KseQueryDeviceData @ 0x140720930 (KseQueryDeviceData.c)
+ *     KseQueryDeviceData @ 0x140721BD0 (KseQueryDeviceData.c)
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
- *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
- *     KsepCacheLookup @ 0x14070CADC (KsepCacheLookup.c)
- *     KsepDbCacheQueryDeviceData @ 0x140720EAC (KsepDbCacheQueryDeviceData.c)
+ *     ExfTryToWakePushLock @ 0x140091500 (ExfTryToWakePushLock.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B78F0 (KiLeaveCriticalRegionUnsafe.c)
+ *     RtlInitUnicodeString @ 0x1400B99D0 (RtlInitUnicodeString.c)
+ *     KsepCacheLookup @ 0x14070DD7C (KsepCacheLookup.c)
+ *     KsepDbCacheQueryDeviceData @ 0x14072214C (KsepDbCacheQueryDeviceData.c)
  */
 
 __int64 __fastcall KsepDbCacheQueryDevice(PCWSTR SourceString, int a2, int a3, int a4, void *a5)
@@ -26,14 +26,14 @@ __int64 __fastcall KsepDbCacheQueryDevice(PCWSTR SourceString, int a2, int a3, i
   DeviceData = -1073741275;
   RtlInitUnicodeString(&v16, SourceString);
   CurrentThread = KeGetCurrentThread();
-  v10 = qword_14043C8F8;
+  v10 = qword_14043D9B8;
   --CurrentThread->KernelApcDisable;
   ExAcquirePushLockExclusiveEx(v10, 0LL);
-  v11 = KsepCacheLookup(qword_14043C8F8, (__int64)v15);
+  v11 = KsepCacheLookup(qword_14043D9B8, (__int64)v15);
   if ( v11 )
     DeviceData = KsepDbCacheQueryDeviceData((int)v11, a2, a3, a4, a5);
-  v12 = (volatile signed __int64 *)qword_14043C8F8;
-  v13 = _InterlockedExchangeAdd64((volatile signed __int64 *)qword_14043C8F8, 0xFFFFFFFFFFFFFFFFuLL);
+  v12 = (volatile signed __int64 *)qword_14043D9B8;
+  v13 = _InterlockedExchangeAdd64((volatile signed __int64 *)qword_14043D9B8, 0xFFFFFFFFFFFFFFFFuLL);
   if ( (v13 & 2) != 0 && (v13 & 4) == 0 )
     ExfTryToWakePushLock(v12);
   KeAbPostRelease((ULONG_PTR)v12);

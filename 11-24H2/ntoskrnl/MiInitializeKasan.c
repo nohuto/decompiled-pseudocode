@@ -1,12 +1,12 @@
 /*
- * XREFs of MiInitializeKasan @ 0x140C4FA24
+ * XREFs of MiInitializeKasan @ 0x140C51BB4
  * Callers:
- *     MiInitNucleus @ 0x140C4F298 (MiInitNucleus.c)
+ *     MiInitNucleus @ 0x140C51428 (MiInitNucleus.c)
  * Callees:
- *     KasanTrackAddress @ 0x140459A10 (KasanTrackAddress.c)
- *     MxInstallMoreMemory @ 0x14066C6F0 (MxInstallMoreMemory.c)
- *     KasanInitSystem @ 0x140C26690 (KasanInitSystem.c)
- *     MiFillGapAddresses @ 0x140C54D0C (MiFillGapAddresses.c)
+ *     KasanTrackAddress @ 0x14044E740 (KasanTrackAddress.c)
+ *     MxInstallMoreMemory @ 0x14066D8C0 (MxInstallMoreMemory.c)
+ *     KasanInitSystem @ 0x140C286E0 (KasanInitSystem.c)
+ *     MiFillGapAddresses @ 0x140C56E9C (MiFillGapAddresses.c)
  */
 
 void __fastcall MiInitializeKasan(__int64 a1)
@@ -16,8 +16,8 @@ void __fastcall MiInitializeKasan(__int64 a1)
 
   if ( _bittest64(&MiFlags, 0x23u) )
   {
-    v2 = qword_140E38AF8;
-    MiFillGapAddresses(qword_140E38AF8, qword_140E38AF8 + qword_140E38B00 - 1);
+    v2 = qword_140E38C38;
+    MiFillGapAddresses(qword_140E38C38, qword_140E38C38 + qword_140E38C40 - 1);
     DpcStack = KeGetPcr()->Prcb.DpcStack;
     KasaniShadow = v2;
     if ( (int)KasanTrackAddress(

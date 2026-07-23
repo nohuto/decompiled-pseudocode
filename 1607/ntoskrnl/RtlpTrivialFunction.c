@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlpTrivialFunction @ 0x140159480
+ * XREFs of RtlpTrivialFunction @ 0x1401599F0
  * Callers:
- *     RtlpWalkFrameChain @ 0x14004F520 (RtlpWalkFrameChain.c)
- *     RtlVirtualUnwind @ 0x1400B3138 (RtlVirtualUnwind.c)
- *     RtlpVirtualUnwind @ 0x1400F340C (RtlpVirtualUnwind.c)
+ *     RtlpWalkFrameChain @ 0x14004F0A0 (RtlpWalkFrameChain.c)
+ *     RtlVirtualUnwind @ 0x1400B0FB8 (RtlVirtualUnwind.c)
+ *     RtlpVirtualUnwind @ 0x1400F125C (RtlpVirtualUnwind.c)
  * Callees:
- *     RtlRaiseStatus @ 0x1400F6738 (RtlRaiseStatus.c)
- *     ExRaiseDatatypeMisalignment @ 0x1406B6058 (ExRaiseDatatypeMisalignment.c)
+ *     RtlRaiseStatus @ 0x1400F4588 (RtlRaiseStatus.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1406B6190 (ExRaiseDatatypeMisalignment.c)
  */
 
 __int64 __fastcall RtlpTrivialFunction(__int64 a1, __int64 a2, unsigned __int64 a3, _BYTE *a4)

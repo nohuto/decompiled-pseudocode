@@ -1,24 +1,24 @@
 /*
- * XREFs of MiObtainSectionForDriver @ 0x140483D4C
+ * XREFs of MiObtainSectionForDriver @ 0x140482AA0
  * Callers:
- *     MmLoadSystemImage @ 0x140482B2C (MmLoadSystemImage.c)
+ *     MmLoadSystemImage @ 0x140481880 (MmLoadSystemImage.c)
  * Callees:
- *     MiSectionControlArea @ 0x14002C4D0 (MiSectionControlArea.c)
- *     ObDereferenceObjectDeferDelete @ 0x14005DB70 (ObDereferenceObjectDeferDelete.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     MiSectionControlArea @ 0x14002C050 (MiSectionControlArea.c)
+ *     ObDereferenceObjectDeferDelete @ 0x14005D6F0 (ObDereferenceObjectDeferDelete.c)
+ *     memset @ 0x140171AC0 (memset.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     RtlEqualUnicodeString @ 0x14040F720 (RtlEqualUnicodeString.c)
- *     MiCreateSectionForDriver @ 0x14047D2C8 (MiCreateSectionForDriver.c)
- *     MmReleaseLoadLock @ 0x140483400 (MmReleaseLoadLock.c)
- *     MmAcquireLoadLock @ 0x14048342C (MmAcquireLoadLock.c)
+ *     RtlEqualUnicodeString @ 0x14040E5E0 (RtlEqualUnicodeString.c)
+ *     MmReleaseLoadLock @ 0x140482154 (MmReleaseLoadLock.c)
+ *     MmAcquireLoadLock @ 0x140482180 (MmAcquireLoadLock.c)
+ *     MiCreateSectionForDriver @ 0x14048338C (MiCreateSectionForDriver.c)
  */
 
-__int64 __fastcall MiObtainSectionForDriver(PCUNICODE_STRING String1, UNICODE_STRING *a2, int a3, PVOID **a4)
+__int64 __fastcall MiObtainSectionForDriver(PCUNICODE_STRING String1, __int64 a2, unsigned int a3, PVOID **a4)
 {
   struct _KTHREAD *CurrentThread; // r15
   PVOID v8; // rdi
   PVOID *i; // rbx
-  NTSTATUS v11; // ebx
+  int v11; // ebx
   __int64 v12; // rdx
   __int64 result; // rax
   PVOID *PoolWithTag; // rax
@@ -75,7 +75,7 @@ LABEL_12:
   if ( v8 )
     ObDereferenceObjectDeferDelete(v8);
   v15 = (unsigned __int64)i[6];
-  v16 = v15 >= qword_140326910 && v15 < qword_140326910 + 0x8000000000LL;
+  v16 = v15 >= qword_140326950 && v15 < qword_140326950 + 0x8000000000LL;
   if ( (a3 & 1) != 0 )
     v17 = !v16;
   else

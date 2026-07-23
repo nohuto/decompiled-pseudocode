@@ -1,10 +1,10 @@
 /*
- * XREFs of PopInternalUpdateStopWatchState @ 0x140264248
+ * XREFs of PopInternalUpdateStopWatchState @ 0x140272464
  * Callers:
- *     PoStartStopWatch @ 0x140263F5C (PoStartStopWatch.c)
- *     PoPauseStopWatch @ 0x140264050 (PoPauseStopWatch.c)
- *     PoUnarmStopWatchCollection @ 0x1402D16C4 (PoUnarmStopWatchCollection.c)
- *     PoArmStopWatchCollection @ 0x1402D1D08 (PoArmStopWatchCollection.c)
+ *     PoStartStopWatch @ 0x14027137C (PoStartStopWatch.c)
+ *     PoPauseStopWatch @ 0x14027149C (PoPauseStopWatch.c)
+ *     PoArmStopWatchCollection @ 0x140272598 (PoArmStopWatchCollection.c)
+ *     PoUnarmStopWatchCollection @ 0x1402725E8 (PoUnarmStopWatchCollection.c)
  * Callees:
  *     <none>
  */

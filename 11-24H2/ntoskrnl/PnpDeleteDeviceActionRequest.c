@@ -1,15 +1,15 @@
 /*
- * XREFs of PnpDeleteDeviceActionRequest @ 0x1409EF704
+ * XREFs of PnpDeleteDeviceActionRequest @ 0x1409ECFD4
  * Callers:
- *     PnpRemoveDeviceActionRequests @ 0x14046C600 (PnpRemoveDeviceActionRequests.c)
- *     PnpDeviceActionWorker @ 0x14046CD70 (PnpDeviceActionWorker.c)
- *     PnpRemoveDeviceActionRequestFromQueue @ 0x1405A7280 (PnpRemoveDeviceActionRequestFromQueue.c)
- *     PiControlGetSetDeviceStatus @ 0x1408D1350 (PiControlGetSetDeviceStatus.c)
- *     PiCMDeviceAction @ 0x140A85618 (PiCMDeviceAction.c)
- *     PiQueueDeviceRequest @ 0x140AB84B0 (PiQueueDeviceRequest.c)
+ *     PnpRemoveDeviceActionRequests @ 0x1404671A0 (PnpRemoveDeviceActionRequests.c)
+ *     PnpDeviceActionWorker @ 0x140467910 (PnpDeviceActionWorker.c)
+ *     PnpRemoveDeviceActionRequestFromQueue @ 0x1405A4270 (PnpRemoveDeviceActionRequestFromQueue.c)
+ *     PiControlGetSetDeviceStatus @ 0x1408CED40 (PiControlGetSetDeviceStatus.c)
+ *     PiCMDeviceAction @ 0x140A80158 (PiCMDeviceAction.c)
+ *     PiQueueDeviceRequest @ 0x140AB2974 (PiQueueDeviceRequest.c)
  * Callees:
- *     PiPdcDeactivate @ 0x1409EF744 (PiPdcDeactivate.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     PiPdcDeactivate @ 0x1409ED014 (PiPdcDeactivate.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __fastcall PnpDeleteDeviceActionRequest(PVOID P)

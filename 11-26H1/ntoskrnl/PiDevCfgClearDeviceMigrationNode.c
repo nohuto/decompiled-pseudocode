@@ -1,25 +1,25 @@
 /*
- * XREFs of PiDevCfgClearDeviceMigrationNode @ 0x14098BEFC
+ * XREFs of PiDevCfgClearDeviceMigrationNode @ 0x140A4661C
  * Callers:
- *     PiDevCfgMigrateDevice @ 0x14098B138 (PiDevCfgMigrateDevice.c)
- *     PiDevCfgFindDeviceMigrationNode @ 0x140A71014 (PiDevCfgFindDeviceMigrationNode.c)
+ *     PiDevCfgMigrateDevice @ 0x140A45858 (PiDevCfgMigrateDevice.c)
+ *     PiDevCfgFindDeviceMigrationNode @ 0x140A46B84 (PiDevCfgFindDeviceMigrationNode.c)
  * Callees:
- *     PnpValidateMultiSzData @ 0x1404F5374 (PnpValidateMultiSzData.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     _PnpCtxRegDeleteValue @ 0x14090B324 (_PnpCtxRegDeleteValue.c)
- *     _PnpCtxRegDeletePath @ 0x14098C418 (_PnpCtxRegDeletePath.c)
- *     _PnpCtxRegOpenKey @ 0x140997890 (_PnpCtxRegOpenKey.c)
- *     _RegRtlOpenKeyTransacted @ 0x140997950 (_RegRtlOpenKeyTransacted.c)
- *     RtlFreeAnsiString @ 0x140A007C0 (RtlFreeAnsiString.c)
- *     RtlpQueryRegistryValues @ 0x140A10F94 (RtlpQueryRegistryValues.c)
- *     ExFreePool @ 0x140C10E30 (ExFreePool.c)
+ *     PnpValidateMultiSzData @ 0x1404EE954 (PnpValidateMultiSzData.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     _PnpCtxRegOpenKey @ 0x1409582F0 (_PnpCtxRegOpenKey.c)
+ *     _RegRtlOpenKeyTransacted @ 0x1409583B0 (_RegRtlOpenKeyTransacted.c)
+ *     _PnpCtxRegDeleteValue @ 0x1409AD448 (_PnpCtxRegDeleteValue.c)
+ *     RtlpQueryRegistryValues @ 0x140A10184 (RtlpQueryRegistryValues.c)
+ *     RtlFreeAnsiString @ 0x140A169F0 (RtlFreeAnsiString.c)
+ *     _PnpCtxRegDeletePath @ 0x140A46B38 (_PnpCtxRegDeletePath.c)
+ *     ExFreePool @ 0x140C16E30 (ExFreePool.c)
  */
 
-__int64 __fastcall PiDevCfgClearDeviceMigrationNode(_QWORD *a1, const WCHAR *a2)
+__int64 __fastcall PiDevCfgClearDeviceMigrationNode(__int64 *a1, const WCHAR *a2)
 {
-  __int64 v2; // r10
+  char *v2; // r10
   __int64 v5; // rax
   __int64 v6; // rcx
   int v7; // eax
@@ -29,12 +29,12 @@ __int64 __fastcall PiDevCfgClearDeviceMigrationNode(_QWORD *a1, const WCHAR *a2)
   __int64 v11; // rcx
   __int64 v12; // rcx
   void *v13; // rdx
-  __int64 v14; // r10
-  PVOID v15; // rcx
+  char *v14; // r10
+  const WCHAR *v15; // rcx
   __int64 v16; // rdx
   __int64 v17; // rax
   __int64 v18; // rcx
-  _QWORD *v20; // rdi
+  __int64 *v20; // rdi
   int v21; // eax
   _WORD *i; // rbx
   __int64 v23; // rcx
@@ -59,7 +59,7 @@ __int64 __fastcall PiDevCfgClearDeviceMigrationNode(_QWORD *a1, const WCHAR *a2)
   int *v42; // [rsp+F8h] [rbp-8h]
   int v43; // [rsp+100h] [rbp+0h]
 
-  v2 = a1[1];
+  v2 = (char *)a1[1];
   Handle = 0LL;
   v30 = 0LL;
   v31 = 0LL;
@@ -72,7 +72,7 @@ __int64 __fastcall PiDevCfgClearDeviceMigrationNode(_QWORD *a1, const WCHAR *a2)
     v6 = *(_QWORD *)(v5 + 8);
   else
     v6 = 0LL;
-  v7 = RegRtlOpenKeyTransacted(v2, a2, 0LL, 131097LL, &Handle, v6);
+  v7 = RegRtlOpenKeyTransacted(v2, a2, 0, 0x20019u, &Handle, v6);
   RegistryValues = v7;
   if ( v7 == -1073741772 )
     goto LABEL_31;
@@ -91,7 +91,7 @@ __int64 __fastcall PiDevCfgClearDeviceMigrationNode(_QWORD *a1, const WCHAR *a2)
   v42 = &v27;
   v36 = 304;
   v43 = 0x4000000;
-  RegistryValues = RtlpQueryRegistryValues(-1073741824, (int)Handle, (int)v32, 0, v25, 1);
+  RegistryValues = RtlpQueryRegistryValues(3221225472LL, (const WCHAR *)Handle, (__int64)v32, 0LL, v25, 1);
   if ( RegistryValues < 0 )
     goto LABEL_24;
   if ( !LOWORD(P[0]) && P[1] )
@@ -112,10 +112,10 @@ LABEL_31:
   v13 = (void *)a1[3];
   if ( v13 )
     PnpCtxRegDeleteValue(v12, v13, a2);
-  v14 = a1[2];
+  v14 = (char *)a1[2];
   if ( v14 )
   {
-    v15 = P[1];
+    v15 = (const WCHAR *)P[1];
     if ( P[1] )
     {
       if ( *(_QWORD *)&PiPnpRtlCtx && (v16 = *(_QWORD *)(*(_QWORD *)&PiPnpRtlCtx + 224LL)) != 0 )
@@ -128,9 +128,9 @@ LABEL_31:
       {
         v17 = 0LL;
       }
-      v15 = P[1];
+      v15 = (const WCHAR *)P[1];
 LABEL_20:
-      if ( (int)RegRtlOpenKeyTransacted(v14, v15, 0LL, 983103LL, &v30, v17) >= 0 )
+      if ( (int)RegRtlOpenKeyTransacted(v14, v15, 0, 0xF003Fu, &v30, v17) >= 0 )
       {
         PnpCtxRegDeleteValue(v18, v30, a2);
         ZwClose(v30);
@@ -143,7 +143,7 @@ LABEL_20:
   v20 = a1 + 4;
   if ( a1[4] )
     goto LABEL_43;
-  v21 = PnpCtxRegOpenKey(PiPnpRtlCtx, *a1, (unsigned int)L"Locations", 0, 983103, (__int64)(a1 + 4));
+  v21 = PnpCtxRegOpenKey(*(__int64 *)&PiPnpRtlCtx, *a1, (__int64)L"Locations", 0, 0xF003Fu, (__int64)(a1 + 4));
   if ( v21 == -1073741772 )
   {
     *v20 = 0LL;
@@ -158,7 +158,7 @@ LABEL_20:
 LABEL_43:
     for ( i = v29[1]; *i; i += v24 + 1 )
     {
-      if ( (int)PnpCtxRegOpenKey(PiPnpRtlCtx, *v20, (_DWORD)i, 0, 983103, (__int64)&v31) >= 0 )
+      if ( (int)PnpCtxRegOpenKey(*(__int64 *)&PiPnpRtlCtx, *v20, (__int64)i, 0, 0xF003Fu, (__int64)&v31) >= 0 )
       {
         PnpCtxRegDeleteValue(v23, v31, a2);
         ZwClose(v31);

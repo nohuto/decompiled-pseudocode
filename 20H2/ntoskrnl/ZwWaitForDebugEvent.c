@@ -6,9 +6,13 @@
  *     <none>
  */
 
-__int64 __fastcall ZwWaitForDebugEvent(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwWaitForDebugEvent(
+        HANDLE DebugObjectHandle,
+        BOOLEAN Alertable,
+        PLARGE_INTEGER Timeout,
+        PDBGUI_WAIT_STATE_CHANGE WaitStateChange)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(DebugObjectHandle);
 }

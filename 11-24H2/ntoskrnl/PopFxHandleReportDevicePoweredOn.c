@@ -1,22 +1,22 @@
 /*
- * XREFs of PopFxHandleReportDevicePoweredOn @ 0x14049CF90
+ * XREFs of PopFxHandleReportDevicePoweredOn @ 0x140497CE0
  * Callers:
- *     PoFxReportDevicePoweredOn @ 0x14049CF70 (PoFxReportDevicePoweredOn.c)
- *     DifPoFxReportDevicePoweredOnWrapper @ 0x1406379F0 (DifPoFxReportDevicePoweredOnWrapper.c)
+ *     PoFxReportDevicePoweredOn @ 0x140497CC0 (PoFxReportDevicePoweredOn.c)
+ *     DifPoFxReportDevicePoweredOnWrapper @ 0x140635FB0 (DifPoFxReportDevicePoweredOnWrapper.c)
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x14028F370 (ExAcquireSpinLockExclusive.c)
- *     PopFxQueueWorkItem @ 0x14029F7F4 (PopFxQueueWorkItem.c)
- *     PopPepDeviceDState @ 0x1403137A0 (PopPepDeviceDState.c)
- *     PopDiagTraceFxDevicePowerState @ 0x1403768BC (PopDiagTraceFxDevicePowerState.c)
- *     PopFxBugCheck @ 0x140377108 (PopFxBugCheck.c)
- *     PopFxCompleteDevicePowerRequired @ 0x140378130 (PopFxCompleteDevicePowerRequired.c)
- *     ExReleaseSpinLockExclusive @ 0x140379ED0 (ExReleaseSpinLockExclusive.c)
- *     PoFxIdleComponent @ 0x1403B4850 (PoFxIdleComponent.c)
- *     PopFxGetDeviceDStateReason @ 0x140486D58 (PopFxGetDeviceDStateReason.c)
- *     PopFxDerefAndCompleteDirectedPowerTransition @ 0x1404D3F80 (PopFxDerefAndCompleteDirectedPowerTransition.c)
- *     Feature_Sx_PEP_Notification_Synchronization__private_IsEnabledNoReportingNoInline @ 0x1405CD8C8 (Feature_Sx_PEP_Notification_Synchronization__private_IsEnabledNoReportingNoInline.c)
- *     PopFxNotifyPendingSIrpReady @ 0x1405D17C8 (PopFxNotifyPendingSIrpReady.c)
- *     PopSystemIrpCompletion @ 0x140B6F8E0 (PopSystemIrpCompletion.c)
+ *     ExAcquireSpinLockExclusive @ 0x14029EF70 (ExAcquireSpinLockExclusive.c)
+ *     PopFxCompleteDevicePowerRequired @ 0x1402E680C (PopFxCompleteDevicePowerRequired.c)
+ *     ExReleaseSpinLockExclusive @ 0x1402E6E40 (ExReleaseSpinLockExclusive.c)
+ *     PopPepDeviceDState @ 0x1403A6948 (PopPepDeviceDState.c)
+ *     PoFxIdleComponent @ 0x1403A8D20 (PoFxIdleComponent.c)
+ *     PopFxBugCheck @ 0x1403A9948 (PopFxBugCheck.c)
+ *     PopFxQueueWorkItem @ 0x1403AA2B4 (PopFxQueueWorkItem.c)
+ *     PopFxGetDeviceDStateReason @ 0x140481C7C (PopFxGetDeviceDStateReason.c)
+ *     PopDiagTraceFxDevicePowerState @ 0x140483350 (PopDiagTraceFxDevicePowerState.c)
+ *     PopFxDerefAndCompleteDirectedPowerTransition @ 0x1404CD190 (PopFxDerefAndCompleteDirectedPowerTransition.c)
+ *     Feature_Sx_PEP_Notification_Synchronization__private_IsEnabledNoReportingNoInline @ 0x1405CB038 (Feature_Sx_PEP_Notification_Synchronization__private_IsEnabledNoReportingNoInline.c)
+ *     PopFxNotifyPendingSIrpReady @ 0x1405CEEE8 (PopFxNotifyPendingSIrpReady.c)
+ *     PopSystemIrpCompletion @ 0x140B71950 (PopSystemIrpCompletion.c)
  */
 
 char __fastcall PopFxHandleReportDevicePoweredOn(ULONG_PTR BugCheckParameter2)
@@ -58,7 +58,7 @@ char __fastcall PopFxHandleReportDevicePoweredOn(ULONG_PTR BugCheckParameter2)
   {
     LOBYTE(IsEnabledNoReportingNoInline) = PopFxQueueWorkItem(
                                              (__int64)&PopFxSystemWorkPool,
-                                             (struct _LIST_ENTRY *)(BugCheckParameter2 + 1248),
+                                             (_LIST_ENTRY *)(BugCheckParameter2 + 1248),
                                              0);
   }
   else

@@ -1,23 +1,23 @@
 /*
- * XREFs of MiUnmapViewSubsections @ 0x14036D950
+ * XREFs of MiUnmapViewSubsections @ 0x14036F6F0
  * Callers:
- *     MiDeleteVad @ 0x14095BF10 (MiDeleteVad.c)
+ *     MiDeleteVad @ 0x140A017D0 (MiDeleteVad.c)
  * Callees:
- *     ExpWaitForSpinLockExclusiveAndAcquire @ 0x1402474C0 (ExpWaitForSpinLockExclusiveAndAcquire.c)
- *     ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x140249B40 (ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented.c)
- *     HvlNotifyLongSpinWait @ 0x1402BBF00 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1402BC760 (KiCheckVpBackingLongSpinWaitHypercall.c)
- *     MiReturnCommit @ 0x14036D2B0 (MiReturnCommit.c)
- *     MiCheckControlArea @ 0x14036DCC0 (MiCheckControlArea.c)
- *     MiReturnCrossPartitionCharges @ 0x14036E1E8 (MiReturnCrossPartitionCharges.c)
- *     MiReturnResident @ 0x14036E2C0 (MiReturnResident.c)
- *     MiControlAreaExemptFromCrossPartitionCharges @ 0x14036E598 (MiControlAreaExemptFromCrossPartitionCharges.c)
- *     MiInsertUnusedSubsectionInternal @ 0x14036E724 (MiInsertUnusedSubsectionInternal.c)
- *     MiGetSubsectionHoldingCrossPartitionReferences @ 0x140499D04 (MiGetSubsectionHoldingCrossPartitionReferences.c)
- *     MiUpdateSubsectionCrossPartitionRefs @ 0x140512248 (MiUpdateSubsectionCrossPartitionRefs.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     MiComputeCrossPartitionSectionCharges @ 0x140531EA8 (MiComputeCrossPartitionSectionCharges.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
+ *     ExpWaitForSpinLockExclusiveAndAcquire @ 0x140248E20 (ExpWaitForSpinLockExclusiveAndAcquire.c)
+ *     ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x14024B4A0 (ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented.c)
+ *     HvlNotifyLongSpinWait @ 0x140306BC0 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140307420 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     MiReturnCommit @ 0x14036F050 (MiReturnCommit.c)
+ *     MiCheckControlArea @ 0x14036FA60 (MiCheckControlArea.c)
+ *     MiReturnCrossPartitionCharges @ 0x14036FF88 (MiReturnCrossPartitionCharges.c)
+ *     MiReturnResident @ 0x140370060 (MiReturnResident.c)
+ *     MiControlAreaExemptFromCrossPartitionCharges @ 0x140370338 (MiControlAreaExemptFromCrossPartitionCharges.c)
+ *     MiInsertUnusedSubsectionInternal @ 0x1403704C4 (MiInsertUnusedSubsectionInternal.c)
+ *     MiGetSubsectionHoldingCrossPartitionReferences @ 0x140493854 (MiGetSubsectionHoldingCrossPartitionReferences.c)
+ *     MiUpdateSubsectionCrossPartitionRefs @ 0x14050BCB8 (MiUpdateSubsectionCrossPartitionRefs.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     MiComputeCrossPartitionSectionCharges @ 0x140534348 (MiComputeCrossPartitionSectionCharges.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall MiUnmapViewSubsections(__int64 a1, _QWORD *a2, _QWORD *a3)
@@ -57,7 +57,7 @@ __int64 __fastcall MiUnmapViewSubsections(__int64 a1, _QWORD *a2, _QWORD *a3)
     LOBYTE(a2) = 2;
     KiRaiseIrqlProcessIrqlFlags(CurrentIrql, a2);
   }
-  if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+  if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || PopHibernateInProgress )
   {
     v9 = 0;
     if ( _interlockedbittestandset((volatile signed __int32 *)(a1 + 72), 0x1Fu) )
@@ -123,11 +123,11 @@ LABEL_20:
       }
       else
       {
-        v19 = *(ULONG **)(stru_140E2EB88.ThreadLock
+        v19 = *(ULONG **)(stru_140E2ED08.ThreadLock
                         + 8LL * HIWORD(KeGetCurrentThread()->ApcState.Process[2].ProcessListEntry.Blink));
         v18 = 0LL;
       }
-      if ( v19 != *(ULONG **)(stru_140E2EB88.ThreadLock + 8LL * (*(_DWORD *)(v16 + 60) & 0x3FF)) )
+      if ( v19 != *(ULONG **)(stru_140E2ED08.ThreadLock + 8LL * (*(_DWORD *)(v16 + 60) & 0x3FF)) )
       {
         SubsectionHoldingCrossPartitionReferences = MiGetSubsectionHoldingCrossPartitionReferences(v5);
         v22 = *(_DWORD *)(MiGetSubsectionHoldingCrossPartitionReferences(SubsectionHoldingCrossPartitionReferences) + 48) & 0x3FFFFFFF;
@@ -171,7 +171,7 @@ LABEL_25:
                             _mm_loadu_si128((const __m128i *)(a1 + 40)));
   if ( !v3 )
     return MiCheckControlArea(a1, CurrentIrql);
-  v14 = *(_QWORD *)(stru_140E2EB88.ThreadLock + 8LL * (*(_DWORD *)(a1 + 60) & 0x3FF));
+  v14 = *(_QWORD *)(stru_140E2ED08.ThreadLock + 8LL * (*(_DWORD *)(a1 + 60) & 0x3FF));
   MiCheckControlArea(a1, CurrentIrql);
   if ( v6 )
     MiReturnCommit(v14, v3, 0);

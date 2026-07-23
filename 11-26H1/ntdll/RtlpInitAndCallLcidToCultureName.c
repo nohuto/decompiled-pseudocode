@@ -1,20 +1,20 @@
 /*
- * XREFs of RtlpInitAndCallLcidToCultureName @ 0x180004E70
+ * XREFs of RtlpInitAndCallLcidToCultureName @ 0x1800505A0
  * Callers:
- *     RtlpMuiRegConfigMatchesInstalled @ 0x1800E0938 (RtlpMuiRegConfigMatchesInstalled.c)
- *     RtlpMuiRegLangInfoMatchesSpec @ 0x1800E0C44 (RtlpMuiRegLangInfoMatchesSpec.c)
- *     RtlpMuiRegGetFallbackLanguageInfoByLangId @ 0x18010AC8C (RtlpMuiRegGetFallbackLanguageInfoByLangId.c)
- *     _RtlpMuiRegValidateInstalled @ 0x18014E7F8 (_RtlpMuiRegValidateInstalled.c)
+ *     RtlpMuiRegConfigMatchesInstalled @ 0x1800DE1D8 (RtlpMuiRegConfigMatchesInstalled.c)
+ *     RtlpMuiRegLangInfoMatchesSpec @ 0x1800DE4E4 (RtlpMuiRegLangInfoMatchesSpec.c)
+ *     RtlpMuiRegGetFallbackLanguageInfoByLangId @ 0x18010A5FC (RtlpMuiRegGetFallbackLanguageInfoByLangId.c)
+ *     _RtlpMuiRegValidateInstalled @ 0x18014E6A8 (_RtlpMuiRegValidateInstalled.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall RtlpInitAndCallLcidToCultureName(__int64 a1, __int64 a2, unsigned int a3)
+BOOLEAN __fastcall RtlpInitAndCallLcidToCultureName(_UNICODE_STRING *a1, wchar_t *a2, LCID a3)
 {
   if ( a1 )
   {
-    *(_QWORD *)(a1 + 8) = a2;
-    *(_DWORD *)a1 = 11141120;
+    a1->Buffer = a2;
+    *(_DWORD *)&a1->Length = 11141120;
   }
   return RtlLCIDToCultureName(a3, a1);
 }

@@ -48,7 +48,7 @@ __int64 ExpWorkerFactoryInitialization()
   ExpWorkerFactoryDeferredLongTimeout = -10000000LL * v0;
   ExpWorkerFactoryDeferredShortTimeout.QuadPart = -300000LL;
   if ( ((unsigned __int8)&ExpWorkerFactoryThreadCreationList & 0xF) != 0 )
-    RtlRaiseStatus(0x80000002);
+    RtlRaiseStatus(-2147483646);
   ExpWorkerFactoryThreadCreationList = 0LL;
   KeInitializeQueue(&ExpWorkerFactoryManagerQueue, 0);
   *(_QWORD *)&ExpWorkerFactoryThreadCreationTimer.Header.Lock = 9LL;

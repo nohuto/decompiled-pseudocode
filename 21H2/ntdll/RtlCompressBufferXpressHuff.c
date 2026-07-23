@@ -4,7 +4,7 @@
  *     <none>
  * Callees:
  *     RtlCompressBufferXpressHuffStandard @ 0x18005B090 (RtlCompressBufferXpressHuffStandard.c)
- *     RtlCompressBufferXpressHuffMax @ 0x18010CEB4 (RtlCompressBufferXpressHuffMax.c)
+ *     RtlCompressBufferXpressHuffMax @ 0x18010CE74 (RtlCompressBufferXpressHuffMax.c)
  */
 
 __int64 __fastcall RtlCompressBufferXpressHuff(

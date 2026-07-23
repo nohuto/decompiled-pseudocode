@@ -1,9 +1,9 @@
 /*
- * XREFs of MmGetCacheAttribute @ 0x14061EC80
+ * XREFs of MmGetCacheAttribute @ 0x14061F1D0
  * Callers:
  *     <none>
  * Callees:
- *     MmGetCacheAttributeEx @ 0x14061ECA0 (MmGetCacheAttributeEx.c)
+ *     MmGetCacheAttributeEx @ 0x14061F1F0 (MmGetCacheAttributeEx.c)
  */
 
 __int64 __fastcall MmGetCacheAttribute(__int64 a1, __int64 a2)

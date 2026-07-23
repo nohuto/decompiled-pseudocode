@@ -1,14 +1,14 @@
 /*
- * XREFs of FsRtlpOplockStoreKeyForDeleteOperation @ 0x14007A960
+ * XREFs of FsRtlpOplockStoreKeyForDeleteOperation @ 0x14007A9E0
  * Callers:
- *     FsRtlCheckOplock @ 0x140079FD0 (FsRtlCheckOplock.c)
- *     FsRtlCheckOplockEx @ 0x14007A080 (FsRtlCheckOplockEx.c)
+ *     FsRtlCheckOplock @ 0x14007A050 (FsRtlCheckOplock.c)
+ *     FsRtlCheckOplockEx @ 0x14007A100 (FsRtlCheckOplockEx.c)
  * Callees:
- *     IoGetOplockKeyContextEx @ 0x14007B498 (IoGetOplockKeyContextEx.c)
- *     ExAcquireFastMutexUnsafe @ 0x1400F05A0 (ExAcquireFastMutexUnsafe.c)
- *     ExReleaseFastMutexUnsafe @ 0x1400F0700 (ExReleaseFastMutexUnsafe.c)
+ *     IoGetOplockKeyContextEx @ 0x14007B518 (IoGetOplockKeyContextEx.c)
+ *     ExAcquireFastMutexUnsafe @ 0x1400EE420 (ExAcquireFastMutexUnsafe.c)
+ *     ExReleaseFastMutexUnsafe @ 0x1400EE580 (ExReleaseFastMutexUnsafe.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     FsRtlpAllocateOplock @ 0x14046A718 (FsRtlpAllocateOplock.c)
+ *     FsRtlpAllocateOplock @ 0x1404695E8 (FsRtlpAllocateOplock.c)
  */
 
 void __fastcall FsRtlpOplockStoreKeyForDeleteOperation(__int64 *a1, __int64 a2, int a3)

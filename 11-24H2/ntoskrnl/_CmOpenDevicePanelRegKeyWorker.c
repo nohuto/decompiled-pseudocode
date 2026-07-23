@@ -1,18 +1,18 @@
 /*
- * XREFs of _CmOpenDevicePanelRegKeyWorker @ 0x140A815F8
+ * XREFs of _CmOpenDevicePanelRegKeyWorker @ 0x140A7C058
  * Callers:
- *     _CmOpenDevicePanelRegKey @ 0x14081D8A0 (_CmOpenDevicePanelRegKey.c)
+ *     _CmOpenDevicePanelRegKey @ 0x14081DFE0 (_CmOpenDevicePanelRegKey.c)
  * Callees:
- *     RtlInitUnicodeStringEx @ 0x14045AA10 (RtlInitUnicodeStringEx.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     _CmGetDevicePanelRegKeyPath @ 0x14081D55C (_CmGetDevicePanelRegKeyPath.c)
- *     RtlPrefixUnicodeString @ 0x14086E3C0 (RtlPrefixUnicodeString.c)
- *     _PnpCtxRegOpenKey @ 0x1408C7AFC (_PnpCtxRegOpenKey.c)
- *     _PnpCtxGetCachedContextBaseKey @ 0x1408C7E7C (_PnpCtxGetCachedContextBaseKey.c)
- *     _PnpCtxRegCreateTree @ 0x140926128 (_PnpCtxRegCreateTree.c)
- *     _PnpCtxRegOpenCurrentUserKey @ 0x140A8BE3C (_PnpCtxRegOpenCurrentUserKey.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     RtlInitUnicodeStringEx @ 0x14044FE60 (RtlInitUnicodeStringEx.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     _CmGetDevicePanelRegKeyPath @ 0x14081DC9C (_CmGetDevicePanelRegKeyPath.c)
+ *     RtlPrefixUnicodeString @ 0x1408726F0 (RtlPrefixUnicodeString.c)
+ *     _PnpCtxRegOpenKey @ 0x1408C552C (_PnpCtxRegOpenKey.c)
+ *     _PnpCtxGetCachedContextBaseKey @ 0x1408C58AC (_PnpCtxGetCachedContextBaseKey.c)
+ *     _PnpCtxRegCreateTree @ 0x140928268 (_PnpCtxRegCreateTree.c)
+ *     _PnpCtxRegOpenCurrentUserKey @ 0x140A8832C (_PnpCtxRegOpenCurrentUserKey.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall CmOpenDevicePanelRegKeyWorker(
@@ -54,7 +54,7 @@ __int64 __fastcall CmOpenDevicePanelRegKeyWorker(
   LODWORD(v12) = 317;
   while ( 1 )
   {
-    pszDest = (wchar_t *)ExAllocatePool2(0x100uLL);
+    pszDest = (wchar_t *)ExAllocatePool2(0x100uLL, (unsigned int)v12, 0x52504E50u);
     if ( !pszDest )
     {
       inited = -1073741801;

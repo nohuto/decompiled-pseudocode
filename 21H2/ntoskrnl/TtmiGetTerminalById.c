@@ -1,10 +1,10 @@
 /*
- * XREFs of TtmiGetTerminalById @ 0x1408FD7DC
+ * XREFs of TtmiGetTerminalById @ 0x1408FD93C
  * Callers:
- *     TtmNotifyDeviceInput @ 0x1408FBFC0 (TtmNotifyDeviceInput.c)
- *     TtmpPushTerminalState @ 0x1408FD150 (TtmpPushTerminalState.c)
- *     TtmiSetDisplayPowerRequest @ 0x1408FF238 (TtmiSetDisplayPowerRequest.c)
- *     TtmpSetDisplayRequestEnded @ 0x140900260 (TtmpSetDisplayRequestEnded.c)
+ *     TtmNotifyDeviceInput @ 0x1408FC120 (TtmNotifyDeviceInput.c)
+ *     TtmpPushTerminalState @ 0x1408FD2B0 (TtmpPushTerminalState.c)
+ *     TtmiSetDisplayPowerRequest @ 0x1408FF398 (TtmiSetDisplayPowerRequest.c)
+ *     TtmpSetDisplayRequestEnded @ 0x1409003C0 (TtmpSetDisplayRequestEnded.c)
  * Callees:
  *     <none>
  */

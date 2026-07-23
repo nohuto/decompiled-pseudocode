@@ -1,39 +1,39 @@
 /*
- * XREFs of CmpFreeDriverList @ 0x140C470C0
+ * XREFs of CmpFreeDriverList @ 0x140C49210
  * Callers:
- *     CmGetSystemDriverList @ 0x140C62C58 (CmGetSystemDriverList.c)
+ *     CmGetSystemDriverList @ 0x140C64DD4 (CmGetSystemDriverList.c)
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
  */
 
-__int64 __fastcall CmpFreeDriverList(__int64 a1, _QWORD *a2, __int64 a3, __int64 a4)
+__int64 __fastcall CmpFreeDriverList(__int64 a1, _QWORD *a2)
 {
-  _QWORD *v4; // rbx
+  _QWORD *v2; // rbx
+  __int64 v4; // rcx
+  _QWORD *v5; // rbp
   __int64 v6; // rcx
-  _QWORD *v7; // rbp
-  __int64 v8; // rcx
-  __int64 v9; // rcx
+  __int64 v7; // rcx
   __int64 result; // rax
 
-  v4 = (_QWORD *)*a2;
+  v2 = (_QWORD *)*a2;
   if ( (_QWORD *)*a2 != a2 )
   {
     do
     {
-      v6 = v4[16];
-      v7 = (_QWORD *)*v4;
+      v4 = v2[16];
+      v5 = (_QWORD *)*v2;
+      if ( v4 )
+        guard_dispatch_icall_no_overrides(v4, *((unsigned __int16 *)v2 + 60));
+      v6 = v2[5];
       if ( v6 )
-        guard_dispatch_icall_no_overrides(v6, *((unsigned __int16 *)v4 + 60), a3, a4);
-      v8 = v4[5];
-      if ( v8 )
-        guard_dispatch_icall_no_overrides(v8, *((unsigned __int16 *)v4 + 17), a3, a4);
-      v9 = v4[3];
-      if ( v9 )
-        guard_dispatch_icall_no_overrides(v9, *((unsigned __int16 *)v4 + 9), a3, a4);
-      result = guard_dispatch_icall_no_overrides(v4, 144LL, a3, a4);
-      v4 = v7;
+        guard_dispatch_icall_no_overrides(v6, *((unsigned __int16 *)v2 + 17));
+      v7 = v2[3];
+      if ( v7 )
+        guard_dispatch_icall_no_overrides(v7, *((unsigned __int16 *)v2 + 9));
+      result = guard_dispatch_icall_no_overrides(v2, 144LL);
+      v2 = v5;
     }
-    while ( v7 != a2 );
+    while ( v5 != a2 );
   }
   return result;
 }

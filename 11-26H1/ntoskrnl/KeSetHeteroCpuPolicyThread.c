@@ -1,5 +1,5 @@
 /*
- * XREFs of KeSetHeteroCpuPolicyThread @ 0x1405EC050
+ * XREFs of KeSetHeteroCpuPolicyThread @ 0x1405EE9C0
  * Callers:
  *     <none>
  * Callees:

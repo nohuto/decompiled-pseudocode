@@ -159,7 +159,7 @@ LABEL_30:
             ExAcquirePushLockExclusiveEx((ULONG_PTR)v5, 0LL);
             if ( *(_WORD *)(v4 + 1072) && !*(_DWORD *)(v4 + 1096) )
             {
-              ExSetTimer(*(_QWORD *)(v4 + 1088), *(_QWORD *)(v4 + 1064), 0LL, &v26);
+              ExSetTimer(*(_QWORD *)(v4 + 1088), *(_QWORD *)(v4 + 1064), 0LL, (__int64)&v26);
               *(_DWORD *)(v4 + 1096) = 1;
               v2 = 1;
             }

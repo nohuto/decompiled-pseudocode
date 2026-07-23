@@ -1,7 +1,7 @@
 /*
- * XREFs of MI_PFN_IS_PROTO @ 0x1402A2E70
+ * XREFs of MI_PFN_IS_PROTO @ 0x1402A3100
  * Callers:
- *     MmChangeImageProtection @ 0x140723E40 (MmChangeImageProtection.c)
+ *     MmChangeImageProtection @ 0x140724040 (MmChangeImageProtection.c)
  * Callees:
  *     <none>
  */

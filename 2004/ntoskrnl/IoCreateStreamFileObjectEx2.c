@@ -30,11 +30,11 @@ __int64 __fastcall IoCreateStreamFileObjectEx2(
   HANDLE *v5; // r14
   __int16 v6; // r12
   ULONG_PTR v7; // r13
-  signed int Object; // edi
+  NTSTATUS Object; // edi
   _DWORD *v10; // r9
   PADAPTER_OBJECT v11; // r15
   struct _KPRCB *CurrentPrcb; // rdx
-  struct _SLIST_ENTRY *v13; // r8
+  _SLIST_ENTRY *v13; // r8
   _GENERAL_LOOKASIDE *P; // rcx
   struct _DMA_ADAPTER *v15; // r15
   ULONG_PTR v16; // rcx
@@ -64,7 +64,7 @@ __int64 __fastcall IoCreateStreamFileObjectEx2(
   if ( *(_WORD *)a1 != 16 )
   {
     if ( (*(_BYTE *)(a1 + 2) & 1) != 0 )
-      RtlRaiseStatus(0xC00000BB);
+      RtlRaiseStatus(-1073741637);
     return 3221225659LL;
   }
   if ( v6 && v5 )
@@ -78,7 +78,7 @@ __int64 __fastcall IoCreateStreamFileObjectEx2(
   {
 LABEL_33:
     if ( (*(_BYTE *)(a1 + 2) & 1) != 0 )
-      RtlRaiseStatus(0xC000000D);
+      RtlRaiseStatus(-1073741811);
     return 3221225485LL;
   }
 LABEL_8:
@@ -109,7 +109,7 @@ LABEL_8:
   if ( v6 )
   {
     CurrentPrcb = KeGetCurrentPrcb();
-    v13 = *(struct _SLIST_ENTRY **)&v11[-1].Version;
+    v13 = *(_SLIST_ENTRY **)&v11[-1].Version;
     P = CurrentPrcb->PPLookasideList[4].P;
     ++P->TotalFrees;
     if ( LOWORD(P->ListHead.Alignment) < P->Depth
@@ -123,7 +123,7 @@ LABEL_8:
     else
     {
       ++P->FreeMisses;
-      ((void (__fastcall *)(struct _SLIST_ENTRY *))P->FreeEx)(v13);
+      ((void (__fastcall *)(_SLIST_ENTRY *))P->FreeEx)(v13);
     }
     *(_QWORD *)&v11[-1].Version = 0LL;
 LABEL_13:

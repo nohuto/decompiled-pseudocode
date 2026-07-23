@@ -1,30 +1,30 @@
 /*
- * XREFs of AdtpBuildContextFromSecurityDescriptor @ 0x140670C70
+ * XREFs of AdtpBuildContextFromSecurityDescriptor @ 0x1406711C0
  * Callers:
- *     AdtpBuildAccessReasonAuditString @ 0x14066FD60 (AdtpBuildAccessReasonAuditString.c)
+ *     AdtpBuildAccessReasonAuditString @ 0x1406702B0 (AdtpBuildAccessReasonAuditString.c)
  * Callees:
- *     RtlFindAceByType @ 0x1402AD1F0 (RtlFindAceByType.c)
- *     SeRmReferenceFindCapName @ 0x1405B9738 (SeRmReferenceFindCapName.c)
- *     RtlGetSaclSecurityDescriptor @ 0x1407117A0 (RtlGetSaclSecurityDescriptor.c)
+ *     RtlFindAceByType @ 0x1402AD480 (RtlFindAceByType.c)
+ *     SeRmReferenceFindCapName @ 0x1405B9CA8 (SeRmReferenceFindCapName.c)
+ *     RtlGetSaclSecurityDescriptor @ 0x1407119B0 (RtlGetSaclSecurityDescriptor.c)
  */
 
 int __fastcall AdtpBuildContextFromSecurityDescriptor(void *a1, __int64 a2)
 {
   int result; // eax
   void *v4; // rbp
-  unsigned __int8 *AceByType; // rax
+  char *AceByType; // rax
   _QWORD *v6; // rsi
   _DWORD *v7; // rdi
   BOOLEAN v8; // [rsp+50h] [rbp+8h] BYREF
   BOOLEAN v9; // [rsp+58h] [rbp+10h] BYREF
-  unsigned int v10; // [rsp+60h] [rbp+18h] BYREF
-  __int64 v11; // [rsp+68h] [rbp+20h] BYREF
+  ULONG Index; // [rsp+60h] [rbp+18h] BYREF
+  PACL Acl; // [rsp+68h] [rbp+20h] BYREF
 
-  v11 = 0LL;
-  v10 = 0;
+  Acl = 0LL;
+  Index = 0;
   *(_QWORD *)a2 = a1;
   v8 = 0;
-  result = RtlGetSaclSecurityDescriptor(a1, &v8, (PACL *)&v11, &v9);
+  result = RtlGetSaclSecurityDescriptor(a1, &v8, &Acl, &v9);
   if ( result < 0 )
   {
     v7 = (_DWORD *)(a2 + 8);
@@ -39,13 +39,13 @@ LABEL_11:
   {
     while ( 1 )
     {
-      AceByType = RtlFindAceByType(v11, 19, &v10);
+      AceByType = (char *)RtlFindAceByType(Acl, 0x13u, &Index);
       if ( AceByType )
       {
         if ( (AceByType[1] & 8) == 0 )
           break;
       }
-      ++v10;
+      ++Index;
       if ( !AceByType )
         goto LABEL_8;
     }

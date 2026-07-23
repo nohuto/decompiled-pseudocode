@@ -1,14 +1,14 @@
 /*
- * XREFs of CmpBounceContextStart @ 0x14097E7D0
+ * XREFs of CmpBounceContextStart @ 0x1409407E0
  * Callers:
- *     NtQueryMultipleValueKey @ 0x14097D340 (NtQueryMultipleValueKey.c)
+ *     NtQueryMultipleValueKey @ 0x14093F350 (NtQueryMultipleValueKey.c)
  * Callees:
- *     ExAllocateFromLookasideListEx @ 0x1403E1EE0 (ExAllocateFromLookasideListEx.c)
- *     MmIsUserAddress @ 0x14044E7C0 (MmIsUserAddress.c)
- *     _tlgWriteAgg @ 0x1404599C0 (_tlgWriteAgg.c)
- *     CmpAllocateTransientPoolWithQuota @ 0x1404869D8 (CmpAllocateTransientPoolWithQuota.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     ExAllocateFromLookasideListEx @ 0x1403E50D0 (ExAllocateFromLookasideListEx.c)
+ *     MmIsUserAddress @ 0x1404468F0 (MmIsUserAddress.c)
+ *     _tlgWriteAgg @ 0x140451240 (_tlgWriteAgg.c)
+ *     CmpAllocateTransientPoolWithQuota @ 0x140480350 (CmpAllocateTransientPoolWithQuota.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall CmpBounceContextStart(__int64 a1, unsigned __int64 a2, size_t a3, int a4, char a5)
@@ -43,7 +43,7 @@ __int64 __fastcall CmpBounceContextStart(__int64 a1, unsigned __int64 a2, size_t
     *(_QWORD *)(a1 + 8) = 0LL;
     return 0LL;
   }
-  if ( !CmpFreezeListLock.RelativeTimerBias || !a4 && !MmIsUserAddress(a2) )
+  if ( !CmpFreezeListLock.CycleTime || !a4 && !MmIsUserAddress(a2) )
     goto LABEL_7;
   if ( (unsigned int)dword_140E09EE8 > 5 && (qword_140E09EF8 & 4) != 0 && (qword_140E09F00 & 4) == qword_140E09F00 )
   {
@@ -64,7 +64,7 @@ __int64 __fastcall CmpBounceContextStart(__int64 a1, unsigned __int64 a2, size_t
     v18 = v12;
     v25 = 8LL;
     v24 = &v18;
-    tlgWriteAgg((__int64)&dword_140E09EE8, (unsigned __int8 *)&byte_140055E63, v9, 5u, &v19);
+    tlgWriteAgg((__int64)&dword_140E09EE8, (unsigned __int8 *)&word_140056E56, v9, 5u, &v19);
   }
   if ( a3 <= 0x40 )
   {

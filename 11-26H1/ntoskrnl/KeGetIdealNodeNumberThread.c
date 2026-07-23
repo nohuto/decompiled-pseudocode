@@ -1,13 +1,13 @@
 /*
- * XREFs of KeGetIdealNodeNumberThread @ 0x14048C2AC
+ * XREFs of KeGetIdealNodeNumberThread @ 0x140485DEC
  * Callers:
- *     MiCreateHardwareEnclave @ 0x1408760F0 (MiCreateHardwareEnclave.c)
- *     MiAllocateUserPhysicalPagesPrepare @ 0x140877FB8 (MiAllocateUserPhysicalPagesPrepare.c)
- *     MmManagePartitionMoveMemory @ 0x14087D0C8 (MmManagePartitionMoveMemory.c)
- *     PspRecheckThreadOptionalXStateFeatures @ 0x140A036E0 (PspRecheckThreadOptionalXStateFeatures.c)
- *     KeUserModeCallback @ 0x140A59280 (KeUserModeCallback.c)
- *     MmAllocateNonCachedMemory @ 0x140B37D20 (MmAllocateNonCachedMemory.c)
- *     PspEnableProcessOptionalXStateFeatures @ 0x140B6131C (PspEnableProcessOptionalXStateFeatures.c)
+ *     MiCreateHardwareEnclave @ 0x14087C4D4 (MiCreateHardwareEnclave.c)
+ *     MiAllocateUserPhysicalPagesPrepare @ 0x14087E398 (MiAllocateUserPhysicalPagesPrepare.c)
+ *     MmManagePartitionMoveMemory @ 0x1408834C8 (MmManagePartitionMoveMemory.c)
+ *     KeUserModeCallback @ 0x140923D90 (KeUserModeCallback.c)
+ *     PspRecheckThreadOptionalXStateFeatures @ 0x140A7BC1C (PspRecheckThreadOptionalXStateFeatures.c)
+ *     MmAllocateNonCachedMemory @ 0x140B39F30 (MmAllocateNonCachedMemory.c)
+ *     PspEnableProcessOptionalXStateFeatures @ 0x140B643BC (PspEnableProcessOptionalXStateFeatures.c)
  * Callees:
  *     <none>
  */

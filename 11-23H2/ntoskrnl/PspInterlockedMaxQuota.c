@@ -1,5 +1,5 @@
 /*
- * XREFs of PspInterlockedMaxQuota @ 0x1402AEFA0
+ * XREFs of PspInterlockedMaxQuota @ 0x1402AF230
  * Callers:
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  * Callees:

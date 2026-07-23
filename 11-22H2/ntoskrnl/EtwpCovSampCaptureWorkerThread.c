@@ -54,7 +54,7 @@ void __fastcall __noreturn EtwpCovSampCaptureWorkerThread(__int64 a1)
           {
             case 1342288122LL:
               EtwpCovSampSampleBufferProcess(a1, v5);
-              EtwpCovSampCaptureReleaseToLookaside(a1, a1 + 880, (struct _SLIST_ENTRY *)v5);
+              EtwpCovSampCaptureReleaseToLookaside(a1, a1 + 880, (_SLIST_ENTRY *)v5);
               break;
             case 3401298175LL:
               EtwpCovSampCaptureBufferProcess(a1, v5);

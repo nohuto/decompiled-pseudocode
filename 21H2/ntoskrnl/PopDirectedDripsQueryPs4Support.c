@@ -1,10 +1,10 @@
 /*
- * XREFs of PopDirectedDripsQueryPs4Support @ 0x1407CC07C
+ * XREFs of PopDirectedDripsQueryPs4Support @ 0x1407CC1EC
  * Callers:
- *     PopDirectedDripsQueryEnabledMitigations @ 0x1407CBFE4 (PopDirectedDripsQueryEnabledMitigations.c)
+ *     PopDirectedDripsQueryEnabledMitigations @ 0x1407CC154 (PopDirectedDripsQueryEnabledMitigations.c)
  * Callees:
- *     PopDirectedDripsQueryEmPS4DisableSetting @ 0x1407CC0EC (PopDirectedDripsQueryEmPS4DisableSetting.c)
- *     PopDirectedDripsQueryEmSettings @ 0x1408E3760 (PopDirectedDripsQueryEmSettings.c)
+ *     PopDirectedDripsQueryEmPS4DisableSetting @ 0x1407CC25C (PopDirectedDripsQueryEmPS4DisableSetting.c)
+ *     PopDirectedDripsQueryEmSettings @ 0x1408E38C0 (PopDirectedDripsQueryEmSettings.c)
  */
 
 __int64 PopDirectedDripsQueryPs4Support()

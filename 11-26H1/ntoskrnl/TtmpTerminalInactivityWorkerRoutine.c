@@ -1,9 +1,9 @@
 /*
- * XREFs of TtmpTerminalInactivityWorkerRoutine @ 0x1407EC990
+ * XREFs of TtmpTerminalInactivityWorkerRoutine @ 0x1407F24F0
  * Callers:
  *     <none>
  * Callees:
- *     ZwUpdateWnfStateData @ 0x140727030 (ZwUpdateWnfStateData.c)
+ *     ZwUpdateWnfStateData @ 0x14072BC00 (ZwUpdateWnfStateData.c)
  */
 
 __int64 TtmpTerminalInactivityWorkerRoutine()
@@ -12,9 +12,9 @@ __int64 TtmpTerminalInactivityWorkerRoutine()
 
   do
   {
-    ZwUpdateWnfStateData((__int64)&WNF_PO_TERMINAL_INACTIVITY, 0LL);
+    ZwUpdateWnfStateData(&WNF_PO_TERMINAL_INACTIVITY, 0LL, 0, 0LL, 0LL, 0, 0);
     result = (unsigned int)_InterlockedExchangeAdd(
-                             (volatile signed __int32 *)&PsAltSystemCallRegistrationLock.SavedApcStateFill[8],
+                             (volatile signed __int32 *)&PsAltSystemCallRegistrationLock.ReadTransferCount,
                              0xFFFFFFFF);
   }
   while ( (_DWORD)result != 1 );

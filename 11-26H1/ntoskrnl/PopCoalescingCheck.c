@@ -1,10 +1,10 @@
 /*
- * XREFs of PopCoalescingCheck @ 0x140606D04
+ * XREFs of PopCoalescingCheck @ 0x140609804
  * Callers:
- *     PopScanIdleList @ 0x1404C65A0 (PopScanIdleList.c)
+ *     PopScanIdleList @ 0x1404BFF50 (PopScanIdleList.c)
  * Callees:
- *     PopCheckForWork @ 0x1404385D4 (PopCheckForWork.c)
- *     PopGetPolicyWorker @ 0x14043864C (PopGetPolicyWorker.c)
+ *     PopCheckForWork @ 0x1404274F4 (PopCheckForWork.c)
+ *     PopGetPolicyWorker @ 0x14042756C (PopGetPolicyWorker.c)
  */
 
 __int64 __fastcall PopCoalescingCheck(unsigned int a1, unsigned int a2, int a3)
@@ -19,7 +19,8 @@ __int64 __fastcall PopCoalescingCheck(unsigned int a1, unsigned int a2, int a3)
       if ( a2 > a1 )
         return a1 / 0x3E8 + 1;
     }
-    else if ( MEMORY[0xFFFFF78000000008] - (unsigned __int64)stru_140F11D08.SchedulerApc.ApcListEntry.Flink >= 10000000 * (unsigned __int64)(unsigned int)PopCoalescingFlushInterval )
+    else if ( MEMORY[0xFFFFF78000000008] - PopCoalescingLastFlushTime >= 10000000
+                                                                       * (unsigned __int64)(unsigned int)PopCoalescingFlushInterval )
     {
       PopGetPolicyWorker(32);
       PopCheckForWork();

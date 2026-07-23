@@ -1,23 +1,23 @@
 /*
- * XREFs of MiUnmapLockedPagesInUserSpace @ 0x14076DC9C
+ * XREFs of MiUnmapLockedPagesInUserSpace @ 0x14076DE5C
  * Callers:
- *     MmUnlockPages @ 0x140244A70 (MmUnlockPages.c)
- *     MmUnmapLockedPages @ 0x14031CA30 (MmUnmapLockedPages.c)
+ *     MmUnlockPages @ 0x1402E92C0 (MmUnlockPages.c)
+ *     MmUnmapLockedPages @ 0x140327780 (MmUnmapLockedPages.c)
  * Callees:
- *     MiUnlockAndDereferenceVad @ 0x14021AF80 (MiUnlockAndDereferenceVad.c)
- *     MiObtainReferencedVadEx @ 0x14021B2A0 (MiObtainReferencedVadEx.c)
- *     MiDeleteVad @ 0x14021BFF0 (MiDeleteVad.c)
- *     MiRemoveSecureEntry @ 0x14025B5E0 (MiRemoveSecureEntry.c)
- *     MiDeleteVirtualAddresses @ 0x1402FE580 (MiDeleteVirtualAddresses.c)
- *     MiLocateOldestSecure @ 0x14037E2C8 (MiLocateOldestSecure.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
- *     MiCheckSecuredVad @ 0x1406623F8 (MiCheckSecuredVad.c)
+ *     MiRemoveSecureEntry @ 0x14027CB50 (MiRemoveSecureEntry.c)
+ *     MiUnlockAndDereferenceVad @ 0x1402BF880 (MiUnlockAndDereferenceVad.c)
+ *     MiObtainReferencedVadEx @ 0x1402BFBA0 (MiObtainReferencedVadEx.c)
+ *     MiDeleteVad @ 0x1402C08F0 (MiDeleteVad.c)
+ *     MiDeleteVirtualAddresses @ 0x1403092D0 (MiDeleteVirtualAddresses.c)
+ *     MiLocateOldestSecure @ 0x14037DE18 (MiLocateOldestSecure.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
+ *     MiCheckSecuredVad @ 0x140657218 (MiCheckSecuredVad.c)
  */
 
 void __fastcall MiUnmapLockedPagesInUserSpace(ULONG_PTR BugCheckParameter2, __int64 a2)
 {
   _KPROCESS *Process; // rbp
-  volatile signed __int32 *v5; // rax
+  __int64 v5; // rax
   ULONG_PTR v6; // rbx
   __int64 v7; // r8
   unsigned __int64 v8; // rdi
@@ -28,20 +28,20 @@ void __fastcall MiUnmapLockedPagesInUserSpace(ULONG_PTR BugCheckParameter2, __in
 
   Process = KeGetCurrentThread()->ApcState.Process;
   v5 = MiObtainReferencedVadEx(BugCheckParameter2, 1, &v12);
-  v6 = (ULONG_PTR)v5;
+  v6 = v5;
   if ( v5 )
   {
-    v7 = *((unsigned int *)v5 + 6);
-    v8 = (v7 | ((unsigned __int64)*((unsigned __int8 *)v5 + 32) << 32)) << 12;
-    if ( (v5[12] & 0x70) != 0x10
+    v7 = *(unsigned int *)(v5 + 24);
+    v8 = (v7 | ((unsigned __int64)*(unsigned __int8 *)(v5 + 32) << 32)) << 12;
+    if ( (*(_DWORD *)(v5 + 48) & 0x70) != 0x10
       || (BugCheckParameter2 & 0xFFFFFFFFFFFFF000uLL) != v8
-      || a2 != (*((unsigned int *)v5 + 7) | ((unsigned __int64)*((unsigned __int8 *)v5 + 33) << 32))
-             - (v7 | ((unsigned __int64)*((unsigned __int8 *)v5 + 32) << 32))
+      || a2 != (*(unsigned int *)(v5 + 28) | ((unsigned __int64)*(unsigned __int8 *)(v5 + 33) << 32))
+             - (v7 | ((unsigned __int64)*(unsigned __int8 *)(v5 + 32) << 32))
              + 1 )
     {
       goto LABEL_9;
     }
-    OldestSecure = MiLocateOldestSecure((__int64)v5);
+    OldestSecure = MiLocateOldestSecure(v5);
     if ( !OldestSecure )
       KeBugCheckEx(0x1Au, 0x1402uLL, BugCheckParameter2, v6, 0LL);
     MiRemoveSecureEntry(v6, OldestSecure);

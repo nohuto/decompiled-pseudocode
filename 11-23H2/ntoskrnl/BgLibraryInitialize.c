@@ -1,8 +1,8 @@
 /*
  * XREFs of BgLibraryInitialize @ 0x140AEE57C
  * Callers:
- *     PopRestoreHiberContext @ 0x140AA450C (PopRestoreHiberContext.c)
- *     PopInvokeSystemStateHandler @ 0x140AA859C (PopInvokeSystemStateHandler.c)
+ *     PopRestoreHiberContext @ 0x140AA437C (PopRestoreHiberContext.c)
+ *     PopInvokeSystemStateHandler @ 0x140AA840C (PopInvokeSystemStateHandler.c)
  *     BgkInitialize @ 0x140B9D198 (BgkInitialize.c)
  * Callees:
  *     BgpFwLibraryInitialize @ 0x140AEDC78 (BgpFwLibraryInitialize.c)

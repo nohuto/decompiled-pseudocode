@@ -1,10 +1,10 @@
 /*
- * XREFs of ExpGetSystemBasicInformation @ 0x140347138
+ * XREFs of ExpGetSystemBasicInformation @ 0x1403473C8
  * Callers:
- *     ExpQuerySystemInformation @ 0x140726850 (ExpQuerySystemInformation.c)
+ *     ExpQuerySystemInformation @ 0x140726A50 (ExpQuerySystemInformation.c)
  * Callees:
- *     MmGetNumberOfPhysicalPages @ 0x1407B98F0 (MmGetNumberOfPhysicalPages.c)
- *     ExSystemExceptionFilter @ 0x140865AA0 (ExSystemExceptionFilter.c)
+ *     MmGetNumberOfPhysicalPages @ 0x1407B9BD0 (MmGetNumberOfPhysicalPages.c)
+ *     ExSystemExceptionFilter @ 0x140865CE0 (ExSystemExceptionFilter.c)
  */
 
 __int64 __fastcall ExpGetSystemBasicInformation(__int64 a1)

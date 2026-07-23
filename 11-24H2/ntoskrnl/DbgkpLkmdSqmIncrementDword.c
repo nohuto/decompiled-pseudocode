@@ -1,11 +1,11 @@
 /*
- * XREFs of DbgkpLkmdSqmIncrementDword @ 0x14057EA28
+ * XREFs of DbgkpLkmdSqmIncrementDword @ 0x14057BEB8
  * Callers:
- *     DbgkCaptureLiveDump @ 0x140707A3C (DbgkCaptureLiveDump.c)
- *     DbgkpLkmdSqmStatus @ 0x1407086EC (DbgkpLkmdSqmStatus.c)
+ *     DbgkCaptureLiveDump @ 0x1407055FC (DbgkCaptureLiveDump.c)
+ *     DbgkpLkmdSqmStatus @ 0x1407062AC (DbgkpLkmdSqmStatus.c)
  * Callees:
- *     EtwWriteEx @ 0x140259680 (EtwWriteEx.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     EtwWriteEx @ 0x140289C90 (EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall DbgkpLkmdSqmIncrementDword(REGHANDLE a1, int a2)
@@ -27,7 +27,7 @@ NTSTATUS __fastcall DbgkpLkmdSqmIncrementDword(REGHANDLE a1, int a2)
   v9 = 4LL;
   UserData.Ptr = (ULONGLONG)&v3;
   v11 = 4LL;
-  v6 = qword_140025F48;
+  v6 = qword_140026328;
   v8 = &v12;
   v10 = &v4;
   v3 = 6;

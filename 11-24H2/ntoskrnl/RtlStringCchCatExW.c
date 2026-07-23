@@ -1,8 +1,8 @@
 /*
- * XREFs of RtlStringCchCatExW @ 0x14047ACD0
+ * XREFs of RtlStringCchCatExW @ 0x140476350
  * Callers:
- *     PiCMGenerateDeviceInstance @ 0x14073136C (PiCMGenerateDeviceInstance.c)
- *     _CmGetDeviceInterfaceRegKeyPath @ 0x1408CA360 (_CmGetDeviceInterfaceRegKeyPath.c)
+ *     PiCMGenerateDeviceInstance @ 0x14072F37C (PiCMGenerateDeviceInstance.c)
+ *     _CmGetDeviceInterfaceRegKeyPath @ 0x1408C7D90 (_CmGetDeviceInterfaceRegKeyPath.c)
  * Callees:
  *     <none>
  */

@@ -36,12 +36,12 @@ __int64 __fastcall SeQuerySigningPolicyWorker(
   __int64 v26; // rcx
   char v27[4]; // [rsp+30h] [rbp-20h] BYREF
   int TokenInformation; // [rsp+34h] [rbp-1Ch] BYREF
-  _QWORD TokenInformation_4[2]; // [rsp+38h] [rbp-18h] BYREF
-  __int64 v30; // [rsp+48h] [rbp-8h] BYREF
+  _PS_PKG_CLAIM TokenInformation_4[2]; // [rsp+38h] [rbp-18h] BYREF
+  unsigned __int64 v30; // [rsp+48h] [rbp-8h] BYREF
 
   TokenInformation_4[0] = 0LL;
   TokenInformation_4[1] = 0LL;
-  Policy_Internal = AppModelPolicy_GetPolicy_Internal((__int64)Token, a2, &TokenInformation, TokenInformation_4, &v30);
+  Policy_Internal = AppModelPolicy_GetPolicy_Internal(Token, a2, &TokenInformation, TokenInformation_4, &v30);
   v14 = (unsigned int)Policy_Internal;
   if ( Policy_Internal >= 0 )
   {
@@ -61,35 +61,35 @@ __int64 __fastcall SeQuerySigningPolicyWorker(
         v20 = &Feature_WldpDeveloperMode__private_propertyCache;
       }
       wil_details_FeaturePropertyCache_ReportUsageToService((__int64)v20, v19, (__int64)v18, 1u, 3);
-      if ( v15 != 3014658 || (v13 = BYTE2(TokenInformation_4[0]) - 4LL, v13 <= 1) )
+      if ( v15 != 3014658 || (v13 = BYTE2(TokenInformation_4[0].Flags) - 4LL, v13 <= 1) )
       {
         if ( (a3 & 1) == 0 )
         {
           v16 = 6;
-          if ( BYTE2(TokenInformation_4[0]) > 6uLL )
+          if ( BYTE2(TokenInformation_4[0].Flags) > 6uLL )
             goto LABEL_9;
-          if ( BYTE2(TokenInformation_4[0]) <= 1u )
+          if ( BYTE2(TokenInformation_4[0].Flags) <= 1u )
           {
             v16 = a5;
           }
           else
           {
-            if ( BYTE2(TokenInformation_4[0]) == 2 )
+            if ( BYTE2(TokenInformation_4[0].Flags) == 2 )
             {
               *a6 = 8;
               *a7 = a5;
               goto LABEL_8;
             }
-            if ( BYTE2(TokenInformation_4[0]) != 3 )
+            if ( BYTE2(TokenInformation_4[0].Flags) != 3 )
             {
-              if ( BYTE2(TokenInformation_4[0]) <= 5u )
+              if ( BYTE2(TokenInformation_4[0].Flags) <= 5u )
               {
                 v24 = a5 != 0 ? 3 : 0;
                 *a6 = v24;
                 *a7 = v24;
                 goto LABEL_8;
               }
-              if ( BYTE2(TokenInformation_4[0]) != 6 )
+              if ( BYTE2(TokenInformation_4[0].Flags) != 6 )
                 goto LABEL_9;
               v16 = a5 != 2 ? 0 : 2;
             }

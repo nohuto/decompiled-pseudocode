@@ -1,15 +1,15 @@
 /*
- * XREFs of _PnpGetGenericStorePropertyLocales @ 0x140AB3B94
+ * XREFs of _PnpGetGenericStorePropertyLocales @ 0x140AB4F34
  * Callers:
- *     PiDqPnPGetObjectPropertyLocales @ 0x140AB3718 (PiDqPnPGetObjectPropertyLocales.c)
- *     _PnpGetObjectPropertyLocalesWorker @ 0x140AB39A4 (_PnpGetObjectPropertyLocalesWorker.c)
+ *     PiDqPnPGetObjectPropertyLocales @ 0x140AB4AB8 (PiDqPnPGetObjectPropertyLocales.c)
+ *     _PnpGetObjectPropertyLocalesWorker @ 0x140AB4D44 (_PnpGetObjectPropertyLocalesWorker.c)
  * Callees:
- *     RtlStringCchPrintfExW @ 0x14044E030 (RtlStringCchPrintfExW.c)
- *     RtlStringCchCopyExW @ 0x14045AB50 (RtlStringCchCopyExW.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     _RegRtlEnumValue @ 0x14091AFB0 (_RegRtlEnumValue.c)
- *     _PnpOpenPropertiesKey @ 0x140995B20 (_PnpOpenPropertiesKey.c)
+ *     RtlStringCchPrintfExW @ 0x140446160 (RtlStringCchPrintfExW.c)
+ *     RtlStringCchCopyExW @ 0x140454380 (RtlStringCchCopyExW.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     _PnpOpenPropertiesKey @ 0x140956580 (_PnpOpenPropertiesKey.c)
+ *     _RegRtlEnumValue @ 0x140975A14 (_RegRtlEnumValue.c)
  */
 
 __int64 __fastcall PnpGetGenericStorePropertyLocales(
@@ -28,7 +28,7 @@ __int64 __fastcall PnpGetGenericStorePropertyLocales(
   int v11; // eax
   unsigned int v12; // eax
   __int64 v14; // rdi
-  NTSTRSAFE_PCWSTR pszFormat; // [rsp+28h] [rbp-E8h]
+  int pszFormat; // [rsp+28h] [rbp-E8h]
   __int64 v16; // [rsp+90h] [rbp-80h] BYREF
   HANDLE Handle; // [rsp+98h] [rbp-78h] BYREF
   __int64 v18; // [rsp+A0h] [rbp-70h]
@@ -51,7 +51,7 @@ __int64 __fastcall PnpGetGenericStorePropertyLocales(
          L"{%08lx-%04x-%04x-%02x%02x-%02x%02x%02x%02x%02x%02x}\\%04lX");
   if ( v7 >= 0 )
   {
-    v8 = PnpOpenPropertiesKey(v18, v16, pszDest, 1LL, 0, (__int64)pszFormat, &Handle);
+    v8 = PnpOpenPropertiesKey(v18, v16, pszDest, 1LL, 0, pszFormat, &Handle);
     v7 = v8;
     if ( v8 == -1073741772 )
     {

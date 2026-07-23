@@ -23,26 +23,16 @@
  *     sub_1800D5274 @ 0x1800D5274 (sub_1800D5274.c)
  */
 
-__int64 __fastcall sub_18001DF1C(
-        __int64 a1,
-        int a2,
-        unsigned int a3,
-        int a4,
-        __int64 a5,
-        __int64 a6,
-        __int64 *a7,
-        int *a8)
+int __fastcall sub_18001DF1C(PUNICODE_STRING a1, int a2, int a3, int a4, __int64 a5, __int64 a6, PVOID *a7, int *a8)
 {
-  __int64 result; // rax
+  int result; // eax
   int *v12; // rbx
   char v13; // di
   int v14; // eax
-  __int64 v15; // rax
-  __int64 v16; // r8
-  __int64 v17; // r9
-  int v18; // eax
-  int v19; // eax
-  __int64 v20; // [rsp+48h] [rbp-30h] BYREF
+  PVOID v15; // rax
+  int v16; // eax
+  int v17; // eax
+  PVOID BaseAddress; // [rsp+48h] [rbp-30h] BYREF
 
   if ( (dword_180155A10 & 9) != 0 )
     sub_1800D5274(
@@ -53,9 +43,9 @@ __int64 __fastcall sub_18001DF1C(
       "DLL name: %wZ\n",
       a1);
   *a7 = 0LL;
-  v20 = 0LL;
-  result = sub_18001E19C(a1, a3, a6, a7);
-  if ( (int)result < 0 )
+  BaseAddress = 0LL;
+  result = sub_18001E19C(a1);
+  if ( result < 0 )
   {
     if ( (NtCurrentTeb()->SameTebFlags & 0x1000) != 0 )
     {
@@ -70,10 +60,10 @@ __int64 __fastcall sub_18001DF1C(
     {
       sub_18001A9B4();
       v12 = a8;
-      v14 = sub_18001AA5C(a1, a2, a3, a4, a5, &v20, (__int64)a8);
+      v14 = sub_18001AA5C(a1, a2, a3, a4, a5, &BaseAddress, (__int64)a8);
       if ( v14 == -1073741515 )
       {
-        sub_180019170(*(_QWORD *)(v20 + 176), 1);
+        sub_180019170(*((_QWORD *)BaseAddress + 22), 1);
       }
       else if ( v14 != -1073741267 && v14 < 0 )
       {
@@ -85,37 +75,37 @@ __int64 __fastcall sub_18001DF1C(
       v12 = a8;
       *a8 = -1073741515;
     }
-    result = (__int64)sub_18001AE14(1);
-    if ( v20 )
+    result = (unsigned int)sub_18001AE14(1);
+    if ( BaseAddress )
     {
-      v15 = sub_18001A984(v20);
+      v15 = (PVOID)sub_18001A984((__int64)BaseAddress);
       *a7 = v15;
-      if ( v20 != v15 )
+      if ( BaseAddress != v15 )
       {
-        sub_180086EA8();
-        v20 = *a7;
+        sub_180086EA8(BaseAddress);
+        BaseAddress = *a7;
       }
-      if ( *(_QWORD *)(v20 + 176) )
-        sub_18001A7FC(*(_QWORD *)(v20 + 152));
+      if ( *((_QWORD *)BaseAddress + 22) )
+        sub_18001A7FC(*((_QWORD *)BaseAddress + 19));
       if ( *v12 >= 0 )
       {
-        v18 = sub_18001A58C(v20, (__int64)v12, v16, v17);
-        *v12 = v18;
-        if ( ~v18 < 0 )
+        v16 = sub_18001A58C((__int64)BaseAddress, (__int64)v12);
+        *v12 = v16;
+        if ( ~v16 < 0 )
         {
-          v19 = sub_18001BE0C(a6, v20);
-          *v12 = v19;
-          if ( ~v19 < 0 && !dword_18015C018 )
-            sub_18001A084(v20);
+          v17 = sub_18001BE0C(a6, (__int64)BaseAddress);
+          *v12 = v17;
+          if ( ~v17 < 0 && !dword_18015C018 )
+            sub_18001A084((__int64)BaseAddress);
         }
       }
-      sub_18001A828(*(_QWORD **)(v20 + 152), (__int64)v12);
-      result = (unsigned int)~*v12;
+      sub_18001A828(*((_QWORD **)BaseAddress + 19), (__int64)v12);
+      result = ~*v12;
       if ( (result & 0x80000000) == 0 )
       {
         *a7 = 0LL;
-        sub_180011D94(v20, 0);
-        result = sub_18003015C(v20);
+        sub_180011D94((__int64)BaseAddress, 0);
+        result = sub_18003015C(BaseAddress);
       }
     }
     else

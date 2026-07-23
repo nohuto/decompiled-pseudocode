@@ -1,10 +1,10 @@
 /*
- * XREFs of PopBatteryInitPhaseTwo @ 0x1409DAE54
+ * XREFs of PopBatteryInitPhaseTwo @ 0x1409DBE54
  * Callers:
- *     PoInitSystem @ 0x1409B2C10 (PoInitSystem.c)
+ *     PoInitSystem @ 0x1409B3C10 (PoInitSystem.c)
  * Callees:
- *     PopReadUlongPowerKey @ 0x140190C68 (PopReadUlongPowerKey.c)
- *     EtwRegister @ 0x1406BE540 (EtwRegister.c)
+ *     PopReadUlongPowerKey @ 0x140190DA8 (PopReadUlongPowerKey.c)
+ *     EtwRegister @ 0x1406BF7E0 (EtwRegister.c)
  */
 
 NTSTATUS PopBatteryInitPhaseTwo()

@@ -1,8 +1,8 @@
 /*
- * XREFs of MiUpdateCloneReducedCommit @ 0x14049AD5C
+ * XREFs of MiUpdateCloneReducedCommit @ 0x1404948AC
  * Callers:
- *     MiDecrementCloneBlock @ 0x14036A250 (MiDecrementCloneBlock.c)
- *     MiWriteSharedDemandZeroPte @ 0x14049AC34 (MiWriteSharedDemandZeroPte.c)
+ *     MiDecrementCloneBlock @ 0x14036BFF0 (MiDecrementCloneBlock.c)
+ *     MiWriteSharedDemandZeroPte @ 0x140494784 (MiWriteSharedDemandZeroPte.c)
  * Callees:
  *     <none>
  */

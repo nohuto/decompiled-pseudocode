@@ -1,20 +1,20 @@
 /*
- * XREFs of NtGetCurrentProcessorNumberEx @ 0x1409AE5A0
+ * XREFs of NtGetCurrentProcessorNumberEx @ 0x1409AE7A0
  * Callers:
  *     <none>
  * Callees:
- *     ProbeForWrite @ 0x140729380 (ProbeForWrite.c)
+ *     ProbeForWrite @ 0x140729580 (ProbeForWrite.c)
  */
 
-__int64 __fastcall NtGetCurrentProcessorNumberEx(_BYTE *a1)
+ULONG __cdecl NtGetCurrentProcessorNumberEx(PPROCESSOR_NUMBER ProcessorNumber)
 {
   struct _KPRCB *CurrentPrcb; // rcx
 
   if ( KeGetCurrentThread()->PreviousMode )
-    ProbeForWrite(a1, 4uLL, 1u);
+    ProbeForWrite(ProcessorNumber, 4uLL, 1u);
   CurrentPrcb = KeGetCurrentPrcb();
-  *(_WORD *)a1 = CurrentPrcb->Group;
-  a1[2] = CurrentPrcb->GroupIndex;
-  a1[3] = 0;
-  return 0LL;
+  ProcessorNumber->Group = CurrentPrcb->Group;
+  ProcessorNumber->Number = CurrentPrcb->GroupIndex;
+  ProcessorNumber->Reserved = 0;
+  return 0;
 }

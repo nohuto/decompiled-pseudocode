@@ -1,21 +1,21 @@
 /*
- * XREFs of PopPepUpdateIdleStateRefCount @ 0x1403A0864
+ * XREFs of PopPepUpdateIdleStateRefCount @ 0x1403A09B4
  * Callers:
- *     PopPepDeviceDState @ 0x1403A0220 (PopPepDeviceDState.c)
- *     PopPepCompleteComponentIdleStateChangeActivity @ 0x1403A0720 (PopPepCompleteComponentIdleStateChangeActivity.c)
- *     PopPepStartComponentIdleStateChangeActivity @ 0x1403A48B0 (PopPepStartComponentIdleStateChangeActivity.c)
- *     PopPepClearDripsDeviceVetoMask @ 0x1405740C4 (PopPepClearDripsDeviceVetoMask.c)
- *     PopPepInitializeVetoMasks @ 0x140574D9C (PopPepInitializeVetoMasks.c)
- *     PopPepPlatformStateRegistered @ 0x1405754BC (PopPepPlatformStateRegistered.c)
- *     PopPepUpdateDripsDeviceVetoMask @ 0x140576100 (PopPepUpdateDripsDeviceVetoMask.c)
- *     PopPepUnregisterDevice @ 0x1407B52D0 (PopPepUnregisterDevice.c)
+ *     PopPepDeviceDState @ 0x1403A0370 (PopPepDeviceDState.c)
+ *     PopPepCompleteComponentIdleStateChangeActivity @ 0x1403A0870 (PopPepCompleteComponentIdleStateChangeActivity.c)
+ *     PopPepStartComponentIdleStateChangeActivity @ 0x1403A4A00 (PopPepStartComponentIdleStateChangeActivity.c)
+ *     PopPepClearDripsDeviceVetoMask @ 0x140574304 (PopPepClearDripsDeviceVetoMask.c)
+ *     PopPepInitializeVetoMasks @ 0x140574FDC (PopPepInitializeVetoMasks.c)
+ *     PopPepPlatformStateRegistered @ 0x1405756FC (PopPepPlatformStateRegistered.c)
+ *     PopPepUpdateDripsDeviceVetoMask @ 0x140576340 (PopPepUpdateDripsDeviceVetoMask.c)
+ *     PopPepUnregisterDevice @ 0x1407B4A1C (PopPepUnregisterDevice.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x14024B280 (KeYieldProcessorEx.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     KeYieldProcessorEx @ 0x1402EFAD0 (KeYieldProcessorEx.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     memset @ 0x140414200 (memset.c)
- *     PopFxBugCheck @ 0x1405693EC (PopFxBugCheck.c)
- *     PopFxPlatformStateAvailable @ 0x14056BA8C (PopFxPlatformStateAvailable.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     PopFxBugCheck @ 0x14056962C (PopFxBugCheck.c)
+ *     PopFxPlatformStateAvailable @ 0x14056BCCC (PopFxPlatformStateAvailable.c)
  */
 
 unsigned __int64 __fastcall PopPepUpdateIdleStateRefCount(int a1, int a2, int a3)

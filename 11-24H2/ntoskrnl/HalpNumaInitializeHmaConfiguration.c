@@ -1,11 +1,11 @@
 /*
- * XREFs of HalpNumaInitializeHmaConfiguration @ 0x140C11974
+ * XREFs of HalpNumaInitializeHmaConfiguration @ 0x140C13974
  * Callers:
- *     HalpSetupAcpiPhase0 @ 0x140C137FC (HalpSetupAcpiPhase0.c)
+ *     HalpSetupAcpiPhase0 @ 0x140C157FC (HalpSetupAcpiPhase0.c)
  * Callees:
- *     HalpAcpiGetTable @ 0x140478488 (HalpAcpiGetTable.c)
- *     HalpMmAllocateMemoryInternal @ 0x140542CD0 (HalpMmAllocateMemoryInternal.c)
- *     HalpNumaParseHmat @ 0x140C122A0 (HalpNumaParseHmat.c)
+ *     HalpAcpiGetTable @ 0x14045F918 (HalpAcpiGetTable.c)
+ *     HalpMmAllocateMemoryInternal @ 0x140540620 (HalpMmAllocateMemoryInternal.c)
+ *     HalpNumaParseHmat @ 0x140C142A0 (HalpNumaParseHmat.c)
  */
 
 __int64 __fastcall HalpNumaInitializeHmaConfiguration(__int64 a1)
@@ -17,7 +17,7 @@ __int64 __fastcall HalpNumaInitializeHmaConfiguration(__int64 a1)
   unsigned int v5; // [rsp+38h] [rbp+10h] BYREF
 
   v5 = 0;
-  result = HalpAcpiGetTable(a1, 1413565768, 0LL, 0LL);
+  result = HalpAcpiGetTable(a1, 1413565768, 0, 0);
   HalpAcpiHmat = result;
   if ( result )
   {

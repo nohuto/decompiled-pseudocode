@@ -1,7 +1,7 @@
 /*
- * XREFs of ExpGetHalNumaQueryDataType @ 0x1408468D8
+ * XREFs of ExpGetHalNumaQueryDataType @ 0x14084CB38
  * Callers:
- *     ExpQuerySystemMemoryNumaPerformanceInformation @ 0x140B6C088 (ExpQuerySystemMemoryNumaPerformanceInformation.c)
+ *     ExpQuerySystemMemoryNumaPerformanceInformation @ 0x140B6F184 (ExpQuerySystemMemoryNumaPerformanceInformation.c)
  * Callees:
  *     <none>
  */

@@ -1,31 +1,34 @@
 /*
- * XREFs of EtwpCoverageProvEnableCallback @ 0x140935110
+ * XREFs of EtwpCoverageProvEnableCallback @ 0x1409352E0
  * Callers:
  *     <none>
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
- *     _tlgKeywordOn @ 0x1402605BC (_tlgKeywordOn.c)
- *     EtwTelemetryCoverageReport @ 0x1402C84B0 (EtwTelemetryCoverageReport.c)
- *     TelemetryCoverageStringHashInternal @ 0x1402C86A8 (TelemetryCoverageStringHashInternal.c)
- *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
- *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
+ *     EtwTelemetryCoverageReport @ 0x140246D10 (EtwTelemetryCoverageReport.c)
+ *     TelemetryCoverageStringHashInternal @ 0x140246F08 (TelemetryCoverageStringHashInternal.c)
+ *     _tlgKeywordOn @ 0x1402864F4 (_tlgKeywordOn.c)
+ *     KeLeaveCriticalRegionThread @ 0x1402AB8C0 (KeLeaveCriticalRegionThread.c)
+ *     ExfTryToWakePushLock @ 0x1402FC2C0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x1403539D0 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1403556E0 (ExAcquirePushLockExclusiveEx.c)
  */
 
 _QWORD *EtwpCoverageProvEnableCallback()
 {
   unsigned __int8 v0; // di
   struct _KTHREAD *CurrentThread; // rax
-  _DWORD v3[6]; // [rsp+20h] [rbp-18h] BYREF
+  __int64 v2; // rdx
+  __int64 v3; // r8
+  __int64 v4; // r9
+  _DWORD v6[6]; // [rsp+20h] [rbp-18h] BYREF
 
   if ( dword_140C02C28 && tlgKeywordOn((__int64)&dword_140C02C28, 1LL) )
   {
     v0 = 1;
-    if ( !EtwpCoverageCoreTracingEnabled && (unsigned int)dword_140C0EFDC < MEMORY[0xFFFFF7800000037C] )
+    if ( !EtwpCoverageCoreTracingEnabled && (unsigned int)dword_140C0EFEC < MEMORY[0xFFFFF7800000037C] )
     {
-      if ( !dword_140C0EFD8 )
-        dword_140C0EFD8 = TelemetryCoverageStringHashInternal(off_140C0EFD0, v3);
-      EtwTelemetryCoverageReport(&off_140C0EFD0);
+      if ( !dword_140C0EFE8 )
+        dword_140C0EFE8 = TelemetryCoverageStringHashInternal(off_140C0EFE0, v6);
+      EtwTelemetryCoverageReport((__int64 *)&off_140C0EFE0);
     }
   }
   else
@@ -54,5 +57,5 @@ _QWORD *EtwpCoverageProvEnableCallback()
   if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&EtwpCoverageLock, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
     ExfTryToWakePushLock(&EtwpCoverageLock);
   KeAbPostRelease((ULONG_PTR)&EtwpCoverageLock);
-  return KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+  return KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v2, v3, v4);
 }

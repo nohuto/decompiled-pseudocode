@@ -1,17 +1,17 @@
 /*
- * XREFs of PopEvaluateGlobalUserStatus @ 0x1406DCA98
+ * XREFs of PopEvaluateGlobalUserStatus @ 0x1406DDD38
  * Callers:
- *     PopSetSessionUserStatus @ 0x1406DC9B8 (PopSetSessionUserStatus.c)
- *     PopUserPresentOverride @ 0x140879210 (PopUserPresentOverride.c)
+ *     PopSetSessionUserStatus @ 0x1406DDC58 (PopSetSessionUserStatus.c)
+ *     PopUserPresentOverride @ 0x14087A470 (PopUserPresentOverride.c)
  * Callees:
  *     PopUmpoSendPowerMessage @ 0x1400035C0 (PopUmpoSendPowerMessage.c)
  *     RtlNumberOfSetBits @ 0x14000F440 (RtlNumberOfSetBits.c)
- *     PopPrintEx @ 0x14014242C (PopPrintEx.c)
- *     ZwUpdateWnfStateData @ 0x1401BBA70 (ZwUpdateWnfStateData.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     PopSetPowerSettingValueAcDc @ 0x14058AA3C (PopSetPowerSettingValueAcDc.c)
- *     PopPrintUserActivityPresence @ 0x1406DCBC8 (PopPrintUserActivityPresence.c)
- *     PopDiagTraceSessionStateCounted @ 0x1406DCD2C (PopDiagTraceSessionStateCounted.c)
+ *     PopPrintEx @ 0x14014252C (PopPrintEx.c)
+ *     ZwUpdateWnfStateData @ 0x1401BBBD0 (ZwUpdateWnfStateData.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     PopSetPowerSettingValueAcDc @ 0x14058BA3C (PopSetPowerSettingValueAcDc.c)
+ *     PopPrintUserActivityPresence @ 0x1406DDE68 (PopPrintUserActivityPresence.c)
+ *     PopDiagTraceSessionStateCounted @ 0x1406DDFCC (PopDiagTraceSessionStateCounted.c)
  */
 
 void PopEvaluateGlobalUserStatus()
@@ -23,7 +23,7 @@ void PopEvaluateGlobalUserStatus()
   __int64 v4; // rcx
   _DWORD Src[20]; // [rsp+40h] [rbp+7h] BYREF
   unsigned int v6; // [rsp+A0h] [rbp+67h] BYREF
-  int v7; // [rsp+A8h] [rbp+6Fh] BYREF
+  int Buffer; // [rsp+A8h] [rbp+6Fh] BYREF
   int v8; // [rsp+ACh] [rbp+73h]
 
   if ( PopUserPresentOverrideCount || !PopMaximumConnectionSessions )
@@ -41,19 +41,19 @@ void PopEvaluateGlobalUserStatus()
     PopSetPowerSettingValueAcDc(&GUID_GLOBAL_USER_PRESENCE, 4LL, &v6);
     if ( v0 )
     {
-      v7 = 1;
+      Buffer = 1;
       memset(Src, 0, 0x48uLL);
       Src[2] = 1;
     }
     else
     {
-      v7 = 0;
+      Buffer = 0;
       memset(Src, 0, 0x48uLL);
       Src[2] = 0;
     }
     Src[0] = 12;
     PopUmpoSendPowerMessage(Src, 0x48uLL, 0);
     v8 = PopGlobalUserPresenceStateTransitions;
-    ZwUpdateWnfStateData((__int64)&WNF_PO_SLEEP_STUDY_USER_PRESENCE_CHANGED, (__int64)&v7, 8LL);
+    ZwUpdateWnfStateData(&WNF_PO_SLEEP_STUDY_USER_PRESENCE_CHANGED, &Buffer, 8u, 0LL, 0LL, 0, 0);
   }
 }

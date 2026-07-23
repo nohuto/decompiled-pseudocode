@@ -1,15 +1,15 @@
 /*
- * XREFs of _PnpCtxDestroyNode @ 0x140A60838
+ * XREFs of _PnpCtxDestroyNode @ 0x140A60AE8
  * Callers:
- *     PiPnpRtlInit @ 0x140811214 (PiPnpRtlInit.c)
- *     _PnpCtxOpenMachine @ 0x140854C94 (_PnpCtxOpenMachine.c)
- *     _PnpCtxCloseMachine @ 0x140A60770 (_PnpCtxCloseMachine.c)
- *     _PnpCtxRegisterMachineNode @ 0x140A60BB8 (_PnpCtxRegisterMachineNode.c)
- *     _PnpCtxUnregisterMachineNode @ 0x140A60D1C (_PnpCtxUnregisterMachineNode.c)
+ *     PiPnpRtlInit @ 0x1408114E4 (PiPnpRtlInit.c)
+ *     _PnpCtxOpenMachine @ 0x140854F94 (_PnpCtxOpenMachine.c)
+ *     _PnpCtxCloseMachine @ 0x140A60A20 (_PnpCtxCloseMachine.c)
+ *     _PnpCtxRegisterMachineNode @ 0x140A60E68 (_PnpCtxRegisterMachineNode.c)
+ *     _PnpCtxUnregisterMachineNode @ 0x140A60FCC (_PnpCtxUnregisterMachineNode.c)
  * Callees:
- *     ZwClose @ 0x14041AF40 (ZwClose.c)
- *     RtlFreeUnicodeString @ 0x14076F3D0 (RtlFreeUnicodeString.c)
- *     _SysCtxCloseMachine @ 0x140A6A354 (_SysCtxCloseMachine.c)
+ *     ZwClose @ 0x14041B2D0 (ZwClose.c)
+ *     RtlFreeUnicodeString @ 0x14076F5C0 (RtlFreeUnicodeString.c)
+ *     _SysCtxCloseMachine @ 0x140A6A604 (_SysCtxCloseMachine.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

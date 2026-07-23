@@ -1,9 +1,9 @@
 /*
- * XREFs of ViPostPoolAllocation @ 0x1409D552C
+ * XREFs of ViPostPoolAllocation @ 0x1409D652C
  * Callers:
- *     VeAllocatePoolWithTagPriority @ 0x1409D45D0 (VeAllocatePoolWithTagPriority.c)
+ *     VeAllocatePoolWithTagPriority @ 0x1409D55D0 (VeAllocatePoolWithTagPriority.c)
  * Callees:
- *     ExpSizeHeapPool @ 0x1405BA330 (ExpSizeHeapPool.c)
+ *     ExpSizeHeapPool @ 0x1405BA560 (ExpSizeHeapPool.c)
  */
 
 ULONG_PTR __fastcall ViPostPoolAllocation(ULONG_PTR *a1, char a2)
@@ -69,12 +69,12 @@ LABEL_13:
     v12 = _InterlockedIncrement((volatile signed __int32 *)(v6 + 104));
     if ( v12 > *(_DWORD *)(v6 + 112) )
       *(_DWORD *)(v6 + 112) = v12;
-    v13 = v7 + _InterlockedExchangeAdd64(&qword_140C2A8B0, v7);
-    if ( v13 > qword_140C2A8C0 )
-      qword_140C2A8C0 = v13;
-    v14 = _InterlockedIncrement(&dword_140C2A8A0);
-    if ( v14 > dword_140C2A8A8 )
-      dword_140C2A8A8 = v14;
+    v13 = v7 + _InterlockedExchangeAdd64(&qword_140C2A8F0, v7);
+    if ( v13 > qword_140C2A900 )
+      qword_140C2A900 = v13;
+    v14 = _InterlockedIncrement(&dword_140C2A8E0);
+    if ( v14 > dword_140C2A8E8 )
+      dword_140C2A8E8 = v14;
   }
   else
   {
@@ -84,12 +84,12 @@ LABEL_13:
     v16 = _InterlockedIncrement((volatile signed __int32 *)(v6 + 108));
     if ( v16 > *(_DWORD *)(v6 + 116) )
       *(_DWORD *)(v6 + 116) = v16;
-    v17 = v7 + _InterlockedExchangeAdd64(&qword_140C2A8B8, v7);
-    if ( v17 > qword_140C2A8C8 )
-      qword_140C2A8C8 = v17;
-    v18 = _InterlockedIncrement(&dword_140C2A8A4);
-    if ( v18 > dword_140C2A8AC )
-      dword_140C2A8AC = v18;
+    v17 = v7 + _InterlockedExchangeAdd64(&qword_140C2A8F8, v7);
+    if ( v17 > qword_140C2A908 )
+      qword_140C2A908 = v17;
+    v18 = _InterlockedIncrement(&dword_140C2A8E4);
+    if ( v18 > dword_140C2A8EC )
+      dword_140C2A8EC = v18;
   }
   result = v2;
   *v9 = a1;

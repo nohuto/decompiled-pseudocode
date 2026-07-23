@@ -15,7 +15,7 @@ char InSMode()
   memset(SystemInformation, 0, sizeof(SystemInformation));
   if ( g_sModeChecked )
     return g_inSMode;
-  result = ZwQuerySystemInformation(SystemContextSwitchInformation|0x80, SystemInformation, 0x20u, 0LL) >= 0
+  result = ZwQuerySystemInformation(SystemCodeIntegrityPolicyInformation, SystemInformation, 0x20u, 0LL) >= 0
         && (SystemInformation[0] & 0xA0000000) != 0;
   g_inSMode = result;
   g_sModeChecked = 1;

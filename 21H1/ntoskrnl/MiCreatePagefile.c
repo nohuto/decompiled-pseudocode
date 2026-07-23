@@ -42,7 +42,7 @@ _BYTE *__fastcall MiCreatePagefile(
   ULONG_PTR v23; // rax
   __int64 PageFileSpaceBitmaps; // rax
   __int64 v25; // rdi
-  RTL_BITMAP *v26; // rdi
+  _RTL_BITMAP *v26; // rdi
   PVOID v27; // rax
   _BYTE v30[288]; // [rsp+30h] [rbp-158h] BYREF
 
@@ -136,7 +136,7 @@ _BYTE *__fastcall MiCreatePagefile(
     *((_QWORD *)v13 + 14) = PageFileSpaceBitmaps;
     RtlSetAllBits((PRTL_BITMAP)(PageFileSpaceBitmaps + 8));
     RtlClearBits((PRTL_BITMAP)(v25 + 8), 2u, *(_DWORD *)v13 - 2);
-    v26 = (RTL_BITMAP *)(v25 + 24);
+    v26 = (_RTL_BITMAP *)(v25 + 24);
     RtlSetAllBits(v26);
     if ( (a8 & 2) == 0 )
       RtlClearBits(v26, 2u, *(_DWORD *)v13 - 2);

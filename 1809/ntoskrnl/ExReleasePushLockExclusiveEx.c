@@ -8,8 +8,8 @@
  *     MiGetSystemRegionType @ 0x14004EC30 (MiGetSystemRegionType.c)
  *     KiAbThreadRemoveBoosts @ 0x14004EFD0 (KiAbThreadRemoveBoosts.c)
  *     MmGetSessionIdEx @ 0x14004F060 (MmGetSessionIdEx.c)
- *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     ExfTryToWakePushLock @ 0x140091500 (ExfTryToWakePushLock.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
  */
 
 char __fastcall ExReleasePushLockExclusiveEx(ULONG_PTR BugCheckParameter2, ULONG_PTR BugCheckParameter1)
@@ -83,7 +83,7 @@ LABEL_24:
     {
       v13->CrossThreadReleasableAndBusyByte |= 2u;
       if ( (__int64)v13->LockState.LockState < 0 )
-        KiAbEntryRemoveFromTree((__int64)&CurrentThread->LockEntries[v12], v8);
+        KiAbEntryRemoveFromTree(&CurrentThread->LockEntries[v12].TreeNode, v8);
       v14 = v13->BoostBitmap.AllFields & 0x1FFFF;
       v15 = v13->BoostBitmap.AllFields & 0xFFFE0000;
       v13->ThreadLocalFlags &= ~1u;

@@ -1,14 +1,14 @@
 /*
- * XREFs of ?SmpIoCompletionApc@@YAXPEAXPEAU_IO_STATUS_BLOCK@@K@Z @ 0x14060ED80
+ * XREFs of ?SmpIoCompletionApc@@YAXPEAXPEAU_IO_STATUS_BLOCK@@K@Z @ 0x14060D340
  * Callers:
  *     <none>
  * Callees:
- *     KeSetEvent @ 0x1402725A0 (KeSetEvent.c)
- *     SmKmStoreDereference @ 0x14027A498 (SmKmStoreDereference.c)
- *     SmWorkItemQueue @ 0x14028F9CC (SmWorkItemQueue.c)
+ *     KeSetEvent @ 0x140227B30 (KeSetEvent.c)
+ *     SmKmStoreDereference @ 0x14022FA28 (SmKmStoreDereference.c)
+ *     SmWorkItemQueue @ 0x14029F5CC (SmWorkItemQueue.c)
  */
 
-void __fastcall SmpIoCompletionApc(__int64 a1, struct _IO_STATUS_BLOCK *a2)
+void __fastcall SmpIoCompletionApc(void *a1, struct _IO_STATUS_BLOCK *a2)
 {
   NTSTATUS Status; // eax
   struct _IO_STATUS_BLOCK *v3; // r9
@@ -26,14 +26,14 @@ void __fastcall SmpIoCompletionApc(__int64 a1, struct _IO_STATUS_BLOCK *a2)
       LODWORD(v3->Information) = Status;
   }
   if ( v3[1].Pointer )
-    _InterlockedDecrement((volatile signed __int32 *)(a1 + 6928));
+    _InterlockedDecrement((volatile signed __int32 *)a1 + 1732);
   if ( (v3[1].Information & 0x400000000LL) != 0 )
   {
-    KeSetEvent((PRKEVENT)(a1 + 6984), 1, 0);
+    KeSetEvent((PRKEVENT)a1 + 291, 1, 0);
   }
   else
   {
-    SmWorkItemQueue(a1, (unsigned __int64)v3, 1);
-    SmKmStoreDereference(*(_QWORD *)(a1 + 7576), *(_DWORD *)(a1 + 6832));
+    SmWorkItemQueue();
+    SmKmStoreDereference(*((_QWORD *)a1 + 947), *((_DWORD *)a1 + 1708));
   }
 }

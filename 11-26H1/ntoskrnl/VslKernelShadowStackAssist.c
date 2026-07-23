@@ -1,17 +1,17 @@
 /*
- * XREFs of VslKernelShadowStackAssist @ 0x140368500
+ * XREFs of VslKernelShadowStackAssist @ 0x14036A2A0
  * Callers:
- *     KiProcessDeferredDpcWatchdogViolation @ 0x14032D1E8 (KiProcessDeferredDpcWatchdogViolation.c)
- *     KxContextToKframes @ 0x1403D52E0 (KxContextToKframes.c)
- *     KiProcessControlProtectionFromKernelMode @ 0x14052865C (KiProcessControlProtectionFromKernelMode.c)
- *     KiCheckForFreezeExecution @ 0x1405E79B0 (KiCheckForFreezeExecution.c)
- *     KiKernelShadowStackAssistMceAlternateReturn @ 0x1405FAC70 (KiKernelShadowStackAssistMceAlternateReturn.c)
- *     KiDebugTrapOrFault @ 0x140733480 (KiDebugTrapOrFault.c)
+ *     KiProcessDeferredDpcWatchdogViolation @ 0x14032F218 (KiProcessDeferredDpcWatchdogViolation.c)
+ *     KxContextToKframes @ 0x1403D82B0 (KxContextToKframes.c)
+ *     KiProcessControlProtectionFromKernelMode @ 0x14052ACCC (KiProcessControlProtectionFromKernelMode.c)
+ *     KiCheckForFreezeExecution @ 0x1405EA320 (KiCheckForFreezeExecution.c)
+ *     KiKernelShadowStackAssistMceAlternateReturn @ 0x1405FD690 (KiKernelShadowStackAssistMceAlternateReturn.c)
+ *     KiDebugTrapOrFault @ 0x140738080 (KiDebugTrapOrFault.c)
  * Callees:
- *     VslpEnterIumSecureMode @ 0x1403685AC (VslpEnterIumSecureMode.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     VslpEnterIumSecureMode @ 0x14036A34C (VslpEnterIumSecureMode.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall VslKernelShadowStackAssist(int a1, __int64 a2, __int64 a3, __int64 a4, __int64 a5, int a6)

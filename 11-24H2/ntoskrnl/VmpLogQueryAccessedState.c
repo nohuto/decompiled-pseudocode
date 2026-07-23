@@ -1,11 +1,11 @@
 /*
- * XREFs of VmpLogQueryAccessedState @ 0x14064BAD0
+ * XREFs of VmpLogQueryAccessedState @ 0x14064A090
  * Callers:
- *     VmpQueryAccessedState @ 0x1403AAF1C (VmpQueryAccessedState.c)
+ *     VmpQueryAccessedState @ 0x140399630 (VmpQueryAccessedState.c)
  * Callees:
- *     _tlgKeywordOn @ 0x140426AF0 (_tlgKeywordOn.c)
- *     _tlgWriteEx_EtwWriteEx @ 0x1404A083C (_tlgWriteEx_EtwWriteEx.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     _tlgKeywordOn @ 0x14041A970 (_tlgKeywordOn.c)
+ *     _tlgWriteEx_EtwWriteEx @ 0x14049AEBC (_tlgWriteEx_EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 void __fastcall VmpLogQueryAccessedState(
@@ -76,6 +76,6 @@ void __fastcall VmpLogQueryAccessedState(
     v34 = 4LL;
     v36 = 8LL;
     v38 = 8LL;
-    tlgWriteEx_EtwWriteEx(v10, (unsigned __int8 *)&byte_140051B23, v8, 0, v12, v13, 0xAu, &v22);
+    tlgWriteEx_EtwWriteEx(v10, (unsigned __int8 *)&byte_1400529E5, v8, 0, v12, v13, 0xAu, &v22);
   }
 }

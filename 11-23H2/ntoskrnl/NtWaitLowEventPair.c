@@ -1,12 +1,12 @@
 /*
- * XREFs of NtWaitLowEventPair @ 0x1407FD660
+ * XREFs of NtWaitLowEventPair @ 0x1407FD930
  * Callers:
- *     MiKernelWriteToExecutableMemory @ 0x14064636C (MiKernelWriteToExecutableMemory.c)
+ *     MiKernelWriteToExecutableMemory @ 0x1406468BC (MiKernelWriteToExecutableMemory.c)
  * Callees:
  *     <none>
  */
 
-__int64 NtWaitLowEventPair()
+NTSTATUS __cdecl NtWaitLowEventPair(HANDLE EventPairHandle)
 {
-  return 3221225474LL;
+  return -1073741822;
 }

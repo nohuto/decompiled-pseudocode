@@ -1,20 +1,20 @@
 /*
- * XREFs of ExAcquireFastResourceExclusive @ 0x14038ECD0
+ * XREFs of ExAcquireFastResourceExclusive @ 0x14038EE20
  * Callers:
- *     ExpFastResourceLegacyAcquireExclusive @ 0x14038E464 (ExpFastResourceLegacyAcquireExclusive.c)
+ *     ExpFastResourceLegacyAcquireExclusive @ 0x14038E5B4 (ExpFastResourceLegacyAcquireExclusive.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     KeAbPostReleaseEx @ 0x14028DE10 (KeAbPostReleaseEx.c)
- *     ExpPrepareToWaitForResourceExclusive @ 0x1402B9CC0 (ExpPrepareToWaitForResourceExclusive.c)
- *     KeAbPreWait @ 0x1402F30C0 (KeAbPreWait.c)
- *     ExpWaitForResource @ 0x1403423D0 (ExpWaitForResource.c)
- *     KeAbPreAcquire @ 0x14034A230 (KeAbPreAcquire.c)
- *     ExpTryAcquireResourceExclusive @ 0x14034D720 (ExpTryAcquireResourceExclusive.c)
- *     KxAcquireQueuedSpinLock @ 0x140350970 (KxAcquireQueuedSpinLock.c)
- *     ExpFindFastOwnerEntryForThread @ 0x14038F6C0 (ExpFindFastOwnerEntryForThread.c)
- *     ExpAddFastOwnerEntryToThreadList @ 0x14038FA3C (ExpAddFastOwnerEntryToThreadList.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402042B0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KeAbPostReleaseEx @ 0x14020AFB0 (KeAbPostReleaseEx.c)
+ *     ExpPrepareToWaitForResourceExclusive @ 0x140237ED0 (ExpPrepareToWaitForResourceExclusive.c)
+ *     KeAbPreWait @ 0x1402FDE10 (KeAbPreWait.c)
+ *     ExpWaitForResource @ 0x14034D120 (ExpWaitForResource.c)
+ *     KeAbPreAcquire @ 0x140354F80 (KeAbPreAcquire.c)
+ *     ExpTryAcquireResourceExclusive @ 0x140358470 (ExpTryAcquireResourceExclusive.c)
+ *     KxAcquireQueuedSpinLock @ 0x14035B6C0 (KxAcquireQueuedSpinLock.c)
+ *     ExpFindFastOwnerEntryForThread @ 0x14038F810 (ExpFindFastOwnerEntryForThread.c)
+ *     ExpAddFastOwnerEntryToThreadList @ 0x14038FB8C (ExpAddFastOwnerEntryToThreadList.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
  */
 
 char __fastcall ExAcquireFastResourceExclusive(ULONG_PTR BugCheckParameter2, ULONG_PTR a2, char a3)
@@ -27,7 +27,7 @@ char __fastcall ExAcquireFastResourceExclusive(ULONG_PTR BugCheckParameter2, ULO
   ULONG_PTR v11; // r9
   ULONG_PTR v12; // r9
   unsigned __int8 v13; // r15
-  __int64 v14; // rax
+  PRTL_BALANCED_NODE v14; // rax
   char v15; // r14
   _QWORD *v16; // r9
   _QWORD *v17; // r8
@@ -126,9 +126,9 @@ LABEL_54:
     }
   }
   v14 = KeAbPreAcquire(BugCheckParameter2, 0LL, a3 == 0);
-  v6 = v14;
+  v6 = (ULONG_PTR)v14;
   if ( v14 )
-    *(_BYTE *)(a2 + 16) = (2 * ((v14 - *(_QWORD *)(v14 - 16LL * *(unsigned __int8 *)(v14 + 24) + 800)) / 96)) | 1;
+    *(_BYTE *)(a2 + 16) = (2 * (((char *)v14 - (char *)v14[33].Children[-2 * LOBYTE(v14[1].Children[0]) + 1]) / 96)) | 1;
   LockHandle.LockQueue.Next = 0LL;
   LockHandle.LockQueue.Lock = (unsigned __int64 *volatile)(BugCheckParameter2 + 96);
   KxAcquireQueuedSpinLock((__int64)&LockHandle, (volatile __int64 *)(BugCheckParameter2 + 96));
@@ -192,7 +192,7 @@ LABEL_17:
   ExpWaitForResource((struct _LIST_ENTRY *)BugCheckParameter2, (__int64)v38, 0x10224u, 0LL);
   *(_BYTE *)(a2 + 19) = 0;
   if ( v6 )
-    KeAbPreAcquire(BugCheckParameter2, v6, 0);
+    KeAbPreAcquire(BugCheckParameter2, (PRTL_BALANCED_NODE)v6, 0);
   v15 = 1;
 LABEL_20:
   if ( v6 )

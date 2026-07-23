@@ -1,17 +1,17 @@
 /*
- * XREFs of KeReleaseSpinLock @ 0x140063080
+ * XREFs of KeReleaseSpinLock @ 0x140063070
  * Callers:
  *     NtAssociateWaitCompletionPacket @ 0x140062B00 (NtAssociateWaitCompletionPacket.c)
- *     FsRtlPrivateLock @ 0x14008C8F0 (FsRtlPrivateLock.c)
- *     NtCancelWaitCompletionPacket @ 0x14008DC40 (NtCancelWaitCompletionPacket.c)
- *     PnpDeviceActionWorker @ 0x14015F300 (PnpDeviceActionWorker.c)
- *     IopDecrementCompletionContextUsageCount @ 0x1401B3F8C (IopDecrementCompletionContextUsageCount.c)
- *     IopIncrementCompletionContextUsageCountAndReadData @ 0x1401B4004 (IopIncrementCompletionContextUsageCountAndReadData.c)
- *     sub_14098FE9C @ 0x14098FE9C (sub_14098FE9C.c)
- *     IoInitSystemPreDrivers @ 0x1409B1F54 (IoInitSystemPreDrivers.c)
+ *     FsRtlPrivateLock @ 0x14008C8E0 (FsRtlPrivateLock.c)
+ *     NtCancelWaitCompletionPacket @ 0x14008DB80 (NtCancelWaitCompletionPacket.c)
+ *     PnpDeviceActionWorker @ 0x14015F400 (PnpDeviceActionWorker.c)
+ *     IopDecrementCompletionContextUsageCount @ 0x1401B3E2C (IopDecrementCompletionContextUsageCount.c)
+ *     IopIncrementCompletionContextUsageCountAndReadData @ 0x1401B3EA4 (IopIncrementCompletionContextUsageCountAndReadData.c)
+ *     sub_140990E9C @ 0x140990E9C (sub_140990E9C.c)
+ *     IoInitSystemPreDrivers @ 0x1409B2F54 (IoInitSystemPreDrivers.c)
  * Callees:
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     KiReleaseSpinLockInstrumented @ 0x140290F38 (KiReleaseSpinLockInstrumented.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiReleaseSpinLockInstrumented @ 0x140291128 (KiReleaseSpinLockInstrumented.c)
  */
 
 void __stdcall KeReleaseSpinLock(PKSPIN_LOCK SpinLock, KIRQL NewIrql)

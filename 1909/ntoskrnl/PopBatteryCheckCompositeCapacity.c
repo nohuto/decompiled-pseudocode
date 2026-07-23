@@ -41,8 +41,8 @@ void __fastcall PopBatteryCheckCompositeCapacity(int *a1, int a2, _DWORD *a3)
   unsigned __int64 v32; // rax
   __int64 v33; // r11
   unsigned int v34; // [rsp+40h] [rbp-C0h] BYREF
-  int updated; // [rsp+44h] [rbp-BCh] BYREF
-  int v36; // [rsp+48h] [rbp-B8h] BYREF
+  NTSTATUS updated; // [rsp+44h] [rbp-BCh] BYREF
+  int Buffer; // [rsp+48h] [rbp-B8h] BYREF
   int v37; // [rsp+4Ch] [rbp-B4h] BYREF
   int v38; // [rsp+50h] [rbp-B0h] BYREF
   int v39; // [rsp+54h] [rbp-ACh] BYREF
@@ -73,9 +73,9 @@ void __fastcall PopBatteryCheckCompositeCapacity(int *a1, int a2, _DWORD *a3)
   __int64 v64; // [rsp+148h] [rbp+48h]
   int *v65; // [rsp+150h] [rbp+50h]
   __int64 v66; // [rsp+158h] [rbp+58h]
-  int *v67; // [rsp+160h] [rbp+60h]
+  NTSTATUS *v67; // [rsp+160h] [rbp+60h]
   __int64 v68; // [rsp+168h] [rbp+68h]
-  int *p_updated; // [rsp+170h] [rbp+70h]
+  NTSTATUS *p_updated; // [rsp+170h] [rbp+70h]
   __int64 v70; // [rsp+178h] [rbp+78h]
 
   *a3 = 0;
@@ -153,8 +153,8 @@ LABEL_5:
   if ( byte_14044331C != v6 )
   {
     byte_14044331C = v6;
-    v36 = v6;
-    updated = ZwUpdateWnfStateData((__int64)&WNF_PO_WEAK_CHARGER, (__int64)&v36, 4LL);
+    Buffer = v6;
+    updated = ZwUpdateWnfStateData(&WNF_PO_WEAK_CHARGER, &Buffer, 4u, 0LL, 0LL, 0, 0);
     if ( pCallbackContext.LevelPlus1 > 5 )
     {
       if ( TlgKeywordOn(&pCallbackContext, 0x400000000000uLL) )
@@ -225,7 +225,7 @@ LABEL_5:
   {
     byte_140443308 = v7;
     v43 = (unsigned __int8)v7;
-    ZwUpdateWnfStateData((__int64)&WNF_PO_BATTERY_DISCHARGING, (__int64)&v43, 4LL);
+    ZwUpdateWnfStateData(&WNF_PO_BATTERY_DISCHARGING, &v43, 4u, 0LL, 0LL, 0, 0);
     if ( pCallbackContext.LevelPlus1 > 5 )
     {
       if ( TlgKeywordOn(&pCallbackContext, 0x400000000000uLL) )
@@ -261,7 +261,7 @@ LABEL_5:
         v50 = &v41;
         v39 = v31;
         v38 = HIDWORD(qword_1404431E0);
-        v36 = v29;
+        Buffer = v29;
         v49 = 4LL;
         v51 = 4LL;
         TlgCreateSz(&pDesc, v8);
@@ -276,7 +276,7 @@ LABEL_5:
         v63 = &v38;
         v65 = &v37;
         v67 = &updated;
-        p_updated = &v36;
+        p_updated = &Buffer;
         v60 = v33;
         v62 = v33;
         v64 = v33;

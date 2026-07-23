@@ -5,13 +5,13 @@
  * Callees:
  *     MiMakeSubsectionPte @ 0x14021BEFC (MiMakeSubsectionPte.c)
  *     MiUpdateSystemProtoPtesTree @ 0x14021BF30 (MiUpdateSystemProtoPtesTree.c)
- *     MiPteInShadowRange @ 0x140271360 (MiPteInShadowRange.c)
- *     MiMakeDemandZeroPte @ 0x140284978 (MiMakeDemandZeroPte.c)
- *     MiAllocatePool @ 0x1402DF1A0 (MiAllocatePool.c)
- *     MiWritePteShadow @ 0x14035734C (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x1403573AC (MiPteHasShadow.c)
- *     memset @ 0x140435A00 (memset.c)
- *     MiParseImageSectionHeaders @ 0x1406B0AD0 (MiParseImageSectionHeaders.c)
+ *     MiPteInShadowRange @ 0x1402715F0 (MiPteInShadowRange.c)
+ *     MiMakeDemandZeroPte @ 0x140284C08 (MiMakeDemandZeroPte.c)
+ *     MiAllocatePool @ 0x1402DF430 (MiAllocatePool.c)
+ *     MiWritePteShadow @ 0x1403574EC (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x14035754C (MiPteHasShadow.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     MiParseImageSectionHeaders @ 0x1406B0B00 (MiParseImageSectionHeaders.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

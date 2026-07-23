@@ -1,11 +1,11 @@
 /*
- * XREFs of EmonInitializeProfilingBSP @ 0x1405957E4
+ * XREFs of EmonInitializeProfilingBSP @ 0x140597F64
  * Callers:
- *     EmonInitializeProfiling @ 0x140BED3D0 (EmonInitializeProfiling.c)
+ *     EmonInitializeProfiling @ 0x140BF33D0 (EmonInitializeProfiling.c)
  * Callees:
- *     HalpQueryMaximumRegisteredProcessorCount @ 0x14057CE5C (HalpQueryMaximumRegisteredProcessorCount.c)
- *     EmonAllocateCounters @ 0x140594E60 (EmonAllocateCounters.c)
- *     EmonInitializePebs @ 0x140BED300 (EmonInitializePebs.c)
+ *     HalpQueryMaximumRegisteredProcessorCount @ 0x14057F37C (HalpQueryMaximumRegisteredProcessorCount.c)
+ *     EmonAllocateCounters @ 0x1405975E0 (EmonAllocateCounters.c)
+ *     EmonInitializePebs @ 0x140BF3300 (EmonInitializePebs.c)
  */
 
 __int64 __fastcall EmonInitializeProfilingBSP(char a1)
@@ -23,7 +23,7 @@ __int64 __fastcall EmonInitializeProfilingBSP(char a1)
   __int64 result; // rax
 
   CurrentPrcb = KeGetCurrentPrcb();
-  IommuInterfaceStateChangeCallbackPushLock.PriorityFloorCounts[25] = 0;
+  IommuInterfaceStateChangeCallbackPushLock.PriorityFloorCounts[24] = 0;
   MaximumRegisteredProcessorCount = (unsigned int)HalpQueryMaximumRegisteredProcessorCount();
   _RAX = 10LL;
   __asm { cpuid }
@@ -61,7 +61,7 @@ __int64 __fastcall EmonInitializeProfilingBSP(char a1)
   }
   HalpProfileSourceDescriptorListLock = 0LL;
   HalpProfileIntervalLimits = (__int64)EmonProfileIntervalLimits;
-  qword_140FBBF48 = (__int64)&HalpProfileSourceDescriptorListHead;
+  qword_140FBC2E8 = (__int64)&HalpProfileSourceDescriptorListHead;
   *(_QWORD *)&IommuInterfaceStateChangeCallbackPushLock.AbCompletedIoQoSBoostCount = &IommuInterfaceStateChangeCallbackPushLock.PriorityFloorSummary;
   *(_QWORD *)&IommuInterfaceStateChangeCallbackPushLock.PriorityFloorSummary = &IommuInterfaceStateChangeCallbackPushLock.PriorityFloorSummary;
   v14 = 0LL;
@@ -73,25 +73,25 @@ __int64 __fastcall EmonInitializeProfilingBSP(char a1)
     if ( !*((_BYTE *)&EmonProfileSourceDescriptorTable + 320 * v14 + 29) )
     {
       v16 = (_QWORD *)((char *)&EmonProfileSourceDescriptorTable + v15 + 8);
-      v15 = qword_140FBBF48;
-      if ( *(__int64 **)qword_140FBBF48 != &HalpProfileSourceDescriptorListHead )
+      v15 = qword_140FBC2E8;
+      if ( *(__int64 **)qword_140FBC2E8 != &HalpProfileSourceDescriptorListHead )
         __fastfail(3u);
       ++HalpProfileSourceDescriptorCount;
       *v16 = &HalpProfileSourceDescriptorListHead;
       v16[1] = v15;
       *(_QWORD *)v15 = v16;
-      qword_140FBBF48 = (__int64)v16;
+      qword_140FBC2E8 = (__int64)v16;
     }
     v14 = (unsigned int)(v14 + 1);
   }
   while ( (unsigned int)v14 < 0x12 );
   EmonInitializePebs(v14, v15, &EmonProfileSourceDescriptorTable);
   result = 0x37FFFFFFFFFFFFFLL;
-  IommuInterfaceStateChangeCallbackPushLock.InGlobalForegroundList = 0x37FFFFFFFFFFFFFLL;
-  if ( IommuInterfaceStateChangeCallbackPushLock.PriorityFloorCounts[25] )
+  IommuInterfaceStateChangeCallbackPushLock.ReadOperationCount = 0x37FFFFFFFFFFFFFLL;
+  if ( IommuInterfaceStateChangeCallbackPushLock.PriorityFloorCounts[24] )
   {
     result = 0x437FFFFFFFFFFFFFLL;
-    IommuInterfaceStateChangeCallbackPushLock.InGlobalForegroundList = 0x437FFFFFFFFFFFFFLL;
+    IommuInterfaceStateChangeCallbackPushLock.ReadOperationCount = 0x437FFFFFFFFFFFFFLL;
   }
   return result;
 }

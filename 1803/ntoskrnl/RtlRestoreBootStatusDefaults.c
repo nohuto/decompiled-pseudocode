@@ -10,7 +10,7 @@
  *     RtlpRecordBootStatusData @ 0x14060F678 (RtlpRecordBootStatusData.c)
  */
 
-NTSTATUS __fastcall RtlRestoreBootStatusDefaults(HANDLE FileHandle)
+NTSTATUS __cdecl RtlRestoreBootStatusDefaults(HANDLE FileHandle)
 {
   _BYTE *v2; // rax
   char v3; // cl

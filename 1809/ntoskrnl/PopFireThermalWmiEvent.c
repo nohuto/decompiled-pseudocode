@@ -1,10 +1,10 @@
 /*
- * XREFs of PopFireThermalWmiEvent @ 0x1402DC26C
+ * XREFs of PopFireThermalWmiEvent @ 0x1402DC45C
  * Callers:
- *     PopThermalWorker @ 0x140750F60 (PopThermalWorker.c)
+ *     PopThermalWorker @ 0x140752150 (PopThermalWorker.c)
  * Callees:
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     PpmFireWmiEvent @ 0x1402E4558 (PpmFireWmiEvent.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     PpmFireWmiEvent @ 0x1402E4748 (PpmFireWmiEvent.c)
  */
 
 __int64 __fastcall PopFireThermalWmiEvent(unsigned __int8 a1)

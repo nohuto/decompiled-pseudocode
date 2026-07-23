@@ -18,49 +18,65 @@
  *     sub_1800F13DC @ 0x1800F13DC (sub_1800F13DC.c)
  */
 
-__int64 __fastcall LdrVerifyImageMatchesChecksumEx(__int64 a1, __int64 a2)
+NTSTATUS __cdecl LdrVerifyImageMatchesChecksumEx(HANDLE ImageFileHandle, PLDR_VERIFY_IMAGE_INFO VerifyInfo)
 {
-  _DWORD *v4; // rsi
-  int v5; // eax
+  LDR_SECTION_INFO *p_SectionInfo; // rsi
+  ULONG AllocationAttributes; // eax
   char v6; // r13
-  __int64 result; // rax
-  int InformationFile; // edi
+  NTSTATUS result; // eax
+  int v8; // edi
   int v9; // r13d
-  int v10; // eax
+  NTSTATUS v10; // eax
   __int64 v11; // r15
-  unsigned int v12; // r8d
-  __int64 v13; // rax
+  ULONG v12; // r8d
+  POBJECT_ATTRIBUTES ObjA; // rax
   char v14; // [rsp+50h] [rbp-A8h]
-  unsigned __int64 v15; // [rsp+58h] [rbp-A0h] BYREF
-  __int64 v16; // [rsp+60h] [rbp-98h] BYREF
+  PVOID BaseAddress; // [rsp+58h] [rbp-A0h] BYREF
+  HANDLE SectionHandle; // [rsp+60h] [rbp-98h] BYREF
   __int64 v17[2]; // [rsp+68h] [rbp-90h] BYREF
-  __int64 v18; // [rsp+78h] [rbp-80h] BYREF
-  __int64 v19; // [rsp+80h] [rbp-78h] BYREF
-  unsigned __int64 v20; // [rsp+88h] [rbp-70h] BYREF
+  PIMAGE_SECTION_HEADER LastRvaSection; // [rsp+78h] [rbp-80h] BYREF
+  PIMAGE_NT_HEADERS OutHeaders; // [rsp+80h] [rbp-78h] BYREF
+  ULONG_PTR ViewSize; // [rsp+88h] [rbp-70h] BYREF
   __int64 v21; // [rsp+90h] [rbp-68h]
-  _BYTE v22[16]; // [rsp+98h] [rbp-60h] BYREF
-  _BYTE v23[8]; // [rsp+A8h] [rbp-50h] BYREF
-  unsigned int v24; // [rsp+B0h] [rbp-48h]
+  _IO_STATUS_BLOCK IoStatusBlock; // [rsp+98h] [rbp-60h] BYREF
+  _BYTE FileInformation[8]; // [rsp+A8h] [rbp-50h] BYREF
 
-  v19 = a2;
-  if ( *(_DWORD *)a2 != 64 || (*(_DWORD *)(a2 + 4) & 0xFFFFFFF8) != 0 )
-    return 3221225712LL;
-  v4 = (_DWORD *)(a2 + 24);
-  if ( (*(_BYTE *)(a2 + 4) & 2) == 0 )
-    v4 = &unk_180116198;
-  v17[1] = (__int64)v4;
-  v5 = v4[7];
-  LODWORD(v17[0]) = v5 & 0x1000000;
-  LODWORD(v18) = v5 & 0x1000000;
-  v14 = (v5 & 0x1000000) != 0;
-  v6 = a1 & 1;
-  result = ZwCreateSection(&v16, (unsigned int)v4[2], *((_QWORD *)v4 + 2), 0LL, v4[6], v5, a1);
-  if ( (int)result >= 0 )
+  OutHeaders = (PIMAGE_NT_HEADERS)VerifyInfo;
+  if ( VerifyInfo->Size != 64 || (VerifyInfo->Flags & 0xFFFFFFF8) != 0 )
+    return -1073741584;
+  p_SectionInfo = &VerifyInfo->SectionInfo;
+  if ( (VerifyInfo->Flags & 2) == 0 )
+    p_SectionInfo = (LDR_SECTION_INFO *)&unk_180116198;
+  v17[1] = (__int64)p_SectionInfo;
+  AllocationAttributes = p_SectionInfo->AllocationAttributes;
+  LODWORD(v17[0]) = AllocationAttributes & 0x1000000;
+  LODWORD(LastRvaSection) = AllocationAttributes & 0x1000000;
+  v14 = (AllocationAttributes & 0x1000000) != 0;
+  v6 = (unsigned __int8)ImageFileHandle & 1;
+  result = ZwCreateSection(
+             &SectionHandle,
+             p_SectionInfo->DesiredAccess,
+             p_SectionInfo->ObjA,
+             0LL,
+             p_SectionInfo->SectionPageProtection,
+             AllocationAttributes,
+             ImageFileHandle);
+  if ( result >= 0 )
   {
-    v15 = 0LL;
-    v20 = 0LL;
-    InformationFile = ZwMapViewOfSection(v16, -1LL, &v15, 0LL, 0LL, 0LL, &v20, 1, 0, 16);
-    if ( InformationFile < 0 )
+    BaseAddress = 0LL;
+    ViewSize = 0LL;
+    v8 = ZwMapViewOfSection(
+           SectionHandle,
+           (HANDLE)0xFFFFFFFFFFFFFFFFLL,
+           &BaseAddress,
+           0LL,
+           0LL,
+           0LL,
+           &ViewSize,
+           ViewShare,
+           0,
+           0x10u);
+    if ( v8 < 0 )
       goto LABEL_29;
     if ( v6 )
     {
@@ -68,25 +84,25 @@ __int64 __fastcall LdrVerifyImageMatchesChecksumEx(__int64 a1, __int64 a2)
     }
     else
     {
-      InformationFile = ZwQueryInformationFile(a1, v22, v23, 24LL, 5);
-      if ( InformationFile < 0 )
+      v8 = ZwQueryInformationFile(ImageFileHandle, &IoStatusBlock, FileInformation, 0x18u, FileStandardInformation);
+      if ( v8 < 0 )
         goto LABEL_28;
-      if ( !(unsigned __int8)sub_1800F13DC(v15, v20, v24) )
-        InformationFile = -1073741279;
+      if ( !(unsigned __int8)sub_1800F13DC(BaseAddress, ViewSize) )
+        v8 = -1073741279;
       v9 = v17[0];
-      if ( InformationFile < 0 )
+      if ( v8 < 0 )
         goto LABEL_28;
     }
-    if ( (*(_BYTE *)(a2 + 4) & 5) != 0 )
+    if ( (VerifyInfo->Flags & 5) != 0 )
     {
-      InformationFile = RtlImageNtHeaderEx(0, v15, v20, &v19);
-      if ( InformationFile >= 0 )
+      v8 = RtlImageNtHeaderEx(0, BaseAddress, ViewSize, &OutHeaders);
+      if ( v8 >= 0 )
       {
-        if ( (*(_BYTE *)(a2 + 4) & 4) != 0 )
-          *(_WORD *)(a2 + 56) = *(_WORD *)(v19 + 22);
-        if ( (*(_BYTE *)(a2 + 4) & 1) != 0 && *(_QWORD *)(a2 + 8) )
+        if ( (VerifyInfo->Flags & 4) != 0 )
+          VerifyInfo->ImageCharacteristics = OutHeaders->FileHeader.Characteristics;
+        if ( (VerifyInfo->Flags & 1) != 0 && VerifyInfo->CallbackInfo.ImportCallbackRoutine )
         {
-          v10 = sub_180032C0C(v15, v14, 1u, &v18, v17);
+          v10 = sub_180032C0C((unsigned __int64)BaseAddress, v14, 1u, (DWORD *)&LastRvaSection, (char **)v17);
           v11 = v17[0];
           if ( v10 < 0 )
             v11 = 0LL;
@@ -94,14 +110,14 @@ __int64 __fastcall LdrVerifyImageMatchesChecksumEx(__int64 a1, __int64 a2)
           v21 = v11;
           if ( v11 )
           {
-            v18 = 0LL;
+            LastRvaSection = 0LL;
             while ( 1 )
             {
               v12 = *(_DWORD *)(v11 + 12);
               if ( !v12 )
                 break;
               if ( !v9 )
-                RtlImageRvaToVa(v19, v15, v12, &v18);
+                RtlImageRvaToVa(OutHeaders, BaseAddress, v12, &LastRvaSection);
               _guard_dispatch_icall_fptr();
               v11 += 20LL;
               v21 = v11;
@@ -111,20 +127,20 @@ __int64 __fastcall LdrVerifyImageMatchesChecksumEx(__int64 a1, __int64 a2)
       }
     }
 LABEL_28:
-    ZwUnmapViewOfSection(-1LL, v15);
+    ZwUnmapViewOfSection((HANDLE)0xFFFFFFFFFFFFFFFFLL, BaseAddress);
 LABEL_29:
-    if ( InformationFile < 0 || v4 == (_DWORD *)&unk_180116198 )
+    if ( v8 < 0 || p_SectionInfo == (LDR_SECTION_INFO *)&unk_180116198 )
     {
-      v13 = *((_QWORD *)v4 + 2);
-      if ( v13 && (*(_BYTE *)(v13 + 24) & 0x10) != 0 )
-        ZwMakeTemporaryObject(v16);
-      ZwClose(v16);
+      ObjA = p_SectionInfo->ObjA;
+      if ( ObjA && (ObjA->Attributes & 0x10) != 0 )
+        ZwMakeTemporaryObject(SectionHandle);
+      ZwClose(SectionHandle);
     }
     else
     {
-      *(_QWORD *)v4 = v16;
+      p_SectionInfo->SectionHandle = SectionHandle;
     }
-    return (unsigned int)InformationFile;
+    return v8;
   }
   return result;
 }

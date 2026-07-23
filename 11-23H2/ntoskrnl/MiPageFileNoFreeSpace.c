@@ -1,15 +1,15 @@
 /*
- * XREFs of MiPageFileNoFreeSpace @ 0x14063B114
+ * XREFs of MiPageFileNoFreeSpace @ 0x14063B664
  * Callers:
- *     MiGatherPagefilePages @ 0x14063A144 (MiGatherPagefilePages.c)
+ *     MiGatherPagefilePages @ 0x14063A694 (MiGatherPagefilePages.c)
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x14024D360 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402894C0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     MiFreeModifiedReservations @ 0x140639F2C (MiFreeModifiedReservations.c)
- *     MiIssuePageExtendRequest @ 0x14063AD1C (MiIssuePageExtendRequest.c)
- *     MiMakePagefileWriterEntryAvailable @ 0x14063B028 (MiMakePagefileWriterEntryAvailable.c)
- *     MiCauseOverCommitPopup @ 0x140656310 (MiCauseOverCommitPopup.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024D430 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140289750 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     MiFreeModifiedReservations @ 0x14063A47C (MiFreeModifiedReservations.c)
+ *     MiIssuePageExtendRequest @ 0x14063B26C (MiIssuePageExtendRequest.c)
+ *     MiMakePagefileWriterEntryAvailable @ 0x14063B578 (MiMakePagefileWriterEntryAvailable.c)
+ *     MiCauseOverCommitPopup @ 0x140656860 (MiCauseOverCommitPopup.c)
  */
 
 void __fastcall MiPageFileNoFreeSpace(__int64 a1, _QWORD *a2)
@@ -47,10 +47,13 @@ void __fastcall MiPageFileNoFreeSpace(__int64 a1, _QWORD *a2)
     v7 = 1;
   }
   ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(a1 + 232));
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v8 <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
+      && (unsigned __int8)v8 <= 0xFu
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;

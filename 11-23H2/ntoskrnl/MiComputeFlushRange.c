@@ -1,15 +1,15 @@
 /*
- * XREFs of MiComputeFlushRange @ 0x140287A28
+ * XREFs of MiComputeFlushRange @ 0x140287CB8
  * Callers:
- *     MmFlushSection @ 0x140287490 (MmFlushSection.c)
- *     MmTrimSection @ 0x1402EF8D8 (MmTrimSection.c)
+ *     MmFlushSection @ 0x140287720 (MmFlushSection.c)
+ *     MmTrimSection @ 0x1402EFB68 (MmTrimSection.c)
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x14024D360 (ExAcquireSpinLockExclusive.c)
- *     MiComputeDataFlushRange @ 0x140288E80 (MiComputeDataFlushRange.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402894C0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExTryAcquireSpinLockExclusiveAtDpcLevel @ 0x1403121F0 (ExTryAcquireSpinLockExclusiveAtDpcLevel.c)
- *     MiDoesControlAreaHaveUserWritableReferences @ 0x14034B420 (MiDoesControlAreaHaveUserWritableReferences.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024D430 (ExAcquireSpinLockExclusive.c)
+ *     MiComputeDataFlushRange @ 0x140289110 (MiComputeDataFlushRange.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140289750 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExTryAcquireSpinLockExclusiveAtDpcLevel @ 0x140312480 (ExTryAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     MiDoesControlAreaHaveUserWritableReferences @ 0x14034B5C0 (MiDoesControlAreaHaveUserWritableReferences.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiComputeFlushRange(__int64 *a1, int a2, int a3, int a4, __int64 a5)
@@ -43,10 +43,13 @@ __int64 __fastcall MiComputeFlushRange(__int64 *a1, int a2, int a3, int a4, __in
     if ( (unsigned int)ExTryAcquireSpinLockExclusiveAtDpcLevel(v10 + 72) )
       break;
     ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140C65540);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v11 <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+        && CurrentIrql <= 0xFu
+        && (unsigned __int8)v11 <= 0xFu
+        && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -70,10 +73,10 @@ __int64 __fastcall MiComputeFlushRange(__int64 *a1, int a2, int a3, int a4, __in
   v14 = (volatile LONG *)(v10 + 72);
 LABEL_8:
   ExReleaseSpinLockExclusiveFromDpcLevel(v14);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v20 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v20 <= 0xFu && (unsigned __int8)v11 <= 0xFu && v20 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v20 <= 0xFu && (unsigned __int8)v11 <= 0xFu && v20 >= 2u )
     {
       v21 = KeGetCurrentPrcb();
       v22 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v11 + 1));

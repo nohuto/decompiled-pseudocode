@@ -1,22 +1,22 @@
 /*
- * XREFs of RtlpHpEnvAllocVA @ 0x140364570
+ * XREFs of RtlpHpEnvAllocVA @ 0x140366310
  * Callers:
- *     RtlpHpVaMgrAllocAligned @ 0x14035115C (RtlpHpVaMgrAllocAligned.c)
- *     RtlpCSparseBitmapPageCommit @ 0x1403513A4 (RtlpCSparseBitmapPageCommit.c)
- *     RtlpHpAllocVA @ 0x140364350 (RtlpHpAllocVA.c)
- *     RtlpHpVaMgrRangeCommit @ 0x1405233BC (RtlpHpVaMgrRangeCommit.c)
- *     RtlCSparseBitmapStart @ 0x140639CF8 (RtlCSparseBitmapStart.c)
+ *     RtlpHpVaMgrAllocAligned @ 0x1403531DC (RtlpHpVaMgrAllocAligned.c)
+ *     RtlpCSparseBitmapPageCommit @ 0x140353424 (RtlpCSparseBitmapPageCommit.c)
+ *     RtlpHpAllocVA @ 0x1403660F0 (RtlpHpAllocVA.c)
+ *     RtlpHpVaMgrRangeCommit @ 0x140525A2C (RtlpHpVaMgrRangeCommit.c)
+ *     RtlCSparseBitmapStart @ 0x14063CD08 (RtlCSparseBitmapStart.c)
  * Callees:
- *     MiReservePoolMemory @ 0x1402A4C9C (MiReservePoolMemory.c)
- *     MiChargeCommit @ 0x1402F64A0 (MiChargeCommit.c)
- *     MmFreePoolMemory @ 0x14035029C (MmFreePoolMemory.c)
- *     MiMakeProtectionMask @ 0x140364A40 (MiMakeProtectionMask.c)
- *     MiCommitPoolMemory @ 0x140364AE0 (MiCommitPoolMemory.c)
- *     MiGetPoolPages @ 0x140365A30 (MiGetPoolPages.c)
- *     MiGetLargePoolPages @ 0x1403C7CA8 (MiGetLargePoolPages.c)
- *     KasanTrackAddressNoInline @ 0x140532270 (KasanTrackAddressNoInline.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     MiReservePoolMemory @ 0x1402A41EC (MiReservePoolMemory.c)
+ *     MiChargeCommit @ 0x1402D8520 (MiChargeCommit.c)
+ *     MmFreePoolMemory @ 0x14035231C (MmFreePoolMemory.c)
+ *     MiMakeProtectionMask @ 0x1403667E0 (MiMakeProtectionMask.c)
+ *     MiCommitPoolMemory @ 0x140366880 (MiCommitPoolMemory.c)
+ *     MiGetPoolPages @ 0x1403677D0 (MiGetPoolPages.c)
+ *     MiGetLargePoolPages @ 0x1403D1B98 (MiGetLargePoolPages.c)
+ *     KasanTrackAddressNoInline @ 0x140534710 (KasanTrackAddressNoInline.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall RtlpHpEnvAllocVA(
@@ -152,14 +152,14 @@ __int64 __fastcall RtlpHpEnvAllocVA(
     }
     v48 = 4LL;
     v44 = 0LL;
-    v27 = (unsigned __int16 *)&unk_140E37440;
-    v49 = &unk_140E37440;
+    v27 = (unsigned __int16 *)&unk_140E375C0;
+    v49 = &unk_140E375C0;
     v43 = 0LL;
     if ( (v16 & 0x100) != 0 )
     {
-      v27 = (unsigned __int16 *)&unk_140E37080;
+      v27 = (unsigned __int16 *)&unk_140E37200;
       LODWORD(v48) = 5;
-      v49 = &unk_140E37080;
+      v49 = &unk_140E37200;
       v28 = v26 | 2;
     }
     else
@@ -173,7 +173,7 @@ LABEL_20:
     if ( (v53 & 2) != 0 )
     {
       LargePoolPages = -1073741670;
-      if ( (unsigned int)MiChargeCommit(*(ULONG **)(stru_140E2EB88.ThreadLock + 8LL * v27[87]), v25, 1u) )
+      if ( (unsigned int)MiChargeCommit(*(ULONG **)(stru_140E2ED08.ThreadLock + 8LL * v27[87]), v25, 1u) )
         LargePoolPages = 0;
     }
     else if ( (v53 & 4) != 0 )
@@ -240,7 +240,7 @@ LABEL_28:
     }
     if ( (a4 & 0x1000) == 0 )
       goto LABEL_30;
-    if ( !byte_140FC7BE8 )
+    if ( !byte_140FC8BD8 )
     {
       LargePoolPages = 0;
 LABEL_30:

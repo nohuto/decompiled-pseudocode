@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpLfhBucketUsageUpdate @ 0x1800444EC
+ * XREFs of RtlpLfhBucketUsageUpdate @ 0x1800444DC
  * Callers:
- *     RtlpHpFreeHeap @ 0x180047A70 (RtlpHpFreeHeap.c)
- *     RtlpFreeHeapInternal @ 0x180048100 (RtlpFreeHeapInternal.c)
- *     RtlpHpLfhBucketUpdateStats @ 0x18007727C (RtlpHpLfhBucketUpdateStats.c)
+ *     RtlpHpFreeHeap @ 0x180047A60 (RtlpHpFreeHeap.c)
+ *     RtlpFreeHeapInternal @ 0x1800480F0 (RtlpFreeHeapInternal.c)
+ *     RtlpHpLfhBucketUpdateStats @ 0x18007726C (RtlpHpLfhBucketUpdateStats.c)
  * Callees:
  *     <none>
  */

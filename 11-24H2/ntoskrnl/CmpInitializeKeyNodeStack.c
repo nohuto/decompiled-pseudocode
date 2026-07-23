@@ -1,17 +1,17 @@
 /*
- * XREFs of CmpInitializeKeyNodeStack @ 0x140916A00
+ * XREFs of CmpInitializeKeyNodeStack @ 0x14090A470
  * Callers:
- *     CmQueryLayeredKey @ 0x140462148 (CmQueryLayeredKey.c)
- *     CmSaveKey @ 0x1407CDBFC (CmSaveKey.c)
- *     CmpFullPromoteHiveRootFromKcbStack @ 0x1407E3C20 (CmpFullPromoteHiveRootFromKcbStack.c)
- *     CmpPromoteSingleKeyFromParentKcbAndChildKeyNode @ 0x1407E3EFC (CmpPromoteSingleKeyFromParentKcbAndChildKeyNode.c)
- *     CmpPromoteSubtree @ 0x140914928 (CmpPromoteSubtree.c)
- *     CmpDoAccessCheckOnLayeredSubtree @ 0x140915678 (CmpDoAccessCheckOnLayeredSubtree.c)
- *     CmpKeyEnumStackInitialize @ 0x140916F34 (CmpKeyEnumStackInitialize.c)
- *     CmpSubtreeEnumeratorInitialize @ 0x140ABBF90 (CmpSubtreeEnumeratorInitialize.c)
+ *     CmQueryLayeredKey @ 0x140457758 (CmQueryLayeredKey.c)
+ *     CmSaveKey @ 0x1407CE0EC (CmSaveKey.c)
+ *     CmpFullPromoteHiveRootFromKcbStack @ 0x1407E4170 (CmpFullPromoteHiveRootFromKcbStack.c)
+ *     CmpPromoteSingleKeyFromParentKcbAndChildKeyNode @ 0x1407E444C (CmpPromoteSingleKeyFromParentKcbAndChildKeyNode.c)
+ *     CmpPromoteSubtree @ 0x140908398 (CmpPromoteSubtree.c)
+ *     CmpDoAccessCheckOnLayeredSubtree @ 0x1409090E8 (CmpDoAccessCheckOnLayeredSubtree.c)
+ *     CmpKeyEnumStackInitialize @ 0x14090A9A4 (CmpKeyEnumStackInitialize.c)
+ *     CmpSubtreeEnumeratorInitialize @ 0x140AB6FB0 (CmpSubtreeEnumeratorInitialize.c)
  * Callees:
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     CmpKeyNodeStackEntryInitialize @ 0x140916A3C (CmpKeyNodeStackEntryInitialize.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     CmpKeyNodeStackEntryInitialize @ 0x14090A4AC (CmpKeyNodeStackEntryInitialize.c)
  */
 
 __int64 __fastcall CmpInitializeKeyNodeStack(char *a1)

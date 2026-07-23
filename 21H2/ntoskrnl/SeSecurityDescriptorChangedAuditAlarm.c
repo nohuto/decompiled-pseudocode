@@ -1,21 +1,21 @@
 /*
- * XREFs of SeSecurityDescriptorChangedAuditAlarm @ 0x140697800
+ * XREFs of SeSecurityDescriptorChangedAuditAlarm @ 0x1406941A8
  * Callers:
- *     NtSetSecurityObject @ 0x140697440 (NtSetSecurityObject.c)
+ *     NtSetSecurityObject @ 0x1405F8450 (NtSetSecurityObject.c)
  * Callees:
- *     RtlCompareMemory @ 0x1404081B0 (RtlCompareMemory.c)
- *     SeMaximumAuditMask @ 0x140595E74 (SeMaximumAuditMask.c)
- *     SepAdtAuditThisEventWithContext @ 0x140627AC0 (SepAdtAuditThisEventWithContext.c)
- *     SeCaptureSubjectContext @ 0x140655B30 (SeCaptureSubjectContext.c)
- *     SeReleaseSubjectContext @ 0x1406568F0 (SeReleaseSubjectContext.c)
- *     SepQueryNameString @ 0x14071869C (SepQueryNameString.c)
- *     SepAdtSecurityDescriptorChangedAuditAlarm @ 0x14091FF5C (SepAdtSecurityDescriptorChangedAuditAlarm.c)
- *     SepQueryTypeString @ 0x140920704 (SepQueryTypeString.c)
- *     SeMaximumAuditMaskFromGlobalSacl @ 0x140924B38 (SeMaximumAuditMaskFromGlobalSacl.c)
- *     SepIsAclEqual @ 0x140924CD4 (SepIsAclEqual.c)
- *     SepIsSidEqual @ 0x140924D54 (SepIsSidEqual.c)
- *     SepAuditFailed @ 0x140925900 (SepAuditFailed.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     RtlCompareMemory @ 0x140408390 (RtlCompareMemory.c)
+ *     SeMaximumAuditMask @ 0x1405960A4 (SeMaximumAuditMask.c)
+ *     SeCaptureSubjectContext @ 0x14064A950 (SeCaptureSubjectContext.c)
+ *     SeReleaseSubjectContext @ 0x14064B710 (SeReleaseSubjectContext.c)
+ *     SepAdtAuditThisEventWithContext @ 0x140693BD0 (SepAdtAuditThisEventWithContext.c)
+ *     SepQueryNameString @ 0x1406C6CEC (SepQueryNameString.c)
+ *     SepAdtSecurityDescriptorChangedAuditAlarm @ 0x1409200BC (SepAdtSecurityDescriptorChangedAuditAlarm.c)
+ *     SepQueryTypeString @ 0x140920864 (SepQueryTypeString.c)
+ *     SeMaximumAuditMaskFromGlobalSacl @ 0x140924C98 (SeMaximumAuditMaskFromGlobalSacl.c)
+ *     SepIsAclEqual @ 0x140924E34 (SepIsAclEqual.c)
+ *     SepIsSidEqual @ 0x140924EB4 (SepIsSidEqual.c)
+ *     SepAuditFailed @ 0x140925A60 (SepAuditFailed.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 void __fastcall SeSecurityDescriptorChangedAuditAlarm(

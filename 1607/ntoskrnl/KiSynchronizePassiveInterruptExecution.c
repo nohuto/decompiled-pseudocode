@@ -1,11 +1,11 @@
 /*
- * XREFs of KiSynchronizePassiveInterruptExecution @ 0x1401D8D38
+ * XREFs of KiSynchronizePassiveInterruptExecution @ 0x1401D8B64
  * Callers:
- *     KeSynchronizeExecution @ 0x14015E940 (KeSynchronizeExecution.c)
+ *     KeSynchronizeExecution @ 0x14015EEB0 (KeSynchronizeExecution.c)
  * Callees:
- *     KiLeaveCriticalRegionUnsafe @ 0x140055FA0 (KiLeaveCriticalRegionUnsafe.c)
- *     KeSetEvent @ 0x1400562D0 (KeSetEvent.c)
- *     KeWaitForSingleObject @ 0x14005C880 (KeWaitForSingleObject.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140055B20 (KiLeaveCriticalRegionUnsafe.c)
+ *     KeSetEvent @ 0x140055E50 (KeSetEvent.c)
+ *     KeWaitForSingleObject @ 0x14005C400 (KeWaitForSingleObject.c)
  */
 
 char __fastcall KiSynchronizePassiveInterruptExecution(__int64 a1, __int64 (__fastcall *a2)(__int64), __int64 a3)

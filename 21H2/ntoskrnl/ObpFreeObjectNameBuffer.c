@@ -1,24 +1,24 @@
 /*
- * XREFs of ObpFreeObjectNameBuffer @ 0x140661348
+ * XREFs of ObpFreeObjectNameBuffer @ 0x140656168
  * Callers:
- *     ObReferenceObjectByNameEx @ 0x1405DE69C (ObReferenceObjectByNameEx.c)
- *     ObReferenceObjectByName @ 0x140661100 (ObReferenceObjectByName.c)
- *     CmpCreateKeyBody @ 0x1406FC690 (CmpCreateKeyBody.c)
- *     IopAllocRealFileObject @ 0x1407030E0 (IopAllocRealFileObject.c)
- *     ObCreateObjectEx @ 0x140704810 (ObCreateObjectEx.c)
+ *     ObReferenceObjectByName @ 0x140655F20 (ObReferenceObjectByName.c)
+ *     ObReferenceObjectByNameEx @ 0x1406CDDFC (ObReferenceObjectByNameEx.c)
+ *     CmpCreateKeyBody @ 0x140713A70 (CmpCreateKeyBody.c)
+ *     IopAllocRealFileObject @ 0x14071A4C0 (IopAllocRealFileObject.c)
+ *     ObCreateObjectEx @ 0x14071BBF0 (ObCreateObjectEx.c)
  * Callees:
- *     RtlpInterlockedPushEntrySList @ 0x140407970 (RtlpInterlockedPushEntrySList.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     RtlpInterlockedPushEntrySList @ 0x140407B50 (RtlpInterlockedPushEntrySList.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 void __fastcall ObpFreeObjectNameBuffer(__int64 a1)
 {
-  struct _SLIST_ENTRY *v1; // r8
+  _SLIST_ENTRY *v1; // r8
   struct _KPRCB *CurrentPrcb; // rdx
   _GENERAL_LOOKASIDE *P; // rcx
 
-  v1 = *(struct _SLIST_ENTRY **)(a1 + 8);
+  v1 = *(_SLIST_ENTRY **)(a1 + 8);
   if ( *(_WORD *)(a1 + 2) == 248 )
   {
     CurrentPrcb = KeGetCurrentPrcb();
@@ -35,7 +35,7 @@ void __fastcall ObpFreeObjectNameBuffer(__int64 a1)
     else
     {
       ++P->FreeMisses;
-      ((void (__fastcall *)(struct _SLIST_ENTRY *))P->FreeEx)(v1);
+      ((void (__fastcall *)(_SLIST_ENTRY *))P->FreeEx)(v1);
     }
   }
   else

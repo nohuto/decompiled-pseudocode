@@ -10,19 +10,19 @@
  *     RtlpHpUnlockHeapForCloning @ 0x18010AA24 (RtlpHpUnlockHeapForCloning.c)
  */
 
-__int64 __fastcall RtlpUnlockHeapManagerForCloning(unsigned int a1, unsigned int a2)
+NTSTATUS __fastcall RtlpUnlockHeapManagerForCloning(unsigned int a1, unsigned int a2)
 {
   struct _PEB *v2; // r14
   __int64 v4; // rsi
   __int64 v5; // rbp
   void **ProcessHeaps; // rax
   void *v7; // rbx
-  volatile signed __int64 *v8; // rcx
+  _RTL_SRWLOCK *v8; // rcx
   __int64 v9; // rdx
   void *UniqueThread; // rcx
   int v12; // [rsp+20h] [rbp-28h] BYREF
   char v13; // [rsp+24h] [rbp-24h]
-  void *v14; // [rsp+28h] [rbp-20h]
+  PVOID *v14; // [rsp+28h] [rbp-20h]
 
   v2 = NtCurrentPeb();
   if ( a2 )
@@ -41,13 +41,13 @@ __int64 __fastcall RtlpUnlockHeapManagerForCloning(unsigned int a1, unsigned int
       else if ( (*((_BYTE *)v7 + 112) & 1) == 0 )
       {
         if ( *((_BYTE *)v7 + 418) == 2 )
-          v8 = (volatile signed __int64 *)*((_QWORD *)v7 + 51);
+          v8 = (_RTL_SRWLOCK *)*((_QWORD *)v7 + 51);
         else
           v8 = 0LL;
         if ( v8 )
         {
           if ( a1 )
-            *v8 = 1LL;
+            v8->Value = 1LL;
           RtlReleaseSRWLockExclusive(v8);
         }
         if ( a1 )
@@ -59,7 +59,7 @@ __int64 __fastcall RtlpUnlockHeapManagerForCloning(unsigned int a1, unsigned int
           *(_DWORD *)(v9 + 12) = 1;
           *(_QWORD *)(v9 + 24) = 0LL;
         }
-        RtlLeaveCriticalSection(*((_QWORD *)v7 + 44));
+        RtlLeaveCriticalSection(*((PRTL_CRITICAL_SECTION *)v7 + 44));
       }
       ++v4;
       --v5;
@@ -70,15 +70,15 @@ __int64 __fastcall RtlpUnlockHeapManagerForCloning(unsigned int a1, unsigned int
   {
     UniqueThread = NtCurrentTeb()->ClientId.UniqueThread;
     qword_180166A90 = -1LL;
-    qword_180163BF0 = (__int64)UniqueThread;
-    dword_180163BE8 = -2;
-    dword_180163BEC = 1;
-    qword_180163BF8 = 0LL;
+    RtlpProcessHeapsListLock.OwningThread = UniqueThread;
+    RtlpProcessHeapsListLock.LockCount = -2;
+    RtlpProcessHeapsListLock.RecursionCount = 1;
+    RtlpProcessHeapsListLock.LockSemaphore = 0LL;
     qword_180166A88 = 1LL;
   }
   v12 = 1;
-  v14 = &unk_180166A70;
+  v14 = BaseAddress;
   v13 = -1;
   RtlpCSparseBitmapUnlock((__int64)&v12);
-  return RtlLeaveCriticalSection((__int64)&RtlpProcessHeapsListLock);
+  return RtlLeaveCriticalSection(&RtlpProcessHeapsListLock);
 }

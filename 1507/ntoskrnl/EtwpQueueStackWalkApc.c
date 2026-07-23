@@ -19,7 +19,7 @@ __int64 __fastcall EtwpQueueStackWalkApc(__int64 a1, unsigned __int8 a2, unsigne
   __int64 result; // rax
   char *v9; // rdi
   unsigned int v10; // esi
-  struct _SLIST_ENTRY *v11; // rbp
+  _SLIST_ENTRY *v11; // rbp
   char inserted; // al
 
   v5 = a3;
@@ -36,7 +36,7 @@ __int64 __fastcall EtwpQueueStackWalkApc(__int64 a1, unsigned __int8 a2, unsigne
         if ( (*(_DWORD *)(a1 + 116) & 0x4000) == 0 )
           goto LABEL_13;
         result = (__int64)RtlpInterlockedPopEntrySList((PSLIST_HEADER)v9 + 5);
-        v11 = (struct _SLIST_ENTRY *)result;
+        v11 = (_SLIST_ENTRY *)result;
         if ( !result )
           goto LABEL_13;
         KeInitializeApc(result, a1, 0, (__int64)EtwpStackWalkApc, 0LL, (__int64)EtwpStackWalkApc, 0, v5);

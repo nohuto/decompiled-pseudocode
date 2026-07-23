@@ -1,38 +1,38 @@
 /*
- * XREFs of KeFlushTb @ 0x140279970
+ * XREFs of KeFlushTb @ 0x140279C00
  * Callers:
- *     MiFlushTbList @ 0x140279880 (MiFlushTbList.c)
- *     MiInsertCachedPte @ 0x1402CBB10 (MiInsertCachedPte.c)
- *     MiGetUltraMapping @ 0x1402D1A10 (MiGetUltraMapping.c)
- *     MiAgeWorkingSetTail @ 0x1403343B0 (MiAgeWorkingSetTail.c)
- *     MiAttachSessionGlobal @ 0x14033DA9C (MiAttachSessionGlobal.c)
- *     MiConsumeSystemCacheTbFlushNeededView @ 0x140361250 (MiConsumeSystemCacheTbFlushNeededView.c)
- *     MiFlushEntireTbDueToAttributeChange @ 0x14036F59C (MiFlushEntireTbDueToAttributeChange.c)
- *     MiGetWsAndMakePageTablesNx @ 0x1403B1544 (MiGetWsAndMakePageTablesNx.c)
- *     MiManageUltraSpacePageTable @ 0x14046EC9C (MiManageUltraSpacePageTable.c)
+ *     MiFlushTbList @ 0x140279B10 (MiFlushTbList.c)
+ *     MiInsertCachedPte @ 0x1402CBDA0 (MiInsertCachedPte.c)
+ *     MiGetUltraMapping @ 0x1402D1CA0 (MiGetUltraMapping.c)
+ *     MiAgeWorkingSetTail @ 0x140334640 (MiAgeWorkingSetTail.c)
+ *     MiAttachSessionGlobal @ 0x14033DD2C (MiAttachSessionGlobal.c)
+ *     MiConsumeSystemCacheTbFlushNeededView @ 0x1403613F0 (MiConsumeSystemCacheTbFlushNeededView.c)
+ *     MiFlushEntireTbDueToAttributeChange @ 0x14036F73C (MiFlushEntireTbDueToAttributeChange.c)
+ *     MiGetWsAndMakePageTablesNx @ 0x1403B1724 (MiGetWsAndMakePageTablesNx.c)
+ *     MiManageUltraSpacePageTable @ 0x14046F09C (MiManageUltraSpacePageTable.c)
  *     MiSwitchToPfns @ 0x140B42278 (MiSwitchToPfns.c)
  *     MiInitializeTbFlush @ 0x140B5C1BC (MiInitializeTbFlush.c)
  * Callees:
- *     KiIpiSendRequest @ 0x140254020 (KiIpiSendRequest.c)
- *     KiCopyAffinityEx @ 0x1402545C0 (KiCopyAffinityEx.c)
- *     KeFlushProcessWriteBuffers @ 0x1402C003C (KeFlushProcessWriteBuffers.c)
- *     KxFlushNonGlobalTb @ 0x1402EB4C4 (KxFlushNonGlobalTb.c)
- *     KiIpiSendRequestEx @ 0x1402EB5F0 (KiIpiSendRequestEx.c)
- *     KiFlushCurrentTbWorker @ 0x140339D60 (KiFlushCurrentTbWorker.c)
- *     KxSetTimeStampBusy @ 0x140346694 (KxSetTimeStampBusy.c)
- *     KxFlushEntireTb @ 0x1403B2AAC (KxFlushEntireTb.c)
- *     KiFlushCurrentTbOnly @ 0x1403BE320 (KiFlushCurrentTbOnly.c)
- *     KiFlushAddressSpaceTb @ 0x1403CC050 (KiFlushAddressSpaceTb.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1403CD2C0 (KiCheckVpBackingLongSpinWaitHypercall.c)
- *     HvlNotifyLongSpinWait @ 0x1403CD2F0 (HvlNotifyLongSpinWait.c)
- *     KiPrepareFlushParameters @ 0x1403CEA4C (KiPrepareFlushParameters.c)
- *     KiFlushAffinity @ 0x1403CED68 (KiFlushAffinity.c)
- *     memset @ 0x140435A00 (memset.c)
- *     KiIsFlushEntire @ 0x14046059C (KiIsFlushEntire.c)
- *     VmFlushTb @ 0x1404664EC (VmFlushTb.c)
- *     VslFlushSecureAddressSpace @ 0x14054AFFC (VslFlushSecureAddressSpace.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     ExFlushTb @ 0x14060D018 (ExFlushTb.c)
+ *     KiIpiSendRequest @ 0x1402540E0 (KiIpiSendRequest.c)
+ *     KiCopyAffinityEx @ 0x140254680 (KiCopyAffinityEx.c)
+ *     KeFlushProcessWriteBuffers @ 0x1402C02CC (KeFlushProcessWriteBuffers.c)
+ *     KxFlushNonGlobalTb @ 0x1402EB754 (KxFlushNonGlobalTb.c)
+ *     KiIpiSendRequestEx @ 0x1402EB880 (KiIpiSendRequestEx.c)
+ *     KiFlushCurrentTbWorker @ 0x140339FF0 (KiFlushCurrentTbWorker.c)
+ *     KxSetTimeStampBusy @ 0x140346924 (KxSetTimeStampBusy.c)
+ *     KxFlushEntireTb @ 0x1403B2C8C (KxFlushEntireTb.c)
+ *     KiFlushCurrentTbOnly @ 0x1403BE500 (KiFlushCurrentTbOnly.c)
+ *     KiFlushAddressSpaceTb @ 0x1403CC230 (KiFlushAddressSpaceTb.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1403CD4A0 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     HvlNotifyLongSpinWait @ 0x1403CD4D0 (HvlNotifyLongSpinWait.c)
+ *     KiPrepareFlushParameters @ 0x1403CEC2C (KiPrepareFlushParameters.c)
+ *     KiFlushAffinity @ 0x1403CEF48 (KiFlushAffinity.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     KiIsFlushEntire @ 0x14046099C (KiIsFlushEntire.c)
+ *     VmFlushTb @ 0x1404668EC (VmFlushTb.c)
+ *     VslFlushSecureAddressSpace @ 0x14054B6BC (VslFlushSecureAddressSpace.c)
+ *     ExFlushTb @ 0x14060D568 (ExFlushTb.c)
  */
 
 __int64 __fastcall KeFlushTb(unsigned int a1, unsigned int a2)
@@ -106,7 +106,7 @@ LABEL_40:
       _InterlockedOr(v48, 0);
       CurrentIrql = KeGetCurrentIrql();
       __writecr8(0xCuLL);
-      if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+      if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
       {
         SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
         if ( CurrentIrql == 12 )
@@ -122,10 +122,10 @@ LABEL_40:
       {
 LABEL_32:
         KiFlushCurrentTbOnly(a1);
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
           v17 = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
             && (unsigned __int8)v17 <= 0xFu
             && CurrentIrql <= 0xFu
             && (unsigned __int8)v17 >= 2u )
@@ -156,10 +156,10 @@ LABEL_32:
         if ( ++v21 >= Process->ActiveProcessors.Count )
           goto LABEL_32;
       }
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v34 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v34 <= 0xFu && CurrentIrql <= 0xFu && v34 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v34 <= 0xFu && CurrentIrql <= 0xFu && v34 >= 2u )
         {
           v30 = KeGetCurrentPrcb();
           v31 = v30->SchedulerAssist;
@@ -199,7 +199,7 @@ LABEL_57:
     v6 = a2 != 0;
   v8 = KeGetCurrentIrql();
   __writecr8(0xCuLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && v8 <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && v8 <= 0xFu )
   {
     v26 = KeGetCurrentPrcb()->SchedulerAssist;
     if ( v8 == 12 )
@@ -272,10 +272,13 @@ LABEL_13:
       KiFlushCurrentTbWorker(0LL);
     }
   }
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v17 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && (unsigned __int8)v17 <= 0xFu && v8 <= 0xFu && (unsigned __int8)v17 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && (unsigned __int8)v17 <= 0xFu
+      && v8 <= 0xFu
+      && (unsigned __int8)v17 >= 2u )
     {
       v38 = KeGetCurrentPrcb();
       v17 = (unsigned int)v8 + 1;
@@ -308,7 +311,7 @@ LABEL_16:
   {
     v41 = KeGetCurrentIrql();
     __writecr8(0xFuLL);
-    if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && v41 <= 0xFu )
+    if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && v41 <= 0xFu )
     {
       v42 = KeGetCurrentPrcb()->SchedulerAssist;
       if ( v41 == 15 )
@@ -318,10 +321,10 @@ LABEL_16:
       v42[5] |= v43;
     }
     ExFlushTb(0LL, 0LL, a1);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v44 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v44 <= 0xFu && v41 <= 0xFu && v44 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v44 <= 0xFu && v41 <= 0xFu && v44 >= 2u )
       {
         v45 = KeGetCurrentPrcb();
         v46 = v45->SchedulerAssist;

@@ -1,12 +1,12 @@
 /*
- * XREFs of KeSetForceIdle @ 0x1404C5268
+ * XREFs of KeSetForceIdle @ 0x1404BEC18
  * Callers:
- *     PopDeepSleepClearDisengageReason @ 0x1403B42F8 (PopDeepSleepClearDisengageReason.c)
+ *     PopDeepSleepClearDisengageReason @ 0x1403BE204 (PopDeepSleepClearDisengageReason.c)
  * Callees:
- *     RtlGetInterruptTimePrecise @ 0x140208110 (RtlGetInterruptTimePrecise.c)
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     KiSetForceIdleState @ 0x1404C5428 (KiSetForceIdleState.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14052FA20 (KiRemoveSystemWorkPriorityKick.c)
+ *     RtlGetInterruptTimePrecise @ 0x1402081F0 (RtlGetInterruptTimePrecise.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     KiSetForceIdleState @ 0x1404BEDD8 (KiSetForceIdleState.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x140531F20 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 void __fastcall KeSetForceIdle(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
@@ -14,24 +14,25 @@ void __fastcall KeSetForceIdle(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
   struct _KPRCB *CurrentPrcb; // rcx
   unsigned __int32 *SchedulerAssist; // r8
   int v6; // edi
-  __int64 v7; // rbx
+  LARGE_INTEGER v7; // rbx
   unsigned __int32 v8; // eax
   __int64 v9; // rdx
   unsigned __int32 v10; // ett
-  unsigned __int64 v11; // [rsp+30h] [rbp+8h] BYREF
+  LARGE_INTEGER PerformanceCounter; // [rsp+30h] [rbp+8h] BYREF
 
   _disable();
-  LODWORD(v11) = 0;
-  while ( _interlockedbittestandset64((volatile signed __int32 *)&KiForceIdleLock, 0LL) )
+  PerformanceCounter.LowPart = 0;
+  while ( _interlockedbittestandset64(&KiSupervisorXStateFeaturesLock.Timer.Header.LockNV, 0LL) )
   {
     do
-      KeYieldProcessorEx(&v11);
-    while ( KiForceIdleLock );
+      KeYieldProcessorEx(&PerformanceCounter);
+    while ( *(_QWORD *)&KiSupervisorXStateFeaturesLock.Timer.Header.Lock );
   }
   if ( !KiForceIdleDisabled )
   {
     v6 = KiForceIdleState;
-    v7 = RtlGetInterruptTimePrecise(&v11) + 10000000LL * (unsigned int)KiForceIdleGracePeriodInSec;
+    v7.QuadPart = *(_QWORD *)&RtlGetInterruptTimePrecise(&PerformanceCounter)
+                + 10000000LL * (unsigned int)KiForceIdleGracePeriodInSec;
     if ( v6 )
     {
       if ( v6 != 3 )
@@ -41,10 +42,10 @@ void __fastcall KeSetForceIdle(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
     {
       KiSetForceIdleState(2LL);
     }
-    KiForceIdleStartTime = v7;
+    KiSupervisorXStateFeaturesLock.ApcState.ApcListHead[0].Blink = (struct _LIST_ENTRY *)v7.QuadPart;
   }
 LABEL_6:
-  _InterlockedAnd64(&KiForceIdleLock, 0LL);
+  _InterlockedAnd64((volatile signed __int64 *)&KiSupervisorXStateFeaturesLock.Timer.Header.Lock, 0LL);
   CurrentPrcb = KeGetCurrentPrcb();
   SchedulerAssist = (unsigned __int32 *)CurrentPrcb->SchedulerAssist;
   if ( SchedulerAssist )

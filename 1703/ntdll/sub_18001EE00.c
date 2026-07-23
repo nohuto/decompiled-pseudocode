@@ -45,7 +45,7 @@ __int64 __fastcall sub_18001EE00(__int64 a1)
     }
     else
     {
-      result = sub_180021F28(a1, i - 16);
+      result = sub_180021F28(a1);
     }
   }
   return result;

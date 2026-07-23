@@ -14,7 +14,7 @@ PSLIST_ENTRY MiInitializeDecayPfns()
   PSLIST_ENTRY result; // rax
 
   if ( ((unsigned __int8)&stru_140C4E7B0 & 0xF) != 0 )
-    RtlRaiseStatus(0x80000002);
+    RtlRaiseStatus(-2147483646);
   stru_140C4E7B0 = 0LL;
   v0 = 48 * qword_140C4E7A0 - 0x57FFFFE8030LL;
   v1 = 2048LL;

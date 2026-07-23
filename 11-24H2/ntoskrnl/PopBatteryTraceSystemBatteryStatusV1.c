@@ -1,12 +1,12 @@
 /*
- * XREFs of PopBatteryTraceSystemBatteryStatusV1 @ 0x1404FAEA4
+ * XREFs of PopBatteryTraceSystemBatteryStatusV1 @ 0x1404F8784
  * Callers:
- *     PopBatteryEtwCallback @ 0x14075AD80 (PopBatteryEtwCallback.c)
- *     PopBatteryApplyCompositeState @ 0x140A3AD08 (PopBatteryApplyCompositeState.c)
+ *     PopBatteryEtwCallback @ 0x140759470 (PopBatteryEtwCallback.c)
+ *     PopBatteryApplyCompositeState @ 0x140A304E8 (PopBatteryApplyCompositeState.c)
  * Callees:
- *     EtwWriteEx @ 0x140259680 (EtwWriteEx.c)
- *     EtwEventEnabled @ 0x1402A1BD0 (EtwEventEnabled.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     EtwWriteEx @ 0x140289C90 (EtwWriteEx.c)
+ *     EtwEventEnabled @ 0x1402D1300 (EtwEventEnabled.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 char __fastcall PopBatteryTraceSystemBatteryStatusV1(char a1)
@@ -66,23 +66,23 @@ char __fastcall PopBatteryTraceSystemBatteryStatusV1(char a1)
     LOBYTE(v1) = EtwEventEnabled(PopBatteryEtwHandle, v2);
     if ( (_BYTE)v1 )
     {
-      if ( BYTE1(xmmword_140F0B060) )
+      if ( BYTE1(xmmword_140F0BEA0) )
       {
-        v14 = xmmword_140F0AE80;
+        v14 = xmmword_140F0BCC0;
         v13 = 1;
-        if ( DWORD2(xmmword_140F0B060) )
-          v11 = 100000 * (unsigned __int64)HIDWORD(xmmword_140F0B060) / DWORD2(xmmword_140F0B060);
+        if ( DWORD2(xmmword_140F0BEA0) )
+          v11 = 100000 * (unsigned __int64)HIDWORD(xmmword_140F0BEA0) / DWORD2(xmmword_140F0BEA0);
         else
           LODWORD(v11) = 0;
-        v4 = DWORD1(xmmword_140F0B090);
-        v5 = xmmword_140F0B090;
-        v6 = HIDWORD(xmmword_140F0B080);
-        v7 = DWORD2(xmmword_140F0B080);
-        v8 = DWORD1(xmmword_140F0B080);
-        v9 = xmmword_140F0B080;
-        v10 = xmmword_140F0B070;
+        v4 = DWORD1(xmmword_140F0BED0);
+        v5 = xmmword_140F0BED0;
+        v6 = HIDWORD(xmmword_140F0BEC0);
+        v7 = DWORD2(xmmword_140F0BEC0);
+        v8 = DWORD1(xmmword_140F0BEC0);
+        v9 = xmmword_140F0BEC0;
+        v10 = xmmword_140F0BEB0;
         v15 = v11;
-        v3 = DWORD2(xmmword_140F0B090);
+        v3 = DWORD2(xmmword_140F0BED0);
       }
       else
       {

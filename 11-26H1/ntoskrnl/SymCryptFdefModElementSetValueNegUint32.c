@@ -1,12 +1,12 @@
 /*
- * XREFs of SymCryptFdefModElementSetValueNegUint32 @ 0x14056F6C4
+ * XREFs of SymCryptFdefModElementSetValueNegUint32 @ 0x14056E8A4
  * Callers:
- *     SymCryptModElementSetValueNegUint32 @ 0x14055C6A4 (SymCryptModElementSetValueNegUint32.c)
+ *     SymCryptModElementSetValueNegUint32 @ 0x14055EB8C (SymCryptModElementSetValueNegUint32.c)
  * Callees:
- *     xHalTimerWatchdogStop @ 0x1404D1DF0 (xHalTimerWatchdogStop.c)
- *     SymCryptWipe @ 0x140556458 (SymCryptWipe.c)
- *     SymCryptFdefRawSubUint32 @ 0x140569098 (SymCryptFdefRawSubUint32.c)
- *     _guard_dispatch_icall_nop @ 0x140722950 (_guard_dispatch_icall_nop.c)
+ *     xHalTimerWatchdogStop @ 0x1404CB9A0 (xHalTimerWatchdogStop.c)
+ *     SymCryptWipe @ 0x1405588E8 (SymCryptWipe.c)
+ *     SymCryptFdefRawSubUint32 @ 0x140568278 (SymCryptFdefRawSubUint32.c)
+ *     _guard_dispatch_icall_nop @ 0x140727520 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall SymCryptFdefModElementSetValueNegUint32(

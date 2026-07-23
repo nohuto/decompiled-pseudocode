@@ -1,31 +1,31 @@
 /*
- * XREFs of ?KiCommitRescheduleContextEntry@@YAEPEAU_KI_RESCHEDULE_CONTEXT_ENTRY@@PEAU_KPRCB@@KPEAU_SINGLE_LIST_ENTRY@@@Z @ 0x14023F140
+ * XREFs of ?KiCommitRescheduleContextEntry@@YAEPEAU_KI_RESCHEDULE_CONTEXT_ENTRY@@PEAU_KPRCB@@KPEAU_SINGLE_LIST_ENTRY@@@Z @ 0x140240AA0
  * Callers:
- *     KiSoftParkElectionUnparkProcessor @ 0x14022ACC4 (KiSoftParkElectionUnparkProcessor.c)
- *     KiRescheduleThreadAfterAffinityChange @ 0x14022B26C (KiRescheduleThreadAfterAffinityChange.c)
- *     KiAttemptToStealStandbyThread @ 0x14022B800 (KiAttemptToStealStandbyThread.c)
- *     KiEnterLongDpcProcessing @ 0x14022EA74 (KiEnterLongDpcProcessing.c)
- *     KiDeferredReadySingleThread @ 0x140231820 (KiDeferredReadySingleThread.c)
- *     KeYieldExecution @ 0x1402387B0 (KeYieldExecution.c)
- *     KiDirectSwitchThread @ 0x140239BE0 (KiDirectSwitchThread.c)
- *     KiSearchForNewThread @ 0x14023E3D0 (KiSearchForNewThread.c)
- *     KiCommitRescheduleContext @ 0x14023F070 (KiCommitRescheduleContext.c)
- *     KiSearchForNewThreadsOnTarget @ 0x1402404D0 (KiSearchForNewThreadsOnTarget.c)
- *     KiRemoveBoostThread @ 0x1402742E0 (KiRemoveBoostThread.c)
- *     KiExecuteAllDpcs @ 0x14032DD00 (KiExecuteAllDpcs.c)
- *     KiQuantumEnd @ 0x140331070 (KiQuantumEnd.c)
- *     KiGroupSchedulingQuantumEnd @ 0x140332850 (KiGroupSchedulingQuantumEnd.c)
- *     KiGroupSchedulingGenerationEnd @ 0x140333210 (KiGroupSchedulingGenerationEnd.c)
- *     KiParkCurrentProcessor @ 0x1403346DC (KiParkCurrentProcessor.c)
- *     KiSetPriorityThread @ 0x14037F250 (KiSetPriorityThread.c)
+ *     KiSoftParkElectionUnparkProcessor @ 0x14022C654 (KiSoftParkElectionUnparkProcessor.c)
+ *     KiRescheduleThreadAfterAffinityChange @ 0x14022CBFC (KiRescheduleThreadAfterAffinityChange.c)
+ *     KiAttemptToStealStandbyThread @ 0x14022D190 (KiAttemptToStealStandbyThread.c)
+ *     KiEnterLongDpcProcessing @ 0x140230404 (KiEnterLongDpcProcessing.c)
+ *     KiDeferredReadySingleThread @ 0x140233180 (KiDeferredReadySingleThread.c)
+ *     KeYieldExecution @ 0x14023A110 (KeYieldExecution.c)
+ *     KiDirectSwitchThread @ 0x14023B540 (KiDirectSwitchThread.c)
+ *     KiSearchForNewThread @ 0x14023FD30 (KiSearchForNewThread.c)
+ *     KiCommitRescheduleContext @ 0x1402409D0 (KiCommitRescheduleContext.c)
+ *     KiSearchForNewThreadsOnTarget @ 0x140241E30 (KiSearchForNewThreadsOnTarget.c)
+ *     KiRemoveBoostThread @ 0x140273850 (KiRemoveBoostThread.c)
+ *     KiExecuteAllDpcs @ 0x14032FD30 (KiExecuteAllDpcs.c)
+ *     KiQuantumEnd @ 0x1403330A0 (KiQuantumEnd.c)
+ *     KiGroupSchedulingQuantumEnd @ 0x140334880 (KiGroupSchedulingQuantumEnd.c)
+ *     KiGroupSchedulingGenerationEnd @ 0x140335240 (KiGroupSchedulingGenerationEnd.c)
+ *     KiParkCurrentProcessor @ 0x14033670C (KiParkCurrentProcessor.c)
+ *     KiSetPriorityThread @ 0x140381000 (KiSetPriorityThread.c)
  * Callees:
- *     KiIsPrcbThread @ 0x1402BCC10 (KiIsPrcbThread.c)
- *     KiInsertDeferredReadyList @ 0x1402BCC40 (KiInsertDeferredReadyList.c)
- *     KiUpdateStandbyStealSummaryForStandbyChange @ 0x14037ED90 (KiUpdateStandbyStealSummaryForStandbyChange.c)
- *     KiUpdateThreadQosGroupingSummaries @ 0x14037EEC0 (KiUpdateThreadQosGroupingSummaries.c)
- *     KiQueryEffectivePriorityThread @ 0x14037F0E0 (KiQueryEffectivePriorityThread.c)
- *     KiSetProcessorIdle @ 0x14042FEA0 (KiSetProcessorIdle.c)
- *     KiSetSchedulerAssistPriority @ 0x1404B072C (KiSetSchedulerAssistPriority.c)
+ *     KiIsPrcbThread @ 0x1403078D0 (KiIsPrcbThread.c)
+ *     KiInsertDeferredReadyList @ 0x140307900 (KiInsertDeferredReadyList.c)
+ *     KiUpdateStandbyStealSummaryForStandbyChange @ 0x140380B40 (KiUpdateStandbyStealSummaryForStandbyChange.c)
+ *     KiUpdateThreadQosGroupingSummaries @ 0x140380C70 (KiUpdateThreadQosGroupingSummaries.c)
+ *     KiQueryEffectivePriorityThread @ 0x140380E90 (KiQueryEffectivePriorityThread.c)
+ *     KiSetProcessorIdle @ 0x14041CED0 (KiSetProcessorIdle.c)
+ *     KiSetSchedulerAssistPriority @ 0x1404A9DBC (KiSetSchedulerAssistPriority.c)
  */
 
 char __fastcall KiCommitRescheduleContextEntry(
@@ -146,7 +146,7 @@ char __fastcall KiCommitRescheduleContextEntry(
     else
     {
       CurrentThread = Prcb->CurrentThread;
-      if ( (!CurrentThread || CurrentThread->Process != (_KPROCESS *)&unk_140FC8F40)
+      if ( (!CurrentThread || CurrentThread->Process != (_KPROCESS *)&unk_140FC9F40)
         && CurrentThread->WaitBlockFill6[68] == 2
         && (a1->___u5[0] & 2) == 0 )
       {

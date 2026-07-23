@@ -1,9 +1,9 @@
 /*
- * XREFs of AslpAllocMatchNode @ 0x14080AFA0
+ * XREFs of AslpAllocMatchNode @ 0x14080B6E0
  * Callers:
- *     AslpParsePattern @ 0x14080B0E0 (AslpParsePattern.c)
+ *     AslpParsePattern @ 0x14080B820 (AslpParsePattern.c)
  * Callees:
- *     AslAlloc @ 0x14095D3E4 (AslAlloc.c)
+ *     AslAlloc @ 0x140944EA4 (AslAlloc.c)
  */
 
 __int64 __fastcall AslpAllocMatchNode(__int64 a1, __int64 a2, __int64 *a3)

@@ -16,28 +16,28 @@
  *     ObReferenceObjectByHandle @ 0x140496770 (ObReferenceObjectByHandle.c)
  */
 
-NTSTATUS __fastcall NtNotifyChangeSession(
-        void *a1,
-        unsigned int a2,
-        __int64 a3,
-        unsigned int a4,
-        unsigned int a5,
-        int a6,
-        char *Src,
-        SIZE_T NumberOfBytes)
+NTSTATUS __cdecl NtNotifyChangeSession(
+        HANDLE SessionHandle,
+        ULONG ChangeSequenceNumber,
+        PLARGE_INTEGER ChangeTimeStamp,
+        IO_SESSION_EVENT Event,
+        IO_SESSION_STATE NewState,
+        IO_SESSION_STATE PreviousState,
+        PVOID Payload,
+        ULONG PayloadSize)
 {
   SIZE_T v10; // r12
   KPROCESSOR_MODE PreviousMode; // al
   NTSTATUS result; // eax
   _QWORD *v13; // r14
   __int64 v14; // rcx
-  unsigned int v15; // eax
-  unsigned int v16; // eax
-  char *v17; // rbx
+  ULONG v15; // eax
+  ULONG v16; // eax
+  _BYTE *v17; // rbx
   struct _WORK_QUEUE_ITEM *v18; // rax
-  char *PoolWithTag; // rax
+  _BYTE *PoolWithTag; // rax
   unsigned __int16 v20; // r12
-  char *v21; // rax
+  _BYTE *v21; // rax
   char v22; // [rsp+30h] [rbp-1C8h]
   char v23; // [rsp+31h] [rbp-1C7h]
   KPROCESSOR_MODE v24; // [rsp+32h] [rbp-1C6h]
@@ -50,14 +50,14 @@ NTSTATUS __fastcall NtNotifyChangeSession(
   PVOID v31; // [rsp+B0h] [rbp-148h]
   _BYTE v32[256]; // [rsp+C0h] [rbp-138h] BYREF
 
-  v10 = (unsigned int)NumberOfBytes;
+  v10 = PayloadSize;
   v22 = 0;
   v23 = 0;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   v24 = PreviousMode;
-  if ( (unsigned int)NumberOfBytes > 0x100 )
+  if ( PayloadSize > 0x100 )
     return -1073741580;
-  result = ObReferenceObjectByHandle(a1, 2u, MmSessionObjectType, PreviousMode, &Object, 0LL);
+  result = ObReferenceObjectByHandle(SessionHandle, 2u, MmSessionObjectType, PreviousMode, &Object, 0LL);
   v25 = result;
   v13 = Object;
   v31 = Object;
@@ -66,14 +66,14 @@ NTSTATUS __fastcall NtNotifyChangeSession(
   KeWaitForSingleObject((PVOID)(*((_QWORD *)Object + 3) + 7960LL), Executive, 0, 0, 0LL);
   v14 = v13[3];
   v15 = *(_DWORD *)(v14 + 7956);
-  if ( v15 == a2 )
+  if ( v15 == ChangeSequenceNumber )
   {
     v16 = v15 + 1;
 LABEL_5:
     *(_DWORD *)(v14 + 7956) = v16;
     goto LABEL_6;
   }
-  if ( v15 <= a2 || v15 - a2 >= 0xFFFFFFFD )
+  if ( v15 <= ChangeSequenceNumber || v15 - ChangeSequenceNumber >= 0xFFFFFFFD )
   {
     Interval.QuadPart = -1000000LL;
     v20 = 0;
@@ -85,61 +85,61 @@ LABEL_5:
       ++v20;
       v14 = v13[3];
     }
-    while ( *(_DWORD *)(v14 + 7956) != a2 && v20 <= 0xAu );
-    v16 = a2 + 1;
-    v10 = (unsigned int)NumberOfBytes;
+    while ( *(_DWORD *)(v14 + 7956) != ChangeSequenceNumber && v20 <= 0xAu );
+    v16 = ChangeSequenceNumber + 1;
+    v10 = PayloadSize;
     goto LABEL_5;
   }
 LABEL_6:
-  if ( !a4 )
+  if ( Event == IoSessionEventIgnore )
   {
     KeSetEvent((PRKEVENT)(v13[3] + 7960LL), 0, 0);
     ObfDereferenceObject(v13);
     return 0;
   }
-  *(_DWORD *)(v13[3] + 7952LL) = a5;
+  *(_DWORD *)(v13[3] + 7952LL) = NewState;
   v17 = 0LL;
   if ( !(_DWORD)v10 )
     goto LABEL_8;
   if ( v24 == 1 )
   {
-    if ( (unsigned __int64)&Src[v10] > MmUserProbeAddress || &Src[v10] < Src )
+    if ( (unsigned __int64)Payload + v10 > MmUserProbeAddress || (char *)Payload + v10 < Payload )
       *(_BYTE *)MmUserProbeAddress = 0;
-    PoolWithTag = (char *)ExAllocatePoolWithTag(PagedPool, v10, 0x6E536F49u);
+    PoolWithTag = ExAllocatePoolWithTag(PagedPool, v10, 0x6E536F49u);
     v17 = PoolWithTag;
     if ( PoolWithTag )
     {
       v22 = 1;
-      memmove(PoolWithTag, Src, v10);
+      memmove(PoolWithTag, Payload, v10);
     }
     else
     {
       v17 = v32;
-      memmove(v32, Src, v10);
+      memmove(v32, Payload, v10);
       v23 = 1;
     }
-    LODWORD(v10) = NumberOfBytes;
+    LODWORD(v10) = PayloadSize;
     goto LABEL_8;
   }
-  if ( a4 - 1 > 1 )
+  if ( (unsigned int)(Event - 1) > 1 )
   {
-    v21 = (char *)ExAllocatePoolWithTag(PagedPool, (unsigned int)v10, 0x6E536F49u);
+    v21 = ExAllocatePoolWithTag(PagedPool, (unsigned int)v10, 0x6E536F49u);
     v17 = v21;
     if ( v21 )
     {
       v22 = 1;
-      memmove(v21, Src, (unsigned int)v10);
+      memmove(v21, Payload, (unsigned int)v10);
       goto LABEL_8;
     }
     v23 = 1;
   }
-  v17 = Src;
+  v17 = Payload;
 LABEL_8:
-  v29.Flink = (struct _LIST_ENTRY *)__PAIR64__(a5, a4);
-  LODWORD(v29.Blink) = v10;
+  LODWORD(v29.Flink) = Event;
+  *(struct _LIST_ENTRY **)((char *)&v29.Flink + 4) = (struct _LIST_ENTRY *)__PAIR64__(v10, NewState);
   *(_QWORD *)&v30 = v17;
   *((_QWORD *)&v30 + 1) = v13;
-  if ( !v23 && a4 - 1 > 1 )
+  if ( !v23 && (unsigned int)(Event - 1) > 1 )
   {
     v18 = (struct _WORK_QUEUE_ITEM *)ExAllocatePoolWithTag(NonPagedPoolNx, 0x40uLL, 0x6E536F49u);
     if ( v18 )

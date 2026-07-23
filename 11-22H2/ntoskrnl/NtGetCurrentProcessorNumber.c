@@ -6,9 +6,9 @@
  *     <none>
  */
 
-__int64 NtGetCurrentProcessorNumber()
+ULONG NtGetCurrentProcessorNumber(void)
 {
-  unsigned int GroupIndex; // ecx
+  ULONG GroupIndex; // ecx
   _KPROCESS *Process; // rdx
   __int16 v2; // ax
 

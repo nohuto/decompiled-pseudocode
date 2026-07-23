@@ -155,7 +155,7 @@ LABEL_20:
   if ( !v5 )
   {
     if ( (MiFlags & 0x10000000) != 0 && (MiFlags & 0x30u) >= 0x20 )
-      ZwUpdateWnfStateData((__int64)&WNF_MM_PHYSICAL_MEMORY_CHANGE, 0LL);
+      ZwUpdateWnfStateData(&WNF_MM_PHYSICAL_MEMORY_CHANGE, 0LL, 0, 0LL, 0LL, 0, 0);
     KePulseEvent(qword_140C50EC8, 0, 0);
     MiFlushEntireTbDueToAttributeChange();
     MiFlushCacheRange(DanglingExtent, v10, v20, v21);

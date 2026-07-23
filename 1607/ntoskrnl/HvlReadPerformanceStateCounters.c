@@ -1,9 +1,9 @@
 /*
- * XREFs of HvlReadPerformanceStateCounters @ 0x1401BF404
+ * XREFs of HvlReadPerformanceStateCounters @ 0x1401BF2E8
  * Callers:
  *     <none>
  * Callees:
- *     KeGetPrcb @ 0x1400D3FF8 (KeGetPrcb.c)
+ *     KeGetPrcb @ 0x1400D1E98 (KeGetPrcb.c)
  */
 
 void __fastcall HvlReadPerformanceStateCounters(ULONG a1, unsigned int a2, _QWORD *a3, _QWORD *a4)

@@ -1,33 +1,33 @@
 /*
- * XREFs of PsCallEnclave @ 0x1407FE1F0
+ * XREFs of PsCallEnclave @ 0x140803C20
  * Callers:
- *     NtCallEnclave @ 0x140731220 (NtCallEnclave.c)
+ *     NtCallEnclave @ 0x140735DF0 (NtCallEnclave.c)
  * Callees:
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     KeWaitForSingleObject @ 0x140278560 (KeWaitForSingleObject.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     KiCheckForKernelApcDelivery @ 0x14027DB80 (KiCheckForKernelApcDelivery.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402BA1B0 (KiLeaveCriticalRegionUnsafe.c)
- *     KeSetEvent @ 0x1402DE9C0 (KeSetEvent.c)
- *     RtlAvlRemoveNode @ 0x14030C5E0 (RtlAvlRemoveNode.c)
- *     RtlAvlInsertNodeEx @ 0x14030CA60 (RtlAvlInsertNodeEx.c)
- *     ExfTryToWakePushLock @ 0x1403170A0 (ExfTryToWakePushLock.c)
- *     PsGetBaseTrapFrame @ 0x140470350 (PsGetBaseTrapFrame.c)
- *     RtlPrepareEnclaveCall @ 0x1404F19B4 (RtlPrepareEnclaveCall.c)
- *     RtlCreateEnclaveReturnFrame @ 0x1406247DC (RtlCreateEnclaveReturnFrame.c)
- *     ZwTerminateProcess @ 0x140723970 (ZwTerminateProcess.c)
- *     RtlReadULong64FromUser @ 0x14077F554 (RtlReadULong64FromUser.c)
- *     RtlWriteULong64ToUser @ 0x14077F758 (RtlWriteULong64ToUser.c)
- *     PspRemoveEnclaveThreadWait @ 0x1407FF03C (PspRemoveEnclaveThreadWait.c)
- *     PspSelectVsmEnclaveByNumber @ 0x140A91FCC (PspSelectVsmEnclaveByNumber.c)
- *     PsDereferenceVsmEnclave @ 0x140AB790C (PsDereferenceVsmEnclave.c)
- *     PspFindVsmEnclaveThread @ 0x140ACA4D0 (PspFindVsmEnclaveThread.c)
- *     VslCallEnclave @ 0x140B19E0C (VslCallEnclave.c)
- *     MmSelectVsmEnclaveByAddress @ 0x140B2AAB8 (MmSelectVsmEnclaveByAddress.c)
- *     PspPrepareEnclaveThreadWait @ 0x140B6E2AC (PspPrepareEnclaveThreadWait.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     KeWaitForSingleObject @ 0x140277AD0 (KeWaitForSingleObject.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     KiCheckForKernelApcDelivery @ 0x14027D0F0 (KiCheckForKernelApcDelivery.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     KeSetEvent @ 0x1402C0780 (KeSetEvent.c)
+ *     RtlAvlRemoveNode @ 0x1402EE660 (RtlAvlRemoveNode.c)
+ *     RtlAvlInsertNodeEx @ 0x1402EEAE0 (RtlAvlInsertNodeEx.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140304E70 (KiLeaveCriticalRegionUnsafe.c)
+ *     ExfTryToWakePushLock @ 0x1403190D0 (ExfTryToWakePushLock.c)
+ *     PsGetBaseTrapFrame @ 0x140469AD0 (PsGetBaseTrapFrame.c)
+ *     RtlPrepareEnclaveCall @ 0x1404EAF94 (RtlPrepareEnclaveCall.c)
+ *     RtlCreateEnclaveReturnFrame @ 0x14062782C (RtlCreateEnclaveReturnFrame.c)
+ *     ZwTerminateProcess @ 0x140728540 (ZwTerminateProcess.c)
+ *     RtlReadULong64FromUser @ 0x140782054 (RtlReadULong64FromUser.c)
+ *     RtlWriteULong64ToUser @ 0x140782258 (RtlWriteULong64ToUser.c)
+ *     PspRemoveEnclaveThreadWait @ 0x140804A6C (PspRemoveEnclaveThreadWait.c)
+ *     PspSelectVsmEnclaveByNumber @ 0x140A96B1C (PspSelectVsmEnclaveByNumber.c)
+ *     PsDereferenceVsmEnclave @ 0x140AB8F4C (PsDereferenceVsmEnclave.c)
+ *     PspFindVsmEnclaveThread @ 0x140ACC5E0 (PspFindVsmEnclaveThread.c)
+ *     VslCallEnclave @ 0x140B1C25C (VslCallEnclave.c)
+ *     MmSelectVsmEnclaveByAddress @ 0x140B2CB38 (MmSelectVsmEnclaveByAddress.c)
+ *     PspPrepareEnclaveThreadWait @ 0x140B7175C (PspPrepareEnclaveThreadWait.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PsCallEnclave(__int64 a1, __int64 a2, NTSTATUS a3, _QWORD *a4)
@@ -43,7 +43,7 @@ __int64 __fastcall PsCallEnclave(__int64 a1, __int64 a2, NTSTATUS a3, _QWORD *a4
   __int64 v15; // rdx
   struct _KLOCK_ENTRIES *v16; // r9
   bool v17; // zf
-  $7A85BAF4F1FA08634C1C4A3E45B775B3 *v18; // rcx
+  $241382875694CED3D471BC5892DE3337 *v18; // rcx
   volatile signed __int64 *v19; // r14
   AutoBoost *v20; // rax
   void *v21; // rdx
@@ -195,8 +195,8 @@ LABEL_15:
     EnclaveReturnFrame = RtlPrepareEnclaveCall(
                            (__int64)BaseTrapFrame,
                            (__int64)a4,
-                           stru_140FC01F0.ExtendedFeatureDisableMask,
-                           stru_140FC01F0.Spare35[0],
+                           stru_140FC11F0.ExtendedFeatureDisableMask,
+                           stru_140FC11F0.Spare35[0],
                            (CurrentThread->MiscFlags & 0x100000) != 0,
                            &v72,
                            &v71);
@@ -204,7 +204,7 @@ LABEL_15:
     if ( v17 )
     {
       v18 = &CurrentThread->152;
-      if ( ($7A85BAF4F1FA08634C1C4A3E45B775B3 *)v18->ApcState.ApcListHead[0].Flink != v18 )
+      if ( ($241382875694CED3D471BC5892DE3337 *)v18->ApcState.ApcListHead[0].Flink != v18 )
         KiCheckForKernelApcDelivery((__int64)v18, v15);
     }
     if ( EnclaveReturnFrame < 0 )
@@ -268,7 +268,7 @@ LABEL_81:
       *((_DWORD *)&CurrentThread[1].SwapListEntry + 3) &= ~0x200u;
       v17 = CurrentThread->SpecialApcDisable++ == -1;
       if ( v17
-        && ($7A85BAF4F1FA08634C1C4A3E45B775B3 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
+        && ($241382875694CED3D471BC5892DE3337 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
       {
         KiCheckForKernelApcDelivery(v41, v40);
       }
@@ -330,8 +330,8 @@ LABEL_124:
         --CurrentThread->SpecialApcDisable;
         EnclaveReturnFrame = RtlCreateEnclaveReturnFrame(
                                (__int64)v70,
-                               (__int64)stru_140FC01F0.WpsFeedback,
-                               stru_140FC01F0.Spare35[0],
+                               (__int64)stru_140FC11F0.WpsFeedback,
+                               stru_140FC11F0.Spare35[0],
                                *((_QWORD *)v12 + 1),
                                v43,
                                ExitStatus,
@@ -341,7 +341,7 @@ LABEL_124:
                                (CurrentThread->MiscFlags & 0x100000) != 0);
         v17 = CurrentThread->SpecialApcDisable++ == -1;
         if ( v17
-          && ($7A85BAF4F1FA08634C1C4A3E45B775B3 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
+          && ($241382875694CED3D471BC5892DE3337 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
         {
           KiCheckForKernelApcDelivery(v45, v44);
         }

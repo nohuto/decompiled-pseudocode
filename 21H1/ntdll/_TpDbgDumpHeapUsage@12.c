@@ -8,25 +8,27 @@
  *     _RtlQueryTagHeap@20 @ 0x4B356E90 (_RtlQueryTagHeap@20.c)
  */
 
-int *__stdcall TpDbgDumpHeapUsage(
-        char a1,
-        int (__thiscall *a2)(_DWORD, int, unsigned int, int *, _DWORD, _DWORD, _DWORD),
+PWSTR __stdcall TpDbgDumpHeapUsage(
+        BOOLEAN a1,
+        int (__thiscall *a2)(_DWORD, int, unsigned int, PWSTR, ULONG, ULONG, _DWORD),
         int a3)
 {
-  unsigned int v3; // esi
-  int *result; // eax
-  int v5; // [esp+Ch] [ebp-14h]
-  _DWORD v6[3]; // [esp+10h] [ebp-10h] BYREF
+  unsigned int i; // esi
+  PWSTR result; // eax
+  _RTL_HEAP_TAG_INFO TagInfo; // [esp+10h] [ebp-10h] BYREF
 
-  v3 = 0;
-  LOBYTE(v5) = a1;
-  do
+  for ( i = 0; i < 0xE; ++i )
   {
-    result = RtlQueryTagHeap((int)NtCurrentPeb()->ProcessHeap, 0, v3 + ((unsigned int)TppHeapTag >> 18), v5, v6);
+    result = RtlQueryTagHeap(NtCurrentPeb()->ProcessHeap, 0, i + (TppHeapTag >> 18), a1, &TagInfo);
     if ( result )
-      result = (int *)a2(a2, a3, v3 + TppHeapTag, result, v6[0], v6[1], v6[2]);
-    ++v3;
+      result = (PWSTR)a2(
+                        a2,
+                        a3,
+                        i + TppHeapTag,
+                        result,
+                        TagInfo.NumberOfAllocations,
+                        TagInfo.NumberOfFrees,
+                        TagInfo.BytesAllocated);
   }
-  while ( v3 < 0xE );
   return result;
 }

@@ -9,7 +9,7 @@
 void EtwpInitializeProviderTraits()
 {
   KeInitializeGuardedMutex(&EtwpProviderTraitsKmMutex);
-  *(_OWORD *)&EtwpProviderTraitsKmTree = 0LL;
+  EtwpProviderTraitsKmTree = 0LL;
   KeInitializeGuardedMutex(&EtwpProviderTraitsUmMutex);
-  *(_OWORD *)&EtwpProviderTraitsUmTree = 0LL;
+  EtwpProviderTraitsUmTree = 0LL;
 }

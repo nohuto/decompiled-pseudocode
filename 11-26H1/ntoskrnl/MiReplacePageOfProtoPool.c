@@ -1,17 +1,17 @@
 /*
- * XREFs of MiReplacePageOfProtoPool @ 0x14044B400
+ * XREFs of MiReplacePageOfProtoPool @ 0x140443530
  * Callers:
- *     MiTradeForLeafPage @ 0x140293AE4 (MiTradeForLeafPage.c)
+ *     MiTradeForLeafPage @ 0x140293044 (MiTradeForLeafPage.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     MiGetUltraMapping @ 0x1402881D0 (MiGetUltraMapping.c)
- *     MiMakeValidPte @ 0x1402DA020 (MiMakeValidPte.c)
- *     MiMakeProtectionPfnCompatible @ 0x14033C7D0 (MiMakeProtectionPfnCompatible.c)
- *     MiWalkAllBitmapRanges @ 0x14044B8F0 (MiWalkAllBitmapRanges.c)
- *     MiGetPrototypePteRanges @ 0x14044BB34 (MiGetPrototypePteRanges.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     RtlCopyVolatileMemory @ 0x140733080 (RtlCopyVolatileMemory.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     MiGetUltraMapping @ 0x140287730 (MiGetUltraMapping.c)
+ *     MiMakeValidPte @ 0x1402BBDE0 (MiMakeValidPte.c)
+ *     MiMakeProtectionPfnCompatible @ 0x14033E850 (MiMakeProtectionPfnCompatible.c)
+ *     MiWalkAllBitmapRanges @ 0x140443A20 (MiWalkAllBitmapRanges.c)
+ *     MiGetPrototypePteRanges @ 0x140443C58 (MiGetPrototypePteRanges.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     RtlCopyVolatileMemory @ 0x140737C50 (RtlCopyVolatileMemory.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall MiReplacePageOfProtoPool(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
@@ -82,7 +82,7 @@ __int64 __fastcall MiReplacePageOfProtoPool(__int64 a1, __int64 a2, __int64 a3, 
       if ( (unsigned __int16)*(_QWORD *)(v9 + 24) != (unsigned __int64)(unsigned int)(v23 + 1)
         || (*(_QWORD *)(v9 + 24) & 0x3FFFFFFFFFFFFFFFuLL) >= 0x10000 )
       {
-        _InterlockedIncrement(&dword_140EF8D34);
+        _InterlockedIncrement(&dword_140EF9094);
         v24 = -1073741823;
       }
       if ( v24 >= 0 )
@@ -90,7 +90,7 @@ __int64 __fastcall MiReplacePageOfProtoPool(__int64 a1, __int64 a2, __int64 a3, 
     }
     else
     {
-      _InterlockedIncrement(&dword_140EF8D38);
+      _InterlockedIncrement(&dword_140EF9098);
       v24 = -1073741823;
     }
     _InterlockedAnd64((volatile signed __int64 *)(v9 + 24), 0x7FFFFFFFFFFFFFFFuLL);

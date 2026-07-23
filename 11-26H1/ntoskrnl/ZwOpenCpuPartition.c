@@ -1,14 +1,14 @@
 /*
- * XREFs of ZwOpenCpuPartition @ 0x1407258D0
+ * XREFs of ZwOpenCpuPartition @ 0x14072A4A0
  * Callers:
- *     DifZwOpenCpuPartitionWrapper @ 0x1406AB1F0 (DifZwOpenCpuPartitionWrapper.c)
+ *     DifZwOpenCpuPartitionWrapper @ 0x1406AEDD0 (DifZwOpenCpuPartitionWrapper.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwOpenCpuPartition(__int64 a1, __int64 a2)
+__int64 __fastcall ZwOpenCpuPartition(__int64 a1)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(a1);
 }

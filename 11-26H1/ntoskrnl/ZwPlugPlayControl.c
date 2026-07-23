@@ -1,22 +1,26 @@
 /*
- * XREFs of ZwPlugPlayControl @ 0x140725BB0
+ * XREFs of ZwPlugPlayControl @ 0x14072A780
  * Callers:
- *     DifZwPlugPlayControlWrapper @ 0x1406AE440 (DifZwPlugPlayControlWrapper.c)
- *     PiCMDeleteDeviceWorker @ 0x1407B0854 (PiCMDeleteDeviceWorker.c)
- *     PiPnpRtlGetDeviceInterfaceEnabled @ 0x140A786F0 (PiPnpRtlGetDeviceInterfaceEnabled.c)
- *     PiPnpRtlGetDeviceStatus @ 0x140A7F4D0 (PiPnpRtlGetDeviceStatus.c)
- *     PlugPlayGetDeviceStatus @ 0x140A80AD4 (PlugPlayGetDeviceStatus.c)
- *     PlugPlayGetDeviceProperty @ 0x140AA1E30 (PlugPlayGetDeviceProperty.c)
- *     PiPnpRtlGetDeviceRelatedDeviceRoutine @ 0x140AAA010 (PiPnpRtlGetDeviceRelatedDeviceRoutine.c)
- *     PiPnpRtlGetDeviceRelationsList @ 0x140AF0900 (PiPnpRtlGetDeviceRelationsList.c)
- *     PiCMSetProblem @ 0x140B3DF98 (PiCMSetProblem.c)
+ *     DifZwPlugPlayControlWrapper @ 0x1406B2020 (DifZwPlugPlayControlWrapper.c)
+ *     PiCMDeleteDeviceWorker @ 0x1407B38B4 (PiCMDeleteDeviceWorker.c)
+ *     PiCMSetProblem @ 0x14094CFF8 (PiCMSetProblem.c)
+ *     PiPnpRtlGetDeviceInterfaceEnabled @ 0x140A81190 (PiPnpRtlGetDeviceInterfaceEnabled.c)
+ *     PiPnpRtlGetDeviceStatus @ 0x140A85340 (PiPnpRtlGetDeviceStatus.c)
+ *     PlugPlayGetDeviceStatus @ 0x140A86944 (PlugPlayGetDeviceStatus.c)
+ *     PlugPlayGetDeviceProperty @ 0x140AA3900 (PlugPlayGetDeviceProperty.c)
+ *     PiPnpRtlGetDeviceRelatedDeviceRoutine @ 0x140AA75F0 (PiPnpRtlGetDeviceRelatedDeviceRoutine.c)
+ *     PiPnpRtlGetDeviceRelationsList @ 0x140AF34D0 (PiPnpRtlGetDeviceRelationsList.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwPlugPlayControl(__int64 a1, __int64 a2)
+// local variable allocation has failed, the output may be wrong!
+NTSTATUS __cdecl ZwPlugPlayControl(
+        PLUGPLAY_CONTROL_CLASS PnPControlClass,
+        PVOID PnPControlData,
+        ULONG PnPControlDataLength)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(*(_QWORD *)&PnPControlClass);
 }

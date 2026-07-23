@@ -1,11 +1,11 @@
 /*
- * XREFs of IopRemoveTimerFromTimerList @ 0x140557A40
+ * XREFs of IopRemoveTimerFromTimerList @ 0x140558100
  * Callers:
- *     IoDeleteDevice @ 0x140304E10 (IoDeleteDevice.c)
+ *     IoDeleteDevice @ 0x1403050A0 (IoDeleteDevice.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250E80 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140250F40 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall IopRemoveTimerFromTimerList(__int64 a1)
@@ -28,10 +28,10 @@ __int64 __fastcall IopRemoveTimerFromTimerList(__int64 a1)
   if ( *(_WORD *)(a1 + 2) )
     --IopTimerCount;
   result = KxReleaseSpinLock((volatile signed __int64 *)&IopTimerLock);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     result = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
       && (unsigned __int8)result <= 0xFu
       && (unsigned __int8)v2 <= 0xFu
       && (unsigned __int8)result >= 2u )
@@ -42,7 +42,7 @@ __int64 __fastcall IopRemoveTimerFromTimerList(__int64 a1)
       v8 = ((unsigned int)result & SchedulerAssist[5]) == 0;
       SchedulerAssist[5] &= result;
       if ( v8 )
-        result = KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+        result = KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
     }
   }
   __writecr8(v2);

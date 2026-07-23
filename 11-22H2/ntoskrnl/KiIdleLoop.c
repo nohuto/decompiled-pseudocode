@@ -105,13 +105,13 @@ LABEL_33:
       {
         if ( (_BYTE)KeSmapEnabled )
           __asm { stac }
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
           KzSetIrqlUnsafe(0LL);
         else
           __writecr8(0LL);
         PoIdle((ULONG_PTR)CurrentPrcb);
         _enable();
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
           KzSetIrqlUnsafe(2LL);
         else
           __writecr8(2uLL);

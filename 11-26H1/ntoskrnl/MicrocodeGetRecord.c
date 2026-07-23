@@ -1,16 +1,22 @@
 /*
- * XREFs of MicrocodeGetRecord @ 0x1406DD618
+ * XREFs of MicrocodeGetRecord @ 0x1406E18B8
  * Callers:
- *     PrExtGetRecord @ 0x1406DCC7C (PrExtGetRecord.c)
+ *     PrExtGetRecord @ 0x1406E0F1C (PrExtGetRecord.c)
  * Callees:
- *     DrpGetRecord @ 0x1406DE258 (DrpGetRecord.c)
- *     DrpGetRecordCount @ 0x1406DE294 (DrpGetRecordCount.c)
- *     DrpGetSectionAtIndex @ 0x1406DE2C0 (DrpGetSectionAtIndex.c)
- *     IntelMicrocodeMetaDataCheck @ 0x1406DE3E4 (IntelMicrocodeMetaDataCheck.c)
- *     AMDMicrocodeMetaDataCheck @ 0x1406DE668 (AMDMicrocodeMetaDataCheck.c)
+ *     DrpGetRecord @ 0x1406E24F8 (DrpGetRecord.c)
+ *     DrpGetRecordCount @ 0x1406E2534 (DrpGetRecordCount.c)
+ *     DrpGetSectionAtIndex @ 0x1406E2560 (DrpGetSectionAtIndex.c)
+ *     IntelMicrocodeMetaDataCheck @ 0x1406E2684 (IntelMicrocodeMetaDataCheck.c)
+ *     AMDMicrocodeMetaDataCheck @ 0x1406E2908 (AMDMicrocodeMetaDataCheck.c)
  */
 
-__int64 __fastcall MicrocodeGetRecord(int a1, __int64 a2, unsigned __int64 a3, _QWORD *a4, _QWORD *a5, _DWORD *a6)
+__int64 __fastcall MicrocodeGetRecord(
+        int a1,
+        __int64 a2,
+        unsigned __int64 a3,
+        _QWORD *a4,
+        _QWORD *a5,
+        unsigned int *a6)
 {
   unsigned int v6; // esi
   __int64 v7; // rbp
@@ -78,18 +84,18 @@ __int64 __fastcall MicrocodeGetRecord(int a1, __int64 a2, unsigned __int64 a3, _
 LABEL_26:
         if ( v20 < 0 )
           goto LABEL_44;
-        if ( CmpCallbackListLock.WaitBlockFill5[35] )
+        if ( CmpContextListLock.WaitBlockFill5[27] )
         {
           v23 = *((_QWORD *)v15 + 2);
           *a4 = v16;
           *a5 = v23;
-          CmpCallbackListLock.Timer.Header.SignalState = v15[2];
-          LOBYTE(CmpCallbackListLock.Timer.Header.WaitListHead.Flink) = 1;
-          *a6 = CmpCallbackListLock.Timer.Header.SignalState;
+          HIDWORD(CmpContextListLock.RelativeTimerBias) = v15[2];
+          CmpContextListLock.Timer.Header.Type = 1;
+          *a6 = HIDWORD(CmpContextListLock.RelativeTimerBias);
           return 0LL;
         }
         v22 = *(_BYTE *)(v16 + 4);
-        if ( CmpCallbackListLock.WaitBlockFill5[33] )
+        if ( CmpContextListLock.WaitBlockFill5[24] )
         {
           if ( v7 )
           {
@@ -165,7 +171,7 @@ LABEL_21:
   *a6 = v6;
   if ( v7 )
   {
-    CmpCallbackListLock.Timer.Header.SignalState = v6;
+    HIDWORD(CmpContextListLock.RelativeTimerBias) = v6;
     return 0LL;
   }
   return 3221226021LL;

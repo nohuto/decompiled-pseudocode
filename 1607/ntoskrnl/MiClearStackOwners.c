@@ -1,12 +1,12 @@
 /*
- * XREFs of MiClearStackOwners @ 0x1400F1F0C
+ * XREFs of MiClearStackOwners @ 0x1400EFD5C
  * Callers:
- *     MiDeleteKernelStack @ 0x1400A1598 (MiDeleteKernelStack.c)
- *     KiExpandKernelStackAndCalloutOnStackSegment @ 0x1400F12A0 (KiExpandKernelStackAndCalloutOnStackSegment.c)
+ *     MiDeleteKernelStack @ 0x14009FEC0 (MiDeleteKernelStack.c)
+ *     KiExpandKernelStackAndCalloutOnStackSegment @ 0x1400EF0F0 (KiExpandKernelStackAndCalloutOnStackSegment.c)
  * Callees:
- *     MiLockPageAtDpcInline @ 0x14002EB30 (MiLockPageAtDpcInline.c)
- *     MI_GET_PAGE_FRAME_FROM_PTE @ 0x1401F2550 (MI_GET_PAGE_FRAME_FROM_PTE.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1401F25D0 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiLockPageAtDpcInline @ 0x14002E6B0 (MiLockPageAtDpcInline.c)
+ *     MI_GET_PAGE_FRAME_FROM_PTE @ 0x1401F237C (MI_GET_PAGE_FRAME_FROM_PTE.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1401F23FC (MI_READ_PTE_LOCK_FREE.c)
  */
 
 __int64 __fastcall MiClearStackOwners(__int64 a1, char a2)
@@ -30,8 +30,8 @@ __int64 __fastcall MiClearStackOwners(__int64 a1, char a2)
   }
   else
   {
-    v4 = a1 - 8LL * (unsigned __int8)byte_140327540;
-    v5 = (unsigned __int8)byte_140327540;
+    v4 = a1 - 8LL * (unsigned __int8)byte_140327580;
+    v5 = (unsigned __int8)byte_140327580;
   }
   v6 = v4 + 8LL * (unsigned int)(v5 + 1);
 LABEL_5:

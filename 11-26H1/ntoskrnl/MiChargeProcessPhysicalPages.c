@@ -1,9 +1,9 @@
 /*
- * XREFs of MiChargeProcessPhysicalPages @ 0x140B3CB18
+ * XREFs of MiChargeProcessPhysicalPages @ 0x140B3ED98
  * Callers:
- *     MiAllocateUserPhysicalPagesPrepare @ 0x140877FB8 (MiAllocateUserPhysicalPagesPrepare.c)
- *     MiCommitVadGetCharges @ 0x1409C7650 (MiCommitVadGetCharges.c)
- *     MiCreateLargePageEvent @ 0x140B3C9EC (MiCreateLargePageEvent.c)
+ *     MiAllocateUserPhysicalPagesPrepare @ 0x14087E398 (MiAllocateUserPhysicalPagesPrepare.c)
+ *     MiCommitVadGetCharges @ 0x140998630 (MiCommitVadGetCharges.c)
+ *     MiCreateLargePageEvent @ 0x140B3EC6C (MiCreateLargePageEvent.c)
  * Callees:
  *     <none>
  */

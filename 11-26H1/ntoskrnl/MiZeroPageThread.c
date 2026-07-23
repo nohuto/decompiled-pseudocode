@@ -1,32 +1,32 @@
 /*
- * XREFs of MiZeroPageThread @ 0x14070F040
+ * XREFs of MiZeroPageThread @ 0x140713D40
  * Callers:
  *     <none>
  * Callees:
- *     KeSetEvent @ 0x1402DE9C0 (KeSetEvent.c)
- *     KeWaitForMultipleObjects @ 0x140396440 (KeWaitForMultipleObjects.c)
- *     MiRefreshBackgroundZeroingAffinity @ 0x14070EA3C (MiRefreshBackgroundZeroingAffinity.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     ZwWaitForSingleObject @ 0x140723470 (ZwWaitForSingleObject.c)
- *     PsRegisterProcessAvailableCpusChangeNotification @ 0x1407F0C40 (PsRegisterProcessAvailableCpusChangeNotification.c)
- *     PsUnregisterAvailableCpusChangeNotification @ 0x1407F0DC0 (PsUnregisterAvailableCpusChangeNotification.c)
- *     MiCreatePerNodeZeroingConductor @ 0x14087F110 (MiCreatePerNodeZeroingConductor.c)
- *     ObCloseHandle @ 0x140A00740 (ObCloseHandle.c)
+ *     KeSetEvent @ 0x1402C0780 (KeSetEvent.c)
+ *     KeWaitForMultipleObjects @ 0x1403981C0 (KeWaitForMultipleObjects.c)
+ *     MiRefreshBackgroundZeroingAffinity @ 0x14071373C (MiRefreshBackgroundZeroingAffinity.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     ZwWaitForSingleObject @ 0x140728040 (ZwWaitForSingleObject.c)
+ *     PsRegisterProcessAvailableCpusChangeNotification @ 0x1407F67A0 (PsRegisterProcessAvailableCpusChangeNotification.c)
+ *     PsUnregisterAvailableCpusChangeNotification @ 0x1407F6920 (PsUnregisterAvailableCpusChangeNotification.c)
+ *     MiCreatePerNodeZeroingConductor @ 0x140885510 (MiCreatePerNodeZeroingConductor.c)
+ *     ObCloseHandle @ 0x14091D2C0 (ObCloseHandle.c)
  */
 
 NTSTATUS __fastcall MiZeroPageThread(__int64 a1)
 {
   int v2; // eax
   __int64 v3; // r15
-  unsigned int v4; // ebp
+  unsigned int v4; // r14d
   int v5; // r12d
   int v6; // r9d
   unsigned int v7; // eax
   _QWORD *v8; // rdx
   __int16 v9; // r8
   int v10; // edi
-  unsigned int v11; // ebx
-  _QWORD *v12; // r14
+  __int64 v11; // rbp
+  unsigned int v12; // ebx
   NTSTATUS result; // eax
   unsigned int v14; // ebx
   __int64 v15; // r15
@@ -81,17 +81,17 @@ NTSTATUS __fastcall MiZeroPageThread(__int64 a1)
         {
           v10 = 0;
         }
-        v11 = 0;
+        v11 = *(_QWORD *)(a1 + 16);
+        v12 = 0;
         if ( v9 )
         {
-          v12 = (_QWORD *)(*(_QWORD *)(a1 + 16) + 14208LL);
           do
           {
-            if ( *v12 == 1LL )
+            if ( *(_QWORD *)(v11 + 14208) == 1LL )
             {
-              if ( (int)MiCreatePerNodeZeroingConductor(a1, v11, v4) < 0 )
+              if ( (int)MiCreatePerNodeZeroingConductor(a1, v12, v4) < 0 )
               {
-                *v12 = 0LL;
+                *(_QWORD *)(v11 + 14208) = 0LL;
                 if ( v10 )
                   v10 += 3;
               }
@@ -100,10 +100,10 @@ NTSTATUS __fastcall MiZeroPageThread(__int64 a1)
                 v5 = 1;
               }
             }
-            ++v11;
-            v12 += 7040;
+            ++v12;
+            v11 += 56320LL;
           }
-          while ( v11 < (unsigned __int16)KeNumberNodes );
+          while ( v12 < (unsigned __int16)KeNumberNodes );
         }
         if ( v10 && _InterlockedExchangeAdd((volatile signed __int32 *)(a1 + 17336), -v10) == v10 )
           KeSetEvent((PRKEVENT)(a1 + 17344), 0, 0);
@@ -113,7 +113,7 @@ NTSTATUS __fastcall MiZeroPageThread(__int64 a1)
     }
     Object[0] = (PVOID)(a1 + 88);
     Object[2] = (PVOID)(a1 + 136);
-    Object[1] = &stru_140E2EB88.Timer.Header.WaitListHead;
+    Object[1] = &stru_140E2ED08.Timer.Header.WaitListHead;
     result = KeWaitForMultipleObjects(3u, Object, WaitAny, WrFreePage, 0, 0, 0LL, &WaitBlockArray);
   }
   while ( result );

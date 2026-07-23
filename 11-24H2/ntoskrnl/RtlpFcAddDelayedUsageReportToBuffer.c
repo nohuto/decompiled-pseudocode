@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlpFcAddDelayedUsageReportToBuffer @ 0x1403A4E8C
+ * XREFs of RtlpFcAddDelayedUsageReportToBuffer @ 0x14021E33C
  * Callers:
- *     CmFcManagerNotifyFeatureUsage @ 0x1403A4D48 (CmFcManagerNotifyFeatureUsage.c)
+ *     CmFcManagerNotifyFeatureUsage @ 0x14021E1F8 (CmFcManagerNotifyFeatureUsage.c)
  * Callees:
- *     RtlBackoff @ 0x140253B30 (RtlBackoff.c)
- *     RtlInterlockedSetClearRun @ 0x1403A46C0 (RtlInterlockedSetClearRun.c)
+ *     RtlInterlockedSetClearRun @ 0x14021DDF0 (RtlInterlockedSetClearRun.c)
+ *     RtlBackoff @ 0x140284140 (RtlBackoff.c)
  */
 
 __int64 __fastcall RtlpFcAddDelayedUsageReportToBuffer(volatile signed __int32 *a1, _QWORD *a2)
@@ -23,7 +23,7 @@ __int64 __fastcall RtlpFcAddDelayedUsageReportToBuffer(volatile signed __int32 *
   unsigned __int32 v16; // eax
   __int64 v17; // [rsp+20h] [rbp-48h] BYREF
   volatile signed __int32 *v18; // [rsp+28h] [rbp-40h]
-  unsigned int v19; // [rsp+70h] [rbp+8h] BYREF
+  int v19; // [rsp+70h] [rbp+8h] BYREF
 
   v2 = 0;
   v17 = 64LL;

@@ -1,10 +1,10 @@
 /*
- * XREFs of SepInformFileSystemsOfDeletedLogon @ 0x14054A5F0
+ * XREFs of SepInformFileSystemsOfDeletedLogon @ 0x14054AB30
  * Callers:
- *     SepDeReferenceLogonSession @ 0x1404E50DC (SepDeReferenceLogonSession.c)
+ *     SepDeReferenceLogonSession @ 0x1404C7CF8 (SepDeReferenceLogonSession.c)
  * Callees:
- *     ExQueueWorkItem @ 0x14005FE5C (ExQueueWorkItem.c)
- *     ObfReferenceObjectWithTag @ 0x1400EE4F0 (ObfReferenceObjectWithTag.c)
+ *     ExQueueWorkItem @ 0x14005F9DC (ExQueueWorkItem.c)
+ *     ObfReferenceObjectWithTag @ 0x1400EC370 (ObfReferenceObjectWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
  */
 

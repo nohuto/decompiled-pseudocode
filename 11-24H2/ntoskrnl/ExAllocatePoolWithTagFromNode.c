@@ -1,19 +1,19 @@
 /*
- * XREFs of ExAllocatePoolWithTagFromNode @ 0x1402AC224
+ * XREFs of ExAllocatePoolWithTagFromNode @ 0x140277180
  * Callers:
- *     CcWriteBehind @ 0x1402A7ADC (CcWriteBehind.c)
- *     CcAsyncCopyRead @ 0x1402A94F0 (CcAsyncCopyRead.c)
- *     CcInitializeQuickLWSThreadItem @ 0x1402CA478 (CcInitializeQuickLWSThreadItem.c)
- *     CcInitializeNumaNodeForVolume @ 0x1402CBA5C (CcInitializeNumaNodeForVolume.c)
- *     CcInitializeAsyncReadForNodeHelper @ 0x14048D520 (CcInitializeAsyncReadForNodeHelper.c)
- *     CcPostWorkQueueAsyncRead @ 0x1404DFCEC (CcPostWorkQueueAsyncRead.c)
- *     CcInitializePartition @ 0x14057CD28 (CcInitializePartition.c)
- *     CcInitializeAsyncLazywriteForNodeHelper @ 0x14057D870 (CcInitializeAsyncLazywriteForNodeHelper.c)
- *     CcInitializeNumaNode @ 0x14057DAFC (CcInitializeNumaNode.c)
- *     CcWriteBehindAsyncPreProcess @ 0x14057E3BC (CcWriteBehindAsyncPreProcess.c)
+ *     CcPostWorkQueueAsyncRead @ 0x14027372C (CcPostWorkQueueAsyncRead.c)
+ *     CcAsyncCopyRead @ 0x140273E20 (CcAsyncCopyRead.c)
+ *     CcWriteBehind @ 0x1402798D4 (CcWriteBehind.c)
+ *     CcInitializeNumaNodeForVolume @ 0x140430C98 (CcInitializeNumaNodeForVolume.c)
+ *     CcInitializeQuickLWSThreadItem @ 0x140431140 (CcInitializeQuickLWSThreadItem.c)
+ *     CcInitializeAsyncReadForNodeHelper @ 0x140487DA0 (CcInitializeAsyncReadForNodeHelper.c)
+ *     CcInitializePartition @ 0x14057A1B8 (CcInitializePartition.c)
+ *     CcInitializeAsyncLazywriteForNodeHelper @ 0x14057AD00 (CcInitializeAsyncLazywriteForNodeHelper.c)
+ *     CcInitializeNumaNode @ 0x14057AF8C (CcInitializeNumaNode.c)
+ *     CcWriteBehindAsyncPreProcess @ 0x14057B84C (CcWriteBehindAsyncPreProcess.c)
  * Callees:
- *     ExpAllocatePoolWithTagFromNode @ 0x1402ACCF0 (ExpAllocatePoolWithTagFromNode.c)
- *     VfHandlePoolAlloc @ 0x140BA8AA0 (VfHandlePoolAlloc.c)
+ *     ExpAllocatePoolWithTagFromNode @ 0x1402776D0 (ExpAllocatePoolWithTagFromNode.c)
+ *     VfHandlePoolAlloc @ 0x140BAAAA0 (VfHandlePoolAlloc.c)
  */
 
 __int64 __fastcall ExAllocatePoolWithTagFromNode(__int64 a1, size_t a2, ULONG_PTR a3, ULONG_PTR a4)

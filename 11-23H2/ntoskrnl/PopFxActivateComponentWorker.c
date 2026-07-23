@@ -1,14 +1,14 @@
 /*
- * XREFs of PopFxActivateComponentWorker @ 0x140312420
+ * XREFs of PopFxActivateComponentWorker @ 0x1403126B0
  * Callers:
- *     PopFxActivateComponent @ 0x140287300 (PopFxActivateComponent.c)
- *     PopFxIdleWorkerTail @ 0x140312CB8 (PopFxIdleWorkerTail.c)
+ *     PopFxActivateComponent @ 0x140287590 (PopFxActivateComponent.c)
+ *     PopFxIdleWorkerTail @ 0x140312F48 (PopFxIdleWorkerTail.c)
  * Callees:
- *     PopFxAddRefDevice @ 0x1403124A4 (PopFxAddRefDevice.c)
- *     PopFxActivateComponentDependencies @ 0x140312574 (PopFxActivateComponentDependencies.c)
- *     PopFxProcessWork @ 0x140312634 (PopFxProcessWork.c)
- *     PopFxCompleteComponentActivation @ 0x140312EFC (PopFxCompleteComponentActivation.c)
- *     PopPluginComponentActive @ 0x14031378C (PopPluginComponentActive.c)
+ *     PopFxAddRefDevice @ 0x140312734 (PopFxAddRefDevice.c)
+ *     PopFxActivateComponentDependencies @ 0x140312804 (PopFxActivateComponentDependencies.c)
+ *     PopFxProcessWork @ 0x1403128C4 (PopFxProcessWork.c)
+ *     PopFxCompleteComponentActivation @ 0x14031318C (PopFxCompleteComponentActivation.c)
+ *     PopPluginComponentActive @ 0x140313A1C (PopPluginComponentActive.c)
  */
 
 __int64 __fastcall PopFxActivateComponentWorker(ULONG_PTR a1, __int64 a2, char a3, __int64 a4)

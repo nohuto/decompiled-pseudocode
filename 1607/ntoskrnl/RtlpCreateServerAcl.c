@@ -1,14 +1,14 @@
 /*
- * XREFs of RtlpCreateServerAcl @ 0x140684304
+ * XREFs of RtlpCreateServerAcl @ 0x1406843E8
  * Callers:
- *     RtlpNewSecurityObject @ 0x14041BF40 (RtlpNewSecurityObject.c)
- *     RtlpSetSecurityObject @ 0x1404A56A0 (RtlpSetSecurityObject.c)
+ *     RtlpNewSecurityObject @ 0x14041AE00 (RtlpNewSecurityObject.c)
+ *     RtlpSetSecurityObject @ 0x14051DAA0 (RtlpSetSecurityObject.c)
  * Callees:
- *     RtlUShortAdd @ 0x140008818 (RtlUShortAdd.c)
- *     RtlLengthSid @ 0x14000C2AC (RtlLengthSid.c)
- *     memmove @ 0x140171280 (memmove.c)
+ *     RtlUShortAdd @ 0x14000838C (RtlUShortAdd.c)
+ *     RtlLengthSid @ 0x14000BE2C (RtlLengthSid.c)
+ *     memmove @ 0x140171780 (memmove.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     RtlCreateAcl @ 0x140420AB8 (RtlCreateAcl.c)
+ *     RtlCreateAcl @ 0x14041F978 (RtlCreateAcl.c)
  */
 
 NTSTATUS __fastcall RtlpCreateServerAcl(__int64 a1, char a2, unsigned __int8 *a3, ACL **a4, _BYTE *a5)

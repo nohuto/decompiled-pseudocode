@@ -1,20 +1,20 @@
 /*
- * XREFs of AlpcpReceiveMessage @ 0x14073AE40
+ * XREFs of AlpcpReceiveMessage @ 0x14073B030
  * Callers:
- *     NtAlpcSendWaitReceivePort @ 0x14073ABB0 (NtAlpcSendWaitReceivePort.c)
+ *     NtAlpcSendWaitReceivePort @ 0x14073ADA0 (NtAlpcSendWaitReceivePort.c)
  * Callees:
- *     AlpcpReadMessageData @ 0x14071BEE8 (AlpcpReadMessageData.c)
- *     ProbeForWrite @ 0x140729380 (ProbeForWrite.c)
- *     AlpcpReceiveMessagePort @ 0x14073B490 (AlpcpReceiveMessagePort.c)
- *     AlpcpUnlockBlob @ 0x14073BC40 (AlpcpUnlockBlob.c)
- *     AlpcpExposeAttributes @ 0x14073BDA0 (AlpcpExposeAttributes.c)
- *     AlpcpCancelMessage @ 0x14077920C (AlpcpCancelMessage.c)
- *     AlpcpExposeCapturedContextAttribute @ 0x1407BA608 (AlpcpExposeCapturedContextAttribute.c)
- *     AlpcpReceiveDirectMessagePort @ 0x1407BAF94 (AlpcpReceiveDirectMessagePort.c)
- *     AlpcpReturnMessageOnInsufficientBuffer @ 0x1407CDECC (AlpcpReturnMessageOnInsufficientBuffer.c)
- *     AlpcpGetDataFromUserVaSafe @ 0x140978F4C (AlpcpGetDataFromUserVaSafe.c)
- *     AlpcpEnterStateChangeEventMessageLog @ 0x14097AA10 (AlpcpEnterStateChangeEventMessageLog.c)
- *     ExRaiseDatatypeMisalignment @ 0x140A00B60 (ExRaiseDatatypeMisalignment.c)
+ *     AlpcpReadMessageData @ 0x14071C0E8 (AlpcpReadMessageData.c)
+ *     ProbeForWrite @ 0x140729580 (ProbeForWrite.c)
+ *     AlpcpReceiveMessagePort @ 0x14073B680 (AlpcpReceiveMessagePort.c)
+ *     AlpcpUnlockBlob @ 0x14073BE30 (AlpcpUnlockBlob.c)
+ *     AlpcpExposeAttributes @ 0x14073BF90 (AlpcpExposeAttributes.c)
+ *     AlpcpCancelMessage @ 0x1407793FC (AlpcpCancelMessage.c)
+ *     AlpcpExposeCapturedContextAttribute @ 0x1407BA8E8 (AlpcpExposeCapturedContextAttribute.c)
+ *     AlpcpReceiveDirectMessagePort @ 0x1407BB264 (AlpcpReceiveDirectMessagePort.c)
+ *     AlpcpReturnMessageOnInsufficientBuffer @ 0x1407CE19C (AlpcpReturnMessageOnInsufficientBuffer.c)
+ *     AlpcpGetDataFromUserVaSafe @ 0x14097914C (AlpcpGetDataFromUserVaSafe.c)
+ *     AlpcpEnterStateChangeEventMessageLog @ 0x14097AC10 (AlpcpEnterStateChangeEventMessageLog.c)
+ *     ExRaiseDatatypeMisalignment @ 0x140A00DF0 (ExRaiseDatatypeMisalignment.c)
  */
 
 __int64 __fastcall AlpcpReceiveMessage(

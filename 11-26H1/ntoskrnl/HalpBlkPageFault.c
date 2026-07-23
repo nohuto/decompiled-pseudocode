@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpBlkPageFault @ 0x140C7D080
+ * XREFs of HalpBlkPageFault @ 0x140C83080
  * Callers:
  *     <none>
  * Callees:
- *     HalpBlkFatalErrorHalt @ 0x140C7C910 (HalpBlkFatalErrorHalt.c)
+ *     HalpBlkFatalErrorHalt @ 0x140C82910 (HalpBlkFatalErrorHalt.c)
  */
 
 void __fastcall __noreturn HalpBlkPageFault(__int64 a1, __int64 a2, __int64 a3, __int64 a4)

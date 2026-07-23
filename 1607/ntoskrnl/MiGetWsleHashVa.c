@@ -1,9 +1,9 @@
 /*
- * XREFs of MiGetWsleHashVa @ 0x1400FF1D4
+ * XREFs of MiGetWsleHashVa @ 0x1400FCF54
  * Callers:
- *     MiUpdateWsle @ 0x14003C790 (MiUpdateWsle.c)
- *     MiTryLocateWsle @ 0x140046B90 (MiTryLocateWsle.c)
- *     MiReplaceWsleHash @ 0x1400FF144 (MiReplaceWsleHash.c)
+ *     MiUpdateWsle @ 0x14003C310 (MiUpdateWsle.c)
+ *     MiTryLocateWsle @ 0x140046710 (MiTryLocateWsle.c)
+ *     MiReplaceWsleHash @ 0x1400FCEC4 (MiReplaceWsleHash.c)
  * Callees:
  *     <none>
  */

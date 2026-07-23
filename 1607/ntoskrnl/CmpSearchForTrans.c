@@ -1,13 +1,13 @@
 /*
- * XREFs of CmpSearchForTrans @ 0x1403FF314
+ * XREFs of CmpSearchForTrans @ 0x1403FE1D4
  * Callers:
- *     CmpTransSearchAddTrans @ 0x1403FF144 (CmpTransSearchAddTrans.c)
+ *     CmpTransSearchAddTrans @ 0x1403FE004 (CmpTransSearchAddTrans.c)
  * Callees:
- *     PnpCompareGuid @ 0x1403F02F8 (PnpCompareGuid.c)
- *     CmListGetNextElement @ 0x140402E2C (CmListGetNextElement.c)
+ *     CmListGetNextElement @ 0x140401CEC (CmListGetNextElement.c)
+ *     PnpCompareGuid @ 0x14048A570 (PnpCompareGuid.c)
  */
 
-__int64 __fastcall CmpSearchForTrans(__int64 a1, __int64 a2, const void *a3)
+__int64 __fastcall CmpSearchForTrans(__int64 a1, __int64 a2, __int64 a3)
 {
   __int64 v3; // rsi
   __int64 result; // rax
@@ -25,7 +25,7 @@ __int64 __fastcall CmpSearchForTrans(__int64 a1, __int64 a2, const void *a3)
     v7 = result;
     if ( !result )
       break;
-    if ( v6 && v6 == *(_QWORD *)(result + 56) || a3 && PnpCompareGuid(a3, (const void *)(result + 88)) )
+    if ( v6 && v6 == *(_QWORD *)(result + 56) || a3 && (unsigned __int8)PnpCompareGuid(a3, result + 88) )
       return v7;
   }
   return result;

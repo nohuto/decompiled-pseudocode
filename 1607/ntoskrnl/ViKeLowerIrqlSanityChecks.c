@@ -1,12 +1,12 @@
 /*
  * XREFs of ViKeLowerIrqlSanityChecks @ 0x140712FC8
  * Callers:
- *     VerifierKeReleaseQueuedSpinLock @ 0x14070CA54 (VerifierKeReleaseQueuedSpinLock.c)
+ *     VerifierKeReleaseQueuedSpinLock @ 0x14070CA84 (VerifierKeReleaseQueuedSpinLock.c)
  *     VerifierKeLowerIrql @ 0x140712154 (VerifierKeLowerIrql.c)
  *     VerifierKeReleaseInStackQueuedSpinLockCommon @ 0x140712258 (VerifierKeReleaseInStackQueuedSpinLockCommon.c)
  *     ViKeReleaseSpinLockCommon @ 0x140713194 (ViKeReleaseSpinLockCommon.c)
  * Callees:
- *     VerifierBugCheckIfAppropriate @ 0x14070C2E8 (VerifierBugCheckIfAppropriate.c)
+ *     VerifierBugCheckIfAppropriate @ 0x14070C318 (VerifierBugCheckIfAppropriate.c)
  */
 
 char *__fastcall ViKeLowerIrqlSanityChecks(unsigned __int8 a1, unsigned __int8 a2)

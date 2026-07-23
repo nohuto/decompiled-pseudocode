@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlUpcaseUnicodeToOemN @ 0x140694BE0
+ * XREFs of RtlUpcaseUnicodeToOemN @ 0x1405F4130
  * Callers:
- *     RtlUpcaseUnicodeStringToOemString @ 0x140694730 (RtlUpcaseUnicodeStringToOemString.c)
- *     RtlUpcaseUnicodeStringToCountedOemString @ 0x140694A90 (RtlUpcaseUnicodeStringToCountedOemString.c)
+ *     RtlUpcaseUnicodeStringToOemString @ 0x1405F3C80 (RtlUpcaseUnicodeStringToOemString.c)
+ *     RtlUpcaseUnicodeStringToCountedOemString @ 0x1405F3FE0 (RtlUpcaseUnicodeStringToCountedOemString.c)
  * Callees:
- *     UpcaseUnicodeToSingleByteNHelper @ 0x140206A40 (UpcaseUnicodeToSingleByteNHelper.c)
- *     UpcaseUnicodeToMultiByteNHelper @ 0x1405859C4 (UpcaseUnicodeToMultiByteNHelper.c)
- *     UpcaseUnicodeToUTF8NHelper @ 0x140585AB8 (UpcaseUnicodeToUTF8NHelper.c)
- *     RtlpIsUtf8Process @ 0x1405EE580 (RtlpIsUtf8Process.c)
+ *     UpcaseUnicodeToSingleByteNHelper @ 0x1402AB370 (UpcaseUnicodeToSingleByteNHelper.c)
+ *     UpcaseUnicodeToMultiByteNHelper @ 0x140585BF4 (UpcaseUnicodeToMultiByteNHelper.c)
+ *     UpcaseUnicodeToUTF8NHelper @ 0x140585CE8 (UpcaseUnicodeToUTF8NHelper.c)
+ *     RtlpIsUtf8Process @ 0x1406DDCE0 (RtlpIsUtf8Process.c)
  */
 
 NTSTATUS __stdcall RtlUpcaseUnicodeToOemN(
@@ -17,20 +17,23 @@ NTSTATUS __stdcall RtlUpcaseUnicodeToOemN(
         PCWCH UnicodeString,
         ULONG BytesInUnicodeString)
 {
+  CHAR *v5; // r14
   ULONG v6; // ebx
 
+  v5 = OemString;
+  LOBYTE(OemString) = 1;
   v6 = BytesInUnicodeString >> 1;
-  if ( RtlpIsUtf8Process(1) )
-    return UpcaseUnicodeToUTF8NHelper(OemString, MaxBytesInOemString, BytesInOemString, (__int64)UnicodeString, v6);
+  if ( (unsigned __int8)RtlpIsUtf8Process(OemString) )
+    return UpcaseUnicodeToUTF8NHelper(v5, MaxBytesInOemString, BytesInOemString, (__int64)UnicodeString, v6);
   if ( (_BYTE)NlsMbOemCodePageTag )
     return UpcaseUnicodeToMultiByteNHelper(
-             (int)OemString,
+             (int)v5,
              MaxBytesInOemString,
              BytesInOemString,
              (unsigned __int16 *)UnicodeString,
              v6);
   return UpcaseUnicodeToSingleByteNHelper(
-           (__int64)OemString,
+           (__int64)v5,
            MaxBytesInOemString,
            BytesInOemString,
            (unsigned __int16 *)UnicodeString,

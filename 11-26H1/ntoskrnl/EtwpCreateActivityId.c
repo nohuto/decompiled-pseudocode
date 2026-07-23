@@ -1,12 +1,12 @@
 /*
- * XREFs of EtwpCreateActivityId @ 0x140466D9C
+ * XREFs of EtwpCreateActivityId @ 0x1404604EC
  * Callers:
- *     EtwActivityIdControl @ 0x140466BF0 (EtwActivityIdControl.c)
- *     NtTraceControl @ 0x14093CB40 (NtTraceControl.c)
+ *     EtwActivityIdControl @ 0x140460340 (EtwActivityIdControl.c)
+ *     NtTraceControl @ 0x1409186E0 (NtTraceControl.c)
  * Callees:
- *     RtlCopyVolatileMemory @ 0x140733080 (RtlCopyVolatileMemory.c)
- *     RtlCopyToUser @ 0x14077F284 (RtlCopyToUser.c)
- *     RtlWriteULong64ToUser @ 0x14077F758 (RtlWriteULong64ToUser.c)
+ *     RtlCopyVolatileMemory @ 0x140737C50 (RtlCopyVolatileMemory.c)
+ *     RtlCopyToUser @ 0x140781D84 (RtlCopyToUser.c)
+ *     RtlWriteULong64ToUser @ 0x140782258 (RtlWriteULong64ToUser.c)
  */
 
 void *__fastcall EtwpCreateActivityId(signed __int64 *a1, char a2)

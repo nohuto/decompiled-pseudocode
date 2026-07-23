@@ -1,11 +1,11 @@
 /*
- * XREFs of AdtpBuildUlongString @ 0x140A9D224
+ * XREFs of AdtpBuildUlongString @ 0x140A98794
  * Callers:
- *     AdtpPackageParameters @ 0x1404534B8 (AdtpPackageParameters.c)
- *     AdtpBuildRegistryValueString @ 0x140810B1C (AdtpBuildRegistryValueString.c)
+ *     AdtpPackageParameters @ 0x140448568 (AdtpPackageParameters.c)
+ *     AdtpBuildRegistryValueString @ 0x14081125C (AdtpBuildRegistryValueString.c)
  * Callees:
- *     _ultow @ 0x1404FDDB0 (_ultow.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     _ultow @ 0x1404FB670 (_ultow.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall AdtpBuildUlongString(unsigned int Value, __int64 a2, wchar_t **a3, __int64 a4, _DWORD *a5, char *a6)
@@ -25,7 +25,7 @@ __int64 __fastcall AdtpBuildUlongString(unsigned int Value, __int64 a2, wchar_t 
   }
   else
   {
-    Pool2 = (wchar_t *)ExAllocatePool2(0x100uLL);
+    Pool2 = (wchar_t *)ExAllocatePool2(0x100uLL, 0x16uLL, 0x6B416553u);
     if ( !Pool2 )
       return 3221225495LL;
     v12 = 1;

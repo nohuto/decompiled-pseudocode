@@ -1,11 +1,11 @@
 /*
- * XREFs of AslGuidToString_UStr @ 0x140A53C58
+ * XREFs of AslGuidToString_UStr @ 0x140A53F08
  * Callers:
- *     SdbResolveDatabaseEx @ 0x140A52770 (SdbResolveDatabaseEx.c)
+ *     SdbResolveDatabaseEx @ 0x140A52A20 (SdbResolveDatabaseEx.c)
  * Callees:
- *     RtlStringCchPrintfW @ 0x14022A90C (RtlStringCchPrintfW.c)
+ *     RtlStringCchPrintfW @ 0x14022AA1C (RtlStringCchPrintfW.c)
  *     AslLogCallPrintf @ 0x1406956FC (AslLogCallPrintf.c)
- *     AslAlloc @ 0x140758498 (AslAlloc.c)
+ *     AslAlloc @ 0x140758688 (AslAlloc.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

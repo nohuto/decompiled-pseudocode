@@ -1,186 +1,185 @@
 /*
- * XREFs of PopRequestRead @ 0x140B5DC4C
+ * XREFs of PopRequestRead @ 0x140B5FCCC
  * Callers:
- *     PopDecompressCallback @ 0x140B5C8E0 (PopDecompressCallback.c)
- *     PopRestoreHiberContext @ 0x140B662BC (PopRestoreHiberContext.c)
+ *     PopDecompressCallback @ 0x140B5E950 (PopDecompressCallback.c)
+ *     PopRestoreHiberContext @ 0x140B683FC (PopRestoreHiberContext.c)
  * Callees:
- *     MmGetPhysicalAddress @ 0x140263A60 (MmGetPhysicalAddress.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     PopInternalAddToDumpFile @ 0x1405CCEA0 (PopInternalAddToDumpFile.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     PopGetIoLocation @ 0x140B5CF94 (PopGetIoLocation.c)
- *     PopHiberChecksumHiberFileData @ 0x140B5D0C0 (PopHiberChecksumHiberFileData.c)
- *     ProducerConsumerBufferComplete @ 0x140B5EFE0 (ProducerConsumerBufferComplete.c)
- *     ProducerGetBuffer @ 0x140B5F1C4 (ProducerGetBuffer.c)
- *     PopCheckpointSystemSleep @ 0x140B6675C (PopCheckpointSystemSleep.c)
- *     PopHiberCheckForDebugBreak @ 0x140B691F0 (PopHiberCheckForDebugBreak.c)
+ *     MmGetPhysicalAddress @ 0x1402932D0 (MmGetPhysicalAddress.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     PopInternalAddToDumpFile @ 0x1405CA610 (PopInternalAddToDumpFile.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     PopGetIoLocation @ 0x140B5F010 (PopGetIoLocation.c)
+ *     PopHiberChecksumHiberFileData @ 0x140B5F13C (PopHiberChecksumHiberFileData.c)
+ *     ProducerConsumerBufferComplete @ 0x140B61060 (ProducerConsumerBufferComplete.c)
+ *     ProducerGetBuffer @ 0x140B61244 (ProducerGetBuffer.c)
+ *     PopCheckpointSystemSleep @ 0x140B6889C (PopCheckpointSystemSleep.c)
+ *     PopHiberCheckForDebugBreak @ 0x140B6A908 (PopHiberCheckForDebugBreak.c)
  */
 
-unsigned __int64 __fastcall PopRequestRead(ULONG_PTR BugCheckParameter3, unsigned __int64 a2, __int64 a3, __int64 a4)
+unsigned __int64 __fastcall PopRequestRead(ULONG_PTR BugCheckParameter3, unsigned __int64 a2, unsigned int a3)
 {
   unsigned __int64 result; // rax
-  __int64 v5; // r14
-  unsigned int v6; // r13d
-  unsigned int v7; // ebx
-  unsigned __int64 v8; // rbp
-  ULONG_PTR v9; // rsi
-  int v10; // ecx
-  unsigned __int64 v11; // rdi
-  unsigned __int64 v12; // rax
-  __int64 v13; // rax
-  bool v14; // zf
-  unsigned __int64 v15; // rbp
-  int v16; // eax
+  __int64 v4; // r14
+  unsigned int v5; // r13d
+  unsigned int v6; // ebx
+  unsigned __int64 v7; // rbp
+  ULONG_PTR v8; // rsi
+  int v9; // ecx
+  unsigned __int64 v10; // rdi
+  unsigned __int64 v11; // rax
+  __int64 v12; // rax
+  bool v13; // zf
+  unsigned __int64 v14; // rbp
+  int v15; // eax
   ULONG_PTR BugCheckParameter4; // rdi
-  unsigned __int64 v18; // rax
+  unsigned __int64 v17; // rax
   unsigned __int64 IoLocation; // rax
-  unsigned __int64 v20; // rdi
-  unsigned __int64 v21; // rax
-  unsigned __int64 v22; // rdi
-  __int64 v23; // r8
-  __int64 v24; // r9
-  __int64 v25; // r12
-  unsigned __int64 v26; // r15
-  __int64 v27; // rbp
-  char v28; // r15
-  int v29; // ebp
-  unsigned __int64 v30; // rax
+  unsigned __int64 v19; // rdi
+  unsigned __int64 v20; // rax
+  unsigned __int64 v21; // rdi
+  __int64 v22; // r8
+  __int64 v23; // r12
+  unsigned __int64 v24; // r15
+  __int64 v25; // rbp
+  char v26; // r15
+  int v27; // ebp
+  unsigned __int64 v28; // rax
   _UNKNOWN *retaddr; // [rsp+68h] [rbp+0h] BYREF
-  unsigned __int64 v32; // [rsp+70h] [rbp+8h] BYREF
-  unsigned __int64 v33; // [rsp+78h] [rbp+10h]
-  unsigned int v34; // [rsp+80h] [rbp+18h]
+  unsigned __int64 v30; // [rsp+70h] [rbp+8h] BYREF
+  unsigned __int64 v31; // [rsp+78h] [rbp+10h]
+  unsigned int v32; // [rsp+80h] [rbp+18h]
 
   result = (unsigned __int64)&retaddr;
-  v34 = a3;
-  v33 = a2;
-  v5 = *(_QWORD *)(BugCheckParameter3 + 352);
-  v6 = 0;
-  v7 = a3;
-  v8 = a2;
-  v9 = BugCheckParameter3;
-  v32 = 0LL;
-  while ( *(_QWORD *)(v9 + 432) )
+  v32 = a3;
+  v31 = a2;
+  v4 = *(_QWORD *)(BugCheckParameter3 + 352);
+  v5 = 0;
+  v6 = a3;
+  v7 = a2;
+  v8 = BugCheckParameter3;
+  v30 = 0LL;
+  while ( *(_QWORD *)(v8 + 432) )
   {
     if ( (PopWatchdogTimerCount & 0x1F) == 0 )
-      guard_dispatch_icall_no_overrides(BugCheckParameter3, a2, a3, a4);
+      guard_dispatch_icall_no_overrides(BugCheckParameter3, a2);
     ++PopWatchdogTimerCount;
-    v10 = *(_DWORD *)(v9 + 360);
-    if ( v10 )
+    v9 = *(_DWORD *)(v8 + 360);
+    if ( v9 )
     {
-      if ( v10 != 1 )
+      if ( v9 != 1 )
       {
-        PopHiberChecksumHiberFileData(v9, 0, *(_QWORD *)(v9 + 408), *(_QWORD *)(v9 + 416), *(_QWORD *)(v9 + 392));
+        PopHiberChecksumHiberFileData(v8, 0, *(_QWORD *)(v8 + 408), *(_QWORD *)(v8 + 416), *(_QWORD *)(v8 + 392));
+        v10 = __rdtsc();
+        qword_140F0C0F0 += v10 - *(_QWORD *)(v8 + 368);
+        ProducerConsumerBufferComplete(v7, v7 + 32, *(_QWORD *)(v8 + 416), *(unsigned int *)(v8 + 392));
         v11 = __rdtsc();
-        qword_140F0B4B0 += v11 - *(_QWORD *)(v9 + 368);
-        ProducerConsumerBufferComplete(v8, v8 + 32, *(_QWORD *)(v9 + 416), *(unsigned int *)(v9 + 392));
-        v12 = __rdtsc();
-        a2 = (unsigned __int64)HIDWORD(v12) << 32;
-        qword_140F0B4E0 += (a2 | (unsigned int)v12) - v11;
-        v13 = *(_QWORD *)(v9 + 392);
-        v14 = *(_QWORD *)(v9 + 432) == v13;
-        *(_QWORD *)(v9 + 432) -= v13;
-        if ( v14 )
-          *(_QWORD *)(v8 + 32) = *(_QWORD *)(v8 + 40);
-        result = *(_QWORD *)(v9 + 384);
-        *(_QWORD *)(v9 + 408) += result;
-        *(_QWORD *)(v9 + 376) += result;
-        *(_QWORD *)(v9 + 384) = 0LL;
-        *(_DWORD *)(v9 + 360) = 0;
+        a2 = (unsigned __int64)HIDWORD(v11) << 32;
+        qword_140F0C120 += (a2 | (unsigned int)v11) - v10;
+        v12 = *(_QWORD *)(v8 + 392);
+        v13 = *(_QWORD *)(v8 + 432) == v12;
+        *(_QWORD *)(v8 + 432) -= v12;
+        if ( v13 )
+          *(_QWORD *)(v7 + 32) = *(_QWORD *)(v7 + 40);
+        result = *(_QWORD *)(v8 + 384);
+        *(_QWORD *)(v8 + 408) += result;
+        *(_QWORD *)(v8 + 376) += result;
+        *(_QWORD *)(v8 + 384) = 0LL;
+        *(_DWORD *)(v8 + 360) = 0;
         continue;
       }
-      ++qword_140F0B4C0;
-      v15 = __rdtsc();
-      v16 = guard_dispatch_icall_no_overrides(2LL, v9 + 400, v5, a4);
-      BugCheckParameter4 = v16;
-      if ( v16 < 0 )
+      ++qword_140F0C100;
+      v14 = __rdtsc();
+      v15 = guard_dispatch_icall_no_overrides(2LL, v8 + 400);
+      BugCheckParameter4 = v15;
+      if ( v15 < 0 )
       {
         PopCheckpointSystemSleep(29LL);
-        PopInternalAddToDumpFile(v9, 0x1F0u, 0LL);
-        PopInternalAddToDumpFile(*(_QWORD *)(v9 + 184), 0x178u, 0LL);
-        KeBugCheckEx(0xA0u, 0x10AuLL, 0xAuLL, v9, BugCheckParameter4);
+        PopInternalAddToDumpFile(v8, 0x1F0u, 0LL);
+        PopInternalAddToDumpFile(*(_QWORD *)(v8 + 184), 0x178u, 0LL);
+        KeBugCheckEx(0xA0u, 0x10AuLL, 0xAuLL, v8, BugCheckParameter4);
       }
-      v18 = __rdtsc();
-      a2 = (unsigned __int64)HIDWORD(v18) << 32;
-      result = (a2 | (unsigned int)v18) - v15;
-      qword_140F0B4D8 += result;
+      v17 = __rdtsc();
+      a2 = (unsigned __int64)HIDWORD(v17) << 32;
+      result = (a2 | (unsigned int)v17) - v14;
+      qword_140F0C118 += result;
       if ( (_DWORD)BugCheckParameter4 == 259 )
         return result;
     }
     else
     {
       PopHiberCheckForDebugBreak();
-      IoLocation = PopGetIoLocation(*(_QWORD *)(v9 + 176), *(_QWORD *)(v9 + 408), &v32);
-      v20 = (unsigned __int64)*(unsigned int *)(v9 + 440) << 12;
-      *(_QWORD *)(v9 + 400) = IoLocation;
-      v21 = *(_QWORD *)(v9 + 432);
-      v22 = v20 - *(_QWORD *)(v9 + 376) % v20;
-      if ( v22 >= v32 )
-        v22 = v32;
-      v23 = (unsigned int)v22;
-      if ( v22 >= v21 )
-        v23 = (unsigned int)v21;
-      result = ProducerGetBuffer(v8, (unsigned int)v22, v23, v7);
-      v25 = result;
+      IoLocation = PopGetIoLocation(*(_QWORD *)(v8 + 176), *(_QWORD *)(v8 + 408), &v30);
+      v19 = (unsigned __int64)*(unsigned int *)(v8 + 440) << 12;
+      *(_QWORD *)(v8 + 400) = IoLocation;
+      v20 = *(_QWORD *)(v8 + 432);
+      v21 = v19 - *(_QWORD *)(v8 + 376) % v19;
+      if ( v21 >= v30 )
+        v21 = v30;
+      v22 = (unsigned int)v21;
+      if ( v21 >= v20 )
+        v22 = (unsigned int)v20;
+      result = ProducerGetBuffer(v7, (unsigned int)v21, v22, v6);
+      v23 = result;
       if ( !result )
         return result;
-      *(_QWORD *)(v9 + 416) = result;
-      *(_QWORD *)v5 = 0LL;
-      *(_DWORD *)(v5 + 40) = v22;
-      *(_QWORD *)(v5 + 24) = result;
-      *(_WORD *)(v5 + 10) = 1;
-      v26 = (v22 + (result & 0xFFF) + 4095) >> 12;
-      *(_QWORD *)(v5 + 32) = result & 0xFFFFFFFFFFFFF000uLL;
-      *(_DWORD *)(v5 + 44) = result & 0xFFF;
-      *(_WORD *)(v5 + 8) = 8 * (v26 + 6);
-      if ( v26 )
+      *(_QWORD *)(v8 + 416) = result;
+      *(_QWORD *)v4 = 0LL;
+      *(_DWORD *)(v4 + 40) = v21;
+      *(_QWORD *)(v4 + 24) = result;
+      *(_WORD *)(v4 + 10) = 1;
+      v24 = (v21 + (result & 0xFFF) + 4095) >> 12;
+      *(_QWORD *)(v4 + 32) = result & 0xFFFFFFFFFFFFF000uLL;
+      *(_DWORD *)(v4 + 44) = result & 0xFFF;
+      *(_WORD *)(v4 + 8) = 8 * (v24 + 6);
+      if ( v24 )
       {
-        v27 = 0LL;
+        v25 = 0LL;
         do
         {
-          ++v6;
-          *(_QWORD *)(v5 + 8 * v27 + 48) = (unsigned __int64)MmGetPhysicalAddress((PVOID)(v25 + (v27 << 12))).QuadPart >> 12;
-          v27 = v6;
+          ++v5;
+          *(_QWORD *)(v4 + 8 * v25 + 48) = (unsigned __int64)MmGetPhysicalAddress((PVOID)(v23 + (v25 << 12))).QuadPart >> 12;
+          v25 = v5;
         }
-        while ( v6 < v26 );
-        v7 = v34;
+        while ( v5 < v24 );
+        v6 = v32;
       }
-      v28 = *(_BYTE *)(v9 + 424);
-      v6 = 0;
-      *(_QWORD *)(v9 + 368) = __rdtsc();
-      v29 = guard_dispatch_icall_no_overrides(v28 != 0, v9 + 400, v5, v24);
-      if ( v29 == -1073741637 )
+      v26 = *(_BYTE *)(v8 + 424);
+      v5 = 0;
+      *(_QWORD *)(v8 + 368) = __rdtsc();
+      v27 = guard_dispatch_icall_no_overrides(v26 != 0, v8 + 400);
+      if ( v27 == -1073741637 )
       {
-        if ( !v28 )
+        if ( !v26 )
           goto LABEL_33;
-        *(_BYTE *)(v9 + 424) = 0;
-        *(_QWORD *)(v9 + 368) = __rdtsc();
-        v29 = guard_dispatch_icall_no_overrides(0LL, v9 + 400, v5, a4);
+        *(_BYTE *)(v8 + 424) = 0;
+        *(_QWORD *)(v8 + 368) = __rdtsc();
+        v27 = guard_dispatch_icall_no_overrides(0LL, v8 + 400);
       }
-      if ( v29 < 0 || PopSimulateHiberBugcheck == 8 )
+      if ( v27 < 0 || PopSimulateHiberBugcheck == 8 )
       {
 LABEL_33:
         PopCheckpointSystemSleep(29LL);
-        PopInternalAddToDumpFile(*(_QWORD *)(v9 + 184), 0x178u, 0LL);
-        KeBugCheckEx(0xA0u, 0x10AuLL, 0xAuLL, v9, v29);
+        PopInternalAddToDumpFile(*(_QWORD *)(v8 + 184), 0x178u, 0LL);
+        KeBugCheckEx(0xA0u, 0x10AuLL, 0xAuLL, v8, v27);
       }
-      v30 = __rdtsc();
-      a2 = (unsigned __int64)HIDWORD(v30) << 32;
-      qword_140F0B4D8 += (a2 | (unsigned int)v30) - *(_QWORD *)(v9 + 368);
-      result = v22;
-      BugCheckParameter3 = *(_QWORD *)(v9 + 432);
-      *(_QWORD *)(v9 + 384) = v22;
-      if ( v22 >= BugCheckParameter3 )
+      v28 = __rdtsc();
+      a2 = (unsigned __int64)HIDWORD(v28) << 32;
+      qword_140F0C118 += (a2 | (unsigned int)v28) - *(_QWORD *)(v8 + 368);
+      result = v21;
+      BugCheckParameter3 = *(_QWORD *)(v8 + 432);
+      *(_QWORD *)(v8 + 384) = v21;
+      if ( v21 >= BugCheckParameter3 )
         result = BugCheckParameter3;
-      *(_QWORD *)(v9 + 392) = result;
-      if ( v28 && v29 )
+      *(_QWORD *)(v8 + 392) = result;
+      if ( v26 && v27 )
       {
-        v8 = v33;
-        *(_DWORD *)(v9 + 360) = 1;
+        v7 = v31;
+        *(_DWORD *)(v8 + 360) = 1;
         continue;
       }
     }
-    v8 = v33;
-    *(_DWORD *)(v9 + 360) = 2;
+    v7 = v31;
+    *(_DWORD *)(v8 + 360) = 2;
   }
   return result;
 }

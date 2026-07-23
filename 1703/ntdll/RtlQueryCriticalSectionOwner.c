@@ -8,17 +8,20 @@
  *     sub_1800F7520 @ 0x1800F7520 (sub_1800F7520.c)
  */
 
-__int64 __fastcall RtlQueryCriticalSectionOwner(__int64 a1, char a2)
+HANDLE __cdecl RtlQueryCriticalSectionOwner(HANDLE EventHandle)
 {
+  char v1; // dl
+  char v2; // r15
   bool v4; // r14
-  __int64 v5; // rbx
+  void *v5; // rbx
   _UNKNOWN **v7; // rcx
   _QWORD *v8; // r8
   __int64 v9; // rdx
 
+  v2 = v1;
   v4 = 0;
   v5 = 0LL;
-  if ( !a1 || !RtlTryAcquireSRWLockShared(&qword_18015C1F8) )
+  if ( !EventHandle || !RtlTryAcquireSRWLockShared(&stru_18015C1F8) )
     return 0LL;
   v7 = (_UNKNOWN **)off_180155620;
   v8 = off_180155620;
@@ -27,17 +30,17 @@ __int64 __fastcall RtlQueryCriticalSectionOwner(__int64 a1, char a2)
     if ( !*((_WORD *)v7 - 8) )
     {
       v9 = (__int64)*(v7 - 1);
-      if ( a2 )
+      if ( v2 )
       {
-        if ( v9 == a1 - 8 )
+        if ( (_BYTE *)v9 == (char *)EventHandle - 8 )
         {
-          v5 = *(_QWORD *)(v9 + 16);
+          v5 = *(void **)(v9 + 16);
           break;
         }
       }
-      else if ( *(_QWORD *)(v9 + 24) == a1 )
+      else if ( *(HANDLE *)(v9 + 24) == EventHandle )
       {
-        v5 = *(_QWORD *)(v9 + 16);
+        v5 = *(void **)(v9 + 16);
         break;
       }
     }
@@ -48,6 +51,6 @@ __int64 __fastcall RtlQueryCriticalSectionOwner(__int64 a1, char a2)
       v8 = (_QWORD *)*v8;
     v4 = !v4;
   }
-  RtlReleaseSRWLockShared(&qword_18015C1F8);
+  RtlReleaseSRWLockShared(&stru_18015C1F8);
   return v5;
 }

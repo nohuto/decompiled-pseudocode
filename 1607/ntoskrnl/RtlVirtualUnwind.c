@@ -1,21 +1,21 @@
 /*
- * XREFs of RtlVirtualUnwind @ 0x1400B3138
+ * XREFs of RtlVirtualUnwind @ 0x1400B0FB8
  * Callers:
- *     RtlDispatchException @ 0x1400F4D00 (RtlDispatchException.c)
- *     RtlUnwindEx @ 0x1400F5660 (RtlUnwindEx.c)
- *     RtlRaiseException @ 0x140211E04 (RtlRaiseException.c)
+ *     RtlDispatchException @ 0x1400F2B50 (RtlDispatchException.c)
+ *     RtlUnwindEx @ 0x1400F34B0 (RtlUnwindEx.c)
+ *     RtlRaiseException @ 0x140211C30 (RtlRaiseException.c)
  * Callees:
- *     RtlpUnwindEpilogue @ 0x1400B3C60 (RtlpUnwindEpilogue.c)
- *     RtlpUnwindOpSlots @ 0x1400B3E1C (RtlpUnwindOpSlots.c)
- *     RtlRaiseStatus @ 0x1400F6738 (RtlRaiseStatus.c)
- *     RtlpSameFunction @ 0x1401593E8 (RtlpSameFunction.c)
- *     RtlpTrivialFunction @ 0x140159480 (RtlpTrivialFunction.c)
- *     ExRaiseDatatypeMisalignment @ 0x1406B6058 (ExRaiseDatatypeMisalignment.c)
+ *     RtlpUnwindEpilogue @ 0x1400B1AE0 (RtlpUnwindEpilogue.c)
+ *     RtlpUnwindOpSlots @ 0x1400B1C9C (RtlpUnwindOpSlots.c)
+ *     RtlRaiseStatus @ 0x1400F4588 (RtlRaiseStatus.c)
+ *     RtlpSameFunction @ 0x140159958 (RtlpSameFunction.c)
+ *     RtlpTrivialFunction @ 0x1401599F0 (RtlpTrivialFunction.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1406B6190 (ExRaiseDatatypeMisalignment.c)
  */
 
 PEXCEPTION_ROUTINE __stdcall RtlVirtualUnwind(DWORD HandlerType, DWORD64 ImageBase, DWORD64 ControlPc, PRUNTIME_FUNCTION FunctionEntry, struct _CONTEXT *ContextRecord, PVOID *HandlerData, PDWORD64 EstablisherFrame, PKNONVOLATILE_CONTEXT_POINTERS ContextPointers)
 {
-  EXCEPTION_ROUTINE *v8; // r15
+  EXCEPTION_DISPOSITION (__cdecl *v8)(_EXCEPTION_RECORD *, PVOID, _CONTEXT *, PVOID); // r15
   DWORD64 v9; // rdi
   PRUNTIME_FUNCTION v11; // r13
   DWORD64 v12; // rsi
@@ -93,7 +93,7 @@ PEXCEPTION_ROUTINE __stdcall RtlVirtualUnwind(DWORD HandlerType, DWORD64 ImageBa
   unsigned __int64 *v85; // rcx
   __int64 v86; // rcx
   unsigned __int64 v87; // [rsp+40h] [rbp-58h]
-  EXCEPTION_ROUTINE *v88; // [rsp+48h] [rbp-50h]
+  EXCEPTION_DISPOSITION (__cdecl *v88)(_EXCEPTION_RECORD *, PVOID, _CONTEXT *, PVOID); // [rsp+48h] [rbp-50h]
   DWORD v89; // [rsp+A0h] [rbp+8h]
   char v91; // [rsp+B0h] [rbp+18h]
   unsigned int v92; // [rsp+B8h] [rbp+20h]

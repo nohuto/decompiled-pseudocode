@@ -1,13 +1,13 @@
 /*
- * XREFs of PpReleaseBootDDB @ 0x14056E7B4
+ * XREFs of PpReleaseBootDDB @ 0x14056ECF4
  * Callers:
- *     PnpCompleteSystemStartProcess @ 0x140145238 (PnpCompleteSystemStartProcess.c)
+ *     PnpCompleteSystemStartProcess @ 0x1401457A8 (PnpCompleteSystemStartProcess.c)
  * Callees:
- *     KiLeaveCriticalRegionUnsafe @ 0x140055FA0 (KiLeaveCriticalRegionUnsafe.c)
- *     ExAcquireResourceExclusiveLite @ 0x140068160 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x140068940 (ExReleaseResourceLite.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140055B20 (KiLeaveCriticalRegionUnsafe.c)
+ *     ExAcquireResourceExclusiveLite @ 0x140067CE0 (ExAcquireResourceExclusiveLite.c)
+ *     ExReleaseResourceLite @ 0x1400684C0 (ExReleaseResourceLite.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
- *     SdbReleaseDatabase @ 0x140499BF8 (SdbReleaseDatabase.c)
+ *     SdbReleaseDatabase @ 0x1404CEA90 (SdbReleaseDatabase.c)
  */
 
 __int64 PpReleaseBootDDB()

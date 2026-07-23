@@ -1,17 +1,17 @@
 /*
- * XREFs of RtlpHpSegContextCompact @ 0x14034742C
+ * XREFs of RtlpHpSegContextCompact @ 0x1403494AC
  * Callers:
- *     RtlpHpHeapCompact @ 0x1403473E4 (RtlpHpHeapCompact.c)
+ *     RtlpHpHeapCompact @ 0x140349464 (RtlpHpHeapCompact.c)
  * Callees:
- *     RtlpHpSegLockAcquire @ 0x14027F770 (RtlpHpSegLockAcquire.c)
- *     RtlpHpSegHeapRemoveSegment @ 0x140346724 (RtlpHpSegHeapRemoveSegment.c)
- *     RtlpHpSegFreeRangeInsert @ 0x14034B28C (RtlpHpSegFreeRangeInsert.c)
- *     RtlpHpSegLockRelease @ 0x14034BF04 (RtlpHpSegLockRelease.c)
- *     RtlpHpSegPageRangeCoalesce @ 0x14034D840 (RtlpHpSegPageRangeCoalesce.c)
- *     RtlpHpSegPageRangeShrink @ 0x14034DB40 (RtlpHpSegPageRangeShrink.c)
- *     RtlpHpSegSegmentFree @ 0x14034F76C (RtlpHpSegSegmentFree.c)
- *     RtlpHpSegFreeRangeRemove @ 0x140377C00 (RtlpHpSegFreeRangeRemove.c)
- *     RtlpHpPgCleanupAllocationForCompaction @ 0x140639E58 (RtlpHpPgCleanupAllocationForCompaction.c)
+ *     RtlpHpSegLockAcquire @ 0x14027ECE0 (RtlpHpSegLockAcquire.c)
+ *     RtlpHpSegHeapRemoveSegment @ 0x1403487A4 (RtlpHpSegHeapRemoveSegment.c)
+ *     RtlpHpSegFreeRangeInsert @ 0x14034D30C (RtlpHpSegFreeRangeInsert.c)
+ *     RtlpHpSegLockRelease @ 0x14034DF84 (RtlpHpSegLockRelease.c)
+ *     RtlpHpSegPageRangeCoalesce @ 0x14034F8C0 (RtlpHpSegPageRangeCoalesce.c)
+ *     RtlpHpSegPageRangeShrink @ 0x14034FBC0 (RtlpHpSegPageRangeShrink.c)
+ *     RtlpHpSegSegmentFree @ 0x1403517EC (RtlpHpSegSegmentFree.c)
+ *     RtlpHpSegFreeRangeRemove @ 0x1403799B0 (RtlpHpSegFreeRangeRemove.c)
+ *     RtlpHpPgCleanupAllocationForCompaction @ 0x14063CE68 (RtlpHpPgCleanupAllocationForCompaction.c)
  */
 
 _QWORD *__fastcall RtlpHpSegContextCompact(__int64 a1, __int64 a2, __int64 a3, struct _KLOCK_ENTRIES *a4)

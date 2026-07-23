@@ -11,13 +11,13 @@
 void __fastcall LdrpHandlePendingModuleReplaced(__int64 a1)
 {
   __int64 v2; // rax
-  __int64 v3; // rcx
+  PVOID *v3; // rcx
 
   if ( *(_QWORD *)(a1 + 72) )
   {
     v2 = LdrpHandleReplacedModule();
-    v3 = *(_QWORD *)(a1 + 72);
-    if ( v2 != v3 )
+    v3 = *(PVOID **)(a1 + 72);
+    if ( (PVOID *)v2 != v3 )
       LdrpFreeReplacedModule(v3);
     *(_QWORD *)(a1 + 72) = 0LL;
   }

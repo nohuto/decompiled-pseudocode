@@ -1,17 +1,17 @@
 /*
- * XREFs of PnpProcessAssignResources @ 0x140790A9C
+ * XREFs of PnpProcessAssignResources @ 0x140790C8C
  * Callers:
- *     PipProcessDevNodeTree @ 0x1406CB690 (PipProcessDevNodeTree.c)
+ *     PipProcessDevNodeTree @ 0x1406CB6C0 (PipProcessDevNodeTree.c)
  * Callees:
- *     PipSetDevNodeState @ 0x14022AE84 (PipSetDevNodeState.c)
- *     ExAcquireFastMutex @ 0x140230720 (ExAcquireFastMutex.c)
- *     ExReleaseFastMutex @ 0x140230860 (ExReleaseFastMutex.c)
- *     memset @ 0x140435A00 (memset.c)
- *     PnpAssignResourcesToDevices @ 0x1407905A4 (PnpAssignResourcesToDevices.c)
- *     PnpProcessAssignResourcesWorker @ 0x140790C60 (PnpProcessAssignResourcesWorker.c)
- *     PipClearDevNodeUserFlags @ 0x1407933E0 (PipClearDevNodeUserFlags.c)
- *     PipSetDevNodeFlags @ 0x1407956CC (PipSetDevNodeFlags.c)
- *     PipSetDevNodeProblem @ 0x1408692EC (PipSetDevNodeProblem.c)
+ *     PipSetDevNodeState @ 0x14022AF94 (PipSetDevNodeState.c)
+ *     ExAcquireFastMutex @ 0x140230810 (ExAcquireFastMutex.c)
+ *     ExReleaseFastMutex @ 0x140230950 (ExReleaseFastMutex.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     PnpAssignResourcesToDevices @ 0x140790794 (PnpAssignResourcesToDevices.c)
+ *     PnpProcessAssignResourcesWorker @ 0x140790E50 (PnpProcessAssignResourcesWorker.c)
+ *     PipClearDevNodeUserFlags @ 0x1407935D0 (PipClearDevNodeUserFlags.c)
+ *     PipSetDevNodeFlags @ 0x1407958BC (PipSetDevNodeFlags.c)
+ *     PipSetDevNodeProblem @ 0x14086952C (PipSetDevNodeProblem.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

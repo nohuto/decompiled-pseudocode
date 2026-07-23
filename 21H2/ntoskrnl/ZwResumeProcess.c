@@ -1,14 +1,14 @@
 /*
- * XREFs of ZwResumeProcess @ 0x1403FD340
+ * XREFs of ZwResumeProcess @ 0x1403FD520
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwResumeProcess(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwResumeProcess(HANDLE ProcessHandle)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(ProcessHandle);
 }

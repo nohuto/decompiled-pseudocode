@@ -1,7 +1,7 @@
 /*
- * XREFs of ExpSaAllocatorFree @ 0x1401671E8
+ * XREFs of ExpSaAllocatorFree @ 0x1401672E8
  * Callers:
- *     ExSaFree @ 0x140167170 (ExSaFree.c)
+ *     ExSaFree @ 0x140167270 (ExSaFree.c)
  * Callees:
  *     KiAbEntryRemoveFromTree @ 0x140004530 (KiAbEntryRemoveFromTree.c)
  *     ExfAcquirePushLockSharedEx @ 0x140005550 (ExfAcquirePushLockSharedEx.c)
@@ -12,18 +12,18 @@
  *     KiAbThreadRemoveBoosts @ 0x14004EFD0 (KiAbThreadRemoveBoosts.c)
  *     MmGetSessionIdEx @ 0x14004F060 (MmGetSessionIdEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
- *     ExfReleasePushLockShared @ 0x1400914B0 (ExfReleasePushLockShared.c)
- *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     ExpSaPageGroupFreeMemory @ 0x1401672B4 (ExpSaPageGroupFreeMemory.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
- *     ExpSaAllocatorOptimizeList @ 0x14031F4A4 (ExpSaAllocatorOptimizeList.c)
+ *     ExfReleasePushLockShared @ 0x1400913F0 (ExfReleasePushLockShared.c)
+ *     ExfTryToWakePushLock @ 0x140091500 (ExfTryToWakePushLock.c)
+ *     ExpSaPageGroupFreeMemory @ 0x1401673B4 (ExpSaPageGroupFreeMemory.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
+ *     ExpSaAllocatorOptimizeList @ 0x14031F694 (ExpSaAllocatorOptimizeList.c)
  */
 
 _QWORD *__fastcall ExpSaAllocatorFree(ULONG_PTR BugCheckParameter2, __int64 *a2, __int64 a3, unsigned int a4)
 {
   int v4; // edi
-  __int64 v9; // rax
-  __int64 v10; // rbp
+  _RTL_BALANCED_NODE *v9; // rax
+  _RTL_BALANCED_NODE *v10; // rbp
   char v11; // r15
   signed __int32 v12; // eax
   _QWORD *result; // rax
@@ -52,7 +52,7 @@ _QWORD *__fastcall ExpSaAllocatorFree(ULONG_PTR BugCheckParameter2, __int64 *a2,
     if ( _interlockedbittestandset64((volatile signed __int32 *)BugCheckParameter2, 0LL) )
       ExfAcquirePushLockExclusiveEx((unsigned __int64 *)BugCheckParameter2, v9, BugCheckParameter2);
     if ( v10 )
-      *(_BYTE *)(v10 + 26) |= 1u;
+      BYTE2(v10[1].Left) |= 1u;
     *((_DWORD *)a2 + 10) = 0;
     v14 = (__int64 *)*a2;
     if ( *(__int64 **)(*a2 + 8) != a2
@@ -75,7 +75,7 @@ _QWORD *__fastcall ExpSaAllocatorFree(ULONG_PTR BugCheckParameter2, __int64 *a2,
     if ( _InterlockedCompareExchange64((volatile signed __int64 *)BugCheckParameter2, 17LL, 0LL) )
       ExfAcquirePushLockSharedEx((unsigned __int64 *)BugCheckParameter2, v9, BugCheckParameter2);
     if ( v10 )
-      *(_BYTE *)(v10 + 26) |= 1u;
+      BYTE2(v10[1].Left) |= 1u;
   }
   if ( (unsigned __int8)ExpSaPageGroupFreeMemory(a2, a3, a4) )
   {
@@ -139,7 +139,7 @@ LABEL_34:
   }
   v25->CrossThreadReleasableAndBusyByte |= 2u;
   if ( (__int64)v25->LockState.LockState < 0 )
-    KiAbEntryRemoveFromTree((__int64)&CurrentThread->LockEntries[v24], SessionId);
+    KiAbEntryRemoveFromTree(&CurrentThread->LockEntries[v24].TreeNode, SessionId);
   v28 = 0;
   v28 = v25->BoostBitmap.AllFields & 0x1FFFF;
   v25->BoostBitmap.AllFields &= 0xFFFE0000;

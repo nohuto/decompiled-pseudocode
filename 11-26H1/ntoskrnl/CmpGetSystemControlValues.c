@@ -1,27 +1,27 @@
 /*
- * XREFs of CmpGetSystemControlValues @ 0x140CEC3D8
+ * XREFs of CmpGetSystemControlValues @ 0x140CF26DC
  * Callers:
- *     CmInitSystem0 @ 0x140CEBD08 (CmInitSystem0.c)
+ *     InitBootProcessor @ 0x140CB07CC (InitBootProcessor.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     CmpInitializeThreadInfo @ 0x14043CF00 (CmpInitializeThreadInfo.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     HvpGetCellFlat @ 0x14085EB00 (HvpGetCellFlat.c)
- *     CmpFindControlSet @ 0x14085F13C (CmpFindControlSet.c)
- *     CmpWalkPath @ 0x140860270 (CmpWalkPath.c)
- *     HvpReleaseCellFlat @ 0x1408D51E0 (HvpReleaseCellFlat.c)
- *     HvpReleaseCellPaged @ 0x1408D73B0 (HvpReleaseCellPaged.c)
- *     HvpGetCellPaged @ 0x1408D7410 (HvpGetCellPaged.c)
- *     CmpFindValueByName @ 0x140AB231C (CmpFindValueByName.c)
- *     CmpInitSecurityCache @ 0x140AB8B64 (CmpInitSecurityCache.c)
- *     HvHiveInitialize @ 0x140AB8BAC (HvHiveInitialize.c)
- *     CmpFindSubKeyByName @ 0x140AC351C (CmpFindSubKeyByName.c)
- *     HvHiveStartMemoryBacked @ 0x140B487A4 (HvHiveStartMemoryBacked.c)
- *     CmSelectQualifiedInstallLanguage @ 0x140CEBDA4 (CmSelectQualifiedInstallLanguage.c)
- *     CmpConvertLangId @ 0x140CEC374 (CmpConvertLangId.c)
- *     CmpGetBootValueData @ 0x140CF048C (CmpGetBootValueData.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     CmpInitializeThreadInfo @ 0x14042F7B0 (CmpInitializeThreadInfo.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     HvpGetCellFlat @ 0x140864DF0 (HvpGetCellFlat.c)
+ *     CmpFindControlSet @ 0x14086542C (CmpFindControlSet.c)
+ *     CmpWalkPath @ 0x140866560 (CmpWalkPath.c)
+ *     HvpReleaseCellFlat @ 0x1408DB7A0 (HvpReleaseCellFlat.c)
+ *     HvpReleaseCellPaged @ 0x1408DD970 (HvpReleaseCellPaged.c)
+ *     HvpGetCellPaged @ 0x1408DD9D0 (HvpGetCellPaged.c)
+ *     CmpFindValueByName @ 0x140AAFFF0 (CmpFindValueByName.c)
+ *     CmpInitSecurityCache @ 0x140ABA1A4 (CmpInitSecurityCache.c)
+ *     HvHiveInitialize @ 0x140ABA1EC (HvHiveInitialize.c)
+ *     CmpFindSubKeyByName @ 0x140AC518C (CmpFindSubKeyByName.c)
+ *     HvHiveStartMemoryBacked @ 0x140B4A534 (HvHiveStartMemoryBacked.c)
+ *     CmSelectQualifiedInstallLanguage @ 0x140CF20A8 (CmSelectQualifiedInstallLanguage.c)
+ *     CmpConvertLangId @ 0x140CF2678 (CmpConvertLangId.c)
+ *     CmpGetBootValueData @ 0x140CF6804 (CmpGetBootValueData.c)
  */
 
 __int64 __fastcall CmpGetSystemControlValues(_DWORD *a1, __int64 a2, char a3)
@@ -72,7 +72,7 @@ __int64 __fastcall CmpGetSystemControlValues(_DWORD *a1, __int64 a2, char a3)
   CmpInitSecurityCache((__int64)&CmControlHive);
   HvHiveInitialize(&CmControlHive);
   v34.StaticBitmap[3] = (unsigned __int64)&CmControlHive;
-  qword_140FFE548 = (__int64)&v34.StaticBitmap[3];
+  qword_140FFF548 = (__int64)&v34.StaticBitmap[3];
   started = HvHiveStartMemoryBacked(
               (ULONG_PTR)&CmControlHive,
               4LL,
@@ -92,11 +92,11 @@ __int64 __fastcall CmpGetSystemControlValues(_DWORD *a1, __int64 a2, char a3)
               (__int64)&v34.StaticBitmap[3]);
   if ( started < 0 )
     KeBugCheckEx(0x74u, 1uLL, 1uLL, (ULONG_PTR)&CmControlHive, started);
-  qword_140FFE548 = 0LL;
+  qword_140FFF548 = 0LL;
   v7 = a1[9];
   if ( a3 == 1 )
   {
-    if ( (byte_140FFE59C & 1) != 0 )
+    if ( (byte_140FFF59C & 1) != 0 )
       CellFlat = HvpGetCellFlat((__int64)&CmControlHive, v7, v30);
     else
       CellFlat = HvpGetCellPaged((ULONG_PTR)&CmControlHive, v7);
@@ -114,7 +114,7 @@ __int64 __fastcall CmpGetSystemControlValues(_DWORD *a1, __int64 a2, char a3)
     ControlSet = CmpFindControlSet((ULONG_PTR)&CmControlHive, v7, (__int64)&DestinationString, (_BYTE *)&v29 + 1);
     if ( ControlSet == -1 )
       KeBugCheckEx(0x74u, 1uLL, 2uLL, (ULONG_PTR)&CmControlHive, (ULONG_PTR)&DestinationString);
-    if ( (byte_140FFE59C & 1) != 0 )
+    if ( (byte_140FFF59C & 1) != 0 )
       CellPaged = HvpGetCellFlat((__int64)&CmControlHive, ControlSet, v30);
     else
       CellPaged = HvpGetCellPaged((ULONG_PTR)&CmControlHive, ControlSet);
@@ -126,7 +126,7 @@ __int64 __fastcall CmpGetSystemControlValues(_DWORD *a1, __int64 a2, char a3)
     if ( SubKeyByName == -1 )
       KeBugCheckEx(0x74u, 1uLL, 3uLL, v14, (ULONG_PTR)&DestinationString);
   }
-  if ( (byte_140FFE59C & 1) != 0 )
+  if ( (byte_140FFF59C & 1) != 0 )
     HvpReleaseCellFlat((__int64)&CmControlHive, (__int64)v30);
   else
     HvpReleaseCellPaged((__int64)&CmControlHive, v30);
@@ -138,7 +138,7 @@ __int64 __fastcall CmpGetSystemControlValues(_DWORD *a1, __int64 a2, char a3)
       v16 = CmpWalkPath((ULONG_PTR)&CmControlHive, SubKeyByName, *v3);
       if ( v16 != -1 )
       {
-        if ( (byte_140FFE59C & 1) != 0 )
+        if ( (byte_140FFF59C & 1) != 0 )
           v17 = HvpGetCellFlat((__int64)&CmControlHive, v16, v30);
         else
           v17 = HvpGetCellPaged((ULONG_PTR)&CmControlHive, v16);
@@ -147,7 +147,7 @@ __int64 __fastcall CmpGetSystemControlValues(_DWORD *a1, __int64 a2, char a3)
           goto LABEL_72;
         RtlInitUnicodeString(&DestinationString, v3[1]);
         ValueByName = CmpFindValueByName((ULONG_PTR)&CmControlHive, v18, &DestinationString.Length);
-        if ( (byte_140FFE59C & 1) != 0 )
+        if ( (byte_140FFF59C & 1) != 0 )
           HvpReleaseCellFlat((__int64)&CmControlHive, (__int64)v30);
         else
           HvpReleaseCellPaged((__int64)&CmControlHive, v30);
@@ -158,7 +158,7 @@ __int64 __fastcall CmpGetSystemControlValues(_DWORD *a1, __int64 a2, char a3)
             v21 = *v20;
           else
             v21 = 4;
-          if ( (byte_140FFE59C & 1) != 0 )
+          if ( (byte_140FFF59C & 1) != 0 )
             v22 = HvpGetCellFlat((__int64)&CmControlHive, ValueByName, v31);
           else
             v22 = HvpGetCellPaged((ULONG_PTR)&CmControlHive, ValueByName);
@@ -174,7 +174,7 @@ __int64 __fastcall CmpGetSystemControlValues(_DWORD *a1, __int64 a2, char a3)
             v15 = v21;
           if ( v15 && !(unsigned __int8)CmpGetBootValueData(0x80000000LL, v23, v3[2], v15) )
           {
-            if ( (byte_140FFE59C & 1) != 0 )
+            if ( (byte_140FFF59C & 1) != 0 )
               HvpReleaseCellFlat((__int64)&CmControlHive, (__int64)v31);
             else
               HvpReleaseCellPaged((__int64)&CmControlHive, v31);
@@ -183,7 +183,7 @@ __int64 __fastcall CmpGetSystemControlValues(_DWORD *a1, __int64 a2, char a3)
           v25 = v3[4];
           if ( v25 )
             *(_DWORD *)v25 = *(_DWORD *)(v23 + 12);
-          if ( (byte_140FFE59C & 1) != 0 )
+          if ( (byte_140FFF59C & 1) != 0 )
             HvpReleaseCellFlat((__int64)&CmControlHive, (__int64)v31);
           else
             HvpReleaseCellPaged((__int64)&CmControlHive, v31);

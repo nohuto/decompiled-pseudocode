@@ -1,12 +1,12 @@
 /*
- * XREFs of BgpFoInitialize @ 0x140D13A98
+ * XREFs of BgpFoInitialize @ 0x140D19C60
  * Callers:
- *     BgpFwLibraryInitialize @ 0x140C545B8 (BgpFwLibraryInitialize.c)
+ *     BgpFwLibraryInitialize @ 0x140C5A5B8 (BgpFwLibraryInitialize.c)
  * Callees:
- *     BgpFwFreeMemory @ 0x140355E00 (BgpFwFreeMemory.c)
- *     BgpFwAllocateMemory @ 0x140355EBC (BgpFwAllocateMemory.c)
- *     FioFwReadUlongAtOffset @ 0x140719794 (FioFwReadUlongAtOffset.c)
- *     FopInitializeFonts @ 0x140D13CF0 (FopInitializeFonts.c)
+ *     BgpFwFreeMemory @ 0x140357BA8 (BgpFwFreeMemory.c)
+ *     BgpFwAllocateMemory @ 0x140357C64 (BgpFwAllocateMemory.c)
+ *     FioFwReadUlongAtOffset @ 0x14071E484 (FioFwReadUlongAtOffset.c)
+ *     FopInitializeFonts @ 0x140D19EB8 (FopInitializeFonts.c)
  */
 
 __int64 __fastcall BgpFoInitialize(__int64 a1, int a2)
@@ -15,17 +15,17 @@ __int64 __fastcall BgpFoInitialize(__int64 a1, int a2)
   __int64 v5; // rbx
   int UlongAtOffset; // edi
   _QWORD *v7; // rax
-  __int64 v9; // rax
+  struct _LIST_ENTRY *Blink; // rax
   int v10; // [rsp+50h] [rbp+18h] BYREF
   int v11; // [rsp+58h] [rbp+20h] BYREF
 
   v10 = 0;
   v11 = 0;
-  if ( !LOBYTE(gLoadedDiffHivesLock.Timer.Header.WaitListHead.Blink) )
+  if ( !BYTE4(gLoadedDiffHivesLock.Timer.Header.WaitListHead.Flink) )
   {
-    gLoadedDiffHivesLock.Timer.Header.WaitListHead.Flink = (struct _LIST_ENTRY *)&gLoadedDiffHivesLock.Timer;
-    *(_QWORD *)&gLoadedDiffHivesLock.Timer.Header.Lock = &gLoadedDiffHivesLock.Timer;
-    LOBYTE(gLoadedDiffHivesLock.Timer.Header.WaitListHead.Blink) = 1;
+    gLoadedDiffHivesLock.Timer.DueTime.QuadPart = (unsigned __int64)&gLoadedDiffHivesLock.Timer.Header.WaitListHead.Blink;
+    gLoadedDiffHivesLock.Timer.Header.WaitListHead.Blink = (struct _LIST_ENTRY *)&gLoadedDiffHivesLock.Timer.Header.WaitListHead.Blink;
+    BYTE4(gLoadedDiffHivesLock.Timer.Header.WaitListHead.Flink) = 1;
   }
   Memory = BgpFwAllocateMemory(0x38uLL);
   v5 = Memory;
@@ -68,12 +68,12 @@ LABEL_15:
   UlongAtOffset = FopInitializeFonts(v5);
   if ( UlongAtOffset < 0 )
     goto LABEL_10;
-  v9 = *(_QWORD *)&gLoadedDiffHivesLock.Timer.Header.Lock;
-  if ( *(struct _KTHREAD **)(*(_QWORD *)&gLoadedDiffHivesLock.Timer.Header.Lock + 8LL) != (struct _KTHREAD *)&gLoadedDiffHivesLock.Timer )
+  Blink = gLoadedDiffHivesLock.Timer.Header.WaitListHead.Blink;
+  if ( (struct _LIST_ENTRY **)gLoadedDiffHivesLock.Timer.Header.WaitListHead.Blink->Blink != &gLoadedDiffHivesLock.Timer.Header.WaitListHead.Blink )
     __fastfail(3u);
-  *(_QWORD *)v5 = *(_QWORD *)&gLoadedDiffHivesLock.Timer.Header.Lock;
-  *(_QWORD *)(v5 + 8) = &gLoadedDiffHivesLock.Timer;
-  *(_QWORD *)(v9 + 8) = v5;
-  *(_QWORD *)&gLoadedDiffHivesLock.Timer.Header.Lock = v5;
+  *(_QWORD *)v5 = gLoadedDiffHivesLock.Timer.Header.WaitListHead.Blink;
+  *(_QWORD *)(v5 + 8) = &gLoadedDiffHivesLock.Timer.Header.WaitListHead.Blink;
+  Blink->Blink = (struct _LIST_ENTRY *)v5;
+  gLoadedDiffHivesLock.Timer.Header.WaitListHead.Blink = (struct _LIST_ENTRY *)v5;
   return (unsigned int)UlongAtOffset;
 }

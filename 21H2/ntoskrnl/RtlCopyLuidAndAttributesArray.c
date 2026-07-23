@@ -1,30 +1,26 @@
 /*
- * XREFs of RtlCopyLuidAndAttributesArray @ 0x1405D9EB0
+ * XREFs of RtlCopyLuidAndAttributesArray @ 0x1405EAC30
  * Callers:
- *     CmpBuildAdminInformation @ 0x1405D9BE0 (CmpBuildAdminInformation.c)
+ *     CmpBuildAdminInformation @ 0x1405EA960 (CmpBuildAdminInformation.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall RtlCopyLuidAndAttributesArray(unsigned int a1, __int64 a2, __int64 a3)
+void __cdecl RtlCopyLuidAndAttributesArray(ULONG Count, PLUID_AND_ATTRIBUTES Src, PLUID_AND_ATTRIBUTES Dest)
 {
-  __int64 v3; // rdx
+  signed __int64 v3; // rdx
   __int64 v4; // r9
-  __int64 result; // rax
 
-  if ( a1 )
+  if ( Count )
   {
-    v3 = a2 - a3;
-    v4 = a1;
+    v3 = (char *)Src - (char *)Dest;
+    v4 = Count;
     do
     {
-      *(_QWORD *)a3 = *(_QWORD *)(v3 + a3);
-      result = *(unsigned int *)(v3 + a3 + 8);
-      *(_DWORD *)(a3 + 8) = result;
-      a3 += 12LL;
+      *Dest = *(PLUID_AND_ATTRIBUTES)((char *)Dest + v3);
+      ++Dest;
       --v4;
     }
     while ( v4 );
   }
-  return result;
 }

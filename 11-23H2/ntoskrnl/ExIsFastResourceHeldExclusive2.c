@@ -1,12 +1,12 @@
 /*
- * XREFs of ExIsFastResourceHeldExclusive2 @ 0x140413C50
+ * XREFs of ExIsFastResourceHeldExclusive2 @ 0x140413FE4
  * Callers:
- *     ExIsResourceAcquiredExclusiveLite @ 0x1403286E0 (ExIsResourceAcquiredExclusiveLite.c)
- *     ExIsFastResourceHeldExclusive @ 0x1403CA320 (ExIsFastResourceHeldExclusive.c)
- *     ExpFastResourceLegacyAcquireShared2 @ 0x140415548 (ExpFastResourceLegacyAcquireShared2.c)
- *     ExpFastResourceLegacyAcquireSharedStarveExclusive2 @ 0x1404155A8 (ExpFastResourceLegacyAcquireSharedStarveExclusive2.c)
+ *     ExIsResourceAcquiredExclusiveLite @ 0x140328970 (ExIsResourceAcquiredExclusiveLite.c)
+ *     ExIsFastResourceHeldExclusive @ 0x1403CA500 (ExIsFastResourceHeldExclusive.c)
+ *     ExpFastResourceLegacyAcquireShared2 @ 0x1404158DC (ExpFastResourceLegacyAcquireShared2.c)
+ *     ExpFastResourceLegacyAcquireSharedStarveExclusive2 @ 0x14041593C (ExpFastResourceLegacyAcquireSharedStarveExclusive2.c)
  * Callees:
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
  */
 
 bool __fastcall ExIsFastResourceHeldExclusive2(ULONG_PTR BugCheckParameter2)

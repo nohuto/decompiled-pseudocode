@@ -1,12 +1,12 @@
 /*
- * XREFs of AslEnvVarQuery @ 0x140722234
+ * XREFs of AslEnvVarQuery @ 0x1407234D4
  * Callers:
- *     AslEnvExpandStrings @ 0x1407220A8 (AslEnvExpandStrings.c)
+ *     AslEnvExpandStrings @ 0x140723348 (AslEnvExpandStrings.c)
  * Callees:
- *     _wcsnicmp @ 0x140195A70 (_wcsnicmp.c)
- *     memmove @ 0x1401D1540 (memmove.c)
- *     RtlUpcaseUnicodeChar @ 0x1405D5C10 (RtlUpcaseUnicodeChar.c)
- *     RtlGetNtSystemRoot @ 0x140682410 (RtlGetNtSystemRoot.c)
+ *     _wcsnicmp @ 0x140195BB0 (_wcsnicmp.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     RtlUpcaseUnicodeChar @ 0x1405D6C10 (RtlUpcaseUnicodeChar.c)
+ *     RtlGetNtSystemRoot @ 0x1406835D0 (RtlGetNtSystemRoot.c)
  */
 
 __int64 __fastcall AslEnvVarQuery(
@@ -19,7 +19,7 @@ __int64 __fastcall AslEnvVarQuery(
 {
   WCHAR *v6; // r13
   unsigned int v7; // edi
-  _WORD *NtSystemRoot; // rax
+  PWSTR NtSystemRoot; // rax
   unsigned __int64 v12; // rbx
   size_t v14; // rbx
   WCHAR *v15; // rbp
@@ -109,7 +109,7 @@ LABEL_21:
   }
   else
   {
-    NtSystemRoot = (_WORD *)RtlGetNtSystemRoot();
+    NtSystemRoot = RtlGetNtSystemRoot();
     v12 = -1LL;
     do
       ++v12;

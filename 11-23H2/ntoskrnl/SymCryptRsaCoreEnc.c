@@ -1,19 +1,19 @@
 /*
- * XREFs of SymCryptRsaCoreEnc @ 0x1403FA114
+ * XREFs of SymCryptRsaCoreEnc @ 0x1403FA2F4
  * Callers:
- *     SymCryptRsaPkcs1Verify @ 0x1403FA3B0 (SymCryptRsaPkcs1Verify.c)
+ *     SymCryptRsaPkcs1Verify @ 0x1403FA590 (SymCryptRsaPkcs1Verify.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     SymCryptIntBitsizeOfValue @ 0x1403F92D0 (SymCryptIntBitsizeOfValue.c)
- *     SymCryptIntCreate @ 0x1403F9348 (SymCryptIntCreate.c)
- *     SymCryptIntSetValueUint64 @ 0x1403F94CC (SymCryptIntSetValueUint64.c)
- *     SymCryptIntWipe @ 0x1403F95BC (SymCryptIntWipe.c)
- *     SymCryptModElementCreate @ 0x1403F966C (SymCryptModElementCreate.c)
- *     SymCryptModElementGetValue @ 0x1403F9684 (SymCryptModElementGetValue.c)
- *     SymCryptModElementSetValue @ 0x1403F9700 (SymCryptModElementSetValue.c)
- *     SymCryptModExp @ 0x1403F9874 (SymCryptModExp.c)
- *     SymCryptSizeofModElementFromModulus @ 0x1403F9A88 (SymCryptSizeofModElementFromModulus.c)
- *     SymCryptRsaCoreVerifyInput @ 0x1403FA2EC (SymCryptRsaCoreVerifyInput.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     SymCryptIntBitsizeOfValue @ 0x1403F94B0 (SymCryptIntBitsizeOfValue.c)
+ *     SymCryptIntCreate @ 0x1403F9528 (SymCryptIntCreate.c)
+ *     SymCryptIntSetValueUint64 @ 0x1403F96AC (SymCryptIntSetValueUint64.c)
+ *     SymCryptIntWipe @ 0x1403F979C (SymCryptIntWipe.c)
+ *     SymCryptModElementCreate @ 0x1403F984C (SymCryptModElementCreate.c)
+ *     SymCryptModElementGetValue @ 0x1403F9864 (SymCryptModElementGetValue.c)
+ *     SymCryptModElementSetValue @ 0x1403F98E0 (SymCryptModElementSetValue.c)
+ *     SymCryptModExp @ 0x1403F9A54 (SymCryptModExp.c)
+ *     SymCryptSizeofModElementFromModulus @ 0x1403F9C68 (SymCryptSizeofModElementFromModulus.c)
+ *     SymCryptRsaCoreVerifyInput @ 0x1403FA4CC (SymCryptRsaCoreVerifyInput.c)
  */
 
 __int64 __fastcall SymCryptRsaCoreEnc(

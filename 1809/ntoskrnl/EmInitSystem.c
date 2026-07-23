@@ -1,24 +1,24 @@
 /*
- * XREFs of EmInitSystem @ 0x1409BD7E0
+ * XREFs of EmInitSystem @ 0x1409BE7E0
  * Callers:
- *     Phase1InitializationDiscard @ 0x1409B3E10 (Phase1InitializationDiscard.c)
- *     Phase1InitializationIoReady @ 0x1409C4788 (Phase1InitializationIoReady.c)
+ *     Phase1InitializationDiscard @ 0x1409B4E10 (Phase1InitializationDiscard.c)
+ *     Phase1InitializationIoReady @ 0x1409C5788 (Phase1InitializationIoReady.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     ZwReadFile @ 0x1401B8250 (ZwReadFile.c)
- *     ZwClose @ 0x1401B8370 (ZwClose.c)
- *     ZwQueryInformationFile @ 0x1401B83B0 (ZwQueryInformationFile.c)
- *     ZwEnumerateValueKey @ 0x1401B83F0 (ZwEnumerateValueKey.c)
- *     ZwQueryKey @ 0x1401B8450 (ZwQueryKey.c)
- *     ZwCreateKey @ 0x1401B8530 (ZwCreateKey.c)
- *     ZwCreateFile @ 0x1401B8C30 (ZwCreateFile.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     RtlAppendStringToString @ 0x1406CB3E0 (RtlAppendStringToString.c)
- *     EmpProviderRegister @ 0x14072CAF0 (EmpProviderRegister.c)
- *     EmpCacheBiosDate @ 0x1409BDAE4 (EmpCacheBiosDate.c)
- *     EmpParseInfDatabase @ 0x1409BDD1C (EmpParseInfDatabase.c)
+ *     RtlInitUnicodeString @ 0x1400B99D0 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     ZwReadFile @ 0x1401B83B0 (ZwReadFile.c)
+ *     ZwClose @ 0x1401B84D0 (ZwClose.c)
+ *     ZwQueryInformationFile @ 0x1401B8510 (ZwQueryInformationFile.c)
+ *     ZwEnumerateValueKey @ 0x1401B8550 (ZwEnumerateValueKey.c)
+ *     ZwQueryKey @ 0x1401B85B0 (ZwQueryKey.c)
+ *     ZwCreateKey @ 0x1401B8690 (ZwCreateKey.c)
+ *     ZwCreateFile @ 0x1401B8D90 (ZwCreateFile.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     RtlAppendStringToString @ 0x1406CC680 (RtlAppendStringToString.c)
+ *     EmpProviderRegister @ 0x14072DCE0 (EmpProviderRegister.c)
+ *     EmpCacheBiosDate @ 0x1409BEAE4 (EmpCacheBiosDate.c)
+ *     EmpParseInfDatabase @ 0x1409BED1C (EmpParseInfDatabase.c)
  */
 
 __int64 __fastcall EmInitSystem(int a1, __int64 a2)
@@ -54,7 +54,7 @@ __int64 __fastcall EmInitSystem(int a1, __int64 a2)
   v3 = 0LL;
   if ( !a1 )
   {
-    dword_140437868 |= 0x80000000;
+    dword_140438928 |= 0x80000000;
     EmpRuleUpdateWorker.WorkerRoutine = (void (__fastcall *)(void *))EmpRuleUpdateWorkerThread;
     EmpParseLock = 0LL;
     EmpDatabaseLock = 0LL;

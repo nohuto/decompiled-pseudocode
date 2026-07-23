@@ -1,9 +1,9 @@
 /*
- * XREFs of KdpFillMemory @ 0x1409B7430
+ * XREFs of KdpFillMemory @ 0x1409B8430
  * Callers:
- *     KdpSendWaitContinue @ 0x1409B84F4 (KdpSendWaitContinue.c)
+ *     KdpSendWaitContinue @ 0x1409B94F4 (KdpSendWaitContinue.c)
  * Callees:
- *     KdpCopyMemoryChunks @ 0x1409B9B9C (KdpCopyMemoryChunks.c)
+ *     KdpCopyMemoryChunks @ 0x1409BAB9C (KdpCopyMemoryChunks.c)
  */
 
 __int64 __fastcall KdpFillMemory(__int64 a1, __int64 a2)

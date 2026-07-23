@@ -1,12 +1,12 @@
 /*
- * XREFs of KeRestoreMtrrBroadcast @ 0x140A8F8CC
+ * XREFs of KeRestoreMtrrBroadcast @ 0x140A8F74C
  * Callers:
- *     PnprWakeProcessors @ 0x140A9E01C (PnprWakeProcessors.c)
- *     KiInitializeDynamicProcessorDpc @ 0x140A9F2E0 (KiInitializeDynamicProcessorDpc.c)
+ *     PnprWakeProcessors @ 0x140A9DE8C (PnprWakeProcessors.c)
+ *     KiInitializeDynamicProcessorDpc @ 0x140A9F150 (KiInitializeDynamicProcessorDpc.c)
  *     KiInitializeMTRR @ 0x140B5F650 (KiInitializeMTRR.c)
  * Callees:
  *     KeQueryActiveProcessorCountEx @ 0x140222050 (KeQueryActiveProcessorCountEx.c)
- *     KeIpiGenericCall @ 0x14039AC30 (KeIpiGenericCall.c)
+ *     KeIpiGenericCall @ 0x14039AE10 (KeIpiGenericCall.c)
  */
 
 void KeRestoreMtrrBroadcast()

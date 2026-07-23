@@ -1,7 +1,7 @@
 /*
- * XREFs of VrpGetNextToken @ 0x140978AA0
+ * XREFs of VrpGetNextToken @ 0x14093AAB0
  * Callers:
- *     VrpCreateNamespaceNode @ 0x1409787E0 (VrpCreateNamespaceNode.c)
+ *     VrpCreateNamespaceNode @ 0x14093A7F0 (VrpCreateNamespaceNode.c)
  * Callees:
  *     <none>
  */

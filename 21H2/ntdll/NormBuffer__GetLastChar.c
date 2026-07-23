@@ -1,5 +1,5 @@
 /*
- * XREFs of NormBuffer__GetLastChar @ 0x1800FF774
+ * XREFs of NormBuffer__GetLastChar @ 0x1800FF734
  * Callers:
  *     Normalization__NormalizeCharacter @ 0x180080D8C (Normalization__NormalizeCharacter.c)
  * Callees:

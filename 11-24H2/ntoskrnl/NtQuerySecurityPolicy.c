@@ -1,16 +1,16 @@
 /*
- * XREFs of NtQuerySecurityPolicy @ 0x140889550
+ * XREFs of NtQuerySecurityPolicy @ 0x14088D400
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     SepCaptureUnicodeStringArray @ 0x1408890B0 (SepCaptureUnicodeStringArray.c)
- *     SepReleaseUnicodeStringArray @ 0x1408894A0 (SepReleaseUnicodeStringArray.c)
- *     ExRaiseDatatypeMisalignment @ 0x14089B1F0 (ExRaiseDatatypeMisalignment.c)
- *     ProbeForWrite @ 0x1408C0590 (ProbeForWrite.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     SepCaptureUnicodeStringArray @ 0x14088CF60 (SepCaptureUnicodeStringArray.c)
+ *     SepReleaseUnicodeStringArray @ 0x14088D350 (SepReleaseUnicodeStringArray.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408A3890 (ExRaiseDatatypeMisalignment.c)
+ *     ProbeForWrite @ 0x1408BDF50 (ProbeForWrite.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall NtQuerySecurityPolicy(
@@ -30,30 +30,26 @@ __int64 __fastcall NtQuerySecurityPolicy(
   unsigned int *v14; // r14
   void *v15; // r15
   unsigned int Length; // [rsp+44h] [rbp-54h]
-  int v18; // [rsp+4Ch] [rbp-4Ch] BYREF
-  void *v19; // [rsp+50h] [rbp-48h]
-  void *v20; // [rsp+58h] [rbp-40h] BYREF
-  void *v21; // [rsp+60h] [rbp-38h] BYREF
-  void *v22; // [rsp+68h] [rbp-30h] BYREF
+  void *v18; // [rsp+58h] [rbp-40h] BYREF
+  void *v19; // [rsp+60h] [rbp-38h] BYREF
+  void *v20; // [rsp+68h] [rbp-30h] BYREF
 
   v7 = a3;
-  v20 = 0LL;
-  v21 = 0LL;
-  Pool2 = 0LL;
+  v18 = 0LL;
   v19 = 0LL;
-  v22 = 0LL;
-  v18 = 0;
+  Pool2 = 0LL;
+  v20 = 0LL;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   LOBYTE(a3) = PreviousMode;
-  v11 = SepCaptureUnicodeStringArray(a1, 1u, a3, &v20);
+  v11 = SepCaptureUnicodeStringArray(a1, 1u, a3, &v18);
   if ( v11 >= 0 )
   {
     LOBYTE(v12) = PreviousMode;
-    v11 = SepCaptureUnicodeStringArray(a2, 1u, v12, &v21);
+    v11 = SepCaptureUnicodeStringArray(a2, 1u, v12, &v19);
     if ( v11 >= 0 )
     {
       LOBYTE(v13) = PreviousMode;
-      v11 = SepCaptureUnicodeStringArray(v7, 1u, v13, &v22);
+      v11 = SepCaptureUnicodeStringArray(v7, 1u, v13, &v20);
       if ( v11 >= 0 )
       {
         if ( PreviousMode == 1 )
@@ -73,8 +69,7 @@ __int64 __fastcall NtQuerySecurityPolicy(
           if ( a5 )
           {
             ProbeForWrite(a5, Length, 1u);
-            Pool2 = (void *)ExAllocatePool2(0x101uLL);
-            v19 = Pool2;
+            Pool2 = (void *)ExAllocatePool2(0x101uLL, Length, 0x20206553u);
             if ( !Pool2 )
             {
               v11 = -1073741670;
@@ -86,16 +81,15 @@ __int64 __fastcall NtQuerySecurityPolicy(
         {
           v15 = (void *)a5;
           Pool2 = (void *)a5;
-          v19 = (void *)a5;
           v14 = Address;
           Length = *Address;
         }
-        if ( qword_140F04910 )
+        if ( qword_140F04BB0 )
         {
           if ( Pool2 && !Length )
             v11 = -1073741811;
           else
-            v11 = guard_dispatch_icall_no_overrides(v20, v21, v22, &v18);
+            v11 = guard_dispatch_icall_no_overrides(v18, v19);
         }
         else
         {
@@ -103,7 +97,7 @@ __int64 __fastcall NtQuerySecurityPolicy(
         }
         if ( (int)(v11 + 0x80000000) < 0 || v11 == -1073741789 )
         {
-          *a4 = v18;
+          *a4 = 0;
           *v14 = Length;
           if ( v15 )
           {
@@ -115,9 +109,9 @@ __int64 __fastcall NtQuerySecurityPolicy(
     }
   }
 LABEL_18:
+  SepReleaseUnicodeStringArray(v18, PreviousMode);
+  SepReleaseUnicodeStringArray(v19, PreviousMode);
   SepReleaseUnicodeStringArray(v20, PreviousMode);
-  SepReleaseUnicodeStringArray(v21, PreviousMode);
-  SepReleaseUnicodeStringArray(v22, PreviousMode);
   if ( Pool2 && PreviousMode == 1 )
     ExFreePoolWithTag(Pool2, 0);
   return (unsigned int)v11;

@@ -3,9 +3,9 @@
  * Callers:
  *     KiInitializeKernel @ 0x140A8BF10 (KiInitializeKernel.c)
  * Callees:
- *     KeBugCheck @ 0x14041EA30 (KeBugCheck.c)
+ *     KeBugCheck @ 0x14041EDC0 (KeBugCheck.c)
  *     KiSetCacheInformationIntel @ 0x140A8C750 (KiSetCacheInformationIntel.c)
- *     KiSetCacheInformationAmd @ 0x140A9F8D8 (KiSetCacheInformationAmd.c)
+ *     KiSetCacheInformationAmd @ 0x140A9F748 (KiSetCacheInformationAmd.c)
  */
 
 __int64 KiSetCacheInformation()

@@ -3,17 +3,16 @@
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
+ *     sub_14042A5E0 @ 0x14042A5E0 (sub_14042A5E0.c)
  */
 
-__int64 __fastcall PoFxProcessorNotification(__int64 a1)
+__int64 __fastcall PoFxProcessorNotification(__int64 a1, __int64 a2)
 {
-  __int64 v1; // rax
-  unsigned __int8 (__fastcall *v3)(_QWORD); // rax
+  __int64 v2; // rax
 
-  v1 = *(_QWORD *)(a1 + 64);
-  if ( v1 && (v3 = *(unsigned __int8 (__fastcall **)(_QWORD))(v1 + 104)) != 0LL )
-    return v3(*(_QWORD *)(a1 + 72)) == 0 ? 0xC00000BB : 0;
+  v2 = *(_QWORD *)(a1 + 64);
+  if ( v2 && *(_QWORD *)(v2 + 104) )
+    return (unsigned __int8)sub_14042A5E0(*(_QWORD *)(a1 + 72), a2) == 0 ? 0xC00000BB : 0;
   else
     return 3221225474LL;
 }

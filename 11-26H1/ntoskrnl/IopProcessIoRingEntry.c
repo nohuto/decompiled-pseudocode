@@ -1,19 +1,19 @@
 /*
- * XREFs of IopProcessIoRingEntry @ 0x140B00D00
+ * XREFs of IopProcessIoRingEntry @ 0x140B02A30
  * Callers:
- *     NtSubmitIoRing @ 0x1404DCF60 (NtSubmitIoRing.c)
+ *     NtSubmitIoRing @ 0x1404D6640 (NtSubmitIoRing.c)
  * Callees:
- *     IopIoRingSetupCompletionWait @ 0x1404DD230 (IopIoRingSetupCompletionWait.c)
- *     IopIoRingWaitForCompletionEvent @ 0x14052B580 (IopIoRingWaitForCompletionEvent.c)
- *     IopIoRingDispatchComplete @ 0x14077C364 (IopIoRingDispatchComplete.c)
- *     IopIoRingDispatchCancel @ 0x140797ED8 (IopIoRingDispatchCancel.c)
- *     IopIoRingDispatchFlush @ 0x140797FA0 (IopIoRingDispatchFlush.c)
- *     IopIoRingDispatchReadScatter @ 0x140798090 (IopIoRingDispatchReadScatter.c)
- *     IopIoRingDispatchRegisterBuffers @ 0x1407981A4 (IopIoRingDispatchRegisterBuffers.c)
- *     IopIoRingDispatchRegisterFiles @ 0x140798550 (IopIoRingDispatchRegisterFiles.c)
- *     IopIoRingDispatchWrite @ 0x1407987BC (IopIoRingDispatchWrite.c)
- *     IopIoRingDispatchWriteGather @ 0x140798974 (IopIoRingDispatchWriteGather.c)
- *     IopIoRingDispatchRead @ 0x140B00E10 (IopIoRingDispatchRead.c)
+ *     IopIoRingSetupCompletionWait @ 0x1404D6910 (IopIoRingSetupCompletionWait.c)
+ *     IopIoRingWaitForCompletionEvent @ 0x14052DAA0 (IopIoRingWaitForCompletionEvent.c)
+ *     IopIoRingDispatchComplete @ 0x14077EE58 (IopIoRingDispatchComplete.c)
+ *     IopIoRingDispatchCancel @ 0x14079AA08 (IopIoRingDispatchCancel.c)
+ *     IopIoRingDispatchFlush @ 0x14079AAD0 (IopIoRingDispatchFlush.c)
+ *     IopIoRingDispatchReadScatter @ 0x14079ABC0 (IopIoRingDispatchReadScatter.c)
+ *     IopIoRingDispatchRegisterBuffers @ 0x14079ACD4 (IopIoRingDispatchRegisterBuffers.c)
+ *     IopIoRingDispatchRegisterFiles @ 0x14079B080 (IopIoRingDispatchRegisterFiles.c)
+ *     IopIoRingDispatchWrite @ 0x14079B2EC (IopIoRingDispatchWrite.c)
+ *     IopIoRingDispatchWriteGather @ 0x14079B4A4 (IopIoRingDispatchWriteGather.c)
+ *     IopIoRingDispatchRead @ 0x140B02B40 (IopIoRingDispatchRead.c)
  */
 
 void __fastcall IopProcessIoRingEntry(_QWORD *a1, _DWORD *a2, _BYTE *a3, __int64 a4)

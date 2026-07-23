@@ -1,16 +1,16 @@
 /*
- * XREFs of PspLocateSystemDll @ 0x140554680
+ * XREFs of PspLocateSystemDll @ 0x140554BC0
  * Callers:
- *     PsLocateSystemDlls @ 0x140554604 (PsLocateSystemDlls.c)
+ *     PsLocateSystemDlls @ 0x140554B44 (PsLocateSystemDlls.c)
  * Callees:
- *     ZwOpenFile @ 0x14015A2E0 (ZwOpenFile.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
- *     ObReferenceObjectByHandle @ 0x140450D40 (ObReferenceObjectByHandle.c)
- *     MmCreateSpecialImageSection @ 0x14045DF70 (MmCreateSpecialImageSection.c)
- *     PspMapSystemDll @ 0x14046BED8 (PspMapSystemDll.c)
- *     MmGetSectionInformation @ 0x140471C08 (MmGetSectionInformation.c)
- *     ObInitializeFastReference @ 0x1404724AC (ObInitializeFastReference.c)
- *     ObCloseHandle @ 0x14050C73C (ObCloseHandle.c)
+ *     ZwOpenFile @ 0x14015A850 (ZwOpenFile.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
+ *     ObReferenceObjectByHandle @ 0x14044FC10 (ObReferenceObjectByHandle.c)
+ *     MmCreateSpecialImageSection @ 0x14045CE40 (MmCreateSpecialImageSection.c)
+ *     PspMapSystemDll @ 0x14046ADA8 (PspMapSystemDll.c)
+ *     MmGetSectionInformation @ 0x140470AD8 (MmGetSectionInformation.c)
+ *     ObInitializeFastReference @ 0x14047137C (ObInitializeFastReference.c)
+ *     ObCloseHandle @ 0x1404EF6CC (ObCloseHandle.c)
  */
 
 NTSTATUS __fastcall PspLocateSystemDll(__int64 a1, char a2)

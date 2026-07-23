@@ -5,8 +5,8 @@
  *     VrpPostQueryKey @ 0x1405D551C (VrpPostQueryKey.c)
  * Callees:
  *     RtlULongAdd @ 0x140200578 (RtlULongAdd.c)
- *     memmove @ 0x140413F40 (memmove.c)
- *     memset @ 0x140414200 (memset.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     memset @ 0x140414300 (memset.c)
  */
 
 __int64 __fastcall VrpUpdateKeyInformation(int a1, int *a2, ULONG a3, ULONG *a4, const void **a5, unsigned int a6)

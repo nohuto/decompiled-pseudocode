@@ -1,11 +1,11 @@
 /*
- * XREFs of KiRestoreProcessorControlState @ 0x1403FE170
+ * XREFs of KiRestoreProcessorControlState @ 0x1403FE350
  * Callers:
- *     KdpReport @ 0x1405119E4 (KdpReport.c)
- *     KiFreezeTargetExecution @ 0x14051DE60 (KiFreezeTargetExecution.c)
- *     KiRestoreProcessorState @ 0x1405252F8 (KiRestoreProcessorState.c)
- *     KdpCommandString @ 0x1409B9600 (KdpCommandString.c)
- *     KdpSymbol @ 0x1409B99C0 (KdpSymbol.c)
+ *     KdpReport @ 0x140511C24 (KdpReport.c)
+ *     KiFreezeTargetExecution @ 0x14051E0A0 (KiFreezeTargetExecution.c)
+ *     KiRestoreProcessorState @ 0x140525538 (KiRestoreProcessorState.c)
+ *     KdpCommandString @ 0x1409BA600 (KdpCommandString.c)
+ *     KdpSymbol @ 0x1409BA9C0 (KdpSymbol.c)
  * Callees:
  *     <none>
  */

@@ -1,40 +1,40 @@
 /*
- * XREFs of EtwpAddRegEntryToGroup @ 0x14093B720
+ * XREFs of EtwpAddRegEntryToGroup @ 0x1409172C0
  * Callers:
- *     EtwpSetProviderTraitsCommon @ 0x14093D5E4 (EtwpSetProviderTraitsCommon.c)
+ *     EtwpSetProviderTraitsCommon @ 0x140919184 (EtwpSetProviderTraitsCommon.c)
  * Callees:
- *     EtwEventEnabled @ 0x140212D90 (EtwEventEnabled.c)
- *     KiUnstackDetachProcess @ 0x1402307C0 (KiUnstackDetachProcess.c)
- *     ExReleaseRundownProtectionCacheAwareEx @ 0x140257080 (ExReleaseRundownProtectionCacheAwareEx.c)
- *     ExReleaseRundownProtection_0 @ 0x140266240 (ExReleaseRundownProtection_0.c)
- *     ExfAcquirePushLockSharedEx @ 0x140277CC0 (ExfAcquirePushLockSharedEx.c)
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     ExfReleasePushLockShared @ 0x140278BD0 (ExfReleasePushLockShared.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     KeStackAttachProcess @ 0x1402C5270 (KeStackAttachProcess.c)
- *     ExfReleasePushLock @ 0x1402E3120 (ExfReleasePushLock.c)
- *     ExAcquireRundownProtection_0 @ 0x1402F0590 (ExAcquireRundownProtection_0.c)
- *     Feature_ModernWpp__private_IsEnabledDeviceUsageNoInline @ 0x140520D7C (Feature_ModernWpp__private_IsEnabledDeviceUsageNoInline.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     EtwpAcquireLoggerContextByLoggerId @ 0x14091EFC0 (EtwpAcquireLoggerContextByLoggerId.c)
- *     EtwpAccessCheckFromState @ 0x140920BE0 (EtwpAccessCheckFromState.c)
- *     EtwpFindOrCreateGuidEntry @ 0x1409348B0 (EtwpFindOrCreateGuidEntry.c)
- *     EtwpReferenceGuidEntry @ 0x140935A40 (EtwpReferenceGuidEntry.c)
- *     EtwpUnreferenceGuidEntry @ 0x140936B20 (EtwpUnreferenceGuidEntry.c)
- *     EtwpApplyScopeFilters @ 0x140936D60 (EtwpApplyScopeFilters.c)
- *     EtwpCopySchematizedFilters @ 0x1409370E8 (EtwpCopySchematizedFilters.c)
- *     EtwpGetSchematizedFilterSize @ 0x14093A2C0 (EtwpGetSchematizedFilterSize.c)
- *     EtwpComputeRegEntryEnableInfo @ 0x14093A660 (EtwpComputeRegEntryEnableInfo.c)
- *     EtwpIsGuidAllowed @ 0x14093B14C (EtwpIsGuidAllowed.c)
- *     EtwpProviderArrivalCallback @ 0x14093C304 (EtwpProviderArrivalCallback.c)
- *     EtwpReleaseLoggerContext @ 0x14093D918 (EtwpReleaseLoggerContext.c)
- *     EtwpEventWriteGroupJoin @ 0x140AE7D90 (EtwpEventWriteGroupJoin.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     EtwEventEnabled @ 0x140212E70 (EtwEventEnabled.c)
+ *     ExfReleasePushLock @ 0x14021B220 (ExfReleasePushLock.c)
+ *     KiUnstackDetachProcess @ 0x140232120 (KiUnstackDetachProcess.c)
+ *     ExReleaseRundownProtectionCacheAwareEx @ 0x140258A10 (ExReleaseRundownProtectionCacheAwareEx.c)
+ *     ExReleaseRundownProtection_0 @ 0x1402657B0 (ExReleaseRundownProtection_0.c)
+ *     ExfAcquirePushLockSharedEx @ 0x140277230 (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     ExfReleasePushLockShared @ 0x140278140 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     ExAcquireRundownProtection_0 @ 0x1402D2610 (ExAcquireRundownProtection_0.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     KeStackAttachProcess @ 0x14030FF30 (KeStackAttachProcess.c)
+ *     Feature_ModernWpp__private_IsEnabledDeviceUsageNoInline @ 0x140523420 (Feature_ModernWpp__private_IsEnabledDeviceUsageNoInline.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     EtwpAccessCheckFromState @ 0x1408FC6F0 (EtwpAccessCheckFromState.c)
+ *     EtwpFindOrCreateGuidEntry @ 0x140910460 (EtwpFindOrCreateGuidEntry.c)
+ *     EtwpReferenceGuidEntry @ 0x1409115F0 (EtwpReferenceGuidEntry.c)
+ *     EtwpUnreferenceGuidEntry @ 0x1409126C0 (EtwpUnreferenceGuidEntry.c)
+ *     EtwpApplyScopeFilters @ 0x140912900 (EtwpApplyScopeFilters.c)
+ *     EtwpCopySchematizedFilters @ 0x140912C88 (EtwpCopySchematizedFilters.c)
+ *     EtwpGetSchematizedFilterSize @ 0x140915E60 (EtwpGetSchematizedFilterSize.c)
+ *     EtwpComputeRegEntryEnableInfo @ 0x140916200 (EtwpComputeRegEntryEnableInfo.c)
+ *     EtwpIsGuidAllowed @ 0x140916CEC (EtwpIsGuidAllowed.c)
+ *     EtwpProviderArrivalCallback @ 0x140917EA4 (EtwpProviderArrivalCallback.c)
+ *     EtwpReleaseLoggerContext @ 0x1409194B8 (EtwpReleaseLoggerContext.c)
+ *     EtwpAcquireLoggerContextByLoggerId @ 0x140979A20 (EtwpAcquireLoggerContextByLoggerId.c)
+ *     EtwpEventWriteGroupJoin @ 0x140AE5C40 (EtwpEventWriteGroupJoin.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall EtwpAddRegEntryToGroup(
@@ -92,7 +92,7 @@ __int64 __fastcall EtwpAddRegEntryToGroup(
   __int64 v51; // rtt
   LegacyAutoBoost *v53; // rsi
   __int64 v54; // rdx
-  struct _TOKEN_ACCESS_INFORMATION *v55; // r8
+  _TOKEN_ACCESS_INFORMATION *v55; // r8
   int v56; // r14d
   __int64 v57; // rdx
   __int64 v58; // rcx
@@ -104,17 +104,17 @@ __int64 __fastcall EtwpAddRegEntryToGroup(
   __int16 v64; // r13
   unsigned __int8 v65; // r15
   unsigned __int16 *v66; // r12
-  unsigned int *v67; // rdi
+  __int64 v67; // rdi
   __int64 v68; // r8
   struct _KLOCK_ENTRIES *v69; // r9
   struct _KLOCK_ENTRIES *v70; // r9
   LegacyAutoBoost *v71; // rsi
   __int64 v72; // rdx
-  struct _TOKEN_ACCESS_INFORMATION *v73; // r8
+  _TOKEN_ACCESS_INFORMATION *v73; // r8
   int v74; // r14d
   __int16 v75; // ax
   int v76; // eax
-  unsigned int *v77; // r14
+  __int64 v77; // r14
   struct _KPROCESS *v78; // rcx
   __int64 v79; // rdx
   char *Pool2; // rdi
@@ -212,7 +212,7 @@ __int64 __fastcall EtwpAddRegEntryToGroup(
   {
     if ( !*(_DWORD *)(v29 - 3) )
       goto LABEL_24;
-    v41 = (signed __int64 *)EtwpAcquireLoggerContextByLoggerId(v88, *v29, 0);
+    v41 = (signed __int64 *)EtwpAcquireLoggerContextByLoggerId(v88, *v29, 0LL);
     if ( !EtwpIsGuidAllowed((__int64)v41, (const void *)(*(_QWORD *)(a1 + 32) + 40LL), v42, v43) )
       goto LABEL_40;
     v53 = (LegacyAutoBoost *)KeAbPreAcquire((__int64)(v41 + 86), 0LL, 0LL, v44);
@@ -226,7 +226,7 @@ __int64 __fastcall EtwpAddRegEntryToGroup(
       else
         *((_BYTE *)v53 + 10) = 1;
     }
-    v55 = (struct _TOKEN_ACCESS_INFORMATION *)v41[97];
+    v55 = (_TOKEN_ACCESS_INFORMATION *)v41[97];
     if ( v55 )
     {
       v56 = EtwpAccessCheckFromState((unsigned int *)(*(_QWORD *)(a1 + 32) + 40LL), v54, v55);
@@ -271,12 +271,12 @@ LABEL_24:
     {
       if ( *(_DWORD *)(v66 - 3) )
       {
-        v67 = EtwpAcquireLoggerContextByLoggerId(EtwpHostSiloState, *v66, 0);
-        if ( EtwpIsGuidAllowed((__int64)v67, (const void *)(*(_QWORD *)(a1 + 32) + 40LL), v68, v69) )
+        v67 = EtwpAcquireLoggerContextByLoggerId(EtwpHostSiloState, *v66, 0LL);
+        if ( EtwpIsGuidAllowed(v67, (const void *)(*(_QWORD *)(a1 + 32) + 40LL), v68, v69) )
         {
-          v71 = (LegacyAutoBoost *)KeAbPreAcquire((__int64)(v67 + 172), 0LL, 0LL, v70);
-          if ( _InterlockedCompareExchange64((volatile signed __int64 *)v67 + 86, 17LL, 0LL) )
-            ExfAcquirePushLockSharedEx((signed __int64 *)v67 + 86, 0, v71, (struct _KTHREAD *)(v67 + 172));
+          v71 = (LegacyAutoBoost *)KeAbPreAcquire(v67 + 688, 0LL, 0LL, v70);
+          if ( _InterlockedCompareExchange64((volatile signed __int64 *)(v67 + 688), 17LL, 0LL) )
+            ExfAcquirePushLockSharedEx((signed __int64 *)(v67 + 688), 0, v71, (struct _KTHREAD *)(v67 + 688));
           v72 = 0LL;
           if ( v71 )
           {
@@ -285,7 +285,7 @@ LABEL_24:
             else
               *((_BYTE *)v71 + 10) = 1;
           }
-          v73 = (struct _TOKEN_ACCESS_INFORMATION *)*((_QWORD *)v67 + 97);
+          v73 = *(_TOKEN_ACCESS_INFORMATION **)(v67 + 776);
           if ( v73 )
           {
             v74 = EtwpAccessCheckFromState((unsigned int *)(*(_QWORD *)(a1 + 32) + 40LL), v72, v73);
@@ -295,9 +295,9 @@ LABEL_24:
           {
             v74 = -1073741790;
           }
-          if ( _InterlockedCompareExchange64((volatile signed __int64 *)v67 + 86, v72, 17LL) != 17 )
-            ExfReleasePushLockShared((signed __int64 *)v67 + 86);
-          KeAbPostRelease((unsigned __int64)(v67 + 172));
+          if ( _InterlockedCompareExchange64((volatile signed __int64 *)(v67 + 688), v72, 17LL) != 17 )
+            ExfReleasePushLockShared((signed __int64 *)(v67 + 688));
+          KeAbPostRelease(v67 + 688);
           if ( v74 >= 0 )
             v64 += 1 << v65;
         }
@@ -330,11 +330,11 @@ LABEL_69:
           v77 = EtwpAcquireLoggerContextByLoggerId(
                   EtwpHostSiloState,
                   *(unsigned __int16 *)(*(_QWORD *)(*(_QWORD *)(a1 + 40) + 656LL) + v60 + 134),
-                  0);
+                  0LL);
           if ( (*(_BYTE *)(a1 + 98) & 0x10) != 0
             || (unsigned int)Feature_ModernWpp__private_IsEnabledDeviceUsageNoInline()
             && _bittest16((const signed __int16 *)(a1 + 98), 0xAu)
-            || (v77[204] & 0x2000000) != 0 )
+            || (*(_DWORD *)(v77 + 816) & 0x2000000) != 0 )
           {
             if ( (*(_BYTE *)(a1 + 98) & 1) != 0 )
             {
@@ -373,7 +373,10 @@ LABEL_78:
     v36 = *(unsigned __int16 *)(a1 + 102);
     if ( _bittest(&v36, v34) )
     {
-      v40 = EtwpAcquireLoggerContextByLoggerId(v33, *(unsigned __int16 *)(v35 + *(_QWORD *)(a1 + 40) + 134), 0);
+      v40 = (unsigned int *)EtwpAcquireLoggerContextByLoggerId(
+                              v33,
+                              *(unsigned __int16 *)(v35 + *(_QWORD *)(a1 + 40) + 134),
+                              0LL);
       if ( (*(_BYTE *)(a1 + 98) & 0x10) != 0
         || (unsigned int)Feature_ModernWpp__private_IsEnabledDeviceUsageNoInline()
         && _bittest16((const signed __int16 *)(a1 + 98), 0xAu)
@@ -483,7 +486,7 @@ LABEL_42:
 LABEL_51:
   if ( v13 )
     EtwpUnreferenceGuidEntry((__int64 *)v13, v10, v11, v12);
-  if ( v14 >= 0 && EtwEventEnabled(EtwpEventTracingProvRegHandle, &ETW_EVENT_GROUP_JOIN) )
+  if ( v14 >= 0 && EtwEventEnabled((REGHANDLE)stru_140F03830.SavedApcState.ApcListHead[0].Blink, &ETW_EVENT_GROUP_JOIN) )
     EtwpEventWriteGroupJoin(v58, v57, a1);
   return (unsigned int)v14;
 }

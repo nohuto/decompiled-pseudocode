@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlpQueryProcessEnumHeapsRoutine @ 0x180047340
+ * XREFs of RtlpQueryProcessEnumHeapsRoutine @ 0x18002B7F0
  * Callers:
  *     <none>
  * Callees:
- *     RtlpGetHeapTag @ 0x180046AF8 (RtlpGetHeapTag.c)
- *     RtlpCommitQueryDebugInfo @ 0x180047450 (RtlpCommitQueryDebugInfo.c)
- *     RtlHpQuerySegmentHeapRoutine @ 0x1800474EC (RtlHpQuerySegmentHeapRoutine.c)
- *     memset$thunk$772440563353939046 @ 0x180172030 (memset$thunk$772440563353939046.c)
+ *     RtlpGetHeapTag @ 0x18002AAC8 (RtlpGetHeapTag.c)
+ *     RtlpCommitQueryDebugInfo @ 0x18002B900 (RtlpCommitQueryDebugInfo.c)
+ *     RtlHpQuerySegmentHeapRoutine @ 0x18002B99C (RtlHpQuerySegmentHeapRoutine.c)
+ *     memset$thunk$772440563353939046 @ 0x180171030 (memset$thunk$772440563353939046.c)
  */
 
 __int64 __fastcall RtlpQueryProcessEnumHeapsRoutine(__int64 a1, __int64 a2)
@@ -37,7 +37,7 @@ __int64 __fastcall RtlpQueryProcessEnumHeapsRoutine(__int64 a1, __int64 a2)
     v5[2] = *(_DWORD *)(a1 + 112);
     *((_WORD *)v5 + 6) = 16;
     *((_WORD *)v5 + 7) = *(_WORD *)(a1 + 304);
-    *((_QWORD *)v5 + 11) = RtlpGetHeapTag(a1);
+    *((_QWORD *)v5 + 11) = RtlpGetHeapTag((void *)a1);
     v7 = *(__int64 **)(a1 + 288);
     if ( v7 != (__int64 *)(a1 + 288) )
     {

@@ -11,5 +11,7 @@
 
 int __cdecl _vsnwprintf(wchar_t *Buffer, size_t BufferCount, const wchar_t *Format, va_list Args)
 {
-  return _vsnwprintf_l(Buffer, BufferCount, Format, 0, Args);
+  va_list savedregs; // [esp+0h] [ebp+0h]
+
+  return _vsnwprintf_l(Buffer, BufferCount, 0, (const _locale_t)Format, savedregs);
 }

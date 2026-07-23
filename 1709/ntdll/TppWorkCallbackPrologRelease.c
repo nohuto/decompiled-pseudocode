@@ -23,9 +23,9 @@
  *     _guard_dispatch_icall_nop @ 0x1800A3A60 (_guard_dispatch_icall_nop.c)
  */
 
-__int64 __fastcall TppWorkCallbackPrologRelease(__int64 a1, __int64 a2, int a3)
+__int64 __fastcall TppWorkCallbackPrologRelease(_DWORD *Instance, __int64 a2, int a3)
 {
-  __int64 v3; // rbp
+  void *v3; // rbp
   int v4; // r12d
   unsigned __int32 v8; // ecx
   signed __int32 v9; // eax
@@ -42,18 +42,18 @@ __int64 __fastcall TppWorkCallbackPrologRelease(__int64 a1, __int64 a2, int a3)
   _DWORD *SharedData; // rcx
   __int64 v22; // rcx
   int v23; // eax
-  __int64 v24; // [rsp+30h] [rbp-78h] BYREF
-  _BYTE v25[6]; // [rsp+38h] [rbp-70h] BYREF
+  PVOID Cookie; // [rsp+30h] [rbp-78h] BYREF
+  _BYTE Fields[6]; // [rsp+38h] [rbp-70h] BYREF
   __int16 v26; // [rsp+3Eh] [rbp-6Ah]
   int v27; // [rsp+58h] [rbp-50h]
   int v28; // [rsp+5Ch] [rbp-4Ch]
   _UNKNOWN *retaddr; // [rsp+A8h] [rbp+0h]
 
-  v3 = *(_QWORD *)(a2 + 136);
+  v3 = *(void **)(a2 + 136);
   v4 = 0;
-  v24 = 0LL;
+  Cookie = 0LL;
   if ( v3 )
-    LdrLockLoaderLock(0LL, 0LL, &v24);
+    LdrLockLoaderLock(0, 0LL, &Cookie);
   _m_prefetchw((const void *)(a2 + 232));
   v8 = *(_DWORD *)(a2 + 232);
   do
@@ -83,7 +83,7 @@ __int64 __fastcall TppWorkCallbackPrologRelease(__int64 a1, __int64 a2, int a3)
   {
     if ( v10 )
     {
-      if ( (int)LdrAddRefDll(0, v3) < 0 )
+      if ( LdrAddRefDll(0, v3) < 0 )
       {
         v10 = 0;
         v11 = 0;
@@ -91,11 +91,11 @@ __int64 __fastcall TppWorkCallbackPrologRelease(__int64 a1, __int64 a2, int a3)
       }
       else
       {
-        *(_DWORD *)(a1 + 144) |= 0x100u;
-        *(_QWORD *)(a1 + 168) = v3;
+        Instance[36] |= 0x100u;
+        *((_QWORD *)Instance + 21) = v3;
       }
     }
-    LdrUnlockLoaderLock(0LL, v24);
+    LdrUnlockLoaderLock(0, Cookie);
     if ( v4 )
     {
       TppBarrierAdjust(a2 + 56, 0xFFFFFFFFLL, 0LL);
@@ -117,7 +117,7 @@ __int64 __fastcall TppWorkCallbackPrologRelease(__int64 a1, __int64 a2, int a3)
         *(_QWORD *)(a2 + 80),
         *(_QWORD *)(a2 + 88),
         *(_QWORD *)(a2 + 104));
-    TpPostTask(a2 + 200, *(_QWORD *)(a2 + 144), *(unsigned int *)(a2 + 192), 0LL);
+    TpPostTask(a2 + 200, *(char **)(a2 + 144), *(_DWORD *)(a2 + 192), 0LL);
     if ( _InterlockedExchangeAdd((volatile signed __int32 *)a2, 0xFFFFFFFF) == 1 )
       (**(void (__fastcall ***)(__int64))(a2 + 8))(a2);
   }
@@ -135,19 +135,19 @@ __int64 __fastcall TppWorkCallbackPrologRelease(__int64 a1, __int64 a2, int a3)
   {
     if ( (unsigned __int64)(*(_QWORD *)(a2 + 96) - 1LL) <= 0xFFFFFFFFFFFFFFFDuLL )
     {
-      *(_QWORD *)a1 = 72LL;
-      *(_DWORD *)(a1 + 8) = 1;
-      RtlActivateActivationContextUnsafeFast(a1, *(_QWORD *)(a2 + 96));
-      *(_BYTE *)(a1 + 76) |= 1u;
+      *(_QWORD *)Instance = 72LL;
+      Instance[2] = 1;
+      RtlActivateActivationContextUnsafeFast((__int64)Instance, *(_QWORD *)(a2 + 96));
+      *((_BYTE *)Instance + 76) |= 1u;
     }
-    *(_DWORD *)(a1 + 144) |= 0x240u;
-    *(_QWORD *)(a1 + 184) = a2;
+    Instance[36] |= 0x240u;
+    *((_QWORD *)Instance + 23) = a2;
     if ( (*(_DWORD *)(a2 + 168) & 3) == 1 )
-      TpCallbackMayRunLong(a1);
+      TpCallbackMayRunLong((PTP_CALLBACK_INSTANCE)Instance);
     v13 = *(void **)(a2 + 104);
     if ( v13 )
     {
-      *(_QWORD *)(a1 + 80) = v13;
+      *((_QWORD *)Instance + 10) = v13;
       v16 = NtCurrentTeb();
       v17 = 2147353488LL;
       SubProcessTag = v16->SubProcessTag;
@@ -162,16 +162,16 @@ __int64 __fastcall TppWorkCallbackPrologRelease(__int64 a1, __int64 a2, int a3)
         v27 = (int)SubProcessTag;
         v26 = 1349;
         v28 = (int)v13;
-        if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+        if ( RtlGetCurrentServiceSessionId() )
           v17 = (__int64)NtCurrentPeb()->SharedData + 566;
-        NtTraceEvent(*(unsigned __int8 *)v17, 1026LL, 8LL, v25);
+        NtTraceEvent((HANDLE)*(unsigned __int8 *)v17, 0x402u, 8u, Fields);
       }
     }
     NtCurrentTeb()->ActivityId = *(_GUID *)(a2 + 112);
     v14 = (_QWORD *)(a2 + 128);
     if ( v14
       && *(_QWORD *)NtCurrentTeb()->WorkingOnBehalfTicket != *v14
-      && (int)NtSetInformationThread(-2LL, 44LL, v14) >= 0 )
+      && NtSetInformationThread((HANDLE)0xFFFFFFFFFFFFFFFELL, ThreadWorkOnBehalfTicket, v14, 8u) >= 0 )
     {
       *(_QWORD *)NtCurrentTeb()->WorkingOnBehalfTicket = *v14;
     }

@@ -1,13 +1,13 @@
 /*
- * XREFs of PopExecuteSystemIdleAction @ 0x1408F0DF4
+ * XREFs of PopExecuteSystemIdleAction @ 0x1408F0F54
  * Callers:
- *     PopSystemIdleWorker @ 0x1408F1100 (PopSystemIdleWorker.c)
+ *     PopSystemIdleWorker @ 0x1408F1260 (PopSystemIdleWorker.c)
  * Callees:
- *     PopExecutePowerAction @ 0x1407751C8 (PopExecutePowerAction.c)
- *     PopDiagTraceSystemIdleAction @ 0x1408EB73C (PopDiagTraceSystemIdleAction.c)
- *     PopUpdatePdcSystemIdleState @ 0x1408F1218 (PopUpdatePdcSystemIdleState.c)
- *     PopReleasePolicyLock @ 0x14098F590 (PopReleasePolicyLock.c)
- *     PopAcquirePolicyLock @ 0x14098F5D0 (PopAcquirePolicyLock.c)
+ *     PopExecutePowerAction @ 0x140775388 (PopExecutePowerAction.c)
+ *     PopDiagTraceSystemIdleAction @ 0x1408EB89C (PopDiagTraceSystemIdleAction.c)
+ *     PopUpdatePdcSystemIdleState @ 0x1408F1378 (PopUpdatePdcSystemIdleState.c)
+ *     PopReleasePolicyLock @ 0x140991044 (PopReleasePolicyLock.c)
+ *     PopAcquirePolicyLock @ 0x140991084 (PopAcquirePolicyLock.c)
  */
 
 __int64 __fastcall PopExecuteSystemIdleAction(__int64 a1, unsigned __int8 a2, __int64 a3)

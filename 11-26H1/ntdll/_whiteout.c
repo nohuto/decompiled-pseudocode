@@ -1,10 +1,10 @@
 /*
- * XREFs of _whiteout @ 0x180136E40
+ * XREFs of _whiteout @ 0x180136BB4
  * Callers:
- *     _winput_s @ 0x180136E98 (_winput_s.c)
+ *     _winput_s @ 0x180136C0C (_winput_s.c)
  * Callees:
- *     iswctype @ 0x18012AE10 (iswctype.c)
- *     _fgetwc_nolock @ 0x18013786C (_fgetwc_nolock.c)
+ *     iswctype @ 0x18012AB80 (iswctype.c)
+ *     _fgetwc_nolock @ 0x1801375E0 (_fgetwc_nolock.c)
  */
 
 __int64 __fastcall whiteout(_DWORD *a1, FILE *a2)

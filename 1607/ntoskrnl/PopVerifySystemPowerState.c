@@ -1,11 +1,11 @@
 /*
- * XREFs of PopVerifySystemPowerState @ 0x140542C58
+ * XREFs of PopVerifySystemPowerState @ 0x140543198
  * Callers:
- *     PopActionRetrieveInitialState @ 0x1401263B0 (PopActionRetrieveInitialState.c)
- *     PopExecutePowerAction @ 0x140530768 (PopExecutePowerAction.c)
- *     PopAdvanceSystemPowerState @ 0x1405347A0 (PopAdvanceSystemPowerState.c)
- *     PopVerifySystemPowerPolicy @ 0x14056E268 (PopVerifySystemPowerPolicy.c)
- *     PdcPoVerifyPowerState @ 0x1405816AC (PdcPoVerifyPowerState.c)
+ *     PopActionRetrieveInitialState @ 0x140126920 (PopActionRetrieveInitialState.c)
+ *     PopExecutePowerAction @ 0x140530CA8 (PopExecutePowerAction.c)
+ *     PopAdvanceSystemPowerState @ 0x140534CE0 (PopAdvanceSystemPowerState.c)
+ *     PopVerifySystemPowerPolicy @ 0x14056E7A8 (PopVerifySystemPowerPolicy.c)
+ *     PdcPoVerifyPowerState @ 0x140581B58 (PdcPoVerifyPowerState.c)
  * Callees:
  *     <none>
  */
@@ -32,25 +32,25 @@ void __fastcall PopVerifySystemPowerState(int *a1, int a2)
         {
           if ( v2 == 5 )
           {
-            if ( byte_140303F66 && byte_140303F68 )
+            if ( byte_140303EA6 && byte_140303EA8 )
               goto LABEL_8;
             v2 = 4;
           }
           if ( v2 == 4 )
           {
-            if ( HIBYTE(word_140303F64) )
+            if ( HIBYTE(word_140303EA4) )
               goto LABEL_8;
             v2 = 3;
           }
           if ( v2 == 3 )
           {
-            if ( (_BYTE)word_140303F64 )
+            if ( (_BYTE)word_140303EA4 )
               goto LABEL_8;
             v2 = 2;
           }
           if ( v2 == 2 )
           {
-            if ( byte_140303F63 )
+            if ( byte_140303EA3 )
               goto LABEL_8;
             v2 = 1;
           }
@@ -61,23 +61,23 @@ void __fastcall PopVerifySystemPowerState(int *a1, int a2)
         }
         if ( v2 == 2 )
         {
-          if ( byte_140303F63 )
+          if ( byte_140303EA3 )
             goto LABEL_8;
           v2 = 3;
         }
         if ( v2 == 3 )
         {
-          if ( (_BYTE)word_140303F64 )
+          if ( (_BYTE)word_140303EA4 )
             goto LABEL_8;
           v2 = 4;
         }
         if ( v2 == 4 )
         {
-          if ( HIBYTE(word_140303F64) )
+          if ( HIBYTE(word_140303EA4) )
             goto LABEL_8;
           v2 = 5;
         }
-        if ( v2 == 5 && (!v3 || !byte_140303F66 || !byte_140303F68) )
+        if ( v2 == 5 && (!v3 || !byte_140303EA6 || !byte_140303EA8) )
           v2 = 1;
       }
 LABEL_8:

@@ -1,16 +1,16 @@
 /*
- * XREFs of PiDqActionDataCreate @ 0x1408D3974
+ * XREFs of PiDqActionDataCreate @ 0x1408D1364
  * Callers:
- *     PiDqQuerySerializeActionQueue @ 0x1408D2AD0 (PiDqQuerySerializeActionQueue.c)
+ *     PiDqQuerySerializeActionQueue @ 0x1408D04C0 (PiDqQuerySerializeActionQueue.c)
  * Callees:
- *     PiDqActionDataFree @ 0x1408D3C2C (PiDqActionDataFree.c)
- *     PnpAllocatePWSTR @ 0x1408D3DA4 (PnpAllocatePWSTR.c)
- *     PiDqActionDataGetRequestedProperties @ 0x1408D4180 (PiDqActionDataGetRequestedProperties.c)
- *     PiDqGetPnpObjectType @ 0x1408D4AA0 (PiDqGetPnpObjectType.c)
- *     PiDqActionDataGetAllPropertiesInBestLanguage @ 0x140908E70 (PiDqActionDataGetAllPropertiesInBestLanguage.c)
- *     PiDqActionDataGetAllPropertiesInAllLanguages @ 0x140994DB8 (PiDqActionDataGetAllPropertiesInAllLanguages.c)
- *     PiDqActionDataGetChangedProperties @ 0x140A499C4 (PiDqActionDataGetChangedProperties.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     PiDqActionDataFree @ 0x1408D161C (PiDqActionDataFree.c)
+ *     PnpAllocatePWSTR @ 0x1408D1794 (PnpAllocatePWSTR.c)
+ *     PiDqActionDataGetRequestedProperties @ 0x1408D1B70 (PiDqActionDataGetRequestedProperties.c)
+ *     PiDqGetPnpObjectType @ 0x1408D2490 (PiDqGetPnpObjectType.c)
+ *     PiDqActionDataGetAllPropertiesInBestLanguage @ 0x1408E0590 (PiDqActionDataGetAllPropertiesInBestLanguage.c)
+ *     PiDqActionDataGetAllPropertiesInAllLanguages @ 0x14097FDF8 (PiDqActionDataGetAllPropertiesInAllLanguages.c)
+ *     PiDqActionDataGetChangedProperties @ 0x140A406E4 (PiDqActionDataGetChangedProperties.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall PiDqActionDataCreate(__int64 a1, int a2, __int64 a3, _QWORD *a4)
@@ -35,7 +35,7 @@ __int64 __fastcall PiDqActionDataCreate(__int64 a1, int a2, __int64 a3, _QWORD *
   v22[0] = 0;
   *a4 = 0LL;
   v8 = a4;
-  Pool2 = (_DWORD *)ExAllocatePool2(0x100uLL);
+  Pool2 = (_DWORD *)ExAllocatePool2(0x100uLL, 0x28uLL, 0x58706E50u);
   v10 = Pool2;
   if ( !Pool2 )
     return (unsigned int)-1073741670;

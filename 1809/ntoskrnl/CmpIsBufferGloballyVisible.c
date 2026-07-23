@@ -1,9 +1,9 @@
 /*
- * XREFs of CmpIsBufferGloballyVisible @ 0x1405DF288
+ * XREFs of CmpIsBufferGloballyVisible @ 0x1405E0288
  * Callers:
- *     CmpDoesBufferRequireCapturing @ 0x1405CD49C (CmpDoesBufferRequireCapturing.c)
- *     CmpBounceContextStart @ 0x1405D2F60 (CmpBounceContextStart.c)
- *     NtQueryValueKey @ 0x140640340 (NtQueryValueKey.c)
+ *     CmpDoesBufferRequireCapturing @ 0x1405CE49C (CmpDoesBufferRequireCapturing.c)
+ *     CmpBounceContextStart @ 0x1405D3F60 (CmpBounceContextStart.c)
+ *     NtQueryValueKey @ 0x140641360 (NtQueryValueKey.c)
  * Callees:
  *     MmIsSessionAddress @ 0x1400245B0 (MmIsSessionAddress.c)
  */

@@ -11,22 +11,22 @@
  *     ObReferenceObjectByHandle @ 0x1405A4730 (ObReferenceObjectByHandle.c)
  */
 
-__int64 __fastcall NtCreateKeyTransacted(
-        HANDLE *a1,
-        int a2,
-        ULONG_PTR a3,
-        __int64 a4,
-        __int128 *a5,
-        int a6,
-        HANDLE Handle,
-        _DWORD *a8)
+NTSTATUS __cdecl NtCreateKeyTransacted(
+        PHANDLE KeyHandle,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        ULONG TitleIndex,
+        PUNICODE_STRING Class,
+        ULONG CreateOptions,
+        HANDLE TransactionHandle,
+        PULONG Disposition)
 {
   struct _KTHREAD *CurrentThread; // rax
   NTSTATUS v12; // eax
   __int64 v13; // r9
   __int64 v14; // rbx
   NTSTATUS v15; // eax
-  int Key; // edi
+  NTSTATUS Key; // edi
   PVOID Object; // [rsp+40h] [rbp-18h] BYREF
   PVOID v19; // [rsp+48h] [rbp-10h] BYREF
 
@@ -35,10 +35,10 @@ __int64 __fastcall NtCreateKeyTransacted(
   if ( !ExAcquireRundownProtection((PEX_RUNDOWN_REF)&CmpShutdownRundown) )
   {
     KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
-    return (unsigned int)-1073741431;
+    return -1073741431;
   }
   v12 = ObReferenceObjectByHandle(
-          Handle,
+          TransactionHandle,
           4u,
           CmRegistryTransactionType,
           KeGetCurrentThread()->PreviousMode,
@@ -49,7 +49,7 @@ __int64 __fastcall NtCreateKeyTransacted(
   if ( v12 == -1073741788 )
   {
     v15 = ObReferenceObjectByHandle(
-            Handle,
+            TransactionHandle,
             4u,
             (POBJECT_TYPE)TmTransactionObjectType,
             KeGetCurrentThread()->PreviousMode,
@@ -64,11 +64,19 @@ __int64 __fastcall NtCreateKeyTransacted(
     v14 = (unsigned __int64)Object | 1;
 LABEL_5:
     if ( Key >= 0 )
-      Key = CmCreateKey(a1, a2, a3, v13, a5, a6, a8, v14);
+      Key = CmCreateKey(
+              KeyHandle,
+              DesiredAccess,
+              (ULONG_PTR)ObjectAttributes,
+              v13,
+              (__int128 *)Class,
+              CreateOptions,
+              Disposition,
+              v14);
   }
   if ( v14 )
     CmpTransDereferenceTransaction(v14);
   ExReleaseRundownProtection((PEX_RUNDOWN_REF)&CmpShutdownRundown);
   KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
-  return (unsigned int)Key;
+  return Key;
 }

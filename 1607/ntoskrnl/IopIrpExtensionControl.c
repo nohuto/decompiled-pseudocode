@@ -1,13 +1,13 @@
 /*
- * XREFs of IopIrpExtensionControl @ 0x1401C519C
+ * XREFs of IopIrpExtensionControl @ 0x1401C5080
  * Callers:
- *     IopEtwEnableCallback @ 0x1406213B4 (IopEtwEnableCallback.c)
- *     IoRegisterIoTracking @ 0x140624F30 (IoRegisterIoTracking.c)
- *     IoUnregisterIoTracking @ 0x140625070 (IoUnregisterIoTracking.c)
+ *     IopEtwEnableCallback @ 0x140621468 (IopEtwEnableCallback.c)
+ *     IoRegisterIoTracking @ 0x140624FE4 (IoRegisterIoTracking.c)
+ *     IoUnregisterIoTracking @ 0x140625124 (IoUnregisterIoTracking.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLock @ 0x140012750 (KeReleaseInStackQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14001BD40 (KeAcquireInStackQueuedSpinLock.c)
- *     IopUpdateFunctionPointers @ 0x1401C5478 (IopUpdateFunctionPointers.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x1400122D0 (KeReleaseInStackQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14001B8C0 (KeAcquireInStackQueuedSpinLock.c)
+ *     IopUpdateFunctionPointers @ 0x1401C5318 (IopUpdateFunctionPointers.c)
  */
 
 void __fastcall IopIrpExtensionControl(int a1, int a2)
@@ -24,9 +24,9 @@ void __fastcall IopIrpExtensionControl(int a1, int a2)
     v4 = IopIrpExtensionStatus == 0;
     IopIrpExtensionStatus |= a1;
     if ( (a1 & 1) != 0 )
-      ++dword_140341924;
+      ++dword_14034196C;
     if ( (a1 & 2) != 0 )
-      ++dword_140341928;
+      ++dword_140341970;
     if ( v4 )
     {
       LOBYTE(v4) = 1;
@@ -36,7 +36,7 @@ LABEL_17:
   }
   else
   {
-    if ( (a1 & 1) == 0 || (--dword_140341924, dword_140341924) )
+    if ( (a1 & 1) == 0 || (--dword_14034196C, dword_14034196C) )
     {
       v6 = IopIrpExtensionStatus;
     }
@@ -45,7 +45,7 @@ LABEL_17:
       v6 = IopIrpExtensionStatus & 0xFFFFFFFE;
       IopIrpExtensionStatus &= ~1u;
     }
-    if ( (a1 & 2) != 0 && !--dword_140341928 )
+    if ( (a1 & 2) != 0 && !--dword_140341970 )
     {
       v6 &= ~2u;
       IopIrpExtensionStatus = v6;

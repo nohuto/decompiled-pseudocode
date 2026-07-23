@@ -1,23 +1,23 @@
 /*
- * XREFs of ObpDeleteNameCheck @ 0x1405A9740
+ * XREFs of ObpDeleteNameCheck @ 0x1405AA740
  * Callers:
  *     ObpDereferenceNamedObject @ 0x14000FB64 (ObpDereferenceNamedObject.c)
- *     ObpDecrementHandleCount @ 0x1405A9584 (ObpDecrementHandleCount.c)
- *     ObOpenObjectByNameEx @ 0x1405E2E30 (ObOpenObjectByNameEx.c)
- *     ObpIncrementHandleCountEx @ 0x1405E35F0 (ObpIncrementHandleCountEx.c)
- *     ObMakeTemporaryObject @ 0x1406C73D0 (ObMakeTemporaryObject.c)
+ *     ObpDecrementHandleCount @ 0x1405AA584 (ObpDecrementHandleCount.c)
+ *     ObOpenObjectByNameEx @ 0x1405E3E30 (ObOpenObjectByNameEx.c)
+ *     ObpIncrementHandleCountEx @ 0x1405E45F0 (ObpIncrementHandleCountEx.c)
+ *     ObMakeTemporaryObject @ 0x1406C8670 (ObMakeTemporaryObject.c)
  * Callees:
  *     ObpReleaseLookupContext @ 0x140016078 (ObpReleaseLookupContext.c)
  *     ObfReferenceObject @ 0x14004E220 (ObfReferenceObject.c)
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     ExReleasePushLockEx @ 0x14004F160 (ExReleasePushLockEx.c)
  *     KeLeaveCriticalRegion @ 0x14004F410 (KeLeaveCriticalRegion.c)
- *     ObpLockDirectoryExclusive @ 0x140109FD0 (ObpLockDirectoryExclusive.c)
- *     PsDereferenceSiloContext @ 0x14012C0A0 (PsDereferenceSiloContext.c)
- *     ObpLookupDirectoryEntryEx @ 0x140624DC0 (ObpLookupDirectoryEntryEx.c)
- *     ObpMarkDirectoryTreeTemporary @ 0x14068DA60 (ObpMarkDirectoryTreeTemporary.c)
- *     ObpDeleteSymbolicLinkName @ 0x14068E194 (ObpDeleteSymbolicLinkName.c)
- *     ObpDeleteDirectoryEntry @ 0x1406A6C9C (ObpDeleteDirectoryEntry.c)
+ *     ObpLockDirectoryExclusive @ 0x14010A050 (ObpLockDirectoryExclusive.c)
+ *     PsDereferenceSiloContext @ 0x14012C170 (PsDereferenceSiloContext.c)
+ *     ObpLookupDirectoryEntryEx @ 0x140625DE0 (ObpLookupDirectoryEntryEx.c)
+ *     ObpMarkDirectoryTreeTemporary @ 0x14068EC20 (ObpMarkDirectoryTreeTemporary.c)
+ *     ObpDeleteSymbolicLinkName @ 0x14068F354 (ObpDeleteSymbolicLinkName.c)
+ *     ObpDeleteDirectoryEntry @ 0x1406A7F3C (ObpDeleteDirectoryEntry.c)
  */
 
 void __fastcall ObpDeleteNameCheck(__int64 a1)

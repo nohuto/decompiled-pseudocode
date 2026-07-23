@@ -1,9 +1,9 @@
 /*
- * XREFs of MiMapImageInSystemProcess @ 0x140657174
+ * XREFs of MiMapImageInSystemProcess @ 0x140657258
  * Callers:
- *     MiMapImageInSystemSpace @ 0x140525CC8 (MiMapImageInSystemSpace.c)
+ *     MiMapImageInSystemSpace @ 0x140508D28 (MiMapImageInSystemSpace.c)
  * Callees:
- *     MiMapViewOfImageSection @ 0x140429AC0 (MiMapViewOfImageSection.c)
+ *     MiMapViewOfImageSection @ 0x140428990 (MiMapViewOfImageSection.c)
  */
 
 __int64 __fastcall MiMapImageInSystemProcess(__int64 a1, char a2, unsigned __int64 *a3, unsigned __int64 *a4)

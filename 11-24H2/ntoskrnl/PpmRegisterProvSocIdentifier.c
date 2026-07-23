@@ -1,9 +1,9 @@
 /*
- * XREFs of PpmRegisterProvSocIdentifier @ 0x140759010
+ * XREFs of PpmRegisterProvSocIdentifier @ 0x140757490
  * Callers:
  *     <none>
  * Callees:
- *     RtlDuplicateUnicodeString @ 0x140926680 (RtlDuplicateUnicodeString.c)
+ *     RtlDuplicateUnicodeString @ 0x1409287C0 (RtlDuplicateUnicodeString.c)
  */
 
 NTSTATUS __fastcall PpmRegisterProvSocIdentifier(PCUNICODE_STRING StringIn)

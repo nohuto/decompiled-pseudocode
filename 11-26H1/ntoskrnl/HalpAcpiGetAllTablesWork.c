@@ -1,15 +1,15 @@
 /*
- * XREFs of HalpAcpiGetAllTablesWork @ 0x14057957C
+ * XREFs of HalpAcpiGetAllTablesWork @ 0x14057BAAC
  * Callers:
- *     HalpAcpiGetAllTables @ 0x14050B4A0 (HalpAcpiGetAllTables.c)
+ *     HalpAcpiGetAllTables @ 0x140504F10 (HalpAcpiGetAllTables.c)
  * Callees:
- *     HalpAcpiGetTableWork @ 0x140342B6C (HalpAcpiGetTableWork.c)
- *     HalpAcpiCheckAndMapTable @ 0x140343370 (HalpAcpiCheckAndMapTable.c)
- *     MiUnmapContiguousMemory @ 0x140343628 (MiUnmapContiguousMemory.c)
- *     HalpAcpiCopyBiosTable @ 0x1405254AC (HalpAcpiCopyBiosTable.c)
- *     HalpAcpiAllocateMemory @ 0x14052554C (HalpAcpiAllocateMemory.c)
- *     HalpAcpiCacheTable @ 0x140579510 (HalpAcpiCacheTable.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     HalpAcpiGetTableWork @ 0x140344BEC (HalpAcpiGetTableWork.c)
+ *     HalpAcpiCheckAndMapTable @ 0x1403453F0 (HalpAcpiCheckAndMapTable.c)
+ *     MiUnmapContiguousMemory @ 0x1403456A8 (MiUnmapContiguousMemory.c)
+ *     HalpAcpiCopyBiosTable @ 0x140527B1C (HalpAcpiCopyBiosTable.c)
+ *     HalpAcpiAllocateMemory @ 0x140527BBC (HalpAcpiAllocateMemory.c)
+ *     HalpAcpiCacheTable @ 0x14057BA40 (HalpAcpiCacheTable.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall HalpAcpiGetAllTablesWork(__int64 a1)

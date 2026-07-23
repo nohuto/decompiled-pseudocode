@@ -1,15 +1,15 @@
 /*
- * XREFs of HalpInterruptInitializeController @ 0x1405901D0
+ * XREFs of HalpInterruptInitializeController @ 0x140592950
  * Callers:
- *     HalpInterruptResetThisProcessor @ 0x14057CBE0 (HalpInterruptResetThisProcessor.c)
- *     HalpInterruptPowerChange @ 0x14059101C (HalpInterruptPowerChange.c)
- *     HalpInterruptSelectController @ 0x140591128 (HalpInterruptSelectController.c)
- *     HalpInterruptReinitialize @ 0x140BEA368 (HalpInterruptReinitialize.c)
- *     HalpInitializeInterrupts @ 0x140CADD98 (HalpInitializeInterrupts.c)
+ *     HalpInterruptResetThisProcessor @ 0x14057F100 (HalpInterruptResetThisProcessor.c)
+ *     HalpInterruptPowerChange @ 0x14059379C (HalpInterruptPowerChange.c)
+ *     HalpInterruptSelectController @ 0x1405938A8 (HalpInterruptSelectController.c)
+ *     HalpInterruptReinitialize @ 0x140BF0368 (HalpInterruptReinitialize.c)
+ *     HalpInitializeInterrupts @ 0x140CB3DD8 (HalpInitializeInterrupts.c)
  * Callees:
- *     HalpInterruptSetProblemEx @ 0x14042A15C (HalpInterruptSetProblemEx.c)
- *     HalpInterruptInitializeLocalUnit @ 0x1405902E8 (HalpInterruptInitializeLocalUnit.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     HalpInterruptSetProblemEx @ 0x140436244 (HalpInterruptSetProblemEx.c)
+ *     HalpInterruptInitializeLocalUnit @ 0x140592A68 (HalpInterruptInitializeLocalUnit.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall HalpInterruptInitializeController(ULONG_PTR BugCheckParameter3, __int64 a2)

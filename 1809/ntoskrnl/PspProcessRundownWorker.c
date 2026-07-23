@@ -1,11 +1,11 @@
 /*
- * XREFs of PspProcessRundownWorker @ 0x14088B6B0
+ * XREFs of PspProcessRundownWorker @ 0x14088C910
  * Callers:
  *     <none>
  * Callees:
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
- *     PsGetNextProcess @ 0x1405B21E0 (PsGetNextProcess.c)
- *     PspRundownSingleProcess @ 0x140603A48 (PspRundownSingleProcess.c)
+ *     PsGetNextProcess @ 0x1405B31E0 (PsGetNextProcess.c)
+ *     PspRundownSingleProcess @ 0x140604A48 (PspRundownSingleProcess.c)
  */
 
 __int64 PspProcessRundownWorker()

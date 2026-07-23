@@ -30,7 +30,7 @@ NTSTATUS __stdcall SeCreateClientSecurity(
   int v7; // r15d
   struct _KTHREAD *CurrentThread; // rax
   _KPROCESS *Process; // r14
-  __int64 *v11; // rdi
+  PSID *v11; // rdi
   NTSTATUS result; // eax
   NTSTATUS v13; // ebx
   signed __int64 *p_WaitBlockList; // r12
@@ -66,7 +66,7 @@ NTSTATUS __stdcall SeCreateClientSecurity(
     *((_BYTE *)v15 + 10) = 1;
   if ( (*(_DWORD *)(&ClientThread[1].SwapListEntry + 1) & 8) != 0 )
   {
-    v11 = (__int64 *)(*(_QWORD *)((char *)&ClientThread[1].116 + 4) & 0xFFFFFFFFFFFFFFF8uLL);
+    v11 = (PSID *)(*(_QWORD *)((char *)&ClientThread[1].116 + 4) & 0xFFFFFFFFFFFFFFF8uLL);
     ObfReferenceObjectWithTag(v11, 0x63436553u);
     v7 = *((_DWORD *)&ClientThread[1].0 + 1) & 3;
     v4 = (*(_BYTE *)(&ClientThread[1].MiscFlags + 1) & 4) != 0;
@@ -83,7 +83,7 @@ NTSTATUS __stdcall SeCreateClientSecurity(
   if ( !v11 )
   {
 LABEL_4:
-    v11 = (__int64 *)PsReferencePrimaryTokenWithTag((__int64)Process, 0x63436553u);
+    v11 = (PSID *)PsReferencePrimaryTokenWithTag((__int64)Process, 0x63436553u);
     v20 = BYTE2(Process[3].ActiveGroupsMask.Masks[1]);
     v4 = 0;
   }

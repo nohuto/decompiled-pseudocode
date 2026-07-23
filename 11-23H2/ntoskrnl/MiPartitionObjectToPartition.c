@@ -1,21 +1,21 @@
 /*
- * XREFs of MiPartitionObjectToPartition @ 0x1402F8AA4
+ * XREFs of MiPartitionObjectToPartition @ 0x1402F8D34
  * Callers:
- *     MmAllocatePartitionNodePagesForMdlEx @ 0x1402F87A0 (MmAllocatePartitionNodePagesForMdlEx.c)
- *     MmQueryMemoryListInformation @ 0x1402F8958 (MmQueryMemoryListInformation.c)
- *     MmAllocateContiguousMemoryEx @ 0x140391220 (MmAllocateContiguousMemoryEx.c)
- *     MmGetNodeFastLargePageCounts @ 0x140617904 (MmGetNodeFastLargePageCounts.c)
- *     MmAllocateNonChargedSecurePages @ 0x14065749C (MmAllocateNonChargedSecurePages.c)
- *     MmAllocateSecureKernelPages @ 0x1406577AC (MmAllocateSecureKernelPages.c)
- *     MmFreeNonChargedSecurePages @ 0x140657CB8 (MmFreeNonChargedSecurePages.c)
- *     MmGetPhysicalMemoryRangesEx2 @ 0x140834410 (MmGetPhysicalMemoryRangesEx2.c)
- *     MmQueryMemoryRanges @ 0x14085D580 (MmQueryMemoryRanges.c)
- *     MmGetPageFileInformation @ 0x140874E10 (MmGetPageFileInformation.c)
- *     MmAllocateMemoryRanges @ 0x140A2E2C0 (MmAllocateMemoryRanges.c)
- *     MmBuildLargePages @ 0x140A45F68 (MmBuildLargePages.c)
+ *     MmAllocatePartitionNodePagesForMdlEx @ 0x1402F8A30 (MmAllocatePartitionNodePagesForMdlEx.c)
+ *     MmQueryMemoryListInformation @ 0x1402F8BE8 (MmQueryMemoryListInformation.c)
+ *     MmAllocateContiguousMemoryEx @ 0x140391400 (MmAllocateContiguousMemoryEx.c)
+ *     MmGetNodeFastLargePageCounts @ 0x140617E54 (MmGetNodeFastLargePageCounts.c)
+ *     MmAllocateNonChargedSecurePages @ 0x1406579EC (MmAllocateNonChargedSecurePages.c)
+ *     MmAllocateSecureKernelPages @ 0x140657CFC (MmAllocateSecureKernelPages.c)
+ *     MmFreeNonChargedSecurePages @ 0x140658208 (MmFreeNonChargedSecurePages.c)
+ *     MmGetPhysicalMemoryRangesEx2 @ 0x140834710 (MmGetPhysicalMemoryRangesEx2.c)
+ *     MmQueryMemoryRanges @ 0x14085D7C0 (MmQueryMemoryRanges.c)
+ *     MmGetPageFileInformation @ 0x140875050 (MmGetPageFileInformation.c)
+ *     MmAllocateMemoryRanges @ 0x140A2E570 (MmAllocateMemoryRanges.c)
+ *     MmBuildLargePages @ 0x140A46218 (MmBuildLargePages.c)
  * Callees:
- *     PsReferencePartitionSafe @ 0x1402F9C1C (PsReferencePartitionSafe.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
+ *     PsReferencePartitionSafe @ 0x1402F9EAC (PsReferencePartitionSafe.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
  */
 
 void ***__fastcall MiPartitionObjectToPartition(void **BugCheckParameter2, char a2, _BYTE *a3)

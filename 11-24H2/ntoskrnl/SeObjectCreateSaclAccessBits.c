@@ -1,9 +1,9 @@
 /*
- * XREFs of SeObjectCreateSaclAccessBits @ 0x1408692BC
+ * XREFs of SeObjectCreateSaclAccessBits @ 0x14086D5AC
  * Callers:
- *     ObInsertObjectEx @ 0x140857620 (ObInsertObjectEx.c)
- *     ObpAdjustAccessMask @ 0x140867800 (ObpAdjustAccessMask.c)
- *     ObOpenObjectByNameEx @ 0x14089BB40 (ObOpenObjectByNameEx.c)
+ *     ObInsertObjectEx @ 0x140853900 (ObInsertObjectEx.c)
+ *     ObpAdjustAccessMask @ 0x14086BAF0 (ObpAdjustAccessMask.c)
+ *     ObOpenObjectByNameEx @ 0x1408A41E0 (ObOpenObjectByNameEx.c)
  * Callees:
  *     <none>
  */

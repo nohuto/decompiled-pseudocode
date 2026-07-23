@@ -1,24 +1,24 @@
 /*
- * XREFs of MiClearPfnImageVerified @ 0x14046FA64
+ * XREFs of MiClearPfnImageVerified @ 0x1404691E4
  * Callers:
- *     MiCopyPage @ 0x140293FA4 (MiCopyPage.c)
- *     MiProbeLeafPteAccess @ 0x1402EF490 (MiProbeLeafPteAccess.c)
- *     MiDeleteSectionCluster @ 0x140318360 (MiDeleteSectionCluster.c)
- *     MiDeleteClusterPage @ 0x1403C6268 (MiDeleteClusterPage.c)
- *     MiTradePageReleaseLocks @ 0x14046F85C (MiTradePageReleaseLocks.c)
- *     MiGatherMappedPages @ 0x140496CD8 (MiGatherMappedPages.c)
- *     MiInsertPageLockBadList @ 0x1404E5A90 (MiInsertPageLockBadList.c)
- *     MiPrepareLargePageSubPageForFree @ 0x140712130 (MiPrepareLargePageSubPageForFree.c)
- *     MmChangeImageProtection @ 0x140AD5D10 (MmChangeImageProtection.c)
- *     MiTradeBootImagePage @ 0x140D00E4C (MiTradeBootImagePage.c)
+ *     MiCopyPage @ 0x140293504 (MiCopyPage.c)
+ *     MiProbeLeafPteAccess @ 0x1402D1510 (MiProbeLeafPteAccess.c)
+ *     MiDeleteSectionCluster @ 0x14031A390 (MiDeleteSectionCluster.c)
+ *     MiDeleteClusterPage @ 0x1403D0168 (MiDeleteClusterPage.c)
+ *     MiTradePageReleaseLocks @ 0x140468FDC (MiTradePageReleaseLocks.c)
+ *     MiGatherMappedPages @ 0x140490828 (MiGatherMappedPages.c)
+ *     MiInsertPageLockBadList @ 0x1404DF030 (MiInsertPageLockBadList.c)
+ *     MiPrepareLargePageSubPageForFree @ 0x140716E28 (MiPrepareLargePageSubPageForFree.c)
+ *     MmChangeImageProtection @ 0x140AD2CC0 (MmChangeImageProtection.c)
+ *     MiTradeBootImagePage @ 0x140D071EC (MiTradeBootImagePage.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     MiGetPagePrivilege @ 0x1402F9878 (MiGetPagePrivilege.c)
- *     MiSetPfnIdentity @ 0x140369440 (MiSetPfnIdentity.c)
- *     KeSetPagePrivilege @ 0x1404B0F70 (KeSetPagePrivilege.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     MiGetPagePrivilege @ 0x1402DB8F8 (MiGetPagePrivilege.c)
+ *     MiSetPfnIdentity @ 0x14036B1E0 (MiSetPfnIdentity.c)
+ *     KeSetPagePrivilege @ 0x1404AA600 (KeSetPagePrivilege.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
  */
 
 char __fastcall MiClearPfnImageVerified(__int64 a1, __int64 a2)

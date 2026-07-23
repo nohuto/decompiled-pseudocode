@@ -1,13 +1,13 @@
 /*
- * XREFs of MiMapFrame @ 0x1402ABDB4
+ * XREFs of MiMapFrame @ 0x1402ABFA4
  * Callers:
  *     MmCopyToCachedPage @ 0x140033050 (MmCopyToCachedPage.c)
- *     MiMapSystemCachePage @ 0x1402ABEC0 (MiMapSystemCachePage.c)
+ *     MiMapSystemCachePage @ 0x1402AC0B0 (MiMapSystemCachePage.c)
  * Callees:
  *     MiPteInShadowRange @ 0x14003D740 (MiPteInShadowRange.c)
  *     MiMakeValidPte @ 0x14003D7F0 (MiMakeValidPte.c)
- *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
+ *     MiWritePteShadow @ 0x140120F40 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120FA0 (MiPteHasShadow.c)
  */
 
 __int64 __fastcall MiMapFrame(unsigned __int64 a1, unsigned __int64 a2)
@@ -37,7 +37,7 @@ __int64 __fastcall MiMapFrame(unsigned __int64 a1, unsigned __int64 a2)
     if ( (unsigned int)MiPteHasShadow() )
     {
       v6 = 1;
-      if ( HIBYTE(word_14043A1AC) )
+      if ( HIBYTE(word_14043B26C) )
         goto LABEL_16;
       v7 = (v5 & 1) == 0;
     }

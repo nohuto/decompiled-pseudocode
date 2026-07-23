@@ -1,17 +1,17 @@
 /*
- * XREFs of PopThermalSxEntry @ 0x14058FC48
+ * XREFs of PopThermalSxEntry @ 0x140590138
  * Callers:
- *     PopTransitionSystemPowerStateEx @ 0x140AA90F0 (PopTransitionSystemPowerStateEx.c)
+ *     PopTransitionSystemPowerStateEx @ 0x140AA8F60 (PopTransitionSystemPowerStateEx.c)
  * Callees:
- *     ExAcquirePushLockSharedEx @ 0x140230D90 (ExAcquirePushLockSharedEx.c)
- *     PopReleaseRwLock @ 0x14032C480 (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x14032C5E4 (PopAcquireRwLockExclusive.c)
- *     PopCoolingSxTransition @ 0x140586B10 (PopCoolingSxTransition.c)
- *     PopThermalStandbyEndTracking @ 0x14058FB98 (PopThermalStandbyEndTracking.c)
- *     PopTraceThermalZoneActiveActivity @ 0x140595D4C (PopTraceThermalZoneActiveActivity.c)
- *     PopTraceThermalZonePassiveHistogram @ 0x140595F20 (PopTraceThermalZonePassiveHistogram.c)
- *     PopThermalUpdateActiveTimeTracking @ 0x140848090 (PopThermalUpdateActiveTimeTracking.c)
- *     PopThermalUpdatePassiveTimeTracking @ 0x14098AFC0 (PopThermalUpdatePassiveTimeTracking.c)
+ *     ExAcquirePushLockSharedEx @ 0x140230E80 (ExAcquirePushLockSharedEx.c)
+ *     PopReleaseRwLock @ 0x14032C710 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x14032C874 (PopAcquireRwLockExclusive.c)
+ *     PopCoolingSxTransition @ 0x140587000 (PopCoolingSxTransition.c)
+ *     PopThermalStandbyEndTracking @ 0x140590088 (PopThermalStandbyEndTracking.c)
+ *     PopTraceThermalZoneActiveActivity @ 0x14059623C (PopTraceThermalZoneActiveActivity.c)
+ *     PopTraceThermalZonePassiveHistogram @ 0x140596410 (PopTraceThermalZonePassiveHistogram.c)
+ *     PopThermalUpdateActiveTimeTracking @ 0x140848390 (PopThermalUpdateActiveTimeTracking.c)
+ *     PopThermalUpdatePassiveTimeTracking @ 0x14098B1C0 (PopThermalUpdatePassiveTimeTracking.c)
  */
 
 void PopThermalSxEntry()
@@ -51,7 +51,7 @@ void PopThermalSxEntry()
     PopReleaseRwLock((__int64 *)&PopPolicyDeviceLock);
     PopCoolingSxTransition(1);
     PopAcquireRwLockExclusive((ULONG_PTR)&PopThermalStateTransitionContext);
-    byte_140C3C8D0 = 0;
+    byte_140C3C750 = 0;
     PopReleaseRwLock(&PopThermalStateTransitionContext);
   }
 }

@@ -1,11 +1,11 @@
 /*
- * XREFs of SepReleaseUnicodeStringArray @ 0x1408894A0
+ * XREFs of SepReleaseUnicodeStringArray @ 0x14088D350
  * Callers:
- *     SepCaptureUnicodeStringArray @ 0x1408890B0 (SepCaptureUnicodeStringArray.c)
- *     NtQuerySecurityPolicy @ 0x140889550 (NtQuerySecurityPolicy.c)
- *     NtSetCachedSigningLevel2 @ 0x140889860 (NtSetCachedSigningLevel2.c)
+ *     SepCaptureUnicodeStringArray @ 0x14088CF60 (SepCaptureUnicodeStringArray.c)
+ *     NtQuerySecurityPolicy @ 0x14088D400 (NtQuerySecurityPolicy.c)
+ *     NtSetCachedSigningLevel2 @ 0x14088D710 (NtSetCachedSigningLevel2.c)
  * Callees:
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __fastcall SepReleaseUnicodeStringArray(void *a1, char a2)

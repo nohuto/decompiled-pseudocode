@@ -1,9 +1,9 @@
 /*
- * XREFs of UcpCreateTelemetryRecord @ 0x140712B54
+ * XREFs of UcpCreateTelemetryRecord @ 0x14071784C
  * Callers:
- *     UcpFindOrCreateTelemetryRecord @ 0x140712BE8 (UcpFindOrCreateTelemetryRecord.c)
+ *     UcpFindOrCreateTelemetryRecord @ 0x1407178E0 (UcpFindOrCreateTelemetryRecord.c)
  * Callees:
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall UcpCreateTelemetryRecord(__int64 *a1)

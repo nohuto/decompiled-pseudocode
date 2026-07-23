@@ -1,23 +1,23 @@
 /*
- * XREFs of NtWaitForAlertByThreadId @ 0x14050C82C
+ * XREFs of NtWaitForAlertByThreadId @ 0x1404EF7BC
  * Callers:
  *     <none>
  * Callees:
- *     KeWaitForAlertByThreadId @ 0x1400D0448 (KeWaitForAlertByThreadId.c)
+ *     KeWaitForAlertByThreadId @ 0x1400CE2E8 (KeWaitForAlertByThreadId.c)
  */
 
-__int64 __fastcall NtWaitForAlertByThreadId(void *a1, unsigned __int64 a2)
+NTSTATUS __cdecl NtWaitForAlertByThreadId(PVOID Address, PLARGE_INTEGER Timeout)
 {
   char PreviousMode; // cl
-  __int64 v5; // [rsp+40h] [rbp+18h] BYREF
+  LONGLONG QuadPart; // [rsp+40h] [rbp+18h] BYREF
 
   PreviousMode = KeGetCurrentThread()->PreviousMode;
-  if ( a2 && PreviousMode )
+  if ( Timeout && PreviousMode )
   {
-    if ( a2 >= 0x7FFFFFFF0000LL )
-      a2 = 0x7FFFFFFF0000LL;
-    v5 = *(_QWORD *)a2;
-    a2 = (unsigned __int64)&v5;
+    if ( (unsigned __int64)Timeout >= 0x7FFFFFFF0000LL )
+      Timeout = (PLARGE_INTEGER)0x7FFFFFFF0000LL;
+    QuadPart = Timeout->QuadPart;
+    Timeout = (PLARGE_INTEGER)&QuadPart;
   }
-  return KeWaitForAlertByThreadId(PreviousMode, (_QWORD *)a2, a1);
+  return KeWaitForAlertByThreadId(PreviousMode, Timeout, Address);
 }

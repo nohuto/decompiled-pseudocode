@@ -1,23 +1,23 @@
 /*
- * XREFs of CmpTransMgrPrepare @ 0x1404DA8E8
+ * XREFs of CmpTransMgrPrepare @ 0x1404BDEEC
  * Callers:
- *     CmKtmNotification @ 0x1404D9B64 (CmKtmNotification.c)
- *     CmpRmUnDoPhase @ 0x14060597C (CmpRmUnDoPhase.c)
+ *     CmKtmNotification @ 0x1404BD168 (CmKtmNotification.c)
+ *     CmpRmUnDoPhase @ 0x140605A30 (CmpRmUnDoPhase.c)
  * Callees:
- *     KiLeaveCriticalRegionUnsafe @ 0x140055FA0 (KiLeaveCriticalRegionUnsafe.c)
- *     ExAcquireResourceExclusiveLite @ 0x140068160 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x140068940 (ExReleaseResourceLite.c)
- *     ExAcquireRundownProtection @ 0x1400D3ED0 (ExAcquireRundownProtection.c)
- *     ExReleaseRundownProtection @ 0x1400D3F00 (ExReleaseRundownProtection.c)
- *     ExAcquireFastMutexUnsafe @ 0x1400F05A0 (ExAcquireFastMutexUnsafe.c)
- *     ExReleaseFastMutexUnsafe @ 0x1400F0700 (ExReleaseFastMutexUnsafe.c)
- *     CmpFlushHive @ 0x1403FA0CC (CmpFlushHive.c)
- *     CmpGetNextActiveHive @ 0x1403FB6D0 (CmpGetNextActiveHive.c)
- *     CmListGetNextElement @ 0x140402E2C (CmListGetNextElement.c)
- *     CmpUnlockRegistry @ 0x14040476C (CmpUnlockRegistry.c)
- *     CmpLockRegistry @ 0x1404047A0 (CmpLockRegistry.c)
- *     CmpTransMgrSyncHive @ 0x1404DAA3C (CmpTransMgrSyncHive.c)
- *     HvpMarkDirty @ 0x1405137E0 (HvpMarkDirty.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140055B20 (KiLeaveCriticalRegionUnsafe.c)
+ *     ExAcquireResourceExclusiveLite @ 0x140067CE0 (ExAcquireResourceExclusiveLite.c)
+ *     ExReleaseResourceLite @ 0x1400684C0 (ExReleaseResourceLite.c)
+ *     ExAcquireRundownProtection @ 0x1400D1D70 (ExAcquireRundownProtection.c)
+ *     ExReleaseRundownProtection @ 0x1400D1DA0 (ExReleaseRundownProtection.c)
+ *     ExAcquireFastMutexUnsafe @ 0x1400EE420 (ExAcquireFastMutexUnsafe.c)
+ *     ExReleaseFastMutexUnsafe @ 0x1400EE580 (ExReleaseFastMutexUnsafe.c)
+ *     CmpFlushHive @ 0x1403F8F8C (CmpFlushHive.c)
+ *     CmpGetNextActiveHive @ 0x1403FA590 (CmpGetNextActiveHive.c)
+ *     CmListGetNextElement @ 0x140401CEC (CmListGetNextElement.c)
+ *     CmpUnlockRegistry @ 0x14040362C (CmpUnlockRegistry.c)
+ *     CmpLockRegistry @ 0x140403660 (CmpLockRegistry.c)
+ *     CmpTransMgrSyncHive @ 0x1404BE040 (CmpTransMgrSyncHive.c)
+ *     HvpMarkDirty @ 0x1404F6BD0 (HvpMarkDirty.c)
  */
 
 __int64 __fastcall CmpTransMgrPrepare(__int64 a1, __int64 a2, _DWORD *a3, _BYTE *a4)

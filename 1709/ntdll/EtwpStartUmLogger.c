@@ -30,9 +30,9 @@ ULONG __fastcall EtwpStartUmLogger(__int64 a1, _DWORD *a2, _DWORD *a3, __int64 a
   int v11; // ecx
   int v12; // eax
   ULONG result; // eax
-  unsigned int NumberOfProcessors; // r8d
+  __int64 NumberOfProcessors; // r8
   __int64 v15; // r14
-  unsigned __int64 v16; // rdi
+  __int64 v16; // rdi
   int v17; // eax
   __int64 v18; // r9
   NTSTATUS v19; // eax
@@ -48,7 +48,7 @@ ULONG __fastcall EtwpStartUmLogger(__int64 a1, _DWORD *a2, _DWORD *a3, __int64 a
   ULONG v29; // eax
   void *v30; // rcx
   char v31[8]; // [rsp+30h] [rbp-59h] BYREF
-  __int64 inited; // [rsp+38h] [rbp-51h] BYREF
+  __int64 inited; // [rsp+38h] [rbp-51h]
   unsigned int v33; // [rsp+40h] [rbp-49h] BYREF
   __int64 v34; // [rsp+48h] [rbp-41h] BYREF
   _DWORD *v35; // [rsp+50h] [rbp-39h]
@@ -95,7 +95,7 @@ LABEL_4:
   {
     return 87;
   }
-  if ( !(unsigned int)EtwpGetPrivateLoggerContextByName(a4 + 144, &inited) )
+  if ( !(unsigned int)EtwpGetPrivateLoggerContextByName((PUNICODE_STRING)(a4 + 144)) )
   {
     _InterlockedDecrement((volatile signed __int32 *)(EtwpLoggerArray + 16LL * *(unsigned int *)(inited + 20) + 8));
     return 183;
@@ -108,11 +108,11 @@ LABEL_4:
       v27 = (*(unsigned __int16 *)(a4 + 130) + *(unsigned __int16 *)(a4 + 146) + 183) & 0xFFFFFFF8;
       v8 = *(_DWORD *)a4 - v27;
       v7 = a4 + v27;
-      NumberOfProcessors = -1;
+      NumberOfProcessors = 0xFFFFFFFFLL;
     }
     else if ( (*(_DWORD *)(a4 + 64) & 0x10000000) != 0 )
     {
-      NumberOfProcessors = 1;
+      NumberOfProcessors = 1LL;
     }
     else
     {
@@ -129,7 +129,7 @@ LABEL_4:
     v17 = NtQuerySystemInformation(SystemBasicInformation, SystemInformation, 0x40u, 0LL);
     if ( v17 < 0 )
       return RtlNtStatusToDosError(v17);
-    *(_DWORD *)(v16 + 208) = ~(v37 - 1) & (*(_DWORD *)(v16 + 208) + v37 - 1);
+    *(_DWORD *)(inited + 208) = ~(v37 - 1) & (*(_DWORD *)(inited + 208) + v37 - 1);
     if ( (*(_DWORD *)(v16 + 324) & 0x4000000) != 0 )
     {
       v28 = EtwpInitializeCompression(v16);
@@ -201,7 +201,7 @@ LABEL_61:
       *(_QWORD *)(a4 + 88) = 0LL;
       *(_QWORD *)(v16 + 144) = 0LL;
     }
-    EtwpFreeLoggerContext(v16);
+    EtwpFreeLoggerContext((unsigned int *)v16);
     return TraceBufferPool;
   }
   return result;

@@ -1,48 +1,48 @@
 /*
- * XREFs of RtlFindClearBitsAndSet @ 0x180093C70
+ * XREFs of RtlFindClearBitsAndSet @ 0x180072E40
  * Callers:
- *     RtlTlsAlloc @ 0x1800939E0 (RtlTlsAlloc.c)
- *     LdrpAcquireTlsIndex @ 0x180093AEC (LdrpAcquireTlsIndex.c)
+ *     RtlTlsAlloc @ 0x180072BB0 (RtlTlsAlloc.c)
+ *     LdrpAcquireTlsIndex @ 0x180072CBC (LdrpAcquireTlsIndex.c)
  * Callees:
- *     RtlFindClearBits @ 0x180093D40 (RtlFindClearBits.c)
- *     RtlSetVolatileMemory @ 0x1801646A0 (RtlSetVolatileMemory.c)
+ *     RtlFindClearBits @ 0x180072F10 (RtlFindClearBits.c)
+ *     RtlSetVolatileMemory @ 0x1801645A0 (RtlSetVolatileMemory.c)
  */
 
-__int64 __fastcall RtlFindClearBitsAndSet(__int64 a1, unsigned int a2)
+ULONG __cdecl RtlFindClearBitsAndSet(PRTL_BITMAP BitMapHeader, ULONG NumberToFind, ULONG HintIndex)
 {
-  __int64 v2; // rbx
-  unsigned int ClearBits; // ebp
-  __int64 v5; // rcx
-  _BYTE *v6; // rsi
-  char v7; // al
+  __int64 v3; // rbx
+  ULONG ClearBits; // ebp
+  __int64 v6; // rcx
+  _BYTE *v7; // rsi
+  char v8; // al
 
-  v2 = a2;
-  ClearBits = RtlFindClearBits();
-  if ( ClearBits != -1 && (_DWORD)v2 )
+  v3 = NumberToFind;
+  ClearBits = RtlFindClearBits(BitMapHeader, NumberToFind, HintIndex);
+  if ( ClearBits != -1 && (_DWORD)v3 )
   {
-    v5 = ClearBits & 7;
-    v6 = (_BYTE *)(*(_QWORD *)(a1 + 8) + ((unsigned __int64)ClearBits >> 3));
-    if ( (unsigned int)(v5 + v2) <= 8 )
+    v6 = ClearBits & 7;
+    v7 = (char *)BitMapHeader->Buffer + ((unsigned __int64)ClearBits >> 3);
+    if ( (unsigned int)(v6 + v3) <= 8 )
     {
-      v7 = byte_18018B198[v2] << v5;
+      v8 = byte_18018A108[v3] << v6;
 LABEL_5:
-      *v6 |= v7;
+      *v7 |= v8;
       return ClearBits;
     }
     if ( (ClearBits & 7) != 0 )
     {
-      v2 = (unsigned int)(v5 + v2 - 8);
-      *v6++ |= byte_18017CAF8[v5];
+      v3 = (unsigned int)(v6 + v3 - 8);
+      *v7++ |= byte_18017B818[v6];
     }
-    if ( (unsigned int)v2 > 8 )
+    if ( (unsigned int)v3 > 8 )
     {
-      RtlSetVolatileMemory(v6, 255, (unsigned __int64)(unsigned int)v2 >> 3);
-      v6 += (unsigned __int64)(unsigned int)v2 >> 3;
-      v2 &= 7u;
+      RtlSetVolatileMemory(v7, 255, (unsigned __int64)(unsigned int)v3 >> 3);
+      v7 += (unsigned __int64)(unsigned int)v3 >> 3;
+      v3 &= 7u;
     }
-    if ( (_DWORD)v2 )
+    if ( (_DWORD)v3 )
     {
-      v7 = byte_18018B198[v2];
+      v8 = byte_18018A108[v3];
       goto LABEL_5;
     }
   }

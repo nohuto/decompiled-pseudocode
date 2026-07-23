@@ -1,11 +1,11 @@
 /*
- * XREFs of PiCollapseRebalanceRequests @ 0x1401CE39C
+ * XREFs of PiCollapseRebalanceRequests @ 0x1401CE1E8
  * Callers:
- *     PnpProcessRebalance @ 0x1401CE5E0 (PnpProcessRebalance.c)
+ *     PnpProcessRebalance @ 0x1401CE42C (PnpProcessRebalance.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14006ACD0 (ObfDereferenceObjectWithTag.c)
- *     KeReleaseSpinLock @ 0x1400E9A70 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x1400EFE30 (KeAcquireSpinLockRaiseToDpc.c)
+ *     ObfDereferenceObjectWithTag @ 0x14006A850 (ObfDereferenceObjectWithTag.c)
+ *     KeReleaseSpinLock @ 0x1400EB600 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1400EDCB0 (KeAcquireSpinLockRaiseToDpc.c)
  */
 
 bool __fastcall PiCollapseRebalanceRequests(PVOID *a1)

@@ -1,9 +1,9 @@
 /*
- * XREFs of MmIsBelowLowestUserAddress @ 0x140483720
+ * XREFs of MmIsBelowLowestUserAddress @ 0x14047D050
  * Callers:
- *     MiIsVaRangeAvailable @ 0x1409CE424 (MiIsVaRangeAvailable.c)
- *     PspProcessDynamicEnforcedAddressRanges @ 0x140B65804 (PspProcessDynamicEnforcedAddressRanges.c)
- *     PspProcessDynamicEHContinuationTargets @ 0x140B66514 (PspProcessDynamicEHContinuationTargets.c)
+ *     MiIsVaRangeAvailable @ 0x14099F404 (MiIsVaRangeAvailable.c)
+ *     PspProcessDynamicEnforcedAddressRanges @ 0x140B688A4 (PspProcessDynamicEnforcedAddressRanges.c)
+ *     PspProcessDynamicEHContinuationTargets @ 0x140B694A0 (PspProcessDynamicEHContinuationTargets.c)
  * Callees:
  *     <none>
  */

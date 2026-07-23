@@ -7,11 +7,15 @@
  *     <none>
  */
 
-__int64 ZwSetInformationJobObject()
+NTSTATUS __cdecl ZwSetInformationJobObject(
+        HANDLE JobHandle,
+        JOBOBJECTINFOCLASS JobObjectInformationClass,
+        PVOID JobObjectInformation,
+        ULONG JobObjectInformationLength)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 379LL;
+  result = 379;
   __asm { syscall; Low latency system call }
   return result;
 }

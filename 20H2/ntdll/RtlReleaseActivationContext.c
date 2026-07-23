@@ -20,35 +20,42 @@
  *     RtlpMoveActCtxToFreeList @ 0x1800DFC08 (RtlpMoveActCtxToFreeList.c)
  */
 
-void __fastcall RtlReleaseActivationContext(volatile signed __int32 *a1)
+void __cdecl RtlReleaseActivationContext(PACTIVATION_CONTEXT ActivationContext)
 {
-  signed __int32 v2; // eax
-  volatile signed __int32 v3; // edi
+  LONG RefCount; // eax
+  LONG v3; // edi
 
-  if ( a1 && (((unsigned __int64)a1 - 1) | 7) != 0xFFFFFFFFFFFFFFFFuLL && (unsigned int)(*a1 - 1) <= 0x7FFFFFFD )
+  if ( ActivationContext
+    && (((unsigned __int64)&ActivationContext[-1].InlineStorageMapEntries[31] + 7) | 7) != 0xFFFFFFFFFFFFFFFFuLL
+    && (unsigned int)(ActivationContext->RefCount - 1) <= 0x7FFFFFFD )
   {
-    v2 = *a1;
+    RefCount = ActivationContext->RefCount;
     do
     {
-      v3 = v2 - 1;
-      if ( v2 == _InterlockedCompareExchange(a1, v2 - 1, v2) )
+      v3 = RefCount - 1;
+      if ( RefCount == _InterlockedCompareExchange(&ActivationContext->RefCount, RefCount - 1, RefCount) )
         break;
-      v2 = *a1;
-      v3 = *a1;
+      RefCount = ActivationContext->RefCount;
+      v3 = ActivationContext->RefCount;
     }
-    while ( *a1 != 0x7FFFFFFF );
+    while ( ActivationContext->RefCount != 0x7FFFFFFF );
     if ( g_SxsTrackReleaseStacks )
       RtlCaptureStackBackTrace(
         1u,
         4u,
-        (PVOID *)&a1[8 * (((unsigned __int8)_InterlockedExchangeAdd(a1 + 96, 1u) + 1) & 3) + 98],
+        &ActivationContext[1].NotificationContext
+      + 4
+      * (((unsigned __int8)_InterlockedExchangeAdd(
+                             (volatile signed __int32 *)&ActivationContext[1].NotificationRoutine,
+                             1u)
+        + 1) & 3),
         0LL);
     if ( !v3 )
     {
       if ( g_SxsKeepActivationContextsAlive )
-        RtlpMoveActCtxToFreeList(a1);
+        RtlpMoveActCtxToFreeList(ActivationContext);
       else
-        RtlpFreeActivationContext(a1);
+        RtlpFreeActivationContext(ActivationContext);
     }
   }
 }

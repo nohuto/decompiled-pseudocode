@@ -1,13 +1,13 @@
 /*
- * XREFs of IopGetInterruptConnectionData @ 0x140A98340
+ * XREFs of IopGetInterruptConnectionData @ 0x140A9C4C0
  * Callers:
- *     IopConnectLineBasedInterrupt @ 0x140A97D7C (IopConnectLineBasedInterrupt.c)
- *     IoConnectInterruptEx @ 0x140A98030 (IoConnectInterruptEx.c)
- *     IopConnectMessageBasedInterrupt @ 0x140A990F0 (IopConnectMessageBasedInterrupt.c)
+ *     IopConnectLineBasedInterrupt @ 0x140A9BEFC (IopConnectLineBasedInterrupt.c)
+ *     IoConnectInterruptEx @ 0x140A9C1B0 (IoConnectInterruptEx.c)
+ *     IopConnectMessageBasedInterrupt @ 0x140A9D270 (IopConnectMessageBasedInterrupt.c)
  * Callees:
- *     IoGetDevicePropertyData @ 0x140A98450 (IoGetDevicePropertyData.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     IoGetDevicePropertyData @ 0x140A9C5D0 (IoGetDevicePropertyData.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 NTSTATUS __fastcall IopGetInterruptConnectionData(PDEVICE_OBJECT Pdo, _QWORD *a2)

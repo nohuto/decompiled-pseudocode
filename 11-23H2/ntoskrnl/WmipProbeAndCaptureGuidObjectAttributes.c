@@ -1,11 +1,11 @@
 /*
- * XREFs of WmipProbeAndCaptureGuidObjectAttributes @ 0x1407D656C
+ * XREFs of WmipProbeAndCaptureGuidObjectAttributes @ 0x1407D683C
  * Callers:
- *     WmipProbeWmiOpenGuidBlock @ 0x1407D64C8 (WmipProbeWmiOpenGuidBlock.c)
+ *     WmipProbeWmiOpenGuidBlock @ 0x1407D6798 (WmipProbeWmiOpenGuidBlock.c)
  * Callees:
- *     IoIs32bitProcess @ 0x14022BA20 (IoIs32bitProcess.c)
- *     memmove @ 0x140435700 (memmove.c)
- *     ExRaiseDatatypeMisalignment @ 0x140A00B60 (ExRaiseDatatypeMisalignment.c)
+ *     IoIs32bitProcess @ 0x14022BB30 (IoIs32bitProcess.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     ExRaiseDatatypeMisalignment @ 0x140A00DF0 (ExRaiseDatatypeMisalignment.c)
  */
 
 __int64 __fastcall WmipProbeAndCaptureGuidObjectAttributes(

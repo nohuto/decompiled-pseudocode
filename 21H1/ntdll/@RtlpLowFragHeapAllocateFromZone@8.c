@@ -9,49 +9,51 @@
  *     _RtlAllocateHeap@12 @ 0x4B2C5D40 (_RtlAllocateHeap@12.c)
  */
 
-int __fastcall RtlpLowFragHeapAllocateFromZone(int a1, int a2)
+unsigned int __fastcall RtlpLowFragHeapAllocateFromZone(PRTL_SRWLOCK SRWLock, int a2)
 {
   int v2; // eax
   int v4; // ecx
   unsigned __int32 v5; // eax
   unsigned int v6; // ebx
-  int Heap; // eax
-  _DWORD *v9; // edi
-  _DWORD *v10; // ecx
-  int v11; // [esp+10h] [ebp-8h]
+  _RTL_SRWLOCK *Heap; // eax
+  _RTL_SRWLOCK *v9; // edi
+  PRTL_SRWLOCK *Value; // ecx
+  SIZE_T v11; // [esp-4h] [ebp-1Ch]
+  int v12; // [esp+10h] [ebp-8h]
   int i; // [esp+14h] [ebp-4h]
 
   v2 = 24 * a2;
-  for ( i = 24 * a2; ; v2 = i )
+  for ( i = 6 * a2; ; v2 = i * 4 )
   {
-    v4 = *(_DWORD *)(v2 + a1 + 2008);
-    v11 = v4;
+    v4 = *(unsigned int *)((char *)&SRWLock[502].Value + v2);
+    v12 = v4;
     if ( v4 )
     {
       v5 = _InterlockedExchangeAdd((volatile signed __int32 *)(v4 + 8), 1u);
       if ( v5 < 0x19 )
         return 40 * v5 + v4 + 16;
     }
-    Heap = RtlAllocateHeap(*(_DWORD *)(a1 + 12), 0x800000, 1016);
-    v9 = (_DWORD *)Heap;
+    LODWORD(v11) = 1016;
+    Heap = (_RTL_SRWLOCK *)RtlAllocateHeap(SRWLock[3].Ptr, 0x800000u, v11);
+    v9 = Heap;
     if ( !Heap )
       return 0;
-    *(_DWORD *)(Heap + 8) = 1;
-    v6 = (Heap + 19) & 0xFFFFFFF8;
-    RtlAcquireSRWLockExclusive((volatile signed __int32 *)a1);
-    if ( v11 == *(_DWORD *)(i + a1 + 2008) )
+    Heap[2].Value = 1;
+    v6 = ((unsigned int)&Heap[4].Ptr + 3) & 0xFFFFFFF8;
+    RtlAcquireSRWLockExclusive(SRWLock);
+    if ( v12 == SRWLock[i + 502].Value )
       break;
-    RtlReleaseSRWLockExclusive((volatile signed __int32 *)a1);
-    RtlFreeHeap(*(_DWORD *)(a1 + 12), 0x800000, (int)v9);
+    RtlReleaseSRWLockExclusive(SRWLock);
+    RtlFreeHeap(SRWLock[3].Ptr, 0x800000u, v9);
   }
-  v10 = *(_DWORD **)(a1 + 8);
-  if ( *v10 != a1 + 4 )
+  Value = (PRTL_SRWLOCK *)SRWLock[2].Value;
+  if ( *Value != &SRWLock[1] )
     __fastfail(3u);
-  *v9 = a1 + 4;
-  v9[1] = v10;
-  *v10 = v9;
-  *(_DWORD *)(a1 + 8) = v9;
-  *(_DWORD *)(i + a1 + 2008) = v9;
-  RtlReleaseSRWLockExclusive((volatile signed __int32 *)a1);
+  v9->Value = (unsigned int)&SRWLock[1];
+  v9[1].Value = (unsigned int)Value;
+  *Value = v9;
+  SRWLock[2].Value = (unsigned int)v9;
+  SRWLock[i + 502].Value = (unsigned int)v9;
+  RtlReleaseSRWLockExclusive(SRWLock);
   return v6;
 }

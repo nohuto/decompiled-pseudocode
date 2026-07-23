@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlUpdateSwapReference @ 0x180014034
+ * XREFs of RtlUpdateSwapReference @ 0x18005F764
  * Callers:
- *     RtlpFcBufferManagerUpdateBuffers @ 0x180013C40 (RtlpFcBufferManagerUpdateBuffers.c)
+ *     RtlpFcBufferManagerUpdateBuffers @ 0x18005F370 (RtlpFcBufferManagerUpdateBuffers.c)
  * Callees:
- *     RtlpWaitOnAddress @ 0x18007B580 (RtlpWaitOnAddress.c)
+ *     RtlpWaitOnAddress @ 0x180069DA0 (RtlpWaitOnAddress.c)
  */
 
 unsigned __int64 __fastcall RtlUpdateSwapReference(volatile __int64 *a1, char a2)
@@ -19,7 +19,7 @@ unsigned __int64 __fastcall RtlUpdateSwapReference(volatile __int64 *a1, char a2
     {
       do
       {
-        RtlpWaitOnAddress((_DWORD)a1 + 8, (unsigned int)&v4, 8, 0, RtlpWaitOnAddressSpinCycleCount, 0LL);
+        RtlpWaitOnAddress(a1 + 1, &v4, 8LL);
         result = *((_QWORD *)a1 + 1);
         v4 = result;
       }

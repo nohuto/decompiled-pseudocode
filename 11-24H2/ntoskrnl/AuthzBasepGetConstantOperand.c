@@ -1,8 +1,8 @@
 /*
- * XREFs of AuthzBasepGetConstantOperand @ 0x14045752C
+ * XREFs of AuthzBasepGetConstantOperand @ 0x14044CD6C
  * Callers:
- *     AuthzBasepGetNextValue @ 0x14034818C (AuthzBasepGetNextValue.c)
- *     AuthzBasepCompareFQBNOperands @ 0x14045728C (AuthzBasepCompareFQBNOperands.c)
+ *     AuthzBasepGetNextValue @ 0x140326B8C (AuthzBasepGetNextValue.c)
+ *     AuthzBasepCompareFQBNOperands @ 0x14044CACC (AuthzBasepCompareFQBNOperands.c)
  * Callees:
  *     <none>
  */

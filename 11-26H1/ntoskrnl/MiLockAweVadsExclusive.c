@@ -1,13 +1,13 @@
 /*
- * XREFs of MiLockAweVadsExclusive @ 0x1404FEF8C
+ * XREFs of MiLockAweVadsExclusive @ 0x1404F877C
  * Callers:
- *     MiSetCloneParentForkInProgress @ 0x1405180AC (MiSetCloneParentForkInProgress.c)
- *     MiAweViewInserter @ 0x140700B44 (MiAweViewInserter.c)
- *     MiRemoveUserPhysicalPagesView @ 0x1407028D4 (MiRemoveUserPhysicalPagesView.c)
- *     MiClearCloneParentForkInProgress @ 0x14070FDF8 (MiClearCloneParentForkInProgress.c)
- *     MiCreateProcessDefaultAweInfo @ 0x1408789FC (MiCreateProcessDefaultAweInfo.c)
+ *     MiSetCloneParentForkInProgress @ 0x140511B1C (MiSetCloneParentForkInProgress.c)
+ *     MiAweViewInserter @ 0x140705814 (MiAweViewInserter.c)
+ *     MiRemoveUserPhysicalPagesView @ 0x1407075A4 (MiRemoveUserPhysicalPagesView.c)
+ *     MiClearCloneParentForkInProgress @ 0x140714AF4 (MiClearCloneParentForkInProgress.c)
+ *     MiCreateProcessDefaultAweInfo @ 0x14087EDDC (MiCreateProcessDefaultAweInfo.c)
  * Callees:
- *     ExAcquireAutoExpandPushLockExclusive @ 0x140276830 (ExAcquireAutoExpandPushLockExclusive.c)
+ *     ExAcquireAutoExpandPushLockExclusive @ 0x140275DA0 (ExAcquireAutoExpandPushLockExclusive.c)
  */
 
 void __fastcall MiLockAweVadsExclusive(__int64 a1)

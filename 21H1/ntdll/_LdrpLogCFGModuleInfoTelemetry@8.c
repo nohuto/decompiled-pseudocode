@@ -16,7 +16,7 @@ struct _PEB *__fastcall LdrpLogCFGModuleInfoTelemetry(int a1, int a2)
   _DWORD v6[2]; // [esp+18h] [ebp-98h] BYREF
   int v7; // [esp+20h] [ebp-90h] BYREF
   int v8; // [esp+24h] [ebp-8Ch] BYREF
-  _BYTE v9[32]; // [esp+28h] [ebp-88h] BYREF
+  _EVENT_DATA_DESCRIPTOR UserData; // [esp+28h] [ebp-88h] BYREF
   _DWORD *v10; // [esp+48h] [ebp-68h]
   int v11; // [esp+4Ch] [ebp-64h]
   int v12; // [esp+50h] [ebp-60h]
@@ -28,7 +28,11 @@ struct _PEB *__fastcall LdrpLogCFGModuleInfoTelemetry(int a1, int a2)
   result = NtCurrentPeb();
   if ( result->ProcessHeap )
   {
-    result = (struct _PEB *)RtlRunOnceExecuteOnce(&LibLoaderTelemetryInitRunOnce, LibLoaderTelemetryInitOnce, 0, 0);
+    result = (struct _PEB *)RtlRunOnceExecuteOnce(
+                              &LibLoaderTelemetryInitRunOnce,
+                              (PRTL_RUN_ONCE_INIT_FN)LibLoaderTelemetryInitOnce,
+                              0,
+                              0);
     if ( (unsigned int)dword_4B3A32F0 > 5 )
     {
       result = (struct _PEB *)_tlgKeywordOn(0, 0x2000);
@@ -64,7 +68,7 @@ struct _PEB *__fastcall LdrpLogCFGModuleInfoTelemetry(int a1, int a2)
         v5[1] = 0;
         v16[15] = 0;
         v16[17] = 0;
-        return (struct _PEB *)_tlgWriteTransfer_EtwEventWriteTransfer(4, 4, 8, v9);
+        return (struct _PEB *)_tlgWriteTransfer_EtwEventWriteTransfer(4, 4, 8u, &UserData);
       }
     }
   }

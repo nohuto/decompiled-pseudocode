@@ -30,7 +30,7 @@ BOOLEAN __stdcall FsRtlInitializeBaseMcbEx(PBASE_MCB Mcb, POOL_TYPE PoolType, US
   else
   {
     if ( (v3 & 1) != 0 )
-      RtlRaiseStatus(3221225626LL);
+      RtlRaiseStatus(-1073741670);
     return 0;
   }
 }

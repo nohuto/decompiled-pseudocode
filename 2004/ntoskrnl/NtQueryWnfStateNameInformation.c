@@ -17,17 +17,17 @@
  *     ExFreePoolWithTag @ 0x1409B1140 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall NtQueryWnfStateNameInformation(
-        __int64 *a1,
-        unsigned int a2,
-        _DWORD *a3,
-        int *a4,
-        unsigned int Length)
+NTSTATUS __cdecl NtQueryWnfStateNameInformation(
+        PCWNF_STATE_NAME StateName,
+        WNF_STATE_NAME_INFORMATION NameInfoClass,
+        const void *ExplicitScope,
+        PVOID InfoBuffer,
+        ULONG InfoBufferSize)
 {
-  int *v5; // r14
+  _DWORD *v5; // r14
   struct _KTHREAD *CurrentThread; // rax
   char PreviousMode; // r12
-  int v10; // esi
+  NTSTATUS v10; // esi
   char v11; // r8
   unsigned __int64 v12; // rbx
   int v13; // r14d
@@ -50,7 +50,7 @@ __int64 __fastcall NtQueryWnfStateNameInformation(
   PSID Sid[4]; // [rsp+70h] [rbp-58h] BYREF
   PVOID v32[7]; // [rsp+90h] [rbp-38h] BYREF
 
-  v5 = a4;
+  v5 = InfoBuffer;
   v27 = 0LL;
   Sid[0] = 0LL;
   CurrentThread = KeGetCurrentThread();
@@ -61,44 +61,44 @@ __int64 __fastcall NtQueryWnfStateNameInformation(
   v26 = 0LL;
   v24 = 0;
   *(_OWORD *)v32 = 0LL;
-  v10 = ExpCaptureWnfStateName(a1, &v27, PreviousMode);
+  v10 = ExpCaptureWnfStateName((__int64 *)StateName, &v27, PreviousMode);
   if ( v10 >= 0 )
   {
     v12 = v27;
     v28 = (v27 >> 4) & 3;
     v24 = (v27 >> 6) & 0xF;
-    v10 = ExpWnfCaptureScopeInstanceId(v24, a3, v11, (__int64 *)Sid, (__int64)v32);
+    v10 = ExpWnfCaptureScopeInstanceId(v24, ExplicitScope, v11, (__int64 *)Sid, (__int64)v32);
     if ( v10 >= 0 )
     {
-      if ( a2 > 2 )
+      if ( (unsigned int)NameInfoClass > WnfInfoIsQuiescent )
       {
         v10 = -1073741821;
       }
       else
       {
-        if ( Length >= 4 )
+        if ( InfoBufferSize >= 4 )
         {
           if ( PreviousMode )
-            ProbeForWrite(v5, Length, 4u);
+            ProbeForWrite(v5, InfoBufferSize, 4u);
           v13 = 1;
-          if ( a2 )
+          if ( NameInfoClass )
           {
             v25 = 0;
           }
           else
           {
             v25 = 1;
-            if ( a3 )
+            if ( ExplicitScope )
             {
               v10 = -1073741811;
               goto LABEL_52;
             }
           }
-          if ( PreviousMode && a2 )
+          if ( PreviousMode && NameInfoClass )
           {
             v14 = 0;
             v23 = 0;
-            if ( a3 )
+            if ( ExplicitScope )
             {
               v10 = ExpWnfCheckCrossScopeAccess(v12);
               if ( v10 < 0 )
@@ -112,7 +112,7 @@ __int64 __fastcall NtQueryWnfStateNameInformation(
             v23 = 1;
           }
           v15 = 0;
-          if ( !v14 && a2 - 1 <= 1 )
+          if ( !v14 && (unsigned int)(NameInfoClass - 1) <= 1 )
             v15 = 2;
           v16 = 0LL;
           if ( PreviousMode )
@@ -153,9 +153,9 @@ __int64 __fastcall NtQueryWnfStateNameInformation(
             if ( v23 )
             {
 LABEL_29:
-              if ( a2 )
+              if ( NameInfoClass )
               {
-                if ( a2 == 1 )
+                if ( NameInfoClass == WnfInfoSubscribersPresent )
                 {
                   if ( v26 && *(_DWORD *)(v26 + 160) )
                     goto LABEL_36;
@@ -167,9 +167,9 @@ LABEL_29:
                 v13 = 0;
               }
 LABEL_36:
-              *a4 = v13;
+              *(_DWORD *)InfoBuffer = v13;
               v10 = 0;
-              v5 = a4;
+              v5 = InfoBuffer;
               goto LABEL_37;
             }
             v20 = (void *)*((_QWORD *)P + 2);
@@ -178,7 +178,7 @@ LABEL_36:
           if ( v10 >= 0 )
             goto LABEL_29;
 LABEL_52:
-          v5 = a4;
+          v5 = InfoBuffer;
           goto LABEL_37;
         }
         v10 = -1073741811;
@@ -186,7 +186,7 @@ LABEL_52:
     }
   }
 LABEL_37:
-  if ( v10 == -1073741772 && !a2 )
+  if ( v10 == -1073741772 && NameInfoClass == WnfInfoStateNameExist )
   {
     *v5 = 0;
     v10 = 0;
@@ -199,5 +199,5 @@ LABEL_37:
     ExFreePoolWithTag(P, 0x20666E57u);
   KeLeaveCriticalRegion();
   ExpWnfReleaseCapturedScopeInstanceId(v24, v32, PreviousMode, v21);
-  return (unsigned int)v10;
+  return v10;
 }

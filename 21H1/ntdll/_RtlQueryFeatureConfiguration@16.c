@@ -9,30 +9,35 @@
  *     _RtlpFcQueryFeatureConfigurationFromBufferSet@16 @ 0x4B3A1121 (_RtlpFcQueryFeatureConfigurationFromBufferSet@16.c)
  */
 
-int __stdcall RtlQueryFeatureConfiguration(int a1, int a2, _DWORD *a3, int a4)
+NTSTATUS __cdecl RtlQueryFeatureConfiguration(
+        RTL_FEATURE_ID FeatureId,
+        RTL_FEATURE_CONFIGURATION_TYPE ConfigurationType,
+        PRTL_FEATURE_CHANGE_STAMP ChangeStamp,
+        PRTL_FEATURE_CONFIGURATION FeatureConfiguration)
 {
   int FeatureConfigurationFromBufferSet; // eax
-  int FeatureConfigurationFromKernel; // esi
+  NTSTATUS FeatureConfigurationFromKernel; // esi
   int v7; // [esp+0h] [ebp-18h]
   int v8; // [esp+4h] [ebp-14h]
-  _DWORD v9[3]; // [esp+8h] [ebp-10h] BYREF
+  ULONGLONG v9; // [esp+8h] [ebp-10h] BYREF
   int v10; // [esp+14h] [ebp-4h] BYREF
 
   v10 = 0;
-  if ( (int)RtlpFcReferenceFeatureConfigurationBuffers(v9, &v10) < 0 )
+  if ( (int)RtlpFcReferenceFeatureConfigurationBuffers(&v9, &v10) < 0 )
   {
-    FeatureConfigurationFromKernel = RtlpFcQueryFeatureConfigurationFromKernel(a3, a4);
+    FeatureConfigurationFromKernel = RtlpFcQueryFeatureConfigurationFromKernel(ChangeStamp, FeatureConfiguration);
   }
   else
   {
-    FeatureConfigurationFromBufferSet = RtlpFcQueryFeatureConfigurationFromBufferSet(a2, a4);
+    FeatureConfigurationFromBufferSet = RtlpFcQueryFeatureConfigurationFromBufferSet(
+                                          ConfigurationType,
+                                          FeatureConfiguration);
     FeatureConfigurationFromKernel = FeatureConfigurationFromBufferSet;
     if ( FeatureConfigurationFromBufferSet >= 0 )
     {
       FeatureConfigurationFromKernel = 0;
 LABEL_5:
-      *a3 = v9[0];
-      a3[1] = v9[1];
+      *ChangeStamp = v9;
       goto LABEL_6;
     }
     if ( FeatureConfigurationFromBufferSet == -1073741275 || FeatureConfigurationFromBufferSet == -2147483614 )

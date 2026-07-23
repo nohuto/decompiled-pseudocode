@@ -14,7 +14,7 @@
  *     KeIsExecutingInArbitraryThreadContext @ 0x1403F1894 (KeIsExecutingInArbitraryThreadContext.c)
  */
 
-__int64 RtlGetActiveConsoleId()
+ULONG RtlGetActiveConsoleId(void)
 {
   __int64 v0; // rdx
   __int64 v1; // rcx
@@ -32,5 +32,5 @@ __int64 RtlGetActiveConsoleId()
   {
     v4 = *(_QWORD **)(ThreadServerSilo + 1272);
   }
-  return *(unsigned int *)(v4[141] + 4LL);
+  return *(_DWORD *)(v4[141] + 4LL);
 }

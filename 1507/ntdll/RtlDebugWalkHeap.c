@@ -9,12 +9,12 @@
  *     RtlpValidateHeap @ 0x1800EDA3C (RtlpValidateHeap.c)
  */
 
-char __fastcall RtlDebugWalkHeap(_DWORD *a1)
+char __fastcall RtlDebugWalkHeap(_DWORD *BaseAddress)
 {
   char v2; // bl
 
   v2 = 0;
-  if ( RtlpCheckHeapSignature(a1, "RtlWalkHeap") )
-    return RtlpValidateHeap(a1, 0LL);
+  if ( RtlpCheckHeapSignature(BaseAddress, "RtlWalkHeap") )
+    return RtlpValidateHeap(BaseAddress);
   return v2;
 }

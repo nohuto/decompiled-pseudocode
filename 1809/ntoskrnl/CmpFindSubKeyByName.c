@@ -1,17 +1,17 @@
 /*
- * XREFs of CmpFindSubKeyByName @ 0x14073D0DC
+ * XREFs of CmpFindSubKeyByName @ 0x14073E2CC
  * Callers:
- *     CmpFindRedirectedDriverServiceStateNode @ 0x1409CCD50 (CmpFindRedirectedDriverServiceStateNode.c)
- *     CmpLoadServicesNode @ 0x1409CCF10 (CmpLoadServicesNode.c)
- *     CmpFindGroupOrderList @ 0x1409CCFB0 (CmpFindGroupOrderList.c)
- *     CmpSortDriverList @ 0x1409CD05C (CmpSortDriverList.c)
- *     CmpGetSystemControlValues @ 0x1409CE008 (CmpGetSystemControlValues.c)
- *     CmpIsLoadType @ 0x1409CE6B4 (CmpIsLoadType.c)
- *     CmpLoadManufacturingModeNode @ 0x1409F3DD4 (CmpLoadManufacturingModeNode.c)
- *     CmpLoadManufacturingProfileNode @ 0x1409F3EC4 (CmpLoadManufacturingProfileNode.c)
- *     CmpLoadManufacturingProfileServicesNode @ 0x1409F3F80 (CmpLoadManufacturingProfileServicesNode.c)
+ *     CmpFindRedirectedDriverServiceStateNode @ 0x1409CDD50 (CmpFindRedirectedDriverServiceStateNode.c)
+ *     CmpLoadServicesNode @ 0x1409CDF10 (CmpLoadServicesNode.c)
+ *     CmpFindGroupOrderList @ 0x1409CDFB0 (CmpFindGroupOrderList.c)
+ *     CmpSortDriverList @ 0x1409CE05C (CmpSortDriverList.c)
+ *     CmpGetSystemControlValues @ 0x1409CF008 (CmpGetSystemControlValues.c)
+ *     CmpIsLoadType @ 0x1409CF6B4 (CmpIsLoadType.c)
+ *     CmpLoadManufacturingModeNode @ 0x1409F4DD4 (CmpLoadManufacturingModeNode.c)
+ *     CmpLoadManufacturingProfileNode @ 0x1409F4EC4 (CmpLoadManufacturingProfileNode.c)
+ *     CmpLoadManufacturingProfileServicesNode @ 0x1409F4F80 (CmpLoadManufacturingProfileServicesNode.c)
  * Callees:
- *     CmpFindSubKeyByNameWithStatus @ 0x14073D0FC (CmpFindSubKeyByNameWithStatus.c)
+ *     CmpFindSubKeyByNameWithStatus @ 0x14073E2EC (CmpFindSubKeyByNameWithStatus.c)
  */
 
 __int64 __fastcall CmpFindSubKeyByName(__int64 a1, __int64 a2, __int64 a3)

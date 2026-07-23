@@ -8,14 +8,14 @@
  *     memset @ 0x1800A3DC0 (memset.c)
  */
 
-__int64 __fastcall RtlLargeIntegerToChar(unsigned __int64 *a1, unsigned int a2, int a3, char *a4)
+NTSTATUS __cdecl RtlLargeIntegerToChar(PLARGE_INTEGER Value, ULONG Base, LONG OutputLength, PSTR String)
 {
   int v6; // r8d
   int v7; // r9d
   char *v8; // r14
   unsigned __int64 v9; // rax
   unsigned __int64 v10; // r8
-  unsigned __int64 v11; // rdx
+  unsigned __int64 QuadPart; // rdx
   unsigned __int64 v12; // rtt
   int v13; // esp
   __int64 v14; // rsi
@@ -24,10 +24,10 @@ __int64 __fastcall RtlLargeIntegerToChar(unsigned __int64 *a1, unsigned int a2, 
   size_t v18; // rbx
   char v19; // [rsp+61h] [rbp-37h] BYREF
 
-  switch ( a2 )
+  switch ( Base )
   {
     case 0u:
-      a2 = 10;
+      Base = 10;
       goto LABEL_3;
     case 0xAu:
 LABEL_3:
@@ -44,54 +44,54 @@ LABEL_3:
       v6 = 4;
       break;
     default:
-      return 3221225485LL;
+      return -1073741811;
   }
   v7 = (1 << v6) - 1;
 LABEL_4:
   v8 = &v19;
   if ( v6 )
   {
-    v11 = *a1;
+    QuadPart = Value->QuadPart;
     do
     {
-      v17 = v11;
-      v11 >>= v6;
+      v17 = QuadPart;
+      QuadPart >>= v6;
       *--v8 = RtlpIntegerChars[v7 & v17];
     }
-    while ( v11 );
+    while ( QuadPart );
   }
   else
   {
-    v9 = *a1;
-    v10 = a2;
+    v9 = Value->QuadPart;
+    v10 = Base;
     do
     {
       v12 = v9;
       v9 /= v10;
-      v11 = v12 % v10;
+      QuadPart = v12 % v10;
       *--v8 = RtlpIntegerChars[(unsigned int)(v12 % v10)];
     }
     while ( v9 );
   }
   v14 = (unsigned int)(v13 + 97 - (_DWORD)v8);
-  if ( a3 >= 0 )
+  if ( OutputLength >= 0 )
     goto LABEL_8;
-  a3 = -a3;
-  v15 = (int)v14 <= a3;
-  if ( (int)v14 < a3 )
+  OutputLength = -OutputLength;
+  v15 = (int)v14 <= OutputLength;
+  if ( (int)v14 < OutputLength )
   {
-    v18 = (unsigned int)(a3 - v14);
-    LOBYTE(v11) = 48;
-    memset(a4, v11, v18);
-    a3 = v14;
-    a4 += v18;
+    v18 = (unsigned int)(OutputLength - v14);
+    LOBYTE(QuadPart) = 48;
+    memset(String, QuadPart, v18);
+    OutputLength = v14;
+    String += v18;
 LABEL_8:
-    v15 = (int)v14 <= a3;
+    v15 = (int)v14 <= OutputLength;
   }
   if ( !v15 )
-    return 2147483653LL;
-  memmove(a4, v8, (unsigned int)v14);
-  if ( (int)v14 < a3 )
-    a4[v14] = 0;
-  return 0LL;
+    return -2147483643;
+  memmove(String, v8, (unsigned int)v14);
+  if ( (int)v14 < OutputLength )
+    String[v14] = 0;
+  return 0;
 }

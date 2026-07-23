@@ -1,15 +1,15 @@
 /*
- * XREFs of PnpCheckDeviceIdsChanged @ 0x140888A78
+ * XREFs of PnpCheckDeviceIdsChanged @ 0x14088C928
  * Callers:
- *     PipProcessStartPhase3 @ 0x14099006C (PipProcessStartPhase3.c)
- *     PiProcessNewDeviceNode @ 0x140A7C564 (PiProcessNewDeviceNode.c)
+ *     PipProcessStartPhase3 @ 0x14097B0A4 (PipProcessStartPhase3.c)
+ *     PiProcessNewDeviceNode @ 0x140A76864 (PiProcessNewDeviceNode.c)
  * Callees:
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     RtlCompareUnicodeStrings @ 0x140888920 (RtlCompareUnicodeStrings.c)
- *     _CmGetDeviceRegProp @ 0x1408C5BB0 (_CmGetDeviceRegProp.c)
- *     _CmOpenDeviceRegKey @ 0x1408C6880 (_CmOpenDeviceRegKey.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     RtlCompareUnicodeStrings @ 0x14088C7D0 (RtlCompareUnicodeStrings.c)
+ *     _CmGetDeviceRegProp @ 0x1408C35E0 (_CmGetDeviceRegProp.c)
+ *     _CmOpenDeviceRegKey @ 0x1408C42B0 (_CmOpenDeviceRegKey.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PnpCheckDeviceIdsChanged(__int64 a1, __int64 a2, const WCHAR *a3, int a4, char a5, _BYTE *a6)
@@ -31,7 +31,7 @@ __int64 __fastcall PnpCheckDeviceIdsChanged(__int64 a1, __int64 a2, const WCHAR 
   bool v21; // zf
   int v23; // [rsp+40h] [rbp-10h] BYREF
   HANDLE Handle; // [rsp+48h] [rbp-8h] BYREF
-  int v25; // [rsp+98h] [rbp+48h] BYREF
+  unsigned int v25; // [rsp+98h] [rbp+48h] BYREF
   int v26; // [rsp+A8h] [rbp+58h]
 
   v26 = a4;
@@ -53,14 +53,14 @@ __int64 __fastcall PnpCheckDeviceIdsChanged(__int64 a1, __int64 a2, const WCHAR 
     v10 = (int)Handle;
   }
   v25 = 512;
-  Pool2 = (void *)ExAllocatePool2(0x100uLL);
+  Pool2 = (void *)ExAllocatePool2(0x100uLL, 0x200uLL, 0x75737050u);
   if ( Pool2 )
   {
     DeviceRegProp = CmGetDeviceRegProp(PiPnpRtlCtx, *v7, v10, v11 + 3, (__int64)&v23, (__int64)Pool2, (__int64)&v25, 0);
     if ( DeviceRegProp != -1073741789 )
       goto LABEL_6;
     ExFreePoolWithTag(Pool2, 0);
-    Pool2 = (void *)ExAllocatePool2(0x100uLL);
+    Pool2 = (void *)ExAllocatePool2(0x100uLL, v25, 0x75737050u);
     if ( Pool2 )
     {
       DeviceRegProp = CmGetDeviceRegProp(

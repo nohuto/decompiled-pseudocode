@@ -1,18 +1,18 @@
 /*
- * XREFs of KiNmiInterruptStart @ 0x1406B67C0
+ * XREFs of KiNmiInterruptStart @ 0x1406B76C0
  * Callers:
- *     KiNmiInterruptShadow @ 0x140BBB240 (KiNmiInterruptShadow.c)
+ *     KiNmiInterruptShadow @ 0x140BBD240 (KiNmiInterruptShadow.c)
  * Callees:
- *     KiCheckForSListAddress @ 0x1404038C0 (KiCheckForSListAddress.c)
- *     KiRestoreDebugRegisterState @ 0x1404FBC10 (KiRestoreDebugRegisterState.c)
- *     KiSaveDebugRegisterState @ 0x1404FBC90 (KiSaveDebugRegisterState.c)
- *     KzSetIrqlUnsafe @ 0x1405B7800 (KzSetIrqlUnsafe.c)
- *     KeWakeProcessor @ 0x1405BCCD0 (KeWakeProcessor.c)
- *     KiCopyCounters @ 0x1405BF250 (KiCopyCounters.c)
- *     KiMcheckFastForward @ 0x1405CA050 (KiMcheckFastForward.c)
- *     KiSetSpecCtrlNmi @ 0x1406AC5D0 (KiSetSpecCtrlNmi.c)
- *     KxNmiInterrupt @ 0x1406B6C40 (KxNmiInterrupt.c)
- *     KiBugCheckDispatch @ 0x1406BEC80 (KiBugCheckDispatch.c)
+ *     KiCheckForSListAddress @ 0x1403FE680 (KiCheckForSListAddress.c)
+ *     KiRestoreDebugRegisterState @ 0x1404F94D0 (KiRestoreDebugRegisterState.c)
+ *     KiSaveDebugRegisterState @ 0x1404F9550 (KiSaveDebugRegisterState.c)
+ *     KzSetIrqlUnsafe @ 0x1405B4DD0 (KzSetIrqlUnsafe.c)
+ *     KeWakeProcessor @ 0x1405BA300 (KeWakeProcessor.c)
+ *     KiCopyCounters @ 0x1405BC880 (KiCopyCounters.c)
+ *     KiMcheckFastForward @ 0x1405C7780 (KiMcheckFastForward.c)
+ *     KiSetSpecCtrlNmi @ 0x1406AD570 (KiSetSpecCtrlNmi.c)
+ *     KxNmiInterrupt @ 0x1406B7B40 (KxNmiInterrupt.c)
+ *     KiBugCheckDispatch @ 0x1406BFB80 (KiBugCheckDispatch.c)
  */
 
 __int64 __fastcall KiNmiInterruptStart(
@@ -111,7 +111,7 @@ LABEL_8:
       v19 = 1;
       v20 = 805306432;
     }
-    v18 = KiProcessorBlock[*((unsigned int *)qword_140F21E78 + (v20 | (unsigned int)v19))] - 384;
+    v18 = KiProcessorBlock[*((unsigned int *)qword_140F22998 + (v20 | (unsigned int)v19))] - 384;
     goto LABEL_8;
   }
   if ( (KiKvaShadow & 1) == 0 )

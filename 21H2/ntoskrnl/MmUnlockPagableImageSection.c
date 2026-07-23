@@ -1,20 +1,20 @@
 /*
- * XREFs of MmUnlockPagableImageSection @ 0x14031AA10
+ * XREFs of MmUnlockPagableImageSection @ 0x140325760
  * Callers:
- *     PnprUnlockPagesForReplace @ 0x1408AE8B4 (PnprUnlockPagesForReplace.c)
- *     KiStartDynamicProcessor @ 0x1408BA678 (KiStartDynamicProcessor.c)
- *     MiApplyImageHotPatch @ 0x1408C955C (MiApplyImageHotPatch.c)
- *     PopDirectedDripsNotifyAppsAndServices @ 0x1408E3608 (PopDirectedDripsNotifyAppsAndServices.c)
- *     PopUnlockAfterSleepWorker @ 0x140994FE0 (PopUnlockAfterSleepWorker.c)
- *     MmDuplicateMemory @ 0x14099525C (MmDuplicateMemory.c)
- *     HalpPowerInitSystem @ 0x1409A0D80 (HalpPowerInitSystem.c)
- *     IoUnregisterShutdownNotification @ 0x1409AB010 (IoUnregisterShutdownNotification.c)
- *     MiShutdownSystem @ 0x1409AFDB8 (MiShutdownSystem.c)
- *     ExQuerySystemLockInformation @ 0x1409B2C64 (ExQuerySystemLockInformation.c)
- *     BgkpUnlockBgfxCodeSection @ 0x1409F13F0 (BgkpUnlockBgfxCodeSection.c)
- *     MiInitSystem @ 0x140A53E5C (MiInitSystem.c)
+ *     PnprUnlockPagesForReplace @ 0x1408AEA14 (PnprUnlockPagesForReplace.c)
+ *     KiStartDynamicProcessor @ 0x1408BA7D8 (KiStartDynamicProcessor.c)
+ *     MiApplyImageHotPatch @ 0x1408C96BC (MiApplyImageHotPatch.c)
+ *     PopDirectedDripsNotifyAppsAndServices @ 0x1408E3768 (PopDirectedDripsNotifyAppsAndServices.c)
+ *     PopUnlockAfterSleepWorker @ 0x140995FE0 (PopUnlockAfterSleepWorker.c)
+ *     MmDuplicateMemory @ 0x14099625C (MmDuplicateMemory.c)
+ *     HalpPowerInitSystem @ 0x1409A1CB0 (HalpPowerInitSystem.c)
+ *     IoUnregisterShutdownNotification @ 0x1409ABF40 (IoUnregisterShutdownNotification.c)
+ *     MiShutdownSystem @ 0x1409B0CE8 (MiShutdownSystem.c)
+ *     ExQuerySystemLockInformation @ 0x1409B3B94 (ExQuerySystemLockInformation.c)
+ *     BgkpUnlockBgfxCodeSection @ 0x1409F23F0 (BgkpUnlockBgfxCodeSection.c)
+ *     MiInitSystem @ 0x140A54E5C (MiInitSystem.c)
  * Callees:
- *     MiLockPagableImageSection @ 0x14031C4F0 (MiLockPagableImageSection.c)
+ *     MiLockPagableImageSection @ 0x140327240 (MiLockPagableImageSection.c)
  */
 
 void __stdcall MmUnlockPagableImageSection(PVOID ImageSectionHandle)

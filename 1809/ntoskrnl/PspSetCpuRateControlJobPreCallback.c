@@ -1,5 +1,5 @@
 /*
- * XREFs of PspSetCpuRateControlJobPreCallback @ 0x1406CFF70
+ * XREFs of PspSetCpuRateControlJobPreCallback @ 0x1406D1210
  * Callers:
  *     <none>
  * Callees:

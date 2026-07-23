@@ -1,30 +1,30 @@
 /*
- * XREFs of EtwpCovSampCaptureFreeLookasides @ 0x140942908
+ * XREFs of EtwpCovSampCaptureFreeLookasides @ 0x140942AD8
  * Callers:
- *     EtwpCovSampCaptureContextStop @ 0x1405AEA5C (EtwpCovSampCaptureContextStop.c)
- *     EtwpCovSampCaptureContextStart @ 0x1409422B8 (EtwpCovSampCaptureContextStart.c)
+ *     EtwpCovSampCaptureContextStop @ 0x1405AEC8C (EtwpCovSampCaptureContextStop.c)
+ *     EtwpCovSampCaptureContextStart @ 0x140942488 (EtwpCovSampCaptureContextStart.c)
  * Callees:
- *     RtlpInterlockedFlushSList @ 0x1404079B0 (RtlpInterlockedFlushSList.c)
- *     EtwpCovSampLookasideFlushFreeListToCleanupList @ 0x1405AF36C (EtwpCovSampLookasideFlushFreeListToCleanupList.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     RtlpInterlockedFlushSList @ 0x140407B90 (RtlpInterlockedFlushSList.c)
+ *     EtwpCovSampLookasideFlushFreeListToCleanupList @ 0x1405AF59C (EtwpCovSampLookasideFlushFreeListToCleanupList.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
-void __fastcall EtwpCovSampCaptureFreeLookasides(union _SLIST_HEADER *a1)
+void __fastcall EtwpCovSampCaptureFreeLookasides(_SLIST_HEADER *a1)
 {
-  union _SLIST_HEADER *v1; // rdi
-  union _SLIST_HEADER *i; // rbx
-  union _SLIST_HEADER *v4; // rdi
-  union _SLIST_HEADER *j; // rbx
+  _SLIST_HEADER *v1; // rdi
+  _SLIST_HEADER *i; // rbx
+  _SLIST_HEADER *v4; // rdi
+  _SLIST_HEADER *j; // rbx
   PSLIST_ENTRY v6; // rsi
   _QWORD *p_Next; // rcx
   __int64 v8; // rdx
   _QWORD *v9; // r8
 
   v1 = a1 + 36;
-  for ( i = (union _SLIST_HEADER *)a1[36].Alignment; i != v1; i = (union _SLIST_HEADER *)i->Alignment )
+  for ( i = (_SLIST_HEADER *)a1[36].Alignment; i != v1; i = (_SLIST_HEADER *)i->Alignment )
     EtwpCovSampLookasideFlushFreeListToCleanupList(i - 1);
   v4 = a1 + 37;
-  for ( j = (union _SLIST_HEADER *)a1[37].Alignment; j != v4; j = (union _SLIST_HEADER *)j->Alignment )
+  for ( j = (_SLIST_HEADER *)a1[37].Alignment; j != v4; j = (_SLIST_HEADER *)j->Alignment )
   {
     v6 = RtlpInterlockedFlushSList(j - 1);
     while ( v6 )

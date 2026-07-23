@@ -1,17 +1,17 @@
 /*
- * XREFs of MiInsertLargeVadMapping @ 0x14064615C
+ * XREFs of MiInsertLargeVadMapping @ 0x1406466AC
  * Callers:
- *     MiInPagePageTable @ 0x1402E4D70 (MiInPagePageTable.c)
+ *     MiInPagePageTable @ 0x1402E5000 (MiInPagePageTable.c)
  * Callees:
- *     MI_READ_PTE_LOCK_FREE @ 0x1402712F0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiPteInShadowRange @ 0x140271360 (MiPteInShadowRange.c)
- *     MiGetSharedVm @ 0x140286E74 (MiGetSharedVm.c)
- *     MiMakeValidPte @ 0x1402CF2B0 (MiMakeValidPte.c)
- *     MiUnlockProtoPoolPage @ 0x1402DAEF0 (MiUnlockProtoPoolPage.c)
- *     MiLockProtoPoolPage @ 0x1402DD200 (MiLockProtoPoolPage.c)
- *     MiWritePteShadow @ 0x14035734C (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x1403573AC (MiPteHasShadow.c)
- *     TRY_ACQUIRE_EXLOCK_SHARED_TO_EXCLUSIVE @ 0x14060B1A8 (TRY_ACQUIRE_EXLOCK_SHARED_TO_EXCLUSIVE.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140271580 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiPteInShadowRange @ 0x1402715F0 (MiPteInShadowRange.c)
+ *     MiGetSharedVm @ 0x140287104 (MiGetSharedVm.c)
+ *     MiMakeValidPte @ 0x1402CF540 (MiMakeValidPte.c)
+ *     MiUnlockProtoPoolPage @ 0x1402DB180 (MiUnlockProtoPoolPage.c)
+ *     MiLockProtoPoolPage @ 0x1402DD490 (MiLockProtoPoolPage.c)
+ *     MiWritePteShadow @ 0x1403574EC (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x14035754C (MiPteHasShadow.c)
+ *     TRY_ACQUIRE_EXLOCK_SHARED_TO_EXCLUSIVE @ 0x14060B6F8 (TRY_ACQUIRE_EXLOCK_SHARED_TO_EXCLUSIVE.c)
  */
 
 __int64 __fastcall MiInsertLargeVadMapping(

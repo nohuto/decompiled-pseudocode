@@ -1,21 +1,21 @@
 /*
- * XREFs of MiLocateLockedVadEvent @ 0x1402FE3CC
+ * XREFs of MiLocateLockedVadEvent @ 0x14030911C
  * Callers:
- *     MiCommitExistingVad @ 0x140218D90 (MiCommitExistingVad.c)
- *     MiCaptureWriteWatchDirtyBit @ 0x14025B15C (MiCaptureWriteWatchDirtyBit.c)
- *     MiDeletePartialVad @ 0x1402FD8DC (MiDeletePartialVad.c)
- *     MiLocateVadEvent @ 0x1402FE3B4 (MiLocateVadEvent.c)
- *     MiInsertVad @ 0x140316330 (MiInsertVad.c)
- *     MiVadCommitCrossPartition @ 0x14031823C (MiVadCommitCrossPartition.c)
- *     MiFreeVadRange @ 0x1403185C4 (MiFreeVadRange.c)
- *     NtGetWriteWatch @ 0x14032C650 (NtGetWriteWatch.c)
- *     MiCheckUserVirtualAddress @ 0x14032EA00 (MiCheckUserVirtualAddress.c)
- *     MiQueryAddressState @ 0x14032F730 (MiQueryAddressState.c)
- *     MiZeroFault @ 0x14034EE60 (MiZeroFault.c)
- *     MiMarkMdlComplete @ 0x140539BC0 (MiMarkMdlComplete.c)
- *     MiGetAweVadPartition @ 0x14054C480 (MiGetAweVadPartition.c)
- *     MiCloneVads @ 0x140559328 (MiCloneVads.c)
- *     MiCopyLargeVad @ 0x1408D9D20 (MiCopyLargeVad.c)
+ *     MiCaptureWriteWatchDirtyBit @ 0x14027C6CC (MiCaptureWriteWatchDirtyBit.c)
+ *     MiCommitExistingVad @ 0x1402BD690 (MiCommitExistingVad.c)
+ *     MiDeletePartialVad @ 0x14030862C (MiDeletePartialVad.c)
+ *     MiLocateVadEvent @ 0x140309104 (MiLocateVadEvent.c)
+ *     MiInsertVad @ 0x140321080 (MiInsertVad.c)
+ *     MiVadCommitCrossPartition @ 0x140322F8C (MiVadCommitCrossPartition.c)
+ *     MiFreeVadRange @ 0x140323314 (MiFreeVadRange.c)
+ *     NtGetWriteWatch @ 0x1403373A0 (NtGetWriteWatch.c)
+ *     MiCheckUserVirtualAddress @ 0x140339750 (MiCheckUserVirtualAddress.c)
+ *     MiQueryAddressState @ 0x14033A480 (MiQueryAddressState.c)
+ *     MiZeroFault @ 0x140359BB0 (MiZeroFault.c)
+ *     MiMarkMdlComplete @ 0x140539E00 (MiMarkMdlComplete.c)
+ *     MiGetAweVadPartition @ 0x14054C6C0 (MiGetAweVadPartition.c)
+ *     MiCloneVads @ 0x140559568 (MiCloneVads.c)
+ *     MiCopyLargeVad @ 0x1408D9E80 (MiCopyLargeVad.c)
  * Callees:
  *     <none>
  */

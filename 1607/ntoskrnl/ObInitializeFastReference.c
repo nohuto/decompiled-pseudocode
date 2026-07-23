@@ -1,12 +1,12 @@
 /*
- * XREFs of ObInitializeFastReference @ 0x1404724AC
+ * XREFs of ObInitializeFastReference @ 0x14047137C
  * Callers:
- *     PspInitializeProcessSecurity @ 0x1404722F8 (PspInitializeProcessSecurity.c)
- *     PspLocateSystemDll @ 0x140554680 (PspLocateSystemDll.c)
- *     SeAssignPrimaryToken @ 0x14057FFCC (SeAssignPrimaryToken.c)
+ *     PspInitializeProcessSecurity @ 0x1404711C8 (PspInitializeProcessSecurity.c)
+ *     PspLocateSystemDll @ 0x140554BC0 (PspLocateSystemDll.c)
+ *     SeAssignPrimaryToken @ 0x140580478 (SeAssignPrimaryToken.c)
  *     SepInitializationPhase0 @ 0x1407A24C4 (SepInitializationPhase0.c)
  * Callees:
- *     ObReferenceObjectExWithTag @ 0x140096540 (ObReferenceObjectExWithTag.c)
+ *     ObReferenceObjectExWithTag @ 0x140095D40 (ObReferenceObjectExWithTag.c)
  */
 
 __int64 __fastcall ObInitializeFastReference(_QWORD *a1, __int64 a2)

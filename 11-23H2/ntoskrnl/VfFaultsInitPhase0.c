@@ -1,12 +1,12 @@
 /*
- * XREFs of VfFaultsInitPhase0 @ 0x140AD5E48
+ * XREFs of VfFaultsInitPhase0 @ 0x140AD5E38
  * Callers:
- *     VfInitSystemNoRebootNeeded @ 0x140AC2D18 (VfInitSystemNoRebootNeeded.c)
- *     VfInitVerifierComponents @ 0x140AC2E70 (VfInitVerifierComponents.c)
+ *     VfInitSystemNoRebootNeeded @ 0x140AC2D08 (VfInitSystemNoRebootNeeded.c)
+ *     VfInitVerifierComponents @ 0x140AC2E60 (VfInitVerifierComponents.c)
  * Callees:
  *     ExAllocatePool3 @ 0x140AAE430 (ExAllocatePool3.c)
- *     ViFaultsInitializeAppsList @ 0x140AD67D8 (ViFaultsInitializeAppsList.c)
- *     ViFaultsInitializeTagsList @ 0x140AD68AC (ViFaultsInitializeTagsList.c)
+ *     ViFaultsInitializeAppsList @ 0x140AD67C8 (ViFaultsInitializeAppsList.c)
+ *     ViFaultsInitializeTagsList @ 0x140AD689C (ViFaultsInitializeTagsList.c)
  */
 
 __int64 VfFaultsInitPhase0()

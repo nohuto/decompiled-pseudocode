@@ -1,9 +1,9 @@
 /*
- * XREFs of KitpOpenRegKey @ 0x1407D16D4
+ * XREFs of KitpOpenRegKey @ 0x1407D1844
  * Callers:
- *     KitpInitAitSampleRate @ 0x140A7179C (KitpInitAitSampleRate.c)
+ *     KitpInitAitSampleRate @ 0x140A7279C (KitpInitAitSampleRate.c)
  * Callees:
- *     ZwOpenKey @ 0x1403FA5E0 (ZwOpenKey.c)
+ *     ZwOpenKey @ 0x1403FA7C0 (ZwOpenKey.c)
  */
 
 NTSTATUS __fastcall KitpOpenRegKey(__int64 a1, __int64 a2, HANDLE *a3)

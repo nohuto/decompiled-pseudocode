@@ -7,8 +7,8 @@
  *     KiCheckForKernelApcDelivery @ 0x140005A50 (KiCheckForKernelApcDelivery.c)
  *     KiAbThreadRemoveBoosts @ 0x14004EFD0 (KiAbThreadRemoveBoosts.c)
  *     MmGetSessionIdEx @ 0x14004F060 (MmGetSessionIdEx.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
- *     EtwTraceAutoBoostEntryExhaustion @ 0x14030FA34 (EtwTraceAutoBoostEntryExhaustion.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
+ *     EtwTraceAutoBoostEntryExhaustion @ 0x14030FC24 (EtwTraceAutoBoostEntryExhaustion.c)
  */
 
 char __fastcall ExTryAcquirePushLockExclusiveEx(ULONG_PTR BugCheckParameter2, ULONG_PTR BugCheckParameter1)
@@ -44,7 +44,7 @@ LABEL_6:
         if ( v2 )
         {
           if ( BugCheckParameter2 >= 0xFFFF800000000000uLL
-            && byte_14043B950[((BugCheckParameter2 >> 39) & 0x1FF) - 256] == 1 )
+            && byte_14043CA10[((BugCheckParameter2 >> 39) & 0x1FF) - 256] == 1 )
           {
             SessionId = MmGetSessionIdEx(CurrentThread->ApcState.Process);
           }

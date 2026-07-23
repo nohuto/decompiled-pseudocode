@@ -1,128 +1,129 @@
 /*
- * XREFs of KiPerformExplicitGroupAssignment @ 0x140C28BEC
+ * XREFs of KiPerformExplicitGroupAssignment @ 0x140C2AC8C
  * Callers:
- *     KiPerformGroupConfiguration @ 0x140C28DE0 (KiPerformGroupConfiguration.c)
+ *     KiPerformGroupConfiguration @ 0x140C2AE80 (KiPerformGroupConfiguration.c)
  * Callees:
- *     KiQueryProximityNode @ 0x1405BBA30 (KiQueryProximityNode.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     KiQueryProximityNode @ 0x1405B9060 (KiQueryProximityNode.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
-char __fastcall KiPerformExplicitGroupAssignment(_DWORD *a1, int a2, __int64 a3, __int64 a4)
+char __fastcall KiPerformExplicitGroupAssignment(_DWORD *a1, int a2)
 {
-  int v4; // ebx
-  _DWORD *v5; // rdi
-  __int64 v6; // rdx
-  __int64 v7; // rax
-  __int64 v8; // rsi
-  __int64 v9; // rdx
-  __int16 v10; // ax
-  __int64 v11; // rdx
-  int v12; // eax
-  int *v13; // rdi
+  int v2; // ebx
+  _DWORD *v3; // rdi
+  __int64 v4; // rdx
+  __int64 v5; // rax
+  __int64 v6; // rsi
+  __int64 v7; // r8
+  __int64 v8; // rdx
+  __int16 v9; // ax
+  __int64 v10; // rdx
+  int v11; // eax
+  int *v12; // rdi
   __int64 i; // rcx
   unsigned __int16 j; // cx
-  char v16; // al
-  __int64 v17; // r8
-  unsigned int v18; // edi
-  unsigned int v19; // eax
-  _DWORD *v20; // rcx
-  __int64 v21; // rdx
-  _BYTE *v22; // rcx
-  _WORD v24[8]; // [rsp+20h] [rbp-B8h] BYREF
-  _DWORD v25[32]; // [rsp+30h] [rbp-A8h] BYREF
+  char v15; // al
+  __int64 v16; // r8
+  unsigned int v17; // edi
+  unsigned int v18; // eax
+  _DWORD *v19; // rcx
+  __int64 v20; // rdx
+  _BYTE *v21; // rcx
+  _WORD v23[8]; // [rsp+20h] [rbp-B8h] BYREF
+  _DWORD v24[32]; // [rsp+30h] [rbp-A8h] BYREF
 
-  v4 = a2;
-  v24[0] = 0;
-  v5 = a1;
+  v2 = a2;
+  v23[0] = 0;
+  v3 = a1;
   if ( !a1 || a2 != *a1 )
     return 0;
   if ( KiSubNodeCount )
   {
-    v6 = (unsigned __int16)KiSubNodeCount;
-    v7 = KiSubNodeConfigBlock + 5;
+    v4 = (unsigned __int16)KiSubNodeCount;
+    v5 = KiSubNodeConfigBlock + 5;
     do
     {
-      *(_BYTE *)v7 &= ~1u;
-      *(_WORD *)(v7 + 1) = -1;
-      v7 += 24LL;
-      --v6;
+      *(_BYTE *)v5 &= ~1u;
+      *(_WORD *)(v5 + 1) = -1;
+      v5 += 24LL;
+      --v4;
     }
-    while ( v6 );
+    while ( v4 );
   }
-  v8 = 32LL;
-  while ( v4 )
+  v6 = 32LL;
+  while ( v2 )
   {
-    --v4;
-    if ( (unsigned int)KiQueryProximityNode((unsigned int)v5[1], (__int64)v24, a3, a4) )
+    --v2;
+    if ( (unsigned int)KiQueryProximityNode((unsigned int)v3[1], (__int64)v23) )
       return 0;
-    v5 += 2;
-    if ( *v5 >= 0x20u && *v5 != 0xFFFF )
+    v3 += 2;
+    if ( *v3 >= 0x20u && *v3 != 0xFFFF )
       return 0;
     if ( KiSubNodeCount )
     {
-      a3 = (unsigned __int16)KiSubNodeCount;
-      v9 = KiSubNodeConfigBlock + 5;
+      v7 = (unsigned __int16)KiSubNodeCount;
+      v8 = KiSubNodeConfigBlock + 5;
       do
       {
-        if ( *(_WORD *)(KeNodeBlock[*(unsigned __int16 *)(v9 - 3)] + 2) == v24[0] )
+        if ( *(_WORD *)(KeNodeBlock[*(unsigned __int16 *)(v8 - 3)] + 2) == v23[0] )
         {
-          v10 = *(_WORD *)v5;
-          *(_BYTE *)v9 |= 1u;
-          *(_WORD *)(v9 + 1) = v10;
+          v9 = *(_WORD *)v3;
+          *(_BYTE *)v8 |= 1u;
+          *(_WORD *)(v8 + 1) = v9;
         }
-        v9 += 24LL;
-        --a3;
+        v8 += 24LL;
+        --v7;
       }
-      while ( a3 );
+      while ( v7 );
     }
   }
-  v11 = KiSubNodeConfigBlock;
+  v10 = KiSubNodeConfigBlock;
   if ( *(_WORD *)(KiSubNodeConfigBlock + 6) == 0xFFFF )
     return 0;
-  v12 = KiMaximumGroupSize;
-  v13 = v25;
+  v11 = KiMaximumGroupSize;
+  v12 = v24;
   for ( i = 32LL; i; --i )
-    *v13++ = v12;
+    *v12++ = v11;
   for ( j = 0; j < (unsigned __int16)KiSubNodeCount; ++j )
   {
-    v16 = *(_BYTE *)(v11 + 24LL * j + 5);
-    if ( (v16 & 1) == 0 )
+    v15 = *(_BYTE *)(v10 + 24LL * j + 5);
+    if ( (v15 & 1) == 0 )
       return 0;
-    v17 = *(unsigned __int16 *)(v11 + 24LL * j + 6);
-    if ( (_WORD)v17 == 0xFFFF )
+    v16 = *(unsigned __int16 *)(v10 + 24LL * j + 6);
+    if ( (_WORD)v16 == 0xFFFF )
     {
-      *(_BYTE *)(v11 + 24LL * j + 5) = v16 & 0xFE;
+      *(_BYTE *)(v10 + 24LL * j + 5) = v15 & 0xFE;
     }
     else
     {
-      v18 = *(unsigned __int8 *)(v11 + 24LL * j + 4);
-      v19 = v25[v17];
-      if ( v19 < v18 )
+      v17 = *(unsigned __int8 *)(v10 + 24LL * j + 4);
+      v18 = v24[v16];
+      if ( v18 < v17 )
         return 0;
-      v25[v17] = v19 - v18;
+      v24[v16] = v18 - v17;
     }
   }
   KiMaximumGroups = 0;
-  v20 = v25;
+  v19 = v24;
   do
   {
-    if ( *v20 < (unsigned int)KiMaximumGroupSize )
+    if ( *v19 < (unsigned int)KiMaximumGroupSize )
       ++KiMaximumGroups;
-    ++v20;
-    --v8;
+    ++v19;
+    --v6;
   }
-  while ( v8 );
-  v21 = (unsigned __int16)KeNumberNodes;
+  while ( v6 );
+  v20 = (unsigned __int16)KeNumberNodes;
   if ( KeNumberNodes )
   {
-    v22 = (_BYTE *)(KiSubNodeConfigBlock + 5);
+    v21 = (_BYTE *)(KiSubNodeConfigBlock + 5);
     do
     {
-      *v22 |= 4u;
-      v22 += 24;
-      --v21;
+      *v21 |= 4u;
+      v21 += 24;
+      --v20;
     }
-    while ( v21 );
+    while ( v20 );
   }
   return 1;
 }

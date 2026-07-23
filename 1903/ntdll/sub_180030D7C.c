@@ -16,28 +16,27 @@
  *     ZwOpenThreadToken @ 0x18009CB60 (ZwOpenThreadToken.c)
  */
 
-__int64 __fastcall sub_180030D7C(_QWORD *a1, int a2, __int64 a3)
+NTSTATUS __fastcall sub_180030D7C(PHANDLE TokenHandle, int a2)
 {
-  __int64 result; // rax
-  int v5; // edi
-  __int64 v6; // [rsp+30h] [rbp+8h] BYREF
+  NTSTATUS result; // eax
+  NTSTATUS v4; // edi
+  __int64 ThreadInformation; // [rsp+30h] [rbp+8h] BYREF
 
-  *a1 = 0LL;
+  *TokenHandle = 0LL;
   if ( !NtCurrentTeb()->IsImpersonating )
-    return 0LL;
-  LOBYTE(a3) = 1;
-  result = ZwOpenThreadToken(-2LL, a2 != 0 ? 6 : 4, a3, a1);
-  if ( (int)result >= 0 )
+    return 0;
+  result = ZwOpenThreadToken((HANDLE)0xFFFFFFFFFFFFFFFELL, a2 != 0 ? 6 : 4, 1u, TokenHandle);
+  if ( result >= 0 )
   {
-    v6 = 0LL;
-    v5 = ZwSetInformationThread(-2LL, 5LL, &v6);
-    if ( v5 < 0 )
+    ThreadInformation = 0LL;
+    v4 = ZwSetInformationThread((HANDLE)0xFFFFFFFFFFFFFFFELL, ThreadImpersonationToken, &ThreadInformation, 8u);
+    if ( v4 < 0 )
     {
-      ZwClose(*a1);
-      *a1 = 0LL;
-      return (unsigned int)v5;
+      ZwClose(*TokenHandle);
+      *TokenHandle = 0LL;
+      return v4;
     }
-    return 0LL;
+    return 0;
   }
   return result;
 }

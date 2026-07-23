@@ -1,12 +1,12 @@
 /*
- * XREFs of KeCopyXfdMaskToTeb @ 0x1405724A0
+ * XREFs of KeCopyXfdMaskToTeb @ 0x1405729E0
  * Callers:
- *     KxEnableOptionalXStateFeatures @ 0x140572E54 (KxEnableOptionalXStateFeatures.c)
+ *     KxEnableOptionalXStateFeatures @ 0x140573394 (KxEnableOptionalXStateFeatures.c)
  *     KeInitThread @ 0x140A875D0 (KeInitThread.c)
  * Callees:
- *     KiStackAttachProcess @ 0x14022D600 (KiStackAttachProcess.c)
- *     KiUnstackDetachProcess @ 0x14022D9C0 (KiUnstackDetachProcess.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     KiStackAttachProcess @ 0x14022D710 (KiStackAttachProcess.c)
+ *     KiUnstackDetachProcess @ 0x14022DAD0 (KiUnstackDetachProcess.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  */
 
 void __fastcall KeCopyXfdMaskToTeb(_QWORD *a1)

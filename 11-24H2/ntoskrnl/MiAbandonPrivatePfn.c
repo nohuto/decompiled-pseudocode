@@ -1,12 +1,12 @@
 /*
- * XREFs of MiAbandonPrivatePfn @ 0x14036D268
+ * XREFs of MiAbandonPrivatePfn @ 0x140269D68
  * Callers:
- *     MiCombineInitialInstance @ 0x14036C3E0 (MiCombineInitialInstance.c)
+ *     MiCombineInitialInstance @ 0x140294F94 (MiCombineInitialInstance.c)
  * Callees:
- *     IS_PTE_NOT_DEMAND_ZERO @ 0x1402C6590 (IS_PTE_NOT_DEMAND_ZERO.c)
- *     MiSetPfnModified @ 0x1402E4730 (MiSetPfnModified.c)
- *     MI_IS_PTE_IN_WS_SWAP_SET @ 0x14036C05C (MI_IS_PTE_IN_WS_SWAP_SET.c)
- *     MiCapturePfnPageFileInfoInline @ 0x14036D370 (MiCapturePfnPageFileInfoInline.c)
+ *     MiSetPfnModified @ 0x140215EC0 (MiSetPfnModified.c)
+ *     IS_PTE_NOT_DEMAND_ZERO @ 0x140269980 (IS_PTE_NOT_DEMAND_ZERO.c)
+ *     MiCapturePfnPageFileInfoInline @ 0x140269E70 (MiCapturePfnPageFileInfoInline.c)
+ *     MI_IS_PTE_IN_WS_SWAP_SET @ 0x1402EDDFC (MI_IS_PTE_IN_WS_SWAP_SET.c)
  */
 
 __int64 __fastcall MiAbandonPrivatePfn(__int64 a1, int a2)
@@ -27,7 +27,9 @@ __int64 __fastcall MiAbandonPrivatePfn(__int64 a1, int a2)
   if ( (v7 & 2) != 0 )
   {
     if ( a2
-      || MI_IS_PTE_IN_WS_SWAP_SET(*((_QWORD *)qword_140E2FF88 + ((*(_QWORD *)(a1 + 40) >> 43) & 0x3FFLL)), a1 + 16) )
+      || (unsigned int)MI_IS_PTE_IN_WS_SWAP_SET(
+                         *((_QWORD *)qword_140E300C8 + ((*(_QWORD *)(a1 + 40) >> 43) & 0x3FFLL)),
+                         a1 + 16) )
     {
       v6 = 1;
     }

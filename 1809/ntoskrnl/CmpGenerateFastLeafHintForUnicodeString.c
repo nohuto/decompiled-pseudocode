@@ -1,8 +1,8 @@
 /*
- * XREFs of CmpGenerateFastLeafHintForUnicodeString @ 0x1405AF420
+ * XREFs of CmpGenerateFastLeafHintForUnicodeString @ 0x1405B0420
  * Callers:
- *     CmpAddToLeaf @ 0x1405AEEC0 (CmpAddToLeaf.c)
- *     CmpCheckLeaf @ 0x1405D8BC0 (CmpCheckLeaf.c)
+ *     CmpAddToLeaf @ 0x1405AFEC0 (CmpAddToLeaf.c)
+ *     CmpCheckLeaf @ 0x1405D9BC0 (CmpCheckLeaf.c)
  * Callees:
  *     <none>
  */

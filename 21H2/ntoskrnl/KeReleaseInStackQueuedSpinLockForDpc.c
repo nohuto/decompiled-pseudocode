@@ -1,13 +1,13 @@
 /*
- * XREFs of KeReleaseInStackQueuedSpinLockForDpc @ 0x1405166E0
+ * XREFs of KeReleaseInStackQueuedSpinLockForDpc @ 0x140516920
  * Callers:
- *     KeInsertByKeyDeviceQueue @ 0x14051A8C0 (KeInsertByKeyDeviceQueue.c)
- *     KeInsertDeviceQueue @ 0x14051A980 (KeInsertDeviceQueue.c)
- *     KeRemoveByKeyDeviceQueue @ 0x14051AA10 (KeRemoveByKeyDeviceQueue.c)
- *     KeRemoveByKeyDeviceQueueIfBusy @ 0x14051AAF0 (KeRemoveByKeyDeviceQueueIfBusy.c)
- *     KeRemoveDeviceQueue @ 0x14051ABD0 (KeRemoveDeviceQueue.c)
+ *     KeInsertByKeyDeviceQueue @ 0x14051AB00 (KeInsertByKeyDeviceQueue.c)
+ *     KeInsertDeviceQueue @ 0x14051ABC0 (KeInsertDeviceQueue.c)
+ *     KeRemoveByKeyDeviceQueue @ 0x14051AC50 (KeRemoveByKeyDeviceQueue.c)
+ *     KeRemoveByKeyDeviceQueueIfBusy @ 0x14051AD30 (KeRemoveByKeyDeviceQueueIfBusy.c)
+ *     KeRemoveDeviceQueue @ 0x14051AE10 (KeRemoveDeviceQueue.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402042B0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 

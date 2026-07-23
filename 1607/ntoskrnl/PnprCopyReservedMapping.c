@@ -1,18 +1,18 @@
 /*
- * XREFs of PnprCopyReservedMapping @ 0x1401D0094
+ * XREFs of PnprCopyReservedMapping @ 0x1401CFEC0
  * Callers:
- *     PnprRecopyMirrorPages @ 0x1401D07A0 (PnprRecopyMirrorPages.c)
+ *     PnprRecopyMirrorPages @ 0x1401D05CC (PnprRecopyMirrorPages.c)
  * Callees:
- *     MmGetPhysicalAddress @ 0x14002500C (MmGetPhysicalAddress.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     memmove @ 0x140171280 (memmove.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     PnprGetPageDestination @ 0x1401D041C (PnprGetPageDestination.c)
- *     MmContainingPageForReservedMapping @ 0x1401E3FDC (MmContainingPageForReservedMapping.c)
- *     MmMapLockedPagesWithReservedMapping @ 0x1401E4034 (MmMapLockedPagesWithReservedMapping.c)
- *     MmUnmapReservedMapping @ 0x1401E4198 (MmUnmapReservedMapping.c)
- *     MI_GET_PAGE_FRAME_FROM_PTE @ 0x1401F2550 (MI_GET_PAGE_FRAME_FROM_PTE.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1401F25D0 (MI_READ_PTE_LOCK_FREE.c)
+ *     MmGetPhysicalAddress @ 0x140024B8C (MmGetPhysicalAddress.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     memmove @ 0x140171780 (memmove.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     PnprGetPageDestination @ 0x1401D0248 (PnprGetPageDestination.c)
+ *     MmContainingPageForReservedMapping @ 0x1401E3E08 (MmContainingPageForReservedMapping.c)
+ *     MmMapLockedPagesWithReservedMapping @ 0x1401E3E60 (MmMapLockedPagesWithReservedMapping.c)
+ *     MmUnmapReservedMapping @ 0x1401E3FC4 (MmUnmapReservedMapping.c)
+ *     MI_GET_PAGE_FRAME_FROM_PTE @ 0x1401F237C (MI_GET_PAGE_FRAME_FROM_PTE.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1401F23FC (MI_READ_PTE_LOCK_FREE.c)
  */
 
 __int64 PnprCopyReservedMapping()

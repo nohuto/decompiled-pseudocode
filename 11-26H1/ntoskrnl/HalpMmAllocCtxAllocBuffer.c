@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpMmAllocCtxAllocBuffer @ 0x140358DC0
+ * XREFs of HalpMmAllocCtxAllocBuffer @ 0x14035AB60
  * Callers:
- *     HalpMmAllocCtxAlloc @ 0x140357FFC (HalpMmAllocCtxAlloc.c)
+ *     HalpMmAllocCtxAlloc @ 0x140359D9C (HalpMmAllocCtxAlloc.c)
  * Callees:
- *     HalpMmAllocCtxBufferCleanup @ 0x14035924C (HalpMmAllocCtxBufferCleanup.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
+ *     HalpMmAllocCtxBufferCleanup @ 0x14035AFEC (HalpMmAllocCtxBufferCleanup.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall HalpMmAllocCtxAllocBuffer(__int64 a1, unsigned __int64 a2)

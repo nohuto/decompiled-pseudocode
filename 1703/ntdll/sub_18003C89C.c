@@ -11,23 +11,23 @@
  *     sub_18004C4D8 @ 0x18004C4D8 (sub_18004C4D8.c)
  */
 
-__int64 __fastcall sub_18003C89C(__int64 a1, __int64 a2, __int64 a3, __int64 a4, _BYTE *a5)
+__int64 __fastcall sub_18003C89C(__int64 a1, _UNICODE_STRING *a2, __int64 a3, _UNICODE_STRING *a4, _BYTE *a5)
 {
   struct _PEB *v5; // r13
   _BYTE *v7; // r12
-  __int64 v9; // rsi
-  void *ApiSetMap; // rdi
+  _UNICODE_STRING *v9; // rsi
+  PAPI_SET_NAMESPACE ApiSetMap; // rdi
   char v11; // bp
   int v12; // eax
   __int16 v13; // di
   int v14; // ebx
   char v15; // r15
   __int64 v16; // r8
-  __int64 v17; // rdx
-  int v18; // edi
-  struct _RTL_USER_PROCESS_PARAMETERS *ProcessParameters; // rax
+  _UNICODE_STRING *v17; // rdx
+  NTSTATUS v18; // edi
+  PRTL_USER_PROCESS_PARAMETERS ProcessParameters; // rax
   _WORD v21[8]; // [rsp+50h] [rbp-48h] BYREF
-  _BYTE v22[16]; // [rsp+60h] [rbp-38h] BYREF
+  _UNICODE_STRING DynamicString; // [rsp+60h] [rbp-38h] BYREF
   __int64 v23; // [rsp+B0h] [rbp+18h] BYREF
 
   v23 = a3;
@@ -38,7 +38,7 @@ __int64 __fastcall sub_18003C89C(__int64 a1, __int64 a2, __int64 a3, __int64 a4,
   v11 = 1;
   *a5 = 0;
   sub_18003CA5C(0LL, a2, 5328LL);
-  v12 = sub_18003CAB0((_DWORD)ApiSetMap, v9, a1 != 0 ? a1 + 88 : 0, (unsigned int)&v23, (__int64)v21);
+  v12 = sub_18003CAB0((_DWORD)ApiSetMap, (_DWORD)v9, a1 != 0 ? a1 + 88 : 0, (unsigned int)&v23, (__int64)v21);
   v13 = v21[0];
   v14 = v12;
   v15 = v23;
@@ -66,7 +66,7 @@ __int64 __fastcall sub_18003C89C(__int64 a1, __int64 a2, __int64 a3, __int64 a4,
         ProcessParameters = v5->ProcessParameters;
         if ( !ProcessParameters || (v11 = 1, (ProcessParameters->Flags & 0x1000) == 0) )
           v11 = 0;
-        LODWORD(v9) = a4;
+        v9 = a4;
       }
     }
     else
@@ -76,12 +76,21 @@ __int64 __fastcall sub_18003C89C(__int64 a1, __int64 a2, __int64 a3, __int64 a4,
   }
   if ( v14 >= 0 && v11 && !byte_18015B26C )
   {
-    v18 = RtlDosApplyFileIsolationRedirection_Ustr(1, v9, (unsigned int)L"\b\n", 0, (__int64)v22, 0LL, 0LL, 0LL, 0LL);
+    v18 = RtlDosApplyFileIsolationRedirection_Ustr(
+            1u,
+            v9,
+            (PUNICODE_STRING)&Extension,
+            0LL,
+            &DynamicString,
+            0LL,
+            0LL,
+            0LL,
+            0LL);
     if ( v18 >= 0 )
     {
       *v7 = 1;
-      sub_18004BC44(v22, a4);
-      sub_18004C4D8(v22);
+      sub_18004BC44(&DynamicString, a4);
+      sub_18004C4D8(&DynamicString);
     }
     if ( v18 != -1072365560 )
       return (unsigned int)v18;

@@ -1,46 +1,46 @@
 /*
- * XREFs of RtlDestroyAtomTable @ 0x1800E2D40
+ * XREFs of RtlDestroyAtomTable @ 0x1800E2E00
  * Callers:
  *     <none>
  * Callees:
- *     RtlReleaseSRWLockExclusive @ 0x18001C550 (RtlReleaseSRWLockExclusive.c)
- *     RtlFreeHeap @ 0x1800466F0 (RtlFreeHeap.c)
- *     RtlpLockAtomTable @ 0x18006823C (RtlpLockAtomTable.c)
- *     RtlDestroyHandleTable @ 0x180089850 (RtlDestroyHandleTable.c)
+ *     RtlReleaseSRWLockExclusive @ 0x18001C540 (RtlReleaseSRWLockExclusive.c)
+ *     RtlFreeHeap @ 0x1800466E0 (RtlFreeHeap.c)
+ *     RtlpLockAtomTable @ 0x18006822C (RtlpLockAtomTable.c)
+ *     RtlDestroyHandleTable @ 0x180089840 (RtlDestroyHandleTable.c)
  *     memset @ 0x1800ACCC0 (memset.c)
  */
 
-__int64 __fastcall RtlDestroyAtomTable(char *a1, char *a2, __int64 a3, __int64 a4)
+NTSTATUS __cdecl RtlDestroyAtomTable(PVOID AtomTableHandle)
 {
-  unsigned int v6; // ebp
+  unsigned int v3; // ebp
   _QWORD **i; // rdi
-  _QWORD *v8; // rsi
-  _QWORD *v9; // r8
+  _QWORD *v5; // rsi
+  _QWORD *v6; // r8
 
-  if ( _InterlockedExchangeAdd((volatile signed __int32 *)a1 + 1, 0xFFFFFFFF) == 1 )
+  if ( _InterlockedExchangeAdd((volatile signed __int32 *)AtomTableHandle + 1, 0xFFFFFFFF) == 1 )
   {
-    if ( !RtlpLockAtomTable(a1, a2, a3, a4) )
-      return 3221225485LL;
-    v6 = 0;
-    for ( i = (_QWORD **)(a1 + 72); v6 < *((_DWORD *)a1 + 16); ++v6 )
+    if ( !RtlpLockAtomTable((__int64)AtomTableHandle) )
+      return -1073741811;
+    v3 = 0;
+    for ( i = (_QWORD **)((char *)AtomTableHandle + 72); v3 < *((_DWORD *)AtomTableHandle + 16); ++v3 )
     {
-      v8 = *i;
+      v5 = *i;
       *i++ = 0LL;
       while ( 1 )
       {
-        v9 = v8;
-        if ( !v8 )
+        v6 = v5;
+        if ( !v5 )
           break;
-        v8 = (_QWORD *)*v8;
-        *v9 = 0LL;
-        RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, (unsigned __int64)v9);
+        v5 = (_QWORD *)*v5;
+        *v6 = 0LL;
+        RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v6);
       }
     }
-    *(_DWORD *)a1 = 0;
-    RtlReleaseSRWLockExclusive((volatile signed __int64 *)a1 + 1);
-    RtlDestroyHandleTable((__int64)(a1 + 16));
-    memset(a1, 0, 0x50uLL);
-    RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, (unsigned __int64)a1);
+    *(_DWORD *)AtomTableHandle = 0;
+    RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)AtomTableHandle + 1);
+    RtlDestroyHandleTable((PRTL_HANDLE_TABLE)((char *)AtomTableHandle + 16));
+    memset(AtomTableHandle, 0, 0x50uLL);
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, AtomTableHandle);
   }
-  return 0LL;
+  return 0;
 }

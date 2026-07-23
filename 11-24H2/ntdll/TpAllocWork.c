@@ -1,55 +1,67 @@
 /*
- * XREFs of TpAllocWork @ 0x18001BE50
+ * XREFs of TpAllocWork @ 0x180048850
  * Callers:
- *     RtlpFcAllocateChangeRegistration @ 0x180097C08 (RtlpFcAllocateChangeRegistration.c)
- *     LdrpEnableParallelLoading @ 0x1800AB384 (LdrpEnableParallelLoading.c)
- *     RtlpCtContextInit @ 0x1801479E4 (RtlpCtContextInit.c)
+ *     RtlpFcAllocateChangeRegistration @ 0x18002CA58 (RtlpFcAllocateChangeRegistration.c)
+ *     LdrpEnableParallelLoading @ 0x180085804 (LdrpEnableParallelLoading.c)
+ *     RtlpCtContextInit @ 0x180145D94 (RtlpCtContextInit.c)
  * Callees:
- *     RtlAllocateHeap @ 0x180011260 (RtlAllocateHeap.c)
- *     TppWorkInitialize @ 0x18001A6B0 (TppWorkInitialize.c)
- *     TppCleanupGroupAddMember @ 0x18001C7C0 (TppCleanupGroupAddMember.c)
- *     RtlFreeHeap @ 0x1800269F0 (RtlFreeHeap.c)
- *     TppRaiseInvalidParameter @ 0x18006B7F4 (TppRaiseInvalidParameter.c)
+ *     RtlAllocateHeap @ 0x18003DC60 (RtlAllocateHeap.c)
+ *     TppWorkInitialize @ 0x1800470B0 (TppWorkInitialize.c)
+ *     TppCleanupGroupAddMember @ 0x1800491C0 (TppCleanupGroupAddMember.c)
+ *     RtlFreeHeap @ 0x1800533F0 (RtlFreeHeap.c)
+ *     TppRaiseInvalidParameter @ 0x1800880D4 (TppRaiseInvalidParameter.c)
  */
 
-__int64 __fastcall TpAllocWork(_QWORD *a1, __int64 a2, int a3, __int64 a4)
+NTSTATUS __cdecl TpAllocWork(
+        PTP_WORK *WorkReturn,
+        PTP_WORK_CALLBACK Callback,
+        PVOID Context,
+        PTP_CALLBACK_ENVIRON CallbackEnviron)
 {
-  int v8; // edi
-  __int64 Heap; // rax
-  _QWORD *v10; // rsi
-  int v11; // edi
+  int v5; // r12d
+  unsigned int Flags; // edi
+  _TP_WORK *Heap; // rax
+  _TP_WORK *v10; // rsi
+  NTSTATUS v11; // edi
   int v13; // [rsp+30h] [rbp-38h]
-  _UNKNOWN *retaddr; // [rsp+68h] [rbp+0h]
-  __int64 v15; // [rsp+88h] [rbp+20h]
+  void *retaddr; // [rsp+68h] [rbp+0h]
+  _TP_WORK *BaseAddress; // [rsp+88h] [rbp+20h]
 
-  if ( a4 )
-    v8 = *(_DWORD *)(a4 + 56);
+  v5 = (int)Context;
+  if ( CallbackEnviron )
+    Flags = CallbackEnviron->u.Flags;
   else
-    v8 = 0;
-  if ( !a1 || !a2 || (v8 & 0xFFFFFFFC) != 0 || NtCurrentPeb()->Ldr->ShutdownInProgress )
+    Flags = 0;
+  if ( !WorkReturn || !Callback || (Flags & 0xFFFFFFFC) != 0 || NtCurrentPeb()->Ldr->ShutdownInProgress )
   {
     TppRaiseInvalidParameter();
-    return 3221225485LL;
+    return -1073741811;
   }
   else
   {
-    *a1 = 0LL;
-    Heap = RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, (TppHeapTag + 0x200000) | 8u, 0xF0uLL);
-    v10 = (_QWORD *)Heap;
-    v15 = Heap;
+    *WorkReturn = 0LL;
+    Heap = (_TP_WORK *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, (TppHeapTag + 0x200000) | 8, 0xF0uLL);
+    v10 = Heap;
+    BaseAddress = Heap;
     if ( Heap )
     {
-      *(_QWORD *)(Heap + 176) = retaddr;
-      v11 = TppWorkInitialize(Heap, a3, a4, v8, (__int64)TppWorkpCleanupGroupMemberVFuncs, (__int64)TppWorkpTaskVFuncs);
+      Heap->CleanupGroupMember.AllocCaller.ReturnAddress = retaddr;
+      v11 = TppWorkInitialize(
+              (__int64)Heap,
+              v5,
+              (int)CallbackEnviron,
+              Flags,
+              (__int64)TppWorkpCleanupGroupMemberVFuncs,
+              (__int64)&TppWorkpTaskVFuncs);
       v13 = v11;
       if ( v11 >= 0 )
       {
-        v10[10] = a2;
+        v10->CleanupGroupMember.Callback = Callback;
         v11 = 0;
         v13 = 0;
-        if ( a4 )
-          v10[4] = *(_QWORD *)(a4 + 48);
-        if ( v10[2] )
+        if ( CallbackEnviron )
+          v10->CleanupGroupMember.FinalizationCallback = CallbackEnviron->FinalizationCallback;
+        if ( v10->CleanupGroupMember.CleanupGroup )
           TppCleanupGroupAddMember(v10);
       }
     }
@@ -62,13 +74,13 @@ __int64 __fastcall TpAllocWork(_QWORD *a1, __int64 a2, int a3, __int64 a4)
       goto LABEL_15;
     if ( v10 )
     {
-      RtlFreeHeap(NtCurrentPeb()->ProcessHeap, (unsigned int)(TppHeapTag + 0x200000), v15);
+      RtlFreeHeap(NtCurrentPeb()->ProcessHeap, TppHeapTag + 0x200000, BaseAddress);
       v10 = 0LL;
       v11 = v13;
     }
     if ( v11 >= 0 )
 LABEL_15:
-      *a1 = v10;
-    return (unsigned int)v11;
+      *WorkReturn = v10;
+    return v11;
   }
 }

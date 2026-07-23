@@ -1,11 +1,11 @@
 /*
- * XREFs of PopTracePowerReconfig @ 0x1402E2564
+ * XREFs of PopTracePowerReconfig @ 0x1402E2754
  * Callers:
- *     PopBatteryApplyCompositeState @ 0x14071A148 (PopBatteryApplyCompositeState.c)
+ *     PopBatteryApplyCompositeState @ 0x14071B3E8 (PopBatteryApplyCompositeState.c)
  * Callees:
  *     _TlgKeywordOn @ 0x140012A04 (_TlgKeywordOn.c)
  *     _TlgWrite @ 0x140012EE4 (_TlgWrite.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
  */
 
 void PopTracePowerReconfig()
@@ -41,10 +41,10 @@ void PopTracePowerReconfig()
   {
     if ( TlgKeywordOn(&pCallbackContext, 0x400000000000uLL) )
     {
-      v2 = dword_140417914;
-      v3 = xmmword_140417964;
-      v6 = (unsigned __int8)byte_140417AA4;
-      v7 = (unsigned __int8)byte_140417A88;
+      v2 = dword_1404189B4;
+      v3 = xmmword_140418A04;
+      v6 = (unsigned __int8)byte_140418B44;
+      v7 = (unsigned __int8)byte_140418B28;
       v10 = v8;
       v12 = &v2;
       v14 = &v3;
@@ -61,7 +61,7 @@ void PopTracePowerReconfig()
       v19 = 4LL;
       v21 = 4LL;
       v23 = 4LL;
-      TlgWrite(&pCallbackContext, &unk_14037069F, 0LL, 0LL, 9u, &pData);
+      TlgWrite(&pCallbackContext, &unk_140371572, 0LL, 0LL, 9u, &pData);
     }
   }
 }

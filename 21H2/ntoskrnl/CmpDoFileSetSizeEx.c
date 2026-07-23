@@ -1,21 +1,21 @@
 /*
- * XREFs of CmpDoFileSetSizeEx @ 0x140724A00
+ * XREFs of CmpDoFileSetSizeEx @ 0x1406FC9FC
  * Callers:
- *     CmpCompleteUnloadKey @ 0x14071CB34 (CmpCompleteUnloadKey.c)
- *     HvWriteLogFile @ 0x14071DA5C (HvWriteLogFile.c)
- *     HvpAddBin @ 0x140722A58 (HvpAddBin.c)
- *     HvTruncateCurrentLogFileIfRequired @ 0x1407243E8 (HvTruncateCurrentLogFileIfRequired.c)
- *     HvTruncateAllLogFilesIfRequired @ 0x140725808 (HvTruncateAllLogFilesIfRequired.c)
- *     HvWriteExternal @ 0x140728FA0 (HvWriteExternal.c)
- *     CmpLoadHiveThread @ 0x14079ED50 (CmpLoadHiveThread.c)
- *     CmpMountPreloadedHives @ 0x1407AABF4 (CmpMountPreloadedHives.c)
- *     CmShutdownSystem @ 0x14086B8F8 (CmShutdownSystem.c)
- *     HvpPerformLogFileRecovery @ 0x1408740BC (HvpPerformLogFileRecovery.c)
+ *     CmpCompleteUnloadKey @ 0x1405E0268 (CmpCompleteUnloadKey.c)
+ *     HvTruncateAllLogFilesIfRequired @ 0x1406202D4 (HvTruncateAllLogFilesIfRequired.c)
+ *     HvWriteLogFile @ 0x1406F9FEC (HvWriteLogFile.c)
+ *     HvpAddBin @ 0x1406FAA84 (HvpAddBin.c)
+ *     HvTruncateCurrentLogFileIfRequired @ 0x1406FC414 (HvTruncateCurrentLogFileIfRequired.c)
+ *     HvWriteExternal @ 0x140729450 (HvWriteExternal.c)
+ *     CmpLoadHiveThread @ 0x14079EF50 (CmpLoadHiveThread.c)
+ *     CmpMountPreloadedHives @ 0x1407AADF4 (CmpMountPreloadedHives.c)
+ *     CmShutdownSystem @ 0x14086BA58 (CmShutdownSystem.c)
+ *     HvpPerformLogFileRecovery @ 0x14087421C (HvpPerformLogFileRecovery.c)
  * Callees:
- *     IoSetThreadHardErrorMode @ 0x140250300 (IoSetThreadHardErrorMode.c)
- *     ZwSetInformationFile @ 0x1403FA880 (ZwSetInformationFile.c)
- *     HvpLogTypeToLogArrayIndex @ 0x14072465C (HvpLogTypeToLogArrayIndex.c)
- *     CmpAdjustRequestedFileSize @ 0x140724F94 (CmpAdjustRequestedFileSize.c)
+ *     IoSetThreadHardErrorMode @ 0x1402F4B10 (IoSetThreadHardErrorMode.c)
+ *     ZwSetInformationFile @ 0x1403FAA60 (ZwSetInformationFile.c)
+ *     CmpAdjustRequestedFileSize @ 0x14061B170 (CmpAdjustRequestedFileSize.c)
+ *     HvpLogTypeToLogArrayIndex @ 0x1406FC688 (HvpLogTypeToLogArrayIndex.c)
  */
 
 __int64 __fastcall CmpDoFileSetSizeEx(__int64 a1, unsigned int a2, unsigned __int64 a3, char a4)

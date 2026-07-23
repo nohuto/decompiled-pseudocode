@@ -1,75 +1,79 @@
 /*
- * XREFs of RtlQueryInformationAcl @ 0x140736140
+ * XREFs of RtlQueryInformationAcl @ 0x140736330
  * Callers:
- *     SepSetProcessTrustLabelAceForToken @ 0x1402B3740 (SepSetProcessTrustLabelAceForToken.c)
- *     SepAppendAceToTokenDefaultDacl @ 0x14037046C (SepAppendAceToTokenDefaultDacl.c)
- *     SepAppendAceToTokenObjectAcl @ 0x1406BD110 (SepAppendAceToTokenObjectAcl.c)
+ *     SepSetProcessTrustLabelAceForToken @ 0x1402B39D0 (SepSetProcessTrustLabelAceForToken.c)
+ *     SepAppendAceToTokenDefaultDacl @ 0x14037060C (SepAppendAceToTokenDefaultDacl.c)
+ *     SepAppendAceToTokenObjectAcl @ 0x1406BD140 (SepAppendAceToTokenObjectAcl.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall RtlQueryInformationAcl(unsigned __int8 *a1, unsigned int *a2, unsigned int a3, int a4)
+NTSTATUS __cdecl RtlQueryInformationAcl(
+        PACL Acl,
+        PVOID AclInformation,
+        ULONG AclInformationLength,
+        ACL_INFORMATION_CLASS AclInformationClass)
 {
-  unsigned int v4; // r10d
-  int v6; // r9d
-  unsigned int v7; // r10d
-  unsigned __int8 *v8; // rdx
+  int AclRevision; // r10d
+  __int32 v6; // r9d
+  unsigned int AceCount; // r10d
+  PACL v8; // rdx
   int v9; // r8d
   unsigned int v10; // r9d
-  unsigned __int8 *v11; // rax
+  ACL *v11; // rax
   int v12; // edx
 
-  v4 = *a1;
-  if ( (unsigned __int8)(v4 - 2) > 2u )
-    return 3221225485LL;
-  v6 = a4 - 1;
+  AclRevision = Acl->AclRevision;
+  if ( (unsigned __int8)(AclRevision - 2) > 2u )
+    return -1073741811;
+  v6 = AclInformationClass - 1;
   if ( !v6 )
   {
-    if ( a3 >= 4 )
+    if ( AclInformationLength >= 4 )
     {
-      *a2 = v4;
-      return 0LL;
+      *(_DWORD *)AclInformation = AclRevision;
+      return 0;
     }
-    return 3221225507LL;
+    return -1073741789;
   }
   if ( v6 == 1 )
   {
-    if ( a3 >= 0xC )
+    if ( AclInformationLength >= 0xC )
     {
-      v7 = *((unsigned __int16 *)a1 + 2);
-      v8 = a1 + 8;
+      AceCount = Acl->AceCount;
+      v8 = Acl + 1;
       v9 = 0;
       v10 = 0;
-      if ( *((_WORD *)a1 + 2) )
+      if ( Acl->AceCount )
       {
-        while ( v8 < &a1[*((unsigned __int16 *)a1 + 1)] )
+        while ( v8 < (PACL)((char *)Acl + Acl->AclSize) )
         {
           ++v10;
-          v8 += *((unsigned __int16 *)v8 + 1);
-          if ( v10 >= v7 )
+          v8 = (PACL)((char *)v8 + v8->AclSize);
+          if ( v10 >= AceCount )
             goto LABEL_8;
         }
-        return 3221225485LL;
+        return -1073741811;
       }
 LABEL_8:
-      v11 = &a1[*((unsigned __int16 *)a1 + 1)];
-      *a2 = v7;
+      v11 = (PACL)((char *)Acl + Acl->AclSize);
+      *(_DWORD *)AclInformation = AceCount;
       if ( v8 > v11 )
         v8 = 0LL;
       if ( v8 )
       {
-        v12 = (_DWORD)v8 - (_DWORD)a1;
-        a2[1] = v12;
-        v9 = *((unsigned __int16 *)a1 + 1) - v12;
+        v12 = (_DWORD)v8 - (_DWORD)Acl;
+        *((_DWORD *)AclInformation + 1) = v12;
+        v9 = Acl->AclSize - v12;
       }
       else
       {
-        a2[1] = *((unsigned __int16 *)a1 + 1);
+        *((_DWORD *)AclInformation + 1) = Acl->AclSize;
       }
-      a2[2] = v9;
-      return 0LL;
+      *((_DWORD *)AclInformation + 2) = v9;
+      return 0;
     }
-    return 3221225507LL;
+    return -1073741789;
   }
-  return 3221225475LL;
+  return -1073741821;
 }

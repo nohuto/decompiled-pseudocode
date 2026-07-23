@@ -1,13 +1,13 @@
 /*
- * XREFs of MiReclaimUnusedUltraMdlMaps @ 0x1402D25D4
+ * XREFs of MiReclaimUnusedUltraMdlMaps @ 0x14035384C
  * Callers:
- *     MiWorkingSetManager @ 0x1402D3D20 (MiWorkingSetManager.c)
+ *     MiWorkingSetManager @ 0x140354FA0 (MiWorkingSetManager.c)
  * Callees:
- *     MiReleaseSpinLockExclusive @ 0x14028EE30 (MiReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x14028F370 (ExAcquireSpinLockExclusive.c)
- *     MiDeleteUltraMapContext @ 0x1402D1B78 (MiDeleteUltraMapContext.c)
- *     RtlpInterlockedPopEntrySList @ 0x1406B3890 (RtlpInterlockedPopEntrySList.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     MiReleaseSpinLockExclusive @ 0x14029EA30 (MiReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14029EF70 (ExAcquireSpinLockExclusive.c)
+ *     MiDeleteUltraMapContext @ 0x140352DF0 (MiDeleteUltraMapContext.c)
+ *     RtlpInterlockedPopEntrySList @ 0x1406B4830 (RtlpInterlockedPopEntrySList.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 MiReclaimUnusedUltraMdlMaps()
@@ -33,9 +33,9 @@ __int64 MiReclaimUnusedUltraMdlMaps()
       v4 = (unsigned __int64)v2 << 9;
       do
       {
-        while ( *(_WORD *)(v4 + qword_140E35F28) > 2u )
+        while ( *(_WORD *)(v4 + qword_140E36068) > 2u )
         {
-          v5 = RtlpInterlockedPopEntrySList((PSLIST_HEADER)(qword_140E35F28 + ((8LL * v2 + v3) << 6)));
+          v5 = RtlpInterlockedPopEntrySList((PSLIST_HEADER)(qword_140E36068 + ((8LL * v2 + v3) << 6)));
           v6 = v5;
           if ( !v5 )
             break;
@@ -53,9 +53,9 @@ __int64 MiReclaimUnusedUltraMdlMaps()
     while ( v2 < (unsigned __int16)KeNumberNodes );
     if ( v1 )
     {
-      v7 = ExAcquireSpinLockExclusive(&dword_140E35EE0);
-      dword_140E35F20 -= v1;
-      return MiReleaseSpinLockExclusive(&dword_140E35EE0, v7);
+      v7 = ExAcquireSpinLockExclusive(&dword_140E36020);
+      dword_140E36060 -= v1;
+      return MiReleaseSpinLockExclusive(&dword_140E36020, v7);
     }
   }
   return result;

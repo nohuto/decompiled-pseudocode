@@ -3,7 +3,7 @@
  * Callers:
  *     PnpInitializePnpWatchdogs @ 0x140B6104C (PnpInitializePnpWatchdogs.c)
  * Callees:
- *     PnpGetRegistryDword @ 0x1403A09FC (PnpGetRegistryDword.c)
+ *     PnpGetRegistryDword @ 0x1403A0BDC (PnpGetRegistryDword.c)
  */
 
 __int64 __fastcall PnpQueryWatchdogTimeoutConfiguration(void *a1)

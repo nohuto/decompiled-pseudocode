@@ -1,9 +1,9 @@
 /*
- * XREFs of EtwpGetUmLoggerInfoFromContext @ 0x180054338
+ * XREFs of EtwpGetUmLoggerInfoFromContext @ 0x180054328
  * Callers:
- *     EtwpQueryUmLogger @ 0x180051CEC (EtwpQueryUmLogger.c)
- *     EtwpStopUmLogger @ 0x180053400 (EtwpStopUmLogger.c)
- *     EtwpStartUmLogger @ 0x18005396C (EtwpStartUmLogger.c)
+ *     EtwpQueryUmLogger @ 0x180051CDC (EtwpQueryUmLogger.c)
+ *     EtwpStopUmLogger @ 0x1800533F0 (EtwpStopUmLogger.c)
+ *     EtwpStartUmLogger @ 0x18005395C (EtwpStartUmLogger.c)
  * Callees:
  *     <none>
  */

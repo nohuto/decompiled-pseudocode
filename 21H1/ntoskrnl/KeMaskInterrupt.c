@@ -42,8 +42,8 @@ __int64 __fastcall KeMaskInterrupt(__int64 *a1, unsigned __int8 a2, __int64 a3, 
   _DWORD *v29; // r8
   int v30; // eax
   unsigned __int8 v31[4]; // [rsp+30h] [rbp-20h] BYREF
-  struct _PROCESSOR_NUMBER ProcNumber; // [rsp+34h] [rbp-1Ch] BYREF
-  struct _GROUP_AFFINITY PreviousAffinity; // [rsp+38h] [rbp-18h] BYREF
+  _PROCESSOR_NUMBER ProcNumber; // [rsp+34h] [rbp-1Ch] BYREF
+  _GROUP_AFFINITY PreviousAffinity; // [rsp+38h] [rbp-18h] BYREF
 
   PreviousAffinity = 0LL;
   v31[0] = 0;

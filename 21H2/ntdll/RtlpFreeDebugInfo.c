@@ -5,18 +5,18 @@
  *     RtlInitializeResource @ 0x1800112E0 (RtlInitializeResource.c)
  *     RtlpAddDebugInfoToCriticalSection @ 0x180011840 (RtlpAddDebugInfoToCriticalSection.c)
  * Callees:
- *     RtlpInterlockedPushEntrySList @ 0x1800A1250 (RtlpInterlockedPushEntrySList.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1800A1210 (RtlpInterlockedPushEntrySList.c)
  */
 
-__int64 __fastcall RtlpFreeDebugInfo(unsigned __int64 a1)
+LOGICAL __fastcall RtlpFreeDebugInfo(int *a1, __int64 a2, __int64 a3, __int64 a4)
 {
   if ( LOWORD(RtlCriticalSectionDebugSList.Alignment) >= 0xAu
-    && ((unsigned __int64)&RtlpStaticDebugInfo > a1 || a1 >= (unsigned __int64)&SRWLockSpinCycleCount) )
+    && (&RtlpStaticDebugInfo > (_UNKNOWN *)a1 || a1 >= &SRWLockSpinCycleCount) )
   {
-    return RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0LL, a1);
+    return RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, a1);
   }
   else
   {
-    return RtlpInterlockedPushEntrySList(&RtlCriticalSectionDebugSList, a1);
+    return RtlpInterlockedPushEntrySList(&RtlCriticalSectionDebugSList, a1, a3, a4);
   }
 }

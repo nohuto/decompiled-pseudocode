@@ -1,12 +1,12 @@
 /*
- * XREFs of PopAcquireUmpoPushLock @ 0x1405204E8
+ * XREFs of PopAcquireUmpoPushLock @ 0x140503550
  * Callers:
- *     PopUmpoSendPowerMessage @ 0x1400FB738 (PopUmpoSendPowerMessage.c)
- *     PopUmpoProcessMessage @ 0x1403F7B28 (PopUmpoProcessMessage.c)
+ *     PopUmpoSendPowerMessage @ 0x1400F94C4 (PopUmpoSendPowerMessage.c)
+ *     PopUmpoProcessMessage @ 0x1403F69E8 (PopUmpoProcessMessage.c)
  * Callees:
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1400C8070 (ExfAcquirePushLockExclusiveEx.c)
- *     ExfAcquirePushLockSharedEx @ 0x1400C8280 (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1400C5F10 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfAcquirePushLockSharedEx @ 0x1400C6120 (ExfAcquirePushLockSharedEx.c)
  */
 
 _BYTE *__fastcall PopAcquireUmpoPushLock(char a1)

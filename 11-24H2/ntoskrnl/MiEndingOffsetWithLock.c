@@ -1,91 +1,90 @@
 /*
- * XREFs of MiEndingOffsetWithLock @ 0x14023A3EC
+ * XREFs of MiEndingOffsetWithLock @ 0x1402724D4
  * Callers:
- *     MiReadyFlushMdlToWrite @ 0x14023C268 (MiReadyFlushMdlToWrite.c)
- *     MiViewMayContainPage @ 0x1402BA550 (MiViewMayContainPage.c)
- *     MiPfPrepareReadList @ 0x1409557EC (MiPfPrepareReadList.c)
- *     MiPfPrepareSequentialReadList @ 0x140956378 (MiPfPrepareSequentialReadList.c)
- *     MiPfAllocateMdls @ 0x140956EEC (MiPfAllocateMdls.c)
+ *     MiReadyFlushMdlToWrite @ 0x1402735E4 (MiReadyFlushMdlToWrite.c)
+ *     MiViewMayContainPage @ 0x140361C90 (MiViewMayContainPage.c)
+ *     MiPfPrepareReadList @ 0x14093919C (MiPfPrepareReadList.c)
+ *     MiPfPrepareSequentialReadList @ 0x140939D28 (MiPfPrepareSequentialReadList.c)
+ *     MiPfAllocateMdls @ 0x14093A89C (MiPfAllocateMdls.c)
  * Callees:
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x140210C80 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     ExpReleaseSpinLockSharedFromDpcLevelInstrumented @ 0x1402465FC (ExpReleaseSpinLockSharedFromDpcLevelInstrumented.c)
- *     ExpWaitForSpinLockSharedAndAcquire @ 0x1402C4AD0 (ExpWaitForSpinLockSharedAndAcquire.c)
- *     ExpAcquireSpinLockSharedAtDpcLevelInstrumented @ 0x1402DFAA0 (ExpAcquireSpinLockSharedAtDpcLevelInstrumented.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     ExpReleaseSpinLockSharedFromDpcLevelInstrumented @ 0x140219638 (ExpReleaseSpinLockSharedFromDpcLevelInstrumented.c)
+ *     ExpWaitForSpinLockSharedAndAcquire @ 0x140219B50 (ExpWaitForSpinLockSharedAndAcquire.c)
+ *     ExpAcquireSpinLockSharedAtDpcLevelInstrumented @ 0x140241380 (ExpAcquireSpinLockSharedAtDpcLevelInstrumented.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x140339FE0 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
-unsigned __int64 __fastcall MiEndingOffsetWithLock(_QWORD *a1, __int64 a2, __int64 a3)
+unsigned __int64 __fastcall MiEndingOffsetWithLock(_QWORD *a1, __int64 a2, __int64 a3, __int64 a4)
 {
-  _DWORD *v3; // rsi
-  _DWORD *v4; // rbx
+  _DWORD *v4; // rsi
+  _DWORD *v5; // rbx
   unsigned __int8 CurrentIrql; // di
-  __int64 v6; // rdx
-  unsigned __int64 v7; // rcx
-  unsigned __int64 v8; // rsi
-  signed __int32 v10; // eax
-  signed __int32 v11; // ett
-  void *retaddr; // [rsp+28h] [rbp+0h]
+  __int64 v7; // rdx
+  unsigned __int64 v8; // rcx
+  unsigned __int64 v9; // rsi
+  signed __int32 v11; // eax
+  signed __int32 v12; // ett
+  __int64 retaddr; // [rsp+28h] [rbp+0h]
 
-  v3 = a1;
-  v4 = (_DWORD *)(*a1 + 72LL);
+  v4 = a1;
+  v5 = (_DWORD *)(*a1 + 72LL);
   CurrentIrql = KeGetCurrentIrql();
-  v6 = 2LL;
+  v7 = 2LL;
   __writecr8(2uLL);
   if ( KiIrqlFlags )
   {
     LOBYTE(a1) = CurrentIrql;
-    KiRaiseIrqlProcessIrqlFlags(a1, 2LL, a3);
+    KiRaiseIrqlProcessIrqlFlags(a1, 2LL);
   }
   if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || PopHibernateInProgress )
   {
-    _m_prefetchw(v4);
-    v10 = *v4 & 0x7FFFFFFF;
+    _m_prefetchw(v5);
+    v11 = *v5 & 0x7FFFFFFF;
     while ( 1 )
     {
-      v11 = v10;
-      v10 = _InterlockedCompareExchange(v4, v10 + 1, v10);
-      if ( v11 == v10 )
+      v12 = v11;
+      v11 = _InterlockedCompareExchange(v5, v11 + 1, v11);
+      if ( v12 == v11 )
         break;
-      if ( v10 < 0 )
+      if ( v11 < 0 )
       {
-        LOBYTE(v6) = CurrentIrql;
-        ExpWaitForSpinLockSharedAndAcquire(v4, v6);
+        LOBYTE(v7) = CurrentIrql;
+        ExpWaitForSpinLockSharedAndAcquire(v5, v7, a3, a4);
         break;
       }
     }
   }
   else
   {
-    LOBYTE(v6) = CurrentIrql;
-    ExpAcquireSpinLockSharedAtDpcLevelInstrumented(v4, v6);
+    ExpAcquireSpinLockSharedAtDpcLevelInstrumented(v5, CurrentIrql);
   }
-  if ( (*(_DWORD *)(*(_QWORD *)v3 + 56LL) & 0x20) != 0 )
-    v7 = ((unsigned int)v3[9] + (unsigned __int64)(unsigned int)v3[10]) << 9;
+  if ( (*(_DWORD *)(*(_QWORD *)v4 + 56LL) & 0x20) != 0 )
+    v8 = ((unsigned int)v4[9] + (unsigned __int64)(unsigned int)v4[10]) << 9;
   else
-    v7 = ((unsigned int)v3[10] + ((unsigned int)v3[9] | ((unsigned __int64)(v3[8] & 0xFFC0) << 26))) << 12;
-  v8 = v7 + ((unsigned __int64)(unsigned int)v3[8] >> 20);
+    v8 = ((unsigned int)v4[10] + ((unsigned int)v4[9] | ((unsigned __int64)(v4[8] & 0xFFC0) << 26))) << 12;
+  v9 = v8 + ((unsigned __int64)(unsigned int)v4[8] >> 20);
   if ( CurrentIrql == 17 )
   {
-    ExReleaseSpinLockSharedFromDpcLevel(v4);
+    ExReleaseSpinLockSharedFromDpcLevel(v5);
   }
   else
   {
     if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || PopHibernateInProgress )
     {
-      _InterlockedAnd(v4, 0xBFFFFFFF);
-      _InterlockedDecrement(v4);
+      _InterlockedAnd(v5, 0xBFFFFFFF);
+      _InterlockedDecrement(v5);
     }
     else
     {
-      ExpReleaseSpinLockSharedFromDpcLevelInstrumented(v4, retaddr);
+      ExpReleaseSpinLockSharedFromDpcLevelInstrumented(v5, retaddr);
     }
     if ( KiIrqlFlags )
     {
-      LOBYTE(v6) = CurrentIrql;
-      KiLowerIrqlProcessIrqlFlags(KeGetCurrentIrql(), v6);
+      LOBYTE(v7) = CurrentIrql;
+      KiLowerIrqlProcessIrqlFlags(KeGetCurrentIrql(), v7);
     }
     __writecr8(CurrentIrql);
   }
-  return v8;
+  return v9;
 }

@@ -1,17 +1,17 @@
 /*
- * XREFs of IovpBuildDriverObjectList @ 0x140B82894
+ * XREFs of IovpBuildDriverObjectList @ 0x140B84894
  * Callers:
- *     ObEnumerateObjectsByType @ 0x1407442A0 (ObEnumerateObjectsByType.c)
+ *     ObEnumerateObjectsByType @ 0x140742590 (ObEnumerateObjectsByType.c)
  * Callees:
- *     ObReferenceObjectSafe @ 0x14041D310 (ObReferenceObjectSafe.c)
- *     PnpIsLegacyDriver @ 0x1409C6164 (PnpIsLegacyDriver.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ObReferenceObjectSafe @ 0x140411C00 (ObReferenceObjectSafe.c)
+ *     PnpIsLegacyDriver @ 0x140983408 (PnpIsLegacyDriver.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 char __fastcall IovpBuildDriverObjectList(__int64 a1)
 {
-  ULONG_PTR Pool2; // rax
+  __int64 Pool2; // rax
   _QWORD *v3; // rbx
 
   if ( !(unsigned int)PnpIsLegacyDriver(a1) )

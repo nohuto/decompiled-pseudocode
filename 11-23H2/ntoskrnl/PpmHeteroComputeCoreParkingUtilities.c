@@ -1,13 +1,13 @@
 /*
- * XREFs of PpmHeteroComputeCoreParkingUtilities @ 0x140596CC8
+ * XREFs of PpmHeteroComputeCoreParkingUtilities @ 0x1405971B8
  * Callers:
- *     PpmCheckComputeMultiClassHeteroResponse @ 0x1405968A8 (PpmCheckComputeMultiClassHeteroResponse.c)
- *     PpmHeteroComputeMultiClassUnparkCount @ 0x140596E90 (PpmHeteroComputeMultiClassUnparkCount.c)
+ *     PpmCheckComputeMultiClassHeteroResponse @ 0x140596D98 (PpmCheckComputeMultiClassHeteroResponse.c)
+ *     PpmHeteroComputeMultiClassUnparkCount @ 0x140597380 (PpmHeteroComputeMultiClassUnparkCount.c)
  * Callees:
- *     KeEnumerateNextProcessor @ 0x1402572B0 (KeEnumerateNextProcessor.c)
- *     KeGetPrcb @ 0x140257330 (KeGetPrcb.c)
- *     qsort @ 0x1403DA430 (qsort.c)
- *     memset @ 0x140435A00 (memset.c)
+ *     KeEnumerateNextProcessor @ 0x140257370 (KeEnumerateNextProcessor.c)
+ *     KeGetPrcb @ 0x1402573F0 (KeGetPrcb.c)
+ *     qsort @ 0x1403DA610 (qsort.c)
+ *     memset @ 0x140435E00 (memset.c)
  */
 
 void __fastcall PpmHeteroComputeCoreParkingUtilities(

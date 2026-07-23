@@ -1,15 +1,15 @@
 /*
- * XREFs of CmpGetSecurityCacheEntryForKcbStack @ 0x140869130
+ * XREFs of CmpGetSecurityCacheEntryForKcbStack @ 0x14086D420
  * Callers:
- *     CmpCheckKcbStackAccess @ 0x1406F8094 (CmpCheckKcbStackAccess.c)
- *     CmpCheckCreateAccessOnKcbStack @ 0x140868520 (CmpCheckCreateAccessOnKcbStack.c)
- *     CmpCheckKeyOwnerForPca @ 0x140868640 (CmpCheckKeyOwnerForPca.c)
- *     CmpNotifyTriggerCheck @ 0x140868C88 (CmpNotifyTriggerCheck.c)
- *     CmSetValueKey @ 0x14086B130 (CmSetValueKey.c)
- *     CmDeleteValueKey @ 0x14086D078 (CmDeleteValueKey.c)
- *     CmpCreateChild @ 0x14091788C (CmpCreateChild.c)
+ *     CmpCheckKcbStackAccess @ 0x1406F6094 (CmpCheckKcbStackAccess.c)
+ *     CmpCheckCreateAccessOnKcbStack @ 0x14086C810 (CmpCheckCreateAccessOnKcbStack.c)
+ *     CmpCheckKeyOwnerForPca @ 0x14086C930 (CmpCheckKeyOwnerForPca.c)
+ *     CmpNotifyTriggerCheck @ 0x14086CF78 (CmpNotifyTriggerCheck.c)
+ *     CmSetValueKey @ 0x14086F460 (CmSetValueKey.c)
+ *     CmDeleteValueKey @ 0x1408713A8 (CmDeleteValueKey.c)
+ *     CmpCreateChild @ 0x14090B2FC (CmpCreateChild.c)
  * Callees:
- *     CmpTransUowIsEqual @ 0x1406FB46C (CmpTransUowIsEqual.c)
+ *     CmpTransUowIsEqual @ 0x1406F90AC (CmpTransUowIsEqual.c)
  */
 
 __int64 __fastcall CmpGetSecurityCacheEntryForKcbStack(__int64 a1, __int64 a2, _WORD *a3)

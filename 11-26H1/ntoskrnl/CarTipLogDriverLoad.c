@@ -1,12 +1,12 @@
 /*
- * XREFs of CarTipLogDriverLoad @ 0x140649380
+ * XREFs of CarTipLogDriverLoad @ 0x14064CF60
  * Callers:
- *     CarEtwRegister @ 0x140648A94 (CarEtwRegister.c)
+ *     CarEtwRegister @ 0x14064C674 (CarEtwRegister.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212E30 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgCreate1Sz_wchar_t @ 0x140437A60 (_tlgCreate1Sz_wchar_t.c)
- *     _tlgKeywordOn @ 0x14044F850 (_tlgKeywordOn.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212F10 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgCreate1Sz_wchar_t @ 0x1404269F0 (_tlgCreate1Sz_wchar_t.c)
+ *     _tlgKeywordOn @ 0x140447980 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 void CarTipLogDriverLoad()
@@ -31,9 +31,9 @@ void CarTipLogDriverLoad()
   {
     for ( i = CarDriverInfo; i; i = *(_QWORD *)i )
     {
-      if ( (unsigned int)dword_140E08EA8 > 5 && tlgKeywordOn((__int64)&dword_140E08EA8, 0x800000000000LL) )
+      if ( (unsigned int)dword_140E08E50 > 5 && tlgKeywordOn((__int64)&dword_140E08E50, 0x800000000000LL) )
       {
-        v1 = *(_DWORD *)&stru_140F066E8.WaitBlockFill11[40];
+        v1 = CarTipTag;
         v7 = 4LL;
         v6 = &v1;
         tlgCreate1Sz_wchar_t((__int64)v8, (const WCHAR *)(i + 8));
@@ -47,8 +47,8 @@ void CarTipLogDriverLoad()
         v12 = 8LL;
         v14 = 8LL;
         tlgWriteTransfer_EtwWriteTransfer(
-          (__int64)&dword_140E08EA8,
-          (unsigned __int8 *)&byte_140052C8F,
+          (__int64)&dword_140E08E50,
+          (unsigned __int8 *)&word_140053C66,
           0LL,
           0LL,
           7u,

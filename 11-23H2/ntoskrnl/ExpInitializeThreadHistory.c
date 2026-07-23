@@ -1,7 +1,7 @@
 /*
- * XREFs of ExpInitializeThreadHistory @ 0x14031E27C
+ * XREFs of ExpInitializeThreadHistory @ 0x14031E50C
  * Callers:
- *     NtCreateWorkerFactory @ 0x140785B90 (NtCreateWorkerFactory.c)
+ *     NtCreateWorkerFactory @ 0x140785D80 (NtCreateWorkerFactory.c)
  * Callees:
  *     <none>
  */

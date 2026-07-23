@@ -1,8 +1,8 @@
 /*
- * XREFs of RtlUnicodeStringValidateWorker_0 @ 0x1800D7510
+ * XREFs of RtlUnicodeStringValidateWorker_0 @ 0x1800D44D0
  * Callers:
- *     RtlGetFullPathName_Ustr @ 0x180047AE0 (RtlGetFullPathName_Ustr.c)
- *     RtlpEnsureTailingSlashAndAddToList @ 0x18011D730 (RtlpEnsureTailingSlashAndAddToList.c)
+ *     RtlGetFullPathName_Ustr @ 0x180032060 (RtlGetFullPathName_Ustr.c)
+ *     RtlpEnsureTailingSlashAndAddToList @ 0x18011D4E0 (RtlpEnsureTailingSlashAndAddToList.c)
  * Callees:
  *     <none>
  */

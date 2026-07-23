@@ -1,11 +1,11 @@
 /*
- * XREFs of HvlSharedIsr @ 0x1402711A0
+ * XREFs of HvlSharedIsr @ 0x140271390
  * Callers:
- *     KiHvInterruptSubDispatch @ 0x1401C27E0 (KiHvInterruptSubDispatch.c)
+ *     KiHvInterruptSubDispatch @ 0x1401C2940 (KiHvInterruptSubDispatch.c)
  * Callees:
  *     KiInsertQueueDpc @ 0x1400621B0 (KiInsertQueueDpc.c)
- *     HvlpGetLpIndexFromProcessorIndex @ 0x140271F3C (HvlpGetLpIndexFromProcessorIndex.c)
- *     HvlpGetLpcbByLpIndex @ 0x140271FAC (HvlpGetLpcbByLpIndex.c)
+ *     HvlpGetLpIndexFromProcessorIndex @ 0x14027212C (HvlpGetLpIndexFromProcessorIndex.c)
+ *     HvlpGetLpcbByLpIndex @ 0x14027219C (HvlpGetLpcbByLpIndex.c)
  */
 
 char __fastcall HvlSharedIsr(__int64 a1)
@@ -27,7 +27,7 @@ char __fastcall HvlSharedIsr(__int64 a1)
       v1 = *(_DWORD *)(v3 + 1024);
       if ( v1 )
       {
-        v4 = qword_1404DDA98 + 104LL * *(unsigned int *)(v3 + 1040);
+        v4 = qword_1404DEB98 + 104LL * *(unsigned int *)(v3 + 1040);
         *(_DWORD *)(v4 + 4) = 2;
         KiInsertQueueDpc(v4 + 8, 0LL, 0LL, 0LL, 0);
         *(_DWORD *)(v3 + 1024) = 0;

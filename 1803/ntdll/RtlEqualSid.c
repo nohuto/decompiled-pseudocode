@@ -14,7 +14,8 @@
  *     memcmp @ 0x18008EED0 (memcmp.c)
  */
 
-bool __fastcall RtlEqualSid(_WORD *a1, _WORD *a2)
+BOOLEAN __cdecl RtlEqualSid(PSID Sid1, PSID Sid2)
 {
-  return *a1 == *a2 && memcmp(a1, a2, 4 * (unsigned int)(unsigned __int8)HIBYTE(*a1) + 8) == 0;
+  return *(_WORD *)Sid1 == *(_WORD *)Sid2
+      && memcmp(Sid1, Sid2, 4 * (unsigned int)(unsigned __int8)HIBYTE(*(_WORD *)Sid1) + 8) == 0;
 }

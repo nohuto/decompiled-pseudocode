@@ -1,12 +1,12 @@
 /*
  * XREFs of sub_140AD0DA0 @ 0x140AD0DA0
  * Callers:
- *     RtlpComputeEpilogueOffset @ 0x1403FAD10 (RtlpComputeEpilogueOffset.c)
+ *     sub_1403FAD10 @ 0x1403FAD10 (sub_1403FAD10.c)
  * Callees:
- *     $$b9 @ 0x140AD049C ($$b9.c)
- *     SdbpCheckDll @ 0x140AD2100 (SdbpCheckDll.c)
- *     KeGuardDispatchICall @ 0x140AD23B0 (KeGuardDispatchICall.c)
- *     KeGuardCheckICall @ 0x140AD23C0 (KeGuardCheckICall.c)
+ *     sub_140AD049C @ 0x140AD049C (sub_140AD049C.c)
+ *     sub_140AD2100 @ 0x140AD2100 (sub_140AD2100.c)
+ *     j__guard_dispatch_icall_nop @ 0x140AD23B0 (j__guard_dispatch_icall_nop.c)
+ *     sub_140AD23C0 @ 0x140AD23C0 (sub_140AD23C0.c)
  */
 
 __int64 __fastcall sub_140AD0DA0(__int64 a1, __int64 a2)
@@ -241,7 +241,7 @@ __int64 __fastcall sub_140AD0DA0(__int64 a1, __int64 a2)
         *(_QWORD *)(v2 + 2264) = 265LL;
         *(_QWORD *)(v2 + 2272) = v12;
         *(_DWORD *)(v2 + 2240) = 1;
-        __b9(v2, 0LL);
+        sub_140AD049C(v2, 0LL);
       }
     }
   }
@@ -417,7 +417,7 @@ LABEL_101:
               *(_QWORD *)(v2 + 2272) = v75;
               *(_QWORD *)(v2 + 2264) = v76;
               *(_DWORD *)(v2 + 2240) = 1;
-              __b9(v2, 0LL);
+              sub_140AD049C(v2, 0LL);
             }
           }
         }
@@ -510,9 +510,9 @@ LABEL_89:
       __writecr8(2uLL);
     }
     CurrentPrcb = KeGetCurrentPrcb();
-    v68 = *(_QWORD *)((char *)&CurrentPrcb->MxCsr + *(_QWORD *)(v2 + 1544));
-    v69 = *(_QWORD *)((char *)&CurrentPrcb->MxCsr + *(_QWORD *)(v2 + 1560));
-    if ( !*((_BYTE *)&CurrentPrcb->MxCsr + *(_QWORD *)(v2 + 1552))
+    v68 = *(_QWORD *)((char *)CurrentPrcb + *(_QWORD *)(v2 + 1544));
+    v69 = *(_QWORD *)((char *)CurrentPrcb + *(_QWORD *)(v2 + 1560));
+    if ( !*((_BYTE *)CurrentPrcb + *(_QWORD *)(v2 + 1552))
       || (unsigned __int64)&v111 > v68
       || (unsigned __int64)&v111 < v68 - 24576 )
     {
@@ -608,7 +608,7 @@ LABEL_89:
               {
                 if ( v101 == 1 )
                   _interlockedbittestandset(
-                    *(volatile signed __int32 **)((char *)&KeGetCurrentPrcb()->MxCsr + *(_QWORD *)(v2 + 1560)),
+                    *(volatile signed __int32 **)((char *)KeGetCurrentPrcb() + *(_QWORD *)(v2 + 1560)),
                     (*(_DWORD *)(v2 + 2392) >> 10) & 0x1F);
                 else
                   _InterlockedOr64((volatile signed __int64 *)(*(_QWORD *)(v2 + 1424) + 832LL), 1uLL);
@@ -617,7 +617,7 @@ LABEL_89:
               {
                 _interlockedbittestandset(
                   *(volatile signed __int32 **)(*(_QWORD *)(v2 + 1656)
-                                              + *(_QWORD *)((char *)&KeGetCurrentPrcb()->MxCsr + *(_QWORD *)(v2 + 1560))
+                                              + *(_QWORD *)((char *)KeGetCurrentPrcb() + *(_QWORD *)(v2 + 1560))
                                               + *(_QWORD *)(v2 + 1624)),
                   (*(_DWORD *)(v2 + 2392) >> 10) & 0x1F);
               }
@@ -640,7 +640,8 @@ LABEL_89:
 LABEL_149:
     *(_QWORD *)(v69 + *(_QWORD *)(v2 + 1632)) = 0LL;
     *(_QWORD *)(v69 + *(_QWORD *)(v2 + 1648)) = 0LL;
-    SdbpCheckDll(265, v66, v65, v64, v63, *(_QWORD *)(v2 + 328), v68);
+    sub_140AD23C0(*(_QWORD *)(v2 + 328));
+    sub_140AD2100(265, v66, v65, v64, v63, *(_QWORD *)(v2 + 328), v68);
     JUMPOUT(0x140AD18B3LL);
   }
   v84 = v2 + *(unsigned int *)(v2 + 1976);
@@ -650,7 +651,7 @@ LABEL_149:
     v86 = __ROR8__(v85, 3) ^ v85;
     v23 = (v86 * (unsigned __int128)0x7010008004002001uLL) >> 64;
     v115 = v23;
-    v84 = (__int64)KiMachineCheckControl + 16 * (((unsigned __int8)v86 ^ (unsigned __int8)v23) & 0xF);
+    v84 = (__int64)sub_14042C490 + 16 * (((unsigned __int8)v86 ^ (unsigned __int8)v23) & 0xF);
   }
   v87 = *(_QWORD **)(v2 + 2512);
   if ( v87 )
@@ -682,7 +683,7 @@ LABEL_149:
   {
     case 3:
       _disable();
-      *(_QWORD *)(v2 + 2400) = *(_QWORD *)((char *)&KeGetCurrentPrcb()->MxCsr + *(_QWORD *)(v2 + 1560));
+      *(_QWORD *)(v2 + 2400) = *(_QWORD *)((char *)KeGetCurrentPrcb() + *(_QWORD *)(v2 + 1560));
       _enable();
       break;
     case 4:

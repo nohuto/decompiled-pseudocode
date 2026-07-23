@@ -3,8 +3,8 @@
  * Callers:
  *     RtlConvertLCIDToString @ 0x1800FB510 (RtlConvertLCIDToString.c)
  *     RtlpSetInstallLanguage @ 0x1800FCEB0 (RtlpSetInstallLanguage.c)
- *     RtlpMuiRegGetInstalledLanguageInfoByIndex @ 0x180113228 (RtlpMuiRegGetInstalledLanguageInfoByIndex.c)
- *     RtlpMuiRegGetString @ 0x180113560 (RtlpMuiRegGetString.c)
+ *     RtlpMuiRegGetInstalledLanguageInfoByIndex @ 0x1801131F8 (RtlpMuiRegGetInstalledLanguageInfoByIndex.c)
+ *     RtlpMuiRegGetString @ 0x180113530 (RtlpMuiRegGetString.c)
  * Callees:
  *     <none>
  */

@@ -3,9 +3,9 @@
  * Callers:
  *     MiInitializeDriverImages @ 0x1407A4F78 (MiInitializeDriverImages.c)
  * Callees:
- *     MI_IS_PHYSICAL_ADDRESS @ 0x140025FB0 (MI_IS_PHYSICAL_ADDRESS.c)
- *     MiMarkPfnVerified @ 0x14010A2D4 (MiMarkPfnVerified.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1401F25D0 (MI_READ_PTE_LOCK_FREE.c)
+ *     MI_IS_PHYSICAL_ADDRESS @ 0x140025B30 (MI_IS_PHYSICAL_ADDRESS.c)
+ *     MiMarkPfnVerified @ 0x140108054 (MiMarkPfnVerified.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1401F23FC (MI_READ_PTE_LOCK_FREE.c)
  */
 
 void __fastcall MiInitializeBootLoadedDriverPfns(__int64 a1)
@@ -13,7 +13,7 @@ void __fastcall MiInitializeBootLoadedDriverPfns(__int64 a1)
   __int64 *v1; // rsi
   __int64 *i; // rdi
   unsigned __int64 v3; // rbx
-  __int64 v4; // r10
+  PVOID v4; // r10
   unsigned __int64 v5; // rdx
   unsigned __int64 v6; // rbp
   __int64 v7; // rcx
@@ -31,8 +31,8 @@ void __fastcall MiInitializeBootLoadedDriverPfns(__int64 a1)
       v5 = ((unsigned __int64)*((unsigned int *)i + 16) + 4095) >> 12;
       if ( v4 != PsNtosImageBase && v4 != PsHalImageBase )
       {
-        _InterlockedExchangeAdd(&dword_140327920, v5);
-        qword_1403278E0 -= (unsigned int)v5;
+        _InterlockedExchangeAdd(&dword_140327960, v5);
+        qword_140327920 -= (unsigned int)v5;
       }
       v6 = v3 + 8LL * (unsigned int)v5;
       while ( v3 < v6 )

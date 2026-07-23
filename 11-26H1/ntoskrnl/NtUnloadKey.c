@@ -1,24 +1,24 @@
 /*
- * XREFs of NtUnloadKey @ 0x140B0A5F0
+ * XREFs of NtUnloadKey @ 0x140A3E840
  * Callers:
- *     DifNtUnloadKeyWrapper @ 0x140690250 (DifNtUnloadKeyWrapper.c)
+ *     DifNtUnloadKeyWrapper @ 0x140693E30 (DifNtUnloadKeyWrapper.c)
  * Callees:
- *     CmpInitializeThreadInfo @ 0x14043CF00 (CmpInitializeThreadInfo.c)
- *     CmCleanupThreadInfo @ 0x14044C0A0 (CmCleanupThreadInfo.c)
- *     CmUnloadKey @ 0x140B0A63C (CmUnloadKey.c)
+ *     CmpInitializeThreadInfo @ 0x14042F7B0 (CmpInitializeThreadInfo.c)
+ *     CmCleanupThreadInfo @ 0x1404441C0 (CmCleanupThreadInfo.c)
+ *     CmUnloadKey @ 0x140A3E88C (CmUnloadKey.c)
  */
 
-__int64 NtUnloadKey()
+NTSTATUS __cdecl NtUnloadKey(POBJECT_ATTRIBUTES TargetKey)
 {
-  void *v0; // r10
-  unsigned int v1; // r8d
-  __int128 v3; // [rsp+20h] [rbp-28h] BYREF
-  __int64 v4; // [rsp+30h] [rbp-18h]
+  void *v1; // r10
+  NTSTATUS v2; // r8d
+  __int128 v4; // [rsp+20h] [rbp-28h] BYREF
+  __int64 v5; // [rsp+30h] [rbp-18h]
 
+  v5 = 0LL;
   v4 = 0LL;
-  v3 = 0LL;
-  CmpInitializeThreadInfo((_KAFFINITY_EX *)&v3);
-  CmUnloadKey(v0);
-  CmCleanupThreadInfo((_KAFFINITY_EX **)&v3);
-  return v1;
+  CmpInitializeThreadInfo((_KAFFINITY_EX *)&v4);
+  CmUnloadKey(v1);
+  CmCleanupThreadInfo((_KAFFINITY_EX **)&v4);
+  return v2;
 }

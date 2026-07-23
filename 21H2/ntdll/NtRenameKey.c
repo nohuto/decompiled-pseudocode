@@ -1,5 +1,5 @@
 /*
- * XREFs of NtRenameKey @ 0x1800A04B0
+ * XREFs of NtRenameKey @ 0x1800A0470
  * Callers:
  *     <none>
  * Callees:

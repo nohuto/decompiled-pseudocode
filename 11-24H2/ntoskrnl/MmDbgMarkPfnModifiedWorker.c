@@ -1,46 +1,47 @@
 /*
- * XREFs of MmDbgMarkPfnModifiedWorker @ 0x14067FD28
+ * XREFs of MmDbgMarkPfnModifiedWorker @ 0x140680F28
  * Callers:
- *     ExpDebuggerWorker @ 0x140B79F70 (ExpDebuggerWorker.c)
+ *     ExpDebuggerWorker @ 0x140B7BF70 (ExpDebuggerWorker.c)
  * Callees:
- *     MiReleasePageFileInfo @ 0x14021B9A0 (MiReleasePageFileInfo.c)
- *     MiCaptureDirtyBitToPfn @ 0x14023ED00 (MiCaptureDirtyBitToPfn.c)
- *     MiRemoveLockedPageChargeAndDecRef @ 0x14028C530 (MiRemoveLockedPageChargeAndDecRef.c)
- *     MiLockPageInline @ 0x140291550 (MiLockPageInline.c)
- *     MiUnlockPage @ 0x1402915F0 (MiUnlockPage.c)
- *     MiCompactDebuggerPatchTable @ 0x14067DF60 (MiCompactDebuggerPatchTable.c)
+ *     MiCaptureDirtyBitToPfn @ 0x140206E50 (MiCaptureDirtyBitToPfn.c)
+ *     MiReleasePageFileInfo @ 0x1402486F0 (MiReleasePageFileInfo.c)
+ *     MiRemoveLockedPageChargeAndDecRef @ 0x14029C130 (MiRemoveLockedPageChargeAndDecRef.c)
+ *     MiLockPageInline @ 0x1402A1150 (MiLockPageInline.c)
+ *     MiUnlockPage @ 0x1402A11F0 (MiUnlockPage.c)
+ *     MiCompactDebuggerPatchTable @ 0x14067F160 (MiCompactDebuggerPatchTable.c)
  */
 
-__int64 MmDbgMarkPfnModifiedWorker()
+__int64 __fastcall MmDbgMarkPfnModifiedWorker(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
-  __int64 v0; // rsi
-  __int64 *v1; // r14
-  __int64 v2; // rbp
-  unsigned __int8 v3; // di
-  unsigned __int64 v4; // rbx
-  __int64 v5; // rdx
-  __int64 v6; // r8
-  __int64 v7; // r15
+  __int64 v4; // rsi
+  __int64 *v5; // r14
+  __int64 v6; // rbp
+  unsigned __int8 v7; // di
+  unsigned __int64 v8; // rbx
+  __int64 v9; // rdx
+  __int64 v10; // r8
+  __int64 v11; // r9
+  __int64 v12; // r15
 
-  v0 = 0LL;
-  v1 = qword_140E301E8;
+  v4 = 0LL;
+  v5 = qword_140E30328;
   do
   {
-    if ( (*v1 & 1) != 0 )
+    if ( (*v5 & 1) != 0 )
     {
-      v2 = *v1 - 1;
-      _InterlockedExchange64(&qword_140E301E8[v0], 0LL);
-      v3 = MiLockPageInline(v2);
-      v4 = MiCaptureDirtyBitToPfn(v2);
-      MiRemoveLockedPageChargeAndDecRef(v2, v5, v6);
-      v7 = *((_QWORD *)qword_140E2FF88 + ((*(_QWORD *)(v2 + 40) >> 43) & 0x3FFLL));
-      MiUnlockPage(v2, v3);
-      if ( v4 )
-        MiReleasePageFileInfo(v7, v4, 0LL);
+      v6 = *v5 - 1;
+      _InterlockedExchange64(&qword_140E30328[v4], 0LL);
+      v7 = MiLockPageInline(v6, a2, a3, a4);
+      v8 = MiCaptureDirtyBitToPfn(v6);
+      MiRemoveLockedPageChargeAndDecRef(v6, v9, v10, v11);
+      v12 = *((_QWORD *)qword_140E300C8 + ((*(_QWORD *)(v6 + 40) >> 43) & 0x3FFLL));
+      MiUnlockPage(v6, v7);
+      if ( v8 )
+        MiReleasePageFileInfo(v12, v8, 0LL, a4);
     }
-    v0 = (unsigned int)(v0 + 1);
-    ++v1;
+    v4 = (unsigned int)(v4 + 1);
+    ++v5;
   }
-  while ( (unsigned int)v0 < 0x20 );
+  while ( (unsigned int)v4 < 0x20 );
   return MiCompactDebuggerPatchTable(0);
 }

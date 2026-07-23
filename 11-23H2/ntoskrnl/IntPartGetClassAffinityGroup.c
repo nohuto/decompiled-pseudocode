@@ -3,7 +3,7 @@
  * Callers:
  *     KiIntPartInit @ 0x140B4E6D0 (KiIntPartInit.c)
  * Callees:
- *     IntPartGetProcessorEfficiencyClass @ 0x140383A44 (IntPartGetProcessorEfficiencyClass.c)
+ *     IntPartGetProcessorEfficiencyClass @ 0x140383C24 (IntPartGetProcessorEfficiencyClass.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
 
@@ -18,7 +18,7 @@ __int64 __fastcall IntPartGetClassAffinityGroup(__int64 a1, unsigned int a2)
   __int64 v9; // rdi
   _BOOL8 v10; // rdx
   unsigned __int8 v11; // al
-  struct _PROCESSOR_NUMBER v13; // [rsp+30h] [rbp+8h] BYREF
+  _PROCESSOR_NUMBER v13; // [rsp+30h] [rbp+8h] BYREF
 
   v2 = 0;
   v13 = 0;

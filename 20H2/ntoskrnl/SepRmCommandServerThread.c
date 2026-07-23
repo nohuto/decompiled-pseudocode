@@ -42,8 +42,8 @@
 void __fastcall SepRmCommandServerThread(PVOID StartContext)
 {
   NTSTATUS v1; // ebx
-  _DWORD *v2; // rdi
-  int v3; // eax
+  _PORT_MESSAGE *v2; // rdi
+  NTSTATUS v3; // eax
   struct _LIST_ENTRY *v4; // rbx
   __int16 v5; // ax
   struct _LIST_ENTRY *v6; // rbx
@@ -54,33 +54,33 @@ void __fastcall SepRmCommandServerThread(PVOID StartContext)
   bool v11; // si
   bool v12; // r14
   char *ServerSiloGlobals; // rax
-  struct _KEVENT Event; // [rsp+38h] [rbp-D0h] BYREF
+  PVOID PortContext[3]; // [rsp+38h] [rbp-D0h] BYREF
   struct _KEVENT Object; // [rsp+50h] [rbp-B8h] BYREF
-  struct _KEVENT v16; // [rsp+68h] [rbp-A0h] BYREF
+  struct _KEVENT Event; // [rsp+68h] [rbp-A0h] BYREF
   __int64 v17; // [rsp+80h] [rbp-88h]
-  int v18; // [rsp+88h] [rbp-80h] BYREF
-  int v19; // [rsp+8Ch] [rbp-7Ch]
-  _BYTE v20[504]; // [rsp+90h] [rbp-78h] BYREF
+  int ReceiveMessage; // [rsp+88h] [rbp-80h] BYREF
+  int ReceiveMessage_4; // [rsp+8Ch] [rbp-7Ch]
+  _BYTE ReceiveMessage_8[504]; // [rsp+90h] [rbp-78h] BYREF
   _DWORD v21[128]; // [rsp+288h] [rbp+180h] BYREF
 
-  memset(v20, 0, sizeof(v20));
+  memset(ReceiveMessage_8, 0, sizeof(ReceiveMessage_8));
   memset(&v21[2], 0, 0x1F8uLL);
-  *(_QWORD *)&Event.Header.Lock = 0LL;
+  PortContext[0] = 0LL;
   SepRmLsaCallProcess = (ULONG_PTR)KeGetCurrentThread()->ApcState.Process;
   ObfReferenceObject((PVOID)SepRmLsaCallProcess);
   v1 = PoRequestShutdownEvent(0LL);
   if ( v1 < 0 )
   {
-    ZwClose(qword_140D2EB70);
-    qword_140D2EB70 = 0LL;
+    ZwClose(PortHandle);
+    PortHandle = 0LL;
     SepAuditFailed((unsigned int)v1);
   }
   else
   {
-    v19 = 0;
+    ReceiveMessage_4 = 0;
     v21[1] = 0;
     v2 = 0LL;
-    v18 = 33554904;
+    ReceiveMessage = 33554904;
     v21[0] = 33554904;
     while ( 1 )
     {
@@ -90,49 +90,51 @@ void __fastcall SepRmCommandServerThread(PVOID StartContext)
         {
           do
           {
-            v3 = ZwReplyWaitReceivePort((__int64)qword_140D2EB70, (__int64)&Event, (__int64)v2);
+            v3 = ZwReplyWaitReceivePort(PortHandle, PortContext, v2, (PPORT_MESSAGE)&ReceiveMessage);
             v2 = 0LL;
           }
           while ( v3 < 0 && (v3 == -1073741823 || v3 == -1073741813 || v3 == -1073741281) );
-          v4 = *(struct _LIST_ENTRY **)&Event.Header.Lock;
-          if ( *(_QWORD *)&Event.Header.Lock == -8LL )
+          v4 = (struct _LIST_ENTRY *)PortContext[0];
+          if ( PortContext[0] == (PVOID)-8LL )
           {
             v4 = (struct _LIST_ENTRY *)HalSystemVectorDispatchEntry();
-            *(_QWORD *)&Event.Header.Lock = v4;
+            PortContext[0] = v4;
           }
-          v5 = v19 & 0x7FFF;
-          LOWORD(v19) = v5;
+          v5 = ReceiveMessage_4 & 0x7FFF;
+          LOWORD(ReceiveMessage_4) = v5;
           if ( v5 != 1 )
             break;
-          if ( (unsigned int)(*(_DWORD *)&v20[32] - 1) <= 0xB )
+          if ( (unsigned int)(*(_DWORD *)&ReceiveMessage_8[32] - 1) <= 0xB )
           {
             v6 = PsAttachSiloToCurrentThread(v4);
-            ((void (__fastcall *)(int *, _DWORD *))SepRmCommandDispatch[*(int *)&v20[32]])(&v18, v21);
+            ((void (__fastcall *)(int *, _DWORD *))SepRmCommandDispatch[*(int *)&ReceiveMessage_8[32]])(
+              &ReceiveMessage,
+              v21);
             PsDetachSiloFromCurrentThread(v6);
-            v2 = v21;
-            v21[6] = *(_DWORD *)&v20[16];
-            *(_OWORD *)&v21[2] = *(_OWORD *)v20;
+            v2 = (_PORT_MESSAGE *)v21;
+            v21[6] = *(_DWORD *)&ReceiveMessage_8[16];
+            *(_OWORD *)&v21[2] = *(_OWORD *)ReceiveMessage_8;
           }
         }
         if ( v5 == 5 )
           break;
         if ( v5 == 10 )
-          SepRmLsaConnectRequest(&v18);
+          SepRmLsaConnectRequest((PPORT_MESSAGE)&ReceiveMessage);
       }
       if ( PsIsHostSilo((__int64)v4) )
       {
         SepRmAuditingEnabled = 0;
         memset(&Object, 0, sizeof(Object));
         v17 = 0LL;
-        memset(&v16, 0, sizeof(v16));
-        Event.Header.WaitListHead = 0LL;
+        memset(&Event, 0, sizeof(Event));
+        *(_OWORD *)&PortContext[1] = 0LL;
+        KeInitializeEvent((PRKEVENT)&PortContext[1], NotificationEvent, 0);
         KeInitializeEvent((PRKEVENT)&Event.Header.WaitListHead, NotificationEvent, 0);
-        KeInitializeEvent((PRKEVENT)&v16.Header.WaitListHead, NotificationEvent, 0);
         KeInitializeEvent((PRKEVENT)&Object.Header.WaitListHead, NotificationEvent, 0);
         CurrentThread = KeGetCurrentThread();
         --CurrentThread->KernelApcDisable;
         ExAcquireResourceExclusiveLite(&stru_140C544F0, 1u);
-        qword_140C54590 = (__int64)&Event.Header.WaitListHead;
+        qword_140C54590 = (__int64)&PortContext[1];
         v8 = SepLsaAuditQueueInfo == (_QWORD)&SepLsaAuditQueueInfo;
         ExReleaseResourceLite(&stru_140C544F0);
         KeLeaveCriticalRegion();
@@ -141,26 +143,26 @@ void __fastcall SepRmCommandServerThread(PVOID StartContext)
         v11 = inited;
         --v10->KernelApcDisable;
         ExAcquireResourceExclusiveLite(&stru_140C543B0, 1u);
-        qword_140C54450 = (__int64)&v16.Header.WaitListHead;
+        qword_140C54450 = (__int64)&Event.Header.WaitListHead;
         v12 = SepLsaDeletedLogonQueueInfo == (_QWORD)&SepLsaDeletedLogonQueueInfo;
         ExReleaseResourceLite(&stru_140C543B0);
         KeLeaveCriticalRegion();
         if ( !v8 )
-          KeWaitForSingleObject(&Event.Header.WaitListHead, Executive, 0, 0, 0LL);
+          KeWaitForSingleObject(&PortContext[1], Executive, 0, 0, 0LL);
         if ( v11 )
           KeWaitForSingleObject(&Object.Header.WaitListHead, Executive, 0, 0, 0LL);
         if ( !v12 )
-          KeWaitForSingleObject(&v16.Header.WaitListHead, Executive, 0, 0, 0LL);
-        ZwClose(qword_140D2EB70);
-        qword_140D2EB70 = 0LL;
-        v4 = *(struct _LIST_ENTRY **)&Event.Header.Lock;
+          KeWaitForSingleObject(&Event.Header.WaitListHead, Executive, 0, 0, 0LL);
+        ZwClose(PortHandle);
+        PortHandle = 0LL;
+        v4 = (struct _LIST_ENTRY *)PortContext[0];
       }
       ServerSiloGlobals = (char *)PsGetServerSiloGlobals((__int64)v4);
       SepRmCleanupRmLsaState(ServerSiloGlobals + 784);
-      if ( PsIsHostSilo(*(__int64 *)&Event.Header.Lock) )
+      if ( PsIsHostSilo((__int64)PortContext[0]) )
         break;
-      ObfDereferenceObjectWithTag(*(PVOID *)&Event.Header.Lock, 0x74536553u);
-      *(_QWORD *)&Event.Header.Lock = MmBadPointer;
+      ObfDereferenceObjectWithTag(PortContext[0], 0x74536553u);
+      PortContext[0] = MmBadPointer;
     }
   }
 }

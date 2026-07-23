@@ -1,17 +1,17 @@
 /*
- * XREFs of ExpGetSubscriptionPfn @ 0x1408CF084
+ * XREFs of ExpGetSubscriptionPfn @ 0x1408D0344
  * Callers:
- *     ExQueryLicenseValueInternal @ 0x1405A0260 (ExQueryLicenseValueInternal.c)
- *     ExActivateVMWithSubscription @ 0x1408CE688 (ExActivateVMWithSubscription.c)
+ *     ExQueryLicenseValueInternal @ 0x1405A1260 (ExQueryLicenseValueInternal.c)
+ *     ExActivateVMWithSubscription @ 0x1408CF948 (ExActivateVMWithSubscription.c)
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
- *     memmove @ 0x1401D1540 (memmove.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     ExpOsProductCacheProviderHelper @ 0x1406A79C0 (ExpOsProductCacheProviderHelper.c)
+ *     ExfTryToWakePushLock @ 0x140091500 (ExfTryToWakePushLock.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B78F0 (KiLeaveCriticalRegionUnsafe.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     ExpOsProductCacheProviderHelper @ 0x1406A8C60 (ExpOsProductCacheProviderHelper.c)
  */
 
 __int64 __fastcall ExpGetSubscriptionPfn(_QWORD *a1)
@@ -29,7 +29,7 @@ __int64 __fastcall ExpGetSubscriptionPfn(_QWORD *a1)
   LODWORD(NumberOfBytes) = 0;
   if ( !ExpSubscriptionPfnInitialized )
   {
-    v2 = ExpOsProductCacheProviderHelper((PUNICODE_STRING)&stru_140909138, 0LL, 0LL, 0, &NumberOfBytes, &v7);
+    v2 = ExpOsProductCacheProviderHelper((PUNICODE_STRING)&stru_14090A408, 0LL, 0LL, 0, &NumberOfBytes, &v7);
     if ( v2 == -1073741789 )
     {
       v4 = NumberOfBytes;
@@ -39,11 +39,11 @@ __int64 __fastcall ExpGetSubscriptionPfn(_QWORD *a1)
         v2 = -1073741595;
         goto LABEL_18;
       }
-      v2 = ExpOsProductCacheProviderHelper((PUNICODE_STRING)&stru_140909138, 0LL, PoolWithTag, v4, &NumberOfBytes, &v7);
+      v2 = ExpOsProductCacheProviderHelper((PUNICODE_STRING)&stru_14090A408, 0LL, PoolWithTag, v4, &NumberOfBytes, &v7);
     }
     CurrentThread = KeGetCurrentThread();
     --CurrentThread->KernelApcDisable;
-    ExAcquirePushLockExclusiveEx((ULONG_PTR)&qword_14096E4E0, 0LL);
+    ExAcquirePushLockExclusiveEx((ULONG_PTR)&qword_14096F4E0, 0LL);
     if ( !ExpSubscriptionPfnInitialized )
     {
       if ( v2 >= 0 )
@@ -51,9 +51,9 @@ __int64 __fastcall ExpGetSubscriptionPfn(_QWORD *a1)
       if ( (int)(v2 + 0x80000000) < 0 || v2 == -1073741772 )
         ExpSubscriptionPfnInitialized = 1;
     }
-    if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_14096E4E0, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-      ExfTryToWakePushLock((volatile signed __int64 *)&qword_14096E4E0);
-    KeAbPostRelease((ULONG_PTR)&qword_14096E4E0);
+    if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_14096F4E0, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+      ExfTryToWakePushLock((volatile signed __int64 *)&qword_14096F4E0);
+    KeAbPostRelease((ULONG_PTR)&qword_14096F4E0);
     KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
   }
   if ( ExpSubscriptionPfnInitialized )

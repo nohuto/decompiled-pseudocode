@@ -1,28 +1,29 @@
 /*
- * XREFs of IopRemoveHardErrorPacket @ 0x1405CAB18
+ * XREFs of IopRemoveHardErrorPacket @ 0x1405CD3E8
  * Callers:
- *     IopHardErrorThread @ 0x140794C00 (IopHardErrorThread.c)
+ *     IopHardErrorThread @ 0x140797730 (IopHardErrorThread.c)
  * Callees:
- *     KeReleaseSpinLock @ 0x1402BE860 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14032F300 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KeReleaseSpinLock @ 0x140309520 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140331330 (KeAcquireSpinLockRaiseToDpc.c)
  */
 
-__int64 IopRemoveHardErrorPacket()
+void *IopRemoveHardErrorPacket()
 {
   KIRQL v0; // al
-  __int64 v1; // rbx
+  void *v1; // rbx
   __int64 v2; // rdx
 
-  v0 = KeAcquireSpinLockRaiseToDpc(&qword_140F853B0);
-  v1 = qword_140F853A0;
-  if ( *(__int64 **)(qword_140F853A0 + 8) != &qword_140F853A0
-    || (v2 = *(_QWORD *)qword_140F853A0, *(_QWORD *)(*(_QWORD *)qword_140F853A0 + 8LL) != qword_140F853A0) )
+  v0 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)&IopPerfIoTrackingLock.SchedulerApc.Thread);
+  v1 = *(void **)&IopPerfIoTrackingLock.SavedApcStateFill[40];
+  if ( *(struct _KTHREAD **)(*(_QWORD *)&IopPerfIoTrackingLock.SavedApcStateFill[40] + 8LL) != (struct _KTHREAD *)&IopPerfIoTrackingLock.SavedApcStateFill[40]
+    || (v2 = **(_QWORD **)&IopPerfIoTrackingLock.SavedApcStateFill[40],
+        *(_QWORD *)(**(_QWORD **)&IopPerfIoTrackingLock.SavedApcStateFill[40] + 8LL) != *(_QWORD *)&IopPerfIoTrackingLock.SavedApcStateFill[40]) )
   {
     __fastfail(3u);
   }
-  qword_140F853A0 = *(_QWORD *)qword_140F853A0;
-  *(_QWORD *)(v2 + 8) = &qword_140F853A0;
-  IopCurrentHardError = v1;
-  KeReleaseSpinLock(&qword_140F853B0, v0);
+  *(_QWORD *)&IopPerfIoTrackingLock.SavedApcStateFill[40] = **(_QWORD **)&IopPerfIoTrackingLock.SavedApcStateFill[40];
+  *(_QWORD *)(v2 + 8) = &IopPerfIoTrackingLock.SavedApcStateFill[40];
+  IopPerfIoTrackingLock.Spare32 = v1;
+  KeReleaseSpinLock((PKSPIN_LOCK)&IopPerfIoTrackingLock.SchedulerApc.Thread, v0);
   return v1;
 }

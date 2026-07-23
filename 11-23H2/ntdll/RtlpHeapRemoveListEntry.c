@@ -12,7 +12,7 @@
  *     RtlZeroHeap @ 0x180103360 (RtlZeroHeap.c)
  *     RtlpValidateHeapSegment @ 0x1801085C0 (RtlpValidateHeapSegment.c)
  * Callees:
- *     RtlpLogHeapFailure @ 0x1801229F0 (RtlpLogHeapFailure.c)
+ *     RtlpLogHeapFailure @ 0x1801229C0 (RtlpLogHeapFailure.c)
  */
 
 __int64 __fastcall RtlpHeapRemoveListEntry(__int64 a1, __int64 a2, char a3, __int64 *a4, unsigned int a5, int a6)

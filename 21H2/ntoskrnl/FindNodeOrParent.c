@@ -1,45 +1,45 @@
 /*
- * XREFs of FindNodeOrParent @ 0x140264DDC
+ * XREFs of FindNodeOrParent @ 0x140237164
  * Callers:
- *     RtlEnumerateGenericTableLikeADirectory @ 0x1402645A0 (RtlEnumerateGenericTableLikeADirectory.c)
- *     RtlInsertElementGenericTableAvl @ 0x140264B20 (RtlInsertElementGenericTableAvl.c)
- *     RtlLookupFirstMatchingElementGenericTableAvl @ 0x140394990 (RtlLookupFirstMatchingElementGenericTableAvl.c)
+ *     RtlDeleteElementGenericTable @ 0x140236F60 (RtlDeleteElementGenericTable.c)
+ *     RtlInsertElementGenericTable @ 0x140236FF0 (RtlInsertElementGenericTable.c)
+ *     RtlLookupElementGenericTableFull @ 0x14058BEC0 (RtlLookupElementGenericTableFull.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
  */
 
-__int64 __fastcall FindNodeOrParent(__int64 a1, __int64 a2, _QWORD *a3)
+__int64 __fastcall FindNodeOrParent(__int64 *a1, __int64 a2, _QWORD *a3)
 {
-  __int64 v7; // rbx
-  unsigned int v8; // edi
-  int v9; // eax
-  __int64 v10; // rax
+  __int64 v3; // rbx
+  unsigned int v7; // edi
+  int v8; // eax
+  __int64 v9; // rax
 
-  if ( !*(_DWORD *)(a1 + 44) )
+  v3 = *a1;
+  if ( !*a1 )
     return 0LL;
-  v7 = *(_QWORD *)(a1 + 16);
-  v8 = 1;
+  v7 = 1;
   while ( 1 )
   {
-    v9 = (*(__int64 (__fastcall **)(__int64, __int64, __int64))(a1 + 72))(a1, a2, v7 + 32);
-    if ( v9 )
+    v8 = ((__int64 (__fastcall *)(__int64 *, __int64, __int64))a1[5])(a1, a2, v3 + 40);
+    if ( !v8 )
       break;
-    v10 = *(_QWORD *)(v7 + 8);
-    if ( !v10 )
+    if ( v8 != 1 )
+      goto LABEL_8;
+    v9 = *(_QWORD *)(v3 + 16);
+    if ( !v9 )
     {
-      v8 = 2;
-      goto LABEL_11;
+      v7 = 3;
+      goto LABEL_8;
     }
-LABEL_7:
-    v7 = v10;
+LABEL_6:
+    v3 = v9;
   }
-  if ( v9 != 1 )
-    goto LABEL_11;
-  v10 = *(_QWORD *)(v7 + 16);
-  if ( v10 )
-    goto LABEL_7;
-  v8 = 3;
-LABEL_11:
-  *a3 = v7;
-  return v8;
+  v9 = *(_QWORD *)(v3 + 8);
+  if ( v9 )
+    goto LABEL_6;
+  v7 = 2;
+LABEL_8:
+  *a3 = v3;
+  return v7;
 }

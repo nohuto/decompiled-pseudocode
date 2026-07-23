@@ -1,19 +1,19 @@
 /*
- * XREFs of PiCMGetRelatedDeviceInstance @ 0x1406E91A4
+ * XREFs of PiCMGetRelatedDeviceInstance @ 0x1406EA444
  * Callers:
- *     PiCMHandleIoctl @ 0x1405974F0 (PiCMHandleIoctl.c)
+ *     PiCMHandleIoctl @ 0x1405984F0 (PiCMHandleIoctl.c)
  * Callees:
  *     RtlStringCbCopyExW @ 0x140007504 (RtlStringCbCopyExW.c)
  *     RtlInitUnicodeStringEx @ 0x140015EB0 (RtlInitUnicodeStringEx.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     PiCMReturnBufferResultData @ 0x140599DD4 (PiCMReturnBufferResultData.c)
- *     PiCMReleaseObjectInputData @ 0x14059D6AC (PiCMReleaseObjectInputData.c)
- *     PiCMCaptureObjectInputData @ 0x14059D6DC (PiCMCaptureObjectInputData.c)
- *     _CmValidateDeviceName @ 0x1405C76D0 (_CmValidateDeviceName.c)
- *     _CmGetDeviceParent @ 0x1406E9624 (_CmGetDeviceParent.c)
- *     _CmIsRootDevice @ 0x1406E978C (_CmIsRootDevice.c)
- *     PiGetRelatedDevice @ 0x1406F882C (PiGetRelatedDevice.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     PiCMReturnBufferResultData @ 0x14059ADD4 (PiCMReturnBufferResultData.c)
+ *     PiCMReleaseObjectInputData @ 0x14059E6AC (PiCMReleaseObjectInputData.c)
+ *     PiCMCaptureObjectInputData @ 0x14059E6DC (PiCMCaptureObjectInputData.c)
+ *     _CmValidateDeviceName @ 0x1405C86D0 (_CmValidateDeviceName.c)
+ *     _CmGetDeviceParent @ 0x1406EA8C4 (_CmGetDeviceParent.c)
+ *     _CmIsRootDevice @ 0x1406EAA2C (_CmIsRootDevice.c)
+ *     PiGetRelatedDevice @ 0x1406F9ACC (PiGetRelatedDevice.c)
  */
 
 __int64 __fastcall PiCMGetRelatedDeviceInstance(

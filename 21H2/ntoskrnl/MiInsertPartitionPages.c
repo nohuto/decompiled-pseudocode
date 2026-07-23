@@ -1,32 +1,32 @@
 /*
- * XREFs of MiInsertPartitionPages @ 0x140562540
+ * XREFs of MiInsertPartitionPages @ 0x140562780
  * Callers:
- *     MiAllocatePartitionPhysicalPages @ 0x1408DA978 (MiAllocatePartitionPhysicalPages.c)
- *     MiHotAddPartitionMemory @ 0x1408DB27C (MiHotAddPartitionMemory.c)
+ *     MiAllocatePartitionPhysicalPages @ 0x1408DAAD8 (MiAllocatePartitionPhysicalPages.c)
+ *     MiHotAddPartitionMemory @ 0x1408DB3DC (MiHotAddPartitionMemory.c)
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x14021D060 (ExAcquireSpinLockExclusive.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14022EE10 (KeAcquireInStackQueuedSpinLock.c)
- *     RtlAvlRemoveNode @ 0x140234B20 (RtlAvlRemoveNode.c)
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
- *     RtlAvlInsertNodeEx @ 0x140316550 (RtlAvlInsertNodeEx.c)
- *     MiReturnCommit @ 0x1403182A0 (MiReturnCommit.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14033BD80 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
- *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
- *     KiLeaveGuardedRegionUnsafe @ 0x14034AD90 (KiLeaveGuardedRegionUnsafe.c)
- *     MiIncreaseCommitLimits @ 0x1403BF7AC (MiIncreaseCommitLimits.c)
- *     MiComputeCommitThresholds @ 0x1403BF8C0 (MiComputeCommitThresholds.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402042B0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusive @ 0x1402C1960 (ExAcquireSpinLockExclusive.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402D3660 (KeAcquireInStackQueuedSpinLock.c)
+ *     RtlAvlRemoveNode @ 0x1402D9370 (RtlAvlRemoveNode.c)
+ *     ExfTryToWakePushLock @ 0x1402FC2C0 (ExfTryToWakePushLock.c)
+ *     RtlAvlInsertNodeEx @ 0x1403212A0 (RtlAvlInsertNodeEx.c)
+ *     MiReturnCommit @ 0x140322FF0 (MiReturnCommit.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140346AD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KeAbPostRelease @ 0x1403539D0 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1403556E0 (ExAcquirePushLockExclusiveEx.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x140355AE0 (KiLeaveGuardedRegionUnsafe.c)
+ *     MiIncreaseCommitLimits @ 0x1403BFBD8 (MiIncreaseCommitLimits.c)
+ *     MiComputeCommitThresholds @ 0x1403BFCEC (MiComputeCommitThresholds.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     MiReduceCommitLimits @ 0x14055063C (MiReduceCommitLimits.c)
- *     MiActOnPartitionNodePages @ 0x1405608A0 (MiActOnPartitionNodePages.c)
- *     MiClearPartitionPageBitMap @ 0x140561454 (MiClearPartitionPageBitMap.c)
- *     MiFreePartitionNodePages @ 0x1405622E4 (MiFreePartitionNodePages.c)
- *     MiFreePartitionTree @ 0x14056233C (MiFreePartitionTree.c)
- *     MiMergePageNodes @ 0x140562AE4 (MiMergePageNodes.c)
- *     RtlNumberOfSetBitsEx @ 0x140587EB0 (RtlNumberOfSetBitsEx.c)
- *     MiMakePartitionMemoryBlock @ 0x1408DB580 (MiMakePartitionMemoryBlock.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     MiReduceCommitLimits @ 0x14055087C (MiReduceCommitLimits.c)
+ *     MiActOnPartitionNodePages @ 0x140560AE0 (MiActOnPartitionNodePages.c)
+ *     MiClearPartitionPageBitMap @ 0x140561694 (MiClearPartitionPageBitMap.c)
+ *     MiFreePartitionNodePages @ 0x140562524 (MiFreePartitionNodePages.c)
+ *     MiFreePartitionTree @ 0x14056257C (MiFreePartitionTree.c)
+ *     MiMergePageNodes @ 0x140562D24 (MiMergePageNodes.c)
+ *     RtlNumberOfSetBitsEx @ 0x1405880E0 (RtlNumberOfSetBitsEx.c)
+ *     MiMakePartitionMemoryBlock @ 0x1408DB6E0 (MiMakePartitionMemoryBlock.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall MiInsertPartitionPages(
@@ -159,7 +159,7 @@ __int64 __fastcall MiInsertPartitionPages(
   {
     if ( (ULONG_PTR *)a1 == &MiSystemPartition )
     {
-      _InterlockedExchangeAdd64(&qword_140C4E650, a4);
+      _InterlockedExchangeAdd64(&qword_140C4E690, a4);
     }
     else
     {
@@ -180,7 +180,7 @@ __int64 __fastcall MiInsertPartitionPages(
   {
     v17 = *(_DWORD *)(a3 + 24);
     if ( (v17 & 0x10) == 0 )
-      _InterlockedExchangeAdd64(&qword_140C4E650, -(__int64)a4);
+      _InterlockedExchangeAdd64(&qword_140C4E690, -(__int64)a4);
     v69 = MiFreePartitionTree(v9, v5, v17, 1);
     v18 = v69;
     if ( v69 >= 0 )
@@ -237,7 +237,7 @@ __int64 __fastcall MiInsertPartitionPages(
     }
     CurrentThread = (struct _KTHREAD *)v70;
     if ( (v21 & 0x10) == 0 )
-      _InterlockedExchangeAdd64(&qword_140C4E650, v20);
+      _InterlockedExchangeAdd64(&qword_140C4E690, v20);
   }
   if ( !v9 )
     goto LABEL_90;

@@ -1,12 +1,12 @@
 /*
- * XREFs of PopDiagTracePowerTransitionTime @ 0x140530D88
+ * XREFs of PopDiagTracePowerTransitionTime @ 0x1405312C8
  * Callers:
- *     PopIssueActionRequest @ 0x140530068 (PopIssueActionRequest.c)
+ *     PopIssueActionRequest @ 0x1405305A8 (PopIssueActionRequest.c)
  * Callees:
- *     EtwWrite @ 0x140013320 (EtwWrite.c)
- *     EtwEventEnabled @ 0x1400D54D0 (EtwEventEnabled.c)
- *     PopPowerTransitionTimesInMs @ 0x140114634 (PopPowerTransitionTimesInMs.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
+ *     EtwWrite @ 0x140012EA0 (EtwWrite.c)
+ *     EtwEventEnabled @ 0x1400D3370 (EtwEventEnabled.c)
+ *     PopPowerTransitionTimesInMs @ 0x140114BA4 (PopPowerTransitionTimesInMs.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
  */
 
 void PopDiagTracePowerTransitionTime()
@@ -50,10 +50,10 @@ void PopDiagTracePowerTransitionTime()
       v23 = 0;
       UserData.Ptr = (ULONGLONG)&v0;
       v6 = v1;
-      v9 = &dword_140303A38;
+      v9 = &dword_140303978;
       v12 = &v2;
       v15 = &v3;
-      v18 = &dword_140303A80;
+      v18 = &dword_1403039C0;
       v21 = v4;
       UserData.Size = 4;
       v7 = 4;

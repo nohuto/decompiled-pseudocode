@@ -1,21 +1,21 @@
 /*
- * XREFs of HvlPhase1Initialize @ 0x1405B89CC
+ * XREFs of HvlPhase1Initialize @ 0x1405BB23C
  * Callers:
- *     InitBootProcessor @ 0x140CAA7CC (InitBootProcessor.c)
+ *     InitBootProcessor @ 0x140CB07CC (InitBootProcessor.c)
  * Callees:
- *     KeRegisterBugCheckReasonCallback @ 0x14024D7A0 (KeRegisterBugCheckReasonCallback.c)
- *     MmMapIoSpaceEx @ 0x140363DC0 (MmMapIoSpaceEx.c)
- *     HviIsAnyHypervisorPresent @ 0x1404E63D0 (HviIsAnyHypervisorPresent.c)
- *     HvlConfigureMemoryZeroingOnReset @ 0x1405B8380 (HvlConfigureMemoryZeroingOnReset.c)
- *     HvlpMapStatisticsPage @ 0x1405BA4F0 (HvlpMapStatisticsPage.c)
- *     HvlpSetupCachedHypercallPages @ 0x1405BB1B8 (HvlpSetupCachedHypercallPages.c)
- *     HvlpInitializePowerStatistics @ 0x1405BF6FC (HvlpInitializePowerStatistics.c)
- *     HvlpConfigureGhcbGuestOsId @ 0x1405BFB54 (HvlpConfigureGhcbGuestOsId.c)
- *     HvlpMapApicBackingPage @ 0x1405BFC2C (HvlpMapApicBackingPage.c)
- *     HvlpMapGhcb @ 0x1405BFCAC (HvlpMapGhcb.c)
- *     HvlpInitializeHvCrashdump @ 0x1405C0B08 (HvlpInitializeHvCrashdump.c)
- *     MiMarkRetpolineBits @ 0x140B1F348 (MiMarkRetpolineBits.c)
- *     VslpIumPhase0Initialize @ 0x140CB9CAC (VslpIumPhase0Initialize.c)
+ *     KeRegisterBugCheckReasonCallback @ 0x14024F100 (KeRegisterBugCheckReasonCallback.c)
+ *     MmMapIoSpaceEx @ 0x140365B60 (MmMapIoSpaceEx.c)
+ *     HviIsAnyHypervisorPresent @ 0x1404DF970 (HviIsAnyHypervisorPresent.c)
+ *     HvlConfigureMemoryZeroingOnReset @ 0x1405BABF0 (HvlConfigureMemoryZeroingOnReset.c)
+ *     HvlpMapStatisticsPage @ 0x1405BCD60 (HvlpMapStatisticsPage.c)
+ *     HvlpSetupCachedHypercallPages @ 0x1405BDA28 (HvlpSetupCachedHypercallPages.c)
+ *     HvlpInitializePowerStatistics @ 0x1405C1F6C (HvlpInitializePowerStatistics.c)
+ *     HvlpConfigureGhcbGuestOsId @ 0x1405C23C4 (HvlpConfigureGhcbGuestOsId.c)
+ *     HvlpMapApicBackingPage @ 0x1405C249C (HvlpMapApicBackingPage.c)
+ *     HvlpMapGhcb @ 0x1405C251C (HvlpMapGhcb.c)
+ *     HvlpInitializeHvCrashdump @ 0x1405C3378 (HvlpInitializeHvCrashdump.c)
+ *     MiMarkRetpolineBits @ 0x140B213C8 (MiMarkRetpolineBits.c)
+ *     VslpIumPhase0Initialize @ 0x140CBFCEC (VslpIumPhase0Initialize.c)
  */
 
 __int64 __fastcall HvlPhase1Initialize(__int64 a1)

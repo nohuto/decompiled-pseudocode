@@ -3,13 +3,13 @@
  * Callers:
  *     MxMapPfnRange @ 0x140B42F28 (MxMapPfnRange.c)
  * Callees:
- *     MiPteInShadowRange @ 0x140271360 (MiPteInShadowRange.c)
- *     MiFillPteHierarchy @ 0x14028AEF0 (MiFillPteHierarchy.c)
- *     MiMakeValidPte @ 0x1402CF2B0 (MiMakeValidPte.c)
- *     MiFillPhysicalPages @ 0x140339290 (MiFillPhysicalPages.c)
- *     MiWritePteShadow @ 0x14035734C (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x1403573AC (MiPteHasShadow.c)
- *     KeZeroPages @ 0x140424640 (KeZeroPages.c)
+ *     MiPteInShadowRange @ 0x1402715F0 (MiPteInShadowRange.c)
+ *     MiFillPteHierarchy @ 0x14028B180 (MiFillPteHierarchy.c)
+ *     MiMakeValidPte @ 0x1402CF540 (MiMakeValidPte.c)
+ *     MiFillPhysicalPages @ 0x140339520 (MiFillPhysicalPages.c)
+ *     MiWritePteShadow @ 0x1403574EC (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x14035754C (MiPteHasShadow.c)
+ *     KeZeroPages @ 0x1404249D0 (KeZeroPages.c)
  *     MxGetNextPage @ 0x140B433B4 (MxGetNextPage.c)
  */
 

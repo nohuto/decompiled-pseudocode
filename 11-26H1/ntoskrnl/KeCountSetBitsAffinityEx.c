@@ -1,9 +1,9 @@
 /*
- * XREFs of KeCountSetBitsAffinityEx @ 0x140251950
+ * XREFs of KeCountSetBitsAffinityEx @ 0x1402532B0
  * Callers:
  *     <none>
  * Callees:
- *     RtlCountSetBitsAffinityEx @ 0x140251920 (RtlCountSetBitsAffinityEx.c)
+ *     RtlCountSetBitsAffinityEx @ 0x140253280 (RtlCountSetBitsAffinityEx.c)
  */
 
 __int64 __fastcall KeCountSetBitsAffinityEx(unsigned __int16 *a1)

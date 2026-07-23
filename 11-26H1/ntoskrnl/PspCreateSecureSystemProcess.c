@@ -1,12 +1,12 @@
 /*
- * XREFs of PspCreateSecureSystemProcess @ 0x140CD803C
+ * XREFs of PspCreateSecureSystemProcess @ 0x140CDE3BC
  * Callers:
- *     PspInitPhase1 @ 0x140CD812C (PspInitPhase1.c)
+ *     PspInitPhase1 @ 0x140CDE4AC (PspInitPhase1.c)
  * Callees:
- *     strcpy_s @ 0x14053C650 (strcpy_s.c)
- *     VslRegisterSecureSystemProcess @ 0x1405C3BA4 (VslRegisterSecureSystemProcess.c)
- *     PsCreateMinimalProcess @ 0x1407FC198 (PsCreateMinimalProcess.c)
- *     ObReferenceObjectByHandle @ 0x1408F9550 (ObReferenceObjectByHandle.c)
+ *     strcpy_s @ 0x14053EAD0 (strcpy_s.c)
+ *     VslRegisterSecureSystemProcess @ 0x1405C6414 (VslRegisterSecureSystemProcess.c)
+ *     PsCreateMinimalProcess @ 0x140801BC8 (PsCreateMinimalProcess.c)
+ *     ObReferenceObjectByHandle @ 0x1409294E0 (ObReferenceObjectByHandle.c)
  */
 
 bool PspCreateSecureSystemProcess()

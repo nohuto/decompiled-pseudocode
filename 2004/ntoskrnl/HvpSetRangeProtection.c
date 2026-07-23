@@ -32,7 +32,7 @@ __int64 __fastcall HvpSetRangeProtection(
   unsigned int v14; // r10d
   __int64 v15; // r11
   unsigned int v16; // esi
-  __int64 v17; // rcx
+  ULONG_PTR v17; // rcx
   __int64 result; // rax
 
   v5 = a3;

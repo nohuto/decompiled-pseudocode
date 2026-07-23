@@ -1,18 +1,18 @@
 /*
- * XREFs of EtwpUpdateProcessorTraceConfiguration @ 0x1407B1CAC
+ * XREFs of EtwpUpdateProcessorTraceConfiguration @ 0x1407B20FC
  * Callers:
- *     EtwSetPerformanceTraceInformation @ 0x140A440A4 (EtwSetPerformanceTraceInformation.c)
+ *     EtwSetPerformanceTraceInformation @ 0x140A39934 (EtwSetPerformanceTraceInformation.c)
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     EtwpConstructIptData @ 0x1407B1B38 (EtwpConstructIptData.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     EtwpConstructIptData @ 0x1407B1F88 (EtwpConstructIptData.c)
  */
 
-__int64 __fastcall EtwpUpdateProcessorTraceConfiguration(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+__int64 __fastcall EtwpUpdateProcessorTraceConfiguration(__int64 a1, __int64 a2)
 {
-  __int64 v5; // rdi
+  __int64 v3; // rdi
   __int64 result; // rax
 
-  v5 = *(_QWORD *)(a2 + 16);
+  v3 = *(_QWORD *)(a2 + 16);
   if ( (*(_DWORD *)(a1 + 816) & 0x4000000) != 0 )
     return 3221226243LL;
   if ( *(_QWORD *)(a1 + 1080) || (result = EtwpConstructIptData(a1), (int)result >= 0) )
@@ -20,10 +20,10 @@ __int64 __fastcall EtwpUpdateProcessorTraceConfiguration(__int64 a1, __int64 a2,
     if ( !**(_QWORD **)(a1 + 1080) )
     {
       _interlockedbittestandset(&KiCpuTracingFlags, 2u);
-      result = guard_dispatch_icall_no_overrides(v5, *(_QWORD *)(a1 + 1080), a3, a4);
+      result = guard_dispatch_icall_no_overrides(v3, *(_QWORD *)(a1 + 1080));
       if ( (int)result >= 0 )
       {
-        *(_QWORD *)(*(_QWORD *)(a1 + 1080) + 8LL) = v5;
+        *(_QWORD *)(*(_QWORD *)(a1 + 1080) + 8LL) = v3;
         _InterlockedOr((volatile signed __int32 *)(a1 + 816), 0x4000000u);
         return 0LL;
       }

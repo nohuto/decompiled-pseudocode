@@ -1,7 +1,7 @@
 /*
- * XREFs of KiPublishProcessorFeatures @ 0x140A40A08
+ * XREFs of KiPublishProcessorFeatures @ 0x140A41A08
  * Callers:
- *     KiSetProcessorSignature @ 0x14099EA34 (KiSetProcessorSignature.c)
+ *     KiSetProcessorSignature @ 0x14099F964 (KiSetProcessorSignature.c)
  * Callees:
  *     <none>
  */

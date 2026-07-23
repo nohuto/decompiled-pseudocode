@@ -1,7 +1,7 @@
 /*
  * XREFs of PoIsInitializedStopWatch @ 0x140001F70
  * Callers:
- *     PopGetStopWatchByRequestType @ 0x1405888A4 (PopGetStopWatchByRequestType.c)
+ *     PopGetStopWatchByRequestType @ 0x1405898A4 (PopGetStopWatchByRequestType.c)
  * Callees:
  *     <none>
  */

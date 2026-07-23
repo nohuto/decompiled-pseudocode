@@ -1,24 +1,24 @@
 /*
- * XREFs of PopFxResumeDeviceAccounting @ 0x14048A6A4
+ * XREFs of PopFxResumeDeviceAccounting @ 0x1404854CC
  * Callers:
- *     PopFxStartDeviceAccounting @ 0x1404984AC (PopFxStartDeviceAccounting.c)
- *     PdcPoCurrentPdcPhase @ 0x1405D87A0 (PdcPoCurrentPdcPhase.c)
+ *     PopFxStartDeviceAccounting @ 0x140492E8C (PopFxStartDeviceAccounting.c)
+ *     PdcPoCurrentPdcPhase @ 0x1405D5CC0 (PdcPoCurrentPdcPhase.c)
  * Callees:
- *     KeReleaseSpinLock @ 0x14024DD30 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140254B20 (KeAcquireSpinLockRaiseToDpc.c)
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     ExfReleasePushLockShared @ 0x14025DE00 (ExfReleasePushLockShared.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     ExfAcquirePushLockSharedEx @ 0x14034050C (ExfAcquirePushLockSharedEx.c)
- *     PopFxSetGlobalDeviceAccountingEnabled @ 0x1404BE2A8 (PopFxSetGlobalDeviceAccountingEnabled.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     KeReleaseSpinLock @ 0x14027E340 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140285130 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     ExfReleasePushLockShared @ 0x14028E410 (ExfReleasePushLockShared.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     ExfAcquirePushLockSharedEx @ 0x14031F9EC (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     PopFxSetGlobalDeviceAccountingEnabled @ 0x1404B9468 (PopFxSetGlobalDeviceAccountingEnabled.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 void PopFxResumeDeviceAccounting()
 {
   struct _KTHREAD *CurrentThread; // rax
-  _QWORD *v1; // rbx
+  char *v1; // rbx
   __int64 v2; // rcx
   __int64 v3; // rbp
   ULONG_PTR i; // rbx
@@ -29,12 +29,12 @@ void PopFxResumeDeviceAccounting()
 
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
-  v1 = KeAbPreAcquire((__int64)&PopFxDeviceListLock, 0LL);
+  v1 = (char *)KeAbPreAcquire((__int64)&PopFxDeviceListLock, 0LL);
   v2 = 17LL;
   if ( _InterlockedCompareExchange64((volatile signed __int64 *)&PopFxDeviceListLock, 17LL, 0LL) )
     ExfAcquirePushLockSharedEx((signed __int64 *)&PopFxDeviceListLock, 0, v1, (__int64)&PopFxDeviceListLock);
   if ( v1 )
-    *((_BYTE *)v1 + 10) = 1;
+    v1[10] = 1;
   v3 = MEMORY[0xFFFFF78000000008];
   for ( i = PopFxDeviceList; (ULONG_PTR *)i != &PopFxDeviceList; i = *(_QWORD *)i )
   {

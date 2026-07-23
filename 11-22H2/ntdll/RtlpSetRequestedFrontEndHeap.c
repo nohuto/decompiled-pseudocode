@@ -20,15 +20,15 @@ __int64 __fastcall RtlpSetRequestedFrontEndHeap(__int64 a1)
   int v5; // eax
   _BYTE *v6; // r14
   signed __int32 v7; // r15d
-  __int64 DeferredCriticalSectionEvent; // r10
+  void *DeferredCriticalSectionEvent; // r10
   int v9; // eax
   __int64 v10; // rbx
   _BYTE *v12; // rsi
   signed __int32 v13; // r14d
-  signed __int32 v14; // ebx
-  __int64 v16; // r10
+  signed __int32 LockCount; // ebx
+  void *LockSemaphore; // r10
   int v17; // eax
-  __int64 v18; // r10
+  void *v18; // r10
   int v19; // eax
   signed __int32 v20[8]; // [rsp+38h] [rbp-58h] BYREF
   char v21; // [rsp+58h] [rbp-38h]
@@ -41,7 +41,7 @@ __int64 __fastcall RtlpSetRequestedFrontEndHeap(__int64 a1)
   v21 = 0;
   v24 = a1;
   v23 = 0;
-  RtlEnterCriticalSection((__int64)&RtlpProcessHeapsListLock);
+  RtlEnterCriticalSection(&RtlpProcessHeapsListLock);
   v3 = 28LL;
   if ( *(_DWORD *)(a1 + 16) != -571548178 )
     v3 = 208LL;
@@ -51,7 +51,7 @@ __int64 __fastcall RtlpSetRequestedFrontEndHeap(__int64 a1)
   }
   else
   {
-    RtlEnterCriticalSection(*(_QWORD *)(a1 + 352));
+    RtlEnterCriticalSection(*(PRTL_CRITICAL_SECTION *)(a1 + 352));
     v2 = 1;
     v21 = 1;
     if ( !*(_BYTE *)(a1 + 419) )
@@ -69,9 +69,9 @@ __int64 __fastcall RtlpSetRequestedFrontEndHeap(__int64 a1)
         {
           if ( (*v6 & 1) != 0 )
             RtlpNotOwnerCriticalSection(v4);
-          DeferredCriticalSectionEvent = *(_QWORD *)(v4 + 24);
+          DeferredCriticalSectionEvent = *(void **)(v4 + 24);
           if ( !DeferredCriticalSectionEvent )
-            DeferredCriticalSectionEvent = RtlpCreateDeferredCriticalSectionEvent(v4);
+            DeferredCriticalSectionEvent = (void *)RtlpCreateDeferredCriticalSectionEvent(v4);
           v22 = 0;
           while ( v7 != _InterlockedCompareExchange((volatile signed __int32 *)v6, (v7 & 2 | 1) + v7, v7) )
           {
@@ -81,7 +81,7 @@ __int64 __fastcall RtlpSetRequestedFrontEndHeap(__int64 a1)
           }
           if ( (v7 & 2) != 0 )
           {
-            if ( DeferredCriticalSectionEvent == -1 )
+            if ( DeferredCriticalSectionEvent == (void *)-1LL )
             {
               _InterlockedOr(v20, 0);
               RtlpWakeByAddress(v4 + 8, 0);
@@ -92,7 +92,7 @@ __int64 __fastcall RtlpSetRequestedFrontEndHeap(__int64 a1)
               v9 = ZwSetEvent(DeferredCriticalSectionEvent, 0LL);
             }
             if ( v9 < 0 )
-              RtlRaiseStatus((unsigned int)v9);
+              RtlRaiseStatus(v9);
           }
         }
       }
@@ -112,9 +112,9 @@ __int64 __fastcall RtlpSetRequestedFrontEndHeap(__int64 a1)
       {
         if ( (*v12 & 1) != 0 )
           RtlpNotOwnerCriticalSection(v10);
-        v18 = *(_QWORD *)(v10 + 24);
+        v18 = *(void **)(v10 + 24);
         if ( !v18 )
-          v18 = RtlpCreateDeferredCriticalSectionEvent(v10);
+          v18 = (void *)RtlpCreateDeferredCriticalSectionEvent(v10);
         LODWORD(v24) = 0;
         while ( v13 != _InterlockedCompareExchange((volatile signed __int32 *)v12, (v13 & 2 | 1) + v13, v13) )
         {
@@ -124,7 +124,7 @@ __int64 __fastcall RtlpSetRequestedFrontEndHeap(__int64 a1)
         }
         if ( (v13 & 2) != 0 )
         {
-          if ( v18 == -1 )
+          if ( v18 == (void *)-1LL )
           {
             _InterlockedOr(v20, 0);
             RtlpWakeByAddress(v10 + 8, 0);
@@ -135,43 +135,46 @@ __int64 __fastcall RtlpSetRequestedFrontEndHeap(__int64 a1)
             v19 = ZwSetEvent(v18, 0LL);
           }
           if ( v19 < 0 )
-            RtlRaiseStatus((unsigned int)v19);
+            RtlRaiseStatus(v19);
         }
       }
     }
   }
-  if ( !--dword_180182FCC )
+  if ( !--RtlpProcessHeapsListLock.RecursionCount )
   {
-    qword_180182FD0 = 0LL;
-    v14 = _InterlockedCompareExchange(&dword_180182FC8, -1, -2);
-    if ( v14 != -2 )
+    RtlpProcessHeapsListLock.OwningThread = 0LL;
+    LockCount = _InterlockedCompareExchange(&RtlpProcessHeapsListLock.LockCount, -1, -2);
+    if ( LockCount != -2 )
     {
-      if ( (dword_180182FC8 & 1) != 0 )
+      if ( (RtlpProcessHeapsListLock.LockCount & 1) != 0 )
         RtlpNotOwnerCriticalSection(&RtlpProcessHeapsListLock);
-      v16 = qword_180182FD8;
-      if ( !qword_180182FD8 )
-        v16 = RtlpCreateDeferredCriticalSectionEvent(&RtlpProcessHeapsListLock);
+      LockSemaphore = RtlpProcessHeapsListLock.LockSemaphore;
+      if ( !RtlpProcessHeapsListLock.LockSemaphore )
+        LockSemaphore = (void *)RtlpCreateDeferredCriticalSectionEvent(&RtlpProcessHeapsListLock);
       v25 = 0;
-      while ( v14 != _InterlockedCompareExchange(&dword_180182FC8, (v14 & 2 | 1) + v14, v14) )
+      while ( LockCount != _InterlockedCompareExchange(
+                             &RtlpProcessHeapsListLock.LockCount,
+                             (LockCount & 2 | 1) + LockCount,
+                             LockCount) )
       {
         RtlBackoff(&v25);
-        _m_prefetchw(&dword_180182FC8);
-        v14 = dword_180182FC8;
+        _m_prefetchw(&RtlpProcessHeapsListLock.LockCount);
+        LockCount = RtlpProcessHeapsListLock.LockCount;
       }
-      if ( (v14 & 2) != 0 )
+      if ( (LockCount & 2) != 0 )
       {
-        if ( v16 == -1 )
+        if ( LockSemaphore == (void *)-1LL )
         {
           _InterlockedOr(v20, 0);
-          RtlpWakeByAddress((unsigned __int64)&dword_180182FC8, 0);
+          RtlpWakeByAddress((unsigned __int64)&RtlpProcessHeapsListLock.LockCount, 0);
           v17 = 0;
         }
         else
         {
-          v17 = ZwSetEvent(v16, 0LL);
+          v17 = ZwSetEvent(LockSemaphore, 0LL);
         }
         if ( v17 < 0 )
-          RtlRaiseStatus((unsigned int)v17);
+          RtlRaiseStatus(v17);
       }
     }
   }

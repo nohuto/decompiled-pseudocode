@@ -9,12 +9,12 @@
 
 PSLIST_ENTRY __stdcall RtlInterlockedFlushSList(PSLIST_HEADER ListHead)
 {
-  struct _SINGLE_LIST_ENTRY *Next; // esi
+  _SINGLE_LIST_ENTRY *Next; // esi
 
-  RtlAcquireSRWLockExclusive(&RtlpSlistLockedAltLocks[((unsigned int)ListHead >> 2) & 0x1F]);
+  RtlAcquireSRWLockExclusive(&RtlpSlistLockedAltLocks + (((unsigned int)ListHead >> 2) & 0x1F));
   Next = ListHead->Next.Next;
   ListHead->Next.Next = 0;
   ListHead->Depth = 0;
-  RtlReleaseSRWLockExclusive(&RtlpSlistLockedAltLocks[((unsigned int)ListHead >> 2) & 0x1F]);
-  return Next;
+  RtlReleaseSRWLockExclusive(&RtlpSlistLockedAltLocks + (((unsigned int)ListHead >> 2) & 0x1F));
+  return (PSLIST_ENTRY)Next;
 }

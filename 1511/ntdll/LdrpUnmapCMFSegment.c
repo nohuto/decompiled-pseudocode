@@ -10,6 +10,6 @@
 
 bool __fastcall LdrpUnmapCMFSegment(__int64 a1)
 {
-  return (unsigned __int64)(ResRuntimeView - 1) <= 0xFFFFFFFFFFFFFFFDuLL
+  return (char *)ResRuntimeView - 1 <= (char *)0xFFFFFFFFFFFFFFFDLL
       && (unsigned int)ResCRuntimeUnmapSegment(a1, (unsigned int)a1) != 0;
 }

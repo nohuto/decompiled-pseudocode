@@ -1,12 +1,32 @@
 /*
- * XREFs of RtlCreateUserThread @ 0x140800CF0
+ * XREFs of RtlCreateUserThread @ 0x140806790
  * Callers:
  *     <none>
  * Callees:
- *     RtlpCreateUserThreadEx @ 0x140A9010C (RtlpCreateUserThreadEx.c)
+ *     RtlpCreateUserThreadEx @ 0x140A94C5C (RtlpCreateUserThreadEx.c)
  */
 
-__int64 __fastcall RtlCreateUserThread(int a1, int a2, char a3, int a4, __int64 a5, __int64 a6)
+NTSTATUS __cdecl RtlCreateUserThread(
+        HANDLE ProcessHandle,
+        PSECURITY_DESCRIPTOR ThreadSecurityDescriptor,
+        BOOLEAN CreateSuspended,
+        ULONG ZeroBits,
+        SIZE_T MaximumStackSize,
+        SIZE_T CommittedStackSize,
+        PUSER_THREAD_START_ROUTINE StartAddress,
+        PVOID Parameter,
+        PHANDLE ThreadHandle,
+        PCLIENT_ID ClientId)
 {
-  return RtlpCreateUserThreadEx(a1, a2, a3 == 1, a4, a5, a6);
+  int v11; // [rsp+30h] [rbp-38h]
+
+  return RtlpCreateUserThreadEx(
+           ProcessHandle,
+           MaximumStackSize,
+           CommittedStackSize,
+           v11,
+           StartAddress,
+           Parameter,
+           (__int64)ThreadHandle,
+           (__int64)ClientId);
 }

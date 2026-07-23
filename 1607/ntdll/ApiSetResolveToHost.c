@@ -1,12 +1,12 @@
 /*
- * XREFs of ApiSetResolveToHost @ 0x180015BFC
+ * XREFs of ApiSetResolveToHost @ 0x180015BEC
  * Callers:
- *     LdrpSnapKernelBaseExtensions @ 0x1800155AC (LdrpSnapKernelBaseExtensions.c)
- *     ApiSetQueryApiSetPresence @ 0x1800157D0 (ApiSetQueryApiSetPresence.c)
- *     LdrpApplyFileNameRedirection @ 0x180015A34 (LdrpApplyFileNameRedirection.c)
+ *     LdrpSnapKernelBaseExtensions @ 0x18001559C (LdrpSnapKernelBaseExtensions.c)
+ *     ApiSetQueryApiSetPresence @ 0x1800157C0 (ApiSetQueryApiSetPresence.c)
+ *     LdrpApplyFileNameRedirection @ 0x180015A24 (LdrpApplyFileNameRedirection.c)
  * Callees:
- *     ApiSetpSearchForApiSetHost @ 0x1800154F8 (ApiSetpSearchForApiSetHost.c)
- *     ApiSetpSearchForApiSet @ 0x180015D20 (ApiSetpSearchForApiSet.c)
+ *     ApiSetpSearchForApiSetHost @ 0x1800154E8 (ApiSetpSearchForApiSetHost.c)
+ *     ApiSetpSearchForApiSet @ 0x180015D10 (ApiSetpSearchForApiSet.c)
  */
 
 __int64 __fastcall ApiSetResolveToHost(__int64 a1, unsigned __int16 *a2, __int64 a3, char *a4, __int64 a5)
@@ -50,7 +50,7 @@ __int64 __fastcall ApiSetResolveToHost(__int64 a1, unsigned __int16 *a2, __int64
         {
           if ( a3 && *(_DWORD *)(v15 + 20) > 1u )
           {
-            v16 = ApiSetpSearchForApiSetHost(v15, *(_QWORD *)(a3 + 8), *(_WORD *)a3 >> 1, a1);
+            v16 = ApiSetpSearchForApiSetHost(v15, *(const WCHAR **)(a3 + 8), *(_WORD *)a3 >> 1, a1);
             goto LABEL_12;
           }
           if ( *(_DWORD *)(v15 + 20) )

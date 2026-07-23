@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlIdnToNameprepUnicode @ 0x140784570
+ * XREFs of RtlIdnToNameprepUnicode @ 0x1407844A0
  * Callers:
  *     <none>
  * Callees:
- *     RtlpNameprepAsciiWorker @ 0x14078463C (RtlpNameprepAsciiWorker.c)
+ *     RtlpNameprepAsciiWorker @ 0x14078456C (RtlpNameprepAsciiWorker.c)
  */
 
 NTSTATUS __stdcall RtlIdnToNameprepUnicode(

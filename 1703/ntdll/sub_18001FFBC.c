@@ -8,11 +8,11 @@
  *     sub_1800200FC @ 0x1800200FC (sub_1800200FC.c)
  */
 
-__int64 __fastcall sub_18001FFBC(unsigned __int64 a1, __int64 a2, __int64 a3, unsigned int a4)
+__int64 __fastcall sub_18001FFBC(__int64 a1, __int64 a2, __int64 a3, unsigned int a4)
 {
   struct _TEB *v5; // rcx
   __int64 v8; // rax
-  __int64 HeapVirtualAffinity_high; // rdx
+  __int64 HeapData_high; // rdx
   int v10; // r9d
   unsigned int v11; // edi
   int v12; // r8d
@@ -27,12 +27,12 @@ __int64 __fastcall sub_18001FFBC(unsigned __int64 a1, __int64 a2, __int64 a3, un
   v18[0] = 2LL * *(unsigned __int16 *)(a3 + 34);
   v18[1] = a3 + 48;
   v8 = *(unsigned __int8 *)(a2 + 1);
-  HeapVirtualAffinity_high = HIWORD(v5->HeapVirtualAffinity);
+  HeapData_high = HIWORD(v5->HeapData);
   v10 = byte_180123520[v8];
   v11 = (unsigned __int16)(qword_18015BFE8 ^ *(_WORD *)(a3 + 40) ^ ((unsigned int)a3 >> 12));
   v19 = qword_18015BFE8 ^ *(_DWORD *)(a3 + 40) ^ ((unsigned int)a3 >> 12);
-  v12 = *((unsigned __int8 *)qword_180159900 + HeapVirtualAffinity_high);
-  HIWORD(v5->HeapVirtualAffinity) = (unsigned __int8)(HeapVirtualAffinity_high + 1);
+  v12 = *((unsigned __int8 *)qword_180159900 + HeapData_high);
+  HIWORD(v5->HeapData) = (unsigned __int8)(HeapData_high + 1);
   v13 = sub_1800200FC((unsigned int)v18, *(unsigned __int16 *)(a3 + 36), v12, v10, a4 < v11 ? 3LL : 1LL);
   *(_WORD *)(a3 + 36) = v13;
   v14 = HIWORD(v19) + v13 * v11;

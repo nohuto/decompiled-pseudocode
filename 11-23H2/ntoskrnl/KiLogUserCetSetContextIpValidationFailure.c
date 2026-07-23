@@ -1,11 +1,11 @@
 /*
- * XREFs of KiLogUserCetSetContextIpValidationFailure @ 0x14057BEC8
+ * XREFs of KiLogUserCetSetContextIpValidationFailure @ 0x14057C3B8
  * Callers:
- *     KeVerifyContextIpForUserCet @ 0x14030DEBC (KeVerifyContextIpForUserCet.c)
+ *     KeVerifyContextIpForUserCet @ 0x14030E14C (KeVerifyContextIpForUserCet.c)
  * Callees:
- *     ExAcquireRundownProtection_0 @ 0x14028B360 (ExAcquireRundownProtection_0.c)
- *     ObfReferenceObjectWithTag @ 0x1402B68C0 (ObfReferenceObjectWithTag.c)
- *     ExQueueWorkItem @ 0x1402B7C30 (ExQueueWorkItem.c)
+ *     ExAcquireRundownProtection_0 @ 0x14028B5F0 (ExAcquireRundownProtection_0.c)
+ *     ObfReferenceObjectWithTag @ 0x1402B6B50 (ObfReferenceObjectWithTag.c)
+ *     ExQueueWorkItem @ 0x1402B7EC0 (ExQueueWorkItem.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

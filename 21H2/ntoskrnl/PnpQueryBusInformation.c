@@ -1,12 +1,12 @@
 /*
- * XREFs of PnpQueryBusInformation @ 0x14076CA84
+ * XREFs of PnpQueryBusInformation @ 0x14076CC44
  * Callers:
- *     PiProcessNewDeviceNode @ 0x140744490 (PiProcessNewDeviceNode.c)
+ *     PiProcessNewDeviceNode @ 0x140744650 (PiProcessNewDeviceNode.c)
  * Callees:
- *     memset @ 0x140414200 (memset.c)
- *     IopSynchronousCall @ 0x14071DFF0 (IopSynchronousCall.c)
- *     PnpBusTypeGuidGetIndex @ 0x14076CB5C (PnpBusTypeGuidGetIndex.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     IopSynchronousCall @ 0x1406FA580 (IopSynchronousCall.c)
+ *     PnpBusTypeGuidGetIndex @ 0x14076CD1C (PnpBusTypeGuidGetIndex.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PnpQueryBusInformation(__int64 a1)

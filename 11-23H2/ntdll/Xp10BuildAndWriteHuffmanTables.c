@@ -1,10 +1,10 @@
 /*
- * XREFs of Xp10BuildAndWriteHuffmanTables @ 0x18011C418
+ * XREFs of Xp10BuildAndWriteHuffmanTables @ 0x18011C3E8
  * Callers:
- *     Xp10BuildAndWriteHuffmanEncodings @ 0x18011C044 (Xp10BuildAndWriteHuffmanEncodings.c)
+ *     Xp10BuildAndWriteHuffmanEncodings @ 0x18011C014 (Xp10BuildAndWriteHuffmanEncodings.c)
  * Callees:
  *     __security_check_cookie @ 0x18008EF90 (__security_check_cookie.c)
- *     Xp10BuildHuffmanEncodings @ 0x18011D0BC (Xp10BuildHuffmanEncodings.c)
+ *     Xp10BuildHuffmanEncodings @ 0x18011D08C (Xp10BuildHuffmanEncodings.c)
  *     memset$thunk$772440563353939046 @ 0x180132010 (memset$thunk$772440563353939046.c)
  */
 
@@ -244,7 +244,7 @@ __int64 __fastcall Xp10BuildAndWriteHuffmanTables(int a1, __int64 a2, unsigned i
           while ( v26 );
         }
         if ( (_DWORD)v23 )
-          *v24 |= (unsigned __int8)v25 & byte_180148E80[4 * v23];
+          *v24 |= (unsigned __int8)v25 & byte_180148F10[4 * v23];
         *((_DWORD *)v4 + 2) += v22;
       }
     }
@@ -259,7 +259,7 @@ __int64 __fastcall Xp10BuildAndWriteHuffmanTables(int a1, __int64 a2, unsigned i
         v31 = v29;
         if ( v29 >= v30 )
           v31 = v30;
-        *v28 |= (byte_180148E80[4 * v31] & 1) << (v27 & 7);
+        *v28 |= (byte_180148F10[4 * v31] & 1) << (v27 & 7);
         v32 = v30 - (unsigned int)v31;
         v33 = v28 + 1;
         v34 = 1u >> v29;
@@ -277,7 +277,7 @@ __int64 __fastcall Xp10BuildAndWriteHuffmanTables(int a1, __int64 a2, unsigned i
           while ( v35 );
         }
         if ( (_DWORD)v32 )
-          *v33 |= (unsigned __int8)v34 & byte_180148E80[4 * v32];
+          *v33 |= (unsigned __int8)v34 & byte_180148F10[4 * v32];
         *((_DWORD *)v4 + 2) += v30;
         v27 = *((_DWORD *)v4 + 2);
       }
@@ -294,7 +294,7 @@ __int64 __fastcall Xp10BuildAndWriteHuffmanTables(int a1, __int64 a2, unsigned i
           v49 = v39;
           if ( v39 >= v48 )
             v49 = v48;
-          *v38 |= ((unsigned __int8)v19 & (unsigned __int8)byte_180148E80[4 * v49]) << v37;
+          *v38 |= ((unsigned __int8)v19 & (unsigned __int8)byte_180148F10[4 * v49]) << v37;
           v50 = v48 - (unsigned int)v49;
           v51 = v38 + 1;
           v52 = v19 >> v39;
@@ -312,7 +312,7 @@ __int64 __fastcall Xp10BuildAndWriteHuffmanTables(int a1, __int64 a2, unsigned i
             while ( v53 );
           }
           if ( (_DWORD)v50 )
-            *v51 |= (unsigned __int8)v52 & byte_180148E80[4 * v50];
+            *v51 |= (unsigned __int8)v52 & byte_180148F10[4 * v50];
           *((_DWORD *)v4 + 2) += v48;
         }
       }
@@ -325,7 +325,7 @@ __int64 __fastcall Xp10BuildAndWriteHuffmanTables(int a1, __int64 a2, unsigned i
           v43 = v39;
           if ( v39 >= v42 )
             v43 = v42;
-          *v38 |= ((unsigned __int8)v41 & (unsigned __int8)byte_180148E80[4 * v43]) << v37;
+          *v38 |= ((unsigned __int8)v41 & (unsigned __int8)byte_180148F10[4 * v43]) << v37;
           v44 = v42 - (unsigned int)v43;
           v45 = v41 >> v39;
           v46 = v38 + 1;
@@ -343,7 +343,7 @@ __int64 __fastcall Xp10BuildAndWriteHuffmanTables(int a1, __int64 a2, unsigned i
             while ( v47 );
           }
           if ( (_DWORD)v44 )
-            *v46 |= (unsigned __int8)v45 & byte_180148E80[4 * v44];
+            *v46 |= (unsigned __int8)v45 & byte_180148F10[4 * v44];
           *((_DWORD *)v4 + 2) += v42;
         }
       }
@@ -397,7 +397,7 @@ __int64 __fastcall Xp10BuildAndWriteHuffmanTables(int a1, __int64 a2, unsigned i
           v66 = v62;
           if ( v62 >= v64 )
             v66 = v64;
-          *v63 |= ((unsigned __int8)v65 & (unsigned __int8)byte_180148E80[4 * v66]) << (v61 & 7);
+          *v63 |= ((unsigned __int8)v65 & (unsigned __int8)byte_180148F10[4 * v66]) << (v61 & 7);
           v67 = v64 - (unsigned int)v66;
           v68 = v65 >> v62;
           v69 = v63 + 1;
@@ -415,7 +415,7 @@ __int64 __fastcall Xp10BuildAndWriteHuffmanTables(int a1, __int64 a2, unsigned i
             while ( v70 );
           }
           if ( (_DWORD)v67 )
-            *v69 |= (unsigned __int8)v68 & byte_180148E80[4 * v67];
+            *v69 |= (unsigned __int8)v68 & byte_180148F10[4 * v67];
           *((_DWORD *)v4 + 2) += v64;
         }
         v145 = ++v56;
@@ -449,7 +449,7 @@ __int64 __fastcall Xp10BuildAndWriteHuffmanTables(int a1, __int64 a2, unsigned i
             v78 = v76;
             if ( v76 >= v77 )
               v78 = v77;
-            *v75 |= ((unsigned __int8)v73 & (unsigned __int8)byte_180148E80[4 * v78]) << (v74 & 7);
+            *v75 |= ((unsigned __int8)v73 & (unsigned __int8)byte_180148F10[4 * v78]) << (v74 & 7);
             v79 = v77 - (unsigned int)v78;
             v80 = v73 >> v76;
             v81 = v75 + 1;
@@ -467,7 +467,7 @@ __int64 __fastcall Xp10BuildAndWriteHuffmanTables(int a1, __int64 a2, unsigned i
               while ( v82 );
             }
             if ( (_DWORD)v79 )
-              *v81 |= (unsigned __int8)v80 & byte_180148E80[4 * v79];
+              *v81 |= (unsigned __int8)v80 & byte_180148F10[4 * v79];
             *((_DWORD *)v4 + 2) += v77;
           }
           v71 = (v71 & 0xFFF0) + 16;
@@ -493,7 +493,7 @@ __int64 __fastcall Xp10BuildAndWriteHuffmanTables(int a1, __int64 a2, unsigned i
             v90 = v88;
             if ( v88 >= v89 )
               v90 = v89;
-            *v87 |= ((unsigned __int8)v85 & (unsigned __int8)byte_180148E80[4 * v90]) << (v86 & 7);
+            *v87 |= ((unsigned __int8)v85 & (unsigned __int8)byte_180148F10[4 * v90]) << (v86 & 7);
             v91 = v89 - (unsigned int)v90;
             v92 = v85 >> v88;
             v93 = v87 + 1;
@@ -511,7 +511,7 @@ __int64 __fastcall Xp10BuildAndWriteHuffmanTables(int a1, __int64 a2, unsigned i
               while ( v94 );
             }
             if ( (_DWORD)v91 )
-              *v93 |= (unsigned __int8)v92 & byte_180148E80[4 * v91];
+              *v93 |= (unsigned __int8)v92 & byte_180148F10[4 * v91];
             *((_DWORD *)v4 + 2) += v89;
           }
           --v83;
@@ -531,7 +531,7 @@ __int64 __fastcall Xp10BuildAndWriteHuffmanTables(int a1, __int64 a2, unsigned i
         v100 = v99;
         if ( v99 >= v96 )
           v100 = v96;
-        *v97 |= ((unsigned __int8)v98 & (unsigned __int8)byte_180148E80[4 * v100]) << (v95 & 7);
+        *v97 |= ((unsigned __int8)v98 & (unsigned __int8)byte_180148F10[4 * v100]) << (v95 & 7);
         v101 = v96 - (unsigned int)v100;
         v102 = v98 >> v99;
         v103 = v97 + 1;
@@ -549,7 +549,7 @@ __int64 __fastcall Xp10BuildAndWriteHuffmanTables(int a1, __int64 a2, unsigned i
           while ( v104 );
         }
         if ( (_DWORD)v101 )
-          *v103 |= (unsigned __int8)v102 & byte_180148E80[4 * v101];
+          *v103 |= (unsigned __int8)v102 & byte_180148F10[4 * v101];
         *((_DWORD *)v4 + 2) += v96;
         v95 = *((_DWORD *)v4 + 2);
       }
@@ -572,7 +572,7 @@ __int64 __fastcall Xp10BuildAndWriteHuffmanTables(int a1, __int64 a2, unsigned i
       v113 = v108;
       if ( v108 >= v112 )
         v113 = v112;
-      *v109 |= ((unsigned __int8)v110 & (unsigned __int8)byte_180148E80[4 * v113]) << v107;
+      *v109 |= ((unsigned __int8)v110 & (unsigned __int8)byte_180148F10[4 * v113]) << v107;
       v114 = v112 - (unsigned int)v113;
       v115 = v110 >> v108;
       v116 = v109 + 1;
@@ -591,7 +591,7 @@ __int64 __fastcall Xp10BuildAndWriteHuffmanTables(int a1, __int64 a2, unsigned i
       }
       if ( (_DWORD)v114 )
       {
-        v118 = byte_180148E80[4 * v114];
+        v118 = byte_180148F10[4 * v114];
 LABEL_176:
         *v116 |= (unsigned __int8)v115 & v118;
       }
@@ -607,7 +607,7 @@ LABEL_178:
       v119 = v108;
       if ( v108 >= v112 )
         v119 = v112;
-      *v109 |= (byte_180148E80[4 * v119] & 3) << v107;
+      *v109 |= (byte_180148F10[4 * v119] & 3) << v107;
       v120 = v112 - (unsigned int)v119;
       v121 = v109 + 1;
       v122 = 3u >> v108;
@@ -625,7 +625,7 @@ LABEL_178:
         while ( v123 );
       }
       if ( (_DWORD)v120 )
-        *v121 |= (unsigned __int8)v122 & byte_180148E80[4 * v120];
+        *v121 |= (unsigned __int8)v122 & byte_180148F10[4 * v120];
       *((_DWORD *)v4 + 2) += v112;
       v95 = *((_DWORD *)v4 + 2);
       v105 = *v4;
@@ -650,7 +650,7 @@ LABEL_178:
           v133 = v131;
           if ( v131 >= v128 )
             v133 = v128;
-          *v129 |= (byte_180148E80[4 * v133] & 7) << v130;
+          *v129 |= (byte_180148F10[4 * v133] & 7) << v130;
           v134 = v128 - (unsigned int)v133;
           v135 = v129 + 1;
           v136 = 7u >> v131;
@@ -668,7 +668,7 @@ LABEL_178:
             while ( v137 );
           }
           if ( (_DWORD)v134 )
-            *v135 |= (unsigned __int8)v136 & byte_180148E80[4 * v134];
+            *v135 |= (unsigned __int8)v136 & byte_180148F10[4 * v134];
           v105 = *v4;
           *((_DWORD *)v4 + 2) += v128;
           v126 = v105;
@@ -697,7 +697,7 @@ LABEL_178:
     v141 = v140;
     if ( v140 >= v112 )
       v141 = v112;
-    *v138 |= ((unsigned __int8)v124 & (unsigned __int8)byte_180148E80[4 * v141]) << v139;
+    *v138 |= ((unsigned __int8)v124 & (unsigned __int8)byte_180148F10[4 * v141]) << v139;
     v142 = v112 - (unsigned int)v141;
     v115 = v124 >> v140;
     v116 = v138 + 1;
@@ -716,7 +716,7 @@ LABEL_178:
     }
     if ( !(_DWORD)v142 )
       goto LABEL_177;
-    v118 = byte_180148E80[4 * v142];
+    v118 = byte_180148F10[4 * v142];
     goto LABEL_176;
   }
   return 0LL;

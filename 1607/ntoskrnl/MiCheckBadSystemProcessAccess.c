@@ -1,10 +1,10 @@
 /*
- * XREFs of MiCheckBadSystemProcessAccess @ 0x14010CE38
+ * XREFs of MiCheckBadSystemProcessAccess @ 0x14010ABB8
  * Callers:
- *     MmAccessFault @ 0x14003E7A0 (MmAccessFault.c)
+ *     MmAccessFault @ 0x14003E320 (MmAccessFault.c)
  * Callees:
- *     MiIsStoreProcess @ 0x14010CE84 (MiIsStoreProcess.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
+ *     MiIsStoreProcess @ 0x14010AC04 (MiIsStoreProcess.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall MiCheckBadSystemProcessAccess(

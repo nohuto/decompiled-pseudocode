@@ -1,19 +1,19 @@
 /*
- * XREFs of PopFxCompleteDirectedPowerTransition @ 0x14058969C
+ * XREFs of PopFxCompleteDirectedPowerTransition @ 0x140589B8C
  * Callers:
- *     PopFxDerefAndCompleteDirectedPowerTransition @ 0x140589B78 (PopFxDerefAndCompleteDirectedPowerTransition.c)
- *     PopFxHandleDirectedPowerTransition @ 0x14058A4A0 (PopFxHandleDirectedPowerTransition.c)
+ *     PopFxDerefAndCompleteDirectedPowerTransition @ 0x14058A068 (PopFxDerefAndCompleteDirectedPowerTransition.c)
+ *     PopFxHandleDirectedPowerTransition @ 0x14058A990 (PopFxHandleDirectedPowerTransition.c)
  * Callees:
- *     KeSetEvent @ 0x14023C5E0 (KeSetEvent.c)
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250E80 (KeAcquireSpinLockRaiseToDpc.c)
- *     PopFxDisableWorkOrderWatchdog @ 0x140311DC8 (PopFxDisableWorkOrderWatchdog.c)
- *     PopFxAddLogEntry @ 0x140312AF4 (PopFxAddLogEntry.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     PopFxBugCheck @ 0x140588BE0 (PopFxBugCheck.c)
- *     PopFxEnforceDirectedPowerTransition @ 0x14058A310 (PopFxEnforceDirectedPowerTransition.c)
- *     PopCompleteDirectedPowerTransitionCallback @ 0x140590414 (PopCompleteDirectedPowerTransitionCallback.c)
- *     PopDiagTraceFxDeviceDirectedCompletion @ 0x1405934BC (PopDiagTraceFxDeviceDirectedCompletion.c)
+ *     KeSetEvent @ 0x14023C6B0 (KeSetEvent.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140250F40 (KeAcquireSpinLockRaiseToDpc.c)
+ *     PopFxDisableWorkOrderWatchdog @ 0x140312058 (PopFxDisableWorkOrderWatchdog.c)
+ *     PopFxAddLogEntry @ 0x140312D84 (PopFxAddLogEntry.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     PopFxBugCheck @ 0x1405890D0 (PopFxBugCheck.c)
+ *     PopFxEnforceDirectedPowerTransition @ 0x14058A800 (PopFxEnforceDirectedPowerTransition.c)
+ *     PopCompleteDirectedPowerTransitionCallback @ 0x140590904 (PopCompleteDirectedPowerTransitionCallback.c)
+ *     PopDiagTraceFxDeviceDirectedCompletion @ 0x1405939AC (PopDiagTraceFxDeviceDirectedCompletion.c)
  */
 
 LONG __fastcall PopFxCompleteDirectedPowerTransition(ULONG_PTR BugCheckParameter3, char a2)
@@ -83,10 +83,13 @@ LABEL_25:
   v16 = v9 & (v13 >> 1);
   *(_DWORD *)(BugCheckParameter3 + 1180) = v15;
   KxReleaseSpinLock((volatile signed __int64 *)(BugCheckParameter3 + 1152));
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v8 <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
+      && (unsigned __int8)v8 <= 0xFu
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       v17 = -1LL << ((unsigned __int8)v8 + 1);

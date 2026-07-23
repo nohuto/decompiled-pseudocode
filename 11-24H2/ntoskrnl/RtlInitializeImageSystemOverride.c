@@ -1,8 +1,8 @@
 /*
- * XREFs of RtlInitializeImageSystemOverride @ 0x1408F3378
+ * XREFs of RtlInitializeImageSystemOverride @ 0x14093C4E0
  * Callers:
- *     MiParseImageLoadConfig @ 0x1408F42B8 (MiParseImageLoadConfig.c)
- *     MiApplyFunctionOverrideToBootDriver @ 0x140C5A7D8 (MiApplyFunctionOverrideToBootDriver.c)
+ *     MiParseImageLoadConfig @ 0x14093D160 (MiParseImageLoadConfig.c)
+ *     MiApplyFunctionOverrideToBootDriver @ 0x140C5C968 (MiApplyFunctionOverrideToBootDriver.c)
  * Callees:
  *     <none>
  */
@@ -17,7 +17,7 @@ __int64 __fastcall RtlInitializeImageSystemOverride(__int64 a1, int a2, int a3)
   _DWORD *v9; // rdx
   __int64 v10; // r10
 
-  v3 = dword_140E2D7A0[0];
+  v3 = dword_140E2D8E0[0];
   *(_OWORD *)a1 = 0LL;
   v4 = (a2 + 4095) & 0xFFFFF000;
   *(_OWORD *)(a1 + 16) = 0LL;
@@ -37,10 +37,10 @@ __int64 __fastcall RtlInitializeImageSystemOverride(__int64 a1, int a2, int a3)
     while ( v10 );
   }
   if ( (KeFeatureBits & 1) != 0 )
-    v6 = *((_DWORD *)qword_140E2D730 + 21);
+    v6 = *((_DWORD *)Base + 21);
   else
-    v6 = *((_DWORD *)qword_140E2D730 + 22);
-  v7 = dword_140E374AC + dword_140E374B0 + v6 + a2;
+    v6 = *((_DWORD *)Base + 22);
+  v7 = dword_140E375EC + dword_140E375F0 + v6 + a2;
   if ( v7 < 0x7FFFFFFF )
     *(_DWORD *)(a1 + 16) = v7;
   if ( a3 )

@@ -1,20 +1,20 @@
 /*
- * XREFs of DbgkpSendApiMessage @ 0x1409534DC
+ * XREFs of DbgkpSendApiMessage @ 0x1409CEE1C
  * Callers:
- *     DbgkPostModuleMessage @ 0x1404C6E8C (DbgkPostModuleMessage.c)
- *     DbgkExitProcess @ 0x14077ADD0 (DbgkExitProcess.c)
- *     PsCreateMinimalProcess @ 0x1407FC198 (PsCreateMinimalProcess.c)
- *     DbgkMapViewOfSection @ 0x1409C37E4 (DbgkMapViewOfSection.c)
- *     MiUnmapViewOfSection @ 0x1409C3C30 (MiUnmapViewOfSection.c)
- *     DbgkUnMapViewOfSection @ 0x1409C4448 (DbgkUnMapViewOfSection.c)
- *     DbgkCreateMinimalThread @ 0x1409E9C90 (DbgkCreateMinimalThread.c)
- *     DbgkCreateThread @ 0x1409EAD24 (DbgkCreateThread.c)
- *     DbgkSendSystemDllMessages @ 0x140B51ED8 (DbgkSendSystemDllMessages.c)
+ *     DbgkPostModuleMessage @ 0x1404C083C (DbgkPostModuleMessage.c)
+ *     DbgkExitProcess @ 0x14077DD00 (DbgkExitProcess.c)
+ *     PsCreateMinimalProcess @ 0x140801BC8 (PsCreateMinimalProcess.c)
+ *     DbgkMapViewOfSection @ 0x1409947C4 (DbgkMapViewOfSection.c)
+ *     MiUnmapViewOfSection @ 0x140994C10 (MiUnmapViewOfSection.c)
+ *     DbgkUnMapViewOfSection @ 0x140995428 (DbgkUnMapViewOfSection.c)
+ *     DbgkCreateMinimalThread @ 0x1409E6974 (DbgkCreateMinimalThread.c)
+ *     DbgkCreateThread @ 0x1409E74F4 (DbgkCreateThread.c)
+ *     DbgkSendSystemDllMessages @ 0x140B54778 (DbgkSendSystemDllMessages.c)
  * Callees:
- *     EtwTraceDebuggerEvent @ 0x1404E5B4C (EtwTraceDebuggerEvent.c)
- *     DbgkpResumeProcess @ 0x1409535CC (DbgkpResumeProcess.c)
- *     DbgkpQueueMessage @ 0x140953A1C (DbgkpQueueMessage.c)
- *     DbgkpSuspendProcess @ 0x140953D38 (DbgkpSuspendProcess.c)
+ *     EtwTraceDebuggerEvent @ 0x1404DF0EC (EtwTraceDebuggerEvent.c)
+ *     DbgkpResumeProcess @ 0x1409CEF0C (DbgkpResumeProcess.c)
+ *     DbgkpQueueMessage @ 0x1409CF35C (DbgkpQueueMessage.c)
+ *     DbgkpSuspendProcess @ 0x1409CF678 (DbgkpSuspendProcess.c)
  */
 
 __int64 __fastcall DbgkpSendApiMessage(_KPROCESS *Object, char a2, __int64 a3)

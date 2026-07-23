@@ -1,17 +1,17 @@
 /*
- * XREFs of PpmParkCalculateUnparkCount @ 0x140423BD0
+ * XREFs of PpmParkCalculateUnparkCount @ 0x140417A80
  * Callers:
- *     PpmCheckComputeMultiClassHeteroResponse @ 0x140422A90 (PpmCheckComputeMultiClassHeteroResponse.c)
- *     PpmCheckComputeHeteroResponse @ 0x1404EC390 (PpmCheckComputeHeteroResponse.c)
- *     PpmCheckComputeHeteroResponseEx @ 0x1405DF774 (PpmCheckComputeHeteroResponseEx.c)
- *     PpmCheckComputeMultiClassHeteroResponseEx @ 0x1405DFBD4 (PpmCheckComputeMultiClassHeteroResponseEx.c)
+ *     PpmCheckComputeMultiClassHeteroResponse @ 0x140416940 (PpmCheckComputeMultiClassHeteroResponse.c)
+ *     PpmCheckComputeHeteroResponse @ 0x1404E3AD0 (PpmCheckComputeHeteroResponse.c)
+ *     PpmCheckComputeHeteroResponseEx @ 0x1405DC8E0 (PpmCheckComputeHeteroResponseEx.c)
+ *     PpmCheckComputeMultiClassHeteroResponseEx @ 0x1405DD1F4 (PpmCheckComputeMultiClassHeteroResponseEx.c)
  * Callees:
- *     PpmHeteroIsMultiClassParkingEnabled @ 0x140417BE0 (PpmHeteroIsMultiClassParkingEnabled.c)
- *     PpmEventParkingCountSelection @ 0x1404732C0 (PpmEventParkingCountSelection.c)
- *     PpmHeteroHgsCalculateContainmentCount @ 0x1404EBB30 (PpmHeteroHgsCalculateContainmentCount.c)
- *     PpmEventHgsCoresUnparkedCount @ 0x1404ECF2C (PpmEventHgsCoresUnparkedCount.c)
- *     Feature_PpmParkEx__private_IsEnabledDeviceUsageNoInline @ 0x1405B4FB0 (Feature_PpmParkEx__private_IsEnabledDeviceUsageNoInline.c)
- *     PpmEventParkingCountSelectionEx @ 0x1405DE6BC (PpmEventParkingCountSelectionEx.c)
+ *     PpmHeteroIsMultiClassParkingEnabled @ 0x140407990 (PpmHeteroIsMultiClassParkingEnabled.c)
+ *     PpmEventParkingCountSelection @ 0x1404700AC (PpmEventParkingCountSelection.c)
+ *     PpmHeteroHgsCalculateContainmentCount @ 0x1404E2A70 (PpmHeteroHgsCalculateContainmentCount.c)
+ *     PpmEventHgsCoresUnparkedCount @ 0x1404E4750 (PpmEventHgsCoresUnparkedCount.c)
+ *     Feature_PpmParkEx__private_IsEnabledDeviceUsageNoInline @ 0x1405B2224 (Feature_PpmParkEx__private_IsEnabledDeviceUsageNoInline.c)
+ *     PpmEventParkingCountSelectionEx @ 0x1405DB53C (PpmEventParkingCountSelectionEx.c)
  */
 
 char PpmParkCalculateUnparkCount()
@@ -62,7 +62,7 @@ char PpmParkCalculateUnparkCount()
   v1 = 1;
   if ( PpmIsParkingEnabled )
   {
-    v2 = 61LL * dword_140F0BA4C;
+    v2 = 61LL * dword_140F0B38C;
     v3 = PpmCurrentProfile[0][v2 + 24];
     v4 = HIDWORD(PpmCurrentProfile[0][v2 + 23]);
     v39 = BYTE1(PpmCurrentProfile[0][v2 + 23]);
@@ -78,7 +78,7 @@ char PpmParkCalculateUnparkCount()
     {
       while ( 1 )
       {
-        v6 = PpmParkNodes + 1288LL * v5;
+        v6 = PpmParkNodes + 1296LL * v5;
         if ( ((unsigned __int8)v1 & *(_BYTE *)(v6 + 1184)) == 0 )
         {
           *(_DWORD *)v6 += v1;
@@ -95,7 +95,7 @@ LABEL_68:
       v8 = *(_DWORD *)v6;
       while ( 1 )
       {
-        v9 = *(_QWORD *)(v6 + 1280) + 640LL * v7;
+        v9 = *(_QWORD *)(v6 + 1288) + 640LL * v7;
         v10 = *(_WORD *)v9;
         v37[0] = v0;
         if ( ((unsigned __int8)(v7 != 0 ? 4 : 2) & *(_BYTE *)(v6 + 1184)) == 0
@@ -116,7 +116,7 @@ LABEL_68:
         }
         else if ( !v7 && *(_BYTE *)(v6 + 1185) != v14 )
         {
-          v16 = *(_WORD **)(v6 + 1280);
+          v16 = *(_WORD **)(v6 + 1288);
           if ( v16[323] >= v16[325] )
           {
             v15 = v16[317];
@@ -215,18 +215,18 @@ LABEL_55:
         *(_WORD *)(v9 + 6) = v25;
         if ( !v11 )
         {
-          v29 = *(_WORD *)(v6 + 1256);
-          *(_WORD *)(v6 + 1260) = v25;
+          v29 = *(_WORD *)(v6 + 1264);
+          *(_WORD *)(v6 + 1268) = v25;
           if ( (unsigned __int16)v25 >= v29 )
           {
             v30 = v25 - v29;
           }
           else
           {
-            *(_WORD *)(v6 + 1260) = v29;
+            *(_WORD *)(v6 + 1268) = v29;
             v30 = 0;
           }
-          *(_WORD *)(v6 + 1258) = v30;
+          *(_WORD *)(v6 + 1266) = v30;
           PpmHeteroHgsCalculateContainmentCount(v6, v37, v21);
         }
         PpmEventHgsCoresUnparkedCount(v6, v25, v28);

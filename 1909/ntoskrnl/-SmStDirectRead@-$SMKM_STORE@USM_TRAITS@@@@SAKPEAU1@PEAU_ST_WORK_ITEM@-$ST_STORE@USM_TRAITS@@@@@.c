@@ -71,7 +71,7 @@ __int64 __fastcall SMKM_STORE<SM_TRAITS>::SmStDirectRead(__int64 a1, __int128 *a
     v6 = v11;
   }
   if ( (v4 & 1) != 0 )
-    ST_STORE<SM_TRAITS>::StReleaseReadContext((union _SLIST_HEADER *)a1, v6);
+    ST_STORE<SM_TRAITS>::StReleaseReadContext((_SLIST_HEADER *)a1, v6);
   if ( (v4 & 2) != 0 )
     KiUnstackDetachProcess((struct _KTHREAD *)v15, 0);
   return v4 >> 2;

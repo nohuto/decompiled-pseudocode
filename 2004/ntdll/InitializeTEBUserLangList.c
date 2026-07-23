@@ -28,11 +28,11 @@ __int64 __fastcall InitializeTEBUserLangList(char a1, __int64 a2)
   unsigned int MuiImpersonation; // edx
   unsigned int v17; // r9d
   struct _TEB *v18; // rax
-  __int64 *UserPrefLanguages; // rdi
+  void *UserPrefLanguages; // rdi
   __int64 v20; // rax
   __int64 v21; // rcx
   __int64 v22; // rcx
-  __int64 v23; // rcx
+  _DWORD *v23; // rcx
   int v24; // eax
   bool v25; // zf
   struct _TEB *v27; // r8
@@ -41,7 +41,7 @@ __int64 __fastcall InitializeTEBUserLangList(char a1, __int64 a2)
   __int64 v30; // rax
   struct _TEB *v31; // rcx
   __int64 v32; // rax
-  __int64 v33; // rcx
+  _DWORD *v33; // rcx
   char v34; // cl
   __int64 v35; // rcx
   unsigned int v36; // r8d
@@ -84,7 +84,7 @@ __int64 __fastcall InitializeTEBUserLangList(char a1, __int64 a2)
   v18 = NtCurrentTeb();
   if ( !MEMORY[0x7FFE03A4] )
     v17 = 1;
-  UserPrefLanguages = (__int64 *)v18->UserPrefLanguages;
+  UserPrefLanguages = v18->UserPrefLanguages;
   if ( a2 )
   {
     v20 = *(_QWORD *)(a2 + 24);
@@ -183,9 +183,9 @@ LABEL_61:
             v34 = 0;
             goto LABEL_47;
           }
-          if ( *UserPrefLanguages )
+          if ( *(_QWORD *)UserPrefLanguages )
           {
-            v22 = *(_QWORD *)(*UserPrefLanguages + 16);
+            v22 = *(_QWORD *)(*(_QWORD *)UserPrefLanguages + 16LL);
             if ( v22 )
             {
               if ( *(_DWORD *)(v22 + 12) < *(_DWORD *)(a2 + 12) )
@@ -193,15 +193,15 @@ LABEL_61:
 LABEL_38:
                 if ( UserPrefLanguages )
                 {
-                  v33 = *UserPrefLanguages;
-                  if ( *UserPrefLanguages )
+                  v33 = *(_DWORD **)UserPrefLanguages;
+                  if ( *(_QWORD *)UserPrefLanguages )
                   {
-                    v10 = (*(_DWORD *)(v33 + 40) & 2) != 0;
-                    v9 = (*(_DWORD *)(v33 + 40) & 4) != 0;
-                    if ( (*(_DWORD *)(v33 + 40) & 2) != 0 || (*(_DWORD *)(v33 + 40) & 4) != 0 )
-                      v7 = *(_DWORD *)(v33 + 40) & 0xFFFF0000;
+                    v10 = (v33[10] & 2) != 0;
+                    v9 = (v33[10] & 4) != 0;
+                    if ( (v33[10] & 2) != 0 || (v33[10] & 4) != 0 )
+                      v7 = v33[10] & 0xFFFF0000;
                     RtlpMuiRegFreeLanguageList(v33);
-                    *UserPrefLanguages = 0LL;
+                    *(_QWORD *)UserPrefLanguages = 0LL;
                   }
                 }
                 if ( NtCurrentTeb()->MergedPrefLanguages )
@@ -212,10 +212,10 @@ LABEL_38:
           }
           if ( UserPrefLanguages )
           {
-            v23 = *UserPrefLanguages;
-            if ( *UserPrefLanguages )
+            v23 = *(_DWORD **)UserPrefLanguages;
+            if ( *(_QWORD *)UserPrefLanguages )
             {
-              v24 = *(_DWORD *)(v23 + 40);
+              v24 = v23[10];
               if ( a1 )
                 v25 = (v24 & 0x20) == 0;
               else
@@ -229,10 +229,10 @@ LABEL_38:
               if ( v10 || v9 )
                 v7 = v24 & 0xFFFF0000;
               RtlpMuiRegFreeLanguageList(v23);
-              *UserPrefLanguages = 0LL;
+              *(_QWORD *)UserPrefLanguages = 0LL;
               if ( NtCurrentTeb()->MergedPrefLanguages )
               {
-                RtlpMuiRegFreeLanguageList((__int64)NtCurrentTeb()->MergedPrefLanguages);
+                RtlpMuiRegFreeLanguageList(NtCurrentTeb()->MergedPrefLanguages);
                 NtCurrentTeb()->MergedPrefLanguages = 0LL;
               }
             }

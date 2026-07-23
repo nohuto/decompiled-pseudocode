@@ -1,11 +1,11 @@
 /*
- * XREFs of SymCryptMlDsaSigDecode @ 0x1405739D4
+ * XREFs of SymCryptMlDsaSigDecode @ 0x140572C2C
  * Callers:
- *     SymCryptMlDsaVerifyEx @ 0x14055DDF0 (SymCryptMlDsaVerifyEx.c)
+ *     SymCryptMlDsaVerifyEx @ 0x140560308 (SymCryptMlDsaVerifyEx.c)
  * Callees:
- *     SymCryptMlDsaHintBitUnpack @ 0x140572AF4 (SymCryptMlDsaHintBitUnpack.c)
- *     SymCryptMlDsaVectorDecode @ 0x1405742F8 (SymCryptMlDsaVectorDecode.c)
- *     memmove @ 0x14073D480 (memmove.c)
+ *     SymCryptMlDsaHintBitUnpack @ 0x140571D00 (SymCryptMlDsaHintBitUnpack.c)
+ *     SymCryptMlDsaVectorDecode @ 0x14057355C (SymCryptMlDsaVectorDecode.c)
+ *     memmove @ 0x140742080 (memmove.c)
  */
 
 __int64 __fastcall SymCryptMlDsaSigDecode(

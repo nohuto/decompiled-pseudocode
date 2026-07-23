@@ -3,9 +3,9 @@
  * Callers:
  *     _RtlpMuiRegInitLIPLanguage @ 0x1800F5ED4 (_RtlpMuiRegInitLIPLanguage.c)
  * Callees:
- *     RtlpMuiRegGetOrAddString @ 0x180040D0C (RtlpMuiRegGetOrAddString.c)
- *     RtlCultureNameToLCID @ 0x180043F70 (RtlCultureNameToLCID.c)
- *     RtlInitUnicodeString @ 0x180044150 (RtlInitUnicodeString.c)
+ *     RtlpMuiRegGetOrAddString @ 0x180040CFC (RtlpMuiRegGetOrAddString.c)
+ *     RtlCultureNameToLCID @ 0x180043F60 (RtlCultureNameToLCID.c)
+ *     RtlInitUnicodeString @ 0x180044140 (RtlInitUnicodeString.c)
  */
 
 __int64 __fastcall RtlMuiRegAddLIPParent(__int64 a1, __int64 a2, unsigned int a3, WCHAR *a4)
@@ -19,17 +19,17 @@ __int64 __fastcall RtlMuiRegAddLIPParent(__int64 a1, __int64 a2, unsigned int a3
   __int16 v13; // r11
   _WORD *v14; // r8
   int v15; // ecx
-  int v17; // [rsp+20h] [rbp-38h] BYREF
-  UNICODE_STRING v18[3]; // [rsp+28h] [rbp-30h] BYREF
+  DWORD Lcid; // [rsp+20h] [rbp-38h] BYREF
+  _UNICODE_STRING String; // [rsp+28h] [rbp-30h] BYREF
   __int16 v19; // [rsp+60h] [rbp+8h] BYREF
 
   v4 = a3;
-  v17 = 0;
+  Lcid = 0;
   v19 = -1;
   if ( !a1 || !a2 || a3 >= 4 || !a4 || !*a4 )
     return 3221225485LL;
-  RtlInitUnicodeString(v18, a4);
-  if ( !RtlCultureNameToLCID(&v18[0].Length, &v17) )
+  RtlInitUnicodeString(&String, a4);
+  if ( !RtlCultureNameToLCID(&String, &Lcid) )
     return (unsigned int)-1073741823;
   LOBYTE(v8) = 1;
   v9 = RtlpMuiRegGetOrAddString(a1, a4, v8, &v19);
@@ -40,13 +40,13 @@ __int64 __fastcall RtlMuiRegAddLIPParent(__int64 a1, __int64 a2, unsigned int a3
     return (unsigned int)-1073741823;
   v11 = *(_QWORD *)(a1 + 24);
   v12 = 0;
-  v13 = v17;
+  v13 = Lcid;
   v14 = *(_WORD **)(v11 + 16);
   v15 = *(unsigned __int16 *)(v11 + 6);
   if ( v15 <= 0 )
   {
 LABEL_19:
-    if ( (_WORD)v17 )
+    if ( (_WORD)Lcid )
     {
       *(_WORD *)(a2 + 8) = *(_WORD *)(a2 + 8) & ~(3 << (2 * v4)) | (1 << (2 * v4));
       *(_WORD *)(a2 + 2 * v4 + 12) = v13;
@@ -64,7 +64,7 @@ LABEL_19:
   {
     if ( (*v14 & 0x3024) != 0x20 )
       goto LABEL_18;
-    if ( (((unsigned __int16)v17 - 4096) & 0xFFFFFBFF) != 0 )
+    if ( (((unsigned __int16)Lcid - 4096) & 0xFFFFFBFF) != 0 )
       break;
     if ( v14[3] == v19 )
       goto LABEL_15;
@@ -74,7 +74,7 @@ LABEL_18:
     if ( v12 >= v15 )
       goto LABEL_19;
   }
-  if ( v14[2] != (_WORD)v17 )
+  if ( v14[2] != (_WORD)Lcid )
     goto LABEL_18;
   if ( (__int16)v14[3] >= 0 && v14[3] != v19 )
     return (unsigned int)-1073741823;

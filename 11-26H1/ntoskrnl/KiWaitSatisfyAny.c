@@ -1,13 +1,13 @@
 /*
- * XREFs of KiWaitSatisfyAny @ 0x1405F7F18
+ * XREFs of KiWaitSatisfyAny @ 0x1405FA938
  * Callers:
- *     KiWaitForAllObjects @ 0x1403C0E68 (KiWaitForAllObjects.c)
+ *     KiWaitForAllObjects @ 0x1403CAD68 (KiWaitForAllObjects.c)
  * Callees:
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     KiWaitSatisfyOther @ 0x1403DF924 (KiWaitSatisfyOther.c)
- *     KiWaitSatisfyMutant @ 0x1404419C0 (KiWaitSatisfyMutant.c)
- *     ?KiAbpSetEntryValue@AutoBoost@@YAXPECEEK@Z @ 0x140444460 (-KiAbpSetEntryValue@AutoBoost@@YAXPECEEK@Z.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     KiWaitSatisfyOther @ 0x1403E2B14 (KiWaitSatisfyOther.c)
+ *     KiWaitSatisfyMutant @ 0x14043A4D0 (KiWaitSatisfyMutant.c)
+ *     ?KiAbpSetEntryValue@AutoBoost@@YAXPECEEK@Z @ 0x14043CF70 (-KiAbpSetEntryValue@AutoBoost@@YAXPECEEK@Z.c)
  */
 
 void __fastcall KiWaitSatisfyAny(struct _KTHREAD *a1, __int64 a2, __int64 a3)

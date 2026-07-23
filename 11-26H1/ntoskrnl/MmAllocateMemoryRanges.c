@@ -1,18 +1,18 @@
 /*
- * XREFs of MmAllocateMemoryRanges @ 0x140867D80
+ * XREFs of MmAllocateMemoryRanges @ 0x14086E160
  * Callers:
- *     IopLiveDumpAllocateIoSpaceRanges @ 0x1405CDAD4 (IopLiveDumpAllocateIoSpaceRanges.c)
- *     MiAllocateUserPhysicalRanges @ 0x1408785D0 (MiAllocateUserPhysicalRanges.c)
+ *     IopLiveDumpAllocateIoSpaceRanges @ 0x1405D02E4 (IopLiveDumpAllocateIoSpaceRanges.c)
+ *     MiAllocateUserPhysicalRanges @ 0x14087E9B0 (MiAllocateUserPhysicalRanges.c)
  * Callees:
- *     MiPartitionObjectToPartition @ 0x1403486D4 (MiPartitionObjectToPartition.c)
- *     MiInitializePageColorBase @ 0x14036FE20 (MiInitializePageColorBase.c)
- *     PsDereferencePartition @ 0x140381940 (PsDereferencePartition.c)
- *     MiGetNextPageColor @ 0x14044ADA0 (MiGetNextPageColor.c)
- *     MmGetNextNode @ 0x14045D380 (MmGetNextNode.c)
- *     MiGetHugeRange @ 0x1406EB880 (MiGetHugeRange.c)
- *     MiReleaseMemoryRuns @ 0x1406ED4A8 (MiReleaseMemoryRuns.c)
- *     MiAddRun @ 0x140867920 (MiAddRun.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     MiPartitionObjectToPartition @ 0x14034A754 (MiPartitionObjectToPartition.c)
+ *     MiInitializePageColorBase @ 0x140371BD0 (MiInitializePageColorBase.c)
+ *     PsDereferencePartition @ 0x1403836F0 (PsDereferencePartition.c)
+ *     MiGetNextPageColor @ 0x140442ED0 (MiGetNextPageColor.c)
+ *     MmGetNextNode @ 0x140456D80 (MmGetNextNode.c)
+ *     MiGetHugeRange @ 0x1406F0520 (MiGetHugeRange.c)
+ *     MiReleaseMemoryRuns @ 0x1406F2148 (MiReleaseMemoryRuns.c)
+ *     MiAddRun @ 0x14086DD00 (MiAddRun.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall MmAllocateMemoryRanges(__int64 a1)

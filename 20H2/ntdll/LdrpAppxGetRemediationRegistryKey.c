@@ -10,98 +10,97 @@
  *     NtOpenKeyEx @ 0x18009F4A0 (NtOpenKeyEx.c)
  */
 
-__int64 __fastcall LdrpAppxGetRemediationRegistryKey(int a1, __int64 a2)
+__int64 __fastcall LdrpAppxGetRemediationRegistryKey(int a1, __int64 a2, HANDLE *a3)
 {
   signed int PersistedStateLocation; // ecx
-  __int64 v5; // r11
-  char *v6; // rcx
   __int64 v7; // r11
-  __int64 v8; // rdx
-  signed __int64 v9; // rax
-  __int16 v10; // r8
+  WCHAR *v8; // rcx
+  __int64 v9; // r11
+  __int64 v10; // rdx
   char *v11; // rax
-  __int64 v13; // [rsp+40h] [rbp-C0h] BYREF
-  __int128 v14; // [rsp+48h] [rbp-B8h] BYREF
-  int v15; // [rsp+58h] [rbp-A8h]
-  __int64 v16; // [rsp+60h] [rbp-A0h]
-  __int128 *v17; // [rsp+68h] [rbp-98h]
-  int v18; // [rsp+70h] [rbp-90h]
-  __int128 v19; // [rsp+78h] [rbp-88h]
-  _WORD v20[264]; // [rsp+90h] [rbp-70h] BYREF
+  WCHAR v12; // r8
+  WCHAR *v13; // rax
+  ACCESS_MASK v14; // edx
+  ULONG BufferLengthOut[2]; // [rsp+40h] [rbp-C0h] BYREF
+  __int128 v17; // [rsp+48h] [rbp-B8h] BYREF
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+58h] [rbp-A8h] BYREF
+  WCHAR TargetPath[264]; // [rsp+90h] [rbp-70h] BYREF
 
   PersistedStateLocation = RtlGetPersistedStateLocation(
                              L"AppxStateChange",
                              L"TargetNtPath",
                              L"\\Registry\\Machine\\Software\\Microsoft\\Windows\\CurrentVersion\\AppModel\\StateChange",
-                             0,
-                             v20,
+                             LocationTypeRegistry,
+                             TargetPath,
                              0x20Au,
-                             (unsigned int *)&v13);
+                             BufferLengthOut);
   if ( PersistedStateLocation >= 0 )
   {
     if ( a1 == -1073740702 )
     {
-      PersistedStateLocation = RtlStringLengthWorkerW(v20, 261LL, &v13);
+      PersistedStateLocation = RtlStringLengthWorkerW(TargetPath, 261LL, BufferLengthOut);
       if ( PersistedStateLocation >= 0 )
       {
-        v6 = (char *)&v20[v13];
-        v7 = v5 - v13;
-        if ( v7 )
+        v8 = &TargetPath[*(_QWORD *)BufferLengthOut];
+        v9 = v7 - *(_QWORD *)BufferLengthOut;
+        if ( v9 )
         {
-          v8 = v7 + v13 + 2147483385;
-          v9 = (char *)L"\\PackageList\\" - v6;
+          v10 = v9 + *(_QWORD *)BufferLengthOut + 2147483385LL;
+          v11 = (char *)((char *)L"\\PackageList\\" - (char *)v8);
           do
           {
-            if ( !v8 )
-              break;
-            v10 = *(_WORD *)&v6[v9];
             if ( !v10 )
               break;
-            *(_WORD *)v6 = v10;
-            --v8;
-            v6 += 2;
-            --v7;
+            v12 = *(WCHAR *)((char *)v8 + (_QWORD)v11);
+            if ( !v12 )
+              break;
+            *v8 = v12;
+            --v10;
+            ++v8;
+            --v9;
           }
-          while ( v7 );
+          while ( v9 );
         }
-        v11 = v6 - 2;
-        if ( v7 )
-          v11 = v6;
-        PersistedStateLocation = v7 == 0 ? 0x80000005 : 0;
-        *(_WORD *)v11 = 0;
+        v13 = v8 - 1;
+        if ( v9 )
+          v13 = v8;
+        PersistedStateLocation = v9 == 0 ? 0x80000005 : 0;
+        *v13 = 0;
       }
       if ( PersistedStateLocation >= 0 )
       {
-        PersistedStateLocation = RtlStringCbCatW((__int64)v20, 0x20AuLL, a2);
+        PersistedStateLocation = RtlStringCbCatW((__int64)TargetPath, 0x20AuLL, a2);
         if ( PersistedStateLocation >= 0 )
         {
-          v14 = 0LL;
-          PersistedStateLocation = RtlStringLengthWorkerW(v20, 0x7FFFLL, &v13);
+          v17 = 0LL;
+          PersistedStateLocation = RtlStringLengthWorkerW(TargetPath, 0x7FFFLL, BufferLengthOut);
           if ( PersistedStateLocation >= 0 )
           {
-            LOWORD(v14) = 2 * v13;
-            WORD1(v14) = 2 * v13 + 2;
-            *((_QWORD *)&v14 + 1) = v20;
+            LOWORD(v17) = 2 * LOWORD(BufferLengthOut[0]);
+            WORD1(v17) = 2 * LOWORD(BufferLengthOut[0]) + 2;
+            *((_QWORD *)&v17 + 1) = TargetPath;
+            v14 = 131353;
 LABEL_18:
-            v15 = 48;
-            v17 = &v14;
-            v16 = 0LL;
-            v18 = 64;
-            v19 = 0LL;
-            return (unsigned int)NtOpenKeyEx();
+            ObjectAttributes.Length = 48;
+            ObjectAttributes.ObjectName = (PUNICODE_STRING)&v17;
+            ObjectAttributes.RootDirectory = 0LL;
+            ObjectAttributes.Attributes = 64;
+            *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+            return (unsigned int)NtOpenKeyEx(a3, v14, &ObjectAttributes, 0);
           }
         }
       }
     }
     else
     {
-      v14 = 0LL;
-      PersistedStateLocation = RtlStringLengthWorkerW(v20, 0x7FFFLL, &v13);
+      v17 = 0LL;
+      PersistedStateLocation = RtlStringLengthWorkerW(TargetPath, 0x7FFFLL, BufferLengthOut);
       if ( PersistedStateLocation >= 0 )
       {
-        LOWORD(v14) = 2 * v13;
-        WORD1(v14) = 2 * v13 + 2;
-        *((_QWORD *)&v14 + 1) = v20;
+        LOWORD(v17) = 2 * LOWORD(BufferLengthOut[0]);
+        WORD1(v17) = 2 * LOWORD(BufferLengthOut[0]) + 2;
+        *((_QWORD *)&v17 + 1) = TargetPath;
+        v14 = 131097;
         goto LABEL_18;
       }
     }

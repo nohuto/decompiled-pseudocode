@@ -1,20 +1,20 @@
 /*
- * XREFs of KeQueryTotalCycleTimeThread @ 0x14022EEF0
+ * XREFs of KeQueryTotalCycleTimeThread @ 0x1402D3740
  * Callers:
- *     NtQueryInformationThread @ 0x1405FB940 (NtQueryInformationThread.c)
+ *     NtQueryInformationThread @ 0x1406EB0A0 (NtQueryInformationThread.c)
  * Callees:
- *     KeAddProcessorAffinityEx @ 0x140229380 (KeAddProcessorAffinityEx.c)
- *     KiAcquireThreadStateLock @ 0x140230F40 (KiAcquireThreadStateLock.c)
- *     KiStartThreadCycleAccumulation @ 0x140231260 (KiStartThreadCycleAccumulation.c)
- *     KiEndThreadAccountingPeriod @ 0x140231380 (KiEndThreadAccountingPeriod.c)
- *     KeYieldProcessorEx @ 0x14024B280 (KeYieldProcessorEx.c)
- *     KeFlushProcessWriteBuffers @ 0x14027AD04 (KeFlushProcessWriteBuffers.c)
- *     KiIpiSendPacket @ 0x14027AE48 (KiIpiSendPacket.c)
- *     KiReleaseThreadLockSafe @ 0x14029A860 (KiReleaseThreadLockSafe.c)
- *     KiReleaseThreadStateLock @ 0x1402EA480 (KiReleaseThreadStateLock.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     KiReleaseThreadLockSafe @ 0x1402121F0 (KiReleaseThreadLockSafe.c)
+ *     KeFlushProcessWriteBuffers @ 0x140268CA4 (KeFlushProcessWriteBuffers.c)
+ *     KiIpiSendPacket @ 0x140268DE8 (KiIpiSendPacket.c)
+ *     KiReleaseThreadStateLock @ 0x14029B7D0 (KiReleaseThreadStateLock.c)
+ *     KeAddProcessorAffinityEx @ 0x1402CDC80 (KeAddProcessorAffinityEx.c)
+ *     KiAcquireThreadStateLock @ 0x1402D5790 (KiAcquireThreadStateLock.c)
+ *     KiStartThreadCycleAccumulation @ 0x1402D5AB0 (KiStartThreadCycleAccumulation.c)
+ *     KiEndThreadAccountingPeriod @ 0x1402D5BD0 (KiEndThreadAccountingPeriod.c)
+ *     KeYieldProcessorEx @ 0x1402EFAD0 (KeYieldProcessorEx.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     memset @ 0x140414200 (memset.c)
+ *     memset @ 0x140414300 (memset.c)
  */
 
 ULONG64 __stdcall KeQueryTotalCycleTimeThread(PKTHREAD Thread, PULONG64 CycleTimeStamp)
@@ -45,7 +45,7 @@ ULONG64 __stdcall KeQueryTotalCycleTimeThread(PKTHREAD Thread, PULONG64 CycleTim
   _DWORD *v28; // r9
   int v29; // edx
   int v30; // [rsp+30h] [rbp-108h] BYREF
-  __int64 v31; // [rsp+38h] [rbp-100h] BYREF
+  volatile signed __int64 *v31; // [rsp+38h] [rbp-100h] BYREF
   __int64 v32; // [rsp+40h] [rbp-F8h] BYREF
   _DWORD v33[44]; // [rsp+50h] [rbp-E8h] BYREF
 
@@ -130,7 +130,7 @@ LABEL_16:
     {
       NextProcessor = Thread->NextProcessor;
       KiReleaseThreadStateLock(v20, v32, v31);
-      KiReleaseThreadLockSafe(Thread);
+      KiReleaseThreadLockSafe((__int64)Thread);
       v33[0] = 1310721;
       memset(&v33[1], 0, 0xA4uLL);
       KeAddProcessorAffinityEx(v33, NextProcessor);
@@ -141,7 +141,7 @@ LABEL_16:
         v23 = KeGetCurrentPrcb()->SchedulerAssist;
         v23[5] |= (-1 << (v22 + 1)) & 0x1FFC;
       }
-      KiIpiSendPacket(0, (unsigned int)v33, (unsigned int)xHalTimerWatchdogStop, 0, 0LL, 0LL);
+      KiIpiSendPacket(0, (int)v33, (__int64)xHalTimerWatchdogStop, 0LL, 0LL, 0LL);
       v24 = KeGetCurrentPrcb();
       while ( v24->PacketBarrier )
         _mm_pause();
@@ -151,14 +151,11 @@ LABEL_16:
     else
     {
       if ( Thread->Running )
-      {
-        LOBYTE(v20) = 1;
-        KeFlushProcessWriteBuffers(v20);
-      }
+        KeFlushProcessWriteBuffers(1);
       *CycleTimeStamp = __rdtsc();
       CycleTime = Thread->CycleTime;
       KiReleaseThreadStateLock(v20, v32, v31);
-      KiReleaseThreadLockSafe(Thread);
+      KiReleaseThreadLockSafe((__int64)Thread);
     }
     if ( KiIrqlFlags )
     {

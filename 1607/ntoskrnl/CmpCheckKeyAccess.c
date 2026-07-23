@@ -1,10 +1,10 @@
 /*
- * XREFs of CmpCheckKeyAccess @ 0x140601EFC
+ * XREFs of CmpCheckKeyAccess @ 0x140601FB0
  * Callers:
- *     CmRenameKey @ 0x1405FD4E8 (CmRenameKey.c)
- *     CmpDoAccessCheckOnSubtree @ 0x140602464 (CmpDoAccessCheckOnSubtree.c)
+ *     CmRenameKey @ 0x1405FD59C (CmRenameKey.c)
+ *     CmpDoAccessCheckOnSubtree @ 0x140602518 (CmpDoAccessCheckOnSubtree.c)
  * Callees:
- *     CmpCheckSecurityCellAccess @ 0x1404EA7B4 (CmpCheckSecurityCellAccess.c)
+ *     CmpCheckSecurityCellAccess @ 0x1404CC9B8 (CmpCheckSecurityCellAccess.c)
  */
 
 __int64 __fastcall CmpCheckKeyAccess(__int64 a1, __int64 a2, KPROCESSOR_MODE a3, ACCESS_MASK a4)

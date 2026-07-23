@@ -1,12 +1,12 @@
 /*
- * XREFs of SmProcessResizeRequest @ 0x1408AB2D0
+ * XREFs of SmProcessResizeRequest @ 0x1408AC530
  * Callers:
- *     SmSetStoreInformation @ 0x1406CBC30 (SmSetStoreInformation.c)
+ *     SmSetStoreInformation @ 0x1406CCED0 (SmSetStoreInformation.c)
  * Callees:
  *     KeWaitForSingleObject @ 0x140054880 (KeWaitForSingleObject.c)
- *     KeInitializeEvent @ 0x1400B8E70 (KeInitializeEvent.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     ?SmStoreRequest@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@KPEAU_SM_WORK_ITEM@1@PEAU_KEVENT@@PEAU_IO_STATUS_BLOCK@@@Z @ 0x140303550 (-SmStoreRequest@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@KPEAU_SM_WORK_ITEM@1@PEAU_KEVENT@@PEAU_I.c)
+ *     KeInitializeEvent @ 0x1400B8DB0 (KeInitializeEvent.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     ?SmStoreRequest@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@KPEAU_SM_WORK_ITEM@1@PEAU_KEVENT@@PEAU_IO_STATUS_BLOCK@@@Z @ 0x140303740 (-SmStoreRequest@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@KPEAU_SM_WORK_ITEM@1@PEAU_KEVENT@@PEAU_I.c)
  */
 
 __int64 __fastcall SmProcessResizeRequest(__int64 a1, __int64 a2, int a3, char a4)

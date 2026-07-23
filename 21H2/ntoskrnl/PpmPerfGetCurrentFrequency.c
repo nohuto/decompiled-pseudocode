@@ -1,8 +1,8 @@
 /*
- * XREFs of PpmPerfGetCurrentFrequency @ 0x1402C397C
+ * XREFs of PpmPerfGetCurrentFrequency @ 0x140241EFC
  * Callers:
- *     PoGetFrequencyBucket @ 0x1402C3748 (PoGetFrequencyBucket.c)
- *     PpmPerfGetCurrentState @ 0x1402C38B4 (PpmPerfGetCurrentState.c)
+ *     PoGetFrequencyBucket @ 0x140241CC8 (PoGetFrequencyBucket.c)
+ *     PpmPerfGetCurrentState @ 0x140241E34 (PpmPerfGetCurrentState.c)
  * Callees:
  *     <none>
  */

@@ -1,8 +1,8 @@
 /*
- * XREFs of MiTrimmedEnough @ 0x1403BAA50
+ * XREFs of MiTrimmedEnough @ 0x1403C48C0
  * Callers:
- *     MiTrimWorkingSet @ 0x1403BA50C (MiTrimWorkingSet.c)
- *     MiTrimWorkingSetVpabCallback @ 0x1403BA950 (MiTrimWorkingSetVpabCallback.c)
+ *     MiTrimWorkingSet @ 0x1403C437C (MiTrimWorkingSet.c)
+ *     MiTrimWorkingSetVpabCallback @ 0x1403C47C0 (MiTrimWorkingSetVpabCallback.c)
  * Callees:
  *     <none>
  */

@@ -1,21 +1,21 @@
 /*
- * XREFs of KiAttemptBugcheckRecovery @ 0x14057A42C
+ * XREFs of KiAttemptBugcheckRecovery @ 0x14057A91C
  * Callers:
- *     KeBugCheck2 @ 0x140568290 (KeBugCheck2.c)
+ *     KeBugCheck2 @ 0x140568950 (KeBugCheck2.c)
  * Callees:
- *     DbgPrintEx @ 0x14032A740 (DbgPrintEx.c)
- *     IoRevertFromDemotedDumpType @ 0x1405509B4 (IoRevertFromDemotedDumpType.c)
- *     KiBugCheckDebugBreak @ 0x140569760 (KiBugCheckDebugBreak.c)
- *     KiBugCheckShouldEnterPostBugCheckDebugger @ 0x140569A44 (KiBugCheckShouldEnterPostBugCheckDebugger.c)
- *     KiInvokeBugCheckEntryCallbacks @ 0x14056A8CC (KiInvokeBugCheckEntryCallbacks.c)
- *     KiCaptureDumpPreRecovery @ 0x14057ACEC (KiCaptureDumpPreRecovery.c)
- *     KiGetRecoveryInformation @ 0x14057AFC4 (KiGetRecoveryInformation.c)
- *     KiIsRecoveryPossibleOnCurrentStack @ 0x14057B154 (KiIsRecoveryPossibleOnCurrentStack.c)
- *     KiRecordRecoveryFailure @ 0x14057B2D0 (KiRecordRecoveryFailure.c)
- *     KiSaveBugCheckRecoveryStatusPhase0 @ 0x14057B364 (KiSaveBugCheckRecoveryStatusPhase0.c)
- *     KiSaveBugCheckRecoveryStatusPhase1 @ 0x14057B3E8 (KiSaveBugCheckRecoveryStatusPhase1.c)
- *     KiScheduleBugcheckRecovery @ 0x14057B494 (KiScheduleBugcheckRecovery.c)
- *     KiUpdateBugcheckRecoveryProgress @ 0x14057B878 (KiUpdateBugcheckRecoveryProgress.c)
+ *     DbgPrintEx @ 0x14032A9D0 (DbgPrintEx.c)
+ *     IoRevertFromDemotedDumpType @ 0x140551074 (IoRevertFromDemotedDumpType.c)
+ *     KiBugCheckDebugBreak @ 0x140569E20 (KiBugCheckDebugBreak.c)
+ *     KiBugCheckShouldEnterPostBugCheckDebugger @ 0x14056A104 (KiBugCheckShouldEnterPostBugCheckDebugger.c)
+ *     KiInvokeBugCheckEntryCallbacks @ 0x14056AF8C (KiInvokeBugCheckEntryCallbacks.c)
+ *     KiCaptureDumpPreRecovery @ 0x14057B1DC (KiCaptureDumpPreRecovery.c)
+ *     KiGetRecoveryInformation @ 0x14057B4B4 (KiGetRecoveryInformation.c)
+ *     KiIsRecoveryPossibleOnCurrentStack @ 0x14057B644 (KiIsRecoveryPossibleOnCurrentStack.c)
+ *     KiRecordRecoveryFailure @ 0x14057B7C0 (KiRecordRecoveryFailure.c)
+ *     KiSaveBugCheckRecoveryStatusPhase0 @ 0x14057B854 (KiSaveBugCheckRecoveryStatusPhase0.c)
+ *     KiSaveBugCheckRecoveryStatusPhase1 @ 0x14057B8D8 (KiSaveBugCheckRecoveryStatusPhase1.c)
+ *     KiScheduleBugcheckRecovery @ 0x14057B984 (KiScheduleBugcheckRecovery.c)
+ *     KiUpdateBugcheckRecoveryProgress @ 0x14057BD68 (KiUpdateBugcheckRecoveryProgress.c)
  */
 
 __int64 *KiAttemptBugcheckRecovery()

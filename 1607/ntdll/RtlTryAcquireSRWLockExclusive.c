@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlTryAcquireSRWLockExclusive @ 0x180066490
+ * XREFs of RtlTryAcquireSRWLockExclusive @ 0x180066480
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-bool __fastcall RtlTryAcquireSRWLockExclusive(volatile signed __int32 *a1)
+BOOLEAN __cdecl RtlTryAcquireSRWLockExclusive(PRTL_SRWLOCK SRWLock)
 {
-  return !_interlockedbittestandset64(a1, 0LL);
+  return !_interlockedbittestandset64((volatile signed __int32 *)SRWLock, 0LL);
 }

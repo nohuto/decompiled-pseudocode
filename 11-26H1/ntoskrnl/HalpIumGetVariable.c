@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpIumGetVariable @ 0x1404DBB20
+ * XREFs of HalpIumGetVariable @ 0x1404D5200
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 unsigned __int64 __fastcall HalpIumGetVariable(_WORD *Src, __int128 *a2, _DWORD *a3, size_t *a4, void *a5)
@@ -24,7 +24,7 @@ unsigned __int64 __fastcall HalpIumGetVariable(_WORD *Src, __int128 *a2, _DWORD 
   unsigned __int64 v20; // rbx
   size_t v21; // r8
 
-  if ( !qword_140FBB110 )
+  if ( !qword_140FBB4B0 )
     return 0x8000000000000003uLL;
   v9 = -1LL;
   do

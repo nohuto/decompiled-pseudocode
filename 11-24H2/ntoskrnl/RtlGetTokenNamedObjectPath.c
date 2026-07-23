@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlGetTokenNamedObjectPath @ 0x140780E10
+ * XREFs of RtlGetTokenNamedObjectPath @ 0x140780D40
  * Callers:
  *     <none>
  * Callees:
- *     RtlpGetTokenNamedObjectPath @ 0x1407814C0 (RtlpGetTokenNamedObjectPath.c)
+ *     RtlpGetTokenNamedObjectPath @ 0x1407813F0 (RtlpGetTokenNamedObjectPath.c)
  */
 
-__int64 __fastcall RtlGetTokenNamedObjectPath(void *a1)
+NTSTATUS __cdecl RtlGetTokenNamedObjectPath(HANDLE TokenHandle, PSID Sid, PUNICODE_STRING ObjectPath)
 {
-  return RtlpGetTokenNamedObjectPath(a1, 0LL);
+  return RtlpGetTokenNamedObjectPath(TokenHandle, 0LL);
 }

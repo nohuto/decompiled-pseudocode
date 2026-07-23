@@ -1,16 +1,16 @@
 /*
- * XREFs of ZwAlpcDeleteSecurityContext @ 0x180162D20
+ * XREFs of ZwAlpcDeleteSecurityContext @ 0x1801610E0
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 ZwAlpcDeleteSecurityContext()
+NTSTATUS __cdecl ZwAlpcDeleteSecurityContext(HANDLE PortHandle, ULONG Flags, ALPC_HANDLE ContextHandle)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 133LL;
+  result = 133;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

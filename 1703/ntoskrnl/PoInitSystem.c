@@ -101,16 +101,13 @@ char __fastcall PoInitSystem(int a1, __int64 a2)
   bool v11; // zf
   unsigned __int8 v12; // al
   HANDLE v13; // rbx
-  __int64 v14; // rdx
-  __int64 v15; // rcx
-  __int64 v16; // r8
-  char v17; // bl
+  char v14; // bl
   HANDLE FileHandle; // [rsp+40h] [rbp-30h] BYREF
-  __int64 v20; // [rsp+48h] [rbp-28h] BYREF
-  _BYTE v21[20]; // [rsp+50h] [rbp-20h] BYREF
-  int v22; // [rsp+64h] [rbp-Ch]
-  int v23; // [rsp+B0h] [rbp+40h] BYREF
-  int v24; // [rsp+C0h] [rbp+50h] BYREF
+  __int64 v17; // [rsp+48h] [rbp-28h] BYREF
+  _BYTE v18[20]; // [rsp+50h] [rbp-20h] BYREF
+  int v19; // [rsp+64h] [rbp-Ch]
+  int v20; // [rsp+B0h] [rbp+40h] BYREF
+  int Buffer; // [rsp+C0h] [rbp+50h] BYREF
   LARGE_INTEGER PerformanceFrequency; // [rsp+C8h] [rbp+58h] BYREF
 
   v2 = 0;
@@ -390,7 +387,7 @@ char __fastcall PoInitSystem(int a1, __int64 a2)
   }
   if ( a1 != 3 )
     return 1;
-  if ( (int)EmpProviderRegister(0LL, (__int64)&PopEmEntry, 1u, (__int64)&PopEmCallback, 1u, &v20) >= 0
+  if ( (int)EmpProviderRegister(0LL, (__int64)&PopEmEntry, 1u, (__int64)&PopEmCallback, 1u, &v17) >= 0
     && (int)PopDiagInitialize() >= 0 )
   {
     PopTriggerDiagTraceAoAcCapability();
@@ -405,9 +402,9 @@ char __fastcall PoInitSystem(int a1, __int64 a2)
       if ( PopSkipTickPolicy == 1 )
       {
         v10 = 0;
-        if ( (int)HalGetInterruptTargetInformation(2LL, 0LL, v21) >= 0 )
+        if ( (int)HalGetInterruptTargetInformation(2LL, 0LL, v18) >= 0 )
         {
-          PopApicMode = v22;
+          PopApicMode = v19;
           if ( PopCheckSkipTick() )
           {
             PoSkipTickMode = 0;
@@ -489,9 +486,9 @@ LABEL_46:
         0LL);
     }
     PopInitilizeAcDcSettings();
-    v24 = 1;
+    Buffer = 1;
     PopUpdateConsoleDisplayState(1);
-    ZwUpdateWnfStateData((__int64)&WNF_PO_PRIMARY_DISPLAY_VISIBLE_STATE, (__int64)&v24, 4LL);
+    ZwUpdateWnfStateData(&WNF_PO_PRIMARY_DISPLAY_VISIBLE_STATE, &Buffer, 4u, 0LL, 0LL, 0, 0);
     PopNetInitialize(3LL);
     PopReleasePolicyLock();
     *(_QWORD *)&PopIdleScanTimer.Header.Lock = 8LL;
@@ -516,20 +513,20 @@ LABEL_46:
     PopSetupHighPerfPowerRequest();
     PpmEnableWmiInterface();
     PopAcquirePolicyLock();
-    PopCoalescingInitialize(v15, v14, v16);
+    PopCoalescingInitialize();
     PopReleasePolicyLock();
     if ( PopPlatformAoAc )
     {
-      v17 = PopDripsWatchdogAction;
+      v14 = PopDripsWatchdogAction;
       if ( (unsigned int)(PopPlatformAoAcOverride - 1) <= 0xFFFFFFFD )
       {
         if ( (PopDripsWatchdogAction & 0x10) != 0 )
-          v17 = PopDripsWatchdogAction | 2;
+          v14 = PopDripsWatchdogAction | 2;
         else
-          v17 = PopDripsWatchdogAction & 0xFD;
+          v14 = PopDripsWatchdogAction & 0xFD;
       }
       ExInitializeResourceLite(&stru_14036F408);
-      byte_14036F3A4 = v17;
+      byte_14036F3A4 = v14;
       PopDripsWatchdog = PopDripsWatchdogTimeout;
       PopInitializeTimer(
         (__int64)&unk_14036F470,
@@ -546,9 +543,9 @@ LABEL_46:
     TtmInit();
     if ( PopPlatformAoAc )
     {
-      v23 = 1;
-      EmClientQueryRuleState(EM_RULE_IGNORE_INCORRECT_LID_NOTIFICATIONS, &v23);
-      if ( v23 == 2 )
+      v20 = 1;
+      EmClientQueryRuleState(EM_RULE_IGNORE_INCORRECT_LID_NOTIFICATIONS, &v20);
+      if ( v20 == 2 )
         PopErrataReportingIncorrectLidState = 1;
     }
     return 1;

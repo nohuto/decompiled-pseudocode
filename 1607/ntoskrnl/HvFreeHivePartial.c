@@ -1,20 +1,20 @@
 /*
- * XREFs of HvFreeHivePartial @ 0x140481AF0
+ * XREFs of HvFreeHivePartial @ 0x140480844
  * Callers:
- *     HvpTruncateBins @ 0x140481A44 (HvpTruncateBins.c)
+ *     HvpTruncateBins @ 0x140480798 (HvpTruncateBins.c)
  * Callees:
- *     RtlClearBits @ 0x14002D6E0 (RtlClearBits.c)
- *     RtlNumberOfSetBits @ 0x1400767D0 (RtlNumberOfSetBits.c)
- *     HvpMapEntryGetFreeBin @ 0x1400F0100 (HvpMapEntryGetFreeBin.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     CmpUpdateSystemHiveHysteresis @ 0x14047D460 (CmpUpdateSystemHiveHysteresis.c)
- *     HvpAdjustHiveFreeDisplay @ 0x14047EF08 (HvpAdjustHiveFreeDisplay.c)
- *     HvpFreeMap @ 0x1404EA6E8 (HvpFreeMap.c)
- *     HvpGetCellMap @ 0x140513BC0 (HvpGetCellMap.c)
- *     HvpFreeBin @ 0x14051450C (HvpFreeBin.c)
- *     CmpFree @ 0x140514550 (CmpFree.c)
- *     CmpReleaseGlobalQuota @ 0x140514570 (CmpReleaseGlobalQuota.c)
+ *     RtlClearBits @ 0x14002D260 (RtlClearBits.c)
+ *     RtlNumberOfSetBits @ 0x140076850 (RtlNumberOfSetBits.c)
+ *     HvpMapEntryGetFreeBin @ 0x1400EDF80 (HvpMapEntryGetFreeBin.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     CmpUpdateSystemHiveHysteresis @ 0x14047C1B4 (CmpUpdateSystemHiveHysteresis.c)
+ *     HvpAdjustHiveFreeDisplay @ 0x14047DC5C (HvpAdjustHiveFreeDisplay.c)
+ *     HvpFreeMap @ 0x1404CC7DC (HvpFreeMap.c)
+ *     HvpGetCellMap @ 0x1404F6FB0 (HvpGetCellMap.c)
+ *     HvpFreeBin @ 0x1404F78FC (HvpFreeBin.c)
+ *     CmpFree @ 0x1404F7940 (CmpFree.c)
+ *     CmpReleaseGlobalQuota @ 0x1404F7960 (CmpReleaseGlobalQuota.c)
  */
 
 __int64 __fastcall HvFreeHivePartial(ULONG_PTR BugCheckParameter2, unsigned int a2, int a3)

@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlHpEnvContextCreate @ 0x1404031A0
+ * XREFs of RtlHpEnvContextCreate @ 0x1403FD7A0
  * Callers:
- *     ExpPrivatePoolCreate @ 0x1407C5F40 (ExpPrivatePoolCreate.c)
+ *     ExpPrivatePoolCreate @ 0x1407C63A0 (ExpPrivatePoolCreate.c)
  * Callees:
  *     <none>
  */

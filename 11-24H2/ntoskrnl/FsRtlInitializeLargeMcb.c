@@ -1,11 +1,11 @@
 /*
- * XREFs of FsRtlInitializeLargeMcb @ 0x1403F9FF0
+ * XREFs of FsRtlInitializeLargeMcb @ 0x1403EFF00
  * Callers:
- *     FsRtlInitializeMcb @ 0x14070A870 (FsRtlInitializeMcb.c)
+ *     FsRtlInitializeMcb @ 0x140708430 (FsRtlInitializeMcb.c)
  * Callees:
- *     ExAllocateFromNPagedLookasideList @ 0x140248B90 (ExAllocateFromNPagedLookasideList.c)
- *     RtlRaiseStatus @ 0x140280B30 (RtlRaiseStatus.c)
- *     FsRtlInitializeBaseMcbEx @ 0x1403FA060 (FsRtlInitializeBaseMcbEx.c)
+ *     RtlRaiseStatus @ 0x1402360C0 (RtlRaiseStatus.c)
+ *     ExAllocateFromNPagedLookasideList @ 0x1402E2DD0 (ExAllocateFromNPagedLookasideList.c)
+ *     FsRtlInitializeBaseMcbEx @ 0x1403EFF70 (FsRtlInitializeBaseMcbEx.c)
  */
 
 void __stdcall FsRtlInitializeLargeMcb(PLARGE_MCB Mcb, POOL_TYPE PoolType)

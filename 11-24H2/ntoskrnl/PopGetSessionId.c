@@ -1,9 +1,9 @@
 /*
- * XREFs of PopGetSessionId @ 0x140A505D8
+ * XREFs of PopGetSessionId @ 0x140A47388
  * Callers:
- *     PopPowerSourceChangeCallback @ 0x1404D6D70 (PopPowerSourceChangeCallback.c)
+ *     PopPowerSourceChangeCallback @ 0x1404D01C0 (PopPowerSourceChangeCallback.c)
  * Callees:
- *     PsGetSessionIdEx @ 0x1403025D0 (PsGetSessionIdEx.c)
+ *     PsGetSessionIdEx @ 0x14030CBE0 (PsGetSessionIdEx.c)
  */
 
 __int64 PopGetSessionId()

@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlIpv6StringToAddressExA @ 0x18007CEE0
+ * XREFs of RtlIpv6StringToAddressExA @ 0x18007CED0
  * Callers:
  *     <none>
  * Callees:
- *     RtlIpv6StringToAddressA @ 0x18007CF90 (RtlIpv6StringToAddressA.c)
- *     __isascii @ 0x180097060 (__isascii.c)
- *     isdigit @ 0x1800971B0 (isdigit.c)
- *     islower @ 0x180097210 (islower.c)
- *     isxdigit @ 0x180097300 (isxdigit.c)
+ *     RtlIpv6StringToAddressA @ 0x18007CF80 (RtlIpv6StringToAddressA.c)
+ *     __isascii @ 0x180097050 (__isascii.c)
+ *     isdigit @ 0x1800971A0 (isdigit.c)
+ *     islower @ 0x180097200 (islower.c)
+ *     isxdigit @ 0x1800972F0 (isxdigit.c)
  */
 
 LONG __stdcall RtlIpv6StringToAddressExA(PCSTR AddressString, struct in6_addr *Address, PULONG ScopeId, PUSHORT Port)

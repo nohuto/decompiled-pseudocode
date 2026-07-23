@@ -1,17 +1,17 @@
 /*
- * XREFs of MiCommitVadPreparePacket @ 0x1409C7490
+ * XREFs of MiCommitVadPreparePacket @ 0x140998470
  * Callers:
- *     MiCommitExistingVad @ 0x1409C7300 (MiCommitExistingVad.c)
+ *     MiCommitExistingVad @ 0x1409982E0 (MiCommitExistingVad.c)
  * Callees:
- *     MiSanitizePfnProtection @ 0x14033CE50 (MiSanitizePfnProtection.c)
- *     MiMakeProtectionMask @ 0x140364A40 (MiMakeProtectionMask.c)
- *     MiLocateLockedVadEvent @ 0x1403BCC30 (MiLocateLockedVadEvent.c)
- *     MiGetPteAddress @ 0x1404468C0 (MiGetPteAddress.c)
- *     MiGetProcessPartition @ 0x14044C0C0 (MiGetProcessPartition.c)
- *     MiGetVadPageSize @ 0x14044F880 (MiGetVadPageSize.c)
- *     MiInitializeLargePfnList @ 0x1404617F0 (MiInitializeLargePfnList.c)
- *     MiReadVadFlags @ 0x1404655D0 (MiReadVadFlags.c)
- *     MiGetVadLargePageIndex @ 0x1404D692C (MiGetVadLargePageIndex.c)
+ *     MiSanitizePfnProtection @ 0x14033EED0 (MiSanitizePfnProtection.c)
+ *     MiMakeProtectionMask @ 0x1403667E0 (MiMakeProtectionMask.c)
+ *     MiLocateLockedVadEvent @ 0x1403C6AA0 (MiLocateLockedVadEvent.c)
+ *     MiGetPteAddress @ 0x14043F3C0 (MiGetPteAddress.c)
+ *     MiGetProcessPartition @ 0x1404441E0 (MiGetProcessPartition.c)
+ *     MiGetVadPageSize @ 0x1404479B0 (MiGetVadPageSize.c)
+ *     MiInitializeLargePfnList @ 0x14045A7B0 (MiInitializeLargePfnList.c)
+ *     MiReadVadFlags @ 0x14045E590 (MiReadVadFlags.c)
+ *     MiGetVadLargePageIndex @ 0x1404D00FC (MiGetVadLargePageIndex.c)
  */
 
 __int64 __fastcall MiCommitVadPreparePacket(__int64 a1, unsigned __int64 a2, __int64 a3, __int64 a4, unsigned int a5)

@@ -1,19 +1,19 @@
 /*
- * XREFs of HvpGenerateLogEntry @ 0x1404812F0
+ * XREFs of HvpGenerateLogEntry @ 0x140480044
  * Callers:
- *     HvWriteLogFile @ 0x1403F5A70 (HvWriteLogFile.c)
- *     HvStoreModifiedData @ 0x140480EEC (HvStoreModifiedData.c)
+ *     HvWriteLogFile @ 0x1403F4934 (HvWriteLogFile.c)
+ *     HvStoreModifiedData @ 0x14047FC40 (HvStoreModifiedData.c)
  * Callees:
- *     RtlNumberOfSetBits @ 0x1400767D0 (RtlNumberOfSetBits.c)
- *     SymCryptMarvin32 @ 0x1400847B0 (SymCryptMarvin32.c)
- *     memmove @ 0x140171280 (memmove.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     RtlNumberOfSetBits @ 0x140076850 (RtlNumberOfSetBits.c)
+ *     SymCryptMarvin32 @ 0x140082910 (SymCryptMarvin32.c)
+ *     memmove @ 0x140171780 (memmove.c)
+ *     memset @ 0x140171AC0 (memset.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     HvpFindNextDirtyBlock @ 0x1404815C8 (HvpFindNextDirtyBlock.c)
- *     HvpGenerateLogMetadata @ 0x1404818B8 (HvpGenerateLogMetadata.c)
- *     HvpCountSetRangesInVector @ 0x140481974 (HvpCountSetRangesInVector.c)
- *     CmpLogDirtyVectorUse @ 0x1404819CC (CmpLogDirtyVectorUse.c)
- *     HvpHeaderCheckSum @ 0x140481EC0 (HvpHeaderCheckSum.c)
+ *     HvpFindNextDirtyBlock @ 0x14048031C (HvpFindNextDirtyBlock.c)
+ *     HvpGenerateLogMetadata @ 0x14048060C (HvpGenerateLogMetadata.c)
+ *     HvpCountSetRangesInVector @ 0x1404806C8 (HvpCountSetRangesInVector.c)
+ *     CmpLogDirtyVectorUse @ 0x140480720 (CmpLogDirtyVectorUse.c)
+ *     HvpHeaderCheckSum @ 0x140480C14 (HvpHeaderCheckSum.c)
  */
 
 __int64 __fastcall HvpGenerateLogEntry(__int64 a1, _QWORD *a2, unsigned int *a3)
@@ -21,7 +21,7 @@ __int64 __fastcall HvpGenerateLogEntry(__int64 a1, _QWORD *a2, unsigned int *a3)
   unsigned int v3; // edi
   int v5; // ebx
   char v6; // r15
-  struct _RTL_BITMAP *v7; // r12
+  _RTL_BITMAP *v7; // r12
   unsigned int v8; // esi
   ULONG v9; // eax
   unsigned int v10; // r13d
@@ -57,7 +57,7 @@ __int64 __fastcall HvpGenerateLogEntry(__int64 a1, _QWORD *a2, unsigned int *a3)
     v6 = 1;
     v5 = 512;
   }
-  v7 = (struct _RTL_BITMAP *)(a1 + 72);
+  v7 = (_RTL_BITMAP *)(a1 + 72);
   v8 = HvpCountSetRangesInVector((PRTL_BITMAP)(a1 + 72));
   LODWORD(Size) = v8;
   v9 = RtlNumberOfSetBits(v7);

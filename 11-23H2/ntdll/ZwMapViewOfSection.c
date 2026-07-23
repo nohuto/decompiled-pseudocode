@@ -21,30 +21,40 @@
  *     RtlpExtendedHeapInformationWorkerCallback @ 0x1801000E0 (RtlpExtendedHeapInformationWorkerCallback.c)
  *     RtlpExtendedHeapInformationWorkerThread @ 0x180100200 (RtlpExtendedHeapInformationWorkerThread.c)
  *     RtlpHpRemoteStackSerializeWriter @ 0x180100DC0 (RtlpHpRemoteStackSerializeWriter.c)
- *     RtlpOpenAndMapCustomCultureFile @ 0x18010B4A8 (RtlpOpenAndMapCustomCultureFile.c)
- *     RtlHeapTrkInitialize @ 0x18010BE00 (RtlHeapTrkInitialize.c)
- *     RtlpHeapTrkLeakCallback @ 0x18010C870 (RtlpHeapTrkLeakCallback.c)
- *     RtlpHpStackTraceSerializeRemote @ 0x180117C48 (RtlpHpStackTraceSerializeRemote.c)
- *     RtlpHpTagQueryHeapsRemote @ 0x180119984 (RtlpHpTagQueryHeapsRemote.c)
- *     PsspCaptureHandleTrace @ 0x1801296D8 (PsspCaptureHandleTrace.c)
- *     PsspCaptureIptTrace @ 0x1801298CC (PsspCaptureIptTrace.c)
- *     PsspCaptureAuxiliaryPages @ 0x180129BC8 (PsspCaptureAuxiliaryPages.c)
- *     PsspCaptureVaSpaceInformation2 @ 0x18012A054 (PsspCaptureVaSpaceInformation2.c)
- *     PsspCaptureHandleInformation @ 0x18012A744 (PsspCaptureHandleInformation.c)
- *     PsspCaptureThreadInformation @ 0x18012B180 (PsspCaptureThreadInformation.c)
- *     PsspWalkInfoClass_PSS_WALK_AUXILIARY_PAGES @ 0x18012B91C (PsspWalkInfoClass_PSS_WALK_AUXILIARY_PAGES.c)
- *     PsspWalkInfoClass_PSS_WALK_HANDLES @ 0x18012BA48 (PsspWalkInfoClass_PSS_WALK_HANDLES.c)
- *     PsspWalkInfoClass_PSS_WALK_THREADS @ 0x18012BBC4 (PsspWalkInfoClass_PSS_WALK_THREADS.c)
- *     PsspWalkInfoClass_PSS_WALK_VA_SPACE @ 0x18012BD4C (PsspWalkInfoClass_PSS_WALK_VA_SPACE.c)
+ *     RtlpOpenAndMapCustomCultureFile @ 0x18010B478 (RtlpOpenAndMapCustomCultureFile.c)
+ *     RtlHeapTrkInitialize @ 0x18010BDD0 (RtlHeapTrkInitialize.c)
+ *     RtlpHeapTrkLeakCallback @ 0x18010C840 (RtlpHeapTrkLeakCallback.c)
+ *     RtlpHpStackTraceSerializeRemote @ 0x180117C18 (RtlpHpStackTraceSerializeRemote.c)
+ *     RtlpHpTagQueryHeapsRemote @ 0x180119954 (RtlpHpTagQueryHeapsRemote.c)
+ *     PsspCaptureHandleTrace @ 0x1801296A8 (PsspCaptureHandleTrace.c)
+ *     PsspCaptureIptTrace @ 0x18012989C (PsspCaptureIptTrace.c)
+ *     PsspCaptureAuxiliaryPages @ 0x180129B98 (PsspCaptureAuxiliaryPages.c)
+ *     PsspCaptureVaSpaceInformation2 @ 0x18012A024 (PsspCaptureVaSpaceInformation2.c)
+ *     PsspCaptureHandleInformation @ 0x18012A714 (PsspCaptureHandleInformation.c)
+ *     PsspCaptureThreadInformation @ 0x18012B150 (PsspCaptureThreadInformation.c)
+ *     PsspWalkInfoClass_PSS_WALK_AUXILIARY_PAGES @ 0x18012B8EC (PsspWalkInfoClass_PSS_WALK_AUXILIARY_PAGES.c)
+ *     PsspWalkInfoClass_PSS_WALK_HANDLES @ 0x18012BA18 (PsspWalkInfoClass_PSS_WALK_HANDLES.c)
+ *     PsspWalkInfoClass_PSS_WALK_THREADS @ 0x18012BB94 (PsspWalkInfoClass_PSS_WALK_THREADS.c)
+ *     PsspWalkInfoClass_PSS_WALK_VA_SPACE @ 0x18012BD1C (PsspWalkInfoClass_PSS_WALK_VA_SPACE.c)
  * Callees:
  *     <none>
  */
 
-__int64 ZwMapViewOfSection()
+NTSTATUS __cdecl ZwMapViewOfSection(
+        HANDLE SectionHandle,
+        HANDLE ProcessHandle,
+        PVOID *BaseAddress,
+        ULONG_PTR ZeroBits,
+        SIZE_T CommitSize,
+        PLARGE_INTEGER SectionOffset,
+        PSIZE_T ViewSize,
+        SECTION_INHERIT InheritDisposition,
+        ULONG AllocationType,
+        ULONG Win32Protect)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 40LL;
+  result = 40;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

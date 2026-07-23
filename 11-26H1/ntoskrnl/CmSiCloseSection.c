@@ -1,9 +1,9 @@
 /*
- * XREFs of CmSiCloseSection @ 0x1404DC2AC
+ * XREFs of CmSiCloseSection @ 0x1404D598C
  * Callers:
- *     HvpViewMapCleanup @ 0x1408B7D00 (HvpViewMapCleanup.c)
+ *     HvpViewMapCleanup @ 0x1408BE2D0 (HvpViewMapCleanup.c)
  * Callees:
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
  */
 
 NTSTATUS __fastcall CmSiCloseSection(void *a1)

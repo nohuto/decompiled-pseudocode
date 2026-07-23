@@ -3,7 +3,7 @@
  * Callers:
  *     WheaAddErrorSourceDeviceDriverV1 @ 0x1403D2680 (WheaAddErrorSourceDeviceDriverV1.c)
  * Callees:
- *     WheapDeviceDriverGetPacketLength @ 0x1403D2BDC (WheapDeviceDriverGetPacketLength.c)
+ *     sub_1403D2BDC @ 0x1403D2BDC (sub_1403D2BDC.c)
  *     memset @ 0x140435E00 (memset.c)
  *     WheaAddErrorSource @ 0x14084E510 (WheaAddErrorSource.c)
  *     WheaConfigureErrorSource @ 0x140A55520 (WheaConfigureErrorSource.c)
@@ -22,7 +22,7 @@ __int64 __fastcall WheaAddErrorSourceDeviceDriver(__int64 a1, __int64 a2, unsign
   __int128 v11; // xmm1
   __int64 v12; // rax
   __int128 v13; // xmm0
-  unsigned int PacketLength; // eax
+  unsigned int v14; // eax
   unsigned int v15; // r14d
   __int64 v16; // rax
   int v17; // ebx
@@ -38,7 +38,7 @@ __int64 __fastcall WheaAddErrorSourceDeviceDriver(__int64 a1, __int64 a2, unsign
     v8 = *(_DWORD *)(a2 + 48) + 2;
     v9 = *(_DWORD *)(a2 + 44) * v8;
     if ( !byte_140D01058 )
-      WheaConfigureErrorSource(16LL, &WheaDeviceDriverDefaultSourceConfig);
+      WheaConfigureErrorSource(16LL, &unk_140C04CC8);
     memset(v19, 0, 0x3CCuLL);
     v10 = *(_OWORD *)(a2 + 52);
     WORD2(v19[7]) = *(_WORD *)(a2 + 20);
@@ -51,18 +51,18 @@ __int64 __fastcall WheaAddErrorSourceDeviceDriver(__int64 a1, __int64 a2, unsign
     HIDWORD(v19[4]) = 0;
     v19[9] = 0LL;
     v19[18] = 0LL;
-    v19[12] = WheapCorrectErrorSourceDeviceDriver;
+    v19[12] = sub_140373180;
     v19[0] = 0xB000003CCLL;
     v19[1] = 0x100000010LL;
     v19[3] = v8;
     v19[2] = __PAIR64__(v4, v9);
     *(_OWORD *)&v19[15] = v11;
     *(_OWORD *)((char *)&v19[5] + 4) = v13;
-    PacketLength = WheapDeviceDriverGetPacketLength(v9, v8);
-    v15 = PacketLength;
+    v14 = sub_1403D2BDC(v9, v8);
+    v15 = v14;
     if ( (_DWORD)v4 )
     {
-      Pool2 = (void *)ExAllocatePool2(66LL, (unsigned int)v4 * PacketLength, 1095059543LL);
+      Pool2 = (void *)ExAllocatePool2(66LL, (unsigned int)v4 * v14, 1095059543LL);
       v16 = ExAllocatePool2(66LL, 104 * v4, 1095059543LL);
       v5 = (void *)v16;
       if ( !Pool2 || !v16 )

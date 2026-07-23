@@ -1,9 +1,9 @@
 /*
- * XREFs of IopBootAllocation @ 0x140557794
+ * XREFs of IopBootAllocation @ 0x140557CD4
  * Callers:
- *     IopAllocateBootResourcesInternal @ 0x1405561C0 (IopAllocateBootResourcesInternal.c)
+ *     IopAllocateBootResourcesInternal @ 0x140556700 (IopAllocateBootResourcesInternal.c)
  * Callees:
- *     IopAddRemoveReqDescs @ 0x140557860 (IopAddRemoveReqDescs.c)
+ *     IopAddRemoveReqDescs @ 0x140557DA0 (IopAddRemoveReqDescs.c)
  */
 
 __int64 __fastcall IopBootAllocation(__int64 a1, __int64 a2, __int64 a3, __int64 a4)

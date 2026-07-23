@@ -1,18 +1,18 @@
 /*
- * XREFs of PspApplyWorkingSetLimits @ 0x140777480
+ * XREFs of PspApplyWorkingSetLimits @ 0x1407776A0
  * Callers:
- *     PspSetJobLimitsJobPostCallback @ 0x140A68E80 (PspSetJobLimitsJobPostCallback.c)
- *     NtSetInformationJobObject @ 0x140ACE760 (NtSetInformationJobObject.c)
+ *     PspSetJobLimitsJobPostCallback @ 0x140A62230 (PspSetJobLimitsJobPostCallback.c)
+ *     NtSetInformationJobObject @ 0x140ACC7F0 (NtSetInformationJobObject.c)
  * Callees:
- *     ExfTryToWakePushLock @ 0x14025F9A0 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     KiStackAttachProcess @ 0x1403209E0 (KiStackAttachProcess.c)
- *     KiUnstackDetachProcess @ 0x140321EC0 (KiUnstackDetachProcess.c)
- *     ObfDereferenceObjectWithTag @ 0x1403254A0 (ObfDereferenceObjectWithTag.c)
- *     MmAdjustWorkingSetSize @ 0x1403CD080 (MmAdjustWorkingSetSize.c)
- *     MmEnforceWorkingSetLimit @ 0x14047DC7C (MmEnforceWorkingSetLimit.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ExfTryToWakePushLock @ 0x14028FFB0 (ExfTryToWakePushLock.c)
+ *     KiStackAttachProcess @ 0x1402C9570 (KiStackAttachProcess.c)
+ *     KiUnstackDetachProcess @ 0x1402CAA50 (KiUnstackDetachProcess.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CE030 (ObfDereferenceObjectWithTag.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     MmAdjustWorkingSetSize @ 0x14046C870 (MmAdjustWorkingSetSize.c)
+ *     MmEnforceWorkingSetLimit @ 0x140478F0C (MmEnforceWorkingSetLimit.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 PVOID *__fastcall PspApplyWorkingSetLimits(__int64 a1)
@@ -21,16 +21,18 @@ PVOID *__fastcall PspApplyWorkingSetLimits(__int64 a1)
   __int64 v3; // rax
   _QWORD *v4; // rax
   int v5; // r9d
-  PVOID *v6; // rbx
+  __int64 v6; // r8
+  __int64 v7; // r9
+  PVOID *v8; // rbx
   PVOID *result; // rax
-  __int64 v8; // rax
+  __int64 v10; // rax
   PVOID P; // [rsp+20h] [rbp-50h] BYREF
   PVOID *p_P; // [rsp+28h] [rbp-48h]
-  _OWORD v11[3]; // [rsp+30h] [rbp-40h] BYREF
+  _OWORD v13[3]; // [rsp+30h] [rbp-40h] BYREF
 
   p_P = &P;
   P = &P;
-  memset(v11, 0, sizeof(v11));
+  memset(v13, 0, sizeof(v13));
   while ( 1 )
   {
     v2 = PspWorkingSetChangeHead;
@@ -51,30 +53,30 @@ LABEL_14:
     *(_QWORD *)v2 = &P;
     *v4 = v2;
     p_P = (PVOID *)v2;
-    KiStackAttachProcess(*(_KPROCESS **)(v2 + 16), 0, (__int64)v11);
+    KiStackAttachProcess(*(_KPROCESS **)(v2 + 16), 0, (__int64)v13);
     LOBYTE(v5) = 1;
     MmAdjustWorkingSetSize(*(_QWORD *)(v2 + 24), *(_QWORD *)(v2 + 32), 0, v5);
     MmEnforceWorkingSetLimit(*(_KPROCESS **)(v2 + 16), 1);
-    KiUnstackDetachProcess((__int64)v11, 0);
+    KiUnstackDetachProcess((__int64)v13, 0, v6, v7);
   }
   _InterlockedAnd((volatile signed __int32 *)(a1 + 1552), 0xFFFFFEFF);
-  if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_140FC60B0, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-    ExfTryToWakePushLock((volatile signed __int64 *)&qword_140FC60B0);
-  KeAbPostRelease((ULONG_PTR)&qword_140FC60B0);
+  if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_140FC70E8, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+    ExfTryToWakePushLock((volatile signed __int64 *)&qword_140FC70E8);
+  KeAbPostRelease((ULONG_PTR)&qword_140FC70E8);
   while ( 1 )
   {
-    v6 = (PVOID *)P;
+    v8 = (PVOID *)P;
     result = &P;
     if ( P == &P )
       return result;
     if ( *((PVOID **)P + 1) != &P )
       goto LABEL_14;
-    v8 = *(_QWORD *)P;
+    v10 = *(_QWORD *)P;
     if ( *(PVOID *)(*(_QWORD *)P + 8LL) != P )
       goto LABEL_14;
     P = *(PVOID *)P;
-    *(_QWORD *)(v8 + 8) = &P;
-    ObfDereferenceObjectWithTag(v6[2], 0x624A7350u);
-    ExFreePoolWithTag(v6, 0x72437350u);
+    *(_QWORD *)(v10 + 8) = &P;
+    ObfDereferenceObjectWithTag(v8[2], 0x624A7350u);
+    ExFreePoolWithTag(v8, 0x72437350u);
   }
 }

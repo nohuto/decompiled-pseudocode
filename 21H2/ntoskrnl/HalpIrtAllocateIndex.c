@@ -1,19 +1,19 @@
 /*
- * XREFs of HalpIrtAllocateIndex @ 0x140865984
+ * XREFs of HalpIrtAllocateIndex @ 0x140865AE4
  * Callers:
- *     HalpInterruptRemap @ 0x1403785E0 (HalpInterruptRemap.c)
- *     HalpInterruptRemapFixedLines @ 0x1403CDB6C (HalpInterruptRemapFixedLines.c)
+ *     HalpInterruptRemap @ 0x140378130 (HalpInterruptRemap.c)
+ *     HalpInterruptRemapFixedLines @ 0x1403CDCDC (HalpInterruptRemapFixedLines.c)
  * Callees:
- *     RtlClearBits @ 0x140206E00 (RtlClearBits.c)
- *     RtlFindClearBitsAndSet @ 0x140251160 (RtlFindClearBitsAndSet.c)
- *     KeReleaseGuardedMutex @ 0x140265CD0 (KeReleaseGuardedMutex.c)
- *     RtlFindNextForwardRunClear @ 0x140267B70 (RtlFindNextForwardRunClear.c)
- *     ExAcquireFastMutex @ 0x14034A080 (ExAcquireFastMutex.c)
- *     RtlSetBits @ 0x140358F70 (RtlSetBits.c)
- *     HalpIommuAllocateRemappingTableEntry @ 0x1404C5318 (HalpIommuAllocateRemappingTableEntry.c)
- *     HalpIrtAllocateDeviceAperture @ 0x140865830 (HalpIrtAllocateDeviceAperture.c)
- *     HalpIrtExtendRemappingRange @ 0x140865D28 (HalpIrtExtendRemappingRange.c)
- *     HalpIrtReleaseDeviceAperture @ 0x140865F48 (HalpIrtReleaseDeviceAperture.c)
+ *     KeReleaseGuardedMutex @ 0x140253C70 (KeReleaseGuardedMutex.c)
+ *     RtlFindNextForwardRunClear @ 0x140255B10 (RtlFindNextForwardRunClear.c)
+ *     RtlClearBits @ 0x1402AB730 (RtlClearBits.c)
+ *     RtlFindClearBitsAndSet @ 0x1402F5970 (RtlFindClearBitsAndSet.c)
+ *     ExAcquireFastMutex @ 0x140354DD0 (ExAcquireFastMutex.c)
+ *     RtlSetBits @ 0x140363CC0 (RtlSetBits.c)
+ *     HalpIommuAllocateRemappingTableEntry @ 0x1404C5558 (HalpIommuAllocateRemappingTableEntry.c)
+ *     HalpIrtAllocateDeviceAperture @ 0x140865990 (HalpIrtAllocateDeviceAperture.c)
+ *     HalpIrtExtendRemappingRange @ 0x140865E88 (HalpIrtExtendRemappingRange.c)
+ *     HalpIrtReleaseDeviceAperture @ 0x1408660A8 (HalpIrtReleaseDeviceAperture.c)
  */
 
 __int64 __fastcall HalpIrtAllocateIndex(
@@ -32,7 +32,7 @@ __int64 __fastcall HalpIrtAllocateIndex(
   unsigned int v13; // ebx
   __int64 v14; // rsi
   __int64 v15; // rdx
-  RTL_BITMAP *v16; // r14
+  _RTL_BITMAP *v16; // r14
   ULONG ClearBitsAndSet; // esi
   ULONG v18; // edx
   ULONG v19; // ebx
@@ -76,7 +76,7 @@ __int64 __fastcall HalpIrtAllocateIndex(
       goto LABEL_30;
     ExAcquireFastMutex(&HalpIrtLock);
   }
-  v16 = (RTL_BITMAP *)((char *)&HalpIrtRanges + 8 * v14);
+  v16 = (_RTL_BITMAP *)((char *)&HalpIrtRanges + 8 * v14);
   if ( (HalpIrtAllocationFlags & 1) != 0 )
   {
     v18 = v8 * HalpIrtEntriesPerDeviceAperture % HalpIrtEntriesPerRange;

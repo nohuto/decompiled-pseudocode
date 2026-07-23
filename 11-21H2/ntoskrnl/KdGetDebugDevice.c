@@ -1,12 +1,12 @@
 /*
  * XREFs of KdGetDebugDevice @ 0x1403B8370
  * Callers:
- *     HalpDbgInitSystem @ 0x140A54B30 (HalpDbgInitSystem.c)
+ *     sub_140A54B30 @ 0x140A54B30 (sub_140A54B30.c)
  * Callees:
  *     <none>
  */
 
 __int64 *KdGetDebugDevice()
 {
-  return &KdDebugDevice;
+  return &qword_140C4BED0;
 }

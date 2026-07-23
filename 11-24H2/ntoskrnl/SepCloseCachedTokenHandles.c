@@ -1,10 +1,10 @@
 /*
- * XREFs of SepCloseCachedTokenHandles @ 0x1404977F8
+ * XREFs of SepCloseCachedTokenHandles @ 0x140492308
  * Callers:
- *     SepSetTokenCachedHandles @ 0x1408F2494 (SepSetTokenCachedHandles.c)
- *     SepDereferenceCachedHandlesEntryInternal @ 0x140A08D24 (SepDereferenceCachedHandlesEntryInternal.c)
+ *     SepSetTokenCachedHandles @ 0x140913AE0 (SepSetTokenCachedHandles.c)
+ *     SepDereferenceCachedHandlesEntryInternal @ 0x140A05254 (SepDereferenceCachedHandlesEntryInternal.c)
  * Callees:
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
  */
 
 __int64 __fastcall SepCloseCachedTokenHandles(unsigned int a1, HANDLE *a2)

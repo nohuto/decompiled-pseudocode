@@ -1,19 +1,19 @@
 /*
- * XREFs of _CmSetInstallerClassRegPropWorker @ 0x140897348
+ * XREFs of _CmSetInstallerClassRegPropWorker @ 0x14089D748
  * Callers:
- *     _CmSetInstallerClassRegProp @ 0x1408971E0 (_CmSetInstallerClassRegProp.c)
+ *     _CmSetInstallerClassRegProp @ 0x14089D5E0 (_CmSetInstallerClassRegProp.c)
  * Callees:
- *     _CmClassPropertyRead @ 0x14048CA74 (_CmClassPropertyRead.c)
- *     _MapCmClassPropertyToRegValue @ 0x1404A25F0 (_MapCmClassPropertyToRegValue.c)
- *     _CmClassPropertyWrite @ 0x140515F58 (_CmClassPropertyWrite.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     _PnpCtxRegSetValue @ 0x14090AB14 (_PnpCtxRegSetValue.c)
- *     _PnpCtxRegDeleteValue @ 0x14090B324 (_PnpCtxRegDeleteValue.c)
- *     _CmRaisePropertyChangeEvent @ 0x14090B994 (_CmRaisePropertyChangeEvent.c)
- *     RtlLengthSecurityDescriptor @ 0x1409228D0 (RtlLengthSecurityDescriptor.c)
- *     RtlValidRelativeSecurityDescriptor @ 0x14094DC20 (RtlValidRelativeSecurityDescriptor.c)
- *     _PnpOpenPropertiesKey @ 0x140995B20 (_PnpOpenPropertiesKey.c)
- *     _CmOpenInstallerClassRegKey @ 0x14099E2B4 (_CmOpenInstallerClassRegKey.c)
+ *     _CmClassPropertyRead @ 0x1404865B4 (_CmClassPropertyRead.c)
+ *     _MapCmClassPropertyToRegValue @ 0x14049C010 (_MapCmClassPropertyToRegValue.c)
+ *     _CmClassPropertyWrite @ 0x14050F9C8 (_CmClassPropertyWrite.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     RtlLengthSecurityDescriptor @ 0x1408FE3E0 (RtlLengthSecurityDescriptor.c)
+ *     _PnpOpenPropertiesKey @ 0x140956580 (_PnpOpenPropertiesKey.c)
+ *     _CmOpenInstallerClassRegKey @ 0x14095ED14 (_CmOpenInstallerClassRegKey.c)
+ *     _PnpCtxRegSetValue @ 0x1409AD0CC (_PnpCtxRegSetValue.c)
+ *     _PnpCtxRegDeleteValue @ 0x1409AD448 (_PnpCtxRegDeleteValue.c)
+ *     _CmRaisePropertyChangeEvent @ 0x1409ADAB8 (_CmRaisePropertyChangeEvent.c)
+ *     RtlValidRelativeSecurityDescriptor @ 0x1409C9570 (RtlValidRelativeSecurityDescriptor.c)
  */
 
 __int64 __fastcall CmSetInstallerClassRegPropWorker(

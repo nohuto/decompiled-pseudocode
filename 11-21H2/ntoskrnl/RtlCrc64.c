@@ -3,10 +3,10 @@
  * Callers:
  *     <none>
  * Callees:
- *     RtlpComputeCrcInternal @ 0x140384A00 (RtlpComputeCrcInternal.c)
+ *     sub_140384A00 @ 0x140384A00 (sub_140384A00.c)
  */
 
-__int64 __fastcall RtlCrc64(__int64 a1, __int64 a2, __int64 a3)
+ULONGLONG __cdecl RtlCrc64(const void *Buffer, size_t Size, ULONGLONG InitialCrc)
 {
-  return RtlpComputeCrcInternal(a1, a2, a3, &Crc64Ctrl);
+  return sub_140384A00(Buffer, Size, InitialCrc, &off_1400016D0);
 }

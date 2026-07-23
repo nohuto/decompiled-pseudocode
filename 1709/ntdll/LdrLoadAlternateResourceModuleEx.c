@@ -32,365 +32,371 @@
  *     LdrpTraceLoadMUIDll @ 0x1800E0D64 (LdrpTraceLoadMUIDll.c)
  */
 
-__int64 __fastcall LdrLoadAlternateResourceModuleEx(
-        __int64 a1,
-        unsigned __int16 a2,
-        __int64 *a3,
-        _QWORD *a4,
-        unsigned int a5)
+NTSTATUS __cdecl LdrLoadAlternateResourceModuleEx(
+        PVOID DllHandle,
+        LANGID LanguageId,
+        PVOID *ResourceDllBase,
+        ULONG_PTR *ResourceOffset,
+        ULONG Flags)
 {
-  wchar_t *v7; // rdi
-  __int64 v8; // r12
+  const wchar_t *v7; // rdi
+  wchar_t *v8; // r12
   __int64 v9; // rsi
   _DWORD *v10; // rax
   __int64 v11; // r8
   __int64 v13; // r15
   int DataModulePath; // eax
   unsigned __int64 v15; // rax
-  __int64 v16; // rdx
-  __int64 v17; // rcx
-  int ModuleInfoFromVirtualMemory; // edi
-  int v19; // edi
-  char v20; // di
-  unsigned __int16 v21; // si
-  __int64 v22; // rdx
-  __int64 v23; // r14
-  __int64 v24; // rcx
-  __int64 v25; // rsi
-  __int64 v26; // r8
-  char v27; // al
-  bool v28; // cf
-  __int64 v29; // rdx
-  __int64 v30; // rcx
+  NTSTATUS ModuleInfoFromVirtualMemory; // edi
+  int v17; // edi
+  char v18; // di
+  LANGID v19; // si
+  __int64 v20; // r14
+  __int64 v21; // rcx
+  __int64 v22; // rsi
+  char v23; // al
+  bool v24; // cf
   __int64 MUIFromCMFSegment; // rax
-  __int64 v32; // rax
-  __int64 Heap; // rax
-  __int64 v34; // rax
-  __int64 v35; // rcx
-  char v37; // [rsp+52h] [rbp-7E6h]
-  unsigned int v38; // [rsp+54h] [rbp-7E4h]
-  char v39; // [rsp+58h] [rbp-7E0h] BYREF
-  char v40; // [rsp+59h] [rbp-7DFh]
-  unsigned int v41; // [rsp+5Ch] [rbp-7DCh] BYREF
-  __int64 v42; // [rsp+60h] [rbp-7D8h] BYREF
-  unsigned int v43; // [rsp+68h] [rbp-7D0h] BYREF
-  unsigned int v44; // [rsp+6Ch] [rbp-7CCh]
-  int v45; // [rsp+70h] [rbp-7C8h] BYREF
-  __int64 v46; // [rsp+78h] [rbp-7C0h]
-  __int64 v47; // [rsp+80h] [rbp-7B8h] BYREF
-  __int128 v48; // [rsp+88h] [rbp-7B0h] BYREF
-  int v49; // [rsp+98h] [rbp-7A0h]
+  __int64 v26; // rcx
+  __int64 v27; // rax
+  wchar_t *Heap; // rax
+  __int64 v29; // rax
+  __int64 v30; // rcx
+  char v32; // [rsp+52h] [rbp-7E6h]
+  NTSTATUS v33; // [rsp+54h] [rbp-7E4h]
+  __int16 v34; // [rsp+58h] [rbp-7E0h] BYREF
+  unsigned int v35; // [rsp+5Ch] [rbp-7DCh] BYREF
+  void *v36; // [rsp+60h] [rbp-7D8h] BYREF
+  unsigned int v37; // [rsp+68h] [rbp-7D0h] BYREF
+  ULONG v38; // [rsp+6Ch] [rbp-7CCh]
+  int v39; // [rsp+70h] [rbp-7C8h] BYREF
+  PVOID DllHandlea; // [rsp+78h] [rbp-7C0h]
+  ULONG_PTR v41; // [rsp+80h] [rbp-7B8h] BYREF
+  _UNICODE_STRING v42; // [rsp+88h] [rbp-7B0h] BYREF
+  int v43; // [rsp+98h] [rbp-7A0h]
   wchar_t *Str; // [rsp+A0h] [rbp-798h] BYREF
-  __int64 v51; // [rsp+A8h] [rbp-790h] BYREF
-  __int64 v52; // [rsp+B0h] [rbp-788h] BYREF
+  PVOID v45; // [rsp+A8h] [rbp-790h] BYREF
+  __int64 v46; // [rsp+B0h] [rbp-788h] BYREF
   HANDLE Handle; // [rsp+B8h] [rbp-780h] BYREF
-  wchar_t *v54; // [rsp+C0h] [rbp-778h] BYREF
-  wchar_t *v55; // [rsp+C8h] [rbp-770h]
-  __int16 v56; // [rsp+D0h] [rbp-768h] BYREF
-  __int16 v57; // [rsp+D2h] [rbp-766h]
-  char *v58; // [rsp+D8h] [rbp-760h]
-  __int64 v59; // [rsp+E0h] [rbp-758h] BYREF
-  __int64 v60; // [rsp+E8h] [rbp-750h]
-  _BYTE v61[2]; // [rsp+F0h] [rbp-748h] BYREF
-  __int16 v62; // [rsp+F2h] [rbp-746h]
-  char *v63; // [rsp+F8h] [rbp-740h]
-  _QWORD *v64; // [rsp+100h] [rbp-738h]
-  int v65; // [rsp+108h] [rbp-730h] BYREF
-  __int64 v66; // [rsp+110h] [rbp-728h]
-  int v67; // [rsp+118h] [rbp-720h] BYREF
-  _BYTE *v68; // [rsp+120h] [rbp-718h]
-  __int64 v69; // [rsp+130h] [rbp-708h] BYREF
-  int v70; // [rsp+138h] [rbp-700h]
-  _BYTE v71[56]; // [rsp+140h] [rbp-6F8h] BYREF
-  char v72; // [rsp+180h] [rbp-6B8h] BYREF
-  WCHAR SourceString[352]; // [rsp+1C0h] [rbp-678h] BYREF
-  char v74; // [rsp+480h] [rbp-3B8h] BYREF
-  _BYTE v75[704]; // [rsp+530h] [rbp-308h] BYREF
+  PVOID BaseAddress; // [rsp+C0h] [rbp-778h] BYREF
+  PVOID v49; // [rsp+C8h] [rbp-770h]
+  _UNICODE_STRING Destination; // [rsp+D0h] [rbp-768h] BYREF
+  PUNICODE_STRING v51; // [rsp+E0h] [rbp-758h] BYREF
+  wchar_t *v52; // [rsp+E8h] [rbp-750h]
+  _UNICODE_STRING LocaleName; // [rsp+F0h] [rbp-748h] BYREF
+  ULONG_PTR *v54; // [rsp+100h] [rbp-738h]
+  int v55; // [rsp+108h] [rbp-730h]
+  __int64 v56; // [rsp+110h] [rbp-728h]
+  int v57; // [rsp+118h] [rbp-720h]
+  _BYTE *v58; // [rsp+120h] [rbp-718h]
+  __int64 v59; // [rsp+130h] [rbp-708h] BYREF
+  int v60; // [rsp+138h] [rbp-700h]
+  _BYTE v61[56]; // [rsp+140h] [rbp-6F8h] BYREF
+  char v62; // [rsp+180h] [rbp-6B8h] BYREF
+  WCHAR Source[352]; // [rsp+1C0h] [rbp-678h] BYREF
+  char v64; // [rsp+480h] [rbp-3B8h] BYREF
+  _BYTE v65[704]; // [rsp+530h] [rbp-308h] BYREF
 
-  v64 = a4;
-  v46 = a1;
-  v44 = a5;
-  v51 = 0LL;
+  v54 = ResourceOffset;
+  DllHandlea = DllHandle;
+  v38 = Flags;
+  v45 = 0LL;
   Handle = 0LL;
-  v43 = 0;
+  v37 = 0;
   v7 = 0LL;
   Str = 0LL;
-  v41 = 0;
+  v35 = 0;
   v8 = 0LL;
-  v60 = 0LL;
-  v47 = 0LL;
-  v59 = 0LL;
-  v37 = 0;
-  v69 = 72LL;
-  v70 = 1;
-  memset(v71, 0, sizeof(v71));
-  v39 = 0;
-  v45 = -1;
-  v55 = 0LL;
-  v54 = 0LL;
-  v40 = 1;
-  v9 = 0LL;
   v52 = 0LL;
-  if ( !v46 || !a2 || !a3 )
-    return 3221225485LL;
-  v10 = LdrpGetFromMUIMemCache(v46, a2, &v47, 4);
+  v41 = 0LL;
+  v51 = 0LL;
+  v32 = 0;
+  v59 = 72LL;
+  v60 = 1;
+  memset(v61, 0, sizeof(v61));
+  v34 = 256;
+  v39 = -1;
+  v49 = 0LL;
+  BaseAddress = 0LL;
+  v9 = 0LL;
+  v46 = 0LL;
+  if ( !DllHandlea || !LanguageId || !ResourceDllBase )
+    return -1073741811;
+  v10 = LdrpGetFromMUIMemCache((unsigned __int64)DllHandlea, LanguageId, &v41, 4);
   if ( v10 == (_DWORD *)-1LL )
   {
-    if ( (a5 & 0x400000) == 0 )
+    if ( (Flags & 0x400000) == 0 )
     {
-      *a3 = 0LL;
-      return 3221946374LL;
+      *ResourceDllBase = 0LL;
+      return -1073020922;
     }
   }
   else if ( v10 )
   {
-    *a3 = (__int64)v10;
-    if ( a4 )
-      *a4 = v47;
-    return 0LL;
+    *ResourceDllBase = v10;
+    if ( ResourceOffset )
+      *ResourceOffset = v41;
+    return 0;
   }
   v13 = 0LL;
-  v42 = 0LL;
-  v49 = v44 & 0x400000;
-  if ( (v44 & 0x400000) != 0 )
+  v36 = 0LL;
+  v43 = v38 & 0x400000;
+  if ( (v38 & 0x400000) != 0 )
   {
     DataModulePath = -1073741767;
   }
   else
   {
-    DataModulePath = LdrpGetDataModulePath(v46, SourceString, v11, &v43, &Str, &v41, &v52);
+    DataModulePath = LdrpGetDataModulePath(
+                       DllHandlea,
+                       Source,
+                       v11,
+                       &v37,
+                       &Str,
+                       &v35,
+                       (struct _ACTIVATION_CONTEXT **)&v46);
     v7 = Str;
-    v9 = v52;
+    v9 = v46;
   }
   if ( DataModulePath < 0 )
   {
-    ModuleInfoFromVirtualMemory = LdrpGetModuleInfoFromVirtualMemory(v46, SourceString, 702LL, &v43, &v54, &v41, &v39);
-    v38 = ModuleInfoFromVirtualMemory;
+    ModuleInfoFromVirtualMemory = LdrpGetModuleInfoFromVirtualMemory(
+                                    DllHandlea,
+                                    Source,
+                                    (__int64)&BaseAddress,
+                                    (__int64)&v35,
+                                    (__int64)&v34);
+    v33 = ModuleInfoFromVirtualMemory;
     if ( ModuleInfoFromVirtualMemory < 0 )
       goto LABEL_75;
-    v7 = v54;
-    Str = v54;
+    v7 = (const wchar_t *)BaseAddress;
+    Str = (wchar_t *)BaseAddress;
   }
-  v15 = v43 & 0xFFFFFFFE;
+  v15 = v37 & 0xFFFFFFFE;
   if ( v15 >= 0x2BE )
     _report_rangecheckfailure();
-  *(WCHAR *)((char *)SourceString + v15) = 0;
-  if ( wcsrchr(v7, 0x7Eu) && (int)LdrpCnvrtShortToLongFileName(SourceString, v7) >= 0 )
+  *(WCHAR *)((char *)Source + v15) = 0;
+  if ( wcsrchr(v7, 0x7Eu) && (int)LdrpCnvrtShortToLongFileName(Source, v7) >= 0 )
   {
-    v7 = v55;
-    Str = v55;
-    v34 = -1LL;
+    v7 = (const wchar_t *)v49;
+    Str = (wchar_t *)v49;
+    v29 = -1LL;
     do
-      ++v34;
-    while ( v55[v34] );
-    v41 = 2 * v34;
+      ++v29;
+    while ( *((_WORD *)v49 + v29) );
+    v35 = 2 * v29;
   }
-  v68 = v75;
-  v67 = 46006272;
-  v66 = 0LL;
-  v65 = 0;
-  if ( (unsigned __int64)v41 + 12 > 0x3C )
+  v58 = v65;
+  v57 = 46006272;
+  v56 = 0LL;
+  v55 = 0;
+  if ( (unsigned __int64)v35 + 12 > 0x3C )
   {
-    Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8LL, 2LL * v41 + 10);
+    Heap = (wchar_t *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, 2LL * v35 + 10);
     v8 = Heap;
-    v60 = Heap;
-    v13 = v42;
+    v52 = Heap;
+    v13 = (__int64)v36;
     if ( !Heap )
     {
       ModuleInfoFromVirtualMemory = -1073741801;
 LABEL_88:
-      v38 = ModuleInfoFromVirtualMemory;
+      v33 = ModuleInfoFromVirtualMemory;
       goto LABEL_75;
     }
-    v58 = (char *)Heap;
-    v57 = 2 * (v41 + 5);
+    Destination.Buffer = Heap;
+    Destination.MaximumLength = 2 * (v35 + 5);
     v7 = Str;
-    v9 = v52;
+    v9 = v46;
   }
   else
   {
-    v58 = &v72;
-    v57 = 60;
+    Destination.Buffer = (wchar_t *)&v62;
+    Destination.MaximumLength = 60;
   }
-  v56 = 0;
-  ModuleInfoFromVirtualMemory = RtlAppendUnicodeToString(&v56, v7);
-  v38 = ModuleInfoFromVirtualMemory;
+  Destination.Length = 0;
+  ModuleInfoFromVirtualMemory = RtlAppendUnicodeToString(&Destination, v7);
+  v33 = ModuleInfoFromVirtualMemory;
   if ( ModuleInfoFromVirtualMemory < 0 )
     goto LABEL_75;
-  ModuleInfoFromVirtualMemory = RtlAppendUnicodeToString(&v56, L".mui");
-  v38 = ModuleInfoFromVirtualMemory;
+  ModuleInfoFromVirtualMemory = RtlAppendUnicodeToString(&Destination, L".mui");
+  v33 = ModuleInfoFromVirtualMemory;
   if ( ModuleInfoFromVirtualMemory < 0 )
     goto LABEL_75;
   if ( v9 )
-    RtlActivateActivationContextUnsafeFast(&v69, v9);
-  v19 = LdrpQuerySxSMUIFile(&v56, a2, &v67, &v65, &v59);
+    RtlActivateActivationContextUnsafeFast(&v59, v9);
+  v17 = LdrpQuerySxSMUIFile(&Destination, &v51);
   if ( v9 )
-    RtlDeactivateActivationContextUnsafeFast(&v69);
-  if ( v19 >= 0 )
+    RtlDeactivateActivationContextUnsafeFast(&v59);
+  if ( v17 >= 0 )
   {
-    v20 = 1;
-    v37 = 1;
-    v17 = v59;
-    *((_QWORD *)&v48 + 1) = *(_QWORD *)(v59 + 8);
-    LODWORD(v48) = *(_DWORD *)v59;
+    v18 = 1;
+    v32 = 1;
+    v42.Buffer = v51->Buffer;
+    v42.Length = v51->Length;
+    v42.MaximumLength = v51->MaximumLength;
   }
   else
   {
-    v20 = 0;
+    v18 = 0;
   }
-  if ( v20
-    || ResRuntimeView == -1
+  if ( v18
+    || ResRuntimeView == (PVOID)-1LL
     || ResRuntimeView
-    && ((v17 = *(_QWORD *)(ResRuntimeView + 16)) == 0
-     || (v32 = *(_QWORD *)(v17 + 24)) == 0
-     || (*(_DWORD *)(v32 + 48) & 0x100000) != 0) )
+    && ((v26 = *((_QWORD *)ResRuntimeView + 2)) == 0
+     || (v27 = *(_QWORD *)(v26 + 24)) == 0
+     || (*(_DWORD *)(v27 + 48) & 0x100000) != 0) )
   {
-    v21 = a2;
+    v19 = LanguageId;
 LABEL_27:
-    if ( v20 )
+    if ( v18 )
     {
-      v63 = 0LL;
+      LocaleName.Buffer = 0LL;
 LABEL_30:
-      v23 = 2147353477LL;
-      if ( (unsigned int)RtlGetCurrentServiceSessionId(v17, v16) )
+      v20 = 2147353477LL;
+      if ( RtlGetCurrentServiceSessionId() )
       {
-        v24 = (__int64)NtCurrentPeb()->SharedData + 555;
-        v13 = v42;
+        v21 = (__int64)NtCurrentPeb()->SharedData + 555;
+        v13 = (__int64)v36;
       }
       else
       {
-        v24 = 2147353477LL;
+        v21 = 2147353477LL;
       }
-      if ( (*(_BYTE *)v24 & 1) != 0 )
+      if ( (*(_BYTE *)v21 & 1) != 0 )
       {
-        v25 = 2147353476LL;
-        if ( (unsigned int)RtlGetCurrentServiceSessionId(v24, v22) )
+        v22 = 2147353476LL;
+        if ( RtlGetCurrentServiceSessionId() )
         {
-          v35 = (__int64)NtCurrentPeb()->SharedData + 554;
-          v13 = v42;
+          v30 = (__int64)NtCurrentPeb()->SharedData + 554;
+          v13 = (__int64)v36;
         }
         else
         {
-          v35 = 2147353476LL;
+          v30 = 2147353476LL;
         }
-        LdrpTraceLoadMUIDll(&v48, *(unsigned __int8 *)v35);
+        LdrpTraceLoadMUIDll(&v42, *(unsigned __int8 *)v30);
       }
       else
       {
-        v25 = 2147353476LL;
+        v22 = 2147353476LL;
       }
-      ModuleInfoFromVirtualMemory = LdrpMapResourceFile(v46, &v48, v39, &Handle, &v51, &v47);
-      v38 = ModuleInfoFromVirtualMemory;
+      ModuleInfoFromVirtualMemory = LdrpMapResourceFile((__int64)DllHandlea, (__int128 *)&v42, v34, &Handle, &v45, &v41);
+      v33 = ModuleInfoFromVirtualMemory;
       if ( ModuleInfoFromVirtualMemory >= 0 )
       {
-        v13 = v51 | 1;
-        if ( !v37 && !(unsigned __int8)LdrpVerifyAlternateResourceModule(v46, v51 | 1, v63, v44) )
+        v13 = (unsigned __int64)v45 | 1;
+        if ( !v32
+          && !(unsigned __int8)LdrpVerifyAlternateResourceModule(
+                                 DllHandlea,
+                                 (unsigned __int64)v45 | 1,
+                                 LocaleName.Buffer,
+                                 v38) )
         {
-          NtUnmapViewOfSection(-1LL, v51, v26);
+          NtUnmapViewOfSection((HANDLE)0xFFFFFFFFFFFFFFFFLL, v45);
           NtClose(Handle);
           Handle = 0LL;
-          v47 = 0LL;
+          v41 = 0LL;
           v13 = 0LL;
           ModuleInfoFromVirtualMemory = -1073020926;
-          v38 = -1073020926;
+          v33 = -1073020926;
         }
       }
       goto LABEL_38;
     }
-    *((_QWORD *)&v48 + 1) = v75;
-    LODWORD(v48) = 46006272;
-    RtlAppendUnicodeToString(&v48, SourceString);
-    v63 = &v74;
-    v62 = 170;
-    if ( (int)RtlLcidToLocaleName(v21, v61, 2LL) >= 0 )
+    v42.Buffer = (wchar_t *)v65;
+    *(_DWORD *)&v42.Length = 46006272;
+    RtlAppendUnicodeToString(&v42, Source);
+    LocaleName.Buffer = (wchar_t *)&v64;
+    LocaleName.MaximumLength = 170;
+    if ( RtlLcidToLocaleName(v19, &LocaleName, 2u, 0) >= 0 )
     {
-      RtlAppendUnicodeStringToString(&v48, v61);
-      RtlAppendUnicodeToString(&v48, L"\\");
-      RtlAppendUnicodeToString(&v48, v58);
+      RtlAppendUnicodeStringToString(&v42, &LocaleName);
+      RtlAppendUnicodeToString(&v42, L"\\");
+      RtlAppendUnicodeToString(&v42, Destination.Buffer);
       goto LABEL_30;
     }
     ModuleInfoFromVirtualMemory = -1073741811;
     goto LABEL_88;
   }
-  v21 = a2;
-  MUIFromCMFSegment = LdrpGetMUIFromCMFSegment(v46, a2, 0, v44, &v45, 0LL);
-  v51 = MUIFromCMFSegment;
+  v19 = LanguageId;
+  MUIFromCMFSegment = LdrpGetMUIFromCMFSegment(DllHandlea, LanguageId, 0, v38, &v39, 0LL);
+  v45 = (PVOID)MUIFromCMFSegment;
   if ( !MUIFromCMFSegment )
     goto LABEL_27;
   v13 = MUIFromCMFSegment | 1;
   ModuleInfoFromVirtualMemory = 0;
-  v38 = 0;
+  v33 = 0;
 LABEL_75:
-  v25 = 2147353476LL;
-  v23 = 2147353477LL;
+  v22 = 2147353476LL;
+  v20 = 2147353477LL;
 LABEL_38:
   if ( !v13 )
     v13 = -1LL;
-  v42 = v13;
+  v36 = (void *)v13;
   if ( ModuleInfoFromVirtualMemory == -1073741659
     || ModuleInfoFromVirtualMemory == -1073741801
     || ModuleInfoFromVirtualMemory == -1073741523 )
   {
-    v27 = 0;
+    v23 = 0;
   }
   else
   {
-    v27 = v40;
+    v23 = HIBYTE(v34);
   }
-  if ( v27 )
+  if ( v23 )
   {
-    v28 = v49 != 0;
-    v49 = -v49;
+    v24 = v43 != 0;
+    v43 = -v43;
     LdrpSetAlternateResourceModuleHandle(
-      v46,
-      (unsigned int)&v42,
+      (_DWORD)DllHandlea,
+      (unsigned int)&v36,
       (unsigned int)&Handle,
       0,
-      v45,
-      a2,
-      v28 ? 33 : 1,
+      v39,
+      LanguageId,
+      v24 ? 33 : 1,
       ModuleInfoFromVirtualMemory,
-      v47);
+      v41);
   }
-  if ( v42 == -1 )
+  if ( v36 == (void *)-1LL )
   {
-    *a3 = 0LL;
+    *ResourceDllBase = 0LL;
   }
   else
   {
-    if ( v45 == -1 )
+    if ( v39 == -1 )
     {
-      if ( (unsigned int)RtlGetCurrentServiceSessionId(v17, v16) )
-        v23 = (__int64)NtCurrentPeb()->SharedData + 555;
-      if ( (*(_BYTE *)v23 & 1) != 0 )
+      if ( RtlGetCurrentServiceSessionId() )
+        v20 = (__int64)NtCurrentPeb()->SharedData + 555;
+      if ( (*(_BYTE *)v20 & 1) != 0 )
       {
-        if ( (unsigned int)RtlGetCurrentServiceSessionId(v30, v29) )
-          v25 = (__int64)NtCurrentPeb()->SharedData + 554;
-        LdrpTraceLoadMUIDll(&v48, *(unsigned __int8 *)v25);
+        if ( RtlGetCurrentServiceSessionId() )
+          v22 = (__int64)NtCurrentPeb()->SharedData + 554;
+        LdrpTraceLoadMUIDll(&v42, *(unsigned __int8 *)v22);
       }
-      if ( ResRuntimeView != -1 )
+      if ( ResRuntimeView != (PVOID)-1LL )
         ResCIncrementCMFMissCount();
     }
-    *a3 = v42;
-    if ( v64 )
-      *v64 = v47;
+    *ResourceDllBase = v36;
+    if ( v54 )
+      *v54 = v41;
     ModuleInfoFromVirtualMemory = 0;
-    v38 = 0;
+    v33 = 0;
   }
-  if ( v54 )
+  if ( BaseAddress )
   {
-    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0LL, v54);
-    ModuleInfoFromVirtualMemory = v38;
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, BaseAddress);
+    ModuleInfoFromVirtualMemory = v33;
   }
-  if ( v55 )
+  if ( v49 )
   {
-    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0LL, v55);
-    ModuleInfoFromVirtualMemory = v38;
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v49);
+    ModuleInfoFromVirtualMemory = v33;
   }
   if ( v8 )
   {
-    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0LL, v8);
-    return v38;
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v8);
+    return v33;
   }
-  return (unsigned int)ModuleInfoFromVirtualMemory;
+  return ModuleInfoFromVirtualMemory;
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of _strset_s @ 0x18009AC30
+ * XREFs of _strset_s @ 0x18009AC40
  * Callers:
  *     <none>
  * Callees:
- *     _invalid_parameter @ 0x18008FDE8 (_invalid_parameter.c)
+ *     _invalid_parameter @ 0x18008FDF8 (_invalid_parameter.c)
  */
 
 errno_t __cdecl strset_s(char *Destination, size_t DestinationSize, int Value)

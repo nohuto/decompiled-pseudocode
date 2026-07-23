@@ -1,11 +1,11 @@
 /*
  * XREFs of SeFilterToken @ 0x140831700
  * Callers:
- *     CmpCreateRegistryProcessToken @ 0x1408315A4 (CmpCreateRegistryProcessToken.c)
+ *     sub_1408315A4 @ 0x1408315A4 (sub_1408315A4.c)
  * Callees:
- *     SepFinalizeTokenAcls @ 0x140659D50 (SepFinalizeTokenAcls.c)
- *     ObInsertObjectEx @ 0x140729C30 (ObInsertObjectEx.c)
- *     SepFilterToken @ 0x14078E3F0 (SepFilterToken.c)
+ *     sub_140659D50 @ 0x140659D50 (sub_140659D50.c)
+ *     sub_140729C30 @ 0x140729C30 (sub_140729C30.c)
+ *     sub_14078E3F0 @ 0x14078E3F0 (sub_14078E3F0.c)
  */
 
 NTSTATUS __stdcall SeFilterToken(
@@ -21,7 +21,7 @@ NTSTATUS __stdcall SeFilterToken(
   ULONG v8; // r10d
   SID_AND_ATTRIBUTES *Groups; // r11
   ULONG PrivilegeCount; // esi
-  NTSTATUS inserted; // ebx
+  NTSTATUS v12; // ebx
   ULONG v14; // ecx
   ULONG *p_Attributes; // rax
   PVOID Object; // [rsp+90h] [rbp+18h] BYREF
@@ -53,27 +53,27 @@ NTSTATUS __stdcall SeFilterToken(
   else
   {
 LABEL_6:
-    inserted = SepFilterToken(
-                 (__int64)ExistingToken,
-                 0,
-                 Flags,
-                 GroupCount,
-                 (unsigned __int64)SidsToDisable->Groups & -(__int64)(SidsToDisable != 0LL),
-                 PrivilegeCount,
-                 (_DWORD *)((unsigned __int64)PrivilegesToDelete->Privileges & -(__int64)(PrivilegesToDelete != 0LL)),
-                 v8,
-                 Groups,
-                 0,
-                 &Object);
-    if ( inserted >= 0 )
+    v12 = sub_14078E3F0(
+            (__int64)ExistingToken,
+            0,
+            Flags,
+            GroupCount,
+            (unsigned __int64)SidsToDisable->Groups & -(__int64)(SidsToDisable != 0LL),
+            PrivilegeCount,
+            (_DWORD *)((unsigned __int64)PrivilegesToDelete->Privileges & -(__int64)(PrivilegesToDelete != 0LL)),
+            v8,
+            Groups,
+            0,
+            &Object);
+    if ( v12 >= 0 )
     {
-      inserted = ObInsertObjectEx((char *)Object, 0LL, 0, 0, 0, 0LL, 0LL);
-      if ( inserted >= 0 )
+      v12 = sub_140729C30((char *)Object, 0LL, 0, 0, 0, 0LL, 0LL);
+      if ( v12 >= 0 )
       {
-        SepFinalizeTokenAcls(Object);
+        sub_140659D50(Object);
         *v6 = Object;
       }
     }
-    return inserted;
+    return v12;
   }
 }

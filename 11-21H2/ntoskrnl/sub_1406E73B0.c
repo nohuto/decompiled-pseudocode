@@ -1,10 +1,10 @@
 /*
  * XREFs of sub_1406E73B0 @ 0x1406E73B0
  * Callers:
- *     WbGetWarbirdThread @ 0x1407E3900 (WbGetWarbirdThread.c)
+ *     sub_1407E3900 @ 0x1407E3900 (sub_1407E3900.c)
  * Callees:
  *     memset @ 0x140435E00 (memset.c)
- *     WbAlloc @ 0x1407E3010 (WbAlloc.c)
+ *     sub_1407E3010 @ 0x1407E3010 (sub_1407E3010.c)
  *     sub_1407E3BE4 @ 0x1407E3BE4 (sub_1407E3BE4.c)
  */
 
@@ -17,7 +17,7 @@ __int64 __fastcall sub_1406E73B0(__int64 a1, __int64 a2, _QWORD *a3)
 
   v5 = 0LL;
   v10 = 0LL;
-  v7 = WbAlloc(1280LL, &v10);
+  v7 = sub_1407E3010(1280LL, &v10);
   if ( v7 < 0 )
   {
     v5 = v10;

@@ -1,11 +1,11 @@
 /*
- * XREFs of HalpExtEnvMarkHiberRegions @ 0x1404D710C
+ * XREFs of HalpExtEnvMarkHiberRegions @ 0x1404D055C
  * Callers:
- *     HaliLocateHiberRanges @ 0x140B6E700 (HaliLocateHiberRanges.c)
+ *     HaliLocateHiberRanges @ 0x140B705C0 (HaliLocateHiberRanges.c)
  * Callees:
- *     KeReleaseSpinLock @ 0x14024DD30 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140254B20 (KeAcquireSpinLockRaiseToDpc.c)
- *     PoSetHiberRange @ 0x1402649E0 (PoSetHiberRange.c)
+ *     KeReleaseSpinLock @ 0x14027E340 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140285130 (KeAcquireSpinLockRaiseToDpc.c)
+ *     PoSetHiberRange @ 0x14046AD10 (PoSetHiberRange.c)
  */
 
 void __fastcall HalpExtEnvMarkHiberRegions(PVOID MemoryMap)

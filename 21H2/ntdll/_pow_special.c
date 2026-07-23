@@ -1,7 +1,7 @@
 /*
  * XREFs of _pow_special @ 0x180095980
  * Callers:
- *     pow @ 0x1800A37A0 (pow.c)
+ *     pow @ 0x1800A3760 (pow.c)
  * Callees:
  *     _handle_error @ 0x180094830 (_handle_error.c)
  */

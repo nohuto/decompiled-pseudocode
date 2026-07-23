@@ -1,25 +1,25 @@
 /*
- * XREFs of PopPowerButtonWorkCallback @ 0x1405D83A0
+ * XREFs of PopPowerButtonWorkCallback @ 0x1405D58C0
  * Callers:
  *     <none>
  * Callees:
- *     KeReleaseSpinLock @ 0x14024DD30 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140254B20 (KeAcquireSpinLockRaiseToDpc.c)
- *     DbgPrintEx @ 0x1402CB2F0 (DbgPrintEx.c)
- *     KeDisableTimer2 @ 0x1403C01A8 (KeDisableTimer2.c)
- *     KeSetTimer2 @ 0x1403C20A0 (KeSetTimer2.c)
- *     KeInitializeIRTimer @ 0x1404C1B3C (KeInitializeIRTimer.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     PopRecordPhysicalPowerButton @ 0x1407497C0 (PopRecordPhysicalPowerButton.c)
- *     PopDiagTracePowerButtonBugcheck @ 0x140756C44 (PopDiagTracePowerButtonBugcheck.c)
- *     PopBsdPowerTransitionToParam1 @ 0x14075CB10 (PopBsdPowerTransitionToParam1.c)
- *     PopPublishPowerButtonState @ 0x14075CCE4 (PopPublishPowerButtonState.c)
- *     PopRecordPoBlackboxInformation @ 0x1407663B8 (PopRecordPoBlackboxInformation.c)
- *     ExUuidCreate @ 0x1408EA880 (ExUuidCreate.c)
- *     DbgkWerCaptureLiveKernelDump @ 0x140AA9B20 (DbgkWerCaptureLiveKernelDump.c)
- *     DbgkWerCaptureLiveKernelDump2 @ 0x140AA9BA0 (DbgkWerCaptureLiveKernelDump2.c)
- *     PopQueryPowerButtonBugcheckEnabled @ 0x140AB2400 (PopQueryPowerButtonBugcheckEnabled.c)
+ *     DbgPrintEx @ 0x140275B40 (DbgPrintEx.c)
+ *     KeReleaseSpinLock @ 0x14027E340 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140285130 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KeDisableTimer2 @ 0x1403AED68 (KeDisableTimer2.c)
+ *     KeSetTimer2 @ 0x1403B0C60 (KeSetTimer2.c)
+ *     KeInitializeIRTimer @ 0x1404BD12C (KeInitializeIRTimer.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     PopRecordPhysicalPowerButton @ 0x140747AF0 (PopRecordPhysicalPowerButton.c)
+ *     PopDiagTracePowerButtonBugcheck @ 0x1407550C4 (PopDiagTracePowerButtonBugcheck.c)
+ *     PopBsdPowerTransitionToParam1 @ 0x14075BAB0 (PopBsdPowerTransitionToParam1.c)
+ *     PopPublishPowerButtonState @ 0x14075BC84 (PopPublishPowerButtonState.c)
+ *     PopRecordPoBlackboxInformation @ 0x140765D88 (PopRecordPoBlackboxInformation.c)
+ *     ExUuidCreate @ 0x14085C0B0 (ExUuidCreate.c)
+ *     DbgkWerCaptureLiveKernelDump @ 0x140AA4BD0 (DbgkWerCaptureLiveKernelDump.c)
+ *     DbgkWerCaptureLiveKernelDump2 @ 0x140AA4C50 (DbgkWerCaptureLiveKernelDump2.c)
+ *     PopQueryPowerButtonBugcheckEnabled @ 0x140AAD370 (PopQueryPowerButtonBugcheckEnabled.c)
  */
 
 void PopPowerButtonWorkCallback()
@@ -52,51 +52,51 @@ void PopPowerButtonWorkCallback()
   v0 = KeAcquireSpinLockRaiseToDpc(&PopPowerButtonHold);
   do
   {
-    v1 = (__m128i)xmmword_140F07898;
-    *(_OWORD *)Uuid = xmmword_140F07898;
-    *(_QWORD *)&Uuid[16] = qword_140F078A8;
+    v1 = (__m128i)xmmword_140F07AF8;
+    *(_OWORD *)Uuid = xmmword_140F07AF8;
+    *(_QWORD *)&Uuid[16] = qword_140F07B08;
     KeReleaseSpinLock(&PopPowerButtonHold, v0);
     v2 = _mm_cvtsi128_si32(_mm_srli_si128(v1, 4));
     v3 = _mm_cvtsi128_si32(v1);
-    if ( (dword_140F078B0 & 1) != 0 && ((v3 & 1) == 0 || v2 != dword_140F078B4) )
+    if ( (dword_140F07B10 & 1) != 0 && ((v3 & 1) == 0 || v2 != dword_140F07B14) )
     {
       PopRecordPhysicalPowerButton(0LL);
-      dword_140F078B0 = 0;
-      byte_140F07788 = 0;
-      PopPublishPowerButtonState(&dword_140F078B0);
-      KeDisableTimer2((__int64)&unk_140F077E8, 1, 1, 0LL);
+      dword_140F07B10 = 0;
+      byte_140F07BA8 = 0;
+      PopPublishPowerButtonState(&dword_140F07B10);
+      KeDisableTimer2((__int64)&unk_140F07A48, 1, 1, 0LL);
     }
     if ( (v3 & 1) != 0 )
     {
-      if ( (dword_140F078B0 & 1) == 0 )
+      if ( (dword_140F07B10 & 1) == 0 )
       {
         ExUuidCreate((UUID *)&Uuid[8]);
         v4 = *(_OWORD *)&Uuid[8];
         LOBYTE(v5) = 1;
-        xmmword_140F07760 = *(_OWORD *)&Uuid[8];
+        xmmword_140F07B80 = *(_OWORD *)&Uuid[8];
         PopRecordPhysicalPowerButton(v5);
         v2 = *(_DWORD *)&Uuid[4];
-        dword_140F078B4 = *(_DWORD *)&Uuid[4];
-        xmmword_140F078B8 = v4;
-        dword_140F078C8 = PopQueryPowerButtonBugcheckEnabled();
+        dword_140F07B14 = *(_DWORD *)&Uuid[4];
+        xmmword_140F07B18 = v4;
+        dword_140F07B28 = PopQueryPowerButtonBugcheckEnabled();
         HIDWORD(BugCheckParameter1) = 65544;
         KeInitializeIRTimer(
-          (unsigned __int64)&unk_140F077E8,
+          (unsigned __int64)&unk_140F07A48,
           (__int64)PopPowerButtonTimerCallback,
           v2,
           (unsigned __int16 *)&BugCheckParameter1 + 2,
           2);
-        KeSetTimer2((__int64)&unk_140F077E8, -10000000LL, 10000000LL, 0LL);
+        KeSetTimer2((__int64)&unk_140F07A48, (LARGE_INTEGER)-10000000LL, 10000000LL, 0LL);
         v3 = *(_DWORD *)Uuid;
       }
-      dword_140F078B0 = v3;
-      PopPublishPowerButtonState(&dword_140F078B0);
+      dword_140F07B10 = v3;
+      PopPublishPowerButtonState(&dword_140F07B10);
       v6 = v3 >> 1;
       if ( v3 >> 1 >= 0x1B58 )
       {
         PopDiagTracePowerButtonBugcheck(v6);
         PopRecordPoBlackboxInformation();
-        if ( dword_140F078C8 )
+        if ( dword_140F07B28 )
         {
           PopBsdPowerTransitionToParam1(&BugCheckParameter1);
           KeBugCheckEx(
@@ -107,8 +107,8 @@ void PopPowerButtonWorkCallback()
             0LL);
         }
       }
-      v7 = HIDWORD(qword_140F077A4);
-      if ( (qword_140F077A4 & 0x100000000LL) != 0 && !dword_140F078C8 && v6 == 1000 * (BYTE4(qword_140F077A4) >> 4) )
+      v7 = HIDWORD(qword_140F07BC4);
+      if ( (qword_140F07BC4 & 0x100000000LL) != 0 && !dword_140F07B28 && v6 == 1000 * (BYTE4(qword_140F07BC4) >> 4) )
       {
         PopBsdPowerTransitionToParam1(&BugCheckParameter1);
         if ( (v7 & 8) != 0 )
@@ -155,7 +155,7 @@ void PopPowerButtonWorkCallback()
     }
     v0 = KeAcquireSpinLockRaiseToDpc(&PopPowerButtonHold);
   }
-  while ( __PAIR64__(v2, v3) != (_QWORD)xmmword_140F07898 );
-  _InterlockedExchange(&dword_140F07890, 0);
+  while ( __PAIR64__(v2, v3) != (_QWORD)xmmword_140F07AF8 );
+  _InterlockedExchange(&dword_140F07AF0, 0);
   KeReleaseSpinLock(&PopPowerButtonHold, v0);
 }

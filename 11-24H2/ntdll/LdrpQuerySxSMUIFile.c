@@ -1,57 +1,57 @@
 /*
- * XREFs of LdrpQuerySxSMUIFile @ 0x1800D11A0
+ * XREFs of LdrpQuerySxSMUIFile @ 0x18009A09C
  * Callers:
- *     LdrLoadAlternateResourceModuleEx @ 0x18005FF20 (LdrLoadAlternateResourceModuleEx.c)
+ *     LdrLoadAlternateResourceModuleEx @ 0x180075B00 (LdrLoadAlternateResourceModuleEx.c)
  * Callees:
- *     RtlDeactivateActivationContextUnsafeFast @ 0x18000F570 (RtlDeactivateActivationContextUnsafeFast.c)
- *     RtlDosApplyFileIsolationRedirection_Ustr @ 0x18005B1C0 (RtlDosApplyFileIsolationRedirection_Ustr.c)
- *     RtlFindActivationContextSectionString @ 0x18005DCB0 (RtlFindActivationContextSectionString.c)
- *     RtlActivateActivationContextUnsafeFast @ 0x1800703A0 (RtlActivateActivationContextUnsafeFast.c)
- *     RtlCompareUnicodeStrings @ 0x180072550 (RtlCompareUnicodeStrings.c)
- *     RtlFreeAnsiString @ 0x1800B4B90 (RtlFreeAnsiString.c)
- *     RtlLcidToLocaleName @ 0x1800D26D0 (RtlLcidToLocaleName.c)
- *     __security_check_cookie @ 0x1801659C0 (__security_check_cookie.c)
- *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x180172020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
- *     memset$thunk$772440563353939046 @ 0x180172030 (memset$thunk$772440563353939046.c)
+ *     RtlDeactivateActivationContextUnsafeFast @ 0x18003BF70 (RtlDeactivateActivationContextUnsafeFast.c)
+ *     RtlDosApplyFileIsolationRedirection_Ustr @ 0x180070DA0 (RtlDosApplyFileIsolationRedirection_Ustr.c)
+ *     RtlFindActivationContextSectionString @ 0x180073890 (RtlFindActivationContextSectionString.c)
+ *     RtlFreeAnsiString @ 0x180081430 (RtlFreeAnsiString.c)
+ *     RtlActivateActivationContextUnsafeFast @ 0x18008CC80 (RtlActivateActivationContextUnsafeFast.c)
+ *     RtlCompareUnicodeStrings @ 0x18008EE30 (RtlCompareUnicodeStrings.c)
+ *     RtlLcidToLocaleName @ 0x180099060 (RtlLcidToLocaleName.c)
+ *     __security_check_cookie @ 0x180163D80 (__security_check_cookie.c)
+ *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x180171020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
+ *     memset$thunk$772440563353939046 @ 0x180171030 (memset$thunk$772440563353939046.c)
  */
 
-__int64 __fastcall LdrpQuerySxSMUIFile(__m128i *a1, unsigned __int16 a2, __int64 a3, __int64 a4, unsigned __int64 a5)
+__int64 __fastcall LdrpQuerySxSMUIFile(
+        PUNICODE_STRING StringToFind,
+        unsigned __int16 a2,
+        _UNICODE_STRING *a3,
+        _UNICODE_STRING *a4,
+        PUNICODE_STRING *NewName)
 {
-  unsigned int v7; // r12d
-  int ActivationContextSectionString; // ebx
-  __int64 v11; // rdi
+  LCID v7; // r12d
+  NTSTATUS ActivationContextSectionString; // ebx
+  __int64 hActCtx; // rdi
   unsigned int v12; // r13d
-  unsigned __int16 *v13; // r14
+  const WCHAR *v13; // r14
   SIZE_T v14; // r12
   unsigned __int64 v15; // rdx
-  int v17; // [rsp+54h] [rbp-1F4h] BYREF
-  int v18; // [rsp+58h] [rbp-1F0h]
+  ULONG NewFlags; // [rsp+54h] [rbp-1F4h] BYREF
+  NTSTATUS v18; // [rsp+58h] [rbp-1F0h]
   __int64 v19; // [rsp+60h] [rbp-1E8h] BYREF
-  __int128 v20; // [rsp+68h] [rbp-1E0h] BYREF
-  __int64 v21; // [rsp+78h] [rbp-1D0h]
-  unsigned __int16 *v22; // [rsp+80h] [rbp-1C8h]
-  unsigned __int64 v23; // [rsp+88h] [rbp-1C0h]
+  _UNICODE_STRING LocaleName; // [rsp+68h] [rbp-1E0h] BYREF
+  PUNICODE_STRING StaticString; // [rsp+78h] [rbp-1D0h]
+  PCWCH v22; // [rsp+80h] [rbp-1C8h]
+  PUNICODE_STRING *v23; // [rsp+88h] [rbp-1C0h]
   _QWORD v24[2]; // [rsp+90h] [rbp-1B8h] BYREF
   __int128 v25; // [rsp+A0h] [rbp-1A8h]
   __int128 v26; // [rsp+B0h] [rbp-198h]
   __int128 v27; // [rsp+C0h] [rbp-188h]
   __int64 v28; // [rsp+D0h] [rbp-178h]
-  int v29; // [rsp+E0h] [rbp-168h] BYREF
-  _DWORD v30[13]; // [rsp+E4h] [rbp-164h] BYREF
-  __int64 v31; // [rsp+118h] [rbp-130h]
-  char v32; // [rsp+124h] [rbp-124h]
-  __int64 v33; // [rsp+128h] [rbp-120h]
-  __int64 v34; // [rsp+130h] [rbp-118h]
-  char v35; // [rsp+150h] [rbp-F8h] BYREF
+  tagACTCTX_SECTION_KEYED_DATA ReturnedData; // [rsp+E0h] [rbp-168h] BYREF
+  char v30; // [rsp+150h] [rbp-F8h] BYREF
 
-  v21 = a3;
+  StaticString = a3;
   v7 = a2;
-  v23 = a5;
+  v23 = NewName;
   v19 = 0LL;
-  v20 = 0LL;
-  v17 = 0;
-  v29 = 112;
-  memset_thunk_772440563353939046(v30, 0, 0x6CuLL);
+  LocaleName = 0LL;
+  NewFlags = 0;
+  ReturnedData.cbSize = 112;
+  memset_thunk_772440563353939046(&ReturnedData.ulDataFormatVersion, 0, 0x6CuLL);
   v24[0] = 72LL;
   v24[1] = 1LL;
   v25 = 0LL;
@@ -59,55 +59,51 @@ __int64 __fastcall LdrpQuerySxSMUIFile(__m128i *a1, unsigned __int16 a2, __int64
   v27 = 0LL;
   v28 = 0LL;
   ActivationContextSectionString = RtlDosApplyFileIsolationRedirection_Ustr(
-                                     1,
-                                     a1,
+                                     1u,
+                                     StringToFind,
                                      0LL,
                                      a3,
-                                     (_OWORD *)a4,
-                                     a5,
-                                     &v17,
+                                     a4,
+                                     NewName,
+                                     &NewFlags,
                                      0LL,
                                      0LL);
   if ( ActivationContextSectionString >= 0 )
   {
     if ( LdrpCreateActCtxLanguageW )
     {
-      if ( (v17 & 1) == 0 )
+      if ( (NewFlags & 1) == 0 )
       {
-        ActivationContextSectionString = RtlFindActivationContextSectionString(7, 0LL, 2, (__int64)a1, &v29);
+        ActivationContextSectionString = RtlFindActivationContextSectionString(7u, 0LL, 2u, StringToFind, &ReturnedData);
         if ( ActivationContextSectionString >= 0 )
         {
-          if ( v30[0] == 1 )
+          if ( ReturnedData.ulDataFormatVersion == 1 )
           {
-            if ( (v32 & 1) != 0 )
+            if ( (ReturnedData.ulFlags & 1) != 0 )
             {
-              v11 = 0LL;
-              v31 = 0LL;
+              hActCtx = 0LL;
+              ReturnedData.hActCtx = 0LL;
             }
             else
             {
-              v11 = v31;
-              if ( (v32 & 2) != 0 )
-                v11 = -4LL;
-              v31 = v11;
+              hActCtx = (__int64)ReturnedData.hActCtx;
+              if ( (ReturnedData.ulFlags & 2) != 0 )
+                hActCtx = -4LL;
+              ReturnedData.hActCtx = (HANDLE)hActCtx;
             }
-            v12 = *(unsigned __int16 *)(v33 + 92);
-            v13 = (unsigned __int16 *)(v34 + *(unsigned int *)(v33 + 96));
-            *((_QWORD *)&v20 + 1) = &v35;
-            WORD1(v20) = 170;
-            ActivationContextSectionString = RtlLcidToLocaleName(v7, &v20, 2LL);
+            v12 = *((unsigned __int16 *)ReturnedData.AssemblyMetadata.lpInformation + 46);
+            v13 = (const WCHAR *)((char *)ReturnedData.AssemblyMetadata.lpSectionBase
+                                + *((unsigned int *)ReturnedData.AssemblyMetadata.lpInformation + 24));
+            LocaleName.Buffer = (wchar_t *)&v30;
+            LocaleName.MaximumLength = 170;
+            ActivationContextSectionString = RtlLcidToLocaleName(v7, &LocaleName, 2u, 0);
             if ( ActivationContextSectionString >= 0 )
             {
-              v14 = (unsigned __int64)(unsigned __int16)v20 >> 1;
-              if ( (unsigned int)RtlCompareUnicodeStrings(
-                                   v13,
-                                   (unsigned __int64)v12 >> 1,
-                                   *((_BYTE **)&v20 + 1),
-                                   v14,
-                                   1) )
+              v14 = (unsigned __int64)LocaleName.Length >> 1;
+              if ( RtlCompareUnicodeStrings(v13, (unsigned __int64)v12 >> 1, LocaleName.Buffer, v14, 1u) )
               {
                 ActivationContextSectionString = ((__int64 (__fastcall *)(__int64, _QWORD, __int64 *))LdrpCreateActCtxLanguageW)(
-                                                   v11,
+                                                   hActCtx,
                                                    a2,
                                                    &v19);
                 if ( ActivationContextSectionString >= 0 )
@@ -115,37 +111,38 @@ __int64 __fastcall LdrpQuerySxSMUIFile(__m128i *a1, unsigned __int16 a2, __int64
                   if ( v19 != -1 )
                   {
                     RtlActivateActivationContextUnsafeFast((__int64)v24, v19);
-                    if ( *(_QWORD *)(a4 + 8) )
-                      RtlFreeAnsiString((PUNICODE_STRING)a4);
+                    if ( a4->Buffer )
+                      RtlFreeAnsiString(a4);
                     ActivationContextSectionString = RtlDosApplyFileIsolationRedirection_Ustr(
                                                        0,
-                                                       a1,
+                                                       StringToFind,
                                                        0LL,
-                                                       v21,
-                                                       (_OWORD *)a4,
+                                                       StaticString,
+                                                       a4,
                                                        v23,
-                                                       &v17,
+                                                       &NewFlags,
                                                        0LL,
                                                        0LL);
                     v18 = ActivationContextSectionString;
                     if ( ActivationContextSectionString >= 0 )
                     {
                       ActivationContextSectionString = RtlFindActivationContextSectionString(
-                                                         7,
+                                                         7u,
                                                          0LL,
-                                                         2,
-                                                         (__int64)a1,
-                                                         &v29);
+                                                         2u,
+                                                         StringToFind,
+                                                         &ReturnedData);
                       v18 = ActivationContextSectionString;
                       if ( ActivationContextSectionString >= 0 )
                       {
-                        if ( v30[0] == 1 )
+                        if ( ReturnedData.ulDataFormatVersion == 1 )
                         {
-                          v15 = *(unsigned __int16 *)(v33 + 92);
-                          WORD1(v21) = v15;
-                          LOWORD(v21) = v15;
-                          v22 = (unsigned __int16 *)(v34 + *(unsigned int *)(v33 + 96));
-                          if ( (unsigned int)RtlCompareUnicodeStrings(v22, v15 >> 1, *((_BYTE **)&v20 + 1), v14, 1) )
+                          v15 = *((unsigned __int16 *)ReturnedData.AssemblyMetadata.lpInformation + 46);
+                          WORD1(StaticString) = v15;
+                          LOWORD(StaticString) = v15;
+                          v22 = (PCWCH)((char *)ReturnedData.AssemblyMetadata.lpSectionBase
+                                      + *((unsigned int *)ReturnedData.AssemblyMetadata.lpInformation + 24));
+                          if ( RtlCompareUnicodeStrings(v22, v15 >> 1, LocaleName.Buffer, v14, 1u) )
                             ActivationContextSectionString = -1072365564;
                         }
                         else

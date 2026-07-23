@@ -1,78 +1,78 @@
 /*
- * XREFs of LdrpGetAlternateResourceModuleHandleEx @ 0x1403DC3A8
+ * XREFs of LdrpGetAlternateResourceModuleHandleEx @ 0x1403DF598
  * Callers:
- *     LdrpAccessResourceData @ 0x140A878C8 (LdrpAccessResourceData.c)
+ *     LdrpAccessResourceData @ 0x140A8E9F8 (LdrpAccessResourceData.c)
  * Callees:
- *     KeWaitForSingleObject @ 0x140278560 (KeWaitForSingleObject.c)
- *     LdrpGetMappingFromCacheEntry @ 0x1403DC568 (LdrpGetMappingFromCacheEntry.c)
- *     KeReleaseMutant @ 0x1403DD0B0 (KeReleaseMutant.c)
- *     KeReleaseMutantEx @ 0x1403DD130 (KeReleaseMutantEx.c)
- *     LdrpInitMuiCrits @ 0x1403DD614 (LdrpInitMuiCrits.c)
- *     RtlImageNtHeaderEx @ 0x14046A510 (RtlImageNtHeaderEx.c)
+ *     KeWaitForSingleObject @ 0x140277AD0 (KeWaitForSingleObject.c)
+ *     LdrpGetMappingFromCacheEntry @ 0x1403DF758 (LdrpGetMappingFromCacheEntry.c)
+ *     KeReleaseMutant @ 0x1403E02A0 (KeReleaseMutant.c)
+ *     KeReleaseMutantEx @ 0x1403E0320 (KeReleaseMutantEx.c)
+ *     LdrpInitMuiCrits @ 0x1403E0804 (LdrpInitMuiCrits.c)
+ *     RtlImageNtHeaderEx @ 0x140463C90 (RtlImageNtHeaderEx.c)
  */
 
 __int64 __fastcall LdrpGetAlternateResourceModuleHandleEx(__int64 a1, __int64 a2, __int64 a3, _QWORD *a4)
 {
-  unsigned int SystemCallNumber; // ebx
-  signed int i; // ecx
+  int WaitBlockList; // ebx
+  int i; // ecx
   __int64 v9; // rdx
   int j; // edi
-  __int16 v11; // cx
-  __int64 v13; // [rsp+38h] [rbp-30h] BYREF
+  unsigned __int16 Magic; // cx
+  __int64 SizeOfImage; // [rsp+38h] [rbp-30h] BYREF
   __int64 v14; // [rsp+40h] [rbp-28h] BYREF
-  __int64 v15; // [rsp+48h] [rbp-20h] BYREF
+  PIMAGE_NT_HEADERS OutHeaders; // [rsp+48h] [rbp-20h] BYREF
 
   v14 = 0LL;
-  v13 = 0LL;
+  SizeOfImage = 0LL;
   LdrpInitMuiCrits();
   KeWaitForSingleObject(&NormalizationListLock.FirstArgument, Executive, 0, 0, 0LL);
   *a4 = 0LL;
-  SystemCallNumber = NormalizationListLock.SystemCallNumber;
-  for ( i = NormalizationListLock.SystemCallNumber - 1; i >= 0; --i )
+  WaitBlockList = (int)NormalizationListLock.WaitBlockList;
+  for ( i = LODWORD(NormalizationListLock.WaitBlockList) - 1; i >= 0; --i )
   {
     v9 = (__int64)i << 6;
-    if ( *(_QWORD *)(v9 + *(_QWORD *)((char *)&NormalizationListLock.116 + 4) + 8) == a1 )
+    if ( *(_QWORD *)(v9 + NormalizationListLock.WaitStatus + 8) == a1 )
     {
       if ( v14 )
       {
-        for ( j = SystemCallNumber; j >= 0; --j )
+        for ( j = WaitBlockList; j >= 0; --j )
         {
-          if ( *(_QWORD *)(((__int64)j << 6) + *(_QWORD *)((char *)&NormalizationListLock.116 + 4) + 8) == a1
-            && (unsigned __int8)LdrpGetMappingFromCacheEntry((unsigned int)j, a3, &v14, &v13) )
+          if ( *(_QWORD *)(((__int64)j << 6) + NormalizationListLock.WaitStatus + 8) == a1
+            && (unsigned __int8)LdrpGetMappingFromCacheEntry((unsigned int)j, a3, &v14, &SizeOfImage) )
           {
-            SystemCallNumber = j;
+            WaitBlockList = j;
             goto LABEL_12;
           }
         }
-        SystemCallNumber = NormalizationListLock.SystemCallNumber;
+        WaitBlockList = (int)NormalizationListLock.WaitBlockList;
         break;
       }
-      v14 = *(_QWORD *)(v9 + *(_QWORD *)((char *)&NormalizationListLock.116 + 4) + 32);
-      v13 = *(_QWORD *)(v9 + *(_QWORD *)((char *)&NormalizationListLock.116 + 4) + 48);
-      SystemCallNumber = i;
+      v14 = *(_QWORD *)(v9 + NormalizationListLock.WaitStatus + 32);
+      SizeOfImage = *(_QWORD *)(v9 + NormalizationListLock.WaitStatus + 48);
+      WaitBlockList = i;
     }
   }
 LABEL_12:
-  if ( SystemCallNumber == NormalizationListLock.SystemCallNumber )
+  if ( WaitBlockList == LODWORD(NormalizationListLock.WaitBlockList) )
   {
     v14 = 0LL;
   }
   else
   {
-    if ( !v13 )
+    if ( !SizeOfImage )
     {
-      v15 = 0LL;
-      RtlImageNtHeaderEx(1LL, v14 & 0xFFFFFFFFFFFFFFFCuLL, 0LL, &v15);
-      if ( v15 )
+      OutHeaders = 0LL;
+      RtlImageNtHeaderEx(1u, (PVOID)(v14 & 0xFFFFFFFFFFFFFFFCuLL), 0LL, &OutHeaders);
+      if ( OutHeaders )
       {
-        v11 = *(_WORD *)(v15 + 24);
-        if ( v11 == 267 || v11 == 523 )
-          v13 = *(unsigned int *)(v15 + 80);
+        Magic = OutHeaders->OptionalHeader.Magic;
+        if ( Magic == 267 || Magic == 523 )
+          SizeOfImage = OutHeaders->OptionalHeader.SizeOfImage;
         else
-          v13 = 0LL;
+          SizeOfImage = 0LL;
       }
     }
-    *a4 = v13;
+    *a4 = SizeOfImage;
   }
   KeReleaseMutantEx((struct _KTHREAD *)&NormalizationListLock.FirstArgument);
   return v14;

@@ -1,15 +1,15 @@
 /*
- * XREFs of CmpSaveKeyByFileCopy @ 0x1407CEFE0
+ * XREFs of CmpSaveKeyByFileCopy @ 0x1407CF4D0
  * Callers:
- *     CmSaveKey @ 0x1407CDBFC (CmSaveKey.c)
+ *     CmSaveKey @ 0x1407CE0EC (CmSaveKey.c)
  * Callees:
- *     CmpBecomeActiveFlusherAndReconciler @ 0x1407D7EEC (CmpBecomeActiveFlusherAndReconciler.c)
- *     CmpFinishBeingActiveFlusherAndReconciler @ 0x1407D7F7C (CmpFinishBeingActiveFlusherAndReconciler.c)
- *     CmpFileFlush @ 0x140982C0C (CmpFileFlush.c)
- *     CmpFileWrite @ 0x140A4F8B0 (CmpFileWrite.c)
- *     CmpFileRead @ 0x140A560E0 (CmpFileRead.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     CmpBecomeActiveFlusherAndReconciler @ 0x1407D8440 (CmpBecomeActiveFlusherAndReconciler.c)
+ *     CmpFinishBeingActiveFlusherAndReconciler @ 0x1407D84D0 (CmpFinishBeingActiveFlusherAndReconciler.c)
+ *     CmpFileFlush @ 0x14096B41C (CmpFileFlush.c)
+ *     CmpFileWrite @ 0x140A46660 (CmpFileWrite.c)
+ *     CmpFileRead @ 0x140A4E030 (CmpFileRead.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall CmpSaveKeyByFileCopy(__int64 a1, __int64 a2)
@@ -30,7 +30,7 @@ __int64 __fastcall CmpSaveKeyByFileCopy(__int64 a1, __int64 a2)
   int v18; // [rsp+40h] [rbp-10h]
 
   v16[1] = 0;
-  Pool2 = (_DWORD *)ExAllocatePool2(0x109uLL);
+  Pool2 = (_DWORD *)ExAllocatePool2(0x109uLL, 0x10000uLL, 0x20204D43u);
   if ( Pool2 )
   {
     CmpBecomeActiveFlusherAndReconciler(a1);

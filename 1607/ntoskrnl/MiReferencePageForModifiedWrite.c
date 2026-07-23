@@ -1,19 +1,19 @@
 /*
- * XREFs of MiReferencePageForModifiedWrite @ 0x140101FB8
+ * XREFs of MiReferencePageForModifiedWrite @ 0x1400FFD38
  * Callers:
- *     MiBuildMappedCluster @ 0x14001F5C0 (MiBuildMappedCluster.c)
- *     MiGatherMappedPages @ 0x1400201F0 (MiGatherMappedPages.c)
- *     MiAddToReservationCluster @ 0x140115DF4 (MiAddToReservationCluster.c)
- *     MiBuildReservationCluster @ 0x14011603C (MiBuildReservationCluster.c)
- *     MiGetPageForWriteCluster @ 0x140116654 (MiGetPageForWriteCluster.c)
- *     MmStoreProbeAndLockPages @ 0x140122370 (MmStoreProbeAndLockPages.c)
- *     MiFillNoReservationCluster @ 0x140123700 (MiFillNoReservationCluster.c)
+ *     MiBuildMappedCluster @ 0x14001F140 (MiBuildMappedCluster.c)
+ *     MiGatherMappedPages @ 0x14001FD70 (MiGatherMappedPages.c)
+ *     MiAddToReservationCluster @ 0x140116364 (MiAddToReservationCluster.c)
+ *     MiBuildReservationCluster @ 0x1401165AC (MiBuildReservationCluster.c)
+ *     MiGetPageForWriteCluster @ 0x140116BC4 (MiGetPageForWriteCluster.c)
+ *     MmStoreProbeAndLockPages @ 0x1401228E0 (MmStoreProbeAndLockPages.c)
+ *     MiFillNoReservationCluster @ 0x140123C70 (MiFillNoReservationCluster.c)
  * Callees:
- *     MiClearPfnImageVerified @ 0x14001DCB8 (MiClearPfnImageVerified.c)
- *     MiUnlinkPageFromList @ 0x140065A40 (MiUnlinkPageFromList.c)
- *     MiPartitionIdToPointer @ 0x1400680A0 (MiPartitionIdToPointer.c)
- *     MiGetPagePrivilege @ 0x1400E3730 (MiGetPagePrivilege.c)
- *     MiChargeForWriteInProgressPage @ 0x140102D9C (MiChargeForWriteInProgressPage.c)
+ *     MiClearPfnImageVerified @ 0x14001D838 (MiClearPfnImageVerified.c)
+ *     MiUnlinkPageFromList @ 0x1400655C0 (MiUnlinkPageFromList.c)
+ *     MiPartitionIdToPointer @ 0x140067C20 (MiPartitionIdToPointer.c)
+ *     MiGetPagePrivilege @ 0x1400E15D0 (MiGetPagePrivilege.c)
+ *     MiChargeForWriteInProgressPage @ 0x140100B1C (MiChargeForWriteInProgressPage.c)
  */
 
 __int64 __fastcall MiReferencePageForModifiedWrite(ULONG_PTR BugCheckParameter2, char a2)

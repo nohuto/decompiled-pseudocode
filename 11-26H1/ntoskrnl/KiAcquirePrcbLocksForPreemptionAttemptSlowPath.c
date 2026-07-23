@@ -1,15 +1,15 @@
 /*
- * XREFs of KiAcquirePrcbLocksForPreemptionAttemptSlowPath @ 0x14022F5B4
+ * XREFs of KiAcquirePrcbLocksForPreemptionAttemptSlowPath @ 0x140230F44
  * Callers:
- *     KiAcquirePrcbLocksForPreemptionAttempt @ 0x14022F050 (KiAcquirePrcbLocksForPreemptionAttempt.c)
- *     KiDeferredReadySingleThread @ 0x140231820 (KiDeferredReadySingleThread.c)
- *     KiSelectCandidateProcessor @ 0x140234F10 (KiSelectCandidateProcessor.c)
- *     KiChooseTargetProcessor @ 0x140235760 (KiChooseTargetProcessor.c)
+ *     KiAcquirePrcbLocksForPreemptionAttempt @ 0x1402309E0 (KiAcquirePrcbLocksForPreemptionAttempt.c)
+ *     KiDeferredReadySingleThread @ 0x140233180 (KiDeferredReadySingleThread.c)
+ *     KiSelectCandidateProcessor @ 0x140236870 (KiSelectCandidateProcessor.c)
+ *     KiChooseTargetProcessor @ 0x1402370C0 (KiChooseTargetProcessor.c)
  * Callees:
- *     KiReleasePrcbLocksForIsolationUnit @ 0x140237A80 (KiReleasePrcbLocksForIsolationUnit.c)
- *     KiAcquirePrcbLocksForIsolationUnit @ 0x1402BBDD0 (KiAcquirePrcbLocksForIsolationUnit.c)
- *     KiDowngradeIsolationUnitLockHandle @ 0x1403F3CF0 (KiDowngradeIsolationUnitLockHandle.c)
- *     KiTryUpgradeIsolationUnitLockHandle @ 0x1404D4EF8 (KiTryUpgradeIsolationUnitLockHandle.c)
+ *     KiReleasePrcbLocksForIsolationUnit @ 0x1402393E0 (KiReleasePrcbLocksForIsolationUnit.c)
+ *     KiAcquirePrcbLocksForIsolationUnit @ 0x140306A90 (KiAcquirePrcbLocksForIsolationUnit.c)
+ *     KiDowngradeIsolationUnitLockHandle @ 0x1403ED6A0 (KiDowngradeIsolationUnitLockHandle.c)
+ *     KiTryUpgradeIsolationUnitLockHandle @ 0x1404CE768 (KiTryUpgradeIsolationUnitLockHandle.c)
  */
 
 __int64 __fastcall KiAcquirePrcbLocksForPreemptionAttemptSlowPath(__int64 a1, int a2, _DWORD *a3)

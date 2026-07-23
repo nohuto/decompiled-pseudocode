@@ -1,11 +1,11 @@
 /*
- * XREFs of PiPnpRtlFreeContainerRemoveInfo @ 0x14062EB74
+ * XREFs of PiPnpRtlFreeContainerRemoveInfo @ 0x14062EC28
  * Callers:
- *     PiPnpRtlCmActionCallback @ 0x1404FCFB8 (PiPnpRtlCmActionCallback.c)
- *     PiPnpRtlGatherContainerRemoveInfo @ 0x14062EC7C (PiPnpRtlGatherContainerRemoveInfo.c)
+ *     PiPnpRtlCmActionCallback @ 0x1404DFF48 (PiPnpRtlCmActionCallback.c)
+ *     PiPnpRtlGatherContainerRemoveInfo @ 0x14062ED30 (PiPnpRtlGatherContainerRemoveInfo.c)
  * Callees:
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
- *     PiDmObjectRelease @ 0x1404FEFC0 (PiDmObjectRelease.c)
+ *     PiDmObjectRelease @ 0x1404E1F50 (PiDmObjectRelease.c)
  */
 
 void __fastcall PiPnpRtlFreeContainerRemoveInfo(unsigned int **P)

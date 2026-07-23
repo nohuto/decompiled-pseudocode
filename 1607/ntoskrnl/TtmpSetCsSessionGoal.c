@@ -1,15 +1,15 @@
 /*
- * XREFs of TtmpSetCsSessionGoal @ 0x140679250
+ * XREFs of TtmpSetCsSessionGoal @ 0x140679334
  * Callers:
- *     TtmpActivateSessionWorker @ 0x140678E80 (TtmpActivateSessionWorker.c)
- *     TtmpDeactivateSessionWorker @ 0x140678F20 (TtmpDeactivateSessionWorker.c)
+ *     TtmpActivateSessionWorker @ 0x140678F64 (TtmpActivateSessionWorker.c)
+ *     TtmpDeactivateSessionWorker @ 0x140679004 (TtmpDeactivateSessionWorker.c)
  * Callees:
- *     KiLeaveCriticalRegionUnsafe @ 0x140055FA0 (KiLeaveCriticalRegionUnsafe.c)
- *     ExReleaseResourceLite @ 0x140068940 (ExReleaseResourceLite.c)
- *     PoSetCsSessionGoal @ 0x140207014 (PoSetCsSessionGoal.c)
- *     TtmpAcquireSessionLock @ 0x140678E60 (TtmpAcquireSessionLock.c)
- *     TtmiLogSessionSetCsSessionGoalStart @ 0x14067BE48 (TtmiLogSessionSetCsSessionGoalStart.c)
- *     TtmiLogSessionSetCsSessionGoalStop @ 0x14067BF34 (TtmiLogSessionSetCsSessionGoalStop.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140055B20 (KiLeaveCriticalRegionUnsafe.c)
+ *     ExReleaseResourceLite @ 0x1400684C0 (ExReleaseResourceLite.c)
+ *     PoSetCsSessionGoal @ 0x140206E40 (PoSetCsSessionGoal.c)
+ *     TtmpAcquireSessionLock @ 0x140678F44 (TtmpAcquireSessionLock.c)
+ *     TtmiLogSessionSetCsSessionGoalStart @ 0x14067BF2C (TtmiLogSessionSetCsSessionGoalStart.c)
+ *     TtmiLogSessionSetCsSessionGoalStop @ 0x14067C018 (TtmiLogSessionSetCsSessionGoalStop.c)
  */
 
 __int64 __fastcall TtmpSetCsSessionGoal(__int64 a1, char a2, unsigned int a3)

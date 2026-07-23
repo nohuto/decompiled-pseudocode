@@ -1,13 +1,13 @@
 /*
- * XREFs of CmpCreateRegistryThread @ 0x1407D819C
+ * XREFs of CmpCreateRegistryThread @ 0x1407D86F0
  * Callers:
- *     CmpInitializeSystemHivesLoad @ 0x1407CAC9C (CmpInitializeSystemHivesLoad.c)
- *     CmCompleteRegistryInitialization @ 0x1407CF20C (CmCompleteRegistryInitialization.c)
- *     CmpInitializeRegistryProcess @ 0x1407D8250 (CmpInitializeRegistryProcess.c)
- *     CmpInitializeLazyWriters @ 0x1407DF164 (CmpInitializeLazyWriters.c)
- *     CmpHiveCachePopulateHiveEntry @ 0x1407E5854 (CmpHiveCachePopulateHiveEntry.c)
+ *     CmpInitializeSystemHivesLoad @ 0x1407CB18C (CmpInitializeSystemHivesLoad.c)
+ *     CmCompleteRegistryInitialization @ 0x1407CF6FC (CmCompleteRegistryInitialization.c)
+ *     CmpInitializeRegistryProcess @ 0x1407D87A0 (CmpInitializeRegistryProcess.c)
+ *     CmpInitializeLazyWriters @ 0x1407DF6B4 (CmpInitializeLazyWriters.c)
+ *     CmpHiveCachePopulateHiveEntry @ 0x1407E5E24 (CmpHiveCachePopulateHiveEntry.c)
  * Callees:
- *     PsCreateSystemThreadEx @ 0x140A224A0 (PsCreateSystemThreadEx.c)
+ *     PsCreateSystemThreadEx @ 0x1408F8C50 (PsCreateSystemThreadEx.c)
  */
 
 __int64 __fastcall CmpCreateRegistryThread(__int64 a1, __int64 a2, __int64 a3, __int64 a4)

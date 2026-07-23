@@ -1,17 +1,17 @@
 /*
- * XREFs of MiInsertProcessVads @ 0x140962720
+ * XREFs of MiInsertProcessVads @ 0x140A085A8
  * Callers:
- *     MmInitializeProcessAddressSpace @ 0x1409622B0 (MmInitializeProcessAddressSpace.c)
- *     MmInitializeHandBuiltProcess2 @ 0x140964050 (MmInitializeHandBuiltProcess2.c)
+ *     MmInitializeHandBuiltProcess2 @ 0x140A08068 (MmInitializeHandBuiltProcess2.c)
+ *     MmInitializeProcessAddressSpace @ 0x140A08138 (MmInitializeProcessAddressSpace.c)
  * Callees:
- *     UNLOCK_ADDRESS_SPACE_UNORDERED @ 0x140315540 (UNLOCK_ADDRESS_SPACE_UNORDERED.c)
- *     LOCK_ADDRESS_SPACE @ 0x1403155B4 (LOCK_ADDRESS_SPACE.c)
- *     MiInsertVad @ 0x140316000 (MiInsertVad.c)
- *     MiReturnProcessVads @ 0x1409627CC (MiReturnProcessVads.c)
- *     MiInsertVadCharges @ 0x1409C5DC0 (MiInsertVadCharges.c)
+ *     UNLOCK_ADDRESS_SPACE_UNORDERED @ 0x140317570 (UNLOCK_ADDRESS_SPACE_UNORDERED.c)
+ *     LOCK_ADDRESS_SPACE @ 0x1403175E4 (LOCK_ADDRESS_SPACE.c)
+ *     MiInsertVad @ 0x140318030 (MiInsertVad.c)
+ *     MiInsertVadCharges @ 0x140996DA0 (MiInsertVadCharges.c)
+ *     MiReturnProcessVads @ 0x140A08654 (MiReturnProcessVads.c)
  */
 
-__int64 __fastcall MiInsertProcessVads(__int64 a1, _QWORD *a2, __int64 a3, struct _KLOCK_ENTRIES *a4)
+__int64 __fastcall MiInsertProcessVads(ULONG_PTR a1, _QWORD *a2, __int64 a3, struct _KLOCK_ENTRIES *a4)
 {
   struct _KTHREAD *CurrentThread; // rsi
   int inserted; // edi
@@ -30,7 +30,7 @@ __int64 __fastcall MiInsertProcessVads(__int64 a1, _QWORD *a2, __int64 a3, struc
       return (unsigned int)inserted;
     }
     v9 = (_QWORD *)*a2;
-    inserted = MiInsertVadCharges(a2, a1);
+    inserted = MiInsertVadCharges((__int64)a2, a1);
     if ( inserted < 0 )
       break;
     MiInsertVad((ULONG_PTR)a2, a1, 0);

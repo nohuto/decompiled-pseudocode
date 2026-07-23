@@ -35,7 +35,7 @@ NTSTATUS __fastcall SmStoreCreate(int a1, __int64 a2, _DWORD *a3)
   {
     if ( a1 != 1 )
       return -1073741811;
-    result = ZwSetSystemInformation(SystemVerifierFaultsInformation|SystemLocksInformation, SystemInformation, 0x18uLL);
+    result = ZwSetSystemInformation(SystemStoreInformation, SystemInformation, 0x18uLL);
     v9 = v12[10];
   }
   else

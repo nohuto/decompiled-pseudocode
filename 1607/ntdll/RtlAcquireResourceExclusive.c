@@ -1,71 +1,71 @@
 /*
- * XREFs of RtlAcquireResourceExclusive @ 0x18006CFB0
+ * XREFs of RtlAcquireResourceExclusive @ 0x18006CFA0
  * Callers:
- *     RtlConvertSharedToExclusive @ 0x18006CE60 (RtlConvertSharedToExclusive.c)
+ *     RtlConvertSharedToExclusive @ 0x18006CE50 (RtlConvertSharedToExclusive.c)
  * Callees:
- *     DbgPrintEx @ 0x18005BFC0 (DbgPrintEx.c)
- *     RtlpNonNegativeDecrement @ 0x18006D180 (RtlpNonNegativeDecrement.c)
+ *     DbgPrintEx @ 0x18005BFB0 (DbgPrintEx.c)
+ *     RtlpNonNegativeDecrement @ 0x18006D170 (RtlpNonNegativeDecrement.c)
  *     RtlRaiseStatus @ 0x1800A5DE0 (RtlRaiseStatus.c)
  *     NtWaitForSingleObject @ 0x1800A64A0 (NtWaitForSingleObject.c)
- *     RtlpPossibleDeadlock @ 0x1800D3C08 (RtlpPossibleDeadlock.c)
+ *     RtlpPossibleDeadlock @ 0x1800D3CC8 (RtlpPossibleDeadlock.c)
  */
 
-char __fastcall RtlAcquireResourceExclusive(__int64 a1, char a2)
+BOOLEAN __cdecl RtlAcquireResourceExclusive(PRTL_RESOURCE Resource, BOOLEAN Wait)
 {
-  int v2; // r9d
+  LONG NumberOfActive; // r9d
   int v6; // ebp
   LARGE_INTEGER *v7; // rsi
-  NTSTATUS v8; // eax
+  int v8; // eax
 
-  v2 = *(_DWORD *)(a1 + 68);
-  if ( v2 < 0 && *(void **)(a1 + 72) == NtCurrentTeb()->ClientId.UniqueThread )
+  NumberOfActive = Resource->NumberOfActive;
+  if ( NumberOfActive < 0 && Resource->ExclusiveOwnerThread == NtCurrentTeb()->ClientId.UniqueThread )
   {
-    _InterlockedAdd((volatile signed __int32 *)(a1 + 68), 0xFFFFFFFF);
+    _InterlockedAdd(&Resource->NumberOfActive, 0xFFFFFFFF);
     return 1;
   }
   else
   {
     while ( 1 )
     {
-      while ( !v2 )
+      while ( !NumberOfActive )
       {
-        v2 = _InterlockedCompareExchange((volatile signed __int32 *)(a1 + 68), -1, 0);
-        if ( !v2 )
+        NumberOfActive = _InterlockedCompareExchange(&Resource->NumberOfActive, -1, 0);
+        if ( !NumberOfActive )
         {
-          *(_QWORD *)(a1 + 72) = NtCurrentTeb()->ClientId.UniqueThread;
+          Resource->ExclusiveOwnerThread = NtCurrentTeb()->ClientId.UniqueThread;
           return 1;
         }
       }
-      if ( !a2 )
+      if ( !Wait )
         break;
-      ++*(_DWORD *)(*(_QWORD *)(a1 + 88) + 36LL);
-      _InterlockedIncrement((volatile signed __int32 *)(a1 + 64));
-      if ( *(_DWORD *)(a1 + 68) || !(unsigned int)RtlpNonNegativeDecrement() )
+      ++Resource->DebugInfo->ContentionCount;
+      _InterlockedIncrement((volatile signed __int32 *)&Resource->NumberOfWaitingExclusive);
+      if ( Resource->NumberOfActive || !(unsigned int)RtlpNonNegativeDecrement() )
       {
         v6 = 0;
         while ( 1 )
         {
           v7 = (LARGE_INTEGER *)&RtlpTimeout;
-          if ( (*(_BYTE *)(a1 + 80) & 1) != 0 )
+          if ( (Resource->Flags & 1) != 0 )
             v7 = 0LL;
-          v8 = NtWaitForSingleObject(*(HANDLE *)(a1 + 56), 0, v7);
+          v8 = NtWaitForSingleObject(Resource->ExclusiveSemaphore, 0, v7);
           if ( v8 != 258 )
             break;
           DbgPrintEx(
-            101,
+            0x65u,
             0,
             "RTL: Acquire Exclusive Sem Timeout %d (%I64u secs)\n",
             v6,
             ((unsigned __int64)(((unsigned __int128)(v7->QuadPart * (__int128)0x29406B2A1A85BD43LL) >> 64) - v7->QuadPart) >> 63)
           + ((__int64)(((unsigned __int128)(v7->QuadPart * (__int128)0x29406B2A1A85BD43LL) >> 64) - v7->QuadPart) >> 23));
-          DbgPrintEx(101, 0, "RTL: Resource at %p\n", (const void *)a1);
+          DbgPrintEx(0x65u, 0, "RTL: Resource at %p\n", Resource);
           if ( (unsigned int)++v6 > 2 )
-            RtlpPossibleDeadlock(a1);
-          DbgPrintEx(101, 0, "RTL: Re-Waiting\n");
+            RtlpPossibleDeadlock(Resource);
+          DbgPrintEx(0x65u, 0, "RTL: Re-Waiting\n");
         }
         if ( v8 < 0 )
-          RtlRaiseStatus((unsigned int)v8);
-        v2 = *(_DWORD *)(a1 + 68);
+          RtlRaiseStatus(v8);
+        NumberOfActive = Resource->NumberOfActive;
       }
     }
     return 0;

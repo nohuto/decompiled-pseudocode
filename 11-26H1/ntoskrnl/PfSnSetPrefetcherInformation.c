@@ -1,20 +1,20 @@
 /*
- * XREFs of PfSnSetPrefetcherInformation @ 0x140ACA1BC
+ * XREFs of PfSnSetPrefetcherInformation @ 0x140ACC2CC
  * Callers:
- *     NtSetSystemInformation @ 0x140833840 (NtSetSystemInformation.c)
+ *     NtSetSystemInformation @ 0x140839A80 (NtSetSystemInformation.c)
  * Callees:
- *     RtlCopyFromUser @ 0x140533E38 (RtlCopyFromUser.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     RtlCopyVolatileMemory @ 0x140733080 (RtlCopyVolatileMemory.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     RtlReadULongFromUser @ 0x14077F590 (RtlReadULongFromUser.c)
- *     PfSnAppLaunchScenarioControl @ 0x1407C72C0 (PfSnAppLaunchScenarioControl.c)
- *     ProbeForRead @ 0x1408EF880 (ProbeForRead.c)
- *     SeSinglePrivilegeCheck @ 0x140932280 (SeSinglePrivilegeCheck.c)
- *     PfSnOperationProcess @ 0x140A43E74 (PfSnOperationProcess.c)
- *     PfSnPrefetchCacheEntryUpdate @ 0x140ACA3A4 (PfSnPrefetchCacheEntryUpdate.c)
- *     PfpProcessScenarioPhase @ 0x140B1CEB8 (PfpProcessScenarioPhase.c)
- *     PfSnBeginBootPhase @ 0x140BF8FAC (PfSnBeginBootPhase.c)
+ *     RtlCopyFromUser @ 0x1405362B8 (RtlCopyFromUser.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     RtlCopyVolatileMemory @ 0x140737C50 (RtlCopyVolatileMemory.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     RtlReadULongFromUser @ 0x140782090 (RtlReadULongFromUser.c)
+ *     PfSnAppLaunchScenarioControl @ 0x1407CA320 (PfSnAppLaunchScenarioControl.c)
+ *     ProbeForRead @ 0x1408F5E40 (ProbeForRead.c)
+ *     SeSinglePrivilegeCheck @ 0x14090DE50 (SeSinglePrivilegeCheck.c)
+ *     PfSnOperationProcess @ 0x140ACAAC0 (PfSnOperationProcess.c)
+ *     PfSnPrefetchCacheEntryUpdate @ 0x140ACC4B4 (PfSnPrefetchCacheEntryUpdate.c)
+ *     PfpProcessScenarioPhase @ 0x140B1F0C8 (PfpProcessScenarioPhase.c)
+ *     PfSnBeginBootPhase @ 0x140BFEFAC (PfSnBeginBootPhase.c)
  */
 
 __int64 __fastcall PfSnSetPrefetcherInformation(__int64 a1, void *a2, int a3, KPROCESSOR_MODE a4)

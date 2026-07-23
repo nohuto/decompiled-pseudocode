@@ -2,7 +2,7 @@
  * XREFs of RtlpComputeCrcInternal @ 0x18007F340
  * Callers:
  *     RtlCrc32 @ 0x18007F320 (RtlCrc32.c)
- *     RtlCrc64 @ 0x1800F64E0 (RtlCrc64.c)
+ *     RtlCrc64 @ 0x1800F64A0 (RtlCrc64.c)
  * Callees:
  *     <none>
  */

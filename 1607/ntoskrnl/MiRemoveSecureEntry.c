@@ -1,12 +1,12 @@
 /*
- * XREFs of MiRemoveSecureEntry @ 0x140014390
+ * XREFs of MiRemoveSecureEntry @ 0x140013F10
  * Callers:
- *     MmUnsecureVirtualMemory @ 0x14042A5DC (MmUnsecureVirtualMemory.c)
+ *     MmUnsecureVirtualMemory @ 0x1404294AC (MmUnsecureVirtualMemory.c)
  * Callees:
- *     MiUnlockWorkingSetExclusive @ 0x14002E930 (MiUnlockWorkingSetExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x14002EB90 (ExAcquireSpinLockExclusive.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
- *     MiUnsecureVirtualMemoryAgainstWrites @ 0x1404D0D0C (MiUnsecureVirtualMemoryAgainstWrites.c)
+ *     MiUnlockWorkingSetExclusive @ 0x14002E4B0 (MiUnlockWorkingSetExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14002E710 (ExAcquireSpinLockExclusive.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
+ *     MiUnsecureVirtualMemoryAgainstWrites @ 0x1404B47AC (MiUnsecureVirtualMemoryAgainstWrites.c)
  */
 
 void __fastcall MiRemoveSecureEntry(ULONG_PTR BugCheckParameter2, __int64 *BugCheckParameter3)
@@ -24,7 +24,7 @@ void __fastcall MiRemoveSecureEntry(ULONG_PTR BugCheckParameter2, __int64 *BugCh
   v4 = 0;
   Process = KeGetCurrentThread()->ApcState.Process;
   if ( ((__int64)Process[2].Header.WaitListHead.Flink & 7) == 2 )
-    p_Blink = &dword_140327C80;
+    p_Blink = &dword_140327CC0;
   else
     p_Blink = (LONG *)&Process[2].Header.WaitListHead.Blink;
   v9 = ExAcquireSpinLockExclusive(p_Blink);

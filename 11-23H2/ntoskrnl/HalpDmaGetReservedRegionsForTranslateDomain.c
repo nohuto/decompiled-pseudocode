@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpDmaGetReservedRegionsForTranslateDomain @ 0x140512B88
+ * XREFs of HalpDmaGetReservedRegionsForTranslateDomain @ 0x1405130D8
  * Callers:
- *     HalpDmaAllocateDomain @ 0x1403906A0 (HalpDmaAllocateDomain.c)
+ *     HalpDmaAllocateDomain @ 0x140390880 (HalpDmaAllocateDomain.c)
  * Callees:
- *     HalpMmAllocCtxAlloc @ 0x14039AE20 (HalpMmAllocCtxAlloc.c)
- *     HalpIommuGetReservedRanges @ 0x140518250 (HalpIommuGetReservedRanges.c)
+ *     HalpMmAllocCtxAlloc @ 0x14039B000 (HalpMmAllocCtxAlloc.c)
+ *     HalpIommuGetReservedRanges @ 0x1405187A0 (HalpIommuGetReservedRanges.c)
  */
 
 __int64 __fastcall HalpDmaGetReservedRegionsForTranslateDomain(__int64 a1, char *a2)

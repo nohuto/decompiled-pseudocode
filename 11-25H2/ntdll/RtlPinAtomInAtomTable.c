@@ -8,29 +8,29 @@
  *     RtlpAtomMapAtomToHandleEntry @ 0x18006831C (RtlpAtomMapAtomToHandleEntry.c)
  */
 
-__int64 __fastcall RtlPinAtomInAtomTable(__int64 a1, unsigned __int16 a2)
+NTSTATUS __cdecl RtlPinAtomInAtomTable(PVOID AtomTableHandle, RTL_ATOM Atom)
 {
-  unsigned int v5; // ebx
+  NTSTATUS v5; // ebx
   __int64 v6; // rax
-  unsigned int v7; // r9d
+  NTSTATUS v7; // r9d
 
-  if ( !RtlpLockAtomTable(a1) )
-    return 3221225485LL;
+  if ( !RtlpLockAtomTable((__int64)AtomTableHandle) )
+    return -1073741811;
   v5 = -1073741816;
-  if ( a2 < 0xC000u )
+  if ( Atom < 0xC000u )
   {
-    if ( a2 )
+    if ( Atom )
       v5 = 0;
   }
   else
   {
-    v6 = RtlpAtomMapAtomToHandleEntry(a1, a2 & 0x3FFF);
-    if ( v6 && *(_WORD *)(v6 + 10) == a2 && v6 != -12 )
+    v6 = RtlpAtomMapAtomToHandleEntry((__int64)AtomTableHandle, Atom & 0x3FFF);
+    if ( v6 && *(_WORD *)(v6 + 10) == Atom && v6 != -12 )
     {
       v5 = v7;
       *(_WORD *)(v6 + 14) |= 1u;
     }
   }
-  RtlReleaseSRWLockExclusive((volatile signed __int64 *)(a1 + 8));
+  RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)AtomTableHandle + 1);
   return v5;
 }

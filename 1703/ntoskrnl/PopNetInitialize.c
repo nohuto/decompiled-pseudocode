@@ -26,7 +26,7 @@ __int64 __fastcall PopNetInitialize(int a1)
   int v10; // ecx
   int v11; // [rsp+20h] [rbp-28h]
   int v12; // [rsp+28h] [rbp-20h]
-  struct _SID_IDENTIFIER_AUTHORITY IdentifierAuthority; // [rsp+58h] [rbp+10h] BYREF
+  _SID_IDENTIFIER_AUTHORITY IdentifierAuthority; // [rsp+58h] [rbp+10h] BYREF
 
   *(_DWORD *)IdentifierAuthority.Value = 0;
   *(_WORD *)&IdentifierAuthority.Value[4] = 1280;
@@ -71,7 +71,7 @@ LABEL_5:
     v3[5] = 378231328;
     v3[6] = -1590824699;
     v3[7] = 890457928;
-    PopNetBIServiceSid = (__int64)v3;
+    PopNetBIServiceSid = v3;
     PopInitializeIRTimer(v5, v4, v7, v8, v11, v12);
     PopIgnoreCsComplianceCheck &= ~4u;
     goto LABEL_5;

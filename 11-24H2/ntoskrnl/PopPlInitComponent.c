@@ -1,9 +1,9 @@
 /*
- * XREFs of PopPlInitComponent @ 0x1407651A0
+ * XREFs of PopPlInitComponent @ 0x140764B70
  * Callers:
- *     PopPlInitComponents @ 0x140765260 (PopPlInitComponents.c)
+ *     PopPlInitComponents @ 0x140764C30 (PopPlInitComponents.c)
  * Callees:
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall PopPlInitComponent(__int64 a1, __int128 *a2, __int64 a3, unsigned __int64 a4, __int64 *a5)
@@ -27,7 +27,7 @@ __int64 __fastcall PopPlInitComponent(__int64 a1, __int128 *a2, __int64 a3, unsi
     v10 = (_QWORD *)(a3 + *((unsigned int *)a2 + 5));
     if ( (unsigned __int64)&v10[v7] <= a4 )
     {
-      Pool2 = ExAllocatePool2(0x40uLL);
+      Pool2 = ExAllocatePool2(0x40uLL, 8 * (int)v7 + 32, 0x6C506F50u);
       v9 = Pool2;
       if ( Pool2 )
       {

@@ -1,17 +1,17 @@
 /*
- * XREFs of SiGetRegistryValue @ 0x140A2DE5C
+ * XREFs of SiGetRegistryValue @ 0x140A2289C
  * Callers:
- *     SiDisambiguateSystemDevice @ 0x14081627C (SiDisambiguateSystemDevice.c)
- *     SiIsWinPEBoot @ 0x140A2D950 (SiIsWinPEBoot.c)
- *     SiGetBootDeviceNameFromRegistry @ 0x140A2DC38 (SiGetBootDeviceNameFromRegistry.c)
+ *     SiDisambiguateSystemDevice @ 0x1408169BC (SiDisambiguateSystemDevice.c)
+ *     SiIsWinPEBoot @ 0x140A22390 (SiIsWinPEBoot.c)
+ *     SiGetBootDeviceNameFromRegistry @ 0x140A22678 (SiGetBootDeviceNameFromRegistry.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     ZwQueryValueKey @ 0x1406A66F0 (ZwQueryValueKey.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     SiOpenRegistryKey @ 0x140A2DFD0 (SiOpenRegistryKey.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     ZwQueryValueKey @ 0x1406A7690 (ZwQueryValueKey.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     SiOpenRegistryKey @ 0x140A22A10 (SiOpenRegistryKey.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall SiGetRegistryValue(__int64 a1, const WCHAR *a2, __int64 a3, __int64 a4, _QWORD *a5, ULONG *a6)
@@ -51,7 +51,7 @@ __int64 __fastcall SiGetRegistryValue(__int64 a1, const WCHAR *a2, __int64 a3, _
     v14 = v15;
     if ( v15 == -1073741789 )
     {
-      Pool2 = (_DWORD *)ExAllocatePool2(0x100uLL);
+      Pool2 = (_DWORD *)ExAllocatePool2(0x100uLL, ResultLength, 0x4B505953u);
       v8 = Pool2;
       if ( !Pool2 )
       {
@@ -65,7 +65,7 @@ LABEL_14:
       if ( v8[1] == 1 )
       {
         ResultLength -= 12;
-        v17 = (void *)ExAllocatePool2(0x100uLL);
+        v17 = (void *)ExAllocatePool2(0x100uLL, ResultLength, 0x4B505953u);
         *v6 = v17;
         if ( v17 )
         {

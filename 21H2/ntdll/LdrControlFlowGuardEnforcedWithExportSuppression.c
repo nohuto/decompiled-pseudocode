@@ -8,14 +8,17 @@
  *     RtlValidateUserCallTarget @ 0x180054404 (RtlValidateUserCallTarget.c)
  *     LdrpDoPostSnapWork @ 0x1800544DC (LdrpDoPostSnapWork.c)
  *     RtlGuardRestoreContext @ 0x18006EDE0 (RtlGuardRestoreContext.c)
- *     LdrpInitializeProcess @ 0x1800D1EC0 (LdrpInitializeProcess.c)
- *     AvrfMiniLoadDll @ 0x1800DB6D0 (AvrfMiniLoadDll.c)
- *     RtlpHandleInvalidUserCallTarget @ 0x1800FD950 (RtlpHandleInvalidUserCallTarget.c)
+ *     LdrpInitializeProcess @ 0x1800D1E80 (LdrpInitializeProcess.c)
+ *     AvrfMiniLoadDll @ 0x1800DB690 (AvrfMiniLoadDll.c)
+ *     RtlpHandleInvalidUserCallTarget @ 0x1800FD910 (RtlpHandleInvalidUserCallTarget.c)
  * Callees:
  *     LdrControlFlowGuardEnforced @ 0x180033520 (LdrControlFlowGuardEnforced.c)
  */
 
-_BOOL8 __fastcall LdrControlFlowGuardEnforcedWithExportSuppression(__int64 a1)
+_BOOL8 LdrControlFlowGuardEnforcedWithExportSuppression()
 {
-  return (unsigned int)LdrControlFlowGuardEnforced(a1) && (BYTE5(xmmword_180181390) & 3) == 3;
+  int v0; // eax
+
+  LOBYTE(v0) = LdrControlFlowGuardEnforced();
+  return v0 && (BYTE5(LdrSystemDllInitBlock.MitigationOptionsMap.Map[0]) & 3) == 3;
 }

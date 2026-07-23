@@ -6,7 +6,12 @@
  *     _Wow64SystemServiceCall@0 @ 0x4B308730 (_Wow64SystemServiceCall@0.c)
  */
 
-int __stdcall NtQueryIoCompletion(int a1, int a2, int a3, int a4, int a5)
+NTSTATUS __cdecl NtQueryIoCompletion(
+        HANDLE IoCompletionHandle,
+        IO_COMPLETION_INFORMATION_CLASS IoCompletionInformationClass,
+        PVOID IoCompletionInformation,
+        ULONG IoCompletionInformationLength,
+        PULONG ReturnLength)
 {
   return Wow64SystemServiceCall();
 }

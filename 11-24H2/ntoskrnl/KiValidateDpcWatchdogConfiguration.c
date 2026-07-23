@@ -1,10 +1,10 @@
 /*
- * XREFs of KiValidateDpcWatchdogConfiguration @ 0x1405B4D98
+ * XREFs of KiValidateDpcWatchdogConfiguration @ 0x1405B1D28
  * Callers:
- *     KeUpdateDpcWatchdogConfiguration @ 0x1405B4998 (KeUpdateDpcWatchdogConfiguration.c)
+ *     KeUpdateDpcWatchdogConfiguration @ 0x1405B191C (KeUpdateDpcWatchdogConfiguration.c)
  * Callees:
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     ExSystemExceptionFilter @ 0x1407B6F80 (ExSystemExceptionFilter.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     ExSystemExceptionFilter @ 0x1407B73D0 (ExSystemExceptionFilter.c)
  */
 
 __int64 __fastcall KiValidateDpcWatchdogConfiguration(void *Src, size_t Size, int a3, _DWORD *a4)

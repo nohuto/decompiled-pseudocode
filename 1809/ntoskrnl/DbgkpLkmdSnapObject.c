@@ -1,9 +1,9 @@
 /*
- * XREFs of DbgkpLkmdSnapObject @ 0x14026DD40
+ * XREFs of DbgkpLkmdSnapObject @ 0x14026DF30
  * Callers:
- *     DbgkpLkmdSnapPendingIrps @ 0x140811E78 (DbgkpLkmdSnapPendingIrps.c)
+ *     DbgkpLkmdSnapPendingIrps @ 0x140813078 (DbgkpLkmdSnapPendingIrps.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall DbgkpLkmdSnapObject(__int64 a1, _WORD *a2, int a3)

@@ -1,9 +1,9 @@
 /*
- * XREFs of AdtpCleanupParameterAllocations @ 0x1404720C8
+ * XREFs of AdtpCleanupParameterAllocations @ 0x14046E394
  * Callers:
- *     AdtpWriteToEtw @ 0x140AE821C (AdtpWriteToEtw.c)
+ *     AdtpWriteToEtw @ 0x140AEB4C0 (AdtpWriteToEtw.c)
  * Callees:
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __fastcall AdtpCleanupParameterAllocations(_BYTE *a1, PVOID *a2, unsigned int a3)

@@ -1,9 +1,9 @@
 /*
- * XREFs of PoSetUserPresent @ 0x1400B4D4C
+ * XREFs of PoSetUserPresent @ 0x1400B2B84
  * Callers:
  *     <none>
  * Callees:
- *     PopSetSystemState @ 0x1400B4D8C (PopSetSystemState.c)
+ *     PopSetSystemState @ 0x1400B2BC4 (PopSetSystemState.c)
  *     PopAcquirePolicyLock @ 0x1403C87E0 (PopAcquirePolicyLock.c)
  *     PopReleasePolicyLock @ 0x1403C8828 (PopReleasePolicyLock.c)
  */

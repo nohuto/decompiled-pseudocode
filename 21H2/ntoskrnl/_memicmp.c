@@ -1,9 +1,9 @@
 /*
- * XREFs of _memicmp @ 0x1403EFCFC
+ * XREFs of _memicmp @ 0x1403EFE6C
  * Callers:
- *     IopInitializeBootDrivers @ 0x140A5DB88 (IopInitializeBootDrivers.c)
+ *     IopInitializeBootDrivers @ 0x140A5EB88 (IopInitializeBootDrivers.c)
  * Callees:
- *     __ascii_memicmp @ 0x1403EFC94 (__ascii_memicmp.c)
+ *     __ascii_memicmp @ 0x1403EFE04 (__ascii_memicmp.c)
  */
 
 int __cdecl memicmp(const void *Buf1, const void *Buf2, size_t Size)

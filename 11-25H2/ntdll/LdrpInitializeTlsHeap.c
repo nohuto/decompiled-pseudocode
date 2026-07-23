@@ -8,24 +8,24 @@
  *     __security_check_cookie @ 0x180166F50 (__security_check_cookie.c)
  */
 
-__int64 LdrpInitializeTlsHeap()
+NTSTATUS LdrpInitializeTlsHeap()
 {
-  __int64 result; // rax
-  _DWORD *Heap; // rax
-  __int64 v2; // [rsp+40h] [rbp-18h] BYREF
+  NTSTATUS result; // eax
+  void *Heap; // rax
+  __int64 HeapInformation; // [rsp+40h] [rbp-18h] BYREF
 
-  v2 = 0x70616548534C54LL;
+  HeapInformation = 0x70616548534C54LL;
   if ( !qword_1801D4A28 )
   {
-    LdrpTlsHeap = (__int64)NtCurrentPeb()->ProcessHeap;
-    return 0LL;
+    LdrpTlsHeap = NtCurrentPeb()->ProcessHeap;
+    return 0;
   }
-  Heap = (_DWORD *)RtlpCreateHeap(2, 0LL, 0LL, 0LL, 0LL, 0LL, 0);
-  LdrpTlsHeap = (__int64)Heap;
+  Heap = (void *)RtlpCreateHeap(2, 0LL, 0LL, 0LL, 0LL, 0LL, 0);
+  LdrpTlsHeap = Heap;
   if ( !Heap )
-    return 3221225495LL;
-  result = RtlSetHeapInformation(Heap, 7, (__int64)&v2, 8uLL);
-  if ( (int)result >= 0 || AvrfAppVerifierMode )
-    return 0LL;
+    return -1073741801;
+  result = RtlSetHeapInformation(Heap, HeapTag, &HeapInformation, 8uLL);
+  if ( result >= 0 || AvrfAppVerifierMode )
+    return 0;
   return result;
 }

@@ -38,8 +38,8 @@ void __fastcall PpmInstallFeedbackCounters(__int64 a1, __int64 *a2, char a3)
   int v25; // eax
   bool v26; // zf
   int v27; // [rsp+20h] [rbp-68h] BYREF
-  struct _GROUP_AFFINITY v28; // [rsp+28h] [rbp-60h] BYREF
-  struct _GROUP_AFFINITY PreviousAffinity; // [rsp+38h] [rbp-50h] BYREF
+  _GROUP_AFFINITY v28; // [rsp+28h] [rbp-60h] BYREF
+  _GROUP_AFFINITY PreviousAffinity; // [rsp+38h] [rbp-50h] BYREF
   int v30; // [rsp+80h] [rbp-8h]
 
   v27 = 0;
@@ -55,7 +55,7 @@ void __fastcall PpmInstallFeedbackCounters(__int64 a1, __int64 *a2, char a3)
   CurrentIrql = KeGetCurrentIrql();
   v8 = 2LL;
   __writecr8(2uLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     LODWORD(v21) = 4;
@@ -118,10 +118,10 @@ void __fastcall PpmInstallFeedbackCounters(__int64 a1, __int64 *a2, char a3)
     }
     _enable();
   }
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v22 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v22 <= 0xFu && CurrentIrql <= 0xFu && v22 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v22 <= 0xFu && CurrentIrql <= 0xFu && v22 >= 2u )
     {
       v23 = KeGetCurrentPrcb();
       v24 = v23->SchedulerAssist;

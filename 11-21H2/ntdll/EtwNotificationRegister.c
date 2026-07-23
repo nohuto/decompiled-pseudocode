@@ -16,28 +16,33 @@
  *     ProviderHandleRemove @ 0x1800A3AC8 (ProviderHandleRemove.c)
  */
 
-__int64 __fastcall EtwNotificationRegister(__int64 a1, int a2, _SLIST_ENTRY *a3, __int64 a4, unsigned __int64 *a5)
+ULONG __cdecl EtwNotificationRegister(
+        LPCGUID Guid,
+        ULONG Type,
+        PETW_NOTIFICATION_CALLBACK Callback,
+        PVOID Context,
+        PREGHANDLE RegHandle)
 {
-  unsigned __int64 *v7; // r14
+  PREGHANDLE v7; // r14
   PSLIST_ENTRY Registration; // rax
   __int64 v9; // rdi
   ULONG v10; // ebx
-  PSLIST_ENTRY v11; // rsi
+  _RTL_SRWLOCK *v11; // rsi
   __int64 v12; // rcx
   __int64 v13; // rcx
   unsigned int v15; // [rsp+40h] [rbp+8h] BYREF
 
-  if ( !a1
-    || (v7 = a5) == 0LL
-    || *(_QWORD *)a1 == *(_QWORD *)&PrivateLoggerNotificationGuid.Data1
-    && *(_QWORD *)(a1 + 8) == *(_QWORD *)PrivateLoggerNotificationGuid.Data4
+  if ( !Guid
+    || (v7 = RegHandle) == 0LL
+    || *(_QWORD *)&Guid->Data1 == *(_QWORD *)&PrivateLoggerNotificationGuid.Data1
+    && *(_QWORD *)Guid->Data4 == *(_QWORD *)PrivateLoggerNotificationGuid.Data4
     && PrivateLoggerNotificationEntry )
   {
     v10 = 87;
     goto LABEL_15;
   }
-  *a5 = 0LL;
-  Registration = EtwpAllocateRegistration((struct _SLIST_ENTRY *)a1, a3, a4, a2);
+  *RegHandle = 0LL;
+  Registration = EtwpAllocateRegistration((_SLIST_ENTRY *)Guid, (_SLIST_ENTRY *)Callback, (__int64)Context, Type);
   v9 = (__int64)Registration;
   if ( !Registration )
   {
@@ -46,8 +51,8 @@ LABEL_15:
     RtlSetLastWin32Error(v10);
     return v10;
   }
-  v11 = Registration + 4;
-  RtlAcquireSRWLockExclusive(&Registration[4]);
+  v11 = (_RTL_SRWLOCK *)&Registration[4];
+  RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)&Registration[4]);
   *(_DWORD *)(v9 + 80) = NtCurrentTeb()->ClientId.UniqueThread;
   v10 = ProviderHandleInsert(v12, v9, &v15);
   if ( v10 )
@@ -58,16 +63,16 @@ LABEL_9:
     EtwpFreeRegistration(v9);
     goto LABEL_15;
   }
-  if ( a2 != 10 )
+  if ( Type != 10 )
   {
-    v10 = EtwpRegisterProvider(v9, (__int64)a3, a2);
+    v10 = EtwpRegisterProvider(v9, (__int64)Callback, Type);
     if ( v10 )
     {
       ProviderHandleRemove(v13, v15);
       goto LABEL_9;
     }
   }
-  EtwpInsertRegistration(v9);
+  EtwpInsertRegistration((PRTL_BALANCED_NODE)v9);
   EtwpCheckForPrivatePreEnable(v9);
   *(_DWORD *)(v9 + 80) = 0;
   RtlReleaseSRWLockExclusive(v11);

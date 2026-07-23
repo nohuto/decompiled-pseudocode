@@ -1,9 +1,9 @@
 /*
- * XREFs of SymCryptFdefModElementMaskedCopy @ 0x1404042FC
+ * XREFs of SymCryptFdefModElementMaskedCopy @ 0x1404044DC
  * Callers:
- *     SymCryptModElementMaskedCopy @ 0x1403F96E8 (SymCryptModElementMaskedCopy.c)
+ *     SymCryptModElementMaskedCopy @ 0x1403F98C8 (SymCryptModElementMaskedCopy.c)
  * Callees:
- *     SymCryptFdefMaskedCopy @ 0x1404059BC (SymCryptFdefMaskedCopy.c)
+ *     SymCryptFdefMaskedCopy @ 0x140405B9C (SymCryptFdefMaskedCopy.c)
  */
 
 __int64 __fastcall SymCryptFdefModElementMaskedCopy(__int64 a1, __int64 a2, __int64 a3)

@@ -1,8 +1,8 @@
 /*
- * XREFs of KeAbInitializeDpc @ 0x1405F7460
+ * XREFs of KeAbInitializeDpc @ 0x1405F9E20
  * Callers:
- *     KeAbInitialize @ 0x1405F73D0 (KeAbInitialize.c)
- *     KiInitPrcb @ 0x140BF3C24 (KiInitPrcb.c)
+ *     KeAbInitialize @ 0x1405F9D90 (KeAbInitialize.c)
+ *     KiInitPrcb @ 0x140BF9C24 (KiInitPrcb.c)
  * Callees:
  *     <none>
  */

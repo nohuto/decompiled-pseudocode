@@ -1,33 +1,33 @@
 /*
- * XREFs of HvlpSetRegister64 @ 0x140493EC0
+ * XREFs of HvlpSetRegister64 @ 0x14048DA10
  * Callers:
- *     KiRemoveSystemWorkPriorityKick @ 0x14052FA20 (KiRemoveSystemWorkPriorityKick.c)
- *     HvlEnlightenProcessor @ 0x140530860 (HvlEnlightenProcessor.c)
- *     PpmHvSetVirtualProcessorQos @ 0x140532BF8 (PpmHvSetVirtualProcessorQos.c)
- *     HvlConfigureMemoryZeroingOnReset @ 0x1405B8380 (HvlConfigureMemoryZeroingOnReset.c)
- *     HvlLogGuestCrashInformation @ 0x1405B88D0 (HvlLogGuestCrashInformation.c)
- *     HvlpDetermineEnlightenments @ 0x1405C19D8 (HvlpDetermineEnlightenments.c)
- *     HvlpPhase0Enlightenments @ 0x1405C1F24 (HvlpPhase0Enlightenments.c)
- *     HvlDeleteProcessor @ 0x140791814 (HvlDeleteProcessor.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x140531F20 (KiRemoveSystemWorkPriorityKick.c)
+ *     HvlEnlightenProcessor @ 0x140532D60 (HvlEnlightenProcessor.c)
+ *     PpmHvSetVirtualProcessorQos @ 0x140535098 (PpmHvSetVirtualProcessorQos.c)
+ *     HvlConfigureMemoryZeroingOnReset @ 0x1405BABF0 (HvlConfigureMemoryZeroingOnReset.c)
+ *     HvlLogGuestCrashInformation @ 0x1405BB140 (HvlLogGuestCrashInformation.c)
+ *     HvlpDetermineEnlightenments @ 0x1405C4248 (HvlpDetermineEnlightenments.c)
+ *     HvlpPhase0Enlightenments @ 0x1405C4794 (HvlpPhase0Enlightenments.c)
+ *     HvlDeleteProcessor @ 0x140794344 (HvlDeleteProcessor.c)
  * Callees:
- *     RtlRaiseException @ 0x140619230 (RtlRaiseException.c)
+ *     RtlRaiseException @ 0x14061C280 (RtlRaiseException.c)
  */
 
-__int64 __fastcall HvlpSetRegister64(int a1, unsigned __int64 a2)
+void __fastcall HvlpSetRegister64(int a1, unsigned __int64 a2)
 {
   int v3; // ecx
   int v4; // ecx
   int v5; // ecx
   int v6; // ecx
   unsigned int v7; // ecx
-  __int64 result; // rax
+  int v8; // ecx
   int v9; // ecx
   int v10; // ecx
   int v11; // ecx
   int v12; // ecx
   int v13; // ecx
-  int v14; // ecx
-  bool v15; // zf
+  bool v14; // zf
+  int v15; // ecx
   int v16; // ecx
   int v17; // ecx
   int v18; // ecx
@@ -38,7 +38,6 @@ __int64 __fastcall HvlpSetRegister64(int a1, unsigned __int64 a2)
   int v23; // ecx
   int v24; // ecx
   int v25; // ecx
-  int v26; // ecx
 
   if ( a1 > 655362 )
   {
@@ -46,7 +45,10 @@ __int64 __fastcall HvlpSetRegister64(int a1, unsigned __int64 a2)
     {
       if ( a1 == 655370 )
         goto LABEL_33;
-      v17 = a1 - 655363;
+      v16 = a1 - 655363;
+      if ( !v16 )
+        goto LABEL_33;
+      v17 = v16 - 1;
       if ( !v17 )
         goto LABEL_33;
       v18 = v17 - 1;
@@ -58,14 +60,14 @@ __int64 __fastcall HvlpSetRegister64(int a1, unsigned __int64 a2)
       v20 = v19 - 1;
       if ( !v20 )
         goto LABEL_33;
-      v21 = v20 - 1;
-      if ( !v21 )
-        goto LABEL_33;
-      v16 = v21 - 1;
-      v15 = v16 == 0;
+      v15 = v20 - 1;
+      v14 = v15 == 0;
       goto LABEL_35;
     }
-    v22 = a1 - 655371;
+    v21 = a1 - 655371;
+    if ( !v21 )
+      goto LABEL_33;
+    v22 = v21 - 1;
     if ( !v22 )
       goto LABEL_33;
     v23 = v22 - 1;
@@ -77,10 +79,7 @@ __int64 __fastcall HvlpSetRegister64(int a1, unsigned __int64 a2)
     v25 = v24 - 1;
     if ( !v25 )
       goto LABEL_33;
-    v26 = v25 - 1;
-    if ( !v26 )
-      goto LABEL_33;
-    if ( v26 == 4 )
+    if ( v25 == 4 )
     {
       v7 = 1073741955;
       goto LABEL_9;
@@ -115,15 +114,14 @@ __int64 __fastcall HvlpSetRegister64(int a1, unsigned __int64 a2)
       {
         v7 = 1073742018;
 LABEL_9:
-        result = a2;
         __writemsr(v7, a2);
-        return result;
+        return;
       }
-      v16 = v6 - 65509;
-      v15 = v16 == 0;
+      v15 = v6 - 65509;
+      v14 = v15 == 0;
 LABEL_35:
-      if ( !v15 && v16 != 1 )
-        return RtlRaiseException((ULONG_PTR)&qword_140E0A930);
+      if ( !v14 && v15 != 1 )
+        goto LABEL_37;
 LABEL_33:
       v7 = a1 + 1073086608;
       goto LABEL_9;
@@ -133,23 +131,24 @@ LABEL_33:
       v7 = 0x40000000;
       goto LABEL_9;
     }
-    v9 = a1 - 528;
-    if ( !v9 || (v10 = v9 - 1) == 0 || (v11 = v10 - 1) == 0 || (v12 = v11 - 1) == 0 || (v13 = v12 - 1) == 0 )
+    v8 = a1 - 528;
+    if ( !v8 || (v9 = v8 - 1) == 0 || (v10 = v9 - 1) == 0 || (v11 = v10 - 1) == 0 || (v12 = v11 - 1) == 0 )
     {
       v7 = a1 + 1073741552;
       goto LABEL_9;
     }
-    v14 = v13 - 1;
-    if ( !v14 )
+    v13 = v12 - 1;
+    if ( !v13 )
     {
       v7 = 1073742085;
       goto LABEL_9;
     }
-    if ( v14 == 91 )
+    if ( v13 == 91 )
     {
       v7 = 1073742102;
       goto LABEL_9;
     }
   }
-  return RtlRaiseException((ULONG_PTR)&qword_140E0A930);
+LABEL_37:
+  RtlRaiseException(&ExceptionRecord);
 }

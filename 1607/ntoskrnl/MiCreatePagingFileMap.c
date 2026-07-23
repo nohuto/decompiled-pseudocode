@@ -1,27 +1,27 @@
 /*
- * XREFs of MiCreatePagingFileMap @ 0x1404B8370
+ * XREFs of MiCreatePagingFileMap @ 0x1404A2750
  * Callers:
- *     MiCreateSection @ 0x14042CD40 (MiCreateSection.c)
+ *     MiCreateSection @ 0x14042BC10 (MiCreateSection.c)
  * Callees:
- *     MiFreeZeroPageSizeIndex @ 0x14001BB40 (MiFreeZeroPageSizeIndex.c)
- *     MiChargeCommit @ 0x14002B650 (MiChargeCommit.c)
- *     MiGetPteAddress @ 0x14002BA64 (MiGetPteAddress.c)
- *     MI_SHOULD_PTE_BE_GLOBAL @ 0x140036D30 (MI_SHOULD_PTE_BE_GLOBAL.c)
- *     MiReturnCommit @ 0x14004E500 (MiReturnCommit.c)
- *     MiReturnResidentAvailable @ 0x14004F1E0 (MiReturnResidentAvailable.c)
- *     MiUpdatePageFileSectionList @ 0x14009021C (MiUpdatePageFileSectionList.c)
- *     MiGetPdeAddress @ 0x1400AB5EC (MiGetPdeAddress.c)
- *     MiChargeResident @ 0x140103450 (MiChargeResident.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     MiUpdateLargePageSectionPfn @ 0x1401E5B78 (MiUpdateLargePageSectionPfn.c)
- *     MiPteInShadowRange @ 0x1401EF3B8 (MiPteInShadowRange.c)
- *     MiWritePteShadow @ 0x1401EF658 (MiWritePteShadow.c)
- *     MiMakeDemandZeroPte @ 0x1401F2734 (MiMakeDemandZeroPte.c)
+ *     MiFreeZeroPageSizeIndex @ 0x14001B6C0 (MiFreeZeroPageSizeIndex.c)
+ *     MiChargeCommit @ 0x14002B1D0 (MiChargeCommit.c)
+ *     MiGetPteAddress @ 0x14002B5E4 (MiGetPteAddress.c)
+ *     MI_SHOULD_PTE_BE_GLOBAL @ 0x1400368B0 (MI_SHOULD_PTE_BE_GLOBAL.c)
+ *     MiReturnCommit @ 0x14004E080 (MiReturnCommit.c)
+ *     MiReturnResidentAvailable @ 0x14004ED60 (MiReturnResidentAvailable.c)
+ *     MiGetPdeAddress @ 0x1400847A4 (MiGetPdeAddress.c)
+ *     MiUpdatePageFileSectionList @ 0x14008F97C (MiUpdatePageFileSectionList.c)
+ *     MiChargeResident @ 0x1401011D0 (MiChargeResident.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     MiUpdateLargePageSectionPfn @ 0x1401E59A4 (MiUpdateLargePageSectionPfn.c)
+ *     MiPteInShadowRange @ 0x1401EF1E4 (MiPteInShadowRange.c)
+ *     MiWritePteShadow @ 0x1401EF484 (MiWritePteShadow.c)
+ *     MiMakeDemandZeroPte @ 0x1401F2560 (MiMakeDemandZeroPte.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     MiInitializePrototypePtes @ 0x1404B8A74 (MiInitializePrototypePtes.c)
- *     MiAllocateLargeZeroPages @ 0x1406620F0 (MiAllocateLargeZeroPages.c)
- *     MiFreeLargeZeroPages @ 0x140662930 (MiFreeLargeZeroPages.c)
+ *     MiInitializePrototypePtes @ 0x1404A2E54 (MiInitializePrototypePtes.c)
+ *     MiAllocateLargeZeroPages @ 0x1406621D4 (MiAllocateLargeZeroPages.c)
+ *     MiFreeLargeZeroPages @ 0x140662A14 (MiFreeLargeZeroPages.c)
  */
 
 __int64 __fastcall MiCreatePagingFileMap(PVOID ***a1, unsigned __int64 *a2, int a3, int a4, int a5)
@@ -122,7 +122,7 @@ LABEL_25:
         v13 = a5 - 1;
       else
         v13 = *(_DWORD *)(KiProcessorBlock[KeGetCurrentThread()->IdealProcessor] + 23524);
-      v14 = (unsigned __int16 *)((char *)qword_1403269A8 + 2 * v13 * (unsigned int)(unsigned __int16)KeNumberNodes);
+      v14 = (unsigned __int16 *)((char *)qword_1403269E8 + 2 * v13 * (unsigned int)(unsigned __int16)KeNumberNodes);
       v15 = &v14[(unsigned __int16)KeNumberNodes];
       MiAllocateLargeZeroPages((unsigned int)MiSystemPartition, (unsigned int)&v51, v13, a3, (__int64)&v58);
       v16 = v51;
@@ -302,7 +302,7 @@ LABEL_47:
   if ( v50 )
   {
     v22[2] = (PVOID *)v10;
-    _InterlockedExchangeAdd64(&qword_140327918, v10);
+    _InterlockedExchangeAdd64(&qword_140327958, v10);
     if ( a4 >= 0 )
     {
       MiInitializePrototypePtes(*(_QWORD *)(v28 + 8), v10, v28, 1LL);

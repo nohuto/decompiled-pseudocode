@@ -13,62 +13,62 @@
  *     RtlAddressInSectionTable @ 0x18002B2C0 (RtlAddressInSectionTable.c)
  */
 
-__int64 __fastcall LdrpGetProcedureAddress(unsigned __int64 a1, const char *a2, int a3, char **a4)
+__int64 __fastcall LdrpGetProcedureAddress(unsigned __int64 BaseOfImage, const char *a2, int a3, char **a4)
 {
-  __int64 v4; // rsi
+  char *v4; // rsi
   bool v9; // bl
-  unsigned __int64 v10; // rdi
-  __int16 v11; // ax
-  __int64 v12; // rdx
+  char *v10; // rdi
+  unsigned __int16 Magic; // ax
+  __int64 VirtualAddress; // rdx
   int v13; // eax
   char *v14; // rbx
   int v15; // r10d
   int v16; // r11d
   int v17; // r9d
   const char *v18; // rcx
-  signed __int64 v19; // rdx
+  char *v19; // rdx
   unsigned __int8 v20; // al
   int v21; // ecx
   int v22; // eax
   unsigned int v24; // ebp
   char *v25; // rcx
-  __int64 v26; // [rsp+40h] [rbp-38h] BYREF
-  int v27; // [rsp+80h] [rbp+8h]
+  PIMAGE_NT_HEADERS OutHeaders; // [rsp+40h] [rbp-38h] BYREF
+  unsigned int Size; // [rsp+80h] [rbp+8h]
 
   v4 = 0LL;
-  v26 = 0LL;
+  OutHeaders = 0LL;
   v9 = 1;
-  v10 = a1;
-  if ( (a1 & 3) != 0 )
+  v10 = (char *)BaseOfImage;
+  if ( (BaseOfImage & 3) != 0 )
   {
-    v10 = a1 & 0xFFFFFFFFFFFFFFFCuLL;
-    v9 = (a1 & 1) == 0;
+    v10 = (char *)(BaseOfImage & 0xFFFFFFFFFFFFFFFCuLL);
+    v9 = (BaseOfImage & 1) == 0;
   }
-  RtlImageNtHeaderEx(1LL, v10, 0LL, &v26);
-  if ( !v26 )
+  RtlImageNtHeaderEx(1u, v10, 0LL, &OutHeaders);
+  if ( !OutHeaders )
     return 3221225594LL;
-  v11 = *(_WORD *)(v26 + 24);
-  if ( v11 != 267 )
+  Magic = OutHeaders->OptionalHeader.Magic;
+  if ( Magic != 267 )
   {
-    if ( v11 == 523 && *(_DWORD *)(v26 + 132) )
+    if ( Magic == 523 && OutHeaders->OptionalHeader.NumberOfRvaAndSizes )
     {
-      v12 = *(unsigned int *)(v26 + 136);
-      if ( !(_DWORD)v12 )
+      VirtualAddress = OutHeaders->OptionalHeader.DataDirectory[0].VirtualAddress;
+      if ( !(_DWORD)VirtualAddress )
       {
         v13 = -1073741822;
         goto LABEL_10;
       }
-      v27 = *(_DWORD *)(v26 + 140);
-      if ( !v9 && (unsigned int)v12 >= *(_DWORD *)(v26 + 84) )
+      Size = OutHeaders->OptionalHeader.DataDirectory[0].Size;
+      if ( !v9 && (unsigned int)VirtualAddress >= OutHeaders->OptionalHeader.SizeOfHeaders )
       {
-        v4 = RtlAddressInSectionTable(v26, v10, (unsigned int)v12);
+        v4 = (char *)RtlAddressInSectionTable(OutHeaders, v10, VirtualAddress);
         v13 = 0;
         if ( !v4 )
           v13 = -1073741811;
         goto LABEL_10;
       }
 LABEL_9:
-      v4 = v10 + v12;
+      v4 = &v10[VirtualAddress];
       v13 = 0;
       goto LABEL_10;
     }
@@ -76,25 +76,25 @@ LABEL_51:
     v13 = -1073741811;
     goto LABEL_10;
   }
-  if ( !*(_DWORD *)(v26 + 116) )
+  if ( !HIDWORD(OutHeaders->OptionalHeader.SizeOfHeapReserve) )
     goto LABEL_51;
-  v12 = *(unsigned int *)(v26 + 120);
-  if ( !(_DWORD)v12 )
+  VirtualAddress = LODWORD(OutHeaders->OptionalHeader.SizeOfHeapCommit);
+  if ( !(_DWORD)VirtualAddress )
   {
     v13 = -1073741822;
     goto LABEL_10;
   }
-  v27 = *(_DWORD *)(v26 + 124);
-  if ( v9 || (unsigned int)v12 < *(_DWORD *)(v26 + 84) )
+  Size = HIDWORD(OutHeaders->OptionalHeader.SizeOfHeapCommit);
+  if ( v9 || (unsigned int)VirtualAddress < OutHeaders->OptionalHeader.SizeOfHeaders )
     goto LABEL_9;
-  v4 = RtlAddressInSectionTable(v26, v10, (unsigned int)v12);
+  v4 = (char *)RtlAddressInSectionTable(OutHeaders, v10, VirtualAddress);
   v13 = 0;
   if ( !v4 )
     v13 = -1073741811;
 LABEL_10:
   v14 = 0LL;
   if ( v13 >= 0 )
-    v14 = (char *)v4;
+    v14 = v4;
   if ( !v14 )
     return 3221225594LL;
   if ( a2 )
@@ -114,11 +114,11 @@ LABEL_10:
       while ( 1 )
       {
         v18 = a2;
-        v19 = a1 + *(unsigned int *)(a1 + *((unsigned int *)v14 + 8) + 4LL * v17) - (_QWORD)a2;
+        v19 = (char *)(BaseOfImage + *(unsigned int *)(BaseOfImage + *((unsigned int *)v14 + 8) + 4LL * v17) - (_QWORD)a2);
         while ( 1 )
         {
           v20 = *v18;
-          if ( *v18 != v18[v19] )
+          if ( *v18 != v19[(_QWORD)v18] )
             break;
           ++v18;
           if ( !v20 )
@@ -127,7 +127,7 @@ LABEL_10:
             goto LABEL_19;
           }
         }
-        v21 = v20 < (unsigned int)v18[v19] ? -1 : 1;
+        v21 = v20 < (unsigned int)v19[(_QWORD)v18] ? -1 : 1;
 LABEL_19:
         if ( !v21 )
           break;
@@ -141,7 +141,7 @@ LABEL_19:
         if ( v22 < v15 )
           goto LABEL_25;
       }
-      v24 = *(unsigned __int16 *)(a1 + *((unsigned int *)v14 + 9) + 2LL * v17);
+      v24 = *(unsigned __int16 *)(BaseOfImage + *((unsigned int *)v14 + 9) + 2LL * v17);
       goto LABEL_28;
     }
 LABEL_25:
@@ -152,7 +152,7 @@ LABEL_25:
       1,
       "Procedure \"%s\" could not be located in DLL at base 0x%p.\n",
       a2,
-      (const void *)a1);
+      (const void *)BaseOfImage);
     return 3221225594LL;
   }
   LdrpLogInternal(
@@ -175,10 +175,10 @@ LABEL_28:
   }
   else
   {
-    v25 = (char *)(a1 + *(unsigned int *)(a1 + *((unsigned int *)v14 + 7) + 4LL * (int)v24));
+    v25 = (char *)(BaseOfImage + *(unsigned int *)(BaseOfImage + *((unsigned int *)v14 + 7) + 4LL * (int)v24));
     *a4 = v25;
     if ( v25 >= v14 )
-      return v25 < &v14[v27] ? 0xC000022D : 0;
+      return v25 < &v14[Size] ? 0xC000022D : 0;
     else
       return 0LL;
   }

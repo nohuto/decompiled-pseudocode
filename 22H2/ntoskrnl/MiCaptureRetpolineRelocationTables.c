@@ -14,7 +14,7 @@
  */
 
 __int64 __fastcall MiCaptureRetpolineRelocationTables(
-        __int64 a1,
+        char *a1,
         unsigned int a2,
         __int64 a3,
         unsigned int a4,
@@ -22,8 +22,8 @@ __int64 __fastcall MiCaptureRetpolineRelocationTables(
 {
   unsigned __int64 v5; // rsi
   unsigned __int64 v6; // rbx
-  __int64 v7; // r15
-  __int64 v8; // rax
+  char *v7; // r15
+  PVOID v8; // rax
   unsigned int *v9; // rdi
   ULONG v10; // r14d
   int v11; // ebx
@@ -37,22 +37,19 @@ __int64 __fastcall MiCaptureRetpolineRelocationTables(
   int v20; // [rsp+20h] [rbp-58h] BYREF
   __int64 v21; // [rsp+28h] [rbp-50h] BYREF
   unsigned int *v22; // [rsp+38h] [rbp-40h]
-  unsigned int v24; // [rsp+88h] [rbp+10h]
   ULONG pulResult; // [rsp+90h] [rbp+18h] BYREF
 
-  v24 = a2;
   v5 = a4;
   v6 = a2;
   v7 = a1;
   v22 = 0LL;
   pulResult = 0;
   v20 = 0;
-  LOBYTE(a2) = 1;
-  v8 = RtlImageDirectoryEntryToData(a1, a2, 12, (int)&v21);
+  v8 = RtlImageDirectoryEntryToData(a1, 1u, 0xCu, (PULONG)&v21);
   v9 = a5;
   if ( v8 )
   {
-    v12 = v8 - v7;
+    v12 = (_DWORD)v8 - (_DWORD)v7;
     *a5 = v12;
     if ( v12 > (unsigned int)v6 )
       goto LABEL_10;
@@ -63,7 +60,7 @@ __int64 __fastcall MiCaptureRetpolineRelocationTables(
   }
   if ( v5 + 8 >= v5 && v5 + 8 <= v6 )
   {
-    v21 = *(_QWORD *)(v5 + v7);
+    v21 = *(_QWORD *)&v7[v5];
     v10 = HIDWORD(v21) + v5 + 8;
     if ( v10 >= (unsigned int)v5 && v10 <= (unsigned int)v6 )
     {
@@ -84,7 +81,7 @@ LABEL_35:
         }
         if ( (unsigned __int64)v13 + 12 > v10 )
           break;
-        v14 = (unsigned int *)(v13 + v7);
+        v14 = (unsigned int *)&v7[v13];
         v22 = v14;
         v21 = *(_QWORD *)v14;
         v15 = v14[2];
@@ -132,7 +129,7 @@ LABEL_26:
           v18 = (__int64)*v16;
           *(_QWORD *)v18 = v21;
           *(_DWORD *)(v18 + 8) = v15;
-          v11 = RtlValidateRetpolineRelocation(*v16, v24, &v20);
+          v11 = RtlValidateRetpolineRelocation(*v16, a2, &v20);
           if ( v11 < 0 )
             goto LABEL_34;
           v9[1] += v20;

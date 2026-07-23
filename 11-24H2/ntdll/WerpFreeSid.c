@@ -1,24 +1,24 @@
 /*
- * XREFs of WerpFreeSid @ 0x18011F494
+ * XREFs of WerpFreeSid @ 0x18011D6C4
  * Callers:
- *     WerpAllocateAndInitializeSid @ 0x1800010F8 (WerpAllocateAndInitializeSid.c)
- *     SendMessageToWERService @ 0x1800015D0 (SendMessageToWERService.c)
+ *     SendMessageToWERService @ 0x1800ADEC8 (SendMessageToWERService.c)
+ *     WerpAllocateAndInitializeSid @ 0x1800DF2A0 (WerpAllocateAndInitializeSid.c)
  * Callees:
- *     RtlLengthRequiredSid @ 0x180001330 (RtlLengthRequiredSid.c)
- *     ZwFreeVirtualMemory @ 0x180162050 (ZwFreeVirtualMemory.c)
+ *     RtlLengthRequiredSid @ 0x1800DF4E0 (RtlLengthRequiredSid.c)
+ *     ZwFreeVirtualMemory @ 0x180160410 (ZwFreeVirtualMemory.c)
  */
 
-__int64 __fastcall WerpFreeSid(__int64 a1)
+NTSTATUS __fastcall WerpFreeSid(void *a1)
 {
-  unsigned int v2; // eax
-  __int64 v4; // [rsp+30h] [rbp+8h] BYREF
-  __int64 v5; // [rsp+40h] [rbp+18h] BYREF
+  ULONG v2; // eax
+  PVOID BaseAddress; // [rsp+30h] [rbp+8h] BYREF
+  ULONG_PTR RegionSize; // [rsp+40h] [rbp+18h] BYREF
 
-  v4 = a1;
+  BaseAddress = a1;
   v2 = RtlLengthRequiredSid(1u);
-  v5 = v2;
+  RegionSize = v2;
   if ( a1 && v2 )
-    return ZwFreeVirtualMemory(-1LL, &v4, &v5, 0x8000LL);
+    return ZwFreeVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &BaseAddress, &RegionSize, 0x8000u);
   else
-    return 3221225485LL;
+    return -1073741811;
 }

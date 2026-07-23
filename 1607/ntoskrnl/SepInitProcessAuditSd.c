@@ -1,17 +1,17 @@
 /*
- * XREFs of SepInitProcessAuditSd @ 0x14013C60C
+ * XREFs of SepInitProcessAuditSd @ 0x14013CB7C
  * Callers:
- *     SepInitializationPhase1 @ 0x140552FE0 (SepInitializationPhase1.c)
+ *     SepInitializationPhase1 @ 0x140553520 (SepInitializationPhase1.c)
  * Callees:
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     RtlSetDaclSecurityDescriptor @ 0x140413E70 (RtlSetDaclSecurityDescriptor.c)
- *     RtlCreateSecurityDescriptor @ 0x140413ED0 (RtlCreateSecurityDescriptor.c)
- *     RtlCreateAcl @ 0x140420AB8 (RtlCreateAcl.c)
- *     RtlSetSaclSecurityDescriptor @ 0x14047AD08 (RtlSetSaclSecurityDescriptor.c)
- *     RtlAddAccessAllowedAce @ 0x14048D14C (RtlAddAccessAllowedAce.c)
- *     RtlAddAuditAccessAce @ 0x140684650 (RtlAddAuditAccessAce.c)
- *     SepAuditFailed @ 0x140696078 (SepAuditFailed.c)
+ *     RtlSetDaclSecurityDescriptor @ 0x140412D30 (RtlSetDaclSecurityDescriptor.c)
+ *     RtlCreateSecurityDescriptor @ 0x140412D90 (RtlCreateSecurityDescriptor.c)
+ *     RtlCreateAcl @ 0x14041F978 (RtlCreateAcl.c)
+ *     RtlSetSaclSecurityDescriptor @ 0x140479BD8 (RtlSetSaclSecurityDescriptor.c)
+ *     RtlAddAccessAllowedAce @ 0x14048DBDC (RtlAddAccessAllowedAce.c)
+ *     RtlAddAuditAccessAce @ 0x140684734 (RtlAddAuditAccessAce.c)
+ *     SepAuditFailed @ 0x14069615C (SepAuditFailed.c)
  */
 
 void SepInitProcessAuditSd()

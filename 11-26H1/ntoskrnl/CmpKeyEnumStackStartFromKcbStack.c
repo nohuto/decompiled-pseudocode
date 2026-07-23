@@ -1,19 +1,19 @@
 /*
- * XREFs of CmpKeyEnumStackStartFromKcbStack @ 0x140984E0C
+ * XREFs of CmpKeyEnumStackStartFromKcbStack @ 0x140946E1C
  * Callers:
- *     CmpPartialPromoteSubkeys @ 0x1408607FC (CmpPartialPromoteSubkeys.c)
- *     CmpEnumerateLayeredKey @ 0x140982A88 (CmpEnumerateLayeredKey.c)
+ *     CmpPartialPromoteSubkeys @ 0x140866AEC (CmpPartialPromoteSubkeys.c)
+ *     CmpEnumerateLayeredKey @ 0x140944A98 (CmpEnumerateLayeredKey.c)
  * Callees:
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     HvpGetCellFlat @ 0x14085EB00 (HvpGetCellFlat.c)
- *     CmpGetKcbAtLayerHeight @ 0x1408BACF0 (CmpGetKcbAtLayerHeight.c)
- *     HvpGetCellPaged @ 0x1408D7410 (HvpGetCellPaged.c)
- *     CmpKeyEnumStackStart @ 0x140981C30 (CmpKeyEnumStackStart.c)
- *     CmpStartKeyNodeStack @ 0x140981CC8 (CmpStartKeyNodeStack.c)
- *     CmpKeyEnumStackBeginEnumerationForKeyNodeStack @ 0x140981F00 (CmpKeyEnumStackBeginEnumerationForKeyNodeStack.c)
- *     CmpKeyNodeStackEntryInitialize @ 0x140982164 (CmpKeyNodeStackEntryInitialize.c)
- *     CmpCleanupKeyNodeStack @ 0x140982470 (CmpCleanupKeyNodeStack.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     HvpGetCellFlat @ 0x140864DF0 (HvpGetCellFlat.c)
+ *     CmpGetKcbAtLayerHeight @ 0x1408C12C0 (CmpGetKcbAtLayerHeight.c)
+ *     HvpGetCellPaged @ 0x1408DD9D0 (HvpGetCellPaged.c)
+ *     CmpKeyEnumStackStart @ 0x140943C40 (CmpKeyEnumStackStart.c)
+ *     CmpStartKeyNodeStack @ 0x140943CD8 (CmpStartKeyNodeStack.c)
+ *     CmpKeyEnumStackBeginEnumerationForKeyNodeStack @ 0x140943F10 (CmpKeyEnumStackBeginEnumerationForKeyNodeStack.c)
+ *     CmpKeyNodeStackEntryInitialize @ 0x140944174 (CmpKeyNodeStackEntryInitialize.c)
+ *     CmpCleanupKeyNodeStack @ 0x140944480 (CmpCleanupKeyNodeStack.c)
  */
 
 __int64 __fastcall CmpKeyEnumStackStartFromKcbStack(__int16 *a1, __int64 a2, __int64 a3)

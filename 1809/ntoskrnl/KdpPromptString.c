@@ -1,10 +1,10 @@
 /*
- * XREFs of KdpPromptString @ 0x1409193A8
+ * XREFs of KdpPromptString @ 0x14091A3A8
  * Callers:
- *     KdpPrompt @ 0x140918398 (KdpPrompt.c)
+ *     KdpPrompt @ 0x140919398 (KdpPrompt.c)
  * Callees:
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     KdpCopyMemoryChunks @ 0x1409189A8 (KdpCopyMemoryChunks.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     KdpCopyMemoryChunks @ 0x1409199A8 (KdpCopyMemoryChunks.c)
  */
 
 char __fastcall KdpPromptString(struct _SINGLE_LIST_ENTRY **a1, __int64 a2)

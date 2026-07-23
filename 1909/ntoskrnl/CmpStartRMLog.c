@@ -45,7 +45,7 @@ __int64 __fastcall CmpStartRMLog(char *a1, _OWORD *a2)
   CLFS_LSN plsn1; // [rsp+50h] [rbp-79h] BYREF
   PVOID pvCursorContext; // [rsp+58h] [rbp-71h] BYREF
   PVOID P; // [rsp+60h] [rbp-69h] BYREF
-  UNICODE_STRING v29; // [rsp+68h] [rbp-61h] BYREF
+  UNICODE_STRING GuidString; // [rsp+68h] [rbp-61h] BYREF
   ULONG pcbInfoBuffer; // [rsp+78h] [rbp-51h] BYREF
   ULONG pcbRestartBuffer; // [rsp+7Ch] [rbp-4Dh] BYREF
   ULONG pcbReadBuffer; // [rsp+80h] [rbp-49h] BYREF
@@ -74,9 +74,9 @@ __int64 __fastcall CmpStartRMLog(char *a1, _OWORD *a2)
   CurrentThread = KeGetCurrentThread();
   *(_QWORD *)&UnicodeString.Length = 0LL;
   UnicodeString.Buffer = 0LL;
-  *(_QWORD *)&v29.Length = 0LL;
+  *(_QWORD *)&GuidString.Length = 0LL;
   --CurrentThread->KernelApcDisable;
-  v29.Buffer = 0LL;
+  GuidString.Buffer = 0LL;
   P = 0LL;
   ExAcquireResourceExclusiveLite(*((PERESOURCE *)a1 + 16), 1u);
   if ( (*((_DWORD *)a1 + 26) & 1) != 0 )
@@ -98,7 +98,7 @@ LABEL_47:
     Source = &CmpLogPath;
     if ( a2 )
       *(_OWORD *)(*(_QWORD *)(qword_140424FF0 + 64) + 128LL) = *a2;
-    started = RtlStringFromGUIDEx((unsigned int *)(*(_QWORD *)(qword_140424FF0 + 64) + 128LL), (__int64)&v29, 1);
+    started = RtlStringFromGUIDEx((PGUID)(*(_QWORD *)(qword_140424FF0 + 64) + 128LL), &GuidString, 1u);
     if ( started < 0 )
       goto LABEL_27;
     v10 = (__int64)(a1 + 72);
@@ -113,7 +113,7 @@ LABEL_47:
     Source = &UnicodeString;
     if ( a2 )
       *(_OWORD *)(*(_QWORD *)(*((_QWORD *)a1 + 10) + 64LL) + 128LL) = *a2;
-    started = RtlStringFromGUIDEx((unsigned int *)(*(_QWORD *)(*((_QWORD *)a1 + 10) + 64LL) + 128LL), (__int64)&v29, 1);
+    started = RtlStringFromGUIDEx((PGUID)(*(_QWORD *)(*((_QWORD *)a1 + 10) + 64LL) + 128LL), &GuidString, 1u);
     if ( started < 0 )
       goto LABEL_27;
     v9 = *((_QWORD *)a1 + 10);
@@ -132,7 +132,7 @@ LABEL_47:
     v13 = (__int64)(a1 + 68);
     while ( 1 )
     {
-      started = CmpStartCLFSLog(Source, &v29, ppvReadContext, v10, v13, (__int64)v12, (__int64)(a1 + 96));
+      started = CmpStartCLFSLog(Source, &GuidString, ppvReadContext, v10, v13, (__int64)v12, (__int64)(a1 + 96));
       if ( started < 0 )
         break;
       pcbInfoBuffer = 120;
@@ -257,8 +257,8 @@ LABEL_27:
   KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
   if ( UnicodeString.Buffer )
     RtlFreeAnsiString(&UnicodeString);
-  if ( v29.Buffer )
-    RtlFreeAnsiString(&v29);
+  if ( GuidString.Buffer )
+    RtlFreeAnsiString(&GuidString);
   ExFreePoolWithTag(PoolWithTag, 0);
   if ( P )
     ExFreePoolWithTag(P, 0);

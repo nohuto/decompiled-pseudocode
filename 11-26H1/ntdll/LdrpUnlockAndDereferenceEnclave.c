@@ -1,17 +1,17 @@
 /*
- * XREFs of LdrpUnlockAndDereferenceEnclave @ 0x180070D6C
+ * XREFs of LdrpUnlockAndDereferenceEnclave @ 0x1800911BC
  * Callers:
- *     LdrInitializeEnclave @ 0x180070B80 (LdrInitializeEnclave.c)
- *     LdrpIssueEnclaveCall @ 0x180070CC0 (LdrpIssueEnclaveCall.c)
- *     LdrIsEnclaveAddress @ 0x180110A04 (LdrIsEnclaveAddress.c)
- *     LdrDeleteEnclave @ 0x1801265D0 (LdrDeleteEnclave.c)
- *     LdrLoadEnclaveModule @ 0x1801394E0 (LdrLoadEnclaveModule.c)
+ *     LdrInitializeEnclave @ 0x180090FD0 (LdrInitializeEnclave.c)
+ *     LdrpIssueEnclaveCall @ 0x180091110 (LdrpIssueEnclaveCall.c)
+ *     LdrIsEnclaveAddress @ 0x180110594 (LdrIsEnclaveAddress.c)
+ *     LdrDeleteEnclave @ 0x180126340 (LdrDeleteEnclave.c)
+ *     LdrLoadEnclaveModule @ 0x180139250 (LdrLoadEnclaveModule.c)
  * Callees:
- *     RtlLeaveCriticalSection @ 0x18004A3E0 (RtlLeaveCriticalSection.c)
+ *     RtlLeaveCriticalSection @ 0x180034960 (RtlLeaveCriticalSection.c)
  */
 
-__int64 __fastcall LdrpUnlockAndDereferenceEnclave(__int64 a1)
+__int64 __fastcall LdrpUnlockAndDereferenceEnclave(char *BaseAddress)
 {
-  RtlLeaveCriticalSection(a1 + 16);
-  return LdrpDereferenceEnclave(a1);
+  RtlLeaveCriticalSection((PRTL_CRITICAL_SECTION)(BaseAddress + 16));
+  return LdrpDereferenceEnclave(BaseAddress);
 }

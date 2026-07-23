@@ -1,14 +1,14 @@
 /*
- * XREFs of KeSetIntervalProfile @ 0x1407BAEC8
+ * XREFs of KeSetIntervalProfile @ 0x1407BDF28
  * Callers:
- *     EtwpTimeProfileStart @ 0x1408280C8 (EtwpTimeProfileStart.c)
- *     EtwpCoverageSamplerStart @ 0x1408314FC (EtwpCoverageSamplerStart.c)
- *     NtSetIntervalProfile @ 0x1408427E0 (NtSetIntervalProfile.c)
+ *     EtwpTimeProfileStart @ 0x14082E308 (EtwpTimeProfileStart.c)
+ *     EtwpCoverageSamplerStart @ 0x14083773C (EtwpCoverageSamplerStart.c)
+ *     NtSetIntervalProfile @ 0x14084B880 (NtSetIntervalProfile.c)
  * Callees:
- *     EtwTraceKernelEvent @ 0x1402DAC90 (EtwTraceKernelEvent.c)
- *     KeGenericProcessorCallback @ 0x140379F74 (KeGenericProcessorCallback.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     KeQueryIntervalProfile @ 0x1407BADFC (KeQueryIntervalProfile.c)
+ *     EtwTraceKernelEvent @ 0x1402BCA50 (EtwTraceKernelEvent.c)
+ *     KeGenericProcessorCallback @ 0x14037BD24 (KeGenericProcessorCallback.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     KeQueryIntervalProfile @ 0x1407BDE5C (KeQueryIntervalProfile.c)
  */
 
 void __fastcall KeSetIntervalProfile(int a1, int a2)
@@ -30,7 +30,7 @@ void __fastcall KeSetIntervalProfile(int a1, int a2)
   else
   {
     v6 = __PAIR64__(a1, a2);
-    KeGenericProcessorCallback((__int64 *)&stru_140FC01F0.WaitRegister, (__int64)KiSetIntervalWorker, (__int64)&v6, 1);
+    KeGenericProcessorCallback((__int64 *)&stru_140FC11F0.WaitRegister, (__int64)KiSetIntervalWorker, (__int64)&v6, 1);
   }
   if ( (WORD2(PerfGlobalGroupMask) & 0x402) != 0 )
   {

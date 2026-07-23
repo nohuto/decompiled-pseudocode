@@ -1,31 +1,31 @@
 /*
- * XREFs of MiDeletePteRange @ 0x1401007D0
+ * XREFs of MiDeletePteRange @ 0x1400FE550
  * Callers:
- *     MiUpdateWsleHash @ 0x140048D80 (MiUpdateWsleHash.c)
- *     MiConvertToLinkedWsles @ 0x1400A1844 (MiConvertToLinkedWsles.c)
- *     MiRemoveWorkingSetPages @ 0x1400FE750 (MiRemoveWorkingSetPages.c)
- *     MiDeleteAllHashMappings @ 0x140101410 (MiDeleteAllHashMappings.c)
- *     MiConvertWsleHash @ 0x140102AC0 (MiConvertWsleHash.c)
+ *     MiUpdateWsleHash @ 0x140048900 (MiUpdateWsleHash.c)
+ *     MiConvertToLinkedWsles @ 0x1400A016C (MiConvertToLinkedWsles.c)
+ *     MiRemoveWorkingSetPages @ 0x1400FC4D0 (MiRemoveWorkingSetPages.c)
+ *     MiDeleteAllHashMappings @ 0x1400FF190 (MiDeleteAllHashMappings.c)
+ *     MiConvertWsleHash @ 0x140100840 (MiConvertWsleHash.c)
  * Callees:
- *     MiGetAnyMultiplexedVm @ 0x14001D05C (MiGetAnyMultiplexedVm.c)
- *     MiReleasePageFileSpace @ 0x140022238 (MiReleasePageFileSpace.c)
- *     MiGetSharedVm @ 0x14002EA30 (MiGetSharedVm.c)
- *     MiGetNextPageTable @ 0x1400438F0 (MiGetNextPageTable.c)
- *     MiReturnCommit @ 0x14004E500 (MiReturnCommit.c)
- *     MiReturnResidentAvailable @ 0x14004F1E0 (MiReturnResidentAvailable.c)
- *     MiPartitionIdToPointer @ 0x1400680A0 (MiPartitionIdToPointer.c)
- *     MiTryDeleteTransitionPte @ 0x1400B8F70 (MiTryDeleteTransitionPte.c)
- *     MiFlushTbList @ 0x1400E0490 (MiFlushTbList.c)
- *     MiFreeUnmappedPageTables @ 0x1400E39D0 (MiFreeUnmappedPageTables.c)
- *     MiDeleteValidSystemPte @ 0x140100BF0 (MiDeleteValidSystemPte.c)
- *     MiTbFlushType @ 0x140100DBC (MiTbFlushType.c)
- *     MiReplicatePteChange @ 0x1401482F0 (MiReplicatePteChange.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     MiPteInShadowRange @ 0x1401EF3B8 (MiPteInShadowRange.c)
- *     MiWritePteShadow @ 0x1401EF658 (MiWritePteShadow.c)
- *     MI_GET_PFN_FROM_PTE @ 0x1401F2594 (MI_GET_PFN_FROM_PTE.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1401F25D0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiUpdatePageFileHighInPte @ 0x1401F2958 (MiUpdatePageFileHighInPte.c)
+ *     MiGetAnyMultiplexedVm @ 0x14001CBDC (MiGetAnyMultiplexedVm.c)
+ *     MiReleasePageFileSpace @ 0x140021DB8 (MiReleasePageFileSpace.c)
+ *     MiGetSharedVm @ 0x14002E5B0 (MiGetSharedVm.c)
+ *     MiGetNextPageTable @ 0x140043470 (MiGetNextPageTable.c)
+ *     MiReturnCommit @ 0x14004E080 (MiReturnCommit.c)
+ *     MiReturnResidentAvailable @ 0x14004ED60 (MiReturnResidentAvailable.c)
+ *     MiPartitionIdToPointer @ 0x140067C20 (MiPartitionIdToPointer.c)
+ *     MiTryDeleteTransitionPte @ 0x1400B6E00 (MiTryDeleteTransitionPte.c)
+ *     MiFlushTbList @ 0x1400DE330 (MiFlushTbList.c)
+ *     MiFreeUnmappedPageTables @ 0x1400E1870 (MiFreeUnmappedPageTables.c)
+ *     MiDeleteValidSystemPte @ 0x1400FE970 (MiDeleteValidSystemPte.c)
+ *     MiTbFlushType @ 0x1400FEB3C (MiTbFlushType.c)
+ *     MiReplicatePteChange @ 0x140148860 (MiReplicatePteChange.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     MiPteInShadowRange @ 0x1401EF1E4 (MiPteInShadowRange.c)
+ *     MiWritePteShadow @ 0x1401EF484 (MiWritePteShadow.c)
+ *     MI_GET_PFN_FROM_PTE @ 0x1401F23C0 (MI_GET_PFN_FROM_PTE.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1401F23FC (MI_READ_PTE_LOCK_FREE.c)
+ *     MiUpdatePageFileHighInPte @ 0x1401F2840 (MiUpdatePageFileHighInPte.c)
  */
 
 unsigned __int64 __fastcall MiDeletePteRange(__int64 a1, unsigned __int64 a2, __int64 a3, int a4)
@@ -215,7 +215,7 @@ LABEL_29:
       return v34;
     *((_QWORD *)v10 + 9) -= v34;
     if ( (AnyMultiplexedVm[184] & 7) != 1 )
-      _InterlockedExchangeAdd64(&qword_140327900, -(__int64)v34);
+      _InterlockedExchangeAdd64(&qword_140327940, -(__int64)v34);
   }
   if ( v34 )
   {

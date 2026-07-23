@@ -1,9 +1,9 @@
 /*
- * XREFs of PsPicoSystemCallDispatch @ 0x14090B9BC
+ * XREFs of PsPicoSystemCallDispatch @ 0x14090BB1C
  * Callers:
- *     PsPicoAltSystemCallDispatch @ 0x140582B90 (PsPicoAltSystemCallDispatch.c)
+ *     PsPicoAltSystemCallDispatch @ 0x140582DC0 (PsPicoAltSystemCallDispatch.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall PsPicoSystemCallDispatch(__int64 a1)

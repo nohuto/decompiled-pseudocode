@@ -57,53 +57,51 @@ NTSTATUS __stdcall NtLockFile(
   PIO_STATUS_BLOCK v24; // rcx
   int v25; // eax
   int v26; // ecx
-  bool v27; // si
+  char v27; // si
   struct _KTHREAD *v28; // rax
   PADAPTER_OBJECT v29; // rbx
   __int64 v30; // rax
-  __int64 v31; // rdx
-  __int64 v32; // r8
-  NTSTATUS v33; // esi
-  char v34; // r15
-  __int64 v35; // r8
-  __int64 v36; // rdx
-  IRP *v37; // rax
-  IRP *v38; // r14
+  NTSTATUS v31; // esi
+  char v32; // r15
+  __int64 v33; // r8
+  __int64 v34; // rdx
+  IRP *v35; // rax
+  IRP *v36; // r14
   struct _IO_STACK_LOCATION *CurrentStackLocation; // rsi
-  char v40; // al
+  char v38; // al
   CHAR *PoolWithQuota_4; // rax
   int HandleInformation; // [rsp+28h] [rbp-B0h]
-  char v43; // [rsp+50h] [rbp-88h] BYREF
-  char v44; // [rsp+51h] [rbp-87h] BYREF
+  char v41; // [rsp+50h] [rbp-88h] BYREF
+  char v42; // [rsp+51h] [rbp-87h] BYREF
   PADAPTER_OBJECT DmaAdapter; // [rsp+58h] [rbp-80h] BYREF
   PRKEVENT Eventa; // [rsp+60h] [rbp-78h]
-  __int128 v47; // [rsp+68h] [rbp-70h] BYREF
+  __int128 v45; // [rsp+68h] [rbp-70h] BYREF
   LONGLONG QuadPart; // [rsp+78h] [rbp-60h] BYREF
-  LONGLONG v49; // [rsp+80h] [rbp-58h] BYREF
+  LONGLONG v47; // [rsp+80h] [rbp-58h] BYREF
   PIRP Irp; // [rsp+88h] [rbp-50h] BYREF
-  struct _OBJECT_HANDLE_INFORMATION v51; // [rsp+90h] [rbp-48h] BYREF
+  struct _OBJECT_HANDLE_INFORMATION v49; // [rsp+90h] [rbp-48h] BYREF
   PVOID Object; // [rsp+98h] [rbp-40h] BYREF
-  __int64 v53; // [rsp+A0h] [rbp-38h] BYREF
+  __int64 v51; // [rsp+A0h] [rbp-38h] BYREF
   struct _KTHREAD *CurrentThread; // [rsp+A8h] [rbp-30h]
   __int64 retaddr; // [rsp+D8h] [rbp+0h]
-  LARGE_INTEGER v56; // [rsp+F0h] [rbp+18h] BYREF
-  PVOID v57; // [rsp+F8h] [rbp+20h]
+  LARGE_INTEGER v54; // [rsp+F0h] [rbp+18h] BYREF
+  PVOID v55; // [rsp+F8h] [rbp+20h]
 
-  v57 = ApcContext;
-  v56.QuadPart = (LONGLONG)ApcRoutine;
+  v55 = ApcContext;
+  v54.QuadPart = (LONGLONG)ApcRoutine;
   DmaAdapter = 0LL;
   Eventa = 0LL;
   QuadPart = 0LL;
+  v47 = 0LL;
   v49 = 0LL;
-  v51 = 0LL;
   CurrentThread = KeGetCurrentThread();
   PreviousMode = CurrentThread->PreviousMode;
-  result = IopReferenceFileObject(FileHandle, 0, PreviousMode, (PVOID *)&DmaAdapter, &v51);
+  result = IopReferenceFileObject(FileHandle, 0, PreviousMode, (PVOID *)&DmaAdapter, &v49);
   if ( result >= 0 )
   {
     if ( PreviousMode )
     {
-      if ( (v51.GrantedAccess & 3) == 0 )
+      if ( (v49.GrantedAccess & 3) == 0 )
       {
         HalPutDmaAdapter(DmaAdapter);
         return -1073741790;
@@ -112,15 +110,15 @@ NTSTATUS __stdcall NtLockFile(
       if ( (unsigned __int64)IoStatusBlock >= 0x7FFFFFFF0000LL )
         v14 = 0x7FFFFFFF0000LL;
       *(_DWORD *)v14 = *(_DWORD *)v14;
-      IopMarkApcRoutineIfAsynchronousIo32((unsigned int **)&IoStatusBlock, (__int64 *)&v56, DmaAdapter[5].Version & 2);
+      IopMarkApcRoutineIfAsynchronousIo32((unsigned int **)&IoStatusBlock, (__int64 *)&v54, DmaAdapter[5].Version & 2);
       if ( ((unsigned __int8)ByteOffset & 3) != 0 )
         ExRaiseDatatypeMisalignment();
       QuadPart = ByteOffset->QuadPart;
       if ( ((unsigned __int8)Length & 3) != 0 )
         ExRaiseDatatypeMisalignment();
-      v49 = Length->QuadPart;
+      v47 = Length->QuadPart;
       v15 = (struct _FILE_OBJECT *)DmaAdapter;
-      if ( *(_QWORD *)&DmaAdapter[11].Version && (v56.QuadPart & 0xFFFFFFFFFFFFFFFEuLL) != 0 )
+      if ( *(_QWORD *)&DmaAdapter[11].Version && (v54.QuadPart & 0xFFFFFFFFFFFFFFFEuLL) != 0 )
       {
         HalPutDmaAdapter(DmaAdapter);
         return -1073741811;
@@ -129,7 +127,7 @@ NTSTATUS __stdcall NtLockFile(
     else
     {
       QuadPart = ByteOffset->QuadPart;
-      v49 = Length->QuadPart;
+      v47 = Length->QuadPart;
       v15 = (struct _FILE_OBJECT *)DmaAdapter;
     }
     v15->LockOperation = 1;
@@ -152,7 +150,7 @@ NTSTATUS __stdcall NtLockFile(
         FastIoLock = (__int64 (__fastcall *)(struct _FILE_OBJECT *, LONGLONG *, LONGLONG *, _KPROCESS *, ULONG, int, BOOLEAN, __int128 *, PDEVICE_OBJECT))FastIoDispatch->FastIoLock;
         if ( FastIoLock )
         {
-          v47 = 0LL;
+          v45 = 0LL;
           if ( (MmVerifierData & 0x10) != 0 )
             v22 = (void *)VfFastIoSnapState();
           else
@@ -161,30 +159,30 @@ NTSTATUS __stdcall NtLockFile(
           v23 = FastIoLock(
                   v15,
                   &QuadPart,
-                  &v49,
+                  &v47,
                   CurrentThread->ApcState.Process,
                   Key,
                   HandleInformation,
                   ExclusiveLock,
-                  &v47,
+                  &v45,
                   RelatedDeviceObject);
-          v43 = v23;
+          v41 = v23;
           if ( v22 )
           {
             VfFastIoCheckState(v22);
-            v23 = v43;
+            v23 = v41;
           }
           if ( v23 )
           {
-            if ( (v56.LowPart & 1) != 0 )
+            if ( (v54.LowPart & 1) != 0 )
             {
               v24 = IoStatusBlock;
-              HIDWORD(IoStatusBlock->Pointer) = DWORD2(v47);
-              v24->Status = v47;
+              HIDWORD(IoStatusBlock->Pointer) = DWORD2(v45);
+              v24->Status = v45;
             }
             else
             {
-              *(_OWORD *)&IoStatusBlock->Status = v47;
+              *(_OWORD *)&IoStatusBlock->Status = v45;
             }
             if ( Eventa )
             {
@@ -194,23 +192,23 @@ NTSTATUS __stdcall NtLockFile(
             }
             if ( v15->CompletionContext && ApcContext && (v15->Flags & 0x2000000) == 0 )
             {
-              v53 = 0LL;
+              v51 = 0LL;
               Irp = 0LL;
-              v44 = 0;
-              IopIncrementCompletionContextUsageCountAndReadData((ULONG_PTR)v15, &v44, &v53, &Irp);
-              if ( v53 )
+              v42 = 0;
+              IopIncrementCompletionContextUsageCountAndReadData((ULONG_PTR)v15, &v42, &v51, &Irp);
+              if ( v51 )
               {
-                v25 = IoSetIoCompletion(v53, (_DWORD)Irp, (_DWORD)ApcContext, v47, *((__int64 *)&v47 + 1), 1);
-                v26 = v47;
+                v25 = IoSetIoCompletion(v51, (_DWORD)Irp, (_DWORD)ApcContext, v45, *((__int64 *)&v45 + 1), 1);
+                v26 = v45;
                 if ( v25 < 0 )
                   v26 = -1073741670;
-                LODWORD(v47) = v26;
+                LODWORD(v45) = v26;
               }
-              if ( v44 )
+              if ( v42 )
                 IopDecrementCompletionContextUsageCount((ULONG_PTR)v15);
             }
             HalPutDmaAdapter((PADAPTER_OBJECT)v15);
-            return v47;
+            return v45;
           }
         }
       }
@@ -220,14 +218,12 @@ NTSTATUS __stdcall NtLockFile(
         v28 = KeGetCurrentThread();
         --v28->KernelApcDisable;
         v29 = DmaAdapter;
-        v30 = KeAbPreAcquire((ULONG_PTR)&DmaAdapter[8], 0LL, 0LL);
-        v43 = 0;
+        v30 = KeAbPreAcquire((ULONG_PTR)&DmaAdapter[8], 0LL, 0);
+        v41 = 0;
         if ( _InterlockedExchange((volatile __int32 *)(&v29[7].Size + 1), 1) )
         {
-          LOBYTE(v32) = v27;
-          LOBYTE(v31) = PreviousMode;
           v15 = (struct _FILE_OBJECT *)DmaAdapter;
-          v33 = IopWaitAndAcquireFileObjectLock((volatile signed __int32 *)DmaAdapter, v31, v32, v30, &v43);
+          v31 = IopWaitAndAcquireFileObjectLock((volatile signed __int32 *)DmaAdapter, PreviousMode, v27, v30, &v41);
         }
         else
         {
@@ -235,55 +231,55 @@ NTSTATUS __stdcall NtLockFile(
             *(_BYTE *)(v30 + 26) |= 1u;
           v15 = (struct _FILE_OBJECT *)DmaAdapter;
           ObfReferenceObject(DmaAdapter);
-          v33 = 0;
+          v31 = 0;
         }
-        if ( v43 )
+        if ( v41 )
         {
           if ( Eventa )
             HalPutDmaAdapter((PADAPTER_OBJECT)Eventa);
           HalPutDmaAdapter((PADAPTER_OBJECT)v15);
-          return v33;
+          return v31;
         }
-        v34 = 1;
+        v32 = 1;
       }
       else
       {
-        v34 = 0;
+        v32 = 0;
       }
       IopResetEvent((__int64)v15);
-      LOBYTE(v35) = v34 ^ 1;
-      LOBYTE(v36) = RelatedDeviceObject->StackSize;
-      v37 = (IRP *)IopAllocateIrpExReturn((__int64)RelatedDeviceObject, v36, v35, retaddr);
-      v38 = v37;
-      Irp = v37;
-      if ( v37 )
+      LOBYTE(v33) = v32 ^ 1;
+      LOBYTE(v34) = RelatedDeviceObject->StackSize;
+      v35 = (IRP *)IopAllocateIrpExReturn((__int64)RelatedDeviceObject, v34, v33, retaddr);
+      v36 = v35;
+      Irp = v35;
+      if ( v35 )
       {
-        v37->Tail.Overlay.OriginalFileObject = v15;
-        v37->Tail.Overlay.Thread = CurrentThread;
-        v37->RequestorMode = PreviousMode;
-        v37->UserEvent = Eventa;
-        v37->UserIosb = IoStatusBlock;
-        v37->Overlay.AllocationSize = v56;
-        v37->Overlay.AsynchronousParameters.UserApcContext = v57;
-        CurrentStackLocation = v37->Tail.Overlay.CurrentStackLocation;
+        v35->Tail.Overlay.OriginalFileObject = v15;
+        v35->Tail.Overlay.Thread = CurrentThread;
+        v35->RequestorMode = PreviousMode;
+        v35->UserEvent = Eventa;
+        v35->UserIosb = IoStatusBlock;
+        v35->Overlay.AllocationSize = v54;
+        v35->Overlay.AsynchronousParameters.UserApcContext = v55;
+        CurrentStackLocation = v35->Tail.Overlay.CurrentStackLocation;
         *(_WORD *)&CurrentStackLocation[-1].MajorFunction = 273;
         CurrentStackLocation[-1].FileObject = v15;
         CurrentStackLocation[-1].Flags = 0;
-        v40 = 0;
+        v38 = 0;
         if ( FailImmediately )
         {
           CurrentStackLocation[-1].Flags = 1;
-          v40 = 1;
+          v38 = 1;
         }
         if ( ExclusiveLock )
-          CurrentStackLocation[-1].Flags = v40 | 2;
+          CurrentStackLocation[-1].Flags = v38 | 2;
         CurrentStackLocation[-1].Parameters.Create.Options = Key;
         CurrentStackLocation[-1].Parameters.Read.ByteOffset.QuadPart = QuadPart;
         PoolWithQuota_4 = (CHAR *)IopVerifierExAllocatePoolWithQuota_4();
-        *(_QWORD *)PoolWithQuota_4 = v49;
-        v38->Tail.Overlay.AuxiliaryBuffer = PoolWithQuota_4;
+        *(_QWORD *)PoolWithQuota_4 = v47;
+        v36->Tail.Overlay.AuxiliaryBuffer = PoolWithQuota_4;
         CurrentStackLocation[-1].Parameters.WMI.ProviderId = (ULONG_PTR)PoolWithQuota_4;
-        return IopSynchronousServiceTail(RelatedDeviceObject, v38, (__int64)v15, 0, PreviousMode, v34, 2u);
+        return IopSynchronousServiceTail(RelatedDeviceObject, v36, (__int64)v15, 0, PreviousMode, v32, 2u);
       }
       else
       {

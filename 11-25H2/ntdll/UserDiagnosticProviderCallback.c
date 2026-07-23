@@ -6,7 +6,7 @@
  *     <none>
  */
 
-void __fastcall UserDiagnosticProviderCallback(__int64 a1, int a2)
+void __fastcall UserDiagnosticProviderCallback(LPCGUID a1, int a2)
 {
   if ( a2 == 1 )
   {

@@ -11,13 +11,15 @@
 
 __int64 __fastcall KsepGetLoadedModulesList(int **a1)
 {
-  unsigned int i; // ebx
+  ULONG i; // ebx
   int *Paged; // rax
   int *v4; // rdi
-  int SystemInformation; // eax
+  NTSTATUS v5; // eax
   int v6; // ebp
   unsigned int v7; // ebx
+  ULONG ReturnLength; // [rsp+30h] [rbp+8h] BYREF
 
+  ReturnLength = 0;
   if ( !a1 )
     return 3221225485LL;
   for ( i = 304; ; i = 296 * v6 + 8 )
@@ -26,18 +28,18 @@ __int64 __fastcall KsepGetLoadedModulesList(int **a1)
     v4 = Paged;
     if ( !Paged )
       return (unsigned int)-1073741670;
-    SystemInformation = ZwQuerySystemInformation(11LL, (__int64)Paged);
+    v5 = ZwQuerySystemInformation(SystemModuleInformation, Paged, i, &ReturnLength);
     v6 = *v4;
-    v7 = SystemInformation;
-    if ( SystemInformation >= 0 )
+    v7 = v5;
+    if ( v5 >= 0 )
       break;
-    if ( SystemInformation != -1073741820 )
+    if ( v5 != -1073741820 )
       goto LABEL_8;
     KsepPoolFreePaged(v4);
   }
   *a1 = v4;
 LABEL_8:
-  if ( SystemInformation < 0 )
+  if ( v5 < 0 )
     KsepPoolFreePaged(v4);
   return v7;
 }

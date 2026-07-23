@@ -1,5 +1,5 @@
 /*
- * XREFs of NtdllMessageWindowProc_A @ 0x180161970
+ * XREFs of NtdllMessageWindowProc_A @ 0x18015FD30
  * Callers:
  *     <none>
  * Callees:
@@ -9,5 +9,5 @@
 // attributes: thunk
 void __noreturn NtdllMessageWindowProc_A()
 {
-  off_1801E7158();
+  off_1801E6158();
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of CmpForceInvalidateAllHigherLayerKcbs @ 0x14060BBC0
+ * XREFs of CmpForceInvalidateAllHigherLayerKcbs @ 0x14060BC74
  * Callers:
- *     CmpTransMgrFreeVolatileData @ 0x1403FD614 (CmpTransMgrFreeVolatileData.c)
+ *     CmpTransMgrFreeVolatileData @ 0x1403FC4D4 (CmpTransMgrFreeVolatileData.c)
  * Callees:
- *     CmpEnumerateAllHigherLayerKcbs @ 0x1404F14AC (CmpEnumerateAllHigherLayerKcbs.c)
+ *     CmpEnumerateAllHigherLayerKcbs @ 0x1404D35A0 (CmpEnumerateAllHigherLayerKcbs.c)
  */
 
 __int64 __fastcall CmpForceInvalidateAllHigherLayerKcbs(__int64 a1, int a2, _QWORD *a3, _DWORD *a4)

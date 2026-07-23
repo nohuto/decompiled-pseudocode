@@ -1,23 +1,22 @@
 /*
- * XREFs of PspReturnResourceQuota @ 0x14024B468
+ * XREFs of PspReturnResourceQuota @ 0x14027BA78
  * Callers:
- *     PsReturnPoolQuota @ 0x14024B2D0 (PsReturnPoolQuota.c)
- *     ExAllocateHeapPool @ 0x1402ACDB0 (ExAllocateHeapPool.c)
- *     ExFreeHeapPool @ 0x1402B0E50 (ExFreeHeapPool.c)
- *     ExReturnPoolQuota @ 0x1402B4980 (ExReturnPoolQuota.c)
- *     IoFreeIrp @ 0x14031A520 (IoFreeIrp.c)
- *     IopFreeIrp @ 0x14031AC50 (IopFreeIrp.c)
- *     PsReturnProcessPagedPoolQuota @ 0x1404066F0 (PsReturnProcessPagedPoolQuota.c)
- *     PsReturnProcessNonPagedPoolQuota @ 0x14041B3B0 (PsReturnProcessNonPagedPoolQuota.c)
- *     ObpFreeObject @ 0x1408469C0 (ObpFreeObject.c)
- *     PsReturnSharedPoolQuota @ 0x14085A690 (PsReturnSharedPoolQuota.c)
- *     PspDereferenceQuotaBlock @ 0x1409D59C0 (PspDereferenceQuotaBlock.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ExReturnPoolQuota @ 0x14021ACC0 (ExReturnPoolQuota.c)
+ *     PsReturnPoolQuota @ 0x14027B8E0 (PsReturnPoolQuota.c)
+ *     IoFreeIrp @ 0x1402C30B0 (IoFreeIrp.c)
+ *     IopFreeIrp @ 0x1402C37E0 (IopFreeIrp.c)
+ *     ExFreeHeapPool @ 0x140359950 (ExFreeHeapPool.c)
+ *     PsReturnProcessPagedPoolQuota @ 0x1403C8EA0 (PsReturnProcessPagedPoolQuota.c)
+ *     PsReturnProcessNonPagedPoolQuota @ 0x14040EEF0 (PsReturnProcessNonPagedPoolQuota.c)
+ *     ObpFreeObject @ 0x140842C80 (ObpFreeObject.c)
+ *     PsReturnSharedPoolQuota @ 0x140856970 (PsReturnSharedPoolQuota.c)
+ *     PspDereferenceQuotaBlock @ 0x1409C57F0 (PspDereferenceQuotaBlock.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  * Callees:
- *     PspLockQuotaExpansion @ 0x14024B79C (PspLockQuotaExpansion.c)
- *     PspUnlockQuotaExpansion @ 0x14024C868 (PspUnlockQuotaExpansion.c)
- *     MmReturnPoolQuota @ 0x14024C8E0 (MmReturnPoolQuota.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
+ *     PspLockQuotaExpansion @ 0x14027BDAC (PspLockQuotaExpansion.c)
+ *     PspUnlockQuotaExpansion @ 0x14027CE78 (PspUnlockQuotaExpansion.c)
+ *     MmReturnPoolQuota @ 0x14027CEF0 (MmReturnPoolQuota.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall PspReturnResourceQuota(unsigned int a1, __int64 a2, __int64 a3, int a4)

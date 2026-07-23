@@ -1,7 +1,7 @@
 /*
- * XREFs of KiHeteroComputeThreadWorkloadProperties @ 0x1404301F0
+ * XREFs of KiHeteroComputeThreadWorkloadProperties @ 0x14041D220
  * Callers:
- *     KiCheckPreferredHeteroProcessor @ 0x14021EB80 (KiCheckPreferredHeteroProcessor.c)
+ *     KiCheckPreferredHeteroProcessor @ 0x140220510 (KiCheckPreferredHeteroProcessor.c)
  * Callees:
  *     <none>
  */

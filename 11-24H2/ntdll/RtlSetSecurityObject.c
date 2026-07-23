@@ -1,12 +1,25 @@
 /*
- * XREFs of RtlSetSecurityObject @ 0x1800C6EF0
+ * XREFs of RtlSetSecurityObject @ 0x1800BEAB0
  * Callers:
  *     <none>
  * Callees:
- *     RtlpSetSecurityObject @ 0x1800C6F30 (RtlpSetSecurityObject.c)
+ *     RtlpSetSecurityObject @ 0x1800BEAF0 (RtlpSetSecurityObject.c)
  */
 
-__int64 __fastcall RtlSetSecurityObject(int a1, int a2, int a3, __int64 a4, __int64 a5)
+NTSTATUS __cdecl RtlSetSecurityObject(
+        SECURITY_INFORMATION SecurityInformation,
+        PSECURITY_DESCRIPTOR ModificationDescriptor,
+        PSECURITY_DESCRIPTOR *ObjectsSecurityDescriptor,
+        PGENERIC_MAPPING GenericMapping,
+        HANDLE TokenHandle)
 {
-  return RtlpSetSecurityObject(0, a1, a2, a3, 0, 0, a4, a5);
+  return RtlpSetSecurityObject(
+           0,
+           SecurityInformation,
+           (_DWORD)ModificationDescriptor,
+           (_DWORD)ObjectsSecurityDescriptor,
+           0,
+           0,
+           (__int64)GenericMapping,
+           (__int64)TokenHandle);
 }

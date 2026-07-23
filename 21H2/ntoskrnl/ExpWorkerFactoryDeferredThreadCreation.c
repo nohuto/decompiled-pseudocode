@@ -1,12 +1,12 @@
 /*
- * XREFs of ExpWorkerFactoryDeferredThreadCreation @ 0x1402CBED4
+ * XREFs of ExpWorkerFactoryDeferredThreadCreation @ 0x14024A624
  * Callers:
- *     ExpWorkerFactoryManagerThread @ 0x1403B75A0 (ExpWorkerFactoryManagerThread.c)
+ *     ExpWorkerFactoryManagerThread @ 0x1403B7710 (ExpWorkerFactoryManagerThread.c)
  * Callees:
- *     KeAcquireInStackQueuedSpinLock @ 0x14022EE10 (KeAcquireInStackQueuedSpinLock.c)
- *     ExpWorkerFactoryCheckCreate @ 0x140242EF0 (ExpWorkerFactoryCheckCreate.c)
- *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
- *     RtlpInterlockedFlushSList @ 0x1404079B0 (RtlpInterlockedFlushSList.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402D3660 (KeAcquireInStackQueuedSpinLock.c)
+ *     ExpWorkerFactoryCheckCreate @ 0x1402E7740 (ExpWorkerFactoryCheckCreate.c)
+ *     ObfDereferenceObjectWithTag @ 0x140355E90 (ObfDereferenceObjectWithTag.c)
+ *     RtlpInterlockedFlushSList @ 0x140407B90 (RtlpInterlockedFlushSList.c)
  */
 
 LONG_PTR ExpWorkerFactoryDeferredThreadCreation()
@@ -28,7 +28,7 @@ LONG_PTR ExpWorkerFactoryDeferredThreadCreation()
       v1 = (_QWORD *)*v1;
       KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)v2[2], &LockHandle);
       *((_DWORD *)v2 + 78) &= ~8u;
-      ExpWorkerFactoryCheckCreate((char *)v2, &LockHandle, 1);
+      ExpWorkerFactoryCheckCreate(v2, &LockHandle);
       result = ObfDereferenceObjectWithTag(v2, 0x746C6644u);
     }
     while ( v1 );

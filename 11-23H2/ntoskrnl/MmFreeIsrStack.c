@@ -1,12 +1,12 @@
 /*
- * XREFs of MmFreeIsrStack @ 0x140A3C778
+ * XREFs of MmFreeIsrStack @ 0x140A3CA28
  * Callers:
- *     KiFreeProcessorStacks @ 0x14056BD4C (KiFreeProcessorStacks.c)
+ *     KiFreeProcessorStacks @ 0x14056C40C (KiFreeProcessorStacks.c)
  * Callees:
- *     MiReleasePtes @ 0x1402CB8E0 (MiReleasePtes.c)
- *     MiGetPteAddress @ 0x1402DE00C (MiGetPteAddress.c)
- *     KasanMarkAddressValid @ 0x1405652A0 (KasanMarkAddressValid.c)
- *     MmFreeIndependentPages @ 0x14087FBB0 (MmFreeIndependentPages.c)
+ *     MiReleasePtes @ 0x1402CBB70 (MiReleasePtes.c)
+ *     MiGetPteAddress @ 0x1402DE29C (MiGetPteAddress.c)
+ *     KasanMarkAddressValid @ 0x140565960 (KasanMarkAddressValid.c)
+ *     MmFreeIndependentPages @ 0x14087FDF0 (MmFreeIndependentPages.c)
  */
 
 unsigned __int64 __fastcall MmFreeIsrStack(__int64 a1)

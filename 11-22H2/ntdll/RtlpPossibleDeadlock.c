@@ -18,9 +18,9 @@ void __fastcall RtlpPossibleDeadlock(unsigned __int64 a1)
 {
   __int64 v2; // rdi
   unsigned int v3; // edx
-  NTSTATUS v4; // eax
+  int v4; // eax
   __int64 v5; // rdi
-  __int64 (__fastcall *v6)(__int64); // rcx
+  LONG (__cdecl *v6)(PEXCEPTION_POINTERS); // rcx
   signed __int32 v7; // ecx
   int v8; // eax
   NTSTATUS InformationProcess; // eax
@@ -38,14 +38,14 @@ void __fastcall RtlpPossibleDeadlock(unsigned __int64 a1)
   v3 = `RtlpGetCookieValue'::`2'::CookieValue;
   if ( !`RtlpGetCookieValue'::`2'::CookieValue )
   {
-    v4 = NtQueryInformationProcess((HANDLE)0xFFFFFFFFFFFFFFFFLL, (PROCESSINFOCLASS)36, &ProcessInformation, 4u, 0LL);
+    v4 = NtQueryInformationProcess((HANDLE)0xFFFFFFFFFFFFFFFFLL, ProcessCookie, &ProcessInformation, 4u, 0LL);
     if ( v4 < 0 )
-      RtlRaiseStatus((unsigned int)v4);
+      RtlRaiseStatus(v4);
     v3 = ProcessInformation;
     `RtlpGetCookieValue'::`2'::CookieValue = ProcessInformation;
   }
   v5 = __ROR8__(v2, 64 - (v3 & 0x3F));
-  v6 = (__int64 (__fastcall *)(__int64))(v5 ^ v3);
+  v6 = (LONG (__cdecl *)(PEXCEPTION_POINTERS))(v5 ^ v3);
   if ( v3 == v5 )
     v6 = RtlUnhandledExceptionFilter;
   v14[1] = v6;
@@ -68,7 +68,7 @@ void __fastcall RtlpPossibleDeadlock(unsigned __int64 a1)
     {
       InformationProcess = NtQueryInformationProcess(
                              (HANDLE)0xFFFFFFFFFFFFFFFFLL,
-                             (PROCESSINFOCLASS)37,
+                             ProcessImageInformation,
                              v15,
                              0x40u,
                              0LL);

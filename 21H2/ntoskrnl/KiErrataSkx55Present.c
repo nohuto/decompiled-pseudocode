@@ -1,8 +1,8 @@
 /*
- * XREFs of KiErrataSkx55Present @ 0x140A10FC0
+ * XREFs of KiErrataSkx55Present @ 0x140A11FC0
  * Callers:
- *     sub_1403DDE50 @ 0x1403DDE50 (sub_1403DDE50.c)
- *     FsRtlMdlReadCompleteDevEx @ 0x1409F8010 (FsRtlMdlReadCompleteDevEx.c)
+ *     sub_1403DDFC0 @ 0x1403DDFC0 (sub_1403DDFC0.c)
+ *     FsRtlMdlReadCompleteDevEx @ 0x1409F9010 (FsRtlMdlReadCompleteDevEx.c)
  * Callees:
  *     <none>
  */

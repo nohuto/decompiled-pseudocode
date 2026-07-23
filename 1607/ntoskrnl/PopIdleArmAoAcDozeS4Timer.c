@@ -1,17 +1,17 @@
 /*
- * XREFs of PopIdleArmAoAcDozeS4Timer @ 0x14020D4E4
+ * XREFs of PopIdleArmAoAcDozeS4Timer @ 0x14020D310
  * Callers:
- *     PopUmpoProcessPowerMessage @ 0x1403F7C58 (PopUmpoProcessPowerMessage.c)
- *     PopIdleCsStateChanged @ 0x140674FAC (PopIdleCsStateChanged.c)
- *     PopUpdateSmartUserPresencePredictions @ 0x140675020 (PopUpdateSmartUserPresencePredictions.c)
+ *     PopUmpoProcessPowerMessage @ 0x1403F6B18 (PopUmpoProcessPowerMessage.c)
+ *     PopIdleCsStateChanged @ 0x140675090 (PopIdleCsStateChanged.c)
+ *     PopUpdateSmartUserPresencePredictions @ 0x140675104 (PopUpdateSmartUserPresencePredictions.c)
  * Callees:
- *     KeReleaseSpinLock @ 0x1400E9A70 (KeReleaseSpinLock.c)
- *     KeSetTimer2 @ 0x1400EB320 (KeSetTimer2.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x1400EFE30 (KeAcquireSpinLockRaiseToDpc.c)
- *     PopIdleChooseDozeS4Time @ 0x14020D5AC (PopIdleChooseDozeS4Time.c)
- *     PopFilterCapabilities @ 0x1403F3CF4 (PopFilterCapabilities.c)
- *     PopIdleIsHibernateEnabled @ 0x1403F56BC (PopIdleIsHibernateEnabled.c)
- *     PopTraceSystemIdleS0LowPowerDozeTimerArmed @ 0x140672878 (PopTraceSystemIdleS0LowPowerDozeTimerArmed.c)
+ *     KeSetTimer2 @ 0x1400E9190 (KeSetTimer2.c)
+ *     KeReleaseSpinLock @ 0x1400EB600 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1400EDCB0 (KeAcquireSpinLockRaiseToDpc.c)
+ *     PopIdleChooseDozeS4Time @ 0x14020D3D8 (PopIdleChooseDozeS4Time.c)
+ *     PopFilterCapabilities @ 0x1403F2BB8 (PopFilterCapabilities.c)
+ *     PopIdleIsHibernateEnabled @ 0x1403F4580 (PopIdleIsHibernateEnabled.c)
+ *     PopTraceSystemIdleS0LowPowerDozeTimerArmed @ 0x14067295C (PopTraceSystemIdleS0LowPowerDozeTimerArmed.c)
  */
 
 void PopIdleArmAoAcDozeS4Timer()
@@ -29,12 +29,12 @@ void PopIdleArmAoAcDozeS4Timer()
   {
     v1 = KeAcquireSpinLockRaiseToDpc(&PopIdleAoAcDozeS4Lock);
     v2 = v4;
-    if ( !byte_1403033C4 )
+    if ( !byte_140303304 )
     {
       KeSetTimer2((__int64)&PopIdleAoAcDozeS4Timer, v5, 0LL, 0LL);
       v0 = 1;
-      dword_1403033C8 = v2;
-      byte_1403033C4 = 1;
+      dword_140303308 = v2;
+      byte_140303304 = 1;
     }
     KeReleaseSpinLock(&PopIdleAoAcDozeS4Lock, v1);
     if ( v0 )

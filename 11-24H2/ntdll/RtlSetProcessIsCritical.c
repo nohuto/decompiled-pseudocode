@@ -1,25 +1,25 @@
 /*
- * XREFs of RtlSetProcessIsCritical @ 0x180145BC0
+ * XREFs of RtlSetProcessIsCritical @ 0x180143F70
  * Callers:
  *     <none>
  * Callees:
- *     NtQueryInformationProcess @ 0x180161FB0 (NtQueryInformationProcess.c)
- *     NtSetInformationProcess @ 0x180162010 (NtSetInformationProcess.c)
+ *     NtQueryInformationProcess @ 0x180160370 (NtQueryInformationProcess.c)
+ *     NtSetInformationProcess @ 0x1801603D0 (NtSetInformationProcess.c)
  */
 
-NTSTATUS __fastcall RtlSetProcessIsCritical(unsigned __int8 a1, _BYTE *a2, char a3)
+NTSTATUS __cdecl RtlSetProcessIsCritical(BOOLEAN NewValue, PBOOLEAN OldValue, BOOLEAN CheckFlag)
 {
   int v4; // edi
   NTSTATUS result; // eax
   int ProcessInformation; // [rsp+50h] [rbp+18h] BYREF
 
   ProcessInformation = 0;
-  v4 = a1;
-  if ( a2 )
-    *a2 = 0;
-  if ( a3 && (NtCurrentTeb()->ProcessEnvironmentBlock->NtGlobalFlag & 0x100000) == 0 )
+  v4 = NewValue;
+  if ( OldValue )
+    *OldValue = 0;
+  if ( CheckFlag && (NtCurrentTeb()->ProcessEnvironmentBlock->NtGlobalFlag & 0x100000) == 0 )
     return -1073741823;
-  if ( a2 )
+  if ( OldValue )
   {
     result = NtQueryInformationProcess(
                (HANDLE)0xFFFFFFFFFFFFFFFFLL,
@@ -29,8 +29,8 @@ NTSTATUS __fastcall RtlSetProcessIsCritical(unsigned __int8 a1, _BYTE *a2, char 
                0LL);
     if ( result < 0 )
       return result;
-    *a2 = ProcessInformation;
+    *OldValue = ProcessInformation;
   }
   ProcessInformation = v4;
-  return NtSetInformationProcess(-1LL, 29LL, &ProcessInformation);
+  return NtSetInformationProcess((HANDLE)0xFFFFFFFFFFFFFFFFLL, ProcessBreakOnTermination, &ProcessInformation, 4u);
 }

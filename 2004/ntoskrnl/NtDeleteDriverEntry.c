@@ -13,32 +13,32 @@
  *     IoSetEnvironmentVariableEx @ 0x140896ADC (IoSetEnvironmentVariableEx.c)
  */
 
-__int64 __fastcall NtDeleteDriverEntry(unsigned int a1)
+NTSTATUS __cdecl NtDeleteDriverEntry(ULONG Id)
 {
   KPROCESSOR_MODE PreviousMode; // dl
   struct _KTHREAD *CurrentThread; // rax
-  unsigned int EnvironmentVariable; // edi
+  NTSTATUS EnvironmentVariable; // edi
   int v6; // [rsp+30h] [rbp-38h] BYREF
   size_t Dst[3]; // [rsp+38h] [rbp-30h] BYREF
 
   if ( dword_140C19590 != 2 )
-    return 3221225474LL;
-  if ( a1 > 0xFFFF )
-    return 3221225485LL;
+    return -1073741822;
+  if ( Id > 0xFFFF )
+    return -1073741811;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   if ( PreviousMode && !SeSinglePrivilegeCheck(SeSystemEnvironmentPrivilege, PreviousMode) )
-    return 3221225569LL;
+    return -1073741727;
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
   ExAcquireFastMutexUnsafe(&ExpEnvironmentLock);
-  swprintf_s((wchar_t *)Dst, 0xBuLL, L"Driver%04X", a1);
+  swprintf_s((wchar_t *)Dst, 0xBuLL, L"Driver%04X", Id);
   v6 = 0;
   EnvironmentVariable = IoGetEnvironmentVariableEx(Dst, (__int64)&EfiDriverVariablesGuid, 0LL, &v6, 0LL);
   if ( EnvironmentVariable != -1073741568 )
     goto LABEL_11;
-  if ( ((2 * ((a1 | (2 * a1)) & 0xC4444444)) & a1) != 0 )
+  if ( ((2 * ((Id | (2 * Id)) & 0xC4444444)) & Id) != 0 )
   {
-    swprintf_s((wchar_t *)Dst, 0xBuLL, L"Driver%04x", a1);
+    swprintf_s((wchar_t *)Dst, 0xBuLL, L"Driver%04x", Id);
     v6 = 0;
     EnvironmentVariable = IoGetEnvironmentVariableEx(Dst, (__int64)&EfiDriverVariablesGuid, 0LL, &v6, 0LL);
 LABEL_11:

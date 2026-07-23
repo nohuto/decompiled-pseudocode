@@ -1,18 +1,18 @@
 /*
- * XREFs of CcZeroData @ 0x14046D2D0
+ * XREFs of CcZeroData @ 0x140466A50
  * Callers:
- *     FsRtlPrepareMdlWriteDev @ 0x14078DB20 (FsRtlPrepareMdlWriteDev.c)
- *     FsRtlCopyWrite @ 0x140ABE620 (FsRtlCopyWrite.c)
+ *     FsRtlPrepareMdlWriteDev @ 0x140790650 (FsRtlPrepareMdlWriteDev.c)
+ *     FsRtlCopyWrite @ 0x140AC06C0 (FsRtlCopyWrite.c)
  * Callees:
- *     KeRcuReadUnlock @ 0x1402206B0 (KeRcuReadUnlock.c)
- *     IoGetRelatedDeviceObject @ 0x14026CA30 (IoGetRelatedDeviceObject.c)
- *     RtlRaiseStatus @ 0x1402E84A0 (RtlRaiseStatus.c)
- *     CcDereferencePartition @ 0x1403843F0 (CcDereferencePartition.c)
- *     KeRcuReadLock @ 0x140384590 (KeRcuReadLock.c)
- *     CcReferencePartitionFromFileObject @ 0x14038462C (CcReferencePartitionFromFileObject.c)
- *     CcFlushCachePriv @ 0x140398300 (CcFlushCachePriv.c)
- *     CcZeroDataInCache @ 0x14039EF58 (CcZeroDataInCache.c)
- *     CcZeroDataOnDisk @ 0x14046D690 (CcZeroDataOnDisk.c)
+ *     KeRcuReadUnlock @ 0x140222040 (KeRcuReadUnlock.c)
+ *     IoGetRelatedDeviceObject @ 0x14026BFA0 (IoGetRelatedDeviceObject.c)
+ *     RtlRaiseStatus @ 0x1402CA4E0 (RtlRaiseStatus.c)
+ *     CcDereferencePartition @ 0x1403861A0 (CcDereferencePartition.c)
+ *     KeRcuReadLock @ 0x140386340 (KeRcuReadLock.c)
+ *     CcReferencePartitionFromFileObject @ 0x1403863DC (CcReferencePartitionFromFileObject.c)
+ *     CcFlushCachePriv @ 0x14039A060 (CcFlushCachePriv.c)
+ *     CcZeroDataInCache @ 0x1403A0CB8 (CcZeroDataInCache.c)
+ *     CcZeroDataOnDisk @ 0x140466E10 (CcZeroDataOnDisk.c)
  */
 
 BOOLEAN __stdcall CcZeroData(
@@ -34,7 +34,7 @@ BOOLEAN __stdcall CcZeroData(
   LONGLONG v17; // [rsp+48h] [rbp-60h] BYREF
   __int64 v18; // [rsp+50h] [rbp-58h]
   LONGLONG v19; // [rsp+58h] [rbp-50h]
-  __int128 v20[4]; // [rsp+60h] [rbp-48h] BYREF
+  NTSTATUS Status[4]; // [rsp+60h] [rbp-48h] BYREF
   unsigned int SectorSize; // [rsp+B0h] [rbp+8h]
   _QWORD *p_QuadPart; // [rsp+B8h] [rbp+10h] BYREF
   PLARGE_INTEGER v23; // [rsp+C0h] [rbp+18h]
@@ -66,7 +66,7 @@ BOOLEAN __stdcall CcZeroData(
     {
       if ( (v12 & (unsigned int)v17) != 0 )
       {
-        v20[0] = 0LL;
+        *(_OWORD *)Status = 0LL;
         v17 = v12 + QuadPart;
         LODWORD(v17) = ~v12 & (v12 + QuadPart);
         v13 = p_QuadPart;
@@ -77,9 +77,9 @@ LABEL_19:
           v10 = v18;
           goto LABEL_35;
         }
-        CcFlushCachePriv(FileObject->SectionObjectPointer, (__int64)v13, v14, 0LL, 0, v20, 0LL);
-        if ( SLODWORD(v20[0]) < 0 )
-          RtlRaiseStatus(v20[0]);
+        CcFlushCachePriv(FileObject->SectionObjectPointer, (__int64)v13, v14, 0LL, 0, (__int128 *)Status, 0LL);
+        if ( Status[0] < 0 )
+          RtlRaiseStatus(Status[0]);
         QuadPart = v17;
       }
     }
@@ -95,9 +95,9 @@ LABEL_19:
       {
         if ( v9 > 0x200000 )
         {
-          *(_QWORD *)&v20[0] = QuadPart + 0x200000 + v12;
-          LODWORD(v20[0]) = ~v12 & (QuadPart + 0x200000 + v12);
-          LODWORD(v9) = LODWORD(v20[0]) - v17;
+          *(_QWORD *)Status = QuadPart + 0x200000 + v12;
+          Status[0] = ~v12 & (QuadPart + 0x200000 + v12);
+          LODWORD(v9) = Status[0] - v17;
         }
       }
       else

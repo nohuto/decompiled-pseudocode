@@ -43,6 +43,6 @@ void __cdecl __noreturn _report_gsfailure(uintptr_t StackCookie)
   dword_1801CF868 = 1;
   unk_1801CF870 = 2LL;
   HandlerData[2] = (PVOID)_security_cookie_complement;
-  RtlUnhandledExceptionFilter(&off_180176310);
-  ZwTerminateProcess(-1LL, 3221226505LL);
+  RtlUnhandledExceptionFilter((PEXCEPTION_POINTERS)&ExceptionPointers);
+  ZwTerminateProcess((HANDLE)0xFFFFFFFFFFFFFFFFLL, -1073740791);
 }

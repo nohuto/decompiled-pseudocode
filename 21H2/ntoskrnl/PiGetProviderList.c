@@ -1,13 +1,13 @@
 /*
- * XREFs of PiGetProviderList @ 0x140741958
+ * XREFs of PiGetProviderList @ 0x140741B18
  * Callers:
- *     IopSortRelationListForRemove @ 0x14073720C (IopSortRelationListForRemove.c)
- *     PipCheckForUnsatisfiedDependencies @ 0x140741908 (PipCheckForUnsatisfiedDependencies.c)
- *     PipNotifyDeviceDependencyList @ 0x14074B4FC (PipNotifyDeviceDependencyList.c)
- *     PiQueryPowerDependencyRelations @ 0x14074CA28 (PiQueryPowerDependencyRelations.c)
- *     PipCheckIfAllProvidersHaveDevnodes @ 0x14074CAE0 (PipCheckIfAllProvidersHaveDevnodes.c)
- *     PnpGetDeviceDependencyList @ 0x14089E0D4 (PnpGetDeviceDependencyList.c)
- *     IopCheckIfMergeRequired @ 0x1408B2604 (IopCheckIfMergeRequired.c)
+ *     IopSortRelationListForRemove @ 0x1407373CC (IopSortRelationListForRemove.c)
+ *     PipCheckForUnsatisfiedDependencies @ 0x140741AC8 (PipCheckForUnsatisfiedDependencies.c)
+ *     PipNotifyDeviceDependencyList @ 0x14074B6BC (PipNotifyDeviceDependencyList.c)
+ *     PiQueryPowerDependencyRelations @ 0x14074CBE8 (PiQueryPowerDependencyRelations.c)
+ *     PipCheckIfAllProvidersHaveDevnodes @ 0x14074CCA0 (PipCheckIfAllProvidersHaveDevnodes.c)
+ *     PnpGetDeviceDependencyList @ 0x14089E234 (PnpGetDeviceDependencyList.c)
+ *     IopCheckIfMergeRequired @ 0x1408B2764 (IopCheckIfMergeRequired.c)
  * Callees:
  *     <none>
  */

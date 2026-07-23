@@ -1,8 +1,8 @@
 /*
- * XREFs of TppItePush @ 0x180063FD4
+ * XREFs of TppItePush @ 0x180063FC4
  * Callers:
- *     TppCancelTimer @ 0x18003C268 (TppCancelTimer.c)
- *     TppBarrierAdjust @ 0x180063E84 (TppBarrierAdjust.c)
+ *     TppCancelTimer @ 0x18003C258 (TppCancelTimer.c)
+ *     TppBarrierAdjust @ 0x180063E74 (TppBarrierAdjust.c)
  * Callees:
  *     <none>
  */

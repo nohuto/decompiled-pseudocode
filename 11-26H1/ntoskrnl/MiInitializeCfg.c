@@ -1,10 +1,10 @@
 /*
- * XREFs of MiInitializeCfg @ 0x140CFDF40
+ * XREFs of MiInitializeCfg @ 0x140D042E8
  * Callers:
- *     MiInitSystem @ 0x140CF15C4 (MiInitSystem.c)
+ *     MiInitSystem @ 0x140CF7944 (MiInitSystem.c)
  * Callees:
- *     MiSectionControlArea @ 0x14038A9B0 (MiSectionControlArea.c)
- *     MmCreateSection @ 0x1409B8FA0 (MmCreateSection.c)
+ *     MiSectionControlArea @ 0x14038C760 (MiSectionControlArea.c)
+ *     MmCreateSection @ 0x140989F80 (MmCreateSection.c)
  */
 
 __int64 MiInitializeCfg()
@@ -22,8 +22,8 @@ __int64 MiInitializeCfg()
   result = MmCreateSection((int)&v5, 983071LL, 0, &v6, 4, 0x4000000u, 0LL, 0LL);
   if ( (int)result >= 0 )
   {
-    *(_QWORD *)&stru_140E2D150.WaitBlockFill11[16] = v5;
-    stru_140E2D150.WaitBlock[0].Thread = (struct _KTHREAD *)MiSectionControlArea(v5);
+    *(_QWORD *)&stru_140E2D2D0.WaitBlockFill11[16] = v5;
+    stru_140E2D2D0.WaitBlock[0].Thread = (struct _KTHREAD *)MiSectionControlArea(v5);
     for ( i = 0; !i; i = 1 )
     {
       v6 = 0x4000000LL;

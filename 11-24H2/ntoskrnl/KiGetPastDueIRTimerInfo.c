@@ -1,8 +1,8 @@
 /*
- * XREFs of KiGetPastDueIRTimerInfo @ 0x1405C4F88
+ * XREFs of KiGetPastDueIRTimerInfo @ 0x1405C2650
  * Callers:
- *     KeResumeClockTimerFromIdle @ 0x1405B9944 (KeResumeClockTimerFromIdle.c)
- *     KiGetNextTimerExpirationDueTime @ 0x1405BBBB0 (KiGetNextTimerExpirationDueTime.c)
+ *     KeResumeClockTimerFromIdle @ 0x1405B6F84 (KeResumeClockTimerFromIdle.c)
+ *     KiGetNextTimerExpirationDueTime @ 0x1405B91E0 (KiGetNextTimerExpirationDueTime.c)
  * Callees:
  *     <none>
  */
@@ -24,15 +24,15 @@ __int64 __fastcall KiGetPastDueIRTimerInfo(unsigned __int64 a1, char a2, _BYTE *
   v7 = 23;
   if ( a2 && (v8 = 0, ExAusterityResilientTimersEnabled) || (v8 = 1, ExAusterityResilientTimersEnabled) )
   {
-    v5 = qword_140F220E0;
-    v6 = (unsigned __int64)&unk_140F220D0;
+    v5 = qword_140F22280;
+    v6 = (unsigned __int64)&unk_140F22270;
     v7 = 6;
   }
-  if ( v8 && qword_140F220C8 < v5 )
+  if ( v8 && qword_140F22268 < v5 )
   {
     v7 = 5;
-    v6 = (unsigned __int64)&unk_140F220B8;
-    v5 = qword_140F220C8;
+    v6 = (unsigned __int64)&unk_140F22258;
+    v5 = qword_140F22268;
   }
   if ( a1 >= v5 )
   {

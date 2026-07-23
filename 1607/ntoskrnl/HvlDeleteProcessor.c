@@ -1,13 +1,13 @@
 /*
- * XREFs of HvlDeleteProcessor @ 0x1406203EC
+ * XREFs of HvlDeleteProcessor @ 0x1406204A0
  * Callers:
- *     KiStartDynamicProcessor @ 0x14064F040 (KiStartDynamicProcessor.c)
+ *     KiStartDynamicProcessor @ 0x14064F124 (KiStartDynamicProcessor.c)
  *     KeStartAllProcessors @ 0x140792860 (KeStartAllProcessors.c)
  * Callees:
- *     MmUnmapIoSpace @ 0x14009B4B0 (MmUnmapIoSpace.c)
- *     HvlpFreeOverlayPages @ 0x140112194 (HvlpFreeOverlayPages.c)
- *     HvlpGetRegister64 @ 0x1401C13BC (HvlpGetRegister64.c)
- *     HvlpSetRegister64 @ 0x1401C1460 (HvlpSetRegister64.c)
+ *     MmUnmapIoSpace @ 0x14009ACB0 (MmUnmapIoSpace.c)
+ *     HvlpFreeOverlayPages @ 0x1401126F8 (HvlpFreeOverlayPages.c)
+ *     HvlpGetRegister64 @ 0x1401C12A0 (HvlpGetRegister64.c)
+ *     HvlpSetRegister64 @ 0x1401C1344 (HvlpSetRegister64.c)
  *     MmFreeIndependentPages @ 0x1403E1F14 (MmFreeIndependentPages.c)
  */
 

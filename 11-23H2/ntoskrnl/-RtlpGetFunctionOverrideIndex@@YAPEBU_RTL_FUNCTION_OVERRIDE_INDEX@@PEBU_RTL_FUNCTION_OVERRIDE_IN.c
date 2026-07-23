@@ -1,8 +1,8 @@
 /*
- * XREFs of ?RtlpGetFunctionOverrideIndex@@YAPEBU_RTL_FUNCTION_OVERRIDE_INDEX@@PEBU_RTL_FUNCTION_OVERRIDE_INFORMATION@@K@Z @ 0x14067BB28
+ * XREFs of ?RtlpGetFunctionOverrideIndex@@YAPEBU_RTL_FUNCTION_OVERRIDE_INDEX@@PEBU_RTL_FUNCTION_OVERRIDE_INFORMATION@@K@Z @ 0x14067C078
  * Callers:
- *     RtlApplyFunctionOverrideFixups @ 0x14067BB50 (RtlApplyFunctionOverrideFixups.c)
- *     RtlDoesRequireFunctionOverrideFixups @ 0x14067BD68 (RtlDoesRequireFunctionOverrideFixups.c)
+ *     RtlApplyFunctionOverrideFixups @ 0x14067C0A0 (RtlApplyFunctionOverrideFixups.c)
+ *     RtlDoesRequireFunctionOverrideFixups @ 0x14067C2B8 (RtlDoesRequireFunctionOverrideFixups.c)
  * Callees:
  *     <none>
  */

@@ -1,9 +1,9 @@
 /*
- * XREFs of KiInitializeHresetSupport @ 0x140BF5E80
+ * XREFs of KiInitializeHresetSupport @ 0x140BFBE80
  * Callers:
- *     KiSetFeatureBits @ 0x140BF74E8 (KiSetFeatureBits.c)
+ *     KiSetFeatureBits @ 0x140BFD4E8 (KiSetFeatureBits.c)
  * Callees:
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall KiInitializeHresetSupport(__int64 a1)

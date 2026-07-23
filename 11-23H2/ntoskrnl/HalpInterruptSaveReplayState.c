@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpInterruptSaveReplayState @ 0x140A97CFC
+ * XREFs of HalpInterruptSaveReplayState @ 0x140A97B6C
  * Callers:
- *     HalpDpGetInterruptReplayState @ 0x140A97340 (HalpDpGetInterruptReplayState.c)
+ *     HalpDpGetInterruptReplayState @ 0x140A971B0 (HalpDpGetInterruptReplayState.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     HalpInterruptSetProblemEx @ 0x14051AA08 (HalpInterruptSetProblemEx.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     HalpInterruptSetProblemEx @ 0x14051AF58 (HalpInterruptSetProblemEx.c)
  */
 
 __int64 __fastcall HalpInterruptSaveReplayState(__int64 a1)

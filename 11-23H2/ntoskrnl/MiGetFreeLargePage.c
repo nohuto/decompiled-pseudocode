@@ -1,13 +1,13 @@
 /*
- * XREFs of MiGetFreeLargePage @ 0x1402D8720
+ * XREFs of MiGetFreeLargePage @ 0x1402D89B0
  * Callers:
- *     MiGetFreeLargePagesSearchTypes @ 0x1402D8410 (MiGetFreeLargePagesSearchTypes.c)
+ *     MiGetFreeLargePagesSearchTypes @ 0x1402D86A0 (MiGetFreeLargePagesSearchTypes.c)
  * Callees:
- *     MiSearchNumaNodeTable @ 0x14026EAD0 (MiSearchNumaNodeTable.c)
- *     MiGetPfnChannel @ 0x1402871D0 (MiGetPfnChannel.c)
- *     MiUnlinkNodeLargePageHelper @ 0x1402D89C0 (MiUnlinkNodeLargePageHelper.c)
- *     MiBeginPageAccessor @ 0x1402E8034 (MiBeginPageAccessor.c)
- *     MiGetPfnPageSizeIndex @ 0x1402E88E0 (MiGetPfnPageSizeIndex.c)
+ *     MiSearchNumaNodeTable @ 0x14026ED60 (MiSearchNumaNodeTable.c)
+ *     MiGetPfnChannel @ 0x140287460 (MiGetPfnChannel.c)
+ *     MiUnlinkNodeLargePageHelper @ 0x1402D8C50 (MiUnlinkNodeLargePageHelper.c)
+ *     MiBeginPageAccessor @ 0x1402E82C4 (MiBeginPageAccessor.c)
+ *     MiGetPfnPageSizeIndex @ 0x1402E8B70 (MiGetPfnPageSizeIndex.c)
  */
 
 __int64 __fastcall MiGetFreeLargePage(__int64 a1)

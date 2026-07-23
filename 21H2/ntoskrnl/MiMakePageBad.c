@@ -1,16 +1,16 @@
 /*
- * XREFs of MiMakePageBad @ 0x140563934
+ * XREFs of MiMakePageBad @ 0x140563B74
  * Callers:
- *     MiScrubLargeMappedPage @ 0x140563A88 (MiScrubLargeMappedPage.c)
- *     MiScrubNode @ 0x14056404C (MiScrubNode.c)
- *     MiScrubProcessPhysicalPages @ 0x1408D6640 (MiScrubProcessPhysicalPages.c)
+ *     MiScrubLargeMappedPage @ 0x140563CC8 (MiScrubLargeMappedPage.c)
+ *     MiScrubNode @ 0x14056428C (MiScrubNode.c)
+ *     MiScrubProcessPhysicalPages @ 0x1408D67A0 (MiScrubProcessPhysicalPages.c)
  * Callees:
- *     MiAcquireNonPagedResources @ 0x1402E5C90 (MiAcquireNonPagedResources.c)
- *     MiLockPageInline @ 0x1402FFE30 (MiLockPageInline.c)
- *     MiIsPageOnBadList @ 0x14030356C (MiIsPageOnBadList.c)
- *     MiInsertPageInList @ 0x140326800 (MiInsertPageInList.c)
+ *     MiAcquireNonPagedResources @ 0x140296FE0 (MiAcquireNonPagedResources.c)
+ *     MiLockPageInline @ 0x14030AB80 (MiLockPageInline.c)
+ *     MiIsPageOnBadList @ 0x14030E2BC (MiIsPageOnBadList.c)
+ *     MiInsertPageInList @ 0x140331550 (MiInsertPageInList.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     MiSetPfnRemovalRequested @ 0x14054F428 (MiSetPfnRemovalRequested.c)
+ *     MiSetPfnRemovalRequested @ 0x14054F668 (MiSetPfnRemovalRequested.c)
  */
 
 void __fastcall MiMakePageBad(ULONG_PTR a1, __int64 a2, __int64 a3, _DWORD *a4)
@@ -35,7 +35,7 @@ void __fastcall MiMakePageBad(ULONG_PTR a1, __int64 a2, __int64 a3, _DWORD *a4)
     if ( (*(_BYTE *)(a1 + 35) & 0x40) == 0 )
     {
       MiAcquireNonPagedResources(
-        *(ULONG_PTR **)(qword_140C4E648 + 8 * ((*(_QWORD *)(a1 + 40) >> 39) & 0x3FFLL)),
+        *(ULONG_PTR **)(qword_140C4E688 + 8 * ((*(_QWORD *)(a1 + 40) >> 39) & 0x3FFLL)),
         1uLL,
         0LL,
         1u);
@@ -65,6 +65,6 @@ void __fastcall MiMakePageBad(ULONG_PTR a1, __int64 a2, __int64 a3, _DWORD *a4)
       }
       __writecr8(v7);
     }
-    _InterlockedIncrement(&dword_140C4E7DC);
+    _InterlockedIncrement(&dword_140C4E81C);
   }
 }

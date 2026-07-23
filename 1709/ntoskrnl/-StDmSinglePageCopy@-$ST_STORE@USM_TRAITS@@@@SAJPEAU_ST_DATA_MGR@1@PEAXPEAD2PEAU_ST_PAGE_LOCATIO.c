@@ -16,8 +16,8 @@
 
 __int64 __fastcall ST_STORE<SM_TRAITS>::StDmSinglePageCopy(
         __int64 a1,
-        __int64 a2,
-        signed __int64 a3,
+        void *a2,
+        unsigned __int64 a3,
         unsigned __int64 a4,
         ULONG_PTR a5,
         __int64 a6)
@@ -26,8 +26,8 @@ __int64 __fastcall ST_STORE<SM_TRAITS>::StDmSinglePageCopy(
   unsigned __int64 v8; // r12
   ULONG_PTR v9; // rdx
   char v11; // bl
-  __int64 pbOutput; // rsi
-  _OWORD *v13; // rdi
+  unsigned __int64 pbOutput; // rsi
+  unsigned __int64 v13; // rdi
   __int64 v14; // r8
   ULONG cbOutput; // r15d
   char v16; // al
@@ -36,33 +36,33 @@ __int64 __fastcall ST_STORE<SM_TRAITS>::StDmSinglePageCopy(
   unsigned int v19; // edi
   __int64 v20; // rbx
   struct _KTHREAD *CurrentThread; // rax
-  unsigned int v22; // eax
+  ULONG v22; // eax
   __int64 v23; // rcx
   _OWORD *v24; // rax
   __int128 v25; // xmm1
   struct _KTHREAD *v26; // rax
   __int64 v27; // rcx
-  UCHAR *v29; // [rsp+20h] [rbp-B8h]
-  ULONG v30; // [rsp+28h] [rbp-B0h]
+  UCHAR *CompressedBufferSize; // [rsp+20h] [rbp-B8h]
+  ULONG FinalUncompressedSize; // [rsp+28h] [rbp-B0h]
   ULONG v31; // [rsp+48h] [rbp-90h]
-  int v32; // [rsp+58h] [rbp-80h] BYREF
+  ULONG v32; // [rsp+58h] [rbp-80h] BYREF
   ULONG pcbResult; // [rsp+60h] [rbp-78h] BYREF
-  __int64 v34; // [rsp+68h] [rbp-70h]
+  PVOID WorkSpace; // [rsp+68h] [rbp-70h]
   __int64 v35; // [rsp+70h] [rbp-68h] BYREF
   int v36; // [rsp+78h] [rbp-60h]
 
   v7 = *(unsigned int *)(a1 + 824);
   v8 = a3;
-  v34 = a2;
+  WorkSpace = a2;
   v9 = a5;
   v11 = 0;
   pbOutput = v7 + a3;
-  v13 = (_OWORD *)a4;
+  v13 = a4;
   v14 = *(_QWORD *)(a1 + 1016);
   cbOutput = ~(*(_DWORD *)(v14 + 8) - 1) & (*(_DWORD *)(v14 + 8) + *(unsigned __int16 *)(a5 + 4) - 1);
   if ( (a4 & 1) != 0 )
   {
-    v13 = *(_OWORD **)(a6 + 48);
+    v13 = *(_QWORD *)(a6 + 48);
     a4 &= ~1uLL;
   }
   if ( (pbOutput & 3) != 0 )
@@ -99,8 +99,8 @@ __int64 __fastcall ST_STORE<SM_TRAITS>::StDmSinglePageCopy(
            (PUCHAR)pbOutput,
            cbOutput,
            (void *)(v18 + 56),
-           v29,
-           v30,
+           CompressedBufferSize,
+           FinalUncompressedSize,
            (PUCHAR)pbOutput,
            cbOutput,
            &pcbResult,
@@ -108,7 +108,7 @@ __int64 __fastcall ST_STORE<SM_TRAITS>::StDmSinglePageCopy(
     {
       v17 = a5;
       v19 = -1073741173;
-      v11 = 4 * (ST_STORE<SM_TRAITS>::StDmPageError(a1, (void *)pbOutput, (void *)a4, a5, a6, -1073741173) & 1);
+      v11 = 4 * (ST_STORE<SM_TRAITS>::StDmPageError(a1, (void *)pbOutput, (UCHAR *)a4, a5, a6, -1073741173) & 1);
       goto LABEL_28;
     }
   }
@@ -138,29 +138,29 @@ __int64 __fastcall ST_STORE<SM_TRAITS>::StDmSinglePageCopy(
   }
   else
   {
-    if ( (int)RtlDecompressBufferEx(*(_WORD *)(a1 + 992), (__int64)v13, 0x1000u, pbOutput, v22, (__int64)&v32, v34) < 0
+    if ( RtlDecompressBufferEx(*(_WORD *)(a1 + 992), (PUCHAR)v13, 0x1000u, (PUCHAR)pbOutput, v22, &v32, WorkSpace) < 0
       || v32 != 4096 )
     {
       v19 = -1073741116;
       v11 |= 1u;
       goto LABEL_28;
     }
-    if ( v13 != (_OWORD *)a4 )
+    if ( v13 != a4 )
     {
       v23 = 32LL;
       v24 = (_OWORD *)a4;
       do
       {
-        *v24 = *v13;
-        v24[1] = v13[1];
-        v24[2] = v13[2];
-        v24[3] = v13[3];
-        v24[4] = v13[4];
-        v24[5] = v13[5];
-        v24[6] = v13[6];
+        *v24 = *(_OWORD *)v13;
+        v24[1] = *(_OWORD *)(v13 + 16);
+        v24[2] = *(_OWORD *)(v13 + 32);
+        v24[3] = *(_OWORD *)(v13 + 48);
+        v24[4] = *(_OWORD *)(v13 + 64);
+        v24[5] = *(_OWORD *)(v13 + 80);
+        v24[6] = *(_OWORD *)(v13 + 96);
         v24 += 8;
-        v25 = v13[7];
-        v13 += 8;
+        v25 = *(_OWORD *)(v13 + 112);
+        v13 += 128LL;
         *(v24 - 1) = v25;
         --v23;
       }
@@ -178,7 +178,7 @@ LABEL_28:
     ExAcquirePushLockSharedEx(v27 + 6024, 0LL);
     *(_DWORD *)(a6 + 64) = 2;
   }
-  if ( (v11 & 1) != 0 && (ST_STORE<SM_TRAITS>::StDmPageError(a1, (void *)pbOutput, (void *)a4, v17, a6, v19) & 1) != 0 )
+  if ( (v11 & 1) != 0 && (ST_STORE<SM_TRAITS>::StDmPageError(a1, (void *)pbOutput, (UCHAR *)a4, v17, a6, v19) & 1) != 0 )
     return 0;
   return v19;
 }

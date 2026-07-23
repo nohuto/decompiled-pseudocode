@@ -1,15 +1,15 @@
 /*
- * XREFs of IopResourceRequirementsListToReqList @ 0x140817A68
+ * XREFs of IopResourceRequirementsListToReqList @ 0x140817D38
  * Callers:
- *     PnpReleaseBootResourcesForFilteredRequirements @ 0x1405615D4 (PnpReleaseBootResourcesForFilteredRequirements.c)
- *     PnpGetResourceRequirementsForAssignTable @ 0x14078F864 (PnpGetResourceRequirementsForAssignTable.c)
- *     IopAllocateBootResourcesInternal @ 0x140816D18 (IopAllocateBootResourcesInternal.c)
- *     PnpRestoreResourcesInternal @ 0x14096D734 (PnpRestoreResourcesInternal.c)
+ *     PnpReleaseBootResourcesForFilteredRequirements @ 0x140561C94 (PnpReleaseBootResourcesForFilteredRequirements.c)
+ *     PnpGetResourceRequirementsForAssignTable @ 0x14078FA54 (PnpGetResourceRequirementsForAssignTable.c)
+ *     IopAllocateBootResourcesInternal @ 0x140816FE8 (IopAllocateBootResourcesInternal.c)
+ *     PnpRestoreResourcesInternal @ 0x14096D934 (PnpRestoreResourcesInternal.c)
  * Callees:
- *     memset @ 0x140435A00 (memset.c)
- *     IopSetupArbiterAndTranslators @ 0x140817FDC (IopSetupArbiterAndTranslators.c)
- *     IopFreeReqList @ 0x140818728 (IopFreeReqList.c)
- *     IopFreeReqAlternative @ 0x140818780 (IopFreeReqAlternative.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     IopSetupArbiterAndTranslators @ 0x1408182AC (IopSetupArbiterAndTranslators.c)
+ *     IopFreeReqList @ 0x1408189F8 (IopFreeReqList.c)
+ *     IopFreeReqAlternative @ 0x140818A50 (IopFreeReqAlternative.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
 

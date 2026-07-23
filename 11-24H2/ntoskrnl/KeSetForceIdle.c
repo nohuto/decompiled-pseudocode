@@ -1,13 +1,13 @@
 /*
- * XREFs of KeSetForceIdle @ 0x1403CAD20
+ * XREFs of KeSetForceIdle @ 0x140484970
  * Callers:
- *     PopDeepSleepClearDisengageReason @ 0x1403CB4D8 (PopDeepSleepClearDisengageReason.c)
+ *     PopDeepSleepClearDisengageReason @ 0x1402B9FF0 (PopDeepSleepClearDisengageReason.c)
  * Callees:
- *     KiRemoveSystemWorkPriorityKick @ 0x14025E408 (KiRemoveSystemWorkPriorityKick.c)
- *     HvlNotifyLongSpinWait @ 0x140293260 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140293290 (KiCheckVpBackingLongSpinWaitHypercall.c)
- *     RtlGetInterruptTimePrecise @ 0x14033CC90 (RtlGetInterruptTimePrecise.c)
- *     KiSetForceIdleState @ 0x1403CBA34 (KiSetForceIdleState.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14028EA18 (KiRemoveSystemWorkPriorityKick.c)
+ *     HvlNotifyLongSpinWait @ 0x1402A2E60 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1402A2E90 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     RtlGetInterruptTimePrecise @ 0x14031C170 (RtlGetInterruptTimePrecise.c)
+ *     KiSetForceIdleState @ 0x140484E74 (KiSetForceIdleState.c)
  */
 
 void KeSetForceIdle()
@@ -16,12 +16,12 @@ void KeSetForceIdle()
   struct _KPRCB *CurrentPrcb; // rcx
   signed __int32 *SchedulerAssist; // r8
   int v3; // edi
-  __int64 v4; // rbx
+  LARGE_INTEGER v4; // rbx
   signed __int32 v5; // eax
   signed __int32 v6; // ett
-  unsigned __int64 v7; // [rsp+30h] [rbp+8h] BYREF
+  LARGE_INTEGER PerformanceCounter; // [rsp+30h] [rbp+8h] BYREF
 
-  v7 = 0LL;
+  PerformanceCounter.QuadPart = 0LL;
   _disable();
   v0 = 0;
   while ( _interlockedbittestandset64((volatile signed __int32 *)&KiForceIdleLock, 0LL) )
@@ -44,7 +44,8 @@ void KeSetForceIdle()
   if ( !KiForceIdleDisabled )
   {
     v3 = KiForceIdleState;
-    v4 = RtlGetInterruptTimePrecise(&v7) + 10000000LL * (unsigned int)KiForceIdleGracePeriodInSec;
+    v4.QuadPart = *(_QWORD *)&RtlGetInterruptTimePrecise(&PerformanceCounter)
+                + 10000000LL * (unsigned int)KiForceIdleGracePeriodInSec;
     if ( v3 )
     {
       if ( v3 != 3 )
@@ -54,7 +55,7 @@ void KeSetForceIdle()
     {
       KiSetForceIdleState(2LL);
     }
-    KiForceIdleStartTime = v4;
+    KiForceIdleStartTime = v4.QuadPart;
   }
 LABEL_8:
   _InterlockedAnd64(&KiForceIdleLock, 0LL);

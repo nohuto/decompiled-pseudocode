@@ -1,20 +1,20 @@
 /*
- * XREFs of PfTAccessTracingCleanup @ 0x140BF8DFC
+ * XREFs of PfTAccessTracingCleanup @ 0x140BFEDFC
  * Callers:
- *     PfTCleanup @ 0x1407C6254 (PfTCleanup.c)
- *     PfTTraceListAdd @ 0x140AF5F5C (PfTTraceListAdd.c)
- *     PfpPowerActionStartScenarioTracingCallback @ 0x140BF87E0 (PfpPowerActionStartScenarioTracingCallback.c)
+ *     PfTCleanup @ 0x1407C92B4 (PfTCleanup.c)
+ *     PfTTraceListAdd @ 0x140AF85FC (PfTTraceListAdd.c)
+ *     PfpPowerActionStartScenarioTracingCallback @ 0x140BFE7E0 (PfpPowerActionStartScenarioTracingCallback.c)
  * Callees:
- *     PfpPartitionDereferenceParent @ 0x140381780 (PfpPartitionDereferenceParent.c)
- *     PfpPartitionReferenceParentSafe @ 0x140382960 (PfpPartitionReferenceParentSafe.c)
- *     ExWaitForRundownProtectionRelease @ 0x140463DA0 (ExWaitForRundownProtectionRelease.c)
- *     MmFreeAccessPfnBuffer @ 0x1404A3E88 (MmFreeAccessPfnBuffer.c)
- *     MmGetDefaultPagePriority @ 0x1404B6960 (MmGetDefaultPagePriority.c)
- *     PfLockExclusiveAcquire @ 0x1404C3BA0 (PfLockExclusiveAcquire.c)
- *     PfLockExclusiveRelease @ 0x1404C761C (PfLockExclusiveRelease.c)
- *     MmSetAccessLogging @ 0x140703220 (MmSetAccessLogging.c)
- *     RtlpInterlockedFlushSList @ 0x140730D10 (RtlpInterlockedFlushSList.c)
- *     PfTAccessTracingInitialize @ 0x140BE95CC (PfTAccessTracingInitialize.c)
+ *     PfpPartitionDereferenceParent @ 0x140383530 (PfpPartitionDereferenceParent.c)
+ *     PfpPartitionReferenceParentSafe @ 0x140384710 (PfpPartitionReferenceParentSafe.c)
+ *     ExWaitForRundownProtectionRelease @ 0x14045CD60 (ExWaitForRundownProtectionRelease.c)
+ *     MmFreeAccessPfnBuffer @ 0x14049D998 (MmFreeAccessPfnBuffer.c)
+ *     MmGetDefaultPagePriority @ 0x1404AFDB0 (MmGetDefaultPagePriority.c)
+ *     PfLockExclusiveAcquire @ 0x1404BD3F0 (PfLockExclusiveAcquire.c)
+ *     PfLockExclusiveRelease @ 0x1404C0F38 (PfLockExclusiveRelease.c)
+ *     MmSetAccessLogging @ 0x140707EF0 (MmSetAccessLogging.c)
+ *     RtlpInterlockedFlushSList @ 0x1407358E0 (RtlpInterlockedFlushSList.c)
+ *     PfTAccessTracingInitialize @ 0x140BEF5CC (PfTAccessTracingInitialize.c)
  */
 
 void __fastcall PfTAccessTracingCleanup(__int64 a1, int a2, char a3)

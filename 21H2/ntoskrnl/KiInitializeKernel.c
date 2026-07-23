@@ -1,38 +1,38 @@
 /*
- * XREFs of KiInitializeKernel @ 0x14099D7C0
+ * XREFs of KiInitializeKernel @ 0x14099E6F0
  * Callers:
- *     KiSystemStartup @ 0x14098F010 (KiSystemStartup.c)
+ *     KiSystemStartup @ 0x140990010 (KiSystemStartup.c)
  * Callees:
- *     KeAddProcessorAffinityEx @ 0x140229380 (KeAddProcessorAffinityEx.c)
- *     KeCountSetBitsAffinityEx @ 0x14027B480 (KeCountSetBitsAffinityEx.c)
- *     KeCompactServiceTable @ 0x14039F134 (KeCompactServiceTable.c)
- *     HvlEnlightenProcessor @ 0x1403A7998 (HvlEnlightenProcessor.c)
- *     KiSetHardwareSpeculationControlFeatures @ 0x1403ADBD0 (KiSetHardwareSpeculationControlFeatures.c)
- *     HviGetHypervisorFeatures @ 0x1403AE200 (HviGetHypervisorFeatures.c)
- *     KeGetXSaveFeatureFlags @ 0x1403AE320 (KeGetXSaveFeatureFlags.c)
- *     KiConfigureInitialNodes @ 0x1403B5A3C (KiConfigureInitialNodes.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     KeCountSetBitsAffinityEx @ 0x140269420 (KeCountSetBitsAffinityEx.c)
+ *     KeAddProcessorAffinityEx @ 0x1402CDC80 (KeAddProcessorAffinityEx.c)
+ *     KeCompactServiceTable @ 0x14039F284 (KeCompactServiceTable.c)
+ *     HvlEnlightenProcessor @ 0x1403A7AE8 (HvlEnlightenProcessor.c)
+ *     KiSetHardwareSpeculationControlFeatures @ 0x1403ADD20 (KiSetHardwareSpeculationControlFeatures.c)
+ *     HviGetHypervisorFeatures @ 0x1403AE350 (HviGetHypervisorFeatures.c)
+ *     KeGetXSaveFeatureFlags @ 0x1403AE470 (KeGetXSaveFeatureFlags.c)
+ *     KiConfigureInitialNodes @ 0x1403B5BAC (KiConfigureInitialNodes.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheck @ 0x1403FDED0 (KeBugCheck.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
- *     KiSetUserTbFlushPending @ 0x1403FF4F0 (KiSetUserTbFlushPending.c)
- *     memset @ 0x140414200 (memset.c)
- *     KiFatalFilter @ 0x140514B30 (KiFatalFilter.c)
- *     KeInitializeProcess @ 0x1406D62BC (KeInitializeProcess.c)
- *     HvlPhase0Initialize @ 0x140796CFC (HvlPhase0Initialize.c)
- *     KiDetectFpuLeakage @ 0x14098F2A0 (KiDetectFpuLeakage.c)
- *     KiSetPageAttributesTable @ 0x14099966C (KiSetPageAttributesTable.c)
- *     KiCheckMicrocode @ 0x14099B100 (KiCheckMicrocode.c)
- *     KiEnableXSave @ 0x14099B204 (KiEnableXSave.c)
- *     HalpInitSystemPhase1 @ 0x14099C08C (HalpInitSystemPhase1.c)
- *     KiCompleteKernelInit @ 0x14099E0E0 (KiCompleteKernelInit.c)
- *     KiInitializeIdleThread @ 0x14099E424 (KiInitializeIdleThread.c)
- *     KiSetControlEnforcement @ 0x14099E5D0 (KiSetControlEnforcement.c)
- *     PoInitializePrcb @ 0x14099E680 (PoInitializePrcb.c)
- *     KiSetCacheInformation @ 0x14099E73C (KiSetCacheInformation.c)
- *     KiConfigureProcessorBlock @ 0x14099F624 (KiConfigureProcessorBlock.c)
- *     InitBootProcessor @ 0x140A3AAF4 (InitBootProcessor.c)
- *     KiInitSystem @ 0x140A679D0 (KiInitSystem.c)
+ *     KeBugCheck @ 0x1403FE0B0 (KeBugCheck.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
+ *     KiSetUserTbFlushPending @ 0x1403FF6D0 (KiSetUserTbFlushPending.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     KiFatalFilter @ 0x140514D70 (KiFatalFilter.c)
+ *     KeInitializeProcess @ 0x1406AD59C (KeInitializeProcess.c)
+ *     HvlPhase0Initialize @ 0x140796EFC (HvlPhase0Initialize.c)
+ *     KiDetectFpuLeakage @ 0x1409902A0 (KiDetectFpuLeakage.c)
+ *     KiSetPageAttributesTable @ 0x14099A66C (KiSetPageAttributesTable.c)
+ *     KiCheckMicrocode @ 0x14099C100 (KiCheckMicrocode.c)
+ *     KiEnableXSave @ 0x14099C204 (KiEnableXSave.c)
+ *     HalpInitSystemPhase1 @ 0x14099D08C (HalpInitSystemPhase1.c)
+ *     KiCompleteKernelInit @ 0x14099F010 (KiCompleteKernelInit.c)
+ *     KiInitializeIdleThread @ 0x14099F354 (KiInitializeIdleThread.c)
+ *     KiSetControlEnforcement @ 0x14099F500 (KiSetControlEnforcement.c)
+ *     PoInitializePrcb @ 0x14099F5B0 (PoInitializePrcb.c)
+ *     KiSetCacheInformation @ 0x14099F66C (KiSetCacheInformation.c)
+ *     KiConfigureProcessorBlock @ 0x1409A0554 (KiConfigureProcessorBlock.c)
+ *     InitBootProcessor @ 0x140A3BAF4 (InitBootProcessor.c)
+ *     KiInitSystem @ 0x140A689D0 (KiInitSystem.c)
  */
 
 __int64 __fastcall KiInitializeKernel(__int64 a1, __int64 a2, __int64 a3, ULONG_PTR a4, int a5, __int64 a6)
@@ -366,7 +366,7 @@ __int64 __fastcall KiInitializeKernel(__int64 a1, __int64 a2, __int64 a3, ULONG_
     __writecr8(1uLL);
     KiFreezeExecutionLock = 0LL;
     KiInitSystem();
-    qword_140C31D58 = (__int64)&KiProcessListHead;
+    qword_140C31C08 = (__int64)&KiProcessListHead;
     KiProcessListHead = (__int64)&KiProcessListHead;
     *((_QWORD *)&v63 + 1) = (unsigned __int16)((unsigned int)KiProcessorIndexToNumberMappingTable[0] >> 6);
     *(_QWORD *)&v63 = 1LL << (KiProcessorIndexToNumberMappingTable[0] & 0x3F);

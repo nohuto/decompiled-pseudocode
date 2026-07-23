@@ -1,12 +1,12 @@
 /*
- * XREFs of PnprRecopyMirrorPages @ 0x1405A7E3C
+ * XREFs of PnprRecopyMirrorPages @ 0x1405A4E2C
  * Callers:
- *     PnprSwapFinalize @ 0x1405A81D4 (PnprSwapFinalize.c)
+ *     PnprSwapFinalize @ 0x1405A51C4 (PnprSwapFinalize.c)
  * Callees:
- *     PnprCopyReservedMapping @ 0x1405A7704 (PnprCopyReservedMapping.c)
- *     PnprGetStackLimits @ 0x1405A7AEC (PnprGetStackLimits.c)
- *     PnprRecopyAddress @ 0x1405A7D30 (PnprRecopyAddress.c)
- *     PnprRecopyMappingReserve @ 0x1405A7D88 (PnprRecopyMappingReserve.c)
+ *     PnprCopyReservedMapping @ 0x1405A46F4 (PnprCopyReservedMapping.c)
+ *     PnprGetStackLimits @ 0x1405A4ADC (PnprGetStackLimits.c)
+ *     PnprRecopyAddress @ 0x1405A4D20 (PnprRecopyAddress.c)
+ *     PnprRecopyMappingReserve @ 0x1405A4D78 (PnprRecopyMappingReserve.c)
  */
 
 __int64 PnprRecopyMirrorPages()

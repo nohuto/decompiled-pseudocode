@@ -1,14 +1,14 @@
 /*
- * XREFs of TtmNotifySessionPowerStateChange @ 0x1409A4758
+ * XREFs of TtmNotifySessionPowerStateChange @ 0x1409A4958
  * Callers:
- *     PopPowerInformationInternal @ 0x1407ED06C (PopPowerInformationInternal.c)
+ *     PopPowerInformationInternal @ 0x1407ED33C (PopPowerInformationInternal.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     ExReleaseResourceLite @ 0x14023D410 (ExReleaseResourceLite.c)
- *     TtmiScheduleSessionWorker @ 0x1409A4AA4 (TtmiScheduleSessionWorker.c)
- *     TtmpAcquireSessionById @ 0x1409A4F30 (TtmpAcquireSessionById.c)
- *     TtmiLogError @ 0x1409A8344 (TtmiLogError.c)
- *     TtmiLogSessionPowerStateChange @ 0x1409A9BE0 (TtmiLogSessionPowerStateChange.c)
+ *     KeLeaveCriticalRegion @ 0x140231550 (KeLeaveCriticalRegion.c)
+ *     ExReleaseResourceLite @ 0x14023D4E0 (ExReleaseResourceLite.c)
+ *     TtmiScheduleSessionWorker @ 0x1409A4CA4 (TtmiScheduleSessionWorker.c)
+ *     TtmpAcquireSessionById @ 0x1409A5130 (TtmpAcquireSessionById.c)
+ *     TtmiLogError @ 0x1409A8544 (TtmiLogError.c)
+ *     TtmiLogSessionPowerStateChange @ 0x1409A9DE0 (TtmiLogSessionPowerStateChange.c)
  */
 
 void __fastcall TtmNotifySessionPowerStateChange(unsigned int a1, char a2)

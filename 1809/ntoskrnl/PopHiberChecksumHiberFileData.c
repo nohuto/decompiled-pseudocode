@@ -1,12 +1,12 @@
 /*
- * XREFs of PopHiberChecksumHiberFileData @ 0x14056AA44
+ * XREFs of PopHiberChecksumHiberFileData @ 0x14056BA44
  * Callers:
- *     PopRequestWrite @ 0x14056A5F4 (PopRequestWrite.c)
- *     PopRequestRead @ 0x14057D27C (PopRequestRead.c)
+ *     PopRequestWrite @ 0x14056B5F4 (PopRequestWrite.c)
+ *     PopRequestRead @ 0x14057E27C (PopRequestRead.c)
  * Callees:
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
- *     tcpxsum @ 0x1401C5090 (tcpxsum.c)
- *     PopCheckpointSystemSleep @ 0x140569714 (PopCheckpointSystemSleep.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
+ *     tcpxsum @ 0x1401C51F0 (tcpxsum.c)
+ *     PopCheckpointSystemSleep @ 0x14056A714 (PopCheckpointSystemSleep.c)
  */
 
 unsigned __int64 __fastcall PopHiberChecksumHiberFileData(
@@ -75,9 +75,9 @@ unsigned __int64 __fastcall PopHiberChecksumHiberFileData(
       v17 = __rdtsc();
       result = (((unsigned __int64)HIDWORD(v17) << 32) | (unsigned int)v17) - v8;
       if ( a2 )
-        qword_140417BC8 += result;
+        qword_140418C68 += result;
       else
-        qword_140417D08 += result;
+        qword_140418DA8 += result;
     }
   }
   return result;

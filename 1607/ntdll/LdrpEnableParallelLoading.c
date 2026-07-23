@@ -1,28 +1,20 @@
 /*
- * XREFs of LdrpEnableParallelLoading @ 0x180072C64
+ * XREFs of LdrpEnableParallelLoading @ 0x180072C54
  * Callers:
- *     LdrpInitializeProcess @ 0x180091E34 (LdrpInitializeProcess.c)
+ *     LdrpInitializeProcess @ 0x180091E24 (LdrpInitializeProcess.c)
  * Callees:
- *     RtlGetSuiteMask @ 0x18002CDC0 (RtlGetSuiteMask.c)
- *     TpAllocWork @ 0x18003BBB0 (TpAllocWork.c)
- *     TpSetPoolMaxThreads @ 0x180072D60 (TpSetPoolMaxThreads.c)
- *     TpSetPoolWorkerThreadIdleTimeout @ 0x180072DD0 (TpSetPoolWorkerThreadIdleTimeout.c)
- *     TpAllocPoolInternal @ 0x180072E74 (TpAllocPoolInternal.c)
- *     LdrpDetectDetour @ 0x180073564 (LdrpDetectDetour.c)
+ *     RtlGetSuiteMask @ 0x18002CDB0 (RtlGetSuiteMask.c)
+ *     TpAllocWork @ 0x18003BBA0 (TpAllocWork.c)
+ *     TpSetPoolMaxThreads @ 0x180072D50 (TpSetPoolMaxThreads.c)
+ *     TpSetPoolWorkerThreadIdleTimeout @ 0x180072DC0 (TpSetPoolWorkerThreadIdleTimeout.c)
+ *     TpAllocPoolInternal @ 0x180072E64 (TpAllocPoolInternal.c)
+ *     LdrpDetectDetour @ 0x180073554 (LdrpDetectDetour.c)
  */
 
 __int64 __fastcall LdrpEnableParallelLoading(unsigned int a1)
 {
   int v2; // edi
-  int v4; // [rsp+20h] [rbp-58h] BYREF
-  __int64 v5; // [rsp+28h] [rbp-50h]
-  __int64 v6; // [rsp+30h] [rbp-48h]
-  __int64 v7; // [rsp+38h] [rbp-40h]
-  __int128 v8; // [rsp+40h] [rbp-38h]
-  __int64 v9; // [rsp+50h] [rbp-28h]
-  int v10; // [rsp+58h] [rbp-20h]
-  int v11; // [rsp+5Ch] [rbp-1Ch]
-  int v12; // [rsp+60h] [rbp-18h]
+  TP_CALLBACK_ENVIRON_V3 CallbackEnviron; // [rsp+20h] [rbp-58h] BYREF
 
   v2 = 0;
   LdrpDetectDetour();
@@ -45,20 +37,16 @@ LABEL_4:
       {
         TpSetPoolWorkerThreadIdleTimeout(LdrpThreadPool, -300000000LL);
         TpSetPoolMaxThreads(LdrpThreadPool, a1 - 1);
-        v6 = 0LL;
-        v7 = 0LL;
-        v9 = 0LL;
-        v10 = 0;
-        v8 = 0LL;
-        v5 = LdrpThreadPool;
-        v4 = 3;
-        v11 = 1;
-        v12 = 72;
+        memset(&CallbackEnviron.CleanupGroup, 0, 44);
+        CallbackEnviron.Pool = LdrpThreadPool;
+        CallbackEnviron.Version = 3;
+        CallbackEnviron.CallbackPriority = TP_CALLBACK_PRIORITY_NORMAL;
+        CallbackEnviron.Size = 72;
         return (unsigned int)TpAllocWork(
-                               (_PEB_LDR_DATA *)&LdrpMapAndSnapWork,
-                               (__int64)LdrpWorkCallback,
+                               &LdrpMapAndSnapWork,
+                               (PTP_WORK_CALLBACK)LdrpWorkCallback,
                                0LL,
-                               (__int64)&v4);
+                               &CallbackEnviron);
       }
     }
   }

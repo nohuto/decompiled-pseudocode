@@ -1,9 +1,9 @@
 /*
- * XREFs of PsInitializeWin32kKernelExports @ 0x1405E4860
+ * XREFs of PsInitializeWin32kKernelExports @ 0x1405E1D80
  * Callers:
- *     InitBootProcessor @ 0x140C0AC88 (InitBootProcessor.c)
+ *     InitBootProcessor @ 0x140C0CC88 (InitBootProcessor.c)
  * Callees:
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
  */
 
 __int64 PsInitializeWin32kKernelExports()
@@ -21,6 +21,7 @@ __int64 PsInitializeWin32kKernelExports()
   v2[2] = PsGetJobIdentity;
   v2[3] = PsGetUILimitJobProvider;
   v2[4] = PsSystemSetUILimitJobObject;
+  v2[5] = SeReportLearningModeViolation;
   result = Win32kGetSupportedExportsVersion(&v3);
   if ( (_DWORD)result != -1073741637 )
   {
@@ -35,8 +36,8 @@ __int64 PsInitializeWin32kKernelExports()
       v1 = 73LL;
       goto LABEL_8;
     }
-    v4 = 0x200000001LL;
-    result = Win32kKernelExportsSet(&v4, v2, 5LL);
+    v4 = 0x300000001LL;
+    result = Win32kKernelExportsSet(&v4, v2, 6LL);
     if ( (int)result < 0 )
     {
       v1 = 74LL;

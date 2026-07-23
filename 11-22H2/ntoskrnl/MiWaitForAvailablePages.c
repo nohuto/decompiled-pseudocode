@@ -10,68 +10,65 @@
  *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
  */
 
-NTSTATUS __fastcall MiWaitForAvailablePages(__int64 a1, LARGE_INTEGER *a2)
+void __fastcall MiWaitForAvailablePages(__int64 a1, LARGE_INTEGER *a2)
 {
-  NTSTATUS result; // eax
-  unsigned __int64 v5; // rbx
+  unsigned __int64 v4; // rbx
+  unsigned __int8 v5; // al
   struct _KPRCB *v6; // r10
   _DWORD *v7; // r8
-  bool v8; // zf
-  void *v9; // rdi
+  int v8; // eax
+  bool v9; // zf
+  void *v10; // rdi
   unsigned __int64 OldIrql; // rbx
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r8
-  int v14; // eax
-  struct _KLOCK_QUEUE_HANDLE v15; // [rsp+30h] [rbp-28h] BYREF
+  int v15; // eax
+  struct _KLOCK_QUEUE_HANDLE v16; // [rsp+30h] [rbp-28h] BYREF
 
-  memset(&v15, 0, sizeof(v15));
-  KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)(a1 + 15872), &v15);
+  memset(&v16, 0, sizeof(v16));
+  KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)(a1 + 15872), &v16);
   if ( *(_QWORD *)(a1 + 17216) < 0x420uLL )
   {
-    v9 = (void *)(a1 + 15944);
+    v10 = (void *)(a1 + 15944);
     KeResetEvent((PRKEVENT)(a1 + 15944));
-    KxReleaseQueuedSpinLock((volatile signed __int64 **)&v15);
-    OldIrql = v15.OldIrql;
-    if ( KiIrqlFlags )
+    KxReleaseQueuedSpinLock((volatile signed __int64 **)&v16);
+    OldIrql = v16.OldIrql;
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v15.OldIrql <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v16.OldIrql <= 0xFu && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;
-        v14 = ~(unsigned __int16)(-1LL << (v15.OldIrql + 1));
-        v8 = (v14 & SchedulerAssist[5]) == 0;
-        SchedulerAssist[5] &= v14;
-        if ( v8 )
+        v15 = ~(unsigned __int16)(-1LL << (v16.OldIrql + 1));
+        v9 = (v15 & SchedulerAssist[5]) == 0;
+        SchedulerAssist[5] &= v15;
+        if ( v9 )
           KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
       }
     }
     __writecr8(OldIrql);
-    return KeWaitForSingleObject(v9, WrFreePage, 0, 0, a2);
+    KeWaitForSingleObject(v10, WrFreePage, 0, 0, a2);
   }
   else
   {
-    result = KxReleaseQueuedSpinLock((volatile signed __int64 **)&v15);
-    v5 = v15.OldIrql;
-    if ( KiIrqlFlags )
+    KxReleaseQueuedSpinLock((volatile signed __int64 **)&v16);
+    v4 = v16.OldIrql;
+    if ( (_DWORD)KiIrqlFlags )
     {
-      result = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0
-        && (unsigned __int8)result <= 0xFu
-        && v15.OldIrql <= 0xFu
-        && (unsigned __int8)result >= 2u )
+      v5 = KeGetCurrentIrql();
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v5 <= 0xFu && v16.OldIrql <= 0xFu && v5 >= 2u )
       {
         v6 = KeGetCurrentPrcb();
         v7 = v6->SchedulerAssist;
-        result = ~(unsigned __int16)(-1LL << (v15.OldIrql + 1));
-        v8 = (result & v7[5]) == 0;
-        v7[5] &= result;
-        if ( v8 )
-          result = KiRemoveSystemWorkPriorityKick((__int64)v6);
+        v8 = ~(unsigned __int16)(-1LL << (v16.OldIrql + 1));
+        v9 = (v8 & v7[5]) == 0;
+        v7[5] &= v8;
+        if ( v9 )
+          KiRemoveSystemWorkPriorityKick((__int64)v6);
       }
     }
-    __writecr8(v5);
+    __writecr8(v4);
   }
-  return result;
 }

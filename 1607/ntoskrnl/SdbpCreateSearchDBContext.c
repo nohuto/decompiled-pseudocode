@@ -1,17 +1,17 @@
 /*
- * XREFs of SdbpCreateSearchDBContext @ 0x1404853AC
+ * XREFs of SdbpCreateSearchDBContext @ 0x140514734
  * Callers:
- *     SdbGetDatabaseMatch @ 0x14049D418 (SdbGetDatabaseMatch.c)
- *     SdbpCheckKObject @ 0x140572FBC (SdbpCheckKObject.c)
+ *     SdbGetDatabaseMatch @ 0x140515544 (SdbGetDatabaseMatch.c)
+ *     SdbpCheckKObject @ 0x1405734FC (SdbpCheckKObject.c)
  * Callees:
- *     RtlStringCchCopyW @ 0x140084F38 (RtlStringCchCopyW.c)
- *     RtlStringCchCatW @ 0x1400B03B8 (RtlStringCchCatW.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     AslFree @ 0x14048538C (AslFree.c)
- *     AslAlloc @ 0x14048554C (AslAlloc.c)
- *     AslPathSplit @ 0x140486A70 (AslPathSplit.c)
- *     AslLogCallPrintf @ 0x1406C5804 (AslLogCallPrintf.c)
+ *     RtlStringCchCopyW @ 0x14010B1EC (RtlStringCchCopyW.c)
+ *     RtlStringCchCatW @ 0x14010B540 (RtlStringCchCatW.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     AslPathSplit @ 0x140513880 (AslPathSplit.c)
+ *     AslFree @ 0x140514714 (AslFree.c)
+ *     AslAlloc @ 0x1405148D4 (AslAlloc.c)
+ *     AslLogCallPrintf @ 0x1406C593C (AslLogCallPrintf.c)
  */
 
 __int64 __fastcall SdbpCreateSearchDBContext(_QWORD *a1, const wchar_t *a2)
@@ -79,8 +79,7 @@ LABEL_9:
       1,
       (unsigned int)"SdbpCreateSearchDBContext",
       190,
-      (unsigned int)"Unable to parse executable path for \"%ws\"",
-      a2);
+      (unsigned int)"Unable to parse executable path for \"%ws\"");
   }
   else
   {

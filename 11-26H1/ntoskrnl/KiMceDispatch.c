@@ -1,7 +1,7 @@
 /*
- * XREFs of KiMceDispatch @ 0x140C74500
+ * XREFs of KiMceDispatch @ 0x140C7A500
  * Callers:
- *     KiMceLinkage @ 0x140C7B660 (KiMceLinkage.c)
+ *     KiMceLinkage @ 0x140C81660 (KiMceLinkage.c)
  * Callees:
  *     <none>
  */

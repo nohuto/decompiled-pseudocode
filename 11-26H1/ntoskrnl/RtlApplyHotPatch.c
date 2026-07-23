@@ -1,21 +1,21 @@
 /*
- * XREFs of RtlApplyHotPatch @ 0x140C0206C
+ * XREFs of RtlApplyHotPatch @ 0x140C0827C
  * Callers:
- *     MiApplyHotPatchToDriverDataPages @ 0x14086E230 (MiApplyHotPatchToDriverDataPages.c)
- *     MiApplyImageHotPatch @ 0x14086E638 (MiApplyImageHotPatch.c)
- *     MiApplyImageHotPatchRequest @ 0x14086E8A8 (MiApplyImageHotPatchRequest.c)
- *     MiApplyImageHotPatchDpc @ 0x140C015E0 (MiApplyImageHotPatchDpc.c)
+ *     MiApplyHotPatchToDriverDataPages @ 0x140874600 (MiApplyHotPatchToDriverDataPages.c)
+ *     MiApplyImageHotPatch @ 0x140874A08 (MiApplyImageHotPatch.c)
+ *     MiApplyImageHotPatchRequest @ 0x140874C78 (MiApplyImageHotPatchRequest.c)
+ *     MiApplyImageHotPatchDpc @ 0x140C077F0 (MiApplyImageHotPatchDpc.c)
  * Callees:
- *     RtlFindClearBitsAndSet @ 0x1403586A0 (RtlFindClearBitsAndSet.c)
- *     RtlGetHotPatchSize @ 0x140720BB0 (RtlGetHotPatchSize.c)
- *     RtlGetHpatEntryAddress @ 0x140720BC8 (RtlGetHpatEntryAddress.c)
- *     RtlpRevertFunctionPatchFromUndoEntry @ 0x140720BEC (RtlpRevertFunctionPatchFromUndoEntry.c)
- *     RtlPopulateHpatEntry @ 0x140720D6C (RtlPopulateHpatEntry.c)
- *     RtlpApplyFunctionPatch @ 0x140720DD0 (RtlpApplyFunctionPatch.c)
- *     RtlpCheckFunctionPatchAppliedInOriginalImage @ 0x140720DEC (RtlpCheckFunctionPatchAppliedInOriginalImage.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     RtlIsCodeInEcRanges @ 0x1408AB2E4 (RtlIsCodeInEcRanges.c)
- *     RtlpDetermineHotPatchExtent @ 0x140C025F8 (RtlpDetermineHotPatchExtent.c)
+ *     RtlFindClearBitsAndSet @ 0x14035A440 (RtlFindClearBitsAndSet.c)
+ *     RtlGetHotPatchSize @ 0x1407257D0 (RtlGetHotPatchSize.c)
+ *     RtlGetHpatEntryAddress @ 0x1407257E8 (RtlGetHpatEntryAddress.c)
+ *     RtlpRevertFunctionPatchFromUndoEntry @ 0x14072580C (RtlpRevertFunctionPatchFromUndoEntry.c)
+ *     RtlPopulateHpatEntry @ 0x14072598C (RtlPopulateHpatEntry.c)
+ *     RtlpApplyFunctionPatch @ 0x1407259F0 (RtlpApplyFunctionPatch.c)
+ *     RtlpCheckFunctionPatchAppliedInOriginalImage @ 0x140725A0C (RtlpCheckFunctionPatchAppliedInOriginalImage.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     RtlIsCodeInEcRanges @ 0x1408B1754 (RtlIsCodeInEcRanges.c)
+ *     RtlpDetermineHotPatchExtent @ 0x140C08808 (RtlpDetermineHotPatchExtent.c)
  */
 
 __int64 __fastcall RtlApplyHotPatch(
@@ -78,7 +78,7 @@ __int64 __fastcall RtlApplyHotPatch(
   __int64 v55; // r11
   __int64 v56; // rcx
   unsigned int v57; // r11d
-  RTL_BITMAP *v58; // rbx
+  _RTL_BITMAP *v58; // rbx
   ULONG ClearBitsAndSet; // r8d
   __int64 v60; // rsi
   _DWORD *v61; // rdx

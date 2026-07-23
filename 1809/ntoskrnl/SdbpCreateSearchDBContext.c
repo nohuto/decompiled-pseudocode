@@ -1,17 +1,17 @@
 /*
- * XREFs of SdbpCreateSearchDBContext @ 0x14067C5A0
+ * XREFs of SdbpCreateSearchDBContext @ 0x14067D760
  * Callers:
- *     SdbGetDatabaseMatch @ 0x14067E7FC (SdbGetDatabaseMatch.c)
- *     SdbpCheckKObject @ 0x140722D80 (SdbpCheckKObject.c)
+ *     SdbGetDatabaseMatch @ 0x14067F9BC (SdbGetDatabaseMatch.c)
+ *     SdbpCheckKObject @ 0x140724020 (SdbpCheckKObject.c)
  * Callees:
- *     RtlStringCchCopyW @ 0x140092420 (RtlStringCchCopyW.c)
- *     RtlStringCchCatW @ 0x1400F4FB8 (RtlStringCchCatW.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     AslAlloc @ 0x14067C780 (AslAlloc.c)
- *     AslPathSplit @ 0x14067E5F8 (AslPathSplit.c)
- *     AslLogCallPrintf @ 0x140680C60 (AslLogCallPrintf.c)
+ *     RtlStringCchCopyW @ 0x140092360 (RtlStringCchCopyW.c)
+ *     RtlStringCchCatW @ 0x1400F5038 (RtlStringCchCatW.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     AslAlloc @ 0x14067D940 (AslAlloc.c)
+ *     AslPathSplit @ 0x14067F7B8 (AslPathSplit.c)
+ *     AslLogCallPrintf @ 0x140681E20 (AslLogCallPrintf.c)
  */
 
 __int64 __fastcall SdbpCreateSearchDBContext(_QWORD *a1, const wchar_t **a2)

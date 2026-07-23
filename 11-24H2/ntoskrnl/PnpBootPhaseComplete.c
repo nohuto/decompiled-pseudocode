@@ -1,16 +1,16 @@
 /*
- * XREFs of PnpBootPhaseComplete @ 0x14071A5C4
+ * XREFs of PnpBootPhaseComplete @ 0x140718154
  * Callers:
- *     CmCompleteRegistryInitialization @ 0x1407CF20C (CmCompleteRegistryInitialization.c)
+ *     CmCompleteRegistryInitialization @ 0x1407CF6FC (CmCompleteRegistryInitialization.c)
  * Callees:
- *     ExQueueWorkItem @ 0x140325850 (ExQueueWorkItem.c)
- *     PnpRequestDeviceAction @ 0x14046C968 (PnpRequestDeviceAction.c)
- *     PiDmaGuardInitialize @ 0x1405A8D90 (PiDmaGuardInitialize.c)
- *     PiPnpRtlInit @ 0x140726C44 (PiPnpRtlInit.c)
- *     PpDevCfgProcessDevices @ 0x14072D090 (PpDevCfgProcessDevices.c)
- *     Pdcv2ActivationClientRegister @ 0x14078D95C (Pdcv2ActivationClientRegister.c)
- *     ExSubscribeWnfStateChange @ 0x140A19320 (ExSubscribeWnfStateChange.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     ExQueueWorkItem @ 0x1402CE3E0 (ExQueueWorkItem.c)
+ *     PnpRequestDeviceAction @ 0x140467508 (PnpRequestDeviceAction.c)
+ *     PiDmaGuardInitialize @ 0x1405A5E7C (PiDmaGuardInitialize.c)
+ *     PiPnpRtlInit @ 0x1407247D4 (PiPnpRtlInit.c)
+ *     PpDevCfgProcessDevices @ 0x14072B0A4 (PpDevCfgProcessDevices.c)
+ *     Pdcv2ActivationClientRegister @ 0x14078D88C (Pdcv2ActivationClientRegister.c)
+ *     ExSubscribeWnfStateChange @ 0x140A12490 (ExSubscribeWnfStateChange.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 __int64 PnpBootPhaseComplete()
@@ -50,7 +50,7 @@ __int64 PnpBootPhaseComplete()
       v0 = PpDevCfgProcessDevices();
       if ( v0 >= 0 )
       {
-        Pool2 = (struct _WORK_QUEUE_ITEM *)ExAllocatePool2(0x40uLL);
+        Pool2 = (struct _WORK_QUEUE_ITEM *)ExAllocatePool2(0x40uLL, 0x20uLL, 0x6E697050u);
         if ( Pool2 )
         {
           Pool2->List.Flink = 0LL;

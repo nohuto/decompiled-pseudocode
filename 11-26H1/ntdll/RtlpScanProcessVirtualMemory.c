@@ -1,18 +1,18 @@
 /*
- * XREFs of RtlpScanProcessVirtualMemory @ 0x1800C4B70
+ * XREFs of RtlpScanProcessVirtualMemory @ 0x1800C2330
  * Callers:
- *     RtlDetectHeapLeaks @ 0x1800C43E0 (RtlDetectHeapLeaks.c)
+ *     RtlDetectHeapLeaks @ 0x1800C1BA0 (RtlDetectHeapLeaks.c)
  * Callees:
- *     RtlpScanHeapAllocBlocks @ 0x1800C497C (RtlpScanHeapAllocBlocks.c)
- *     RtlpGetHeapBlock @ 0x1800C4CF0 (RtlpGetHeapBlock.c)
- *     RtlpGetMemoryFlag @ 0x1800C4F70 (RtlpGetMemoryFlag.c)
- *     ZwQueryVirtualMemory @ 0x18015F3A0 (ZwQueryVirtualMemory.c)
+ *     RtlpScanHeapAllocBlocks @ 0x1800C213C (RtlpScanHeapAllocBlocks.c)
+ *     RtlpGetHeapBlock @ 0x1800C24B0 (RtlpGetHeapBlock.c)
+ *     RtlpGetMemoryFlag @ 0x1800C2730 (RtlpGetMemoryFlag.c)
+ *     ZwQueryVirtualMemory @ 0x18015F2A0 (ZwQueryVirtualMemory.c)
  */
 
 char RtlpScanProcessVirtualMemory()
 {
-  _QWORD *v0; // r15
-  int v1; // r12d
+  char *v0; // r15
+  NTSTATUS v1; // r12d
   _QWORD *v3; // rbx
   unsigned __int64 v4; // rsi
   unsigned __int64 v5; // rdi
@@ -21,18 +21,24 @@ char RtlpScanProcessVirtualMemory()
   __int64 v8; // rdx
   _QWORD *v9; // rcx
   __int64 *v10; // rcx
-  __int128 v11; // [rsp+30h] [rbp-68h] BYREF
+  __int128 MemoryInformation; // [rsp+30h] [rbp-68h] BYREF
   __int128 v12; // [rsp+40h] [rbp-58h]
   __int128 v13; // [rsp+50h] [rbp-48h]
 
   v0 = 0LL;
-  v11 = 0LL;
+  MemoryInformation = 0LL;
   v12 = 0LL;
   v13 = 0LL;
   v1 = 0;
   while ( v1 >= 0 )
   {
-    v1 = ZwQueryVirtualMemory(-1LL, v0, 0LL, &v11, 48LL, 0LL);
+    v1 = ZwQueryVirtualMemory(
+           (HANDLE)0xFFFFFFFFFFFFFFFFLL,
+           v0,
+           MemoryBasicInformation,
+           &MemoryInformation,
+           0x30uLL,
+           0LL);
     if ( v1 >= 0 )
     {
       if ( (v12 & 0xCC) != 0
@@ -58,15 +64,15 @@ char RtlpScanProcessVirtualMemory()
                 || *v9 != HeapBlock
                 || (*v9 = v8,
                     *(_QWORD *)(v8 + 8) = v9,
-                    v10 = (__int64 *)qword_1801CCE58,
-                    *(__int64 **)qword_1801CCE58 != &RtlpBusyList) )
+                    v10 = (__int64 *)qword_1801CBE88,
+                    *(__int64 **)qword_1801CBE88 != &RtlpBusyList) )
               {
                 __fastfail(3u);
               }
               *(_QWORD *)HeapBlock = &RtlpBusyList;
               *(_QWORD *)(HeapBlock + 8) = v10;
               *v10 = HeapBlock;
-              qword_1801CCE58 = HeapBlock;
+              qword_1801CBE88 = HeapBlock;
             }
             ++*(_DWORD *)(HeapBlock + 32);
           }
@@ -74,7 +80,7 @@ char RtlpScanProcessVirtualMemory()
           ++v5;
         }
       }
-      v0 = (_QWORD *)((char *)v0 + *((_QWORD *)&v12 + 1));
+      v0 += *((_QWORD *)&v12 + 1);
     }
   }
   RtlpScanHeapAllocBlocks();

@@ -14,12 +14,12 @@
  *     _RtlTpETWCallbackDequeue@20 @ 0x4B385BB5 (_RtlTpETWCallbackDequeue@20.c)
  */
 
-int __stdcall RtlpTpWorkUnposted(int a1, int a2)
+LOGICAL __stdcall RtlpTpWorkUnposted(PVOID BaseAddress, int a2)
 {
   int v2; // eax
   int v3; // eax
   volatile signed __int32 *v4; // ecx
-  void *v5; // edx
+  _RTL_SRWLOCK *v5; // edx
   int *v6; // ecx
 
   if ( RtlGetCurrentServiceSessionId() )
@@ -27,11 +27,11 @@ int __stdcall RtlpTpWorkUnposted(int a1, int a2)
   else
     v2 = 2147353478;
   if ( *(_BYTE *)v2 )
-    RtlTpETWCallbackDequeue(*(_DWORD *)(a1 + 32), *(_DWORD *)(a1 + 36), *(_DWORD *)(a1 + 52));
+    RtlTpETWCallbackDequeue(*((_DWORD *)BaseAddress + 8), *((_DWORD *)BaseAddress + 9), *((_DWORD *)BaseAddress + 13));
   v3 = 0;
-  if ( !a2 && (*(_BYTE *)(a1 + 28) & 0xC0) != 0 )
+  if ( !a2 && (*((_BYTE *)BaseAddress + 28) & 0xC0) != 0 )
     v3 = 2;
-  v4 = *(volatile signed __int32 **)(a1 + 20);
+  v4 = (volatile signed __int32 *)*((_DWORD *)BaseAddress + 5);
   if ( !v4 )
   {
     v4 = (volatile signed __int32 *)TppPoolpSerializedPool;
@@ -43,23 +43,23 @@ int __stdcall RtlpTpWorkUnposted(int a1, int a2)
     v5 = &TppPoolpGlobalPoolLock;
     v6 = &TppPoolpGlobalPool;
 LABEL_13:
-    TppPoolpDereferenceGlobalPool((signed __int32 **)v6, (int)v5);
+    TppPoolpDereferenceGlobalPool((signed __int32 **)v6, v5);
     goto LABEL_14;
   }
   if ( v4 == (volatile signed __int32 *)TppPoolpSerializedPool )
   {
-    v5 = &TppPoolpSerializedPoolLock;
+    v5 = (_RTL_SRWLOCK *)&TppPoolpSerializedPoolLock;
     v6 = &TppPoolpSerializedPool;
     goto LABEL_13;
   }
   if ( !_InterlockedExchangeAdd(v4, 0xFFFFFFFF) )
     TppPoolpFree((int)v4);
 LABEL_14:
-  if ( *(_DWORD *)(a1 + 24) )
-    NtClose(*(HANDLE *)(a1 + 24));
-  if ( *(_DWORD *)(a1 + 40) != -1 )
-    RtlReleaseActivationContext(*(volatile signed __int32 **)(a1 + 40));
-  if ( *(_DWORD *)(a1 + 44) )
-    LdrUnloadDll(*(_DWORD *)(a1 + 44));
-  return RtlFreeHeap((int)NtCurrentPeb()->ProcessHeap, 0, a1);
+  if ( *((_DWORD *)BaseAddress + 6) )
+    NtClose(*((HANDLE *)BaseAddress + 6));
+  if ( *((_DWORD *)BaseAddress + 10) != -1 )
+    RtlReleaseActivationContext(*((PACTIVATION_CONTEXT *)BaseAddress + 10));
+  if ( *((_DWORD *)BaseAddress + 11) )
+    LdrUnloadDll(*((PVOID *)BaseAddress + 11));
+  return RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, BaseAddress);
 }

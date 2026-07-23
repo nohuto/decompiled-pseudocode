@@ -1,21 +1,21 @@
 /*
- * XREFs of RtlIntegerToChar @ 0x14096B3C0
+ * XREFs of RtlIntegerToChar @ 0x14097BD00
  * Callers:
- *     CmpInitializeRegistryNode @ 0x14085C5DC (CmpInitializeRegistryNode.c)
- *     RtlIntegerToUnicodeString @ 0x14096B330 (RtlIntegerToUnicodeString.c)
+ *     CmpInitializeRegistryNode @ 0x1408628CC (CmpInitializeRegistryNode.c)
+ *     RtlIntegerToUnicodeString @ 0x14097BC70 (RtlIntegerToUnicodeString.c)
  * Callees:
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
-__int64 __fastcall RtlIntegerToChar(unsigned int a1, unsigned int a2, int a3, char *a4)
+NTSTATUS __cdecl RtlIntegerToChar(ULONG Value, ULONG Base, LONG OutputLength, PSTR String)
 {
-  unsigned int v6; // r8d
+  ULONG v6; // r8d
   int v8; // ecx
   int v9; // r9d
   char *v10; // r14
-  unsigned int v11; // edx
+  ULONG v11; // edx
   __int64 v12; // rax
   __int64 *v13; // rdx
   int v14; // esp
@@ -24,8 +24,8 @@ __int64 __fastcall RtlIntegerToChar(unsigned int a1, unsigned int a2, int a3, ch
   size_t v18; // rbx
   char v19; // [rsp+41h] [rbp-27h] BYREF
 
-  v6 = a2;
-  switch ( a2 )
+  v6 = Base;
+  switch ( Base )
   {
     case 0u:
       v6 = 10;
@@ -45,7 +45,7 @@ LABEL_7:
       v8 = 3;
       break;
     default:
-      return 3221225485LL;
+      return -1073741811;
   }
   v9 = (1 << v8) - 1;
 LABEL_8:
@@ -54,39 +54,39 @@ LABEL_8:
   {
     if ( v8 )
     {
-      v11 = a1 & v9;
-      a1 >>= v8;
+      v11 = Value & v9;
+      Value >>= v8;
     }
     else
     {
-      v11 = a1 % v6;
-      a1 /= v6;
+      v11 = Value % v6;
+      Value /= v6;
     }
     --v10;
     v12 = v11;
     v13 = RtlpIntegerChars;
     *v10 = *((_BYTE *)RtlpIntegerChars + v12);
   }
-  while ( a1 );
+  while ( Value );
   v15 = (unsigned int)(v14 + 65 - (_DWORD)v10);
-  if ( a3 >= 0 )
+  if ( OutputLength >= 0 )
     goto LABEL_13;
-  a3 = -a3;
-  v16 = (int)v15 <= a3;
-  if ( (int)v15 < a3 )
+  OutputLength = -OutputLength;
+  v16 = (int)v15 <= OutputLength;
+  if ( (int)v15 < OutputLength )
   {
-    v18 = (unsigned int)(a3 - v15);
+    v18 = (unsigned int)(OutputLength - v15);
     LOBYTE(v13) = 48;
-    memset_0(a4, (int)v13, v18);
-    a3 = v15;
-    a4 += v18;
+    memset_0(String, (int)v13, v18);
+    OutputLength = v15;
+    String += v18;
 LABEL_13:
-    v16 = (int)v15 <= a3;
+    v16 = (int)v15 <= OutputLength;
   }
   if ( !v16 )
-    return 2147483653LL;
-  memmove(a4, v10, (unsigned int)v15);
-  if ( (int)v15 < a3 )
-    a4[v15] = 0;
-  return 0LL;
+    return -2147483643;
+  memmove(String, v10, (unsigned int)v15);
+  if ( (int)v15 < OutputLength )
+    String[v15] = 0;
+  return 0;
 }

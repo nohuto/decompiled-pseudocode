@@ -1,16 +1,16 @@
 /*
- * XREFs of MmScrubMemory @ 0x14085FCC4
+ * XREFs of MmScrubMemory @ 0x140860F24
  * Callers:
- *     NtSetSystemInformation @ 0x140663DF0 (NtSetSystemInformation.c)
+ *     NtSetSystemInformation @ 0x140664FB0 (NtSetSystemInformation.c)
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
- *     ExQueueWorkItemToPartition @ 0x1400D2EEC (ExQueueWorkItemToPartition.c)
- *     KeWaitForGate @ 0x1400FA304 (KeWaitForGate.c)
- *     KeInitializeGate @ 0x14013A374 (KeInitializeGate.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     ObReferenceObjectByHandle @ 0x1405E8350 (ObReferenceObjectByHandle.c)
- *     MiScrubProcesses @ 0x14085FBC0 (MiScrubProcesses.c)
+ *     ExQueueWorkItemToPartition @ 0x1400D2F6C (ExQueueWorkItemToPartition.c)
+ *     KeWaitForGate @ 0x1400FA384 (KeWaitForGate.c)
+ *     KeInitializeGate @ 0x14013A474 (KeInitializeGate.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     ObReferenceObjectByHandle @ 0x1405E9350 (ObReferenceObjectByHandle.c)
+ *     MiScrubProcesses @ 0x140860E20 (MiScrubProcesses.c)
  */
 
 NTSTATUS __fastcall MmScrubMemory(void *a1, void *a2, _QWORD *a3)
@@ -64,7 +64,7 @@ NTSTATUS __fastcall MmScrubMemory(void *a1, void *a2, _QWORD *a3)
           *(v13 - 3) = 0LL;
           *(v13 - 1) = (unsigned int *)MiScrubMemoryWorker;
           *v13 = v11;
-          ExQueueWorkItemToPartition((__int64 *)v13 - 3, 4, v12, qword_14043C9E8);
+          ExQueueWorkItemToPartition((__int64 *)v13 - 3, 4, v12, qword_14043DAA8);
           v11 += 10;
           v13 += 5;
           ++v12;
@@ -98,7 +98,7 @@ LABEL_18:
         ObfDereferenceObject(v9);
         return v8;
       }
-      _InterlockedIncrement(&dword_14043A878);
+      _InterlockedIncrement(&dword_14043B938);
     }
     else
     {

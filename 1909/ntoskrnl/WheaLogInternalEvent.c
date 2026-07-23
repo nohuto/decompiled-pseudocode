@@ -123,7 +123,7 @@ LABEL_5:
           InputBuffer[3] = 15LL;
           InputBuffer[0] = Src;
           InputBuffer[1] = v11;
-          NtPowerInformation(TraceApplicationPowerMessage|0x40, InputBuffer, 0x20u, 0LL, 0);
+          NtPowerInformation(UpdateBlackBoxRecorder, InputBuffer, 0x20u, 0LL, 0);
           result = Src[6];
         }
         if ( (result & 8) != 0 )

@@ -16,7 +16,7 @@ void __fastcall MiScrubNonPagedPool(__int64 a1, unsigned int a2, __int64 a3)
   __int64 v4; // r14
   __int64 v7; // rax
   unsigned __int64 v8; // rbx
-  union _SLIST_HEADER *v9; // r15
+  _SLIST_HEADER *v9; // r15
   __int64 v10; // rsi
   __int64 v11; // rbp
   int v12[10]; // [rsp+20h] [rbp-68h] BYREF

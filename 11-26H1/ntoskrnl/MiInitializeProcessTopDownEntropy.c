@@ -1,7 +1,7 @@
 /*
- * XREFs of MiInitializeProcessTopDownEntropy @ 0x140963650
+ * XREFs of MiInitializeProcessTopDownEntropy @ 0x140A094D8
  * Callers:
- *     MmInitializeProcessAddressSpace @ 0x1409622B0 (MmInitializeProcessAddressSpace.c)
+ *     MmInitializeProcessAddressSpace @ 0x140A08138 (MmInitializeProcessAddressSpace.c)
  * Callees:
  *     ExGenRandom @ 0x140200C10 (ExGenRandom.c)
  */

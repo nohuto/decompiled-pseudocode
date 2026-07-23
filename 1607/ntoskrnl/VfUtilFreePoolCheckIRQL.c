@@ -1,12 +1,12 @@
 /*
- * XREFs of VfUtilFreePoolCheckIRQL @ 0x14012EF04
+ * XREFs of VfUtilFreePoolCheckIRQL @ 0x14012F474
  * Callers:
- *     VfTargetDriversRemove @ 0x14012EDE8 (VfTargetDriversRemove.c)
- *     VerifierIoSetCompletionRoutineEx @ 0x1407056F8 (VerifierIoSetCompletionRoutineEx.c)
- *     ViFreeMapRegisterFile @ 0x140709458 (ViFreeMapRegisterFile.c)
- *     ViDevObjRemove @ 0x14070DA90 (ViDevObjRemove.c)
- *     ViRemLockDeleteFirstTreeNode @ 0x14070DEAC (ViRemLockDeleteFirstTreeNode.c)
- *     ViTargetTrackContiguousMemory @ 0x1407106E0 (ViTargetTrackContiguousMemory.c)
+ *     VfTargetDriversRemove @ 0x14012F358 (VfTargetDriversRemove.c)
+ *     VerifierIoSetCompletionRoutineEx @ 0x140705728 (VerifierIoSetCompletionRoutineEx.c)
+ *     ViFreeMapRegisterFile @ 0x140709488 (ViFreeMapRegisterFile.c)
+ *     ViDevObjRemove @ 0x14070DAC0 (ViDevObjRemove.c)
+ *     ViRemLockDeleteFirstTreeNode @ 0x14070DEDC (ViRemLockDeleteFirstTreeNode.c)
+ *     ViTargetTrackContiguousMemory @ 0x140710710 (ViTargetTrackContiguousMemory.c)
  *     ViLookasideAdd @ 0x14071761C (ViLookasideAdd.c)
  *     ViLookasideDelete @ 0x140717728 (ViLookasideDelete.c)
  *     VerifierExDeleteResourceLite @ 0x140717D6C (VerifierExDeleteResourceLite.c)
@@ -16,7 +16,7 @@
  *     <none>
  */
 
-__int64 __fastcall VfUtilFreePoolCheckIRQL(struct _SLIST_ENTRY *a1)
+__int64 __fastcall VfUtilFreePoolCheckIRQL(_SLIST_ENTRY *a1)
 {
   KeGetCurrentIrql();
   return VfPoolDelayFreeIfPossible(a1);

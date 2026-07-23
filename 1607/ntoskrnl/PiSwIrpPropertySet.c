@@ -1,17 +1,17 @@
 /*
- * XREFs of PiSwIrpPropertySet @ 0x140543704
+ * XREFs of PiSwIrpPropertySet @ 0x140543C44
  * Callers:
- *     PiSwDispatch @ 0x140489CB0 (PiSwDispatch.c)
+ *     PiSwDispatch @ 0x140489090 (PiSwDispatch.c)
  * Callees:
- *     IofCompleteRequest @ 0x140053560 (IofCompleteRequest.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x140055FA0 (KiLeaveCriticalRegionUnsafe.c)
- *     ExReleaseResourceLite @ 0x140068940 (ExReleaseResourceLite.c)
+ *     IofCompleteRequest @ 0x1400530E0 (IofCompleteRequest.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140055B20 (KiLeaveCriticalRegionUnsafe.c)
+ *     ExReleaseResourceLite @ 0x1400684C0 (ExReleaseResourceLite.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
- *     PiSwLock @ 0x1403F1A74 (PiSwLock.c)
- *     PiSwPropertySet @ 0x140487AA0 (PiSwPropertySet.c)
- *     PiSwValidatePropertyArray @ 0x1404892A8 (PiSwValidatePropertyArray.c)
- *     PnpAllocatePWSTR @ 0x140501D70 (PnpAllocatePWSTR.c)
- *     PiSwUpdateArrayProperties @ 0x1405438D0 (PiSwUpdateArrayProperties.c)
+ *     PiSwLock @ 0x1403F0938 (PiSwLock.c)
+ *     PnpAllocatePWSTR @ 0x1404E4D00 (PnpAllocatePWSTR.c)
+ *     PiSwPropertySet @ 0x140510214 (PiSwPropertySet.c)
+ *     PiSwValidatePropertyArray @ 0x140511A1C (PiSwValidatePropertyArray.c)
+ *     PiSwUpdateArrayProperties @ 0x140543E10 (PiSwUpdateArrayProperties.c)
  */
 
 __int64 __fastcall PiSwIrpPropertySet(PIRP Irp)
@@ -40,7 +40,7 @@ __int64 __fastcall PiSwIrpPropertySet(PIRP Irp)
               &v12);
   if ( updated < 0 )
     goto LABEL_14;
-  NdrMesTypeDecode3(v12, "TP 3\a", &off_1406E9AB0, &off_1402F32B0, 1, &v10);
+  NdrMesTypeDecode3(v12, "TP 3\a", &off_1406E9BE0, &off_1402F32B0, 1, &v10);
   if ( v10 && *((_QWORD *)v10 + 1) && *(_DWORD *)v10 )
   {
     updated = PiSwValidatePropertyArray(*((_QWORD *)v10 + 1), *(_DWORD *)v10);

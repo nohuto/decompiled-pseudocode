@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlDeleteElementGenericTableAvlEx @ 0x1405AE550
+ * XREFs of RtlDeleteElementGenericTableAvlEx @ 0x1405AEAC0
  * Callers:
  *     <none>
  * Callees:
- *     DeleteNodeFromTree @ 0x14031EA80 (DeleteNodeFromTree.c)
- *     RealPredecessor @ 0x140360598 (RealPredecessor.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
+ *     DeleteNodeFromTree @ 0x14031ED10 (DeleteNodeFromTree.c)
+ *     RealPredecessor @ 0x140360738 (RealPredecessor.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall RtlDeleteElementGenericTableAvlEx(__int64 a1, _QWORD *a2)

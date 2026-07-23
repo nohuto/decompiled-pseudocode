@@ -1,49 +1,49 @@
 /*
- * XREFs of EtwpQueryTokenPackageInfo @ 0x14045DB40
+ * XREFs of EtwpQueryTokenPackageInfo @ 0x14045CA10
  * Callers:
- *     EtwpBuildProcessEvent @ 0x14045D860 (EtwpBuildProcessEvent.c)
- *     EtwTraceAppStateChange @ 0x1404A3048 (EtwTraceAppStateChange.c)
- *     EtwQueryProcessTelemetryInfo @ 0x1404B1BB0 (EtwQueryProcessTelemetryInfo.c)
- *     EtwpPsProvProcessEnumCallback @ 0x1406A7D94 (EtwpPsProvProcessEnumCallback.c)
+ *     EtwpBuildProcessEvent @ 0x14045C730 (EtwpBuildProcessEvent.c)
+ *     EtwQueryProcessTelemetryInfo @ 0x14049BF90 (EtwQueryProcessTelemetryInfo.c)
+ *     EtwTraceAppStateChange @ 0x14051B448 (EtwTraceAppStateChange.c)
+ *     EtwpPsProvProcessEnumCallback @ 0x1406A7ECC (EtwpPsProvProcessEnumCallback.c)
  * Callees:
- *     RtlQueryPackageIdentity @ 0x14000CC98 (RtlQueryPackageIdentity.c)
- *     PsQueryProcessAttributesByToken @ 0x14040D154 (PsQueryProcessAttributesByToken.c)
+ *     RtlQueryPackageIdentity @ 0x14000C818 (RtlQueryPackageIdentity.c)
+ *     PsQueryProcessAttributesByToken @ 0x14040C014 (PsQueryProcessAttributesByToken.c)
  */
 
-__int64 __fastcall EtwpQueryTokenPackageInfo(__int64 a1, __int64 a2, _DWORD *a3)
+__int64 __fastcall EtwpQueryTokenPackageInfo(HANDLE TokenHandle, WCHAR *PackageSize, _DWORD *a3)
 {
-  _QWORD *v3; // rdi
+  PSIZE_T AppIdSize; // rdi
   __int64 result; // rax
   char v8; // [rsp+58h] [rbp+10h] BYREF
   char v9; // [rsp+68h] [rbp+20h] BYREF
 
-  v3 = (_QWORD *)(a2 + 8);
-  *(_QWORD *)a2 = 0LL;
-  *(_QWORD *)(a2 + 8) = 0LL;
-  PsQueryProcessAttributesByToken(a1, &v8, &v9);
+  AppIdSize = (PSIZE_T)(PackageSize + 4);
+  *(_QWORD *)PackageSize = 0LL;
+  *((_QWORD *)PackageSize + 1) = 0LL;
+  PsQueryProcessAttributesByToken((__int64)TokenHandle, &v8, &v9);
   if ( v8 )
   {
     *a3 |= 1u;
-    *(_QWORD *)a2 = 256LL;
-    *v3 = 130LL;
-    if ( (int)RtlQueryPackageIdentity(a1, a2 + 16, a2, a2 + 272, (__int64)v3, 0LL) < 0 )
+    *(_QWORD *)PackageSize = 256LL;
+    *AppIdSize = 130LL;
+    if ( RtlQueryPackageIdentity(TokenHandle, PackageSize + 8, (PSIZE_T)PackageSize, PackageSize + 136, AppIdSize, 0LL) < 0 )
     {
-      *(_QWORD *)a2 = 0LL;
-      *v3 = 0LL;
+      *(_QWORD *)PackageSize = 0LL;
+      *AppIdSize = 0LL;
     }
     if ( v9 )
       *a3 |= 8u;
   }
   result = 2LL;
-  if ( !*(_QWORD *)a2 )
+  if ( !*(_QWORD *)PackageSize )
   {
-    *(_QWORD *)a2 = 2LL;
-    *(_WORD *)(a2 + 16) = 0;
+    *(_QWORD *)PackageSize = 2LL;
+    PackageSize[8] = 0;
   }
-  if ( !*v3 )
+  if ( !*AppIdSize )
   {
-    *v3 = 2LL;
-    *(_WORD *)(a2 + 272) = 0;
+    *AppIdSize = 2LL;
+    PackageSize[136] = 0;
   }
   return result;
 }

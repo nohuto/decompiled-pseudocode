@@ -1,12 +1,12 @@
 /*
- * XREFs of PfSnCheckModernApp @ 0x1403E7318
+ * XREFs of PfSnCheckModernApp @ 0x1403E8948
  * Callers:
- *     PfSnBeginAppLaunch @ 0x1403E64A0 (PfSnBeginAppLaunch.c)
+ *     PfSnBeginAppLaunch @ 0x1403E7AD0 (PfSnBeginAppLaunch.c)
  * Callees:
- *     RtlQueryPackageIdentity @ 0x14000CC98 (RtlQueryPackageIdentity.c)
- *     ObFastDereferenceObject @ 0x14000F690 (ObFastDereferenceObject.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     PsReferencePrimaryToken @ 0x140418C20 (PsReferencePrimaryToken.c)
+ *     RtlQueryPackageIdentity @ 0x14000C818 (RtlQueryPackageIdentity.c)
+ *     ObFastDereferenceObject @ 0x14000F210 (ObFastDereferenceObject.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     PsReferencePrimaryToken @ 0x140417AE0 (PsReferencePrimaryToken.c)
  */
 
 __int64 __fastcall PfSnCheckModernApp(_DWORD *a1, _DWORD *a2)
@@ -15,13 +15,13 @@ __int64 __fastcall PfSnCheckModernApp(_DWORD *a1, _DWORD *a2)
   unsigned __int8 v5; // bl
   _KPROCESS *Process; // rbp
   PACCESS_TOKEN v7; // r14
-  int PackageIdentity; // eax
+  NTSTATUS v8; // eax
   unsigned int v9; // edi
   unsigned __int8 *v11; // r11
-  unsigned __int64 v12; // r10
+  ULONG_PTR v12; // r10
   __int64 v13; // r8
   __int64 v14; // r9
-  unsigned __int64 v15; // rdi
+  ULONG_PTR v15; // rdi
   __int64 v16; // rcx
   __int64 v17; // rax
   int v18; // r10d
@@ -29,8 +29,8 @@ __int64 __fastcall PfSnCheckModernApp(_DWORD *a1, _DWORD *a2)
   int v20; // r10d
   int v21; // r10d
   unsigned __int8 *v22; // r11
-  unsigned __int64 v23; // r10
-  unsigned __int64 v24; // rdi
+  ULONG_PTR v23; // r10
+  ULONG_PTR v24; // rdi
   __int64 v25; // rcx
   __int64 v26; // rax
   int v27; // r10d
@@ -41,27 +41,27 @@ __int64 __fastcall PfSnCheckModernApp(_DWORD *a1, _DWORD *a2)
   int v32; // r10d
   int v33; // r10d
   int v34; // r10d
-  __int64 v35; // [rsp+30h] [rbp-1D8h] BYREF
-  __int64 v36; // [rsp+38h] [rbp-1D0h] BYREF
-  _BYTE v37[144]; // [rsp+40h] [rbp-1C8h] BYREF
-  _BYTE v38[256]; // [rsp+D0h] [rbp-138h] BYREF
+  ULONG_PTR PackageSize; // [rsp+30h] [rbp-1D8h] BYREF
+  ULONG_PTR AppIdSize; // [rsp+38h] [rbp-1D0h] BYREF
+  WCHAR AppId[72]; // [rsp+40h] [rbp-1C8h] BYREF
+  WCHAR PackageFullName[128]; // [rsp+D0h] [rbp-138h] BYREF
 
   v4 = 0;
   v5 = 0;
   Process = KeGetCurrentThread()->ApcState.Process;
   v7 = PsReferencePrimaryToken(Process);
-  v35 = 256LL;
-  v36 = 130LL;
-  PackageIdentity = RtlQueryPackageIdentity((__int64)v7, (__int64)v38, (__int64)&v35, (__int64)v37, (__int64)&v36, 0LL);
-  v9 = PackageIdentity;
-  if ( PackageIdentity >= 0 )
+  PackageSize = 256LL;
+  AppIdSize = 130LL;
+  v8 = RtlQueryPackageIdentity(v7, PackageFullName, &PackageSize, AppId, &AppIdSize, 0LL);
+  v9 = v8;
+  if ( v8 >= 0 )
   {
-    v11 = v38;
-    v12 = v35 - 2;
+    v11 = (unsigned __int8 *)PackageFullName;
+    v12 = PackageSize - 2;
     v13 = 314159LL;
     v5 = 1;
     v14 = 314159LL;
-    if ( v35 - 2 >= 8 )
+    if ( (__int64)(PackageSize - 2) >= 8 )
     {
       v15 = v12 >> 3;
       v12 -= 8 * (v12 >> 3);
@@ -127,9 +127,9 @@ LABEL_28:
       }
     }
 LABEL_17:
-    v22 = v37;
-    v23 = v36 - 2;
-    if ( v36 - 2 >= 8 )
+    v22 = (unsigned __int8 *)AppId;
+    v23 = AppIdSize - 2;
+    if ( (__int64)(AppIdSize - 2) >= 8 )
     {
       v24 = v23 >> 3;
       v23 -= 8 * (v23 >> 3);
@@ -183,7 +183,7 @@ LABEL_25:
     v4 = v13 + v14;
     goto LABEL_3;
   }
-  if ( PackageIdentity == -1073741275 )
+  if ( v8 == -1073741275 )
   {
 LABEL_3:
     v9 = 0;

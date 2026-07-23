@@ -1,7 +1,7 @@
 /*
- * XREFs of PsGetCurrentThreadId @ 0x140098FB0
+ * XREFs of PsGetCurrentThreadId @ 0x1400987B0
  * Callers:
- *     PoShutdownBugCheck @ 0x14066E8B4 (PoShutdownBugCheck.c)
+ *     PoShutdownBugCheck @ 0x14066E998 (PoShutdownBugCheck.c)
  * Callees:
  *     <none>
  */

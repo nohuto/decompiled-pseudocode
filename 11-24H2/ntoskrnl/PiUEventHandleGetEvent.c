@@ -1,19 +1,19 @@
 /*
- * XREFs of PiUEventHandleGetEvent @ 0x14085B5E0
+ * XREFs of PiUEventHandleGetEvent @ 0x140857350
  * Callers:
- *     PiUEventHandleIoctl @ 0x14085B524 (PiUEventHandleIoctl.c)
+ *     PiUEventHandleIoctl @ 0x140857294 (PiUEventHandleIoctl.c)
  * Callees:
- *     KeReleaseGuardedMutex @ 0x14031E470 (KeReleaseGuardedMutex.c)
- *     ExAcquireFastMutex @ 0x14033E850 (ExAcquireFastMutex.c)
- *     McTemplateK0qqzqqtjqzjzttx_EtwWriteTransfer @ 0x1405A6558 (McTemplateK0qqzqqtjqzjzttx_EtwWriteTransfer.c)
- *     PiUEventMovePendingEventToSynchronousQueue @ 0x1406F77B4 (PiUEventMovePendingEventToSynchronousQueue.c)
- *     PiUEventGatherEventData @ 0x140724AE8 (PiUEventGatherEventData.c)
- *     PiUEventGetProcessImagePath @ 0x140724B20 (PiUEventGetProcessImagePath.c)
- *     PiUEventCopyEventData @ 0x14085B840 (PiUEventCopyEventData.c)
- *     PiUEventDereferenceEventEntry @ 0x14085BBFC (PiUEventDereferenceEventEntry.c)
- *     PiUEventNotifyClientPendingEvent @ 0x140A12EA8 (PiUEventNotifyClientPendingEvent.c)
- *     PiUEventFreeProcessImagePath @ 0x140ABC988 (PiUEventFreeProcessImagePath.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     KeReleaseGuardedMutex @ 0x1402C7000 (KeReleaseGuardedMutex.c)
+ *     ExAcquireFastMutex @ 0x14031DD30 (ExAcquireFastMutex.c)
+ *     McTemplateK0qqzqqtjqzjzttx_EtwWriteTransfer @ 0x1405A348C (McTemplateK0qqzqqtjqzjzttx_EtwWriteTransfer.c)
+ *     PiUEventMovePendingEventToSynchronousQueue @ 0x1406F57B4 (PiUEventMovePendingEventToSynchronousQueue.c)
+ *     PiUEventGatherEventData @ 0x140722678 (PiUEventGatherEventData.c)
+ *     PiUEventGetProcessImagePath @ 0x1407226B0 (PiUEventGetProcessImagePath.c)
+ *     PiUEventCopyEventData @ 0x1408575B0 (PiUEventCopyEventData.c)
+ *     PiUEventDereferenceEventEntry @ 0x14085796C (PiUEventDereferenceEventEntry.c)
+ *     PiUEventNotifyClientPendingEvent @ 0x140A0B608 (PiUEventNotifyClientPendingEvent.c)
+ *     PiUEventFreeProcessImagePath @ 0x140AB79A8 (PiUEventFreeProcessImagePath.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PiUEventHandleGetEvent(__int64 a1, _DWORD *a2, unsigned int a3, unsigned int a4, __int64 a5)
@@ -86,7 +86,7 @@ __int64 __fastcall PiUEventHandleGetEvent(__int64 a1, _DWORD *a2, unsigned int a
       *v16 = v11;
       v11[1] = v16;
       --*(_DWORD *)(v5 + 128);
-      if ( (byte_140EEFD24 & 0x82) == 0 )
+      if ( (byte_140EEFF64 & 0x82) == 0 )
         goto LABEL_22;
       v18 = *v15;
       v19 = (MEMORY[0xFFFFF78000000014] - v13[2]) / 10000LL;
@@ -96,7 +96,7 @@ __int64 __fastcall PiUEventHandleGetEvent(__int64 a1, _DWORD *a2, unsigned int a
           goto LABEL_22;
         PiUEventGatherEventData(v18, &v23, (__int64)&v22, (__int64)&v21);
         PiUEventGetProcessImagePath(*(void **)(v5 + 48), &v26);
-        if ( (byte_140EEFD24 & 2) != 0 )
+        if ( (byte_140EEFF64 & 2) != 0 )
           McTemplateK0qqzqqtjqzjzttx_EtwWriteTransfer(
             *v24,
             (const EVENT_DESCRIPTOR *)KMPnPEvt_UEvent_DequeueOldSyncEvent,
@@ -127,7 +127,7 @@ LABEL_22:
         }
         PiUEventGatherEventData(v18, &v23, (__int64)&v22, (__int64)&v21);
         PiUEventGetProcessImagePath(*(void **)(v5 + 48), &v26);
-        if ( byte_140EEFD24 < 0 )
+        if ( byte_140EEFF64 < 0 )
           McTemplateK0qqzqqtjqzjzttx_EtwWriteTransfer(
             *v24,
             (const EVENT_DESCRIPTOR *)KMPnPEvt_UEvent_DequeueOldAsyncEvent,

@@ -1,16 +1,16 @@
 /*
- * XREFs of PspAddSchedulingGroupToJobChain @ 0x14098CBAC
+ * XREFs of PspAddSchedulingGroupToJobChain @ 0x1409774CC
  * Callers:
- *     PspEstablishJobHierarchy @ 0x1408E62CC (PspEstablishJobHierarchy.c)
- *     NtSetInformationJobObject @ 0x140ACE760 (NtSetInformationJobObject.c)
+ *     PspEstablishJobHierarchy @ 0x14091B360 (PspEstablishJobHierarchy.c)
+ *     NtSetInformationJobObject @ 0x140ACC7F0 (NtSetInformationJobObject.c)
  * Callees:
- *     KeInsertSchedulingGroup @ 0x14030F2B8 (KeInsertSchedulingGroup.c)
- *     ObfReferenceObjectWithTag @ 0x1403403E0 (ObfReferenceObjectWithTag.c)
- *     PspEnumJobsAndProcessesInJobHierarchy @ 0x1408EBCAC (PspEnumJobsAndProcessesInJobHierarchy.c)
- *     PspFreeRateControl @ 0x14098CF0C (PspFreeRateControl.c)
- *     PspAllocateRateControl @ 0x14098CF58 (PspAllocateRateControl.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ObfReferenceObjectWithTag @ 0x14031F8C0 (ObfReferenceObjectWithTag.c)
+ *     KeInsertSchedulingGroup @ 0x14045CB04 (KeInsertSchedulingGroup.c)
+ *     PspEnumJobsAndProcessesInJobHierarchy @ 0x14085D4DC (PspEnumJobsAndProcessesInJobHierarchy.c)
+ *     PspFreeRateControl @ 0x14097782C (PspFreeRateControl.c)
+ *     PspAllocateRateControl @ 0x140977878 (PspAllocateRateControl.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PspAddSchedulingGroupToJobChain(__int64 a1, __int64 a2)
@@ -40,7 +40,7 @@ __int64 __fastcall PspAddSchedulingGroupToJobChain(__int64 a1, __int64 a2)
   P[0] = P;
   if ( a2 )
   {
-    Pool2 = ExAllocatePool2(0x100uLL);
+    Pool2 = ExAllocatePool2(0x100uLL, 0x18uLL, 0x624A7350u);
     v3 = (_QWORD *)Pool2;
     if ( Pool2 )
     {
@@ -72,7 +72,7 @@ LABEL_5:
       *(_DWORD *)(RateControl + 128) = 655370000;
       *(_DWORD *)(*(_QWORD *)(a1 + 1240) + 44LL) = *(_DWORD *)(RateControl + 128);
       *(_DWORD *)(*(_QWORD *)(a1 + 1240) + 40LL) |= 0x40u;
-      v8 = ExAllocatePool2(0x100uLL);
+      v8 = ExAllocatePool2(0x100uLL, 0x18uLL, 0x624A7350u);
       v3 = (_QWORD *)v8;
       if ( !v8 )
       {

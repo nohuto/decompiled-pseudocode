@@ -1,27 +1,27 @@
 /*
- * XREFs of PiDqObjectManagerServiceActionQueue @ 0x14048B654
+ * XREFs of PiDqObjectManagerServiceActionQueue @ 0x14048BBB8
  * Callers:
  *     <none>
  * Callees:
- *     KeReleaseGuardedMutex @ 0x14000CA40 (KeReleaseGuardedMutex.c)
- *     ExAcquireFastMutex @ 0x14002D0A0 (ExAcquireFastMutex.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x140055FA0 (KiLeaveCriticalRegionUnsafe.c)
- *     ExAcquireResourceExclusiveLite @ 0x140068160 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x140068940 (ExReleaseResourceLite.c)
- *     IoClearActivityIdThread @ 0x140085278 (IoClearActivityIdThread.c)
- *     IoSetActivityIdThread @ 0x14008528C (IoSetActivityIdThread.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     Template_p @ 0x1401CE864 (Template_p.c)
+ *     KeReleaseGuardedMutex @ 0x14000C5C0 (KeReleaseGuardedMutex.c)
+ *     ExAcquireFastMutex @ 0x14002CC20 (ExAcquireFastMutex.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140055B20 (KiLeaveCriticalRegionUnsafe.c)
+ *     ExAcquireResourceExclusiveLite @ 0x140067CE0 (ExAcquireResourceExclusiveLite.c)
+ *     ExReleaseResourceLite @ 0x1400684C0 (ExReleaseResourceLite.c)
+ *     IoClearActivityIdThread @ 0x140086944 (IoClearActivityIdThread.c)
+ *     IoSetActivityIdThread @ 0x140086958 (IoSetActivityIdThread.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     Template_p @ 0x1401CE5F8 (Template_p.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     PiDqQueryUnlock @ 0x14048BC4C (PiDqQueryUnlock.c)
- *     PiDqQueryLock @ 0x14048BCA4 (PiDqQueryLock.c)
- *     PiDqQueryApplyObjectEvent @ 0x14048BF34 (PiDqQueryApplyObjectEvent.c)
- *     PnpIsNullGuid @ 0x14048C348 (PnpIsNullGuid.c)
- *     PiDqQueryRelease @ 0x14048C588 (PiDqQueryRelease.c)
- *     PiDqQueryFreeActiveData @ 0x14048CA74 (PiDqQueryFreeActiveData.c)
- *     PiDqQueryCompletePendedIrp @ 0x1404EEAE4 (PiDqQueryCompletePendedIrp.c)
- *     PiPnpRtlObjectEventRelease @ 0x140501E38 (PiPnpRtlObjectEventRelease.c)
+ *     PiDqQueryUnlock @ 0x14048C1B0 (PiDqQueryUnlock.c)
+ *     PiDqQueryLock @ 0x14048C208 (PiDqQueryLock.c)
+ *     PiDqQueryApplyObjectEvent @ 0x14048C498 (PiDqQueryApplyObjectEvent.c)
+ *     PnpIsNullGuid @ 0x14048C8AC (PnpIsNullGuid.c)
+ *     PiDqQueryRelease @ 0x14048CAEC (PiDqQueryRelease.c)
+ *     PiDqQueryFreeActiveData @ 0x14048D088 (PiDqQueryFreeActiveData.c)
+ *     PiDqQueryCompletePendedIrp @ 0x1404D0BAC (PiDqQueryCompletePendedIrp.c)
+ *     PiPnpRtlObjectEventRelease @ 0x1404E4DC8 (PiPnpRtlObjectEventRelease.c)
  */
 
 __int64 __fastcall PiDqObjectManagerServiceActionQueue(PERESOURCE Resource)

@@ -18,8 +18,10 @@ LONG __stdcall RtlIpv4AddressToStringExA(
   char *v4; // esi
   unsigned __int16 v5; // cx
   ULONG v6; // esi
+  size_t v8; // [esp-Ch] [ebp-38h]
+  size_t v9; // [esp-4h] [ebp-30h]
   CHAR S[22]; // [esp+10h] [ebp-1Ch] BYREF
-  _BYTE v9[2]; // [esp+26h] [ebp-6h] BYREF
+  _BYTE v11[2]; // [esp+26h] [ebp-6h] BYREF
 
   if ( !Address || !AddressStringLength || !AddressString && *AddressStringLength )
     return -1073741811;
@@ -28,7 +30,9 @@ LONG __stdcall RtlIpv4AddressToStringExA(
   {
     LOBYTE(v5) = HIBYTE(Port);
     HIBYTE(v5) = Port;
-    v4 += sprintf_s(v4, v9 - v4, ":%u", v5);
+    HIDWORD(v8) = ":%u";
+    LODWORD(v8) = v11 - v4;
+    v4 += sprintf_s(v4, v8, (const char *const)v5);
   }
   v6 = v4 - S + 1;
   if ( *AddressStringLength < v6 )
@@ -36,7 +40,8 @@ LONG __stdcall RtlIpv4AddressToStringExA(
     *AddressStringLength = v6;
     return -1073741811;
   }
-  memcpy(AddressString, S, v6);
+  LODWORD(v9) = v6;
+  memcpy(AddressString, S, v9);
   *AddressStringLength = v6;
   return 0;
 }

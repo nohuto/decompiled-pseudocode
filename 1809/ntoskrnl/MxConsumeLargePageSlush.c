@@ -1,11 +1,11 @@
 /*
- * XREFs of MxConsumeLargePageSlush @ 0x1409BD51C
+ * XREFs of MxConsumeLargePageSlush @ 0x1409BE51C
  * Callers:
- *     MiInitNucleus @ 0x1409B9108 (MiInitNucleus.c)
+ *     MiInitNucleus @ 0x1409BA108 (MiInitNucleus.c)
  * Callees:
- *     MiVaToPfn @ 0x140099010 (MiVaToPfn.c)
- *     MiAddExpansionNonPagedPool @ 0x14017F9CC (MiAddExpansionNonPagedPool.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     MiVaToPfn @ 0x140098F50 (MiVaToPfn.c)
+ *     MiAddExpansionNonPagedPool @ 0x14017FB0C (MiAddExpansionNonPagedPool.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
  */
 
 void MxConsumeLargePageSlush()
@@ -30,18 +30,18 @@ void MxConsumeLargePageSlush()
   {
     v0 = MxHalDataTableEntry;
     v1 = 0;
-    v2 = (unsigned int)dword_140438E74;
-    if ( *(_QWORD *)(qword_140A0A5C0 + 48) < *(_QWORD *)(MxHalDataTableEntry + 48) )
+    v2 = (unsigned int)dword_140439F34;
+    if ( *(_QWORD *)(qword_140A0B5B8 + 48) < *(_QWORD *)(MxHalDataTableEntry + 48) )
     {
-      v3 = qword_140A0A5C0;
+      v3 = qword_140A0B5B8;
     }
     else
     {
       v3 = MxHalDataTableEntry;
-      v0 = qword_140A0A5C0;
+      v0 = qword_140A0B5B8;
     }
     v4 = *(_QWORD *)(v3 + 48);
-    v5 = (unsigned int)dword_140438E74 + v4 + *(unsigned int *)(v3 + 64);
+    v5 = (unsigned int)dword_140439F34 + v4 + *(unsigned int *)(v3 + 64);
     if ( v5 != *(_QWORD *)(v0 + 48) )
     {
       v11 = MiVaToPfn(v5);

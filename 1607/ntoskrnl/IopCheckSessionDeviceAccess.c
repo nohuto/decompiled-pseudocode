@@ -1,11 +1,11 @@
 /*
- * XREFs of IopCheckSessionDeviceAccess @ 0x1401C9408
+ * XREFs of IopCheckSessionDeviceAccess @ 0x1401C92A8
  * Callers:
- *     IopParseDevice @ 0x1404408F0 (IopParseDevice.c)
+ *     IopParseDevice @ 0x14043F7C0 (IopParseDevice.c)
  * Callees:
- *     MmGetSessionId @ 0x140014160 (MmGetSessionId.c)
- *     PsGetServerSiloGlobals @ 0x1400766B0 (PsGetServerSiloGlobals.c)
- *     IopGetSessionIdFromPDO @ 0x1404ED078 (IopGetSessionIdFromPDO.c)
+ *     MmGetSessionId @ 0x140013CE0 (MmGetSessionId.c)
+ *     PsGetServerSiloGlobals @ 0x140076730 (PsGetServerSiloGlobals.c)
+ *     IopGetSessionIdFromPDO @ 0x1404CF1E4 (IopGetSessionIdFromPDO.c)
  */
 
 bool IopCheckSessionDeviceAccess()

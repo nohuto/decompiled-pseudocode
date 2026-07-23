@@ -10,12 +10,12 @@
 
 void __fastcall PerfDiagpInitializeLoggerInfo(int a1, __int16 a2)
 {
-  memset(dword_140C32730, 0, 0xB0uLL);
+  memset(&OutputBuffer, 0, 0xB0uLL);
   dword_140C32778 = -2130771792;
   dword_140C3275C = 0x20000;
   wcscpy(&xmmword_140C3270C, L"PerfDiag Logger");
   RtlInitUnicodeString(&DestinationString, &xmmword_140C3270C);
-  LODWORD(dword_140C32730[0]) = 180;
+  OutputBuffer = 180;
   dword_140C327E0 = 1;
   if ( a1 )
   {
@@ -23,6 +23,6 @@ void __fastcall PerfDiagpInitializeLoggerInfo(int a1, __int16 a2)
     word_140C327E4 = a2 + 1;
     HIWORD(dword_140C327E0) = 1;
     LOWORD(dword_140C327E0) = a2 + 2;
-    LODWORD(dword_140C32730[0]) = 4 * (unsigned __int16)(a2 + 1) + 180;
+    OutputBuffer = 4 * (unsigned __int16)(a2 + 1) + 180;
   }
 }

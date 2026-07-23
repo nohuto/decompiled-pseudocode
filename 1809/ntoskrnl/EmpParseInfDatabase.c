@@ -1,19 +1,19 @@
 /*
- * XREFs of EmpParseInfDatabase @ 0x1409BDD1C
+ * XREFs of EmpParseInfDatabase @ 0x1409BED1C
  * Callers:
- *     EmInitSystem @ 0x1409BD7E0 (EmInitSystem.c)
+ *     EmInitSystem @ 0x1409BE7E0 (EmInitSystem.c)
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     CmpFreeSectionList @ 0x1409BDDE4 (CmpFreeSectionList.c)
- *     EmpParseEntryTypes @ 0x1409BE0E8 (EmpParseEntryTypes.c)
- *     EmpParseCallbacks @ 0x1409BE250 (EmpParseCallbacks.c)
- *     EmpParseRules @ 0x1409BEA68 (EmpParseRules.c)
- *     EmpParseStrings @ 0x1409BEDC8 (EmpParseStrings.c)
- *     EmpParseTargetRules @ 0x1409BEFF4 (EmpParseTargetRules.c)
- *     CmpParseInfBuffer @ 0x1409CEB20 (CmpParseInfBuffer.c)
+ *     ExfTryToWakePushLock @ 0x140091500 (ExfTryToWakePushLock.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     CmpFreeSectionList @ 0x1409BEDE4 (CmpFreeSectionList.c)
+ *     EmpParseEntryTypes @ 0x1409BF0E8 (EmpParseEntryTypes.c)
+ *     EmpParseCallbacks @ 0x1409BF250 (EmpParseCallbacks.c)
+ *     EmpParseRules @ 0x1409BFA68 (EmpParseRules.c)
+ *     EmpParseStrings @ 0x1409BFDC8 (EmpParseStrings.c)
+ *     EmpParseTargetRules @ 0x1409BFFF4 (EmpParseTargetRules.c)
+ *     CmpParseInfBuffer @ 0x1409CFB20 (CmpParseInfBuffer.c)
  */
 
 __int64 __fastcall EmpParseInfDatabase(__int64 a1, unsigned int a2)

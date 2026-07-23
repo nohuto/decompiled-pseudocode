@@ -1,14 +1,14 @@
 /*
- * XREFs of CarInitLogging @ 0x140649174
+ * XREFs of CarInitLogging @ 0x14064CD54
  * Callers:
- *     CarInit @ 0x140649ADC (CarInit.c)
- *     Phase1InitializationIoReady @ 0x140CAD020 (Phase1InitializationIoReady.c)
+ *     CarInit @ 0x14064D6BC (CarInit.c)
+ *     Phase1InitializationIoReady @ 0x140CB3060 (Phase1InitializationIoReady.c)
  * Callees:
- *     KeQueryPerformanceCounter @ 0x14021C3F0 (KeQueryPerformanceCounter.c)
- *     _tlgKeywordOn @ 0x14044F850 (_tlgKeywordOn.c)
- *     CarEtwRegister @ 0x140648A94 (CarEtwRegister.c)
- *     CarWriteEarlyRuleViolationEvents @ 0x14064C650 (CarWriteEarlyRuleViolationEvents.c)
- *     DifiDbgPrint @ 0x14064C7F0 (DifiDbgPrint.c)
+ *     KeQueryPerformanceCounter @ 0x14021DD80 (KeQueryPerformanceCounter.c)
+ *     _tlgKeywordOn @ 0x140447980 (_tlgKeywordOn.c)
+ *     CarEtwRegister @ 0x14064C674 (CarEtwRegister.c)
+ *     CarWriteEarlyRuleViolationEvents @ 0x140650230 (CarWriteEarlyRuleViolationEvents.c)
+ *     DifiDbgPrint @ 0x1406503D0 (DifiDbgPrint.c)
  */
 
 __int64 CarInitLogging()
@@ -19,7 +19,7 @@ __int64 CarInitLogging()
   v0 = 0;
   if ( CarLogInitialized )
     return 0LL;
-  if ( !dword_140E08EA8 || !tlgKeywordOn((__int64)&dword_140E08EA8, 0x800000000000LL) )
+  if ( !dword_140E08E50 || !tlgKeywordOn((__int64)&dword_140E08E50, 0x800000000000LL) )
   {
     CarEtwRandomSeed = KeQueryPerformanceCounter(0LL).QuadPart;
     v2 = CarEtwRegister();

@@ -9,12 +9,12 @@
  *     _RtlpHeapExceptionFilter@8 @ 0x4B375DFF (_RtlpHeapExceptionFilter@8.c)
  */
 
-int __fastcall RtlpHpReAllocWithExceptionProtection(int a1, int a2, int a3, unsigned int a4)
+int __fastcall RtlpHpReAllocWithExceptionProtection(int a1, int a2, unsigned int a3, unsigned int a4)
 {
   int v4; // ebp
 
   if ( (RtlpHpHeapFeatures & 2) != 0 )
     return RtlpHpTagReAllocateHeap(a4, a2);
   else
-    return RtlpReAllocateHeapInternal(a2, a1, v4, a3, a4, 0, 0);
+    return RtlpReAllocateHeapInternal(a1, a2, v4, a3, a4, 0, 0);
 }

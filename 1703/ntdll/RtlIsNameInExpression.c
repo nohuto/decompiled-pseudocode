@@ -9,28 +9,33 @@
  *     sub_1800F73EC @ 0x1800F73EC (sub_1800F73EC.c)
  */
 
-char __fastcall RtlIsNameInExpression(__int64 a1, UNICODE_STRING *p_UnicodeString, __int64 a3, __int64 a4)
+// local variable allocation has failed, the output may be wrong!
+BOOLEAN __cdecl RtlIsNameInExpression(
+        PUNICODE_STRING Expression,
+        PUNICODE_STRING Name,
+        BOOLEAN IgnoreCase,
+        PWCH UpcaseTable)
 {
-  int v6; // eax
-  wchar_t *Buffer; // rbx
-  char v8; // di
-  UNICODE_STRING UnicodeString; // [rsp+20h] [rbp-18h] BYREF
+  NTSTATUS v6; // eax
+  PWCH Buffer; // rbx
+  BOOLEAN v8; // di
+  _UNICODE_STRING UnicodeString; // [rsp+20h] [rbp-18h] BYREF
 
-  if ( !(_BYTE)a3 || a4 )
+  if ( !IgnoreCase || UpcaseTable )
   {
     Buffer = 0LL;
     UnicodeString.Buffer = 0LL;
   }
   else
   {
-    v6 = sub_1800F73EC(&UnicodeString);
+    v6 = sub_1800F73EC(&UnicodeString, Name);
     if ( v6 < 0 )
       RtlRaiseStatus(v6);
-    p_UnicodeString = &UnicodeString;
-    LOBYTE(a3) = 0;
+    Name = &UnicodeString;
+    IgnoreCase = 0;
     Buffer = UnicodeString.Buffer;
   }
-  v8 = sub_1800F6ECC(a1, p_UnicodeString, a3, a4);
+  v8 = sub_1800F6ECC(Expression, Name, IgnoreCase, UpcaseTable);
   if ( Buffer )
     RtlFreeUnicodeString(&UnicodeString);
   return v8;

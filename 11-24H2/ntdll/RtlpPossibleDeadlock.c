@@ -1,23 +1,23 @@
 /*
- * XREFs of RtlpPossibleDeadlock @ 0x18009BC30
+ * XREFs of RtlpPossibleDeadlock @ 0x180030A80
  * Callers:
- *     RtlpWaitOnCriticalSection @ 0x18009A7A0 (RtlpWaitOnCriticalSection.c)
- *     RtlAcquireResourceShared @ 0x1800DC7A0 (RtlAcquireResourceShared.c)
- *     RtlAcquireResourceExclusive @ 0x1800E04E0 (RtlAcquireResourceExclusive.c)
+ *     RtlpWaitOnCriticalSection @ 0x18002F5F0 (RtlpWaitOnCriticalSection.c)
+ *     RtlAcquireResourceShared @ 0x1800D7910 (RtlAcquireResourceShared.c)
+ *     RtlAcquireResourceExclusive @ 0x1800DB5E0 (RtlAcquireResourceExclusive.c)
  * Callees:
- *     RtlReportExceptionHelper @ 0x18000226C (RtlReportExceptionHelper.c)
- *     RtlDecodePointer @ 0x18001A440 (RtlDecodePointer.c)
- *     RtlRaiseException @ 0x180070510 (RtlRaiseException.c)
- *     WerpIsProcessNative @ 0x18011DD34 (WerpIsProcessNative.c)
- *     RtlCaptureContext @ 0x180120C00 (RtlCaptureContext.c)
- *     __security_check_cookie @ 0x1801659C0 (__security_check_cookie.c)
- *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x180172020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
- *     memset$thunk$772440563353939046 @ 0x180172030 (memset$thunk$772440563353939046.c)
+ *     RtlDecodePointer @ 0x180046E40 (RtlDecodePointer.c)
+ *     RtlRaiseException @ 0x18008CDF0 (RtlRaiseException.c)
+ *     RtlReportExceptionHelper @ 0x1800ABF6C (RtlReportExceptionHelper.c)
+ *     WerpIsProcessNative @ 0x18011BF64 (WerpIsProcessNative.c)
+ *     RtlCaptureContext @ 0x18011EE30 (RtlCaptureContext.c)
+ *     __security_check_cookie @ 0x180163D80 (__security_check_cookie.c)
+ *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x180171020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
+ *     memset$thunk$772440563353939046 @ 0x180171030 (memset$thunk$772440563353939046.c)
  */
 
 void __fastcall RtlpPossibleDeadlock(unsigned __int64 a1)
 {
-  __int64 (__fastcall *v2)(); // rax
+  PVOID v2; // rax
   signed __int32 v3; // eax
   int v4; // eax
   __int64 v5; // rdx
@@ -27,13 +27,13 @@ void __fastcall RtlpPossibleDeadlock(unsigned __int64 a1)
   int IsProcessNative; // eax
   __int64 *v10; // r9
   __int64 v11; // [rsp+20h] [rbp-598h] BYREF
-  __int64 (__fastcall *v12)(); // [rsp+28h] [rbp-590h]
+  PVOID v12; // [rsp+28h] [rbp-590h]
   EXCEPTION_RECORD ExceptionRecord; // [rsp+30h] [rbp-588h] BYREF
   struct _CONTEXT ContextRecord; // [rsp+D0h] [rbp-4E8h] BYREF
 
   *(&ExceptionRecord.NumberParameters + 1) = 0;
   memset_thunk_772440563353939046(&ExceptionRecord.ExceptionInformation[1], 0, 0x70uLL);
-  v2 = (__int64 (__fastcall *)())RtlDecodePointer(RtlpUnhandledExceptionFilter);
+  v2 = RtlDecodePointer(RtlpUnhandledExceptionFilter);
   if ( !v2 )
     v2 = RtlUnhandledExceptionFilter;
   v12 = v2;
@@ -60,7 +60,7 @@ void __fastcall RtlpPossibleDeadlock(unsigned __int64 a1)
       v10 = &v11;
       if ( !IsProcessNative )
         v10 = 0LL;
-      RtlReportExceptionHelper(&ExceptionRecord, &ContextRecord, 15, (__int64)v10);
+      RtlReportExceptionHelper(&ExceptionRecord, &ContextRecord, 15LL, v10, v11);
     }
   }
   if ( RtlpRaiseExceptionOnPossibleDeadlock )

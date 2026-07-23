@@ -12,16 +12,16 @@ int __thiscall RtlpHpVaMgrFree(int this)
 {
   int v2; // edi
   unsigned __int16 v3; // bx
-  int *v4; // edx
-  unsigned int v5; // eax
+  _RTL_RB_TREE *v4; // edx
+  int v5; // eax
   int v6; // esi
-  unsigned int v7; // ecx
+  int v7; // ecx
 
   v2 = RtlpHpVaMgrRangeCoalesce();
   v3 = *(_WORD *)(v2 + 12);
   if ( v3 != *(_WORD *)(this + 20) )
   {
-    v4 = (int *)(this + 4);
+    v4 = (_RTL_RB_TREE *)(this + 4);
     v5 = *(_DWORD *)(this + 4);
     if ( (*(_BYTE *)(this + 8) & 1) != 0 )
     {
@@ -59,14 +59,14 @@ int __thiscall RtlpHpVaMgrFree(int this)
           if ( !v7 )
           {
 LABEL_12:
-            RtlRbInsertNodeEx(v4, v5, 1, v2);
+            RtlRbInsertNodeEx(v4, (PRTL_BALANCED_NODE)v5, 1u, (PRTL_BALANCED_NODE)v2);
             return 0;
           }
         }
         v5 = v7;
       }
     }
-    RtlRbInsertNodeEx(v4, v5, 0, v2);
+    RtlRbInsertNodeEx(v4, (PRTL_BALANCED_NODE)v5, 0, (PRTL_BALANCED_NODE)v2);
     return 0;
   }
   return v2;

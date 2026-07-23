@@ -3,7 +3,7 @@
  * Callers:
  *     RtlpHpHeapWalk @ 0x180063ABC (RtlpHpHeapWalk.c)
  * Callees:
- *     RtlpHpLargeAllocReport @ 0x1801234F0 (RtlpHpLargeAllocReport.c)
+ *     RtlpHpLargeAllocReport @ 0x1801234C0 (RtlpHpLargeAllocReport.c)
  */
 
 __int64 __fastcall RtlpHpLargeWalkHeap(__int64 a1, unsigned __int64 *a2)

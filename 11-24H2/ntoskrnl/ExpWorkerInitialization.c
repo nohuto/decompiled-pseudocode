@@ -1,16 +1,16 @@
 /*
- * XREFs of ExpWorkerInitialization @ 0x140C42F00
+ * XREFs of ExpWorkerInitialization @ 0x140C45050
  * Callers:
- *     ExpInitSystemPhase1 @ 0x140C40A64 (ExpInitSystemPhase1.c)
+ *     ExpInitSystemPhase1 @ 0x140C42BB4 (ExpInitSystemPhase1.c)
  * Callees:
- *     KiQueryUnbiasedInterruptTime @ 0x1404251D0 (KiQueryUnbiasedInterruptTime.c)
- *     ExQueueDebuggerWorker @ 0x140658418 (ExQueueDebuggerWorker.c)
- *     ExpLegacyWorkerInitialization @ 0x140658474 (ExpLegacyWorkerInitialization.c)
- *     ExpNodeInitialize @ 0x1407BFC70 (ExpNodeInitialize.c)
- *     ExpPartitionInitialize @ 0x1407BFE84 (ExpPartitionInitialize.c)
- *     ExpPartitionStart @ 0x1407C0034 (ExpPartitionStart.c)
- *     ObpUnlockObjectType @ 0x1409D66BC (ObpUnlockObjectType.c)
- *     ObpLockObjectTypeExclusive @ 0x1409D6734 (ObpLockObjectTypeExclusive.c)
+ *     KiQueryUnbiasedInterruptTime @ 0x140419080 (KiQueryUnbiasedInterruptTime.c)
+ *     ExQueueDebuggerWorker @ 0x140656B18 (ExQueueDebuggerWorker.c)
+ *     ExpLegacyWorkerInitialization @ 0x140656B74 (ExpLegacyWorkerInitialization.c)
+ *     ExpNodeInitialize @ 0x1407C00C0 (ExpNodeInitialize.c)
+ *     ExpPartitionInitialize @ 0x1407C02D4 (ExpPartitionInitialize.c)
+ *     ExpPartitionStart @ 0x1407C0484 (ExpPartitionStart.c)
+ *     ObpUnlockObjectType @ 0x1409C64EC (ObpUnlockObjectType.c)
+ *     ObpLockObjectTypeExclusive @ 0x1409C6564 (ObpLockObjectTypeExclusive.c)
  */
 
 __int64 ExpWorkerInitialization()
@@ -74,52 +74,52 @@ __int64 ExpWorkerInitialization()
     {
       ExpLegacyWorkerInitialization();
       _mm_lfence();
-      if ( !qword_140E62430 )
+      if ( !qword_140E625C0 )
       {
         v6 = __rdtsc();
-        qword_140E62430 = (41929663 * (unsigned int)((((unsigned __int64)HIDWORD(v6) << 32) | (unsigned int)v6) >> 4)) ^ 0xB96LL;
-        if ( !qword_140E62430 )
-          qword_140E62430 = 1LL;
+        qword_140E625C0 = (41929663 * (unsigned int)((((unsigned __int64)HIDWORD(v6) << 32) | (unsigned int)v6) >> 4)) ^ 0xB96LL;
+        if ( !qword_140E625C0 )
+          qword_140E625C0 = 1LL;
         v7 = __rdtsc();
-        qword_140E62438 = (41929663 * (unsigned int)((((unsigned __int64)HIDWORD(v7) << 32) | (unsigned int)v7) >> 4)) ^ 0x5CBLL;
+        qword_140E625C8 = (41929663 * (unsigned int)((((unsigned __int64)HIDWORD(v7) << 32) | (unsigned int)v7) >> 4)) ^ 0x5CBLL;
         ObpLockObjectTypeExclusive((__int64)ObpTypeObjectType);
         v8 = 0;
         v9 = 64;
         v10 = *((_DWORD *)ObpTypeObjectType + 11);
-        qword_140E62448 = v10;
+        qword_140E625D8 = v10;
         while ( v8 < v10 )
         {
           v11 = ObpObjectTypes[v8];
           if ( !v11 )
           {
             v10 = v8;
-            qword_140E62448 = v8;
+            qword_140E625D8 = v8;
             break;
           }
           if ( (*(_BYTE *)(v11 + 66) & 0x40) != 0 )
-            _bittestandset64(qword_140E62450, v8);
+            _bittestandset64(&qword_140E625E0, v8);
           ++v8;
         }
         ObpUnlockObjectType((__int64)ObpTypeObjectType);
         if ( v10 )
         {
-          qword_140E62470 = ObpObjectTypes[41929663 * (__rdtsc() >> 4) % v10];
-          v12 = (_QWORD *)(qword_140E62470 + 112);
-          v13 = (const char *)(qword_140E62470 + 112);
-          if ( qword_140E62470 + 112 < (unsigned __int64)(qword_140E62470 + 176) )
+          qword_140E62600 = ObpObjectTypes[41929663 * (__rdtsc() >> 4) % v10];
+          v12 = (_QWORD *)(qword_140E62600 + 112);
+          v13 = (const char *)(qword_140E62600 + 112);
+          if ( qword_140E62600 + 112 < (unsigned __int64)(qword_140E62600 + 176) )
           {
             do
             {
               _mm_prefetch(v13, 0);
               v13 += 64;
             }
-            while ( (unsigned __int64)v13 < qword_140E62470 + 176 );
+            while ( (unsigned __int64)v13 < qword_140E62600 + 176 );
           }
-          v14 = qword_140E62430;
+          v14 = qword_140E625C0;
           v15 = 8LL;
           do
           {
-            v14 = __ROR8__(v14 - *v12++, qword_140E62438);
+            v14 = __ROR8__(v14 - *v12++, qword_140E625C8);
             v9 -= 8;
             --v15;
           }
@@ -128,16 +128,16 @@ __int64 ExpWorkerInitialization()
           {
             v16 = *(unsigned __int8 *)v12;
             v12 = (_QWORD *)((char *)v12 + 1);
-            v14 = __ROR8__(v14 - v16, qword_140E62438);
+            v14 = __ROR8__(v14 - v16, qword_140E625C8);
           }
-          qword_140E62478 = v14;
-          qword_140E62440 = KiQueryUnbiasedInterruptTime()
+          qword_140E62608 = v14;
+          qword_140E625D0 = KiQueryUnbiasedInterruptTime()
                           + 41929663 * (__rdtsc() >> 4) % 0x12A05F2000LL
                           + 288000000000LL;
         }
         else
         {
-          qword_140E62430 = 0LL;
+          qword_140E625C0 = 0LL;
         }
       }
       ExpDebuggerDpc.TargetInfoAsUlong = 275;

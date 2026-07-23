@@ -1,11 +1,11 @@
 /*
- * XREFs of IovUtilWatermarkIrp @ 0x1400C6014
+ * XREFs of IovUtilWatermarkIrp @ 0x1400C3EB4
  * Callers:
- *     PnpAsynchronousCall @ 0x1403F1BB0 (PnpAsynchronousCall.c)
- *     IopFilterResourceRequirementsCall @ 0x1404C8FAC (IopFilterResourceRequirementsCall.c)
- *     IopSynchronousCall @ 0x140505B9C (IopSynchronousCall.c)
- *     IopEjectDevice @ 0x140649D84 (IopEjectDevice.c)
- *     VfIrpSendSynchronousIrp @ 0x14070BF00 (VfIrpSendSynchronousIrp.c)
+ *     PnpAsynchronousCall @ 0x1403F0A74 (PnpAsynchronousCall.c)
+ *     IopSynchronousCall @ 0x1404E8B2C (IopSynchronousCall.c)
+ *     IopFilterResourceRequirementsCall @ 0x14050D21C (IopFilterResourceRequirementsCall.c)
+ *     IopEjectDevice @ 0x140649E68 (IopEjectDevice.c)
+ *     VfIrpSendSynchronousIrp @ 0x14070BF30 (VfIrpSendSynchronousIrp.c)
  * Callees:
  *     <none>
  */

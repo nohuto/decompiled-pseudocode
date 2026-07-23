@@ -1,17 +1,17 @@
 /*
- * XREFs of VfSuspectExcludedDriversAllocateEntry @ 0x140B9B0D4
+ * XREFs of VfSuspectExcludedDriversAllocateEntry @ 0x140B9D0D4
  * Callers:
- *     VfSuspectDriversParseRegistryString @ 0x140C3BD54 (VfSuspectDriversParseRegistryString.c)
- *     VfXdvExcludeParseRegistryString @ 0x140C3BF00 (VfXdvExcludeParseRegistryString.c)
+ *     VfSuspectDriversParseRegistryString @ 0x140C3DEAC (VfSuspectDriversParseRegistryString.c)
+ *     VfXdvExcludeParseRegistryString @ 0x140C3E058 (VfXdvExcludeParseRegistryString.c)
  * Callees:
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
-ULONG_PTR __fastcall VfSuspectExcludedDriversAllocateEntry(unsigned __int16 *a1, unsigned int a2)
+__int64 __fastcall VfSuspectExcludedDriversAllocateEntry(unsigned __int16 *a1, unsigned int a2)
 {
-  ULONG_PTR Pool2; // rax
-  ULONG_PTR v4; // rbx
+  __int64 Pool2; // rax
+  __int64 v4; // rbx
   size_t v5; // r8
   const void *v6; // rdx
 

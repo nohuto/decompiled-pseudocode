@@ -1,20 +1,20 @@
 /*
- * XREFs of MiMapKernelScp @ 0x1404F3160
+ * XREFs of MiMapKernelScp @ 0x1404EC740
  * Callers:
- *     MiFinalizeKernelScpForSystemImage @ 0x140B1F2AC (MiFinalizeKernelScpForSystemImage.c)
- *     MiReloadBootLoadedDrivers @ 0x140D00CF0 (MiReloadBootLoadedDrivers.c)
+ *     MiFinalizeKernelScpForSystemImage @ 0x140B2132C (MiFinalizeKernelScpForSystemImage.c)
+ *     MiReloadBootLoadedDrivers @ 0x140D07090 (MiReloadBootLoadedDrivers.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     MiLockPageTableInternal @ 0x1402B34E0 (MiLockPageTableInternal.c)
- *     MiUnlockPageTableInternal @ 0x1402D13E0 (MiUnlockPageTableInternal.c)
- *     MiGetContainingPageTable @ 0x1402D9BF0 (MiGetContainingPageTable.c)
- *     MiMakeValidPte @ 0x1402DA020 (MiMakeValidPte.c)
- *     MiUnlockWorkingSetShared @ 0x1402EB6C0 (MiUnlockWorkingSetShared.c)
- *     MiLockWorkingSetShared @ 0x1402EDD60 (MiLockWorkingSetShared.c)
- *     MiIncreaseUsedPtes @ 0x140365F20 (MiIncreaseUsedPtes.c)
- *     MiLockAndIncrementShareCount @ 0x1404D14B8 (MiLockAndIncrementShareCount.c)
- *     VslMapKernelScpPages @ 0x1404FD828 (VslMapKernelScpPages.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     MiUnlockPageTableInternal @ 0x1402B31A0 (MiUnlockPageTableInternal.c)
+ *     MiGetContainingPageTable @ 0x1402BB9B0 (MiGetContainingPageTable.c)
+ *     MiMakeValidPte @ 0x1402BBDE0 (MiMakeValidPte.c)
+ *     MiUnlockWorkingSetShared @ 0x1402CD700 (MiUnlockWorkingSetShared.c)
+ *     MiLockWorkingSetShared @ 0x1402CFDE0 (MiLockWorkingSetShared.c)
+ *     MiLockPageTableInternal @ 0x1402FE1B0 (MiLockPageTableInternal.c)
+ *     MiIncreaseUsedPtes @ 0x140367CC0 (MiIncreaseUsedPtes.c)
+ *     MiLockAndIncrementShareCount @ 0x1404CAEE8 (MiLockAndIncrementShareCount.c)
+ *     VslMapKernelScpPages @ 0x1404F6D68 (VslMapKernelScpPages.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
  */
 
 ULONG_PTR __fastcall MiMapKernelScp(ULONG_PTR BugCheckParameter2, __int64 a2, __int64 a3)
@@ -43,18 +43,18 @@ ULONG_PTR __fastcall MiMapKernelScp(ULONG_PTR BugCheckParameter2, __int64 a2, __
     if ( v13 < 0 )
       KeBugCheckEx(0x1Au, 0x51514uLL, BugCheckParameter2, v13, 0LL);
   }
-  v6 = (unsigned int)(HIDWORD(stru_140E36558.SListFaultAddress) + LODWORD(stru_140E36558.QuantumTarget)) >> 12;
+  v6 = (unsigned int)(HIDWORD(stru_140E366D8.SListFaultAddress) + LODWORD(stru_140E366D8.QuantumTarget)) >> 12;
   v7 = BugCheckParameter2
      + ((a2
        + (unsigned int)v6
-       + (((HIDWORD(stru_140E36558.SListFaultAddress) + LODWORD(stru_140E36558.QuantumTarget)) & 0xFFF) != 0)) << 12);
+       + (((HIDWORD(stru_140E366D8.SListFaultAddress) + LODWORD(stru_140E366D8.QuantumTarget)) & 0xFFF) != 0)) << 12);
   v19 = v7;
   v8 = ((v7 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
-  Object = stru_140E2D150.WaitBlock[1].Object;
+  Object = stru_140E2D2D0.WaitBlock[1].Object;
   v9 = 0LL;
-  v20 = MiLockWorkingSetShared((__int64)&unk_140E36E00, v6, a3);
+  v20 = MiLockWorkingSetShared((__int64)&unk_140E36F80, v6, a3);
   v11 = v20;
-  if ( *(_DWORD *)&stru_140E2D150.WaitBlockFill11[76] )
+  if ( *(_DWORD *)&stru_140E2D2D0.WaitBlockFill11[76] )
   {
     v14 = Object;
     while ( 1 )
@@ -88,23 +88,23 @@ LABEL_12:
         MiIncreaseUsedPtes(0x900000000000000LL, v3, 1u, 6);
       }
       v9 = (unsigned int)(v9 + 1);
-      if ( (unsigned int)v9 >= *(_DWORD *)&stru_140E2D150.WaitBlockFill11[76] )
+      if ( (unsigned int)v9 >= *(_DWORD *)&stru_140E2D2D0.WaitBlockFill11[76] )
       {
         v7 = v19;
         v11 = v20;
         if ( v3 )
-          MiUnlockPageTableInternal((__int64)&unk_140E36E00, v3);
+          MiUnlockPageTableInternal((__int64)&unk_140E36F80, v3);
         goto LABEL_3;
       }
     }
-    MiUnlockPageTableInternal((__int64)&unk_140E36E00, v3);
+    MiUnlockPageTableInternal((__int64)&unk_140E36F80, v3);
 LABEL_11:
     v3 = ((v16 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
-    MiLockPageTableInternal((signed __int64)&unk_140E36E00, v3, 0);
+    MiLockPageTableInternal((signed __int64)&unk_140E36F80, v3, 0);
     goto LABEL_12;
   }
 LABEL_3:
   LOBYTE(v10) = v11;
-  MiUnlockWorkingSetShared((__int64)&unk_140E36E00, v10);
+  MiUnlockWorkingSetShared((__int64)&unk_140E36F80, v10);
   return v7;
 }

@@ -1,11 +1,11 @@
 /*
- * XREFs of LdrpLogMapAndVerifyResourceFileFailure @ 0x180111294
+ * XREFs of LdrpLogMapAndVerifyResourceFileFailure @ 0x18010C6A0
  * Callers:
- *     LdrLoadAlternateResourceModuleEx @ 0x18005FF20 (LdrLoadAlternateResourceModuleEx.c)
+ *     LdrLoadAlternateResourceModuleEx @ 0x180075B00 (LdrLoadAlternateResourceModuleEx.c)
  * Callees:
- *     _tlgWriteTransfer_EtwEventWriteTransfer @ 0x180051AD4 (_tlgWriteTransfer_EtwEventWriteTransfer.c)
- *     RtlRunOnceExecuteOnce @ 0x180098200 (RtlRunOnceExecuteOnce.c)
- *     __security_check_cookie @ 0x1801659C0 (__security_check_cookie.c)
+ *     RtlRunOnceExecuteOnce @ 0x18002D050 (RtlRunOnceExecuteOnce.c)
+ *     _tlgWriteTransfer_EtwEventWriteTransfer @ 0x1800676B4 (_tlgWriteTransfer_EtwEventWriteTransfer.c)
+ *     __security_check_cookie @ 0x180163D80 (__security_check_cookie.c)
  */
 
 char __fastcall LdrpLogMapAndVerifyResourceFileFailure(
@@ -15,13 +15,13 @@ char __fastcall LdrpLogMapAndVerifyResourceFileFailure(
         int a4,
         unsigned __int16 *a5)
 {
-  int v9; // eax
+  NTSTATUS v9; // eax
   __int64 v10; // r9
   char v12; // [rsp+38h] [rbp-81h] BYREF
   int v13; // [rsp+3Ch] [rbp-7Dh] BYREF
   int v14; // [rsp+40h] [rbp-79h] BYREF
   __int64 v15; // [rsp+48h] [rbp-71h] BYREF
-  _BYTE v16[32]; // [rsp+58h] [rbp-61h] BYREF
+  _EVENT_DATA_DESCRIPTOR v16; // [rsp+58h] [rbp-61h] BYREF
   __int64 *v17; // [rsp+78h] [rbp-41h]
   __int64 v18; // [rsp+80h] [rbp-39h]
   int *v19; // [rsp+88h] [rbp-31h]
@@ -39,15 +39,11 @@ char __fastcall LdrpLogMapAndVerifyResourceFileFailure(
   __int64 v31; // [rsp+E8h] [rbp+2Fh]
   _DWORD v32[2]; // [rsp+F0h] [rbp+37h] BYREF
 
-  v9 = RtlRunOnceExecuteOnce(
-         &qword_1801D25C0,
-         (unsigned int (__fastcall *)(volatile signed __int64 *, __int64, unsigned __int64 *))LdrpResReportResourceAccessInternalInitOnce,
-         0LL,
-         0LL);
-  if ( v9 >= 0 && (unsigned int)dword_1801CC980 > 5 )
+  v9 = RtlRunOnceExecuteOnce(&stru_1801D15C0, LdrpResReportResourceAccessInternalInitOnce, 0LL, 0LL);
+  if ( v9 >= 0 && (unsigned int)dword_1801CB980 > 5 )
   {
-    if ( (qword_1801CC990 & 0x200000000000LL) == 0
-      || (LOBYTE(v9) = 1, (qword_1801CC998 & 0x200000000000LL) != qword_1801CC998) )
+    if ( (qword_1801CB990 & 0x200000000000LL) == 0
+      || (LOBYTE(v9) = 1, (qword_1801CB998 & 0x200000000000LL) != qword_1801CB998) )
     {
       LOBYTE(v9) = 0;
     }
@@ -76,12 +72,12 @@ char __fastcall LdrpLogMapAndVerifyResourceFileFailure(
       v30 = 2LL;
       v32[1] = 0;
       LOBYTE(v9) = tlgWriteTransfer_EtwEventWriteTransfer(
-                     (__int64)&dword_1801CC980,
-                     byte_1801A28E9,
+                     (__int64)&dword_1801CB980,
+                     (unsigned __int8 *)dword_1801A1A89,
                      0LL,
                      v10,
-                     10,
-                     (__int64)v16);
+                     0xAu,
+                     &v16);
     }
   }
   return v9;

@@ -1,21 +1,21 @@
 /*
- * XREFs of KiExpandKernelStackAndCalloutOnStackSegment @ 0x1400F12A0
+ * XREFs of KiExpandKernelStackAndCalloutOnStackSegment @ 0x1400EF0F0
  * Callers:
- *     KiExpandKernelStackAndCalloutSwitchStack @ 0x1400F10A0 (KiExpandKernelStackAndCalloutSwitchStack.c)
+ *     KiExpandKernelStackAndCalloutSwitchStack @ 0x1400EEEF0 (KiExpandKernelStackAndCalloutSwitchStack.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x14002ECB0 (KeYieldProcessorEx.c)
- *     KeReleaseMutex @ 0x140055FE0 (KeReleaseMutex.c)
- *     KeWaitForSingleObject @ 0x14005C880 (KeWaitForSingleObject.c)
- *     MiDeleteKernelStack @ 0x1400A1598 (MiDeleteKernelStack.c)
- *     MmCreateKernelStack @ 0x1400F17B0 (MmCreateKernelStack.c)
- *     MiClearStackOwners @ 0x1400F1F0C (MiClearStackOwners.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
- *     KiSwitchKernelStackAndCallout @ 0x1401617F0 (KiSwitchKernelStackAndCallout.c)
- *     RtlpInterlockedPushEntrySList @ 0x140166E40 (RtlpInterlockedPushEntrySList.c)
- *     MiLogKernelStackEvent @ 0x1401EEE90 (MiLogKernelStackEvent.c)
- *     MI_GET_PAGE_FRAME_FROM_PTE @ 0x1401F2550 (MI_GET_PAGE_FRAME_FROM_PTE.c)
- *     MI_GET_PFN_FROM_PTE @ 0x1401F2594 (MI_GET_PFN_FROM_PTE.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1401F25D0 (MI_READ_PTE_LOCK_FREE.c)
+ *     KeYieldProcessorEx @ 0x14002E830 (KeYieldProcessorEx.c)
+ *     KeReleaseMutex @ 0x140055B60 (KeReleaseMutex.c)
+ *     KeWaitForSingleObject @ 0x14005C400 (KeWaitForSingleObject.c)
+ *     MiDeleteKernelStack @ 0x14009FEC0 (MiDeleteKernelStack.c)
+ *     MmCreateKernelStack @ 0x1400EF600 (MmCreateKernelStack.c)
+ *     MiClearStackOwners @ 0x1400EFD5C (MiClearStackOwners.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
+ *     KiSwitchKernelStackAndCallout @ 0x140161D60 (KiSwitchKernelStackAndCallout.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1401673B0 (RtlpInterlockedPushEntrySList.c)
+ *     MiLogKernelStackEvent @ 0x1401EECBC (MiLogKernelStackEvent.c)
+ *     MI_GET_PAGE_FRAME_FROM_PTE @ 0x1401F237C (MI_GET_PAGE_FRAME_FROM_PTE.c)
+ *     MI_GET_PFN_FROM_PTE @ 0x1401F23C0 (MI_GET_PFN_FROM_PTE.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1401F23FC (MI_READ_PTE_LOCK_FREE.c)
  */
 
 __int64 __fastcall KiExpandKernelStackAndCalloutOnStackSegment(
@@ -52,7 +52,7 @@ __int64 __fastcall KiExpandKernelStackAndCalloutOnStackSegment(
   __int64 v34; // rcx
   __int64 v35; // r15
   __int64 i; // rsi
-  union _SLIST_HEADER *v37; // rbp
+  _SLIST_HEADER *v37; // rbp
   __int64 v38; // rdi
   unsigned __int8 v39; // r14
   bool v40; // zf
@@ -179,7 +179,7 @@ LABEL_32:
     {
       v22 = 18LL;
       if ( (v48 & 1) == 0 )
-        v22 = (unsigned __int8)byte_140327540;
+        v22 = (unsigned __int8)byte_140327580;
       MiLogKernelStackEvent(KernelStack - (unsigned int)((_DWORD)v22 << 12), v22, 0LL);
     }
     v23 = KernelStack >> 9;
@@ -222,11 +222,11 @@ LABEL_32:
       v35 = 13LL * v27;
       for ( i = v26; ; i = 0LL )
       {
-        v37 = &qword_1403269B0[2 * v35 + 2 * i];
+        v37 = &qword_1403269F0[2 * v35 + 2 * i];
         if ( LOWORD(v37[7].Alignment) < SLODWORD(v37[8].Alignment) )
         {
           v38 = ((v25 << 25) - (v24 << 25)) >> 16;
-          *(_QWORD *)(v38 + 0xFE0) = qword_140327780 ^ v38;
+          *(_QWORD *)(v38 + 0xFE0) = qword_1403277C0 ^ v38;
           if ( i == 1 )
           {
             RtlpInterlockedPushEntrySList(v37 + 7, (PSLIST_ENTRY)(v38 + 4080));

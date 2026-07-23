@@ -1,7 +1,7 @@
 /*
- * XREFs of CcUpdateLazyWriterPerf @ 0x14034CC34
+ * XREFs of CcUpdateLazyWriterPerf @ 0x14034CDD4
  * Callers:
- *     CcFlushCachePostProcess @ 0x14029DD3C (CcFlushCachePostProcess.c)
+ *     CcFlushCachePostProcess @ 0x14029DFCC (CcFlushCachePostProcess.c)
  * Callees:
  *     <none>
  */

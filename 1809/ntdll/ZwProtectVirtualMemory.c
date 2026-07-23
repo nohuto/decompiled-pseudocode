@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwProtectVirtualMemory @ 0x1800A0CE0
+ * XREFs of ZwProtectVirtualMemory @ 0x1800A0D00
  * Callers:
  *     RtlpAllocateUserBlockFromHeap @ 0x1800145A4 (RtlpAllocateUserBlockFromHeap.c)
  *     RtlFreeHeap @ 0x180017E40 (RtlFreeHeap.c)
@@ -14,7 +14,7 @@
  *     LdrpChangeMrdataProtection @ 0x18006058C (LdrpChangeMrdataProtection.c)
  *     RtlpProtectHeap @ 0x180060780 (RtlpProtectHeap.c)
  *     RtlpLowFragHeapFlushCaches @ 0x180068C90 (RtlpLowFragHeapFlushCaches.c)
- *     LdrpSetProtection @ 0x180087480 (LdrpSetProtection.c)
+ *     LdrpSetProtection @ 0x180087490 (LdrpSetProtection.c)
  *     LdrpCorFixupImage @ 0x1800D05E8 (LdrpCorFixupImage.c)
  *     AVrfpSnapDllImports @ 0x1800DC7E8 (AVrfpSnapDllImports.c)
  *     AvrfMiniLoadDll @ 0x1800DCAA8 (AvrfMiniLoadDll.c)
@@ -27,11 +27,16 @@
  *     <none>
  */
 
-__int64 ZwProtectVirtualMemory()
+NTSTATUS __cdecl ZwProtectVirtualMemory(
+        HANDLE ProcessHandle,
+        PVOID *BaseAddress,
+        PSIZE_T RegionSize,
+        ULONG NewProtect,
+        PULONG OldProtect)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 80LL;
+  result = 80;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

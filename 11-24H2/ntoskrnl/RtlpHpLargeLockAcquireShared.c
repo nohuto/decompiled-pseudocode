@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpHpLargeLockAcquireShared @ 0x1404FAB0C
+ * XREFs of RtlpHpLargeLockAcquireShared @ 0x1404F83EC
  * Callers:
- *     RtlpHpExtrasSetPresent @ 0x140604A24 (RtlpHpExtrasSetPresent.c)
+ *     RtlpHpExtrasSetPresent @ 0x140602064 (RtlpHpExtrasSetPresent.c)
  * Callees:
- *     RtlpHpAcquireLockShared @ 0x14045964C (RtlpHpAcquireLockShared.c)
+ *     RtlpHpAcquireLockShared @ 0x1403D9B14 (RtlpHpAcquireLockShared.c)
  */
 
 KIRQL __fastcall RtlpHpLargeLockAcquireShared(__int64 a1)

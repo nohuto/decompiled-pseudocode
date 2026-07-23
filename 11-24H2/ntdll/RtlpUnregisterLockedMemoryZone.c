@@ -1,17 +1,17 @@
 /*
- * XREFs of RtlpUnregisterLockedMemoryZone @ 0x18000197C
+ * XREFs of RtlpUnregisterLockedMemoryZone @ 0x180105B9C
  * Callers:
- *     RtlUnlockMemoryZone @ 0x1800018E0 (RtlUnlockMemoryZone.c)
- *     RtlDestroyMemoryZone @ 0x18010D7F0 (RtlDestroyMemoryZone.c)
+ *     RtlUnlockMemoryZone @ 0x180105B00 (RtlUnlockMemoryZone.c)
+ *     RtlDestroyMemoryZone @ 0x1801086D0 (RtlDestroyMemoryZone.c)
  * Callees:
- *     RtlUnlockModuleSection @ 0x180001D20 (RtlUnlockModuleSection.c)
- *     RtlAcquireSRWLockExclusive @ 0x180055AE0 (RtlAcquireSRWLockExclusive.c)
+ *     RtlAcquireSRWLockExclusive @ 0x18006B6C0 (RtlAcquireSRWLockExclusive.c)
+ *     RtlUnlockModuleSection @ 0x1800AAA30 (RtlUnlockModuleSection.c)
  */
 
-__int64 RtlpUnregisterLockedMemoryZone()
+void RtlpUnregisterLockedMemoryZone()
 {
   RtlAcquireSRWLockExclusive(&RtlpMemoryZoneLock);
   if ( !--RtlpLockedMemoryZoneCount )
     RtlUnlockModuleSection(RtlAllocateMemoryZone);
-  return RtlReleaseSRWLockExclusive(&RtlpMemoryZoneLock);
+  RtlReleaseSRWLockExclusive(&RtlpMemoryZoneLock);
 }

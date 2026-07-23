@@ -1,13 +1,13 @@
 /*
- * XREFs of TtmiCloseEventQueue @ 0x14090538C
+ * XREFs of TtmiCloseEventQueue @ 0x1409054EC
  * Callers:
- *     TtmiWriteEventToAllQueues @ 0x1408FF578 (TtmiWriteEventToAllQueues.c)
+ *     TtmiWriteEventToAllQueues @ 0x1408FF6D8 (TtmiWriteEventToAllQueues.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
- *     KeSetEvent @ 0x1403435A0 (KeSetEvent.c)
- *     ExReleaseResourceLite @ 0x14034B3F0 (ExReleaseResourceLite.c)
- *     ExAcquireResourceExclusiveLite @ 0x14034BBA0 (ExAcquireResourceExclusiveLite.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     KeLeaveCriticalRegionThread @ 0x1402AB8C0 (KeLeaveCriticalRegionThread.c)
+ *     KeSetEvent @ 0x14034E2F0 (KeSetEvent.c)
+ *     ExReleaseResourceLite @ 0x140356140 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceExclusiveLite @ 0x1403568F0 (ExAcquireResourceExclusiveLite.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 _QWORD *__fastcall TtmiCloseEventQueue(__int64 a1)
@@ -16,6 +16,9 @@ _QWORD *__fastcall TtmiCloseEventQueue(__int64 a1)
   _QWORD **v3; // rbx
   _QWORD *v4; // rcx
   _QWORD *v5; // rax
+  __int64 v6; // rdx
+  __int64 v7; // r8
+  __int64 v8; // r9
 
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
@@ -35,5 +38,5 @@ _QWORD *__fastcall TtmiCloseEventQueue(__int64 a1)
   }
   KeSetEvent((PRKEVENT)(a1 + 128), 0, 0);
   ExReleaseResourceLite((PERESOURCE)(a1 + 24));
-  return KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+  return KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v6, v7, v8);
 }

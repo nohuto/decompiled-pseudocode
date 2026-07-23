@@ -1,10 +1,10 @@
 /*
- * XREFs of MiUseProtectedSlabAllocatorForDriverPage @ 0x1402923A4
+ * XREFs of MiUseProtectedSlabAllocatorForDriverPage @ 0x140292634
  * Callers:
- *     MiMakeDriverPagesPrivate @ 0x140291A50 (MiMakeDriverPagesPrivate.c)
- *     MiAllocateDriverPage @ 0x140706324 (MiAllocateDriverPage.c)
+ *     MiMakeDriverPagesPrivate @ 0x140291CE0 (MiMakeDriverPagesPrivate.c)
+ *     MiAllocateDriverPage @ 0x140706534 (MiAllocateDriverPage.c)
  * Callees:
- *     MiGetSlabAllocatorTypeByProtection @ 0x14046D60E (MiGetSlabAllocatorTypeByProtection.c)
+ *     MiGetSlabAllocatorTypeByProtection @ 0x14046DA0E (MiGetSlabAllocatorTypeByProtection.c)
  */
 
 __int64 __fastcall MiUseProtectedSlabAllocatorForDriverPage(__int64 a1, __int64 a2, __int64 a3)

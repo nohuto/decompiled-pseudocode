@@ -1,12 +1,12 @@
 /*
- * XREFs of MiPopulateWorkingSetFreeList @ 0x14007BD50
+ * XREFs of MiPopulateWorkingSetFreeList @ 0x14007BDD0
  * Callers:
- *     MiInitializeWorkingSetList @ 0x14046DDE8 (MiInitializeWorkingSetList.c)
+ *     MiInitializeWorkingSetList @ 0x14046CCB8 (MiInitializeWorkingSetList.c)
  * Callees:
- *     MiGetSharedVm @ 0x14002EA30 (MiGetSharedVm.c)
- *     ExAcquireSpinLockExclusive @ 0x14002EB90 (ExAcquireSpinLockExclusive.c)
- *     MiGetSharedWorkingSetList @ 0x140047070 (MiGetSharedWorkingSetList.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
+ *     MiGetSharedVm @ 0x14002E5B0 (MiGetSharedVm.c)
+ *     ExAcquireSpinLockExclusive @ 0x14002E710 (ExAcquireSpinLockExclusive.c)
+ *     MiGetSharedWorkingSetList @ 0x140046BF0 (MiGetSharedWorkingSetList.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall MiPopulateWorkingSetFreeList(__int64 a1, ULONG_PTR a2, ULONG_PTR a3)

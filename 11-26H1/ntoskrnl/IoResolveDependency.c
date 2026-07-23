@@ -1,23 +1,23 @@
 /*
- * XREFs of IoResolveDependency @ 0x1404F5D10
+ * XREFs of IoResolveDependency @ 0x1404EF2D0
  * Callers:
  *     <none>
  * Callees:
- *     PipAddBindingId @ 0x14079FB40 (PipAddBindingId.c)
- *     PipDeleteBindingId @ 0x14079FE44 (PipDeleteBindingId.c)
- *     PipIsProviderStarted @ 0x14079FF1C (PipIsProviderStarted.c)
- *     PipLinkDeviceObjectAndDependencyNode @ 0x14079FF7C (PipLinkDeviceObjectAndDependencyNode.c)
- *     PipMergeDependencyNodes @ 0x1407A00F4 (PipMergeDependencyNodes.c)
- *     PipAttemptDependentsStart @ 0x14090690C (PipAttemptDependentsStart.c)
- *     PnpReleaseDependencyRelationsLock @ 0x14090ECA0 (PnpReleaseDependencyRelationsLock.c)
- *     PnpAcquireDependencyRelationsLock @ 0x14090ECD0 (PnpAcquireDependencyRelationsLock.c)
- *     PipAddDependentsToRebuildPowerRelationsQueue @ 0x14090ED20 (PipAddDependentsToRebuildPowerRelationsQueue.c)
- *     PipProcessRebuildPowerRelationsQueue @ 0x14090ED8C (PipProcessRebuildPowerRelationsQueue.c)
- *     PipAddtoRebuildPowerRelationsQueue @ 0x14091159C (PipAddtoRebuildPowerRelationsQueue.c)
- *     PipQueryBindingResolution @ 0x140B085E8 (PipQueryBindingResolution.c)
- *     PipUnlinkDeviceObjectAndDependencyNode @ 0x140B31B14 (PipUnlinkDeviceObjectAndDependencyNode.c)
- *     PipDereferenceDependencyNode @ 0x140B31B68 (PipDereferenceDependencyNode.c)
- *     PipCreateDependencyNode @ 0x140B46FA4 (PipCreateDependencyNode.c)
+ *     PipAddBindingId @ 0x1407A2680 (PipAddBindingId.c)
+ *     PipDeleteBindingId @ 0x1407A2984 (PipDeleteBindingId.c)
+ *     PipIsProviderStarted @ 0x1407A2A5C (PipIsProviderStarted.c)
+ *     PipLinkDeviceObjectAndDependencyNode @ 0x1407A2ABC (PipLinkDeviceObjectAndDependencyNode.c)
+ *     PipMergeDependencyNodes @ 0x1407A2C34 (PipMergeDependencyNodes.c)
+ *     PnpReleaseDependencyRelationsLock @ 0x1409B0DD0 (PnpReleaseDependencyRelationsLock.c)
+ *     PnpAcquireDependencyRelationsLock @ 0x1409B0E00 (PnpAcquireDependencyRelationsLock.c)
+ *     PipAddDependentsToRebuildPowerRelationsQueue @ 0x1409B0E50 (PipAddDependentsToRebuildPowerRelationsQueue.c)
+ *     PipProcessRebuildPowerRelationsQueue @ 0x1409B0EBC (PipProcessRebuildPowerRelationsQueue.c)
+ *     PipAddtoRebuildPowerRelationsQueue @ 0x1409B367C (PipAddtoRebuildPowerRelationsQueue.c)
+ *     PipQueryBindingResolution @ 0x140B0A564 (PipQueryBindingResolution.c)
+ *     PipAttemptDependentsStart @ 0x140B2B1DC (PipAttemptDependentsStart.c)
+ *     PipUnlinkDeviceObjectAndDependencyNode @ 0x140B33D14 (PipUnlinkDeviceObjectAndDependencyNode.c)
+ *     PipDereferenceDependencyNode @ 0x140B33D68 (PipDereferenceDependencyNode.c)
+ *     PipCreateDependencyNode @ 0x140B48FD4 (PipCreateDependencyNode.c)
  */
 
 __int64 __fastcall IoResolveDependency(__int64 a1, __int64 a2)

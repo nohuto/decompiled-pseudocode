@@ -1,7 +1,7 @@
 /*
- * XREFs of PiDqConvertQueryFlagsToString @ 0x14082AB18
+ * XREFs of PiDqConvertQueryFlagsToString @ 0x14082BD18
  * Callers:
- *     PiDqIrpQueryCreate @ 0x140590B08 (PiDqIrpQueryCreate.c)
+ *     PiDqIrpQueryCreate @ 0x140591B08 (PiDqIrpQueryCreate.c)
  * Callees:
  *     RtlStringCbCopyExW @ 0x140007504 (RtlStringCbCopyExW.c)
  */

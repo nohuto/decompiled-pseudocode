@@ -1,18 +1,18 @@
 /*
- * XREFs of AslFileAllocAndGetAttributes @ 0x140720654
+ * XREFs of AslFileAllocAndGetAttributes @ 0x1407218F4
  * Callers:
- *     SdbpCheckAllAttributes @ 0x140720344 (SdbpCheckAllAttributes.c)
+ *     SdbpCheckAllAttributes @ 0x1407215E4 (SdbpCheckAllAttributes.c)
  * Callees:
- *     AslLogCallPrintf @ 0x140680C60 (AslLogCallPrintf.c)
- *     AslpFileGetVersionAttributes @ 0x14071F470 (AslpFileGetVersionAttributes.c)
- *     AslFileMappingEnsure @ 0x140720780 (AslFileMappingEnsure.c)
- *     AslpFileGetChecksumAttributes @ 0x1408EC4E0 (AslpFileGetChecksumAttributes.c)
- *     AslpFileGetClrVersionAttribute @ 0x1408EC86C (AslpFileGetClrVersionAttribute.c)
- *     AslpFileGetFileKindDetailAttribute @ 0x1408ECD04 (AslpFileGetFileKindDetailAttribute.c)
- *     AslpFileGetHeaderAttributesNE @ 0x1408ECD88 (AslpFileGetHeaderAttributesNE.c)
- *     AslpFileGetHeaderAttributesPE @ 0x1408ECF20 (AslpFileGetHeaderAttributesPE.c)
- *     AslpFileGetPeExportNameExeWrapper @ 0x1408ED368 (AslpFileGetPeExportNameExeWrapper.c)
- *     AslpFileLargeEnsureLargeFileMapping @ 0x1408EDB34 (AslpFileLargeEnsureLargeFileMapping.c)
+ *     AslLogCallPrintf @ 0x140681E20 (AslLogCallPrintf.c)
+ *     AslpFileGetVersionAttributes @ 0x140720710 (AslpFileGetVersionAttributes.c)
+ *     AslFileMappingEnsure @ 0x140721A20 (AslFileMappingEnsure.c)
+ *     AslpFileGetChecksumAttributes @ 0x1408ED7A0 (AslpFileGetChecksumAttributes.c)
+ *     AslpFileGetClrVersionAttribute @ 0x1408EDB2C (AslpFileGetClrVersionAttribute.c)
+ *     AslpFileGetFileKindDetailAttribute @ 0x1408EDFC4 (AslpFileGetFileKindDetailAttribute.c)
+ *     AslpFileGetHeaderAttributesNE @ 0x1408EE048 (AslpFileGetHeaderAttributesNE.c)
+ *     AslpFileGetHeaderAttributesPE @ 0x1408EE1E0 (AslpFileGetHeaderAttributesPE.c)
+ *     AslpFileGetPeExportNameExeWrapper @ 0x1408EE628 (AslpFileGetPeExportNameExeWrapper.c)
+ *     AslpFileLargeEnsureLargeFileMapping @ 0x1408EEDF4 (AslpFileLargeEnsureLargeFileMapping.c)
  */
 
 __int64 __fastcall AslFileAllocAndGetAttributes(__int64 a1, __int64 a2, unsigned __int64 a3)

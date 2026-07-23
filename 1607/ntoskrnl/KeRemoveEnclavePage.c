@@ -1,9 +1,9 @@
 /*
- * XREFs of KeRemoveEnclavePage @ 0x1406E5FA8
+ * XREFs of KeRemoveEnclavePage @ 0x1406E60E0
  * Callers:
- *     MiDeleteEnclavePage @ 0x1401F02DC (MiDeleteEnclavePage.c)
+ *     MiDeleteEnclavePage @ 0x1401F0108 (MiDeleteEnclavePage.c)
  * Callees:
- *     KiEncls @ 0x14015E500 (KiEncls.c)
+ *     KiEncls @ 0x14015EA70 (KiEncls.c)
  */
 
 __int64 KeRemoveEnclavePage()

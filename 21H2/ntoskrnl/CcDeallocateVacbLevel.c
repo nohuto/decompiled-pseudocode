@@ -1,9 +1,9 @@
 /*
- * XREFs of CcDeallocateVacbLevel @ 0x14029BA70
+ * XREFs of CcDeallocateVacbLevel @ 0x14021343C
  * Callers:
- *     CcSetVacbLargeOffset @ 0x1402F53AC (CcSetVacbLargeOffset.c)
+ *     CcSetVacbLargeOffset @ 0x1403000FC (CcSetVacbLargeOffset.c)
  * Callees:
- *     ExFreeToNPagedLookasideList @ 0x140252DE4 (ExFreeToNPagedLookasideList.c)
+ *     ExFreeToNPagedLookasideList @ 0x14021A938 (ExFreeToNPagedLookasideList.c)
  */
 
 void __fastcall CcDeallocateVacbLevel(PVOID Entry, int a2)

@@ -1,5 +1,5 @@
 /*
- * XREFs of KiUpdateNumberProcessorsIpi @ 0x140A9F580
+ * XREFs of KiUpdateNumberProcessorsIpi @ 0x140A9F3F0
  * Callers:
  *     <none>
  * Callees:

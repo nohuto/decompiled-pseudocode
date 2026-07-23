@@ -1,13 +1,13 @@
 /*
- * XREFs of ViDeadlockRemoveThread @ 0x140AD9C50
+ * XREFs of ViDeadlockRemoveThread @ 0x140AD9C40
  * Callers:
- *     ViDeadlockRemoveMemoryRangeThreads @ 0x1405D1988 (ViDeadlockRemoveMemoryRangeThreads.c)
- *     VfDeadlockAcquireResource @ 0x140AD6DDC (VfDeadlockAcquireResource.c)
- *     VfDeadlockReleaseResource @ 0x140AD7EFC (VfDeadlockReleaseResource.c)
- *     ViDeadlockEmptyDatabase @ 0x140AD8E70 (ViDeadlockEmptyDatabase.c)
+ *     ViDeadlockRemoveMemoryRangeThreads @ 0x1405D1EF8 (ViDeadlockRemoveMemoryRangeThreads.c)
+ *     VfDeadlockAcquireResource @ 0x140AD6DCC (VfDeadlockAcquireResource.c)
+ *     VfDeadlockReleaseResource @ 0x140AD7EEC (VfDeadlockReleaseResource.c)
+ *     ViDeadlockEmptyDatabase @ 0x140AD8E60 (ViDeadlockEmptyDatabase.c)
  * Callees:
- *     VfReportIssueWithOptions @ 0x1405CFD00 (VfReportIssueWithOptions.c)
- *     ViDeadlockPreprocessOptions @ 0x140AD9860 (ViDeadlockPreprocessOptions.c)
+ *     VfReportIssueWithOptions @ 0x1405D0270 (VfReportIssueWithOptions.c)
+ *     ViDeadlockPreprocessOptions @ 0x140AD9850 (ViDeadlockPreprocessOptions.c)
  */
 
 unsigned __int64 __fastcall ViDeadlockRemoveThread(ULONG_PTR a1, int a2)
@@ -28,8 +28,8 @@ unsigned __int64 __fastcall ViDeadlockRemoveThread(ULONG_PTR a1, int a2)
     && !a2
     && *(_DWORD *)(a1 + 40) )
   {
-    ViDeadlockPreprocessOptions(byte_140C0DE50, "Terminated thread 0x%p owns lock.", 4106LL, *(_QWORD *)a1, a1, 0LL);
-    VfReportIssueWithOptions(0xC4u, 0x100AuLL, *(_QWORD *)a1, a1, 0LL, byte_140C0DE50);
+    ViDeadlockPreprocessOptions(byte_140C0DE60, "Terminated thread 0x%p owns lock.", 4106LL, *(_QWORD *)a1, a1, 0LL);
+    VfReportIssueWithOptions(0xC4u, 0x100AuLL, *(_QWORD *)a1, a1, 0LL, byte_140C0DE60);
   }
   v3 = ViDeadlockGlobals;
   --*((_QWORD *)ViDeadlockGlobals + 2051);

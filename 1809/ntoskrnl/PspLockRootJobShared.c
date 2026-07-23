@@ -1,8 +1,8 @@
 /*
- * XREFs of PspLockRootJobShared @ 0x1405FE1FC
+ * XREFs of PspLockRootJobShared @ 0x1405FF1FC
  * Callers:
- *     PspQueryJobHierarchyAccountingInformation @ 0x1405FD228 (PspQueryJobHierarchyAccountingInformation.c)
- *     PspChargeJobWakeCounter @ 0x1405FD81C (PspChargeJobWakeCounter.c)
+ *     PspQueryJobHierarchyAccountingInformation @ 0x1405FE228 (PspQueryJobHierarchyAccountingInformation.c)
+ *     PspChargeJobWakeCounter @ 0x1405FE81C (PspChargeJobWakeCounter.c)
  * Callees:
  *     ExReleaseResourceLite @ 0x14004F590 (ExReleaseResourceLite.c)
  *     ExAcquireResourceSharedLite @ 0x140050860 (ExAcquireResourceSharedLite.c)

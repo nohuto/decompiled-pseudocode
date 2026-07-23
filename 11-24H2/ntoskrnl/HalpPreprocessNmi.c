@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpPreprocessNmi @ 0x140559D80
+ * XREFs of HalpPreprocessNmi @ 0x1405579B0
  * Callers:
  *     <none>
  * Callees:
- *     HalpWatchdogCheckPreResetNMI @ 0x14054B0C4 (HalpWatchdogCheckPreResetNMI.c)
- *     HalpInterruptRebootService @ 0x14055A1D0 (HalpInterruptRebootService.c)
+ *     HalpWatchdogCheckPreResetNMI @ 0x140548984 (HalpWatchdogCheckPreResetNMI.c)
+ *     HalpInterruptRebootService @ 0x140557E00 (HalpInterruptRebootService.c)
  */
 
 char __fastcall HalpPreprocessNmi(int a1)

@@ -1,14 +1,14 @@
 /*
- * XREFs of RtlFindLowerBoundInSortedArray @ 0x1409B0BD0
+ * XREFs of RtlFindLowerBoundInSortedArray @ 0x14099A690
  * Callers:
- *     CmpFindSecurityCellCacheIndex @ 0x14041FBC0 (CmpFindSecurityCellCacheIndex.c)
- *     RtlpFcGetFeatureHasSubscriptionsFromBuffer @ 0x14078CF2C (RtlpFcGetFeatureHasSubscriptionsFromBuffer.c)
- *     RtlpFcHasEffectiveStateInGovernedFeatureInfoTable @ 0x14078CFF8 (RtlpFcHasEffectiveStateInGovernedFeatureInfoTable.c)
- *     RtlpFcIsGovernedFeatureTableUpdateNeeded @ 0x14078D18C (RtlpFcIsGovernedFeatureTableUpdateNeeded.c)
- *     RtlpFcQueryFeatureConfigurationFromBuffers @ 0x14078D330 (RtlpFcQueryFeatureConfigurationFromBuffers.c)
+ *     CmpFindSecurityCellCacheIndex @ 0x140415340 (CmpFindSecurityCellCacheIndex.c)
+ *     RtlpFcGetFeatureHasSubscriptionsFromBuffer @ 0x14078CE5C (RtlpFcGetFeatureHasSubscriptionsFromBuffer.c)
+ *     RtlpFcHasEffectiveStateInGovernedFeatureInfoTable @ 0x14078CF28 (RtlpFcHasEffectiveStateInGovernedFeatureInfoTable.c)
+ *     RtlpFcIsGovernedFeatureTableUpdateNeeded @ 0x14078D0BC (RtlpFcIsGovernedFeatureTableUpdateNeeded.c)
+ *     RtlpFcQueryFeatureConfigurationFromBuffers @ 0x14078D260 (RtlpFcQueryFeatureConfigurationFromBuffers.c)
  * Callees:
- *     CmpSearchSecurityCellCache @ 0x140434630 (CmpSearchSecurityCellCache.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
+ *     CmpSearchSecurityCellCache @ 0x1404278B0 (CmpSearchSecurityCellCache.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
  */
 
 char *__fastcall RtlFindLowerBoundInSortedArray(
@@ -35,7 +35,7 @@ char *__fastcall RtlFindLowerBoundInSortedArray(
       if ( a5 == CmpSearchSecurityCellCache )
         v11 = CmpSearchSecurityCellCache(a1, v10);
       else
-        v11 = guard_dispatch_icall_no_overrides(a1, v10, a3, a4);
+        v11 = guard_dispatch_icall_no_overrides(a1, v10);
       if ( v11 > 0 )
       {
         v6 += -1LL - (v6 >> 1);

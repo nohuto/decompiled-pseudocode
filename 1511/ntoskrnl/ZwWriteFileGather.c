@@ -19,5 +19,5 @@ NTSTATUS __stdcall ZwWriteFileGather(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(FileHandle, Event, ApcRoutine);
+  return KiServiceInternal(FileHandle);
 }

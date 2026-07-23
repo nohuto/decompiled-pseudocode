@@ -1,14 +1,14 @@
 /*
- * XREFs of HalpVpptStop @ 0x1404C0B90
+ * XREFs of HalpVpptStop @ 0x1404C0DD0
  * Callers:
  *     <none>
  * Callees:
- *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
- *     HalpTimerGetInternalData @ 0x14022AA30 (HalpTimerGetInternalData.c)
- *     HalpAcquireHighLevelLock @ 0x140378F20 (HalpAcquireHighLevelLock.c)
+ *     KxReleaseSpinLock @ 0x140212140 (KxReleaseSpinLock.c)
+ *     HalpTimerGetInternalData @ 0x1402CF2E0 (HalpTimerGetInternalData.c)
+ *     HalpAcquireHighLevelLock @ 0x140378A70 (HalpAcquireHighLevelLock.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     HalpVpptUpdatePhysicalTimer @ 0x1404C0E54 (HalpVpptUpdatePhysicalTimer.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     HalpVpptUpdatePhysicalTimer @ 0x1404C1094 (HalpVpptUpdatePhysicalTimer.c)
  */
 
 __int64 __fastcall HalpVpptStop(__int64 a1)
@@ -24,7 +24,7 @@ __int64 __fastcall HalpVpptStop(__int64 a1)
   _DWORD *SchedulerAssist; // r9
   bool v11; // zf
 
-  byte_140C4A6F8 = HalpAcquireHighLevelLock(&qword_140C4A6F0);
+  byte_140C4A738 = HalpAcquireHighLevelLock(&qword_140C4A730);
   if ( *(_BYTE *)(a1 + 24) )
   {
     v2 = *(_QWORD **)a1;
@@ -46,8 +46,8 @@ __int64 __fastcall HalpVpptStop(__int64 a1)
   }
   *(_DWORD *)(a1 + 20) = 0;
   *(_BYTE *)(a1 + 24) = 0;
-  v7 = (unsigned __int8)byte_140C4A6F8;
-  KxReleaseSpinLock(&qword_140C4A6F0);
+  v7 = (unsigned __int8)byte_140C4A738;
+  KxReleaseSpinLock(&qword_140C4A730);
   result = (unsigned int)KiIrqlFlags;
   if ( KiIrqlFlags )
   {

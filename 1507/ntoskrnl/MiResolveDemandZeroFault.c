@@ -441,7 +441,8 @@ LABEL_49:
       || (*(_BYTE *)(a5 + 216) & 7) == 1
       || v189 + 0x80000000000LL <= 0x7FFFFFFFFFLL
       || PsNtosImageBase
-      && (v189 >= PsNtosImageBase && v189 < PsNtosImageEnd || v189 >= PsHalImageBase && v189 < PsHalImageEnd) )
+      && (v189 >= (unsigned __int64)PsNtosImageBase && v189 < PsNtosImageEnd
+       || v189 >= (unsigned __int64)PsHalImageBase && v189 < PsHalImageEnd) )
     {
       if ( (unsigned int)v22 >> 3 == 3 && (v22 & 7) != 0 )
       {

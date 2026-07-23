@@ -1,7 +1,7 @@
 /*
- * XREFs of MiFreeSystemCacheView @ 0x1402D46C4
+ * XREFs of MiFreeSystemCacheView @ 0x140355944
  * Callers:
- *     MiReleaseSystemCacheView @ 0x1402D4388 (MiReleaseSystemCacheView.c)
+ *     MiReleaseSystemCacheView @ 0x140355608 (MiReleaseSystemCacheView.c)
  * Callees:
  *     <none>
  */

@@ -1,8 +1,8 @@
 /*
  * XREFs of BgSetFrameBufferAccess @ 0x140AEC008
  * Callers:
- *     BgkNotifyDisplayOwnershipChange @ 0x1403ADB80 (BgkNotifyDisplayOwnershipChange.c)
- *     BgkSetVirtualFrameBuffer @ 0x1403B6630 (BgkSetVirtualFrameBuffer.c)
+ *     BgkNotifyDisplayOwnershipChange @ 0x1403ADD60 (BgkNotifyDisplayOwnershipChange.c)
+ *     BgkSetVirtualFrameBuffer @ 0x1403B6810 (BgkSetVirtualFrameBuffer.c)
  * Callees:
  *     <none>
  */

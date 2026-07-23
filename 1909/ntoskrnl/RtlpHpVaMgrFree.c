@@ -8,13 +8,13 @@
  *     RtlpHpVaMgrRangeCoalesce @ 0x140110B84 (RtlpHpVaMgrRangeCoalesce.c)
  */
 
-unsigned __int64 __fastcall RtlpHpVaMgrFree(__int64 a1)
+__int64 __fastcall RtlpHpVaMgrFree(__int64 a1)
 {
-  unsigned __int64 v2; // r9
+  __int64 v2; // r9
   unsigned __int16 v3; // r11
-  unsigned __int64 v4; // rdx
-  bool v5; // r8
-  unsigned __int64 v6; // rax
+  __int64 v4; // rdx
+  BOOLEAN v5; // r8
+  __int64 v6; // rax
 
   v2 = RtlpHpVaMgrRangeCoalesce();
   v3 = *(_WORD *)(v2 + 24);
@@ -63,7 +63,7 @@ LABEL_17:
         v4 = v6;
       }
     }
-    RtlRbInsertNodeEx((unsigned __int64 *)(a1 + 8), v4, v5, v2);
+    RtlRbInsertNodeEx((PRTL_RB_TREE)(a1 + 8), (PRTL_BALANCED_NODE)v4, v5, (PRTL_BALANCED_NODE)v2);
     return 0LL;
   }
   return v2;

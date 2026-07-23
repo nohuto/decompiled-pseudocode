@@ -1,16 +1,16 @@
 /*
- * XREFs of NtDebugActiveProcess @ 0x1801609F0
+ * XREFs of NtDebugActiveProcess @ 0x1801608F0
  * Callers:
- *     DbgUiDebugActiveProcess @ 0x180139270 (DbgUiDebugActiveProcess.c)
+ *     DbgUiDebugActiveProcess @ 0x180138FE0 (DbgUiDebugActiveProcess.c)
  * Callees:
  *     <none>
  */
 
-__int64 NtDebugActiveProcess()
+NTSTATUS __cdecl NtDebugActiveProcess(HANDLE ProcessHandle, HANDLE DebugObjectHandle)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 214LL;
+  result = 214;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

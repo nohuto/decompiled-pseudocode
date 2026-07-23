@@ -1,21 +1,21 @@
 /*
- * XREFs of PopPowerRequestReferenceRelease @ 0x14032B428
+ * XREFs of PopPowerRequestReferenceRelease @ 0x14032B6B8
  * Callers:
- *     PoClearPowerRequest @ 0x14032A680 (PoClearPowerRequest.c)
- *     PpmEndHighPerfRequest @ 0x14036EAF0 (PpmEndHighPerfRequest.c)
- *     PpmHighPerfRequestExpiration @ 0x1403B5510 (PpmHighPerfRequestExpiration.c)
- *     PpmDisableHighPerfRequestDeferredExpiration @ 0x140597D90 (PpmDisableHighPerfRequestDeferredExpiration.c)
- *     NtPowerInformation @ 0x140783F20 (NtPowerInformation.c)
- *     PopPowerRequestActionInfo @ 0x1407A5CC4 (PopPowerRequestActionInfo.c)
- *     PopPowerAggregatorEnterScreenOff @ 0x140877CD4 (PopPowerAggregatorEnterScreenOff.c)
+ *     PoClearPowerRequest @ 0x14032A910 (PoClearPowerRequest.c)
+ *     PpmEndHighPerfRequest @ 0x14036EC90 (PpmEndHighPerfRequest.c)
+ *     PpmHighPerfRequestExpiration @ 0x1403B56F0 (PpmHighPerfRequestExpiration.c)
+ *     PpmDisableHighPerfRequestDeferredExpiration @ 0x140598280 (PpmDisableHighPerfRequestDeferredExpiration.c)
+ *     NtPowerInformation @ 0x140784110 (NtPowerInformation.c)
+ *     PopPowerRequestActionInfo @ 0x1407A5EB4 (PopPowerRequestActionInfo.c)
+ *     PopPowerAggregatorEnterScreenOff @ 0x140877F14 (PopPowerAggregatorEnterScreenOff.c)
  * Callees:
- *     KxReleaseQueuedSpinLock @ 0x140260360 (KxReleaseQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140260E60 (KeAcquireInStackQueuedSpinLock.c)
- *     PopDiagTracePowerRequestChange @ 0x14032B970 (PopDiagTracePowerRequestChange.c)
- *     PopPowerRequestCallbackWorker @ 0x14032BBB0 (PopPowerRequestCallbackWorker.c)
- *     PopQueueWorkItem @ 0x14032CCE4 (PopQueueWorkItem.c)
- *     PopPowerRequestEvaluatePendingRequestStatus @ 0x14032CD14 (PopPowerRequestEvaluatePendingRequestStatus.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseQueuedSpinLock @ 0x1402605F0 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402610F0 (KeAcquireInStackQueuedSpinLock.c)
+ *     PopDiagTracePowerRequestChange @ 0x14032BC00 (PopDiagTracePowerRequestChange.c)
+ *     PopPowerRequestCallbackWorker @ 0x14032BE40 (PopPowerRequestCallbackWorker.c)
+ *     PopQueueWorkItem @ 0x14032CF74 (PopQueueWorkItem.c)
+ *     PopPowerRequestEvaluatePendingRequestStatus @ 0x14032CFA4 (PopPowerRequestEvaluatePendingRequestStatus.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall PopPowerRequestReferenceRelease(_DWORD *Object, unsigned int a2)
@@ -64,10 +64,10 @@ __int64 __fastcall PopPowerRequestReferenceRelease(_DWORD *Object, unsigned int 
     }
     KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
     OldIrql = LockHandle.OldIrql;
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v11 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v11 <= 0xFu && LockHandle.OldIrql <= 0xFu && v11 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v11 <= 0xFu && LockHandle.OldIrql <= 0xFu && v11 >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;

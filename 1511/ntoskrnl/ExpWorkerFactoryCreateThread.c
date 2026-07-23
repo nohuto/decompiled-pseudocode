@@ -17,16 +17,20 @@ __int64 __fastcall ExpWorkerFactoryCreateThread(__int64 a1)
 {
   int UserThread; // eax
   unsigned int v3; // esi
+  int v5; // [rsp+30h] [rbp-68h]
+  __int64 v6; // [rsp+60h] [rbp-38h] BYREF
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+70h] [rbp-28h] BYREF
-  HANDLE ThreadHandle; // [rsp+A0h] [rbp+8h]
+  HANDLE ThreadHandle; // [rsp+A0h] [rbp+8h] BYREF
 
   UserThread = RtlpCreateUserThreadEx(
-                 *(_QWORD *)(a1 + 40),
-                 0,
-                 (*(_DWORD *)(a1 + 144) & 0x800 | 0x80u) >> 7,
-                 0,
+                 *(HANDLE *)(a1 + 40),
                  *(_QWORD *)(a1 + 56),
-                 *(_QWORD *)(a1 + 64));
+                 *(_QWORD *)(a1 + 64),
+                 v5,
+                 *(PUSER_THREAD_START_ROUTINE *)(a1 + 24),
+                 *(PVOID *)(a1 + 32),
+                 (__int64)&ThreadHandle,
+                 (__int64)&v6);
   *(_DWORD *)(a1 + 152) = UserThread;
   v3 = UserThread;
   if ( UserThread >= 0 )

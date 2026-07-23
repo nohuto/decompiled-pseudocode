@@ -1,13 +1,13 @@
 /*
- * XREFs of DifZwNotifyChangeKeyWrapper @ 0x1405F1350
+ * XREFs of DifZwNotifyChangeKeyWrapper @ 0x1405F18C0
  * Callers:
  *     <none>
  * Callees:
- *     ZwNotifyChangeKey @ 0x14041D180 (ZwNotifyChangeKey.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     memset @ 0x140435A00 (memset.c)
- *     DifGetAPIThunkContextById @ 0x1404664BE (DifGetAPIThunkContextById.c)
- *     DifGetReturnAddressForWrappers @ 0x1405F88C4 (DifGetReturnAddressForWrappers.c)
+ *     ZwNotifyChangeKey @ 0x14041D510 (ZwNotifyChangeKey.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     DifGetAPIThunkContextById @ 0x1404668BE (DifGetAPIThunkContextById.c)
+ *     DifGetReturnAddressForWrappers @ 0x1405F8E34 (DifGetReturnAddressForWrappers.c)
  */
 
 NTSTATUS __fastcall DifZwNotifyChangeKeyWrapper(

@@ -37,7 +37,7 @@ __int64 __fastcall HvpViewMapMakeViewRangeValid(__int64 a1, _QWORD *a2, __int64 
           (ULONG *)&v20);
   if ( v11 >= 0 )
   {
-    CmSiPrefetchVirtualMemoryRange(*(__int64 **)(a1 + 24), (__int64)v6, v5);
+    CmSiPrefetchVirtualMemoryRange(*(void ***)(a1 + 24), v6, v5);
     if ( (*(_DWORD *)(a1 + 32) & 2) != 0 )
     {
       v17 = HvpViewMapTouchPages(v6, v5);

@@ -1,18 +1,18 @@
 /*
- * XREFs of MiLogPinDriverAddressesWorker @ 0x140A350F0
+ * XREFs of MiLogPinDriverAddressesWorker @ 0x140A29100
  * Callers:
  *     <none>
  * Callees:
- *     _tlgWriteAgg @ 0x1403D06F8 (_tlgWriteAgg.c)
- *     _tlgKeywordOn @ 0x140426AF0 (_tlgKeywordOn.c)
- *     RtlInterlockedClearBitRun @ 0x14045D390 (RtlInterlockedClearBitRun.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     MiLogPinDriverAddress @ 0x140A351F4 (MiLogPinDriverAddress.c)
+ *     _tlgWriteAgg @ 0x140273698 (_tlgWriteAgg.c)
+ *     _tlgKeywordOn @ 0x14041A970 (_tlgKeywordOn.c)
+ *     RtlInterlockedClearBitRun @ 0x140452450 (RtlInterlockedClearBitRun.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     MiLogPinDriverAddress @ 0x140A29204 (MiLogPinDriverAddress.c)
  */
 
 char MiLogPinDriverAddressesWorker()
 {
-  unsigned int v0; // edi
+  ULONG v0; // edi
   __int64 *v1; // rsi
   __int64 v2; // rax
   unsigned int v3; // r14d
@@ -50,7 +50,7 @@ char MiLogPinDriverAddressesWorker()
     {
       LODWORD(v11) = v2 & 0xFFFFFFFE;
       MiPinDriverAddressLog[v0] = v11;
-      RtlInterlockedClearBitRun((__int64)&dword_140EF4A80, v0, 1u);
+      RtlInterlockedClearBitRun(&stru_140EF4CA0, v0, 1u);
       LOBYTE(v2) = MiLogPinDriverAddress(&v11);
     }
     ++v0;
@@ -58,7 +58,7 @@ char MiLogPinDriverAddressesWorker()
   }
   while ( v0 < 0x800 );
   v3 = 0;
-  v4 = &unk_140EF4B94;
+  v4 = &unk_140EF4DB4;
   do
   {
     for ( i = 0; i < 2; ++i )
@@ -68,9 +68,9 @@ char MiLogPinDriverAddressesWorker()
         v7 = *(v4 - 1);
         if ( v7 != *v4 )
         {
-          if ( **(_DWORD **)&qword_140E37518 > 5u )
+          if ( **(_DWORD **)&qword_140E37658 > 5u )
           {
-            LOBYTE(v2) = tlgKeywordOn(*(__int64 *)&qword_140E37518, 0x400000000000LL);
+            LOBYTE(v2) = tlgKeywordOn(*(__int64 *)&qword_140E37658, 0x400000000000LL);
             if ( (_BYTE)v2 )
             {
               v19 = 8LL;
@@ -88,7 +88,7 @@ char MiLogPinDriverAddressesWorker()
               v14 = j == 1;
               v24 = &v14;
               v26 = &v16;
-              LOBYTE(v2) = tlgWriteAgg(v8, (unsigned __int8 *)byte_1400586E9, v8, 7u, (__int64)v17);
+              LOBYTE(v2) = tlgWriteAgg(v8, (unsigned __int8 *)&word_14005929E, v8, 7u, (__int64)v17);
             }
           }
           *v4 = v7;
@@ -99,6 +99,6 @@ char MiLogPinDriverAddressesWorker()
     ++v3;
   }
   while ( v3 < 2 );
-  word_140EF4BF0 = 0;
+  word_140EF4E10 = 0;
   return v2;
 }

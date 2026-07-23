@@ -5,28 +5,26 @@
  *     RtlpLoadLanguageConfigList @ 0x18003F48C (RtlpLoadLanguageConfigList.c)
  *     RtlpLoadUserUIByPolicy @ 0x18006FF10 (RtlpLoadUserUIByPolicy.c)
  *     RtlpMuiRegCreateAndLoadRegistryInfo @ 0x180070080 (RtlpMuiRegCreateAndLoadRegistryInfo.c)
- *     RtlpSetInstallLanguage @ 0x1800F0BC0 (RtlpSetInstallLanguage.c)
- *     RtlpSetMachineUILanguagesImmediate @ 0x1800F10A8 (RtlpSetMachineUILanguagesImmediate.c)
- *     RtlpSetPreferredUILanguages @ 0x1800F1270 (RtlpSetPreferredUILanguages.c)
- *     RtlpGetLocaleDataKey @ 0x1800FD3B4 (RtlpGetLocaleDataKey.c)
- *     RtlpGetUserOrMachineUILanguage4NLS @ 0x180103990 (RtlpGetUserOrMachineUILanguage4NLS.c)
+ *     RtlpSetInstallLanguage @ 0x1800F0B80 (RtlpSetInstallLanguage.c)
+ *     RtlpSetMachineUILanguagesImmediate @ 0x1800F1068 (RtlpSetMachineUILanguagesImmediate.c)
+ *     RtlpSetPreferredUILanguages @ 0x1800F1230 (RtlpSetPreferredUILanguages.c)
+ *     RtlpGetLocaleDataKey @ 0x1800FD374 (RtlpGetLocaleDataKey.c)
+ *     RtlpGetUserOrMachineUILanguage4NLS @ 0x180103950 (RtlpGetUserOrMachineUILanguage4NLS.c)
  * Callees:
  *     RtlOpenCurrentUser @ 0x180016790 (RtlOpenCurrentUser.c)
  *     RtlIsMultiSessionSku @ 0x180040210 (RtlIsMultiSessionSku.c)
- *     OpenGlobalizationUserSettingsKey_ForMua @ 0x180119C80 (OpenGlobalizationUserSettingsKey_ForMua.c)
- *     OpenGlobalizationUserSettingsKey_ForSingleUserModel @ 0x180119F50 (OpenGlobalizationUserSettingsKey_ForSingleUserModel.c)
+ *     OpenGlobalizationUserSettingsKey_ForMua @ 0x180119C20 (OpenGlobalizationUserSettingsKey_ForMua.c)
+ *     OpenGlobalizationUserSettingsKey_ForSingleUserModel @ 0x180119EF0 (OpenGlobalizationUserSettingsKey_ForSingleUserModel.c)
  */
 
-__int64 __fastcall OpenGlobalizationUserSettingsKey(unsigned int a1, __int64 a2, __int64 a3)
+NTSTATUS __fastcall OpenGlobalizationUserSettingsKey(ACCESS_MASK DesiredAccess, __int64 a2, HANDLE *a3)
 {
   unsigned int v5; // ecx
   unsigned int v6; // ecx
   unsigned int v8; // ecx
-  __int64 v9; // [rsp+38h] [rbp+10h] BYREF
 
-  v9 = a2;
   if ( !a3 )
-    return 3221225485LL;
+    return -1073741811;
   v5 = dword_18016D24C;
   if ( !dword_18016D24C )
   {
@@ -38,11 +36,11 @@ __int64 __fastcall OpenGlobalizationUserSettingsKey(unsigned int a1, __int64 a2,
   }
   v6 = v5 - 1;
   if ( !v6 )
-    return RtlOpenCurrentUser(a1, a3);
+    return RtlOpenCurrentUser(DesiredAccess, a3);
   v8 = v6 - 1;
   if ( !v8 )
-    return OpenGlobalizationUserSettingsKey_ForSingleUserModel(a1, a3);
+    return OpenGlobalizationUserSettingsKey_ForSingleUserModel(DesiredAccess, a3);
   if ( v8 == 1 )
-    return OpenGlobalizationUserSettingsKey_ForMua(a1, a2, a3, &v9);
-  return 3221225701LL;
+    return OpenGlobalizationUserSettingsKey_ForMua(DesiredAccess);
+  return -1073741595;
 }

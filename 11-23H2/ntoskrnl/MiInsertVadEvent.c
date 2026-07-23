@@ -1,19 +1,19 @@
 /*
- * XREFs of MiInsertVadEvent @ 0x1402E326C
+ * XREFs of MiInsertVadEvent @ 0x1402E34FC
  * Callers:
- *     MiWaitForVadDeletion @ 0x140660C58 (MiWaitForVadDeletion.c)
- *     MiMapViewOfImageSection @ 0x1406AEAC0 (MiMapViewOfImageSection.c)
- *     MiAddSecureEntry @ 0x140745D84 (MiAddSecureEntry.c)
- *     MiCreateVadEventBitmap @ 0x1407CCE04 (MiCreateVadEventBitmap.c)
- *     MiCreateRotateView @ 0x140A31210 (MiCreateRotateView.c)
- *     MiApplyImageHotPatchRequest @ 0x140A355E0 (MiApplyImageHotPatchRequest.c)
- *     MiCreateUserPhysicalView @ 0x140A41778 (MiCreateUserPhysicalView.c)
- *     MiCreatePlaceholderStorage @ 0x140A47C30 (MiCreatePlaceholderStorage.c)
- *     MiCreateLargePageVad @ 0x140A495E8 (MiCreateLargePageVad.c)
+ *     MiWaitForVadDeletion @ 0x1406611A8 (MiWaitForVadDeletion.c)
+ *     MiMapViewOfImageSection @ 0x1406AEAF0 (MiMapViewOfImageSection.c)
+ *     MiAddSecureEntry @ 0x140745F74 (MiAddSecureEntry.c)
+ *     MiCreateVadEventBitmap @ 0x1407CD0D4 (MiCreateVadEventBitmap.c)
+ *     MiCreateRotateView @ 0x140A314C0 (MiCreateRotateView.c)
+ *     MiApplyImageHotPatchRequest @ 0x140A35890 (MiApplyImageHotPatchRequest.c)
+ *     MiCreateUserPhysicalView @ 0x140A41A28 (MiCreateUserPhysicalView.c)
+ *     MiCreatePlaceholderStorage @ 0x140A47EE0 (MiCreatePlaceholderStorage.c)
+ *     MiCreateLargePageVad @ 0x140A49898 (MiCreateLargePageVad.c)
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x14024D360 (ExAcquireSpinLockExclusive.c)
- *     MiGetSharedVm @ 0x140286E74 (MiGetSharedVm.c)
- *     MiUnlockWorkingSetExclusive @ 0x14028A2F0 (MiUnlockWorkingSetExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024D430 (ExAcquireSpinLockExclusive.c)
+ *     MiGetSharedVm @ 0x140287104 (MiGetSharedVm.c)
+ *     MiUnlockWorkingSetExclusive @ 0x14028A580 (MiUnlockWorkingSetExclusive.c)
  */
 
 void __fastcall MiInsertVadEvent(__int64 a1, unsigned __int64 *a2, __int64 a3, __int64 a4)

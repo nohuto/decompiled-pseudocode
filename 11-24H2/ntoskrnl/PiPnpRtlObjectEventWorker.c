@@ -1,34 +1,34 @@
 /*
- * XREFs of PiPnpRtlObjectEventWorker @ 0x1408B9D40
+ * XREFs of PiPnpRtlObjectEventWorker @ 0x1408B76F0
  * Callers:
- *     PiPnpRtlObjectEventCallback @ 0x1408B9D10 (PiPnpRtlObjectEventCallback.c)
- *     PiDqIrpPropertySet @ 0x1409FA620 (PiDqIrpPropertySet.c)
+ *     PiPnpRtlObjectEventCallback @ 0x1408B76C0 (PiPnpRtlObjectEventCallback.c)
+ *     PiDqIrpPropertySet @ 0x1409F2F90 (PiDqIrpPropertySet.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     ExReleaseResourceLite @ 0x14025A450 (ExReleaseResourceLite.c)
- *     ExAcquireResourceExclusiveLite @ 0x1402769C0 (ExAcquireResourceExclusiveLite.c)
- *     RtlDeleteElementGenericTableAvl @ 0x1403F0610 (RtlDeleteElementGenericTableAvl.c)
- *     RtlLookupElementGenericTableAvl @ 0x1403FFF00 (RtlLookupElementGenericTableAvl.c)
- *     _wcsicmp @ 0x1404FE3B0 (_wcsicmp.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     PiDqObjectManagerMakeInconsistent @ 0x140728638 (PiDqObjectManagerMakeInconsistent.c)
- *     SeCaptureSubjectContext @ 0x14084D8F0 (SeCaptureSubjectContext.c)
- *     PiDmRemoveCacheReferenceForObject @ 0x1408B4894 (PiDmRemoveCacheReferenceForObject.c)
- *     PiDmObjectProcessPropertyChange @ 0x1408BA158 (PiDmObjectProcessPropertyChange.c)
- *     KsepCacheLock @ 0x1408BB520 (KsepCacheLock.c)
- *     PiPnpRtlObjectEventCreate @ 0x1408CB870 (PiPnpRtlObjectEventCreate.c)
- *     PiPnpRtlBeginOperation @ 0x1408CBF78 (PiPnpRtlBeginOperation.c)
- *     PiPnpRtlEndOperation @ 0x1408CC158 (PiPnpRtlEndOperation.c)
- *     PiPnpRtlOperationListReleaseLock @ 0x1408CC270 (PiPnpRtlOperationListReleaseLock.c)
- *     PiPnpRtlDisableRemoveOperationDispatch @ 0x1408CC6EC (PiPnpRtlDisableRemoveOperationDispatch.c)
- *     PiPnpRtlObjectEventDispatch @ 0x1408CCBB0 (PiPnpRtlObjectEventDispatch.c)
- *     PiDmObjectReleaseLock @ 0x1408D12E4 (PiDmObjectReleaseLock.c)
- *     PnpAllocatePWSTR @ 0x1408D3DA4 (PnpAllocatePWSTR.c)
- *     PiPnpRtlOperationListAcquireSharedLock @ 0x1409FF7F4 (PiPnpRtlOperationListAcquireSharedLock.c)
- *     PiDqGetObjectManagerForPnpObjectType @ 0x140A34F10 (PiDqGetObjectManagerForPnpObjectType.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ExAcquireResourceExclusiveLite @ 0x14022BF50 (ExAcquireResourceExclusiveLite.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     ExReleaseResourceLite @ 0x14028AA60 (ExReleaseResourceLite.c)
+ *     RtlDeleteElementGenericTableAvl @ 0x1403E4330 (RtlDeleteElementGenericTableAvl.c)
+ *     RtlLookupElementGenericTableAvl @ 0x1403FA3F0 (RtlLookupElementGenericTableAvl.c)
+ *     _wcsicmp @ 0x1404FBC70 (_wcsicmp.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     PiDqObjectManagerMakeInconsistent @ 0x1407261C8 (PiDqObjectManagerMakeInconsistent.c)
+ *     SeCaptureSubjectContext @ 0x140849BB0 (SeCaptureSubjectContext.c)
+ *     PiDmRemoveCacheReferenceForObject @ 0x1408B2184 (PiDmRemoveCacheReferenceForObject.c)
+ *     PiDmObjectProcessPropertyChange @ 0x1408B7B08 (PiDmObjectProcessPropertyChange.c)
+ *     KsepCacheLock @ 0x1408B8ED0 (KsepCacheLock.c)
+ *     PiPnpRtlObjectEventCreate @ 0x1408C92A0 (PiPnpRtlObjectEventCreate.c)
+ *     PiPnpRtlBeginOperation @ 0x1408C99A8 (PiPnpRtlBeginOperation.c)
+ *     PiPnpRtlEndOperation @ 0x1408C9B88 (PiPnpRtlEndOperation.c)
+ *     PiPnpRtlOperationListReleaseLock @ 0x1408C9CA0 (PiPnpRtlOperationListReleaseLock.c)
+ *     PiPnpRtlDisableRemoveOperationDispatch @ 0x1408CA11C (PiPnpRtlDisableRemoveOperationDispatch.c)
+ *     PiPnpRtlObjectEventDispatch @ 0x1408CA5A8 (PiPnpRtlObjectEventDispatch.c)
+ *     PiDmObjectReleaseLock @ 0x1408CECD4 (PiDmObjectReleaseLock.c)
+ *     PnpAllocatePWSTR @ 0x1408D1794 (PnpAllocatePWSTR.c)
+ *     PiPnpRtlOperationListAcquireSharedLock @ 0x1409F873C (PiPnpRtlOperationListAcquireSharedLock.c)
+ *     PiDqGetObjectManagerForPnpObjectType @ 0x140A28F20 (PiDqGetObjectManagerForPnpObjectType.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __fastcall PiPnpRtlObjectEventWorker(__int64 a1, __int64 a2, __int64 a3, __int64 a4, unsigned int a5)
@@ -46,43 +46,44 @@ void __fastcall PiPnpRtlObjectEventWorker(__int64 a1, __int64 a2, __int64 a3, __
   const wchar_t *v17; // r14
   int v18; // r8d
   __int128 v19; // xmm0
-  char *v20; // rcx
-  __int128 v21; // xmm1
-  __int64 v22; // rax
-  __int64 v23; // rdx
-  __int64 v24; // r8
+  int v20; // eax
+  char *v21; // rcx
+  __int128 v22; // xmm1
+  __int64 v23; // rax
+  __int64 v24; // rdx
+  __int64 v25; // r8
   _DWORD *Pool2; // rax
-  _DWORD *v26; // rbx
-  const wchar_t *v27; // rdx
-  __int64 v28; // rdx
-  int v29; // ebx
-  void *v30; // r8
+  _DWORD *v27; // rbx
+  const wchar_t *v28; // rdx
+  __int64 v29; // rdx
+  int v30; // ebx
+  void *v31; // r8
   struct _KTHREAD *CurrentThread; // rax
-  __int64 v32; // rsi
-  PVOID *v33; // r8
-  _QWORD *v34; // rax
-  int v35; // eax
+  __int64 v33; // rsi
+  PVOID *v34; // r8
+  _QWORD *v35; // rax
+  int v36; // eax
   __int64 ObjectManagerForPnpObjectType; // rax
-  __int64 *v37; // rax
-  __int64 v38; // rbx
-  _QWORD *v39; // rbx
-  _QWORD *v40; // rcx
-  PVOID *v41; // rdx
-  _QWORD *v42; // rax
+  __int64 *v38; // rax
+  __int64 v39; // rbx
+  _QWORD *v40; // rbx
+  _QWORD *v41; // rcx
+  PVOID *v42; // rdx
+  _QWORD *v43; // rax
   void *Src; // [rsp+30h] [rbp-40h] BYREF
-  char v44[8]; // [rsp+38h] [rbp-38h] BYREF
+  char v45[8]; // [rsp+38h] [rbp-38h] BYREF
   PVOID P; // [rsp+40h] [rbp-30h] BYREF
-  __int128 v46; // [rsp+48h] [rbp-28h]
-  __int128 v47; // [rsp+58h] [rbp-18h] BYREF
+  __int128 v47; // [rsp+48h] [rbp-28h]
+  __int128 v48; // [rsp+58h] [rbp-18h] BYREF
 
   v5 = 0LL;
   Src = 0LL;
   P = 0LL;
   v7 = a3;
-  v44[0] = 0;
+  v45[0] = 0;
   v8 = a2;
-  v46 = 0LL;
   v47 = 0LL;
+  v48 = 0LL;
   if ( (int)a2 < 7 )
   {
     if ( (_DWORD)a3 == 1 )
@@ -118,8 +119,8 @@ void __fastcall PiPnpRtlObjectEventWorker(__int64 a1, __int64 a2, __int64 a3, __
           *((_QWORD *)Src + 1),
           *(_QWORD *)(a4 + 8),
           *(_QWORD *)(a4 + 16),
-          (__int64)v44);
-        if ( !v44[0] )
+          (__int64)v45);
+        if ( !v45[0] )
         {
           PiPnpRtlDisableRemoveOperationDispatch();
           v15 = Src;
@@ -130,25 +131,25 @@ void __fastcall PiPnpRtlObjectEventWorker(__int64 a1, __int64 a2, __int64 a3, __
           v19 = *v16;
           LODWORD(P) = *((_DWORD *)v16 + 4);
           v18 = (int)P;
-          *(_QWORD *)&v47 = __PAIR64__(a5, (unsigned int)P);
-          v46 = v19;
-          *((_QWORD *)&v47 + 1) = v17;
+          *(_QWORD *)&v48 = __PAIR64__(a5, (unsigned int)P);
+          v47 = v19;
+          *((_QWORD *)&v48 + 1) = v17;
           while ( (unsigned int)v14 < v15[19] )
           {
             if ( v18 == v15[8 * v14 + 24] )
             {
-              v23 = 8LL * (unsigned int)v14;
-              v24 = v46 - *(_QWORD *)&v15[v23 + 20];
-              if ( (_QWORD)v46 == *(_QWORD *)&v15[v23 + 20] )
-                v24 = *((_QWORD *)&v46 + 1) - *(_QWORD *)&v15[v23 + 22];
-              if ( !v24 && a5 == v15[v23 + 25] )
+              v24 = 8LL * (unsigned int)v14;
+              v25 = v47 - *(_QWORD *)&v15[v24 + 20];
+              if ( (_QWORD)v47 == *(_QWORD *)&v15[v24 + 20] )
+                v25 = *((_QWORD *)&v47 + 1) - *(_QWORD *)&v15[v24 + 22];
+              if ( !v25 && a5 == v15[v24 + 25] )
               {
-                v27 = *(const wchar_t **)&v15[v23 + 26];
-                if ( v17 == v27 )
+                v28 = *(const wchar_t **)&v15[v24 + 26];
+                if ( v17 == v28 )
                   goto LABEL_19;
-                if ( v17 && v27 )
+                if ( v17 && v28 )
                 {
-                  if ( !wcsicmp(v17, v27) )
+                  if ( !wcsicmp(v17, v28) )
                     goto LABEL_19;
                   v15 = Src;
                 }
@@ -159,37 +160,38 @@ void __fastcall PiPnpRtlObjectEventWorker(__int64 a1, __int64 a2, __int64 a3, __
           }
           if ( a5 == 1 )
           {
-            v35 = v15[1];
-            if ( (v35 & 4) == 0 )
+            v36 = v15[1];
+            if ( (v36 & 4) == 0 )
             {
-              v15[1] = v35 | 4;
+              v15[1] = v36 | 4;
               SeCaptureSubjectContext((PSECURITY_SUBJECT_CONTEXT)((char *)Src + 24));
               v15 = Src;
             }
           }
-          if ( v15[19] == v15[18] )
+          v20 = v15[18];
+          if ( v15[19] == v20 )
           {
-            Pool2 = (_DWORD *)ExAllocatePool2(0x100uLL);
-            v26 = Pool2;
+            Pool2 = (_DWORD *)ExAllocatePool2(0x100uLL, 32LL * (unsigned int)(2 * v20) + 80, 0x41706E50u);
+            v27 = Pool2;
             if ( !Pool2 )
             {
               PWSTR = -1073741670;
               goto LABEL_19;
             }
             memmove(Pool2, Src, 32LL * *((unsigned int *)Src + 19) + 80);
-            v26[18] *= 2;
-            *(_QWORD *)RtlLookupElementGenericTableAvl((PRTL_AVL_TABLE)(v5 + 24), &Src) = v26;
+            v27[18] *= 2;
+            *(_QWORD *)RtlLookupElementGenericTableAvl((PRTL_AVL_TABLE)(v5 + 24), &Src) = v27;
             ExFreePoolWithTag(Src, 0x41706E50u);
-            Src = v26;
+            Src = v27;
           }
-          PWSTR = PnpAllocatePWSTR(*(_QWORD *)(a4 + 8), 0x7FFFFFFFLL, 1097887312LL, (char *)&v47 + 8);
+          PWSTR = PnpAllocatePWSTR(*(_QWORD *)(a4 + 8), 0x7FFFFFFFLL, 1097887312LL, (char *)&v48 + 8);
           if ( PWSTR >= 0 )
           {
-            v20 = (char *)Src;
-            v21 = v47;
-            v22 = 32LL * *((unsigned int *)Src + 19);
-            *(_OWORD *)((char *)Src + v22 + 80) = v46;
-            *(_OWORD *)&v20[v22 + 96] = v21;
+            v21 = (char *)Src;
+            v22 = v48;
+            v23 = 32LL * *((unsigned int *)Src + 19);
+            *(_OWORD *)((char *)Src + v23 + 80) = v47;
+            *(_OWORD *)&v21[v23 + 96] = v22;
             ++*((_DWORD *)Src + 19);
           }
 LABEL_19:
@@ -213,14 +215,14 @@ LABEL_48:
             goto LABEL_20;
           }
           RtlDeleteElementGenericTableAvl((PRTL_AVL_TABLE)(v5 + 24), &Src);
-          v41 = (PVOID *)*((_QWORD *)v5 + 17);
-          v42 = (char *)Src + 56;
-          if ( *v41 == v5 + 128 )
+          v42 = (PVOID *)*((_QWORD *)v5 + 17);
+          v43 = (char *)Src + 56;
+          if ( *v42 == v5 + 128 )
           {
-            *v42 = v5 + 128;
-            v42[1] = v41;
-            *v41 = v42;
-            *((_QWORD *)v5 + 17) = v42;
+            *v43 = v5 + 128;
+            v43[1] = v42;
+            *v42 = v43;
+            *((_QWORD *)v5 + 17) = v43;
             goto LABEL_59;
           }
 LABEL_42:
@@ -231,50 +233,50 @@ LABEL_42:
       {
         *((_DWORD *)Src + 1) |= 2u;
         KsepCacheLock(*((_QWORD *)Src + 1));
-        v28 = *((_QWORD *)Src + 1);
-        v29 = *(_DWORD *)(v28 + 32);
-        *(_DWORD *)(v28 + 32) = v29 & 0xFFFFFFFE;
+        v29 = *((_QWORD *)Src + 1);
+        v30 = *(_DWORD *)(v29 + 32);
+        *(_DWORD *)(v29 + 32) = v30 & 0xFFFFFFFE;
         PiDmObjectReleaseLock(*((_QWORD *)Src + 1));
-        if ( (v29 & 1) != 0 )
-          PiDmRemoveCacheReferenceForObject(v8, a1, v30);
+        if ( (v30 & 1) != 0 )
+          PiDmRemoveCacheReferenceForObject(v8, a1, v31);
         CurrentThread = KeGetCurrentThread();
         --CurrentThread->KernelApcDisable;
         ExAcquireResourceExclusiveLite(&PiPnpRtlRemoveOperationDispatchLock, 1u);
         PiPnpRtlOperationListAcquireSharedLock();
-        v32 = PiPnpRtlActiveOperations;
+        v33 = PiPnpRtlActiveOperations;
         v5 = (char *)P;
-        while ( (__int64 *)v32 != &PiPnpRtlActiveOperations )
+        while ( (__int64 *)v33 != &PiPnpRtlActiveOperations )
         {
-          if ( (char *)v32 != v5 )
+          if ( (char *)v33 != v5 )
           {
-            v37 = (__int64 *)RtlLookupElementGenericTableAvl((PRTL_AVL_TABLE)(v32 + 24), &Src);
-            if ( v37 )
+            v38 = (__int64 *)RtlLookupElementGenericTableAvl((PRTL_AVL_TABLE)(v33 + 24), &Src);
+            if ( v38 )
             {
-              v38 = *v37;
-              RtlDeleteElementGenericTableAvl((PRTL_AVL_TABLE)(v32 + 24), v37);
-              v39 = (_QWORD *)(v38 + 56);
-              v40 = *(_QWORD **)(v32 + 136);
-              if ( *v40 != v32 + 128 )
+              v39 = *v38;
+              RtlDeleteElementGenericTableAvl((PRTL_AVL_TABLE)(v33 + 24), v38);
+              v40 = (_QWORD *)(v39 + 56);
+              v41 = *(_QWORD **)(v33 + 136);
+              if ( *v41 != v33 + 128 )
                 goto LABEL_42;
-              *v39 = v32 + 128;
-              v39[1] = v40;
-              *v40 = v39;
-              *(_QWORD *)(v32 + 136) = v39;
+              *v40 = v33 + 128;
+              v40[1] = v41;
+              *v41 = v40;
+              *(_QWORD *)(v33 + 136) = v40;
             }
           }
-          v32 = *(_QWORD *)v32;
+          v33 = *(_QWORD *)v33;
         }
         PiPnpRtlOperationListReleaseLock();
         PiPnpRtlObjectEventDispatch(Src);
         RtlDeleteElementGenericTableAvl((PRTL_AVL_TABLE)(v5 + 24), &Src);
-        v33 = (PVOID *)*((_QWORD *)v5 + 17);
-        v34 = (char *)Src + 56;
-        if ( *v33 != v5 + 128 )
+        v34 = (PVOID *)*((_QWORD *)v5 + 17);
+        v35 = (char *)Src + 56;
+        if ( *v34 != v5 + 128 )
           goto LABEL_42;
-        *v34 = v5 + 128;
-        v34[1] = v33;
-        *v33 = v34;
-        *((_QWORD *)v5 + 17) = v34;
+        *v35 = v5 + 128;
+        v35[1] = v34;
+        *v34 = v35;
+        *((_QWORD *)v5 + 17) = v35;
         ExReleaseResourceLite(&PiPnpRtlRemoveOperationDispatchLock);
         KeLeaveCriticalRegion();
         Src = 0LL;

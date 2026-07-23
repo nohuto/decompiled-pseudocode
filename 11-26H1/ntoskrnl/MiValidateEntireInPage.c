@@ -1,11 +1,11 @@
 /*
- * XREFs of MiValidateEntireInPage @ 0x14038A798
+ * XREFs of MiValidateEntireInPage @ 0x14038C548
  * Callers:
- *     MiValidateInPage @ 0x14038C154 (MiValidateInPage.c)
+ *     MiValidateInPage @ 0x14038DF04 (MiValidateInPage.c)
  * Callees:
- *     MmMapLockedPagesSpecifyCache @ 0x14035D330 (MmMapLockedPagesSpecifyCache.c)
- *     SeValidateImageData @ 0x140ABDC98 (SeValidateImageData.c)
- *     MiGetSectionStrongImageReference @ 0x140B4D7C0 (MiGetSectionStrongImageReference.c)
+ *     MmMapLockedPagesSpecifyCache @ 0x14035F0D0 (MmMapLockedPagesSpecifyCache.c)
+ *     SeValidateImageData @ 0x140AC0288 (SeValidateImageData.c)
+ *     MiGetSectionStrongImageReference @ 0x140B4F550 (MiGetSectionStrongImageReference.c)
  */
 
 __int64 __fastcall MiValidateEntireInPage(__int64 a1)

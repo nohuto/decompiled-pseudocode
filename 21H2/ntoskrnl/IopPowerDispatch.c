@@ -1,10 +1,10 @@
 /*
- * XREFs of IopPowerDispatch @ 0x14038B1A0
+ * XREFs of IopPowerDispatch @ 0x14038B2F0
  * Callers:
  *     <none>
  * Callees:
- *     IofCompleteRequest @ 0x140243490 (IofCompleteRequest.c)
- *     PoSetPowerState @ 0x14037C8A0 (PoSetPowerState.c)
+ *     IofCompleteRequest @ 0x1402E7CE0 (IofCompleteRequest.c)
+ *     PoSetPowerState @ 0x14037C3F0 (PoSetPowerState.c)
  */
 
 __int64 __fastcall IopPowerDispatch(PDEVICE_OBJECT DeviceObject, PIRP Irp)

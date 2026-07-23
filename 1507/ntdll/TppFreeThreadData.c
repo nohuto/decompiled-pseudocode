@@ -6,14 +6,14 @@
  *     RtlFreeHeap @ 0x18002AB90 (RtlFreeHeap.c)
  */
 
-struct _TEB *__fastcall TppFreeThreadData(unsigned __int64 a1)
+struct _TEB *__fastcall TppFreeThreadData(_DWORD *BaseAddress)
 {
   struct _TEB *result; // rax
 
-  if ( a1 )
+  if ( BaseAddress )
   {
-    *(_DWORD *)(a1 + 8) |= 4u;
-    RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, TppHeapTag + 2883584, a1);
+    BaseAddress[2] |= 4u;
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, TppHeapTag + 2883584, BaseAddress);
     result = NtCurrentTeb();
     result->ThreadPoolData = 0LL;
   }

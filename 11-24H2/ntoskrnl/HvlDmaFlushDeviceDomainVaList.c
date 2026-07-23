@@ -1,11 +1,11 @@
 /*
- * XREFs of HvlDmaFlushDeviceDomainVaList @ 0x1405866C0
+ * XREFs of HvlDmaFlushDeviceDomainVaList @ 0x140583A40
  * Callers:
  *     <none>
  * Callees:
- *     HvlDmaFlushDeviceDomain @ 0x140586630 (HvlDmaFlushDeviceDomain.c)
- *     HvlpDmaFastFlushDeviceDomainVaList @ 0x140588950 (HvlpDmaFastFlushDeviceDomainVaList.c)
- *     HvlpDmaSlowFlushDeviceDomainVaList @ 0x140588A30 (HvlpDmaSlowFlushDeviceDomainVaList.c)
+ *     HvlDmaFlushDeviceDomain @ 0x1405839B0 (HvlDmaFlushDeviceDomain.c)
+ *     HvlpDmaFastFlushDeviceDomainVaList @ 0x140585C30 (HvlpDmaFastFlushDeviceDomainVaList.c)
+ *     HvlpDmaSlowFlushDeviceDomainVaList @ 0x140585D10 (HvlpDmaSlowFlushDeviceDomainVaList.c)
  */
 
 __int64 __fastcall HvlDmaFlushDeviceDomainVaList(int *a1, unsigned int a2)

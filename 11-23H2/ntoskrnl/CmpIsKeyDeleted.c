@@ -1,15 +1,15 @@
 /*
- * XREFs of CmpIsKeyDeleted @ 0x1407CB1FC
+ * XREFs of CmpIsKeyDeleted @ 0x1407CB4CC
  * Callers:
- *     CmGetVisibleMaxNameLenAndClassLen @ 0x1406D52B8 (CmGetVisibleMaxNameLenAndClassLen.c)
- *     CmpFindSubKeyByNumberEx @ 0x1406DAFD0 (CmpFindSubKeyByNumberEx.c)
- *     CmpVEExecuteOpenLogic @ 0x1406DD4D0 (CmpVEExecuteOpenLogic.c)
- *     CmpSyncKcbCacheForHive @ 0x140A1A1B0 (CmpSyncKcbCacheForHive.c)
- *     CmpVEExecuteRealStoreParseLogic @ 0x140A1A208 (CmpVEExecuteRealStoreParseLogic.c)
+ *     CmGetVisibleMaxNameLenAndClassLen @ 0x1406D52E8 (CmGetVisibleMaxNameLenAndClassLen.c)
+ *     CmpFindSubKeyByNumberEx @ 0x1406DB000 (CmpFindSubKeyByNumberEx.c)
+ *     CmpVEExecuteOpenLogic @ 0x1406DD500 (CmpVEExecuteOpenLogic.c)
+ *     CmpSyncKcbCacheForHive @ 0x140A1A460 (CmpSyncKcbCacheForHive.c)
+ *     CmpVEExecuteRealStoreParseLogic @ 0x140A1A4B8 (CmpVEExecuteRealStoreParseLogic.c)
  * Callees:
  *     CmSiFreeMemory @ 0x140208C40 (CmSiFreeMemory.c)
- *     CmpIsKeyStackDeleted @ 0x1406D3EAC (CmpIsKeyStackDeleted.c)
- *     CmpStartKcbStackForTopLayerKcb @ 0x1406D7B6C (CmpStartKcbStackForTopLayerKcb.c)
+ *     CmpIsKeyStackDeleted @ 0x1406D3EDC (CmpIsKeyStackDeleted.c)
+ *     CmpStartKcbStackForTopLayerKcb @ 0x1406D7B9C (CmpStartKcbStackForTopLayerKcb.c)
  */
 
 char __fastcall CmpIsKeyDeleted(__int64 a1)

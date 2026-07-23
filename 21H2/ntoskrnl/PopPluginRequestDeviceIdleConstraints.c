@@ -1,10 +1,10 @@
 /*
- * XREFs of PopPluginRequestDeviceIdleConstraints @ 0x14056DFE8
+ * XREFs of PopPluginRequestDeviceIdleConstraints @ 0x14056E228
  * Callers:
- *     PopPepInitializeVetoMasks @ 0x140574D9C (PopPepInitializeVetoMasks.c)
+ *     PopPepInitializeVetoMasks @ 0x140574FDC (PopPepInitializeVetoMasks.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     PopDiagTraceFxDeviceIdleConstraints @ 0x140572444 (PopDiagTraceFxDeviceIdleConstraints.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     PopDiagTraceFxDeviceIdleConstraints @ 0x140572684 (PopDiagTraceFxDeviceIdleConstraints.c)
  */
 
 char __fastcall PopPluginRequestDeviceIdleConstraints(__int64 a1, __int64 a2, unsigned int a3)

@@ -1,9 +1,9 @@
 /*
- * XREFs of DbgkCleanupServerSiloState @ 0x140884358
+ * XREFs of DbgkCleanupServerSiloState @ 0x1408844B8
  * Callers:
- *     PspDeleteServerSiloGlobals @ 0x1409062AC (PspDeleteServerSiloGlobals.c)
+ *     PspDeleteServerSiloGlobals @ 0x14090640C (PspDeleteServerSiloGlobals.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
+ *     ObfDereferenceObjectWithTag @ 0x140355E90 (ObfDereferenceObjectWithTag.c)
  */
 
 LONG_PTR __fastcall DbgkCleanupServerSiloState(__int64 a1)

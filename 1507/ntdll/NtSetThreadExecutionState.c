@@ -6,11 +6,11 @@
  *     <none>
  */
 
-__int64 NtSetThreadExecutionState()
+NTSTATUS __cdecl NtSetThreadExecutionState(EXECUTION_STATE NewFlags, EXECUTION_STATE *PreviousFlags)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 401LL;
+  result = 401;
   __asm { syscall; Low latency system call }
   return result;
 }

@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpEfiInitialization @ 0x140C0EF64
+ * XREFs of HalpEfiInitialization @ 0x140C10F64
  * Callers:
- *     HalpFirmwareInitDiscard @ 0x140C0F600 (HalpFirmwareInitDiscard.c)
+ *     HalpFirmwareInitDiscard @ 0x140C11600 (HalpFirmwareInitDiscard.c)
  * Callees:
- *     KeRegisterBugCheckReasonCallback @ 0x140467D20 (KeRegisterBugCheckReasonCallback.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
+ *     KeRegisterBugCheckReasonCallback @ 0x1404606D0 (KeRegisterBugCheckReasonCallback.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall HalpEfiInitialization(__int64 a1)
@@ -19,9 +19,9 @@ __int64 __fastcall HalpEfiInitialization(__int64 a1)
   if ( v2 )
   {
     HalFirmwareInformationBlock = *(_OWORD *)(a1 + 264);
-    xmmword_140FC0C90 = *(_OWORD *)(a1 + 280);
-    xmmword_140FC0CA0 = *(_OWORD *)(a1 + 296);
-    xmmword_140FC0CB0 = *(_OWORD *)(a1 + 312);
+    xmmword_140FC0EF0 = *(_OWORD *)(a1 + 280);
+    xmmword_140FC0F00 = *(_OWORD *)(a1 + 296);
+    xmmword_140FC0F10 = *(_OWORD *)(a1 + 312);
   }
   HalFirmwareTypeEfi = v2;
   if ( !(_BYTE)v2 )

@@ -12,11 +12,11 @@
  *     <none>
  */
 
-__int64 ZwDeleteKey()
+NTSTATUS __cdecl ZwDeleteKey(HANDLE KeyHandle)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 207LL;
+  result = 207;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

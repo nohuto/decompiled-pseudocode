@@ -1,22 +1,22 @@
 /*
- * XREFs of MiChangingSubsectionProtos @ 0x1406F9120
+ * XREFs of MiChangingSubsectionProtos @ 0x1406FDDF0
  * Callers:
- *     MiInitializePurgeCriteria @ 0x1404A4714 (MiInitializePurgeCriteria.c)
- *     MiAllocateFileExtents @ 0x140B5F8D8 (MiAllocateFileExtents.c)
+ *     MiInitializePurgeCriteria @ 0x14049DDA4 (MiInitializePurgeCriteria.c)
+ *     MiAllocateFileExtents @ 0x140B62A58 (MiAllocateFileExtents.c)
  * Callees:
- *     ExReleaseSpinLockExclusive @ 0x14021AA80 (ExReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x140249CD0 (ExAcquireSpinLockExclusive.c)
- *     KeAbPostReleaseEx @ 0x140272670 (KeAbPostReleaseEx.c)
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KeWaitForGate @ 0x1403C26D0 (KeWaitForGate.c)
- *     ?KiAbpSetEntryValue@AutoBoost@@YAXPECEEK@Z @ 0x140444460 (-KiAbpSetEntryValue@AutoBoost@@YAXPECEEK@Z.c)
- *     ?KiAbpPreWait@AutoBoost@@YAXPEAX@Z @ 0x14046DD60 (-KiAbpPreWait@AutoBoost@@YAXPEAX@Z.c)
- *     ?KiAbPreWait@LegacyAutoBoost@@YAXPEAX@Z @ 0x1404AAED0 (-KiAbPreWait@LegacyAutoBoost@@YAXPEAX@Z.c)
- *     MiSubsectionProtosCreated @ 0x14050DFD0 (MiSubsectionProtosCreated.c)
- *     MiUnlinkSubsectionWaitBlock @ 0x1406FADC0 (MiUnlinkSubsectionWaitBlock.c)
+ *     ExReleaseSpinLockExclusive @ 0x14021C410 (ExReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024B630 (ExAcquireSpinLockExclusive.c)
+ *     KeAbPostReleaseEx @ 0x140271BE0 (KeAbPostReleaseEx.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     KeWaitForGate @ 0x1403CC5D0 (KeWaitForGate.c)
+ *     ?KiAbpSetEntryValue@AutoBoost@@YAXPECEEK@Z @ 0x14043CF70 (-KiAbpSetEntryValue@AutoBoost@@YAXPECEEK@Z.c)
+ *     ?KiAbpPreWait@AutoBoost@@YAXPEAX@Z @ 0x1404674E0 (-KiAbpPreWait@AutoBoost@@YAXPEAX@Z.c)
+ *     ?KiAbPreWait@LegacyAutoBoost@@YAXPEAX@Z @ 0x1404A4560 (-KiAbPreWait@LegacyAutoBoost@@YAXPEAX@Z.c)
+ *     MiSubsectionProtosCreated @ 0x140507A40 (MiSubsectionProtosCreated.c)
+ *     MiUnlinkSubsectionWaitBlock @ 0x1406FFA90 (MiUnlinkSubsectionWaitBlock.c)
  */
 
 __int64 __fastcall MiChangingSubsectionProtos(struct _KTHREAD *a1, char a2, _DWORD *a3)

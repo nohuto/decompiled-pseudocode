@@ -611,7 +611,7 @@ __int64 __fastcall sub_140511D20(unsigned int *a1, unsigned int a2, UINT a3, _QW
   NTSTATUS v514; // eax
   struct _FILE_OBJECT *v515; // r15
   size_t *v516; // r14
-  unsigned __int8 v517; // cl
+  SE_SIGNING_LEVEL v517; // cl
   size_t *v518; // rbx
   char *v519; // rax
   char *v520; // r9
@@ -1130,7 +1130,7 @@ __int64 __fastcall sub_140511D20(unsigned int *a1, unsigned int a2, UINT a3, _QW
   int v1034; // [rsp+4A0h] [rbp+398h] BYREF
   UINT v1035; // [rsp+4A8h] [rbp+3A0h]
   PVOID v1036; // [rsp+4B0h] [rbp+3A8h]
-  HANDLE v1037; // [rsp+4B8h] [rbp+3B0h] BYREF
+  HANDLE TargetFile; // [rsp+4B8h] [rbp+3B0h] BYREF
   PVOID v1038; // [rsp+4C0h] [rbp+3B8h]
   PCWSTR SourceString; // [rsp+4C8h] [rbp+3C0h]
   ULONG v1040; // [rsp+4D0h] [rbp+3C8h] BYREF
@@ -3331,11 +3331,7 @@ LABEL_534:
       v1114 = 0;
       SystemInformation = 8;
       Acl = 0;
-      v255 = ZwQuerySystemInformation(
-               MaxSystemInfoClass|SystemProcessInformation,
-               &SystemInformation,
-               8u,
-               &ReturnLength);
+      v255 = ZwQuerySystemInformation(SystemCodeIntegrityInformation, &SystemInformation, 8u, &ReturnLength);
       v256 = v255 >= 0 && (v1114 & 0x20) != 0;
       v257 = v255 >= 0 && (v1114 & 0x100) != 0;
       v258 = (const void **)v872;
@@ -5058,7 +5054,7 @@ LABEL_756:
           v1134 = 0;
           v1133 = 8;
           Acl = 0;
-          v463 = ZwQuerySystemInformation(MaxSystemInfoClass|SystemProcessInformation, &v1133, 8u, &v1148) >= 0
+          v463 = ZwQuerySystemInformation(SystemCodeIntegrityInformation, &v1133, 8u, &v1148) >= 0
               && (v1134 & 0x20) != 0;
           v464 = *((_DWORD *)v872 + 4);
           if ( v464 == 160
@@ -5164,7 +5160,7 @@ LABEL_1073:
           v1137 = 0;
           v1136 = 8;
           Acl = 0;
-          v475 = ZwQuerySystemInformation(MaxSystemInfoClass|SystemProcessInformation, &v1136, 8u, &v1150) >= 0
+          v475 = ZwQuerySystemInformation(SystemCodeIntegrityInformation, &v1136, 8u, &v1150) >= 0
               && (v1137 & 0x20) != 0;
           v476 = *((_DWORD *)v872 + 4);
           if ( v476 == 160
@@ -5409,8 +5405,7 @@ LABEL_1595:
       v1047 = 0;
       v1046 = 8;
       Acl = 0;
-      v683 = ZwQuerySystemInformation(MaxSystemInfoClass|SystemProcessInformation, &v1046, 8u, &v1080) >= 0
-          && (v1047 & 0x20) != 0;
+      v683 = ZwQuerySystemInformation(SystemCodeIntegrityInformation, &v1046, 8u, &v1080) >= 0 && (v1047 & 0x20) != 0;
       v684 = *((_DWORD *)v872 + 4);
       if ( v684 == 160
         && !memcmp(qword_140725170, *((const void **)v872 + 3), 0xA0uLL)
@@ -5894,8 +5889,7 @@ LABEL_1436:
       v1140 = 0;
       v1139 = 8;
       Acl = 0;
-      v486 = ZwQuerySystemInformation(MaxSystemInfoClass|SystemProcessInformation, &v1139, 8u, &v1152) >= 0
-          && (v1140 & 0x20) != 0;
+      v486 = ZwQuerySystemInformation(SystemCodeIntegrityInformation, &v1139, 8u, &v1152) >= 0 && (v1140 & 0x20) != 0;
       v487 = (const void **)v872;
       v488 = *((_DWORD *)v872 + 4);
       if ( v488 != 160 )
@@ -6167,7 +6161,7 @@ LABEL_1248:
       v951 = v1054;
       v931 = v1158;
       v888 = 0LL;
-      v1037 = 0LL;
+      TargetFile = 0LL;
       if ( !Handle || !v512 )
         goto LABEL_751;
       v514 = ObReferenceObjectByHandle(Handle, 0, (POBJECT_TYPE)IoFileObjectType, 1, &Object, 0LL);
@@ -6225,12 +6219,12 @@ LABEL_1288:
       }
       else
       {
-        if ( ObOpenObjectByPointer(v515, 0x200u, 0LL, 0x18u, (POBJECT_TYPE)IoFileObjectType, 0, &v1037) >= 0 )
+        if ( ObOpenObjectByPointer(v515, 0x200u, 0LL, 0x18u, (POBJECT_TYPE)IoFileObjectType, 0, &TargetFile) >= 0 )
         {
           v517 = 0;
           if ( (unsigned int)(v951 - 2) <= 1 )
             v517 = 6;
-          ZwSetCachedSigningLevel(2LL, v517, (__int64)&v1037);
+          ZwSetCachedSigningLevel(2u, v517, &TargetFile, 1u, TargetFile);
         }
         v518 = (size_t *)ExAllocatePoolWithTag(PagedPool, 0x248uLL, 0x20534C53u);
         if ( !v518 )
@@ -6308,8 +6302,8 @@ LABEL_1287:
       v513 = v520;
       Acl = FsRtlSetKernelEaFile(v515);
 LABEL_1289:
-      if ( v1037 )
-        ZwClose(v1037);
+      if ( TargetFile )
+        ZwClose(TargetFile);
       if ( v515 )
         ObfDereferenceObject(v515);
       if ( v513 )
@@ -7971,7 +7965,7 @@ LABEL_1928:
       v1040 = 0;
       v1188[1] = 0;
       Acl = 0;
-      ZwQuerySystemInformation(MaxSystemInfoClass|SystemProcessInformation, v1188, 8u, &v1040);
+      ZwQuerySystemInformation(SystemCodeIntegrityInformation, v1188, 8u, &v1040);
       if ( *((_DWORD *)v872 + 4) != 160
         || (memcmp(qword_140724EF0, *((const void **)v872 + 3), 0xA0uLL)
          || v126[4] != 160

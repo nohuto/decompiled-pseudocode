@@ -1,15 +1,15 @@
 /*
- * XREFs of MiCheckForUserStackOverflow @ 0x140AA2744
+ * XREFs of MiCheckForUserStackOverflow @ 0x140AA4214
  * Callers:
- *     MiUserFault @ 0x1403A3140 (MiUserFault.c)
+ *     MiUserFault @ 0x1403A4EA0 (MiUserFault.c)
  * Callees:
- *     MiModeCopyExceptionFilterEx @ 0x1404E5578 (MiModeCopyExceptionFilterEx.c)
- *     ZwAllocateVirtualMemory @ 0x1407236F0 (ZwAllocateVirtualMemory.c)
- *     ZwProtectVirtualMemory @ 0x140723DF0 (ZwProtectVirtualMemory.c)
- *     RtlReadULongFromUser @ 0x14077F590 (RtlReadULongFromUser.c)
- *     MiSetTebStackLimit @ 0x140AA28E0 (MiSetTebStackLimit.c)
- *     MiGetTebStackControl @ 0x140AA291C (MiGetTebStackControl.c)
- *     MiCheckShadowStackOverflow @ 0x140AA2AE0 (MiCheckShadowStackOverflow.c)
+ *     MiModeCopyExceptionFilterEx @ 0x1404DEB18 (MiModeCopyExceptionFilterEx.c)
+ *     ZwAllocateVirtualMemory @ 0x1407282C0 (ZwAllocateVirtualMemory.c)
+ *     ZwProtectVirtualMemory @ 0x1407289C0 (ZwProtectVirtualMemory.c)
+ *     RtlReadULongFromUser @ 0x140782090 (RtlReadULongFromUser.c)
+ *     MiSetTebStackLimit @ 0x140AA43B0 (MiSetTebStackLimit.c)
+ *     MiGetTebStackControl @ 0x140AA43EC (MiGetTebStackControl.c)
+ *     MiCheckShadowStackOverflow @ 0x140AA45B0 (MiCheckShadowStackOverflow.c)
  */
 
 __int64 __fastcall MiCheckForUserStackOverflow(__int64 a1, int a2)
@@ -22,10 +22,10 @@ __int64 __fastcall MiCheckForUserStackOverflow(__int64 a1, int a2)
   __int128 RegionSize; // [rsp+40h] [rbp-28h] BYREF
   __int128 v9; // [rsp+50h] [rbp-18h]
   unsigned int v10; // [rsp+80h] [rbp+18h] BYREF
-  int v11; // [rsp+88h] [rbp+20h]
+  ULONG OldProtect; // [rsp+88h] [rbp+20h] BYREF
 
   v10 = 0;
-  v11 = 0;
+  OldProtect = 0;
   RegionSize = 0LL;
   v9 = 0LL;
   CurrentThread = KeGetCurrentThread();
@@ -60,7 +60,7 @@ __int64 __fastcall MiCheckForUserStackOverflow(__int64 a1, int a2)
       v5 = (char *)BaseAddress;
     }
     BaseAddress = v5 + 4096;
-    ZwProtectVirtualMemory(-1LL, (__int64)&BaseAddress);
+    ZwProtectVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &BaseAddress, (PSIZE_T)&RegionSize, 4u, &OldProtect);
     result = MiSetTebStackLimit(&RegionSize, BaseAddress);
     if ( (_DWORD)result != -2147483647 )
       return 3221225725LL;

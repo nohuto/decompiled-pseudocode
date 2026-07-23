@@ -8,21 +8,40 @@
  *     ZwMapViewOfSectionEx @ 0x1800A3220 (ZwMapViewOfSectionEx.c)
  */
 
-__int64 __fastcall LdrpMapViewOfSection(
-        __int64 a1,
+NTSTATUS __fastcall LdrpMapViewOfSection(
+        HANDLE SectionHandle,
         __int64 a2,
-        __int64 a3,
+        PVOID *a3,
         __int64 a4,
-        __int64 a5,
-        int a6,
-        int a7,
+        PSIZE_T ViewSize,
+        ULONG AllocationType,
+        ULONG PageProtection,
         __int64 a8)
 {
-  _QWORD v11[3]; // [rsp+50h] [rbp-18h] BYREF
+  MEM_EXTENDED_PARAMETER ExtendedParameters; // [rsp+50h] [rbp-18h] BYREF
 
   if ( !(unsigned __int8)LdrpHpatAllocationOptOut(a8) )
-    return ZwMapViewOfSection(a1, -1LL, a3, 0LL, 0LL, 0LL, a5, 1, a6, a7);
-  v11[0] = 5LL;
-  v11[1] = 128LL;
-  return ZwMapViewOfSectionEx(a1, -1LL, a3, 0LL, a5, a6, a7, v11, 1);
+    return ZwMapViewOfSection(
+             SectionHandle,
+             (HANDLE)0xFFFFFFFFFFFFFFFFLL,
+             a3,
+             0LL,
+             0LL,
+             0LL,
+             ViewSize,
+             ViewShare,
+             AllocationType,
+             PageProtection);
+  ExtendedParameters.0 = (MEM_EXTENDED_PARAMETER::$373F0C482CA2C07D4A7B2B94C5EA8081)5LL;
+  ExtendedParameters.ULong64 = 128LL;
+  return ZwMapViewOfSectionEx(
+           SectionHandle,
+           (HANDLE)0xFFFFFFFFFFFFFFFFLL,
+           a3,
+           0LL,
+           ViewSize,
+           AllocationType,
+           PageProtection,
+           &ExtendedParameters,
+           1u);
 }

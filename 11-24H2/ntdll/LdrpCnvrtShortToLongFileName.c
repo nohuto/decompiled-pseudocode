@@ -1,68 +1,66 @@
 /*
- * XREFs of LdrpCnvrtShortToLongFileName @ 0x180116698
+ * XREFs of LdrpCnvrtShortToLongFileName @ 0x1801118CC
  * Callers:
- *     LdrLoadAlternateResourceModuleEx @ 0x18005FF20 (LdrLoadAlternateResourceModuleEx.c)
+ *     LdrLoadAlternateResourceModuleEx @ 0x180075B00 (LdrLoadAlternateResourceModuleEx.c)
  * Callees:
- *     RtlAllocateHeap @ 0x180011260 (RtlAllocateHeap.c)
- *     RtlFreeHeap @ 0x1800269F0 (RtlFreeHeap.c)
- *     RtlReleaseRelativeName @ 0x180077830 (RtlReleaseRelativeName.c)
- *     RtlInitUnicodeString @ 0x1800DA0A0 (RtlInitUnicodeString.c)
- *     RtlpDosPathNameToRelativeNtPathName_U @ 0x1800DBE30 (RtlpDosPathNameToRelativeNtPathName_U.c)
- *     wcslen @ 0x1801277D0 (wcslen.c)
- *     NtClose @ 0x180161E70 (NtClose.c)
- *     NtOpenFile @ 0x1801622F0 (NtOpenFile.c)
- *     NtQueryDirectoryFile @ 0x180162330 (NtQueryDirectoryFile.c)
- *     memmove @ 0x180167400 (memmove.c)
+ *     RtlAllocateHeap @ 0x18003DC60 (RtlAllocateHeap.c)
+ *     RtlFreeHeap @ 0x1800533F0 (RtlFreeHeap.c)
+ *     RtlReleaseRelativeName @ 0x180094110 (RtlReleaseRelativeName.c)
+ *     RtlInitUnicodeString @ 0x1800C7EE0 (RtlInitUnicodeString.c)
+ *     RtlpDosPathNameToRelativeNtPathName_U @ 0x1800D6F10 (RtlpDosPathNameToRelativeNtPathName_U.c)
+ *     wcslen @ 0x180125A00 (wcslen.c)
+ *     NtClose @ 0x180160230 (NtClose.c)
+ *     NtOpenFile @ 0x1801606B0 (NtOpenFile.c)
+ *     NtQueryDirectoryFile @ 0x1801606F0 (NtQueryDirectoryFile.c)
+ *     memmove @ 0x1801657C0 (memmove.c)
  */
 
-__int64 __fastcall LdrpCnvrtShortToLongFileName(const wchar_t *a1, const WCHAR *a2, _QWORD *a3)
+__int64 __fastcall LdrpCnvrtShortToLongFileName(_WORD *a1, const WCHAR *a2, _QWORD *a3)
 {
-  unsigned __int64 v5; // rdi
+  PVOID v5; // rdi
   int v6; // ebx
   size_t v7; // rax
-  unsigned __int64 Heap; // rdi
+  _DWORD *Heap; // rdi
   unsigned int v9; // eax
   _WORD *v10; // rax
   _WORD *v11; // rsi
-  __int128 v13; // [rsp+68h] [rbp-39h] BYREF
-  UNICODE_STRING DestinationString; // [rsp+78h] [rbp-29h] BYREF
-  struct _IO_STATUS_BLOCK IoStatusBlock; // [rsp+88h] [rbp-19h] BYREF
-  __int128 v16; // [rsp+98h] [rbp-9h] BYREF
-  __int128 v17; // [rsp+A8h] [rbp+7h]
-  OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+B8h] [rbp+17h] BYREF
+  PVOID BaseAddress[2]; // [rsp+68h] [rbp-39h] BYREF
+  _UNICODE_STRING DestinationString; // [rsp+78h] [rbp-29h] BYREF
+  _IO_STATUS_BLOCK IoStatusBlock; // [rsp+88h] [rbp-19h] BYREF
+  _RTL_RELATIVE_NAME_U RelativeName; // [rsp+98h] [rbp-9h] BYREF
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+B8h] [rbp+17h] BYREF
   HANDLE FileHandle; // [rsp+108h] [rbp+67h] BYREF
 
   FileHandle = 0LL;
   v5 = 0LL;
   IoStatusBlock = 0LL;
   memset(&ObjectAttributes, 0, 44);
-  v13 = 0LL;
+  *(_OWORD *)BaseAddress = 0LL;
   DestinationString = 0LL;
-  v16 = 0LL;
-  v17 = 0LL;
+  memset(&RelativeName, 0, sizeof(RelativeName));
   if ( !a1 || !a2 || !a3 )
     return 3221225485LL;
   if ( *a1 == 92 )
   {
-    DWORD1(v13) = 0;
-    *((_QWORD *)&v13 + 1) = a1;
+    HIDWORD(BaseAddress[0]) = 0;
+    BaseAddress[1] = a1;
     v7 = 2 * wcslen(a1);
     if ( v7 >= 0xFFFE )
       LOWORD(v7) = -4;
-    LOWORD(v13) = v7;
-    WORD1(v13) = v7 + 2;
+    LOWORD(BaseAddress[0]) = v7;
+    WORD1(BaseAddress[0]) = v7 + 2;
     goto LABEL_12;
   }
-  v6 = RtlpDosPathNameToRelativeNtPathName_U(2, a1, (unsigned __int16 *)&v13, 0LL, (__int64)&v16);
+  v6 = RtlpDosPathNameToRelativeNtPathName_U(2, a1, (unsigned __int16 *)BaseAddress, 0LL, (__int64)&RelativeName);
   if ( v6 >= 0 )
   {
-    v5 = *((_QWORD *)&v13 + 1);
-    if ( (_WORD)v16 )
-      v13 = v16;
+    v5 = BaseAddress[1];
+    if ( RelativeName.RelativeName.Length )
+      *(UNICODE_STRING *)BaseAddress = RelativeName.RelativeName;
     else
-      *(_QWORD *)&v17 = 0LL;
+      RelativeName.ContainingDirectory = 0LL;
 LABEL_12:
-    ObjectAttributes.ObjectName = (PUNICODE_STRING)&v13;
+    ObjectAttributes.ObjectName = (PUNICODE_STRING)BaseAddress;
     ObjectAttributes.Length = 48;
     ObjectAttributes.RootDirectory = 0LL;
     ObjectAttributes.Attributes = 64;
@@ -70,27 +68,38 @@ LABEL_12:
     v6 = NtOpenFile(&FileHandle, 0x100001u, &ObjectAttributes, &IoStatusBlock, 7u, 0x4021u);
     if ( v5 )
     {
-      RtlReleaseRelativeName((__int64)&v16);
-      RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v5);
+      RtlReleaseRelativeName(&RelativeName);
+      RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v5);
     }
     if ( v6 >= 0 )
     {
-      Heap = RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 8u, 0x410uLL);
+      Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, 0x410uLL);
       if ( Heap )
       {
         RtlInitUnicodeString(&DestinationString, a2);
-        v6 = NtQueryDirectoryFile(FileHandle, 0LL, 0LL, 0LL, &IoStatusBlock, Heap, 1040, 3, 1, &DestinationString, 0);
+        v6 = NtQueryDirectoryFile(
+               FileHandle,
+               0LL,
+               0LL,
+               0LL,
+               &IoStatusBlock,
+               Heap,
+               0x410u,
+               FileBothDirectoryInformation,
+               1u,
+               &DestinationString,
+               0);
         if ( v6 >= 0 )
         {
-          v9 = *(_DWORD *)(Heap + 60);
+          v9 = Heap[15];
           if ( v9 <= 0x104 )
           {
-            v10 = (_WORD *)RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 8u, v9 + 4);
+            v10 = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, v9 + 4);
             v11 = v10;
             if ( v10 )
             {
-              memmove(v10, (const void *)(Heap + 94), *(unsigned int *)(Heap + 60));
-              v11[(unsigned __int64)*(unsigned int *)(Heap + 60) >> 1] = 0;
+              memmove(v10, (char *)Heap + 94, (unsigned int)Heap[15]);
+              v11[(unsigned __int64)(unsigned int)Heap[15] >> 1] = 0;
               *a3 = v11;
             }
             else
@@ -103,7 +112,7 @@ LABEL_12:
             v6 = -1073741562;
           }
         }
-        RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, Heap);
+        RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, Heap);
       }
       else
       {

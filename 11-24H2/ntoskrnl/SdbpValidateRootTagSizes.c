@@ -1,11 +1,11 @@
 /*
- * XREFs of SdbpValidateRootTagSizes @ 0x140802070
+ * XREFs of SdbpValidateRootTagSizes @ 0x1408027B0
  * Callers:
- *     SdbpOpenDatabaseInMemory @ 0x14095BC48 (SdbpOpenDatabaseInMemory.c)
- *     SdbpValidateAndApplyCompatFlags @ 0x140AADE90 (SdbpValidateAndApplyCompatFlags.c)
+ *     SdbpOpenDatabaseInMemory @ 0x140943708 (SdbpOpenDatabaseInMemory.c)
+ *     SdbpValidateAndApplyCompatFlags @ 0x140AA8F10 (SdbpValidateAndApplyCompatFlags.c)
  * Callees:
- *     SdbpReadMappedData @ 0x140960150 (SdbpReadMappedData.c)
- *     AslLogCallPrintf @ 0x1409601DC (AslLogCallPrintf.c)
+ *     SdbpReadMappedData @ 0x140947C10 (SdbpReadMappedData.c)
+ *     AslLogCallPrintf @ 0x140947C9C (AslLogCallPrintf.c)
  */
 
 __int64 __fastcall SdbpValidateRootTagSizes(__int64 a1)

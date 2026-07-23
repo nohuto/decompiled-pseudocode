@@ -14,7 +14,7 @@
  *     _DbgPrintEx @ 0x4B33EE00 (_DbgPrintEx.c)
  */
 
-char __fastcall LdrpFixSectionProtection(int a1, const wchar_t *a2, int a3)
+char __fastcall LdrpFixSectionProtection(int a1, const wchar_t *a2, ULONG NewProtect)
 {
   wchar_t *v5; // eax
   int v6; // ecx
@@ -25,18 +25,17 @@ char __fastcall LdrpFixSectionProtection(int a1, const wchar_t *a2, int a3)
   int v11; // esi
   unsigned __int16 v12; // cx
   unsigned int v13; // ecx
-  UNICODE_STRING DestinationString; // [esp+10h] [ebp-34h] BYREF
-  UNICODE_STRING UnicodeString; // [esp+18h] [ebp-2Ch] BYREF
-  STRING SourceString; // [esp+20h] [ebp-24h] BYREF
+  _UNICODE_STRING DestinationString; // [esp+10h] [ebp-34h] BYREF
+  _UNICODE_STRING String2; // [esp+18h] [ebp-2Ch] BYREF
+  ANSI_STRING SourceString; // [esp+20h] [ebp-24h] BYREF
   wchar_t *EndPtr; // [esp+28h] [ebp-1Ch] BYREF
-  int v19; // [esp+2Ch] [ebp-18h] BYREF
+  ULONG OldProtect; // [esp+2Ch] [ebp-18h] BYREF
   int v20; // [esp+30h] [ebp-14h]
-  const void *v21; // [esp+34h] [ebp-10h] BYREF
-  int v22; // [esp+38h] [ebp-Ch] BYREF
-  unsigned int v23; // [esp+3Ch] [ebp-8h]
-  unsigned int v24; // [esp+40h] [ebp-4h]
+  PVOID BaseAddress; // [esp+34h] [ebp-10h] BYREF
+  ULONG_PTR RegionSize; // [esp+38h] [ebp-Ch] BYREF
+  unsigned int v23; // [esp+40h] [ebp-4h]
 
-  v23 = 0;
+  HIDWORD(RegionSize) = 0;
   v20 = a1;
   v5 = wcschr(a2, 0x3Du);
   if ( !v5 )
@@ -45,15 +44,15 @@ char __fastcall LdrpFixSectionProtection(int a1, const wchar_t *a2, int a3)
   v6 = *a2;
   if ( v6 == 83 )
   {
-    RtlInitUnicodeString(&DestinationString, v5 + 1);
+    RtlInitUnicodeString(&DestinationString, (PCWSTR)v5 + 1);
     v7 = 0;
   }
   else
   {
     if ( v6 != 79 )
       return 0;
-    v23 = wcstoul(v5 + 1, &EndPtr, 16);
-    if ( !v23 )
+    HIDWORD(RegionSize) = wcstoul(v5 + 1, &EndPtr, 16);
+    if ( !HIDWORD(RegionSize) )
       return 0;
     v7 = 1;
   }
@@ -63,7 +62,7 @@ char __fastcall LdrpFixSectionProtection(int a1, const wchar_t *a2, int a3)
     return 0;
   v10 = 0;
   v11 = *(unsigned __int16 *)(v8 + 20) + v8 + 24;
-  v24 = 0;
+  v23 = 0;
   if ( *(_WORD *)(v8 + 6) )
   {
     do
@@ -72,7 +71,7 @@ char __fastcall LdrpFixSectionProtection(int a1, const wchar_t *a2, int a3)
         goto LABEL_23;
       if ( v7 )
       {
-        if ( v23 != v10 + 1 )
+        if ( HIDWORD(RegionSize) != v10 + 1 )
           goto LABEL_21;
       }
       else
@@ -88,23 +87,23 @@ char __fastcall LdrpFixSectionProtection(int a1, const wchar_t *a2, int a3)
           SourceString.Length = ++v12;
         }
         while ( v12 < 8u );
-        if ( RtlAnsiStringToUnicodeString(&UnicodeString, &SourceString, 1u) < 0 )
+        if ( RtlAnsiStringToUnicodeString(&String2, &SourceString, 1u) < 0 )
           return 0;
-        if ( RtlCompareUnicodeString(&DestinationString.Length, &UnicodeString.Length, 1) )
+        if ( RtlCompareUnicodeString(&DestinationString, &String2, 1u) )
         {
 LABEL_22:
-          RtlFreeAnsiString(&UnicodeString);
-          v10 = v24;
+          RtlFreeAnsiString(&String2);
+          v10 = v23;
           goto LABEL_23;
         }
       }
-      v22 = *(_DWORD *)(v11 + 8);
-      v21 = (const void *)(v20 + *(_DWORD *)(v11 + 12));
-      ZwProtectVirtualMemory(-1, (int)&v21, (int)&v22, a3, (int)&v19);
-      DbgPrintEx(85, 3, "Set 0x%X protection for %p section for %d bytes, old protection 0x%X\n", a3, v21, v22, v19);
+      LODWORD(RegionSize) = *(_DWORD *)(v11 + 8);
+      BaseAddress = (PVOID)(v20 + *(_DWORD *)(v11 + 12));
+      ZwProtectVirtualMemory((HANDLE)0xFFFFFFFF, &BaseAddress, &RegionSize, NewProtect, &OldProtect);
+      DbgPrintEx(85, 3u, (int)"Set 0x%X protection for %p section for %d bytes, old protection 0x%X\n", NewProtect);
       if ( v7 )
         return 1;
-      v10 = v24;
+      v10 = v23;
 LABEL_21:
       if ( !v7 )
         goto LABEL_22;
@@ -112,7 +111,7 @@ LABEL_23:
       v13 = *(unsigned __int16 *)(v9 + 6);
       ++v10;
       v11 += 40;
-      v24 = v10;
+      v23 = v10;
     }
     while ( v10 < v13 );
   }

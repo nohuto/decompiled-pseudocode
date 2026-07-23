@@ -11,29 +11,38 @@
  *     _RtlpGetLocaleDataKey@0 @ 0x4B363354 (_RtlpGetLocaleDataKey@0.c)
  */
 
-int __usercall RtlpGetUserLocaleName@<eax>(PUNICODE_STRING DestinationString@<ecx>, int a2@<ebp>)
+int __usercall RtlpGetUserLocaleName@<eax>(PUNICODE_STRING DestinationString@<ecx>, int a2@<ebp>, int a3@<esi>)
 {
-  int LocaleDataKey; // eax
-  int v5; // [esp-E4h] [ebp-F0h] BYREF
-  _DWORD v6[2]; // [esp-E0h] [ebp-ECh] BYREF
-  size_t v7; // [esp-D8h] [ebp-E4h]
-  _DWORD v8[56]; // [esp-D4h] [ebp-E0h] BYREF
+  void *LocaleDataKey; // eax
+  size_t v6; // [esp-104h] [ebp-110h]
+  ULONG v7; // [esp-E4h] [ebp-F0h] BYREF
+  _DWORD v8[2]; // [esp-E0h] [ebp-ECh] BYREF
+  unsigned int v9; // [esp-D8h] [ebp-E4h]
+  _DWORD v10[56]; // [esp-D4h] [ebp-E0h] BYREF
   _UNKNOWN *retaddr; // [esp+Ch] [ebp+0h]
 
-  v8[53] = a2;
-  v8[54] = retaddr;
-  LocaleDataKey = RtlpGetLocaleDataKey();
+  v10[53] = a2;
+  v10[54] = retaddr;
+  HIDWORD(v6) = a3;
+  LocaleDataKey = (void *)RtlpGetLocaleDataKey();
   if ( !LocaleDataKey
-    || ZwQueryValueKey(LocaleDataKey, (int)&`RtlpGetUserLocaleName'::`2'::KeyValueName, 2, (int)v6, 186, (int)&v5) < 0
-    || v6[1] != 1
-    || (v7 & 1) != 0
-    || !v7
-    || *((_WORD *)&v7 + (v7 >> 1) + 1)
-    || v7 > DestinationString->MaximumLength )
+    || ZwQueryValueKey(
+         LocaleDataKey,
+         (PUNICODE_STRING)&`RtlpGetUserLocaleName'::`2'::KeyValueName,
+         KeyValuePartialInformation,
+         v8,
+         0xBAu,
+         &v7) < 0
+    || v8[1] != 1
+    || (v9 & 1) != 0
+    || !v9
+    || *((_WORD *)&v9 + (v9 >> 1) + 1)
+    || v9 > DestinationString->MaximumLength )
   {
     return -1073741823;
   }
-  memmove(DestinationString->Buffer, v8, v7);
-  RtlInitUnicodeString(DestinationString, DestinationString->Buffer);
+  LODWORD(v6) = v9;
+  memmove(DestinationString->Buffer, v10, v6);
+  RtlInitUnicodeString(DestinationString, (PCWSTR)DestinationString->Buffer);
   return 0;
 }

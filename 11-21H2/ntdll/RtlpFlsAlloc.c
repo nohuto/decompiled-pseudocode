@@ -9,14 +9,8 @@
  *     ?SlotAllocate@?$RTL_BINARY_ARRAY@URTLP_FLS_CALLBACK_ENTRY@@$07$03@@SAKPEAU1@@Z @ 0x18007B588 (-SlotAllocate@-$RTL_BINARY_ARRAY@URTLP_FLS_CALLBACK_ENTRY@@$07$03@@SAKPEAU1@@Z.c)
  */
 
-__int64 __fastcall RtlpFlsAlloc(
-        __int64 a1,
-        unsigned __int64 a2,
-        unsigned __int64 a3,
-        unsigned __int64 a4,
-        unsigned int *a5)
+__int64 __fastcall RtlpFlsAlloc(__int64 a1, __int64 a2, __int64 a3, __int64 a4, unsigned int *a5)
 {
-  __int64 v5; // rbp
   unsigned int v6; // ebx
   __int64 v7; // rsi
   unsigned int v8; // eax
@@ -31,8 +25,7 @@ __int64 __fastcall RtlpFlsAlloc(
   __int64 v18; // rdx
   __int64 v19; // rax
 
-  v5 = a3;
-  RtlAcquireSRWLockExclusive((unsigned __int64)&RtlpFlsContext, a2, a3, a4);
+  RtlAcquireSRWLockExclusive(&RtlpFlsContext);
   v6 = 0;
   v7 = 8LL;
   while ( 1 )
@@ -57,7 +50,7 @@ __int64 __fastcall RtlpFlsAlloc(
     RTL_BINARY_ARRAY<RTLP_FLS_CALLBACK_ENTRY,8,4>::SlotFree((__int64)&xmmword_18017AB98, v8);
 LABEL_18:
     v6 = -1073741801;
-    RtlReleaseSRWLockExclusive((volatile signed __int64 *)&RtlpFlsContext);
+    RtlReleaseSRWLockExclusive(&RtlpFlsContext);
     return v6;
   }
   _BitScanReverse((unsigned int *)&v11, v8);
@@ -72,15 +65,15 @@ LABEL_18:
   {
     v14 = 16LL;
   }
-  if ( !v5 )
-    v5 = -1LL;
-  *(_QWORD *)v7 = v5;
+  if ( !a3 )
+    a3 = -1LL;
+  *(_QWORD *)v7 = a3;
   *(_QWORD *)v14 = 0LL;
   v15 = qword_18017ABE8;
   if ( v10 > (unsigned int)qword_18017ABE8 )
     v15 = v9 - 16;
   LODWORD(qword_18017ABE8) = v15;
-  RtlReleaseSRWLockExclusive((volatile signed __int64 *)&RtlpFlsContext);
+  RtlReleaseSRWLockExclusive(&RtlpFlsContext);
   *a5 = v10;
   return v6;
 }

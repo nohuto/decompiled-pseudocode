@@ -1,9 +1,9 @@
 /*
- * XREFs of CcWaitForCurrentLazyWriterActivityHelper @ 0x140381460
+ * XREFs of CcWaitForCurrentLazyWriterActivityHelper @ 0x140380FB0
  * Callers:
  *     <none>
  * Callees:
- *     CcWaitForCurrentLazyWriterActivityInternal @ 0x14038148C (CcWaitForCurrentLazyWriterActivityInternal.c)
+ *     CcWaitForCurrentLazyWriterActivityInternal @ 0x140380FDC (CcWaitForCurrentLazyWriterActivityInternal.c)
  */
 
 char __fastcall CcWaitForCurrentLazyWriterActivityHelper(__int64 a1, int *a2)

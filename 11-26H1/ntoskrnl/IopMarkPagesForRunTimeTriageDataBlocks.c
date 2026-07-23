@@ -1,11 +1,11 @@
 /*
- * XREFs of IopMarkPagesForRunTimeTriageDataBlocks @ 0x1405D5EA0
+ * XREFs of IopMarkPagesForRunTimeTriageDataBlocks @ 0x1405D8690
  * Callers:
- *     IopAddMiniDumpPagesToPartialKernelDump @ 0x1405D5088 (IopAddMiniDumpPagesToPartialKernelDump.c)
+ *     IopAddMiniDumpPagesToPartialKernelDump @ 0x1405D7878 (IopAddMiniDumpPagesToPartialKernelDump.c)
  * Callees:
- *     IopGetMaxValidMemorySize @ 0x1405C97BC (IopGetMaxValidMemorySize.c)
- *     IopGetMaxValidMemorySizeDown @ 0x1405C9834 (IopGetMaxValidMemorySizeDown.c)
- *     MiAddRangeToCrashDump @ 0x1406F61BC (MiAddRangeToCrashDump.c)
+ *     IopGetMaxValidMemorySize @ 0x1405CC08C (IopGetMaxValidMemorySize.c)
+ *     IopGetMaxValidMemorySizeDown @ 0x1405CC104 (IopGetMaxValidMemorySizeDown.c)
+ *     MiAddRangeToCrashDump @ 0x1406FAE2C (MiAddRangeToCrashDump.c)
  */
 
 __int64 __fastcall IopMarkPagesForRunTimeTriageDataBlocks(

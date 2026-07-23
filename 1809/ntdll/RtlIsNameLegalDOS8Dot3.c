@@ -3,7 +3,7 @@
  * Callers:
  *     <none>
  * Callees:
- *     __security_check_cookie @ 0x18008FEC0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x18008FED0 (__security_check_cookie.c)
  *     RtlUpcaseUnicodeStringToCountedOemString @ 0x1800EBFA0 (RtlUpcaseUnicodeStringToCountedOemString.c)
  */
 
@@ -33,7 +33,7 @@ BOOLEAN __stdcall RtlIsNameLegalDOS8Dot3(PUNICODE_STRING Name, POEM_STRING OemNa
       v4 = (POEM_STRING)&v14;
       v14 = 786432;
     }
-    if ( (int)RtlUpcaseUnicodeStringToCountedOemString(&v4->Length, (PWCH *)Name, 0) >= 0 )
+    if ( RtlUpcaseUnicodeStringToCountedOemString(v4, Name, 0) >= 0 )
     {
       if ( v4->Length == 1 && *v4->Buffer == 46
         || v4->Length == 2 && (Buffer = v4->Buffer, *Buffer == 46) && Buffer[1] == 46 )

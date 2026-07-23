@@ -1,7 +1,7 @@
 /*
- * XREFs of CcUpdateLazyWriterPerf @ 0x1402AC0C4
+ * XREFs of CcUpdateLazyWriterPerf @ 0x1402793A4
  * Callers:
- *     CcFlushCachePostProcess @ 0x1402ABF10 (CcFlushCachePostProcess.c)
+ *     CcFlushCachePostProcess @ 0x1402791F0 (CcFlushCachePostProcess.c)
  * Callees:
  *     <none>
  */
@@ -22,7 +22,7 @@ unsigned __int64 __fastcall CcUpdateLazyWriterPerf(__int64 a1, _QWORD *a2, _QWOR
   unsigned __int64 result; // rax
 
   v5 = a4;
-  v6 = 1000000LL * (*a3 - *a2) / stru_140F8E4C8.QuadPart;
+  v6 = 1000000LL * (*a3 - *a2) / stru_140F8E6A8.QuadPart;
   if ( !v6 )
     v6 = 1LL;
   v7 = 1000000 * a4;

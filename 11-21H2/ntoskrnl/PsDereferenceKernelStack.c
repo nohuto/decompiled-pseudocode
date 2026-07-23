@@ -3,7 +3,7 @@
  * Callers:
  *     <none>
  * Callees:
- *     KeEnumerateKernelStackSegments @ 0x140298A3C (KeEnumerateKernelStackSegments.c)
+ *     sub_140298A3C @ 0x140298A3C (sub_140298A3C.c)
  */
 
 __int64 __fastcall PsDereferenceKernelStack(__int64 a1)
@@ -13,10 +13,7 @@ __int64 __fastcall PsDereferenceKernelStack(__int64 a1)
   result = (unsigned int)_InterlockedExchangeAdd((volatile signed __int32 *)(a1 + 1452), 0xFFFFFFFF);
   if ( (_DWORD)result == 1 )
   {
-    result = KeEnumerateKernelStackSegments(
-               a1,
-               (__int64 (__fastcall *)(__int64, _OWORD *, __int64))PspDeleteKernelStack,
-               0LL);
+    result = sub_140298A3C(a1);
     *(_QWORD *)(a1 + 40) = 0LL;
   }
   return result;

@@ -1,14 +1,14 @@
 /*
- * XREFs of CarReportUnusualShutdown @ 0x1405D45B0
+ * XREFs of CarReportUnusualShutdown @ 0x1405D4B20
  * Callers:
  *     Phase1InitializationIoReady @ 0x140B4DC38 (Phase1InitializationIoReady.c)
  * Callees:
- *     memset @ 0x140435A00 (memset.c)
- *     VfUtilCrashEvent @ 0x1405CE234 (VfUtilCrashEvent.c)
- *     CarEtwCrashEvent @ 0x1405D281C (CarEtwCrashEvent.c)
- *     CarInitLogging @ 0x1405D3260 (CarInitLogging.c)
- *     CarCleanup @ 0x1405D3738 (CarCleanup.c)
- *     CarInit @ 0x1405D3D04 (CarInit.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     VfUtilCrashEvent @ 0x1405CE7A4 (VfUtilCrashEvent.c)
+ *     CarEtwCrashEvent @ 0x1405D2D8C (CarEtwCrashEvent.c)
+ *     CarInitLogging @ 0x1405D37D0 (CarInitLogging.c)
+ *     CarCleanup @ 0x1405D3CA8 (CarCleanup.c)
+ *     CarInit @ 0x1405D4274 (CarInit.c)
  */
 
 unsigned __int64 CarReportUnusualShutdown()

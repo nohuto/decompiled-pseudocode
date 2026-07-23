@@ -1,30 +1,30 @@
 /*
- * XREFs of NtDuplicateObject @ 0x140A828E0
+ * XREFs of NtDuplicateObject @ 0x140A88750
  * Callers:
- *     DifNtDuplicateObjectWrapper @ 0x140676770 (DifNtDuplicateObjectWrapper.c)
+ *     DifNtDuplicateObjectWrapper @ 0x14067A350 (DifNtDuplicateObjectWrapper.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     RtlWriteULong64ToUser @ 0x14077F758 (RtlWriteULong64ToUser.c)
- *     ObDuplicateObject @ 0x1408F0680 (ObDuplicateObject.c)
- *     ObpReferenceObjectByHandleWithTag @ 0x1408FA680 (ObpReferenceObjectByHandleWithTag.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     RtlWriteULong64ToUser @ 0x140782258 (RtlWriteULong64ToUser.c)
+ *     ObDuplicateObject @ 0x1408F6C40 (ObDuplicateObject.c)
+ *     ObpReferenceObjectByHandleWithTag @ 0x14092A610 (ObpReferenceObjectByHandleWithTag.c)
  */
 
-__int64 __fastcall NtDuplicateObject(
-        ULONG_PTR BugCheckParameter1,
-        void *a2,
-        ULONG_PTR a3,
-        _QWORD *a4,
-        int a5,
-        int a6,
-        char a7)
+NTSTATUS __cdecl NtDuplicateObject(
+        HANDLE SourceProcessHandle,
+        HANDLE SourceHandle,
+        HANDLE TargetProcessHandle,
+        PHANDLE TargetHandle,
+        ACCESS_MASK DesiredAccess,
+        ULONG HandleAttributes,
+        ULONG Options)
 {
   struct _KPROCESS *v10; // rsi
   char PreviousMode; // r12
-  __int64 result; // rax
-  int v13; // edi
-  unsigned int v14; // r13d
+  NTSTATUS result; // eax
+  NTSTATUS v13; // edi
+  NTSTATUS v14; // r13d
   __int64 v15; // [rsp+50h] [rbp-48h] BYREF
-  __int64 v16; // [rsp+58h] [rbp-40h] BYREF
+  void *v16; // [rsp+58h] [rbp-40h] BYREF
   PVOID Object[7]; // [rsp+60h] [rbp-38h] BYREF
 
   v16 = 0LL;
@@ -32,22 +32,30 @@ __int64 __fastcall NtDuplicateObject(
   v10 = 0LL;
   v15 = 0LL;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
-  if ( a4 && PreviousMode )
-    RtlWriteULong64ToUser(a4, 0LL);
+  if ( TargetHandle && PreviousMode )
+    RtlWriteULong64ToUser(TargetHandle, 0LL);
   result = ObpReferenceObjectByHandleWithTag(
-             BugCheckParameter1,
-             64LL,
-             PsProcessType,
+             (ULONG_PTR)SourceProcessHandle,
+             64,
+             (__int64)PsProcessType,
              PreviousMode,
              0x7544624Fu,
              Object,
              0LL,
              0LL);
-  if ( (int)result >= 0 )
+  if ( result >= 0 )
   {
-    if ( a3 )
+    if ( TargetProcessHandle )
     {
-      v13 = ObpReferenceObjectByHandleWithTag(a3, 64LL, PsProcessType, PreviousMode, 0x7544624Fu, &v15, 0LL, 0LL);
+      v13 = ObpReferenceObjectByHandleWithTag(
+              (ULONG_PTR)TargetProcessHandle,
+              64,
+              (__int64)PsProcessType,
+              PreviousMode,
+              0x7544624Fu,
+              &v15,
+              0LL,
+              0LL);
       v10 = (struct _KPROCESS *)v15;
       if ( v13 < 0 )
         v10 = 0LL;
@@ -57,20 +65,28 @@ __int64 __fastcall NtDuplicateObject(
     {
       v13 = 0;
     }
-    v14 = ObDuplicateObject((__int64)Object[0], a2, v10, &v16, a5, a6, a7, PreviousMode);
-    if ( a4 )
+    v14 = ObDuplicateObject(
+            (__int64)Object[0],
+            SourceHandle,
+            v10,
+            (__int64 *)&v16,
+            DesiredAccess,
+            HandleAttributes,
+            Options,
+            PreviousMode);
+    if ( TargetHandle )
     {
       if ( PreviousMode )
-        RtlWriteULong64ToUser(a4, v16);
+        RtlWriteULong64ToUser(TargetHandle, (__int64)v16);
       else
-        *a4 = v16;
+        *TargetHandle = v16;
     }
     ObfDereferenceObjectWithTag(Object[0], 0x7544624Fu);
     if ( v10 )
       ObfDereferenceObjectWithTag(v10, 0x7544624Fu);
     if ( v13 >= 0 )
       return v14;
-    return (unsigned int)v13;
+    return v13;
   }
   return result;
 }

@@ -1,7 +1,7 @@
 /*
- * XREFs of PopPdcRegister @ 0x14057E0B0
+ * XREFs of PopPdcRegister @ 0x14057E55C
  * Callers:
- *     PopPdcInvocation @ 0x14057E064 (PopPdcInvocation.c)
+ *     PopPdcInvocation @ 0x14057E510 (PopPdcInvocation.c)
  * Callees:
  *     PopAcquirePolicyLock @ 0x1403C87E0 (PopAcquirePolicyLock.c)
  *     PopReleasePolicyLock @ 0x1403C8828 (PopReleasePolicyLock.c)
@@ -16,13 +16,13 @@ __int64 __fastcall PopPdcRegister(__int64 a1, _QWORD *a2)
   {
     PopAcquirePolicyLock();
     *(_OWORD *)&PoPdcCallbacks = *(_OWORD *)(a1 + 8);
-    *(_OWORD *)&xmmword_140328FB0 = *(_OWORD *)(a1 + 24);
-    *(_OWORD *)&xmmword_140328FC0 = *(_OWORD *)(a1 + 40);
-    *(_OWORD *)&xmmword_140328FD0 = *(_OWORD *)(a1 + 56);
-    *(_OWORD *)&xmmword_140328FE0 = *(_OWORD *)(a1 + 72);
-    *(_OWORD *)&xmmword_140328FF0 = *(_OWORD *)(a1 + 88);
-    *(_OWORD *)&xmmword_140329000 = *(_OWORD *)(a1 + 104);
-    *(_OWORD *)&xmmword_140329010 = *(_OWORD *)(a1 + 120);
+    *(_OWORD *)&xmmword_140328FF0 = *(_OWORD *)(a1 + 24);
+    *(_OWORD *)&xmmword_140329000 = *(_OWORD *)(a1 + 40);
+    *(_OWORD *)&xmmword_140329010 = *(_OWORD *)(a1 + 56);
+    *(_OWORD *)&xmmword_140329020 = *(_OWORD *)(a1 + 72);
+    *(_OWORD *)&xmmword_140329030 = *(_OWORD *)(a1 + 88);
+    *(_OWORD *)&xmmword_140329040 = *(_OWORD *)(a1 + 104);
+    *(_OWORD *)&xmmword_140329050 = *(_OWORD *)(a1 + 120);
     *a2 = PdcPoResiliencyClient;
     a2[1] = PdcPoLowPower;
     a2[2] = PdcPoSetPowerAction;

@@ -1,48 +1,48 @@
 /*
- * XREFs of TppWorkerThread @ 0x18001E750
+ * XREFs of TppWorkerThread @ 0x18001E740
  * Callers:
  *     <none>
  * Callees:
- *     RtlReleaseSRWLockExclusive @ 0x18001C550 (RtlReleaseSRWLockExclusive.c)
- *     TppAlpcpExecuteCallback @ 0x18001D460 (TppAlpcpExecuteCallback.c)
- *     TppCallbackEpilog @ 0x18001FBD0 (TppCallbackEpilog.c)
- *     TppCallbackCheckThreadAfterCallback @ 0x18001FF50 (TppCallbackCheckThreadAfterCallback.c)
- *     TppPrepareDirectParams @ 0x180020180 (TppPrepareDirectParams.c)
- *     TppWorkpExecuteCallback @ 0x180020650 (TppWorkpExecuteCallback.c)
- *     RtlAcquireSRWLockExclusive @ 0x180020BF0 (RtlAcquireSRWLockExclusive.c)
- *     RtlAllocateHeap @ 0x180022DB0 (RtlAllocateHeap.c)
- *     RtlpTpWorkCallback @ 0x18003A1C0 (RtlpTpWorkCallback.c)
- *     TppWaitCompletion @ 0x18003AC60 (TppWaitCompletion.c)
- *     TppTimerpExecuteCallback @ 0x18003AEA0 (TppTimerpExecuteCallback.c)
- *     TppIopExecuteCallback @ 0x18003B1A0 (TppIopExecuteCallback.c)
- *     TppPoolpDereferenceGlobalPool @ 0x18003B81C (TppPoolpDereferenceGlobalPool.c)
- *     TppTimerQueueExpiration @ 0x18003C880 (TppTimerQueueExpiration.c)
- *     TppGetCurrentThreadNumaNode @ 0x18003E1DC (TppGetCurrentThreadNumaNode.c)
- *     RtlReleaseSRWLockShared @ 0x180042570 (RtlReleaseSRWLockShared.c)
- *     RtlAcquireSRWLockShared @ 0x180042650 (RtlAcquireSRWLockShared.c)
- *     RtlFreeHeap @ 0x1800466F0 (RtlFreeHeap.c)
- *     RtlExitUserThread @ 0x180052930 (RtlExitUserThread.c)
- *     TppPoolUpdateTrimmedWorker @ 0x180062DF8 (TppPoolUpdateTrimmedWorker.c)
- *     RtlBackoff @ 0x180063170 (RtlBackoff.c)
- *     RtlpWaitCouldDeadlock @ 0x180066AD8 (RtlpWaitCouldDeadlock.c)
- *     RtlpOptimizeSRWLockList @ 0x180076174 (RtlpOptimizeSRWLockList.c)
- *     RtlpWakeSRWLock @ 0x1800761DC (RtlpWakeSRWLock.c)
- *     TppAllocThreadData @ 0x18007CE4C (TppAllocThreadData.c)
- *     TppPoolAddWorker @ 0x18007FFF0 (TppPoolAddWorker.c)
- *     TppCritSetThread @ 0x1800810D0 (TppCritSetThread.c)
- *     TppPoolRemoveWorker @ 0x180081E68 (TppPoolRemoveWorker.c)
- *     RtlRegisterThreadWithCsrss @ 0x180081FE0 (RtlRegisterThreadWithCsrss.c)
- *     TppFreeDirectParamsCache @ 0x180082CD4 (TppFreeDirectParamsCache.c)
- *     TppFreeThreadData @ 0x180082F4C (TppFreeThreadData.c)
- *     TppCallbackSendAndDestroyAlpcMessage @ 0x1800833AC (TppCallbackSendAndDestroyAlpcMessage.c)
- *     TppPoolpFree @ 0x180083BB8 (TppPoolpFree.c)
- *     TppCallbackPerformDeferredWork @ 0x180086388 (TppCallbackPerformDeferredWork.c)
- *     TppCritResetThread @ 0x1800865B4 (TppCritResetThread.c)
- *     TppQueueRemoveHead @ 0x18008EC24 (TppQueueRemoveHead.c)
- *     TppAreNodeWorkersSteadyState @ 0x18008EC88 (TppAreNodeWorkersSteadyState.c)
- *     TppWorkerpInnerExceptionFilter @ 0x180090EDC (TppWorkerpInnerExceptionFilter.c)
- *     TppExceptionFilter @ 0x180090F04 (TppExceptionFilter.c)
- *     __security_check_cookie @ 0x180096C40 (__security_check_cookie.c)
+ *     RtlReleaseSRWLockExclusive @ 0x18001C540 (RtlReleaseSRWLockExclusive.c)
+ *     TppAlpcpExecuteCallback @ 0x18001D450 (TppAlpcpExecuteCallback.c)
+ *     TppCallbackEpilog @ 0x18001FBC0 (TppCallbackEpilog.c)
+ *     TppCallbackCheckThreadAfterCallback @ 0x18001FF40 (TppCallbackCheckThreadAfterCallback.c)
+ *     TppPrepareDirectParams @ 0x180020170 (TppPrepareDirectParams.c)
+ *     TppWorkpExecuteCallback @ 0x180020640 (TppWorkpExecuteCallback.c)
+ *     RtlAcquireSRWLockExclusive @ 0x180020BE0 (RtlAcquireSRWLockExclusive.c)
+ *     RtlAllocateHeap @ 0x180022DA0 (RtlAllocateHeap.c)
+ *     RtlpTpWorkCallback @ 0x18003A1B0 (RtlpTpWorkCallback.c)
+ *     TppWaitCompletion @ 0x18003AC50 (TppWaitCompletion.c)
+ *     TppTimerpExecuteCallback @ 0x18003AE90 (TppTimerpExecuteCallback.c)
+ *     TppIopExecuteCallback @ 0x18003B190 (TppIopExecuteCallback.c)
+ *     TppPoolpDereferenceGlobalPool @ 0x18003B80C (TppPoolpDereferenceGlobalPool.c)
+ *     TppTimerQueueExpiration @ 0x18003C870 (TppTimerQueueExpiration.c)
+ *     TppGetCurrentThreadNumaNode @ 0x18003E1CC (TppGetCurrentThreadNumaNode.c)
+ *     RtlReleaseSRWLockShared @ 0x180042560 (RtlReleaseSRWLockShared.c)
+ *     RtlAcquireSRWLockShared @ 0x180042640 (RtlAcquireSRWLockShared.c)
+ *     RtlFreeHeap @ 0x1800466E0 (RtlFreeHeap.c)
+ *     RtlExitUserThread @ 0x180052920 (RtlExitUserThread.c)
+ *     TppPoolUpdateTrimmedWorker @ 0x180062DE8 (TppPoolUpdateTrimmedWorker.c)
+ *     RtlBackoff @ 0x180063160 (RtlBackoff.c)
+ *     RtlpWaitCouldDeadlock @ 0x180066AC8 (RtlpWaitCouldDeadlock.c)
+ *     RtlpOptimizeSRWLockList @ 0x180076164 (RtlpOptimizeSRWLockList.c)
+ *     RtlpWakeSRWLock @ 0x1800761CC (RtlpWakeSRWLock.c)
+ *     TppAllocThreadData @ 0x18007CE3C (TppAllocThreadData.c)
+ *     TppPoolAddWorker @ 0x18007FFE0 (TppPoolAddWorker.c)
+ *     TppCritSetThread @ 0x1800810C0 (TppCritSetThread.c)
+ *     TppPoolRemoveWorker @ 0x180081E58 (TppPoolRemoveWorker.c)
+ *     RtlRegisterThreadWithCsrss @ 0x180081FD0 (RtlRegisterThreadWithCsrss.c)
+ *     TppFreeDirectParamsCache @ 0x180082CC4 (TppFreeDirectParamsCache.c)
+ *     TppFreeThreadData @ 0x180082F3C (TppFreeThreadData.c)
+ *     TppCallbackSendAndDestroyAlpcMessage @ 0x18008339C (TppCallbackSendAndDestroyAlpcMessage.c)
+ *     TppPoolpFree @ 0x180083BA8 (TppPoolpFree.c)
+ *     TppCallbackPerformDeferredWork @ 0x180086378 (TppCallbackPerformDeferredWork.c)
+ *     TppCritResetThread @ 0x1800865A4 (TppCritResetThread.c)
+ *     TppQueueRemoveHead @ 0x18008EC14 (TppQueueRemoveHead.c)
+ *     TppAreNodeWorkersSteadyState @ 0x18008EC78 (TppAreNodeWorkersSteadyState.c)
+ *     TppWorkerpInnerExceptionFilter @ 0x180090ECC (TppWorkerpInnerExceptionFilter.c)
+ *     TppExceptionFilter @ 0x180090EF4 (TppExceptionFilter.c)
+ *     __security_check_cookie @ 0x180096C30 (__security_check_cookie.c)
  *     NtWorkerFactoryWorkerReady @ 0x1800A6440 (NtWorkerFactoryWorkerReady.c)
  *     NtSetInformationThread @ 0x1800A65C0 (NtSetInformationThread.c)
  *     ZwTerminateProcess @ 0x1800A69A0 (ZwTerminateProcess.c)
@@ -52,7 +52,7 @@
  *     ZwWaitForWorkViaWorkerFactory @ 0x1800A9BF0 (ZwWaitForWorkViaWorkerFactory.c)
  *     _guard_dispatch_icall_nop @ 0x1800A9C80 (_guard_dispatch_icall_nop.c)
  *     memset @ 0x1800ACCC0 (memset.c)
- *     RtlResetStackOverflow @ 0x1800D97F8 (RtlResetStackOverflow.c)
+ *     RtlResetStackOverflow @ 0x1800D98B8 (RtlResetStackOverflow.c)
  *     TppAdjustRunningThreadGoal @ 0x1800FE164 (TppAdjustRunningThreadGoal.c)
  *     TppCheckForTransactions @ 0x1800FE4C4 (TppCheckForTransactions.c)
  *     TppTerminateProcess @ 0x1800FE668 (TppTerminateProcess.c)
@@ -77,35 +77,35 @@ void __fastcall __noreturn TppWorkerThread(__int64 a1)
   volatile signed __int64 v15; // rcx
   volatile signed __int64 *v16; // r9
   signed __int64 v17; // rax
-  volatile signed __int64 *v18; // rbx
+  __int64 (__fastcall ***v18)(PTP_CALLBACK_INSTANCE); // rbx
   __int64 v19; // rdx
   int v20; // eax
   int v21; // eax
   struct _TEB *v22; // rcx
-  void (__fastcall *v23)(char *); // rax
+  __int64 (__fastcall *v23)(PTP_CALLBACK_INSTANCE); // rax
   signed __int64 v24; // rax
   char v25; // r8
   signed __int64 v26; // rtt
   char v27; // di
-  struct _PEB *v28; // rbx
-  _LIST_ENTRY *Blink; // rcx
-  _OWORD **v30; // rdi
-  __int64 v31; // rbx
-  unsigned int v32; // esi
-  _OWORD *v33; // rbx
-  int v34; // ecx
+  _RTL_SRWLOCK *v28; // rbx
+  struct _PEB **Blink; // rcx
+  PPORT_MESSAGE AlpcSendMessage; // rdi
+  PPORT_MESSAGE v31; // rbx
+  ULONG DoNotUseThisField_high; // esi
+  ULONG *p_AlpcSendMessageFlags; // rbx
+  NTSTATUS v34; // ecx
   __int64 v35; // rbx
   __int64 v36; // r8
-  __int64 v37; // rdx
+  __int64 AlpcSendMessagePort_low; // rdx
   int v38; // eax
   __int64 v39; // rcx
-  __int64 (__fastcall *v40)(__int64, __int64, __int64); // rax
+  __int64 (__fastcall *v40)(PTP_CALLBACK_INSTANCE); // rax
   int v42; // ebx
   __int64 v43; // rax
-  __int64 Heap; // rax
-  __int64 v45; // rax
-  int v46; // ecx
-  int v47; // ecx
+  ULONG *Heap; // rax
+  _PORT_MESSAGE *v45; // rax
+  NTSTATUS v46; // ecx
+  NTSTATUS v47; // ecx
   __int64 v48; // rcx
   unsigned __int16 v49; // bx
   __int16 v50; // di
@@ -121,171 +121,180 @@ void __fastcall __noreturn TppWorkerThread(__int64 a1)
   __int64 v60; // r8
   signed __int64 v61; // rtt
   int k; // ecx
-  __int64 v64; // r8
+  __int64 AlpcSendMessageFlags; // r8
   int v65; // r8d
   __int64 v66; // rcx
   signed __int64 v67; // rax
   signed __int64 v68; // rtt
-  struct _PEB *v69; // rbx
-  __int128 v70; // rax
-  bool v71; // [rsp+32h] [rbp-3C6h]
-  char v72; // [rsp+33h] [rbp-3C5h] BYREF
-  char v73; // [rsp+34h] [rbp-3C4h]
-  char v74; // [rsp+35h] [rbp-3C3h]
-  char v75; // [rsp+36h] [rbp-3C2h]
-  char v76; // [rsp+37h] [rbp-3C1h]
-  char v77; // [rsp+38h] [rbp-3C0h]
-  char v78; // [rsp+39h] [rbp-3BFh]
-  int v79; // [rsp+3Ch] [rbp-3BCh]
-  char v80; // [rsp+40h] [rbp-3B8h]
-  char v81; // [rsp+41h] [rbp-3B7h]
-  unsigned __int8 v82; // [rsp+42h] [rbp-3B6h] BYREF
-  char v83; // [rsp+43h] [rbp-3B5h]
-  char v84; // [rsp+44h] [rbp-3B4h]
-  char v85; // [rsp+45h] [rbp-3B3h]
-  char v86; // [rsp+46h] [rbp-3B2h]
-  char v87; // [rsp+47h] [rbp-3B1h]
-  int v88; // [rsp+48h] [rbp-3B0h]
-  int v89; // [rsp+4Ch] [rbp-3ACh]
-  signed __int64 v90; // [rsp+50h] [rbp-3A8h]
-  int v91; // [rsp+58h] [rbp-3A0h] BYREF
+  _RTL_SRWLOCK *v69; // rbx
+  PPORT_MESSAGE v70; // rax
+  PVOID AlpcSendMessagePort; // rdx
+  bool v72; // [rsp+32h] [rbp-3C6h]
+  char v73; // [rsp+33h] [rbp-3C5h] BYREF
+  char v74; // [rsp+34h] [rbp-3C4h]
+  char v75; // [rsp+35h] [rbp-3C3h]
+  char v76; // [rsp+36h] [rbp-3C2h]
+  char v77; // [rsp+37h] [rbp-3C1h]
+  char v78; // [rsp+38h] [rbp-3C0h]
+  char v79; // [rsp+39h] [rbp-3BFh]
+  int v80; // [rsp+3Ch] [rbp-3BCh]
+  char v81; // [rsp+40h] [rbp-3B8h]
+  char v82; // [rsp+41h] [rbp-3B7h]
+  unsigned __int8 v83; // [rsp+42h] [rbp-3B6h] BYREF
+  char v84; // [rsp+43h] [rbp-3B5h]
+  char v85; // [rsp+44h] [rbp-3B4h]
+  char v86; // [rsp+45h] [rbp-3B3h]
+  char v87; // [rsp+46h] [rbp-3B2h]
+  char v88; // [rsp+47h] [rbp-3B1h]
+  NTSTATUS v89; // [rsp+48h] [rbp-3B0h]
+  int v90; // [rsp+4Ch] [rbp-3ACh]
+  signed __int64 v91; // [rsp+50h] [rbp-3A8h]
+  ULONG PacketsReturned; // [rsp+58h] [rbp-3A0h] BYREF
   int j; // [rsp+5Ch] [rbp-39Ch]
-  unsigned int v93; // [rsp+60h] [rbp-398h]
-  signed __int64 v94; // [rsp+68h] [rbp-390h]
-  __int64 v95; // [rsp+70h] [rbp-388h]
-  signed __int64 v96; // [rsp+78h] [rbp-380h]
-  struct _PEB *v97; // [rsp+80h] [rbp-378h]
-  int v98; // [rsp+88h] [rbp-370h] BYREF
-  __int64 v99; // [rsp+90h] [rbp-368h]
-  _OWORD *v100; // [rsp+98h] [rbp-360h]
-  _QWORD *v101; // [rsp+A0h] [rbp-358h] BYREF
-  int v102; // [rsp+A8h] [rbp-350h]
-  int v103; // [rsp+ACh] [rbp-34Ch] BYREF
-  int v104; // [rsp+B0h] [rbp-348h]
-  int v105; // [rsp+B4h] [rbp-344h]
-  int v106; // [rsp+C0h] [rbp-338h]
-  int v107; // [rsp+C8h] [rbp-330h] BYREF
-  int v108; // [rsp+D0h] [rbp-328h]
-  unsigned int v109; // [rsp+D4h] [rbp-324h]
-  int v110; // [rsp+D8h] [rbp-320h] BYREF
-  unsigned int v111; // [rsp+E0h] [rbp-318h]
-  int v112; // [rsp+E8h] [rbp-310h] BYREF
-  volatile signed __int64 *v113; // [rsp+F0h] [rbp-308h]
-  __int64 v114; // [rsp+F8h] [rbp-300h] BYREF
-  volatile signed __int64 *v115; // [rsp+108h] [rbp-2F0h]
-  unsigned __int64 v116; // [rsp+110h] [rbp-2E8h] BYREF
-  unsigned __int64 *v117; // [rsp+118h] [rbp-2E0h]
-  __int64 v118; // [rsp+120h] [rbp-2D8h]
+  unsigned int v94; // [rsp+60h] [rbp-398h]
+  signed __int64 v95; // [rsp+68h] [rbp-390h]
+  __int64 v96; // [rsp+70h] [rbp-388h]
+  signed __int64 v97; // [rsp+78h] [rbp-380h]
+  struct _PEB *v98; // [rsp+80h] [rbp-378h]
+  int v99; // [rsp+88h] [rbp-370h] BYREF
+  __int64 v100; // [rsp+90h] [rbp-368h]
+  ULONG *v101; // [rsp+98h] [rbp-360h]
+  PVOID BaseAddress; // [rsp+A0h] [rbp-358h] BYREF
+  int v103; // [rsp+A8h] [rbp-350h]
+  int WorkerFactoryInformation; // [rsp+ACh] [rbp-34Ch] BYREF
+  int v105; // [rsp+B0h] [rbp-348h]
+  int v106; // [rsp+B4h] [rbp-344h]
+  int v107; // [rsp+C0h] [rbp-338h]
+  int v108; // [rsp+C8h] [rbp-330h] BYREF
+  int v109; // [rsp+D0h] [rbp-328h]
+  unsigned int v110; // [rsp+D4h] [rbp-324h]
+  int v111; // [rsp+D8h] [rbp-320h] BYREF
+  unsigned int v112; // [rsp+E0h] [rbp-318h]
+  int v113; // [rsp+E8h] [rbp-310h] BYREF
+  __int64 (__fastcall ***v114)(PTP_CALLBACK_INSTANCE); // [rsp+F0h] [rbp-308h]
+  __int64 v115; // [rsp+F8h] [rbp-300h] BYREF
+  volatile signed __int64 *v116; // [rsp+108h] [rbp-2F0h]
+  unsigned __int64 v117; // [rsp+110h] [rbp-2E8h] BYREF
+  unsigned __int64 *v118; // [rsp+118h] [rbp-2E0h]
+  __int64 v119; // [rsp+120h] [rbp-2D8h]
   void *UniqueThread; // [rsp+128h] [rbp-2D0h]
-  int v120; // [rsp+130h] [rbp-2C8h]
-  signed __int32 v121[5]; // [rsp+134h] [rbp-2C4h] BYREF
-  __int64 v122; // [rsp+160h] [rbp-298h]
-  __int64 v123; // [rsp+168h] [rbp-290h]
-  struct _TEB *v124; // [rsp+180h] [rbp-278h]
-  struct _TEB *v125; // [rsp+188h] [rbp-270h]
-  struct _TEB *v126; // [rsp+190h] [rbp-268h]
-  __int64 v127; // [rsp+1A0h] [rbp-258h]
-  struct _TEB *v128; // [rsp+1A8h] [rbp-250h]
-  struct _TEB *v129; // [rsp+1B0h] [rbp-248h]
-  struct _TEB *v130; // [rsp+1B8h] [rbp-240h]
-  __int64 v131; // [rsp+1D0h] [rbp-228h]
-  _OWORD v132[23]; // [rsp+1E0h] [rbp-218h] BYREF
-  char v133[6]; // [rsp+350h] [rbp-A8h] BYREF
-  __int16 v134; // [rsp+356h] [rbp-A2h]
-  __int64 v135; // [rsp+370h] [rbp-88h]
-  int v136; // [rsp+378h] [rbp-80h]
-  unsigned int v137; // [rsp+37Ch] [rbp-7Ch]
-  __int16 v138; // [rsp+380h] [rbp-78h]
-  unsigned __int16 v139; // [rsp+382h] [rbp-76h]
-  int v140; // [rsp+384h] [rbp-74h]
-  int v141; // [rsp+388h] [rbp-70h]
-  _QWORD v142[2]; // [rsp+390h] [rbp-68h] BYREF
-  _QWORD v143[2]; // [rsp+3A0h] [rbp-58h] BYREF
-  _QWORD v144[2]; // [rsp+3B0h] [rbp-48h] BYREF
+  int v121; // [rsp+130h] [rbp-2C8h]
+  signed __int32 v122[5]; // [rsp+134h] [rbp-2C4h] BYREF
+  HANDLE v123; // [rsp+160h] [rbp-298h]
+  HANDLE v124; // [rsp+168h] [rbp-290h]
+  struct _TEB *v125; // [rsp+180h] [rbp-278h]
+  struct _TEB *v126; // [rsp+188h] [rbp-270h]
+  struct _TEB *v127; // [rsp+190h] [rbp-268h]
+  __int64 v128; // [rsp+1A0h] [rbp-258h]
+  struct _TEB *v129; // [rsp+1A8h] [rbp-250h]
+  struct _TEB *v130; // [rsp+1B0h] [rbp-248h]
+  struct _TEB *v131; // [rsp+1B8h] [rbp-240h]
+  HANDLE v132; // [rsp+1D0h] [rbp-228h]
+  _WORKER_FACTORY_DEFERRED_WORK DeferredWork[15]; // [rsp+1E0h] [rbp-218h] BYREF
+  char Fields[6]; // [rsp+350h] [rbp-A8h] BYREF
+  __int16 v135; // [rsp+356h] [rbp-A2h]
+  __int64 v136; // [rsp+370h] [rbp-88h]
+  int v137; // [rsp+378h] [rbp-80h]
+  unsigned int v138; // [rsp+37Ch] [rbp-7Ch]
+  __int16 v139; // [rsp+380h] [rbp-78h]
+  unsigned __int16 v140; // [rsp+382h] [rbp-76h]
+  int v141; // [rsp+384h] [rbp-74h]
+  int v142; // [rsp+388h] [rbp-70h]
+  _QWORD ThreadInformation[2]; // [rsp+390h] [rbp-68h] BYREF
+  _QWORD v144[2]; // [rsp+3A0h] [rbp-58h] BYREF
+  _QWORD v145[2]; // [rsp+3B0h] [rbp-48h] BYREF
 
-  v90 = a1;
-  v114 = 0LL;
-  v95 = a1;
-  v73 = 0;
+  v91 = a1;
+  v115 = 0LL;
+  v96 = a1;
   v74 = 0;
-  v77 = 0;
   v75 = 0;
-  v72 = 0;
   v78 = 0;
   v76 = 0;
-  v101 = 0LL;
+  v73 = 0;
   v79 = 0;
+  v77 = 0;
+  BaseAddress = 0LL;
+  v80 = 0;
   RtlRegisterThreadWithCsrss();
-  v97 = NtCurrentPeb();
-  TppCritSetThread(&v114);
-  TppAllocThreadData(&v101);
-  if ( v101 )
-    *v101 = v132;
-  memset(v132, 0, 0x168uLL);
-  RtlAcquireSRWLockShared(a1 + 368);
+  v98 = NtCurrentPeb();
+  TppCritSetThread(&v115);
+  TppAllocThreadData(&BaseAddress);
+  if ( BaseAddress )
+    *(_QWORD *)BaseAddress = DeferredWork;
+  memset(DeferredWork, 0, sizeof(DeferredWork));
+  RtlAcquireSRWLockShared((PRTL_SRWLOCK)(a1 + 368));
   if ( *(_BYTE *)(a1 + 377) )
   {
-    v88 = -1073741558;
+    v89 = -1073741558;
   }
   else
   {
-    v122 = *(_QWORD *)(a1 + 56);
-    v88 = NtWorkerFactoryWorkerReady();
-    if ( v88 >= 0 )
+    v123 = *(HANDLE *)(a1 + 56);
+    v89 = NtWorkerFactoryWorkerReady(v123);
+    if ( v89 >= 0 )
     {
       _InterlockedIncrement((volatile signed __int32 *)a1);
-      v27 = v77;
+      v27 = v78;
 LABEL_74:
-      RtlReleaseSRWLockShared(a1 + 368);
+      RtlReleaseSRWLockShared((PRTL_SRWLOCK)(a1 + 368));
       if ( v27 )
         goto LABEL_225;
-      TppPoolAddWorker(a1, v132);
-      v75 = 1;
-      v28 = v97;
-      RtlAcquireSRWLockExclusive(&v97->TppWorkerpListLock);
-      Blink = v97->TppWorkerpList.Blink;
-      if ( Blink->Flink != &v97->TppWorkerpList )
+      TppPoolAddWorker(a1, DeferredWork);
+      v76 = 1;
+      v28 = (_RTL_SRWLOCK *)v98;
+      RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)&v98->TppWorkerpListLock);
+      Blink = (struct _PEB **)v98->TppWorkerpList.Blink;
+      if ( *Blink != (struct _PEB *)&v98->TppWorkerpList )
         __fastfail(3u);
-      *(_QWORD *)&v132[0] = &v97->TppWorkerpList;
-      *((_QWORD *)&v132[0] + 1) = Blink;
-      Blink->Flink = (_LIST_ENTRY *)v132;
-      v28->TppWorkerpList.Blink = (_LIST_ENTRY *)v132;
-      v74 = 1;
-      RtlReleaseSRWLockExclusive((volatile signed __int64 *)&v28->TppWorkerpListLock);
-      memset((char *)&v132[3] + 8, 0, 0xF8uLL);
+      DeferredWork[0].AlpcSendMessage = (PPORT_MESSAGE)&v98->TppWorkerpList;
+      DeferredWork[0].AlpcSendMessagePort = Blink;
+      *Blink = (struct _PEB *)DeferredWork;
+      v28[115].Value = (unsigned __int64)DeferredWork;
+      v75 = 1;
+      RtlReleaseSRWLockExclusive(v28 + 113);
+      memset(&DeferredWork[2].AlpcSendMessagePort, 0, 0xF8uLL);
       _InterlockedIncrement((volatile signed __int32 *)(a1 + 416));
-      v73 = 1;
-      TppGetCurrentThreadNumaNode(a1, (char *)&v132[21] + 8, 0LL);
+      v74 = 1;
+      TppGetCurrentThreadNumaNode(a1, &DeferredWork[14].AlpcSendMessagePort, 0LL);
       while ( 1 )
       {
-        v79 = 0;
-        memset(&v132[19], 0, 0x20uLL);
-        v30 = *(_OWORD ***)&v132[21];
-        v89 = 16;
-        if ( !*(_QWORD *)&v132[21] )
+        v80 = 0;
+        memset(&DeferredWork[12].AlpcSendMessageFlags, 0, 0x20uLL);
+        AlpcSendMessage = DeferredWork[14].AlpcSendMessage;
+        v90 = 16;
+        if ( !DeferredWork[14].AlpcSendMessage )
           break;
-        if ( *(_DWORD *)(*(_QWORD *)&v132[21] + 8LL) != 1 )
+        if ( LODWORD(DeferredWork[14].AlpcSendMessage->DoNotUseThisField) != 1 )
           goto LABEL_191;
-        v31 = *(_QWORD *)&v132[21];
-        memset(**(void ***)&v132[21], 0, 56LL * *(unsigned int *)(*(_QWORD *)&v132[21] + 12LL));
-        v32 = *(_DWORD *)(v31 + 12);
-        v89 = v32;
-        v33 = *v30;
+        v31 = DeferredWork[14].AlpcSendMessage;
+        memset(
+          *(void **)DeferredWork[14].AlpcSendMessage,
+          0,
+          56LL * HIDWORD(DeferredWork[14].AlpcSendMessage->DoNotUseThisField));
+        DoNotUseThisField_high = HIDWORD(v31->DoNotUseThisField);
+        v90 = DoNotUseThisField_high;
+        p_AlpcSendMessageFlags = *(ULONG **)&AlpcSendMessage->u1.s1.DataLength;
 LABEL_81:
-        v100 = v33;
-        v91 = 0;
-        v123 = *(_QWORD *)(a1 + 56);
-        v34 = ZwWaitForWorkViaWorkerFactory(v123, v33, v32, &v91, (char *)&v132[16] + 8);
-        v88 = v34;
+        v101 = p_AlpcSendMessageFlags;
+        PacketsReturned = 0;
+        v124 = *(HANDLE *)(a1 + 56);
+        v34 = ZwWaitForWorkViaWorkerFactory(
+                v124,
+                (PFILE_IO_COMPLETION_INFORMATION)p_AlpcSendMessageFlags,
+                DoNotUseThisField_high,
+                &PacketsReturned,
+                &DeferredWork[11]);
+        v89 = v34;
         if ( v34 )
-          v91 = 0;
-        if ( (BYTE12(v132[17]) & 1) != 0 )
+          PacketsReturned = 0;
+        if ( (DeferredWork[11].Flags & 1) != 0 )
         {
-          RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0LL, *((_QWORD *)&v132[16] + 1));
-          HIDWORD(v132[17]) &= ~1u;
-          v34 = v88;
-          LODWORD(v33) = (_DWORD)v100;
-          v32 = v89;
+          RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, DeferredWork[11].AlpcSendMessage);
+          DeferredWork[11].Flags &= ~1u;
+          v34 = v89;
+          LODWORD(p_AlpcSendMessageFlags) = (_DWORD)v101;
+          DoNotUseThisField_high = v90;
         }
         if ( v34 )
         {
@@ -300,7 +309,7 @@ LABEL_81:
           }
           if ( v47 == 66 )
           {
-            v76 = 1;
+            v77 = 1;
             goto LABEL_225;
           }
         }
@@ -308,26 +317,32 @@ LABEL_81:
         {
           if ( *(_DWORD *)(a1 + 424) != MEMORY[0x7FFE03C0] )
             TppAdjustRunningThreadGoal(a1);
-          if ( (unsigned __int8)TppPrepareDirectParams((unsigned int)v132, (_DWORD)v33, v91, v32, a1, (__int64)&v72) )
+          if ( (unsigned __int8)TppPrepareDirectParams(
+                                  (unsigned int)DeferredWork,
+                                  (_DWORD)p_AlpcSendMessageFlags,
+                                  PacketsReturned,
+                                  DoNotUseThisField_high,
+                                  a1,
+                                  (__int64)&v73) )
             goto LABEL_225;
-          if ( !v72 )
+          if ( !v73 )
           {
-            v35 = *(_QWORD *)&v132[19];
-            if ( !*(_QWORD *)&v132[19] )
+            v35 = *(_QWORD *)&DeferredWork[12].AlpcSendMessageFlags;
+            if ( !*(_QWORD *)&DeferredWork[12].AlpcSendMessageFlags )
               goto LABEL_4;
-            v99 = *(_QWORD *)&v132[19];
-            *(_QWORD *)&v132[9] = *(_QWORD *)(*(_QWORD *)&v132[19] + 56LL);
-            *((_QWORD *)&v132[9] + 1) = *(_QWORD *)&v132[19];
-            v107 = *(unsigned __int8 *)(*(_QWORD *)&v132[19] + 68LL);
-            v36 = *(unsigned int *)(*(_QWORD *)&v132[19] + 64LL);
-            v37 = DWORD2(v132[21]);
+            v100 = *(_QWORD *)&DeferredWork[12].AlpcSendMessageFlags;
+            DeferredWork[6].AlpcSendMessage = *(PPORT_MESSAGE *)(*(_QWORD *)&DeferredWork[12].AlpcSendMessageFlags + 56LL);
+            DeferredWork[6].AlpcSendMessagePort = *(PVOID *)&DeferredWork[12].AlpcSendMessageFlags;
+            v108 = *(unsigned __int8 *)(*(_QWORD *)&DeferredWork[12].AlpcSendMessageFlags + 68LL);
+            v36 = *(unsigned int *)(*(_QWORD *)&DeferredWork[12].AlpcSendMessageFlags + 64LL);
+            AlpcSendMessagePort_low = LODWORD(DeferredWork[14].AlpcSendMessagePort);
             v38 = *(_DWORD *)(a1 + 428);
-            v39 = DWORD2(v132[21]);
-            if ( (_DWORD)v36 == DWORD2(v132[21]) )
+            v39 = LODWORD(DeferredWork[14].AlpcSendMessagePort);
+            if ( (_DWORD)v36 == LODWORD(DeferredWork[14].AlpcSendMessagePort) )
             {
-              if ( v38 == -1 && !LOBYTE(v132[22]) )
+              if ( v38 == -1 && !LOBYTE(DeferredWork[14].AlpcSendMessageFlags) )
               {
-                LOBYTE(v132[22]) = 1;
+                LOBYTE(DeferredWork[14].AlpcSendMessageFlags) = 1;
                 _InterlockedIncrement((volatile signed __int32 *)(*(_QWORD *)(a1 + 40) + 4 * v36));
               }
             }
@@ -335,149 +350,158 @@ LABEL_81:
             {
               if ( v38 == -1 )
               {
-                if ( LOBYTE(v132[22]) )
-                  _InterlockedDecrement((volatile signed __int32 *)(*(_QWORD *)(a1 + 40) + 4LL * DWORD2(v132[21])));
+                if ( LOBYTE(DeferredWork[14].AlpcSendMessageFlags) )
+                  _InterlockedDecrement((volatile signed __int32 *)(*(_QWORD *)(a1 + 40)
+                                                                  + 4LL * LODWORD(DeferredWork[14].AlpcSendMessagePort)));
                 else
-                  LOBYTE(v132[22]) = 1;
+                  LOBYTE(DeferredWork[14].AlpcSendMessageFlags) = 1;
                 _InterlockedIncrement((volatile signed __int32 *)(*(_QWORD *)(a1 + 40) + 4 * v36));
               }
-              DWORD2(v132[21]) = v36;
+              LODWORD(DeferredWork[14].AlpcSendMessagePort) = v36;
               v39 = *(_QWORD *)(a1 + 48);
               v58 = *(_WORD *)(v39 + 16 * v36 + 8);
-              v59 = *(_WORD *)(v39 + 16 * v37 + 8);
+              v59 = *(_WORD *)(v39 + 16 * AlpcSendMessagePort_low + 8);
               if ( MEMORY[0x7FFE0386] )
-                TppETWWorkerNodeSwitch(a1, v37, v36, v59, *(_WORD *)(v39 + 16 * v36 + 8));
+                TppETWWorkerNodeSwitch(a1, AlpcSendMessagePort_low, v36, v59, *(_WORD *)(v39 + 16 * v36 + 8));
               if ( v59 != v58 )
               {
-                v142[1] = v58;
-                v142[0] = 0LL;
-                NtSetInformationThread(-2LL, 30LL, v142);
-                NtSetInformationThread(-2LL, 13LL, &v107);
+                ThreadInformation[1] = v58;
+                ThreadInformation[0] = 0LL;
+                NtSetInformationThread((HANDLE)0xFFFFFFFFFFFFFFFELL, ThreadGroupInformation, ThreadInformation, 0x10u);
+                NtSetInformationThread((HANDLE)0xFFFFFFFFFFFFFFFELL, ThreadIdealProcessor, &v108, 4u);
               }
             }
-            v132[18] = NtCurrentTeb()->ActivityId;
-            if ( *((_QWORD *)&v132[11] + 1) && (*(_BYTE *)(*((_QWORD *)&v132[11] + 1) + 436LL) & 1) == 0 )
+            *(_GUID *)&DeferredWork[12].AlpcSendMessage = NtCurrentTeb()->ActivityId;
+            if ( *(_QWORD *)&DeferredWork[7].AlpcSendMessageFlags
+              && (*(_BYTE *)(*(_QWORD *)&DeferredWork[7].AlpcSendMessageFlags + 436LL) & 1) == 0 )
             {
-              LODWORD(v132[10]) |= 8u;
-              v124 = NtCurrentTeb();
-              v64 = LODWORD(v132[10]);
-              if ( v124->IsImpersonating )
+              DeferredWork[6].AlpcSendMessageFlags |= 8u;
+              v125 = NtCurrentTeb();
+              AlpcSendMessageFlags = DeferredWork[6].AlpcSendMessageFlags;
+              if ( v125->IsImpersonating )
               {
-                v64 = LODWORD(v132[10]) | 4u;
-                LODWORD(v132[10]) |= 4u;
+                AlpcSendMessageFlags = DeferredWork[6].AlpcSendMessageFlags | 4;
+                DeferredWork[6].AlpcSendMessageFlags |= 4u;
               }
-              if ( (unsigned __int8)TppCheckForTransactions(v39, v37, v64) )
-                LODWORD(v132[10]) = v65 | 0x10;
+              if ( (unsigned __int8)TppCheckForTransactions(v39, AlpcSendMessagePort_low, AlpcSendMessageFlags) )
+                DeferredWork[6].AlpcSendMessageFlags = v65 | 0x10;
               if ( NtCurrentPeb()->LoaderLock->OwningThread == NtCurrentTeb()->ClientId.UniqueThread )
               {
-                v108 = 1;
-                v87 = 1;
-                LODWORD(v132[10]) |= 0x20u;
+                v109 = 1;
+                v88 = 1;
+                DeferredWork[6].AlpcSendMessageFlags |= 0x20u;
               }
               else
               {
-                v108 = 0;
-                v87 = 0;
-              }
-              v125 = NtCurrentTeb();
-              if ( v125->PreferredLanguages )
-              {
-                v80 = 1;
-                LODWORD(v132[10]) |= 0x40u;
-              }
-              else
-              {
-                v80 = 0;
+                v109 = 0;
+                v88 = 0;
               }
               v126 = NtCurrentTeb();
-              if ( v126->SavedPriorityState )
+              if ( v126->PreferredLanguages )
               {
                 v81 = 1;
-                LODWORD(v132[10]) |= 0x80u;
+                DeferredWork[6].AlpcSendMessageFlags |= 0x40u;
               }
               else
               {
                 v81 = 0;
               }
+              v127 = NtCurrentTeb();
+              if ( v127->SavedPriorityState )
+              {
+                v82 = 1;
+                DeferredWork[6].AlpcSendMessageFlags |= 0x80u;
+              }
+              else
+              {
+                v82 = 0;
+              }
             }
-            v40 = *(__int64 (__fastcall **)(__int64, __int64, __int64))(v35 + 56);
-            if ( v40 == TppAlpcpExecuteCallback )
+            v40 = *(__int64 (__fastcall **)(PTP_CALLBACK_INSTANCE))(v35 + 56);
+            if ( (char *)v40 == (char *)TppAlpcpExecuteCallback )
             {
-              TppAlpcpExecuteCallback((__int64)&v132[3] + 8, v99, *((__int64 *)&v132[19] + 1));
+              TppAlpcpExecuteCallback(
+                &DeferredWork[2].AlpcSendMessagePort,
+                v100,
+                (__int64)DeferredWork[13].AlpcSendMessage);
             }
-            else if ( (char *)v40 == (char *)TppIopExecuteCallback )
+            else if ( v40 == TppIopExecuteCallback )
             {
-              TppIopExecuteCallback((char *)&v132[3] + 8, v99, *((_QWORD *)&v132[19] + 1), &v132[20]);
+              TppIopExecuteCallback((PTP_CALLBACK_INSTANCE)&DeferredWork[2].AlpcSendMessagePort);
             }
             else if ( (char *)v40 == (char *)TppTimerQueueExpiration )
             {
-              TppTimerQueueExpiration((char *)&v132[3] + 8, v99, *((_QWORD *)&v132[19] + 1), &v132[20]);
+              TppTimerQueueExpiration(
+                &DeferredWork[2].AlpcSendMessagePort,
+                v100,
+                DeferredWork[13].AlpcSendMessage,
+                &DeferredWork[13].AlpcSendMessagePort);
             }
-            else if ( (char *)v40 == (char *)TppWaitCompletion )
+            else if ( v40 == TppWaitCompletion )
             {
-              TppWaitCompletion((char *)&v132[3] + 8, v99, *((_QWORD *)&v132[19] + 1), &v132[20]);
+              TppWaitCompletion((PTP_CALLBACK_INSTANCE)&DeferredWork[2].AlpcSendMessagePort);
             }
             else
             {
-              ((void (__fastcall *)(char *, __int64, _QWORD, _OWORD *))v40)(
-                (char *)&v132[3] + 8,
-                v99,
-                *((_QWORD *)&v132[19] + 1),
-                &v132[20]);
+              ((void (__fastcall *)(PVOID *, __int64, PPORT_MESSAGE, PVOID *))v40)(
+                &DeferredWork[2].AlpcSendMessagePort,
+                v100,
+                DeferredWork[13].AlpcSendMessage,
+                &DeferredWork[13].AlpcSendMessagePort);
             }
 LABEL_57:
-            if ( (BYTE4(v132[8]) & 4) != 0 )
-              v78 = 1;
-            v71 = LODWORD(v132[8]) == 4;
-            TppCallbackEpilog((char *)&v132[3] + 8);
-            *(_QWORD *)&v132[2] = 0LL;
-            if ( v78 )
+            if ( (BYTE4(DeferredWork[5].AlpcSendMessagePort) & 4) != 0 )
+              v79 = 1;
+            v72 = LODWORD(DeferredWork[5].AlpcSendMessagePort) == 4;
+            TppCallbackEpilog(&DeferredWork[2].AlpcSendMessagePort);
+            DeferredWork[1].AlpcSendMessagePort = 0LL;
+            if ( v79 )
             {
               _m_prefetchw((const void *)(a1 + 8));
               v67 = *(_QWORD *)(a1 + 8);
-              v90 = v67;
+              v91 = v67;
               do
               {
-                LODWORD(v90) = (unsigned __int16)(v90 ^ (v90 + 1)) ^ (unsigned int)v90;
+                LODWORD(v91) = (unsigned __int16)(v91 ^ (v91 + 1)) ^ (unsigned int)v91;
                 v68 = v67;
-                v67 = _InterlockedCompareExchange64((volatile signed __int64 *)(a1 + 8), v90, v67);
-                v90 = v67;
+                v67 = _InterlockedCompareExchange64((volatile signed __int64 *)(a1 + 8), v91, v67);
+                v91 = v67;
               }
               while ( v68 != v67 );
-              v103 = 3;
-              v131 = *(_QWORD *)(a1 + 56);
-              NtSetInformationWorkerFactory(v131, 9LL, &v103);
+              WorkerFactoryInformation = 3;
+              v132 = *(HANDLE *)(a1 + 56);
+              NtSetInformationWorkerFactory(v132, WorkerFactoryCallbackType, &WorkerFactoryInformation, 4u);
               goto LABEL_225;
             }
             if ( *(_DWORD *)(a1 + 424) != MEMORY[0x7FFE03C0] )
               TppAdjustRunningThreadGoal(a1);
             _m_prefetchw((const void *)(a1 + 8));
             v24 = *(_QWORD *)(a1 + 8);
-            v96 = v24;
+            v97 = v24;
             do
             {
               if ( *(_BYTE *)(a1 + 376) )
               {
-                v104 = 0;
+                v105 = 0;
                 goto LABEL_225;
               }
-              if ( HIDWORD(v24) && ((v96 & 0x8000u) == 0LL || v71) )
+              if ( HIDWORD(v24) && ((v97 & 0x8000u) == 0LL || v72) )
               {
                 v25 = 0;
-                HIDWORD(v96) = HIDWORD(v24) - 1;
+                HIDWORD(v97) = HIDWORD(v24) - 1;
               }
               else
               {
                 v25 = 1;
-                LODWORD(v96) = (unsigned __int16)(v96 ^ (v96 + 1)) ^ (unsigned int)v96;
+                LODWORD(v97) = (unsigned __int16)(v97 ^ (v97 + 1)) ^ (unsigned int)v97;
               }
               v26 = v24;
-              v24 = _InterlockedCompareExchange64((volatile signed __int64 *)(a1 + 8), v96, v24);
-              v96 = v24;
+              v24 = _InterlockedCompareExchange64((volatile signed __int64 *)(a1 + 8), v97, v24);
+              v97 = v24;
             }
             while ( v26 != v24 );
-            v72 = v25;
-            v104 = 1;
+            v73 = v25;
+            v105 = 1;
             if ( v25 )
               continue;
 LABEL_4:
@@ -492,7 +516,7 @@ LABEL_4:
             }
             for ( i = 0; ; ++i )
             {
-              v109 = i;
+              v110 = i;
               if ( i >= v4 )
                 goto LABEL_11;
               v7 = 16LL * i + *(_QWORD *)(a1 + 48);
@@ -507,17 +531,17 @@ LABEL_4:
 LABEL_11:
             if ( v5 >= v4 )
               v5 = 0;
-            v93 = v5;
-            if ( &v82 )
-              v82 = Number;
-            v110 = v82;
-            v9 = DWORD2(v132[21]);
+            v94 = v5;
+            if ( &v83 )
+              v83 = Number;
+            v111 = v83;
+            v9 = LODWORD(DeferredWork[14].AlpcSendMessagePort);
             v10 = *(_DWORD *)(a1 + 428);
-            if ( v5 == DWORD2(v132[21]) )
+            if ( v5 == LODWORD(DeferredWork[14].AlpcSendMessagePort) )
             {
-              if ( v10 == -1 && !LOBYTE(v132[22]) )
+              if ( v10 == -1 && !LOBYTE(DeferredWork[14].AlpcSendMessageFlags) )
               {
-                LOBYTE(v132[22]) = 1;
+                LOBYTE(DeferredWork[14].AlpcSendMessageFlags) = 1;
                 _InterlockedIncrement((volatile signed __int32 *)(*(_QWORD *)(a1 + 40) + 4LL * v5));
               }
             }
@@ -525,13 +549,14 @@ LABEL_11:
             {
               if ( v10 == -1 )
               {
-                if ( LOBYTE(v132[22]) )
-                  _InterlockedDecrement((volatile signed __int32 *)(*(_QWORD *)(a1 + 40) + 4LL * DWORD2(v132[21])));
+                if ( LOBYTE(DeferredWork[14].AlpcSendMessageFlags) )
+                  _InterlockedDecrement((volatile signed __int32 *)(*(_QWORD *)(a1 + 40)
+                                                                  + 4LL * LODWORD(DeferredWork[14].AlpcSendMessagePort)));
                 else
-                  LOBYTE(v132[22]) = 1;
+                  LOBYTE(DeferredWork[14].AlpcSendMessageFlags) = 1;
                 _InterlockedIncrement((volatile signed __int32 *)(*(_QWORD *)(a1 + 40) + 4LL * v5));
               }
-              DWORD2(v132[21]) = v5;
+              LODWORD(DeferredWork[14].AlpcSendMessagePort) = v5;
               v51 = *(_QWORD *)(a1 + 48);
               v52 = *(_WORD *)(v51 + 16LL * v5 + 8);
               v53 = *(_WORD *)(v51 + 16 * v9 + 8);
@@ -539,15 +564,15 @@ LABEL_11:
                 TppETWWorkerNodeSwitch(a1, v9, v5, v53, *(_WORD *)(v51 + 16LL * v5 + 8));
               if ( v53 != v52 )
               {
-                v143[1] = v52;
-                v143[0] = 0LL;
-                NtSetInformationThread(-2LL, 30LL, v143);
-                NtSetInformationThread(-2LL, 13LL, &v110);
+                v144[1] = v52;
+                v144[0] = 0LL;
+                NtSetInformationThread((HANDLE)0xFFFFFFFFFFFFFFFELL, ThreadGroupInformation, v144, 0x10u);
+                NtSetInformationThread((HANDLE)0xFFFFFFFFFFFFFFFELL, ThreadIdealProcessor, &v111, 4u);
               }
             }
-            v111 = v5;
+            v112 = v5;
             if ( *(_DWORD *)(a1 + 428) == -1
-              && HIDWORD(v132[21]) >= 0x10
+              && HIDWORD(DeferredWork[14].AlpcSendMessagePort) >= 0x10
               && !(unsigned int)TppAreNodeWorkersSteadyState(a1, v9) )
             {
 LABEL_119:
@@ -562,30 +587,30 @@ LABEL_121:
                     continue;
                   while ( 1 )
                   {
-                    v127 = *(_QWORD *)(a1 + 8 * (v42 + 2LL)) + 24LL * v5;
-                    v43 = TppQueueRemoveHead(v127, v9);
+                    v128 = *(_QWORD *)(a1 + 8 * (v42 + 2LL)) + 24LL * v5;
+                    v43 = TppQueueRemoveHead(v128, v9);
                     if ( v43 )
                       break;
                     if ( ++v5 >= TppNumberNodes )
                       v5 = 0;
-                    v111 = v5;
-                    if ( v5 == v93 )
+                    v112 = v5;
+                    if ( v5 == v94 )
                     {
                       ++v42;
                       goto LABEL_121;
                     }
                   }
-                  v18 = (volatile signed __int64 *)(v43 - 16);
+                  v18 = (__int64 (__fastcall ***)(PTP_CALLBACK_INSTANCE))(v43 - 16);
 LABEL_28:
-                  v113 = v18;
-                  v112 = *((unsigned __int8 *)v18 + 12);
-                  v19 = DWORD2(v132[21]);
+                  v114 = v18;
+                  v113 = *((unsigned __int8 *)v18 + 12);
+                  v19 = LODWORD(DeferredWork[14].AlpcSendMessagePort);
                   v20 = *(_DWORD *)(a1 + 428);
-                  if ( v5 == DWORD2(v132[21]) )
+                  if ( v5 == LODWORD(DeferredWork[14].AlpcSendMessagePort) )
                   {
-                    if ( v20 == -1 && !LOBYTE(v132[22]) )
+                    if ( v20 == -1 && !LOBYTE(DeferredWork[14].AlpcSendMessageFlags) )
                     {
-                      LOBYTE(v132[22]) = 1;
+                      LOBYTE(DeferredWork[14].AlpcSendMessageFlags) = 1;
                       _InterlockedIncrement((volatile signed __int32 *)(*(_QWORD *)(a1 + 40) + 4LL * v5));
                     }
                   }
@@ -593,41 +618,43 @@ LABEL_28:
                   {
                     if ( v20 == -1 )
                     {
-                      if ( LOBYTE(v132[22]) )
-                        _InterlockedDecrement((volatile signed __int32 *)(*(_QWORD *)(a1 + 40) + 4LL * DWORD2(v132[21])));
+                      if ( LOBYTE(DeferredWork[14].AlpcSendMessageFlags) )
+                        _InterlockedDecrement((volatile signed __int32 *)(*(_QWORD *)(a1 + 40)
+                                                                        + 4LL
+                                                                        * LODWORD(DeferredWork[14].AlpcSendMessagePort)));
                       else
-                        LOBYTE(v132[22]) = 1;
+                        LOBYTE(DeferredWork[14].AlpcSendMessageFlags) = 1;
                       _InterlockedIncrement((volatile signed __int32 *)(*(_QWORD *)(a1 + 40) + 4LL * v5));
                     }
-                    DWORD2(v132[21]) = v5;
+                    LODWORD(DeferredWork[14].AlpcSendMessagePort) = v5;
                     v48 = *(_QWORD *)(a1 + 48);
                     v49 = *(_WORD *)(v48 + 16LL * v5 + 8);
                     v50 = *(_WORD *)(v48 + 16 * v19 + 8);
                     if ( MEMORY[0x7FFE0386] )
                     {
-                      v134 = 7209;
-                      v135 = a1;
-                      v136 = v19;
-                      v137 = v5;
-                      v138 = v50;
-                      v139 = v49;
+                      v135 = 7209;
+                      v136 = a1;
+                      v137 = v19;
+                      v138 = v5;
+                      v139 = v50;
+                      v140 = v49;
                       v66 = *(_QWORD *)(a1 + 40);
-                      v140 = *(_DWORD *)(v66 + 4 * v19);
-                      v141 = *(_DWORD *)(v66 + 4LL * v5);
-                      NtTraceEvent(MEMORY[0x7FFE0386], 1026LL, 28LL, v133);
+                      v141 = *(_DWORD *)(v66 + 4 * v19);
+                      v142 = *(_DWORD *)(v66 + 4LL * v5);
+                      NtTraceEvent((HANDLE)MEMORY[0x7FFE0386], 0x402u, 0x1Cu, Fields);
                     }
                     if ( v50 != v49 )
                     {
-                      v144[1] = v49;
-                      v144[0] = 0LL;
-                      NtSetInformationThread(-2LL, 30LL, v144);
-                      NtSetInformationThread(-2LL, 13LL, &v112);
+                      v145[1] = v49;
+                      v145[0] = 0LL;
+                      NtSetInformationThread((HANDLE)0xFFFFFFFFFFFFFFFELL, ThreadGroupInformation, v145, 0x10u);
+                      NtSetInformationThread((HANDLE)0xFFFFFFFFFFFFFFFELL, ThreadIdealProcessor, &v113, 4u);
                     }
                   }
-                  if ( v5 == v93 )
+                  if ( v5 == v94 )
                   {
-                    if ( HIDWORD(v132[21]) < 0x10 )
-                      v21 = HIDWORD(v132[21]) + 1;
+                    if ( HIDWORD(DeferredWork[14].AlpcSendMessagePort) < 0x10 )
+                      v21 = HIDWORD(DeferredWork[14].AlpcSendMessagePort) + 1;
                     else
                       v21 = 16;
                   }
@@ -635,24 +662,25 @@ LABEL_28:
                   {
                     v21 = 0;
                   }
-                  HIDWORD(v132[21]) = v21;
-                  v105 = 1;
-                  if ( (BYTE12(v132[17]) & 1) != 0 )
+                  HIDWORD(DeferredWork[14].AlpcSendMessagePort) = v21;
+                  v106 = 1;
+                  if ( (DeferredWork[11].Flags & 1) != 0 )
                   {
-                    TppCallbackSendAndDestroyAlpcMessage((char *)&v132[3] + 8, v19);
-                    HIDWORD(v132[17]) &= ~1u;
+                    TppCallbackSendAndDestroyAlpcMessage(&DeferredWork[2].AlpcSendMessagePort, v19);
+                    DeferredWork[11].Flags &= ~1u;
                   }
-                  *(_QWORD *)&v132[2] = v113;
-                  *(_QWORD *)&v132[9] = **(_QWORD **)v113;
-                  *((_QWORD *)&v132[9] + 1) = v113;
-                  *((_QWORD *)&v132[11] + 1) = *(_QWORD *)&v132[3];
-                  v132[18] = NtCurrentTeb()->ActivityId;
-                  if ( *(_QWORD *)&v132[3] && (*(_BYTE *)(*(_QWORD *)&v132[3] + 436LL) & 1) == 0 )
+                  DeferredWork[1].AlpcSendMessagePort = v114;
+                  DeferredWork[6].AlpcSendMessage = (PPORT_MESSAGE)**v114;
+                  DeferredWork[6].AlpcSendMessagePort = v114;
+                  *(_QWORD *)&DeferredWork[7].AlpcSendMessageFlags = DeferredWork[2].AlpcSendMessage;
+                  *(_GUID *)&DeferredWork[12].AlpcSendMessage = NtCurrentTeb()->ActivityId;
+                  if ( DeferredWork[2].AlpcSendMessage
+                    && (*(_BYTE *)(&DeferredWork[2].AlpcSendMessage[10].CallbackId + 1) & 1) == 0 )
                   {
-                    LODWORD(v132[10]) |= 8u;
-                    v128 = NtCurrentTeb();
-                    if ( v128->IsImpersonating )
-                      LODWORD(v132[10]) |= 4u;
+                    DeferredWork[6].AlpcSendMessageFlags |= 8u;
+                    v129 = NtCurrentTeb();
+                    if ( v129->IsImpersonating )
+                      DeferredWork[6].AlpcSendMessageFlags |= 4u;
                     v22 = NtCurrentTeb();
                     if ( (unsigned __int64)v22->CurrentTransactionHandle - 1 <= 0xFFFFFFFFFFFFFFFDuLL
                       || v22->TxnScopeEnterCallback
@@ -660,84 +688,88 @@ LABEL_28:
                       || v22->TxnScopeContext
                       || v22->TxFsContext != 65534 )
                     {
-                      LODWORD(v132[10]) |= 0x10u;
+                      DeferredWork[6].AlpcSendMessageFlags |= 0x10u;
                     }
                     if ( NtCurrentPeb()->LoaderLock->OwningThread == NtCurrentTeb()->ClientId.UniqueThread )
                     {
-                      v102 = 1;
-                      v84 = 1;
-                      LODWORD(v132[10]) |= 0x20u;
-                    }
-                    else
-                    {
-                      v102 = 0;
-                      v84 = 0;
-                    }
-                    v129 = NtCurrentTeb();
-                    if ( v129->PreferredLanguages )
-                    {
+                      v103 = 1;
                       v85 = 1;
-                      LODWORD(v132[10]) |= 0x40u;
+                      DeferredWork[6].AlpcSendMessageFlags |= 0x20u;
                     }
                     else
                     {
+                      v103 = 0;
                       v85 = 0;
                     }
                     v130 = NtCurrentTeb();
-                    if ( v130->SavedPriorityState )
+                    if ( v130->PreferredLanguages )
                     {
                       v86 = 1;
-                      LODWORD(v132[10]) |= 0x80u;
+                      DeferredWork[6].AlpcSendMessageFlags |= 0x40u;
                     }
                     else
                     {
                       v86 = 0;
                     }
+                    v131 = NtCurrentTeb();
+                    if ( v131->SavedPriorityState )
+                    {
+                      v87 = 1;
+                      DeferredWork[6].AlpcSendMessageFlags |= 0x80u;
+                    }
+                    else
+                    {
+                      v87 = 0;
+                    }
                   }
-                  v23 = **(void (__fastcall ***)(char *))v113;
-                  if ( (char *)v23 == (char *)TppWorkpExecuteCallback )
+                  v23 = **v114;
+                  if ( v23 == TppWorkpExecuteCallback )
                   {
-                    TppWorkpExecuteCallback((char *)&v132[3] + 8);
+                    TppWorkpExecuteCallback((PTP_CALLBACK_INSTANCE)&DeferredWork[2].AlpcSendMessagePort);
                   }
-                  else if ( (char *)v23 == (char *)TppTimerpExecuteCallback )
+                  else if ( v23 == TppTimerpExecuteCallback )
                   {
-                    TppTimerpExecuteCallback((char *)&v132[3] + 8);
+                    TppTimerpExecuteCallback((PTP_CALLBACK_INSTANCE)&DeferredWork[2].AlpcSendMessagePort);
                   }
-                  else if ( (char *)v23 == (char *)RtlpTpWorkCallback )
+                  else if ( v23 == RtlpTpWorkCallback )
                   {
-                    RtlpTpWorkCallback((char *)&v132[3] + 8);
+                    RtlpTpWorkCallback((PTP_CALLBACK_INSTANCE)&DeferredWork[2].AlpcSendMessagePort);
                   }
                   else
                   {
-                    v23((char *)&v132[3] + 8);
+                    v23((PTP_CALLBACK_INSTANCE)&DeferredWork[2].AlpcSendMessagePort);
                   }
                   goto LABEL_57;
                 }
                 break;
               }
-              v105 = 0;
+              v106 = 0;
 LABEL_225:
-              TppCallbackPerformDeferredWork((char *)&v132[3] + 8);
-              if ( v73 )
-                _InterlockedDecrement((volatile signed __int32 *)(a1 + 416));
+              TppCallbackPerformDeferredWork(&DeferredWork[2].AlpcSendMessagePort);
               if ( v74 )
-              {
-                v69 = v97;
-                RtlAcquireSRWLockExclusive(&v97->TppWorkerpListLock);
-                v70 = v132[0];
-                if ( *(_OWORD **)(*(_QWORD *)&v132[0] + 8LL) != v132 || **((_OWORD ***)&v132[0] + 1) != v132 )
-                  __fastfail(3u);
-                **((_QWORD **)&v132[0] + 1) = *(_QWORD *)&v132[0];
-                *(_QWORD *)(v70 + 8) = *((_QWORD *)&v70 + 1);
-                RtlReleaseSRWLockExclusive((volatile signed __int64 *)&v69->TppWorkerpListLock);
-              }
+                _InterlockedDecrement((volatile signed __int32 *)(a1 + 416));
               if ( v75 )
               {
-                TppPoolRemoveWorker(v132);
-                if ( v76 )
+                v69 = (_RTL_SRWLOCK *)v98;
+                RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)&v98->TppWorkerpListLock);
+                v70 = DeferredWork[0].AlpcSendMessage;
+                AlpcSendMessagePort = DeferredWork[0].AlpcSendMessagePort;
+                if ( DeferredWork[0].AlpcSendMessage->ClientId.UniqueProcess != DeferredWork
+                  || *(_WORKER_FACTORY_DEFERRED_WORK **)DeferredWork[0].AlpcSendMessagePort != DeferredWork )
+                {
+                  __fastfail(3u);
+                }
+                *(_QWORD *)DeferredWork[0].AlpcSendMessagePort = DeferredWork[0].AlpcSendMessage;
+                v70->ClientId.UniqueProcess = AlpcSendMessagePort;
+                RtlReleaseSRWLockExclusive(v69 + 113);
+              }
+              if ( v76 )
+              {
+                TppPoolRemoveWorker(DeferredWork);
+                if ( v77 )
                   TppPoolUpdateTrimmedWorker(a1);
               }
-              if ( a1 == TppPoolpGlobalPool )
+              if ( (PVOID)a1 == TppPoolpGlobalPool )
               {
                 TppPoolpDereferenceGlobalPool(&TppPoolpGlobalPool, &TppPoolpGlobalPoolLock);
               }
@@ -747,32 +779,32 @@ LABEL_225:
               }
               else if ( _InterlockedExchangeAdd((volatile signed __int32 *)a1, 0xFFFFFFFF) == 1 )
               {
-                TppPoolpFree(a1);
+                TppPoolpFree((PVOID)a1);
               }
-              TppCritResetThread(v114);
-              TppFreeThreadData(v101);
-              TppFreeDirectParamsCache(v132);
-              v88 = 0;
-              RtlExitUserThread(0LL);
+              TppCritResetThread(v115);
+              TppFreeThreadData(BaseAddress);
+              TppFreeDirectParamsCache(DeferredWork);
+              v89 = 0;
+              RtlExitUserThread(0);
             }
             v11 = 0;
             for ( j = 0; ; j = v11 )
             {
               if ( v11 > 2 )
                 goto LABEL_119;
-              v9 = *(_QWORD *)(a1 + 8LL * v11 + 16) + 24LL * v93;
-              v115 = (volatile signed __int64 *)v9;
+              v9 = *(_QWORD *)(a1 + 8LL * v11 + 16) + 24LL * v94;
+              v116 = (volatile signed __int64 *)v9;
               v12 = (volatile signed __int64 *)(v9 + 16);
-              v98 = 0;
+              v99 = 0;
               if ( _interlockedbittestandset64((volatile signed __int32 *)(v9 + 16), 0LL) )
                 break;
 LABEL_21:
-              v13 = v115;
-              v14 = (volatile signed __int64 *)*v115;
-              v15 = **(_QWORD **)v115;
-              if ( *(volatile signed __int64 **)(*v115 + 8) != v115 || *(volatile signed __int64 **)(v15 + 8) != v14 )
+              v13 = v116;
+              v14 = (volatile signed __int64 *)*v116;
+              v15 = **(_QWORD **)v116;
+              if ( *(volatile signed __int64 **)(*v116 + 8) != v116 || *(volatile signed __int64 **)(v15 + 8) != v14 )
                 __fastfail(3u);
-              *v115 = v15;
+              *v116 = v15;
               *(_QWORD *)(v15 + 8) = v13;
               v16 = v13 + 2;
               v17 = _InterlockedCompareExchange64(v13 + 2, 0LL, 1LL);
@@ -791,9 +823,9 @@ LABEL_21:
                 if ( v60 == 3 )
                   RtlpWakeSRWLock(v16, v9, 0LL);
               }
-              if ( v14 != v115 && v14 )
+              if ( v14 != v116 && v14 )
               {
-                v18 = v14 - 2;
+                v18 = (__int64 (__fastcall ***)(PTP_CALLBACK_INSTANCE))(v14 - 2);
                 goto LABEL_28;
               }
               ++v11;
@@ -804,41 +836,41 @@ LABEL_21:
               while ( (v54 & 1) != 0 )
               {
                 if ( (unsigned __int8)RtlpWaitCouldDeadlock() )
-                  ZwTerminateProcess(-1LL, 3221225547LL);
+                  ZwTerminateProcess((HANDLE)0xFFFFFFFFFFFFFFFFLL, -1073741749);
                 UniqueThread = NtCurrentTeb()->ClientId.UniqueThread;
-                v121[0] = 3;
-                v118 = 0LL;
+                v122[0] = 3;
+                v119 = 0LL;
                 v55 = 0;
-                v83 = 0;
+                v84 = 0;
                 if ( (v54 & 2) != 0 )
                 {
-                  v117 = 0LL;
-                  v116 = v54 & 0xFFFFFFFFFFFFFFF0uLL;
-                  v120 = -1;
-                  v9 = (unsigned __int64)&v116 | v54 & 8 | 7;
-                  v94 = v9;
+                  v118 = 0LL;
+                  v117 = v54 & 0xFFFFFFFFFFFFFFF0uLL;
+                  v121 = -1;
+                  v9 = (unsigned __int64)&v117 | v54 & 8 | 7;
+                  v95 = v9;
                   if ( (v54 & 4) == 0 )
                   {
                     v55 = 1;
-                    v83 = 1;
+                    v84 = 1;
                   }
                 }
                 else
                 {
-                  v117 = &v116;
-                  v120 = v54 >> 4;
-                  if ( v120 > 1 )
-                    v9 = (unsigned __int64)&v116 | 0xB;
+                  v118 = &v117;
+                  v121 = v54 >> 4;
+                  if ( v121 > 1 )
+                    v9 = (unsigned __int64)&v117 | 0xB;
                   else
-                    v9 = (unsigned __int64)&v116 + 3;
-                  v94 = v9;
+                    v9 = (unsigned __int64)&v117 + 3;
+                  v95 = v9;
                   if ( !(unsigned int)(v54 >> 4) )
-                    v120 = -2;
+                    v121 = -2;
                 }
                 v57 = _InterlockedCompareExchange64(v12, v9, v54);
                 v56 = v54 == v57;
                 v54 = v57;
-                v94 = v57;
+                v95 = v57;
                 if ( !v56 )
                   goto LABEL_162;
                 if ( v55 )
@@ -847,56 +879,56 @@ LABEL_21:
                 {
                   for ( k = SRWLockSpinCount; ; --k )
                   {
-                    v106 = k;
-                    if ( !k || (v121[0] & 2) == 0 )
+                    v107 = k;
+                    if ( !k || (v122[0] & 2) == 0 )
                       break;
                     _mm_pause();
                   }
                 }
-                if ( _interlockedbittestandreset(v121, 1u) )
+                if ( _interlockedbittestandreset(v122, 1u) )
                 {
                   do
-                    NtWaitForAlertByThreadId(v12, 0LL);
-                  while ( (v121[0] & 4) == 0 );
+                    NtWaitForAlertByThreadId((PVOID)v12, 0LL);
+                  while ( (v122[0] & 4) == 0 );
                 }
               }
-              v94 = v54 + 1;
-              v94 = _InterlockedCompareExchange64(v12, v54 + 1, v54);
-              if ( v54 == v94 )
+              v95 = v54 + 1;
+              v95 = _InterlockedCompareExchange64(v12, v54 + 1, v54);
+              if ( v54 == v95 )
                 goto LABEL_21;
 LABEL_162:
-              RtlBackoff(&v98);
+              RtlBackoff(&v99);
               _m_prefetchw((const void *)v12);
               v54 = *v12;
-              v94 = *v12;
+              v95 = *v12;
               continue;
             }
           }
         }
       }
-      v121[4] = TppHeapTag + 3145728;
-      Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, (TppHeapTag + 3145728) | 8u, 912LL);
-      v33 = (_OWORD *)Heap;
+      v122[4] = TppHeapTag + 3145728;
+      Heap = (ULONG *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, (TppHeapTag + 3145728) | 8, 0x390uLL);
+      p_AlpcSendMessageFlags = Heap;
       if ( Heap )
       {
-        v45 = Heap + 896;
-        *(_QWORD *)v45 = v33;
-        *(_DWORD *)(v45 + 8) = 1;
-        *(_DWORD *)(v45 + 12) = 16;
-        *(_QWORD *)&v132[21] = v45;
-        v32 = 16;
+        v45 = (_PORT_MESSAGE *)(Heap + 224);
+        *(_QWORD *)&v45->u1.s1.DataLength = p_AlpcSendMessageFlags;
+        LODWORD(v45->DoNotUseThisField) = 1;
+        HIDWORD(v45->DoNotUseThisField) = 16;
+        DeferredWork[14].AlpcSendMessage = v45;
+        DoNotUseThisField_high = 16;
       }
       else
       {
 LABEL_191:
-        v32 = 1;
-        v33 = &v132[19];
+        DoNotUseThisField_high = 1;
+        p_AlpcSendMessageFlags = &DeferredWork[12].AlpcSendMessageFlags;
       }
-      v89 = v32;
+      v90 = DoNotUseThisField_high;
       goto LABEL_81;
     }
   }
   v27 = 1;
-  v77 = 1;
+  v78 = 1;
   goto LABEL_74;
 }

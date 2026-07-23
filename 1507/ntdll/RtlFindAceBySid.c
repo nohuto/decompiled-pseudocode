@@ -6,7 +6,7 @@
  *     RtlEqualSid @ 0x18004A6C0 (RtlEqualSid.c)
  */
 
-unsigned __int8 *__fastcall RtlFindAceBySid(__int64 a1, _WORD *a2, unsigned int *a3)
+unsigned __int8 *__fastcall RtlFindAceBySid(__int64 a1, void *a2, unsigned int *a3)
 {
   unsigned int v5; // ebp
   unsigned __int8 *v6; // rbx

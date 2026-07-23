@@ -1,10 +1,10 @@
 /*
- * XREFs of Feature_HgsPlusSupportRequired__private_ReportDeviceUsage @ 0x14041148C
+ * XREFs of Feature_HgsPlusSupportRequired__private_ReportDeviceUsage @ 0x140411698
  * Callers:
- *     PpmHeteroInitializeHgsSupport @ 0x1403AC3F4 (PpmHeteroInitializeHgsSupport.c)
+ *     PpmHeteroInitializeHgsSupport @ 0x1403AC5D4 (PpmHeteroInitializeHgsSupport.c)
  * Callees:
- *     wil_details_FeatureReporting_ReportUsageToService @ 0x14022FBC0 (wil_details_FeatureReporting_ReportUsageToService.c)
- *     wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath @ 0x14040F878 (wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath.c)
+ *     wil_details_FeatureReporting_ReportUsageToService @ 0x14022FCB0 (wil_details_FeatureReporting_ReportUsageToService.c)
+ *     wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath @ 0x14040FA58 (wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath.c)
  */
 
 void Feature_HgsPlusSupportRequired__private_ReportDeviceUsage()

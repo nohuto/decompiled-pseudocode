@@ -1,12 +1,12 @@
 /*
- * XREFs of StringCchPrintfExW @ 0x140715790
+ * XREFs of StringCchPrintfExW @ 0x14071A480
  * Callers:
- *     AdtpBuildAccessReasonAuditStringInternal @ 0x14043282C (AdtpBuildAccessReasonAuditStringInternal.c)
- *     AdtpBuildStagingReasonAuditStringInternal @ 0x14071533C (AdtpBuildStagingReasonAuditStringInternal.c)
+ *     AdtpBuildAccessReasonAuditStringInternal @ 0x14041F85C (AdtpBuildAccessReasonAuditStringInternal.c)
+ *     AdtpBuildStagingReasonAuditStringInternal @ 0x14071A02C (AdtpBuildStagingReasonAuditStringInternal.c)
  * Callees:
- *     StringExHandleOtherFlagsW @ 0x14044E280 (StringExHandleOtherFlagsW.c)
- *     _vsnwprintf @ 0x1405353B0 (_vsnwprintf.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     StringExHandleOtherFlagsW @ 0x1404463B0 (StringExHandleOtherFlagsW.c)
+ *     _vsnwprintf @ 0x140537830 (_vsnwprintf.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 HRESULT StringCchPrintfExW(

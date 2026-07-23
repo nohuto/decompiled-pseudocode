@@ -1,23 +1,23 @@
 /*
- * XREFs of RtlpValidTrustSubjectContext @ 0x1800E1288
+ * XREFs of RtlpValidTrustSubjectContext @ 0x1800E1348
  * Callers:
  *     RtlpSetSecurityObject @ 0x180003850 (RtlpSetSecurityObject.c)
- *     RtlpNewSecurityObject @ 0x180044AD8 (RtlpNewSecurityObject.c)
+ *     RtlpNewSecurityObject @ 0x180044AC8 (RtlpNewSecurityObject.c)
  * Callees:
- *     RtlSidDominatesForTrust @ 0x18006B3C0 (RtlSidDominatesForTrust.c)
+ *     RtlSidDominatesForTrust @ 0x18006B3B0 (RtlSidDominatesForTrust.c)
  */
 
-bool __fastcall RtlpValidTrustSubjectContext(__int64 a1, __int64 a2, __int64 a3, _DWORD *a4)
+BOOLEAN __fastcall RtlpValidTrustSubjectContext(void *a1, void *a2, __int64 a3, NTSTATUS *a4)
 {
-  bool result; // al
-  bool v6; // [rsp+40h] [rbp+18h] BYREF
+  BOOLEAN result; // al
+  BOOLEAN DominatesTrust; // [rsp+40h] [rbp+18h] BYREF
 
-  v6 = 0;
+  DominatesTrust = 0;
   if ( a1 )
   {
-    *a4 = RtlSidDominatesForTrust(a1, a2, &v6);
-    result = v6;
-    if ( v6 )
+    *a4 = RtlSidDominatesForTrust(a1, a2, &DominatesTrust);
+    result = DominatesTrust;
+    if ( DominatesTrust )
       return result;
   }
   else

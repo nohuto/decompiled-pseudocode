@@ -1,14 +1,14 @@
 /*
- * XREFs of ExpInitializeCallbacks @ 0x140CE6064
+ * XREFs of ExpInitializeCallbacks @ 0x140CEC404
  * Callers:
- *     ExpInitSystemPhase1 @ 0x140CE4380 (ExpInitSystemPhase1.c)
+ *     ExpInitSystemPhase1 @ 0x140CEA720 (ExpInitSystemPhase1.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     ObCreateObjectType @ 0x14077B990 (ObCreateObjectType.c)
- *     NtClose @ 0x1408F9F30 (NtClose.c)
- *     NtCreateDirectoryObject @ 0x140AF9E30 (NtCreateDirectoryObject.c)
- *     ExCreateCallback @ 0x140AFB990 (ExCreateCallback.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     ObCreateObjectType @ 0x14077E5D0 (ObCreateObjectType.c)
+ *     NtClose @ 0x140929EC0 (NtClose.c)
+ *     NtCreateDirectoryObject @ 0x140AFC2C0 (NtCreateDirectoryObject.c)
+ *     ExCreateCallback @ 0x140AFD610 (ExCreateCallback.c)
  */
 
 char ExpInitializeCallbacks()
@@ -24,14 +24,14 @@ char ExpInitializeCallbacks()
   int v9; // [rsp+84h] [rbp-Dh]
   int v10; // [rsp+8Ch] [rbp-5h]
   void (__fastcall *v11)(__int64, __int64, __int64, struct _KLOCK_ENTRIES *); // [rsp+B0h] [rbp+1Fh]
-  HANDLE Handle; // [rsp+F8h] [rbp+67h] BYREF
+  HANDLE DirectoryHandle; // [rsp+F8h] [rbp+67h] BYREF
 
   *(&ObjectAttributes.Length + 1) = 0;
   *(&ObjectAttributes.Attributes + 1) = 0;
-  Handle = 0LL;
-  *(_QWORD *)&stru_140EFEF90.Header.Lock = 0LL;
-  qword_140EFEF88 = (__int64)&qword_140EFEF80;
-  qword_140EFEF80 = (__int64)&qword_140EFEF80;
+  DirectoryHandle = 0LL;
+  *(_QWORD *)&stru_140EFF2C0.Header.Lock = 0LL;
+  stru_140EFF2C0.SListFaultAddress = &stru_140EFF2C0.Header.WaitListHead.Blink;
+  stru_140EFF2C0.Header.WaitListHead.Blink = (struct _LIST_ENTRY *)&stru_140EFF2C0.Header.WaitListHead.Blink;
   DestinationString = 0LL;
   RtlInitUnicodeString(&DestinationString, L"Callback");
   memset_0(&v5, 0, 0x78uLL);
@@ -47,19 +47,19 @@ char ExpInitializeCallbacks()
   RtlInitUnicodeString(&DestinationString, L"\\Callback");
   ObjectAttributes.Length = 48;
   ObjectAttributes.ObjectName = &DestinationString;
-  ObjectAttributes.SecurityDescriptor = *(PVOID *)&PspSiloMonitorLock.WaitBlockFill11[160];
+  ObjectAttributes.SecurityDescriptor = PspSiloMonitorLock.WaitBlock[3].Thread;
   ObjectAttributes.RootDirectory = 0LL;
   ObjectAttributes.Attributes = 80;
   ObjectAttributes.SecurityQualityOfService = 0LL;
-  if ( (int)NtCreateDirectoryObject((__int64)&Handle, 983055LL, (__int64)&ObjectAttributes) < 0 )
+  if ( NtCreateDirectoryObject(&DirectoryHandle, 0xF000Fu, &ObjectAttributes) < 0 )
     return 0;
-  NtClose(Handle);
-  LOWORD(word_140EFEF60.Header.Lock) = 0;
-  qword_140EFEF70 = (__int64)&qword_140EFEF68;
-  qword_140EFEF68 = (__int64)&qword_140EFEF68;
+  NtClose(DirectoryHandle);
+  LOWORD(word_140EFF2A0.Header.Lock) = 0;
+  qword_140EFF2B0 = (__int64)&qword_140EFF2A8;
+  qword_140EFF2A8 = (__int64)&qword_140EFF2A8;
   v0 = 0;
-  byte_140EFEF62 = 6;
-  dword_140EFEF64 = 0;
+  byte_140EFF2A2 = 6;
+  dword_140EFF2A4 = 0;
   while ( ExpInitializeCallback[2 * v0] )
   {
     RtlInitUnicodeString(&DestinationString, (PCWSTR)ExpInitializeCallback[2 * v0 + 1]);

@@ -1,8 +1,8 @@
 /*
  * XREFs of ViPoolLogStackTrace @ 0x140710BB0
  * Callers:
- *     VeAllocatePoolWithTagPriority @ 0x140701D78 (VeAllocatePoolWithTagPriority.c)
- *     VfFreePoolNotification @ 0x140710968 (VfFreePoolNotification.c)
+ *     VeAllocatePoolWithTagPriority @ 0x140701DA8 (VeAllocatePoolWithTagPriority.c)
+ *     VfFreePoolNotification @ 0x140710998 (VfFreePoolNotification.c)
  *     VerifierMmAllocateContiguousMemory @ 0x14071B638 (VerifierMmAllocateContiguousMemory.c)
  *     VerifierMmAllocateContiguousMemorySpecifyCache @ 0x14071B6E0 (VerifierMmAllocateContiguousMemorySpecifyCache.c)
  *     VerifierMmAllocateContiguousMemorySpecifyCacheNode @ 0x14071B7B4 (VerifierMmAllocateContiguousMemorySpecifyCacheNode.c)
@@ -17,9 +17,9 @@
  *     VerifierMmMapLockedPages @ 0x14071BFC0 (VerifierMmMapLockedPages.c)
  *     VerifierMmMapLockedPagesSpecifyCache @ 0x14071C09C (VerifierMmMapLockedPagesSpecifyCache.c)
  * Callees:
- *     KeExpandKernelStackAndCalloutEx @ 0x1400F0FC0 (KeExpandKernelStackAndCalloutEx.c)
- *     RtlEnoughStackSpaceForStackCapture @ 0x14021171C (RtlEnoughStackSpaceForStackCapture.c)
- *     ViPoolLogStackCallout @ 0x140710B80 (ViPoolLogStackCallout.c)
+ *     KeExpandKernelStackAndCalloutEx @ 0x1400EEE10 (KeExpandKernelStackAndCalloutEx.c)
+ *     RtlEnoughStackSpaceForStackCapture @ 0x140211548 (RtlEnoughStackSpaceForStackCapture.c)
+ *     ViPoolLogStackCallout @ 0x140701694 (ViPoolLogStackCallout.c)
  */
 
 void __fastcall ViPoolLogStackTrace(__int64 a1, __int64 a2)

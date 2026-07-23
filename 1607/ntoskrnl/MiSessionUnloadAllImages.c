@@ -1,12 +1,12 @@
 /*
- * XREFs of MiSessionUnloadAllImages @ 0x140531F68
+ * XREFs of MiSessionUnloadAllImages @ 0x1405324A8
  * Callers:
- *     MiDereferenceSessionFinal @ 0x140531AD0 (MiDereferenceSessionFinal.c)
+ *     MiDereferenceSessionFinal @ 0x140532010 (MiDereferenceSessionFinal.c)
  * Callees:
- *     MiSessionLookupImage @ 0x1400865D4 (MiSessionLookupImage.c)
- *     MmReleaseLoadLock @ 0x140483400 (MmReleaseLoadLock.c)
- *     MmAcquireLoadLock @ 0x14048342C (MmAcquireLoadLock.c)
- *     MmUnloadSystemImage @ 0x140545D68 (MmUnloadSystemImage.c)
+ *     MiSessionLookupImage @ 0x140087EC4 (MiSessionLookupImage.c)
+ *     MmReleaseLoadLock @ 0x140482154 (MmReleaseLoadLock.c)
+ *     MmAcquireLoadLock @ 0x140482180 (MmAcquireLoadLock.c)
+ *     MmUnloadSystemImage @ 0x1405462A8 (MmUnloadSystemImage.c)
  */
 
 __int64 MiSessionUnloadAllImages()
@@ -23,7 +23,7 @@ __int64 MiSessionUnloadAllImages()
   v2 = (__int64)Lock;
   if ( PsLoadedModuleList != &PsLoadedModuleList )
   {
-    v3 = qword_140326910;
+    v3 = qword_140326950;
     do
     {
       v4 = (unsigned __int64)v1[6];
@@ -32,7 +32,7 @@ __int64 MiSessionUnloadAllImages()
         MmReleaseLoadLock(v2);
         MmUnloadSystemImage((ULONG_PTR)v1);
         v6 = MmAcquireLoadLock();
-        v3 = qword_140326910;
+        v3 = qword_140326950;
         v2 = (__int64)v6;
         v1 = (PVOID *)PsLoadedModuleList;
       }

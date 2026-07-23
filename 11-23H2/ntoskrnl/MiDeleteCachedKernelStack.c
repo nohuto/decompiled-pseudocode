@@ -3,10 +3,10 @@
  * Callers:
  *     MiAdjustCachedStacks @ 0x14021E8BC (MiAdjustCachedStacks.c)
  *     MiPruneCachedStackList @ 0x14021EB00 (MiPruneCachedStackList.c)
- *     MiEmptyKernelStackCache @ 0x140644790 (MiEmptyKernelStackCache.c)
+ *     MiEmptyKernelStackCache @ 0x140644CE0 (MiEmptyKernelStackCache.c)
  * Callees:
- *     MiDeleteKernelStack @ 0x140283990 (MiDeleteKernelStack.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
+ *     MiDeleteKernelStack @ 0x140283C20 (MiDeleteKernelStack.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall MiDeleteCachedKernelStack(__int64 a1)

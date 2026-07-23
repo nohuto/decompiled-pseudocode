@@ -8,9 +8,9 @@
  *     _RtlAcquireSRWLockExclusive@4 @ 0x4B2C22E0 (_RtlAcquireSRWLockExclusive@4.c)
  */
 
-char __fastcall RtlpHpSegLockAcquire(int a1, char a2)
+char __fastcall RtlpHpSegLockAcquire(_RTL_SRWLOCK *a1, char a2)
 {
   if ( (a2 & 1) == 0 )
-    RtlAcquireSRWLockExclusive((volatile signed __int32 *)(a1 + 64));
+    RtlAcquireSRWLockExclusive(a1 + 16);
   return -1;
 }

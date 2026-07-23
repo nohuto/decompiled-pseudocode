@@ -155,7 +155,7 @@ __int64 __fastcall SshNotifySystemSessionChange(int a1, __int64 a2)
     v23 = _interlockedbittestandset64((volatile signed __int32 *)&SshpLibraryListLock, 0LL);
     v24 = v22;
     if ( v23 )
-      ExfAcquirePushLockExclusiveEx(&SshpLibraryListLock, v22, (__int64)&SshpLibraryListLock);
+      ExfAcquirePushLockExclusiveEx((unsigned __int64 *)&SshpLibraryListLock, v22, (__int64)&SshpLibraryListLock);
     if ( v24 )
       *((_BYTE *)v24 + 10) = 1;
     for ( i = SshpLibraryList; (__int64 *)i != &SshpLibraryList; i = *(_QWORD *)i )

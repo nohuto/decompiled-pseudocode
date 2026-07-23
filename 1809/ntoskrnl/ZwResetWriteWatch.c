@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwResetWriteWatch @ 0x1401BAFD0
+ * XREFs of ZwResetWriteWatch @ 0x1401BB130
  * Callers:
  *     <none>
  * Callees:
@@ -10,5 +10,5 @@ NTSTATUS __stdcall ZwResetWriteWatch(HANDLE ProcessHandle, PVOID BaseAddress, SI
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(ProcessHandle, BaseAddress, RegionSize);
+  return KiServiceInternal(ProcessHandle);
 }

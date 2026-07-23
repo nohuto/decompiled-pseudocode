@@ -1,10 +1,10 @@
 /*
- * XREFs of MiFreePageFileHashPfn @ 0x1404A8FE0
+ * XREFs of MiFreePageFileHashPfn @ 0x1404A3400
  * Callers:
- *     MiFreePageFileHashPfns @ 0x1402D2BA0 (MiFreePageFileHashPfns.c)
- *     MiMapPageFileHash @ 0x140486688 (MiMapPageFileHash.c)
+ *     MiFreePageFileHashPfns @ 0x140353E18 (MiFreePageFileHashPfns.c)
+ *     MiMapPageFileHash @ 0x140425FA8 (MiMapPageFileHash.c)
  * Callees:
- *     MiInsertPageInFreeOrZeroedList @ 0x140222210 (MiInsertPageInFreeOrZeroedList.c)
+ *     MiInsertPageInFreeOrZeroedList @ 0x14024EF60 (MiInsertPageInFreeOrZeroedList.c)
  */
 
 int __fastcall MiFreePageFileHashPfn(ULONG_PTR a1)

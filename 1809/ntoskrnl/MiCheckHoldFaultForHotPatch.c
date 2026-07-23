@@ -1,12 +1,12 @@
 /*
- * XREFs of MiCheckHoldFaultForHotPatch @ 0x1402B926C
+ * XREFs of MiCheckHoldFaultForHotPatch @ 0x1402B945C
  * Callers:
  *     MiUserFault @ 0x140044870 (MiUserFault.c)
  * Callees:
  *     KeWaitForSingleObject @ 0x140054880 (KeWaitForSingleObject.c)
- *     MiGetSharedVm @ 0x140064D30 (MiGetSharedVm.c)
- *     ExAcquireSpinLockExclusive @ 0x1400BC4E0 (ExAcquireSpinLockExclusive.c)
- *     MiUnlockFaultWorkingSet @ 0x1402BF6C4 (MiUnlockFaultWorkingSet.c)
+ *     MiGetSharedVm @ 0x140064D20 (MiGetSharedVm.c)
+ *     ExAcquireSpinLockExclusive @ 0x1400BC420 (ExAcquireSpinLockExclusive.c)
+ *     MiUnlockFaultWorkingSet @ 0x1402BF8B4 (MiUnlockFaultWorkingSet.c)
  */
 
 __int64 __fastcall MiCheckHoldFaultForHotPatch(__int64 a1, unsigned __int64 *a2)

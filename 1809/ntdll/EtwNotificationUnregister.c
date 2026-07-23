@@ -5,8 +5,8 @@
  *     EtwUnregisterTraceGuids @ 0x18004E920 (EtwUnregisterTraceGuids.c)
  *     EtwEventUnregister @ 0x18004E970 (EtwEventUnregister.c)
  *     LdrpLogDeprecatedDllEtwEvent @ 0x1800715FC (LdrpLogDeprecatedDllEtwEvent.c)
- *     SbObtainTraceHandle @ 0x1800826D0 (SbObtainTraceHandle.c)
- *     SbCleanupTrace @ 0x180084CCC (SbCleanupTrace.c)
+ *     SbObtainTraceHandle @ 0x1800826E0 (SbObtainTraceHandle.c)
+ *     SbCleanupTrace @ 0x180084CDC (SbCleanupTrace.c)
  *     LdrpAppxEtwGenericIntegrityFailure @ 0x1800CD9E0 (LdrpAppxEtwGenericIntegrityFailure.c)
  *     LdrpAppxEtwIntegrityFailure @ 0x1800CDA68 (LdrpAppxEtwIntegrityFailure.c)
  *     LdrpLogFatalUserCallbackException @ 0x1800D14D0 (LdrpLogFatalUserCallbackException.c)
@@ -17,41 +17,45 @@
  *     EtwpRemoveRegistrationFromTable @ 0x18004EAC4 (EtwpRemoveRegistrationFromTable.c)
  *     RtlSetLastWin32Error @ 0x18004ED60 (RtlSetLastWin32Error.c)
  *     EtwpDereferenceUmGuidEntry @ 0x180050D6C (EtwpDereferenceUmGuidEntry.c)
- *     NtClose @ 0x1800A04C0 (NtClose.c)
+ *     NtClose @ 0x1800A04E0 (NtClose.c)
  */
 
-__int64 __fastcall EtwNotificationUnregister(unsigned __int64 a1, _QWORD *a2, unsigned __int64 *a3, __int64 a4)
+ULONG __cdecl EtwNotificationUnregister(REGHANDLE RegHandle, PVOID *Context)
 {
-  unsigned __int64 v4; // rdi
-  __int64 v6; // rbx
-  __int64 v7; // rcx
+  REGHANDLE v2; // rdi
+  REGHANDLE v4; // rbx
+  void *v5; // rcx
 
-  v4 = HIWORD(a1);
-  if ( !HIWORD(a1) )
+  v2 = HIWORD(RegHandle);
+  if ( !HIWORD(RegHandle) )
     goto LABEL_13;
-  v6 = a1 & 0xFFFFFFFFFFFFLL;
-  if ( (a1 & 1) != 0 || HIWORD(a1) != *(_WORD *)((a1 & 0xFFFFFFFFFFFFLL) + 0x60) || v6 == PrivateLoggerNotificationEntry )
-    goto LABEL_13;
-  RtlAcquireSRWLockExclusive(v6 + 72, (unsigned __int64)a2, a3, a4);
-  if ( (_WORD)v4 != _InterlockedCompareExchange16((volatile signed __int16 *)(v6 + 96), 0, v4) )
+  v4 = RegHandle & 0xFFFFFFFFFFFFLL;
+  if ( (RegHandle & 1) != 0
+    || HIWORD(RegHandle) != *(_WORD *)((RegHandle & 0xFFFFFFFFFFFFLL) + 0x60)
+    || v4 == PrivateLoggerNotificationEntry )
   {
-    RtlReleaseSRWLockExclusive((volatile signed __int64 *)(v6 + 72));
+    goto LABEL_13;
+  }
+  RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)(v4 + 72));
+  if ( (_WORD)v2 != _InterlockedCompareExchange16((volatile signed __int16 *)(v4 + 96), 0, v2) )
+  {
+    RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(v4 + 72));
 LABEL_13:
-    RtlSetLastWin32Error(6LL);
-    return 6LL;
+    RtlSetLastWin32Error(6);
+    return 6;
   }
-  EtwpRemoveRegistrationFromTable(v6);
-  RtlReleaseSRWLockExclusive((volatile signed __int64 *)(v6 + 72));
-  if ( (*(_WORD *)(v6 + 98) & 0x3FFF) != 0xA )
-    NtClose(*(HANDLE *)(v6 + 88));
-  v7 = *(_QWORD *)(v6 + 248);
-  if ( v7 )
+  EtwpRemoveRegistrationFromTable((PRTL_BALANCED_NODE)v4);
+  RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(v4 + 72));
+  if ( (*(_WORD *)(v4 + 98) & 0x3FFF) != 0xA )
+    NtClose(*(HANDLE *)(v4 + 88));
+  v5 = *(void **)(v4 + 248);
+  if ( v5 )
   {
-    EtwpDereferenceUmGuidEntry(v7);
-    *(_QWORD *)(v6 + 248) = 0LL;
+    EtwpDereferenceUmGuidEntry(v5);
+    *(_QWORD *)(v4 + 248) = 0LL;
   }
-  if ( a2 )
-    *a2 = *(_QWORD *)(v6 + 56);
-  EtwpFreeRegistration(v6);
-  return 0LL;
+  if ( Context )
+    *Context = *(PVOID *)(v4 + 56);
+  EtwpFreeRegistration(v4);
+  return 0;
 }

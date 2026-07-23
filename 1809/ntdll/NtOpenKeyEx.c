@@ -1,5 +1,5 @@
 /*
- * XREFs of NtOpenKeyEx @ 0x1800A2610
+ * XREFs of NtOpenKeyEx @ 0x1800A2630
  * Callers:
  *     LdrpAppxGetRemediationRegistryKey @ 0x1800CDCB4 (LdrpAppxGetRemediationRegistryKey.c)
  *     LdrpIsCODServiceEnabled @ 0x1800D0EEC (LdrpIsCODServiceEnabled.c)
@@ -7,11 +7,15 @@
  *     <none>
  */
 
-__int64 NtOpenKeyEx()
+NTSTATUS __cdecl NtOpenKeyEx(
+        PHANDLE KeyHandle,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        ULONG OpenOptions)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 282LL;
+  result = 282;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

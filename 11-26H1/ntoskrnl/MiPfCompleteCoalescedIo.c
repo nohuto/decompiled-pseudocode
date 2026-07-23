@@ -1,16 +1,16 @@
 /*
- * XREFs of MiPfCompleteCoalescedIo @ 0x1404B9DEC
+ * XREFs of MiPfCompleteCoalescedIo @ 0x1404B367C
  * Callers:
- *     MmWaitForCacheManagerPrefetch @ 0x14039F6A8 (MmWaitForCacheManagerPrefetch.c)
- *     MiPfCompletePrefetchIos @ 0x14039FC90 (MiPfCompletePrefetchIos.c)
+ *     MmWaitForCacheManagerPrefetch @ 0x1403A1408 (MmWaitForCacheManagerPrefetch.c)
+ *     MiPfCompletePrefetchIos @ 0x1403A19F0 (MiPfCompletePrefetchIos.c)
  * Callees:
- *     KeWaitForSingleObject @ 0x140278560 (KeWaitForSingleObject.c)
- *     MmUnmapLockedPages @ 0x140281690 (MmUnmapLockedPages.c)
- *     KeSetEvent @ 0x1402DE9C0 (KeSetEvent.c)
- *     MiPfCompleteInPageSupport @ 0x14039FB18 (MiPfCompleteInPageSupport.c)
- *     MiRetardMdl @ 0x140504688 (MiRetardMdl.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     KeWaitForSingleObject @ 0x140277AD0 (KeWaitForSingleObject.c)
+ *     MmUnmapLockedPages @ 0x140280C00 (MmUnmapLockedPages.c)
+ *     KeSetEvent @ 0x1402C0780 (KeSetEvent.c)
+ *     MiPfCompleteInPageSupport @ 0x1403A1878 (MiPfCompleteInPageSupport.c)
+ *     MiRetardMdl @ 0x1404FDE4C (MiRetardMdl.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall MiPfCompleteCoalescedIo(ULONG_PTR BugCheckParameter4, void *a2)

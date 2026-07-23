@@ -17,7 +17,7 @@ __int64 __fastcall CmCheckRegistry(ULONG_PTR a1, __int64 a2)
 {
   int v2; // edi
   void *v4; // r14
-  struct _RTL_BITMAP *v5; // r15
+  _RTL_BITMAP *v5; // r15
   __int64 v7; // r12
   int v8; // edi
   PVOID PoolWithTag; // rax
@@ -53,7 +53,7 @@ __int64 __fastcall CmCheckRegistry(ULONG_PTR a1, __int64 a2)
       return 3000LL;
     }
     v15 = v8;
-    v5 = (struct _RTL_BITMAP *)&v15;
+    v5 = (_RTL_BITMAP *)&v15;
     v2 = v19;
     v16 = PoolWithTag;
   }

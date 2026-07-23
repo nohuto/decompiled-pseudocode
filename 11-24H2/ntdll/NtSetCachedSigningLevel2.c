@@ -1,16 +1,22 @@
 /*
- * XREFs of NtSetCachedSigningLevel2 @ 0x180164FA0
+ * XREFs of NtSetCachedSigningLevel2 @ 0x180163360
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 NtSetCachedSigningLevel2()
+NTSTATUS __cdecl NtSetCachedSigningLevel2(
+        ULONG Flags,
+        SE_SIGNING_LEVEL InputSigningLevel,
+        PHANDLE SourceFiles,
+        ULONG SourceFileCount,
+        HANDLE TargetFile,
+        SE_SET_FILE_CACHE_INFORMATION *CacheInformation)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 409LL;
+  result = 409;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

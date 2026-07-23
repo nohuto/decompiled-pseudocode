@@ -1,15 +1,15 @@
 /*
- * XREFs of EtwpFreeGuidEntry @ 0x1406B2ACC
+ * XREFs of EtwpFreeGuidEntry @ 0x1406BCEEC
  * Callers:
- *     EtwpUnreferenceGuidEntry @ 0x1405FD448 (EtwpUnreferenceGuidEntry.c)
- *     EtwpAddGuidEntry @ 0x1406E3BB0 (EtwpAddGuidEntry.c)
+ *     EtwpAddGuidEntry @ 0x1406BAE90 (EtwpAddGuidEntry.c)
+ *     EtwpUnreferenceGuidEntry @ 0x1406ECBA8 (EtwpUnreferenceGuidEntry.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
- *     ExReleasePushLockEx @ 0x14034AE90 (ExReleasePushLockEx.c)
- *     KeLeaveCriticalRegion @ 0x14034B3B0 (KeLeaveCriticalRegion.c)
- *     EtwpUnreferenceGuidEntry @ 0x1405FD448 (EtwpUnreferenceGuidEntry.c)
- *     ObDereferenceSecurityDescriptor @ 0x14065F6A0 (ObDereferenceSecurityDescriptor.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1403556E0 (ExAcquirePushLockExclusiveEx.c)
+ *     ExReleasePushLockEx @ 0x140355BE0 (ExReleasePushLockEx.c)
+ *     KeLeaveCriticalRegion @ 0x140356100 (KeLeaveCriticalRegion.c)
+ *     ObDereferenceSecurityDescriptor @ 0x1406544C0 (ObDereferenceSecurityDescriptor.c)
+ *     EtwpUnreferenceGuidEntry @ 0x1406ECBA8 (EtwpUnreferenceGuidEntry.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 void __fastcall EtwpFreeGuidEntry(char *P)
@@ -33,7 +33,7 @@ void __fastcall EtwpFreeGuidEntry(char *P)
     *(_QWORD *)(*((_QWORD *)P + 50) + 416LL) = 0LL;
     ExReleasePushLockEx(*((_QWORD *)P + 50) + 408LL, 0LL);
     KeLeaveCriticalRegion();
-    EtwpUnreferenceGuidEntry(*((__int64 **)P + 50));
+    EtwpUnreferenceGuidEntry(*((PVOID *)P + 50));
   }
   ObDereferenceSecurityDescriptor(*((_QWORD *)P + 9), 1u);
   v2 = (void *)*((_QWORD *)P + 48);

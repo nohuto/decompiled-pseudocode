@@ -15,22 +15,22 @@
 __int64 __fastcall RtlpGetUserLocaleName(PUNICODE_STRING DestinationString)
 {
   unsigned __int64 v1; // rbp
-  __int64 LocaleDataKey; // rax
+  void *LocaleDataKey; // rax
   __int64 v4; // rdx
-  _DWORD v6[8]; // [rsp+50h] [rbp+0h] BYREF
+  ULONG v6[8]; // [rsp+50h] [rbp+0h] BYREF
 
   v1 = (unsigned __int64)v6 & 0xFFFFFFFFFFFFFFE0uLL;
   *(_DWORD *)((unsigned __int64)v6 & 0xFFFFFFFFFFFFFFE0uLL) = 0;
-  LocaleDataKey = RtlpGetLocaleDataKey();
+  LocaleDataKey = (void *)RtlpGetLocaleDataKey();
   if ( !LocaleDataKey )
     return 3221225473LL;
-  if ( (int)NtQueryValueKey(
-              LocaleDataKey,
-              &`RtlpGetUserLocaleName'::`2'::KeyValueName,
-              2LL,
-              v1 + 32,
-              186,
-              (unsigned __int64)v6 & 0xFFFFFFFFFFFFFFE0uLL) < 0 )
+  if ( NtQueryValueKey(
+         LocaleDataKey,
+         (PUNICODE_STRING)&`RtlpGetUserLocaleName'::`2'::KeyValueName,
+         KeyValuePartialInformation,
+         (PVOID)(v1 + 32),
+         0xBAu,
+         (PULONG)((unsigned __int64)v6 & 0xFFFFFFFFFFFFFFE0uLL)) < 0 )
     return 3221225473LL;
   if ( *(_DWORD *)(((unsigned __int64)v6 & 0xFFFFFFFFFFFFFFE0uLL) + 0x24) != 1 )
     return 3221225473LL;

@@ -1,11 +1,11 @@
 /*
- * XREFs of MiReleaseNewAddressForBootImage @ 0x1409F774C
+ * XREFs of MiReleaseNewAddressForBootImage @ 0x1409F874C
  * Callers:
- *     MiReloadBootLoadedDrivers @ 0x1409B7C6C (MiReloadBootLoadedDrivers.c)
- *     MiGetNewAddressForBootImage @ 0x1409B85F4 (MiGetNewAddressForBootImage.c)
+ *     MiReloadBootLoadedDrivers @ 0x1409B8C6C (MiReloadBootLoadedDrivers.c)
+ *     MiGetNewAddressForBootImage @ 0x1409B95F4 (MiGetNewAddressForBootImage.c)
  * Callees:
- *     MiReleaseDriverPtes @ 0x14070E03C (MiReleaseDriverPtes.c)
- *     MiReleasePrivilegedPtes @ 0x14070F578 (MiReleasePrivilegedPtes.c)
+ *     MiReleaseDriverPtes @ 0x14070F2DC (MiReleaseDriverPtes.c)
+ *     MiReleasePrivilegedPtes @ 0x140710818 (MiReleasePrivilegedPtes.c)
  */
 
 void __fastcall MiReleaseNewAddressForBootImage(unsigned __int64 a1, int a2)

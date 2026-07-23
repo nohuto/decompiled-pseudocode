@@ -1,9 +1,9 @@
 /*
- * XREFs of KeSubtractAffinityEx2 @ 0x14056F4A0
+ * XREFs of KeSubtractAffinityEx2 @ 0x14056F9E0
  * Callers:
  *     <none>
  * Callees:
- *     KiSubtractAffinityEx @ 0x14033D83C (KiSubtractAffinityEx.c)
+ *     KiSubtractAffinityEx @ 0x14033DACC (KiSubtractAffinityEx.c)
  */
 
 __int64 __fastcall KeSubtractAffinityEx2(unsigned __int16 *a1, char *a2, __int64 a3)

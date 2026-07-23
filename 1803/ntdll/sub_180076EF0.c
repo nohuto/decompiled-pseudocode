@@ -14,47 +14,48 @@
  *     _guard_dispatch_icall_nop @ 0x18009E4A0 (_guard_dispatch_icall_nop.c)
  */
 
-void __fastcall sub_180076EF0(__int64 a1, __int64 a2, __int64 a3, unsigned int a4)
+void __fastcall sub_180076EF0(PTP_CALLBACK_INSTANCE a1, __int64 *a2, PTP_WAIT a3, unsigned int a4)
 {
   struct _TEB *v6; // r14
   __int64 v7; // rdi
   __int64 v8; // rcx
   __int64 v9; // rdx
-  int v10; // ecx
-  __int64 v11; // [rsp+30h] [rbp-38h] BYREF
-  __int64 v12[6]; // [rsp+38h] [rbp-30h] BYREF
+  __int64 v10; // r8
+  int v11; // ecx
+  __int64 ThreadInformation; // [rsp+30h] [rbp-38h] BYREF
+  __int64 v13[6]; // [rsp+38h] [rbp-30h] BYREF
 
-  if ( (*(_BYTE *)(a2 + 8) & 4) == 0 )
-    sub_180077048(a2, a4);
-  if ( *(_QWORD *)a2 )
-    sub_180076128(*(_QWORD *)a2);
-  if ( (*(_BYTE *)(a2 + 8) & 4) != 0 )
-    *(_DWORD *)(a2 + 88) = NtCurrentTeb()->ClientId.UniqueThread;
+  if ( (a2[1] & 4) == 0 )
+    sub_180077048(a2, a4, a3);
+  if ( *a2 )
+    sub_180076128(*a2);
+  if ( (a2[1] & 4) != 0 )
+    *((_DWORD *)a2 + 22) = NtCurrentTeb()->ClientId.UniqueThread;
   v6 = NtCurrentTeb();
   v7 = 2147353478LL;
-  if ( (unsigned int)RtlGetCurrentServiceSessionId() )
-    v8 = (__int64)NtCurrentPeb()->HotpatchInformation + 556;
+  if ( RtlGetCurrentServiceSessionId() )
+    v8 = (__int64)&NtCurrentPeb()->SharedData->UserModeGlobalLogger[3];
   else
     v8 = 2147353478LL;
   if ( *(_BYTE *)v8 )
-    sub_180001FD0(0LL, *(_QWORD *)(a2 + 48), *(_QWORD *)(a2 + 32), *(_QWORD *)(a2 + 40), (__int64)v6->SubProcessTag);
-  sub_18002567C(v12, *(_QWORD *)(a2 + 32), *(_QWORD *)(a2 + 40), (__int64)v6->SubProcessTag);
+    sub_180001FD0(0LL, a2[6], a2[4], a2[5], (__int64)v6->SubProcessTag);
+  sub_18002567C(v13, a2[4], a2[5], (__int64)v6->SubProcessTag);
   LOBYTE(v9) = a4 == 258;
-  (*(void (__fastcall **)(_QWORD, __int64))(a2 + 32))(*(_QWORD *)(a2 + 40), v9);
-  v10 = *(_DWORD *)(a2 + 8);
-  if ( (v10 & 4) != 0 )
-    *(_DWORD *)(a2 + 88) = 0;
+  ((void (__fastcall *)(__int64, __int64))a2[4])(a2[5], v9);
+  v11 = *((_DWORD *)a2 + 2);
+  if ( (v11 & 4) != 0 )
+    *((_DWORD *)a2 + 22) = 0;
   if ( NtCurrentTeb()->IsImpersonating )
   {
-    v11 = 0LL;
-    ZwSetInformationThread(-2LL, 5LL, &v11);
-    v10 = *(_DWORD *)(a2 + 8);
+    ThreadInformation = 0LL;
+    ZwSetInformationThread((HANDLE)0xFFFFFFFFFFFFFFFELL, ThreadImpersonationToken, &ThreadInformation, 8u);
+    v11 = *((_DWORD *)a2 + 2);
   }
-  if ( (v10 & 4) != 0 )
-    sub_180077048(a2, a4);
-  if ( (unsigned int)RtlGetCurrentServiceSessionId() )
-    v7 = (__int64)NtCurrentPeb()->HotpatchInformation + 556;
+  if ( (v11 & 4) != 0 )
+    sub_180077048(a2, a4, v10);
+  if ( RtlGetCurrentServiceSessionId() )
+    v7 = (__int64)&NtCurrentPeb()->SharedData->UserModeGlobalLogger[3];
   if ( *(_BYTE *)v7 )
-    sub_180002050(0LL, *(_QWORD *)(a2 + 48), *(_QWORD *)(a2 + 32), *(_QWORD *)(a2 + 40), (__int64)v6->SubProcessTag);
-  sub_180025644(v12[0]);
+    sub_180002050(0LL, a2[6], a2[4], a2[5], (__int64)v6->SubProcessTag);
+  sub_180025644(v13[0]);
 }

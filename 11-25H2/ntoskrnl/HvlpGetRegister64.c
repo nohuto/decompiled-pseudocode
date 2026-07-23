@@ -19,12 +19,12 @@
  *     RtlRaiseException @ 0x1405DC840 (RtlRaiseException.c)
  */
 
-unsigned __int64 __fastcall HvlpGetRegister64(int a1, unsigned __int64 *a2)
+void __fastcall HvlpGetRegister64(int a1, _QWORD *a2)
 {
   int v3; // ecx
   int v4; // ecx
   unsigned int v5; // ecx
-  unsigned __int64 result; // rax
+  int v6; // ecx
   int v7; // ecx
   int v8; // ecx
   int v9; // ecx
@@ -33,8 +33,8 @@ unsigned __int64 __fastcall HvlpGetRegister64(int a1, unsigned __int64 *a2)
   int v12; // ecx
   int v13; // ecx
   int v14; // ecx
-  int v15; // ecx
-  bool v16; // zf
+  bool v15; // zf
+  int v16; // ecx
   int v17; // ecx
   int v18; // ecx
   int v19; // ecx
@@ -45,7 +45,6 @@ unsigned __int64 __fastcall HvlpGetRegister64(int a1, unsigned __int64 *a2)
   int v24; // ecx
   int v25; // ecx
   int v26; // ecx
-  int v27; // ecx
 
   if ( a1 > 655362 )
   {
@@ -53,7 +52,10 @@ unsigned __int64 __fastcall HvlpGetRegister64(int a1, unsigned __int64 *a2)
     {
       if ( a1 == 655370 )
         goto LABEL_32;
-      v18 = a1 - 655363;
+      v17 = a1 - 655363;
+      if ( !v17 )
+        goto LABEL_32;
+      v18 = v17 - 1;
       if ( !v18 )
         goto LABEL_32;
       v19 = v18 - 1;
@@ -65,14 +67,14 @@ unsigned __int64 __fastcall HvlpGetRegister64(int a1, unsigned __int64 *a2)
       v21 = v20 - 1;
       if ( !v21 )
         goto LABEL_32;
-      v22 = v21 - 1;
-      if ( !v22 )
-        goto LABEL_32;
-      v17 = v22 - 1;
-      v16 = v17 == 0;
+      v16 = v21 - 1;
+      v15 = v16 == 0;
       goto LABEL_37;
     }
-    v23 = a1 - 655371;
+    v22 = a1 - 655371;
+    if ( !v22 )
+      goto LABEL_32;
+    v23 = v22 - 1;
     if ( !v23 )
       goto LABEL_32;
     v24 = v23 - 1;
@@ -84,10 +86,7 @@ unsigned __int64 __fastcall HvlpGetRegister64(int a1, unsigned __int64 *a2)
     v26 = v25 - 1;
     if ( !v26 )
       goto LABEL_32;
-    v27 = v26 - 1;
-    if ( !v27 )
-      goto LABEL_32;
-    if ( v27 == 4 )
+    if ( v26 == 4 )
     {
       v5 = 1073741955;
       goto LABEL_7;
@@ -110,33 +109,32 @@ unsigned __int64 __fastcall HvlpGetRegister64(int a1, unsigned __int64 *a2)
       {
         v5 = 1073741856;
 LABEL_7:
-        result = __readmsr(v5);
-        *a2 = result;
-        return result;
+        *a2 = __readmsr(v5);
+        return;
       }
-      v13 = v4 - 3;
-      if ( !v13 )
+      v12 = v4 - 3;
+      if ( !v12 )
       {
         v5 = 1073741828;
         goto LABEL_7;
       }
-      v14 = v13 - 12;
-      if ( !v14 )
+      v13 = v12 - 12;
+      if ( !v13 )
       {
         v5 = 1073741939;
         goto LABEL_7;
       }
-      v15 = v14 - 4;
-      if ( !v15 )
+      v14 = v13 - 4;
+      if ( !v14 )
       {
         v5 = 1073741857;
         goto LABEL_7;
       }
-      v17 = v15 - 65513;
-      v16 = v17 == 0;
+      v16 = v14 - 65513;
+      v15 = v16 == 0;
 LABEL_37:
-      if ( !v16 && v17 != 1 )
-        return RtlRaiseException((ULONG_PTR)&qword_140E0A700);
+      if ( !v15 && v16 != 1 )
+        goto LABEL_39;
 LABEL_32:
       v5 = a1 + 1073086608;
       goto LABEL_7;
@@ -146,23 +144,24 @@ LABEL_32:
       v5 = 0x40000000;
       goto LABEL_7;
     }
-    v7 = a1 - 528;
-    if ( !v7 || (v8 = v7 - 1) == 0 || (v9 = v8 - 1) == 0 || (v10 = v9 - 1) == 0 || (v11 = v10 - 1) == 0 )
+    v6 = a1 - 528;
+    if ( !v6 || (v7 = v6 - 1) == 0 || (v8 = v7 - 1) == 0 || (v9 = v8 - 1) == 0 || (v10 = v9 - 1) == 0 )
     {
       v5 = a1 + 1073741552;
       goto LABEL_7;
     }
-    v12 = v11 - 1;
-    if ( !v12 )
+    v11 = v10 - 1;
+    if ( !v11 )
     {
       v5 = 1073742085;
       goto LABEL_7;
     }
-    if ( v12 == 91 )
+    if ( v11 == 91 )
     {
       v5 = 1073742102;
       goto LABEL_7;
     }
   }
-  return RtlRaiseException((ULONG_PTR)&qword_140E0A700);
+LABEL_39:
+  RtlRaiseException(&ExceptionRecord);
 }

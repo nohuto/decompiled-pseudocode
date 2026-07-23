@@ -67,7 +67,7 @@ char __fastcall KiWaitSatisfyAny(ULONG_PTR BugCheckParameter2, __int64 a2, __int
       LOBYTE(v6) = KiReleaseThreadLockSafe(a2);
       if ( (*(_BYTE *)(BugCheckParameter2 + 48) & 2) != 0 )
       {
-        v6 = KeAbPreAcquire(BugCheckParameter2, 0LL, 1LL);
+        v6 = KeAbPreAcquire(BugCheckParameter2, 0LL, 1);
         if ( v6 )
           *(_BYTE *)(v6 + 26) |= 1u;
       }

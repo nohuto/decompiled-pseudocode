@@ -1,16 +1,16 @@
 /*
- * XREFs of KeQueryLogicalProcessorRelationship @ 0x1400DBFB0
+ * XREFs of KeQueryLogicalProcessorRelationship @ 0x1400DC030
  * Callers:
- *     ExpQuerySystemInformation @ 0x140626390 (ExpQuerySystemInformation.c)
+ *     ExpQuerySystemInformation @ 0x1406273B0 (ExpQuerySystemInformation.c)
  * Callees:
- *     KeQueryMaximumProcessorCountEx @ 0x1400A6A80 (KeQueryMaximumProcessorCountEx.c)
- *     KeGetProcessorIndexFromNumber @ 0x1400A7470 (KeGetProcessorIndexFromNumber.c)
- *     KeQueryActiveProcessorCountEx @ 0x1400A7920 (KeQueryActiveProcessorCountEx.c)
- *     KeAndAffinityEx @ 0x1400DC700 (KeAndAffinityEx.c)
- *     KeOrAffinityEx @ 0x1400DC8F0 (KeOrAffinityEx.c)
- *     KeAndGroupAffinityEx @ 0x14016A2D0 (KeAndGroupAffinityEx.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     memset @ 0x1401D1880 (memset.c)
+ *     KeQueryMaximumProcessorCountEx @ 0x1400A69C0 (KeQueryMaximumProcessorCountEx.c)
+ *     KeGetProcessorIndexFromNumber @ 0x1400A73B0 (KeGetProcessorIndexFromNumber.c)
+ *     KeQueryActiveProcessorCountEx @ 0x1400A7860 (KeQueryActiveProcessorCountEx.c)
+ *     KeAndAffinityEx @ 0x1400DC780 (KeAndAffinityEx.c)
+ *     KeOrAffinityEx @ 0x1400DC970 (KeOrAffinityEx.c)
+ *     KeAndGroupAffinityEx @ 0x14016A3D0 (KeAndGroupAffinityEx.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     memset @ 0x1401D1980 (memset.c)
  */
 
 NTSTATUS __stdcall KeQueryLogicalProcessorRelationship(
@@ -27,8 +27,8 @@ NTSTATUS __stdcall KeQueryLogicalProcessorRelationship(
   NTSTATUS v10; // r15d
   __int64 v11; // rax
   __int64 v12; // rbx
-  ULONG v13; // ebx
-  ULONG v14; // r9d
+  DWORD v13; // ebx
+  DWORD v14; // r9d
   __int64 v15; // rcx
   unsigned __int64 v16; // r10
   unsigned __int16 v17; // r11
@@ -44,18 +44,18 @@ NTSTATUS __stdcall KeQueryLogicalProcessorRelationship(
   __int64 v28; // rax
   int v29; // eax
   unsigned __int16 v30; // r9
-  USHORT v31; // dx
+  WORD v31; // dx
   _QWORD *v32; // r8
   __int64 v33; // r10
   bool v34; // zf
-  USHORT v35; // cx
+  WORD v35; // cx
   __int64 v36; // rax
   unsigned __int16 v37; // dx
   GROUP_AFFINITY *GroupMask; // rcx
   unsigned __int64 *v39; // r8
   unsigned __int64 v40; // r10
   int v41; // edx
-  ULONG v42; // eax
+  DWORD v42; // eax
   unsigned int v43; // r12d
   __int64 v44; // rdi
   __int64 v45; // r12
@@ -236,7 +236,7 @@ NTSTATUS __stdcall KeQueryLogicalProcessorRelationship(
             Information->Processor.Flags = *(_QWORD *)(v12 + 200) != v46;
             Information->Relationship = RelationProcessorCore;
             Information->Size = 48;
-            Information->Processor.Reserved[0] = *(_BYTE *)(v12 + 24224);
+            Information->Processor.EfficiencyClass = *(_BYTE *)(v12 + 24224);
             Information->Processor.GroupCount = 1;
             *(_QWORD *)((char *)&Information->NumaNode.NodeNumber + 2) = 0LL;
             *(_QWORD *)&Information->Group.Reserved[6] = 0LL;
@@ -298,7 +298,7 @@ LABEL_13:
         Information->Relationship = RelationCache;
         Information->Size = 56;
         Information->Processor.Flags = *(_BYTE *)(v12 + 12 * v53 + 24536);
-        Information->Processor.Reserved[0] = *(_BYTE *)(v12 + 12 * v53 + 24537);
+        Information->Processor.EfficiencyClass = *(_BYTE *)(v12 + 12 * v53 + 24537);
         Information->Cache.LineSize = *(_WORD *)(v12 + 12 * v53 + 24538);
         Information->Cache.CacheSize = *(_DWORD *)(v12 + 12 * v53 + 24540);
         Information->Cache.Type = *(_DWORD *)(v12 + 12 * v53 + 24544);
@@ -386,7 +386,7 @@ LABEL_15:
           v44 = v43;
           Information->Cache.Reserved[v44 * 48 + 12] = KeQueryMaximumProcessorCountEx(v43);
           Information->Cache.Reserved[v44 * 48 + 13] = KeQueryActiveProcessorCountEx(v43);
-          Information->Group.GroupInfo[v44].ActiveProcessorMask = qword_1405416A8[v43];
+          Information->Group.GroupInfo[v44].ActiveProcessorMask = qword_1405426A8[v43];
           memset(Information->Group.GroupInfo[v44].Reserved, 0, sizeof(Information->Group.GroupInfo[v44].Reserved));
           ++v43;
         }

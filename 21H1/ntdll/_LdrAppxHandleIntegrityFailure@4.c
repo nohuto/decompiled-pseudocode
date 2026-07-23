@@ -20,59 +20,71 @@
 
 int __stdcall LdrAppxHandleIntegrityFailure(int a1)
 {
-  int PackageIdentity; // esi
+  NTSTATUS RemediationRegistryKey; // esi
   int v2; // edi
-  _DWORD v4[3]; // [esp+10h] [ebp-4A4h] BYREF
-  _BYTE v5[4]; // [esp+1Ch] [ebp-498h] BYREF
-  _WORD v6[2]; // [esp+20h] [ebp-494h] BYREF
-  const wchar_t *v7; // [esp+24h] [ebp-490h]
-  int v8; // [esp+28h] [ebp-48Ch] BYREF
-  _DWORD v9[2]; // [esp+2Ch] [ebp-488h] BYREF
-  HANDLE Handle; // [esp+34h] [ebp-480h] BYREF
-  int v11[20]; // [esp+38h] [ebp-47Ch] BYREF
-  CONTEXT ContextRecord; // [esp+88h] [ebp-42Ch] BYREF
-  _BYTE v13[256]; // [esp+358h] [ebp-15Ch] BYREF
-  _DWORD v14[21]; // [esp+458h] [ebp-5Ch] BYREF
+  size_t v4; // [esp-4h] [ebp-4B8h]
+  size_t v5; // [esp-4h] [ebp-4B8h]
+  unsigned __int64 Flags; // [esp+10h] [ebp-4A4h] BYREF
+  ULONG ResultLength; // [esp+1Ch] [ebp-498h] BYREF
+  _UNICODE_STRING ValueName; // [esp+20h] [ebp-494h] BYREF
+  PVOID BaseAddress; // [esp+28h] [ebp-48Ch] BYREF
+  ULONG_PTR PackageSize; // [esp+2Ch] [ebp-488h] BYREF
+  HANDLE KeyHandle; // [esp+34h] [ebp-480h] BYREF
+  EXCEPTION_RECORD ExceptionRecord; // [esp+38h] [ebp-47Ch] BYREF
+  _CONTEXT ContextRecord; // [esp+88h] [ebp-42Ch] BYREF
+  WCHAR PackageFullName[128]; // [esp+358h] [ebp-15Ch] BYREF
+  _BYTE KeyValueInformation[4]; // [esp+458h] [ebp-5Ch] BYREF
+  int v16; // [esp+45Ch] [ebp-58h]
+  int v17; // [esp+460h] [ebp-54h]
 
-  v6[0] = 20;
-  v6[1] = 22;
-  v9[0] = 256;
-  v7 = L"BinaryHash";
-  PackageIdentity = RtlQueryPackageIdentityEx(-4, (int)v13, (int)v9, 0, 0, 0, v4);
-  if ( PackageIdentity < 0 )
+  ValueName.Length = 20;
+  ValueName.MaximumLength = 22;
+  LODWORD(PackageSize) = 256;
+  ValueName.Buffer = L"BinaryHash";
+  RemediationRegistryKey = RtlQueryPackageIdentityEx((HANDLE)0xFFFFFFFC, PackageFullName, &PackageSize, 0, 0, 0, &Flags);
+  if ( RemediationRegistryKey < 0 )
     goto LABEL_12;
-  PackageIdentity = LdrpAppxGetRemediationRegistryKey(&Handle);
-  if ( PackageIdentity < 0 )
+  RemediationRegistryKey = LdrpAppxGetRemediationRegistryKey(&KeyHandle);
+  if ( RemediationRegistryKey < 0 )
     goto LABEL_12;
-  PackageIdentity = LdrpAppxGetBinaryNameKeyInformation(&v8);
-  if ( PackageIdentity >= 0 )
+  RemediationRegistryKey = LdrpAppxGetBinaryNameKeyInformation(KeyHandle, (int)&BaseAddress);
+  if ( RemediationRegistryKey >= 0 )
   {
-    v2 = v9[1];
-    memset(v14, 0, 0x50u);
-    PackageIdentity = ZwQueryValueKey((int)Handle, (int)v6, 2, (int)v14, 80, (int)v5);
-    if ( PackageIdentity >= 0 )
+    v2 = HIDWORD(PackageSize);
+    LODWORD(v4) = 80;
+    memset(KeyValueInformation, 0, v4);
+    RemediationRegistryKey = ZwQueryValueKey(
+                               KeyHandle,
+                               &ValueName,
+                               KeyValuePartialInformation,
+                               KeyValueInformation,
+                               0x50u,
+                               &ResultLength);
+    if ( RemediationRegistryKey >= 0 )
     {
-      if ( v14[1] != 3 || !v14[2] )
-        PackageIdentity = -1073739509;
-      if ( PackageIdentity >= 0 )
+      if ( v16 != 3 || !v17 )
+        RemediationRegistryKey = -1073739509;
+      if ( RemediationRegistryKey >= 0 )
         LdrpAppxEtwIntegrityFailure(v2);
     }
-    RtlFreeHeap((int)NtCurrentPeb()->ProcessHeap, 0, v8);
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, BaseAddress);
   }
-  NtClose(Handle);
-  if ( PackageIdentity < 0 )
+  NtClose(KeyHandle);
+  if ( RemediationRegistryKey < 0 )
 LABEL_12:
-    LdrpAppxEtwGenericIntegrityFailure(PackageIdentity);
+    LdrpAppxEtwGenericIntegrityFailure(RemediationRegistryKey);
   if ( a1 != -1073740673 )
   {
-    memset(v11, 0, sizeof(v11));
-    v11[0] = 101457950;
-    v11[1] = 1;
-    v11[3] = (int)LdrAppxHandleIntegrityFailure;
-    memset(&ContextRecord, 0, sizeof(ContextRecord));
+    LODWORD(v4) = 80;
+    memset(&ExceptionRecord, 0, v4);
+    ExceptionRecord.ExceptionCode = 101457950;
+    ExceptionRecord.ExceptionFlags = 1;
+    ExceptionRecord.ExceptionAddress = LdrAppxHandleIntegrityFailure;
+    LODWORD(v5) = 716;
+    memset(&ContextRecord, 0, v5);
     RtlCaptureContext(&ContextRecord);
-    RtlReportException(v11, &ContextRecord, 2);
-    ZwTerminateProcess(-1, v11[0]);
+    RtlReportException(&ExceptionRecord, &ContextRecord, 2u);
+    ZwTerminateProcess((HANDLE)0xFFFFFFFF, ExceptionRecord.ExceptionCode);
   }
   return -1073741515;
 }

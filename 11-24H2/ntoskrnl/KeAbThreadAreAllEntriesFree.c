@@ -1,8 +1,8 @@
 /*
- * XREFs of KeAbThreadAreAllEntriesFree @ 0x1403EFA50
+ * XREFs of KeAbThreadAreAllEntriesFree @ 0x1403E29D0
  * Callers:
- *     PspNotifyProcessEffectiveIoLimitChanged @ 0x1403EF8F4 (PspNotifyProcessEffectiveIoLimitChanged.c)
- *     KeAbCrossThreadDelete @ 0x1405C3BDC (KeAbCrossThreadDelete.c)
+ *     PspNotifyProcessEffectiveIoLimitChanged @ 0x1403E2874 (PspNotifyProcessEffectiveIoLimitChanged.c)
+ *     KeAbCrossThreadDelete @ 0x1405C11AC (KeAbCrossThreadDelete.c)
  * Callees:
  *     <none>
  */

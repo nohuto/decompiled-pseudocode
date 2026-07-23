@@ -1,12 +1,12 @@
 /*
- * XREFs of SdbpCheckSdbCapability @ 0x140804270
+ * XREFs of SdbpCheckSdbCapability @ 0x1408049B0
  * Callers:
  *     <none>
  * Callees:
- *     SdbpIsSdbCapabilityPresent @ 0x140805050 (SdbpIsSdbCapabilityPresent.c)
- *     SdbGetStringTagPtr @ 0x14095FA98 (SdbGetStringTagPtr.c)
- *     SdbFindFirstTag @ 0x14096003C (SdbFindFirstTag.c)
- *     AslLogCallPrintf @ 0x1409601DC (AslLogCallPrintf.c)
+ *     SdbpIsSdbCapabilityPresent @ 0x140805790 (SdbpIsSdbCapabilityPresent.c)
+ *     SdbGetStringTagPtr @ 0x140947558 (SdbGetStringTagPtr.c)
+ *     SdbFindFirstTag @ 0x140947AFC (SdbFindFirstTag.c)
+ *     AslLogCallPrintf @ 0x140947C9C (AslLogCallPrintf.c)
  */
 
 __int64 __fastcall SdbpCheckSdbCapability(_DWORD *a1, __int64 a2, __int64 a3, __int64 a4, unsigned int a5)

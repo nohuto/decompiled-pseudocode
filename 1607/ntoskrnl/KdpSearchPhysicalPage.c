@@ -3,7 +3,7 @@
  * Callers:
  *     KdpSearchPhysicalPageRange @ 0x1406F5A74 (KdpSearchPhysicalPageRange.c)
  * Callees:
- *     MmDbgCopyMemory @ 0x140083624 (MmDbgCopyMemory.c)
+ *     MmDbgCopyMemory @ 0x1400842A4 (MmDbgCopyMemory.c)
  */
 
 __int64 __fastcall KdpSearchPhysicalPage(__int64 a1, unsigned __int64 a2, unsigned __int64 a3, char a4, int a5)

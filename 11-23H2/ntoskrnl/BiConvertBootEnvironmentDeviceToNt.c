@@ -1,18 +1,18 @@
 /*
- * XREFs of BiConvertBootEnvironmentDeviceToNt @ 0x140807998
+ * XREFs of BiConvertBootEnvironmentDeviceToNt @ 0x140807C68
  * Callers:
- *     BiConvertRegistryDataToElement @ 0x140805934 (BiConvertRegistryDataToElement.c)
- *     BiVerifyBootPartition @ 0x1408078C4 (BiVerifyBootPartition.c)
- *     BiConvertBootEnvironmentDeviceToNt @ 0x140807998 (BiConvertBootEnvironmentDeviceToNt.c)
+ *     BiConvertRegistryDataToElement @ 0x140805C04 (BiConvertRegistryDataToElement.c)
+ *     BiVerifyBootPartition @ 0x140807B94 (BiVerifyBootPartition.c)
+ *     BiConvertBootEnvironmentDeviceToNt @ 0x140807C68 (BiConvertBootEnvironmentDeviceToNt.c)
  * Callees:
- *     strcpy_s @ 0x1403DF890 (strcpy_s.c)
- *     wcscpy_s @ 0x1403DFD90 (wcscpy_s.c)
- *     memmove @ 0x140435700 (memmove.c)
- *     memset @ 0x140435A00 (memset.c)
- *     BiGetNtPartitionPath @ 0x140807310 (BiGetNtPartitionPath.c)
- *     BiVerifyBootPartition @ 0x1408078C4 (BiVerifyBootPartition.c)
- *     BiConvertBootEnvironmentDeviceToNt @ 0x140807998 (BiConvertBootEnvironmentDeviceToNt.c)
- *     BiConvertBootEnvironmentDeviceToUnknown @ 0x140A5CCE0 (BiConvertBootEnvironmentDeviceToUnknown.c)
+ *     strcpy_s @ 0x1403DFA70 (strcpy_s.c)
+ *     wcscpy_s @ 0x1403DFF70 (wcscpy_s.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     BiGetNtPartitionPath @ 0x1408075E0 (BiGetNtPartitionPath.c)
+ *     BiVerifyBootPartition @ 0x140807B94 (BiVerifyBootPartition.c)
+ *     BiConvertBootEnvironmentDeviceToNt @ 0x140807C68 (BiConvertBootEnvironmentDeviceToNt.c)
+ *     BiConvertBootEnvironmentDeviceToUnknown @ 0x140A5CF90 (BiConvertBootEnvironmentDeviceToUnknown.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

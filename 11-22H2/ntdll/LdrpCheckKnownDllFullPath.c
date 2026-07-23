@@ -7,23 +7,22 @@
  *     LdrpGetBaseNameFromFullName @ 0x18002A118 (LdrpGetBaseNameFromFullName.c)
  */
 
-char __fastcall LdrpCheckKnownDllFullPath(__int64 a1, __int64 a2)
+BOOLEAN __fastcall LdrpCheckKnownDllFullPath(__int64 a1, __int64 a2)
 {
-  char result; // al
+  BOOLEAN result; // al
   __int64 v3; // rdx
   __int64 v4; // r10
-  unsigned __int16 v5[4]; // [rsp+20h] [rbp-18h] BYREF
-  __int64 v6; // [rsp+28h] [rbp-10h]
+  _UNICODE_STRING String1; // [rsp+20h] [rbp-18h] BYREF
 
   result = 0;
-  if ( LdrpKnownDllPath )
+  if ( LdrpKnownDllPath.Length )
   {
     LdrpGetBaseNameFromFullName(a1, a2);
     LOWORD(v3) = *(_WORD *)(v3 + 8) - *(_WORD *)(v4 + 8);
-    v6 = *(_QWORD *)(v4 + 8);
-    v5[1] = v3;
-    v5[0] = v3 - 2;
-    return RtlEqualUnicodeString(v5, (__int64)&LdrpKnownDllPath, 1);
+    String1.Buffer = *(wchar_t **)(v4 + 8);
+    String1.MaximumLength = v3;
+    String1.Length = v3 - 2;
+    return RtlEqualUnicodeString(&String1, &LdrpKnownDllPath, 1u);
   }
   return result;
 }

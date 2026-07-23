@@ -1,7 +1,7 @@
 /*
- * XREFs of ZwUnlockFile @ 0x140726FB0
+ * XREFs of ZwUnlockFile @ 0x14072BB80
  * Callers:
- *     DifZwUnlockFileWrapper @ 0x1406BE550 (DifZwUnlockFileWrapper.c)
+ *     DifZwUnlockFileWrapper @ 0x1406C2130 (DifZwUnlockFileWrapper.c)
  * Callees:
  *     <none>
  */
@@ -15,5 +15,5 @@ NTSTATUS __stdcall ZwUnlockFile(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(FileHandle, IoStatusBlock);
+  return KiServiceInternal(FileHandle);
 }

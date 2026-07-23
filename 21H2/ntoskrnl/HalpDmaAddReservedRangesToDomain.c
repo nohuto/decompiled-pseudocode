@@ -1,11 +1,11 @@
 /*
- * XREFs of HalpDmaAddReservedRangesToDomain @ 0x1404C4A10
+ * XREFs of HalpDmaAddReservedRangesToDomain @ 0x1404C4C50
  * Callers:
- *     HalpDmaAllocateDomain @ 0x1403C71E8 (HalpDmaAllocateDomain.c)
+ *     HalpDmaAllocateDomain @ 0x1403C7388 (HalpDmaAllocateDomain.c)
  * Callees:
- *     HalpIommuDomainMapLogicalRange @ 0x1404C92D4 (HalpIommuDomainMapLogicalRange.c)
- *     HalpIommuGetReservedRanges @ 0x1404C9814 (HalpIommuGetReservedRanges.c)
- *     HalpLaReserveRange @ 0x1404DB3D4 (HalpLaReserveRange.c)
+ *     HalpIommuDomainMapLogicalRange @ 0x1404C9514 (HalpIommuDomainMapLogicalRange.c)
+ *     HalpIommuGetReservedRanges @ 0x1404C9A54 (HalpIommuGetReservedRanges.c)
+ *     HalpLaReserveRange @ 0x1404DB614 (HalpLaReserveRange.c)
  */
 
 __int64 __fastcall HalpDmaAddReservedRangesToDomain(__int64 a1, __int64 a2)

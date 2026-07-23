@@ -68,7 +68,7 @@ __int64 __fastcall RtlpQueryInformationActivationContextDetailedInformation(
       if ( (_DWORD)v13 == *((_DWORD *)v12 + 2) )
       {
         DbgPrintEx(
-          51,
+          0x33u,
           0,
           "SXS: %s() found activation context data at %p with assembly roster that has no root\n",
           "RtlpQueryInformationActivationContextDetailedInformation",

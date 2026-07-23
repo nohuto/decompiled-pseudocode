@@ -1,12 +1,12 @@
 /*
- * XREFs of PnprAddMemoryResources @ 0x14072ED94
+ * XREFs of PnprAddMemoryResources @ 0x14072CDA4
  * Callers:
- *     PnprAddDeviceResources @ 0x14072ED10 (PnprAddDeviceResources.c)
+ *     PnprAddDeviceResources @ 0x14072CD20 (PnprAddDeviceResources.c)
  * Callees:
- *     RtlCmDecodeMemIoResource @ 0x1404955C0 (RtlCmDecodeMemIoResource.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     RtlCmDecodeMemIoResource @ 0x14048FE80 (RtlCmDecodeMemIoResource.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PnprAddMemoryResources(__int64 a1, _DWORD **a2)
@@ -76,7 +76,7 @@ LABEL_10:
         if ( v12 == *v3 )
         {
           v22 = v12 + 4;
-          Pool2 = (_DWORD *)ExAllocatePool2(0x40uLL);
+          Pool2 = (_DWORD *)ExAllocatePool2(0x40uLL, (unsigned int)(16 * (v12 + 5)), 0x51706E50u);
           v14 = Pool2;
           if ( !Pool2 )
           {

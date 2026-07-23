@@ -1,13 +1,13 @@
 /*
- * XREFs of MiRecheckVaVm @ 0x1401FA2EC
+ * XREFs of MiRecheckVaVm @ 0x1401FA118
  * Callers:
- *     MiCrcStillIntact @ 0x1401F94D4 (MiCrcStillIntact.c)
- *     MiSharePages @ 0x1401FA8E4 (MiSharePages.c)
+ *     MiCrcStillIntact @ 0x1401F9300 (MiCrcStillIntact.c)
+ *     MiSharePages @ 0x1401FA710 (MiSharePages.c)
  * Callees:
- *     ExAcquireSpinLockSharedAtDpcLevel @ 0x14001DD60 (ExAcquireSpinLockSharedAtDpcLevel.c)
- *     MiIsAddressValid @ 0x140037540 (MiIsAddressValid.c)
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1400EA3E0 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1401F25D0 (MI_READ_PTE_LOCK_FREE.c)
+ *     ExAcquireSpinLockSharedAtDpcLevel @ 0x14001D8E0 (ExAcquireSpinLockSharedAtDpcLevel.c)
+ *     MiIsAddressValid @ 0x1400370C0 (MiIsAddressValid.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1400E8250 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1401F23FC (MI_READ_PTE_LOCK_FREE.c)
  */
 
 __int64 __fastcall MiRecheckVaVm(__int64 a1, unsigned __int64 a2)
@@ -28,7 +28,7 @@ __int64 __fastcall MiRecheckVaVm(__int64 a1, unsigned __int64 a2)
   }
   if ( a2 < 0xFFFF800000000000uLL )
     return 0LL;
-  ExAcquireSpinLockSharedAtDpcLevel(&dword_140326D38);
+  ExAcquireSpinLockSharedAtDpcLevel(&dword_140326D78);
   v5 = *(_BYTE *)(a1 + 184) & 7;
   v6 = *(unsigned __int8 *)(48 * ((*(_QWORD *)(((a2 >> 18) & 0x3FFFFFF8) - 0x904C0000000LL) >> 12) & 0xFFFFFFFFFLL)
                           - 0x57FFFFFFFDALL) >> 4;
@@ -66,6 +66,6 @@ LABEL_7:
     goto LABEL_10;
 LABEL_11:
   if ( (*(_BYTE *)(a1 + 184) & 7) != 0 )
-    ExReleaseSpinLockSharedFromDpcLevel(&dword_140326D38);
+    ExReleaseSpinLockSharedFromDpcLevel(&dword_140326D78);
   return v4;
 }

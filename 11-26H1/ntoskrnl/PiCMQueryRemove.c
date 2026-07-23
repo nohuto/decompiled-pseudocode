@@ -1,26 +1,26 @@
 /*
- * XREFs of PiCMQueryRemove @ 0x140B2D27C
+ * XREFs of PiCMQueryRemove @ 0x140B2F2FC
  * Callers:
- *     PiCMHandleIoctl @ 0x140997F20 (PiCMHandleIoctl.c)
+ *     PiCMHandleIoctl @ 0x140958980 (PiCMHandleIoctl.c)
  * Callees:
- *     RtlGetActiveConsoleId @ 0x140450F30 (RtlGetActiveConsoleId.c)
- *     RtlInitUnicodeStringEx @ 0x14045D040 (RtlInitUnicodeStringEx.c)
- *     PiControlFreeUserModeCallersBuffer @ 0x140474950 (PiControlFreeUserModeCallersBuffer.c)
- *     McTemplateK0dz_EtwWriteTransfer @ 0x14049F904 (McTemplateK0dz_EtwWriteTransfer.c)
- *     McTemplateK0z_EtwWriteTransfer @ 0x1404A0040 (McTemplateK0z_EtwWriteTransfer.c)
- *     PnpGetCallerSessionId @ 0x1407A46F8 (PnpGetCallerSessionId.c)
- *     PiAuCheckClientInteractive @ 0x1407A8248 (PiAuCheckClientInteractive.c)
- *     PnpQueueQueryAndRemoveEvent @ 0x14090AD94 (PnpQueueQueryAndRemoveEvent.c)
- *     _CmValidateDeviceName @ 0x14098CC00 (_CmValidateDeviceName.c)
- *     PiAuDoesClientHavePrivilege @ 0x14098CFD8 (PiAuDoesClientHavePrivilege.c)
- *     PiAuDoesClientHaveAccess @ 0x14098DE50 (PiAuDoesClientHaveAccess.c)
- *     _CmIsRootDevice @ 0x140991F84 (_CmIsRootDevice.c)
- *     _CmGetDeviceStatus @ 0x14099522C (_CmGetDeviceStatus.c)
- *     _CmGetDeviceRegProp @ 0x140996210 (_CmGetDeviceRegProp.c)
- *     PiCMReturnBufferResultData @ 0x1409993B0 (PiCMReturnBufferResultData.c)
- *     PiCMCaptureObjectInputData @ 0x1409994A8 (PiCMCaptureObjectInputData.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     RtlGetActiveConsoleId @ 0x140449060 (RtlGetActiveConsoleId.c)
+ *     RtlInitUnicodeStringEx @ 0x140456BE0 (RtlInitUnicodeStringEx.c)
+ *     PiControlFreeUserModeCallersBuffer @ 0x14046E0D0 (PiControlFreeUserModeCallersBuffer.c)
+ *     McTemplateK0dz_EtwWriteTransfer @ 0x140499454 (McTemplateK0dz_EtwWriteTransfer.c)
+ *     McTemplateK0z_EtwWriteTransfer @ 0x140499B90 (McTemplateK0z_EtwWriteTransfer.c)
+ *     PnpGetCallerSessionId @ 0x1407A7238 (PnpGetCallerSessionId.c)
+ *     PiAuCheckClientInteractive @ 0x1407AADF8 (PiAuCheckClientInteractive.c)
+ *     _CmValidateDeviceName @ 0x14094D660 (_CmValidateDeviceName.c)
+ *     PiAuDoesClientHavePrivilege @ 0x14094DA38 (PiAuDoesClientHavePrivilege.c)
+ *     PiAuDoesClientHaveAccess @ 0x14094E8B0 (PiAuDoesClientHaveAccess.c)
+ *     _CmIsRootDevice @ 0x1409529E4 (_CmIsRootDevice.c)
+ *     _CmGetDeviceStatus @ 0x140955C8C (_CmGetDeviceStatus.c)
+ *     _CmGetDeviceRegProp @ 0x140956C70 (_CmGetDeviceRegProp.c)
+ *     PiCMReturnBufferResultData @ 0x140959E10 (PiCMReturnBufferResultData.c)
+ *     PiCMCaptureObjectInputData @ 0x140959F08 (PiCMCaptureObjectInputData.c)
+ *     PnpQueueQueryAndRemoveEvent @ 0x1409B5DE4 (PnpQueueQueryAndRemoveEvent.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PiCMQueryRemove(void *a1, unsigned int a2, char *a3, unsigned int a4, int a5, _DWORD *a6)
@@ -83,7 +83,7 @@ __int64 __fastcall PiCMQueryRemove(void *a1, unsigned int a2, char *a3, unsigned
   v14 = HIDWORD(SourceString[1]);
   v7 = (WCHAR *)SourceString[0];
   v27 = DWORD1(v36);
-  if ( (byte_140EF3DCB & 8) != 0 )
+  if ( (byte_140EF412B & 8) != 0 )
     McTemplateK0dz_EtwWriteTransfer(
       v11,
       (const EVENT_DESCRIPTOR *)KMPnPEvt_CfgMgr_QueryRemove_Start,
@@ -187,7 +187,7 @@ LABEL_57:
     else
     {
       DeviceRegProp = PnpGetCallerSessionId(&SessionId);
-      if ( DeviceRegProp < 0 || SessionId != (unsigned int)RtlGetActiveConsoleId() )
+      if ( DeviceRegProp < 0 || SessionId != RtlGetActiveConsoleId() )
       {
         DeviceRegProp = PiAuCheckClientInteractive(v25);
         if ( DeviceRegProp < 0 || !v25[0] )
@@ -230,7 +230,7 @@ LABEL_59:
   if ( v10 )
     ExFreePoolWithTag(v10, 0x34706E50u);
 LABEL_61:
-  if ( (byte_140EF3DCB & 8) != 0 )
+  if ( (byte_140EF412B & 8) != 0 )
     McTemplateK0z_EtwWriteTransfer(v11, (const EVENT_DESCRIPTOR *)KMPnPEvt_CfgMgr_QueryRemove_Stop, v13, v7);
   if ( SourceString[0] )
     PiControlFreeUserModeCallersBuffer(KeGetCurrentThread()->PreviousMode, (void *)SourceString[0]);

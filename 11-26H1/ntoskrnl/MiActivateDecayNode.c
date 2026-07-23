@@ -1,12 +1,12 @@
 /*
- * XREFs of MiActivateDecayNode @ 0x140299994
+ * XREFs of MiActivateDecayNode @ 0x140298EF4
  * Callers:
- *     MiDecayPfnFullyInitialized @ 0x140498358 (MiDecayPfnFullyInitialized.c)
+ *     MiDecayPfnFullyInitialized @ 0x140491EA8 (MiDecayPfnFullyInitialized.c)
  * Callees:
- *     MiAcquirePrcbPageBatchList @ 0x140299200 (MiAcquirePrcbPageBatchList.c)
- *     MiAcquirePageListSynchronization @ 0x14029A450 (MiAcquirePageListSynchronization.c)
- *     MiUnlinkSingleBatchPage @ 0x1402F80B0 (MiUnlinkSingleBatchPage.c)
- *     MiReleasePageListSynchronization @ 0x1402F8AB0 (MiReleasePageListSynchronization.c)
+ *     MiAcquirePrcbPageBatchList @ 0x140298760 (MiAcquirePrcbPageBatchList.c)
+ *     MiAcquirePageListSynchronization @ 0x1402999B0 (MiAcquirePageListSynchronization.c)
+ *     MiUnlinkSingleBatchPage @ 0x1402DA130 (MiUnlinkSingleBatchPage.c)
+ *     MiReleasePageListSynchronization @ 0x1402DAB30 (MiReleasePageListSynchronization.c)
  */
 
 __int64 __fastcall MiActivateDecayNode(__int64 a1)
@@ -21,14 +21,14 @@ __int64 __fastcall MiActivateDecayNode(__int64 a1)
 
   v2 = 1;
   v3 = (a1 + 0x220000000000LL) / 48;
-  v4 = *(_QWORD *)(stru_140E2EB88.ThreadLock + 8 * ((*(_QWORD *)(a1 + 40) >> 43) & 0x3FFLL));
+  v4 = *(_QWORD *)(stru_140E2ED08.ThreadLock + 8 * ((*(_QWORD *)(a1 + 40) >> 43) & 0x3FFLL));
   v5 = MiAcquirePrcbPageBatchList();
   *((_QWORD *)v5 + 1) = v4;
   v5[10] = 2;
   MiAcquirePageListSynchronization(v5, a1);
   v6 = *(_QWORD *)(a1 + 16);
-  if ( qword_140E2D740 && (v6 & 0x10) == 0 )
-    v6 &= qword_140E2D748;
+  if ( qword_140E2D8C0 && (v6 & 0x10) == 0 )
+    v6 &= qword_140E2D8C8;
   if ( ((v6 >> 12) & 0xFFFFFFFFFFLL) == v3 )
   {
     MiUnlinkSingleBatchPage(v5, a1);

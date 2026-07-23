@@ -2,13 +2,13 @@
  * XREFs of ExTryToAcquireFastMutex @ 0x140004150
  * Callers:
  *     KeTryToAcquireGuardedMutex @ 0x140004130 (KeTryToAcquireGuardedMutex.c)
- *     FsRtlTryToAcquireHeaderMutex @ 0x14026E640 (FsRtlTryToAcquireHeaderMutex.c)
- *     RawScanDeletedList @ 0x1405A2620 (RawScanDeletedList.c)
- *     CreateMiniNtBootKey @ 0x1409F3080 (CreateMiniNtBootKey.c)
+ *     FsRtlTryToAcquireHeaderMutex @ 0x14026E830 (FsRtlTryToAcquireHeaderMutex.c)
+ *     RawScanDeletedList @ 0x1405A3620 (RawScanDeletedList.c)
+ *     CreateMiniNtBootKey @ 0x1409F4080 (CreateMiniNtBootKey.c)
  * Callees:
  *     KeAbPostReleaseEx @ 0x1400043BC (KeAbPostReleaseEx.c)
  *     KeAbPreAcquire @ 0x14004E270 (KeAbPreAcquire.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 BOOLEAN __stdcall ExTryToAcquireFastMutex(PFAST_MUTEX FastMutex)
@@ -18,7 +18,7 @@ BOOLEAN __stdcall ExTryToAcquireFastMutex(PFAST_MUTEX FastMutex)
   unsigned __int8 CurrentIrql; // si
   BOOLEAN result; // al
 
-  v2 = KeAbPreAcquire((ULONG_PTR)FastMutex);
+  v2 = KeAbPreAcquire((ULONG_PTR)FastMutex, 0LL);
   v3 = v2;
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(1uLL);

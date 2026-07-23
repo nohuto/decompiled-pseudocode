@@ -65,13 +65,13 @@ __int64 PopAllocateHiberContext()
   PVOID *v22; // rsi
   PMDL UnHibernatedMdl; // rax
   PMDL v24; // rax
-  HANDLE v26; // [rsp+30h] [rbp-B8h] BYREF
-  HANDLE Handle; // [rsp+38h] [rbp-B0h] BYREF
+  HANDLE BcdStoreHandle; // [rsp+30h] [rbp-B8h] BYREF
+  HANDLE BcdObjectHandle; // [rsp+38h] [rbp-B0h]
   unsigned __int8 v28[112]; // [rsp+40h] [rbp-A8h] BYREF
 
   if ( dword_14032E668 == 5 )
   {
-    Handle = 0LL;
+    BcdObjectHandle = 0LL;
     HighestPhysicalPage = MmGetHighestPhysicalPage(0);
     v2 = (char *)MemoryMap;
     qword_14032E680 = (ULONG_PTR)MemoryMap;
@@ -136,15 +136,15 @@ __int64 PopAllocateHiberContext()
       CrashdumpDriver = PopLoadResumeContext((__int64)v2);
       if ( CrashdumpDriver < 0 )
         goto LABEL_50;
-      CrashdumpDriver = BcdOpenSystemStore(&v26);
+      CrashdumpDriver = BcdOpenSystemStore(&BcdStoreHandle);
       if ( CrashdumpDriver < 0 )
         goto LABEL_50;
-      v14 = v26;
-      CrashdumpDriver = PopBcdEstablishResumeObject(v26, &Handle);
+      v14 = BcdStoreHandle;
+      CrashdumpDriver = PopBcdEstablishResumeObject(BcdStoreHandle);
       v17 = v14;
       if ( CrashdumpDriver < 0
-        || (CrashdumpDriver = PopBcdSetPendingResume((__int64)v14, v15, v16, (__int64)Handle),
-            BcdCloseObject(Handle),
+        || (CrashdumpDriver = PopBcdSetPendingResume(v14, v15, v16, BcdObjectHandle),
+            BcdCloseObject(BcdObjectHandle),
             v17 = v14,
             CrashdumpDriver < 0) )
       {
@@ -157,11 +157,11 @@ __int64 PopAllocateHiberContext()
         RtlSetAllBits((PRTL_BITMAP)v2 + 3);
         *((_DWORD *)v2 + 114) = PopGetHwConfigurationSignature();
         PopHiberInitializeResources(v2);
-        if ( (int)PopGetBitlockerKeyLocation((__int64 *)&v26) >= 0 )
+        if ( (int)PopGetBitlockerKeyLocation((__int64 *)&BcdStoreHandle) >= 0 )
         {
-          v18 = (char *)((unsigned __int64)v26 >> 12);
-          *((_QWORD *)v2 + 40) = (unsigned __int64)v26 >> 12;
-          PopDiscardRange((struct _RTL_BITMAP *)v2, v18, 4LL, 1802269762);
+          v18 = (char *)((unsigned __int64)BcdStoreHandle >> 12);
+          *((_QWORD *)v2 + 40) = (unsigned __int64)BcdStoreHandle >> 12;
+          PopDiscardRange((_RTL_BITMAP *)v2, v18, 4LL, 1802269762);
         }
         if ( !KdPitchDebugger || KdEventLoggingEnabled )
         {

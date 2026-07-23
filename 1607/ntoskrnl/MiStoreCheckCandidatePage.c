@@ -1,12 +1,12 @@
 /*
- * XREFs of MiStoreCheckCandidatePage @ 0x1401191C4
+ * XREFs of MiStoreCheckCandidatePage @ 0x140119734
  * Callers:
- *     MiStoreWriteModifiedPages @ 0x140118960 (MiStoreWriteModifiedPages.c)
+ *     MiStoreWriteModifiedPages @ 0x140118ED0 (MiStoreWriteModifiedPages.c)
  * Callees:
- *     MiPartitionIdToPointer @ 0x1400680A0 (MiPartitionIdToPointer.c)
- *     MiGetPfnPriority @ 0x1400E67A4 (MiGetPfnPriority.c)
- *     MiGetTopLevelPfn @ 0x14010A970 (MiGetTopLevelPfn.c)
- *     MiIsStoreProcess @ 0x14010CE84 (MiIsStoreProcess.c)
+ *     MiPartitionIdToPointer @ 0x140067C20 (MiPartitionIdToPointer.c)
+ *     MiGetPfnPriority @ 0x1400E4644 (MiGetPfnPriority.c)
+ *     MiGetTopLevelPfn @ 0x1401086F0 (MiGetTopLevelPfn.c)
+ *     MiIsStoreProcess @ 0x14010AC04 (MiIsStoreProcess.c)
  */
 
 __int64 __fastcall MiStoreCheckCandidatePage(__int64 a1, __int64 a2, unsigned __int64 *a3, _OWORD *a4, _QWORD *a5)
@@ -43,10 +43,10 @@ __int64 __fastcall MiStoreCheckCandidatePage(__int64 a1, __int64 a2, unsigned __
   {
     v12 = 0;
     v13 = *(_QWORD *)(a1 + 8) | 0x8000000000000000uLL;
-    if ( v13 >= qword_140327F20[0] && v13 < qword_140327F20[0] + 0x100000000000LL
-      || qword_140326C30
-      && v13 >= qword_140326C30
-      && v13 < qword_140326C30 + (qword_140326C10 << 21)
+    if ( v13 >= qword_140327F60[0] && v13 < qword_140327F60[0] + 0x100000000000LL
+      || qword_140326C70
+      && v13 >= qword_140326C70
+      && v13 < qword_140326C70 + (qword_140326C50 << 21)
       && (*(_BYTE *)(48 * ((*(_QWORD *)(((v13 >> 18) & 0x3FFFFFF8) - 0x904C0000000LL) >> 12) & 0xFFFFFFFFFLL)
                    - 0x57FFFFFFFDALL) & 0xF0) == 0xD0 )
     {
@@ -55,12 +55,12 @@ __int64 __fastcall MiStoreCheckCandidatePage(__int64 a1, __int64 a2, unsigned __
       *(_DWORD *)(((unsigned __int64)v25 & 0xFFFFFFFFFFFFFFE0uLL) + 0x10) &= 0xFFFFFFFC;
       goto LABEL_14;
     }
-    v14 = qword_140326910;
+    v14 = qword_140326950;
     v15 = (__int64)(v13 << 25) >> 16;
     *(_QWORD *)(((unsigned __int64)v25 & 0xFFFFFFFFFFFFFFE0uLL) + 0x10) = v15;
     if ( (v15 < v14 || v15 >= v14 + 0x8000000000LL)
       && v15 > 0x7FFFFFFEFFFFLL
-      && (v15 < qword_140327F90 || v15 > qword_140326CF8)
+      && (v15 < qword_140327FD0 || v15 > qword_140326D38)
       && (v15 < 0xFFFFF68000000000uLL || v15 > 0xFFFFF6FFFFFFFFFFuLL) )
     {
       *(_QWORD *)(((unsigned __int64)v25 & 0xFFFFFFFFFFFFFFE0uLL) + 8) = 0LL;
@@ -74,7 +74,7 @@ __int64 __fastcall MiStoreCheckCandidatePage(__int64 a1, __int64 a2, unsigned __
       v17 = *(_QWORD *)TopLevelPfn;
       *(_QWORD *)(((unsigned __int64)v25 & 0xFFFFFFFFFFFFFFE0uLL) + 8) = *(_QWORD *)TopLevelPfn;
       _InterlockedAnd64((volatile signed __int64 *)(TopLevelPfn + 24), 0x7FFFFFFFFFFFFFFFuLL);
-      if ( v15 >= qword_140326910 && v15 < qword_140326910 + 0x8000000000LL )
+      if ( v15 >= qword_140326950 && v15 < qword_140326950 + 0x8000000000LL )
       {
         *(_DWORD *)(((unsigned __int64)v25 & 0xFFFFFFFFFFFFFFE0uLL) + 0x10) = v15 & 0xFFFFFFFC | 1;
         goto LABEL_14;

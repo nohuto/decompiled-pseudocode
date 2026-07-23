@@ -1,26 +1,26 @@
 /*
- * XREFs of MiConstructLoaderEntry @ 0x140AA8F54
+ * XREFs of MiConstructLoaderEntry @ 0x140AA535C
  * Callers:
- *     MmLoadSystemImageEx @ 0x140A269D4 (MmLoadSystemImageEx.c)
- *     MiInitializeLoadedModuleList @ 0x140D00470 (MiInitializeLoadedModuleList.c)
+ *     MmLoadSystemImageEx @ 0x140A39A74 (MmLoadSystemImageEx.c)
+ *     MiInitializeLoadedModuleList @ 0x140D06810 (MiInitializeLoadedModuleList.c)
  * Callees:
- *     MiDereferenceControlAreaFile @ 0x1402649C0 (MiDereferenceControlAreaFile.c)
- *     MiManageSubsectionView @ 0x14027DC70 (MiManageSubsectionView.c)
- *     MiChargeResident @ 0x1403185A0 (MiChargeResident.c)
- *     MiSectionControlArea @ 0x14038A9B0 (MiSectionControlArea.c)
- *     ExAllocatePoolMm @ 0x1403985B0 (ExAllocatePoolMm.c)
- *     MiReferenceControlAreaFile @ 0x140448EB0 (MiReferenceControlAreaFile.c)
- *     MmGetCurrentProcessorColor @ 0x14044ADC0 (MmGetCurrentProcessorColor.c)
- *     RtlImageNtHeader @ 0x1404696C0 (RtlImageNtHeader.c)
- *     IoIsDeviceEjectable @ 0x1404CEF14 (IoIsDeviceEjectable.c)
- *     MiGetExtendedLoaderBitmap @ 0x1404FE2CC (MiGetExtendedLoaderBitmap.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     MiBackSingleImageWithPagefile @ 0x1408640D0 (MiBackSingleImageWithPagefile.c)
- *     MiLockdownSections @ 0x140AA94F0 (MiLockdownSections.c)
- *     MiCaptureImageExceptionValues @ 0x140AA95F8 (MiCaptureImageExceptionValues.c)
- *     MiInitializeImageSectionLocks @ 0x140AA98A0 (MiInitializeImageSectionLocks.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     MiDereferenceControlAreaFile @ 0x140263F30 (MiDereferenceControlAreaFile.c)
+ *     MiManageSubsectionView @ 0x14027D1E0 (MiManageSubsectionView.c)
+ *     MiChargeResident @ 0x14031A5D0 (MiChargeResident.c)
+ *     MiSectionControlArea @ 0x14038C760 (MiSectionControlArea.c)
+ *     ExAllocatePoolMm @ 0x14039A310 (ExAllocatePoolMm.c)
+ *     MiReferenceControlAreaFile @ 0x1404419A0 (MiReferenceControlAreaFile.c)
+ *     MmGetCurrentProcessorColor @ 0x140442EF0 (MmGetCurrentProcessorColor.c)
+ *     RtlImageNtHeader @ 0x140462E40 (RtlImageNtHeader.c)
+ *     IoIsDeviceEjectable @ 0x1404C8944 (IoIsDeviceEjectable.c)
+ *     MiGetExtendedLoaderBitmap @ 0x1404F780C (MiGetExtendedLoaderBitmap.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     MiBackSingleImageWithPagefile @ 0x14086A4B0 (MiBackSingleImageWithPagefile.c)
+ *     MiLockdownSections @ 0x140AA58F8 (MiLockdownSections.c)
+ *     MiCaptureImageExceptionValues @ 0x140AA5A00 (MiCaptureImageExceptionValues.c)
+ *     MiInitializeImageSectionLocks @ 0x140AA5CA8 (MiInitializeImageSectionLocks.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall MiConstructLoaderEntry(__int64 a1, const void **a2, const void **a3, int a4, __int64 *a5)
@@ -30,9 +30,9 @@ __int64 __fastcall MiConstructLoaderEntry(__int64 a1, const void **a2, const voi
   int CurrentProcessorColor; // eax
   _WORD *PoolMm; // rax
   _WORD *v12; // r14
-  _DWORD *v13; // rbp
-  unsigned __int64 v14; // r13
-  unsigned int v15; // ecx
+  PIMAGE_NT_HEADERS v13; // rbp
+  unsigned __int64 NumberOfSections; // r13
+  unsigned int SizeOfImage; // ecx
   BOOL v16; // eax
   unsigned int v17; // edx
   BOOL v18; // ecx
@@ -59,7 +59,7 @@ __int64 __fastcall MiConstructLoaderEntry(__int64 a1, const void **a2, const voi
   __int128 v40; // xmm1
   unsigned int v41; // ebx
   unsigned __int64 v42; // rax
-  __int64 v43; // rax
+  PVOID v43; // rax
   __int16 v44; // ax
   __int128 v45; // [rsp+20h] [rbp-108h]
   __int64 v46; // [rsp+30h] [rbp-F8h]
@@ -85,9 +85,9 @@ __int64 __fastcall MiConstructLoaderEntry(__int64 a1, const void **a2, const voi
   memmove(PoolMm, a3[1], *(unsigned __int16 *)a3);
   v12[(unsigned __int64)*(unsigned __int16 *)a3 >> 1] = 0;
   v47 = *(_QWORD *)(a1 + 48);
-  v13 = RtlImageNtHeader(v47);
-  v14 = *((unsigned __int16 *)v13 + 3);
-  if ( 0xFFFFFFFFFFFFFFFFuLL / v14 < 0xC )
+  v13 = RtlImageNtHeader((PVOID)v47);
+  NumberOfSections = v13->FileHeader.NumberOfSections;
+  if ( 0xFFFFFFFFFFFFFFFFuLL / NumberOfSections < 0xC )
   {
     v41 = -1073741520;
 LABEL_50:
@@ -97,10 +97,10 @@ LABEL_50:
       ExFreePoolWithTag(v9, 0);
     return v41;
   }
-  v15 = v13[20];
-  v16 = (v15 & 0xFFF) != 0;
-  v17 = (v16 + (v15 >> 12)) >> 6;
-  v18 = ((v16 + (unsigned __int8)(v15 >> 12)) & 0x3F) != 0;
+  SizeOfImage = v13->OptionalHeader.SizeOfImage;
+  v16 = (SizeOfImage & 0xFFF) != 0;
+  v17 = (v16 + (SizeOfImage >> 12)) >> 6;
+  v18 = ((v16 + (unsigned __int8)(SizeOfImage >> 12)) & 0x3F) != 0;
   v46 = 8 * (v17 + v18 + 2);
   v19 = v46 + 304;
   if ( !(8 * (v17 + v18 + 2))
@@ -110,11 +110,11 @@ LABEL_37:
     v41 = -1073741701;
     goto LABEL_50;
   }
-  if ( (_DWORD)v14 )
+  if ( (_DWORD)NumberOfSections )
   {
-    if ( v21 + 12 * v14 > v21 )
+    if ( v21 + 12 * NumberOfSections > v21 )
     {
-      v21 += 12 * v14;
+      v21 += 12 * NumberOfSections;
       goto LABEL_6;
     }
     goto LABEL_37;
@@ -183,7 +183,7 @@ LABEL_41:
     v44 = 1;
     if ( (*(_DWORD *)(v24 + 104) & 0x4000000) != 0 )
     {
-      v43 = *(_QWORD *)(v24 + 48);
+      v43 = *(PVOID *)(v24 + 48);
       if ( v43 != PsNtosImageBase && v43 != PsHalImageBase )
         v44 = 0;
     }
@@ -193,15 +193,15 @@ LABEL_41:
   *(_DWORD *)(v24 + 184) = v28;
   v29 = (char *)(v46 + MiGetExtendedLoaderBitmap(v24));
   *(_QWORD *)(v24 + 192) = v52;
-  if ( (_DWORD)v14 )
+  if ( (_DWORD)NumberOfSections )
   {
-    *(_DWORD *)(v24 + 296) = v14;
+    *(_DWORD *)(v24 + 296) = NumberOfSections;
     *(_QWORD *)(v24 + 200) = &v29[v20];
     MiInitializeImageSectionLocks();
   }
-  if ( *((_WORD *)v13 + 32) >= 5u && *((_WORD *)v13 + 34) >= 5u )
+  if ( v13->OptionalHeader.MajorOperatingSystemVersion >= 5u && v13->OptionalHeader.MajorImageVersion >= 5u )
     *(_DWORD *)(v24 + 104) |= 0x8000000u;
-  if ( (*((_BYTE *)v13 + 94) & 0x80) != 0 )
+  if ( (v13->OptionalHeader.DllCharacteristics & 0x80) != 0 )
     *(_DWORD *)(v24 + 104) |= 0x20u;
   if ( (a4 & 8) != 0 )
     *(_DWORD *)(v24 + 104) |= 0x4000000u;
@@ -211,8 +211,8 @@ LABEL_41:
   memmove(v29, a2[1], *(unsigned __int16 *)a2);
   *(_WORD *)(*(_QWORD *)(v24 + 96) + 2 * ((unsigned __int64)*(unsigned __int16 *)a2 >> 1)) = 0;
   *(_QWORD *)(v24 + 40) = 0LL;
-  *(_QWORD *)(v24 + 56) = v47 + (unsigned int)v13[10];
-  *(_DWORD *)(v24 + 120) = v13[22];
+  *(_QWORD *)(v24 + 56) = v47 + v13->OptionalHeader.AddressOfEntryPoint;
+  *(_DWORD *)(v24 + 120) = v13->OptionalHeader.CheckSum;
   if ( v48 )
   {
     memset_0(v50, 0, 0x98uLL);
@@ -227,11 +227,11 @@ LABEL_41:
   {
     v30 = 0LL;
   }
-  *(_DWORD *)(v24 + 152) = v13[20];
-  *(_DWORD *)(v24 + 156) = v13[2];
+  *(_DWORD *)(v24 + 152) = v13->OptionalHeader.SizeOfImage;
+  *(_DWORD *)(v24 + 156) = v13->FileHeader.TimeDateStamp;
   MiCaptureImageExceptionValues(v24);
   MiLockdownSections(v24);
-  if ( (dword_140FBE204 & 1) != 0 || (a4 & 2) != 0 )
+  if ( (dword_140FBF204 & 1) != 0 || (a4 & 2) != 0 )
     v28 |= 8u;
   *(_OWORD *)(v24 + 72) = v45;
   v33 = v28 | 0x1000;

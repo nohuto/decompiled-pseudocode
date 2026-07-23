@@ -1,21 +1,21 @@
 /*
- * XREFs of HalAllocateAdapterChannelV2 @ 0x140359DA0
+ * XREFs of HalAllocateAdapterChannelV2 @ 0x14035BB40
  * Callers:
- *     HalRealAllocateAdapterChannelV2 @ 0x1404CAAE0 (HalRealAllocateAdapterChannelV2.c)
- *     HalAllocateAdapterChannel @ 0x1405799D0 (HalAllocateAdapterChannel.c)
+ *     HalRealAllocateAdapterChannelV2 @ 0x1404C4510 (HalRealAllocateAdapterChannelV2.c)
+ *     HalAllocateAdapterChannel @ 0x14057BF00 (HalAllocateAdapterChannel.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     KxWaitForLockOwnerShip @ 0x1402B29C0 (KxWaitForLockOwnerShip.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x1402B4730 (KeAcquireInStackQueuedSpinLock.c)
- *     KiAcquireQueuedSpinLockInstrumented @ 0x1402B4830 (KiAcquireQueuedSpinLockInstrumented.c)
- *     KeReleaseInStackQueuedSpinLock @ 0x1402B98C0 (KeReleaseInStackQueuedSpinLock.c)
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402B9F90 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     HalpDmaAllocateMapRegisters @ 0x14035A8E0 (HalpDmaAllocateMapRegisters.c)
- *     IoFreeAdapterChannelV2 @ 0x14035AD80 (IoFreeAdapterChannelV2.c)
- *     HalpQueueMapBufferWorker @ 0x14043E34C (HalpQueueMapBufferWorker.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     HalpDmaQueueAdapter @ 0x140589508 (HalpDmaQueueAdapter.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KxWaitForLockOwnerShip @ 0x1402FD690 (KxWaitForLockOwnerShip.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402FF400 (KeAcquireInStackQueuedSpinLock.c)
+ *     KiAcquireQueuedSpinLockInstrumented @ 0x1402FF500 (KiAcquireQueuedSpinLockInstrumented.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x140304580 (KeReleaseInStackQueuedSpinLock.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140304C50 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     HalpDmaAllocateMapRegisters @ 0x14035C680 (HalpDmaAllocateMapRegisters.c)
+ *     IoFreeAdapterChannelV2 @ 0x14035CB20 (IoFreeAdapterChannelV2.c)
+ *     HalpQueueMapBufferWorker @ 0x140436E5C (HalpQueueMapBufferWorker.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     HalpDmaQueueAdapter @ 0x14058BBD8 (HalpDmaQueueAdapter.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall HalAllocateAdapterChannelV2(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
@@ -72,7 +72,7 @@ __int64 __fastcall HalAllocateAdapterChannelV2(__int64 a1, __int64 a2, __int64 a
   {
     LockHandle.LockQueue.Lock = (unsigned __int64 *volatile)(a1 + 208);
     LockHandle.LockQueue.Next = 0LL;
-    if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+    if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || PopHibernateInProgress )
     {
       v13 = _InterlockedExchange64((volatile __int64 *)v11, (__int64)&LockHandle);
       if ( v13 )

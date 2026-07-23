@@ -1,9 +1,9 @@
 /*
- * XREFs of MmFillEtwNodeInformation @ 0x140547BF4
+ * XREFs of MmFillEtwNodeInformation @ 0x140547E34
  * Callers:
- *     EtwpLogMemNodeInfo @ 0x1405A8D98 (EtwpLogMemNodeInfo.c)
+ *     EtwpLogMemNodeInfo @ 0x1405A8FC8 (EtwpLogMemNodeInfo.c)
  * Callees:
- *     memset @ 0x140414200 (memset.c)
+ *     memset @ 0x140414300 (memset.c)
  */
 
 __int64 __fastcall MmFillEtwNodeInformation(unsigned __int16 **a1, __int64 a2, unsigned int a3, _DWORD *a4)

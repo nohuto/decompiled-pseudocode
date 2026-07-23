@@ -1,16 +1,16 @@
 /*
- * XREFs of RtlSetProcessPreferredUILanguages @ 0x180031240
+ * XREFs of RtlSetProcessPreferredUILanguages @ 0x18000F8D0
  * Callers:
  *     <none>
  * Callees:
- *     RtlEnterCriticalSection @ 0x1800148F0 (RtlEnterCriticalSection.c)
- *     RtlLeaveCriticalSection @ 0x1800149F0 (RtlLeaveCriticalSection.c)
- *     DbgPrint @ 0x18002FC00 (DbgPrint.c)
- *     RtlpCheckMuiMultiStringSafe @ 0x1800314F8 (RtlpCheckMuiMultiStringSafe.c)
- *     RtlpMuiRegAddMultiSzToLangFallbackList @ 0x1800322A0 (RtlpMuiRegAddMultiSzToLangFallbackList.c)
- *     RtlpMuiRegFreeLanguageList @ 0x180035EE0 (RtlpMuiRegFreeLanguageList.c)
- *     RtlpInitMuiCriticalSection @ 0x18007CC94 (RtlpInitMuiCriticalSection.c)
- *     RtlpMuiRegCreateAndLoadRegistryInfo @ 0x18007CD08 (RtlpMuiRegCreateAndLoadRegistryInfo.c)
+ *     DbgPrint @ 0x18000F790 (DbgPrint.c)
+ *     RtlpCheckMuiMultiStringSafe @ 0x18000FB88 (RtlpCheckMuiMultiStringSafe.c)
+ *     RtlpInitMuiCriticalSection @ 0x1800115D4 (RtlpInitMuiCriticalSection.c)
+ *     RtlpMuiRegCreateAndLoadRegistryInfo @ 0x180011648 (RtlpMuiRegCreateAndLoadRegistryInfo.c)
+ *     RtlpMuiRegAddMultiSzToLangFallbackList @ 0x180013360 (RtlpMuiRegAddMultiSzToLangFallbackList.c)
+ *     RtlpMuiRegFreeLanguageList @ 0x180016160 (RtlpMuiRegFreeLanguageList.c)
+ *     RtlEnterCriticalSection @ 0x1800412F0 (RtlEnterCriticalSection.c)
+ *     RtlLeaveCriticalSection @ 0x1800413F0 (RtlLeaveCriticalSection.c)
  */
 
 __int64 __fastcall RtlSetProcessPreferredUILanguages(int a1, _WORD *a2, _DWORD *a3)
@@ -18,7 +18,7 @@ __int64 __fastcall RtlSetProcessPreferredUILanguages(int a1, _WORD *a2, _DWORD *
   unsigned __int64 v3; // rbx
   int v6; // r14d
   int RegistryInfo; // ebp
-  __int64 v8; // rsi
+  _QWORD *v8; // rsi
   __int64 v9; // rdx
   __int16 v10; // r9
   _WORD *v11; // r8
@@ -53,10 +53,10 @@ __int64 __fastcall RtlSetProcessPreferredUILanguages(int a1, _WORD *a2, _DWORD *
   if ( !g_RegInfo )
   {
     RtlpInitMuiCriticalSection();
-    RtlEnterCriticalSection((__int64)&RegistryInfoCritSect);
+    RtlEnterCriticalSection(&RegistryInfoCritSect);
     if ( !g_RegInfo )
       RegistryInfo = RtlpMuiRegCreateAndLoadRegistryInfo(&g_RegInfo);
-    RtlLeaveCriticalSection((__int64)&RegistryInfoCritSect);
+    RtlLeaveCriticalSection(&RegistryInfoCritSect);
     v8 = g_RegInfo;
   }
   if ( RegistryInfo < 0 )
@@ -126,14 +126,14 @@ LABEL_45:
     v17 = v23;
   }
   RtlpInitMuiCriticalSection();
-  RtlEnterCriticalSection((__int64)&RegistryInfoCritSect);
-  v19 = *(_QWORD *)(v8 + 72);
-  *(_QWORD *)(v8 + 72) = v17;
-  ++*(_DWORD *)(v8 + 16);
-  v20 = *(_QWORD *)(v8 + 96);
+  RtlEnterCriticalSection(&RegistryInfoCritSect);
+  v19 = v8[9];
+  v8[9] = v17;
+  ++*((_DWORD *)v8 + 4);
+  v20 = v8[12];
   if ( v20 )
     *(_DWORD *)(v20 + 40) |= 0x80u;
-  RtlLeaveCriticalSection((__int64)&RegistryInfoCritSect);
+  RtlLeaveCriticalSection(&RegistryInfoCritSect);
   if ( v19 )
   {
     v21 = v19;

@@ -1,20 +1,20 @@
 /*
- * XREFs of MiProtectPagedPool @ 0x1404B84A4
+ * XREFs of MiProtectPagedPool @ 0x1404B1CD4
  * Callers:
- *     MmProtectPool @ 0x14024E084 (MmProtectPool.c)
+ *     MmProtectPool @ 0x14024F9E4 (MmProtectPool.c)
  * Callees:
- *     MiAddVaToProtectFlushList @ 0x14024F3A4 (MiAddVaToProtectFlushList.c)
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     MiMakeValidPte @ 0x1402DA020 (MiMakeValidPte.c)
- *     MiReleasePageFileInfo @ 0x1402DAD50 (MiReleasePageFileInfo.c)
- *     MiCaptureDirtyBitToPfn @ 0x14031AE30 (MiCaptureDirtyBitToPfn.c)
- *     MiGetProcessorFlushList @ 0x1403229E0 (MiGetProcessorFlushList.c)
- *     MiFreeWsleList @ 0x140328E50 (MiFreeWsleList.c)
- *     MiLockTransitionLeafPageEx @ 0x14033E050 (MiLockTransitionLeafPageEx.c)
- *     MI_WSLE_LOG_ACCESS @ 0x14035DBA4 (MI_WSLE_LOG_ACCESS.c)
- *     MiInsertTbFlushEntry @ 0x14035E7E0 (MiInsertTbFlushEntry.c)
- *     MiInitializeTbFlushList @ 0x140360920 (MiInitializeTbFlushList.c)
- *     MiReleaseProcessorFlushList @ 0x1403613C0 (MiReleaseProcessorFlushList.c)
+ *     MiAddVaToProtectFlushList @ 0x140250D04 (MiAddVaToProtectFlushList.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     MiMakeValidPte @ 0x1402BBDE0 (MiMakeValidPte.c)
+ *     MiReleasePageFileInfo @ 0x1402BCB10 (MiReleasePageFileInfo.c)
+ *     MiCaptureDirtyBitToPfn @ 0x14031CE60 (MiCaptureDirtyBitToPfn.c)
+ *     MiGetProcessorFlushList @ 0x140324A10 (MiGetProcessorFlushList.c)
+ *     MiFreeWsleList @ 0x14032AE80 (MiFreeWsleList.c)
+ *     MiLockTransitionLeafPageEx @ 0x1403400D0 (MiLockTransitionLeafPageEx.c)
+ *     MI_WSLE_LOG_ACCESS @ 0x14035F944 (MI_WSLE_LOG_ACCESS.c)
+ *     MiInsertTbFlushEntry @ 0x140360580 (MiInsertTbFlushEntry.c)
+ *     MiInitializeTbFlushList @ 0x1403626C0 (MiInitializeTbFlushList.c)
+ *     MiReleaseProcessorFlushList @ 0x140363160 (MiReleaseProcessorFlushList.c)
  */
 
 __int64 __fastcall MiProtectPagedPool(ULONG_PTR a1, unsigned int a2, __int64 *a3)
@@ -90,10 +90,10 @@ __int64 __fastcall MiProtectPagedPool(ULONG_PTR a1, unsigned int a2, __int64 *a3
       || (ValidPte & 2) == 0 && (v3 & 2) != 0
       || ValidPte < 0 && v3 >= 0 )
     {
-      MiAddVaToProtectFlushList((int)&unk_140E37080, a1, a3);
+      MiAddVaToProtectFlushList((int)&unk_140E37200, a1, a3);
     }
     v27 = 0;
-    v14 = *(struct _KEVENT **)(stru_140E2EB88.ThreadLock + 8LL * (unsigned __int16)word_140E3712E);
+    v14 = *(struct _KEVENT **)(stru_140E2ED08.ThreadLock + 8LL * (unsigned __int16)word_140E372AE);
     while ( _interlockedbittestandset64((volatile signed __int32 *)(v9 + 24), 0x3FuLL) )
     {
       do
@@ -106,15 +106,15 @@ __int64 __fastcall MiProtectPagedPool(ULONG_PTR a1, unsigned int a2, __int64 *a3
       v15 = MiCaptureDirtyBitToPfn(v9);
     _InterlockedAnd64((volatile signed __int64 *)(v9 + 24), 0x7FFFFFFFFFFFFFFFuLL);
     if ( v15 )
-      MiReleasePageFileInfo(v14, v15, 1);
+      MiReleasePageFileInfo(v14, v15, 1LL);
     return 0LL;
   }
-  if ( (dword_140E37138 & 0xF) == 1 )
+  if ( (dword_140E372B8 & 0xF) == 1 )
     v16 = &MiSystemPartition;
   else
-    v16 = *(ULONG **)(stru_140E2EB88.ThreadLock + 8LL * (unsigned __int16)word_140E3712E);
+    v16 = *(ULONG **)(stru_140E2ED08.ThreadLock + 8LL * (unsigned __int16)word_140E372AE);
   if ( v16[4539] )
-    MI_WSLE_LOG_ACCESS((__int64)&unk_140E37080, a1);
+    MI_WSLE_LOG_ACCESS((__int64)&unk_140E37200, a1, (unsigned __int64)a3);
   ProcessorFlushList = (__int64 *)a3[1];
   if ( ProcessorFlushList )
   {
@@ -129,12 +129,12 @@ __int64 __fastcall MiProtectPagedPool(ULONG_PTR a1, unsigned int a2, __int64 *a3
   v21 = (ULONG_PTR)(ProcessorFlushList + 517);
   MiInitializeTbFlushList(
     (__int64)(ProcessorFlushList + 517),
-    (__int64)&unk_140E37080,
+    (__int64)&unk_140E37200,
     *((_DWORD *)ProcessorFlushList + 1037),
     2,
     1);
   MiInsertTbFlushEntry(v22, v7, 1LL, 0);
-  v24 = -(MiFreeWsleList((__int64)&unk_140E37080, v23, v21, 0) != 0);
+  v24 = -(MiFreeWsleList((__int64)&unk_140E37200, v23, v21, 0) != 0);
   if ( v20 )
   {
     MiReleaseProcessorFlushList();

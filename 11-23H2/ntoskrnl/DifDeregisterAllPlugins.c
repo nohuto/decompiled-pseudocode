@@ -1,10 +1,10 @@
 /*
- * XREFs of DifDeregisterAllPlugins @ 0x1405D4C08
+ * XREFs of DifDeregisterAllPlugins @ 0x1405D5178
  * Callers:
- *     VfVolatileClearDifRuleClass @ 0x140ADDAAC (VfVolatileClearDifRuleClass.c)
+ *     VfVolatileClearDifRuleClass @ 0x140ADDA9C (VfVolatileClearDifRuleClass.c)
  * Callees:
- *     CarDeregisterRuleClassConfiguration @ 0x1405D3B80 (CarDeregisterRuleClassConfiguration.c)
- *     DifDeregisterPlugin @ 0x1405D4C60 (DifDeregisterPlugin.c)
+ *     CarDeregisterRuleClassConfiguration @ 0x1405D40F0 (CarDeregisterRuleClassConfiguration.c)
+ *     DifDeregisterPlugin @ 0x1405D51D0 (DifDeregisterPlugin.c)
  */
 
 void DifDeregisterAllPlugins()

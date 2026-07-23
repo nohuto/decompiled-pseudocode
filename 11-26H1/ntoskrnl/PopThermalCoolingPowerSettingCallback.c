@@ -1,35 +1,35 @@
 /*
- * XREFs of PopThermalCoolingPowerSettingCallback @ 0x140435E10
+ * XREFs of PopThermalCoolingPowerSettingCallback @ 0x140424F90
  * Callers:
  *     <none>
  * Callees:
- *     PopReleaseRwLock @ 0x14043630C (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x140436378 (PopAcquireRwLockExclusive.c)
- *     PopThermalZoneUpdateCoolingPolicy @ 0x140B3F8C8 (PopThermalZoneUpdateCoolingPolicy.c)
+ *     PopReleaseRwLock @ 0x14021B1A8 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x140425310 (PopAcquireRwLockExclusive.c)
+ *     PopThermalZoneUpdateCoolingPolicy @ 0x140B418F8 (PopThermalZoneUpdateCoolingPolicy.c)
  */
 
-__int64 __fastcall PopThermalCoolingPowerSettingCallback(_QWORD *a1, int *a2, int a3)
+__int64 __fastcall PopThermalCoolingPowerSettingCallback(_QWORD *a1, unsigned int *a2, int a3)
 {
   __int64 v6; // r9
-  int v7; // eax
+  unsigned int ForegroundLossTime; // eax
 
-  PopAcquireRwLockExclusive(&unk_140F10DB0);
+  PopAcquireRwLockExclusive(&PopThermalLock);
   v6 = *(_QWORD *)&GUID_SYSTEM_COOLING_POLICY.Data1 - *a1;
   if ( *(_QWORD *)&GUID_SYSTEM_COOLING_POLICY.Data1 == *a1 )
     v6 = *(_QWORD *)GUID_SYSTEM_COOLING_POLICY.Data4 - a1[1];
   if ( !v6 && a3 == 4 )
-    dword_140F10708 = *a2;
-  if ( !*(_DWORD *)&stru_140E66FF0.WaitBlockFill11[80]
-    || !stru_140E66FF0.WaitBlockFill6[84]
-    || (v7 = 1, PopConsoleDisplayState) )
+    PpmIdlePolicyLock.ForegroundLossTime = *a2;
+  if ( !*(_DWORD *)&stru_140E67200.WaitBlockFill11[88]
+    || !stru_140E67200.WaitBlockFill6[80]
+    || (ForegroundLossTime = 1, PopConsoleDisplayState) )
   {
-    v7 = dword_140F10708;
+    ForegroundLossTime = PpmIdlePolicyLock.ForegroundLossTime;
   }
-  if ( v7 != dword_140E67608 )
+  if ( ForegroundLossTime != PopCoolingMode )
   {
-    dword_140E67608 = v7;
+    PopCoolingMode = ForegroundLossTime;
     PopThermalZoneUpdateCoolingPolicy();
   }
-  PopReleaseRwLock((struct _KTHREAD *)&unk_140F10DB0);
+  PopReleaseRwLock((struct _KTHREAD *)&PopThermalLock);
   return 0LL;
 }

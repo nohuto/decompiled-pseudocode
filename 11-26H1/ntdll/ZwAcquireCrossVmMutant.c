@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwAcquireCrossVmMutant @ 0x18015FC10
+ * XREFs of ZwAcquireCrossVmMutant @ 0x18015FB10
  * Callers:
  *     <none>
  * Callees:

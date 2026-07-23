@@ -1,9 +1,9 @@
 /*
- * XREFs of SSHSupportRegisterPowerSettingCallback @ 0x140767938
+ * XREFs of SSHSupportRegisterPowerSettingCallback @ 0x140767B68
  * Callers:
- *     SshInitialize @ 0x140C341AC (SshInitialize.c)
+ *     SshInitialize @ 0x140C362EC (SshInitialize.c)
  * Callees:
- *     PoRegisterPowerSettingCallback @ 0x140A6B150 (PoRegisterPowerSettingCallback.c)
+ *     PoRegisterPowerSettingCallback @ 0x140A646B0 (PoRegisterPowerSettingCallback.c)
  */
 
 NTSTATUS SSHSupportRegisterPowerSettingCallback()

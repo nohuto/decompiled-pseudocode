@@ -27,35 +27,35 @@
 
 int __fastcall RtlpDosPathNameToRelativeNtPathName(
         int a1,
-        int *a2,
+        _UNICODE_STRING *a2,
         unsigned __int16 *a3,
-        unsigned __int16 *a4,
-        _DWORD *a5,
-        int a6,
+        PUNICODE_STRING Destination,
+        int a5,
+        _DWORD *a6,
         _DWORD *a7)
 {
   bool v7; // cc
   unsigned __int16 *v8; // esi
   _DWORD *v9; // ecx
-  _WORD *v10; // ecx
-  unsigned __int16 *Heap; // edi
+  wchar_t *Buffer; // ecx
+  wchar_t *Heap; // edi
   unsigned int FullPathName_Ustr; // ecx
-  __int16 v13; // ax
-  unsigned __int16 v14; // dx
+  unsigned __int16 v13; // ax
+  unsigned __int16 Length; // dx
   int v15; // eax
   int v16; // eax
   int v17; // eax
   int v18; // eax
   int v19; // ecx
   unsigned int v20; // ebx
-  int v21; // eax
+  PVOID v21; // eax
   unsigned __int16 *v22; // ecx
   unsigned int v23; // eax
-  unsigned __int16 *v24; // ecx
+  void *v24; // ecx
   unsigned int v25; // edx
   unsigned int v26; // ebx
   unsigned __int16 v27; // ax
-  int v28; // ebx
+  unsigned int v28; // ebx
   unsigned int v29; // edx
   unsigned int v30; // ebx
   _DWORD *v31; // ebx
@@ -65,71 +65,69 @@ int __fastcall RtlpDosPathNameToRelativeNtPathName(
   int v36; // eax
   int v37; // eax
   int v38; // eax
-  _DWORD *v39; // eax
+  HANDLE *v39; // eax
   _WORD *v40; // edx
   __int16 v41; // ax
   _WORD *v42; // esi
   __int16 v43; // ax
   __int16 v44; // cx
-  int v45; // esi
-  const void *v46; // [esp-8h] [ebp-260h]
-  unsigned int v47; // [esp+Ch] [ebp-24Ch]
-  __int16 v48; // [esp+Ch] [ebp-24Ch]
-  unsigned __int16 v49; // [esp+Ch] [ebp-24Ch]
-  _DWORD *v50; // [esp+Ch] [ebp-24Ch]
-  _BYTE v51[5]; // [esp+13h] [ebp-245h] BYREF
-  unsigned __int16 *v52; // [esp+18h] [ebp-240h]
-  int v53; // [esp+1Ch] [ebp-23Ch]
-  int v54; // [esp+20h] [ebp-238h]
-  unsigned int v55; // [esp+24h] [ebp-234h]
-  int v56; // [esp+28h] [ebp-230h] BYREF
-  unsigned __int16 *v57; // [esp+2Ch] [ebp-22Ch]
-  int v58; // [esp+30h] [ebp-228h]
+  HANDLE *v45; // esi
+  wchar_t *v46; // [esp-8h] [ebp-260h]
+  SIZE_T v47; // [esp-4h] [ebp-25Ch]
+  unsigned int StackCookie; // [esp+Ch] [ebp-24Ch]
+  char StackCookie_7; // [esp+13h] [ebp-245h] BYREF
+  const _UNICODE_STRING *v50; // [esp+14h] [ebp-244h]
+  _DWORD *p_Length; // [esp+18h] [ebp-240h]
+  int v52; // [esp+1Ch] [ebp-23Ch]
+  unsigned int v53; // [esp+20h] [ebp-238h]
+  unsigned int v54; // [esp+24h] [ebp-234h]
+  _UNICODE_STRING String2; // [esp+28h] [ebp-230h] BYREF
+  int v56; // [esp+30h] [ebp-228h]
   void *Src; // [esp+34h] [ebp-224h]
-  _DWORD *v60; // [esp+38h] [ebp-220h]
-  _DWORD *v61; // [esp+3Ch] [ebp-21Ch]
-  int v62[2]; // [esp+40h] [ebp-218h] BYREF
-  _BYTE v63[524]; // [esp+48h] [ebp-210h] BYREF
+  _DWORD *v58; // [esp+38h] [ebp-220h]
+  int v59; // [esp+3Ch] [ebp-21Ch]
+  int v60[2]; // [esp+40h] [ebp-218h] BYREF
+  _BYTE BaseAddress[524]; // [esp+48h] [ebp-210h] BYREF
 
-  v58 = a1;
-  v7 = *(_WORD *)a2 <= 8u;
+  v56 = a1;
+  v7 = a2->Length <= 8u;
   v8 = a3;
-  v61 = a5;
-  v9 = (_DWORD *)a6;
-  v52 = a4;
-  v53 = a6;
-  v60 = a7;
+  v59 = a5;
+  v9 = a6;
+  p_Length = &Destination->Length;
+  v52 = (int)a6;
+  v58 = a7;
   if ( !v7 )
   {
-    v10 = (_WORD *)a2[1];
-    if ( *v10 == 92 )
+    Buffer = a2->Buffer;
+    if ( *Buffer == 92 )
     {
-      v35 = (unsigned __int16)v10[1];
-      if ( (v35 == 92 || v35 == 63) && v10[2] == 63 && v10[3] == 92 )
-        return RtlpWin32NtNameToNtPathName(a4, v61, v53, a7);
+      v35 = Buffer[1];
+      if ( (v35 == 92 || v35 == 63) && Buffer[2] == 63 && Buffer[3] == 92 )
+        return RtlpWin32NtNameToNtPathName(Destination, v59, v52, (int)a7);
     }
-    v9 = (_DWORD *)v53;
+    v9 = (_DWORD *)v52;
   }
   if ( v9 )
     *v9 = 0;
-  Heap = (unsigned __int16 *)v63;
-  v55 = 520;
-  if ( (v58 & 1) == 0 )
+  Heap = (wchar_t *)BaseAddress;
+  v54 = 520;
+  if ( (v56 & 1) == 0 )
   {
-    FullPathName_Ustr = RtlGetFullPathName_Ustr(v63, (int)v9, (int)v51, (int)v62);
-    v47 = FullPathName_Ustr;
+    FullPathName_Ustr = RtlGetFullPathName_Ustr(BaseAddress, (int)v9, (int)&StackCookie_7, (int)v60);
+    StackCookie = FullPathName_Ustr;
     if ( FullPathName_Ustr )
     {
-      while ( !v51[0] )
+      while ( !StackCookie_7 )
       {
-        v13 = v55;
-        if ( FullPathName_Ustr <= v55 )
+        v13 = v54;
+        if ( FullPathName_Ustr <= v54 )
         {
-          v14 = FullPathName_Ustr;
-          v55 = (unsigned __int16)FullPathName_Ustr;
-          LOWORD(v56) = FullPathName_Ustr;
-          HIWORD(v56) = v13;
-          v57 = Heap;
+          Length = FullPathName_Ustr;
+          v54 = (unsigned __int16)FullPathName_Ustr;
+          String2.Length = FullPathName_Ustr;
+          String2.MaximumLength = v13;
+          String2.Buffer = Heap;
           if ( (unsigned __int16)FullPathName_Ustr >= 2u && ((v15 = *Heap, v15 == 92) || v15 == 47) )
           {
             if ( (unsigned __int16)FullPathName_Ustr >= 4u && ((v36 = Heap[1], v36 == 92) || v36 == 47) )
@@ -164,14 +162,15 @@ int __fastcall RtlpDosPathNameToRelativeNtPathName(
           }
           goto LABEL_19;
         }
-        if ( (v58 & 4) == 0 && ((v58 & 8) != 0 || (NtCurrentPeb()->BitField & 0x80u) == 0) )
+        if ( (v56 & 4) == 0 && ((v56 & 8) != 0 || (NtCurrentPeb()->BitField & 0x80u) == 0) )
           goto LABEL_90;
-        Heap = (unsigned __int16 *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, FullPathName_Ustr);
+        LODWORD(v47) = FullPathName_Ustr;
+        Heap = (wchar_t *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, v47);
         if ( !Heap )
           return -1073741801;
-        v55 = v47;
-        FullPathName_Ustr = RtlGetFullPathName_Ustr(Heap, v53, (int)v51, (int)v62);
-        v47 = FullPathName_Ustr;
+        v54 = StackCookie;
+        FullPathName_Ustr = RtlGetFullPathName_Ustr(Heap, v52, (int)&StackCookie_7, (int)v60);
+        StackCookie = FullPathName_Ustr;
         if ( !FullPathName_Ustr )
           break;
       }
@@ -179,41 +178,40 @@ int __fastcall RtlpDosPathNameToRelativeNtPathName(
     v33 = -1073741773;
     goto LABEL_42;
   }
-  v56 = *a2;
-  v57 = (unsigned __int16 *)a2[1];
-  v17 = RtlDetermineDosPathNameType_Ustr(&v56);
-  v14 = v56;
-  v62[0] = v17;
-  v55 = (unsigned __int16)v56;
+  String2 = *a2;
+  v17 = RtlDetermineDosPathNameType_Ustr(&String2);
+  Length = String2.Length;
+  v60[0] = v17;
+  v54 = String2.Length;
 LABEL_19:
   if ( v17 == 2 )
   {
 LABEL_20:
-    v54 = 0;
+    v53 = 0;
     v18 = 0;
 LABEL_21:
-    *(_DWORD *)&v51[1] = &RtlpDosDevicesPrefix;
+    v50 = &RtlpDosDevicesPrefix;
   }
   else
   {
     switch ( v17 )
     {
       case 1:
-        *(_DWORD *)&v51[1] = &RtlpDosDevicesUncPrefix;
+        v50 = &RtlpDosDevicesUncPrefix;
         v18 = 4;
-        v54 = 4;
+        v53 = 4;
         break;
       case 6:
-        v54 = 8;
+        v53 = 8;
         v18 = 8;
         goto LABEL_21;
       default:
         goto LABEL_20;
     }
   }
-  v48 = v18;
-  v19 = (unsigned __int16)**(_WORD **)&v51[1] - v18;
-  v20 = v19 + v14 + 2;
+  LOWORD(StackCookie) = v18;
+  v19 = v50->Length - v18;
+  v20 = v19 + Length + 2;
   if ( v20 > 0xFFFE )
   {
 LABEL_90:
@@ -224,23 +222,24 @@ LABEL_90:
   {
     if ( v20 <= a3[1] )
     {
-      v24 = (unsigned __int16 *)(unsigned __int16)**(_WORD **)&v51[1];
+      v24 = (void *)v50->Length;
       goto LABEL_27;
     }
-    if ( !v52 )
+    if ( !p_Length )
     {
       v33 = -1073741562;
       goto LABEL_42;
     }
   }
-  else if ( !v52 )
+  else if ( !p_Length )
   {
     v33 = -1073741811;
     goto LABEL_42;
   }
-  v21 = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, v19 + v14 + 2);
-  v22 = v52;
-  *((_DWORD *)v52 + 1) = v21;
+  LODWORD(v47) = v19 + Length + 2;
+  v21 = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, v47);
+  v22 = (unsigned __int16 *)p_Length;
+  p_Length[1] = v21;
   if ( !v21 )
   {
     v33 = -1073741801;
@@ -249,81 +248,83 @@ LABEL_90:
   v22[1] = v20;
   *v22 = 0;
   v8 = v22;
-  HIWORD(v23) = *(_WORD *)&v51[3];
-  v24 = (unsigned __int16 *)(unsigned __int16)**(_WORD **)&v51[1];
-  LOWORD(v23) = v56;
-  v55 = v23;
+  HIWORD(v23) = HIWORD(v50);
+  v24 = (void *)v50->Length;
+  LOWORD(v23) = String2.Length;
+  v54 = v23;
 LABEL_27:
-  v52 = v24;
+  p_Length = v24;
   if ( (_WORD)v24 )
   {
     v25 = *v8;
     v26 = (unsigned __int16)v24;
     if ( v25 + (unsigned __int16)v24 <= v8[1] )
     {
-      v46 = *(const void **)(*(_DWORD *)&v51[1] + 4);
+      LODWORD(v47) = (unsigned __int16)v24;
+      v46 = v50->Buffer;
       Src = (void *)(*((_DWORD *)v8 + 1) + 2 * (v25 >> 1));
-      memmove(Src, v46, (unsigned __int16)v24);
-      *v8 += (unsigned __int16)v52;
+      memmove(Src, v46, v47);
+      *v8 += (unsigned __int16)p_Length;
       if ( (unsigned int)*v8 + 1 < v8[1] )
         *((_WORD *)Src + (v26 >> 1)) = 0;
     }
   }
-  v27 = v56 - v48;
-  v28 = v54;
+  v27 = String2.Length - StackCookie;
+  v28 = v53;
   v29 = *v8;
-  v49 = v27;
-  Src = &v57[v54 / 2u];
+  LOWORD(StackCookie) = v27;
+  Src = &String2.Buffer[v53 / 2];
   if ( v27 )
   {
     v30 = v27;
     if ( v27 + v29 <= v8[1] )
     {
-      v52 = (unsigned __int16 *)(*((_DWORD *)v8 + 1) + 2 * (v29 >> 1));
-      memmove(v52, Src, v27);
-      *v8 += v49;
+      LODWORD(v47) = v27;
+      p_Length = (_DWORD *)(*((_DWORD *)v8 + 1) + 2 * (v29 >> 1));
+      memmove(p_Length, Src, v47);
+      *v8 += StackCookie;
       if ( (unsigned int)*v8 + 1 < v8[1] )
-        v52[v30 >> 1] = 0;
+        *((_WORD *)p_Length + (v30 >> 1)) = 0;
     }
-    v28 = v54;
+    v28 = v53;
   }
-  if ( v61 )
-    *v61 = v8;
+  if ( v59 )
+    *(_DWORD *)v59 = v8;
   *(_WORD *)(*((_DWORD *)v8 + 1) + 2 * (*v8 >> 1)) = 0;
-  if ( v53 && *(_DWORD *)v53 )
-    *(_DWORD *)v53 += *((_DWORD *)v8 + 1) + (unsigned __int16)**(_WORD **)&v51[1] - v28 - (_DWORD)Heap;
-  v31 = v60;
-  if ( !v60 )
+  if ( v52 && *(_DWORD *)v52 )
+    *(_DWORD *)v52 += *((_DWORD *)v8 + 1) + v50->Length - v28 - (_DWORD)Heap;
+  v31 = v58;
+  if ( !v58 )
     goto LABEL_41;
-  v32 = v62[0] == 5;
-  *v60 = 0;
+  v32 = v60[0] == 5;
+  *v58 = 0;
   v31[1] = 0;
   v31[2] = 0;
   v31[3] = 0;
   if ( !v32 )
     goto LABEL_41;
   v39 = RtlpReferenceCurrentDirectory(1);
-  v50 = v39;
+  StackCookie = (unsigned int)v39;
   if ( !v39 )
   {
-    RtlLeaveCriticalSection((int)&FastPebLock);
+    RtlLeaveCriticalSection(&FastPebLock);
     goto LABEL_41;
   }
-  v60 = v39 + 3;
-  if ( !(unsigned __int8)RtlPrefixUnicodeString(v39 + 3, &v56, 1) )
+  v58 = v39 + 3;
+  if ( !RtlPrefixUnicodeString((PUNICODE_STRING)(v39 + 3), &String2, 1u) )
   {
-    v45 = (int)v50;
+    v45 = (HANDLE *)StackCookie;
 LABEL_94:
     if ( !_InterlockedExchangeAdd((volatile signed __int32 *)v45, 0xFFFFFFFF) )
     {
-      NtClose(*(HANDLE *)(v45 + 4));
-      RtlFreeHeap((int)NtCurrentPeb()->ProcessHeap, 0, v45);
+      NtClose(v45[1]);
+      RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v45);
     }
     goto LABEL_41;
   }
-  v40 = v60;
-  v41 = v55;
-  v42 = (_WORD *)(*(unsigned __int16 *)v60 + (unsigned __int16)**(_WORD **)&v51[1] - v54 + *((_DWORD *)v8 + 1));
+  v40 = v58;
+  v41 = v54;
+  v42 = (_WORD *)(*(unsigned __int16 *)v58 + v50->Length - v53 + *((_DWORD *)v8 + 1));
   v31[1] = v42;
   v43 = v41 - *v40;
   *(_WORD *)v31 = v43;
@@ -334,17 +335,17 @@ LABEL_94:
     v43 -= 2;
     *(_WORD *)v31 = v44 - 2;
   }
-  v32 = (v58 & 2) == 0;
-  v45 = (int)v50;
+  v32 = (v56 & 2) == 0;
+  v45 = (HANDLE *)StackCookie;
   *((_WORD *)v31 + 1) = v43;
   if ( v32 )
     goto LABEL_94;
-  v31[3] = v50;
-  v31[2] = v50[1];
+  v31[3] = StackCookie;
+  v31[2] = *(_DWORD *)(StackCookie + 4);
 LABEL_41:
   v33 = 0;
 LABEL_42:
-  if ( Heap != (unsigned __int16 *)v63 )
-    RtlFreeHeap((int)NtCurrentPeb()->ProcessHeap, 0, (int)Heap);
+  if ( Heap != (wchar_t *)BaseAddress )
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, Heap);
   return v33;
 }

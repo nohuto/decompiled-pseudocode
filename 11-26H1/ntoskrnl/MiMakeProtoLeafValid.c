@@ -1,16 +1,16 @@
 /*
- * XREFs of MiMakeProtoLeafValid @ 0x1404BFB08
+ * XREFs of MiMakeProtoLeafValid @ 0x1404B9358
  * Callers:
- *     MiWalkVaRange @ 0x1402D3560 (MiWalkVaRange.c)
- *     MiSectionProtectAllPtes @ 0x140303F00 (MiSectionProtectAllPtes.c)
- *     MiProtectPrivateMemory @ 0x1403116B4 (MiProtectPrivateMemory.c)
- *     MiSplitPrivatePage @ 0x1403173FC (MiSplitPrivatePage.c)
+ *     MiWalkVaRange @ 0x1402B5320 (MiWalkVaRange.c)
+ *     MiSectionProtectAllPtes @ 0x1402E5F80 (MiSectionProtectAllPtes.c)
+ *     MiProtectPrivateMemory @ 0x1403136E8 (MiProtectPrivateMemory.c)
+ *     MiSplitPrivatePage @ 0x14031942C (MiSplitPrivatePage.c)
  * Callees:
- *     MiUnlockPageTableInternal @ 0x1402D13E0 (MiUnlockPageTableInternal.c)
- *     MiUnlockWorkingSetShared @ 0x1402EB6C0 (MiUnlockWorkingSetShared.c)
- *     MiLockWorkingSetShared @ 0x1402EDD60 (MiLockWorkingSetShared.c)
- *     MiMakeSystemAddressValid @ 0x1403028C0 (MiMakeSystemAddressValid.c)
- *     MmAccessFault @ 0x1403A2390 (MmAccessFault.c)
+ *     MiUnlockPageTableInternal @ 0x1402B31A0 (MiUnlockPageTableInternal.c)
+ *     MiUnlockWorkingSetShared @ 0x1402CD700 (MiUnlockWorkingSetShared.c)
+ *     MiLockWorkingSetShared @ 0x1402CFDE0 (MiLockWorkingSetShared.c)
+ *     MiMakeSystemAddressValid @ 0x1402E4940 (MiMakeSystemAddressValid.c)
+ *     MmAccessFault @ 0x1403A40F0 (MmAccessFault.c)
  */
 
 __int64 __fastcall MiMakeProtoLeafValid(ULONG_PTR BugCheckParameter4, int a2, KIRQL a3)

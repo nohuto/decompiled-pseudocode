@@ -1,13 +1,13 @@
 /*
- * XREFs of MiWalkLeap @ 0x1403260B0
+ * XREFs of MiWalkLeap @ 0x1403280E0
  * Callers:
- *     MiComputePxeWalkAction @ 0x1403283D0 (MiComputePxeWalkAction.c)
+ *     MiComputePxeWalkAction @ 0x14032A400 (MiComputePxeWalkAction.c)
  * Callees:
- *     ExpWaitForSpinLockSharedAndAcquire @ 0x14029BC90 (ExpWaitForSpinLockSharedAndAcquire.c)
- *     ExpAcquireSpinLockSharedAtDpcLevelInstrumented @ 0x1402EE000 (ExpAcquireSpinLockSharedAtDpcLevelInstrumented.c)
- *     MiPeriodicGoodCitizen @ 0x140313E40 (MiPeriodicGoodCitizen.c)
- *     MiGetNextVad @ 0x140326018 (MiGetNextVad.c)
- *     MiUnlockVadTree @ 0x140326440 (MiUnlockVadTree.c)
+ *     ExpWaitForSpinLockSharedAndAcquire @ 0x14029B1F0 (ExpWaitForSpinLockSharedAndAcquire.c)
+ *     ExpAcquireSpinLockSharedAtDpcLevelInstrumented @ 0x1402D0080 (ExpAcquireSpinLockSharedAtDpcLevelInstrumented.c)
+ *     MiPeriodicGoodCitizen @ 0x140315E70 (MiPeriodicGoodCitizen.c)
+ *     MiGetNextVad @ 0x140328048 (MiGetNextVad.c)
+ *     MiUnlockVadTree @ 0x140328470 (MiUnlockVadTree.c)
  */
 
 __int64 __fastcall MiWalkLeap(__int64 a1, unsigned __int64 a2, __int64 a3)
@@ -46,7 +46,7 @@ __int64 __fastcall MiWalkLeap(__int64 a1, unsigned __int64 a2, __int64 a3)
   }
   v8 = 0;
   v9 = (_DWORD *)&KeGetCurrentThread()->ApcState.Process[2].ActiveProcessors[4].StaticBitmap[8] + 1;
-  if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+  if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || PopHibernateInProgress )
   {
     _m_prefetchw(v9);
     v10 = *v9 & 0x7FFFFFFF;

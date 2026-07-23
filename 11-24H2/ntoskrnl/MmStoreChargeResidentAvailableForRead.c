@@ -1,9 +1,9 @@
 /*
- * XREFs of MmStoreChargeResidentAvailableForRead @ 0x1402F687C
+ * XREFs of MmStoreChargeResidentAvailableForRead @ 0x14033E98C
  * Callers:
- *     ?SmFirstTimeInit@@YAJPEAU_SM_PARTITION@@K@Z @ 0x1404A8CB0 (-SmFirstTimeInit@@YAJPEAU_SM_PARTITION@@K@Z.c)
+ *     ?SmFirstTimeInit@@YAJPEAU_SM_PARTITION@@K@Z @ 0x1404A30D0 (-SmFirstTimeInit@@YAJPEAU_SM_PARTITION@@K@Z.c)
  * Callees:
- *     MiChargePartitionResidentAvailable @ 0x1402F6BC0 (MiChargePartitionResidentAvailable.c)
+ *     MiChargePartitionResidentAvailable @ 0x14033ECD0 (MiChargePartitionResidentAvailable.c)
  */
 
 __int64 __fastcall MmStoreChargeResidentAvailableForRead(ULONG **a1, __int64 a2)
@@ -32,7 +32,7 @@ __int64 __fastcall MmStoreChargeResidentAvailableForRead(ULONG **a1, __int64 a2)
         return 1LL;
     }
   }
-  result = MiChargePartitionResidentAvailable(v2, v3, 0LL);
+  result = MiChargePartitionResidentAvailable(v2, v3, 0LL, v2);
   if ( (_DWORD)result )
     return 1LL;
   return result;

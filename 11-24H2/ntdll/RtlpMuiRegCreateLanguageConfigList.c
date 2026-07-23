@@ -1,20 +1,20 @@
 /*
- * XREFs of RtlpMuiRegCreateLanguageConfigList @ 0x180034D6C
+ * XREFs of RtlpMuiRegCreateLanguageConfigList @ 0x180014FEC
  * Callers:
- *     RtlpLoadLanguageConfigList @ 0x1800347C0 (RtlpLoadLanguageConfigList.c)
- *     RtlpPopulateLanguageConfigList @ 0x180034DF0 (RtlpPopulateLanguageConfigList.c)
- *     RtlpMuiRegDupLanguageConfigList @ 0x1800EC278 (RtlpMuiRegDupLanguageConfigList.c)
+ *     RtlpLoadLanguageConfigList @ 0x180014A40 (RtlpLoadLanguageConfigList.c)
+ *     RtlpPopulateLanguageConfigList @ 0x180015070 (RtlpPopulateLanguageConfigList.c)
+ *     RtlpMuiRegDupLanguageConfigList @ 0x1800CB820 (RtlpMuiRegDupLanguageConfigList.c)
  * Callees:
- *     RtlAllocateHeap @ 0x180011260 (RtlAllocateHeap.c)
+ *     RtlAllocateHeap @ 0x18003DC60 (RtlAllocateHeap.c)
  */
 
-__int64 __fastcall RtlpMuiRegCreateLanguageConfigList(int a1)
+_WORD *__fastcall RtlpMuiRegCreateLanguageConfigList(int a1)
 {
   __int64 v1; // rax
   __int16 v2; // di
   unsigned __int64 v3; // rax
   unsigned int v4; // ebx
-  __int64 Heap; // rcx
+  _WORD *Heap; // rcx
 
   v1 = 4LL;
   if ( a1 >= 1 )
@@ -26,13 +26,13 @@ __int64 __fastcall RtlpMuiRegCreateLanguageConfigList(int a1)
   v4 = v3 + 16;
   if ( (unsigned int)v3 >= 0xFFFFFFF0 )
     return 0LL;
-  Heap = RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 8u, v4);
+  Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, v4);
   if ( Heap )
   {
-    *(_WORD *)(Heap + 4) = 0;
-    *(_QWORD *)(Heap + 8) = Heap + 16;
+    Heap[2] = 0;
+    *((_QWORD *)Heap + 1) = Heap + 8;
     *(_DWORD *)Heap = v4;
-    *(_WORD *)(Heap + 6) = v2;
+    Heap[3] = v2;
   }
   return Heap;
 }

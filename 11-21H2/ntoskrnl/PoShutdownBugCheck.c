@@ -1,16 +1,16 @@
 /*
  * XREFs of PoShutdownBugCheck @ 0x14098FCB0
  * Callers:
- *     PopInitializeHibernateGlobals @ 0x140828AC4 (PopInitializeHibernateGlobals.c)
- *     ExpSystemErrorHandler2 @ 0x140A6CC50 (ExpSystemErrorHandler2.c)
+ *     sub_140828AC4 @ 0x140828AC4 (sub_140828AC4.c)
+ *     sub_140A6CC50 @ 0x140A6CC50 (sub_140A6CC50.c)
  * Callees:
  *     PsGetCurrentThreadId @ 0x140231BE0 (PsGetCurrentThreadId.c)
  *     PsGetCurrentThreadProcessId @ 0x1402A7BC0 (PsGetCurrentThreadProcessId.c)
  *     KeDelayExecutionThread @ 0x1402B90A0 (KeDelayExecutionThread.c)
  *     ZwInitiatePowerAction @ 0x14041D840 (ZwInitiatePowerAction.c)
  *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
- *     IoConfigureCrashDump @ 0x140551D58 (IoConfigureCrashDump.c)
- *     PopInternalAddToDumpFile @ 0x1405C6658 (PopInternalAddToDumpFile.c)
+ *     sub_140551D58 @ 0x140551D58 (sub_140551D58.c)
+ *     sub_1405C6658 @ 0x1405C6658 (sub_1405C6658.c)
  */
 
 void __fastcall __noreturn PoShutdownBugCheck(
@@ -21,13 +21,13 @@ void __fastcall __noreturn PoShutdownBugCheck(
         ULONG_PTR BugCheckParameter3,
         ULONG_PTR a6)
 {
-  unsigned __int64 CurrentThreadProcessId; // rax
+  __int64 CurrentThreadProcessId; // rax
   ULONG_PTR v11; // rdi
   ULONG_PTR BugCheckParameter4; // rbx
   struct _KTHREAD *CurrentThread; // [rsp+30h] [rbp-50h] BYREF
-  _KPROCESS *Process; // [rsp+38h] [rbp-48h]
+  __int64 v14; // [rsp+38h] [rbp-48h]
   HANDLE CurrentThreadId; // [rsp+40h] [rbp-40h]
-  unsigned __int64 v16; // [rsp+48h] [rbp-38h]
+  __int64 v16; // [rsp+48h] [rbp-38h]
   ULONG v17; // [rsp+50h] [rbp-30h]
   int v18; // [rsp+54h] [rbp-2Ch]
   ULONG_PTR v19; // [rsp+58h] [rbp-28h]
@@ -37,17 +37,17 @@ void __fastcall __noreturn PoShutdownBugCheck(
   LARGE_INTEGER Interval; // [rsp+B0h] [rbp+30h] BYREF
 
   v18 = 0;
-  if ( PopCriticalShutdownInProgress )
+  if ( byte_140D069CC )
   {
     Interval.QuadPart = -300000000LL;
     KeDelayExecutionThread(0, 0, &Interval);
   }
-  PopInternalAddToDumpFile(0LL, 0, 0LL);
-  Process = KeGetCurrentThread()->ApcState.Process;
+  sub_1405C6658(0LL, 0, 0LL);
+  v14 = *((_QWORD *)KeGetCurrentThread() + 23);
   if ( !a1 )
   {
-    Process = 0LL;
-    IoConfigureCrashDump(0LL, 0);
+    v14 = 0LL;
+    sub_140551D58(0LL, 0);
   }
   CurrentThread = KeGetCurrentThread();
   CurrentThreadId = PsGetCurrentThreadId();
@@ -61,6 +61,6 @@ void __fastcall __noreturn PoShutdownBugCheck(
   v21 = BugCheckParameter3;
   v22 = a6;
   *(_QWORD *)&qword_140C227F0 = &CurrentThread;
-  ZwInitiatePowerAction(5LL, 4LL);
+  ZwInitiatePowerAction(PowerActionShutdownReset, PowerSystemSleeping3, 0xC0000004, 0);
   KeBugCheckEx(a2, a3, a4, v11, BugCheckParameter4);
 }

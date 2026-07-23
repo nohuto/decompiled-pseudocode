@@ -1,9 +1,9 @@
 /*
- * XREFs of XpressDecode @ 0x1405CA338
+ * XREFs of XpressDecode @ 0x1405CA568
  * Callers:
- *     CMFReadCompressedSegment @ 0x140958EF0 (CMFReadCompressedSegment.c)
+ *     CMFReadCompressedSegment @ 0x1409590C0 (CMFReadCompressedSegment.c)
  * Callees:
- *     do_decode @ 0x1405CA4B8 (do_decode.c)
+ *     do_decode @ 0x1405CA6E8 (do_decode.c)
  */
 
 __int64 __fastcall XpressDecode(__int64 a1, __int64 a2, int a3, int a4, __int64 a5, int a6)

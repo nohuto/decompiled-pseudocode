@@ -6,10 +6,10 @@
  *     _ZwWow64IsProcessorFeaturePresent@4 @ 0x4B2F4810 (_ZwWow64IsProcessorFeaturePresent@4.c)
  */
 
-__int64 __stdcall RtlGetEnabledExtendedFeatures(__int64 a1)
+ULONG64 __cdecl RtlGetEnabledExtendedFeatures(ULONG64 FeatureMask)
 {
-  if ( (unsigned __int8)ZwWow64IsProcessorFeaturePresent(17) )
-    return a1 & (MEMORY[0x7FFE0708] | MEMORY[0x7FFE03D8]);
+  if ( ZwWow64IsProcessorFeaturePresent(0x11u) )
+    return FeatureMask & (MEMORY[0x7FFE0708] | MEMORY[0x7FFE03D8]);
   else
     return 0LL;
 }

@@ -1,10 +1,10 @@
 /*
- * XREFs of CmAllocateExtraParameter @ 0x1407E62E0
+ * XREFs of CmAllocateExtraParameter @ 0x1407E65B0
  * Callers:
  *     VrpPreOpenOrCreate @ 0x14068CFD8 (VrpPreOpenOrCreate.c)
  *     VrpPostOpenOrCreate @ 0x14068DF0C (VrpPostOpenOrCreate.c)
  * Callees:
- *     CmpAllocatePool @ 0x14022CEEC (CmpAllocatePool.c)
+ *     CmpAllocatePool @ 0x14022CFFC (CmpAllocatePool.c)
  */
 
 __int64 CmAllocateExtraParameter()

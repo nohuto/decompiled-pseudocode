@@ -29,9 +29,9 @@ __int16 __fastcall RtlpHpSegMgrCommitComplete(
   __int16 v11; // dx
   __int16 v12; // tt
   struct _KTHREAD *CurrentThread; // rbx
-  __int64 SessionId; // rdx
+  unsigned int SessionId; // edx
   unsigned __int8 v15; // bp
-  __int64 v16; // r8
+  unsigned int v16; // r8d
   bool v17; // zf
   __int64 v18; // rcx
   __int64 v19; // rdi
@@ -103,23 +103,23 @@ __int16 __fastcall RtlpHpSegMgrCommitComplete(
           v28[0] = 0;
           CurrentThread = KeGetCurrentThread();
           if ( (unsigned int)MiGetSystemRegionType(SpinLock) == 1 )
-            SessionId = (unsigned int)MmGetSessionIdEx((__int64)CurrentThread->ApcState.Process);
+            SessionId = MmGetSessionIdEx((__int64)CurrentThread->ApcState.Process);
           else
-            SessionId = 0xFFFFFFFFLL;
+            SessionId = -1;
           --CurrentThread->SpecialApcDisable;
           v15 = ++CurrentThread->AbAllocationRegionCount;
-          LODWORD(v16) = ((char)CurrentThread->AbEntrySummary | (char)CurrentThread->AbOrphanedEntrySummary) ^ 0x3F;
+          v16 = ((char)CurrentThread->AbEntrySummary | (char)CurrentThread->AbOrphanedEntrySummary) ^ 0x3F;
           while ( 1 )
           {
             v17 = !_BitScanReverse((unsigned int *)&v18, v16);
             if ( v17 )
               goto LABEL_26;
             v19 = (__int64)&CurrentThread->LockEntries[v18];
-            v16 = ~(1 << v18) & (unsigned int)v16;
+            v16 &= ~(1 << v18);
             if ( (*(_BYTE *)(v19 + 26) & 1) != 0
               && (*(_DWORD *)(v19 + 32) & 1) == 0
               && (*(_QWORD *)(v19 + 32) & 0x7FFFFFFFFFFFFFFCLL) == (SpinLock & 0x7FFFFFFFFFFFFFFCLL)
-              && *(_DWORD *)(v19 + 40) == (_DWORD)SessionId )
+              && *(_DWORD *)(v19 + 40) == SessionId )
             {
               *(_BYTE *)(v19 + 26) &= ~1u;
               if ( *(_QWORD *)(v19 + 32) )
@@ -130,12 +130,12 @@ __int16 __fastcall RtlpHpSegMgrCommitComplete(
           {
 LABEL_26:
             if ( (*((_DWORD *)&CurrentThread->0 + 1) & 0x10000) == 0 )
-              KeBugCheckEx(0x162u, (ULONG_PTR)CurrentThread, SpinLock, (unsigned int)SessionId, 0LL);
+              KeBugCheckEx(0x162u, (ULONG_PTR)CurrentThread, SpinLock, SessionId, 0LL);
             goto LABEL_38;
           }
           *(_BYTE *)(v19 + 32) |= 2u;
           if ( *(__int64 *)(v19 + 32) < 0 )
-            KiAbEntryRemoveFromTree(v19, SessionId, v16);
+            KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)v19);
           v28[0] = *(_DWORD *)(v19 + 88) & 0x1FFFF;
           *(_DWORD *)(v19 + 88) &= 0xFFFE0000;
           *(_BYTE *)(v19 + 25) &= ~1u;

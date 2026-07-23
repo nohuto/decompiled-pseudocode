@@ -1,32 +1,32 @@
 /*
- * XREFs of KeRemoveQueueDpcEx @ 0x140464090
+ * XREFs of KeRemoveQueueDpcEx @ 0x14045A7C0
  * Callers:
- *     ExpSetTimerObject @ 0x1403329C0 (ExpSetTimerObject.c)
- *     ExpCancelTimer @ 0x140333A40 (ExpCancelTimer.c)
- *     KeMaskInterrupt @ 0x1403B748C (KeMaskInterrupt.c)
- *     KiCheckAndRearmForceIdle @ 0x1403C17F8 (KiCheckAndRearmForceIdle.c)
- *     ?KiForceIdleUpdateSchedulerParkState@@YAXE@Z @ 0x1403CAED4 (-KiForceIdleUpdateSchedulerParkState@@YAXE@Z.c)
- *     KeClearForceIdle @ 0x1403CB798 (KeClearForceIdle.c)
- *     EtwpFreeCompression @ 0x140463FA8 (EtwpFreeCompression.c)
- *     KeRemoveQueueDpc @ 0x140464070 (KeRemoveQueueDpc.c)
- *     KeSrcuFree @ 0x1405C0B50 (KeSrcuFree.c)
- *     KiSrcuNotifyWorkerAcquire @ 0x1405C1450 (KiSrcuNotifyWorkerAcquire.c)
- *     KiBugCheckRecoveryFreezeOtherProcessors @ 0x1405C5B80 (KiBugCheckRecoveryFreezeOtherProcessors.c)
- *     DifKeRemoveQueueDpcWrapper @ 0x140630360 (DifKeRemoveQueueDpcWrapper.c)
- *     VfWdCheckForSettingsChange @ 0x140B9C898 (VfWdCheckForSettingsChange.c)
+ *     KeMaskInterrupt @ 0x1402B3740 (KeMaskInterrupt.c)
+ *     KeClearForceIdle @ 0x1402BA2B0 (KeClearForceIdle.c)
+ *     ExpSetTimerObject @ 0x1402BD850 (ExpSetTimerObject.c)
+ *     ExpCancelTimer @ 0x1402BE0F0 (ExpCancelTimer.c)
+ *     KiCheckAndRearmForceIdle @ 0x1403B03B8 (KiCheckAndRearmForceIdle.c)
+ *     EtwpFreeCompression @ 0x14045A6DC (EtwpFreeCompression.c)
+ *     KeRemoveQueueDpc @ 0x14045A7A0 (KeRemoveQueueDpc.c)
+ *     ?KiForceIdleUpdateSchedulerParkState@@YAXE@Z @ 0x140484B24 (-KiForceIdleUpdateSchedulerParkState@@YAXE@Z.c)
+ *     KeSrcuFree @ 0x1405BE120 (KeSrcuFree.c)
+ *     KiSrcuNotifyWorkerAcquire @ 0x1405BEA20 (KiSrcuNotifyWorkerAcquire.c)
+ *     KiBugCheckRecoveryFreezeOtherProcessors @ 0x1405C32B0 (KiBugCheckRecoveryFreezeOtherProcessors.c)
+ *     DifKeRemoveQueueDpcWrapper @ 0x14062E920 (DifKeRemoveQueueDpcWrapper.c)
+ *     VfWdCheckForSettingsChange @ 0x140B9E898 (VfWdCheckForSettingsChange.c)
  * Callees:
- *     KiGetDeepIdleProcessors @ 0x140204E08 (KiGetDeepIdleProcessors.c)
- *     KxAcquireSpinLock @ 0x140254AE0 (KxAcquireSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14025E408 (KiRemoveSystemWorkPriorityKick.c)
- *     KxReleaseSpinLock @ 0x140279CC0 (KxReleaseSpinLock.c)
- *     KeDisableInterrupts @ 0x140321E80 (KeDisableInterrupts.c)
- *     KeGenericProcessorCallback @ 0x1403390A4 (KeGenericProcessorCallback.c)
- *     KeIsEmptyAffinityEx @ 0x1403B55D0 (KeIsEmptyAffinityEx.c)
- *     KeEnumerateNextProcessor @ 0x14040D4F0 (KeEnumerateNextProcessor.c)
- *     KiSelectDpcData @ 0x1404330C0 (KiSelectDpcData.c)
- *     KiAcquireReleaseDpcData @ 0x1405C6E64 (KiAcquireReleaseDpcData.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     KxReleaseSpinLock @ 0x14022F250 (KxReleaseSpinLock.c)
+ *     KxAcquireSpinLock @ 0x1402850F0 (KxAcquireSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14028EA18 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeDisableInterrupts @ 0x1402CAA10 (KeDisableInterrupts.c)
+ *     KeGenericProcessorCallback @ 0x140318580 (KeGenericProcessorCallback.c)
+ *     KiGetDeepIdleProcessors @ 0x14032C3E8 (KiGetDeepIdleProcessors.c)
+ *     KeIsEmptyAffinityEx @ 0x140371960 (KeIsEmptyAffinityEx.c)
+ *     KeEnumerateNextProcessor @ 0x140405740 (KeEnumerateNextProcessor.c)
+ *     KiSelectDpcData @ 0x140425200 (KiSelectDpcData.c)
+ *     KiAcquireReleaseDpcData @ 0x1405C4594 (KiAcquireReleaseDpcData.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 char __fastcall KeRemoveQueueDpcEx(__int64 a1, char a2)
@@ -49,55 +49,54 @@ char __fastcall KeRemoveQueueDpcEx(__int64 a1, char a2)
   __int64 *i; // rax
   __int64 v20; // rax
   __int64 v21; // rdx
-  __int64 v22; // r8
-  unsigned int v23; // ecx
-  __int64 v24; // rdx
-  __int64 v25; // rax
-  struct _KPRCB *v26; // rax
+  unsigned int v22; // ecx
+  __int64 v23; // rdx
+  __int64 v24; // rax
+  struct _KPRCB *v25; // rax
   __int64 Group; // rdx
-  __int64 v28; // rdi
-  __int64 v29; // rax
-  __int64 v30; // rsi
-  char v31; // [rsp+28h] [rbp-E0h]
-  int v32; // [rsp+2Ch] [rbp-DCh] BYREF
-  unsigned __int16 *v33[2]; // [rsp+30h] [rbp-D8h] BYREF
-  __int16 v34; // [rsp+40h] [rbp-C8h]
-  int v35; // [rsp+42h] [rbp-C6h]
-  __int16 v36; // [rsp+46h] [rbp-C2h]
-  __int128 v37; // [rsp+48h] [rbp-C0h]
-  _BYTE v38[32]; // [rsp+58h] [rbp-B0h] BYREF
-  __int64 v39; // [rsp+78h] [rbp-90h]
-  int v40; // [rsp+80h] [rbp-88h]
-  struct _KAFFINITY_EX v41; // [rsp+88h] [rbp-80h] BYREF
-  struct _KAFFINITY_EX v42; // [rsp+198h] [rbp+90h] BYREF
+  __int64 v27; // rdi
+  __int64 v28; // rax
+  __int64 v29; // rsi
+  char v30; // [rsp+28h] [rbp-E0h]
+  int v31; // [rsp+2Ch] [rbp-DCh] BYREF
+  unsigned __int16 *v32[2]; // [rsp+30h] [rbp-D8h] BYREF
+  __int16 v33; // [rsp+40h] [rbp-C8h]
+  int v34; // [rsp+42h] [rbp-C6h]
+  __int16 v35; // [rsp+46h] [rbp-C2h]
+  __int128 v36; // [rsp+48h] [rbp-C0h]
+  _BYTE v37[32]; // [rsp+58h] [rbp-B0h] BYREF
+  __int64 v38; // [rsp+78h] [rbp-90h]
+  int v39; // [rsp+80h] [rbp-88h]
+  struct _KAFFINITY_EX v40; // [rsp+88h] [rbp-80h] BYREF
+  struct _KAFFINITY_EX v41; // [rsp+198h] [rbp+90h] BYREF
 
-  v31 = a2;
+  v30 = a2;
   v2 = a2;
-  v39 = 0LL;
-  v40 = 0;
-  v37 = 0LL;
-  memset(v38, 0, sizeof(v38));
-  memset_0(&v42.8, 0, sizeof(v42.8));
-  v35 = 0;
-  v36 = 0;
-  v32 = 0;
+  v38 = 0LL;
+  v39 = 0;
+  v36 = 0LL;
+  memset(v37, 0, sizeof(v37));
   memset_0(&v41.8, 0, sizeof(v41.8));
+  v34 = 0;
+  v35 = 0;
+  v31 = 0;
+  memset_0(&v40.8, 0, sizeof(v40.8));
   v4 = 0;
   v5 = KeDisableInterrupts();
   v6 = *(_QWORD *)(a1 + 56);
   v7 = v5;
   if ( v6 )
   {
-    LODWORD(v37) = *(_DWORD *)a1;
-    v13 = WORD1(v37) - 2048;
-    if ( WORD1(v37) < 0x800u )
-      v13 = WORD1(v37);
+    LODWORD(v36) = *(_DWORD *)a1;
+    v13 = WORD1(v36) - 2048;
+    if ( WORD1(v36) < 0x800u )
+      v13 = WORD1(v36);
     v14 = KiProcessorBlock[v13];
-    if ( (_BYTE)v37 != 26 || (v15 = 14448LL, !*(_BYTE *)(v14 + 14520)) )
+    if ( (_BYTE)v36 != 26 || (v15 = 14448LL, !*(_BYTE *)(v14 + 14520)) )
       v15 = 14400LL;
     v16 = v15 + v14;
     KxAcquireSpinLock((PKSPIN_LOCK)(v15 + v14 + 16));
-    if ( v6 == *(_QWORD *)(a1 + 56) && (_DWORD)v37 == *(_DWORD *)a1 )
+    if ( v6 == *(_QWORD *)(a1 + 56) && (_DWORD)v36 == *(_DWORD *)a1 )
     {
       v17 = (__int64 *)(a1 + 8);
       v18 = (_QWORD *)v16;
@@ -115,7 +114,7 @@ char __fastcall KeRemoveQueueDpcEx(__int64 a1, char a2)
         _InterlockedDecrement((volatile signed __int32 *)(v21 + 28));
     }
     KxReleaseSpinLock((volatile signed __int64 *)(v16 + 16));
-    v2 = v31;
+    v2 = v30;
   }
   if ( v7 )
   {
@@ -138,41 +137,41 @@ char __fastcall KeRemoveQueueDpcEx(__int64 a1, char a2)
   }
   if ( v2 && *(_QWORD *)(a1 + 16) )
   {
-    *(_QWORD *)&v42.Count = 2097153LL;
-    memset_0(&v42.8, 0, sizeof(v42.8));
     *(_QWORD *)&v41.Count = 2097153LL;
     memset_0(&v41.8, 0, sizeof(v41.8));
-    KiGetDeepIdleProcessors(&v42, &v41, v22);
-    v23 = 0;
-    if ( v41.Count )
+    *(_QWORD *)&v40.Count = 2097153LL;
+    memset_0(&v40.8, 0, sizeof(v40.8));
+    KiGetDeepIdleProcessors(&v41, &v40);
+    v22 = 0;
+    if ( v40.Count )
     {
-      v24 = *(_QWORD *)(a1 + 16);
+      v23 = *(_QWORD *)(a1 + 16);
       do
       {
-        v25 = v23++;
-        v41.Bitmap[v25] &= v24;
+        v24 = v22++;
+        v40.Bitmap[v24] &= v23;
       }
-      while ( v23 < v41.Count );
+      while ( v22 < v40.Count );
     }
-    v26 = KeGetCurrentPrcb();
-    Group = v26->Group;
-    if ( v41.Count > (unsigned __int16)Group )
-      v41.Bitmap[Group] &= ~v26->GroupSetMember;
-    v33[1] = (unsigned __int16 *)v41.Bitmap[0];
-    v34 = 0;
-    v33[0] = (unsigned __int16 *)&v41;
-    while ( !(unsigned int)KeEnumerateNextProcessor(&v32, v33) )
+    v25 = KeGetCurrentPrcb();
+    Group = v25->Group;
+    if ( v40.Count > (unsigned __int16)Group )
+      v40.Bitmap[Group] &= ~v25->GroupSetMember;
+    v32[1] = (unsigned __int16 *)v40.Bitmap[0];
+    v33 = 0;
+    v32[0] = (unsigned __int16 *)&v40;
+    while ( !(unsigned int)KeEnumerateNextProcessor(&v31, v32) )
     {
-      v28 = KiProcessorBlock[v32];
-      v29 = KiSelectDpcData(v28, (_BYTE *)a1);
-      v30 = v29;
+      v27 = KiProcessorBlock[v31];
+      v28 = KiSelectDpcData(v27, (_BYTE *)a1);
+      v29 = v28;
       if ( !v6 )
-        KiAcquireReleaseDpcData(v29);
-      if ( *(_QWORD *)(v30 + 32) != a1 && (unsigned int)v41.Count > *(unsigned __int8 *)(v28 + 208) )
-        v41.Bitmap[*(unsigned __int8 *)(v28 + 208)] &= ~*(_QWORD *)(v28 + 200);
+        KiAcquireReleaseDpcData(v28);
+      if ( *(_QWORD *)(v29 + 32) != a1 && (unsigned int)v40.Count > *(unsigned __int8 *)(v27 + 208) )
+        v40.Bitmap[*(unsigned __int8 *)(v27 + 208)] &= ~*(_QWORD *)(v27 + 200);
     }
-    if ( !(unsigned int)KeIsEmptyAffinityEx(&v41.Count) )
-      KeGenericProcessorCallback((__int64 *)&v41, (char (__fastcall *)(__int64, __int64))xHalTimerWatchdogStop, 0LL, 2);
+    if ( !(unsigned int)KeIsEmptyAffinityEx(&v40.Count) )
+      KeGenericProcessorCallback((__int64 *)&v40, (char (__fastcall *)(__int64, __int64))xHalTimerWatchdogStop, 0LL, 2);
   }
   return v4;
 }

@@ -1,16 +1,16 @@
 /*
- * XREFs of MmQueryWorkingSetInformation @ 0x1402E1DB0
+ * XREFs of MmQueryWorkingSetInformation @ 0x1404103B0
  * Callers:
- *     SmKmVirtualLockContextIncreaseWsMin @ 0x14060DE84 (SmKmVirtualLockContextIncreaseWsMin.c)
- *     SmKmVirtualLockCtxMemoryUnlocked @ 0x14060E14C (SmKmVirtualLockCtxMemoryUnlocked.c)
- *     CmSiProcessTupleStartFromHandle @ 0x1406689CC (CmSiProcessTupleStartFromHandle.c)
- *     NtQueryInformationProcess @ 0x1409AB830 (NtQueryInformationProcess.c)
- *     PspQueryQuotaLimits @ 0x1409B7AE0 (PspQueryQuotaLimits.c)
+ *     SmKmVirtualLockContextIncreaseWsMin @ 0x14060C444 (SmKmVirtualLockContextIncreaseWsMin.c)
+ *     SmKmVirtualLockCtxMemoryUnlocked @ 0x14060C70C (SmKmVirtualLockCtxMemoryUnlocked.c)
+ *     CmSiProcessTupleStartFromHandle @ 0x140669BA4 (CmSiProcessTupleStartFromHandle.c)
+ *     NtQueryInformationProcess @ 0x140995530 (NtQueryInformationProcess.c)
+ *     PspQueryQuotaLimits @ 0x1409AF220 (PspQueryQuotaLimits.c)
  * Callees:
- *     ExpWaitForSpinLockSharedAndAcquire @ 0x1402C4AD0 (ExpWaitForSpinLockSharedAndAcquire.c)
- *     ExpAcquireSpinLockSharedAtDpcLevelInstrumented @ 0x1402DFAA0 (ExpAcquireSpinLockSharedAtDpcLevelInstrumented.c)
- *     MiUnlockWorkingSetShared @ 0x1402E0410 (MiUnlockWorkingSetShared.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     ExpWaitForSpinLockSharedAndAcquire @ 0x140219B50 (ExpWaitForSpinLockSharedAndAcquire.c)
+ *     ExpAcquireSpinLockSharedAtDpcLevelInstrumented @ 0x140241380 (ExpAcquireSpinLockSharedAtDpcLevelInstrumented.c)
+ *     MiUnlockWorkingSetShared @ 0x140241CF0 (MiUnlockWorkingSetShared.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 __int64 __fastcall MmQueryWorkingSetInformation(_QWORD *a1, _QWORD *a2, _QWORD *a3, _QWORD *a4, _QWORD *a5, _DWORD *a6)
@@ -41,7 +41,7 @@ __int64 __fastcall MmQueryWorkingSetInformation(_QWORD *a1, _QWORD *a2, _QWORD *
   else
   {
     if ( (*(_DWORD *)(p_Blink + 184) & 0xF) == 1 )
-      v12 = &unk_140E38740;
+      v12 = &unk_140E38880;
     else
       v12 = (_QWORD *)(p_Blink + 192);
     v13 = (KeGetPcr()->Prcb.Number >> 1) & 3;
@@ -62,7 +62,7 @@ __int64 __fastcall MmQueryWorkingSetInformation(_QWORD *a1, _QWORD *a2, _QWORD *
           break;
         if ( v19 < 0 )
         {
-          ExpWaitForSpinLockSharedAndAcquire(v14, CurrentIrql);
+          ExpWaitForSpinLockSharedAndAcquire(v14, CurrentIrql, (__int64)a3, (__int64)a4);
           break;
         }
       }

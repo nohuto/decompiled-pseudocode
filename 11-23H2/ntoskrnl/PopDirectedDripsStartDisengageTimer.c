@@ -1,15 +1,15 @@
 /*
- * XREFs of PopDirectedDripsStartDisengageTimer @ 0x14058702C
+ * XREFs of PopDirectedDripsStartDisengageTimer @ 0x14058751C
  * Callers:
- *     PopRequestCompletion @ 0x14028E0C0 (PopRequestCompletion.c)
- *     PoFxNotifySurprisePowerOn @ 0x140587FB0 (PoFxNotifySurprisePowerOn.c)
+ *     PopRequestCompletion @ 0x14028E350 (PopRequestCompletion.c)
+ *     PoFxNotifySurprisePowerOn @ 0x1405884A0 (PoFxNotifySurprisePowerOn.c)
  * Callees:
- *     KeSetTimer2 @ 0x140250150 (KeSetTimer2.c)
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250E80 (KeAcquireSpinLockRaiseToDpc.c)
- *     KeCancelTimer2 @ 0x14031DEE0 (KeCancelTimer2.c)
- *     PopDirectedDripsSetDisengageReason @ 0x14035E5D4 (PopDirectedDripsSetDisengageReason.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeSetTimer2 @ 0x140250220 (KeSetTimer2.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140250F40 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KeCancelTimer2 @ 0x14031E170 (KeCancelTimer2.c)
+ *     PopDirectedDripsSetDisengageReason @ 0x14035E774 (PopDirectedDripsSetDisengageReason.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall PopDirectedDripsStartDisengageTimer(int a1)
@@ -31,10 +31,10 @@ __int64 __fastcall PopDirectedDripsStartDisengageTimer(int a1)
   KeSetTimer2((__int64)(v1 + 3), -10000000LL * *((unsigned int *)v1 + 1), 0LL, (__int64)v7);
   ++*((_DWORD *)v1 + 4);
   result = KxReleaseSpinLock((volatile signed __int64 *)v1 + 1);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     result = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
       && (unsigned __int8)result <= 0xFu
       && (unsigned __int8)v2 <= 0xFu
       && (unsigned __int8)result >= 2u )

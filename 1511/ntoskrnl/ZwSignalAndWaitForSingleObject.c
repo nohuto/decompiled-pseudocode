@@ -6,7 +6,6 @@
  *     <none>
  */
 
-// local variable allocation has failed, the output may be wrong!
 NTSTATUS __stdcall ZwSignalAndWaitForSingleObject(
         HANDLE SignalObject,
         HANDLE WaitObject,
@@ -15,5 +14,5 @@ NTSTATUS __stdcall ZwSignalAndWaitForSingleObject(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(SignalObject, WaitObject, Alertable);
+  return KiServiceInternal(SignalObject);
 }

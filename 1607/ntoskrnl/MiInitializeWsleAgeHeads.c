@@ -1,8 +1,8 @@
 /*
- * XREFs of MiInitializeWsleAgeHeads @ 0x1400A1B9C
+ * XREFs of MiInitializeWsleAgeHeads @ 0x1400A04C4
  * Callers:
- *     MiConvertToLinkedWsles @ 0x1400A1844 (MiConvertToLinkedWsles.c)
- *     MiInitializeWorkingSetList @ 0x14046DDE8 (MiInitializeWorkingSetList.c)
+ *     MiConvertToLinkedWsles @ 0x1400A016C (MiConvertToLinkedWsles.c)
+ *     MiInitializeWorkingSetList @ 0x14046CCB8 (MiInitializeWorkingSetList.c)
  * Callees:
  *     <none>
  */

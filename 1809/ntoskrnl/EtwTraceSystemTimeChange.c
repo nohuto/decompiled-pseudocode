@@ -1,13 +1,13 @@
 /*
- * XREFs of EtwTraceSystemTimeChange @ 0x14056DCF8
+ * XREFs of EtwTraceSystemTimeChange @ 0x14056ECF8
  * Callers:
- *     PoNotifySystemTimeSet @ 0x14017834C (PoNotifySystemTimeSet.c)
+ *     PoNotifySystemTimeSet @ 0x14017844C (PoNotifySystemTimeSet.c)
  * Callees:
  *     _TlgKeywordOn @ 0x140012A04 (_TlgKeywordOn.c)
  *     _TlgWrite @ 0x140012EE4 (_TlgWrite.c)
- *     PsGetProcessId @ 0x1400A5710 (PsGetProcessId.c)
- *     EtwWrite @ 0x1400CAD20 (EtwWrite.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     PsGetProcessId @ 0x1400A5650 (PsGetProcessId.c)
+ *     EtwWrite @ 0x1400CAE00 (EtwWrite.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
  */
 
 char __fastcall EtwTraceSystemTimeChange(__int64 *a1, _QWORD *a2, int a3)
@@ -50,16 +50,16 @@ char __fastcall EtwTraceSystemTimeChange(__int64 *a1, _QWORD *a2, int a3)
 
   v40 = a3;
   LODWORD(v16[0]) = 0x20000;
-  v16[1] = &word_140573E20;
+  v16[1] = &word_140574E20;
   Process = KeGetCurrentThread()->ApcState.Process;
   ProcessId = (unsigned int)PsGetProcessId(Process);
   LODWORD(v13) = ProcessId;
   v7 = (unsigned __int16 *)Process[1].ActiveProcessors.Bitmap[15];
   if ( !v7 || !*v7 )
     v7 = (unsigned __int16 *)v16;
-  if ( stru_1404002D0.LevelPlus1 > 5 )
+  if ( stru_140401308.LevelPlus1 > 5 )
   {
-    LOBYTE(ProcessId) = TlgKeywordOn(&stru_1404002D0, 0x400000000000uLL);
+    LOBYTE(ProcessId) = TlgKeywordOn(&stru_140401308, 0x400000000000uLL);
     if ( (_BYTE)ProcessId )
     {
       v14 = *a1;
@@ -79,7 +79,7 @@ char __fastcall EtwTraceSystemTimeChange(__int64 *a1, _QWORD *a2, int a3)
       v35 = 2LL;
       v37[1] = 0;
       v39 = 4LL;
-      LOBYTE(ProcessId) = TlgWrite(&stru_1404002D0, &unk_14037358B, 0LL, 0LL, 8u, &pData);
+      LOBYTE(ProcessId) = TlgWrite(&stru_140401308, &unk_140373EF8, 0LL, 0LL, 8u, &pData);
     }
   }
   if ( EtwKernelProvRegHandle )

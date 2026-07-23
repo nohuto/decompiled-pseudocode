@@ -1,10 +1,10 @@
 /*
- * XREFs of Xp10ScatteredCopy @ 0x14080EAF8
+ * XREFs of Xp10ScatteredCopy @ 0x140814588
  * Callers:
- *     Xp10ScatteredCopyFromPrevious @ 0x14080EDAC (Xp10ScatteredCopyFromPrevious.c)
+ *     Xp10ScatteredCopyFromPrevious @ 0x14081483C (Xp10ScatteredCopyFromPrevious.c)
  * Callees:
- *     memmove @ 0x14073D480 (memmove.c)
- *     Xp10ScatteredNextBuffer @ 0x14080EE04 (Xp10ScatteredNextBuffer.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     Xp10ScatteredNextBuffer @ 0x140814894 (Xp10ScatteredNextBuffer.c)
  */
 
 __int64 __fastcall Xp10ScatteredCopy(__int64 a1, __int64 a2, int a3)

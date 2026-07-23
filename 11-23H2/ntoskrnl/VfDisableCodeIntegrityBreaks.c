@@ -1,5 +1,5 @@
 /*
- * XREFs of VfDisableCodeIntegrityBreaks @ 0x140AC39EC
+ * XREFs of VfDisableCodeIntegrityBreaks @ 0x140AC39DC
  * Callers:
  *     ViInitSystemPhase0 @ 0x140B69A68 (ViInitSystemPhase0.c)
  * Callees:

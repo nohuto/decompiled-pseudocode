@@ -7,7 +7,7 @@
  *     RtlStringCbCatW @ 0x18007F404 (RtlStringCbCatW.c)
  *     LdrpAppxGetRemediationRegistryKey @ 0x1800D649C (LdrpAppxGetRemediationRegistryKey.c)
  *     RtlpCleanupRegistryKeys @ 0x1800FBD00 (RtlpCleanupRegistryKeys.c)
- *     RtlpQueryDiskSpacePolicy @ 0x18012CEB4 (RtlpQueryDiskSpacePolicy.c)
+ *     RtlpQueryDiskSpacePolicy @ 0x18012CEE0 (RtlpQueryDiskSpacePolicy.c)
  * Callees:
  *     <none>
  */

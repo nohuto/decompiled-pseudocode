@@ -10,29 +10,31 @@
 
 int __fastcall InsertModuleFunctions<_IMAGE_THUNK_DATA64,unsigned __int64,-9223372036854775808>(
         int a1,
-        int a2,
-        int a3,
-        int *a4)
+        void *a2,
+        _IMAGE_NT_HEADERS64 *NtHeaders,
+        ULONG *a4)
 {
-  int *v5; // esi
-  int v6; // eax
-  int v7; // edi
+  ULONG *v5; // esi
+  char *v6; // eax
+  char *v7; // edi
   _DWORD *Heap; // eax
+  SIZE_T v10; // [esp-4h] [ebp-14h]
 
-  v5 = (int *)RtlAddressInSectionTable(a3, a2, *a4);
+  v5 = (ULONG *)RtlAddressInSectionTable(NtHeaders, a2, *a4);
   if ( v5 )
   {
     while ( *(_QWORD *)v5 )
     {
-      if ( v5[1] >= 0 )
+      if ( (v5[1] & 0x80000000) == 0 )
       {
-        v6 = RtlAddressInSectionTable(a3, a2, *v5);
+        v6 = (char *)RtlAddressInSectionTable(NtHeaders, a2, *v5);
         if ( !v6 )
           return -1073741685;
         v7 = v6 + 2;
-        if ( v6 == -2 )
+        if ( v6 == (char *)-2 )
           return -1073741685;
-        Heap = (_DWORD *)RtlAllocateHeap((int)NtCurrentPeb()->ProcessHeap, 0, 8);
+        LODWORD(v10) = 8;
+        Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, v10);
         if ( !Heap )
           return -1073741801;
         *Heap = 0;

@@ -1,36 +1,36 @@
 /*
- * XREFs of MiAllocateWsle @ 0x14003C0F0
+ * XREFs of MiAllocateWsle @ 0x14003BC70
  * Callers:
- *     MiIssueHardFault @ 0x140024930 (MiIssueHardFault.c)
- *     MiMakeSystemCacheRangeValid @ 0x140031890 (MiMakeSystemCacheRangeValid.c)
- *     MiResolveTransitionFault @ 0x140035F90 (MiResolveTransitionFault.c)
- *     MmCopyToCachedPage @ 0x140037900 (MmCopyToCachedPage.c)
- *     MiCompleteProtoPteFault @ 0x140039AF0 (MiCompleteProtoPteFault.c)
- *     MiCompletePrivateZeroFault @ 0x14003B6F0 (MiCompletePrivateZeroFault.c)
- *     MiDispatchFault @ 0x1400403C0 (MiDispatchFault.c)
- *     MiCreateForkWsle @ 0x14010C87C (MiCreateForkWsle.c)
- *     MiMakeSpecialPoolPaged @ 0x1401EB7D0 (MiMakeSpecialPoolPaged.c)
- *     MiResolveProtoCombine @ 0x1401FA48C (MiResolveProtoCombine.c)
+ *     MiIssueHardFault @ 0x1400244B0 (MiIssueHardFault.c)
+ *     MiMakeSystemCacheRangeValid @ 0x140031410 (MiMakeSystemCacheRangeValid.c)
+ *     MiResolveTransitionFault @ 0x140035B10 (MiResolveTransitionFault.c)
+ *     MmCopyToCachedPage @ 0x140037480 (MmCopyToCachedPage.c)
+ *     MiCompleteProtoPteFault @ 0x140039670 (MiCompleteProtoPteFault.c)
+ *     MiCompletePrivateZeroFault @ 0x14003B270 (MiCompletePrivateZeroFault.c)
+ *     MiDispatchFault @ 0x14003FF40 (MiDispatchFault.c)
+ *     MiCreateForkWsle @ 0x14010A5FC (MiCreateForkWsle.c)
+ *     MiMakeSpecialPoolPaged @ 0x1401EB5FC (MiMakeSpecialPoolPaged.c)
+ *     MiResolveProtoCombine @ 0x1401FA2B8 (MiResolveProtoCombine.c)
  * Callees:
- *     MiLockPageAtDpcInline @ 0x14002EB30 (MiLockPageAtDpcInline.c)
- *     MiUpdateWsle @ 0x14003C790 (MiUpdateWsle.c)
- *     MiConvertToLinkedWsles @ 0x1400A1844 (MiConvertToLinkedWsles.c)
- *     MiSimpleAging @ 0x1400AC264 (MiSimpleAging.c)
- *     MiGetStandbyRepurposed @ 0x1400BF4A8 (MiGetStandbyRepurposed.c)
- *     MiGetPagePrivilege @ 0x1400E3730 (MiGetPagePrivilege.c)
- *     MiReplaceWorkingSetEntryLarge @ 0x140100DD4 (MiReplaceWorkingSetEntryLarge.c)
- *     MiAddWorkingSetPage @ 0x140102100 (MiAddWorkingSetPage.c)
- *     MiMarkPfnVerified @ 0x14010A2D4 (MiMarkPfnVerified.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
- *     MiDoReplacement @ 0x1401E282C (MiDoReplacement.c)
- *     MiLogAllocateWsleEvent @ 0x1401E28A4 (MiLogAllocateWsleEvent.c)
- *     MiForcedTrim @ 0x1401E97D0 (MiForcedTrim.c)
- *     MiReplaceWorkingSetEntrySmall @ 0x1401E9EEC (MiReplaceWorkingSetEntrySmall.c)
- *     MiPteInShadowRange @ 0x1401EF3B8 (MiPteInShadowRange.c)
- *     MiWritePteShadow @ 0x1401EF658 (MiWritePteShadow.c)
- *     MiCompleteSecureProcessFault @ 0x1401EF744 (MiCompleteSecureProcessFault.c)
- *     MI_GET_PAGE_FRAME_FROM_PTE @ 0x1401F2550 (MI_GET_PAGE_FRAME_FROM_PTE.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1401F25D0 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiLockPageAtDpcInline @ 0x14002E6B0 (MiLockPageAtDpcInline.c)
+ *     MiUpdateWsle @ 0x14003C310 (MiUpdateWsle.c)
+ *     MiConvertToLinkedWsles @ 0x1400A016C (MiConvertToLinkedWsles.c)
+ *     MiSimpleAging @ 0x1400AA7CC (MiSimpleAging.c)
+ *     MiGetStandbyRepurposed @ 0x1400BD338 (MiGetStandbyRepurposed.c)
+ *     MiGetPagePrivilege @ 0x1400E15D0 (MiGetPagePrivilege.c)
+ *     MiReplaceWorkingSetEntryLarge @ 0x1400FEB54 (MiReplaceWorkingSetEntryLarge.c)
+ *     MiAddWorkingSetPage @ 0x1400FFE80 (MiAddWorkingSetPage.c)
+ *     MiMarkPfnVerified @ 0x140108054 (MiMarkPfnVerified.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
+ *     MiDoReplacement @ 0x1401E2658 (MiDoReplacement.c)
+ *     MiLogAllocateWsleEvent @ 0x1401E26D0 (MiLogAllocateWsleEvent.c)
+ *     MiForcedTrim @ 0x1401E95FC (MiForcedTrim.c)
+ *     MiReplaceWorkingSetEntrySmall @ 0x1401E9D18 (MiReplaceWorkingSetEntrySmall.c)
+ *     MiPteInShadowRange @ 0x1401EF1E4 (MiPteInShadowRange.c)
+ *     MiWritePteShadow @ 0x1401EF484 (MiWritePteShadow.c)
+ *     MiCompleteSecureProcessFault @ 0x1401EF570 (MiCompleteSecureProcessFault.c)
+ *     MI_GET_PAGE_FRAME_FROM_PTE @ 0x1401F237C (MI_GET_PAGE_FRAME_FROM_PTE.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1401F23FC (MI_READ_PTE_LOCK_FREE.c)
  */
 
 ULONG_PTR __fastcall MiAllocateWsle(
@@ -101,7 +101,7 @@ ULONG_PTR __fastcall MiAllocateWsle(
   v13 = *(_BYTE *)(a1 + 184);
   ++*(_DWORD *)(a1 + 4);
   if ( (v13 & 7) == 2 )
-    ++dword_140327D00;
+    ++dword_140327D40;
   __incgsdword(0x2E10u);
   v14 = MI_READ_PTE_LOCK_FREE(a2);
   if ( *(_QWORD *)(a1 + 112) >= *(_QWORD *)(a1 + 104) )
@@ -115,7 +115,7 @@ ULONG_PTR __fastcall MiAllocateWsle(
     if ( v15 > v17 )
     {
       v18 = *(_WORD *)(a1 + 164);
-      v19 = v18 == 1023 ? MiSystemPartition : *(int **)(qword_140326FF8 + 8LL * v18);
+      v19 = v18 == 1023 ? MiSystemPartition : *(int **)(qword_140327038 + 8LL * v18);
       if ( v15 - v17 >= 3LL * (*((_QWORD *)v19 + 786) >> 2) )
       {
         StandbyRepurposed = MiGetStandbyRepurposed(v19, 1LL);
@@ -149,13 +149,13 @@ ULONG_PTR __fastcall MiAllocateWsle(
     MiDoReplacement(a1, 1LL);
     if ( *v12 == 0xFFFFFFFFFLL )
     {
-      ++dword_140327110;
+      ++dword_140327150;
       return 0LL;
     }
   }
   if ( v14 != MI_READ_PTE_LOCK_FREE(a2) )
   {
-    ++dword_140327114;
+    ++dword_140327154;
     return 0LL;
   }
   if ( (*(_BYTE *)(a1 + 184) & 7) != 2 )
@@ -196,15 +196,15 @@ ULONG_PTR __fastcall MiAllocateWsle(
   v34 = *(_QWORD *)(a1 + 112);
   if ( v34 > *(_QWORD *)(a1 + 152) )
     *(_QWORD *)(a1 + 152) = v34;
-  v35 = qword_140327D08;
+  v35 = qword_140327D48;
   if ( (*(_BYTE *)(a1 + 184) & 7) == 2 )
   {
-    v36 = qword_140327D10;
-    v35 = ++qword_140327D08;
+    v36 = qword_140327D50;
+    v35 = ++qword_140327D48;
     if ( v33 == 1 )
-      v36 = ++qword_140327D10;
-    if ( v36 > qword_140327D18 )
-      qword_140327D18 = v36;
+      v36 = ++qword_140327D50;
+    if ( v36 > qword_140327D58 )
+      qword_140327D58 = v36;
   }
   v37 = *(_BYTE *)(a1 + 184);
   v38 = v37 & 7;
@@ -215,12 +215,12 @@ ULONG_PTR __fastcall MiAllocateWsle(
     v41 = (v37 & 7u) - 2;
     if ( v38 == 2 )
       v40 = v35;
-    v42 = (_QWORD *)((char *)&unk_140327348 + 8 * v41);
-    if ( (unsigned __int64)(v40 + qword_140327340) > *v42 )
+    v42 = (_QWORD *)((char *)&unk_140327388 + 8 * v41);
+    if ( (unsigned __int64)(v40 + qword_140327380) > *v42 )
     {
       if ( v38 == 2 )
         v39 = v35;
-      *v42 = v39 + qword_140327340;
+      *v42 = v39 + qword_140327380;
     }
   }
   if ( (a5 & 1) != 0 )

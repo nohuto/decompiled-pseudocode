@@ -1,12 +1,12 @@
 /*
- * XREFs of Feature_2045735225__private_IsEnabledFallback @ 0x140608320
+ * XREFs of Feature_2045735225__private_IsEnabledFallback @ 0x140605A24
  * Callers:
- *     Feature_2045735225__private_IsEnabledDeviceUsageNoInline @ 0x1406082E8 (Feature_2045735225__private_IsEnabledDeviceUsageNoInline.c)
+ *     Feature_2045735225__private_IsEnabledDeviceUsageNoInline @ 0x1406059EC (Feature_2045735225__private_IsEnabledDeviceUsageNoInline.c)
  * Callees:
- *     wil_details_IsEnabledFallback @ 0x1404D17E0 (wil_details_IsEnabledFallback.c)
+ *     wil_details_IsEnabledFallback @ 0x1404CA820 (wil_details_IsEnabledFallback.c)
  */
 
-__int64 __fastcall Feature_2045735225__private_IsEnabledFallback(__int64 a1, unsigned int a2, __int64 a3, __int64 a4)
+__int64 __fastcall Feature_2045735225__private_IsEnabledFallback(__int64 a1, unsigned int a2)
 {
-  return wil_details_IsEnabledFallback(a1, a2, (volatile signed __int32 **)&Feature_2045735225__private_descriptor, a4);
+  return wil_details_IsEnabledFallback(a1, a2, (volatile signed __int32 **)&Feature_2045735225__private_descriptor);
 }

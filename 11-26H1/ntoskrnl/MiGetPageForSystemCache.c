@@ -1,11 +1,11 @@
 /*
- * XREFs of MiGetPageForSystemCache @ 0x140339D50
+ * XREFs of MiGetPageForSystemCache @ 0x14033BDD0
  * Callers:
- *     MiResolveCachedPageHardFault @ 0x140339B7C (MiResolveCachedPageHardFault.c)
+ *     MiResolveCachedPageHardFault @ 0x14033BBFC (MiResolveCachedPageHardFault.c)
  * Callees:
- *     MiGetSubsectionFromPte @ 0x1402836C0 (MiGetSubsectionFromPte.c)
- *     MiGetPage @ 0x1402866A0 (MiGetPage.c)
- *     MiInitializePageColorBase @ 0x14036FE20 (MiInitializePageColorBase.c)
+ *     MiGetSubsectionFromPte @ 0x140282C30 (MiGetSubsectionFromPte.c)
+ *     MiGetPage @ 0x140285C00 (MiGetPage.c)
+ *     MiInitializePageColorBase @ 0x140371BD0 (MiInitializePageColorBase.c)
  */
 
 __int64 __fastcall MiGetPageForSystemCache(unsigned __int64 a1)
@@ -24,7 +24,7 @@ __int64 __fastcall MiGetPageForSystemCache(unsigned __int64 a1)
   v4 = *(_QWORD *)SubsectionFromPte;
   if ( (*(_DWORD *)(*(_QWORD *)SubsectionFromPte + 56LL) & 0x30000000) != 0 || (v2 & 1) == 0 )
     return -1LL;
-  v6 = *(_QWORD *)(stru_140E2EB88.ThreadLock + 8LL * (*(_DWORD *)(v4 + 60) & 0x3FF));
+  v6 = *(_QWORD *)(stru_140E2ED08.ThreadLock + 8LL * (*(_DWORD *)(v4 + 60) & 0x3FF));
   v7 = v3 != 0;
   MiInitializePageColorBase(0LL, 3LL, (*(_DWORD *)(v4 + 56) >> 20) & 0x7F, &v9);
   v8 = (unsigned __int8)_InterlockedExchangeAdd((volatile signed __int32 *)v9, 1u);

@@ -1,10 +1,10 @@
 /*
- * XREFs of KiGetSystemServiceTraceTable @ 0x140975A34
+ * XREFs of KiGetSystemServiceTraceTable @ 0x140975C34
  * Callers:
- *     KeSetSystemServiceCallback @ 0x140975880 (KeSetSystemServiceCallback.c)
+ *     KeSetSystemServiceCallback @ 0x140975A80 (KeSetSystemServiceCallback.c)
  * Callees:
- *     RtlRbInsertNodeEx @ 0x14024CCC0 (RtlRbInsertNodeEx.c)
- *     KiSystemServiceTraceTableCompareFunction @ 0x140975B74 (KiSystemServiceTraceTableCompareFunction.c)
+ *     RtlRbInsertNodeEx @ 0x14024CD90 (RtlRbInsertNodeEx.c)
+ *     KiSystemServiceTraceTableCompareFunction @ 0x140975D74 (KiSystemServiceTraceTableCompareFunction.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
@@ -12,7 +12,7 @@
 __int64 KiGetSystemServiceTraceTable()
 {
   __int64 Pool2; // rax
-  _BOOL8 v1; // r8
+  __int64 v1; // r8
   signed __int64 v2; // rdi
   _QWORD *v3; // r14
   __int64 v4; // r12
@@ -28,7 +28,7 @@ __int64 KiGetSystemServiceTraceTable()
     v2 = Pool2;
     if ( Pool2 )
     {
-      v3 = &off_140A7E178;
+      v3 = &off_140A7E428;
       v4 = 486LL;
       v5 = Pool2 + 40;
       do
@@ -81,7 +81,7 @@ LABEL_13:
             v7 = v9;
           }
         }
-        RtlRbInsertNodeEx((unsigned __int64 *)v2, v7, v1, v5 - 24);
+        RtlRbInsertNodeEx((PRTL_RB_TREE)v2, (PRTL_BALANCED_NODE)v7, v1, (PRTL_BALANCED_NODE)(v5 - 24));
         v5 += 64LL;
         v3 += 2;
         --v4;

@@ -8,14 +8,14 @@
  *     MiPteInShadowRange @ 0x14003D740 (MiPteInShadowRange.c)
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
  *     MmMapLockedPagesSpecifyCache @ 0x14005C0C0 (MmMapLockedPagesSpecifyCache.c)
- *     KeFlushSingleTb @ 0x1400ECDF4 (KeFlushSingleTb.c)
- *     MiFlushEntireTbDueToAttributeChange @ 0x1400EF380 (MiFlushEntireTbDueToAttributeChange.c)
- *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
- *     MiValidateImagePfn @ 0x1405A8854 (MiValidateImagePfn.c)
- *     SeValidateImageData @ 0x1405A8A20 (SeValidateImageData.c)
- *     MiRelocateImagePfn @ 0x1405DF930 (MiRelocateImagePfn.c)
- *     MiGetSectionStrongImageReference @ 0x14085C2F8 (MiGetSectionStrongImageReference.c)
+ *     KeFlushSingleTb @ 0x1400ECE74 (KeFlushSingleTb.c)
+ *     MiFlushEntireTbDueToAttributeChange @ 0x1400EF400 (MiFlushEntireTbDueToAttributeChange.c)
+ *     MiWritePteShadow @ 0x140120F40 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120FA0 (MiPteHasShadow.c)
+ *     MiValidateImagePfn @ 0x1405A9854 (MiValidateImagePfn.c)
+ *     SeValidateImageData @ 0x1405A9A20 (SeValidateImageData.c)
+ *     MiRelocateImagePfn @ 0x1405E0930 (MiRelocateImagePfn.c)
+ *     MiGetSectionStrongImageReference @ 0x14085D558 (MiGetSectionStrongImageReference.c)
  */
 
 __int64 __fastcall MiValidateInPage(__int64 a1)
@@ -112,8 +112,8 @@ __int64 __fastcall MiValidateInPage(__int64 a1)
       if ( (*(_DWORD *)(v20 + 56) & 0x4000000) != 0 )
       {
         v38 = *(_QWORD *)(v18 + 16);
-        if ( qword_14043A0C0 && (v38 & 0x10) == 0 )
-          v38 &= ~qword_14043A0C0;
+        if ( qword_14043B180 && (v38 & 0x10) == 0 )
+          v38 &= ~qword_14043B180;
         v16 = v38 >> 16;
         if ( (*(_BYTE *)(v16 + 34) & 2) != 0 )
           v3 &= ~4u;
@@ -194,7 +194,7 @@ __int64 __fastcall MiValidateInPage(__int64 a1)
   while ( 1 )
   {
     v26 = 48 * *v8 - 0x58000000000LL;
-    if ( v26 == qword_14043ADD0 )
+    if ( v26 == qword_14043BE90 )
       goto LABEL_23;
     if ( v23 )
     {
@@ -254,7 +254,7 @@ LABEL_17:
           goto LABEL_44;
         if ( (unsigned int)MiPteHasShadow(v29, v36) )
         {
-          if ( !HIBYTE(word_14043A1AC) && (v36 & 1) != 0 )
+          if ( !HIBYTE(word_14043B26C) && (v36 & 1) != 0 )
             v36 |= 0x8000000000000000uLL;
           *v30 = v36;
           MiWritePteShadow(v30);

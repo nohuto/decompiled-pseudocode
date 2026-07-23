@@ -6,11 +6,11 @@
  *     <none>
  */
 
-__int64 NtAddDriverEntry()
+NTSTATUS __cdecl NtAddDriverEntry(PEFI_DRIVER_ENTRY DriverEntry, PULONG Id)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 105LL;
+  result = 105;
   __asm { syscall; Low latency system call }
   return result;
 }

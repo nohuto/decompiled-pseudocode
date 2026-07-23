@@ -1,11 +1,11 @@
 /*
- * XREFs of EtwpValidateLoggerInfo @ 0x14048DF08
+ * XREFs of EtwpValidateLoggerInfo @ 0x14048E998
  * Callers:
- *     NtTraceControl @ 0x14040DD40 (NtTraceControl.c)
- *     EtwpQueryTrace @ 0x14048DD54 (EtwpQueryTrace.c)
- *     EtwpStopTrace @ 0x140493C50 (EtwpStopTrace.c)
- *     EtwpFlushTrace @ 0x140494D88 (EtwpFlushTrace.c)
- *     EtwpUpdateTrace @ 0x14053F1B8 (EtwpUpdateTrace.c)
+ *     NtTraceControl @ 0x14040CC00 (NtTraceControl.c)
+ *     EtwpQueryTrace @ 0x14048E7E4 (EtwpQueryTrace.c)
+ *     EtwpStopTrace @ 0x1404946E0 (EtwpStopTrace.c)
+ *     EtwpFlushTrace @ 0x140495818 (EtwpFlushTrace.c)
+ *     EtwpUpdateTrace @ 0x14053F6F8 (EtwpUpdateTrace.c)
  * Callees:
  *     <none>
  */

@@ -1,10 +1,10 @@
 /*
- * XREFs of IsRegistryKeyLocked @ 0x140838764
+ * XREFs of IsRegistryKeyLocked @ 0x140838A64
  * Callers:
- *     NtLockProductActivationKeys @ 0x140838380 (NtLockProductActivationKeys.c)
+ *     NtLockProductActivationKeys @ 0x140838680 (NtLockProductActivationKeys.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     ObReferenceObjectByHandle @ 0x1406E62C0 (ObReferenceObjectByHandle.c)
+ *     ObfDereferenceObject @ 0x140231660 (ObfDereferenceObject.c)
+ *     ObReferenceObjectByHandle @ 0x1406E62F0 (ObReferenceObjectByHandle.c)
  */
 
 __int64 __fastcall IsRegistryKeyLocked(void *a1, _BYTE *a2)

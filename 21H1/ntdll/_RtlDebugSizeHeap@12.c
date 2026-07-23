@@ -16,40 +16,38 @@
  *     _RtlpHeapExceptionFilter@8 @ 0x4B375DFF (_RtlpHeapExceptionFilter@8.c)
  */
 
-int __fastcall RtlDebugSizeHeap(_DWORD *a1, int a2, int a3)
+int __fastcall RtlDebugSizeHeap(unsigned int a1, int a2, char *BaseAddress)
 {
-  int v6; // edx
-  int v7; // ebx
-  unsigned int v8; // edx
-  int v10; // [esp+1Ch] [ebp-20h]
-  char v11; // [esp+23h] [ebp-19h]
+  ULONG v6; // ebx
+  char *v7; // edx
+  int v9; // [esp+1Ch] [ebp-20h]
+  char v10; // [esp+23h] [ebp-19h]
 
-  v11 = 0;
-  if ( (a1[17] & 0x1000000) != 0 )
-    return dword_4B3A3788(dword_4B3A3788, a1, a2, a3);
-  v10 = -1;
-  if ( RtlpCheckHeapSignature(a1, "RtlSizeHeap") )
+  v10 = 0;
+  if ( (*(_DWORD *)(a1 + 68) & 0x1000000) != 0 )
+    return dword_4B3A3788(dword_4B3A3788, a1, a2, BaseAddress);
+  v9 = -1;
+  if ( RtlpCheckHeapSignature((_DWORD *)a1, "RtlSizeHeap") )
   {
-    v7 = a1[17] | 0x10000000 | a2;
-    if ( (v7 & 1) == 0 )
+    v6 = *(_DWORD *)(a1 + 68) | 0x10000000 | a2;
+    if ( (v6 & 1) == 0 )
     {
-      RtlEnterCriticalSection(a1[50]);
-      v7 |= 1u;
-      v11 = 1;
+      RtlEnterCriticalSection(*(PRTL_CRITICAL_SECTION *)(a1 + 200));
+      v6 |= 1u;
+      v10 = 1;
     }
-    LOBYTE(v6) = 0;
-    RtlpValidateHeap(a1, v6);
-    v8 = a3 - 8;
-    if ( *(_BYTE *)(a3 - 8 + 7) == 5 )
-      v8 -= 8 * *(unsigned __int8 *)(v8 + 6);
-    if ( RtlpValidateHeapEntry((unsigned int)a1, v8, "RtlSizeHeap") )
-      v10 = RtlSizeHeap((int)a1, v7, a3);
+    RtlpValidateHeap((PVOID)a1);
+    v7 = BaseAddress - 8;
+    if ( *(BaseAddress - 1) == 5 )
+      v7 -= 8 * (unsigned __int8)v7[6];
+    if ( RtlpValidateHeapEntry(a1, (unsigned int)v7, "RtlSizeHeap") )
+      v9 = RtlSizeHeap((PVOID)a1, v6, BaseAddress);
   }
   else
   {
-    v10 = 0;
+    v9 = 0;
   }
-  if ( v11 )
-    RtlLeaveCriticalSection(a1[50]);
-  return v10;
+  if ( v10 )
+    RtlLeaveCriticalSection(*(PRTL_CRITICAL_SECTION *)(a1 + 200));
+  return v9;
 }

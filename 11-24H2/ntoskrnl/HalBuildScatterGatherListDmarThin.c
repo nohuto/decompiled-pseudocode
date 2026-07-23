@@ -1,9 +1,9 @@
 /*
- * XREFs of HalBuildScatterGatherListDmarThin @ 0x14045EA70
+ * XREFs of HalBuildScatterGatherListDmarThin @ 0x140453930
  * Callers:
  *     <none>
  * Callees:
- *     HalpBuildScatterGatherListDmarThin @ 0x14045EC38 (HalpBuildScatterGatherListDmarThin.c)
+ *     HalpBuildScatterGatherListDmarThin @ 0x140453AF8 (HalpBuildScatterGatherListDmarThin.c)
  */
 
 __int64 __fastcall HalBuildScatterGatherListDmarThin(

@@ -1,16 +1,20 @@
 /*
- * XREFs of NtSetInformationToken @ 0x1800A09D0
+ * XREFs of NtSetInformationToken @ 0x1800A0990
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 NtSetInformationToken()
+NTSTATUS __cdecl NtSetInformationToken(
+        HANDLE TokenHandle,
+        ULONG TokenInformationClass,
+        PVOID TokenInformation,
+        ULONG TokenInformationLength)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 413LL;
+  result = 413;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

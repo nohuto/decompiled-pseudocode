@@ -1,7 +1,7 @@
 /*
- * XREFs of ExIsSvmEnabledForProcess @ 0x1404BC988
+ * XREFs of ExIsSvmEnabledForProcess @ 0x1404B6164
  * Callers:
- *     ExIsSvmPasidMsrUpdateRequiredForProcess @ 0x140A04188 (ExIsSvmPasidMsrUpdateRequiredForProcess.c)
+ *     ExIsSvmPasidMsrUpdateRequiredForProcess @ 0x140A7BF00 (ExIsSvmPasidMsrUpdateRequiredForProcess.c)
  * Callees:
  *     <none>
  */

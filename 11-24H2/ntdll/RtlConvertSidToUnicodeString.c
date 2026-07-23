@@ -1,20 +1,20 @@
 /*
- * XREFs of RtlConvertSidToUnicodeString @ 0x180038E40
+ * XREFs of RtlConvertSidToUnicodeString @ 0x1800190C0
  * Callers:
- *     RtlFormatCurrentUserKeyPath @ 0x1800389C0 (RtlFormatCurrentUserKeyPath.c)
- *     OpenGlobalizationUserSettingsKey_ForMua @ 0x180080384 (OpenGlobalizationUserSettingsKey_ForMua.c)
- *     RtlpGetTokenNamedObjectPath @ 0x1800B3330 (RtlpGetTokenNamedObjectPath.c)
- *     WerEscalationLazyInit @ 0x1800E2D10 (WerEscalationLazyInit.c)
- *     AVrfpAppendCurrentUserSid @ 0x18011040C (AVrfpAppendCurrentUserSid.c)
+ *     RtlFormatCurrentUserKeyPath @ 0x180018C40 (RtlFormatCurrentUserKeyPath.c)
+ *     RtlpGetTokenNamedObjectPath @ 0x18007FBD0 (RtlpGetTokenNamedObjectPath.c)
+ *     OpenGlobalizationUserSettingsKey_ForMua @ 0x1800CBBD4 (OpenGlobalizationUserSettingsKey_ForMua.c)
+ *     WerEscalationLazyInit @ 0x1800DE2E0 (WerEscalationLazyInit.c)
+ *     AVrfpAppendCurrentUserSid @ 0x18010B6CC (AVrfpAppendCurrentUserSid.c)
  * Callees:
- *     RtlCreateUnicodeString @ 0x180028050 (RtlCreateUnicodeString.c)
- *     RtlIntegerToUnicode @ 0x1800390E0 (RtlIntegerToUnicode.c)
- *     RtlValidSid @ 0x180039220 (RtlValidSid.c)
- *     RtlLargeIntegerToUnicode @ 0x1800395A0 (RtlLargeIntegerToUnicode.c)
- *     wcscat_s @ 0x18012DEC0 (wcscat_s.c)
- *     wcscpy_s @ 0x18012DF60 (wcscpy_s.c)
- *     __security_check_cookie @ 0x1801659C0 (__security_check_cookie.c)
- *     memmove @ 0x180167400 (memmove.c)
+ *     RtlIntegerToUnicode @ 0x180019360 (RtlIntegerToUnicode.c)
+ *     RtlValidSid @ 0x1800194A0 (RtlValidSid.c)
+ *     RtlLargeIntegerToUnicode @ 0x180019820 (RtlLargeIntegerToUnicode.c)
+ *     RtlCreateUnicodeString @ 0x180054A50 (RtlCreateUnicodeString.c)
+ *     wcscat_s @ 0x18012C0F0 (wcscat_s.c)
+ *     wcscpy_s @ 0x18012C190 (wcscpy_s.c)
+ *     __security_check_cookie @ 0x180163D80 (__security_check_cookie.c)
+ *     memmove @ 0x1801657C0 (memmove.c)
  */
 
 NTSTATUS __stdcall RtlConvertSidToUnicodeString(
@@ -32,7 +32,7 @@ NTSTATUS __stdcall RtlConvertSidToUnicodeString(
   size_t v13; // r8
   wchar_t *v14; // rcx
   NTSTATUS v15; // edx
-  char v16; // al
+  BOOLEAN v16; // al
   int v17; // eax
   __int64 v18; // rdx
   _DWORD v19[4]; // [rsp+20h] [rbp-248h] BYREF
@@ -42,7 +42,7 @@ NTSTATUS __stdcall RtlConvertSidToUnicodeString(
   _BYTE v23[2]; // [rsp+22Ch] [rbp-3Ch] BYREF
   _BYTE v24[2]; // [rsp+22Eh] [rbp-3Ah] BYREF
 
-  if ( (unsigned __int8)RtlValidSid(Sid) != 1 || *(_BYTE *)Sid != 1 )
+  if ( RtlValidSid(Sid) != 1 || *(_BYTE *)Sid != 1 )
     return -1073741704;
   wcscpy_s(&Destination, 0x100uLL, L"S-1-");
   v6 = v21;
@@ -94,7 +94,7 @@ NTSTATUS __stdcall RtlConvertSidToUnicodeString(
     }
     if ( AllocateDestinationString )
     {
-      v16 = RtlCreateUnicodeString((__int64)UnicodeString, &Destination);
+      v16 = RtlCreateUnicodeString(UnicodeString, &Destination);
       v15 = 0;
       if ( !v16 )
         return -1073741801;

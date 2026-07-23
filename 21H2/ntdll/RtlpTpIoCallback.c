@@ -1,44 +1,44 @@
 /*
- * XREFs of RtlpTpIoCallback @ 0x180113310
+ * XREFs of RtlpTpIoCallback @ 0x1801132D0
  * Callers:
  *     <none>
  * Callees:
  *     RtlSetThreadSubProcessTag @ 0x180020570 (RtlSetThreadSubProcessTag.c)
  *     TppStartThreadData @ 0x1800205F0 (TppStartThreadData.c)
  *     RtlGetCurrentServiceSessionId @ 0x180024850 (RtlGetCurrentServiceSessionId.c)
- *     _guard_dispatch_icall_nop @ 0x1800A1160 (_guard_dispatch_icall_nop.c)
- *     RtlpTpETWCallbackStart @ 0x180112774 (RtlpTpETWCallbackStart.c)
- *     RtlpTpETWCallbackStop @ 0x180112810 (RtlpTpETWCallbackStop.c)
+ *     _guard_dispatch_icall_nop @ 0x1800A1120 (_guard_dispatch_icall_nop.c)
+ *     RtlpTpETWCallbackStart @ 0x180112734 (RtlpTpETWCallbackStart.c)
+ *     RtlpTpETWCallbackStop @ 0x1801127D0 (RtlpTpETWCallbackStop.c)
  */
 
-void __fastcall RtlpTpIoCallback(__int64 a1, _GUID *a2, __int64 a3, unsigned int *a4)
+void __fastcall RtlpTpIoCallback(__int64 a1, __int64 a2, __int64 a3, unsigned int *a4)
 {
   void *v4; // rcx
   __int64 v8; // rdi
   __int64 v9; // rcx
   __int64 v10; // [rsp+48h] [rbp+10h] BYREF
 
-  v4 = *(void **)a2[9].Data4;
+  v4 = *(void **)(a2 + 152);
   if ( v4 )
     RtlSetThreadSubProcessTag(v4);
-  NtCurrentTeb()->ActivityId = a2[10];
+  NtCurrentTeb()->ActivityId = *(_GUID *)(a2 + 160);
   v8 = 2147353478LL;
-  if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+  if ( RtlGetCurrentServiceSessionId() )
     v9 = (__int64)NtCurrentPeb()->SharedData + 556;
   else
     v9 = 2147353478LL;
   if ( *(_BYTE *)v9 )
-    RtlpTpETWCallbackStart();
-  TppStartThreadData(&v10, *(_QWORD *)a2[-1].Data4, a3, (__int64)NtCurrentTeb()->SubProcessTag);
-  (*(void (__fastcall **)(_QWORD, _QWORD, __int64))a2[-1].Data4)(*a4, *((_QWORD *)a4 + 1), a3);
-  if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+    RtlpTpETWCallbackStart(*(_QWORD *)(a2 + 72), a2, *(_QWORD *)(a2 - 8), a3, *(_QWORD *)(a2 + 152));
+  TppStartThreadData(&v10, *(_QWORD *)(a2 - 8), a3, (__int64)NtCurrentTeb()->SubProcessTag);
+  (*(void (__fastcall **)(_QWORD, _QWORD, __int64))(a2 - 8))(*a4, *((_QWORD *)a4 + 1), a3);
+  if ( RtlGetCurrentServiceSessionId() )
     v8 = (__int64)NtCurrentPeb()->SharedData + 556;
   if ( *(_BYTE *)v8 )
-    RtlpTpETWCallbackStop();
-  if ( *(_QWORD *)a2[9].Data4 )
+    RtlpTpETWCallbackStop(*(_QWORD *)(a2 + 72), a2, *(_QWORD *)(a2 - 8), a3, *(_QWORD *)(a2 + 152));
+  if ( *(_QWORD *)(a2 + 152) )
   {
     RtlSetThreadSubProcessTag(0LL);
-    *(_QWORD *)a2[9].Data4 = 0LL;
+    *(_QWORD *)(a2 + 152) = 0LL;
   }
   TppCompleteThreadData(v10);
 }

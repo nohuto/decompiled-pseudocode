@@ -1,11 +1,11 @@
 /*
- * XREFs of KiIntSteerAssignCpuSet @ 0x14029A8AC
+ * XREFs of KiIntSteerAssignCpuSet @ 0x14029AA9C
  * Callers:
- *     KeIntSteerAssignCpuSet @ 0x14029A700 (KeIntSteerAssignCpuSet.c)
- *     KeIntSteerAssignCpuSetForGsiv @ 0x14029A7C4 (KeIntSteerAssignCpuSetForGsiv.c)
+ *     KeIntSteerAssignCpuSet @ 0x14029A8F0 (KeIntSteerAssignCpuSet.c)
+ *     KeIntSteerAssignCpuSetForGsiv @ 0x14029A9B4 (KeIntSteerAssignCpuSetForGsiv.c)
  * Callees:
- *     KiIntSteerClearCpuSetAssignment @ 0x14029A908 (KiIntSteerClearCpuSetAssignment.c)
- *     KiIntSteerComputeCpuSet @ 0x14029A930 (KiIntSteerComputeCpuSet.c)
+ *     KiIntSteerClearCpuSetAssignment @ 0x14029AAF8 (KiIntSteerClearCpuSetAssignment.c)
+ *     KiIntSteerComputeCpuSet @ 0x14029AB20 (KiIntSteerComputeCpuSet.c)
  */
 
 __int64 __fastcall KiIntSteerAssignCpuSet(__int64 a1, __int16 a2, __int64 a3)

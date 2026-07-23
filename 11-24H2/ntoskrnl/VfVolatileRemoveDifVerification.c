@@ -1,11 +1,11 @@
 /*
- * XREFs of VfVolatileRemoveDifVerification @ 0x1406149E0
+ * XREFs of VfVolatileRemoveDifVerification @ 0x140612FA0
  * Callers:
- *     NtSetSystemInformation @ 0x140AE1300 (NtSetSystemInformation.c)
+ *     NtSetSystemInformation @ 0x140AE2BE0 (NtSetSystemInformation.c)
  * Callees:
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     MmEnableOrDisableVerifierForDriver @ 0x140B82CD0 (MmEnableOrDisableVerifierForDriver.c)
- *     ViSuspectDriversLookupEntry @ 0x140B9B1A4 (ViSuspectDriversLookupEntry.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     MmEnableOrDisableVerifierForDriver @ 0x140B84CD0 (MmEnableOrDisableVerifierForDriver.c)
+ *     ViSuspectDriversLookupEntry @ 0x140B9D1A4 (ViSuspectDriversLookupEntry.c)
  */
 
 __int64 __fastcall VfVolatileRemoveDifVerification(const UNICODE_STRING *a1)
@@ -27,7 +27,7 @@ __int64 __fastcall VfVolatileRemoveDifVerification(const UNICODE_STRING *a1)
       return MmEnableOrDisableVerifierForDriver(v2, &v3, 4LL);
     if ( ViWdmThunksWithIatIndex )
       return MmEnableOrDisableVerifierForDriver(v2, &v3, 4LL);
-    ViWdmThunksWithIatIndex = (PVOID)ExAllocatePool2(0x40uLL);
+    ViWdmThunksWithIatIndex = (PVOID)ExAllocatePool2(0x40uLL, 24LL * (unsigned int)ViNumberOfWdmThunks, 0x6D4D7644u);
     if ( ViWdmThunksWithIatIndex )
       return MmEnableOrDisableVerifierForDriver(v2, &v3, 4LL);
     else

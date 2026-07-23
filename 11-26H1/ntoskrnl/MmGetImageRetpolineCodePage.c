@@ -1,14 +1,14 @@
 /*
- * XREFs of MmGetImageRetpolineCodePage @ 0x1406FBAE0
+ * XREFs of MmGetImageRetpolineCodePage @ 0x1407007B0
  * Callers:
  *     <none>
  * Callees:
- *     MmUnlockLoadedModuleListShared @ 0x140366D8C (MmUnlockLoadedModuleListShared.c)
- *     MmLockLoadedModuleListShared @ 0x140366E14 (MmLockLoadedModuleListShared.c)
- *     MmFindDataTableEntryByAddress @ 0x140366EA0 (MmFindDataTableEntryByAddress.c)
+ *     MmUnlockLoadedModuleListShared @ 0x140368B2C (MmUnlockLoadedModuleListShared.c)
+ *     MmLockLoadedModuleListShared @ 0x140368BB4 (MmLockLoadedModuleListShared.c)
+ *     MmFindDataTableEntryByAddress @ 0x140368C40 (MmFindDataTableEntryByAddress.c)
  */
 
-unsigned __int64 __fastcall MmGetImageRetpolineCodePage(unsigned __int64 a1, _QWORD *a2)
+unsigned __int64 __fastcall MmGetImageRetpolineCodePage(PVOID a1, _QWORD *a2)
 {
   struct _LIST_ENTRY *DataTableEntryByAddress; // rax
   unsigned __int64 v5; // rbx
@@ -23,14 +23,14 @@ unsigned __int64 __fastcall MmGetImageRetpolineCodePage(unsigned __int64 a1, _QW
   else
   {
     MmLockLoadedModuleListShared();
-    DataTableEntryByAddress = MmFindDataTableEntryByAddress(a1);
+    DataTableEntryByAddress = MmFindDataTableEntryByAddress((unsigned __int64)a1);
     v5 = (unsigned __int64)DataTableEntryByAddress[3].Flink
        + LODWORD(DataTableEntryByAddress[4].Flink)
-       + (unsigned __int64)(unsigned int)(HIDWORD(stru_140E36558.SListFaultAddress)
-                                        + LODWORD(stru_140E36558.QuantumTarget));
+       + (unsigned __int64)(unsigned int)(HIDWORD(stru_140E366D8.SListFaultAddress)
+                                        + LODWORD(stru_140E366D8.QuantumTarget));
     MmUnlockLoadedModuleListShared(v6);
     result = v5;
-    *a2 = (unsigned int)(*(_DWORD *)&stru_140E2D150.WaitBlockFill11[76] << 12);
+    *a2 = (unsigned int)(*(_DWORD *)&stru_140E2D2D0.WaitBlockFill11[76] << 12);
   }
   return result;
 }

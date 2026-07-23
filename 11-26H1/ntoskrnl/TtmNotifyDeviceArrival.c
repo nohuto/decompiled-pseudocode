@@ -1,19 +1,19 @@
 /*
- * XREFs of TtmNotifyDeviceArrival @ 0x1407E4B20
+ * XREFs of TtmNotifyDeviceArrival @ 0x1407EA680
  * Callers:
  *     <none>
  * Callees:
- *     ExReleaseResourceLite @ 0x1402B4CF0 (ExReleaseResourceLite.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     RtlStringCchLengthW @ 0x140459140 (RtlStringCchLengthW.c)
- *     RtlStringCchCopyW @ 0x14046AD84 (RtlStringCchCopyW.c)
- *     TtmpFindDeviceByToken @ 0x1407E5B80 (TtmpFindDeviceByToken.c)
- *     TtmiAcquireCurrentSession @ 0x1407E6640 (TtmiAcquireCurrentSession.c)
- *     TtmiScheduleSessionWorker @ 0x1407E67A4 (TtmiScheduleSessionWorker.c)
- *     TtmiLogDeviceArrivalNotified @ 0x1407E89BC (TtmiLogDeviceArrivalNotified.c)
- *     TtmiLogError @ 0x140A3AAD8 (TtmiLogError.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ExReleaseResourceLite @ 0x1402FF9C0 (ExReleaseResourceLite.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     RtlStringCchLengthW @ 0x1404509C0 (RtlStringCchLengthW.c)
+ *     RtlStringCchCopyW @ 0x140464504 (RtlStringCchCopyW.c)
+ *     TtmpFindDeviceByToken @ 0x1407EB6E0 (TtmpFindDeviceByToken.c)
+ *     TtmiAcquireCurrentSession @ 0x1407EC1A0 (TtmiAcquireCurrentSession.c)
+ *     TtmiScheduleSessionWorker @ 0x1407EC304 (TtmiScheduleSessionWorker.c)
+ *     TtmiLogDeviceArrivalNotified @ 0x1407EE51C (TtmiLogDeviceArrivalNotified.c)
+ *     TtmiLogError @ 0x1409F66D8 (TtmiLogError.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall TtmNotifyDeviceArrival(unsigned int a1, __int64 a2, _QWORD *a3, int a4, __int64 a5)
@@ -162,7 +162,7 @@ LABEL_32:
 LABEL_33:
   if ( v10 )
   {
-    ExReleaseResourceLite((PERESOURCE)&PsAltSystemCallRegistrationLock.WriteOperationCount);
+    ExReleaseResourceLite((PERESOURCE)&PsAltSystemCallRegistrationLock.WpsFeedback);
     KeLeaveCriticalRegion();
   }
   if ( v11 )

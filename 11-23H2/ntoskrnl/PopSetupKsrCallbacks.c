@@ -3,9 +3,9 @@
  * Callers:
  *     PoInitSystem @ 0x140B50BBC (PoInitSystem.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1B0 (RtlInitUnicodeString.c)
- *     ExRegisterCallback @ 0x1403678A0 (ExRegisterCallback.c)
- *     ExCreateCallback @ 0x1407DC330 (ExCreateCallback.c)
+ *     RtlInitUnicodeString @ 0x14022E2C0 (RtlInitUnicodeString.c)
+ *     ExRegisterCallback @ 0x140367A40 (ExRegisterCallback.c)
+ *     ExCreateCallback @ 0x1407DC600 (ExCreateCallback.c)
  */
 
 NTSTATUS PopSetupKsrCallbacks()

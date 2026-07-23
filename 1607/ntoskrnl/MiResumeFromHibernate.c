@@ -1,5 +1,5 @@
 /*
- * XREFs of MiResumeFromHibernate @ 0x1401126A0
+ * XREFs of MiResumeFromHibernate @ 0x140112C10
  * Callers:
  *     MmDuplicateMemory @ 0x1403C9918 (MmDuplicateMemory.c)
  * Callees:
@@ -25,9 +25,9 @@ __int64 __fastcall MiResumeFromHibernate(int a1)
   v1 = 0;
   while ( 2 )
   {
-    Buffer = qword_140326FD8->Buffer;
-    v4 = v1 < qword_140326FD8->SizeOfBitMap ? v1 : 0;
-    v5 = qword_140326FD8->SizeOfBitMap - 1;
+    Buffer = qword_140327018->Buffer;
+    v4 = v1 < qword_140327018->SizeOfBitMap ? v1 : 0;
+    v5 = qword_140327018->SizeOfBitMap - 1;
     if ( ((unsigned __int8)Buffer & 4) != 0 )
     {
       v6 = 1LL;
@@ -63,8 +63,8 @@ LABEL_22:
       if ( !v4 )
         goto LABEL_13;
       SizeOfBitMap = v1 + 1;
-      if ( v1 + 1 > qword_140326FD8->SizeOfBitMap )
-        SizeOfBitMap = qword_140326FD8->SizeOfBitMap;
+      if ( v1 + 1 > qword_140327018->SizeOfBitMap )
+        SizeOfBitMap = qword_140327018->SizeOfBitMap;
       v5 = SizeOfBitMap - 1;
       v4 = 0;
     }
@@ -75,7 +75,7 @@ LABEL_13:
     if ( (unsigned int)v12 >= v1 && (_DWORD)v12 != -1 )
     {
       v1 = v12 + 1;
-      v13 = *(_QWORD *)(qword_140326FF8 + 8 * v12);
+      v13 = *(_QWORD *)(qword_140327038 + 8 * v12);
       if ( (*(_DWORD *)(v13 + 4) & 4) != 0 )
       {
         if ( a1 )

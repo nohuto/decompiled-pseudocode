@@ -3,10 +3,10 @@
  * Callers:
  *     <none>
  * Callees:
- *     SepIsParentOfChildAppContainer @ 0x1409CEF44 (SepIsParentOfChildAppContainer.c)
+ *     sub_1409CEF44 @ 0x1409CEF44 (sub_1409CEF44.c)
  */
 
 __int64 SeIsParentOfChildAppContainer()
 {
-  return SepIsParentOfChildAppContainer();
+  return sub_1409CEF44();
 }

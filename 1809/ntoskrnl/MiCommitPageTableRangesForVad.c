@@ -1,7 +1,7 @@
 /*
- * XREFs of MiCommitPageTableRangesForVad @ 0x1402BA15C
+ * XREFs of MiCommitPageTableRangesForVad @ 0x1402BA34C
  * Callers:
- *     MiInsertChildVads @ 0x14085E6F0 (MiInsertChildVads.c)
+ *     MiInsertChildVads @ 0x14085F950 (MiInsertChildVads.c)
  * Callees:
  *     KiAbEntryRemoveFromTree @ 0x140004530 (KiAbEntryRemoveFromTree.c)
  *     KiCheckForKernelApcDelivery @ 0x140005A50 (KiCheckForKernelApcDelivery.c)
@@ -10,10 +10,10 @@
  *     KiAbThreadRemoveBoosts @ 0x14004EFD0 (KiAbThreadRemoveBoosts.c)
  *     MmGetSessionIdEx @ 0x14004F060 (MmGetSessionIdEx.c)
  *     KiLeaveGuardedRegionUnsafe @ 0x14004F090 (KiLeaveGuardedRegionUnsafe.c)
- *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     MiCommitPageTablesForVad @ 0x1405ECBB0 (MiCommitPageTablesForVad.c)
+ *     ExfTryToWakePushLock @ 0x140091500 (ExfTryToWakePushLock.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     MiCommitPageTablesForVad @ 0x1405EDBB0 (MiCommitPageTablesForVad.c)
  */
 
 __int64 __fastcall MiCommitPageTableRangesForVad(__int64 a1)
@@ -101,7 +101,7 @@ __int64 __fastcall MiCommitPageTableRangesForVad(__int64 a1)
         {
           v19->CrossThreadReleasableAndBusyByte |= 2u;
           if ( (__int64)v19->LockState.LockState < 0 )
-            KiAbEntryRemoveFromTree((__int64)&v11->LockEntries[v18], SessionId);
+            KiAbEntryRemoveFromTree(&v11->LockEntries[v18].TreeNode, SessionId);
           v22 = 0;
           v22 = v19->BoostBitmap.AllFields & 0x1FFFF;
           v19->BoostBitmap.AllFields &= 0xFFFE0000;

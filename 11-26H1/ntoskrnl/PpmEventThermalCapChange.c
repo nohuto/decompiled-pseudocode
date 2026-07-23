@@ -1,13 +1,13 @@
 /*
- * XREFs of PpmEventThermalCapChange @ 0x14044E43C
+ * XREFs of PpmEventThermalCapChange @ 0x14044656C
  * Callers:
- *     PpmRegisterPerfCap @ 0x14044DCE0 (PpmRegisterPerfCap.c)
+ *     PpmRegisterPerfCap @ 0x140445E10 (PpmRegisterPerfCap.c)
  * Callees:
- *     EtwEventEnabled @ 0x140212D90 (EtwEventEnabled.c)
- *     EtwWriteEx @ 0x140212F70 (EtwWriteEx.c)
- *     EtwTraceKernelEvent @ 0x1402DAC90 (EtwTraceKernelEvent.c)
- *     PpmFireWmiEvent @ 0x14060C8C8 (PpmFireWmiEvent.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x140212E70 (EtwEventEnabled.c)
+ *     EtwWriteEx @ 0x140213050 (EtwWriteEx.c)
+ *     EtwTraceKernelEvent @ 0x1402BCA50 (EtwTraceKernelEvent.c)
+ *     PpmFireWmiEvent @ 0x14060FA28 (PpmFireWmiEvent.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 char __fastcall PpmEventThermalCapChange(__int64 a1, int a2)
@@ -33,7 +33,7 @@ char __fastcall PpmEventThermalCapChange(__int64 a1, int a2)
   {
     v12 = *(_QWORD *)(a1 - 35064);
     LODWORD(v11) = a2;
-    if ( (xmmword_140FBFC10 & 0x8000) != 0 )
+    if ( (xmmword_140FC0C10 & 0x8000) != 0 )
     {
       v10[1] = 16LL;
       v10[0] = &v11;
@@ -61,20 +61,12 @@ char __fastcall PpmEventThermalCapChange(__int64 a1, int a2)
   UserData.Ptr = (ULONGLONG)&v8;
   if ( PpmEtwRegistered )
   {
-    LOBYTE(v6) = EtwEventEnabled((REGHANDLE)PopModernStandbyStateNotify.ApcState.ApcListHead[1].Blink, v4);
+    LOBYTE(v6) = EtwEventEnabled(PpmEtwHandle, v4);
     if ( (_BYTE)v6 )
     {
       v14 = &v9;
       v15 = 4LL;
-      LOBYTE(v6) = EtwWriteEx(
-                     (REGHANDLE)PopModernStandbyStateNotify.ApcState.ApcListHead[1].Blink,
-                     v4,
-                     0LL,
-                     0,
-                     0LL,
-                     0LL,
-                     2u,
-                     &UserData);
+      LOBYTE(v6) = EtwWriteEx(PpmEtwHandle, v4, 0LL, 0, 0LL, 0LL, 2u, &UserData);
     }
   }
   return (char)v6;

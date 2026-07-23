@@ -1,11 +1,11 @@
 /*
- * XREFs of KeIsValidTraceCallbackTarget @ 0x140844920
+ * XREFs of KeIsValidTraceCallbackTarget @ 0x140845B80
  * Callers:
- *     KeSetSystemServiceCallback @ 0x140844960 (KeSetSystemServiceCallback.c)
- *     KeSetTracepoint @ 0x140844E00 (KeSetTracepoint.c)
- *     EtwRegisterEventCallback @ 0x1408BDDB0 (EtwRegisterEventCallback.c)
+ *     KeSetSystemServiceCallback @ 0x140845BC0 (KeSetSystemServiceCallback.c)
+ *     KeSetTracepoint @ 0x140846060 (KeSetTracepoint.c)
+ *     EtwRegisterEventCallback @ 0x1408BF070 (EtwRegisterEventCallback.c)
  * Callees:
- *     MmVerifyCallbackFunctionCheckFlags @ 0x140186740 (MmVerifyCallbackFunctionCheckFlags.c)
+ *     MmVerifyCallbackFunctionCheckFlags @ 0x140186880 (MmVerifyCallbackFunctionCheckFlags.c)
  */
 
 __int64 __fastcall KeIsValidTraceCallbackTarget(unsigned __int64 a1)

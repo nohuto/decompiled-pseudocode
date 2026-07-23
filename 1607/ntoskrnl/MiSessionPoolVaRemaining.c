@@ -1,7 +1,7 @@
 /*
- * XREFs of MiSessionPoolVaRemaining @ 0x1401ECD40
+ * XREFs of MiSessionPoolVaRemaining @ 0x1401ECB6C
  * Callers:
- *     MmResourcesAvailable @ 0x14007E280 (MmResourcesAvailable.c)
+ *     MmResourcesAvailable @ 0x14007E300 (MmResourcesAvailable.c)
  * Callees:
  *     <none>
  */

@@ -50,10 +50,13 @@ __int64 __fastcall PopFxIdleWorkerTail(_QWORD *BugCheckParameter2, unsigned int 
     *(_BYTE *)(v6 + 208) = 0;
   }
   KxReleaseSpinLock((volatile signed __int64 *)(v6 + 200));
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v8 <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
+      && (unsigned __int8)v8 <= 0xFu
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -100,10 +103,10 @@ __int64 __fastcall PopFxIdleWorkerTail(_QWORD *BugCheckParameter2, unsigned int 
       *(_BYTE *)(v6 + 208) = 1;
     }
     KxReleaseSpinLock((volatile signed __int64 *)(v6 + 200));
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v22 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v22 <= 0xFu && (unsigned __int8)v14 <= 0xFu && v22 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v22 <= 0xFu && (unsigned __int8)v14 <= 0xFu && v22 >= 2u )
       {
         v23 = KeGetCurrentPrcb();
         v24 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v14 + 1));

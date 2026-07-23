@@ -1,9 +1,9 @@
 /*
- * XREFs of PoFxIssueComponentPerfStateChangeMultiple @ 0x14020216C
+ * XREFs of PoFxIssueComponentPerfStateChangeMultiple @ 0x140201F98
  * Callers:
- *     PoFxIssueComponentPerfStateChange @ 0x140202148 (PoFxIssueComponentPerfStateChange.c)
+ *     PoFxIssueComponentPerfStateChange @ 0x140201F74 (PoFxIssueComponentPerfStateChange.c)
  * Callees:
- *     PopFxBugCheck @ 0x1402022F4 (PopFxBugCheck.c)
+ *     PopFxBugCheck @ 0x140202120 (PopFxBugCheck.c)
  */
 
 __int64 __fastcall PoFxIssueComponentPerfStateChangeMultiple(

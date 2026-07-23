@@ -1,24 +1,24 @@
 /*
- * XREFs of PspSetJobIoRateControl @ 0x1404F1E7C
+ * XREFs of PspSetJobIoRateControl @ 0x1404D4610
  * Callers:
- *     NtSetInformationJobObject @ 0x140464BD8 (NtSetInformationJobObject.c)
+ *     NtSetInformationJobObject @ 0x140463AA8 (NtSetInformationJobObject.c)
  * Callees:
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x140055FA0 (KiLeaveCriticalRegionUnsafe.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     PspIoRateControlInfoIsAnySet @ 0x1400B7168 (PspIoRateControlInfoIsAnySet.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1400C8070 (ExfAcquirePushLockExclusiveEx.c)
- *     ExfTryToWakePushLock @ 0x1400C8738 (ExfTryToWakePushLock.c)
- *     PspUnlockJob @ 0x140468EB0 (PspUnlockJob.c)
- *     PspUnlockJobConditionally @ 0x140469924 (PspUnlockJobConditionally.c)
- *     PspLockJobConditionally @ 0x140469940 (PspLockJobConditionally.c)
- *     PspLockRootJobExclusive @ 0x14048AB04 (PspLockRootJobExclusive.c)
- *     PspJobIoRateControlDisable @ 0x1404A204C (PspJobIoRateControlDisable.c)
- *     PspIoRateEntryDeactivate @ 0x1404F1A38 (PspIoRateEntryDeactivate.c)
- *     PspIoRateEntryActivate @ 0x1404F1AB0 (PspIoRateEntryActivate.c)
- *     EtwTracePsIoRateControl @ 0x1404F1C9C (EtwTracePsIoRateControl.c)
- *     PspSetJobIoAttribution @ 0x1404F206C (PspSetJobIoAttribution.c)
- *     PspSetJobIoRateControlForVolume @ 0x140680918 (PspSetJobIoRateControlForVolume.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140055B20 (KiLeaveCriticalRegionUnsafe.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     PspIoRateControlInfoIsAnySet @ 0x1400B4F90 (PspIoRateControlInfoIsAnySet.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1400C5F10 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfTryToWakePushLock @ 0x1400C65D8 (ExfTryToWakePushLock.c)
+ *     PspUnlockJob @ 0x140467D80 (PspUnlockJob.c)
+ *     PspUnlockJobConditionally @ 0x1404687F4 (PspUnlockJobConditionally.c)
+ *     PspLockJobConditionally @ 0x140468810 (PspLockJobConditionally.c)
+ *     PspIoRateEntryDeactivate @ 0x1404D3B2C (PspIoRateEntryDeactivate.c)
+ *     PspIoRateEntryActivate @ 0x1404D4244 (PspIoRateEntryActivate.c)
+ *     EtwTracePsIoRateControl @ 0x1404D4430 (EtwTracePsIoRateControl.c)
+ *     PspSetJobIoAttribution @ 0x1404D4800 (PspSetJobIoAttribution.c)
+ *     PspLockRootJobExclusive @ 0x1404D4E7C (PspLockRootJobExclusive.c)
+ *     PspJobIoRateControlDisable @ 0x14051A458 (PspJobIoRateControlDisable.c)
+ *     PspSetJobIoRateControlForVolume @ 0x1406809FC (PspSetJobIoRateControlForVolume.c)
  */
 
 __int64 __fastcall PspSetJobIoRateControl(__int64 a1, __int64 a2)
@@ -66,7 +66,7 @@ LABEL_15:
       goto LABEL_18;
     goto LABEL_16;
   }
-  PspLockRootJobExclusive(a1, (__int64)CurrentThread, &v19);
+  PspLockRootJobExclusive(a1, CurrentThread, &v19);
   PspLockJobConditionally(a1, &v19);
   LOBYTE(v9) = 1;
   v10 = PspSetJobIoAttribution(a1, v9, 0LL, 1LL);
@@ -109,7 +109,7 @@ LABEL_13:
       }
     }
 LABEL_16:
-    PspLockRootJobExclusive(a1, (__int64)CurrentThread, &v19);
+    PspLockRootJobExclusive(a1, CurrentThread, &v19);
     PspLockJobConditionally(a1, &v19);
     PspSetJobIoAttribution(a1, 0LL, 0LL, v8);
   }

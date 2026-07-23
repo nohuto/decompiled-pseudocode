@@ -1,56 +1,56 @@
 /*
- * XREFs of MiChangePageAttribute @ 0x1402D8660
+ * XREFs of MiChangePageAttribute @ 0x1402BA420
  * Callers:
- *     MiMakePageAvoidRead @ 0x140282DC0 (MiMakePageAvoidRead.c)
- *     MiDemoteLocalLargePage @ 0x1402844A0 (MiDemoteLocalLargePage.c)
- *     MiGetPageChain @ 0x140285DD0 (MiGetPageChain.c)
- *     MiGetPage @ 0x1402866A0 (MiGetPage.c)
- *     MiGetPageChainSmallPageProcess @ 0x140287AA0 (MiGetPageChainSmallPageProcess.c)
- *     MiCoalesceFreeSmallPages @ 0x14028D060 (MiCoalesceFreeSmallPages.c)
- *     MiCopyTradePageMetaData @ 0x1402938DC (MiCopyTradePageMetaData.c)
- *     MiReplaceTransitionPageInitializeTargetPfn @ 0x140293DE0 (MiReplaceTransitionPageInitializeTargetPfn.c)
- *     MiCopyPage @ 0x140293FA4 (MiCopyPage.c)
- *     MiTradeActivePage @ 0x140295898 (MiTradeActivePage.c)
- *     MiZeroAndConvertPage @ 0x1402A14B0 (MiZeroAndConvertPage.c)
- *     MiPageAttributeBatchChangeNeeded @ 0x1402A1E60 (MiPageAttributeBatchChangeNeeded.c)
- *     MiFreeSlabEntry @ 0x1402A7A6C (MiFreeSlabEntry.c)
- *     MiInitializePfn @ 0x1402D7680 (MiInitializePfn.c)
- *     MiFinalizePageAttribute @ 0x1402D85E0 (MiFinalizePageAttribute.c)
- *     MiZeroPhysicalPage @ 0x1402D8B20 (MiZeroPhysicalPage.c)
- *     MiCombineInitialInstance @ 0x1403093AC (MiCombineInitialInstance.c)
- *     MiDuplicateCloneLeaf @ 0x14030D374 (MiDuplicateCloneLeaf.c)
- *     MiBuildForkPageTable @ 0x14030DC5C (MiBuildForkPageTable.c)
- *     MiGetSlabPage @ 0x14033A284 (MiGetSlabPage.c)
- *     MiSetPfnOwnedAndActive @ 0x14033B05C (MiSetPfnOwnedAndActive.c)
- *     MiCopySinglePage @ 0x14033B248 (MiCopySinglePage.c)
- *     MiFreePagesFromMdl @ 0x1403454C0 (MiFreePagesFromMdl.c)
- *     MiAssignNonPagedPoolPte @ 0x140365C30 (MiAssignNonPagedPoolPte.c)
- *     MiInitializeTransitionPfn @ 0x14036A9A4 (MiInitializeTransitionPfn.c)
- *     MiCopyOnWriteInitializeTargetPage @ 0x14036B648 (MiCopyOnWriteInitializeTargetPage.c)
- *     MiCopyDataPageToImagePage @ 0x14036C478 (MiCopyDataPageToImagePage.c)
- *     MiBuildMdlForMappedFileFault @ 0x14036EBF0 (MiBuildMdlForMappedFileFault.c)
- *     MiInitializeReadInProgressPfn @ 0x1403737C0 (MiInitializeReadInProgressPfn.c)
- *     MiZeroAndReleasePages @ 0x1403C3C14 (MiZeroAndReleasePages.c)
- *     MiDeleteClusterPage @ 0x1403C6268 (MiDeleteClusterPage.c)
- *     MiAllocateLargeZeroPages @ 0x1403C673C (MiAllocateLargeZeroPages.c)
- *     MiGetFastLargePages @ 0x1403C6B68 (MiGetFastLargePages.c)
- *     MiChangePageAttributeLargeFreeZeroPage @ 0x1403C7A60 (MiChangePageAttributeLargeFreeZeroPage.c)
- *     MiConvertContiguousPages @ 0x14046B804 (MiConvertContiguousPages.c)
- *     MiAddExpansionNonPagedPool @ 0x140520A60 (MiAddExpansionNonPagedPool.c)
- *     MiResolveAwePageConflict @ 0x1407029E4 (MiResolveAwePageConflict.c)
- *     MiComputeCacheAttributeSpeeds @ 0x1407102D0 (MiComputeCacheAttributeSpeeds.c)
+ *     MiMakePageAvoidRead @ 0x140282330 (MiMakePageAvoidRead.c)
+ *     MiDemoteLocalLargePage @ 0x140283A10 (MiDemoteLocalLargePage.c)
+ *     MiGetPageChain @ 0x140285330 (MiGetPageChain.c)
+ *     MiGetPage @ 0x140285C00 (MiGetPage.c)
+ *     MiGetPageChainSmallPageProcess @ 0x140287000 (MiGetPageChainSmallPageProcess.c)
+ *     MiCoalesceFreeSmallPages @ 0x14028C5C0 (MiCoalesceFreeSmallPages.c)
+ *     MiCopyTradePageMetaData @ 0x140292E3C (MiCopyTradePageMetaData.c)
+ *     MiReplaceTransitionPageInitializeTargetPfn @ 0x140293340 (MiReplaceTransitionPageInitializeTargetPfn.c)
+ *     MiCopyPage @ 0x140293504 (MiCopyPage.c)
+ *     MiTradeActivePage @ 0x140294DF8 (MiTradeActivePage.c)
+ *     MiZeroAndConvertPage @ 0x1402A0A00 (MiZeroAndConvertPage.c)
+ *     MiPageAttributeBatchChangeNeeded @ 0x1402A13B0 (MiPageAttributeBatchChangeNeeded.c)
+ *     MiFreeSlabEntry @ 0x1402A6E7C (MiFreeSlabEntry.c)
+ *     MiInitializePfn @ 0x1402B9440 (MiInitializePfn.c)
+ *     MiFinalizePageAttribute @ 0x1402BA3A0 (MiFinalizePageAttribute.c)
+ *     MiZeroPhysicalPage @ 0x1402BA8E0 (MiZeroPhysicalPage.c)
+ *     MiCombineInitialInstance @ 0x1402EB42C (MiCombineInitialInstance.c)
+ *     MiDuplicateCloneLeaf @ 0x1402EF3F4 (MiDuplicateCloneLeaf.c)
+ *     MiBuildForkPageTable @ 0x1402EFCDC (MiBuildForkPageTable.c)
+ *     MiGetSlabPage @ 0x14033C304 (MiGetSlabPage.c)
+ *     MiSetPfnOwnedAndActive @ 0x14033D0DC (MiSetPfnOwnedAndActive.c)
+ *     MiCopySinglePage @ 0x14033D2C8 (MiCopySinglePage.c)
+ *     MiFreePagesFromMdl @ 0x140347540 (MiFreePagesFromMdl.c)
+ *     MiAssignNonPagedPoolPte @ 0x1403679D0 (MiAssignNonPagedPoolPte.c)
+ *     MiInitializeTransitionPfn @ 0x14036C744 (MiInitializeTransitionPfn.c)
+ *     MiCopyOnWriteInitializeTargetPage @ 0x14036D3E8 (MiCopyOnWriteInitializeTargetPage.c)
+ *     MiCopyDataPageToImagePage @ 0x14036E218 (MiCopyDataPageToImagePage.c)
+ *     MiBuildMdlForMappedFileFault @ 0x140370990 (MiBuildMdlForMappedFileFault.c)
+ *     MiInitializeReadInProgressPfn @ 0x140375570 (MiInitializeReadInProgressPfn.c)
+ *     MiZeroAndReleasePages @ 0x1403CDB20 (MiZeroAndReleasePages.c)
+ *     MiDeleteClusterPage @ 0x1403D0168 (MiDeleteClusterPage.c)
+ *     MiAllocateLargeZeroPages @ 0x1403D0630 (MiAllocateLargeZeroPages.c)
+ *     MiGetFastLargePages @ 0x1403D0A5C (MiGetFastLargePages.c)
+ *     MiChangePageAttributeLargeFreeZeroPage @ 0x1403D1950 (MiChangePageAttributeLargeFreeZeroPage.c)
+ *     MiConvertContiguousPages @ 0x140464F84 (MiConvertContiguousPages.c)
+ *     MiAddExpansionNonPagedPool @ 0x140523104 (MiAddExpansionNonPagedPool.c)
+ *     MiResolveAwePageConflict @ 0x1407076B4 (MiResolveAwePageConflict.c)
+ *     MiComputeCacheAttributeSpeeds @ 0x140714FCC (MiComputeCacheAttributeSpeeds.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     KeInvalidateAllCaches @ 0x14024FCE0 (KeInvalidateAllCaches.c)
- *     MiFlushEntireTbDueToAttributeChange @ 0x14024FD8C (MiFlushEntireTbDueToAttributeChange.c)
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     MiMapPageInHyperSpaceWorker @ 0x140287EE0 (MiMapPageInHyperSpaceWorker.c)
- *     MiGetPfnPageSizeIndex @ 0x14028B290 (MiGetPfnPageSizeIndex.c)
- *     MiMakeDemandZeroPte @ 0x14028B2D0 (MiMakeDemandZeroPte.c)
- *     MiMirrorInSingleProcessorMode @ 0x1402A2D34 (MiMirrorInSingleProcessorMode.c)
- *     KeShouldYieldProcessor @ 0x1402D49D0 (KeShouldYieldProcessor.c)
- *     MiAbortCombineScan @ 0x1403691D0 (MiAbortCombineScan.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KeInvalidateAllCaches @ 0x140251640 (KeInvalidateAllCaches.c)
+ *     MiFlushEntireTbDueToAttributeChange @ 0x1402516EC (MiFlushEntireTbDueToAttributeChange.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     MiMapPageInHyperSpaceWorker @ 0x140287440 (MiMapPageInHyperSpaceWorker.c)
+ *     MiGetPfnPageSizeIndex @ 0x14028A7F0 (MiGetPfnPageSizeIndex.c)
+ *     MiMakeDemandZeroPte @ 0x14028A830 (MiMakeDemandZeroPte.c)
+ *     MiMirrorInSingleProcessorMode @ 0x1402A2284 (MiMirrorInSingleProcessorMode.c)
+ *     KeShouldYieldProcessor @ 0x1402B6790 (KeShouldYieldProcessor.c)
+ *     MiAbortCombineScan @ 0x14036AF70 (MiAbortCombineScan.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 char __fastcall MiChangePageAttribute(__int64 a1, unsigned int a2)
@@ -103,7 +103,7 @@ char __fastcall MiChangePageAttribute(__int64 a1, unsigned int a2)
     if ( (DemandZeroPte & 0x3E0) != 0
       || (v9 = (*(_DWORD *)(a1 + 32) >> 22) & 3, v9 != (_DWORD)v2)
       && (LOBYTE(DemandZeroPte) = 1 << v9,
-          ((unsigned __int8)((1 << v9) | (1 << v2)) & (unsigned __int8)byte_140E2D798) != 0) )
+          ((unsigned __int8)((1 << v9) | (1 << v2)) & (unsigned __int8)byte_140E2D918) != 0) )
     {
       DemandZeroPte = *(_QWORD *)(a1 + 16);
       if ( (DemandZeroPte & 0x3E0) == 0 )
@@ -172,7 +172,7 @@ char __fastcall MiChangePageAttribute(__int64 a1, unsigned int a2)
           }
         }
       }
-      if ( dword_140E2EA44 )
+      if ( dword_140E2EBC4 )
       {
         LOBYTE(DemandZeroPte) = MiAbortCombineScan(v14 - 6);
         v6 = v6 & 0xFFFFFFF9 | 2;
@@ -202,14 +202,14 @@ char __fastcall MiChangePageAttribute(__int64 a1, unsigned int a2)
         LOBYTE(DemandZeroPte) = MiFlushEntireTbDueToAttributeChange();
       }
     }
-    if ( v16 != 1 || v15 < dword_140E2D734 )
+    if ( v16 != 1 || v15 < dword_140E2D8B4 )
     {
 LABEL_26:
       v18 = 0;
     }
     else
     {
-      ++dword_140E2D72C;
+      ++dword_140E2D8AC;
       LOBYTE(DemandZeroPte) = KeInvalidateAllCaches();
       v18 = 1;
       v38 = 1;
@@ -224,7 +224,7 @@ LABEL_26:
         *(_DWORD *)(v12 + 32) = *v21 ^ (*v21 ^ (a2 << 22)) & 0xC00000;
         if ( !v18 && v20 == 1 )
         {
-          ++dword_140E2D730;
+          ++dword_140E2D8B0;
           v23 = 2;
           if ( a2 != 2 )
             v23 = 0;

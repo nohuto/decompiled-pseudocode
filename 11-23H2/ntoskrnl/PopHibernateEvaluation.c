@@ -1,11 +1,11 @@
 /*
- * XREFs of PopHibernateEvaluation @ 0x140801C94
+ * XREFs of PopHibernateEvaluation @ 0x140801F64
  * Callers:
- *     NtPowerInformation @ 0x140783F20 (NtPowerInformation.c)
- *     PoInitHiberServices @ 0x140801AE8 (PoInitHiberServices.c)
- *     PopWnfHibernatePolicyCallback @ 0x140989410 (PopWnfHibernatePolicyCallback.c)
+ *     NtPowerInformation @ 0x140784110 (NtPowerInformation.c)
+ *     PoInitHiberServices @ 0x140801DB8 (PoInitHiberServices.c)
+ *     PopWnfHibernatePolicyCallback @ 0x140989610 (PopWnfHibernatePolicyCallback.c)
  * Callees:
- *     PopEnableHiberFile @ 0x1408016DC (PopEnableHiberFile.c)
+ *     PopEnableHiberFile @ 0x1408019AC (PopEnableHiberFile.c)
  */
 
 __int64 __fastcall PopHibernateEvaluation(char a1, char a2, bool *a3)

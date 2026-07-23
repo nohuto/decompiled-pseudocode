@@ -1,27 +1,27 @@
 /*
- * XREFs of KiRaiseException @ 0x1403E6450
+ * XREFs of KiRaiseException @ 0x1403D3FF0
  * Callers:
- *     NtRaiseException @ 0x1406AA880 (NtRaiseException.c)
+ *     NtRaiseException @ 0x1406AB820 (NtRaiseException.c)
  * Callees:
- *     KyRaiseException @ 0x1403E65D0 (KyRaiseException.c)
- *     KiDispatchException @ 0x1403E8310 (KiDispatchException.c)
- *     KiSetupForInstrumentationReturn @ 0x140452ED0 (KiSetupForInstrumentationReturn.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     KyRaiseException @ 0x1403D4170 (KyRaiseException.c)
+ *     KiDispatchException @ 0x1403D5EB0 (KiDispatchException.c)
+ *     KiSetupForInstrumentationReturn @ 0x140447F80 (KiSetupForInstrumentationReturn.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
-__int64 __fastcall KiRaiseException(_DWORD *a1, __int64 a2, __int64 a3, __int64 a4, char a5)
+__int64 __fastcall KiRaiseException(EXCEPTION_RECORD *a1, __int64 a2, __int64 a3, __int64 a4, char a5)
 {
   char PreviousMode; // si
-  __int64 v9; // rax
+  __int64 p_NumberParameters; // rax
   unsigned int v10; // eax
   unsigned int v11; // ebx
   __int64 v12; // rax
   size_t v13; // r8
-  const void *v14; // rdx
+  EXCEPTION_RECORD *v14; // rdx
   unsigned __int64 v15; // rax
   __int64 result; // rax
   struct _KTHREAD *CurrentThread; // rcx
@@ -35,10 +35,10 @@ __int64 __fastcall KiRaiseException(_DWORD *a1, __int64 a2, __int64 a3, __int64 
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   if ( PreviousMode )
   {
-    v9 = (__int64)(a1 + 6);
-    if ( (unsigned __int64)(a1 + 6) >= 0x7FFFFFFF0000LL )
-      v9 = 0x7FFFFFFF0000LL;
-    v10 = *(_DWORD *)v9;
+    p_NumberParameters = (__int64)&a1->NumberParameters;
+    if ( (unsigned __int64)&a1->NumberParameters >= 0x7FFFFFFF0000LL )
+      p_NumberParameters = 0x7FFFFFFF0000LL;
+    v10 = *(_DWORD *)p_NumberParameters;
     v21 = v10;
     v11 = v10;
     if ( v10 > 0xF )
@@ -53,14 +53,14 @@ __int64 __fastcall KiRaiseException(_DWORD *a1, __int64 a2, __int64 a3, __int64 
       v14 = a1;
     }
     memmove(v22, v14, v13);
-    a1 = v22;
+    a1 = (EXCEPTION_RECORD *)v22;
     v23 = v11;
   }
   result = KyRaiseException(a1, a2, a3, a4);
   if ( (int)result >= 0 )
   {
-    *a1 &= ~0x10000000u;
-    KiDispatchException((ULONG_PTR)a1, a5);
+    a1->ExceptionCode &= ~0x10000000u;
+    KiDispatchException(a1, a5);
     if ( PreviousMode )
     {
       CurrentThread = KeGetCurrentThread();

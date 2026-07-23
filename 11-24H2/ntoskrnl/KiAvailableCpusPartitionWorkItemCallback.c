@@ -1,21 +1,21 @@
 /*
- * XREFs of KiAvailableCpusPartitionWorkItemCallback @ 0x1405B8540
+ * XREFs of KiAvailableCpusPartitionWorkItemCallback @ 0x1405B5B20
  * Callers:
  *     <none>
  * Callees:
- *     ExfReleasePushLockShared @ 0x14025DE00 (ExfReleasePushLockShared.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     ExfAcquirePushLockSharedEx @ 0x14034050C (ExfAcquirePushLockSharedEx.c)
- *     KiAcquireCpuPartitionAssignmentLock @ 0x14043A2D4 (KiAcquireCpuPartitionAssignmentLock.c)
- *     KiReleaseCpuPartitionAssignmentLock @ 0x14043A320 (KiReleaseCpuPartitionAssignmentLock.c)
- *     KiNotifyAvailableCpusChangeProcess @ 0x1404FB240 (KiNotifyAvailableCpusChangeProcess.c)
- *     KiAvailableCpusSubscriptionQueueWorkItem @ 0x1404FB26C (KiAvailableCpusSubscriptionQueueWorkItem.c)
+ *     ExfReleasePushLockShared @ 0x14028E410 (ExfReleasePushLockShared.c)
+ *     KiAcquireCpuPartitionAssignmentLock @ 0x1402B9B18 (KiAcquireCpuPartitionAssignmentLock.c)
+ *     KiReleaseCpuPartitionAssignmentLock @ 0x1402B9B64 (KiReleaseCpuPartitionAssignmentLock.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     ExfAcquirePushLockSharedEx @ 0x14031F9EC (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     KiNotifyAvailableCpusChangeProcess @ 0x1404F8B20 (KiNotifyAvailableCpusChangeProcess.c)
+ *     KiAvailableCpusSubscriptionQueueWorkItem @ 0x1404F8B4C (KiAvailableCpusSubscriptionQueueWorkItem.c)
  */
 
 __int64 __fastcall KiAvailableCpusPartitionWorkItemCallback(__int64 a1)
 {
-  _QWORD *v2; // rbx
+  char *v2; // rbx
   __int64 i; // rbx
   __int64 v4; // rax
   _QWORD **v5; // rdi
@@ -25,7 +25,7 @@ __int64 __fastcall KiAvailableCpusPartitionWorkItemCallback(__int64 a1)
   v8 = 0;
   if ( a1 == KiSystemCpuPartition )
   {
-    v2 = KeAbPreAcquire((__int64)&KiAvailableCpusSubscriptionLock, 0LL);
+    v2 = (char *)KeAbPreAcquire((__int64)&KiAvailableCpusSubscriptionLock, 0LL);
     if ( _InterlockedCompareExchange64((volatile signed __int64 *)&KiAvailableCpusSubscriptionLock, 17LL, 0LL) )
       ExfAcquirePushLockSharedEx(
         (signed __int64 *)&KiAvailableCpusSubscriptionLock,
@@ -33,7 +33,7 @@ __int64 __fastcall KiAvailableCpusPartitionWorkItemCallback(__int64 a1)
         v2,
         (__int64)&KiAvailableCpusSubscriptionLock);
     if ( v2 )
-      *((_BYTE *)v2 + 10) = 1;
+      v2[10] = 1;
     for ( i = KiAvailableCpusSubscriptionList; (__int64 *)i != &KiAvailableCpusSubscriptionList; i = *(_QWORD *)i )
     {
       v4 = *(_QWORD *)(i - 24);

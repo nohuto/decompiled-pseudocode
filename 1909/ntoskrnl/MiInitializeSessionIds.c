@@ -12,7 +12,7 @@
 
 __int64 MiInitializeSessionIds()
 {
-  struct _RTL_BITMAP *PoolWithTag; // rax
+  _RTL_BITMAP *PoolWithTag; // rax
   __int64 result; // rax
   UNICODE_STRING v2; // [rsp+30h] [rbp-49h] BYREF
   ULONG_PTR BugCheckParameter3[16]; // [rsp+40h] [rbp-39h] BYREF
@@ -21,7 +21,7 @@ __int64 MiInitializeSessionIds()
   v2.Buffer = L"Session";
   memset(BugCheckParameter3, 0, 0x78uLL);
   qword_1404656B0 = 0LL;
-  PoolWithTag = (struct _RTL_BITMAP *)ExAllocatePoolWithTag(PagedPool, 0x20uLL, 0x20206D4Du);
+  PoolWithTag = (_RTL_BITMAP *)ExAllocatePoolWithTag(PagedPool, 0x20uLL, 0x20206D4Du);
   qword_140466690 = PoolWithTag;
   if ( !PoolWithTag
     || (PoolWithTag->SizeOfBitMap = 128, PoolWithTag->Buffer = &PoolWithTag[1].SizeOfBitMap, !qword_140466690) )

@@ -1,16 +1,16 @@
 /*
- * XREFs of PopEsPowerSettingBatteryThresholdCallback @ 0x140B50A40
+ * XREFs of PopEsPowerSettingBatteryThresholdCallback @ 0x140B53450
  * Callers:
  *     <none>
  * Callees:
- *     PopReleaseRwLock @ 0x14043630C (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x140436378 (PopAcquireRwLockExclusive.c)
- *     PopEsWorkItemSchedule @ 0x140947B64 (PopEsWorkItemSchedule.c)
+ *     PopReleaseRwLock @ 0x14021B1A8 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x140425310 (PopAcquireRwLockExclusive.c)
+ *     PopEsWorkItemSchedule @ 0x1409C34D4 (PopEsWorkItemSchedule.c)
  */
 
 __int64 __fastcall PopEsPowerSettingBatteryThresholdCallback(
         __int64 a1,
-        int *a2,
+        _DWORD *a2,
         __int64 a3,
         struct _KLOCK_ENTRIES *a4)
 {
@@ -20,15 +20,11 @@ __int64 __fastcall PopEsPowerSettingBatteryThresholdCallback(
   if ( a2 && (_DWORD)a3 == 4 )
   {
     v5 = 0;
-    PopAcquireRwLockExclusive(
-      (unsigned __int64 *)&PopModernStandbyStateNotify.MutantListHead.Blink,
-      (__int64)a2,
-      a3,
-      a4);
-    dword_140F10710 = *a2;
-    if ( (unsigned int)dword_140F10710 > 0x64 )
-      dword_140F10710 = 100;
-    PopReleaseRwLock((struct _KTHREAD *)&PopModernStandbyStateNotify.MutantListHead.Blink);
+    PopAcquireRwLockExclusive((unsigned __int64 *)&PopEsLock, (__int64)a2, a3, a4);
+    LODWORD(PpmIdlePolicyLock.GlobalForegroundListEntry.Flink) = *a2;
+    if ( LODWORD(PpmIdlePolicyLock.GlobalForegroundListEntry.Flink) > 0x64 )
+      LODWORD(PpmIdlePolicyLock.GlobalForegroundListEntry.Flink) = 100;
+    PopReleaseRwLock((struct _KTHREAD *)&PopEsLock);
     PopEsWorkItemSchedule(2);
   }
   return v5;

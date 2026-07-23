@@ -1,23 +1,25 @@
 /*
- * XREFs of RtlGetActiveConsoleId @ 0x140008ADC
+ * XREFs of RtlGetActiveConsoleId @ 0x140008650
  * Callers:
- *     PopGetConsoleDisplayRequestCount @ 0x140008CFC (PopGetConsoleDisplayRequestCount.c)
- *     IopParseDevice @ 0x1404408F0 (IopParseDevice.c)
- *     PoBlockConsoleSwitch @ 0x1404EF230 (PoBlockConsoleSwitch.c)
- *     PopNotifyConsoleUserPresent @ 0x1404F04D8 (PopNotifyConsoleUserPresent.c)
- *     PfpProcessScenarioPhase @ 0x1405453E8 (PfpProcessScenarioPhase.c)
- *     TtmpDisplayBurstPowerSettingCallback @ 0x1405811F4 (TtmpDisplayBurstPowerSettingCallback.c)
- *     PiCMQueryRemove @ 0x140648028 (PiCMQueryRemove.c)
+ *     PopGetConsoleDisplayRequestCount @ 0x140008870 (PopGetConsoleDisplayRequestCount.c)
+ *     IopParseDevice @ 0x14043F7C0 (IopParseDevice.c)
+ *     PoBlockConsoleSwitch @ 0x1404D1324 (PoBlockConsoleSwitch.c)
+ *     PopNotifyConsoleUserPresent @ 0x1404D25CC (PopNotifyConsoleUserPresent.c)
+ *     PfpProcessScenarioPhase @ 0x140545928 (PfpProcessScenarioPhase.c)
+ *     TtmpDisplayBurstPowerSettingCallback @ 0x1405816A0 (TtmpDisplayBurstPowerSettingCallback.c)
+ *     PiCMQueryRemove @ 0x14064810C (PiCMQueryRemove.c)
  * Callees:
- *     PsGetServerSiloGlobals @ 0x1400766B0 (PsGetServerSiloGlobals.c)
+ *     PsGetServerSiloGlobals @ 0x140076730 (PsGetServerSiloGlobals.c)
  */
 
-__int64 RtlGetActiveConsoleId()
+ULONG RtlGetActiveConsoleId(void)
 {
   __int64 v0; // rdx
+  __int64 v1; // rax
 
   if ( *(_DWORD *)(PsGetServerSiloGlobals(-1LL) + 1008) )
     return HIDWORD(*(_QWORD *)(PsGetServerSiloGlobals(v0) + 1008));
   else
-    return MEMORY[0xFFFFF780000002D8];
+    LODWORD(v1) = MEMORY[0xFFFFF780000002D8];
+  return v1;
 }

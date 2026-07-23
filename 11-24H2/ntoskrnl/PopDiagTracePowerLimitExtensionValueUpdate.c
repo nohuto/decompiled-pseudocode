@@ -1,19 +1,19 @@
 /*
- * XREFs of PopDiagTracePowerLimitExtensionValueUpdate @ 0x1407572B0
+ * XREFs of PopDiagTracePowerLimitExtensionValueUpdate @ 0x140755730
  * Callers:
- *     PopEvaluatePowerLimitChange @ 0x14074B3D4 (PopEvaluatePowerLimitChange.c)
+ *     PopEvaluatePowerLimitChange @ 0x140749704 (PopEvaluatePowerLimitChange.c)
  * Callees:
- *     EtwEventEnabled @ 0x1402A1BD0 (EtwEventEnabled.c)
- *     EtwWrite @ 0x14041C1B0 (EtwWrite.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     EtwEventEnabled @ 0x1402D1300 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x14040FFB0 (EtwWrite.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __fastcall PopDiagTracePowerLimitExtensionValueUpdate(__int64 a1)
 {
   unsigned int *v2; // rsi
-  int v3; // ebx
+  unsigned int v3; // ebx
   _DWORD *Pool2; // r14
   unsigned int v5; // r8d
   __int64 v6; // rdx
@@ -23,7 +23,7 @@ void __fastcall PopDiagTracePowerLimitExtensionValueUpdate(__int64 a1)
   int v10; // [rsp+50h] [rbp-20h]
   int v11; // [rsp+54h] [rbp-1Ch]
   _DWORD *v12; // [rsp+58h] [rbp-18h]
-  int v13; // [rsp+60h] [rbp-10h]
+  unsigned int v13; // [rsp+60h] [rbp-10h]
   int v14; // [rsp+64h] [rbp-Ch]
 
   if ( PopDiagHandleRegistered )
@@ -34,7 +34,7 @@ void __fastcall PopDiagTracePowerLimitExtensionValueUpdate(__int64 a1)
       v3 = 16 * *(_DWORD *)(a1 + 72);
       if ( v3 )
       {
-        Pool2 = (_DWORD *)ExAllocatePool2(0x100uLL);
+        Pool2 = (_DWORD *)ExAllocatePool2(0x100uLL, v3, 0x67696450u);
         if ( Pool2 )
         {
           v5 = 0;

@@ -1,11 +1,11 @@
 /*
- * XREFs of PipMergeDependencyNodes @ 0x140824110
+ * XREFs of PipMergeDependencyNodes @ 0x140825310
  * Callers:
- *     IoResolveDependency @ 0x140181BD0 (IoResolveDependency.c)
+ *     IoResolveDependency @ 0x140181D10 (IoResolveDependency.c)
  * Callees:
- *     PipMoveListEntries @ 0x140287C80 (PipMoveListEntries.c)
- *     PipDeleteDependencyNode @ 0x14075D8AC (PipDeleteDependencyNode.c)
- *     PipMergeDependencyEdgeList @ 0x140823F8C (PipMergeDependencyEdgeList.c)
+ *     PipMoveListEntries @ 0x140287E70 (PipMoveListEntries.c)
+ *     PipDeleteDependencyNode @ 0x14075EA9C (PipDeleteDependencyNode.c)
+ *     PipMergeDependencyEdgeList @ 0x14082518C (PipMergeDependencyEdgeList.c)
  */
 
 void __fastcall PipMergeDependencyNodes(_DWORD *P, _DWORD *a2)

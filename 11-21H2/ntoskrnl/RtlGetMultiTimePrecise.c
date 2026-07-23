@@ -2,12 +2,12 @@
  * XREFs of RtlGetMultiTimePrecise @ 0x1402622C0
  * Callers:
  *     RtlConvertHostPerfCounterToPerfCounter @ 0x1405E3EC0 (RtlConvertHostPerfCounterToPerfCounter.c)
- *     EtwpGetTimeStampAndQpcDelta @ 0x140633018 (EtwpGetTimeStampAndQpcDelta.c)
- *     EtwpInitializeTimeStamp @ 0x1406EFBC8 (EtwpInitializeTimeStamp.c)
- *     EtwpInitialize @ 0x140B0433C (EtwpInitialize.c)
+ *     sub_140633018 @ 0x140633018 (sub_140633018.c)
+ *     sub_1406EFBC8 @ 0x1406EFBC8 (sub_1406EFBC8.c)
+ *     sub_140B0433C @ 0x140B0433C (sub_140B0433C.c)
  * Callees:
- *     HvlGetSharedPageVa @ 0x140262490 (HvlGetSharedPageVa.c)
- *     RtlBeginReadTickLock @ 0x140292B8C (RtlBeginReadTickLock.c)
+ *     sub_140262490 @ 0x140262490 (sub_140262490.c)
+ *     sub_140292B8C @ 0x140292B8C (sub_140292B8C.c)
  *     KeQueryPerformanceCounter @ 0x1403027F0 (KeQueryPerformanceCounter.c)
  */
 
@@ -18,7 +18,7 @@ __int64 __fastcall RtlGetMultiTimePrecise(LARGE_INTEGER *a1, int a2, int *a3)
   __int64 v5; // rbp
   char v6; // r13
   int v7; // r14d
-  __int64 SharedPageVa; // r12
+  __int64 v8; // r12
   __int64 v9; // r14
   LARGE_INTEGER PerformanceCounter; // rdx
   int v11; // edi
@@ -28,7 +28,7 @@ __int64 __fastcall RtlGetMultiTimePrecise(LARGE_INTEGER *a1, int a2, int *a3)
   unsigned __int64 v16; // [rsp+38h] [rbp-70h]
   unsigned __int64 v17; // [rsp+40h] [rbp-68h]
   __int64 v18; // [rsp+48h] [rbp-60h]
-  __int64 TickLock; // [rsp+50h] [rbp-58h]
+  __int64 v19; // [rsp+50h] [rbp-58h]
   char v21; // [rsp+B8h] [rbp+10h]
 
   v21 = a2;
@@ -44,10 +44,10 @@ __int64 __fastcall RtlGetMultiTimePrecise(LARGE_INTEGER *a1, int a2, int *a3)
   if ( a2 )
   {
     v7 = a2 & 4;
-    SharedPageVa = HvlGetSharedPageVa();
+    v8 = sub_140262490();
     while ( 1 )
     {
-      TickLock = RtlBeginReadTickLock(0xFFFFF78000000340uLL);
+      v19 = sub_140292B8C(0xFFFFF78000000340uLL);
       if ( v7 )
       {
         v16 = MEMORY[0xFFFFF78000000348];
@@ -55,19 +55,19 @@ __int64 __fastcall RtlGetMultiTimePrecise(LARGE_INTEGER *a1, int a2, int *a3)
         v6 = MEMORY[0xFFFFF78000000368];
         v18 = MEMORY[0xFFFFF78000000014];
       }
-      if ( (v4 & 2) != 0 && SharedPageVa )
+      if ( (v4 & 2) != 0 && v8 )
       {
         v14 = MEMORY[0xFFFFF780000003C7];
         do
         {
           do
           {
-            v5 = *(_QWORD *)(SharedPageVa + 24);
+            v5 = *(_QWORD *)(v8 + 24);
             v9 = MEMORY[0xFFFFF780000003B8];
             v15 = MEMORY[0xFFFFF780000003B8];
             PerformanceCounter = KeQueryPerformanceCounter(0LL);
           }
-          while ( v5 != *(_QWORD *)(SharedPageVa + 24) );
+          while ( v5 != *(_QWORD *)(v8 + 24) );
         }
         while ( v9 != MEMORY[0xFFFFF780000003B8] );
         v7 = v4 & 4;
@@ -76,7 +76,7 @@ __int64 __fastcall RtlGetMultiTimePrecise(LARGE_INTEGER *a1, int a2, int *a3)
       {
         PerformanceCounter = KeQueryPerformanceCounter(0LL);
       }
-      if ( MEMORY[0xFFFFF78000000340] == TickLock )
+      if ( MEMORY[0xFFFFF78000000340] == v19 )
         break;
       _mm_pause();
     }

@@ -1,15 +1,15 @@
 /*
- * XREFs of ExGetSessionPoolTagInfo @ 0x14008672C
+ * XREFs of ExGetSessionPoolTagInfo @ 0x14008801C
  * Callers:
- *     ExGetAttachedSessionPoolTagInfo @ 0x1404992C8 (ExGetAttachedSessionPoolTagInfo.c)
- *     EtwpPoolRunDown @ 0x1406A7568 (EtwpPoolRunDown.c)
+ *     ExGetAttachedSessionPoolTagInfo @ 0x140499D58 (ExGetAttachedSessionPoolTagInfo.c)
+ *     EtwpPoolRunDown @ 0x1406A76A0 (EtwpPoolRunDown.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLock @ 0x140012750 (KeReleaseInStackQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14001BD40 (KeAcquireInStackQueuedSpinLock.c)
- *     memmove @ 0x140171280 (memmove.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x1400122D0 (KeReleaseInStackQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14001B8C0 (KeAcquireInStackQueuedSpinLock.c)
+ *     memmove @ 0x140171780 (memmove.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     MmAcquireSessionPoolRundown @ 0x140499358 (MmAcquireSessionPoolRundown.c)
+ *     MmAcquireSessionPoolRundown @ 0x140499DE8 (MmAcquireSessionPoolRundown.c)
  */
 
 __int64 __fastcall ExGetSessionPoolTagInfo(__int64 a1, unsigned int a2, _DWORD *a3, _DWORD *a4)

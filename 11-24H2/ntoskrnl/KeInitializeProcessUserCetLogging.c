@@ -1,9 +1,9 @@
 /*
- * XREFs of KeInitializeProcessUserCetLogging @ 0x140A85DD4
+ * XREFs of KeInitializeProcessUserCetLogging @ 0x140A80914
  * Callers:
- *     PspAllocateProcess @ 0x140A1C4C0 (PspAllocateProcess.c)
+ *     PspAllocateProcess @ 0x1409FACD0 (PspAllocateProcess.c)
  * Callees:
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall KeInitializeProcessUserCetLogging(__int64 a1)
@@ -11,7 +11,7 @@ __int64 __fastcall KeInitializeProcessUserCetLogging(__int64 a1)
   __int64 Pool2; // rax
   unsigned int v3; // edx
 
-  Pool2 = ExAllocatePool2(0x100uLL);
+  Pool2 = ExAllocatePool2(0x100uLL, 0xC0uLL, 0x4C544543u);
   v3 = 0;
   if ( Pool2 )
   {

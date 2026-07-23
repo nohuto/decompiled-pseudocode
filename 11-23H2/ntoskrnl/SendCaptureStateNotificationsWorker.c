@@ -1,25 +1,25 @@
 /*
- * XREFs of SendCaptureStateNotificationsWorker @ 0x1409ECDD0
+ * XREFs of SendCaptureStateNotificationsWorker @ 0x1409ED060
  * Callers:
  *     <none>
  * Callees:
- *     EtwpGetEnableInfoIndex @ 0x140228648 (EtwpGetEnableInfoIndex.c)
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     ExReleasePushLockEx @ 0x140231190 (ExReleasePushLockEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1402BD960 (ExfTryToWakePushLock.c)
- *     ExSetTimer @ 0x14031DDF0 (ExSetTimer.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memmove @ 0x140435700 (memmove.c)
- *     memset @ 0x140435A00 (memset.c)
- *     EtwpReleaseLoggerContext @ 0x1406BE208 (EtwpReleaseLoggerContext.c)
- *     EtwpComputeRegEntryEnableInfo @ 0x1406BE254 (EtwpComputeRegEntryEnableInfo.c)
- *     EtwpFindGuidEntryByGuid @ 0x1406BF820 (EtwpFindGuidEntryByGuid.c)
- *     EtwpUnreferenceGuidEntry @ 0x1406BF954 (EtwpUnreferenceGuidEntry.c)
- *     EtwpSendDataBlock @ 0x140780FF0 (EtwpSendDataBlock.c)
- *     EtwpUnreferenceDataBlock @ 0x1407817E8 (EtwpUnreferenceDataBlock.c)
- *     EtwpBuildNotificationPacket @ 0x140781BB4 (EtwpBuildNotificationPacket.c)
+ *     EtwpGetEnableInfoIndex @ 0x140228758 (EtwpGetEnableInfoIndex.c)
+ *     KeLeaveCriticalRegionThread @ 0x14022F7F0 (KeLeaveCriticalRegionThread.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140231120 (ExAcquirePushLockExclusiveEx.c)
+ *     ExReleasePushLockEx @ 0x140231280 (ExReleasePushLockEx.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     ExfTryToWakePushLock @ 0x1402BDBF0 (ExfTryToWakePushLock.c)
+ *     ExSetTimer @ 0x14031E080 (ExSetTimer.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     EtwpReleaseLoggerContext @ 0x1406BE238 (EtwpReleaseLoggerContext.c)
+ *     EtwpComputeRegEntryEnableInfo @ 0x1406BE284 (EtwpComputeRegEntryEnableInfo.c)
+ *     EtwpFindGuidEntryByGuid @ 0x1406BF850 (EtwpFindGuidEntryByGuid.c)
+ *     EtwpUnreferenceGuidEntry @ 0x1406BF984 (EtwpUnreferenceGuidEntry.c)
+ *     EtwpSendDataBlock @ 0x1407811E0 (EtwpSendDataBlock.c)
+ *     EtwpUnreferenceDataBlock @ 0x1407819D8 (EtwpUnreferenceDataBlock.c)
+ *     EtwpBuildNotificationPacket @ 0x140781DA4 (EtwpBuildNotificationPacket.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
 

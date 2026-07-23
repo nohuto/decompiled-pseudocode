@@ -1,11 +1,11 @@
 /*
- * XREFs of InbvReleaseLock @ 0x14054E62C
+ * XREFs of InbvReleaseLock @ 0x14054ECEC
  * Callers:
- *     DisplayBootBitmap @ 0x1403AA048 (DisplayBootBitmap.c)
- *     FinalizeBootLogo @ 0x14054E7BC (FinalizeBootLogo.c)
- *     InbvRotateGuiBootDisplay @ 0x14054E810 (InbvRotateGuiBootDisplay.c)
+ *     DisplayBootBitmap @ 0x1403AA228 (DisplayBootBitmap.c)
+ *     FinalizeBootLogo @ 0x14054EE7C (FinalizeBootLogo.c)
+ *     InbvRotateGuiBootDisplay @ 0x14054EED0 (InbvRotateGuiBootDisplay.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
  */
 
 __int64 (*InbvReleaseLock())(void)

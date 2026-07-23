@@ -1,19 +1,19 @@
 /*
- * XREFs of PfSnTraceGetLogEntry @ 0x1403149DC
+ * XREFs of PfSnTraceGetLogEntry @ 0x140314C6C
  * Callers:
- *     MiCompleteProtoPteFault @ 0x140268BE0 (MiCompleteProtoPteFault.c)
- *     PfSnLogPageFaultCommon @ 0x1403132F8 (PfSnLogPageFaultCommon.c)
- *     PfSnCheckLogSequenceNumber @ 0x1403146E0 (PfSnCheckLogSequenceNumber.c)
- *     PfSnTraceTimerRoutine @ 0x14035B970 (PfSnTraceTimerRoutine.c)
- *     PfSnLogIdentifier @ 0x14074DC20 (PfSnLogIdentifier.c)
- *     PfSnLogHelper @ 0x1407738C8 (PfSnLogHelper.c)
- *     PfSnLogStreamDelete @ 0x1407C3284 (PfSnLogStreamDelete.c)
+ *     MiCompleteProtoPteFault @ 0x140268E70 (MiCompleteProtoPteFault.c)
+ *     PfSnLogPageFaultCommon @ 0x140313588 (PfSnLogPageFaultCommon.c)
+ *     PfSnCheckLogSequenceNumber @ 0x140314970 (PfSnCheckLogSequenceNumber.c)
+ *     PfSnTraceTimerRoutine @ 0x14035BB10 (PfSnTraceTimerRoutine.c)
+ *     PfSnLogIdentifier @ 0x14074DE10 (PfSnLogIdentifier.c)
+ *     PfSnLogHelper @ 0x140773AB8 (PfSnLogHelper.c)
+ *     PfSnLogStreamDelete @ 0x1407C3554 (PfSnLogStreamDelete.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250E80 (KeAcquireSpinLockRaiseToDpc.c)
- *     ExQueueWorkItem @ 0x1402B7C30 (ExQueueWorkItem.c)
- *     PfSnTraceBufferAllocate @ 0x1402F5D0C (PfSnTraceBufferAllocate.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140250F40 (KeAcquireSpinLockRaiseToDpc.c)
+ *     ExQueueWorkItem @ 0x1402B7EC0 (ExQueueWorkItem.c)
+ *     PfSnTraceBufferAllocate @ 0x1402F5F9C (PfSnTraceBufferAllocate.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 
@@ -74,10 +74,13 @@ __int64 __fastcall PfSnTraceGetLogEntry(__int64 a1, unsigned int a2, _QWORD *a3)
         ++*(_DWORD *)(a1 + 120);
         *(_QWORD *)(a1 + 96) = v10;
         KxReleaseSpinLock((volatile signed __int64 *)(a1 + 128));
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
           CurrentIrql = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v11 <= 0xFu && CurrentIrql >= 2u )
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+            && CurrentIrql <= 0xFu
+            && (unsigned __int8)v11 <= 0xFu
+            && CurrentIrql >= 2u )
           {
             CurrentPrcb = KeGetCurrentPrcb();
             SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -93,10 +96,10 @@ __int64 __fastcall PfSnTraceGetLogEntry(__int64 a1, unsigned int a2, _QWORD *a3)
       else
       {
         KxReleaseSpinLock((volatile signed __int64 *)(a1 + 128));
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
           v13 = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && v13 <= 0xFu && (unsigned __int8)v11 <= 0xFu && v13 >= 2u )
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v13 <= 0xFu && (unsigned __int8)v11 <= 0xFu && v13 >= 2u )
           {
             v14 = KeGetCurrentPrcb();
             v15 = v14->SchedulerAssist;

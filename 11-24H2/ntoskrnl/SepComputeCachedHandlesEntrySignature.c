@@ -1,9 +1,9 @@
 /*
- * XREFs of SepComputeCachedHandlesEntrySignature @ 0x1408F2D10
+ * XREFs of SepComputeCachedHandlesEntrySignature @ 0x14091435C
  * Callers:
- *     SepGetCachedHandlesEntry @ 0x1408F26B8 (SepGetCachedHandlesEntry.c)
+ *     SepGetCachedHandlesEntry @ 0x140913D04 (SepGetCachedHandlesEntry.c)
  * Callees:
- *     RtlHashUnicodeString @ 0x1409862A0 (RtlHashUnicodeString.c)
+ *     RtlHashUnicodeString @ 0x14096EAB0 (RtlHashUnicodeString.c)
  */
 
 __int64 __fastcall SepComputeCachedHandlesEntrySignature(int *a1)

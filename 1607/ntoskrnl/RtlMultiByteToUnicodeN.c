@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlMultiByteToUnicodeN @ 0x1403F6760
+ * XREFs of RtlMultiByteToUnicodeN @ 0x1403F5620
  * Callers:
- *     mbstowcs @ 0x14014DD98 (mbstowcs.c)
- *     RtlAnsiStringToUnicodeString @ 0x1403F6600 (RtlAnsiStringToUnicodeString.c)
- *     RtlAnsiCharToUnicodeChar @ 0x1403F66F0 (RtlAnsiCharToUnicodeChar.c)
+ *     mbstowcs @ 0x14014E308 (mbstowcs.c)
+ *     RtlAnsiStringToUnicodeString @ 0x1403F54C4 (RtlAnsiStringToUnicodeString.c)
+ *     RtlAnsiCharToUnicodeChar @ 0x1403F55B0 (RtlAnsiCharToUnicodeChar.c)
  * Callees:
  *     <none>
  */

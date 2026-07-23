@@ -19,28 +19,28 @@
 void __fastcall ExpWnfDeleteProcessContext(unsigned __int64 *P, int a2)
 {
   unsigned __int64 *v2; // rdi
-  __int64 v5; // rax
-  __int64 v6; // rbx
+  _RTL_BALANCED_NODE *v5; // rax
+  _RTL_BALANCED_NODE *v6; // rbx
   struct _EX_RUNDOWN_REF **v7; // r14
   struct _EX_RUNDOWN_REF *v8; // rax
   struct _EX_RUNDOWN_REF *v9; // rbp
-  __int64 v10; // rax
-  __int64 v11; // rbp
+  _RTL_BALANCED_NODE *v10; // rax
+  _RTL_BALANCED_NODE *v11; // rbp
   volatile signed __int64 *v12; // rdi
-  __int64 v13; // rax
-  __int64 v14; // rbp
+  _RTL_BALANCED_NODE *v13; // rax
+  _RTL_BALANCED_NODE *v14; // rbp
   struct _EX_RUNDOWN_REF **v15; // r14
   struct _EX_RUNDOWN_REF *v16; // rax
-  __int64 v17; // rax
+  _RTL_BALANCED_NODE *v17; // rax
   signed __int8 v18; // cf
-  __int64 v19; // rdi
+  _RTL_BALANCED_NODE *v19; // rdi
   unsigned __int64 **v20; // rdx
   PVOID *v21; // r8
   void *v22; // rcx
   struct _EX_RUNDOWN_REF *v23; // rbp
   __int64 v24; // r8
-  __int64 v25; // rax
-  __int64 v26; // rbp
+  _RTL_BALANCED_NODE *v25; // rax
+  _RTL_BALANCED_NODE *v26; // rbp
 
   v2 = P + 10;
   v5 = KeAbPreAcquire((ULONG_PTR)(P + 10), 0LL, 0);
@@ -48,7 +48,7 @@ void __fastcall ExpWnfDeleteProcessContext(unsigned __int64 *P, int a2)
   if ( _interlockedbittestandset64((volatile signed __int32 *)v2, 0LL) )
     ExfAcquirePushLockExclusiveEx(v2, v5, (ULONG_PTR)v2);
   if ( v6 )
-    *(_BYTE *)(v6 + 26) |= 1u;
+    BYTE2(v6[1].Left) |= 1u;
   v7 = (struct _EX_RUNDOWN_REF **)(P + 11);
   while ( 1 )
   {
@@ -66,7 +66,7 @@ void __fastcall ExpWnfDeleteProcessContext(unsigned __int64 *P, int a2)
     if ( _interlockedbittestandset64((volatile signed __int32 *)v2, 0LL) )
       ExfAcquirePushLockExclusiveEx(v2, v10, (ULONG_PTR)v2);
     if ( v11 )
-      *(_BYTE *)(v11 + 26) |= 1u;
+      BYTE2(v11[1].Left) |= 1u;
   }
   if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)v2, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
     ExfTryToWakePushLock((volatile signed __int64 *)v2);
@@ -77,7 +77,7 @@ void __fastcall ExpWnfDeleteProcessContext(unsigned __int64 *P, int a2)
   if ( _interlockedbittestandset64((volatile signed __int32 *)P + 14, 0LL) )
     ExfAcquirePushLockExclusiveEx(P + 7, v13, (ULONG_PTR)(P + 7));
   if ( v14 )
-    *(_BYTE *)(v14 + 26) |= 1u;
+    BYTE2(v14[1].Left) |= 1u;
   v15 = (struct _EX_RUNDOWN_REF **)(P + 8);
   while ( 1 )
   {
@@ -97,7 +97,7 @@ void __fastcall ExpWnfDeleteProcessContext(unsigned __int64 *P, int a2)
     if ( _interlockedbittestandset64((volatile signed __int32 *)v12, 0LL) )
       ExfAcquirePushLockExclusiveEx(P + 7, v25, (ULONG_PTR)(P + 7));
     if ( v26 )
-      *(_BYTE *)(v26 + 26) |= 1u;
+      BYTE2(v26[1].Left) |= 1u;
   }
   if ( (_InterlockedExchangeAdd64(v12, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
     ExfTryToWakePushLock((volatile signed __int64 *)P + 7);
@@ -110,7 +110,7 @@ void __fastcall ExpWnfDeleteProcessContext(unsigned __int64 *P, int a2)
     if ( v18 )
       ExfAcquirePushLockExclusiveEx(&ExpWnfProcessesListLock, v17, (ULONG_PTR)&ExpWnfProcessesListLock);
     if ( v19 )
-      *(_BYTE *)(v19 + 26) |= 1u;
+      BYTE2(v19[1].Left) |= 1u;
     v20 = (unsigned __int64 **)P[2];
     if ( v20[1] != P + 2 || (v21 = (PVOID *)P[3], *v21 != P + 2) )
       __fastfail(3u);

@@ -9,17 +9,17 @@
 
 errno_t __cdecl wcscat_s(wchar_t *Destination, rsize_t SizeInWords, const wchar_t *Source)
 {
-  rsize_t v3; // edx
-  const wchar_t *v4; // esi
+  int v3; // edx
+  __int16 *v4; // esi
   wchar_t *v5; // edi
-  int v6; // edi
-  wchar_t v7; // ax
+  char *v6; // edi
+  __int16 v7; // ax
   errno_t v9; // [esp-4h] [ebp-10h]
 
   if ( Destination && (v3 = SizeInWords) != 0 )
   {
-    v4 = Source;
-    if ( !Source )
+    v4 = (__int16 *)HIDWORD(SizeInWords);
+    if ( !HIDWORD(SizeInWords) )
       goto LABEL_14;
     v5 = Destination;
     do
@@ -32,11 +32,11 @@ errno_t __cdecl wcscat_s(wchar_t *Destination, rsize_t SizeInWords, const wchar_
     while ( v3 );
     if ( v3 )
     {
-      v6 = (char *)v5 - (char *)Source;
+      v6 = (char *)v5 - HIDWORD(SizeInWords);
       do
       {
         v7 = *v4;
-        *(const wchar_t *)((char *)v4 + v6) = *v4;
+        *(__int16 *)((char *)v4 + (_DWORD)v6) = *v4;
         ++v4;
         if ( !v7 )
           break;

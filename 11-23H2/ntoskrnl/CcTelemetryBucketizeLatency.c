@@ -1,9 +1,9 @@
 /*
- * XREFs of CcTelemetryBucketizeLatency @ 0x1406F5AB0
+ * XREFs of CcTelemetryBucketizeLatency @ 0x1406F5CC0
  * Callers:
- *     CcCopyReadEx @ 0x140261D60 (CcCopyReadEx.c)
- *     CcCompleteAsyncRead @ 0x1402C1430 (CcCompleteAsyncRead.c)
- *     CcCopyWriteEx @ 0x1402C8D20 (CcCopyWriteEx.c)
+ *     CcCopyReadEx @ 0x140261FF0 (CcCopyReadEx.c)
+ *     CcCompleteAsyncRead @ 0x1402C16C0 (CcCompleteAsyncRead.c)
+ *     CcCopyWriteEx @ 0x1402C8FB0 (CcCopyWriteEx.c)
  * Callees:
  *     <none>
  */

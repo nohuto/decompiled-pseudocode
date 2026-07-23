@@ -1,10 +1,10 @@
 /*
- * XREFs of IpmiLibWriteOneByte @ 0x14071D3F0
+ * XREFs of IpmiLibWriteOneByte @ 0x140722080
  * Callers:
- *     IpmiLibpKcsHandleError @ 0x14071D9AC (IpmiLibpKcsHandleError.c)
- *     IpmiLibpKcsReceiveResponseFromBmc @ 0x14071DAFC (IpmiLibpKcsReceiveResponseFromBmc.c)
- *     IpmiLibpKcsSendRequestToBMC @ 0x14071DD20 (IpmiLibpKcsSendRequestToBMC.c)
- *     IpmiLibpHandleReadInterrupt @ 0x14071E13C (IpmiLibpHandleReadInterrupt.c)
+ *     IpmiLibpKcsHandleError @ 0x14072263C (IpmiLibpKcsHandleError.c)
+ *     IpmiLibpKcsReceiveResponseFromBmc @ 0x14072278C (IpmiLibpKcsReceiveResponseFromBmc.c)
+ *     IpmiLibpKcsSendRequestToBMC @ 0x1407229B0 (IpmiLibpKcsSendRequestToBMC.c)
+ *     IpmiLibpHandleReadInterrupt @ 0x140722DCC (IpmiLibpHandleReadInterrupt.c)
  * Callees:
  *     <none>
  */

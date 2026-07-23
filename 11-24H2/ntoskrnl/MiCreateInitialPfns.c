@@ -1,11 +1,11 @@
 /*
- * XREFs of MiCreateInitialPfns @ 0x14066C460
+ * XREFs of MiCreateInitialPfns @ 0x14066D630
  * Callers:
- *     MiInitializeNewPfns @ 0x14066BBD4 (MiInitializeNewPfns.c)
- *     MxInsertFreePages @ 0x140C52D50 (MxInsertFreePages.c)
- *     MxInsertEnclaveBootPages @ 0x140C581C4 (MxInsertEnclaveBootPages.c)
+ *     MiInitializeNewPfns @ 0x14066CDA4 (MiInitializeNewPfns.c)
+ *     MxInsertFreePages @ 0x140C54EE0 (MxInsertFreePages.c)
+ *     MxInsertEnclaveBootPages @ 0x140C5A354 (MxInsertEnclaveBootPages.c)
  * Callees:
- *     MiCopyPfnEntryRaw @ 0x140441C20 (MiCopyPfnEntryRaw.c)
+ *     MiCopyPfnEntryRaw @ 0x1404386A0 (MiCopyPfnEntryRaw.c)
  */
 
 __int64 __fastcall MiCreateInitialPfns(__int64 a1, __int64 a2, __int64 *a3)

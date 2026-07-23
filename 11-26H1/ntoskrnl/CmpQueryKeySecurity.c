@@ -1,304 +1,307 @@
 /*
- * XREFs of CmpQueryKeySecurity @ 0x1408ED790
+ * XREFs of CmpQueryKeySecurity @ 0x1408F3D50
  * Callers:
- *     CmpSecurityMethod @ 0x1408ED400 (CmpSecurityMethod.c)
+ *     CmpSecurityMethod @ 0x1408F39C0 (CmpSecurityMethod.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     CmpAllocatePool @ 0x140474870 (CmpAllocatePool.c)
- *     CmSiFreeMemory @ 0x140495010 (CmSiFreeMemory.c)
- *     CmpTransUowIsEqual @ 0x140776F48 (CmpTransUowIsEqual.c)
- *     CmpTransSearchAddTrans @ 0x1408EC150 (CmpTransSearchAddTrans.c)
- *     SeQuerySecurityDescriptorInfo @ 0x1408EDBD0 (SeQuerySecurityDescriptorInfo.c)
- *     CmpTransReferenceTransaction @ 0x1408EE304 (CmpTransReferenceTransaction.c)
- *     CmpUnlockKcb @ 0x140C582B0 (CmpUnlockKcb.c)
- *     CmpLockKcbShared @ 0x140C583F0 (CmpLockKcbShared.c)
- *     CmpPerformKeyBodyDeletionCheck @ 0x140C587C0 (CmpPerformKeyBodyDeletionCheck.c)
- *     CmpLockRegistry @ 0x140C58850 (CmpLockRegistry.c)
- *     CmpReleaseShutdownRundown @ 0x140C58900 (CmpReleaseShutdownRundown.c)
- *     CmpUnlockRegistry @ 0x140C58970 (CmpUnlockRegistry.c)
- *     CmpAcquireShutdownRundown @ 0x140C58AB0 (CmpAcquireShutdownRundown.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     CmpAllocatePool @ 0x14046DFF0 (CmpAllocatePool.c)
+ *     CmSiFreeMemory @ 0x14048EB60 (CmSiFreeMemory.c)
+ *     CmpTransUowIsEqual @ 0x140779DF0 (CmpTransUowIsEqual.c)
+ *     CmpTransSearchAddTrans @ 0x1408F2710 (CmpTransSearchAddTrans.c)
+ *     SeQuerySecurityDescriptorInfo @ 0x1408F4190 (SeQuerySecurityDescriptorInfo.c)
+ *     CmpTransReferenceTransaction @ 0x1408F48C4 (CmpTransReferenceTransaction.c)
+ *     CmpUnlockKcb @ 0x140C5E2B0 (CmpUnlockKcb.c)
+ *     CmpLockKcbShared @ 0x140C5E3F0 (CmpLockKcbShared.c)
+ *     CmpPerformKeyBodyDeletionCheck @ 0x140C5E7C0 (CmpPerformKeyBodyDeletionCheck.c)
+ *     CmpLockRegistry @ 0x140C5E850 (CmpLockRegistry.c)
+ *     CmpReleaseShutdownRundown @ 0x140C5E900 (CmpReleaseShutdownRundown.c)
+ *     CmpUnlockRegistry @ 0x140C5E970 (CmpUnlockRegistry.c)
+ *     CmpAcquireShutdownRundown @ 0x140C5EAB0 (CmpAcquireShutdownRundown.c)
  */
 
-__int64 __fastcall CmpQueryKeySecurity(_QWORD *a1, ULONG *a2, void *a3, ULONG *a4)
+__int64 __fastcall CmpQueryKeySecurity(_QWORD *a1, DWORD *a2, void *a3, ULONG *a4)
 {
   __int16 v4; // di
   char v5; // r12
-  _QWORD *v7; // rcx
-  char v8; // bl
-  __int64 v9; // rbx
+  __int64 v7; // rdx
+  _QWORD *v8; // rcx
+  __int64 v9; // r8
+  __int64 v10; // r9
+  char v11; // bl
+  __int64 v12; // rbx
   struct _PRIVILEGE_SET *Pool; // r15
-  int v11; // esi
-  __int64 v12; // rsi
-  __int16 v13; // bx
-  char *v14; // r14
-  char *v15; // rcx
-  int v16; // r14d
-  __int64 v17; // rbx
-  PPRIVILEGE_SET v18; // r13
-  unsigned __int16 v19; // bx
-  PPRIVILEGE_SET v20; // r14
-  char *v21; // rdx
-  unsigned __int16 v22; // ax
-  char *v23; // r8
+  int v14; // esi
+  __int64 v15; // rsi
+  __int16 v16; // bx
+  char *v17; // r14
+  char *v18; // rcx
+  int v19; // r14d
+  __int64 v20; // rbx
+  PPRIVILEGE_SET v21; // r13
+  unsigned __int16 v22; // bx
+  PPRIVILEGE_SET v23; // r14
+  char *v24; // rdx
+  unsigned __int16 v25; // ax
+  char *v26; // r8
   LUID Luid; // rbx
   LUID_AND_ATTRIBUTES *Privilege; // r12
-  __int64 v26; // r14
-  __int64 v27; // rax
+  __int64 v29; // r14
+  __int64 v30; // rax
   bool IsEqual; // al
-  unsigned __int64 v29; // rdx
-  struct _EX_RUNDOWN_REF *v30; // r9
-  PSECURITY_DESCRIPTOR v31; // rax
+  unsigned __int64 v32; // rdx
+  struct _EX_RUNDOWN_REF *v33; // r9
+  PSECURITY_DESCRIPTOR v34; // rax
   __int64 Count; // r8
-  ULONG_PTR *v33; // rbx
-  ULONG_PTR *v34; // rcx
-  __int64 v36; // rax
-  struct _PRIVILEGE_SET *v37; // rcx
-  __int64 v38; // rcx
-  __int64 v39; // r13
-  __int64 v40; // rcx
-  __int64 v41; // rdx
-  __int64 v42; // rax
-  bool v43; // al
-  char v44; // [rsp+38h] [rbp-21h]
-  char *v45; // [rsp+40h] [rbp-19h]
+  ULONG_PTR *v36; // rbx
+  ULONG_PTR *v37; // rcx
+  __int64 v39; // rax
+  struct _PRIVILEGE_SET *v40; // rcx
+  __int64 v41; // rcx
+  __int64 v42; // r13
+  __int64 v43; // rcx
+  __int64 v44; // rdx
+  __int64 v45; // rax
+  bool v46; // al
+  char v47; // [rsp+38h] [rbp-21h]
+  char *v48; // [rsp+40h] [rbp-19h]
   PSECURITY_DESCRIPTOR ObjectsSecurityDescriptor; // [rsp+48h] [rbp-11h] BYREF
-  __int128 v47; // [rsp+50h] [rbp-9h] BYREF
+  __int128 v50; // [rsp+50h] [rbp-9h] BYREF
   PPRIVILEGE_SET Privileges[2]; // [rsp+60h] [rbp+7h]
 
   v4 = 0;
   v5 = 0;
-  v47 = 0LL;
-  WORD1(v47) = -1;
-  v45 = 0LL;
+  v50 = 0LL;
+  WORD1(v50) = -1;
+  v48 = 0LL;
   *(_OWORD *)Privileges = 0LL;
-  v44 = CmpAcquireShutdownRundown(a1, a2);
-  v8 = v44;
-  if ( v44 )
+  v47 = CmpAcquireShutdownRundown(a1, a2);
+  v11 = v47;
+  if ( v47 )
   {
-    CmpLockRegistry(v7);
-    v9 = a1[1];
+    CmpLockRegistry(v8, v7, v9, v10);
+    v12 = a1[1];
     v5 = 1;
     Pool = 0LL;
-    v11 = *(__int16 *)(v9 + 66);
-    if ( v11 >= 2 )
+    v14 = *(__int16 *)(v12 + 66);
+    if ( v14 >= 2 )
     {
       Pool = (struct _PRIVILEGE_SET *)CmpAllocatePool(0x100uLL);
       if ( !Pool )
       {
         Pool = Privileges[1];
-        v16 = -1073741670;
+        v19 = -1073741670;
 LABEL_59:
-        v8 = v44;
+        v11 = v47;
         goto LABEL_60;
       }
     }
-    LOWORD(v47) = v11;
+    LOWORD(v50) = v14;
     Privileges[1] = Pool;
-    v12 = *(__int16 *)(v9 + 66);
-    WORD1(v47) = v12;
-    if ( (_WORD)v12 )
+    v15 = *(__int16 *)(v12 + 66);
+    WORD1(v50) = v15;
+    if ( (_WORD)v15 )
     {
-      v36 = *(_QWORD *)(v9 + 192);
-      if ( !v36 )
+      v39 = *(_QWORD *)(v12 + 192);
+      if ( !v39 )
       {
 LABEL_6:
-        v13 = 0;
-        if ( (v12 & 0x8000u) == 0LL )
+        v16 = 0;
+        if ( (v15 & 0x8000u) == 0LL )
         {
-          v14 = (char *)&v47 + 8;
+          v17 = (char *)&v50 + 8;
           do
           {
-            if ( v13 >= 2 )
-              v15 = &v14[(char *)Pool - ((char *)&v47 + 8) - 16];
+            if ( v16 >= 2 )
+              v18 = &v17[(char *)Pool - ((char *)&v50 + 8) - 16];
             else
-              v15 = v14;
-            CmpLockKcbShared(*(_QWORD *)v15);
-            ++v13;
-            v14 += 8;
+              v18 = v17;
+            CmpLockKcbShared(*(_QWORD *)v18);
+            ++v16;
+            v17 += 8;
           }
-          while ( v13 <= (__int16)v12 );
+          while ( v16 <= (__int16)v15 );
           v5 = 1;
         }
-        v16 = CmpPerformKeyBodyDeletionCheck(a1, 0LL);
-        if ( v16 < 0 )
+        v19 = CmpPerformKeyBodyDeletionCheck(a1, 0LL);
+        if ( v19 < 0 )
           goto LABEL_53;
-        v17 = a1[7];
-        if ( !v17 && !a1[8] )
+        v20 = a1[7];
+        if ( !v20 && !a1[8] )
           goto LABEL_15;
-        v29 = a1[1];
+        v32 = a1[1];
         ObjectsSecurityDescriptor = 0LL;
-        v7 = (_QWORD *)(v29 ^ 1);
-        v45 = 0LL;
-        if ( (v29 & 1) == 0 )
-          v7 = (_QWORD *)v29;
-        v30 = (struct _EX_RUNDOWN_REF *)v7[4];
-        if ( (v17 & 1) != 0 )
+        v8 = (_QWORD *)(v32 ^ 1);
+        v48 = 0LL;
+        if ( (v32 & 1) == 0 )
+          v8 = (_QWORD *)v32;
+        v33 = (struct _EX_RUNDOWN_REF *)v8[4];
+        if ( (v20 & 1) != 0 )
         {
-          v16 = CmpTransReferenceTransaction(v17);
-          if ( v16 >= 0 )
+          v19 = CmpTransReferenceTransaction(v20);
+          if ( v19 >= 0 )
           {
-            v7 = (_QWORD *)(v17 & 0xFFFFFFFFFFFFFFFEuLL);
-            if ( *(_QWORD *)((v17 & 0xFFFFFFFFFFFFFFFEuLL) + 16) )
+            v8 = (_QWORD *)(v20 & 0xFFFFFFFFFFFFFFFEuLL);
+            if ( *(_QWORD *)((v20 & 0xFFFFFFFFFFFFFFFEuLL) + 16) )
             {
-              v45 = *(char **)((v17 & 0xFFFFFFFFFFFFFFFEuLL) + 16);
-              v16 = 0;
+              v48 = *(char **)((v20 & 0xFFFFFFFFFFFFFFFEuLL) + 16);
+              v19 = 0;
             }
             else
             {
-              v16 = -1072103422;
+              v19 = -1072103422;
             }
-            if ( v17 )
-              ObfDereferenceObject(v7);
+            if ( v20 )
+              ObfDereferenceObject(v8);
           }
-          v31 = v45;
+          v34 = v48;
         }
         else
         {
-          Count = v30[520].Count;
+          Count = v33[520].Count;
           if ( !Count )
           {
-            v16 = -1072103419;
+            v19 = -1072103419;
             goto LABEL_53;
           }
-          v16 = CmpTransSearchAddTrans(v17, a1[8], Count, v30, 0, &ObjectsSecurityDescriptor);
-          v31 = ObjectsSecurityDescriptor;
-          v45 = (char *)ObjectsSecurityDescriptor;
+          v19 = CmpTransSearchAddTrans(v20, a1[8], Count, v33, 0, &ObjectsSecurityDescriptor);
+          v34 = ObjectsSecurityDescriptor;
+          v48 = (char *)ObjectsSecurityDescriptor;
         }
-        if ( v16 >= 0 )
+        if ( v19 >= 0 )
         {
-          v16 = CmpPerformKeyBodyDeletionCheck(a1, v31);
-          if ( v16 >= 0 )
+          v19 = CmpPerformKeyBodyDeletionCheck(a1, v34);
+          if ( v19 >= 0 )
           {
 LABEL_15:
-            v18 = 0LL;
-            v19 = v12;
-            if ( (v12 & 0x8000u) == 0LL )
+            v21 = 0LL;
+            v22 = v15;
+            if ( (v15 & 0x8000u) == 0LL )
             {
               do
               {
-                v20 = v19 >= 2u ? (PPRIVILEGE_SET)*((_QWORD *)Pool + v19 - 2) : Privileges[v19 - 1];
-                if ( HIWORD(v20[3].Control) && BYTE1(v20[3].Control) == 1 )
+                v23 = v22 >= 2u ? (PPRIVILEGE_SET)*((_QWORD *)Pool + v22 - 2) : Privileges[v22 - 1];
+                if ( HIWORD(v23[3].Control) && BYTE1(v23[3].Control) == 1 )
                   break;
-                if ( v20[2].PrivilegeCount != -1
-                  && ((v21 = *(char **)&v20[12].PrivilegeCount) == 0LL
-                   || v45
-                   && (v45 == v21
-                    || ((v27 = *((_QWORD *)v45 + 7)) == 0 || (v38 = *((_QWORD *)v21 + 7)) == 0
-                      ? (IsEqual = CmpTransUowIsEqual(v45 + 88, v21 + 88))
-                      : (IsEqual = v27 == v38),
+                if ( v23[2].PrivilegeCount != -1
+                  && ((v24 = *(char **)&v23[12].PrivilegeCount) == 0LL
+                   || v48
+                   && (v48 == v24
+                    || ((v30 = *((_QWORD *)v48 + 7)) == 0 || (v41 = *((_QWORD *)v24 + 7)) == 0
+                      ? (IsEqual = CmpTransUowIsEqual(v48 + 88, v24 + 88))
+                      : (IsEqual = v30 == v41),
                         IsEqual))) )
                 {
-                  v18 = v20;
-                  if ( HIWORD(v20[3].Control) && BYTE1(v20[3].Control) )
+                  v21 = v23;
+                  if ( HIWORD(v23[3].Control) && BYTE1(v23[3].Control) )
                     break;
-                  v22 = v19;
+                  v25 = v22;
                 }
                 else
                 {
-                  v22 = v19;
+                  v25 = v22;
                 }
-                v19 = v22 - 1;
+                v22 = v25 - 1;
               }
-              while ( (__int16)(v22 - 1) >= 0 );
+              while ( (__int16)(v25 - 1) >= 0 );
               v5 = 1;
               v4 = 0;
             }
-            v23 = v45;
-            Luid = v18[4].Privilege[0].Luid;
-            if ( v45 )
+            v26 = v48;
+            Luid = v21[4].Privilege[0].Luid;
+            if ( v48 )
             {
-              Privilege = v18[10].Privilege;
-              v26 = *(_QWORD *)&v18[10].Privilege[0].Attributes;
-              if ( v18[10].Privilege == (LUID_AND_ATTRIBUTES *)v26 )
+              Privilege = v21[10].Privilege;
+              v29 = *(_QWORD *)&v21[10].Privilege[0].Attributes;
+              if ( v21[10].Privilege == (LUID_AND_ATTRIBUTES *)v29 )
                 goto LABEL_97;
 LABEL_82:
-              v39 = v26 - 32;
-              v26 = *(_QWORD *)(v26 + 8);
-              while ( v39 )
+              v42 = v29 - 32;
+              v29 = *(_QWORD *)(v29 + 8);
+              while ( v42 )
               {
-                v40 = *(_QWORD *)(v39 + 56);
-                if ( v40 )
+                v43 = *(_QWORD *)(v42 + 56);
+                if ( v43 )
                 {
-                  if ( (char *)v40 == v23
-                    || ((v41 = *(_QWORD *)(v40 + 56)) == 0 || (v42 = *((_QWORD *)v23 + 7)) == 0
-                      ? (v43 = CmpTransUowIsEqual((const void *)(v40 + 88), v23 + 88), v23 = v45)
-                      : (char *)(v43 = v41 == v42),
-                        v43) )
+                  if ( (char *)v43 == v26
+                    || ((v44 = *(_QWORD *)(v43 + 56)) == 0 || (v45 = *((_QWORD *)v26 + 7)) == 0
+                      ? (v46 = CmpTransUowIsEqual((const void *)(v43 + 88), v26 + 88), v26 = v48)
+                      : (char *)(v46 = v44 == v45),
+                        v46) )
                   {
-                    if ( *(_DWORD *)(v39 + 68) == 9 )
+                    if ( *(_DWORD *)(v42 + 68) == 9 )
                     {
-                      Luid = *(LUID *)(v39 + 88);
+                      Luid = *(LUID *)(v42 + 88);
                       break;
                     }
                   }
                 }
-                if ( !v26 )
-                  v26 = *(_QWORD *)&Privilege->Attributes;
-                if ( Privilege != (LUID_AND_ATTRIBUTES *)v26 )
+                if ( !v29 )
+                  v29 = *(_QWORD *)&Privilege->Attributes;
+                if ( Privilege != (LUID_AND_ATTRIBUTES *)v29 )
                   goto LABEL_82;
 LABEL_97:
-                v39 = 0LL;
+                v42 = 0LL;
               }
               v5 = 1;
             }
             ObjectsSecurityDescriptor = (PSECURITY_DESCRIPTOR)(*(_QWORD *)&Luid + 32LL);
-            v16 = SeQuerySecurityDescriptorInfo(a2, a3, a4, &ObjectsSecurityDescriptor);
-            if ( v16 >= 0 )
-              v16 = 0;
+            v19 = SeQuerySecurityDescriptorInfo(a2, a3, a4, &ObjectsSecurityDescriptor);
+            if ( v19 >= 0 )
+              v19 = 0;
           }
         }
 LABEL_53:
-        if ( (v12 & 0x8000u) == 0LL )
+        if ( (v15 & 0x8000u) == 0LL )
         {
-          v33 = (ULONG_PTR *)&v47 + 1;
+          v36 = (ULONG_PTR *)&v50 + 1;
           do
           {
             if ( v4 >= 2 )
-              v34 = (ULONG_PTR *)((char *)v33 + (char *)Pool - ((char *)&v47 + 8) - 16);
+              v37 = (ULONG_PTR *)((char *)v36 + (char *)Pool - ((char *)&v50 + 8) - 16);
             else
-              v34 = v33;
-            CmpUnlockKcb(*v34);
+              v37 = v36;
+            CmpUnlockKcb(*v37);
             ++v4;
-            ++v33;
+            ++v36;
           }
-          while ( v4 <= (__int16)v12 );
+          while ( v4 <= (__int16)v15 );
           v5 = 1;
         }
         goto LABEL_59;
       }
       do
       {
-        v37 = *(struct _PRIVILEGE_SET **)(v36 + 16);
-        if ( (__int16)v12 >= 2 )
+        v40 = *(struct _PRIVILEGE_SET **)(v39 + 16);
+        if ( (__int16)v15 >= 2 )
         {
-          *((_QWORD *)Pool + (__int16)v12 - 2) = v37;
+          *((_QWORD *)Pool + (__int16)v15 - 2) = v40;
         }
         else
         {
-          Privileges[(__int16)v12 - 1] = v37;
+          Privileges[(__int16)v15 - 1] = v40;
           Pool = Privileges[1];
         }
-        v36 = *(_QWORD *)(v36 + 24);
-        LOWORD(v12) = v12 - 1;
+        v39 = *(_QWORD *)(v39 + 24);
+        LOWORD(v15) = v15 - 1;
       }
-      while ( v36 );
+      while ( v39 );
     }
     else
     {
-      Privileges[v12 - 1] = (PPRIVILEGE_SET)v9;
+      Privileges[v15 - 1] = (PPRIVILEGE_SET)v12;
       Pool = Privileges[1];
     }
-    LOWORD(v12) = WORD1(v47);
+    LOWORD(v15) = WORD1(v50);
     goto LABEL_6;
   }
   Pool = Privileges[1];
-  v16 = -1073741431;
+  v19 = -1073741431;
 LABEL_60:
   if ( Pool )
     CmSiFreeMemory(Pool);
   if ( v5 )
-    CmpUnlockRegistry(v7);
-  if ( v8 )
-    CmpReleaseShutdownRundown(v7);
-  return (unsigned int)v16;
+    CmpUnlockRegistry(v8);
+  if ( v11 )
+    CmpReleaseShutdownRundown(v8);
+  return (unsigned int)v19;
 }

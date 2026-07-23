@@ -1,11 +1,11 @@
 /*
- * XREFs of CmpLockHashEntryExclusive @ 0x1405EC2D4
+ * XREFs of CmpLockHashEntryExclusive @ 0x1406DBA34
  * Callers:
- *     CmpDelayCloseWorker @ 0x1405EC390 (CmpDelayCloseWorker.c)
+ *     CmpDelayCloseWorker @ 0x1406DBAF0 (CmpDelayCloseWorker.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
- *     CmpReferenceHive @ 0x1405EC2A8 (CmpReferenceHive.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1403556E0 (ExAcquirePushLockExclusiveEx.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
+ *     CmpReferenceHive @ 0x1406DBA08 (CmpReferenceHive.c)
  */
 
 char __fastcall CmpLockHashEntryExclusive(ULONG_PTR BugCheckParameter2, ULONG_PTR BugCheckParameter4)

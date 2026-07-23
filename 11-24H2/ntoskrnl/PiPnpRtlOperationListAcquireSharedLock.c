@@ -1,9 +1,9 @@
 /*
- * XREFs of PiPnpRtlOperationListAcquireSharedLock @ 0x1409FF7F4
+ * XREFs of PiPnpRtlOperationListAcquireSharedLock @ 0x1409F873C
  * Callers:
- *     PiPnpRtlObjectEventWorker @ 0x1408B9D40 (PiPnpRtlObjectEventWorker.c)
+ *     PiPnpRtlObjectEventWorker @ 0x1408B76F0 (PiPnpRtlObjectEventWorker.c)
  * Callees:
- *     ExAcquireResourceSharedLite @ 0x140341E80 (ExAcquireResourceSharedLite.c)
+ *     ExAcquireResourceSharedLite @ 0x140321360 (ExAcquireResourceSharedLite.c)
  */
 
 BOOLEAN PiPnpRtlOperationListAcquireSharedLock()

@@ -24,7 +24,7 @@ __int64 __fastcall IopValidateJunctionTarget(void *Src, ULONG BufferLength, ULON
 {
   char *v7; // r12
   wchar_t *PoolWithTag; // rsi
-  struct _REPARSE_DATA_BUFFER *v9; // r15
+  _REPARSE_DATA_BUFFER *v9; // r15
   int appended; // ebx
   PDEVICE_OBJECT DeviceObject; // r13
   char v12; // r14
@@ -60,7 +60,7 @@ __int64 __fastcall IopValidateJunctionTarget(void *Src, ULONG BufferLength, ULON
   FileObject = 0LL;
   PoolWithTag = 0LL;
   RtlInitUnicodeString(&DosName, 0LL);
-  v9 = (struct _REPARSE_DATA_BUFFER *)sub_1400CC928(NonPagedPoolNx, BufferLength);
+  v9 = (_REPARSE_DATA_BUFFER *)sub_1400CC928(NonPagedPoolNx, BufferLength);
   FileHandle[1] = v9;
   memmove(v9, Src, BufferLength);
   appended = FsRtlValidateReparsePointBuffer(BufferLength, v9);

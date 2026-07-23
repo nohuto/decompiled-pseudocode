@@ -1,13 +1,13 @@
 /*
- * XREFs of IopLiveDumpAllocateMappingResources @ 0x140626E3C
+ * XREFs of IopLiveDumpAllocateMappingResources @ 0x140626EF0
  * Callers:
- *     IopLiveDumpAllocAndInitResources @ 0x1406266AC (IopLiveDumpAllocAndInitResources.c)
+ *     IopLiveDumpAllocAndInitResources @ 0x140626760 (IopLiveDumpAllocAndInitResources.c)
  * Callees:
- *     IoAllocateMdl @ 0x14002EF90 (IoAllocateMdl.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     IoAllocateMdl @ 0x14002EB10 (IoAllocateMdl.c)
+ *     memset @ 0x140171AC0 (memset.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     MmAllocateDumpHibernateResources @ 0x1405487D8 (MmAllocateDumpHibernateResources.c)
- *     IopLiveDumpFreeMappingResources @ 0x140627068 (IopLiveDumpFreeMappingResources.c)
+ *     MmAllocateDumpHibernateResources @ 0x140548D18 (MmAllocateDumpHibernateResources.c)
+ *     IopLiveDumpFreeMappingResources @ 0x14062711C (IopLiveDumpFreeMappingResources.c)
  */
 
 __int64 __fastcall IopLiveDumpAllocateMappingResources(__int64 a1)

@@ -1,13 +1,13 @@
 /*
- * XREFs of DbgkInitialize @ 0x140C16074
+ * XREFs of DbgkInitialize @ 0x140C18074
  * Callers:
- *     InitBootProcessor @ 0x140C0AC88 (InitBootProcessor.c)
- *     Phase1InitializationDiscard @ 0x140C0C048 (Phase1InitializationDiscard.c)
+ *     InitBootProcessor @ 0x140C0CC88 (InitBootProcessor.c)
+ *     Phase1InitializationDiscard @ 0x140C0E048 (Phase1InitializationDiscard.c)
  * Callees:
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     DbgkpInitializePhase1SiloState @ 0x140707074 (DbgkpInitializePhase1SiloState.c)
- *     DbgkpGetServerSiloState @ 0x140A7EBE8 (DbgkpGetServerSiloState.c)
- *     DbgkpInitializePhase0 @ 0x140C160F8 (DbgkpInitializePhase0.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     DbgkpInitializePhase1SiloState @ 0x140704C34 (DbgkpInitializePhase1SiloState.c)
+ *     DbgkpGetServerSiloState @ 0x140A78398 (DbgkpGetServerSiloState.c)
+ *     DbgkpInitializePhase0 @ 0x140C180F8 (DbgkpInitializePhase0.c)
  */
 
 __int64 DbgkInitialize()

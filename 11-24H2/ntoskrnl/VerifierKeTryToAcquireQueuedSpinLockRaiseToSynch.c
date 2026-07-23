@@ -1,63 +1,63 @@
 /*
- * XREFs of VerifierKeTryToAcquireQueuedSpinLockRaiseToSynch @ 0x140B95B90
+ * XREFs of VerifierKeTryToAcquireQueuedSpinLockRaiseToSynch @ 0x140B97B90
  * Callers:
  *     <none>
  * Callees:
- *     VfAvlLookupTreeNode @ 0x1403F1074 (VfAvlLookupTreeNode.c)
- *     VfAvlCleanupLockContext @ 0x1403F142C (VfAvlCleanupLockContext.c)
- *     VfAvlInitializeLockContext @ 0x14049C0D8 (VfAvlInitializeLockContext.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     ViTargetUpdateTreeAllowed @ 0x140B8BC14 (ViTargetUpdateTreeAllowed.c)
- *     VfDriverIsKernelImageAddress @ 0x140BA7ECC (VfDriverIsKernelImageAddress.c)
- *     ViKeIrqlLogAndTrimMemory @ 0x140BA7F68 (ViKeIrqlLogAndTrimMemory.c)
+ *     VfAvlLookupTreeNode @ 0x1403E4D94 (VfAvlLookupTreeNode.c)
+ *     VfAvlCleanupLockContext @ 0x1403E514C (VfAvlCleanupLockContext.c)
+ *     VfAvlInitializeLockContext @ 0x140496D08 (VfAvlInitializeLockContext.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     ViTargetUpdateTreeAllowed @ 0x140B8DC14 (ViTargetUpdateTreeAllowed.c)
+ *     VfDriverIsKernelImageAddress @ 0x140BA9ECC (VfDriverIsKernelImageAddress.c)
+ *     ViKeIrqlLogAndTrimMemory @ 0x140BA9F68 (ViKeIrqlLogAndTrimMemory.c)
  */
 
-__int64 __fastcall VerifierKeTryToAcquireQueuedSpinLockRaiseToSynch(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+__int64 __fastcall VerifierKeTryToAcquireQueuedSpinLockRaiseToSynch(__int64 a1, __int64 a2)
 {
-  __int64 v4; // rbx
-  __int64 v6; // rsi
-  void *v7; // r8
-  __int64 v8; // r9
-  unsigned __int64 v9; // r8
-  _QWORD *v10; // rax
-  __int64 v11; // rdx
-  __int64 v12; // rax
+  __int64 v2; // rbx
+  __int64 v4; // rsi
+  void *v5; // r8
+  __int64 v6; // r9
+  unsigned __int64 v7; // r8
+  _QWORD *v8; // rax
+  __int64 v9; // rdx
+  __int64 v10; // rax
   __int64 result; // rax
-  __int128 v14; // [rsp+20h] [rbp-28h] BYREF
-  __int64 v15; // [rsp+30h] [rbp-18h]
+  __int128 v12; // [rsp+20h] [rbp-28h] BYREF
+  __int64 v13; // [rsp+30h] [rbp-18h]
   void *retaddr; // [rsp+48h] [rbp+0h]
 
-  v4 = 0LL;
-  v6 = a1;
+  v2 = 0LL;
+  v4 = a1;
   if ( (VfRuleClasses & 2) != 0 )
   {
-    ++dword_140F03E88;
-    v7 = retaddr;
+    ++dword_140F047E8;
+    v5 = retaddr;
     if ( (MmVerifierData & 0x1000) != 0 )
     {
-      v14 = 0LL;
-      v15 = 0LL;
-      if ( ViTargetUpdateTreeAllowed() && !(unsigned int)VfDriverIsKernelImageAddress(v7, a2, v7, v8) )
+      v12 = 0LL;
+      v13 = 0LL;
+      if ( ViTargetUpdateTreeAllowed() && !(unsigned int)VfDriverIsKernelImageAddress(v5, a2, v5, v6) )
       {
-        VfAvlInitializeLockContext((__int64)&v14, 1);
-        v10 = VfAvlLookupTreeNode(&ViTargetDriversAvl, (__int64)&v14, v9, 1LL);
-        if ( v10 )
+        VfAvlInitializeLockContext((__int64)&v12, 1);
+        v8 = VfAvlLookupTreeNode(&ViTargetDriversAvl, (__int64)&v12, v7, 1LL);
+        if ( v8 )
         {
-          v12 = v10[8];
-          if ( v12 )
-            _InterlockedAdd((volatile signed __int32 *)(v12 + 164), 1u);
+          v10 = v8[8];
+          if ( v10 )
+            _InterlockedAdd((volatile signed __int32 *)(v10 + 164), 1u);
         }
-        VfAvlCleanupLockContext((__int64)&v14, v11);
+        VfAvlCleanupLockContext((__int64)&v12, v9);
       }
     }
     LOBYTE(a1) = 12;
-    v4 = ViKeIrqlLogAndTrimMemory(a1, a2, v7);
+    v2 = ViKeIrqlLogAndTrimMemory(a1, a2, v5);
   }
-  result = guard_dispatch_icall_no_overrides(v6, a2, a3, a4);
+  result = guard_dispatch_icall_no_overrides(v4, a2);
   if ( (VfRuleClasses & 2) != 0 )
   {
-    if ( v4 )
-      *(_WORD *)(v4 + 10) = KeGetPcr()->Prcb.Number;
+    if ( v2 )
+      *(_WORD *)(v2 + 10) = KeGetPcr()->Prcb.Number;
   }
   return result;
 }

@@ -1,18 +1,18 @@
 /*
- * XREFs of BgpTxtGetRegionContext @ 0x140C53234
+ * XREFs of BgpTxtGetRegionContext @ 0x140C59234
  * Callers:
- *     AnFwDisplayFade @ 0x140C52BA0 (AnFwDisplayFade.c)
+ *     AnFwDisplayFade @ 0x140C58BA0 (AnFwDisplayFade.c)
  * Callees:
- *     BgpFwAllocateMemory @ 0x140355EBC (BgpFwAllocateMemory.c)
+ *     BgpFwAllocateMemory @ 0x140357C64 (BgpFwAllocateMemory.c)
  */
 
 __int64 __fastcall BgpTxtGetRegionContext(__int64 a1)
 {
   int v1; // ebx
   int v3; // eax
-  _KTIMER *v4; // rcx
-  __int64 *i; // rsi
-  __int64 *v6; // rbp
+  struct _LIST_ENTRY *Blink; // rcx
+  struct _LIST_ENTRY *i; // rsi
+  struct _LIST_ENTRY *v6; // rbp
   __int64 result; // rax
 
   v1 = 0;
@@ -21,29 +21,29 @@ __int64 __fastcall BgpTxtGetRegionContext(__int64 a1)
   if ( (*(_DWORD *)(a1 + 72) & 1) == 0 )
     return 0LL;
   v3 = -1073741275;
-  if ( !LOBYTE(gLoadedDiffHivesLock.Timer.Header.WaitListHead.Blink) )
+  if ( !BYTE4(gLoadedDiffHivesLock.Timer.Header.WaitListHead.Flink) )
     return 0LL;
-  v4 = *(_KTIMER **)&gLoadedDiffHivesLock.Timer.Header.Lock;
+  Blink = gLoadedDiffHivesLock.Timer.Header.WaitListHead.Blink;
   while ( 1 )
   {
     i = 0LL;
-    if ( v4 == &gLoadedDiffHivesLock.Timer )
+    if ( Blink == (struct _LIST_ENTRY *)&gLoadedDiffHivesLock.Timer.Header.WaitListHead.Blink )
       break;
-    for ( i = (__int64 *)v4->TimerListEntry.Blink; i != (__int64 *)&v4->TimerListEntry.Blink; i = (__int64 *)*i )
+    for ( i = Blink[2].Blink; i != (struct _LIST_ENTRY *)&Blink[2].Blink; i = i->Flink )
     {
-      if ( (v4->DueTime.HighPart & 1) != 0 )
+      if ( (HIDWORD(Blink[1].Blink) & 1) != 0 )
       {
         v3 = 0;
         goto LABEL_10;
       }
     }
-    v4 = *(_KTIMER **)&v4->Header.Lock;
+    Blink = Blink->Flink;
     v3 = -1073741275;
   }
 LABEL_10:
   if ( v3 < 0 )
     return 0LL;
-  v6 = *(__int64 **)(a1 + 48);
+  v6 = *(struct _LIST_ENTRY **)(a1 + 48);
   result = BgpFwAllocateMemory(0x24uLL);
   if ( result )
   {

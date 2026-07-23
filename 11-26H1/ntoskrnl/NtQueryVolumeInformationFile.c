@@ -1,37 +1,37 @@
 /*
- * XREFs of NtQueryVolumeInformationFile @ 0x1409B13A0
+ * XREFs of NtQueryVolumeInformationFile @ 0x140982460
  * Callers:
- *     DifNtQueryVolumeInformationFileWrapper @ 0x140686A10 (DifNtQueryVolumeInformationFileWrapper.c)
- *     PfpVolumeOpenAndVerify @ 0x1409AF914 (PfpVolumeOpenAndVerify.c)
- *     PfSnQueryVolumeInfo @ 0x1409B1250 (PfSnQueryVolumeInfo.c)
- *     PfSnIsVolumeMounted @ 0x1409B30E4 (PfSnIsVolumeMounted.c)
+ *     DifNtQueryVolumeInformationFileWrapper @ 0x14068A5F0 (DifNtQueryVolumeInformationFileWrapper.c)
+ *     PfpVolumeOpenAndVerify @ 0x1409809C8 (PfpVolumeOpenAndVerify.c)
+ *     PfSnQueryVolumeInfo @ 0x140982310 (PfSnQueryVolumeInfo.c)
+ *     PfSnIsVolumeMounted @ 0x1409841A4 (PfSnIsVolumeMounted.c)
  * Callees:
- *     IopReferenceFileObject @ 0x140264F80 (IopReferenceFileObject.c)
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     IopReleaseFileObjectLock @ 0x140269EC0 (IopReleaseFileObjectLock.c)
- *     IopAllocateIrpExReturn @ 0x14026C640 (IopAllocateIrpExReturn.c)
- *     IoGetRelatedDeviceObject @ 0x14026CA30 (IoGetRelatedDeviceObject.c)
- *     PsReferenceSiloContext @ 0x140277800 (PsReferenceSiloContext.c)
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     RtlRaiseStatus @ 0x1402E84A0 (RtlRaiseStatus.c)
- *     IopResetEvent @ 0x140455C40 (IopResetEvent.c)
- *     KeInitializeEvent @ 0x140466F30 (KeInitializeEvent.c)
- *     IopGetMountFlag @ 0x1404AA2B0 (IopGetMountFlag.c)
- *     IopGetDriverPathInformation @ 0x1405CA8E4 (IopGetDriverPathInformation.c)
- *     RtlCopyVolatileMemory @ 0x140733080 (RtlCopyVolatileMemory.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     RtlCopyToUser @ 0x14077F284 (RtlCopyToUser.c)
- *     RtlReadULongFromUser @ 0x14077F590 (RtlReadULongFromUser.c)
- *     RtlWriteULong64ToUser @ 0x14077F758 (RtlWriteULong64ToUser.c)
- *     RtlWriteULongToUser @ 0x14077F7A0 (RtlWriteULongToUser.c)
- *     ProbeForWrite @ 0x1408F5D00 (ProbeForWrite.c)
- *     IopSynchronousApiServiceTail @ 0x1409B18E4 (IopSynchronousApiServiceTail.c)
- *     IopSynchronousServiceTail @ 0x1409B2704 (IopSynchronousServiceTail.c)
- *     IopExceptionCleanupEx @ 0x1409B6D64 (IopExceptionCleanupEx.c)
- *     IopWaitAndAcquireFileObjectLock @ 0x1409B6E40 (IopWaitAndAcquireFileObjectLock.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     IopReferenceFileObject @ 0x1402644F0 (IopReferenceFileObject.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     IopReleaseFileObjectLock @ 0x140269430 (IopReleaseFileObjectLock.c)
+ *     IopAllocateIrpExReturn @ 0x14026BBB0 (IopAllocateIrpExReturn.c)
+ *     IoGetRelatedDeviceObject @ 0x14026BFA0 (IoGetRelatedDeviceObject.c)
+ *     PsReferenceSiloContext @ 0x140276D70 (PsReferenceSiloContext.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     RtlRaiseStatus @ 0x1402CA4E0 (RtlRaiseStatus.c)
+ *     IopResetEvent @ 0x14044DD70 (IopResetEvent.c)
+ *     KeInitializeEvent @ 0x140460680 (KeInitializeEvent.c)
+ *     IopGetMountFlag @ 0x1404A3940 (IopGetMountFlag.c)
+ *     IopGetDriverPathInformation @ 0x1405CD1B4 (IopGetDriverPathInformation.c)
+ *     RtlCopyVolatileMemory @ 0x140737C50 (RtlCopyVolatileMemory.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     RtlCopyToUser @ 0x140781D84 (RtlCopyToUser.c)
+ *     RtlReadULongFromUser @ 0x140782090 (RtlReadULongFromUser.c)
+ *     RtlWriteULong64ToUser @ 0x140782258 (RtlWriteULong64ToUser.c)
+ *     RtlWriteULongToUser @ 0x1407822A0 (RtlWriteULongToUser.c)
+ *     IopExceptionCleanupEx @ 0x140924ADC (IopExceptionCleanupEx.c)
+ *     ProbeForWrite @ 0x140925C90 (ProbeForWrite.c)
+ *     IopSynchronousApiServiceTail @ 0x1409829A4 (IopSynchronousApiServiceTail.c)
+ *     IopSynchronousServiceTail @ 0x1409837C4 (IopSynchronousServiceTail.c)
+ *     IopWaitAndAcquireFileObjectLock @ 0x140987E24 (IopWaitAndAcquireFileObjectLock.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 NTSTATUS __stdcall NtQueryVolumeInformationFile(
@@ -89,13 +89,13 @@ NTSTATUS __stdcall NtQueryVolumeInformationFile(
   ULONG Characteristics; // eax
   struct _KEVENT *v52; // rax
   _BYTE *Pool2; // r14
-  int DriverPathInformation; // eax
+  NTSTATUS DriverPathInformation; // eax
   __int64 v55; // rdx
   __int64 v56; // r8
   NTSTATUS v57; // ebx
   KPROCESSOR_MODE v58[8]; // [rsp+40h] [rbp-88h] BYREF
   PVOID P; // [rsp+48h] [rbp-80h] BYREF
-  int v60; // [rsp+50h] [rbp-78h]
+  NTSTATUS v60; // [rsp+50h] [rbp-78h]
   PFILE_OBJECT FileObject[2]; // [rsp+58h] [rbp-70h] BYREF
   ULONG *v62; // [rsp+68h] [rbp-60h]
   _BYTE *v63; // [rsp+70h] [rbp-58h]

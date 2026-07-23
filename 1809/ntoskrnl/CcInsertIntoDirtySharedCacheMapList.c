@@ -1,11 +1,11 @@
 /*
- * XREFs of CcInsertIntoDirtySharedCacheMapList @ 0x14007EF50
+ * XREFs of CcInsertIntoDirtySharedCacheMapList @ 0x14007EF40
  * Callers:
  *     CcSetDirtyPinnedData @ 0x1400231C0 (CcSetDirtyPinnedData.c)
  *     CcSetDirtyInMask @ 0x140031460 (CcSetDirtyInMask.c)
- *     CcUninitializeCacheMap @ 0x14007C530 (CcUninitializeCacheMap.c)
- *     CcWriteBehindInternal @ 0x14007D2F0 (CcWriteBehindInternal.c)
- *     CcDecrementOpenCount @ 0x1400ACFA0 (CcDecrementOpenCount.c)
+ *     CcUninitializeCacheMap @ 0x14007C520 (CcUninitializeCacheMap.c)
+ *     CcWriteBehindInternal @ 0x14007D2E0 (CcWriteBehindInternal.c)
+ *     CcDecrementOpenCount @ 0x1400ACEE0 (CcDecrementOpenCount.c)
  * Callees:
  *     <none>
  */

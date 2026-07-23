@@ -16,85 +16,74 @@
  *     memmove @ 0x1800A3C00 (memmove.c)
  */
 
-__int64 __fastcall LdrAddDllDirectory(unsigned __int16 *a1, __int64 *a2)
+NTSTATUS __cdecl LdrAddDllDirectory(PUNICODE_STRING NewDirectory, PDLL_DIRECTORY_COOKIE Cookie)
 {
-  unsigned int v4; // eax
-  int v5; // ebx
-  __int64 Heap; // rax
-  __int64 v7; // rbx
-  unsigned __int64 v8; // rdx
-  unsigned __int64 v9; // r8
-  unsigned __int64 v10; // r9
-  unsigned int v11; // edx
-  _QWORD *v12; // rax
-  unsigned __int64 v13; // rdx
-  unsigned __int64 v14; // r8
-  unsigned __int64 v15; // r9
-  __int64 v16; // rdi
-  int v18; // ecx
-  _DWORD v19[18]; // [rsp+0h] [rbp-C8h] BYREF
-  unsigned __int16 v20; // [rsp+48h] [rbp-80h] BYREF
-  __int64 v21; // [rsp+50h] [rbp-78h]
-  _DWORD *v22; // [rsp+58h] [rbp-70h]
-  int v23; // [rsp+60h] [rbp-68h] BYREF
-  __int64 v24; // [rsp+68h] [rbp-60h]
-  unsigned __int16 *v25; // [rsp+70h] [rbp-58h]
-  int v26; // [rsp+78h] [rbp-50h]
-  __int128 v27; // [rsp+80h] [rbp-48h]
-  char v28[40]; // [rsp+90h] [rbp-38h] BYREF
+  RTL_PATH_TYPE v4; // eax
+  NTSTATUS v5; // ebx
+  char *Heap; // rax
+  char *v7; // rbx
+  unsigned int v8; // edx
+  _QWORD *v9; // rax
+  void *v10; // rdi
+  int v12; // ecx
+  _DWORD v13[18]; // [rsp+0h] [rbp-C8h] BYREF
+  _UNICODE_STRING v14; // [rsp+48h] [rbp-80h] BYREF
+  _DWORD *v15; // [rsp+58h] [rbp-70h]
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+60h] [rbp-68h] BYREF
+  _FILE_BASIC_INFORMATION FileInformation; // [rsp+90h] [rbp-38h] BYREF
 
-  v22 = v19;
+  v15 = v13;
   if ( (LdrpPolicyBits & 4) == 0 )
-    return 3221225485LL;
-  v4 = RtlDetermineDosPathNameType_U(*((_WORD **)a1 + 1));
-  if ( v4 <= 5 )
+    return -1073741811;
+  v4 = RtlDetermineDosPathNameType_U(NewDirectory->Buffer);
+  if ( (unsigned int)v4 <= RtlPathTypeRelative )
   {
-    v18 = 41;
-    if ( _bittest(&v18, v4) )
-      return 3221225485LL;
+    v12 = 41;
+    if ( _bittest(&v12, v4) )
+      return -1073741811;
   }
-  v5 = RtlpDosPathNameToRelativeNtPathName(0, (__m128i *)a1, 0LL, &v20, 0LL, 0LL, 0LL);
+  v5 = RtlpDosPathNameToRelativeNtPathName(0, NewDirectory, 0LL, &v14, 0LL, 0LL, 0LL);
   if ( v5 >= 0 )
   {
-    v23 = 48;
-    v24 = 0LL;
-    v26 = 64;
-    v25 = &v20;
-    v27 = 0LL;
-    v5 = ZwQueryAttributesFile(&v23, v28);
-    RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v21);
+    ObjectAttributes.Length = 48;
+    ObjectAttributes.RootDirectory = 0LL;
+    ObjectAttributes.Attributes = 64;
+    ObjectAttributes.ObjectName = &v14;
+    *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+    v5 = ZwQueryAttributesFile(&ObjectAttributes, &FileInformation);
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v14.Buffer);
   }
   if ( v5 < 0 )
-    return (unsigned int)v5;
-  Heap = RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, *a1 + 18LL);
+    return v5;
+  Heap = (char *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, NewDirectory->Length + 18LL);
   v7 = Heap;
   if ( !Heap )
-    return 3221225495LL;
-  memmove((void *)(Heap + 18), *((const void **)a1 + 1), *a1);
-  *(_WORD *)(v7 + 16) = *a1;
-  RtlAcquireSRWLockExclusive((unsigned __int64)&LdrpDllDirectoryLock, v8, v9, v10);
-  v11 = *a1 + (unsigned __int16)word_1801643E8 + 2;
-  v19[16] = v11;
-  if ( v11 > 0xFFFE )
+    return -1073741801;
+  memmove(Heap + 18, NewDirectory->Buffer, NewDirectory->Length);
+  *((_WORD *)v7 + 8) = NewDirectory->Length;
+  RtlAcquireSRWLockExclusive(&LdrpDllDirectoryLock);
+  v8 = NewDirectory->Length + (unsigned __int16)word_1801643E8 + 2;
+  v13[16] = v8;
+  if ( v8 > 0xFFFE )
   {
-    local_unwind(v22, sub_1800CB20C);
+    local_unwind(v15, sub_1800CB20C);
 LABEL_11:
     __fastfail(3u);
   }
-  word_1801643E8 = v11;
-  v12 = LdrpUserDllDirectories;
+  word_1801643E8 = v8;
+  v9 = LdrpUserDllDirectories;
   if ( *((_UNKNOWN ***)LdrpUserDllDirectories + 1) != &LdrpUserDllDirectories )
     goto LABEL_11;
   *(_QWORD *)v7 = LdrpUserDllDirectories;
-  *(_QWORD *)(v7 + 8) = &LdrpUserDllDirectories;
-  v12[1] = v7;
-  LdrpUserDllDirectories = (_UNKNOWN *)v7;
+  *((_QWORD *)v7 + 1) = &LdrpUserDllDirectories;
+  v9[1] = v7;
+  LdrpUserDllDirectories = v7;
   RtlReleaseSRWLockExclusive(&LdrpDllDirectoryLock);
-  RtlAcquireSRWLockExclusive((unsigned __int64)&RtlpCachedPathLock, v13, v14, v15);
-  v16 = RtlpInvalidatePathCache(&RtlpDllSearchPathWithOptions);
+  RtlAcquireSRWLockExclusive(&RtlpCachedPathLock);
+  v10 = (void *)RtlpInvalidatePathCache(&RtlpDllSearchPathWithOptions);
   RtlReleaseSRWLockExclusive(&RtlpCachedPathLock);
-  if ( v16 )
-    RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v16);
-  *a2 = v7;
-  return 0LL;
+  if ( v10 )
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v10);
+  *Cookie = v7;
+  return 0;
 }

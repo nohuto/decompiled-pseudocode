@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpReadExtendedContextLayout @ 0x140517C78
+ * XREFs of RtlpReadExtendedContextLayout @ 0x1404FB068
  * Callers:
- *     RtlpReadExtendedContext @ 0x140517E70 (RtlpReadExtendedContext.c)
+ *     RtlpReadExtendedContext @ 0x1404FB260 (RtlpReadExtendedContext.c)
  * Callees:
- *     ExRaiseDatatypeMisalignment @ 0x1406B6058 (ExRaiseDatatypeMisalignment.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1406B6190 (ExRaiseDatatypeMisalignment.c)
  */
 
 __int64 __fastcall RtlpReadExtendedContextLayout(char a1, int a2, __int64 a3, int a4, int *a5)

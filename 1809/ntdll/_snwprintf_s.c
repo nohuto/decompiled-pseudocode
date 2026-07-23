@@ -1,9 +1,9 @@
 /*
- * XREFs of _snwprintf_s @ 0x18009A7E0
+ * XREFs of _snwprintf_s @ 0x18009A7F0
  * Callers:
  *     RtlQueryAtomInAtomTable @ 0x180072F60 (RtlQueryAtomInAtomTable.c)
  * Callees:
- *     _vsnwprintf_s @ 0x18009A810 (_vsnwprintf_s.c)
+ *     _vsnwprintf_s @ 0x18009A820 (_vsnwprintf_s.c)
  */
 
 int snwprintf_s(

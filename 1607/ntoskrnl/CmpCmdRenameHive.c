@@ -1,12 +1,12 @@
 /*
- * XREFs of CmpCmdRenameHive @ 0x140603554
+ * XREFs of CmpCmdRenameHive @ 0x140603608
  * Callers:
- *     CmReplaceKey @ 0x1405FE0FC (CmReplaceKey.c)
- *     CmpFlushBackupHive @ 0x1406044B0 (CmpFlushBackupHive.c)
+ *     CmReplaceKey @ 0x1405FE1B0 (CmReplaceKey.c)
+ *     CmpFlushBackupHive @ 0x140604564 (CmpFlushBackupHive.c)
  * Callees:
- *     ZwQueryObject @ 0x140159E80 (ZwQueryObject.c)
- *     ZwSetInformationFile @ 0x14015A160 (ZwSetInformationFile.c)
- *     memmove @ 0x140171280 (memmove.c)
+ *     ZwQueryObject @ 0x14015A3F0 (ZwQueryObject.c)
+ *     ZwSetInformationFile @ 0x14015A6D0 (ZwSetInformationFile.c)
+ *     memmove @ 0x140171780 (memmove.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
  */

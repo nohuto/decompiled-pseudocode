@@ -1,12 +1,12 @@
 /*
- * XREFs of MiFreeOverlappedFlushEntry @ 0x1403C1BA8
+ * XREFs of MiFreeOverlappedFlushEntry @ 0x1403CBAA8
  * Callers:
- *     MmFlushSection @ 0x14039AA40 (MmFlushSection.c)
- *     MiFlushComplete @ 0x1403C12D0 (MiFlushComplete.c)
+ *     MmFlushSection @ 0x14039C7A0 (MmFlushSection.c)
+ *     MiFlushComplete @ 0x1403CB1D0 (MiFlushComplete.c)
  * Callees:
- *     KeSetEvent @ 0x1402DE9C0 (KeSetEvent.c)
- *     MiFlushRelease @ 0x14036D520 (MiFlushRelease.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     KeSetEvent @ 0x1402C0780 (KeSetEvent.c)
+ *     MiFlushRelease @ 0x14036F2C0 (MiFlushRelease.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 LONG __fastcall MiFreeOverlappedFlushEntry(__int64 **P)

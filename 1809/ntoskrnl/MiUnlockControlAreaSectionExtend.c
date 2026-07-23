@@ -1,16 +1,16 @@
 /*
- * XREFs of MiUnlockControlAreaSectionExtend @ 0x140092C28
+ * XREFs of MiUnlockControlAreaSectionExtend @ 0x140092B68
  * Callers:
- *     MmExtendSection @ 0x14061C8CC (MmExtendSection.c)
+ *     MmExtendSection @ 0x14061D8CC (MmExtendSection.c)
  * Callees:
  *     MiBuildWakeList @ 0x14001E4A8 (MiBuildWakeList.c)
  *     KiLeaveGuardedRegionUnsafe @ 0x14004F090 (KiLeaveGuardedRegionUnsafe.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     KeLeaveCriticalRegionThread @ 0x140051600 (KeLeaveCriticalRegionThread.c)
- *     ExAcquireSpinLockExclusive @ 0x1400BC4E0 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC660 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KeSignalGate @ 0x1401276B0 (KeSignalGate.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExAcquireSpinLockExclusive @ 0x1400BC420 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC5A0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KeSignalGate @ 0x140127780 (KeSignalGate.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 _QWORD *__fastcall MiUnlockControlAreaSectionExtend(ULONG_PTR a1, __int64 a2)

@@ -1,19 +1,19 @@
 /*
- * XREFs of UNLOCK_PAGE_TABLE_COMMITMENT @ 0x1400769D4
+ * XREFs of UNLOCK_PAGE_TABLE_COMMITMENT @ 0x1400769C4
  * Callers:
- *     MiFreeToSubAllocatedRegion @ 0x1405DF71C (MiFreeToSubAllocatedRegion.c)
- *     MiInsertVadCharges @ 0x1405F1E60 (MiInsertVadCharges.c)
- *     MiAllocateFromSubAllocatedRegion @ 0x1405F8BBC (MiAllocateFromSubAllocatedRegion.c)
- *     MmAssignProcessToJob @ 0x140604944 (MmAssignProcessToJob.c)
- *     MiAllocateNewSubAllocatedRegion @ 0x140695EA0 (MiAllocateNewSubAllocatedRegion.c)
+ *     MiFreeToSubAllocatedRegion @ 0x1405E071C (MiFreeToSubAllocatedRegion.c)
+ *     MiInsertVadCharges @ 0x1405F2E60 (MiInsertVadCharges.c)
+ *     MiAllocateFromSubAllocatedRegion @ 0x1405F9BBC (MiAllocateFromSubAllocatedRegion.c)
+ *     MmAssignProcessToJob @ 0x140605944 (MmAssignProcessToJob.c)
+ *     MiAllocateNewSubAllocatedRegion @ 0x140697060 (MiAllocateNewSubAllocatedRegion.c)
  * Callees:
  *     KiAbEntryRemoveFromTree @ 0x140004530 (KiAbEntryRemoveFromTree.c)
  *     KiCheckForKernelApcDelivery @ 0x140005A50 (KiCheckForKernelApcDelivery.c)
  *     MiGetSystemRegionType @ 0x14004EC30 (MiGetSystemRegionType.c)
  *     KiAbThreadRemoveBoosts @ 0x14004EFD0 (KiAbThreadRemoveBoosts.c)
  *     MmGetSessionIdEx @ 0x14004F060 (MmGetSessionIdEx.c)
- *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     ExfTryToWakePushLock @ 0x140091500 (ExfTryToWakePushLock.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
  */
 
 _QWORD *__fastcall UNLOCK_PAGE_TABLE_COMMITMENT(__int64 a1, __int64 a2)
@@ -68,7 +68,7 @@ _QWORD *__fastcall UNLOCK_PAGE_TABLE_COMMITMENT(__int64 a1, __int64 a2)
         {
           v12->CrossThreadReleasableAndBusyByte |= 2u;
           if ( (__int64)v12->LockState.LockState < 0 )
-            KiAbEntryRemoveFromTree((__int64)&CurrentThread->LockEntries[v11], SessionId);
+            KiAbEntryRemoveFromTree(&CurrentThread->LockEntries[v11].TreeNode, SessionId);
           v16 = 0;
           v16 = v12->BoostBitmap.AllFields & 0x1FFFF;
           v12->BoostBitmap.AllFields &= 0xFFFE0000;

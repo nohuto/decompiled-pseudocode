@@ -1,20 +1,17 @@
 /*
- * XREFs of RtlpGuardIsSuppressedAddress @ 0x1800C70E4
+ * XREFs of RtlpGuardIsSuppressedAddress @ 0x1800C48A4
  * Callers:
- *     AVrfCallAPILookupCallback @ 0x1800C5D7C (AVrfCallAPILookupCallback.c)
- *     AVrfpSnapDllImports @ 0x1800C6E40 (AVrfpSnapDllImports.c)
- *     RtlpHandleInvalidUserCallTarget @ 0x1801481D0 (RtlpHandleInvalidUserCallTarget.c)
+ *     AVrfCallAPILookupCallback @ 0x1800C353C (AVrfCallAPILookupCallback.c)
+ *     AVrfpSnapDllImports @ 0x1800C4600 (AVrfpSnapDllImports.c)
+ *     RtlpHandleInvalidUserCallTarget @ 0x180148080 (RtlpHandleInvalidUserCallTarget.c)
  * Callees:
- *     RtlpGetTargetRvaFlag @ 0x1800C71F4 (RtlpGetTargetRvaFlag.c)
+ *     RtlpGetTargetRvaFlag @ 0x1800C49B4 (RtlpGetTargetRvaFlag.c)
  */
 
-char __fastcall RtlpGuardIsSuppressedAddress(__int64 a1)
+char __fastcall RtlpGuardIsSuppressedAddress(void *a1)
 {
-  char v2; // [rsp+38h] [rbp+10h] BYREF
-
-  v2 = 0;
-  if ( (unsigned __int8)RtlpGetTargetRvaFlag(a1, &v2) )
-    return v2 & 1;
+  if ( (unsigned __int8)RtlpGetTargetRvaFlag(a1) )
+    return 0;
   else
     return 0;
 }

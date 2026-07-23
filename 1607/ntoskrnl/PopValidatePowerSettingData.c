@@ -1,7 +1,7 @@
 /*
- * XREFs of PopValidatePowerSettingData @ 0x1403F8664
+ * XREFs of PopValidatePowerSettingData @ 0x1403F7524
  * Callers:
- *     PopSetPowerSettingValue @ 0x1403F80D0 (PopSetPowerSettingValue.c)
+ *     PopSetPowerSettingValue @ 0x1403F6F90 (PopSetPowerSettingValue.c)
  * Callees:
  *     <none>
  */

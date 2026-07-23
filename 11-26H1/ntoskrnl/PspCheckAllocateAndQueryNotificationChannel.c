@@ -1,13 +1,13 @@
 /*
- * XREFs of PspCheckAllocateAndQueryNotificationChannel @ 0x140776F6C
+ * XREFs of PspCheckAllocateAndQueryNotificationChannel @ 0x140779E14
  * Callers:
- *     NtQueryInformationJobObject @ 0x1407F2FB0 (NtQueryInformationJobObject.c)
+ *     NtQueryInformationJobObject @ 0x1407F8B10 (NtQueryInformationJobObject.c)
  * Callees:
- *     ExInitializeFastOwnerEntry @ 0x14043D670 (ExInitializeFastOwnerEntry.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     PspUnlockJobAndRootShared @ 0x14077ACBC (PspUnlockJobAndRootShared.c)
- *     PspCheckEnableNotificationChannel @ 0x140B650F8 (PspCheckEnableNotificationChannel.c)
- *     PspLockJobAndRootShared @ 0x140B6A018 (PspLockJobAndRootShared.c)
+ *     ExInitializeFastOwnerEntry @ 0x14042FF20 (ExInitializeFastOwnerEntry.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     PspUnlockJobAndRootShared @ 0x14077DBEC (PspUnlockJobAndRootShared.c)
+ *     PspCheckEnableNotificationChannel @ 0x140B68198 (PspCheckEnableNotificationChannel.c)
+ *     PspLockJobAndRootShared @ 0x140B6D224 (PspLockJobAndRootShared.c)
  */
 
 __int64 __fastcall PspCheckAllocateAndQueryNotificationChannel(__int64 a1, __int64 a2, __int64 a3)

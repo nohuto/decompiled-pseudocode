@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlIsPartialPlaceholderFileHandle @ 0x1409174B0
+ * XREFs of RtlIsPartialPlaceholderFileHandle @ 0x140917610
  * Callers:
  *     <none>
  * Callees:
- *     NtQueryInformationFile @ 0x1405FAEA0 (NtQueryInformationFile.c)
+ *     NtQueryInformationFile @ 0x1406EA600 (NtQueryInformationFile.c)
  */
 
-NTSTATUS __fastcall RtlIsPartialPlaceholderFileHandle(void *a1, bool *a2)
+NTSTATUS __cdecl RtlIsPartialPlaceholderFileHandle(HANDLE FileHandle, PBOOLEAN IsPartialPlaceholder)
 {
   NTSTATUS result; // eax
   struct _IO_STATUS_BLOCK v4; // [rsp+30h] [rbp-18h] BYREF
@@ -14,16 +14,16 @@ NTSTATUS __fastcall RtlIsPartialPlaceholderFileHandle(void *a1, bool *a2)
 
   v5 = 0LL;
   v4 = 0LL;
-  result = NtQueryInformationFile(a1, &v4, &v5, 8u, FileAttributeTagInformation);
+  result = NtQueryInformationFile(FileHandle, &v4, &v5, 8u, FileAttributeTagInformation);
   if ( result >= 0 )
   {
-    *a2 = (v5 & 0x440000) != 0;
+    *IsPartialPlaceholder = (v5 & 0x440000) != 0;
   }
   else
   {
     if ( result != -1073741811 )
       return result;
-    *a2 = 0;
+    *IsPartialPlaceholder = 0;
   }
   return 0;
 }

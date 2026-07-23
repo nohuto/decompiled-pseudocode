@@ -1,21 +1,21 @@
 /*
- * XREFs of KiSetUserAffinityThread @ 0x14022A784
+ * XREFs of KiSetUserAffinityThread @ 0x14022C114
  * Callers:
- *     KiSetLegacyAffinityThread @ 0x14025A52C (KiSetLegacyAffinityThread.c)
- *     KeSetUserGroupAffinityThread @ 0x1403E87F4 (KeSetUserGroupAffinityThread.c)
- *     KeSetUserAffinityThread @ 0x1403F7154 (KeSetUserAffinityThread.c)
- *     KeSetAffinityProcess @ 0x14050BCE4 (KeSetAffinityProcess.c)
+ *     KiSetLegacyAffinityThread @ 0x14025BD0C (KiSetLegacyAffinityThread.c)
+ *     KeSetUserGroupAffinityThread @ 0x1402F56D4 (KeSetUserGroupAffinityThread.c)
+ *     KeSetUserAffinityThread @ 0x1403F0B04 (KeSetUserAffinityThread.c)
+ *     KeSetAffinityProcess @ 0x140505754 (KeSetAffinityProcess.c)
  * Callees:
- *     KiInsertQueueApc @ 0x14020B070 (KiInsertQueueApc.c)
- *     KiSignalThreadForApc @ 0x14020B1E0 (KiSignalThreadForApc.c)
- *     KiReselectIdealProcessorAfterAffinityChange @ 0x140229950 (KiReselectIdealProcessorAfterAffinityChange.c)
- *     KiComputeThreadAffinity @ 0x140229B90 (KiComputeThreadAffinity.c)
- *     KiUpdateNodeAffinitizedFlag @ 0x14022A330 (KiUpdateNodeAffinitizedFlag.c)
- *     KiRescheduleThreadAfterAffinityChange @ 0x14022B26C (KiRescheduleThreadAfterAffinityChange.c)
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     KiAcquireThreadStateLockForWrite @ 0x1403322B0 (KiAcquireThreadStateLockForWrite.c)
- *     EtwTraceIdealProcessor @ 0x1404E78D8 (EtwTraceIdealProcessor.c)
- *     EtwTraceThreadAffinity @ 0x14050D0F8 (EtwTraceThreadAffinity.c)
+ *     KiInsertQueueApc @ 0x14020B150 (KiInsertQueueApc.c)
+ *     KiSignalThreadForApc @ 0x14020B2C0 (KiSignalThreadForApc.c)
+ *     KiReselectIdealProcessorAfterAffinityChange @ 0x14022B2E0 (KiReselectIdealProcessorAfterAffinityChange.c)
+ *     KiComputeThreadAffinity @ 0x14022B520 (KiComputeThreadAffinity.c)
+ *     KiUpdateNodeAffinitizedFlag @ 0x14022BCC0 (KiUpdateNodeAffinitizedFlag.c)
+ *     KiRescheduleThreadAfterAffinityChange @ 0x14022CBFC (KiRescheduleThreadAfterAffinityChange.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     KiAcquireThreadStateLockForWrite @ 0x1403342E0 (KiAcquireThreadStateLockForWrite.c)
+ *     EtwTraceIdealProcessor @ 0x1404E0C98 (EtwTraceIdealProcessor.c)
+ *     EtwTraceThreadAffinity @ 0x140506B68 (EtwTraceThreadAffinity.c)
  */
 
 __int64 __fastcall KiSetUserAffinityThread(__int64 a1, __int64 a2, unsigned __int16 *a3, char a4)
@@ -219,9 +219,9 @@ __int64 __fastcall KiSetUserAffinityThread(__int64 a1, __int64 a2, unsigned __in
       result = EtwTraceThreadAffinity(a1, *(unsigned __int16 *)(a1 + 584), v40, 0, *(_QWORD *)(a1 + 576), 1334);
     }
   }
-  if ( _bittest((const signed __int32 *)&xmmword_140FBFC10, 0x1Bu) )
+  if ( _bittest((const signed __int32 *)&xmmword_140FC0C10, 0x1Bu) )
     result = EtwTraceIdealProcessor(a1, 1350LL, v41, v39);
-  if ( _bittest((const signed __int32 *)&xmmword_140FBFC10, 0x1Bu) )
+  if ( _bittest((const signed __int32 *)&xmmword_140FC0C10, 0x1Bu) )
     return EtwTraceIdealProcessor(a1, 1351LL, v42, (unsigned int)v46);
   return result;
 }

@@ -1,9 +1,9 @@
 /*
  * XREFs of FsRtlKernelFsControlFile @ 0x1406A4560
  * Callers:
- *     SPCallServerHandleFileIntegrityUpdate @ 0x14065EA54 (SPCallServerHandleFileIntegrityUpdate.c)
- *     SPCallServerHandleFileUsnQuery @ 0x14065EE94 (SPCallServerHandleFileUsnQuery.c)
- *     SPCallServerHandleFileIntegrityQuery @ 0x1406605B8 (SPCallServerHandleFileIntegrityQuery.c)
+ *     sub_14065EA54 @ 0x14065EA54 (sub_14065EA54.c)
+ *     sub_14065EE94 @ 0x14065EE94 (sub_14065EE94.c)
+ *     sub_1406605B8 @ 0x1406605B8 (sub_1406605B8.c)
  * Callees:
  *     IoAllocateIrpEx @ 0x14022CFA0 (IoAllocateIrpEx.c)
  *     IoCancelIrp @ 0x14022D160 (IoCancelIrp.c)
@@ -16,7 +16,7 @@
  *     IoFreeIrp @ 0x140348610 (IoFreeIrp.c)
  *     memmove @ 0x140435B40 (memmove.c)
  *     FsRtlCancellableWaitForMultipleObjects @ 0x1407A11A0 (FsRtlCancellableWaitForMultipleObjects.c)
- *     FsRtlpFreeMdlChain @ 0x14092EF10 (FsRtlpFreeMdlChain.c)
+ *     sub_14092EF10 @ 0x14092EF10 (sub_14092EF10.c)
  */
 
 __int64 __fastcall FsRtlKernelFsControlFile(
@@ -132,7 +132,7 @@ LABEL_10:
   Irp->Flags |= 4u;
   Irp->RequestorMode = 0;
   v17 = *v24;
-  *(_QWORD *)(v17 - 16) = SmKmGenericCompletion;
+  *(_QWORD *)(v17 - 16) = sub_140248550;
   *(_QWORD *)(v17 - 8) = &Object;
   *(_BYTE *)(v17 - 69) = 0;
   *(_BYTE *)(v17 - 69) = 64;
@@ -162,7 +162,7 @@ LABEL_32:
     MdlAddress = v11->MdlAddress;
     if ( MdlAddress )
     {
-      FsRtlpFreeMdlChain(MdlAddress);
+      sub_14092EF10(MdlAddress);
       v11->MdlAddress = 0LL;
     }
     IoFreeIrp(v11);

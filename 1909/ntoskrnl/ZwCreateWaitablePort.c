@@ -6,7 +6,6 @@
  *     <none>
  */
 
-// local variable allocation has failed, the output may be wrong!
 NTSTATUS __stdcall ZwCreateWaitablePort(
         PHANDLE PortHandle,
         POBJECT_ATTRIBUTES ObjectAttributes,
@@ -16,5 +15,5 @@ NTSTATUS __stdcall ZwCreateWaitablePort(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(PortHandle, ObjectAttributes, *(_QWORD *)&MaxConnectInfoLength);
+  return KiServiceInternal(PortHandle);
 }

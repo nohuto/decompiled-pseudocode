@@ -1,9 +1,9 @@
 /*
- * XREFs of CcAllocatePrivateCacheMap @ 0x14040FA50
+ * XREFs of CcAllocatePrivateCacheMap @ 0x14040FC30
  * Callers:
- *     CcInitializeCacheMapInternal @ 0x14025E8D0 (CcInitializeCacheMapInternal.c)
+ *     CcInitializeCacheMapInternal @ 0x14025EB60 (CcInitializeCacheMapInternal.c)
  * Callees:
- *     ExAllocateFromLookasideListEx @ 0x14022D080 (ExAllocateFromLookasideListEx.c)
+ *     ExAllocateFromLookasideListEx @ 0x14022D190 (ExAllocateFromLookasideListEx.c)
  */
 
 PVOID CcAllocatePrivateCacheMap()

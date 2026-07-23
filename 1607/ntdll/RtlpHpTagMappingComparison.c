@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlpHpTagMappingComparison @ 0x180076F98
+ * XREFs of RtlpHpTagMappingComparison @ 0x180076F88
  * Callers:
- *     RtlpHpAllocWithExceptionProtection @ 0x1800227C0 (RtlpHpAllocWithExceptionProtection.c)
+ *     RtlpHpAllocWithExceptionProtection @ 0x1800227B0 (RtlpHpAllocWithExceptionProtection.c)
  * Callees:
  *     <none>
  */

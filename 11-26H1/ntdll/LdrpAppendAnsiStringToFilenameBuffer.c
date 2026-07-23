@@ -1,87 +1,86 @@
 /*
- * XREFs of LdrpAppendAnsiStringToFilenameBuffer @ 0x18003B3C0
+ * XREFs of LdrpAppendAnsiStringToFilenameBuffer @ 0x180025930
  * Callers:
- *     LdrpResolveForwarder @ 0x180039370 (LdrpResolveForwarder.c)
- *     LdrpEnclaveAddDependentModule @ 0x180125528 (LdrpEnclaveAddDependentModule.c)
- *     LdrpAddRedirectedFunction @ 0x18015DEAC (LdrpAddRedirectedFunction.c)
+ *     LdrpResolveForwarder @ 0x1800238E0 (LdrpResolveForwarder.c)
+ *     LdrpEnclaveAddDependentModule @ 0x180125298 (LdrpEnclaveAddDependentModule.c)
+ *     LdrpAddRedirectedFunction @ 0x18015DDB0 (LdrpAddRedirectedFunction.c)
  * Callees:
- *     RtlpAllocateAtom @ 0x180037BF0 (RtlpAllocateAtom.c)
- *     RtlAnsiStringToUnicodeString @ 0x18003B7A0 (RtlAnsiStringToUnicodeString.c)
- *     RtlUTF8ToUnicodeN @ 0x18003BC80 (RtlUTF8ToUnicodeN.c)
- *     NtdllpReallocateStringRoutine @ 0x1801214BC (NtdllpReallocateStringRoutine.c)
- *     memmove @ 0x180164700 (memmove.c)
+ *     RtlpAllocateAtom @ 0x1800018C0 (RtlpAllocateAtom.c)
+ *     RtlAnsiStringToUnicodeString @ 0x180025D10 (RtlAnsiStringToUnicodeString.c)
+ *     RtlUTF8ToUnicodeN @ 0x1800261F0 (RtlUTF8ToUnicodeN.c)
+ *     NtdllpReallocateStringRoutine @ 0x180121258 (NtdllpReallocateStringRoutine.c)
+ *     memmove @ 0x180164600 (memmove.c)
  */
 
-__int64 __fastcall LdrpAppendAnsiStringToFilenameBuffer(unsigned __int16 *a1, STRING *a2, __int64 a3)
+__int64 __fastcall LdrpAppendAnsiStringToFilenameBuffer(unsigned __int16 *a1, const ANSI_STRING *a2)
 {
-  int Length; // eax
-  char *Buffer; // r9
-  int v7; // edx
-  int v8; // eax
-  unsigned int v9; // ebx
-  unsigned int v10; // ecx
+  ULONG UTF8StringByteCount; // eax
+  const CHAR *Buffer; // r9
+  ULONG v6; // edx
+  int v7; // eax
+  unsigned int v8; // ebx
+  unsigned int v9; // ecx
   __int64 result; // rax
-  __int64 v13; // rcx
-  unsigned __int16 *v14; // rdx
-  void *Atom; // rbp
-  signed __int32 v16[8]; // [rsp+0h] [rbp-58h] BYREF
-  UNICODE_STRING DestinationString; // [rsp+30h] [rbp-28h] BYREF
-  int v18; // [rsp+68h] [rbp+10h] BYREF
+  __int64 v12; // rcx
+  unsigned __int16 *v13; // rdx
+  PVOID Atom; // rbp
+  signed __int32 v15[8]; // [rsp+0h] [rbp-58h] BYREF
+  _UNICODE_STRING DestinationString; // [rsp+30h] [rbp-28h] BYREF
+  ULONG UnicodeStringActualByteCount; // [rsp+68h] [rbp+10h] BYREF
 
-  Length = a2->Length;
+  UTF8StringByteCount = a2->Length;
   DestinationString = 0LL;
-  if ( !(_WORD)Length )
+  if ( !(_WORD)UTF8StringByteCount )
     return 0LL;
   Buffer = a2->Buffer;
-  v18 = 0;
-  _InterlockedOr(v16, 0);
-  if ( word_1801C5FD0 == -535 || GlobalRtlNlsState == -535 )
+  UnicodeStringActualByteCount = 0;
+  _InterlockedOr(v15, 0);
+  if ( CodePageTable.CodePage == 0xFDE9 || GlobalRtlNlsState.CodePage == 0xFDE9 )
   {
-    RtlUTF8ToUnicodeN(0, 0, (unsigned int)&v18, (_DWORD)Buffer, Length);
-    v7 = v18;
+    RtlUTF8ToUnicodeN(0LL, 0, &UnicodeStringActualByteCount, Buffer, UTF8StringByteCount);
+    v6 = UnicodeStringActualByteCount;
   }
   else
   {
-    _InterlockedOr(v16, 0);
-    v7 = 0;
-    if ( word_1801C5F9C )
+    _InterlockedOr(v15, 0);
+    v6 = 0;
+    if ( GlobalRtlNlsState.DBCSCodePage )
     {
-      a3 = qword_1801C6020;
-      while ( Length-- )
+      while ( UTF8StringByteCount-- )
       {
-        v13 = (unsigned __int8)*Buffer++;
-        if ( *(_WORD *)(qword_1801C6020 + 2 * v13) )
+        v12 = *(unsigned __int8 *)Buffer++;
+        if ( *(_WORD *)(qword_1801C5020 + 2 * v12) )
         {
-          if ( !Length )
+          if ( !UTF8StringByteCount )
           {
-            v7 += 2;
+            v6 += 2;
             break;
           }
-          --Length;
+          --UTF8StringByteCount;
           ++Buffer;
         }
-        v7 += 2;
+        v6 += 2;
       }
     }
     else
     {
-      v7 = 2 * Length;
+      v6 = 2 * UTF8StringByteCount;
     }
   }
-  v8 = *a1;
-  v9 = a1[1];
-  v10 = v7 + v8 + 2;
-  if ( v10 > v9 )
+  v7 = *a1;
+  v8 = a1[1];
+  v9 = v6 + v7 + 2;
+  if ( v9 > v8 )
   {
-    if ( v10 > 0xFFFE )
-      return 3221225734LL;
-    v14 = (unsigned __int16 *)*((_QWORD *)a1 + 1);
-    v9 = (v10 + 63) & 0xFFFFFFC0;
     if ( v9 > 0xFFFE )
-      v9 = 65534;
-    if ( v14 == a1 + 8 )
+      return 3221225734LL;
+    v13 = (unsigned __int16 *)*((_QWORD *)a1 + 1);
+    v8 = (v9 + 63) & 0xFFFFFFC0;
+    if ( v8 > 0xFFFE )
+      v8 = 65534;
+    if ( v13 == a1 + 8 )
     {
-      Atom = (void *)RtlpAllocateAtom(v9);
+      Atom = RtlpAllocateAtom(v8);
       if ( !Atom )
         return 3221225495LL;
       if ( *a1 )
@@ -89,17 +88,17 @@ __int64 __fastcall LdrpAppendAnsiStringToFilenameBuffer(unsigned __int16 *a1, ST
     }
     else
     {
-      Atom = (void *)NtdllpReallocateStringRoutine(v9, v14, a3, Buffer);
+      Atom = (PVOID)NtdllpReallocateStringRoutine(v8, v13);
       if ( !Atom )
         return 3221225495LL;
     }
-    LOWORD(v8) = *a1;
+    LOWORD(v7) = *a1;
     *((_QWORD *)a1 + 1) = Atom;
-    a1[1] = v9;
+    a1[1] = v8;
   }
   DestinationString.Length = 0;
-  DestinationString.Buffer = (wchar_t *)(*((_QWORD *)a1 + 1) + (unsigned __int16)v8);
-  DestinationString.MaximumLength = v9 - v8;
+  DestinationString.Buffer = (wchar_t *)(*((_QWORD *)a1 + 1) + (unsigned __int16)v7);
+  DestinationString.MaximumLength = v8 - v7;
   RtlAnsiStringToUnicodeString(&DestinationString, a2, 0);
   result = 0LL;
   *a1 += DestinationString.Length;

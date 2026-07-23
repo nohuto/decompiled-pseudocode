@@ -1,18 +1,18 @@
 /*
- * XREFs of AdtpBuildStagingReasonAuditStringInternal @ 0x140238CF4
+ * XREFs of AdtpBuildStagingReasonAuditStringInternal @ 0x140238B20
  * Callers:
- *     AdtpBuildAccessReasonAuditString @ 0x140237DBC (AdtpBuildAccessReasonAuditString.c)
+ *     AdtpBuildAccessReasonAuditString @ 0x140237BE8 (AdtpBuildAccessReasonAuditString.c)
  * Callees:
- *     RtlAppendUnicodeStringToString @ 0x140087614 (RtlAppendUnicodeStringToString.c)
- *     RtlAppendUnicodeToString @ 0x1400C3920 (RtlAppendUnicodeToString.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     memmove @ 0x140171280 (memmove.c)
- *     AdtpFormatPrefix @ 0x1402390BC (AdtpFormatPrefix.c)
- *     AdtpPermissionBitPosition @ 0x140239194 (AdtpPermissionBitPosition.c)
- *     StringCchPrintfExW @ 0x1402391A0 (StringCchPrintfExW.c)
+ *     RtlAppendUnicodeToString @ 0x1400C17B0 (RtlAppendUnicodeToString.c)
+ *     RtlAppendUnicodeStringToString @ 0x14010B80C (RtlAppendUnicodeStringToString.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     memmove @ 0x140171780 (memmove.c)
+ *     AdtpFormatPrefix @ 0x140238EE8 (AdtpFormatPrefix.c)
+ *     AdtpPermissionBitPosition @ 0x140238FC0 (AdtpPermissionBitPosition.c)
+ *     StringCchPrintfExW @ 0x140238FCC (StringCchPrintfExW.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     AdtpBuildAccessesString @ 0x1406D1680 (AdtpBuildAccessesString.c)
+ *     AdtpBuildAccessesString @ 0x1406D17B8 (AdtpBuildAccessesString.c)
  */
 
 __int64 __fastcall AdtpBuildStagingReasonAuditStringInternal(

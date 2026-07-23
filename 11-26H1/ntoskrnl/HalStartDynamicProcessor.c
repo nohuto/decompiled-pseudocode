@@ -1,15 +1,15 @@
 /*
- * XREFs of HalStartDynamicProcessor @ 0x14057C560
+ * XREFs of HalStartDynamicProcessor @ 0x14057EA90
  * Callers:
- *     KiStartDynamicProcessor @ 0x1407B9978 (KiStartDynamicProcessor.c)
- *     HalpInterruptReinitialize @ 0x140BEA368 (HalpInterruptReinitialize.c)
+ *     KiStartDynamicProcessor @ 0x1407BC9D8 (KiStartDynamicProcessor.c)
+ *     HalpInterruptReinitialize @ 0x140BF0368 (HalpInterruptReinitialize.c)
  * Callees:
- *     HalpMcUpdateUnlock @ 0x1404ECD1C (HalpMcUpdateUnlock.c)
- *     HalpMcUpdateLock @ 0x1404ECD50 (HalpMcUpdateLock.c)
- *     HalpQueryMaximumRegisteredProcessorCount @ 0x14057CE5C (HalpQueryMaximumRegisteredProcessorCount.c)
- *     HalpCheckNumaConfiguration @ 0x1405915E8 (HalpCheckNumaConfiguration.c)
- *     MmLockPagableSectionByHandle @ 0x140A9C420 (MmLockPagableSectionByHandle.c)
- *     HalpInterruptStartProcessor @ 0x140BEA190 (HalpInterruptStartProcessor.c)
+ *     HalpMcUpdateUnlock @ 0x1404E62FC (HalpMcUpdateUnlock.c)
+ *     HalpMcUpdateLock @ 0x1404E6330 (HalpMcUpdateLock.c)
+ *     HalpQueryMaximumRegisteredProcessorCount @ 0x14057F37C (HalpQueryMaximumRegisteredProcessorCount.c)
+ *     HalpCheckNumaConfiguration @ 0x140593D68 (HalpCheckNumaConfiguration.c)
+ *     MmLockPagableSectionByHandle @ 0x140A9F220 (MmLockPagableSectionByHandle.c)
+ *     HalpInterruptStartProcessor @ 0x140BF0190 (HalpInterruptStartProcessor.c)
  */
 
 __int64 __fastcall HalStartDynamicProcessor(__int64 a1, unsigned int a2, unsigned int a3, unsigned __int16 a4)

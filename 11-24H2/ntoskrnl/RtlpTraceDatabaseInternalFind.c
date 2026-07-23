@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlpTraceDatabaseInternalFind @ 0x1405F0754
+ * XREFs of RtlpTraceDatabaseInternalFind @ 0x1405EDD34
  * Callers:
- *     RtlTraceDatabaseFind @ 0x1405F0450 (RtlTraceDatabaseFind.c)
- *     RtlpTraceDatabaseInternalAdd @ 0x1405F0590 (RtlpTraceDatabaseInternalAdd.c)
+ *     RtlTraceDatabaseFind @ 0x1405EDA30 (RtlTraceDatabaseFind.c)
+ *     RtlpTraceDatabaseInternalAdd @ 0x1405EDB70 (RtlpTraceDatabaseInternalAdd.c)
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
  */
 
 char __fastcall RtlpTraceDatabaseInternalFind(__int64 a1, unsigned int a2, _QWORD *a3, _QWORD *a4)
@@ -14,7 +14,7 @@ char __fastcall RtlpTraceDatabaseInternalFind(__int64 a1, unsigned int a2, _QWOR
   unsigned int v10; // ecx
   _QWORD *v11; // r8
 
-  v8 = guard_dispatch_icall_no_overrides(a2, a3, a3, a4);
+  v8 = guard_dispatch_icall_no_overrides(a2, a3);
   ++*(_DWORD *)(a1 + 4LL * (v8 & 0xF) + 152);
   for ( i = *(_QWORD *)(*(_QWORD *)(a1 + 120) + 8LL * (v8 % *(_DWORD *)(a1 + 112))); i; i = *(_QWORD *)(i + 40) )
   {

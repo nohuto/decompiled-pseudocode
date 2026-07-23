@@ -11,27 +11,27 @@
  *     RtlStringFromGUIDEx @ 0x140447328 (RtlStringFromGUIDEx.c)
  */
 
-__int64 __fastcall CmpRecoverEnlistment(_QWORD *a1, __int64 a2, __int64 a3)
+NTSTATUS __fastcall CmpRecoverEnlistment(_QWORD *a1, __int64 a2, __int64 a3)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
   int v6; // ebx
   void *v7; // r8
-  UNICODE_STRING v8; // [rsp+40h] [rbp-9h] BYREF
+  UNICODE_STRING GuidString; // [rsp+40h] [rbp-9h] BYREF
   UNICODE_STRING UnicodeString; // [rsp+50h] [rbp+7h] BYREF
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+60h] [rbp+17h] BYREF
   HANDLE EnlistmentHandle; // [rsp+C0h] [rbp+77h] BYREF
   PVOID EnlistmentKey; // [rsp+C8h] [rbp+7Fh] BYREF
 
-  *(_QWORD *)&v8.MaximumLength = 0LL;
-  *(_DWORD *)((char *)&v8.Buffer + 2) = 0;
-  HIWORD(v8.Buffer) = 0;
-  v8.Length = 0;
+  *(_QWORD *)&GuidString.MaximumLength = 0LL;
+  *(_DWORD *)((char *)&GuidString.Buffer + 2) = 0;
+  HIWORD(GuidString.Buffer) = 0;
+  GuidString.Length = 0;
   UnicodeString.Length = 0;
   *(_QWORD *)&UnicodeString.MaximumLength = 0LL;
   *(_DWORD *)((char *)&UnicodeString.Buffer + 2) = 0;
   HIWORD(UnicodeString.Buffer) = 0;
-  result = RtlStringFromGUIDEx((unsigned int *)a3, (__int64)&v8, 1);
-  if ( (int)result >= 0 )
+  result = RtlStringFromGUIDEx((PGUID)a3, &GuidString, 1u);
+  if ( result >= 0 )
   {
     v6 = CmpSearchAddTrans(0LL, a1, 0LL, 0LL, (__int128 *)(a3 + 16), 1, (char **)&EnlistmentKey);
     if ( v6 >= 0 )
@@ -50,8 +50,8 @@ __int64 __fastcall CmpRecoverEnlistment(_QWORD *a1, __int64 a2, __int64 a3)
       }
     }
     RtlFreeAnsiString(&UnicodeString);
-    RtlFreeAnsiString(&v8);
-    return (unsigned int)v6;
+    RtlFreeAnsiString(&GuidString);
+    return v6;
   }
   return result;
 }

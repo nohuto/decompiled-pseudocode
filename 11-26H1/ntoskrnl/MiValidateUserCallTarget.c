@@ -1,11 +1,11 @@
 /*
- * XREFs of MiValidateUserCallTarget @ 0x140AA0FF0
+ * XREFs of MiValidateUserCallTarget @ 0x140AA2AB4
  * Callers:
- *     MiCfgMarkValidEntries @ 0x140AA0D20 (MiCfgMarkValidEntries.c)
- *     MmValidateUserCallTarget @ 0x140B46C78 (MmValidateUserCallTarget.c)
+ *     MiCfgMarkValidEntries @ 0x140AA27E4 (MiCfgMarkValidEntries.c)
+ *     MmValidateUserCallTarget @ 0x140B48CA8 (MmValidateUserCallTarget.c)
  * Callees:
- *     CfgAddressToBitState @ 0x1404F0B80 (CfgAddressToBitState.c)
- *     MiIsProcessCfgExportSuppressionEnabled @ 0x14077CA64 (MiIsProcessCfgExportSuppressionEnabled.c)
+ *     CfgAddressToBitState @ 0x1404EA160 (CfgAddressToBitState.c)
+ *     MiIsProcessCfgExportSuppressionEnabled @ 0x14077F558 (MiIsProcessCfgExportSuppressionEnabled.c)
  */
 
 __int64 __fastcall MiValidateUserCallTarget(unsigned __int64 a1, __int64 a2)

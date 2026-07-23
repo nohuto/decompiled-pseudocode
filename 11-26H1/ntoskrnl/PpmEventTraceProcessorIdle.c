@@ -1,12 +1,12 @@
 /*
- * XREFs of PpmEventTraceProcessorIdle @ 0x140B116C8
+ * XREFs of PpmEventTraceProcessorIdle @ 0x140B13448
  * Callers:
- *     PpmEventTraceControlCallback @ 0x1407DCAD0 (PpmEventTraceControlCallback.c)
+ *     PpmEventTraceControlCallback @ 0x1407E0E70 (PpmEventTraceControlCallback.c)
  * Callees:
- *     EtwEventEnabled @ 0x140212D90 (EtwEventEnabled.c)
- *     EtwWrite @ 0x140212EF0 (EtwWrite.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     EtwEventEnabled @ 0x140212E70 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x140212FD0 (EtwWrite.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __fastcall PpmEventTraceProcessorIdle(__int64 a1)
@@ -30,10 +30,7 @@ void __fastcall PpmEventTraceProcessorIdle(__int64 a1)
   unsigned int v18; // [rsp+60h] [rbp+18h] BYREF
   int v19; // [rsp+68h] [rbp+20h] BYREF
 
-  if ( PpmEtwRegistered
-    && EtwEventEnabled(
-         (REGHANDLE)PopModernStandbyStateNotify.ApcState.ApcListHead[1].Blink,
-         &PPM_ETW_CURRENT_IDLE_RUNDOWN) )
+  if ( PpmEtwRegistered && EtwEventEnabled(PpmEtwHandle, &PPM_ETW_CURRENT_IDLE_RUNDOWN) )
   {
     v2 = *(_QWORD *)(a1 + 34880);
     if ( v2 )
@@ -101,12 +98,7 @@ void __fastcall PpmEventTraceProcessorIdle(__int64 a1)
       v16 = v9;
       UserData[v16].Ptr = a1 + 34952;
       *(_QWORD *)&UserData[v16].Size = 4LL;
-      EtwWrite(
-        (REGHANDLE)PopModernStandbyStateNotify.ApcState.ApcListHead[1].Blink,
-        &PPM_ETW_CURRENT_IDLE_RUNDOWN,
-        0LL,
-        v5,
-        UserData);
+      EtwWrite(PpmEtwHandle, &PPM_ETW_CURRENT_IDLE_RUNDOWN, 0LL, v5, UserData);
       ExFreePoolWithTag(UserData, 0x654D5050u);
     }
   }

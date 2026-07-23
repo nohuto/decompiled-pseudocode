@@ -75,7 +75,7 @@ __int64 __fastcall RtlpHpReAllocateHeap(
   }
   else
   {
-    v13 = RtlCSparseBitmapBitmaskRead(&unk_1801859C0, 2 * ((a3 - qword_1801859B8) >> 20));
+    v13 = RtlCSparseBitmapBitmaskRead(&BaseAddress, 2 * ((a3 - qword_1801859B8) >> 20));
     if ( !v13 || (v12 = v13 - 1, v12 == 2) )
     {
       v17 = RtlpHpLargeAllocSize(a1, a3, v7, &v39);
@@ -185,7 +185,7 @@ LABEL_38:
     v30 = RtlpHpSegReAlloc(a1 + 192LL * v28 + 320, v27, a3, v38);
     goto LABEL_39;
   }
-  v29 = RtlCSparseBitmapBitmaskRead(&unk_1801859C0, 2 * ((a3 - qword_1801859B8) >> 20));
+  v29 = RtlCSparseBitmapBitmaskRead(&BaseAddress, 2 * ((a3 - qword_1801859B8) >> 20));
   if ( v29 )
   {
     v28 = v29 - 1;

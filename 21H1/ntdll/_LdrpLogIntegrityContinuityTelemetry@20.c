@@ -13,7 +13,7 @@
  *     _RtlReportException@12 @ 0x4B33A4D0 (_RtlReportException@12.c)
  */
 
-int __fastcall LdrpLogIntegrityContinuityTelemetry(_DWORD *a1, int a2, int a3, int a4, char a5)
+NTSTATUS __fastcall LdrpLogIntegrityContinuityTelemetry(_DWORD *a1, int a2, int a3, int a4, char a5)
 {
   int v6; // eax
   int *v7; // edi
@@ -21,37 +21,34 @@ int __fastcall LdrpLogIntegrityContinuityTelemetry(_DWORD *a1, int a2, int a3, i
   int v9; // edx
   int v10; // ecx
   int v11; // edx
-  int v13; // [esp+Ch] [ebp-448h] BYREF
-  int v14; // [esp+10h] [ebp-444h] BYREF
-  int v15; // [esp+14h] [ebp-440h] BYREF
-  int v16; // [esp+18h] [ebp-43Ch] BYREF
-  int v17; // [esp+1Ch] [ebp-438h] BYREF
-  int v18; // [esp+20h] [ebp-434h] BYREF
-  int v19; // [esp+24h] [ebp-430h] BYREF
+  size_t v13; // [esp-4h] [ebp-458h]
+  int v14; // [esp+Ch] [ebp-448h] BYREF
+  int v15; // [esp+10h] [ebp-444h] BYREF
+  int v16; // [esp+14h] [ebp-440h] BYREF
+  int v17; // [esp+18h] [ebp-43Ch] BYREF
+  int v18; // [esp+1Ch] [ebp-438h] BYREF
+  int v19; // [esp+20h] [ebp-434h] BYREF
+  int v20; // [esp+24h] [ebp-430h] BYREF
   int SystemInformation; // [esp+28h] [ebp-42Ch] BYREF
-  int v21; // [esp+2Ch] [ebp-428h]
-  int v22; // [esp+30h] [ebp-424h] BYREF
-  char v23; // [esp+37h] [ebp-41Dh] BYREF
-  _DWORD v24[20]; // [esp+38h] [ebp-41Ch] BYREF
-  CONTEXT ContextRecord; // [esp+88h] [ebp-3CCh] BYREF
-  _BYTE v26[32]; // [esp+358h] [ebp-FCh] BYREF
-  _DWORD *v27; // [esp+378h] [ebp-DCh]
-  int v28; // [esp+37Ch] [ebp-D8h]
-  int v29; // [esp+380h] [ebp-D4h]
-  int v30; // [esp+384h] [ebp-D0h]
-  int v31; // [esp+388h] [ebp-CCh]
-  int v32; // [esp+38Ch] [ebp-C8h]
-  _DWORD v33[24]; // [esp+390h] [ebp-C4h] BYREF
-  _DWORD v34[23]; // [esp+3F0h] [ebp-64h] BYREF
+  int v22; // [esp+2Ch] [ebp-428h]
+  int v23; // [esp+30h] [ebp-424h] BYREF
+  char v24; // [esp+37h] [ebp-41Dh] BYREF
+  EXCEPTION_RECORD ExceptionRecord; // [esp+38h] [ebp-41Ch] BYREF
+  _CONTEXT ContextRecord; // [esp+88h] [ebp-3CCh] BYREF
+  _EVENT_DATA_DESCRIPTOR UserData; // [esp+358h] [ebp-FCh] BYREF
+  _DWORD *v28; // [esp+378h] [ebp-DCh]
+  int v29; // [esp+37Ch] [ebp-D8h]
+  int v30; // [esp+380h] [ebp-D4h]
+  int v31; // [esp+384h] [ebp-D0h]
+  int v32; // [esp+388h] [ebp-CCh]
+  int v33; // [esp+38Ch] [ebp-C8h]
+  _DWORD v34[24]; // [esp+390h] [ebp-C4h] BYREF
+  _DWORD v35[23]; // [esp+3F0h] [ebp-64h] BYREF
 
-  v22 = a2;
+  v23 = a2;
   SystemInformation = 0;
-  v21 = 0;
-  if ( RtlRunOnceExecuteOnce(
-         (int)&LibLoaderTelemetryInitRunOnce,
-         (int (__stdcall *)(int, int, int))LibLoaderTelemetryInitOnce,
-         0,
-         0) >= 0 )
+  v22 = 0;
+  if ( RtlRunOnceExecuteOnce(&LibLoaderTelemetryInitRunOnce, (PRTL_RUN_ONCE_INIT_FN)LibLoaderTelemetryInitOnce, 0, 0) >= 0 )
   {
     v6 = a1[7];
     v7 = (int *)(v6 + 36);
@@ -70,49 +67,31 @@ int __fastcall LdrpLogIntegrityContinuityTelemetry(_DWORD *a1, int a2, int a3, i
     {
       v9 = a1[8];
       v10 = *(unsigned __int16 *)(v9 + 36);
-      v31 = *(_DWORD *)(v9 + 40);
-      v33[0] = v10;
-      v27 = v33;
-      v28 = 0;
-      v30 = 0;
-      v32 = 0;
-      v33[1] = 0;
-      v11 = a1[8];
-      v29 = 2;
-      v19 = *(unsigned __int8 *)(v11 + 164);
-      v33[2] = &v19;
-      v18 = a1[4];
-      v33[6] = &v18;
-      v17 = a1[5];
-      v33[10] = &v17;
-      v16 = a3;
-      v33[14] = &v16;
-      v33[18] = v34;
-      v33[22] = v7[1];
-      v34[0] = *(unsigned __int16 *)v7;
-      v34[2] = &v15;
-      v34[6] = &v22;
-      v14 = v21;
-      v34[10] = &v14;
-      v13 = a4;
-      v33[3] = 0;
-      v33[4] = 4;
-      v33[5] = 0;
-      v33[7] = 0;
-      v33[8] = 4;
-      v33[9] = 0;
-      v33[11] = 0;
-      v33[12] = 4;
-      v33[13] = 0;
-      v33[15] = 0;
-      v33[16] = 4;
-      v33[17] = 0;
-      v33[19] = 0;
-      v33[20] = 2;
-      v33[21] = 0;
-      v33[23] = 0;
+      v32 = *(_DWORD *)(v9 + 40);
+      v34[0] = v10;
+      v28 = v34;
+      v29 = 0;
+      v31 = 0;
+      v33 = 0;
       v34[1] = 0;
-      v15 = v8;
+      v11 = a1[8];
+      v30 = 2;
+      v20 = *(unsigned __int8 *)(v11 + 164);
+      v34[2] = &v20;
+      v19 = a1[4];
+      v34[6] = &v19;
+      v18 = a1[5];
+      v34[10] = &v18;
+      v17 = a3;
+      v34[14] = &v17;
+      v34[18] = v35;
+      v34[22] = v7[1];
+      v35[0] = *(unsigned __int16 *)v7;
+      v35[2] = &v16;
+      v35[6] = &v23;
+      v15 = v22;
+      v35[10] = &v15;
+      v14 = a4;
       v34[3] = 0;
       v34[4] = 4;
       v34[5] = 0;
@@ -122,24 +101,43 @@ int __fastcall LdrpLogIntegrityContinuityTelemetry(_DWORD *a1, int a2, int a3, i
       v34[11] = 0;
       v34[12] = 4;
       v34[13] = 0;
-      v34[14] = &v13;
-      v23 = a5;
-      v34[18] = &v23;
       v34[15] = 0;
       v34[16] = 4;
       v34[17] = 0;
       v34[19] = 0;
+      v34[20] = 2;
       v34[21] = 0;
-      v34[20] = 1;
-      _tlgWriteTransfer_EtwEventWriteTransfer(4, 4, 15, v26);
+      v34[23] = 0;
+      v35[1] = 0;
+      v16 = v8;
+      v35[3] = 0;
+      v35[4] = 4;
+      v35[5] = 0;
+      v35[7] = 0;
+      v35[8] = 4;
+      v35[9] = 0;
+      v35[11] = 0;
+      v35[12] = 4;
+      v35[13] = 0;
+      v35[14] = &v14;
+      v24 = a5;
+      v35[18] = &v24;
+      v35[15] = 0;
+      v35[16] = 4;
+      v35[17] = 0;
+      v35[19] = 0;
+      v35[21] = 0;
+      v35[20] = 1;
+      _tlgWriteTransfer_EtwEventWriteTransfer(4, 4, 0xFu, &UserData);
     }
   }
   RtlCaptureContext(&ContextRecord);
-  memset(v24, 0, sizeof(v24));
-  v24[0] = -1073740791;
-  v24[1] = 0;
-  v24[3] = 0;
-  v24[4] = 1;
-  v24[5] = 45;
-  return RtlReportException(v24, &ContextRecord, 30);
+  LODWORD(v13) = 80;
+  memset(&ExceptionRecord, 0, v13);
+  ExceptionRecord.ExceptionCode = -1073740791;
+  ExceptionRecord.ExceptionFlags = 0;
+  ExceptionRecord.ExceptionAddress = 0;
+  ExceptionRecord.NumberParameters = 1;
+  ExceptionRecord.ExceptionInformation[0] = 45;
+  return RtlReportException(&ExceptionRecord, &ContextRecord, 0x1Eu);
 }

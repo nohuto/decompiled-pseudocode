@@ -3,7 +3,7 @@
  * Callers:
  *     <none>
  * Callees:
- *     SeAssignSecurityEx2 @ 0x1402A49D0 (SeAssignSecurityEx2.c)
+ *     sub_1402A49D0 @ 0x1402A49D0 (sub_1402A49D0.c)
  */
 
 NTSTATUS __stdcall SeAssignSecurityEx(
@@ -17,7 +17,7 @@ NTSTATUS __stdcall SeAssignSecurityEx(
         PGENERIC_MAPPING GenericMapping,
         POOL_TYPE PoolType)
 {
-  return SeAssignSecurityEx2(
+  return sub_1402A49D0(
            (int)ParentDescriptor,
            (int)ExplicitDescriptor,
            (int)NewDescriptor,

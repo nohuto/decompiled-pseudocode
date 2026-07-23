@@ -1,14 +1,14 @@
 /*
- * XREFs of EtwpAllocateTraceBuffer @ 0x14037153C
+ * XREFs of EtwpAllocateTraceBuffer @ 0x1403716DC
  * Callers:
- *     EtwpAllocateFreeBuffers @ 0x1403713D8 (EtwpAllocateFreeBuffers.c)
- *     EtwpPreserveLogger @ 0x1409ED61C (EtwpPreserveLogger.c)
+ *     EtwpAllocateFreeBuffers @ 0x140371578 (EtwpAllocateFreeBuffers.c)
+ *     EtwpPreserveLogger @ 0x1409ED8AC (EtwpPreserveLogger.c)
  * Callees:
- *     MmMapLockedPagesSpecifyCache @ 0x14027CF60 (MmMapLockedPagesSpecifyCache.c)
- *     MiFreePagesFromMdl @ 0x1402EBB80 (MiFreePagesFromMdl.c)
- *     MmAllocatePagesForMdlEx @ 0x1402F8740 (MmAllocatePagesForMdlEx.c)
- *     qsort @ 0x1403DA430 (qsort.c)
- *     EtwpAllocatePartitionMemory @ 0x1406012E4 (EtwpAllocatePartitionMemory.c)
+ *     MmMapLockedPagesSpecifyCache @ 0x14027D1F0 (MmMapLockedPagesSpecifyCache.c)
+ *     MiFreePagesFromMdl @ 0x1402EBE10 (MiFreePagesFromMdl.c)
+ *     MmAllocatePagesForMdlEx @ 0x1402F89D0 (MmAllocatePagesForMdlEx.c)
+ *     qsort @ 0x1403DA610 (qsort.c)
+ *     EtwpAllocatePartitionMemory @ 0x140601834 (EtwpAllocatePartitionMemory.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

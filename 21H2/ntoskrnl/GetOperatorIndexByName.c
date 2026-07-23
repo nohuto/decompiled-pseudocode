@@ -1,14 +1,14 @@
 /*
- * XREFs of GetOperatorIndexByName @ 0x140927AE8
+ * XREFs of GetOperatorIndexByName @ 0x140927C48
  * Callers:
- *     GetConditionToken @ 0x1409272E4 (GetConditionToken.c)
+ *     GetConditionToken @ 0x140927444 (GetConditionToken.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     _wcsnicmp @ 0x1403D2210 (_wcsnicmp.c)
- *     wcsncpy_s @ 0x1403D8420 (wcsncpy_s.c)
- *     wcstok_s @ 0x1403D8518 (wcstok_s.c)
- *     SddlpAlloc @ 0x140674548 (SddlpAlloc.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     _wcsnicmp @ 0x1403D2380 (_wcsnicmp.c)
+ *     wcsncpy_s @ 0x1403D8590 (wcsncpy_s.c)
+ *     wcstok_s @ 0x1403D8688 (wcstok_s.c)
+ *     SddlpAlloc @ 0x140669778 (SddlpAlloc.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall GetOperatorIndexByName(wchar_t *Src)
@@ -54,7 +54,7 @@ __int64 __fastcall GetOperatorIndexByName(wchar_t *Src)
       do
         ++v11;
       while ( v9[v11] );
-      v12 = &dword_140006304;
+      v12 = &dword_140006364;
       while ( 1 )
       {
         v13 = *(const wchar_t **)(v12 - 5);

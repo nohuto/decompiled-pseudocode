@@ -1,9 +1,9 @@
 /*
- * XREFs of PspDeleteThreadSecurity @ 0x1407477D0
+ * XREFs of PspDeleteThreadSecurity @ 0x1407479C0
  * Callers:
- *     PspThreadDelete @ 0x1407473C0 (PspThreadDelete.c)
+ *     PspThreadDelete @ 0x1407475B0 (PspThreadDelete.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
+ *     ObfDereferenceObject @ 0x140231660 (ObfDereferenceObject.c)
  */
 
 LONG_PTR __fastcall PspDeleteThreadSecurity(__int64 a1)

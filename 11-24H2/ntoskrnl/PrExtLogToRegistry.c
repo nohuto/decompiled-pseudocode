@@ -1,10 +1,10 @@
 /*
- * XREFs of PrExtLogToRegistry @ 0x1404D91A8
+ * XREFs of PrExtLogToRegistry @ 0x1404D25F8
  * Callers:
- *     HalpMcUpdatePostUpdate @ 0x1404D9190 (HalpMcUpdatePostUpdate.c)
+ *     HalpMcUpdatePostUpdate @ 0x1404D25E0 (HalpMcUpdatePostUpdate.c)
  * Callees:
- *     Feature_Microcode_Client_CD__private_IsEnabledDeviceUsageNoInline @ 0x140663E98 (Feature_Microcode_Client_CD__private_IsEnabledDeviceUsageNoInline.c)
- *     MicrocodeLogRegistry @ 0x1406647D8 (MicrocodeLogRegistry.c)
+ *     Feature_Microcode_Client_CD__private_IsEnabledDeviceUsageNoInline @ 0x140662788 (Feature_Microcode_Client_CD__private_IsEnabledDeviceUsageNoInline.c)
+ *     MicrocodeLogRegistry @ 0x1406630C8 (MicrocodeLogRegistry.c)
  */
 
 __int64 PrExtLogToRegistry()

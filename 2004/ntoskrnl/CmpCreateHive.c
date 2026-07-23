@@ -69,13 +69,13 @@ __int64 __fastcall CmpCreateHive(
   __int64 v20; // rdx
   __int64 v21; // rcx
   __int64 v22; // r8
-  __int64 v23; // rcx
+  void *v23; // rcx
   void *v24; // rdx
   void *v25; // rdx
-  __int64 v26; // rcx
+  void *v26; // rcx
   void *v27; // rdx
   __int64 *v28; // r12
-  __int64 v29; // rcx
+  void *v29; // rcx
   __int64 v30; // rcx
   __int64 v31; // r8
   unsigned int v32; // eax
@@ -90,7 +90,7 @@ __int64 __fastcall CmpCreateHive(
   ULONG_PTR *v41; // rax
   __int64 v43; // rax
   _QWORD *v44; // rax
-  __int64 v45; // rcx
+  void *v45; // rcx
   int v46; // r9d
   unsigned int v47; // r9d
   int v48; // edx
@@ -101,7 +101,7 @@ __int64 __fastcall CmpCreateHive(
   int v53; // [rsp+20h] [rbp-E0h]
   int v54; // [rsp+30h] [rbp-D0h]
   char v55; // [rsp+70h] [rbp-90h]
-  __int16 v56; // [rsp+74h] [rbp-8Ch] BYREF
+  _WORD ObjectInformation[2]; // [rsp+74h] [rbp-8Ch] BYREF
   char v57; // [rsp+78h] [rbp-88h]
   int v58; // [rsp+7Ch] [rbp-84h] BYREF
   unsigned int v59; // [rsp+80h] [rbp-80h] BYREF
@@ -120,7 +120,7 @@ __int64 __fastcall CmpCreateHive(
   struct _EVENT_DATA_DESCRIPTOR v72; // [rsp+120h] [rbp+20h] BYREF
   unsigned int *v73; // [rsp+140h] [rbp+40h]
   __int64 v74; // [rsp+148h] [rbp+48h]
-  __int16 *v75; // [rsp+150h] [rbp+50h]
+  _WORD *v75; // [rsp+150h] [rbp+50h]
   __int64 v76; // [rsp+158h] [rbp+58h]
   int *v77; // [rsp+160h] [rbp+60h]
   __int64 v78; // [rsp+168h] [rbp+68h]
@@ -250,9 +250,9 @@ LABEL_81:
                              0);
           if ( ContextForFile < 0 )
             goto LABEL_104;
-          v23 = *(_QWORD *)(v13 + 1536);
-          v56 = 256;
-          ZwSetInformationObject(v23, 4LL);
+          v23 = *(void **)(v13 + 1536);
+          ObjectInformation[0] = 256;
+          ZwSetInformationObject(v23, ObjectHandleFlagInformation, ObjectInformation, 2u);
         }
         v24 = *(void **)(a6 + 24);
         if ( v24 )
@@ -260,9 +260,9 @@ LABEL_81:
           ContextForFile = ObDuplicateObject(PsInitialSystemProcess, v24, 0LL, (__int64 *)(v13 + 1552), 0, 512, 2, 0);
           if ( ContextForFile < 0 )
             goto LABEL_104;
-          v45 = *(_QWORD *)(v13 + 1552);
-          v56 = 256;
-          ZwSetInformationObject(v45, 4LL);
+          v45 = *(void **)(v13 + 1552);
+          ObjectInformation[0] = 256;
+          ZwSetInformationObject(v45, ObjectHandleFlagInformation, ObjectInformation, 2u);
         }
         if ( v60 != 1 )
         {
@@ -282,9 +282,9 @@ LABEL_81:
                                0);
             if ( ContextForFile < 0 )
               goto LABEL_104;
-            v26 = *(_QWORD *)(v13 + 1568);
-            v56 = 256;
-            ZwSetInformationObject(v26, 4LL);
+            v26 = *(void **)(v13 + 1568);
+            ObjectInformation[0] = 256;
+            ZwSetInformationObject(v26, ObjectHandleFlagInformation, ObjectInformation, 2u);
           }
           v27 = *(void **)(a6 + 16);
           if ( !v27 )
@@ -300,9 +300,9 @@ LABEL_31:
           ContextForFile = ObDuplicateObject(PsInitialSystemProcess, v27, 0LL, v28, 0, 512, 2, 0);
           if ( ContextForFile < 0 )
             goto LABEL_104;
-          v29 = *v28;
-          v56 = 256;
-          ZwSetInformationObject(v29, 4LL);
+          v29 = (void *)*v28;
+          ObjectInformation[0] = 256;
+          ZwSetInformationObject(v29, ObjectHandleFlagInformation, ObjectInformation, 2u);
         }
       }
 LABEL_33:
@@ -387,7 +387,7 @@ LABEL_43:
             {
               v60 = v47;
               v73 = &v60;
-              v75 = &v56;
+              v75 = ObjectInformation;
               v48 = *(unsigned __int16 *)(a12 + 8);
               v49 = *(unsigned __int16 *)(a12 + 10);
               v81 = a12 + 8;
@@ -400,7 +400,7 @@ LABEL_43:
               v93 = a12 + 396;
               v96 = &v63;
               LOWORD(v59) = v50;
-              v56 = v48;
+              ObjectInformation[0] = v48;
               LOWORD(v58) = v49;
               v86 = a12 + 10;
               v91 = a12 + 394;

@@ -6,42 +6,39 @@
  *     <none>
  */
 
-__int64 __fastcall RtlInitCodePageTable(unsigned __int16 *a1, __int64 a2)
+void __cdecl RtlInitCodePageTable(PUSHORT TableBase, PCPTABLEINFO CodePageTable)
 {
   __int64 v2; // r8
   unsigned __int16 v3; // r9
-  __int64 v4; // rax
-  _WORD *v5; // rax
-  __int64 result; // rax
+  USHORT *v4; // rax
+  USHORT *v5; // rax
 
-  v2 = *a1;
-  v3 = a1[v2] + *a1;
-  *(_WORD *)a2 = a1[1];
-  *(_WORD *)(a2 + 2) = a1[2];
-  *(_WORD *)(a2 + 4) = a1[3];
-  *(_WORD *)(a2 + 6) = a1[4];
-  *(_WORD *)(a2 + 8) = a1[5];
-  *(_WORD *)(a2 + 10) = a1[6];
-  *(_QWORD *)(a2 + 14) = *(_QWORD *)(a1 + 7);
-  *(_DWORD *)(a2 + 22) = *(_DWORD *)(a1 + 11);
-  v4 = (__int64)&a1[v2 + 1];
-  *(_QWORD *)(a2 + 32) = v4;
-  if ( *(_WORD *)(v4 + 512) )
-    v5 = (_WORD *)(v4 + 1026);
+  v2 = *TableBase;
+  v3 = TableBase[v2] + *TableBase;
+  CodePageTable->CodePage = TableBase[1];
+  CodePageTable->MaximumCharacterSize = TableBase[2];
+  CodePageTable->DefaultChar = TableBase[3];
+  CodePageTable->UniDefaultChar = TableBase[4];
+  CodePageTable->TransDefaultChar = TableBase[5];
+  CodePageTable->TransUniDefaultChar = TableBase[6];
+  *(_QWORD *)CodePageTable->LeadByte = *(_QWORD *)(TableBase + 7);
+  *(_DWORD *)&CodePageTable->LeadByte[8] = *(_DWORD *)(TableBase + 11);
+  v4 = &TableBase[v2 + 1];
+  CodePageTable->MultiByteTable = v4;
+  if ( v4[256] )
+    v5 = v4 + 513;
   else
-    v5 = (_WORD *)(v4 + 514);
-  *(_QWORD *)(a2 + 48) = v5;
+    v5 = v4 + 257;
+  CodePageTable->DBCSRanges = v5;
   if ( *v5 )
   {
-    *(_QWORD *)(a2 + 56) = v5 + 1;
-    *(_WORD *)(a2 + 12) = 1;
+    CodePageTable->DBCSOffsets = v5 + 1;
+    CodePageTable->DBCSCodePage = 1;
   }
   else
   {
-    *(_WORD *)(a2 + 12) = 0;
-    *(_QWORD *)(a2 + 56) = 0LL;
+    CodePageTable->DBCSCodePage = 0;
+    CodePageTable->DBCSOffsets = 0LL;
   }
-  result = v3;
-  *(_QWORD *)(a2 + 40) = &a1[v3 + 1];
-  return result;
+  CodePageTable->WideCharTable = &TableBase[v3 + 1];
 }

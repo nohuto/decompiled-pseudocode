@@ -1,13 +1,13 @@
 /*
- * XREFs of EtwpObjectHandleRundown @ 0x1406A73A4
+ * XREFs of EtwpObjectHandleRundown @ 0x1406A74DC
  * Callers:
- *     EtwpProcessEnumCallback @ 0x1404989B4 (EtwpProcessEnumCallback.c)
+ *     EtwpProcessEnumCallback @ 0x140499444 (EtwpProcessEnumCallback.c)
  * Callees:
- *     PsIsSystemProcess @ 0x140072328 (PsIsSystemProcess.c)
- *     PsGetProcessId @ 0x140085488 (PsGetProcessId.c)
- *     ExReleaseRundownProtection @ 0x1400D3F00 (ExReleaseRundownProtection.c)
- *     ExEnumHandleTable @ 0x14045E4D0 (ExEnumHandleTable.c)
- *     ObReferenceProcessHandleTable @ 0x14050D150 (ObReferenceProcessHandleTable.c)
+ *     PsIsSystemProcess @ 0x140071EA8 (PsIsSystemProcess.c)
+ *     PsGetProcessId @ 0x140086D74 (PsGetProcessId.c)
+ *     ExReleaseRundownProtection @ 0x1400D1DA0 (ExReleaseRundownProtection.c)
+ *     ExEnumHandleTable @ 0x14045D3A0 (ExEnumHandleTable.c)
+ *     ObReferenceProcessHandleTable @ 0x1404F00E0 (ObReferenceProcessHandleTable.c)
  */
 
 void __fastcall EtwpObjectHandleRundown(struct _EX_RUNDOWN_REF *Process, __int64 a2)

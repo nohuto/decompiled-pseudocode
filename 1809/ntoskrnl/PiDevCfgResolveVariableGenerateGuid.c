@@ -1,43 +1,43 @@
 /*
- * XREFs of PiDevCfgResolveVariableGenerateGuid @ 0x140830640
+ * XREFs of PiDevCfgResolveVariableGenerateGuid @ 0x1408318A0
  * Callers:
  *     <none>
  * Callees:
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     memmove @ 0x1401D1540 (memmove.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     RtlStringFromGUIDEx @ 0x14058B238 (RtlStringFromGUIDEx.c)
- *     ExUuidCreate @ 0x1406062C0 (ExUuidCreate.c)
- *     RtlFreeAnsiString @ 0x140623790 (RtlFreeAnsiString.c)
- *     RtlUpcaseUnicodeString @ 0x14064B0A0 (RtlUpcaseUnicodeString.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     RtlStringFromGUIDEx @ 0x14058C238 (RtlStringFromGUIDEx.c)
+ *     ExUuidCreate @ 0x1406072C0 (ExUuidCreate.c)
+ *     RtlFreeAnsiString @ 0x140624790 (RtlFreeAnsiString.c)
+ *     RtlUpcaseUnicodeString @ 0x14064C260 (RtlUpcaseUnicodeString.c)
  */
 
 __int64 __fastcall PiDevCfgResolveVariableGenerateGuid(__int64 a1, __int64 a2, __int64 a3)
 {
-  int v4; // ebx
+  NTSTATUS v4; // ebx
   unsigned int v5; // edi
   PVOID PoolWithTag; // rax
   PVOID v7; // rbp
-  UNICODE_STRING DestinationString; // [rsp+20h] [rbp-48h] BYREF
-  UUID v10; // [rsp+30h] [rbp-38h] BYREF
+  UNICODE_STRING GuidString; // [rsp+20h] [rbp-48h] BYREF
+  GUID Guid; // [rsp+30h] [rbp-38h] BYREF
 
-  *(_DWORD *)&DestinationString.Length = 0;
-  DestinationString.Buffer = 0LL;
-  v4 = ExUuidCreate(&v10);
+  *(_DWORD *)&GuidString.Length = 0;
+  GuidString.Buffer = 0LL;
+  v4 = ExUuidCreate(&Guid);
   if ( v4 >= 0 )
   {
-    v4 = RtlStringFromGUIDEx(&v10.Data1, (__int64)&DestinationString, 1);
+    v4 = RtlStringFromGUIDEx(&Guid, &GuidString, 1u);
     if ( v4 >= 0 )
     {
-      v4 = RtlUpcaseUnicodeString(&DestinationString, &DestinationString, 0);
+      v4 = RtlUpcaseUnicodeString(&GuidString, &GuidString, 0);
       if ( v4 >= 0 )
       {
-        v5 = DestinationString.Length + 2;
+        v5 = GuidString.Length + 2;
         PoolWithTag = ExAllocatePoolWithTag(PagedPool, v5, 0x63647050u);
         v7 = PoolWithTag;
         if ( PoolWithTag )
         {
-          memmove(PoolWithTag, DestinationString.Buffer, v5);
+          memmove(PoolWithTag, GuidString.Buffer, v5);
           *(_DWORD *)(a3 + 32) = 1;
           *(_DWORD *)(a3 + 36) = v5;
           *(_QWORD *)(a3 + 40) = v7;
@@ -49,6 +49,6 @@ __int64 __fastcall PiDevCfgResolveVariableGenerateGuid(__int64 a1, __int64 a2, _
       }
     }
   }
-  RtlFreeAnsiString(&DestinationString);
+  RtlFreeAnsiString(&GuidString);
   return (unsigned int)v4;
 }

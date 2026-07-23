@@ -9,14 +9,14 @@
  *     ZwQueryInformationProcess @ 0x18009ADE0 (ZwQueryInformationProcess.c)
  */
 
-__int64 __fastcall sub_180048C9C(__int64 a1)
+__int64 __fastcall sub_180048C9C(void *a1)
 {
-  int InformationProcess; // eax
+  NTSTATUS InformationProcess; // eax
   unsigned int v2; // ecx
-  _BYTE v4[32]; // [rsp+30h] [rbp-38h] BYREF
+  _BYTE ProcessInformation[32]; // [rsp+30h] [rbp-38h] BYREF
   unsigned int v5; // [rsp+50h] [rbp-18h]
 
-  InformationProcess = ZwQueryInformationProcess(a1, 0LL, v4);
+  InformationProcess = ZwQueryInformationProcess(a1, ProcessBasicInformation, ProcessInformation, 0x30u, 0LL);
   v2 = v5;
   if ( InformationProcess < 0 )
     return 0;

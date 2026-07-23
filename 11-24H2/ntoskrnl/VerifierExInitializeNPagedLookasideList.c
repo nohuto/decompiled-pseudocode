@@ -1,21 +1,19 @@
 /*
- * XREFs of VerifierExInitializeNPagedLookasideList @ 0x140B9FC80
+ * XREFs of VerifierExInitializeNPagedLookasideList @ 0x140BA1C80
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
  */
 
 PVOID (__stdcall *__fastcall VerifierExInitializeNPagedLookasideList(
         __int64 a1,
-        __int64 a2,
-        __int64 a3,
-        __int64 a4))(POOL_TYPE PoolType, SIZE_T NumberOfBytes, ULONG Tag)
+        __int64 a2))(POOL_TYPE PoolType, SIZE_T NumberOfBytes, ULONG Tag)
 {
   PVOID (__stdcall *result)(POOL_TYPE, SIZE_T, ULONG); // rax
-  void *v6; // rax
+  void *v4; // rax
 
-  guard_dispatch_icall_no_overrides(a1, a2, a3, a4);
+  guard_dispatch_icall_no_overrides(a1, a2);
   result = (PVOID (__stdcall *)(POOL_TYPE, SIZE_T, ULONG))(unsigned int)VfRuleClasses;
   if ( (VfRuleClasses & 1) != 0 )
   {
@@ -25,15 +23,15 @@ PVOID (__stdcall *__fastcall VerifierExInitializeNPagedLookasideList(
       result = *(PVOID (__stdcall **)(POOL_TYPE, SIZE_T, ULONG))(a1 + 48);
       if ( result == ExAllocatePoolWithTag )
       {
-        v6 = VerifierExAllocatePoolWithTag;
+        v4 = VerifierExAllocatePoolWithTag;
       }
       else
       {
         if ( result != ExAllocatePoolWithQuotaTag )
           return result;
-        v6 = VerifierExAllocatePoolWithQuotaTag;
+        v4 = VerifierExAllocatePoolWithQuotaTag;
       }
-      *(_QWORD *)(a1 + 48) = v6;
+      *(_QWORD *)(a1 + 48) = v4;
       result = (PVOID (__stdcall *)(POOL_TYPE, SIZE_T, ULONG))VerifierExFreePool;
       *(_QWORD *)(a1 + 56) = VerifierExFreePool;
     }

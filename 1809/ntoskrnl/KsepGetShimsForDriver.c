@@ -1,20 +1,20 @@
 /*
- * XREFs of KsepGetShimsForDriver @ 0x14067DBAC
+ * XREFs of KsepGetShimsForDriver @ 0x14067ED6C
  * Callers:
- *     KseDriverLoadImage @ 0x14067DF40 (KseDriverLoadImage.c)
+ *     KseDriverLoadImage @ 0x14067F100 (KseDriverLoadImage.c)
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
- *     KsepPoolAllocatePaged @ 0x1400F4CDC (KsepPoolAllocatePaged.c)
- *     KsepLogInfo @ 0x1400F4D38 (KsepLogInfo.c)
- *     KsepDebugPrint @ 0x14029FC44 (KsepDebugPrint.c)
- *     KsepDbGetDriverShims @ 0x14067D8A4 (KsepDbGetDriverShims.c)
- *     KsepDbFreeDriverShims @ 0x14067DA7C (KsepDbFreeDriverShims.c)
- *     KsepEngineGetShimsFromRegistry @ 0x14067E0A0 (KsepEngineGetShimsFromRegistry.c)
- *     KsepIsModuleShimmed @ 0x14067E228 (KsepIsModuleShimmed.c)
- *     KsepResolveApplicableShimsForDriver @ 0x140848564 (KsepResolveApplicableShimsForDriver.c)
+ *     ExfTryToWakePushLock @ 0x140091500 (ExfTryToWakePushLock.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B78F0 (KiLeaveCriticalRegionUnsafe.c)
+ *     KsepPoolAllocatePaged @ 0x1400F4D5C (KsepPoolAllocatePaged.c)
+ *     KsepLogInfo @ 0x1400F4DB8 (KsepLogInfo.c)
+ *     KsepDebugPrint @ 0x14029FE34 (KsepDebugPrint.c)
+ *     KsepDbGetDriverShims @ 0x14067EA64 (KsepDbGetDriverShims.c)
+ *     KsepDbFreeDriverShims @ 0x14067EC3C (KsepDbFreeDriverShims.c)
+ *     KsepEngineGetShimsFromRegistry @ 0x14067F260 (KsepEngineGetShimsFromRegistry.c)
+ *     KsepIsModuleShimmed @ 0x14067F3E8 (KsepIsModuleShimmed.c)
+ *     KsepResolveApplicableShimsForDriver @ 0x1408497C4 (KsepResolveApplicableShimsForDriver.c)
  */
 
 __int64 __fastcall KsepGetShimsForDriver(__int64 a1, __int64 a2, __int64 a3, unsigned int a4, _QWORD *a5, _DWORD *a6)
@@ -71,17 +71,17 @@ LABEL_12:
   Paged[2] = a3;
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
-  ExAcquirePushLockExclusiveEx((ULONG_PTR)&qword_14043C8E0, 0LL);
-  v18 = (_QWORD *)qword_14043C8D8;
-  if ( *(_UNKNOWN **)qword_14043C8D8 != &unk_14043C8D0 )
+  ExAcquirePushLockExclusiveEx((ULONG_PTR)&qword_14043D9A0, 0LL);
+  v18 = (_QWORD *)qword_14043D998;
+  if ( *(_UNKNOWN **)qword_14043D998 != &unk_14043D990 )
     __fastfail(3u);
-  *v16 = &unk_14043C8D0;
+  *v16 = &unk_14043D990;
   v16[1] = v18;
   *v18 = v16;
-  qword_14043C8D8 = (__int64)v16;
-  if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_14043C8E0, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-    ExfTryToWakePushLock((volatile signed __int64 *)&qword_14043C8E0);
-  KeAbPostRelease((ULONG_PTR)&qword_14043C8E0);
+  qword_14043D998 = (__int64)v16;
+  if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_14043D9A0, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+    ExfTryToWakePushLock((volatile signed __int64 *)&qword_14043D9A0);
+  KeAbPostRelease((ULONG_PTR)&qword_14043D9A0);
   KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
 LABEL_5:
   *a5 = v21;

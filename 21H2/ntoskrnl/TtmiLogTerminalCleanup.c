@@ -1,11 +1,11 @@
 /*
- * XREFs of TtmiLogTerminalCleanup @ 0x140904634
+ * XREFs of TtmiLogTerminalCleanup @ 0x140904794
  * Callers:
- *     TtmiSessionTerminalListWorker @ 0x1408FD930 (TtmiSessionTerminalListWorker.c)
+ *     TtmiSessionTerminalListWorker @ 0x1408FDA90 (TtmiSessionTerminalListWorker.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14025FAE0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgKeywordOn @ 0x1402605BC (_tlgKeywordOn.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14027E1A4 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x1402864F4 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  */
 
 void TtmiLogTerminalCleanup()
@@ -39,7 +39,7 @@ void TtmiLogTerminalCleanup()
       v12 = 8LL;
       tlgWriteTransfer_EtwWriteTransfer(
         (__int64)&dword_140D2D8C8,
-        (unsigned __int8 *)&word_14002AC2E,
+        (unsigned __int8 *)&dword_14002B89C,
         0LL,
         0LL,
         5u,

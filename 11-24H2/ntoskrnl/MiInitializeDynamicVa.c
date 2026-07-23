@@ -1,10 +1,10 @@
 /*
- * XREFs of MiInitializeDynamicVa @ 0x140C54F1C
+ * XREFs of MiInitializeDynamicVa @ 0x140C570AC
  * Callers:
- *     MiInitNucleus @ 0x140C4F298 (MiInitNucleus.c)
+ *     MiInitNucleus @ 0x140C51428 (MiInitNucleus.c)
  * Callees:
- *     MiSystemVaTypeToVm @ 0x14022ABF0 (MiSystemVaTypeToVm.c)
- *     MiCountBootDriverRegions @ 0x140C54C84 (MiCountBootDriverRegions.c)
+ *     MiSystemVaTypeToVm @ 0x1402FDE60 (MiSystemVaTypeToVm.c)
+ *     MiCountBootDriverRegions @ 0x140C56E14 (MiCountBootDriverRegions.c)
  */
 
 struct _LIST_ENTRY **MiInitializeDynamicVa()
@@ -12,12 +12,12 @@ struct _LIST_ENTRY **MiInitializeDynamicVa()
   struct _LIST_ENTRY **result; // rax
   int v1; // [rsp+30h] [rbp+8h]
 
-  stru_140E39570.Header.Size = 6;
-  LOWORD(stru_140E39570.Header.Lock) = 0;
-  stru_140E39570.Header.SignalState = 0;
-  stru_140E39570.Header.WaitListHead.Blink = &stru_140E39570.Header.WaitListHead;
-  stru_140E39570.Header.WaitListHead.Flink = &stru_140E39570.Header.WaitListHead;
-  qword_140E38960 = MiCountBootDriverRegions();
+  Event.Header.Size = 6;
+  LOWORD(Event.Header.Lock) = 0;
+  Event.Header.SignalState = 0;
+  Event.Header.WaitListHead.Blink = &Event.Header.WaitListHead;
+  Event.Header.WaitListHead.Flink = &Event.Header.WaitListHead;
+  qword_140E38AA0 = MiCountBootDriverRegions();
   result = MiSystemVaTypeToVm(11);
   v1 = *((_DWORD *)result + 46);
   LOBYTE(v1) = v1 & 0xF0 | 3;

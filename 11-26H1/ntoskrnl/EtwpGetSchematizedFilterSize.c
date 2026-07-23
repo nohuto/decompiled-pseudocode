@@ -1,12 +1,12 @@
 /*
- * XREFs of EtwpGetSchematizedFilterSize @ 0x14093A2C0
+ * XREFs of EtwpGetSchematizedFilterSize @ 0x140915E60
  * Callers:
- *     EtwpRegisterUMProvider @ 0x140934B00 (EtwpRegisterUMProvider.c)
- *     EtwpClearSessionAndUnreferenceEntry @ 0x14093737C (EtwpClearSessionAndUnreferenceEntry.c)
- *     EtwpBuildNotificationPacket @ 0x140939E18 (EtwpBuildNotificationPacket.c)
- *     EtwpCalculateUpdateNotification @ 0x140939F90 (EtwpCalculateUpdateNotification.c)
- *     EtwpRegisterKMProvider @ 0x14093B298 (EtwpRegisterKMProvider.c)
- *     EtwpAddRegEntryToGroup @ 0x14093B720 (EtwpAddRegEntryToGroup.c)
+ *     EtwpRegisterUMProvider @ 0x1409106B0 (EtwpRegisterUMProvider.c)
+ *     EtwpClearSessionAndUnreferenceEntry @ 0x140912F1C (EtwpClearSessionAndUnreferenceEntry.c)
+ *     EtwpBuildNotificationPacket @ 0x1409159B8 (EtwpBuildNotificationPacket.c)
+ *     EtwpCalculateUpdateNotification @ 0x140915B30 (EtwpCalculateUpdateNotification.c)
+ *     EtwpRegisterKMProvider @ 0x140916E38 (EtwpRegisterKMProvider.c)
+ *     EtwpAddRegEntryToGroup @ 0x1409172C0 (EtwpAddRegEntryToGroup.c)
  * Callees:
  *     <none>
  */

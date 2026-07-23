@@ -1,8 +1,8 @@
 /*
- * XREFs of ExIsResourceAcquiredExclusiveLite @ 0x1400928C0
+ * XREFs of ExIsResourceAcquiredExclusiveLite @ 0x140092020
  * Callers:
- *     CmpCleanUpKcbValueCache @ 0x1404372D8 (CmpCleanUpKcbValueCache.c)
- *     HvpTruncateBins @ 0x140481A44 (HvpTruncateBins.c)
+ *     CmpCleanUpKcbValueCache @ 0x1404361A8 (CmpCleanUpKcbValueCache.c)
+ *     HvpTruncateBins @ 0x140480798 (HvpTruncateBins.c)
  * Callees:
  *     <none>
  */

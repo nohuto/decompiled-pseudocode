@@ -1,8 +1,8 @@
 /*
- * XREFs of KiApplyDpcVerificationScaleSettings @ 0x1405B5FA0
+ * XREFs of KiApplyDpcVerificationScaleSettings @ 0x1405B3268
  * Callers:
- *     KeUpdateDpcWatchdogConfiguration @ 0x1405B4998 (KeUpdateDpcWatchdogConfiguration.c)
- *     KeInitSystem @ 0x140C60CE0 (KeInitSystem.c)
+ *     KeUpdateDpcWatchdogConfiguration @ 0x1405B191C (KeUpdateDpcWatchdogConfiguration.c)
+ *     KeInitSystem @ 0x140C62E30 (KeInitSystem.c)
  * Callees:
  *     <none>
  */

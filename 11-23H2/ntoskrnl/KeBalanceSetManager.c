@@ -1,19 +1,19 @@
 /*
- * XREFs of KeBalanceSetManager @ 0x140394500
+ * XREFs of KeBalanceSetManager @ 0x1403946E0
  * Callers:
  *     <none>
  * Callees:
  *     MiWorkingSetManager @ 0x14021D5F0 (MiWorkingSetManager.c)
  *     KePulseEvent @ 0x1402206A0 (KePulseEvent.c)
  *     KeQueryActiveProcessorCountEx @ 0x140222050 (KeQueryActiveProcessorCountEx.c)
- *     KeSetEvent @ 0x14023C5E0 (KeSetEvent.c)
- *     KeSetPriorityThread @ 0x1402B0340 (KeSetPriorityThread.c)
- *     ExQueueWorkItem @ 0x1402B7C30 (ExQueueWorkItem.c)
- *     KeWaitForMultipleObjects @ 0x1403111A0 (KeWaitForMultipleObjects.c)
- *     ExpScanGeneralLookasideList @ 0x14032FB70 (ExpScanGeneralLookasideList.c)
- *     ExpScanSystemLookasideList @ 0x14032FC78 (ExpScanSystemLookasideList.c)
- *     VslpEnterIumSecureMode @ 0x14033FCF0 (VslpEnterIumSecureMode.c)
- *     memset @ 0x140435A00 (memset.c)
+ *     KeSetEvent @ 0x14023C6B0 (KeSetEvent.c)
+ *     KeSetPriorityThread @ 0x1402B05D0 (KeSetPriorityThread.c)
+ *     ExQueueWorkItem @ 0x1402B7EC0 (ExQueueWorkItem.c)
+ *     KeWaitForMultipleObjects @ 0x140311430 (KeWaitForMultipleObjects.c)
+ *     ExpScanGeneralLookasideList @ 0x14032FE00 (ExpScanGeneralLookasideList.c)
+ *     ExpScanSystemLookasideList @ 0x14032FF08 (ExpScanSystemLookasideList.c)
+ *     VslpEnterIumSecureMode @ 0x14033FF80 (VslpEnterIumSecureMode.c)
+ *     memset @ 0x140435E00 (memset.c)
  */
 
 void __noreturn KeBalanceSetManager()

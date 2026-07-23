@@ -6,44 +6,44 @@
  *     <none>
  */
 
-_QWORD *__fastcall RtlEnumerateGenericTableWithoutSplaying(_QWORD *a1, _QWORD **a2)
+PVOID __cdecl RtlEnumerateGenericTableWithoutSplaying(PRTL_GENERIC_TABLE Table, PVOID *RestartKey)
 {
-  _QWORD *v2; // r8
-  __int64 v4; // rcx
-  _QWORD *v6; // rdx
-  _QWORD *k; // rax
-  _QWORD *i; // rax
+  PRTL_SPLAY_LINKS TableRoot; // r8
+  void *v4; // rcx
+  PRTL_SPLAY_LINKS *v6; // rdx
+  _RTL_SPLAY_LINKS *k; // rax
+  _RTL_SPLAY_LINKS *i; // rax
   _QWORD *j; // rax
 
-  v2 = (_QWORD *)*a1;
+  TableRoot = Table->TableRoot;
   v4 = 0LL;
-  if ( !v2 )
+  if ( !TableRoot )
     return 0LL;
-  v6 = *a2;
+  v6 = (PRTL_SPLAY_LINKS *)*RestartKey;
   if ( v6 )
   {
-    v2 = (_QWORD *)v6[2];
-    if ( v2 )
+    TableRoot = v6[2];
+    if ( TableRoot )
     {
-      for ( i = (_QWORD *)v2[1]; i; i = (_QWORD *)i[1] )
-        v2 = i;
+      for ( i = TableRoot->LeftChild; i; i = i->LeftChild )
+        TableRoot = i;
     }
     else
     {
-      for ( j = (_QWORD *)*v6; (_QWORD *)j[2] == v6; j = (_QWORD *)*j )
-        v6 = j;
-      v2 = 0LL;
-      if ( *(_QWORD **)(*v6 + 8LL) == v6 )
-        v2 = (_QWORD *)*v6;
+      for ( j = *v6; (PRTL_SPLAY_LINKS *)j[2] == v6; j = (_QWORD *)*j )
+        v6 = (PRTL_SPLAY_LINKS *)j;
+      TableRoot = 0LL;
+      if ( (PRTL_SPLAY_LINKS *)(*v6)->LeftChild == v6 )
+        TableRoot = *v6;
     }
-    if ( !v2 )
-      return (_QWORD *)v4;
+    if ( !TableRoot )
+      return v4;
   }
   else
   {
-    for ( k = (_QWORD *)v2[1]; k; k = (_QWORD *)k[1] )
-      v2 = k;
+    for ( k = TableRoot->LeftChild; k; k = k->LeftChild )
+      TableRoot = k;
   }
-  *a2 = v2;
-  return v2 + 5;
+  *RestartKey = TableRoot;
+  return &TableRoot[1].RightChild;
 }

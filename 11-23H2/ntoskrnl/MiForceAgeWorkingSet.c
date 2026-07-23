@@ -1,10 +1,10 @@
 /*
- * XREFs of MiForceAgeWorkingSet @ 0x1406348A0
+ * XREFs of MiForceAgeWorkingSet @ 0x140634DF0
  * Callers:
- *     MiForcedTrim @ 0x1406348E0 (MiForcedTrim.c)
- *     MiSelfTrim @ 0x14065025C (MiSelfTrim.c)
+ *     MiForcedTrim @ 0x140634E30 (MiForcedTrim.c)
+ *     MiSelfTrim @ 0x1406507AC (MiSelfTrim.c)
  * Callees:
- *     MiAgeWorkingSet @ 0x14025B770 (MiAgeWorkingSet.c)
+ *     MiAgeWorkingSet @ 0x14025BA00 (MiAgeWorkingSet.c)
  */
 
 __int64 __fastcall MiForceAgeWorkingSet(__int64 a1, char a2)

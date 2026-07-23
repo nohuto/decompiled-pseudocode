@@ -1,8 +1,8 @@
 /*
- * XREFs of PopDirectedDripsDiagFreeDeviceDiagnostic @ 0x14099E170
+ * XREFs of PopDirectedDripsDiagFreeDeviceDiagnostic @ 0x14099E370
  * Callers:
- *     PopDirectedDripsDiagCreateDeviceDiagnostic @ 0x14099E0CC (PopDirectedDripsDiagCreateDeviceDiagnostic.c)
- *     PopDirectedDripsDiagRundownDevices @ 0x14099E898 (PopDirectedDripsDiagRundownDevices.c)
+ *     PopDirectedDripsDiagCreateDeviceDiagnostic @ 0x14099E2CC (PopDirectedDripsDiagCreateDeviceDiagnostic.c)
+ *     PopDirectedDripsDiagRundownDevices @ 0x14099EA98 (PopDirectedDripsDiagRundownDevices.c)
  * Callees:
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */

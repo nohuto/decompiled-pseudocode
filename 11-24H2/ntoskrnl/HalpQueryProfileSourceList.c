@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpQueryProfileSourceList @ 0x1403B53B8
+ * XREFs of HalpQueryProfileSourceList @ 0x140371748
  * Callers:
- *     HalpQueryProfileInformation @ 0x140ABC9C4 (HalpQueryProfileInformation.c)
+ *     HalpQueryProfileInformation @ 0x140AB79E4 (HalpQueryProfileInformation.c)
  * Callees:
- *     KeIsEmptyAffinityEx @ 0x1403B55D0 (KeIsEmptyAffinityEx.c)
- *     HalpReleaseHighLevelLock @ 0x1403B9898 (HalpReleaseHighLevelLock.c)
- *     HalpAcquireHighLevelLock @ 0x1403B9FD0 (HalpAcquireHighLevelLock.c)
- *     wcscpy_s @ 0x1405047E0 (wcscpy_s.c)
+ *     KeIsEmptyAffinityEx @ 0x140371960 (KeIsEmptyAffinityEx.c)
+ *     HalpReleaseHighLevelLock @ 0x140372268 (HalpReleaseHighLevelLock.c)
+ *     HalpAcquireHighLevelLock @ 0x1403729A0 (HalpAcquireHighLevelLock.c)
+ *     wcscpy_s @ 0x1405020A0 (wcscpy_s.c)
  */
 
 __int64 __fastcall HalpQueryProfileSourceList(unsigned int a1, __int64 a2, unsigned int *a3)

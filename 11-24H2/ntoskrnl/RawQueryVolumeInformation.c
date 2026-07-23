@@ -1,13 +1,13 @@
 /*
- * XREFs of RawQueryVolumeInformation @ 0x1409A2D04
+ * XREFs of RawQueryVolumeInformation @ 0x1408ADF94
  * Callers:
- *     RawDispatch @ 0x1409A2210 (RawDispatch.c)
+ *     RawDispatch @ 0x1408AD4A0 (RawDispatch.c)
  * Callees:
- *     IofCompleteRequest @ 0x1403DBAD0 (IofCompleteRequest.c)
- *     RawQueryFsDeviceInfo @ 0x14077CBC4 (RawQueryFsDeviceInfo.c)
- *     FsRtlGetSectorSizeInformation @ 0x140965DD0 (FsRtlGetSectorSizeInformation.c)
- *     RawQueryFsVolumeInfo @ 0x1409A2E00 (RawQueryFsVolumeInfo.c)
- *     RawQueryFsSizeInfo @ 0x140A89C08 (RawQueryFsSizeInfo.c)
+ *     IofCompleteRequest @ 0x1403CCDA0 (IofCompleteRequest.c)
+ *     RawQueryFsDeviceInfo @ 0x14077CA74 (RawQueryFsDeviceInfo.c)
+ *     RawQueryFsVolumeInfo @ 0x1408AE090 (RawQueryFsVolumeInfo.c)
+ *     FsRtlGetSectorSizeInformation @ 0x14094E860 (FsRtlGetSectorSizeInformation.c)
+ *     RawQueryFsSizeInfo @ 0x140A86008 (RawQueryFsSizeInfo.c)
  */
 
 __int64 __fastcall RawQueryVolumeInformation(__int64 a1, IRP *a2, __int64 a3)
@@ -53,9 +53,7 @@ LABEL_3:
       }
       break;
     case 0xB:
-      SectorSizeInformation = FsRtlGetSectorSizeInformation(
-                                *(PDEVICE_OBJECT *)(*(_QWORD *)(a1 + 200) + 16LL),
-                                MasterIrp);
+      SectorSizeInformation = FsRtlGetSectorSizeInformation(*(PDEVICE_OBJECT *)(*(_QWORD *)(a1 + 200) + 16LL));
       if ( SectorSizeInformation >= 0 )
         v3 -= 28;
       break;

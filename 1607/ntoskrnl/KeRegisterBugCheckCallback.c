@@ -1,11 +1,11 @@
 /*
- * XREFs of KeRegisterBugCheckCallback @ 0x14012DBD4
+ * XREFs of KeRegisterBugCheckCallback @ 0x14012E144
  * Callers:
  *     <none>
  * Callees:
- *     KxAcquireSpinLock @ 0x140092A60 (KxAcquireSpinLock.c)
- *     KxReleaseSpinLock @ 0x140095BA0 (KxReleaseSpinLock.c)
- *     KiCheckForDuplicateBugCheckCallback @ 0x14012DD8C (KiCheckForDuplicateBugCheckCallback.c)
+ *     KxAcquireSpinLock @ 0x140092260 (KxAcquireSpinLock.c)
+ *     KxReleaseSpinLock @ 0x1400953A0 (KxReleaseSpinLock.c)
+ *     KiCheckForDuplicateBugCheckCallback @ 0x14012E2FC (KiCheckForDuplicateBugCheckCallback.c)
  */
 
 BOOLEAN __stdcall KeRegisterBugCheckCallback(

@@ -1,45 +1,45 @@
 /*
- * XREFs of Phase1InitializationIoReady @ 0x140C5FB78
+ * XREFs of Phase1InitializationIoReady @ 0x140C61CC8
  * Callers:
- *     Phase1Initialization @ 0x1406FC8E0 (Phase1Initialization.c)
+ *     Phase1Initialization @ 0x1406FA520 (Phase1Initialization.c)
  * Callees:
- *     KeReleaseSpinLock @ 0x14024DD30 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140254B20 (KeAcquireSpinLockRaiseToDpc.c)
- *     KeSetEvent @ 0x1402725A0 (KeSetEvent.c)
- *     PopUmpoMessageCallback @ 0x14044B8D0 (PopUmpoMessageCallback.c)
- *     RtlpInitializeNonVolatileFlush @ 0x1404D8468 (RtlpInitializeNonVolatileFlush.c)
- *     ExLogTimeZoneInformation @ 0x1404D955C (ExLogTimeZoneInformation.c)
- *     InbvSetProgressBarSubset @ 0x1404FA794 (InbvSetProgressBarSubset.c)
- *     KeBugCheck @ 0x1404FB970 (KeBugCheck.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     VfClearVerifierSettings @ 0x14060FDA0 (VfClearVerifierSettings.c)
- *     CarInitLogging @ 0x1406160A0 (CarInitLogging.c)
- *     CarReportUnusualShutdown @ 0x14061750C (CarReportUnusualShutdown.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     ExQueryBootEntropyInformation @ 0x1406F9784 (ExQueryBootEntropyInformation.c)
- *     TlgRegisterAggregateProvider @ 0x1406FBADC (TlgRegisterAggregateProvider.c)
- *     SmpSystemStoreCreate @ 0x140799854 (SmpSystemStoreCreate.c)
- *     sub_140972980 @ 0x140972980 (sub_140972980.c)
- *     IoRegisterPlugPlayNotification @ 0x1409ED860 (IoRegisterPlugPlayNotification.c)
- *     TraceLoggingRegisterEx_EtwRegister_EtwSetInformation @ 0x140A57414 (TraceLoggingRegisterEx_EtwRegister_EtwSetInformation.c)
- *     ExInitializeNls @ 0x140AC1714 (ExInitializeNls.c)
- *     VfNotifyVerifierOfEvent @ 0x140B82EA0 (VfNotifyVerifierOfEvent.c)
- *     MmInitSystem @ 0x140BDE2E8 (MmInitSystem.c)
- *     PsInitSystem @ 0x140BDE7F8 (PsInitSystem.c)
- *     MmInitSystemDll @ 0x140BDE990 (MmInitSystemDll.c)
- *     InitSafeBoot @ 0x140C0B900 (InitSafeBoot.c)
- *     CcInitializeCacheManager @ 0x140C15A88 (CcInitializeCacheManager.c)
- *     KasanInitSystem @ 0x140C26690 (KasanInitSystem.c)
- *     BapdpProcessVsmKeyBlobs @ 0x140C3F25C (BapdpProcessVsmKeyBlobs.c)
- *     CmInitSystem2 @ 0x140C5F4F8 (CmInitSystem2.c)
- *     SaveNodeDistanceInformation @ 0x140C5F580 (SaveNodeDistanceInformation.c)
- *     StartFirstUserProcess @ 0x140C5FF68 (StartFirstUserProcess.c)
- *     SeRmInitPhase1 @ 0x140C6024C (SeRmInitPhase1.c)
- *     KeInitializeClock @ 0x140C60350 (KeInitializeClock.c)
- *     EmInitSystem @ 0x140C607D0 (EmInitSystem.c)
- *     KeInitSystem @ 0x140C60CE0 (KeInitSystem.c)
- *     ObInitSystem @ 0x140C612B4 (ObInitSystem.c)
- *     PoInitSystem @ 0x140C61990 (PoInitSystem.c)
+ *     KeSetEvent @ 0x140227B30 (KeSetEvent.c)
+ *     KeReleaseSpinLock @ 0x14027E340 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140285130 (KeAcquireSpinLockRaiseToDpc.c)
+ *     PopUmpoMessageCallback @ 0x140442A10 (PopUmpoMessageCallback.c)
+ *     RtlpInitializeNonVolatileFlush @ 0x1404D18B8 (RtlpInitializeNonVolatileFlush.c)
+ *     ExLogTimeZoneInformation @ 0x1404D29AC (ExLogTimeZoneInformation.c)
+ *     InbvSetProgressBarSubset @ 0x1404F8074 (InbvSetProgressBarSubset.c)
+ *     KeBugCheck @ 0x1404F9230 (KeBugCheck.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     VfClearVerifierSettings @ 0x14060E360 (VfClearVerifierSettings.c)
+ *     CarInitLogging @ 0x140614660 (CarInitLogging.c)
+ *     CarReportUnusualShutdown @ 0x140615ACC (CarReportUnusualShutdown.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     ExQueryBootEntropyInformation @ 0x1406F73C4 (ExQueryBootEntropyInformation.c)
+ *     TlgRegisterAggregateProvider @ 0x1406F971C (TlgRegisterAggregateProvider.c)
+ *     SmpSystemStoreCreate @ 0x140799964 (SmpSystemStoreCreate.c)
+ *     sub_14095B190 @ 0x14095B190 (sub_14095B190.c)
+ *     TraceLoggingRegisterEx_EtwRegister_EtwSetInformation @ 0x1409EA0B8 (TraceLoggingRegisterEx_EtwRegister_EtwSetInformation.c)
+ *     IoRegisterPlugPlayNotification @ 0x1409EB2A0 (IoRegisterPlugPlayNotification.c)
+ *     ExInitializeNls @ 0x140ABC9FC (ExInitializeNls.c)
+ *     VfNotifyVerifierOfEvent @ 0x140B84EA0 (VfNotifyVerifierOfEvent.c)
+ *     MmInitSystem @ 0x140BE02E8 (MmInitSystem.c)
+ *     PsInitSystem @ 0x140BE07F8 (PsInitSystem.c)
+ *     MmInitSystemDll @ 0x140BE0990 (MmInitSystemDll.c)
+ *     InitSafeBoot @ 0x140C0D900 (InitSafeBoot.c)
+ *     CcInitializeCacheManager @ 0x140C17A88 (CcInitializeCacheManager.c)
+ *     KasanInitSystem @ 0x140C286E0 (KasanInitSystem.c)
+ *     BapdpProcessVsmKeyBlobs @ 0x140C413AC (BapdpProcessVsmKeyBlobs.c)
+ *     CmInitSystem2 @ 0x140C61648 (CmInitSystem2.c)
+ *     SaveNodeDistanceInformation @ 0x140C616D0 (SaveNodeDistanceInformation.c)
+ *     StartFirstUserProcess @ 0x140C620B8 (StartFirstUserProcess.c)
+ *     SeRmInitPhase1 @ 0x140C6239C (SeRmInitPhase1.c)
+ *     KeInitializeClock @ 0x140C624A0 (KeInitializeClock.c)
+ *     EmInitSystem @ 0x140C62920 (EmInitSystem.c)
+ *     KeInitSystem @ 0x140C62E30 (KeInitSystem.c)
+ *     ObInitSystem @ 0x140C63408 (ObInitSystem.c)
+ *     PoInitSystem @ 0x140C63AE4 (PoInitSystem.c)
  */
 
 NTSTATUS __fastcall Phase1InitializationIoReady(_QWORD *a1, char a2)
@@ -48,19 +48,15 @@ NTSTATUS __fastcall Phase1InitializationIoReady(_QWORD *a1, char a2)
   __int64 v5; // rcx
   int v6; // eax
   int inited; // eax
-  __int64 v8; // r8
-  __int64 v9; // r9
-  __int64 v10; // rcx
-  __int64 v11; // r8
-  _QWORD *v12; // rdi
-  KSPIN_LOCK *v13; // r14
-  KIRQL v14; // al
-  __int64 v15; // r9
-  _QWORD *v16; // rbx
-  KIRQL v17; // bp
-  __int64 v18; // r9
-  void *v19; // rcx
-  KIRQL v20; // al
+  __int64 v8; // rcx
+  __int64 v9; // r8
+  _QWORD *v10; // rdi
+  KSPIN_LOCK *v11; // r14
+  KIRQL v12; // al
+  _QWORD *v13; // rbx
+  KIRQL v14; // bp
+  void *v15; // rcx
+  KIRQL v16; // al
 
   RtlpInitializeNonVolatileFlush();
   v4 = ExInitializeNls();
@@ -75,17 +71,17 @@ NTSTATUS __fastcall Phase1InitializationIoReady(_QWORD *a1, char a2)
   if ( inited < 0 )
     KeBugCheckEx(0x32u, inited, 8uLL, 1uLL, 0LL);
   TmInitSystemPhase2();
-  InbvSetProgressBarSubset(0LL, 100LL, v8, v9);
-  if ( (_DWORD)InitSafeBootMode )
+  InbvSetProgressBarSubset(0LL, 100LL);
+  if ( InitSafeBootMode )
     InitSafeBoot(a2);
   TraceLoggingRegisterEx_EtwRegister_EtwSetInformation((__int64)&dword_140E074B8, 0LL, 0LL);
-  v10 = *((_QWORD *)PspSystemPartition + 3);
-  if ( (*(_DWORD *)(v10 + 2224) & 3) != 0 )
-    SmpSystemStoreCreate(v10);
-  dword_140E287F0 = 3;
-  TraceLoggingRegisterEx_EtwRegister_EtwSetInformation((__int64)&unk_140E09088, (__int64)VmpTracingEnabledCallback, 0LL);
-  *(_QWORD *)&VmpTraceLoggingProvider = &unk_140E09088;
-  MmInitSystem(2LL, (ULONG_PTR)a1, v11);
+  v8 = *((_QWORD *)PspSystemPartition + 3);
+  if ( (*(_DWORD *)(v8 + 2224) & 3) != 0 )
+    SmpSystemStoreCreate(v8);
+  dword_140E28930 = 3;
+  TraceLoggingRegisterEx_EtwRegister_EtwSetInformation((__int64)&unk_140E090F8, (__int64)VmpTracingEnabledCallback, 0LL);
+  *(_QWORD *)&VmpTraceLoggingProvider = &unk_140E090F8;
+  MmInitSystem(2LL, (ULONG_PTR)a1, v9);
   CcInitializeCacheManager(2);
   ObInitSystem(2LL);
   SaveNodeDistanceInformation();
@@ -93,11 +89,11 @@ NTSTATUS __fastcall Phase1InitializationIoReady(_QWORD *a1, char a2)
     KeBugCheck(0xA0u);
   KeInitializeClock(2uLL);
   KeInitSystem(3LL);
-  TraceLoggingRegisterEx_EtwRegister_EtwSetInformation((__int64)&dword_140E09310, 0LL, 0LL);
-  if ( byte_140FCDC28 )
+  TraceLoggingRegisterEx_EtwRegister_EtwSetInformation((__int64)&dword_140E09380, 0LL, 0LL);
+  if ( byte_140FCECA8 )
     KasanInitSystem((__int64)a1, 2);
   ExLogTimeZoneInformation();
-  sub_140972980();
+  sub_14095B190();
   if ( !(unsigned __int8)PsInitSystem(2, a1) )
     goto LABEL_47;
   MmInitSystemDll();
@@ -112,47 +108,47 @@ LABEL_47:
   LODWORD(InitializationPhase) = InitializationPhase + 1;
   if ( ExCbPhase1InitComplete )
   {
-    v12 = (_QWORD *)(ExCbPhase1InitComplete + 16);
-    if ( (_QWORD *)*v12 != v12 )
+    v10 = (_QWORD *)(ExCbPhase1InitComplete + 16);
+    if ( (_QWORD *)*v10 != v10 )
     {
-      v13 = (KSPIN_LOCK *)(ExCbPhase1InitComplete + 8);
-      v14 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(ExCbPhase1InitComplete + 8));
-      v16 = (_QWORD *)*v12;
-      v17 = v14;
-      if ( v14 == 2 )
+      v11 = (KSPIN_LOCK *)(ExCbPhase1InitComplete + 8);
+      v12 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(ExCbPhase1InitComplete + 8));
+      v13 = (_QWORD *)*v10;
+      v14 = v12;
+      if ( v12 == 2 )
       {
-        while ( v16 != v12 )
+        while ( v13 != v10 )
         {
-          guard_dispatch_icall_no_overrides(v16[4], 0LL, 0LL, v15);
-          v16 = (_QWORD *)*v16;
+          guard_dispatch_icall_no_overrides(v13[4], 0LL);
+          v13 = (_QWORD *)*v13;
         }
       }
       else
       {
-        while ( v16 != v12 )
+        while ( v13 != v10 )
         {
-          if ( !*((_BYTE *)v16 + 44) )
+          if ( !*((_BYTE *)v13 + 44) )
           {
-            ++*((_DWORD *)v16 + 10);
-            KeReleaseSpinLock(v13, v17);
-            v19 = (void *)v16[4];
-            if ( (void (__fastcall *)(PVOID, PVOID, PVOID))v16[3] == PopUmpoMessageCallback )
-              PopUmpoMessageCallback(v19, 0LL, 0LL);
+            ++*((_DWORD *)v13 + 10);
+            KeReleaseSpinLock(v11, v14);
+            v15 = (void *)v13[4];
+            if ( (void (__fastcall *)(PVOID, PVOID, PVOID))v13[3] == PopUmpoMessageCallback )
+              PopUmpoMessageCallback(v15, 0LL, 0LL);
             else
-              guard_dispatch_icall_no_overrides(v19, 0LL, 0LL, v18);
-            v20 = KeAcquireSpinLockRaiseToDpc(v13);
-            --*((_DWORD *)v16 + 10);
-            v17 = v20;
-            if ( *((_BYTE *)v16 + 44) )
+              guard_dispatch_icall_no_overrides(v15, 0LL);
+            v16 = KeAcquireSpinLockRaiseToDpc(v11);
+            --*((_DWORD *)v13 + 10);
+            v14 = v16;
+            if ( *((_BYTE *)v13 + 44) )
             {
-              if ( !*((_DWORD *)v16 + 10) )
+              if ( !*((_DWORD *)v13 + 10) )
                 KeSetEvent(&ExpCallbackEvent, 0, 0);
             }
           }
-          v16 = (_QWORD *)*v16;
+          v13 = (_QWORD *)*v13;
         }
       }
-      KeReleaseSpinLock(v13, v17);
+      KeReleaseSpinLock(v11, v14);
     }
   }
   if ( ViVerifierEnabled )
@@ -162,7 +158,7 @@ LABEL_47:
   }
   if ( VfClearanceFlag )
     VfClearVerifierSettings();
-  if ( (*(_DWORD *)(a1[30] + 132LL) & 2) == 0 && !(_DWORD)InitSafeBootMode )
+  if ( (*(_DWORD *)(a1[30] + 132LL) & 2) == 0 && !InitSafeBootMode )
     CarReportUnusualShutdown(ViVerifierEnabled == 0);
   ExQueryBootEntropyInformation(0LL);
   if ( !(unsigned __int8)KeInitSystem(4LL) )
@@ -175,5 +171,5 @@ LABEL_47:
            PnpDriverObject,
            (PDRIVER_NOTIFICATION_CALLBACK_ROUTINE)ExpPrmNotifyInterfaceChange,
            0LL,
-           &qword_140EFA590);
+           &qword_140EFA8B0);
 }

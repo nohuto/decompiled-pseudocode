@@ -18,7 +18,7 @@ __int64 PspInitializeSystemDlls()
   __int64 v4; // r15
   unsigned int i; // ebp
   __int64 v6; // r14
-  unsigned __int64 ExportedRoutineByName; // rax
+  char *ExportedRoutineByName; // rax
 
   v0 = 0;
   v1 = &qword_140A9B268;
@@ -31,10 +31,10 @@ __int64 PspInitializeSystemDlls()
       v4 = *(v1 - 1);
       for ( i = 0;
             i < *(_DWORD *)v1;
-            **(_QWORD **)(v4 + 8 * v6 + 8) = *(_QWORD *)(v3 + 24) - *(_QWORD *)(v3 + 32) + ExportedRoutineByName )
+            **(_QWORD **)(v4 + 8 * v6 + 8) = &ExportedRoutineByName[*(_QWORD *)(v3 + 24) - *(_QWORD *)(v3 + 32)] )
       {
         v6 = 2LL * i;
-        ExportedRoutineByName = RtlFindExportedRoutineByName(*(_QWORD *)(v3 + 32), *(char **)(v4 + 16LL * i));
+        ExportedRoutineByName = (char *)RtlFindExportedRoutineByName(*(PVOID *)(v3 + 32), *(PCSTR *)(v4 + 16LL * i));
         if ( !ExportedRoutineByName )
           KeBugCheckEx(0x6Bu, 0xFFFFFFFFC000007AuLL, 6uLL, 0LL, 0LL);
         ++i;

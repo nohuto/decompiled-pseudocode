@@ -1,14 +1,14 @@
 /*
- * XREFs of IopDeviceRemovalForResetComplete @ 0x14062C698
+ * XREFs of IopDeviceRemovalForResetComplete @ 0x14062C74C
  * Callers:
  *     <none>
  * Callees:
- *     KiSetTimerEx @ 0x140006E00 (KiSetTimerEx.c)
- *     RtlUnicodeStringCopyString @ 0x1401CD434 (RtlUnicodeStringCopyString.c)
- *     Template_hzr0qqhzr4 @ 0x1401CD5AC (Template_hzr0qqhzr4.c)
+ *     KiSetTimerEx @ 0x140006F70 (KiSetTimerEx.c)
+ *     RtlUnicodeStringCopyString @ 0x1401CD280 (RtlUnicodeStringCopyString.c)
+ *     Template_hzr0qqhzr4 @ 0x1401CD3F8 (Template_hzr0qqhzr4.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
- *     IopFreeResetRemovalContext @ 0x14062C7CC (IopFreeResetRemovalContext.c)
- *     PnpTraceDeviceRemovalForResetComplete @ 0x140648E78 (PnpTraceDeviceRemovalForResetComplete.c)
+ *     IopFreeResetRemovalContext @ 0x14062C880 (IopFreeResetRemovalContext.c)
+ *     PnpTraceDeviceRemovalForResetComplete @ 0x140648F5C (PnpTraceDeviceRemovalForResetComplete.c)
  */
 
 __int64 __fastcall IopDeviceRemovalForResetComplete(__int64 a1, const wchar_t *a2)

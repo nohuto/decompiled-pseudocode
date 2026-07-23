@@ -1,12 +1,12 @@
 /*
- * XREFs of WheapCreatePerProcessorInfo @ 0x1409AED88
+ * XREFs of WheapCreatePerProcessorInfo @ 0x1409AFD88
  * Callers:
- *     WheaInitialize @ 0x1409AFD68 (WheaInitialize.c)
+ *     WheaInitialize @ 0x1409B0D68 (WheaInitialize.c)
  * Callees:
- *     KeGetPrcb @ 0x1400A62C4 (KeGetPrcb.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
+ *     KeGetPrcb @ 0x1400A6204 (KeGetPrcb.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
  */
 
 __int64 WheapCreatePerProcessorInfo()

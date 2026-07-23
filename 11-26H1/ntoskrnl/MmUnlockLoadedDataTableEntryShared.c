@@ -1,12 +1,12 @@
 /*
- * XREFs of MmUnlockLoadedDataTableEntryShared @ 0x1406FD1D0
+ * XREFs of MmUnlockLoadedDataTableEntryShared @ 0x140701EA0
  * Callers:
- *     LdrpKrnGetDataTableEntry @ 0x1404AB078 (LdrpKrnGetDataTableEntry.c)
- *     ExpQuerySingleModuleInformation @ 0x14077AC20 (ExpQuerySingleModuleInformation.c)
- *     EtwpProviderArrivalCallback @ 0x14093C304 (EtwpProviderArrivalCallback.c)
- *     RtlPcToFilePath @ 0x1409FA0A0 (RtlPcToFilePath.c)
+ *     LdrpKrnGetDataTableEntry @ 0x1404A4708 (LdrpKrnGetDataTableEntry.c)
+ *     ExpQuerySingleModuleInformation @ 0x14077DB50 (ExpQuerySingleModuleInformation.c)
+ *     EtwpProviderArrivalCallback @ 0x140917EA4 (EtwpProviderArrivalCallback.c)
+ *     RtlPcToFilePath @ 0x140B129A0 (RtlPcToFilePath.c)
  * Callees:
- *     MiUnlockLoadedDataTableEntry @ 0x1404A4B98 (MiUnlockLoadedDataTableEntry.c)
+ *     MiUnlockLoadedDataTableEntry @ 0x14049E228 (MiUnlockLoadedDataTableEntry.c)
  */
 
 __int64 __fastcall MmUnlockLoadedDataTableEntryShared(__int64 a1)

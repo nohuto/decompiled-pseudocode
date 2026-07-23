@@ -1,13 +1,13 @@
 /*
- * XREFs of EtwQueryTraceHandleByLoggerName @ 0x1407E5744
+ * XREFs of EtwQueryTraceHandleByLoggerName @ 0x1407E5A14
  * Callers:
- *     WdipSemGetLoggerIds @ 0x1407E56B4 (WdipSemGetLoggerIds.c)
- *     WmiQueryTraceInformation @ 0x140831EE0 (WmiQueryTraceInformation.c)
- *     IopErrorLogThread @ 0x140872530 (IopErrorLogThread.c)
+ *     WdipSemGetLoggerIds @ 0x1407E5984 (WdipSemGetLoggerIds.c)
+ *     WmiQueryTraceInformation @ 0x1408321E0 (WmiQueryTraceInformation.c)
+ *     IopErrorLogThread @ 0x140872770 (IopErrorLogThread.c)
  * Callees:
- *     PsGetCurrentServerSiloGlobals @ 0x14022D370 (PsGetCurrentServerSiloGlobals.c)
- *     EtwpAcquireLoggerContextByLoggerName @ 0x1406BD7EC (EtwpAcquireLoggerContextByLoggerName.c)
- *     EtwpReleaseLoggerContext @ 0x1406BE208 (EtwpReleaseLoggerContext.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x14022D480 (PsGetCurrentServerSiloGlobals.c)
+ *     EtwpAcquireLoggerContextByLoggerName @ 0x1406BD81C (EtwpAcquireLoggerContextByLoggerName.c)
+ *     EtwpReleaseLoggerContext @ 0x1406BE238 (EtwpReleaseLoggerContext.c)
  */
 
 __int64 __fastcall EtwQueryTraceHandleByLoggerName(__int64 a1, _QWORD *a2)

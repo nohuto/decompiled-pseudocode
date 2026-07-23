@@ -1,22 +1,22 @@
 /*
- * XREFs of PopFreePowerLimitRequest @ 0x14074B644
+ * XREFs of PopFreePowerLimitRequest @ 0x140749974
  * Callers:
- *     PoCreatePowerLimitRequest @ 0x14074AB10 (PoCreatePowerLimitRequest.c)
- *     PoDeletePowerLimitRequest @ 0x14074ABF0 (PoDeletePowerLimitRequest.c)
+ *     PoCreatePowerLimitRequest @ 0x140748E40 (PoCreatePowerLimitRequest.c)
+ *     PoDeletePowerLimitRequest @ 0x140748F20 (PoDeletePowerLimitRequest.c)
  * Callees:
- *     PoDestroyReasonContext @ 0x140331BA4 (PoDestroyReasonContext.c)
- *     KeWaitForSingleObject @ 0x14033E960 (KeWaitForSingleObject.c)
- *     PopReleaseRwLock @ 0x1403B5EC8 (PopReleaseRwLock.c)
- *     PopGetDope @ 0x1403F2908 (PopGetDope.c)
- *     KeInitializeEvent @ 0x140409D80 (KeInitializeEvent.c)
- *     PopAcquireRwLockExclusive @ 0x1404283D4 (PopAcquireRwLockExclusive.c)
- *     PopCleanPowerLimitExtension @ 0x1405CF754 (PopCleanPowerLimitExtension.c)
- *     PopUpdatePowerLimitTimeTracking @ 0x1405CF8EC (PopUpdatePowerLimitTimeTracking.c)
- *     PopThermalUpdateTelemetryClientCount @ 0x1405D4014 (PopThermalUpdateTelemetryClientCount.c)
- *     PopTracePowerLimitHistogram @ 0x1405D620C (PopTracePowerLimitHistogram.c)
- *     PopEvaluatePowerLimitChange @ 0x14074B3D4 (PopEvaluatePowerLimitChange.c)
- *     PopDiagTracePowerLimitRequest @ 0x140757400 (PopDiagTracePowerLimitRequest.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     PopReleaseRwLock @ 0x1402AE8FC (PopReleaseRwLock.c)
+ *     PoDestroyReasonContext @ 0x1402BC528 (PoDestroyReasonContext.c)
+ *     KeWaitForSingleObject @ 0x14031DE40 (KeWaitForSingleObject.c)
+ *     PopGetDope @ 0x1403E6628 (PopGetDope.c)
+ *     KeInitializeEvent @ 0x140402260 (KeInitializeEvent.c)
+ *     PopAcquireRwLockExclusive @ 0x14041C564 (PopAcquireRwLockExclusive.c)
+ *     PopCleanPowerLimitExtension @ 0x1405CCE74 (PopCleanPowerLimitExtension.c)
+ *     PopUpdatePowerLimitTimeTracking @ 0x1405CD00C (PopUpdatePowerLimitTimeTracking.c)
+ *     PopThermalUpdateTelemetryClientCount @ 0x1405D17D4 (PopThermalUpdateTelemetryClientCount.c)
+ *     PopTracePowerLimitHistogram @ 0x1405D3820 (PopTracePowerLimitHistogram.c)
+ *     PopEvaluatePowerLimitChange @ 0x140749704 (PopEvaluatePowerLimitChange.c)
+ *     PopDiagTracePowerLimitRequest @ 0x140755880 (PopDiagTracePowerLimitRequest.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PopFreePowerLimitRequest(_QWORD *P)
@@ -30,19 +30,17 @@ __int64 __fastcall PopFreePowerLimitRequest(_QWORD *P)
   unsigned __int64 v8; // rcx
   unsigned __int64 **v9; // rax
   __int64 v10; // rdx
-  __int64 v11; // r8
-  __int64 v12; // r9
-  _QWORD *v13; // rcx
-  void *v14; // rcx
-  void *v15; // rcx
+  _QWORD *v11; // rcx
+  void *v12; // rcx
+  void *v13; // rcx
   struct _KEVENT Event; // [rsp+30h] [rbp-38h] BYREF
 
   memset(&Event, 0, sizeof(Event));
-  PopAcquireRwLockExclusive(&PopPowerLimitExtensionLock);
+  PopAcquireRwLockExclusive((unsigned __int64 *)&PopPowerLimitExtensionLock);
   v2 = (unsigned __int64 *)P[8];
   if ( !v2 )
     goto LABEL_23;
-  PopReleaseRwLock((signed __int64 *)&PopPowerLimitExtensionLock);
+  PopReleaseRwLock(&PopPowerLimitExtensionLock);
   PopAcquireRwLockExclusive(v2 + 4);
   if ( *((_BYTE *)P + 16) )
   {
@@ -60,7 +58,7 @@ __int64 __fastcall PopFreePowerLimitRequest(_QWORD *P)
   }
   PopReleaseRwLock((signed __int64 *)v2 + 4);
   v4 = 0;
-  PopAcquireRwLockExclusive(&PopPowerLimitExtensionLock);
+  PopAcquireRwLockExclusive((unsigned __int64 *)&PopPowerLimitExtensionLock);
   PopAcquireRwLockExclusive(v2 + 4);
   if ( P[8] )
   {
@@ -101,7 +99,7 @@ LABEL_30:
   }
 LABEL_17:
   PopReleaseRwLock((signed __int64 *)v2 + 4);
-  PopReleaseRwLock((signed __int64 *)&PopPowerLimitExtensionLock);
+  PopReleaseRwLock(&PopPowerLimitExtensionLock);
   if ( v4 )
   {
     PopAcquireRwLockExclusive(v2 + 4);
@@ -115,28 +113,28 @@ LABEL_17:
       v2[23] = 0LL;
     }
     PopReleaseRwLock((signed __int64 *)v2 + 4);
-    PopCleanPowerLimitExtension(v2, v10, v11, v12);
+    PopCleanPowerLimitExtension(v2, v10);
   }
-  PopAcquireRwLockExclusive(&PopPowerLimitExtensionLock);
+  PopAcquireRwLockExclusive((unsigned __int64 *)&PopPowerLimitExtensionLock);
 LABEL_23:
-  v13 = (_QWORD *)P[3];
-  if ( v13 )
+  v11 = (_QWORD *)P[3];
+  if ( v11 )
   {
-    PoDestroyReasonContext(v13);
+    PoDestroyReasonContext(v11);
     P[3] = 0LL;
   }
-  v14 = (void *)P[7];
-  if ( v14 )
+  v12 = (void *)P[7];
+  if ( v12 )
   {
-    ExFreePoolWithTag(v14, 0x6D6C5050u);
+    ExFreePoolWithTag(v12, 0x6D6C5050u);
     P[7] = 0LL;
   }
-  v15 = (void *)P[5];
-  if ( v15 )
+  v13 = (void *)P[5];
+  if ( v13 )
   {
-    ExFreePoolWithTag(v15, 0x6D6C5050u);
+    ExFreePoolWithTag(v13, 0x6D6C5050u);
     P[5] = 0LL;
   }
   ExFreePoolWithTag(P, 0x6D6C5050u);
-  return PopReleaseRwLock((signed __int64 *)&PopPowerLimitExtensionLock);
+  return PopReleaseRwLock(&PopPowerLimitExtensionLock);
 }

@@ -10,10 +10,12 @@
 
 __int64 __fastcall EtwpFreeRegistration(__int64 a1)
 {
+  __int64 v2; // r8
+  __int64 v3; // r9
   __int64 result; // rax
 
   memset((void *)(a1 + 88), 0, 0xA8uLL);
-  result = RtlpInterlockedPushEntrySList(&EtwpFreeRegistrationList, a1);
+  result = RtlpInterlockedPushEntrySList(&EtwpFreeRegistrationList, a1, v2, v3);
   _InterlockedDecrement(&EtwpRegistrationCount);
   return result;
 }

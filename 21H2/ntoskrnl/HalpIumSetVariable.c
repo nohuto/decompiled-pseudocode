@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpIumSetVariable @ 0x1404D6830
+ * XREFs of HalpIumSetVariable @ 0x1404D6A70
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     memmove @ 0x140413F40 (memmove.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall HalpIumSetVariable(_WORD *Src, __int128 *a2, int a3, size_t a4, void *Srca)
@@ -20,7 +20,7 @@ __int64 __fastcall HalpIumSetVariable(_WORD *Src, __int128 *a2, int a3, size_t a
   __int128 v16; // xmm0
   __int64 v17; // rbx
 
-  if ( !qword_140C4A250 || KeGetCurrentIrql() > 2u )
+  if ( !qword_140C4A290 || KeGetCurrentIrql() > 2u )
     return 0x8000000000000003uLL;
   v9 = -1LL;
   do
@@ -44,7 +44,7 @@ __int64 __fastcall HalpIumSetVariable(_WORD *Src, __int128 *a2, int a3, size_t a
   *((_OWORD *)v14 + 1) = v16;
   memmove(v15, Srca, a4);
   v14[5] = a4;
-  v17 = ((__int64 (__fastcall *)(__int64, _QWORD *, unsigned __int64))qword_140C4A250)(5LL, v14, v11);
+  v17 = ((__int64 (__fastcall *)(__int64, _QWORD *, unsigned __int64))qword_140C4A290)(5LL, v14, v11);
   ExFreePoolWithTag(v14, 0);
   return v17;
 }

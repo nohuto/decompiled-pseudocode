@@ -1,14 +1,14 @@
 /*
- * XREFs of ZwCancelWaitCompletionPacket @ 0x1407246D0
+ * XREFs of ZwCancelWaitCompletionPacket @ 0x1407292A0
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwCancelWaitCompletionPacket(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwCancelWaitCompletionPacket(HANDLE WaitCompletionPacketHandle, BOOLEAN RemoveSignaledPacket)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(WaitCompletionPacketHandle);
 }

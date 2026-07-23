@@ -9,131 +9,132 @@
  *     RtlLeaveCriticalSection @ 0x18002F230 (RtlLeaveCriticalSection.c)
  *     RtlEnterCriticalSection @ 0x18002FAA0 (RtlEnterCriticalSection.c)
  *     RtlpAllocateEnvBlock @ 0x18004BDBC (RtlpAllocateEnvBlock.c)
- *     memmove @ 0x1800A44C0 (memmove.c)
- *     memset @ 0x1800A4780 (memset.c)
+ *     memmove @ 0x1800A4480 (memmove.c)
+ *     memset @ 0x1800A4740 (memset.c)
  */
 
-__int64 __fastcall RtlSetEnvironmentVar(unsigned __int64 *a1, _WORD *a2, size_t a3, _WORD *a4, unsigned __int64 a5)
+NTSTATUS __cdecl RtlSetEnvironmentVar(
+        PVOID *Environment,
+        PCWSTR Name,
+        SIZE_T NameLength,
+        PCWSTR Value,
+        SIZE_T ValueLength)
 {
-  _WORD *v5; // r13
-  size_t v6; // rbx
-  __int64 v7; // r8
+  PCWSTR v5; // r13
+  SIZE_T v6; // rbx
+  PCWSTR v7; // r8
   unsigned __int64 i; // rax
-  __int16 v10; // cx
-  unsigned __int64 j; // rax
+  WCHAR v10; // cx
+  SIZE_T j; // rax
   _PEB *ProcessEnvironmentBlock; // rcx
   _RTL_USER_PROCESS_PARAMETERS *ProcessParameters; // rdi
-  __int64 v14; // rdx
-  unsigned __int64 Environment; // r15
+  char *v14; // rdx
+  PVOID v15; // r15
   char *v16; // rsi
   char *v17; // r14
-  unsigned __int64 v18; // rdi
+  SIZE_T v18; // rdi
   char *v19; // r13
   unsigned __int64 v20; // r15
   char *v21; // rax
-  unsigned __int16 *v22; // r10
+  const WCHAR *v22; // r10
   char *v23; // r11
-  unsigned __int64 v24; // rax
-  unsigned __int64 v25; // rbx
+  SIZE_T v24; // rax
+  const WCHAR *v25; // rbx
   unsigned __int64 v26; // r8
   unsigned __int64 v27; // r9
   int v28; // ecx
   __int16 v29; // ax
-  unsigned __int64 v30; // rax
-  unsigned __int64 v31; // rdi
-  unsigned __int64 v32; // r12
+  SIZE_T v30; // rax
+  SIZE_T v31; // rdi
+  SIZE_T v32; // r12
   char *v33; // rax
   char *v34; // r15
   __int64 v35; // rbx
   char *v36; // rdi
   char *v37; // rdi
-  __int64 v38; // rbx
-  __int64 v39; // rdx
-  __int64 v40; // r8
-  char v41; // bl
-  _RTL_USER_PROCESS_PARAMETERS *v42; // rax
-  char *v43; // r14
-  __int16 v44; // ax
-  unsigned __int64 v45; // r15
+  SIZE_T v38; // rbx
+  char v39; // bl
+  _RTL_USER_PROCESS_PARAMETERS *v40; // rax
+  char *v41; // r14
+  __int16 v42; // ax
+  SIZE_T v43; // r15
   char *EnvBlock; // rsi
-  char *v47; // rdi
-  __int64 v48; // rdx
-  __int64 v49; // r8
-  char *v50; // rdi
-  size_t v51; // rbx
-  char *v52; // rsi
-  __int64 FastPebLock; // rcx
-  BOOL IsCriticalSectionLockedByThread; // eax
-  char v56; // [rsp+20h] [rbp-98h]
-  char v57; // [rsp+21h] [rbp-97h]
-  char *v58; // [rsp+28h] [rbp-90h]
-  char *v59; // [rsp+28h] [rbp-90h]
-  __int64 v60; // [rsp+30h] [rbp-88h]
-  _BYTE *v61; // [rsp+38h] [rbp-80h]
-  int v62; // [rsp+40h] [rbp-78h]
-  _RTL_USER_PROCESS_PARAMETERS *v63; // [rsp+48h] [rbp-70h]
-  char *v64; // [rsp+58h] [rbp-60h]
-  unsigned __int64 v65; // [rsp+60h] [rbp-58h]
+  char *v45; // rdi
+  char *v46; // rdi
+  size_t v47; // rbx
+  char *v48; // rsi
+  _RTL_CRITICAL_SECTION *FastPebLock; // rcx
+  LOGICAL IsCriticalSectionLockedByThread; // eax
+  char v52; // [rsp+20h] [rbp-98h]
+  char v53; // [rsp+21h] [rbp-97h]
+  char *v54; // [rsp+28h] [rbp-90h]
+  char *v55; // [rsp+28h] [rbp-90h]
+  char *v56; // [rsp+30h] [rbp-88h]
+  PVOID BaseAddress; // [rsp+38h] [rbp-80h]
+  NTSTATUS v58; // [rsp+40h] [rbp-78h]
+  _RTL_USER_PROCESS_PARAMETERS *v59; // [rsp+48h] [rbp-70h]
+  char *v60; // [rsp+58h] [rbp-60h]
+  SIZE_T v61; // [rsp+60h] [rbp-58h]
 
-  v5 = a4;
-  v6 = a3;
-  v7 = (__int64)a2;
-  v64 = 0LL;
-  v65 = 0LL;
-  v56 = 0;
-  v57 = 0;
-  if ( !v6 || !*a2 )
-    return 3221225485LL;
+  v5 = Value;
+  v6 = NameLength;
+  v7 = Name;
+  v60 = 0LL;
+  v61 = 0LL;
+  v52 = 0;
+  v53 = 0;
+  if ( !v6 || !*Name )
+    return -1073741811;
   for ( i = 1LL; i < v6; ++i )
   {
-    v10 = a2[i];
+    v10 = Name[i];
     if ( !v10 || v10 == 61 )
-      return 3221225485LL;
+      return -1073741811;
   }
   if ( v5 )
   {
-    for ( j = 0LL; j < a5; ++j )
+    for ( j = 0LL; j < ValueLength; ++j )
     {
       if ( !v5[j] )
-        return 3221225485LL;
+        return -1073741811;
     }
   }
   ProcessEnvironmentBlock = NtCurrentTeb()->ProcessEnvironmentBlock;
   ProcessParameters = ProcessEnvironmentBlock->ProcessParameters;
-  v63 = ProcessParameters;
-  v62 = 0;
+  v59 = ProcessParameters;
+  v58 = 0;
   v14 = 0LL;
-  v60 = 0LL;
-  if ( a1 )
+  v56 = 0LL;
+  if ( Environment )
   {
-    Environment = *a1;
-    v61 = (_BYTE *)*a1;
-    if ( ProcessParameters->Environment == (void *)*a1 )
+    v15 = *Environment;
+    BaseAddress = *Environment;
+    if ( ProcessParameters->Environment == *Environment )
     {
-      FastPebLock = (__int64)ProcessEnvironmentBlock->FastPebLock;
+      FastPebLock = ProcessEnvironmentBlock->FastPebLock;
       if ( !FastPebLock
         || (IsCriticalSectionLockedByThread = RtlIsCriticalSectionLockedByThread(FastPebLock),
             v14 = 0LL,
-            v7 = (__int64)a2,
+            v7 = Name,
             IsCriticalSectionLockedByThread) )
       {
-        v56 = 1;
+        v52 = 1;
       }
     }
   }
   else
   {
-    v57 = 1;
-    v56 = 1;
-    RtlEnterCriticalSection((__int64)NtCurrentPeb()->FastPebLock);
-    Environment = (unsigned __int64)ProcessParameters->Environment;
-    v61 = (_BYTE *)Environment;
+    v53 = 1;
+    v52 = 1;
+    RtlEnterCriticalSection(NtCurrentPeb()->FastPebLock);
+    v15 = ProcessParameters->Environment;
+    BaseAddress = v15;
     v14 = 0LL;
-    v7 = (__int64)a2;
+    v7 = Name;
   }
-  v16 = (char *)Environment;
+  v16 = (char *)v15;
   v17 = 0LL;
-  if ( Environment )
+  if ( v15 )
   {
     v18 = 0LL;
     while ( 1 )
@@ -152,23 +153,23 @@ __int64 __fastcall RtlSetEnvironmentVar(unsigned __int64 *a1, _WORD *a2, size_t 
           v20 = (v16 - v19) >> 1;
           v16 += 2;
           v21 = v16;
-          v64 = v16;
+          v60 = v16;
           while ( *(_WORD *)v16 )
             v16 += 2;
           v18 = (v16 - v21) >> 1;
-          v65 = v18;
+          v61 = v18;
           break;
         }
       }
       v16 += 2;
-      v58 = v16;
-      v22 = (unsigned __int16 *)v7;
+      v54 = v16;
+      v22 = v7;
       v23 = v19;
       v24 = v6;
       if ( v6 > v20 )
         v24 = v20;
-      v25 = v7 + 2 * v24;
-      while ( (unsigned __int64)v22 < v25 )
+      v25 = &v7[v24];
+      while ( v22 < v25 )
       {
         v26 = *v22;
         v27 = *(unsigned __int16 *)v23;
@@ -221,133 +222,132 @@ __int64 __fastcall RtlSetEnvironmentVar(unsigned __int64 *a1, _WORD *a2, size_t 
         ++v22;
         v23 += 2;
       }
-      v28 = a3 - v20;
+      v28 = NameLength - v20;
 LABEL_34:
       if ( !v28 )
         break;
-      v14 = v60;
-      if ( v28 < 0 && !v60 )
+      v14 = v56;
+      if ( v28 < 0 && !v56 )
       {
-        v14 = (__int64)v19;
-        v60 = (__int64)v19;
+        v14 = v19;
+        v56 = v19;
       }
-      v5 = a4;
-      v6 = a3;
-      v7 = (__int64)a2;
-      Environment = (unsigned __int64)v61;
+      v5 = Value;
+      v6 = NameLength;
+      v7 = Name;
+      v15 = BaseAddress;
     }
-    v43 = v16;
+    v41 = v16;
     while ( 1 )
     {
-      v44 = *(_WORD *)v43;
-      if ( !*(_WORD *)v43 )
+      v42 = *(_WORD *)v41;
+      if ( !*(_WORD *)v41 )
         break;
       while ( 1 )
       {
-        v43 += 2;
-        if ( !v44 )
+        v41 += 2;
+        if ( !v42 )
           break;
-        v44 = *(_WORD *)v43;
+        v42 = *(_WORD *)v41;
       }
     }
-    v17 = v43 + 2;
-    if ( !a4 )
+    v17 = v41 + 2;
+    if ( !Value )
     {
       memmove(v19, v16, 2 * (unsigned int)((v17 - v16) >> 1));
-      if ( v56 )
+      if ( v52 )
         memset(&RtlpEnvironLookupTable, 0, 0x468uLL);
       v5 = 0LL;
       goto LABEL_49;
     }
-    if ( a5 <= v18 )
+    if ( ValueLength <= v18 )
     {
-      v5 = a4;
-      memmove(v64, a4, 2 * a5);
-      *(_WORD *)&v64[2 * a5] = 0;
-      if ( a5 != v18 )
-        memmove(&v64[2 * a5 + 2], v16, 2 * (unsigned int)((v17 - v16) >> 1));
-      if ( !v56 )
+      v5 = Value;
+      memmove(v60, Value, 2 * ValueLength);
+      *(_WORD *)&v60[2 * ValueLength] = 0;
+      if ( ValueLength != v18 )
+        memmove(&v60[2 * ValueLength + 2], v16, 2 * (unsigned int)((v17 - v16) >> 1));
+      if ( !v52 )
         goto LABEL_49;
       goto LABEL_92;
     }
-    v45 = 2 * (a5 + ((v17 - v61) >> 1) - v65);
-    if ( v45 < RtlSizeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, (unsigned __int64)v61) )
+    v43 = 2 * (ValueLength + ((v17 - (_BYTE *)BaseAddress) >> 1) - v61);
+    if ( v43 < RtlSizeHeap(NtCurrentPeb()->ProcessHeap, 0, BaseAddress) )
     {
-      v50 = &v64[2 * a5];
-      memmove(v50 + 2, v16, 2 * (unsigned int)((v17 - v16) >> 1));
-      *(_WORD *)v50 = 0;
-      v5 = a4;
-      memmove(v64, a4, 2 * a5);
-      if ( !a1 )
+      v46 = &v60[2 * ValueLength];
+      memmove(v46 + 2, v16, 2 * (unsigned int)((v17 - v16) >> 1));
+      *(_WORD *)v46 = 0;
+      v5 = Value;
+      memmove(v60, Value, 2 * ValueLength);
+      if ( !Environment )
       {
-        v7 = (__int64)v61;
-        v63->Environment = v61;
-        v63->EnvironmentSize = v45;
-        ++v63->EnvironmentVersion;
+        v59->Environment = BaseAddress;
+        v59->EnvironmentSize = v43;
+        ++v59->EnvironmentVersion;
       }
-      if ( !v56 )
+      if ( !v52 )
         goto LABEL_49;
 LABEL_92:
       memset(&RtlpEnvironLookupTable, 0, 0x468uLL);
 LABEL_49:
-      v14 = v60;
-      v6 = a3;
-      Environment = (unsigned __int64)v61;
+      v14 = v56;
+      v6 = NameLength;
+      v15 = BaseAddress;
       goto LABEL_50;
     }
-    EnvBlock = (char *)RtlpAllocateEnvBlock(2 * (a5 + ((v17 - v61) >> 1) - v65));
+    EnvBlock = (char *)RtlpAllocateEnvBlock(2 * (ValueLength + ((v17 - (_BYTE *)BaseAddress) >> 1) - v61));
     if ( !EnvBlock )
     {
 LABEL_111:
-      v62 = -1073741670;
+      v58 = -1073741670;
       goto LABEL_112;
     }
-    memmove(EnvBlock, v61, 2LL * (unsigned int)((v64 - v61) >> 1));
-    v47 = &EnvBlock[2 * (unsigned int)((v64 - v61) >> 1)];
-    v5 = a4;
-    memmove(v47, a4, 2 * a5);
-    *(_WORD *)&v47[2 * a5] = 0;
-    memmove(&v47[2 * a5 + 2], v58, 2 * (unsigned int)((v17 - v58) >> 1));
-    if ( a1 )
+    memmove(EnvBlock, BaseAddress, 2LL * (unsigned int)((v60 - (_BYTE *)BaseAddress) >> 1));
+    v45 = &EnvBlock[2 * (unsigned int)((v60 - (_BYTE *)BaseAddress) >> 1)];
+    v5 = Value;
+    memmove(v45, Value, 2 * ValueLength);
+    *(_WORD *)&v45[2 * ValueLength] = 0;
+    memmove(&v45[2 * ValueLength + 2], v54, 2 * (unsigned int)((v17 - v54) >> 1));
+    if ( Environment )
     {
-      *a1 = (unsigned __int64)EnvBlock;
+      *Environment = EnvBlock;
     }
     else
     {
-      v63->Environment = EnvBlock;
-      v63->EnvironmentSize = v45;
-      ++v63->EnvironmentVersion;
+      v59->Environment = EnvBlock;
+      v59->EnvironmentSize = v43;
+      ++v59->EnvironmentVersion;
     }
-    if ( v56 )
+    if ( v52 )
       memset(&RtlpEnvironLookupTable, 0, 0x468uLL);
-    if ( v57 )
+    if ( v53 )
     {
-      RtlLeaveCriticalSection((__int64)NtCurrentPeb()->FastPebLock, v48, v49);
-      v57 = 0;
+      RtlLeaveCriticalSection(NtCurrentPeb()->FastPebLock);
+      v53 = 0;
     }
-    Environment = (unsigned __int64)v61;
-    RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, (__int64)v61);
-    v16 = v58;
-    v14 = v60;
-    v6 = a3;
+    v15 = BaseAddress;
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, BaseAddress);
+    v16 = v54;
+    v14 = v56;
+    v6 = NameLength;
   }
 LABEL_50:
   if ( v14 )
-    v16 = (char *)v14;
-  v59 = v16;
+    v16 = v14;
+  v55 = v16;
   if ( v17 )
   {
-    v42 = v63;
-    v41 = v56;
+    v40 = v59;
+    v39 = v52;
   }
   else
   {
     if ( !v5 )
     {
 LABEL_112:
-      v41 = v56;
+      v39 = v52;
 LABEL_72:
-      v42 = v63;
+      v40 = v59;
       goto LABEL_113;
     }
     if ( v16 )
@@ -365,16 +365,16 @@ LABEL_72:
           v29 = *(_WORD *)v16;
         }
       }
-      v30 = RtlSizeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, Environment);
+      v30 = RtlSizeHeap(NtCurrentPeb()->ProcessHeap, 0, v15);
       v17 = v16 + 2;
-      v31 = a5;
-      v32 = 2 * (a5 + v6 + ((__int64)&v16[-Environment + 2] >> 1)) + 4;
-      v16 = v59;
+      v31 = ValueLength;
+      v32 = 2 * (ValueLength + v6 + ((v16 + 2 - (_BYTE *)v15) >> 1)) + 4;
+      v16 = v55;
     }
     else
     {
-      v31 = a5;
-      v32 = 2 * (v6 + a5) + 6;
+      v31 = ValueLength;
+      v32 = 2 * (v6 + ValueLength) + 6;
       v30 = 0LL;
     }
     if ( v32 >= v30 )
@@ -385,74 +385,74 @@ LABEL_72:
       {
         if ( v16 )
         {
-          v35 = (unsigned int)((v16 - v61) >> 1);
-          memmove(v33, v61, 2 * v35);
+          v35 = (unsigned int)((v16 - (_BYTE *)BaseAddress) >> 1);
+          memmove(v33, BaseAddress, 2 * v35);
         }
         else
         {
           v35 = 0LL;
         }
         v36 = &v34[2 * v35];
-        memmove(v36, a2, 2 * a3);
-        v37 = &v36[2 * a3];
+        memmove(v36, Name, 2 * NameLength);
+        v37 = &v36[2 * NameLength];
         *(_WORD *)v37 = 61;
-        v38 = 2 * a5;
-        memmove(v37 + 2, v5, 2 * a5);
-        *(_WORD *)&v37[2 * a5 + 2] = 0;
+        v38 = 2 * ValueLength;
+        memmove(v37 + 2, v5, 2 * ValueLength);
+        *(_WORD *)&v37[2 * ValueLength + 2] = 0;
         if ( v16 )
         {
           memmove(&v37[v38 + 4], v16, 2 * (unsigned int)((v17 - v16) >> 1));
-          v41 = v56;
-          if ( v56 )
+          v39 = v52;
+          if ( v52 )
             memset(&RtlpEnvironLookupTable, 0, 0x468uLL);
         }
         else
         {
           *(_WORD *)&v37[v38 + 4] = 0;
-          v41 = v56;
+          v39 = v52;
         }
-        if ( a1 )
+        if ( Environment )
         {
-          *a1 = (unsigned __int64)v34;
+          *Environment = v34;
         }
         else
         {
-          v63->Environment = v34;
-          v63->EnvironmentSize = v32;
-          ++v63->EnvironmentVersion;
+          v59->Environment = v34;
+          v59->EnvironmentSize = v32;
+          ++v59->EnvironmentVersion;
         }
-        if ( v57 )
+        if ( v53 )
         {
-          RtlLeaveCriticalSection((__int64)NtCurrentPeb()->FastPebLock, v39, v40);
-          v57 = 0;
+          RtlLeaveCriticalSection(NtCurrentPeb()->FastPebLock);
+          v53 = 0;
         }
-        RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, (__int64)v61);
+        RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, BaseAddress);
         goto LABEL_72;
       }
       goto LABEL_111;
     }
     memmove(&v16[2 * v6 + 4 + 2 * v31], v16, 2 * (unsigned int)((v17 - v16) >> 1));
-    v51 = 2 * v6;
-    memmove(v16, a2, v51);
-    if ( v56 )
+    v47 = 2 * v6;
+    memmove(v16, Name, v47);
+    if ( v52 )
       memset(&RtlpEnvironLookupTable, 0, 0x468uLL);
-    v52 = &v16[v51];
-    *(_WORD *)v52 = 61;
-    v52 += 2;
-    memmove(v52, v5, 2 * v31);
-    *(_WORD *)&v52[2 * v31] = 0;
-    if ( a1 )
+    v48 = &v16[v47];
+    *(_WORD *)v48 = 61;
+    v48 += 2;
+    memmove(v48, v5, 2 * v31);
+    *(_WORD *)&v48[2 * v31] = 0;
+    if ( Environment )
       goto LABEL_112;
-    v42 = v63;
-    v63->Environment = (void *)Environment;
-    v63->EnvironmentSize = v32;
-    ++v63->EnvironmentVersion;
-    v41 = v56;
+    v40 = v59;
+    v59->Environment = v15;
+    v59->EnvironmentSize = v32;
+    ++v59->EnvironmentVersion;
+    v39 = v52;
   }
 LABEL_113:
-  if ( v62 >= 0 && v41 )
-    ++v42->EnvironmentVersion;
-  if ( v57 )
-    RtlLeaveCriticalSection((__int64)NtCurrentPeb()->FastPebLock, v14, v7);
-  return (unsigned int)v62;
+  if ( v58 >= 0 && v39 )
+    ++v40->EnvironmentVersion;
+  if ( v53 )
+    RtlLeaveCriticalSection(NtCurrentPeb()->FastPebLock);
+  return v58;
 }

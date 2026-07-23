@@ -15,7 +15,7 @@ POBJECT_TYPE *__fastcall ExpWin32DeleteProcedure(int *a1)
   unsigned __int64 v2; // r8
   POBJECT_TYPE *result; // rax
   int v4; // r10d
-  union _RTL_RUN_ONCE *Win32Callouts; // rax
+  _RTL_RUN_ONCE *Win32Callouts; // rax
   __int64 v6; // r10
   __int64 v7; // rcx
   _QWORD v8[4]; // [rsp+30h] [rbp-20h] BYREF

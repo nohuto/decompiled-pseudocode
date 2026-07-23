@@ -1,8 +1,8 @@
 /*
- * XREFs of RtlAbPreAcquire @ 0x1800BD6D0
+ * XREFs of RtlAbPreAcquire @ 0x1800BAC00
  * Callers:
- *     RtlpAcquireSRWLockSharedContended @ 0x18004B7F0 (RtlpAcquireSRWLockSharedContended.c)
- *     RtlTryAcquireSRWLockShared @ 0x180050CE0 (RtlTryAcquireSRWLockShared.c)
+ *     RtlpAcquireSRWLockSharedContended @ 0x180035D70 (RtlpAcquireSRWLockSharedContended.c)
+ *     RtlTryAcquireSRWLockShared @ 0x18003B260 (RtlTryAcquireSRWLockShared.c)
  * Callees:
  *     <none>
  */

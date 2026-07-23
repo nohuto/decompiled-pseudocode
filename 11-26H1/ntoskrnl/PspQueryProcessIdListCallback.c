@@ -1,9 +1,9 @@
 /*
- * XREFs of PspQueryProcessIdListCallback @ 0x140AE2550
+ * XREFs of PspQueryProcessIdListCallback @ 0x140AE00D0
  * Callers:
  *     <none>
  * Callees:
- *     RtlWriteULong64ToUser @ 0x14077F758 (RtlWriteULong64ToUser.c)
+ *     RtlWriteULong64ToUser @ 0x140782258 (RtlWriteULong64ToUser.c)
  */
 
 __int64 __fastcall PspQueryProcessIdListCallback(__int64 a1, __int64 a2)

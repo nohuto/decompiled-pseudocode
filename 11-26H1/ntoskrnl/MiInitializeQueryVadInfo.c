@@ -1,11 +1,11 @@
 /*
- * XREFs of MiInitializeQueryVadInfo @ 0x14091FE40
+ * XREFs of MiInitializeQueryVadInfo @ 0x1409249B0
  * Callers:
- *     MmQueryVirtualMemory @ 0x14091F870 (MmQueryVirtualMemory.c)
+ *     MmQueryVirtualMemory @ 0x1409243E0 (MmQueryVirtualMemory.c)
  * Callees:
- *     MiReferenceControlAreaFile @ 0x140448EB0 (MiReferenceControlAreaFile.c)
- *     MiReadVadFlags @ 0x1404655D0 (MiReadVadFlags.c)
- *     MiIsSoftwareEnclave @ 0x1404A00C8 (MiIsSoftwareEnclave.c)
+ *     MiReferenceControlAreaFile @ 0x1404419A0 (MiReferenceControlAreaFile.c)
+ *     MiReadVadFlags @ 0x14045E590 (MiReadVadFlags.c)
+ *     MiIsSoftwareEnclave @ 0x140499C18 (MiIsSoftwareEnclave.c)
  */
 
 unsigned __int64 __fastcall MiInitializeQueryVadInfo(__int64 a1)

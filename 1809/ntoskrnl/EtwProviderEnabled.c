@@ -1,20 +1,20 @@
 /*
- * XREFs of EtwProviderEnabled @ 0x1400F1780
+ * XREFs of EtwProviderEnabled @ 0x1400F1800
  * Callers:
- *     KeInsertQueueApc @ 0x1400F1480 (KeInsertQueueApc.c)
- *     EtwTraceMemoryAcg @ 0x1400F1728 (EtwTraceMemoryAcg.c)
- *     EtwTiLogQueueApcThread @ 0x140312880 (EtwTiLogQueueApcThread.c)
- *     EtwTraceWorkingSetSwap @ 0x14066B7C8 (EtwTraceWorkingSetSwap.c)
- *     EtwTiLogAllocExecVm @ 0x14067663C (EtwTiLogAllocExecVm.c)
- *     EtwTiLogProtectExecVm @ 0x1406766BC (EtwTiLogProtectExecVm.c)
- *     EtwTiLogReadWriteVm @ 0x140676914 (EtwTiLogReadWriteVm.c)
- *     EtwTiLogSetContextThread @ 0x1406A9180 (EtwTiLogSetContextThread.c)
- *     EtwpCrimsonProvEnableCallback @ 0x1406C2360 (EtwpCrimsonProvEnableCallback.c)
- *     EtwTiLogMapExecView @ 0x1406CF3E0 (EtwTiLogMapExecView.c)
- *     EtwTraceWorkingSetInSwapStoreFail @ 0x1406D0F7C (EtwTraceWorkingSetInSwapStoreFail.c)
- *     EtwTiLogSuspendResumeProcess @ 0x1408BC9B4 (EtwTiLogSuspendResumeProcess.c)
- *     EtwTiLogSuspendResumeThread @ 0x1408BCB1C (EtwTiLogSuspendResumeThread.c)
- *     EtwpTiVadQueryEventWriteCallback @ 0x1408BD680 (EtwpTiVadQueryEventWriteCallback.c)
+ *     KeInsertQueueApc @ 0x1400F1500 (KeInsertQueueApc.c)
+ *     EtwTraceMemoryAcg @ 0x1400F17A8 (EtwTraceMemoryAcg.c)
+ *     EtwTiLogQueueApcThread @ 0x140312A70 (EtwTiLogQueueApcThread.c)
+ *     EtwTraceWorkingSetSwap @ 0x14066C988 (EtwTraceWorkingSetSwap.c)
+ *     EtwTiLogAllocExecVm @ 0x1406777FC (EtwTiLogAllocExecVm.c)
+ *     EtwTiLogProtectExecVm @ 0x14067787C (EtwTiLogProtectExecVm.c)
+ *     EtwTiLogReadWriteVm @ 0x140677AD4 (EtwTiLogReadWriteVm.c)
+ *     EtwTiLogSetContextThread @ 0x1406AA420 (EtwTiLogSetContextThread.c)
+ *     EtwpCrimsonProvEnableCallback @ 0x1406C3600 (EtwpCrimsonProvEnableCallback.c)
+ *     EtwTiLogMapExecView @ 0x1406D0680 (EtwTiLogMapExecView.c)
+ *     EtwTraceWorkingSetInSwapStoreFail @ 0x1406D221C (EtwTraceWorkingSetInSwapStoreFail.c)
+ *     EtwTiLogSuspendResumeProcess @ 0x1408BDC74 (EtwTiLogSuspendResumeProcess.c)
+ *     EtwTiLogSuspendResumeThread @ 0x1408BDDDC (EtwTiLogSuspendResumeThread.c)
+ *     EtwpTiVadQueryEventWriteCallback @ 0x1408BE940 (EtwpTiVadQueryEventWriteCallback.c)
  * Callees:
  *     EtwpLevelKeywordEnabled @ 0x14005B930 (EtwpLevelKeywordEnabled.c)
  */

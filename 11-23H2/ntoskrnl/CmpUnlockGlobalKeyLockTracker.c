@@ -1,12 +1,12 @@
 /*
- * XREFs of CmpUnlockGlobalKeyLockTracker @ 0x140847664
+ * XREFs of CmpUnlockGlobalKeyLockTracker @ 0x140847964
  * Callers:
- *     CmpGlobalLockKeyForWrite @ 0x14084754C (CmpGlobalLockKeyForWrite.c)
- *     CmpGlobalUnlockKeyForWrite @ 0x140A1BDC4 (CmpGlobalUnlockKeyForWrite.c)
+ *     CmpGlobalLockKeyForWrite @ 0x14084784C (CmpGlobalLockKeyForWrite.c)
+ *     CmpGlobalUnlockKeyForWrite @ 0x140A1C074 (CmpGlobalUnlockKeyForWrite.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfReleasePushLock @ 0x1402BD830 (ExfReleasePushLock.c)
+ *     KeLeaveCriticalRegionThread @ 0x14022F7F0 (KeLeaveCriticalRegionThread.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     ExfReleasePushLock @ 0x1402BDAC0 (ExfReleasePushLock.c)
  */
 
 _QWORD *CmpUnlockGlobalKeyLockTracker()

@@ -1,11 +1,11 @@
 /*
- * XREFs of PspDeleteKernelStack @ 0x1404161E0
+ * XREFs of PspDeleteKernelStack @ 0x14040A7F0
  * Callers:
  *     <none>
  * Callees:
- *     MmDeleteKernelStack @ 0x1404162AC (MmDeleteKernelStack.c)
- *     KiDeleteKernelShadowStack @ 0x140A03950 (KiDeleteKernelShadowStack.c)
- *     KeResetKernelShadowStackRstorssp @ 0x140B3B0C8 (KeResetKernelShadowStackRstorssp.c)
+ *     MmDeleteKernelStack @ 0x14040A8BC (MmDeleteKernelStack.c)
+ *     KiDeleteKernelShadowStack @ 0x140A7BD54 (KiDeleteKernelShadowStack.c)
+ *     KeResetKernelShadowStackRstorssp @ 0x140B3D348 (KeResetKernelShadowStackRstorssp.c)
  */
 
 __int64 __fastcall PspDeleteKernelStack(__int64 a1, __int64 *a2)

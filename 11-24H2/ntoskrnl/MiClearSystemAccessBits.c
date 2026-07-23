@@ -1,16 +1,16 @@
 /*
- * XREFs of MiClearSystemAccessBits @ 0x140683974
+ * XREFs of MiClearSystemAccessBits @ 0x140684AD0
  * Callers:
- *     MiPfnRangeIsZero @ 0x14066E2AC (MiPfnRangeIsZero.c)
+ *     MiPfnRangeIsZero @ 0x14066F480 (MiPfnRangeIsZero.c)
  * Callees:
- *     MiVaToFlushVm @ 0x1402293EC (MiVaToFlushVm.c)
- *     MiCheckLinearProtectedPteAccessedBit @ 0x140232A20 (MiCheckLinearProtectedPteAccessedBit.c)
- *     MiInitializeTbFlushList @ 0x140233BB0 (MiInitializeTbFlushList.c)
- *     MiReleaseProcessorFlushList @ 0x14023FFD0 (MiReleaseProcessorFlushList.c)
- *     MiInsertTbFlushEntry @ 0x1402432E0 (MiInsertTbFlushEntry.c)
- *     MiGetProcessorFlushList @ 0x1402894BC (MiGetProcessorFlushList.c)
- *     MiFlushTbList @ 0x140291730 (MiFlushTbList.c)
- *     MiInsertLargeTbFlushEntry @ 0x1403A4A2C (MiInsertLargeTbFlushEntry.c)
+ *     MiCheckLinearProtectedPteAccessedBit @ 0x140203550 (MiCheckLinearProtectedPteAccessedBit.c)
+ *     MiReleaseProcessorFlushList @ 0x140208120 (MiReleaseProcessorFlushList.c)
+ *     MiInsertTbFlushEntry @ 0x1402137F0 (MiInsertTbFlushEntry.c)
+ *     MiInitializeTbFlushList @ 0x140214780 (MiInitializeTbFlushList.c)
+ *     MiInsertLargeTbFlushEntry @ 0x14021C25C (MiInsertLargeTbFlushEntry.c)
+ *     MiGetProcessorFlushList @ 0x1402990BC (MiGetProcessorFlushList.c)
+ *     MiFlushTbList @ 0x1402A1330 (MiFlushTbList.c)
+ *     MiVaToFlushVm @ 0x1402FC5EC (MiVaToFlushVm.c)
  */
 
 void __fastcall MiClearSystemAccessBits(ULONG_PTR BugCheckParameter2, __int64 a2, int a3)
@@ -32,7 +32,7 @@ void __fastcall MiClearSystemAccessBits(ULONG_PTR BugCheckParameter2, __int64 a2
         if ( (MiFlags & 0x2000000) != 0 )
           _mm_lfence();
         if ( _bittest64(&MiFlags, 0x24u) && (v7 & 1) == 1 && BugCheckParameter2 >= 0xFFFFF6C000000000uLL )
-          MiCheckLinearProtectedPteAccessedBit(BugCheckParameter2, v7 & 0xFFFFFFFFFFFFFFDFuLL, 128);
+          MiCheckLinearProtectedPteAccessedBit(BugCheckParameter2, v7 & 0xFFFFFFFFFFFFFFDFuLL, 128LL);
         _InterlockedCompareExchange64((volatile signed __int64 *)BugCheckParameter2, v7 & 0xFFFFFFFFFFFFFFDFuLL, v7);
         if ( !ProcessorFlushList )
         {

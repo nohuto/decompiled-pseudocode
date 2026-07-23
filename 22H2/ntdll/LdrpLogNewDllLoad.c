@@ -7,63 +7,58 @@
  *     LdrpLogNewDllLoadInternal @ 0x1800CFAE0 (LdrpLogNewDllLoadInternal.c)
  */
 
-struct _PEB *__fastcall LdrpLogNewDllLoad(__int64 a1, __int64 a2)
+int __fastcall LdrpLogNewDllLoad(__int64 a1, __int64 a2)
 {
-  __int64 v4; // rdx
-  char *v5; // rcx
-  __int64 v6; // rbx
-  __int64 v7; // rsi
-  __int64 v8; // r8
-  __int64 v9; // rdi
-  struct _PEB *result; // rax
-  __int64 v11; // rdx
-  __int64 v12; // rcx
+  __int64 v4; // rbx
+  __int64 v5; // rsi
+  __int64 v6; // r8
+  __int64 v7; // rdi
+  struct _PEB *v8; // rax
+  char *v9; // rcx
 
-  v6 = 0LL;
-  v7 = 2147353476LL;
-  if ( (unsigned int)RtlGetCurrentServiceSessionId(a1, a2) )
-    v8 = (__int64)NtCurrentPeb()->SharedData + 554;
+  v4 = 0LL;
+  v5 = 2147353476LL;
+  if ( RtlGetCurrentServiceSessionId() )
+    v6 = (__int64)NtCurrentPeb()->SharedData + 554;
   else
-    v8 = 2147353476LL;
-  v9 = 2147353477LL;
-  if ( *(_BYTE *)v8 )
+    v6 = 2147353476LL;
+  v7 = 2147353477LL;
+  if ( *(_BYTE *)v6 )
   {
-    v5 = (unsigned int)RtlGetCurrentServiceSessionId(v5, v4)
-       ? (char *)NtCurrentPeb()->SharedData + 555
-       : (char *)2147353477;
-    if ( (*v5 & 0x10) != 0 )
+    v9 = RtlGetCurrentServiceSessionId() ? (char *)NtCurrentPeb()->SharedData + 555 : (char *)2147353477;
+    if ( (*v9 & 0x10) != 0 )
       goto LABEL_18;
   }
-  result = (struct _PEB *)RtlGetCurrentServiceSessionId(v5, v4);
-  if ( (_DWORD)result )
+  LODWORD(v8) = RtlGetCurrentServiceSessionId();
+  if ( (_DWORD)v8 )
   {
-    result = NtCurrentPeb();
-    v7 = (__int64)result->SharedData + 554;
+    v8 = NtCurrentPeb();
+    v5 = (__int64)v8->SharedData + 554;
   }
-  if ( *(_BYTE *)v7 )
+  if ( *(_BYTE *)v5 )
   {
-    result = NtCurrentPeb();
-    if ( (result->TracingFlags & 4) != 0 )
+    v8 = NtCurrentPeb();
+    if ( (v8->TracingFlags & 4) != 0 )
     {
-      result = (struct _PEB *)RtlGetCurrentServiceSessionId(v12, v11);
-      if ( (_DWORD)result )
+      LODWORD(v8) = RtlGetCurrentServiceSessionId();
+      if ( (_DWORD)v8 )
       {
-        result = NtCurrentPeb();
-        v9 = (__int64)result->SharedData + 555;
+        v8 = NtCurrentPeb();
+        v7 = (__int64)v8->SharedData + 555;
       }
-      if ( (*(_BYTE *)v9 & 0x20) != 0 )
+      if ( (*(_BYTE *)v7 & 0x20) != 0 )
       {
 LABEL_18:
         if ( a1 )
-          v6 = *(_QWORD *)(a1 + 48);
-        return (struct _PEB *)LdrpLogNewDllLoadInternal(
-                                *(_QWORD *)(a2 + 48),
-                                v6,
-                                *(unsigned int *)(a2 + 268),
-                                *(unsigned __int16 *)(a2 + 72),
-                                *(_QWORD *)(a2 + 80));
+          v4 = *(_QWORD *)(a1 + 48);
+        LODWORD(v8) = LdrpLogNewDllLoadInternal(
+                        *(_QWORD *)(a2 + 48),
+                        v4,
+                        *(unsigned int *)(a2 + 268),
+                        *(unsigned __int16 *)(a2 + 72),
+                        *(_QWORD *)(a2 + 80));
       }
     }
   }
-  return result;
+  return (int)v8;
 }

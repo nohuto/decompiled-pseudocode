@@ -1,13 +1,13 @@
 /*
- * XREFs of EtwpInitializeRegEntry @ 0x1406BF5C0
+ * XREFs of EtwpInitializeRegEntry @ 0x1406BF5F0
  * Callers:
- *     EtwpAddUmRegEntry @ 0x1406BFA44 (EtwpAddUmRegEntry.c)
- *     EtwpAddKmRegEntry @ 0x14078DBB8 (EtwpAddKmRegEntry.c)
+ *     EtwpAddUmRegEntry @ 0x1406BFA74 (EtwpAddUmRegEntry.c)
+ *     EtwpAddKmRegEntry @ 0x14078DDA8 (EtwpAddKmRegEntry.c)
  * Callees:
- *     MmGetSessionIdEx @ 0x1402A1720 (MmGetSessionIdEx.c)
- *     ObfReferenceObjectWithTag @ 0x1402B68C0 (ObfReferenceObjectWithTag.c)
- *     MmIsSessionAddress @ 0x1402BC7E0 (MmIsSessionAddress.c)
- *     EtwpReferenceGuidEntry @ 0x1406BF914 (EtwpReferenceGuidEntry.c)
+ *     MmGetSessionIdEx @ 0x1402A19B0 (MmGetSessionIdEx.c)
+ *     ObfReferenceObjectWithTag @ 0x1402B6B50 (ObfReferenceObjectWithTag.c)
+ *     MmIsSessionAddress @ 0x1402BCA70 (MmIsSessionAddress.c)
+ *     EtwpReferenceGuidEntry @ 0x1406BF944 (EtwpReferenceGuidEntry.c)
  */
 
 __int64 __fastcall EtwpInitializeRegEntry(ULONG_PTR a1, int a2, int a3, __int64 a4, __int64 a5, __int16 a6, __int64 a7)

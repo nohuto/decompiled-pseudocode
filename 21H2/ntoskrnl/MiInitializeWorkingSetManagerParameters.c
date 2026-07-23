@@ -1,15 +1,15 @@
 /*
- * XREFs of MiInitializeWorkingSetManagerParameters @ 0x1403CBD04
+ * XREFs of MiInitializeWorkingSetManagerParameters @ 0x1403CBE74
  * Callers:
- *     MiProcessWorkingSets @ 0x140207BA0 (MiProcessWorkingSets.c)
- *     MmCreatePartition @ 0x1403CA974 (MmCreatePartition.c)
- *     MiInitSystem @ 0x140A53E5C (MiInitSystem.c)
+ *     MiProcessWorkingSets @ 0x1402AC4A0 (MiProcessWorkingSets.c)
+ *     MmCreatePartition @ 0x1403CAB14 (MmCreatePartition.c)
+ *     MiInitSystem @ 0x140A54E5C (MiInitSystem.c)
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x14021D060 (ExAcquireSpinLockExclusive.c)
- *     MiAllocatePool @ 0x14025AD70 (MiAllocatePool.c)
- *     MiSetTrimWhileAgingState @ 0x1402AC54C (MiSetTrimWhileAgingState.c)
- *     KeGenericCallDpc @ 0x1402ECF00 (KeGenericCallDpc.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14033BD80 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiSetTrimWhileAgingState @ 0x140250EBC (MiSetTrimWhileAgingState.c)
+ *     MiAllocatePool @ 0x14027C2E0 (MiAllocatePool.c)
+ *     KeGenericCallDpc @ 0x14029E250 (KeGenericCallDpc.c)
+ *     ExAcquireSpinLockExclusive @ 0x1402C1960 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140346AD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
@@ -110,7 +110,7 @@ __int64 __fastcall MiInitializeWorkingSetManagerParameters(__int64 a1)
   *(_QWORD *)(v2 + 2376) = v11;
   if ( v4 == 1 )
     *(_QWORD *)(a1 + 6848) = v2;
-  MiSetTrimWhileAgingState(a1, 3);
+  MiSetTrimWhileAgingState(a1, 3LL);
   if ( v7 < 0x18A88 )
     v12 = 100LL;
   else
@@ -131,11 +131,11 @@ __int64 __fastcall MiInitializeWorkingSetManagerParameters(__int64 a1)
     *(_QWORD *)(v2 + 104) = v2 + 104;
     if ( (ULONG_PTR *)a1 != &MiSystemPartition )
       goto LABEL_32;
-    LOWORD(stru_140C4EE50.Header.Lock) = 0;
-    stru_140C4EE50.Header.SignalState = 0;
-    stru_140C4EE50.Header.WaitListHead.Blink = &stru_140C4EE50.Header.WaitListHead;
-    stru_140C4EE50.Header.WaitListHead.Flink = &stru_140C4EE50.Header.WaitListHead;
-    stru_140C4EE50.Header.Size = 6;
+    LOWORD(stru_140C4EE90.Header.Lock) = 0;
+    stru_140C4EE90.Header.SignalState = 0;
+    stru_140C4EE90.Header.WaitListHead.Blink = &stru_140C4EE90.Header.WaitListHead;
+    stru_140C4EE90.Header.WaitListHead.Flink = &stru_140C4EE90.Header.WaitListHead;
+    stru_140C4EE90.Header.Size = 6;
   }
   if ( (ULONG_PTR *)a1 != &MiSystemPartition || !qword_140CFB1C0 || (v14 = qword_140CFB1C0 << 8) == 0 )
   {

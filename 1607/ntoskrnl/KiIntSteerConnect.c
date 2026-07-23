@@ -1,21 +1,21 @@
 /*
- * XREFs of KiIntSteerConnect @ 0x14012D37C
+ * XREFs of KiIntSteerConnect @ 0x14012D8EC
  * Callers:
- *     KeConnectInterrupt @ 0x14012CFC4 (KeConnectInterrupt.c)
+ *     KeConnectInterrupt @ 0x14012D534 (KeConnectInterrupt.c)
  * Callees:
- *     KiIntSteerSetDestination @ 0x1400A61B0 (KiIntSteerSetDestination.c)
- *     KeGetPrcb @ 0x1400D3FF8 (KeGetPrcb.c)
- *     KeEnumerateNextProcessor @ 0x1400D53B0 (KeEnumerateNextProcessor.c)
- *     KeReleaseSpinLock @ 0x1400E9A70 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x1400EFE30 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiIntSteerLogState @ 0x14012D718 (KiIntSteerLogState.c)
- *     KiIntSteerChooseInitialTargetProcessors @ 0x14012D790 (KiIntSteerChooseInitialTargetProcessors.c)
- *     xHalUnmaskInterrupt @ 0x14014CC60 (xHalUnmaskInterrupt.c)
- *     ext_ms_win_ntos_tm_l1_1_0_TmIsKTMCommitCoordinator @ 0x140159290 (ext_ms_win_ntos_tm_l1_1_0_TmIsKTMCommitCoordinator.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     KiIntSteerSetDestination @ 0x1400A4728 (KiIntSteerSetDestination.c)
+ *     KeGetPrcb @ 0x1400D1E98 (KeGetPrcb.c)
+ *     KeEnumerateNextProcessor @ 0x1400D3250 (KeEnumerateNextProcessor.c)
+ *     KeReleaseSpinLock @ 0x1400EB600 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1400EDCB0 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiIntSteerLogState @ 0x14012DC88 (KiIntSteerLogState.c)
+ *     KiIntSteerChooseInitialTargetProcessors @ 0x14012DD00 (KiIntSteerChooseInitialTargetProcessors.c)
+ *     xHalUnmaskInterrupt @ 0x14014D1D0 (xHalUnmaskInterrupt.c)
+ *     ext_ms_win_ntos_tm_l1_1_0_TmIsKTMCommitCoordinator @ 0x140159800 (ext_ms_win_ntos_tm_l1_1_0_TmIsKTMCommitCoordinator.c)
+ *     memset @ 0x140171AC0 (memset.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     EtwRegister @ 0x140549F44 (EtwRegister.c)
+ *     EtwRegister @ 0x14054A484 (EtwRegister.c)
  */
 
 __int64 __fastcall KiIntSteerConnect(_QWORD *a1, unsigned int a2, __int64 a3)
@@ -177,15 +177,15 @@ LABEL_6:
         *(_QWORD *)(i + 120) = *(_QWORD *)(a3 + 80);
         if ( v18 )
           *(_QWORD *)(i + 200) = *(_QWORD *)(*v5 + 240LL);
-        v19 = (__int64 *)qword_140307948;
-        if ( *(ULONG_PTR **)qword_140307948 != &KiIntTrackRootList )
+        v19 = (__int64 *)qword_140307978;
+        if ( *(ULONG_PTR **)qword_140307978 != &KiIntTrackRootList )
           __fastfail(3u);
         *(_QWORD *)i = &KiIntTrackRootList;
         v20 = i + 64;
         *(_QWORD *)(i + 8) = v19;
         *v19 = i;
         ++KiIntTrackRootCount;
-        qword_140307948 = i;
+        qword_140307978 = i;
         if ( *(_DWORD *)(i + 128) != 2 )
           v20 = i + 160;
         v33 = *(_WORD *)(v20 + 8);

@@ -5,33 +5,43 @@
  * Callees:
  *     RtlpFcBufferManagerDereferenceBuffers @ 0x18005E074 (RtlpFcBufferManagerDereferenceBuffers.c)
  *     RtlpFcReferenceFeatureConfigurationBuffers @ 0x18005E1AC (RtlpFcReferenceFeatureConfigurationBuffers.c)
- *     RtlpFcQueryFeatureConfigurationFromKernel @ 0x180101E70 (RtlpFcQueryFeatureConfigurationFromKernel.c)
+ *     RtlpFcQueryFeatureConfigurationFromKernel @ 0x180101E30 (RtlpFcQueryFeatureConfigurationFromKernel.c)
  *     RtlpFcQueryFeatureConfigurationFromBufferSet @ 0x18011B1A4 (RtlpFcQueryFeatureConfigurationFromBufferSet.c)
  */
 
-__int64 __fastcall RtlQueryFeatureConfiguration(__int64 a1, unsigned int a2, _QWORD *a3, __int64 a4)
+NTSTATUS __cdecl RtlQueryFeatureConfiguration(
+        RTL_FEATURE_ID FeatureId,
+        RTL_FEATURE_CONFIGURATION_TYPE ConfigurationType,
+        PRTL_FEATURE_CHANGE_STAMP ChangeStamp,
+        PRTL_FEATURE_CONFIGURATION FeatureConfiguration)
 {
-  unsigned int v7; // r14d
   int FeatureConfigurationFromBufferSet; // eax
-  unsigned int FeatureConfigurationFromKernel; // ebx
+  NTSTATUS FeatureConfigurationFromKernel; // ebx
   __int64 v11; // [rsp+20h] [rbp-18h] BYREF
-  __int64 v12; // [rsp+28h] [rbp-10h] BYREF
+  ULONGLONG v12[2]; // [rsp+28h] [rbp-10h] BYREF
 
   v11 = 0LL;
-  v7 = a1;
-  if ( (int)RtlpFcReferenceFeatureConfigurationBuffers(a1, 0LL, &v12, &v11) < 0 )
+  if ( (int)RtlpFcReferenceFeatureConfigurationBuffers(FeatureId, 0LL, v12, &v11) < 0 )
   {
-    FeatureConfigurationFromKernel = RtlpFcQueryFeatureConfigurationFromKernel(v7, a2, a3, a4);
+    FeatureConfigurationFromKernel = RtlpFcQueryFeatureConfigurationFromKernel(
+                                       FeatureId,
+                                       (unsigned int)ConfigurationType,
+                                       ChangeStamp,
+                                       FeatureConfiguration);
   }
   else
   {
-    FeatureConfigurationFromBufferSet = RtlpFcQueryFeatureConfigurationFromBufferSet(v11, v7, a2, a4);
+    FeatureConfigurationFromBufferSet = RtlpFcQueryFeatureConfigurationFromBufferSet(
+                                          v11,
+                                          FeatureId,
+                                          (unsigned int)ConfigurationType,
+                                          FeatureConfiguration);
     FeatureConfigurationFromKernel = FeatureConfigurationFromBufferSet;
     if ( FeatureConfigurationFromBufferSet >= 0 )
     {
       FeatureConfigurationFromKernel = 0;
 LABEL_5:
-      *a3 = v12;
+      *ChangeStamp = v12[0];
       goto LABEL_6;
     }
     if ( FeatureConfigurationFromBufferSet == -1073741275 || FeatureConfigurationFromBufferSet == -2147483614 )

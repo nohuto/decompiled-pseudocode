@@ -14,38 +14,30 @@
  *     LdrpIncrementModuleLoadCount @ 0x18003FC24 (LdrpIncrementModuleLoadCount.c)
  */
 
-__int64 __fastcall LdrAddRefDll(int a1, __int64 a2)
+NTSTATUS __cdecl LdrAddRefDll(ULONG Flags, PVOID DllHandle)
 {
   char v2; // di
-  unsigned __int64 v3; // rdx
-  int LoadedDllByHandle; // ebx
-  unsigned __int64 v5; // r8
-  unsigned __int64 v6; // r9
-  bool v7; // zf
-  __int64 v8; // rdi
-  int Count; // eax
-  char v11; // [rsp+30h] [rbp+8h] BYREF
-  __int64 v12; // [rsp+40h] [rbp+18h] BYREF
+  NTSTATUS LoadedDllByHandle; // ebx
+  bool v4; // zf
+  PVOID v5; // rdi
+  NTSTATUS Count; // eax
+  char v8; // [rsp+30h] [rbp+8h] BYREF
+  PVOID BaseAddress; // [rsp+40h] [rbp+18h] BYREF
 
-  v2 = a1;
-  if ( (a1 & 0xFFFFFFFE) != 0 )
+  v2 = Flags;
+  if ( (Flags & 0xFFFFFFFE) != 0 )
+    return -1073741811;
+  LoadedDllByHandle = LdrpFindLoadedDllByHandle(DllHandle, &BaseAddress, &v8);
+  if ( LoadedDllByHandle >= 0 )
   {
-    return (unsigned int)-1073741811;
+    v4 = (v2 & 1) == 0;
+    v5 = BaseAddress;
+    if ( v4 )
+      Count = LdrpIncrementModuleLoadCount(BaseAddress);
+    else
+      Count = LdrpPinModule((__int64)BaseAddress);
+    LoadedDllByHandle = Count;
+    LdrpDereferenceModule(v5);
   }
-  else
-  {
-    LoadedDllByHandle = LdrpFindLoadedDllByHandle(a2, &v12, &v11);
-    if ( LoadedDllByHandle >= 0 )
-    {
-      v7 = (v2 & 1) == 0;
-      v8 = v12;
-      if ( v7 )
-        Count = LdrpIncrementModuleLoadCount(v12);
-      else
-        Count = LdrpPinModule(v12, v3, v5, v6);
-      LoadedDllByHandle = Count;
-      LdrpDereferenceModule(v8);
-    }
-  }
-  return (unsigned int)LoadedDllByHandle;
+  return LoadedDllByHandle;
 }

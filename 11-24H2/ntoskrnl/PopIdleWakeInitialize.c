@@ -1,10 +1,10 @@
 /*
- * XREFs of PopIdleWakeInitialize @ 0x14075F008
+ * XREFs of PopIdleWakeInitialize @ 0x14075DFA8
  * Callers:
- *     PoInitSystem @ 0x140C61990 (PoInitSystem.c)
+ *     PoInitSystem @ 0x140C63AE4 (PoInitSystem.c)
  * Callees:
- *     PpmConvertTimeFrom @ 0x14032D050 (PpmConvertTimeFrom.c)
- *     PopIdleWakeConvertIntervalBucketsFrom @ 0x14075EEEC (PopIdleWakeConvertIntervalBucketsFrom.c)
+ *     PpmConvertTimeFrom @ 0x140437360 (PpmConvertTimeFrom.c)
+ *     PopIdleWakeConvertIntervalBucketsFrom @ 0x14075DE8C (PopIdleWakeConvertIntervalBucketsFrom.c)
  */
 
 void PopIdleWakeInitialize()
@@ -41,11 +41,11 @@ void PopIdleWakeInitialize()
     (__int64)&PopIdleWakeIdleAccountingBucketLimitsMs,
     PopIdleWakeIdleAccountingBucketLimitsQpc,
     1000LL);
-  qword_140F074C8 = -1LL;
+  qword_140F07808 = -1LL;
   PopIdleWakeConvertIntervalBucketsFrom(
     0xBu,
     (__int64)&PopIdleWakePeriodAccountingBucketLimitsMs,
     PopIdleWakePeriodAccountingBucketLimitsQpc,
     1000LL);
-  qword_140F07538 = -1LL;
+  qword_140F077B8 = -1LL;
 }

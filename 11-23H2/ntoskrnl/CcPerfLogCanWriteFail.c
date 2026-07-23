@@ -1,10 +1,10 @@
 /*
- * XREFs of CcPerfLogCanWriteFail @ 0x14053A708
+ * XREFs of CcPerfLogCanWriteFail @ 0x14053AC58
  * Callers:
  *     CcCanIWrite @ 0x14020F180 (CcCanIWrite.c)
  * Callees:
  *     EtwTraceKernelEvent @ 0x140211EDC (EtwTraceKernelEvent.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall CcPerfLogCanWriteFail(__int64 a1, int a2, __int64 a3, __int64 a4)

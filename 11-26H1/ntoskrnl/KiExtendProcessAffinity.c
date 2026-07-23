@@ -1,12 +1,12 @@
 /*
- * XREFs of KiExtendProcessAffinity @ 0x1405F9488
+ * XREFs of KiExtendProcessAffinity @ 0x1405FBEA8
  * Callers:
  *     KeStartThread @ 0x140201AAC (KeStartThread.c)
- *     KeSetUserAffinityThread @ 0x1403F7154 (KeSetUserAffinityThread.c)
+ *     KeSetUserAffinityThread @ 0x1403F0B04 (KeSetUserAffinityThread.c)
  * Callees:
  *     KeComputeGroupMask @ 0x140200A08 (KeComputeGroupMask.c)
- *     KiSetIdealNodeProcessByGroup @ 0x1404B47C8 (KiSetIdealNodeProcessByGroup.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     KiSetIdealNodeProcessByGroup @ 0x1404ADD98 (KiSetIdealNodeProcessByGroup.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall KiExtendProcessAffinity(__int64 a1, unsigned __int16 *a2)
@@ -28,8 +28,8 @@ __int64 __fastcall KiExtendProcessAffinity(__int64 a1, unsigned __int16 *a2)
   {
     while ( v6 >= (unsigned __int16)result
          || !*(_QWORD *)&a2[4 * v6 + 4]
-         || v6 >= *(_WORD *)&stru_140FC01F0.WaitRegister.Flags
-         || !*(_QWORD *)((char *)&stru_140FC01F0.116 + 8 * v6 + 4) )
+         || v6 >= *(_WORD *)&stru_140FC11F0.WaitRegister.Flags
+         || !*(_QWORD *)((char *)&stru_140FC11F0.116 + 8 * v6 + 4) )
     {
 LABEL_18:
       result = *a2;
@@ -49,10 +49,10 @@ LABEL_18:
       v9 = 0LL;
     else
       v9 = *((_QWORD *)v8 + 1);
-    if ( v6 >= *(_WORD *)&stru_140FC01F0.WaitRegister.Flags )
+    if ( v6 >= *(_WORD *)&stru_140FC11F0.WaitRegister.Flags )
       v10 = 0LL;
     else
-      v10 = *(__int64 *)((char *)&stru_140FC01F0.116 + 8 * v6 + 4);
+      v10 = *(__int64 *)((char *)&stru_140FC11F0.116 + 8 * v6 + 4);
     if ( *v7 <= v6 )
     {
       if ( v7[1] <= v6 )

@@ -1,10 +1,10 @@
 /*
- * XREFs of DbgkpLkmdSnapData @ 0x14057E600
+ * XREFs of DbgkpLkmdSnapData @ 0x14057BA90
  * Callers:
- *     DbgkCaptureLiveDump @ 0x140707A3C (DbgkCaptureLiveDump.c)
- *     DbgkpLkmdSnapPendingIrps @ 0x140708284 (DbgkpLkmdSnapPendingIrps.c)
+ *     DbgkCaptureLiveDump @ 0x1407055FC (DbgkCaptureLiveDump.c)
+ *     DbgkpLkmdSnapPendingIrps @ 0x140705E44 (DbgkpLkmdSnapPendingIrps.c)
  * Callees:
- *     DbgkpLkmdSnapDataEx @ 0x14057E624 (DbgkpLkmdSnapDataEx.c)
+ *     DbgkpLkmdSnapDataEx @ 0x14057BAB4 (DbgkpLkmdSnapDataEx.c)
  */
 
 __int64 __fastcall DbgkpLkmdSnapData(int a1, int a2, int a3)

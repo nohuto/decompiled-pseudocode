@@ -1,29 +1,29 @@
 /*
- * XREFs of NtUnlockFile @ 0x140972480
+ * XREFs of NtUnlockFile @ 0x14095AC90
  * Callers:
  *     <none>
  * Callees:
- *     IopAllocateIrpExReturn @ 0x140253DC0 (IopAllocateIrpExReturn.c)
- *     IopReleaseFileObjectLock @ 0x14031D520 (IopReleaseFileObjectLock.c)
- *     ObfDereferenceObject @ 0x140325680 (ObfDereferenceObject.c)
- *     PsReferenceSiloContext @ 0x14033FA90 (PsReferenceSiloContext.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     IoGetRelatedDeviceObject @ 0x140373C70 (IoGetRelatedDeviceObject.c)
- *     IopResetEvent @ 0x1403C4670 (IopResetEvent.c)
- *     IoGetAttachedDevice @ 0x1403C4FC0 (IoGetAttachedDevice.c)
- *     KeInitializeEvent @ 0x140409D80 (KeInitializeEvent.c)
- *     MmIsDriverVerifying @ 0x14049E430 (MmIsDriverVerifying.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     ObReferenceObjectByHandle @ 0x14084AF40 (ObReferenceObjectByHandle.c)
- *     ExRaiseDatatypeMisalignment @ 0x14089B1F0 (ExRaiseDatatypeMisalignment.c)
- *     IopSynchronousServiceTail @ 0x1408C3300 (IopSynchronousServiceTail.c)
- *     IopSynchronousApiServiceTail @ 0x14096F574 (IopSynchronousApiServiceTail.c)
- *     IopExceptionCleanupEx @ 0x140970628 (IopExceptionCleanupEx.c)
- *     IopWaitAndAcquireFileObjectLock @ 0x140970738 (IopWaitAndAcquireFileObjectLock.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
- *     VfFastIoCheckState @ 0x140BA9450 (VfFastIoCheckState.c)
- *     VfFastIoSnapState @ 0x140BA97CC (VfFastIoSnapState.c)
+ *     IoGetRelatedDeviceObject @ 0x14025C530 (IoGetRelatedDeviceObject.c)
+ *     IopAllocateIrpExReturn @ 0x1402843D0 (IopAllocateIrpExReturn.c)
+ *     IopReleaseFileObjectLock @ 0x1402C60B0 (IopReleaseFileObjectLock.c)
+ *     ObfDereferenceObject @ 0x1402CE210 (ObfDereferenceObject.c)
+ *     PsReferenceSiloContext @ 0x14031EF70 (PsReferenceSiloContext.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     IopResetEvent @ 0x1403B3230 (IopResetEvent.c)
+ *     IoGetAttachedDevice @ 0x1403B3B80 (IoGetAttachedDevice.c)
+ *     KeInitializeEvent @ 0x140402260 (KeInitializeEvent.c)
+ *     MmIsDriverVerifying @ 0x140499230 (MmIsDriverVerifying.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     ObReferenceObjectByHandle @ 0x140847200 (ObReferenceObjectByHandle.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408A3890 (ExRaiseDatatypeMisalignment.c)
+ *     IopSynchronousServiceTail @ 0x1408C0CC0 (IopSynchronousServiceTail.c)
+ *     IopSynchronousApiServiceTail @ 0x140957634 (IopSynchronousApiServiceTail.c)
+ *     IopExceptionCleanupEx @ 0x140958E38 (IopExceptionCleanupEx.c)
+ *     IopWaitAndAcquireFileObjectLock @ 0x140958F48 (IopWaitAndAcquireFileObjectLock.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
+ *     VfFastIoCheckState @ 0x140BAB450 (VfFastIoCheckState.c)
+ *     VfFastIoSnapState @ 0x140BAB7CC (VfFastIoSnapState.c)
  */
 
 NTSTATUS __stdcall NtUnlockFile(
@@ -54,16 +54,16 @@ NTSTATUS __stdcall NtUnlockFile(
   NTSTATUS v26; // edi
   __int64 Irp; // rax
   IRP *v28; // r14
-  unsigned __int8 v29; // r15
+  char v29; // r15
   PIO_STATUS_BLOCK v30; // rax
   struct _KEVENT *v31; // rcx
   struct _IO_STACK_LOCATION *CurrentStackLocation; // rbx
-  CHAR *v33; // rax
+  LONGLONG *v33; // rax
   char v34; // [rsp+40h] [rbp-78h] BYREF
   KPROCESSOR_MODE PreviousMode; // [rsp+41h] [rbp-77h]
   PVOID Object; // [rsp+48h] [rbp-70h] BYREF
   struct _KEVENT *HandleInformation; // [rsp+50h] [rbp-68h] BYREF
-  LONGLONG v38; // [rsp+58h] [rbp-60h] BYREF
+  LONGLONG v38; // [rsp+58h] [rbp-60h]
   LONGLONG QuadPart; // [rsp+60h] [rbp-58h] BYREF
   ULONG_PTR BugCheckParameter2; // [rsp+68h] [rbp-50h]
   struct _KTHREAD *CurrentThread; // [rsp+70h] [rbp-48h]
@@ -131,7 +131,7 @@ NTSTATUS __stdcall NtUnlockFile(
           v18 = (void *)VfFastIoSnapState(DriverObject);
         else
           v18 = 0LL;
-        v19 = guard_dispatch_icall_no_overrides(v10, &QuadPart, &v38, CurrentThread->ApcState.Process);
+        v19 = guard_dispatch_icall_no_overrides(v10, &QuadPart);
         if ( v18 )
           VfFastIoCheckState(v18, FastIoUnlockSingle);
         if ( v19 )
@@ -154,7 +154,7 @@ NTSTATUS __stdcall NtUnlockFile(
       if ( _InterlockedExchange(v24 + 29, 1) )
       {
         v10 = (struct _FILE_OBJECT *)Object;
-        v26 = IopWaitAndAcquireFileObjectLock((volatile signed __int32 *)Object, v8, v22, v25, &v34);
+        v26 = IopWaitAndAcquireFileObjectLock((volatile signed __int32 *)Object, v8, v22, (__int64)v25, &v34);
       }
       else
       {
@@ -175,7 +175,7 @@ NTSTATUS __stdcall NtUnlockFile(
     }
     else
     {
-      Pool2 = (struct _KEVENT *)ExAllocatePool2(0x40uLL);
+      Pool2 = (struct _KEVENT *)ExAllocatePool2(0x40uLL, 0x18uLL, 0x76456F49u);
       v21 = Pool2;
       HandleInformation = Pool2;
       if ( !Pool2 )
@@ -220,9 +220,9 @@ LABEL_25:
     CurrentStackLocation = v28->Tail.Overlay.CurrentStackLocation;
     *(_WORD *)&CurrentStackLocation[-1].MajorFunction = 529;
     CurrentStackLocation[-1].FileObject = (PFILE_OBJECT)BugCheckParameter2;
-    v33 = (CHAR *)ExAllocatePool2(0x61uLL);
-    *(_QWORD *)v33 = v38;
-    v28->Tail.Overlay.AuxiliaryBuffer = v33;
+    v33 = (LONGLONG *)ExAllocatePool2(0x61uLL, 8uLL, 0x654C6F49u);
+    *v33 = v38;
+    v28->Tail.Overlay.AuxiliaryBuffer = (PCHAR)v33;
     CurrentStackLocation[-1].Parameters.WMI.ProviderId = (ULONG_PTR)v33;
     CurrentStackLocation[-1].Parameters.Create.Options = Key;
     CurrentStackLocation[-1].Parameters.Read.ByteOffset.QuadPart = QuadPart;

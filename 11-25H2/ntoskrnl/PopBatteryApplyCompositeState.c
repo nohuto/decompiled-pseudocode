@@ -80,13 +80,13 @@ char __fastcall PopBatteryApplyCompositeState(__int64 a1, __int64 a2, int a3)
   const CHAR *v35; // rdx
   unsigned int v36; // r8d
   unsigned __int8 v37; // r8
-  __int64 v39; // [rsp+20h] [rbp-59h]
-  __int64 v40; // [rsp+20h] [rbp-59h]
-  __int64 v41; // [rsp+20h] [rbp-59h]
+  void *ExplicitScope; // [rsp+20h] [rbp-59h]
+  void *ExplicitScopea; // [rsp+20h] [rbp-59h]
+  void *ExplicitScopeb; // [rsp+20h] [rbp-59h]
   char v42; // [rsp+40h] [rbp-39h]
   unsigned int v43; // [rsp+44h] [rbp-35h] BYREF
   unsigned int v44; // [rsp+48h] [rbp-31h] BYREF
-  int v45; // [rsp+4Ch] [rbp-2Dh] BYREF
+  int Buffer; // [rsp+4Ch] [rbp-2Dh] BYREF
   struct _EVENT_DATA_DESCRIPTOR v46[2]; // [rsp+50h] [rbp-29h] BYREF
   _QWORD v47[2]; // [rsp+70h] [rbp-9h] BYREF
   unsigned int *v48; // [rsp+80h] [rbp+7h]
@@ -94,7 +94,7 @@ char __fastcall PopBatteryApplyCompositeState(__int64 a1, __int64 a2, int a3)
 
   v3 = ~*(_DWORD *)a1;
   v43 = 0;
-  v45 = 0;
+  Buffer = 0;
   v5 = a2;
   v42 = 0;
   v7 = v3 & 1;
@@ -139,7 +139,7 @@ char __fastcall PopBatteryApplyCompositeState(__int64 a1, __int64 a2, int a3)
     }
     v42 = 1;
   }
-  PopReleasePolicyLock(v9, v8, v10, v11, v39);
+  PopReleasePolicyLock(v9, v8, v10, v11, ExplicitScope);
   PopBatteryCheckCompositeCapacity(a1, v7, &v43);
   if ( (((unsigned __int8)xmmword_140F0AAE0 ^ *(_BYTE *)a1) & 0xF) != 0 || byte_140F0AAB8 )
   {
@@ -167,7 +167,7 @@ char __fastcall PopBatteryApplyCompositeState(__int64 a1, __int64 a2, int a3)
   v19 = dword_140F0AB04;
   if ( dword_140F0AB04 == -1 )
     v19 = 0;
-  LODWORD(v40) = DWORD1(xmmword_140F0AAE0);
+  LODWORD(ExplicitScopea) = DWORD1(xmmword_140F0AAE0);
   DbgPrintEx(
     0x92u,
     3u,
@@ -179,7 +179,7 @@ char __fastcall PopBatteryApplyCompositeState(__int64 a1, __int64 a2, int a3)
     "|-- Rate       = %d\n"
     "|-- Est Time   = %u\n",
     (unsigned int)xmmword_140F0AAE0,
-    v40,
+    ExplicitScopea,
     DWORD2(xmmword_140F0AAE0),
     HIDWORD(xmmword_140F0AAE0),
     v19);
@@ -293,9 +293,8 @@ char __fastcall PopBatteryApplyCompositeState(__int64 a1, __int64 a2, int a3)
   while ( v22 < 4 );
   if ( dword_140F0AB30 != v25 )
   {
-    v41 = 0LL;
-    v45 = v25;
-    ZwUpdateWnfStateData((__int64)&WNF_PO_BATTERY_CHARGE_LEVEL, (__int64)&v45);
+    Buffer = v25;
+    ZwUpdateWnfStateData(&WNF_PO_BATTERY_CHARGE_LEVEL, &Buffer, 4u, 0LL, 0LL, 0, 0);
     v34 = dword_140E07680;
     if ( (unsigned int)dword_140E07680 > 5 )
     {
@@ -351,7 +350,7 @@ char __fastcall PopBatteryApplyCompositeState(__int64 a1, __int64 a2, int a3)
   }
   if ( v42 )
     PopTracePowerReconfig();
-  PopReleasePolicyLock(v23, v30, v31, v32, v41);
+  PopReleasePolicyLock(v23, v30, v31, v32, ExplicitScopeb);
   PopEsQueueStateEvaluation(v42);
   return v42;
 }

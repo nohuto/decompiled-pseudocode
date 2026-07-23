@@ -1,16 +1,21 @@
 /*
- * XREFs of ZwFilterBootOption @ 0x180160CB0
+ * XREFs of ZwFilterBootOption @ 0x180160BB0
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 ZwFilterBootOption()
+NTSTATUS __cdecl ZwFilterBootOption(
+        FILTER_BOOT_OPTION_OPERATION FilterOperation,
+        ULONG ObjectType,
+        ULONG ElementType,
+        PVOID Data,
+        ULONG DataSize)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 236LL;
+  result = 236;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

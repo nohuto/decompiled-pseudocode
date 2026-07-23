@@ -1,11 +1,11 @@
 /*
- * XREFs of IopCheckSessionDeviceAccess @ 0x140557628
+ * XREFs of IopCheckSessionDeviceAccess @ 0x140557CE8
  * Callers:
- *     IopParseDevice @ 0x14072CD50 (IopParseDevice.c)
+ *     IopParseDevice @ 0x14072CF50 (IopParseDevice.c)
  * Callees:
- *     PsGetCurrentServerSilo @ 0x140289F90 (PsGetCurrentServerSilo.c)
- *     MmGetSessionIdEx @ 0x1402A1720 (MmGetSessionIdEx.c)
- *     IopGetSessionIdFromPDO @ 0x140790F54 (IopGetSessionIdFromPDO.c)
+ *     PsGetCurrentServerSilo @ 0x14028A220 (PsGetCurrentServerSilo.c)
+ *     MmGetSessionIdEx @ 0x1402A19B0 (MmGetSessionIdEx.c)
+ *     IopGetSessionIdFromPDO @ 0x140791144 (IopGetSessionIdFromPDO.c)
  */
 
 bool __fastcall IopCheckSessionDeviceAccess(__int64 a1)

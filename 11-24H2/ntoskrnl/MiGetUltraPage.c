@@ -1,40 +1,42 @@
 /*
- * XREFs of MiGetUltraPage @ 0x1402F40C0
+ * XREFs of MiGetUltraPage @ 0x14033BE50
  * Callers:
- *     MiCreateUltraThreadContext @ 0x1402F3EF0 (MiCreateUltraThreadContext.c)
- *     MiCreateUltraThreadContextHelper @ 0x1403C6C4C (MiCreateUltraThreadContextHelper.c)
- *     MiReplenishUltraPageTables @ 0x1403C6DB8 (MiReplenishUltraPageTables.c)
+ *     MiCreateUltraThreadContext @ 0x14033BC80 (MiCreateUltraThreadContext.c)
+ *     MiCreateUltraThreadContextHelper @ 0x140412880 (MiCreateUltraThreadContextHelper.c)
+ *     MiReplenishUltraPageTables @ 0x1404129EC (MiReplenishUltraPageTables.c)
  * Callees:
- *     MiGetSlabPage @ 0x1402F3934 (MiGetSlabPage.c)
- *     MiGetPage @ 0x1402F41B0 (MiGetPage.c)
+ *     MiGetSlabPage @ 0x14021CE24 (MiGetSlabPage.c)
+ *     MiGetPage @ 0x14033BF40 (MiGetPage.c)
  */
 
-__int64 __fastcall MiGetUltraPage(__int64 a1, char a2)
+__int64 __fastcall MiGetUltraPage(__int64 a1, unsigned int a2)
 {
   unsigned int v2; // r8d
-  int v3; // edi
-  int v4; // esi
-  unsigned int v5; // ebx
+  __int64 v3; // r9
+  int v4; // edi
+  int v5; // esi
+  unsigned int v6; // ebx
   __int64 result; // rax
   __int64 SlabPage; // rdx
-  unsigned int v8; // r9d
+  unsigned int v9; // r9d
 
   v2 = *(_DWORD *)(a1 + 8);
-  v3 = 0;
-  v4 = a2 & 4;
-  v5 = v2 & 0xFFF7FF00 | (unsigned __int8)(_InterlockedExchangeAdd(*(volatile signed __int32 **)a1, 1u)
-                                         % (unsigned int)dword_140E2DBC0[HIWORD(v2) & 3]) | 0x40000;
+  v3 = a2;
+  v4 = 0;
+  v5 = a2 & 4;
+  v6 = v2 & 0xFFF7FF00 | (unsigned __int8)(_InterlockedExchangeAdd(*(volatile signed __int32 **)a1, 1u)
+                                         % (unsigned int)dword_140E2DD00[HIWORD(v2) & 3]) | 0x40000;
   if ( (a2 & 8) != 0 )
   {
-    v8 = 28;
+    v9 = 28;
     if ( (a2 & 4) == 0 )
-      v8 = 12;
-    SlabPage = MiGetSlabPage((__int64)&MiSystemPartition, 7, v5, v8, 0LL, 0);
+      v9 = 12;
+    SlabPage = MiGetSlabPage((__int64)&MiSystemPartition, 7, v6, v9, 0LL, 0);
     if ( SlabPage != -1 )
       goto LABEL_3;
   }
-  LOBYTE(v3) = v4 != 0;
-  result = MiGetPage(&MiSystemPartition, v5, (unsigned int)(v3 + 176));
+  LOBYTE(v4) = v5 != 0;
+  result = MiGetPage(&MiSystemPartition, v6, (unsigned int)(v4 + 176), v3);
   SlabPage = result;
   if ( result != -1 )
   {

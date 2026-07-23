@@ -1,12 +1,12 @@
 /*
- * XREFs of MiAllocateMappedWriterMdls @ 0x1404B64F0
+ * XREFs of MiAllocateMappedWriterMdls @ 0x1404AF940
  * Callers:
- *     MiCreateNewSection @ 0x140A562D8 (MiCreateNewSection.c)
+ *     MiCreateNewSection @ 0x140A63860 (MiCreateNewSection.c)
  * Callees:
- *     KeSetEvent @ 0x1402DE9C0 (KeSetEvent.c)
- *     MiAllocateModWriterEntry @ 0x140396C00 (MiAllocateModWriterEntry.c)
- *     MiUnlockPartitionMappedWriter @ 0x140496C74 (MiUnlockPartitionMappedWriter.c)
- *     MiLockPartitionMappedWriter @ 0x140497478 (MiLockPartitionMappedWriter.c)
+ *     KeSetEvent @ 0x1402C0780 (KeSetEvent.c)
+ *     MiAllocateModWriterEntry @ 0x140398980 (MiAllocateModWriterEntry.c)
+ *     MiUnlockPartitionMappedWriter @ 0x1404907C4 (MiUnlockPartitionMappedWriter.c)
+ *     MiLockPartitionMappedWriter @ 0x140490FC8 (MiLockPartitionMappedWriter.c)
  */
 
 __int64 __fastcall MiAllocateMappedWriterMdls(__int64 a1, __int64 a2, __int64 a3, struct _KLOCK_ENTRIES *a4)

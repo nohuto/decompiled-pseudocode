@@ -129,9 +129,7 @@ char __fastcall KeInitSystem(int a1)
     KiInitDynamicTraceSupport();
     ActiveProcessorCount = KeQueryActiveProcessorCountEx(0xFFFFu);
     KiDpcWatchdogConfigurationLock = 0LL;
-    KiClockKeepAliveCycle = (ActiveProcessorCount
-                           + (KeMaximumIncrement + 29999999) / (unsigned int)KeMaximumIncrement
-                           - 1)
+    KiClockKeepAliveCycle = (ActiveProcessorCount + (KeMaximumIncrement + 29999999) / KeMaximumIncrement - 1)
                           / ActiveProcessorCount;
     if ( !KiForceBugcheckForDpcWatchdog && HviIsAnyHypervisorPresent() )
     {
@@ -201,7 +199,7 @@ LABEL_39:
         if ( KiInitMachineDependent() )
         {
           v13 = *(unsigned int *)(KiProcessorBlock[0] + 68);
-          v14 = v13 * (unsigned __int64)(unsigned int)KeMaximumIncrement / 0xA;
+          v14 = v13 * (unsigned __int64)KeMaximumIncrement / 0xA;
           KiShortExecutionCycles = v14 / 0xF0;
           v15 = v14 / 3;
           KiCyclesPerClockQuantum = v14 / 3;

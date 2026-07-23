@@ -6,9 +6,13 @@
  *     <none>
  */
 
-__int64 __fastcall ZwCreateMutant(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwCreateMutant(
+        PHANDLE MutantHandle,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        BOOLEAN InitialOwner)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(MutantHandle);
 }

@@ -7,13 +7,13 @@
  *     @__security_check_cookie@4 @ 0x4B2F4B20 (@__security_check_cookie@4.c)
  */
 
-int __thiscall LdrpResValidateFileHandle(void *this)
+NTSTATUS __thiscall LdrpResValidateFileHandle(HANDLE FileHandle)
 {
-  _BYTE v2[8]; // [esp+0h] [ebp-34h] BYREF
-  _BYTE v3[40]; // [esp+8h] [ebp-2Ch] BYREF
+  _IO_STATUS_BLOCK IoStatusBlock; // [esp+0h] [ebp-34h] BYREF
+  _BYTE FileInformation[40]; // [esp+8h] [ebp-2Ch] BYREF
 
-  if ( !this || this == (void *)-1 )
+  if ( !FileHandle || FileHandle == (HANDLE)-1 )
     return -1073741816;
   else
-    return ZwQueryInformationFile((int)this, (int)v2, (int)v3, 40, 4);
+    return ZwQueryInformationFile(FileHandle, &IoStatusBlock, FileInformation, 0x28u, FileBasicInformation);
 }

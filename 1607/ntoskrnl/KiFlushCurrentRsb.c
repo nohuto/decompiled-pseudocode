@@ -1,13 +1,13 @@
 /*
- * XREFs of KiFlushCurrentRsb @ 0x1401710C0
+ * XREFs of KiFlushCurrentRsb @ 0x1401715C0
  * Callers:
- *     KiUpdateSpeculationControl @ 0x1401DA084 (KiUpdateSpeculationControl.c)
+ *     KiUpdateSpeculationControl @ 0x1401D9EB0 (KiUpdateSpeculationControl.c)
  * Callees:
- *     KiFlushCurrentRsb @ 0x1401710C0 (KiFlushCurrentRsb.c)
+ *     KiFlushCurrentRsb @ 0x1401715C0 (KiFlushCurrentRsb.c)
  */
 
 void __noreturn KiFlushCurrentRsb()
 {
   _disable();
-  JUMPOUT(0x1401711D9LL);
+  JUMPOUT(0x1401716D9LL);
 }

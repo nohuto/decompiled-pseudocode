@@ -23,11 +23,16 @@
  *     <none>
  */
 
-__int64 ZwProtectVirtualMemory()
+NTSTATUS __cdecl ZwProtectVirtualMemory(
+        HANDLE ProcessHandle,
+        PVOID *BaseAddress,
+        PSIZE_T RegionSize,
+        ULONG NewProtect,
+        PULONG OldProtect)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 80LL;
+  result = 80;
   __asm { syscall; Low latency system call }
   return result;
 }

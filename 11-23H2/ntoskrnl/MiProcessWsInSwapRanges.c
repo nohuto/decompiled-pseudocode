@@ -4,7 +4,7 @@
  *     MiProcessWsInSwapSupport @ 0x140200298 (MiProcessWsInSwapSupport.c)
  * Callees:
  *     MiReleaseOutSwapReservations @ 0x1402004DC (MiReleaseOutSwapReservations.c)
- *     KiCheckForKernelApcDelivery @ 0x14030F820 (KiCheckForKernelApcDelivery.c)
+ *     KiCheckForKernelApcDelivery @ 0x14030FAB0 (KiCheckForKernelApcDelivery.c)
  *     MmPrefetchVirtualMemory @ 0x140681A70 (MmPrefetchVirtualMemory.c)
  */
 

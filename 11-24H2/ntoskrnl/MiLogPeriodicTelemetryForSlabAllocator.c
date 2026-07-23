@@ -1,12 +1,12 @@
 /*
- * XREFs of MiLogPeriodicTelemetryForSlabAllocator @ 0x1403D1F60
+ * XREFs of MiLogPeriodicTelemetryForSlabAllocator @ 0x1404A55E0
  * Callers:
  *     <none>
  * Callees:
- *     EtwWriteEx @ 0x140259680 (EtwWriteEx.c)
- *     ExtractAggregateFieldTypes @ 0x1403D0E80 (ExtractAggregateFieldTypes.c)
- *     InsertEventEntryInLookUpTable @ 0x1403D0F14 (InsertEventEntryInLookUpTable.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     ExtractAggregateFieldTypes @ 0x140274970 (ExtractAggregateFieldTypes.c)
+ *     InsertEventEntryInLookUpTable @ 0x140274A04 (InsertEventEntryInLookUpTable.c)
+ *     EtwWriteEx @ 0x140289C90 (EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 __int64 __fastcall MiLogPeriodicTelemetryForSlabAllocator(unsigned __int16 *a1, __int64 a2)
@@ -81,12 +81,12 @@ __int64 __fastcall MiLogPeriodicTelemetryForSlabAllocator(unsigned __int16 *a1, 
   __int64 *v71; // [rsp+220h] [rbp+120h]
   __int64 v72; // [rsp+228h] [rbp+128h]
 
-  v2 = *(_QWORD *)&qword_140E37518;
-  if ( **(_DWORD **)&qword_140E37518 > 5u )
+  v2 = *(_QWORD *)&qword_140E37658;
+  if ( **(_DWORD **)&qword_140E37658 > 5u )
   {
-    if ( (*(_QWORD *)(*(_QWORD *)&qword_140E37518 + 16LL) & 0x400000000400LL) == 0
+    if ( (*(_QWORD *)(*(_QWORD *)&qword_140E37658 + 16LL) & 0x400000000400LL) == 0
       || (v4 = 1,
-          (*(_QWORD *)(*(_QWORD *)&qword_140E37518 + 24LL) & 0x400000000400LL) != *(_QWORD *)(*(_QWORD *)&qword_140E37518
+          (*(_QWORD *)(*(_QWORD *)&qword_140E37658 + 24LL) & 0x400000000400LL) != *(_QWORD *)(*(_QWORD *)&qword_140E37658
                                                                                             + 24LL)) )
     {
       v4 = 0;
@@ -152,7 +152,7 @@ __int64 __fastcall MiLogPeriodicTelemetryForSlabAllocator(unsigned __int16 *a1, 
       v69 = v14;
       v71 = &v30;
       *(_DWORD *)&EventDescriptor.Level = 5;
-      UserData.Ptr = *(_QWORD *)(*(_QWORD *)&qword_140E37518 + 8LL);
+      UserData.Ptr = *(_QWORD *)(*(_QWORD *)&qword_140E37658 + 8LL);
       v68 = 4LL;
       v70 = 4LL;
       v30 = 0x1000000LL;
@@ -160,16 +160,16 @@ __int64 __fastcall MiLogPeriodicTelemetryForSlabAllocator(unsigned __int16 *a1, 
       *(_DWORD *)&EventDescriptor.Id = 184549376;
       EventDescriptor.Keyword = 0x400000000400LL;
       UserData.Size = *(unsigned __int16 *)UserData.Ptr;
-      v32 = byte_140058351;
+      v32 = byte_1400593F9;
       UserData.Reserved = 2;
       v33 = 496;
       v34 = 1;
       v14[1] = (unsigned int)&TraceLoggingMetadataEnd - (unsigned int)&TraceLoggingMetadata;
-      if ( *(void (__fastcall **)(const struct _GUID *, unsigned int, unsigned __int8, unsigned __int64, unsigned __int64, struct _EVENT_FILTER_DESCRIPTOR *, void *))(*(_QWORD *)&qword_140E37518 + 40LL) == TlgAggregateInternalRegisteredProviderEtwCallback )
+      if ( *(void (__fastcall **)(const struct _GUID *, unsigned int, unsigned __int8, unsigned __int64, unsigned __int64, struct _EVENT_FILTER_DESCRIPTOR *, void *))(*(_QWORD *)&qword_140E37658 + 40LL) == TlgAggregateInternalRegisteredProviderEtwCallback )
       {
         AggregateFieldTypes = ExtractAggregateFieldTypes((__int64)&TraceLoggingMetadata, (__int64)&UserData);
         if ( AggregateFieldTypes )
-          InsertEventEntryInLookUpTable(v2, (__int64)&EventDescriptor, 21, (__int64)&UserData, AggregateFieldTypes);
+          InsertEventEntryInLookUpTable(v2, (__int64)&EventDescriptor, 0x15u, (__int64)&UserData, AggregateFieldTypes);
         else
           EtwWriteEx(*(_QWORD *)(v2 + 32), &EventDescriptor, 0LL, 0, 0LL, 0LL, 0x15u, &UserData);
       }

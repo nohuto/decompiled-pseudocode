@@ -1,9 +1,9 @@
 /*
- * XREFs of KseDsCompletionHookForStopDevice @ 0x140527720
+ * XREFs of KseDsCompletionHookForStopDevice @ 0x140527960
  * Callers:
  *     <none>
  * Callees:
- *     KsepDsEventPnpStopDevice @ 0x1405283BC (KsepDsEventPnpStopDevice.c)
+ *     KsepDsEventPnpStopDevice @ 0x1405285FC (KsepDsEventPnpStopDevice.c)
  */
 
 __int64 __fastcall KseDsCompletionHookForStopDevice(__int64 a1, __int64 a2)

@@ -1,43 +1,43 @@
 /*
- * XREFs of BcdCloseObject @ 0x1409BF5DC
+ * XREFs of BcdCloseObject @ 0x1409A5C2C
  * Callers:
- *     PopAdaptivePersistSystemInitatedRebootState @ 0x1405DAE54 (PopAdaptivePersistSystemInitatedRebootState.c)
- *     WheaPersistBadPageToBcd @ 0x14065CE90 (WheaPersistBadPageToBcd.c)
- *     PopAdaptiveClearInitialSystemPowerState @ 0x14075F12C (PopAdaptiveClearInitialSystemPowerState.c)
- *     PopAdaptiveGetSystemInitiatedRebootTargetBootEntry @ 0x14075F274 (PopAdaptiveGetSystemInitiatedRebootTargetBootEntry.c)
- *     PopBcdEstablishResumeObject @ 0x1407633AC (PopBcdEstablishResumeObject.c)
- *     PopBcdGetApplicationPathFromResumeObject @ 0x140763580 (PopBcdGetApplicationPathFromResumeObject.c)
- *     PopBcdRegenerateResumeObject @ 0x140763790 (PopBcdRegenerateResumeObject.c)
- *     PopBcdSetPendingResume @ 0x1407639CC (PopBcdSetPendingResume.c)
- *     SepSecureBootCorrectBcd @ 0x140793E34 (SepSecureBootCorrectBcd.c)
- *     BiGetDefaultBootEntryIdentifier @ 0x140812304 (BiGetDefaultBootEntryIdentifier.c)
- *     BiAddBootEntryToEfiBootManagerDisplayOrder @ 0x1408149C4 (BiAddBootEntryToEfiBootManagerDisplayOrder.c)
- *     BiCreateEfiEntry @ 0x140814FB0 (BiCreateEfiEntry.c)
- *     BiUpdateBcdObject @ 0x1408157BC (BiUpdateBcdObject.c)
- *     BiBuildIdentifierList @ 0x1409BEF7C (BiBuildIdentifierList.c)
- *     PopBcdClearPendingResume @ 0x1409C04F8 (PopBcdClearPendingResume.c)
- *     BiBindEfiBootManager @ 0x1409C0574 (BiBindEfiBootManager.c)
- *     BiUpdateEfiEntry @ 0x1409C14D0 (BiUpdateEfiEntry.c)
- *     BiExportEfiBootManager @ 0x140AB305C (BiExportEfiBootManager.c)
- *     BiBindEfiEntryToBcdObject @ 0x140ABC2E0 (BiBindEfiEntryToBcdObject.c)
- *     PopAllocateHiberContext @ 0x140AC688C (PopAllocateHiberContext.c)
+ *     PopAdaptivePersistSystemInitatedRebootState @ 0x1405D8174 (PopAdaptivePersistSystemInitatedRebootState.c)
+ *     WheaPersistBadPageToBcd @ 0x14065B5B0 (WheaPersistBadPageToBcd.c)
+ *     PopAdaptiveClearInitialSystemPowerState @ 0x14075E0CC (PopAdaptiveClearInitialSystemPowerState.c)
+ *     PopAdaptiveGetSystemInitiatedRebootTargetBootEntry @ 0x14075E214 (PopAdaptiveGetSystemInitiatedRebootTargetBootEntry.c)
+ *     PopBcdEstablishResumeObject @ 0x140762D7C (PopBcdEstablishResumeObject.c)
+ *     PopBcdGetApplicationPathFromResumeObject @ 0x140762F44 (PopBcdGetApplicationPathFromResumeObject.c)
+ *     PopBcdRegenerateResumeObject @ 0x140763154 (PopBcdRegenerateResumeObject.c)
+ *     PopBcdSetPendingResume @ 0x140763390 (PopBcdSetPendingResume.c)
+ *     SepSecureBootCorrectBcd @ 0x140793ED4 (SepSecureBootCorrectBcd.c)
+ *     BiGetDefaultBootEntryIdentifier @ 0x140812A44 (BiGetDefaultBootEntryIdentifier.c)
+ *     BiAddBootEntryToEfiBootManagerDisplayOrder @ 0x140815104 (BiAddBootEntryToEfiBootManagerDisplayOrder.c)
+ *     BiCreateEfiEntry @ 0x1408156F0 (BiCreateEfiEntry.c)
+ *     BiUpdateBcdObject @ 0x140815EFC (BiUpdateBcdObject.c)
+ *     BiBuildIdentifierList @ 0x1409A55CC (BiBuildIdentifierList.c)
+ *     PopBcdClearPendingResume @ 0x1409A6B48 (PopBcdClearPendingResume.c)
+ *     BiBindEfiBootManager @ 0x1409A6BC4 (BiBindEfiBootManager.c)
+ *     BiUpdateEfiEntry @ 0x1409A7B20 (BiUpdateEfiEntry.c)
+ *     BiExportEfiBootManager @ 0x140AADFCC (BiExportEfiBootManager.c)
+ *     BiBindEfiEntryToBcdObject @ 0x140AB7300 (BiBindEfiEntryToBcdObject.c)
+ *     PopAllocateHiberContext @ 0x140AC4284 (PopAllocateHiberContext.c)
  * Callees:
- *     BiIsOfflineHandle @ 0x1404AB350 (BiIsOfflineHandle.c)
- *     BiCloseKey @ 0x14085CB80 (BiCloseKey.c)
- *     BiAcquireBcdSyncMutant @ 0x1409BE268 (BiAcquireBcdSyncMutant.c)
- *     BiReleaseBcdSyncMutant @ 0x1409BE32C (BiReleaseBcdSyncMutant.c)
+ *     BiIsOfflineHandle @ 0x1404A5974 (BiIsOfflineHandle.c)
+ *     BiCloseKey @ 0x1408588F0 (BiCloseKey.c)
+ *     BiAcquireBcdSyncMutant @ 0x1409A48B8 (BiAcquireBcdSyncMutant.c)
+ *     BiReleaseBcdSyncMutant @ 0x1409A497C (BiReleaseBcdSyncMutant.c)
  */
 
-int __fastcall BcdCloseObject(void *a1)
+NTSTATUS __cdecl BcdCloseObject(HANDLE BcdObjectHandle)
 {
   char IsOfflineHandle; // di
-  int result; // eax
+  NTSTATUS result; // eax
 
-  IsOfflineHandle = BiIsOfflineHandle((char)a1);
+  IsOfflineHandle = BiIsOfflineHandle((char)BcdObjectHandle);
   result = BiAcquireBcdSyncMutant(IsOfflineHandle);
   if ( result >= 0 )
   {
-    BiCloseKey(a1);
+    BiCloseKey(BcdObjectHandle);
     return BiReleaseBcdSyncMutant(IsOfflineHandle);
   }
   return result;

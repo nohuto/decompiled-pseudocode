@@ -1,12 +1,12 @@
 /*
- * XREFs of ExpInitSystemPhase0 @ 0x140A69014
+ * XREFs of ExpInitSystemPhase0 @ 0x140A6A014
  * Callers:
- *     ExInitSystem @ 0x140A68944 (ExInitSystem.c)
+ *     ExInitSystem @ 0x140A69944 (ExInitSystem.c)
  * Callees:
- *     ExInitializeResourceLite @ 0x14021CC50 (ExInitializeResourceLite.c)
- *     ExGenRandom @ 0x14022C890 (ExGenRandom.c)
- *     RtlHpGlobalsInitialize @ 0x1403C3E70 (RtlHpGlobalsInitialize.c)
- *     ExGetSuiteMask @ 0x1407BDAC0 (ExGetSuiteMask.c)
+ *     ExInitializeResourceLite @ 0x1402C1550 (ExInitializeResourceLite.c)
+ *     ExGenRandom @ 0x1402D1110 (ExGenRandom.c)
+ *     RtlHpGlobalsInitialize @ 0x1403C42A0 (RtlHpGlobalsInitialize.c)
+ *     ExGetSuiteMask @ 0x1407BE250 (ExGetSuiteMask.c)
  */
 
 char ExpInitSystemPhase0()
@@ -18,15 +18,15 @@ char ExpInitSystemPhase0()
 
   ExpTimeout = -40000000LL;
   MEMORY[0xFFFFF780000002D6] = 10;
-  qword_140C16B08 = (__int64)&ExpSystemResourcesList;
+  qword_140C16B48 = (__int64)&ExpSystemResourcesList;
   ExpSystemResourcesList = (__int64)&ExpSystemResourcesList;
   ExpEnvironmentLock.Event.Header.WaitListHead.Blink = &ExpEnvironmentLock.Event.Header.WaitListHead;
   ExpEnvironmentLock.Event.Header.WaitListHead.Flink = &ExpEnvironmentLock.Event.Header.WaitListHead;
-  qword_140C16A98 = (__int64)&ExNPagedLookasideListHead;
+  qword_140C16B18 = (__int64)&ExNPagedLookasideListHead;
   ExNPagedLookasideListHead = (__int64)&ExNPagedLookasideListHead;
-  qword_140C16A88 = (__int64)&ExPagedLookasideListHead;
+  qword_140C16AD8 = (__int64)&ExPagedLookasideListHead;
   ExPagedLookasideListHead = (__int64)&ExPagedLookasideListHead;
-  qword_140C19818 = (__int64)&ExpFirmwareTableProviderListHead;
+  qword_140C19858 = (__int64)&ExpFirmwareTableProviderListHead;
   ExpFirmwareTableProviderListHead = (__int64)&ExpFirmwareTableProviderListHead;
   ExpEnvironmentLock.Count = 1;
   ExpEnvironmentLock.Owner = 0LL;

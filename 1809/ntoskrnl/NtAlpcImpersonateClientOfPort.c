@@ -1,25 +1,25 @@
 /*
- * XREFs of NtAlpcImpersonateClientOfPort @ 0x140637740
+ * XREFs of NtAlpcImpersonateClientOfPort @ 0x140638760
  * Callers:
- *     NtImpersonateClientOfPort @ 0x140849B10 (NtImpersonateClientOfPort.c)
+ *     NtImpersonateClientOfPort @ 0x14084AD70 (NtImpersonateClientOfPort.c)
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
- *     ObReferenceObjectByHandle @ 0x1405E8350 (ObReferenceObjectByHandle.c)
- *     AlpcpLookupMessage @ 0x140636970 (AlpcpLookupMessage.c)
- *     AlpcpUnlockBlob @ 0x140637040 (AlpcpUnlockBlob.c)
- *     AlpcpImpersonateMessage @ 0x1406378A0 (AlpcpImpersonateMessage.c)
- *     AlpcpCaptureIdMessage @ 0x140637AE0 (AlpcpCaptureIdMessage.c)
- *     AlpcpEnterStateChangeEventMessageLog @ 0x14084A598 (AlpcpEnterStateChangeEventMessageLog.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B78F0 (KiLeaveCriticalRegionUnsafe.c)
+ *     ObReferenceObjectByHandle @ 0x1405E9350 (ObReferenceObjectByHandle.c)
+ *     AlpcpLookupMessage @ 0x140637990 (AlpcpLookupMessage.c)
+ *     AlpcpUnlockBlob @ 0x140638060 (AlpcpUnlockBlob.c)
+ *     AlpcpImpersonateMessage @ 0x1406388C0 (AlpcpImpersonateMessage.c)
+ *     AlpcpCaptureIdMessage @ 0x140638B00 (AlpcpCaptureIdMessage.c)
+ *     AlpcpEnterStateChangeEventMessageLog @ 0x14084B7F8 (AlpcpEnterStateChangeEventMessageLog.c)
  */
 
-__int64 __fastcall NtAlpcImpersonateClientOfPort(HANDLE Handle, __int64 a2, unsigned __int64 a3)
+NTSTATUS __cdecl NtAlpcImpersonateClientOfPort(HANDLE PortHandle, PPORT_MESSAGE Message, PVOID Flags)
 {
   struct _KTHREAD *CurrentThread; // rax
   KPROCESSOR_MODE PreviousMode; // r12
   int v7; // esi
   int v8; // r15d
-  int v9; // edi
+  NTSTATUS v9; // edi
   int v10; // edx
   PVOID v11; // rsi
   ULONG_PTR v12; // rbx
@@ -31,12 +31,12 @@ __int64 __fastcall NtAlpcImpersonateClientOfPort(HANDLE Handle, __int64 a2, unsi
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
-  AlpcpCaptureIdMessage(a2, &v17, &v14);
+  AlpcpCaptureIdMessage(Message, &v17, &v14);
   v7 = v17;
-  if ( v17 && (unsigned int)(a3 >> 2) <= 3 )
+  if ( v17 && (unsigned int)((unsigned __int64)Flags >> 2) <= 3 )
   {
     v8 = 0;
-    v9 = ObReferenceObjectByHandle(Handle, 1u, AlpcPortObjectType, PreviousMode, &Object, 0LL);
+    v9 = ObReferenceObjectByHandle(PortHandle, 1u, AlpcPortObjectType, PreviousMode, &Object, 0LL);
     if ( v9 >= 0 )
     {
       v10 = v7;
@@ -44,9 +44,14 @@ __int64 __fastcall NtAlpcImpersonateClientOfPort(HANDLE Handle, __int64 a2, unsi
       v9 = AlpcpLookupMessage((__int64)Object, v10, v14, BugCheckParameter2);
       if ( v9 >= 0 )
       {
-        LOBYTE(v8) = (((4 * (unsigned int)(a3 >> 2)) | 2) & (unsigned int)a3) != 0LL;
+        LOBYTE(v8) = (((4 * (unsigned int)((unsigned __int64)Flags >> 2)) | 2) & (unsigned int)Flags) != 0LL;
         v12 = BugCheckParameter2[0];
-        v9 = AlpcpImpersonateMessage((_DWORD)v11, BugCheckParameter2[0], a3 & 1, v8, a3 >> 2);
+        v9 = AlpcpImpersonateMessage(
+               (_DWORD)v11,
+               BugCheckParameter2[0],
+               (unsigned __int8)Flags & 1,
+               v8,
+               (unsigned __int64)Flags >> 2);
         if ( AlpcpMessageLogEnabled )
           AlpcpEnterStateChangeEventMessageLog(v12);
         AlpcpUnlockBlob(v12);
@@ -59,5 +64,5 @@ __int64 __fastcall NtAlpcImpersonateClientOfPort(HANDLE Handle, __int64 a2, unsi
     v9 = -1073741811;
   }
   KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
-  return (unsigned int)v9;
+  return v9;
 }

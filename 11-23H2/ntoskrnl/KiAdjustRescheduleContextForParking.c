@@ -1,11 +1,11 @@
 /*
- * XREFs of KiAdjustRescheduleContextForParking @ 0x14058003C
+ * XREFs of KiAdjustRescheduleContextForParking @ 0x14058052C
  * Callers:
- *     KiParkCurrentProcessor @ 0x14057DE9C (KiParkCurrentProcessor.c)
+ *     KiParkCurrentProcessor @ 0x14057E38C (KiParkCurrentProcessor.c)
  * Callees:
- *     KiFindRescheduleContextEntryForPrcb @ 0x140243B70 (KiFindRescheduleContextEntryForPrcb.c)
- *     KiAdjustRescheduleContextEntryForThreadRemoval @ 0x140307F0C (KiAdjustRescheduleContextEntryForThreadRemoval.c)
- *     KiIsPrcbThread @ 0x140324D00 (KiIsPrcbThread.c)
+ *     KiFindRescheduleContextEntryForPrcb @ 0x140243C40 (KiFindRescheduleContextEntryForPrcb.c)
+ *     KiAdjustRescheduleContextEntryForThreadRemoval @ 0x14030819C (KiAdjustRescheduleContextEntryForThreadRemoval.c)
+ *     KiIsPrcbThread @ 0x140324F90 (KiIsPrcbThread.c)
  */
 
 char __fastcall KiAdjustRescheduleContextForParking(__int64 a1, _KTHREAD *a2)

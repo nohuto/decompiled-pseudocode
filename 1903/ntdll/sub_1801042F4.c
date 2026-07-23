@@ -10,37 +10,48 @@
  *     ZwPowerInformation @ 0x18009D2B0 (ZwPowerInformation.c)
  */
 
-__int64 __fastcall sub_1801042F4(__int64 a1, _QWORD *a2)
+NTSTATUS __fastcall sub_1801042F4(void *a1, _QWORD *a2)
 {
-  __int64 result; // rax
-  int v4; // ebx
-  UNICODE_STRING DestinationString; // [rsp+58h] [rbp-9h] BYREF
-  __int64 v6; // [rsp+78h] [rbp+17h]
-  char v7; // [rsp+B0h] [rbp+4Fh]
-  __int64 v8; // [rsp+D8h] [rbp+77h]
+  NTSTATUS result; // eax
+  NTSTATUS v5; // ebx
+  HANDLE v6; // [rsp+38h] [rbp-29h] BYREF
+  int v7; // [rsp+40h] [rbp-21h]
+  char v8; // [rsp+44h] [rbp-1Dh]
+  void *v9; // [rsp+48h] [rbp-19h]
+  _DWORD InputBuffer[2]; // [rsp+50h] [rbp-11h] BYREF
+  _UNICODE_STRING DestinationString; // [rsp+58h] [rbp-9h] BYREF
+  __int64 ProcessInformation[7]; // [rsp+78h] [rbp+17h] BYREF
+  char v13; // [rsp+B0h] [rbp+4Fh]
+  HANDLE OutputBuffer; // [rsp+D8h] [rbp+77h] BYREF
 
-  v6 = 64LL;
-  result = ZwQueryInformationProcess();
-  if ( (int)result >= 0 )
+  ProcessInformation[0] = 64LL;
+  result = ZwQueryInformationProcess(a1, ProcessBasicInformation, ProcessInformation, 0x40u, 0LL);
+  if ( result >= 0 )
   {
-    if ( (v7 & 0x40) != 0 )
+    if ( (v13 & 0x40) != 0 )
     {
+      InputBuffer[0] = 0;
+      InputBuffer[1] = 1;
       RtlInitUnicodeString(&DestinationString, L"QueryDebugInformation request");
-      v4 = ZwPowerInformation();
-      if ( v4 >= 0 )
+      v5 = ZwPowerInformation(PlmPowerRequestCreate, InputBuffer, 0x28u, &OutputBuffer, 8u);
+      if ( v5 >= 0 )
       {
-        v4 = ZwPowerInformation();
-        if ( v4 >= 0 )
-          *a2 = v8;
+        v6 = OutputBuffer;
+        v7 = 3;
+        v8 = 1;
+        v9 = a1;
+        v5 = ZwPowerInformation(PowerRequestAction, &v6, 0x18u, 0LL, 0);
+        if ( v5 >= 0 )
+          *a2 = OutputBuffer;
         else
-          ZwClose();
+          ZwClose(OutputBuffer);
       }
-      return (unsigned int)v4;
+      return v5;
     }
     else
     {
       *a2 = 0LL;
-      return 0LL;
+      return 0;
     }
   }
   return result;

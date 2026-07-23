@@ -1,12 +1,12 @@
 /*
- * XREFs of SmGlobalsInitialize @ 0x140A4B528
+ * XREFs of SmGlobalsInitialize @ 0x140A4C528
  * Callers:
- *     SmInitSystem @ 0x140A4B43C (SmInitSystem.c)
+ *     SmInitSystem @ 0x140A4C43C (SmInitSystem.c)
  * Callees:
- *     ?SmInitialize@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@PEAU_SMKM_STORE_MGR_PARAMS@@@Z @ 0x1403B4750 (-SmInitialize@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@PEAU_SMKM_STORE_MGR_PARAMS@@@Z.c)
- *     memset @ 0x140414200 (memset.c)
- *     SmRegistrationCtxInitialize @ 0x1406C3FC0 (SmRegistrationCtxInitialize.c)
- *     SmcCacheManagerInitialize @ 0x140A4B660 (SmcCacheManagerInitialize.c)
+ *     ?SmInitialize@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@PEAU_SMKM_STORE_MGR_PARAMS@@@Z @ 0x1403B48C0 (-SmInitialize@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@PEAU_SMKM_STORE_MGR_PARAMS@@@Z.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     SmRegistrationCtxInitialize @ 0x140622B80 (SmRegistrationCtxInitialize.c)
+ *     SmcCacheManagerInitialize @ 0x140A4C660 (SmcCacheManagerInitialize.c)
  */
 
 __int64 __fastcall SmGlobalsInitialize(__int64 a1)

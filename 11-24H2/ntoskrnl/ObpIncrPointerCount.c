@@ -1,12 +1,12 @@
 /*
- * XREFs of ObpIncrPointerCount @ 0x140428440
+ * XREFs of ObpIncrPointerCount @ 0x14041C5D0
  * Callers:
- *     PopPushPowerStateTransitionRecordWithCallback @ 0x140428294 (PopPushPowerStateTransitionRecordWithCallback.c)
- *     ObDuplicateObject @ 0x14083FFB0 (ObDuplicateObject.c)
- *     ObInheritObjectHandle @ 0x14093D784 (ObInheritObjectHandle.c)
- *     ObpReferenceProcessObjectByHandle @ 0x1409405E0 (ObpReferenceProcessObjectByHandle.c)
+ *     PopPushPowerStateTransitionRecordWithCallback @ 0x14041C424 (PopPushPowerStateTransitionRecordWithCallback.c)
+ *     ObDuplicateObject @ 0x14083C270 (ObDuplicateObject.c)
+ *     ObInheritObjectHandle @ 0x140891E74 (ObInheritObjectHandle.c)
+ *     ObpReferenceProcessObjectByHandle @ 0x140894C20 (ObpReferenceProcessObjectByHandle.c)
  * Callees:
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
  */
 
 signed __int64 __fastcall ObpIncrPointerCount(volatile signed __int64 *a1)

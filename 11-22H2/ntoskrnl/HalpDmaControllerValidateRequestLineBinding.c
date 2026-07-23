@@ -39,7 +39,10 @@ char __fastcall HalpDmaControllerValidateRequestLineBinding(__int64 a1, __int64 
     v5 = *(unsigned __int8 *)(a1 + 176);
     CurrentIrql = KeGetCurrentIrql();
     __writecr8(v5);
-    if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)(v5 - 2) <= 0xDu )
+    if ( (_DWORD)KiIrqlFlags
+      && ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
+      && (unsigned __int8)(v5 - 2) <= 0xDu )
     {
       SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
       if ( CurrentIrql == (_BYTE)v5 )
@@ -56,10 +59,10 @@ char __fastcall HalpDmaControllerValidateRequestLineBinding(__int64 a1, __int64 
   if ( v3 )
   {
     KxReleaseSpinLock(v8);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v10 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v10 <= 0xFu && CurrentIrql <= 0xFu && v10 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v10 <= 0xFu && CurrentIrql <= 0xFu && v10 >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         v12 = CurrentPrcb->SchedulerAssist;

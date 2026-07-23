@@ -8,9 +8,7 @@
 
 NTSTATUS __stdcall ZwCancelTimer(HANDLE TimerHandle, PBOOLEAN CurrentState)
 {
-  __int64 v2; // r8
-
   _disable();
   __readeflags();
-  return KiServiceInternal(TimerHandle, CurrentState, v2);
+  return KiServiceInternal(TimerHandle);
 }

@@ -1,12 +1,12 @@
 /*
- * XREFs of MiIsPageInIoHugeRangeTransition @ 0x1403364D0
+ * XREFs of MiIsPageInIoHugeRangeTransition @ 0x140336760
  * Callers:
- *     MiDereferenceIoPages @ 0x1403360F4 (MiDereferenceIoPages.c)
- *     MiReferenceIoPages @ 0x140336500 (MiReferenceIoPages.c)
- *     MiDereferenceIoHugeRange @ 0x14061F988 (MiDereferenceIoHugeRange.c)
- *     MiDeleteStaleCacheMaps @ 0x14062D9D0 (MiDeleteStaleCacheMaps.c)
+ *     MiDereferenceIoPages @ 0x140336384 (MiDereferenceIoPages.c)
+ *     MiReferenceIoPages @ 0x140336790 (MiReferenceIoPages.c)
+ *     MiDereferenceIoHugeRange @ 0x14061FED8 (MiDereferenceIoHugeRange.c)
+ *     MiDeleteStaleCacheMaps @ 0x14062DF20 (MiDeleteStaleCacheMaps.c)
  * Callees:
- *     MiIsPageInHugePfn @ 0x140336DAC (MiIsPageInHugePfn.c)
+ *     MiIsPageInHugePfn @ 0x14033703C (MiIsPageInHugePfn.c)
  */
 
 __int64 __fastcall MiIsPageInIoHugeRangeTransition(__int64 a1, __int64 a2)

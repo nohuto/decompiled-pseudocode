@@ -1,16 +1,16 @@
 /*
- * XREFs of KdDisableDebuggerWithLock @ 0x1405AF918
+ * XREFs of KdDisableDebuggerWithLock @ 0x1405AC888
  * Callers:
- *     KdDisableDebugger @ 0x1405AF900 (KdDisableDebugger.c)
- *     KdInitSystem @ 0x140B75E30 (KdInitSystem.c)
+ *     KdDisableDebugger @ 0x1405AC870 (KdDisableDebugger.c)
+ *     KdInitSystem @ 0x140B77E30 (KdInitSystem.c)
  * Callees:
- *     KxAcquireSpinLock @ 0x140254AE0 (KxAcquireSpinLock.c)
- *     KxReleaseSpinLock @ 0x140279CC0 (KxReleaseSpinLock.c)
- *     KdPowerTransitionEx @ 0x1404CF5B0 (KdPowerTransitionEx.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
- *     KdpAllowDisable @ 0x140B795A0 (KdpAllowDisable.c)
- *     KdpSuspendAllBreakpoints @ 0x140B79CA0 (KdpSuspendAllBreakpoints.c)
+ *     KxReleaseSpinLock @ 0x14022F250 (KxReleaseSpinLock.c)
+ *     KxAcquireSpinLock @ 0x1402850F0 (KxAcquireSpinLock.c)
+ *     KdPowerTransitionEx @ 0x1404C8870 (KdPowerTransitionEx.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KdpAllowDisable @ 0x140B7B5A0 (KdpAllowDisable.c)
+ *     KdpSuspendAllBreakpoints @ 0x140B7BCA0 (KdpSuspendAllBreakpoints.c)
  */
 
 __int64 KdDisableDebuggerWithLock()
@@ -42,7 +42,7 @@ __int64 KdDisableDebuggerWithLock()
       KdpDebugRoutineSelect = 0;
       LOBYTE(KdDebuggerNotPresent) = 1;
       LOBYTE(KdDebuggerEnabled) = 0;
-      KdPowerTransitionEx(1073741828, 0);
+      KdPowerTransitionEx(1073741828LL, 0LL);
     }
 LABEL_14:
     ++KdDisableCount;

@@ -1,13 +1,13 @@
 /*
- * XREFs of MmFreeDriverInitialization @ 0x140A3D86C
+ * XREFs of MmFreeDriverInitialization @ 0x140A3317C
  * Callers:
- *     IopLoadDriver @ 0x1409C90C0 (IopLoadDriver.c)
+ *     IopLoadDriver @ 0x1409B6EEC (IopLoadDriver.c)
  * Callees:
- *     MmAcquireLoadLockShared @ 0x1402C6EE4 (MmAcquireLoadLockShared.c)
- *     MiUnlockLoaderEntry @ 0x1402C7468 (MiUnlockLoaderEntry.c)
- *     MiLockLoaderEntry @ 0x1402C7520 (MiLockLoaderEntry.c)
- *     MmReleaseLoadLockShared @ 0x1402C75F0 (MmReleaseLoadLockShared.c)
- *     MiFreeDriverInitialization @ 0x140A3DC80 (MiFreeDriverInitialization.c)
+ *     MmAcquireLoadLockShared @ 0x1402BBA64 (MmAcquireLoadLockShared.c)
+ *     MiUnlockLoaderEntry @ 0x1402BBFE8 (MiUnlockLoaderEntry.c)
+ *     MiLockLoaderEntry @ 0x1402BC0A0 (MiLockLoaderEntry.c)
+ *     MmReleaseLoadLockShared @ 0x1402BC170 (MmReleaseLoadLockShared.c)
+ *     MiFreeDriverInitialization @ 0x140A33590 (MiFreeDriverInitialization.c)
  */
 
 void __noreturn MmFreeDriverInitialization()

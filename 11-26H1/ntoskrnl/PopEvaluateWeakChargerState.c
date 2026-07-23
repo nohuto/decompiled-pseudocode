@@ -1,29 +1,29 @@
 /*
- * XREFs of PopEvaluateWeakChargerState @ 0x1407D920C
+ * XREFs of PopEvaluateWeakChargerState @ 0x1407DCC2C
  * Callers:
- *     PopBatteryWorker @ 0x1407D7EF0 (PopBatteryWorker.c)
+ *     PopBatteryWorker @ 0x1407DB910 (PopBatteryWorker.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212E30 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     PopReleaseRwLock @ 0x14043630C (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x140436378 (PopAcquireRwLockExclusive.c)
- *     _tlgKeywordOn @ 0x14044F850 (_tlgKeywordOn.c)
- *     Feature_SuppressNotificationsNoBattery__private_IsEnabledDeviceUsageNoInline @ 0x14060C740 (Feature_SuppressNotificationsNoBattery__private_IsEnabledDeviceUsageNoInline.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     ZwUpdateWnfStateData @ 0x140727030 (ZwUpdateWnfStateData.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212F10 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     PopReleaseRwLock @ 0x14021B1A8 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x140425310 (PopAcquireRwLockExclusive.c)
+ *     _tlgKeywordOn @ 0x140447980 (_tlgKeywordOn.c)
+ *     Feature_SuppressNotificationsNoBattery__private_IsEnabledDeviceUsageNoInline @ 0x14060F8A0 (Feature_SuppressNotificationsNoBattery__private_IsEnabledDeviceUsageNoInline.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     ZwUpdateWnfStateData @ 0x14072BC00 (ZwUpdateWnfStateData.c)
  */
 
 __int64 __fastcall PopEvaluateWeakChargerState(char a1, __int64 a2, __int64 a3, struct _KLOCK_ENTRIES *a4)
 {
   __int16 v5; // r14
-  int updated; // esi
+  NTSTATUS updated; // esi
   int v7; // ecx
   int v8; // ecx
   int v9; // ecx
   unsigned __int8 v10; // r8
   char v11; // bl
   char v12; // r8
-  unsigned __int8 v14; // [rsp+48h] [rbp-C0h] BYREF
-  char v15; // [rsp+49h] [rbp-BFh] BYREF
+  unsigned __int8 Buffer; // [rsp+48h] [rbp-C0h] BYREF
+  char Buffer_1; // [rsp+49h] [rbp-BFh] BYREF
   char v16; // [rsp+4Ah] [rbp-BEh] BYREF
   char v17; // [rsp+4Bh] [rbp-BDh] BYREF
   int v18; // [rsp+4Ch] [rbp-BCh] BYREF
@@ -34,7 +34,7 @@ __int64 __fastcall PopEvaluateWeakChargerState(char a1, __int64 a2, __int64 a3, 
   __int64 v23; // [rsp+60h] [rbp-A8h] BYREF
   __int64 v24; // [rsp+68h] [rbp-A0h] BYREF
   struct _EVENT_DATA_DESCRIPTOR v25; // [rsp+78h] [rbp-90h] BYREF
-  char *v26; // [rsp+98h] [rbp-70h]
+  char *p_Buffer_1; // [rsp+98h] [rbp-70h]
   __int64 v27; // [rsp+A0h] [rbp-68h]
   int *v28; // [rsp+A8h] [rbp-60h]
   __int64 v29; // [rsp+B0h] [rbp-58h]
@@ -58,8 +58,8 @@ __int64 __fastcall PopEvaluateWeakChargerState(char a1, __int64 a2, __int64 a3, 
   v5 = a2;
   PopAcquireRwLockExclusive((unsigned __int64 *)&PopWeakChargerLock, a2, a3, a4);
   updated = 0;
-  v14 = 0;
-  if ( (unsigned int)Feature_SuppressNotificationsNoBattery__private_IsEnabledDeviceUsageNoInline() && !dword_140F0FE74 )
+  Buffer = 0;
+  if ( (unsigned int)Feature_SuppressNotificationsNoBattery__private_IsEnabledDeviceUsageNoInline() && !dword_140F10634 )
     goto LABEL_21;
   if ( PopWeakChargerNotificationUsbStack == -1 )
     v7 = PopWeakChargerNotificationBatteryMiniport != -1;
@@ -72,11 +72,11 @@ __int64 __fastcall PopEvaluateWeakChargerState(char a1, __int64 a2, __int64 a3, 
   {
     if ( PopWeakChargerNotificationBatteryMiniport == 1 )
     {
-      v10 = v14;
+      v10 = Buffer;
 LABEL_15:
       v10 |= 1u;
 LABEL_18:
-      v14 = v10;
+      Buffer = v10;
       goto LABEL_22;
     }
     goto LABEL_21;
@@ -86,7 +86,7 @@ LABEL_18:
   {
     if ( PopWeakChargerNotificationUsbStack )
     {
-      v10 = v14 | 2;
+      v10 = Buffer | 2;
       goto LABEL_18;
     }
     goto LABEL_21;
@@ -94,14 +94,14 @@ LABEL_18:
   if ( v9 != 1 )
   {
 LABEL_21:
-    v10 = v14;
+    v10 = Buffer;
     goto LABEL_22;
   }
-  v10 = v14;
+  v10 = Buffer;
   if ( PopWeakChargerNotificationUsbStack )
   {
-    v10 = v14 | 2;
-    v14 |= 2u;
+    v10 = Buffer | 2;
+    Buffer |= 2u;
   }
   if ( PopWeakChargerNotificationBatteryMiniport == 1 )
     goto LABEL_15;
@@ -113,13 +113,13 @@ LABEL_22:
   else
   {
     v11 = 1;
-    updated = ZwUpdateWnfStateData((__int64)&WNF_PO_RECONCILED_WEAK_CHARGER, (__int64)&v14);
-    PopWeakChargerCompositeState = v14;
+    updated = ZwUpdateWnfStateData(&WNF_PO_RECONCILED_WEAK_CHARGER, &Buffer, 1u, 0LL, 0LL, 0, 0);
+    PopWeakChargerCompositeState = Buffer;
   }
-  if ( (unsigned int)dword_140E07598 > 5 && tlgKeywordOn((__int64)&dword_140E07598, 0x400000000000LL) )
+  if ( (unsigned int)dword_140E07560 > 5 && tlgKeywordOn((__int64)&dword_140E07560, 0x400000000000LL) )
   {
-    v15 = v12;
-    v26 = &v15;
+    Buffer_1 = v12;
+    p_Buffer_1 = &Buffer_1;
     v20 = PopWeakChargerNotificationBatteryMiniport;
     v27 = 1LL;
     v28 = &v20;
@@ -129,7 +129,7 @@ LABEL_22:
     v32 = &v16;
     v34 = &v17;
     v36 = &v19;
-    v22 = dword_140F0FE74;
+    v22 = dword_140F10634;
     v38 = &v22;
     v40 = &v18;
     v42 = &v23;
@@ -149,12 +149,12 @@ LABEL_22:
     v24 = 0x1000000LL;
     v45 = 8LL;
     tlgWriteTransfer_EtwWriteTransfer(
-      (__int64)&dword_140E07598,
-      (unsigned __int8 *)byte_14004D395,
+      (__int64)&dword_140E07560,
+      (unsigned __int8 *)byte_14004EB0D,
       0LL,
       0LL,
       0xCu,
       &v25);
   }
-  return PopReleaseRwLock(&PopWeakChargerLock);
+  return PopReleaseRwLock((struct _KTHREAD *)&PopWeakChargerLock);
 }

@@ -13,7 +13,7 @@ BOOLEAN MmIsRecursiveIoFault(void)
 
   CurrentThread = KeGetCurrentThread();
   result = 0;
-  if ( BYTE5(CurrentThread[1].Queue) || BYTE4(CurrentThread[1].Queue) == 1 )
+  if ( *((_BYTE *)CurrentThread + 1389) || *((_BYTE *)CurrentThread + 1388) == 1 )
     return 1;
   return result;
 }

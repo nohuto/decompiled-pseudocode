@@ -1,9 +1,9 @@
 /*
- * XREFs of ExpUuidGetValues @ 0x140872238
+ * XREFs of ExpUuidGetValues @ 0x140872478
  * Callers:
  *     ExUuidCreate @ 0x140688920 (ExUuidCreate.c)
  * Callees:
- *     ExpAllocateUuids @ 0x1407E2038 (ExpAllocateUuids.c)
+ *     ExpAllocateUuids @ 0x1407E2308 (ExpAllocateUuids.c)
  */
 
 __int64 __fastcall ExpUuidGetValues(__int64 a1)

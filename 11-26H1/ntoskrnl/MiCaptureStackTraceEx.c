@@ -1,11 +1,11 @@
 /*
- * XREFs of MiCaptureStackTraceEx @ 0x14050EB9C
+ * XREFs of MiCaptureStackTraceEx @ 0x14050860C
  * Callers:
- *     MiAddMdlTracker @ 0x1404F3E20 (MiAddMdlTracker.c)
- *     MiInsertPteTracker @ 0x1405033CC (MiInsertPteTracker.c)
+ *     MiAddMdlTracker @ 0x1404ED400 (MiAddMdlTracker.c)
+ *     MiInsertPteTracker @ 0x1404FCC9C (MiInsertPteTracker.c)
  * Callees:
- *     MiCaptureStackTraceCallout @ 0x140260E6C (MiCaptureStackTraceCallout.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     MiCaptureStackTraceCallout @ 0x1402603D4 (MiCaptureStackTraceCallout.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 _BOOL8 __fastcall MiCaptureStackTraceEx(_QWORD *a1, unsigned int a2)
@@ -16,7 +16,7 @@ _BOOL8 __fastcall MiCaptureStackTraceEx(_QWORD *a1, unsigned int a2)
   v6 = 0LL;
   v5 = 0LL;
   memset_0(a1, 0, 0xA0uLL);
-  if ( (struct _KTHREAD *)qword_140E360B8 == KeGetCurrentThread() )
+  if ( (struct _KTHREAD *)qword_140E36238 == KeGetCurrentThread() )
   {
     a1[2] = 305419896LL;
   }

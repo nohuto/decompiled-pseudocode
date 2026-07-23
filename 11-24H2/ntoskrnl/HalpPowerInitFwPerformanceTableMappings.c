@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpPowerInitFwPerformanceTableMappings @ 0x140C0E554
+ * XREFs of HalpPowerInitFwPerformanceTableMappings @ 0x140C10554
  * Callers:
- *     HalpPowerInitSystem @ 0x140B4C520 (HalpPowerInitSystem.c)
+ *     HalpPowerInitSystem @ 0x140B4E560 (HalpPowerInitSystem.c)
  * Callees:
- *     MiUnmapContiguousMemory @ 0x140263178 (MiUnmapContiguousMemory.c)
- *     MmMapIoSpaceEx @ 0x1402E9A50 (MmMapIoSpaceEx.c)
- *     HalpAcpiGetTable @ 0x140478488 (HalpAcpiGetTable.c)
- *     HalGetMemoryCachingRequirements @ 0x1404804B0 (HalGetMemoryCachingRequirements.c)
+ *     MiUnmapContiguousMemory @ 0x1402929E8 (MiUnmapContiguousMemory.c)
+ *     MmMapIoSpaceEx @ 0x14034B090 (MmMapIoSpaceEx.c)
+ *     HalpAcpiGetTable @ 0x14045F918 (HalpAcpiGetTable.c)
+ *     HalGetMemoryCachingRequirements @ 0x14047B010 (HalGetMemoryCachingRequirements.c)
  */
 
 __int64 HalpPowerInitFwPerformanceTableMappings()
@@ -29,7 +29,7 @@ __int64 HalpPowerInitFwPerformanceTableMappings()
 
   v0 = 0;
   v15 = 0;
-  Table = (_DWORD *)HalpAcpiGetTable(0LL, 1413763142, 0LL, 0LL);
+  Table = (_DWORD *)HalpAcpiGetTable(0LL, 1413763142, 0, 0);
   v2 = Table;
   if ( Table && *Table == 1413763142 )
   {

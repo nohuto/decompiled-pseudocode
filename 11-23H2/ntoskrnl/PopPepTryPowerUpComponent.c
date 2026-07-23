@@ -1,10 +1,10 @@
 /*
- * XREFs of PopPepTryPowerUpComponent @ 0x140310868
+ * XREFs of PopPepTryPowerUpComponent @ 0x140310AF8
  * Callers:
- *     PopPepTriggerComponentActivatingActivity @ 0x140310800 (PopPepTriggerComponentActivatingActivity.c)
- *     PopPepTriggerComponentIdleStateChangeActivity @ 0x140365B30 (PopPepTriggerComponentIdleStateChangeActivity.c)
+ *     PopPepTriggerComponentActivatingActivity @ 0x140310A90 (PopPepTriggerComponentActivatingActivity.c)
+ *     PopPepTriggerComponentIdleStateChangeActivity @ 0x140365CD0 (PopPepTriggerComponentIdleStateChangeActivity.c)
  * Callees:
- *     PopPepTriggerActivity @ 0x1403140FC (PopPepTriggerActivity.c)
+ *     PopPepTriggerActivity @ 0x14031438C (PopPepTriggerActivity.c)
  */
 
 __int64 __fastcall PopPepTryPowerUpComponent(__int64 a1, __int64 a2)

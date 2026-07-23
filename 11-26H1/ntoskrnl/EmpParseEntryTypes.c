@@ -1,17 +1,17 @@
 /*
- * XREFs of EmpParseEntryTypes @ 0x140CB625C
+ * XREFs of EmpParseEntryTypes @ 0x140CBC29C
  * Callers:
- *     EmpParseInfDatabase @ 0x140CB63E0 (EmpParseInfDatabase.c)
+ *     EmpParseInfDatabase @ 0x140CBC420 (EmpParseInfDatabase.c)
  * Callees:
- *     RtlInitAnsiString @ 0x14046C9A0 (RtlInitAnsiString.c)
- *     EmpSearchEntryDatabase @ 0x1405B4E7C (EmpSearchEntryDatabase.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     RtlAnsiStringToUnicodeString @ 0x14096BA30 (RtlAnsiStringToUnicodeString.c)
- *     RtlGUIDFromString @ 0x1409A1880 (RtlGUIDFromString.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
- *     EmpInfParseGetSectionLineCount @ 0x140CB5EF0 (EmpInfParseGetSectionLineCount.c)
- *     CmpGetSectionLineIndex @ 0x140CB7F54 (CmpGetSectionLineIndex.c)
+ *     RtlInitAnsiString @ 0x140466120 (RtlInitAnsiString.c)
+ *     EmpSearchEntryDatabase @ 0x1405B768C (EmpSearchEntryDatabase.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     RtlGUIDFromString @ 0x1409622E0 (RtlGUIDFromString.c)
+ *     RtlAnsiStringToUnicodeString @ 0x14097C370 (RtlAnsiStringToUnicodeString.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
+ *     EmpInfParseGetSectionLineCount @ 0x140CBBF30 (EmpInfParseGetSectionLineCount.c)
+ *     CmpGetSectionLineIndex @ 0x140CBDF98 (CmpGetSectionLineIndex.c)
  */
 
 __int64 __fastcall EmpParseEntryTypes(__int64 a1)
@@ -19,7 +19,7 @@ __int64 __fastcall EmpParseEntryTypes(__int64 a1)
   NTSTATUS v1; // ebx
   unsigned int v3; // esi
   unsigned int SectionLineCount; // ebp
-  const char *SectionLineIndex; // rax
+  const CHAR *SectionLineIndex; // rax
   GUID *Pool2; // rax
   GUID *v7; // rdi
   GUID *v8; // rcx
@@ -39,7 +39,7 @@ __int64 __fastcall EmpParseEntryTypes(__int64 a1)
     {
       if ( v3 >= SectionLineCount )
         return (unsigned int)v1;
-      SectionLineIndex = (const char *)CmpGetSectionLineIndex(a1, "EntryTypeGuidDef", v3, 0LL);
+      SectionLineIndex = (const CHAR *)CmpGetSectionLineIndex(a1, "EntryTypeGuidDef", v3, 0LL);
       if ( !SectionLineIndex )
         return 0;
       RtlInitAnsiString(&DestinationString, SectionLineIndex);
@@ -68,8 +68,8 @@ LABEL_6:
         *(_QWORD *)v7[3].Data4 = (char *)v7 + 56;
         *(_QWORD *)&v7[2].Data1 = (char *)v7 + 40;
         v7[1].Data1 = 0;
-        *(_QWORD *)v7[1].Data4 = *(_QWORD *)&EmpParseLock.CurrentRunTime;
-        *(_QWORD *)&EmpParseLock.CurrentRunTime = (char *)v7 + 24;
+        *(_QWORD *)v7[1].Data4 = EmpParseLock.SListFaultAddress;
+        EmpParseLock.SListFaultAddress = v7[1].Data4;
       }
     }
     ++v3;

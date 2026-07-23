@@ -15,96 +15,103 @@
 int __fastcall RtlpFilterandReplaceConsoleLanguages(int a1, _DWORD *a2, char a3, unsigned __int16 a4, int *a5)
 {
   int NameFromLangListNode; // esi
-  int v7; // eax
-  int v8; // ecx
+  int v8; // eax
   int v9; // ecx
+  int v10; // ecx
   int appended; // eax
-  int v11; // edi
-  int v13; // ecx
+  _DWORD *v12; // edi
   int v14; // ecx
-  unsigned int v15; // eax
-  UNICODE_STRING v16; // [esp+10h] [ebp-E4h] BYREF
-  int v17; // [esp+18h] [ebp-DCh]
-  int v18; // [esp+1Ch] [ebp-D8h] BYREF
-  unsigned int v19; // [esp+20h] [ebp-D4h]
-  __int16 v20; // [esp+24h] [ebp-D0h] BYREF
-  UNICODE_STRING DestinationString; // [esp+28h] [ebp-CCh] BYREF
-  int v22; // [esp+30h] [ebp-C4h]
-  _BYTE v23[181]; // [esp+37h] [ebp-BDh] BYREF
+  int v15; // ecx
+  unsigned int v16; // eax
+  size_t v17; // [esp-4h] [ebp-F8h]
+  _UNICODE_STRING v18; // [esp+10h] [ebp-E4h] BYREF
+  int v19; // [esp+18h] [ebp-DCh]
+  PVOID BaseAddress; // [esp+1Ch] [ebp-D8h] BYREF
+  unsigned int v21; // [esp+20h] [ebp-D4h]
+  int v22; // [esp+24h] [ebp-D0h] BYREF
+  _UNICODE_STRING DestinationString; // [esp+28h] [ebp-CCh] BYREF
+  int v24; // [esp+30h] [ebp-C4h]
+  char v25; // [esp+37h] [ebp-BDh] BYREF
+  _BYTE v26[180]; // [esp+38h] [ebp-BCh] BYREF
 
-  v18 = 0;
-  v17 = a1;
+  BaseAddress = 0;
+  LODWORD(v17) = 170;
+  v19 = a1;
+  memset(v26, 0, v17);
   *(_DWORD *)&DestinationString.Length = 0;
   DestinationString.Buffer = 0;
-  *(_DWORD *)&v16.Length = 0;
-  v16.Buffer = 0;
-  memset(v23, 0, 171);
+  *(_DWORD *)&v18.Length = 0;
+  v18.Buffer = 0;
+  v25 = 0;
   if ( !a1 || !a2 || !a5 || !*a5 )
     return -1073741811;
-  NameFromLangListNode = LdrpCreateLangFallbackList(&v18, (int)a2, 25, 0);
+  NameFromLangListNode = LdrpCreateLangFallbackList(&BaseAddress, (int)a2, 25, 0);
   if ( NameFromLangListNode >= 0 )
   {
-    v7 = v17;
-    v8 = 0;
-    v19 = 0;
-    if ( !*(_WORD *)(v17 + 4) )
+    v8 = v19;
+    v9 = 0;
+    v21 = 0;
+    if ( !*(_WORD *)(v19 + 4) )
     {
 LABEL_14:
-      v11 = v18;
-      v19 = 0;
-      if ( *(_WORD *)(v18 + 4) )
+      v12 = BaseAddress;
+      v21 = 0;
+      if ( *((_WORD *)BaseAddress + 2) )
       {
-        v13 = 0;
-        v22 = 0;
+        v14 = 0;
+        v24 = 0;
         do
         {
           *(_DWORD *)&DestinationString.Length = 11141120;
-          DestinationString.Buffer = (wchar_t *)&v23[1];
-          NameFromLangListNode = GetNameFromLangListNode(
-                                   (int)a2,
-                                   (_WORD *)(v13 + *(_DWORD *)(v11 + 16)),
-                                   &DestinationString);
+          DestinationString.Buffer = (wchar_t *)v26;
+          NameFromLangListNode = GetNameFromLangListNode((int)a2, (_WORD *)(v14 + v12[4]), &DestinationString);
           if ( NameFromLangListNode < 0 )
             break;
-          NameFromLangListNode = LdrpLangFallbackListAppendNode(a5, a2, 0, &v20, DestinationString.Buffer, v14);
-          v15 = *(unsigned __int16 *)(v11 + 4);
-          v13 = v22 + 6;
-          ++v19;
-          v22 += 6;
+          NameFromLangListNode = LdrpLangFallbackListAppendNode(
+                                   a5,
+                                   a2,
+                                   0,
+                                   (__int16 *)&v22,
+                                   (PCWSTR)DestinationString.Buffer,
+                                   v15);
+          v16 = *((unsigned __int16 *)v12 + 2);
+          v14 = v24 + 6;
+          ++v21;
+          v24 += 6;
         }
-        while ( v19 < v15 );
+        while ( v21 < v16 );
       }
       goto LABEL_15;
     }
-    v22 = 0;
+    v24 = 0;
     while ( 1 )
     {
       *(_DWORD *)&DestinationString.Length = 11141120;
-      DestinationString.Buffer = (wchar_t *)&v23[1];
-      NameFromLangListNode = GetNameFromLangListNode((int)a2, (_WORD *)(v8 + *(_DWORD *)(v7 + 16)), &DestinationString);
+      DestinationString.Buffer = (wchar_t *)v26;
+      NameFromLangListNode = GetNameFromLangListNode((int)a2, (_WORD *)(v9 + *(_DWORD *)(v8 + 16)), &DestinationString);
       if ( NameFromLangListNode < 0 )
         break;
-      *(_DWORD *)&v16.Length = 0;
-      v16.Buffer = 0;
-      if ( RtlpConsoleFallbackNameFromLocaleName(DestinationString.Buffer, a3, v23, &v16, (int)a2, a4) >= 0 && v23[0] )
-        appended = LdrpLangFallbackListAppendNode(&v18, a2, 0, &v20, v16.Buffer, v9);
+      *(_DWORD *)&v18.Length = 0;
+      v18.Buffer = 0;
+      if ( RtlpConsoleFallbackNameFromLocaleName(DestinationString.Buffer, a3, &v25, &v18, (int)a2, a4) >= 0 && v25 )
+        appended = LdrpLangFallbackListAppendNode((int *)&BaseAddress, a2, 0, (__int16 *)&v22, (PCWSTR)v18.Buffer, v10);
       else
-        appended = LdrpLangFallbackListAppendNode(a5, a2, 0, &v20, DestinationString.Buffer, v9);
+        appended = LdrpLangFallbackListAppendNode(a5, a2, 0, (__int16 *)&v22, (PCWSTR)DestinationString.Buffer, v10);
       NameFromLangListNode = appended;
       if ( appended < 0 )
         break;
-      v22 += 6;
-      ++v19;
-      v7 = v17;
-      v8 = v22;
-      if ( v19 >= *(unsigned __int16 *)(v17 + 4) )
+      v24 += 6;
+      ++v21;
+      v8 = v19;
+      v9 = v24;
+      if ( v21 >= *(unsigned __int16 *)(v19 + 4) )
         goto LABEL_14;
     }
   }
-  v11 = v18;
+  v12 = BaseAddress;
 LABEL_15:
-  if ( v11 )
-    RtlpMuiRegFreeLanguageList((_BYTE *)v11);
+  if ( v12 )
+    RtlpMuiRegFreeLanguageList(v12);
   if ( NameFromLangListNode < 0 )
   {
     if ( *a5 )

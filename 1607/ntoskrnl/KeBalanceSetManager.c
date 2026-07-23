@@ -1,18 +1,18 @@
 /*
- * XREFs of KeBalanceSetManager @ 0x14013EF3C
+ * XREFs of KeBalanceSetManager @ 0x14013F4AC
  * Callers:
  *     <none>
  * Callees:
- *     KeSetEvent @ 0x1400562D0 (KeSetEvent.c)
- *     KeWaitForMultipleObjects @ 0x14005A2E0 (KeWaitForMultipleObjects.c)
- *     ExQueueWorkItem @ 0x14005FE5C (ExQueueWorkItem.c)
- *     ExpScanGeneralLookasideList @ 0x14008D5B0 (ExpScanGeneralLookasideList.c)
- *     ExpScanSystemLookasideList @ 0x14008D6A0 (ExpScanSystemLookasideList.c)
- *     VslpEnterIumSecureMode @ 0x1400AA174 (VslpEnterIumSecureMode.c)
- *     MiWorkingSetManager @ 0x1400BDF08 (MiWorkingSetManager.c)
- *     KeSetPriorityThread @ 0x1400D2F20 (KeSetPriorityThread.c)
- *     KeQueryActiveProcessorCountEx @ 0x1400D4030 (KeQueryActiveProcessorCountEx.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     KeSetEvent @ 0x140055E50 (KeSetEvent.c)
+ *     KeWaitForMultipleObjects @ 0x140059E60 (KeWaitForMultipleObjects.c)
+ *     ExQueueWorkItem @ 0x14005F9DC (ExQueueWorkItem.c)
+ *     ExpScanGeneralLookasideList @ 0x14008CD10 (ExpScanGeneralLookasideList.c)
+ *     ExpScanSystemLookasideList @ 0x14008CE00 (ExpScanSystemLookasideList.c)
+ *     VslpEnterIumSecureMode @ 0x1400A86F4 (VslpEnterIumSecureMode.c)
+ *     MiWorkingSetManager @ 0x1400BBD98 (MiWorkingSetManager.c)
+ *     KeSetPriorityThread @ 0x1400D0DC0 (KeSetPriorityThread.c)
+ *     KeQueryActiveProcessorCountEx @ 0x1400D1ED0 (KeQueryActiveProcessorCountEx.c)
+ *     memset @ 0x140171AC0 (memset.c)
  */
 
 void __noreturn KeBalanceSetManager()
@@ -41,7 +41,7 @@ void __noreturn KeBalanceSetManager()
   v1 = KeNumberProcessorsGroup0[1];
   Object[0] = &KiBalanceSetManagerPeriodicEvent;
   KiStackProtectTime = (unsigned __int64)((0x8F0D180 * (unsigned __int128)(unsigned __int64)KiMaximumIncrementReciprocal) >> 64) >> v1;
-  Object[1] = (PVOID)(qword_140324DA8 + 104);
+  Object[1] = (PVOID)(qword_140324DE8 + 104);
   while ( 1 )
   {
     while ( 1 )

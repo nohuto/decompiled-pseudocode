@@ -1,16 +1,16 @@
 /*
- * XREFs of MiReleaseWriteInProgressCharges @ 0x1402F48D8
+ * XREFs of MiReleaseWriteInProgressCharges @ 0x1402F4B68
  * Callers:
  *     MiBuildMappedCluster @ 0x14021C0D0 (MiBuildMappedCluster.c)
- *     MiAddPageToInsertList @ 0x1402D99D0 (MiAddPageToInsertList.c)
- *     MiUnlockMdlWritePages @ 0x1402D9B30 (MiUnlockMdlWritePages.c)
- *     MmUnmapViewInSystemCache @ 0x1402D9FB0 (MmUnmapViewInSystemCache.c)
- *     MiInsertPagesInList @ 0x1402DD520 (MiInsertPagesInList.c)
- *     MiWriteComplete @ 0x1402F4320 (MiWriteComplete.c)
- *     MiFreeModWriterEntry @ 0x1402F489C (MiFreeModWriterEntry.c)
- *     MiGatherPagefilePages @ 0x14063A144 (MiGatherPagefilePages.c)
+ *     MiAddPageToInsertList @ 0x1402D9C60 (MiAddPageToInsertList.c)
+ *     MiUnlockMdlWritePages @ 0x1402D9DC0 (MiUnlockMdlWritePages.c)
+ *     MmUnmapViewInSystemCache @ 0x1402DA240 (MmUnmapViewInSystemCache.c)
+ *     MiInsertPagesInList @ 0x1402DD7B0 (MiInsertPagesInList.c)
+ *     MiWriteComplete @ 0x1402F45B0 (MiWriteComplete.c)
+ *     MiFreeModWriterEntry @ 0x1402F4B2C (MiFreeModWriterEntry.c)
+ *     MiGatherPagefilePages @ 0x14063A694 (MiGatherPagefilePages.c)
  * Callees:
- *     MiReturnCommit @ 0x1402DC250 (MiReturnCommit.c)
+ *     MiReturnCommit @ 0x1402DC4E0 (MiReturnCommit.c)
  */
 
 unsigned __int64 __fastcall MiReleaseWriteInProgressCharges(__int64 a1, __int64 a2, int a3)

@@ -37,10 +37,10 @@ __int64 __fastcall IopIncrementCompletionContextUsageCountAndReadData(
     v11[2] = BugCheckParameter4 + 1;
   }
   result = KxReleaseSpinLock(v4);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     result = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
       && (unsigned __int8)result <= 0xFu
       && (unsigned __int8)v12 <= 0xFu
       && (unsigned __int8)result >= 2u )

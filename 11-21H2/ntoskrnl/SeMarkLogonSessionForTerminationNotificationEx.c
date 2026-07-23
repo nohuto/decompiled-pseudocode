@@ -5,7 +5,7 @@
  * Callees:
  *     ExAcquireResourceExclusiveLite @ 0x1402AE340 (ExAcquireResourceExclusiveLite.c)
  *     ExReleaseResourceLite @ 0x1402B0E80 (ExReleaseResourceLite.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402F9540 (KiLeaveCriticalRegionUnsafe.c)
+ *     sub_1402F9540 @ 0x1402F9540 (sub_1402F9540.c)
  */
 
 __int64 __fastcall SeMarkLogonSessionForTerminationNotificationEx(_DWORD *a1, __int64 a2)
@@ -16,10 +16,10 @@ __int64 __fastcall SeMarkLogonSessionForTerminationNotificationEx(_DWORD *a1, __
   struct _ERESOURCE *v7; // rbp
 
   v4 = (unsigned int)(1529154084 * *a1) >> 28;
-  v5 = SepLogonSessions + 8 * v4;
+  v5 = qword_140D3CA78 + 8 * v4;
   CurrentThread = KeGetCurrentThread();
-  --CurrentThread->KernelApcDisable;
-  v7 = &SepRmDbLock + (v4 & 3);
+  --*((_WORD *)CurrentThread + 242);
+  v7 = &stru_140CF66C0 + (v4 & 3);
   ExAcquireResourceExclusiveLite(v7, 1u);
   while ( 1 )
   {
@@ -33,6 +33,6 @@ __int64 __fastcall SeMarkLogonSessionForTerminationNotificationEx(_DWORD *a1, __
     }
   }
   ExReleaseResourceLite(v7);
-  KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
+  sub_1402F9540((__int64)KeGetCurrentThread());
   return v5 == 0 ? 0xC0000225 : 0;
 }

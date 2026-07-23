@@ -1,21 +1,21 @@
 /*
- * XREFs of HalpInterruptFindLinesForGsiRange @ 0x140426C08
+ * XREFs of HalpInterruptFindLinesForGsiRange @ 0x140433D18
  * Callers:
- *     HalPerformEndOfInterrupt @ 0x14032DA80 (HalPerformEndOfInterrupt.c)
- *     HalDisableInterrupt @ 0x1404240E0 (HalDisableInterrupt.c)
- *     HalEnableInterrupt @ 0x1404252A0 (HalEnableInterrupt.c)
- *     HalpInterruptSetDestination @ 0x140425E10 (HalpInterruptSetDestination.c)
- *     HalpInterruptSetRemappedDestinationHv @ 0x140425F5C (HalpInterruptSetRemappedDestinationHv.c)
- *     HalpInterruptApplyOverrides @ 0x140426138 (HalpInterruptApplyOverrides.c)
- *     HalpInterruptGsiToLine @ 0x14042638C (HalpInterruptGsiToLine.c)
- *     HalpInterruptFindControllerAndLineState @ 0x140426644 (HalpInterruptFindControllerAndLineState.c)
- *     HalpMaskInterrupt @ 0x140426960 (HalpMaskInterrupt.c)
- *     HalpUnmaskInterrupt @ 0x140426AB0 (HalpUnmaskInterrupt.c)
- *     HalpInterruptPerformDirectedEndOfInterrupt @ 0x1404B7014 (HalpInterruptPerformDirectedEndOfInterrupt.c)
- *     ExtEnvSetVpptTarget @ 0x1404D20BC (ExtEnvSetVpptTarget.c)
- *     HalpInterruptGetApicVersion @ 0x140507B30 (HalpInterruptGetApicVersion.c)
- *     HalpInterruptRequestInterrupt @ 0x14057D7A0 (HalpInterruptRequestInterrupt.c)
- *     HalpInterruptRegisterLine @ 0x14059B0C4 (HalpInterruptRegisterLine.c)
+ *     HalPerformEndOfInterrupt @ 0x14032FAB0 (HalPerformEndOfInterrupt.c)
+ *     HalDisableInterrupt @ 0x1404311D0 (HalDisableInterrupt.c)
+ *     HalEnableInterrupt @ 0x140432390 (HalEnableInterrupt.c)
+ *     HalpInterruptSetDestination @ 0x140432F20 (HalpInterruptSetDestination.c)
+ *     HalpInterruptSetRemappedDestinationHv @ 0x14043306C (HalpInterruptSetRemappedDestinationHv.c)
+ *     HalpInterruptApplyOverrides @ 0x140433248 (HalpInterruptApplyOverrides.c)
+ *     HalpInterruptGsiToLine @ 0x14043349C (HalpInterruptGsiToLine.c)
+ *     HalpInterruptFindControllerAndLineState @ 0x140433754 (HalpInterruptFindControllerAndLineState.c)
+ *     HalpMaskInterrupt @ 0x140433A70 (HalpMaskInterrupt.c)
+ *     HalpUnmaskInterrupt @ 0x140433BC0 (HalpUnmaskInterrupt.c)
+ *     ExtEnvSetVpptTarget @ 0x1404358D0 (ExtEnvSetVpptTarget.c)
+ *     HalpInterruptPerformDirectedEndOfInterrupt @ 0x1404B0844 (HalpInterruptPerformDirectedEndOfInterrupt.c)
+ *     HalpInterruptGetApicVersion @ 0x140501500 (HalpInterruptGetApicVersion.c)
+ *     HalpInterruptRequestInterrupt @ 0x14057FCC0 (HalpInterruptRequestInterrupt.c)
+ *     HalpInterruptRegisterLine @ 0x14059D844 (HalpInterruptRegisterLine.c)
  * Callees:
  *     <none>
  */

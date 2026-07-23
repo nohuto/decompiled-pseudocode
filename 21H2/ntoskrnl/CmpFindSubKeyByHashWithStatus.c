@@ -1,10 +1,10 @@
 /*
- * XREFs of CmpFindSubKeyByHashWithStatus @ 0x1407ACA90
+ * XREFs of CmpFindSubKeyByHashWithStatus @ 0x1407ACC90
  * Callers:
- *     CmpFindSubKeyByNameWithStatus @ 0x1407AC8F8 (CmpFindSubKeyByNameWithStatus.c)
+ *     CmpFindSubKeyByNameWithStatus @ 0x1407ACAF8 (CmpFindSubKeyByNameWithStatus.c)
  * Callees:
- *     CmpDoCompareKeyName @ 0x1405EE600 (CmpDoCompareKeyName.c)
- *     CmpHashUnicodeComponent @ 0x14066A224 (CmpHashUnicodeComponent.c)
+ *     CmpHashUnicodeComponent @ 0x14065F044 (CmpHashUnicodeComponent.c)
+ *     CmpDoCompareKeyName @ 0x1406DDD60 (CmpDoCompareKeyName.c)
  */
 
 __int64 __fastcall CmpFindSubKeyByHashWithStatus(__int64 a1, __int64 a2, __m128i *a3, _DWORD *a4)

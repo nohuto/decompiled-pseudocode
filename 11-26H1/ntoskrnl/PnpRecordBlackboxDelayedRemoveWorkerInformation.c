@@ -1,11 +1,11 @@
 /*
- * XREFs of PnpRecordBlackboxDelayedRemoveWorkerInformation @ 0x140B561C0
+ * XREFs of PnpRecordBlackboxDelayedRemoveWorkerInformation @ 0x140B58EC0
  * Callers:
- *     PnpRecordBlackbox @ 0x1409DE16C (PnpRecordBlackbox.c)
+ *     PnpRecordBlackbox @ 0x140A1B298 (PnpRecordBlackbox.c)
  * Callees:
- *     NtPowerInformation @ 0x1409DE3E0 (NtPowerInformation.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     NtPowerInformation @ 0x140A1B510 (NtPowerInformation.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __fastcall PnpRecordBlackboxDelayedRemoveWorkerInformation(_QWORD *a1)

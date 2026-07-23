@@ -40,7 +40,7 @@ PVOID __fastcall VeAllocatePoolWithTagPriority(
         EX_POOL_PRIORITY Priority,
         __int64 a5)
 {
-  union _SLIST_HEADER *VerifierData; // r14
+  _SLIST_HEADER *VerifierData; // r14
   int v10; // r15d
   int v11; // eax
   __int64 v12; // r12
@@ -71,7 +71,7 @@ PVOID __fastcall VeAllocatePoolWithTagPriority(
     else
     {
       v10 = 1;
-      VerifierData = (union _SLIST_HEADER *)VfTargetDriversGetVerifierData(a5);
+      VerifierData = (_SLIST_HEADER *)VfTargetDriversGetVerifierData(a5);
       if ( !VerifierData )
         return ExAllocatePoolWithTagPriority(PoolType, BugCheckParameter3, Tag, Priority);
     }
@@ -96,7 +96,7 @@ PVOID __fastcall VeAllocatePoolWithTagPriority(
     if ( !v10 )
     {
       v10 = 1;
-      VerifierData = (union _SLIST_HEADER *)VfTargetDriversGetVerifierData(v12);
+      VerifierData = (_SLIST_HEADER *)VfTargetDriversGetVerifierData(v12);
     }
     if ( VerifierData )
     {
@@ -107,7 +107,7 @@ PVOID __fastcall VeAllocatePoolWithTagPriority(
         VfAllocPoolNotification(0LL, BugCheckParameter3);
 LABEL_40:
         if ( (PoolType & 0x10) != 0 )
-          RtlRaiseStatus(0xC000009A);
+          RtlRaiseStatus(-1073741670);
         return 0LL;
       }
     }
@@ -123,7 +123,7 @@ LABEL_40:
   if ( (MmVerifierData & 8) != 0 && (PoolType & 0x20) == 0 )
   {
     if ( !v10 )
-      VerifierData = (union _SLIST_HEADER *)VfTargetDriversGetVerifierData(v12);
+      VerifierData = (_SLIST_HEADER *)VfTargetDriversGetVerifierData(v12);
     if ( VerifierData && BugCheckParameter3 + 8 >= BugCheckParameter3 )
     {
       v16 = RtlpInterlockedPopEntrySList(VerifierData + 5);

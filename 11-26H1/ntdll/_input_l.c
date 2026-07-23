@@ -1,15 +1,15 @@
 /*
- * XREFs of _input_l @ 0x180131D30
+ * XREFs of _input_l @ 0x180131AA0
  * Callers:
  *     <none>
  * Callees:
- *     _invalid_parameter @ 0x180126898 (_invalid_parameter.c)
- *     isleadbyte @ 0x18012AD18 (isleadbyte.c)
- *     __pctype_func @ 0x18012E790 (__pctype_func.c)
- *     ReadString @ 0x1801319C8 (ReadString.c)
- *     ReadStringDelimited @ 0x180131BA0 (ReadStringDelimited.c)
- *     _inc @ 0x180131CF8 (_inc.c)
- *     _ungetc_nolock @ 0x180132834 (_ungetc_nolock.c)
+ *     _invalid_parameter @ 0x180126608 (_invalid_parameter.c)
+ *     isleadbyte @ 0x18012AA88 (isleadbyte.c)
+ *     __pctype_func @ 0x18012E500 (__pctype_func.c)
+ *     ReadString @ 0x180131738 (ReadString.c)
+ *     ReadStringDelimited @ 0x180131910 (ReadStringDelimited.c)
+ *     _inc @ 0x180131A68 (_inc.c)
+ *     _ungetc_nolock @ 0x1801325A4 (_ungetc_nolock.c)
  */
 
 __int64 __fastcall input_l(FILE *Stream, unsigned __int8 *a2, __int64 a3, __int64 a4)

@@ -1,14 +1,14 @@
 /*
- * XREFs of _handle_error @ 0x14053A5A0
+ * XREFs of _handle_error @ 0x14053CA20
  * Callers:
- *     sqrt @ 0x1405377F0 (sqrt.c)
+ *     sqrt @ 0x140539C70 (sqrt.c)
  * Callees:
- *     xHalTimerWatchdogStop @ 0x1404D1DF0 (xHalTimerWatchdogStop.c)
- *     _call_matherr @ 0x14053A450 (_call_matherr.c)
- *     _exception_enabled @ 0x14053A4D0 (_exception_enabled.c)
- *     _raise_exc @ 0x14053ABA0 (_raise_exc.c)
- *     _ctrlfp @ 0x14053AF70 (_ctrlfp.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     xHalTimerWatchdogStop @ 0x1404CB9A0 (xHalTimerWatchdogStop.c)
+ *     _call_matherr @ 0x14053C8D0 (_call_matherr.c)
+ *     _exception_enabled @ 0x14053C950 (_exception_enabled.c)
+ *     _raise_exc @ 0x14053D020 (_raise_exc.c)
+ *     _ctrlfp @ 0x14053D3F0 (_ctrlfp.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 double __fastcall handle_error(

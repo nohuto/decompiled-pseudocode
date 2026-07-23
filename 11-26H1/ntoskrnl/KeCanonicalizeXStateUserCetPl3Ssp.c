@@ -1,9 +1,9 @@
 /*
- * XREFs of KeCanonicalizeXStateUserCetPl3Ssp @ 0x1403D4640
+ * XREFs of KeCanonicalizeXStateUserCetPl3Ssp @ 0x1403D7610
  * Callers:
- *     SwapContext @ 0x14072FFB0 (SwapContext.c)
+ *     SwapContext @ 0x140734B80 (SwapContext.c)
  * Callees:
- *     RtlpLocateExtendedOrSupervisorFeature @ 0x1403D4CB0 (RtlpLocateExtendedOrSupervisorFeature.c)
+ *     RtlpLocateExtendedOrSupervisorFeature @ 0x1403D7C80 (RtlpLocateExtendedOrSupervisorFeature.c)
  */
 
 void __fastcall KeCanonicalizeXStateUserCetPl3Ssp(__int64 a1)

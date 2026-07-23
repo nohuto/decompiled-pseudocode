@@ -1,10 +1,10 @@
 /*
- * XREFs of ExReleaseDisownedFastResourceExclusive @ 0x140656730
+ * XREFs of ExReleaseDisownedFastResourceExclusive @ 0x140654E30
  * Callers:
- *     DifExReleaseDisownedFastResourceExclusiveWrapper @ 0x14061FFE0 (DifExReleaseDisownedFastResourceExclusiveWrapper.c)
+ *     DifExReleaseDisownedFastResourceExclusiveWrapper @ 0x14061E5A0 (DifExReleaseDisownedFastResourceExclusiveWrapper.c)
  * Callees:
- *     ExpReleaseDisownedFastResourceExclusive @ 0x1403D8120 (ExpReleaseDisownedFastResourceExclusive.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
+ *     ExpReleaseDisownedFastResourceExclusive @ 0x1402F1C00 (ExpReleaseDisownedFastResourceExclusive.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
  */
 
 LONG_PTR __fastcall ExReleaseDisownedFastResourceExclusive(_BYTE *BugCheckParameter2)

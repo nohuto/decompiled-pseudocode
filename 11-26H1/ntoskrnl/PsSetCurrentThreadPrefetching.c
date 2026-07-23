@@ -1,7 +1,7 @@
 /*
- * XREFs of PsSetCurrentThreadPrefetching @ 0x1409B7040
+ * XREFs of PsSetCurrentThreadPrefetching @ 0x140988020
  * Callers:
- *     PfpPrefetchSharedCleanup @ 0x1409B6F88 (PfpPrefetchSharedCleanup.c)
+ *     PfpPrefetchSharedCleanup @ 0x140987F6C (PfpPrefetchSharedCleanup.c)
  * Callees:
  *     <none>
  */

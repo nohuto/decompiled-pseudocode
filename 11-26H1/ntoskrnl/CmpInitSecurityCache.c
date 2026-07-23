@@ -1,9 +1,9 @@
 /*
- * XREFs of CmpInitSecurityCache @ 0x140AB8B64
+ * XREFs of CmpInitSecurityCache @ 0x140ABA1A4
  * Callers:
- *     CmpValidateHiveSecurityDescriptors @ 0x14094D7E0 (CmpValidateHiveSecurityDescriptors.c)
- *     CmpHiveInitialize @ 0x140AB8AA0 (CmpHiveInitialize.c)
- *     CmpGetSystemControlValues @ 0x140CEC3D8 (CmpGetSystemControlValues.c)
+ *     CmpValidateHiveSecurityDescriptors @ 0x1409C9150 (CmpValidateHiveSecurityDescriptors.c)
+ *     CmpHiveInitialize @ 0x140ABA0E0 (CmpHiveInitialize.c)
+ *     CmpGetSystemControlValues @ 0x140CF26DC (CmpGetSystemControlValues.c)
  * Callees:
  *     <none>
  */

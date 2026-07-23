@@ -1,12 +1,12 @@
 /*
- * XREFs of MiLockHugeRangeColorHeadAtDpc @ 0x140670DC4
+ * XREFs of MiLockHugeRangeColorHeadAtDpc @ 0x140671F94
  * Callers:
- *     MiHugeRangeFreeToZero @ 0x1404F0BF0 (MiHugeRangeFreeToZero.c)
- *     MiCanBeginHugeIoPageAccessor @ 0x14066FA10 (MiCanBeginHugeIoPageAccessor.c)
- *     MiMarkHugePfnBad @ 0x140670EEC (MiMarkHugePfnBad.c)
+ *     MiHugeRangeFreeToZero @ 0x1404EE690 (MiHugeRangeFreeToZero.c)
+ *     MiCanBeginHugeIoPageAccessor @ 0x140670BE0 (MiCanBeginHugeIoPageAccessor.c)
+ *     MiMarkHugePfnBad @ 0x1406720BC (MiMarkHugePfnBad.c)
  * Callees:
- *     MiLockColorHeadHugeAtDpc @ 0x1404FAC14 (MiLockColorHeadHugeAtDpc.c)
- *     MiComputeHugeRangeColorHeadAtDpc @ 0x14066FA78 (MiComputeHugeRangeColorHeadAtDpc.c)
+ *     MiLockColorHeadHugeAtDpc @ 0x1404F84F4 (MiLockColorHeadHugeAtDpc.c)
+ *     MiComputeHugeRangeColorHeadAtDpc @ 0x140670C48 (MiComputeHugeRangeColorHeadAtDpc.c)
  */
 
 volatile signed __int32 *__fastcall MiLockHugeRangeColorHeadAtDpc(__int64 *a1)

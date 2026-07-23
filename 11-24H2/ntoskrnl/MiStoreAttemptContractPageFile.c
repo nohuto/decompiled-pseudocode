@@ -1,14 +1,14 @@
 /*
- * XREFs of MiStoreAttemptContractPageFile @ 0x140365ED4
+ * XREFs of MiStoreAttemptContractPageFile @ 0x1404770D4
  * Callers:
- *     MiStoreEvictThread @ 0x140365C20 (MiStoreEvictThread.c)
+ *     MiStoreEvictThread @ 0x140476E20 (MiStoreEvictThread.c)
  * Callees:
- *     ExReleaseRundownProtection_0 @ 0x140245670 (ExReleaseRundownProtection_0.c)
- *     ExAcquireRundownProtection @ 0x1402792A0 (ExAcquireRundownProtection.c)
- *     KeInsertQueueApc @ 0x140337240 (KeInsertQueueApc.c)
- *     KeWaitForSingleObject @ 0x14033E960 (KeWaitForSingleObject.c)
- *     MiStoreCheckContractPageFile @ 0x140365FDC (MiStoreCheckContractPageFile.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     ExReleaseRundownProtection_0 @ 0x14020DE50 (ExReleaseRundownProtection_0.c)
+ *     ExAcquireRundownProtection_0 @ 0x14022E830 (ExAcquireRundownProtection_0.c)
+ *     KeInsertQueueApc @ 0x1402DF360 (KeInsertQueueApc.c)
+ *     KeWaitForSingleObject @ 0x14031DE40 (KeWaitForSingleObject.c)
+ *     MiStoreCheckContractPageFile @ 0x1404771DC (MiStoreCheckContractPageFile.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 void __fastcall MiStoreAttemptContractPageFile(__int64 a1)
@@ -35,7 +35,7 @@ void __fastcall MiStoreAttemptContractPageFile(__int64 a1)
   v6 = 0;
   if ( (unsigned int)MiStoreCheckContractPageFile(a1) )
   {
-    if ( ExAcquireRundownProtection(v2 + 125) )
+    if ( ExAcquireRundownProtection_0(v2 + 125) )
     {
       Object = 0;
       v7 = 0;

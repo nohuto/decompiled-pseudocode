@@ -12,7 +12,7 @@
  *     RtlpLogHeapCommit @ 0x1800EF668 (RtlpLogHeapCommit.c)
  */
 
-__int64 __fastcall RtlpHpSegLfhVsCommit(__int64 a1, __int64 a2, unsigned int a3)
+NTSTATUS __fastcall RtlpHpSegLfhVsCommit(volatile signed __int64 *BaseAddress, __int64 a2, unsigned int a3)
 {
   unsigned __int64 v4; // rdi
   __int64 v7; // rax
@@ -25,14 +25,14 @@ __int64 __fastcall RtlpHpSegLfhVsCommit(__int64 a1, __int64 a2, unsigned int a3)
   unsigned __int64 v14; // rcx
   unsigned __int64 v15; // rdi
   unsigned int v16; // edi
-  int HeapProtection; // eax
-  __int64 result; // rax
+  ULONG Protect; // eax
+  NTSTATUS result; // eax
   char *v19; // rdx
   unsigned __int64 v20; // rcx
   char v21; // al
   char v22; // al
-  __int64 v23; // [rsp+60h] [rbp+8h] BYREF
-  unsigned __int64 v24; // [rsp+68h] [rbp+10h] BYREF
+  ULONG_PTR RegionSize; // [rsp+60h] [rbp+8h] BYREF
+  PVOID BaseAddressa; // [rsp+68h] [rbp+10h] BYREF
   int v25; // [rsp+70h] [rbp+18h]
 
   v4 = a2 & 0xFFFFFFFFFFF00000uLL;
@@ -62,13 +62,14 @@ __int64 __fastcall RtlpHpSegLfhVsCommit(__int64 a1, __int64 a2, unsigned int a3)
     v16 = v12 ? ((__int64)(v15 - v12) >> 5) + 1 : v25;
     if ( v9 )
     {
-      v24 = (v12 & 0xFFFFFFFFFFF00000uLL) + ((unsigned int)((__int64)(v12 - (v12 & 0xFFFFFFFFFFF00000uLL)) >> 5) << 12);
-      v23 = v16 << 12;
-      HeapProtection = RtlpGetHeapProtection(a1, 1LL);
-      result = ZwAllocateVirtualMemory(-1LL, &v24, 0LL, &v23, 4096, HeapProtection);
-      if ( (int)result < 0 )
+      BaseAddressa = (PVOID)((v12 & 0xFFFFFFFFFFF00000uLL)
+                           + ((unsigned int)((__int64)(v12 - (v12 & 0xFFFFFFFFFFF00000uLL)) >> 5) << 12));
+      RegionSize = v16 << 12;
+      Protect = RtlpGetHeapProtection((PVOID)BaseAddress);
+      result = ZwAllocateVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &BaseAddressa, 0LL, &RegionSize, 0x1000u, Protect);
+      if ( result < 0 )
         return result;
-      _InterlockedExchangeAdd64((volatile signed __int64 *)(a1 + 8), v9);
+      _InterlockedExchangeAdd64(BaseAddress + 1, v9);
       if ( v12 < v12 + 32LL * v16 )
       {
         v19 = (char *)(v12 + 24);
@@ -90,9 +91,9 @@ __int64 __fastcall RtlpHpSegLfhVsCommit(__int64 a1, __int64 a2, unsigned int a3)
       if ( MEMORY[0x7FFE0380] )
       {
         if ( (NtCurrentPeb()->TracingFlags & 1) != 0 )
-          RtlpLogHeapCommit(a1, v24, v23, 10LL);
+          RtlpLogHeapCommit(BaseAddress, BaseAddressa, RegionSize, 10LL);
       }
     }
   }
-  return 0LL;
+  return 0;
 }

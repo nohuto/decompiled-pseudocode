@@ -1,10 +1,10 @@
 /*
- * XREFs of CmpFindGroupOrderList @ 0x140A6036C
+ * XREFs of CmpFindGroupOrderList @ 0x140A6136C
  * Callers:
- *     CmpFindDrivers @ 0x140A60F64 (CmpFindDrivers.c)
+ *     CmpFindDrivers @ 0x140A61F64 (CmpFindDrivers.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     CmpFindSubKeyByName @ 0x1407AC8D4 (CmpFindSubKeyByName.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     CmpFindSubKeyByName @ 0x1407ACAD4 (CmpFindSubKeyByName.c)
  */
 
 __int64 __fastcall CmpFindGroupOrderList(__int64 a1, __int64 a2)

@@ -1,9 +1,9 @@
 /*
- * XREFs of PpmHeteroRestrictToFavoredClass @ 0x14045E5E4
+ * XREFs of PpmHeteroRestrictToFavoredClass @ 0x1402AF330
  * Callers:
- *     PpmParkComputeUnparkMask @ 0x140200488 (PpmParkComputeUnparkMask.c)
+ *     PpmParkComputeUnparkMask @ 0x140328B7C (PpmParkComputeUnparkMask.c)
  * Callees:
- *     KeGetPrcb @ 0x140352980 (KeGetPrcb.c)
+ *     KeGetPrcb @ 0x1402B0A10 (KeGetPrcb.c)
  */
 
 __int64 __fastcall PpmHeteroRestrictToFavoredClass(
@@ -72,7 +72,7 @@ __int64 __fastcall PpmHeteroRestrictToFavoredClass(
     do
     {
       _BitScanForward64(&v16, v14);
-      v17 = *((_DWORD *)qword_140F21E78 + v15 + (unsigned int)(v16 & 0x3F));
+      v17 = *((_DWORD *)qword_140F22998 + v15 + (unsigned int)(v16 & 0x3F));
       Prcb = KeGetPrcb(v17);
       v19 = Prcb;
       if ( PpmHeteroHgsParkingEnabled )
@@ -102,7 +102,7 @@ __int64 __fastcall PpmHeteroRestrictToFavoredClass(
     do
     {
       _BitScanForward64(&v24, v8);
-      v25 = *((_DWORD *)qword_140F21E78 + 64 * a2 + (unsigned int)(v24 & 0x3F));
+      v25 = *((_DWORD *)qword_140F22998 + 64 * a2 + (unsigned int)(v24 & 0x3F));
       v26 = KeGetPrcb(v25);
       v27 = v26;
       if ( PpmHeteroHgsParkingEnabled )

@@ -18,74 +18,70 @@
 char __fastcall RtlpAssemblyStorageMapResolutionDefaultCallback(int a1, __int64 a2, _DWORD *a3)
 {
   int v5; // ecx
-  __int64 v6; // rcx
+  int v6; // ecx
   const WCHAR *NtSystemRoot; // rax
-  __int64 Length; // r14
+  __int64 v8; // r14
   unsigned int v9; // ecx
   unsigned __int64 v10; // rax
   size_t v11; // r15
   wchar_t *Buffer; // rdx
   char *v13; // rbx
-  __int64 v14; // rcx
-  int v15; // eax
+  const WCHAR *v14; // rcx
+  NTSTATUS v15; // eax
   int v16; // r14d
   HANDLE v17; // r12
   int v18; // r15d
-  __int64 v20; // [rsp+20h] [rbp-E0h]
-  int v21; // [rsp+30h] [rbp-D0h] BYREF
-  unsigned __int64 v22; // [rsp+38h] [rbp-C8h] BYREF
+  __int64 Length; // [rsp+20h] [rbp-E0h]
+  ULONG ResultLength; // [rsp+30h] [rbp-D0h] BYREF
+  HANDLE KeyHandle; // [rsp+38h] [rbp-C8h] BYREF
   _WORD v23[4]; // [rsp+40h] [rbp-C0h] BYREF
   char *v24; // [rsp+48h] [rbp-B8h]
-  UNICODE_STRING DestinationString; // [rsp+50h] [rbp-B0h] BYREF
-  int v26; // [rsp+60h] [rbp-A0h] BYREF
-  __int64 v27; // [rsp+68h] [rbp-98h]
-  void *v28; // [rsp+70h] [rbp-90h]
-  int v29; // [rsp+78h] [rbp-88h]
-  __int128 v30; // [rsp+80h] [rbp-80h]
-  _BYTE v31[12]; // [rsp+90h] [rbp-70h] BYREF
-  unsigned int v32; // [rsp+9Ch] [rbp-64h]
-  char v33; // [rsp+A0h] [rbp-60h] BYREF
+  _UNICODE_STRING DestinationString; // [rsp+50h] [rbp-B0h] BYREF
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+60h] [rbp-A0h] BYREF
+  _BYTE KeyInformation[12]; // [rsp+90h] [rbp-70h] BYREF
+  unsigned int v28; // [rsp+9Ch] [rbp-64h]
+  char v29; // [rsp+A0h] [rbp-60h] BYREF
 
   v5 = a1 - 1;
   if ( !v5 )
   {
-    v26 = 48;
-    v22 = 0LL;
-    v27 = 0LL;
-    v29 = 64;
-    v28 = &unk_18011C850;
-    v30 = 0LL;
-    v15 = NtOpenKey(&v22, 8LL, &v26);
+    ObjectAttributes.Length = 48;
+    KeyHandle = 0LL;
+    ObjectAttributes.RootDirectory = 0LL;
+    ObjectAttributes.Attributes = 64;
+    ObjectAttributes.ObjectName = (PUNICODE_STRING)&unk_18011C850;
+    *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+    v15 = NtOpenKey(&KeyHandle, 8u, &ObjectAttributes);
     v16 = v15;
     if ( v15 >= 0 || v15 == -1073741772 || v15 == -1073741431 )
     {
-      v10 = v22;
+      v10 = (unsigned __int64)KeyHandle;
       *(_QWORD *)(a2 + 48) = -1LL;
       *(_QWORD *)(a2 + 16) = v10;
       return v10;
     }
-    LOBYTE(v10) = DbgPrintEx(51, 0, "SXS: Unable to open registry key %wZ Status = 0x%08lx\n", &unk_18011C850, v15);
+    LOBYTE(v10) = DbgPrintEx(0x33u, 0, "SXS: Unable to open registry key %wZ Status = 0x%08lx\n", &unk_18011C850, v15);
     *(_BYTE *)(a2 + 56) = 1;
     goto LABEL_40;
   }
-  v6 = (unsigned int)(v5 - 1);
-  if ( (_DWORD)v6 )
+  v6 = v5 - 1;
+  if ( v6 )
   {
     LOBYTE(v10) = 2;
-    if ( (_DWORD)v6 == 2 && *(_QWORD *)a2 )
+    if ( v6 == 2 && *(_QWORD *)a2 )
       LOBYTE(v10) = NtClose(*(HANDLE *)a2);
   }
   else if ( *(_QWORD *)(a2 + 8) )
   {
     if ( *(_QWORD *)(a2 + 8) == 1LL )
     {
-      NtSystemRoot = (const WCHAR *)RtlGetNtSystemRoot(v6, a2);
+      NtSystemRoot = RtlGetNtSystemRoot();
       RtlInitUnicodeString(&DestinationString, NtSystemRoot);
-      Length = DestinationString.Length;
+      v8 = DestinationString.Length;
       v9 = *(unsigned __int16 *)(a2 + 26);
       *(_WORD *)(a2 + 24) = 0;
-      LOBYTE(v10) = Length + 16;
-      if ( (int)Length + 16 > v9 )
+      LOBYTE(v10) = v8 + 16;
+      if ( (int)v8 + 16 > v9 )
       {
         *(_BYTE *)(a2 + 16) = 1;
         if ( a3 )
@@ -93,10 +89,10 @@ char __fastcall RtlpAssemblyStorageMapResolutionDefaultCallback(int a1, __int64 
       }
       else
       {
-        memmove(*(void **)(a2 + 32), DestinationString.Buffer, (unsigned int)Length);
+        memmove(*(void **)(a2 + 32), DestinationString.Buffer, (unsigned int)v8);
         v10 = *(_QWORD *)(a2 + 32);
-        *(_OWORD *)(Length + v10) = *(_OWORD *)L"\\WinSxS\\";
-        *(_WORD *)(a2 + 24) = Length + 16;
+        *(_OWORD *)(v8 + v10) = *(_OWORD *)L"\\WinSxS\\";
+        *(_WORD *)(a2 + 24) = v8 + 16;
       }
       return v10;
     }
@@ -105,17 +101,17 @@ char __fastcall RtlpAssemblyStorageMapResolutionDefaultCallback(int a1, __int64 
       goto LABEL_37;
     v17 = *(HANDLE *)a2;
     v18 = *(_DWORD *)(a2 + 8);
-    v21 = 0;
+    ResultLength = 0;
     if ( !v17 )
       goto LABEL_37;
-    LODWORD(v10) = NtEnumerateKey(v17, (unsigned int)(v18 - 2), 0LL, v31, 544, &v21);
+    LODWORD(v10) = NtEnumerateKey(v17, v18 - 2, KeyBasicInformation, KeyInformation, 0x220u, &ResultLength);
     v16 = v10;
     if ( (v10 & 0x80000000) != 0LL )
     {
       if ( (_DWORD)v10 != -2147483622 )
       {
         LOBYTE(v10) = DbgPrintEx(
-                        51,
+                        0x33u,
                         0,
                         "SXS: Unable to enumerate assembly storage subkey #%lu Status = 0x%08lx\n",
                         v18 - 2,
@@ -131,23 +127,23 @@ LABEL_37:
       *(_BYTE *)(a2 + 17) = 1;
       return v10;
     }
-    LOBYTE(v10) = v32;
-    if ( v32 <= 0xFFFE )
+    LOBYTE(v10) = v28;
+    if ( v28 <= 0xFFFE )
     {
-      v23[0] = v32;
-      v23[1] = v32;
-      v24 = &v33;
+      v23[0] = v28;
+      v23[1] = v28;
+      v24 = &v29;
       LODWORD(v10) = RtlpGetAssemblyStorageMapRootLocation(v17, v23, a2 + 24);
       v16 = v10;
       if ( (v10 & 0x80000000) == 0LL )
         return v10;
-      LODWORD(v20) = v10;
+      LODWORD(Length) = v10;
       LOBYTE(v10) = DbgPrintEx(
-                      51,
+                      0x33u,
                       0,
                       "SXS: Attempt to get storage location from subkey %wZ failed; Status = 0x%08lx\n",
                       v23,
-                      v20);
+                      Length);
       goto LABEL_31;
     }
     *(_BYTE *)(a2 + 16) = 1;
@@ -181,7 +177,7 @@ LABEL_37:
         v13 = *(char **)(a2 + 32);
         memmove(v13, Buffer, v11);
         *(_OWORD *)&v13[v11] = xmmword_180126800;
-        v14 = *(_QWORD *)(a2 + 32);
+        v14 = *(const WCHAR **)(a2 + 32);
         *(_WORD *)(a2 + 24) = v11 + 14;
         LOBYTE(v10) = RtlDoesFileExists_UEx(v14, 1);
         if ( !(_BYTE)v10 )

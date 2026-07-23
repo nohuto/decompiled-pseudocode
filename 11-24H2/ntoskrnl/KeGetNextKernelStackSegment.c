@@ -1,7 +1,7 @@
 /*
- * XREFs of KeGetNextKernelStackSegment @ 0x14040EAA0
+ * XREFs of KeGetNextKernelStackSegment @ 0x140406CA0
  * Callers:
- *     IopMarkPagesForProcessorData @ 0x1405A11D0 (IopMarkPagesForProcessorData.c)
+ *     IopMarkPagesForProcessorData @ 0x14059E108 (IopMarkPagesForProcessorData.c)
  * Callees:
  *     <none>
  */

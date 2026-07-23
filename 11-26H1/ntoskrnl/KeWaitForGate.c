@@ -1,45 +1,45 @@
 /*
- * XREFs of KeWaitForGate @ 0x1403C26D0
+ * XREFs of KeWaitForGate @ 0x1403CC5D0
  * Callers:
- *     KeGenericCallDpcEx @ 0x1403C2284 (KeGenericCallDpcEx.c)
- *     MiWaitForPageWriteCompletion @ 0x1403C2610 (MiWaitForPageWriteCompletion.c)
- *     MiUseThreads @ 0x1403C3644 (MiUseThreads.c)
- *     MiCheckPurgeAndUpMapCount @ 0x140442A20 (MiCheckPurgeAndUpMapCount.c)
- *     MiReferenceControlArea @ 0x14046FD70 (MiReferenceControlArea.c)
- *     MiDrainControlAreaWrites @ 0x14048CF28 (MiDrainControlAreaWrites.c)
- *     MiLockControlAreaSectionExtend @ 0x1404AEBB4 (MiLockControlAreaSectionExtend.c)
- *     MiAttemptSectionDelete @ 0x1404BF538 (MiAttemptSectionDelete.c)
- *     MiUnlinkWorkingSet @ 0x1404D4B5C (MiUnlinkWorkingSet.c)
- *     MiWaitForVadDeletion @ 0x140531014 (MiWaitForVadDeletion.c)
- *     KeSrcuFree @ 0x1405F4FC0 (KeSrcuFree.c)
- *     KiEpfStart @ 0x1405F6F54 (KiEpfStart.c)
- *     KiExecuteDpc @ 0x1405FAE40 (KiExecuteDpc.c)
- *     MiChangingSubsectionProtos @ 0x1406F9120 (MiChangingSubsectionProtos.c)
- *     MiIncrementLargeSubsections @ 0x1406FA404 (MiIncrementLargeSubsections.c)
- *     MiWaitForExtentDeletions @ 0x1406FAE6C (MiWaitForExtentDeletions.c)
- *     MiResolveAwePageConflict @ 0x1407029E4 (MiResolveAwePageConflict.c)
- *     MiDeleteHardwareAccelerators @ 0x14070F4A0 (MiDeleteHardwareAccelerators.c)
- *     MiWaitForInFlightAcceleratorDeletions @ 0x14070FC50 (MiWaitForInFlightAcceleratorDeletions.c)
- *     PspMarkSessionDeletePending @ 0x14077A3B8 (PspMarkSessionDeletePending.c)
- *     KeRcuSynchronize @ 0x1407BA200 (KeRcuSynchronize.c)
- *     KeSrcuSynchronize @ 0x1407BB2C0 (KeSrcuSynchronize.c)
- *     MmScrubMemory @ 0x14087DFD4 (MmScrubMemory.c)
- *     PspQueryWorkingSetWatch @ 0x140A8C1D4 (PspQueryWorkingSetWatch.c)
- *     sub_140C76E10 @ 0x140C76E10 (sub_140C76E10.c)
- *     sub_140C8113C @ 0x140C8113C (sub_140C8113C.c)
+ *     KeGenericCallDpcEx @ 0x1403CC184 (KeGenericCallDpcEx.c)
+ *     MiWaitForPageWriteCompletion @ 0x1403CC510 (MiWaitForPageWriteCompletion.c)
+ *     MiUseThreads @ 0x1403CD544 (MiUseThreads.c)
+ *     MiCheckPurgeAndUpMapCount @ 0x14043B530 (MiCheckPurgeAndUpMapCount.c)
+ *     MiReferenceControlArea @ 0x1404694F0 (MiReferenceControlArea.c)
+ *     MiDrainControlAreaWrites @ 0x140486A68 (MiDrainControlAreaWrites.c)
+ *     MiLockControlAreaSectionExtend @ 0x1404A8244 (MiLockControlAreaSectionExtend.c)
+ *     MiAttemptSectionDelete @ 0x1404B8D88 (MiAttemptSectionDelete.c)
+ *     MiUnlinkWorkingSet @ 0x1404CE3CC (MiUnlinkWorkingSet.c)
+ *     MiWaitForVadDeletion @ 0x140533514 (MiWaitForVadDeletion.c)
+ *     KeSrcuFree @ 0x1405F7980 (KeSrcuFree.c)
+ *     KiEpfStart @ 0x1405F9914 (KiEpfStart.c)
+ *     KiExecuteDpc @ 0x1405FD860 (KiExecuteDpc.c)
+ *     MiChangingSubsectionProtos @ 0x1406FDDF0 (MiChangingSubsectionProtos.c)
+ *     MiIncrementLargeSubsections @ 0x1406FF0D4 (MiIncrementLargeSubsections.c)
+ *     MiWaitForExtentDeletions @ 0x1406FFB3C (MiWaitForExtentDeletions.c)
+ *     MiResolveAwePageConflict @ 0x1407076B4 (MiResolveAwePageConflict.c)
+ *     MiDeleteHardwareAccelerators @ 0x14071419C (MiDeleteHardwareAccelerators.c)
+ *     MiWaitForInFlightAcceleratorDeletions @ 0x14071494C (MiWaitForInFlightAcceleratorDeletions.c)
+ *     PspMarkSessionDeletePending @ 0x14077D2E8 (PspMarkSessionDeletePending.c)
+ *     KeRcuSynchronize @ 0x1407BD260 (KeRcuSynchronize.c)
+ *     KeSrcuSynchronize @ 0x1407BE320 (KeSrcuSynchronize.c)
+ *     MmScrubMemory @ 0x1408843D4 (MmScrubMemory.c)
+ *     PspQueryWorkingSetWatch @ 0x1409DDA3C (PspQueryWorkingSetWatch.c)
+ *     sub_140C7CE10 @ 0x140C7CE10 (sub_140C7CE10.c)
+ *     sub_140C8713C @ 0x140C8713C (sub_140C8713C.c)
  * Callees:
- *     KiCommitThreadWait @ 0x1402229B0 (KiCommitThreadWait.c)
- *     KiFastExitThreadWait @ 0x140244040 (KiFastExitThreadWait.c)
- *     KiAcquireKobjectLockSafe @ 0x140277760 (KiAcquireKobjectLockSafe.c)
- *     KiBeginThreadWait @ 0x1403C2810 (KiBeginThreadWait.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KiCommitThreadWait @ 0x140224340 (KiCommitThreadWait.c)
+ *     KiFastExitThreadWait @ 0x1402459A0 (KiFastExitThreadWait.c)
+ *     KiAcquireKobjectLockSafe @ 0x140276CD0 (KiAcquireKobjectLockSafe.c)
+ *     KiBeginThreadWait @ 0x1403CC710 (KiBeginThreadWait.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 __int64 __fastcall KeWaitForGate(__int64 a1, __int64 a2)
 {
   struct _KTHREAD *CurrentThread; // rsi
   __int64 v3; // rbx
-  $21A6EA393ADDDF0D13424531359FF08A *v4; // rdi
+  $08E725EC6134F01F525383E5528526A8 *v4; // rdi
   unsigned __int8 CurrentIrql; // bp
   __int64 v6; // rdx
   unsigned int v7; // ebp

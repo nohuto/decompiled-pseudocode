@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpAcpiCacheOverrideTables @ 0x140A8C800
+ * XREFs of HalpAcpiCacheOverrideTables @ 0x140A8D800
  * Callers:
- *     HalpAcpiTableCacheInit @ 0x140A64690 (HalpAcpiTableCacheInit.c)
+ *     HalpAcpiTableCacheInit @ 0x140A65690 (HalpAcpiTableCacheInit.c)
  * Callees:
- *     HalpAcpiCacheTable @ 0x1403BB6C0 (HalpAcpiCacheTable.c)
- *     memmove @ 0x140413F40 (memmove.c)
+ *     HalpAcpiCacheTable @ 0x1403BB830 (HalpAcpiCacheTable.c)
+ *     memmove @ 0x140414040 (memmove.c)
  */
 
 unsigned __int64 __fastcall HalpAcpiCacheOverrideTables(

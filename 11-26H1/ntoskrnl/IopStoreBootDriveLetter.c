@@ -1,17 +1,17 @@
 /*
- * XREFs of IopStoreBootDriveLetter @ 0x140CBE1A0
+ * XREFs of IopStoreBootDriveLetter @ 0x140CC4270
  * Callers:
- *     IopMarkBootPartition @ 0x140CBD890 (IopMarkBootPartition.c)
+ *     IopMarkBootPartition @ 0x140CC3960 (IopMarkBootPartition.c)
  * Callees:
- *     IofCallDriver @ 0x1402655A0 (IofCallDriver.c)
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     IoBuildDeviceIoControlRequest @ 0x14026B150 (IoBuildDeviceIoControlRequest.c)
- *     KeWaitForSingleObject @ 0x140278560 (KeWaitForSingleObject.c)
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     RtlUnicodeStringPrintf @ 0x1404B9F90 (RtlUnicodeStringPrintf.c)
- *     IoGetDeviceObjectPointer @ 0x140908800 (IoGetDeviceObjectPointer.c)
- *     RtlWriteRegistryValue @ 0x140A11D10 (RtlWriteRegistryValue.c)
- *     RtlGetHostNtSystemRoot @ 0x140B46F80 (RtlGetHostNtSystemRoot.c)
+ *     IofCallDriver @ 0x140264B10 (IofCallDriver.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     IoBuildDeviceIoControlRequest @ 0x14026A6C0 (IoBuildDeviceIoControlRequest.c)
+ *     KeWaitForSingleObject @ 0x140277AD0 (KeWaitForSingleObject.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     RtlUnicodeStringPrintf @ 0x1404B3820 (RtlUnicodeStringPrintf.c)
+ *     RtlWriteRegistryValue @ 0x140A10F00 (RtlWriteRegistryValue.c)
+ *     IoGetDeviceObjectPointer @ 0x140A30960 (IoGetDeviceObjectPointer.c)
+ *     RtlGetHostNtSystemRoot @ 0x140B48FB0 (RtlGetHostNtSystemRoot.c)
  */
 
 __int64 __fastcall IopStoreBootDriveLetter(__int64 a1)

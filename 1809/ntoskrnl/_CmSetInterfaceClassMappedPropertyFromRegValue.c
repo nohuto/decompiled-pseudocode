@@ -1,12 +1,12 @@
 /*
- * XREFs of _CmSetInterfaceClassMappedPropertyFromRegValue @ 0x1408FFCEC
+ * XREFs of _CmSetInterfaceClassMappedPropertyFromRegValue @ 0x140900FAC
  * Callers:
- *     _CmSetInterfaceClassMappedProperty @ 0x1408FFBAC (_CmSetInterfaceClassMappedProperty.c)
+ *     _CmSetInterfaceClassMappedProperty @ 0x140900E6C (_CmSetInterfaceClassMappedProperty.c)
  * Callees:
- *     ZwClose @ 0x1401B8370 (ZwClose.c)
- *     _PnpOpenPropertiesKey @ 0x14059AA2C (_PnpOpenPropertiesKey.c)
- *     _CmOpenInterfaceClassRegKey @ 0x14059EB44 (_CmOpenInterfaceClassRegKey.c)
- *     _RegRtlSetValue @ 0x1406FCBA8 (_RegRtlSetValue.c)
+ *     ZwClose @ 0x1401B84D0 (ZwClose.c)
+ *     _PnpOpenPropertiesKey @ 0x14059BA2C (_PnpOpenPropertiesKey.c)
+ *     _CmOpenInterfaceClassRegKey @ 0x14059FB44 (_CmOpenInterfaceClassRegKey.c)
+ *     _RegRtlSetValue @ 0x1406FDE48 (_RegRtlSetValue.c)
  */
 
 __int64 __fastcall CmSetInterfaceClassMappedPropertyFromRegValue(
@@ -38,7 +38,7 @@ __int64 __fastcall CmSetInterfaceClassMappedPropertyFromRegValue(
   if ( v7 < 2 )
     return (unsigned int)-1073741264;
   v12 = 0;
-  v13 = &off_140908BC8;
+  v13 = &off_140909E88;
   do
   {
     v14 = *v13;

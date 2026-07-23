@@ -1,17 +1,17 @@
 /*
- * XREFs of RtlpCSparseBitmapPageCommit @ 0x1402477C4
+ * XREFs of RtlpCSparseBitmapPageCommit @ 0x1402197E0
  * Callers:
- *     RtlCSparseBitmapBitmaskWrite @ 0x1402476B8 (RtlCSparseBitmapBitmaskWrite.c)
- *     RtlSparseArrayElementAllocate @ 0x140421C44 (RtlSparseArrayElementAllocate.c)
+ *     RtlCSparseBitmapBitmaskWrite @ 0x1402196D4 (RtlCSparseBitmapBitmaskWrite.c)
+ *     RtlSparseArrayElementAllocate @ 0x14021A324 (RtlSparseArrayElementAllocate.c)
  * Callees:
- *     RtlpCSparseBitmapUnlock @ 0x140247650 (RtlpCSparseBitmapUnlock.c)
- *     RtlpHpEnvAllocVA @ 0x1402EAA50 (RtlpHpEnvAllocVA.c)
- *     ExAcquireSpinLockShared @ 0x14031A1A0 (ExAcquireSpinLockShared.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     ExfAcquirePushLockSharedEx @ 0x14034050C (ExfAcquirePushLockSharedEx.c)
- *     RtlpCSparseBitmapWaitOnAddress @ 0x14045D1A8 (RtlpCSparseBitmapWaitOnAddress.c)
- *     RtlCSparseBitmapLeaveLockingRegion @ 0x140476A0C (RtlCSparseBitmapLeaveLockingRegion.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     RtlpCSparseBitmapUnlock @ 0x14021966C (RtlpCSparseBitmapUnlock.c)
+ *     ExAcquireSpinLockShared @ 0x1402C2D30 (ExAcquireSpinLockShared.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     ExfAcquirePushLockSharedEx @ 0x14031F9EC (ExfAcquirePushLockSharedEx.c)
+ *     RtlpHpEnvAllocVA @ 0x14034C090 (RtlpHpEnvAllocVA.c)
+ *     RtlpCSparseBitmapWaitOnAddress @ 0x140452274 (RtlpCSparseBitmapWaitOnAddress.c)
+ *     RtlCSparseBitmapLeaveLockingRegion @ 0x140472FAC (RtlCSparseBitmapLeaveLockingRegion.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 __int64 __fastcall RtlpCSparseBitmapPageCommit(__int64 a1, unsigned __int64 a2, __int64 a3, __int128 *a4)
@@ -60,7 +60,7 @@ __int64 __fastcall RtlpCSparseBitmapPageCommit(__int64 a1, unsigned __int64 a2, 
     if ( KiIrqlFlags )
     {
       LOBYTE(a1) = CurrentIrql;
-      KiRaiseIrqlProcessIrqlFlags(a1, 2LL, a3);
+      KiRaiseIrqlProcessIrqlFlags(a1, 2LL);
     }
     LOBYTE(v22) = CurrentIrql;
   }

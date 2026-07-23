@@ -1,9 +1,9 @@
 /*
- * XREFs of PoSetPowerRequest @ 0x14032B610
+ * XREFs of PoSetPowerRequest @ 0x14032B8A0
  * Callers:
- *     PopApplyLegacyPowerRequestFlags @ 0x14032EE4C (PopApplyLegacyPowerRequestFlags.c)
+ *     PopApplyLegacyPowerRequestFlags @ 0x14032F0DC (PopApplyLegacyPowerRequestFlags.c)
  * Callees:
- *     PopPowerRequestReferenceAcquire @ 0x14032B828 (PopPowerRequestReferenceAcquire.c)
+ *     PopPowerRequestReferenceAcquire @ 0x14032BAB8 (PopPowerRequestReferenceAcquire.c)
  */
 
 NTSTATUS __stdcall PoSetPowerRequest(PVOID PowerRequest, POWER_REQUEST_TYPE Type)

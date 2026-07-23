@@ -1,12 +1,12 @@
 /*
- * XREFs of TtmiLogCalloutWatchdogCrashSkipped @ 0x1407E8860
+ * XREFs of TtmiLogCalloutWatchdogCrashSkipped @ 0x1407EE3C0
  * Callers:
- *     TtmpCalloutWatchdogCallback @ 0x1407E5890 (TtmpCalloutWatchdogCallback.c)
+ *     TtmpCalloutWatchdogCallback @ 0x1407EB3F0 (TtmpCalloutWatchdogCallback.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212E30 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgKeywordOn @ 0x14044F850 (_tlgKeywordOn.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     TtmiGetSessionId @ 0x140A3A3A8 (TtmiGetSessionId.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212F10 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x140447980 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     TtmiGetSessionId @ 0x1409F5FA8 (TtmiGetSessionId.c)
  */
 
 char __fastcall TtmiLogCalloutWatchdogCrashSkipped(int a1, int a2, __int64 a3, __int64 a4, __int64 a5, __int64 a6)
@@ -40,9 +40,9 @@ char __fastcall TtmiLogCalloutWatchdogCrashSkipped(int a1, int a2, __int64 a3, _
   _UNKNOWN *retaddr; // [rsp+110h] [rbp+4Fh] BYREF
 
   v6 = &retaddr;
-  if ( (unsigned int)dword_140FD5870 > 5 )
+  if ( (unsigned int)dword_140FD6880 > 5 )
   {
-    LOBYTE(v6) = tlgKeywordOn((__int64)&dword_140FD5870, 0x400000000001LL);
+    LOBYTE(v6) = tlgKeywordOn((__int64)&dword_140FD6880, 0x400000000001LL);
     if ( (_BYTE)v6 )
     {
       SessionId = TtmiGetSessionId(v12, v11, v13);
@@ -67,8 +67,8 @@ char __fastcall TtmiLogCalloutWatchdogCrashSkipped(int a1, int a2, __int64 a3, _
       v34 = 8LL;
       v36 = 8LL;
       LOBYTE(v6) = tlgWriteTransfer_EtwWriteTransfer(
-                     (__int64)&dword_140FD5870,
-                     (unsigned __int8 *)byte_14005131D,
+                     (__int64)&dword_140FD6880,
+                     (unsigned __int8 *)byte_140051E65,
                      0LL,
                      0LL,
                      9u,

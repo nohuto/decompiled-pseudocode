@@ -14,7 +14,7 @@ int __fastcall TppIopValidateIo(int a1, int a2, int a3)
 {
   if ( a1
     && TppValidateCleanupGroupMember(a1, a2)
-    && *(int (__stdcall ***)(int))(a1 + 4) == TppIopCleanupGroupMemberVFuncs
+    && *(int (__stdcall ***)(PVOID))(a1 + 4) == &TppIopCleanupGroupMemberVFuncs
     && !NtCurrentPeb()->Ldr->ShutdownInProgress )
   {
     return 1;

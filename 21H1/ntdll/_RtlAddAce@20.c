@@ -7,96 +7,102 @@
  *     _RtlFirstFreeAce@8 @ 0x4B2D7F40 (_RtlFirstFreeAce@8.c)
  */
 
-int __stdcall RtlAddAce(int a1, unsigned int a2, unsigned int a3, unsigned int a4, int a5)
+NTSTATUS __cdecl RtlAddAce(PACL Acl, ULONG AceRevision, ULONG StartingAceIndex, PVOID AceList, ULONG AceListLength)
 {
-  unsigned int v5; // ebx
-  int v6; // edi
-  unsigned int v7; // edx
-  unsigned int i; // eax
+  _BYTE *v5; // ebx
+  ULONG v6; // edi
+  char *v7; // edx
+  char *v8; // eax
   unsigned __int8 v9; // al
-  unsigned int v10; // edx
-  int v11; // ecx
-  unsigned int j; // eax
+  _BYTE *v10; // edx
+  PACL v11; // ecx
+  ULONG i; // eax
   int v13; // edx
   int v14; // ebx
   bool v16; // cf
-  unsigned int v17; // [esp+Ch] [ebp-10h] BYREF
-  unsigned int v18; // [esp+10h] [ebp-Ch]
+  PVOID FirstFree; // [esp+Ch] [ebp-10h] BYREF
+  ULONG v18; // [esp+10h] [ebp-Ch]
   int v19; // [esp+14h] [ebp-8h]
-  unsigned __int8 v20; // [esp+1Bh] [ebp-1h]
+  unsigned __int8 AclRevision; // [esp+1Bh] [ebp-1h]
 
-  if ( !(unsigned __int8)RtlValidAcl(a1) || !(unsigned __int8)RtlFirstFreeAce(a1, &v17) )
+  if ( !RtlValidAcl(Acl) || !RtlFirstFreeAce(Acl, &FirstFree) )
     return -1073741811;
-  v20 = *(_BYTE *)a1;
-  if ( (unsigned __int8)a2 > v20 )
-    v20 = a2;
-  v5 = a4;
-  v6 = a5;
-  v7 = a4;
+  AclRevision = Acl->AclRevision;
+  if ( (unsigned __int8)AceRevision > AclRevision )
+    AclRevision = AceRevision;
+  v5 = AceList;
+  v6 = AceListLength;
+  v7 = (char *)AceList;
   v18 = 0;
   v19 = 0;
-  for ( i = a4 + a5; v7 < a4 + a5; i = a4 + a5 )
+  v8 = (char *)AceList + AceListLength;
+  if ( AceList < (char *)AceList + AceListLength )
   {
-    v9 = *(_BYTE *)v7;
-    if ( *(_BYTE *)v7 > 3u )
+    do
     {
-      if ( v9 > 4u )
+      v9 = *v7;
+      if ( (unsigned __int8)*v7 > 3u )
       {
-        if ( v9 > 8u )
-          goto LABEL_7;
-        v16 = a2 < 4;
+        if ( v9 > 4u )
+        {
+          if ( v9 > 8u )
+            goto LABEL_7;
+          v16 = AceRevision < 4;
+        }
+        else
+        {
+          v16 = AceRevision < 3;
+        }
+        if ( v16 )
+          return -1073741811;
       }
-      else
-      {
-        v16 = a2 < 3;
-      }
-      if ( v16 )
-        return -1073741811;
-    }
 LABEL_7:
-    v7 += *(unsigned __int16 *)(v7 + 2);
-    ++v19;
+      v7 += *((unsigned __int16 *)v7 + 1);
+      ++v19;
+      v8 = (char *)AceList + AceListLength;
+    }
+    while ( v7 < (char *)AceList + AceListLength );
   }
-  if ( v7 > i )
+  if ( v7 > v8 )
     return -1073741811;
-  v10 = v17;
-  if ( !v17 || v17 + a5 > a1 + (unsigned int)*(unsigned __int16 *)(a1 + 2) )
+  v10 = FirstFree;
+  if ( !FirstFree || (char *)FirstFree + AceListLength > (char *)Acl + Acl->AclSize )
     return -1073741789;
-  v11 = a1 + 8;
-  if ( a3 )
+  v11 = Acl + 1;
+  if ( StartingAceIndex )
   {
-    v17 = *(unsigned __int16 *)(a1 + 4);
-    for ( j = 0; j < a3; v18 = j )
+    FirstFree = (PVOID)Acl->AceCount;
+    for ( i = 0; i < StartingAceIndex; v18 = i )
     {
-      if ( j >= v17 )
+      if ( i >= (unsigned int)FirstFree )
         break;
-      v11 += *(unsigned __int16 *)(v11 + 2);
-      j = v18 + 1;
+      v11 = (PACL)((char *)v11 + v11->AclSize);
+      i = v18 + 1;
     }
   }
-  v13 = v10 - v11 - 1;
+  v13 = v10 - (_BYTE *)v11 - 1;
   if ( v13 >= 0 )
   {
     do
     {
-      *(_BYTE *)(v11 + a5 + v13) = *(_BYTE *)(v13 + v11);
+      *(&v11->AclRevision + AceListLength + v13) = *(&v11->AclRevision + v13);
       --v13;
     }
     while ( v13 >= 0 );
-    v5 = a4;
+    v5 = AceList;
   }
-  if ( a5 )
+  if ( AceListLength )
   {
-    v14 = v5 - v11;
+    v14 = v5 - (_BYTE *)v11;
     do
     {
-      *(_BYTE *)v11 = *(_BYTE *)(v14 + v11);
-      ++v11;
+      v11->AclRevision = *(&v11->AclRevision + v14);
+      v11 = (PACL)((char *)v11 + 1);
       --v6;
     }
     while ( v6 );
   }
-  *(_WORD *)(a1 + 4) += v19;
-  *(_BYTE *)a1 = v20;
+  Acl->AceCount += v19;
+  Acl->AclRevision = AclRevision;
   return 0;
 }

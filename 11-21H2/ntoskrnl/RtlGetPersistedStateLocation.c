@@ -1,27 +1,27 @@
 /*
  * XREFs of RtlGetPersistedStateLocation @ 0x140782DD0
  * Callers:
- *     PipUpdateDeviceProducts @ 0x1403C5610 (PipUpdateDeviceProducts.c)
- *     PopOpenThermalLoggingKey @ 0x1403DBE38 (PopOpenThermalLoggingKey.c)
- *     OpenGlobalizationUserSettingsKey_ForMua @ 0x140642A44 (OpenGlobalizationUserSettingsKey_ForMua.c)
- *     PiGetStateRootPath @ 0x1406DF520 (PiGetStateRootPath.c)
- *     KGetAppModelStateSeparatedRegKeyPath @ 0x1406E295C (KGetAppModelStateSeparatedRegKeyPath.c)
- *     RtlpGetTimeZoneInfoHandle @ 0x1406F1A04 (RtlpGetTimeZoneInfoHandle.c)
- *     IopGetPersistedStateLocation @ 0x1407443F8 (IopGetPersistedStateLocation.c)
- *     WmipGetGuidSecurityDescriptor @ 0x140782C4C (WmipGetGuidSecurityDescriptor.c)
- *     PopOpenPersistedRegistryKey @ 0x140828F18 (PopOpenPersistedRegistryKey.c)
- *     PopInitHiberPersistedRegValues @ 0x14082902C (PopInitHiberPersistedRegValues.c)
- *     ExpRefreshTimeZoneInformation @ 0x140835844 (ExpRefreshTimeZoneInformation.c)
- *     IopUpdateSecureDeviceClassState @ 0x14084D3DC (IopUpdateSecureDeviceClassState.c)
- *     EtwpInitializeAutoLoggers @ 0x140851328 (EtwpInitializeAutoLoggers.c)
- *     SpRegOpenRedirectedKey @ 0x14085E1D0 (SpRegOpenRedirectedKey.c)
- *     ExpUuidLoadSequenceNumber @ 0x14085F064 (ExpUuidLoadSequenceNumber.c)
- *     ExpUuidSaveSequenceNumber @ 0x14085F1D0 (ExpUuidSaveSequenceNumber.c)
- *     WmipSaveGuidSecurityDescriptor @ 0x140862E50 (WmipSaveGuidSecurityDescriptor.c)
- *     CmpRecordShutdownStopTime @ 0x140911EA8 (CmpRecordShutdownStopTime.c)
- *     PiDrvDbQuerySyncNodesUpdated @ 0x14095CDBC (PiDrvDbQuerySyncNodesUpdated.c)
- *     PopInitializePowerButtonHold @ 0x140B034C0 (PopInitializePowerButtonHold.c)
- *     EtwpInitializeSecurity @ 0x140B2F180 (EtwpInitializeSecurity.c)
+ *     sub_1403C5610 @ 0x1403C5610 (sub_1403C5610.c)
+ *     sub_1403DBE38 @ 0x1403DBE38 (sub_1403DBE38.c)
+ *     sub_140642A44 @ 0x140642A44 (sub_140642A44.c)
+ *     sub_1406DF520 @ 0x1406DF520 (sub_1406DF520.c)
+ *     sub_1406E295C @ 0x1406E295C (sub_1406E295C.c)
+ *     sub_1406F1A04 @ 0x1406F1A04 (sub_1406F1A04.c)
+ *     sub_1407443F8 @ 0x1407443F8 (sub_1407443F8.c)
+ *     sub_140782C4C @ 0x140782C4C (sub_140782C4C.c)
+ *     sub_140828F18 @ 0x140828F18 (sub_140828F18.c)
+ *     sub_14082902C @ 0x14082902C (sub_14082902C.c)
+ *     sub_140835844 @ 0x140835844 (sub_140835844.c)
+ *     sub_14084D3DC @ 0x14084D3DC (sub_14084D3DC.c)
+ *     sub_140851328 @ 0x140851328 (sub_140851328.c)
+ *     sub_14085E1D0 @ 0x14085E1D0 (sub_14085E1D0.c)
+ *     sub_14085F064 @ 0x14085F064 (sub_14085F064.c)
+ *     sub_14085F1D0 @ 0x14085F1D0 (sub_14085F1D0.c)
+ *     sub_140862E50 @ 0x140862E50 (sub_140862E50.c)
+ *     sub_140911EA8 @ 0x140911EA8 (sub_140911EA8.c)
+ *     sub_14095CDBC @ 0x14095CDBC (sub_14095CDBC.c)
+ *     sub_140B034C0 @ 0x140B034C0 (sub_140B034C0.c)
+ *     sub_140B2F180 @ 0x140B2F180 (sub_140B2F180.c)
  * Callees:
  *     RtlInitUnicodeString @ 0x140347630 (RtlInitUnicodeString.c)
  *     ZwClose @ 0x14041B940 (ZwClose.c)
@@ -32,24 +32,24 @@
  *     ExAllocatePoolWithTag @ 0x140A6E910 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall RtlGetPersistedStateLocation(
-        PCWSTR SourceString,
-        const WCHAR *a2,
-        _WORD *a3,
-        unsigned int a4,
-        void *a5,
-        unsigned int a6,
-        unsigned int *a7)
+NTSTATUS __cdecl RtlGetPersistedStateLocation(
+        PCWSTR SourceID,
+        PCWSTR CustomValue,
+        PCWSTR DefaultPath,
+        STATE_LOCATION_TYPE StateLocationType,
+        PWCHAR TargetPath,
+        ULONG BufferLengthIn,
+        PULONG BufferLengthOut)
 {
-  _DWORD *PoolWithTag; // rdi
-  signed int v11; // ebx
+  WCHAR *PoolWithTag; // rdi
+  NTSTATUS v11; // ebx
   __int64 v13; // rax
   unsigned int v14; // eax
   unsigned int v15; // ecx
-  const void *v16; // rdx
+  PCWSTR v16; // rdx
   NTSTATUS v17; // eax
   NTSTATUS v18; // eax
-  unsigned int v19; // esi
+  ULONG v19; // esi
   ULONG Length; // ebx
   NTSTATUS v21; // eax
   unsigned __int64 v22; // rax
@@ -65,8 +65,8 @@ __int64 __fastcall RtlGetPersistedStateLocation(
   PoolWithTag = 0LL;
   memset(&ObjectAttributes, 0, 44);
   DestinationString = 0LL;
-  if ( a4 > 1 )
-    return 3221225713LL;
+  if ( (unsigned int)StateLocationType > LocationTypeFileSystem )
+    return -1073741583;
   if ( byte_140C4EF1E )
   {
     v11 = -1073741772;
@@ -74,7 +74,7 @@ __int64 __fastcall RtlGetPersistedStateLocation(
   else
   {
     ObjectAttributes.Length = 48;
-    ObjectAttributes.ObjectName = (PUNICODE_STRING)&qword_140A38D50[2 * (int)a4];
+    ObjectAttributes.ObjectName = (PUNICODE_STRING)&qword_140A38D50[2 * StateLocationType];
     ObjectAttributes.RootDirectory = 0LL;
     ObjectAttributes.Attributes = 576;
     *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
@@ -88,7 +88,7 @@ __int64 __fastcall RtlGetPersistedStateLocation(
     {
       if ( v17 < 0 )
         goto LABEL_5;
-      RtlInitUnicodeString(&DestinationString, SourceString);
+      RtlInitUnicodeString(&DestinationString, SourceID);
       ObjectAttributes.RootDirectory = KeyHandle;
       ObjectAttributes.Length = 48;
       ObjectAttributes.ObjectName = &DestinationString;
@@ -100,14 +100,14 @@ __int64 __fastcall RtlGetPersistedStateLocation(
       {
         if ( v18 < 0 )
           goto LABEL_5;
-        if ( !a2 )
-          a2 = L"TargetNtPath";
-        RtlInitUnicodeString(&DestinationString, a2);
-        v19 = a6;
-        Length = a6 + 16;
-        if ( a6 + 16 >= a6 )
+        if ( !CustomValue )
+          CustomValue = L"TargetNtPath";
+        RtlInitUnicodeString(&DestinationString, CustomValue);
+        v19 = BufferLengthIn;
+        Length = BufferLengthIn + 16;
+        if ( BufferLengthIn + 16 >= BufferLengthIn )
         {
-          PoolWithTag = ExAllocatePoolWithTag(PagedPool, Length, 0x70657373u);
+          PoolWithTag = (WCHAR *)ExAllocatePoolWithTag(PagedPool, Length, 0x70657373u);
           if ( !PoolWithTag )
           {
             v11 = -1073741801;
@@ -126,14 +126,14 @@ __int64 __fastcall RtlGetPersistedStateLocation(
             if ( v21 != -2147483643 )
               goto LABEL_5;
           }
-          else if ( PoolWithTag[1] != 1 )
+          else if ( *((_DWORD *)PoolWithTag + 1) != 1 )
           {
             v11 = -1073741788;
             goto LABEL_5;
           }
-          v15 = PoolWithTag[2];
+          v15 = *((_DWORD *)PoolWithTag + 2);
           ResultLength = v15;
-          if ( v21 >= 0 && *((_WORD *)PoolWithTag + ((unsigned __int64)v15 >> 1) + 5) )
+          if ( v21 >= 0 && PoolWithTag[((unsigned __int64)v15 >> 1) + 5] )
           {
             v22 = v15 + 2;
             ResultLength = v22;
@@ -144,15 +144,15 @@ __int64 __fastcall RtlGetPersistedStateLocation(
             }
             else
             {
-              *((_WORD *)PoolWithTag + (v22 >> 1) + 5) = 0;
+              PoolWithTag[(v22 >> 1) + 5] = 0;
               v15 = ResultLength;
             }
           }
-          if ( a7 )
-            *a7 = v15;
+          if ( BufferLengthOut )
+            *BufferLengthOut = v15;
           if ( v11 < 0 )
             goto LABEL_5;
-          v16 = PoolWithTag + 3;
+          v16 = PoolWithTag + 6;
           goto LABEL_19;
         }
 LABEL_31:
@@ -161,25 +161,25 @@ LABEL_31:
       }
     }
   }
-  if ( a3 )
+  if ( DefaultPath )
   {
     v13 = -1LL;
     do
       ++v13;
-    while ( a3[v13] );
+    while ( DefaultPath[v13] );
     v14 = v13 + 1;
     v15 = 2 * v14;
     ResultLength = 2 * v14;
     if ( 2 * v14 >= v14 )
     {
-      v11 = a6 < v15 ? 0x80000005 : 0;
-      if ( a7 )
-        *a7 = v15;
-      if ( v15 > a6 )
+      v11 = BufferLengthIn < v15 ? 0x80000005 : 0;
+      if ( BufferLengthOut )
+        *BufferLengthOut = v15;
+      if ( v15 > BufferLengthIn )
         goto LABEL_5;
-      v16 = a3;
+      v16 = DefaultPath;
 LABEL_19:
-      memmove(a5, v16, v15);
+      memmove(TargetPath, v16, v15);
       goto LABEL_5;
     }
     goto LABEL_31;
@@ -191,5 +191,5 @@ LABEL_5:
     ZwClose(Handle);
   if ( PoolWithTag )
     ExFreePoolWithTag(PoolWithTag, 0);
-  return (unsigned int)v11;
+  return v11;
 }

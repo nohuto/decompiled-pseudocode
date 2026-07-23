@@ -62,7 +62,7 @@ __int64 __fastcall KeSetSelectedCpuSetsThread(__int64 a1, unsigned int a2, char 
   struct _KPRCB *v33; // r9
   _DWORD *v34; // r8
   int v35; // eax
-  void (__fastcall *v36)(_QWORD, _DWORD *, int *, __int64, struct _PROCESSOR_NUMBER *); // rax
+  void (__fastcall *v36)(_QWORD, _DWORD *, int *, __int64, _PROCESSOR_NUMBER *); // rax
   __int16 v37; // r12
   unsigned int *v38; // rbx
   unsigned __int64 v39; // rdi
@@ -75,7 +75,7 @@ __int64 __fastcall KeSetSelectedCpuSetsThread(__int64 a1, unsigned int a2, char 
   __int64 (__fastcall *v46)(_QWORD, _DWORD *, __int128 *, __int64, _DWORD *); // rax
   int v47; // eax
   _DWORD v48[2]; // [rsp+40h] [rbp-338h] BYREF
-  struct _PROCESSOR_NUMBER ProcNumber; // [rsp+48h] [rbp-330h] BYREF
+  _PROCESSOR_NUMBER ProcNumber; // [rsp+48h] [rbp-330h] BYREF
   int v50; // [rsp+4Ch] [rbp-32Ch]
   _QWORD *v51; // [rsp+50h] [rbp-328h] BYREF
   __int128 v52; // [rsp+58h] [rbp-320h] BYREF
@@ -110,7 +110,7 @@ __int64 __fastcall KeSetSelectedCpuSetsThread(__int64 a1, unsigned int a2, char 
     ThreadCpuSetMaskPointer = (unsigned __int64 *)KiGetThreadCpuSetMaskPointer(a1, &ProcNumber);
     CurrentIrql = KeGetCurrentIrql();
     __writecr8(2uLL);
-    if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+    if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
     {
       SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
       if ( CurrentIrql == 2 )
@@ -277,11 +277,12 @@ __int64 __fastcall KeSetSelectedCpuSetsThread(__int64 a1, unsigned int a2, char 
           else
           {
             v68 = 3;
-            ProcNumber = (struct _PROCESSOR_NUMBER)-1;
+            ProcNumber = (_PROCESSOR_NUMBER)-1;
             v50 = 1;
             v48[1] = *(_DWORD *)(HalpInterruptIpiLines + 20);
             v48[0] = *(_DWORD *)(HalpInterruptIpiLines + 16);
-            v36 = *(void (__fastcall **)(_QWORD, _DWORD *, int *, __int64, struct _PROCESSOR_NUMBER *))(HalpInterruptController + 120);
+            v36 = *(void (__fastcall **)(_QWORD, _DWORD *, int *, __int64, _PROCESSOR_NUMBER *))(HalpInterruptController
+                                                                                               + 120);
             _disable();
             v36(*(_QWORD *)(HalpInterruptController + 16), v48, &v68, 47LL, &ProcNumber);
             if ( (v73 & 0x200) != 0 )
@@ -361,10 +362,10 @@ __int64 __fastcall KeSetSelectedCpuSetsThread(__int64 a1, unsigned int a2, char 
       }
       if ( !v28 )
       {
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
           v29 = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && (unsigned __int8)(v29 - 2) <= 0xDu )
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && (unsigned __int8)(v29 - 2) <= 0xDu )
           {
             v30 = KeGetCurrentPrcb();
             v31 = v30->SchedulerAssist;
@@ -378,10 +379,10 @@ __int64 __fastcall KeSetSelectedCpuSetsThread(__int64 a1, unsigned int a2, char 
         *(_DWORD *)(v15 + 116) &= ~0x40u;
         KiDeliverApc(0, 0LL, 0LL);
       }
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v32 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && (unsigned __int8)(v32 - 2) <= 0xDu )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && (unsigned __int8)(v32 - 2) <= 0xDu )
         {
           v33 = KeGetCurrentPrcb();
           v34 = v33->SchedulerAssist;

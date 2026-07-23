@@ -1,14 +1,14 @@
 /*
- * XREFs of MiBadRefCount @ 0x1405067A4
+ * XREFs of MiBadRefCount @ 0x140500054
  * Callers:
- *     MiUnlockProtoPoolPage @ 0x1402D3E40 (MiUnlockProtoPoolPage.c)
- *     MiRemoveLockedPageChargeAndDecRef @ 0x1402E8BF0 (MiRemoveLockedPageChargeAndDecRef.c)
- *     MiRemoveLockedPageCharge @ 0x14031D180 (MiRemoveLockedPageCharge.c)
- *     MiDeleteNonPagedPoolPte @ 0x140363600 (MiDeleteNonPagedPoolPte.c)
- *     MiReadyLargePageToFree @ 0x1403C5920 (MiReadyLargePageToFree.c)
- *     MiFreeInitializationCode @ 0x140AC9178 (MiFreeInitializationCode.c)
+ *     MiUnlockProtoPoolPage @ 0x1402B5C00 (MiUnlockProtoPoolPage.c)
+ *     MiRemoveLockedPageChargeAndDecRef @ 0x1402CAC30 (MiRemoveLockedPageChargeAndDecRef.c)
+ *     MiRemoveLockedPageCharge @ 0x14031F1B0 (MiRemoveLockedPageCharge.c)
+ *     MiDeleteNonPagedPoolPte @ 0x1403653A0 (MiDeleteNonPagedPoolPte.c)
+ *     MiReadyLargePageToFree @ 0x1403CF82C (MiReadyLargePageToFree.c)
+ *     MiFreeInitializationCode @ 0x140ACB290 (MiFreeInitializationCode.c)
  * Callees:
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
  */
 
 void __fastcall __noreturn MiBadRefCount(__int64 a1)

@@ -1,9 +1,9 @@
 /*
- * XREFs of ExIsProcessorFeaturePresent @ 0x1404AA0C0
+ * XREFs of ExIsProcessorFeaturePresent @ 0x1404A4390
  * Callers:
- *     PiIsDriverBlocked @ 0x1409C6E6C (PiIsDriverBlocked.c)
+ *     PiIsDriverBlocked @ 0x1409BA914 (PiIsDriverBlocked.c)
  * Callees:
- *     RtlIsProcessorFeaturePresent @ 0x1404AA0E0 (RtlIsProcessorFeaturePresent.c)
+ *     RtlIsProcessorFeaturePresent @ 0x1404A43B0 (RtlIsProcessorFeaturePresent.c)
  */
 
 BOOLEAN __stdcall ExIsProcessorFeaturePresent(ULONG ProcessorFeature)

@@ -1,7 +1,7 @@
 /*
- * XREFs of ExpReducedLicenseData @ 0x140B45E80
+ * XREFs of ExpReducedLicenseData @ 0x140B47EB0
  * Callers:
- *     SLUpdateLicenseDataInternal @ 0x140839788 (SLUpdateLicenseDataInternal.c)
+ *     SLUpdateLicenseDataInternal @ 0x14083F9C8 (SLUpdateLicenseDataInternal.c)
  * Callees:
  *     <none>
  */
@@ -11,7 +11,7 @@ char ExpReducedLicenseData()
   char result; // al
 
   result = 0;
-  if ( (_DWORD)InitSafeBootMode || InitIsWinPEMode )
+  if ( InitSafeBootMode || InitIsWinPEMode )
     return 1;
   return result;
 }

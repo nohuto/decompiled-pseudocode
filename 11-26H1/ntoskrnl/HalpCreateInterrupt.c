@@ -1,13 +1,13 @@
 /*
- * XREFs of HalpCreateInterrupt @ 0x140594620
+ * XREFs of HalpCreateInterrupt @ 0x140596DA0
  * Callers:
- *     HalpTimerTestHypervisorTimer @ 0x140584B0C (HalpTimerTestHypervisorTimer.c)
- *     HalpInterruptSetIdtEntry @ 0x140594700 (HalpInterruptSetIdtEntry.c)
+ *     HalpTimerTestHypervisorTimer @ 0x14058702C (HalpTimerTestHypervisorTimer.c)
+ *     HalpInterruptSetIdtEntry @ 0x140596E80 (HalpInterruptSetIdtEntry.c)
  * Callees:
- *     KeInitializeInterruptEx @ 0x1404B4A00 (KeInitializeInterruptEx.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     HalpAllocateKInterrupt @ 0x1405944D4 (HalpAllocateKInterrupt.c)
- *     KeConnectInterruptForHal @ 0x1405F0860 (KeConnectInterruptForHal.c)
+ *     KeInitializeInterruptEx @ 0x140516588 (KeInitializeInterruptEx.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     HalpAllocateKInterrupt @ 0x140596C54 (HalpAllocateKInterrupt.c)
+ *     KeConnectInterruptForHal @ 0x1405F31D0 (KeConnectInterruptForHal.c)
  */
 
 _DWORD *__fastcall HalpCreateInterrupt(

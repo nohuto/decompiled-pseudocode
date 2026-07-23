@@ -1,19 +1,19 @@
 /*
- * XREFs of IovpCompleteRequest5 @ 0x140BA6E50
+ * XREFs of IovpCompleteRequest5 @ 0x140BA8E50
  * Callers:
- *     IovpLocalCompletionRoutine @ 0x140BA6B70 (IovpLocalCompletionRoutine.c)
+ *     IovpLocalCompletionRoutine @ 0x140BA8B70 (IovpLocalCompletionRoutine.c)
  * Callees:
- *     KeAcquireSpinLockRaiseToDpc @ 0x140254B20 (KeAcquireSpinLockRaiseToDpc.c)
- *     IovpSessionDataDereference @ 0x140B9C818 (IovpSessionDataDereference.c)
- *     VfIrpDatabaseEntryReleaseLock @ 0x140BA3FE4 (VfIrpDatabaseEntryReleaseLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140285130 (KeAcquireSpinLockRaiseToDpc.c)
+ *     IovpSessionDataDereference @ 0x140B9E818 (IovpSessionDataDereference.c)
+ *     VfIrpDatabaseEntryReleaseLock @ 0x140BA5FE4 (VfIrpDatabaseEntryReleaseLock.c)
  */
 
 void __fastcall IovpCompleteRequest5(__int64 a1)
 {
-  struct _SLIST_ENTRY *v1; // rdi
+  _SLIST_ENTRY *v1; // rdi
   __int64 v2; // rbx
 
-  v1 = *(struct _SLIST_ENTRY **)a1;
+  v1 = *(_SLIST_ENTRY **)a1;
   if ( *(_QWORD *)a1 )
   {
     v2 = *(_QWORD *)(a1 + 8);

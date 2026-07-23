@@ -1,14 +1,14 @@
 /*
  * XREFs of MiReferenceExistingControlArea @ 0x14020EFE0
  * Callers:
- *     MiCreateImageOrDataSection @ 0x140723350 (MiCreateImageOrDataSection.c)
+ *     MiCreateImageOrDataSection @ 0x140723550 (MiCreateImageOrDataSection.c)
  * Callees:
  *     MiLockSectionControlArea @ 0x1402100C8 (MiLockSectionControlArea.c)
  *     MiReferenceActiveControlArea @ 0x140219910 (MiReferenceActiveControlArea.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402894C0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     MiValidateControlAreaPartition @ 0x1402A25F4 (MiValidateControlAreaPartition.c)
- *     MiReleaseControlAreaWaiters @ 0x1402E3F2C (MiReleaseControlAreaWaiters.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140289750 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiValidateControlAreaPartition @ 0x1402A2884 (MiValidateControlAreaPartition.c)
+ *     MiReleaseControlAreaWaiters @ 0x1402E41BC (MiReleaseControlAreaWaiters.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiReferenceExistingControlArea(__int64 a1)
@@ -48,7 +48,9 @@ __int64 __fastcall MiReferenceExistingControlArea(__int64 a1)
   if ( (*(_DWORD *)(v3 + 56) & 3) != 0 )
   {
     ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(v3 + 72));
-    if ( KiIrqlFlags && (CurrentIrql = KeGetCurrentIrql(), (KiIrqlFlags & 1) != 0) && CurrentIrql <= 0xFu )
+    if ( (_DWORD)KiIrqlFlags
+      && (CurrentIrql = KeGetCurrentIrql(), ((unsigned __int8)KiIrqlFlags & 1) != 0)
+      && CurrentIrql <= 0xFu )
     {
       v23 = v27;
       if ( v27 <= 0xFu && CurrentIrql >= 2u )
@@ -74,10 +76,10 @@ __int64 __fastcall MiReferenceExistingControlArea(__int64 a1)
   if ( v5 < 0 )
   {
     ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(v4 + 72));
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v9 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v9 <= 0xFu && v27 <= 0xFu && v9 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v9 <= 0xFu && v27 <= 0xFu && v9 >= 2u )
       {
         v10 = KeGetCurrentPrcb();
         v11 = v10->SchedulerAssist;
@@ -93,10 +95,10 @@ __int64 __fastcall MiReferenceExistingControlArea(__int64 a1)
   if ( (*(_DWORD *)a1 & 0x8000000) != 0 && (*(_BYTE *)(v4 + 62) & 0xC) != 0 )
   {
     ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(v4 + 72));
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v14 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v14 <= 0xFu && v27 <= 0xFu && v14 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v14 <= 0xFu && v27 <= 0xFu && v14 >= 2u )
       {
         v15 = KeGetCurrentPrcb();
         v16 = v15->SchedulerAssist;
@@ -114,7 +116,7 @@ LABEL_24:
   }
   active = MiReferenceActiveControlArea(a1, v4);
   ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(v4 + 72));
-  if ( KiIrqlFlags && (v18 = KeGetCurrentIrql(), (KiIrqlFlags & 1) != 0) && v18 <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && (v18 = KeGetCurrentIrql(), ((unsigned __int8)KiIrqlFlags & 1) != 0) && v18 <= 0xFu )
   {
     v7 = v27;
     if ( v27 <= 0xFu && v18 >= 2u )

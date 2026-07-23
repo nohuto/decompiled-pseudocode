@@ -1,23 +1,23 @@
 /*
- * XREFs of SymCryptIntFromModulus @ 0x1405238E0
+ * XREFs of SymCryptIntFromModulus @ 0x1405211F8
  * Callers:
- *     SymCryptRsakeyCalculatePrimesFromPrivateExponent @ 0x140521068 (SymCryptRsakeyCalculatePrimesFromPrivateExponent.c)
- *     SymCryptRsakeyCalculatePrivateFields @ 0x14052158C (SymCryptRsakeyCalculatePrivateFields.c)
- *     SymCryptRsakeySetValueInternal @ 0x140521B70 (SymCryptRsakeySetValueInternal.c)
- *     SymCryptEcurveInitialize @ 0x140522450 (SymCryptEcurveInitialize.c)
- *     SymCryptEcurveIsSame @ 0x140522A18 (SymCryptEcurveIsSame.c)
- *     SymCryptEckeyPerformPublicKeyValidation @ 0x140522DF8 (SymCryptEckeyPerformPublicKeyValidation.c)
- *     SymCryptEckeySetValue @ 0x140522F10 (SymCryptEckeySetValue.c)
- *     SymCryptEcDsaSignEx @ 0x140524044 (SymCryptEcDsaSignEx.c)
- *     SymCryptEcDsaVerify @ 0x1405246D8 (SymCryptEcDsaVerify.c)
- *     SymCryptRsaCoreVerifyInput @ 0x1405253B4 (SymCryptRsaCoreVerifyInput.c)
- *     SymCryptCrtGenerateForTwoCoprimes @ 0x140528C20 (SymCryptCrtGenerateForTwoCoprimes.c)
- *     SymCryptCrtSolve @ 0x140528E24 (SymCryptCrtSolve.c)
- *     SymCryptEcpointScalarMulFixedWindow @ 0x14052A210 (SymCryptEcpointScalarMulFixedWindow.c)
- *     SymCryptEcpointSetValue @ 0x14052ABC0 (SymCryptEcpointSetValue.c)
- *     SymCryptFdefModInvGeneric @ 0x140536010 (SymCryptFdefModInvGeneric.c)
+ *     SymCryptRsakeyCalculatePrimesFromPrivateExponent @ 0x14051E938 (SymCryptRsakeyCalculatePrimesFromPrivateExponent.c)
+ *     SymCryptRsakeyCalculatePrivateFields @ 0x14051EE5C (SymCryptRsakeyCalculatePrivateFields.c)
+ *     SymCryptRsakeySetValueInternal @ 0x14051F4C4 (SymCryptRsakeySetValueInternal.c)
+ *     SymCryptEcurveInitialize @ 0x14051FD94 (SymCryptEcurveInitialize.c)
+ *     SymCryptEcurveIsSame @ 0x14052032C (SymCryptEcurveIsSame.c)
+ *     SymCryptEckeyPerformPublicKeyValidation @ 0x14052070C (SymCryptEckeyPerformPublicKeyValidation.c)
+ *     SymCryptEckeySetValue @ 0x140520824 (SymCryptEckeySetValue.c)
+ *     SymCryptEcDsaSignEx @ 0x14052195C (SymCryptEcDsaSignEx.c)
+ *     SymCryptEcDsaVerify @ 0x140521FF0 (SymCryptEcDsaVerify.c)
+ *     SymCryptRsaCoreVerifyInput @ 0x140522CCC (SymCryptRsaCoreVerifyInput.c)
+ *     SymCryptCrtGenerateForTwoCoprimes @ 0x140526540 (SymCryptCrtGenerateForTwoCoprimes.c)
+ *     SymCryptCrtSolve @ 0x140526744 (SymCryptCrtSolve.c)
+ *     SymCryptEcpointScalarMulFixedWindow @ 0x140527A20 (SymCryptEcpointScalarMulFixedWindow.c)
+ *     SymCryptEcpointSetValue @ 0x1405283D0 (SymCryptEcpointSetValue.c)
+ *     SymCryptFdefModInvGeneric @ 0x1405304B0 (SymCryptFdefModInvGeneric.c)
  * Callees:
- *     SymCryptFdefIntFromModulus @ 0x1405357F0 (SymCryptFdefIntFromModulus.c)
+ *     SymCryptFdefIntFromModulus @ 0x14052FC90 (SymCryptFdefIntFromModulus.c)
  */
 
 __int64 SymCryptIntFromModulus()

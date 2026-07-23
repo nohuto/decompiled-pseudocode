@@ -1,9 +1,9 @@
 /*
- * XREFs of IopLiveDumpIsUnderMemoryPressure @ 0x1401CAED8
+ * XREFs of IopLiveDumpIsUnderMemoryPressure @ 0x1401CADBC
  * Callers:
- *     IoCaptureLiveDump @ 0x140625F30 (IoCaptureLiveDump.c)
- *     IopLiveDumpAllocAndInitResources @ 0x1406266AC (IopLiveDumpAllocAndInitResources.c)
- *     IopLiveDumpAllocateDumpBuffers @ 0x140626C5C (IopLiveDumpAllocateDumpBuffers.c)
+ *     IoCaptureLiveDump @ 0x140625FE4 (IoCaptureLiveDump.c)
+ *     IopLiveDumpAllocAndInitResources @ 0x140626760 (IopLiveDumpAllocAndInitResources.c)
+ *     IopLiveDumpAllocateDumpBuffers @ 0x140626D10 (IopLiveDumpAllocateDumpBuffers.c)
  * Callees:
  *     <none>
  */

@@ -91,7 +91,7 @@ LABEL_14:
       *v10 = (__int64)v3;
       v3[1] = (__int64)v10;
       if ( (*(_BYTE *)(v5 + 10) & 8) != 0 )
-        RtlpCommitBlock(a1, v5);
+        RtlpCommitBlock((char *)a1, v5);
       v17 = *(unsigned __int16 *)(v5 + 8);
       v18 = v5;
 LABEL_18:

@@ -1,9 +1,9 @@
 /*
- * XREFs of PnpPowerStateTransitionWatchdogCallback @ 0x1405A5430
+ * XREFs of PnpPowerStateTransitionWatchdogCallback @ 0x1405A2370
  * Callers:
  *     <none>
  * Callees:
- *     PnpBugcheckPowerTimeout @ 0x1405A59E4 (PnpBugcheckPowerTimeout.c)
+ *     PnpBugcheckPowerTimeout @ 0x1405A2924 (PnpBugcheckPowerTimeout.c)
  */
 
 void __fastcall __noreturn PnpPowerStateTransitionWatchdogCallback(ULONG_PTR a1)

@@ -1,11 +1,11 @@
 /*
- * XREFs of MiLockWorkingSetShared @ 0x1400145F0
+ * XREFs of MiLockWorkingSetShared @ 0x140014170
  * Callers:
- *     MiDecommitPages @ 0x140044D50 (MiDecommitPages.c)
- *     MiComparePteProtections @ 0x1401E9164 (MiComparePteProtections.c)
+ *     MiDecommitPages @ 0x1400448D0 (MiDecommitPages.c)
+ *     MiComparePteProtections @ 0x1401E8F90 (MiComparePteProtections.c)
  * Callees:
- *     MiGetSharedVm @ 0x14002EA30 (MiGetSharedVm.c)
- *     ExAcquireSpinLockShared @ 0x1400EB1D0 (ExAcquireSpinLockShared.c)
+ *     MiGetSharedVm @ 0x14002E5B0 (MiGetSharedVm.c)
+ *     ExAcquireSpinLockShared @ 0x1400E9040 (ExAcquireSpinLockShared.c)
  */
 
 KIRQL __fastcall MiLockWorkingSetShared(__int64 a1)

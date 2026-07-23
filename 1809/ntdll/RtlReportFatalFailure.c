@@ -5,7 +5,7 @@
  *     RtlpHpRaiseFatalLimitError @ 0x180104290 (RtlpHpRaiseFatalLimitError.c)
  * Callees:
  *     RtlRaiseException @ 0x1800087D0 (RtlRaiseException.c)
- *     ZwTerminateProcess @ 0x1800A0860 (ZwTerminateProcess.c)
+ *     ZwTerminateProcess @ 0x1800A0880 (ZwTerminateProcess.c)
  *     RtlReportException @ 0x1800DDD10 (RtlReportException.c)
  */
 

@@ -25,7 +25,7 @@ char *__fastcall LkmdTelCreateReport(__int64 a1, __int64 a2, __int64 a3, __int64
   int v15; // eax
   __int64 v17; // [rsp+48h] [rbp-C0h] BYREF
   __int64 v18; // [rsp+50h] [rbp-B8h] BYREF
-  struct _CONTEXT ContextRecord; // [rsp+58h] [rbp-B0h] BYREF
+  _CONTEXT ContextRecord; // [rsp+58h] [rbp-B0h] BYREF
 
   memset(&ContextRecord, 0, sizeof(ContextRecord));
   v18 = 0LL;

@@ -1,15 +1,15 @@
 /*
- * XREFs of HalpDmaReferenceDomainObject @ 0x1403A1414
+ * XREFs of HalpDmaReferenceDomainObject @ 0x1403A1564
  * Callers:
- *     HalpAllocateDomainCommonBufferInternal @ 0x1403A11F4 (HalpAllocateDomainCommonBufferInternal.c)
- *     HalJoinDmaDomain @ 0x1403C7110 (HalJoinDmaDomain.c)
- *     HalpDmaAllocateDomain @ 0x1403C71E8 (HalpDmaAllocateDomain.c)
- *     HalpDmaIsAutomaticDomain @ 0x1404C4C50 (HalpDmaIsAutomaticDomain.c)
- *     HalAllocateCommonBufferVector @ 0x1404C5700 (HalAllocateCommonBufferVector.c)
- *     HalpAllocateCommonBufferThin @ 0x1404CB2F0 (HalpAllocateCommonBufferThin.c)
+ *     HalpAllocateDomainCommonBufferInternal @ 0x1403A1344 (HalpAllocateDomainCommonBufferInternal.c)
+ *     HalJoinDmaDomain @ 0x1403C72B0 (HalJoinDmaDomain.c)
+ *     HalpDmaAllocateDomain @ 0x1403C7388 (HalpDmaAllocateDomain.c)
+ *     HalpDmaIsAutomaticDomain @ 0x1404C4E90 (HalpDmaIsAutomaticDomain.c)
+ *     HalAllocateCommonBufferVector @ 0x1404C5940 (HalAllocateCommonBufferVector.c)
+ *     HalpAllocateCommonBufferThin @ 0x1404CB530 (HalpAllocateCommonBufferThin.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KxReleaseSpinLock @ 0x140212140 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140362F80 (KeAcquireSpinLockRaiseToDpc.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 

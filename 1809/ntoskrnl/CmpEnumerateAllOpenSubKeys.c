@@ -1,13 +1,13 @@
 /*
- * XREFs of CmpEnumerateAllOpenSubKeys @ 0x1406928E8
+ * XREFs of CmpEnumerateAllOpenSubKeys @ 0x140693AA8
  * Callers:
- *     CmpSearchForOpenSubKeys @ 0x140691DA0 (CmpSearchForOpenSubKeys.c)
- *     CmpDoesKeyHaveOpenSubkeys @ 0x1406928AC (CmpDoesKeyHaveOpenSubkeys.c)
- *     CmpPrepareForSubtreeInvalidation @ 0x14071E9FC (CmpPrepareForSubtreeInvalidation.c)
- *     CmpInvalidateSubtree @ 0x14071EE5C (CmpInvalidateSubtree.c)
+ *     CmpSearchForOpenSubKeys @ 0x140692F60 (CmpSearchForOpenSubKeys.c)
+ *     CmpDoesKeyHaveOpenSubkeys @ 0x140693A6C (CmpDoesKeyHaveOpenSubkeys.c)
+ *     CmpPrepareForSubtreeInvalidation @ 0x14071FC9C (CmpPrepareForSubtreeInvalidation.c)
+ *     CmpInvalidateSubtree @ 0x1407200FC (CmpInvalidateSubtree.c)
  * Callees:
- *     CmpEnumerateKcbCacheBucket @ 0x1406929A8 (CmpEnumerateKcbCacheBucket.c)
- *     CmpCleanUpKCBCacheTable @ 0x140692B1C (CmpCleanUpKCBCacheTable.c)
+ *     CmpEnumerateKcbCacheBucket @ 0x140693B68 (CmpEnumerateKcbCacheBucket.c)
+ *     CmpCleanUpKCBCacheTable @ 0x140693CDC (CmpCleanUpKCBCacheTable.c)
  */
 
 __int64 __fastcall CmpEnumerateAllOpenSubKeys(__int64 a1, char a2, __int64 a3, __int64 a4)

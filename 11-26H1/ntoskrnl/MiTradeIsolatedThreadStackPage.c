@@ -1,16 +1,16 @@
 /*
- * XREFs of MiTradeIsolatedThreadStackPage @ 0x1406F3688
+ * XREFs of MiTradeIsolatedThreadStackPage @ 0x1406F82F8
  * Callers:
- *     MiSwapStackPage @ 0x140415804 (MiSwapStackPage.c)
+ *     MiSwapStackPage @ 0x140409E34 (MiSwapStackPage.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     MiMapPageInHyperSpaceWorker @ 0x140287EE0 (MiMapPageInHyperSpaceWorker.c)
- *     KiReleaseThreadStateLock @ 0x1402BA4C0 (KiReleaseThreadStateLock.c)
- *     MiClearPfnReuseFields @ 0x14031A250 (MiClearPfnReuseFields.c)
- *     MiUnmapPageInHyperSpaceWorker @ 0x14040DF60 (MiUnmapPageInHyperSpaceWorker.c)
- *     MiCopyKstack @ 0x140513484 (MiCopyKstack.c)
- *     MiSwitchKstackPages @ 0x140530AD0 (MiSwitchKstackPages.c)
- *     KeTryToFreezeThreadStack @ 0x1405EC060 (KeTryToFreezeThreadStack.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     MiMapPageInHyperSpaceWorker @ 0x140287440 (MiMapPageInHyperSpaceWorker.c)
+ *     KiReleaseThreadStateLock @ 0x140305180 (KiReleaseThreadStateLock.c)
+ *     MiClearPfnReuseFields @ 0x14031C280 (MiClearPfnReuseFields.c)
+ *     MiUnmapPageInHyperSpaceWorker @ 0x14042AE90 (MiUnmapPageInHyperSpaceWorker.c)
+ *     MiCopyKstack @ 0x14050CEF4 (MiCopyKstack.c)
+ *     MiSwitchKstackPages @ 0x140532FD0 (MiSwitchKstackPages.c)
+ *     KeTryToFreezeThreadStack @ 0x1405EE9D0 (KeTryToFreezeThreadStack.c)
  */
 
 __int64 __fastcall MiTradeIsolatedThreadStackPage(__int64 a1, __int64 a2, unsigned __int64 *a3)

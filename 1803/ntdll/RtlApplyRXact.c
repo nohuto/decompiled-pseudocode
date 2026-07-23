@@ -11,28 +11,30 @@
  *     ZwFlushKey @ 0x18009C6F0 (ZwFlushKey.c)
  */
 
-__int64 __fastcall RtlApplyRXact(__int64 *a1)
+NTSTATUS __fastcall RtlApplyRXact(__int64 a1)
 {
-  __int64 result; // rax
-  int v3; // edi
-  UNICODE_STRING DestinationString; // [rsp+30h] [rbp-18h] BYREF
+  void *v1; // rbx
+  NTSTATUS result; // eax
+  int v4; // edi
+  _UNICODE_STRING DestinationString; // [rsp+30h] [rbp-18h] BYREF
 
+  v1 = *(void **)(a1 + 8);
   RtlInitUnicodeString(&DestinationString, L"Log");
-  result = ZwSetValueKey();
-  if ( (int)result >= 0 )
+  result = ZwSetValueKey(v1, &DestinationString, 0, 3u, *(PVOID *)(a1 + 24), *(_DWORD *)(*(_QWORD *)(a1 + 24) + 8LL));
+  if ( result >= 0 )
   {
-    v3 = ZwFlushKey();
-    if ( v3 < 0 )
+    v4 = ZwFlushKey(v1);
+    if ( v4 < 0 )
     {
-      ZwDeleteValueKey();
-      return (unsigned int)v3;
+      ZwDeleteValueKey(v1, &DestinationString);
+      return v4;
     }
-    v3 = sub_1800800D0(a1);
-    ZwDeleteValueKey();
-    if ( v3 < 0 )
-      return (unsigned int)v3;
-    RtlAbortRXact((__int64)a1);
-    return 0LL;
+    v4 = sub_1800800D0((__int64 *)a1);
+    ZwDeleteValueKey(v1, &DestinationString);
+    if ( v4 < 0 )
+      return v4;
+    RtlAbortRXact(a1);
+    return 0;
   }
   return result;
 }

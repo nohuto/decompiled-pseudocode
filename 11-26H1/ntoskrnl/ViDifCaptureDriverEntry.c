@@ -1,9 +1,9 @@
 /*
- * XREFs of ViDifCaptureDriverEntry @ 0x140C2848C
+ * XREFs of ViDifCaptureDriverEntry @ 0x140C2E494
  * Callers:
- *     VfDifCaptureDriverEntry @ 0x1403B7900 (VfDifCaptureDriverEntry.c)
+ *     VfDifCaptureDriverEntry @ 0x1403C1800 (VfDifCaptureDriverEntry.c)
  * Callees:
- *     ViDifFindIoCallbackContext @ 0x140C284D8 (ViDifFindIoCallbackContext.c)
+ *     ViDifFindIoCallbackContext @ 0x140C2E4E0 (ViDifFindIoCallbackContext.c)
  */
 
 char __fastcall ViDifCaptureDriverEntry(__int64 a1, __int64 a2)

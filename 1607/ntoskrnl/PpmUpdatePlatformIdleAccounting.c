@@ -1,7 +1,7 @@
 /*
- * XREFs of PpmUpdatePlatformIdleAccounting @ 0x140201964
+ * XREFs of PpmUpdatePlatformIdleAccounting @ 0x140201790
  * Callers:
- *     PpmIdleExecuteTransition @ 0x1400DA540 (PpmIdleExecuteTransition.c)
+ *     PpmIdleExecuteTransition @ 0x1400D83E0 (PpmIdleExecuteTransition.c)
  * Callees:
  *     <none>
  */

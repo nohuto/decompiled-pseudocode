@@ -1,15 +1,15 @@
 /*
- * XREFs of RtlpSetHeapDebuggingInformation @ 0x180145520
+ * XREFs of RtlpSetHeapDebuggingInformation @ 0x1801453D0
  * Callers:
- *     RtlSetHeapDebuggingInformation @ 0x180114E70 (RtlSetHeapDebuggingInformation.c)
+ *     RtlSetHeapDebuggingInformation @ 0x180114660 (RtlSetHeapDebuggingInformation.c)
  * Callees:
- *     RtlpCallInterceptRoutine @ 0x18001C570 (RtlpCallInterceptRoutine.c)
- *     RtlpActivateLowFragmentationHeap @ 0x18007DF18 (RtlpActivateLowFragmentationHeap.c)
- *     RtlpGetHeapInterceptorIndex @ 0x18011FA10 (RtlpGetHeapInterceptorIndex.c)
- *     RtlpHpHeapSetInterceptor @ 0x180158280 (RtlpHpHeapSetInterceptor.c)
+ *     RtlpCallInterceptRoutine @ 0x180007640 (RtlpCallInterceptRoutine.c)
+ *     RtlpActivateLowFragmentationHeap @ 0x18006C604 (RtlpActivateLowFragmentationHeap.c)
+ *     RtlpGetHeapInterceptorIndex @ 0x18011F7C0 (RtlpGetHeapInterceptorIndex.c)
+ *     RtlpHpHeapSetInterceptor @ 0x180158150 (RtlpHpHeapSetInterceptor.c)
  */
 
-__int64 __fastcall RtlpSetHeapDebuggingInformation(__int64 a1, __int64 a2)
+__int64 __fastcall RtlpSetHeapDebuggingInformation(_DWORD *HeapHandle, __int64 a2)
 {
   __int64 v2; // rax
   int v5; // ecx
@@ -22,14 +22,14 @@ __int64 __fastcall RtlpSetHeapDebuggingInformation(__int64 a1, __int64 a2)
   unsigned __int64 v12; // rax
   unsigned __int64 v13; // r8
 
-  v2 = 24LL;
-  if ( *(_DWORD *)(a1 + 16) != -571548178 )
-    v2 = 144LL;
+  v2 = 6LL;
+  if ( HeapHandle[4] != -571548178 )
+    v2 = 36LL;
   if ( *(_DWORD *)(a2 + 16) )
   {
-    v5 = *(_DWORD *)(v2 + a1);
+    v5 = HeapHandle[v2];
     if ( v5 )
-      RtlpCallInterceptRoutine(v5, a1, 0LL, 7);
+      RtlpCallInterceptRoutine(v5, (__int64)HeapHandle, 0LL, 7u, 0LL);
     v6 = (__int64 (__fastcall *)())RtlpStackTraceDatabaseLogPrefix;
   }
   else
@@ -42,15 +42,16 @@ __int64 __fastcall RtlpSetHeapDebuggingInformation(__int64 a1, __int64 a2)
   if ( HeapInterceptorIndex )
   {
     if ( v8 == -571548178 )
-      RtlpHpHeapSetInterceptor(a1, HeapInterceptorIndex);
+      RtlpHpHeapSetInterceptor(HeapHandle, HeapInterceptorIndex);
     else
-      *(_DWORD *)(a1 + 144) = HeapInterceptorIndex;
+      HeapHandle[36] = HeapInterceptorIndex;
   }
 LABEL_12:
-  if ( *(_DWORD *)(a1 + 16) != -571548178 && *(_DWORD *)(a2 + 12) )
+  if ( HeapHandle[4] != -571548178 && *(_DWORD *)(a2 + 12) )
   {
-    if ( *(_BYTE *)(a1 + 418) == 2 && (v9 = *(_QWORD *)(a1 + 408)) != 0
-      || (RtlpActivateLowFragmentationHeap(a1), *(_BYTE *)(a1 + 418) == 2) && (v9 = *(_QWORD *)(a1 + 408)) != 0 )
+    if ( *((_BYTE *)HeapHandle + 418) == 2 && (v9 = *((_QWORD *)HeapHandle + 51)) != 0
+      || (RtlpActivateLowFragmentationHeap((PRTL_CRITICAL_SECTION *)HeapHandle), *((_BYTE *)HeapHandle + 418) == 2)
+      && (v9 = *((_QWORD *)HeapHandle + 51)) != 0 )
     {
       v10 = (_BYTE *)(v9 + 679);
       v11 = 129LL;

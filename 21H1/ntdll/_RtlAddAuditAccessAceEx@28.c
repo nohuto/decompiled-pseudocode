@@ -6,14 +6,21 @@
  *     _RtlpAddKnownAce@24 @ 0x4B2D363E (_RtlpAddKnownAce@24.c)
  */
 
-int __stdcall RtlAddAuditAccessAceEx(int a1, unsigned int a2, int a3, int a4, unsigned __int8 *Src, char a6, char a7)
+NTSTATUS __cdecl RtlAddAuditAccessAceEx(
+        PACL Acl,
+        ULONG AceRevision,
+        ULONG AceFlags,
+        ACCESS_MASK AccessMask,
+        PSID Sid,
+        BOOLEAN AuditSuccess,
+        BOOLEAN AuditFailure)
 {
-  int v7; // eax
+  ULONG v7; // eax
 
-  v7 = a3;
-  if ( a6 )
-    v7 = a3 | 0x40;
-  if ( a7 )
+  v7 = AceFlags;
+  if ( AuditSuccess )
+    v7 = AceFlags | 0x40;
+  if ( AuditFailure )
     v7 |= 0x80u;
-  return RtlpAddKnownAce(a1, a2, v7, a4, Src, 2);
+  return RtlpAddKnownAce(Acl, AceRevision, v7, AccessMask, (unsigned __int8 *)Sid, 2);
 }

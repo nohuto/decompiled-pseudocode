@@ -1,16 +1,16 @@
 /*
- * XREFs of HalpDmaAllocateMapRegistersAtHighLevel @ 0x14054EED8
+ * XREFs of HalpDmaAllocateMapRegistersAtHighLevel @ 0x14054C818
  * Callers:
- *     HalAllocateCrashDumpRegisters @ 0x14053D9B0 (HalAllocateCrashDumpRegisters.c)
- *     HalDmaAllocateCrashDumpRegistersEx @ 0x14053DAB0 (HalDmaAllocateCrashDumpRegistersEx.c)
+ *     HalAllocateCrashDumpRegisters @ 0x14053B2B0 (HalAllocateCrashDumpRegisters.c)
+ *     HalDmaAllocateCrashDumpRegistersEx @ 0x14053B3B0 (HalDmaAllocateCrashDumpRegistersEx.c)
  * Callees:
- *     HalpDmaPrependTranslations @ 0x14038D63C (HalpDmaPrependTranslations.c)
- *     HalpDmaGetAdapterVersion @ 0x14038FBDC (HalpDmaGetAdapterVersion.c)
- *     HalpDmaAllocateScatterPagesFromContiguousPoolAtHighLevelV3 @ 0x14053C388 (HalpDmaAllocateScatterPagesFromContiguousPoolAtHighLevelV3.c)
- *     HalpDmaAllocateContiguousPagesFromContiguousPoolAtHighLevel @ 0x14053D840 (HalpDmaAllocateContiguousPagesFromContiguousPoolAtHighLevel.c)
- *     HalpDmaAllocateScatterPagesFromScatterPoolAtHighLevel @ 0x14053D86C (HalpDmaAllocateScatterPagesFromScatterPoolAtHighLevel.c)
- *     HalpDmaForceAllocation @ 0x14054F42C (HalpDmaForceAllocation.c)
- *     HalpDmaAllocateScatterPagesFromContiguousPoolAtHighLevelV2 @ 0x140552A30 (HalpDmaAllocateScatterPagesFromContiguousPoolAtHighLevelV2.c)
+ *     HalpDmaPrependTranslations @ 0x140386F7C (HalpDmaPrependTranslations.c)
+ *     HalpDmaGetAdapterVersion @ 0x14038951C (HalpDmaGetAdapterVersion.c)
+ *     HalpDmaAllocateScatterPagesFromContiguousPoolAtHighLevelV3 @ 0x140539C14 (HalpDmaAllocateScatterPagesFromContiguousPoolAtHighLevelV3.c)
+ *     HalpDmaAllocateContiguousPagesFromContiguousPoolAtHighLevel @ 0x14053B140 (HalpDmaAllocateContiguousPagesFromContiguousPoolAtHighLevel.c)
+ *     HalpDmaAllocateScatterPagesFromScatterPoolAtHighLevel @ 0x14053B16C (HalpDmaAllocateScatterPagesFromScatterPoolAtHighLevel.c)
+ *     HalpDmaForceAllocation @ 0x14054CD6C (HalpDmaForceAllocation.c)
+ *     HalpDmaAllocateScatterPagesFromContiguousPoolAtHighLevelV2 @ 0x140550370 (HalpDmaAllocateScatterPagesFromContiguousPoolAtHighLevelV2.c)
  */
 
 __int64 __fastcall HalpDmaAllocateMapRegistersAtHighLevel(__int64 a1, int *a2)

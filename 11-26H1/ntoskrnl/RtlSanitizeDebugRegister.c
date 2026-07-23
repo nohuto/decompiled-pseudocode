@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlSanitizeDebugRegister @ 0x1404ABAB0
+ * XREFs of RtlSanitizeDebugRegister @ 0x1404A5140
  * Callers:
- *     PspSetContext @ 0x140A32610 (PspSetContext.c)
+ *     PspSetContext @ 0x140A4D570 (PspSetContext.c)
  * Callees:
  *     <none>
  */

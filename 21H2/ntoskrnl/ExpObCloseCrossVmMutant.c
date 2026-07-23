@@ -1,11 +1,11 @@
 /*
- * XREFs of ExpObCloseCrossVmMutant @ 0x14095C7B0
+ * XREFs of ExpObCloseCrossVmMutant @ 0x14095C970
  * Callers:
  *     <none>
  * Callees:
- *     ExReleaseExtensionTable @ 0x14029F2DC (ExReleaseExtensionTable.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     ExpGetExtensionHostForCrossVmObject @ 0x14095C6F0 (ExpGetExtensionHostForCrossVmObject.c)
+ *     ExReleaseExtensionTable @ 0x14021C83C (ExReleaseExtensionTable.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     ExpGetExtensionHostForCrossVmObject @ 0x14095C8B0 (ExpGetExtensionHostForCrossVmObject.c)
  */
 
 void __fastcall ExpObCloseCrossVmMutant(__int64 a1, __int64 a2, __int64 a3, __int64 a4)

@@ -52,12 +52,12 @@
  *     sub_180105930 @ 0x180105930 (sub_180105930.c)
  */
 
-void sub_1801058B8()
+void __fastcall sub_1801058B8()
 {
   EXCEPTION_RECORD ExceptionRecord; // [rsp+20h] [rbp-B8h] BYREF
 
   memset(&ExceptionRecord, 0, sizeof(ExceptionRecord));
   ExceptionRecord.ExceptionCode = -1073741811;
-  RtlSetLastWin32Error(0x57u);
+  RtlSetLastWin32Error(87);
   RtlRaiseException(&ExceptionRecord);
 }

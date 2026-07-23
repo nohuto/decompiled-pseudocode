@@ -121,7 +121,7 @@ void __stdcall RtlInitUnicodeString(PUNICODE_STRING DestinationString, PCWSTR So
   unsigned __int64 v3; // rax
 
   *(_QWORD *)&DestinationString->Length = 0LL;
-  DestinationString->Buffer = (wchar_t *)SourceString;
+  DestinationString->Buffer = (PWCH)SourceString;
   if ( SourceString )
   {
     v2 = -1LL;

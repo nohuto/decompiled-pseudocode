@@ -2,7 +2,7 @@
  * XREFs of IoIsDeviceEjectable @ 0x14020EC90
  * Callers:
  *     MiCreateImageFileMap @ 0x1406A8928 (MiCreateImageFileMap.c)
- *     MmLoadSystemImageEx @ 0x140703DC0 (MmLoadSystemImageEx.c)
+ *     MmLoadSystemImageEx @ 0x140703FD0 (MmLoadSystemImageEx.c)
  * Callees:
  *     <none>
  */

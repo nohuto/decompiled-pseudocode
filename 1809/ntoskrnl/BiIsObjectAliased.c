@@ -1,8 +1,8 @@
 /*
- * XREFs of BiIsObjectAliased @ 0x1407142A4
+ * XREFs of BiIsObjectAliased @ 0x140715544
  * Callers:
- *     BcdOpenObject @ 0x140712E24 (BcdOpenObject.c)
- *     BiCreateObject @ 0x1408F0BA0 (BiCreateObject.c)
+ *     BcdOpenObject @ 0x1407140C4 (BcdOpenObject.c)
+ *     BiCreateObject @ 0x1408F1E60 (BiCreateObject.c)
  * Callees:
  *     <none>
  */

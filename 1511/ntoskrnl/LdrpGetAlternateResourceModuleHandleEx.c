@@ -22,7 +22,7 @@ __int64 __fastcall LdrpGetAlternateResourceModuleHandleEx(__int64 a1, __int64 a2
 
   v14 = 0LL;
   SizeOfImage = 0LL;
-  LdrpInitMuiCrits();
+  LdrpInitMuiCrits(a1, a2);
   KeWaitForSingleObject(&MuiMutex, Executive, 0, 0, 0LL);
   *a4 = 0LL;
   v7 = AlternateResourceModuleCount;

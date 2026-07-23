@@ -28,22 +28,22 @@
  *     ZwWaitForAlertByThreadId @ 0x1800A8B30 (ZwWaitForAlertByThreadId.c)
  */
 
-__int64 __fastcall sub_18007358C(volatile signed __int64 *a1, int a2, int a3)
+int __fastcall sub_18007358C(_RTL_SRWLOCK *a1, int a2, int a3)
 {
   char v3; // bp
   char v5; // r14
-  unsigned __int64 v7; // rbx
+  unsigned __int64 Ptr; // rbx
   __int64 v8; // r12
   unsigned __int64 v9; // rdi
   signed __int64 v10; // rbx
-  __int64 result; // rax
-  __int64 v12; // rbx
-  _BYTE v13[56]; // [rsp+20h] [rbp-38h] BYREF
+  signed __int64 v11; // rax
+  PVOID v12; // rbx
+  _BYTE v14[56]; // [rsp+20h] [rbp-38h] BYREF
 
   v3 = 0;
   v5 = 0;
-  _m_prefetchw((const void *)a1);
-  v7 = *a1;
+  _m_prefetchw(a1);
+  Ptr = (unsigned __int64)a1->Ptr;
   v8 = a2;
   do
   {
@@ -57,8 +57,8 @@ __int64 __fastcall sub_18007358C(volatile signed __int64 *a1, int a2, int a3)
       RtlReleaseSRWLockShared(a1 + 1);
       v3 = 0;
     }
-    v9 = v7;
-    v10 = (v7 ^ (v8 + v7)) & 0xFFFFFFFFFFFFFFFLL ^ v7;
+    v9 = Ptr;
+    v10 = (Ptr ^ (v8 + Ptr)) & 0xFFFFFFFFFFFFFFFLL ^ Ptr;
     if ( (v10 & 0xFFFFFFFFFFFFFFFLL) == 0 && ((v9 >> 60) & 8) != 0 )
     {
       v10 &= ~0x8000000000000000uLL;
@@ -71,22 +71,22 @@ __int64 __fastcall sub_18007358C(volatile signed __int64 *a1, int a2, int a3)
       v3 = 1;
       RtlAcquireSRWLockShared(a1 + 1);
     }
-    result = _InterlockedCompareExchange64(a1, v10, v9);
-    v7 = result;
+    v11 = _InterlockedCompareExchange64((volatile signed __int64 *)a1, v10, v9);
+    Ptr = v11;
   }
-  while ( v9 != result );
+  while ( v9 != v11 );
   if ( v5 )
   {
-    v12 = *((_QWORD *)a1 + 2);
-    *((_QWORD *)a1 + 2) = 0LL;
+    v12 = a1[2].Ptr;
+    a1[2].Ptr = 0LL;
     RtlReleaseSRWLockExclusive(a1 + 1);
-    return sub_180073700(v12);
+    LODWORD(v11) = sub_180073700(v12);
   }
   else if ( v3 )
   {
-    sub_1800736D8(a1 + 2, v13);
+    sub_1800736D8(&a1[2], v14);
     RtlReleaseSRWLockShared(a1 + 1);
-    return ZwWaitForAlertByThreadId(a1 + 2, 0LL);
+    LODWORD(v11) = ZwWaitForAlertByThreadId(&a1[2], 0LL);
   }
-  return result;
+  return v11;
 }

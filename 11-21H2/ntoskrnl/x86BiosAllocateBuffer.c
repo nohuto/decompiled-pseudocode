@@ -10,14 +10,14 @@ __int64 __fastcall x86BiosAllocateBuffer(int *a1, _WORD *a2, _WORD *a3)
 {
   int v3; // eax
 
-  if ( x86BiosInitialized != 1 )
+  if ( byte_140C4E841 != 1 )
     return 3221225626LL;
-  if ( x86BiosBufferAllocated )
+  if ( byte_140C54B6C )
     return 3221225626LL;
-  v3 = x86BiosTransferLength;
-  if ( *a1 > (unsigned int)x86BiosTransferLength )
+  v3 = dword_140C54B68;
+  if ( *a1 > (unsigned int)dword_140C54B68 )
     return 3221225626LL;
-  x86BiosBufferAllocated = 1;
+  byte_140C54B6C = 1;
   *a2 = 0x2000;
   *a3 = 0;
   *a1 = v3;

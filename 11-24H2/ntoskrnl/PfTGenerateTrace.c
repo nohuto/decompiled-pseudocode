@@ -1,10 +1,10 @@
 /*
- * XREFs of PfTGenerateTrace @ 0x14094EC00
+ * XREFs of PfTGenerateTrace @ 0x140971110
  * Callers:
- *     PfTLoggingWorker @ 0x14094E990 (PfTLoggingWorker.c)
+ *     PfTLoggingWorker @ 0x140970EA0 (PfTLoggingWorker.c)
  * Callees:
- *     PfTCreateTraceDump @ 0x14094EC80 (PfTCreateTraceDump.c)
- *     PfTTraceListAdd @ 0x1409506E0 (PfTTraceListAdd.c)
+ *     PfTCreateTraceDump @ 0x140971190 (PfTCreateTraceDump.c)
+ *     PfTTraceListAdd @ 0x140972A00 (PfTTraceListAdd.c)
  */
 
 __int64 __fastcall PfTGenerateTrace(__int64 a1)

@@ -1,10 +1,10 @@
 /*
- * XREFs of BgpGxConvertRectangle @ 0x140127DB4
+ * XREFs of BgpGxConvertRectangle @ 0x140128324
  * Callers:
- *     BgpGxProcessQrCodeBitmap @ 0x14014BEC4 (BgpGxProcessQrCodeBitmap.c)
+ *     BgpGxProcessQrCodeBitmap @ 0x14014C434 (BgpGxProcessQrCodeBitmap.c)
  *     BgConvertResources @ 0x14072A230 (BgConvertResources.c)
  * Callees:
- *     BgpGxConvertRectangleEx @ 0x1402395E0 (BgpGxConvertRectangleEx.c)
+ *     BgpGxConvertRectangleEx @ 0x1402394C4 (BgpGxConvertRectangleEx.c)
  *     BgpGxRectangleDestroy @ 0x1407276C0 (BgpGxRectangleDestroy.c)
  */
 

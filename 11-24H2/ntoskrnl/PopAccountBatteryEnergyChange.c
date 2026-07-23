@@ -1,11 +1,11 @@
 /*
- * XREFs of PopAccountBatteryEnergyChange @ 0x140A9A614
+ * XREFs of PopAccountBatteryEnergyChange @ 0x140A95B84
  * Callers:
- *     PopBatteryWorker @ 0x140AC7D70 (PopBatteryWorker.c)
+ *     PopBatteryWorker @ 0x140AC5DB0 (PopBatteryWorker.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140330CB0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgCreate1Sz_char @ 0x1404397B4 (_tlgCreate1Sz_char.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402B92F0 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgCreate1Sz_char @ 0x14042C374 (_tlgCreate1Sz_char.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 int __fastcall PopAccountBatteryEnergyChange(__int64 a1)
@@ -169,7 +169,7 @@ int __fastcall PopAccountBatteryEnergyChange(__int64 a1)
   }
   if ( v10 != (_DWORD)v64 || (LODWORD(v1) = DWORD2(v64), *(_QWORD *)(a1 + 232) != *((_QWORD *)&v64 + 1)) )
   {
-    if ( (unsigned int)dword_140E076F0 > 5 )
+    if ( (unsigned int)dword_140E07680 > 5 )
     {
       v68 = 2LL;
       v67 = v70;
@@ -203,7 +203,7 @@ int __fastcall PopAccountBatteryEnergyChange(__int64 a1)
       v54 = v2;
       v81 = &v55;
       v83 = &v56;
-      v57 = dword_140F0AE54;
+      v57 = dword_140F0BC94;
       v85 = &v57;
       v3 = (*(_DWORD *)(v23 + 148) & 1) == 0;
       v80 = 4LL;
@@ -244,7 +244,7 @@ int __fastcall PopAccountBatteryEnergyChange(__int64 a1)
         v44 = v42;
       tlgCreate1Sz_char((__int64)v94, v44);
       v46 = "Platform BCL Enabled";
-      if ( (byte_140F0B0D8 & 1) == 0 )
+      if ( (byte_140F0BF18 & 1) == 0 )
         v46 = v45;
       tlgCreate1Sz_char((__int64)v95, v46);
       v48 = v47[32];
@@ -282,8 +282,8 @@ int __fastcall PopAccountBatteryEnergyChange(__int64 a1)
       v105 = 4LL;
       v107 = 4LL;
       LODWORD(v1) = tlgWriteTransfer_EtwWriteTransfer(
-                      (__int64)&dword_140E076F0,
-                      (unsigned __int8 *)&dword_14004C0EC,
+                      (__int64)&dword_140E07680,
+                      (unsigned __int8 *)&word_14004C196,
                       0LL,
                       0LL,
                       0x1Du,

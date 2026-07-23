@@ -1,21 +1,21 @@
 /*
- * XREFs of IoStartDiskIoAttributionForContext @ 0x1401052C8
+ * XREFs of IoStartDiskIoAttributionForContext @ 0x140105348
  * Callers:
- *     PspIoRateEntryActivate @ 0x140585150 (PspIoRateEntryActivate.c)
- *     PspSetJobIoAttribution @ 0x14068CAF8 (PspSetJobIoAttribution.c)
+ *     PspIoRateEntryActivate @ 0x140586150 (PspIoRateEntryActivate.c)
+ *     PspSetJobIoAttribution @ 0x14068DCB8 (PspSetJobIoAttribution.c)
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x1400BC4E0 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC660 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     RtlRbInsertNodeEx @ 0x1400BD6B0 (RtlRbInsertNodeEx.c)
- *     IopDiskIoAttributionTreeCompare @ 0x14012E1C8 (IopDiskIoAttributionTreeCompare.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExAcquireSpinLockExclusive @ 0x1400BC420 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC5A0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     RtlRbInsertNodeEx @ 0x1400BD5F0 (RtlRbInsertNodeEx.c)
+ *     IopDiskIoAttributionTreeCompare @ 0x14012E298 (IopDiskIoAttributionTreeCompare.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
  */
 
-__int64 __fastcall IoStartDiskIoAttributionForContext(_QWORD *a1)
+__int64 __fastcall IoStartDiskIoAttributionForContext(PRTL_BALANCED_NODE Node)
 {
   KIRQL v2; // al
-  _BOOL8 v3; // r8
-  unsigned __int64 v4; // rbx
+  __int64 v3; // r8
+  unsigned __int64 Root; // rbx
   KIRQL v5; // si
   int v6; // edi
   unsigned __int64 v7; // rax
@@ -23,24 +23,24 @@ __int64 __fastcall IoStartDiskIoAttributionForContext(_QWORD *a1)
   __int64 result; // rax
 
   v2 = ExAcquireSpinLockExclusive(&IopDiskIoAttributionLock);
-  v4 = IopDiskIoAttributionTree;
+  Root = (unsigned __int64)IopDiskIoAttributionTree.Root;
   v5 = v2;
-  if ( (BYTE8(IopDiskIoAttributionTree) & 1) != 0 && (_QWORD)IopDiskIoAttributionTree )
-    v4 = (unsigned __int64)&IopDiskIoAttributionTree ^ IopDiskIoAttributionTree;
+  if ( (*(_BYTE *)&IopDiskIoAttributionTree.0 & 1) != 0 && IopDiskIoAttributionTree.Root )
+    Root = (unsigned __int64)&IopDiskIoAttributionTree ^ (unsigned __int64)IopDiskIoAttributionTree.Root;
   LOBYTE(v3) = 0;
-  v6 = BYTE8(IopDiskIoAttributionTree) & 1;
-  if ( v4 )
+  v6 = *(_BYTE *)&IopDiskIoAttributionTree.0 & 1;
+  if ( Root )
   {
     while ( 1 )
     {
-      if ( (int)IopDiskIoAttributionTreeCompare(a1 + 3, v4, v3) < 0 )
+      if ( (int)IopDiskIoAttributionTreeCompare(&Node[1], Root, v3) < 0 )
       {
-        v7 = *(_QWORD *)v4;
+        v7 = *(_QWORD *)Root;
         if ( v6 )
         {
           if ( !v7 )
             goto LABEL_16;
-          v7 ^= v4;
+          v7 ^= Root;
         }
         if ( !v7 )
         {
@@ -51,12 +51,12 @@ LABEL_16:
       }
       else
       {
-        v7 = *(_QWORD *)(v4 + 8);
+        v7 = *(_QWORD *)(Root + 8);
         if ( v6 )
         {
           if ( !v7 )
             goto LABEL_10;
-          v7 ^= v4;
+          v7 ^= Root;
         }
         if ( !v7 )
         {
@@ -65,10 +65,10 @@ LABEL_10:
           break;
         }
       }
-      v4 = v7;
+      Root = v7;
     }
   }
-  RtlRbInsertNodeEx((unsigned __int64)&IopDiskIoAttributionTree, v4, v3, a1);
+  RtlRbInsertNodeEx(&IopDiskIoAttributionTree, (PRTL_BALANCED_NODE)Root, v3, Node);
   ExReleaseSpinLockExclusiveFromDpcLevel(&IopDiskIoAttributionLock);
   if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && KeGetCurrentIrql() >= 2u && v5 < 2u )
   {

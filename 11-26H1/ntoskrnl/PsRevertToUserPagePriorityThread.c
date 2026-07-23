@@ -1,13 +1,13 @@
 /*
- * XREFs of PsRevertToUserPagePriorityThread @ 0x140487F60
+ * XREFs of PsRevertToUserPagePriorityThread @ 0x140481AA0
  * Callers:
- *     ?StDmPageRetrieve@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAU_STDM_READ_CONTEXT@1@PEAU_ST_WORK_ITEM@1@@Z @ 0x14020F02C (-StDmPageRetrieve@-$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAU_STDM_READ_CONTEXT@1@PEAU_S.c)
- *     MiValidateSectionUnmap @ 0x14087B3F8 (MiValidateSectionUnmap.c)
- *     MiRelocateCleanup @ 0x1409CAA04 (MiRelocateCleanup.c)
- *     MiRelocateValidateFixups @ 0x1409CB26C (MiRelocateValidateFixups.c)
- *     MiValidateSectionMap @ 0x1409CBB1C (MiValidateSectionMap.c)
+ *     ?StDmPageRetrieve@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAU_STDM_READ_CONTEXT@1@PEAU_ST_WORK_ITEM@1@@Z @ 0x14020F10C (-StDmPageRetrieve@-$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAU_STDM_READ_CONTEXT@1@PEAU_S.c)
+ *     MiValidateSectionUnmap @ 0x1408817F8 (MiValidateSectionUnmap.c)
+ *     MiRelocateCleanup @ 0x14099B9E4 (MiRelocateCleanup.c)
+ *     MiRelocateValidateFixups @ 0x14099C24C (MiRelocateValidateFixups.c)
+ *     MiValidateSectionMap @ 0x14099CAFC (MiValidateSectionMap.c)
  * Callees:
- *     KiCheckForKernelApcDelivery @ 0x14027DB80 (KiCheckForKernelApcDelivery.c)
+ *     KiCheckForKernelApcDelivery @ 0x14027D0F0 (KiCheckForKernelApcDelivery.c)
  */
 
 int __fastcall PsRevertToUserPagePriorityThread(__int64 a1, __int64 a2)

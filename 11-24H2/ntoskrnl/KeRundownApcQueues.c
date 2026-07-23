@@ -1,28 +1,26 @@
 /*
- * XREFs of KeRundownApcQueues @ 0x1408A7A74
+ * XREFs of KeRundownApcQueues @ 0x1408FDCCC
  * Callers:
- *     sub_140694D80 @ 0x140694D80 (sub_140694D80.c)
- *     PspExitThread @ 0x1408A7D90 (PspExitThread.c)
+ *     sub_140695E50 @ 0x140695E50 (sub_140695E50.c)
+ *     PspExitThread @ 0x1408FDFF0 (PspExitThread.c)
  * Callees:
- *     KiFlushQueueApc @ 0x140206720 (KiFlushQueueApc.c)
- *     KeLeaveCriticalRegionThread @ 0x1402595A0 (KeLeaveCriticalRegionThread.c)
- *     KiAcquireReleaseThreadLock @ 0x140462EC4 (KiAcquireReleaseThreadLock.c)
- *     KeForceResumeThread @ 0x140479A40 (KeForceResumeThread.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     KeLeaveCriticalRegionThread @ 0x140289BB0 (KeLeaveCriticalRegionThread.c)
+ *     KiFlushQueueApc @ 0x14032DD00 (KiFlushQueueApc.c)
+ *     KiAcquireReleaseThreadLock @ 0x1404584D4 (KiAcquireReleaseThreadLock.c)
+ *     KeForceResumeThread @ 0x1404752D0 (KeForceResumeThread.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 _QWORD *__fastcall KeRundownApcQueues(__int64 a1)
 {
   _QWORD *v2; // rax
   __int64 v3; // rdx
-  __int64 v4; // r8
-  __int64 v5; // r9
-  _QWORD *v6; // rsi
+  _QWORD *v4; // rsi
   _QWORD *result; // rax
-  _QWORD *v8; // rdi
-  _QWORD *v9; // rcx
+  _QWORD *v6; // rdi
+  _QWORD *v7; // rcx
   unsigned __int8 CurrentIrql; // cl
 
   --*(_WORD *)(a1 + 484);
@@ -31,20 +29,20 @@ _QWORD *__fastcall KeRundownApcQueues(__int64 a1)
   KeForceResumeThread(a1);
   KeLeaveCriticalRegionThread();
   v2 = KiFlushQueueApc(a1, 1);
-  v6 = v2;
+  v4 = v2;
   if ( v2 )
   {
-    v8 = v2;
+    v6 = v2;
     do
     {
-      v9 = v8 - 2;
-      v8 = (_QWORD *)*v8;
-      if ( v9[5] )
-        guard_dispatch_icall_no_overrides(v9, v3, v4, v5);
+      v7 = v6 - 2;
+      v6 = (_QWORD *)*v6;
+      if ( v7[5] )
+        guard_dispatch_icall_no_overrides(v7, v3);
       else
-        ExFreePoolWithTag(v9, 0);
+        ExFreePoolWithTag(v7, 0);
     }
-    while ( v8 != v6 );
+    while ( v6 != v4 );
   }
   result = KiFlushQueueApc(a1, 0);
   if ( result || *(_DWORD *)(a1 + 484) )

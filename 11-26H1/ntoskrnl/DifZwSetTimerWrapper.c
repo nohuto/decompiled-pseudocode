@@ -1,21 +1,21 @@
 /*
- * XREFs of DifZwSetTimerWrapper @ 0x1406BC6B0
+ * XREFs of DifZwSetTimerWrapper @ 0x1406C0290
  * Callers:
  *     <none>
  * Callees:
- *     DifGetReturnAddressForWrappers @ 0x140260EA4 (DifGetReturnAddressForWrappers.c)
- *     ExReleaseRundownProtection_0 @ 0x140266240 (ExReleaseRundownProtection_0.c)
- *     ExAcquireRundownProtection_0 @ 0x1402F0590 (ExAcquireRundownProtection_0.c)
- *     DifGetAPIThunkContextById @ 0x1404C17A4 (DifGetAPIThunkContextById.c)
- *     ZwSetTimer @ 0x140724030 (ZwSetTimer.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     DifGetReturnAddressForWrappers @ 0x14026040C (DifGetReturnAddressForWrappers.c)
+ *     ExReleaseRundownProtection_0 @ 0x1402657B0 (ExReleaseRundownProtection_0.c)
+ *     ExAcquireRundownProtection_0 @ 0x1402D2610 (ExAcquireRundownProtection_0.c)
+ *     DifGetAPIThunkContextById @ 0x1404BAFF4 (DifGetAPIThunkContextById.c)
+ *     ZwSetTimer @ 0x140728C00 (ZwSetTimer.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall DifZwSetTimerWrapper(
         void *a1,
         LARGE_INTEGER *a2,
-        void (__stdcall *a3)(PVOID TimerContext, ULONG TimerLowValue, LONG TimerHighValue),
+        void (__cdecl *a3)(PVOID, ULONG, LONG),
         void *a4,
         BOOLEAN ResumeTimer,
         LONG Period,
@@ -35,7 +35,7 @@ __int64 __fastcall DifZwSetTimerWrapper(
   LONG v22; // [rsp+50h] [rbp-30h]
   BOOLEAN v23; // [rsp+54h] [rbp-2Ch]
   void *v24; // [rsp+58h] [rbp-28h]
-  void (__stdcall *v25)(PVOID, ULONG, LONG); // [rsp+60h] [rbp-20h]
+  void (__cdecl *v25)(PVOID, ULONG, LONG); // [rsp+60h] [rbp-20h]
   LARGE_INTEGER *v26; // [rsp+68h] [rbp-18h]
   void *v27; // [rsp+70h] [rbp-10h]
   unsigned int v28; // [rsp+78h] [rbp-8h]

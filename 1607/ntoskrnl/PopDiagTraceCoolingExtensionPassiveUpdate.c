@@ -1,11 +1,11 @@
 /*
- * XREFs of PopDiagTraceCoolingExtensionPassiveUpdate @ 0x140670C34
+ * XREFs of PopDiagTraceCoolingExtensionPassiveUpdate @ 0x140670D18
  * Callers:
- *     PopPropogateCoolingChange @ 0x140201D2C (PopPropogateCoolingChange.c)
+ *     PopPropogateCoolingChange @ 0x140201B58 (PopPropogateCoolingChange.c)
  * Callees:
- *     EtwWrite @ 0x140013320 (EtwWrite.c)
- *     EtwEventEnabled @ 0x1400D54D0 (EtwEventEnabled.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
+ *     EtwWrite @ 0x140012EA0 (EtwWrite.c)
+ *     EtwEventEnabled @ 0x1400D3370 (EtwEventEnabled.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
  */
 
 void __fastcall PopDiagTraceCoolingExtensionPassiveUpdate(__int64 a1)

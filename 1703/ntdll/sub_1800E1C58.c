@@ -11,7 +11,7 @@ char __fastcall sub_1800E1C58(unsigned int a1, unsigned __int64 a2, _QWORD *a3, 
   __int64 v7; // rcx
   __int64 v8; // rbx
   __int64 v9; // rdx
-  __int64 v10; // rax
+  PIMAGE_NT_HEADERS v10; // rax
   char result; // al
 
   if ( !a2 )
@@ -22,16 +22,16 @@ char __fastcall sub_1800E1C58(unsigned int a1, unsigned __int64 a2, _QWORD *a3, 
     return 0;
   _mm_lfence();
   v7 = 9LL * a1;
-  v8 = *(_QWORD *)(qword_18015A260 + 8 * v7 + 32);
-  v9 = *(_QWORD *)(qword_18015A260 + 8 * v7 + 48);
+  v8 = *((_QWORD *)BaseAddress + v7 + 4);
+  v9 = *((_QWORD *)BaseAddress + v7 + 6);
   if ( (unsigned __int64)(v8 - 1) > 0xFFFFFFFFFFFFFFFDuLL )
     return 0;
   if ( !v9 )
   {
-    v10 = RtlImageNtHeader(v8 & 0xFFFFFFFFFFFFFFFCuLL);
+    v10 = RtlImageNtHeader((PVOID)(v8 & 0xFFFFFFFFFFFFFFFCuLL));
     if ( !v10 )
       return 0;
-    v9 = *(_WORD *)(v10 + 24) == 267 || *(_WORD *)(v10 + 24) == 523 ? *(unsigned int *)(v10 + 80) : 0LL;
+    v9 = v10->OptionalHeader.Magic == 267 || v10->OptionalHeader.Magic == 523 ? v10->OptionalHeader.SizeOfImage : 0LL;
     if ( !v9 )
       return 0;
   }

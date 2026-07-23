@@ -10,21 +10,25 @@
  *     LdrpDereferenceEnclave @ 0x1800D06BC (LdrpDereferenceEnclave.c)
  */
 
-__int64 __fastcall LdrDeleteEnclave(unsigned __int64 a1)
+NTSTATUS __cdecl LdrDeleteEnclave(PVOID BaseAddress)
 {
   __int64 *v1; // rax
   __int64 *v2; // rbx
-  int v3; // edi
+  NTSTATUS v3; // edi
+  PVOID BaseAddressa; // [rsp+30h] [rbp+8h] BYREF
+  ULONG_PTR RegionSize; // [rsp+38h] [rbp+10h] BYREF
 
-  v1 = LdrpObtainLockedEnclave(a1, 1);
+  BaseAddressa = BaseAddress;
+  v1 = LdrpObtainLockedEnclave((unsigned __int64)BaseAddress, 1);
   v2 = v1;
-  if ( v1
-    && (v3 = LdrpDeleteEnclave(v1), RtlLeaveCriticalSection((__int64)(v2 + 2)), LdrpDereferenceEnclave(v2), v3 < 0) )
+  if ( v1 )
   {
-    return (unsigned int)v3;
+    v3 = LdrpDeleteEnclave(v1);
+    RtlLeaveCriticalSection((PRTL_CRITICAL_SECTION)(v2 + 2));
+    LdrpDereferenceEnclave(v2);
+    if ( v3 < 0 )
+      return v3;
   }
-  else
-  {
-    return ZwFreeVirtualMemory();
-  }
+  RegionSize = 0LL;
+  return ZwFreeVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &BaseAddressa, &RegionSize, 0x8000u);
 }

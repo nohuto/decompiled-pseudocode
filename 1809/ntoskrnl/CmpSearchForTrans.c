@@ -1,10 +1,10 @@
 /*
- * XREFs of CmpSearchForTrans @ 0x1406FA8E8
+ * XREFs of CmpSearchForTrans @ 0x1406FBB88
  * Callers:
- *     CmpTransSearchAddTrans @ 0x1406FA6C8 (CmpTransSearchAddTrans.c)
+ *     CmpTransSearchAddTrans @ 0x1406FB968 (CmpTransSearchAddTrans.c)
  * Callees:
- *     CmListGetNextElement @ 0x1406948C0 (CmListGetNextElement.c)
- *     CmpTransUowIsEqual @ 0x1407F64F0 (CmpTransUowIsEqual.c)
+ *     CmListGetNextElement @ 0x140695A80 (CmListGetNextElement.c)
+ *     CmpTransUowIsEqual @ 0x1407F76F0 (CmpTransUowIsEqual.c)
  */
 
 char *__fastcall CmpSearchForTrans(__int64 a1, __int64 a2, __int64 a3)

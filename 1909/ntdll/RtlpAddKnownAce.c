@@ -21,22 +21,22 @@
  *     RtlValidAcl @ 0x180014E40 (RtlValidAcl.c)
  */
 
-__int64 __fastcall RtlpAddKnownAce(char *a1, unsigned int a2, int a3, int a4, __int64 a5, char a6)
+__int64 __fastcall RtlpAddKnownAce(PACL Acl, unsigned int a2, int a3, int a4, unsigned __int8 *Sid, char a6)
 {
-  unsigned __int8 v10; // bp
+  unsigned __int8 AclRevision; // bp
   unsigned int v11; // eax
-  __int64 v12; // rdx
+  _WORD *v12; // rdx
   unsigned __int16 v13; // r9
   __int64 result; // rax
-  _QWORD v15[5]; // [rsp+20h] [rbp-28h] BYREF
+  PVOID FirstFree; // [rsp+20h] [rbp-28h] BYREF
 
-  if ( !(unsigned __int8)RtlValidSid(a5) )
+  if ( !RtlValidSid(Sid) )
     return 3221225592LL;
-  if ( (unsigned __int8)*a1 > 4u || a2 > 4 )
+  if ( Acl->AclRevision > 4u || a2 > 4 )
     return 3221225561LL;
-  v10 = *a1;
-  if ( (unsigned __int8)*a1 <= (unsigned __int8)a2 )
-    v10 = a2;
+  AclRevision = Acl->AclRevision;
+  if ( Acl->AclRevision <= (unsigned __int8)a2 )
+    AclRevision = a2;
   v11 = a3 & 0xFFFFFFE0;
   if ( (a3 & 0xFFFFFFE0) != 0 )
   {
@@ -51,19 +51,19 @@ __int64 __fastcall RtlpAddKnownAce(char *a1, unsigned int a2, int a3, int a4, __
     if ( v11 )
       return 3221225485LL;
   }
-  if ( !(unsigned __int8)RtlValidAcl(a1) || !(unsigned __int8)RtlFirstFreeAce(a1, v15) )
+  if ( !RtlValidAcl(Acl) || !RtlFirstFreeAce(Acl, &FirstFree) )
     return 3221225591LL;
-  v12 = v15[0];
-  v13 = 4 * (*(unsigned __int8 *)(a5 + 1) + 4);
-  if ( !v15[0] || v15[0] + (unsigned __int64)v13 > (unsigned __int64)&a1[*((unsigned __int16 *)a1 + 1)] )
+  v12 = FirstFree;
+  v13 = 4 * (Sid[1] + 4);
+  if ( !FirstFree || (char *)FirstFree + v13 > (char *)Acl + Acl->AclSize )
     return 3221225625LL;
-  *(_BYTE *)(v15[0] + 1LL) = a3;
+  *((_BYTE *)FirstFree + 1) = a3;
   *(_BYTE *)v12 = a6;
-  *(_WORD *)(v12 + 2) = v13;
-  *(_DWORD *)(v12 + 4) = a4;
-  RtlCopySid(4 * (unsigned int)*(unsigned __int8 *)(a5 + 1) + 8, v12 + 8, a5);
-  ++*((_WORD *)a1 + 2);
+  v12[1] = v13;
+  *((_DWORD *)v12 + 1) = a4;
+  RtlCopySid(4 * Sid[1] + 8, v12 + 4, Sid);
+  ++Acl->AceCount;
   result = 0LL;
-  *a1 = v10;
+  Acl->AclRevision = AclRevision;
   return result;
 }

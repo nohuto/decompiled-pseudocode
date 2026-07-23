@@ -1,7 +1,7 @@
 /*
- * XREFs of VfDdiInit @ 0x140B84374
+ * XREFs of VfDdiInit @ 0x140B86374
  * Callers:
- *     VfIrpTrackingPluginEntry @ 0x1406A4140 (VfIrpTrackingPluginEntry.c)
+ *     VfIrpTrackingPluginEntry @ 0x1406A5140 (VfIrpTrackingPluginEntry.c)
  * Callees:
  *     <none>
  */

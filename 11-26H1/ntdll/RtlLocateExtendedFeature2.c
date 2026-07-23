@@ -1,8 +1,8 @@
 /*
- * XREFs of RtlLocateExtendedFeature2 @ 0x1800BF5F0
+ * XREFs of RtlLocateExtendedFeature2 @ 0x1800BCD80
  * Callers:
- *     RtlLocateExtendedFeature @ 0x1800BF590 (RtlLocateExtendedFeature.c)
- *     ??$RtlpVirtualPopShadowStack@PEAU_CONTEXT@@@@YAXPEAU_CONTEXT@@KK@Z @ 0x1800BF5A4 (--$RtlpVirtualPopShadowStack@PEAU_CONTEXT@@@@YAXPEAU_CONTEXT@@KK@Z.c)
+ *     RtlLocateExtendedFeature @ 0x1800BCD20 (RtlLocateExtendedFeature.c)
+ *     ??$RtlpVirtualPopShadowStack@PEAU_CONTEXT@@@@YAXPEAU_CONTEXT@@KK@Z @ 0x1800BCD34 (--$RtlpVirtualPopShadowStack@PEAU_CONTEXT@@@@YAXPEAU_CONTEXT@@KK@Z.c)
  * Callees:
  *     <none>
  */

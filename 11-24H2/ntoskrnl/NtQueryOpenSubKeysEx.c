@@ -1,40 +1,45 @@
 /*
- * XREFs of NtQueryOpenSubKeysEx @ 0x1407D01B0
+ * XREFs of NtQueryOpenSubKeysEx @ 0x1407D06A0
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObject @ 0x140325680 (ObfDereferenceObject.c)
- *     CmpInitializeThreadInfo @ 0x1403FA250 (CmpInitializeThreadInfo.c)
- *     CmpCleanupThreadInfo @ 0x14041EE60 (CmpCleanupThreadInfo.c)
- *     CmpAllocateTransientPoolWithQuota @ 0x1404590C0 (CmpAllocateTransientPoolWithQuota.c)
- *     CmSiFreeMemory @ 0x14046B8D0 (CmSiFreeMemory.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     SeSinglePrivilegeCheck @ 0x140853E90 (SeSinglePrivilegeCheck.c)
- *     ObReferenceObjectByNameEx @ 0x1408679A4 (ObReferenceObjectByNameEx.c)
- *     CmpLockRegistryExclusive @ 0x14087DD80 (CmpLockRegistryExclusive.c)
- *     ProbeForWrite @ 0x1408C0590 (ProbeForWrite.c)
- *     CmpInitializeParseContext @ 0x14092D400 (CmpInitializeParseContext.c)
- *     CmpCleanupParseContext @ 0x14092D4B0 (CmpCleanupParseContext.c)
- *     CmpSearchForOpenSubKeys @ 0x140ABB5C8 (CmpSearchForOpenSubKeys.c)
- *     CmpAcquireShutdownRundown @ 0x140BB9400 (CmpAcquireShutdownRundown.c)
- *     CmpPerformKeyBodyDeletionCheck @ 0x140BB97D0 (CmpPerformKeyBodyDeletionCheck.c)
- *     CmpReleaseShutdownRundown @ 0x140BB9880 (CmpReleaseShutdownRundown.c)
- *     CmpAttachToRegistryProcess @ 0x140BB98E0 (CmpAttachToRegistryProcess.c)
- *     CmpDetachFromRegistryProcess @ 0x140BB9920 (CmpDetachFromRegistryProcess.c)
- *     CmpUnlockRegistry @ 0x140BB9F50 (CmpUnlockRegistry.c)
+ *     ObfDereferenceObject @ 0x1402CE210 (ObfDereferenceObject.c)
+ *     CmpInitializeThreadInfo @ 0x1403F0160 (CmpInitializeThreadInfo.c)
+ *     CmpCleanupThreadInfo @ 0x140414BA0 (CmpCleanupThreadInfo.c)
+ *     CmpAllocateTransientPoolWithQuota @ 0x14044E170 (CmpAllocateTransientPoolWithQuota.c)
+ *     CmSiFreeMemory @ 0x140464550 (CmSiFreeMemory.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     SeSinglePrivilegeCheck @ 0x140850150 (SeSinglePrivilegeCheck.c)
+ *     ObReferenceObjectByNameEx @ 0x14086BC94 (ObReferenceObjectByNameEx.c)
+ *     CmpLockRegistryExclusive @ 0x140881C30 (CmpLockRegistryExclusive.c)
+ *     ProbeForWrite @ 0x1408BDF50 (ProbeForWrite.c)
+ *     CmpInitializeParseContext @ 0x14092F540 (CmpInitializeParseContext.c)
+ *     CmpCleanupParseContext @ 0x14092F5F0 (CmpCleanupParseContext.c)
+ *     CmpSearchForOpenSubKeys @ 0x140AB65E8 (CmpSearchForOpenSubKeys.c)
+ *     CmpAcquireShutdownRundown @ 0x140BBB400 (CmpAcquireShutdownRundown.c)
+ *     CmpPerformKeyBodyDeletionCheck @ 0x140BBB7D0 (CmpPerformKeyBodyDeletionCheck.c)
+ *     CmpReleaseShutdownRundown @ 0x140BBB880 (CmpReleaseShutdownRundown.c)
+ *     CmpAttachToRegistryProcess @ 0x140BBB8E0 (CmpAttachToRegistryProcess.c)
+ *     CmpDetachFromRegistryProcess @ 0x140BBB920 (CmpDetachFromRegistryProcess.c)
+ *     CmpUnlockRegistry @ 0x140BBBF50 (CmpUnlockRegistry.c)
  */
 
-__int64 __fastcall NtQueryOpenSubKeysEx(int a1, unsigned int a2, _DWORD *a3, _DWORD *a4)
+NTSTATUS __cdecl NtQueryOpenSubKeysEx(
+        POBJECT_ATTRIBUTES TargetKey,
+        ULONG BufferLength,
+        PVOID Buffer,
+        PULONG RequiredSize)
 {
   SIZE_T v6; // rsi
+  int v7; // r14d
   __int64 v8; // rdx
   __int64 v9; // rcx
   __int64 v10; // r8
   __int64 v11; // r9
   __int64 v12; // rcx
-  int v13; // ebx
+  NTSTATUS v13; // ebx
   KPROCESSOR_MODE PreviousMode; // bl
   __int64 v15; // rcx
   size_t v16; // r14
@@ -52,7 +57,8 @@ __int64 __fastcall NtQueryOpenSubKeysEx(int a1, unsigned int a2, _DWORD *a3, _DW
   int v29; // [rsp+80h] [rbp-258h]
   _KAFFINITY_EX v30[2]; // [rsp+88h] [rbp-250h] BYREF
 
-  v6 = a2;
+  v6 = BufferLength;
+  v7 = (int)TargetKey;
   memset(v30, 0, 72);
   memset_0(&v30[0].StaticBitmap[8], 0, 0x1D0uLL);
   v29 = 0;
@@ -85,13 +91,13 @@ __int64 __fastcall NtQueryOpenSubKeysEx(int a1, unsigned int a2, _DWORD *a3, _DW
   if ( PreviousMode == 1 )
   {
     v15 = 0x7FFFFFFF0000LL;
-    if ( (unsigned __int64)a4 < 0x7FFFFFFF0000LL )
-      v15 = (__int64)a4;
+    if ( (unsigned __int64)RequiredSize < 0x7FFFFFFF0000LL )
+      v15 = (__int64)RequiredSize;
     *(_DWORD *)v15 = *(_DWORD *)v15;
-    ProbeForWrite(a3, v6, 4u);
+    ProbeForWrite(Buffer, v6, 4u);
   }
   v13 = ObReferenceObjectByNameEx(
-          a1,
+          v7,
           0,
           131097,
           (_DWORD)CmKeyObjectType,
@@ -102,7 +108,7 @@ __int64 __fastcall NtQueryOpenSubKeysEx(int a1, unsigned int a2, _DWORD *a3, _DW
   {
     LODWORD(Src[0]) = v6;
     v16 = v6;
-    Src[1] = (void *)CmpAllocateTransientPoolWithQuota();
+    Src[1] = (void *)CmpAllocateTransientPoolWithQuota(v12, v6, 0x31384D43u);
     if ( Src[1] )
     {
       CmpLockRegistryExclusive();
@@ -128,12 +134,12 @@ LABEL_8:
         v13 = DWORD1(v27);
         CmpUnlockRegistry(v18);
         v23 = 0;
-        *a4 = v27;
+        *RequiredSize = v27;
         v19 = (char *)Src[1];
-        *a3 = *(_DWORD *)Src[1];
+        *(_DWORD *)Buffer = *(_DWORD *)Src[1];
         if ( v13 >= 0 )
         {
-          v20 = v19 - (char *)a3;
+          v20 = v19 - (_BYTE *)Buffer;
           v21 = 0;
           if ( *(_DWORD *)v19 )
           {
@@ -144,7 +150,7 @@ LABEL_8:
             }
             while ( v21 < *(_DWORD *)Src[1] );
           }
-          memmove(a3, v19, v16);
+          memmove(Buffer, v19, v16);
           v13 = 0;
         }
       }
@@ -165,5 +171,5 @@ LABEL_22:
   if ( Src[1] )
     CmSiFreeMemory((PPRIVILEGE_SET)Src[1]);
   CmpCleanupThreadInfo((_KAFFINITY_EX **)v30);
-  return (unsigned int)v13;
+  return v13;
 }

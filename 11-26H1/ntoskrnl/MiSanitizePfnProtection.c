@@ -1,10 +1,10 @@
 /*
- * XREFs of MiSanitizePfnProtection @ 0x14033CE50
+ * XREFs of MiSanitizePfnProtection @ 0x14033EED0
  * Callers:
- *     MiSectionProtectPageFilePte @ 0x1402CF8E8 (MiSectionProtectPageFilePte.c)
- *     MiSectionProtectProtoPte @ 0x14033CDD0 (MiSectionProtectProtoPte.c)
- *     MiSetProtectionOnTransitionPte @ 0x14033CED4 (MiSetProtectionOnTransitionPte.c)
- *     MiCommitVadPreparePacket @ 0x1409C7490 (MiCommitVadPreparePacket.c)
+ *     MiSectionProtectPageFilePte @ 0x1402B16A8 (MiSectionProtectPageFilePte.c)
+ *     MiSectionProtectProtoPte @ 0x14033EE50 (MiSectionProtectProtoPte.c)
+ *     MiSetProtectionOnTransitionPte @ 0x14033EF54 (MiSetProtectionOnTransitionPte.c)
+ *     MiCommitVadPreparePacket @ 0x140998470 (MiCommitVadPreparePacket.c)
  * Callees:
  *     <none>
  */

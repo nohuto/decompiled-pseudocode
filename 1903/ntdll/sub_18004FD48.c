@@ -8,10 +8,12 @@
 
 void __fastcall sub_18004FD48(__int64 a1)
 {
+  int v1; // edi
   _QWORD *v2; // rbx
   _QWORD *v3; // rdx
   _QWORD *v4; // rax
 
+  v1 = a1;
   v2 = (_QWORD *)(a1 + 72);
   while ( (_QWORD *)*v2 != v2 )
   {
@@ -20,6 +22,6 @@ void __fastcall sub_18004FD48(__int64 a1)
       __fastfail(3u);
     v2[1] = v4;
     *v4 = v2;
-    sub_18004FDA8(a1, v3, 0x7FFFFFFFLL, 1LL);
+    sub_18004FDA8(v1);
   }
 }

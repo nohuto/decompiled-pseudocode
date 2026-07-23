@@ -1,11 +1,11 @@
 /*
- * XREFs of IoGetContainerInformation @ 0x1407971E0
+ * XREFs of IoGetContainerInformation @ 0x140799D10
  * Callers:
  *     <none>
  * Callees:
- *     PsGetSessionObjectById @ 0x140215CF4 (PsGetSessionObjectById.c)
- *     PsGetCurrentProcessSessionId @ 0x140437260 (PsGetCurrentProcessSessionId.c)
- *     PsGetIoSessionState @ 0x14077BE00 (PsGetIoSessionState.c)
+ *     PsGetSessionObjectById @ 0x140216024 (PsGetSessionObjectById.c)
+ *     PsGetCurrentProcessSessionId @ 0x1404261F0 (PsGetCurrentProcessSessionId.c)
+ *     PsGetIoSessionState @ 0x14077EA40 (PsGetIoSessionState.c)
  */
 
 NTSTATUS __stdcall IoGetContainerInformation(

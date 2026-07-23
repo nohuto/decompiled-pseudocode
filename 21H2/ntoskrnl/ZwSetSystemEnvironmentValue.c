@@ -1,14 +1,14 @@
 /*
- * XREFs of ZwSetSystemEnvironmentValue @ 0x1403FD8E0
+ * XREFs of ZwSetSystemEnvironmentValue @ 0x1403FDAC0
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwSetSystemEnvironmentValue(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwSetSystemEnvironmentValue(PUNICODE_STRING VariableName, PUNICODE_STRING VariableValue)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(VariableName);
 }

@@ -1,10 +1,10 @@
 /*
- * XREFs of CcShouldWorkOnThisQueue @ 0x1402988C0
+ * XREFs of CcShouldWorkOnThisQueue @ 0x140298B50
  * Callers:
- *     CcWorkerThread @ 0x140298940 (CcWorkerThread.c)
- *     CcAsyncLazywriteWorker @ 0x14053983C (CcAsyncLazywriteWorker.c)
+ *     CcWorkerThread @ 0x140298BD0 (CcWorkerThread.c)
+ *     CcAsyncLazywriteWorker @ 0x140539D8C (CcAsyncLazywriteWorker.c)
  * Callees:
- *     CcIsWriteBehindThreadpoolAtLowPriority @ 0x14029BC14 (CcIsWriteBehindThreadpoolAtLowPriority.c)
+ *     CcIsWriteBehindThreadpoolAtLowPriority @ 0x14029BEA4 (CcIsWriteBehindThreadpoolAtLowPriority.c)
  */
 
 bool __fastcall CcShouldWorkOnThisQueue(_DWORD *a1, __int64 a2, __int64 a3, char a4)

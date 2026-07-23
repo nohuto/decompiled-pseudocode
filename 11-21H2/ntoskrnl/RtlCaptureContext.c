@@ -1,59 +1,59 @@
 /*
  * XREFs of RtlCaptureContext @ 0x1404299A0
  * Callers:
- *     KiFreezeTargetExecution @ 0x14029AF90 (KiFreezeTargetExecution.c)
+ *     sub_14029AF90 @ 0x14029AF90 (sub_14029AF90.c)
  *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
  *     KeSaveStateForHibernate @ 0x140420460 (KeSaveStateForHibernate.c)
- *     ExpSystemErrorHandler @ 0x14042B7A0 (ExpSystemErrorHandler.c)
+ *     sub_14042B7A0 @ 0x14042B7A0 (sub_14042B7A0.c)
  *     RtlAssert @ 0x1405E6EA0 (RtlAssert.c)
- *     DbgkpLkmdSnapThreadInContext @ 0x14092B55C (DbgkpLkmdSnapThreadInContext.c)
- *     DbgkpWerCaptureLiveTriageDump @ 0x14092BC54 (DbgkpWerCaptureLiveTriageDump.c)
- *     LkmdTelCreateReport @ 0x140A36E2C (LkmdTelCreateReport.c)
- *     IopLiveDumpCorralDpc @ 0x140A66050 (IopLiveDumpCorralDpc.c)
- *     IopLiveDumpEndMirroringCallback @ 0x140A66300 (IopLiveDumpEndMirroringCallback.c)
- *     VfUtilCaptureViolationKernelStack @ 0x140A81B20 (VfUtilCaptureViolationKernelStack.c)
+ *     sub_14092B55C @ 0x14092B55C (sub_14092B55C.c)
+ *     sub_14092BC54 @ 0x14092BC54 (sub_14092BC54.c)
+ *     sub_140A36E2C @ 0x140A36E2C (sub_140A36E2C.c)
+ *     sub_140A66050 @ 0x140A66050 (sub_140A66050.c)
+ *     sub_140A66300 @ 0x140A66300 (sub_140A66300.c)
+ *     sub_140A81B20 @ 0x140A81B20 (sub_140A81B20.c)
  * Callees:
  *     <none>
  */
 
 void __stdcall RtlCaptureContext(PCONTEXT ContextRecord)
 {
-  unsigned __int64 v1; // rax
-  unsigned __int64 v2; // rdx
-  unsigned __int64 v3; // rbx
-  unsigned __int64 v4; // rbp
-  unsigned __int64 v5; // rdi
-  unsigned __int64 v6; // rsi
-  unsigned __int64 v7; // r8
-  unsigned __int64 v8; // r9
-  unsigned __int64 v9; // r10
-  unsigned __int64 v10; // r11
-  unsigned __int64 v11; // r12
-  unsigned __int64 v12; // r13
-  unsigned __int64 v13; // r14
-  unsigned __int64 v14; // r15
-  _M128A v15; // xmm0
-  _M128A v16; // xmm1
-  _M128A v17; // xmm2
-  _M128A v18; // xmm3
-  _M128A v19; // xmm4
-  _M128A v20; // xmm5
-  _M128A v21; // xmm6
-  _M128A v22; // xmm7
-  _M128A v23; // xmm8
-  _M128A v24; // xmm9
-  _M128A v25; // xmm10
-  _M128A v26; // xmm11
-  _M128A v27; // xmm12
-  _M128A v28; // xmm13
-  _M128A v29; // xmm14
-  _M128A v30; // xmm15
-  unsigned int v31; // [rsp+0h] [rbp-8h]
-  unsigned __int64 retaddr; // [rsp+8h] [rbp+0h]
+  DWORD64 v1; // rax
+  DWORD64 v2; // rdx
+  DWORD64 v3; // rbx
+  DWORD64 v4; // rbp
+  DWORD64 v5; // rdi
+  DWORD64 v6; // rsi
+  DWORD64 v7; // r8
+  DWORD64 v8; // r9
+  DWORD64 v9; // r10
+  DWORD64 v10; // r11
+  DWORD64 v11; // r12
+  DWORD64 v12; // r13
+  DWORD64 v13; // r14
+  DWORD64 v14; // r15
+  M128A v15; // xmm0
+  M128A v16; // xmm1
+  M128A v17; // xmm2
+  M128A v18; // xmm3
+  M128A v19; // xmm4
+  M128A v20; // xmm5
+  M128A v21; // xmm6
+  M128A v22; // xmm7
+  M128A v23; // xmm8
+  M128A v24; // xmm9
+  M128A v25; // xmm10
+  M128A v26; // xmm11
+  M128A v27; // xmm12
+  M128A v28; // xmm13
+  M128A v29; // xmm14
+  M128A v30; // xmm15
+  DWORD v31; // [rsp+0h] [rbp-8h]
+  DWORD64 retaddr; // [rsp+8h] [rbp+0h]
   char v33; // [rsp+10h] [rbp+8h] BYREF
 
   ContextRecord->Rax = v1;
-  ContextRecord->Rcx = (unsigned __int64)ContextRecord;
+  ContextRecord->Rcx = (DWORD64)ContextRecord;
   ContextRecord->Rdx = v2;
   ContextRecord->R8 = v7;
   ContextRecord->R9 = v8;
@@ -92,7 +92,7 @@ void __stdcall RtlCaptureContext(PCONTEXT ContextRecord)
   ContextRecord->FltSave.XmmRegisters[15] = v30;
   ContextRecord->FltSave.MxCsr = _mm_getcsr();
   ContextRecord->MxCsr = _mm_getcsr();
-  ContextRecord->Rsp = (unsigned __int64)&v33;
+  ContextRecord->Rsp = (DWORD64)&v33;
   ContextRecord->Rip = retaddr;
   ContextRecord->EFlags = v31;
   ContextRecord->ContextFlags = 1048591;

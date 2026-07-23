@@ -1,7 +1,7 @@
 /*
- * XREFs of HvIsInPlaceBaseBlockValid @ 0x140A20D94
+ * XREFs of HvIsInPlaceBaseBlockValid @ 0x140A21044
  * Callers:
- *     HvHiveStartMemoryBacked @ 0x140826290 (HvHiveStartMemoryBacked.c)
+ *     HvHiveStartMemoryBacked @ 0x140826590 (HvHiveStartMemoryBacked.c)
  * Callees:
  *     HvpHeaderCheckSum @ 0x140AF5640 (HvpHeaderCheckSum.c)
  */

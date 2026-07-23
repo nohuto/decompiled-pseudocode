@@ -1,12 +1,12 @@
 /*
- * XREFs of WdtpTimerCallback @ 0x140719C80
+ * XREFs of WdtpTimerCallback @ 0x14071E910
  * Callers:
  *     <none>
  * Callees:
- *     ExQueueWorkItem @ 0x140381C70 (ExQueueWorkItem.c)
- *     KeResetEvent @ 0x140395BB0 (KeResetEvent.c)
- *     WdtpArmTimer @ 0x1403AA03C (WdtpArmTimer.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     ExQueueWorkItem @ 0x140383A20 (ExQueueWorkItem.c)
+ *     KeResetEvent @ 0x140397930 (KeResetEvent.c)
+ *     WdtpArmTimer @ 0x1403B3C4C (WdtpArmTimer.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 void __fastcall WdtpTimerCallback(__int64 a1, __int64 a2)

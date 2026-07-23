@@ -1,15 +1,15 @@
 /*
  * XREFs of write_multi_char @ 0x1403E46C0
  * Callers:
- *     _woutput_l @ 0x1403E3D1C (_woutput_l.c)
+ *     sub_1403E3D1C @ 0x1403E3D1C (sub_1403E3D1C.c)
  * Callees:
  *     write_char @ 0x1403E466C (write_char.c)
  */
 
-__int16 __fastcall write_multi_char(wchar_t a1, int a2, FILE *a3, _DWORD *a4)
+__int64 __fastcall write_multi_char(unsigned __int16 a1, int a2, __int64 a3, _DWORD *a4)
 {
   int v6; // ebx
-  __int16 result; // ax
+  __int64 result; // rax
 
   if ( a2 > 0 )
   {

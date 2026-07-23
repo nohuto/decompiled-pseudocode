@@ -1,9 +1,9 @@
 /*
- * XREFs of PsReferenceImpersonationToken @ 0x1406A4860
+ * XREFs of PsReferenceImpersonationToken @ 0x1406A5B00
  * Callers:
- *     CmpOpenHiveFile @ 0x1405B4330 (CmpOpenHiveFile.c)
+ *     CmpOpenHiveFile @ 0x1405B5330 (CmpOpenHiveFile.c)
  * Callees:
- *     PsReferenceImpersonationTokenEx @ 0x140631BA0 (PsReferenceImpersonationTokenEx.c)
+ *     PsReferenceImpersonationTokenEx @ 0x140632BC0 (PsReferenceImpersonationTokenEx.c)
  */
 
 PACCESS_TOKEN __stdcall PsReferenceImpersonationToken(

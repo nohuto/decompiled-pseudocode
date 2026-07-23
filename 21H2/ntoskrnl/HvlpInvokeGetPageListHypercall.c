@@ -1,13 +1,13 @@
 /*
- * XREFs of HvlpInvokeGetPageListHypercall @ 0x1404FB730
+ * XREFs of HvlpInvokeGetPageListHypercall @ 0x1404FB6B0
  * Callers:
- *     HvlpGetPageList @ 0x1404FB668 (HvlpGetPageList.c)
- *     HvlpStartPageListIteration @ 0x1404FB84C (HvlpStartPageListIteration.c)
+ *     HvlpGetPageList @ 0x1404FB5E8 (HvlpGetPageList.c)
+ *     HvlpStartPageListIteration @ 0x1404FB7CC (HvlpStartPageListIteration.c)
  * Callees:
- *     HvcallInitiateHypercall @ 0x1403904C0 (HvcallInitiateHypercall.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     HvlpAcquireHypercallPage @ 0x1404F2840 (HvlpAcquireHypercallPage.c)
- *     HvlpReleaseHypercallPage @ 0x1404F3430 (HvlpReleaseHypercallPage.c)
+ *     HvcallInitiateHypercall @ 0x140390610 (HvcallInitiateHypercall.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     HvlpAcquireHypercallPage @ 0x1404F27C0 (HvlpAcquireHypercallPage.c)
+ *     HvlpReleaseHypercallPage @ 0x1404F33B0 (HvlpReleaseHypercallPage.c)
  */
 
 char __fastcall HvlpInvokeGetPageListHypercall(__int64 a1, __int64 a2)

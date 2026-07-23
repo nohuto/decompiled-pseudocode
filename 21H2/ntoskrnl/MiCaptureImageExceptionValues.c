@@ -1,43 +1,43 @@
 /*
- * XREFs of MiCaptureImageExceptionValues @ 0x14075E644
+ * XREFs of MiCaptureImageExceptionValues @ 0x14075E804
  * Callers:
- *     MiConstructLoaderEntry @ 0x14075DDD0 (MiConstructLoaderEntry.c)
+ *     MiConstructLoaderEntry @ 0x14075DF90 (MiConstructLoaderEntry.c)
  * Callees:
- *     RtlSetAllBits @ 0x1402E2160 (RtlSetAllBits.c)
- *     RtlImageNtHeader @ 0x14031C950 (RtlImageNtHeader.c)
- *     RtlClearAllBits @ 0x140362270 (RtlClearAllBits.c)
- *     DbgPrintEx @ 0x14037F820 (DbgPrintEx.c)
- *     RtlMarkExceptionHandlingPages @ 0x14075E6F0 (RtlMarkExceptionHandlingPages.c)
+ *     RtlSetAllBits @ 0x1402934B0 (RtlSetAllBits.c)
+ *     RtlClearAllBits @ 0x1402F70D0 (RtlClearAllBits.c)
+ *     RtlImageNtHeader @ 0x1403276A0 (RtlImageNtHeader.c)
+ *     DbgPrintEx @ 0x14037F370 (DbgPrintEx.c)
+ *     RtlMarkExceptionHandlingPages @ 0x14075E8B0 (RtlMarkExceptionHandlingPages.c)
  */
 
 void __fastcall MiCaptureImageExceptionValues(__int64 a1)
 {
-  __int64 v1; // rbp
-  __int64 v3; // rax
-  RTL_BITMAP *v4; // rdi
-  _DWORD *v5; // r14
+  char *v1; // rbp
+  PIMAGE_NT_HEADERS v3; // rax
+  _RTL_BITMAP *v4; // rdi
+  _DWORD *p_Signature; // r14
   unsigned int v6; // esi
   int v7; // edx
-  __int64 v8; // r8
+  char *v8; // r8
   int v9; // r9d
   PRTL_BITMAP BitMapHeader; // [rsp+20h] [rbp-18h]
 
-  v1 = *(_QWORD *)(a1 + 48);
+  v1 = *(char **)(a1 + 48);
   v3 = RtlImageNtHeader(v1);
-  v4 = *(RTL_BITMAP **)(a1 + 272);
-  v5 = (_DWORD *)v3;
+  v4 = *(_RTL_BITMAP **)(a1 + 272);
+  p_Signature = &v3->Signature;
   v6 = *(_DWORD *)(a1 + 64) >> 12;
   v4->SizeOfBitMap = v6;
   v4->Buffer = &v4[1].SizeOfBitMap;
   RtlClearAllBits(v4);
-  if ( v5[33] > 3u )
+  if ( p_Signature[33] > 3u )
   {
     v7 = *(_DWORD *)(a1 + 152);
-    v8 = v1 + (unsigned int)v5[40];
+    v8 = &v1[p_Signature[40]];
     *(_QWORD *)(a1 + 16) = v8;
-    v9 = v5[41];
+    v9 = p_Signature[41];
     *(_DWORD *)(a1 + 24) = v9;
-    if ( (int)RtlMarkExceptionHandlingPages(v1, v7, v8, v9, v4) < 0 )
+    if ( (int)RtlMarkExceptionHandlingPages((int)v1, v7, (int)v8, v9, v4) < 0 )
     {
       LODWORD(BitMapHeader) = v6;
       DbgPrintEx(

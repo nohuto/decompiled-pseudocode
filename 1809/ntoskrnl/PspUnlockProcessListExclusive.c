@@ -1,12 +1,12 @@
 /*
- * XREFs of PspUnlockProcessListExclusive @ 0x140091DE0
+ * XREFs of PspUnlockProcessListExclusive @ 0x140091D20
  * Callers:
- *     PspProcessDelete @ 0x140607590 (PspProcessDelete.c)
- *     PspInsertProcess @ 0x1406093A8 (PspInsertProcess.c)
+ *     PspProcessDelete @ 0x140608590 (PspProcessDelete.c)
+ *     PspInsertProcess @ 0x14060A3A8 (PspInsertProcess.c)
  * Callees:
  *     KiLeaveGuardedRegionUnsafe @ 0x14004F090 (KiLeaveGuardedRegionUnsafe.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
+ *     ExfTryToWakePushLock @ 0x140091500 (ExfTryToWakePushLock.c)
  */
 
 __int64 __fastcall PspUnlockProcessListExclusive(__int64 a1)

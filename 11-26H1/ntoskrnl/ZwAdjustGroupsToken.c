@@ -1,14 +1,20 @@
 /*
- * XREFs of ZwAdjustGroupsToken @ 0x140724170
+ * XREFs of ZwAdjustGroupsToken @ 0x140728D40
  * Callers:
- *     DifZwAdjustGroupsTokenWrapper @ 0x140698B40 (DifZwAdjustGroupsTokenWrapper.c)
+ *     DifZwAdjustGroupsTokenWrapper @ 0x14069C720 (DifZwAdjustGroupsTokenWrapper.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwAdjustGroupsToken(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwAdjustGroupsToken(
+        HANDLE TokenHandle,
+        BOOLEAN ResetToDefault,
+        PTOKEN_GROUPS NewState,
+        ULONG BufferLength,
+        PTOKEN_GROUPS PreviousState,
+        PULONG ReturnLength)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(TokenHandle);
 }

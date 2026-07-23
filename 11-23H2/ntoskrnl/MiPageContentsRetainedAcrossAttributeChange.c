@@ -2,7 +2,7 @@
  * XREFs of MiPageContentsRetainedAcrossAttributeChange @ 0x14021AF2C
  * Callers:
  *     MiPfnZeroingNeeded @ 0x14021AEF4 (MiPfnZeroingNeeded.c)
- *     MiChangePageAttribute @ 0x14036F3BC (MiChangePageAttribute.c)
+ *     MiChangePageAttribute @ 0x14036F55C (MiChangePageAttribute.c)
  * Callees:
  *     <none>
  */

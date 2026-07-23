@@ -1,14 +1,14 @@
 /*
- * XREFs of ZwGetContextThread @ 0x140725350
+ * XREFs of ZwGetContextThread @ 0x140729F20
  * Callers:
- *     DifZwGetContextThreadWrapper @ 0x1406A7500 (DifZwGetContextThreadWrapper.c)
+ *     DifZwGetContextThreadWrapper @ 0x1406AB0E0 (DifZwGetContextThreadWrapper.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwGetContextThread(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwGetContextThread(HANDLE ThreadHandle, PCONTEXT ThreadContext)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(ThreadHandle);
 }

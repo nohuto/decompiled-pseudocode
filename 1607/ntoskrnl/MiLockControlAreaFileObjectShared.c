@@ -1,10 +1,10 @@
 /*
- * XREFs of MiLockControlAreaFileObjectShared @ 0x14008FA60
+ * XREFs of MiLockControlAreaFileObjectShared @ 0x14008F1C0
  * Callers:
- *     MiTrimSection @ 0x14008F514 (MiTrimSection.c)
+ *     MiTrimSection @ 0x14008EC74 (MiTrimSection.c)
  * Callees:
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     ExfAcquirePushLockSharedEx @ 0x1400C8280 (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     ExfAcquirePushLockSharedEx @ 0x1400C6120 (ExfAcquirePushLockSharedEx.c)
  */
 
 __int64 __fastcall MiLockControlAreaFileObjectShared(__int64 a1)

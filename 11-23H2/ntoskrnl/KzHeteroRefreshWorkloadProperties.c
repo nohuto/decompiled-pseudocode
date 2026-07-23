@@ -1,10 +1,10 @@
 /*
- * XREFs of KzHeteroRefreshWorkloadProperties @ 0x1404627C0
+ * XREFs of KzHeteroRefreshWorkloadProperties @ 0x140462BC0
  * Callers:
- *     KiQuantumEnd @ 0x1402486F0 (KiQuantumEnd.c)
+ *     KiQuantumEnd @ 0x1402487C0 (KiQuantumEnd.c)
  * Callees:
- *     KiComputeHeteroThreadQos @ 0x1402B0DF0 (KiComputeHeteroThreadQos.c)
- *     KiSetThreadQosLevelUnsafe @ 0x140462658 (KiSetThreadQosLevelUnsafe.c)
+ *     KiComputeHeteroThreadQos @ 0x1402B1080 (KiComputeHeteroThreadQos.c)
+ *     KiSetThreadQosLevelUnsafe @ 0x140462A58 (KiSetThreadQosLevelUnsafe.c)
  */
 
 char KzHeteroRefreshWorkloadProperties(__int64 a1, unsigned __int8 a2, __int64 a3, ...)

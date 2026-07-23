@@ -1,7 +1,7 @@
 /*
- * XREFs of SeTokenImpersonationLevel @ 0x1406F95F0
+ * XREFs of SeTokenImpersonationLevel @ 0x1406FA890
  * Callers:
- *     CmpOpenHiveFile @ 0x1405B4330 (CmpOpenHiveFile.c)
+ *     CmpOpenHiveFile @ 0x1405B5330 (CmpOpenHiveFile.c)
  * Callees:
  *     <none>
  */

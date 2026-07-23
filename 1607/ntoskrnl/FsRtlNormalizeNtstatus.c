@@ -1,9 +1,9 @@
 /*
- * XREFs of FsRtlNormalizeNtstatus @ 0x14010F2F8
+ * XREFs of FsRtlNormalizeNtstatus @ 0x14010F85C
  * Callers:
- *     CcCopyBytesToUserBuffer @ 0x1404476E0 (CcCopyBytesToUserBuffer.c)
+ *     CcCopyBytesToUserBuffer @ 0x1404465B0 (CcCopyBytesToUserBuffer.c)
  * Callees:
- *     FsRtlIsNtstatusExpected @ 0x1400AB6F8 (FsRtlIsNtstatusExpected.c)
+ *     FsRtlIsNtstatusExpected @ 0x1400A9C60 (FsRtlIsNtstatusExpected.c)
  */
 
 NTSTATUS __stdcall FsRtlNormalizeNtstatus(NTSTATUS Exception, NTSTATUS GenericException)

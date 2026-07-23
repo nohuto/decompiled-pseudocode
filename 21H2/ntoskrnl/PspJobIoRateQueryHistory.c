@@ -1,10 +1,10 @@
 /*
- * XREFs of PspJobIoRateQueryHistory @ 0x140253728
+ * XREFs of PspJobIoRateQueryHistory @ 0x140274C98
  * Callers:
- *     PspQueryRateControlHistory @ 0x140615DDC (PspQueryRateControlHistory.c)
+ *     PspQueryRateControlHistory @ 0x14067FA3C (PspQueryRateControlHistory.c)
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x14021D060 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14033BD80 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusive @ 0x1402C1960 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140346AD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 

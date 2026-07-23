@@ -1,10 +1,10 @@
 /*
- * XREFs of MiReAcquireCommitFailWorker @ 0x140618ED0
+ * XREFs of MiReAcquireCommitFailWorker @ 0x140619420
  * Callers:
  *     <none>
  * Callees:
  *     KeForceResumeProcess @ 0x140204AE0 (KeForceResumeProcess.c)
- *     ObfDereferenceObjectWithTag @ 0x14022F5B0 (ObfDereferenceObjectWithTag.c)
+ *     ObfDereferenceObjectWithTag @ 0x14022F6C0 (ObfDereferenceObjectWithTag.c)
  *     PsTerminateProcess @ 0x140683794 (PsTerminateProcess.c)
  */
 

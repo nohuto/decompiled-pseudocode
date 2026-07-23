@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlpMuiRegCreateLanguageConfigList @ 0x1408A814C
+ * XREFs of RtlpMuiRegCreateLanguageConfigList @ 0x1408AE5BC
  * Callers:
- *     RtlpLoadLanguageConfigList @ 0x1408A7A44 (RtlpLoadLanguageConfigList.c)
- *     RtlpPopulateLanguageConfigList @ 0x1408A92D4 (RtlpPopulateLanguageConfigList.c)
+ *     RtlpLoadLanguageConfigList @ 0x1408ADEB4 (RtlpLoadLanguageConfigList.c)
+ *     RtlpPopulateLanguageConfigList @ 0x1408AF744 (RtlpPopulateLanguageConfigList.c)
  * Callees:
- *     _SafeAllocBlob @ 0x1407206A0 (_SafeAllocBlob.c)
+ *     _SafeAllocBlob @ 0x1407252C0 (_SafeAllocBlob.c)
  */
 
 __int64 __fastcall RtlpMuiRegCreateLanguageConfigList(int a1)

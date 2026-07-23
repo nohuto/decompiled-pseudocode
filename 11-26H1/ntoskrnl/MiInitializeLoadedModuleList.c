@@ -1,46 +1,46 @@
 /*
- * XREFs of MiInitializeLoadedModuleList @ 0x140D00470
+ * XREFs of MiInitializeLoadedModuleList @ 0x140D06810
  * Callers:
- *     MiInitSystem @ 0x140CF15C4 (MiInitSystem.c)
+ *     MiInitSystem @ 0x140CF7944 (MiInitSystem.c)
  * Callees:
- *     MmDeterminePoolType @ 0x1402609A0 (MmDeterminePoolType.c)
- *     ExpAddResourceToSystemResourceList @ 0x140260A5C (ExpAddResourceToSystemResourceList.c)
- *     RtlStdLogStackTrace @ 0x140260BE8 (RtlStdLogStackTrace.c)
- *     RtlpStdGetRecordedStackTraceIndex @ 0x140260C74 (RtlpStdGetRecordedStackTraceIndex.c)
- *     RtlStdReleaseStackTrace @ 0x140260D48 (RtlStdReleaseStackTrace.c)
- *     RtlpxLookupFunctionTable @ 0x1402E9A40 (RtlpxLookupFunctionTable.c)
- *     VslpEnterIumSecureMode @ 0x1403685AC (VslpEnterIumSecureMode.c)
- *     MmGetLoadedModuleImageAdditionalTablesAddress @ 0x1403F3B30 (MmGetLoadedModuleImageAdditionalTablesAddress.c)
- *     MiUpdateDriverLoadInProgress @ 0x14040BD98 (MiUpdateDriverLoadInProgress.c)
- *     RtlRemoveInvertedFunctionTable @ 0x14040D21C (RtlRemoveInvertedFunctionTable.c)
- *     MmReleaseLoadLock @ 0x1404A4B70 (MmReleaseLoadLock.c)
- *     MmAcquireLoadLock @ 0x1404AB9B0 (MmAcquireLoadLock.c)
- *     MiEnumerateSystemImages @ 0x1404E5184 (MiEnumerateSystemImages.c)
- *     KasanDriverLoadImageInternal @ 0x140523630 (KasanDriverLoadImageInternal.c)
- *     PerfLogExecutiveResourceInitialize @ 0x1405263E4 (PerfLogExecutiveResourceInitialize.c)
- *     ExpTraceLogBadResourceAddress @ 0x14052D790 (ExpTraceLogBadResourceAddress.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     MxInstallMoreMemory @ 0x1406E73E8 (MxInstallMoreMemory.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     MiCaptureBootDriverRetpolineInfo @ 0x14086D520 (MiCaptureBootDriverRetpolineInfo.c)
- *     MiConstructLoaderEntry @ 0x140AA8F54 (MiConstructLoaderEntry.c)
- *     VslReserveProtectedPages @ 0x140B1C3CC (VslReserveProtectedPages.c)
- *     VslReapplyBootIndirectPatches @ 0x140CB9974 (VslReapplyBootIndirectPatches.c)
- *     RtlInitializeHistoryTable @ 0x140CDA0E8 (RtlInitializeHistoryTable.c)
- *     VfInitBootDriversLoaded @ 0x140CDE91C (VfInitBootDriversLoaded.c)
- *     MiCreateBootDriverHotPatchLinkage @ 0x140CFB5EC (MiCreateBootDriverHotPatchLinkage.c)
- *     MiUpdateBootDriverHotPatchImports @ 0x140CFB77C (MiUpdateBootDriverHotPatchImports.c)
- *     MiInitializeKernelCfg @ 0x140CFE970 (MiInitializeKernelCfg.c)
- *     MiBuildImportsForBootDrivers @ 0x140CFFA0C (MiBuildImportsForBootDrivers.c)
- *     MiLocateKernelSections @ 0x140D00B90 (MiLocateKernelSections.c)
- *     MiReloadBootLoadedDrivers @ 0x140D00CF0 (MiReloadBootLoadedDrivers.c)
+ *     MmDeterminePoolType @ 0x14021A220 (MmDeterminePoolType.c)
+ *     ExpAddResourceToSystemResourceList @ 0x14021B4EC (ExpAddResourceToSystemResourceList.c)
+ *     RtlStdLogStackTrace @ 0x140260150 (RtlStdLogStackTrace.c)
+ *     RtlpStdGetRecordedStackTraceIndex @ 0x1402601DC (RtlpStdGetRecordedStackTraceIndex.c)
+ *     RtlStdReleaseStackTrace @ 0x1402602B0 (RtlStdReleaseStackTrace.c)
+ *     RtlpxLookupFunctionTable @ 0x1402CBA80 (RtlpxLookupFunctionTable.c)
+ *     VslpEnterIumSecureMode @ 0x14036A34C (VslpEnterIumSecureMode.c)
+ *     MmGetLoadedModuleImageAdditionalTablesAddress @ 0x1403ED4E0 (MmGetLoadedModuleImageAdditionalTablesAddress.c)
+ *     MiUpdateDriverLoadInProgress @ 0x1404294E0 (MiUpdateDriverLoadInProgress.c)
+ *     RtlRemoveInvertedFunctionTable @ 0x14042A148 (RtlRemoveInvertedFunctionTable.c)
+ *     MmReleaseLoadLock @ 0x14049E200 (MmReleaseLoadLock.c)
+ *     MmAcquireLoadLock @ 0x1404A5040 (MmAcquireLoadLock.c)
+ *     MiEnumerateSystemImages @ 0x1404DE724 (MiEnumerateSystemImages.c)
+ *     KasanDriverLoadImageInternal @ 0x140525CA0 (KasanDriverLoadImageInternal.c)
+ *     PerfLogExecutiveResourceInitialize @ 0x140528A54 (PerfLogExecutiveResourceInitialize.c)
+ *     ExpTraceLogBadResourceAddress @ 0x14052FCB0 (ExpTraceLogBadResourceAddress.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     MxInstallMoreMemory @ 0x1406EC098 (MxInstallMoreMemory.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     MiCaptureBootDriverRetpolineInfo @ 0x1408738F0 (MiCaptureBootDriverRetpolineInfo.c)
+ *     MiConstructLoaderEntry @ 0x140AA535C (MiConstructLoaderEntry.c)
+ *     VslReserveProtectedPages @ 0x140B1E5DC (VslReserveProtectedPages.c)
+ *     VslReapplyBootIndirectPatches @ 0x140CBF9B4 (VslReapplyBootIndirectPatches.c)
+ *     RtlInitializeHistoryTable @ 0x140CE0468 (RtlInitializeHistoryTable.c)
+ *     VfInitBootDriversLoaded @ 0x140CE4CB4 (VfInitBootDriversLoaded.c)
+ *     MiCreateBootDriverHotPatchLinkage @ 0x140D0196C (MiCreateBootDriverHotPatchLinkage.c)
+ *     MiUpdateBootDriverHotPatchImports @ 0x140D01AFC (MiUpdateBootDriverHotPatchImports.c)
+ *     MiInitializeKernelCfg @ 0x140D04D10 (MiInitializeKernelCfg.c)
+ *     MiBuildImportsForBootDrivers @ 0x140D05DAC (MiBuildImportsForBootDrivers.c)
+ *     MiLocateKernelSections @ 0x140D06F30 (MiLocateKernelSections.c)
+ *     MiReloadBootLoadedDrivers @ 0x140D07090 (MiReloadBootLoadedDrivers.c)
  */
 
 void __fastcall MiInitializeLoadedModuleList(__int64 a1)
 {
   ULONG_PTR v2; // rax
-  KSPIN_LOCK *p_Policy; // rdi
+  KSPIN_LOCK *v3; // rdi
   unsigned __int16 *v4; // rax
   __int64 *v5; // rsi
   int RecordedStackTraceIndex; // eax
@@ -88,15 +88,15 @@ void __fastcall MiInitializeLoadedModuleList(__int64 a1)
   PsLoadedModuleResource.SpinLock = 0LL;
   if ( (NtGlobalFlag & 0x2000) != 0 )
   {
-    p_Policy = (KSPIN_LOCK *)&NormalizationListLock.SchedulingGroup->Policy;
-    if ( NormalizationListLock.SchedulingGroup
-      && (v4 = (unsigned __int16 *)RtlStdLogStackTrace((PKSPIN_LOCK)&NormalizationListLock.SchedulingGroup->Policy, 1),
+    v3 = *(KSPIN_LOCK **)&NormalizationListLock.WaitRegister.Flags;
+    if ( *(_QWORD *)&NormalizationListLock.WaitRegister.Flags
+      && (v4 = (unsigned __int16 *)RtlStdLogStackTrace(*(PKSPIN_LOCK *)&NormalizationListLock.WaitRegister.Flags, 1),
           (v5 = (__int64 *)v4) != 0LL) )
     {
-      RecordedStackTraceIndex = RtlpStdGetRecordedStackTraceIndex(p_Policy, v4);
+      RecordedStackTraceIndex = RtlpStdGetRecordedStackTraceIndex(v3, v4);
       v7 = RecordedStackTraceIndex;
       if ( !RecordedStackTraceIndex )
-        RtlStdReleaseStackTrace((__int64)p_Policy, v5);
+        RtlStdReleaseStackTrace((__int64)v3, v5);
     }
     else
     {
@@ -106,15 +106,15 @@ void __fastcall MiInitializeLoadedModuleList(__int64 a1)
   }
   PsLoadedModuleResource.CreatorBackTraceIndex = v2;
   HIDWORD(PsLoadedModuleResource.Reserved2) = -1;
-  ExpAddResourceToSystemResourceList((struct _SINGLE_LIST_ENTRY *)&PsLoadedModuleResource);
+  ExpAddResourceToSystemResourceList((_KSWAPPABLE_PAGE *)&PsLoadedModuleResource);
   __incgsdword(0x9098u);
   if ( _bittest((_DWORD *)PerfGlobalGroupMask + 1, 0x11u) )
     PerfLogExecutiveResourceInitialize(65544, (__int64)&PsLoadedModuleResource, 0, 0);
   MiReloadBootLoadedDrivers(a1);
-  stru_140E2D150.SavedApcState.Process = (_KPROCESS *)&stru_140E2D150.SavedApcStateFill[24];
-  stru_140E2D150.SavedApcState.ApcListHead[1].Blink = (struct _LIST_ENTRY *)&stru_140E2D150.SavedApcState.ApcListHead[1].Blink;
-  stru_140E2D150.SchedulerApc.ApcListEntry.Blink = &stru_140E2D150.SchedulerApc.ApcListEntry;
-  stru_140E2D150.SchedulerApc.ApcListEntry.Flink = &stru_140E2D150.SchedulerApc.ApcListEntry;
+  stru_140E2D2D0.SavedApcState.Process = (_KPROCESS *)&stru_140E2D2D0.SavedApcStateFill[24];
+  stru_140E2D2D0.SavedApcState.ApcListHead[1].Blink = (struct _LIST_ENTRY *)&stru_140E2D2D0.SavedApcState.ApcListHead[1].Blink;
+  stru_140E2D2D0.SchedulerApc.ApcListEntry.Blink = &stru_140E2D2D0.SchedulerApc.ApcListEntry;
+  stru_140E2D2D0.SchedulerApc.ApcListEntry.Flink = &stru_140E2D2D0.SchedulerApc.ApcListEntry;
   *(&PsLoadedModuleList + 1) = &PsLoadedModuleList;
   PsLoadedModuleList = &PsLoadedModuleList;
   v8 = (KiSpeculationFeatures & 0x20000000000LL) != 0 || !_bittest(&KiFeatureSettings, 0x11u);
@@ -137,9 +137,9 @@ void __fastcall MiInitializeLoadedModuleList(__int64 a1)
     MmReleaseLoadLock(Lock);
     *(_QWORD *)(v10 + 144) = v12;
     *(_DWORD *)(v12 + 184) |= 2u;
-    if ( stru_140E2D150.SchedulerApc.Reserved[0] == (PVOID)v10 )
-      stru_140E2D150.SchedulerApc.Reserved[0] = (PVOID)v12;
-    if ( *(_QWORD *)(v12 + 48) == PsNtosImageBase && (MiFlags & 0x100000) == 0 )
+    if ( stru_140E2D2D0.SchedulerApc.Reserved[0] == (PVOID)v10 )
+      stru_140E2D2D0.SchedulerApc.Reserved[0] = (PVOID)v12;
+    if ( *(PVOID *)(v12 + 48) == PsNtosImageBase && (MiFlags & 0x100000) == 0 )
     {
       LoadedModuleImageAdditionalTablesAddress = MmGetLoadedModuleImageAdditionalTablesAddress(v12, &v28);
       if ( LoadedModuleImageAdditionalTablesAddress )
@@ -157,7 +157,7 @@ void __fastcall MiInitializeLoadedModuleList(__int64 a1)
     }
     if ( v8 && (*(_DWORD *)(v12 + 104) & 0x800000) == 0 )
     {
-      v18 = MiCaptureBootDriverRetpolineInfo(*(_QWORD *)(v12 + 48), *(_DWORD *)(v12 + 64), v12 + 280);
+      v18 = MiCaptureBootDriverRetpolineInfo(*(PVOID *)(v12 + 48), *(unsigned int *)(v12 + 64), v12 + 280);
       if ( (int)(v18 + 0x80000000) >= 0 && v18 != -1073741637 )
         goto LABEL_43;
     }
@@ -170,9 +170,9 @@ void __fastcall MiInitializeLoadedModuleList(__int64 a1)
     }
     *(_DWORD *)(v12 + 184) |= 0x10000u;
   }
-  Blink = stru_140E2D150.ThreadListEntry.Blink;
+  Blink = stru_140E2D2D0.ThreadListEntry.Blink;
   VfInitBootDriversLoaded();
-  if ( Blink != stru_140E2D150.ThreadListEntry.Blink )
+  if ( Blink != stru_140E2D2D0.ThreadListEntry.Blink )
   {
     for ( i = *(__int64 **)(*(_QWORD *)(a1 + 240) + 3784LL);
           i != (__int64 *)(*(_QWORD *)(a1 + 240) + 3784LL);

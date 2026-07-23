@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlTestBitEx @ 0x1800FB600
+ * XREFs of RtlTestBitEx @ 0x1800F6530
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-unsigned __int8 __fastcall RtlTestBitEx(__int64 a1, unsigned __int64 a2)
+BOOLEAN __cdecl RtlTestBitEx(PRTL_BITMAP_EX BitMapHeader, ULONG64 BitNumber)
 {
-  return _bittest64(*(const signed __int64 **)(a1 + 8), a2);
+  return _bittest64((const signed __int64 *)BitMapHeader->Buffer, BitNumber);
 }

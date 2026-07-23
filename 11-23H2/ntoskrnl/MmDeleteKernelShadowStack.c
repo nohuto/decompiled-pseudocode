@@ -1,16 +1,16 @@
 /*
- * XREFs of MmDeleteKernelShadowStack @ 0x1406455C4
+ * XREFs of MmDeleteKernelShadowStack @ 0x140645B14
  * Callers:
- *     KeUserModeCallback @ 0x14076E880 (KeUserModeCallback.c)
- *     KeUninitThread @ 0x1407E9B3C (KeUninitThread.c)
- *     KiDeleteKernelShadowStack @ 0x14097438C (KiDeleteKernelShadowStack.c)
+ *     KeUserModeCallback @ 0x14076EA70 (KeUserModeCallback.c)
+ *     KeUninitThread @ 0x1407E9E0C (KeUninitThread.c)
+ *     KiDeleteKernelShadowStack @ 0x14097458C (KiDeleteKernelShadowStack.c)
  * Callees:
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     RtlpInterlockedPopEntrySList @ 0x140428EB0 (RtlpInterlockedPopEntrySList.c)
- *     RtlpInterlockedPushEntrySList @ 0x140428EF0 (RtlpInterlockedPushEntrySList.c)
- *     MiDeleteKernelShadowStack @ 0x1406443C4 (MiDeleteKernelShadowStack.c)
- *     MiKernelShadowStackIdealForCaching @ 0x140644DD4 (MiKernelShadowStackIdealForCaching.c)
- *     VslResetKernelShadowStack @ 0x140942E88 (VslResetKernelShadowStack.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
+ *     RtlpInterlockedPopEntrySList @ 0x140429240 (RtlpInterlockedPopEntrySList.c)
+ *     RtlpInterlockedPushEntrySList @ 0x140429280 (RtlpInterlockedPushEntrySList.c)
+ *     MiDeleteKernelShadowStack @ 0x140644914 (MiDeleteKernelShadowStack.c)
+ *     MiKernelShadowStackIdealForCaching @ 0x140645324 (MiKernelShadowStackIdealForCaching.c)
+ *     VslResetKernelShadowStack @ 0x140943088 (VslResetKernelShadowStack.c)
  */
 
 PSLIST_ENTRY MmDeleteKernelShadowStack(unsigned __int64 a1, int a2, char a3, ...)

@@ -1,12 +1,12 @@
 /*
- * XREFs of PopDiagIdleWakeAccountingStop @ 0x14086FCC8
+ * XREFs of PopDiagIdleWakeAccountingStop @ 0x140870F28
  * Callers:
- *     PopCaptureSleepStudyStatistics @ 0x1402DF0EC (PopCaptureSleepStudyStatistics.c)
+ *     PopCaptureSleepStudyStatistics @ 0x1402DF2DC (PopCaptureSleepStudyStatistics.c)
  * Callees:
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     PopDiagIdleWakeSourceAccountingToDiagnostic @ 0x14086FDBC (PopDiagIdleWakeSourceAccountingToDiagnostic.c)
- *     PopDiagTraceIdleWakeSourceDiagnostic @ 0x140872E14 (PopDiagTraceIdleWakeSourceDiagnostic.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     PopDiagIdleWakeSourceAccountingToDiagnostic @ 0x14087101C (PopDiagIdleWakeSourceAccountingToDiagnostic.c)
+ *     PopDiagTraceIdleWakeSourceDiagnostic @ 0x140874074 (PopDiagTraceIdleWakeSourceDiagnostic.c)
  */
 
 void PopDiagIdleWakeAccountingStop()
@@ -23,12 +23,12 @@ void PopDiagIdleWakeAccountingStop()
   if ( PopDiagGlobalIdleWakeAccounting )
   {
     v0 = 0;
-    v1 = &unk_140410B6C;
+    v1 = &unk_140411B2C;
     do
     {
       if ( *v1 )
       {
-        if ( (int)PopDiagIdleWakeSourceAccountingToDiagnostic((char *)&unk_140410B68 + 336 * v0, v3) >= 0 )
+        if ( (int)PopDiagIdleWakeSourceAccountingToDiagnostic((char *)&unk_140411B28 + 336 * v0, v3) >= 0 )
           PopDiagTraceIdleWakeSourceDiagnostic(v3);
         if ( v5 )
         {

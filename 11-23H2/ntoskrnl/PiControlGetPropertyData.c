@@ -1,21 +1,21 @@
 /*
- * XREFs of PiControlGetPropertyData @ 0x140792750
+ * XREFs of PiControlGetPropertyData @ 0x140792940
  * Callers:
  *     <none>
  * Callees:
- *     PiControlAllocateBufferForUserModeCaller @ 0x14022AE54 (PiControlAllocateBufferForUserModeCaller.c)
- *     PiControlFreeUserModeCallersBuffer @ 0x14022BC6C (PiControlFreeUserModeCallersBuffer.c)
- *     ObfDereferenceObjectWithTag @ 0x14022F5B0 (ObfDereferenceObjectWithTag.c)
- *     PpDevNodeUnlockTree @ 0x1406C98FC (PpDevNodeUnlockTree.c)
- *     PpDevNodeLockTree @ 0x1406C9990 (PpDevNodeLockTree.c)
- *     PnpDeviceObjectFromDeviceInstanceWithTag @ 0x1406CBEA4 (PnpDeviceObjectFromDeviceInstanceWithTag.c)
- *     _CmGetDeviceRegProp @ 0x1406CD45C (_CmGetDeviceRegProp.c)
- *     PiControlMakeUserModeCallersCopy @ 0x1406D41F0 (PiControlMakeUserModeCallersCopy.c)
- *     IoGetDeviceProperty @ 0x1407929A0 (IoGetDeviceProperty.c)
- *     PpHotSwapGetDevnodeRemovalPolicy @ 0x140793124 (PpHotSwapGetDevnodeRemovalPolicy.c)
- *     PiControlGetDeviceStack @ 0x140855A60 (PiControlGetDeviceStack.c)
- *     PnpGetDeviceDependencyList @ 0x140954968 (PnpGetDeviceDependencyList.c)
- *     PiControlGetDevicePowerData @ 0x14096D880 (PiControlGetDevicePowerData.c)
+ *     PiControlAllocateBufferForUserModeCaller @ 0x14022AF64 (PiControlAllocateBufferForUserModeCaller.c)
+ *     PiControlFreeUserModeCallersBuffer @ 0x14022BD7C (PiControlFreeUserModeCallersBuffer.c)
+ *     ObfDereferenceObjectWithTag @ 0x14022F6C0 (ObfDereferenceObjectWithTag.c)
+ *     PpDevNodeUnlockTree @ 0x1406C992C (PpDevNodeUnlockTree.c)
+ *     PpDevNodeLockTree @ 0x1406C99C0 (PpDevNodeLockTree.c)
+ *     PnpDeviceObjectFromDeviceInstanceWithTag @ 0x1406CBED4 (PnpDeviceObjectFromDeviceInstanceWithTag.c)
+ *     _CmGetDeviceRegProp @ 0x1406CD48C (_CmGetDeviceRegProp.c)
+ *     PiControlMakeUserModeCallersCopy @ 0x1406D4220 (PiControlMakeUserModeCallersCopy.c)
+ *     IoGetDeviceProperty @ 0x140792B90 (IoGetDeviceProperty.c)
+ *     PpHotSwapGetDevnodeRemovalPolicy @ 0x140793314 (PpHotSwapGetDevnodeRemovalPolicy.c)
+ *     PiControlGetDeviceStack @ 0x140855D60 (PiControlGetDeviceStack.c)
+ *     PnpGetDeviceDependencyList @ 0x140954B68 (PnpGetDeviceDependencyList.c)
+ *     PiControlGetDevicePowerData @ 0x14096DA80 (PiControlGetDevicePowerData.c)
  */
 
 __int64 __fastcall PiControlGetPropertyData(__int64 a1, unsigned __int16 *a2, __int64 a3, char a4)

@@ -4,11 +4,11 @@
  *     PopDeepSleepSetDisengageReason @ 0x140004DF8 (PopDeepSleepSetDisengageReason.c)
  *     PopDeepSleepClearDisengageReason @ 0x140004E80 (PopDeepSleepClearDisengageReason.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x1400630E0 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14008CF40 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     PopDeepSleepResiliencyPhaseAccountingBegin @ 0x1402E3950 (PopDeepSleepResiliencyPhaseAccountingBegin.c)
- *     PopDeepSleepResiliencyPhaseAccountingEnd @ 0x1402E3A50 (PopDeepSleepResiliencyPhaseAccountingEnd.c)
+ *     KxReleaseSpinLock @ 0x1400630D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14008CE80 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     PopDeepSleepResiliencyPhaseAccountingBegin @ 0x1402E3B40 (PopDeepSleepResiliencyPhaseAccountingBegin.c)
+ *     PopDeepSleepResiliencyPhaseAccountingEnd @ 0x1402E3C40 (PopDeepSleepResiliencyPhaseAccountingEnd.c)
  */
 
 __int64 __fastcall PopDeepSleepResiliencyPhaseAccountingUpdate(int a1, char a2)
@@ -29,9 +29,9 @@ __int64 __fastcall PopDeepSleepResiliencyPhaseAccountingUpdate(int a1, char a2)
   v5 = 0;
   v6 = 1 << a1;
   v7 = KeAcquireSpinLockRaiseToDpc(&PopCsResiliencyStatsLock);
-  v8 = dword_140417494;
+  v8 = dword_140418514;
   v9 = v7;
-  if ( (dword_140417494 & v6) != 0 )
+  if ( (dword_140418514 & v6) != 0 )
   {
     PerformanceCounter = KeQueryPerformanceCounter(0LL);
     if ( a2 )

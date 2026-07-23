@@ -1,24 +1,24 @@
 /*
- * XREFs of AlpcpGetEffectiveTokenMessage @ 0x140929D90
+ * XREFs of AlpcpGetEffectiveTokenMessage @ 0x1409058A0
  * Callers:
- *     AlpcpQueryTokenModifiedIdMessage @ 0x1407C0294 (AlpcpQueryTokenModifiedIdMessage.c)
- *     AlpcpExposeAttributes @ 0x140972B20 (AlpcpExposeAttributes.c)
- *     AlpcpQuerySidMessage @ 0x140AA1F10 (AlpcpQuerySidMessage.c)
+ *     AlpcpQueryTokenModifiedIdMessage @ 0x1407C32F4 (AlpcpQueryTokenModifiedIdMessage.c)
+ *     AlpcpExposeAttributes @ 0x1409B93B0 (AlpcpExposeAttributes.c)
+ *     AlpcpQuerySidMessage @ 0x140AA39E0 (AlpcpQuerySidMessage.c)
  * Callees:
- *     PsGetCurrentServerSilo @ 0x140215E70 (PsGetCurrentServerSilo.c)
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     ExfAcquirePushLockSharedEx @ 0x140277CC0 (ExfAcquirePushLockSharedEx.c)
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     ObfReferenceObjectWithTag @ 0x140278B30 (ObfReferenceObjectWithTag.c)
- *     ExfReleasePushLockShared @ 0x140278BD0 (ExfReleasePushLockShared.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     PsReferencePrimaryTokenWithTag @ 0x140279DC0 (PsReferencePrimaryTokenWithTag.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     SepReconcileTrustSidWithProcessProtection @ 0x1402AC7A0 (SepReconcileTrustSidWithProcessProtection.c)
- *     KeLeaveCriticalRegionThread @ 0x1402B8A60 (KeLeaveCriticalRegionThread.c)
- *     PsIsHostSilo @ 0x14046E630 (PsIsHostSilo.c)
- *     SepCreateClientSecurityEx @ 0x14092A140 (SepCreateClientSecurityEx.c)
- *     SepUpdateSiloInClientSecurity @ 0x140B65550 (SepUpdateSiloInClientSecurity.c)
+ *     PsGetCurrentServerSilo @ 0x1402161A0 (PsGetCurrentServerSilo.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     ExfAcquirePushLockSharedEx @ 0x140277230 (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     ObfReferenceObjectWithTag @ 0x1402780A0 (ObfReferenceObjectWithTag.c)
+ *     ExfReleasePushLockShared @ 0x140278140 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     PsReferencePrimaryTokenWithTag @ 0x140279330 (PsReferencePrimaryTokenWithTag.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     KeLeaveCriticalRegionThread @ 0x140303720 (KeLeaveCriticalRegionThread.c)
+ *     SepReconcileTrustSidWithProcessProtection @ 0x1403ABEF0 (SepReconcileTrustSidWithProcessProtection.c)
+ *     PsIsHostSilo @ 0x140467DB0 (PsIsHostSilo.c)
+ *     SepCreateClientSecurityEx @ 0x140905C50 (SepCreateClientSecurityEx.c)
+ *     SepUpdateSiloInClientSecurity @ 0x140B685F0 (SepUpdateSiloInClientSecurity.c)
  */
 
 __int64 __fastcall AlpcpGetEffectiveTokenMessage(__int64 a1, __int64 a2, _QWORD *a3, __int64 a4, _BYTE *a5)
@@ -35,17 +35,15 @@ __int64 __fastcall AlpcpGetEffectiveTokenMessage(__int64 a1, __int64 a2, _QWORD 
   __int64 v16; // rdx
   __int64 *v17; // rbp
   signed __int64 *v18; // rcx
-  __int64 v19; // rdx
-  __int64 v20; // r8
   int ClientSecurity; // ebx
-  __int64 v23; // rax
+  __int64 v21; // rax
   unsigned __int64 CurrentServerSilo; // rbx
-  char v25[8]; // [rsp+60h] [rbp-58h] BYREF
-  PEPROCESS v26; // [rsp+68h] [rbp-50h]
+  char v23[8]; // [rsp+60h] [rbp-58h] BYREF
+  PEPROCESS v24; // [rsp+68h] [rbp-50h]
   PEPROCESS Process; // [rsp+70h] [rbp-48h]
   PSID SourceSid; // [rsp+78h] [rbp-40h] BYREF
-  struct _KTHREAD *v29; // [rsp+80h] [rbp-38h]
-  unsigned __int8 v30; // [rsp+C8h] [rbp+10h] BYREF
+  struct _KTHREAD *v27; // [rsp+80h] [rbp-38h]
+  unsigned __int8 v28; // [rsp+C8h] [rbp+10h] BYREF
 
   if ( (*(_DWORD *)(a2 + 40) & 0x80u) == 0 )
   {
@@ -54,7 +52,7 @@ __int64 __fastcall AlpcpGetEffectiveTokenMessage(__int64 a1, __int64 a2, _QWORD 
     {
       if ( *(int *)(v7 + 36) < 1 )
         return 3221225506LL;
-      v23 = *(_QWORD *)(v7 + 48);
+      v21 = *(_QWORD *)(v7 + 48);
     }
     else
     {
@@ -73,8 +71,8 @@ __int64 __fastcall AlpcpGetEffectiveTokenMessage(__int64 a1, __int64 a2, _QWORD 
         {
           v11 = 0;
           v12 = 0;
-          v30 = 0;
-          v25[0] = 0;
+          v28 = 0;
+          v23[0] = 0;
           SourceSid = 0LL;
           CurrentThread = KeGetCurrentThread();
           v14 = (PEPROCESS *)(v10 + 544);
@@ -84,9 +82,9 @@ __int64 __fastcall AlpcpGetEffectiveTokenMessage(__int64 a1, __int64 a2, _QWORD 
             Process = *v14;
           if ( (*(_DWORD *)(v10 + 1440) & 8) == 0 )
             goto LABEL_21;
-          v26 = *v14;
-          v29 = KeGetCurrentThread();
-          --v29->KernelApcDisable;
+          v24 = *v14;
+          v27 = KeGetCurrentThread();
+          --v27->KernelApcDisable;
           v15 = (LegacyAutoBoost *)KeAbPreAcquire(v10 + 1424, 0LL, 0LL, (struct _KLOCK_ENTRIES *)a4);
           v16 = 17LL;
           if ( _InterlockedCompareExchange64((volatile signed __int64 *)(v10 + 1424), 17LL, 0LL) )
@@ -104,7 +102,7 @@ __int64 __fastcall AlpcpGetEffectiveTokenMessage(__int64 a1, __int64 a2, _QWORD 
             ObfReferenceObjectWithTag(v17, 0x63436553u);
             v12 = *(_DWORD *)(v10 + 1336) & 3;
             v11 = (*(_BYTE *)(v10 + 1336) & 4) != 0;
-            v30 = BYTE2(v26[3].ActiveGroupsMask.Masks[1]);
+            v28 = BYTE2(v24[3].ActiveGroupsMask.Masks[1]);
           }
           else
           {
@@ -117,10 +115,10 @@ __int64 __fastcall AlpcpGetEffectiveTokenMessage(__int64 a1, __int64 a2, _QWORD 
             v18 = (signed __int64 *)(v10 + 1424);
           }
           KeAbPostRelease((unsigned __int64)v18);
-          KeLeaveCriticalRegionThread((__int64)v29, v19, v20);
+          KeLeaveCriticalRegionThread((__int64)v27);
           if ( v17 )
           {
-            LODWORD(v26) = 2;
+            LODWORD(v24) = 2;
           }
           else
           {
@@ -130,12 +128,12 @@ LABEL_21:
                                0x63436553u,
                                (__int64)a3,
                                (struct _KLOCK_ENTRIES *)a4);
-            LODWORD(v26) = 1;
+            LODWORD(v24) = 1;
             v11 = 0;
-            v30 = BYTE2(Process[3].ActiveGroupsMask.Masks[1]);
+            v28 = BYTE2(Process[3].ActiveGroupsMask.Masks[1]);
           }
-          SepReconcileTrustSidWithProcessProtection(v17[138], &v30, v25, (unsigned __int64 *)&SourceSid);
-          ClientSecurity = SepCreateClientSecurityEx((int)v17, v11, v12, 1, v10, v25[0], SourceSid, a4);
+          SepReconcileTrustSidWithProcessProtection(v17[138], &v28, v23, &SourceSid);
+          ClientSecurity = SepCreateClientSecurityEx((int)v17, v11, v12, 1, v10, v23[0], SourceSid, a4);
           if ( ClientSecurity >= 0 && *(_BYTE *)(a4 + 8) )
           {
             if ( *v14 == PsInitialSystemProcess )
@@ -164,11 +162,11 @@ LABEL_21:
         }
         return 3221225506LL;
       }
-      v23 = *(_QWORD *)(v8 + 80);
-      if ( !v23 )
+      v21 = *(_QWORD *)(v8 + 80);
+      if ( !v21 )
         return 3221225506LL;
     }
-    *a3 = v23;
+    *a3 = v21;
     *a5 = 0;
     return 0LL;
   }

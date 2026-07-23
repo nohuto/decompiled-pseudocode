@@ -4,8 +4,8 @@
  *     RtlGetParentLocaleName @ 0x180013C20 (RtlGetParentLocaleName.c)
  *     RtlLocaleNameToLcid @ 0x180015570 (RtlLocaleNameToLcid.c)
  *     RtlpConsoleFallbackNameFromLocaleName @ 0x18007AE4C (RtlpConsoleFallbackNameFromLocaleName.c)
- *     RtlIsValidLocaleName @ 0x18010ACB0 (RtlIsValidLocaleName.c)
- *     RtlpGetProcessCodepagesForLocale @ 0x18010B0A0 (RtlpGetProcessCodepagesForLocale.c)
+ *     RtlIsValidLocaleName @ 0x18010AC80 (RtlIsValidLocaleName.c)
+ *     RtlpGetProcessCodepagesForLocale @ 0x18010B070 (RtlpGetProcessCodepagesForLocale.c)
  * Callees:
  *     RtlpNlsCompareLocaleNames @ 0x1800156B0 (RtlpNlsCompareLocaleNames.c)
  */

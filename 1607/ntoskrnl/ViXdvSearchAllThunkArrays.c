@@ -1,10 +1,10 @@
 /*
- * XREFs of ViXdvSearchAllThunkArrays @ 0x1407052FC
+ * XREFs of ViXdvSearchAllThunkArrays @ 0x14070532C
  * Callers:
- *     ViXdvBindXdvDDIWrappers @ 0x140704F2C (ViXdvBindXdvDDIWrappers.c)
+ *     ViXdvBindXdvDDIWrappers @ 0x140704F5C (ViXdvBindXdvDDIWrappers.c)
  * Callees:
- *     ViXdvSearchAndReplaceThunkArray @ 0x140705360 (ViXdvSearchAndReplaceThunkArray.c)
- *     ViXdvSearchAndReplaceThunkArrayOrderDependent @ 0x1407053A8 (ViXdvSearchAndReplaceThunkArrayOrderDependent.c)
+ *     ViXdvSearchAndReplaceThunkArray @ 0x140705390 (ViXdvSearchAndReplaceThunkArray.c)
+ *     ViXdvSearchAndReplaceThunkArrayOrderDependent @ 0x1407053D8 (ViXdvSearchAndReplaceThunkArrayOrderDependent.c)
  */
 
 char __fastcall ViXdvSearchAllThunkArrays(unsigned int a1, __int64 a2)

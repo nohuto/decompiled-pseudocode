@@ -1,10 +1,10 @@
 /*
- * XREFs of MiAddUnicodeStringToCrashDump @ 0x1405382DC
+ * XREFs of MiAddUnicodeStringToCrashDump @ 0x14053851C
  * Callers:
- *     MiAddPartitionToCrashDump @ 0x140537B50 (MiAddPartitionToCrashDump.c)
+ *     MiAddPartitionToCrashDump @ 0x140537D90 (MiAddPartitionToCrashDump.c)
  * Callees:
- *     MmIsAddressValidEx @ 0x14030C4F0 (MmIsAddressValidEx.c)
- *     MmAddRangeToCrashDump @ 0x1405385D8 (MmAddRangeToCrashDump.c)
+ *     MmIsAddressValidEx @ 0x140317240 (MmIsAddressValidEx.c)
+ *     MmAddRangeToCrashDump @ 0x140538818 (MmAddRangeToCrashDump.c)
  */
 
 __int64 __fastcall MiAddUnicodeStringToCrashDump(__int64 a1, __int64 a2)

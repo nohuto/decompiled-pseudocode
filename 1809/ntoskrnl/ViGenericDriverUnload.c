@@ -1,10 +1,10 @@
 /*
- * XREFs of ViGenericDriverUnload @ 0x140942B30
+ * XREFs of ViGenericDriverUnload @ 0x140943B30
  * Callers:
  *     <none>
  * Callees:
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall ViGenericDriverUnload(ULONG_PTR BugCheckParameter2)

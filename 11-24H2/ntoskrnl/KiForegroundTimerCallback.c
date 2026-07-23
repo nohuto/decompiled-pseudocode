@@ -1,12 +1,12 @@
 /*
- * XREFs of KiForegroundTimerCallback @ 0x1405C2DE0
+ * XREFs of KiForegroundTimerCallback @ 0x1405C03B0
  * Callers:
  *     <none>
  * Callees:
- *     KeInsertQueueDpc @ 0x1402542F0 (KeInsertQueueDpc.c)
+ *     KeInsertQueueDpc @ 0x140284900 (KeInsertQueueDpc.c)
  */
 
 BOOLEAN KiForegroundTimerCallback()
 {
-  return KeInsertQueueDpc(&stru_140F22228, 0LL, 0LL);
+  return KeInsertQueueDpc(&stru_140F22468, 0LL, 0LL);
 }

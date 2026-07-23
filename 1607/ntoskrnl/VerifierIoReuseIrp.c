@@ -1,5 +1,5 @@
 /*
- * XREFs of VerifierIoReuseIrp @ 0x14070C8AC
+ * XREFs of VerifierIoReuseIrp @ 0x14070C8DC
  * Callers:
  *     <none>
  * Callees:

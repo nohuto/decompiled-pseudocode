@@ -1,23 +1,23 @@
 /*
  * XREFs of RtlLocateLegacyContext @ 0x180086670
  * Callers:
- *     PsspInitializeContextOrExtendedContext @ 0x18012B794 (PsspInitializeContextOrExtendedContext.c)
+ *     PsspInitializeContextOrExtendedContext @ 0x18012B764 (PsspInitializeContextOrExtendedContext.c)
  * Callees:
  *     <none>
  */
 
-char *__fastcall RtlLocateLegacyContext(_DWORD *a1, _DWORD *a2)
+PCONTEXT __cdecl RtlLocateLegacyContext(PCONTEXT_EX ContextEx, PULONG Length)
 {
-  int v2; // r10d
-  int v3; // r9d
+  LONG Offset; // r10d
+  ULONG v3; // r9d
 
-  v2 = a1[2];
-  if ( *a1 > v2 )
+  Offset = ContextEx->Legacy.Offset;
+  if ( ContextEx->All.Offset > Offset )
     return 0LL;
-  v3 = a1[3];
-  if ( a1[1] + *a1 < v3 + v2 )
+  v3 = ContextEx->Legacy.Length;
+  if ( (signed int)(ContextEx->All.Length + ContextEx->All.Offset) < (int)(v3 + Offset) )
     return 0LL;
-  if ( a2 )
-    *a2 = v3;
-  return (char *)a1 + (int)a1[2];
+  if ( Length )
+    *Length = v3;
+  return (PCONTEXT)((char *)ContextEx + ContextEx->Legacy.Offset);
 }

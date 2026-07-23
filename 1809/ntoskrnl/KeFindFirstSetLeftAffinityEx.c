@@ -1,8 +1,8 @@
 /*
- * XREFs of KeFindFirstSetLeftAffinityEx @ 0x14028E340
+ * XREFs of KeFindFirstSetLeftAffinityEx @ 0x14028E530
  * Callers:
- *     PpmUpdatePlatformIdleVeto @ 0x1402D64E0 (PpmUpdatePlatformIdleVeto.c)
- *     PnpReplacePartitionUnit @ 0x140833780 (PnpReplacePartitionUnit.c)
+ *     PpmUpdatePlatformIdleVeto @ 0x1402D66D0 (PpmUpdatePlatformIdleVeto.c)
+ *     PnpReplacePartitionUnit @ 0x1408349E0 (PnpReplacePartitionUnit.c)
  * Callees:
  *     <none>
  */

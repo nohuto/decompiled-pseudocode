@@ -1,10 +1,10 @@
 /*
- * XREFs of KeQueryPrimaryGroupAffinityProcess @ 0x140462F90
+ * XREFs of KeQueryPrimaryGroupAffinityProcess @ 0x14045BF50
  * Callers:
- *     PspWritePebAffinityInfoAttached @ 0x140A9B4C4 (PspWritePebAffinityInfoAttached.c)
+ *     PspWritePebAffinityInfoAttached @ 0x1409E64F4 (PspWritePebAffinityInfoAttached.c)
  * Callees:
- *     KiAcquireProcessLockShared @ 0x140463000 (KiAcquireProcessLockShared.c)
- *     KiReleaseProcessLockShared @ 0x1404630A4 (KiReleaseProcessLockShared.c)
+ *     KiAcquireProcessLockShared @ 0x14045BFC0 (KiAcquireProcessLockShared.c)
+ *     KiReleaseProcessLockShared @ 0x14045C064 (KiReleaseProcessLockShared.c)
  */
 
 __int64 __fastcall KeQueryPrimaryGroupAffinityProcess(__int64 a1, __int64 a2)

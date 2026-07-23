@@ -1,9 +1,9 @@
 /*
- * XREFs of _strset_s @ 0x140152580
+ * XREFs of _strset_s @ 0x140152B40
  * Callers:
  *     <none>
  * Callees:
- *     xHalFreeMessageTarget @ 0x140130D64 (xHalFreeMessageTarget.c)
+ *     xHalFreeMessageTarget @ 0x1401312D4 (xHalFreeMessageTarget.c)
  */
 
 errno_t __cdecl strset_s(char *a1, size_t DstSize, int Value)

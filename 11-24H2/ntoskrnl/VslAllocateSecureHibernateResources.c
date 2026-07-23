@@ -1,13 +1,13 @@
 /*
- * XREFs of VslAllocateSecureHibernateResources @ 0x14070F508
+ * XREFs of VslAllocateSecureHibernateResources @ 0x14070D098
  * Callers:
- *     PopAllocateHiberContext @ 0x140AC688C (PopAllocateHiberContext.c)
+ *     PopAllocateHiberContext @ 0x140AC4284 (PopAllocateHiberContext.c)
  * Callees:
- *     PoSetHiberRange @ 0x1402649E0 (PoSetHiberRange.c)
- *     VslpEnterIumSecureMode @ 0x140265D90 (VslpEnterIumSecureMode.c)
- *     KeAllocateKernelHiberSwapShadowStacks @ 0x1405BC2A8 (KeAllocateKernelHiberSwapShadowStacks.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     VslpEnterIumSecureMode @ 0x1403AADB0 (VslpEnterIumSecureMode.c)
+ *     PoSetHiberRange @ 0x14046AD10 (PoSetHiberRange.c)
+ *     KeAllocateKernelHiberSwapShadowStacks @ 0x1405B98D8 (KeAllocateKernelHiberSwapShadowStacks.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 __int64 __fastcall VslAllocateSecureHibernateResources(PVOID MemoryMap, PVOID *a2, ULONG_PTR *a3)
@@ -22,7 +22,7 @@ __int64 __fastcall VslAllocateSecureHibernateResources(PVOID MemoryMap, PVOID *a
   result = KeAllocateKernelHiberSwapShadowStacks(1u);
   if ( (int)result >= 0 )
   {
-    v7 = VslpEnterIumSecureMode(2u, 37LL, 0, (__int64)v8);
+    v7 = VslpEnterIumSecureMode(2u, 0x25u, 0, (__int64)v8);
     if ( v7 < 0 )
     {
       KeAllocateKernelHiberSwapShadowStacks(0);

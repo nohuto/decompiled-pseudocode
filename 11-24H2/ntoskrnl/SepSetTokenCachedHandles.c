@@ -1,21 +1,22 @@
 /*
- * XREFs of SepSetTokenCachedHandles @ 0x1408F2494
+ * XREFs of SepSetTokenCachedHandles @ 0x140913AE0
  * Callers:
- *     SepSetTokenBnoIsolation @ 0x1404843CC (SepSetTokenBnoIsolation.c)
- *     NtCreateLowBoxToken @ 0x140AD8020 (NtCreateLowBoxToken.c)
+ *     SepSetTokenBnoIsolation @ 0x14047F96C (SepSetTokenBnoIsolation.c)
+ *     SepCreateAppContainerToken @ 0x140606A30 (SepCreateAppContainerToken.c)
+ *     NtCreateLowBoxToken @ 0x140AD5A60 (NtCreateLowBoxToken.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     ExfTryToWakePushLock @ 0x14025F9A0 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     RtlCreateHashTable @ 0x140481240 (RtlCreateHashTable.c)
- *     SepReferenceCachedTokenHandles @ 0x140490DE0 (SepReferenceCachedTokenHandles.c)
- *     SepCloseCachedTokenHandles @ 0x1404977F8 (SepCloseCachedTokenHandles.c)
- *     SepGetCachedHandlesEntry @ 0x1408F26B8 (SepGetCachedHandlesEntry.c)
- *     SepValidateReferencedCachedHandles @ 0x1408F2790 (SepValidateReferencedCachedHandles.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     ExfTryToWakePushLock @ 0x14028FFB0 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     RtlCreateHashTable @ 0x14047C500 (RtlCreateHashTable.c)
+ *     SepReferenceCachedTokenHandles @ 0x14048B420 (SepReferenceCachedTokenHandles.c)
+ *     SepCloseCachedTokenHandles @ 0x140492308 (SepCloseCachedTokenHandles.c)
+ *     SepGetCachedHandlesEntry @ 0x140913D04 (SepGetCachedHandlesEntry.c)
+ *     SepValidateReferencedCachedHandles @ 0x140913DDC (SepValidateReferencedCachedHandles.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall SepSetTokenCachedHandles(_QWORD *a1, _DWORD *a2, unsigned int a3, HANDLE *a4)
@@ -26,8 +27,8 @@ __int64 __fastcall SepSetTokenCachedHandles(_QWORD *a1, _DWORD *a2, unsigned int
   int CachedHandlesEntry; // ebp
   struct _KTHREAD *CurrentThread; // rax
   __int64 v13; // rdi
-  _QWORD *v14; // rax
-  _QWORD *v15; // rbp
+  char *v14; // rax
+  char *v15; // rbp
   bool v16; // cl
   __int64 v17; // rdx
   char v18; // al
@@ -41,7 +42,7 @@ __int64 __fastcall SepSetTokenCachedHandles(_QWORD *a1, _DWORD *a2, unsigned int
   v22 = 0;
   if ( a3 )
   {
-    Pool2 = ExAllocatePool2(0x100uLL);
+    Pool2 = ExAllocatePool2(0x100uLL, 8LL * a3, 0x63486553u);
     v4 = (void *)Pool2;
     if ( !Pool2 )
       return (unsigned int)-1073741801;
@@ -57,12 +58,12 @@ __int64 __fastcall SepSetTokenCachedHandles(_QWORD *a1, _DWORD *a2, unsigned int
   v13 = a1[27] + 96LL;
   v21 = v4;
   --CurrentThread->KernelApcDisable;
-  v14 = KeAbPreAcquire(v13, 0LL);
+  v14 = (char *)KeAbPreAcquire(v13, 0LL);
   v15 = v14;
   if ( _interlockedbittestandset64((volatile signed __int32 *)v13, 0LL) )
-    ExfAcquirePushLockExclusiveEx((unsigned __int64 *)v13, (__int64)v14, v13);
+    ExfAcquirePushLockExclusiveEx((unsigned __int64 *)v13, v14, v13);
   if ( v15 )
-    *((_BYTE *)v15 + 10) = 1;
+    v15[10] = 1;
   if ( !*(_QWORD *)(v13 + 8) && !RtlCreateHashTable((PRTL_DYNAMIC_HASH_TABLE *)(v13 + 8), 0, 0) )
   {
     CachedHandlesEntry = -1073741670;

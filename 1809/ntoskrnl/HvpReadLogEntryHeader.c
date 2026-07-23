@@ -1,10 +1,10 @@
 /*
- * XREFs of HvpReadLogEntryHeader @ 0x14080714C
+ * XREFs of HvpReadLogEntryHeader @ 0x14080834C
  * Callers:
- *     HvpApplyIncrementalLogFile @ 0x140806774 (HvpApplyIncrementalLogFile.c)
- *     HvpDetermineIncrementalLogFileMaximums @ 0x140806BB0 (HvpDetermineIncrementalLogFileMaximums.c)
+ *     HvpApplyIncrementalLogFile @ 0x140807974 (HvpApplyIncrementalLogFile.c)
+ *     HvpDetermineIncrementalLogFileMaximums @ 0x140807DB0 (HvpDetermineIncrementalLogFileMaximums.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall HvpReadLogEntryHeader(

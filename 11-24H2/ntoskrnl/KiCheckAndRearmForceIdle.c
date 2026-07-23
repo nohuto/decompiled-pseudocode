@@ -1,15 +1,16 @@
 /*
- * XREFs of KiCheckAndRearmForceIdle @ 0x1403C17F8
+ * XREFs of KiCheckAndRearmForceIdle @ 0x1403B03B8
  * Callers:
- *     KiCallInterruptServiceRoutine @ 0x14033B0A0 (KiCallInterruptServiceRoutine.c)
- *     KiTimer2Expiration @ 0x1403C1420 (KiTimer2Expiration.c)
+ *     KiCallInterruptServiceRoutine @ 0x14031A580 (KiCallInterruptServiceRoutine.c)
+ *     KiTimer2Expiration @ 0x1403AFFE0 (KiTimer2Expiration.c)
+ *     KiForceIdleInterruptNotify @ 0x140404948 (KiForceIdleInterruptNotify.c)
  * Callees:
- *     KiRemoveSystemWorkPriorityKick @ 0x14025E408 (KiRemoveSystemWorkPriorityKick.c)
- *     HvlNotifyLongSpinWait @ 0x140293260 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140293290 (KiCheckVpBackingLongSpinWaitHypercall.c)
- *     RtlGetInterruptTimePrecise @ 0x14033CC90 (RtlGetInterruptTimePrecise.c)
- *     KiSetForceIdleState @ 0x1403CBA34 (KiSetForceIdleState.c)
- *     KeRemoveQueueDpcEx @ 0x140464090 (KeRemoveQueueDpcEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14028EA18 (KiRemoveSystemWorkPriorityKick.c)
+ *     HvlNotifyLongSpinWait @ 0x1402A2E60 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1402A2E90 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     RtlGetInterruptTimePrecise @ 0x14031C170 (RtlGetInterruptTimePrecise.c)
+ *     KeRemoveQueueDpcEx @ 0x14045A7C0 (KeRemoveQueueDpcEx.c)
+ *     KiSetForceIdleState @ 0x140484E74 (KiSetForceIdleState.c)
  */
 
 void KiCheckAndRearmForceIdle()
@@ -19,9 +20,9 @@ void KiCheckAndRearmForceIdle()
   signed __int32 *SchedulerAssist; // r8
   signed __int32 v3; // eax
   signed __int32 v4; // ett
-  unsigned __int64 v5; // [rsp+30h] [rbp+8h] BYREF
+  LARGE_INTEGER PerformanceCounter; // [rsp+30h] [rbp+8h] BYREF
 
-  v5 = 0LL;
+  PerformanceCounter.QuadPart = 0LL;
   if ( KiForceIdleDisabled )
     return;
   _disable();
@@ -52,7 +53,8 @@ void KiCheckAndRearmForceIdle()
   {
     goto LABEL_10;
   }
-  KiForceIdleStartTime = 10000000LL * (unsigned int)KiForceIdleGracePeriodInSec + RtlGetInterruptTimePrecise(&v5);
+  KiForceIdleStartTime = 10000000LL * (unsigned int)KiForceIdleGracePeriodInSec
+                       + *(_QWORD *)&RtlGetInterruptTimePrecise(&PerformanceCounter);
 LABEL_10:
   _InterlockedAnd64(&KiForceIdleLock, 0LL);
   CurrentPrcb = KeGetCurrentPrcb();

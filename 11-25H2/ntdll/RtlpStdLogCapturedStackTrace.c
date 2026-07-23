@@ -23,7 +23,7 @@ __int64 __fastcall RtlpStdLogCapturedStackTrace(__int64 a1, __int64 a2, unsigned
   v4 = 8LL * *(unsigned __int16 *)(a2 + 14);
   v7 = 16LL * (a3 % *(_DWORD *)(a1 + 720));
   _InterlockedAdd((volatile signed __int32 *)(a1 + 176), 1u);
-  RtlpStdLockAcquire((volatile signed __int32 *)(v7 + a1 + 736));
+  RtlpStdLockAcquire((_RTL_SRWLOCK *)(v7 + a1 + 736));
   for ( i = *(_QWORD *)(v7 + a1 + 728); i; i = *(_QWORD *)i )
   {
     if ( *(_WORD *)(i + 14) == *(_WORD *)(a2 + 14)
@@ -51,6 +51,6 @@ LABEL_8:
   if ( (v12 & 0x7FF) != 0x7FF )
     *(_WORD *)(i + 8) = v12 ^ (v12 ^ (v12 + 1)) & 0x7FF;
 LABEL_10:
-  RtlpStdLockRelease((volatile signed __int64 *)(v7 + a1 + 736));
+  RtlpStdLockRelease((_RTL_SRWLOCK *)(v7 + a1 + 736));
   return i;
 }

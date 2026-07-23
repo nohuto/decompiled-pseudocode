@@ -1,8 +1,8 @@
 /*
- * XREFs of KiGetNextTimer2ExpirationDueTime @ 0x14009D1E8
+ * XREFs of KiGetNextTimer2ExpirationDueTime @ 0x14009C9E8
  * Callers:
- *     KiGetNextTimerExpirationDueTime @ 0x14009D0B8 (KiGetNextTimerExpirationDueTime.c)
- *     PpmIdlePrepare @ 0x1400DBCB0 (PpmIdlePrepare.c)
+ *     KiGetNextTimerExpirationDueTime @ 0x14009C8B8 (KiGetNextTimerExpirationDueTime.c)
+ *     PpmIdlePrepare @ 0x1400D9B50 (PpmIdlePrepare.c)
  * Callees:
  *     <none>
  */
@@ -19,9 +19,9 @@ __int64 __fastcall KiGetNextTimer2ExpirationDueTime(char a1, unsigned __int64 *a
   for ( i = (int)result; i <= 3; ++i )
   {
     result = 3 * i;
-    if ( qword_14030E2F0[3 * i] < v3 )
+    if ( qword_14030E330[3 * i] < v3 )
     {
-      v3 = qword_14030E2F0[3 * i];
+      v3 = qword_14030E330[3 * i];
       if ( i == 3 )
         *a3 = 1;
     }

@@ -40,7 +40,7 @@ NTSTATUS __fastcall CmpInitializeRegistryNode(__int64 a1, void *a2, HANDLE *a3, 
   UNICODE_STRING v24; // [rsp+60h] [rbp-81h] BYREF
   UNICODE_STRING UnicodeString; // [rsp+70h] [rbp-71h] BYREF
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+80h] [rbp-61h] BYREF
-  STRING DestinationString; // [rsp+B0h] [rbp-31h] BYREF
+  _STRING DestinationString; // [rsp+B0h] [rbp-31h] BYREF
   CHAR String[16]; // [rsp+C0h] [rbp-21h] BYREF
   char v29; // [rsp+D0h] [rbp-11h] BYREF
 

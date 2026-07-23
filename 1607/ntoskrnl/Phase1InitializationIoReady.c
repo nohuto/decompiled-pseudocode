@@ -1,18 +1,18 @@
 /*
  * XREFs of Phase1InitializationIoReady @ 0x1407934EC
  * Callers:
- *     Phase1Initialization @ 0x14054EA14 (Phase1Initialization.c)
+ *     Phase1Initialization @ 0x14054EDB4 (Phase1Initialization.c)
  * Callees:
  *     WerLiveKernelInitSystem_0 @ 0x140001000 (WerLiveKernelInitSystem_0.c)
  *     TmInitSystemPhase2 @ 0x140001008 (TmInitSystemPhase2.c)
- *     ExNotifyWithProcessing @ 0x140009D60 (ExNotifyWithProcessing.c)
- *     InbvSetProgressBarSubset @ 0x1401399D8 (InbvSetProgressBarSubset.c)
- *     KeBugCheck @ 0x14015D4F0 (KeBugCheck.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
- *     IoCreateDriver @ 0x140551384 (IoCreateDriver.c)
- *     ExQueryBootEntropyInformation @ 0x140580F3C (ExQueryBootEntropyInformation.c)
- *     CmpRegisterTraceLoggingProvider @ 0x140580FF8 (CmpRegisterTraceLoggingProvider.c)
- *     VfNotifyVerifierOfEvent @ 0x1407028B0 (VfNotifyVerifierOfEvent.c)
+ *     ExNotifyWithProcessing @ 0x1400098E0 (ExNotifyWithProcessing.c)
+ *     InbvSetProgressBarSubset @ 0x140139F48 (InbvSetProgressBarSubset.c)
+ *     KeBugCheck @ 0x14015DA60 (KeBugCheck.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
+ *     IoCreateDriver @ 0x1405518C4 (IoCreateDriver.c)
+ *     ExQueryBootEntropyInformation @ 0x1405813E8 (ExQueryBootEntropyInformation.c)
+ *     CmpRegisterTraceLoggingProvider @ 0x1405814A4 (CmpRegisterTraceLoggingProvider.c)
+ *     VfNotifyVerifierOfEvent @ 0x1407028E0 (VfNotifyVerifierOfEvent.c)
  *     KeInitSystem @ 0x140791AC4 (KeInitSystem.c)
  *     PsInitSystem @ 0x140793634 (PsInitSystem.c)
  *     PoInitSystem @ 0x140795530 (PoInitSystem.c)

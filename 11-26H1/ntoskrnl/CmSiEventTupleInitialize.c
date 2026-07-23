@@ -1,8 +1,8 @@
 /*
- * XREFs of CmSiEventTupleInitialize @ 0x1404C7F64
+ * XREFs of CmSiEventTupleInitialize @ 0x1404C1CA4
  * Callers:
- *     CmpBuildMachineHiveCache @ 0x140857664 (CmpBuildMachineHiveCache.c)
- *     CmpOpenHiveFile @ 0x1408B51B0 (CmpOpenHiveFile.c)
+ *     CmpBuildMachineHiveCache @ 0x14085D9F4 (CmpBuildMachineHiveCache.c)
+ *     CmpOpenHiveFile @ 0x1408BB784 (CmpOpenHiveFile.c)
  * Callees:
  *     <none>
  */

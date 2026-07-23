@@ -2,7 +2,7 @@
  * XREFs of RtlpGetCorrelationVectorEndPosition @ 0x1800851A4
  * Callers:
  *     RtlExtendCorrelationVector @ 0x180085160 (RtlExtendCorrelationVector.c)
- *     RtlValidateCorrelationVector @ 0x1800FC230 (RtlValidateCorrelationVector.c)
+ *     RtlValidateCorrelationVector @ 0x1800FC1F0 (RtlValidateCorrelationVector.c)
  * Callees:
  *     RtlpGetCorrelationVectorBufferLength @ 0x180085320 (RtlpGetCorrelationVectorBufferLength.c)
  */

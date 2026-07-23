@@ -36,21 +36,20 @@ __int64 __fastcall MiManageSubsectionView(__int64 *a1, _QWORD *a2, int a3)
   struct _KTHREAD *v16; // rbx
   ULONG_PTR SessionId; // r9
   BOOL v18; // r15d
-  __int64 v19; // r8
-  __int64 v20; // rdx
-  bool v21; // zf
-  __int64 v22; // rcx
-  int v23; // eax
-  __int64 v24; // rcx
-  _KLOCK_ENTRY *v25; // rdi
-  __int64 v26; // rdx
-  __int16 v27; // ax
-  int v29; // ebx
-  __int64 v30; // rax
-  _QWORD *v31; // rbp
-  __int64 v32; // rcx
-  _QWORD *v33; // rax
-  int v34; // [rsp+70h] [rbp+18h] BYREF
+  __int64 v19; // rdx
+  bool v20; // zf
+  __int64 v21; // rcx
+  int v22; // eax
+  __int64 v23; // rcx
+  _KLOCK_ENTRY *v24; // rdi
+  __int64 v25; // rdx
+  __int16 v26; // ax
+  int v28; // ebx
+  __int64 v29; // rax
+  _QWORD *v30; // rbp
+  __int64 v31; // rcx
+  _QWORD *v32; // rax
+  int v33; // [rsp+70h] [rbp+18h] BYREF
 
   CurrentThread = KeGetCurrentThread();
   v5 = *a1;
@@ -63,29 +62,29 @@ __int64 __fastcall MiManageSubsectionView(__int64 *a1, _QWORD *a2, int a3)
     v10 = v9 - 1;
     if ( v10 )
     {
-      v29 = v10 - 1;
-      if ( v29 )
+      v28 = v10 - 1;
+      if ( v28 )
       {
-        if ( v29 == 1 && (*(_DWORD *)(v5 + 56) & 0x400) == 0 )
+        if ( v28 == 1 && (*(_DWORD *)(v5 + 56) & 0x400) == 0 )
         {
-          v32 = *a2;
-          v33 = (_QWORD *)a2[1];
-          if ( *(_QWORD **)(*a2 + 8LL) != a2 || (_QWORD *)*v33 != a2 )
+          v31 = *a2;
+          v32 = (_QWORD *)a2[1];
+          if ( *(_QWORD **)(*a2 + 8LL) != a2 || (_QWORD *)*v32 != a2 )
             __fastfail(3u);
-          *v33 = v32;
-          *(_QWORD *)(v32 + 8) = v33;
+          *v32 = v31;
+          *(_QWORD *)(v31 + 8) = v32;
         }
       }
       else if ( (*(_DWORD *)(v5 + 56) & 0x400) == 0 )
       {
-        v30 = *(_QWORD *)(v5 + 8);
-        v31 = (_QWORD *)(v5 + 8);
-        if ( *(_QWORD **)(v30 + 8) != v31 )
+        v29 = *(_QWORD *)(v5 + 8);
+        v30 = (_QWORD *)(v5 + 8);
+        if ( *(_QWORD **)(v29 + 8) != v30 )
           __fastfail(3u);
-        *a2 = v30;
-        a2[1] = v31;
-        *(_QWORD *)(v30 + 8) = a2;
-        *v31 = a2;
+        *a2 = v29;
+        a2[1] = v30;
+        *(_QWORD *)(v29 + 8) = a2;
+        *v30 = a2;
       }
     }
     else
@@ -112,7 +111,7 @@ __int64 __fastcall MiManageSubsectionView(__int64 *a1, _QWORD *a2, int a3)
   v15 = KeGetCurrentThread();
   if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)v8, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
     ExfTryToWakePushLock(v8);
-  v34 = 0;
+  v33 = 0;
   v16 = KeGetCurrentThread();
   if ( (unsigned int)MiGetSystemRegionType(v8) == 1 )
     SessionId = (unsigned int)MmGetSessionIdEx(v16->ApcState.Process);
@@ -120,31 +119,30 @@ __int64 __fastcall MiManageSubsectionView(__int64 *a1, _QWORD *a2, int a3)
     SessionId = 0xFFFFFFFFLL;
   --v16->SpecialApcDisable;
   v18 = ++v16->AbAllocationRegionCount == 1;
-  v19 = v8 & 0x7FFFFFFFFFFFFFFCLL;
-  LODWORD(v20) = ((char)v16->AbEntrySummary | (char)v16->AbOrphanedEntrySummary) ^ 0x3F;
-  v21 = !_BitScanReverse((unsigned int *)&v22, v20);
-  if ( v21 )
+  LODWORD(v19) = ((char)v16->AbEntrySummary | (char)v16->AbOrphanedEntrySummary) ^ 0x3F;
+  v20 = !_BitScanReverse((unsigned int *)&v21, v19);
+  if ( v20 )
     goto LABEL_38;
   while ( 1 )
   {
-    v23 = 1 << v22;
-    v24 = v22;
-    v25 = &v16->LockEntries[v24];
-    v20 = ~v23 & (unsigned int)v20;
-    if ( (v25->AcquiredByte & 1) != 0
-      && (*(_DWORD *)&v25->LockState.0 & 1) == 0
-      && (*(_QWORD *)&v25->LockState.0 & 0x7FFFFFFFFFFFFFFCLL) == v19
-      && v25->LockState.SessionId == (_DWORD)SessionId )
+    v22 = 1 << v21;
+    v23 = v21;
+    v24 = &v16->LockEntries[v23];
+    v19 = ~v22 & (unsigned int)v19;
+    if ( (v24->AcquiredByte & 1) != 0
+      && (*(_DWORD *)&v24->LockState.0 & 1) == 0
+      && (*(_QWORD *)&v24->LockState.0 & 0x7FFFFFFFFFFFFFFCLL) == (v8 & 0x7FFFFFFFFFFFFFFCLL)
+      && v24->LockState.SessionId == (_DWORD)SessionId )
     {
-      v25->AcquiredByte &= ~1u;
-      if ( v25->LockState.0 )
+      v24->AcquiredByte &= ~1u;
+      if ( v24->LockState.0 )
         break;
     }
-    v21 = !_BitScanReverse((unsigned int *)&v22, v20);
-    if ( v21 )
+    v20 = !_BitScanReverse((unsigned int *)&v21, v19);
+    if ( v20 )
       goto LABEL_38;
   }
-  if ( !v25 )
+  if ( !v24 )
   {
 LABEL_38:
     if ( (*((_DWORD *)&v16->0 + 1) & 0x8000) == 0 )
@@ -152,25 +150,25 @@ LABEL_38:
   }
   else
   {
-    v25->CrossThreadReleasableAndBusyByte |= 2u;
-    if ( (__int64)v25->LockState.LockState < 0 )
-      KiAbEntryRemoveFromTree((__int64)&v16->LockEntries[v24], v20, v19);
-    v34 = 0;
-    v34 = v25->BoostBitmap.AllFields & 0x1FFFF;
-    v25->BoostBitmap.AllFields &= 0xFFFE0000;
-    v25->ThreadLocalFlags &= ~1u;
-    v25->LockState.0 = 0LL;
-    v26 = ((char *)v25 - (char *)v16 - 800) / 96;
+    v24->CrossThreadReleasableAndBusyByte |= 2u;
+    if ( (__int64)v24->LockState.LockState < 0 )
+      KiAbEntryRemoveFromTree(&v16->LockEntries[v23].TreeNode, v19);
+    v33 = 0;
+    v33 = v24->BoostBitmap.AllFields & 0x1FFFF;
+    v24->BoostBitmap.AllFields &= 0xFFFE0000;
+    v24->ThreadLocalFlags &= ~1u;
+    v24->LockState.0 = 0LL;
+    v25 = ((char *)v24 - (char *)v16 - 800) / 96;
     if ( v18 )
-      v16->AbEntrySummary |= 1 << v26;
+      v16->AbEntrySummary |= 1 << v25;
     else
-      _InterlockedOr8((volatile signed __int8 *)&v16->AbOrphanedEntrySummary, 1 << v26);
+      _InterlockedOr8((volatile signed __int8 *)&v16->AbOrphanedEntrySummary, 1 << v25);
   }
   --v16->AbAllocationRegionCount;
-  KiAbThreadRemoveBoosts(v16, v8, &v34);
-  v27 = v16->SpecialApcDisable + 1;
-  v16->SpecialApcDisable = v27;
-  if ( !v27 && ($69CD3F157F9F39B6F7113F2231989901 *)v16->ApcState.ApcListHead[0].Flink != &v16->152 )
+  KiAbThreadRemoveBoosts(v16, v8, &v33);
+  v26 = v16->SpecialApcDisable + 1;
+  v16->SpecialApcDisable = v26;
+  if ( !v26 && ($69CD3F157F9F39B6F7113F2231989901 *)v16->ApcState.ApcListHead[0].Flink != &v16->152 )
     KiCheckForKernelApcDelivery();
   return KiLeaveGuardedRegionUnsafe(v15);
 }

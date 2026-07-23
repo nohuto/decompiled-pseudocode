@@ -1,9 +1,9 @@
 /*
- * XREFs of KiAbThreadUnboostIoPriority @ 0x1400B2E3C
+ * XREFs of KiAbThreadUnboostIoPriority @ 0x1400B0D88
  * Callers:
- *     ExReleaseCacheAwarePushLockSharedEx @ 0x1400139A0 (ExReleaseCacheAwarePushLockSharedEx.c)
- *     KeAbEntryFree @ 0x14002C430 (KeAbEntryFree.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
+ *     ExReleaseCacheAwarePushLockSharedEx @ 0x140013520 (ExReleaseCacheAwarePushLockSharedEx.c)
+ *     KeAbEntryFree @ 0x14002BFB0 (KeAbEntryFree.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
  * Callees:
  *     <none>
  */

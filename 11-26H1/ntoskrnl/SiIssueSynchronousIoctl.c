@@ -1,13 +1,13 @@
 /*
- * XREFs of SiIssueSynchronousIoctl @ 0x140894B6C
+ * XREFs of SiIssueSynchronousIoctl @ 0x14089AF6C
  * Callers:
- *     SyspartResolveEfiEspCallback @ 0x140895530 (SyspartResolveEfiEspCallback.c)
- *     SiIsWinPeHardDiskZeroUfdBoot @ 0x1408959AC (SiIsWinPeHardDiskZeroUfdBoot.c)
- *     SiValidateSystemPartition @ 0x140AE13CC (SiValidateSystemPartition.c)
+ *     SyspartResolveEfiEspCallback @ 0x14089B930 (SyspartResolveEfiEspCallback.c)
+ *     SiIsWinPeHardDiskZeroUfdBoot @ 0x14089BDAC (SiIsWinPeHardDiskZeroUfdBoot.c)
+ *     SiValidateSystemPartition @ 0x140ADE8BC (SiValidateSystemPartition.c)
  * Callees:
- *     ZwDeviceIoControlFile @ 0x1407234D0 (ZwDeviceIoControlFile.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     SiOpenDevice @ 0x140AE154C (SiOpenDevice.c)
+ *     ZwDeviceIoControlFile @ 0x1407280A0 (ZwDeviceIoControlFile.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     SiOpenDevice @ 0x140ADEA3C (SiOpenDevice.c)
  */
 
 __int64 __fastcall SiIssueSynchronousIoctl(

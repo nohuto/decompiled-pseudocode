@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpMcGetLoadConfiguration @ 0x14051B9E4
+ * XREFs of HalpMcGetLoadConfiguration @ 0x14051BF34
  * Callers:
- *     HalpLoadMicrocode @ 0x140934B30 (HalpLoadMicrocode.c)
+ *     HalpLoadMicrocode @ 0x140934D30 (HalpLoadMicrocode.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1B0 (RtlInitUnicodeString.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     memset @ 0x140435A00 (memset.c)
- *     MmGetSystemRoutineAddress @ 0x140756870 (MmGetSystemRoutineAddress.c)
+ *     RtlInitUnicodeString @ 0x14022E2C0 (RtlInitUnicodeString.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     MmGetSystemRoutineAddress @ 0x140756A60 (MmGetSystemRoutineAddress.c)
  */
 
 __int64 __fastcall HalpMcGetLoadConfiguration(_BYTE *a1)

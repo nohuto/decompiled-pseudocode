@@ -1,8 +1,8 @@
 /*
- * XREFs of ExRundownCompletedCacheAware @ 0x14048D820
+ * XREFs of ExRundownCompletedCacheAware @ 0x140487360
  * Callers:
- *     ExReInitializeRundownProtectionCacheAware @ 0x14048D7D0 (ExReInitializeRundownProtectionCacheAware.c)
- *     MiDrainCrossPartitionUsage @ 0x1406F0580 (MiDrainCrossPartitionUsage.c)
+ *     ExReInitializeRundownProtectionCacheAware @ 0x140487310 (ExReInitializeRundownProtectionCacheAware.c)
+ *     MiDrainCrossPartitionUsage @ 0x1406F51F0 (MiDrainCrossPartitionUsage.c)
  * Callees:
  *     <none>
  */

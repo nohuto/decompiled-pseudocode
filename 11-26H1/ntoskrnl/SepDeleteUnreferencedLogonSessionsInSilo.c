@@ -1,14 +1,14 @@
 /*
- * XREFs of SepDeleteUnreferencedLogonSessionsInSilo @ 0x1408154F4
+ * XREFs of SepDeleteUnreferencedLogonSessionsInSilo @ 0x14081B6A4
  * Callers:
- *     SeShutdownServerSilo @ 0x1408101CC (SeShutdownServerSilo.c)
+ *     SeShutdownServerSilo @ 0x140815C5C (SeShutdownServerSilo.c)
  * Callees:
- *     ExAcquireResourceExclusiveLite @ 0x140275200 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x1402B4CF0 (ExReleaseResourceLite.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     PsAttachSiloToCurrentThread @ 0x14046CE80 (PsAttachSiloToCurrentThread.c)
- *     PsDetachSiloFromCurrentThread @ 0x140476400 (PsDetachSiloFromCurrentThread.c)
- *     SepDeleteLogonSessionTrack @ 0x140AFE360 (SepDeleteLogonSessionTrack.c)
+ *     ExAcquireResourceExclusiveLite @ 0x140274770 (ExAcquireResourceExclusiveLite.c)
+ *     ExReleaseResourceLite @ 0x1402FF9C0 (ExReleaseResourceLite.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     PsAttachSiloToCurrentThread @ 0x140466600 (PsAttachSiloToCurrentThread.c)
+ *     PsDetachSiloFromCurrentThread @ 0x14046FB80 (PsDetachSiloFromCurrentThread.c)
+ *     SepDeleteLogonSessionTrack @ 0x140B003D0 (SepDeleteLogonSessionTrack.c)
  */
 
 struct _KTHREAD *__fastcall SepDeleteUnreferencedLogonSessionsInSilo(struct _LIST_ENTRY *a1)
@@ -34,7 +34,7 @@ struct _KTHREAD *__fastcall SepDeleteUnreferencedLogonSessionsInSilo(struct _LIS
     CurrentThread = KeGetCurrentThread();
     v7 = SepLogonSessions;
     --CurrentThread->KernelApcDisable;
-    v8 = (struct _ERESOURCE *)(&RtlpBootStatHandleLock.InGlobalUpdateVpThreadPriorityList + 13 * (v2 & 3));
+    v8 = (struct _ERESOURCE *)(&RtlpBootStatHandleLock.SystemAffinityTokenListHead + 13 * (v2 & 3));
     ExAcquireResourceExclusiveLite(v8, 1u);
     for ( i = *(__int64 ***)(v4 + v7); i; i = (__int64 **)*i )
     {

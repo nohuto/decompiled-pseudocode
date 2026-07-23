@@ -10,40 +10,36 @@
  *     RtlGuardGrantSuppressedCallAccess @ 0x1800EA1DC (RtlGuardGrantSuppressedCallAccess.c)
  */
 
-__int64 __fastcall AVrfCallAPILookupCallback(__int64 a1, __int64 a2, __int64 a3, __int64 a4, __int64 *a5)
+__int64 __fastcall AVrfCallAPILookupCallback(__int64 a1, __int64 a2, __int64 a3, unsigned int a4, __int64 *a5)
 {
-  unsigned int v7; // ebp
   __int64 v9; // rdi
-  char *v10; // rdx
-  __int64 v11; // r8
-  __int64 v12; // r9
-  __int64 v13; // rbx
-  unsigned __int64 v15[3]; // [rsp+20h] [rbp-18h] BYREF
+  __int64 v10; // rbx
+  PVOID BaseAddress[3]; // [rsp+20h] [rbp-18h] BYREF
 
-  v7 = a4;
   v9 = 0LL;
-  if ( (int)LdrpFindLoadedDllByAddress(a1, (char *)v15, 0LL, a4) < 0 )
+  if ( (int)LdrpFindLoadedDllByAddress(a1, (volatile signed __int32 **)BaseAddress, 0LL) < 0 )
   {
     v9 = a1;
   }
   else
   {
-    if ( v15[0] != LdrpNtDllDataTableEntry && (*(_DWORD *)(v15[0] + 104) & 0x400) == 0 )
-      v9 = *(_QWORD *)(v15[0] + 48);
-    LdrpDereferenceModule(v15[0], v10, v11, v12);
+    if ( BaseAddress[0] != (PVOID)LdrpNtDllDataTableEntry && (*((_DWORD *)BaseAddress[0] + 26) & 0x400) == 0 )
+      v9 = *((_QWORD *)BaseAddress[0] + 6);
+    LdrpDereferenceModule((char *)BaseAddress[0]);
   }
   if ( v9 )
   {
-    v13 = ((__int64 (__fastcall *)(__int64, __int64, __int64, _QWORD))(__ROR8__(
+    v10 = ((__int64 (__fastcall *)(__int64, __int64, __int64, _QWORD))(__ROR8__(
                                                                          AvrfpAPILookupCallbackRoutine,
-                                                                         64 - (MEMORY[0x7FFE0330] & 0x3Fu)) ^ MEMORY[0x7FFE0330]))(
+                                                                         64
+                                                                       - ((unsigned __int8)MEMORY[0x7FFE0330] & 0x3Fu)) ^ (unsigned int)MEMORY[0x7FFE0330]))(
             v9,
             a2,
             a3,
-            v7);
-    if ( v13 != a3 )
-      RtlGuardGrantSuppressedCallAccess(a3, v15);
-    *a5 = v13;
+            a4);
+    if ( v10 != a3 )
+      RtlGuardGrantSuppressedCallAccess(a3, BaseAddress);
+    *a5 = v10;
   }
   else
   {

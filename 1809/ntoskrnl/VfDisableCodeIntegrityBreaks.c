@@ -1,7 +1,7 @@
 /*
- * XREFs of VfDisableCodeIntegrityBreaks @ 0x1409276B8
+ * XREFs of VfDisableCodeIntegrityBreaks @ 0x1409286B8
  * Callers:
- *     ViInitSystemPhase0 @ 0x1409DAF34 (ViInitSystemPhase0.c)
+ *     ViInitSystemPhase0 @ 0x1409DBF34 (ViInitSystemPhase0.c)
  * Callees:
  *     <none>
  */
@@ -12,7 +12,7 @@ __int64 VfDisableCodeIntegrityBreaks()
 
   result = 0x200000002LL;
   ViCiDefaultActions = 0x200000002LL;
-  qword_14097F120 = 0x200000002LL;
-  qword_14097F128 = 0x200000002LL;
+  qword_140980120 = 0x200000002LL;
+  qword_140980128 = 0x200000002LL;
   return result;
 }

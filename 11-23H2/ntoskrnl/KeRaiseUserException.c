@@ -1,13 +1,13 @@
 /*
- * XREFs of KeRaiseUserException @ 0x140570E90
+ * XREFs of KeRaiseUserException @ 0x1405713D0
  * Callers:
- *     ExHandleLogBadReference @ 0x140606A28 (ExHandleLogBadReference.c)
- *     ObpCloseHandle @ 0x1406E7680 (ObpCloseHandle.c)
- *     PspInsertThread @ 0x14073EE9C (PspInsertThread.c)
- *     ObCloseHandleTableEntry @ 0x14073FDC4 (ObCloseHandleTableEntry.c)
+ *     ExHandleLogBadReference @ 0x140606F78 (ExHandleLogBadReference.c)
+ *     ObpCloseHandle @ 0x1406E76B0 (ObpCloseHandle.c)
+ *     PspInsertThread @ 0x14073F08C (PspInsertThread.c)
+ *     ObCloseHandleTableEntry @ 0x14073FFB4 (ObCloseHandleTableEntry.c)
  * Callees:
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     KiSetupForInstrumentationReturn @ 0x140570F90 (KiSetupForInstrumentationReturn.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     KiSetupForInstrumentationReturn @ 0x1405714D0 (KiSetupForInstrumentationReturn.c)
  */
 
 __int64 __fastcall KeRaiseUserException(unsigned int a1)
@@ -44,7 +44,7 @@ __int64 __fastcall KeRaiseUserException(unsigned int a1)
   }
   if ( CurrentIrql < v4 )
   {
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v6 = KeGetCurrentIrql();
       if ( ((unsigned __int8)KiIrqlFlags & v4) != 0 && (unsigned __int8)(v6 - 2) <= 0xDu )

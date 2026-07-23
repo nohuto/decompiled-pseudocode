@@ -1,12 +1,12 @@
 /*
- * XREFs of MmGetScpCfgFunctionOffset @ 0x140AEB8CC
+ * XREFs of MmGetScpCfgFunctionOffset @ 0x140AEE7D8
  * Callers:
- *     ?PspLocateNtdllAddressesForScpCfg@@YAJKEKPEAU_RTL_SCP_CFG_NTDLL_EXPORTS@@PEAU_RTL_SCP_CFG_NTDLL_EXPORTS_ARM64EC@@@Z @ 0x140CD9680 (-PspLocateNtdllAddressesForScpCfg@@YAJKEKPEAU_RTL_SCP_CFG_NTDLL_EXPORTS@@PEAU_RTL_SCP_CFG_NTDLL_.c)
+ *     ?PspLocateNtdllAddressesForScpCfg@@YAJKEKPEAU_RTL_SCP_CFG_NTDLL_EXPORTS@@PEAU_RTL_SCP_CFG_NTDLL_EXPORTS_ARM64EC@@@Z @ 0x140CDFA00 (-PspLocateNtdllAddressesForScpCfg@@YAJKEKPEAU_RTL_SCP_CFG_NTDLL_EXPORTS@@PEAU_RTL_SCP_CFG_NTDLL_.c)
  * Callees:
  *     <none>
  */
 
 __int64 __fastcall MmGetScpCfgFunctionOffset(int a1, int a2)
 {
-  return a1 + LODWORD(stru_140E2D150.LastXStateSaveDebugInfo) + ((a2 + 4095) & 0xFFFFF000);
+  return a1 + LODWORD(stru_140E2D2D0.LastXStateSaveDebugInfo) + ((a2 + 4095) & 0xFFFFF000);
 }

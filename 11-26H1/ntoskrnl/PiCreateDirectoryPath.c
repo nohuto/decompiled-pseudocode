@@ -1,13 +1,13 @@
 /*
- * XREFs of PiCreateDirectoryPath @ 0x1407A0A9C
+ * XREFs of PiCreateDirectoryPath @ 0x1407A35DC
  * Callers:
- *     PiOpenDirectoryWithRoot @ 0x1407A13E4 (PiOpenDirectoryWithRoot.c)
+ *     PiOpenDirectoryWithRoot @ 0x1407A3F24 (PiOpenDirectoryWithRoot.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     ZwCreateFile @ 0x140723E90 (ZwCreateFile.c)
- *     PnpConcatenateUnicodeStrings @ 0x14090FC6C (PnpConcatenateUnicodeStrings.c)
- *     RtlFreeAnsiString @ 0x140A007C0 (RtlFreeAnsiString.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     ZwCreateFile @ 0x140728A60 (ZwCreateFile.c)
+ *     PnpConcatenateUnicodeStrings @ 0x1409B1D9C (PnpConcatenateUnicodeStrings.c)
+ *     RtlFreeAnsiString @ 0x140A169F0 (RtlFreeAnsiString.c)
  */
 
 __int64 __fastcall PiCreateDirectoryPath(UNICODE_STRING *SourceString, void *a2, HANDLE *a3)

@@ -1,7 +1,7 @@
 /*
- * XREFs of HvlQueryActiveProcessors @ 0x140271440
+ * XREFs of HvlQueryActiveProcessors @ 0x140271630
  * Callers:
- *     ExpQuerySystemInformation @ 0x140626390 (ExpQuerySystemInformation.c)
+ *     ExpQuerySystemInformation @ 0x1406273B0 (ExpQuerySystemInformation.c)
  * Callees:
  *     <none>
  */
@@ -29,7 +29,7 @@ __int64 __fastcall HvlQueryActiveProcessors(unsigned int *a1, int *a2)
       v7 = HvlpActiveProcessorCount;
     if ( v7 )
     {
-      v8 = &dword_140548744;
+      v8 = &dword_140549744;
       v9 = v7;
       do
       {

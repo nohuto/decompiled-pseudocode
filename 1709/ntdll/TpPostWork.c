@@ -6,24 +6,22 @@
  *     <none>
  */
 
-__int64 __fastcall TpPostWork(_PEB_LDR_DATA *Ldr, __int64 a2, __int64 a3, __int64 a4)
+void __cdecl TpPostWork(PTP_WORK Work)
 {
-  _PEB_LDR_DATA *v4; // rdx
-  int ShutdownThreadId; // eax
+  PTP_WORK v1; // rdx
+  int v2; // eax
 
-  v4 = Ldr;
-  if ( !Ldr )
-    return TppRaiseInvalidParameter(Ldr, v4, a3, a4);
-  ShutdownThreadId = (int)Ldr[1].ShutdownThreadId;
-  if ( (ShutdownThreadId & 0x10000) != 0 )
-    return TppRaiseInvalidParameter(Ldr, v4, a3, a4);
-  if ( (ShutdownThreadId & 0x20000) != 0 )
-    return TppRaiseInvalidParameter(Ldr, v4, a3, a4);
-  if ( Ldr->SsHandle != TppWorkpCleanupGroupMemberVFuncs )
-    return TppRaiseInvalidParameter(Ldr, v4, a3, a4);
-  Ldr = NtCurrentPeb()->Ldr;
-  if ( Ldr->ShutdownInProgress )
-    return TppRaiseInvalidParameter(Ldr, v4, a3, a4);
+  v1 = Work;
+  if ( !Work
+    || (v2 = *((_DWORD *)Work + 42), (v2 & 0x10000) != 0)
+    || (v2 & 0x20000) != 0
+    || *((__int64 (__fastcall ***)(PVOID))Work + 1) != &TppWorkpCleanupGroupMemberVFuncs
+    || (Work = (PTP_WORK)NtCurrentPeb()->Ldr, *((_BYTE *)Work + 72)) )
+  {
+    TppRaiseInvalidParameter(Work, v1);
+  }
   else
-    return TppWorkPost(v4);
+  {
+    TppWorkPost(v1);
+  }
 }

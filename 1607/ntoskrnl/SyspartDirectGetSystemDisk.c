@@ -1,5 +1,5 @@
 /*
- * XREFs of SyspartDirectGetSystemDisk @ 0x1406D6048
+ * XREFs of SyspartDirectGetSystemDisk @ 0x1406D6180
  * Callers:
  *     <none>
  * Callees:

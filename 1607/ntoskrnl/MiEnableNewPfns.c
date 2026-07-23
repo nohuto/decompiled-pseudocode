@@ -1,11 +1,11 @@
 /*
- * XREFs of MiEnableNewPfns @ 0x1401E1B74
+ * XREFs of MiEnableNewPfns @ 0x1401E19A0
  * Callers:
- *     MiAddPhysicalMemory @ 0x1406575DC (MiAddPhysicalMemory.c)
+ *     MiAddPhysicalMemory @ 0x1406576C0 (MiAddPhysicalMemory.c)
  * Callees:
- *     MiLockPageInline @ 0x140022E70 (MiLockPageInline.c)
- *     MiLockAndInsertPageInFreeList @ 0x140144DA4 (MiLockAndInsertPageInFreeList.c)
- *     MiInsertLargePageInNodeList @ 0x1401FBB4C (MiInsertLargePageInNodeList.c)
+ *     MiLockPageInline @ 0x1400229F0 (MiLockPageInline.c)
+ *     MiLockAndInsertPageInFreeList @ 0x140145314 (MiLockAndInsertPageInFreeList.c)
+ *     MiInsertLargePageInNodeList @ 0x1401FB978 (MiInsertLargePageInNodeList.c)
  */
 
 void __fastcall MiEnableNewPfns(unsigned __int64 a1, unsigned __int64 a2)

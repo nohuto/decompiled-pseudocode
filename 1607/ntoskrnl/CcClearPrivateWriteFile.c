@@ -1,13 +1,13 @@
 /*
- * XREFs of CcClearPrivateWriteFile @ 0x1401B1FD8
+ * XREFs of CcClearPrivateWriteFile @ 0x1401B1EBC
  * Callers:
- *     HvViewMapCleanup @ 0x1404EEEA8 (HvViewMapCleanup.c)
- *     HvViewMapStart @ 0x14060FCB4 (HvViewMapStart.c)
+ *     HvViewMapCleanup @ 0x1404D0F70 (HvViewMapCleanup.c)
+ *     HvViewMapStart @ 0x14060FD68 (HvViewMapStart.c)
  * Callees:
- *     KeAcquireQueuedSpinLock @ 0x1400E8D30 (KeAcquireQueuedSpinLock.c)
- *     KeReleaseQueuedSpinLock @ 0x1400E8DA0 (KeReleaseQueuedSpinLock.c)
- *     MmEnableModifiedWriteOfSection @ 0x1401E5C5C (MmEnableModifiedWriteOfSection.c)
- *     FsRtlAcquireFileExclusive @ 0x14042DE48 (FsRtlAcquireFileExclusive.c)
+ *     KeAcquireQueuedSpinLock @ 0x1400E6BD0 (KeAcquireQueuedSpinLock.c)
+ *     KeReleaseQueuedSpinLock @ 0x1400E6C40 (KeReleaseQueuedSpinLock.c)
+ *     MmEnableModifiedWriteOfSection @ 0x1401E5A88 (MmEnableModifiedWriteOfSection.c)
+ *     FsRtlAcquireFileExclusive @ 0x14042CD18 (FsRtlAcquireFileExclusive.c)
  */
 
 void __fastcall CcClearPrivateWriteFile(struct _FILE_OBJECT *a1)

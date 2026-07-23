@@ -1,19 +1,19 @@
 /*
- * XREFs of AuthzBasepEqualUnicodeString @ 0x1403CBD00
+ * XREFs of AuthzBasepEqualUnicodeString @ 0x1403B0620
  * Callers:
- *     AuthzBasepQuerySecurityAttributeAndValues @ 0x1402B2540 (AuthzBasepQuerySecurityAttributeAndValues.c)
- *     SeSecurityAttributePresent @ 0x1402B4AC0 (SeSecurityAttributePresent.c)
- *     AuthzBasepFindTokenAttribute @ 0x1403C9F14 (AuthzBasepFindTokenAttribute.c)
- *     AuthzBasepFindSecurityAttributeValue @ 0x1403CA408 (AuthzBasepFindSecurityAttributeValue.c)
- *     SepInternalQuerySecurityAttributesTokenEx @ 0x1403CC2F0 (SepInternalQuerySecurityAttributesTokenEx.c)
- *     AuthzBasepQuerySecurityAttributesToken @ 0x1403CC900 (AuthzBasepQuerySecurityAttributesToken.c)
- *     AuthzBasepCopyoutSecurityAttributes @ 0x1403CCDF0 (AuthzBasepCopyoutSecurityAttributes.c)
- *     AuthzBasepFindSecurityAttribute @ 0x1403CD4D0 (AuthzBasepFindSecurityAttribute.c)
- *     AuthzBasepSecurityAttributePresent @ 0x1403CD5A0 (AuthzBasepSecurityAttributePresent.c)
- *     AuthzBasepFindSystemSecurityAttribute @ 0x140A7DB88 (AuthzBasepFindSystemSecurityAttribute.c)
+ *     AuthzBasepQuerySecurityAttributeAndValues @ 0x1402FD210 (AuthzBasepQuerySecurityAttributeAndValues.c)
+ *     SeSecurityAttributePresent @ 0x1402FF790 (SeSecurityAttributePresent.c)
+ *     SepInternalQuerySecurityAttributesTokenEx @ 0x1403B0C10 (SepInternalQuerySecurityAttributesTokenEx.c)
+ *     AuthzBasepQuerySecurityAttributesToken @ 0x1403B1220 (AuthzBasepQuerySecurityAttributesToken.c)
+ *     AuthzBasepCopyoutSecurityAttributes @ 0x1403B1710 (AuthzBasepCopyoutSecurityAttributes.c)
+ *     AuthzBasepFindSecurityAttribute @ 0x1403B1DF0 (AuthzBasepFindSecurityAttribute.c)
+ *     AuthzBasepSecurityAttributePresent @ 0x1403B1EC0 (AuthzBasepSecurityAttributePresent.c)
+ *     AuthzBasepFindSecurityAttributeValue @ 0x1403B27DC (AuthzBasepFindSecurityAttributeValue.c)
+ *     AuthzBasepFindTokenAttribute @ 0x1404F781C (AuthzBasepFindTokenAttribute.c)
+ *     AuthzBasepFindSystemSecurityAttribute @ 0x140A839F8 (AuthzBasepFindSystemSecurityAttribute.c)
  * Callees:
- *     AuthzBasepEqualUnicodeStringCaseSensitive @ 0x1403CD668 (AuthzBasepEqualUnicodeStringCaseSensitive.c)
- *     RtlEqualUnicodeString @ 0x14091F0E0 (RtlEqualUnicodeString.c)
+ *     AuthzBasepEqualUnicodeStringCaseSensitive @ 0x1403B1F88 (AuthzBasepEqualUnicodeStringCaseSensitive.c)
+ *     RtlEqualUnicodeString @ 0x140979B40 (RtlEqualUnicodeString.c)
  */
 
 BOOLEAN __fastcall AuthzBasepEqualUnicodeString(const UNICODE_STRING *a1, const UNICODE_STRING *a2)

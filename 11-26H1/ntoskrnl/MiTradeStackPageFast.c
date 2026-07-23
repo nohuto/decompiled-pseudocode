@@ -1,16 +1,16 @@
 /*
- * XREFs of MiTradeStackPageFast @ 0x140415F18
+ * XREFs of MiTradeStackPageFast @ 0x14040A528
  * Callers:
- *     MiJumpStackTarget @ 0x1403E4C40 (MiJumpStackTarget.c)
- *     MiSwapStackPage @ 0x140415804 (MiSwapStackPage.c)
+ *     MiJumpStackTarget @ 0x1403E7E30 (MiJumpStackTarget.c)
+ *     MiSwapStackPage @ 0x140409E34 (MiSwapStackPage.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     MiFlushSingleTbEntry @ 0x140285050 (MiFlushSingleTbEntry.c)
- *     MiMakeDemandZeroPte @ 0x14028B2D0 (MiMakeDemandZeroPte.c)
- *     MiCopyPage @ 0x140293FA4 (MiCopyPage.c)
- *     MiCopyPfnEntryEx @ 0x140294570 (MiCopyPfnEntryEx.c)
- *     MiClearPfnReuseFields @ 0x14031A250 (MiClearPfnReuseFields.c)
- *     MiSetPfnIdentity @ 0x140369440 (MiSetPfnIdentity.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     MiFlushSingleTbEntry @ 0x1402845B0 (MiFlushSingleTbEntry.c)
+ *     MiMakeDemandZeroPte @ 0x14028A830 (MiMakeDemandZeroPte.c)
+ *     MiCopyPage @ 0x140293504 (MiCopyPage.c)
+ *     MiCopyPfnEntryEx @ 0x140293AD0 (MiCopyPfnEntryEx.c)
+ *     MiClearPfnReuseFields @ 0x14031C280 (MiClearPfnReuseFields.c)
+ *     MiSetPfnIdentity @ 0x14036B1E0 (MiSetPfnIdentity.c)
  */
 
 __int64 __fastcall MiTradeStackPageFast(const __m128i *a1, __m128i *a2)

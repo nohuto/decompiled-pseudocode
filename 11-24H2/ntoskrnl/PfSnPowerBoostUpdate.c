@@ -1,9 +1,9 @@
 /*
- * XREFs of PfSnPowerBoostUpdate @ 0x140A7DBD8
+ * XREFs of PfSnPowerBoostUpdate @ 0x140A77ED8
  * Callers:
- *     PfSnPowerBoostWorker @ 0x140747720 (PfSnPowerBoostWorker.c)
+ *     PfSnPowerBoostWorker @ 0x140745A10 (PfSnPowerBoostWorker.c)
  * Callees:
- *     ExpNtUpdateWnfStateData @ 0x1408AC580 (ExpNtUpdateWnfStateData.c)
+ *     ExpNtUpdateWnfStateData @ 0x1409027E0 (ExpNtUpdateWnfStateData.c)
  */
 
 __int64 __fastcall PfSnPowerBoostUpdate(int a1)
@@ -14,7 +14,7 @@ __int64 __fastcall PfSnPowerBoostUpdate(int a1)
   int v4; // [rsp+5Ch] [rbp+14h]
 
   result = (unsigned int)-a1;
-  v2 = _InterlockedExchangeAdd(&dword_140E67114, a1 != 0 ? 1 : -1);
+  v2 = _InterlockedExchangeAdd(&dword_140E67264, a1 != 0 ? 1 : -1);
   if ( !v2 && a1 || v2 == 1 && !a1 )
   {
     v4 = -1;

@@ -1,39 +1,39 @@
 /*
- * XREFs of KeCancelTimer2 @ 0x1403AA4E0
+ * XREFs of KeCancelTimer2 @ 0x1403B40F0
  * Callers:
- *     ExpSetTimerObject2 @ 0x1403A9988 (ExpSetTimerObject2.c)
- *     ExpShutdownWorkerFactory @ 0x1403A9ED0 (ExpShutdownWorkerFactory.c)
- *     ExCancelTimer @ 0x1403AA0D0 (ExCancelTimer.c)
- *     PopIdleCancelAoAcDozeS4Timer @ 0x1404F15DC (PopIdleCancelAoAcDozeS4Timer.c)
- *     PopCheckPowerSourceAfterRtcWakeCancel @ 0x1405079A8 (PopCheckPowerSourceAfterRtcWakeCancel.c)
- *     PopThermalEventTransitionEnableDeepSleep @ 0x140528ED8 (PopThermalEventTransitionEnableDeepSleep.c)
- *     KiForceParkDutyCycleDpcCallback @ 0x1405F8980 (KiForceParkDutyCycleDpcCallback.c)
- *     PopDirectedDripsStartDisengageTimer @ 0x140603B60 (PopDirectedDripsStartDisengageTimer.c)
- *     PopThermalUpdateTelemetryClientCount @ 0x140607C84 (PopThermalUpdateTelemetryClientCount.c)
- *     DifKeCancelTimer2Wrapper @ 0x140660690 (DifKeCancelTimer2Wrapper.c)
- *     PopPowerRequestDebounceTimerWorker @ 0x1407C9450 (PopPowerRequestDebounceTimerWorker.c)
- *     PopNetLowPowerEpochCallback @ 0x1407DA660 (PopNetLowPowerEpochCallback.c)
- *     PopNetResiliencyPhaseStateChanged @ 0x1407DA8C0 (PopNetResiliencyPhaseStateChanged.c)
- *     PopAdaptiveStandbyCheckHibernateBudgetAction @ 0x1407DE80C (PopAdaptiveStandbyCheckHibernateBudgetAction.c)
- *     PopAdaptiveStandbySessionStop @ 0x1407E05F8 (PopAdaptiveStandbySessionStop.c)
- *     ExStartStopWorkQueueProvider @ 0x14083F6BC (ExStartStopWorkQueueProvider.c)
- *     ExpPartitionDestroy @ 0x14083FAC8 (ExpPartitionDestroy.c)
- *     PopPowerRequestExecutionRequiredSettingCallback @ 0x1409462B0 (PopPowerRequestExecutionRequiredSettingCallback.c)
- *     EtwpDisableKernelTrace @ 0x14095A8C0 (EtwpDisableKernelTrace.c)
- *     PopPowerRequestNotifySystemIdleStateChanged @ 0x140A3C238 (PopPowerRequestNotifySystemIdleStateChanged.c)
- *     PpmCheckReInit @ 0x140A9D410 (PpmCheckReInit.c)
- *     PopPowerAggregatorDozeTimerDisarm @ 0x140B2BCBC (PopPowerAggregatorDozeTimerDisarm.c)
- *     EtwpCoverageFlushPending @ 0x140B433F0 (EtwpCoverageFlushPending.c)
- *     PopDripsWatchdogStopTimer @ 0x140B51AE8 (PopDripsWatchdogStopTimer.c)
+ *     ExpSetTimerObject2 @ 0x1403B3598 (ExpSetTimerObject2.c)
+ *     ExpShutdownWorkerFactory @ 0x1403B3AE0 (ExpShutdownWorkerFactory.c)
+ *     ExCancelTimer @ 0x1403B3CE0 (ExCancelTimer.c)
+ *     PopIdleCancelAoAcDozeS4Timer @ 0x1404EABBC (PopIdleCancelAoAcDozeS4Timer.c)
+ *     PopCheckPowerSourceAfterRtcWakeCancel @ 0x140501378 (PopCheckPowerSourceAfterRtcWakeCancel.c)
+ *     PopThermalEventTransitionEnableDeepSleep @ 0x14052B4C8 (PopThermalEventTransitionEnableDeepSleep.c)
+ *     KiForceParkDutyCycleDpcCallback @ 0x1405FB3A0 (KiForceParkDutyCycleDpcCallback.c)
+ *     PopDirectedDripsStartDisengageTimer @ 0x140606610 (PopDirectedDripsStartDisengageTimer.c)
+ *     PopThermalUpdateTelemetryClientCount @ 0x14060A834 (PopThermalUpdateTelemetryClientCount.c)
+ *     DifKeCancelTimer2Wrapper @ 0x140664270 (DifKeCancelTimer2Wrapper.c)
+ *     PopPowerRequestDebounceTimerWorker @ 0x1407CC4F0 (PopPowerRequestDebounceTimerWorker.c)
+ *     PopNetLowPowerEpochCallback @ 0x1407DE550 (PopNetLowPowerEpochCallback.c)
+ *     PopNetResiliencyPhaseStateChanged @ 0x1407DE7B0 (PopNetResiliencyPhaseStateChanged.c)
+ *     PopAdaptiveStandbyCheckHibernateBudgetAction @ 0x1407E2E8C (PopAdaptiveStandbyCheckHibernateBudgetAction.c)
+ *     PopAdaptiveStandbySessionStop @ 0x1407E5384 (PopAdaptiveStandbySessionStop.c)
+ *     ExStartStopWorkQueueProvider @ 0x1408458FC (ExStartStopWorkQueueProvider.c)
+ *     ExpPartitionDestroy @ 0x140845D08 (ExpPartitionDestroy.c)
+ *     PopPowerRequestExecutionRequiredSettingCallback @ 0x1409C1C20 (PopPowerRequestExecutionRequiredSettingCallback.c)
+ *     PopPowerRequestNotifySystemIdleStateChanged @ 0x1409F7C58 (PopPowerRequestNotifySystemIdleStateChanged.c)
+ *     EtwpDisableKernelTrace @ 0x140A00180 (EtwpDisableKernelTrace.c)
+ *     PpmCheckReInit @ 0x140AEBB2C (PpmCheckReInit.c)
+ *     PopPowerAggregatorDozeTimerDisarm @ 0x140B2DD3C (PopPowerAggregatorDozeTimerDisarm.c)
+ *     EtwpCoverageFlushPending @ 0x140B452E0 (EtwpCoverageFlushPending.c)
+ *     PopDripsWatchdogStopTimer @ 0x140B54388 (PopDripsWatchdogStopTimer.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     KxReleaseSpinLock @ 0x1402BDEF0 (KxReleaseSpinLock.c)
- *     KiRemoveTimer2 @ 0x140378EB0 (KiRemoveTimer2.c)
- *     KiAcquireTimer2LockUnlessDisabled @ 0x14037A9B0 (KiAcquireTimer2LockUnlessDisabled.c)
- *     KiAcquireTimer2CollectionLockIfInserted @ 0x14037AA30 (KiAcquireTimer2CollectionLockIfInserted.c)
- *     KiTraceCancelTimer2 @ 0x1403A9BE0 (KiTraceCancelTimer2.c)
- *     KiUpdateTimer2Flags @ 0x1403AA610 (KiUpdateTimer2Flags.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KxReleaseSpinLock @ 0x140308BB0 (KxReleaseSpinLock.c)
+ *     KiRemoveTimer2 @ 0x14037AC60 (KiRemoveTimer2.c)
+ *     KiAcquireTimer2LockUnlessDisabled @ 0x14037C760 (KiAcquireTimer2LockUnlessDisabled.c)
+ *     KiAcquireTimer2CollectionLockIfInserted @ 0x14037C7E0 (KiAcquireTimer2CollectionLockIfInserted.c)
+ *     KiTraceCancelTimer2 @ 0x1403B37F0 (KiTraceCancelTimer2.c)
+ *     KiUpdateTimer2Flags @ 0x1403B4220 (KiUpdateTimer2Flags.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 unsigned __int8 __fastcall KeCancelTimer2(__int64 a1)
@@ -89,7 +89,7 @@ LABEL_11:
   if ( v5 && v1 )
     KiTraceCancelTimer2(
       v3,
-      (unsigned __int64)stru_140FC01F0.WaitBlock[2].WaitListEntry.Flink ^ _byteswap_uint64(v3 ^ __ROL8__(
+      (unsigned __int64)stru_140FC11F0.WaitBlock[2].WaitListEntry.Blink ^ _byteswap_uint64(v3 ^ __ROL8__(
                                                                                                   KiWaitNever ^ v4,
                                                                                                   KiWaitNever)));
   return v1;

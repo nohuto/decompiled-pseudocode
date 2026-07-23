@@ -10,7 +10,7 @@
  *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
  */
 
-__int64 __fastcall MiGetPrototypePteRanges(unsigned __int64 a1, RTL_BITMAP *a2)
+__int64 __fastcall MiGetPrototypePteRanges(unsigned __int64 a1, _RTL_BITMAP *a2)
 {
   unsigned __int64 v2; // r13
   unsigned int v4; // r12d
@@ -190,10 +190,13 @@ __int64 __fastcall MiGetPrototypePteRanges(unsigned __int64 a1, RTL_BITMAP *a2)
     }
   }
   ExReleaseSpinLockSharedFromDpcLevel(&dword_140C65838);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v7 <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
+      && (unsigned __int8)v7 <= 0xFu
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;

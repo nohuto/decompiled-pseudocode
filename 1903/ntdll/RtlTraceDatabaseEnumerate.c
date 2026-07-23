@@ -14,7 +14,7 @@ char __fastcall RtlTraceDatabaseEnumerate(__int64 a1, __int64 a2, _QWORD *a3)
   unsigned int i; // eax
   char v9; // di
 
-  RtlEnterCriticalSection(a1 + 48);
+  RtlEnterCriticalSection((PRTL_CRITICAL_SECTION)(a1 + 48));
   *(_QWORD *)(a1 + 40) = 0LL;
   if ( *(_QWORD *)a2 )
   {
@@ -59,6 +59,6 @@ LABEL_10:
   v9 = 0;
 LABEL_15:
   *(_QWORD *)(a1 + 40) = 0LL;
-  RtlLeaveCriticalSection(a1 + 48);
+  RtlLeaveCriticalSection((PRTL_CRITICAL_SECTION)(a1 + 48));
   return v9;
 }

@@ -1,12 +1,12 @@
 /*
- * XREFs of ExpWnfEnumeratePermanentDataStoreHandles @ 0x140A07644
+ * XREFs of ExpWnfEnumeratePermanentDataStoreHandles @ 0x140A078D4
  * Callers:
- *     ExpWnfDeletePermanentStateData @ 0x140A072EC (ExpWnfDeletePermanentStateData.c)
+ *     ExpWnfDeletePermanentStateData @ 0x140A0757C (ExpWnfDeletePermanentStateData.c)
  * Callees:
- *     ExpWnfGetPermanentDataStoreHandleByScopeId @ 0x140854B2C (ExpWnfGetPermanentDataStoreHandleByScopeId.c)
+ *     ExpWnfGetPermanentDataStoreHandleByScopeId @ 0x140854E2C (ExpWnfGetPermanentDataStoreHandleByScopeId.c)
  */
 
-NTSTATUS __fastcall ExpWnfEnumeratePermanentDataStoreHandles(int a1, int a2, int a3, HANDLE *a4)
+int __fastcall ExpWnfEnumeratePermanentDataStoreHandles(int a1, int a2, int a3, HANDLE *a4)
 {
   if ( a1 == 2 || a3 )
     return -1073741772;

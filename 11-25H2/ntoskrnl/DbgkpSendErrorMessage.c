@@ -55,26 +55,27 @@ __int64 __fastcall DbgkpSendErrorMessage(__int64 a1, char a2, __int64 a3)
   __int64 v22; // rcx
   __int16 v23; // ax
   char v24; // bl
-  char *MessageAttribute; // rax
+  _DWORD *MessageAttribute; // rax
   __int64 v26; // rdx
   __int64 v27; // r13
   char v28; // di
-  int v29; // eax
+  NTSTATUS v29; // eax
   __int64 v30; // rdx
   char v32; // [rsp+40h] [rbp-C0h]
   PVOID Object; // [rsp+48h] [rbp-B8h]
-  __int64 v35; // [rsp+58h] [rbp-A8h] BYREF
+  ULONG_PTR RequiredBufferSize; // [rsp+58h] [rbp-A8h] BYREF
   LARGE_INTEGER v36; // [rsp+60h] [rbp-A0h] BYREF
   __int64 v37; // [rsp+68h] [rbp-98h]
   struct _KTHREAD *v38; // [rsp+70h] [rbp-90h]
-  _OWORD v39[2]; // [rsp+80h] [rbp-80h] BYREF
-  __int128 v40; // [rsp+A0h] [rbp-60h]
-  __int128 v41; // [rsp+B0h] [rbp-50h]
-  char v42[96]; // [rsp+C0h] [rbp-40h] BYREF
+  _ALPC_MESSAGE_ATTRIBUTES Buffer[2]; // [rsp+80h] [rbp-80h] BYREF
+  __int128 v40; // [rsp+90h] [rbp-70h]
+  __int128 v41; // [rsp+A0h] [rbp-60h]
+  __int128 v42; // [rsp+B0h] [rbp-50h]
+  char v43[96]; // [rsp+C0h] [rbp-40h] BYREF
 
   v37 = a1;
-  memset_0(v42, 0, sizeof(v42));
-  v35 = 0LL;
+  memset_0(v43, 0, sizeof(v43));
+  RequiredBufferSize = 0LL;
   v36.QuadPart = 0LL;
   CurrentThread = KeGetCurrentThread();
   v32 = 0;
@@ -82,12 +83,12 @@ __int64 __fastcall DbgkpSendErrorMessage(__int64 a1, char a2, __int64 a3)
   Process = (__int64)CurrentThread->Process;
   ProcessServerSilo = PsGetProcessServerSilo(Process);
   v8 = (PVOID *)((char *)PsGetServerSiloGlobals(ProcessServerSilo) + 936);
-  memset_0(v39, 0, 0x40uLL);
+  memset_0(Buffer, 0, 0x40uLL);
   if ( (*(_DWORD *)(Process + 1532) & 1) != 0 )
     return (unsigned int)-1073741637;
-  MmGetSectionInformation(*(_QWORD *)(Process + 680), 1, (__int64)v39);
+  MmGetSectionInformation(*(_QWORD *)(Process + 680), 1, (__int64)Buffer);
   ServerSiloServiceSessionId = PsGetServerSiloServiceSessionId(ProcessServerSilo);
-  if ( (unsigned int)PsGetSessionIdEx(Process) != ServerSiloServiceSessionId && (_DWORD)v40 != 1 && (a2 & 2) != 0 )
+  if ( (unsigned int)PsGetSessionIdEx(Process) != ServerSiloServiceSessionId && (_DWORD)v41 != 1 && (a2 & 2) != 0 )
     v32 = DbgkpSuspendProcess(Process);
   started = DbgkpStartSystemErrorHandler();
   if ( started < 0 )
@@ -159,12 +160,12 @@ LABEL_25:
     *(_DWORD *)(a3 + 40) = 7;
     *(_DWORD *)(a3 + 44) = -2147418111;
     KeCopyExceptionRecord(a3 + 48, v18);
-    v19 = v39[1];
-    *(_OWORD *)(a3 + 200) = v39[0];
+    v19 = v40;
+    *(_OWORD *)(a3 + 200) = *(_OWORD *)&Buffer[0].AllocatedAttributes;
     *(_DWORD *)(a3 + 264) = 0;
-    v20 = v40;
+    v20 = v41;
     *(_OWORD *)(a3 + 216) = v19;
-    v21 = v41;
+    v21 = v42;
     *(_OWORD *)(a3 + 232) = v20;
     *(_OWORD *)(a3 + 248) = v21;
     if ( (*(_BYTE *)(Process + 1530) & 7) != 0 )
@@ -198,19 +199,27 @@ LABEL_25:
     }
     LOBYTE(v22) = 1;
     v24 = PsTestProtectedProcessIncompatibility(v22, v16, Process);
-    AlpcInitializeMessageAttribute(0x10000000LL, v39, 0xA0uLL, &v35);
-    DWORD1(v39[0]) = 0x10000000;
-    MessageAttribute = AlpcGetMessageAttribute(v39, 0x10000000);
-    *((_DWORD *)MessageAttribute + 4) = 4;
+    AlpcInitializeMessageAttribute(0x10000000u, Buffer, 0xA0uLL, &RequiredBufferSize);
+    Buffer[0].ValidAttributes = 0x10000000;
+    MessageAttribute = AlpcGetMessageAttribute(Buffer, 0x10000000u);
+    MessageAttribute[4] = 4;
     *((_QWORD *)MessageAttribute + 1) = -2LL;
-    *((_DWORD *)MessageAttribute + 5) = v24 != 0 ? 1055744 : 0x1FFFFF;
-    *(_DWORD *)MessageAttribute = 0;
-    v35 = 272LL;
+    MessageAttribute[5] = v24 != 0 ? 1055744 : 0x1FFFFF;
+    *MessageAttribute = 0;
+    RequiredBufferSize = 272LL;
     KeTestAlertThread(0LL, v26);
     v27 = (__int64)v38;
     if ( (*(_DWORD *)(&v38[1].SwapListEntry + 1) & 1) != 0 )
       goto LABEL_40;
-    v29 = ZwAlpcSendWaitReceivePort(*((_QWORD *)v13 + 1), 2228224LL);
+    v29 = ZwAlpcSendWaitReceivePort(
+            *((HANDLE *)v13 + 1),
+            0x220000u,
+            (PPORT_MESSAGE)a3,
+            Buffer,
+            (PPORT_MESSAGE)a3,
+            &RequiredBufferSize,
+            0LL,
+            0LL);
     started = v29;
     if ( v29 < 0 )
     {
@@ -226,7 +235,7 @@ LABEL_40:
     else
     {
       if ( _bittest16((const signed __int16 *)(a3 + 4), 0xDu) )
-        ZwAlpcSendWaitReceivePort(*((_QWORD *)v13 + 1), 0x10000LL);
+        ZwAlpcSendWaitReceivePort(*((HANDLE *)v13 + 1), 0x10000u, (PPORT_MESSAGE)a3, 0LL, 0LL, 0LL, 0LL, 0LL);
       started = *(_DWORD *)(a3 + 44);
       if ( started >= 0 && !v17 && started == 65538 )
       {

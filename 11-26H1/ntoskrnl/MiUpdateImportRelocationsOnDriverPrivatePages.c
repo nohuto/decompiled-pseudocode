@@ -1,22 +1,22 @@
 /*
- * XREFs of MiUpdateImportRelocationsOnDriverPrivatePages @ 0x140514568
+ * XREFs of MiUpdateImportRelocationsOnDriverPrivatePages @ 0x14050DFD8
  * Callers:
- *     MiApplyImportOptimizationToRuntimeDriver @ 0x140B3C35C (MiApplyImportOptimizationToRuntimeDriver.c)
+ *     MiApplyImportOptimizationToRuntimeDriver @ 0x140B3E5DC (MiApplyImportOptimizationToRuntimeDriver.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     MiReferenceDriverPage @ 0x140295E24 (MiReferenceDriverPage.c)
- *     MiLockPageTableInternal @ 0x1402B34E0 (MiLockPageTableInternal.c)
- *     MiUnlockPageTableInternal @ 0x1402D13E0 (MiUnlockPageTableInternal.c)
- *     MiReleasePageFileInfo @ 0x1402DAD50 (MiReleasePageFileInfo.c)
- *     MiRemoveLockedPageChargeAndDecRef @ 0x1402E8BF0 (MiRemoveLockedPageChargeAndDecRef.c)
- *     MiUnlockWorkingSetShared @ 0x1402EB6C0 (MiUnlockWorkingSetShared.c)
- *     MiLockWorkingSetShared @ 0x1402EDD60 (MiLockWorkingSetShared.c)
- *     MiCaptureDirtyBitToPfn @ 0x14031AE30 (MiCaptureDirtyBitToPfn.c)
- *     MiLockWorkingSetSharedAtDpc @ 0x1403654E4 (MiLockWorkingSetSharedAtDpc.c)
- *     MmAccessFault @ 0x1403A2390 (MmAccessFault.c)
- *     MiUpdateImagePfnImportRelocations @ 0x140480C40 (MiUpdateImagePfnImportRelocations.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     MiReferenceDriverPage @ 0x140295384 (MiReferenceDriverPage.c)
+ *     MiUnlockPageTableInternal @ 0x1402B31A0 (MiUnlockPageTableInternal.c)
+ *     MiReleasePageFileInfo @ 0x1402BCB10 (MiReleasePageFileInfo.c)
+ *     MiRemoveLockedPageChargeAndDecRef @ 0x1402CAC30 (MiRemoveLockedPageChargeAndDecRef.c)
+ *     MiUnlockWorkingSetShared @ 0x1402CD700 (MiUnlockWorkingSetShared.c)
+ *     MiLockWorkingSetShared @ 0x1402CFDE0 (MiLockWorkingSetShared.c)
+ *     MiLockPageTableInternal @ 0x1402FE1B0 (MiLockPageTableInternal.c)
+ *     MiCaptureDirtyBitToPfn @ 0x14031CE60 (MiCaptureDirtyBitToPfn.c)
+ *     MiLockWorkingSetSharedAtDpc @ 0x140367284 (MiLockWorkingSetSharedAtDpc.c)
+ *     MmAccessFault @ 0x1403A40F0 (MmAccessFault.c)
+ *     MiUpdateImagePfnImportRelocations @ 0x14047A5B0 (MiUpdateImagePfnImportRelocations.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
  */
 
 void __fastcall MiUpdateImportRelocationsOnDriverPrivatePages(__int64 a1, __int64 a2, __int64 a3)
@@ -55,7 +55,7 @@ void __fastcall MiUpdateImportRelocationsOnDriverPrivatePages(__int64 a1, __int6
   v6 = ((*(_QWORD *)(a1 + 48) >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
   v7 = (ULONG_PTR *)(v6 + 8 * ((unsigned __int64)*(unsigned int *)(a1 + 64) >> 12));
   v27 = v7;
-  v9 = MiLockWorkingSetShared((__int64)&unk_140E36E00, a2, a3);
+  v9 = MiLockWorkingSetShared((__int64)&unk_140E36F80, a2, a3);
   v10 = 0LL;
   while ( v6 < (unsigned __int64)v7 )
   {
@@ -63,10 +63,10 @@ void __fastcall MiUpdateImportRelocationsOnDriverPrivatePages(__int64 a1, __int6
       goto LABEL_6;
     if ( (v6 & 0xFFF) == 0 )
     {
-      MiUnlockPageTableInternal((__int64)&unk_140E36E00, v5);
+      MiUnlockPageTableInternal((__int64)&unk_140E36F80, v5);
 LABEL_6:
       v5 = ((v6 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
-      MiLockPageTableInternal((signed __int64)&unk_140E36E00, v5, 0);
+      MiLockPageTableInternal((signed __int64)&unk_140E36F80, v5, 0);
     }
     v11 = *(_QWORD *)v6;
     if ( !*(_QWORD *)v6 )
@@ -86,10 +86,10 @@ LABEL_6:
         }
         MiReferenceDriverPage(48 * v16 - 0x220000000000LL);
         _InterlockedAnd64((volatile signed __int64 *)(v17 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-        MiUnlockPageTableInternal((__int64)&unk_140E36E00, v5);
+        MiUnlockPageTableInternal((__int64)&unk_140E36F80, v5);
         LOBYTE(v18) = v9;
         v5 = 0LL;
-        MiUnlockWorkingSetShared((__int64)&unk_140E36E00, v18);
+        MiUnlockWorkingSetShared((__int64)&unk_140E36F80, v18);
         updated = MiUpdateImagePfnImportRelocations(v4, v3, v10 >> 3, v16);
         CurrentIrql = KeGetCurrentIrql();
         if ( (_BYTE)CurrentIrql != 2 )
@@ -111,13 +111,13 @@ LABEL_6:
         if ( updated != 1 )
         {
           v22 = MiCaptureDirtyBitToPfn(v17);
-          v23 = *(struct _KEVENT **)(stru_140E2EB88.ThreadLock + 8 * ((*(_QWORD *)(v17 + 40) >> 43) & 0x3FFLL));
+          v23 = *(struct _KEVENT **)(stru_140E2ED08.ThreadLock + 8 * ((*(_QWORD *)(v17 + 40) >> 43) & 0x3FFLL));
         }
         MiRemoveLockedPageChargeAndDecRef(v17);
         _InterlockedAnd64((volatile signed __int64 *)(v17 + 24), 0x7FFFFFFFFFFFFFFFuLL);
         if ( v22 )
-          MiReleasePageFileInfo(v23, v22, 1);
-        MiLockWorkingSetSharedAtDpc((__int64)&unk_140E36E00);
+          MiReleasePageFileInfo(v23, v22, 1LL);
+        MiLockWorkingSetSharedAtDpc((__int64)&unk_140E36F80);
         v3 = v26;
         v4 = v25;
       }
@@ -130,14 +130,14 @@ LABEL_32:
     {
       if ( (v11 & 0x400) == 0 )
       {
-        MiUnlockPageTableInternal((__int64)&unk_140E36E00, v5);
+        MiUnlockPageTableInternal((__int64)&unk_140E36F80, v5);
         LOBYTE(v12) = v9;
         v5 = 0LL;
-        MiUnlockWorkingSetShared((__int64)&unk_140E36E00, v12);
+        MiUnlockWorkingSetShared((__int64)&unk_140E36F80, v12);
         v13 = MmAccessFault(0LL, (__int64)(v6 << 25) >> 16, 0, 0LL);
         if ( v13 < 0 )
           KeBugCheckEx(0x1Au, 0x1081uLL, (__int64)(v6 << 25) >> 16, v11, v13);
-        MiLockWorkingSetShared((__int64)&unk_140E36E00, v14, v15);
+        MiLockWorkingSetShared((__int64)&unk_140E36F80, v14, v15);
         goto LABEL_32;
       }
 LABEL_8:
@@ -147,7 +147,7 @@ LABEL_8:
     }
   }
   if ( v5 )
-    MiUnlockPageTableInternal((__int64)&unk_140E36E00, v5);
+    MiUnlockPageTableInternal((__int64)&unk_140E36F80, v5);
   LOBYTE(v8) = v9;
-  MiUnlockWorkingSetShared((__int64)&unk_140E36E00, v8);
+  MiUnlockWorkingSetShared((__int64)&unk_140E36F80, v8);
 }

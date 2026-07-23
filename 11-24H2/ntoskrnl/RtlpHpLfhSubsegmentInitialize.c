@@ -1,14 +1,14 @@
 /*
- * XREFs of RtlpHpLfhSubsegmentInitialize @ 0x1402B5728
+ * XREFs of RtlpHpLfhSubsegmentInitialize @ 0x1403D8348
  * Callers:
- *     RtlpHpLfhSubsegmentCreate @ 0x1402B52CC (RtlpHpLfhSubsegmentCreate.c)
+ *     RtlpHpLfhSubsegmentCreate @ 0x1404E751C (RtlpHpLfhSubsegmentCreate.c)
  * Callees:
- *     RtlpHpLfhSubsegmentSetWitheldBlocks @ 0x1402B523C (RtlpHpLfhSubsegmentSetWitheldBlocks.c)
- *     RtlpHpInitializeLock @ 0x1402B5710 (RtlpHpInitializeLock.c)
- *     RtlpHpLfhBlockBitmapInitialize @ 0x1402B5A9C (RtlpHpLfhBlockBitmapInitialize.c)
- *     RtlpHpLfhSubsegmentComputeCommitUnit @ 0x1402B6604 (RtlpHpLfhSubsegmentComputeCommitUnit.c)
- *     RtlpHpLfhSubsegmentPrefetchRange @ 0x1402B6AB0 (RtlpHpLfhSubsegmentPrefetchRange.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     RtlpHpLfhSubsegmentPrefetchRange @ 0x1403D86BC (RtlpHpLfhSubsegmentPrefetchRange.c)
+ *     RtlpHpLfhSubsegmentComputeCommitUnit @ 0x1403D9204 (RtlpHpLfhSubsegmentComputeCommitUnit.c)
+ *     RtlpHpLfhBlockBitmapInitialize @ 0x1403D96B0 (RtlpHpLfhBlockBitmapInitialize.c)
+ *     RtlpHpInitializeLock @ 0x1403D970C (RtlpHpInitializeLock.c)
+ *     RtlpHpLfhSubsegmentSetWitheldBlocks @ 0x1403D9724 (RtlpHpLfhSubsegmentSetWitheldBlocks.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 char __fastcall RtlpHpLfhSubsegmentInitialize(
@@ -44,7 +44,7 @@ char __fastcall RtlpHpLfhSubsegmentInitialize(
   unsigned __int8 v30; // cl
   unsigned __int8 v31; // al
   char v32; // al
-  __int64 v33; // rdx
+  int v33; // edx
   unsigned __int8 *v34; // rsi
   __int64 v35; // rax
   __int16 v36; // cx
@@ -53,7 +53,7 @@ char __fastcall RtlpHpLfhSubsegmentInitialize(
   char *v39; // rdi
   int v41; // [rsp+30h] [rbp-58h]
   __int64 v42; // [rsp+38h] [rbp-50h]
-  unsigned int v43; // [rsp+98h] [rbp+10h]
+  int v43; // [rsp+98h] [rbp+10h]
   __int16 v45; // [rsp+A0h] [rbp+18h]
   int v47; // [rsp+C0h] [rbp+38h]
 
@@ -86,10 +86,10 @@ char __fastcall RtlpHpLfhSubsegmentInitialize(
   RtlpHpLfhSubsegmentPrefetchRange(a1, 0LL, v9, v19);
   v21 = v20 + 64;
   memset_0((void *)a1, v20, (unsigned int)(v20 + 64));
-  RtlpHpInitializeLock((_QWORD *)(a1 + 56), *(unsigned __int8 *)(a6 + 65));
+  RtlpHpInitializeLock(a1 + 56, *(unsigned __int8 *)(a6 + 65));
   HIWORD(v43) = v16;
   LOWORD(v43) = v10;
-  *(_DWORD *)(a1 + 40) = v43 ^ qword_140E28208 ^ (a1 >> 12);
+  *(_DWORD *)(a1 + 40) = v43 ^ qword_140E28348 ^ (a1 >> 12);
   *(_WORD *)(a1 + 32) = v18;
   *(_WORD *)(a1 + 44) = (unsigned __int64)&a5[-v22] >> 6;
   _BitScanForward(&v23, a3 >> 12);
@@ -137,13 +137,13 @@ char __fastcall RtlpHpLfhSubsegmentInitialize(
   *(_BYTE *)(a1 + 50) = v32;
   RtlpHpLfhBlockBitmapInitialize(a1 + 64, v18);
   v33 = v10 - 1;
-  if ( ((unsigned int)v33 & v10) == 0 )
+  if ( ((v10 - 1) & v10) == 0 )
   {
     v16 = (unsigned __int16)v16 - (v33 & ((unsigned __int16)v16 + v10 - 1)) + v10 - 1;
     if ( v16 + v10 * v18 != a2 )
       NT_ASSERT("FirstBlockOffset + BlockSize * BlockCount == SubsegmentSize");
     HIWORD(v43) = v16;
-    *(_DWORD *)(a1 + 40) = v43 ^ qword_140E28208 ^ (a1 >> 12);
+    *(_DWORD *)(a1 + 40) = v43 ^ qword_140E28348 ^ (a1 >> 12);
     goto LABEL_18;
   }
   if ( a2 <= 0x1000 )
@@ -155,7 +155,7 @@ LABEL_18:
   v34 = a5;
   if ( (*(_BYTE *)(a6 + 70) & 1) != 0 )
   {
-    v37 = RtlpHpLfhSubsegmentSetWitheldBlocks(a1 + 64, v33, (__int64)a5, v43, a2);
+    v37 = RtlpHpLfhSubsegmentSetWitheldBlocks((int)a1 + 64, v33, (_DWORD)a5, v43, a2);
     *(_WORD *)(a1 + 32) -= v37;
     *(_WORD *)(a1 + 34) -= v37;
     *(_BYTE *)(a1 + 37) += v37;

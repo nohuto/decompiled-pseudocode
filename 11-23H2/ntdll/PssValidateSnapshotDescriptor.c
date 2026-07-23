@@ -1,8 +1,8 @@
 /*
- * XREFs of PssValidateSnapshotDescriptor @ 0x1800A0928
+ * XREFs of PssValidateSnapshotDescriptor @ 0x1800A0924
  * Callers:
- *     PsspDuplicateSnapshotLocalToRemote @ 0x18012BEFC (PsspDuplicateSnapshotLocalToRemote.c)
- *     PsspDuplicateSnapshotRemoteToRemote @ 0x18012C484 (PsspDuplicateSnapshotRemoteToRemote.c)
+ *     PsspDuplicateSnapshotLocalToRemote @ 0x18012BECC (PsspDuplicateSnapshotLocalToRemote.c)
+ *     PsspDuplicateSnapshotRemoteToRemote @ 0x18012C488 (PsspDuplicateSnapshotRemoteToRemote.c)
  * Callees:
  *     <none>
  */

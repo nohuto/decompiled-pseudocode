@@ -1,24 +1,24 @@
 /*
- * XREFs of CcDereferencePartitionAndPrivateVolumeCacheMap @ 0x1402CD54C
+ * XREFs of CcDereferencePartitionAndPrivateVolumeCacheMap @ 0x1402E624C
  * Callers:
- *     CcCachemapUninitWorkerThread @ 0x1402A7660 (CcCachemapUninitWorkerThread.c)
- *     CcPostDeferredWrites @ 0x1402AAB14 (CcPostDeferredWrites.c)
- *     CcDeletePrivateVolumeCacheMap @ 0x1402CB768 (CcDeletePrivateVolumeCacheMap.c)
- *     CcDeleteSharedCacheMap @ 0x1402CCE98 (CcDeleteSharedCacheMap.c)
- *     CcInitializeAsyncReadForNodeHelper @ 0x14048D520 (CcInitializeAsyncReadForNodeHelper.c)
- *     CcQuickLazyWriteScanForVolume @ 0x1404B54A0 (CcQuickLazyWriteScanForVolume.c)
- *     CcUninitializeCacheMap @ 0x1404DA4B0 (CcUninitializeCacheMap.c)
- *     CcWorkerThread @ 0x1404DB3D0 (CcWorkerThread.c)
- *     CcCanIWrite @ 0x1404DBAA0 (CcCanIWrite.c)
- *     CcAsyncLazywriteWorkerThread @ 0x1404DEF40 (CcAsyncLazywriteWorkerThread.c)
- *     CcAsyncReadWorker @ 0x1404DF280 (CcAsyncReadWorker.c)
- *     CcCompleteAsyncReadWorker @ 0x1404DFBA0 (CcCompleteAsyncReadWorker.c)
- *     CcRemoveExternalCache @ 0x14057AB08 (CcRemoveExternalCache.c)
- *     CcRemoveExternalCacheEx @ 0x14057ABB4 (CcRemoveExternalCacheEx.c)
- *     CcAsyncReadWorkerThread @ 0x14057DDB0 (CcAsyncReadWorkerThread.c)
- *     CcCompleteAsyncLazywriteWorkerThread @ 0x14057DFC0 (CcCompleteAsyncLazywriteWorkerThread.c)
+ *     CcPostDeferredWrites @ 0x1402795B0 (CcPostDeferredWrites.c)
+ *     CcCachemapUninitWorkerThread @ 0x14027AAB0 (CcCachemapUninitWorkerThread.c)
+ *     CcDeleteSharedCacheMap @ 0x1402E5B98 (CcDeleteSharedCacheMap.c)
+ *     CcDeletePrivateVolumeCacheMap @ 0x1404309A4 (CcDeletePrivateVolumeCacheMap.c)
+ *     CcInitializeAsyncReadForNodeHelper @ 0x140487DA0 (CcInitializeAsyncReadForNodeHelper.c)
+ *     CcQuickLazyWriteScanForVolume @ 0x1404AFD40 (CcQuickLazyWriteScanForVolume.c)
+ *     CcUninitializeCacheMap @ 0x1404D3ED0 (CcUninitializeCacheMap.c)
+ *     CcWorkerThread @ 0x1404D4DF0 (CcWorkerThread.c)
+ *     CcCanIWrite @ 0x1404D54C0 (CcCanIWrite.c)
+ *     CcAsyncLazywriteWorkerThread @ 0x1404D8960 (CcAsyncLazywriteWorkerThread.c)
+ *     CcAsyncReadWorker @ 0x1404D8CA0 (CcAsyncReadWorker.c)
+ *     CcCompleteAsyncReadWorker @ 0x1404D95C0 (CcCompleteAsyncReadWorker.c)
+ *     CcRemoveExternalCache @ 0x140577F98 (CcRemoveExternalCache.c)
+ *     CcRemoveExternalCacheEx @ 0x140578044 (CcRemoveExternalCacheEx.c)
+ *     CcAsyncReadWorkerThread @ 0x14057B240 (CcAsyncReadWorkerThread.c)
+ *     CcCompleteAsyncLazywriteWorkerThread @ 0x14057B450 (CcCompleteAsyncLazywriteWorkerThread.c)
  * Callees:
- *     KeSetEvent @ 0x1402725A0 (KeSetEvent.c)
+ *     KeSetEvent @ 0x140227B30 (KeSetEvent.c)
  */
 
 char __fastcall CcDereferencePartitionAndPrivateVolumeCacheMap(__int64 a1, __int64 a2)

@@ -2,31 +2,31 @@
  * XREFs of MiValidateSectionCreate @ 0x1406ABE8C
  * Callers:
  *     MiValidateSectionSigningPolicy @ 0x1406AA5DC (MiValidateSectionSigningPolicy.c)
- *     MiPromoteControlAreaToStrongCode @ 0x140A3B258 (MiPromoteControlAreaToStrongCode.c)
- *     MiMapImageForEnclaveUse @ 0x140A3E748 (MiMapImageForEnclaveUse.c)
+ *     MiPromoteControlAreaToStrongCode @ 0x140A3B508 (MiPromoteControlAreaToStrongCode.c)
+ *     MiMapImageForEnclaveUse @ 0x140A3E9F8 (MiMapImageForEnclaveUse.c)
  * Callees:
  *     PsSetSystemPagePriorityThread @ 0x14020EBFC (PsSetSystemPagePriorityThread.c)
  *     PsRevertToUserPagePriorityThread @ 0x14021075C (PsRevertToUserPagePriorityThread.c)
- *     MiWalkEntireImage @ 0x1402DAFE0 (MiWalkEntireImage.c)
- *     MiAllocatePool @ 0x1402DF1A0 (MiAllocatePool.c)
- *     MiFlushEntireTbDueToAttributeChange @ 0x14036F59C (MiFlushEntireTbDueToAttributeChange.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     KeZeroSinglePage @ 0x140424600 (KeZeroSinglePage.c)
- *     KeCopyPage @ 0x1404246E0 (KeCopyPage.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     memset @ 0x140435A00 (memset.c)
- *     MiImageCantMove @ 0x140655F68 (MiImageCantMove.c)
- *     MiStrongCodeImage @ 0x140656008 (MiStrongCodeImage.c)
+ *     MiWalkEntireImage @ 0x1402DB270 (MiWalkEntireImage.c)
+ *     MiAllocatePool @ 0x1402DF430 (MiAllocatePool.c)
+ *     MiFlushEntireTbDueToAttributeChange @ 0x14036F73C (MiFlushEntireTbDueToAttributeChange.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
+ *     KeZeroSinglePage @ 0x140424990 (KeZeroSinglePage.c)
+ *     KeCopyPage @ 0x140424A70 (KeCopyPage.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     MiImageCantMove @ 0x1406564B8 (MiImageCantMove.c)
+ *     MiStrongCodeImage @ 0x140656558 (MiStrongCodeImage.c)
  *     SeValidateImageHeader @ 0x1406AC8B0 (SeValidateImageHeader.c)
  *     MiMapImageInSystemSpace @ 0x1406AC9FC (MiMapImageInSystemSpace.c)
  *     MiUnmapImageInSystemSpace @ 0x1406ACB70 (MiUnmapImageInSystemSpace.c)
- *     MiRevertRelocations @ 0x14079D834 (MiRevertRelocations.c)
- *     MiDereferencePerSessionProtos @ 0x1407B5BB8 (MiDereferencePerSessionProtos.c)
- *     MiCreatePerSessionProtos @ 0x1407B5D00 (MiCreatePerSessionProtos.c)
- *     MiPrefetchControlArea @ 0x1407DC90C (MiPrefetchControlArea.c)
- *     SeReleaseImageValidationContext @ 0x1407EAC78 (SeReleaseImageValidationContext.c)
- *     MiCaptureSecureImageBaseAddress @ 0x140A47F74 (MiCaptureSecureImageBaseAddress.c)
+ *     MiRevertRelocations @ 0x14079DA24 (MiRevertRelocations.c)
+ *     MiDereferencePerSessionProtos @ 0x1407B5E98 (MiDereferencePerSessionProtos.c)
+ *     MiCreatePerSessionProtos @ 0x1407B5FE0 (MiCreatePerSessionProtos.c)
+ *     MiPrefetchControlArea @ 0x1407DCBDC (MiPrefetchControlArea.c)
+ *     SeReleaseImageValidationContext @ 0x1407EAF48 (SeReleaseImageValidationContext.c)
+ *     MiCaptureSecureImageBaseAddress @ 0x140A48224 (MiCaptureSecureImageBaseAddress.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 
@@ -412,9 +412,9 @@ LABEL_58:
       {
         v41 = v44 & 0xFFFFFFFFFFFFFFF8uLL;
         v44 &= 0xFFFFFFFFFFFFFFF8uLL;
-        if ( qword_140C37A80 )
+        if ( qword_140C37A20 )
         {
-          LODWORD(v17) = qword_140C37A80(v38 & 0xFFFFFFFFFFFFFFF8uLL);
+          LODWORD(v17) = qword_140C37A20(v38 & 0xFFFFFFFFFFFFFFF8uLL);
           v41 = v44;
         }
         else

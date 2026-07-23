@@ -1,13 +1,13 @@
 /*
- * XREFs of MmGetLoadedModuleImageAdditionalTablesAddress @ 0x1403EA010
+ * XREFs of MmGetLoadedModuleImageAdditionalTablesAddress @ 0x1403D7CB0
  * Callers:
- *     MiUpdateDriverLoadInProgress @ 0x14042C688 (MiUpdateDriverLoadInProgress.c)
- *     IopLiveDumpMarkLoadedModuleList @ 0x14059BD5C (IopLiveDumpMarkLoadedModuleList.c)
- *     IopMarkPagesForLoadedDriverInformation @ 0x1405A10E4 (IopMarkPagesForLoadedDriverInformation.c)
- *     MmMarkImageForHiberPhase @ 0x140B6312C (MmMarkImageForHiberPhase.c)
- *     MiMarkHotPatchForHiberPhase @ 0x140B633F0 (MiMarkHotPatchForHiberPhase.c)
- *     MiMarkHotPatchesForHiberPhase @ 0x140B63450 (MiMarkHotPatchesForHiberPhase.c)
- *     MiInitializeLoadedModuleList @ 0x140C5B318 (MiInitializeLoadedModuleList.c)
+ *     MiUpdateDriverLoadInProgress @ 0x1402EFC50 (MiUpdateDriverLoadInProgress.c)
+ *     IopLiveDumpMarkLoadedModuleList @ 0x140598CDC (IopLiveDumpMarkLoadedModuleList.c)
+ *     IopMarkPagesForLoadedDriverInformation @ 0x14059E01C (IopMarkPagesForLoadedDriverInformation.c)
+ *     MmMarkImageForHiberPhase @ 0x140B651FC (MmMarkImageForHiberPhase.c)
+ *     MiMarkHotPatchForHiberPhase @ 0x140B654C0 (MiMarkHotPatchForHiberPhase.c)
+ *     MiMarkHotPatchesForHiberPhase @ 0x140B65520 (MiMarkHotPatchesForHiberPhase.c)
+ *     MiInitializeLoadedModuleList @ 0x140C5D4A8 (MiInitializeLoadedModuleList.c)
  * Callees:
  *     <none>
  */
@@ -16,7 +16,7 @@ unsigned __int64 __fastcall MmGetLoadedModuleImageAdditionalTablesAddress(__int6
 {
   unsigned __int64 v2; // r9
   int v3; // r10d
-  unsigned __int64 v4; // r8
+  char *v4; // r8
   int v5; // r11d
   __int64 v6; // rbx
   unsigned __int64 v7; // r10
@@ -32,14 +32,14 @@ unsigned __int64 __fastcall MmGetLoadedModuleImageAdditionalTablesAddress(__int6
   __int64 v18; // [rsp+20h] [rbp-10h]
 
   v2 = *(_QWORD *)(a1 + 48);
-  if ( v2 == PsNtosImageBase || v2 == PsHalImageBase )
-    v3 = dword_140E374AC;
+  if ( (PVOID)v2 == PsNtosImageBase || (PVOID)v2 == PsHalImageBase )
+    v3 = dword_140E375EC;
   else
-    v3 = dword_140E374AC + dword_140E374B0;
+    v3 = dword_140E375EC + dword_140E375F0;
   *a2 = v3;
   if ( !v3 )
     return 0LL;
-  v4 = v2 + *(unsigned int *)(a1 + 64);
+  v4 = (char *)(v2 + *(unsigned int *)(a1 + 64));
   v5 = 4;
   v15 = ((v2 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
   v16 = ((v15 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
@@ -55,7 +55,7 @@ unsigned __int64 __fastcall MmGetLoadedModuleImageAdditionalTablesAddress(__int6
     {
       v9 = *(_QWORD *)v7;
       if ( (v8 & 1) == 0 )
-        return v4;
+        return (unsigned __int64)v4;
       if ( ((v8 & 0x42) == 0 || (v8 & 0x20) == 0) && (MiFlags & 0x600000) != 0 )
       {
         Process = KeGetCurrentThread()->ApcState.Process;
@@ -79,10 +79,10 @@ unsigned __int64 __fastcall MmGetLoadedModuleImageAdditionalTablesAddress(__int6
     if ( (v8 & 0x80u) != 0LL )
     {
       if ( v5 )
-        return (v4 + 0x1FFFFF) & 0xFFFFFFFFFFE00000uLL;
-      return v4;
+        return (unsigned __int64)(v4 + 0x1FFFFF) & 0xFFFFFFFFFFE00000uLL;
+      return (unsigned __int64)v4;
     }
   }
   while ( v6 != 1 );
-  return v4;
+  return (unsigned __int64)v4;
 }

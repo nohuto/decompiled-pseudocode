@@ -1,18 +1,18 @@
 /*
- * XREFs of PipForDeviceNodeSubtree @ 0x140A438E0
+ * XREFs of PipForDeviceNodeSubtree @ 0x140A39170
  * Callers:
- *     PpProcessClearProblem @ 0x14046D77C (PpProcessClearProblem.c)
- *     PpSystemHiveLimitCallback @ 0x140722E90 (PpSystemHiveLimitCallback.c)
- *     PpDevCfgProcessDevices @ 0x14072D090 (PpDevCfgProcessDevices.c)
- *     PiProfileUpdateDeviceTreeWorker @ 0x14072D3C0 (PiProfileUpdateDeviceTreeWorker.c)
- *     PnpDiagRundownRegisterCallback @ 0x140A43660 (PnpDiagRundownRegisterCallback.c)
- *     PiMarkDeviceTreeForReenumeration @ 0x140A438A0 (PiMarkDeviceTreeForReenumeration.c)
- *     PnpGetSystemPdoList @ 0x140AA8060 (PnpGetSystemPdoList.c)
+ *     PpProcessClearProblem @ 0x14046831C (PpProcessClearProblem.c)
+ *     PpSystemHiveLimitCallback @ 0x140720A20 (PpSystemHiveLimitCallback.c)
+ *     PpDevCfgProcessDevices @ 0x14072B0A4 (PpDevCfgProcessDevices.c)
+ *     PiProfileUpdateDeviceTreeWorker @ 0x14072B3D0 (PiProfileUpdateDeviceTreeWorker.c)
+ *     PnpDiagRundownRegisterCallback @ 0x140A38EF0 (PnpDiagRundownRegisterCallback.c)
+ *     PiMarkDeviceTreeForReenumeration @ 0x140A39130 (PiMarkDeviceTreeForReenumeration.c)
+ *     PnpGetSystemPdoList @ 0x140AA3160 (PnpGetSystemPdoList.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     ExReleaseResourceLite @ 0x14025A450 (ExReleaseResourceLite.c)
- *     ExAcquireResourceSharedLite @ 0x140341E80 (ExAcquireResourceSharedLite.c)
- *     PipForAllDeviceNodesCallback @ 0x140A439A0 (PipForAllDeviceNodesCallback.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     ExReleaseResourceLite @ 0x14028AA60 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceSharedLite @ 0x140321360 (ExAcquireResourceSharedLite.c)
+ *     PipForAllDeviceNodesCallback @ 0x140A39230 (PipForAllDeviceNodesCallback.c)
  */
 
 __int64 __fastcall PipForDeviceNodeSubtree(__int64 a1, __int64 a2, __int64 a3)

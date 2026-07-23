@@ -1,13 +1,13 @@
 /*
- * XREFs of EtwpProcessThreadImageRundown @ 0x140820320
+ * XREFs of EtwpProcessThreadImageRundown @ 0x140820620
  * Callers:
- *     EtwpKernelTraceRundown @ 0x1408200C8 (EtwpKernelTraceRundown.c)
+ *     EtwpKernelTraceRundown @ 0x1408203C8 (EtwpKernelTraceRundown.c)
  * Callees:
- *     memset @ 0x140435A00 (memset.c)
- *     PsLookupProcessByProcessId @ 0x1406FA370 (PsLookupProcessByProcessId.c)
- *     PsEnumProcesses @ 0x1407CF4CC (PsEnumProcesses.c)
- *     EtwpProcessEnumCallback @ 0x140820430 (EtwpProcessEnumCallback.c)
- *     EtwpIsStackWalkingEnabled @ 0x1408209F8 (EtwpIsStackWalkingEnabled.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     PsLookupProcessByProcessId @ 0x1406FA580 (PsLookupProcessByProcessId.c)
+ *     PsEnumProcesses @ 0x1407CF79C (PsEnumProcesses.c)
+ *     EtwpProcessEnumCallback @ 0x140820730 (EtwpProcessEnumCallback.c)
+ *     EtwpIsStackWalkingEnabled @ 0x140820CF8 (EtwpIsStackWalkingEnabled.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

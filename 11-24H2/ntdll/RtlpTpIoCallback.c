@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlpTpIoCallback @ 0x1800EC3E0
+ * XREFs of RtlpTpIoCallback @ 0x1800E7250
  * Callers:
  *     <none>
  * Callees:
- *     RtlSetThreadSubProcessTag @ 0x180022160 (RtlSetThreadSubProcessTag.c)
- *     RtlGetCurrentServiceSessionId @ 0x180055A20 (RtlGetCurrentServiceSessionId.c)
- *     RtlpTpETWCallbackStop @ 0x18006F39C (RtlpTpETWCallbackStop.c)
- *     RtlpTpETWCallbackStart @ 0x18006F464 (RtlpTpETWCallbackStart.c)
- *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x180172020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
+ *     RtlSetThreadSubProcessTag @ 0x18004EB60 (RtlSetThreadSubProcessTag.c)
+ *     RtlGetCurrentServiceSessionId @ 0x18006B600 (RtlGetCurrentServiceSessionId.c)
+ *     RtlpTpETWCallbackStop @ 0x18008BC7C (RtlpTpETWCallbackStop.c)
+ *     RtlpTpETWCallbackStart @ 0x18008BD44 (RtlpTpETWCallbackStart.c)
+ *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x180171020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
  */
 
 void __fastcall RtlpTpIoCallback(__int64 a1, __int64 a2, __int64 a3, unsigned int *a4)
@@ -22,16 +22,13 @@ void __fastcall RtlpTpIoCallback(__int64 a1, __int64 a2, __int64 a3, unsigned in
   unsigned int v14; // eax
   __int64 v15; // r9
   _QWORD *v16; // r14
-  __int64 v17; // rdx
-  __int64 v18; // r8
-  __int64 v19; // r9
 
   v4 = *(void **)(a2 + 152);
   if ( v4 )
-    RtlSetThreadSubProcessTag(v4, a2, a3, (__int64)a4);
+    RtlSetThreadSubProcessTag(v4);
   NtCurrentTeb()->ActivityId = *(_GUID *)(a2 + 160);
   v8 = 2147353478LL;
-  if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+  if ( RtlGetCurrentServiceSessionId() )
     v9 = (__int64)NtCurrentPeb()->SharedData + 556;
   else
     v9 = 2147353478LL;
@@ -58,13 +55,13 @@ void __fastcall RtlpTpIoCallback(__int64 a1, __int64 a2, __int64 a3, unsigned in
     v16 = 0LL;
   }
   (*(void (__fastcall **)(_QWORD, _QWORD, __int64))(a2 - 8))(*a4, *((_QWORD *)a4 + 1), a3);
-  if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+  if ( RtlGetCurrentServiceSessionId() )
     v8 = (__int64)NtCurrentPeb()->SharedData + 556;
   if ( *(_BYTE *)v8 )
     RtlpTpETWCallbackStop(*(_QWORD *)(a2 + 72), a2, *(_QWORD *)(a2 - 8), a3, *(_QWORD *)(a2 + 152));
   if ( *(_QWORD *)(a2 + 152) )
   {
-    RtlSetThreadSubProcessTag(0LL, v17, v18, v19);
+    RtlSetThreadSubProcessTag(0LL);
     *(_QWORD *)(a2 + 152) = 0LL;
   }
   TppCompleteThreadData((__int64)v16);

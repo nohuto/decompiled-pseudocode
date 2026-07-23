@@ -1,5 +1,5 @@
 /*
- * XREFs of VerifierPsRestoreImpersonation @ 0x14070CC9C
+ * XREFs of VerifierPsRestoreImpersonation @ 0x14070CCCC
  * Callers:
  *     <none>
  * Callees:

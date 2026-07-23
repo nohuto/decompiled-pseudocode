@@ -1,11 +1,11 @@
 /*
- * XREFs of CmpCloseSystemDriverHiveContext @ 0x140D04E7C
+ * XREFs of CmpCloseSystemDriverHiveContext @ 0x140D0B14C
  * Callers:
- *     CmGetSystemDriverList @ 0x140D04720 (CmGetSystemDriverList.c)
+ *     CmGetSystemDriverList @ 0x140D0A9F0 (CmGetSystemDriverList.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     RtlFreeAnsiString @ 0x140A007C0 (RtlFreeAnsiString.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     RtlFreeAnsiString @ 0x140A169F0 (RtlFreeAnsiString.c)
  */
 
 void __fastcall CmpCloseSystemDriverHiveContext(__int64 a1)

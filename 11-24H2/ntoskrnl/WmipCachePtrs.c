@@ -1,11 +1,11 @@
 /*
- * XREFs of WmipCachePtrs @ 0x140A4AFD8
+ * XREFs of WmipCachePtrs @ 0x140A41C58
  * Callers:
- *     WmipUpdateDataSource @ 0x1409D1534 (WmipUpdateDataSource.c)
+ *     WmipUpdateDataSource @ 0x1409AF500 (WmipUpdateDataSource.c)
  * Callees:
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall WmipCachePtrs(__int64 a1, __int64 a2, unsigned int *a3, int *a4, const void **a5)
@@ -30,7 +30,7 @@ LABEL_2:
     *a3 = result;
     return result;
   }
-  result = ExAllocatePool2(0x100uLL);
+  result = ExAllocatePool2(0x100uLL, 16LL * (unsigned int)(*a4 + 64), 0x70696D57u);
   v13 = (const void *)result;
   if ( result )
   {

@@ -70,7 +70,7 @@ unsigned int __fastcall KeDeleteMutant(ULONG_PTR BugCheckParameter2)
   CurrentIrql = KeGetCurrentIrql();
   v30 = CurrentIrql;
   __writecr8(2uLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     if ( CurrentIrql == 2 )
@@ -150,7 +150,7 @@ LABEL_59:
             v21 = (_QWORD *)(v20 + 8);
             v22 = KeGetCurrentIrql();
             __writecr8(2uLL);
-            if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && v22 <= 0xFu )
+            if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && v22 <= 0xFu )
             {
               v23 = KeGetCurrentPrcb()->SchedulerAssist;
               if ( v22 == 2 )
@@ -223,7 +223,7 @@ LABEL_18:
   {
     _InterlockedAnd((volatile signed __int32 *)BugCheckParameter2, 0xFFFFFF7F);
   }
-  result = KiExitDispatcher((__int64)CurrentPrcb, 0, (struct _PROCESSOR_NUMBER)1, 1u, CurrentIrql);
+  result = KiExitDispatcher((__int64)CurrentPrcb, 0, (_PROCESSOR_NUMBER)1, 1u, CurrentIrql);
   if ( v37 )
   {
     if ( v2 != (volatile signed __int32 *)CurrentThread )

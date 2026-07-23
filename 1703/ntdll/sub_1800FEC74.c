@@ -9,29 +9,25 @@
  *     RtlRunOnceBeginInitialize @ 0x180028CF0 (RtlRunOnceBeginInitialize.c)
  */
 
-__int64 __fastcall sub_1800FEC74(__int64 a1, int a2, _QWORD *a3)
+NTSTATUS __fastcall sub_1800FEC74(__int64 a1, int a2, PVOID *a3)
 {
   __int64 v4; // rax
-  volatile signed __int64 *v5; // rcx
-  __int64 result; // rax
-  __int64 v7; // [rsp+30h] [rbp+8h] BYREF
+  _RTL_RUN_ONCE *v5; // rcx
+  NTSTATUS result; // eax
+  PVOID Context; // [rsp+30h] [rbp+8h] BYREF
 
   v4 = 368LL;
   if ( *(_DWORD *)(a1 + 16) == -571548178 )
     v4 = 136LL;
-  v5 = (volatile signed __int64 *)(v4 + a1);
+  v5 = (_RTL_RUN_ONCE *)(v4 + a1);
   if ( a2 )
-    result = RtlRunOnceExecuteOnce(
-               v5,
-               (unsigned int (__fastcall *)(volatile signed __int64 *, __int64, __int64 *))sub_1800FE1C0,
-               0LL,
-               &v7);
+    result = RtlRunOnceExecuteOnce(v5, (PRTL_RUN_ONCE_INIT_FN)sub_1800FE1C0, 0LL, &Context);
   else
-    result = RtlRunOnceBeginInitialize(v5, 1, (unsigned __int64 *)&v7);
-  if ( (int)result >= 0 )
+    result = RtlRunOnceBeginInitialize(v5, 1u, &Context);
+  if ( result >= 0 )
   {
-    *a3 = v7;
-    return 0LL;
+    *a3 = Context;
+    return 0;
   }
   return result;
 }

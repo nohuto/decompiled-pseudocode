@@ -1,15 +1,15 @@
 /*
- * XREFs of MiMoveBackgroundZeroThreads @ 0x140654FB0
+ * XREFs of MiMoveBackgroundZeroThreads @ 0x140655500
  * Callers:
- *     MmReportParkedProcessors @ 0x140655E48 (MmReportParkedProcessors.c)
+ *     MmReportParkedProcessors @ 0x140656398 (MmReportParkedProcessors.c)
  * Callees:
- *     ExAcquireSpinLockSharedAtDpcLevel @ 0x14025AD10 (ExAcquireSpinLockSharedAtDpcLevel.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402894C0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x14028A930 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402A7C00 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     KeSetUserGroupAffinityThread @ 0x1403AADAC (KeSetUserGroupAffinityThread.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     MiUnlinkZeroThreadFromActiveDomain @ 0x140655584 (MiUnlinkZeroThreadFromActiveDomain.c)
+ *     ExAcquireSpinLockSharedAtDpcLevel @ 0x14025AFA0 (ExAcquireSpinLockSharedAtDpcLevel.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140289750 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x14028ABC0 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402A7E90 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     KeSetUserGroupAffinityThread @ 0x1403AAF8C (KeSetUserGroupAffinityThread.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     MiUnlinkZeroThreadFromActiveDomain @ 0x140655AD4 (MiUnlinkZeroThreadFromActiveDomain.c)
  */
 
 __int64 __fastcall MiMoveBackgroundZeroThreads(__int64 a1, __int64 a2)
@@ -61,7 +61,7 @@ __int64 __fastcall MiMoveBackgroundZeroThreads(__int64 a1, __int64 a2)
     v27 = CurrentIrql;
     __writecr8(2uLL);
     result = (unsigned int)KiIrqlFlags;
-    if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+    if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
     {
       SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
       result = 4LL;
@@ -164,10 +164,10 @@ __int64 __fastcall MiMoveBackgroundZeroThreads(__int64 a1, __int64 a2)
   }
   if ( CurrentIrql != 17 )
   {
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v19 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v19 <= 0xFu && CurrentIrql <= 0xFu && v19 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v19 <= 0xFu && CurrentIrql <= 0xFu && v19 >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         v21 = CurrentPrcb->SchedulerAssist;

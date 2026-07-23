@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlStringLengthWorkerW @ 0x1800F7628
+ * XREFs of RtlStringLengthWorkerW @ 0x1800F1D78
  * Callers:
- *     LdrpAppxGetRemediationRegistryKey @ 0x1801319B0 (LdrpAppxGetRemediationRegistryKey.c)
- *     RtlpCleanupRegistryKeys @ 0x18013F570 (RtlpCleanupRegistryKeys.c)
- *     RtlpQueryDiskSpacePolicy @ 0x18015D254 (RtlpQueryDiskSpacePolicy.c)
+ *     LdrpAppxGetRemediationRegistryKey @ 0x18012FBE0 (LdrpAppxGetRemediationRegistryKey.c)
+ *     RtlpCleanupRegistryKeys @ 0x18013D760 (RtlpCleanupRegistryKeys.c)
+ *     RtlpQueryDiskSpacePolicy @ 0x18015B614 (RtlpQueryDiskSpacePolicy.c)
  * Callees:
  *     <none>
  */

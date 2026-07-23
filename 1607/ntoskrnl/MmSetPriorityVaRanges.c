@@ -1,7 +1,7 @@
 /*
- * XREFs of MmSetPriorityVaRanges @ 0x140659C28
+ * XREFs of MmSetPriorityVaRanges @ 0x140659D0C
  * Callers:
- *     ?SmStPrioritizeRegionsStore@?$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@K@Z @ 0x140001E00 (-SmStPrioritizeRegionsStore@-$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@K@Z.c)
+ *     ?SmStPrioritizeRegionsStore@?$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@K@Z @ 0x140001F74 (-SmStPrioritizeRegionsStore@-$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@K@Z.c)
  * Callees:
  *     <none>
  */

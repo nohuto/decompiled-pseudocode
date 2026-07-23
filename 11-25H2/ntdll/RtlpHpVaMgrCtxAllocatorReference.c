@@ -13,7 +13,7 @@ __int64 __fastcall RtlpHpVaMgrCtxAllocatorReference(__int64 a1, __int64 a2)
 {
   int v2; // r9d
   __int64 v3; // rax
-  volatile signed __int64 *v4; // rbp
+  _RTL_SRWLOCK *v4; // rbp
   unsigned int v7; // r14d
   unsigned int v8; // r14d
   __int64 v9; // rax
@@ -28,13 +28,13 @@ __int64 __fastcall RtlpHpVaMgrCtxAllocatorReference(__int64 a1, __int64 a2)
 
   v2 = *(_DWORD *)(a1 + 2152);
   v3 = *(int *)(a2 + 4);
-  v4 = (volatile signed __int64 *)(a1 + 2144);
+  v4 = (_RTL_SRWLOCK *)(a1 + 2144);
   v18 = 0LL;
   v7 = v2
      - ((`RtlpHpMemoryTypePageSize'::`2'::PageSize[v3] - 1) & (`RtlpHpMemoryTypePageSize'::`2'::PageSize[v3] + v2 - 1))
      + `RtlpHpMemoryTypePageSize'::`2'::PageSize[v3]
      - 1;
-  RtlAcquireSRWLockExclusive((volatile signed __int32 *)(a1 + 2144));
+  RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)(a1 + 2144));
   v8 = v7 >> 20;
   v9 = RtlpHpVaMgrCtxAllocatorFind(a1, a2, v8, &v18);
   v10 = v9;

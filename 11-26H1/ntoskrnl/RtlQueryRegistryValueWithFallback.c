@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlQueryRegistryValueWithFallback @ 0x140A7A6D0
+ * XREFs of RtlQueryRegistryValueWithFallback @ 0x140A82610
  * Callers:
- *     DifRtlQueryRegistryValueWithFallbackWrapper @ 0x140695FC0 (DifRtlQueryRegistryValueWithFallbackWrapper.c)
+ *     DifRtlQueryRegistryValueWithFallbackWrapper @ 0x140699BA0 (DifRtlQueryRegistryValueWithFallbackWrapper.c)
  * Callees:
- *     ZwQueryValueKey @ 0x1407236D0 (ZwQueryValueKey.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ZwQueryValueKey @ 0x1407282A0 (ZwQueryValueKey.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 NTSTATUS __stdcall RtlQueryRegistryValueWithFallback(

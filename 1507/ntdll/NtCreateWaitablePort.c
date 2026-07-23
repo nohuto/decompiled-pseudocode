@@ -6,11 +6,16 @@
  *     <none>
  */
 
-__int64 NtCreateWaitablePort()
+NTSTATUS __cdecl NtCreateWaitablePort(
+        PHANDLE PortHandle,
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        ULONG MaxConnectionInfoLength,
+        ULONG MaxMessageLength,
+        ULONG MaxPoolUsage)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 188LL;
+  result = 188;
   __asm { syscall; Low latency system call }
   return result;
 }

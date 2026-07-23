@@ -1,8 +1,8 @@
 /*
- * XREFs of ExpTimerSetParametersAreValid @ 0x1403D1F40
+ * XREFs of ExpTimerSetParametersAreValid @ 0x14044A1DC
  * Callers:
- *     RtlpHpEnvCompactionSchedule @ 0x1402B389C (RtlpHpEnvCompactionSchedule.c)
- *     EnableFlushTimer @ 0x1403D1370 (EnableFlushTimer.c)
+ *     RtlpHpEnvCompactionSchedule @ 0x14035ED20 (RtlpHpEnvCompactionSchedule.c)
+ *     EnableFlushTimer @ 0x14044A108 (EnableFlushTimer.c)
  * Callees:
  *     <none>
  */

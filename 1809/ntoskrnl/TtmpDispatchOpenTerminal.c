@@ -1,13 +1,13 @@
 /*
- * XREFs of TtmpDispatchOpenTerminal @ 0x140881EF0
+ * XREFs of TtmpDispatchOpenTerminal @ 0x140883150
  * Callers:
- *     TtmDispatchApi @ 0x140881700 (TtmDispatchApi.c)
+ *     TtmDispatchApi @ 0x140882960 (TtmDispatchApi.c)
  * Callees:
  *     KeLeaveCriticalRegion @ 0x14004F410 (KeLeaveCriticalRegion.c)
  *     ExReleaseResourceLite @ 0x14004F590 (ExReleaseResourceLite.c)
- *     TtmiLogError @ 0x1407616DC (TtmiLogError.c)
- *     TtmiOpenDefaultTerminal @ 0x14087EADC (TtmiOpenDefaultTerminal.c)
- *     TtmiAcquireCurrentSession @ 0x1408801C4 (TtmiAcquireCurrentSession.c)
+ *     TtmiLogError @ 0x1407628CC (TtmiLogError.c)
+ *     TtmiOpenDefaultTerminal @ 0x14087FD3C (TtmiOpenDefaultTerminal.c)
+ *     TtmiAcquireCurrentSession @ 0x140881424 (TtmiAcquireCurrentSession.c)
  */
 
 __int64 __fastcall TtmpDispatchOpenTerminal(__int64 a1, HANDLE *a2)

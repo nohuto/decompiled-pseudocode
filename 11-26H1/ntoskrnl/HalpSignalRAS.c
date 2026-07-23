@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpSignalRAS @ 0x14058E45C
+ * XREFs of HalpSignalRAS @ 0x140590BDC
  * Callers:
- *     HalpCheckAndReportGhes @ 0x1404DC5EC (HalpCheckAndReportGhes.c)
+ *     HalpCheckAndReportGhes @ 0x1404D5CCC (HalpCheckAndReportGhes.c)
  * Callees:
- *     MmMapIoSpaceEx @ 0x140363DC0 (MmMapIoSpaceEx.c)
+ *     MmMapIoSpaceEx @ 0x140365B60 (MmMapIoSpaceEx.c)
  */
 
 __int64 __fastcall HalpSignalRAS(__int64 a1)

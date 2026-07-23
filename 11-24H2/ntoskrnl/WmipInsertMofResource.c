@@ -1,13 +1,13 @@
 /*
- * XREFs of WmipInsertMofResource @ 0x1407A5C1C
+ * XREFs of WmipInsertMofResource @ 0x1407A5D5C
  * Callers:
- *     WmipAddMofResource @ 0x1407A58A8 (WmipAddMofResource.c)
+ *     WmipAddMofResource @ 0x1407A59E8 (WmipAddMofResource.c)
  * Callees:
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     WmipReferenceEntry @ 0x1409CF068 (WmipReferenceEntry.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     WmipReferenceEntry @ 0x1409B4038 (WmipReferenceEntry.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall WmipInsertMofResource(__int64 a1, ULONG_PTR a2)
@@ -58,7 +58,7 @@ LABEL_7:
   else
   {
     v14 = (unsigned int)v13;
-    Pool2 = (char *)ExAllocatePool2(0x100uLL);
+    Pool2 = (char *)ExAllocatePool2(0x100uLL, (unsigned int)v13, 0x70696D57u);
     v16 = Pool2;
     if ( Pool2 )
     {

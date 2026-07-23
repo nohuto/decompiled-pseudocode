@@ -1,22 +1,22 @@
 /*
- * XREFs of WheaUnconfigureErrorSource @ 0x140BFFE70
+ * XREFs of WheaUnconfigureErrorSource @ 0x140C06080
  * Callers:
  *     <none>
  * Callees:
- *     ExfAcquirePushLockSharedEx @ 0x140277CC0 (ExfAcquirePushLockSharedEx.c)
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     ExfReleasePushLockShared @ 0x140278BD0 (ExfReleasePushLockShared.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     ExfTryToWakePushLock @ 0x1403170A0 (ExfTryToWakePushLock.c)
- *     WheapSetDefaultErrorConfigurationCalls @ 0x1406D6C6C (WheapSetDefaultErrorConfigurationCalls.c)
+ *     ExfAcquirePushLockSharedEx @ 0x140277230 (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     ExfReleasePushLockShared @ 0x140278140 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     ExfTryToWakePushLock @ 0x1403190D0 (ExfTryToWakePushLock.c)
+ *     WheapSetDefaultErrorConfigurationCalls @ 0x1406DAD4C (WheapSetDefaultErrorConfigurationCalls.c)
  */
 
 __int64 __fastcall WheaUnconfigureErrorSource(unsigned int a1, __int64 a2, __int64 a3, struct _KLOCK_ENTRIES *a4)
 {
-  void *volatile *v4; // rdi
+  LIST_ENTRY *v4; // rdi
   struct _KTHREAD *CurrentThread; // rax
   unsigned int v6; // ebp
   void *v7; // rdx
@@ -32,7 +32,7 @@ __int64 __fastcall WheaUnconfigureErrorSource(unsigned int a1, __int64 a2, __int
   }
   else
   {
-    v4 = &WheapInUsePageOfflineNotifyLock.StackLimit + 8 * (__int64)(int)a1;
+    v4 = &WheapInUsePageOfflineNotifyLock.Header.WaitListHead + 4 * (__int64)(int)a1;
     CurrentThread = KeGetCurrentThread();
     v6 = -1073741823;
     --CurrentThread->KernelApcDisable;
@@ -57,9 +57,9 @@ __int64 __fastcall WheaUnconfigureErrorSource(unsigned int a1, __int64 a2, __int
       else
         *((_BYTE *)v12 + 10) = 1;
     }
-    if ( *((_BYTE *)v4 + 8) )
+    if ( LOBYTE(v4->Blink) )
     {
-      *((_BYTE *)v4 + 8) = 0;
+      LOBYTE(v4->Blink) = 0;
       WheapSetDefaultErrorConfigurationCalls(v4);
     }
     if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)v4, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )

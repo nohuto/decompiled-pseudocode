@@ -39,7 +39,7 @@ void __fastcall AlpcpUnlockBlob(ULONG_PTR BugCheckParameter2, __int64 a2, __int6
   __int64 v9; // rdx
   __int64 v10; // r8
   __int64 v11; // r9
-  union _SLIST_HEADER *v12; // rcx
+  _SLIST_HEADER *v12; // rcx
   void *v13; // rcx
 
   v4 = *(unsigned __int8 *)(BugCheckParameter2 - 32);

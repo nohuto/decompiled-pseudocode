@@ -1,17 +1,17 @@
 /*
- * XREFs of HalpTimerInitializeClock @ 0x140546CF4
+ * XREFs of HalpTimerInitializeClock @ 0x1405445B4
  * Callers:
- *     HalpTimerInitSystem @ 0x14053AFA0 (HalpTimerInitSystem.c)
- *     HalpTimerInitializeClock @ 0x140546CF4 (HalpTimerInitializeClock.c)
+ *     HalpTimerInitSystem @ 0x1405387E0 (HalpTimerInitSystem.c)
+ *     HalpTimerInitializeClock @ 0x1405445B4 (HalpTimerInitializeClock.c)
  * Callees:
- *     KeStallExecutionProcessor @ 0x14033A030 (KeStallExecutionProcessor.c)
- *     HalpSetTimer @ 0x1403BC5B0 (HalpSetTimer.c)
- *     HalpTimerSetProblemEx @ 0x1404F98E4 (HalpTimerSetProblemEx.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     HalpTimerInitializeClock @ 0x140546CF4 (HalpTimerInitializeClock.c)
- *     HalpTimerConfigureInterrupt @ 0x140547380 (HalpTimerConfigureInterrupt.c)
- *     HalpTimerUnmapInterrupt @ 0x140548A10 (HalpTimerUnmapInterrupt.c)
- *     HalpInterruptSetIdtEntry @ 0x14055A460 (HalpInterruptSetIdtEntry.c)
+ *     KeStallExecutionProcessor @ 0x140319510 (KeStallExecutionProcessor.c)
+ *     HalpSetTimer @ 0x140375A30 (HalpSetTimer.c)
+ *     HalpTimerSetProblemEx @ 0x1404F71C4 (HalpTimerSetProblemEx.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     HalpTimerInitializeClock @ 0x1405445B4 (HalpTimerInitializeClock.c)
+ *     HalpTimerConfigureInterrupt @ 0x140544C40 (HalpTimerConfigureInterrupt.c)
+ *     HalpTimerUnmapInterrupt @ 0x1405462D0 (HalpTimerUnmapInterrupt.c)
+ *     HalpInterruptSetIdtEntry @ 0x140558090 (HalpInterruptSetIdtEntry.c)
  */
 
 __int64 __fastcall HalpTimerInitializeClock(__int64 a1, __int64 a2, __int64 a3, int a4)
@@ -21,7 +21,7 @@ __int64 __fastcall HalpTimerInitializeClock(__int64 a1, __int64 a2, __int64 a3, 
   int v6; // ecx
   int v7; // r9d
   int v8; // r8d
-  __int64 v9; // r9
+  int v9; // r9d
   int v10; // r10d
   unsigned __int64 v11; // rax
   unsigned int i; // edi
@@ -68,8 +68,7 @@ __int64 __fastcall HalpTimerInitializeClock(__int64 a1, __int64 a2, __int64 a3, 
     v10 = -1073741637;
     goto LABEL_6;
   }
-  LOBYTE(v9) = 1;
-  v10 = HalpSetTimer((__int64)v4, 2u, 0x2625AuLL, v9, &v16);
+  v10 = HalpSetTimer((__int64)v4, 2u, 0x2625AuLL, 1, &v16);
   if ( v10 < 0 )
     goto LABEL_6;
   v4[16] = 0;

@@ -1,11 +1,11 @@
 /*
- * XREFs of CmpDiskFullWarning @ 0x140A11A48
+ * XREFs of CmpDiskFullWarning @ 0x140A11CF8
  * Callers:
- *     CmpLazyWriteWorker @ 0x1403A0150 (CmpLazyWriteWorker.c)
- *     CmpLoadHiveThread @ 0x140826880 (CmpLoadHiveThread.c)
- *     CmpMountPreloadedHives @ 0x1408630AC (CmpMountPreloadedHives.c)
+ *     CmpLazyWriteWorker @ 0x1403A0330 (CmpLazyWriteWorker.c)
+ *     CmpLoadHiveThread @ 0x140826B80 (CmpLoadHiveThread.c)
+ *     CmpMountPreloadedHives @ 0x1408632EC (CmpMountPreloadedHives.c)
  * Callees:
- *     ExQueueWorkItem @ 0x1402B7C30 (ExQueueWorkItem.c)
+ *     ExQueueWorkItem @ 0x1402B7EC0 (ExQueueWorkItem.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
 

@@ -1,5 +1,5 @@
 /*
- * XREFs of VerifierKeAcquireInterruptSpinLock @ 0x14070C954
+ * XREFs of VerifierKeAcquireInterruptSpinLock @ 0x14070C984
  * Callers:
  *     <none>
  * Callees:

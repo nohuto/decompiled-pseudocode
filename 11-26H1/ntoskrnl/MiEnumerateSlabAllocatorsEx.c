@@ -1,23 +1,23 @@
 /*
- * XREFs of MiEnumerateSlabAllocatorsEx @ 0x1404A0C04
+ * XREFs of MiEnumerateSlabAllocatorsEx @ 0x14049A754
  * Callers:
- *     MiLogPeriodicTelemetry @ 0x1402A8770 (MiLogPeriodicTelemetry.c)
- *     MiDemoteSlabEntriesDpc @ 0x1402BDB50 (MiDemoteSlabEntriesDpc.c)
- *     MiDefragmentAllSlabAllocators @ 0x1404A0AE8 (MiDefragmentAllSlabAllocators.c)
- *     MiDeletePendingSlabIdentities @ 0x1404A0CF8 (MiDeletePendingSlabIdentities.c)
- *     MiLockMemoryLists @ 0x140703960 (MiLockMemoryLists.c)
- *     MiChangeSlabIdentitiesDpc @ 0x140705CE0 (MiChangeSlabIdentitiesDpc.c)
- *     MiDefragmentSlabWorker @ 0x1407063E4 (MiDefragmentSlabWorker.c)
- *     MiDetermineDefragmentSlabIdentity @ 0x140706A00 (MiDetermineDefragmentSlabIdentity.c)
- *     MiEstablishDefragSlabEntries @ 0x140706AC4 (MiEstablishDefragSlabEntries.c)
- *     MiFindDefragmentSlabEntries @ 0x140706E34 (MiFindDefragmentSlabEntries.c)
- *     MiLockUnlockSlabContextsForDefrag @ 0x1407077BC (MiLockUnlockSlabContextsForDefrag.c)
- *     MiUpdateSlabContextSlabSize @ 0x140707AA4 (MiUpdateSlabContextSlabSize.c)
- *     MiDeletePartitionSlabState @ 0x14087BB64 (MiDeletePartitionSlabState.c)
- *     MiInitNucleus @ 0x140CF2CBC (MiInitNucleus.c)
- *     MmUpdateSlabRangeType @ 0x140CFE76C (MmUpdateSlabRangeType.c)
+ *     MiLogPeriodicTelemetry @ 0x1402A7B80 (MiLogPeriodicTelemetry.c)
+ *     MiDemoteSlabEntriesDpc @ 0x140308810 (MiDemoteSlabEntriesDpc.c)
+ *     MiDefragmentAllSlabAllocators @ 0x14049A638 (MiDefragmentAllSlabAllocators.c)
+ *     MiDeletePendingSlabIdentities @ 0x14049A848 (MiDeletePendingSlabIdentities.c)
+ *     MiLockMemoryLists @ 0x140708630 (MiLockMemoryLists.c)
+ *     MiChangeSlabIdentitiesDpc @ 0x14070A9B0 (MiChangeSlabIdentitiesDpc.c)
+ *     MiDefragmentSlabWorker @ 0x14070B0B4 (MiDefragmentSlabWorker.c)
+ *     MiDetermineDefragmentSlabIdentity @ 0x14070B6D0 (MiDetermineDefragmentSlabIdentity.c)
+ *     MiEstablishDefragSlabEntries @ 0x14070B794 (MiEstablishDefragSlabEntries.c)
+ *     MiFindDefragmentSlabEntries @ 0x14070BB04 (MiFindDefragmentSlabEntries.c)
+ *     MiLockUnlockSlabContextsForDefrag @ 0x14070C48C (MiLockUnlockSlabContextsForDefrag.c)
+ *     MiUpdateSlabContextSlabSize @ 0x14070C774 (MiUpdateSlabContextSlabSize.c)
+ *     MiDeletePartitionSlabState @ 0x140881F64 (MiDeletePartitionSlabState.c)
+ *     MiInitNucleus @ 0x140CF903C (MiInitNucleus.c)
+ *     MmUpdateSlabRangeType @ 0x140D04B0C (MmUpdateSlabRangeType.c)
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall MiEnumerateSlabAllocatorsEx(__int64 a1, __int64 a2, __int64 a3, unsigned int a4, unsigned int a5)

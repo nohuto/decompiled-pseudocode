@@ -1,10 +1,10 @@
 /*
- * XREFs of MiUpdatePagingFileMinimum @ 0x14067A348
+ * XREFs of MiUpdatePagingFileMinimum @ 0x14067B528
  * Callers:
- *     MiExtendPagingFiles @ 0x1407EF148 (MiExtendPagingFiles.c)
+ *     MiExtendPagingFiles @ 0x1407EF718 (MiExtendPagingFiles.c)
  * Callees:
- *     MiReleaseSpinLockExclusive @ 0x14028EE30 (MiReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x14028F370 (ExAcquireSpinLockExclusive.c)
+ *     MiReleaseSpinLockExclusive @ 0x14029EA30 (MiReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14029EF70 (ExAcquireSpinLockExclusive.c)
  */
 
 __int64 __fastcall MiUpdatePagingFileMinimum(__int64 a1, int a2)

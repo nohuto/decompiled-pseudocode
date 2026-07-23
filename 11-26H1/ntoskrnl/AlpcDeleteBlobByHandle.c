@@ -1,15 +1,15 @@
 /*
- * XREFs of AlpcDeleteBlobByHandle @ 0x140A665B8
+ * XREFs of AlpcDeleteBlobByHandle @ 0x140A73588
  * Callers:
- *     AlpcSectionDeleteProcedure @ 0x140A664D0 (AlpcSectionDeleteProcedure.c)
- *     AlpcReserveDestroyProcedure @ 0x140A66540 (AlpcReserveDestroyProcedure.c)
- *     AlpcSectionDestroyProcedure @ 0x140AAF360 (AlpcSectionDestroyProcedure.c)
+ *     AlpcSectionDeleteProcedure @ 0x140A734A0 (AlpcSectionDeleteProcedure.c)
+ *     AlpcReserveDestroyProcedure @ 0x140A73510 (AlpcReserveDestroyProcedure.c)
+ *     AlpcSectionDestroyProcedure @ 0x140AACFB0 (AlpcSectionDestroyProcedure.c)
  * Callees:
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     ExfTryToWakePushLock @ 0x1403170A0 (ExfTryToWakePushLock.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     ExfTryToWakePushLock @ 0x1403190D0 (ExfTryToWakePushLock.c)
  */
 
 char __fastcall AlpcDeleteBlobByHandle(_QWORD *a1, int a2, __int64 a3, struct _KLOCK_ENTRIES *a4)

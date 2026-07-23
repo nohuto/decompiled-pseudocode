@@ -1,13 +1,13 @@
 /*
- * XREFs of EtwpUpdateStackTracing @ 0x1406A834C
+ * XREFs of EtwpUpdateStackTracing @ 0x1406A8484
  * Callers:
- *     EtwpCheckForStackTracingExtension @ 0x1404955EC (EtwpCheckForStackTracingExtension.c)
- *     EtwSetPerformanceTraceInformation @ 0x1406A3914 (EtwSetPerformanceTraceInformation.c)
+ *     EtwpCheckForStackTracingExtension @ 0x14049607C (EtwpCheckForStackTracingExtension.c)
+ *     EtwSetPerformanceTraceInformation @ 0x1406A3A4C (EtwSetPerformanceTraceInformation.c)
  * Callees:
- *     RtlClearAllBits @ 0x14008487C (RtlClearAllBits.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     RtlClearAllBits @ 0x1400829DC (RtlClearAllBits.c)
+ *     memset @ 0x140171AC0 (memset.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     EtwpReferenceStackLookasideList @ 0x1406A82E8 (EtwpReferenceStackLookasideList.c)
+ *     EtwpReferenceStackLookasideList @ 0x1406A8420 (EtwpReferenceStackLookasideList.c)
  */
 
 __int64 __fastcall EtwpUpdateStackTracing(__int64 a1, __int64 a2, unsigned int a3)

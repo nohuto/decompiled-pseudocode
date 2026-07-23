@@ -1,16 +1,16 @@
 /*
- * XREFs of MiFreePoolPages @ 0x140161100
+ * XREFs of MiFreePoolPages @ 0x140161200
  * Callers:
- *     ExFreeLargePool @ 0x14009ADD0 (ExFreeLargePool.c)
- *     MiAllocateContiguousMemory @ 0x1400E651C (MiAllocateContiguousMemory.c)
- *     ExFreeHeapPages @ 0x14015B274 (ExFreeHeapPages.c)
- *     MiFindContiguousMemoryInPool @ 0x1401625D4 (MiFindContiguousMemoryInPool.c)
+ *     ExFreeLargePool @ 0x14009AD10 (ExFreeLargePool.c)
+ *     MiAllocateContiguousMemory @ 0x1400E659C (MiAllocateContiguousMemory.c)
+ *     ExFreeHeapPages @ 0x14015B374 (ExFreeHeapPages.c)
+ *     MiFindContiguousMemoryInPool @ 0x1401626D4 (MiFindContiguousMemoryInPool.c)
  * Callees:
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
- *     MmFreePoolMemory @ 0x14007BD58 (MmFreePoolMemory.c)
- *     MiInsertNonPagedPoolOnSlist @ 0x140161260 (MiInsertNonPagedPoolOnSlist.c)
- *     MiReturnNonPagedPoolVa @ 0x140161634 (MiReturnNonPagedPoolVa.c)
- *     MiFreePagedPoolPages @ 0x140161A50 (MiFreePagedPoolPages.c)
+ *     MmFreePoolMemory @ 0x14007BD48 (MmFreePoolMemory.c)
+ *     MiInsertNonPagedPoolOnSlist @ 0x140161360 (MiInsertNonPagedPoolOnSlist.c)
+ *     MiReturnNonPagedPoolVa @ 0x140161734 (MiReturnNonPagedPoolVa.c)
+ *     MiFreePagedPoolPages @ 0x140161B50 (MiFreePagedPoolPages.c)
  */
 
 __int64 __fastcall MiFreePoolPages(unsigned __int64 a1, unsigned __int64 a2, __int64 a3)
@@ -28,7 +28,7 @@ __int64 __fastcall MiFreePoolPages(unsigned __int64 a1, unsigned __int64 a2, __i
 
   v3 = a2;
   v4 = a1;
-  if ( a1 < 0xFFFF800000000000uLL || byte_14043B950[((a1 >> 39) & 0x1FF) - 256] != 5 )
+  if ( a1 < 0xFFFF800000000000uLL || byte_14043CA10[((a1 >> 39) & 0x1FF) - 256] != 5 )
     return MiFreePagedPoolPages(a1, a2, a3, 0LL);
   result = MiInsertNonPagedPoolOnSlist(a1, ((a2 & 0xFFF) != 0) + (a2 >> 12));
   if ( (_DWORD)result != 1 )

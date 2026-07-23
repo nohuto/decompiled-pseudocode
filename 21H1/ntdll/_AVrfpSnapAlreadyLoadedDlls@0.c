@@ -10,23 +10,23 @@
 
 void __stdcall AVrfpSnapAlreadyLoadedDlls()
 {
-  int *v0; // esi
-  int *v1; // edi
+  PLDR_DATA_TABLE_ENTRY Flink; // esi
+  PLDR_DATA_TABLE_ENTRY v1; // edi
 
-  v0 = (int *)dword_4B3A5D8C;
-  while ( v0 != &dword_4B3A5D8C )
+  Flink = dword_4B3A5D8C;
+  while ( Flink != (PLDR_DATA_TABLE_ENTRY)&dword_4B3A5D8C )
   {
-    v1 = v0;
-    v0 = (int *)*v0;
-    if ( AVrfpIsVerifierProviderDll((void *)v1[6]) )
+    v1 = Flink;
+    Flink = (PLDR_DATA_TABLE_ENTRY)Flink->InLoadOrderLinks.Flink;
+    if ( AVrfpIsVerifierProviderDll(v1->DllBase) )
     {
       if ( (AVrfpDebug & 1) != 0 )
-        DbgPrint("AVRF: skipped resnapping provider %ws ... \n", v1[12]);
+        DbgPrint("AVRF: skipped resnapping provider %ws ... \n", v1->BaseDllName.Buffer);
     }
     else
     {
       if ( (AVrfpDebug & 1) != 0 )
-        DbgPrint("AVRF: resnapping %ws ... \n", v1[12]);
+        DbgPrint("AVRF: resnapping %ws ... \n", v1->BaseDllName.Buffer);
       AVrfpDllLoadNotificationInternal((const wchar_t **)v1);
     }
   }

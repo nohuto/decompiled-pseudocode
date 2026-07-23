@@ -1,17 +1,17 @@
 /*
- * XREFs of IovAllocateIrp @ 0x1409C47A0
+ * XREFs of IovAllocateIrp @ 0x1409C57A0
  * Callers:
- *     IoAllocateIrpEx @ 0x1402A1700 (IoAllocateIrpEx.c)
- *     IopAllocateIrpExReturn @ 0x140351A40 (IopAllocateIrpExReturn.c)
- *     IoAllocateIrp @ 0x140361FF0 (IoAllocateIrp.c)
+ *     IoAllocateIrpEx @ 0x14021EC80 (IoAllocateIrpEx.c)
+ *     IoAllocateIrp @ 0x1402F76C0 (IoAllocateIrp.c)
+ *     IopAllocateIrpExReturn @ 0x14035C790 (IopAllocateIrpExReturn.c)
  * Callees:
- *     IopIsActivityTracingEnabled @ 0x1402EDEF0 (IopIsActivityTracingEnabled.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     IopInitActivityIdIrp @ 0x140500C9C (IopInitActivityIdIrp.c)
- *     IovpLogStackTrace @ 0x1409C5978 (IovpLogStackTrace.c)
- *     VfIoAllocateIrp2 @ 0x1409D11C8 (VfIoAllocateIrp2.c)
- *     ViIrpAllocateLockedPacket @ 0x1409D1750 (ViIrpAllocateLockedPacket.c)
- *     VfIrpDatabaseEntryReleaseLock @ 0x1409E092C (VfIrpDatabaseEntryReleaseLock.c)
+ *     IopIsActivityTracingEnabled @ 0x14020D8C0 (IopIsActivityTracingEnabled.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     IopInitActivityIdIrp @ 0x140500C1C (IopInitActivityIdIrp.c)
+ *     IovpLogStackTrace @ 0x1409C6978 (IovpLogStackTrace.c)
+ *     VfIoAllocateIrp2 @ 0x1409D21C8 (VfIoAllocateIrp2.c)
+ *     ViIrpAllocateLockedPacket @ 0x1409D2750 (ViIrpAllocateLockedPacket.c)
+ *     VfIrpDatabaseEntryReleaseLock @ 0x1409E192C (VfIrpDatabaseEntryReleaseLock.c)
  */
 
 __int64 __fastcall IovAllocateIrp(__int64 a1, char a2, unsigned __int8 a3, __int64 a4)

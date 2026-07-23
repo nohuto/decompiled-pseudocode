@@ -1,35 +1,35 @@
 /*
- * XREFs of MiRemoveFromSystemSpace @ 0x140304E4C
+ * XREFs of MiRemoveFromSystemSpace @ 0x14030FB9C
  * Callers:
- *     MiInsertInSystemSpace @ 0x1402FADE0 (MiInsertInSystemSpace.c)
- *     MmUnmapViewInSystemSpace @ 0x1406AC5B0 (MmUnmapViewInSystemSpace.c)
- *     MiUnmapImageInSystemSpace @ 0x1407155A4 (MiUnmapImageInSystemSpace.c)
+ *     MiInsertInSystemSpace @ 0x140305B30 (MiInsertInSystemSpace.c)
+ *     MmUnmapViewInSystemSpace @ 0x14060ACA0 (MmUnmapViewInSystemSpace.c)
+ *     MiUnmapImageInSystemSpace @ 0x1406C3BF4 (MiUnmapImageInSystemSpace.c)
  * Callees:
- *     MiGetSharedVm @ 0x14021AF50 (MiGetSharedVm.c)
- *     MiUnlockWorkingSetExclusive @ 0x14021CAE0 (MiUnlockWorkingSetExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x14021D060 (ExAcquireSpinLockExclusive.c)
- *     RtlAvlRemoveNode @ 0x140234B20 (RtlAvlRemoveNode.c)
- *     MiReleasePtes @ 0x140245800 (MiReleasePtes.c)
- *     KiCheckForKernelApcDelivery @ 0x14024A6E0 (KiCheckForKernelApcDelivery.c)
- *     KiAbEntryRemoveFromTree @ 0x14028F490 (KiAbEntryRemoveFromTree.c)
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
- *     MiGetAnyMultiplexedVm @ 0x1402FD0FC (MiGetAnyMultiplexedVm.c)
- *     MiRemoveMappedPtes @ 0x140308500 (MiRemoveMappedPtes.c)
- *     MiManageSubsectionView @ 0x140311100 (MiManageSubsectionView.c)
- *     MiGetSessionVm @ 0x14031219C (MiGetSessionVm.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14033BD80 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     MiGetSystemRegionType @ 0x14034A950 (MiGetSystemRegionType.c)
- *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
- *     KiAbThreadRemoveBoosts @ 0x14034AD00 (KiAbThreadRemoveBoosts.c)
- *     KiLeaveGuardedRegionUnsafe @ 0x14034AD90 (KiLeaveGuardedRegionUnsafe.c)
- *     MmGetSessionIdEx @ 0x14034AE60 (MmGetSessionIdEx.c)
- *     MiUnmapLargePages @ 0x1403952E4 (MiUnmapLargePages.c)
+ *     KiAbEntryRemoveFromTree @ 0x14020C630 (KiAbEntryRemoveFromTree.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     MiGetSharedVm @ 0x1402BF850 (MiGetSharedVm.c)
+ *     MiUnlockWorkingSetExclusive @ 0x1402C13E0 (MiUnlockWorkingSetExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x1402C1960 (ExAcquireSpinLockExclusive.c)
+ *     RtlAvlRemoveNode @ 0x1402D9370 (RtlAvlRemoveNode.c)
+ *     MiReleasePtes @ 0x1402EA050 (MiReleasePtes.c)
+ *     KiCheckForKernelApcDelivery @ 0x1402EEF30 (KiCheckForKernelApcDelivery.c)
+ *     ExfTryToWakePushLock @ 0x1402FC2C0 (ExfTryToWakePushLock.c)
+ *     MiGetAnyMultiplexedVm @ 0x140307E4C (MiGetAnyMultiplexedVm.c)
+ *     MiRemoveMappedPtes @ 0x140313250 (MiRemoveMappedPtes.c)
+ *     MiManageSubsectionView @ 0x14031BE50 (MiManageSubsectionView.c)
+ *     MiGetSessionVm @ 0x14031CEEC (MiGetSessionVm.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140346AD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiGetSystemRegionType @ 0x1403556A0 (MiGetSystemRegionType.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1403556E0 (ExAcquirePushLockExclusiveEx.c)
+ *     KiAbThreadRemoveBoosts @ 0x140355A50 (KiAbThreadRemoveBoosts.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x140355AE0 (KiLeaveGuardedRegionUnsafe.c)
+ *     MmGetSessionIdEx @ 0x140355BB0 (MmGetSessionIdEx.c)
+ *     MiUnmapLargePages @ 0x140395434 (MiUnmapLargePages.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
- *     memset @ 0x140414200 (memset.c)
- *     MiDereferencePerSessionProtos @ 0x1406BC7FC (MiDereferencePerSessionProtos.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     MiDereferencePerSessionProtos @ 0x14061B9CC (MiDereferencePerSessionProtos.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 void __fastcall MiRemoveFromSystemSpace(_QWORD *a1, ULONG_PTR a2, int a3)
@@ -55,83 +55,82 @@ void __fastcall MiRemoveFromSystemSpace(_QWORD *a1, ULONG_PTR a2, int a3)
   __int64 v22; // rcx
   __int64 v23; // rsi
   __int64 v24; // rdx
-  __int64 v25; // rcx
-  __int64 v26; // rdx
-  unsigned __int64 v27; // rdx
-  void *v28; // rcx
-  volatile LONG *v29; // rdi
-  KIRQL v30; // al
-  unsigned __int64 v31; // rbp
-  unsigned __int64 v32; // r8
+  __int64 v25; // rdx
+  unsigned __int64 v26; // rdx
+  void *v27; // rcx
+  volatile LONG *v28; // rdi
+  KIRQL v29; // al
+  unsigned __int64 v30; // rbp
+  unsigned __int64 v31; // r8
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
-  int v36; // eax
+  int v35; // eax
   char *AnyMultiplexedVm; // [rsp+38h] [rbp-F0h]
-  unsigned __int64 v38; // [rsp+40h] [rbp-E8h]
-  struct _KTHREAD *v39; // [rsp+48h] [rbp-E0h]
-  _QWORD v40[27]; // [rsp+50h] [rbp-D8h] BYREF
-  unsigned __int8 v42; // [rsp+138h] [rbp+10h]
+  unsigned __int64 v37; // [rsp+40h] [rbp-E8h]
+  struct _KTHREAD *v38; // [rsp+48h] [rbp-E0h]
+  _QWORD v39[27]; // [rsp+50h] [rbp-D8h] BYREF
+  unsigned __int8 v41; // [rsp+138h] [rbp+10h]
 
   v4 = a1;
-  memset(v40, 0, 0x90uLL);
+  memset(v39, 0, 0x90uLL);
   CurrentThread = KeGetCurrentThread();
-  v39 = CurrentThread;
+  v38 = CurrentThread;
   v8 = (_QWORD *)(((a2 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL);
-  if ( v4 == (_QWORD *)&unk_140C4CD68 )
+  if ( v4 == (_QWORD *)&unk_140C4CDA8 )
   {
-    v38 = 0LL;
+    v37 = 0LL;
     AnyMultiplexedVm = MiGetAnyMultiplexedVm(1);
   }
   else
   {
-    AnyMultiplexedVm = (char *)MiGetSessionVm(v5, &unk_140C4CD68, v6);
-    v38 = CurrentThread->ApcState.Process[1].AffinityPadding[5];
+    AnyMultiplexedVm = (char *)MiGetSessionVm(v5, &unk_140C4CDA8, v6);
+    v37 = CurrentThread->ApcState.Process[1].AffinityPadding[5];
   }
   SessionId = -1;
   if ( (a2 & 0x3FFFFFFF) == 0 && v4 == v9 )
   {
-    v29 = (volatile LONG *)((char *)&unk_140C4CDB0 + 16 * (unsigned __int8)(a2 >> 30));
-    v30 = ExAcquireSpinLockExclusive(v29 + 3);
-    i = *(_QWORD *)v29;
-    v31 = v30;
+    v28 = (volatile LONG *)((char *)&unk_140C4CDF0 + 16 * (unsigned __int8)(a2 >> 30));
+    v29 = ExAcquireSpinLockExclusive(v28 + 3);
+    i = *(_QWORD *)v28;
+    v30 = v29;
     while ( i )
     {
-      v32 = *(_QWORD *)(i + 88) & 0xFFFFFFFFFFFFF000uLL;
-      if ( a2 >= v32 + *(_QWORD *)(i + 32) )
+      v31 = *(_QWORD *)(i + 88) & 0xFFFFFFFFFFFFF000uLL;
+      if ( a2 >= v31 + *(_QWORD *)(i + 32) )
       {
         i = *(_QWORD *)(i + 8);
       }
       else
       {
-        if ( a2 >= v32 )
+        if ( a2 >= v31 )
         {
-          RtlAvlRemoveNode((unsigned __int64 *)v29, (unsigned __int64 *)i);
-          --*((_DWORD *)v29 + 2);
+          RtlAvlRemoveNode((unsigned __int64 *)v28, (unsigned __int64 *)i);
+          --*((_DWORD *)v28 + 2);
           break;
         }
         i = *(_QWORD *)i;
       }
     }
-    ExReleaseSpinLockExclusiveFromDpcLevel(v29 + 3);
+    ExReleaseSpinLockExclusiveFromDpcLevel(v28 + 3);
     if ( KiIrqlFlags )
     {
       if ( (KiIrqlFlags & 1) != 0 )
       {
         CurrentIrql = KeGetCurrentIrql();
-        if ( CurrentIrql <= 0xFu && (unsigned __int8)v31 <= 0xFu && CurrentIrql >= 2u )
+        if ( CurrentIrql <= 0xFu && (unsigned __int8)v30 <= 0xFu && CurrentIrql >= 2u )
         {
           CurrentPrcb = KeGetCurrentPrcb();
           SchedulerAssist = CurrentPrcb->SchedulerAssist;
-          v36 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v31 + 1));
-          v21 = (v36 & SchedulerAssist[5]) == 0;
-          SchedulerAssist[5] &= v36;
+          v35 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v30 + 1));
+          v21 = (v35 & SchedulerAssist[5]) == 0;
+          SchedulerAssist[5] &= v35;
           if ( v21 )
             KiRemoveSystemWorkPriorityKick(CurrentPrcb);
         }
       }
     }
-    __writecr8(v31);
+    __writecr8(v30);
     if ( i )
     {
       v16 = *(struct _DMA_ADAPTER **)(i + 64);
@@ -165,8 +164,8 @@ void __fastcall MiRemoveFromSystemSpace(_QWORD *a1, ULONG_PTR a2, int a3)
   MiUnlockWorkingSetExclusive((__int64)AnyMultiplexedVm, v13);
   v16 = *(struct _DMA_ADAPTER **)(i + 64);
   v17 = **(_QWORD **)(i + 48);
-  v40[0] = v17;
-  MiManageSubsectionView(v40, i + 72, 4LL);
+  v39[0] = v17;
+  MiManageSubsectionView(v39, i + 72, 4LL);
   v18 = v4[1];
   if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)v18, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
     ExfTryToWakePushLock(v18);
@@ -174,7 +173,7 @@ void __fastcall MiRemoveFromSystemSpace(_QWORD *a1, ULONG_PTR a2, int a3)
   if ( (unsigned int)MiGetSystemRegionType(v18) == 1 )
     SessionId = MmGetSessionIdEx(v19->ApcState.Process);
   --v19->SpecialApcDisable;
-  v42 = ++v19->AbAllocationRegionCount;
+  v41 = ++v19->AbAllocationRegionCount;
   v20 = ((char)v19->AbEntrySummary | (char)v19->AbOrphanedEntrySummary) ^ 0x3F;
   while ( 1 )
   {
@@ -195,12 +194,12 @@ void __fastcall MiRemoveFromSystemSpace(_QWORD *a1, ULONG_PTR a2, int a3)
         {
           *(_BYTE *)(v23 + 32) |= 2u;
           if ( *(__int64 *)(v23 + 32) < 0 )
-            KiAbEntryRemoveFromTree(v23);
+            KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)v23);
           *(_DWORD *)(v23 + 88) &= 0xFFFE0000;
           *(_BYTE *)(v23 + 25) &= ~1u;
           *(_QWORD *)(v23 + 32) = 0LL;
           v24 = (signed __int64)(v23 - (unsigned __int64)v19->LockEntries) / 96;
-          if ( v42 == 1 )
+          if ( v41 == 1 )
             v19->AbEntrySummary |= 1 << v24;
           else
             _InterlockedOr8((volatile signed __int8 *)&v19->AbOrphanedEntrySummary, 1 << v24);
@@ -217,8 +216,8 @@ LABEL_24:
   KiAbThreadRemoveBoosts((ULONG_PTR)v19);
   v21 = v19->SpecialApcDisable++ == -1;
   if ( v21 && ($C459BD0D405E8E46662177FB3D0A143F *)v19->ApcState.ApcListHead[0].Flink != &v19->152 )
-    KiCheckForKernelApcDelivery(v25);
-  KiLeaveGuardedRegionUnsafe(v39);
+    KiCheckForKernelApcDelivery();
+  KiLeaveGuardedRegionUnsafe(v38);
 LABEL_28:
   if ( v16 )
     HalPutDmaAdapter(v16);
@@ -226,21 +225,21 @@ LABEL_28:
     _InterlockedAdd((volatile signed __int32 *)(v17 + 92), 0xFFFFFFFF);
   if ( a3 == 1 )
     MiRemoveMappedPtes(i, AnyMultiplexedVm);
-  v26 = *(unsigned int *)(i + 100);
-  if ( (_DWORD)v26 != 0x7FFFF )
-    MiDereferencePerSessionProtos(v17, v26);
-  v27 = ((*(_QWORD *)(i + 32) >> 12) + 15LL) & 0xFFFFFFFFFFFFFFF0uLL;
+  v25 = *(unsigned int *)(i + 100);
+  if ( (_DWORD)v25 != 0x7FFFF )
+    MiDereferencePerSessionProtos(v17, v25);
+  v26 = ((*(_QWORD *)(i + 32) >> 12) + 15LL) & 0xFFFFFFFFFFFFFFF0uLL;
   if ( (*(_BYTE *)(i + 56) & 0x18) == 0x18 )
   {
-    if ( a1 == (_QWORD *)&unk_140C4CD68 )
-      v28 = &unk_140C4EAF8;
+    if ( a1 == (_QWORD *)&unk_140C4CDA8 )
+      v27 = &unk_140C4EB38;
     else
-      v28 = (void *)(v38 + 880);
-    MiReleasePtes((__int64)v28, v8, v27);
+      v27 = (void *)(v37 + 880);
+    MiReleasePtes((__int64)v27, v8, v26);
   }
   else
   {
-    MiUnmapLargePages(*(_QWORD *)(i + 88) & 0xFFFFFFFFFFFFF000uLL, v27 << 12, 9LL);
+    MiUnmapLargePages(*(_QWORD *)(i + 88) & 0xFFFFFFFFFFFFF000uLL, v26 << 12, 9LL);
   }
   ExFreePoolWithTag((PVOID)i, 0);
 }

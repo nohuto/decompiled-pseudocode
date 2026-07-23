@@ -1,10 +1,10 @@
 /*
- * XREFs of CBufferAllocate @ 0x14045A5C8
+ * XREFs of CBufferAllocate @ 0x140451E48
  * Callers:
- *     CreateNewEventEntry @ 0x14045A338 (CreateNewEventEntry.c)
+ *     CreateNewEventEntry @ 0x140451BB8 (CreateNewEventEntry.c)
  * Callees:
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     ExAllocatePoolWithTag @ 0x140C10340 (ExAllocatePoolWithTag.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     ExAllocatePoolWithTag @ 0x140C16340 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall CBufferAllocate(char a1, _QWORD *a2, SIZE_T a3)

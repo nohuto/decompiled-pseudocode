@@ -1,13 +1,13 @@
 /*
- * XREFs of PopUpdatePowerButtonHoldState @ 0x1405994C8
+ * XREFs of PopUpdatePowerButtonHoldState @ 0x1405999B8
  * Callers:
- *     PoSetPowerButtonHoldState @ 0x140587140 (PoSetPowerButtonHoldState.c)
- *     NtPowerInformation @ 0x140783F20 (NtPowerInformation.c)
+ *     PoSetPowerButtonHoldState @ 0x140587630 (PoSetPowerButtonHoldState.c)
+ *     NtPowerInformation @ 0x140784110 (NtPowerInformation.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250E80 (KeAcquireSpinLockRaiseToDpc.c)
- *     PopQueueWorkItem @ 0x14032CCE4 (PopQueueWorkItem.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140250F40 (KeAcquireSpinLockRaiseToDpc.c)
+ *     PopQueueWorkItem @ 0x14032CF74 (PopQueueWorkItem.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall PopUpdatePowerButtonHoldState(char a1)
@@ -24,36 +24,36 @@ __int64 __fastcall PopUpdatePowerButtonHoldState(char a1)
   v2 = KeAcquireSpinLockRaiseToDpc(&PopPowerButtonHold);
   v3 = 0;
   v4 = v2;
-  v5 = 1LL << ((dword_140C3A004 + dword_140C3A008) & 0x3F);
+  v5 = 1LL << ((dword_140C39FA4 + dword_140C39FA8) & 0x3F);
   if ( a1 )
   {
-    qword_140C3A010 |= v5;
+    qword_140C39FB0 |= v5;
     v3 = 1;
-    ++dword_140C3A008;
+    ++dword_140C39FA8;
   }
   else
   {
-    qword_140C3A010 &= ~v5;
-    ++dword_140C3A004;
+    qword_140C39FB0 &= ~v5;
+    ++dword_140C39FA4;
   }
-  if ( v3 != (xmmword_140C3A1B8 & 1) )
+  if ( v3 != (xmmword_140C3A158 & 1) )
   {
     if ( a1 )
     {
-      ++DWORD1(xmmword_140C3A1B8);
-      LODWORD(xmmword_140C3A1B8) = xmmword_140C3A1B8 | 1;
+      ++DWORD1(xmmword_140C3A158);
+      LODWORD(xmmword_140C3A158) = xmmword_140C3A158 | 1;
     }
     else
     {
-      LODWORD(xmmword_140C3A1B8) = 0;
+      LODWORD(xmmword_140C3A158) = 0;
     }
-    PopQueueWorkItem((__int64)&unk_140C3A190, CriticalWorkQueue);
+    PopQueueWorkItem((__int64)&unk_140C3A130, CriticalWorkQueue);
   }
   result = KxReleaseSpinLock((volatile signed __int64 *)&PopPowerButtonHold);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     result = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
       && (unsigned __int8)result <= 0xFu
       && (unsigned __int8)v4 <= 0xFu
       && (unsigned __int8)result >= 2u )

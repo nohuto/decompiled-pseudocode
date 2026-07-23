@@ -1,16 +1,16 @@
 /*
- * XREFs of MiEmptyDecayClusterTimers @ 0x1400BE310
+ * XREFs of MiEmptyDecayClusterTimers @ 0x1400BC1A0
  * Callers:
- *     MiWorkingSetManager @ 0x1400BDF08 (MiWorkingSetManager.c)
+ *     MiWorkingSetManager @ 0x1400BBD98 (MiWorkingSetManager.c)
  * Callees:
- *     KxWaitForLockOwnerShip @ 0x14001BDA0 (KxWaitForLockOwnerShip.c)
- *     MiUnlinkPageFromList @ 0x140065A40 (MiUnlinkPageFromList.c)
- *     KxReleaseQueuedSpinLock @ 0x140069570 (KxReleaseQueuedSpinLock.c)
- *     MiRemoveDecayClusterTimer @ 0x140096BB8 (MiRemoveDecayClusterTimer.c)
- *     MiRelinkStandbyPage @ 0x1400BE514 (MiRelinkStandbyPage.c)
- *     KiQueryUnbiasedInterruptTime @ 0x1400F02D4 (KiQueryUnbiasedInterruptTime.c)
- *     KiAcquireQueuedSpinLockInstrumented @ 0x1401D39E0 (KiAcquireQueuedSpinLockInstrumented.c)
- *     MI_GET_PAGE_FRAME_FROM_TRANSITION_PTE @ 0x1401F2570 (MI_GET_PAGE_FRAME_FROM_TRANSITION_PTE.c)
+ *     KxWaitForLockOwnerShip @ 0x14001B920 (KxWaitForLockOwnerShip.c)
+ *     MiUnlinkPageFromList @ 0x1400655C0 (MiUnlinkPageFromList.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400690F0 (KxReleaseQueuedSpinLock.c)
+ *     MiRemoveDecayClusterTimer @ 0x1400963B8 (MiRemoveDecayClusterTimer.c)
+ *     MiRelinkStandbyPage @ 0x1400BC3A4 (MiRelinkStandbyPage.c)
+ *     KiQueryUnbiasedInterruptTime @ 0x1400EE154 (KiQueryUnbiasedInterruptTime.c)
+ *     KiAcquireQueuedSpinLockInstrumented @ 0x1401D380C (KiAcquireQueuedSpinLockInstrumented.c)
+ *     MI_GET_PAGE_FRAME_FROM_TRANSITION_PTE @ 0x1401F239C (MI_GET_PAGE_FRAME_FROM_TRANSITION_PTE.c)
  */
 
 __int64 __fastcall MiEmptyDecayClusterTimers(__int64 a1)
@@ -65,7 +65,7 @@ __int64 __fastcall MiEmptyDecayClusterTimers(__int64 a1)
     v9 = *(_QWORD *)(v5 + 4232) >> 33;
     if ( v9 == 0x7FFFFFFF )
       break;
-    v10 = 48 * (v9 + qword_140327360) - 0x58000000000LL;
+    v10 = 48 * (v9 + qword_1403273A0) - 0x58000000000LL;
     v11 = MI_GET_PAGE_FRAME_FROM_TRANSITION_PTE(v10 + 16);
     if ( v11 == v12 )
     {

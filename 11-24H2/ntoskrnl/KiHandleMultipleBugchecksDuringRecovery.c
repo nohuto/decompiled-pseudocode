@@ -1,11 +1,11 @@
 /*
- * XREFs of KiHandleMultipleBugchecksDuringRecovery @ 0x1405C62C0
+ * XREFs of KiHandleMultipleBugchecksDuringRecovery @ 0x1405C39F0
  * Callers:
- *     KeBugCheck2 @ 0x1405B1780 (KeBugCheck2.c)
+ *     KeBugCheck2 @ 0x1405AE6F0 (KeBugCheck2.c)
  * Callees:
- *     IoSaveBugCheckRecoveryStatus @ 0x140591FEC (IoSaveBugCheckRecoveryStatus.c)
- *     KiRecordRecoveryFailure @ 0x1405C6518 (KiRecordRecoveryFailure.c)
- *     KiSetBugCheckRecoveryProgressFlag @ 0x1405C66A8 (KiSetBugCheckRecoveryProgressFlag.c)
+ *     IoSaveBugCheckRecoveryStatus @ 0x14058F00C (IoSaveBugCheckRecoveryStatus.c)
+ *     KiRecordRecoveryFailure @ 0x1405C3C48 (KiRecordRecoveryFailure.c)
+ *     KiSetBugCheckRecoveryProgressFlag @ 0x1405C3DD8 (KiSetBugCheckRecoveryProgressFlag.c)
  */
 
 char __fastcall KiHandleMultipleBugchecksDuringRecovery(unsigned int a1)

@@ -1,10 +1,10 @@
 /*
- * XREFs of EtwpTraceLostWppEvent @ 0x1405FC7C8
+ * XREFs of EtwpTraceLostWppEvent @ 0x1405FCD38
  * Callers:
- *     EtwpTraceMessageVa @ 0x140226F10 (EtwpTraceMessageVa.c)
+ *     EtwpTraceMessageVa @ 0x140227020 (EtwpTraceMessageVa.c)
  * Callees:
- *     EtwWriteEx @ 0x1402581E0 (EtwWriteEx.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     EtwWriteEx @ 0x1402582A0 (EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall EtwpTraceLostWppEvent(ULONGLONG a1, __int16 a2, unsigned __int16 *a3, int a4)

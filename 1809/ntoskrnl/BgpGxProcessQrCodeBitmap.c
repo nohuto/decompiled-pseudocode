@@ -1,12 +1,12 @@
 /*
- * XREFs of BgpGxProcessQrCodeBitmap @ 0x140192C14
+ * XREFs of BgpGxProcessQrCodeBitmap @ 0x140192D54
  * Callers:
- *     BgpFwLibraryInitialize @ 0x14094F95C (BgpFwLibraryInitialize.c)
+ *     BgpFwLibraryInitialize @ 0x14095095C (BgpFwLibraryInitialize.c)
  * Callees:
- *     BgpGetBitsPerPixel @ 0x14016F1E0 (BgpGetBitsPerPixel.c)
- *     BgpGxConvertRectangle @ 0x140192C98 (BgpGxConvertRectangle.c)
- *     BgpGxParseBitmap @ 0x14094E848 (BgpGxParseBitmap.c)
- *     BgpGxRectangleDestroy @ 0x14094F21C (BgpGxRectangleDestroy.c)
+ *     BgpGetBitsPerPixel @ 0x14016F2E0 (BgpGetBitsPerPixel.c)
+ *     BgpGxConvertRectangle @ 0x140192DD8 (BgpGxConvertRectangle.c)
+ *     BgpGxParseBitmap @ 0x14094F848 (BgpGxParseBitmap.c)
+ *     BgpGxRectangleDestroy @ 0x14095021C (BgpGxRectangleDestroy.c)
  */
 
 __int64 __fastcall BgpGxProcessQrCodeBitmap(__int64 a1, _QWORD *a2)

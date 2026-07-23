@@ -1,15 +1,15 @@
 /*
- * XREFs of HalpIommuProcessIvhdEntry @ 0x14052E664
+ * XREFs of HalpIommuProcessIvhdEntry @ 0x14052EBB4
  * Callers:
  *     HalpIommuHsaDiscover @ 0x140B652F0 (HalpIommuHsaDiscover.c)
  * Callees:
- *     RtlClearBits @ 0x14022DA00 (RtlClearBits.c)
- *     ExtEnvAllocateMemory @ 0x14037FC68 (ExtEnvAllocateMemory.c)
- *     HalRegisterPermanentAddressUsage @ 0x14037FD90 (HalRegisterPermanentAddressUsage.c)
- *     memset @ 0x140435A00 (memset.c)
- *     HalpHsaAllocateReservedDomainList @ 0x14052E128 (HalpHsaAllocateReservedDomainList.c)
- *     HalpIommuProcessDeviceEntries @ 0x14052E3A4 (HalpIommuProcessDeviceEntries.c)
- *     HsaProcessIvmd @ 0x14053095C (HsaProcessIvmd.c)
+ *     RtlClearBits @ 0x14022DB10 (RtlClearBits.c)
+ *     ExtEnvAllocateMemory @ 0x14037FE08 (ExtEnvAllocateMemory.c)
+ *     HalRegisterPermanentAddressUsage @ 0x14037FF30 (HalRegisterPermanentAddressUsage.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     HalpHsaAllocateReservedDomainList @ 0x14052E678 (HalpHsaAllocateReservedDomainList.c)
+ *     HalpIommuProcessDeviceEntries @ 0x14052E8F4 (HalpIommuProcessDeviceEntries.c)
+ *     HsaProcessIvmd @ 0x140530EAC (HsaProcessIvmd.c)
  *     ExtEnvRegisterIommu @ 0x140B47FE4 (ExtEnvRegisterIommu.c)
  */
 

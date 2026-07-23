@@ -7,11 +7,11 @@
  *     <none>
  */
 
-__int64 NtQuerySymbolicLinkObject()
+NTSTATUS __cdecl NtQuerySymbolicLinkObject(HANDLE LinkHandle, PUNICODE_STRING LinkTarget, PULONG ReturnedLength)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 327LL;
+  result = 327;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

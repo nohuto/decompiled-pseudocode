@@ -1,20 +1,20 @@
 /*
- * XREFs of KiAbProcessPreContextSwitch @ 0x140295A00
+ * XREFs of KiAbProcessPreContextSwitch @ 0x1402A5600
  * Callers:
- *     KiDispatchInterrupt @ 0x1402936B0 (KiDispatchInterrupt.c)
- *     KiQuantumEnd @ 0x140293C70 (KiQuantumEnd.c)
- *     KiHandleDeferredPreemption @ 0x14029602C (KiHandleDeferredPreemption.c)
- *     KiSwapThread @ 0x1402A6990 (KiSwapThread.c)
- *     KiCheckForThreadDispatch @ 0x14031D21C (KiCheckForThreadDispatch.c)
- *     KiExitDispatcher @ 0x14031E7A0 (KiExitDispatcher.c)
- *     KeYieldExecution @ 0x14033C510 (KeYieldExecution.c)
- *     KiDirectSwitchThread @ 0x14042B970 (KiDirectSwitchThread.c)
+ *     KiDispatchInterrupt @ 0x1402A32B0 (KiDispatchInterrupt.c)
+ *     KiQuantumEnd @ 0x1402A3870 (KiQuantumEnd.c)
+ *     KiCheckForThreadDispatch @ 0x1402C5DAC (KiCheckForThreadDispatch.c)
+ *     KiExitDispatcher @ 0x1402C7330 (KiExitDispatcher.c)
+ *     KiSwapThread @ 0x1402D60C0 (KiSwapThread.c)
+ *     KiHandleDeferredPreemption @ 0x1402E03DC (KiHandleDeferredPreemption.c)
+ *     KeYieldExecution @ 0x14031B9F0 (KeYieldExecution.c)
+ *     KiDirectSwitchThread @ 0x14041E720 (KiDirectSwitchThread.c)
  * Callees:
- *     KiAbProcessThreadLocks @ 0x1402509C0 (KiAbProcessThreadLocks.c)
- *     KiAbEntryFreeAndEnableInterrupts @ 0x14025CDA0 (KiAbEntryFreeAndEnableInterrupts.c)
- *     KiCheckForThreadDispatch @ 0x14031D21C (KiCheckForThreadDispatch.c)
- *     KiDeferredReadySingleThread @ 0x14031ED40 (KiDeferredReadySingleThread.c)
- *     KiFlushSoftwareInterruptBatch @ 0x14031FCD0 (KiFlushSoftwareInterruptBatch.c)
+ *     KiAbProcessThreadLocks @ 0x140280FD0 (KiAbProcessThreadLocks.c)
+ *     KiAbEntryFreeAndEnableInterrupts @ 0x14028D3B0 (KiAbEntryFreeAndEnableInterrupts.c)
+ *     KiCheckForThreadDispatch @ 0x1402C5DAC (KiCheckForThreadDispatch.c)
+ *     KiDeferredReadySingleThread @ 0x1402C78D0 (KiDeferredReadySingleThread.c)
+ *     KiFlushSoftwareInterruptBatch @ 0x1402C8860 (KiFlushSoftwareInterruptBatch.c)
  */
 
 __int64 __fastcall KiAbProcessPreContextSwitch(_QWORD *a1, int a2)
@@ -72,7 +72,7 @@ __int64 __fastcall KiAbProcessPreContextSwitch(_QWORD *a1, int a2)
                 if ( *(_QWORD *)(v17 + 16) )
                 {
                   _disable();
-                  KiAbEntryFreeAndEnableInterrupts(v17 + 16, (ULONG_PTR)a1, v18, 0, 0LL);
+                  KiAbEntryFreeAndEnableInterrupts(v17 + 16, (ULONG_PTR)a1, v18, 0LL, 0LL);
                   v8 |= 1 << v7;
                 }
                 if ( v18 )

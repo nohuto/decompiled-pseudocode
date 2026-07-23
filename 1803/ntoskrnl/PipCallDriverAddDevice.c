@@ -75,7 +75,7 @@ __int64 __fastcall PipCallDriverAddDevice(__int64 a1, __int64 a2)
   int v30; // eax
   int v31; // eax
   int v32; // eax
-  char *v33; // rbx
+  const WNF_STATE_NAME *v33; // rbx
   unsigned int v34; // esi
   int v35; // ecx
   int v36; // eax
@@ -104,7 +104,7 @@ __int64 __fastcall PipCallDriverAddDevice(__int64 a1, __int64 a2)
   int v59; // [rsp+88h] [rbp-78h] BYREF
   HANDLE v60; // [rsp+90h] [rbp-70h] BYREF
   _WORD v61[2]; // [rsp+98h] [rbp-68h] BYREF
-  int v62; // [rsp+9Ch] [rbp-64h] BYREF
+  LOGICAL v62; // [rsp+9Ch] [rbp-64h] BYREF
   PVOID Object; // [rsp+A0h] [rbp-60h]
   PVOID AttachedDeviceReferenceWithTag; // [rsp+A8h] [rbp-58h]
   UNICODE_STRING DestinationString; // [rsp+B0h] [rbp-50h] BYREF
@@ -367,12 +367,11 @@ LABEL_84:
           {
             if ( v62 == 4099 && (NumberOfBytes_4 & 7) == 0 && NumberOfBytes_4 )
             {
-              v33 = (char *)P;
+              v33 = (const WNF_STATE_NAME *)P;
               v34 = NumberOfBytes_4 >> 3;
               do
               {
-                ZwUpdateWnfStateData((__int64)v33, 0LL, 0LL);
-                v33 += 8;
+                ZwUpdateWnfStateData(v33++, 0LL, 0, 0LL, 0LL, 0, 0);
                 --v34;
               }
               while ( v34 );

@@ -1,7 +1,7 @@
 /*
- * XREFs of ExGetHandleAttributes @ 0x1404023F0
+ * XREFs of ExGetHandleAttributes @ 0x1403FC9F0
  * Callers:
- *     ExpSnapShotHandleTables @ 0x14094D7D0 (ExpSnapShotHandleTables.c)
+ *     ExpSnapShotHandleTables @ 0x1408F1D40 (ExpSnapShotHandleTables.c)
  * Callees:
  *     <none>
  */

@@ -1,17 +1,17 @@
 /*
- * XREFs of ExpResizeBigPageTable @ 0x14009D79C
+ * XREFs of ExpResizeBigPageTable @ 0x14009CF9C
  * Callers:
- *     ExpAddTagForBigPages @ 0x1400124D0 (ExpAddTagForBigPages.c)
- *     ExpResizeBigPageTable @ 0x14009D79C (ExpResizeBigPageTable.c)
+ *     ExpAddTagForBigPages @ 0x140012050 (ExpAddTagForBigPages.c)
+ *     ExpResizeBigPageTable @ 0x14009CF9C (ExpResizeBigPageTable.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLock @ 0x140012750 (KeReleaseInStackQueuedSpinLock.c)
- *     ExpInsertPoolTrackerExpansion @ 0x140012AF0 (ExpInsertPoolTrackerExpansion.c)
- *     MiFreePoolPages @ 0x140018558 (MiFreePoolPages.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14001BD40 (KeAcquireInStackQueuedSpinLock.c)
- *     ExpResizeBigPageTable @ 0x14009D79C (ExpResizeBigPageTable.c)
- *     MiAllocatePoolPages @ 0x14009DBEC (MiAllocatePoolPages.c)
- *     EtwTracePool @ 0x1401596BC (EtwTracePool.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x1400122D0 (KeReleaseInStackQueuedSpinLock.c)
+ *     ExpInsertPoolTrackerExpansion @ 0x140012670 (ExpInsertPoolTrackerExpansion.c)
+ *     MiFreePoolPages @ 0x1400180D8 (MiFreePoolPages.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14001B8C0 (KeAcquireInStackQueuedSpinLock.c)
+ *     ExpResizeBigPageTable @ 0x14009CF9C (ExpResizeBigPageTable.c)
+ *     MiAllocatePoolPages @ 0x14009D3EC (MiAllocatePoolPages.c)
+ *     EtwTracePool @ 0x140159C2C (EtwTracePool.c)
+ *     memset @ 0x140171AC0 (memset.c)
  */
 
 __int64 __fastcall ExpResizeBigPageTable(char a1, __int64 a2, _QWORD *a3)
@@ -56,9 +56,9 @@ __int64 __fastcall ExpResizeBigPageTable(char a1, __int64 a2, _QWORD *a3)
   v29 = 0LL;
   if ( (a1 & 0x20) != 0 )
   {
-    v3 = *(_QWORD *)(qword_140326918 + 8080);
-    v37 = *(_QWORD **)(qword_140326918 + 8072);
-    v30 = (int *)(qword_140326918 + 7936);
+    v3 = *(_QWORD *)(qword_140326958 + 8080);
+    v37 = *(_QWORD **)(qword_140326958 + 8072);
+    v30 = (int *)(qword_140326958 + 7936);
     if ( !PoolBigPageTableSize )
       return 0LL;
   }
@@ -165,13 +165,13 @@ LABEL_19:
   *(_QWORD *)(v16 + 8 * v18 + 16) = v6;
   *(_DWORD *)(v16 + 8 * v18 + 12) = v19;
   _InterlockedAdd(&ExpPoolBigEntriesInUse, 1u);
-  _InterlockedAdd(&dword_14033B900, 1u);
-  _InterlockedExchangeAdd64(&qword_14033B910, (int)(v6 >> 12));
-  _InterlockedExchangeAdd64(&qword_14033B918, v6);
+  _InterlockedAdd(&dword_14033B940, 1u);
+  _InterlockedExchangeAdd64(&qword_14033B950, (int)(v6 >> 12));
+  _InterlockedExchangeAdd64(&qword_14033B958, v6);
   if ( v34 )
   {
-    *(_QWORD *)(qword_140326918 + 8072) = PoolPages;
-    *(_QWORD *)(qword_140326918 + 8080) = v4;
+    *(_QWORD *)(qword_140326958 + 8072) = PoolPages;
+    *(_QWORD *)(qword_140326958 + 8080) = v4;
   }
   else
   {

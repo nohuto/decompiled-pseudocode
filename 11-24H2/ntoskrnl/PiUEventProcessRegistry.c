@@ -1,9 +1,9 @@
 /*
- * XREFs of PiUEventProcessRegistry @ 0x140C23CB0
+ * XREFs of PiUEventProcessRegistry @ 0x140C25CE0
  * Callers:
- *     IopInitializePlugPlayServices @ 0x140C1F07C (IopInitializePlugPlayServices.c)
+ *     IopInitializePlugPlayServices @ 0x140C210BC (IopInitializePlugPlayServices.c)
  * Callees:
- *     PnpGetRegistryDword @ 0x1404B53A4 (PnpGetRegistryDword.c)
+ *     PnpGetRegistryDword @ 0x1404AFC44 (PnpGetRegistryDword.c)
  */
 
 __int64 __fastcall PiUEventProcessRegistry(void *a1)

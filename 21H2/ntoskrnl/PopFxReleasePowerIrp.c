@@ -1,12 +1,12 @@
 /*
- * XREFs of PopFxReleasePowerIrp @ 0x1403A4D14
+ * XREFs of PopFxReleasePowerIrp @ 0x1403A4E64
  * Callers:
- *     PopFreeIrp @ 0x14037AA7C (PopFreeIrp.c)
+ *     PopFreeIrp @ 0x14037A5CC (PopFreeIrp.c)
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x14021D060 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14033BD80 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KeSetEvent @ 0x1403435A0 (KeSetEvent.c)
- *     PopRequestPowerIrp @ 0x14036DD20 (PopRequestPowerIrp.c)
+ *     ExAcquireSpinLockExclusive @ 0x1402C1960 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140346AD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KeSetEvent @ 0x14034E2F0 (KeSetEvent.c)
+ *     PopRequestPowerIrp @ 0x14036DED0 (PopRequestPowerIrp.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 

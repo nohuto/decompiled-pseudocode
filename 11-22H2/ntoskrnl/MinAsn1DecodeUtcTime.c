@@ -33,7 +33,7 @@ bool __fastcall MinAsn1DecodeUtcTime(__int64 a1, LARGE_INTEGER *a2)
   __int16 v21; // [rsp+24h] [rbp-1Ch]
   __int16 v22; // [rsp+28h] [rbp-18h]
   __int16 v23; // [rsp+2Ch] [rbp-14h]
-  TIME_FIELDS TimeFields; // [rsp+30h] [rbp-10h] BYREF
+  _TIME_FIELDS TimeFields; // [rsp+30h] [rbp-10h] BYREF
   char Str; // [rsp+80h] [rbp+40h] BYREF
   unsigned __int8 v26; // [rsp+81h] [rbp+41h]
   char v27; // [rsp+82h] [rbp+42h]

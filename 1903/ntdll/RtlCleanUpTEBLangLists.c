@@ -8,31 +8,29 @@
  *     RtlFreeHeap @ 0x180040690 (RtlFreeHeap.c)
  */
 
-struct _TEB *RtlCleanUpTEBLangLists()
+void RtlCleanUpTEBLangLists(void)
 {
-  _QWORD *UserPrefLanguages; // rbx
-  struct _TEB *result; // rax
+  PVOID *UserPrefLanguages; // rbx
+  PVOID v1; // rcx
 
   sub_180015770(NtCurrentTeb()->MergedPrefLanguages);
   NtCurrentTeb()->MergedPrefLanguages = 0LL;
-  UserPrefLanguages = NtCurrentTeb()->UserPrefLanguages;
+  UserPrefLanguages = (PVOID *)NtCurrentTeb()->UserPrefLanguages;
   if ( UserPrefLanguages )
   {
     if ( *UserPrefLanguages )
       sub_180015770(*UserPrefLanguages);
-    if ( UserPrefLanguages[1] )
-      sub_180005F60();
-    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0LL, UserPrefLanguages);
+    v1 = UserPrefLanguages[1];
+    if ( v1 )
+      sub_180005F60(v1);
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, UserPrefLanguages);
   }
   NtCurrentTeb()->UserPrefLanguages = 0LL;
   sub_180015770(NtCurrentTeb()->PreferredLanguages);
   NtCurrentTeb()->PreferredLanguages = 0LL;
-  result = NtCurrentTeb();
-  if ( result->ResourceRetValue )
+  if ( NtCurrentTeb()->ResourceRetValue )
   {
-    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0LL, NtCurrentTeb()->ResourceRetValue);
-    result = NtCurrentTeb();
-    result->ResourceRetValue = 0LL;
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, NtCurrentTeb()->ResourceRetValue);
+    NtCurrentTeb()->ResourceRetValue = 0LL;
   }
-  return result;
 }

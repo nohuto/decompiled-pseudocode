@@ -8,24 +8,24 @@
  *     _ZwSetInformationWorkerFactory@16 @ 0x4B2F4370 (_ZwSetInformationWorkerFactory@16.c)
  */
 
-int __stdcall TpCallbackMayRunLong(_DWORD *a1)
+NTSTATUS __cdecl TpCallbackMayRunLong(PTP_CALLBACK_INSTANCE Instance)
 {
   int MayRunLongProlog; // eax
-  int v2; // ecx
+  NTSTATUS v2; // ecx
   signed __int32 v4; // [esp+4h] [ebp-10h] BYREF
-  int v5; // [esp+8h] [ebp-Ch] BYREF
+  int WorkerFactoryInformation; // [esp+8h] [ebp-Ch] BYREF
   signed __int32 v6; // [esp+Ch] [ebp-8h] BYREF
   int v7; // [esp+10h] [ebp-4h] BYREF
 
   v7 = 0;
-  MayRunLongProlog = TppCallbackMayRunLongProlog(a1, 1, &v7, &v6, &v4);
+  MayRunLongProlog = TppCallbackMayRunLongProlog(Instance, 1, &v7, &v6, &v4);
   v2 = MayRunLongProlog;
   if ( MayRunLongProlog < 0 )
     return MayRunLongProlog != -1073741637 ? MayRunLongProlog : 0;
   if ( !v6 )
   {
-    v5 = 1;
-    return ZwSetInformationWorkerFactory(*(_DWORD *)(v7 + 36), 9, &v5, 4);
+    WorkerFactoryInformation = 1;
+    return ZwSetInformationWorkerFactory(*(HANDLE *)(v7 + 36), WorkerFactoryCallbackType, &WorkerFactoryInformation, 4u);
   }
   return v2;
 }

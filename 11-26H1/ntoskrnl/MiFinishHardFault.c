@@ -1,49 +1,49 @@
 /*
- * XREFs of MiFinishHardFault @ 0x14031D830
+ * XREFs of MiFinishHardFault @ 0x14031F860
  * Callers:
- *     MiIssueHardFault @ 0x14038D350 (MiIssueHardFault.c)
- *     MiPfCompleteInPageSupport @ 0x14039FB18 (MiPfCompleteInPageSupport.c)
+ *     MiIssueHardFault @ 0x14038F100 (MiIssueHardFault.c)
+ *     MiPfCompleteInPageSupport @ 0x1403A1878 (MiPfCompleteInPageSupport.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     ObpPushStackInfo @ 0x1402659F0 (ObpPushStackInfo.c)
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     KiCheckForKernelApcDelivery @ 0x14027DB80 (KiCheckForKernelApcDelivery.c)
- *     MiLockWorkingSetExclusive @ 0x14027E5A0 (MiLockWorkingSetExclusive.c)
- *     MiReleaseNonPagedResources @ 0x14028C070 (MiReleaseNonPagedResources.c)
- *     MiReleaseFreshPage @ 0x140292190 (MiReleaseFreshPage.c)
- *     MiReleaseFreshPageAtDpc @ 0x140295CA0 (MiReleaseFreshPageAtDpc.c)
- *     KeLeaveCriticalRegionThread @ 0x1402B8A60 (KeLeaveCriticalRegionThread.c)
- *     MiInsertPagesInList @ 0x1402CD600 (MiInsertPagesInList.c)
- *     MiGetPrototypePteDirect @ 0x1402D0DC0 (MiGetPrototypePteDirect.c)
- *     MiUnlockPageTableInternal @ 0x1402D13E0 (MiUnlockPageTableInternal.c)
- *     MiUnlockProtoPoolPage @ 0x1402D3E40 (MiUnlockProtoPoolPage.c)
- *     KeSetEvent @ 0x1402DE9C0 (KeSetEvent.c)
- *     MmCheckCachedPageStates @ 0x1402E6810 (MmCheckCachedPageStates.c)
- *     MiRemoveLockedPageChargeAndDecRef @ 0x1402E8BF0 (MiRemoveLockedPageChargeAndDecRef.c)
- *     MiUnlockWorkingSetShared @ 0x1402EB6C0 (MiUnlockWorkingSetShared.c)
- *     MiLockWorkingSetShared @ 0x1402EDD60 (MiLockWorkingSetShared.c)
- *     MiLockLowestValidPageTableEx @ 0x140300610 (MiLockLowestValidPageTableEx.c)
- *     MiPteHasShadow @ 0x1403011E0 (MiPteHasShadow.c)
- *     MiInvalidateCollidedIos @ 0x14030F394 (MiInvalidateCollidedIos.c)
- *     MiRelockProtoPoolPage @ 0x14031BFF4 (MiRelockProtoPoolPage.c)
- *     MiIsPrototypePteVadLookup @ 0x14031C350 (MiIsPrototypePteVadLookup.c)
- *     MiFindActualFaultingPte @ 0x14031C6A4 (MiFindActualFaultingPte.c)
- *     MiHardFaultPageRelease @ 0x14031C920 (MiHardFaultPageRelease.c)
- *     MiFlowThroughRemoveNode @ 0x14031D554 (MiFlowThroughRemoveNode.c)
- *     MiFreeInPageSupportBlock @ 0x14031D5D8 (MiFreeInPageSupportBlock.c)
- *     MiReturnPfnReferenceCountAtDpc @ 0x14031E324 (MiReturnPfnReferenceCountAtDpc.c)
- *     MiAddPageToInsertList @ 0x14031EF60 (MiAddPageToInsertList.c)
- *     PsDereferencePartition @ 0x140381940 (PsDereferencePartition.c)
- *     MiInPageGapPage @ 0x14038C7D0 (MiInPageGapPage.c)
- *     MiReleaseFaultState @ 0x14038DD90 (MiReleaseFaultState.c)
- *     MiCheckVirtualAddress @ 0x1403A55E0 (MiCheckVirtualAddress.c)
- *     ObpDeferObjectDeletion @ 0x1403DD9F0 (ObpDeferObjectDeletion.c)
- *     MiCreateDecayPfn @ 0x140461360 (MiCreateDecayPfn.c)
- *     MiDecayPfnFullyInitialized @ 0x140498358 (MiDecayPfnFullyInitialized.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     ObpPushStackInfo @ 0x140264F60 (ObpPushStackInfo.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     KiCheckForKernelApcDelivery @ 0x14027D0F0 (KiCheckForKernelApcDelivery.c)
+ *     MiLockWorkingSetExclusive @ 0x14027DB10 (MiLockWorkingSetExclusive.c)
+ *     MiReleaseNonPagedResources @ 0x14028B5D0 (MiReleaseNonPagedResources.c)
+ *     MiReleaseFreshPage @ 0x1402916F0 (MiReleaseFreshPage.c)
+ *     MiReleaseFreshPageAtDpc @ 0x140295200 (MiReleaseFreshPageAtDpc.c)
+ *     MiInsertPagesInList @ 0x1402AF3C0 (MiInsertPagesInList.c)
+ *     MiGetPrototypePteDirect @ 0x1402B2B80 (MiGetPrototypePteDirect.c)
+ *     MiUnlockPageTableInternal @ 0x1402B31A0 (MiUnlockPageTableInternal.c)
+ *     MiUnlockProtoPoolPage @ 0x1402B5C00 (MiUnlockProtoPoolPage.c)
+ *     KeSetEvent @ 0x1402C0780 (KeSetEvent.c)
+ *     MmCheckCachedPageStates @ 0x1402C8850 (MmCheckCachedPageStates.c)
+ *     MiRemoveLockedPageChargeAndDecRef @ 0x1402CAC30 (MiRemoveLockedPageChargeAndDecRef.c)
+ *     MiUnlockWorkingSetShared @ 0x1402CD700 (MiUnlockWorkingSetShared.c)
+ *     MiLockWorkingSetShared @ 0x1402CFDE0 (MiLockWorkingSetShared.c)
+ *     MiLockLowestValidPageTableEx @ 0x1402E2690 (MiLockLowestValidPageTableEx.c)
+ *     MiPteHasShadow @ 0x1402E3260 (MiPteHasShadow.c)
+ *     MiInvalidateCollidedIos @ 0x1402F1414 (MiInvalidateCollidedIos.c)
+ *     KeLeaveCriticalRegionThread @ 0x140303720 (KeLeaveCriticalRegionThread.c)
+ *     MiRelockProtoPoolPage @ 0x14031E024 (MiRelockProtoPoolPage.c)
+ *     MiIsPrototypePteVadLookup @ 0x14031E380 (MiIsPrototypePteVadLookup.c)
+ *     MiFindActualFaultingPte @ 0x14031E6D4 (MiFindActualFaultingPte.c)
+ *     MiHardFaultPageRelease @ 0x14031E950 (MiHardFaultPageRelease.c)
+ *     MiFlowThroughRemoveNode @ 0x14031F584 (MiFlowThroughRemoveNode.c)
+ *     MiFreeInPageSupportBlock @ 0x14031F608 (MiFreeInPageSupportBlock.c)
+ *     MiReturnPfnReferenceCountAtDpc @ 0x140320354 (MiReturnPfnReferenceCountAtDpc.c)
+ *     MiAddPageToInsertList @ 0x140320F90 (MiAddPageToInsertList.c)
+ *     PsDereferencePartition @ 0x1403836F0 (PsDereferencePartition.c)
+ *     MiInPageGapPage @ 0x14038E580 (MiInPageGapPage.c)
+ *     MiReleaseFaultState @ 0x14038FB40 (MiReleaseFaultState.c)
+ *     MiCheckVirtualAddress @ 0x1403A7340 (MiCheckVirtualAddress.c)
+ *     ObpDeferObjectDeletion @ 0x1403E0BE0 (ObpDeferObjectDeletion.c)
+ *     MiCreateDecayPfn @ 0x14045A320 (MiCreateDecayPfn.c)
+ *     MiDecayPfnFullyInitialized @ 0x140491EA8 (MiDecayPfnFullyInitialized.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall MiFinishHardFault(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
@@ -81,7 +81,7 @@ __int64 __fastcall MiFinishHardFault(__int64 a1, __int64 a2, __int64 a3, __int64
   unsigned __int64 v36; // r8
   __int64 *PrototypePteDirect; // rax
   unsigned __int64 v38; // r15
-  struct _SLIST_ENTRY *DecayPfn; // rcx
+  _SLIST_ENTRY *DecayPfn; // rcx
   __int64 v40; // r14
   _QWORD *i; // rbx
   __int64 v42; // rcx
@@ -98,7 +98,7 @@ __int64 __fastcall MiFinishHardFault(__int64 a1, __int64 a2, __int64 a3, __int64
   int v53; // edi
   __int64 v54; // rax
   char v55; // bl
-  unsigned __int8 v56; // dl
+  __int64 v56; // rdx
   int v57; // ebx
   ULONG_PTR v58; // r14
   signed __int64 v59; // rax
@@ -117,7 +117,7 @@ __int64 __fastcall MiFinishHardFault(__int64 a1, __int64 a2, __int64 a3, __int64
   __int64 v73; // rbx
   __int64 v74; // rcx
   int v75; // eax
-  char v76; // [rsp+30h] [rbp-D0h] BYREF
+  unsigned __int8 v76; // [rsp+30h] [rbp-D0h] BYREF
   _QWORD *v77; // [rsp+38h] [rbp-C8h]
   unsigned __int64 v78; // [rsp+40h] [rbp-C0h] BYREF
   __int64 v79; // [rsp+48h] [rbp-B8h]
@@ -143,7 +143,7 @@ __int64 __fastcall MiFinishHardFault(__int64 a1, __int64 a2, __int64 a3, __int64
   __int64 v99; // [rsp+E8h] [rbp-18h]
   _QWORD v100[4]; // [rsp+F0h] [rbp-10h] BYREF
   int v101; // [rsp+110h] [rbp+10h]
-  struct _SLIST_ENTRY *v102; // [rsp+148h] [rbp+48h]
+  _SLIST_ENTRY *v102; // [rsp+148h] [rbp+48h]
   int v103; // [rsp+160h] [rbp+60h]
 
   v4 = a3;
@@ -216,7 +216,7 @@ LABEL_10:
       }
       else
       {
-        KeLeaveCriticalRegionThread(v11, v7, v8);
+        KeLeaveCriticalRegionThread(v11);
       }
     }
     if ( (v18 & 0x10000000) != 0 )
@@ -263,7 +263,7 @@ LABEL_25:
 LABEL_26:
   if ( v17 )
   {
-    v44 = (unsigned __int8 *)&v76;
+    v44 = &v76;
     if ( (_BYTE)v19 != 17 )
       v44 = 0LL;
     MiRelockProtoPoolPage(v17, v44);
@@ -288,7 +288,7 @@ LABEL_26:
   if ( v83 )
     MiReturnPfnReferenceCountAtDpc(v83);
   if ( (v29 & 0x4000000) != 0 )
-    v82 = *(__int64 **)(stru_140E2EB88.ThreadLock + 8 * ((*(_QWORD *)(*(_QWORD *)(v4 + 256) + 40LL) >> 43) & 0x3FFLL));
+    v82 = *(__int64 **)(stru_140E2ED08.ThreadLock + 8 * ((*(_QWORD *)(*(_QWORD *)(v4 + 256) + 40LL) >> 43) & 0x3FFLL));
   else
     v82 = 0LL;
   v30 = v20 < 0;
@@ -362,7 +362,7 @@ LABEL_49:
     ListEntry = 0LL;
     goto LABEL_50;
   }
-  DecayPfn = (struct _SLIST_ENTRY *)MiCreateDecayPfn();
+  DecayPfn = (_SLIST_ENTRY *)MiCreateDecayPfn();
   ListEntry = DecayPfn;
 LABEL_50:
   v40 = 0LL;
@@ -379,7 +379,7 @@ LABEL_50:
   for ( i = 0LL; (unsigned __int64)v13 <= v38; ++v13 )
   {
     v42 = 48LL * *v13 - 0x220000000000LL;
-    if ( v42 == qword_140E35FF0 || (*(_DWORD *)(v42 + 32) & 0x70000) == 0x70000 && *(_QWORD *)(v42 + 8) == -3LL )
+    if ( v42 == qword_140E36170 || (*(_DWORD *)(v42 + 32) & 0x70000) == 0x70000 && *(_QWORD *)(v42 + 8) == -3LL )
     {
       if ( (unsigned int)MiInPageGapPage(v42, 0xFFFFDE0000000000uLL) )
       {
@@ -432,8 +432,8 @@ LABEL_50:
   {
     v56 = v76;
     if ( (_BYTE)v80 != 17 )
-      v56 = 17;
-    MiUnlockProtoPoolPage(v83, v56);
+      v56 = 17LL;
+    MiUnlockProtoPoolPage(v83, v56, v52);
   }
   if ( (*(_DWORD *)(v4 + 188) & 0x20000) != 0 )
   {
@@ -546,11 +546,11 @@ LABEL_50:
   v62 = *(_QWORD *)(v4 + 104);
   if ( v62 )
   {
-    v73 = *(_QWORD *)(stru_140E2EB88.ThreadLock + 8 * ((*(_QWORD *)(v62 + 40) >> 43) & 0x3FFLL));
+    v73 = *(_QWORD *)(stru_140E2ED08.ThreadLock + 8 * ((*(_QWORD *)(v62 + 40) >> 43) & 0x3FFLL));
     if ( (_BYTE)v80 == 17 )
-      MiReleaseFreshPage(v62, stru_140E2EB88.ThreadLock, v52);
+      MiReleaseFreshPage(v62, stru_140E2ED08.ThreadLock, v52);
     else
-      MiReleaseFreshPageAtDpc(v62, stru_140E2EB88.ThreadLock, v52);
+      MiReleaseFreshPageAtDpc(v62, stru_140E2ED08.ThreadLock, v52);
     MiReleaseNonPagedResources(v73, 1LL);
   }
   if ( v53 < 0 )

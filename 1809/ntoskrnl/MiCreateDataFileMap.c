@@ -1,15 +1,15 @@
 /*
- * XREFs of MiCreateDataFileMap @ 0x14061BFCC
+ * XREFs of MiCreateDataFileMap @ 0x14061CFCC
  * Callers:
- *     MiCreateNewSection @ 0x14061B7E0 (MiCreateNewSection.c)
+ *     MiCreateNewSection @ 0x14061C7E0 (MiCreateNewSection.c)
  * Callees:
- *     MiInsertSubsectionNode @ 0x14009290C (MiInsertSubsectionNode.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     FsRtlGetFileSize @ 0x14061B4A0 (FsRtlGetFileSize.c)
- *     FsRtlSetFileSize @ 0x1406CAA60 (FsRtlSetFileSize.c)
- *     MiComputeIdealFirstSubsection @ 0x1408529C4 (MiComputeIdealFirstSubsection.c)
+ *     MiInsertSubsectionNode @ 0x14009284C (MiInsertSubsectionNode.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     FsRtlGetFileSize @ 0x14061C4A0 (FsRtlGetFileSize.c)
+ *     FsRtlSetFileSize @ 0x1406CBD00 (FsRtlSetFileSize.c)
+ *     MiComputeIdealFirstSubsection @ 0x140853C24 (MiComputeIdealFirstSubsection.c)
  */
 
 NTSTATUS __fastcall MiCreateDataFileMap(

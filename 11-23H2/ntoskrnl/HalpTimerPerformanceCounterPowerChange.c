@@ -1,13 +1,13 @@
 /*
- * XREFs of HalpTimerPerformanceCounterPowerChange @ 0x140509020
+ * XREFs of HalpTimerPerformanceCounterPowerChange @ 0x140509570
  * Callers:
- *     HalpTimerPowerChange @ 0x140509610 (HalpTimerPowerChange.c)
+ *     HalpTimerPowerChange @ 0x140509B60 (HalpTimerPowerChange.c)
  * Callees:
- *     HalpTimerGetInternalData @ 0x1402C4570 (HalpTimerGetInternalData.c)
- *     HalpTimerCalibratePerformanceCounter @ 0x14037A618 (HalpTimerCalibratePerformanceCounter.c)
- *     HalpTimerScaleCounter @ 0x1403C4524 (HalpTimerScaleCounter.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
+ *     HalpTimerGetInternalData @ 0x1402C4800 (HalpTimerGetInternalData.c)
+ *     HalpTimerCalibratePerformanceCounter @ 0x14037A7B8 (HalpTimerCalibratePerformanceCounter.c)
+ *     HalpTimerScaleCounter @ 0x1403C4704 (HalpTimerScaleCounter.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
  */
 
 _UNKNOWN **__fastcall HalpTimerPerformanceCounterPowerChange(ULONG_PTR BugCheckParameter3, char a2)

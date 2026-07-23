@@ -1,10 +1,10 @@
 /*
- * XREFs of PopInternalSaveStackToDumpFile @ 0x1402D33E0
+ * XREFs of PopInternalSaveStackToDumpFile @ 0x1402D35D0
  * Callers:
- *     PopInternalAddToDumpFile @ 0x1402D3324 (PopInternalAddToDumpFile.c)
+ *     PopInternalAddToDumpFile @ 0x1402D3514 (PopInternalAddToDumpFile.c)
  * Callees:
- *     IoAddTriageDumpDataBlock @ 0x140191CEC (IoAddTriageDumpDataBlock.c)
- *     KiIsAddressRangeValid @ 0x140191DF4 (KiIsAddressRangeValid.c)
+ *     IoAddTriageDumpDataBlock @ 0x140191E2C (IoAddTriageDumpDataBlock.c)
+ *     KiIsAddressRangeValid @ 0x140191F34 (KiIsAddressRangeValid.c)
  */
 
 void __fastcall PopInternalSaveStackToDumpFile(__int64 a1)

@@ -1,13 +1,13 @@
 /*
- * XREFs of MiReservePoolMemory @ 0x1402B2E74
+ * XREFs of MiReservePoolMemory @ 0x140231024
  * Callers:
- *     MmAllocatePoolMemory @ 0x14030B0D8 (MmAllocatePoolMemory.c)
- *     MmAllocateSecurePoolMemory @ 0x140544DC0 (MmAllocateSecurePoolMemory.c)
+ *     MmAllocatePoolMemory @ 0x140315E28 (MmAllocatePoolMemory.c)
+ *     MmAllocateSecurePoolMemory @ 0x140545000 (MmAllocateSecurePoolMemory.c)
  * Callees:
- *     MiObtainSystemVa @ 0x1402B37E0 (MiObtainSystemVa.c)
- *     MiObtainDynamicVa @ 0x1402B3808 (MiObtainDynamicVa.c)
- *     MiObtainSessionVa @ 0x1402B41B4 (MiObtainSessionVa.c)
- *     MiMarkSystemVaAllocated @ 0x14053DC70 (MiMarkSystemVaAllocated.c)
+ *     MiObtainSystemVa @ 0x140231990 (MiObtainSystemVa.c)
+ *     MiObtainDynamicVa @ 0x1402319B8 (MiObtainDynamicVa.c)
+ *     MiObtainSessionVa @ 0x140232364 (MiObtainSessionVa.c)
+ *     MiMarkSystemVaAllocated @ 0x14053DEB0 (MiMarkSystemVaAllocated.c)
  */
 
 __int64 __fastcall MiReservePoolMemory(unsigned __int64 a1, int a2, unsigned __int64 a3, unsigned int a4)

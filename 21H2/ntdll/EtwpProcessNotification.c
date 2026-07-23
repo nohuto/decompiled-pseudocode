@@ -5,7 +5,7 @@
  * Callees:
  *     EtwpUpdateEnableInfoAndCallback @ 0x180043554 (EtwpUpdateEnableInfoAndCallback.c)
  *     EtwProcessPrivateLoggerRequest @ 0x180049AF0 (EtwProcessPrivateLoggerRequest.c)
- *     _guard_dispatch_icall_nop @ 0x1800A1160 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1800A1120 (_guard_dispatch_icall_nop.c)
  */
 
 char __fastcall EtwpProcessNotification(__int64 a1, __int16 *a2, _QWORD *a3, _DWORD *a4, _BYTE *a5)
@@ -28,7 +28,7 @@ char __fastcall EtwpProcessNotification(__int64 a1, __int16 *a2, _QWORD *a3, _DW
         v8 = *(_QWORD *)(a1 + 88);
       *a3 = v8;
       *((_QWORD *)a2 + 3) = v8;
-      EtwpUpdateEnableInfoAndCallback(a1, (__int64)a2, (unsigned __int64)a3, (unsigned __int64)a4);
+      EtwpUpdateEnableInfoAndCallback(a1, (__int64)a2);
       goto LABEL_6;
     }
   }

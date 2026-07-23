@@ -1,33 +1,31 @@
 /*
- * XREFs of CcPerfLogLoggedStreamsStats @ 0x1404E1200
+ * XREFs of CcPerfLogLoggedStreamsStats @ 0x1404DA8E0
  * Callers:
- *     CcLazyWriteScanVolume @ 0x140388CAC (CcLazyWriteScanVolume.c)
- *     CcLazyWriteScan @ 0x1404FB788 (CcLazyWriteScan.c)
+ *     CcLazyWriteScanVolume @ 0x14038AA5C (CcLazyWriteScanVolume.c)
+ *     CcLazyWriteScan @ 0x1404F4BD4 (CcLazyWriteScan.c)
  * Callees:
- *     KeRcuReadUnlock @ 0x1402206B0 (KeRcuReadUnlock.c)
- *     KeRcuReadLock @ 0x140384590 (KeRcuReadLock.c)
- *     CcPerfLogVolumeLogHandleInfo @ 0x1404E1298 (CcPerfLogVolumeLogHandleInfo.c)
+ *     KeRcuReadUnlock @ 0x140222040 (KeRcuReadUnlock.c)
+ *     KeRcuReadLock @ 0x140386340 (KeRcuReadLock.c)
+ *     CcPerfLogVolumeLogHandleInfo @ 0x1404DA978 (CcPerfLogVolumeLogHandleInfo.c)
  */
 
 __int64 __fastcall CcPerfLogLoggedStreamsStats(__int64 a1, int a2)
 {
   int v3; // esi
-  struct _LIST_ENTRY *i; // rbx
-  struct _LIST_ENTRY *Blink; // rcx
+  unsigned __int64 i; // rbx
+  __int64 v5; // rcx
 
   v3 = a1;
   KeRcuReadLock(a1);
-  for ( i = EmpParseLock.GlobalUpdateVpThreadPriorityListEntry.Blink;
-        i != (struct _LIST_ENTRY *)&EmpParseLock.InGlobalUpdateVpThreadPriorityList;
-        i = i->Flink )
+  for ( i = EmpParseLock.KernelWaitTime; (unsigned __int64 *)i != &EmpParseLock.KernelWaitTime; i = *(_QWORD *)i )
   {
-    if ( i[1].Blink )
+    if ( *(_QWORD *)(i + 24) )
     {
-      Blink = i[9].Blink;
-      if ( Blink )
+      v5 = *(_QWORD *)(i + 152);
+      if ( v5 )
       {
-        CcPerfLogVolumeLogHandleInfo((_DWORD)Blink, v3, a2, i[8].Blink, (__int64)i[3].Flink, (__int64)i[4].Blink);
-        i[9].Blink = 0LL;
+        CcPerfLogVolumeLogHandleInfo(v5, v3, a2, *(_QWORD *)(i + 136), *(_QWORD *)(i + 48), *(_QWORD *)(i + 72));
+        *(_QWORD *)(i + 152) = 0LL;
       }
     }
   }

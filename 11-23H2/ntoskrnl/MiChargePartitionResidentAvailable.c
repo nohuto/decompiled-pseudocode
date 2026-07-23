@@ -1,16 +1,16 @@
 /*
- * XREFs of MiChargePartitionResidentAvailable @ 0x1402E6278
+ * XREFs of MiChargePartitionResidentAvailable @ 0x1402E6508
  * Callers:
- *     MiProbeLockFrame @ 0x140236500 (MiProbeLockFrame.c)
- *     MiLockPageTablePage @ 0x140237B00 (MiLockPageTablePage.c)
- *     MmCheckCachedPageStates @ 0x140265320 (MmCheckCachedPageStates.c)
- *     MiResolveProtoPteFault @ 0x140267ED0 (MiResolveProtoPteFault.c)
- *     MiObtainFaultCharges @ 0x140274BB0 (MiObtainFaultCharges.c)
- *     MiFlushSectionInternal @ 0x140275750 (MiFlushSectionInternal.c)
- *     MiMakePageAvoidRead @ 0x1402CE000 (MiMakePageAvoidRead.c)
- *     MiCheckProtoPtePageState @ 0x1402DBE30 (MiCheckProtoPtePageState.c)
- *     MiChargeForLockedPage @ 0x1402DC320 (MiChargeForLockedPage.c)
- *     MiChargeResident @ 0x1402E43A8 (MiChargeResident.c)
+ *     MiProbeLockFrame @ 0x1402365D0 (MiProbeLockFrame.c)
+ *     MiLockPageTablePage @ 0x140237BD0 (MiLockPageTablePage.c)
+ *     MmCheckCachedPageStates @ 0x1402655B0 (MmCheckCachedPageStates.c)
+ *     MiResolveProtoPteFault @ 0x140268160 (MiResolveProtoPteFault.c)
+ *     MiObtainFaultCharges @ 0x140274E40 (MiObtainFaultCharges.c)
+ *     MiFlushSectionInternal @ 0x1402759E0 (MiFlushSectionInternal.c)
+ *     MiMakePageAvoidRead @ 0x1402CE290 (MiMakePageAvoidRead.c)
+ *     MiCheckProtoPtePageState @ 0x1402DC0C0 (MiCheckProtoPtePageState.c)
+ *     MiChargeForLockedPage @ 0x1402DC5B0 (MiChargeForLockedPage.c)
+ *     MiChargeResident @ 0x1402E4638 (MiChargeResident.c)
  * Callees:
  *     <none>
  */

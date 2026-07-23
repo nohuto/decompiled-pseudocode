@@ -1,14 +1,14 @@
 /*
- * XREFs of RtlpHpVaMgrCtxAllocatorReference @ 0x14014144C
+ * XREFs of RtlpHpVaMgrCtxAllocatorReference @ 0x14014154C
  * Callers:
- *     RtlpHpRegisterEnvironment @ 0x140141360 (RtlpHpRegisterEnvironment.c)
- *     RtlpHpVaMgrCtxStart @ 0x140170338 (RtlpHpVaMgrCtxStart.c)
+ *     RtlpHpRegisterEnvironment @ 0x140141460 (RtlpHpRegisterEnvironment.c)
+ *     RtlpHpVaMgrCtxStart @ 0x140170438 (RtlpHpVaMgrCtxStart.c)
  * Callees:
- *     RtlpHpAcquireLockExclusive @ 0x1400BC4A0 (RtlpHpAcquireLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC660 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     RtlpHpVaMgrCtxAllocatorFind @ 0x140141558 (RtlpHpVaMgrCtxAllocatorFind.c)
- *     RtlpHpVaMgrStart @ 0x140176914 (RtlpHpVaMgrStart.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     RtlpHpAcquireLockExclusive @ 0x1400BC3E0 (RtlpHpAcquireLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC5A0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     RtlpHpVaMgrCtxAllocatorFind @ 0x140141658 (RtlpHpVaMgrCtxAllocatorFind.c)
+ *     RtlpHpVaMgrStart @ 0x140176A14 (RtlpHpVaMgrStart.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall RtlpHpVaMgrCtxAllocatorReference(__int64 a1, __int64 a2, unsigned int a3)

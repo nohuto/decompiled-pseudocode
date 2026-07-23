@@ -1,10 +1,10 @@
 /*
- * XREFs of PspDetectComplusILImage @ 0x1404E1528
+ * XREFs of PspDetectComplusILImage @ 0x1404C4B2C
  * Callers:
- *     PspAllocateProcess @ 0x14046F030 (PspAllocateProcess.c)
+ *     PspAllocateProcess @ 0x14046DF00 (PspAllocateProcess.c)
  * Callees:
- *     ZwQuerySystemInformation @ 0x14015A340 (ZwQuerySystemInformation.c)
- *     RtlQueryImageFileKeyOption @ 0x1404732C4 (RtlQueryImageFileKeyOption.c)
+ *     ZwQuerySystemInformation @ 0x14015A8B0 (ZwQuerySystemInformation.c)
+ *     RtlQueryImageFileKeyOption @ 0x140472194 (RtlQueryImageFileKeyOption.c)
  */
 
 NTSTATUS __fastcall PspDetectComplusILImage(__int64 a1, _DWORD *a2)

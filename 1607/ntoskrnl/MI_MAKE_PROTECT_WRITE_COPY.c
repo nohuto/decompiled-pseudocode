@@ -1,13 +1,13 @@
 /*
- * XREFs of MI_MAKE_PROTECT_WRITE_COPY @ 0x1400BDD9C
+ * XREFs of MI_MAKE_PROTECT_WRITE_COPY @ 0x1400BBC2C
  * Callers:
- *     MiBuildForkPte @ 0x1400BCCA0 (MiBuildForkPte.c)
- *     MiHandleForkTransitionPte @ 0x1401F71F0 (MiHandleForkTransitionPte.c)
- *     MiConvertPrivateToProto @ 0x1401F8908 (MiConvertPrivateToProto.c)
+ *     MiBuildForkPte @ 0x1400BAB30 (MiBuildForkPte.c)
+ *     MiHandleForkTransitionPte @ 0x1401F701C (MiHandleForkTransitionPte.c)
+ *     MiConvertPrivateToProto @ 0x1401F8734 (MiConvertPrivateToProto.c)
  * Callees:
- *     MiPteInShadowRange @ 0x1401EF3B8 (MiPteInShadowRange.c)
- *     MiWritePteShadow @ 0x1401EF658 (MiWritePteShadow.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1401F25D0 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiPteInShadowRange @ 0x1401EF1E4 (MiPteInShadowRange.c)
+ *     MiWritePteShadow @ 0x1401EF484 (MiWritePteShadow.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1401F23FC (MI_READ_PTE_LOCK_FREE.c)
  */
 
 __int64 __fastcall MI_MAKE_PROTECT_WRITE_COPY(__int64 a1)

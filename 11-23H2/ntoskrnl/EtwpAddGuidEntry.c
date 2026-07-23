@@ -1,21 +1,21 @@
 /*
- * XREFs of EtwpAddGuidEntry @ 0x140781878
+ * XREFs of EtwpAddGuidEntry @ 0x140781A68
  * Callers:
- *     EtwpFindOrCreateGuidEntry @ 0x1406BF6F0 (EtwpFindOrCreateGuidEntry.c)
- *     EtwpEnableGuid @ 0x14077FD00 (EtwpEnableGuid.c)
- *     EtwpAddGuidEntry @ 0x140781878 (EtwpAddGuidEntry.c)
+ *     EtwpFindOrCreateGuidEntry @ 0x1406BF720 (EtwpFindOrCreateGuidEntry.c)
+ *     EtwpEnableGuid @ 0x14077FEF0 (EtwpEnableGuid.c)
+ *     EtwpAddGuidEntry @ 0x140781A68 (EtwpAddGuidEntry.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     ExReleasePushLockEx @ 0x140231190 (ExReleasePushLockEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     ExfTryToWakePushLock @ 0x1402BD960 (ExfTryToWakePushLock.c)
- *     EtwpFindGuidEntryByGuid @ 0x1406BF820 (EtwpFindGuidEntryByGuid.c)
- *     EtwpReferenceGuidEntry @ 0x1406BF914 (EtwpReferenceGuidEntry.c)
- *     EtwpUnreferenceGuidEntry @ 0x1406BF954 (EtwpUnreferenceGuidEntry.c)
- *     EtwpAddGuidEntry @ 0x140781878 (EtwpAddGuidEntry.c)
- *     EtwpAllocGuidEntry @ 0x140781A1C (EtwpAllocGuidEntry.c)
- *     EtwpFreeGuidEntry @ 0x1407D9494 (EtwpFreeGuidEntry.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140231120 (ExAcquirePushLockExclusiveEx.c)
+ *     ExReleasePushLockEx @ 0x140231280 (ExReleasePushLockEx.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     KeLeaveCriticalRegion @ 0x140231550 (KeLeaveCriticalRegion.c)
+ *     ExfTryToWakePushLock @ 0x1402BDBF0 (ExfTryToWakePushLock.c)
+ *     EtwpFindGuidEntryByGuid @ 0x1406BF850 (EtwpFindGuidEntryByGuid.c)
+ *     EtwpReferenceGuidEntry @ 0x1406BF944 (EtwpReferenceGuidEntry.c)
+ *     EtwpUnreferenceGuidEntry @ 0x1406BF984 (EtwpUnreferenceGuidEntry.c)
+ *     EtwpAddGuidEntry @ 0x140781A68 (EtwpAddGuidEntry.c)
+ *     EtwpAllocGuidEntry @ 0x140781C0C (EtwpAllocGuidEntry.c)
+ *     EtwpFreeGuidEntry @ 0x1407D9764 (EtwpFreeGuidEntry.c)
  */
 
 __int64 *__fastcall EtwpAddGuidEntry(__int64 a1, _DWORD *a2, int a3)

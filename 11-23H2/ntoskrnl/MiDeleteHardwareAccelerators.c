@@ -1,13 +1,13 @@
 /*
- * XREFs of MiDeleteHardwareAccelerators @ 0x140654B20
+ * XREFs of MiDeleteHardwareAccelerators @ 0x140655070
  * Callers:
- *     MiShutdownSystem @ 0x140AABB70 (MiShutdownSystem.c)
+ *     MiShutdownSystem @ 0x140AAB9E0 (MiShutdownSystem.c)
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x14024D360 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402894C0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     MiWakeLargePageWaiters @ 0x140650004 (MiWakeLargePageWaiters.c)
- *     MiWakeAllZeroConductors @ 0x14065560C (MiWakeAllZeroConductors.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024D430 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140289750 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     MiWakeLargePageWaiters @ 0x140650554 (MiWakeLargePageWaiters.c)
+ *     MiWakeAllZeroConductors @ 0x140655B5C (MiWakeAllZeroConductors.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 
@@ -35,10 +35,13 @@ void MiDeleteHardwareAccelerators()
   byte_140C69814 = 1;
   ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140C69820);
   v4 = (unsigned int)KiIrqlFlags;
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v0 <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
+      && (unsigned __int8)v0 <= 0xFu
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       v4 = (unsigned int)(v0 + 1);
@@ -84,10 +87,10 @@ void MiDeleteHardwareAccelerators()
     while ( (PVOID *)v10 != &qword_140C69800 );
   }
   ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140C69820);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v13 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v13 <= 0xFu && (unsigned __int8)v0 <= 0xFu && v13 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v13 <= 0xFu && (unsigned __int8)v0 <= 0xFu && v13 >= 2u )
     {
       v14 = KeGetCurrentPrcb();
       v15 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v0 + 1));

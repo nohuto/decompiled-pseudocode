@@ -1,12 +1,12 @@
 /*
- * XREFs of MiInsertMappingNode @ 0x14015ED68
+ * XREFs of MiInsertMappingNode @ 0x14015EE68
  * Callers:
- *     MmAllocateMappingAddress @ 0x1406F92E0 (MmAllocateMappingAddress.c)
+ *     MmAllocateMappingAddress @ 0x1406FA580 (MmAllocateMappingAddress.c)
  * Callees:
- *     RtlAvlInsertNodeEx @ 0x140064B40 (RtlAvlInsertNodeEx.c)
- *     ExAcquireSpinLockExclusive @ 0x1400BC4E0 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC660 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     RtlAvlInsertNodeEx @ 0x140064B30 (RtlAvlInsertNodeEx.c)
+ *     ExAcquireSpinLockExclusive @ 0x1400BC420 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC5A0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiInsertMappingNode(_QWORD *a1)
@@ -21,11 +21,11 @@ __int64 __fastcall MiInsertMappingNode(_QWORD *a1)
   struct _KPRCB *CurrentPrcb; // rcx
 
   v1 = a1[3];
-  v3 = ExAcquireSpinLockExclusive(&dword_14043AC80);
-  v4 = (_QWORD *)qword_14043AC88;
+  v3 = ExAcquireSpinLockExclusive(&dword_14043BD40);
+  v4 = (_QWORD *)qword_14043BD48;
   v5 = 0;
   v6 = v3;
-  if ( qword_14043AC88 )
+  if ( qword_14043BD48 )
   {
     while ( 1 )
     {
@@ -50,8 +50,8 @@ __int64 __fastcall MiInsertMappingNode(_QWORD *a1)
       v4 = v7;
     }
   }
-  RtlAvlInsertNodeEx(&qword_14043AC88, (unsigned __int64)v4, v5, a1);
-  ExReleaseSpinLockExclusiveFromDpcLevel(&dword_14043AC80);
+  RtlAvlInsertNodeEx(&qword_14043BD48, (unsigned __int64)v4, v5, a1);
+  ExReleaseSpinLockExclusiveFromDpcLevel(&dword_14043BD40);
   if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && KeGetCurrentIrql() >= 2u && v6 < 2u )
   {
     CurrentPrcb = KeGetCurrentPrcb();

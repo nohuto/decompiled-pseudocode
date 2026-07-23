@@ -1,20 +1,18 @@
 /*
- * XREFs of PspUnlockJobAssignment @ 0x1408E77C0
+ * XREFs of PspUnlockJobAssignment @ 0x1408D801C
  * Callers:
- *     PspGetJobLockHierarchyForDeletion @ 0x1408E7110 (PspGetJobLockHierarchyForDeletion.c)
- *     PspLockJobChain @ 0x1408E76DC (PspLockJobChain.c)
- *     PspAssignProcessToJob @ 0x140A173D0 (PspAssignProcessToJob.c)
+ *     PspGetJobLockHierarchyForDeletion @ 0x1408D7978 (PspGetJobLockHierarchyForDeletion.c)
+ *     PspLockJobChain @ 0x1408D7F38 (PspLockJobChain.c)
+ *     PspAssignProcessToJob @ 0x140A105B0 (PspAssignProcessToJob.c)
  * Callees:
- *     ExfTryToWakePushLock @ 0x14025F9A0 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     KiCheckForKernelApcDelivery @ 0x1402BB4D0 (KiCheckForKernelApcDelivery.c)
+ *     ExfTryToWakePushLock @ 0x14028FFB0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     KiCheckForKernelApcDelivery @ 0x140362C10 (KiCheckForKernelApcDelivery.c)
  */
 
 _QWORD *__fastcall PspUnlockJobAssignment(__int64 a1)
 {
   _QWORD *result; // rax
-  __int64 v3; // rdx
-  __int64 v4; // rcx
 
   if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&PspJobAssignmentLock, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
     ExfTryToWakePushLock((volatile signed __int64 *)&PspJobAssignmentLock);
@@ -25,7 +23,7 @@ _QWORD *__fastcall PspUnlockJobAssignment(__int64 a1)
     {
       result = (_QWORD *)(a1 + 152);
       if ( (_QWORD *)*result != result )
-        return (_QWORD *)KiCheckForKernelApcDelivery(v4, v3);
+        return (_QWORD *)KiCheckForKernelApcDelivery();
     }
   }
   return result;

@@ -1,11 +1,11 @@
 /*
- * XREFs of IopFreeReserveIrp @ 0x1405555AC
+ * XREFs of IopFreeReserveIrp @ 0x140555C6C
  * Callers:
- *     IopCompleteRequest @ 0x1402AB480 (IopCompleteRequest.c)
- *     IopFreeIrp @ 0x1402AF240 (IopFreeIrp.c)
+ *     IopCompleteRequest @ 0x1402AB710 (IopCompleteRequest.c)
+ *     IopFreeIrp @ 0x1402AF4D0 (IopFreeIrp.c)
  * Callees:
- *     KeSetEvent @ 0x14023C5E0 (KeSetEvent.c)
- *     IopFreeBackpocketIrp @ 0x14055553C (IopFreeBackpocketIrp.c)
+ *     KeSetEvent @ 0x14023C6B0 (KeSetEvent.c)
+ *     IopFreeBackpocketIrp @ 0x140555BFC (IopFreeBackpocketIrp.c)
  */
 
 LONG __fastcall IopFreeReserveIrp(IRP *a1)

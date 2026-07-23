@@ -1,14 +1,14 @@
 /*
- * XREFs of HvpViewMapReleaseLockShared @ 0x1401B6AF8
+ * XREFs of HvpViewMapReleaseLockShared @ 0x1401B69DC
  * Callers:
- *     HvpMapHiveImageFromSystemCache @ 0x1401B72D8 (HvpMapHiveImageFromSystemCache.c)
- *     CmpDoSystemCacheRead @ 0x140603F98 (CmpDoSystemCacheRead.c)
- *     HvExtendHivePrimaryFileValidDataLength @ 0x140605D14 (HvExtendHivePrimaryFileValidDataLength.c)
- *     HvViewMapAddressForFileOffset @ 0x14060FA68 (HvViewMapAddressForFileOffset.c)
- *     HvViewMapFlush @ 0x14060FB24 (HvViewMapFlush.c)
+ *     HvpMapHiveImageFromSystemCache @ 0x1401B71BC (HvpMapHiveImageFromSystemCache.c)
+ *     CmpDoSystemCacheRead @ 0x14060404C (CmpDoSystemCacheRead.c)
+ *     HvExtendHivePrimaryFileValidDataLength @ 0x140605DC8 (HvExtendHivePrimaryFileValidDataLength.c)
+ *     HvViewMapAddressForFileOffset @ 0x14060FB1C (HvViewMapAddressForFileOffset.c)
+ *     HvViewMapFlush @ 0x14060FBD8 (HvViewMapFlush.c)
  * Callees:
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     ExfReleasePushLockShared @ 0x1400C8640 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     ExfReleasePushLockShared @ 0x1400C64E0 (ExfReleasePushLockShared.c)
  */
 
 __int64 __fastcall HvpViewMapReleaseLockShared(__int64 a1)

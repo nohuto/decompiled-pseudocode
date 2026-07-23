@@ -1,10 +1,10 @@
 /*
- * XREFs of MmGetPhysicalMemoryRanges @ 0x14075B660
+ * XREFs of MmGetPhysicalMemoryRanges @ 0x14075C850
  * Callers:
- *     IopGetPhysicalMemoryBlock @ 0x1401900A8 (IopGetPhysicalMemoryBlock.c)
- *     IoFillDumpHeader @ 0x14027F5D4 (IoFillDumpHeader.c)
+ *     IopGetPhysicalMemoryBlock @ 0x1401901E8 (IopGetPhysicalMemoryBlock.c)
+ *     IoFillDumpHeader @ 0x14027F7C4 (IoFillDumpHeader.c)
  * Callees:
- *     MmGetPhysicalMemoryRangesEx @ 0x14075B680 (MmGetPhysicalMemoryRangesEx.c)
+ *     MmGetPhysicalMemoryRangesEx @ 0x14075C870 (MmGetPhysicalMemoryRangesEx.c)
  */
 
 PPHYSICAL_MEMORY_RANGE __noreturn MmGetPhysicalMemoryRanges(void)

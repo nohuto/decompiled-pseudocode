@@ -1,15 +1,15 @@
 /*
- * XREFs of xKdEnumerateDebuggingDevices @ 0x14014CA24
+ * XREFs of xKdEnumerateDebuggingDevices @ 0x14014CF94
  * Callers:
- *     HvlDebuggerSupportInitialize @ 0x14014C958 (HvlDebuggerSupportInitialize.c)
- *     IoWriteCrashDump @ 0x1401C65BC (IoWriteCrashDump.c)
- *     KeConvertAuxiliaryCounterToPerformanceCounter @ 0x1401D2760 (KeConvertAuxiliaryCounterToPerformanceCounter.c)
- *     KeConvertPerformanceCounterToAuxiliaryCounter @ 0x1401D2768 (KeConvertPerformanceCounterToAuxiliaryCounter.c)
- *     KeQueryAuxiliaryCounterFrequency @ 0x1401D2A78 (KeQueryAuxiliaryCounterFrequency.c)
- *     NtSetSystemInformation @ 0x1403E9F6C (NtSetSystemInformation.c)
- *     NtQueryInformationProcess @ 0x140422590 (NtQueryInformationProcess.c)
- *     NtSetInformationProcess @ 0x140425A10 (NtSetInformationProcess.c)
- *     NtQueryInformationThread @ 0x140519650 (NtQueryInformationThread.c)
+ *     HvlDebuggerSupportInitialize @ 0x14014CEC8 (HvlDebuggerSupportInitialize.c)
+ *     IoWriteCrashDump @ 0x1401C645C (IoWriteCrashDump.c)
+ *     KeConvertAuxiliaryCounterToPerformanceCounter @ 0x1401D258C (KeConvertAuxiliaryCounterToPerformanceCounter.c)
+ *     KeConvertPerformanceCounterToAuxiliaryCounter @ 0x1401D2594 (KeConvertPerformanceCounterToAuxiliaryCounter.c)
+ *     KeQueryAuxiliaryCounterFrequency @ 0x1401D28A4 (KeQueryAuxiliaryCounterFrequency.c)
+ *     NtSetSystemInformation @ 0x1403EB59C (NtSetSystemInformation.c)
+ *     NtQueryInformationProcess @ 0x140421450 (NtQueryInformationProcess.c)
+ *     NtSetInformationProcess @ 0x1404248E0 (NtSetInformationProcess.c)
+ *     NtQueryInformationThread @ 0x1404FCA40 (NtQueryInformationThread.c)
  *     HeadlessInit @ 0x1407BD2D8 (HeadlessInit.c)
  * Callees:
  *     <none>

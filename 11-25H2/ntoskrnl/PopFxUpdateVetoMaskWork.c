@@ -61,7 +61,7 @@ __int64 __fastcall PopFxUpdateVetoMaskWork(__int64 P)
     PoFxIdleDevice(v7);
     PopFxDereferenceDevice(v1, 2);
     ExFreePoolWithTag((PVOID)P, 0x4D584650u);
-    ZwUpdateWnfStateData((__int64)&WNF_PO_DRIPS_DEVICE_CONSTRAINTS_UPDATED, 0LL);
+    ZwUpdateWnfStateData(&WNF_PO_DRIPS_DEVICE_CONSTRAINTS_UPDATED, 0LL, 0, 0LL, 0LL, 0, 0);
     v8 = KeAbPreAcquire((__int64)&PopFxUpdateDripsConstraintContext, 0LL);
     v4 = _interlockedbittestandset64((volatile signed __int32 *)&PopFxUpdateDripsConstraintContext, 0LL);
     v9 = v8;

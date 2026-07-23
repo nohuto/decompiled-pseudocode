@@ -12,7 +12,7 @@ void (*__fastcall PopDeepSleepInitialize(int a1))()
 
   if ( a1 )
   {
-    if ( a1 == 3 && !byte_140303F74 )
+    if ( a1 == 3 && !byte_140303EB4 )
       PopDeepSleepDisengageReasonMask |= 2u;
   }
   else

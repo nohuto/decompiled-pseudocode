@@ -6,20 +6,20 @@
  *     RtlImageDirectoryEntryToData @ 0x180016860 (RtlImageDirectoryEntryToData.c)
  */
 
-__int64 __fastcall EtwpFindDebugId(unsigned __int64 a1, __int64 a2, _QWORD *a3, unsigned int *a4)
+__int64 __fastcall EtwpFindDebugId(char *a1, __int64 a2, char **a3, unsigned int *a4)
 {
   int v4; // ebx
   _DWORD *v8; // r10
-  unsigned int v9; // r8d
-  _DWORD *v10; // rcx
+  ULONG v9; // r8d
+  char *v10; // rcx
   unsigned int v12; // eax
-  unsigned int v13; // [rsp+38h] [rbp+10h] BYREF
+  ULONG v13; // [rsp+38h] [rbp+10h] BYREF
   int v14; // [rsp+3Ch] [rbp+14h]
 
   v14 = HIDWORD(a2);
   v4 = 0;
   v13 = 0;
-  v8 = (_DWORD *)RtlImageDirectoryEntryToData(a1, 1, 6u, &v13);
+  v8 = RtlImageDirectoryEntryToData(a1, 1u, 6u, &v13);
   if ( !v8 || v13 < 0x1C )
     return 87LL;
   v9 = v13 / 0x1C;
@@ -29,9 +29,9 @@ __int64 __fastcall EtwpFindDebugId(unsigned __int64 a1, __int64 a2, _QWORD *a3, 
   {
     if ( v8[3] == 2 )
     {
-      v10 = (_DWORD *)(a1 + (unsigned int)v8[5]);
+      v10 = &a1[v8[5]];
       *a3 = v10;
-      if ( *v10 == 1396986706 )
+      if ( *(_DWORD *)v10 == 1396986706 )
         break;
     }
     v8 += 7;

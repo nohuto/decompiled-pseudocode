@@ -30,7 +30,7 @@ __int64 __fastcall ExpWnfInsertSubscriptionInPendingQueue(__int64 a1, int a2)
     return 0LL;
   v6 = *(_QWORD *)(v2 + 2152);
   v7 = (volatile signed __int64 *)(v6 + 104);
-  v8 = KeAbPreAcquire(v6 + 104, 0LL, 0LL);
+  v8 = KeAbPreAcquire(v6 + 104, 0LL, 0);
   v9 = v8;
   if ( _interlockedbittestandset64((volatile signed __int32 *)(v6 + 104), 0LL) )
     ExfAcquirePushLockExclusiveEx((unsigned __int64 *)(v6 + 104), v8, v6 + 104);

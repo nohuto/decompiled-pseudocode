@@ -1,42 +1,42 @@
 /*
- * XREFs of MiUnlockVadTree @ 0x140326440
+ * XREFs of MiUnlockVadTree @ 0x140328470
  * Callers:
- *     MiSharedVaToPartition @ 0x14028370C (MiSharedVaToPartition.c)
- *     MiObtainReferencedVadEx @ 0x1402D0160 (MiObtainReferencedVadEx.c)
- *     MiHandleTransitionFault @ 0x1402F6550 (MiHandleTransitionFault.c)
- *     MiImagePageOk @ 0x1402F7140 (MiImagePageOk.c)
- *     MiBeginProcessClean @ 0x140313D2C (MiBeginProcessClean.c)
- *     MiLeapPrefetch @ 0x1403144C4 (MiLeapPrefetch.c)
- *     MiUpdatePrefetchPriority @ 0x1403149AC (MiUpdatePrefetchPriority.c)
- *     MiPerformVadSplitting @ 0x140315B44 (MiPerformVadSplitting.c)
- *     MiWalkLeap @ 0x1403260B0 (MiWalkLeap.c)
- *     MiWalkPageTablesRecursively @ 0x1403270E0 (MiWalkPageTablesRecursively.c)
- *     MiReservePageFileSpace @ 0x1403670E8 (MiReservePageFileSpace.c)
- *     MiInitializeCopyOnWritePacket @ 0x14036AEA8 (MiInitializeCopyOnWritePacket.c)
- *     MiResolveMappedFileFaultGetClusterInfo @ 0x14036F7FC (MiResolveMappedFileFaultGetClusterInfo.c)
- *     MiEvaluatePageFileRead @ 0x140370440 (MiEvaluatePageFileRead.c)
- *     MiComputeFaultNode @ 0x140370A58 (MiComputeFaultNode.c)
- *     MiInitializeReadInProgressPfn @ 0x1403737C0 (MiInitializeReadInProgressPfn.c)
- *     MiStoreGetVadForAddress @ 0x140394C1C (MiStoreGetVadForAddress.c)
- *     MiUserFault @ 0x1403A3140 (MiUserFault.c)
- *     MiComputeMaximumFaultCluster @ 0x1403A5A20 (MiComputeMaximumFaultCluster.c)
- *     MiValidFault @ 0x1403A7338 (MiValidFault.c)
- *     MiProcessCommitIntact @ 0x14044D910 (MiProcessCommitIntact.c)
- *     MiReturnLockedVadOrNextVa @ 0x14044E7E0 (MiReturnLockedVadOrNextVa.c)
- *     MiTrimViewLockProcessPte @ 0x14046C720 (MiTrimViewLockProcessPte.c)
- *     MiRemoveFromSystemSpace @ 0x14048FFF8 (MiRemoveFromSystemSpace.c)
- *     MiCanGrantExecute @ 0x1404D3200 (MiCanGrantExecute.c)
- *     MiObtainReferencedSecureVad @ 0x1404E4F18 (MiObtainReferencedSecureVad.c)
- *     MiInsertInSystemSpace @ 0x1404EDA44 (MiInsertInSystemSpace.c)
- *     MiFaultRedirectToProto @ 0x140511920 (MiFaultRedirectToProto.c)
- *     MiExceptionForMappedVa @ 0x1406F6EFC (MiExceptionForMappedVa.c)
+ *     MiSharedVaToPartition @ 0x140282C7C (MiSharedVaToPartition.c)
+ *     MiObtainReferencedVadEx @ 0x1402B1F20 (MiObtainReferencedVadEx.c)
+ *     MiHandleTransitionFault @ 0x1402D85D0 (MiHandleTransitionFault.c)
+ *     MiImagePageOk @ 0x1402D91C0 (MiImagePageOk.c)
+ *     MiBeginProcessClean @ 0x140315D5C (MiBeginProcessClean.c)
+ *     MiLeapPrefetch @ 0x1403164F4 (MiLeapPrefetch.c)
+ *     MiUpdatePrefetchPriority @ 0x1403169DC (MiUpdatePrefetchPriority.c)
+ *     MiPerformVadSplitting @ 0x140317B74 (MiPerformVadSplitting.c)
+ *     MiWalkLeap @ 0x1403280E0 (MiWalkLeap.c)
+ *     MiWalkPageTablesRecursively @ 0x140329110 (MiWalkPageTablesRecursively.c)
+ *     MiReservePageFileSpace @ 0x140368E88 (MiReservePageFileSpace.c)
+ *     MiInitializeCopyOnWritePacket @ 0x14036CC48 (MiInitializeCopyOnWritePacket.c)
+ *     MiResolveMappedFileFaultGetClusterInfo @ 0x1403715AC (MiResolveMappedFileFaultGetClusterInfo.c)
+ *     MiEvaluatePageFileRead @ 0x1403721F0 (MiEvaluatePageFileRead.c)
+ *     MiComputeFaultNode @ 0x140372808 (MiComputeFaultNode.c)
+ *     MiInitializeReadInProgressPfn @ 0x140375570 (MiInitializeReadInProgressPfn.c)
+ *     MiStoreGetVadForAddress @ 0x14039699C (MiStoreGetVadForAddress.c)
+ *     MiUserFault @ 0x1403A4EA0 (MiUserFault.c)
+ *     MiComputeMaximumFaultCluster @ 0x1403A7780 (MiComputeMaximumFaultCluster.c)
+ *     MiValidFault @ 0x1403A9098 (MiValidFault.c)
+ *     MiProcessCommitIntact @ 0x140445A40 (MiProcessCommitIntact.c)
+ *     MiReturnLockedVadOrNextVa @ 0x140446910 (MiReturnLockedVadOrNextVa.c)
+ *     MiTrimViewLockProcessPte @ 0x140465EA0 (MiTrimViewLockProcessPte.c)
+ *     MiRemoveFromSystemSpace @ 0x140489AA8 (MiRemoveFromSystemSpace.c)
+ *     MiCanGrantExecute @ 0x1404CCA70 (MiCanGrantExecute.c)
+ *     MiObtainReferencedSecureVad @ 0x1404DE4B8 (MiObtainReferencedSecureVad.c)
+ *     MiInsertInSystemSpace @ 0x1404E7024 (MiInsertInSystemSpace.c)
+ *     MiFaultRedirectToProto @ 0x14050B390 (MiFaultRedirectToProto.c)
+ *     MiExceptionForMappedVa @ 0x1406FBB6C (MiExceptionForMappedVa.c)
  * Callees:
- *     ExReleaseSpinLockExclusive @ 0x14021AA80 (ExReleaseSpinLockExclusive.c)
- *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x14021AAD4 (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     ExReleaseSpinLockShared @ 0x14026CEE0 (ExReleaseSpinLockShared.c)
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402DC6D0 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     ExpReleaseSpinLockSharedFromDpcLevelInstrumented @ 0x14036A848 (ExpReleaseSpinLockSharedFromDpcLevelInstrumented.c)
+ *     ExReleaseSpinLockExclusive @ 0x14021C410 (ExReleaseSpinLockExclusive.c)
+ *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x14021C464 (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     ExReleaseSpinLockShared @ 0x14026C450 (ExReleaseSpinLockShared.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402BE490 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     ExpReleaseSpinLockSharedFromDpcLevelInstrumented @ 0x14036C5E8 (ExpReleaseSpinLockSharedFromDpcLevelInstrumented.c)
  */
 
 void __fastcall MiUnlockVadTree(char a1, KIRQL a2)
@@ -47,7 +47,7 @@ void __fastcall MiUnlockVadTree(char a1, KIRQL a2)
 
   v2 = a2;
   if ( (a1 & 4) != 0 )
-    v4 = (volatile LONG *)&stru_140E34C08.Header.WaitListHead.Blink + 1;
+    v4 = (volatile LONG *)&stru_140E34D88.Header.WaitListHead.Blink + 1;
   else
     v4 = (volatile LONG *)&KeGetCurrentThread()->ApcState.Process[2].ActiveProcessors[4].StaticBitmap[8] + 1;
   if ( (a1 & 2) != 0 )
@@ -56,7 +56,7 @@ void __fastcall MiUnlockVadTree(char a1, KIRQL a2)
     {
       if ( (a1 & 8) != 0 )
       {
-        if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+        if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || PopHibernateInProgress )
         {
 LABEL_9:
           *v4 = 0;
@@ -65,7 +65,7 @@ LABEL_9:
         goto LABEL_15;
       }
 LABEL_13:
-      if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+      if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || PopHibernateInProgress )
         goto LABEL_9;
 LABEL_15:
       ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented(v4, retaddr);
@@ -78,7 +78,7 @@ LABEL_15:
     }
     if ( a2 == 17 )
       goto LABEL_13;
-    if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+    if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || PopHibernateInProgress )
       *v4 = 0;
     else
       ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented(v4, retaddr);
@@ -92,7 +92,7 @@ LABEL_15:
       return;
     }
 LABEL_26:
-    if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+    if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || PopHibernateInProgress )
     {
       _InterlockedAnd(v4, 0xBFFFFFFF);
       _InterlockedDecrement(v4);
@@ -110,7 +110,7 @@ LABEL_26:
   }
   if ( a2 == 17 )
     goto LABEL_26;
-  if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+  if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || PopHibernateInProgress )
   {
     _InterlockedAnd(v4, 0xBFFFFFFF);
     _InterlockedDecrement(v4);

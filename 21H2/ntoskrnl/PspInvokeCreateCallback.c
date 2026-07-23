@@ -1,11 +1,11 @@
 /*
- * XREFs of PspInvokeCreateCallback @ 0x1407C3E20
+ * XREFs of PspInvokeCreateCallback @ 0x1407C4340
  * Callers:
- *     PsStartSiloMonitor @ 0x1407C3C70 (PsStartSiloMonitor.c)
- *     PspNotifyServerSiloCreation @ 0x14090B7DC (PspNotifyServerSiloCreation.c)
+ *     PsStartSiloMonitor @ 0x1407C4190 (PsStartSiloMonitor.c)
+ *     PspNotifyServerSiloCreation @ 0x14090B93C (PspNotifyServerSiloCreation.c)
  * Callees:
- *     EtwTraceJobServerSiloMonitorCallback @ 0x1403C82F0 (EtwTraceJobServerSiloMonitorCallback.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     EtwTraceJobServerSiloMonitorCallback @ 0x1403C8490 (EtwTraceJobServerSiloMonitorCallback.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall PspInvokeCreateCallback(__int64 a1, __int64 a2)

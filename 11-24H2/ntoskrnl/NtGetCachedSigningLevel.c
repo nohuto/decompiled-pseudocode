@@ -1,54 +1,53 @@
 /*
- * XREFs of NtGetCachedSigningLevel @ 0x140A33620
+ * XREFs of NtGetCachedSigningLevel @ 0x140A27630
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObject @ 0x140325680 (ObfDereferenceObject.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     ObReferenceObjectByHandle @ 0x14084AF40 (ObReferenceObjectByHandle.c)
- *     ProbeForWrite @ 0x1408C0590 (ProbeForWrite.c)
+ *     ObfDereferenceObject @ 0x1402CE210 (ObfDereferenceObject.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     ObReferenceObjectByHandle @ 0x140847200 (ObReferenceObjectByHandle.c)
+ *     ProbeForWrite @ 0x1408BDF50 (ProbeForWrite.c)
  */
 
-__int64 __fastcall NtGetCachedSigningLevel(
-        void *a1,
-        _DWORD *a2,
-        volatile void *a3,
-        volatile void *a4,
-        unsigned int *a5,
-        volatile void *a6)
+NTSTATUS __cdecl NtGetCachedSigningLevel(
+        HANDLE File,
+        PULONG Flags,
+        PSE_SIGNING_LEVEL SigningLevel,
+        PUCHAR Thumbprint,
+        PULONG ThumbprintSize,
+        PULONG ThumbprintAlgorithm)
 {
   PVOID v10; // r15
   KPROCESSOR_MODE PreviousMode; // r13
-  int v12; // ebx
-  _BYTE *v14; // r9
-  char v15; // cl
-  unsigned int v16; // r14d
-  void *v17; // rax
-  _DWORD *v18; // r14
-  _BYTE v19[4]; // [rsp+40h] [rbp-C8h] BYREF
-  int v20; // [rsp+44h] [rbp-C4h] BYREF
+  NTSTATUS v12; // ebx
+  char v14; // cl
+  ULONG v15; // r14d
+  void *v16; // rax
+  _DWORD *v17; // r14
+  _BYTE v18[4]; // [rsp+40h] [rbp-C8h] BYREF
+  ULONG v19; // [rsp+44h] [rbp-C4h]
   SIZE_T Length; // [rsp+48h] [rbp-C0h]
-  int v22; // [rsp+50h] [rbp-B8h]
+  int v21; // [rsp+50h] [rbp-B8h]
   HANDLE Handle; // [rsp+58h] [rbp-B0h]
   PVOID Object; // [rsp+60h] [rbp-A8h] BYREF
   volatile void *Address; // [rsp+68h] [rbp-A0h]
-  volatile void *v26; // [rsp+70h] [rbp-98h]
-  volatile void *v27; // [rsp+78h] [rbp-90h]
+  volatile void *v25; // [rsp+70h] [rbp-98h]
+  volatile void *v26; // [rsp+78h] [rbp-90h]
   _BYTE Src[64]; // [rsp+80h] [rbp-88h] BYREF
 
-  v26 = a4;
-  Address = a3;
-  Handle = a1;
-  v27 = a6;
+  v25 = Thumbprint;
+  Address = SigningLevel;
+  Handle = File;
+  v26 = ThumbprintAlgorithm;
   v10 = 0LL;
   memset_0(Src, 0, sizeof(Src));
   Length = 64LL;
-  v20 = 0;
-  v19[0] = 0;
-  if ( !a1 || !a2 || !a3 )
+  v19 = 0;
+  v18[0] = 0;
+  if ( !File || !Flags || !SigningLevel )
   {
     v12 = -1073741811;
     goto LABEL_9;
@@ -60,31 +59,27 @@ __int64 __fastcall NtGetCachedSigningLevel(
   Handle = Object;
   if ( v12 < 0 )
     goto LABEL_9;
-  if ( a4 )
+  if ( Thumbprint )
   {
-    if ( !qword_140F04890 )
+    if ( !qword_140F04B30 )
       goto LABEL_7;
     if ( Object )
     {
-      v14 = Src;
-LABEL_17:
-      v12 = guard_dispatch_icall_no_overrides(Object, v19, &v20, v14);
+LABEL_16:
+      v12 = guard_dispatch_icall_no_overrides(Object, v18);
       goto LABEL_8;
     }
   }
   else
   {
-    if ( !qword_140F04890 )
+    if ( !qword_140F04B30 )
     {
 LABEL_7:
       v12 = -1073741823;
       goto LABEL_8;
     }
     if ( Object )
-    {
-      v14 = 0LL;
-      goto LABEL_17;
-    }
+      goto LABEL_16;
   }
   v12 = -1073741811;
 LABEL_8:
@@ -92,54 +87,54 @@ LABEL_8:
   {
     if ( PreviousMode == 1 )
     {
-      ProbeForWrite(a2, 4uLL, 4u);
+      ProbeForWrite(Flags, 4uLL, 4u);
       ProbeForWrite(Address, 1uLL, 1u);
     }
-    v15 = v20;
-    *a2 = v20;
-    *(_BYTE *)Address = v19[0];
-    if ( a5 )
+    v14 = v19;
+    *Flags = v19;
+    *(_BYTE *)Address = v18[0];
+    if ( ThumbprintSize )
     {
       if ( PreviousMode == 1 )
       {
-        ProbeForWrite(a5, 4uLL, 4u);
-        v15 = v20;
+        ProbeForWrite(ThumbprintSize, 4uLL, 4u);
+        v14 = v19;
       }
-      if ( (v15 & 2) != 0 )
+      if ( (v14 & 2) != 0 )
       {
-        v16 = Length;
-        if ( *a5 >= (unsigned int)Length && (v17 = (void *)v26) != 0LL )
+        v15 = Length;
+        if ( *ThumbprintSize >= (unsigned int)Length && (v16 = (void *)v25) != 0LL )
         {
           if ( PreviousMode == 1 )
           {
-            ProbeForWrite(v26, (unsigned int)Length, 1u);
-            v16 = Length;
-            v17 = (void *)v26;
+            ProbeForWrite(v25, (unsigned int)Length, 1u);
+            v15 = Length;
+            v16 = (void *)v25;
           }
-          memmove(v17, Src, v16);
+          memmove(v16, Src, v15);
         }
         else
         {
           v12 = -1073741789;
-          v22 = -1073741789;
+          v21 = -1073741789;
         }
-        *a5 = v16;
-        v18 = v27;
-        if ( v27 )
+        *ThumbprintSize = v15;
+        v17 = v26;
+        if ( v26 )
         {
           if ( PreviousMode == 1 )
-            ProbeForWrite(v27, 4uLL, 4u);
-          *v18 = HIDWORD(Length);
+            ProbeForWrite(v26, 4uLL, 4u);
+          *v17 = HIDWORD(Length);
         }
       }
       else
       {
-        *a5 = 0;
+        *ThumbprintSize = 0;
       }
     }
   }
 LABEL_9:
   if ( v10 )
     ObfDereferenceObject(v10);
-  return (unsigned int)v12;
+  return v12;
 }

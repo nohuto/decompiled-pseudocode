@@ -1,24 +1,24 @@
 /*
- * XREFs of NtDuplicateToken @ 0x14090F090
+ * XREFs of NtDuplicateToken @ 0x1408E67E0
  * Callers:
  *     <none>
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x1402595A0 (KeLeaveCriticalRegionThread.c)
- *     ExReleaseResourceLite @ 0x14025A450 (ExReleaseResourceLite.c)
- *     ObfDereferenceObject @ 0x140325680 (ObfDereferenceObject.c)
- *     ExAcquireResourceSharedLite @ 0x140341E80 (ExAcquireResourceSharedLite.c)
- *     SepSetProcessTrustLabelAceForToken @ 0x140363E20 (SepSetProcessTrustLabelAceForToken.c)
- *     SeCaptureObjectAttributeSecurityDescriptorPresent @ 0x140365170 (SeCaptureObjectAttributeSecurityDescriptorPresent.c)
- *     ObReferenceObjectByHandle @ 0x14084AF40 (ObReferenceObjectByHandle.c)
- *     SeReleaseSubjectContext @ 0x14084D7E0 (SeReleaseSubjectContext.c)
- *     SeCaptureSubjectContext @ 0x14084D8F0 (SeCaptureSubjectContext.c)
- *     SepDuplicateToken @ 0x140856520 (SepDuplicateToken.c)
- *     ObInsertObjectEx @ 0x140857620 (ObInsertObjectEx.c)
- *     RtlIsSandboxedToken @ 0x14090C230 (RtlIsSandboxedToken.c)
- *     SeQueryInformationToken @ 0x14090D870 (SeQueryInformationToken.c)
- *     SeCaptureSecurityQos @ 0x14090F460 (SeCaptureSecurityQos.c)
- *     SepAppendAceToTokenObjectAcl @ 0x14090F590 (SepAppendAceToTokenObjectAcl.c)
- *     SepNewTokenAsRestrictedAsProcessToken @ 0x140A13F88 (SepNewTokenAsRestrictedAsProcessToken.c)
+ *     KeLeaveCriticalRegionThread @ 0x140289BB0 (KeLeaveCriticalRegionThread.c)
+ *     ExReleaseResourceLite @ 0x14028AA60 (ExReleaseResourceLite.c)
+ *     ObfDereferenceObject @ 0x1402CE210 (ObfDereferenceObject.c)
+ *     ExAcquireResourceSharedLite @ 0x140321360 (ExAcquireResourceSharedLite.c)
+ *     SeCaptureObjectAttributeSecurityDescriptorPresent @ 0x1403EA828 (SeCaptureObjectAttributeSecurityDescriptorPresent.c)
+ *     SepSetProcessTrustLabelAceForToken @ 0x1403EB390 (SepSetProcessTrustLabelAceForToken.c)
+ *     ObReferenceObjectByHandle @ 0x140847200 (ObReferenceObjectByHandle.c)
+ *     SeReleaseSubjectContext @ 0x140849AA0 (SeReleaseSubjectContext.c)
+ *     SeCaptureSubjectContext @ 0x140849BB0 (SeCaptureSubjectContext.c)
+ *     SepDuplicateToken @ 0x1408527E0 (SepDuplicateToken.c)
+ *     ObInsertObjectEx @ 0x140853900 (ObInsertObjectEx.c)
+ *     RtlIsSandboxedToken @ 0x1408E3950 (RtlIsSandboxedToken.c)
+ *     SeQueryInformationToken @ 0x1408E4F90 (SeQueryInformationToken.c)
+ *     SeCaptureSecurityQos @ 0x1408E6BB0 (SeCaptureSecurityQos.c)
+ *     SepAppendAceToTokenObjectAcl @ 0x1408E6CE0 (SepAppendAceToTokenObjectAcl.c)
+ *     SepNewTokenAsRestrictedAsProcessToken @ 0x140A0C798 (SepNewTokenAsRestrictedAsProcessToken.c)
  */
 
 NTSTATUS __stdcall NtDuplicateToken(
@@ -107,7 +107,7 @@ NTSTATUS __stdcall NtDuplicateToken(
           ClientToken = SubjectContext.ClientToken;
           if ( !SubjectContext.ClientToken )
             ClientToken = SubjectContext.PrimaryToken;
-          if ( SeQueryInformationToken(ClientToken, MaxTokenInfoClass, &TokenInformation) >= 0 )
+          if ( SeQueryInformationToken(ClientToken, TokenIsSandboxed, &TokenInformation) >= 0 )
             v13 = (_BYTE)TokenInformation == 0;
           if ( !v13 && RtlIsSandboxedToken(&v31, PreviousMode) )
           {

@@ -1,15 +1,15 @@
 /*
- * XREFs of PpmPerfTelemetryWorker @ 0x1406C0CC0
+ * XREFs of PpmPerfTelemetryWorker @ 0x14061FBD0
  * Callers:
  *     <none>
  * Callees:
- *     PpmReleaseLock @ 0x14022AB00 (PpmReleaseLock.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14025FAE0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgKeywordOn @ 0x1402605BC (_tlgKeywordOn.c)
- *     PpmAcquireLock @ 0x140281A74 (PpmAcquireLock.c)
- *     PopOkayToQueueNextWorkItem @ 0x1402D1FF4 (PopOkayToQueueNextWorkItem.c)
- *     PpmPerfUpdateQosDisableReasons @ 0x1402D2004 (PpmPerfUpdateQosDisableReasons.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     PopOkayToQueueNextWorkItem @ 0x1402503C4 (PopOkayToQueueNextWorkItem.c)
+ *     PpmPerfUpdateQosDisableReasons @ 0x1402503D4 (PpmPerfUpdateQosDisableReasons.c)
+ *     PpmAcquireLock @ 0x14026FCB4 (PpmAcquireLock.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14027E1A4 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x1402864F4 (_tlgKeywordOn.c)
+ *     PpmReleaseLock @ 0x1402CF3B0 (PpmReleaseLock.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  */
 
 __int64 PpmPerfTelemetryWorker()
@@ -68,7 +68,7 @@ __int64 PpmPerfTelemetryWorker()
     v17 = 36LL;
     v10 = 0x1000000LL;
     v19 = 8LL;
-    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140C02228, (unsigned __int8 *)word_140026FFA, 0LL, 0LL, 6u, &v11);
+    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140C02228, (unsigned __int8 *)word_1400270BA, 0LL, 0LL, 6u, &v11);
   }
-  return PopOkayToQueueNextWorkItem((__int64)&unk_140C24708);
+  return PopOkayToQueueNextWorkItem((__int64)&unk_140C24768);
 }

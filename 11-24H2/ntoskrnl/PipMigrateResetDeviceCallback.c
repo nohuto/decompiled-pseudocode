@@ -1,12 +1,12 @@
 /*
- * XREFs of PipMigrateResetDeviceCallback @ 0x140C21B20
+ * XREFs of PipMigrateResetDeviceCallback @ 0x140C23B60
  * Callers:
  *     <none>
  * Callees:
- *     _wcsicmp @ 0x1404FE3B0 (_wcsicmp.c)
- *     _PnpSetObjectProperty @ 0x1408B88E8 (_PnpSetObjectProperty.c)
- *     _CmGetDeviceRegProp @ 0x1408C5BB0 (_CmGetDeviceRegProp.c)
- *     _CmSetDeviceRegProp @ 0x140990E18 (_CmSetDeviceRegProp.c)
+ *     _wcsicmp @ 0x1404FBC70 (_wcsicmp.c)
+ *     _PnpSetObjectProperty @ 0x1408B6258 (_PnpSetObjectProperty.c)
+ *     _CmGetDeviceRegProp @ 0x1408C35E0 (_CmGetDeviceRegProp.c)
+ *     _CmSetDeviceRegProp @ 0x14097BE58 (_CmSetDeviceRegProp.c)
  */
 
 char __fastcall PipMigrateResetDeviceCallback(__int64 a1, const wchar_t *a2)
@@ -35,7 +35,7 @@ char __fastcall PipMigrateResetDeviceCallback(__int64 a1, const wchar_t *a2)
     if ( (v4 & 0x20) != 0
       || (v6 = v4 | 0x20, (int)CmSetDeviceRegProp(a1, (__int64)a2, 0LL, 0xBu, 4, (__int64)&v6, 4, 0) >= 0) )
     {
-      PnpSetObjectProperty(a1, (__int64)a2, 1u, 0LL, 0LL, (__int64)DEVPKEY_Device_MigrationRank, 0, 0LL, 0, 0);
+      PnpSetObjectProperty(a1, (__int64)a2, 1, 0LL, 0LL, (__int64)DEVPKEY_Device_MigrationRank, 0, 0LL, 0, 0);
     }
   }
   return 1;

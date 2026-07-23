@@ -1,13 +1,13 @@
 /*
- * XREFs of MiMappingHasIoReferences @ 0x140295E94
+ * XREFs of MiMappingHasIoReferences @ 0x140217B54
  * Callers:
- *     MmMapLockedPagesSpecifyCache @ 0x140226CC0 (MmMapLockedPagesSpecifyCache.c)
- *     MiMapContiguousMemory @ 0x140295824 (MiMapContiguousMemory.c)
- *     MmProtectMdlSystemAddress @ 0x1405321B0 (MmProtectMdlSystemAddress.c)
- *     MmMapMdl @ 0x1405375B0 (MmMapMdl.c)
+ *     MiMapContiguousMemory @ 0x1402174E4 (MiMapContiguousMemory.c)
+ *     MmMapLockedPagesSpecifyCache @ 0x1402CB5C0 (MmMapLockedPagesSpecifyCache.c)
+ *     MmProtectMdlSystemAddress @ 0x1405323F0 (MmProtectMdlSystemAddress.c)
+ *     MmMapMdl @ 0x1405377F0 (MmMapMdl.c)
  * Callees:
- *     MI_IS_PHYSICAL_ADDRESS @ 0x14031CBD0 (MI_IS_PHYSICAL_ADDRESS.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x14032DEC0 (MI_READ_PTE_LOCK_FREE.c)
+ *     MI_IS_PHYSICAL_ADDRESS @ 0x140327920 (MI_IS_PHYSICAL_ADDRESS.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140338C10 (MI_READ_PTE_LOCK_FREE.c)
  */
 
 signed __int64 __fastcall MiMappingHasIoReferences(unsigned __int64 a1)
@@ -18,7 +18,7 @@ signed __int64 __fastcall MiMappingHasIoReferences(unsigned __int64 a1)
   signed __int64 v4; // rtt
 
   v1 = ((a1 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
-  for ( i = MI_IS_PHYSICAL_ADDRESS(a1); i; --i )
+  for ( i = MI_IS_PHYSICAL_ADDRESS(); i; --i )
     v1 = ((v1 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
   result = MI_READ_PTE_LOCK_FREE(v1);
   do

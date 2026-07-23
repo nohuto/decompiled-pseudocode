@@ -14,7 +14,7 @@ __int64 __fastcall RtlpUpcaseUnicodeStringPrivate(__int64 a1, unsigned __int16 *
   __int64 v4; // r14
   unsigned int v5; // eax
   unsigned int v6; // ebx
-  __int64 Heap; // rax
+  PVOID Heap; // rax
   unsigned int v8; // r10d
   __int16 v9; // ax
   __int64 v10; // r9
@@ -25,7 +25,7 @@ __int64 __fastcall RtlpUpcaseUnicodeStringPrivate(__int64 a1, unsigned __int16 *
   v6 = 0;
   if ( (_WORD)v5 )
   {
-    Heap = RtlAllocateHeap((char *)NtCurrentPeb()->ProcessHeap, 0, v5);
+    Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, v5);
     *(_QWORD *)(a1 + 8) = Heap;
     if ( !Heap )
       return 3221225495LL;

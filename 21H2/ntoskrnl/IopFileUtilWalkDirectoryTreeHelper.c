@@ -1,21 +1,21 @@
 /*
- * XREFs of IopFileUtilWalkDirectoryTreeHelper @ 0x14077C850
+ * XREFs of IopFileUtilWalkDirectoryTreeHelper @ 0x14077CA10
  * Callers:
- *     IopFileUtilWalkDirectoryTreeBottomUp @ 0x14077C6B8 (IopFileUtilWalkDirectoryTreeBottomUp.c)
- *     IopFileUtilWalkDirectoryTreeTopDown @ 0x140A91440 (IopFileUtilWalkDirectoryTreeTopDown.c)
+ *     IopFileUtilWalkDirectoryTreeBottomUp @ 0x14077C878 (IopFileUtilWalkDirectoryTreeBottomUp.c)
+ *     IopFileUtilWalkDirectoryTreeTopDown @ 0x140A92440 (IopFileUtilWalkDirectoryTreeTopDown.c)
  * Callees:
- *     RtlAppendUnicodeToString @ 0x140265A40 (RtlAppendUnicodeToString.c)
- *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
- *     RtlAppendUnicodeStringToString @ 0x14027F0B0 (RtlAppendUnicodeStringToString.c)
- *     RtlCopyUnicodeString @ 0x1403534C0 (RtlCopyUnicodeString.c)
- *     _wcsicmp @ 0x1403D20D0 (_wcsicmp.c)
- *     ZwWaitForSingleObject @ 0x1403FA420 (ZwWaitForSingleObject.c)
- *     ZwClose @ 0x1403FA580 (ZwClose.c)
- *     ZwOpenFile @ 0x1403FAA00 (ZwOpenFile.c)
- *     ZwQueryDirectoryFile @ 0x1403FAA40 (ZwQueryDirectoryFile.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     RtlAppendUnicodeToString @ 0x1402539E0 (RtlAppendUnicodeToString.c)
+ *     RtlInitUnicodeString @ 0x14026A4C0 (RtlInitUnicodeString.c)
+ *     RtlAppendUnicodeStringToString @ 0x14026D4E0 (RtlAppendUnicodeStringToString.c)
+ *     RtlCopyUnicodeString @ 0x14035E210 (RtlCopyUnicodeString.c)
+ *     _wcsicmp @ 0x1403D2240 (_wcsicmp.c)
+ *     ZwWaitForSingleObject @ 0x1403FA600 (ZwWaitForSingleObject.c)
+ *     ZwClose @ 0x1403FA760 (ZwClose.c)
+ *     ZwOpenFile @ 0x1403FABE0 (ZwOpenFile.c)
+ *     ZwQueryDirectoryFile @ 0x1403FAC20 (ZwQueryDirectoryFile.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall IopFileUtilWalkDirectoryTreeHelper(

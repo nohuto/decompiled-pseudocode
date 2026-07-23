@@ -3,8 +3,8 @@
  * Callers:
  *     <none>
  * Callees:
- *     KiUpdateStibpPairing @ 0x14020D230 (KiUpdateStibpPairing.c)
- *     KiFlushCurrentRsb @ 0x1404359C0 (KiFlushCurrentRsb.c)
+ *     sub_14020D230 @ 0x14020D230 (sub_14020D230.c)
+ *     sub_1404359C0 @ 0x1404359C0 (sub_1404359C0.c)
  */
 
 /*
@@ -21,7 +21,7 @@
  * 000000014045A575: sub     rsp, 40h
  * 000000014045A579: mov     rbx, gs:20h
  * 000000014045A582: mov     r10, rdx
- * 000000014045A585: movups  xmm0, cs:KiSpeculationFeatures
+ * 000000014045A585: movups  xmm0, cs:xmmword_140D06920
  * 000000014045A58C: xor     edx, edx
  * 000000014045A58E: mov     r14, [rsp+48h+arg_20]
  * 000000014045A593: movsd   xmm1, cs:qword_140D06930
@@ -64,7 +64,7 @@
  * 000000014045A63B: test    al, 2
  * 000000014045A63D: jz      short loc_14045A648
  * 000000014045A63F: xor     ecx, ecx
- * 000000014045A641: call    KiUpdateStibpPairing
+ * 000000014045A641: call    sub_14020D230
  * 000000014045A646: jmp     short loc_14045A68F
  * 000000014045A648: movzx   eax, word ptr [rbx+6E0h]
  * 000000014045A64F: test    al, 4
@@ -78,7 +78,7 @@
  * 000000014045A66C: movzx   eax, word ptr [rbx+6E0h]
  * 000000014045A673: test    al, 20h
  * 000000014045A675: jz      short loc_14045A688
- * 000000014045A677: call    KiFlushCurrentRsb
+ * 000000014045A677: call    sub_1404359C0
  * 000000014045A67C: mov     eax, 0FFDFh
  * 000000014045A681: and     [rbx+6E0h], ax
  * 000000014045A688: mov     [rbx+6D8h], rsi
@@ -111,7 +111,7 @@
  * 000000014045A70E: movzx   eax, word ptr [rbx+6E0h]
  * 000000014045A715: test    al, 20h
  * 000000014045A717: jz      short loc_14045A725
- * 000000014045A719: call    KiFlushCurrentRsb
+ * 000000014045A719: call    sub_1404359C0
  * 000000014045A71E: and     [rbx+6E0h], di
  * 000000014045A725: mov     rbx, [rsp+48h+arg_0]
  * 000000014045A72A: mov     rsi, [rsp+48h+arg_8]

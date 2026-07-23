@@ -1,21 +1,21 @@
 /*
- * XREFs of VrpHandleIoctlUnloadDynamicallyLoadedHives @ 0x1408098B0
+ * XREFs of VrpHandleIoctlUnloadDynamicallyLoadedHives @ 0x14080AAB0
  * Callers:
- *     VrpIoctlDeviceDispatch @ 0x140807CC0 (VrpIoctlDeviceDispatch.c)
+ *     VrpIoctlDeviceDispatch @ 0x140808EC0 (VrpIoctlDeviceDispatch.c)
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
- *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
- *     PsIsThreadInSilo @ 0x1400CC270 (PsIsThreadInSilo.c)
- *     PsGetPermanentSiloContext @ 0x14010A0A0 (PsGetPermanentSiloContext.c)
- *     ZwUnloadKey2 @ 0x1401BB9B0 (ZwUnloadKey2.c)
- *     ULongLongMult @ 0x14026D7E8 (ULongLongMult.c)
- *     PsGetJobSilo @ 0x1402EA120 (PsGetJobSilo.c)
- *     ObpReferenceObjectByHandleWithTag @ 0x1405E8390 (ObpReferenceObjectByHandleWithTag.c)
- *     VrpCleanupNamespace @ 0x1408079B0 (VrpCleanupNamespace.c)
- *     VrpDestroyNamespaceNode @ 0x14080A19C (VrpDestroyNamespaceNode.c)
+ *     ExfTryToWakePushLock @ 0x140091500 (ExfTryToWakePushLock.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B78F0 (KiLeaveCriticalRegionUnsafe.c)
+ *     PsIsThreadInSilo @ 0x1400CC350 (PsIsThreadInSilo.c)
+ *     PsGetPermanentSiloContext @ 0x14010A120 (PsGetPermanentSiloContext.c)
+ *     ZwUnloadKey2 @ 0x1401BBB10 (ZwUnloadKey2.c)
+ *     ULongLongMult @ 0x14026D9D8 (ULongLongMult.c)
+ *     PsGetJobSilo @ 0x1402EA310 (PsGetJobSilo.c)
+ *     ObpReferenceObjectByHandleWithTag @ 0x1405E9390 (ObpReferenceObjectByHandleWithTag.c)
+ *     VrpCleanupNamespace @ 0x140808BB0 (VrpCleanupNamespace.c)
+ *     VrpDestroyNamespaceNode @ 0x14080B39C (VrpDestroyNamespaceNode.c)
  */
 
 __int64 __fastcall VrpHandleIoctlUnloadDynamicallyLoadedHives(
@@ -34,15 +34,11 @@ __int64 __fastcall VrpHandleIoctlUnloadDynamicallyLoadedHives(
   volatile signed __int64 *v11; // rsi
   ULONGLONG v12; // rax
   ULONGLONG i; // rdi
-  __int64 v14; // r8
+  ULONGLONG v14; // r8
   ULONGLONG v15; // rdx
   __int64 v16; // r15
   ULONGLONG pullResult; // [rsp+40h] [rbp-40h] BYREF
-  int v19; // [rsp+48h] [rbp-38h] BYREF
-  __int64 v20; // [rsp+50h] [rbp-30h]
-  __int64 v21; // [rsp+58h] [rbp-28h]
-  int v22; // [rsp+60h] [rbp-20h]
-  __int128 v23; // [rsp+68h] [rbp-18h]
+  OBJECT_ATTRIBUTES TargetKey; // [rsp+48h] [rbp-38h] BYREF
 
   Object = 0LL;
   a5 = 0LL;
@@ -96,12 +92,12 @@ __int64 __fastcall VrpHandleIoctlUnloadDynamicallyLoadedHives(
           }
           else
           {
-            v20 = 0LL;
-            v21 = v16 + 24;
-            v19 = 48;
-            v22 = 576;
-            v23 = 0LL;
-            ZwUnloadKey2((__int64)&v19, 1LL, v14);
+            TargetKey.RootDirectory = 0LL;
+            TargetKey.ObjectName = (PUNICODE_STRING)(v16 + 24);
+            TargetKey.Length = 48;
+            TargetKey.Attributes = 576;
+            *(_OWORD *)&TargetKey.SecurityDescriptor = 0LL;
+            ZwUnloadKey2(&TargetKey, 1u);
             VrpDestroyNamespaceNode(v10);
           }
         }

@@ -1,13 +1,13 @@
 /*
- * XREFs of VerifierMmBuildMdlForNonPagedPool @ 0x1409E6620
+ * XREFs of VerifierMmBuildMdlForNonPagedPool @ 0x1409E7620
  * Callers:
  *     <none>
  * Callees:
- *     MmDeterminePoolType @ 0x1402D2AAC (MmDeterminePoolType.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     MmAreMdlPagesLocked @ 0x1409C5CD0 (MmAreMdlPagesLocked.c)
- *     VfUtilCheckRuleEnforcement @ 0x1409C65DC (VfUtilCheckRuleEnforcement.c)
- *     VerifierBugCheckIfAppropriate @ 0x1409D0D54 (VerifierBugCheckIfAppropriate.c)
+ *     MmDeterminePoolType @ 0x14025102C (MmDeterminePoolType.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     MmAreMdlPagesLocked @ 0x1409C6CD0 (MmAreMdlPagesLocked.c)
+ *     VfUtilCheckRuleEnforcement @ 0x1409C75DC (VfUtilCheckRuleEnforcement.c)
+ *     VerifierBugCheckIfAppropriate @ 0x1409D1D54 (VerifierBugCheckIfAppropriate.c)
  */
 
 __int64 __fastcall VerifierMmBuildMdlForNonPagedPool(ULONG_PTR BugCheckParameter3)

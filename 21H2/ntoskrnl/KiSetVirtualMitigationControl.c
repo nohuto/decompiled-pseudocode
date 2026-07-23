@@ -1,8 +1,8 @@
 /*
- * XREFs of KiSetVirtualMitigationControl @ 0x1403F34D0
+ * XREFs of KiSetVirtualMitigationControl @ 0x1403F3520
  * Callers:
- *     KiRestoreFeatureBits @ 0x140383D30 (KiRestoreFeatureBits.c)
- *     KeOptimizeSpecCtrlSettings @ 0x1403C7840 (KeOptimizeSpecCtrlSettings.c)
+ *     KiRestoreFeatureBits @ 0x140383EE0 (KiRestoreFeatureBits.c)
+ *     KeOptimizeSpecCtrlSettings @ 0x1403C79E0 (KeOptimizeSpecCtrlSettings.c)
  * Callees:
  *     <none>
  */

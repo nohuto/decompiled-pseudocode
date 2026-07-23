@@ -3,15 +3,15 @@
  * Callers:
  *     <none>
  * Callees:
- *     RtlInitUnicodeString @ 0x14002DC60 (RtlInitUnicodeString.c)
- *     RtlInitAnsiString @ 0x140074CF4 (RtlInitAnsiString.c)
- *     IoDeleteDevice @ 0x14007F30C (IoDeleteDevice.c)
- *     KiInitializeMutant @ 0x140085B84 (KiInitializeMutant.c)
- *     RtlAnsiStringToUnicodeString @ 0x1403F6600 (RtlAnsiStringToUnicodeString.c)
- *     IoCreateDevice @ 0x1404734C0 (IoCreateDevice.c)
- *     IoCreateSymbolicLink @ 0x1404EEF88 (IoCreateSymbolicLink.c)
- *     IoWMIRegistrationControl @ 0x14053A454 (IoWMIRegistrationControl.c)
- *     IoRegisterShutdownNotification @ 0x140550FA0 (IoRegisterShutdownNotification.c)
+ *     RtlInitUnicodeString @ 0x14002D7E0 (RtlInitUnicodeString.c)
+ *     RtlInitAnsiString @ 0x140074D74 (RtlInitAnsiString.c)
+ *     IoDeleteDevice @ 0x14007F38C (IoDeleteDevice.c)
+ *     KiInitializeMutant @ 0x140087474 (KiInitializeMutant.c)
+ *     RtlAnsiStringToUnicodeString @ 0x1403F54C4 (RtlAnsiStringToUnicodeString.c)
+ *     IoCreateDevice @ 0x140472390 (IoCreateDevice.c)
+ *     IoCreateSymbolicLink @ 0x1404D107C (IoCreateSymbolicLink.c)
+ *     IoWMIRegistrationControl @ 0x14053A994 (IoWMIRegistrationControl.c)
+ *     IoRegisterShutdownNotification @ 0x1405514E0 (IoRegisterShutdownNotification.c)
  *     WmipInitializeRegistration @ 0x14079C5A8 (WmipInitializeRegistration.c)
  *     WmipInitializeDataStructs @ 0x14079C638 (WmipInitializeDataStructs.c)
  *     WmipInitializeSecurity @ 0x14079C7B4 (WmipInitializeSecurity.c)
@@ -22,7 +22,7 @@ int __fastcall WmipDriverEntry(PDRIVER_OBJECT DriverObject)
   int result; // eax
   NTSTATUS v3; // ebx
   UNICODE_STRING DeviceName; // [rsp+40h] [rbp-38h] BYREF
-  STRING DestinationString; // [rsp+50h] [rbp-28h] BYREF
+  _STRING DestinationString; // [rsp+50h] [rbp-28h] BYREF
   UNICODE_STRING SymbolicLinkName; // [rsp+60h] [rbp-18h] BYREF
 
   KiInitializeMutant((__int64)&WmipSMMutex, 0, 1);

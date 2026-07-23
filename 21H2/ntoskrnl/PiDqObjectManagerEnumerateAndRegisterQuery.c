@@ -1,28 +1,28 @@
 /*
- * XREFs of PiDqObjectManagerEnumerateAndRegisterQuery @ 0x14062E878
+ * XREFs of PiDqObjectManagerEnumerateAndRegisterQuery @ 0x140623900
  * Callers:
- *     PiDqQuerySerializeActionQueue @ 0x14062F5EC (PiDqQuerySerializeActionQueue.c)
+ *     PiDqQuerySerializeActionQueue @ 0x14062466C (PiDqQuerySerializeActionQueue.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
- *     KeReleaseGuardedMutex @ 0x140265CD0 (KeReleaseGuardedMutex.c)
- *     ExAcquireFastMutex @ 0x14034A080 (ExAcquireFastMutex.c)
- *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
- *     ExReleasePushLockEx @ 0x14034AE90 (ExReleasePushLockEx.c)
- *     ExReleaseResourceLite @ 0x14034B3F0 (ExReleaseResourceLite.c)
- *     ExAcquireResourceSharedLite @ 0x14034BF60 (ExAcquireResourceSharedLite.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     _wcsicmp @ 0x1403D20D0 (_wcsicmp.c)
- *     ConstraintEval @ 0x14062E324 (ConstraintEval.c)
- *     PiDqQueryFreeActiveData @ 0x14062E710 (PiDqQueryFreeActiveData.c)
- *     PiDqQueryActionQueueEntryCreate @ 0x14062FBA8 (PiDqQueryActionQueueEntryCreate.c)
- *     PiDqQueryAppendActionEntry @ 0x14062FC34 (PiDqQueryAppendActionEntry.c)
- *     PiDqQueryEnumObject @ 0x140633B34 (PiDqQueryEnumObject.c)
- *     PiDmEnumObjectsWithCallback @ 0x1406350E8 (PiDmEnumObjectsWithCallback.c)
- *     PiDmListEnumObjectsWithCallback @ 0x1406357D0 (PiDmListEnumObjectsWithCallback.c)
- *     PiDmGetObject @ 0x140636A6C (PiDmGetObject.c)
- *     PiDmObjectRelease @ 0x140636DF0 (PiDmObjectRelease.c)
- *     PiDmObjectIsEnumerable @ 0x14063772C (PiDmObjectIsEnumerable.c)
- *     _PnpStringFromGuid @ 0x140638420 (_PnpStringFromGuid.c)
+ *     KeReleaseGuardedMutex @ 0x140253C70 (KeReleaseGuardedMutex.c)
+ *     KeLeaveCriticalRegionThread @ 0x1402AB8C0 (KeLeaveCriticalRegionThread.c)
+ *     ExAcquireFastMutex @ 0x140354DD0 (ExAcquireFastMutex.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1403556E0 (ExAcquirePushLockExclusiveEx.c)
+ *     ExReleasePushLockEx @ 0x140355BE0 (ExReleasePushLockEx.c)
+ *     ExReleaseResourceLite @ 0x140356140 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceSharedLite @ 0x140356CB0 (ExAcquireResourceSharedLite.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     _wcsicmp @ 0x1403D2240 (_wcsicmp.c)
+ *     ConstraintEval @ 0x1406233AC (ConstraintEval.c)
+ *     PiDqQueryFreeActiveData @ 0x140623798 (PiDqQueryFreeActiveData.c)
+ *     PiDqQueryActionQueueEntryCreate @ 0x140624C28 (PiDqQueryActionQueueEntryCreate.c)
+ *     PiDqQueryAppendActionEntry @ 0x140624CB4 (PiDqQueryAppendActionEntry.c)
+ *     PiDqQueryEnumObject @ 0x1406286F4 (PiDqQueryEnumObject.c)
+ *     PiDmEnumObjectsWithCallback @ 0x140629EF8 (PiDmEnumObjectsWithCallback.c)
+ *     PiDmListEnumObjectsWithCallback @ 0x14062A5E0 (PiDmListEnumObjectsWithCallback.c)
+ *     PiDmGetObject @ 0x14062B87C (PiDmGetObject.c)
+ *     PiDmObjectRelease @ 0x14062BC00 (PiDmObjectRelease.c)
+ *     PiDmObjectIsEnumerable @ 0x14062C53C (PiDmObjectIsEnumerable.c)
+ *     _PnpStringFromGuid @ 0x14062D230 (_PnpStringFromGuid.c)
  */
 
 __int64 __fastcall PiDqObjectManagerEnumerateAndRegisterQuery(PERESOURCE Resource, KSPIN_LOCK a2)
@@ -39,47 +39,57 @@ __int64 __fastcall PiDqObjectManagerEnumerateAndRegisterQuery(PERESOURCE Resourc
   PVOID v13; // rsi
   PVOID v14; // rcx
   ULONG_PTR v15; // rsi
-  __int64 *v17; // rsi
+  __int64 v16; // rdx
+  __int64 v17; // r8
+  __int64 v18; // r9
+  __int64 *v20; // rsi
   unsigned int j; // r14d
-  __int64 *v19; // r13
-  __int64 v20; // rax
-  int v21; // r9d
-  __int128 v22; // xmm0
+  __int64 *v22; // r13
   __int64 v23; // rax
-  int v24; // eax
+  int v24; // r9d
+  __int128 v25; // xmm0
+  __int64 v26; // rax
+  int v27; // eax
   struct _KTHREAD *CurrentThread; // rax
   PERESOURCE *SpinLock; // rcx
-  int v27; // eax
-  const wchar_t *v28; // rsi
-  __int64 v29; // rax
+  __int64 v30; // rdx
+  __int64 v31; // r8
+  __int64 v32; // r9
+  int v33; // eax
+  const wchar_t *v34; // rsi
+  __int64 v35; // rax
   const wchar_t *i; // r14
-  __int64 v31; // rax
+  __int64 v37; // rax
   int Object; // eax
-  PVOID v33; // r14
-  __int64 v34; // rax
-  struct _KTHREAD *v35; // rax
-  char v36; // [rsp+30h] [rbp-A9h]
+  PVOID v39; // r14
+  __int64 v40; // rax
+  struct _KTHREAD *v41; // rax
+  __int64 v42; // rdx
+  __int64 v43; // r8
+  __int64 v44; // r9
+  __int64 v45; // [rsp+20h] [rbp-B9h]
+  char v46; // [rsp+30h] [rbp-A9h]
   PVOID P; // [rsp+38h] [rbp-A1h] BYREF
-  __int64 v38; // [rsp+40h] [rbp-99h] BYREF
-  _OWORD v39[2]; // [rsp+48h] [rbp-91h] BYREF
-  __int128 v40; // [rsp+68h] [rbp-71h]
-  _BYTE *v41; // [rsp+78h] [rbp-61h]
-  __int128 v42; // [rsp+80h] [rbp-59h] BYREF
-  __int128 v43; // [rsp+90h] [rbp-49h]
-  _BYTE v44[80]; // [rsp+A0h] [rbp-39h] BYREF
+  __int64 v48; // [rsp+40h] [rbp-99h] BYREF
+  _OWORD v49[2]; // [rsp+48h] [rbp-91h] BYREF
+  __int128 v50; // [rsp+68h] [rbp-71h]
+  _BYTE *v51; // [rsp+78h] [rbp-61h]
+  __int128 v52; // [rsp+80h] [rbp-59h] BYREF
+  __int128 v53; // [rsp+90h] [rbp-49h]
+  _BYTE v54[80]; // [rsp+A0h] [rbp-39h] BYREF
 
   v2 = *(_QWORD *)(a2 + 24);
   P = 0LL;
-  v38 = 0LL;
+  v48 = 0LL;
   v5 = *(_BYTE *)(v2 + 40) & 1;
-  v36 = v5;
+  v46 = v5;
   EnumObject = 0;
-  v41 = 0LL;
+  v51 = 0LL;
   v7 = 0LL;
-  v42 = 0LL;
-  v43 = 0LL;
-  memset(v39, 0, sizeof(v39));
-  v40 = 0LL;
+  v52 = 0LL;
+  v53 = 0LL;
+  memset(v49, 0, sizeof(v49));
+  v50 = 0LL;
   if ( !v5 )
     goto LABEL_2;
   CurrentThread = KeGetCurrentThread();
@@ -118,43 +128,43 @@ LABEL_2:
       {
         if ( v11 == 1 )
         {
-          v28 = *(const wchar_t **)(v9 + 32);
+          v34 = *(const wchar_t **)(v9 + 32);
           while ( 2 )
           {
-            if ( *v28 )
+            if ( *v34 )
             {
-              v29 = -1LL;
+              v35 = -1LL;
               do
-                ++v29;
-              while ( v28[v29] );
-              for ( i = &v28[v29 + 1]; *i; i += v31 + 1 )
+                ++v35;
+              while ( v34[v35] );
+              for ( i = &v34[v35 + 1]; *i; i += v37 + 1 )
               {
-                if ( !wcsicmp(v28, i) )
+                if ( !wcsicmp(v34, i) )
                   goto LABEL_60;
-                v31 = -1LL;
+                v37 = -1LL;
                 do
-                  ++v31;
-                while ( i[v31] );
+                  ++v37;
+                while ( i[v37] );
               }
-              Object = PiDmGetObject(*(unsigned int *)&Resource[2].ActiveCount, v28, &P);
+              Object = PiDmGetObject(*(unsigned int *)&Resource[2].ActiveCount, v34, &P);
               EnumObject = Object;
               if ( Object == -1073741772 )
                 goto LABEL_60;
               if ( Object >= 0 )
               {
-                v33 = P;
+                v39 = P;
                 if ( (unsigned __int8)PiDmObjectIsEnumerable((ULONG_PTR)P) )
-                  EnumObject = PiDqQueryEnumObject(a2, v33);
-                PiDmObjectRelease(v33);
+                  EnumObject = PiDqQueryEnumObject(a2, v39);
+                PiDmObjectRelease(v39);
                 P = 0LL;
                 if ( EnumObject >= 0 )
                 {
 LABEL_60:
-                  v34 = -1LL;
+                  v40 = -1LL;
                   do
-                    ++v34;
-                  while ( v28[v34] );
-                  v28 += v34 + 1;
+                    ++v40;
+                  while ( v34[v40] );
+                  v34 += v40 + 1;
                   continue;
                 }
               }
@@ -182,31 +192,31 @@ LABEL_9:
 LABEL_12:
         v15 = a2 + 64;
         ExReleasePushLockEx(a2 + 64, 0LL);
-        KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
-        v5 = v36;
+        KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v16, v17, v18);
+        v5 = v46;
         goto LABEL_13;
       }
     }
     else
     {
-      v17 = &PiDqQueryConstraintData;
+      v20 = &PiDqQueryConstraintData;
       EnumObject = -1073741823;
       for ( j = 0; j < 6; ++j )
       {
-        v19 = v17;
-        if ( *(_DWORD *)v17 == *(_DWORD *)&Resource[2].ActiveCount )
+        v22 = v20;
+        if ( *(_DWORD *)v20 == *(_DWORD *)&Resource[2].ActiveCount )
         {
-          v20 = v17[1];
-          v21 = *((_DWORD *)v17 + 4);
-          v22 = *(_OWORD *)v20;
-          LODWORD(v43) = *(_DWORD *)(v20 + 16);
-          v23 = *(_QWORD *)(a2 + 24);
-          v42 = v22;
-          EnumObject = ConstraintEval(*(_DWORD *)(v23 + 80), *(_DWORD **)(v23 + 88), (__int64)&v42, v21, (__int64)v39);
+          v23 = v20[1];
+          v24 = *((_DWORD *)v20 + 4);
+          v25 = *(_OWORD *)v23;
+          LODWORD(v53) = *(_DWORD *)(v23 + 16);
+          v26 = *(_QWORD *)(a2 + 24);
+          v52 = v25;
+          EnumObject = ConstraintEval(*(_DWORD *)(v26 + 80), *(_DWORD **)(v26 + 88), (__int64)&v52, v24, (__int64)v49);
           if ( EnumObject != -1073741823 )
             break;
         }
-        v17 += 4;
+        v20 += 4;
       }
       if ( EnumObject < 0 )
       {
@@ -219,37 +229,37 @@ LABEL_12:
         if ( EnumObject < 0 )
           goto LABEL_12;
       }
-      else if ( DWORD2(v40) == *((_DWORD *)v19 + 5) )
+      else if ( DWORD2(v50) == *((_DWORD *)v22 + 5) )
       {
-        if ( DWORD2(v40) == 13 )
+        if ( DWORD2(v50) == 13 )
         {
-          EnumObject = PnpStringFromGuid(v41, v44);
+          EnumObject = PnpStringFromGuid(v51, v54);
           if ( EnumObject < 0 )
             goto LABEL_12;
-          v7 = v44;
+          v7 = v54;
         }
-        else if ( DWORD2(v40) == 18 )
+        else if ( DWORD2(v50) == 18 )
         {
-          v7 = v41;
+          v7 = v51;
         }
-        v24 = PiDmGetObject(*((unsigned int *)v19 + 6), v7, &P);
-        EnumObject = v24;
-        if ( v24 != -1073741772 )
+        v27 = PiDmGetObject(*((unsigned int *)v22 + 6), v7, &P);
+        EnumObject = v27;
+        if ( v27 != -1073741772 )
         {
-          if ( v24 < 0 )
+          if ( v27 < 0 )
             goto LABEL_12;
-          v27 = PiDmListEnumObjectsWithCallback(*((unsigned int *)v19 + 7), P, PiDqEnumQueryObjectsCallback, a2);
+          v33 = PiDmListEnumObjectsWithCallback(*((unsigned int *)v22 + 7), P, PiDqEnumQueryObjectsCallback, a2, v45);
           v14 = P;
-          EnumObject = v27;
+          EnumObject = v33;
           goto LABEL_9;
         }
       }
     }
 LABEL_10:
-    EnumObject = PiDqQueryActionQueueEntryCreate(0LL, 0LL, 0LL, &v38);
+    EnumObject = PiDqQueryActionQueueEntryCreate(0LL, 0LL, 0LL, &v48);
     if ( EnumObject >= 0 )
     {
-      PiDqQueryAppendActionEntry(a2, v38);
+      PiDqQueryAppendActionEntry(a2, v48);
       *(_DWORD *)(a2 + 216) |= 0x20u;
     }
     goto LABEL_12;
@@ -258,18 +268,18 @@ LABEL_10:
 LABEL_13:
   if ( EnumObject < 0 )
   {
-    v35 = KeGetCurrentThread();
-    --v35->KernelApcDisable;
+    v41 = KeGetCurrentThread();
+    --v41->KernelApcDisable;
     ExAcquirePushLockExclusiveEx(v15, 0LL);
     *(_DWORD *)(a2 + 216) |= 1u;
     PiDqQueryFreeActiveData(a2);
     ExReleasePushLockEx(v15, 0LL);
-    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v42, v43, v44);
   }
   if ( v5 )
   {
     ExReleaseResourceLite(Resource);
-    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v30, v31, v32);
   }
   return (unsigned int)EnumObject;
 }

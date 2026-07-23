@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlpIsDuplicateAce @ 0x1406C3910
+ * XREFs of RtlpIsDuplicateAce @ 0x1406C3940
  * Callers:
- *     RtlpGenerateInheritedAce @ 0x1406C3C60 (RtlpGenerateInheritedAce.c)
+ *     RtlpGenerateInheritedAce @ 0x1406C3C90 (RtlpGenerateInheritedAce.c)
  * Callees:
- *     RtlEqualSid @ 0x14022A770 (RtlEqualSid.c)
- *     RtlpCompareKnownObjectAces @ 0x1409BC658 (RtlpCompareKnownObjectAces.c)
+ *     RtlEqualSid @ 0x14022A880 (RtlEqualSid.c)
+ *     RtlpCompareKnownObjectAces @ 0x1409BC858 (RtlpCompareKnownObjectAces.c)
  */
 
 char __fastcall RtlpIsDuplicateAce(__int64 a1, unsigned __int8 *a2)

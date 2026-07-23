@@ -37,7 +37,7 @@ __int64 __fastcall sub_18005EE74(unsigned __int16 a1, unsigned __int16 *a2, unsi
   unsigned int v25; // ecx
   __int64 v26; // rbx
   unsigned __int64 v27; // rax
-  struct _CLIENT_ID *p_ClientId; // rdx
+  CLIENT_ID *p_ClientId; // rdx
   char *v29; // rcx
   bool v30; // [rsp+30h] [rbp-1B8h]
   unsigned int v31; // [rsp+34h] [rbp-1B4h]
@@ -56,7 +56,7 @@ __int64 __fastcall sub_18005EE74(unsigned __int16 a1, unsigned __int16 *a2, unsi
   char *v44; // [rsp+78h] [rbp-170h]
   char *v45; // [rsp+80h] [rbp-168h]
   struct _TEB *v46; // [rsp+88h] [rbp-160h]
-  struct _CLIENT_ID *v47; // [rsp+90h] [rbp-158h]
+  CLIENT_ID *v47; // [rsp+90h] [rbp-158h]
   void *Src[32]; // [rsp+A0h] [rbp-148h] BYREF
 
   v4 = a4;
@@ -143,10 +143,10 @@ LABEL_17:
       v46 = v17;
       v18 = &v41;
       if ( (v11 & 0x200) != 0 )
-        LODWORD(v18) = 0;
+        v18 = 0LL;
       v19 = v33;
       v7 = v37;
-      v20 = (char *)sub_18005F2B4((_DWORD)v37, v33, v17->CurrentIdealProcessor.Reserved, (_DWORD)v18, (__int64)&v40);
+      v20 = (char *)sub_18005F2B4(v37, v33, v17->CurrentIdealProcessor.Reserved, v18, &v40);
       v21 = v20;
       v45 = v20;
       if ( v20 )

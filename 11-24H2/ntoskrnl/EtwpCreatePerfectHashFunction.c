@@ -1,11 +1,11 @@
 /*
- * XREFs of EtwpCreatePerfectHashFunction @ 0x1409F4160
+ * XREFs of EtwpCreatePerfectHashFunction @ 0x1409E84C0
  * Callers:
- *     EtwpAllocateFilter @ 0x1409F33DC (EtwpAllocateFilter.c)
+ *     EtwpAllocateFilter @ 0x1409E773C (EtwpAllocateFilter.c)
  * Callees:
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     EtwpFillPerfectHashTable @ 0x1409F4384 (EtwpFillPerfectHashTable.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     EtwpFillPerfectHashTable @ 0x1409E86E4 (EtwpFillPerfectHashTable.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall EtwpCreatePerfectHashFunction(char a1, _WORD *a2, unsigned __int16 a3, __int64 *a4)
@@ -110,7 +110,7 @@ LABEL_18:
     return 3221225473LL;
   LOBYTE(a3) = v9;
   v23 = EtwpFillPerfectHashTable((_DWORD)a2, (unsigned __int16)v5, a3, v12, (__int64)v30, (__int64)&v28);
-  Pool2 = ExAllocatePool2(0x40uLL);
+  Pool2 = ExAllocatePool2(0x40uLL, (unsigned __int16)(4 * v23 + 10), 0x46777445u);
   if ( !Pool2 )
     return 3221225495LL;
   *(_BYTE *)(Pool2 + 1) = v9;

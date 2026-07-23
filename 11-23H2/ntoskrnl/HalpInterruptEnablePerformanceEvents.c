@@ -1,20 +1,20 @@
 /*
- * XREFs of HalpInterruptEnablePerformanceEvents @ 0x14037BD58
+ * XREFs of HalpInterruptEnablePerformanceEvents @ 0x14037BEF8
  * Callers:
- *     EmonPreOverflowHandler @ 0x14051DFA0 (EmonPreOverflowHandler.c)
+ *     EmonPreOverflowHandler @ 0x14051E4F0 (EmonPreOverflowHandler.c)
  *     HalpInterruptInitSystem @ 0x140A89A80 (HalpInterruptInitSystem.c)
- *     HalpPostSleepMP @ 0x140A96FA8 (HalpPostSleepMP.c)
- *     HalpDpPostReplaceInitialization @ 0x140A975F4 (HalpDpPostReplaceInitialization.c)
+ *     HalpPostSleepMP @ 0x140A96E18 (HalpPostSleepMP.c)
+ *     HalpDpPostReplaceInitialization @ 0x140A97464 (HalpDpPostReplaceInitialization.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     HalpInterruptFindLines @ 0x14031FE80 (HalpInterruptFindLines.c)
- *     HalpInterruptGsiToLine @ 0x14031FF10 (HalpInterruptGsiToLine.c)
- *     HalpInterruptGetPriority @ 0x14037C650 (HalpInterruptGetPriority.c)
- *     HalpInterruptSetLineState @ 0x14037C70C (HalpInterruptSetLineState.c)
- *     HalpInterruptSetLineStateInternal @ 0x14037CA30 (HalpInterruptSetLineStateInternal.c)
- *     HalpAcquireHighLevelLock @ 0x14037CB78 (HalpAcquireHighLevelLock.c)
- *     HalpGetProcessorStateByNtIndex @ 0x140384B38 (HalpGetProcessorStateByNtIndex.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     HalpInterruptFindLines @ 0x140320110 (HalpInterruptFindLines.c)
+ *     HalpInterruptGsiToLine @ 0x1403201A0 (HalpInterruptGsiToLine.c)
+ *     HalpInterruptGetPriority @ 0x14037C7F0 (HalpInterruptGetPriority.c)
+ *     HalpInterruptSetLineState @ 0x14037C8AC (HalpInterruptSetLineState.c)
+ *     HalpInterruptSetLineStateInternal @ 0x14037CBD0 (HalpInterruptSetLineStateInternal.c)
+ *     HalpAcquireHighLevelLock @ 0x14037CD18 (HalpAcquireHighLevelLock.c)
+ *     HalpGetProcessorStateByNtIndex @ 0x140384D18 (HalpGetProcessorStateByNtIndex.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall HalpInterruptEnablePerformanceEvents(__int64 a1)
@@ -77,10 +77,10 @@ __int64 __fastcall HalpInterruptEnablePerformanceEvents(__int64 a1)
     if ( !a1 )
     {
       KxReleaseSpinLock((volatile signed __int64 *)&HalpInterruptLock);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         CurrentIrql = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v2 <= 0xFu && CurrentIrql >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v2 <= 0xFu && CurrentIrql >= 2u )
         {
           CurrentPrcb = KeGetCurrentPrcb();
           SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -117,10 +117,10 @@ __int64 __fastcall HalpInterruptEnablePerformanceEvents(__int64 a1)
         LOBYTE(v16) = 15;
         HalpInterruptSetLineState(&v24, 254LL, v16, v14 != 0, 1, &v19, &v25);
         result = KxReleaseSpinLock((volatile signed __int64 *)&HalpInterruptLock);
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
           result = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
             && (unsigned __int8)result <= 0xFu
             && (unsigned __int8)v15 <= 0xFu
             && (unsigned __int8)result >= 2u )

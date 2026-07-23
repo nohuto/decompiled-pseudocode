@@ -23,11 +23,11 @@
  *     _guard_dispatch_icall_no_overrides @ 0x1406A8B20 (_guard_dispatch_icall_no_overrides.c)
  */
 
-int __fastcall KiExpireTimer2(__int64 SystemArgument1, __int64 a2, unsigned __int64 a3, unsigned __int64 *a4)
+int __fastcall KiExpireTimer2(__int64 SystemArgument1, __int64 a2, LARGE_INTEGER a3, unsigned __int64 *a4)
 {
   __int64 v4; // rsi
   char *v5; // rdi
-  unsigned __int64 InterruptTimePrecise; // r10
+  LARGE_INTEGER InterruptTimePrecise; // r10
   int v9; // r15d
   char *v10; // r14
   char *v11; // rdi
@@ -94,7 +94,7 @@ int __fastcall KiExpireTimer2(__int64 SystemArgument1, __int64 a2, unsigned __in
   char v72[5]; // [rsp+33h] [rbp-56h] BYREF
   unsigned __int64 v73; // [rsp+38h] [rbp-51h]
   unsigned __int64 *v74; // [rsp+40h] [rbp-49h]
-  unsigned __int64 v75; // [rsp+48h] [rbp-41h] BYREF
+  LARGE_INTEGER PerformanceCounter; // [rsp+48h] [rbp-41h] BYREF
   __int64 v76; // [rsp+50h] [rbp-39h] BYREF
   __int64 v77; // [rsp+58h] [rbp-31h]
   __int64 v78; // [rsp+60h] [rbp-29h]
@@ -116,7 +116,7 @@ int __fastcall KiExpireTimer2(__int64 SystemArgument1, __int64 a2, unsigned __in
   v81 = 0LL;
   v82 = 0LL;
   memset(v83, 0, sizeof(v83));
-  v75 = 0LL;
+  PerformanceCounter.QuadPart = 0LL;
   v72[0] = 0;
   v71 = 0;
   v78 = 0LL;
@@ -135,10 +135,10 @@ int __fastcall KiExpireTimer2(__int64 SystemArgument1, __int64 a2, unsigned __in
   if ( *(_QWORD *)(SystemArgument1 + 88) && (*(_BYTE *)(SystemArgument1 + 1) & 0x20) == 0 )
   {
     if ( (*v5 & 4) != 0 )
-      InterruptTimePrecise = RtlGetInterruptTimePrecise(&v75);
+      InterruptTimePrecise = RtlGetInterruptTimePrecise(&PerformanceCounter);
     v36 = *v5;
-    v37 = InterruptTimePrecise + *(_QWORD *)(SystemArgument1 + 88);
-    if ( v37 < InterruptTimePrecise || v37 == -1LL )
+    v37 = InterruptTimePrecise.QuadPart + *(_QWORD *)(SystemArgument1 + 88);
+    if ( v37 < InterruptTimePrecise.QuadPart || v37 == -1LL )
     {
       v38 = 1;
       v37 = -2LL;
@@ -193,8 +193,8 @@ LABEL_39:
       v40 = v39 - *(_QWORD *)(SystemArgument1 + 72);
       if ( v40 )
       {
-        v49 = v40 + InterruptTimePrecise;
-        if ( v40 + InterruptTimePrecise < InterruptTimePrecise || v49 == -1LL )
+        v49 = v40 + InterruptTimePrecise.QuadPart;
+        if ( (unsigned __int64)(v40 + InterruptTimePrecise.QuadPart) < InterruptTimePrecise.QuadPart || v49 == -1LL )
           v49 = -2LL;
         v41 = v49 + *(_QWORD *)(SystemArgument1 + 88);
         if ( v41 < v49 || v41 == -1LL )

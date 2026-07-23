@@ -26,180 +26,166 @@
  *     _RtlpDestroyExecutionRequiredRequest@4 @ 0x4B36FCC4 (_RtlpDestroyExecutionRequiredRequest@4.c)
  */
 
-int __stdcall RtlQueryProcessDebugInformation(void *a1, int a2, int a3)
+NTSTATUS __cdecl RtlQueryProcessDebugInformation(HANDLE UniqueProcessId, ULONG Flags, PRTL_DEBUG_INFORMATION Buffer)
 {
-  int CriticalSectionOwnerInformation; // esi
-  int result; // eax
-  HANDLE v5; // edx
-  int v6; // eax
+  NTSTATUS CriticalSectionOwnerInformation; // esi
+  NTSTATUS result; // eax
+  ULONG v5; // edx
+  char *TargetThreadHandle; // eax
   void *v7; // ecx
   HANDLE v8; // eax
   HANDLE v9; // esi
-  HANDLE v10; // ecx
+  HANDLE ViewSize_high; // ecx
   int v11; // eax
-  HANDLE Handle; // [esp+Ch] [ebp-8Ch] BYREF
-  void *v13; // [esp+10h] [ebp-88h]
-  _DWORD *v14; // [esp+14h] [ebp-84h]
-  HANDLE v15; // [esp+18h] [ebp-80h] BYREF
+  size_t v12; // [esp-4h] [ebp-9Ch]
+  HANDLE ProcessHandle; // [esp+Ch] [ebp-8Ch] BYREF
+  HANDLE v14; // [esp+10h] [ebp-88h]
+  _DWORD *ExecutionRequiredRequest; // [esp+14h] [ebp-84h]
+  HANDLE Handle; // [esp+18h] [ebp-80h] BYREF
   HANDLE ThreadHandle; // [esp+1Ch] [ebp-7Ch] BYREF
-  int v17; // [esp+20h] [ebp-78h]
-  __int16 v18; // [esp+24h] [ebp-74h] BYREF
-  void *v19; // [esp+28h] [ebp-70h] BYREF
-  int v20; // [esp+2Ch] [ebp-6Ch]
-  int v21; // [esp+30h] [ebp-68h] BYREF
-  int v22; // [esp+34h] [ebp-64h]
-  int v23; // [esp+38h] [ebp-60h]
-  int v24; // [esp+3Ch] [ebp-5Ch]
-  int v25; // [esp+40h] [ebp-58h]
-  int v26; // [esp+44h] [ebp-54h]
-  HANDLE v27; // [esp+48h] [ebp-50h] BYREF
-  int v28; // [esp+4Ch] [ebp-4Ch]
-  _DWORD v29[2]; // [esp+50h] [ebp-48h] BYREF
-  _DWORD v30[3]; // [esp+58h] [ebp-40h] BYREF
-  int ThreadInformation[7]; // [esp+64h] [ebp-34h] BYREF
-  _DWORD v32[5]; // [esp+80h] [ebp-18h] BYREF
+  int v18; // [esp+20h] [ebp-78h]
+  USHORT ProcessMachine; // [esp+24h] [ebp-74h] BYREF
+  _CLIENT_ID ClientId; // [esp+28h] [ebp-70h] BYREF
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [esp+30h] [ebp-68h] BYREF
+  HANDLE v22; // [esp+48h] [ebp-50h]
+  ULONG v23; // [esp+4Ch] [ebp-4Ch]
+  LARGE_INTEGER Timeout; // [esp+50h] [ebp-48h] BYREF
+  _DWORD v25[3]; // [esp+58h] [ebp-40h] BYREF
+  NTSTATUS ThreadInformation[7]; // [esp+64h] [ebp-34h] BYREF
+  _DWORD v27[5]; // [esp+80h] [ebp-18h] BYREF
 
   CriticalSectionOwnerInformation = 0;
-  v13 = a1;
-  v17 = 0;
-  Handle = 0;
-  v14 = 0;
-  if ( *(_DWORD *)(a3 + 24) && *(void **)(a3 + 24) != a1 )
+  v14 = UniqueProcessId;
+  v18 = 0;
+  ProcessHandle = 0;
+  ExecutionRequiredRequest = 0;
+  if ( Buffer->EventPairClient && Buffer->EventPairClient != UniqueProcessId )
     return -1073741811;
-  v5 = (HANDLE)(a2 & 0x3FFFFFBE);
-  v15 = (HANDLE)(a2 & 0x3FFFFFBE);
-  if ( (a2 & 0x3FFFFFBE) != 0 && (a2 & 0x40000000) != 0 )
+  v5 = Flags & 0x3FFFFFBE;
+  Handle = (HANDLE)(Flags & 0x3FFFFFBE);
+  if ( (Flags & 0x3FFFFFBE) != 0 && (Flags & 0x40000000) != 0 )
     return -1073741637;
-  v29[1] = -1;
-  v6 = *(_DWORD *)(a3 + 36);
-  v29[0] = -600000000;
-  *(_DWORD *)(a3 + 32) = a2;
-  if ( v6 )
+  TargetThreadHandle = (char *)Buffer->TargetThreadHandle;
+  Timeout.QuadPart = -600000000LL;
+  Buffer->TargetProcessId = (HANDLE)Flags;
+  if ( TargetThreadHandle )
   {
-    memset((void *)(a3 + 104), 0, v6 - 104);
-    v5 = v15;
+    LODWORD(v12) = TargetThreadHandle - 104;
+    memset(&Buffer->CriticalSectionHandle, 0, v12);
+    v5 = (ULONG)Handle;
   }
-  *(_DWORD *)(a3 + 36) = 104;
-  v28 = a2 & 0x41;
-  v7 = v13;
-  if ( ((unsigned __int8)-(v5 == 0) & (a2 < 0 && v28 != 0)) != 0 )
+  Buffer->TargetThreadHandle = (HANDLE)104;
+  v23 = Flags & 0x41;
+  v7 = v14;
+  if ( ((unsigned __int8)-(v5 == 0) & ((Flags & 0x80000000) != 0 && v23 != 0)) != 0 )
   {
-    if ( (a2 & 0x40000000) != 0 )
+    if ( (Flags & 0x40000000) != 0 )
     {
-      v14 = v13;
+      ExecutionRequiredRequest = v14;
     }
-    else if ( NtCurrentTeb()->ClientId.UniqueProcess == v13 )
+    else if ( NtCurrentTeb()->ClientId.UniqueProcess == v14 )
     {
-      v14 = 0;
+      ExecutionRequiredRequest = 0;
     }
     else
     {
-      v19 = v13;
-      v21 = 24;
-      v22 = 0;
-      v24 = 0;
-      v23 = 0;
-      v25 = 0;
-      v26 = 0;
-      v20 = 0;
-      if ( ZwOpenProcess((int)&Handle, 0x1FFFFF, (int)&v21, (int)&v19) >= 0 )
+      ClientId.UniqueProcess = v14;
+      ObjectAttributes.Length = 24;
+      memset(&ObjectAttributes.RootDirectory, 0, 20);
+      ClientId.UniqueThread = 0;
+      if ( ZwOpenProcess(&ProcessHandle, 0x1FFFFFu, &ObjectAttributes, &ClientId) >= 0 )
       {
-        v8 = Handle;
+        v8 = ProcessHandle;
       }
       else
       {
         v8 = 0;
-        Handle = 0;
+        ProcessHandle = 0;
       }
-      v7 = v13;
-      v30[0] = v8;
-      v30[1] = RtlpQueryReadVirtualMemory;
-      v30[2] = ZwQueryInformationProcess;
-      v14 = v30;
+      v7 = v14;
+      v25[0] = v8;
+      v25[1] = &RtlpQueryReadVirtualMemory;
+      v25[2] = ZwQueryInformationProcess;
+      ExecutionRequiredRequest = v25;
     }
   }
-  if ( NtCurrentTeb()->ClientId.UniqueProcess == v7 || (a2 & 0x40000000) != 0 || Handle )
+  if ( NtCurrentTeb()->ClientId.UniqueProcess == v7 || (Flags & 0x40000000) != 0 || ProcessHandle )
   {
-    if ( (!v28 || (CriticalSectionOwnerInformation = RtlQueryProcessModuleInformation(a3)) == 0)
-      && ((a2 & 2) == 0 || (CriticalSectionOwnerInformation = RtlQueryProcessBackTraceInformation(a3)) == 0)
-      && ((a2 & 0x20) == 0 || (CriticalSectionOwnerInformation = RtlQueryProcessLockInformation(a3)) == 0)
-      && ((a2 & 0x21C) == 0 || (CriticalSectionOwnerInformation = RtlQueryProcessHeapInformation(a3)) == 0)
-      && ((a2 & 0x80u) == 0 || (CriticalSectionOwnerInformation = AVrfpQueryProcessVerifierOptions(a3)) == 0)
-      && (a2 & 0xC00) != 0 )
+    if ( (!v23 || (CriticalSectionOwnerInformation = RtlQueryProcessModuleInformation(Buffer)) == 0)
+      && ((Flags & 2) == 0 || (CriticalSectionOwnerInformation = RtlQueryProcessBackTraceInformation((int)Buffer)) == 0)
+      && ((Flags & 0x20) == 0 || (CriticalSectionOwnerInformation = RtlQueryProcessLockInformation(Buffer)) == 0)
+      && ((Flags & 0x21C) == 0 || (CriticalSectionOwnerInformation = RtlQueryProcessHeapInformation(Buffer)) == 0)
+      && ((Flags & 0x80u) == 0 || (CriticalSectionOwnerInformation = AVrfpQueryProcessVerifierOptions(Buffer)) == 0)
+      && (Flags & 0xC00) != 0 )
     {
-      CriticalSectionOwnerInformation = RtlpQueryCriticalSectionOwnerInformation(a3, a2);
+      CriticalSectionOwnerInformation = RtlpQueryCriticalSectionOwnerInformation(Buffer, Flags);
     }
-    if ( Handle )
-      NtClose(Handle);
+    if ( ProcessHandle )
+      NtClose(ProcessHandle);
     return CriticalSectionOwnerInformation;
   }
-  if ( a2 == 1024 || a2 == 2048 )
+  if ( Flags == 1024 || Flags == 2048 )
   {
-    v19 = v13;
-    v21 = 24;
-    v22 = 0;
-    v24 = 0;
-    v23 = 0;
-    v25 = 0;
-    v26 = 0;
-    v20 = 0;
-    if ( ZwOpenProcess((int)&Handle, 4096, (int)&v21, (int)&v19) >= 0 )
+    ClientId.UniqueProcess = v14;
+    ObjectAttributes.Length = 24;
+    memset(&ObjectAttributes.RootDirectory, 0, 20);
+    ClientId.UniqueThread = 0;
+    if ( ZwOpenProcess(&ProcessHandle, 0x1000u, &ObjectAttributes, &ClientId) >= 0 )
     {
-      if ( RtlWow64GetProcessMachines((int)Handle, &v18, 0) >= 0 && !v18 )
-        v17 = 2;
-      NtClose(Handle);
+      if ( RtlWow64GetProcessMachines(ProcessHandle, &ProcessMachine, 0) >= 0 && !ProcessMachine )
+        v18 = 2;
+      NtClose(ProcessHandle);
     }
-    Handle = 0;
+    ProcessHandle = 0;
   }
-  v15 = 0;
-  result = RtlpChangeQueryDebugBufferTarget(v17, &v15);
+  Handle = 0;
+  result = RtlpChangeQueryDebugBufferTarget(Buffer, v14, v18, &Handle);
   if ( result >= 0 )
   {
-    v9 = v15;
-    v10 = v15;
-    if ( !v15 )
-      v10 = *(HANDLE *)(a3 + 68);
-    v14 = (_DWORD *)RtlpCreateExecutionRequiredRequest(v10, &v27);
-    if ( (int)v14 < 0 )
+    v9 = Handle;
+    ViewSize_high = Handle;
+    if ( !Handle )
+      ViewSize_high = (HANDLE)HIDWORD(Buffer->ViewSize);
+    ExecutionRequiredRequest = (_DWORD *)RtlpCreateExecutionRequiredRequest(ViewSize_high);
+    if ( (int)ExecutionRequiredRequest < 0 )
     {
       NtClose(v9);
-      return (int)v14;
+      return (NTSTATUS)ExecutionRequiredRequest;
     }
-    if ( v17 == 2 )
+    if ( v18 == 2 )
     {
-      v32[0] = v13;
-      v32[3] = 0;
-      v32[1] = a2;
-      v32[2] = a3;
-      CriticalSectionOwnerInformation = NtWow64CallFunction64(1, a2, 16, (int)v32, 0, 0, 0);
+      v27[0] = v14;
+      v27[3] = 0;
+      v27[1] = Flags;
+      v27[2] = Buffer;
+      CriticalSectionOwnerInformation = NtWow64CallFunction64(1, Flags, 16, (int)v27, 0, 0, 0);
     }
     else
     {
       CriticalSectionOwnerInformation = RtlpCreateUserThreadEx(
-                                          (int)v9,
+                                          v9,
                                           0,
                                           6,
+                                          0LL,
                                           0,
                                           0,
-                                          0,
-                                          0,
-                                          (int)RtlpQueryProcessDebugInformationRemote,
-                                          *(void **)(a3 + 8),
+                                          (NTSTATUS (__cdecl *)(PVOID))RtlpQueryProcessDebugInformationRemote,
+                                          Buffer->ViewBaseTarget,
                                           &ThreadHandle,
                                           0);
       if ( CriticalSectionOwnerInformation >= 0 )
       {
-        v11 = ZwWaitForSingleObject((int)ThreadHandle, 1, (int)v29);
+        v11 = ZwWaitForSingleObject(ThreadHandle, 1u, &Timeout);
         CriticalSectionOwnerInformation = v11;
         if ( v11 < 0 )
         {
-          ZwTerminateThread((int)ThreadHandle, v11);
+          ZwTerminateThread(ThreadHandle, v11);
         }
         else
         {
           CriticalSectionOwnerInformation = NtQueryInformationThread(
                                               ThreadHandle,
-                                              (THREADINFOCLASS)0,
+                                              ThreadBasicInformation,
                                               ThreadInformation,
                                               0x1Cu,
                                               0);
@@ -209,21 +195,23 @@ int __stdcall RtlQueryProcessDebugInformation(void *a1, int a2, int a3)
         NtClose(ThreadHandle);
       }
     }
-    NtClose(v15);
-    if ( v27 )
-      RtlpDestroyExecutionRequiredRequest(v27);
+    NtClose(Handle);
+    if ( v22 )
+      RtlpDestroyExecutionRequiredRequest(v22);
     if ( CriticalSectionOwnerInformation >= 0 )
     {
-      if ( !v17 )
-        CriticalSectionOwnerInformation = RtlpCopyRemoteDebugInformation(a3);
+      if ( !v18 )
+        CriticalSectionOwnerInformation = RtlpCopyRemoteDebugInformation(Buffer);
       if ( CriticalSectionOwnerInformation >= 0 )
       {
-        if ( (a2 & 1) != 0 && !*(_DWORD *)(a3 + 48) )
+        if ( (Flags & 1) != 0 && !LODWORD(Buffer->OffsetFree) )
           CriticalSectionOwnerInformation = -1073741558;
-        if ( (a2 & 0x40) != 0 && !*(_DWORD *)(a3 + 48) )
+        if ( (Flags & 0x40) != 0 && !LODWORD(Buffer->OffsetFree) )
           CriticalSectionOwnerInformation = -1073741558;
         if ( CriticalSectionOwnerInformation >= 0 )
-          return RtlpValidateRemoteDebugInformation(a3 + 104, *(_DWORD *)(a3 + 36) - 104);
+          return RtlpValidateRemoteDebugInformation(
+                   &Buffer->CriticalSectionHandle,
+                   (char *)Buffer->TargetThreadHandle - 104);
       }
     }
     return CriticalSectionOwnerInformation;

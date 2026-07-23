@@ -1,25 +1,25 @@
 /*
- * XREFs of RtlUpcaseUnicodeString @ 0x1409E9B60
+ * XREFs of RtlUpcaseUnicodeString @ 0x1409D2F80
  * Callers:
- *     RtlDeriveCapabilitySidsFromName @ 0x1404984A0 (RtlDeriveCapabilitySidsFromName.c)
- *     DifRtlUpcaseUnicodeStringWrapper @ 0x140696DD0 (DifRtlUpcaseUnicodeStringWrapper.c)
- *     IoReportDetectedDevice @ 0x14079E000 (IoReportDetectedDevice.c)
- *     PiDevCfgResolveVariableGenerateGuid @ 0x1407AB590 (PiDevCfgResolveVariableGenerateGuid.c)
- *     PiCMGenerateDeviceInstance @ 0x1407B0AD8 (PiCMGenerateDeviceInstance.c)
- *     PiCMOpenClassKey @ 0x140916DFC (PiCMOpenClassKey.c)
- *     AslStringUpcaseToMultiByteN @ 0x1409E418C (AslStringUpcaseToMultiByteN.c)
- *     SdbMakeIndexKeyFromStringEx @ 0x1409E8AF0 (SdbMakeIndexKeyFromStringEx.c)
- *     PfSnLogVolumeCreate @ 0x1409E8C8C (PfSnLogVolumeCreate.c)
- *     PfCalculateProcessHash @ 0x1409E9560 (PfCalculateProcessHash.c)
- *     PfSnLogStreamCreate @ 0x1409E9998 (PfSnLogStreamCreate.c)
- *     PipMakeGloballyUniqueId @ 0x140AF2168 (PipMakeGloballyUniqueId.c)
- *     ViCreateProcessCallbackInternal @ 0x140C34B80 (ViCreateProcessCallbackInternal.c)
- *     ViFaultsAddAppNoDuplicates @ 0x140C34CA0 (ViFaultsAddAppNoDuplicates.c)
- *     PipInitComputerIds @ 0x140D056B0 (PipInitComputerIds.c)
+ *     RtlDeriveCapabilitySidsFromName @ 0x140491FF0 (RtlDeriveCapabilitySidsFromName.c)
+ *     DifRtlUpcaseUnicodeStringWrapper @ 0x14069A9B0 (DifRtlUpcaseUnicodeStringWrapper.c)
+ *     IoReportDetectedDevice @ 0x1407A0B40 (IoReportDetectedDevice.c)
+ *     PiDevCfgResolveVariableGenerateGuid @ 0x1407AE5B0 (PiDevCfgResolveVariableGenerateGuid.c)
+ *     PiCMGenerateDeviceInstance @ 0x1407B3B38 (PiCMGenerateDeviceInstance.c)
+ *     PiCMOpenClassKey @ 0x140971868 (PiCMOpenClassKey.c)
+ *     PfCalculateProcessHash @ 0x1409D2980 (PfCalculateProcessHash.c)
+ *     PfSnLogStreamCreate @ 0x1409D2DB8 (PfSnLogStreamCreate.c)
+ *     PfSnLogVolumeCreate @ 0x1409D3F78 (PfSnLogVolumeCreate.c)
+ *     SdbMakeIndexKeyFromStringEx @ 0x1409D40B8 (SdbMakeIndexKeyFromStringEx.c)
+ *     AslStringUpcaseToMultiByteN @ 0x1409D88D0 (AslStringUpcaseToMultiByteN.c)
+ *     PipMakeGloballyUniqueId @ 0x140AF4A38 (PipMakeGloballyUniqueId.c)
+ *     ViCreateProcessCallbackInternal @ 0x140C3AB90 (ViCreateProcessCallbackInternal.c)
+ *     ViFaultsAddAppNoDuplicates @ 0x140C3ACB0 (ViFaultsAddAppNoDuplicates.c)
+ *     PipInitComputerIds @ 0x140D0B980 (PipInitComputerIds.c)
  * Callees:
- *     PsGetCurrentServerSiloGlobals @ 0x1402150C0 (PsGetCurrentServerSiloGlobals.c)
- *     AllocateOrValidateUnicodeStringBuffer @ 0x1404621F0 (AllocateOrValidateUnicodeStringBuffer.c)
- *     ExFreePool @ 0x140C10E30 (ExFreePool.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x1402153F0 (PsGetCurrentServerSiloGlobals.c)
+ *     AllocateOrValidateUnicodeStringBuffer @ 0x14045B1B0 (AllocateOrValidateUnicodeStringBuffer.c)
+ *     ExFreePool @ 0x140C16E30 (ExFreePool.c)
  */
 
 NTSTATUS __stdcall RtlUpcaseUnicodeString(

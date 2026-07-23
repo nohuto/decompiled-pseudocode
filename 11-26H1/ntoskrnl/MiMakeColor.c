@@ -1,8 +1,8 @@
 /*
- * XREFs of MiMakeColor @ 0x14042FB20
+ * XREFs of MiMakeColor @ 0x14041CB50
  * Callers:
- *     MiInitializePartitionFreeZeroLists @ 0x1408699E8 (MiInitializePartitionFreeZeroLists.c)
- *     MmRelocatePfnList @ 0x140B6D1F4 (MmRelocatePfnList.c)
+ *     MiInitializePartitionFreeZeroLists @ 0x14086FDC8 (MiInitializePartitionFreeZeroLists.c)
+ *     MmRelocatePfnList @ 0x140B705C4 (MmRelocatePfnList.c)
  * Callees:
  *     <none>
  */

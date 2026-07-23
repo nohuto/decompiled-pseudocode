@@ -1,10 +1,10 @@
 /*
- * XREFs of PnpSetHwProfileChangeEvent @ 0x14072DF60
+ * XREFs of PnpSetHwProfileChangeEvent @ 0x14072BF70
  * Callers:
- *     PnpRequestHwProfileChangeNotification @ 0x1407209F8 (PnpRequestHwProfileChangeNotification.c)
+ *     PnpRequestHwProfileChangeNotification @ 0x14071E588 (PnpRequestHwProfileChangeNotification.c)
  * Callees:
- *     PnpCreateDeviceEventEntry @ 0x1408B3920 (PnpCreateDeviceEventEntry.c)
- *     PnpInsertEventInQueue @ 0x1408B3950 (PnpInsertEventInQueue.c)
+ *     PnpCreateDeviceEventEntry @ 0x1408B1210 (PnpCreateDeviceEventEntry.c)
+ *     PnpInsertEventInQueue @ 0x1408B1240 (PnpInsertEventInQueue.c)
  */
 
 __int64 __fastcall PnpSetHwProfileChangeEvent(__int128 *a1, __int64 a2, __int64 a3, __int64 a4, __int64 a5)

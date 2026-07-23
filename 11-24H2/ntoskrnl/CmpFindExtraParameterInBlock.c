@@ -1,7 +1,7 @@
 /*
- * XREFs of CmpFindExtraParameterInBlock @ 0x1409DF500
+ * XREFs of CmpFindExtraParameterInBlock @ 0x1409D92B0
  * Callers:
- *     VrpPostOpenOrCreate @ 0x140AE85D0 (VrpPostOpenOrCreate.c)
+ *     VrpPostOpenOrCreate @ 0x140AEB874 (VrpPostOpenOrCreate.c)
  * Callees:
  *     <none>
  */

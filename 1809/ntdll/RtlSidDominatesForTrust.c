@@ -2,35 +2,35 @@
  * XREFs of RtlSidDominatesForTrust @ 0x180045F30
  * Callers:
  *     RtlpGetDefaultTrustSubjectContext @ 0x180045DC8 (RtlpGetDefaultTrustSubjectContext.c)
- *     RtlpValidTrustSubjectContext @ 0x180089098 (RtlpValidTrustSubjectContext.c)
+ *     RtlpValidTrustSubjectContext @ 0x1800890A8 (RtlpValidTrustSubjectContext.c)
  * Callees:
  *     RtlIsValidProcessTrustLabelSid @ 0x180045FC0 (RtlIsValidProcessTrustLabelSid.c)
  */
 
-__int64 __fastcall RtlSidDominatesForTrust(__int64 a1, __int64 a2, bool *a3)
+NTSTATUS __cdecl RtlSidDominatesForTrust(PSID Sid1, PSID Sid2, PBOOLEAN DominatesTrust)
 {
-  bool v3; // bl
+  BOOLEAN v3; // bl
 
   v3 = 0;
-  *a3 = 0;
-  if ( a1 && !(unsigned __int8)((__int64 (*)(void))RtlIsValidProcessTrustLabelSid)() )
-    return 3221225485LL;
-  if ( !a2 )
+  *DominatesTrust = 0;
+  if ( Sid1 && !RtlIsValidProcessTrustLabelSid(Sid1) )
+    return -1073741811;
+  if ( !Sid2 )
     goto LABEL_3;
-  if ( (unsigned __int8)RtlIsValidProcessTrustLabelSid(a2) )
+  if ( RtlIsValidProcessTrustLabelSid(Sid2) )
   {
-    if ( !a1 )
+    if ( !Sid1 )
     {
-      v3 = *(_DWORD *)(a2 + 8) == 0;
+      v3 = *((_DWORD *)Sid2 + 2) == 0;
       goto LABEL_4;
     }
-    if ( *(_DWORD *)(a1 + 8) < *(_DWORD *)(a2 + 8) || *(_DWORD *)(a1 + 12) < *(_DWORD *)(a2 + 12) )
+    if ( *((_DWORD *)Sid1 + 2) < *((_DWORD *)Sid2 + 2) || *((_DWORD *)Sid1 + 3) < *((_DWORD *)Sid2 + 3) )
       goto LABEL_4;
 LABEL_3:
     v3 = 1;
 LABEL_4:
-    *a3 = v3;
-    return 0LL;
+    *DominatesTrust = v3;
+    return 0;
   }
-  return 3221225485LL;
+  return -1073741811;
 }

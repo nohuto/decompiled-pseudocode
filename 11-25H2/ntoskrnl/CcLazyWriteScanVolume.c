@@ -570,7 +570,7 @@ LABEL_119:
     goto LABEL_156;
   }
   v84 = (_DWORD *)(a1 + 708);
-  v85 = 0x9896800uLL / (unsigned int)KeMaximumIncrement;
+  v85 = 0x9896800uLL / KeMaximumIncrement;
   if ( !CcEnablePerVolumeLazyWriter )
     v84 = (_DWORD *)(v7 + 780);
   v86 = v99;

@@ -1,15 +1,15 @@
 /*
- * XREFs of HalpReadWriteWheaPhysicalMemory @ 0x140563280
+ * XREFs of HalpReadWriteWheaPhysicalMemory @ 0x140560EB0
  * Callers:
- *     HalpReadWheaPhysicalMemory @ 0x140563260 (HalpReadWheaPhysicalMemory.c)
- *     HalpWriteWheaPhysicalMemory @ 0x140563410 (HalpWriteWheaPhysicalMemory.c)
+ *     HalpReadWheaPhysicalMemory @ 0x140560E90 (HalpReadWheaPhysicalMemory.c)
+ *     HalpWriteWheaPhysicalMemory @ 0x140561040 (HalpWriteWheaPhysicalMemory.c)
  * Callees:
- *     KxAcquireSpinLock @ 0x140254AE0 (KxAcquireSpinLock.c)
- *     KxReleaseSpinLock @ 0x140279CC0 (KxReleaseSpinLock.c)
- *     HalpRemapVirtualAddress64 @ 0x1404814F8 (HalpRemapVirtualAddress64.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
+ *     KxReleaseSpinLock @ 0x14022F250 (KxReleaseSpinLock.c)
+ *     KxAcquireSpinLock @ 0x1402850F0 (KxAcquireSpinLock.c)
+ *     HalpRemapVirtualAddress64 @ 0x14047C7B8 (HalpRemapVirtualAddress64.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
  */
 
 __int64 __fastcall HalpReadWriteWheaPhysicalMemory(char a1, __int64 a2, unsigned int a3, char *a4)

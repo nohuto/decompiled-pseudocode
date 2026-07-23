@@ -1,37 +1,37 @@
 /*
  * XREFs of EtwRegister @ 0x1406D2350
  * Callers:
- *     KiIntSteerConnect @ 0x1403AFA58 (KiIntSteerConnect.c)
- *     BapdRegisterEtwProvider @ 0x1403B7244 (BapdRegisterEtwProvider.c)
- *     McGenEventRegister_EtwRegister @ 0x1403DDD24 (McGenEventRegister_EtwRegister.c)
- *     IoInitializeLiveDump @ 0x1403DED54 (IoInitializeLiveDump.c)
- *     HvlpEtwRegister @ 0x14054B7B4 (HvlpEtwRegister.c)
- *     PsDispatchIumService @ 0x1405E1764 (PsDispatchIumService.c)
- *     DifEtwRegisterWrapper @ 0x140606620 (DifEtwRegisterWrapper.c)
- *     TraceLoggingRegisterEx_EtwRegister_EtwSetInformation @ 0x1406D2264 (TraceLoggingRegisterEx_EtwRegister_EtwSetInformation.c)
- *     WdipSemEnableSemProvider @ 0x14083F84C (WdipSemEnableSemProvider.c)
- *     PopDiagSleepStudyInitialize @ 0x140845558 (PopDiagSleepStudyInitialize.c)
- *     SSHSupportEtwRegister @ 0x1408455A0 (SSHSupportEtwRegister.c)
- *     HalpMiscInitializeTelemetry @ 0x140858BF8 (HalpMiscInitializeTelemetry.c)
- *     IopInitializeDumpPolicySettings @ 0x140860A10 (IopInitializeDumpPolicySettings.c)
- *     DbgkpStartSystemErrorHandler @ 0x14092A77C (DbgkpStartSystemErrorHandler.c)
- *     DbgkCaptureLiveDump @ 0x14092AC5C (DbgkCaptureLiveDump.c)
- *     FsRtlpHeatRegisterVolume @ 0x14092FB38 (FsRtlpHeatRegisterVolume.c)
- *     PfSnBeginBootPhase @ 0x140A544B0 (PfSnBeginBootPhase.c)
- *     IoInitSystemPreDrivers @ 0x140AFE7A0 (IoInitSystemPreDrivers.c)
- *     KseInitialize @ 0x140AFFF64 (KseInitialize.c)
- *     PopBatteryInitPhaseTwo @ 0x140B01A8C (PopBatteryInitPhaseTwo.c)
- *     PoInitSystem @ 0x140B026CC (PoInitSystem.c)
- *     EtwpInitialize @ 0x140B0433C (EtwpInitialize.c)
- *     PerfDiagInitialize @ 0x140B1A3F4 (PerfDiagInitialize.c)
- *     PopDiagInitialize @ 0x140B1BC34 (PopDiagInitialize.c)
- *     WheapInitializeEventing @ 0x140B24410 (WheapInitializeEventing.c)
- *     SmInitSystem @ 0x140B255E4 (SmInitSystem.c)
- *     KitInitialize @ 0x140B2DD5C (KitInitialize.c)
- *     PnpDiagInitialize @ 0x140B2F500 (PnpDiagInitialize.c)
+ *     sub_1403AFA58 @ 0x1403AFA58 (sub_1403AFA58.c)
+ *     sub_1403B7244 @ 0x1403B7244 (sub_1403B7244.c)
+ *     sub_1403DDD24 @ 0x1403DDD24 (sub_1403DDD24.c)
+ *     sub_1403DED54 @ 0x1403DED54 (sub_1403DED54.c)
+ *     sub_14054B7B4 @ 0x14054B7B4 (sub_14054B7B4.c)
+ *     sub_1405E1764 @ 0x1405E1764 (sub_1405E1764.c)
+ *     sub_140606620 @ 0x140606620 (sub_140606620.c)
+ *     sub_1406D2264 @ 0x1406D2264 (sub_1406D2264.c)
+ *     sub_14083F84C @ 0x14083F84C (sub_14083F84C.c)
+ *     sub_140845558 @ 0x140845558 (sub_140845558.c)
+ *     sub_1408455A0 @ 0x1408455A0 (sub_1408455A0.c)
+ *     sub_140858BF8 @ 0x140858BF8 (sub_140858BF8.c)
+ *     sub_140860A10 @ 0x140860A10 (sub_140860A10.c)
+ *     sub_14092A77C @ 0x14092A77C (sub_14092A77C.c)
+ *     sub_14092AC5C @ 0x14092AC5C (sub_14092AC5C.c)
+ *     sub_14092FB38 @ 0x14092FB38 (sub_14092FB38.c)
+ *     sub_140A544B0 @ 0x140A544B0 (sub_140A544B0.c)
+ *     sub_140AFE7A0 @ 0x140AFE7A0 (sub_140AFE7A0.c)
+ *     sub_140AFFF64 @ 0x140AFFF64 (sub_140AFFF64.c)
+ *     sub_140B01A8C @ 0x140B01A8C (sub_140B01A8C.c)
+ *     sub_140B026CC @ 0x140B026CC (sub_140B026CC.c)
+ *     sub_140B0433C @ 0x140B0433C (sub_140B0433C.c)
+ *     sub_140B1A3F4 @ 0x140B1A3F4 (sub_140B1A3F4.c)
+ *     sub_140B1BC34 @ 0x140B1BC34 (sub_140B1BC34.c)
+ *     sub_140B24410 @ 0x140B24410 (sub_140B24410.c)
+ *     sub_140B255E4 @ 0x140B255E4 (sub_140B255E4.c)
+ *     sub_140B2DD5C @ 0x140B2DD5C (sub_140B2DD5C.c)
+ *     sub_140B2F500 @ 0x140B2F500 (sub_140B2F500.c)
  * Callees:
- *     PsGetCurrentServerSiloGlobals @ 0x140347DB0 (PsGetCurrentServerSiloGlobals.c)
- *     EtwpRegisterKMProvider @ 0x1406D2394 (EtwpRegisterKMProvider.c)
+ *     sub_140347DB0 @ 0x140347DB0 (sub_140347DB0.c)
+ *     sub_1406D2394 @ 0x1406D2394 (sub_1406D2394.c)
  */
 
 NTSTATUS __stdcall EtwRegister(
@@ -47,6 +47,6 @@ NTSTATUS __stdcall EtwRegister(
   int v8; // r10d
   __int64 retaddr; // [rsp+48h] [rbp+0h]
 
-  v4 = *((_QWORD *)PsGetCurrentServerSiloGlobals() + 108);
-  return EtwpRegisterKMProvider(v4, v8, 3, v5, v6, retaddr, v7);
+  v4 = *((_QWORD *)sub_140347DB0() + 108);
+  return sub_1406D2394(v4, v8, 3, v5, v6, retaddr, v7);
 }

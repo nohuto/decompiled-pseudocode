@@ -6,7 +6,11 @@
  *     LdrpSearchResourceSection_U @ 0x18001778C (LdrpSearchResourceSection_U.c)
  */
 
-__int64 __fastcall LdrFindResourceDirectory_U(unsigned __int64 a1, __int64 a2, unsigned int a3, unsigned __int64 *a4)
+NTSTATUS __cdecl LdrFindResourceDirectory_U(
+        PVOID DllHandle,
+        PLDR_RESOURCE_INFO ResourceInfo,
+        ULONG Level,
+        PIMAGE_RESOURCE_DIRECTORY *ResourceDirectory)
 {
-  return LdrpSearchResourceSection_U(a1, a2, a3, 2u, a4);
+  return LdrpSearchResourceSection_U(DllHandle, (__int64)ResourceInfo, Level, 2u, (__int64)ResourceDirectory);
 }

@@ -1,10 +1,10 @@
 /*
- * XREFs of PiDevCfgConfigureDeviceDriver @ 0x140767490
+ * XREFs of PiDevCfgConfigureDeviceDriver @ 0x140767650
  * Callers:
- *     PiDevCfgConfigureDevice @ 0x140742E20 (PiDevCfgConfigureDevice.c)
- *     PpDevCfgProcessDeviceExtensions @ 0x1408AA8EC (PpDevCfgProcessDeviceExtensions.c)
+ *     PiDevCfgConfigureDevice @ 0x140742FE0 (PiDevCfgConfigureDevice.c)
+ *     PpDevCfgProcessDeviceExtensions @ 0x1408AAA4C (PpDevCfgProcessDeviceExtensions.c)
  * Callees:
- *     PiDevCfgConfigureDeviceDriverConfiguration @ 0x140767520 (PiDevCfgConfigureDeviceDriverConfiguration.c)
+ *     PiDevCfgConfigureDeviceDriverConfiguration @ 0x1407676E0 (PiDevCfgConfigureDeviceDriverConfiguration.c)
  */
 
 __int64 __fastcall PiDevCfgConfigureDeviceDriver(__int64 a1, __int64 a2, __int64 a3, _DWORD *a4, _DWORD *a5)

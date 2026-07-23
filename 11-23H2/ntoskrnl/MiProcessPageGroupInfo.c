@@ -1,13 +1,13 @@
 /*
- * XREFs of MiProcessPageGroupInfo @ 0x14032F510
+ * XREFs of MiProcessPageGroupInfo @ 0x14032F7A0
  * Callers:
- *     MiZeroAndReleasePages @ 0x1402D3030 (MiZeroAndReleasePages.c)
- *     MiAllocateLargeZeroPages @ 0x1402E77E0 (MiAllocateLargeZeroPages.c)
+ *     MiZeroAndReleasePages @ 0x1402D32C0 (MiZeroAndReleasePages.c)
+ *     MiAllocateLargeZeroPages @ 0x1402E7A70 (MiAllocateLargeZeroPages.c)
  * Callees:
- *     MiConvertEntireLargePageToSmall @ 0x1402D2AD0 (MiConvertEntireLargePageToSmall.c)
- *     MiGetPfnPageSizeIndex @ 0x1402E88E0 (MiGetPfnPageSizeIndex.c)
- *     MiZeroInParallel @ 0x140304230 (MiZeroInParallel.c)
- *     MiDereferencePageChains @ 0x14032F62C (MiDereferencePageChains.c)
+ *     MiConvertEntireLargePageToSmall @ 0x1402D2D60 (MiConvertEntireLargePageToSmall.c)
+ *     MiGetPfnPageSizeIndex @ 0x1402E8B70 (MiGetPfnPageSizeIndex.c)
+ *     MiZeroInParallel @ 0x1403044C0 (MiZeroInParallel.c)
+ *     MiDereferencePageChains @ 0x14032F8BC (MiDereferencePageChains.c)
  */
 
 __int64 __fastcall MiProcessPageGroupInfo(__int64 a1, __int64 a2, int a3)

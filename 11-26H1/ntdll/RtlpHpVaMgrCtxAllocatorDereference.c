@@ -1,19 +1,19 @@
 /*
- * XREFs of RtlpHpVaMgrCtxAllocatorDereference @ 0x18008D438
+ * XREFs of RtlpHpVaMgrCtxAllocatorDereference @ 0x180071028
  * Callers:
- *     RtlpHpRegisterEnvironment @ 0x18008D258 (RtlpHpRegisterEnvironment.c)
+ *     RtlpHpRegisterEnvironment @ 0x180070BB8 (RtlpHpRegisterEnvironment.c)
  * Callees:
- *     RtlAcquireSRWLockExclusive @ 0x18003F4D0 (RtlAcquireSRWLockExclusive.c)
+ *     RtlAcquireSRWLockExclusive @ 0x180029A40 (RtlAcquireSRWLockExclusive.c)
  */
 
-struct _TEB *__fastcall RtlpHpVaMgrCtxAllocatorDereference(__int64 a1, unsigned int *a2)
+void __fastcall RtlpHpVaMgrCtxAllocatorDereference(__int64 a1, unsigned int *a2)
 {
-  volatile signed __int64 *v2; // rsi
+  _RTL_SRWLOCK *v2; // rsi
   __int64 v4; // rdi
 
-  v2 = (volatile signed __int64 *)(a1 + 2144);
+  v2 = (_RTL_SRWLOCK *)(a1 + 2144);
   v4 = 48 * (*a2 + 45LL);
-  RtlAcquireSRWLockExclusive((volatile signed __int64 *)(a1 + 2144), (__int64)a2);
+  RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)(a1 + 2144));
   if ( (*(_WORD *)(v4 + a1 + 42))-- == 1 )
   {
     *(_QWORD *)(v4 + a1) = 0LL;
@@ -24,5 +24,5 @@ struct _TEB *__fastcall RtlpHpVaMgrCtxAllocatorDereference(__int64 a1, unsigned 
     *(_QWORD *)(v4 + a1 + 16) = 0LL;
     --*(_DWORD *)(a1 + 2156);
   }
-  return RtlReleaseSRWLockExclusive(v2);
+  RtlReleaseSRWLockExclusive(v2);
 }

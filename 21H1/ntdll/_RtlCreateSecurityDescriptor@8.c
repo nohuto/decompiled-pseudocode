@@ -11,18 +11,18 @@
  *     <none>
  */
 
-int __stdcall RtlCreateSecurityDescriptor(_DWORD *a1, int a2)
+NTSTATUS __cdecl RtlCreateSecurityDescriptor(PSECURITY_DESCRIPTOR SecurityDescriptor, ULONG Revision)
 {
-  int result; // eax
+  NTSTATUS result; // eax
 
-  if ( a2 != 1 )
+  if ( Revision != 1 )
     return -1073741736;
-  *a1 = 0;
-  a1[1] = 0;
-  a1[2] = 0;
-  a1[3] = 0;
-  a1[4] = 0;
+  *(_DWORD *)SecurityDescriptor = 0;
+  *((_DWORD *)SecurityDescriptor + 1) = 0;
+  *((_DWORD *)SecurityDescriptor + 2) = 0;
+  *((_DWORD *)SecurityDescriptor + 3) = 0;
+  *((_DWORD *)SecurityDescriptor + 4) = 0;
   result = 0;
-  *(_BYTE *)a1 = 1;
+  *(_BYTE *)SecurityDescriptor = 1;
   return result;
 }

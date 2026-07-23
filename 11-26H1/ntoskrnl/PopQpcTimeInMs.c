@@ -1,11 +1,11 @@
 /*
- * XREFs of PopQpcTimeInMs @ 0x140C06CF0
+ * XREFs of PopQpcTimeInMs @ 0x140C0CF00
  * Callers:
- *     PopWriteBsdPoInfo @ 0x140435F08 (PopWriteBsdPoInfo.c)
- *     PopPowerTransitionTimesInMs @ 0x1404EBB5C (PopPowerTransitionTimesInMs.c)
- *     PopDiagTracePerfTrackData @ 0x140AF4FB0 (PopDiagTracePerfTrackData.c)
- *     PopDiagTraceHiberStats @ 0x140AF5348 (PopDiagTraceHiberStats.c)
- *     PopTransitionSystemPowerStateEx @ 0x140C0B0A0 (PopTransitionSystemPowerStateEx.c)
+ *     PopWriteBsdPoInfo @ 0x140425088 (PopWriteBsdPoInfo.c)
+ *     PopPowerTransitionTimesInMs @ 0x1404E513C (PopPowerTransitionTimesInMs.c)
+ *     PopDiagTracePerfTrackData @ 0x140AF7650 (PopDiagTracePerfTrackData.c)
+ *     PopDiagTraceHiberStats @ 0x140AF79E8 (PopDiagTraceHiberStats.c)
+ *     PopTransitionSystemPowerStateEx @ 0x140C112B0 (PopTransitionSystemPowerStateEx.c)
  * Callees:
  *     <none>
  */

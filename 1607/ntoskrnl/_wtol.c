@@ -1,7 +1,7 @@
 /*
- * XREFs of _wtol @ 0x14014DA88
+ * XREFs of _wtol @ 0x14014DFF8
  * Callers:
- *     PfSnParsePrefetchParam @ 0x1403E76C0 (PfSnParsePrefetchParam.c)
+ *     PfSnParsePrefetchParam @ 0x1403E8CF0 (PfSnParsePrefetchParam.c)
  * Callees:
  *     <none>
  */

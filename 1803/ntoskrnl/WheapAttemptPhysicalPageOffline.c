@@ -12,7 +12,7 @@
  *     WheapSqmAddToStream @ 0x1407CC1E4 (WheapSqmAddToStream.c)
  */
 
-__int64 __fastcall WheapAttemptPhysicalPageOffline(__int64 a1, char a2, char a3)
+__int64 __fastcall WheapAttemptPhysicalPageOffline(UNICODE_STRING *a1, char a2, char a3)
 {
   __int64 v3; // rbp
   char v4; // di
@@ -28,9 +28,9 @@ __int64 __fastcall WheapAttemptPhysicalPageOffline(__int64 a1, char a2, char a3)
   __int64 v18; // [rsp+A8h] [rbp+20h] BYREF
 
   v18 = 4096LL;
-  v3 = a1 << 12;
+  v3 = (_QWORD)a1 << 12;
   v4 = 0;
-  StartAddress.QuadPart = a1 << 12;
+  StartAddress.QuadPart = (_QWORD)a1 << 12;
   if ( a3 )
   {
     v8 = 2;

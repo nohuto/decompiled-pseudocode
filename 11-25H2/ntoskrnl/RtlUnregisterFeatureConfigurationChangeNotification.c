@@ -6,7 +6,8 @@
  *     CmFcManagerUnregisterFeatureConfigurationChangeNotification @ 0x1407D4D7C (CmFcManagerUnregisterFeatureConfigurationChangeNotification.c)
  */
 
-__int64 __fastcall RtlUnregisterFeatureConfigurationChangeNotification(__int64 a1)
+NTSTATUS __cdecl RtlUnregisterFeatureConfigurationChangeNotification(
+        RTL_FEATURE_CONFIGURATION_CHANGE_REGISTRATION RegistrationHandle)
 {
-  return CmFcManagerUnregisterFeatureConfigurationChangeNotification(a1, a1);
+  return CmFcManagerUnregisterFeatureConfigurationChangeNotification(RegistrationHandle, RegistrationHandle);
 }

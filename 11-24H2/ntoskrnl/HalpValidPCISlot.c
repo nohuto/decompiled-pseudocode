@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpValidPCISlot @ 0x1402656FC
+ * XREFs of HalpValidPCISlot @ 0x1403AA71C
  * Callers:
- *     HalpReadPCIConfig @ 0x14026566C (HalpReadPCIConfig.c)
- *     HalpWritePCIConfig @ 0x14048F42C (HalpWritePCIConfig.c)
+ *     HalpReadPCIConfig @ 0x1403AA68C (HalpReadPCIConfig.c)
+ *     HalpWritePCIConfig @ 0x14048963C (HalpWritePCIConfig.c)
  * Callees:
- *     HalpReadPCIConfig @ 0x14026566C (HalpReadPCIConfig.c)
- *     HalpWritePCIConfig @ 0x14048F42C (HalpWritePCIConfig.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     HalpReadPCIConfig @ 0x1403AA68C (HalpReadPCIConfig.c)
+ *     HalpWritePCIConfig @ 0x14048963C (HalpWritePCIConfig.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 char __fastcall HalpValidPCISlot(unsigned __int16 a1, char a2, unsigned int a3)

@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlUnsubscribeWnfNotificationWaitForCompletion @ 0x180065A60
+ * XREFs of RtlUnsubscribeWnfNotificationWaitForCompletion @ 0x180065A50
  * Callers:
- *     RtlWaitForWnfMetaNotification @ 0x1800658A0 (RtlWaitForWnfMetaNotification.c)
+ *     RtlWaitForWnfMetaNotification @ 0x180065890 (RtlWaitForWnfMetaNotification.c)
  * Callees:
- *     RtlUnsubscribeWnfStateChangeNotification @ 0x180065AC0 (RtlUnsubscribeWnfStateChangeNotification.c)
- *     RtlpWaitOnAddress @ 0x1800668E4 (RtlpWaitOnAddress.c)
+ *     RtlUnsubscribeWnfStateChangeNotification @ 0x180065AB0 (RtlUnsubscribeWnfStateChangeNotification.c)
+ *     RtlpWaitOnAddress @ 0x1800668D4 (RtlpWaitOnAddress.c)
  */
 
 __int64 __fastcall RtlUnsubscribeWnfNotificationWaitForCompletion(__int64 a1)
@@ -15,7 +15,7 @@ __int64 __fastcall RtlUnsubscribeWnfNotificationWaitForCompletion(__int64 a1)
   v2 = 0;
   v3 = 0;
   *(_QWORD *)(a1 + 88) = &v2;
-  RtlUnsubscribeWnfStateChangeNotification(a1);
+  RtlUnsubscribeWnfStateChangeNotification((PWNF_USER_CALLBACK)a1);
   do
   {
     if ( byte_180152408 )

@@ -23,7 +23,7 @@ NTSTATUS __fastcall PipSmBiosGetString(
   char *v11; // rdi
   char v12; // al
   bool v14; // zf
-  STRING SourceString; // [rsp+20h] [rbp-18h] BYREF
+  ANSI_STRING SourceString; // [rsp+20h] [rbp-18h] BYREF
 
   v5 = a2;
   SourceString = 0LL;

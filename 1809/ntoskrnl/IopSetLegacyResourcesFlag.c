@@ -1,10 +1,10 @@
 /*
- * XREFs of IopSetLegacyResourcesFlag @ 0x140288B40
+ * XREFs of IopSetLegacyResourcesFlag @ 0x140288D30
  * Callers:
- *     IopLegacyResourceAllocation @ 0x14072CE94 (IopLegacyResourceAllocation.c)
+ *     IopLegacyResourceAllocation @ 0x14072E084 (IopLegacyResourceAllocation.c)
  * Callees:
  *     KeReleaseQueuedSpinLock @ 0x140018930 (KeReleaseQueuedSpinLock.c)
- *     KeAcquireQueuedSpinLock @ 0x1400ACF30 (KeAcquireQueuedSpinLock.c)
+ *     KeAcquireQueuedSpinLock @ 0x1400ACE70 (KeAcquireQueuedSpinLock.c)
  */
 
 void __fastcall IopSetLegacyResourcesFlag(__int64 a1)

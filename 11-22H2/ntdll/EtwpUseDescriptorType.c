@@ -16,8 +16,11 @@ __int64 __fastcall EtwpUseDescriptorType(__int64 a1, unsigned __int8 *a2)
   __int64 v4; // rax
   __int64 v5; // rsi
   unsigned __int8 v6; // di
-  ULONG v7; // ebx
+  unsigned __int32 v7; // ebx
   NTSTATUS v8; // eax
+  ULONG ReturnLength; // [rsp+30h] [rbp-28h] BYREF
+  __int64 InputBuffer; // [rsp+38h] [rbp-20h] BYREF
+  unsigned __int8 v12; // [rsp+40h] [rbp-18h]
 
   v3 = WORD2(a1);
   v4 = ProviderHandleLookup(a1, a1);
@@ -35,7 +38,9 @@ LABEL_10:
     RtlSetLastWin32Error(v7);
     return v7;
   }
-  v8 = NtTraceControl();
+  InputBuffer = *(_QWORD *)(v4 + 88);
+  v12 = v6;
+  v8 = NtTraceControl(EtwUseDescriptorTypeCode, &InputBuffer, 0x10u, 0LL, 0, &ReturnLength);
   if ( v8 )
   {
     v7 = RtlNtStatusToDosError(v8);

@@ -1,10 +1,10 @@
 /*
- * XREFs of MiMapPageTableCommit @ 0x1409C7B90
+ * XREFs of MiMapPageTableCommit @ 0x140998B70
  * Callers:
- *     MiCommitPageTablesForVad @ 0x1409C6018 (MiCommitPageTablesForVad.c)
- *     MiCommitVadGetCharges @ 0x1409C7650 (MiCommitVadGetCharges.c)
+ *     MiCommitPageTablesForVad @ 0x140996FF8 (MiCommitPageTablesForVad.c)
+ *     MiCommitVadGetCharges @ 0x140998630 (MiCommitVadGetCharges.c)
  * Callees:
- *     MiMakeHyperRangeAccessible @ 0x140316870 (MiMakeHyperRangeAccessible.c)
+ *     MiMakeHyperRangeAccessible @ 0x1403188A0 (MiMakeHyperRangeAccessible.c)
  */
 
 __int64 __fastcall MiMapPageTableCommit(unsigned __int64 a1, unsigned __int64 a2)

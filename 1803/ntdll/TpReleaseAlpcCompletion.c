@@ -8,22 +8,14 @@
  *     _guard_dispatch_icall_nop @ 0x18009E4A0 (_guard_dispatch_icall_nop.c)
  */
 
-__int64 __fastcall TpReleaseAlpcCompletion(__int64 a1)
+void __cdecl TpReleaseAlpcCompletion(PTP_ALPC Alpc)
 {
-  __int64 result; // rax
   _UNKNOWN *retaddr; // [rsp+28h] [rbp+0h]
 
-  result = sub_180056970(a1, 1LL, 0LL);
-  if ( (_DWORD)result )
+  if ( (unsigned int)sub_180056970(Alpc, 1LL, 0LL) && (unsigned int)sub_180058A78((char *)Alpc + 72, 1LL) )
   {
-    result = sub_180058A78(a1 + 72, 1LL);
-    if ( (_DWORD)result )
-    {
-      *(_QWORD *)(a1 + 256) = retaddr;
-      result = (unsigned int)_InterlockedExchangeAdd((volatile signed __int32 *)(a1 + 72), 0xFFFFFFFF);
-      if ( (_DWORD)result == 1 )
-        return (**(__int64 (__fastcall ***)(__int64))(a1 + 80))(a1 + 72);
-    }
+    *((_QWORD *)Alpc + 32) = retaddr;
+    if ( _InterlockedExchangeAdd((volatile signed __int32 *)Alpc + 18, 0xFFFFFFFF) == 1 )
+      (**((void (__fastcall ***)(char *))Alpc + 10))((char *)Alpc + 72);
   }
-  return result;
 }

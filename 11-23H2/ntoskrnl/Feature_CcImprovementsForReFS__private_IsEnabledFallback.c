@@ -1,9 +1,9 @@
 /*
- * XREFs of Feature_CcImprovementsForReFS__private_IsEnabledFallback @ 0x14040FAEC
+ * XREFs of Feature_CcImprovementsForReFS__private_IsEnabledFallback @ 0x14040FCCC
  * Callers:
- *     Feature_CcImprovementsForReFS__private_IsEnabledDeviceUsage @ 0x14040FAB4 (Feature_CcImprovementsForReFS__private_IsEnabledDeviceUsage.c)
+ *     Feature_CcImprovementsForReFS__private_IsEnabledDeviceUsage @ 0x14040FC94 (Feature_CcImprovementsForReFS__private_IsEnabledDeviceUsage.c)
  * Callees:
- *     wil_details_IsEnabledFallback @ 0x14040F8CC (wil_details_IsEnabledFallback.c)
+ *     wil_details_IsEnabledFallback @ 0x14040FAAC (wil_details_IsEnabledFallback.c)
  */
 
 __int64 __fastcall Feature_CcImprovementsForReFS__private_IsEnabledFallback(__int64 a1, int a2)

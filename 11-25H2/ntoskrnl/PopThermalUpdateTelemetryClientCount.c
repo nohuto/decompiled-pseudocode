@@ -29,7 +29,7 @@ __int64 __fastcall PopThermalUpdateTelemetryClientCount(char a1)
     {
       v5[0] = 0LL;
       v5[1] = -1LL;
-      KeSetTimer2((__int64)&PopThermalTelemetryTimer, -864000000000LL, 0LL, (__int64)v5);
+      KeSetTimer2((__int64)&PopThermalTelemetryTimer, (LARGE_INTEGER)-864000000000LL, 0LL, (__int64)v5);
     }
   }
   else if ( !--PopThermalTelemetryClientCount )

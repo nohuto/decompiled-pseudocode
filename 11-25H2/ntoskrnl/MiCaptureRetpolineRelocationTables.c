@@ -13,7 +13,7 @@
  */
 
 __int64 __fastcall MiCaptureRetpolineRelocationTables(
-        unsigned __int64 a1,
+        char *a1,
         unsigned int a2,
         unsigned int a3,
         int a4,
@@ -21,12 +21,12 @@ __int64 __fastcall MiCaptureRetpolineRelocationTables(
         char a6,
         __int64 a7)
 {
-  unsigned __int64 v9; // rbx
-  __int64 v10; // rax
+  char *v9; // rbx
+  PVOID v10; // rax
   unsigned int v11; // eax
   unsigned int v12; // r12d
   __int64 v13; // rsi
-  const void *v14; // r15
+  char *v14; // r15
   __int64 v15; // r13
   unsigned int v16; // eax
   int v17; // ebx
@@ -36,8 +36,8 @@ __int64 __fastcall MiCaptureRetpolineRelocationTables(
   bool IsRetpolineEnabled; // al
   __int64 v23; // rcx
   unsigned int v24; // [rsp+20h] [rbp-58h] BYREF
-  int v25; // [rsp+24h] [rbp-54h] BYREF
-  __int64 v26; // [rsp+28h] [rbp-50h]
+  ULONG v25; // [rsp+24h] [rbp-54h] BYREF
+  char *v26; // [rsp+28h] [rbp-50h]
   __int64 v27; // [rsp+30h] [rbp-48h]
   char v31; // [rsp+A8h] [rbp+30h]
 
@@ -45,10 +45,10 @@ __int64 __fastcall MiCaptureRetpolineRelocationTables(
   v26 = 0LL;
   v24 = 0;
   v31 = 0;
-  v10 = RtlImageDirectoryEntryToData(a1, 1, 0xCu, &v25);
+  v10 = RtlImageDirectoryEntryToData(a1, 1u, 0xCu, &v25);
   if ( v10 )
   {
-    v11 = v10 - v9;
+    v11 = (_DWORD)v10 - (_DWORD)v9;
     *(_DWORD *)a7 = v11;
     if ( v11 > a2 )
     {
@@ -74,10 +74,10 @@ LABEL_9:
   {
     if ( v13 + 12 > (unsigned __int64)v12 )
       goto LABEL_8;
-    v14 = (const void *)(v13 + v9);
-    v26 = v13 + v9;
-    v27 = *(_QWORD *)(v13 + v9);
-    v15 = *(unsigned int *)(v13 + v9 + 8);
+    v14 = &v9[v13];
+    v26 = &v9[v13];
+    v27 = *(_QWORD *)&v9[v13];
+    v15 = *(unsigned int *)&v9[v13 + 8];
     v16 = v13 + 12;
     if ( (int)v13 + 12 < (unsigned int)v13 )
       goto LABEL_8;

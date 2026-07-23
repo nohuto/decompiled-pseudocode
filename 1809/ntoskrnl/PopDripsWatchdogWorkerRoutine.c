@@ -1,25 +1,25 @@
 /*
- * XREFs of PopDripsWatchdogWorkerRoutine @ 0x140879C20
+ * XREFs of PopDripsWatchdogWorkerRoutine @ 0x14087AE80
  * Callers:
  *     <none>
  * Callees:
  *     PopDeepSleepEnabled @ 0x140003A5C (PopDeepSleepEnabled.c)
  *     ExReleaseResourceLite @ 0x14004F590 (ExReleaseResourceLite.c)
  *     ExAcquireResourceExclusiveLite @ 0x1400505F0 (ExAcquireResourceExclusiveLite.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
- *     PopOkayToQueueNextWorkItem @ 0x14013BA40 (PopOkayToQueueNextWorkItem.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     ZwUpdateWnfStateData @ 0x1401BBA70 (ZwUpdateWnfStateData.c)
- *     PopBatteryCapacityToRate @ 0x1402DC638 (PopBatteryCapacityToRate.c)
- *     PopAccumulateNonActivatedCpuTime @ 0x1402DE4A4 (PopAccumulateNonActivatedCpuTime.c)
- *     PopCalculateIdleInformation @ 0x1402DEFA8 (PopCalculateIdleInformation.c)
- *     PopDiagTraceCsDripsDivergence @ 0x1402DF7B0 (PopDiagTraceCsDripsDivergence.c)
- *     PpmConvertTimeTo @ 0x1402E31A4 (PpmConvertTimeTo.c)
- *     DbgkWerCaptureLiveKernelDump @ 0x1408124F0 (DbgkWerCaptureLiveKernelDump.c)
- *     PopDeepSleepWatchdogTakeAction @ 0x14087947C (PopDeepSleepWatchdogTakeAction.c)
- *     PopDripsCallbackTakeAction @ 0x140879548 (PopDripsCallbackTakeAction.c)
- *     PopDripsWatchdogTakeAction @ 0x140879788 (PopDripsWatchdogTakeAction.c)
- *     PopSetDripsWatchdog @ 0x14087A050 (PopSetDripsWatchdog.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B78F0 (KiLeaveCriticalRegionUnsafe.c)
+ *     PopOkayToQueueNextWorkItem @ 0x14013BB40 (PopOkayToQueueNextWorkItem.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     ZwUpdateWnfStateData @ 0x1401BBBD0 (ZwUpdateWnfStateData.c)
+ *     PopBatteryCapacityToRate @ 0x1402DC828 (PopBatteryCapacityToRate.c)
+ *     PopAccumulateNonActivatedCpuTime @ 0x1402DE694 (PopAccumulateNonActivatedCpuTime.c)
+ *     PopCalculateIdleInformation @ 0x1402DF198 (PopCalculateIdleInformation.c)
+ *     PopDiagTraceCsDripsDivergence @ 0x1402DF9A0 (PopDiagTraceCsDripsDivergence.c)
+ *     PpmConvertTimeTo @ 0x1402E3394 (PpmConvertTimeTo.c)
+ *     DbgkWerCaptureLiveKernelDump @ 0x1408136F0 (DbgkWerCaptureLiveKernelDump.c)
+ *     PopDeepSleepWatchdogTakeAction @ 0x14087A6DC (PopDeepSleepWatchdogTakeAction.c)
+ *     PopDripsCallbackTakeAction @ 0x14087A7A8 (PopDripsCallbackTakeAction.c)
+ *     PopDripsWatchdogTakeAction @ 0x14087A9E8 (PopDripsWatchdogTakeAction.c)
+ *     PopSetDripsWatchdog @ 0x14087B2B0 (PopSetDripsWatchdog.c)
  */
 
 void __fastcall PopDripsWatchdogWorkerRoutine(__int64 a1)
@@ -52,14 +52,14 @@ void __fastcall PopDripsWatchdogWorkerRoutine(__int64 a1)
   __int64 v27; // [rsp+70h] [rbp-1h]
   __int64 v28; // [rsp+78h] [rbp+7h]
   int v29; // [rsp+80h] [rbp+Fh]
-  unsigned __int64 v30; // [rsp+88h] [rbp+17h] BYREF
+  unsigned __int64 Buffer; // [rsp+88h] [rbp+17h] BYREF
   unsigned __int64 v31; // [rsp+90h] [rbp+1Fh]
 
   CurrentThread = KeGetCurrentThread();
   v2 = 0LL;
   --CurrentThread->KernelApcDisable;
-  ExAcquireResourceExclusiveLite(&stru_1404C67C8, 1u);
-  if ( qword_1404C6788 )
+  ExAcquireResourceExclusiveLite(&stru_1404C7888, 1u);
+  if ( qword_1404C7848 )
   {
     PopCalculateIdleInformation(a1 + 88);
     v4 = MEMORY[0xFFFFF78000000008];
@@ -107,10 +107,10 @@ void __fastcall PopDripsWatchdogWorkerRoutine(__int64 a1)
       if ( !v12 )
       {
         v18 = 1000LL * (unsigned int)v17;
-        if ( !v18 || (unk_140417954 & 0x40000000) != 0 || (v19 = *(_DWORD *)(a1 + 16), dword_140417944 >= v19) )
+        if ( !v18 || (unk_1404189F4 & 0x40000000) != 0 || (v19 = *(_DWORD *)(a1 + 16), dword_1404189E4 >= v19) )
           v20 = 0;
         else
-          v20 = PopBatteryCapacityToRate(v19 - dword_140417944, v18);
+          v20 = PopBatteryCapacityToRate(v19 - dword_1404189E4, v18);
         HIDWORD(v28) = v20;
       }
       PopAccumulateNonActivatedCpuTime(0, (_QWORD *)(a1 + 72), (_QWORD *)(a1 + 80));
@@ -121,7 +121,7 @@ void __fastcall PopDripsWatchdogWorkerRoutine(__int64 a1)
         *(_QWORD *)(a1 + 24) = *(_QWORD *)(a1 + 96);
         *(_QWORD *)(a1 + 32) = *(_QWORD *)(a1 + 104);
         *(_QWORD *)(a1 + 40) = v4;
-        *(_DWORD *)(a1 + 16) = dword_140417944;
+        *(_DWORD *)(a1 + 16) = dword_1404189E4;
       }
       if ( v23 )
       {
@@ -133,16 +133,16 @@ void __fastcall PopDripsWatchdogWorkerRoutine(__int64 a1)
       *(_DWORD *)(a1 + 400) = v21 + 1;
       PopSetDripsWatchdog();
       PopOkayToQueueNextWorkItem(a1 + 360);
-      ExReleaseResourceLite(&stru_1404C67C8);
+      ExReleaseResourceLite(&stru_1404C7888);
       KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
-      LOBYTE(v29) = byte_14043C450 & 1;
+      LOBYTE(v29) = byte_14043D510 & 1;
       LODWORD(v28) = 100 * HIDWORD(v27) / (unsigned int)v27;
       if ( v22 )
       {
         if ( PopDeepSleepEnabled() && !v23 )
           PopDeepSleepWatchdogTakeAction((__int64)&v26, v9);
       }
-      else if ( !qword_14043C3D8 )
+      else if ( !qword_14043D498 )
       {
         PopDripsWatchdogTakeAction((__int64)&v26, v9, v21);
       }
@@ -151,11 +151,11 @@ void __fastcall PopDripsWatchdogWorkerRoutine(__int64 a1)
       {
         if ( v11 > v2 && (unsigned int)PopDripsSwHwDivergenceThreshold < (v11 - v2) / 0xF4240 )
         {
-          v30 = v11;
+          Buffer = v11;
           v31 = v2;
-          ZwUpdateWnfStateData((__int64)&WNF_PO_SW_HW_DRIPS_DIVERGENCE, (__int64)&v30, 16LL);
+          ZwUpdateWnfStateData(&WNF_PO_SW_HW_DRIPS_DIVERGENCE, &Buffer, 0x10u, 0LL, 0LL, 0, 0);
           if ( PopDripsSwHwDivergenceEnableLiveDump )
-            DbgkWerCaptureLiveKernelDump(L"DripsDiverge", 420, v30, v31, 0LL, 0LL, 0LL, 0LL, 0);
+            DbgkWerCaptureLiveKernelDump(L"DripsDiverge", 420, Buffer, v31, 0LL, 0LL, 0LL, 0LL, 0);
         }
       }
     }
@@ -165,13 +165,13 @@ void __fastcall PopDripsWatchdogWorkerRoutine(__int64 a1)
       *(_DWORD *)(a1 + 400) = v10 + 1;
       PopSetDripsWatchdog();
       PopOkayToQueueNextWorkItem(a1 + 360);
-      ExReleaseResourceLite(&stru_1404C67C8);
+      ExReleaseResourceLite(&stru_1404C7888);
       KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
-      if ( v7 || qword_14043C3D8 )
+      if ( v7 || qword_14043D498 )
       {
         _m_prefetchw(&PopDirectedDripsState);
         if ( (_InterlockedOr(&PopDirectedDripsState, 0) & 1) != 0 && !PopDirectedDripsEnableV2 )
-          _InterlockedExchange(&dword_140419164, dword_140419160);
+          _InterlockedExchange(&dword_14041A244, dword_14041A240);
       }
       else
       {
@@ -181,7 +181,7 @@ void __fastcall PopDripsWatchdogWorkerRoutine(__int64 a1)
   }
   else
   {
-    ExReleaseResourceLite(&stru_1404C67C8);
+    ExReleaseResourceLite(&stru_1404C7888);
     KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
   }
 }

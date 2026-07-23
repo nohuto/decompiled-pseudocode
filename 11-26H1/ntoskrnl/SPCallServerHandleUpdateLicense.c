@@ -1,10 +1,10 @@
 /*
- * XREFs of SPCallServerHandleUpdateLicense @ 0x140B104F0
+ * XREFs of SPCallServerHandleUpdateLicense @ 0x140B11F30
  * Callers:
- *     SPCall2ServerInternal @ 0x140A1AE00 (SPCall2ServerInternal.c)
+ *     SPCall2ServerInternal @ 0x140A24430 (SPCall2ServerInternal.c)
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall SPCallServerHandleUpdateLicense(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
@@ -84,7 +84,7 @@ __int64 __fastcall SPCallServerHandleUpdateLicense(__int64 a1, __int64 a2, __int
   v19 = 0LL;
   if ( (_DWORD)v17 )
     v19 = (__int64)v18;
-  v20 = ExpPlatformBinaryLock.SavedApcState.ApcListHead[1].Blink
+  v20 = *(_QWORD *)&ExpPlatformBinaryLock.SavedApcStateFill[40]
       ? guard_dispatch_icall_no_overrides(v19, (unsigned int)v17)
       : -1073741637;
   v21 = *(_DWORD *)(a2 + 32);

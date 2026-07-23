@@ -31,7 +31,7 @@ char __fastcall LdrpLogImportRedirectionTelemetry(__int64 a1)
   {
     LOBYTE(v1) = RtlRunOnceExecuteOnce(
                    &LibLoaderTelemetryInitRunOnce,
-                   (unsigned int (__fastcall *)(volatile signed __int64 *, __int64, unsigned __int64 *))LibLoaderTelemetryInitOnce,
+                   (PRTL_RUN_ONCE_INIT_FN)LibLoaderTelemetryInitOnce,
                    0LL,
                    0LL);
     if ( dword_18015F418 > 5u )

@@ -1,16 +1,16 @@
 /*
- * XREFs of MiAddRangeToCrashDump @ 0x140537DE8
+ * XREFs of MiAddRangeToCrashDump @ 0x140538028
  * Callers:
- *     MiAddRangeToCrashDump @ 0x140537DE8 (MiAddRangeToCrashDump.c)
- *     MmAddRangeToCrashDump @ 0x1405385D8 (MmAddRangeToCrashDump.c)
+ *     MiAddRangeToCrashDump @ 0x140538028 (MiAddRangeToCrashDump.c)
+ *     MmAddRangeToCrashDump @ 0x140538818 (MmAddRangeToCrashDump.c)
  * Callees:
- *     MiIsPageSecured @ 0x1402B4D68 (MiIsPageSecured.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x14032DEC0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiPteInShadowRange @ 0x140348AF0 (MiPteInShadowRange.c)
- *     MiGetSystemRegionType @ 0x14034A950 (MiGetSystemRegionType.c)
- *     KdCheckForDebugBreak @ 0x140383EB0 (KdCheckForDebugBreak.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     MiAddRangeToCrashDump @ 0x140537DE8 (MiAddRangeToCrashDump.c)
+ *     MiIsPageSecured @ 0x140232F18 (MiIsPageSecured.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140338C10 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiPteInShadowRange @ 0x140353840 (MiPteInShadowRange.c)
+ *     MiGetSystemRegionType @ 0x1403556A0 (MiGetSystemRegionType.c)
+ *     KdCheckForDebugBreak @ 0x140384004 (KdCheckForDebugBreak.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     MiAddRangeToCrashDump @ 0x140538028 (MiAddRangeToCrashDump.c)
  */
 
 __int64 __fastcall MiAddRangeToCrashDump(
@@ -173,8 +173,8 @@ __int64 __fastcall MiAddRangeToCrashDump(
         if ( (v11 & 0x400) != 0 || (v11 & 0x800) == 0 )
           goto LABEL_73;
         v31 = v11;
-        if ( qword_140C4DF40 && (v11 & 0x10) == 0 )
-          v31 = v11 & ~qword_140C4DF40;
+        if ( qword_140C4DF80 && (v11 & 0x10) == 0 )
+          v31 = v11 & ~qword_140C4DF80;
         v15 = (v31 >> 12) & 0xFFFFFFFFFLL;
       }
       v32 = (*(_QWORD *)(48 * v15 - 0x57FFFFFFFD8LL) >> 50) & 1LL;
@@ -191,7 +191,7 @@ __int64 __fastcall MiAddRangeToCrashDump(
               && ((*(_QWORD *)(v33 + 24) & 0x3FFFFFFFFFFFFFFFLL) == 0
                || (*(_BYTE *)(v33 + 34) & 7) != 6
                || (*(_QWORD *)(v33 + 40) & 0xFFFFFFFFFLL) != 0xFFFFFFFFDLL)
-              && v15 != qword_140C4E770 )
+              && v15 != qword_140C4E7B0 )
             {
               LODWORD(v32) = 0;
             }

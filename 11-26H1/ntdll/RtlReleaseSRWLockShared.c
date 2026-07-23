@@ -1,240 +1,232 @@
 /*
- * XREFs of RtlReleaseSRWLockShared @ 0x18002D9F0
+ * XREFs of RtlReleaseSRWLockShared @ 0x180018AF0
  * Callers:
- *     RtlpFcCallChangeCallbacks @ 0x180014374 (RtlpFcCallChangeCallbacks.c)
- *     RtlpHpLfhOwnerCompact @ 0x180016790 (RtlpHpLfhOwnerCompact.c)
- *     RtlpHpExtrasGet @ 0x1800192E0 (RtlpHpExtrasGet.c)
- *     RtlpHpTagFreeHeap @ 0x1800195A0 (RtlpHpTagFreeHeap.c)
- *     RtlpHpSizeHeap @ 0x18001A0F0 (RtlpHpSizeHeap.c)
- *     RtlpHpExtrasAppend @ 0x18001A390 (RtlpHpExtrasAppend.c)
- *     RtlpHpExtrasSetPresent @ 0x18001A610 (RtlpHpExtrasSetPresent.c)
- *     RtlSizeHeap @ 0x18001A7D0 (RtlSizeHeap.c)
- *     RtlpHpStackTraceRemoveStack @ 0x18002BA50 (RtlpHpStackTraceRemoveStack.c)
- *     RtlSleepConditionVariableSRW @ 0x18002CAF0 (RtlSleepConditionVariableSRW.c)
- *     TppBarrierAdjust @ 0x18002D290 (TppBarrierAdjust.c)
- *     LdrpGetFromMUIMemCache @ 0x18002DC20 (LdrpGetFromMUIMemCache.c)
- *     TppWorkerThread @ 0x18003E5E0 (TppWorkerThread.c)
- *     RtlUnwindEx @ 0x180049930 (RtlUnwindEx.c)
- *     TppPoolpReferenceGlobalPool @ 0x18004E450 (TppPoolpReferenceGlobalPool.c)
- *     RtlpWnfProcessCurrentDescriptor @ 0x18004FC80 (RtlpWnfProcessCurrentDescriptor.c)
- *     RtlpWnfCalculateAndSetNextTimer @ 0x180050768 (RtlpWnfCalculateAndSetNextTimer.c)
- *     EtwpGetNextRegistration @ 0x180050820 (EtwpGetNextRegistration.c)
- *     EtwDeliverDataBlock @ 0x1800525B0 (EtwDeliverDataBlock.c)
- *     LdrpFindLoadedDllByName @ 0x180052F40 (LdrpFindLoadedDllByName.c)
- *     LdrpFindLoadedDllByHandle @ 0x180054BC0 (LdrpFindLoadedDllByHandle.c)
- *     EtwpCheckForPrivatePreEnable @ 0x180057A60 (EtwpCheckForPrivatePreEnable.c)
- *     SbpUpdateCache @ 0x180063EC0 (SbpUpdateCache.c)
- *     TpAllocPoolInternal @ 0x1800655CC (TpAllocPoolInternal.c)
- *     TpPoolReferenceExistingGlobalPool @ 0x18006745C (TpPoolReferenceExistingGlobalPool.c)
- *     RtlpCreateWnfNameSubscription @ 0x18006E480 (RtlpCreateWnfNameSubscription.c)
- *     RtlpCreateSerializationGroup @ 0x18006F2E0 (RtlpCreateSerializationGroup.c)
- *     LdrpAllocateTls @ 0x18007F910 (LdrpAllocateTls.c)
- *     RtlpAddVectoredHandler @ 0x18007FCD4 (RtlpAddVectoredHandler.c)
- *     RtlGuardRestoreContext @ 0x180080B50 (RtlGuardRestoreContext.c)
- *     RtlGuardCheckLongJumpTarget @ 0x180080E50 (RtlGuardCheckLongJumpTarget.c)
- *     LdrpFindLoadedDllByMapping @ 0x18008657C (LdrpFindLoadedDllByMapping.c)
- *     RtlpFlsDataCleanup @ 0x180087C90 (RtlpFlsDataCleanup.c)
- *     RtlCSparseBitmapBitmaskWrite @ 0x18008AC80 (RtlCSparseBitmapBitmaskWrite.c)
- *     RtlSparseArrayElementAllocate @ 0x18008B350 (RtlSparseArrayElementAllocate.c)
- *     RtlpHpAllocVA @ 0x18008BB10 (RtlpHpAllocVA.c)
- *     RtlpCSparseBitmapUnlock @ 0x18008C9F4 (RtlpCSparseBitmapUnlock.c)
- *     RtlQueryCriticalSectionOwner @ 0x180090B90 (RtlQueryCriticalSectionOwner.c)
- *     RtlQueryProcessLockInformation @ 0x180091A70 (RtlQueryProcessLockInformation.c)
- *     RtlpFlsFree @ 0x1800942B4 (RtlpFlsFree.c)
- *     RtlpHpLfhSubsegmentReformatCheck @ 0x180095F80 (RtlpHpLfhSubsegmentReformatCheck.c)
- *     RtlpHpLfhSubsegmentDecommitPages @ 0x1800966D8 (RtlpHpLfhSubsegmentDecommitPages.c)
- *     RtlpComputeExePath @ 0x18009A580 (RtlpComputeExePath.c)
- *     RtlpComputeSearchPath @ 0x18009AC60 (RtlpComputeSearchPath.c)
- *     RtlpComputeDllPath @ 0x18009BCE0 (RtlpComputeDllPath.c)
- *     RtlpComputeDllPathWithOptions @ 0x18009BFB0 (RtlpComputeDllPathWithOptions.c)
- *     RtlpHpTagReAllocateHeap @ 0x1800B13D0 (RtlpHpTagReAllocateHeap.c)
- *     RtlpHpLargeAllocSize @ 0x1800B1940 (RtlpHpLargeAllocSize.c)
- *     RtlpHpLfhSlotAllocateSlow @ 0x1800B2AA0 (RtlpHpLfhSlotAllocateSlow.c)
- *     RtlpHpStackTraceAddStack @ 0x1800C0100 (RtlpHpStackTraceAddStack.c)
- *     LdrpFindLoadedDllByAddress @ 0x1800C6170 (LdrpFindLoadedDllByAddress.c)
- *     _LdrpInitialize @ 0x1800CEF48 (_LdrpInitialize.c)
- *     LdrpFreeTls @ 0x1800D72A0 (LdrpFreeTls.c)
- *     RtlpLookupDynamicFunctionEntry @ 0x1800D7C50 (RtlpLookupDynamicFunctionEntry.c)
- *     LdrpAcquireSchedulerSharedDataSlot @ 0x1800E4D30 (LdrpAcquireSchedulerSharedDataSlot.c)
- *     RtlCheckHeldCriticalSections @ 0x1800E6380 (RtlCheckHeldCriticalSections.c)
- *     RtlQueryProtectedPolicy @ 0x1800E7CF0 (RtlQueryProtectedPolicy.c)
- *     TpTrimPools @ 0x1800E86D0 (TpTrimPools.c)
- *     RtlpHpTagQueryTags @ 0x1800EB628 (RtlpHpTagQueryTags.c)
- *     RtlpStackDbSegmentFindOrCreate @ 0x1800FFE04 (RtlpStackDbSegmentFindOrCreate.c)
- *     LdrpGetAlternateResourceModuleHandleEx @ 0x18010FE70 (LdrpGetAlternateResourceModuleHandleEx.c)
- *     RtlpWnfRetryTimerCallback @ 0x1801115A0 (RtlpWnfRetryTimerCallback.c)
- *     RtlStackDbStackAdd @ 0x18011FC7C (RtlStackDbStackAdd.c)
- *     RtlpHpStackTraceSerialize @ 0x1801223E0 (RtlpHpStackTraceSerialize.c)
- *     RtlPosixBarrier @ 0x180141868 (RtlPosixBarrier.c)
- *     RtlQueryPointerMapping @ 0x180145C90 (RtlQueryPointerMapping.c)
- *     RtlQueryPropertyStore @ 0x180145D50 (RtlQueryPropertyStore.c)
- *     RtlGetFeatureToggleConfiguration @ 0x1801479C0 (RtlGetFeatureToggleConfiguration.c)
- *     RtlRcuReadUnlock @ 0x1801499E0 (RtlRcuReadUnlock.c)
- *     RtlpHpStackTraceHeapSerialize @ 0x18014FC20 (RtlpHpStackTraceHeapSerialize.c)
- *     EtwEnumerateProcessRegGuids @ 0x180158BD0 (EtwEnumerateProcessRegGuids.c)
- *     LdrpUnlockTlsDelayedReclaimTable @ 0x18015CD9C (LdrpUnlockTlsDelayedReclaimTable.c)
+ *     RtlpHpExtrasGet @ 0x1800043C0 (RtlpHpExtrasGet.c)
+ *     RtlpHpTagFreeHeap @ 0x180004680 (RtlpHpTagFreeHeap.c)
+ *     RtlpHpSizeHeap @ 0x1800051D0 (RtlpHpSizeHeap.c)
+ *     RtlpHpExtrasAppend @ 0x180005470 (RtlpHpExtrasAppend.c)
+ *     RtlpHpExtrasSetPresent @ 0x1800056F0 (RtlpHpExtrasSetPresent.c)
+ *     RtlSizeHeap @ 0x1800058B0 (RtlSizeHeap.c)
+ *     RtlpHpStackTraceRemoveStack @ 0x180016B50 (RtlpHpStackTraceRemoveStack.c)
+ *     RtlSleepConditionVariableSRW @ 0x180017BF0 (RtlSleepConditionVariableSRW.c)
+ *     TppBarrierAdjust @ 0x180018390 (TppBarrierAdjust.c)
+ *     LdrpGetFromMUIMemCache @ 0x180018D20 (LdrpGetFromMUIMemCache.c)
+ *     TppWorkerThread @ 0x180028B50 (TppWorkerThread.c)
+ *     RtlUnwindEx @ 0x180033EB0 (RtlUnwindEx.c)
+ *     TppPoolpReferenceGlobalPool @ 0x1800389D0 (TppPoolpReferenceGlobalPool.c)
+ *     RtlpWnfProcessCurrentDescriptor @ 0x18003A200 (RtlpWnfProcessCurrentDescriptor.c)
+ *     RtlpWnfCalculateAndSetNextTimer @ 0x18003ACE8 (RtlpWnfCalculateAndSetNextTimer.c)
+ *     EtwpGetNextRegistration @ 0x18003ADA0 (EtwpGetNextRegistration.c)
+ *     EtwDeliverDataBlock @ 0x18003CB30 (EtwDeliverDataBlock.c)
+ *     LdrpFindLoadedDllByName @ 0x18003D4C0 (LdrpFindLoadedDllByName.c)
+ *     LdrpFindLoadedDllByHandle @ 0x18003F140 (LdrpFindLoadedDllByHandle.c)
+ *     EtwpCheckForPrivatePreEnable @ 0x180041FE0 (EtwpCheckForPrivatePreEnable.c)
+ *     RtlpFcCallChangeCallbacks @ 0x18005FAA4 (RtlpFcCallChangeCallbacks.c)
+ *     RtlpHpLfhOwnerCompact @ 0x180061EC0 (RtlpHpLfhOwnerCompact.c)
+ *     RtlpHpLfhSubsegmentReformatCheck @ 0x180063920 (RtlpHpLfhSubsegmentReformatCheck.c)
+ *     RtlpHpLfhSubsegmentDecommitPages @ 0x180064078 (RtlpHpLfhSubsegmentDecommitPages.c)
+ *     RtlCSparseBitmapBitmaskWrite @ 0x18006E0B8 (RtlCSparseBitmapBitmaskWrite.c)
+ *     RtlSparseArrayElementAllocate @ 0x18006E788 (RtlSparseArrayElementAllocate.c)
+ *     RtlpHpAllocVA @ 0x18006EF50 (RtlpHpAllocVA.c)
+ *     RtlpCSparseBitmapUnlock @ 0x18006FE30 (RtlpCSparseBitmapUnlock.c)
+ *     RtlpFlsFree @ 0x180073484 (RtlpFlsFree.c)
+ *     RtlQueryProcessLockInformation @ 0x180074010 (RtlQueryProcessLockInformation.c)
+ *     RtlQueryCriticalSectionOwner @ 0x1800758F0 (RtlQueryCriticalSectionOwner.c)
+ *     LdrpAllocateTls @ 0x180076CB0 (LdrpAllocateTls.c)
+ *     RtlpAddVectoredHandler @ 0x180077074 (RtlpAddVectoredHandler.c)
+ *     RtlGuardRestoreContext @ 0x180077EF0 (RtlGuardRestoreContext.c)
+ *     RtlGuardCheckLongJumpTarget @ 0x1800781F0 (RtlGuardCheckLongJumpTarget.c)
+ *     LdrpFindLoadedDllByMapping @ 0x18007D91C (LdrpFindLoadedDllByMapping.c)
+ *     RtlpFlsDataCleanup @ 0x18007F010 (RtlpFlsDataCleanup.c)
+ *     RtlpHpTagReAllocateHeap @ 0x180080F40 (RtlpHpTagReAllocateHeap.c)
+ *     RtlpHpLargeAllocSize @ 0x1800814B0 (RtlpHpLargeAllocSize.c)
+ *     SbpUpdateCache @ 0x180084310 (SbpUpdateCache.c)
+ *     TpAllocPoolInternal @ 0x180085A1C (TpAllocPoolInternal.c)
+ *     TpPoolReferenceExistingGlobalPool @ 0x1800878AC (TpPoolReferenceExistingGlobalPool.c)
+ *     RtlpCreateWnfNameSubscription @ 0x18008E8D0 (RtlpCreateWnfNameSubscription.c)
+ *     RtlpCreateSerializationGroup @ 0x18008F730 (RtlpCreateSerializationGroup.c)
+ *     RtlpComputeExePath @ 0x1800996B0 (RtlpComputeExePath.c)
+ *     RtlpComputeSearchPath @ 0x180099D90 (RtlpComputeSearchPath.c)
+ *     RtlpComputeDllPath @ 0x18009AE10 (RtlpComputeDllPath.c)
+ *     RtlpComputeDllPathWithOptions @ 0x18009B0E0 (RtlpComputeDllPathWithOptions.c)
+ *     RtlpHpLfhSlotAllocateSlow @ 0x1800AFFC0 (RtlpHpLfhSlotAllocateSlow.c)
+ *     RtlpHpStackTraceAddStack @ 0x1800BD890 (RtlpHpStackTraceAddStack.c)
+ *     LdrpFindLoadedDllByAddress @ 0x1800C3930 (LdrpFindLoadedDllByAddress.c)
+ *     _LdrpInitialize @ 0x1800CC6B8 (_LdrpInitialize.c)
+ *     LdrpFreeTls @ 0x1800D4260 (LdrpFreeTls.c)
+ *     RtlpLookupDynamicFunctionEntry @ 0x1800D4C10 (RtlpLookupDynamicFunctionEntry.c)
+ *     LdrpAcquireSchedulerSharedDataSlot @ 0x1800E2BE0 (LdrpAcquireSchedulerSharedDataSlot.c)
+ *     RtlCheckHeldCriticalSections @ 0x1800E4590 (RtlCheckHeldCriticalSections.c)
+ *     RtlQueryProtectedPolicy @ 0x1800E6750 (RtlQueryProtectedPolicy.c)
+ *     TpTrimPools @ 0x1800E78E0 (TpTrimPools.c)
+ *     RtlpHpTagQueryTags @ 0x1800EA838 (RtlpHpTagQueryTags.c)
+ *     RtlpStackDbSegmentFindOrCreate @ 0x1800FF554 (RtlpStackDbSegmentFindOrCreate.c)
+ *     LdrpGetAlternateResourceModuleHandleEx @ 0x18010FA00 (LdrpGetAlternateResourceModuleHandleEx.c)
+ *     RtlpWnfRetryTimerCallback @ 0x180111120 (RtlpWnfRetryTimerCallback.c)
+ *     RtlStackDbStackAdd @ 0x18011FA2C (RtlStackDbStackAdd.c)
+ *     RtlpHpStackTraceSerialize @ 0x180122180 (RtlpHpStackTraceSerialize.c)
+ *     RtlPosixBarrier @ 0x180141768 (RtlPosixBarrier.c)
+ *     RtlQueryPointerMapping @ 0x180145B40 (RtlQueryPointerMapping.c)
+ *     RtlQueryPropertyStore @ 0x180145C00 (RtlQueryPropertyStore.c)
+ *     RtlGetFeatureToggleConfiguration @ 0x180147870 (RtlGetFeatureToggleConfiguration.c)
+ *     RtlRcuReadUnlock @ 0x180149890 (RtlRcuReadUnlock.c)
+ *     RtlpHpStackTraceHeapSerialize @ 0x18014FAD0 (RtlpHpStackTraceHeapSerialize.c)
+ *     EtwEnumerateProcessRegGuids @ 0x180158AA0 (EtwEnumerateProcessRegGuids.c)
+ *     LdrpUnlockTlsDelayedReclaimTable @ 0x18015CC5C (LdrpUnlockTlsDelayedReclaimTable.c)
  * Callees:
- *     RtlRaiseStatus @ 0x18004A7C0 (RtlRaiseStatus.c)
- *     NtSetInformationThread @ 0x18015F0E0 (NtSetInformationThread.c)
- *     ZwAlertThreadByThreadIdEx @ 0x18015FD70 (ZwAlertThreadByThreadIdEx.c)
+ *     RtlRaiseStatus @ 0x180034D40 (RtlRaiseStatus.c)
+ *     NtSetInformationThread @ 0x18015EFE0 (NtSetInformationThread.c)
+ *     ZwAlertThreadByThreadIdEx @ 0x18015FC70 (ZwAlertThreadByThreadIdEx.c)
  */
 
-struct _TEB *__fastcall RtlReleaseSRWLockShared(volatile signed __int64 *a1)
+void __cdecl RtlReleaseSRWLockShared(PRTL_SRWLOCK SRWLock)
 {
   signed __int64 v2; // rax
-  struct _TEB *result; // rax
   char *SchedulerSharedDataSlot; // rdx
-  unsigned int v5; // ecx
-  __int64 v6; // rdi
-  char *v7; // rbx
-  signed __int64 v8; // r8
-  signed __int64 v9; // rtt
-  _QWORD *v10; // rcx
+  unsigned int v4; // ecx
+  unsigned __int64 v5; // rdi
+  char *v6; // rbx
+  signed __int64 v7; // r8
+  signed __int64 v8; // rtt
+  _QWORD *v9; // rcx
   __int64 i; // r8
-  __int64 v12; // rdx
-  __int64 v13; // rcx
-  signed __int64 v14; // r8
-  signed __int64 v15; // rcx
-  signed __int64 v16; // rtt
-  volatile signed __int64 *v17; // rsi
-  _QWORD *v18; // r8
-  __int64 v19; // rdx
-  _QWORD *v20; // rax
-  __int64 v21; // rax
-  bool v22; // zf
-  signed __int64 v23; // rax
-  __int64 v24; // rbx
-  __int64 v25; // rcx
-  signed __int64 v26; // rax
-  _QWORD v27[3]; // [rsp+20h] [rbp-18h] BYREF
+  __int64 v11; // rdx
+  __int64 v12; // rcx
+  signed __int64 v13; // r8
+  signed __int64 v14; // rcx
+  signed __int64 v15; // rtt
+  PRTL_SRWLOCK v16; // rsi
+  _QWORD *v17; // r8
+  __int64 v18; // rdx
+  _QWORD *v19; // rax
+  __int64 v20; // rax
+  bool v21; // zf
+  signed __int64 v22; // rax
+  __int64 v23; // rbx
+  __int64 v24; // rcx
+  signed __int64 v25; // rax
+  _QWORD ThreadInformation[3]; // [rsp+20h] [rbp-18h] BYREF
 
-  v2 = _InterlockedCompareExchange64(a1, 0LL, 17LL);
+  v2 = _InterlockedCompareExchange64((volatile signed __int64 *)SRWLock, 0LL, 17LL);
   if ( v2 == 17 )
     goto LABEL_2;
   if ( (v2 & 1) == 0 )
-    RtlRaiseStatus(3221226084LL);
+    RtlRaiseStatus(-1073741212);
   while ( (v2 & 2) == 0 )
   {
-    v8 = 0LL;
+    v7 = 0LL;
     if ( (v2 & 0xFFFFFFFFFFFFFFF0uLL) != 0x10 )
-      v8 = v2 - 16;
-    v9 = v2;
-    v2 = _InterlockedCompareExchange64(a1, v8, v2);
-    if ( v9 == v2 )
+      v7 = v2 - 16;
+    v8 = v2;
+    v2 = _InterlockedCompareExchange64((volatile signed __int64 *)SRWLock, v7, v2);
+    if ( v8 == v2 )
       goto LABEL_2;
   }
   if ( (v2 & 8) != 0 )
   {
-    v10 = (_QWORD *)(v2 & 0xFFFFFFFFFFFFFFF0uLL);
-    for ( i = *(_QWORD *)((v2 & 0xFFFFFFFFFFFFFFF0uLL) + 8); !i; i = v10[1] )
-      v10 = (_QWORD *)*v10;
+    v9 = (_QWORD *)(v2 & 0xFFFFFFFFFFFFFFF0uLL);
+    for ( i = *(_QWORD *)((v2 & 0xFFFFFFFFFFFFFFF0uLL) + 8); !i; i = v9[1] )
+      v9 = (_QWORD *)*v9;
     if ( _InterlockedExchangeAdd((volatile signed __int32 *)(i + 32), 0xFFFFFFFF) > 1 )
       goto LABEL_2;
-    v12 = -9LL;
+    v11 = -9LL;
   }
   else
   {
-    v12 = -1LL;
+    v11 = -1LL;
   }
   do
   {
-    v13 = v12 + 4;
-    v14 = v2 & 6;
-    if ( v14 != 2 )
-      v13 = v12;
-    v15 = v2 + v13;
-    v16 = v2;
-    v2 = _InterlockedCompareExchange64(a1, v15, v2);
+    v12 = v11 + 4;
+    v13 = v2 & 6;
+    if ( v13 != 2 )
+      v12 = v11;
+    v14 = v2 + v12;
+    v15 = v2;
+    v2 = _InterlockedCompareExchange64((volatile signed __int64 *)SRWLock, v14, v2);
   }
-  while ( v16 != v2 );
-  if ( v14 == 2 )
+  while ( v15 != v2 );
+  if ( v13 == 2 )
   {
-    v17 = a1;
+    v16 = SRWLock;
     while ( 1 )
     {
-      while ( (v15 & 1) != 0 )
+      while ( (v14 & 1) != 0 )
       {
-        v26 = _InterlockedCompareExchange64(a1, v15 - 4, v15);
-        v22 = v15 == v26;
-        v15 = v26;
-        if ( v22 )
+        v25 = _InterlockedCompareExchange64((volatile signed __int64 *)SRWLock, v14 - 4, v14);
+        v21 = v14 == v25;
+        v14 = v25;
+        if ( v21 )
           goto LABEL_2;
       }
-      v18 = (_QWORD *)(v15 & 0xFFFFFFFFFFFFFFF0uLL);
-      v19 = *(_QWORD *)((v15 & 0xFFFFFFFFFFFFFFF0uLL) + 8);
-      if ( !v19 )
+      v17 = (_QWORD *)(v14 & 0xFFFFFFFFFFFFFFF0uLL);
+      v18 = *(_QWORD *)((v14 & 0xFFFFFFFFFFFFFFF0uLL) + 8);
+      if ( !v18 )
       {
         do
         {
-          v20 = v18;
-          v18 = (_QWORD *)*v18;
-          v18[2] = v20;
-          v19 = v18[1];
+          v19 = v17;
+          v17 = (_QWORD *)*v17;
+          v17[2] = v19;
+          v18 = v17[1];
         }
-        while ( !v19 );
-        if ( v18 != (_QWORD *)(v15 & 0xFFFFFFFFFFFFFFF0uLL) )
-          *(_QWORD *)((v15 & 0xFFFFFFFFFFFFFFF0uLL) + 8) = v19;
+        while ( !v18 );
+        if ( v17 != (_QWORD *)(v14 & 0xFFFFFFFFFFFFFFF0uLL) )
+          *(_QWORD *)((v14 & 0xFFFFFFFFFFFFFFF0uLL) + 8) = v18;
       }
-      if ( (*(_DWORD *)(v19 + 36) & 1) != 0 )
+      if ( (*(_DWORD *)(v18 + 36) & 1) != 0 )
       {
-        v21 = *(_QWORD *)(v19 + 16);
-        if ( v21 )
+        v20 = *(_QWORD *)(v18 + 16);
+        if ( v20 )
           break;
       }
-      v17 = 0LL;
-      v23 = _InterlockedCompareExchange64(a1, 0LL, v15);
-      v22 = v15 == v23;
-      v15 = v23;
-      if ( v22 )
+      v16 = 0LL;
+      v22 = _InterlockedCompareExchange64((volatile signed __int64 *)SRWLock, 0LL, v14);
+      v21 = v14 == v22;
+      v14 = v22;
+      if ( v21 )
         goto LABEL_40;
     }
-    *(_QWORD *)((v15 & 0xFFFFFFFFFFFFFFF0uLL) + 8) = v21;
-    *(_QWORD *)(v19 + 16) = 0LL;
-    _InterlockedAnd64(a1, 0xFFFFFFFFFFFFFFFBuLL);
+    *(_QWORD *)((v14 & 0xFFFFFFFFFFFFFFF0uLL) + 8) = v20;
+    *(_QWORD *)(v18 + 16) = 0LL;
+    _InterlockedAnd64((volatile signed __int64 *)SRWLock, 0xFFFFFFFFFFFFFFFBuLL);
     do
     {
 LABEL_40:
-      v24 = *(_QWORD *)(v19 + 16);
-      v25 = *(_QWORD *)(v19 + 24);
-      _interlockedbittestandset((volatile signed __int32 *)(v19 + 36), 2u);
-      if ( !_interlockedbittestandreset((volatile signed __int32 *)(v19 + 36), 1u) )
-        ZwAlertThreadByThreadIdEx(v25, v17, v18);
-      v19 = v24;
+      v23 = *(_QWORD *)(v18 + 16);
+      v24 = *(_QWORD *)(v18 + 24);
+      _interlockedbittestandset((volatile signed __int32 *)(v18 + 36), 2u);
+      if ( !_interlockedbittestandreset((volatile signed __int32 *)(v18 + 36), 1u) )
+        ZwAlertThreadByThreadIdEx(v24, v16, v17);
+      v18 = v23;
     }
-    while ( v24 );
+    while ( v23 );
   }
 LABEL_2:
-  result = NtCurrentTeb();
-  SchedulerSharedDataSlot = (char *)result->SchedulerSharedDataSlot;
+  SchedulerSharedDataSlot = (char *)NtCurrentTeb()->SchedulerSharedDataSlot;
   if ( SchedulerSharedDataSlot )
   {
-    v5 = 0;
-    v6 = (unsigned __int64)a1 & 0x7FFFFFFFFFFFFFFCLL;
-    while ( v5 < 8 )
+    v4 = 0;
+    v5 = (unsigned __int64)SRWLock & 0x7FFFFFFFFFFFFFFCLL;
+    while ( v4 < 8 )
     {
-      v7 = &SchedulerSharedDataSlot[8 * v5];
-      result = (struct _TEB *)(*(_QWORD *)v7 & 0x7FFFFFFFFFFFFFFCLL);
-      if ( result == (struct _TEB *)v6 )
+      v6 = &SchedulerSharedDataSlot[8 * v4];
+      if ( (*(_QWORD *)v6 & 0x7FFFFFFFFFFFFFFCLL) == v5 )
       {
-        if ( v7 )
+        if ( v6 )
         {
-          *v7 |= 2u;
-          if ( v7[7] < 0 )
+          *v6 |= 2u;
+          if ( v6[7] < 0 )
           {
-            v27[1] = 0LL;
-            v27[0] = (v7 - (char *)NtCurrentTeb()->SchedulerSharedDataSlot) >> 3;
-            result = (struct _TEB *)((__int64 (__fastcall *)(__int64, __int64, _QWORD *, __int64))NtSetInformationThread)(
-                                      -2LL,
-                                      56LL,
-                                      v27,
-                                      16LL);
+            ThreadInformation[1] = 0LL;
+            ThreadInformation[0] = (v6 - (char *)NtCurrentTeb()->SchedulerSharedDataSlot) >> 3;
+            NtSetInformationThread((HANDLE)0xFFFFFFFFFFFFFFFELL, ThreadUpdateLockOwnership, ThreadInformation, 0x10u);
           }
-          *(_QWORD *)v7 = 0LL;
+          *(_QWORD *)v6 = 0LL;
         }
-        return result;
+        return;
       }
-      ++v5;
+      ++v4;
     }
   }
-  return result;
 }

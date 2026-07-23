@@ -1,9 +1,9 @@
 /*
- * XREFs of PpmIdleGuestExecute @ 0x1403CCB80
+ * XREFs of PpmIdleGuestExecute @ 0x1403CCD60
  * Callers:
  *     <none>
  * Callees:
- *     HalProcessorIdle @ 0x14041A680 (HalProcessorIdle.c)
+ *     HalProcessorIdle @ 0x14041AA10 (HalProcessorIdle.c)
  */
 
 __int64 __fastcall PpmIdleGuestExecute(__int64 a1, __int64 a2, int a3)

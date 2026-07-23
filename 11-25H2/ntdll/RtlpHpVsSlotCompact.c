@@ -8,12 +8,12 @@
  *     RtlpInterlockedFlushSList @ 0x180167010 (RtlpInterlockedFlushSList.c)
  */
 
-__int64 __fastcall RtlpHpVsSlotCompact(__int64 a1, __int64 a2)
+__int64 __fastcall RtlpHpVsSlotCompact(__int64 a1, _RTL_SRWLOCK *a2)
 {
   __int64 result; // rax
   __int64 v5; // rcx
 
-  result = RtlpInterlockedFlushSList(a2 + 64);
+  result = RtlpInterlockedFlushSList(&a2[8]);
   if ( result )
     result = (__int64)RtlpHpVsSlotFreeList(a1, a2, (_QWORD *)result);
   if ( *(_WORD *)(a1 + 6) )

@@ -1,23 +1,23 @@
 /*
- * XREFs of IoRegisterFsRegistrationChangeMountAware @ 0x1407C9C40
+ * XREFs of IoRegisterFsRegistrationChangeMountAware @ 0x1407C9F60
  * Callers:
- *     IoRegisterFsRegistrationChange @ 0x140893C10 (IoRegisterFsRegistrationChange.c)
+ *     IoRegisterFsRegistrationChange @ 0x140893D70 (IoRegisterFsRegistrationChange.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
- *     EtwEventEnabled @ 0x14021BF30 (EtwEventEnabled.c)
- *     EtwWrite @ 0x14025DC90 (EtwWrite.c)
- *     KeResetEvent @ 0x14027BC40 (KeResetEvent.c)
- *     IoGetActivityIdThread @ 0x1402EE820 (IoGetActivityIdThread.c)
- *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
- *     ObfReferenceObject @ 0x14034B230 (ObfReferenceObject.c)
- *     ExReleaseResourceLite @ 0x14034B3F0 (ExReleaseResourceLite.c)
- *     ExAcquireResourceExclusiveLite @ 0x14034BBA0 (ExAcquireResourceExclusiveLite.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     IopGetFsRegistrationInProgress @ 0x1405067F0 (IopGetFsRegistrationInProgress.c)
- *     IopIsKnownGoodLegacyFsFilter @ 0x140506B18 (IopIsKnownGoodLegacyFsFilter.c)
- *     FsRtlSetDriverBacking @ 0x140780A60 (FsRtlSetDriverBacking.c)
- *     IopNotifyAlreadyRegisteredFileSystems @ 0x1407C9DE8 (IopNotifyAlreadyRegisteredFileSystems.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     KeResetEvent @ 0x140269BE0 (KeResetEvent.c)
+ *     EtwWrite @ 0x14027F7C0 (EtwWrite.c)
+ *     KeLeaveCriticalRegionThread @ 0x1402AB8C0 (KeLeaveCriticalRegionThread.c)
+ *     EtwEventEnabled @ 0x1402C0830 (EtwEventEnabled.c)
+ *     IoGetActivityIdThread @ 0x1402F9570 (IoGetActivityIdThread.c)
+ *     KeWaitForSingleObject @ 0x1403504C0 (KeWaitForSingleObject.c)
+ *     ObfReferenceObject @ 0x140355F80 (ObfReferenceObject.c)
+ *     ExReleaseResourceLite @ 0x140356140 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceExclusiveLite @ 0x1403568F0 (ExAcquireResourceExclusiveLite.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     IopGetFsRegistrationInProgress @ 0x140506770 (IopGetFsRegistrationInProgress.c)
+ *     IopIsKnownGoodLegacyFsFilter @ 0x140506A98 (IopIsKnownGoodLegacyFsFilter.c)
+ *     FsRtlSetDriverBacking @ 0x140780C20 (FsRtlSetDriverBacking.c)
+ *     IopNotifyAlreadyRegisteredFileSystems @ 0x1407CA108 (IopNotifyAlreadyRegisteredFileSystems.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 NTSTATUS __stdcall IoRegisterFsRegistrationChangeMountAware(
@@ -27,36 +27,42 @@ NTSTATUS __stdcall IoRegisterFsRegistrationChangeMountAware(
 {
   NTSTATUS result; // eax
   struct _KTHREAD *CurrentThread; // rax
-  NTSTATUS v8; // ebx
+  __int64 v8; // rdx
+  __int64 v9; // r8
+  __int64 v10; // r9
+  NTSTATUS v11; // ebx
   _QWORD *PoolWithTag; // rax
-  _QWORD *v10; // rcx
-  __int64 v11; // r8
-  __int64 v12; // r8
-  __int64 v13; // r8
-  REGHANDLE v14; // rdi
+  _QWORD *v13; // rcx
+  __int64 v14; // r8
+  __int64 v15; // r8
+  __int64 v16; // r8
+  __int64 v17; // rdx
+  __int64 v18; // r8
+  __int64 v19; // r9
+  REGHANDLE v20; // rdi
   int Length; // ecx
   struct _LIST_ENTRY *ActivityIdThread; // rax
-  __int16 v17; // [rsp+30h] [rbp-48h] BYREF
+  __int16 v23; // [rsp+30h] [rbp-48h] BYREF
   struct _EVENT_DATA_DESCRIPTOR UserData; // [rsp+38h] [rbp-40h] BYREF
   wchar_t *Buffer; // [rsp+48h] [rbp-30h]
-  int v20; // [rsp+50h] [rbp-28h]
-  int v21; // [rsp+54h] [rbp-24h]
+  int v26; // [rsp+50h] [rbp-28h]
+  int v27; // [rsp+54h] [rbp-24h]
 
   if ( IopBlockLegacyFsFilters && !IopIsKnownGoodLegacyFsFilter((const void **)&DriverObject->DriverName) )
   {
-    v14 = IoMgrTraceHandle;
+    v20 = IoMgrTraceHandle;
     if ( EtwEventEnabled(IoMgrTraceHandle, &IoMgr_LegacyFsFilterBlockedByPolicy) )
     {
       Length = DriverObject->DriverName.Length;
       UserData.Reserved = 0;
-      v21 = 0;
-      v17 = (unsigned __int16)Length >> 1;
-      UserData.Ptr = (ULONGLONG)&v17;
+      v27 = 0;
+      v23 = (unsigned __int16)Length >> 1;
+      UserData.Ptr = (ULONGLONG)&v23;
       Buffer = DriverObject->DriverName.Buffer;
       UserData.Size = 2;
-      v20 = Length;
+      v26 = Length;
       ActivityIdThread = IoGetActivityIdThread();
-      EtwWrite(v14, &IoMgr_LegacyFsFilterBlockedByPolicy, (LPCGUID)ActivityIdThread, 2u, &UserData);
+      EtwWrite(v20, &IoMgr_LegacyFsFilterBlockedByPolicy, (LPCGUID)ActivityIdThread, 2u, &UserData);
     }
     return -1073741637;
   }
@@ -75,38 +81,38 @@ LABEL_22:
   {
     if ( IopGetFsRegistrationInProgress() )
     {
-      v8 = -1073741267;
+      v11 = -1073741267;
       goto LABEL_9;
     }
     goto LABEL_22;
   }
 LABEL_5:
   if ( (__int64 *)IopFsNotifyChangeQueueHead != &IopFsNotifyChangeQueueHead
-    && *(PDRIVER_OBJECT *)(qword_140C45D08 + 16) == DriverObject
-    && *(PDRIVER_FS_NOTIFICATION *)(qword_140C45D08 + 24) == DriverNotificationRoutine )
+    && *(PDRIVER_OBJECT *)(qword_140C45CE8 + 16) == DriverObject
+    && *(PDRIVER_FS_NOTIFICATION *)(qword_140C45CE8 + 24) == DriverNotificationRoutine )
   {
     ExReleaseResourceLite(&IopDatabaseResource);
-    v8 = -1073741768;
+    v11 = -1073741768;
 LABEL_9:
-    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
-    return v8;
+    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v8, v9, v10);
+    return v11;
   }
   PoolWithTag = ExAllocatePoolWithTag(PagedPool, 0x20uLL, 0x73466F49u);
   if ( !PoolWithTag )
   {
     ExReleaseResourceLite(&IopDatabaseResource);
-    v8 = -1073741670;
+    v11 = -1073741670;
     goto LABEL_9;
   }
   PoolWithTag[2] = DriverObject;
   PoolWithTag[3] = DriverNotificationRoutine;
-  v10 = (_QWORD *)qword_140C45D08;
-  if ( *(__int64 **)qword_140C45D08 != &IopFsNotifyChangeQueueHead )
+  v13 = (_QWORD *)qword_140C45CE8;
+  if ( *(__int64 **)qword_140C45CE8 != &IopFsNotifyChangeQueueHead )
     __fastfail(3u);
   *PoolWithTag = &IopFsNotifyChangeQueueHead;
-  PoolWithTag[1] = v10;
-  *v10 = PoolWithTag;
-  qword_140C45D08 = (__int64)PoolWithTag;
+  PoolWithTag[1] = v13;
+  *v13 = PoolWithTag;
+  qword_140C45CE8 = (__int64)PoolWithTag;
   if ( SynchronizeWithMounts == 1 )
   {
     while ( IopMountsInProgress )
@@ -124,14 +130,14 @@ LABEL_9:
     }
   }
   IopNotifyAlreadyRegisteredFileSystems(&IopNetworkFileSystemQueueHead, DriverNotificationRoutine, 0LL);
-  LOBYTE(v11) = 1;
-  IopNotifyAlreadyRegisteredFileSystems(&IopCdRomFileSystemQueueHead, DriverNotificationRoutine, v11);
-  LOBYTE(v12) = 1;
-  IopNotifyAlreadyRegisteredFileSystems(&IopDiskFileSystemQueueHead, DriverNotificationRoutine, v12);
-  LOBYTE(v13) = 1;
-  IopNotifyAlreadyRegisteredFileSystems(&IopTapeFileSystemQueueHead, DriverNotificationRoutine, v13);
+  LOBYTE(v14) = 1;
+  IopNotifyAlreadyRegisteredFileSystems(&IopCdRomFileSystemQueueHead, DriverNotificationRoutine, v14);
+  LOBYTE(v15) = 1;
+  IopNotifyAlreadyRegisteredFileSystems(&IopDiskFileSystemQueueHead, DriverNotificationRoutine, v15);
+  LOBYTE(v16) = 1;
+  IopNotifyAlreadyRegisteredFileSystems(&IopTapeFileSystemQueueHead, DriverNotificationRoutine, v16);
   ExReleaseResourceLite(&IopDatabaseResource);
-  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v17, v18, v19);
   ObfReferenceObject(DriverObject);
   return 0;
 }

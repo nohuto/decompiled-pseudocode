@@ -1,22 +1,22 @@
 /*
- * XREFs of RtlMultipleAllocateHeap @ 0x180144440
+ * XREFs of RtlMultipleAllocateHeap @ 0x180144330
  * Callers:
  *     <none>
  * Callees:
- *     RtlAllocateHeap_0 @ 0x1800439E0 (RtlAllocateHeap_0.c)
+ *     RtlAllocateHeap_0 @ 0x18002DF50 (RtlAllocateHeap_0.c)
  */
 
-__int64 __fastcall RtlMultipleAllocateHeap(__int64 a1, __int64 a2, __int64 a3, unsigned int a4, __int64 a5)
+ULONG __cdecl RtlMultipleAllocateHeap(PVOID HeapHandle, ULONG Flags, SIZE_T Size, ULONG Count, PVOID *Array)
 {
   __int64 i; // rbx
-  __int64 Heap_0; // rax
+  PVOID Heap_0; // rax
 
-  for ( i = 0LL; (unsigned int)i < a4; i = (unsigned int)(i + 1) )
+  for ( i = 0LL; (unsigned int)i < Count; i = (unsigned int)(i + 1) )
   {
-    Heap_0 = RtlAllocateHeap_0();
-    *(_QWORD *)(a5 + 8 * i) = Heap_0;
+    Heap_0 = RtlAllocateHeap_0(HeapHandle, Flags, Size);
+    Array[i] = Heap_0;
     if ( !Heap_0 )
-      return (unsigned int)i;
+      return i;
   }
-  return a4;
+  return Count;
 }

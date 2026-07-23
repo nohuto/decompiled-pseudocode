@@ -1,10 +1,10 @@
 /*
- * XREFs of PiPnpRtlDisableRemoveOperationDispatch @ 0x140501BC4
+ * XREFs of PiPnpRtlDisableRemoveOperationDispatch @ 0x1404E4B54
  * Callers:
- *     PiPnpRtlCacheObjectBaseKey @ 0x1404FF9A4 (PiPnpRtlCacheObjectBaseKey.c)
- *     PiPnpRtlEndOperation @ 0x14050147C (PiPnpRtlEndOperation.c)
- *     PiPnpRtlObjectEventWorker @ 0x14050470C (PiPnpRtlObjectEventWorker.c)
- *     PiPnpRtlEnsureObjectCached @ 0x14062E9D0 (PiPnpRtlEnsureObjectCached.c)
+ *     PiPnpRtlCacheObjectBaseKey @ 0x1404E2934 (PiPnpRtlCacheObjectBaseKey.c)
+ *     PiPnpRtlEndOperation @ 0x1404E440C (PiPnpRtlEndOperation.c)
+ *     PiPnpRtlObjectEventWorker @ 0x1404E769C (PiPnpRtlObjectEventWorker.c)
+ *     PiPnpRtlEnsureObjectCached @ 0x14062EA84 (PiPnpRtlEnsureObjectCached.c)
  * Callees:
  *     <none>
  */

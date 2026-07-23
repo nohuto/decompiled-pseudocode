@@ -1,25 +1,25 @@
 /*
- * XREFs of MiPageBootRegistry @ 0x1406E3A98
+ * XREFs of MiPageBootRegistry @ 0x1406E8744
  * Callers:
- *     MmFreeLoaderBlock @ 0x140CF220C (MmFreeLoaderBlock.c)
+ *     MmFreeLoaderBlock @ 0x140CF858C (MmFreeLoaderBlock.c)
  * Callees:
- *     MiGetWsleContents @ 0x140297070 (MiGetWsleContents.c)
- *     MiWriteWsle @ 0x14029F7F0 (MiWriteWsle.c)
- *     MiLockPageTableInternal @ 0x1402B34E0 (MiLockPageTableInternal.c)
- *     MiUnlockPageTableInternal @ 0x1402D13E0 (MiUnlockPageTableInternal.c)
- *     MiUnlockWorkingSetShared @ 0x1402EB6C0 (MiUnlockWorkingSetShared.c)
- *     MiLockWorkingSetShared @ 0x1402EDD60 (MiLockWorkingSetShared.c)
- *     MiPteHasShadow @ 0x1403011E0 (MiPteHasShadow.c)
- *     MiMakeTransitionPte @ 0x14030DC00 (MiMakeTransitionPte.c)
- *     MiGetProcessorFlushList @ 0x1403229E0 (MiGetProcessorFlushList.c)
- *     MiFlushTbList @ 0x140329040 (MiFlushTbList.c)
- *     MiInsertTbFlushEntry @ 0x14035E7E0 (MiInsertTbFlushEntry.c)
- *     MiInitializeTbFlushList @ 0x140360920 (MiInitializeTbFlushList.c)
- *     MiReleaseProcessorFlushList @ 0x1403613C0 (MiReleaseProcessorFlushList.c)
- *     ExAllocatePoolMm @ 0x1403985B0 (ExAllocatePoolMm.c)
- *     MiGetAnyMultiplexedVm @ 0x140457870 (MiGetAnyMultiplexedVm.c)
- *     MmFreeBootRegistry @ 0x140863DA8 (MmFreeBootRegistry.c)
- *     MiInsertRegistryPageInModifiedList @ 0x140D04294 (MiInsertRegistryPageInModifiedList.c)
+ *     MiGetWsleContents @ 0x1402965D0 (MiGetWsleContents.c)
+ *     MiWriteWsle @ 0x14029ED40 (MiWriteWsle.c)
+ *     MiUnlockPageTableInternal @ 0x1402B31A0 (MiUnlockPageTableInternal.c)
+ *     MiUnlockWorkingSetShared @ 0x1402CD700 (MiUnlockWorkingSetShared.c)
+ *     MiLockWorkingSetShared @ 0x1402CFDE0 (MiLockWorkingSetShared.c)
+ *     MiPteHasShadow @ 0x1402E3260 (MiPteHasShadow.c)
+ *     MiMakeTransitionPte @ 0x1402EFC80 (MiMakeTransitionPte.c)
+ *     MiLockPageTableInternal @ 0x1402FE1B0 (MiLockPageTableInternal.c)
+ *     MiGetProcessorFlushList @ 0x140324A10 (MiGetProcessorFlushList.c)
+ *     MiFlushTbList @ 0x14032B070 (MiFlushTbList.c)
+ *     MiInsertTbFlushEntry @ 0x140360580 (MiInsertTbFlushEntry.c)
+ *     MiInitializeTbFlushList @ 0x1403626C0 (MiInitializeTbFlushList.c)
+ *     MiReleaseProcessorFlushList @ 0x140363160 (MiReleaseProcessorFlushList.c)
+ *     ExAllocatePoolMm @ 0x14039A310 (ExAllocatePoolMm.c)
+ *     MiGetAnyMultiplexedVm @ 0x14044F0E0 (MiGetAnyMultiplexedVm.c)
+ *     MmFreeBootRegistry @ 0x14086A188 (MmFreeBootRegistry.c)
+ *     MiInsertRegistryPageInModifiedList @ 0x140D0A564 (MiInsertRegistryPageInModifiedList.c)
  */
 
 _QWORD *__fastcall MiPageBootRegistry(_QWORD *a1)
@@ -190,12 +190,12 @@ _QWORD *__fastcall MiPageBootRegistry(_QWORD *a1)
     LOBYTE(v12) = v11;
     MiUnlockWorkingSetShared((__int64)AnyMultiplexedVm, v12);
     result = (_QWORD *)_InterlockedCompareExchange64(
-                         (volatile signed __int64 *)((char *)&stru_140E36558.116 + 4),
+                         (volatile signed __int64 *)((char *)&stru_140E366D8.116 + 4),
                          v5,
                          0LL);
     if ( result )
     {
-      *($353D57E818BB6F967B4B818D974CF463 *)((char *)&stru_140E36558.116 + 4) = ($353D57E818BB6F967B4B818D974CF463)v5;
+      *($C9C4F79064DE35237E3F199A7D1BD3E1 *)((char *)&stru_140E366D8.116 + 4) = ($C9C4F79064DE35237E3F199A7D1BD3E1)v5;
       return (_QWORD *)MmFreeBootRegistry();
     }
   }

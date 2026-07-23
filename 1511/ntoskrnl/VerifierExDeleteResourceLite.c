@@ -15,7 +15,7 @@
 __int64 __fastcall VerifierExDeleteResourceLite(struct _ERESOURCE *a1)
 {
   unsigned __int64 v1; // rbx
-  struct _SLIST_ENTRY *v3; // rsi
+  _SLIST_ENTRY *v3; // rsi
   __int64 result; // rax
   struct _ERESOURCE *v5; // rdx
   struct _ERESOURCE *v6; // rdi
@@ -29,7 +29,7 @@ __int64 __fastcall VerifierExDeleteResourceLite(struct _ERESOURCE *a1)
     VfAvlInitializeLockContext((__int64)v8, 0);
     if ( VfAvlLookupTreeNode(&ViResourceAvl, (__int64)v8, (unsigned __int64)a1, 0LL) )
     {
-      v3 = (struct _SLIST_ENTRY *)VfAvlDeleteTreeNode(&ViResourceAvl, (__int64)v8, (__int64)a1, 0LL);
+      v3 = (_SLIST_ENTRY *)VfAvlDeleteTreeNode(&ViResourceAvl, (__int64)v8, (__int64)a1, 0LL);
     }
     else if ( !ViResourceNotTracked && !ViResourcesAlreadyLoadedDrivers )
     {

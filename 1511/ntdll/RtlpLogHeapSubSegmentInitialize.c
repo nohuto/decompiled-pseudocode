@@ -9,16 +9,16 @@
  *     memset @ 0x1800AB900 (memset.c)
  */
 
-__int64 __fastcall RtlpLogHeapSubSegmentInitialize(__int64 a1, __int64 a2, __int64 a3, __int64 a4, int a5)
+NTSTATUS __fastcall RtlpLogHeapSubSegmentInitialize(__int64 a1, __int64 a2, __int64 a3, __int64 a4, int a5)
 {
-  _DWORD v10[16]; // [rsp+24h] [rbp-84h] BYREF
+  _QWORD Fields[10]; // [rsp+20h] [rbp-88h] BYREF
 
-  memset(v10, 0, sizeof(v10));
-  *(_QWORD *)&v10[7] = a1;
-  HIWORD(v10[0]) = 4149;
-  v10[15] = a5;
-  *(_QWORD *)&v10[9] = a2;
-  *(_QWORD *)&v10[11] = a3;
-  *(_QWORD *)&v10[13] = a4;
-  return NtTraceEvent();
+  memset(Fields, 0, 68);
+  Fields[4] = a1;
+  HIWORD(Fields[0]) = 4149;
+  LODWORD(Fields[8]) = a5;
+  Fields[5] = a2;
+  Fields[6] = a3;
+  Fields[7] = a4;
+  return NtTraceEvent((HANDLE)MEMORY[0x7FFE0380], 0x20402u, 0x24u, Fields);
 }

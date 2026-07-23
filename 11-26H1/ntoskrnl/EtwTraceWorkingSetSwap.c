@@ -1,16 +1,16 @@
 /*
- * XREFs of EtwTraceWorkingSetSwap @ 0x140AF3D1C
+ * XREFs of EtwTraceWorkingSetSwap @ 0x140AF673C
  * Callers:
- *     MmOutSwapVirtualAddresses @ 0x140405328 (MmOutSwapVirtualAddresses.c)
- *     MmOutSwapWorkingSet @ 0x1404C28B4 (MmOutSwapWorkingSet.c)
- *     MmInSwapWorkingSet @ 0x1404D58CC (MmInSwapWorkingSet.c)
- *     MiInSwapSharedWorkingSetWorker @ 0x14087A710 (MiInSwapSharedWorkingSetWorker.c)
- *     MmInSwapVirtualAddresses @ 0x140AF3C64 (MmInSwapVirtualAddresses.c)
+ *     MmOutSwapVirtualAddresses @ 0x1403FE41C (MmOutSwapVirtualAddresses.c)
+ *     MmOutSwapWorkingSet @ 0x1404BC104 (MmOutSwapWorkingSet.c)
+ *     MmInSwapWorkingSet @ 0x1404CF090 (MmInSwapWorkingSet.c)
+ *     MiInSwapSharedWorkingSetWorker @ 0x140880B10 (MiInSwapSharedWorkingSetWorker.c)
+ *     MmInSwapVirtualAddresses @ 0x140AF6684 (MmInSwapVirtualAddresses.c)
  * Callees:
- *     EtwWrite @ 0x140212EF0 (EtwWrite.c)
- *     EtwProviderEnabled @ 0x1402563E0 (EtwProviderEnabled.c)
- *     PsGetProcessId @ 0x140466BE0 (PsGetProcessId.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwWrite @ 0x140212FD0 (EtwWrite.c)
+ *     EtwProviderEnabled @ 0x140257D70 (EtwProviderEnabled.c)
+ *     PsGetProcessId @ 0x140460330 (PsGetProcessId.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 BOOLEAN __fastcall EtwTraceWorkingSetSwap(PEPROCESS Process, char a2, __int64 a3)
@@ -31,7 +31,7 @@ BOOLEAN __fastcall EtwTraceWorkingSetSwap(PEPROCESS Process, char a2, __int64 a3
   __int64 v19; // [rsp+98h] [rbp+37h]
   __int64 v20; // [rsp+A0h] [rbp+3Fh]
 
-  result = EtwProviderEnabled(EtwpMemoryProvRegHandle, 0, 0x80uLL);
+  result = EtwProviderEnabled((REGHANDLE)stru_140F03830.SavedApcState.ApcListHead[1].Flink, 0, 0x80uLL);
   if ( result )
   {
     ProcessId = (unsigned int)PsGetProcessId(Process);
@@ -67,7 +67,12 @@ BOOLEAN __fastcall EtwTraceWorkingSetSwap(PEPROCESS Process, char a2, __int64 a3
         v20 = 8LL;
       }
     }
-    return EtwWrite(EtwpMemoryProvRegHandle, (PCEVENT_DESCRIPTOR)v8, 0LL, v7, &UserData);
+    return EtwWrite(
+             (REGHANDLE)stru_140F03830.SavedApcState.ApcListHead[1].Flink,
+             (PCEVENT_DESCRIPTOR)v8,
+             0LL,
+             v7,
+             &UserData);
   }
   return result;
 }

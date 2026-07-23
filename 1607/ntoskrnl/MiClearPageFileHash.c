@@ -1,16 +1,16 @@
 /*
- * XREFs of MiClearPageFileHash @ 0x140123940
+ * XREFs of MiClearPageFileHash @ 0x140123EB0
  * Callers:
- *     MiReleasePageFileInfo @ 0x14001A280 (MiReleasePageFileInfo.c)
+ *     MiReleasePageFileInfo @ 0x140019E00 (MiReleasePageFileInfo.c)
  * Callees:
- *     KeFlushSingleTb @ 0x14010A628 (KeFlushSingleTb.c)
- *     RtlpInterlockedPushEntrySList @ 0x140166E40 (RtlpInterlockedPushEntrySList.c)
- *     MiPteInShadowRange @ 0x1401EF3B8 (MiPteInShadowRange.c)
- *     MiWritePteShadow @ 0x1401EF658 (MiWritePteShadow.c)
- *     MI_GET_PFN_FROM_PTE @ 0x1401F2594 (MI_GET_PFN_FROM_PTE.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1401F25D0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiGetPteTimeStamp @ 0x1401F269C (MiGetPteTimeStamp.c)
- *     MiUpdatePageFileHighInPte @ 0x1401F2958 (MiUpdatePageFileHighInPte.c)
+ *     KeFlushSingleTb @ 0x1401083A8 (KeFlushSingleTb.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1401673B0 (RtlpInterlockedPushEntrySList.c)
+ *     MiPteInShadowRange @ 0x1401EF1E4 (MiPteInShadowRange.c)
+ *     MiWritePteShadow @ 0x1401EF484 (MiWritePteShadow.c)
+ *     MI_GET_PFN_FROM_PTE @ 0x1401F23C0 (MI_GET_PFN_FROM_PTE.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1401F23FC (MI_READ_PTE_LOCK_FREE.c)
+ *     MiGetPteTimeStamp @ 0x1401F24C8 (MiGetPteTimeStamp.c)
+ *     MiUpdatePageFileHighInPte @ 0x1401F2840 (MiUpdatePageFileHighInPte.c)
  */
 
 void __fastcall MiClearPageFileHash(__int64 a1, unsigned int a2)
@@ -26,7 +26,7 @@ void __fastcall MiClearPageFileHash(__int64 a1, unsigned int a2)
   __int64 *v11; // r10
   __int64 v12; // rdx
   __int64 v13; // rcx
-  struct _SLIST_ENTRY *v14; // rsi
+  _SLIST_ENTRY *v14; // rsi
   __int64 v15; // rdx
   __int64 v16; // r8
   int PteTimeStamp; // eax
@@ -47,7 +47,7 @@ void __fastcall MiClearPageFileHash(__int64 a1, unsigned int a2)
     if ( (v4 & 1) != 0 )
     {
       *v7 = 1;
-      v14 = (struct _SLIST_ENTRY *)MI_GET_PFN_FROM_PTE(&v25);
+      v14 = (_SLIST_ENTRY *)MI_GET_PFN_FROM_PTE(&v25);
       PteTimeStamp = MiGetPteTimeStamp(v14[1].Next, v15, v16);
       updated = MiUpdatePageFileHighInPte(v14[1].Next, (unsigned int)(PteTimeStamp - 1));
       v25 = updated;

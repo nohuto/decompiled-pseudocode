@@ -1,8 +1,8 @@
 /*
- * XREFs of KdpSanitizeContextFlags @ 0x140C16274
+ * XREFs of KdpSanitizeContextFlags @ 0x140C1C274
  * Callers:
- *     KdpSetContextEx @ 0x1405E3E34 (KdpSetContextEx.c)
- *     KdpSetContext @ 0x140C15228 (KdpSetContext.c)
+ *     KdpSetContextEx @ 0x1405E67A4 (KdpSetContextEx.c)
+ *     KdpSetContext @ 0x140C1B228 (KdpSetContext.c)
  * Callees:
  *     <none>
  */

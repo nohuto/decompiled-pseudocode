@@ -1,30 +1,30 @@
 /*
- * XREFs of PopCheckpointSystemSleep @ 0x140569714
+ * XREFs of PopCheckpointSystemSleep @ 0x14056A714
  * Callers:
- *     PopTransitionSystemPowerStateEx @ 0x140566D74 (PopTransitionSystemPowerStateEx.c)
- *     PoBroadcastSystemState @ 0x1405681E0 (PoBroadcastSystemState.c)
- *     PopInvokeSystemStateHandler @ 0x140568DB8 (PopInvokeSystemStateHandler.c)
- *     PopRestoreHiberContext @ 0x140569770 (PopRestoreHiberContext.c)
- *     PopWriteHiberPages @ 0x140569C48 (PopWriteHiberPages.c)
- *     PopDecompressHiberBlocks @ 0x140569E60 (PopDecompressHiberBlocks.c)
- *     PopSaveHiberContext @ 0x14056A060 (PopSaveHiberContext.c)
- *     PopRequestWrite @ 0x14056A5F4 (PopRequestWrite.c)
- *     PopHiberChecksumHiberFileData @ 0x14056AA44 (PopHiberChecksumHiberFileData.c)
- *     PopHiberCheckResume @ 0x14056B320 (PopHiberCheckResume.c)
- *     PopRequestRead @ 0x14057D27C (PopRequestRead.c)
- *     PopIssueActionRequest @ 0x1406DE850 (PopIssueActionRequest.c)
- *     PopSuspendApps @ 0x1406DEBD0 (PopSuspendApps.c)
- *     PopSuspendServices @ 0x1406DEC38 (PopSuspendServices.c)
- *     PopResumeApps @ 0x1406DECA8 (PopResumeApps.c)
- *     PopResumeServices @ 0x1406DED40 (PopResumeServices.c)
- *     PopDispatchSuperfetchNotification @ 0x1406DEDD8 (PopDispatchSuperfetchNotification.c)
- *     PopNotifyCallbacksPreSleep @ 0x1406DEF8C (PopNotifyCallbacksPreSleep.c)
- *     PopAllocateHiberContext @ 0x1406DF534 (PopAllocateHiberContext.c)
+ *     PopTransitionSystemPowerStateEx @ 0x140567D74 (PopTransitionSystemPowerStateEx.c)
+ *     PoBroadcastSystemState @ 0x1405691E0 (PoBroadcastSystemState.c)
+ *     PopInvokeSystemStateHandler @ 0x140569DB8 (PopInvokeSystemStateHandler.c)
+ *     PopRestoreHiberContext @ 0x14056A770 (PopRestoreHiberContext.c)
+ *     PopWriteHiberPages @ 0x14056AC48 (PopWriteHiberPages.c)
+ *     PopDecompressHiberBlocks @ 0x14056AE60 (PopDecompressHiberBlocks.c)
+ *     PopSaveHiberContext @ 0x14056B060 (PopSaveHiberContext.c)
+ *     PopRequestWrite @ 0x14056B5F4 (PopRequestWrite.c)
+ *     PopHiberChecksumHiberFileData @ 0x14056BA44 (PopHiberChecksumHiberFileData.c)
+ *     PopHiberCheckResume @ 0x14056C320 (PopHiberCheckResume.c)
+ *     PopRequestRead @ 0x14057E27C (PopRequestRead.c)
+ *     PopIssueActionRequest @ 0x1406DFAF0 (PopIssueActionRequest.c)
+ *     PopSuspendApps @ 0x1406DFE70 (PopSuspendApps.c)
+ *     PopSuspendServices @ 0x1406DFED8 (PopSuspendServices.c)
+ *     PopResumeApps @ 0x1406DFF48 (PopResumeApps.c)
+ *     PopResumeServices @ 0x1406DFFE0 (PopResumeServices.c)
+ *     PopDispatchSuperfetchNotification @ 0x1406E0078 (PopDispatchSuperfetchNotification.c)
+ *     PopNotifyCallbacksPreSleep @ 0x1406E022C (PopNotifyCallbacksPreSleep.c)
+ *     PopAllocateHiberContext @ 0x1406E07D4 (PopAllocateHiberContext.c)
  * Callees:
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     PopCheckpointSystemSleepUnsafe @ 0x14057E0E4 (PopCheckpointSystemSleepUnsafe.c)
- *     PopRecordSleepCheckpoint @ 0x1406DEFDC (PopRecordSleepCheckpoint.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     PopCheckpointSystemSleepUnsafe @ 0x14057F0E4 (PopCheckpointSystemSleepUnsafe.c)
+ *     PopRecordSleepCheckpoint @ 0x1406E027C (PopRecordSleepCheckpoint.c)
  */
 
 unsigned __int64 __fastcall PopCheckpointSystemSleep(unsigned int a1)
@@ -46,7 +46,7 @@ unsigned __int64 __fastcall PopCheckpointSystemSleep(unsigned int a1)
     {
       if ( KeGetCurrentPrcb()->Number )
         KeBugCheckEx(0xA0u, 0x10FuLL, v1, 1uLL, 0LL);
-      if ( (unsigned __int8)off_1403FE680[0]() )
+      if ( (unsigned __int8)off_1403FF680[0]() )
         KeBugCheckEx(0xA0u, 0x10FuLL, v1, 2uLL, 0LL);
     }
     else if ( !_InterlockedExchangeAdd(&PopPagingEnabled, 0) )
@@ -58,6 +58,6 @@ unsigned __int64 __fastcall PopCheckpointSystemSleep(unsigned int a1)
   }
   v3 = __rdtsc();
   result = (((unsigned __int64)HIDWORD(v3) << 32) | (unsigned int)v3) - v2;
-  qword_140417B90 += result;
+  qword_140418C30 += result;
   return result;
 }

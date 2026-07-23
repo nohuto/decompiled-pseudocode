@@ -1,9 +1,9 @@
 /*
- * XREFs of PopBroadcastLegacyLidSwitchChangeCallback @ 0x14098AB10
+ * XREFs of PopBroadcastLegacyLidSwitchChangeCallback @ 0x14098AD10
  * Callers:
  *     <none>
  * Callees:
- *     ExNotifyCallback @ 0x14033BF40 (ExNotifyCallback.c)
+ *     ExNotifyCallback @ 0x14033C1D0 (ExNotifyCallback.c)
  */
 
 __int64 __fastcall PopBroadcastLegacyLidSwitchChangeCallback(_QWORD *a1, unsigned int *a2, int a3)

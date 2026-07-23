@@ -1,21 +1,21 @@
 /*
- * XREFs of CmpCreateRegistryRoot @ 0x140CEA70C
+ * XREFs of CmpCreateRegistryRoot @ 0x140CF0AAC
  * Callers:
- *     CmInitSystem1 @ 0x140CE888C (CmInitSystem1.c)
+ *     CmInitSystem1 @ 0x140CEEC2C (CmInitSystem1.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     CmpCreateKeyControlBlock @ 0x1408C4070 (CmpCreateKeyControlBlock.c)
- *     CmpHashUnicodeComponent @ 0x1408D1470 (CmpHashUnicodeComponent.c)
- *     ObReferenceObjectByHandle @ 0x1408F9550 (ObReferenceObjectByHandle.c)
- *     ObInsertObject @ 0x14092AFB0 (ObInsertObject.c)
- *     ObCreateObject @ 0x140932FB0 (ObCreateObject.c)
- *     ObCloseHandle @ 0x140A00740 (ObCloseHandle.c)
- *     EnlistKeyBodyWithKCB @ 0x140A31A60 (EnlistKeyBodyWithKCB.c)
- *     CmpTryToLockKcbExclusive @ 0x140A5F7F0 (CmpTryToLockKcbExclusive.c)
- *     CmpHiveRootSecurityDescriptor @ 0x140B4E1EC (CmpHiveRootSecurityDescriptor.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
- *     CmpUnlockKcb @ 0x140C582B0 (CmpUnlockKcb.c)
- *     CmpCreateRootNode @ 0x140CEA8F4 (CmpCreateRootNode.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     CmpCreateKeyControlBlock @ 0x1408CA640 (CmpCreateKeyControlBlock.c)
+ *     CmpHashUnicodeComponent @ 0x1408D7A30 (CmpHashUnicodeComponent.c)
+ *     ObInsertObject @ 0x140906AE0 (ObInsertObject.c)
+ *     ObCreateObject @ 0x14090EB60 (ObCreateObject.c)
+ *     ObCloseHandle @ 0x14091D2C0 (ObCloseHandle.c)
+ *     ObReferenceObjectByHandle @ 0x1409294E0 (ObReferenceObjectByHandle.c)
+ *     EnlistKeyBodyWithKCB @ 0x140A4C9C0 (EnlistKeyBodyWithKCB.c)
+ *     CmpTryToLockKcbExclusive @ 0x140A6C7B0 (CmpTryToLockKcbExclusive.c)
+ *     CmpHiveRootSecurityDescriptor @ 0x140B50A7C (CmpHiveRootSecurityDescriptor.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
+ *     CmpUnlockKcb @ 0x140C5E2B0 (CmpUnlockKcb.c)
+ *     CmpCreateRootNode @ 0x140CF0C94 (CmpCreateRootNode.c)
  */
 
 __int64 __fastcall CmpCreateRegistryRoot(__int64 a1, __int64 a2)
@@ -58,7 +58,7 @@ __int64 __fastcall CmpCreateRegistryRoot(__int64 a1, __int64 a2)
     v15 = 576;
     v17 = v3;
     v18 = 0LL;
-    inserted = ObCreateObject(0, CmKeyObjectType, v12, 0, 0, 112, 0, 0, &Object);
+    inserted = ObCreateObject(0, CmKeyObjectType, (__int64)v12, 0, 0, 112, 0, 0, &Object);
     ExFreePoolWithTag(v3, 0);
     if ( inserted >= 0 )
     {

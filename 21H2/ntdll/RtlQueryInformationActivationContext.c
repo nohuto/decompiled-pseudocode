@@ -17,183 +17,185 @@
  *     RtlpQueryRunLevel @ 0x180078F58 (RtlpQueryRunLevel.c)
  *     RtlpQueryInformationActivationContextDetailedInformation @ 0x180079048 (RtlpQueryInformationActivationContextDetailedInformation.c)
  *     RtlpQueryInformationActivationContextCompatibilityInformation @ 0x1800792A4 (RtlpQueryInformationActivationContextCompatibilityInformation.c)
- *     RtlpQueryAssemblyInformationActivationContextDetailedInformation @ 0x1800DFBE8 (RtlpQueryAssemblyInformationActivationContextDetailedInformation.c)
- *     RtlpQueryFilesInAssemblyInformationActivationContextDetailedInformation @ 0x1800DFE78 (RtlpQueryFilesInAssemblyInformationActivationContextDetailedInformation.c)
- *     RtlpQueryInformationActivationContextManifestResourceName @ 0x1800E0100 (RtlpQueryInformationActivationContextManifestResourceName.c)
+ *     RtlpQueryAssemblyInformationActivationContextDetailedInformation @ 0x1800DFBA8 (RtlpQueryAssemblyInformationActivationContextDetailedInformation.c)
+ *     RtlpQueryFilesInAssemblyInformationActivationContextDetailedInformation @ 0x1800DFE38 (RtlpQueryFilesInAssemblyInformationActivationContextDetailedInformation.c)
+ *     RtlpQueryInformationActivationContextManifestResourceName @ 0x1800E00C0 (RtlpQueryInformationActivationContextManifestResourceName.c)
  */
 
-__int64 __fastcall RtlQueryInformationActivationContext(
-        int a1,
-        struct _ACTIVATION_CONTEXT *a2,
-        _DWORD *a3,
-        int a4,
-        __int64 a5,
-        unsigned __int64 a6,
-        _QWORD *a7)
+NTSTATUS __cdecl RtlQueryInformationActivationContext(
+        ULONG Flags,
+        PACTIVATION_CONTEXT ActivationContext,
+        PACTIVATION_CONTEXT_QUERY_INDEX SubInstanceIndex,
+        ACTIVATION_CONTEXT_INFO_CLASS ActivationContextInformationClass,
+        PVOID ActivationContextInformation,
+        SIZE_T ActivationContextInformationLength,
+        PSIZE_T ReturnLength)
 {
-  struct _ACTIVATION_CONTEXT *ActivationContext; // rdi
+  PACTIVATION_CONTEXT v8; // rdi
   _ACTIVATION_CONTEXT_STACK *ActivationContextStackPointer; // rax
-  int v11; // edx
-  int ActivationContextData; // ebx
-  int v13; // r9d
-  __int64 v14; // r10
-  int v15; // ecx
+  __int64 v11; // rdx
+  NTSTATUS ActivationContextData; // ebx
+  __int64 v13; // r10
+  __int64 v14; // rcx
   int InformationActivationContextBasicInformation; // eax
   int LoadedDllByHandle; // eax
-  int v18; // eax
-  int v20; // [rsp+40h] [rbp-88h]
-  __int64 v21; // [rsp+48h] [rbp-80h] BYREF
-  int v22; // [rsp+50h] [rbp-78h] BYREF
-  int v23; // [rsp+54h] [rbp-74h]
-  __int64 v24; // [rsp+58h] [rbp-70h] BYREF
-  __int128 v25; // [rsp+60h] [rbp-68h] BYREF
-  __int64 v26; // [rsp+70h] [rbp-58h]
-  __int128 v27; // [rsp+78h] [rbp-50h] BYREF
-  __int128 v28; // [rsp+88h] [rbp-40h]
-  struct _ACTIVATION_CONTEXT *v29; // [rsp+D8h] [rbp+10h]
+  int v17; // eax
+  int v19; // [rsp+40h] [rbp-88h]
+  PVOID BaseAddress; // [rsp+48h] [rbp-80h] BYREF
+  int v21; // [rsp+50h] [rbp-78h] BYREF
+  int v22; // [rsp+54h] [rbp-74h]
+  __int64 v23; // [rsp+58h] [rbp-70h] BYREF
+  __int128 v24; // [rsp+60h] [rbp-68h]
+  __int64 v25; // [rsp+70h] [rbp-58h]
+  __int128 v26; // [rsp+78h] [rbp-50h] BYREF
+  __int128 v27; // [rsp+88h] [rbp-40h]
+  PACTIVATION_CONTEXT v28; // [rsp+D8h] [rbp+10h]
 
-  v29 = a2;
-  ActivationContext = a2;
+  v28 = ActivationContext;
+  v8 = ActivationContext;
+  v26 = 0LL;
   v27 = 0LL;
-  v28 = 0LL;
-  v24 = 0LL;
-  v21 = 0LL;
-  DWORD2(v28) = 4;
-  if ( a7 )
-    *a7 = 0LL;
-  if ( (a1 & 0x3FFFFFF8) != 0 )
+  v23 = 0LL;
+  BaseAddress = 0LL;
+  DWORD2(v27) = 4;
+  if ( ReturnLength )
+    *ReturnLength = 0LL;
+  if ( (Flags & 0x3FFFFFF8) != 0 )
     goto LABEL_51;
-  if ( a1 < 0 && (((a4 - 1) & 0xFFFFFFFA) != 0 || a4 == 2) )
+  if ( (Flags & 0x80000000) != 0
+    && (((ActivationContextInformationClass - 1) & 0xFFFFFFFA) != 0
+     || ActivationContextInformationClass == ActivationContextDetailedInformation) )
   {
     DbgPrintEx(
-      51LL,
-      0LL,
+      0x33u,
+      0,
       "SXS: %s() - Caller passed meaningless flags/class combination (0x%08lx/0x%08lx)\n",
       "RtlQueryInformationActivationContext",
-      a1,
-      a4);
+      Flags,
+      ActivationContextInformationClass);
 LABEL_44:
     ActivationContextData = -1073741585;
     goto LABEL_80;
   }
-  if ( (unsigned int)(a4 - 1) > 6 )
+  if ( (unsigned int)(ActivationContextInformationClass - 1) > 6 )
   {
     DbgPrintEx(
-      51LL,
-      0LL,
+      0x33u,
+      0,
       "SXS: %s() - caller asked for unknown information class %lu\n",
       "RtlQueryInformationActivationContext",
-      a4);
+      ActivationContextInformationClass);
     ActivationContextData = -1073741583;
     goto LABEL_80;
   }
-  if ( a6 )
+  if ( ActivationContextInformationLength )
   {
-    if ( !a5 )
+    if ( !ActivationContextInformation )
     {
       DbgPrintEx(
-        51LL,
-        0LL,
+        0x33u,
+        0,
         "SXS: %s() - caller passed nonzero buffer length but NULL buffer pointer\n",
         "RtlQueryInformationActivationContext");
       ActivationContextData = -1073741582;
       goto LABEL_80;
     }
   }
-  else if ( !a7 )
+  else if ( !ReturnLength )
   {
     DbgPrintEx(
-      51LL,
-      0LL,
+      0x33u,
+      0,
       "SXS: %s() - caller supplied no buffer to populate and no place to return required byte count\n",
       "RtlQueryInformationActivationContext");
     ActivationContextData = -1073741580;
     goto LABEL_80;
   }
-  if ( (a1 & 7) == 0 )
+  if ( (Flags & 7) == 0 )
     goto LABEL_13;
-  if ( (a1 & 7) == 1 )
+  if ( (Flags & 7) == 1 )
   {
-    if ( !a2 )
+    if ( !ActivationContext )
     {
       ActivationContextStackPointer = NtCurrentTeb()->ActivationContextStackPointer;
       if ( ActivationContextStackPointer->ActiveFrame )
-        ActivationContext = ActivationContextStackPointer->ActiveFrame->ActivationContext;
+        v8 = ActivationContextStackPointer->ActiveFrame->ActivationContext;
       else
-        ActivationContext = a2;
+        v8 = ActivationContext;
       goto LABEL_13;
     }
     DbgPrintEx(
-      51LL,
-      0LL,
+      0x33u,
+      0,
       "SXS: %s() - caller asked to use active activation context but passed %p\n",
       "RtlQueryInformationActivationContext",
-      a2);
+      ActivationContext);
 LABEL_57:
     ActivationContextData = -1073741584;
     goto LABEL_80;
   }
-  if ( (a1 & 7) != 2 )
+  if ( (Flags & 7) != 2 )
   {
-    if ( (a1 & 7) == 4 )
+    if ( (Flags & 7) == 4 )
     {
-      if ( !a2 )
+      if ( !ActivationContext )
       {
         DbgPrintEx(
-          51LL,
-          0LL,
+          0x33u,
+          0,
           "SXS: %s() - Caller asked to use activation context from address in .dll but passed NULL\n",
           "RtlQueryInformationActivationContext");
         goto LABEL_57;
       }
-      if ( (unsigned __int64)a2 < *((_QWORD *)&xmmword_180181510 + 1)
-        || (unsigned __int64)a2 >= *((_QWORD *)&xmmword_180181510 + 1) + (unsigned __int64)(unsigned int)qword_180181520 )
+      if ( (unsigned __int64)ActivationContext < *((_QWORD *)&xmmword_180181510 + 1)
+        || (unsigned __int64)ActivationContext >= *((_QWORD *)&xmmword_180181510 + 1)
+                                                + (unsigned __int64)(unsigned int)qword_180181520 )
       {
-        RtlpxLookupFunctionTable(a2, &v25);
+        RtlpxLookupFunctionTable(ActivationContext);
       }
       else
       {
-        v25 = xmmword_180181510;
-        v26 = qword_180181520;
+        v24 = xmmword_180181510;
+        v25 = qword_180181520;
       }
-      if ( !*((_QWORD *)&v25 + 1) )
+      if ( !*((_QWORD *)&v24 + 1) )
       {
         DbgPrintEx(
-          51LL,
-          0LL,
+          0x33u,
+          0,
           "SXS: %s() - Caller passed invalid address, not in any .dll (%p)\n",
           "RtlQueryInformationActivationContext",
-          ActivationContext);
+          v8);
         ActivationContextData = -1073741515;
         goto LABEL_80;
       }
-      ActivationContext = (struct _ACTIVATION_CONTEXT *)*((_QWORD *)&v25 + 1);
-      v29 = (struct _ACTIVATION_CONTEXT *)*((_QWORD *)&v25 + 1);
+      v8 = (PACTIVATION_CONTEXT)*((_QWORD *)&v24 + 1);
+      v28 = (PACTIVATION_CONTEXT)*((_QWORD *)&v24 + 1);
       goto LABEL_28;
     }
 LABEL_51:
     DbgPrintEx(
-      51LL,
-      0LL,
+      0x33u,
+      0,
       "SXS: %s() - Caller passed invalid flags (0x%08lx)\n",
       "RtlQueryInformationActivationContext",
-      a1);
+      Flags);
     goto LABEL_44;
   }
 LABEL_28:
-  if ( !ActivationContext )
+  if ( !v8 )
   {
     DbgPrintEx(
-      51LL,
-      0LL,
+      0x33u,
+      0,
       "SXS: %s() - Caller asked to use activation context from hmodule but passed NULL\n",
       "RtlQueryInformationActivationContext");
     goto LABEL_57;
   }
-  LoadedDllByHandle = LdrpFindLoadedDllByHandle((unsigned __int64)ActivationContext, &v21, &v22);
+  LoadedDllByHandle = LdrpFindLoadedDllByHandle((unsigned __int64)v8, (volatile signed __int32 **)&BaseAddress, &v21);
   ActivationContextData = LoadedDllByHandle;
-  v20 = LoadedDllByHandle;
-  if ( LoadedDllByHandle >= 0 && v22 < 5 )
+  v19 = LoadedDllByHandle;
+  if ( LoadedDllByHandle >= 0 && v21 < 5 )
   {
     if ( (NtCurrentTeb()->SameTebFlags & 0x1000) != 0 )
     {
@@ -202,135 +204,129 @@ LABEL_28:
     else
     {
       LdrpDrainWorkQueue(0LL);
-      v18 = v20;
-      if ( *(_DWORD *)(*(_QWORD *)(v21 + 152) + 56LL) != 9 )
-        v18 = -1073741515;
-      ActivationContextData = v18;
+      v17 = v19;
+      if ( *(_DWORD *)(*((_QWORD *)BaseAddress + 19) + 56LL) != 9 )
+        v17 = -1073741515;
+      ActivationContextData = v17;
       LdrpDropLastInProgressCount();
     }
-    ActivationContext = v29;
+    v8 = v28;
   }
   if ( ActivationContextData < 0 )
   {
-    DbgPrintEx(
-      51LL,
-      0LL,
-      "SXS: %s() - Caller passed invalid hmodule (%p)\n",
-      "RtlQueryInformationActivationContext",
-      ActivationContext);
+    DbgPrintEx(0x33u, 0, "SXS: %s() - Caller passed invalid hmodule (%p)\n", "RtlQueryInformationActivationContext", v8);
     goto LABEL_80;
   }
-  ActivationContext = *(struct _ACTIVATION_CONTEXT **)(v21 + 136);
+  v8 = (PACTIVATION_CONTEXT)*((_QWORD *)BaseAddress + 17);
 LABEL_13:
   ActivationContextData = RtlpGetActivationContextData(
                             1LL,
-                            ActivationContext,
-                            (unsigned __int64)&v27 & -(__int64)((a1 & 0x40000000) != 0),
-                            &v24);
+                            v8,
+                            (unsigned __int64)&v26 & -(__int64)((Flags & 0x40000000) != 0),
+                            &v23);
   if ( ActivationContextData < 0 )
     goto LABEL_80;
-  v14 = v24;
-  if ( !v24 && (unsigned int)(a4 - 2) <= 5 )
+  v13 = v23;
+  if ( !v23 && (unsigned int)(ActivationContextInformationClass - 2) <= 5 )
     goto LABEL_44;
-  v15 = a4 - 1;
-  switch ( a4 )
+  v14 = (unsigned int)(ActivationContextInformationClass - 1);
+  switch ( ActivationContextInformationClass )
   {
-    case 1:
-      v23 &= v15;
-      if ( a1 < 0 )
-        v15 = a4;
-      v23 = v15;
+    case ActivationContextBasicInformation:
+      v22 &= v14;
+      if ( (Flags & 0x80000000) != 0 )
+        v14 = (unsigned int)ActivationContextInformationClass;
+      v22 = v14;
       InformationActivationContextBasicInformation = RtlpQueryInformationActivationContextBasicInformation(
-                                                       v15,
+                                                       v14,
                                                        v11,
-                                                       v24,
-                                                       v13,
-                                                       a5,
-                                                       a6,
-                                                       (__int64)a7);
+                                                       v23);
 LABEL_19:
       ActivationContextData = InformationActivationContextBasicInformation;
       if ( InformationActivationContextBasicInformation < 0 )
         break;
       goto LABEL_20;
-    case 2:
+    case ActivationContextDetailedInformation:
       InformationActivationContextBasicInformation = RtlpQueryInformationActivationContextDetailedInformation(
-                                                       v24,
+                                                       v23,
                                                        v11,
-                                                       a5,
-                                                       a6,
-                                                       (__int64)a7);
+                                                       (_DWORD)ActivationContextInformation,
+                                                       ActivationContextInformationLength,
+                                                       (__int64)ReturnLength);
       goto LABEL_19;
-    case 3:
-      if ( a3 )
+    case AssemblyDetailedInformationInActivationContext:
+      if ( SubInstanceIndex )
       {
         InformationActivationContextBasicInformation = RtlpQueryAssemblyInformationActivationContextDetailedInformation(
-                                                         v24,
-                                                         *a3,
-                                                         a5,
-                                                         a6,
-                                                         (__int64)a7);
+                                                         v23,
+                                                         SubInstanceIndex->ulAssemblyIndex,
+                                                         (_DWORD)ActivationContextInformation,
+                                                         ActivationContextInformationLength,
+                                                         (__int64)ReturnLength);
         goto LABEL_19;
       }
       goto LABEL_77;
-    case 4:
-      if ( a3 )
+    case FileInformationInAssemblyOfAssemblyInActivationContext:
+      if ( SubInstanceIndex )
       {
         InformationActivationContextBasicInformation = RtlpQueryFilesInAssemblyInformationActivationContextDetailedInformation(
-                                                         v24,
-                                                         (_DWORD)a3,
-                                                         a5,
-                                                         a6,
-                                                         (__int64)a7);
+                                                         v23,
+                                                         (_DWORD)SubInstanceIndex,
+                                                         (_DWORD)ActivationContextInformation,
+                                                         ActivationContextInformationLength,
+                                                         (__int64)ReturnLength);
         goto LABEL_19;
       }
 LABEL_77:
       ActivationContextData = -1073741811;
       break;
-    case 5:
-      if ( a6 >= 0xC )
+    case RunlevelInformationInActivationContext:
+      if ( ActivationContextInformationLength >= 0xC )
       {
-        *(_QWORD *)a5 = 0LL;
-        *(_DWORD *)(a5 + 8) = 0;
-        ActivationContextData = RtlpQueryRunLevel((unsigned int)(a4 - 5), v14, a5);
+        *(_QWORD *)ActivationContextInformation = 0LL;
+        *((_DWORD *)ActivationContextInformation + 2) = 0;
+        ActivationContextData = RtlpQueryRunLevel(
+                                  (unsigned int)(ActivationContextInformationClass - 5),
+                                  v13,
+                                  ActivationContextInformation);
         if ( ActivationContextData < 0 )
           break;
-        if ( a7 )
-          *a7 = 12LL;
+        if ( ReturnLength )
+          *ReturnLength = 12LL;
 LABEL_20:
         ActivationContextData = 0;
         break;
       }
       ActivationContextData = -1073741789;
-      if ( a7 )
-        *a7 = 12LL;
+      if ( ReturnLength )
+        *ReturnLength = 12LL;
       break;
-    case 6:
+    case CompatibilityInformationInActivationContext:
       InformationActivationContextBasicInformation = RtlpQueryInformationActivationContextCompatibilityInformation(
-                                                       v24,
-                                                       a5,
-                                                       a6,
-                                                       a7);
+                                                       v23,
+                                                       ActivationContextInformation,
+                                                       ActivationContextInformationLength,
+                                                       ReturnLength);
       goto LABEL_19;
-    case 7:
+    case ActivationContextManifestResourceName:
       InformationActivationContextBasicInformation = RtlpQueryInformationActivationContextManifestResourceName(
-                                                       v24,
-                                                       a5,
-                                                       a6,
-                                                       a7);
+                                                       v23,
+                                                       ActivationContextInformation,
+                                                       ActivationContextInformationLength,
+                                                       ReturnLength);
       goto LABEL_19;
     default:
       DbgPrintEx(
-        51LL,
-        0LL,
+        0x33u,
+        0,
         "SXS: %s() - internal coding error; missing switch statement branch for InfoClass == %lu\n",
         "RtlQueryInformationActivationContext",
-        a4);
+        ActivationContextInformationClass);
       ActivationContextData = -1073741595;
       break;
   }
 LABEL_80:
-  if ( v21 )
-    LdrpDereferenceModule(v21);
-  return (unsigned int)ActivationContextData;
+  if ( BaseAddress )
+    LdrpDereferenceModule(BaseAddress);
+  return ActivationContextData;
 }

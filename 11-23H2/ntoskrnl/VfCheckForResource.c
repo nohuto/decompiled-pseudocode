@@ -1,23 +1,23 @@
 /*
- * XREFs of VfCheckForResource @ 0x140AE43BC
+ * XREFs of VfCheckForResource @ 0x140AE43AC
  * Callers:
- *     ExpCheckForResource @ 0x14060AC58 (ExpCheckForResource.c)
+ *     ExpCheckForResource @ 0x14060B1A8 (ExpCheckForResource.c)
  * Callees:
  *     VfAvlLookupTreeNode @ 0x140209FDC (VfAvlLookupTreeNode.c)
  *     VfAvlCleanupLockContext @ 0x14020A34C (VfAvlCleanupLockContext.c)
  *     VfAvlDeleteTreeNode @ 0x14020A720 (VfAvlDeleteTreeNode.c)
  *     VfUtilFreePoolCheckIRQL @ 0x14020A910 (VfUtilFreePoolCheckIRQL.c)
- *     ExFreeToNPagedLookasideList @ 0x1402B6B70 (ExFreeToNPagedLookasideList.c)
- *     VfAvlInitializeLockContext @ 0x1404664A8 (VfAvlInitializeLockContext.c)
- *     VfPoolIsInternalFree @ 0x1405D1B9C (VfPoolIsInternalFree.c)
- *     VerifierBugCheckIfAppropriate @ 0x140ACD2B4 (VerifierBugCheckIfAppropriate.c)
+ *     ExFreeToNPagedLookasideList @ 0x1402B6E00 (ExFreeToNPagedLookasideList.c)
+ *     VfAvlInitializeLockContext @ 0x1404668A8 (VfAvlInitializeLockContext.c)
+ *     VfPoolIsInternalFree @ 0x1405D210C (VfPoolIsInternalFree.c)
+ *     VerifierBugCheckIfAppropriate @ 0x140ACD2A4 (VerifierBugCheckIfAppropriate.c)
  */
 
 __int64 __fastcall VfCheckForResource(ULONG_PTR BugCheckParameter3, __int64 a2)
 {
   ULONG_PTR *v4; // rax
   ULONG_PTR *v5; // rbx
-  struct _SLIST_ENTRY *v6; // rbx
+  _SLIST_ENTRY *v6; // rbx
   __int128 v8; // [rsp+30h] [rbp-18h] BYREF
   ULONG_PTR v9; // [rsp+60h] [rbp+18h] BYREF
 
@@ -41,7 +41,7 @@ __int64 __fastcall VfCheckForResource(ULONG_PTR BugCheckParameter3, __int64 a2)
     {
       _InterlockedIncrement(&ViResourceStaleNodes);
       VfAvlInitializeLockContext((__int64)&v8, 0);
-      v6 = (struct _SLIST_ENTRY *)VfAvlDeleteTreeNode((__int64)&ViResourceAvl, (__int64)&v8, (unsigned __int64)&v9, 0LL);
+      v6 = (_SLIST_ENTRY *)VfAvlDeleteTreeNode((__int64)&ViResourceAvl, (__int64)&v8, (unsigned __int64)&v9, 0LL);
       VfAvlCleanupLockContext((__int64)&v8);
       if ( v6 )
       {

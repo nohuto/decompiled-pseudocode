@@ -1,11 +1,11 @@
 /*
- * XREFs of SymCryptFdefModNegGeneric @ 0x1405366C0
+ * XREFs of SymCryptFdefModNegGeneric @ 0x140530B60
  * Callers:
  *     <none>
  * Callees:
- *     xHalTimerWatchdogStop @ 0x140493990 (xHalTimerWatchdogStop.c)
- *     SymCryptFdefRawSub @ 0x14052F804 (SymCryptFdefRawSub.c)
- *     SymCryptFdefRawIsEqualUint32 @ 0x1405375CC (SymCryptFdefRawIsEqualUint32.c)
+ *     xHalTimerWatchdogStop @ 0x14048E2E0 (xHalTimerWatchdogStop.c)
+ *     SymCryptFdefRawSub @ 0x140529CAC (SymCryptFdefRawSub.c)
+ *     SymCryptFdefRawIsEqualUint32 @ 0x140531A6C (SymCryptFdefRawIsEqualUint32.c)
  */
 
 __int64 __fastcall SymCryptFdefModNegGeneric(__int64 a1, __int64 a2, _DWORD *a3)

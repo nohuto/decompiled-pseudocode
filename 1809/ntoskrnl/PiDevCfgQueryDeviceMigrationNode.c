@@ -1,20 +1,20 @@
 /*
- * XREFs of PiDevCfgQueryDeviceMigrationNode @ 0x14082DBEC
+ * XREFs of PiDevCfgQueryDeviceMigrationNode @ 0x14082EE1C
  * Callers:
- *     PiDevCfgMigrateDevice @ 0x140700D10 (PiDevCfgMigrateDevice.c)
- *     PiDevCfgFindDeviceMigrationNode @ 0x14082C66C (PiDevCfgFindDeviceMigrationNode.c)
+ *     PiDevCfgMigrateDevice @ 0x140701FB0 (PiDevCfgMigrateDevice.c)
+ *     PiDevCfgFindDeviceMigrationNode @ 0x14082D898 (PiDevCfgFindDeviceMigrationNode.c)
  * Callees:
- *     PnpValidateMultiSzData @ 0x14015D984 (PnpValidateMultiSzData.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     ZwClose @ 0x1401B8370 (ZwClose.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     RtlGUIDFromString @ 0x14059A5A0 (RtlGUIDFromString.c)
- *     RtlpQueryRegistryValues @ 0x1405C58AC (RtlpQueryRegistryValues.c)
- *     _SysCtxRegOpenKey @ 0x1405C7AFC (_SysCtxRegOpenKey.c)
- *     RtlFreeAnsiString @ 0x140623790 (RtlFreeAnsiString.c)
- *     RtlCreateUnicodeString @ 0x14065AA10 (RtlCreateUnicodeString.c)
- *     PiDevCfgFreeDeviceMigrationNode @ 0x14082D038 (PiDevCfgFreeDeviceMigrationNode.c)
+ *     PnpValidateMultiSzData @ 0x14015DA84 (PnpValidateMultiSzData.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     ZwClose @ 0x1401B84D0 (ZwClose.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     RtlGUIDFromString @ 0x14059B5A0 (RtlGUIDFromString.c)
+ *     RtlpQueryRegistryValues @ 0x1405C68AC (RtlpQueryRegistryValues.c)
+ *     _SysCtxRegOpenKey @ 0x1405C8AFC (_SysCtxRegOpenKey.c)
+ *     RtlFreeAnsiString @ 0x140624790 (RtlFreeAnsiString.c)
+ *     RtlCreateUnicodeString @ 0x14065BBD0 (RtlCreateUnicodeString.c)
+ *     PiDevCfgFreeDeviceMigrationNode @ 0x14082E264 (PiDevCfgFreeDeviceMigrationNode.c)
  */
 
 __int64 __fastcall PiDevCfgQueryDeviceMigrationNode(__int64 a1, const WCHAR *a2, _QWORD *a3)
@@ -72,7 +72,7 @@ LABEL_31:
     *((_QWORD *)v9 + 5) = Handle;
     Handle = 0LL;
     memset(v23, 0, sizeof(v23));
-    v11 = _mm_loadu_si128((const __m128i *)off_140909248);
+    v11 = _mm_loadu_si128((const __m128i *)off_14090A508);
     si128 = _mm_load_si128((const __m128i *)&_xmm);
     v13 = _mm_load_si128((const __m128i *)&_xmm);
     v23[2] = v11.m128i_i64[0];

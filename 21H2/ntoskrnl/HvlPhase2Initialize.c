@@ -1,27 +1,27 @@
 /*
- * XREFs of HvlPhase2Initialize @ 0x1403CF0B8
+ * XREFs of HvlPhase2Initialize @ 0x1403CF228
  * Callers:
- *     IoInitSystemPreDrivers @ 0x140A3EB60 (IoInitSystemPreDrivers.c)
+ *     IoInitSystemPreDrivers @ 0x140A3FB60 (IoInitSystemPreDrivers.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
- *     ExNotifyWithProcessing @ 0x1402B0658 (ExNotifyWithProcessing.c)
- *     ExRegisterCallback @ 0x14037F1A0 (ExRegisterCallback.c)
- *     HvlpQueryHypervisorSchedulerType @ 0x1403F0DF0 (HvlpQueryHypervisorSchedulerType.c)
- *     HvlpRegisterPowerPolicyCallbacks @ 0x1404F8684 (HvlpRegisterPowerPolicyCallbacks.c)
- *     HvlpInitializeHvCrashdumpPhase2 @ 0x1404F95A0 (HvlpInitializeHvCrashdumpPhase2.c)
- *     HvlpInitializeSvmIommuSupport @ 0x1404F968C (HvlpInitializeSvmIommuSupport.c)
- *     HvlpCheckTscSync @ 0x1404F98E0 (HvlpCheckTscSync.c)
- *     HvlpEtwRegister @ 0x1404F9A20 (HvlpEtwRegister.c)
- *     HvlpLogGuestStateScrubbingStatus @ 0x1404F9A68 (HvlpLogGuestStateScrubbingStatus.c)
- *     HvlpLogHypervisorLaunchError @ 0x1404F9CDC (HvlpLogHypervisorLaunchError.c)
- *     HvlpLogHypervisorSchedulerType @ 0x1404F9D54 (HvlpLogHypervisorSchedulerType.c)
- *     HvlpLogIommuInitStatus @ 0x1404F9EB8 (HvlpLogIommuInitStatus.c)
- *     HvlpLogProcessorStartupFailure @ 0x1404FA06C (HvlpLogProcessorStartupFailure.c)
- *     HvlpWriteEventLog @ 0x1404FA134 (HvlpWriteEventLog.c)
- *     ExCreateCallback @ 0x1406BD240 (ExCreateCallback.c)
- *     EtwUnregister @ 0x1407601D0 (EtwUnregister.c)
- *     HvlpLogMicrocodeUpdateStatus @ 0x14088E624 (HvlpLogMicrocodeUpdateStatus.c)
- *     HvlpDiscoverTopologyComplete @ 0x140A8F044 (HvlpDiscoverTopologyComplete.c)
+ *     ExNotifyWithProcessing @ 0x14022E9B8 (ExNotifyWithProcessing.c)
+ *     RtlInitUnicodeString @ 0x14026A4C0 (RtlInitUnicodeString.c)
+ *     ExRegisterCallback @ 0x14037ECF0 (ExRegisterCallback.c)
+ *     HvlpQueryHypervisorSchedulerType @ 0x1403F0D20 (HvlpQueryHypervisorSchedulerType.c)
+ *     HvlpRegisterPowerPolicyCallbacks @ 0x1404F8604 (HvlpRegisterPowerPolicyCallbacks.c)
+ *     HvlpInitializeHvCrashdumpPhase2 @ 0x1404F9520 (HvlpInitializeHvCrashdumpPhase2.c)
+ *     HvlpInitializeSvmIommuSupport @ 0x1404F960C (HvlpInitializeSvmIommuSupport.c)
+ *     HvlpCheckTscSync @ 0x1404F9860 (HvlpCheckTscSync.c)
+ *     HvlpEtwRegister @ 0x1404F99A0 (HvlpEtwRegister.c)
+ *     HvlpLogGuestStateScrubbingStatus @ 0x1404F99E8 (HvlpLogGuestStateScrubbingStatus.c)
+ *     HvlpLogHypervisorLaunchError @ 0x1404F9C5C (HvlpLogHypervisorLaunchError.c)
+ *     HvlpLogHypervisorSchedulerType @ 0x1404F9CD4 (HvlpLogHypervisorSchedulerType.c)
+ *     HvlpLogIommuInitStatus @ 0x1404F9E38 (HvlpLogIommuInitStatus.c)
+ *     HvlpLogProcessorStartupFailure @ 0x1404F9FEC (HvlpLogProcessorStartupFailure.c)
+ *     HvlpWriteEventLog @ 0x1404FA0B4 (HvlpWriteEventLog.c)
+ *     ExCreateCallback @ 0x14061C450 (ExCreateCallback.c)
+ *     EtwUnregister @ 0x140760390 (EtwUnregister.c)
+ *     HvlpLogMicrocodeUpdateStatus @ 0x14088E784 (HvlpLogMicrocodeUpdateStatus.c)
+ *     HvlpDiscoverTopologyComplete @ 0x140A90044 (HvlpDiscoverTopologyComplete.c)
  */
 
 NTSTATUS __fastcall HvlPhase2Initialize(__int64 a1, __int64 a2)
@@ -82,8 +82,8 @@ NTSTATUS __fastcall HvlPhase2Initialize(__int64 a1, __int64 a2)
   HvlpDiscoverTopologyComplete(a1, a2);
   HvlpSchedulerType = HvlpQueryHypervisorSchedulerType(v9, v8);
   if ( HvlpSchedulerType == 4 )
-    KeNumberProcessorsGroup0[4] = 1;
-  v10 = KeNumberProcessorsGroup0[4];
+    KeNumberProcessorsGroup0[3] = 1;
+  v10 = KeNumberProcessorsGroup0[3];
   if ( !v10
     || (result = HvlpInitializeSvmIommuSupport(a1, a2), a2 = 0x80000000LL, a1 = result + 0x80000000, (int)a1 < 0)
     || result == -1073741637 )

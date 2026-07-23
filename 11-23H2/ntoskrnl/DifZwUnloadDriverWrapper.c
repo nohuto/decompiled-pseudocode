@@ -1,12 +1,12 @@
 /*
- * XREFs of DifZwUnloadDriverWrapper @ 0x1405F7FC0
+ * XREFs of DifZwUnloadDriverWrapper @ 0x1405F8530
  * Callers:
  *     <none>
  * Callees:
- *     ZwUnloadDriver @ 0x14041E820 (ZwUnloadDriver.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     DifGetAPIThunkContextById @ 0x1404664BE (DifGetAPIThunkContextById.c)
- *     DifGetReturnAddressForWrappers @ 0x1405F88C4 (DifGetReturnAddressForWrappers.c)
+ *     ZwUnloadDriver @ 0x14041EBB0 (ZwUnloadDriver.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     DifGetAPIThunkContextById @ 0x1404668BE (DifGetAPIThunkContextById.c)
+ *     DifGetReturnAddressForWrappers @ 0x1405F8E34 (DifGetReturnAddressForWrappers.c)
  */
 
 NTSTATUS __fastcall DifZwUnloadDriverWrapper(PUNICODE_STRING DriverServiceName)

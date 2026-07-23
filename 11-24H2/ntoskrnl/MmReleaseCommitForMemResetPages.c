@@ -1,19 +1,19 @@
 /*
- * XREFs of MmReleaseCommitForMemResetPages @ 0x14066AB1C
+ * XREFs of MmReleaseCommitForMemResetPages @ 0x14066BCEC
  * Callers:
- *     NtSetInformationProcess @ 0x140947500 (NtSetInformationProcess.c)
+ *     NtSetInformationProcess @ 0x1408EBA70 (NtSetInformationProcess.c)
  * Callees:
- *     MiLockWorkingSetExclusive @ 0x14020D480 (MiLockWorkingSetExclusive.c)
- *     MiUnlockWorkingSetExclusive @ 0x140218550 (MiUnlockWorkingSetExclusive.c)
- *     MiPrepareAttachThread @ 0x140228180 (MiPrepareAttachThread.c)
- *     MiReleaseSpinLockExclusive @ 0x14028EE30 (MiReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x14028F370 (ExAcquireSpinLockExclusive.c)
- *     MiAttachThreadDone @ 0x1402E2710 (MiAttachThreadDone.c)
- *     KeForceDetachProcess @ 0x1402F9B70 (KeForceDetachProcess.c)
- *     KeWaitForSingleObject @ 0x14033E960 (KeWaitForSingleObject.c)
- *     KeForceAttachProcess @ 0x14042D8D0 (KeForceAttachProcess.c)
- *     KeRetryOutswapProcess @ 0x140497DD0 (KeRetryOutswapProcess.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     MiUnlockWorkingSetExclusive @ 0x140243400 (MiUnlockWorkingSetExclusive.c)
+ *     MiReleaseSpinLockExclusive @ 0x14029EA30 (MiReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14029EF70 (ExAcquireSpinLockExclusive.c)
+ *     MiAttachThreadDone @ 0x1402FE6F0 (MiAttachThreadDone.c)
+ *     KeWaitForSingleObject @ 0x14031DE40 (KeWaitForSingleObject.c)
+ *     MiLockWorkingSetExclusive @ 0x1403367E0 (MiLockWorkingSetExclusive.c)
+ *     MiPrepareAttachThread @ 0x140342180 (MiPrepareAttachThread.c)
+ *     KeForceDetachProcess @ 0x1403422E0 (KeForceDetachProcess.c)
+ *     KeForceAttachProcess @ 0x140424E30 (KeForceAttachProcess.c)
+ *     KeRetryOutswapProcess @ 0x1404928E0 (KeRetryOutswapProcess.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 __int64 __fastcall MmReleaseCommitForMemResetPages(__int64 BugCheckParameter1, int a2)
@@ -26,32 +26,31 @@ __int64 __fastcall MmReleaseCommitForMemResetPages(__int64 BugCheckParameter1, i
   unsigned __int8 v9; // r9
   unsigned __int8 v10; // cl
   __int64 v11; // r8
-  __int64 v12; // rdx
+  __int64 v12; // r9
   __int64 v13; // r8
-  __int64 v14; // rdx
-  __int64 v15; // r8
+  __int64 v14; // r9
   __int64 Object; // [rsp+30h] [rbp-50h] BYREF
-  _QWORD v18[2]; // [rsp+38h] [rbp-48h] BYREF
-  _OWORD v19[3]; // [rsp+48h] [rbp-38h] BYREF
+  _QWORD v17[2]; // [rsp+38h] [rbp-48h] BYREF
+  _OWORD v18[3]; // [rsp+48h] [rbp-38h] BYREF
 
   Object = 393216LL;
   v2 = 0;
-  v18[1] = v18;
+  v17[1] = v17;
   v3 = BugCheckParameter1 + 1024;
-  v18[0] = v18;
-  v5 = (__int64 *)&unk_140E38760;
+  v17[0] = v17;
+  v5 = (__int64 *)&unk_140E388A0;
   v7 = *(_DWORD *)(BugCheckParameter1 + 1208) & 0xF;
-  memset(v19, 0, sizeof(v19));
+  memset(v18, 0, sizeof(v18));
   if ( v7 != 1 )
     v5 = (__int64 *)(BugCheckParameter1 + 1248);
   if ( (HIBYTE(*(_DWORD *)(BugCheckParameter1 + 1208)) & 0x30) == 0x20 )
   {
-    ExAcquireSpinLockExclusive(&dword_140E373C0);
+    ExAcquireSpinLockExclusive(&SpinLock);
     v8 = MiPrepareAttachThread(BugCheckParameter1, v3);
-    MiReleaseSpinLockExclusive(&dword_140E373C0, v9);
+    MiReleaseSpinLockExclusive(&SpinLock, v9);
     if ( v8 )
     {
-      KeForceAttachProcess((_KPROCESS *)BugCheckParameter1, v19, 0);
+      KeForceAttachProcess((_KPROCESS *)BugCheckParameter1, v18, 0);
       v10 = MiLockWorkingSetExclusive(v3);
       if ( (HIBYTE(*(_DWORD *)(v3 + 184)) & 0x30) == 0x20 )
       {
@@ -62,8 +61,8 @@ __int64 __fastcall MmReleaseCommitForMemResetPages(__int64 BugCheckParameter1, i
           *(_DWORD *)(v11 + 48) = *(_DWORD *)(v11 + 48) & 0xFFFFFFFE | (a2 != 0);
           MiUnlockWorkingSetExclusive(v3, v10);
           KeRetryOutswapProcess((volatile signed __int32 *)BugCheckParameter1);
-          KeForceDetachProcess((volatile _KAFFINITY_EX *)v19, 0);
-          MiAttachThreadDone(v3, v14, v15);
+          KeForceDetachProcess((volatile _KAFFINITY_EX *)v18, 0, v13, v14);
+          MiAttachThreadDone(v3);
           KeWaitForSingleObject(&Object, WrKernel, 0, 0, 0LL);
           return v2;
         }
@@ -75,8 +74,8 @@ __int64 __fastcall MmReleaseCommitForMemResetPages(__int64 BugCheckParameter1, i
       }
       if ( v10 != 17 )
         MiUnlockWorkingSetExclusive(v3, v10);
-      KeForceDetachProcess((volatile _KAFFINITY_EX *)v19, 0);
-      MiAttachThreadDone(v3, v12, v13);
+      KeForceDetachProcess((volatile _KAFFINITY_EX *)v18, 0, v11, v12);
+      MiAttachThreadDone(v3);
     }
     else
     {

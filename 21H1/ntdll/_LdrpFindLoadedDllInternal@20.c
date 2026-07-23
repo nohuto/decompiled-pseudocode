@@ -14,24 +14,22 @@
  *     _LdrpLogDbgPrint @ 0x4B32E582 (_LdrpLogDbgPrint.c)
  */
 
-int __fastcall LdrpFindLoadedDllInternal(unsigned __int16 *a1, int *a2, int *a3, _DWORD *a4, __int16 a5)
+int __fastcall LdrpFindLoadedDllInternal(_UNICODE_STRING *a1, wchar_t *a2, int *a3, _DWORD *a4, __int16 a5)
 {
-  unsigned __int16 *v5; // esi
+  UNICODE_STRING *Buffer; // esi
   int LoadedDllByName; // esi
   int v8; // ecx
   int v9; // eax
-  unsigned __int16 v10; // [esp+14h] [ebp-128h] BYREF
-  unsigned __int16 *v11; // [esp+18h] [ebp-124h]
-  _DWORD *v12; // [esp+1Ch] [ebp-120h]
-  int v13; // [esp+20h] [ebp-11Ch] BYREF
-  int *v14; // [esp+24h] [ebp-118h]
-  UNICODE_STRING v15; // [esp+28h] [ebp-114h] BYREF
-  _WORD v16[130]; // [esp+30h] [ebp-10Ch] BYREF
+  _UNICODE_STRING DestinationString; // [esp+14h] [ebp-128h] BYREF
+  _DWORD *v11; // [esp+1Ch] [ebp-120h]
+  UNICODE_STRING v12; // [esp+20h] [ebp-11Ch] BYREF
+  _UNICODE_STRING v13; // [esp+28h] [ebp-114h] BYREF
+  _WORD v14[130]; // [esp+30h] [ebp-10Ch] BYREF
 
-  v5 = a1;
-  v14 = a2;
-  v11 = a1;
-  v12 = a4;
+  Buffer = a1;
+  v12.Buffer = a2;
+  DestinationString.Buffer = &a1->Length;
+  v11 = a4;
   *a3 = 0;
   if ( (a5 & 0x20) != 0 )
   {
@@ -41,35 +39,35 @@ int __fastcall LdrpFindLoadedDllInternal(unsigned __int16 *a1, int *a2, int *a3,
   v8 = a5 & 0x200;
   if ( (a5 & 0x200) != 0 )
   {
-    LoadedDllByName = LdrpFindLoadedDllByName(0, v5, a5, a3, a4);
+    LoadedDllByName = LdrpFindLoadedDllByName(0, &Buffer->Length, a5, a3, a4);
     if ( LoadedDllByName >= 0 )
       goto LABEL_3;
     v8 = a5 & 0x200;
-    v5 = v11;
-    a2 = v14;
+    Buffer = (UNICODE_STRING *)DestinationString.Buffer;
+    a2 = v12.Buffer;
   }
-  *(_DWORD *)&v15.Length = 0x1000000;
-  v15.Buffer = v16;
-  v16[0] = 0;
-  v13 = 0;
-  v14 = 0;
+  *(_DWORD *)&v13.Length = 0x1000000;
+  v13.Buffer = v14;
+  v14[0] = 0;
+  *(_DWORD *)&v12.Length = 0;
+  v12.Buffer = 0;
   if ( v8 )
-    v9 = LdrpResolveDllName((int *)v5, (int *)&v15, (int)&v10, &v13, a5);
+    v9 = LdrpResolveDllName((int *)Buffer, (int *)&v13, &DestinationString, &v12, a5);
   else
-    v9 = LdrpSearchPath((const void **)v5, a2, 0, 0, (int *)&v15, (int)&v10, (unsigned __int16 *)&v13, 0, 0);
+    v9 = LdrpSearchPath(Buffer, (PCWSTR *)a2, 0, 0, (int *)&v13, &DestinationString, &v12, 0, 0);
   LoadedDllByName = v9;
   if ( v9 >= 0 )
   {
-    LoadedDllByName = LdrpFindLoadedDllByName(&v10, (unsigned __int16 *)&v13, a5, a3, v12);
+    LoadedDllByName = LdrpFindLoadedDllByName(&DestinationString, &v12.Length, a5, a3, v11);
     if ( LoadedDllByName == -1073741515 )
-      LoadedDllByName = LdrpFindLoadedDllByMappingFile(&v15, (int)a3, (int)v12);
+      LoadedDllByName = LdrpFindLoadedDllByMappingFile(&v13, (int)a3, (int)v11);
   }
-  LdrpFreeUnicodeString(&v13);
-  if ( v16 != v15.Buffer )
-    RtlDeleteBoundaryDescriptor((int)v15.Buffer);
-  *(_DWORD *)&v15.Length = 0x1000000;
-  v15.Buffer = v16;
-  v16[0] = 0;
+  LdrpFreeUnicodeString((POBJECT_BOUNDARY_DESCRIPTOR *)&v12);
+  if ( v14 != v13.Buffer )
+    RtlDeleteBoundaryDescriptor((POBJECT_BOUNDARY_DESCRIPTOR)v13.Buffer);
+  *(_DWORD *)&v13.Length = 0x1000000;
+  v13.Buffer = v14;
+  v14[0] = 0;
 LABEL_3:
   if ( (ShowSnaps & 9) != 0 )
     LdrpLogDbgPrint(

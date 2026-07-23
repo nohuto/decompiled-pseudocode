@@ -1,15 +1,15 @@
 /*
- * XREFs of KeTestAlertThread @ 0x1403E6CB0
+ * XREFs of KeTestAlertThread @ 0x1403D4850
  * Callers:
- *     KiDeliverApc @ 0x14031D9B0 (KiDeliverApc.c)
- *     KiContinueEx @ 0x1403E6A90 (KiContinueEx.c)
- *     DbgkpSendErrorMessage @ 0x14093A900 (DbgkpSendErrorMessage.c)
- *     NtTestAlert @ 0x140A2C0C0 (NtTestAlert.c)
+ *     KiDeliverApc @ 0x1402C6540 (KiDeliverApc.c)
+ *     KiContinueEx @ 0x1403D4630 (KiContinueEx.c)
+ *     DbgkpSendErrorMessage @ 0x1409E93F0 (DbgkpSendErrorMessage.c)
+ *     NtTestAlert @ 0x140A1FF80 (NtTestAlert.c)
  * Callees:
- *     HvlNotifyLongSpinWait @ 0x140293260 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140293290 (KiCheckVpBackingLongSpinWaitHypercall.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     HvlNotifyLongSpinWait @ 0x1402A2E60 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1402A2E90 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 unsigned __int8 __fastcall KeTestAlertThread(__int64 a1, __int64 a2)

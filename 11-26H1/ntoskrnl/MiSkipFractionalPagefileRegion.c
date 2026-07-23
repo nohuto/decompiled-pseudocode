@@ -1,7 +1,7 @@
 /*
- * XREFs of MiSkipFractionalPagefileRegion @ 0x1404A5F00
+ * XREFs of MiSkipFractionalPagefileRegion @ 0x14049F590
  * Callers:
- *     MiQueryVadForVaAttributes @ 0x140305C54 (MiQueryVadForVaAttributes.c)
+ *     MiQueryVadForVaAttributes @ 0x1402E7CD4 (MiQueryVadForVaAttributes.c)
  * Callees:
  *     <none>
  */

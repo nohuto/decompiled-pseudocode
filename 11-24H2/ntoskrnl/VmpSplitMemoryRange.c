@@ -1,20 +1,20 @@
 /*
- * XREFs of VmpSplitMemoryRange @ 0x1403AB5D4
+ * XREFs of VmpSplitMemoryRange @ 0x140399CE8
  * Callers:
- *     VmSplitMemoryRange @ 0x140A79A90 (VmSplitMemoryRange.c)
+ *     VmSplitMemoryRange @ 0x140A73D90 (VmSplitMemoryRange.c)
  * Callees:
- *     RtlRbInsertNodeEx @ 0x1402BDA80 (RtlRbInsertNodeEx.c)
- *     VmpProcessContextLockShared @ 0x1403ABC30 (VmpProcessContextLockShared.c)
- *     VmpProcessContextUnlockShared @ 0x1403ABC7C (VmpProcessContextUnlockShared.c)
- *     VmpVaRangeNumberOfGpaRanges @ 0x1403ABCB4 (VmpVaRangeNumberOfGpaRanges.c)
- *     VmpProcessContextLockExclusive @ 0x1403B0458 (VmpProcessContextLockExclusive.c)
- *     VmpProcessContextUnlockExclusive @ 0x14047F1E4 (VmpProcessContextUnlockExclusive.c)
- *     VmpFindNextPinnedPageStateHelper @ 0x14064A7D4 (VmpFindNextPinnedPageStateHelper.c)
- *     VmpVaRangeCheckPinnedGpaRanges @ 0x14064B89C (VmpVaRangeCheckPinnedGpaRanges.c)
- *     VmpSecureMemoryForPin @ 0x14079F704 (VmpSecureMemoryForPin.c)
- *     VmpUnsecureMemoryForPin @ 0x14079F88C (VmpUnsecureMemoryForPin.c)
- *     VmpAllocateMemoryRanges @ 0x140A5D6C0 (VmpAllocateMemoryRanges.c)
- *     VmpFreeMemoryRanges @ 0x140A5D7A4 (VmpFreeMemoryRanges.c)
+ *     RtlRbInsertNodeEx @ 0x1403651C0 (RtlRbInsertNodeEx.c)
+ *     VmpProcessContextLockShared @ 0x14039A340 (VmpProcessContextLockShared.c)
+ *     VmpProcessContextUnlockShared @ 0x14039A38C (VmpProcessContextUnlockShared.c)
+ *     VmpVaRangeNumberOfGpaRanges @ 0x14039A3C4 (VmpVaRangeNumberOfGpaRanges.c)
+ *     VmpProcessContextLockExclusive @ 0x14039EC68 (VmpProcessContextLockExclusive.c)
+ *     VmpProcessContextUnlockExclusive @ 0x14047A000 (VmpProcessContextUnlockExclusive.c)
+ *     VmpFindNextPinnedPageStateHelper @ 0x140648D94 (VmpFindNextPinnedPageStateHelper.c)
+ *     VmpVaRangeCheckPinnedGpaRanges @ 0x140649E5C (VmpVaRangeCheckPinnedGpaRanges.c)
+ *     VmpSecureMemoryForPin @ 0x14079F814 (VmpSecureMemoryForPin.c)
+ *     VmpUnsecureMemoryForPin @ 0x14079F99C (VmpUnsecureMemoryForPin.c)
+ *     VmpAllocateMemoryRanges @ 0x140A55AE0 (VmpAllocateMemoryRanges.c)
+ *     VmpFreeMemoryRanges @ 0x140A55BC4 (VmpFreeMemoryRanges.c)
  */
 
 __int64 __fastcall VmpSplitMemoryRange(PEX_SPIN_LOCK SpinLock, unsigned __int64 a2, __int64 a3)
@@ -24,27 +24,27 @@ __int64 __fastcall VmpSplitMemoryRange(PEX_SPIN_LOCK SpinLock, unsigned __int64 
   int v8; // r13d
   int v9; // ebp
   __int64 v10; // r8
-  unsigned __int64 *v11; // rsi
+  _RTL_BALANCED_NODE **v11; // rsi
   __int64 v12; // rdi
   __int64 v13; // rbx
   __int64 v14; // r8
-  unsigned __int64 MemoryRanges; // rbp
+  __int64 MemoryRanges; // rbp
   __int64 v16; // rbx
   int v17; // eax
   unsigned int v18; // ecx
   unsigned __int64 v19; // rdx
-  bool v20; // r8
-  unsigned __int64 v21; // r8
+  BOOLEAN v20; // r8
+  _RTL_BALANCED_NODE *v21; // r8
   unsigned __int64 v22; // rax
   __int64 *v23; // rbx
   __int64 *v24; // rsi
-  unsigned __int64 *v25; // r15
+  _RTL_BALANCED_NODE **v25; // r15
   __int64 v26; // r13
   __int64 v27; // rcx
   int v28; // eax
   unsigned __int64 v29; // rdx
-  bool v30; // r8
-  unsigned __int64 v31; // r8
+  BOOLEAN v30; // r8
+  _RTL_BALANCED_NODE *v31; // r8
   unsigned __int64 v32; // rax
   __int64 v33; // r15
   unsigned __int64 v34; // r13
@@ -82,7 +82,7 @@ __int64 __fastcall VmpSplitMemoryRange(PEX_SPIN_LOCK SpinLock, unsigned __int64 
     v34 = 0LL;
     goto LABEL_37;
   }
-  v11 = (unsigned __int64 *)(SpinLock + 6);
+  v11 = (_RTL_BALANCED_NODE **)(SpinLock + 6);
   v12 = *((_QWORD *)SpinLock + 3);
   if ( (SpinLock[8] & 1) != 0 && v12 )
     v12 ^= (unsigned __int64)v11;
@@ -155,14 +155,14 @@ LABEL_51:
   v18 = *(_DWORD *)(MemoryRanges + 72) & 0xFFFFFFFC;
   *(_QWORD *)(MemoryRanges + 56) = v16;
   *(_DWORD *)(MemoryRanges + 72) = v8 | v17 & 2 ^ v18;
-  v19 = *v11;
+  v19 = (unsigned __int64)*v11;
   if ( (SpinLock[8] & 1) != 0 && v19 )
     v19 ^= (unsigned __int64)v11;
   v20 = 0;
   if ( !v19 )
     goto LABEL_23;
-  v21 = *(_QWORD *)(MemoryRanges + 24);
-  while ( v21 > *(_QWORD *)(v19 + 32) || v21 >= *(_QWORD *)(v19 + 24) )
+  v21 = *(_RTL_BALANCED_NODE **)(MemoryRanges + 24);
+  while ( (unsigned __int64)v21 > *(_QWORD *)(v19 + 32) || (unsigned __int64)v21 >= *(_QWORD *)(v19 + 24) )
   {
     v22 = *(_QWORD *)(v19 + 8);
     if ( (SpinLock[8] & 1) != 0 )
@@ -192,10 +192,10 @@ LABEL_19:
 LABEL_61:
   v20 = 0;
 LABEL_23:
-  RtlRbInsertNodeEx((__int64 *)SpinLock + 3, v19, v20, MemoryRanges);
+  RtlRbInsertNodeEx((PRTL_RB_TREE)(SpinLock + 6), (PRTL_BALANCED_NODE)v19, v20, (PRTL_BALANCED_NODE)MemoryRanges);
   v23 = *(__int64 **)(MemoryRanges + 40);
   v24 = *(__int64 **)(v12 + 40);
-  v25 = (unsigned __int64 *)(SpinLock + 2);
+  v25 = (_RTL_BALANCED_NODE **)(SpinLock + 2);
   v26 = v44;
   while ( 1 )
   {
@@ -211,16 +211,16 @@ LABEL_23:
       if ( VmpFindNextPinnedPageStateHelper(SpinLock, v23[6], v23[7], 1LL) != -1 )
         *((_DWORD *)v23 + 16) |= 1u;
     }
-    v29 = *v25;
+    v29 = (unsigned __int64)*v25;
     if ( (SpinLock[4] & 1) != 0 && v29 )
       v29 ^= (unsigned __int64)v25;
     v30 = 0;
     if ( v29 )
     {
-      v31 = v23[6];
+      v31 = (_RTL_BALANCED_NODE *)v23[6];
       while ( 1 )
       {
-        if ( v31 <= *(_QWORD *)(v29 + 32) && v31 < *(_QWORD *)(v29 + 24) )
+        if ( (unsigned __int64)v31 <= *(_QWORD *)(v29 + 32) && (unsigned __int64)v31 < *(_QWORD *)(v29 + 24) )
         {
           v32 = *(_QWORD *)v29;
           if ( (SpinLock[4] & 1) != 0 )
@@ -255,7 +255,7 @@ LABEL_32:
         v29 = v32;
       }
     }
-    RtlRbInsertNodeEx((__int64 *)SpinLock + 1, v29, v30, (unsigned __int64)(v23 + 3));
+    RtlRbInsertNodeEx((PRTL_RB_TREE)(SpinLock + 2), (PRTL_BALANCED_NODE)v29, v30, (PRTL_BALANCED_NODE)v23 + 1);
     v24 = (__int64 *)*v24;
     if ( v24 == (__int64 *)(v12 + 40) )
       break;

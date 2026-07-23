@@ -1,18 +1,18 @@
 /*
- * XREFs of IommupDeviceDisableSvm @ 0x140933C1C
+ * XREFs of IommupDeviceDisableSvm @ 0x140933E1C
  * Callers:
- *     IommupDeviceDisablePasidTaggedDma @ 0x140933B80 (IommupDeviceDisablePasidTaggedDma.c)
+ *     IommupDeviceDisablePasidTaggedDma @ 0x140933D80 (IommupDeviceDisablePasidTaggedDma.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1402BD960 (ExfTryToWakePushLock.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     IommupDeviceGetPasidDevice @ 0x14050E0CC (IommupDeviceGetPasidDevice.c)
- *     IommupPasidDeviceDelete @ 0x14050E7F4 (IommupPasidDeviceDelete.c)
- *     HalpIommuFreeDomainId @ 0x1405153E8 (HalpIommuFreeDomainId.c)
- *     IommuDisableDevicePasid @ 0x140522070 (IommuDisableDevicePasid.c)
- *     IommupUnmapDeviceInternal @ 0x140523F28 (IommupUnmapDeviceInternal.c)
- *     IommupHvDetachPasidDevice @ 0x140524880 (IommupHvDetachPasidDevice.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140231120 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     ExfTryToWakePushLock @ 0x1402BDBF0 (ExfTryToWakePushLock.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     IommupDeviceGetPasidDevice @ 0x14050E61C (IommupDeviceGetPasidDevice.c)
+ *     IommupPasidDeviceDelete @ 0x14050ED44 (IommupPasidDeviceDelete.c)
+ *     HalpIommuFreeDomainId @ 0x140515938 (HalpIommuFreeDomainId.c)
+ *     IommuDisableDevicePasid @ 0x1405225C0 (IommuDisableDevicePasid.c)
+ *     IommupUnmapDeviceInternal @ 0x140524478 (IommupUnmapDeviceInternal.c)
+ *     IommupHvDetachPasidDevice @ 0x140524DD0 (IommupHvDetachPasidDevice.c)
  */
 
 __int64 __fastcall IommupDeviceDisableSvm(__int64 a1, __int64 a2)

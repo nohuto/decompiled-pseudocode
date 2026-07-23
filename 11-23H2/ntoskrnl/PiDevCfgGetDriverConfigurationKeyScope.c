@@ -1,10 +1,10 @@
 /*
- * XREFs of PiDevCfgGetDriverConfigurationKeyScope @ 0x140561DC8
+ * XREFs of PiDevCfgGetDriverConfigurationKeyScope @ 0x140562488
  * Callers:
- *     PiDevCfgQueryIncludedDriverConfigurations @ 0x1408797E4 (PiDevCfgQueryIncludedDriverConfigurations.c)
- *     PiDevCfgQueryIncludedDriverNode @ 0x14095F208 (PiDevCfgQueryIncludedDriverNode.c)
+ *     PiDevCfgQueryIncludedDriverConfigurations @ 0x140879A24 (PiDevCfgQueryIncludedDriverConfigurations.c)
+ *     PiDevCfgQueryIncludedDriverNode @ 0x14095F408 (PiDevCfgQueryIncludedDriverNode.c)
  * Callees:
- *     _wcsicmp @ 0x1403D9A50 (_wcsicmp.c)
+ *     _wcsicmp @ 0x1403D9C30 (_wcsicmp.c)
  */
 
 __int64 __fastcall PiDevCfgGetDriverConfigurationKeyScope(wchar_t *Str2)
@@ -15,10 +15,10 @@ __int64 __fastcall PiDevCfgGetDriverConfigurationKeyScope(wchar_t *Str2)
 
   v1 = 0;
   v2 = 0;
-  for ( i = (const wchar_t **)&off_140A793E0; wcsicmp(*i, Str2); i += 2 )
+  for ( i = (const wchar_t **)&off_140A79690; wcsicmp(*i, Str2); i += 2 )
   {
     if ( ++v2 >= 7 )
       return v1;
   }
-  return *((unsigned int *)&off_140A793E0 + 4 * v2 + 2);
+  return *((unsigned int *)&off_140A79690 + 4 * v2 + 2);
 }

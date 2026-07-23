@@ -33,7 +33,7 @@ __int64 __fastcall WbSetTrapFrame(__int64 a1, __int64 a2)
       *(_QWORD *)(a1 + 296) = *(_QWORD *)(a2 + 8);
       *(_QWORD *)(a1 + 200) = *(_QWORD *)a2;
       *(_DWORD *)(a1 + 116) = *(_DWORD *)(a2 + 16);
-      ContextThreadInternal = PspSetContextThreadInternal(KeGetCurrentThread(), a1 + 48, 0, 1, 1);
+      ContextThreadInternal = PspSetContextThreadInternal(KeGetCurrentThread(), (CONTEXT *)(a1 + 48), 0, 1, 1);
     }
     KiLeaveGuardedRegionUnsafe((__int64)KeGetCurrentThread());
   }

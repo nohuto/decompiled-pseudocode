@@ -1,7 +1,7 @@
 /*
- * XREFs of ExpGetEntryBilledProcess @ 0x14040AE50
+ * XREFs of ExpGetEntryBilledProcess @ 0x140403330
  * Callers:
- *     ExQueryPoolBlockSize @ 0x140654750 (ExQueryPoolBlockSize.c)
+ *     ExQueryPoolBlockSize @ 0x140652E50 (ExQueryPoolBlockSize.c)
  * Callees:
  *     <none>
  */

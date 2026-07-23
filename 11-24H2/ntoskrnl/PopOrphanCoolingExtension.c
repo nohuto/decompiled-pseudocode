@@ -1,17 +1,17 @@
 /*
- * XREFs of PopOrphanCoolingExtension @ 0x14074C3B8
+ * XREFs of PopOrphanCoolingExtension @ 0x14074A6E8
  * Callers:
- *     PopCoolingExtensionPnpNotification @ 0x14074C210 (PopCoolingExtensionPnpNotification.c)
+ *     PopCoolingExtensionPnpNotification @ 0x14074A540 (PopCoolingExtensionPnpNotification.c)
  * Callees:
- *     PopTraceThermalRequestPassiveHistogram @ 0x140330D68 (PopTraceThermalRequestPassiveHistogram.c)
- *     PopReleaseRwLock @ 0x1403B5EC8 (PopReleaseRwLock.c)
- *     PopGetDope @ 0x1403F2908 (PopGetDope.c)
- *     PopAcquireRwLockExclusive @ 0x1404283D4 (PopAcquireRwLockExclusive.c)
- *     PopTraceThermalRequestActiveActivity @ 0x1404AB004 (PopTraceThermalRequestActiveActivity.c)
- *     PopThermalUpdateTelemetryClientCount @ 0x1405D4014 (PopThermalUpdateTelemetryClientCount.c)
- *     PopDiagTraceThermalRequest @ 0x140A73644 (PopDiagTraceThermalRequest.c)
- *     PopThermalUpdatePassiveTimeTracking @ 0x140A8FAF8 (PopThermalUpdatePassiveTimeTracking.c)
- *     PopThermalUpdateActiveTimeTracking @ 0x140AA26A4 (PopThermalUpdateActiveTimeTracking.c)
+ *     PopReleaseRwLock @ 0x1402AE8FC (PopReleaseRwLock.c)
+ *     PopTraceThermalRequestPassiveHistogram @ 0x1402B93A8 (PopTraceThermalRequestPassiveHistogram.c)
+ *     PopGetDope @ 0x1403E6628 (PopGetDope.c)
+ *     PopAcquireRwLockExclusive @ 0x14041C564 (PopAcquireRwLockExclusive.c)
+ *     PopTraceThermalRequestActiveActivity @ 0x1404A5290 (PopTraceThermalRequestActiveActivity.c)
+ *     PopThermalUpdateTelemetryClientCount @ 0x1405D17D4 (PopThermalUpdateTelemetryClientCount.c)
+ *     PopDiagTraceThermalRequest @ 0x140A6CC64 (PopDiagTraceThermalRequest.c)
+ *     PopThermalUpdatePassiveTimeTracking @ 0x140A8C138 (PopThermalUpdatePassiveTimeTracking.c)
+ *     PopThermalUpdateActiveTimeTracking @ 0x140A9DA34 (PopThermalUpdateActiveTimeTracking.c)
  */
 
 __int64 __fastcall PopOrphanCoolingExtension(unsigned __int64 *a1)
@@ -21,7 +21,7 @@ __int64 __fastcall PopOrphanCoolingExtension(unsigned __int64 *a1)
   unsigned __int64 v4; // rcx
   unsigned __int64 **v5; // rax
 
-  PopAcquireRwLockExclusive(&PopCoolingExtensionLock);
+  PopAcquireRwLockExclusive((unsigned __int64 *)&PopCoolingExtensionLock);
   PopAcquireRwLockExclusive(a1 + 4);
   if ( a1[6] )
   {
@@ -56,5 +56,5 @@ __int64 __fastcall PopOrphanCoolingExtension(unsigned __int64 *a1)
     a1[6] = 0LL;
   }
   PopReleaseRwLock((signed __int64 *)a1 + 4);
-  return PopReleaseRwLock((signed __int64 *)&PopCoolingExtensionLock);
+  return PopReleaseRwLock(&PopCoolingExtensionLock);
 }

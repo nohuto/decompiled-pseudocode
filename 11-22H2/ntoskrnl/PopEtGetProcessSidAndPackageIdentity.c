@@ -12,30 +12,30 @@
 
 signed __int64 __fastcall PopEtGetProcessSidAndPackageIdentity(__int64 a1, _DWORD *a2, __int64 a3)
 {
-  ULONG_PTR v6; // rsi
-  unsigned __int64 v8; // [rsp+50h] [rbp+8h] BYREF
-  unsigned __int64 v9; // [rsp+58h] [rbp+10h] BYREF
+  void *v6; // rsi
+  ULONG_PTR PackageSize; // [rsp+50h] [rbp+8h] BYREF
+  ULONG_PTR AppIdSize; // [rsp+58h] [rbp+10h] BYREF
 
   *(_DWORD *)a3 = 0;
   *(_QWORD *)a2 = 0LL;
   a2[2] = 0;
-  LOBYTE(v8) = 0;
-  v6 = PsReferencePrimaryTokenWithTag(a1, 0x746C6644u);
-  PsQueryProcessAttributesByToken(v6, (bool *)&v8, (bool *)&v9);
-  if ( (_BYTE)v8 )
+  LOBYTE(PackageSize) = 0;
+  v6 = (void *)PsReferencePrimaryTokenWithTag(a1, 0x746C6644u);
+  PsQueryProcessAttributesByToken((__int64)v6, (bool *)&PackageSize, (bool *)&AppIdSize);
+  if ( (_BYTE)PackageSize )
   {
-    v8 = 256LL;
-    v9 = 132LL;
-    if ( (int)RtlQueryPackageIdentity(v6, (int)a3 + 4, (int)&v8, (int)a3 + 260, (__int64)&v9, 0LL) >= 0 )
+    PackageSize = 256LL;
+    AppIdSize = 132LL;
+    if ( RtlQueryPackageIdentity(v6, (PWSTR)(a3 + 4), &PackageSize, (PWSTR)(a3 + 260), &AppIdSize, 0LL) >= 0 )
     {
-      *(_WORD *)a3 = (v8 >> 1) - 1;
-      *(_WORD *)(a3 + 2) = (v9 >> 1) - 1;
+      *(_WORD *)a3 = (PackageSize >> 1) - 1;
+      *(_WORD *)(a3 + 2) = (AppIdSize >> 1) - 1;
     }
   }
-  if ( (int)SeQueryUserSidToken(v6, a2, 0x44u, (ULONG *)&v8) < 0 )
+  if ( (int)SeQueryUserSidToken((__int64)v6, a2, 0x44u, (ULONG *)&PackageSize) < 0 )
   {
     *(_QWORD *)a2 = 0LL;
     a2[2] = 0;
   }
-  return ObFastDereferenceObject((signed __int64 *)(a1 + 1208), v6, 0x746C6644u);
+  return ObFastDereferenceObject((signed __int64 *)(a1 + 1208), (unsigned __int64)v6, 0x746C6644u);
 }

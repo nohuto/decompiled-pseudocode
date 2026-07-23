@@ -6,7 +6,10 @@
  *     ZwAlpcSetInformation @ 0x18009BC10 (ZwAlpcSetInformation.c)
  */
 
-__int64 AlpcAdjustCompletionListConcurrencyCount()
+NTSTATUS __cdecl AlpcAdjustCompletionListConcurrencyCount(HANDLE PortHandle, ULONG ConcurrencyCount)
 {
-  return ZwAlpcSetInformation();
+  ULONG PortInformation; // [rsp+38h] [rbp+10h] BYREF
+
+  PortInformation = ConcurrencyCount;
+  return ZwAlpcSetInformation(PortHandle, AlpcAdjustCompletionListConcurrencyCountInformation, &PortInformation, 4u);
 }

@@ -1,25 +1,25 @@
 /*
- * XREFs of TppIteWakeWaiters @ 0x180067C70
+ * XREFs of TppIteWakeWaiters @ 0x1800880C0
  * Callers:
- *     TppSingleTimerExpiration @ 0x180068DF0 (TppSingleTimerExpiration.c)
+ *     TppSingleTimerExpiration @ 0x180089240 (TppSingleTimerExpiration.c)
  * Callees:
- *     ZwAlertThreadByThreadId @ 0x18015FD50 (ZwAlertThreadByThreadId.c)
+ *     ZwAlertThreadByThreadId @ 0x18015FC50 (ZwAlertThreadByThreadId.c)
  */
 
-__int64 __fastcall TppIteWakeWaiters(_QWORD *a1, __int64 a2, __int64 a3)
+NTSTATUS __fastcall TppIteWakeWaiters(__int64 **a1)
 {
-  _QWORD *v3; // rbx
-  __int64 result; // rax
+  __int64 *v1; // rbx
+  NTSTATUS result; // eax
 
   if ( a1 )
   {
     do
     {
-      v3 = (_QWORD *)*a1;
-      result = ZwAlertThreadByThreadId(a1[1], a2, a3);
-      a1 = v3;
+      v1 = *a1;
+      result = ZwAlertThreadByThreadId(a1[1]);
+      a1 = (__int64 **)v1;
     }
-    while ( v3 );
+    while ( v1 );
   }
   return result;
 }

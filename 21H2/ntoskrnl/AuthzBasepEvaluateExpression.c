@@ -1,14 +1,14 @@
 /*
- * XREFs of AuthzBasepEvaluateExpression @ 0x14024F320
+ * XREFs of AuthzBasepEvaluateExpression @ 0x1402F3B70
  * Callers:
- *     AuthzBasepEvaluateAceCondition @ 0x14024DC80 (AuthzBasepEvaluateAceCondition.c)
+ *     AuthzBasepEvaluateAceCondition @ 0x1402F24D0 (AuthzBasepEvaluateAceCondition.c)
  * Callees:
- *     AuthzBasepOperandValueTypesCompatible @ 0x14024F3D0 (AuthzBasepOperandValueTypesCompatible.c)
- *     AuthzBasepCompareUnicodeStringOperands @ 0x14024F520 (AuthzBasepCompareUnicodeStringOperands.c)
- *     AuthzBasepEvaluateSetRelationship @ 0x14025019C (AuthzBasepEvaluateSetRelationship.c)
- *     AuthzBasepCompareFQBNOperands @ 0x1405C1890 (AuthzBasepCompareFQBNOperands.c)
- *     AuthzBasepCompareIntegerOperands @ 0x1405C1B18 (AuthzBasepCompareIntegerOperands.c)
- *     AuthzBasepCompareOctetStringOperands @ 0x1405C1C44 (AuthzBasepCompareOctetStringOperands.c)
+ *     AuthzBasepOperandValueTypesCompatible @ 0x1402F3C20 (AuthzBasepOperandValueTypesCompatible.c)
+ *     AuthzBasepCompareUnicodeStringOperands @ 0x1402F3D70 (AuthzBasepCompareUnicodeStringOperands.c)
+ *     AuthzBasepEvaluateSetRelationship @ 0x1402F49EC (AuthzBasepEvaluateSetRelationship.c)
+ *     AuthzBasepCompareFQBNOperands @ 0x1405C1AC0 (AuthzBasepCompareFQBNOperands.c)
+ *     AuthzBasepCompareIntegerOperands @ 0x1405C1D48 (AuthzBasepCompareIntegerOperands.c)
+ *     AuthzBasepCompareOctetStringOperands @ 0x1405C1E74 (AuthzBasepCompareOctetStringOperands.c)
  */
 
 __int64 __fastcall AuthzBasepEvaluateExpression(unsigned __int8 a1, __int64 a2, _DWORD *a3)

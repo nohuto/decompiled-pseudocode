@@ -1,22 +1,22 @@
 /*
- * XREFs of MiFreeVadRange @ 0x1403185C4
+ * XREFs of MiFreeVadRange @ 0x140323314
  * Callers:
- *     MmStoreAllocateVirtualMemory @ 0x1406B61EC (MmStoreAllocateVirtualMemory.c)
- *     MmStoreFreeVirtualMemory @ 0x1406BEF90 (MmStoreFreeVirtualMemory.c)
- *     MmFreeVirtualMemory @ 0x1406ED600 (MmFreeVirtualMemory.c)
+ *     MmStoreAllocateVirtualMemory @ 0x1406156AC (MmStoreAllocateVirtualMemory.c)
+ *     MmStoreFreeVirtualMemory @ 0x14061E080 (MmStoreFreeVirtualMemory.c)
+ *     MmFreeVirtualMemory @ 0x1407049E0 (MmFreeVirtualMemory.c)
  * Callees:
- *     MiDeleteVad @ 0x14021BFF0 (MiDeleteVad.c)
- *     MiDeletePartialVad @ 0x1402FD8DC (MiDeletePartialVad.c)
- *     MiLocateLockedVadEvent @ 0x1402FE3CC (MiLocateLockedVadEvent.c)
- *     PsChargeProcessNonPagedPoolQuota @ 0x1403169C0 (PsChargeProcessNonPagedPoolQuota.c)
- *     PsReturnProcessNonPagedPoolQuota @ 0x1403183E0 (PsReturnProcessNonPagedPoolQuota.c)
- *     MiCanDeleteEnclave @ 0x140549668 (MiCanDeleteEnclave.c)
- *     MiPrepareVadDelete @ 0x1406EE878 (MiPrepareVadDelete.c)
- *     MiAllocateVad @ 0x140711E88 (MiAllocateVad.c)
- *     MiLockNestedVad @ 0x1408D9A78 (MiLockNestedVad.c)
- *     MiUnlockNestedVad @ 0x1408D9A94 (MiUnlockNestedVad.c)
- *     PerfInfoLogVirtualFree @ 0x140937C94 (PerfInfoLogVirtualFree.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     MiDeleteVad @ 0x1402C08F0 (MiDeleteVad.c)
+ *     MiDeletePartialVad @ 0x14030862C (MiDeletePartialVad.c)
+ *     MiLocateLockedVadEvent @ 0x14030911C (MiLocateLockedVadEvent.c)
+ *     PsChargeProcessNonPagedPoolQuota @ 0x140321710 (PsChargeProcessNonPagedPoolQuota.c)
+ *     PsReturnProcessNonPagedPoolQuota @ 0x140323130 (PsReturnProcessNonPagedPoolQuota.c)
+ *     MiCanDeleteEnclave @ 0x1405498A8 (MiCanDeleteEnclave.c)
+ *     MiAllocateVad @ 0x1406C04D8 (MiAllocateVad.c)
+ *     MiPrepareVadDelete @ 0x140705C58 (MiPrepareVadDelete.c)
+ *     MiLockNestedVad @ 0x1408D9BD8 (MiLockNestedVad.c)
+ *     MiUnlockNestedVad @ 0x1408D9BF4 (MiUnlockNestedVad.c)
+ *     PerfInfoLogVirtualFree @ 0x140937E64 (PerfInfoLogVirtualFree.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall MiFreeVadRange(ULONG_PTR BugCheckParameter4, int a2, __int64 a3, __int64 a4, __int64 a5, int a6)

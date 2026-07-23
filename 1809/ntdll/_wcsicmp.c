@@ -1,5 +1,5 @@
 /*
- * XREFs of _wcsicmp @ 0x1800918E0
+ * XREFs of _wcsicmp @ 0x1800918F0
  * Callers:
  *     RtlGetFileMUIPath @ 0x180034DB0 (RtlGetFileMUIPath.c)
  *     LdrpResSearchResourceMappedFile @ 0x180037AB4 (LdrpResSearchResourceMappedFile.c)
@@ -11,8 +11,8 @@
  *     RtlpMuiRegGetStringIndexInPool @ 0x1800405BC (RtlpMuiRegGetStringIndexInPool.c)
  *     RtlpLangNameInMultiSzString_Size @ 0x18004230C (RtlpLangNameInMultiSzString_Size.c)
  *     RtlpAddNeutralsToMergedList @ 0x1800423A4 (RtlpAddNeutralsToMergedList.c)
- *     RtlpHashStringToAtom @ 0x1800734F0 (RtlpHashStringToAtom.c)
- *     LdrRemoveLoadAsDataTable @ 0x180078F30 (LdrRemoveLoadAsDataTable.c)
+ *     RtlpHashStringToAtom @ 0x180073500 (RtlpHashStringToAtom.c)
+ *     LdrRemoveLoadAsDataTable @ 0x180078F40 (LdrRemoveLoadAsDataTable.c)
  *     AVrfpDllLoadNotificationInternal @ 0x1800DBC3C (AVrfpDllLoadNotificationInternal.c)
  *     AVrfpDllUnloadNotificationInternal @ 0x1800DBD18 (AVrfpDllUnloadNotificationInternal.c)
  *     AVrfpFindClosestThunkDuplicate @ 0x1800DBFD8 (AVrfpFindClosestThunkDuplicate.c)

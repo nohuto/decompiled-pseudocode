@@ -1,28 +1,28 @@
 /*
- * XREFs of PoRegisterPowerSettingCallback @ 0x14067BD00
+ * XREFs of PoRegisterPowerSettingCallback @ 0x14066F440
  * Callers:
- *     HvlpRegisterPowerPolicyCallbacks @ 0x1404F8684 (HvlpRegisterPowerPolicyCallbacks.c)
- *     PopSetPowerSettingValue @ 0x14067A8D8 (PopSetPowerSettingValue.c)
- *     PopIdleInitAoAcDozeS4Timer @ 0x14078F230 (PopIdleInitAoAcDozeS4Timer.c)
- *     CmpInitializeLazyWriters @ 0x14078F3E8 (CmpInitializeLazyWriters.c)
- *     SSHSupportRegisterPowerSettingCallback @ 0x140796B5C (SSHSupportRegisterPowerSettingCallback.c)
- *     TtmInitCurrentSession @ 0x1408FE65C (TtmInitCurrentSession.c)
- *     PopEsInit @ 0x140A4052C (PopEsInit.c)
- *     PopInitializePowerSettingCallbacks @ 0x140A6B410 (PopInitializePowerSettingCallbacks.c)
- *     PpmInfoRegisterCallbacks @ 0x140A6B4EC (PpmInfoRegisterCallbacks.c)
- *     VslRegisterIumPowerCallbacks @ 0x140A74328 (VslRegisterIumPowerCallbacks.c)
+ *     HvlpRegisterPowerPolicyCallbacks @ 0x1404F8604 (HvlpRegisterPowerPolicyCallbacks.c)
+ *     PopSetPowerSettingValue @ 0x14066E018 (PopSetPowerSettingValue.c)
+ *     PopIdleInitAoAcDozeS4Timer @ 0x1407907E0 (PopIdleInitAoAcDozeS4Timer.c)
+ *     CmpInitializeLazyWriters @ 0x140790998 (CmpInitializeLazyWriters.c)
+ *     SSHSupportRegisterPowerSettingCallback @ 0x140796D5C (SSHSupportRegisterPowerSettingCallback.c)
+ *     TtmInitCurrentSession @ 0x1408FE7BC (TtmInitCurrentSession.c)
+ *     PopEsInit @ 0x140A4152C (PopEsInit.c)
+ *     PopInitializePowerSettingCallbacks @ 0x140A6C410 (PopInitializePowerSettingCallbacks.c)
+ *     PpmInfoRegisterCallbacks @ 0x140A6C4EC (PpmInfoRegisterCallbacks.c)
+ *     VslRegisterIumPowerCallbacks @ 0x140A75328 (VslRegisterIumPowerCallbacks.c)
  * Callees:
- *     KeReleaseGuardedMutex @ 0x140265CD0 (KeReleaseGuardedMutex.c)
- *     PopSetNotificationWork @ 0x140281E90 (PopSetNotificationWork.c)
- *     ExAcquireFastMutex @ 0x14034A080 (ExAcquireFastMutex.c)
- *     RtlPcToFileName @ 0x1403CC630 (RtlPcToFileName.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     memset @ 0x140414200 (memset.c)
- *     PopEnsureErratumSubscribed @ 0x14056ED24 (PopEnsureErratumSubscribed.c)
- *     PopFindPowerSettingConfiguration @ 0x14067AD78 (PopFindPowerSettingConfiguration.c)
- *     PopStateIsSessionSpecific @ 0x14067AE74 (PopStateIsSessionSpecific.c)
- *     EmClientRuleEvaluate @ 0x140990340 (EmClientRuleEvaluate.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     KeReleaseGuardedMutex @ 0x140253C70 (KeReleaseGuardedMutex.c)
+ *     PopSetNotificationWork @ 0x1402700D0 (PopSetNotificationWork.c)
+ *     ExAcquireFastMutex @ 0x140354DD0 (ExAcquireFastMutex.c)
+ *     RtlPcToFileName @ 0x1403CC7A0 (RtlPcToFileName.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     PopEnsureErratumSubscribed @ 0x14056EF64 (PopEnsureErratumSubscribed.c)
+ *     PopFindPowerSettingConfiguration @ 0x14066E4B8 (PopFindPowerSettingConfiguration.c)
+ *     PopStateIsSessionSpecific @ 0x14066E5B4 (PopStateIsSessionSpecific.c)
+ *     EmClientRuleEvaluate @ 0x140991340 (EmClientRuleEvaluate.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 NTSTATUS __stdcall PoRegisterPowerSettingCallback(
@@ -59,7 +59,7 @@ NTSTATUS __stdcall PoRegisterPowerSettingCallback(
   v25 = 0LL;
   v27 = DeviceObject;
   v7 = (GUID *)SettingGuid;
-  v24 = dword_140C23E8C;
+  v24 = dword_140C2332C;
   v28 = 0LL;
   v8 = 0;
   v26 = 0LL;
@@ -136,13 +136,13 @@ LABEL_25:
     }
     else
     {
-      v21 = (_QWORD *)qword_140C23068;
-      if ( *(__int64 **)qword_140C23068 == &PopRegisteredPowerSettingCallbacks )
+      v21 = (_QWORD *)qword_140C23668;
+      if ( *(__int64 **)qword_140C23668 == &PopRegisteredPowerSettingCallbacks )
       {
         *(_QWORD *)v12 = &PopRegisteredPowerSettingCallbacks;
         *((_QWORD *)v12 + 1) = v21;
         *v21 = v12;
-        qword_140C23068 = (__int64)v12;
+        qword_140C23668 = (__int64)v12;
 LABEL_18:
         v19 = 0;
         v8 = (unsigned int)PopOsInitPhase >= 3;

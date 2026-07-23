@@ -1,14 +1,14 @@
 /*
- * XREFs of EtwGetKernelTraceTimestampSilo @ 0x140350000
+ * XREFs of EtwGetKernelTraceTimestampSilo @ 0x14036E4E0
  * Callers:
- *     MiIssueHardFault @ 0x140397B2C (MiIssueHardFault.c)
+ *     MiIssueHardFault @ 0x140350280 (MiIssueHardFault.c)
  * Callees:
- *     RtlGetSystemTimePrecise @ 0x14034EB80 (RtlGetSystemTimePrecise.c)
- *     KeQueryPerformanceCounter @ 0x14034FA10 (KeQueryPerformanceCounter.c)
- *     EtwpGetHostPerfCounter @ 0x1403FF27C (EtwpGetHostPerfCounter.c)
+ *     RtlGetSystemTimePrecise @ 0x14036D060 (RtlGetSystemTimePrecise.c)
+ *     KeQueryPerformanceCounter @ 0x14036DEF0 (KeQueryPerformanceCounter.c)
+ *     EtwpGetHostPerfCounter @ 0x1403F98CC (EtwpGetHostPerfCounter.c)
  */
 
-__int64 __fastcall EtwGetKernelTraceTimestampSilo(LARGE_INTEGER *a1, unsigned int a2, __int64 a3)
+LARGE_INTEGER __fastcall EtwGetKernelTraceTimestampSilo(LARGE_INTEGER *a1, unsigned int a2, __int64 a3)
 {
   unsigned __int64 v3; // r10
   int v5; // ebx
@@ -19,7 +19,7 @@ __int64 __fastcall EtwGetKernelTraceTimestampSilo(LARGE_INTEGER *a1, unsigned in
   __int64 v10; // rcx
   __int64 v11; // rdx
   LARGE_INTEGER PerformanceCounter; // rax
-  __int64 result; // rax
+  LARGE_INTEGER result; // rax
 
   v3 = a2;
   v5 = 0;
@@ -54,12 +54,12 @@ LABEL_11:
   if ( (v5 & 4) != 0 )
     result = RtlGetSystemTimePrecise();
   else
-    result = 0LL;
-  a1[1].QuadPart = result;
+    result.QuadPart = 0LL;
+  a1[1] = result;
   if ( (v5 & 8) != 0 )
   {
-    result = __rdtsc();
-    a1[2].QuadPart = result;
+    result.QuadPart = __rdtsc();
+    a1[2] = result;
   }
   else
   {
@@ -67,8 +67,8 @@ LABEL_11:
   }
   if ( (v5 & 0x10) != 0 )
   {
-    result = EtwpGetHostPerfCounter(v10);
-    a1[3].QuadPart = result;
+    result.QuadPart = EtwpGetHostPerfCounter(v10);
+    a1[3] = result;
   }
   else
   {

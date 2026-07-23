@@ -1,7 +1,7 @@
 /*
  * XREFs of RtlInt64ToUnicodeString @ 0x14075A520
  * Callers:
- *     ExpWnfComposeValueName @ 0x14075A480 (ExpWnfComposeValueName.c)
+ *     sub_14075A480 @ 0x14075A480 (sub_14075A480.c)
  * Callees:
  *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
  *     RtlAnsiStringToUnicodeString @ 0x14075A5D0 (RtlAnsiStringToUnicodeString.c)
@@ -12,13 +12,13 @@ NTSTATUS __stdcall RtlInt64ToUnicodeString(ULONGLONG Value, ULONG Base, PUNICODE
 {
   NTSTATUS result; // eax
   __int64 v5; // rax
-  STRING SourceString; // [rsp+20h] [rbp-88h] BYREF
-  ULONGLONG v7[2]; // [rsp+30h] [rbp-78h] BYREF
-  _BYTE v8[80]; // [rsp+40h] [rbp-68h] BYREF
+  ANSI_STRING SourceString; // [rsp+20h] [rbp-88h] BYREF
+  LARGE_INTEGER v7[2]; // [rsp+30h] [rbp-78h] BYREF
+  CHAR v8[80]; // [rsp+40h] [rbp-68h] BYREF
 
   *(_DWORD *)(&SourceString.MaximumLength + 1) = 0;
-  v7[0] = Value;
-  result = RtlLargeIntegerToChar(v7, Base, 65LL, v8);
+  v7[0].QuadPart = Value;
+  result = RtlLargeIntegerToChar(v7, Base, 65, v8);
   if ( result >= 0 )
   {
     SourceString.MaximumLength = 65;

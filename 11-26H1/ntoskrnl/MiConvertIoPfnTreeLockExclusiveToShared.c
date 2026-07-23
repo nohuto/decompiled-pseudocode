@@ -1,10 +1,10 @@
 /*
- * XREFs of MiConvertIoPfnTreeLockExclusiveToShared @ 0x1405019B4
+ * XREFs of MiConvertIoPfnTreeLockExclusiveToShared @ 0x1404FB1A4
  * Callers:
- *     MiReferenceIoPages @ 0x1402EFF98 (MiReferenceIoPages.c)
- *     MiDeleteStaleCacheMaps @ 0x1406F3AF0 (MiDeleteStaleCacheMaps.c)
+ *     MiReferenceIoPages @ 0x1402D2018 (MiReferenceIoPages.c)
+ *     MiDeleteStaleCacheMaps @ 0x1406F8760 (MiDeleteStaleCacheMaps.c)
  * Callees:
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
  */
 
 __int64 MiConvertIoPfnTreeLockExclusiveToShared()
@@ -26,7 +26,7 @@ __int64 MiConvertIoPfnTreeLockExclusiveToShared()
   v3 = 1;
   if ( KeNumberNodes )
   {
-    v4 = qword_140E2D6B8 + 376;
+    v4 = qword_140E2D838 + 376;
     do
     {
       if ( v1 != NodeColor )

@@ -8,22 +8,25 @@
  *     <none>
  */
 
-int __stdcall RtlSetGroupSecurityDescriptor(int a1, int a2, char a3)
+NTSTATUS __cdecl RtlSetGroupSecurityDescriptor(
+        PSECURITY_DESCRIPTOR SecurityDescriptor,
+        PSID Group,
+        BOOLEAN GroupDefaulted)
 {
   __int16 v3; // cx
   __int16 v4; // cx
 
-  if ( *(_BYTE *)a1 != 1 )
+  if ( *(_BYTE *)SecurityDescriptor != 1 )
     return -1073741736;
-  v3 = *(_WORD *)(a1 + 2);
+  v3 = *((_WORD *)SecurityDescriptor + 1);
   if ( v3 < 0 )
     return -1073741703;
-  *(_DWORD *)(a1 + 8) = 0;
-  if ( a2 )
-    *(_DWORD *)(a1 + 8) = a2;
+  *((_DWORD *)SecurityDescriptor + 2) = 0;
+  if ( Group )
+    *((_DWORD *)SecurityDescriptor + 2) = Group;
   v4 = v3 & 0xFFFD;
-  *(_WORD *)(a1 + 2) = v4;
-  if ( a3 )
-    *(_WORD *)(a1 + 2) = v4 | 2;
+  *((_WORD *)SecurityDescriptor + 1) = v4;
+  if ( GroupDefaulted )
+    *((_WORD *)SecurityDescriptor + 1) = v4 | 2;
   return 0;
 }

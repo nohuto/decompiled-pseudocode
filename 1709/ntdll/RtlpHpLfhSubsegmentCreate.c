@@ -14,7 +14,7 @@
  *     RtlpHpLfhBucketSubsegmentStatsUpdate @ 0x180106E68 (RtlpHpLfhBucketSubsegmentStatsUpdate.c)
  */
 
-PSLIST_ENTRY __fastcall RtlpHpLfhSubsegmentCreate(unsigned __int64 a1, __int64 a2, unsigned int a3)
+PSLIST_ENTRY __fastcall RtlpHpLfhSubsegmentCreate(_RTL_SRWLOCK *a1, __int64 a2, unsigned int a3)
 {
   PSLIST_ENTRY v3; // r12
   char v4; // r10
@@ -36,7 +36,7 @@ PSLIST_ENTRY __fastcall RtlpHpLfhSubsegmentCreate(unsigned __int64 a1, __int64 a
   unsigned int v22; // edi
   unsigned int v23; // ebx
   unsigned int v24; // edi
-  union _SLIST_HEADER *v25; // rcx
+  _SLIST_HEADER *v25; // rcx
   PSLIST_ENTRY v26; // r14
   unsigned int v27; // edx
   __int64 v28; // r9
@@ -62,10 +62,10 @@ PSLIST_ENTRY __fastcall RtlpHpLfhSubsegmentCreate(unsigned __int64 a1, __int64 a
   __int64 v48; // rcx
   __int64 v49; // r8
   __int64 v50; // r9
-  __int64 v52; // rcx
-  __int64 (__fastcall *v53)(__int64, PSLIST_ENTRY, _QWORD, __int64); // rax
+  unsigned __int64 v52; // rcx
+  __int64 (__fastcall *v53)(unsigned __int64, PSLIST_ENTRY, _QWORD, __int64); // rax
   int v54; // eax
-  __int64 v55; // rcx
+  __int64 Value; // rcx
   __int64 (__fastcall *v56)(__int64, unsigned int, __int64, char); // rax
   __int64 v57; // rax
   int v58; // eax
@@ -82,7 +82,7 @@ PSLIST_ENTRY __fastcall RtlpHpLfhSubsegmentCreate(unsigned __int64 a1, __int64 a
   v60 = v8;
   if ( (RtlpHpLfhPerfFlags & 1) != 0 )
   {
-    v58 = RtlpHpLfhBucketSubsegmentStatsUpdate(a1 + 80, *(unsigned __int8 *)(a2 + 1));
+    v58 = RtlpHpLfhBucketSubsegmentStatsUpdate(&a1[10], *(unsigned __int8 *)(a2 + 1));
     v8 = v60;
     v9 = v58;
     v4 = a3;
@@ -165,8 +165,8 @@ LABEL_31:
 LABEL_33:
   v59 = v4 & 1;
   if ( (v4 & 1) == 0 )
-    RtlAcquireSRWLockShared(a1 + 72);
-  v25 = (union _SLIST_HEADER *)(a1 + 16 * (v22 - 12 + 6LL));
+    RtlAcquireSRWLockShared(a1 + 9);
+  v25 = (_SLIST_HEADER *)&a1[2 * v22 - 12];
   if ( !LOWORD(v25->Alignment) || (v26 = RtlpInterlockedPopEntrySList(v25)) == 0LL )
     v26 = 0LL;
   if ( v26 )
@@ -175,12 +175,12 @@ LABEL_33:
   }
   else
   {
-    v55 = *(_QWORD *)a1;
-    v56 = (__int64 (__fastcall *)(__int64, unsigned int, __int64, char))(a1 ^ RtlpHeapKey ^ *(_QWORD *)(a1 + 8));
+    Value = a1->Value;
+    v56 = (__int64 (__fastcall *)(__int64, unsigned int, __int64, char))((unsigned __int64)a1 ^ RtlpHeapKey ^ a1[1].Value);
     if ( v56 == RtlpHpSegLfhAllocate )
-      v57 = RtlpHpSegLfhAllocate(v55, v23, 0LL, a3);
+      v57 = RtlpHpSegLfhAllocate(Value, v23, 0LL, a3);
     else
-      v57 = v56(v55, v23, 0LL, a3);
+      v57 = v56(Value, v23, 0LL, a3);
     v26 = (PSLIST_ENTRY)v57;
     if ( !v57 )
       goto LABEL_65;
@@ -216,16 +216,16 @@ LABEL_33:
     v7 = -(__int64)((unsigned __int64)v27 >> 12);
   if ( v27 < v29 )
   {
-    v52 = *(_QWORD *)a1;
-    v53 = (__int64 (__fastcall *)(__int64, PSLIST_ENTRY, _QWORD, __int64))(a1 ^ RtlpHeapKey ^ *(_QWORD *)(a1 + 24));
+    v52 = a1->Value;
+    v53 = (__int64 (__fastcall *)(unsigned __int64, PSLIST_ENTRY, _QWORD, __int64))((unsigned __int64)a1 ^ RtlpHeapKey ^ a1[3].Value);
     if ( (char *)v53 == (char *)RtlpHpSegLfhVsCommit )
       v54 = RtlpHpSegLfhVsCommit(v52, v26, v29);
     else
       v54 = v53(v52, v26, v29, v28);
     if ( v54 < 0 )
     {
-      ((void (__fastcall *)(_QWORD, PSLIST_ENTRY, _QWORD, _QWORD))(a1 ^ RtlpHeapKey ^ *(_QWORD *)(a1 + 16)))(
-        *(_QWORD *)a1,
+      ((void (__fastcall *)(unsigned __int64, PSLIST_ENTRY, _QWORD, _QWORD))((unsigned __int64)a1 ^ RtlpHeapKey ^ a1[2].Value))(
+        a1->Value,
         v26,
         v23,
         a3);
@@ -236,7 +236,7 @@ LABEL_33:
   if ( v29 != v23 )
     v7 += (unsigned __int64)v29 >> 12;
   if ( v7 )
-    _InterlockedExchangeAdd64((volatile signed __int64 *)(*(_QWORD *)(a1 + 64) + 24LL), v7);
+    _InterlockedExchangeAdd64((volatile signed __int64 *)(a1[8].Value + 24), v7);
   if ( v29 == 4096 )
   {
     v31 = v23 >> 12;
@@ -299,6 +299,6 @@ LABEL_33:
   v3 = v26;
 LABEL_65:
   if ( !v59 )
-    RtlReleaseSRWLockShared((volatile signed __int64 *)(a1 + 72));
+    RtlReleaseSRWLockShared(a1 + 9);
   return v3;
 }

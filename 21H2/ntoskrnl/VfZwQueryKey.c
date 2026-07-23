@@ -1,11 +1,11 @@
 /*
- * XREFs of VfZwQueryKey @ 0x1409EB420
+ * XREFs of VfZwQueryKey @ 0x1409EC420
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     ViZwCheckVirtualAddress @ 0x1409EC944 (ViZwCheckVirtualAddress.c)
- *     ViZwShouldCheck @ 0x1409EC990 (ViZwShouldCheck.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     ViZwCheckVirtualAddress @ 0x1409ED944 (ViZwCheckVirtualAddress.c)
+ *     ViZwShouldCheck @ 0x1409ED990 (ViZwShouldCheck.c)
  */
 
 __int64 __fastcall VfZwQueryKey(__int64 a1, unsigned int a2, __int64 a3, unsigned int a4, ULONG_PTR BugCheckParameter3)

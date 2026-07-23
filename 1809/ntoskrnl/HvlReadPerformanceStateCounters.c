@@ -1,9 +1,9 @@
 /*
- * XREFs of HvlReadPerformanceStateCounters @ 0x140276EB0
+ * XREFs of HvlReadPerformanceStateCounters @ 0x1402770A0
  * Callers:
  *     <none>
  * Callees:
- *     KeGetPrcb @ 0x1400A62C4 (KeGetPrcb.c)
+ *     KeGetPrcb @ 0x1400A6204 (KeGetPrcb.c)
  */
 
 void __fastcall HvlReadPerformanceStateCounters(ULONG a1, unsigned int a2, _QWORD *a3, _QWORD *a4)
@@ -19,8 +19,8 @@ void __fastcall HvlReadPerformanceStateCounters(ULONG a1, unsigned int a2, _QWOR
     Prcb = (struct _KPRCB *)KeGetPrcb(a1);
     if ( KeGetCurrentPrcb() == Prcb )
       __writemsr(0x400000C1u, 0LL);
-    v8 = *((unsigned int *)&xmmword_1404DDA68 + 2 * v4 + 7);
-    *a3 = Prcb->StatisticsPage[*((unsigned int *)&xmmword_1404DDA68 + 2 * v4 + 6)];
+    v8 = *((unsigned int *)&xmmword_1404DEB68 + 2 * v4 + 7);
+    *a3 = Prcb->StatisticsPage[*((unsigned int *)&xmmword_1404DEB68 + 2 * v4 + 6)];
     *a4 = Prcb->StatisticsPage[v8];
   }
   else

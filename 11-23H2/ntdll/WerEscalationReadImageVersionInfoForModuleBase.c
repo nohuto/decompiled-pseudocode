@@ -11,12 +11,12 @@
  *     FindDirectoryEntry @ 0x18006C0F4 (FindDirectoryEntry.c)
  */
 
-void __fastcall WerEscalationReadImageVersionInfoForModuleBase(unsigned __int64 a1, __int64 a2)
+void __fastcall WerEscalationReadImageVersionInfoForModuleBase(char *BaseOfImage, __int64 a2)
 {
-  unsigned int *v4; // rcx
+  PIMAGE_NT_HEADERS v4; // rcx
   bool v5; // cc
-  __int64 v6; // rax
-  __int64 v7; // rdi
+  __int64 VirtualAddress; // rax
+  char *v7; // rdi
   __int64 v8; // rdx
   __int64 ResourceDirectoryEntry; // rax
   __int64 v10; // rax
@@ -28,83 +28,82 @@ void __fastcall WerEscalationReadImageVersionInfoForModuleBase(unsigned __int64 
   __int64 v16; // rdx
   __int64 v17; // rax
   unsigned int *v18; // rdx
-  unsigned __int64 v19; // rsi
+  char *v19; // rsi
   __int64 v20; // rdx
   __int64 v21; // r8
   _WORD *v22; // rdi
   __int64 v23; // rax
-  unsigned __int64 v24; // [rsp+20h] [rbp-20h] BYREF
-  unsigned __int64 v25; // [rsp+28h] [rbp-18h]
-  UNICODE_STRING DestinationString; // [rsp+30h] [rbp-10h] BYREF
-  unsigned int *v27; // [rsp+70h] [rbp+30h] BYREF
+  _UNICODE_STRING String2; // [rsp+20h] [rbp-20h] BYREF
+  _UNICODE_STRING DestinationString; // [rsp+30h] [rbp-10h] BYREF
+  PIMAGE_NT_HEADERS OutHeaders; // [rsp+70h] [rbp+30h] BYREF
 
-  v24 = a1;
+  *(_QWORD *)&String2.Length = BaseOfImage;
   *(_OWORD *)a2 = 0LL;
-  if ( (int)RtlImageNtHeaderEx(3, a1, 0LL, &v27) >= 0 )
+  if ( RtlImageNtHeaderEx(3u, BaseOfImage, 0LL, &OutHeaders) >= 0 )
   {
-    v4 = v27;
-    *(_DWORD *)a2 = v27[2];
-    *(_DWORD *)(a2 + 4) = v4[22];
-    v5 = v4[33] <= 2;
-    v25 = v4[20];
+    v4 = OutHeaders;
+    *(_DWORD *)a2 = OutHeaders->FileHeader.TimeDateStamp;
+    *(_DWORD *)(a2 + 4) = v4->OptionalHeader.CheckSum;
+    v5 = v4->OptionalHeader.NumberOfRvaAndSizes <= 2;
+    String2.Buffer = (wchar_t *)v4->OptionalHeader.SizeOfImage;
     if ( !v5 )
     {
-      v6 = v4[38];
-      if ( (_DWORD)v6 )
+      VirtualAddress = v4->OptionalHeader.DataDirectory[2].VirtualAddress;
+      if ( (_DWORD)VirtualAddress )
       {
-        if ( v4[39] >= 0x10 )
+        if ( v4->OptionalHeader.DataDirectory[2].Size >= 0x10 )
         {
-          v7 = a1 + v6;
-          if ( (unsigned int)ValidatePointer(&v24, a1 + v6, 16LL) )
+          v7 = &BaseOfImage[VirtualAddress];
+          if ( (unsigned int)ValidatePointer(&String2, &BaseOfImage[VirtualAddress], 16LL) )
           {
             if ( v7 )
             {
-              ResourceDirectoryEntry = GetResourceDirectoryEntry(&v24, v8, *(unsigned __int16 *)(v7 + 12));
+              ResourceDirectoryEntry = GetResourceDirectoryEntry(&String2, v8, *((unsigned __int16 *)v7 + 6));
               if ( ResourceDirectoryEntry )
               {
-                v10 = ((__int64 (__fastcall *)(unsigned __int64 *, __int64, _QWORD, __int64))FindDirectoryEntry)(
-                        &v24,
+                v10 = ((__int64 (__fastcall *)(_UNICODE_STRING *, __int64, _QWORD, __int64))FindDirectoryEntry)(
+                        &String2,
                         ResourceDirectoryEntry,
-                        *(unsigned __int16 *)(v7 + 14),
+                        *((unsigned __int16 *)v7 + 7),
                         16LL);
                 if ( v10 )
                 {
-                  if ( (unsigned int)ValidatePointer(&v24, v7 + (*(_DWORD *)(v10 + 4) & 0x7FFFFFFF), 16LL) )
+                  if ( (unsigned int)ValidatePointer(&String2, &v7[*(_DWORD *)(v10 + 4) & 0x7FFFFFFF], 16LL) )
                   {
-                    v13 = GetResourceDirectoryEntry(&v24, v11, *(unsigned __int16 *)(v12 + 12));
+                    v13 = GetResourceDirectoryEntry(&String2, v11, *(unsigned __int16 *)(v12 + 12));
                     if ( v13 )
                     {
-                      v15 = ((__int64 (__fastcall *)(unsigned __int64 *, __int64, _QWORD, __int64))FindDirectoryEntry)(
-                              &v24,
+                      v15 = ((__int64 (__fastcall *)(_UNICODE_STRING *, __int64, _QWORD, __int64))FindDirectoryEntry)(
+                              &String2,
                               v13,
                               *(unsigned __int16 *)(v14 + 14),
                               1LL);
                       if ( v15 )
                       {
-                        if ( (unsigned int)ValidatePointer(&v24, v7 + (*(_DWORD *)(v15 + 4) & 0x7FFFFFFF), 16LL) )
+                        if ( (unsigned int)ValidatePointer(&String2, &v7[*(_DWORD *)(v15 + 4) & 0x7FFFFFFF], 16LL) )
                         {
-                          v17 = GetResourceDirectoryEntry(&v24, v16, 0LL);
+                          v17 = GetResourceDirectoryEntry(&String2, v16, 0LL);
                           if ( v17 )
                           {
                             if ( *(int *)(v17 + 4) >= 0 )
                             {
-                              if ( (unsigned int)ValidatePointer(&v24, v7 + *(unsigned int *)(v17 + 4), 16LL) )
+                              if ( (unsigned int)ValidatePointer(&String2, &v7[*(unsigned int *)(v17 + 4)], 16LL) )
                               {
                                 if ( v18[1] >= 0x5C )
                                 {
-                                  v19 = *v18 + a1;
-                                  if ( (unsigned int)ValidatePointer(&v24, v19, 92LL) )
+                                  v19 = &BaseOfImage[*v18];
+                                  if ( (unsigned int)ValidatePointer(&String2, v19, 92LL) )
                                   {
                                     if ( v19 )
                                     {
-                                      if ( (unsigned int)ValidatePointer(&v24, v20, v21) )
+                                      if ( (unsigned int)ValidatePointer(&String2, v20, v21) )
                                       {
-                                        v22 = (_WORD *)(v19 + 6);
-                                        if ( (unsigned int)ValidatePointer(&v24, v19 + 6, 32LL) )
+                                        v22 = v19 + 6;
+                                        if ( (unsigned int)ValidatePointer(&String2, v19 + 6, 32LL) )
                                         {
                                           RtlInitUnicodeString(&DestinationString, L"VS_VERSION_INFO");
-                                          v25 = v19 + 6;
-                                          if ( v19 != -6LL )
+                                          String2.Buffer = (wchar_t *)(v19 + 6);
+                                          if ( v19 != (char *)-6LL )
                                           {
                                             v23 = 16LL;
                                             do
@@ -117,15 +116,12 @@ void __fastcall WerEscalationReadImageVersionInfoForModuleBase(unsigned __int64 
                                             while ( v23 );
                                             if ( v23 )
                                             {
-                                              WORD1(v24) = 32;
-                                              LOWORD(v24) = v23 != 0 ? 2 * (16 - v23) : 0;
-                                              if ( !(unsigned int)RtlCompareUnicodeString(
-                                                                    &DestinationString.Length,
-                                                                    (unsigned __int16 *)&v24,
-                                                                    0) )
+                                              String2.MaximumLength = 32;
+                                              String2.Length = v23 != 0 ? 2 * (16 - v23) : 0;
+                                              if ( !RtlCompareUnicodeString(&DestinationString, &String2, 0) )
                                               {
-                                                *(_DWORD *)(a2 + 8) = *(_DWORD *)(v19 + 48);
-                                                *(_DWORD *)(a2 + 12) = *(_DWORD *)(v19 + 52);
+                                                *(_DWORD *)(a2 + 8) = *((_DWORD *)v19 + 12);
+                                                *(_DWORD *)(a2 + 12) = *((_DWORD *)v19 + 13);
                                               }
                                             }
                                           }

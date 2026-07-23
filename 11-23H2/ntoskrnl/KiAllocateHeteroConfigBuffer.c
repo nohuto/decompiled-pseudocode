@@ -1,9 +1,9 @@
 /*
- * XREFs of KiAllocateHeteroConfigBuffer @ 0x140A8EBD8
+ * XREFs of KiAllocateHeteroConfigBuffer @ 0x140A8EA50
  * Callers:
  *     KiCompleteKernelInit @ 0x140A8CAE0 (KiCompleteKernelInit.c)
  * Callees:
- *     KeGetThreadWorkloadClassCount @ 0x14036F0B4 (KeGetThreadWorkloadClassCount.c)
+ *     KeGetThreadWorkloadClassCount @ 0x14036F254 (KeGetThreadWorkloadClassCount.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
 

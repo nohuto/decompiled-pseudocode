@@ -1,28 +1,28 @@
 /*
- * XREFs of CmpResolveHiveLoadConflict @ 0x140AE1F04
+ * XREFs of CmpResolveHiveLoadConflict @ 0x140ADF3F4
  * Callers:
- *     CmLoadKey @ 0x140AE15E4 (CmLoadKey.c)
+ *     CmLoadKey @ 0x140ADEAD4 (CmLoadKey.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     CmpJoinClassOfTrust @ 0x14046EEE4 (CmpJoinClassOfTrust.c)
- *     CmpPerformTrustClassAccessCheck @ 0x14046EF60 (CmpPerformTrustClassAccessCheck.c)
- *     SetFailureLocation @ 0x140494894 (SetFailureLocation.c)
- *     CmpUnJoinClassOfTrust @ 0x1404D3C6C (CmpUnJoinClassOfTrust.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     CmpIsHiveAlreadyLoaded @ 0x14085905C (CmpIsHiveAlreadyLoaded.c)
- *     UNLOCK_HIVE_LOAD @ 0x1408B11FC (UNLOCK_HIVE_LOAD.c)
- *     CmpLockRegistryFreezeAware @ 0x1408B3FA0 (CmpLockRegistryFreezeAware.c)
- *     LOCK_HIVE_LOAD @ 0x1408B45EC (LOCK_HIVE_LOAD.c)
- *     CmpLockKcbExclusive @ 0x1408CEB50 (CmpLockKcbExclusive.c)
- *     ObReferenceObjectByNameEx @ 0x1408EBDCC (ObReferenceObjectByNameEx.c)
- *     CmpInitializeParseContext @ 0x14097C5D0 (CmpInitializeParseContext.c)
- *     CmpCleanupParseContext @ 0x14097C850 (CmpCleanupParseContext.c)
- *     CmpRecordUnloadEventForHive @ 0x140A2F8FC (CmpRecordUnloadEventForHive.c)
- *     CmpReferenceKeyControlBlock @ 0x140A79B80 (CmpReferenceKeyControlBlock.c)
- *     CmpUnlockKcb @ 0x140C582B0 (CmpUnlockKcb.c)
- *     CmpIsKeyDeletedForKeyBody @ 0x140C58750 (CmpIsKeyDeletedForKeyBody.c)
- *     CmpUnlockRegistry @ 0x140C58970 (CmpUnlockRegistry.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     CmpJoinClassOfTrust @ 0x140468664 (CmpJoinClassOfTrust.c)
+ *     CmpPerformTrustClassAccessCheck @ 0x1404686E0 (CmpPerformTrustClassAccessCheck.c)
+ *     SetFailureLocation @ 0x14048E3E4 (SetFailureLocation.c)
+ *     CmpUnJoinClassOfTrust @ 0x1404CD4DC (CmpUnJoinClassOfTrust.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     CmpIsHiveAlreadyLoaded @ 0x14085F3EC (CmpIsHiveAlreadyLoaded.c)
+ *     UNLOCK_HIVE_LOAD @ 0x1408B7808 (UNLOCK_HIVE_LOAD.c)
+ *     CmpLockRegistryFreezeAware @ 0x1408BA574 (CmpLockRegistryFreezeAware.c)
+ *     LOCK_HIVE_LOAD @ 0x1408BABC0 (LOCK_HIVE_LOAD.c)
+ *     CmpLockKcbExclusive @ 0x1408D5100 (CmpLockKcbExclusive.c)
+ *     ObReferenceObjectByNameEx @ 0x1408F238C (ObReferenceObjectByNameEx.c)
+ *     CmpInitializeParseContext @ 0x14093E5E0 (CmpInitializeParseContext.c)
+ *     CmpCleanupParseContext @ 0x14093E860 (CmpCleanupParseContext.c)
+ *     CmpRecordUnloadEventForHive @ 0x140A41774 (CmpRecordUnloadEventForHive.c)
+ *     CmpReferenceKeyControlBlock @ 0x140A81AC0 (CmpReferenceKeyControlBlock.c)
+ *     CmpUnlockKcb @ 0x140C5E2B0 (CmpUnlockKcb.c)
+ *     CmpIsKeyDeletedForKeyBody @ 0x140C5E750 (CmpIsKeyDeletedForKeyBody.c)
+ *     CmpUnlockRegistry @ 0x140C5E970 (CmpUnlockRegistry.c)
  */
 
 __int64 __fastcall CmpResolveHiveLoadConflict(
@@ -143,6 +143,6 @@ LABEL_29:
 LABEL_3:
   if ( v19 )
     ObfDereferenceObject(v19);
-  CmpCleanupParseContext((__int64)v35, 0);
+  CmpCleanupParseContext((__int64)v35, 0LL, v17, (__int64)v18);
   return v20;
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of NtNotifyChangeDirectoryFile @ 0x1406B9C80
+ * XREFs of NtNotifyChangeDirectoryFile @ 0x1406BAF20
  * Callers:
  *     <none>
  * Callees:
- *     NtNotifyChangeDirectoryFileEx @ 0x1406B9CE0 (NtNotifyChangeDirectoryFileEx.c)
+ *     NtNotifyChangeDirectoryFileEx @ 0x1406BAF80 (NtNotifyChangeDirectoryFileEx.c)
  */
 
 NTSTATUS __stdcall NtNotifyChangeDirectoryFile(
@@ -27,5 +27,5 @@ NTSTATUS __stdcall NtNotifyChangeDirectoryFile(
            BufferSize,
            CompletionFilter,
            WatchTree,
-           1);
+           DirectoryNotifyInformation);
 }

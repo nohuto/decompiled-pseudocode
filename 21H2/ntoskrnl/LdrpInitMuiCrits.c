@@ -1,28 +1,28 @@
 /*
- * XREFs of LdrpInitMuiCrits @ 0x1402A98E4
+ * XREFs of LdrpInitMuiCrits @ 0x140227A24
  * Callers:
- *     LdrpGetAlternateResourceModuleHandleEx @ 0x1402A8B94 (LdrpGetAlternateResourceModuleHandleEx.c)
- *     LdrpGetFromMUIMemCache @ 0x1402A9744 (LdrpGetFromMUIMemCache.c)
- *     LdrpSetAlternateResourceModuleHandle @ 0x14037F45C (LdrpSetAlternateResourceModuleHandle.c)
- *     LdrUnloadAlternateResourceModuleEx @ 0x14037FD70 (LdrUnloadAlternateResourceModuleEx.c)
+ *     LdrpGetAlternateResourceModuleHandleEx @ 0x140226CD4 (LdrpGetAlternateResourceModuleHandleEx.c)
+ *     LdrpGetFromMUIMemCache @ 0x140227884 (LdrpGetFromMUIMemCache.c)
+ *     LdrpSetAlternateResourceModuleHandle @ 0x14037EFAC (LdrpSetAlternateResourceModuleHandle.c)
+ *     LdrUnloadAlternateResourceModuleEx @ 0x14037F8C0 (LdrUnloadAlternateResourceModuleEx.c)
  * Callees:
- *     KiInitializeMutant @ 0x1402ED1DC (KiInitializeMutant.c)
- *     NtDelayExecution @ 0x14061A3B0 (NtDelayExecution.c)
+ *     KiInitializeMutant @ 0x14029E52C (KiInitializeMutant.c)
+ *     NtDelayExecution @ 0x140684010 (NtDelayExecution.c)
  */
 
-__int64 LdrpInitMuiCrits()
+NTSTATUS LdrpInitMuiCrits()
 {
-  __int64 result; // rax
-  __int64 v1; // [rsp+38h] [rbp+10h] BYREF
+  NTSTATUS result; // eax
+  LARGE_INTEGER DelayInterval; // [rsp+38h] [rbp+10h] BYREF
 
-  v1 = -1000000LL;
+  DelayInterval.QuadPart = -1000000LL;
   while ( 1 )
   {
-    result = (unsigned int)_InterlockedCompareExchange(&MuiLockInitCount, 1, 0);
-    if ( !(_DWORD)result )
+    result = _InterlockedCompareExchange(&MuiLockInitCount, 1, 0);
+    if ( !result )
       break;
     if ( MuiLockInitCount == 1 )
-      result = NtDelayExecution(0LL, &v1);
+      result = NtDelayExecution(0, &DelayInterval);
     if ( MuiLockInitCount == 2 )
       return result;
   }

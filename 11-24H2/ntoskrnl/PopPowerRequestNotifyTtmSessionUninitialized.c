@@ -1,18 +1,18 @@
 /*
- * XREFs of PopPowerRequestNotifyTtmSessionUninitialized @ 0x140AB9BA4
+ * XREFs of PopPowerRequestNotifyTtmSessionUninitialized @ 0x140AB4C64
  * Callers:
- *     NtPowerInformation @ 0x1409F0230 (NtPowerInformation.c)
+ *     NtPowerInformation @ 0x1409EDB00 (NtPowerInformation.c)
  * Callees:
- *     KeWaitForSingleObject @ 0x14033E960 (KeWaitForSingleObject.c)
- *     PopReleaseRwLock @ 0x1403B5EC8 (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x1404283D4 (PopAcquireRwLockExclusive.c)
- *     PopPowerRequestRevokeRequests @ 0x1404B659C (PopPowerRequestRevokeRequests.c)
+ *     PopReleaseRwLock @ 0x1402AE8FC (PopReleaseRwLock.c)
+ *     KeWaitForSingleObject @ 0x14031DE40 (KeWaitForSingleObject.c)
+ *     PopAcquireRwLockExclusive @ 0x14041C564 (PopAcquireRwLockExclusive.c)
+ *     PopPowerRequestRevokeRequests @ 0x1404B0D7C (PopPowerRequestRevokeRequests.c)
  */
 
 NTSTATUS PopPowerRequestNotifyTtmSessionUninitialized()
 {
-  PopAcquireRwLockExclusive(&PopPowerRequestLock);
+  PopAcquireRwLockExclusive((unsigned __int64 *)&PopPowerRequestLock);
   PopPowerRequestRevokeRequests(1, 0);
-  PopReleaseRwLock((signed __int64 *)&PopPowerRequestLock);
+  PopReleaseRwLock(&PopPowerRequestLock);
   return KeWaitForSingleObject(&unk_140E019B8, Executive, 0, 0, 0LL);
 }

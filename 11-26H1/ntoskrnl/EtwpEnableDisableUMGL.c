@@ -1,14 +1,14 @@
 /*
- * XREFs of EtwpEnableDisableUMGL @ 0x140A6D758
+ * XREFs of EtwpEnableDisableUMGL @ 0x140A99A14
  * Callers:
- *     EtwpEnableDisableSpecialGuids @ 0x140A6D54C (EtwpEnableDisableSpecialGuids.c)
+ *     EtwpEnableDisableSpecialGuids @ 0x140A99808 (EtwpEnableDisableSpecialGuids.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     KeWaitForSingleObject @ 0x140278560 (KeWaitForSingleObject.c)
- *     KeReleaseMutex @ 0x1403DD0F0 (KeReleaseMutex.c)
- *     EtwpDisablePerProcessTracing @ 0x140828458 (EtwpDisablePerProcessTracing.c)
- *     EtwpUpdateProcessTracingCallback @ 0x140828630 (EtwpUpdateProcessTracingCallback.c)
- *     PsLookupProcessByProcessId @ 0x1408EF4E0 (PsLookupProcessByProcessId.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     KeWaitForSingleObject @ 0x140277AD0 (KeWaitForSingleObject.c)
+ *     KeReleaseMutex @ 0x1403E02E0 (KeReleaseMutex.c)
+ *     EtwpDisablePerProcessTracing @ 0x14082E698 (EtwpDisablePerProcessTracing.c)
+ *     EtwpUpdateProcessTracingCallback @ 0x14082E870 (EtwpUpdateProcessTracingCallback.c)
+ *     PsLookupProcessByProcessId @ 0x1408F5AA0 (PsLookupProcessByProcessId.c)
  */
 
 __int64 __fastcall EtwpEnableDisableUMGL(
@@ -39,7 +39,7 @@ __int64 __fastcall EtwpEnableDisableUMGL(
     v11 = *(_QWORD *)(*(_QWORD *)(a1 + 8) + 1288LL) + 550LL;
   if ( (unsigned int)a3 < *(_DWORD *)(a1 + 16) && a3 )
   {
-    KeWaitForSingleObject(ExpSysDbgLock.Padding, Executive, 0, 0, 0LL);
+    KeWaitForSingleObject(&stru_140F03830.Header.WaitListHead.Blink, Executive, 0, 0, 0LL);
     if ( a2 )
     {
       LOBYTE(v18) = v7;
@@ -80,7 +80,7 @@ __int64 __fastcall EtwpEnableDisableUMGL(
         v10 = v15 != 0 ? -1073741734 : -1073741054;
       }
     }
-    KeReleaseMutex((PRKMUTEX)ExpSysDbgLock.Padding, 0);
+    KeReleaseMutex((PRKMUTEX)&stru_140F03830.Header.WaitListHead.Blink, 0);
   }
   else
   {

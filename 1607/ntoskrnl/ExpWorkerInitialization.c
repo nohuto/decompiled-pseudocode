@@ -3,23 +3,23 @@
  * Callers:
  *     ExpInitSystemPhase1 @ 0x14079EB74 (ExpInitSystemPhase1.c)
  * Callees:
- *     KeQueryNodeActiveAffinity @ 0x140004F28 (KeQueryNodeActiveAffinity.c)
- *     KiLeaveGuardedRegionUnsafe @ 0x140013B70 (KiLeaveGuardedRegionUnsafe.c)
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     KeSelectIdealProcessor @ 0x14007D1B0 (KeSelectIdealProcessor.c)
- *     KeInitializeTimer2 @ 0x14007DD48 (KeInitializeTimer2.c)
- *     ExQueueDebuggerWorker @ 0x140083318 (ExQueueDebuggerWorker.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1400C8070 (ExfAcquirePushLockExclusiveEx.c)
- *     ExfReleasePushLock @ 0x1400C8620 (ExfReleasePushLock.c)
- *     KeSetTimer2 @ 0x1400EB320 (KeSetTimer2.c)
- *     KiQueryUnbiasedInterruptTime @ 0x1400F02D4 (KiQueryUnbiasedInterruptTime.c)
- *     KeInitializePriQueue @ 0x140147C34 (KeInitializePriQueue.c)
- *     ExpLegacyWorkerInitialization @ 0x140147CA4 (ExpLegacyWorkerInitialization.c)
- *     ZwClose @ 0x140159E60 (ZwClose.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     ExpCreateSystemThreadForNode @ 0x1403E4644 (ExpCreateSystemThreadForNode.c)
- *     ObReferenceObjectByHandle @ 0x140450D40 (ObReferenceObjectByHandle.c)
+ *     KeQueryNodeActiveAffinity @ 0x14000509C (KeQueryNodeActiveAffinity.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x1400136F0 (KiLeaveGuardedRegionUnsafe.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     KeSelectIdealProcessor @ 0x14007D230 (KeSelectIdealProcessor.c)
+ *     KeInitializeTimer2 @ 0x14007DDC8 (KeInitializeTimer2.c)
+ *     ExQueueDebuggerWorker @ 0x140083F98 (ExQueueDebuggerWorker.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1400C5F10 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfReleasePushLock @ 0x1400C64C0 (ExfReleasePushLock.c)
+ *     KeSetTimer2 @ 0x1400E9190 (KeSetTimer2.c)
+ *     KiQueryUnbiasedInterruptTime @ 0x1400EE154 (KiQueryUnbiasedInterruptTime.c)
+ *     KeInitializePriQueue @ 0x1401481A4 (KeInitializePriQueue.c)
+ *     ExpLegacyWorkerInitialization @ 0x140148214 (ExpLegacyWorkerInitialization.c)
+ *     ZwClose @ 0x14015A3D0 (ZwClose.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     ExpCreateSystemThreadForNode @ 0x1403E5C70 (ExpCreateSystemThreadForNode.c)
+ *     ObReferenceObjectByHandle @ 0x14044FC10 (ObReferenceObjectByHandle.c)
  */
 
 __int64 ExpWorkerInitialization()
@@ -157,14 +157,14 @@ __int64 ExpWorkerInitialization()
     (10000000LL * ExpWorkerThreadTimeoutInSeconds) >> 2,
     (__int64)v31);
   ExpLegacyWorkerInitialization();
-  if ( !qword_1403261C0 )
+  if ( !qword_140326200 )
   {
     v10 = __rdtsc();
     v11 = (41929663 * (unsigned int)((((unsigned __int64)HIDWORD(v10) << 32) | (unsigned int)v10) >> 4)) ^ 0xBC6LL;
     if ( !v11 )
       v11 = 1LL;
-    qword_1403261C0 = v11;
-    qword_1403261C8 = (41929663 * (unsigned int)(__rdtsc() >> 4)) ^ 0x5E3LL;
+    qword_140326200 = v11;
+    qword_140326208 = (41929663 * (unsigned int)(__rdtsc() >> 4)) ^ 0x5E3LL;
     CurrentThread = KeGetCurrentThread();
     --CurrentThread->SpecialApcDisable;
     v13 = (unsigned __int64 *)((char *)ObpTypeObjectType + 184);
@@ -177,7 +177,7 @@ __int64 ExpWorkerInitialization()
     v16 = 0;
     v17 = *((unsigned int *)ObpTypeObjectType + 11);
     v18 = 64;
-    qword_1403261D8 = v17;
+    qword_140326218 = v17;
     v19 = (unsigned int)v17;
     if ( (_DWORD)v17 )
     {
@@ -185,7 +185,7 @@ __int64 ExpWorkerInitialization()
       while ( *v20 )
       {
         if ( (*(_BYTE *)(*v20 + 66) & 0x40) != 0 )
-          _bittestandset64(&qword_1403261E0, v16);
+          _bittestandset64(&qword_140326220, v16);
         ++v16;
         ++v20;
         if ( v16 >= (unsigned int)v17 )
@@ -193,7 +193,7 @@ __int64 ExpWorkerInitialization()
       }
       v19 = v16;
       LODWORD(v17) = v16;
-      qword_1403261D8 = v16;
+      qword_140326218 = v16;
     }
 LABEL_33:
     v21 = (signed __int64 *)((char *)ObpTypeObjectType + 184);
@@ -209,23 +209,23 @@ LABEL_33:
     KiLeaveGuardedRegionUnsafe((__int64)KeGetCurrentThread());
     if ( (_DWORD)v17 )
     {
-      qword_140326200 = ObpObjectTypes[41929663 * (__rdtsc() >> 4) % v19];
-      v25 = (_QWORD *)(qword_140326200 + 112);
-      v26 = (const char *)(qword_140326200 + 112);
-      if ( qword_140326200 + 112 < (unsigned __int64)(qword_140326200 + 176) )
+      qword_140326240 = ObpObjectTypes[41929663 * (__rdtsc() >> 4) % v19];
+      v25 = (_QWORD *)(qword_140326240 + 112);
+      v26 = (const char *)(qword_140326240 + 112);
+      if ( qword_140326240 + 112 < (unsigned __int64)(qword_140326240 + 176) )
       {
         do
         {
           _mm_prefetch(v26, 0);
           v26 += 64;
         }
-        while ( (unsigned __int64)v26 < qword_140326200 + 176 );
+        while ( (unsigned __int64)v26 < qword_140326240 + 176 );
       }
-      v27 = qword_1403261C0;
+      v27 = qword_140326200;
       v28 = 8LL;
       do
       {
-        v27 = __ROR8__(v27 - *v25++, qword_1403261C8);
+        v27 = __ROR8__(v27 - *v25++, qword_140326208);
         v18 -= 8;
         --v28;
       }
@@ -234,14 +234,14 @@ LABEL_33:
       {
         v29 = *(unsigned __int8 *)v25;
         v25 = (_QWORD *)((char *)v25 + 1);
-        v27 = __ROR8__(v27 - v29, qword_1403261C8);
+        v27 = __ROR8__(v27 - v29, qword_140326208);
       }
-      qword_140326208 = v27;
-      qword_1403261D0 = KiQueryUnbiasedInterruptTime() + 41929663 * (__rdtsc() >> 4) % 0x12A05F2000LL + 288000000000LL;
+      qword_140326248 = v27;
+      qword_140326210 = KiQueryUnbiasedInterruptTime() + 41929663 * (__rdtsc() >> 4) % 0x12A05F2000LL + 288000000000LL;
     }
     else
     {
-      qword_1403261C0 = 0LL;
+      qword_140326200 = 0LL;
     }
   }
   LODWORD(ExpDebuggerDpc) = 275;

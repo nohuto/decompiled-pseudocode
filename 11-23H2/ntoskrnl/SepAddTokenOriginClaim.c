@@ -1,14 +1,14 @@
 /*
- * XREFs of SepAddTokenOriginClaim @ 0x1407E3654
+ * XREFs of SepAddTokenOriginClaim @ 0x1407E3924
  * Callers:
- *     SeSubProcessToken @ 0x1406B71F8 (SeSubProcessToken.c)
- *     SeDuplicateTokenAndAddOriginClaim @ 0x1407E3580 (SeDuplicateTokenAndAddOriginClaim.c)
+ *     SeSubProcessToken @ 0x1406B722C (SeSubProcessToken.c)
+ *     SeDuplicateTokenAndAddOriginClaim @ 0x1407E3850 (SeDuplicateTokenAndAddOriginClaim.c)
  * Callees:
  *     RtlAppendUnicodeStringToString @ 0x140208A00 (RtlAppendUnicodeStringToString.c)
- *     AuthzBasepSetSecurityAttributesToken @ 0x140224CF0 (AuthzBasepSetSecurityAttributesToken.c)
- *     RtlInitUnicodeString @ 0x14022E1B0 (RtlInitUnicodeString.c)
- *     RtlCopyUnicodeString @ 0x1402AEFD0 (RtlCopyUnicodeString.c)
- *     RtlUShortAdd @ 0x1403225C4 (RtlUShortAdd.c)
+ *     AuthzBasepSetSecurityAttributesToken @ 0x140224DF8 (AuthzBasepSetSecurityAttributesToken.c)
+ *     RtlInitUnicodeString @ 0x14022E2C0 (RtlInitUnicodeString.c)
+ *     RtlCopyUnicodeString @ 0x1402AF260 (RtlCopyUnicodeString.c)
+ *     RtlUShortAdd @ 0x140322854 (RtlUShortAdd.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

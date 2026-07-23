@@ -1,10 +1,10 @@
 /*
- * XREFs of InbvSetFunction @ 0x140387F88
+ * XREFs of InbvSetFunction @ 0x140388168
  * Callers:
- *     BgkNotifyDisplayOwnershipChange @ 0x1403ADB80 (BgkNotifyDisplayOwnershipChange.c)
+ *     BgkNotifyDisplayOwnershipChange @ 0x1403ADD60 (BgkNotifyDisplayOwnershipChange.c)
  *     InbvDriverInitialize @ 0x140B52524 (InbvDriverInitialize.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall InbvSetFunction(int a1)
@@ -22,11 +22,11 @@ __int64 __fastcall InbvSetFunction(int a1)
       if ( v3 )
         v3(0LL);
     }
-    v4 = off_140C04580;
+    v4 = off_140C04540;
     result = 4 - (unsigned int)(a1 != 4);
     dword_140C6AB48 = 4 - (a1 != 4);
     if ( a1 != 4 )
-      v4 = off_140C04640;
+      v4 = off_140C04600;
     qword_140C6AB58 = (__int64)v4;
   }
   return result;

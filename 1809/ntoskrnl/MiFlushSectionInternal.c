@@ -3,10 +3,10 @@
  * Callers:
  *     MmFlushSection @ 0x14001FFD8 (MmFlushSection.c)
  *     MiFlushSectionInternal @ 0x14004C270 (MiFlushSectionInternal.c)
- *     MiCleanSection @ 0x14016973C (MiCleanSection.c)
- *     MiDeleteCachedSubsection @ 0x1402A1A18 (MiDeleteCachedSubsection.c)
- *     MiFlushControlArea @ 0x1402A227C (MiFlushControlArea.c)
- *     MmFlushVirtualMemory @ 0x1406B6C1C (MmFlushVirtualMemory.c)
+ *     MiCleanSection @ 0x14016983C (MiCleanSection.c)
+ *     MiDeleteCachedSubsection @ 0x1402A1C08 (MiDeleteCachedSubsection.c)
+ *     MiFlushControlArea @ 0x1402A246C (MiFlushControlArea.c)
+ *     MmFlushVirtualMemory @ 0x1406B7EBC (MmFlushVirtualMemory.c)
  * Callees:
  *     MiWaitForCollidedFaultComplete @ 0x140003F00 (MiWaitForCollidedFaultComplete.c)
  *     MiDereferenceControlAreaFile @ 0x14001CA78 (MiDereferenceControlAreaFile.c)
@@ -26,31 +26,31 @@
  *     MiChargeCommit @ 0x14004CF20 (MiChargeCommit.c)
  *     KeDelayExecutionThread @ 0x14004DA20 (KeDelayExecutionThread.c)
  *     KeLeaveCriticalRegionThread @ 0x140051600 (KeLeaveCriticalRegionThread.c)
- *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
- *     MiIncrementSubsectionViewCount @ 0x140077A50 (MiIncrementSubsectionViewCount.c)
- *     MiDecrementSubsectionViewCount @ 0x1400794C0 (MiDecrementSubsectionViewCount.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x14007B720 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     MiInsertUnusedSubsection @ 0x14007B7DC (MiInsertUnusedSubsection.c)
- *     MiRemoveUnusedSubsection @ 0x14007BBC8 (MiRemoveUnusedSubsection.c)
- *     MiClearPfnImageVerified @ 0x140082954 (MiClearPfnImageVerified.c)
- *     MiInitializePageFaultPacket @ 0x140096218 (MiInitializePageFaultPacket.c)
- *     MiGetPagePrivilege @ 0x1400B2A70 (MiGetPagePrivilege.c)
- *     PsGetIoPriorityThread @ 0x1400B6B40 (PsGetIoPriorityThread.c)
- *     ExAcquireSpinLockExclusive @ 0x1400BC4E0 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC660 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ObDereferenceObjectDeferDelete @ 0x1400C1060 (ObDereferenceObjectDeferDelete.c)
- *     MiWaitForPageWriteCompletion @ 0x1400F9AF4 (MiWaitForPageWriteCompletion.c)
- *     IoDiskIoAttributionDereference @ 0x140105854 (IoDiskIoAttributionDereference.c)
- *     MiIssueSynchronousFlush @ 0x14011C958 (MiIssueSynchronousFlush.c)
- *     MiExpandFlushMdl @ 0x140125650 (MiExpandFlushMdl.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     MiIssueAsynchronousFlush @ 0x1402B4AD8 (MiIssueAsynchronousFlush.c)
- *     MiWaitForAsynchronousFlushes @ 0x1402B4D74 (MiWaitForAsynchronousFlushes.c)
- *     MiFlushFileOnlyMdl @ 0x1402B5E6C (MiFlushFileOnlyMdl.c)
- *     MiReturnCrossPartitionSectionCharges @ 0x1402C4CB4 (MiReturnCrossPartitionSectionCharges.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
+ *     KeYieldProcessorEx @ 0x14006C9E0 (KeYieldProcessorEx.c)
+ *     MiIncrementSubsectionViewCount @ 0x140077A40 (MiIncrementSubsectionViewCount.c)
+ *     MiDecrementSubsectionViewCount @ 0x1400794B0 (MiDecrementSubsectionViewCount.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x14007B710 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     MiInsertUnusedSubsection @ 0x14007B7CC (MiInsertUnusedSubsection.c)
+ *     MiRemoveUnusedSubsection @ 0x14007BBB8 (MiRemoveUnusedSubsection.c)
+ *     MiClearPfnImageVerified @ 0x140082944 (MiClearPfnImageVerified.c)
+ *     MiInitializePageFaultPacket @ 0x140096158 (MiInitializePageFaultPacket.c)
+ *     MiGetPagePrivilege @ 0x1400B29B0 (MiGetPagePrivilege.c)
+ *     PsGetIoPriorityThread @ 0x1400B6A80 (PsGetIoPriorityThread.c)
+ *     ExAcquireSpinLockExclusive @ 0x1400BC420 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC5A0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ObDereferenceObjectDeferDelete @ 0x1400C0FA0 (ObDereferenceObjectDeferDelete.c)
+ *     MiWaitForPageWriteCompletion @ 0x1400F9B74 (MiWaitForPageWriteCompletion.c)
+ *     IoDiskIoAttributionDereference @ 0x1401058D4 (IoDiskIoAttributionDereference.c)
+ *     MiIssueSynchronousFlush @ 0x14011C9C8 (MiIssueSynchronousFlush.c)
+ *     MiExpandFlushMdl @ 0x140125720 (MiExpandFlushMdl.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiIssueAsynchronousFlush @ 0x1402B4CC8 (MiIssueAsynchronousFlush.c)
+ *     MiWaitForAsynchronousFlushes @ 0x1402B4F64 (MiWaitForAsynchronousFlushes.c)
+ *     MiFlushFileOnlyMdl @ 0x1402B605C (MiFlushFileOnlyMdl.c)
+ *     MiReturnCrossPartitionSectionCharges @ 0x1402C4EA4 (MiReturnCrossPartitionSectionCharges.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall MiFlushSectionInternal(
@@ -496,11 +496,11 @@ LABEL_26:
         goto LABEL_34;
       if ( (*(_QWORD *)v16 & 0xC00LL) != 0x800 )
         goto LABEL_76;
-      if ( !v25 || !qword_14043A0C0 || (v25 & qword_14043A0C0) != 0 )
+      if ( !v25 || !qword_14043B180 || (v25 & qword_14043B180) != 0 )
       {
         v26 = *(_QWORD *)v16;
-        if ( qword_14043A0C0 && (v25 & 0x10) == 0 )
-          v26 = v25 & ~qword_14043A0C0;
+        if ( qword_14043B180 && (v25 & 0x10) == 0 )
+          v26 = v25 & ~qword_14043B180;
 LABEL_34:
         v27 = 48 * ((v26 >> 12) & 0xFFFFFFFFFLL);
         v128 = v27;
@@ -622,7 +622,7 @@ LABEL_111:
     v12->ByteOffset = v65;
   }
   v34 = v29 & 1;
-  v35 = *(ULONG_PTR **)(qword_14043A748 + 8 * ((*(_QWORD *)(v28 + 40) >> 40) & 0x3FFLL));
+  v35 = *(ULONG_PTR **)(qword_14043B808 + 8 * ((*(_QWORD *)(v28 + 40) >> 40) & 0x3FFLL));
   v36 = *(_DWORD *)(v28 + 16);
   v123 = v35;
   v37 = (v36 & 0x400) != 0LL;
@@ -934,7 +934,7 @@ LABEL_162:
     }
   }
   if ( v52 )
-    MiReturnCrossPartitionSectionCharges(*(_QWORD *)(qword_14043A748 + 8LL * (*(_WORD *)(v57 + 60) & 0x3FF)), 1LL, v52);
+    MiReturnCrossPartitionSectionCharges(*(_QWORD *)(qword_14043B808 + 8LL * (*(_WORD *)(v57 + 60) & 0x3FF)), 1LL, v52);
   if ( v122 )
     IoDiskIoAttributionDereference(v122);
   KeLeaveCriticalRegionThread(CurrentThread, v60, v53, v54);

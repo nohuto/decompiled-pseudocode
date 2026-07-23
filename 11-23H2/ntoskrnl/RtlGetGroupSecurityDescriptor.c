@@ -3,10 +3,10 @@
  * Callers:
  *     PipChangeDeviceObjectFromRegistryProperties @ 0x14069AA88 (PipChangeDeviceObjectFromRegistryProperties.c)
  *     LocalConvertSDToStringSD_Rev1 @ 0x14069CE68 (LocalConvertSDToStringSD_Rev1.c)
- *     IopGetSecurityDescriptorInformation @ 0x14083B284 (IopGetSecurityDescriptorInformation.c)
- *     PiDevCfgGetKeySecurityDescriptor @ 0x14087EB00 (PiDevCfgGetKeySecurityDescriptor.c)
- *     RtlReplaceSidInSd @ 0x1409BC330 (RtlReplaceSidInSd.c)
- *     CmpCopySaclToVirtualKey @ 0x140A1B38C (CmpCopySaclToVirtualKey.c)
+ *     IopGetSecurityDescriptorInformation @ 0x14083B584 (IopGetSecurityDescriptorInformation.c)
+ *     PiDevCfgGetKeySecurityDescriptor @ 0x14087ED40 (PiDevCfgGetKeySecurityDescriptor.c)
+ *     RtlReplaceSidInSd @ 0x1409BC530 (RtlReplaceSidInSd.c)
+ *     CmpCopySaclToVirtualKey @ 0x140A1B63C (CmpCopySaclToVirtualKey.c)
  * Callees:
  *     <none>
  */

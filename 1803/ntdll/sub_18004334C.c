@@ -10,11 +10,11 @@
  *     sub_18008363C @ 0x18008363C (sub_18008363C.c)
  */
 
-bool __fastcall sub_18004334C(__int64 a1, char a2)
+BOOLEAN __fastcall sub_18004334C(__int64 a1, char a2)
 {
-  bool v2; // bl
+  BOOLEAN v2; // bl
   __int64 v5; // r13
-  unsigned __int64 v6; // rdi
+  unsigned __int64 Root; // rdi
   unsigned __int64 v7; // rsi
   int v8; // r14d
   int v9; // eax
@@ -28,20 +28,20 @@ bool __fastcall sub_18004334C(__int64 a1, char a2)
   if ( !*(_QWORD *)(a1 + 168) && (*(_DWORD *)(a1 + 32) & 0x4100000) == 0 )
   {
     v5 = *(_QWORD *)(a1 + 56);
-    RtlEnterCriticalSection((__int64)&unk_18015C240);
-    v6 = xmmword_18015D100;
-    if ( (BYTE8(xmmword_18015D100) & 1) != 0 )
+    RtlEnterCriticalSection(&stru_18015C240);
+    Root = (unsigned __int64)stru_18015D100.Root;
+    if ( ((__int64)stru_18015D100.Min & 1) != 0 )
     {
-      if ( (_QWORD)xmmword_18015D100 )
-        v7 = (unsigned __int64)&xmmword_18015D100 ^ xmmword_18015D100;
+      if ( stru_18015D100.Root )
+        v7 = (unsigned __int64)&stru_18015D100 ^ (unsigned __int64)stru_18015D100.Root;
       else
         v7 = 0LL;
     }
     else
     {
-      v7 = xmmword_18015D100;
+      v7 = (unsigned __int64)stru_18015D100.Root;
     }
-    v8 = BYTE8(xmmword_18015D100) & 1;
+    v8 = (__int64)stru_18015D100.Min & 1;
     if ( !v7 )
       goto LABEL_19;
     do
@@ -69,41 +69,41 @@ LABEL_19:
       if ( !a2 )
       {
 LABEL_40:
-        RtlLeaveCriticalSection((__int64)&unk_18015C240);
+        RtlLeaveCriticalSection(&stru_18015C240);
         return v2;
       }
-      if ( (BYTE8(xmmword_18015D100) & 1) != 0 )
+      if ( ((__int64)stru_18015D100.Min & 1) != 0 )
       {
-        if ( v6 )
-          v6 ^= (unsigned __int64)&xmmword_18015D100;
+        if ( Root )
+          Root ^= (unsigned __int64)&stru_18015D100;
         else
-          v6 = 0LL;
+          Root = 0LL;
       }
-      v11 = BYTE8(xmmword_18015D100) & 1;
-      if ( v6 )
+      v11 = (__int64)stru_18015D100.Min & 1;
+      if ( Root )
       {
         while ( 1 )
         {
-          if ( (int)sub_18008363C(v5, v6) < 0 )
+          if ( (int)sub_18008363C(v5, Root) < 0 )
           {
-            v12 = *(_QWORD *)v6;
+            v12 = *(_QWORD *)Root;
             if ( v11 )
             {
               if ( !v12 )
                 break;
-              v12 ^= v6;
+              v12 ^= Root;
             }
             if ( !v12 )
               break;
           }
           else
           {
-            v12 = *(_QWORD *)(v6 + 8);
+            v12 = *(_QWORD *)(Root + 8);
             if ( v11 )
             {
               if ( !v12 )
                 goto LABEL_30;
-              v12 ^= v6;
+              v12 ^= Root;
             }
             if ( !v12 )
             {
@@ -112,10 +112,10 @@ LABEL_30:
               break;
             }
           }
-          v6 = v12;
+          Root = v12;
         }
       }
-      RtlRbInsertNodeEx((unsigned __int64)&xmmword_18015D100, v6, v2, v5 + 224);
+      RtlRbInsertNodeEx(&stru_18015D100, (PRTL_BALANCED_NODE)Root, v2, (PRTL_BALANCED_NODE)(v5 + 224));
     }
     *(_DWORD *)(a1 + 32) |= 0x100000u;
     v13 = (_QWORD *)qword_18015C218;

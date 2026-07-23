@@ -1,10 +1,10 @@
 /*
- * XREFs of FsFilterAllocateCompletionStack @ 0x1404F10BC
+ * XREFs of FsFilterAllocateCompletionStack @ 0x1404F103C
  * Callers:
- *     FsFilterCtrlInit @ 0x140357030 (FsFilterCtrlInit.c)
+ *     FsFilterCtrlInit @ 0x140361D80 (FsFilterCtrlInit.c)
  * Callees:
- *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     KeWaitForSingleObject @ 0x1403504C0 (KeWaitForSingleObject.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall FsFilterAllocateCompletionStack(__int64 a1, char a2, _DWORD *a3)

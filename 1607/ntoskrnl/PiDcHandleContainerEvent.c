@@ -1,7 +1,7 @@
 /*
- * XREFs of PiDcHandleContainerEvent @ 0x1404DF9CC
+ * XREFs of PiDcHandleContainerEvent @ 0x1404C2FD0
  * Callers:
- *     PiDcHandleObjectEvent @ 0x1404DF8B0 (PiDcHandleObjectEvent.c)
+ *     PiDcHandleObjectEvent @ 0x1404C2EB4 (PiDcHandleObjectEvent.c)
  * Callees:
  *     <none>
  */

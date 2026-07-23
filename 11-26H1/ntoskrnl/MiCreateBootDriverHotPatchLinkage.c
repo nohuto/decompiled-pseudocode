@@ -1,9 +1,9 @@
 /*
- * XREFs of MiCreateBootDriverHotPatchLinkage @ 0x140CFB5EC
+ * XREFs of MiCreateBootDriverHotPatchLinkage @ 0x140D0196C
  * Callers:
- *     MiInitializeLoadedModuleList @ 0x140D00470 (MiInitializeLoadedModuleList.c)
+ *     MiInitializeLoadedModuleList @ 0x140D06810 (MiInitializeLoadedModuleList.c)
  * Callees:
- *     MiLinkHotPatchToBase @ 0x1406FC268 (MiLinkHotPatchToBase.c)
+ *     MiLinkHotPatchToBase @ 0x140700F38 (MiLinkHotPatchToBase.c)
  */
 
 __int64 **__fastcall MiCreateBootDriverHotPatchLinkage(__int64 a1)

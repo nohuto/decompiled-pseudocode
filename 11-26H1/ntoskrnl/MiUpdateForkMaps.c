@@ -1,16 +1,16 @@
 /*
- * XREFs of MiUpdateForkMaps @ 0x140AF443C
+ * XREFs of MiUpdateForkMaps @ 0x140AF6AB0
  * Callers:
- *     MiCloneVad @ 0x14030A8F8 (MiCloneVad.c)
+ *     MiCloneVad @ 0x1402EC978 (MiCloneVad.c)
  * Callees:
- *     MI_IS_PHYSICAL_ADDRESS @ 0x14024C8D0 (MI_IS_PHYSICAL_ADDRESS.c)
- *     MiGetUltraMapping @ 0x1402881D0 (MiGetUltraMapping.c)
- *     MiMakeValidPte @ 0x1402DA020 (MiMakeValidPte.c)
- *     MiBuildForkPageTable @ 0x14030DC5C (MiBuildForkPageTable.c)
- *     MiMapSinglePage @ 0x14036A87C (MiMapSinglePage.c)
- *     MiFillPteHierarchy @ 0x14039FA50 (MiFillPteHierarchy.c)
- *     MiGetPteAddress @ 0x1404468C0 (MiGetPteAddress.c)
- *     MiDoneWithThisPageGetAnother @ 0x140AF46EC (MiDoneWithThisPageGetAnother.c)
+ *     MI_IS_PHYSICAL_ADDRESS @ 0x14024E230 (MI_IS_PHYSICAL_ADDRESS.c)
+ *     MiGetUltraMapping @ 0x140287730 (MiGetUltraMapping.c)
+ *     MiMakeValidPte @ 0x1402BBDE0 (MiMakeValidPte.c)
+ *     MiBuildForkPageTable @ 0x1402EFCDC (MiBuildForkPageTable.c)
+ *     MiMapSinglePage @ 0x14036C61C (MiMapSinglePage.c)
+ *     MiFillPteHierarchy @ 0x1403A17B0 (MiFillPteHierarchy.c)
+ *     MiGetPteAddress @ 0x14043F3C0 (MiGetPteAddress.c)
+ *     MiDoneWithThisPageGetAnother @ 0x140AF6D60 (MiDoneWithThisPageGetAnother.c)
  */
 
 unsigned __int64 __fastcall MiUpdateForkMaps(__int64 *a1, unsigned __int64 a2, __int64 a3)
@@ -28,7 +28,7 @@ unsigned __int64 __fastcall MiUpdateForkMaps(__int64 *a1, unsigned __int64 a2, _
   unsigned __int64 UltraMapping; // rax
   unsigned __int64 v16; // r12
   _QWORD *v17; // rdi
-  $7A85BAF4F1FA08634C1C4A3E45B775B3 *v18; // rdi
+  $241382875694CED3D471BC5892DE3337 *v18; // rdi
   unsigned __int64 Flink; // rbx
   __int64 *v20; // rbx
   unsigned __int64 v21; // rcx
@@ -98,16 +98,16 @@ unsigned __int64 __fastcall MiUpdateForkMaps(__int64 *a1, unsigned __int64 a2, _
         {
           v16 = MiMapSinglePage(a1[7], v11, 1073741856LL, 0LL);
         }
-        v18 = ($7A85BAF4F1FA08634C1C4A3E45B775B3 *)(v16 + 8LL * ((*(_DWORD *)v10 >> 3) & 0x1FF));
+        v18 = ($241382875694CED3D471BC5892DE3337 *)(v16 + 8LL * ((*(_DWORD *)v10 >> 3) & 0x1FF));
         Flink = (unsigned __int64)v18->ApcState.ApcListHead[0].Flink;
         if ( v18->ApcState.ApcListHead[0].Flink )
         {
-          if ( (Flink & 1) == 0 && qword_140E2D740 )
+          if ( (Flink & 1) == 0 && qword_140E2D8C0 )
           {
             if ( (Flink & 0x10) != 0 )
               Flink &= ~0x10uLL;
             else
-              Flink &= qword_140E2D748;
+              Flink &= qword_140E2D8C8;
           }
           v11 = (Flink >> 12) & 0xFFFFFFFFFFLL;
         }

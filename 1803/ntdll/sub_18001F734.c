@@ -10,20 +10,19 @@
  *     sub_180102360 @ 0x180102360 (sub_180102360.c)
  */
 
-__int64 __fastcall sub_18001F734(__int64 a1, __int64 a2, __int64 a3)
+__int64 __fastcall sub_18001F734(__int64 a1, __int64 a2, int a3)
 {
   __int64 v3; // rbx
   __int64 v6; // rax
-  unsigned __int64 v7; // rcx
+  _RTL_RB_TREE *v7; // rcx
   unsigned int v8; // r10d
-  __int64 v9; // rdx
-  int v10; // r9d
-  __int64 v11; // rax
+  unsigned __int64 Root; // rdx
+  BOOLEAN v10; // r8
+  int v11; // r9d
+  _RTL_BALANCED_NODE *v12; // rax
 
   v3 = 0LL;
-  if ( !(_DWORD)a3
-    && (*(_BYTE *)(a1 + 13) & 2) != 0
-    && (a3 = 256 - (unsigned int)*(unsigned __int8 *)(a1 + 10), *(unsigned __int8 *)(a2 + 31) == (_DWORD)a3) )
+  if ( !a3 && (*(_BYTE *)(a1 + 13) & 2) != 0 && *(unsigned __int8 *)(a2 + 31) == 256 - *(unsigned __int8 *)(a1 + 10) )
   {
     v3 = a2 & *(_QWORD *)a1;
     *(_DWORD *)a2 = -857879297;
@@ -31,58 +30,58 @@ __int64 __fastcall sub_18001F734(__int64 a1, __int64 a2, __int64 a3)
   else
   {
     v6 = *(_QWORD *)(a1 + 64);
-    v7 = a1 + 56;
+    v7 = (_RTL_RB_TREE *)(a1 + 56);
     v8 = *(_DWORD *)(a2 + 28);
-    v9 = *(_QWORD *)v7;
+    Root = (unsigned __int64)v7->Root;
     if ( (v6 & 1) != 0 )
     {
-      if ( v9 )
-        v9 ^= v7;
+      if ( Root )
+        Root ^= (unsigned __int64)v7;
       else
-        v9 = 0LL;
+        Root = 0LL;
     }
-    LOBYTE(a3) = 0;
-    v10 = v6 & 1;
-    if ( v9 )
+    v10 = 0;
+    v11 = v6 & 1;
+    if ( Root )
     {
       while ( 1 )
       {
-        if ( v8 < *(_DWORD *)(v9 + 28) )
+        if ( v8 < *(_DWORD *)(Root + 28) )
         {
-          v11 = *(_QWORD *)v9;
-          if ( v10 )
+          v12 = *(_RTL_BALANCED_NODE **)Root;
+          if ( v11 )
           {
-            if ( !v11 )
+            if ( !v12 )
               goto LABEL_21;
-            v11 ^= v9;
+            v12 = (_RTL_BALANCED_NODE *)(Root ^ (unsigned __int64)v12);
           }
-          if ( !v11 )
+          if ( !v12 )
           {
 LABEL_21:
-            LOBYTE(a3) = 0;
+            v10 = 0;
             break;
           }
         }
         else
         {
-          v11 = *(_QWORD *)(v9 + 8);
-          if ( v10 )
+          v12 = *(_RTL_BALANCED_NODE **)(Root + 8);
+          if ( v11 )
           {
-            if ( !v11 )
+            if ( !v12 )
               goto LABEL_15;
-            v11 ^= v9;
+            v12 = (_RTL_BALANCED_NODE *)(Root ^ (unsigned __int64)v12);
           }
-          if ( !v11 )
+          if ( !v12 )
           {
 LABEL_15:
-            LOBYTE(a3) = 1;
+            v10 = 1;
             break;
           }
         }
-        v9 = v11;
+        Root = (unsigned __int64)v12;
       }
     }
-    RtlRbInsertNodeEx(v7, v9, a3, a2);
+    RtlRbInsertNodeEx(v7, (PRTL_BALANCED_NODE)Root, v10, (PRTL_BALANCED_NODE)a2);
     _InterlockedExchangeAdd64(
       (volatile signed __int64 *)(*(_QWORD *)(a1 + 72) + 16LL),
       (unsigned __int16)~(*(_DWORD *)(a2 + 28) >> 8));

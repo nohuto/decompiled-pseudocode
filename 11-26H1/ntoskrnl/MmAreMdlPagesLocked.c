@@ -1,10 +1,10 @@
 /*
- * XREFs of MmAreMdlPagesLocked @ 0x140C43650
+ * XREFs of MmAreMdlPagesLocked @ 0x140C49660
  * Callers:
- *     VERIFY_BUFFER_LOCKED @ 0x140C22E10 (VERIFY_BUFFER_LOCKED.c)
- *     VfMiscMmBuildMdlForNonPagedPool_Exit @ 0x140C3D150 (VfMiscMmBuildMdlForNonPagedPool_Exit.c)
+ *     VERIFY_BUFFER_LOCKED @ 0x140C28E20 (VERIFY_BUFFER_LOCKED.c)
+ *     VfMiscMmBuildMdlForNonPagedPool_Exit @ 0x140C43160 (VfMiscMmBuildMdlForNonPagedPool_Exit.c)
  * Callees:
- *     MmIsMdlPageLocked @ 0x140C436B4 (MmIsMdlPageLocked.c)
+ *     MmIsMdlPageLocked @ 0x140C496C4 (MmIsMdlPageLocked.c)
  */
 
 __int64 __fastcall MmAreMdlPagesLocked(_DWORD *a1)

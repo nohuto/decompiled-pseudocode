@@ -1,10 +1,10 @@
 /*
  * XREFs of PpmResetPerfEngineForProcessorEx @ 0x1403F81B0
  * Callers:
- *     PopHandleNextState @ 0x1409930D0 (PopHandleNextState.c)
+ *     PopHandleNextState @ 0x1409940D0 (PopHandleNextState.c)
  * Callees:
- *     PpmResetPerfTimes @ 0x1403C22F0 (PpmResetPerfTimes.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     PpmResetPerfTimes @ 0x1403C2720 (PpmResetPerfTimes.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall PpmResetPerfEngineForProcessorEx(__int64 a1, __int64 a2)

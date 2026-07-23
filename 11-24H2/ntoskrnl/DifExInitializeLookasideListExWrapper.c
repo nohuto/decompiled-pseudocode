@@ -1,21 +1,21 @@
 /*
- * XREFs of DifExInitializeLookasideListExWrapper @ 0x14061EB30
+ * XREFs of DifExInitializeLookasideListExWrapper @ 0x14061D0F0
  * Callers:
  *     <none>
  * Callees:
- *     ExReleaseRundownProtection_0 @ 0x140245670 (ExReleaseRundownProtection_0.c)
- *     ExAcquireRundownProtection @ 0x1402792A0 (ExAcquireRundownProtection.c)
- *     DifGetAPIThunkContextById @ 0x140489B90 (DifGetAPIThunkContextById.c)
- *     DifGetReturnAddressForWrappers @ 0x1404C9B7C (DifGetReturnAddressForWrappers.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     ExReleaseRundownProtection_0 @ 0x14020DE50 (ExReleaseRundownProtection_0.c)
+ *     ExAcquireRundownProtection_0 @ 0x14022E830 (ExAcquireRundownProtection_0.c)
+ *     DifGetAPIThunkContextById @ 0x1404848A0 (DifGetAPIThunkContextById.c)
+ *     DifGetReturnAddressForWrappers @ 0x1404C302C (DifGetReturnAddressForWrappers.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 __int64 __fastcall DifExInitializeLookasideListExWrapper(
         __int64 a1,
         __int64 a2,
         __int64 a3,
-        unsigned int a4,
+        int a4,
         int a5,
         __int64 a6,
         int a7,
@@ -24,85 +24,81 @@ __int64 __fastcall DifExInitializeLookasideListExWrapper(
 {
   __int64 *APIThunkContextById; // rax
   __int64 v13; // rdx
-  __int64 v14; // r8
-  __int64 v15; // r9
-  __int64 *v16; // r14
-  int v17; // ecx
+  __int64 *v14; // r14
+  int v15; // ecx
   PVOID ReturnAddressForWrappers; // rax
-  BOOLEAN v19; // si
+  BOOLEAN v17; // si
   __int64 *i; // rbx
-  __int64 v21; // rdx
-  __int64 v22; // r8
-  __int64 v23; // r9
-  BOOLEAN v24; // di
+  __int64 v19; // rdx
+  BOOLEAN v20; // di
   __int64 *j; // rbx
-  PVOID v27; // [rsp+58h] [rbp-49h] BYREF
-  int v28; // [rsp+60h] [rbp-41h]
-  __int16 v29; // [rsp+64h] [rbp-3Dh]
-  int v30; // [rsp+68h] [rbp-39h]
-  __int64 v31; // [rsp+70h] [rbp-31h]
-  int v32; // [rsp+78h] [rbp-29h]
-  unsigned int v33; // [rsp+7Ch] [rbp-25h]
-  __int64 v34; // [rsp+80h] [rbp-21h]
-  __int64 v35; // [rsp+88h] [rbp-19h]
-  __int64 v36; // [rsp+90h] [rbp-11h]
-  unsigned int v37; // [rsp+98h] [rbp-9h]
+  PVOID v23; // [rsp+58h] [rbp-49h] BYREF
+  int v24; // [rsp+60h] [rbp-41h]
+  __int16 v25; // [rsp+64h] [rbp-3Dh]
+  int v26; // [rsp+68h] [rbp-39h]
+  __int64 v27; // [rsp+70h] [rbp-31h]
+  int v28; // [rsp+78h] [rbp-29h]
+  int v29; // [rsp+7Ch] [rbp-25h]
+  __int64 v30; // [rsp+80h] [rbp-21h]
+  __int64 v31; // [rsp+88h] [rbp-19h]
+  __int64 v32; // [rsp+90h] [rbp-11h]
+  unsigned int v33; // [rsp+98h] [rbp-9h]
   void *retaddr; // [rsp+D0h] [rbp+2Fh]
 
-  memset_0(&v27, 0, 0x48uLL);
+  memset_0(&v23, 0, 0x48uLL);
   APIThunkContextById = DifGetAPIThunkContextById(399);
-  v16 = APIThunkContextById;
+  v14 = APIThunkContextById;
   if ( !APIThunkContextById )
     goto LABEL_17;
-  v17 = *((_DWORD *)APIThunkContextById + 3);
-  if ( (v17 & 0x18) != 0 )
+  v15 = *((_DWORD *)APIThunkContextById + 3);
+  if ( (v15 & 0x18) != 0 )
   {
     ReturnAddressForWrappers = retaddr;
   }
   else
   {
-    if ( (v17 & 4) == 0 )
+    if ( (v15 & 4) == 0 )
       goto LABEL_7;
     ReturnAddressForWrappers = DifGetReturnAddressForWrappers();
   }
-  v27 = ReturnAddressForWrappers;
+  v23 = ReturnAddressForWrappers;
 LABEL_7:
-  v19 = 0;
-  v36 = a1;
-  v32 = a5;
-  v31 = a6;
-  v30 = a7;
-  v29 = a8;
-  v28 = a9;
-  v35 = a2;
-  v34 = a3;
-  v33 = a4;
+  v17 = 0;
+  v32 = a1;
+  v28 = a5;
+  v27 = a6;
+  v26 = a7;
+  v25 = a8;
+  v24 = a9;
+  v31 = a2;
+  v30 = a3;
+  v29 = a4;
   if ( !VfDifRunningWithoutReboot && (VfOptionFlags & 0x800) == 0
-    || (v19 = ExAcquireRundownProtection(&DifRebootlessRundown)) != 0 )
+    || (v17 = ExAcquireRundownProtection_0(&DifRebootlessRundown)) != 0 )
   {
-    for ( i = (__int64 *)v16[4]; i != v16 + 4; i = (__int64 *)*i )
+    for ( i = (__int64 *)v14[4]; i != v14 + 4; i = (__int64 *)*i )
     {
       if ( i != (__int64 *)16 )
-        guard_dispatch_icall_no_overrides(&v27, v13, v14, v15);
+        guard_dispatch_icall_no_overrides(&v23, v13);
     }
-    if ( v19 )
+    if ( v17 )
       ExReleaseRundownProtection_0(&DifRebootlessRundown);
   }
 LABEL_17:
-  v37 = guard_dispatch_icall_no_overrides(a1, a2, a3, a4);
-  if ( v16 )
+  v33 = guard_dispatch_icall_no_overrides(a1, a2);
+  if ( v14 )
   {
-    if ( (v24 = 0, !VfDifRunningWithoutReboot) && (VfOptionFlags & 0x800) == 0
-      || (v24 = ExAcquireRundownProtection(&DifRebootlessRundown)) != 0 )
+    if ( (v20 = 0, !VfDifRunningWithoutReboot) && (VfOptionFlags & 0x800) == 0
+      || (v20 = ExAcquireRundownProtection_0(&DifRebootlessRundown)) != 0 )
     {
-      for ( j = (__int64 *)v16[6]; j != v16 + 6; j = (__int64 *)*j )
+      for ( j = (__int64 *)v14[6]; j != v14 + 6; j = (__int64 *)*j )
       {
         if ( j != (__int64 *)16 )
-          guard_dispatch_icall_no_overrides(&v27, v21, v22, v23);
+          guard_dispatch_icall_no_overrides(&v23, v19);
       }
-      if ( v24 )
+      if ( v20 )
         ExReleaseRundownProtection_0(&DifRebootlessRundown);
     }
   }
-  return v37;
+  return v33;
 }

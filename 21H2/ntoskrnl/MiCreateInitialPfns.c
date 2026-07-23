@@ -1,7 +1,7 @@
 /*
- * XREFs of MiCreateInitialPfns @ 0x1402AC7CC
+ * XREFs of MiCreateInitialPfns @ 0x14022A3CC
  * Callers:
- *     MxCreateFreePfns @ 0x140A43ECC (MxCreateFreePfns.c)
+ *     MxCreateFreePfns @ 0x140A44ECC (MxCreateFreePfns.c)
  * Callees:
  *     <none>
  */

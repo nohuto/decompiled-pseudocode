@@ -16,8 +16,8 @@ __int64 __fastcall EtwpEnableStackCaching(__int64 a1, unsigned int a2, unsigned 
   unsigned int v7; // edi
   unsigned int v8; // r15d
   __int64 Pool2; // rax
-  union _SLIST_HEADER *v10; // r14
-  union _SLIST_HEADER *v11; // rax
+  _SLIST_HEADER *v10; // r14
+  _SLIST_HEADER *v11; // rax
   __int64 v12; // rcx
   int v13; // ebp
   unsigned int v14; // edi
@@ -38,7 +38,7 @@ __int64 __fastcall EtwpEnableStackCaching(__int64 a1, unsigned int a2, unsigned 
   if ( v8 > 0x1000 )
     v8 = 4096;
   Pool2 = ExAllocatePool2(64LL, 24 * v8 + 32, 1937208389LL);
-  v10 = (union _SLIST_HEADER *)Pool2;
+  v10 = (_SLIST_HEADER *)Pool2;
   if ( !Pool2 )
     return (unsigned int)-1073741801;
   *(_DWORD *)(Pool2 + 8) = v8;
@@ -51,7 +51,7 @@ __int64 __fastcall EtwpEnableStackCaching(__int64 a1, unsigned int a2, unsigned 
     v11[1].Alignment = 0LL;
     v11->Region = (unsigned __int64)v11;
     v11->Alignment = (unsigned __int64)v11;
-    v11 = (union _SLIST_HEADER *)((char *)v11 + 24);
+    v11 = (_SLIST_HEADER *)((char *)v11 + 24);
     --v12;
   }
   while ( v12 );

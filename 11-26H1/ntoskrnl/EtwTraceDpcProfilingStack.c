@@ -1,10 +1,10 @@
 /*
- * XREFs of EtwTraceDpcProfilingStack @ 0x14047A358
+ * XREFs of EtwTraceDpcProfilingStack @ 0x140473CC8
  * Callers:
- *     KeAccumulateTicks @ 0x14021F980 (KeAccumulateTicks.c)
+ *     KeAccumulateTicks @ 0x140221310 (KeAccumulateTicks.c)
  * Callees:
- *     EtwWriteEx @ 0x140212F70 (EtwWriteEx.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwWriteEx @ 0x140213050 (EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall EtwTraceDpcProfilingStack(int a1, int a2)
@@ -18,13 +18,21 @@ NTSTATUS __fastcall EtwTraceDpcProfilingStack(int a1, int a2)
 
   v7 = a2;
   v6 = a1;
-  if ( qword_140F03598 )
+  if ( *(_QWORD *)&stru_140F03830.SchedulerApc.Type )
   {
     *(_QWORD *)&v3.Size = 4LL;
     v3.Ptr = (ULONGLONG)&v6;
     v5 = 4LL;
     v4 = &v7;
-    return EtwWriteEx(qword_140F03598, &CPU_STARVATION_EVENT_DPC_PROFILING_STACK, 0LL, 0, 0LL, 0LL, 2u, &v3);
+    return EtwWriteEx(
+             *(REGHANDLE *)&stru_140F03830.SchedulerApc.Type,
+             &CPU_STARVATION_EVENT_DPC_PROFILING_STACK,
+             0LL,
+             0,
+             0LL,
+             0LL,
+             2u,
+             &v3);
   }
   return result;
 }

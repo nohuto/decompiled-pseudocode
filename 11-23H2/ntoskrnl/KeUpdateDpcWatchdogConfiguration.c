@@ -1,18 +1,18 @@
 /*
- * XREFs of KeUpdateDpcWatchdogConfiguration @ 0x14056AFB0
+ * XREFs of KeUpdateDpcWatchdogConfiguration @ 0x14056B670
  * Callers:
- *     NtSetSystemInformation @ 0x14075EE30 (NtSetSystemInformation.c)
+ *     NtSetSystemInformation @ 0x14075F020 (NtSetSystemInformation.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1402BD960 (ExfTryToWakePushLock.c)
- *     KeGenericProcessorCallback @ 0x140305B34 (KeGenericProcessorCallback.c)
- *     KiCreateDpcLimitsProcessorConfiguration @ 0x140383940 (KiCreateDpcLimitsProcessorConfiguration.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     KiValidateDpcWatchdogConfiguration @ 0x14056B3E8 (KiValidateDpcWatchdogConfiguration.c)
- *     KiApplyDpcVerificationScaleSettings @ 0x14056B5D4 (KiApplyDpcVerificationScaleSettings.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeLeaveCriticalRegionThread @ 0x14022F7F0 (KeLeaveCriticalRegionThread.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140231120 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     ExfTryToWakePushLock @ 0x1402BDBF0 (ExfTryToWakePushLock.c)
+ *     KeGenericProcessorCallback @ 0x140305DC4 (KeGenericProcessorCallback.c)
+ *     KiCreateDpcLimitsProcessorConfiguration @ 0x140383B20 (KiCreateDpcLimitsProcessorConfiguration.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     KiValidateDpcWatchdogConfiguration @ 0x14056BAA8 (KiValidateDpcWatchdogConfiguration.c)
+ *     KiApplyDpcVerificationScaleSettings @ 0x14056BC94 (KiApplyDpcVerificationScaleSettings.c)
  */
 
 __int64 __fastcall KeUpdateDpcWatchdogConfiguration(void *Src, size_t Size)
@@ -43,7 +43,7 @@ __int64 __fastcall KeUpdateDpcWatchdogConfiguration(void *Src, size_t Size)
   {
     CurrentIrql = KeGetCurrentIrql();
     __writecr8(2uLL);
-    if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+    if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
     {
       SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
       v8 = 4;
@@ -61,10 +61,10 @@ __int64 __fastcall KeUpdateDpcWatchdogConfiguration(void *Src, size_t Size)
     KeDpcWatchdogProfileBufferSizeBytes = v10;
     dword_140D1D34C = v10 >> 3;
     KiApplyDpcVerificationScaleSettings();
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v12 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v12 <= v11 && CurrentIrql <= v11 && v12 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v12 <= v11 && CurrentIrql <= v11 && v12 >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         v14 = CurrentPrcb->SchedulerAssist;
@@ -72,7 +72,7 @@ __int64 __fastcall KeUpdateDpcWatchdogConfiguration(void *Src, size_t Size)
         v16 = (v15 & v14[5]) == 0;
         v14[5] &= v15;
         if ( v16 )
-          KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+          KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
       }
     }
     __writecr8(CurrentIrql);

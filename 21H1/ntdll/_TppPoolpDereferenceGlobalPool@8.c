@@ -20,19 +20,19 @@
  *     __SEH_prolog4 @ 0x4B307AC4 (__SEH_prolog4.c)
  */
 
-_PEB_LDR_DATA *__fastcall TppPoolpDereferenceGlobalPool(signed __int32 **a1, int a2)
+void __fastcall TppPoolpDereferenceGlobalPool(signed __int32 **a1, _RTL_SRWLOCK *a2)
 {
   volatile signed __int32 *v4; // edx
   signed __int32 v5; // esi
   signed __int32 v6; // ecx
-  _PEB_LDR_DATA *result; // eax
+  signed __int32 v7; // eax
   volatile signed __int32 *v8; // edx
   signed __int32 v9; // ecx
   signed __int32 v10; // esi
   signed __int32 v11; // eax
-  signed __int32 *v12; // [esp+14h] [ebp-1Ch]
+  _TP_POOL *Pool; // [esp+14h] [ebp-1Ch]
 
-  v12 = 0;
+  Pool = 0;
   v4 = *a1;
   v5 = **a1;
   while ( v5 > 1 )
@@ -41,13 +41,13 @@ _PEB_LDR_DATA *__fastcall TppPoolpDereferenceGlobalPool(signed __int32 **a1, int
     v5 = _InterlockedCompareExchange(v4, v5 - 1, v5);
     if ( v5 == v6 )
     {
-      result = (_PEB_LDR_DATA *)(v6 - 1);
+      v7 = v6 - 1;
       goto LABEL_5;
     }
   }
-  result = 0;
+  v7 = 0;
 LABEL_5:
-  if ( !result )
+  if ( !v7 )
   {
     RtlAcquireSRWLockExclusive(a2);
     v8 = *a1;
@@ -66,12 +66,11 @@ LABEL_5:
 LABEL_13:
     if ( !v11 )
     {
-      v12 = *a1;
+      Pool = (_TP_POOL *)*a1;
       *a1 = 0;
     }
-    result = (_PEB_LDR_DATA *)RtlReleaseSRWLockExclusive(a2);
-    if ( v12 )
-      return TpReleasePool((int)v12);
+    RtlReleaseSRWLockExclusive(a2);
+    if ( Pool )
+      TpReleasePool(Pool);
   }
-  return result;
 }

@@ -1,13 +1,13 @@
 /*
- * XREFs of SmGlobalsInitialize @ 0x1409D6DC4
+ * XREFs of SmGlobalsInitialize @ 0x1409D7DC4
  * Callers:
- *     SmInitSystem @ 0x1409D6CD8 (SmInitSystem.c)
+ *     SmInitSystem @ 0x1409D7CD8 (SmInitSystem.c)
  * Callees:
- *     ExWaitForRundownProtectionRelease @ 0x140089890 (ExWaitForRundownProtectionRelease.c)
- *     ExInitializePushLock @ 0x14008A400 (ExInitializePushLock.c)
- *     ?SmInitialize@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@PEAU_SMKM_STORE_MGR_PARAMS@@@Z @ 0x14018E1E8 (-SmInitialize@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@PEAU_SMKM_STORE_MGR_PARAMS@@@Z.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     SmRegistrationCtxInitialize @ 0x1406D0D80 (SmRegistrationCtxInitialize.c)
+ *     ExWaitForRundownProtectionRelease @ 0x140089880 (ExWaitForRundownProtectionRelease.c)
+ *     ExInitializePushLock @ 0x14008A3F0 (ExInitializePushLock.c)
+ *     ?SmInitialize@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@PEAU_SMKM_STORE_MGR_PARAMS@@@Z @ 0x14018E328 (-SmInitialize@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@PEAU_SMKM_STORE_MGR_PARAMS@@@Z.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     SmRegistrationCtxInitialize @ 0x1406D2020 (SmRegistrationCtxInitialize.c)
  */
 
 __int64 __fastcall SmGlobalsInitialize(__int64 a1)

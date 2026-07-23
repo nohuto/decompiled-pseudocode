@@ -1,33 +1,33 @@
 /*
- * XREFs of PiPnpRtlSetObjectProperty @ 0x1409DBA24
+ * XREFs of PiPnpRtlSetObjectProperty @ 0x140A18C74
  * Callers:
- *     PiDevCfgConfigureDevice @ 0x1409894D0 (PiDevCfgConfigureDevice.c)
- *     PiDevCfgMigrateDevice @ 0x14098B138 (PiDevCfgMigrateDevice.c)
- *     PiDevCfgCopyObjectProperties @ 0x14098BB38 (PiDevCfgCopyObjectProperties.c)
- *     PiDqIrpPropertySet @ 0x14098D708 (PiDqIrpPropertySet.c)
- *     PiCMSetObjectProperty @ 0x14098DA68 (PiCMSetObjectProperty.c)
- *     PiSwPropertySet @ 0x1409DAD84 (PiSwPropertySet.c)
- *     PnpSetDeviceInterfacePropertyData @ 0x1409DAEF8 (PnpSetDeviceInterfacePropertyData.c)
- *     PnpSetDevicePropertyData @ 0x1409DB894 (PnpSetDevicePropertyData.c)
- *     PiDevCfgProcessDevice @ 0x140AD089C (PiDevCfgProcessDevice.c)
- *     PiDevCfgSetObjectProperty @ 0x140B0DF70 (PiDevCfgSetObjectProperty.c)
- *     PiDevCfgResetDeviceDriverSettings @ 0x140B32ACC (PiDevCfgResetDeviceDriverSettings.c)
+ *     PiDqIrpPropertySet @ 0x14094E168 (PiDqIrpPropertySet.c)
+ *     PiCMSetObjectProperty @ 0x14094E4C8 (PiCMSetObjectProperty.c)
+ *     PiSwPropertySet @ 0x140A17FD4 (PiSwPropertySet.c)
+ *     PnpSetDeviceInterfacePropertyData @ 0x140A18148 (PnpSetDeviceInterfacePropertyData.c)
+ *     PnpSetDevicePropertyData @ 0x140A18AE4 (PnpSetDevicePropertyData.c)
+ *     PiDevCfgConfigureDevice @ 0x140A43BF0 (PiDevCfgConfigureDevice.c)
+ *     PiDevCfgMigrateDevice @ 0x140A45858 (PiDevCfgMigrateDevice.c)
+ *     PiDevCfgCopyObjectProperties @ 0x140A46258 (PiDevCfgCopyObjectProperties.c)
+ *     PiDevCfgProcessDevice @ 0x140AE7A3C (PiDevCfgProcessDevice.c)
+ *     PiDevCfgSetObjectProperty @ 0x140B0F6C0 (PiDevCfgSetObjectProperty.c)
+ *     PiDevCfgResetDeviceDriverSettings @ 0x140B34F1C (PiDevCfgResetDeviceDriverSettings.c)
  * Callees:
- *     ExAcquireResourceExclusiveLite @ 0x140275200 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x1402B4CF0 (ExReleaseResourceLite.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memcmp @ 0x14073D750 (memcmp.c)
- *     PiAuditDeviceEnableDisableRequest @ 0x1407B4FF4 (PiAuditDeviceEnableDisableRequest.c)
- *     PiAuditDeviceOperation @ 0x140905C30 (PiAuditDeviceOperation.c)
- *     _CmGetDeviceRegProp @ 0x140996210 (_CmGetDeviceRegProp.c)
- *     _PnpGetObjectProperty @ 0x14099E300 (_PnpGetObjectProperty.c)
- *     _PnpSetObjectProperty @ 0x1409DBEB0 (_PnpSetObjectProperty.c)
- *     _CmIsRootEnumeratedDevice @ 0x1409DC040 (_CmIsRootEnumeratedDevice.c)
- *     SeAuditingWithTokenForSubcategory @ 0x140A435C0 (SeAuditingWithTokenForSubcategory.c)
- *     _CmUpdateDevicePanelInterface @ 0x140AF175C (_CmUpdateDevicePanelInterface.c)
- *     _CmSplitDevicePanelId @ 0x140B5CB08 (_CmSplitDevicePanelId.c)
+ *     ExAcquireResourceExclusiveLite @ 0x140274770 (ExAcquireResourceExclusiveLite.c)
+ *     ExReleaseResourceLite @ 0x1402FF9C0 (ExReleaseResourceLite.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memcmp @ 0x140742350 (memcmp.c)
+ *     PiAuditDeviceEnableDisableRequest @ 0x1407B8054 (PiAuditDeviceEnableDisableRequest.c)
+ *     _CmGetDeviceRegProp @ 0x140956C70 (_CmGetDeviceRegProp.c)
+ *     _PnpGetObjectProperty @ 0x14095ED60 (_PnpGetObjectProperty.c)
+ *     SeAuditingWithTokenForSubcategory @ 0x1409FE320 (SeAuditingWithTokenForSubcategory.c)
+ *     _CmUpdateDevicePanelInterface @ 0x140A151A0 (_CmUpdateDevicePanelInterface.c)
+ *     _PnpSetObjectProperty @ 0x140A19100 (_PnpSetObjectProperty.c)
+ *     _CmIsRootEnumeratedDevice @ 0x140A19290 (_CmIsRootEnumeratedDevice.c)
+ *     PiAuditDeviceOperation @ 0x140B15BF8 (PiAuditDeviceOperation.c)
+ *     _CmSplitDevicePanelId @ 0x140B5FC88 (_CmSplitDevicePanelId.c)
  */
 
 __int64 __fastcall PiPnpRtlSetObjectProperty(
@@ -42,7 +42,7 @@ __int64 __fastcall PiPnpRtlSetObjectProperty(
         unsigned int a9,
         int a10)
 {
-  int v11; // r12d
+  unsigned int v11; // r12d
   int v13; // r13d
   unsigned int i; // edx
   __int64 v15; // r8
@@ -61,42 +61,42 @@ __int64 __fastcall PiPnpRtlSetObjectProperty(
   struct _KTHREAD *CurrentThread; // rax
   bool v30; // zf
   struct _KTHREAD *v31; // rax
-  struct _KTHREAD *v33; // rax
-  char v35; // [rsp+60h] [rbp-81h]
-  char v36; // [rsp+61h] [rbp-80h]
-  int v37; // [rsp+64h] [rbp-7Dh] BYREF
-  int v38; // [rsp+68h] [rbp-79h] BYREF
-  int v39; // [rsp+6Ch] [rbp-75h] BYREF
-  int v40; // [rsp+70h] [rbp-71h] BYREF
-  int v41; // [rsp+74h] [rbp-6Dh] BYREF
-  int v42; // [rsp+78h] [rbp-69h]
-  char *v43; // [rsp+80h] [rbp-61h]
-  __int64 v44; // [rsp+88h] [rbp-59h]
-  int v45; // [rsp+90h] [rbp-51h]
-  int v46; // [rsp+94h] [rbp-4Dh]
+  struct _KTHREAD *v32; // rax
+  char v33; // [rsp+60h] [rbp-81h]
+  char v34; // [rsp+61h] [rbp-80h]
+  int v35; // [rsp+64h] [rbp-7Dh] BYREF
+  int v36; // [rsp+68h] [rbp-79h] BYREF
+  int v37; // [rsp+6Ch] [rbp-75h] BYREF
+  int v38; // [rsp+70h] [rbp-71h] BYREF
+  int v39; // [rsp+74h] [rbp-6Dh] BYREF
+  int v40; // [rsp+78h] [rbp-69h]
+  char *v41; // [rsp+80h] [rbp-61h]
+  __int64 v42; // [rsp+88h] [rbp-59h]
+  int v43; // [rsp+90h] [rbp-51h]
+  int v44; // [rsp+94h] [rbp-4Dh]
   UNICODE_STRING DestinationString; // [rsp+98h] [rbp-49h] BYREF
-  __int64 v48; // [rsp+A8h] [rbp-39h]
+  __int64 v46; // [rsp+A8h] [rbp-39h]
   GUID Buf2; // [rsp+B0h] [rbp-31h] BYREF
-  __int128 v50; // [rsp+C0h] [rbp-21h] BYREF
+  __int128 v48; // [rsp+C0h] [rbp-21h] BYREF
 
-  v44 = a1;
-  v43 = a4;
-  v48 = a5;
+  v42 = a1;
+  v41 = a4;
+  v46 = a5;
   v11 = 5;
-  v46 = 0;
-  v45 = 0;
+  v44 = 0;
+  v43 = 0;
   v13 = 0;
-  v37 = 0;
-  v41 = 0;
+  v35 = 0;
   v39 = 0;
-  v42 = 0;
-  v38 = 0;
+  v37 = 0;
   v40 = 0;
   v36 = 0;
-  v35 = 0;
+  v38 = 0;
+  v34 = 0;
+  v33 = 0;
   DestinationString = 0LL;
   Buf2 = 0LL;
-  v50 = 0LL;
+  v48 = 0LL;
   switch ( a3 )
   {
     case 1:
@@ -133,7 +133,7 @@ LABEL_15:
                 CurrentThread = KeGetCurrentThread();
                 --CurrentThread->KernelApcDisable;
                 ExAcquireResourceExclusiveLite(&PnpRegistryDeviceResource, 1u);
-                v36 = 1;
+                v34 = 1;
               }
             }
             else if ( v18 == 12 )
@@ -143,55 +143,55 @@ LABEL_15:
                 v31 = KeGetCurrentThread();
                 --v31->KernelApcDisable;
                 ExAcquireResourceExclusiveLite(&PnpRegistryDeviceResource, 1u);
-                v36 = 1;
-                if ( (unsigned __int8)SeAuditingWithTokenForSubcategory(138LL, 0LL) )
+                v34 = 1;
+                if ( SeAuditingWithTokenForSubcategory(138, 0LL) )
                 {
-                  v35 = 1;
-                  v37 = 4;
+                  v33 = 1;
+                  v35 = 4;
                   if ( (int)CmGetDeviceRegProp(
-                              v44,
+                              v42,
                               (__int64)a2,
-                              (__int64)v43,
+                              (__int64)v41,
                               0xBu,
-                              (__int64)&v41,
                               (__int64)&v39,
                               (__int64)&v37,
+                              (__int64)&v35,
                               0) < 0
-                    || v37 != 4
-                    || v41 != 4 )
+                    || v35 != 4
+                    || v39 != 4 )
                   {
-                    v39 = 0;
+                    v37 = 0;
                   }
-                  v42 = *(_DWORD *)pszSrc;
+                  v40 = *(_DWORD *)pszSrc;
                 }
               }
             }
             else if ( v18 == 5 && !memcmp(Buf1, DEVPKEY_Device_InstallError, 0x10uLL) )
             {
-              v33 = KeGetCurrentThread();
-              --v33->KernelApcDisable;
+              v32 = KeGetCurrentThread();
+              --v32->KernelApcDisable;
               ExAcquireResourceExclusiveLite(&PnpRegistryDeviceResource, 1u);
-              v36 = 1;
-              if ( (unsigned __int8)SeAuditingWithTokenForSubcategory(138LL, 0LL) )
+              v34 = 1;
+              if ( SeAuditingWithTokenForSubcategory(138, 0LL) )
               {
-                v37 = 4;
-                v35 = 1;
+                v35 = 4;
+                v33 = 1;
                 if ( (int)PnpGetObjectProperty(
-                            v44,
+                            v42,
                             (__int64)a2,
                             1,
-                            v43,
+                            v41,
                             0LL,
                             (__int64)DEVPKEY_Device_InstallError,
-                            &v38,
-                            (__int64)&v40,
+                            &v36,
+                            (__int64)&v38,
                             4u,
-                            (__int64)&v37,
+                            (__int64)&v35,
                             0) < 0
-                  || v37 != 4
-                  || v38 != 23 )
+                  || v35 != 4
+                  || v36 != 23 )
                 {
-                  v40 = 0;
+                  v38 = 0;
                 }
                 if ( v17 == 4 && a7 == 23 )
                   v13 = *(_DWORD *)pszSrc;
@@ -226,23 +226,23 @@ LABEL_32:
             || pszSrc[((unsigned __int64)a9 >> 1) - 1]
             || (int)CmSplitDevicePanelId(pszSrc, &Buf2) < 0
             || (int)PnpGetObjectProperty(
-                      v44,
+                      v42,
                       (__int64)a2,
                       1,
-                      v43,
+                      v41,
                       0LL,
                       (__int64)&DEVPKEY_Device_ContainerId,
-                      &v38,
-                      (__int64)&v50,
+                      &v36,
+                      (__int64)&v48,
                       0x10u,
-                      (__int64)&v37,
+                      (__int64)&v35,
                       0) < 0
-            || v38 != 13
-            || v37 != 16 )
+            || v36 != 13
+            || v35 != 16 )
           {
             return (unsigned int)-1073741811;
           }
-          v30 = memcmp(&v50, &Buf2, 0x10uLL) == 0;
+          v30 = memcmp(&v48, &Buf2, 0x10uLL) == 0;
           goto LABEL_68;
         }
       }
@@ -270,8 +270,8 @@ LABEL_14:
         return (unsigned int)-1073741811;
       break;
   }
-  v19 = v44;
-  v20 = PnpSetObjectProperty(v44, (_DWORD)a2, a3, (_DWORD)v43, v48, (__int64)Buf1, a7, (__int64)pszSrc, a9, a10);
+  v19 = v42;
+  v20 = PnpSetObjectProperty(v42, (_DWORD)a2, a3, v46, (__int64)Buf1, a7, (__int64)pszSrc, a9, a10);
   v21 = v20;
   v22 = a3 - 1;
   if ( v22 )
@@ -281,29 +281,27 @@ LABEL_14:
       && *((_DWORD *)Buf1 + 4) == 9
       && !memcmp(Buf1, &DEVPKEY_Device_PhysicalDeviceLocation, 0x10uLL) )
     {
-      CmUpdateDevicePanelInterface(v19, a2, v43);
+      CmUpdateDevicePanelInterface(v19, (__int64)a2, v41);
     }
     goto LABEL_28;
   }
   v23 = *((_DWORD *)Buf1 + 4);
   if ( v23 == 12 )
   {
-    if ( !memcmp(Buf1, &DEVPKEY_Device_ConfigFlags, 0x10uLL)
-      && v35
-      && (unsigned __int8)SeAuditingWithTokenForSubcategory(138LL, 0LL) )
+    if ( !memcmp(Buf1, &DEVPKEY_Device_ConfigFlags, 0x10uLL) && v33 && SeAuditingWithTokenForSubcategory(138, 0LL) )
     {
       RtlInitUnicodeString(&DestinationString, a2);
-      PiAuditDeviceEnableDisableRequest((__int64)&DestinationString, v39, v42, v21 >= 0);
+      PiAuditDeviceEnableDisableRequest((__int64)&DestinationString, v37, v40, v21 >= 0);
     }
     goto LABEL_28;
   }
   if ( v23 == 5
     && !memcmp(Buf1, DEVPKEY_Device_InstallError, 0x10uLL)
-    && v35
-    && (unsigned __int8)SeAuditingWithTokenForSubcategory(138LL, 0LL) )
+    && v33
+    && SeAuditingWithTokenForSubcategory(138, 0LL) )
   {
     RtlInitUnicodeString(&DestinationString, a2);
-    if ( v40 == -536870328 )
+    if ( v38 == -536870328 )
     {
       if ( v13 == -536870328 )
         goto LABEL_28;
@@ -313,10 +311,10 @@ LABEL_14:
     {
       goto LABEL_28;
     }
-    PiAuditDeviceOperation((__int64)&DestinationString, v11, v21 >= 0);
+    PiAuditDeviceOperation(&DestinationString, v11, v21 >= 0);
   }
 LABEL_28:
-  if ( v36 )
+  if ( v34 )
   {
     ExReleaseResourceLite(&PnpRegistryDeviceResource);
     KeLeaveCriticalRegion();

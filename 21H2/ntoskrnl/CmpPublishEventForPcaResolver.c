@@ -1,69 +1,66 @@
 /*
- * XREFs of CmpPublishEventForPcaResolver @ 0x14086AB2C
+ * XREFs of CmpPublishEventForPcaResolver @ 0x14086AC8C
  * Callers:
- *     CmpDoParseKey @ 0x1406F9170 (CmpDoParseKey.c)
+ *     CmpDoParseKey @ 0x140710550 (CmpDoParseKey.c)
  * Callees:
- *     KiUnstackDetachProcess @ 0x140207000 (KiUnstackDetachProcess.c)
- *     EtwEventEnabled @ 0x14021BF30 (EtwEventEnabled.c)
- *     EtwWrite @ 0x14025DC90 (EtwWrite.c)
- *     PsGetCurrentThreadProcess @ 0x1402BDFE0 (PsGetCurrentThreadProcess.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     CmpAttachToRegistryProcess @ 0x1405F6390 (CmpAttachToRegistryProcess.c)
+ *     PsGetCurrentThreadProcess @ 0x14023C620 (PsGetCurrentThreadProcess.c)
+ *     EtwWrite @ 0x14027F7C0 (EtwWrite.c)
+ *     KiUnstackDetachProcess @ 0x1402AB900 (KiUnstackDetachProcess.c)
+ *     EtwEventEnabled @ 0x1402C0830 (EtwEventEnabled.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     CmpAttachToRegistryProcess @ 0x1406E5AF0 (CmpAttachToRegistryProcess.c)
  */
 
 void __fastcall CmpPublishEventForPcaResolver(__int64 a1, unsigned __int16 *a2)
 {
-  __int64 v4; // rdx
-  __int64 v5; // r8
-  _DWORD *v6; // r9
-  int v7; // ebx
+  int v4; // ebx
   _KPROCESS *CurrentThreadProcess; // rax
-  int v9; // r8d
-  unsigned __int16 *v10; // rdx
-  __int64 v11; // rax
-  int v12; // ecx
-  __int16 v13; // [rsp+34h] [rbp-35h] BYREF
-  __int16 v14; // [rsp+38h] [rbp-31h] BYREF
-  struct _EVENT_DATA_DESCRIPTOR v15[3]; // [rsp+40h] [rbp-29h] BYREF
+  int v6; // r8d
+  unsigned __int16 *v7; // rdx
+  __int64 v8; // rax
+  int v9; // ecx
+  __int16 v10; // [rsp+34h] [rbp-35h] BYREF
+  __int16 v11; // [rsp+38h] [rbp-31h] BYREF
+  struct _EVENT_DATA_DESCRIPTOR v12[3]; // [rsp+40h] [rbp-29h] BYREF
   struct _EVENT_DATA_DESCRIPTOR UserData; // [rsp+70h] [rbp+7h] BYREF
-  __int64 v17; // [rsp+80h] [rbp+17h]
-  int v18; // [rsp+88h] [rbp+1Fh]
-  int v19; // [rsp+8Ch] [rbp+23h]
-  __int16 *v20; // [rsp+90h] [rbp+27h]
-  int v21; // [rsp+98h] [rbp+2Fh]
-  int v22; // [rsp+9Ch] [rbp+33h]
-  __int64 v23; // [rsp+A0h] [rbp+37h]
-  int v24; // [rsp+A8h] [rbp+3Fh]
-  int v25; // [rsp+ACh] [rbp+43h]
+  __int64 v14; // [rsp+80h] [rbp+17h]
+  int v15; // [rsp+88h] [rbp+1Fh]
+  int v16; // [rsp+8Ch] [rbp+23h]
+  __int16 *v17; // [rsp+90h] [rbp+27h]
+  int v18; // [rsp+98h] [rbp+2Fh]
+  int v19; // [rsp+9Ch] [rbp+33h]
+  __int64 v20; // [rsp+A0h] [rbp+37h]
+  int v21; // [rsp+A8h] [rbp+3Fh]
+  int v22; // [rsp+ACh] [rbp+43h]
 
-  memset(v15, 0, sizeof(v15));
+  memset(v12, 0, sizeof(v12));
   if ( EtwAppCompatProvRegHandle && EtwEventEnabled(EtwAppCompatProvRegHandle, &APPCOMPAT_REG_WRP_ACCESS_DENIED) )
   {
-    v7 = *(_DWORD *)(a1 + 160) & 1;
-    if ( !v7 )
-      CmpAttachToRegistryProcess((__int64)v15, v4, v5, v6);
+    v4 = *(_DWORD *)(a1 + 160) & 1;
+    if ( !v4 )
+      CmpAttachToRegistryProcess((__int64)v12);
     CurrentThreadProcess = PsGetCurrentThreadProcess();
-    v9 = *a2;
-    v10 = (unsigned __int16 *)CurrentThreadProcess[1].ActiveProcessors.Bitmap[2];
-    LOWORD(CurrentThreadProcess) = *v10;
+    v6 = *a2;
+    v7 = (unsigned __int16 *)CurrentThreadProcess[1].ActiveProcessors.Bitmap[2];
+    LOWORD(CurrentThreadProcess) = *v7;
     UserData.Reserved = 0;
-    v13 = (unsigned __int16)CurrentThreadProcess >> 1;
-    v14 = (unsigned __int16)v9 >> 1;
-    UserData.Ptr = (ULONGLONG)&v13;
+    v10 = (unsigned __int16)CurrentThreadProcess >> 1;
+    v11 = (unsigned __int16)v6 >> 1;
+    UserData.Ptr = (ULONGLONG)&v10;
     UserData.Size = 2;
-    v11 = *((_QWORD *)v10 + 1);
-    v12 = *v10;
+    v8 = *((_QWORD *)v7 + 1);
+    v9 = *v7;
+    v16 = 0;
     v19 = 0;
     v22 = 0;
-    v25 = 0;
-    v17 = v11;
-    v20 = &v14;
-    v23 = *((_QWORD *)a2 + 1);
-    v18 = v12;
-    v21 = 2;
-    v24 = v9;
+    v14 = v8;
+    v17 = &v11;
+    v20 = *((_QWORD *)a2 + 1);
+    v15 = v9;
+    v18 = 2;
+    v21 = v6;
     EtwWrite(EtwAppCompatProvRegHandle, &APPCOMPAT_REG_WRP_ACCESS_DENIED, 0LL, 4u, &UserData);
-    if ( (unsigned __int8)v7 != 1 )
-      KiUnstackDetachProcess((__int64)v15, 0);
+    if ( (unsigned __int8)v4 != 1 )
+      KiUnstackDetachProcess((__int64)v12, 0LL);
   }
 }

@@ -1,10 +1,10 @@
 /*
- * XREFs of IopProcessInvalidateBusRelationsRequest @ 0x140B39A10
+ * XREFs of IopProcessInvalidateBusRelationsRequest @ 0x140B3BC20
  * Callers:
- *     IoInvalidateBusRelationsWorker @ 0x1404EEEC0 (IoInvalidateBusRelationsWorker.c)
+ *     IoInvalidateBusRelationsWorker @ 0x1404E84A0 (IoInvalidateBusRelationsWorker.c)
  * Callees:
- *     PnpRequestDeviceAction @ 0x140482588 (PnpRequestDeviceAction.c)
- *     PiPdcActivate @ 0x1409DC5CC (PiPdcActivate.c)
+ *     PnpRequestDeviceAction @ 0x14047BEF8 (PnpRequestDeviceAction.c)
+ *     PiPdcActivate @ 0x140A1987C (PiPdcActivate.c)
  */
 
 __int64 __fastcall IopProcessInvalidateBusRelationsRequest(__int64 a1)

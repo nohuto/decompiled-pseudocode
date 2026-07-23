@@ -1,11 +1,11 @@
 /*
- * XREFs of ?ReadEntries@PC_GPT@@AEAAJPEAVGPT_HEADER@@PEAU_GPT_ENTRY@@@Z @ 0x14023C188
+ * XREFs of ?ReadEntries@PC_GPT@@AEAAJPEAVGPT_HEADER@@PEAU_GPT_ENTRY@@@Z @ 0x14023C06C
  * Callers:
- *     ?ReadEntries@PC_GPT@@AEAAJPEAVGPT_HEADER@@PEAPEAU_GPT_ENTRY@@@Z @ 0x14023C0F0 (-ReadEntries@PC_GPT@@AEAAJPEAVGPT_HEADER@@PEAPEAU_GPT_ENTRY@@@Z.c)
- *     ?VerifyPartitionTable@PC_GPT@@QEAAJE@Z @ 0x14023C60C (-VerifyPartitionTable@PC_GPT@@QEAAJE@Z.c)
+ *     ?ReadEntries@PC_GPT@@AEAAJPEAVGPT_HEADER@@PEAPEAU_GPT_ENTRY@@@Z @ 0x14023BFD4 (-ReadEntries@PC_GPT@@AEAAJPEAVGPT_HEADER@@PEAPEAU_GPT_ENTRY@@@Z.c)
+ *     ?VerifyPartitionTable@PC_GPT@@QEAAJE@Z @ 0x14023C4F0 (-VerifyPartitionTable@PC_GPT@@QEAAJE@Z.c)
  * Callees:
- *     RtlComputeCrc32 @ 0x14010FFAC (RtlComputeCrc32.c)
- *     ?ReadSectors@PC_DISK@@QEAAJK_KPEAX@Z @ 0x14014757C (-ReadSectors@PC_DISK@@QEAAJK_KPEAX@Z.c)
+ *     RtlComputeCrc32 @ 0x140110510 (RtlComputeCrc32.c)
+ *     ?ReadSectors@PC_DISK@@QEAAJK_KPEAX@Z @ 0x140147AEC (-ReadSectors@PC_DISK@@QEAAJK_KPEAX@Z.c)
  */
 
 __int64 __fastcall PC_GPT::ReadEntries(PC_DISK **this, struct GPT_HEADER *a2, struct _GPT_ENTRY *a3)

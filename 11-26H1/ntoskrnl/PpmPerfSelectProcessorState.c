@@ -1,11 +1,11 @@
 /*
- * XREFs of PpmPerfSelectProcessorState @ 0x1404502F0
+ * XREFs of PpmPerfSelectProcessorState @ 0x140448420
  * Callers:
- *     PpmPerfSelectProcessorStates @ 0x140450260 (PpmPerfSelectProcessorStates.c)
+ *     PpmPerfSelectProcessorStates @ 0x140448390 (PpmPerfSelectProcessorStates.c)
  * Callees:
- *     EtwWriteEx @ 0x140212F70 (EtwWriteEx.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     EtwWriteEx @ 0x140213050 (EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 int __fastcall PpmPerfSelectProcessorState(__int64 *a1)
@@ -16,7 +16,7 @@ int __fastcall PpmPerfSelectProcessorState(__int64 *a1)
   __int64 v5; // r11
   unsigned __int8 v6; // dl
   __int64 v7; // rcx
-  __int64 *v8; // r10
+  char *v8; // r10
   __int64 v9; // rax
   int v10; // ecx
   __int64 v11; // rdx
@@ -31,8 +31,8 @@ int __fastcall PpmPerfSelectProcessorState(__int64 *a1)
   int v20; // eax
   bool v21; // zf
   const EVENT_DESCRIPTOR *v22; // rdx
-  struct _LIST_ENTRY *Blink; // rax
-  struct _LIST_ENTRY *Flink; // r8
+  unsigned __int64 v23; // rax
+  __int64 v24; // r8
   unsigned __int64 Keyword; // rcx
   unsigned __int8 v26; // r10
   unsigned int v27; // r12d
@@ -41,7 +41,7 @@ int __fastcall PpmPerfSelectProcessorState(__int64 *a1)
   unsigned int v30; // ecx
   unsigned int v31; // eax
   unsigned int v32; // eax
-  struct _LIST_ENTRY *v33; // rcx
+  __int64 v33; // rcx
   unsigned __int64 v34; // r8
   unsigned int v35; // eax
   unsigned int v36; // eax
@@ -81,12 +81,15 @@ int __fastcall PpmPerfSelectProcessorState(__int64 *a1)
   if ( (unsigned int)PpmMfBufferingThreshold > 0x64 )
     v6 = 100;
   v50 = 1;
-  v7 = 89LL * dword_140F106CC;
-  v8 = &PpmCurrentProfile[v7 + 5];
-  if ( v5 && PpmCurrentProfile == (__int64 *)PpmLowPowerProfile && byte_140F1070C && *(_BYTE *)(v5 + 233) < v6 )
+  v7 = 712LL * SHIDWORD(PpmIdlePolicyLock.PropagateBoostsEntry.Next);
+  v8 = (char *)PpmCurrentProfile + v7 + 40;
+  if ( v5
+    && PpmCurrentProfile == (_UNKNOWN *)PopDirectedDripsDiagLock.OtherOperationCount
+    && *((_BYTE *)&PpmIdlePolicyLock.ForegroundLossTime + 4)
+    && *(_BYTE *)(v5 + 233) < v6 )
   {
     v2 = 4096;
-    v8 = (__int64 *)((char *)&unk_140F0B108 + v7 * 8);
+    v8 = (char *)&PopDirectedDripsDiagLock.SchedulerAssistPriorityFloor + v7;
   }
   LOBYTE(v9) = 0;
   if ( *((_BYTE *)a1 + 68) )
@@ -115,20 +118,20 @@ int __fastcall PpmPerfSelectProcessorState(__int64 *a1)
 LABEL_8:
   v10 = *((_DWORD *)v8 + 28);
   v11 = (unsigned __int8)v9;
-  v12 = *((unsigned __int8 *)v8 + (unsigned __int8)v9 + 80);
-  v13 = *((_BYTE *)v8 + (unsigned __int8)v9 + 74);
-  v14 = *((_BYTE *)v8 + (unsigned __int8)v9 + 217);
-  v52 = *((unsigned __int8 *)v8 + (unsigned __int8)v9 + 65);
-  v51 = *((unsigned __int8 *)v8 + (unsigned __int8)v9 + 68);
-  v46 = *((_BYTE *)v8 + (unsigned __int8)v9 + 71);
+  v12 = (unsigned __int8)v8[(unsigned __int8)v9 + 80];
+  v13 = v8[(unsigned __int8)v9 + 74];
+  v14 = v8[(unsigned __int8)v9 + 217];
+  v52 = (unsigned __int8)v8[(unsigned __int8)v9 + 65];
+  v51 = (unsigned __int8)v8[(unsigned __int8)v9 + 68];
+  v46 = v8[(unsigned __int8)v9 + 71];
   v45 = v13;
   v47 = v14;
-  v48 = *((unsigned __int8 *)v8 + (unsigned __int8)v9 + 77);
+  v48 = (unsigned __int8)v8[(unsigned __int8)v9 + 77];
   v15 = (v48 + v12) >> 1;
   if ( !v5 )
     goto LABEL_11;
-  v16 = *((_DWORD *)v8 + (unsigned __int8)v9 + 43);
-  v17 = *((_DWORD *)v8 + v11 + 40);
+  v16 = *(_DWORD *)&v8[4 * (unsigned __int8)v9 + 172];
+  v17 = *(_DWORD *)&v8[4 * v11 + 160];
   if ( v16 == v17 )
   {
     *(_BYTE *)(v1 + 60) = 0;
@@ -147,7 +150,7 @@ LABEL_8:
       v2 |= 0x100000u;
       v40 = *(_BYTE *)(v1 + 61) + 1;
       *(_BYTE *)(v1 + 61) = v40;
-      if ( v40 >= *((_BYTE *)v8 + v11 + 187) )
+      if ( v40 >= (unsigned __int8)v8[v11 + 187] )
       {
         *(_WORD *)(v1 + 60) = 1;
         v38 = 1;
@@ -160,7 +163,7 @@ LABEL_8:
     v2 |= 0x80000u;
     v43 = *(_BYTE *)(v1 + 61) + 1;
     *(_BYTE *)(v1 + 61) = v43;
-    if ( v43 >= *((_BYTE *)v8 + v11 + 184) )
+    if ( v43 >= (unsigned __int8)v8[v11 + 184] )
     {
       *(_WORD *)(v1 + 60) = 0;
       v38 = 0;
@@ -353,40 +356,39 @@ LABEL_15:
     BYTE2(v49) = *((_BYTE *)a1 - 35055);
     *(_QWORD *)&UserData.Size = 3LL;
   }
-  Blink = (struct _LIST_ENTRY *)&v49;
+  v23 = (unsigned __int64)&v49;
   UserData.Ptr = (ULONGLONG)&v49;
-  if ( PpmEtwRegistered && PopModernStandbyStateNotify.ApcState.ApcListHead[1].Blink )
+  if ( PpmEtwRegistered && PpmEtwHandle )
   {
-    Flink = PopModernStandbyStateNotify.ApcState.ApcListHead[1].Blink[2].Flink;
+    v24 = *(_QWORD *)(PpmEtwHandle + 32);
     Keyword = v22->Keyword;
-    if ( LODWORD(Flink[6].Flink) )
+    if ( *(_DWORD *)(v24 + 96) )
     {
-      LODWORD(Blink) = BYTE4(Flink[6].Flink);
-      if ( v22->Level <= (unsigned __int8)Blink || !(_BYTE)Blink )
+      LODWORD(v23) = *(unsigned __int8 *)(v24 + 100);
+      if ( v22->Level <= (unsigned __int8)v23 || !(_BYTE)v23 )
       {
-        LODWORD(Blink) = Flink[6].Blink;
-        if ( ((unsigned __int8)Blink & 0x40) != 0 && !Keyword )
+        LODWORD(v23) = *(_DWORD *)(v24 + 104);
+        if ( (v23 & 0x40) != 0 && !Keyword )
           goto LABEL_32;
-        if ( (Keyword & (unsigned __int64)Flink[7].Flink) != 0 )
+        if ( (Keyword & *(_QWORD *)(v24 + 112)) != 0 )
         {
-          Blink = Flink[7].Blink;
-          if ( (struct _LIST_ENTRY *)((unsigned __int64)Blink & Keyword) == Blink )
+          v23 = *(_QWORD *)(v24 + 120);
+          if ( (v23 & Keyword) == v23 )
             goto LABEL_32;
         }
       }
     }
-    if ( HIWORD(PopModernStandbyStateNotify.ApcState.ApcListHead[1].Blink[6].Flink) )
+    if ( *(_WORD *)(PpmEtwHandle + 102) )
     {
-      v33 = PopModernStandbyStateNotify.ApcState.ApcListHead[1].Blink[2].Blink;
+      v33 = *(_QWORD *)(PpmEtwHandle + 40);
       v34 = v22->Keyword;
-      if ( LODWORD(v33[6].Flink) )
+      if ( *(_DWORD *)(v33 + 96) )
       {
-        LODWORD(Blink) = BYTE4(v33[6].Flink);
-        if ( v22->Level <= (unsigned __int8)Blink || !(_BYTE)Blink )
+        LODWORD(v23) = *(unsigned __int8 *)(v33 + 100);
+        if ( v22->Level <= (unsigned __int8)v23 || !(_BYTE)v23 )
         {
-          if ( (LODWORD(Blink) = v33[6].Blink, ((unsigned __int8)Blink & 0x40) != 0) && !v34
-            || (v34 & (unsigned __int64)v33[7].Flink) != 0
-            && (Blink = v33[7].Blink, (struct _LIST_ENTRY *)((unsigned __int64)Blink & v34) == Blink) )
+          if ( (LODWORD(v23) = *(_DWORD *)(v33 + 104), (v23 & 0x40) != 0) && !v34
+            || (v34 & *(_QWORD *)(v33 + 112)) != 0 && (v23 = *(_QWORD *)(v33 + 120), (v23 & v34) == v23) )
           {
 LABEL_32:
             v55 = &v52;
@@ -397,19 +399,11 @@ LABEL_32:
             v61 = &v48;
             v60 = 4LL;
             v62 = 4LL;
-            LODWORD(Blink) = EtwWriteEx(
-                               (REGHANDLE)PopModernStandbyStateNotify.ApcState.ApcListHead[1].Blink,
-                               v22,
-                               0LL,
-                               0,
-                               0LL,
-                               0LL,
-                               5u,
-                               &UserData);
+            LODWORD(v23) = EtwWriteEx(PpmEtwHandle, v22, 0LL, 0, 0LL, 0LL, 5u, &UserData);
           }
         }
       }
     }
   }
-  return (int)Blink;
+  return v23;
 }

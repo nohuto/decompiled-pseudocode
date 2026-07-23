@@ -3,7 +3,7 @@
  * Callers:
  *     MiInitializeTbFlushStamps @ 0x140212A08 (MiInitializeTbFlushStamps.c)
  * Callees:
- *     MiSwizzleInvalidPte @ 0x1402857A0 (MiSwizzleInvalidPte.c)
+ *     MiSwizzleInvalidPte @ 0x140285A30 (MiSwizzleInvalidPte.c)
  */
 
 __int64 __fastcall MiSetPteTimeStamp(__int64 a1, __int64 a2)

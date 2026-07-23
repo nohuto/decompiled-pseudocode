@@ -1,9 +1,9 @@
 /*
- * XREFs of AppModelFreeUnicodeString @ 0x1401345F0
+ * XREFs of AppModelFreeUnicodeString @ 0x1401346C0
  * Callers:
- *     KIsUnlockSettingEnabled @ 0x1406C30D0 (KIsUnlockSettingEnabled.c)
+ *     KIsUnlockSettingEnabled @ 0x1406C4370 (KIsUnlockSettingEnabled.c)
  * Callees:
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall AppModelFreeUnicodeString(_QWORD *a1)

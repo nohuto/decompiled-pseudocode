@@ -1,10 +1,10 @@
 /*
- * XREFs of NtOpenSection @ 0x140405E24
+ * XREFs of NtOpenSection @ 0x140404CE4
  * Callers:
  *     <none>
  * Callees:
- *     PsGetCurrentSilo @ 0x140406380 (PsGetCurrentSilo.c)
- *     ObOpenObjectByNameEx @ 0x140419070 (ObOpenObjectByNameEx.c)
+ *     PsGetCurrentSilo @ 0x140405240 (PsGetCurrentSilo.c)
+ *     ObOpenObjectByNameEx @ 0x140417F30 (ObOpenObjectByNameEx.c)
  */
 
 NTSTATUS __stdcall NtOpenSection(PHANDLE SectionHandle, ACCESS_MASK DesiredAccess, POBJECT_ATTRIBUTES ObjectAttributes)

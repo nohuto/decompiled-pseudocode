@@ -1,12 +1,12 @@
 /*
- * XREFs of PopNetIsCompliantNicPresent @ 0x140B462D4
+ * XREFs of PopNetIsCompliantNicPresent @ 0x140B48304
  * Callers:
- *     PopCaptureSleepStudyStatistics @ 0x14042AB54 (PopCaptureSleepStudyStatistics.c)
+ *     PopCaptureSleepStudyStatistics @ 0x140421FC8 (PopCaptureSleepStudyStatistics.c)
  * Callees:
  *     <none>
  */
 
 bool PopNetIsCompliantNicPresent()
 {
-  return LODWORD(stru_140F0C428.Header.WaitListHead.Blink) != 0;
+  return *(_DWORD *)&PopPdcDeviceListLock.SchedulerApcFill5[44] != 0;
 }

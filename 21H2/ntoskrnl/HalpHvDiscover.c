@@ -1,13 +1,13 @@
 /*
- * XREFs of HalpHvDiscover @ 0x1403AC52C
+ * XREFs of HalpHvDiscover @ 0x1403AD2BC
  * Callers:
- *     HalpTimerRegisterBuiltinPluginsCommon @ 0x1403AA588 (HalpTimerRegisterBuiltinPluginsCommon.c)
+ *     HalpTimerRegisterBuiltinPluginsCommon @ 0x1403AB318 (HalpTimerRegisterBuiltinPluginsCommon.c)
  * Callees:
- *     HalQueryMaximumProcessorCount @ 0x14037B300 (HalQueryMaximumProcessorCount.c)
- *     HalSocRequestConfigurationData @ 0x1403A1E9C (HalSocRequestConfigurationData.c)
- *     HalSocRequestApi @ 0x1403A209C (HalSocRequestApi.c)
- *     HalpTimerRegister @ 0x1403ABC00 (HalpTimerRegister.c)
- *     memset @ 0x140414200 (memset.c)
+ *     HalQueryMaximumProcessorCount @ 0x14037AE50 (HalQueryMaximumProcessorCount.c)
+ *     HalSocRequestConfigurationData @ 0x1403A1FEC (HalSocRequestConfigurationData.c)
+ *     HalSocRequestApi @ 0x1403A21EC (HalSocRequestApi.c)
+ *     HalpTimerRegister @ 0x1403AC990 (HalpTimerRegister.c)
+ *     memset @ 0x140414300 (memset.c)
  */
 
 __int64 __fastcall HalpHvDiscover(__int64 a1)

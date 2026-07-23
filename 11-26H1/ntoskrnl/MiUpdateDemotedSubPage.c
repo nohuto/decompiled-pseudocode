@@ -1,27 +1,29 @@
 /*
- * XREFs of MiUpdateDemotedSubPage @ 0x140434C10
+ * XREFs of MiUpdateDemotedSubPage @ 0x14042BCD0
  * Callers:
- *     MiDemoteValidLargePageOneLevel @ 0x1406F259C (MiDemoteValidLargePageOneLevel.c)
- *     MiDemotePfnListChain @ 0x1407117C4 (MiDemotePfnListChain.c)
+ *     MiDemoteValidLargePageOneLevel @ 0x1406F720C (MiDemoteValidLargePageOneLevel.c)
+ *     MiDemotePfnListChain @ 0x1407164C4 (MiDemotePfnListChain.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     MiAnyPagesRemovalPending @ 0x140434D64 (MiAnyPagesRemovalPending.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     MiAnyPagesRemovalPending @ 0x14042BE24 (MiAnyPagesRemovalPending.c)
  */
 
-__int64 __fastcall MiUpdateDemotedSubPage(__int64 a1, __int64 a2, unsigned int a3)
+__int64 __fastcall MiUpdateDemotedSubPage(__int64 a1, __int64 a2, __int64 a3)
 {
   unsigned int v3; // esi
+  unsigned int v4; // edi
   int v8; // [rsp+50h] [rbp+18h] BYREF
 
   v3 = 0;
-  if ( a3 == 3 )
+  v4 = a3;
+  if ( (_DWORD)a3 == 3 )
   {
     if ( (*(_QWORD *)(a2 + 40) & 0x20000000000LL) != 0 )
       *(_QWORD *)(a2 + 40) &= ~0x20000000000uLL;
     *(_QWORD *)(a2 + 40) &= ~0x10000000000uLL;
   }
   *(_DWORD *)(a2 + 36) = ((unsigned __int8)~(_BYTE)a3 << 27) ^ (*(_DWORD *)(a2 + 36) ^ ((unsigned __int8)~(_BYTE)a3 << 27)) & 0xE7FFFFFF;
-  if ( a3 != 3 )
+  if ( (_DWORD)a3 != 3 )
   {
     if ( a2 != a1 )
     {
@@ -35,7 +37,7 @@ __int64 __fastcall MiUpdateDemotedSubPage(__int64 a1, __int64 a2, unsigned int a
     }
     if ( (*(_QWORD *)(a1 + 40) & 0x20000000000LL) != 0 )
     {
-      if ( !(unsigned int)MiAnyPagesRemovalPending((a2 + 0x220000000000LL) / 48, a3) )
+      if ( !(unsigned int)MiAnyPagesRemovalPending((a2 + 0x220000000000LL) / 48, v4, a3) )
       {
         if ( a2 == a1 )
         {

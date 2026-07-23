@@ -1,5 +1,5 @@
 /*
- * XREFs of NtdllButtonWndProc_W @ 0x1801619C0
+ * XREFs of NtdllButtonWndProc_W @ 0x18015FD80
  * Callers:
  *     <none>
  * Callees:
@@ -9,5 +9,5 @@
 // attributes: thunk
 void __noreturn NtdllButtonWndProc_W()
 {
-  off_1801E7228();
+  off_1801E6228();
 }

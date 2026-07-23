@@ -1,20 +1,20 @@
 /*
- * XREFs of MiRelinkStandbyPage @ 0x1400BE514
+ * XREFs of MiRelinkStandbyPage @ 0x1400BC3A4
  * Callers:
- *     MiUpdatePfnPriorityByPte @ 0x14002E6B0 (MiUpdatePfnPriorityByPte.c)
- *     MiUpdatePfnPriority @ 0x1400BDCE0 (MiUpdatePfnPriority.c)
- *     MmSetPfnListPriorities @ 0x1400BE170 (MmSetPfnListPriorities.c)
- *     MiEmptyDecayClusterTimers @ 0x1400BE310 (MiEmptyDecayClusterTimers.c)
- *     MiTransferPartitionPageRun @ 0x1401F2058 (MiTransferPartitionPageRun.c)
+ *     MiUpdatePfnPriorityByPte @ 0x14002E230 (MiUpdatePfnPriorityByPte.c)
+ *     MiUpdatePfnPriority @ 0x1400BBB70 (MiUpdatePfnPriority.c)
+ *     MmSetPfnListPriorities @ 0x1400BC000 (MmSetPfnListPriorities.c)
+ *     MiEmptyDecayClusterTimers @ 0x1400BC1A0 (MiEmptyDecayClusterTimers.c)
+ *     MiTransferPartitionPageRun @ 0x1401F1E84 (MiTransferPartitionPageRun.c)
  * Callees:
- *     MiCaptureDirtyBitToPfn @ 0x140015D60 (MiCaptureDirtyBitToPfn.c)
- *     MiReleasePageFileInfo @ 0x14001A280 (MiReleasePageFileInfo.c)
- *     MiRestoreTransitionPte @ 0x14001D1F0 (MiRestoreTransitionPte.c)
- *     MiUnlinkPageFromList @ 0x140065A40 (MiUnlinkPageFromList.c)
- *     MiInsertPageInFreeOrZeroedList @ 0x1400671C0 (MiInsertPageInFreeOrZeroedList.c)
- *     MiPartitionIdToPointer @ 0x1400680A0 (MiPartitionIdToPointer.c)
- *     MiInsertPageInList @ 0x1400695D0 (MiInsertPageInList.c)
- *     MiMakeDemandZeroPte @ 0x1401F2734 (MiMakeDemandZeroPte.c)
+ *     MiCaptureDirtyBitToPfn @ 0x1400158E0 (MiCaptureDirtyBitToPfn.c)
+ *     MiReleasePageFileInfo @ 0x140019E00 (MiReleasePageFileInfo.c)
+ *     MiRestoreTransitionPte @ 0x14001CD70 (MiRestoreTransitionPte.c)
+ *     MiUnlinkPageFromList @ 0x1400655C0 (MiUnlinkPageFromList.c)
+ *     MiInsertPageInFreeOrZeroedList @ 0x140066D40 (MiInsertPageInFreeOrZeroedList.c)
+ *     MiPartitionIdToPointer @ 0x140067C20 (MiPartitionIdToPointer.c)
+ *     MiInsertPageInList @ 0x140069150 (MiInsertPageInList.c)
+ *     MiMakeDemandZeroPte @ 0x1401F2560 (MiMakeDemandZeroPte.c)
  */
 
 __int64 __fastcall MiRelinkStandbyPage(ULONG_PTR a1, int a2, unsigned __int16 a3)
@@ -63,7 +63,7 @@ LABEL_16:
   MiRestoreTransitionPte(a1, 1LL, v6, v7);
   v8 = MiPartitionIdToPointer(((unsigned int)HIDWORD(*(_QWORD *)(a1 + 40)) >> 8) & 0x3FF);
   if ( (*(_QWORD *)(a1 + 40) & 0x200000000000000LL) != 0 )
-    _InterlockedDecrement64(&qword_140327340);
+    _InterlockedDecrement64(&qword_140327380);
   else
     _InterlockedDecrement64((volatile signed __int64 *)v8 + 560);
   *(_QWORD *)(a1 + 40) &= ~0x200000000000000uLL;

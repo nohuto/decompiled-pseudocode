@@ -1,11 +1,11 @@
 /*
- * XREFs of VfZwUnloadDriver @ 0x14094A3C0
+ * XREFs of VfZwUnloadDriver @ 0x14094B3C0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     ViZwCheckUnicodeString @ 0x14094A6EC (ViZwCheckUnicodeString.c)
- *     ViZwShouldCheck @ 0x14094A7CC (ViZwShouldCheck.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     ViZwCheckUnicodeString @ 0x14094B6EC (ViZwCheckUnicodeString.c)
+ *     ViZwShouldCheck @ 0x14094B7CC (ViZwShouldCheck.c)
  */
 
 __int64 __fastcall VfZwUnloadDriver(ULONG_PTR BugCheckParameter3)

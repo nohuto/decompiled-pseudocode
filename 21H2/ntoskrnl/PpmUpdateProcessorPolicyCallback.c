@@ -1,9 +1,9 @@
 /*
- * XREFs of PpmUpdateProcessorPolicyCallback @ 0x1403A4EE0
+ * XREFs of PpmUpdateProcessorPolicyCallback @ 0x1403A5030
  * Callers:
  *     <none>
  * Callees:
- *     PpmUpdateTargetProcessorPolicy @ 0x1403A4F0C (PpmUpdateTargetProcessorPolicy.c)
+ *     PpmUpdateTargetProcessorPolicy @ 0x1403A505C (PpmUpdateTargetProcessorPolicy.c)
  */
 
 __int64 __fastcall PpmUpdateProcessorPolicyCallback(__int64 a1, __int64 a2, __int64 a3)

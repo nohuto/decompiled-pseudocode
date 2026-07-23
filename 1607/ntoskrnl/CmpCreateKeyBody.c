@@ -1,16 +1,16 @@
 /*
- * XREFs of CmpCreateKeyBody @ 0x140490828
+ * XREFs of CmpCreateKeyBody @ 0x1404912B8
  * Callers:
- *     CmpDoParseKey @ 0x140453D10 (CmpDoParseKey.c)
+ *     CmpDoParseKey @ 0x140452BE0 (CmpDoParseKey.c)
  * Callees:
- *     PsGetCurrentThreadProcessId @ 0x1400857E0 (PsGetCurrentThreadProcessId.c)
- *     CmpDereferenceKeyControlBlockUnsafe @ 0x140087D10 (CmpDereferenceKeyControlBlockUnsafe.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     CmpTransReferenceTransaction @ 0x1403FF0D8 (CmpTransReferenceTransaction.c)
- *     CmpTransDereferenceTransaction @ 0x1403FF128 (CmpTransDereferenceTransaction.c)
- *     CmpReferenceKeyControlBlockUnsafe @ 0x140404978 (CmpReferenceKeyControlBlockUnsafe.c)
- *     ObCreateObjectEx @ 0x14041D970 (ObCreateObjectEx.c)
- *     EnlistKeyBodyWithKCB @ 0x1404909E4 (EnlistKeyBodyWithKCB.c)
+ *     PsGetCurrentThreadProcessId @ 0x1400870D0 (PsGetCurrentThreadProcessId.c)
+ *     CmpDereferenceKeyControlBlockUnsafe @ 0x14010BF00 (CmpDereferenceKeyControlBlockUnsafe.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     CmpTransReferenceTransaction @ 0x1403FDF98 (CmpTransReferenceTransaction.c)
+ *     CmpTransDereferenceTransaction @ 0x1403FDFE8 (CmpTransDereferenceTransaction.c)
+ *     CmpReferenceKeyControlBlockUnsafe @ 0x140403838 (CmpReferenceKeyControlBlockUnsafe.c)
+ *     ObCreateObjectEx @ 0x14041C830 (ObCreateObjectEx.c)
+ *     EnlistKeyBodyWithKCB @ 0x140491474 (EnlistKeyBodyWithKCB.c)
  */
 
 __int64 __fastcall CmpCreateKeyBody(__int64 a1, char a2, __int64 a3, __int64 a4, char a5, _QWORD *a6, _BYTE *a7)

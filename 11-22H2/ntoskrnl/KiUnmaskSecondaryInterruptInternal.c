@@ -43,10 +43,10 @@ __int64 __fastcall KiUnmaskSecondaryInterruptInternal(int a1, unsigned int a2)
   if ( !*(_BYTE *)(v3 + KiGlobalSecondaryIDT + 32) )
   {
     KxReleaseSpinLock(v4);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v25 <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v25 <= 0xFu && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -66,10 +66,10 @@ LABEL_18:
   if ( !v11 )
   {
     KxReleaseSpinLock(v4);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v12 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v12 <= 0xFu && v25 <= 0xFu && v12 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v12 <= 0xFu && v25 <= 0xFu && v12 >= 2u )
       {
         v13 = KeGetCurrentPrcb();
         v14 = v13->SchedulerAssist;
@@ -96,7 +96,7 @@ LABEL_18:
   *(_BYTE *)(v3 + KiGlobalSecondaryIDT + 32) = 0;
 LABEL_24:
   KxReleaseSpinLock(v4);
-  if ( KiIrqlFlags && (v19 = KeGetCurrentIrql(), (KiIrqlFlags & 1) != 0) && v19 <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && (v19 = KeGetCurrentIrql(), ((unsigned __int8)KiIrqlFlags & 1) != 0) && v19 <= 0xFu )
   {
     v20 = v25;
     if ( v25 <= 0xFu && v19 >= 2u )

@@ -18,107 +18,108 @@
  *     _TppQueueRemoveHead@4 @ 0x4B38508E (_TppQueueRemoveHead@4.c)
  */
 
-_PEB_LDR_DATA *__stdcall TpReleasePool(int a1)
+void __cdecl TpReleasePool(PTP_POOL Pool)
 {
-  int v1; // edi
-  _PEB_LDR_DATA *result; // eax
-  unsigned int v3; // ebx
-  unsigned int v4; // ecx
-  int v5; // eax
-  void *v6; // edx
-  int *v7; // ecx
-  unsigned int v8; // esi
-  signed __int64 v9; // rax
-  int v10; // eax
+  PTP_POOL v1; // edi
+  unsigned int v2; // ebx
+  unsigned int v3; // ecx
+  int v4; // eax
+  _RTL_SRWLOCK *v5; // edx
+  int *v6; // ecx
+  unsigned int v7; // esi
+  signed __int64 v8; // rax
+  int v9; // eax
   int i; // esi
   unsigned int j; // ebx
-  int v13; // eax
-  void (__thiscall *v14)(_DWORD, int, int); // esi
-  unsigned int v15; // [esp+28h] [ebp-24h]
-  volatile signed __int64 *v16; // [esp+2Ch] [ebp-20h]
+  int v12; // eax
+  void (__thiscall *v13)(_DWORD, int, PTP_POOL); // esi
+  unsigned int v14; // [esp+28h] [ebp-24h]
+  volatile signed __int64 *v15; // [esp+2Ch] [ebp-20h]
   _UNKNOWN *retaddr; // [esp+50h] [ebp+4h]
 
-  v1 = a1;
-  if ( !a1 || a1 == TppPoolpGlobalPool || a1 == TppPoolpSerializedPool || NtCurrentPeb()->Ldr->ShutdownInProgress )
+  v1 = Pool;
+  if ( !Pool
+    || Pool == (PTP_POOL)TppPoolpGlobalPool
+    || Pool == (PTP_POOL)TppPoolpSerializedPool
+    || NtCurrentPeb()->Ldr->ShutdownInProgress )
   {
-    result = NtCurrentPeb()->Ldr;
-    if ( !result->ShutdownInProgress )
+    if ( !NtCurrentPeb()->Ldr->ShutdownInProgress )
       TppRaiseInvalidParameter();
-    return result;
+    return;
   }
-  RtlAcquireSRWLockExclusive(a1 + 224);
-  if ( *(_BYTE *)(a1 + 229) )
+  RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)Pool + 56);
+  if ( *((_BYTE *)Pool + 229) )
     TppRaiseInvalidParameter();
-  if ( !*(_BYTE *)(a1 + 228) )
+  if ( !*((_BYTE *)Pool + 228) )
   {
-    *(_BYTE *)(a1 + 228) = 1;
-    NtShutdownWorkerFactory(*(_DWORD *)(a1 + 36), a1);
+    *((_BYTE *)Pool + 228) = 1;
+    NtShutdownWorkerFactory(*((HANDLE *)Pool + 9), (LONG *)Pool);
   }
 LABEL_10:
-  v16 = (volatile signed __int64 *)(v1 + 8);
-  v3 = *(_DWORD *)(v1 + 8);
-  v4 = *(_DWORD *)(v1 + 12);
-  while ( v4 )
+  v15 = (volatile signed __int64 *)((char *)v1 + 8);
+  v2 = *((_DWORD *)v1 + 2);
+  v3 = *((_DWORD *)v1 + 3);
+  while ( v3 )
   {
-    v8 = v3;
-    v15 = v4;
-    v9 = _InterlockedCompareExchange64(v16, __SPAIR64__(v4 - 1, v3), __SPAIR64__(v4, v3));
-    v4 = HIDWORD(v9);
-    v3 = v9;
-    v1 = a1;
-    if ( v9 == __PAIR64__(v15, v8) )
+    v7 = v2;
+    v14 = v3;
+    v8 = _InterlockedCompareExchange64(v15, __SPAIR64__(v3 - 1, v2), __SPAIR64__(v3, v2));
+    v3 = HIDWORD(v8);
+    v2 = v8;
+    v1 = Pool;
+    if ( v8 == __PAIR64__(v14, v7) )
     {
-      if ( !HIDWORD(v9) )
+      if ( !HIDWORD(v8) )
         break;
-      v10 = 0;
+      v9 = 0;
       for ( i = 0; i < 3; ++i )
       {
-        if ( v10 )
+        if ( v9 )
           goto LABEL_38;
-        for ( j = 0; j < TppNumberNodes && !v10; ++j )
+        for ( j = 0; j < TppNumberNodes && !v9; ++j )
         {
-          v13 = TppQueueRemoveHead(*(_DWORD *)(a1 + 4 * i + 16) + 12 * j);
-          if ( v13 )
-            v10 = v13 - 12;
+          v12 = TppQueueRemoveHead(*((_DWORD *)Pool + i + 4) + 12 * j);
+          if ( v12 )
+            v9 = v12 - 12;
           else
-            v10 = 0;
+            v9 = 0;
         }
       }
-      if ( !v10 )
+      if ( !v9 )
         goto LABEL_10;
 LABEL_38:
-      if ( *(_DWORD *)v10 )
+      if ( *(_DWORD *)v9 )
       {
-        v14 = *(void (__thiscall **)(_DWORD, int, int))(*(_DWORD *)v10 + 4);
-        if ( v14 )
-          v14(v14, v10, a1);
+        v13 = *(void (__thiscall **)(_DWORD, int, PTP_POOL))(*(_DWORD *)v9 + 4);
+        if ( v13 )
+          v13(v13, v9, Pool);
       }
       goto LABEL_10;
     }
   }
-  *(_DWORD *)(v1 + 244) = retaddr;
-  *(_BYTE *)(v1 + 229) = 1;
-  RtlReleaseSRWLockExclusive(v1 + 224);
+  *((_DWORD *)v1 + 61) = retaddr;
+  *((_BYTE *)v1 + 229) = 1;
+  RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)v1 + 56);
   if ( RtlGetCurrentServiceSessionId() )
-    v5 = (int)NtCurrentPeb()->SharedData + 556;
+    v4 = (int)NtCurrentPeb()->SharedData + 556;
   else
-    v5 = 2147353478;
-  if ( *(_BYTE *)v5 )
+    v4 = 2147353478;
+  if ( *(_BYTE *)v4 )
     TppETWPoolClose(v1);
-  if ( v1 == TppPoolpGlobalPool )
+  if ( v1 == (PTP_POOL)TppPoolpGlobalPool )
   {
-    v6 = &TppPoolpGlobalPoolLock;
-    v7 = &TppPoolpGlobalPool;
-    return (_PEB_LDR_DATA *)TppPoolpDereferenceGlobalPool(v7, v6);
+    v5 = &TppPoolpGlobalPoolLock;
+    v6 = &TppPoolpGlobalPool;
+    goto LABEL_20;
   }
-  if ( v1 == TppPoolpSerializedPool )
+  if ( v1 == (PTP_POOL)TppPoolpSerializedPool )
   {
-    v6 = &TppPoolpSerializedPoolLock;
-    v7 = &TppPoolpSerializedPool;
-    return (_PEB_LDR_DATA *)TppPoolpDereferenceGlobalPool(v7, v6);
+    v5 = (_RTL_SRWLOCK *)&TppPoolpSerializedPoolLock;
+    v6 = &TppPoolpSerializedPool;
+LABEL_20:
+    TppPoolpDereferenceGlobalPool(v6, v5);
+    return;
   }
-  result = (_PEB_LDR_DATA *)_InterlockedExchangeAdd((volatile signed __int32 *)v1, 0xFFFFFFFF);
-  if ( !result )
-    return (_PEB_LDR_DATA *)TppPoolpFree(v1);
-  return result;
+  if ( !_InterlockedExchangeAdd((volatile signed __int32 *)v1, 0xFFFFFFFF) )
+    TppPoolpFree(v1);
 }

@@ -1,13 +1,13 @@
 /*
- * XREFs of MiSlistGetFreePage @ 0x1402F3B70
+ * XREFs of MiSlistGetFreePage @ 0x14033DDB0
  * Callers:
- *     MiRemovePageAnyColor @ 0x1402F65A4 (MiRemovePageAnyColor.c)
- *     MiGetPageSlist @ 0x1404541D0 (MiGetPageSlist.c)
+ *     MiRemovePageAnyColor @ 0x14033E6B4 (MiRemovePageAnyColor.c)
+ *     MiGetPageSlist @ 0x14033F3D8 (MiGetPageSlist.c)
  * Callees:
- *     MiArePageContentsZero @ 0x1404CA060 (MiArePageContentsZero.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
- *     RtlpInterlockedPopEntrySList @ 0x1406B3890 (RtlpInterlockedPopEntrySList.c)
+ *     MiArePageContentsZero @ 0x1404C33B0 (MiArePageContentsZero.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     RtlpInterlockedPopEntrySList @ 0x1406B4830 (RtlpInterlockedPopEntrySList.c)
  */
 
 PSLIST_ENTRY __fastcall MiSlistGetFreePage(__int64 a1, int a2)
@@ -148,15 +148,15 @@ LABEL_5:
     {
       v13 = (unsigned __int64)Next & 0xFFFFFFFFFFFFFC1FuLL | 0x80;
     }
-    else if ( qword_140E2DB80 )
+    else if ( qword_140E2DCC0 )
     {
       v13 = 144LL;
-      if ( (qword_140E2DB80 & 0x80u) == 0LL )
-        v13 = qword_140E2DB80 | 0x80;
+      if ( (qword_140E2DCC0 & 0x80u) == 0LL )
+        v13 = qword_140E2DCC0 | 0x80;
     }
     v7[1].Next = (_SLIST_ENTRY *)v13;
   }
-  else if ( (MiFlags & 0x80u) != 0LL && (++dword_140E30170 & MmPageValidationFrequency) == 0 )
+  else if ( (MiFlags & 0x80u) != 0LL && (++dword_140E302B0 & MmPageValidationFrequency) == 0 )
   {
     MiArePageContentsZero(0xAAAAAAAAAAAAAAABuLL * ((__int64)&v7[0x22000000000LL] >> 4));
   }

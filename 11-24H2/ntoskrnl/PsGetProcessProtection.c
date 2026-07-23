@@ -1,5 +1,5 @@
 /*
- * XREFs of PsGetProcessProtection @ 0x14048B1B0
+ * XREFs of PsGetProcessProtection @ 0x140485FE0
  * Callers:
  *     <none>
  * Callees:

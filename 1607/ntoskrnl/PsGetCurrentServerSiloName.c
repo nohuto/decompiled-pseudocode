@@ -1,9 +1,9 @@
 /*
- * XREFs of PsGetCurrentServerSiloName @ 0x14067DEFC
+ * XREFs of PsGetCurrentServerSiloName @ 0x14067DFE0
  * Callers:
  *     <none>
  * Callees:
- *     PsGetCurrentServerSiloGlobals @ 0x14008C610 (PsGetCurrentServerSiloGlobals.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x14008BD70 (PsGetCurrentServerSiloGlobals.c)
  */
 
 __int64 *PsGetCurrentServerSiloName()

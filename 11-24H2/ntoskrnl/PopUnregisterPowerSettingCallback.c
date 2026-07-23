@@ -1,11 +1,11 @@
 /*
- * XREFs of PopUnregisterPowerSettingCallback @ 0x1404AD028
+ * XREFs of PopUnregisterPowerSettingCallback @ 0x1404A770C
  * Callers:
- *     PopDispatchPowerSettingCallbacks @ 0x1409BDB60 (PopDispatchPowerSettingCallbacks.c)
- *     PoUnregisterPowerSettingCallback @ 0x140A76B70 (PoUnregisterPowerSettingCallback.c)
+ *     PopDispatchPowerSettingCallbacks @ 0x1409A41B0 (PopDispatchPowerSettingCallbacks.c)
+ *     PoUnregisterPowerSettingCallback @ 0x140A70C90 (PoUnregisterPowerSettingCallback.c)
  * Callees:
- *     KeSetEvent @ 0x1402725A0 (KeSetEvent.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     KeSetEvent @ 0x140227B30 (KeSetEvent.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __fastcall PopUnregisterPowerSettingCallback(_BYTE *a1)

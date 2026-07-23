@@ -1,29 +1,29 @@
 /*
  * XREFs of CmUnRegisterCallback @ 0x14090FD60
  * Callers:
- *     DifCmUnRegisterCallbackWrapper @ 0x140606060 (DifCmUnRegisterCallbackWrapper.c)
- *     VrpDecrementSiloCount @ 0x1407F8780 (VrpDecrementSiloCount.c)
- *     EtwpRegTraceEnableCallback @ 0x1409E62D0 (EtwpRegTraceEnableCallback.c)
+ *     sub_140606060 @ 0x140606060 (sub_140606060.c)
+ *     sub_1407F8780 @ 0x1407F8780 (sub_1407F8780.c)
+ *     sub_1409E62D0 @ 0x1409E62D0 (sub_1409E62D0.c)
  * Callees:
  *     ObReferenceObjectSafe @ 0x1402240B0 (ObReferenceObjectSafe.c)
- *     CmCleanupThreadInfo @ 0x14022EA30 (CmCleanupThreadInfo.c)
+ *     sub_14022EA30 @ 0x14022EA30 (sub_14022EA30.c)
  *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
- *     CmpInitializeThreadInfo @ 0x140347770 (CmpInitializeThreadInfo.c)
+ *     sub_140347770 @ 0x140347770 (sub_140347770.c)
  *     ExBlockOnAddressPushLock @ 0x140369460 (ExBlockOnAddressPushLock.c)
- *     RtlpInterlockedFlushSList @ 0x140429900 (RtlpInterlockedFlushSList.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     CmpUnlockContextList @ 0x1406930B0 (CmpUnlockContextList.c)
- *     CmpUnlockCallbackList @ 0x1406930D4 (CmpUnlockCallbackList.c)
- *     CmpLockContextListExclusive @ 0x1406930F8 (CmpLockContextListExclusive.c)
- *     CmpLockCallbackListExclusive @ 0x140693288 (CmpLockCallbackListExclusive.c)
+ *     ExpInterlockedFlushSList @ 0x140429900 (ExpInterlockedFlushSList.c)
+ *     sub_14042A5E0 @ 0x14042A5E0 (sub_14042A5E0.c)
+ *     sub_1406930B0 @ 0x1406930B0 (sub_1406930B0.c)
+ *     sub_1406930D4 @ 0x1406930D4 (sub_1406930D4.c)
+ *     sub_1406930F8 @ 0x1406930F8 (sub_1406930F8.c)
+ *     sub_140693288 @ 0x140693288 (sub_140693288.c)
  *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
- *     CmListGetNextElement @ 0x140AB4218 (CmListGetNextElement.c)
+ *     sub_140AB4218 @ 0x140AB4218 (sub_140AB4218.c)
  */
 
 NTSTATUS __stdcall CmUnRegisterCallback(LARGE_INTEGER Cookie)
 {
   NTSTATUS v2; // esi
-  __int64 NextElement; // rax
+  __int64 v3; // rax
   char *v4; // rdi
   int v5; // eax
   _QWORD *v6; // rcx
@@ -52,7 +52,7 @@ NTSTATUS __stdcall CmUnRegisterCallback(LARGE_INTEGER Cookie)
   _QWORD *v30; // [rsp+40h] [rbp-88h] BYREF
   _QWORD v31[4]; // [rsp+48h] [rbp-80h] BYREF
   __int128 v32; // [rsp+68h] [rbp-60h] BYREF
-  __int128 v33; // [rsp+78h] [rbp-50h] BYREF
+  __int128 v33; // [rsp+78h] [rbp-50h]
   __int64 v34; // [rsp+88h] [rbp-40h]
   __int64 v35; // [rsp+E0h] [rbp+18h] BYREF
   int v36; // [rsp+E8h] [rbp+20h]
@@ -63,21 +63,21 @@ NTSTATUS __stdcall CmUnRegisterCallback(LARGE_INTEGER Cookie)
   v33 = 0LL;
   v34 = 0LL;
   v29 = 0LL;
-  CmpInitializeThreadInfo((__int64)&v32);
+  sub_140347770((__int64)&v32);
   v31[0] = 0LL;
-  CmpLockCallbackListExclusive();
+  sub_140693288();
   do
   {
     do
     {
-      NextElement = CmListGetNextElement(&CallbackListHead, v31, 0LL);
-      v4 = (char *)NextElement;
-      v31[1] = NextElement;
-      if ( !NextElement )
+      v3 = sub_140AB4218(&qword_140C497F0, v31, 0LL);
+      v4 = (char *)v3;
+      v31[1] = v3;
+      if ( !v3 )
         goto LABEL_12;
     }
-    while ( *(_QWORD *)(NextElement + 24) != Cookie.QuadPart );
-    v5 = *(_DWORD *)(NextElement + 16);
+    while ( *(_QWORD *)(v3 + 24) != Cookie.QuadPart );
+    v5 = *(_DWORD *)(v3 + 16);
     LODWORD(v35) = v5;
     if ( !v5 )
     {
@@ -87,7 +87,7 @@ NTSTATUS __stdcall CmUnRegisterCallback(LARGE_INTEGER Cookie)
       {
         *v10 = v9;
         v9[1] = v10;
-        CmpUnlockCallbackList();
+        sub_1406930D4();
         v2 = 0;
         v36 = 0;
         goto LABEL_18;
@@ -98,35 +98,35 @@ LABEL_45:
   }
   while ( v5 < 0 );
   _InterlockedOr((volatile signed __int32 *)v4 + 4, 0x80000000);
-  CmpUnlockCallbackList();
+  sub_1406930D4();
   while ( 1 )
   {
     LODWORD(v35) = *((_DWORD *)v4 + 4);
     if ( (_DWORD)v35 == 0x80000000 )
       break;
-    ExBlockOnAddressPushLock((__int64)&CallbackListDeleteEvent, (_QWORD *)v4 + 2, &v35, 4uLL, 0LL);
+    ExBlockOnAddressPushLock((__int64)&qword_140C49800, (_QWORD *)v4 + 2, &v35, 4uLL, 0LL);
   }
-  CmpLockCallbackListExclusive();
+  sub_140693288();
   v6 = *(_QWORD **)v4;
   v7 = (void **)*((_QWORD *)v4 + 1);
   if ( *(char **)(*(_QWORD *)v4 + 8LL) != v4 || *v7 != v4 )
     goto LABEL_45;
   *v7 = v6;
   v6[1] = v7;
-  CmpUnlockCallbackList();
+  sub_1406930D4();
   v2 = 0;
   v36 = 0;
 LABEL_12:
   if ( v2 < 0 )
   {
-    CmpUnlockCallbackList();
+    sub_1406930D4();
     goto LABEL_14;
   }
 LABEL_18:
   *((_QWORD *)&v29 + 1) = &v29;
   *(_QWORD *)&v29 = &v29;
   v11 = 0;
-  CmpLockContextListExclusive();
+  sub_1406930F8();
   v12 = v4 + 64;
   v13 = (_QWORD *)*((_QWORD *)v4 + 8);
   v14 = v13;
@@ -171,7 +171,7 @@ LABEL_18:
     v13 = v15;
     v14 = v15;
   }
-  CmpUnlockContextList();
+  sub_1406930B0();
   while ( 1 )
   {
     v22 = v29;
@@ -185,24 +185,24 @@ LABEL_18:
     v28 = (PVOID *)(v22 - 16);
     v31[2] = v22 - 16;
     v33 = *(_OWORD *)(v22 - 16 + 48);
-    (*((void (__fastcall **)(_QWORD, __int64, __int128 *))v4 + 5))(*((_QWORD *)v4 + 4), 40LL, &v33);
+    sub_14042A5E0(*((_QWORD *)v4 + 4), 40LL);
     ObfDereferenceObject(v28[6]);
     ExFreePoolWithTag(v28, 0x63634D43u);
   }
   while ( v11 )
   {
-    CmpLockContextListExclusive();
+    sub_1406930F8();
     v30 = (_QWORD *)*((_QWORD *)v4 + 8);
     v23 = v30;
-    CmpUnlockContextList();
+    sub_1406930B0();
     if ( v23 == v12 )
       v11 = 0;
     else
-      ExBlockOnAddressPushLock((__int64)&CallbackListDeleteEvent, (_QWORD *)v4 + 8, &v30, 8uLL, 0LL);
+      ExBlockOnAddressPushLock((__int64)&qword_140C49800, (_QWORD *)v4 + 8, &v30, 8uLL, 0LL);
   }
-  if ( _InterlockedExchangeAdd(&CmpCallBackCount, 0xFFFFFFFF) == 1 )
+  if ( _InterlockedExchangeAdd(&dword_140C54CA8, 0xFFFFFFFF) == 1 )
   {
-    v24 = RtlpInterlockedFlushSList(&CmpCallbackContextSList);
+    v24 = ExpInterlockedFlushSList(&stru_140CE23D0);
     while ( v24 )
     {
       v25 = v24;
@@ -215,6 +215,6 @@ LABEL_18:
     ExFreePoolWithTag(v26, 0);
   ExFreePoolWithTag(v4, 0);
 LABEL_14:
-  CmCleanupThreadInfo((__int64 *)&v32);
+  sub_14022EA30((__int64 *)&v32);
   return v2;
 }

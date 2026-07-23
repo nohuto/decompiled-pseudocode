@@ -1,20 +1,20 @@
 /*
- * XREFs of EtwTraceTimedEvent @ 0x1402AEDFC
+ * XREFs of EtwTraceTimedEvent @ 0x14022D15C
  * Callers:
- *     KiProcessExpiredTimerList @ 0x140247AA0 (KiProcessExpiredTimerList.c)
- *     KiExpireTimer2 @ 0x14024B5C0 (KiExpireTimer2.c)
- *     KeDisableTimer2 @ 0x14027FC30 (KeDisableTimer2.c)
- *     KiFinalizeTimer2Disablement @ 0x14027FF5C (KiFinalizeTimer2Disablement.c)
- *     HvcallFastExtended @ 0x140390300 (HvcallFastExtended.c)
- *     HvcallInitiateHypercall @ 0x1403904C0 (HvcallInitiateHypercall.c)
- *     IopTimerDispatch @ 0x140501130 (IopTimerDispatch.c)
- *     EtwTraceCpuCacheFlush @ 0x1405A75C4 (EtwTraceCpuCacheFlush.c)
- *     EtwpTraceFltTimedIo @ 0x1405A99F0 (EtwpTraceFltTimedIo.c)
- *     PerfInfoLogInterruptHv @ 0x1405AA140 (PerfInfoLogInterruptHv.c)
- *     PerfInfoLogIpiReceive @ 0x1405AA190 (PerfInfoLogIpiReceive.c)
+ *     KeDisableTimer2 @ 0x14026DE70 (KeDisableTimer2.c)
+ *     KiFinalizeTimer2Disablement @ 0x14026E19C (KiFinalizeTimer2Disablement.c)
+ *     KiProcessExpiredTimerList @ 0x1402EC2F0 (KiProcessExpiredTimerList.c)
+ *     KiExpireTimer2 @ 0x1402EFE10 (KiExpireTimer2.c)
+ *     HvcallFastExtended @ 0x140390450 (HvcallFastExtended.c)
+ *     HvcallInitiateHypercall @ 0x140390610 (HvcallInitiateHypercall.c)
+ *     IopTimerDispatch @ 0x1405010B0 (IopTimerDispatch.c)
+ *     EtwTraceCpuCacheFlush @ 0x1405A77F4 (EtwTraceCpuCacheFlush.c)
+ *     EtwpTraceFltTimedIo @ 0x1405A9C20 (EtwpTraceFltTimedIo.c)
+ *     PerfInfoLogInterruptHv @ 0x1405AA370 (PerfInfoLogInterruptHv.c)
+ *     PerfInfoLogIpiReceive @ 0x1405AA3C0 (PerfInfoLogIpiReceive.c)
  * Callees:
- *     EtwpLogKernelEvent @ 0x140350000 (EtwpLogKernelEvent.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     EtwpLogKernelEvent @ 0x14035AD50 (EtwpLogKernelEvent.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall EtwTraceTimedEvent(__int16 a1, unsigned int a2, __int64 a3, int a4, int a5, __int64 a6)

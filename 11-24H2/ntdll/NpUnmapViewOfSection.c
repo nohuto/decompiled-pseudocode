@@ -1,8 +1,8 @@
 /*
- * XREFs of NpUnmapViewOfSection @ 0x180161870
+ * XREFs of NpUnmapViewOfSection @ 0x18015FC30
  * Callers:
- *     LdrpLoadPatchedNtdll @ 0x180066450 (LdrpLoadPatchedNtdll.c)
- *     LdrpLoadCustomNtdllWithSectionHandle @ 0x18015EF48 (LdrpLoadCustomNtdllWithSectionHandle.c)
+ *     LdrpLoadPatchedNtdll @ 0x1800AE630 (LdrpLoadPatchedNtdll.c)
+ *     LdrpLoadCustomNtdllWithSectionHandle @ 0x18015D308 (LdrpLoadCustomNtdllWithSectionHandle.c)
  * Callees:
  *     <none>
  */

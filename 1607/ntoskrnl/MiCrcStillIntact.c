@@ -1,19 +1,19 @@
 /*
- * XREFs of MiCrcStillIntact @ 0x1401F94D4
+ * XREFs of MiCrcStillIntact @ 0x1401F9300
  * Callers:
- *     MiSharePages @ 0x1401FA8E4 (MiSharePages.c)
+ *     MiSharePages @ 0x1401FA710 (MiSharePages.c)
  * Callees:
- *     MiLocateAddress @ 0x14001F090 (MiLocateAddress.c)
- *     MiLockPageAtDpcInline @ 0x14002EB30 (MiLockPageAtDpcInline.c)
- *     MiLocateWsle @ 0x140046B50 (MiLocateWsle.c)
- *     MiGetSharedWorkingSetList @ 0x140047070 (MiGetSharedWorkingSetList.c)
- *     MiClearPteAccessed @ 0x1400E1EF0 (MiClearPteAccessed.c)
- *     MiTbFlushType @ 0x140100DBC (MiTbFlushType.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1401F25D0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiCombineCandidate @ 0x1401F7E78 (MiCombineCandidate.c)
- *     MiMakeCombineCandidateClean @ 0x1401F9F74 (MiMakeCombineCandidateClean.c)
- *     MiRecheckVaVm @ 0x1401FA2EC (MiRecheckVaVm.c)
+ *     MiLocateAddress @ 0x14001EC10 (MiLocateAddress.c)
+ *     MiLockPageAtDpcInline @ 0x14002E6B0 (MiLockPageAtDpcInline.c)
+ *     MiLocateWsle @ 0x1400466D0 (MiLocateWsle.c)
+ *     MiGetSharedWorkingSetList @ 0x140046BF0 (MiGetSharedWorkingSetList.c)
+ *     MiClearPteAccessed @ 0x1400DFD90 (MiClearPteAccessed.c)
+ *     MiTbFlushType @ 0x1400FEB3C (MiTbFlushType.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1401F23FC (MI_READ_PTE_LOCK_FREE.c)
+ *     MiCombineCandidate @ 0x1401F7CA4 (MiCombineCandidate.c)
+ *     MiMakeCombineCandidateClean @ 0x1401F9DA0 (MiMakeCombineCandidateClean.c)
+ *     MiRecheckVaVm @ 0x1401FA118 (MiRecheckVaVm.c)
  */
 
 _BOOL8 __fastcall MiCrcStillIntact(__int64 a1, __int64 a2, __int64 a3, int a4)
@@ -86,7 +86,7 @@ _BOOL8 __fastcall MiCrcStillIntact(__int64 a1, __int64 a2, __int64 a3, int a4)
     v25 = 0LL;
     v20 = v16;
     v22 = 20;
-    return (unsigned int)MiClearPteAccessed(v17, v9, v8, v18, (__int64)&v20, dword_140327188) != 0;
+    return (unsigned int)MiClearPteAccessed(v17, v9, v8, v18, (__int64)&v20, dword_1403271C8) != 0;
   }
   if ( (v19 & 0x42) == 0 )
     return 0LL;

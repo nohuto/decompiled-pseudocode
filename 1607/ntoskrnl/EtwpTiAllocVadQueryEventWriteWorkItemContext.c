@@ -1,10 +1,10 @@
 /*
- * XREFs of EtwpTiAllocVadQueryEventWriteWorkItemContext @ 0x140228BEC
+ * XREFs of EtwpTiAllocVadQueryEventWriteWorkItemContext @ 0x140228A18
  * Callers:
- *     EtwpTiAsyncVadQueryEventWrite @ 0x140228D7C (EtwpTiAsyncVadQueryEventWrite.c)
+ *     EtwpTiAsyncVadQueryEventWrite @ 0x140228BA8 (EtwpTiAsyncVadQueryEventWrite.c)
  * Callees:
- *     ObfReferenceObjectWithTag @ 0x1400EE4F0 (ObfReferenceObjectWithTag.c)
- *     memmove @ 0x140171280 (memmove.c)
+ *     ObfReferenceObjectWithTag @ 0x1400EC370 (ObfReferenceObjectWithTag.c)
+ *     memmove @ 0x140171780 (memmove.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
  */
 

@@ -1,12 +1,12 @@
 /*
- * XREFs of IpmiLibpKcsBmcTransact @ 0x140678074
+ * XREFs of IpmiLibpKcsBmcTransact @ 0x1406785C4
  * Callers:
- *     IpmiLibpKcsRequestAndReceive @ 0x1406783E0 (IpmiLibpKcsRequestAndReceive.c)
+ *     IpmiLibpKcsRequestAndReceive @ 0x140678930 (IpmiLibpKcsRequestAndReceive.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     IpmiLibpKcsHandleError @ 0x14067811C (IpmiLibpKcsHandleError.c)
- *     IpmiLibpKcsReceiveResponseFromBmc @ 0x140678268 (IpmiLibpKcsReceiveResponseFromBmc.c)
- *     IpmiLibpKcsSendRequestToBMC @ 0x1406784D8 (IpmiLibpKcsSendRequestToBMC.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     IpmiLibpKcsHandleError @ 0x14067866C (IpmiLibpKcsHandleError.c)
+ *     IpmiLibpKcsReceiveResponseFromBmc @ 0x1406787B8 (IpmiLibpKcsReceiveResponseFromBmc.c)
+ *     IpmiLibpKcsSendRequestToBMC @ 0x140678A28 (IpmiLibpKcsSendRequestToBMC.c)
  */
 
 __int64 __fastcall IpmiLibpKcsBmcTransact(__int64 a1, unsigned __int16 *a2, __int64 a3)
@@ -32,8 +32,8 @@ __int64 __fastcall IpmiLibpKcsBmcTransact(__int64 a1, unsigned __int16 *a2, __in
     v7 = IpmiLibpKcsHandleError(v6, a3);
     if ( v7 < 0 )
     {
-      if ( qword_140C2CC48 )
-        qword_140C2CC48(qword_140C2CC58);
+      if ( qword_140C2CC08 )
+        qword_140C2CC08(qword_140C2CC18);
     }
   }
   return (unsigned int)v7;

@@ -1,17 +1,19 @@
 /*
- * XREFs of RtlCopySecurityDescriptor @ 0x18006FE40
+ * XREFs of RtlCopySecurityDescriptor @ 0x18006FE30
  * Callers:
  *     <none>
  * Callees:
- *     RtlAllocateHeap @ 0x180022DB0 (RtlAllocateHeap.c)
- *     RtlpQuerySecurityDescriptor @ 0x18007021C (RtlpQuerySecurityDescriptor.c)
+ *     RtlAllocateHeap @ 0x180022DA0 (RtlAllocateHeap.c)
+ *     RtlpQuerySecurityDescriptor @ 0x18007020C (RtlpQuerySecurityDescriptor.c)
  *     memmove @ 0x1800AC980 (memmove.c)
  */
 
-__int64 __fastcall RtlCopySecurityDescriptor(void *Src, _QWORD *a2)
+NTSTATUS __cdecl RtlCopySecurityDescriptor(
+        PSECURITY_DESCRIPTOR InputSecurityDescriptor,
+        PSECURITY_DESCRIPTOR *OutputSecurityDescriptor)
 {
   unsigned int v4; // esi
-  void *Heap; // rax
+  PVOID Heap; // rax
   _BYTE v7[8]; // [rsp+50h] [rbp-28h] BYREF
   _BYTE v8[8]; // [rsp+58h] [rbp-20h] BYREF
   char v9; // [rsp+60h] [rbp-18h] BYREF
@@ -22,7 +24,7 @@ __int64 __fastcall RtlCopySecurityDescriptor(void *Src, _QWORD *a2)
   int v14; // [rsp+B8h] [rbp+40h] BYREF
 
   RtlpQuerySecurityDescriptor(
-    (_DWORD)Src,
+    (_DWORD)InputSecurityDescriptor,
     (unsigned int)&v10,
     (unsigned int)&v12,
     (unsigned int)&v9,
@@ -32,10 +34,10 @@ __int64 __fastcall RtlCopySecurityDescriptor(void *Src, _QWORD *a2)
     (__int64)v7,
     (__int64)&v14);
   v4 = v13 + v11 + v12 + v14 + 20;
-  Heap = (void *)RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, NtdllBaseTag + 1310720, v4);
-  *a2 = Heap;
+  Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, NtdllBaseTag + 1310720, v4);
+  *OutputSecurityDescriptor = Heap;
   if ( !Heap )
-    return 3221225495LL;
-  memmove(Heap, Src, v4);
-  return 0LL;
+    return -1073741801;
+  memmove(Heap, InputSecurityDescriptor, v4);
+  return 0;
 }

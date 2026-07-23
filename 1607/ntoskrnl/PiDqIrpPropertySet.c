@@ -1,19 +1,19 @@
 /*
- * XREFs of PiDqIrpPropertySet @ 0x1406318E0
+ * XREFs of PiDqIrpPropertySet @ 0x140631994
  * Callers:
- *     PiDqDispatch @ 0x14048B160 (PiDqDispatch.c)
+ *     PiDqDispatch @ 0x14048B6C4 (PiDqDispatch.c)
  * Callees:
- *     IofCompleteRequest @ 0x140053560 (IofCompleteRequest.c)
- *     ZwClose @ 0x140159E60 (ZwClose.c)
+ *     IofCompleteRequest @ 0x1400530E0 (IofCompleteRequest.c)
+ *     ZwClose @ 0x14015A3D0 (ZwClose.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
- *     _PnpSetGenericStoreProperty @ 0x140487A60 (_PnpSetGenericStoreProperty.c)
- *     PiPnpRtlSetObjectProperty @ 0x140488870 (PiPnpRtlSetObjectProperty.c)
- *     PiAuDoesClientHaveAccess @ 0x1404F6100 (PiAuDoesClientHaveAccess.c)
- *     PiPnpRtlEndOperation @ 0x14050147C (PiPnpRtlEndOperation.c)
- *     PiPnpRtlBeginOperation @ 0x14050173C (PiPnpRtlBeginOperation.c)
- *     PiDqGetPnpObjectType @ 0x1405025EC (PiDqGetPnpObjectType.c)
- *     PiPnpRtlObjectEventWorker @ 0x14050470C (PiPnpRtlObjectEventWorker.c)
- *     PiDqOpenObjectRegKey @ 0x140631CFC (PiDqOpenObjectRegKey.c)
+ *     PiAuDoesClientHaveAccess @ 0x1404D908C (PiAuDoesClientHaveAccess.c)
+ *     PiPnpRtlEndOperation @ 0x1404E440C (PiPnpRtlEndOperation.c)
+ *     PiPnpRtlBeginOperation @ 0x1404E46CC (PiPnpRtlBeginOperation.c)
+ *     PiDqGetPnpObjectType @ 0x1404E557C (PiDqGetPnpObjectType.c)
+ *     PiPnpRtlObjectEventWorker @ 0x1404E769C (PiPnpRtlObjectEventWorker.c)
+ *     PiPnpRtlSetObjectProperty @ 0x140510FE4 (PiPnpRtlSetObjectProperty.c)
+ *     _PnpSetGenericStoreProperty @ 0x140512430 (_PnpSetGenericStoreProperty.c)
+ *     PiDqOpenObjectRegKey @ 0x140631DB0 (PiDqOpenObjectRegKey.c)
  */
 
 __int64 __fastcall PiDqIrpPropertySet(PIRP Irp)
@@ -30,7 +30,7 @@ __int64 __fastcall PiDqIrpPropertySet(PIRP Irp)
   __int64 v11; // r8
   unsigned int i; // r15d
   __int64 v13; // rsi
-  unsigned int v14; // eax
+  int v14; // eax
   HANDLE Handle; // [rsp+50h] [rbp-78h] BYREF
   HANDLE v17; // [rsp+58h] [rbp-70h] BYREF
   __int64 v18; // [rsp+60h] [rbp-68h] BYREF
@@ -52,7 +52,7 @@ __int64 __fastcall PiDqIrpPropertySet(PIRP Irp)
   v6 = MesDecodeBufferHandleCreate(MasterIrp, CurrentStackLocation->Parameters.Create.Options, &v18);
   if ( v6 < 0 )
     goto LABEL_34;
-  NdrMesTypeDecode3(v18, "TP 3\a", &off_140257560, &off_1402F32A0, 2, &P);
+  NdrMesTypeDecode3(v18, "TP 3\a", &off_140257550, &off_1402F32A0, 2, &P);
   if ( P
     && *((_QWORD *)P + 1)
     && *((_QWORD *)P + 3)
@@ -120,10 +120,10 @@ LABEL_22:
           else
           {
             v6 = PiPnpRtlSetObjectProperty(
-                   PiPnpRtlCtx,
+                   *(__int64 *)&PiPnpRtlCtx,
                    *((const WCHAR **)P + 1),
                    PnpObjectType,
-                   (int)Handle,
+                   (__int64)Handle,
                    *(_QWORD *)(v13 + 24),
                    v13,
                    *(_DWORD *)(v13 + 32),

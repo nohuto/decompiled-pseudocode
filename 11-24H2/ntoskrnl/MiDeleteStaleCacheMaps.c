@@ -1,23 +1,23 @@
 /*
- * XREFs of MiDeleteStaleCacheMaps @ 0x140675880
+ * XREFs of MiDeleteStaleCacheMaps @ 0x140676A50
  * Callers:
  *     <none>
  * Callees:
- *     RtlAvlRemoveNode @ 0x140260BC0 (RtlAvlRemoveNode.c)
- *     MiReleaseSpinLockExclusive @ 0x14028EE30 (MiReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x14028F370 (ExAcquireSpinLockExclusive.c)
- *     KeShouldYieldProcessor @ 0x1402DA180 (KeShouldYieldProcessor.c)
- *     MiFlushEntireTbDueToAttributeChange @ 0x1403AE894 (MiFlushEntireTbDueToAttributeChange.c)
- *     MiIsPageInHugePfn @ 0x1403CEEA0 (MiIsPageInHugePfn.c)
- *     MiIsPageInIoHugeRangeTransition @ 0x1403CEED0 (MiIsPageInIoHugeRangeTransition.c)
- *     MiUnlockIoPfnTree @ 0x1403D0468 (MiUnlockIoPfnTree.c)
- *     MiLockIoPfnTree @ 0x1403D0514 (MiLockIoPfnTree.c)
- *     MiTbFlushTimeStampMayNeedFlush @ 0x1404519BC (MiTbFlushTimeStampMayNeedFlush.c)
- *     MiIoPfnTreeLockContended @ 0x140491D80 (MiIoPfnTreeLockContended.c)
- *     MiConvertIoPfnTreeLockExclusiveToShared @ 0x1404C2DF4 (MiConvertIoPfnTreeLockExclusiveToShared.c)
- *     MiDereferenceIoHugeRange @ 0x14066FB68 (MiDereferenceIoHugeRange.c)
- *     MiFlushStaleCacheMap @ 0x140675DB0 (MiFlushStaleCacheMap.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     KeShouldYieldProcessor @ 0x14023BA60 (KeShouldYieldProcessor.c)
+ *     RtlAvlRemoveNode @ 0x1402911D0 (RtlAvlRemoveNode.c)
+ *     MiReleaseSpinLockExclusive @ 0x14029EA30 (MiReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14029EF70 (ExAcquireSpinLockExclusive.c)
+ *     MiIsPageInHugePfn @ 0x14038ED20 (MiIsPageInHugePfn.c)
+ *     MiIsPageInIoHugeRangeTransition @ 0x14038ED50 (MiIsPageInIoHugeRangeTransition.c)
+ *     MiUnlockIoPfnTree @ 0x14038F980 (MiUnlockIoPfnTree.c)
+ *     MiLockIoPfnTree @ 0x14038FA2C (MiLockIoPfnTree.c)
+ *     MiFlushEntireTbDueToAttributeChange @ 0x14039D0A4 (MiFlushEntireTbDueToAttributeChange.c)
+ *     MiTbFlushTimeStampMayNeedFlush @ 0x140446A68 (MiTbFlushTimeStampMayNeedFlush.c)
+ *     MiIoPfnTreeLockContended @ 0x14048CC20 (MiIoPfnTreeLockContended.c)
+ *     MiConvertIoPfnTreeLockExclusiveToShared @ 0x1404BE32C (MiConvertIoPfnTreeLockExclusiveToShared.c)
+ *     MiDereferenceIoHugeRange @ 0x140670D38 (MiDereferenceIoHugeRange.c)
+ *     MiFlushStaleCacheMap @ 0x140676F80 (MiFlushStaleCacheMap.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall MiDeleteStaleCacheMaps(__int64 a1)
@@ -44,8 +44,8 @@ __int64 __fastcall MiDeleteStaleCacheMaps(__int64 a1)
   int v20; // eax
   char v21; // di
   unsigned __int64 v22; // rax
-  int IsPageInHugePfn; // eax
-  int v24; // edi
+  unsigned int v23; // eax
+  unsigned int v24; // edi
   bool v25; // zf
   int v26; // ecx
   signed __int64 v27; // rcx
@@ -75,7 +75,7 @@ __int64 __fastcall MiDeleteStaleCacheMaps(__int64 a1)
 
 LABEL_1:
   P[1] = P;
-  v1 = (__int64 *)&unk_140E371A0;
+  v1 = (__int64 *)&unk_140E372E0;
   v42 = 0;
   P[0] = P;
   v2 = 0;
@@ -97,7 +97,7 @@ LABEL_1:
   while ( v4 );
   v6 = MiLockIoPfnTree(1LL, (__int64)v1);
   v45 = 0;
-  v7 = (volatile signed __int64 *)&unk_140E37190;
+  v7 = (volatile signed __int64 *)&unk_140E372D0;
   v8 = 0LL;
   v50 = v6;
   v9 = v6;
@@ -228,9 +228,9 @@ LABEL_61:
         goto LABEL_61;
       }
       ++v52;
-      IsPageInHugePfn = MiIsPageInHugePfn(v22);
-      v24 = IsPageInHugePfn;
-      if ( !v51 && !IsPageInHugePfn )
+      v23 = (unsigned int)MiIsPageInHugePfn(v22);
+      v24 = v23;
+      if ( !v51 && !v23 )
       {
         MiFlushEntireTbDueToAttributeChange();
         v51 = 1;
@@ -288,7 +288,7 @@ LABEL_66:
   }
   while ( v45 < 2 );
   MiUnlockIoPfnTree(v9, (v2 != 0) + 1);
-  v33 = (struct _LIST_ENTRY **)&unk_140E371A0;
+  v33 = (struct _LIST_ENTRY **)&unk_140E372E0;
   v34 = (struct _LIST_ENTRY **)v47;
   do
   {
@@ -296,7 +296,7 @@ LABEL_66:
     *v33 = v35;
     v33 += 8;
   }
-  while ( (__int64)v33 < (__int64)&stru_140E37218.List.Blink );
+  while ( (__int64)v33 < (__int64)&stru_140E37358.List.Blink );
   while ( 1 )
   {
     v36 = (unsigned __int64 *)P[0];
@@ -313,15 +313,15 @@ LABEL_66:
     MiDereferenceIoHugeRange(v36[3]);
     ExFreePoolWithTag(v36, 0);
   }
-  ExAcquireSpinLockExclusive(&dword_140E37210);
-  for ( j = &unk_140E37190; (__int64)j < (__int64)&dword_140E37210; j += 8 )
+  ExAcquireSpinLockExclusive(&dword_140E37350);
+  for ( j = &unk_140E372D0; (__int64)j < (__int64)&dword_140E37350; j += 8 )
   {
     if ( *(j - 1) >= 0x400uLL || *j )
     {
-      MiReleaseSpinLockExclusive(&dword_140E37210, v9);
+      MiReleaseSpinLockExclusive(&dword_140E37350, v9);
       goto LABEL_1;
     }
   }
   *(_QWORD *)(a1 + 24) = 0LL;
-  return MiReleaseSpinLockExclusive(&dword_140E37210, v9);
+  return MiReleaseSpinLockExclusive(&dword_140E37350, v9);
 }

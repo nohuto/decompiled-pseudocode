@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlpSizeHeapInternal @ 0x14061D584
+ * XREFs of RtlpSizeHeapInternal @ 0x1406205D4
  * Callers:
- *     RtlSizeHeap @ 0x140619810 (RtlSizeHeap.c)
+ *     RtlSizeHeap @ 0x14061C860 (RtlSizeHeap.c)
  * Callees:
- *     RtlpProbeUserBufferSafe @ 0x140521C24 (RtlpProbeUserBufferSafe.c)
- *     RtlpLogHeapFailure @ 0x140521C9C (RtlpLogHeapFailure.c)
- *     RtlpHpVsChunkSize @ 0x14063A97C (RtlpHpVsChunkSize.c)
+ *     RtlpProbeUserBufferSafe @ 0x140524290 (RtlpProbeUserBufferSafe.c)
+ *     RtlpLogHeapFailure @ 0x140524308 (RtlpLogHeapFailure.c)
+ *     RtlpHpVsChunkSize @ 0x14063D98C (RtlpHpVsChunkSize.c)
  */
 
 __int64 __fastcall RtlpSizeHeapInternal(ULONG_PTR a1, __int64 a2, __int64 a3)

@@ -6,7 +6,10 @@
  *     sub_180067C7C @ 0x180067C7C (sub_180067C7C.c)
  */
 
-__int64 __fastcall LdrQueryProcessModuleInformation(int a1, int a2, __int64 a3)
+NTSTATUS __cdecl LdrQueryProcessModuleInformation(
+        PRTL_PROCESS_MODULES ModuleInformation,
+        ULONG Size,
+        PULONG ReturnedSize)
 {
-  return sub_180067C7C(0, 2, a1, a2, a3);
+  return sub_180067C7C(0, 2, (_DWORD)ModuleInformation, Size, (__int64)ReturnedSize);
 }

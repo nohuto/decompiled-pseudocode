@@ -1,5 +1,5 @@
 /*
- * XREFs of HalpExtEnvInitSystem @ 0x1409A1720
+ * XREFs of HalpExtEnvInitSystem @ 0x1409A2650
  * Callers:
  *     <none>
  * Callees:
@@ -25,9 +25,9 @@ __int64 __fastcall HalpExtEnvInitSystem(int a1, __int64 a2, __int64 a3)
   if ( !v4 )
   {
     ExtEnvAllocationLock = 0LL;
-    qword_140C48E28 = (__int64)&ExtEnvAllocationList;
+    qword_140C48E68 = (__int64)&ExtEnvAllocationList;
     ExtEnvAllocationList = (__int64)&ExtEnvAllocationList;
-    qword_140C48E38 = (__int64)&ExtEnvLockList;
+    qword_140C48E78 = (__int64)&ExtEnvLockList;
     ExtEnvLockList = (__int64)&ExtEnvLockList;
     return 0LL;
   }

@@ -1,17 +1,23 @@
 /*
- * XREFs of ZwQueryWnfStateData @ 0x14041DB20
+ * XREFs of ZwQueryWnfStateData @ 0x14041DEB0
  * Callers:
- *     RtlRaiseCustomSystemEventTrigger @ 0x1405B0FA0 (RtlRaiseCustomSystemEventTrigger.c)
- *     PopBatteryWorker @ 0x14086FD60 (PopBatteryWorker.c)
- *     RtlpFcNotifyFeatureUsageTarget @ 0x1409C86BC (RtlpFcNotifyFeatureUsageTarget.c)
- *     CmFcpManagerPublishChangeNotifications @ 0x140A27C54 (CmFcpManagerPublishChangeNotifications.c)
+ *     RtlRaiseCustomSystemEventTrigger @ 0x1405B1510 (RtlRaiseCustomSystemEventTrigger.c)
+ *     PopBatteryWorker @ 0x14086FFA0 (PopBatteryWorker.c)
+ *     RtlpFcNotifyFeatureUsageTarget @ 0x1409C88BC (RtlpFcNotifyFeatureUsageTarget.c)
+ *     CmFcpManagerPublishChangeNotifications @ 0x140A27F04 (CmFcpManagerPublishChangeNotifications.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwQueryWnfStateData(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwQueryWnfStateData(
+        PCWNF_STATE_NAME StateName,
+        PCWNF_TYPE_ID TypeId,
+        const void *ExplicitScope,
+        PWNF_CHANGE_STAMP ChangeStamp,
+        PVOID Buffer,
+        PULONG BufferSize)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(StateName);
 }

@@ -40,7 +40,7 @@ __int64 __fastcall MiFreePagedPoolPages(ULONG_PTR BugCheckParameter2, unsigned _
   __int64 *v16; // r9
   __int64 v17; // rax
   __int64 *v18; // r8
-  union _SLIST_HEADER *v19; // rcx
+  _SLIST_HEADER *v19; // rcx
   __int64 result; // rax
   unsigned __int64 v21; // rdi
   struct _KTHREAD *v22; // rax

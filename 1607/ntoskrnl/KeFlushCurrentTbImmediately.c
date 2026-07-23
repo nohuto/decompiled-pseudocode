@@ -1,11 +1,11 @@
 /*
- * XREFs of KeFlushCurrentTbImmediately @ 0x1401D60A0
+ * XREFs of KeFlushCurrentTbImmediately @ 0x1401D5ECC
  * Callers:
- *     KeThawExecution @ 0x1400825DC (KeThawExecution.c)
- *     KiFreezeTargetExecution @ 0x1400828E0 (KiFreezeTargetExecution.c)
- *     KeWakeProcessor @ 0x1400B1D48 (KeWakeProcessor.c)
- *     PpmIdleExecuteTransition @ 0x1400DA540 (PpmIdleExecuteTransition.c)
- *     HvlpGetEncryptedDataFromHypervisor @ 0x1401C0618 (HvlpGetEncryptedDataFromHypervisor.c)
+ *     KeThawExecution @ 0x140083258 (KeThawExecution.c)
+ *     KiFreezeTargetExecution @ 0x140083560 (KiFreezeTargetExecution.c)
+ *     KeWakeProcessor @ 0x1400AFC88 (KeWakeProcessor.c)
+ *     PpmIdleExecuteTransition @ 0x1400D83E0 (PpmIdleExecuteTransition.c)
+ *     HvlpGetEncryptedDataFromHypervisor @ 0x1401C04FC (HvlpGetEncryptedDataFromHypervisor.c)
  *     PopHandleNextState @ 0x1403CC8F0 (PopHandleNextState.c)
  *     KeLoadMTRR @ 0x1403D2568 (KeLoadMTRR.c)
  *     KiSetPageAttributesTable @ 0x1403D2A1C (KiSetPageAttributesTable.c)

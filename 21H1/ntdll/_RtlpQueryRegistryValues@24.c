@@ -20,39 +20,39 @@
  *     _RtlInitUnicodeString@8 @ 0x4B2F5020 (_RtlInitUnicodeString@8.c)
  */
 
-int __fastcall RtlpQueryRegistryValues(int a1, const WCHAR *a2, int a3, int a4, int a5, char a6)
+NTSTATUS __fastcall RtlpQueryRegistryValues(int a1, const WCHAR *a2, int a3, int a4, PVOID Environment, char a6)
 {
-  int result; // eax
+  NTSTATUS result; // eax
   int v9; // ebx
   int v10; // eax
   int v11; // edi
-  int v13; // esi
+  NTSTATUS v13; // esi
   int v14; // ecx
   int v15; // eax
-  int v16; // edx
+  ULONG v16; // edx
   int v17; // ecx
   int v18; // eax
-  int v19; // ecx
+  ULONG v19; // ecx
   int v20; // eax
-  int v21; // ecx
+  ULONG v21; // ecx
   int v22; // eax
   int v23; // eax
   bool v24; // zf
-  int v25; // eax
+  NTSTATUS v25; // eax
   int v26; // [esp+Ch] [ebp-4Ch] BYREF
-  int v27; // [esp+10h] [ebp-48h]
-  int v28; // [esp+14h] [ebp-44h] BYREF
-  HANDLE Handle; // [esp+18h] [ebp-40h] BYREF
-  int v30; // [esp+1Ch] [ebp-3Ch]
-  HANDLE v31; // [esp+20h] [ebp-38h] BYREF
-  int v32; // [esp+24h] [ebp-34h]
+  ULONG v27; // [esp+10h] [ebp-48h] BYREF
+  ULONG ResultLength; // [esp+14h] [ebp-44h] BYREF
+  HANDLE KeyHandle; // [esp+18h] [ebp-40h] BYREF
+  ULONG Length; // [esp+1Ch] [ebp-3Ch]
+  HANDLE Handle; // [esp+20h] [ebp-38h] BYREF
+  ULONG v32; // [esp+24h] [ebp-34h]
   int v33; // [esp+28h] [ebp-30h]
   int v34; // [esp+2Ch] [ebp-2Ch]
-  UNICODE_STRING v35; // [esp+30h] [ebp-28h] BYREF
-  UNICODE_STRING DestinationString; // [esp+38h] [ebp-20h] BYREF
-  _DWORD v37[6]; // [esp+40h] [ebp-18h] BYREF
+  _UNICODE_STRING ValueName; // [esp+30h] [ebp-28h] BYREF
+  _UNICODE_STRING DestinationString; // [esp+38h] [ebp-20h] BYREF
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [esp+40h] [ebp-18h] BYREF
 
-  result = RtlpGetRegistryHandle(0, &v31);
+  result = RtlpGetRegistryHandle(0, &Handle);
   v26 = result;
   if ( result >= 0 )
   {
@@ -60,33 +60,33 @@ int __fastcall RtlpQueryRegistryValues(int a1, const WCHAR *a2, int a3, int a4, 
     v34 = v9;
     RtlInitUnicodeString(&DestinationString, v9 == 0 ? a2 : 0);
     v27 = 4096;
-    v10 = RtlpAllocDeallocQueryBuffer(0, &v26);
+    v10 = RtlpAllocDeallocQueryBuffer(&v27, 0, 0, &v26);
     v11 = v10;
     if ( v10 )
     {
       *(_DWORD *)(v10 + 8) = 0;
       v13 = v26;
-      v30 = v27 - 2;
-      Handle = v31;
+      Length = v27 - 2;
+      KeyHandle = Handle;
 LABEL_4:
       if ( *(_DWORD *)a3 || (*(_BYTE *)(a3 + 4) & 0x21) != 0 )
       {
         v14 = *(_DWORD *)(a3 + 4);
         if ( (v14 & 0x20) == 0 || *(_DWORD *)(a3 + 8) && (v14 & 1) == 0 && !*(_DWORD *)a3 )
         {
-          if ( (v14 & 3) != 0 && Handle != v31 )
+          if ( (v14 & 3) != 0 && KeyHandle != Handle )
           {
-            NtClose(Handle);
+            NtClose(KeyHandle);
             v14 = *(_DWORD *)(a3 + 4);
-            Handle = v31;
+            KeyHandle = Handle;
           }
           v15 = *(_DWORD *)(a3 + 8);
           if ( (v14 & 1) == 0 )
           {
             if ( v15 )
             {
-              RtlInitUnicodeString(&v35, *(PCWSTR *)(a3 + 8));
-              v16 = v30;
+              RtlInitUnicodeString(&ValueName, *(PCWSTR *)(a3 + 8));
+              v16 = Length;
               v17 = 0;
               while ( 1 )
               {
@@ -96,7 +96,7 @@ LABEL_4:
                   DbgPrint("RtlpQueryRegistryValues: Miscomputed buffer size at line %d\n", 1276);
                   goto LABEL_26;
                 }
-                v13 = ZwQueryValueKey(Handle, &v35, 1, v11, v16, &v28);
+                v13 = ZwQueryValueKey(KeyHandle, &ValueName, KeyValueFullInformation, (PVOID)v11, v16, &ResultLength);
                 v26 = v13;
                 if ( v13 == -2147483643 )
                 {
@@ -109,8 +109,8 @@ LABEL_4:
                   {
                     *(_DWORD *)(v11 + 4) = 0;
                     *(_DWORD *)(v11 + 12) = 0;
-                    v28 = v30;
-                    v13 = RtlpCallQueryRegistryRoutine(v11, &v28, a4, a5, a6);
+                    ResultLength = Length;
+                    v13 = RtlpCallQueryRegistryRoutine(v11, (int)&ResultLength, a4, Environment, a6);
                     v26 = v13;
                   }
                   if ( v13 != -1073741789 )
@@ -120,11 +120,11 @@ LABEL_4:
                 {
                   if ( *(_DWORD *)(v11 + 4) == 7 )
                   {
-                    *(_WORD *)(v28 + v11) = 0;
+                    *(_WORD *)(ResultLength + v11) = 0;
                     *(_DWORD *)(v11 + 12) += 2;
                   }
-                  v28 = v30;
-                  v18 = RtlpCallQueryRegistryRoutine(v11, &v28, a4, a5, a6);
+                  ResultLength = Length;
+                  v18 = RtlpCallQueryRegistryRoutine(v11, (int)&ResultLength, a4, Environment, a6);
                   v13 = v18;
                   v26 = v18;
                   if ( v18 != -1073741789 )
@@ -132,7 +132,7 @@ LABEL_4:
                     if ( v18 < 0 )
                       goto LABEL_26;
                     if ( (*(_BYTE *)(a3 + 4) & 0x40) != 0 )
-                      NtDeleteValueKey(Handle, &v35);
+                      NtDeleteValueKey(KeyHandle, &ValueName);
 LABEL_24:
                     if ( v13 >= 0 )
                     {
@@ -142,8 +142,8 @@ LABEL_24:
                     goto LABEL_26;
                   }
                 }
-                v27 = v28 + 6;
-                v23 = RtlpAllocDeallocQueryBuffer(v28 + 6, &v26);
+                v27 = ResultLength + 6;
+                v23 = RtlpAllocDeallocQueryBuffer(&v27, v11, ResultLength + 6, &v26);
                 v13 = v26;
                 v11 = v23;
                 if ( !v23 )
@@ -151,7 +151,7 @@ LABEL_24:
                 *(_DWORD *)(v23 + 8) = 0;
                 v17 = v33;
                 v16 = v27 - 2;
-                v30 = v27 - 2;
+                Length = v27 - 2;
               }
             }
             if ( (v14 & 8) != 0 )
@@ -171,13 +171,13 @@ LABEL_24:
           if ( v15 )
           {
             RtlInitUnicodeString(&DestinationString, *(PCWSTR *)(a3 + 8));
-            v37[4] = 0;
-            v37[5] = 0;
-            v37[1] = v31;
-            v37[2] = &DestinationString;
-            v37[0] = 24;
-            v37[3] = 576;
-            v13 = ZwOpenKey(&Handle, 0x2000000, v37);
+            ObjectAttributes.SecurityDescriptor = 0;
+            ObjectAttributes.SecurityQualityOfService = 0;
+            ObjectAttributes.RootDirectory = Handle;
+            ObjectAttributes.ObjectName = &DestinationString;
+            ObjectAttributes.Length = 24;
+            ObjectAttributes.Attributes = 576;
+            v13 = ZwOpenKey(&KeyHandle, 0x2000000u, &ObjectAttributes);
             if ( v13 < 0 )
               goto LABEL_26;
             if ( !*(_DWORD *)a3 )
@@ -188,7 +188,7 @@ LABEL_44:
             while ( 1 )
             {
               v32 = v19;
-              v13 = NtEnumerateValueKey(Handle, v19, 1, v11, v30, &v28);
+              v13 = NtEnumerateValueKey(KeyHandle, v19, KeyValueFullInformation, (PVOID)v11, Length, &ResultLength);
               v26 = v13;
               if ( v13 == -2147483643 )
               {
@@ -205,19 +205,19 @@ LABEL_44:
               }
               if ( v13 >= 0 )
               {
-                v28 = v30;
-                v13 = RtlpCallQueryRegistryRoutine(v11, &v28, a4, a5, a6);
+                ResultLength = Length;
+                v13 = RtlpCallQueryRegistryRoutine(v11, (int)&ResultLength, a4, Environment, a6);
                 v26 = v13;
               }
               if ( v13 == -1073741789 )
               {
-                v27 = v28 + 6;
-                v20 = RtlpAllocDeallocQueryBuffer(v28 + 6, &v26);
+                v27 = ResultLength + 6;
+                v20 = RtlpAllocDeallocQueryBuffer(&v27, v11, ResultLength + 6, &v26);
                 v11 = v20;
                 if ( !v20 )
                   goto LABEL_54;
                 *(_DWORD *)(v20 + 8) = 0;
-                v30 = v27 - 2;
+                Length = v27 - 2;
                 v21 = v32 - 1;
                 v22 = v33++;
                 if ( v22 > 4 )
@@ -240,10 +240,10 @@ LABEL_54:
                 }
                 else
                 {
-                  v35.Buffer = (wchar_t *)(v11 + 20);
-                  v35.Length = *(_WORD *)(v11 + 16);
-                  v35.MaximumLength = *(_WORD *)(v11 + 16);
-                  v25 = NtDeleteValueKey(Handle, &v35);
+                  ValueName.Buffer = (wchar_t *)(v11 + 20);
+                  ValueName.Length = *(_WORD *)(v11 + 16);
+                  ValueName.MaximumLength = *(_WORD *)(v11 + 16);
+                  v25 = NtDeleteValueKey(KeyHandle, &ValueName);
                   v21 = v32;
                   if ( v25 >= 0 )
                     v21 = v32 - 1;
@@ -256,20 +256,20 @@ LABEL_54:
         v13 = -1073741811;
       }
 LABEL_26:
-      if ( !v34 && v31 )
-        NtClose(v31);
-      if ( Handle )
+      if ( !v34 && Handle )
+        NtClose(Handle);
+      if ( KeyHandle )
       {
-        if ( Handle != v31 )
-          NtClose(Handle);
+        if ( KeyHandle != Handle )
+          NtClose(KeyHandle);
       }
-      RtlpAllocDeallocQueryBuffer(v27, 0);
+      RtlpAllocDeallocQueryBuffer(0, v11, v27, 0);
       return v13;
     }
     else
     {
       if ( !v9 )
-        NtClose(v31);
+        NtClose(Handle);
       return v26;
     }
   }

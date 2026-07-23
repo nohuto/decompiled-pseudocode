@@ -1,29 +1,29 @@
 /*
- * XREFs of KiInsertQueueDpc @ 0x140254310
+ * XREFs of KiInsertQueueDpc @ 0x140284920
  * Callers:
- *     KeInsertQueueDpc @ 0x1402542F0 (KeInsertQueueDpc.c)
- *     KiQueueReadyThread @ 0x140295020 (KiQueueReadyThread.c)
- *     KiTransitionSchedulingGroupGeneration @ 0x14030CC70 (KiTransitionSchedulingGroupGeneration.c)
- *     KiAddThreadToPrcbQueue @ 0x1403102F0 (KiAddThreadToPrcbQueue.c)
- *     KiTimerWaitTest @ 0x140335E10 (KiTimerWaitTest.c)
- *     EtwpQueueApc @ 0x1403EE2B0 (EtwpQueueApc.c)
- *     KiAddThreadToReadyQueue @ 0x1403F4AB0 (KiAddThreadToReadyQueue.c)
- *     EtwpCovSampLookasidePop @ 0x140465630 (EtwpCovSampLookasidePop.c)
- *     KiDisarmForceParkDutyCyclingIfNecessary @ 0x1404F9554 (KiDisarmForceParkDutyCyclingIfNecessary.c)
+ *     KeInsertQueueDpc @ 0x140284900 (KeInsertQueueDpc.c)
+ *     KiQueueReadyThread @ 0x1402A4C20 (KiQueueReadyThread.c)
+ *     KiAddThreadToPrcbQueue @ 0x1402D7CF0 (KiAddThreadToPrcbQueue.c)
+ *     KiTransitionSchedulingGroupGeneration @ 0x1402DBCD0 (KiTransitionSchedulingGroupGeneration.c)
+ *     KiTimerWaitTest @ 0x140317320 (KiTimerWaitTest.c)
+ *     EtwpQueueApc @ 0x1403DE1A0 (EtwpQueueApc.c)
+ *     KiAddThreadToReadyQueue @ 0x1403E7AA0 (KiAddThreadToReadyQueue.c)
+ *     EtwpCovSampLookasidePop @ 0x14045BD10 (EtwpCovSampLookasidePop.c)
+ *     KiDisarmForceParkDutyCyclingIfNecessary @ 0x1404F6E34 (KiDisarmForceParkDutyCyclingIfNecessary.c)
  * Callees:
- *     KiReleaseSpinLockInstrumented @ 0x14024E080 (KiReleaseSpinLockInstrumented.c)
- *     RtlBackoff @ 0x140253B30 (RtlBackoff.c)
- *     KiAcquireSpinLockInstrumented @ 0x140254BA0 (KiAcquireSpinLockInstrumented.c)
- *     KxWaitForSpinLockAndAcquire @ 0x140254C70 (KxWaitForSpinLockAndAcquire.c)
- *     KiSetDpcRequestFlag @ 0x14029DD10 (KiSetDpcRequestFlag.c)
- *     HalpInterruptSendIpi @ 0x14031FDE0 (HalpInterruptSendIpi.c)
- *     HalpDisableInterrupts @ 0x140320790 (HalpDisableInterrupts.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
- *     EtwTraceXSchedulerPriorityKickSend @ 0x1404F9C1C (EtwTraceXSchedulerPriorityKickSend.c)
- *     EtwTraceDpcEnqueueEvent @ 0x1404FA3C0 (EtwTraceDpcEnqueueEvent.c)
- *     KiCpuPartitionCheckDpcEnqueue @ 0x1404FADB8 (KiCpuPartitionCheckDpcEnqueue.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
+ *     KiReleaseSpinLockInstrumented @ 0x14027E690 (KiReleaseSpinLockInstrumented.c)
+ *     RtlBackoff @ 0x140284140 (RtlBackoff.c)
+ *     KiAcquireSpinLockInstrumented @ 0x1402851B0 (KiAcquireSpinLockInstrumented.c)
+ *     KxWaitForSpinLockAndAcquire @ 0x140285280 (KxWaitForSpinLockAndAcquire.c)
+ *     KiSetDpcRequestFlag @ 0x1402AC800 (KiSetDpcRequestFlag.c)
+ *     HalpInterruptSendIpi @ 0x1402C8970 (HalpInterruptSendIpi.c)
+ *     HalpDisableInterrupts @ 0x1402C9320 (HalpDisableInterrupts.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     EtwTraceXSchedulerPriorityKickSend @ 0x1404F74FC (EtwTraceXSchedulerPriorityKickSend.c)
+ *     EtwTraceDpcEnqueueEvent @ 0x1404F7CA0 (EtwTraceDpcEnqueueEvent.c)
+ *     KiCpuPartitionCheckDpcEnqueue @ 0x1404F8698 (KiCpuPartitionCheckDpcEnqueue.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall KiInsertQueueDpc(
@@ -99,7 +99,7 @@ __int64 __fastcall KiInsertQueueDpc(
   __writecr8(0xFuLL);
   if ( KiIrqlFlags )
   {
-    KiRaiseIrqlProcessIrqlFlags(CurrentIrql, 15LL, a3);
+    KiRaiseIrqlProcessIrqlFlags(CurrentIrql, 15LL);
     v8 = 0;
   }
   CurrentPrcb = KeGetCurrentPrcb();
@@ -246,7 +246,7 @@ LABEL_18:
       v11,
       *(_BYTE *)(BugCheckParameter2 + 1),
       v47);
-  if ( (WORD2(xmmword_140FC5B10) & 0x200) != 0 )
+  if ( (WORD2(xmmword_140FC6B50) & 0x200) != 0 )
     KiCpuPartitionCheckDpcEnqueue(BugCheckParameter2, CurrentPrcb, v12, a4);
   if ( v13 != v12 + 14448 )
   {
@@ -341,9 +341,9 @@ LABEL_52:
             SchedulerAssist[3] = 2;
             v41 = *(unsigned int *)(v12 + 36);
             if ( v39 )
-              LODWORD(v41) = (unsigned __int8)byte_140FCC221[2 * (unsigned int)v41] | ((unsigned __int8)HvlpVirtualProcessorMapping[2 * v41] << 6);
+              LODWORD(v41) = (unsigned __int8)byte_140FCD2A1[2 * (unsigned int)v41] | ((unsigned __int8)HvlpVirtualProcessorMapping[2 * v41] << 6);
             SchedulerAssist[2] = v41;
-            if ( (BYTE4(xmmword_140FC5B10) & 0x20) != 0 )
+            if ( (BYTE4(xmmword_140FC6B50) & 0x20) != 0 )
               EtwTraceXSchedulerPriorityKickSend(*(unsigned int *)(v12 + 36), 2LL);
             __writemsr(0x400000C2u, (unsigned int)v41);
           }

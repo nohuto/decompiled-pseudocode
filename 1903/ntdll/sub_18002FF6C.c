@@ -11,12 +11,12 @@
 __int64 __fastcall sub_18002FF6C(__int64 a1)
 {
   __int64 v1; // rbx
-  __int64 v2; // rdi
+  _RTL_SRWLOCK *v2; // rdi
 
   v1 = a1;
   sub_1800313F0(a1, 0LL, 0LL);
-  v2 = v1 + 240;
-  RtlAcquireSRWLockExclusive(v1 + 240);
+  v2 = (_RTL_SRWLOCK *)(v1 + 240);
+  RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)(v1 + 240));
   LODWORD(v1) = *(_DWORD *)(v1 + 56);
   RtlReleaseSRWLockExclusive(v2);
   return (unsigned int)v1;

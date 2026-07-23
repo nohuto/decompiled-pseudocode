@@ -1,12 +1,12 @@
 /*
- * XREFs of ViIsBTSSupported @ 0x140C31F0C
+ * XREFs of ViIsBTSSupported @ 0x140C37F1C
  * Callers:
- *     VfBranchTracingPluginEntry @ 0x140C31C8C (VfBranchTracingPluginEntry.c)
+ *     VfBranchTracingPluginEntry @ 0x140C37C9C (VfBranchTracingPluginEntry.c)
  * Callees:
- *     KeSetSystemGroupAffinityThread @ 0x14037A1C0 (KeSetSystemGroupAffinityThread.c)
- *     KeRevertToUserGroupAffinityThread @ 0x14037C490 (KeRevertToUserGroupAffinityThread.c)
- *     DbgPrint @ 0x140396F60 (DbgPrint.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     KeSetSystemGroupAffinityThread @ 0x14037BF70 (KeSetSystemGroupAffinityThread.c)
+ *     KeRevertToUserGroupAffinityThread @ 0x14037E240 (KeRevertToUserGroupAffinityThread.c)
+ *     DbgPrint @ 0x140398CE0 (DbgPrint.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 __int64 ViIsBTSSupported()
@@ -17,8 +17,8 @@ __int64 ViIsBTSSupported()
   unsigned __int64 FeatureBits; // rcx
   char CpuType; // al
   __int64 result; // rax
-  struct _GROUP_AFFINITY Affinity; // [rsp+20h] [rbp-30h] BYREF
-  struct _GROUP_AFFINITY PreviousAffinity; // [rsp+30h] [rbp-20h] BYREF
+  _GROUP_AFFINITY Affinity; // [rsp+20h] [rbp-30h] BYREF
+  _GROUP_AFFINITY PreviousAffinity; // [rsp+30h] [rbp-20h] BYREF
 
   CurrentPrcb = KeGetCurrentPrcb();
   v1 = 0LL;
@@ -26,7 +26,7 @@ __int64 ViIsBTSSupported()
   PreviousAffinity = 0LL;
   while ( (unsigned int)v1 < (unsigned int)KeNumberProcessors_0 )
   {
-    v2 = *(_DWORD *)(*(_QWORD *)&KiSupervisorXStateFeaturesLock.WaitBlockFill11[112] + 4 * v1);
+    v2 = *((_DWORD *)&KiSupervisorXStateFeaturesLock.SchedulerApc.Thread->Header.Lock + v1);
     Affinity.Reserved[1] = 0;
     Affinity.Reserved[2] = 0;
     *(_DWORD *)&Affinity.Group = (unsigned __int16)(v2 >> 6);

@@ -1,13 +1,13 @@
 /*
- * XREFs of MiReferenceExistingControlArea @ 0x1402743E4
+ * XREFs of MiReferenceExistingControlArea @ 0x140262384
  * Callers:
- *     MiCreateImageOrDataSection @ 0x140706F10 (MiCreateImageOrDataSection.c)
+ *     MiCreateImageOrDataSection @ 0x14071E2F0 (MiCreateImageOrDataSection.c)
  * Callees:
- *     MiLockSectionControlArea @ 0x140274944 (MiLockSectionControlArea.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14033BD80 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     MiValidateControlAreaPartition @ 0x140357234 (MiValidateControlAreaPartition.c)
- *     MiReleaseControlAreaWaiters @ 0x140357284 (MiReleaseControlAreaWaiters.c)
- *     MiReferenceActiveControlArea @ 0x140357348 (MiReferenceActiveControlArea.c)
+ *     MiLockSectionControlArea @ 0x1402628E4 (MiLockSectionControlArea.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140346AD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiValidateControlAreaPartition @ 0x140361F84 (MiValidateControlAreaPartition.c)
+ *     MiReleaseControlAreaWaiters @ 0x140361FD4 (MiReleaseControlAreaWaiters.c)
+ *     MiReferenceActiveControlArea @ 0x140362098 (MiReferenceActiveControlArea.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 

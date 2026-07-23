@@ -1,22 +1,22 @@
 /*
- * XREFs of KeRcuReadUnlock @ 0x1402206B0
+ * XREFs of KeRcuReadUnlock @ 0x140222040
  * Callers:
- *     CcCanIWrite @ 0x140383700 (CcCanIWrite.c)
- *     CcIsFileObjectDirectMapped @ 0x1403845D4 (CcIsFileObjectDirectMapped.c)
- *     CcInitializeVolumeCacheMap @ 0x14038538C (CcInitializeVolumeCacheMap.c)
- *     CcScanLogHandleList @ 0x140385FA8 (CcScanLogHandleList.c)
- *     CcFlushCachePreProcess @ 0x1403991C8 (CcFlushCachePreProcess.c)
- *     CcGetFlushedValidData @ 0x14039E120 (CcGetFlushedValidData.c)
- *     CcDeferWrite @ 0x1403E0210 (CcDeferWrite.c)
- *     CcZeroData @ 0x14046D2D0 (CcZeroData.c)
- *     CcPostVolumeTelemetry @ 0x14049BF90 (CcPostVolumeTelemetry.c)
- *     CcPerfLogLoggedStreamsStats @ 0x1404E1200 (CcPerfLogLoggedStreamsStats.c)
- *     CcUpdateTimeOnLogHandles @ 0x1405B14E4 (CcUpdateTimeOnLogHandles.c)
+ *     CcCanIWrite @ 0x1403854B0 (CcCanIWrite.c)
+ *     CcIsFileObjectDirectMapped @ 0x140386384 (CcIsFileObjectDirectMapped.c)
+ *     CcInitializeVolumeCacheMap @ 0x14038713C (CcInitializeVolumeCacheMap.c)
+ *     CcScanLogHandleList @ 0x140387D58 (CcScanLogHandleList.c)
+ *     CcFlushCachePreProcess @ 0x14039AF28 (CcFlushCachePreProcess.c)
+ *     CcGetFlushedValidData @ 0x14039FE80 (CcGetFlushedValidData.c)
+ *     CcDeferWrite @ 0x1403E3400 (CcDeferWrite.c)
+ *     CcZeroData @ 0x140466A50 (CcZeroData.c)
+ *     CcPostVolumeTelemetry @ 0x140495AE0 (CcPostVolumeTelemetry.c)
+ *     CcPerfLogLoggedStreamsStats @ 0x1404DA8E0 (CcPerfLogLoggedStreamsStats.c)
+ *     CcUpdateTimeOnLogHandles @ 0x1405B3CF4 (CcUpdateTimeOnLogHandles.c)
  * Callees:
- *     KiRcuCheckQuiescent @ 0x140221E10 (KiRcuCheckQuiescent.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     KeDisableInterrupts @ 0x1402BA170 (KeDisableInterrupts.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14052FA20 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiRcuCheckQuiescent @ 0x1402237A0 (KiRcuCheckQuiescent.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KeDisableInterrupts @ 0x140304E30 (KeDisableInterrupts.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x140531F20 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 KeRcuReadUnlock()
@@ -49,8 +49,8 @@ __int64 KeRcuReadUnlock()
       {
         CurrentPrcb->RcuData.GracePeriodNeeded = 0;
         _InterlockedOr(v8, 0);
-        result = qword_140F24F28;
-        CurrentPrcb->RcuData.GraceSequenceQuiescent = qword_140F24F28;
+        result = (__int64)KiDpcCorralLock.WaitBlock[2].Thread;
+        CurrentPrcb->RcuData.GraceSequenceQuiescent = (unsigned __int64)KiDpcCorralLock.WaitBlock[2].Thread;
       }
     }
     v1 = 1;

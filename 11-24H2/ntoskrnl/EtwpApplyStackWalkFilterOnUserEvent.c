@@ -1,9 +1,9 @@
 /*
- * XREFs of EtwpApplyStackWalkFilterOnUserEvent @ 0x140922AA4
+ * XREFs of EtwpApplyStackWalkFilterOnUserEvent @ 0x140A419F0
  * Callers:
- *     EtwpWriteUserEvent @ 0x140920F90 (EtwpWriteUserEvent.c)
+ *     EtwpWriteUserEvent @ 0x140AD78A0 (EtwpWriteUserEvent.c)
  * Callees:
- *     EtwpApplyStackWalkIdFilter @ 0x14041B264 (EtwpApplyStackWalkIdFilter.c)
+ *     EtwpApplyStackWalkIdFilter @ 0x14040EDA4 (EtwpApplyStackWalkIdFilter.c)
  */
 
 bool __fastcall EtwpApplyStackWalkFilterOnUserEvent(__int64 a1, __int64 a2, unsigned int a3)

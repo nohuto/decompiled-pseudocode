@@ -1,19 +1,19 @@
 /*
- * XREFs of HalpAddDevice @ 0x1406FE8E0
+ * XREFs of HalpAddDevice @ 0x1406FC520
  * Callers:
- *     HalpDriverEntry @ 0x1406FEBF0 (HalpDriverEntry.c)
+ *     HalpDriverEntry @ 0x1406FC830 (HalpDriverEntry.c)
  * Callees:
- *     IoAttachDeviceToDeviceStack @ 0x1403C50F0 (IoAttachDeviceToDeviceStack.c)
- *     IoDeleteDevice @ 0x1403F1B00 (IoDeleteDevice.c)
- *     KeInitializeEvent @ 0x140409D80 (KeInitializeEvent.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     HalAcpiGetTable @ 0x14053CDE0 (HalAcpiGetTable.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     ZwOpenKey @ 0x1406A6650 (ZwOpenKey.c)
- *     HalpAddChildPdo @ 0x1406FE8B8 (HalpAddChildPdo.c)
- *     IoCreateDevice @ 0x1409A3530 (IoCreateDevice.c)
- *     IoRegisterPlugPlayNotification @ 0x1409ED860 (IoRegisterPlugPlayNotification.c)
- *     HalpInitializeSecondaryInterruptServices @ 0x140C11140 (HalpInitializeSecondaryInterruptServices.c)
+ *     IoAttachDeviceToDeviceStack @ 0x1403B3CB0 (IoAttachDeviceToDeviceStack.c)
+ *     IoDeleteDevice @ 0x1403E5820 (IoDeleteDevice.c)
+ *     KeInitializeEvent @ 0x140402260 (KeInitializeEvent.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     HalAcpiGetTable @ 0x14053A6E0 (HalAcpiGetTable.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     ZwOpenKey @ 0x1406A75F0 (ZwOpenKey.c)
+ *     HalpAddChildPdo @ 0x1406FC4F8 (HalpAddChildPdo.c)
+ *     IoCreateDevice @ 0x1408ABEC0 (IoCreateDevice.c)
+ *     IoRegisterPlugPlayNotification @ 0x1409EB2A0 (IoRegisterPlugPlayNotification.c)
+ *     HalpInitializeSecondaryInterruptServices @ 0x140C13134 (HalpInitializeSecondaryInterruptServices.c)
  */
 
 NTSTATUS __fastcall HalpAddDevice(PDRIVER_OBJECT DriverObject, PDEVICE_OBJECT TargetDevice)

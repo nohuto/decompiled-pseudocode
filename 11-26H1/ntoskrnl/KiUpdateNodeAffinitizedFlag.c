@@ -1,10 +1,10 @@
 /*
- * XREFs of KiUpdateNodeAffinitizedFlag @ 0x14022A330
+ * XREFs of KiUpdateNodeAffinitizedFlag @ 0x14022BCC0
  * Callers:
  *     KeStartThread @ 0x140201AAC (KeStartThread.c)
- *     KiComputeThreadAffinity @ 0x140229B90 (KiComputeThreadAffinity.c)
- *     KiSetUserAffinityThread @ 0x14022A784 (KiSetUserAffinityThread.c)
- *     KiSetSystemAffinityThread @ 0x14037C620 (KiSetSystemAffinityThread.c)
+ *     KiComputeThreadAffinity @ 0x14022B520 (KiComputeThreadAffinity.c)
+ *     KiSetUserAffinityThread @ 0x14022C114 (KiSetUserAffinityThread.c)
+ *     KiSetSystemAffinityThread @ 0x14037E3D0 (KiSetSystemAffinityThread.c)
  * Callees:
  *     <none>
  */
@@ -23,14 +23,14 @@ __int64 __fastcall KiUpdateNodeAffinitizedFlag(__int64 a1)
 
   v1 = *(unsigned __int16 **)(a1 + 576);
   v2 = *v1;
-  if ( *v1 >= *(_WORD *)&stru_140FC01F0.WaitRegister.Flags )
+  if ( *v1 >= *(_WORD *)&stru_140FC11F0.WaitRegister.Flags )
   {
     p_WaitRegister = *(_KWAIT_STATUS_REGISTER **)(a1 + 576);
-    v2 = *(_WORD *)&stru_140FC01F0.WaitRegister.Flags;
+    v2 = *(_WORD *)&stru_140FC11F0.WaitRegister.Flags;
   }
   else
   {
-    p_WaitRegister = &stru_140FC01F0.WaitRegister;
+    p_WaitRegister = &stru_140FC11F0.WaitRegister;
   }
   result = 0LL;
   for ( i = 0; ; ++i )
@@ -45,7 +45,7 @@ __int64 __fastcall KiUpdateNodeAffinitizedFlag(__int64 a1)
       }
       goto LABEL_8;
     }
-    if ( *(_QWORD *)&v1[4 * i + 4] != *(_QWORD *)((char *)&stru_140FC01F0.116 + 8 * i + 4) )
+    if ( *(_QWORD *)&v1[4 * i + 4] != *(_QWORD *)((char *)&stru_140FC11F0.116 + 8 * i + 4) )
       break;
   }
 LABEL_13:
@@ -56,8 +56,7 @@ LABEL_13:
       for ( k = *(_QWORD *)&v1[4 * j + 4]; k; k &= ~v9 )
       {
         _BitScanReverse64(&v8, k);
-        v9 = *(_QWORD *)(*(_QWORD *)(KiProcessorBlock[*((unsigned int *)&KiSupervisorXStateFeaturesLock.WaitBlock[2].Thread->Header.Lock
-                                                      + 64 * j
+        v9 = *(_QWORD *)(*(_QWORD *)(KiProcessorBlock[*((unsigned int *)&KiSupervisorXStateFeaturesLock.SchedulerApc.ApcListEntry.Flink[16 * j].Flink
                                                       + (int)v8)]
                                    + 192)
                        + 128LL);

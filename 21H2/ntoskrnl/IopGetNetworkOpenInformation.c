@@ -1,10 +1,10 @@
 /*
- * XREFs of IopGetNetworkOpenInformation @ 0x140894894
+ * XREFs of IopGetNetworkOpenInformation @ 0x1408949F4
  * Callers:
- *     IopParseDevice @ 0x140700F60 (IopParseDevice.c)
+ *     IopParseDevice @ 0x140718340 (IopParseDevice.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     IopQueryXxxInformation @ 0x1406C9708 (IopQueryXxxInformation.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     IopQueryXxxInformation @ 0x140677FF8 (IopQueryXxxInformation.c)
  */
 
 __int64 __fastcall IopGetNetworkOpenInformation(PADAPTER_OBJECT DmaAdapter, __int64 a2)

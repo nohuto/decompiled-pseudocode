@@ -1,21 +1,21 @@
 /*
- * XREFs of TtmInitCurrentSession @ 0x140903118
+ * XREFs of TtmInitCurrentSession @ 0x14099D6C8
  * Callers:
- *     NtPowerInformation @ 0x1409F0230 (NtPowerInformation.c)
+ *     NtPowerInformation @ 0x1409EDB00 (NtPowerInformation.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     ExReleaseResourceLite @ 0x14025A450 (ExReleaseResourceLite.c)
- *     PsGetSessionIdEx @ 0x1403025D0 (PsGetSessionIdEx.c)
- *     TtmpAcquireSessionLock @ 0x1406F73C8 (TtmpAcquireSessionLock.c)
- *     TtmiUpdateActiveTerminalCount @ 0x14076A264 (TtmiUpdateActiveTerminalCount.c)
- *     TtmiLogSessionDeviceAssignmentPolicySet @ 0x14076DD3C (TtmiLogSessionDeviceAssignmentPolicySet.c)
- *     TtmiCreateTerminal @ 0x14076F4E8 (TtmiCreateTerminal.c)
- *     TtmiLogInitCurrentSessionStart @ 0x140903360 (TtmiLogInitCurrentSessionStart.c)
- *     TtmiLogError @ 0x140903A9C (TtmiLogError.c)
- *     TtmiLogInitCurrentSessionStop @ 0x140903C98 (TtmiLogInitCurrentSessionStop.c)
- *     PoRegisterPowerSettingCallback @ 0x140A6B150 (PoRegisterPowerSettingCallback.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     ExReleaseResourceLite @ 0x14028AA60 (ExReleaseResourceLite.c)
+ *     PsGetSessionIdEx @ 0x14030CBE0 (PsGetSessionIdEx.c)
+ *     TtmpAcquireSessionLock @ 0x1406F53C8 (TtmpAcquireSessionLock.c)
+ *     TtmiUpdateActiveTerminalCount @ 0x14076A484 (TtmiUpdateActiveTerminalCount.c)
+ *     TtmiLogSessionDeviceAssignmentPolicySet @ 0x14076DF5C (TtmiLogSessionDeviceAssignmentPolicySet.c)
+ *     TtmiCreateTerminal @ 0x14076F708 (TtmiCreateTerminal.c)
+ *     TtmiLogInitCurrentSessionStart @ 0x14099D910 (TtmiLogInitCurrentSessionStart.c)
+ *     TtmiLogError @ 0x14099E04C (TtmiLogError.c)
+ *     TtmiLogInitCurrentSessionStop @ 0x14099E248 (TtmiLogInitCurrentSessionStop.c)
+ *     PoRegisterPowerSettingCallback @ 0x140A646B0 (PoRegisterPowerSettingCallback.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 TtmInitCurrentSession()
@@ -40,7 +40,7 @@ LABEL_3:
     TtmiLogError("TtmInitCurrentSession", v2, 0xFFFFFFFFLL, v1);
     goto LABEL_13;
   }
-  Pool2 = (_DWORD *)ExAllocatePool2(0x40uLL);
+  Pool2 = (_DWORD *)ExAllocatePool2(0x40uLL, 0x120uLL, 0x536D7454u);
   v4 = (__int64)Pool2;
   if ( !Pool2 )
   {

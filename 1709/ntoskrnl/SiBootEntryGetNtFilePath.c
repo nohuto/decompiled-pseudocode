@@ -8,14 +8,14 @@
  *     ExAllocatePoolWithTag @ 0x1402B3110 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall SiBootEntryGetNtFilePath(__int64 a1, struct _FILE_PATH **a2)
+__int64 __fastcall SiBootEntryGetNtFilePath(__int64 a1, _FILE_PATH **a2)
 {
   __int64 v2; // rax
-  struct _FILE_PATH *v3; // rdi
+  _FILE_PATH *v3; // rdi
   NTSTATUS v5; // ebx
-  struct _FILE_PATH *v6; // rsi
-  struct _FILE_PATH *PoolWithTag; // rax
-  struct _FILE_PATH *v8; // rcx
+  _FILE_PATH *v6; // rsi
+  _FILE_PATH *PoolWithTag; // rax
+  _FILE_PATH *v8; // rcx
   ULONG OutputFilePathLength; // [rsp+30h] [rbp+8h] BYREF
 
   v2 = *(unsigned int *)(a1 + 20);
@@ -23,11 +23,11 @@ __int64 __fastcall SiBootEntryGetNtFilePath(__int64 a1, struct _FILE_PATH **a2)
   if ( (_DWORD)v2 )
   {
     OutputFilePathLength = 0;
-    v6 = (struct _FILE_PATH *)(a1 + v2);
+    v6 = (_FILE_PATH *)(a1 + v2);
     v5 = ZwTranslateFilePath((PFILE_PATH)(a1 + v2), 3u, 0LL, (ULONG)&OutputFilePathLength);
     if ( v5 == -1073741789 )
     {
-      PoolWithTag = (struct _FILE_PATH *)ExAllocatePoolWithTag(PagedPool, OutputFilePathLength, 0x4B505953u);
+      PoolWithTag = (_FILE_PATH *)ExAllocatePoolWithTag(PagedPool, OutputFilePathLength, 0x4B505953u);
       v3 = PoolWithTag;
       if ( !PoolWithTag )
         return (unsigned int)-1073741801;

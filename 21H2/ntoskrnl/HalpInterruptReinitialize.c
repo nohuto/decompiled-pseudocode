@@ -1,17 +1,17 @@
 /*
- * XREFs of HalpInterruptReinitialize @ 0x140995D78
+ * XREFs of HalpInterruptReinitialize @ 0x140996D78
  * Callers:
- *     HalpAcpiPostSleep @ 0x140995B2C (HalpAcpiPostSleep.c)
+ *     HalpAcpiPostSleep @ 0x140996B2C (HalpAcpiPostSleep.c)
  * Callees:
- *     KeGetProcessorIndexFromNumber @ 0x14027BE80 (KeGetProcessorIndexFromNumber.c)
- *     HalGetProcessorIdByNtNumber @ 0x140377550 (HalGetProcessorIdByNtNumber.c)
- *     HalStartNextProcessor @ 0x1403A14A0 (HalStartNextProcessor.c)
- *     HalpInterruptInitializeController @ 0x1403A3658 (HalpInterruptInitializeController.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
- *     HalStartDynamicProcessor @ 0x1404BC2E0 (HalStartDynamicProcessor.c)
- *     HalpInterruptControllerInUse @ 0x1404D18AC (HalpInterruptControllerInUse.c)
- *     HalpInterruptStartBlockedProcessors @ 0x1404D1ABC (HalpInterruptStartBlockedProcessors.c)
- *     HalpIommuInitializeAll @ 0x14099B3D4 (HalpIommuInitializeAll.c)
+ *     KeGetProcessorIndexFromNumber @ 0x140269E20 (KeGetProcessorIndexFromNumber.c)
+ *     HalGetProcessorIdByNtNumber @ 0x1403770A0 (HalGetProcessorIdByNtNumber.c)
+ *     HalStartNextProcessor @ 0x1403A15F0 (HalStartNextProcessor.c)
+ *     HalpInterruptInitializeController @ 0x1403A37A8 (HalpInterruptInitializeController.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
+ *     HalStartDynamicProcessor @ 0x1404BC520 (HalStartDynamicProcessor.c)
+ *     HalpInterruptControllerInUse @ 0x1404D1AEC (HalpInterruptControllerInUse.c)
+ *     HalpInterruptStartBlockedProcessors @ 0x1404D1CFC (HalpInterruptStartBlockedProcessors.c)
+ *     HalpIommuInitializeAll @ 0x14099C3D4 (HalpIommuInitializeAll.c)
  */
 
 int __fastcall HalpInterruptReinitialize(__int64 a1)

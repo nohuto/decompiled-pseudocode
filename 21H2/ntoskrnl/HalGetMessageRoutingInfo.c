@@ -1,10 +1,10 @@
 /*
- * XREFs of HalGetMessageRoutingInfo @ 0x140377380
+ * XREFs of HalGetMessageRoutingInfo @ 0x140376ED0
  * Callers:
- *     IopConnectMessageBasedInterrupt @ 0x140761E54 (IopConnectMessageBasedInterrupt.c)
+ *     IopConnectMessageBasedInterrupt @ 0x140762014 (IopConnectMessageBasedInterrupt.c)
  * Callees:
- *     KeEnumerateNextProcessor @ 0x140229400 (KeEnumerateNextProcessor.c)
- *     HalGetProcessorIdByNtNumber @ 0x140377550 (HalGetProcessorIdByNtNumber.c)
+ *     KeEnumerateNextProcessor @ 0x1402CDD00 (KeEnumerateNextProcessor.c)
+ *     HalGetProcessorIdByNtNumber @ 0x1403770A0 (HalGetProcessorIdByNtNumber.c)
  */
 
 __int64 __fastcall HalGetMessageRoutingInfo(int *a1, _DWORD *a2)

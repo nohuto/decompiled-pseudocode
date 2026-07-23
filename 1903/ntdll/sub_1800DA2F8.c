@@ -11,25 +11,25 @@
 
 __int64 sub_1800DA2F8()
 {
-  void *ProcessHeap; // rbp
-  void *Heap; // rax
+  PVOID ProcessHeap; // rbp
+  PVOID Heap; // rax
   __int64 v2; // rbx
   __int64 *v3; // rax
   bool v4; // zf
   wchar_t *v5; // rbx
   wchar_t v6; // ax
   const WCHAR *v7; // rsi
-  void *v8; // rax
+  PVOID v8; // rax
   __int64 v9; // rdi
   __int64 *v10; // rax
 
   ProcessHeap = NtCurrentPeb()->ProcessHeap;
-  Heap = (void *)RtlAllocateHeap((__int64)ProcessHeap, 0, 72LL);
+  Heap = RtlAllocateHeap(ProcessHeap, 0, 0x48uLL);
   v2 = (__int64)Heap;
   if ( !Heap )
     return 3221225495LL;
   memset(Heap, 0, 0x48uLL);
-  *(_OWORD *)(v2 + 16) = unk_180119468;
+  *(UNICODE_STRING *)(v2 + 16) = stru_180119468;
   v3 = (__int64 *)qword_180164618;
   if ( *(__int64 **)qword_180164618 != &qword_180164610 )
 LABEL_19:
@@ -70,7 +70,7 @@ LABEL_19:
         *v5 = 0;
         if ( wcsicmp(v7, L"verifier.dll") )
         {
-          v8 = (void *)RtlAllocateHeap((__int64)ProcessHeap, 0, 72LL);
+          v8 = RtlAllocateHeap(ProcessHeap, 0, 0x48uLL);
           v9 = (__int64)v8;
           if ( !v8 )
             return 3221225495LL;

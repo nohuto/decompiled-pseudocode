@@ -1,14 +1,14 @@
 /*
- * XREFs of RtlpMuiRegCreateLanguages @ 0x180112970
+ * XREFs of RtlpMuiRegCreateLanguages @ 0x180112940
  * Callers:
- *     _RtlpMuiRegLoadInstalled @ 0x180115154 (_RtlpMuiRegLoadInstalled.c)
+ *     _RtlpMuiRegLoadInstalled @ 0x180115124 (_RtlpMuiRegLoadInstalled.c)
  * Callees:
  *     _SafeAllocBlob @ 0x1800122A4 (_SafeAllocBlob.c)
  */
 
-__int64 __fastcall RtlpMuiRegCreateLanguages(unsigned int a1)
+_QWORD *__fastcall RtlpMuiRegCreateLanguages(unsigned int a1)
 {
-  __int64 result; // rax
+  _QWORD *result; // rax
   unsigned int v2; // [rsp+40h] [rbp+8h] BYREF
 
   v2 = a1;
@@ -16,8 +16,8 @@ __int64 __fastcall RtlpMuiRegCreateLanguages(unsigned int a1)
   if ( result )
   {
     *(_DWORD *)result = v2;
-    *(_QWORD *)(result + 16) = result + 24;
-    *(_DWORD *)(result + 4) = 4;
+    result[2] = result + 3;
+    *((_DWORD *)result + 1) = 4;
   }
   return result;
 }

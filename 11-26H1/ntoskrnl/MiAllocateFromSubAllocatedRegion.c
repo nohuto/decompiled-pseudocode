@@ -1,22 +1,22 @@
 /*
- * XREFs of MiAllocateFromSubAllocatedRegion @ 0x1409C8F44
+ * XREFs of MiAllocateFromSubAllocatedRegion @ 0x140999F24
  * Callers:
- *     MiCreatePebOrTeb @ 0x1409C8ED0 (MiCreatePebOrTeb.c)
+ *     MiCreatePebOrTeb @ 0x140999EB0 (MiCreatePebOrTeb.c)
  * Callees:
- *     KiCheckForKernelApcDelivery @ 0x14027DB80 (KiCheckForKernelApcDelivery.c)
- *     MiReferenceVad @ 0x14027E890 (MiReferenceVad.c)
- *     MiLockVad @ 0x14027EBC0 (MiLockVad.c)
- *     MiUnlockAndDereferenceVad @ 0x14027F600 (MiUnlockAndDereferenceVad.c)
- *     LOCK_PAGE_TABLE_COMMITMENT @ 0x14027F6FC (LOCK_PAGE_TABLE_COMMITMENT.c)
- *     UNLOCK_ADDRESS_SPACE_UNORDERED @ 0x140315540 (UNLOCK_ADDRESS_SPACE_UNORDERED.c)
- *     LOCK_ADDRESS_SPACE @ 0x1403155B4 (LOCK_ADDRESS_SPACE.c)
- *     UNLOCK_PAGE_TABLE_COMMITMENT @ 0x140316ED0 (UNLOCK_PAGE_TABLE_COMMITMENT.c)
- *     MiReadVadFlags @ 0x1404655D0 (MiReadVadFlags.c)
- *     MiVadDeleted @ 0x140480A68 (MiVadDeleted.c)
- *     RtlFindClearBitsAndSetEx @ 0x140499760 (RtlFindClearBitsAndSetEx.c)
- *     MiFreeToSubAllocatedRegion @ 0x14095F0C4 (MiFreeToSubAllocatedRegion.c)
- *     MiCommitExistingVad @ 0x1409C7300 (MiCommitExistingVad.c)
- *     MiAllocateNewSubAllocatedRegion @ 0x1409CA420 (MiAllocateNewSubAllocatedRegion.c)
+ *     KiCheckForKernelApcDelivery @ 0x14027D0F0 (KiCheckForKernelApcDelivery.c)
+ *     MiReferenceVad @ 0x14027DE00 (MiReferenceVad.c)
+ *     MiLockVad @ 0x14027E130 (MiLockVad.c)
+ *     MiUnlockAndDereferenceVad @ 0x14027EB70 (MiUnlockAndDereferenceVad.c)
+ *     LOCK_PAGE_TABLE_COMMITMENT @ 0x14027EC6C (LOCK_PAGE_TABLE_COMMITMENT.c)
+ *     UNLOCK_ADDRESS_SPACE_UNORDERED @ 0x140317570 (UNLOCK_ADDRESS_SPACE_UNORDERED.c)
+ *     LOCK_ADDRESS_SPACE @ 0x1403175E4 (LOCK_ADDRESS_SPACE.c)
+ *     UNLOCK_PAGE_TABLE_COMMITMENT @ 0x140318F00 (UNLOCK_PAGE_TABLE_COMMITMENT.c)
+ *     MiReadVadFlags @ 0x14045E590 (MiReadVadFlags.c)
+ *     MiVadDeleted @ 0x14047A3A8 (MiVadDeleted.c)
+ *     RtlFindClearBitsAndSetEx @ 0x1404932B0 (RtlFindClearBitsAndSetEx.c)
+ *     MiCommitExistingVad @ 0x1409982E0 (MiCommitExistingVad.c)
+ *     MiAllocateNewSubAllocatedRegion @ 0x14099B400 (MiAllocateNewSubAllocatedRegion.c)
+ *     MiFreeToSubAllocatedRegion @ 0x140A04984 (MiFreeToSubAllocatedRegion.c)
  */
 
 __int64 __fastcall MiAllocateFromSubAllocatedRegion(
@@ -47,31 +47,29 @@ __int64 __fastcall MiAllocateFromSubAllocatedRegion(
   bool v23; // zf
   volatile signed __int32 *v24; // rcx
   unsigned int VadFlags; // eax
-  __int64 v26; // rsi
-  __int64 v27; // rdx
-  int v28; // ebx
+  int v26; // ebx
   int NewSubAllocatedRegion; // esi
+  __int64 v29; // rdx
+  __int64 v30; // rcx
   __int64 v31; // rdx
   __int64 v32; // rcx
-  __int64 v33; // rdx
-  __int64 v34; // rcx
-  __int64 v35; // rcx
-  _QWORD *v36; // rax
-  int v37[22]; // [rsp+50h] [rbp-58h] BYREF
-  __int16 v38; // [rsp+B0h] [rbp+8h] BYREF
-  __int16 v39; // [rsp+B2h] [rbp+Ah]
-  __int64 v40; // [rsp+B8h] [rbp+10h]
-  unsigned __int64 *v41; // [rsp+C0h] [rbp+18h]
+  __int64 v33; // rcx
+  _QWORD *v34; // rax
+  int v35[22]; // [rsp+50h] [rbp-58h] BYREF
+  __int16 v36; // [rsp+B0h] [rbp+8h] BYREF
+  __int16 v37; // [rsp+B2h] [rbp+Ah]
+  __int64 v38; // [rsp+B8h] [rbp+10h]
+  unsigned __int64 *v39; // [rsp+C0h] [rbp+18h]
 
-  v41 = a3;
-  v40 = a2;
-  v39 = HIWORD(a1);
-  v37[0] = 0;
+  v39 = a3;
+  v38 = a2;
+  v37 = HIWORD(a1);
+  v35[0] = 0;
   v4 = 0LL;
   *a3 = 0LL;
   v5 = 0LL;
   CurrentThread = KeGetCurrentThread();
-  v38 = 0;
+  v36 = 0;
   v7 = (unsigned __int64)(a2 + 4095) >> 12;
   Process = (__int64)CurrentThread->ApcState.Process;
   v9 = *(_QWORD *)(Process + 1040);
@@ -81,8 +79,8 @@ __int64 __fastcall MiAllocateFromSubAllocatedRegion(
   {
     UNLOCK_ADDRESS_SPACE_UNORDERED((__int64)CurrentThread, Process);
     v23 = CurrentThread->SpecialApcDisable++ == -1;
-    if ( v23 && ($7A85BAF4F1FA08634C1C4A3E45B775B3 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
-      KiCheckForKernelApcDelivery(v34, v33);
+    if ( v23 && ($241382875694CED3D471BC5892DE3337 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
+      KiCheckForKernelApcDelivery(v32, v31);
     return 3221225738LL;
   }
   else
@@ -103,11 +101,11 @@ __int64 __fastcall MiAllocateFromSubAllocatedRegion(
           *((_DWORD *)i + 8) = v16;
           if ( v17 >= *((_DWORD *)i + 7) )
           {
-            v35 = *i;
-            if ( *(_QWORD **)(*i + 8LL) != i || (v36 = (_QWORD *)i[1], (_QWORD *)*v36 != i) )
+            v33 = *i;
+            if ( *(_QWORD **)(*i + 8LL) != i || (v34 = (_QWORD *)i[1], (_QWORD *)*v34 != i) )
               __fastfail(3u);
-            *v36 = v35;
-            *(_QWORD *)(v35 + 8) = v36;
+            *v34 = v33;
+            *(_QWORD *)(v33 + 8) = v34;
             *i = 0LL;
           }
           v4 = i[2];
@@ -125,9 +123,9 @@ __int64 __fastcall MiAllocateFromSubAllocatedRegion(
         UNLOCK_ADDRESS_SPACE_UNORDERED((__int64)CurrentThread, Process);
         v23 = CurrentThread->SpecialApcDisable++ == -1;
         if ( v23
-          && ($7A85BAF4F1FA08634C1C4A3E45B775B3 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
+          && ($241382875694CED3D471BC5892DE3337 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
         {
-          KiCheckForKernelApcDelivery(v32, v31);
+          KiCheckForKernelApcDelivery(v30, v29);
         }
         return (unsigned int)NewSubAllocatedRegion;
       }
@@ -136,7 +134,7 @@ __int64 __fastcall MiAllocateFromSubAllocatedRegion(
     UNLOCK_ADDRESS_SPACE_UNORDERED((__int64)CurrentThread, Process);
     MiLockVad((__int64)CurrentThread, v4, v19, v20);
     v23 = CurrentThread->SpecialApcDisable++ == -1;
-    if ( v23 && ($7A85BAF4F1FA08634C1C4A3E45B775B3 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
+    if ( v23 && ($241382875694CED3D471BC5892DE3337 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
       KiCheckForKernelApcDelivery(v22, v21);
     if ( (unsigned int)MiVadDeleted(v4) )
     {
@@ -144,17 +142,16 @@ __int64 __fastcall MiAllocateFromSubAllocatedRegion(
       return 3221225738LL;
     }
     VadFlags = MiReadVadFlags((__int64)v24);
-    v26 = v40;
-    v28 = MiCommitExistingVad(v4, v5, v40, (VadFlags >> 5) & 0x1F, 0LL, 0, 0, 0LL, (__int64)v37, &v38);
-    if ( v28 < 0 )
+    v26 = MiCommitExistingVad(v4, v5, v38, (VadFlags >> 5) & 0x1F, 0LL, 0, 0, 0LL, (__int64)v35, &v36);
+    if ( v26 < 0 )
     {
-      MiFreeToSubAllocatedRegion(v4, v27, v5, v26);
+      MiFreeToSubAllocatedRegion(v4);
     }
     else
     {
       MiUnlockAndDereferenceVad((volatile signed __int32 *)v4);
-      *v41 = v5;
+      *v39 = v5;
     }
-    return (unsigned int)v28;
+    return (unsigned int)v26;
   }
 }

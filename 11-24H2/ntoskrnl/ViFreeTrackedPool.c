@@ -1,14 +1,13 @@
 /*
- * XREFs of ViFreeTrackedPool @ 0x140BA8FD0
+ * XREFs of ViFreeTrackedPool @ 0x140BAAFD0
  * Callers:
- *     ExAllocateHeapPool @ 0x1402ACDB0 (ExAllocateHeapPool.c)
- *     ExFreeHeapPool @ 0x1402B0E50 (ExFreeHeapPool.c)
- *     ExpFreeHeapSpecialPool @ 0x1403A8B6C (ExpFreeHeapSpecialPool.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ExFreeHeapPool @ 0x140359950 (ExFreeHeapPool.c)
+ *     ExpFreeHeapSpecialPool @ 0x140398994 (ExpFreeHeapSpecialPool.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  * Callees:
- *     MmIsAddressValidEx @ 0x140262FC0 (MmIsAddressValidEx.c)
- *     RtlpInterlockedPushEntrySList @ 0x1406B38D0 (RtlpInterlockedPushEntrySList.c)
- *     CarReportRuleViolationFromNt @ 0x140B8D914 (CarReportRuleViolationFromNt.c)
+ *     MmIsAddressValidEx @ 0x140244560 (MmIsAddressValidEx.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1406B4870 (RtlpInterlockedPushEntrySList.c)
+ *     CarReportRuleViolationFromNt @ 0x140B8F914 (CarReportRuleViolationFromNt.c)
  */
 
 __int64 __fastcall ViFreeTrackedPool(ULONG_PTR BugCheckParameter2, ULONG_PTR BugCheckParameter3, char a3, int a4)
@@ -17,7 +16,7 @@ __int64 __fastcall ViFreeTrackedPool(ULONG_PTR BugCheckParameter2, ULONG_PTR Bug
   __int64 *v7; // rdi
   ULONG_PTR v8; // rsi
   unsigned __int64 v9; // r15
-  union _SLIST_HEADER *v10; // r14
+  _SLIST_HEADER *v10; // r14
   _QWORD *v11; // rdi
   unsigned int v12; // r13d
   unsigned __int64 v13; // rbp
@@ -41,7 +40,7 @@ __int64 __fastcall ViFreeTrackedPool(ULONG_PTR BugCheckParameter2, ULONG_PTR Bug
   }
   v8 = *v7;
   v9 = *v7 & 0xFFFFFFFFFFFFF000uLL;
-  v10 = *(union _SLIST_HEADER **)(v9 + 8);
+  v10 = *(_SLIST_HEADER **)(v9 + 8);
   if ( (VfRuleClasses & 1) != 0 )
   {
     if ( (v8 & 3) != 0 || !MmIsAddressValidEx(*v7) )
@@ -66,18 +65,18 @@ __int64 __fastcall ViFreeTrackedPool(ULONG_PTR BugCheckParameter2, ULONG_PTR Bug
   RtlpInterlockedPushEntrySList(v10 + 5, (PSLIST_ENTRY)v8);
   v12 = a3 & 1;
   v13 = -(__int64)v5;
-  v14 = &dword_140F03EC4;
-  v15 = &qword_140F03ED8;
+  v14 = &dword_140F04824;
+  v15 = &qword_140F04838;
   if ( !v12 )
   {
-    v14 = &dword_140F03EC8;
-    v15 = &qword_140F03EE0;
+    v14 = &dword_140F04828;
+    v15 = &qword_140F04840;
   }
   result = v12 ^ 1LL;
   _InterlockedAdd64((volatile signed __int64 *)&v10[8].Alignment + result, v13);
   _InterlockedDecrement((volatile signed __int32 *)&v10[7] + result);
   _InterlockedAdd64(v15, v13);
   _InterlockedDecrement(v14);
-  _InterlockedIncrement(&dword_140F03EB0);
+  _InterlockedIncrement(&dword_140F04810);
   return result;
 }

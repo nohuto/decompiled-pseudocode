@@ -1,12 +1,12 @@
 /*
- * XREFs of MiGetKernelStackSwapSupport @ 0x1403679DC
+ * XREFs of MiGetKernelStackSwapSupport @ 0x1403C3FE0
  * Callers:
- *     MmOutSwapWorkingSet @ 0x140404630 (MmOutSwapWorkingSet.c)
+ *     MmOutSwapWorkingSet @ 0x1403C6F10 (MmOutSwapWorkingSet.c)
  * Callees:
- *     MiPageFileLargestBitmapsRun @ 0x1403664F0 (MiPageFileLargestBitmapsRun.c)
- *     MiAllocateWorkingSetSwapSupport @ 0x140367B8C (MiAllocateWorkingSetSwapSupport.c)
- *     MiFindFreePageFileSpace @ 0x140367D88 (MiFindFreePageFileSpace.c)
- *     MiMakePageFilePte @ 0x14039F4D8 (MiMakePageFilePte.c)
+ *     MiMakePageFilePte @ 0x140215C78 (MiMakePageFilePte.c)
+ *     MiAllocateWorkingSetSwapSupport @ 0x1403C4190 (MiAllocateWorkingSetSwapSupport.c)
+ *     MiFindFreePageFileSpace @ 0x1403C438C (MiFindFreePageFileSpace.c)
+ *     MiPageFileLargestBitmapsRun @ 0x1403C5B54 (MiPageFileLargestBitmapsRun.c)
  */
 
 __int64 __fastcall MiGetKernelStackSwapSupport(__int64 a1, __int64 a2)
@@ -15,7 +15,7 @@ __int64 __fastcall MiGetKernelStackSwapSupport(__int64 a1, __int64 a2)
   unsigned int v3; // edi
   __int64 v6; // rbp
   unsigned int v7; // r15d
-  __int64 *v8; // r14
+  _QWORD *v8; // r14
   unsigned int v9; // ebx
   __int64 v10; // rdx
   __int64 WorkingSetSwapSupport; // rax
@@ -26,14 +26,14 @@ __int64 __fastcall MiGetKernelStackSwapSupport(__int64 a1, __int64 a2)
 
   v2 = -1;
   v3 = 0;
-  v6 = *((_QWORD *)qword_140E2FF88 + *(unsigned __int16 *)(a2 + 1198));
+  v6 = *((_QWORD *)qword_140E300C8 + *(unsigned __int16 *)(a2 + 1198));
   v7 = *(_DWORD *)(v6 + 18520);
   if ( !v7 )
     return 3221225799LL;
-  v8 = (__int64 *)(v6 + 18528);
+  v8 = (_QWORD *)(v6 + 18528);
   do
   {
-    if ( (*(_BYTE *)(*v8 + 172) & 0x50) == 0 )
+    if ( (*(_BYTE *)(*v8 + 172LL) & 0x50) == 0 )
     {
       if ( v2 == -1
         || (v16 = MiPageFileLargestBitmapsRun(*v8),

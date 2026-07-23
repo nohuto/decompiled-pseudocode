@@ -10,29 +10,29 @@
  *     _NtUnlockVirtualMemory@16 @ 0x4B2F4630 (_NtUnlockVirtualMemory@16.c)
  */
 
-int __stdcall RtlUnlockMemoryZone(int a1)
+NTSTATUS __cdecl RtlUnlockMemoryZone(PVOID MemoryZone)
 {
   int v1; // eax
-  int v2; // edi
+  NTSTATUS v2; // edi
   int v3; // eax
   _DWORD *i; // esi
-  _DWORD *v6; // [esp+Ch] [ebp-8h] BYREF
-  int v7; // [esp+10h] [ebp-4h] BYREF
+  PVOID BaseAddress; // [esp+Ch] [ebp-8h] BYREF
+  ULONG_PTR RegionSize; // [esp+10h] [ebp-4h] BYREF
 
-  RtlAcquireSRWLockExclusive(a1 + 16);
-  v1 = *(_DWORD *)(a1 + 20);
+  RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)MemoryZone + 4);
+  v1 = *((_DWORD *)MemoryZone + 5);
   if ( v1 )
   {
     v2 = 0;
     v3 = v1 - 1;
-    *(_DWORD *)(a1 + 20) = v3;
+    *((_DWORD *)MemoryZone + 5) = v3;
     if ( !v3 )
     {
-      for ( i = *(_DWORD **)(a1 + 24); i; i = (_DWORD *)*i )
+      for ( i = (_DWORD *)*((_DWORD *)MemoryZone + 6); i; i = (_DWORD *)*i )
       {
-        v6 = i;
-        v7 = i[1];
-        NtUnlockVirtualMemory(-1, &v6, &v7, 1);
+        BaseAddress = i;
+        LODWORD(RegionSize) = i[1];
+        NtUnlockVirtualMemory((HANDLE)0xFFFFFFFF, &BaseAddress, &RegionSize, 1u);
       }
       RtlpUnregisterLockedMemoryZone();
     }
@@ -41,6 +41,6 @@ int __stdcall RtlUnlockMemoryZone(int a1)
   {
     v2 = -1073741823;
   }
-  RtlReleaseSRWLockExclusive(a1 + 16);
+  RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)MemoryZone + 4);
   return v2;
 }

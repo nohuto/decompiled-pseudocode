@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlWow64GetCpuAreaInfo @ 0x1800B4750
+ * XREFs of RtlWow64GetCpuAreaInfo @ 0x1800B1C70
  * Callers:
- *     RtlWow64GetCurrentMachine @ 0x1800B3F20 (RtlWow64GetCurrentMachine.c)
+ *     RtlWow64GetCurrentMachine @ 0x1800B1440 (RtlWow64GetCurrentMachine.c)
  * Callees:
- *     RtlpValidateContextFlags2 @ 0x1800B4AD0 (RtlpValidateContextFlags2.c)
- *     RtlpGetEntireXStateAreaLength2 @ 0x1800B4BA4 (RtlpGetEntireXStateAreaLength2.c)
- *     RtlpRemoveArchDisallowedXStateFeatures @ 0x1800B4C00 (RtlpRemoveArchDisallowedXStateFeatures.c)
+ *     RtlpValidateContextFlags2 @ 0x1800B1FF0 (RtlpValidateContextFlags2.c)
+ *     RtlpGetEntireXStateAreaLength2 @ 0x1800B20C4 (RtlpGetEntireXStateAreaLength2.c)
+ *     RtlpRemoveArchDisallowedXStateFeatures @ 0x1800B2120 (RtlpRemoveArchDisallowedXStateFeatures.c)
  */
 
 __int64 __fastcall RtlWow64GetCpuAreaInfo(__int64 a1, unsigned __int16 a2, __int64 a3)

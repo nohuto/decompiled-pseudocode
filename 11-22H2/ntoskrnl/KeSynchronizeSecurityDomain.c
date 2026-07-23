@@ -34,7 +34,7 @@ __int64 __fastcall KeSynchronizeSecurityDomain(_KPROCESS *a1)
   memset(&v14[2], 0, 0x100uLL);
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(0xCuLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     if ( CurrentIrql == 12 )
@@ -56,10 +56,10 @@ __int64 __fastcall KeSynchronizeSecurityDomain(_KPROCESS *a1)
     KiIpiSendPacket(0, (int)v14, (__int64)KiSynchronizeSecurityDomainTarget, 1LL, 0LL, 0LL);
     KiIpiStallOnPacketTargetsPrcb(v6, (__int64)CurrentPrcb);
   }
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v9 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v9 <= 0xFu && CurrentIrql <= 0xFu && v9 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v9 <= 0xFu && CurrentIrql <= 0xFu && v9 >= 2u )
     {
       v10 = KeGetCurrentPrcb();
       v11 = v10->SchedulerAssist;

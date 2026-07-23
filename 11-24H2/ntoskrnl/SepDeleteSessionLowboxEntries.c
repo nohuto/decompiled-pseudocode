@@ -1,30 +1,30 @@
 /*
- * XREFs of SepDeleteSessionLowboxEntries @ 0x140480FE4
+ * XREFs of SepDeleteSessionLowboxEntries @ 0x14047C2A8
  * Callers:
- *     SepDeleteLogonSessionTrack @ 0x140A64520 (SepDeleteLogonSessionTrack.c)
- *     SepDeReferenceLogonSession @ 0x140AD8BA4 (SepDeReferenceLogonSession.c)
+ *     SepDeleteLogonSessionTrack @ 0x140A5CE20 (SepDeleteLogonSessionTrack.c)
+ *     SepDeReferenceLogonSession @ 0x140AD7224 (SepDeReferenceLogonSession.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     ExfTryToWakePushLock @ 0x14025F9A0 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     RtlDeleteHashTable @ 0x1404813D0 (RtlDeleteHashTable.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     ExfTryToWakePushLock @ 0x14028FFB0 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     RtlDeleteHashTable @ 0x14047C690 (RtlDeleteHashTable.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void SepDeleteSessionLowboxEntries()
 {
   struct _KTHREAD *CurrentThread; // rax
-  _QWORD *v1; // rax
+  char *v1; // rax
   signed __int8 v2; // cf
-  _QWORD *v3; // rdi
+  char *v3; // rdi
   volatile signed __int64 *i; // rsi
   struct _KTHREAD *v5; // rax
   volatile signed __int64 *v6; // rdi
   volatile signed __int64 *v7; // r14
-  _QWORD *v8; // rax
-  _QWORD *v9; // rbp
+  char *v8; // rax
+  char *v9; // rbp
   int v10; // r8d
   int v11; // r10d
   unsigned int v12; // ebp
@@ -40,25 +40,25 @@ void SepDeleteSessionLowboxEntries()
   {
     CurrentThread = KeGetCurrentThread();
     --CurrentThread->KernelApcDisable;
-    v1 = KeAbPreAcquire((__int64)&LowboxSessionMapLock, 0LL);
+    v1 = (char *)KeAbPreAcquire((__int64)&LowboxSessionMapLock, 0LL);
     v2 = _interlockedbittestandset64((volatile signed __int32 *)&LowboxSessionMapLock, 0LL);
     v3 = v1;
     if ( v2 )
-      ExfAcquirePushLockExclusiveEx(&LowboxSessionMapLock, (__int64)v1, (__int64)&LowboxSessionMapLock);
+      ExfAcquirePushLockExclusiveEx(&LowboxSessionMapLock, v1, (__int64)&LowboxSessionMapLock);
     if ( v3 )
-      *((_BYTE *)v3 + 10) = 1;
+      v3[10] = 1;
     for ( i = *(volatile signed __int64 **)g_SessionLowboxMap; i != (volatile signed __int64 *)g_SessionLowboxMap; i = v7 )
     {
       v5 = KeGetCurrentThread();
       v6 = i + 3;
       v7 = (volatile signed __int64 *)*i;
       --v5->KernelApcDisable;
-      v8 = KeAbPreAcquire((__int64)(i + 3), 0LL);
+      v8 = (char *)KeAbPreAcquire((__int64)(i + 3), 0LL);
       v9 = v8;
       if ( _interlockedbittestandset64((volatile signed __int32 *)i + 6, 0LL) )
-        ExfAcquirePushLockExclusiveEx((unsigned __int64 *)i + 3, (__int64)v8, (__int64)(i + 3));
+        ExfAcquirePushLockExclusiveEx((unsigned __int64 *)i + 3, v8, (__int64)(i + 3));
       if ( v9 )
-        *((_BYTE *)v9 + 10) = 1;
+        v9[10] = 1;
       v10 = *((_DWORD *)i + 8);
       v11 = (i[5] & 4) != 0 ? 0x20 : 0;
       v12 = v11 + v10 - 1;

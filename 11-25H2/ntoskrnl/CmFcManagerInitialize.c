@@ -28,8 +28,8 @@ __int64 *CmFcManagerInitialize()
   __int64 v13; // r11
 
   memset_0(CmFcSystemManager, 0, 0x708uLL);
-  CmSiRWLockInitialize((PRTL_RUN_ONCE)&stru_140EF6B68);
-  CmSiRWLockInitialize((PRTL_RUN_ONCE)&stru_140EF6B70);
+  CmSiRWLockInitialize(&stru_140EF6B68);
+  CmSiRWLockInitialize(&stru_140EF6B70);
   v0 = &unk_140EF6B88;
   do
   {
@@ -42,7 +42,7 @@ __int64 *CmFcManagerInitialize()
   memset_0(&unk_140EF6C00, 0, 0x60uLL);
   memset_0(&unk_140EF6C60, 0, 0x60uLL);
   RtlInitializeSwapReference(qword_140EF6CD8);
-  CmSiRWLockInitialize((PRTL_RUN_ONCE)&stru_140EF6CF0);
+  CmSiRWLockInitialize(&stru_140EF6CF0);
   stru_140EF6D10.TargetInfoAsUlong = 275;
   stru_140EF6D10.DpcData = 0LL;
   stru_140EF6D10.DeferredRoutine = (PKDEFERRED_ROUTINE)CmFcpManagerDrainUsageNotificationsDpc;
@@ -54,12 +54,12 @@ __int64 *CmFcManagerInitialize()
     (__int64)CmFcpManagerDrainUsageNotificationsWorker,
     (__int64)CmFcSystemManager);
   CmpWorkItemInitialize((__int64)&unk_140EF6D98, v3, (__int64)CmFcpManagerRetryUsageNotificationsWorker, v4);
-  CmSiRWLockInitialize((PRTL_RUN_ONCE)&stru_140EF6DD8);
+  CmSiRWLockInitialize(&stru_140EF6DD8);
   qword_140EF6DE8 = (__int64)&qword_140EF6DE0;
   qword_140EF6DE0 = (__int64)&qword_140EF6DE0;
   qword_140EF70A8 = (__int64)&qword_140EF70A0;
   qword_140EF70A0 = (__int64)&qword_140EF70A0;
-  CmSiRWLockInitialize((PRTL_RUN_ONCE)&stru_140EF6F28);
+  CmSiRWLockInitialize(&stru_140EF6F28);
   stru_140EF70E0.TargetInfoAsUlong = 275;
   stru_140EF70E0.DeferredRoutine = (PKDEFERRED_ROUTINE)CmFcpManagerArmFeatureUsageProviderFlushTimerDpc;
   stru_140EF70E0.DeferredContext = CmFcSystemManager;
@@ -72,7 +72,7 @@ __int64 *CmFcManagerInitialize()
   stru_140EF7120.ProcessorHistory = (KAFFINITY)v5;
   RtlInitializeSwapReference(qword_140EF6F10);
   xmmword_140EF70C0 = 0LL;
-  CmSiRWLockInitialize((PRTL_RUN_ONCE)&stru_140EF70D8);
+  CmSiRWLockInitialize(&stru_140EF70D8);
   CmpWorkItemInitialize((__int64)&stru_140EF7170, v6, (__int64)CmFcpManagerFlushFeatureUsageDataWorker, v7);
   CmpWorkItemInitialize((__int64)&unk_140EF71B0, v8, (__int64)CmFcpManagerPublishFeatureUsageDataBuffersWorker, v9);
   CmpWorkItemInitialize(

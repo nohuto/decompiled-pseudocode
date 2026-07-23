@@ -21,15 +21,15 @@
  *     AVrfDllUnloadNotification @ 0x1800CDEF8 (AVrfDllUnloadNotification.c)
  */
 
-__int64 __fastcall LdrpUnloadNode(__int64 a1)
+int __fastcall LdrpUnloadNode(__int64 a1)
 {
   struct _PEB *v1; // rbp
   void (__fastcall *v3)(_QWORD *); // rsi
   _QWORD *i; // r14
   __int64 v5; // rdx
-  __int64 result; // rax
-  __int64 **v7; // rcx
-  __int64 *v8; // rdi
+  _QWORD *v6; // rax
+  _QWORD **v7; // rcx
+  _QWORD *v8; // rdi
   _QWORD *v9; // r8
   _QWORD *v10; // rdx
   _QWORD *j; // rcx
@@ -54,9 +54,10 @@ LABEL_4:
   }
 LABEL_5:
   if ( g_ShimsEnabled )
-    v3 = (void (__fastcall *)(_QWORD *))(MEMORY[0x7FFE0330] ^ __ROR8__(
-                                                                g_pfnSE_LdrEntryRemoved,
-                                                                64 - (MEMORY[0x7FFE0330] & 0x3Fu)));
+    v3 = (void (__fastcall *)(_QWORD *))((unsigned int)MEMORY[0x7FFE0330] ^ __ROR8__(
+                                                                              g_pfnSE_LdrEntryRemoved,
+                                                                              64
+                                                                            - ((unsigned __int8)MEMORY[0x7FFE0330] & 0x3Fu)));
   RtlEnterCriticalSection(&LdrpDllNotificationLock);
   for ( i = *(_QWORD **)a1; i != (_QWORD *)a1; i = (_QWORD *)*i )
   {
@@ -76,24 +77,24 @@ LABEL_5:
         (unsigned int)"LdrpUnloadNode",
         2,
         (__int64)"Unmapping DLL \"%wZ\"\n");
-    LdrUnloadAlternateResourceModuleEx(*(i - 14), 0);
+    LdrUnloadAlternateResourceModuleEx((PVOID)*(i - 14), 0);
   }
-  result = RtlLeaveCriticalSection(&LdrpDllNotificationLock);
+  LODWORD(v6) = RtlLeaveCriticalSection(&LdrpDllNotificationLock);
 LABEL_18:
   while ( 1 )
   {
-    v7 = *(__int64 ***)(a1 + 40);
+    v7 = *(_QWORD ***)(a1 + 40);
     if ( !v7 )
       break;
     v8 = *v7;
-    if ( *v7 == (__int64 *)v7 )
+    if ( *v7 == v7 )
     {
       *(_QWORD *)(a1 + 40) = 0LL;
     }
     else
     {
-      result = *v8;
-      *v7 = (__int64 *)*v8;
+      v6 = (_QWORD *)*v8;
+      *v7 = (_QWORD *)*v8;
     }
     if ( !v8 )
       break;
@@ -109,7 +110,7 @@ LABEL_18:
       v9[6] = j;
     }
     LdrpDecrementModuleLoadCountEx(*v9 - 160LL, 0LL);
-    result = RtlFreeHeap(LdrpHeap, 0LL, v8);
+    LODWORD(v6) = RtlFreeHeap(LdrpHeap, 0, v8);
   }
   v12 = *(_QWORD **)a1;
   *(_DWORD *)(a1 + 56) = -2;
@@ -124,15 +125,15 @@ LABEL_18:
       LdrpRemoveDataTableEntry(v14);
       if ( *((char *)v14 + 104) < 0 )
       {
-        RtlRbRemoveNode(&LdrpMappingInfoIndex, v14 + 28);
-        RtlRbRemoveNode(&LdrpModuleBaseAddressIndex, v14 + 25);
+        RtlRbRemoveNode(&LdrpMappingInfoIndex, (PRTL_BALANCED_NODE)(v14 + 28));
+        RtlRbRemoveNode(&LdrpModuleBaseAddressIndex, (PRTL_BALANCED_NODE)(v14 + 25));
         *((_DWORD *)v14 + 16) = 0;
       }
       RtlReleaseSRWLockExclusive(&LdrpModuleDatatableLock);
-      result = LdrpDereferenceModule(v14);
+      LODWORD(v6) = LdrpDereferenceModule(v14);
       v12 = v13;
     }
     while ( v13 != (_QWORD *)a1 );
   }
-  return result;
+  return (int)v6;
 }

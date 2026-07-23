@@ -1,10 +1,10 @@
 /*
- * XREFs of PnpDiagRundownParentDevNodeForEachDevice @ 0x14062CCAC
+ * XREFs of PnpDiagRundownParentDevNodeForEachDevice @ 0x14062CD60
  * Callers:
  *     <none>
  * Callees:
- *     EtwWrite @ 0x140013320 (EtwWrite.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
+ *     EtwWrite @ 0x140012EA0 (EtwWrite.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall PnpDiagRundownParentDevNodeForEachDevice(__int64 a1)

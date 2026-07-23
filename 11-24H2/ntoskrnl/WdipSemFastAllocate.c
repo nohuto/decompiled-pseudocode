@@ -1,18 +1,18 @@
 /*
- * XREFs of WdipSemFastAllocate @ 0x140A48E64
+ * XREFs of WdipSemFastAllocate @ 0x140A3FB7C
  * Callers:
- *     WdipSemAddContextEventToScenario @ 0x1407A0B68 (WdipSemAddContextEventToScenario.c)
- *     WdipSemAddEndEventToScenario @ 0x1407A0C2C (WdipSemAddEndEventToScenario.c)
- *     WdipSemLoadNextScenario @ 0x1407A1610 (WdipSemLoadNextScenario.c)
- *     WdipSemLoadScenarioTable @ 0x1407A1B08 (WdipSemLoadScenarioTable.c)
- *     WdipSemUpdateProviderTableWithEvent @ 0x1407A2228 (WdipSemUpdateProviderTableWithEvent.c)
- *     WdipSemUpdateFrequentScenarioTable @ 0x1407A25AC (WdipSemUpdateFrequentScenarioTable.c)
- *     WdipSemUpdateInflightScenarioTable @ 0x1407A26E4 (WdipSemUpdateInflightScenarioTable.c)
- *     WdipSemBuildScenarioInstance @ 0x140A48DF0 (WdipSemBuildScenarioInstance.c)
- *     WdipSemWriteSemActionsEvent @ 0x140AA4368 (WdipSemWriteSemActionsEvent.c)
+ *     WdipSemAddContextEventToScenario @ 0x1407A0C78 (WdipSemAddContextEventToScenario.c)
+ *     WdipSemAddEndEventToScenario @ 0x1407A0D3C (WdipSemAddEndEventToScenario.c)
+ *     WdipSemLoadNextScenario @ 0x1407A1720 (WdipSemLoadNextScenario.c)
+ *     WdipSemLoadScenarioTable @ 0x1407A1C18 (WdipSemLoadScenarioTable.c)
+ *     WdipSemUpdateProviderTableWithEvent @ 0x1407A2338 (WdipSemUpdateProviderTableWithEvent.c)
+ *     WdipSemUpdateFrequentScenarioTable @ 0x1407A26BC (WdipSemUpdateFrequentScenarioTable.c)
+ *     WdipSemUpdateInflightScenarioTable @ 0x1407A27F4 (WdipSemUpdateInflightScenarioTable.c)
+ *     WdipSemBuildScenarioInstance @ 0x140A3FB08 (WdipSemBuildScenarioInstance.c)
+ *     WdipSemWriteSemActionsEvent @ 0x140A9F6F8 (WdipSemWriteSemActionsEvent.c)
  * Callees:
- *     RtlpInterlockedPopEntrySList @ 0x1406B3890 (RtlpInterlockedPopEntrySList.c)
- *     WdipSemAllocatePool @ 0x140A88C20 (WdipSemAllocatePool.c)
+ *     RtlpInterlockedPopEntrySList @ 0x1406B4830 (RtlpInterlockedPopEntrySList.c)
+ *     WdipSemAllocatePool @ 0x140A85020 (WdipSemAllocatePool.c)
  */
 
 PSLIST_ENTRY __fastcall WdipSemFastAllocate(int a1, unsigned int a2)

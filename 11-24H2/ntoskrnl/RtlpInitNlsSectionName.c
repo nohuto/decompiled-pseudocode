@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlpInitNlsSectionName @ 0x140A093D0
+ * XREFs of RtlpInitNlsSectionName @ 0x140A05900
  * Callers:
- *     NtGetNlsSectionPtr @ 0x140A08EB0 (NtGetNlsSectionPtr.c)
+ *     NtGetNlsSectionPtr @ 0x140A053E0 (NtGetNlsSectionPtr.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     RtlStringCchPrintfW @ 0x140476998 (RtlStringCchPrintfW.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     RtlStringCchPrintfW @ 0x140472F38 (RtlStringCchPrintfW.c)
  */
 
 NTSTATUS __fastcall RtlpInitNlsSectionName(

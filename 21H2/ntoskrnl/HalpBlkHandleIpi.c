@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpBlkHandleIpi @ 0x140A1A190
+ * XREFs of HalpBlkHandleIpi @ 0x140A1B190
  * Callers:
- *     HalpBlkIpiInterrupt @ 0x140A19100 (HalpBlkIpiInterrupt.c)
+ *     HalpBlkIpiInterrupt @ 0x140A1A100 (HalpBlkIpiInterrupt.c)
  * Callees:
- *     HalpBlkPoPerformPpmOperation @ 0x140A19DC4 (HalpBlkPoPerformPpmOperation.c)
+ *     HalpBlkPoPerformPpmOperation @ 0x140A1ADC4 (HalpBlkPoPerformPpmOperation.c)
  */
 
 char HalpBlkHandleIpi()

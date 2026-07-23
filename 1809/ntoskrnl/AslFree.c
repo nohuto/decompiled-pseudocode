@@ -1,9 +1,9 @@
 /*
- * XREFs of AslFree @ 0x1408E96B4
+ * XREFs of AslFree @ 0x1408EA974
  * Callers:
- *     AslpFileMakeStringVersionAttributes @ 0x14071F4E0 (AslpFileMakeStringVersionAttributes.c)
+ *     AslpFileMakeStringVersionAttributes @ 0x140720780 (AslpFileMakeStringVersionAttributes.c)
  * Callees:
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
  */
 
 void __fastcall AslFree(__int64 a1, void *a2)

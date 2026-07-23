@@ -1,5 +1,5 @@
 /*
- * XREFs of HalpInterruptIsPicStateIntact @ 0x140BEA180
+ * XREFs of HalpInterruptIsPicStateIntact @ 0x140BF0180
  * Callers:
  *     <none>
  * Callees:

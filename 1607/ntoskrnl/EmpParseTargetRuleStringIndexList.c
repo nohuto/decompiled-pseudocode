@@ -3,11 +3,11 @@
  * Callers:
  *     EmpParseTargetRules @ 0x1407A8604 (EmpParseTargetRules.c)
  * Callees:
- *     RtlStringCopyWorkerA_0 @ 0x14013CDB4 (RtlStringCopyWorkerA_0.c)
- *     strchr @ 0x14014E738 (strchr.c)
+ *     RtlStringCopyWorkerA_0 @ 0x14013D324 (RtlStringCopyWorkerA_0.c)
+ *     strchr @ 0x14014ECF8 (strchr.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     RtlCharToInteger @ 0x140554510 (RtlCharToInteger.c)
+ *     RtlCharToInteger @ 0x140554A50 (RtlCharToInteger.c)
  *     EmpInfParseGetStringIndexFromName @ 0x1407A8A54 (EmpInfParseGetStringIndexFromName.c)
  */
 
@@ -28,7 +28,7 @@ char __fastcall EmpParseTargetRuleStringIndexList(
   char v13; // bl
   const char *v14; // r12
   size_t *v15; // r8
-  char *PoolWithTag; // r14
+  CHAR *PoolWithTag; // r14
   __int64 v17; // rcx
   int v19; // [rsp+30h] [rbp-58h]
   ULONG Value; // [rsp+34h] [rbp-54h] BYREF
@@ -75,7 +75,7 @@ char __fastcall EmpParseTargetRuleStringIndexList(
         while ( a2 );
         if ( a2 - v14 != -1 )
         {
-          PoolWithTag = (char *)ExAllocatePoolWithTag(PagedPool, a2 - v14 + 1, 0x74694D45u);
+          PoolWithTag = (CHAR *)ExAllocatePoolWithTag(PagedPool, a2 - v14 + 1, 0x74694D45u);
           if ( PoolWithTag )
           {
             if ( (unsigned __int64)(a2 - v14 + 1) <= 0x7FFFFFFF )

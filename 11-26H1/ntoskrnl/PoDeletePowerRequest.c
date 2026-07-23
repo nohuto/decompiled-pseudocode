@@ -1,11 +1,11 @@
 /*
- * XREFs of PoDeletePowerRequest @ 0x140ABB790
+ * XREFs of PoDeletePowerRequest @ 0x14094CE80
  * Callers:
- *     PoUnregisterSystemState @ 0x1404F0990 (PoUnregisterSystemState.c)
- *     PspExitThread @ 0x14095771C (PspExitThread.c)
+ *     PoUnregisterSystemState @ 0x1404E9F70 (PoUnregisterSystemState.c)
+ *     PspExitThread @ 0x14094B14C (PspExitThread.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     PopPowerRequestHandleClose @ 0x1404A6668 (PopPowerRequestHandleClose.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     PopPowerRequestHandleClose @ 0x14049FCF8 (PopPowerRequestHandleClose.c)
  */
 
 void __stdcall PoDeletePowerRequest(PVOID PowerRequest)

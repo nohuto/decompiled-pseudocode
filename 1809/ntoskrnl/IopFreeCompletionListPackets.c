@@ -1,17 +1,17 @@
 /*
- * XREFs of IopFreeCompletionListPackets @ 0x140662E10
+ * XREFs of IopFreeCompletionListPackets @ 0x140663FD0
  * Callers:
- *     IopDeleteIoCompletionInternal @ 0x1400FA85C (IopDeleteIoCompletionInternal.c)
+ *     IopDeleteIoCompletionInternal @ 0x1400FA8DC (IopDeleteIoCompletionInternal.c)
  * Callees:
- *     IoFreeIrp @ 0x1400B9670 (IoFreeIrp.c)
- *     IopDropIrp @ 0x1400E099C (IopDropIrp.c)
- *     IopFreeMiniCompletionPacket @ 0x1405E9C20 (IopFreeMiniCompletionPacket.c)
+ *     IoFreeIrp @ 0x1400B95B0 (IoFreeIrp.c)
+ *     IopDropIrp @ 0x1400E0A1C (IopDropIrp.c)
+ *     IopFreeMiniCompletionPacket @ 0x1405EAC20 (IopFreeMiniCompletionPacket.c)
  */
 
-void __fastcall IopFreeCompletionListPackets(struct _SLIST_ENTRY *P)
+void __fastcall IopFreeCompletionListPackets(_SLIST_ENTRY *P)
 {
-  struct _SLIST_ENTRY *v1; // rbx
-  struct _SLIST_ENTRY *v2; // rcx
+  _SLIST_ENTRY *v1; // rbx
+  _SLIST_ENTRY *v2; // rcx
   IRP *v3; // rcx
 
   if ( P )

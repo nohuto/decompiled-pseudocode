@@ -1,14 +1,14 @@
 /*
- * XREFs of PnpIrpQueryID @ 0x140A34274
+ * XREFs of PnpIrpQueryID @ 0x140A28284
  * Callers:
- *     PpProfileCommitTransitioningDock @ 0x14072D71C (PpProfileCommitTransitioningDock.c)
- *     PpProfileIncludeInHardwareProfileTransition @ 0x14072D86C (PpProfileIncludeInHardwareProfileTransition.c)
- *     PnpQueryDeviceID @ 0x140A33FB0 (PnpQueryDeviceID.c)
- *     PnpQueryID @ 0x140A34100 (PnpQueryID.c)
- *     PiProcessNewDeviceNode @ 0x140A7C564 (PiProcessNewDeviceNode.c)
+ *     PpProfileCommitTransitioningDock @ 0x14072B72C (PpProfileCommitTransitioningDock.c)
+ *     PpProfileIncludeInHardwareProfileTransition @ 0x14072B87C (PpProfileIncludeInHardwareProfileTransition.c)
+ *     PnpQueryDeviceID @ 0x140A27FC0 (PnpQueryDeviceID.c)
+ *     PnpQueryID @ 0x140A28110 (PnpQueryID.c)
+ *     PiProcessNewDeviceNode @ 0x140A76864 (PiProcessNewDeviceNode.c)
  * Callees:
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     IopSynchronousCall @ 0x1408BBC08 (IopSynchronousCall.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     IopSynchronousCall @ 0x1408B9564 (IopSynchronousCall.c)
  */
 
 __int64 __fastcall PnpIrpQueryID(_QWORD *a1, int a2, _QWORD *a3)

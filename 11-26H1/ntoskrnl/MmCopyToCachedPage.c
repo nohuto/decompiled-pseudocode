@@ -1,41 +1,41 @@
 /*
- * XREFs of MmCopyToCachedPage @ 0x1402D05F0
+ * XREFs of MmCopyToCachedPage @ 0x1402B23B0
  * Callers:
- *     CcWrapperMmCopyToCachedPage @ 0x1402D0550 (CcWrapperMmCopyToCachedPage.c)
+ *     CcWrapperMmCopyToCachedPage @ 0x1402B2310 (CcWrapperMmCopyToCachedPage.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     MiReleasePtes @ 0x140281CE0 (MiReleasePtes.c)
- *     MiMakePageAvoidRead @ 0x140282DC0 (MiMakePageAvoidRead.c)
- *     MiLockLeafPage @ 0x140298E10 (MiLockLeafPage.c)
- *     MiMapFrame @ 0x1402A0B50 (MiMapFrame.c)
- *     MiHandleSpecialPurposeMemoryCachedFault @ 0x1402A9CD0 (MiHandleSpecialPurposeMemoryCachedFault.c)
- *     MiGetPrototypePteDirect @ 0x1402D0DC0 (MiGetPrototypePteDirect.c)
- *     MiUnlockProtoPoolPage @ 0x1402D3E40 (MiUnlockProtoPoolPage.c)
- *     MiGetContainingPageTable @ 0x1402D9BF0 (MiGetContainingPageTable.c)
- *     MiGetSystemCacheReverseMap @ 0x1402E46F0 (MiGetSystemCacheReverseMap.c)
- *     MiRemoveLockedPageChargeAndDecRef @ 0x1402E8BF0 (MiRemoveLockedPageChargeAndDecRef.c)
- *     MiIssuePageHeatList @ 0x1402F383C (MiIssuePageHeatList.c)
- *     MiAddLockedPageCharge @ 0x1402F5D30 (MiAddLockedPageCharge.c)
- *     MiReservePtes @ 0x14035DE50 (MiReservePtes.c)
- *     MiLockProtoPoolPageForce @ 0x1403A10E0 (MiLockProtoPoolPageForce.c)
- *     MmAccessFault @ 0x1403A2390 (MmAccessFault.c)
- *     MiUnlinkStandbyPfn @ 0x14045C8B0 (MiUnlinkStandbyPfn.c)
- *     MiMakeModifiedSystemCachePteValid @ 0x14048BB40 (MiMakeModifiedSystemCachePteValid.c)
- *     MiDirtyPte @ 0x1404B1254 (MiDirtyPte.c)
- *     MiModeCopyExceptionFilterEx @ 0x1404E5578 (MiModeCopyExceptionFilterEx.c)
- *     MiMapSystemCachePage @ 0x1404FFD9C (MiMapSystemCachePage.c)
- *     MiMakeTransitionHeatBatch @ 0x14050A470 (MiMakeTransitionHeatBatch.c)
- *     MiReplenishTransitionPageHeatList @ 0x1405124D0 (MiReplenishTransitionPageHeatList.c)
- *     MiFreeTransitionPageHeatList @ 0x140513450 (MiFreeTransitionPageHeatList.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     RtlCopyFromUser @ 0x140533E38 (RtlCopyFromUser.c)
- *     RtlCopyMemoryNonTemporal @ 0x140730E40 (RtlCopyMemoryNonTemporal.c)
- *     RtlCopyVolatileMemory @ 0x140733080 (RtlCopyVolatileMemory.c)
- *     RtlCopyFromUserNonTemporal @ 0x14077F21C (RtlCopyFromUserNonTemporal.c)
- *     RtlReadUCharFromUser @ 0x14077F51C (RtlReadUCharFromUser.c)
- *     MiMapCacheExceptionFilter @ 0x14086A9FC (MiMapCacheExceptionFilter.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     MiReleasePtes @ 0x140281250 (MiReleasePtes.c)
+ *     MiMakePageAvoidRead @ 0x140282330 (MiMakePageAvoidRead.c)
+ *     MiLockLeafPage @ 0x140298370 (MiLockLeafPage.c)
+ *     MiMapFrame @ 0x1402A00A0 (MiMapFrame.c)
+ *     MiHandleSpecialPurposeMemoryCachedFault @ 0x1402A90E0 (MiHandleSpecialPurposeMemoryCachedFault.c)
+ *     MiGetPrototypePteDirect @ 0x1402B2B80 (MiGetPrototypePteDirect.c)
+ *     MiUnlockProtoPoolPage @ 0x1402B5C00 (MiUnlockProtoPoolPage.c)
+ *     MiGetContainingPageTable @ 0x1402BB9B0 (MiGetContainingPageTable.c)
+ *     MiGetSystemCacheReverseMap @ 0x1402C6730 (MiGetSystemCacheReverseMap.c)
+ *     MiRemoveLockedPageChargeAndDecRef @ 0x1402CAC30 (MiRemoveLockedPageChargeAndDecRef.c)
+ *     MiIssuePageHeatList @ 0x1402D58BC (MiIssuePageHeatList.c)
+ *     MiAddLockedPageCharge @ 0x1402D7DB0 (MiAddLockedPageCharge.c)
+ *     MiReservePtes @ 0x14035FBF0 (MiReservePtes.c)
+ *     MiLockProtoPoolPageForce @ 0x1403A2E40 (MiLockProtoPoolPageForce.c)
+ *     MmAccessFault @ 0x1403A40F0 (MmAccessFault.c)
+ *     MiUnlinkStandbyPfn @ 0x140456458 (MiUnlinkStandbyPfn.c)
+ *     MiMakeModifiedSystemCachePteValid @ 0x140485680 (MiMakeModifiedSystemCachePteValid.c)
+ *     MiDirtyPte @ 0x1404AA8E4 (MiDirtyPte.c)
+ *     MiModeCopyExceptionFilterEx @ 0x1404DEB18 (MiModeCopyExceptionFilterEx.c)
+ *     MiMapSystemCachePage @ 0x1404F958C (MiMapSystemCachePage.c)
+ *     MiMakeTransitionHeatBatch @ 0x140503EE0 (MiMakeTransitionHeatBatch.c)
+ *     MiReplenishTransitionPageHeatList @ 0x14050BF40 (MiReplenishTransitionPageHeatList.c)
+ *     MiFreeTransitionPageHeatList @ 0x14050CEC0 (MiFreeTransitionPageHeatList.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     RtlCopyFromUser @ 0x1405362B8 (RtlCopyFromUser.c)
+ *     RtlCopyMemoryNonTemporal @ 0x140735A10 (RtlCopyMemoryNonTemporal.c)
+ *     RtlCopyVolatileMemory @ 0x140737C50 (RtlCopyVolatileMemory.c)
+ *     RtlCopyFromUserNonTemporal @ 0x140781D1C (RtlCopyFromUserNonTemporal.c)
+ *     RtlReadUCharFromUser @ 0x14078201C (RtlReadUCharFromUser.c)
+ *     MiMapCacheExceptionFilter @ 0x140870DDC (MiMapCacheExceptionFilter.c)
  */
 
 __int64 __fastcall MmCopyToCachedPage(ULONG_PTR a1, void *a2, unsigned int a3, size_t a4, unsigned int a5)
@@ -101,7 +101,7 @@ __int64 __fastcall MmCopyToCachedPage(ULONG_PTR a1, void *a2, unsigned int a3, s
   if ( (*(_QWORD *)(SystemCacheReverseMap + 24) & 1) == 0 )
     v10 = *(__int64 **)(SystemCacheReverseMap + 24);
   v52 = *v10;
-  v11 = *(_QWORD *)(stru_140E2EB88.ThreadLock + 8LL * (*(_DWORD *)(v52 + 60) & 0x3FF)) + 22592LL;
+  v11 = *(_QWORD *)(stru_140E2ED08.ThreadLock + 8LL * (*(_DWORD *)(v52 + 60) & 0x3FF)) + 22592LL;
   v51 = v11;
   v53 = (unsigned int)v5;
   if ( v5 + v8 > 0x1000 || v5 + v8 < v8 )
@@ -114,7 +114,7 @@ __int64 __fastcall MmCopyToCachedPage(ULONG_PTR a1, void *a2, unsigned int a3, s
     return 3221226612LL;
   if ( (a5 & 8) != 0 )
   {
-    v15 = (unsigned __int64 *)MiReservePtes(&stru_140E36558.WaitBlockList, 1LL);
+    v15 = (unsigned __int64 *)MiReservePtes(&stru_140E366D8.WaitBlockList, 1LL);
     v50 = v15;
     if ( !v15 )
       return 3221225626LL;
@@ -240,7 +240,7 @@ LABEL_16:
       }
       else
       {
-        if ( (*(_DWORD *)(*(_QWORD *)(stru_140E2EB88.ThreadLock + 8 * ((*(_QWORD *)(v25 + 40) >> 43) & 0x3FFLL)) + 4LL) & 0x20) != 0 )
+        if ( (*(_DWORD *)(*(_QWORD *)(stru_140E2ED08.ThreadLock + 8 * ((*(_QWORD *)(v25 + 40) >> 43) & 0x3FFLL)) + 4LL) & 0x20) != 0 )
         {
           v26 = MiHandleSpecialPurposeMemoryCachedFault(0LL, (__int64)(v12 << 25) >> 16, PrototypePteDirect, v25);
           v47 = v26;
@@ -326,7 +326,7 @@ LABEL_48:
   if ( v15 )
   {
     v36 = *v15;
-    MiReleasePtes((__int64)&stru_140E36558.WaitBlockList, v15, 1u);
+    MiReleasePtes((__int64)&stru_140E366D8.WaitBlockList, v15, 1u);
     if ( (v36 & 1) != 0 )
     {
       v39 = 48 * ((v36 >> 12) & 0xFFFFFFFFFFLL) - 0x220000000000LL;

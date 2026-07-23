@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpIommuSetupMessageInterruptRouting @ 0x140A911E0
+ * XREFs of HalpIommuSetupMessageInterruptRouting @ 0x140A91060
  * Callers:
- *     HalpIommuConfigureInterrupt @ 0x1403A9E68 (HalpIommuConfigureInterrupt.c)
+ *     HalpIommuConfigureInterrupt @ 0x1403AA048 (HalpIommuConfigureInterrupt.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall HalpIommuSetupMessageInterruptRouting(__int64 a1, __int64 a2)

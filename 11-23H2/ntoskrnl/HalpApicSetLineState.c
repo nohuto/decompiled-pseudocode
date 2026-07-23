@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpApicSetLineState @ 0x1403A3A40
+ * XREFs of HalpApicSetLineState @ 0x1403A3C20
  * Callers:
  *     <none>
  * Callees:
- *     HalpApicConvertToRte @ 0x1403A3B34 (HalpApicConvertToRte.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
+ *     HalpApicConvertToRte @ 0x1403A3D14 (HalpApicConvertToRte.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall HalpApicSetLineState(__int64 a1, _DWORD *a2, __int64 a3)

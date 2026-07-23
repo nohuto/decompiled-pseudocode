@@ -1,18 +1,18 @@
 /*
- * XREFs of SiGetSystemDeviceName @ 0x140AE9378
+ * XREFs of SiGetSystemDeviceName @ 0x140AEB728
  * Callers:
- *     SyspartGetFirmwarePartition @ 0x1407713C4 (SyspartGetFirmwarePartition.c)
- *     IopFindSystemDevice @ 0x14079B660 (IopFindSystemDevice.c)
- *     SyspartDirectGetFirmwareSystemPartition @ 0x140894600 (SyspartDirectGetFirmwareSystemPartition.c)
- *     SyspartGetSystemPartition @ 0x140894628 (SyspartGetSystemPartition.c)
- *     SyspartDirectGetSystemDisk @ 0x140AE9320 (SyspartDirectGetSystemDisk.c)
- *     SyspartDirectGetSystemPartition @ 0x140AE9350 (SyspartDirectGetSystemPartition.c)
+ *     SyspartGetFirmwarePartition @ 0x1407743C4 (SyspartGetFirmwarePartition.c)
+ *     IopFindSystemDevice @ 0x14079E1A0 (IopFindSystemDevice.c)
+ *     SyspartDirectGetFirmwareSystemPartition @ 0x14089AA00 (SyspartDirectGetFirmwareSystemPartition.c)
+ *     SyspartGetSystemPartition @ 0x14089AA28 (SyspartGetSystemPartition.c)
+ *     SyspartDirectGetSystemDisk @ 0x140AEB6D0 (SyspartDirectGetSystemDisk.c)
+ *     SyspartDirectGetSystemPartition @ 0x140AEB700 (SyspartDirectGetSystemPartition.c)
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     RtlCopyVolatileMemory @ 0x140733080 (RtlCopyVolatileMemory.c)
- *     RtlCopyToUser @ 0x14077F284 (RtlCopyToUser.c)
- *     SiGetFirmwareType @ 0x140AE9454 (SiGetFirmwareType.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     RtlCopyVolatileMemory @ 0x140737C50 (RtlCopyVolatileMemory.c)
+ *     RtlCopyToUser @ 0x140781D84 (RtlCopyToUser.c)
+ *     SiGetFirmwareType @ 0x140AEB804 (SiGetFirmwareType.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall SiGetSystemDeviceName(__int64 a1, void *a2, unsigned int a3, unsigned int *a4)

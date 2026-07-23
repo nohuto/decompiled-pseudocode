@@ -1,5 +1,5 @@
 /*
- * XREFs of MiContractWsSwapPageFileWorker @ 0x1402CB6E0
+ * XREFs of MiContractWsSwapPageFileWorker @ 0x1402CB8D0
  * Callers:
  *     <none>
  * Callees:
@@ -11,12 +11,12 @@
  *     MmGetSessionIdEx @ 0x14004F060 (MmGetSessionIdEx.c)
  *     KiLeaveGuardedRegionUnsafe @ 0x14004F090 (KiLeaveGuardedRegionUnsafe.c)
  *     KeWaitForSingleObject @ 0x140054880 (KeWaitForSingleObject.c)
- *     PsDereferencePartition @ 0x140090CC0 (PsDereferencePartition.c)
- *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     MiWsSwapPageFileNumber @ 0x1400E4E48 (MiWsSwapPageFileNumber.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     MiQueuePageFileExtension @ 0x1402B87E4 (MiQueuePageFileExtension.c)
+ *     PsDereferencePartition @ 0x140090C00 (PsDereferencePartition.c)
+ *     ExfTryToWakePushLock @ 0x140091500 (ExfTryToWakePushLock.c)
+ *     MiWsSwapPageFileNumber @ 0x1400E4EC8 (MiWsSwapPageFileNumber.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     MiQueuePageFileExtension @ 0x1402B89D4 (MiQueuePageFileExtension.c)
  */
 
 void __fastcall MiContractWsSwapPageFileWorker(__int64 a1)
@@ -92,7 +92,7 @@ void __fastcall MiContractWsSwapPageFileWorker(__int64 a1)
         {
           v15->CrossThreadReleasableAndBusyByte |= 2u;
           if ( (__int64)v15->LockState.LockState < 0 )
-            KiAbEntryRemoveFromTree((__int64)&v7->LockEntries[v14], v10);
+            KiAbEntryRemoveFromTree(&v7->LockEntries[v14].TreeNode, v10);
           v19 = 0;
           v19 = v15->BoostBitmap.AllFields & 0x1FFFF;
           v15->BoostBitmap.AllFields &= 0xFFFE0000;

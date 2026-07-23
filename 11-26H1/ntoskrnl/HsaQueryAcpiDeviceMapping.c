@@ -1,7 +1,7 @@
 /*
- * XREFs of HsaQueryAcpiDeviceMapping @ 0x1405AA780
+ * XREFs of HsaQueryAcpiDeviceMapping @ 0x1405ACF90
  * Callers:
- *     HsaIommuFindDevice @ 0x1405AA258 (HsaIommuFindDevice.c)
+ *     HsaIommuFindDevice @ 0x1405ACA68 (HsaIommuFindDevice.c)
  * Callees:
  *     <none>
  */

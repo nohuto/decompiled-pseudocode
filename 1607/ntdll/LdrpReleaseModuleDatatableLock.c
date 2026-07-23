@@ -1,12 +1,12 @@
 /*
- * XREFs of LdrpReleaseModuleDatatableLock @ 0x1800D0674
+ * XREFs of LdrpReleaseModuleDatatableLock @ 0x1800D0734
  * Callers:
- *     LdrpUnloadNode @ 0x18000D730 (LdrpUnloadNode.c)
+ *     LdrpUnloadNode @ 0x18000D720 (LdrpUnloadNode.c)
  * Callees:
  *     <none>
  */
 
-signed __int64 LdrpReleaseModuleDatatableLock()
+void LdrpReleaseModuleDatatableLock()
 {
-  return RtlReleaseSRWLockExclusive(&LdrpModuleDatatableLock);
+  RtlReleaseSRWLockExclusive(&LdrpModuleDatatableLock);
 }

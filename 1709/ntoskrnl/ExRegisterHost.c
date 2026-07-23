@@ -28,9 +28,9 @@ __int64 __fastcall ExRegisterHost(_QWORD *a1, __int64 a2, unsigned __int16 *a3)
   unsigned int v6; // esi
   _QWORD *v7; // rdi
   struct _KTHREAD *CurrentThread; // rax
-  unsigned __int64 v9; // rax
+  PRTL_BALANCED_NODE v9; // rax
   signed __int8 v10; // cf
-  unsigned __int64 v11; // rbp
+  PRTL_BALANCED_NODE v11; // rbp
   __int64 Host; // rbp
   _QWORD *v13; // rax
   char v14; // bl
@@ -55,9 +55,9 @@ __int64 __fastcall ExRegisterHost(_QWORD *a1, __int64 a2, unsigned __int16 *a3)
   v10 = _interlockedbittestandset64((volatile signed __int32 *)&ExpHostListLock, 0LL);
   v11 = v9;
   if ( v10 )
-    ExfAcquirePushLockExclusiveEx(&ExpHostListLock, v9, (__int16 *)&ExpHostListLock);
+    ExfAcquirePushLockExclusiveEx(&ExpHostListLock, (__int64)v9, (__int16 *)&ExpHostListLock);
   if ( v11 )
-    *(_BYTE *)(v11 + 26) |= 1u;
+    BYTE2(v11[1].Left) |= 1u;
   Host = ExpFindHost(*a3, a3[1]);
   if ( Host )
   {

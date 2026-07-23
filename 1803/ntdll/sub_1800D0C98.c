@@ -7,19 +7,20 @@
  *     ZwQuerySystemInformation @ 0x18009B180 (ZwQuerySystemInformation.c)
  */
 
-__int64 sub_1800D0C98()
+NTSTATUS sub_1800D0C98()
 {
-  __int64 result; // rax
-  unsigned int v1; // [rsp+28h] [rbp-50h]
-  unsigned int v2; // [rsp+38h] [rbp-40h]
+  NTSTATUS result; // eax
+  _BYTE SystemInformation[8]; // [rsp+20h] [rbp-58h] BYREF
+  unsigned int v2; // [rsp+28h] [rbp-50h]
+  unsigned int v3; // [rsp+38h] [rbp-40h]
 
-  qword_18015BF98 = 0LL;
-  result = ZwQuerySystemInformation();
-  if ( (int)result >= 0 )
+  stru_18015BF98.Ptr = 0LL;
+  result = ZwQuerySystemInformation(SystemBasicInformation, SystemInformation, 0x40u, 0LL);
+  if ( result >= 0 )
   {
-    qword_18015BFA0 = v1;
-    qword_18015BF90 = v2;
-    return 0LL;
+    qword_18015BFA0 = v2;
+    qword_18015BF90 = v3;
+    return 0;
   }
   return result;
 }

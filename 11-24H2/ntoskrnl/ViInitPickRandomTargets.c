@@ -1,10 +1,10 @@
 /*
- * XREFs of ViInitPickRandomTargets @ 0x140C3B598
+ * XREFs of ViInitPickRandomTargets @ 0x140C3D6F0
  * Callers:
- *     ViInitSystemPhase0 @ 0x140C3B6E4 (ViInitSystemPhase0.c)
+ *     ViInitSystemPhase0 @ 0x140C3D83C (ViInitSystemPhase0.c)
  * Callees:
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     VfRandomGetNumber @ 0x140B830DC (VfRandomGetNumber.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     VfRandomGetNumber @ 0x140B850DC (VfRandomGetNumber.c)
  */
 
 __int64 ViInitPickRandomTargets()
@@ -32,14 +32,14 @@ __int64 ViInitPickRandomTargets()
     v2 = ViExpectedDriversCount + 2;
     if ( (unsigned int)(ViExpectedDriversCount + 2) > 0x200 )
       v2 = 512;
-    qword_140FFCBE8 = (__int64)&VfRandomTargetsBitMap;
+    qword_140FFDBE8 = (__int64)&VfRandomTargetsBitMap;
     v3 = 2 * (int)result > (unsigned int)ViExpectedDriversCount;
     memset_0(&VfRandomTargetsBitMap, 0, 0x40uLL);
     for ( i = 0; i < VfRandomVerifiedDrivers; ++i )
     {
       Number = VfRandomGetNumber(1u, v2 - 1);
       v6 = (unsigned __int64)Number >> 3;
-      if ( ((*(char *)(v6 + qword_140FFCBE8) >> (Number & 7)) & 1) != 0 )
+      if ( ((*(char *)(v6 + qword_140FFDBE8) >> (Number & 7)) & 1) != 0 )
       {
         if ( v3 )
         {
@@ -54,12 +54,12 @@ __int64 ViInitPickRandomTargets()
             if ( !v7 )
               v7 = 1;
             v8 = (unsigned __int64)v7 >> 3;
-            if ( ((*(char *)(v8 + qword_140FFCBE8) >> (v7 & 7)) & 1) == 0 )
+            if ( ((*(char *)(v8 + qword_140FFDBE8) >> (v7 & 7)) & 1) == 0 )
               break;
             if ( v7 == Number )
               goto LABEL_17;
           }
-          *(_BYTE *)(v8 + qword_140FFCBE8) |= 1 << (v7 & 7);
+          *(_BYTE *)(v8 + qword_140FFDBE8) |= 1 << (v7 & 7);
 LABEL_17:
           if ( v7 == Number )
             break;
@@ -67,7 +67,7 @@ LABEL_17:
       }
       else
       {
-        *(_BYTE *)(v6 + qword_140FFCBE8) |= 1 << (Number & 7);
+        *(_BYTE *)(v6 + qword_140FFDBE8) |= 1 << (Number & 7);
       }
     }
     VfRandomVerifiedDrivers -= v1;

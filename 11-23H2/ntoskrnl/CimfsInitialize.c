@@ -3,16 +3,16 @@
  * Callers:
  *     IopInitializeBootDrivers @ 0x140B3CEB4 (IopInitializeBootDrivers.c)
  * Callees:
- *     RtlStringCbPrintfW @ 0x140229604 (RtlStringCbPrintfW.c)
- *     RtlInitUnicodeString @ 0x14022E1B0 (RtlInitUnicodeString.c)
- *     PnpBootDeviceWait @ 0x140374B4C (PnpBootDeviceWait.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     strstr @ 0x1403D91D0 (strstr.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     memset @ 0x140435A00 (memset.c)
+ *     RtlStringCbPrintfW @ 0x140229714 (RtlStringCbPrintfW.c)
+ *     RtlInitUnicodeString @ 0x14022E2C0 (RtlInitUnicodeString.c)
+ *     PnpBootDeviceWait @ 0x140374CEC (PnpBootDeviceWait.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     strstr @ 0x1403D93B0 (strstr.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
+ *     memset @ 0x140435E00 (memset.c)
  *     RtlStringFromGUID @ 0x140685290 (RtlStringFromGUID.c)
- *     RtlFreeUnicodeString @ 0x14076F3D0 (RtlFreeUnicodeString.c)
- *     IoCreateSymbolicLink @ 0x14086FC60 (IoCreateSymbolicLink.c)
+ *     RtlFreeUnicodeString @ 0x14076F5C0 (RtlFreeUnicodeString.c)
+ *     IoCreateSymbolicLink @ 0x14086FEA0 (IoCreateSymbolicLink.c)
  *     CimfsGetDiskParameters @ 0x140B9B0E0 (CimfsGetDiskParameters.c)
  */
 

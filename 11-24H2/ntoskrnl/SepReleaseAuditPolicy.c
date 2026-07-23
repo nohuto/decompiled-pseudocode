@@ -1,9 +1,9 @@
 /*
- * XREFs of SepReleaseAuditPolicy @ 0x1407924CC
+ * XREFs of SepReleaseAuditPolicy @ 0x14079249C
  * Callers:
- *     NtSetInformationToken @ 0x140AD6C10 (NtSetInformationToken.c)
+ *     NtSetInformationToken @ 0x140AD4280 (NtSetInformationToken.c)
  * Callees:
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __fastcall SepReleaseAuditPolicy(void *a1, unsigned __int8 a2)

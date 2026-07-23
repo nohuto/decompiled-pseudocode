@@ -1,11 +1,11 @@
 /*
- * XREFs of _vsnwprintf_l @ 0x1800917FC
+ * XREFs of _vsnwprintf_l @ 0x18009180C
  * Callers:
- *     _vsnwprintf @ 0x1800917E0 (_vsnwprintf.c)
+ *     _vsnwprintf @ 0x1800917F0 (_vsnwprintf.c)
  * Callees:
- *     _invalid_parameter @ 0x18008FDE8 (_invalid_parameter.c)
- *     _flsbuf @ 0x180096480 (_flsbuf.c)
- *     _woutput_l @ 0x180096E20 (_woutput_l.c)
+ *     _invalid_parameter @ 0x18008FDF8 (_invalid_parameter.c)
+ *     _flsbuf @ 0x180096490 (_flsbuf.c)
+ *     _woutput_l @ 0x180096E30 (_woutput_l.c)
  */
 
 int __cdecl vsnwprintf_l(

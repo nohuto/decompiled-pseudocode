@@ -1,15 +1,14 @@
 /*
- * XREFs of ZwOpenKeyEx @ 0x140725970
+ * XREFs of ZwOpenKeyEx @ 0x14072A540
  * Callers:
- *     DifZwOpenKeyExWrapper @ 0x1406ABE50 (DifZwOpenKeyExWrapper.c)
- *     DrvDbGetDriverPackageMappedProperty @ 0x14091C280 (DrvDbGetDriverPackageMappedProperty.c)
- *     _RegRtlOpenKeyTransacted @ 0x140997950 (_RegRtlOpenKeyTransacted.c)
- *     MfgInitSystem @ 0x140CAB968 (MfgInitSystem.c)
+ *     DifZwOpenKeyExWrapper @ 0x1406AFA30 (DifZwOpenKeyExWrapper.c)
+ *     _RegRtlOpenKeyTransacted @ 0x1409583B0 (_RegRtlOpenKeyTransacted.c)
+ *     DrvDbGetDriverPackageMappedProperty @ 0x140976CE0 (DrvDbGetDriverPackageMappedProperty.c)
+ *     MfgInitSystem @ 0x140CB19A8 (MfgInitSystem.c)
  * Callees:
  *     <none>
  */
 
-// local variable allocation has failed, the output may be wrong!
 NTSTATUS __stdcall ZwOpenKeyEx(
         PHANDLE KeyHandle,
         ACCESS_MASK DesiredAccess,
@@ -18,5 +17,5 @@ NTSTATUS __stdcall ZwOpenKeyEx(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(KeyHandle, *(_QWORD *)&DesiredAccess);
+  return KiServiceInternal(KeyHandle);
 }

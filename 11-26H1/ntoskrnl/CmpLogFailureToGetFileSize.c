@@ -1,13 +1,13 @@
 /*
- * XREFs of CmpLogFailureToGetFileSize @ 0x140ACDF34
+ * XREFs of CmpLogFailureToGetFileSize @ 0x140AD0174
  * Callers:
- *     CmpLoadHiveThread @ 0x14084B550 (CmpLoadHiveThread.c)
- *     CmpMountPreloadedHives @ 0x14084C298 (CmpMountPreloadedHives.c)
- *     CmpInitializeActualFileSizes @ 0x140ACDD58 (CmpInitializeActualFileSizes.c)
+ *     CmpLoadHiveThread @ 0x140851860 (CmpLoadHiveThread.c)
+ *     CmpMountPreloadedHives @ 0x1408525A8 (CmpMountPreloadedHives.c)
+ *     CmpInitializeActualFileSizes @ 0x140ACFF98 (CmpInitializeActualFileSizes.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212E30 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgKeywordOn @ 0x14044F850 (_tlgKeywordOn.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212F10 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x140447980 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 void CmpLogFailureToGetFileSize()
@@ -36,6 +36,6 @@ void CmpLogFailureToGetFileSize()
     v9 = 4LL;
     v4 = 0x1000000LL;
     v11 = 8LL;
-    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140E09EE8, (unsigned __int8 *)&byte_140056FFF, 0LL, 0LL, 5u, &v5);
+    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140E09EE8, (unsigned __int8 *)word_140057FF2, 0LL, 0LL, 5u, &v5);
   }
 }

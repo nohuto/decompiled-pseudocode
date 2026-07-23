@@ -1,16 +1,16 @@
 /*
- * XREFs of LookUpTableFlushComplete @ 0x14014915C
+ * XREFs of LookUpTableFlushComplete @ 0x1401496CC
  * Callers:
- *     FlushWorkItemRoutineKernelMode @ 0x1400AF00C (FlushWorkItemRoutineKernelMode.c)
- *     RegisteredProviderEtwCallback @ 0x1401490F8 (RegisteredProviderEtwCallback.c)
- *     TlgAggregateInternalProviderCallback @ 0x14014C904 (TlgAggregateInternalProviderCallback.c)
+ *     FlushWorkItemRoutineKernelMode @ 0x1400AD574 (FlushWorkItemRoutineKernelMode.c)
+ *     RegisteredProviderEtwCallback @ 0x140149668 (RegisteredProviderEtwCallback.c)
+ *     TlgAggregateInternalProviderCallback @ 0x14014CE74 (TlgAggregateInternalProviderCallback.c)
  * Callees:
- *     _TlgWrite @ 0x14000A598 (_TlgWrite.c)
- *     _TlgKeywordOn @ 0x140088D98 (_TlgKeywordOn.c)
- *     FlushLookUpTableBucket @ 0x1400AF0E0 (FlushLookUpTableBucket.c)
- *     UpdateInternalStatsOnFlush @ 0x1400AF2DC (UpdateInternalStatsOnFlush.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     _TlgWrite @ 0x14000A118 (_TlgWrite.c)
+ *     FlushLookUpTableBucket @ 0x1400AD648 (FlushLookUpTableBucket.c)
+ *     UpdateInternalStatsOnFlush @ 0x1400AD844 (UpdateInternalStatsOnFlush.c)
+ *     _TlgKeywordOn @ 0x14010CF88 (_TlgKeywordOn.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     memset @ 0x140171AC0 (memset.c)
  */
 
 _UNKNOWN **__fastcall LookUpTableFlushComplete(__int64 a1)
@@ -88,7 +88,7 @@ _UNKNOWN **__fastcall LookUpTableFlushComplete(__int64 a1)
         v31 = 4LL;
         v33 = 4LL;
         v35 = 4LL;
-        TlgWrite(&stru_1402F3DD0, &unk_14027F118, 0LL, 0LL, 0xBu, &pData);
+        TlgWrite(&stru_1402F3DD0, &unk_14027F218, 0LL, 0LL, 0xBu, &pData);
       }
       memset(&v15[1], 0, 0x28uLL);
       v7 = *(_OWORD *)&v15[3];

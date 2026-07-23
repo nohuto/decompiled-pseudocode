@@ -1,8 +1,8 @@
 /*
- * XREFs of RtlpHpSegSetNotifyOnEmpty @ 0x14024E8BC
+ * XREFs of RtlpHpSegSetNotifyOnEmpty @ 0x14025021C
  * Callers:
- *     MmBuildMdlForNonPagedPool @ 0x14024C4E0 (MmBuildMdlForNonPagedPool.c)
- *     MiUpdateNonPagedPoolNoSteal @ 0x14024E3BC (MiUpdateNonPagedPoolNoSteal.c)
+ *     MmBuildMdlForNonPagedPool @ 0x14024DE40 (MmBuildMdlForNonPagedPool.c)
+ *     MiUpdateNonPagedPoolNoSteal @ 0x14024FD1C (MiUpdateNonPagedPoolNoSteal.c)
  * Callees:
  *     <none>
  */

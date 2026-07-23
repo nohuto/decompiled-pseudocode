@@ -1,19 +1,19 @@
 /*
- * XREFs of SiGetBootDeviceName @ 0x1406A49A4
+ * XREFs of SiGetBootDeviceName @ 0x1406025D4
  * Callers:
- *     SiGetSystemPartition @ 0x1406A4830 (SiGetSystemPartition.c)
- *     SiGetFirmwareSystemPartition @ 0x1406A4880 (SiGetFirmwareSystemPartition.c)
- *     SiGetSystemDisk @ 0x14077ADF0 (SiGetSystemDisk.c)
+ *     SiGetSystemPartition @ 0x140602460 (SiGetSystemPartition.c)
+ *     SiGetFirmwareSystemPartition @ 0x1406024B0 (SiGetFirmwareSystemPartition.c)
+ *     SiGetSystemDisk @ 0x14077AFB0 (SiGetSystemDisk.c)
  * Callees:
- *     SiValidateSystemPartition @ 0x1402BDA40 (SiValidateSystemPartition.c)
- *     wcsstr @ 0x1403D4190 (wcsstr.c)
- *     swprintf_s @ 0x1403D68F0 (swprintf_s.c)
- *     _snwscanf_s @ 0x1403D72E0 (_snwscanf_s.c)
- *     memmove @ 0x140413F40 (memmove.c)
- *     SiGetBootDeviceNameFromRegistry @ 0x1406A4B58 (SiGetBootDeviceNameFromRegistry.c)
- *     SiTranslateSymbolicLink @ 0x1406A4F0C (SiTranslateSymbolicLink.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     SiValidateSystemPartition @ 0x14023C080 (SiValidateSystemPartition.c)
+ *     wcsstr @ 0x1403D4300 (wcsstr.c)
+ *     swprintf_s @ 0x1403D6A60 (swprintf_s.c)
+ *     _snwscanf_s @ 0x1403D7450 (_snwscanf_s.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     SiGetBootDeviceNameFromRegistry @ 0x140602788 (SiGetBootDeviceNameFromRegistry.c)
+ *     SiTranslateSymbolicLink @ 0x140602B3C (SiTranslateSymbolicLink.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall SiGetBootDeviceName(int a1, __int64 a2, char a3, _DWORD *a4, char a5, _QWORD *a6)

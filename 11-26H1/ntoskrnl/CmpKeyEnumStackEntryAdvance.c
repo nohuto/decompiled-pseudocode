@@ -1,14 +1,14 @@
 /*
- * XREFs of CmpKeyEnumStackEntryAdvance @ 0x1409826D4
+ * XREFs of CmpKeyEnumStackEntryAdvance @ 0x1409446E4
  * Callers:
- *     CmpKeyEnumStackAdvanceInternal @ 0x1409821FC (CmpKeyEnumStackAdvanceInternal.c)
+ *     CmpKeyEnumStackAdvanceInternal @ 0x14094420C (CmpKeyEnumStackAdvanceInternal.c)
  * Callees:
- *     HvpGetCellFlat @ 0x14085EB00 (HvpGetCellFlat.c)
- *     HvpReleaseCellFlat @ 0x1408D51E0 (HvpReleaseCellFlat.c)
- *     HvpReleaseCellPaged @ 0x1408D73B0 (HvpReleaseCellPaged.c)
- *     HvpGetCellPaged @ 0x1408D7410 (HvpGetCellPaged.c)
- *     CmpDoFindSubKeyByNumber @ 0x140983100 (CmpDoFindSubKeyByNumber.c)
- *     CmpCompareKeysByName @ 0x140A46F20 (CmpCompareKeysByName.c)
+ *     HvpGetCellFlat @ 0x140864DF0 (HvpGetCellFlat.c)
+ *     HvpReleaseCellFlat @ 0x1408DB7A0 (HvpReleaseCellFlat.c)
+ *     HvpReleaseCellPaged @ 0x1408DD970 (HvpReleaseCellPaged.c)
+ *     HvpGetCellPaged @ 0x1408DD9D0 (HvpGetCellPaged.c)
+ *     CmpDoFindSubKeyByNumber @ 0x140945110 (CmpDoFindSubKeyByNumber.c)
+ *     CmpCompareKeysByName @ 0x140A50214 (CmpCompareKeysByName.c)
  */
 
 __int64 __fastcall CmpKeyEnumStackEntryAdvance(_QWORD *a1)

@@ -116,7 +116,9 @@ LABEL_16:
       if ( *(_BYTE *)(a1 + 57) )
       {
         ExReleaseSpinLockExclusiveFromDpcLevel(v20);
-        if ( KiIrqlFlags && (CurrentIrql = KeGetCurrentIrql(), (KiIrqlFlags & 1) != 0) && CurrentIrql <= 0xFu )
+        if ( (_DWORD)KiIrqlFlags
+          && (CurrentIrql = KeGetCurrentIrql(), ((unsigned __int8)KiIrqlFlags & 1) != 0)
+          && CurrentIrql <= 0xFu )
         {
           v21 = v31;
           if ( v31 <= 0xFu && CurrentIrql >= 2u )

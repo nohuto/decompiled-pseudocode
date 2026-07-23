@@ -7,12 +7,12 @@
  *     RtlCompareUnicodeStrings @ 0x18001A040 (RtlCompareUnicodeStrings.c)
  */
 
-__int64 __fastcall sub_1800290D0(_DWORD *a1, unsigned __int16 *a2, unsigned __int16 a3)
+__int64 __fastcall sub_1800290D0(_DWORD *a1, const WCHAR *a2, unsigned __int16 a3)
 {
   unsigned int v6; // edi
-  unsigned __int16 *v7; // r8
+  const WCHAR *v7; // r8
   __int64 v8; // r9
-  unsigned __int16 v9; // cx
+  WCHAR v9; // cx
   __int64 v10; // rbx
   int v11; // ecx
   int v12; // r8d
@@ -58,12 +58,12 @@ LABEL_10:
   }
   v10 = (__int64)&a1[6 * *(_DWORD *)((char *)a1 + v14 + 4)] + (unsigned int)a1[4];
   if ( !v10
-    || !(unsigned int)RtlCompareUnicodeStrings(
-                        a2,
-                        a3,
-                        (__int64)a1 + *(unsigned int *)(v10 + 4),
-                        (unsigned __int64)*(unsigned int *)(v10 + 12) >> 1,
-                        1) )
+    || !RtlCompareUnicodeStrings(
+          a2,
+          a3,
+          (PCWCH)((char *)a1 + *(unsigned int *)(v10 + 4)),
+          (unsigned __int64)*(unsigned int *)(v10 + 12) >> 1,
+          1u) )
   {
     return v10;
   }

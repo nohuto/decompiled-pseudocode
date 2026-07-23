@@ -17,7 +17,7 @@ __int64 __fastcall LdrpRedirectDelayloadFailure(
         __int64 (__fastcall *a4)(__int64, _DWORD *),
         __int64 (__fastcall *a5)(__int64, __int64),
         __int64 a6,
-        unsigned int a7)
+        NTSTATUS Status)
 {
   __int64 v10; // rdx
   __int64 v11; // rsi
@@ -27,19 +27,20 @@ __int64 __fastcall LdrpRedirectDelayloadFailure(
   __int64 v15; // rax
   unsigned int v16; // edi
   __int64 v17; // rbx
-  __int64 v18; // r15
-  char v19; // al
-  _DWORD v21[2]; // [rsp+58h] [rbp-41h] BYREF
-  unsigned int *v22; // [rsp+60h] [rbp-39h]
-  __int64 v23; // [rsp+68h] [rbp-31h]
-  __int64 v24; // [rsp+70h] [rbp-29h]
-  int v25; // [rsp+78h] [rbp-21h]
-  __int64 v26; // [rsp+80h] [rbp-19h]
-  __int64 v27; // [rsp+88h] [rbp-11h]
-  int v28; // [rsp+98h] [rbp-1h]
+  const char *v18; // rcx
+  __int64 v19; // r15
+  char v20; // al
+  _DWORD v22[2]; // [rsp+58h] [rbp-41h] BYREF
+  unsigned int *v23; // [rsp+60h] [rbp-39h]
+  __int64 v24; // [rsp+68h] [rbp-31h]
+  __int64 v25; // [rsp+70h] [rbp-29h]
+  int v26; // [rsp+78h] [rbp-21h]
+  __int64 v27; // [rsp+80h] [rbp-19h]
+  __int64 v28; // [rsp+88h] [rbp-11h]
+  ULONG v29; // [rsp+98h] [rbp-1h]
 
-  v21[1] = 0;
-  memset_thunk_772440563353939046(v21, 0, 0x44uLL);
+  v22[1] = 0;
+  memset_thunk_772440563353939046(v22, 0, 0x44uLL);
   v10 = *(_QWORD *)(a1 + 48);
   v11 = 0LL;
   v12 = (a6 - a3[3] - v10) >> 3;
@@ -55,49 +56,58 @@ __int64 __fastcall LdrpRedirectDelayloadFailure(
   {
     v16 = 0;
     v17 = v15 + v10 + 2;
+    v18 = (const char *)v17;
+    if ( v17 )
+      goto LABEL_3;
   }
+  v18 = "Unknown";
+LABEL_3:
   LdrpLogInternal(
-    (__int64)"minkernel\\ldr\\ldrdload.c",
+    "minkernel\\ldr\\ldrdload.c",
     461,
     (__int64)"LdrpRedirectDelayloadFailure",
     0,
     "Failed to find export %s!%s (Ordinal:%d) in \"%wZ\"  0x%08lx\n",
-    v14);
+    v14,
+    v18,
+    v16,
+    a1 + 88,
+    Status);
   if ( a2 )
   {
-    v18 = *(_QWORD *)(a2 + 48);
+    v19 = *(_QWORD *)(a2 + 48);
     if ( (LdrpPolicyBits & 0x10) == 0 && (*(_BYTE *)(a2 + 104) & 1) == 0 )
     {
-      v19 = 0;
+      v20 = 0;
       goto LABEL_6;
     }
   }
   else
   {
-    v18 = 0LL;
+    v19 = 0LL;
   }
-  v19 = 1;
+  v20 = 1;
 LABEL_6:
-  if ( !a4 || !v19 )
+  if ( !a4 || !v20 )
     goto LABEL_7;
-  memset_thunk_772440563353939046(v21, 0, 0x48uLL);
-  v22 = a3;
-  v23 = a6;
-  v21[0] = 72;
-  v24 = v14;
-  v27 = v18;
-  v28 = RtlNtStatusToDosErrorNoTeb(a7);
+  memset_thunk_772440563353939046(v22, 0, 0x48uLL);
+  v23 = a3;
+  v24 = a6;
+  v22[0] = 72;
+  v25 = v14;
+  v28 = v19;
+  v29 = RtlNtStatusToDosErrorNoTeb(Status);
   if ( v17 )
   {
-    v25 = 1;
-    v26 = v17;
+    v26 = 1;
+    v27 = v17;
   }
   else
   {
-    v25 = 0;
-    LODWORD(v26) = v16;
+    v26 = 0;
+    LODWORD(v27) = v16;
   }
-  v11 = a4(4LL, v21);
+  v11 = a4(4LL, v22);
   if ( !v11 )
   {
 LABEL_7:

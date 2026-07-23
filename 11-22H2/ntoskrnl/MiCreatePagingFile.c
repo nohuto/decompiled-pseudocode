@@ -197,8 +197,8 @@ __int64 __fastcall MiCreatePagingFile(
   }
   Acl = RtlCreateAcl(v18, v17, 2u);
   if ( Acl < 0
-    || (Acl = RtlpAddKnownAce((__int64)v19, 2u, 0, 2032127, (unsigned __int8 *)SeAliasAdminsSid, 0), Acl < 0)
-    || (Acl = RtlpAddKnownAce((__int64)v19, 2u, 0, 2032127, (unsigned __int8 *)SeLocalSystemSid, 0), Acl < 0)
+    || (Acl = RtlpAddKnownAce(v19, 2u, 0, 2032127, (unsigned __int8 *)SeAliasAdminsSid, 0), Acl < 0)
+    || (Acl = RtlpAddKnownAce(v19, 2u, 0, 2032127, (unsigned __int8 *)SeLocalSystemSid, 0), Acl < 0)
     || (Acl = RtlSetDaclSecurityDescriptor(SecurityDescriptor, 1u, v19, 0), Acl < 0) )
   {
 LABEL_89:

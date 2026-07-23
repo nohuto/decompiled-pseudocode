@@ -1,15 +1,15 @@
 /*
- * XREFs of KiFinalizeTimer2Disablement @ 0x1403AA6A8
+ * XREFs of KiFinalizeTimer2Disablement @ 0x1403B42B8
  * Callers:
- *     KiExpireTimer2 @ 0x140336F08 (KiExpireTimer2.c)
- *     KiUpdateTimer2Flags @ 0x1403AA610 (KiUpdateTimer2Flags.c)
+ *     KiExpireTimer2 @ 0x140338F88 (KiExpireTimer2.c)
+ *     KiUpdateTimer2Flags @ 0x1403B4220 (KiUpdateTimer2Flags.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     EtwTraceTimedEvent @ 0x14032B770 (EtwTraceTimedEvent.c)
- *     EtwGetKernelTraceTimestamp @ 0x14032D2B0 (EtwGetKernelTraceTimestamp.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     EtwTraceTimedEvent @ 0x14032D7A0 (EtwTraceTimedEvent.c)
+ *     EtwGetKernelTraceTimestamp @ 0x14032F2E0 (EtwGetKernelTraceTimestamp.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall KiFinalizeTimer2Disablement(unsigned __int64 a1, __int64 a2, __int64 a3)
@@ -41,12 +41,12 @@ __int64 __fastcall KiFinalizeTimer2Disablement(unsigned __int64 a1, __int64 a2, 
   v7 = 0LL;
   v8 = *(_QWORD *)(a1 + 112);
   v9 = (unsigned int)KiWaitNever;
-  v10 = (unsigned __int64)stru_140FC01F0.WaitBlock[2].WaitListEntry.Flink ^ _byteswap_uint64(a1 ^ __ROL8__(
+  v10 = (unsigned __int64)stru_140FC11F0.WaitBlock[2].WaitListEntry.Blink ^ _byteswap_uint64(a1 ^ __ROL8__(
                                                                                                     KiWaitNever ^ v8,
                                                                                                     KiWaitNever));
   if ( v10 )
   {
-    v7 = (unsigned __int64)stru_140FC01F0.WaitBlock[2].WaitListEntry.Flink ^ _byteswap_uint64(a1 ^ __ROL8__(
+    v7 = (unsigned __int64)stru_140FC11F0.WaitBlock[2].WaitListEntry.Blink ^ _byteswap_uint64(a1 ^ __ROL8__(
                                                                                                      KiWaitNever ^ *(_QWORD *)(a1 + 120),
                                                                                                      KiWaitNever));
     CurrentIrql = KeGetCurrentIrql();
@@ -71,11 +71,11 @@ __int64 __fastcall KiFinalizeTimer2Disablement(unsigned __int64 a1, __int64 a2, 
     v13[1] = v10;
     v13[0] = 0x7E35C6C7F3DD7277LL
            * (KiWaitNever ^ __ROR8__(
-                              (unsigned __int64)stru_140FC01F0.WaitBlock[2].WaitListEntry.Flink ^ _byteswap_uint64((unsigned __int64)stru_140FC01F0.WaitBlock[2].WaitListEntry.Flink ^ a1) ^ _byteswap_uint64(a1 ^ __ROL8__(KiWaitNever ^ v3, KiWaitNever)),
+                              (unsigned __int64)stru_140FC11F0.WaitBlock[2].WaitListEntry.Blink ^ _byteswap_uint64((unsigned __int64)stru_140FC11F0.WaitBlock[2].WaitListEntry.Blink ^ a1) ^ _byteswap_uint64(a1 ^ __ROL8__(KiWaitNever ^ v3, KiWaitNever)),
                               KiWaitNever));
     v13[2] = 0x7E35C6C7F3DD7277LL
            * (KiWaitNever ^ __ROR8__(
-                              a1 ^ _byteswap_uint64((unsigned __int64)stru_140FC01F0.WaitBlock[2].WaitListEntry.Flink ^ v7),
+                              a1 ^ _byteswap_uint64((unsigned __int64)stru_140FC11F0.WaitBlock[2].WaitListEntry.Blink ^ v7),
                               KiWaitNever));
     if ( !v10 )
       EtwGetKernelTraceTimestamp((unsigned __int64)v14, 0x40020000uLL, KiWaitNever);

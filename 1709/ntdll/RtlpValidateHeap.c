@@ -29,222 +29,215 @@
 char __fastcall RtlpValidateHeap(__int64 a1, char a2)
 {
   unsigned __int16 v3; // r15
-  __int64 v4; // r12
-  int v6; // r8d
-  int v7; // r13d
-  _QWORD *v8; // rsi
-  _QWORD *v9; // rdi
-  __int64 v10; // rdx
-  __int64 *v11; // rdi
+  char *v4; // r12
+  int v6; // r13d
+  _QWORD *v7; // rsi
+  __int64 v8; // rdi
+  __int64 v9; // rdx
+  __int64 *v10; // rdi
+  unsigned __int16 v11; // ax
   unsigned __int16 v12; // ax
-  unsigned __int16 v13; // ax
-  __int64 v14; // rcx
-  int v16; // eax
-  _QWORD *v17; // rdi
-  __int64 v18; // rcx
-  __int64 v19; // rsi
-  unsigned __int16 v20; // di
-  __int64 v21; // rdi
-  unsigned __int16 v22; // si
-  __int64 v23; // [rsp+40h] [rbp-10h] BYREF
-  __int64 v24; // [rsp+48h] [rbp-8h] BYREF
-  int v25; // [rsp+90h] [rbp+40h] BYREF
-  __int64 v26; // [rsp+A0h] [rbp+50h] BYREF
-  __int64 v27; // [rsp+A8h] [rbp+58h] BYREF
+  __int64 v13; // rcx
+  _QWORD *v15; // rdi
+  __int64 v16; // rcx
+  __int64 v17; // rsi
+  unsigned __int16 v18; // di
+  __int64 v19; // rdi
+  unsigned __int16 v20; // si
+  __int64 v21; // [rsp+40h] [rbp-10h] BYREF
+  __int64 v22; // [rsp+48h] [rbp-8h] BYREF
+  PVOID BaseAddress; // [rsp+A0h] [rbp+50h] BYREF
+  ULONG_PTR RegionSize; // [rsp+A8h] [rbp+58h] BYREF
 
-  v24 = a1;
+  v22 = a1;
   v3 = 0;
   v4 = 0LL;
-  v26 = 0LL;
+  BaseAddress = 0LL;
   if ( !(unsigned __int8)RtlpValidateHeapHeaders((void *)a1) )
     goto LABEL_37;
   if ( a2 || (*(_DWORD *)(a1 + 112) & 0x20000000) != 0 )
   {
-    v7 = 0;
-    v8 = *(_QWORD **)(a1 + 336);
-    while ( (_QWORD *)(a1 + 336) != v8 )
+    v6 = 0;
+    v7 = *(_QWORD **)(a1 + 336);
+    while ( (_QWORD *)(a1 + 336) != v7 )
     {
-      v9 = v8 - 2;
+      v8 = (__int64)(v7 - 2);
       if ( *(_DWORD *)(a1 + 124) )
       {
-        *((_DWORD *)v9 + 2) ^= *(_DWORD *)(a1 + 136);
-        if ( *((_BYTE *)v9 + 11) != (*((_BYTE *)v9 + 8) ^ (unsigned __int8)(*((_BYTE *)v9 + 9) ^ *((_BYTE *)v9 + 10))) )
-          RtlpAnalyzeHeapFailure(a1, (unsigned __int64)(v8 - 2));
+        *(_DWORD *)(v8 + 8) ^= *(_DWORD *)(a1 + 136);
+        if ( *(_BYTE *)(v8 + 11) != (*(_BYTE *)(v8 + 8) ^ (unsigned __int8)(*(_BYTE *)(v8 + 9) ^ *(_BYTE *)(v8 + 10))) )
+          RtlpAnalyzeHeapFailure(a1, (unsigned __int64)(v7 - 2));
       }
-      v8 = (_QWORD *)*v8;
-      v27 = *((unsigned __int16 *)v9 + 4);
-      v24 = (__int64)v9;
-      if ( (*((_BYTE *)v9 + 10) & 1) != 0 )
+      v7 = (_QWORD *)*v7;
+      RegionSize = *(unsigned __int16 *)(v8 + 8);
+      v22 = v8;
+      if ( (*(_BYTE *)(v8 + 10) & 1) != 0 )
       {
         if ( NtCurrentPeb()->Ldr )
           DbgPrint("HEAP[%wZ]: ", &NtCurrentPeb()->Ldr->InLoadOrderModuleList.Flink[5].Blink);
         else
           DbgPrint("HEAP: ");
-        DbgPrint("dedicated (%04Ix) free list element %p is marked busy\n", v27, v9);
+        DbgPrint("dedicated (%04Ix) free list element %p is marked busy\n", RegionSize, (const void *)v8);
 LABEL_35:
         if ( *(_DWORD *)(a1 + 124) )
         {
-          *((_BYTE *)v9 + 11) = *((_BYTE *)v9 + 8) ^ *((_BYTE *)v9 + 9) ^ *((_BYTE *)v9 + 10);
-          *((_DWORD *)v9 + 2) ^= *(_DWORD *)(a1 + 136);
+          *(_BYTE *)(v8 + 11) = *(_BYTE *)(v8 + 8) ^ *(_BYTE *)(v8 + 9) ^ *(_BYTE *)(v8 + 10);
+          *(_DWORD *)(v8 + 8) ^= *(_DWORD *)(a1 + 136);
         }
         goto LABEL_37;
       }
-      if ( *((_WORD *)v9 + 4) < v3 )
+      if ( *(_WORD *)(v8 + 8) < v3 )
       {
         if ( NtCurrentPeb()->Ldr )
           DbgPrint("HEAP[%wZ]: ", &NtCurrentPeb()->Ldr->InLoadOrderModuleList.Flink[5].Blink);
         else
           DbgPrint("HEAP: ");
-        DbgPrint("Non-Dedicated free list element %p is out of order\n", v9);
+        DbgPrint("Non-Dedicated free list element %p is out of order\n", (const void *)v8);
         goto LABEL_35;
       }
-      v3 = *((_WORD *)v9 + 4);
+      v3 = *(_WORD *)(v8 + 8);
       if ( *(_DWORD *)(a1 + 124) )
       {
-        *((_BYTE *)v9 + 11) = v3 ^ *((_BYTE *)v9 + 9) ^ *((_BYTE *)v9 + 10);
-        *((_DWORD *)v9 + 2) ^= *(_DWORD *)(a1 + 136);
+        *(_BYTE *)(v8 + 11) = v3 ^ *(_BYTE *)(v8 + 9) ^ *(_BYTE *)(v8 + 10);
+        *(_DWORD *)(v8 + 8) ^= *(_DWORD *)(a1 + 136);
       }
-      ++v7;
+      ++v6;
     }
-    v27 = 8LL * ((unsigned int)*(unsigned __int16 *)(a1 + 224) + 130);
-    if ( RtlpValidateHeapTagsEnable && *(_QWORD *)(a1 + 328) && (int)ZwAllocateVirtualMemory() >= 0 )
-      v4 = v26 + 1032;
-    v10 = 129LL;
-    v11 = *(__int64 **)(a1 + 272);
-    if ( (__int64 *)(a1 + 272) != v11 )
+    RegionSize = 8LL * ((unsigned int)*(unsigned __int16 *)(a1 + 224) + 130);
+    if ( RtlpValidateHeapTagsEnable
+      && *(_QWORD *)(a1 + 328)
+      && ZwAllocateVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &BaseAddress, 0LL, &RegionSize, 0x1000u, 4u) >= 0 )
+    {
+      v4 = (char *)BaseAddress + 1032;
+    }
+    v9 = 129LL;
+    v10 = *(__int64 **)(a1 + 272);
+    if ( (__int64 *)(a1 + 272) != v10 )
     {
       while ( 1 )
       {
         if ( *(_DWORD *)(a1 + 124) )
         {
-          *((_DWORD *)v11 + 14) ^= *(_DWORD *)(a1 + 136);
-          if ( *((_BYTE *)v11 + 59) != (*((_BYTE *)v11 + 56) ^ (unsigned __int8)(*((_BYTE *)v11 + 57) ^ *((_BYTE *)v11 + 58))) )
+          *((_DWORD *)v10 + 14) ^= *(_DWORD *)(a1 + 136);
+          if ( *((_BYTE *)v10 + 59) != (*((_BYTE *)v10 + 56) ^ (unsigned __int8)(*((_BYTE *)v10 + 57) ^ *((_BYTE *)v10 + 58))) )
           {
-            RtlpAnalyzeHeapFailure(a1, (unsigned __int64)(v11 + 6));
-            v10 = 129LL;
+            RtlpAnalyzeHeapFailure(a1, (unsigned __int64)(v10 + 6));
+            v9 = 129LL;
           }
         }
         if ( v4 )
         {
-          v12 = *((_WORD *)v11 + 9);
-          if ( v12 )
+          v11 = *((_WORD *)v10 + 9);
+          if ( v11 )
           {
-            if ( (v12 & 0x8000u) == 0 )
+            if ( (v11 & 0x8000u) == 0 )
             {
-              if ( (v12 & 0x800) == 0 && v12 < *(_WORD *)(a1 + 224) )
-                *(_QWORD *)(v4 + 8LL * v12) += (unsigned __int64)v11[4] >> 4;
+              if ( (v11 & 0x800) == 0 && v11 < *(_WORD *)(a1 + 224) )
+                *(_QWORD *)&v4[8 * v11] += (unsigned __int64)v10[4] >> 4;
             }
             else
             {
-              v13 = v12 & 0x7FFF;
-              if ( v13 < 0x81u )
+              v12 = v11 & 0x7FFF;
+              if ( v12 < 0x81u )
               {
-                v10 = v13;
-                *(_QWORD *)(v26 + 8LL * v13) += (unsigned __int64)v11[4] >> 4;
+                v9 = v12;
+                *((_QWORD *)BaseAddress + v12) += (unsigned __int64)v10[4] >> 4;
               }
             }
           }
         }
-        if ( (*((_BYTE *)v11 + 58) & 4) != 0 && !RtlpCheckBusyBlockTail(a1, (unsigned __int64)(v11 + 6)) )
+        if ( (*((_BYTE *)v10 + 58) & 4) != 0 && !RtlpCheckBusyBlockTail(a1, (unsigned __int64)(v10 + 6)) )
           break;
         if ( *(_DWORD *)(a1 + 124) )
         {
-          *((_BYTE *)v11 + 59) = *((_BYTE *)v11 + 56) ^ *((_BYTE *)v11 + 57) ^ *((_BYTE *)v11 + 58);
-          *((_DWORD *)v11 + 14) ^= *(_DWORD *)(a1 + 136);
+          *((_BYTE *)v10 + 59) = *((_BYTE *)v10 + 56) ^ *((_BYTE *)v10 + 57) ^ *((_BYTE *)v10 + 58);
+          *((_DWORD *)v10 + 14) ^= *(_DWORD *)(a1 + 136);
         }
-        v11 = (__int64 *)*v11;
-        if ( (__int64 *)(a1 + 272) == v11 )
+        v10 = (__int64 *)*v10;
+        if ( (__int64 *)(a1 + 272) == v10 )
           goto LABEL_51;
-        v10 = 129LL;
+        v9 = 129LL;
       }
       if ( *(_DWORD *)(a1 + 124) )
       {
-        *((_BYTE *)v11 + 59) = *((_BYTE *)v11 + 56) ^ *((_BYTE *)v11 + 57) ^ *((_BYTE *)v11 + 58);
-        *((_DWORD *)v11 + 14) ^= *(_DWORD *)(a1 + 136);
+        *((_BYTE *)v10 + 59) = *((_BYTE *)v10 + 56) ^ *((_BYTE *)v10 + 57) ^ *((_BYTE *)v10 + 58);
+        *((_DWORD *)v10 + 14) ^= *(_DWORD *)(a1 + 136);
       }
       return 0;
     }
 LABEL_51:
-    v16 = 0;
-    v17 = *(_QWORD **)(a1 + 288);
-    v18 = 0LL;
-    v25 = 0;
-    v23 = 0LL;
-    if ( v17 == (_QWORD *)(a1 + 288) )
+    v15 = *(_QWORD **)(a1 + 288);
+    v16 = 0LL;
+    v21 = 0LL;
+    if ( v15 == (_QWORD *)(a1 + 288) )
     {
 LABEL_55:
-      if ( v7 == v16 )
+      if ( v6 )
       {
-        if ( *(_QWORD *)(a1 + 192) == v18 )
+        if ( NtCurrentPeb()->Ldr )
+          DbgPrint("HEAP[%wZ]: ", &NtCurrentPeb()->Ldr->InLoadOrderModuleList.Flink[5].Blink);
+        else
+          DbgPrint("HEAP: ", v9);
+        DbgPrint("Number of free blocks in arena (%ld) does not match number in the free lists (%ld)\n", 0, v6);
+      }
+      else if ( *(_QWORD *)(a1 + 192) == v16 )
+      {
+        if ( !BaseAddress )
+          return 1;
+        v17 = *(_QWORD *)(a1 + 328);
+        if ( v17 )
         {
-          if ( !v26 )
-            return 1;
-          v19 = *(_QWORD *)(a1 + 328);
-          if ( v19 )
+          v18 = 1;
+          while ( 1 )
           {
-            v20 = 1;
-            while ( 1 )
-            {
-              v19 += 16LL;
-              v18 = *(_QWORD *)(v19 + 8);
-              if ( *(_QWORD *)(v26 + 8LL * v20) != v18 )
-                break;
-              if ( ++v20 >= 0x81u )
-                goto LABEL_70;
-            }
-            if ( NtCurrentPeb()->Ldr )
-              DbgPrint("HEAP[%wZ]: ", &NtCurrentPeb()->Ldr->InLoadOrderModuleList.Flink[5].Blink, 129LL);
-            else
-              DbgPrint("HEAP: ", 1LL, 129LL);
-            DbgPrint(
-              "Pseudo Tag %04x size incorrect (%Ix != %Ix) %p\n",
-              v20,
-              *(_QWORD *)(v19 + 8),
-              *(_QWORD *)(v26 + 8LL * v20),
-              (const void *)(v26 + 8LL * v20));
+            v17 += 16LL;
+            v16 = *(_QWORD *)(v17 + 8);
+            if ( *((_QWORD *)BaseAddress + v18) != v16 )
+              break;
+            if ( ++v18 >= 0x81u )
+              goto LABEL_70;
           }
+          if ( NtCurrentPeb()->Ldr )
+            DbgPrint("HEAP[%wZ]: ", &NtCurrentPeb()->Ldr->InLoadOrderModuleList.Flink[5].Blink, 129LL);
           else
-          {
-LABEL_70:
-            v21 = *(_QWORD *)(a1 + 232);
-            if ( !v21 || (v18 = *(unsigned __int16 *)(a1 + 224), v22 = 1, (unsigned __int16)v18 <= 1u) )
-            {
-LABEL_74:
-              v27 = 0LL;
-              RtlpSecMemFreeVirtualMemory(v18, &v26, &v27, 0x8000LL);
-              return 1;
-            }
-            while ( 1 )
-            {
-              v21 += 72LL;
-              if ( *(_QWORD *)(v4 + 8LL * v22) != *(_QWORD *)(v21 + 8) )
-                break;
-              if ( ++v22 >= (unsigned __int16)v18 )
-                goto LABEL_74;
-            }
-            if ( NtCurrentPeb()->Ldr )
-              DbgPrint("HEAP[%wZ]: ", &NtCurrentPeb()->Ldr->InLoadOrderModuleList.Flink[5].Blink);
-            else
-              DbgPrint("HEAP: ", 1LL);
-            DbgPrint(
-              "Tag %04x (%ws) size incorrect (%Ix != %Ix) %p\n",
-              v22,
-              v21 + 20,
-              *(_QWORD *)(v21 + 8),
-              *(_QWORD *)(v4 + 8LL * v22),
-              v4 + 8LL * v22);
-          }
+            DbgPrint("HEAP: ", 1LL, 129LL);
+          DbgPrint(
+            "Pseudo Tag %04x size incorrect (%Ix != %Ix) %p\n",
+            v18,
+            *(_QWORD *)(v17 + 8),
+            *((_QWORD *)BaseAddress + v18),
+            (char *)BaseAddress + 8 * v18);
         }
         else
         {
+LABEL_70:
+          v19 = *(_QWORD *)(a1 + 232);
+          if ( !v19 || (v16 = *(unsigned __int16 *)(a1 + 224), v20 = 1, (unsigned __int16)v16 <= 1u) )
+          {
+LABEL_74:
+            RegionSize = 0LL;
+            RtlpSecMemFreeVirtualMemory(v16, &BaseAddress, &RegionSize, 0x8000u);
+            return 1;
+          }
+          while ( 1 )
+          {
+            v19 += 72LL;
+            if ( *(_QWORD *)&v4[8 * v20] != *(_QWORD *)(v19 + 8) )
+              break;
+            if ( ++v20 >= (unsigned __int16)v16 )
+              goto LABEL_74;
+          }
           if ( NtCurrentPeb()->Ldr )
             DbgPrint("HEAP[%wZ]: ", &NtCurrentPeb()->Ldr->InLoadOrderModuleList.Flink[5].Blink);
           else
-            DbgPrint("HEAP: ", v10);
+            DbgPrint("HEAP: ", 1LL);
           DbgPrint(
-            "Total size of free blocks in arena (%Id) does not match number total in heap header (%Id)\n",
-            v23,
-            *(_QWORD *)(a1 + 192));
+            "Tag %04x (%ws) size incorrect (%Ix != %Ix) %p\n",
+            v20,
+            v19 + 20,
+            *(_QWORD *)(v19 + 8),
+            *(_QWORD *)&v4[8 * v20],
+            &v4[8 * v20]);
         }
       }
       else
@@ -252,37 +245,36 @@ LABEL_74:
         if ( NtCurrentPeb()->Ldr )
           DbgPrint("HEAP[%wZ]: ", &NtCurrentPeb()->Ldr->InLoadOrderModuleList.Flink[5].Blink);
         else
-          DbgPrint("HEAP: ", v10);
-        DbgPrint("Number of free blocks in arena (%ld) does not match number in the free lists (%ld)\n", v25, v7);
+          DbgPrint("HEAP: ", v9);
+        DbgPrint(
+          "Total size of free blocks in arena (%Id) does not match number total in heap header (%Id)\n",
+          v21,
+          *(_QWORD *)(a1 + 192));
       }
     }
     else
     {
       while ( (unsigned __int8)RtlpValidateHeapSegment(
                                  a1,
-                                 (int)v17 - 24,
-                                 v6,
-                                 (unsigned int)&v25,
-                                 (__int64)&v23,
-                                 (__int64)&v24,
-                                 v4,
-                                 v26) )
+                                 (__int64)&v21,
+                                 (__int64)&v22,
+                                 (__int64)v4,
+                                 (__int64)BaseAddress) )
       {
-        v17 = (_QWORD *)*v17;
-        if ( v17 == (_QWORD *)(a1 + 288) )
+        v15 = (_QWORD *)*v15;
+        if ( v15 == (_QWORD *)(a1 + 288) )
         {
-          v16 = v25;
-          v18 = v23;
+          v16 = v21;
           goto LABEL_55;
         }
       }
     }
 LABEL_37:
     RtlpBreakPointHeap();
-    if ( v26 )
+    if ( BaseAddress )
     {
-      v27 = 0LL;
-      RtlpSecMemFreeVirtualMemory(v14, &v26, &v27, 0x8000LL);
+      RegionSize = 0LL;
+      RtlpSecMemFreeVirtualMemory(v13, &BaseAddress, &RegionSize, 0x8000u);
     }
     return 0;
   }

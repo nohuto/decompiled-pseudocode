@@ -1,13 +1,13 @@
 /*
- * XREFs of MiVadSupportsCombine @ 0x140307A0C
+ * XREFs of MiVadSupportsCombine @ 0x1402E9A8C
  * Callers:
- *     MiCrcStillIntact @ 0x140307648 (MiCrcStillIntact.c)
- *     MiShareValidPage @ 0x140704A2C (MiShareValidPage.c)
+ *     MiCrcStillIntact @ 0x1402E96C8 (MiCrcStillIntact.c)
+ *     MiShareValidPage @ 0x1407096FC (MiShareValidPage.c)
  * Callees:
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402DC6D0 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     MiLockVadTree @ 0x1403265D0 (MiLockVadTree.c)
- *     MiLocateAddress @ 0x140326730 (MiLocateAddress.c)
- *     MiVadSupportsPrivateCommit @ 0x1403BBFA4 (MiVadSupportsPrivateCommit.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402BE490 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     MiLockVadTree @ 0x140328600 (MiLockVadTree.c)
+ *     MiLocateAddress @ 0x140328760 (MiLocateAddress.c)
+ *     MiVadSupportsPrivateCommit @ 0x1403C5E14 (MiVadSupportsPrivateCommit.c)
  */
 
 __int64 __fastcall MiVadSupportsCombine(__int64 a1, __int64 a2)

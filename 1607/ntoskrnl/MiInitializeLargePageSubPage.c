@@ -1,7 +1,7 @@
 /*
- * XREFs of MiInitializeLargePageSubPage @ 0x1401FD4E8
+ * XREFs of MiInitializeLargePageSubPage @ 0x1401FD314
  * Callers:
- *     MiConstructNewLargeFreePage @ 0x1401FD0F0 (MiConstructNewLargeFreePage.c)
+ *     MiConstructNewLargeFreePage @ 0x1401FCF1C (MiConstructNewLargeFreePage.c)
  * Callees:
  *     <none>
  */

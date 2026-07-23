@@ -1,10 +1,10 @@
 /*
- * XREFs of MiGetLargePageChain @ 0x14008A454
+ * XREFs of MiGetLargePageChain @ 0x140089B54
  * Callers:
- *     MiExpandNonPagedPool @ 0x140101824 (MiExpandNonPagedPool.c)
+ *     MiExpandNonPagedPool @ 0x1400FF5A4 (MiExpandNonPagedPool.c)
  * Callees:
- *     MiReplenishFromNodeLargePages @ 0x14008A4D0 (MiReplenishFromNodeLargePages.c)
- *     MiFreeLargePageChain @ 0x1401FB72C (MiFreeLargePageChain.c)
+ *     MiReplenishFromNodeLargePages @ 0x140089BD0 (MiReplenishFromNodeLargePages.c)
+ *     MiFreeLargePageChain @ 0x1401FB558 (MiFreeLargePageChain.c)
  */
 
 _QWORD *__fastcall MiGetLargePageChain(int a1, unsigned __int64 a2)

@@ -1,8 +1,8 @@
 /*
- * XREFs of EtwpGetEnableInfoIndex @ 0x14047C560
+ * XREFs of EtwpGetEnableInfoIndex @ 0x140475ED0
  * Callers:
- *     SendCaptureStateNotificationsWorker @ 0x14082D4F0 (SendCaptureStateNotificationsWorker.c)
- *     EtwpBufferingModeFlush @ 0x140A13654 (EtwpBufferingModeFlush.c)
+ *     SendCaptureStateNotificationsWorker @ 0x140833730 (SendCaptureStateNotificationsWorker.c)
+ *     EtwpBufferingModeFlush @ 0x140A12844 (EtwpBufferingModeFlush.c)
  * Callees:
  *     <none>
  */

@@ -1,12 +1,12 @@
 /*
- * XREFs of PiClearDeviceObjectList @ 0x1407393A0
+ * XREFs of PiClearDeviceObjectList @ 0x140739560
  * Callers:
- *     PiAllocateDeviceObjectList @ 0x1407392E8 (PiAllocateDeviceObjectList.c)
- *     IopFreeRelationList @ 0x140739350 (IopFreeRelationList.c)
- *     PipGrowDeviceObjectList @ 0x1408B28D0 (PipGrowDeviceObjectList.c)
+ *     PiAllocateDeviceObjectList @ 0x1407394A8 (PiAllocateDeviceObjectList.c)
+ *     IopFreeRelationList @ 0x140739510 (IopFreeRelationList.c)
+ *     PipGrowDeviceObjectList @ 0x1408B2A30 (PipGrowDeviceObjectList.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
- *     memset @ 0x140414200 (memset.c)
+ *     ObfDereferenceObjectWithTag @ 0x140355E90 (ObfDereferenceObjectWithTag.c)
+ *     memset @ 0x140414300 (memset.c)
  */
 
 void *__fastcall PiClearDeviceObjectList(_DWORD *a1)

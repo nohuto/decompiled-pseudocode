@@ -86,7 +86,7 @@ __int64 __fastcall MmOutSwapWorkingSet(PEPROCESS Process, int a2)
   unsigned __int8 v45; // r12
   unsigned int v46; // edx
   __int64 v47; // rcx
-  unsigned __int64 v48; // r14
+  __int64 v48; // r14
   __int64 v49; // rdx
   __int64 v50; // rcx
   PVOID v51; // rdi
@@ -439,7 +439,7 @@ LABEL_71:
     {
       while ( 1 )
       {
-        v48 = (unsigned __int64)&v44->LockEntries[v47];
+        v48 = (__int64)&v44->LockEntries[v47];
         v46 &= ~(1 << v47);
         if ( (*(_BYTE *)(v48 + 26) & 1) != 0
           && (*(_DWORD *)(v48 + 32) & 1) == 0
@@ -463,12 +463,12 @@ LABEL_70:
       }
       *(_BYTE *)(v48 + 32) |= 2u;
       if ( *(__int64 *)(v48 + 32) < 0 )
-        KiAbEntryRemoveFromTree(v48);
+        KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)v48);
       LODWORD(v74) = *(_DWORD *)(v48 + 88) & 0x1FFFF;
       *(_DWORD *)(v48 + 88) &= 0xFFFE0000;
       *(_BYTE *)(v48 + 25) &= ~1u;
       *(_QWORD *)(v48 + 32) = 0LL;
-      v49 = (__int64)(v48 - (unsigned __int64)v44->LockEntries) / 96;
+      v49 = (signed __int64)(v48 - (unsigned __int64)v44->LockEntries) / 96;
       if ( v45 == 1 )
         v44->AbEntrySummary |= 1 << v49;
       else

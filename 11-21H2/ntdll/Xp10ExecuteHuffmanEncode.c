@@ -9,7 +9,7 @@
 
 __int64 __fastcall Xp10ExecuteHuffmanEncode(
         __int16 **a1,
-        __int64 a2,
+        unsigned int *a2,
         int a3,
         __int64 a4,
         unsigned int a5,
@@ -21,7 +21,7 @@ __int64 __fastcall Xp10ExecuteHuffmanEncode(
   unsigned __int16 *v12; // rdi
   __int16 v13; // r10
   unsigned int *v14; // rdx
-  unsigned int v15; // r14d
+  ULONG v15; // r14d
   int v16; // ecx
   int v17; // r10d
   unsigned int v18; // eax
@@ -34,7 +34,7 @@ __int64 __fastcall Xp10ExecuteHuffmanEncode(
   __int16 **v25; // r15
   unsigned int v26; // esi
   unsigned int v27; // r10d
-  __int64 v28; // rax
+  unsigned int *v28; // rax
   _DWORD *v29; // rax
   unsigned __int16 *v30; // r13
   unsigned int v31; // r8d
@@ -81,10 +81,8 @@ __int64 __fastcall Xp10ExecuteHuffmanEncode(
   unsigned int v72; // r11d
   _BYTE *v73; // r9
   unsigned __int64 v74; // rcx
-  unsigned int v75; // [rsp+40h] [rbp-48h] BYREF
-  __int64 v76; // [rsp+48h] [rbp-40h]
-  int v77; // [rsp+50h] [rbp-38h] BYREF
-  __int64 v78; // [rsp+58h] [rbp-30h]
+  _RTL_BITMAP Destination; // [rsp+40h] [rbp-48h] BYREF
+  _RTL_BITMAP Source; // [rsp+50h] [rbp-38h] BYREF
 
   v8 = *((_DWORD *)a1 + 6);
   v10 = a6;
@@ -296,12 +294,12 @@ __int64 __fastcall Xp10ExecuteHuffmanEncode(
         *(_DWORD *)(v10 + 8) = v15;
         if ( 8 * a3 + v15 <= v27 )
         {
-          v28 = *(_QWORD *)v10;
-          v77 = 8 * a3;
-          v76 = v28;
-          v78 = a2;
-          v75 = v27;
-          RtlCopyBitMap((unsigned int *)&v77, (__int64)&v75, v15);
+          v28 = *(unsigned int **)v10;
+          Source.SizeOfBitMap = 8 * a3;
+          Destination.Buffer = v28;
+          Source.Buffer = a2;
+          Destination.SizeOfBitMap = v27;
+          RtlCopyBitMap(&Source, &Destination, v15);
           v29 = a7;
           *(_DWORD *)(v10 + 8) += 8 * a3;
           *(_OWORD *)(a1 + 1) = 0LL;

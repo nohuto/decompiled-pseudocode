@@ -63,7 +63,7 @@ __int64 __fastcall SeAccessCheckWithHint(
   }
   else
   {
-    v16 = ZwQuerySystemInformation(SystemContextSwitchInformation|0x80, SystemInformation, 0x20u, 0LL) >= 0
+    v16 = ZwQuerySystemInformation(SystemCodeIntegrityPolicyInformation, SystemInformation, 0x20u, 0LL) >= 0
        && (SystemInformation[0] & 0xA0000000) != 0;
     g_inSMode = v16;
     g_sModeChecked = 1;

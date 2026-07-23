@@ -1,12 +1,12 @@
 /*
- * XREFs of WmipLinkDataSourceToList @ 0x140708224
+ * XREFs of WmipLinkDataSourceToList @ 0x1407094C4
  * Callers:
- *     WmipAddDataSource @ 0x1407075D0 (WmipAddDataSource.c)
- *     WmipUpdateAddGuid @ 0x1408B476C (WmipUpdateAddGuid.c)
+ *     WmipAddDataSource @ 0x140708870 (WmipAddDataSource.c)
+ *     WmipUpdateAddGuid @ 0x1408B5A2C (WmipUpdateAddGuid.c)
  * Callees:
- *     WmipFindGEByGuid @ 0x1406127A0 (WmipFindGEByGuid.c)
- *     WmipAllocGuidEntry @ 0x140750290 (WmipAllocGuidEntry.c)
- *     WmipRegisterEtwProvider @ 0x140758A7C (WmipRegisterEtwProvider.c)
+ *     WmipFindGEByGuid @ 0x1406137A0 (WmipFindGEByGuid.c)
+ *     WmipAllocGuidEntry @ 0x140751480 (WmipAllocGuidEntry.c)
+ *     WmipRegisterEtwProvider @ 0x140759C6C (WmipRegisterEtwProvider.c)
  */
 
 __int64 __fastcall WmipLinkDataSourceToList(__int64 a1, char a2, __int64 a3)

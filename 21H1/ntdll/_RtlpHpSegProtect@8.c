@@ -7,44 +7,44 @@
  *     _ZwProtectVirtualMemory@20 @ 0x4B2F2E80 (_ZwProtectVirtualMemory@20.c)
  */
 
-int __fastcall RtlpHpSegProtect(_DWORD *a1, int a2)
+NTSTATUS __fastcall RtlpHpSegProtect(_DWORD *a1, int a2)
 {
-  _DWORD *v3; // edi
-  _DWORD *i; // esi
-  int v5; // ecx
+  char *v3; // edi
+  char *i; // esi
+  char *v5; // ecx
   bool j; // cf
-  int result; // eax
-  _BYTE v8[12]; // [esp+Ch] [ebp-30h] BYREF
-  int v9; // [esp+18h] [ebp-24h]
-  int v10; // [esp+1Ch] [ebp-20h]
-  _BYTE v11[4]; // [esp+28h] [ebp-14h] BYREF
-  unsigned int v12; // [esp+2Ch] [ebp-10h]
-  int v13; // [esp+30h] [ebp-Ch] BYREF
-  int v14; // [esp+34h] [ebp-8h]
-  int v15; // [esp+38h] [ebp-4h] BYREF
+  NTSTATUS result; // eax
+  ULONG_PTR *v8; // [esp+0h] [ebp-3Ch]
+  _BYTE MemoryInformation[12]; // [esp+Ch] [ebp-30h] BYREF
+  int v10; // [esp+18h] [ebp-24h]
+  int v11; // [esp+1Ch] [ebp-20h]
+  ULONG OldProtect; // [esp+28h] [ebp-14h] BYREF
+  char *v13; // [esp+2Ch] [ebp-10h]
+  ULONG_PTR RegionSize; // [esp+30h] [ebp-Ch] BYREF
+  PVOID BaseAddress; // [esp+38h] [ebp-4h] BYREF
 
-  v14 = a2;
-  v3 = a1 + 17;
-  for ( i = (_DWORD *)a1[17]; i != v3; i = (_DWORD *)*i )
+  HIDWORD(RegionSize) = a2;
+  v3 = (char *)(a1 + 17);
+  for ( i = (char *)a1[17]; i != v3; i = *(char **)i )
   {
-    v5 = (int)i;
-    v12 = (unsigned int)i - *a1;
-    for ( j = (unsigned int)i < v12; ; j = v9 + v15 < v12 )
+    v5 = i;
+    v13 = &i[-*a1];
+    for ( j = i < v13; ; j = (char *)BaseAddress + v10 < v13 )
     {
-      v15 = v5;
+      BaseAddress = v5;
       if ( !j )
         break;
-      result = NtQueryVirtualMemory(-1, v5, 0, (int)v8, 28, 0);
+      result = NtQueryVirtualMemory((HANDLE)0xFFFFFFFF, v5, MemoryBasicInformation, MemoryInformation, 0x1CuLL, v8);
       if ( result < 0 )
         return result;
-      if ( v10 == 4096 )
+      if ( v11 == 4096 )
       {
-        v13 = v9;
-        result = ZwProtectVirtualMemory(-1, (int)&v15, (int)&v13, v14, (int)v11);
+        LODWORD(RegionSize) = v10;
+        result = ZwProtectVirtualMemory((HANDLE)0xFFFFFFFF, &BaseAddress, &RegionSize, HIDWORD(RegionSize), &OldProtect);
         if ( result < 0 )
           return result;
       }
-      v5 = v9 + v15;
+      v5 = (char *)BaseAddress + v10;
     }
   }
   return 0;

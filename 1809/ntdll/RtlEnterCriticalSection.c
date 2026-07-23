@@ -46,25 +46,25 @@
  *     LdrpWorkCallback @ 0x180070C60 (LdrpWorkCallback.c)
  *     LdrpProcessWork @ 0x180070CEC (LdrpProcessWork.c)
  *     LdrpQueueWork @ 0x1800718CC (LdrpQueueWork.c)
- *     LdrAddLoadAsDataTable @ 0x1800783D0 (LdrAddLoadAsDataTable.c)
- *     LdrRemoveLoadAsDataTable @ 0x180078F30 (LdrRemoveLoadAsDataTable.c)
- *     LdrpDropLastInProgressCount @ 0x180079EDC (LdrpDropLastInProgressCount.c)
- *     RtlpQueryExtendedHeapInformation @ 0x18007B16C (RtlpQueryExtendedHeapInformation.c)
- *     RtlpEnumProcessHeaps @ 0x18007B33C (RtlpEnumProcessHeaps.c)
- *     RtlSetCurrentDirectory_U @ 0x18007B760 (RtlSetCurrentDirectory_U.c)
- *     RtlpReferenceCurrentDirectory @ 0x18007BAA8 (RtlpReferenceCurrentDirectory.c)
- *     RtlSetHeapInformation @ 0x18007E690 (RtlSetHeapInformation.c)
- *     RtlpSetRequestedFrontEndHeap @ 0x18007E754 (RtlpSetRequestedFrontEndHeap.c)
- *     RtlAcquirePebLock @ 0x18007E840 (RtlAcquirePebLock.c)
- *     RtlpSetProcMergedLangList @ 0x180084AFC (RtlpSetProcMergedLangList.c)
- *     RtlSetEnvironmentStrings @ 0x180085E50 (RtlSetEnvironmentStrings.c)
- *     AVrfDllLoadNotification @ 0x180087A7C (AVrfDllLoadNotification.c)
- *     LdrRegisterDllNotification @ 0x180087BC0 (LdrRegisterDllNotification.c)
- *     RtlSetProcessPreferredUILanguages @ 0x180088CD0 (RtlSetProcessPreferredUILanguages.c)
- *     RtlGetProcessPreferredUILanguages @ 0x18008BBD0 (RtlGetProcessPreferredUILanguages.c)
- *     RtlCompactHeap @ 0x18008C090 (RtlCompactHeap.c)
- *     RtlpQueryPseudoEnvironmentVariable @ 0x18008E184 (RtlpQueryPseudoEnvironmentVariable.c)
- *     RtlSetCurrentEnvironment @ 0x18008F010 (RtlSetCurrentEnvironment.c)
+ *     LdrAddLoadAsDataTable @ 0x1800783E0 (LdrAddLoadAsDataTable.c)
+ *     LdrRemoveLoadAsDataTable @ 0x180078F40 (LdrRemoveLoadAsDataTable.c)
+ *     LdrpDropLastInProgressCount @ 0x180079EEC (LdrpDropLastInProgressCount.c)
+ *     RtlpQueryExtendedHeapInformation @ 0x18007B17C (RtlpQueryExtendedHeapInformation.c)
+ *     RtlpEnumProcessHeaps @ 0x18007B34C (RtlpEnumProcessHeaps.c)
+ *     RtlSetCurrentDirectory_U @ 0x18007B770 (RtlSetCurrentDirectory_U.c)
+ *     RtlpReferenceCurrentDirectory @ 0x18007BAB8 (RtlpReferenceCurrentDirectory.c)
+ *     RtlSetHeapInformation @ 0x18007E6A0 (RtlSetHeapInformation.c)
+ *     RtlpSetRequestedFrontEndHeap @ 0x18007E764 (RtlpSetRequestedFrontEndHeap.c)
+ *     RtlAcquirePebLock @ 0x18007E850 (RtlAcquirePebLock.c)
+ *     RtlpSetProcMergedLangList @ 0x180084B0C (RtlpSetProcMergedLangList.c)
+ *     RtlSetEnvironmentStrings @ 0x180085E60 (RtlSetEnvironmentStrings.c)
+ *     AVrfDllLoadNotification @ 0x180087A8C (AVrfDllLoadNotification.c)
+ *     LdrRegisterDllNotification @ 0x180087BD0 (LdrRegisterDllNotification.c)
+ *     RtlSetProcessPreferredUILanguages @ 0x180088CE0 (RtlSetProcessPreferredUILanguages.c)
+ *     RtlGetProcessPreferredUILanguages @ 0x18008BBE0 (RtlGetProcessPreferredUILanguages.c)
+ *     RtlCompactHeap @ 0x18008C0A0 (RtlCompactHeap.c)
+ *     RtlpQueryPseudoEnvironmentVariable @ 0x18008E194 (RtlpQueryPseudoEnvironmentVariable.c)
+ *     RtlSetCurrentEnvironment @ 0x18008F020 (RtlSetCurrentEnvironment.c)
  *     LdrpCreateSoftwareEnclave @ 0x1800CF1E0 (LdrpCreateSoftwareEnclave.c)
  *     LdrpDeleteEnclave @ 0x1800CF2BC (LdrpDeleteEnclave.c)
  *     LdrUnregisterDllNotification @ 0x1800D04A0 (LdrUnregisterDllNotification.c)
@@ -105,26 +105,26 @@
  *     RtlpEnterCriticalSectionContended @ 0x1800143C0 (RtlpEnterCriticalSectionContended.c)
  */
 
-__int64 __fastcall RtlEnterCriticalSection(__int64 a1)
+NTSTATUS __cdecl RtlEnterCriticalSection(PRTL_CRITICAL_SECTION CriticalSection)
 {
   struct _TEB *v1; // rax
   signed __int8 v2; // cf
   void *UniqueThread; // rax
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
   v1 = NtCurrentTeb();
-  v2 = _interlockedbittestandreset((volatile signed __int32 *)(a1 + 8), 0);
+  v2 = _interlockedbittestandreset(&CriticalSection->LockCount, 0);
   UniqueThread = v1->ClientId.UniqueThread;
   if ( v2 )
   {
-    *(_QWORD *)(a1 + 16) = UniqueThread;
-    result = 0LL;
-    *(_DWORD *)(a1 + 12) = 1;
+    CriticalSection->OwningThread = UniqueThread;
+    result = 0;
+    CriticalSection->RecursionCount = 1;
   }
-  else if ( *(void **)(a1 + 16) == UniqueThread )
+  else if ( CriticalSection->OwningThread == UniqueThread )
   {
-    ++*(_DWORD *)(a1 + 12);
-    return 0LL;
+    ++CriticalSection->RecursionCount;
+    return 0;
   }
   else
   {

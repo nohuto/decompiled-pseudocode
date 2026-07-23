@@ -1,9 +1,9 @@
 /*
- * XREFs of PiCMReleasePropertyInputData @ 0x14098DDF4
+ * XREFs of PiCMReleasePropertyInputData @ 0x14094E854
  * Callers:
- *     PiCMSetObjectProperty @ 0x14098DA68 (PiCMSetObjectProperty.c)
+ *     PiCMSetObjectProperty @ 0x14094E4C8 (PiCMSetObjectProperty.c)
  * Callees:
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PiCMReleasePropertyInputData(__int64 a1)

@@ -1,10 +1,10 @@
 /*
- * XREFs of VfGetDmaAlignment @ 0x140707570
+ * XREFs of VfGetDmaAlignment @ 0x1407075A0
  * Callers:
  *     <none>
  * Callees:
- *     VF_ASSERT_IRQL @ 0x140705F68 (VF_ASSERT_IRQL.c)
- *     ViGetRealDmaOperation @ 0x140709924 (ViGetRealDmaOperation.c)
+ *     VF_ASSERT_IRQL @ 0x140705F98 (VF_ASSERT_IRQL.c)
+ *     ViGetRealDmaOperation @ 0x140709954 (ViGetRealDmaOperation.c)
  */
 
 __int64 __fastcall VfGetDmaAlignment(__int64 a1)

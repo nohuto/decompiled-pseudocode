@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlpQueryPackageIdentityAttributes @ 0x14000DAB8
+ * XREFs of RtlpQueryPackageIdentityAttributes @ 0x14000D638
  * Callers:
- *     RtlQueryPackageClaims @ 0x14000CCEC (RtlQueryPackageClaims.c)
- *     EtwpQueryPsmKey @ 0x14069FA04 (EtwpQueryPsmKey.c)
+ *     RtlQueryPackageClaims @ 0x14000C86C (RtlQueryPackageClaims.c)
+ *     EtwpQueryPsmKey @ 0x14069FB3C (EtwpQueryPsmKey.c)
  * Callees:
- *     SeQuerySecurityAttributesToken @ 0x14040EF20 (SeQuerySecurityAttributesToken.c)
+ *     SeQuerySecurityAttributesToken @ 0x14040DDE0 (SeQuerySecurityAttributesToken.c)
  */
 
 __int64 __fastcall RtlpQueryPackageIdentityAttributes(int a1, __int64 a2, __int64 a3, _QWORD *a4, _QWORD *a5)

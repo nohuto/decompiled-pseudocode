@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlStringCbLengthW @ 0x1800DEA30
+ * XREFs of RtlStringCbLengthW @ 0x1800DB9A0
  * Callers:
- *     RtlpConvertAbsoluteToRelativeSecurityAttribute @ 0x180112830 (RtlpConvertAbsoluteToRelativeSecurityAttribute.c)
- *     RtlpValidRelativeAttribute @ 0x180124520 (RtlpValidRelativeAttribute.c)
- *     RtlpConvertRelativeToAbsoluteSecurityAttribute @ 0x18013EC80 (RtlpConvertRelativeToAbsoluteSecurityAttribute.c)
+ *     RtlpConvertAbsoluteToRelativeSecurityAttribute @ 0x1801122E0 (RtlpConvertAbsoluteToRelativeSecurityAttribute.c)
+ *     RtlpValidRelativeAttribute @ 0x180124290 (RtlpValidRelativeAttribute.c)
+ *     RtlpConvertRelativeToAbsoluteSecurityAttribute @ 0x18013EB30 (RtlpConvertRelativeToAbsoluteSecurityAttribute.c)
  * Callees:
  *     <none>
  */

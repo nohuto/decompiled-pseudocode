@@ -1,25 +1,25 @@
 /*
- * XREFs of IoSetIoCompletionEx2 @ 0x140246230
+ * XREFs of IoSetIoCompletionEx2 @ 0x1402EAA80
  * Callers:
- *     AlpcpSignalAndWait @ 0x140205180 (AlpcpSignalAndWait.c)
- *     ExpShutdownWorkerFactory @ 0x14027F9D8 (ExpShutdownWorkerFactory.c)
- *     AlpcpLookasidePacketCallbackRoutine @ 0x140285900 (AlpcpLookasidePacketCallbackRoutine.c)
- *     ExpWorkerFactoryCompletionPacketRoutine @ 0x140285AA0 (ExpWorkerFactoryCompletionPacketRoutine.c)
- *     AlpcpQueueIoCompletionPort @ 0x1402ACB74 (AlpcpQueueIoCompletionPort.c)
- *     NtSetIoCompletion @ 0x140695160 (NtSetIoCompletion.c)
- *     IoSetIoCompletion @ 0x1406B09A0 (IoSetIoCompletion.c)
+ *     AlpcpLookasidePacketCallbackRoutine @ 0x140202AA0 (AlpcpLookasidePacketCallbackRoutine.c)
+ *     ExpWorkerFactoryCompletionPacketRoutine @ 0x140202C40 (ExpWorkerFactoryCompletionPacketRoutine.c)
+ *     AlpcpQueueIoCompletionPort @ 0x14022AED0 (AlpcpQueueIoCompletionPort.c)
+ *     ExpShutdownWorkerFactory @ 0x14026DC18 (ExpShutdownWorkerFactory.c)
+ *     AlpcpSignalAndWait @ 0x1402A9AC0 (AlpcpSignalAndWait.c)
+ *     NtSetIoCompletion @ 0x1405F46B0 (NtSetIoCompletion.c)
+ *     IoSetIoCompletion @ 0x14060F950 (IoSetIoCompletion.c)
  * Callees:
- *     KiWakeOtherQueueWaiters @ 0x140243310 (KiWakeOtherQueueWaiters.c)
- *     KiAcquireKobjectLockSafe @ 0x14024C4A0 (KiAcquireKobjectLockSafe.c)
- *     KiWakeQueueWaiter @ 0x14024C4F0 (KiWakeQueueWaiter.c)
- *     KeInsertQueueEx @ 0x1402901A0 (KeInsertQueueEx.c)
- *     KiExitDispatcher @ 0x140343AC0 (KiExitDispatcher.c)
- *     KeIsThreadRunning @ 0x140513054 (KeIsThreadRunning.c)
- *     EtwTraceEnqueueWork @ 0x1405A77C0 (EtwTraceEnqueueWork.c)
- *     IopAllocateMiniCompletionPacket @ 0x1406D4C3C (IopAllocateMiniCompletionPacket.c)
+ *     KeInsertQueueEx @ 0x14020E110 (KeInsertQueueEx.c)
+ *     KiWakeOtherQueueWaiters @ 0x1402E7B60 (KiWakeOtherQueueWaiters.c)
+ *     KiAcquireKobjectLockSafe @ 0x1402F0CF0 (KiAcquireKobjectLockSafe.c)
+ *     KiWakeQueueWaiter @ 0x1402F0D40 (KiWakeQueueWaiter.c)
+ *     KiExitDispatcher @ 0x14034E810 (KiExitDispatcher.c)
+ *     KeIsThreadRunning @ 0x140513294 (KeIsThreadRunning.c)
+ *     EtwTraceEnqueueWork @ 0x1405A79F0 (EtwTraceEnqueueWork.c)
+ *     IopAllocateMiniCompletionPacket @ 0x1406ABF1C (IopAllocateMiniCompletionPacket.c)
  */
 
-__int64 __fastcall IoSetIoCompletionEx2(
+__int64 IoSetIoCompletionEx2(
         __int64 a1,
         __int64 a2,
         __int64 a3,
@@ -27,7 +27,8 @@ __int64 __fastcall IoSetIoCompletionEx2(
         __int64 a5,
         unsigned __int8 a6,
         __int64 a7,
-        unsigned __int8 a8)
+        char a8,
+        ...)
 {
   unsigned int v9; // r14d
   __int64 v13; // rbx
@@ -101,7 +102,7 @@ __int64 __fastcall IoSetIoCompletionEx2(
       *(_QWORD *)(MiniCompletionPacket + 32) = a3;
       *(_DWORD *)(MiniCompletionPacket + 40) = a4;
       *(_QWORD *)(MiniCompletionPacket + 48) = a5;
-      KeInsertQueueEx(v13, MiniCompletionPacket, 0LL, a8);
+      KeInsertQueueEx(v13, (_QWORD *)MiniCompletionPacket, 0, a8);
     }
     else
     {

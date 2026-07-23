@@ -48,7 +48,9 @@ __int64 __fastcall PopBlackBoxUpdate(char **a1, char a2)
         MEMORY[0x7FFFFFFF0000] = 0;
     }
     if ( ((_DWORD)v4[2] & 1) != 0
-      && !RtlTestProtectedAccess(BYTE2(KeGetCurrentThread()->Process[2].ActiveProcessors.Bitmap[4]), 0x61u) )
+      && !RtlTestProtectedAccess(
+            (PS_PROTECTION)SBYTE2(KeGetCurrentThread()->Process[2].ActiveProcessors.Bitmap[4]),
+            (PS_PROTECTION)97) )
     {
       v10 = -1073741790;
       goto LABEL_11;

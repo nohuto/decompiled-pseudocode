@@ -1,9 +1,9 @@
 /*
- * XREFs of MiColorSetChannel @ 0x1404479B4
+ * XREFs of MiColorSetChannel @ 0x1404400D4
  * Callers:
- *     MiGetHugeRange @ 0x1406700C4 (MiGetHugeRange.c)
+ *     MiGetHugeRange @ 0x140671294 (MiGetHugeRange.c)
  * Callees:
- *     MiAssignDefaultChannel @ 0x1402F3560 (MiAssignDefaultChannel.c)
+ *     MiAssignDefaultChannel @ 0x140251B50 (MiAssignDefaultChannel.c)
  */
 
 __int64 __fastcall MiColorSetChannel(_DWORD *a1, unsigned __int8 a2)

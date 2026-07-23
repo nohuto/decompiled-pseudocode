@@ -1,9 +1,9 @@
 /*
- * XREFs of ExpSvmWorkerThread @ 0x14031E7A0
+ * XREFs of ExpSvmWorkerThread @ 0x14031E990
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall ExpSvmWorkerThread(unsigned int a1)

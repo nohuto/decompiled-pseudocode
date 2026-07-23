@@ -1,13 +1,13 @@
 /*
- * XREFs of PpmEventTraceHeteroResponseEx @ 0x1405DED44
+ * XREFs of PpmEventTraceHeteroResponseEx @ 0x1405DBBC4
  * Callers:
- *     PpmCheckComputeHeteroResponseEx @ 0x1405DF774 (PpmCheckComputeHeteroResponseEx.c)
- *     PpmCheckComputeMultiClassHeteroResponseEx @ 0x1405DFBD4 (PpmCheckComputeMultiClassHeteroResponseEx.c)
+ *     PpmCheckComputeHeteroResponseEx @ 0x1405DC8E0 (PpmCheckComputeHeteroResponseEx.c)
+ *     PpmCheckComputeMultiClassHeteroResponseEx @ 0x1405DD1F4 (PpmCheckComputeMultiClassHeteroResponseEx.c)
  * Callees:
- *     EtwWriteEx @ 0x140259680 (EtwWriteEx.c)
- *     EtwEventEnabled @ 0x1402A1BD0 (EtwEventEnabled.c)
- *     PpmEventAddAffinityMaskAsSubset @ 0x1405DD440 (PpmEventAddAffinityMaskAsSubset.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     EtwWriteEx @ 0x140289C90 (EtwWriteEx.c)
+ *     EtwEventEnabled @ 0x1402D1300 (EtwEventEnabled.c)
+ *     PpmEventAddAffinityMaskAsSubset @ 0x1405DA2C0 (PpmEventAddAffinityMaskAsSubset.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 void PpmEventTraceHeteroResponseEx(__int64 a1, ULONGLONG a2, _QWORD *a3, ...)
@@ -55,7 +55,7 @@ void PpmEventTraceHeteroResponseEx(__int64 a1, ULONGLONG a2, _QWORD *a3, ...)
   v31 = 0;
   v30 = 0;
   v28 = 0;
-  if ( PpmEventPerfCheckData && PpmEtwRegistered && EtwEventEnabled(PpmEtwHandle, &PPM_ETW_HETERO_RESPONSE) )
+  if ( PpmEventPerfCheckData && PpmEtwRegistered && EtwEventEnabled(PpmEtwHandle, &PPM_ETW_HETERO_RESPONSE_V1) )
   {
     v7 = *(unsigned __int16 *)(a1 + 10);
     v8 = *(_BYTE *)(a1 + 1188);
@@ -77,7 +77,7 @@ void PpmEventTraceHeteroResponseEx(__int64 a1, ULONGLONG a2, _QWORD *a3, ...)
     if ( v11 > 1 )
     {
       v12 = v11 - 1;
-      v13 = (_WORD *)(*(_QWORD *)(a1 + 1280) + 646LL);
+      v13 = (_WORD *)(*(_QWORD *)(a1 + 1288) + 646LL);
       v14 = 0;
       do
       {
@@ -89,7 +89,7 @@ void PpmEventTraceHeteroResponseEx(__int64 a1, ULONGLONG a2, _QWORD *a3, ...)
       while ( v12 );
     }
     if ( PpmHeteroHgsParkingEnabled )
-      v27 = *(_WORD *)(*(_QWORD *)(a1 + 1280) + 646LL);
+      v27 = *(_WORD *)(*(_QWORD *)(a1 + 1288) + 646LL);
     PpmEventAddAffinityMaskAsSubset(
       0LL,
       (_WORD *)(a1 + 48),
@@ -129,6 +129,6 @@ void PpmEventTraceHeteroResponseEx(__int64 a1, ULONGLONG a2, _QWORD *a3, ...)
     v24 = v15 + 8;
     UserData[v24].Ptr = (ULONGLONG)va2;
     *(_QWORD *)&UserData[v24].Size = 4LL;
-    EtwWriteEx(PpmEtwHandle, &PPM_ETW_HETERO_RESPONSE, 0LL, 0, 0LL, 0LL, v15 + 9, UserData);
+    EtwWriteEx(PpmEtwHandle, &PPM_ETW_HETERO_RESPONSE_V1, 0LL, 0, 0LL, 0LL, v15 + 9, UserData);
   }
 }

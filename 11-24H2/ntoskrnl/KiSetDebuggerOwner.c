@@ -1,11 +1,11 @@
 /*
- * XREFs of KiSetDebuggerOwner @ 0x1404FB2A4
+ * XREFs of KiSetDebuggerOwner @ 0x1404F8B84
  * Callers:
- *     KeFreezeExecution @ 0x1404D5B60 (KeFreezeExecution.c)
- *     KeBugCheck2 @ 0x1405B1780 (KeBugCheck2.c)
- *     KeSwitchFrozenProcessor @ 0x1405C1B30 (KeSwitchFrozenProcessor.c)
- *     KiFreezeTargetExecution @ 0x1405C1C80 (KiFreezeTargetExecution.c)
- *     KiBugCheckRecoveryFreezeOtherProcessors @ 0x1405C5B80 (KiBugCheckRecoveryFreezeOtherProcessors.c)
+ *     KeFreezeExecution @ 0x1404CEFB0 (KeFreezeExecution.c)
+ *     KeBugCheck2 @ 0x1405AE6F0 (KeBugCheck2.c)
+ *     KeSwitchFrozenProcessor @ 0x1405BF100 (KeSwitchFrozenProcessor.c)
+ *     KiFreezeTargetExecution @ 0x1405BF250 (KiFreezeTargetExecution.c)
+ *     KiBugCheckRecoveryFreezeOtherProcessors @ 0x1405C32B0 (KiBugCheckRecoveryFreezeOtherProcessors.c)
  * Callees:
  *     <none>
  */
@@ -25,7 +25,7 @@ char __fastcall KiSetDebuggerOwner(__int64 a1)
   }
   else
   {
-    v2 = qword_140FC7C08;
+    v2 = qword_140FC8C88;
     if ( *(_DWORD *)(a1 + 36) )
       v2 = KiProcessorBlock[0];
   }

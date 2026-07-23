@@ -1,11 +1,11 @@
 /*
- * XREFs of NtRemoveIoCompletion @ 0x14068EDF0
+ * XREFs of NtRemoveIoCompletion @ 0x14068FFB0
  * Callers:
  *     <none>
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
  *     IoRemoveIoCompletion @ 0x140058990 (IoRemoveIoCompletion.c)
- *     ObReferenceObjectByHandle @ 0x1405E8350 (ObReferenceObjectByHandle.c)
+ *     ObReferenceObjectByHandle @ 0x1405E9350 (ObReferenceObjectByHandle.c)
  */
 
 NTSTATUS __stdcall NtRemoveIoCompletion(

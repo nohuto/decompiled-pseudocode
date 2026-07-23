@@ -1,9 +1,9 @@
 /*
- * XREFs of VfMiscExfReleasePushLockShared_Entry @ 0x140C3CB40
+ * XREFs of VfMiscExfReleasePushLockShared_Entry @ 0x140C42B50
  * Callers:
  *     <none>
  * Callees:
- *     ViMiscExCheckAPCsDisabled @ 0x140C3E498 (ViMiscExCheckAPCsDisabled.c)
+ *     ViMiscExCheckAPCsDisabled @ 0x140C444A8 (ViMiscExCheckAPCsDisabled.c)
  */
 
 __int64 __fastcall VfMiscExfReleasePushLockShared_Entry(__int64 a1)

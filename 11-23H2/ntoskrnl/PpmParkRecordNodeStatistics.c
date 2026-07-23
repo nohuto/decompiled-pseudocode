@@ -1,14 +1,14 @@
 /*
- * XREFs of PpmParkRecordNodeStatistics @ 0x14033C6A0
+ * XREFs of PpmParkRecordNodeStatistics @ 0x14033C930
  * Callers:
- *     PpmCheckRecordAllUtility @ 0x140256940 (PpmCheckRecordAllUtility.c)
+ *     PpmCheckRecordAllUtility @ 0x140256A00 (PpmCheckRecordAllUtility.c)
  * Callees:
- *     EtwWriteEx @ 0x1402581E0 (EtwWriteEx.c)
- *     EtwEventEnabled @ 0x140258420 (EtwEventEnabled.c)
- *     PpmPerfRecordMostActiveWorkloadClass @ 0x14033C818 (PpmPerfRecordMostActiveWorkloadClass.c)
- *     PpmParkComputeSnapStatistics @ 0x14033C8AC (PpmParkComputeSnapStatistics.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     PpmEventParkNodeClassRecordedStats @ 0x14059ABB8 (PpmEventParkNodeClassRecordedStats.c)
+ *     EtwWriteEx @ 0x1402582A0 (EtwWriteEx.c)
+ *     EtwEventEnabled @ 0x1402584E0 (EtwEventEnabled.c)
+ *     PpmPerfRecordMostActiveWorkloadClass @ 0x14033CAA8 (PpmPerfRecordMostActiveWorkloadClass.c)
+ *     PpmParkComputeSnapStatistics @ 0x14033CB3C (PpmParkComputeSnapStatistics.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     PpmEventParkNodeClassRecordedStats @ 0x14059B0A8 (PpmEventParkNodeClassRecordedStats.c)
  */
 
 __int64 PpmParkRecordNodeStatistics()
@@ -58,10 +58,10 @@ __int64 PpmParkRecordNodeStatistics()
   int v42; // [rsp+F4h] [rbp+23h]
 
   v0 = (int)PpmCurrentProfile;
-  result = dword_140C3D86C;
+  result = dword_140C3D96C;
   v2 = 0;
   v3 = PpmCheckMakeupCount;
-  v4 = 55LL * dword_140C3D86C;
+  v4 = 55LL * dword_140C3D96C;
   v26 = PpmCheckMakeupCount;
   v24 = 0;
   v5 = BYTE5(PpmCurrentProfile[v4 + 20]);

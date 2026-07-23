@@ -1,14 +1,14 @@
 /*
- * XREFs of RtlpGetExtraStuffPointer @ 0x18009CFC0
+ * XREFs of RtlpGetExtraStuffPointer @ 0x18001FE30
  * Callers:
- *     RtlDebugFreeHeap @ 0x18004178C (RtlDebugFreeHeap.c)
- *     RtlpValidateHeapSegment @ 0x180041A64 (RtlpValidateHeapSegment.c)
- *     RtlGetUserInfoHeap @ 0x1800423E0 (RtlGetUserInfoHeap.c)
- *     RtlSetUserValueHeap @ 0x18009BF90 (RtlSetUserValueHeap.c)
- *     RtlDebugAllocateHeap @ 0x18009CC30 (RtlDebugAllocateHeap.c)
- *     RtlpAllocateHeap @ 0x18009D360 (RtlpAllocateHeap.c)
- *     RtlpReAllocateHeap @ 0x1800A18B0 (RtlpReAllocateHeap.c)
- *     RtlDebugReAllocateHeap @ 0x1800A2A3C (RtlDebugReAllocateHeap.c)
+ *     RtlDebugAllocateHeap @ 0x18001F7A4 (RtlDebugAllocateHeap.c)
+ *     RtlSetUserValueHeap @ 0x18001FB40 (RtlSetUserValueHeap.c)
+ *     RtlDebugFreeHeap @ 0x180022020 (RtlDebugFreeHeap.c)
+ *     RtlpValidateHeapSegment @ 0x1800222F8 (RtlpValidateHeapSegment.c)
+ *     RtlpReAllocateHeap @ 0x18005B780 (RtlpReAllocateHeap.c)
+ *     RtlDebugReAllocateHeap @ 0x18005C7E8 (RtlDebugReAllocateHeap.c)
+ *     RtlGetUserInfoHeap @ 0x1800E63B0 (RtlGetUserInfoHeap.c)
+ *     RtlpAllocateHeap @ 0x1801159A0 (RtlpAllocateHeap.c)
  * Callees:
  *     <none>
  */

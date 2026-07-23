@@ -9,28 +9,27 @@
  *     RtlInitializeSid @ 0x180040070 (RtlInitializeSid.c)
  *     RtlpGetPolicyValueForSystemCapability @ 0x18007A428 (RtlpGetPolicyValueForSystemCapability.c)
  *     __security_check_cookie @ 0x18008C940 (__security_check_cookie.c)
- *     RtlpIsAppContainer @ 0x1800E8AF4 (RtlpIsAppContainer.c)
+ *     RtlpIsAppContainer @ 0x1800E8AB4 (RtlpIsAppContainer.c)
  */
 
-__int64 __fastcall RtlpCapabilityCheckSystemCapability(void *a1, __int64 a2, _BYTE *a3)
+__int64 __fastcall RtlpCapabilityCheckSystemCapability(HANDLE TokenHandle, PCUNICODE_STRING Source, _BYTE *a3)
 {
   int PolicyValueForSystemCapability; // eax
-  int IsAppContainer; // ebx
-  char v8; // [rsp+20h] [rbp-40h] BYREF
+  NTSTATUS IsAppContainer; // ebx
+  BOOLEAN IsMember; // [rsp+20h] [rbp-40h] BYREF
   _BYTE v9[3]; // [rsp+21h] [rbp-3Fh] BYREF
-  int v10; // [rsp+24h] [rbp-3Ch] BYREF
-  __int16 v11; // [rsp+28h] [rbp-38h]
-  UNICODE_STRING UnicodeString; // [rsp+30h] [rbp-30h] BYREF
-  _BYTE v13[8]; // [rsp+40h] [rbp-20h] BYREF
-  int v14; // [rsp+48h] [rbp-18h]
-  int v15; // [rsp+4Ch] [rbp-14h]
+  _SID_IDENTIFIER_AUTHORITY IdentifierAuthority; // [rsp+24h] [rbp-3Ch] BYREF
+  _UNICODE_STRING UnicodeString; // [rsp+30h] [rbp-30h] BYREF
+  _BYTE Sid[8]; // [rsp+40h] [rbp-20h] BYREF
+  int v13; // [rsp+48h] [rbp-18h]
+  int v14; // [rsp+4Ch] [rbp-14h]
 
-  v10 = 0;
-  v11 = 1280;
-  v8 = 0;
+  *(_DWORD *)IdentifierAuthority.Value = 0;
+  *(_WORD *)&IdentifierAuthority.Value[4] = 1280;
+  IsMember = 0;
   v9[0] = 0;
   UnicodeString = 0LL;
-  PolicyValueForSystemCapability = RtlpGetPolicyValueForSystemCapability(a2, &UnicodeString);
+  PolicyValueForSystemCapability = RtlpGetPolicyValueForSystemCapability(Source, &UnicodeString);
   IsAppContainer = PolicyValueForSystemCapability;
   if ( PolicyValueForSystemCapability == -1073741772 )
   {
@@ -41,28 +40,28 @@ __int64 __fastcall RtlpCapabilityCheckSystemCapability(void *a1, __int64 a2, _BY
     *a3 = 0;
     if ( PolicyValueForSystemCapability >= 0 )
     {
-      if ( (unsigned int)RtlCompareUnicodeString(&UnicodeString.Length, word_18011E5C8, 0) )
+      if ( RtlCompareUnicodeString(&UnicodeString, (PUNICODE_STRING)&stru_18011E5C8, 0) )
       {
-        if ( (unsigned int)RtlCompareUnicodeString(&UnicodeString.Length, word_18011E5B8, 0) )
+        if ( RtlCompareUnicodeString(&UnicodeString, (PUNICODE_STRING)&stru_18011E5B8, 0) )
         {
           IsAppContainer = -1073741823;
           goto LABEL_3;
         }
-        RtlInitializeSid((__int64)v13, (__int64)&v10, 1u);
-        v14 = 4;
+        RtlInitializeSid(Sid, &IdentifierAuthority, 1u);
+        v13 = 4;
       }
       else
       {
-        RtlInitializeSid((__int64)v13, (__int64)&v10, 2u);
-        v14 = 32;
-        v15 = 583;
+        RtlInitializeSid(Sid, &IdentifierAuthority, 2u);
+        v13 = 32;
+        v14 = 583;
       }
-      IsAppContainer = RtlCheckTokenMembershipEx(a1, v13, 2, &v8);
+      IsAppContainer = RtlCheckTokenMembershipEx(TokenHandle, Sid, 2u, &IsMember);
       if ( IsAppContainer >= 0 )
       {
-        if ( v8 )
+        if ( IsMember )
         {
-          IsAppContainer = RtlpIsAppContainer(a1, v9);
+          IsAppContainer = RtlpIsAppContainer(TokenHandle, v9);
           if ( IsAppContainer >= 0 )
           {
             if ( v9[0] )

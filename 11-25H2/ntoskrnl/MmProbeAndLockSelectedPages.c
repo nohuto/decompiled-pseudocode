@@ -37,7 +37,7 @@ void __stdcall MmProbeAndLockSelectedPages(
   _BYTE *v13; // r12
   unsigned int v14; // r14d
   unsigned __int64 *v15; // r15
-  int v16; // edi
+  NTSTATUS v16; // edi
   unsigned __int64 *i; // rbx
   unsigned __int64 v18; // rdx
   __int64 v19; // r9

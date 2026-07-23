@@ -1,19 +1,19 @@
 /*
- * XREFs of MiInitializeTbFlush @ 0x140A55380
+ * XREFs of MiInitializeTbFlush @ 0x140A56380
  * Callers:
- *     MiInitializeTbFlushing @ 0x140A55330 (MiInitializeTbFlushing.c)
+ *     MiInitializeTbFlushing @ 0x140A56330 (MiInitializeTbFlushing.c)
  * Callees:
- *     MiReservePtes @ 0x1402265B0 (MiReservePtes.c)
- *     KeFlushTb @ 0x140230120 (KeFlushTb.c)
- *     MiReleasePtes @ 0x140245800 (MiReleasePtes.c)
- *     MiWritePteShadow @ 0x1402B69BC (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x1402B6A1C (MiPteHasShadow.c)
- *     MiMakeValidPte @ 0x14032E730 (MiMakeValidPte.c)
- *     MiInsertTbFlushEntry @ 0x140335D70 (MiInsertTbFlushEntry.c)
- *     MiFlushTbList @ 0x14033B520 (MiFlushTbList.c)
- *     MiPteInShadowRange @ 0x140348AF0 (MiPteInShadowRange.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     memset @ 0x140414200 (memset.c)
+ *     MiWritePteShadow @ 0x140234B9C (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140234BFC (MiPteHasShadow.c)
+ *     MiReservePtes @ 0x1402CAEB0 (MiReservePtes.c)
+ *     KeFlushTb @ 0x1402D4970 (KeFlushTb.c)
+ *     MiReleasePtes @ 0x1402EA050 (MiReleasePtes.c)
+ *     MiMakeValidPte @ 0x140339480 (MiMakeValidPte.c)
+ *     MiInsertTbFlushEntry @ 0x140340AC0 (MiInsertTbFlushEntry.c)
+ *     MiFlushTbList @ 0x140346270 (MiFlushTbList.c)
+ *     MiPteInShadowRange @ 0x140353840 (MiPteInShadowRange.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     memset @ 0x140414300 (memset.c)
  */
 
 _QWORD *__fastcall MiInitializeTbFlush(unsigned __int64 a1)
@@ -44,30 +44,29 @@ _QWORD *__fastcall MiInitializeTbFlush(unsigned __int64 a1)
   unsigned __int64 v24; // r14
   unsigned __int64 v25; // rsi
   __int64 v26; // rax
-  __int64 v27; // r8
-  signed __int32 v28[8]; // [rsp+0h] [rbp-158h] BYREF
-  __int64 v29; // [rsp+20h] [rbp-138h]
-  unsigned __int64 v30; // [rsp+28h] [rbp-130h]
-  unsigned __int64 v31; // [rsp+30h] [rbp-128h]
-  __int64 v32; // [rsp+38h] [rbp-120h]
-  unsigned __int64 v33; // [rsp+40h] [rbp-118h]
-  unsigned __int64 v34; // [rsp+48h] [rbp-110h]
-  _QWORD *v35; // [rsp+50h] [rbp-108h]
-  _QWORD v36[24]; // [rsp+60h] [rbp-F8h] BYREF
+  signed __int32 v27[8]; // [rsp+0h] [rbp-158h] BYREF
+  __int64 v28; // [rsp+20h] [rbp-138h]
+  unsigned __int64 v29; // [rsp+28h] [rbp-130h]
+  unsigned __int64 v30; // [rsp+30h] [rbp-128h]
+  __int64 v31; // [rsp+38h] [rbp-120h]
+  unsigned __int64 v32; // [rsp+40h] [rbp-118h]
+  unsigned __int64 v33; // [rsp+48h] [rbp-110h]
+  _QWORD *v34; // [rsp+50h] [rbp-108h]
+  _QWORD v35[24]; // [rsp+60h] [rbp-F8h] BYREF
 
-  v30 = 0LL;
+  v29 = 0LL;
   v1 = a1;
-  v31 = 0LL;
-  v34 = a1;
-  memset(v36, 0, 0xB8uLL);
-  result = (_QWORD *)MiReservePtes((__int64)&qword_140C4EF40, v1, v2, v3);
-  v35 = result;
+  v30 = 0LL;
+  v33 = a1;
+  memset(v35, 0, 0xB8uLL);
+  result = (_QWORD *)MiReservePtes((__int64)&qword_140C4EF80, v1, v2, v3);
+  v34 = result;
   v5 = result;
   if ( result )
   {
-    v36[3] = 0LL;
-    LODWORD(v36[1]) = 20;
-    ValidPte = MiMakeValidPte((unsigned __int64)result, qword_140C4ED68, 1);
+    v35[3] = 0LL;
+    LODWORD(v35[1]) = 20;
+    ValidPte = MiMakeValidPte((unsigned __int64)result, qword_140C4EDA8, 1);
     v7 = (__int64)((_QWORD)v5 << 25) >> 16;
     v8 = v7;
     if ( !v1 )
@@ -75,33 +74,33 @@ _QWORD *__fastcall MiInitializeTbFlush(unsigned __int64 a1)
 LABEL_7:
       v12 = 0;
       v13 = 0LL;
-      v32 = 0LL;
+      v31 = 0LL;
       if ( !v1 )
         goto LABEL_29;
       while ( 1 )
       {
-        v29 = 4LL;
+        v28 = 4LL;
         v14 = v1 - v13;
         v15 = 0LL;
         v16 = 0LL;
         v17 = (v1 - v13) >> 1;
         do
         {
-          v33 = __rdtsc();
-          _InterlockedOr(v28, 0);
+          v32 = __rdtsc();
+          _InterlockedOr(v27, 0);
           if ( v13 )
           {
-            MiInsertTbFlushEntry((__int64)v36, v7, v13, 0);
-            MiFlushTbList((__int64)v36, v18);
+            MiInsertTbFlushEntry((__int64)v35, v7, v13, 0);
+            MiFlushTbList((__int64)v35, v18);
           }
           else
           {
             KeFlushTb(0, 2u);
           }
-          _InterlockedOr(v28, 0);
-          v15 += __rdtsc() - v33;
+          _InterlockedOr(v27, 0);
+          v15 += __rdtsc() - v32;
           v19 = __rdtsc();
-          _InterlockedOr(v28, 0);
+          _InterlockedOr(v27, 0);
           if ( v17 )
           {
             v20 = v7 + (v13 << 12);
@@ -115,33 +114,33 @@ LABEL_7:
             }
             while ( v22 );
           }
-          _InterlockedOr(v28, 0);
+          _InterlockedOr(v27, 0);
           v23 = __rdtsc();
           v16 += (((unsigned __int64)HIDWORD(v23) << 32) | (unsigned int)v23) - v19;
-          --v29;
+          --v28;
         }
-        while ( v29 );
-        v1 = v34;
+        while ( v28 );
+        v1 = v33;
         v24 = v15 >> 2;
         v25 = v16 >> 2;
         if ( v13 )
         {
-          if ( v25 + v24 >= v30 + v31 )
+          if ( v25 + v24 >= v29 + v30 )
           {
             v26 = v13 - 1;
             if ( v12 )
-              v26 = v32;
+              v26 = v31;
             ++v12;
-            v32 = v26;
+            v31 = v26;
             if ( v12 == 3 )
             {
-              qword_140C4DF90 = v26;
+              qword_140C4DFD0 = v26;
 LABEL_25:
               if ( v12 == 3 )
-                return (_QWORD *)MiReleasePtes((__int64)&qword_140C4EF40, v35, v1);
+                return (_QWORD *)MiReleasePtes((__int64)&qword_140C4EF80, v34, v1);
 LABEL_29:
-              qword_140C4DF90 = v13;
-              return (_QWORD *)MiReleasePtes((__int64)&qword_140C4EF40, v35, v1);
+              qword_140C4DFD0 = v13;
+              return (_QWORD *)MiReleasePtes((__int64)&qword_140C4EF80, v34, v1);
             }
           }
           else
@@ -151,10 +150,10 @@ LABEL_29:
         }
         else
         {
-          v30 = v24;
-          v31 = v25;
+          v29 = v24;
+          v30 = v25;
         }
-        if ( ++v13 >= v34 )
+        if ( ++v13 >= v33 )
           goto LABEL_25;
       }
     }
@@ -167,10 +166,10 @@ LABEL_29:
       {
         if ( (unsigned int)MiPteHasShadow() )
         {
-          if ( !HIBYTE(word_140C4E008) && (ValidPte & 1) != 0 )
+          if ( !HIBYTE(word_140C4E048) && (ValidPte & 1) != 0 )
             v11 = ValidPte | 0x8000000000000000uLL;
           *v9 = v11;
-          MiWritePteShadow((__int64)v9, v11, v27);
+          MiWritePteShadow((__int64)v9, v11);
           goto LABEL_6;
         }
         if ( (HIDWORD(KeGetCurrentThread()->ApcState.Process[2].Header.WaitListHead.Flink) & 0x1000) != 0

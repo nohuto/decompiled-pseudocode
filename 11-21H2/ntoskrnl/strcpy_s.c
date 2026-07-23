@@ -1,17 +1,17 @@
 /*
  * XREFs of strcpy_s @ 0x1403E71A0
  * Callers:
- *     BiConvertBootEnvironmentDeviceToNt @ 0x140802A64 (BiConvertBootEnvironmentDeviceToNt.c)
- *     BiConvertNtDeviceToBootEnvironment @ 0x1408038B4 (BiConvertNtDeviceToBootEnvironment.c)
- *     CmpAddProcessorConfigurationEntry @ 0x140837688 (CmpAddProcessorConfigurationEntry.c)
+ *     sub_140802A64 @ 0x140802A64 (sub_140802A64.c)
+ *     sub_1408038B4 @ 0x1408038B4 (sub_1408038B4.c)
+ *     sub_140837688 @ 0x140837688 (sub_140837688.c)
  *     RtlIncrementCorrelationVector @ 0x1409BB750 (RtlIncrementCorrelationVector.c)
- *     ExpSystemErrorHandler2 @ 0x140A6CC50 (ExpSystemErrorHandler2.c)
- *     HdlspGetLine @ 0x140AA9660 (HdlspGetLine.c)
- *     HdlspSetBlueScreenInformation @ 0x140AAA44C (HdlspSetBlueScreenInformation.c)
- *     PspInitPhase0 @ 0x140AFD7A4 (PspInitPhase0.c)
- *     PspInitPhase1 @ 0x140B1E0A8 (PspInitPhase1.c)
+ *     sub_140A6CC50 @ 0x140A6CC50 (sub_140A6CC50.c)
+ *     sub_140AA9660 @ 0x140AA9660 (sub_140AA9660.c)
+ *     sub_140AAA44C @ 0x140AAA44C (sub_140AAA44C.c)
+ *     sub_140AFD7A4 @ 0x140AFD7A4 (sub_140AFD7A4.c)
+ *     sub_140B1E0A8 @ 0x140B1E0A8 (sub_140B1E0A8.c)
  * Callees:
- *     xHalTimerWatchdogStop @ 0x1403A7020 (xHalTimerWatchdogStop.c)
+ *     __misaligned_access @ 0x1403A7020 (__misaligned_access.c)
  */
 
 errno_t __cdecl strcpy_s(char *a1, rsize_t SizeInBytes, const char *Src)
@@ -44,13 +44,13 @@ errno_t __cdecl strcpy_s(char *a1, rsize_t SizeInBytes, const char *Src)
       v4 = 22;
 LABEL_9:
       *a1 = 0;
-      xHalTimerWatchdogStop();
+      _misaligned_access();
       return v4;
     }
   }
   else
   {
-    xHalTimerWatchdogStop();
+    _misaligned_access();
     return 22;
   }
 }

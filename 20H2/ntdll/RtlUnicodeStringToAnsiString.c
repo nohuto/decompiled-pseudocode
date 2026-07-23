@@ -18,7 +18,7 @@ NTSTATUS __stdcall RtlUnicodeStringToAnsiString(
   ULONG v7; // eax
   unsigned __int16 v8; // cx
   unsigned __int16 MaximumLength; // ax
-  NTSTATUS v10; // edi
+  int v10; // edi
   bool v11; // sf
   char *StringRoutine; // rax
   ULONG BytesInMultiByteString; // [rsp+78h] [rbp+10h] BYREF
@@ -54,7 +54,7 @@ NTSTATUS __stdcall RtlUnicodeStringToAnsiString(
   v10 = RtlUnicodeToMultiByteN(
           DestinationString->Buffer,
           DestinationString->Length,
-          (unsigned int)&BytesInMultiByteString,
+          &BytesInMultiByteString,
           SourceString->Buffer,
           SourceString->Length);
   if ( v10 >= 0 )
@@ -64,7 +64,7 @@ NTSTATUS __stdcall RtlUnicodeStringToAnsiString(
   {
     if ( AllocateDestinationString )
     {
-      NtdllpFreeStringRoutine((__int64)DestinationString->Buffer);
+      NtdllpFreeStringRoutine(DestinationString->Buffer);
       DestinationString->Buffer = 0LL;
     }
     v11 = v10 < 0;

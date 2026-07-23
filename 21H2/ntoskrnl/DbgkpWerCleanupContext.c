@@ -1,16 +1,16 @@
 /*
- * XREFs of DbgkpWerCleanupContext @ 0x1408890A0
+ * XREFs of DbgkpWerCleanupContext @ 0x140889200
  * Callers:
- *     DbgkWerCaptureLiveKernelDump @ 0x140888B30 (DbgkWerCaptureLiveKernelDump.c)
- *     DbgkpWerDeferredWriteRoutine @ 0x140889280 (DbgkpWerDeferredWriteRoutine.c)
+ *     DbgkWerCaptureLiveKernelDump @ 0x140888C90 (DbgkWerCaptureLiveKernelDump.c)
+ *     DbgkpWerDeferredWriteRoutine @ 0x1408893E0 (DbgkpWerDeferredWriteRoutine.c)
  * Callees:
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     DbgPrintEx @ 0x14037F820 (DbgPrintEx.c)
- *     ZwClose @ 0x1403FA580 (ZwClose.c)
- *     IopLiveDumpTraceInterfaceEnd @ 0x1405097EC (IopLiveDumpTraceInterfaceEnd.c)
- *     IopLiveDumpTraceInterfaceStart @ 0x140509894 (IopLiveDumpTraceInterfaceStart.c)
- *     IopLiveDumpReleaseResources @ 0x1408986EC (IopLiveDumpReleaseResources.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     DbgPrintEx @ 0x14037F370 (DbgPrintEx.c)
+ *     ZwClose @ 0x1403FA760 (ZwClose.c)
+ *     IopLiveDumpTraceInterfaceEnd @ 0x140509A28 (IopLiveDumpTraceInterfaceEnd.c)
+ *     IopLiveDumpTraceInterfaceStart @ 0x140509AD0 (IopLiveDumpTraceInterfaceStart.c)
+ *     IopLiveDumpReleaseResources @ 0x14089884C (IopLiveDumpReleaseResources.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 void __fastcall DbgkpWerCleanupContext(__int64 a1)

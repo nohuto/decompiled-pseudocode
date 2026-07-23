@@ -1,10 +1,10 @@
 /*
- * XREFs of CcPerfLogLoggedStreamsStats @ 0x1400B0A14
+ * XREFs of CcPerfLogLoggedStreamsStats @ 0x1400AEA84
  * Callers:
- *     CcLazyWriteScan @ 0x140070CA0 (CcLazyWriteScan.c)
+ *     CcLazyWriteScan @ 0x140070820 (CcLazyWriteScan.c)
  * Callees:
- *     CcPerfLogVolumeLogHandleInfo @ 0x1400B0AC4 (CcPerfLogVolumeLogHandleInfo.c)
- *     KeAcquireQueuedSpinLock @ 0x1400E8D30 (KeAcquireQueuedSpinLock.c)
+ *     CcPerfLogVolumeLogHandleInfo @ 0x1400AEB34 (CcPerfLogVolumeLogHandleInfo.c)
+ *     KeAcquireQueuedSpinLock @ 0x1400E6BD0 (KeAcquireQueuedSpinLock.c)
  */
 
 void __fastcall CcPerfLogLoggedStreamsStats(int a1)

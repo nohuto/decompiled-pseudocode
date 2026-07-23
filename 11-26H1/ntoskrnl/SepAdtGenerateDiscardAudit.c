@@ -1,12 +1,12 @@
 /*
- * XREFs of SepAdtGenerateDiscardAudit @ 0x140812D00
+ * XREFs of SepAdtGenerateDiscardAudit @ 0x140818B60
  * Callers:
- *     SepAdtDetermineInsertQueue @ 0x1404B5D30 (SepAdtDetermineInsertQueue.c)
+ *     SepAdtDetermineInsertQueue @ 0x1404AF180 (SepAdtDetermineInsertQueue.c)
  * Callees:
- *     SepAdtLogAuditRecord @ 0x1402153F8 (SepAdtLogAuditRecord.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     SepAdtLogAuditRecord @ 0x140215728 (SepAdtLogAuditRecord.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __fastcall SepAdtGenerateDiscardAudit(unsigned int *P)
@@ -23,7 +23,7 @@ void __fastcall SepAdtGenerateDiscardAudit(unsigned int *P)
   int v11; // [rsp+7Ch] [rbp-84h]
   __int64 v12; // [rsp+80h] [rbp-80h]
 
-  v1 = *(_QWORD *)&RtlpBootStatHandleLock.WaitRegister.Flags;
+  v1 = *(__int64 *)((char *)&RtlpBootStatHandleLock.116 + 4);
   memset_0(Src, 0, 0x418uLL);
   v3 = *(unsigned __int8 *)(v1 + 1);
   Src[0] = 1;

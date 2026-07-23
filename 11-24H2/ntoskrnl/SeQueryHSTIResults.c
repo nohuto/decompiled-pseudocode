@@ -1,37 +1,28 @@
 /*
- * XREFs of SeQueryHSTIResults @ 0x140AE89C8
+ * XREFs of SeQueryHSTIResults @ 0x140AEBC6C
  * Callers:
- *     ExpQuerySystemInformation @ 0x140ADC240 (ExpQuerySystemInformation.c)
+ *     ExpQuerySystemInformation @ 0x140ADDAE0 (ExpQuerySystemInformation.c)
  * Callees:
- *     Feature_HstiUMAFix__private_IsEnabledDeviceUsageNoInline @ 0x1406A372C (Feature_HstiUMAFix__private_IsEnabledDeviceUsageNoInline.c)
- *     RtlCopyVolatileMemory @ 0x1406B5CF0 (RtlCopyVolatileMemory.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     RtlCopyToUser @ 0x1406FC3C8 (RtlCopyToUser.c)
+ *     RtlCopyVolatileMemory @ 0x1406B6C90 (RtlCopyVolatileMemory.c)
+ *     RtlCopyToUser @ 0x1406FA008 (RtlCopyToUser.c)
  */
 
 __int64 __fastcall SeQueryHSTIResults(void *a1, unsigned int a2, _DWORD *a3)
 {
-  unsigned int v4; // eax
-  unsigned int v5; // ebx
+  unsigned int v3; // eax
+  unsigned int v4; // ebx
 
-  v4 = dword_140FF2440;
-  *a3 = dword_140FF2440;
-  v5 = 0;
-  if ( v4 )
+  v3 = dword_140FF3450;
+  *a3 = dword_140FF3450;
+  v4 = 0;
+  if ( v3 )
   {
-    if ( a2 >= v4 )
+    if ( a2 >= v3 )
     {
-      if ( (unsigned int)Feature_HstiUMAFix__private_IsEnabledDeviceUsageNoInline() )
-      {
-        if ( KeGetCurrentThread()->PreviousMode )
-          RtlCopyToUser(a1, qword_140FF2448, (unsigned int)dword_140FF2440);
-        else
-          RtlCopyVolatileMemory(a1, qword_140FF2448, (unsigned int)dword_140FF2440);
-      }
+      if ( KeGetCurrentThread()->PreviousMode )
+        RtlCopyToUser(a1, qword_140FF3458, (unsigned int)dword_140FF3450);
       else
-      {
-        memmove(a1, qword_140FF2448, (unsigned int)dword_140FF2440);
-      }
+        RtlCopyVolatileMemory(a1, qword_140FF3458, (unsigned int)dword_140FF3450);
     }
     else
     {
@@ -42,5 +33,5 @@ __int64 __fastcall SeQueryHSTIResults(void *a1, unsigned int a2, _DWORD *a3)
   {
     return (unsigned int)-1073741275;
   }
-  return v5;
+  return v4;
 }

@@ -1,14 +1,14 @@
 /*
- * XREFs of MiUpdateLastSubsectionSize @ 0x1402A1728
+ * XREFs of MiUpdateLastSubsectionSize @ 0x14021ECA8
  * Callers:
- *     MmExtendSection @ 0x1406894BC (MmExtendSection.c)
+ *     MmExtendSection @ 0x1405E894C (MmExtendSection.c)
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x14021D060 (ExAcquireSpinLockExclusive.c)
- *     MiGetSubsectionHoldingCrossPartitionReferences @ 0x14025C6E4 (MiGetSubsectionHoldingCrossPartitionReferences.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14033BD80 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiGetSubsectionHoldingCrossPartitionReferences @ 0x14027DC54 (MiGetSubsectionHoldingCrossPartitionReferences.c)
+ *     ExAcquireSpinLockExclusive @ 0x1402C1960 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140346AD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     MiGetSubsectionCharges @ 0x140554EC8 (MiGetSubsectionCharges.c)
- *     MiReturnCrossPartitionSectionCharges @ 0x1405550EC (MiReturnCrossPartitionSectionCharges.c)
+ *     MiGetSubsectionCharges @ 0x140555108 (MiGetSubsectionCharges.c)
+ *     MiReturnCrossPartitionSectionCharges @ 0x14055532C (MiReturnCrossPartitionSectionCharges.c)
  */
 
 __int64 __fastcall MiUpdateLastSubsectionSize(__int64 a1, _QWORD *a2, unsigned int a3)
@@ -109,7 +109,7 @@ LABEL_6:
     *(_DWORD *)(v11 + 8) = v5 + v13;
     *(_WORD *)(v11 + 12) = v12 ^ (v12 ^ ((v5 + (v13 | ((unsigned __int64)(v12 & 0x3FF) << 32))) >> 32)) & 0x3FF;
     if ( v7 == 2 )
-      MiReturnCrossPartitionSectionCharges(*(_QWORD *)(qword_140C4E648 + 8LL * (v3[30] & 0x3FF)), 1LL, v5);
+      MiReturnCrossPartitionSectionCharges(*(_QWORD *)(qword_140C4E688 + 8LL * (v3[30] & 0x3FF)), 1LL, v5);
   }
   return 0LL;
 }

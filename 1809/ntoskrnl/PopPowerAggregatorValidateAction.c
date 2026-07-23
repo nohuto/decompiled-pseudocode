@@ -1,10 +1,10 @@
 /*
- * XREFs of PopPowerAggregatorValidateAction @ 0x140875E68
+ * XREFs of PopPowerAggregatorValidateAction @ 0x1408770C8
  * Callers:
- *     PopPowerAggregatorWorker @ 0x140875F10 (PopPowerAggregatorWorker.c)
+ *     PopPowerAggregatorWorker @ 0x140877170 (PopPowerAggregatorWorker.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     PopDiagTracePowerAggregatorValidationEvent @ 0x140873B24 (PopDiagTracePowerAggregatorValidationEvent.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     PopDiagTracePowerAggregatorValidationEvent @ 0x140874D84 (PopDiagTracePowerAggregatorValidationEvent.c)
  */
 
 __int64 __fastcall PopPowerAggregatorValidateAction(int *a1, int *a2)
@@ -17,7 +17,7 @@ __int64 __fastcall PopPowerAggregatorValidateAction(int *a1, int *a2)
   v7 = *a2;
   while ( v2 )
   {
-    v5 = (*((__int64 (__fastcall **)(int *, int *))&unk_14096DB30 + 3 * v2))(a1, &v7);
+    v5 = (*((__int64 (__fastcall **)(int *, int *))&unk_14096EB30 + 3 * v2))(a1, &v7);
     PopDiagTracePowerAggregatorValidationEvent(*a1, v2, v5);
     if ( v5 != 1 )
       goto LABEL_6;

@@ -1,10 +1,10 @@
 /*
- * XREFs of SymCryptIntMaskedCopy @ 0x1405239B8
+ * XREFs of SymCryptIntMaskedCopy @ 0x1405212D0
  * Callers:
- *     SymCryptEcpointScalarMulFixedWindow @ 0x14052A210 (SymCryptEcpointScalarMulFixedWindow.c)
- *     SymCryptFixedWindowRecoding @ 0x1405390DC (SymCryptFixedWindowRecoding.c)
+ *     SymCryptEcpointScalarMulFixedWindow @ 0x140527A20 (SymCryptEcpointScalarMulFixedWindow.c)
+ *     SymCryptFixedWindowRecoding @ 0x14053357C (SymCryptFixedWindowRecoding.c)
  * Callees:
- *     SymCryptFdefIntMaskedCopy @ 0x140537440 (SymCryptFdefIntMaskedCopy.c)
+ *     SymCryptFdefIntMaskedCopy @ 0x1405318E0 (SymCryptFdefIntMaskedCopy.c)
  */
 
 __int64 SymCryptIntMaskedCopy()

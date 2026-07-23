@@ -18,7 +18,7 @@
 __int64 __fastcall ResCloseHandle(void *a1)
 {
   int v1; // eax
-  ULONG v3; // eax
+  LONG v3; // eax
 
   if ( (_DWORD)a1 != -12 && (_DWORD)a1 != -11 && (_DWORD)a1 != -10 && ((unsigned int)a1 & 0x10000003) != 3LL )
   {

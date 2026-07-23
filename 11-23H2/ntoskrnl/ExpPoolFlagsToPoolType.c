@@ -1,10 +1,10 @@
 /*
  * XREFs of ExpPoolFlagsToPoolType @ 0x140AAEB60
  * Callers:
- *     MiAllocatePool @ 0x1402DF1A0 (MiAllocatePool.c)
- *     ExAllocatePoolMm @ 0x1402E26E0 (ExAllocatePoolMm.c)
- *     VerifierExAllocatePool2 @ 0x140AD0A10 (VerifierExAllocatePool2.c)
- *     VfHandlePoolAlloc @ 0x140AD0FE0 (VfHandlePoolAlloc.c)
+ *     MiAllocatePool @ 0x1402DF430 (MiAllocatePool.c)
+ *     ExAllocatePoolMm @ 0x1402E2970 (ExAllocatePoolMm.c)
+ *     VerifierExAllocatePool2 @ 0x140AD0A00 (VerifierExAllocatePool2.c)
+ *     VfHandlePoolAlloc @ 0x140AD0FD0 (VfHandlePoolAlloc.c)
  * Callees:
  *     <none>
  */

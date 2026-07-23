@@ -3,10 +3,10 @@
  * Callers:
  *     MiInitNucleus @ 0x140B41888 (MiInitNucleus.c)
  * Callees:
- *     RtlRbRemoveNode @ 0x14024B930 (RtlRbRemoveNode.c)
- *     RtlRbInsertNodeEx @ 0x14024CCC0 (RtlRbInsertNodeEx.c)
- *     MiSearchNumaNodeTable @ 0x14026EAD0 (MiSearchNumaNodeTable.c)
- *     MiRestrictRangeToNode @ 0x140375714 (MiRestrictRangeToNode.c)
+ *     RtlRbRemoveNode @ 0x14024BA00 (RtlRbRemoveNode.c)
+ *     RtlRbInsertNodeEx @ 0x14024CD90 (RtlRbInsertNodeEx.c)
+ *     MiSearchNumaNodeTable @ 0x14026ED60 (MiSearchNumaNodeTable.c)
+ *     MiRestrictRangeToNode @ 0x1403758B4 (MiRestrictRangeToNode.c)
  */
 
 void __fastcall MiRemoveLargeFreeLoaderDescriptors(__int64 a1)
@@ -42,7 +42,7 @@ void __fastcall MiRemoveLargeFreeLoaderDescriptors(__int64 a1)
   unsigned __int64 v29; // r8
   __int64 v30; // rax
   unsigned __int64 v31; // rcx
-  unsigned __int64 v32; // r8
+  _QWORD *v32; // r8
   unsigned __int64 v33; // rcx
   unsigned __int64 v34; // rax
   unsigned __int64 v35; // rcx
@@ -56,7 +56,7 @@ void __fastcall MiRemoveLargeFreeLoaderDescriptors(__int64 a1)
   __int64 *v43; // r11
   unsigned __int64 v44; // rax
   unsigned __int64 v45; // rdx
-  bool v46; // r8
+  BOOLEAN v46; // r8
   unsigned __int64 v47; // rax
   __int64 v48; // [rsp+58h] [rbp+10h]
 
@@ -261,7 +261,7 @@ LABEL_39:
           v34 = *(_QWORD *)(v23 + 8);
           goto LABEL_78;
         }
-        v32 = v23;
+        v32 = (_QWORD *)v23;
       }
       v34 = *(_QWORD *)v23;
 LABEL_78:
@@ -279,34 +279,34 @@ LABEL_78:
       if ( v38 >= 0x40000 )
       {
         v39 = 6LL * v17;
-        LODWORD(qword_140D852F8[v39]) = *(_DWORD *)(v32 + 24);
+        LODWORD(qword_140D852F8[v39]) = *((_DWORD *)v32 + 6);
         qword_140D852F8[v39 + 1] = v36;
         qword_140D852F8[v39 + 2] = v38;
-        v40 = *(_QWORD *)(v32 + 32);
-        v41 = *(_QWORD *)(v32 + 40);
+        v40 = v32[4];
+        v41 = v32[5];
         v42 = v40 + v41;
         if ( v36 == v40 )
         {
           if ( v37 == v42 )
           {
-            RtlRbRemoveNode((unsigned __int64 *)v1, v32);
+            RtlRbRemoveNode((PRTL_RB_TREE)v1, (PRTL_BALANCED_NODE)v32);
             goto LABEL_110;
           }
-          *(_QWORD *)(v32 + 32) = v40 + v38;
+          v32[4] = v40 + v38;
 LABEL_90:
-          *(_QWORD *)(v32 + 40) = v41 - v38;
+          v32[5] = v41 - v38;
         }
         else
         {
           if ( v37 == v42 )
             goto LABEL_90;
           v43 = &MxDeferredBootSplitDescriptor[v39];
-          *((_DWORD *)v43 + 6) = *(_DWORD *)(v32 + 24);
-          v43[4] = *(_QWORD *)(v32 + 32);
-          v43[5] = v36 - *(_QWORD *)(v32 + 32);
-          v44 = *(_QWORD *)(v32 + 32) - v36;
-          *(_QWORD *)(v32 + 32) = v37;
-          *(_QWORD *)(v32 + 40) += v44 - v38;
+          *((_DWORD *)v43 + 6) = *((_DWORD *)v32 + 6);
+          v43[4] = v32[4];
+          v43[5] = v36 - v32[4];
+          v44 = v32[4] - v36;
+          v32[4] = v37;
+          v32[5] += v44 - v38;
           if ( (*(_BYTE *)(v1 + 8) & 1) != 0 )
           {
             if ( *(_QWORD *)v1 )
@@ -358,7 +358,11 @@ LABEL_102:
               v45 = v47;
             }
           }
-          RtlRbInsertNodeEx((unsigned __int64 *)v1, v45, v46, (unsigned __int64)&MxDeferredBootSplitDescriptor[v39]);
+          RtlRbInsertNodeEx(
+            (PRTL_RB_TREE)v1,
+            (PRTL_BALANCED_NODE)v45,
+            v46,
+            (PRTL_BALANCED_NODE)&MxDeferredBootSplitDescriptor[v39]);
         }
       }
     }

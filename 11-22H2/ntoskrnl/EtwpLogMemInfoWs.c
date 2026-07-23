@@ -25,7 +25,7 @@ void __fastcall EtwpLogMemInfoWs(__int64 a1, unsigned __int64 a2)
   unsigned int *Pool2; // rax
   unsigned int *v8; // rdi
   unsigned int *v9; // rbx
-  unsigned int *v10; // r14
+  SYSTEM_INFORMATION_CLASS *v10; // r14
   unsigned __int64 v11; // rax
   __int64 *NextProcess; // rsi
   __int64 v13; // r13
@@ -40,19 +40,19 @@ void __fastcall EtwpLogMemInfoWs(__int64 a1, unsigned __int64 a2)
   unsigned __int64 v22; // rax
   unsigned __int64 v23; // rcx
   int v24; // [rsp+28h] [rbp-59h]
-  int v25; // [rsp+2Ch] [rbp-55h]
+  SYSTEM_INFORMATION_CLASS v25; // [rsp+2Ch] [rbp-55h]
   _DWORD *v26; // [rsp+30h] [rbp-51h]
   unsigned __int64 v27; // [rsp+38h] [rbp-49h] BYREF
   unsigned __int64 v28; // [rsp+40h] [rbp-41h] BYREF
   __int64 v29; // [rsp+48h] [rbp-39h]
-  _QWORD v30[8]; // [rsp+58h] [rbp-29h] BYREF
+  _QWORD SystemInformation[8]; // [rsp+58h] [rbp-29h] BYREF
   _DWORD v31[4]; // [rsp+98h] [rbp+17h] BYREF
 
   v29 = a1;
   v31[0] = 81;
   v31[1] = 119;
   v31[2] = 120;
-  memset(v30, 0, sizeof(v30));
+  memset(SystemInformation, 0, sizeof(SystemInformation));
   v4 = 0;
   v27 = 0LL;
   v28 = 0LL;
@@ -67,15 +67,15 @@ void __fastcall EtwpLogMemInfoWs(__int64 a1, unsigned __int64 a2)
   v9 = Pool2 + 1;
   *Pool2 = 0;
   v26 = Pool2 + 1089;
-  v10 = v31;
+  v10 = (SYSTEM_INFORMATION_CLASS *)v31;
   do
   {
     v25 = *v10;
-    if ( (unsigned int)ZwQuerySystemInformation(*v10, (__int64)v30) )
+    if ( ZwQuerySystemInformation(*v10, SystemInformation, 0x40u, 0LL) )
       goto LABEL_31;
     *v9 = v24;
-    v11 = v30[0] >> 12;
-    *(_QWORD *)(v9 + 1) = v30[0] >> 12;
+    v11 = SystemInformation[0] >> 12;
+    *(_QWORD *)(v9 + 1) = SystemInformation[0] >> 12;
     *(_QWORD *)(v9 + 7) = v11;
     *(_QWORD *)(v9 + 3) = v11;
     *(_QWORD *)(v9 + 15) = 0LL;
@@ -83,7 +83,7 @@ void __fastcall EtwpLogMemInfoWs(__int64 a1, unsigned __int64 a2)
     *(_QWORD *)(v9 + 11) = 0LL;
     *(_QWORD *)(v9 + 9) = 0LL;
     *(_QWORD *)(v9 + 13) = 0LL;
-    if ( v25 == 119 && a2 > v11 )
+    if ( v25 == SystemPagedPoolInformationEx && a2 > v11 )
     {
       *(_QWORD *)(v9 + 3) = a2;
       *(_QWORD *)(v9 + 5) = a2;

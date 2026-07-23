@@ -53,32 +53,28 @@
  *     RtlpCaptureContext @ 0x1800A4010 (RtlpCaptureContext.c)
  */
 
-void __fastcall __noreturn RtlRaiseStatus(int a1)
+void __cdecl __noreturn RtlRaiseStatus(NTSTATUS Status)
 {
-  __int64 v2; // r8
-  unsigned int v3; // eax
-  _DWORD v4[2]; // [rsp+20h] [rbp-E0h] BYREF
-  __int64 v5; // [rsp+28h] [rbp-D8h]
-  __int64 v6; // [rsp+30h] [rbp-D0h]
-  int v7; // [rsp+38h] [rbp-C8h]
-  _BYTE v8[248]; // [rsp+C0h] [rbp-40h] BYREF
-  __int64 v9; // [rsp+1B8h] [rbp+B8h]
+  BOOLEAN v2; // r8
+  NTSTATUS v3; // eax
+  EXCEPTION_RECORD ExceptionRecord; // [rsp+20h] [rbp-E0h] BYREF
+  struct _CONTEXT ContextRecord; // [rsp+C0h] [rbp-40h] BYREF
 
-  RtlpCaptureContext(v8);
-  v6 = v9;
-  v5 = 0LL;
-  v7 = 0;
-  v4[0] = a1;
-  v4[1] = 1;
+  RtlpCaptureContext(&ContextRecord);
+  ExceptionRecord.ExceptionAddress = (void *)ContextRecord.Rip;
+  ExceptionRecord.ExceptionRecord = 0LL;
+  ExceptionRecord.NumberParameters = 0;
+  ExceptionRecord.ExceptionCode = Status;
+  ExceptionRecord.ExceptionFlags = 1;
   if ( NtCurrentPeb()->BeingDebugged )
   {
-    LOBYTE(v2) = 1;
+    v2 = 1;
   }
   else
   {
-    RtlDispatchException(v4, v8);
-    v2 = 0LL;
+    RtlDispatchException(&ExceptionRecord, &ContextRecord);
+    v2 = 0;
   }
-  v3 = ZwRaiseException(v4, v8, v2);
+  v3 = ZwRaiseException(&ExceptionRecord, &ContextRecord, v2);
   RtlRaiseStatus(v3);
 }

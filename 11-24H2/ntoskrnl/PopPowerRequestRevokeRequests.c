@@ -1,14 +1,14 @@
 /*
- * XREFs of PopPowerRequestRevokeRequests @ 0x1404B659C
+ * XREFs of PopPowerRequestRevokeRequests @ 0x1404B0D7C
  * Callers:
- *     PopPowerRequestHandleExecutionEnablementUpdate @ 0x140A3BCEC (PopPowerRequestHandleExecutionEnablementUpdate.c)
- *     PopPowerRequestRevokeRequestsForSleep @ 0x140AAEAF0 (PopPowerRequestRevokeRequestsForSleep.c)
- *     PopPowerRequestNotifyTtmSessionUninitialized @ 0x140AB9BA4 (PopPowerRequestNotifyTtmSessionUninitialized.c)
+ *     PopPowerRequestHandleExecutionEnablementUpdate @ 0x140A314CC (PopPowerRequestHandleExecutionEnablementUpdate.c)
+ *     PopPowerRequestRevokeRequestsForSleep @ 0x140AA99CC (PopPowerRequestRevokeRequestsForSleep.c)
+ *     PopPowerRequestNotifyTtmSessionUninitialized @ 0x140AB4C64 (PopPowerRequestNotifyTtmSessionUninitialized.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLock @ 0x140275CD0 (KeReleaseInStackQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x1402D8540 (KeAcquireInStackQueuedSpinLock.c)
- *     ExQueueWorkItem @ 0x140325850 (ExQueueWorkItem.c)
- *     PopPowerRequestEvaluatePendingRequestStatus @ 0x14046C0C4 (PopPowerRequestEvaluatePendingRequestStatus.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x14022B260 (KeReleaseInStackQueuedSpinLock.c)
+ *     ExQueueWorkItem @ 0x1402CE3E0 (ExQueueWorkItem.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1403597C0 (KeAcquireInStackQueuedSpinLock.c)
+ *     PopPowerRequestEvaluatePendingRequestStatus @ 0x140464D44 (PopPowerRequestEvaluatePendingRequestStatus.c)
  */
 
 void __fastcall PopPowerRequestRevokeRequests(int a1, char a2)
@@ -35,7 +35,7 @@ void __fastcall PopPowerRequestRevokeRequests(int a1, char a2)
     }
     PopPowerRequestEvaluatePendingRequestStatus(i, 0LL);
   }
-  if ( _InterlockedIncrement(&dword_140F0DFA0) == 1 )
+  if ( _InterlockedIncrement(&dword_140F0E3E0) == 1 )
     ExQueueWorkItem(&PopPowerRequestUpdateWorkItem, CriticalWorkQueue);
 LABEL_3:
   KeReleaseInStackQueuedSpinLock(&LockHandle);

@@ -1,7 +1,7 @@
 /*
- * XREFs of CmLoadKey @ 0x1406C8B78
+ * XREFs of CmLoadKey @ 0x1406C9E18
  * Callers:
- *     CmLoadDifferencingKey @ 0x1405B4DBC (CmLoadDifferencingKey.c)
+ *     CmLoadDifferencingKey @ 0x1405B5DBC (CmLoadDifferencingKey.c)
  * Callees:
  *     CmpLoadKeyCommon @ 0x140010994 (CmpLoadKeyCommon.c)
  *     _TlgKeywordOn @ 0x140012A04 (_TlgKeywordOn.c)
@@ -10,20 +10,20 @@
  *     ExReleaseRundownProtection_0 @ 0x14004D2F0 (ExReleaseRundownProtection_0.c)
  *     ExAcquireRundownProtection_0 @ 0x14004D320 (ExAcquireRundownProtection_0.c)
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     ZwClose @ 0x1401B8370 (ZwClose.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     CmpOpenHiveFile @ 0x1405B4330 (CmpOpenHiveFile.c)
- *     CmpCmdHiveOpen @ 0x1405B494C (CmpCmdHiveOpen.c)
- *     CmpAttachToRegistryProcess @ 0x1405D4048 (CmpAttachToRegistryProcess.c)
- *     ObReferenceObjectByHandle @ 0x1405E8350 (ObReferenceObjectByHandle.c)
- *     CmpQueryHiveRedirectionFileList @ 0x1406C8EC4 (CmpQueryHiveRedirectionFileList.c)
- *     CmpResolveHiveLoadConflict @ 0x1407F0328 (CmpResolveHiveLoadConflict.c)
- *     CmpDestroyHive @ 0x1407F6778 (CmpDestroyHive.c)
- *     ObDrainDeferredObjectDeletion @ 0x14086130C (ObDrainDeferredObjectDeletion.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B78F0 (KiLeaveCriticalRegionUnsafe.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     ZwClose @ 0x1401B84D0 (ZwClose.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     CmpOpenHiveFile @ 0x1405B5330 (CmpOpenHiveFile.c)
+ *     CmpCmdHiveOpen @ 0x1405B594C (CmpCmdHiveOpen.c)
+ *     CmpAttachToRegistryProcess @ 0x1405D5048 (CmpAttachToRegistryProcess.c)
+ *     ObReferenceObjectByHandle @ 0x1405E9350 (ObReferenceObjectByHandle.c)
+ *     CmpQueryHiveRedirectionFileList @ 0x1406CA164 (CmpQueryHiveRedirectionFileList.c)
+ *     CmpResolveHiveLoadConflict @ 0x1407F1528 (CmpResolveHiveLoadConflict.c)
+ *     CmpDestroyHive @ 0x1407F7978 (CmpDestroyHive.c)
+ *     ObDrainDeferredObjectDeletion @ 0x14086256C (ObDrainDeferredObjectDeletion.c)
  */
 
 __int64 __fastcall CmLoadKey(
@@ -228,7 +228,7 @@ LABEL_21:
   ExFreePoolWithTag(v19, 0);
   if ( v25 < 0 )
   {
-    if ( stru_1403FFAA0.LevelPlus1 > 5 && TlgKeywordOn(&stru_1403FFAA0, 0x400000000000uLL) )
+    if ( stru_140400AA0.LevelPlus1 > 5 && TlgKeywordOn(&stru_140400AA0, 0x400000000000uLL) )
     {
       v54 = &v39;
       v56 = &v36;
@@ -249,17 +249,17 @@ LABEL_21:
       v64 = (int)v33;
       v66 = 2LL;
       v69 = (int)v33;
-      TlgWrite(&stru_1403FFAA0, &unk_14036BC87, 0LL, v33, 9u, &v53);
+      TlgWrite(&stru_140400AA0, &unk_14036CC17, 0LL, v33, 9u, &v53);
     }
   }
-  else if ( stru_1403FFAA0.LevelPlus1 > 5 )
+  else if ( stru_140400AA0.LevelPlus1 > 5 )
   {
-    if ( TlgKeywordOn(&stru_1403FFAA0, 0x400000000000uLL) )
+    if ( TlgKeywordOn(&stru_140400AA0, 0x400000000000uLL) )
     {
       v40 = v25;
       v71 = &v40;
       v72 = 4LL;
-      TlgWrite(&stru_1403FFAA0, &unk_14036BC5B, 0LL, v28, 3u, &pData);
+      TlgWrite(&stru_140400AA0, &unk_14036CBEB, 0LL, v28, 3u, &pData);
     }
   }
   return (unsigned int)v25;

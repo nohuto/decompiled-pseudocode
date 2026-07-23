@@ -9,7 +9,7 @@
  *     RtlAllocateHeap @ 0x180029F40 (RtlAllocateHeap.c)
  */
 
-__int64 __fastcall sub_180047190(
+PVOID __fastcall sub_180047190(
         unsigned int a1,
         unsigned int a2,
         unsigned int a3,
@@ -21,7 +21,7 @@ __int64 __fastcall sub_180047190(
   unsigned int v8; // eax
   unsigned __int64 v9; // r8
   unsigned int v10; // edx
-  __int64 result; // rax
+  PVOID result; // rax
 
   v7 = a3 * (unsigned __int64)a2;
   if ( v7 > 0xFFFFFFFF )
@@ -37,6 +37,6 @@ __int64 __fastcall sub_180047190(
   if ( a6 )
     *a6 = v10;
   if ( v10 )
-    return RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 8u, v10);
+    return RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, v10);
   return result;
 }

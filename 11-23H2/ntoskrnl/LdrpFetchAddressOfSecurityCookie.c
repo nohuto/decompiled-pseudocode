@@ -1,14 +1,14 @@
 /*
- * XREFs of LdrpFetchAddressOfSecurityCookie @ 0x1407D452C
+ * XREFs of LdrpFetchAddressOfSecurityCookie @ 0x1407D47FC
  * Callers:
- *     LdrInitSecurityCookie @ 0x1407D4478 (LdrInitSecurityCookie.c)
+ *     LdrInitSecurityCookie @ 0x1407D4748 (LdrInitSecurityCookie.c)
  * Callees:
  *     RtlImageNtHeaderEx @ 0x140214B60 (RtlImageNtHeaderEx.c)
- *     LdrImageDirectoryEntryToLoadConfig @ 0x1407D45C8 (LdrImageDirectoryEntryToLoadConfig.c)
+ *     LdrImageDirectoryEntryToLoadConfig @ 0x1407D4898 (LdrImageDirectoryEntryToLoadConfig.c)
  */
 
 unsigned __int64 __fastcall LdrpFetchAddressOfSecurityCookie(
-        unsigned __int64 a1,
+        PVOID BaseOfImage,
         unsigned int a2,
         _DWORD *a3,
         __int64 *a4)
@@ -16,13 +16,16 @@ unsigned __int64 __fastcall LdrpFetchAddressOfSecurityCookie(
   __int64 v5; // rbp
   __int64 Config; // rax
   unsigned __int64 v9; // r8
-  __int64 v11; // [rsp+40h] [rbp+18h] BYREF
+  PIMAGE_NT_HEADERS v11; // [rsp+40h] [rbp+18h] BYREF
 
   v5 = a2;
-  RtlImageNtHeaderEx(1, a1, 0LL, &v11);
-  Config = LdrImageDirectoryEntryToLoadConfig(a1);
+  RtlImageNtHeaderEx(1u, BaseOfImage, 0LL, &v11);
+  Config = LdrImageDirectoryEntryToLoadConfig(BaseOfImage);
   *a3 = 0;
-  if ( Config && *(_DWORD *)Config >= 0x70u && (v9 = *(_QWORD *)(Config + 88), v9 > a1) && v9 < v5 + a1 - 8 )
+  if ( Config
+    && *(_DWORD *)Config >= 0x70u
+    && (v9 = *(_QWORD *)(Config + 88), v9 > (unsigned __int64)BaseOfImage)
+    && v9 < (unsigned __int64)BaseOfImage + v5 - 8 )
   {
     if ( a4 )
       *a4 = Config;

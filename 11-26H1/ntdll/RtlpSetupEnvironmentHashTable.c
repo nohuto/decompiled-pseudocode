@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpSetupEnvironmentHashTable @ 0x1800A0618
+ * XREFs of RtlpSetupEnvironmentHashTable @ 0x18009F748
  * Callers:
- *     RtlpInitEnvironmentBlock @ 0x1800A0498 (RtlpInitEnvironmentBlock.c)
+ *     RtlpInitEnvironmentBlock @ 0x18009F5C8 (RtlpInitEnvironmentBlock.c)
  * Callees:
- *     RtlpAllocateEnvironmentHashTable @ 0x1800A069C (RtlpAllocateEnvironmentHashTable.c)
+ *     RtlpAllocateEnvironmentHashTable @ 0x18009F7CC (RtlpAllocateEnvironmentHashTable.c)
  */
 
 __int64 RtlpSetupEnvironmentHashTable()
@@ -11,8 +11,8 @@ __int64 RtlpSetupEnvironmentHashTable()
   char *EnvironmentHashTable; // rax
 
   RtlpEnvironmentHashTable = 0LL;
-  xmmword_1801CB850 = 0LL;
-  EnvironmentHashTable = (char *)RtlpAllocateEnvironmentHashTable(256LL, 0LL);
+  xmmword_1801CA890 = 0LL;
+  EnvironmentHashTable = (char *)RtlpAllocateEnvironmentHashTable(0x100uLL);
   if ( !EnvironmentHashTable )
     return 3221225626LL;
   *(_QWORD *)&RtlpEnvironmentHashTable = 0x40000000000LL;

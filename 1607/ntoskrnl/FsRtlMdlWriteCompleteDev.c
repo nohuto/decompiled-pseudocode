@@ -1,9 +1,9 @@
 /*
- * XREFs of FsRtlMdlWriteCompleteDev @ 0x1404ECE50
+ * XREFs of FsRtlMdlWriteCompleteDev @ 0x1404CEFBC
  * Callers:
  *     <none>
  * Callees:
- *     CcMdlWriteComplete2 @ 0x1400B3998 (CcMdlWriteComplete2.c)
+ *     CcMdlWriteComplete2 @ 0x1400B1818 (CcMdlWriteComplete2.c)
  */
 
 BOOLEAN __stdcall FsRtlMdlWriteCompleteDev(

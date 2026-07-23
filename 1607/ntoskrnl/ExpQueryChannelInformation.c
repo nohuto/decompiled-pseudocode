@@ -1,11 +1,11 @@
 /*
- * XREFs of ExpQueryChannelInformation @ 0x1406AB750
+ * XREFs of ExpQueryChannelInformation @ 0x1406AB888
  * Callers:
- *     ExpQuerySystemInformation @ 0x140415620 (ExpQuerySystemInformation.c)
+ *     ExpQuerySystemInformation @ 0x1404144E0 (ExpQuerySystemInformation.c)
  * Callees:
- *     memmove @ 0x140171280 (memmove.c)
+ *     memmove @ 0x140171780 (memmove.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
- *     MmGetChannelInformation @ 0x14054C23C (MmGetChannelInformation.c)
+ *     MmGetChannelInformation @ 0x14054C77C (MmGetChannelInformation.c)
  */
 
 __int64 __fastcall ExpQueryChannelInformation(unsigned int *a1, unsigned int a2, _DWORD *a3)

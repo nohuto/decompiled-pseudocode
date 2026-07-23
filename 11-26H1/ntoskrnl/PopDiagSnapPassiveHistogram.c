@@ -1,8 +1,8 @@
 /*
- * XREFs of PopDiagSnapPassiveHistogram @ 0x1404379F4
+ * XREFs of PopDiagSnapPassiveHistogram @ 0x140426984
  * Callers:
- *     PopTraceThermalRequestPassiveHistogram @ 0x140436950 (PopTraceThermalRequestPassiveHistogram.c)
- *     PopTraceThermalZonePassiveHistogram @ 0x140510620 (PopTraceThermalZonePassiveHistogram.c)
+ *     PopTraceThermalRequestPassiveHistogram @ 0x1404258E0 (PopTraceThermalRequestPassiveHistogram.c)
+ *     PopTraceThermalZonePassiveHistogram @ 0x14050A090 (PopTraceThermalZonePassiveHistogram.c)
  * Callees:
  *     <none>
  */

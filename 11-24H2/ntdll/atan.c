@@ -1,10 +1,10 @@
 /*
- * XREFs of atan @ 0x180123310
+ * XREFs of atan @ 0x180121540
  * Callers:
  *     <none>
  * Callees:
- *     _controlfp @ 0x180129F10 (_controlfp.c)
- *     _handle_error @ 0x18012A070 (_handle_error.c)
+ *     _controlfp @ 0x180128140 (_controlfp.c)
+ *     _handle_error @ 0x1801282A0 (_handle_error.c)
  */
 
 double __cdecl atan(double X)
@@ -67,9 +67,9 @@ double __cdecl atan(double X)
     }
     if ( v3 > 4.859383997932765e18 )
     {
-      v6 = *(double *)&qword_1801CCAA0;
+      v6 = *(double *)&qword_1801CBAA0;
       if ( *(_QWORD *)&X != v4 )
-        *(_QWORD *)&v6 = qword_1801CCAA0 ^ _xmm;
+        *(_QWORD *)&v6 = qword_1801CBAA0 ^ _xmm;
       controlfp(0x10u, 0x10u);
       return v6;
     }

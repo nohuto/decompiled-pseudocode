@@ -18,187 +18,215 @@
  *     __RtlpMuiRegValidateAndGetInstallFallbackBase@20 @ 0x4B36CD2C (__RtlpMuiRegValidateAndGetInstallFallbackBase@20.c)
  */
 
-int __userpurge _RtlpMuiRegPopulateBaseLanguages@<eax>(
-        int a1@<edx>,
+NTSTATUS __userpurge _RtlpMuiRegPopulateBaseLanguages@<eax>(
+        void *a1@<edx>,
         _WORD *a2@<ecx>,
         int a3@<ebp>,
-        _WORD *a4,
-        unsigned int *a5,
-        int a6)
+        int a4@<edi>,
+        BOOLEAN a5@<sil>,
+        _WORD *a6,
+        unsigned int *a7,
+        int a8)
 {
-  __int16 v7; // cx
-  int result; // eax
-  unsigned __int16 v9; // si
-  int v10; // eax
-  int IsUILanguageComitted; // eax
-  __int16 v12; // ax
-  int v13; // ecx
-  unsigned int v14; // esi
+  LANGID v9; // cx
+  NTSTATUS result; // eax
+  unsigned __int16 v11; // si
+  int v12; // eax
+  NTSTATUS IsUILanguageComitted; // eax
+  __int16 v14; // ax
   int v15; // ecx
-  int ValueKey; // eax
-  unsigned int v17; // esi
-  WCHAR *v18; // ecx
-  __int16 v19; // ax
-  int i; // eax
-  unsigned int v21; // eax
-  unsigned int v22; // esi
-  unsigned int v23; // ecx
-  int v24; // [esp-46Ch] [ebp-478h] BYREF
-  UNICODE_STRING v25; // [esp-468h] [ebp-474h] BYREF
-  unsigned int v26; // [esp-460h] [ebp-46Ch]
-  int v27; // [esp-44Ch] [ebp-458h]
-  unsigned int v28; // [esp-448h] [ebp-454h]
-  int v29; // [esp-444h] [ebp-450h]
-  _WORD *v30; // [esp-440h] [ebp-44Ch]
-  int v31; // [esp-43Ch] [ebp-448h] BYREF
-  int v32; // [esp-438h] [ebp-444h]
-  int v33; // [esp-434h] [ebp-440h] BYREF
-  unsigned int v34; // [esp-430h] [ebp-43Ch] BYREF
-  unsigned int v35; // [esp-42Ch] [ebp-438h]
-  __int16 v36; // [esp-428h] [ebp-434h] BYREF
-  unsigned int v37; // [esp-424h] [ebp-430h]
-  wchar_t v38[88]; // [esp-420h] [ebp-42Ch] BYREF
-  unsigned __int16 v39[88]; // [esp-370h] [ebp-37Ch] BYREF
-  int v40; // [esp-2C0h] [ebp-2CCh] BYREF
-  int v41; // [esp-2BCh] [ebp-2C8h]
-  unsigned int v42; // [esp-2B0h] [ebp-2BCh]
-  unsigned __int16 v43[250]; // [esp-2ACh] [ebp-2B8h] BYREF
-  WCHAR v44[92]; // [esp-B8h] [ebp-C4h] BYREF
-  int v45; // [esp+0h] [ebp-Ch]
-  void *v46; // [esp+4h] [ebp-8h]
+  const WCHAR *v16; // esi
+  int v17; // ecx
+  NTSTATUS v18; // eax
+  unsigned int v19; // esi
+  WCHAR *v20; // ecx
+  __int16 v21; // ax
+  ULONG i; // eax
+  const WCHAR *v23; // eax
+  unsigned int v24; // esi
+  unsigned int v25; // ecx
+  SIZE_T v26; // [esp-490h] [ebp-49Ch]
+  SIZE_T v27; // [esp-490h] [ebp-49Ch]
+  SIZE_T v28; // [esp-490h] [ebp-49Ch]
+  size_t v29; // [esp-484h] [ebp-490h]
+  size_t v30; // [esp-484h] [ebp-490h]
+  size_t v31; // [esp-484h] [ebp-490h]
+  SIZE_T v32; // [esp-484h] [ebp-490h]
+  BOOLEAN v33; // [esp-47Ch] [ebp-488h]
+  ULONG v34; // [esp-46Ch] [ebp-478h] BYREF
+  _UNICODE_STRING v35; // [esp-468h] [ebp-474h] BYREF
+  unsigned int v36; // [esp-460h] [ebp-46Ch]
+  ULONG v37; // [esp-44Ch] [ebp-458h]
+  int v38; // [esp-448h] [ebp-454h]
+  NTSTATUS v39; // [esp-444h] [ebp-450h]
+  _WORD *v40; // [esp-440h] [ebp-44Ch]
+  int v41; // [esp-43Ch] [ebp-448h] BYREF
+  HANDLE v42; // [esp-438h] [ebp-444h]
+  int v43; // [esp-434h] [ebp-440h] BYREF
+  ULONG v44; // [esp-430h] [ebp-43Ch] BYREF
+  const WCHAR *v45; // [esp-42Ch] [ebp-438h]
+  LANGID v46; // [esp-428h] [ebp-434h] BYREF
+  unsigned int v47; // [esp-424h] [ebp-430h]
+  wchar_t v48[88]; // [esp-420h] [ebp-42Ch] BYREF
+  unsigned __int16 v49[88]; // [esp-370h] [ebp-37Ch] BYREF
+  int v50; // [esp-2C0h] [ebp-2CCh] BYREF
+  int v51; // [esp-2BCh] [ebp-2C8h]
+  unsigned int v52; // [esp-2B0h] [ebp-2BCh]
+  WCHAR v53[250]; // [esp-2ACh] [ebp-2B8h] BYREF
+  WCHAR v54; // [esp-B8h] [ebp-C4h] BYREF
+  _BYTE v55[186]; // [esp-B6h] [ebp-C2h] BYREF
+  void *v56; // [esp+4h] [ebp-8h]
   void *retaddr; // [esp+Ch] [ebp+0h]
 
-  v45 = a3;
-  v46 = retaddr;
-  v32 = a1;
-  v26 = 0;
-  v24 = 0;
-  v30 = a4;
-  memset(v44, 0, 0xAAu);
-  memset(v39, 0, 0xAAu);
-  memset(v38, 0, 0xAAu);
-  v28 = 0;
-  v35 = 0;
+  *(_DWORD *)&v55[182] = a3;
+  v56 = retaddr;
+  v33 = a5;
+  HIDWORD(v29) = a4;
+  v42 = a1;
   v36 = 0;
+  LODWORD(v29) = 170;
   v34 = 0;
-  if ( !a2 || !a4 || !v32 )
+  v40 = a6;
+  memset(&v54, 0, v29);
+  LODWORD(v30) = 170;
+  memset(v49, 0, v30);
+  LODWORD(v31) = 170;
+  memset(v48, 0, v31);
+  v38 = 0;
+  v45 = 0;
+  v46 = 0;
+  v44 = 0;
+  if ( !a2 || !a6 || !v42 )
     return -1073741811;
-  v29 = 0;
-  v27 = 0;
+  v39 = 0;
   v37 = 0;
-  v7 = a2[2];
-  if ( v7 )
+  v47 = 0;
+  v9 = a2[2];
+  if ( v9 )
   {
-    v12 = a2[4];
-    v9 = a2[3];
-    v36 = a2[2];
-    LOWORD(v33) = v12;
+    v14 = a2[4];
+    v11 = a2[3];
+    v46 = a2[2];
+    LOWORD(v43) = v14;
   }
   else
   {
-    result = NtQueryInstallUILanguage((int)&v36);
-    v29 = result;
+    result = NtQueryInstallUILanguage(&v46);
+    v39 = result;
     if ( result < 0 )
       return result;
-    if ( RtlpLoadInstallLanguageFallback((int)a2, &v31, &v33) >= 0 )
+    if ( RtlpLoadInstallLanguageFallback((int)a2, &v41, &v43) >= 0 )
     {
-      v9 = v31;
-      v10 = (unsigned __int16)v33;
+      v11 = v41;
+      v12 = (unsigned __int16)v43;
     }
     else
     {
-      v9 = 0;
-      v10 = 0;
-      LOWORD(v33) = 0;
+      v11 = 0;
+      v12 = 0;
+      LOWORD(v43) = 0;
     }
-    v31 = v10;
+    v41 = v12;
     IsUILanguageComitted = ZwIsUILanguageComitted();
-    v7 = v36;
+    v9 = v46;
     if ( IsUILanguageComitted >= 0 )
     {
-      a2[4] = v31;
-      a2[3] = v9;
-      a2[2] = v7;
+      a2[4] = v41;
+      a2[3] = v11;
+      a2[2] = v9;
     }
   }
-  if ( v30[2] == v7
-    && v9
-    && (v34 = 512, v25.Buffer = v39, v25.MaximumLength = 170, RtlLCIDToCultureName(v9, &v25.Length))
-    && ZwQueryValueKey(v32, (int)&v25, 1, (int)&v40, 512, (int)&v34) >= 0
-    && (int)_RtlpMuiRegValidateAndGetInstallFallbackBase(v33, v38, v13) >= 0
-    && _RtlpMuiRegAddBaseLanguage((int)a2, v30, 0, (int)&v40, v38) >= 0 )
+  if ( v40[2] == v9
+    && v11
+    && (v44 = 512, v35.Buffer = v49, v35.MaximumLength = 170, RtlLCIDToCultureName(v11, &v35))
+    && ZwQueryValueKey(v42, &v35, KeyValueFullInformation, &v50, 0x200u, &v44) >= 0
+    && (int)_RtlpMuiRegValidateAndGetInstallFallbackBase(v43, v48, v15) >= 0
+    && _RtlpMuiRegAddBaseLanguage((int)a2, v40, 0, (int)&v50, v48) >= 0 )
   {
-    v37 = 1;
-    v14 = wcslen(v39);
-    v35 = v14;
+    v47 = 1;
+    v16 = (const WCHAR *)wcslen(v49);
+    v45 = v16;
   }
   else
   {
-    v14 = v35;
+    v16 = v45;
   }
-  RtlInitUnicodeString(&v25, L"DefaultFallback");
-  v33 = 1;
-  v34 = 170;
-  if ( LdrpQueryValueKey(v32, (int)&v25, &v33, v44, &v34, v15) >= 0
-    && v33 == 1
-    && (!v14 || RtlCompareUnicodeStrings(v44, v34 >> 1, (int)v39, v14, 1)) )
+  RtlInitUnicodeString(&v35, L"DefaultFallback");
+  v43 = 1;
+  v44 = 170;
+  if ( LdrpQueryValueKey(v42, &v35, &v43, &v54, &v44, v17) >= 0
+    && v43 == 1
+    && (!v16
+     || (LODWORD(v32) = 1,
+         HIDWORD(v26) = v49,
+         LODWORD(v26) = v44 >> 1,
+         RtlCompareUnicodeStrings(&v54, v26, v16, v32, v33))) )
   {
-    RtlInitUnicodeString(&v25, v44);
-    v34 = 512;
-    ValueKey = ZwQueryValueKey(v32, (int)&v25, 1, (int)&v40, 512, (int)&v34);
-    v17 = v37;
-    if ( ValueKey >= 0 && v41 == 7 && _RtlpMuiRegAddBaseLanguage((int)a2, v30, v37, (int)&v40, 0) >= 0 )
+    RtlInitUnicodeString(&v35, &v54);
+    v44 = 512;
+    v18 = ZwQueryValueKey(v42, &v35, KeyValueFullInformation, &v50, 0x200u, &v44);
+    v19 = v47;
+    if ( v18 >= 0 && v51 == 7 && _RtlpMuiRegAddBaseLanguage((int)a2, v40, v47, (int)&v50, 0) >= 0 )
     {
-      ++v17;
-      v18 = v44;
-      v37 = v17;
+      ++v19;
+      v20 = &v54;
+      v47 = v19;
       do
-        v19 = *v18++;
-      while ( v19 != (_WORD)v26 );
-      v28 = v18 - &v44[1];
+        v21 = *v20++;
+      while ( v21 != (_WORD)v36 );
+      v38 = ((char *)v20 - v55) >> 1;
     }
   }
   else
   {
-    v17 = v37;
+    v19 = v47;
   }
-  if ( v29 != -2147483622 )
+  if ( v39 != -2147483622 )
   {
-    for ( i = v27; v17 < 4 && NtEnumerateValueKey(v32, i, 1, (int)&v40, 512, (int)&v24) >= 0; i = ++v27 )
+    for ( i = v37; v19 < 4 && NtEnumerateValueKey(v42, i, KeyValueFullInformation, &v50, 0x200u, &v34) >= 0; i = ++v37 )
     {
-      if ( v41 == 7 )
+      if ( v51 == 7 )
       {
-        if ( v42 > 0x200 )
+        if ( v52 > 0x200 )
           goto LABEL_47;
-        v21 = v35;
-        if ( v28 || v35 )
+        v23 = v45;
+        if ( v38 || v45 )
         {
-          v22 = v42 >> 1;
-          v29 = v43[v42 >> 1];
-          v43[v42 >> 1] = 0;
-          v23 = v42;
-          v26 = v42;
-          if ( v21 )
+          v24 = v52 >> 1;
+          v39 = (unsigned __int16)v53[v52 >> 1];
+          v53[v52 >> 1] = 0;
+          v25 = v52;
+          v36 = v52;
+          if ( v23 )
           {
-            if ( !RtlCompareUnicodeStrings(v43, v42 >> 1, (int)v39, v21, 1) )
+            LODWORD(v32) = 1;
+            HIDWORD(v27) = v49;
+            LODWORD(v27) = v52 >> 1;
+            if ( !RtlCompareUnicodeStrings(v53, v27, v23, v32, v33) )
               goto LABEL_47;
-            v23 = v26;
+            v25 = v36;
           }
-          if ( v28 && !RtlCompareUnicodeStrings(v43, v23 >> 1, (int)v44, v28, 1) )
+          if ( v38 )
           {
+            LODWORD(v32) = 1;
+            HIDWORD(v28) = &v54;
+            LODWORD(v28) = v25 >> 1;
+            if ( !RtlCompareUnicodeStrings(v53, v28, (PCWCH)v38, v32, v33) )
+            {
 LABEL_47:
-            v17 = v37;
-            continue;
+              v19 = v47;
+              continue;
+            }
           }
-          v43[v22] = v29;
+          v53[v24] = v39;
         }
-        v17 = v37;
-        if ( _RtlpMuiRegAddBaseLanguage((int)a2, v30, v37, (int)&v40, 0) >= 0 )
-          v37 = ++v17;
+        v19 = v47;
+        if ( _RtlpMuiRegAddBaseLanguage((int)a2, v40, v47, (int)&v50, 0) >= 0 )
+          v47 = ++v19;
       }
     }
   }
-  if ( a5 )
-    *a5 = v17;
+  if ( a7 )
+    *a7 = v19;
   return 0;
 }

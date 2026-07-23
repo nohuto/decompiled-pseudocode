@@ -1,16 +1,16 @@
 /*
- * XREFs of PspSecureThreadStartup @ 0x140A94070
+ * XREFs of PspSecureThreadStartup @ 0x140A90820
  * Callers:
  *     <none>
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     PspTerminateThreadByPointer @ 0x1408A7CB0 (PspTerminateThreadByPointer.c)
- *     PspDisablePrimaryTokenExchange @ 0x1408FEB00 (PspDisablePrimaryTokenExchange.c)
- *     PspNotifyThreadCreation @ 0x1408FEC38 (PspNotifyThreadCreation.c)
- *     VslStartSecureThread @ 0x140A940E4 (VslStartSecureThread.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     PspTerminateThreadByPointer @ 0x1408FDF10 (PspTerminateThreadByPointer.c)
+ *     PspDisablePrimaryTokenExchange @ 0x1409213E0 (PspDisablePrimaryTokenExchange.c)
+ *     PspNotifyThreadCreation @ 0x140921518 (PspNotifyThreadCreation.c)
+ *     VslStartSecureThread @ 0x140A90894 (VslStartSecureThread.c)
  */
 
-__int64 __fastcall PspSecureThreadStartup(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+__int64 PspSecureThreadStartup()
 {
   struct _KTHREAD *CurrentThread; // rbx
   unsigned int started; // eax
@@ -19,7 +19,7 @@ __int64 __fastcall PspSecureThreadStartup(__int64 a1, __int64 a2, __int64 a3, __
     KiLowerIrqlProcessIrqlFlags(KeGetCurrentIrql(), 0);
   __writecr8(0LL);
   CurrentThread = KeGetCurrentThread();
-  PspDisablePrimaryTokenExchange((__int64)CurrentThread, a2, a3, a4);
+  PspDisablePrimaryTokenExchange((__int64)CurrentThread);
   if ( (*(_DWORD *)(&CurrentThread[1].SwapListEntry + 1) & 2) == 0 )
     PspTerminateThreadByPointer((ULONG_PTR)CurrentThread, 0xC000004B, 1);
   PspNotifyThreadCreation((__int64)CurrentThread);

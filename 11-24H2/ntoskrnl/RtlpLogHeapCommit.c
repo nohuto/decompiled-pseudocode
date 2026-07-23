@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlpLogHeapCommit @ 0x1404F8D04
+ * XREFs of RtlpLogHeapCommit @ 0x1404F65E4
  * Callers:
- *     RtlpHpSegSegmentAllocate @ 0x1402C1ABC (RtlpHpSegSegmentAllocate.c)
- *     RtlpHpSegPageRangeCommit @ 0x1402C1C30 (RtlpHpSegPageRangeCommit.c)
+ *     RtlpHpSegSegmentAllocate @ 0x14035E15C (RtlpHpSegSegmentAllocate.c)
+ *     RtlpHpSegPageRangeCommit @ 0x14035F6F0 (RtlpHpSegPageRangeCommit.c)
  * Callees:
- *     EtwTraceKernelEvent @ 0x140255180 (EtwTraceKernelEvent.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     EtwTraceKernelEvent @ 0x140285790 (EtwTraceKernelEvent.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 __int64 __fastcall RtlpLogHeapCommit(__int64 a1, __int64 a2, __int64 a3, int a4)

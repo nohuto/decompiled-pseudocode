@@ -1,12 +1,12 @@
 /*
- * XREFs of FsRtlpOplockPerfSummarizeData @ 0x14070C164
+ * XREFs of FsRtlpOplockPerfSummarizeData @ 0x140709CF8
  * Callers:
- *     FsRtlpOplockPerfSendData @ 0x14070BDB4 (FsRtlpOplockPerfSendData.c)
+ *     FsRtlpOplockPerfSendData @ 0x140709948 (FsRtlpOplockPerfSendData.c)
  * Callees:
- *     KiQueryUnbiasedInterruptTime @ 0x1404251D0 (KiQueryUnbiasedInterruptTime.c)
- *     FsRtlpComputeLargeRatio @ 0x140580C7C (FsRtlpComputeLargeRatio.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     FsRtlpOplockPerfGetLatencyNsBucket @ 0x14070BBF8 (FsRtlpOplockPerfGetLatencyNsBucket.c)
+ *     KiQueryUnbiasedInterruptTime @ 0x140419080 (KiQueryUnbiasedInterruptTime.c)
+ *     FsRtlpComputeLargeRatio @ 0x14057E098 (FsRtlpComputeLargeRatio.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     FsRtlpOplockPerfGetLatencyNsBucket @ 0x14070978C (FsRtlpOplockPerfGetLatencyNsBucket.c)
  */
 
 unsigned __int64 FsRtlpOplockPerfSummarizeData()
@@ -30,8 +30,8 @@ unsigned __int64 FsRtlpOplockPerfSummarizeData()
   __int128 v16; // xmm1
 
   v0 = 0LL;
-  if ( byte_140E65B20 )
-    memset_0(&word_140E65B50, 0, 0x50uLL);
+  if ( byte_140E65D80 )
+    memset_0(&word_140E65DB0, 0, 0x50uLL);
   v1 = 2LL;
   v2 = 2LL;
   v3 = **(_OWORD ***)g_OplockPerfData;
@@ -54,14 +54,14 @@ unsigned __int64 FsRtlpOplockPerfSummarizeData()
   while ( v2 );
   v6 = *(_QWORD *)(*(_QWORD *)g_OplockPerfData + 16LL);
   *(_QWORD *)(*(_QWORD *)g_OplockPerfData + 16LL) = 0LL;
-  qword_140E65B70 = FsRtlpComputeLargeRatio(v6, 1000000000LL, qword_140E65CB0);
-  qword_140E65B18 = KiQueryUnbiasedInterruptTime();
-  qword_140E65B90 = qword_140E65B18 - *(_QWORD *)(g_OplockPerfData + 8);
-  result = 0x624DD2F1A9FBE77LL * (qword_140E65B90 / 0xAuLL);
-  qword_140E65B98 = qword_140E65B90 / 0xAuLL / 0x3E8;
-  if ( byte_140E65B20 )
+  qword_140E65DD0 = FsRtlpComputeLargeRatio(v6, 1000000000LL, qword_140E65D50);
+  qword_140E65D78 = KiQueryUnbiasedInterruptTime();
+  qword_140E65DF0 = qword_140E65D78 - *(_QWORD *)(g_OplockPerfData + 8);
+  result = 0x624DD2F1A9FBE77LL * (qword_140E65DF0 / 0xAuLL);
+  qword_140E65DF8 = qword_140E65DF0 / 0xAuLL / 0x3E8;
+  if ( byte_140E65D80 )
   {
-    *(_QWORD *)(g_OplockPerfData + 8) = qword_140E65B18;
+    *(_QWORD *)(g_OplockPerfData + 8) = qword_140E65D78;
     v8 = 16LL;
     v9 = 0LL;
     do
@@ -71,14 +71,14 @@ unsigned __int64 FsRtlpOplockPerfSummarizeData()
       v12 = FsRtlpComputeLargeRatio(
               *(_QWORD *)(v9 + g_OplockPerfSummaryContext + 8) - *(_QWORD *)(v9 + v10 + 8),
               1000000000LL,
-              qword_140E65CB0);
+              qword_140E65D50);
       v9 += 16LL;
-      *(_QWORD *)(xmmword_140E65B30 + 8LL * (unsigned __int16)word_140E65B50) = v11;
-      qword_140E65B58 += v11;
-      ++word_140E65B50;
-      *(_QWORD *)(*((_QWORD *)&xmmword_140E65B30 + 1) + 8LL * (unsigned __int16)word_140E65B52) = v12;
-      qword_140E65B60 += v12;
-      ++word_140E65B52;
+      *(_QWORD *)(xmmword_140E65D90 + 8LL * (unsigned __int16)word_140E65DB0) = v11;
+      qword_140E65DB8 += v11;
+      ++word_140E65DB0;
+      *(_QWORD *)(*((_QWORD *)&xmmword_140E65D90 + 1) + 8LL * (unsigned __int16)word_140E65DB2) = v12;
+      qword_140E65DC0 += v12;
+      ++word_140E65DB2;
       --v8;
     }
     while ( v8 );
@@ -86,25 +86,25 @@ unsigned __int64 FsRtlpOplockPerfSummarizeData()
     v14 = 0;
     while ( 1 )
     {
-      v13 += *(_QWORD *)(xmmword_140E65B30 + 8LL * v14);
-      if ( v13 >= qword_140E65B58 / 2 )
+      v13 += *(_QWORD *)(xmmword_140E65D90 + 8LL * v14);
+      if ( v13 >= qword_140E65DB8 / 2 )
         break;
       if ( ++v14 >= 0x10u )
         goto LABEL_13;
     }
-    qword_140E65B88 = qword_140E65C30[v14];
+    qword_140E65DE8 = qword_140E65CD0[v14];
 LABEL_13:
-    if ( qword_140E65B58 <= 0 )
+    if ( qword_140E65DB8 <= 0 )
     {
-      qword_140E65B68 = 0LL;
+      qword_140E65DC8 = 0LL;
     }
     else
     {
-      v0 = qword_140E65B60 / qword_140E65B58;
-      qword_140E65B68 = qword_140E65B60 / qword_140E65B58;
+      v0 = qword_140E65DC0 / qword_140E65DB8;
+      qword_140E65DC8 = qword_140E65DC0 / qword_140E65DB8;
     }
-    qword_140E65B80 = FsRtlpOplockPerfGetLatencyNsBucket(v0);
-    qword_140E65B78 = FsRtlpOplockPerfGetLatencyNsBucket(qword_140E65B70);
+    qword_140E65DE0 = FsRtlpOplockPerfGetLatencyNsBucket(v0);
+    qword_140E65DD8 = FsRtlpOplockPerfGetLatencyNsBucket(qword_140E65DD0);
     result = *(_QWORD *)(*(_QWORD *)g_OplockPerfData + 8LL);
     v15 = (_OWORD *)g_OplockPerfSummaryContext;
     do

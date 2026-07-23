@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpMcaClearError @ 0x140453EC4
+ * XREFs of HalpMcaClearError @ 0x14044BFF4
  * Callers:
- *     HalpCmcPollProcessor @ 0x140453548 (HalpCmcPollProcessor.c)
- *     HalpMceHandlerCore @ 0x14057B360 (HalpMceHandlerCore.c)
- *     HalpHandlePreviousMcaErrorsOnProcessor @ 0x140BE9CC8 (HalpHandlePreviousMcaErrorsOnProcessor.c)
+ *     HalpCmcPollProcessor @ 0x14044B678 (HalpCmcPollProcessor.c)
+ *     HalpMceHandlerCore @ 0x14057D890 (HalpMceHandlerCore.c)
+ *     HalpHandlePreviousMcaErrorsOnProcessor @ 0x140BEFCC8 (HalpHandlePreviousMcaErrorsOnProcessor.c)
  * Callees:
- *     HalpWheaWriteMsrStatus @ 0x14045318C (HalpWheaWriteMsrStatus.c)
- *     HalpMcaProcessorBankClear @ 0x1404541BC (HalpMcaProcessorBankClear.c)
+ *     HalpWheaWriteMsrStatus @ 0x14044B2BC (HalpWheaWriteMsrStatus.c)
+ *     HalpMcaProcessorBankClear @ 0x14044C2EC (HalpMcaProcessorBankClear.c)
  */
 
 __int64 __fastcall HalpMcaClearError(__int64 a1, __int64 a2)

@@ -1,5 +1,5 @@
 /*
- * XREFs of EtwpGuidEntryCompare @ 0x180086E50
+ * XREFs of EtwpGuidEntryCompare @ 0x180086E60
  * Callers:
  *     EtwpFindGuidEntry @ 0x180020FF4 (EtwpFindGuidEntry.c)
  *     EtwpInsertGuidEntry @ 0x180050E5C (EtwpInsertGuidEntry.c)

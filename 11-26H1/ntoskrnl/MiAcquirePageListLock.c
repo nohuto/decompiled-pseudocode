@@ -1,23 +1,23 @@
 /*
- * XREFs of MiAcquirePageListLock @ 0x1402FB4C0
+ * XREFs of MiAcquirePageListLock @ 0x1402DD540
  * Callers:
- *     MiUnlinkPageFromBadList @ 0x1402C8074 (MiUnlinkPageFromBadList.c)
- *     MiRemoveLowestPriorityStandbyPage @ 0x1402FA410 (MiRemoveLowestPriorityStandbyPage.c)
- *     MiReplaceTransitionPageInList @ 0x1402FC830 (MiReplaceTransitionPageInList.c)
- *     MiUpdatePageAttributeStamp @ 0x1404CD228 (MiUpdatePageAttributeStamp.c)
+ *     MiUnlinkPageFromBadList @ 0x1402A9E2C (MiUnlinkPageFromBadList.c)
+ *     MiRemoveLowestPriorityStandbyPage @ 0x1402DC490 (MiRemoveLowestPriorityStandbyPage.c)
+ *     MiReplaceTransitionPageInList @ 0x1402DE8B0 (MiReplaceTransitionPageInList.c)
+ *     MiUpdatePageAttributeStamp @ 0x1404C69C8 (MiUpdatePageAttributeStamp.c)
  * Callees:
- *     ExpWaitForSpinLockExclusiveAndAcquire @ 0x1402474C0 (ExpWaitForSpinLockExclusiveAndAcquire.c)
- *     ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x140249B40 (ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented.c)
- *     ExpWaitForSpinLockSharedAndAcquire @ 0x14029BC90 (ExpWaitForSpinLockSharedAndAcquire.c)
- *     HvlNotifyLongSpinWait @ 0x1402BBF00 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1402BC760 (KiCheckVpBackingLongSpinWaitHypercall.c)
- *     MiSearchChannelTable @ 0x1402CBEE8 (MiSearchChannelTable.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExpAcquireSpinLockSharedAtDpcLevelInstrumented @ 0x1402EE000 (ExpAcquireSpinLockSharedAtDpcLevelInstrumented.c)
- *     MiIsDecayPfn @ 0x1402F9850 (MiIsDecayPfn.c)
- *     MiGetPfnSlabType @ 0x1402FDC40 (MiGetPfnSlabType.c)
- *     ExpReleaseSpinLockSharedFromDpcLevelInstrumented @ 0x14036A848 (ExpReleaseSpinLockSharedFromDpcLevelInstrumented.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
+ *     ExpWaitForSpinLockExclusiveAndAcquire @ 0x140248E20 (ExpWaitForSpinLockExclusiveAndAcquire.c)
+ *     ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x14024B4A0 (ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented.c)
+ *     ExpWaitForSpinLockSharedAndAcquire @ 0x14029B1F0 (ExpWaitForSpinLockSharedAndAcquire.c)
+ *     MiSearchChannelTable @ 0x1402ADCA8 (MiSearchChannelTable.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExpAcquireSpinLockSharedAtDpcLevelInstrumented @ 0x1402D0080 (ExpAcquireSpinLockSharedAtDpcLevelInstrumented.c)
+ *     MiIsDecayPfn @ 0x1402DB8D0 (MiIsDecayPfn.c)
+ *     MiGetPfnSlabType @ 0x1402DFCC0 (MiGetPfnSlabType.c)
+ *     HvlNotifyLongSpinWait @ 0x140306BC0 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140307420 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     ExpReleaseSpinLockSharedFromDpcLevelInstrumented @ 0x14036C5E8 (ExpReleaseSpinLockSharedFromDpcLevelInstrumented.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall MiAcquirePageListLock(__int64 a1, __int64 a2, __int64 a3, int a4, __int64 a5)
@@ -30,10 +30,10 @@ __int64 __fastcall MiAcquirePageListLock(__int64 a1, __int64 a2, __int64 a3, int
   __int64 v13; // rdx
   ULONG_PTR v14; // r14
   int v15; // ebp
-  int *v16; // rsi
+  _DWORD *v16; // rsi
   signed __int32 v17; // eax
   signed __int32 v18; // ett
-  __int64 v19; // r8
+  unsigned __int64 v19; // r8
   __int64 v20; // rdx
   __int64 v21; // rcx
   __int64 v22; // r9
@@ -52,11 +52,11 @@ __int64 __fastcall MiAcquirePageListLock(__int64 a1, __int64 a2, __int64 a3, int
   __int64 v35; // rcx
   unsigned __int64 v36; // r9
   __int64 v37; // rdx
-  unsigned __int64 v38; // r8
-  __int64 v39; // r10
+  __int64 v38; // r10
+  __int64 v39; // rax
   __int64 v40; // rax
-  __int64 v41; // rax
-  int j; // edx
+  __int64 v42; // rdx
+  unsigned __int64 j; // rcx
   int i; // r10d
   int v45; // edx
   unsigned __int8 v46; // cl
@@ -76,7 +76,7 @@ __int64 __fastcall MiAcquirePageListLock(__int64 a1, __int64 a2, __int64 a3, int
   v12 = (unsigned __int128)((a2 + 0x220000000000LL) * (__int128)0x2AAAAAAAAAAAAAABLL) >> 64;
   v13 = 1LL;
   v14 = ((unsigned __int64)v12 >> 63) + (v12 >> 3);
-  if ( v14 < qword_140E347B0 || (v15 = 1, v14 >= qword_140E347B0 + 2048) )
+  if ( v14 < qword_140E34930 || (v15 = 1, v14 >= qword_140E34930 + 2048) )
     v15 = 0;
   if ( (int)a3 < 9 && *(_DWORD *)(a1 + 28) == 2 )
   {
@@ -85,8 +85,8 @@ __int64 __fastcall MiAcquirePageListLock(__int64 a1, __int64 a2, __int64 a3, int
     v53 = v9;
   }
   *(_BYTE *)a5 = 1;
-  v16 = (int *)(a1 + 32);
-  if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+  v16 = (_DWORD *)(a1 + 32);
+  if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || PopHibernateInProgress )
   {
     _m_prefetchw(v16);
     v17 = *v16 & 0x7FFFFFFF;
@@ -146,11 +146,11 @@ LABEL_42:
       return 1LL;
     v25 = 48 * v14;
     v26 = 48 * v14 - 0x220000000000LL;
-    v27 = dword_140E2D684;
-    v50 = *(_QWORD *)(stru_140E2EB88.ThreadLock + 8 * ((*(_QWORD *)(v26 + 40) >> 43) & 0x3FFLL));
-    if ( dword_140E2D680 > (unsigned int)dword_140E2D684
-      || (v28 = (char *)qword_140E2D6E0 + 16 * dword_140E2D680, v14 < *(_QWORD *)v28)
-      || dword_140E2D680 != dword_140E2D684 && v14 >= *((_QWORD *)v28 + 2) )
+    v27 = dword_140E2D804;
+    v50 = *(_QWORD *)(stru_140E2ED08.ThreadLock + 8 * ((*(_QWORD *)(v26 + 40) >> 43) & 0x3FFLL));
+    if ( dword_140E2D800 > (unsigned int)dword_140E2D804
+      || (v28 = (char *)qword_140E2D860 + 16 * dword_140E2D800, v14 < *(_QWORD *)v28)
+      || dword_140E2D800 != dword_140E2D804 && v14 >= *((_QWORD *)v28 + 2) )
     {
       for ( i = 0; ; i = v45 + 1 )
       {
@@ -159,18 +159,18 @@ LABEL_42:
           if ( v27 < i )
             KeBugCheckEx(0x1Au, 0x5180uLL, v14, 0LL, 0LL);
           v45 = (i + v27) >> 1;
-          v28 = (char *)qword_140E2D6E0 + 16 * v45;
+          v28 = (char *)qword_140E2D860 + 16 * v45;
           if ( v14 >= *(_QWORD *)v28 )
             break;
           if ( !v45 )
-            KeBugCheckEx(0x1Au, 0x5180uLL, v14, (ULONG_PTR)qword_140E2D6E0, 0LL);
+            KeBugCheckEx(0x1Au, 0x5180uLL, v14, (ULONG_PTR)qword_140E2D860, 0LL);
           v27 = v45 - 1;
         }
-        if ( v45 == dword_140E2D684 || v14 < *((_QWORD *)v28 + 2) )
+        if ( v45 == dword_140E2D804 || v14 < *((_QWORD *)v28 + 2) )
           break;
       }
       v25 = 48 * v14;
-      dword_140E2D680 = v45;
+      dword_140E2D800 = v45;
     }
     v29 = *(_DWORD *)(v26 + 32);
     v30 = *((unsigned int *)v28 + 2);
@@ -182,7 +182,7 @@ LABEL_23:
       v31 = HIBYTE(v29) & 7;
       goto LABEL_24;
     }
-    if ( v26 < 0xFFFFDE0000000000uLL || v26 >= 48 * qword_140E2D7A0 - 0x21FFFFFFFFD0LL || MiIsDecayPfn(v25 / 48) )
+    if ( v26 < 0xFFFFDE0000000000uLL || v26 >= 48 * qword_140E2D920 - 0x21FFFFFFFFD0LL || MiIsDecayPfn(v25 / 48) )
     {
 LABEL_102:
       v31 = 5;
@@ -194,7 +194,7 @@ LABEL_102:
       v31 = 5;
     }
 LABEL_24:
-    if ( qword_140E2D6E8 )
+    if ( qword_140E2D868 )
     {
       v48 = MiSearchChannelTable(v14);
       v10 = v51;
@@ -208,7 +208,7 @@ LABEL_24:
     if ( v10 < 9 )
     {
       if ( v10 == 8 )
-        v46 = *(_BYTE *)(qword_140E3D0C0 + 2 * ((unsigned __int64)((__int64)(48 * v14) / 48) >> 9) + 1) & 0x7F;
+        v46 = *(_BYTE *)(qword_140E3D240 + 2 * ((unsigned __int64)((__int64)(48 * v14) / 48) >> 9) + 1) & 0x7F;
       else
         v46 = 0;
       v34 = *(_QWORD *)(232LL * v10 + v33 + 14824) + 88 * (v31 + 8LL * v46);
@@ -223,36 +223,36 @@ LABEL_24:
       v37 = v34 + 40;
     else
       v37 = 48 * v36 - 0x220000000000LL;
-    v38 = (*(_QWORD *)(a2 + 24) >> 40) & 0x7FFFFLL | ((unsigned __int64)(*(_DWORD *)(a2 + 36) & 0x1FFFFF) << 19);
-    if ( v38 != 0x3FFFFFFFFFLL )
-      v35 = 48 * v38 - 0x220000000000LL;
-    v39 = 0LL;
-    v40 = a5 + 16;
-    while ( v39 < 4 )
+    v19 = (*(_QWORD *)(a2 + 24) >> 40) & 0x7FFFFLL | ((unsigned __int64)(*(_DWORD *)(a2 + 36) & 0x1FFFFF) << 19);
+    if ( v19 != 0x3FFFFFFFFFLL )
+      v35 = 48 * v19 - 0x220000000000LL;
+    v38 = 0LL;
+    v39 = a5 + 16;
+    while ( v38 < 4 )
     {
-      if ( *(_BYTE *)(v40 + 8) && v37 == *(_QWORD *)v40 )
+      if ( *(_BYTE *)(v39 + 8) && v37 == *(_QWORD *)v39 )
         goto LABEL_36;
-      ++v39;
-      v40 += 24LL;
+      ++v38;
+      v39 += 24LL;
     }
     if ( _interlockedbittestandset64((volatile signed __int32 *)(v37 + 24), 0x3FuLL) )
       goto LABEL_42;
     *(_BYTE *)(a5 + 96) = 1;
 LABEL_36:
     *(_QWORD *)(a5 + 88) = v37;
-    v41 = 0LL;
+    v40 = 0LL;
     *(_QWORD *)(a5 + 80) = v36;
-    while ( v41 < 4 )
+    while ( v40 < 4 )
     {
       if ( *(_BYTE *)(v23 + 8) && v35 == *(_QWORD *)v23 )
         return 1LL;
-      ++v41;
+      ++v40;
       v23 += 24LL;
     }
     if ( _interlockedbittestandset64((volatile signed __int32 *)(v35 + 24), 0x3FuLL) )
       goto LABEL_42;
     *(_QWORD *)(a5 + 64) = v35;
-    *(_QWORD *)(a5 + 56) = v38;
+    *(_QWORD *)(a5 + 56) = v19;
     *(_BYTE *)(a5 + 72) = 1;
     return 1LL;
   }
@@ -279,7 +279,7 @@ LABEL_43:
       _InterlockedAnd64((volatile signed __int64 *)(*(_QWORD *)(a5 + 88) + 24LL), 0x7FFFFFFFFFFFFFFFuLL);
       *(_BYTE *)(a5 + 96) = 0;
     }
-    if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+    if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || PopHibernateInProgress )
     {
       _InterlockedAnd(v16, 0xBFFFFFFF);
       _InterlockedDecrement(v16);
@@ -296,17 +296,18 @@ LABEL_43:
   *(_BYTE *)a5 = 0;
   if ( v8 )
   {
-    if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+    if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || PopHibernateInProgress )
     {
       if ( _interlockedbittestandset(v16, 0x1Fu) )
         v6 = ExpWaitForSpinLockExclusiveAndAcquire(v16, 0xFFu);
-      for ( j = *v16; (*v16 & 0xBFFFFFFF) != 0x80000000; j = *v16 )
+      v42 = (unsigned int)*v16;
+      for ( j = v42 & 0xFFFFFFFFBFFFFFFFuLL; (v42 & 0xBFFFFFFF) != 0x80000000; j = v42 & 0xFFFFFFFFBFFFFFFFuLL )
       {
-        if ( (j & 0x40000000) == 0 )
+        if ( (v42 & 0x40000000) == 0 )
           _InterlockedOr(v16, 0x40000000u);
         if ( (++v6 & HvlLongSpinCountMask) == 0
           && (HvlEnlightenments & 0x40) != 0
-          && KiCheckVpBackingLongSpinWaitHypercall() )
+          && (unsigned __int8)KiCheckVpBackingLongSpinWaitHypercall(j, v42, v19) )
         {
           HvlNotifyLongSpinWait(v6);
         }
@@ -314,6 +315,7 @@ LABEL_43:
         {
           _mm_pause();
         }
+        v42 = (unsigned int)*v16;
       }
     }
     else

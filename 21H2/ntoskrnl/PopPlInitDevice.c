@@ -1,13 +1,13 @@
 /*
- * XREFs of PopPlInitDevice @ 0x1408F965C
+ * XREFs of PopPlInitDevice @ 0x1408F97BC
  * Callers:
- *     PopPlInitDevices @ 0x1408F9778 (PopPlInitDevices.c)
+ *     PopPlInitDevices @ 0x1408F98D8 (PopPlInitDevices.c)
  * Callees:
- *     memset @ 0x140414200 (memset.c)
- *     PopPlInitComponents @ 0x1408F9528 (PopPlInitComponents.c)
- *     PopPlInitWString @ 0x1408F99FC (PopPlInitWString.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     PopPlInitComponents @ 0x1408F9688 (PopPlInitComponents.c)
+ *     PopPlInitWString @ 0x1408F9B5C (PopPlInitWString.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PopPlInitDevice(__int64 a1, __int64 a2, __int64 a3, unsigned __int64 a4, __int64 *a5)

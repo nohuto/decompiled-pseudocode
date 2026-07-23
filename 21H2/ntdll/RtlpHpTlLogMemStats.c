@@ -1,5 +1,5 @@
 /*
- * XREFs of RtlpHpTlLogMemStats @ 0x18010B6B0
+ * XREFs of RtlpHpTlLogMemStats @ 0x18010B670
  * Callers:
  *     RtlpHpSegSegmentAllocate @ 0x180006258 (RtlpHpSegSegmentAllocate.c)
  *     RtlpHpSegFreeRangeInsert @ 0x180006CD0 (RtlpHpSegFreeRangeInsert.c)
@@ -13,15 +13,15 @@
  *     __security_check_cookie @ 0x18008C940 (__security_check_cookie.c)
  */
 
-__int64 __fastcall RtlpHpTlLogMemStats(__int64 a1, __int64 *a2, __int64 a3, __int64 a4)
+ULONG __fastcall RtlpHpTlLogMemStats(__int64 a1, __int64 *a2, __int64 a3, __int64 a4)
 {
-  __int64 result; // rax
+  ULONG result; // eax
   __int64 v5; // [rsp+30h] [rbp-59h] BYREF
   __int64 v6; // [rsp+38h] [rbp-51h] BYREF
   __int64 v7; // [rsp+40h] [rbp-49h] BYREF
   __int64 v8; // [rsp+48h] [rbp-41h] BYREF
   __int64 v9; // [rsp+50h] [rbp-39h] BYREF
-  _BYTE v10[32]; // [rsp+60h] [rbp-29h] BYREF
+  _EVENT_DATA_DESCRIPTOR v10; // [rsp+60h] [rbp-29h] BYREF
   __int64 *v11; // [rsp+80h] [rbp-9h]
   __int64 v12; // [rsp+88h] [rbp-1h]
   __int64 *v13; // [rsp+90h] [rbp+7h]
@@ -50,7 +50,13 @@ __int64 __fastcall RtlpHpTlLogMemStats(__int64 a1, __int64 *a2, __int64 a3, __in
     v16 = 8LL;
     v18 = 8LL;
     v20 = 8LL;
-    return tlgWriteTransfer_EtwEventWriteTransfer((__int64)&dword_180166698, byte_180132025, a3, a4, 7, (__int64)v10);
+    return tlgWriteTransfer_EtwEventWriteTransfer(
+             (__int64)&dword_180166698,
+             (unsigned __int8 *)dword_18013203A,
+             a3,
+             a4,
+             7u,
+             &v10);
   }
   return result;
 }

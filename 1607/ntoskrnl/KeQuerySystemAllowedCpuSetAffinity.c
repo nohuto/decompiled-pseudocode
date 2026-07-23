@@ -1,11 +1,11 @@
 /*
- * XREFs of KeQuerySystemAllowedCpuSetAffinity @ 0x14009F890
+ * XREFs of KeQuerySystemAllowedCpuSetAffinity @ 0x14009E1B8
  * Callers:
- *     KeResumeClockTimerFromIdle @ 0x1400DCA70 (KeResumeClockTimerFromIdle.c)
+ *     KeResumeClockTimerFromIdle @ 0x1400DA910 (KeResumeClockTimerFromIdle.c)
  * Callees:
- *     KeCopyAffinityEx @ 0x140030FF0 (KeCopyAffinityEx.c)
- *     RtlBeginReadTickLock @ 0x1400F21EC (RtlBeginReadTickLock.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     KeCopyAffinityEx @ 0x140030B70 (KeCopyAffinityEx.c)
+ *     RtlBeginReadTickLock @ 0x1400F003C (RtlBeginReadTickLock.c)
+ *     memset @ 0x140171AC0 (memset.c)
  */
 
 __int64 __fastcall KeQuerySystemAllowedCpuSetAffinity(_DWORD *a1, __int64 *a2)

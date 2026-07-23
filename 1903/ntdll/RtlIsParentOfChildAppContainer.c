@@ -6,21 +6,21 @@
  *     RtlGetAppContainerSidType @ 0x18000C330 (RtlGetAppContainerSidType.c)
  */
 
-char __fastcall RtlIsParentOfChildAppContainer(__int64 a1, __int64 a2)
+BOOLEAN __cdecl RtlIsParentOfChildAppContainer(PSID ParentAppContainerSid, PSID ChildAppContainerSid)
 {
   unsigned int v4; // r8d
   _DWORD *v5; // rdx
-  __int64 v6; // rbx
-  int v8; // [rsp+40h] [rbp+18h] BYREF
+  signed __int64 v6; // rbx
+  _APPCONTAINER_SID_TYPE AppContainerSidType; // [rsp+40h] [rbp+18h] BYREF
 
-  if ( (int)RtlGetAppContainerSidType(a1, &v8) >= 0
-    && v8 == 2
-    && (int)RtlGetAppContainerSidType(a2, &v8) >= 0
-    && v8 == 1 )
+  if ( RtlGetAppContainerSidType(ParentAppContainerSid, &AppContainerSidType) >= 0
+    && AppContainerSidType == ParentAppContainerSidType
+    && RtlGetAppContainerSidType(ChildAppContainerSid, &AppContainerSidType) >= 0
+    && AppContainerSidType == ChildAppContainerSidType )
   {
     v4 = 1;
-    v5 = (_DWORD *)(a2 + 12);
-    v6 = a1 - a2;
+    v5 = (char *)ChildAppContainerSid + 12;
+    v6 = (_BYTE *)ParentAppContainerSid - (_BYTE *)ChildAppContainerSid;
     while ( *(_DWORD *)((char *)v5 + v6) == *v5 )
     {
       ++v4;

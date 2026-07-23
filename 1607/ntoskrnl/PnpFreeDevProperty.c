@@ -1,10 +1,10 @@
 /*
- * XREFs of PnpFreeDevProperty @ 0x140502788
+ * XREFs of PnpFreeDevProperty @ 0x1404E5718
  * Callers:
- *     PiDqPnPGetObjectPropertyInBestLocale @ 0x14048A28C (PiDqPnPGetObjectPropertyInBestLocale.c)
- *     PnpCopyDevProperty @ 0x1404C7168 (PnpCopyDevProperty.c)
- *     PiDqActionDataGetChangedProperties @ 0x1404ED5CC (PiDqActionDataGetChangedProperties.c)
- *     PnpFreeDevPropertyArray @ 0x140502730 (PnpFreeDevPropertyArray.c)
+ *     PnpCopyDevProperty @ 0x140487EE8 (PnpCopyDevProperty.c)
+ *     PiDqPnPGetObjectPropertyInBestLocale @ 0x1404895F8 (PiDqPnPGetObjectPropertyInBestLocale.c)
+ *     PiDqActionDataGetChangedProperties @ 0x1404CF684 (PiDqActionDataGetChangedProperties.c)
+ *     PnpFreeDevPropertyArray @ 0x1404E56C0 (PnpFreeDevPropertyArray.c)
  * Callees:
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  */

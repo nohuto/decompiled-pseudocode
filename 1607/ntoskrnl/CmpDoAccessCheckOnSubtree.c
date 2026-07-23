@@ -1,12 +1,12 @@
 /*
- * XREFs of CmpDoAccessCheckOnSubtree @ 0x140602464
+ * XREFs of CmpDoAccessCheckOnSubtree @ 0x140602518
  * Callers:
- *     CmRenameKey @ 0x1405FD4E8 (CmRenameKey.c)
+ *     CmRenameKey @ 0x1405FD59C (CmRenameKey.c)
  * Callees:
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     CmpFindSubKeyByNumber @ 0x1404386C0 (CmpFindSubKeyByNumber.c)
- *     CmpCheckKeyAccess @ 0x140601EFC (CmpCheckKeyAccess.c)
+ *     CmpFindSubKeyByNumber @ 0x140437590 (CmpFindSubKeyByNumber.c)
+ *     CmpCheckKeyAccess @ 0x140601FB0 (CmpCheckKeyAccess.c)
  */
 
 __int64 __fastcall CmpDoAccessCheckOnSubtree(

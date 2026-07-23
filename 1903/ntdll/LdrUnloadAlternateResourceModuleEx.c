@@ -15,25 +15,27 @@
  *     ZwUnmapViewOfSection @ 0x18009CC20 (ZwUnmapViewOfSection.c)
  */
 
-char __fastcall LdrUnloadAlternateResourceModuleEx(__int64 a1, __int16 a2)
+BOOLEAN __cdecl LdrUnloadAlternateResourceModuleEx(PVOID DllHandle, ULONG Flags)
 {
-  char v4; // bl
+  __int16 v2; // r12
+  BOOLEAN v4; // bl
   unsigned int v5; // edi
   int v6; // esi
   int v7; // r13d
-  __int64 v8; // r14
+  char *v8; // r14
   _QWORD *v9; // rbx
   __int64 v10; // rdx
-  unsigned __int64 v11; // rdx
-  __int64 v12; // rcx
-  __int64 Heap; // rax
+  void *v11; // rdx
+  void *v12; // rcx
+  PVOID Heap; // rax
   int i; // [rsp+24h] [rbp-34h]
-  __int64 v16; // [rsp+60h] [rbp+8h]
+  char *v16; // [rsp+60h] [rbp+8h]
 
+  v2 = Flags;
   v4 = 0;
-  if ( !a1 )
+  if ( !DllHandle )
     return 0;
-  RtlAcquireSRWLockExclusive(&qword_1801664B0);
+  RtlAcquireSRWLockExclusive(&stru_1801664B0);
   v5 = dword_180164340;
   if ( dword_180164340 )
   {
@@ -43,33 +45,33 @@ char __fastcall LdrUnloadAlternateResourceModuleEx(__int64 a1, __int16 a2)
       if ( v6 <= 0 )
         goto LABEL_30;
       v7 = v6 - 1;
-      v8 = qword_180164338 + ((__int64)(v6 - 1) << 6);
-      if ( *(_QWORD *)(v8 + 8) == a1 )
+      v8 = (char *)BaseAddress + 64 * (__int64)(v6 - 1);
+      if ( *((PVOID *)v8 + 1) == DllHandle )
         break;
 LABEL_6:
       v6 = v7;
     }
-    v16 = qword_180164338 + ((__int64)v7 << 6);
-    v9 = (_QWORD *)(v8 + 32);
-    v10 = *(_QWORD *)(v8 + 32);
-    if ( v10 && (!a2 || a2 == *(_WORD *)v8) && v10 != -1 )
+    v16 = (char *)BaseAddress + 64 * (__int64)v7;
+    v9 = v8 + 32;
+    v10 = *((_QWORD *)v8 + 4);
+    if ( v10 && (!v2 || v2 == *(_WORD *)v8) && v10 != -1 )
     {
-      v11 = v10 & 0xFFFFFFFFFFFFFFFCuLL;
-      if ( *(_DWORD *)(v8 + 56) == -1073741799 )
+      v11 = (void *)(v10 & 0xFFFFFFFFFFFFFFFCuLL);
+      if ( *((_DWORD *)v8 + 14) == -1073741799 )
       {
-        RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v11);
+        RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v11);
         v6 = i;
         v8 = v16;
       }
       else
       {
-        ZwUnmapViewOfSection(-1LL);
+        ZwUnmapViewOfSection((HANDLE)0xFFFFFFFFFFFFFFFFLL, v11);
       }
-      v12 = *(_QWORD *)(v8 + 40);
+      v12 = (void *)*((_QWORD *)v8 + 5);
       if ( v12 )
       {
         ZwClose(v12);
-        *(_QWORD *)(v8 + 40) = 0LL;
+        *((_QWORD *)v8 + 5) = 0LL;
       }
       *v9 = 0LL;
       v5 = dword_180164340;
@@ -86,22 +88,22 @@ LABEL_19:
         goto LABEL_6;
       }
       Heap = RtlReAllocateHeap(
-               (__int64)NtCurrentPeb()->ProcessHeap,
+               NtCurrentPeb()->ProcessHeap,
                0,
-               qword_180164338,
+               BaseAddress,
                (unsigned __int64)(unsigned int)(dword_180164344 - 32) << 6);
       if ( !Heap )
       {
         v4 = 0;
         goto LABEL_30;
       }
-      qword_180164338 = Heap;
+      BaseAddress = Heap;
       dword_180164344 -= 32;
     }
     else
     {
-      RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, qword_180164338);
-      qword_180164338 = 0LL;
+      RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, BaseAddress);
+      BaseAddress = 0LL;
       dword_180164344 = 0;
     }
     v5 = dword_180164340;
@@ -109,6 +111,6 @@ LABEL_19:
   }
   v4 = 1;
 LABEL_30:
-  RtlReleaseSRWLockExclusive(&qword_1801664B0);
+  RtlReleaseSRWLockExclusive(&stru_1801664B0);
   return v4;
 }

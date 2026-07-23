@@ -1,17 +1,17 @@
 /*
  * XREFs of RtlIsSandboxedToken @ 0x14079F1E0
  * Callers:
- *     IopCheckInitiatorHint @ 0x140280170 (IopCheckInitiatorHint.c)
+ *     sub_140280170 @ 0x140280170 (sub_140280170.c)
  *     NtSetInformationFile @ 0x1402F72B0 (NtSetInformationFile.c)
- *     CmpCheckCreateAccess @ 0x140668AEC (CmpCheckCreateAccess.c)
- *     ObpGetShadowDirectory @ 0x1406A79A0 (ObpGetShadowDirectory.c)
- *     ObpCreateDirectoryObject @ 0x1406C2A70 (ObpCreateDirectoryObject.c)
- *     ObCreateSymbolicLink @ 0x1406C505C (ObCreateSymbolicLink.c)
- *     CmSetValueKey @ 0x140720260 (CmSetValueKey.c)
+ *     sub_140668AEC @ 0x140668AEC (sub_140668AEC.c)
+ *     sub_1406A79A0 @ 0x1406A79A0 (sub_1406A79A0.c)
+ *     sub_1406C2A70 @ 0x1406C2A70 (sub_1406C2A70.c)
+ *     sub_1406C505C @ 0x1406C505C (sub_1406C505C.c)
+ *     sub_140720260 @ 0x140720260 (sub_140720260.c)
  *     NtDuplicateToken @ 0x1407297A0 (NtDuplicateToken.c)
- *     IopXxxControlFile @ 0x1407308F0 (IopXxxControlFile.c)
- *     ObpParseSymbolicLinkEx @ 0x140784700 (ObpParseSymbolicLinkEx.c)
- *     SepFilterToken @ 0x14078E3F0 (SepFilterToken.c)
+ *     sub_1407308F0 @ 0x1407308F0 (sub_1407308F0.c)
+ *     sub_140784700 @ 0x140784700 (sub_140784700.c)
+ *     sub_14078E3F0 @ 0x14078E3F0 (sub_14078E3F0.c)
  *     NtSetInformationProcess @ 0x1407E7850 (NtSetInformationProcess.c)
  * Callees:
  *     SeCaptureSubjectContext @ 0x14072A600 (SeCaptureSubjectContext.c)
@@ -41,7 +41,7 @@ bool __fastcall RtlIsSandboxedToken(PSECURITY_SUBJECT_CONTEXT SubjectContext, ch
   ClientToken = p_SubjectContexta->ClientToken;
   if ( !p_SubjectContexta->ClientToken )
     ClientToken = p_SubjectContexta->PrimaryToken;
-  if ( SeQueryInformationToken(ClientToken, MaxTokenInfoClass, &TokenInformation) >= 0 )
+  if ( SeQueryInformationToken(ClientToken, TokenIsSandboxed, &TokenInformation) >= 0 )
     v2 = (_BYTE)TokenInformation == 0;
   if ( p_SubjectContexta == &SubjectContexta )
     SeReleaseSubjectContext(p_SubjectContexta);

@@ -22,7 +22,7 @@ __int64 __fastcall ExpWnfReadStateData(__int64 a1, _DWORD *a2, void *a3, unsigne
 
   v14 = 0;
   v9 = (unsigned __int64 *)(a1 + 80);
-  v10 = KeAbPreAcquire(a1 + 80, 0LL, 0LL);
+  v10 = KeAbPreAcquire(a1 + 80, 0LL, 0);
   if ( _InterlockedCompareExchange64((volatile signed __int64 *)v9, 17LL, 0LL) )
     ExfAcquirePushLockSharedEx(v9, v10, (ULONG_PTR)v9);
   if ( v10 )

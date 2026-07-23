@@ -1,15 +1,15 @@
 /*
- * XREFs of MiUpdateSystemPdes @ 0x140619530
+ * XREFs of MiUpdateSystemPdes @ 0x140619A80
  * Callers:
- *     MiSyncSystemPdes @ 0x1402926A8 (MiSyncSystemPdes.c)
- *     KiInSwapProcesses @ 0x14034D08C (KiInSwapProcesses.c)
+ *     MiSyncSystemPdes @ 0x140292938 (MiSyncSystemPdes.c)
+ *     KiInSwapProcesses @ 0x14034D22C (KiInSwapProcesses.c)
  * Callees:
  *     MiMapPageInHyperSpaceWorker @ 0x14021ACA0 (MiMapPageInHyperSpaceWorker.c)
  *     MiUnmapPageInHyperSpaceWorker @ 0x14021AE84 (MiUnmapPageInHyperSpaceWorker.c)
- *     MiPteInShadowRange @ 0x140271360 (MiPteInShadowRange.c)
- *     MiCopyTopLevelMappings @ 0x140292848 (MiCopyTopLevelMappings.c)
- *     MiWritePteShadow @ 0x14035734C (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x1403573AC (MiPteHasShadow.c)
+ *     MiPteInShadowRange @ 0x1402715F0 (MiPteInShadowRange.c)
+ *     MiCopyTopLevelMappings @ 0x140292AD8 (MiCopyTopLevelMappings.c)
+ *     MiWritePteShadow @ 0x1403574EC (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x14035754C (MiPteHasShadow.c)
  */
 
 __int64 __fastcall MiUpdateSystemPdes(__int64 a1)

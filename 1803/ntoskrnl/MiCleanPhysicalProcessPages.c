@@ -25,13 +25,13 @@ __int64 __fastcall MiCleanPhysicalProcessPages(__int64 a1)
   struct _KTHREAD *CurrentThread; // r15
   __int64 v6; // rdi
   __int64 v7; // rcx
-  unsigned __int64 *v8; // r14
+  _RTL_BITMAP_EX *v8; // r14
   ULONG_PTR v9; // rcx
-  unsigned __int64 v10; // r15
-  unsigned __int64 SetBits; // rax
+  ULONG64 v10; // r15
+  ULONG64 SetBits; // rax
   unsigned __int64 v12; // rsi
   unsigned __int64 NextForwardRunClear; // rax
-  unsigned __int64 v14; // rbx
+  unsigned __int64 SizeOfBitMap; // rbx
   unsigned __int64 v15; // r15
   unsigned __int64 v16; // rbx
   ULONG_PTR *v17; // r9
@@ -45,11 +45,11 @@ __int64 __fastcall MiCleanPhysicalProcessPages(__int64 a1)
   ProcessPartition = MiGetProcessPartition(a1);
   CurrentThread = KeGetCurrentThread();
   v6 = ProcessPartition;
-  v8 = *(unsigned __int64 **)(v7 + 1032);
+  v8 = *(_RTL_BITMAP_EX **)(v7 + 1032);
   v21 = CurrentThread;
   --CurrentThread->SpecialApcDisable;
-  BugCheckParameter2 = (ULONG_PTR)(v8 + 2);
-  ExAcquireAutoExpandPushLockExclusive((ULONG_PTR)(v8 + 2), 0LL);
+  BugCheckParameter2 = (ULONG_PTR)&v8[1];
+  ExAcquireAutoExpandPushLockExclusive((ULONG_PTR)&v8[1], 0LL);
   if ( *(_QWORD *)(a1 + 1600) )
   {
     v10 = 0LL;
@@ -60,17 +60,17 @@ __int64 __fastcall MiCleanPhysicalProcessPages(__int64 a1)
       if ( SetBits < v10 || SetBits == -1LL )
         break;
       NextForwardRunClear = RtlFindNextForwardRunClearEx((__int64)v8, SetBits, &v20);
-      v14 = v20;
+      SizeOfBitMap = v20;
       v15 = NextForwardRunClear;
       if ( !NextForwardRunClear )
-        v14 = *v8;
-      v16 = v14 - v12;
+        SizeOfBitMap = v8->SizeOfBitMap;
+      v16 = SizeOfBitMap - v12;
       RtlClearBitsEx((__int64)v8, v12, v16);
       v10 = v12 + v16 + v15;
       v2 += v16;
       v3 += MiFreeMdlPageRun(v12, v16, 0x80000000);
     }
-    while ( v10 < *v8 );
+    while ( v10 < v8->SizeOfBitMap );
     CurrentThread = v21;
     v17 = &MiSystemPartition;
     if ( v2 )
@@ -93,7 +93,7 @@ __int64 __fastcall MiCleanPhysicalProcessPages(__int64 a1)
   }
   else
   {
-    v9 = (ULONG_PTR)(v8 + 2);
+    v9 = (ULONG_PTR)&v8[1];
   }
   ExReleaseAutoExpandPushLockExclusive(v9, 0LL);
   return KiLeaveGuardedRegionUnsafe((__int64)CurrentThread);

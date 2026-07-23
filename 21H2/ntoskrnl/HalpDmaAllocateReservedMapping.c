@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpDmaAllocateReservedMapping @ 0x140A65ECC
+ * XREFs of HalpDmaAllocateReservedMapping @ 0x140A66ECC
  * Callers:
- *     HalpDmaAllocateMappingResources @ 0x140A65DA8 (HalpDmaAllocateMappingResources.c)
- *     HalpDmaAllocateReservedMappingArray @ 0x140A8C8F4 (HalpDmaAllocateReservedMappingArray.c)
+ *     HalpDmaAllocateMappingResources @ 0x140A66DA8 (HalpDmaAllocateMappingResources.c)
+ *     HalpDmaAllocateReservedMappingArray @ 0x140A8D8F4 (HalpDmaAllocateReservedMappingArray.c)
  * Callees:
- *     HalpMmAllocCtxFree @ 0x140379460 (HalpMmAllocCtxFree.c)
- *     HalpMmAllocCtxAlloc @ 0x14037CA48 (HalpMmAllocCtxAlloc.c)
- *     MmAllocateMappingAddress @ 0x1406AE480 (MmAllocateMappingAddress.c)
+ *     HalpMmAllocCtxFree @ 0x140378FB0 (HalpMmAllocCtxFree.c)
+ *     HalpMmAllocCtxAlloc @ 0x14037C598 (HalpMmAllocCtxAlloc.c)
+ *     MmAllocateMappingAddress @ 0x14060CD20 (MmAllocateMappingAddress.c)
  */
 
 __int64 __fastcall HalpDmaAllocateReservedMapping(__int64 a1)

@@ -7,12 +7,12 @@
  *     TppGetCurrentThreadNumaNode @ 0x180033C84 (TppGetCurrentThreadNumaNode.c)
  */
 
-__int64 __fastcall TpReserveTaskPost(volatile signed __int32 *a1, __int64 a2, __int64 a3, unsigned __int64 a4)
+NTSTATUS __fastcall TpReserveTaskPost(volatile signed __int32 *a1, __int64 a2, __int64 a3, __int64 a4)
 {
-  unsigned int v4; // ebx
-  __int64 *v6; // rcx
-  _PEB_LDR_DATA *v7; // rdx
-  __int64 result; // rax
+  NTSTATUS v4; // ebx
+  volatile signed __int32 **v6; // rcx
+  _RTL_SRWLOCK *v7; // rdx
+  NTSTATUS result; // eax
   volatile signed __int32 *v9; // [rsp+30h] [rbp+8h] BYREF
 
   v9 = a1;
@@ -26,17 +26,17 @@ LABEL_6:
   }
   if ( a3 && (*(_BYTE *)(a3 + 56) & 2) != 0 )
   {
-    v6 = &TppPoolpSerializedPool;
-    v7 = (_PEB_LDR_DATA *)&TppPoolpSerializedPoolLock;
+    v6 = (volatile signed __int32 **)&TppPoolpSerializedPool;
+    v7 = &TppPoolpSerializedPoolLock;
   }
   else
   {
-    v6 = &TppPoolpGlobalPool;
-    v7 = (_PEB_LDR_DATA *)&TppPoolpGlobalPoolLock;
+    v6 = (volatile signed __int32 **)&TppPoolpGlobalPool;
+    v7 = &TppPoolpGlobalPoolLock;
   }
-  result = TppPoolpReferenceGlobalPool((volatile signed __int32 **)v6, v7, &v9, a4);
+  result = TppPoolpReferenceGlobalPool(v6, (_PEB_LDR_DATA *)v7, &v9, a4);
   v4 = result;
-  if ( (int)result >= 0 )
+  if ( result >= 0 )
     goto LABEL_6;
   return result;
 }

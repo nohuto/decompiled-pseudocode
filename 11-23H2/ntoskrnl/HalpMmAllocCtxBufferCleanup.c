@@ -1,8 +1,8 @@
 /*
- * XREFs of HalpMmAllocCtxBufferCleanup @ 0x140505654
+ * XREFs of HalpMmAllocCtxBufferCleanup @ 0x140505BA4
  * Callers:
- *     HalpMmAllocCtxAllocBuffer @ 0x14039B370 (HalpMmAllocCtxAllocBuffer.c)
- *     HalpMmAllocCtxFree @ 0x1403A56C0 (HalpMmAllocCtxFree.c)
+ *     HalpMmAllocCtxAllocBuffer @ 0x14039B550 (HalpMmAllocCtxAllocBuffer.c)
+ *     HalpMmAllocCtxFree @ 0x1403A58A0 (HalpMmAllocCtxFree.c)
  * Callees:
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */

@@ -16,13 +16,13 @@
  *     LdrpLogDbgPrint @ 0x1800BC478 (LdrpLogDbgPrint.c)
  */
 
-__int64 __fastcall LdrLoadDll(__int64 a1, int *a2, __int64 a3, _QWORD *a4)
+NTSTATUS __cdecl LdrLoadDll(PWSTR DllPath, PULONG DllCharacteristics, PUNICODE_STRING DllName, PVOID *DllHandle)
 {
-  int v8; // ebx
+  ULONG v8; // ebx
   int v9; // r9d
-  int Dll; // ebx
-  __int64 v11; // rcx
-  __int64 v13; // [rsp+30h] [rbp-C8h] BYREF
+  NTSTATUS Dll; // ebx
+  char *v11; // rcx
+  PVOID BaseAddress[2]; // [rsp+30h] [rbp-C8h] BYREF
   __int64 v14[16]; // [rsp+40h] [rbp-B8h] BYREF
 
   if ( (LdrpDebugFlags & 9) != 0 )
@@ -31,27 +31,27 @@ __int64 __fastcall LdrLoadDll(__int64 a1, int *a2, __int64 a3, _QWORD *a4)
       143,
       (unsigned int)"LdrLoadDll",
       3,
-      "DLL name: %wZ\n",
-      a3);
-  if ( LdrpAppPackagesPath.Buffer && (a1 & 0x401) == 0x401 )
-    return 3221225485LL;
-  if ( !a2 )
+      (__int64)"DLL name: %wZ\n",
+      DllName);
+  if ( LdrpAppPackagesPath.Buffer && ((unsigned __int16)DllPath & 0x401) == 0x401LL )
+    return -1073741811;
+  if ( !DllCharacteristics )
   {
     v8 = 0;
     goto LABEL_6;
   }
-  v8 = *a2;
+  v8 = *DllCharacteristics;
   if ( (v8 & 4) == 0 || LdrpAppPackagesPath.Buffer )
   {
 LABEL_6:
-    LdrpInitializeDllPath(*(_QWORD *)(a3 + 8), a1, v14);
+    LdrpInitializeDllPath((__int64)DllName->Buffer, (__int64)DllPath, v14);
     LOBYTE(v9) = 1;
-    Dll = LdrpLoadDll(a3, (unsigned int)v14, v8, v9, (__int64)&v13);
+    Dll = LdrpLoadDll((_DWORD)DllName, (unsigned int)v14, v8, v9, (__int64)BaseAddress);
     LdrpReleaseDllPath((__int64)v14);
     if ( Dll >= 0 )
     {
-      v11 = v13;
-      *a4 = *(_QWORD *)(v13 + 48);
+      v11 = (char *)BaseAddress[0];
+      *DllHandle = (PVOID)*((_QWORD *)BaseAddress[0] + 6);
       LdrpDereferenceModule(v11);
     }
     goto LABEL_8;
@@ -62,7 +62,7 @@ LABEL_6:
       167,
       (unsigned int)"LdrLoadDll",
       0,
-      "Nonpackaged process attempted to load a packaged DLL.\n");
+      (__int64)"Nonpackaged process attempted to load a packaged DLL.\n");
   if ( (LdrpDebugFlags & 0x10) != 0 )
     __debugbreak();
   Dll = -1073741398;
@@ -73,7 +73,7 @@ LABEL_8:
       194,
       (unsigned int)"LdrLoadDll",
       4,
-      "Status: 0x%08lx\n",
+      (__int64)"Status: 0x%08lx\n",
       Dll);
-  return (unsigned int)Dll;
+  return Dll;
 }

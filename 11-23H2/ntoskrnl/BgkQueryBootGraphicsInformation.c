@@ -1,9 +1,9 @@
 /*
  * XREFs of BgkQueryBootGraphicsInformation @ 0x140AECF90
  * Callers:
- *     ExpQuerySystemInformation @ 0x140726850 (ExpQuerySystemInformation.c)
+ *     ExpQuerySystemInformation @ 0x140726A50 (ExpQuerySystemInformation.c)
  * Callees:
- *     BgQueryBootGraphicsInformation @ 0x140384CD8 (BgQueryBootGraphicsInformation.c)
+ *     BgQueryBootGraphicsInformation @ 0x140384EB8 (BgQueryBootGraphicsInformation.c)
  */
 
 __int64 __fastcall BgkQueryBootGraphicsInformation(int a1, __int64 a2)

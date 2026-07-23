@@ -1,7 +1,7 @@
 /*
- * XREFs of MiLocateExclusiveSecure @ 0x14025C250
+ * XREFs of MiLocateExclusiveSecure @ 0x14027D7C0
  * Callers:
- *     MiAddSecureEntry @ 0x14061F7C0 (MiAddSecureEntry.c)
+ *     MiAddSecureEntry @ 0x140689430 (MiAddSecureEntry.c)
  * Callees:
  *     <none>
  */

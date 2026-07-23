@@ -1,10 +1,10 @@
 /*
- * XREFs of InbvDetermineFunction @ 0x140387FF8
+ * XREFs of InbvDetermineFunction @ 0x1403881D8
  * Callers:
  *     InbvDriverInitialize @ 0x140B52524 (InbvDriverInitialize.c)
  * Callees:
- *     _strupr @ 0x1403D8960 (_strupr.c)
- *     strstr @ 0x1403D91D0 (strstr.c)
+ *     _strupr @ 0x1403D8B40 (_strupr.c)
+ *     strstr @ 0x1403D93B0 (strstr.c)
  */
 
 __int64 __fastcall InbvDetermineFunction(__int64 a1)
@@ -30,9 +30,9 @@ __int64 __fastcall InbvDetermineFunction(__int64 a1)
     }
     if ( *(_QWORD *)(*(_QWORD *)(a1 + 240) + 288LL) )
     {
-      v8 = off_140C04640;
+      v8 = off_140C04600;
       if ( !v5 )
-        v8 = off_140C04580;
+        v8 = off_140C04540;
       qword_140C6AB58 = (__int64)v8;
       v1 = 2 * v5 + 1;
     }
@@ -41,7 +41,7 @@ __int64 __fastcall InbvDetermineFunction(__int64 a1)
       if ( !v5 )
         return v1;
       v1 = 2;
-      qword_140C6AB58 = (__int64)off_140C04640;
+      qword_140C6AB58 = (__int64)off_140C04600;
     }
     dword_140C6AB48 = v1;
   }

@@ -1,13 +1,13 @@
 /*
- * XREFs of PpmEnableProfile @ 0x14082BD28
+ * XREFs of PpmEnableProfile @ 0x14082C028
  * Callers:
- *     PdcPoPpmResetProfile @ 0x1409979D0 (PdcPoPpmResetProfile.c)
- *     PpmRegisterSpmSettings @ 0x14099D620 (PpmRegisterSpmSettings.c)
+ *     PdcPoPpmResetProfile @ 0x140997BD0 (PdcPoPpmResetProfile.c)
+ *     PpmRegisterSpmSettings @ 0x14099D820 (PpmRegisterSpmSettings.c)
  *     PpmInitPolicyConfiguration @ 0x140B5BF50 (PpmInitPolicyConfiguration.c)
  * Callees:
- *     PpmAcquireLock @ 0x14032C2D0 (PpmAcquireLock.c)
- *     PpmEventTraceProfileEnable @ 0x14082BDA4 (PpmEventTraceProfileEnable.c)
- *     PpmReinitializeHeteroEngine @ 0x14082F1A8 (PpmReinitializeHeteroEngine.c)
+ *     PpmAcquireLock @ 0x14032C560 (PpmAcquireLock.c)
+ *     PpmEventTraceProfileEnable @ 0x14082C0A4 (PpmEventTraceProfileEnable.c)
+ *     PpmReinitializeHeteroEngine @ 0x14082F4A8 (PpmReinitializeHeteroEngine.c)
  */
 
 __int64 __fastcall PpmEnableProfile(__int64 a1)
@@ -20,7 +20,7 @@ __int64 __fastcall PpmEnableProfile(__int64 a1)
   __int64 v8; // rax
 
   *(_DWORD *)(a1 + 28) |= 1u;
-  v1 = &off_140C07388;
+  v1 = &off_140C07378;
   v2 = *(_BYTE *)(a1 + 8);
   v4 = 6LL;
   do

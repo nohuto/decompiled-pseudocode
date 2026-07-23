@@ -1,10 +1,10 @@
 /*
- * XREFs of CcMapDataCommon @ 0x140458440
+ * XREFs of CcMapDataCommon @ 0x140457310
  * Callers:
- *     CcMapDataForOverwrite @ 0x14006D414 (CcMapDataForOverwrite.c)
+ *     CcMapDataForOverwrite @ 0x14006CF94 (CcMapDataForOverwrite.c)
  * Callees:
- *     CcPinFileData @ 0x140031DE0 (CcPinFileData.c)
- *     CcGetVirtualAddress @ 0x1400333C0 (CcGetVirtualAddress.c)
+ *     CcPinFileData @ 0x140031960 (CcPinFileData.c)
+ *     CcGetVirtualAddress @ 0x140032F40 (CcGetVirtualAddress.c)
  */
 
 char __fastcall CcMapDataCommon(__int64 a1, __int64 *a2, unsigned int a3, unsigned __int8 a4, _QWORD *a5, __int64 *a6)

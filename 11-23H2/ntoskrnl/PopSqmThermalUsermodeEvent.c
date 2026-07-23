@@ -1,11 +1,11 @@
 /*
- * XREFs of PopSqmThermalUsermodeEvent @ 0x1409A0E5C
+ * XREFs of PopSqmThermalUsermodeEvent @ 0x1409A105C
  * Callers:
- *     PopThermalProcessUsermodeEvent @ 0x14098ADC8 (PopThermalProcessUsermodeEvent.c)
+ *     PopThermalProcessUsermodeEvent @ 0x14098AFC8 (PopThermalProcessUsermodeEvent.c)
  * Callees:
  *     _tlgKeywordOn @ 0x140212E64 (_tlgKeywordOn.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6B24 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6DB4 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  */
 
 void __fastcall PopSqmThermalUsermodeEvent(unsigned __int16 a1, __int64 a2, __int64 a3, __int64 a4, char a5)
@@ -50,7 +50,7 @@ void __fastcall PopSqmThermalUsermodeEvent(unsigned __int16 a1, __int64 a2, __in
       v21 = v8;
       tlgWriteTransfer_EtwWriteTransfer(
         (__int64)&dword_140C03950,
-        (unsigned __int8 *)byte_1400327B8,
+        (unsigned __int8 *)byte_1400329AD,
         0LL,
         0LL,
         7u,

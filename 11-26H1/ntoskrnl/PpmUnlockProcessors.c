@@ -1,17 +1,17 @@
 /*
- * XREFs of PpmUnlockProcessors @ 0x1403EC22C
+ * XREFs of PpmUnlockProcessors @ 0x1402F9270
  * Callers:
- *     PpmIdleSelectStates @ 0x1403EA21C (PpmIdleSelectStates.c)
- *     PpmIdleExecuteTransition @ 0x1403EB78C (PpmIdleExecuteTransition.c)
+ *     PpmIdleSelectStates @ 0x1402F70FC (PpmIdleSelectStates.c)
+ *     PpmIdleExecuteTransition @ 0x1402F87D0 (PpmIdleExecuteTransition.c)
  * Callees:
- *     KeAddProcessorAffinityEx @ 0x140246720 (KeAddProcessorAffinityEx.c)
- *     KeGetPrcb @ 0x1402916D0 (KeGetPrcb.c)
- *     HalRequestIpi @ 0x1403EC520 (HalRequestIpi.c)
- *     KeRemoveProcessorAffinityEx @ 0x1403EF310 (KeRemoveProcessorAffinityEx.c)
- *     KeInterlockedClearProcessorAffinityEx @ 0x14042C170 (KeInterlockedClearProcessorAffinityEx.c)
- *     PpmIdleUnlockProcessor @ 0x1406027E4 (PpmIdleUnlockProcessor.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     KeAddProcessorAffinityEx @ 0x140248080 (KeAddProcessorAffinityEx.c)
+ *     KeGetPrcb @ 0x140290C30 (KeGetPrcb.c)
+ *     HalRequestIpi @ 0x1402F9560 (HalRequestIpi.c)
+ *     KeInterlockedClearProcessorAffinityEx @ 0x140420840 (KeInterlockedClearProcessorAffinityEx.c)
+ *     KeRemoveProcessorAffinityEx @ 0x140453E40 (KeRemoveProcessorAffinityEx.c)
+ *     PpmIdleUnlockProcessor @ 0x140605294 (PpmIdleUnlockProcessor.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall PpmUnlockProcessors(__int64 a1, __int64 a2)
@@ -39,7 +39,8 @@ __int64 __fastcall PpmUnlockProcessors(__int64 a1, __int64 a2)
     {
       _BitScanForward64(&v9, i);
       i &= ~(1LL << v9);
-      v10 = *((_DWORD *)&KiSupervisorXStateFeaturesLock.WaitBlock[2].Thread->Header.Lock + 64 * v6 + (unsigned __int8)v9);
+      v10 = *((_DWORD *)&KiSupervisorXStateFeaturesLock.SchedulerApc.ApcListEntry.Flink[16 * v6].Flink
+            + (unsigned __int8)v9);
       Prcb = KeGetPrcb(v10);
       v12 = *(_QWORD *)(Prcb + 34880);
       if ( (unsigned __int8)PpmIdleUnlockProcessor(Prcb + 34972) == 6 )

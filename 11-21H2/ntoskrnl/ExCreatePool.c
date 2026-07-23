@@ -3,7 +3,7 @@
  * Callers:
  *     <none>
  * Callees:
- *     VslpEnterIumSecureMode @ 0x140358A20 (VslpEnterIumSecureMode.c)
+ *     sub_140358A20 @ 0x140358A20 (sub_140358A20.c)
  *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
  *     memset @ 0x140435E00 (memset.c)
  */
@@ -31,7 +31,7 @@ __int64 __fastcall ExCreatePool(int a1, __int64 a2, __int64 a3, _QWORD *a4)
       {
         memset(v9, 0, 0x68uLL);
         v9[1] = a2;
-        v7 = VslpEnterIumSecureMode(2u, 79, 0, (__int64)v9);
+        v7 = sub_140358A20(2u, 79, 0, (__int64)v9);
         if ( v7 < 0 )
           return (unsigned int)v7;
         else

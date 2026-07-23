@@ -1,16 +1,16 @@
 /*
- * XREFs of MiCreateUltraThreadContextHelper @ 0x1402F2710
+ * XREFs of MiCreateUltraThreadContextHelper @ 0x1402D4790
  * Callers:
- *     MiGetUltraMdlContext @ 0x1404E15F8 (MiGetUltraMdlContext.c)
+ *     MiGetUltraMdlContext @ 0x1404DACD8 (MiGetUltraMdlContext.c)
  * Callees:
- *     MiGetPage @ 0x1402866A0 (MiGetPage.c)
- *     MiReleaseNonPagedResources @ 0x14028C070 (MiReleaseNonPagedResources.c)
- *     MiReleaseFreshPage @ 0x140292190 (MiReleaseFreshPage.c)
- *     MiReplenishUltraPageTables @ 0x1402F445C (MiReplenishUltraPageTables.c)
- *     MiChargePartitionResidentAvailable @ 0x1402F60D0 (MiChargePartitionResidentAvailable.c)
- *     MiChargeCommit @ 0x1402F64A0 (MiChargeCommit.c)
- *     MiGetSlabPage @ 0x14033A284 (MiGetSlabPage.c)
- *     MiReturnCommit @ 0x14036D2B0 (MiReturnCommit.c)
+ *     MiGetPage @ 0x140285C00 (MiGetPage.c)
+ *     MiReleaseNonPagedResources @ 0x14028B5D0 (MiReleaseNonPagedResources.c)
+ *     MiReleaseFreshPage @ 0x1402916F0 (MiReleaseFreshPage.c)
+ *     MiReplenishUltraPageTables @ 0x1402D64DC (MiReplenishUltraPageTables.c)
+ *     MiChargePartitionResidentAvailable @ 0x1402D8150 (MiChargePartitionResidentAvailable.c)
+ *     MiChargeCommit @ 0x1402D8520 (MiChargeCommit.c)
+ *     MiGetSlabPage @ 0x14033C304 (MiGetSlabPage.c)
+ *     MiReturnCommit @ 0x14036F050 (MiReturnCommit.c)
  */
 
 __int64 __fastcall MiCreateUltraThreadContextHelper(__int64 a1, unsigned int a2, __int64 a3, __int64 a4)
@@ -33,14 +33,14 @@ __int64 __fastcall MiCreateUltraThreadContextHelper(__int64 a1, unsigned int a2,
   _QWORD *v22; // rbx
   __int64 v23; // rax
 
-  v4 = dword_140E34BE4;
+  v4 = dword_140E34D64;
   v5 = a4;
   do
   {
-    if ( v4 == dword_140E34BE0 )
+    if ( v4 == dword_140E34D60 )
       return 0LL;
     v8 = v4;
-    v4 = _InterlockedCompareExchange(&dword_140E34BE4, v4 + 1, v4);
+    v4 = _InterlockedCompareExchange(&dword_140E34D64, v4 + 1, v4);
   }
   while ( v8 != v4 );
   *(_QWORD *)a1 = 0LL;
@@ -71,7 +71,7 @@ __int64 __fastcall MiCreateUltraThreadContextHelper(__int64 a1, unsigned int a2,
         goto LABEL_23;
       }
 LABEL_12:
-      if ( byte_140E2D71A )
+      if ( byte_140E2D89A )
         MiReplenishUltraPageTables((*(_DWORD *)(a3 + 8) >> 9) & 0x3F, v5);
       v13 = 0;
       while ( 2 )
@@ -97,7 +97,7 @@ LABEL_18:
           SlabPage = MiGetPage((__int64)&MiSystemPartition, v15, (unsigned int)(v16 != 0) + 176);
           if ( SlabPage == -1 )
           {
-            _InterlockedDecrement(&dword_140E34BE4);
+            _InterlockedDecrement(&dword_140E34D64);
             if ( v13 )
             {
               v22 = (_QWORD *)(a1 + 8 + 8LL * v13);
@@ -121,7 +121,7 @@ LABEL_18:
       }
     }
 LABEL_23:
-    _InterlockedDecrement(&dword_140E34BE4);
+    _InterlockedDecrement(&dword_140E34D64);
     return 0LL;
   }
   else

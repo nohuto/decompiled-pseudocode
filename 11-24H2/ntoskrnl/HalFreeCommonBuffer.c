@@ -1,9 +1,9 @@
 /*
- * XREFs of HalFreeCommonBuffer @ 0x14053D770
+ * XREFs of HalFreeCommonBuffer @ 0x14053B070
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
  */
 
 // local variable allocation has failed, the output may be wrong!
@@ -14,9 +14,5 @@ void __stdcall HalFreeCommonBuffer(
         PVOID VirtualAddress,
         BOOLEAN CacheEnabled)
 {
-  guard_dispatch_icall_no_overrides(
-    DmaAdapter,
-    *(_QWORD *)&Length,
-    (PHYSICAL_ADDRESS)LogicalAddress.QuadPart,
-    VirtualAddress);
+  guard_dispatch_icall_no_overrides(DmaAdapter, *(_QWORD *)&Length);
 }

@@ -1,17 +1,17 @@
 /*
- * XREFs of KiInitializeCpuPartitionLogPerProcessorBuffer @ 0x1405F4448
+ * XREFs of KiInitializeCpuPartitionLogPerProcessorBuffer @ 0x1405F6E08
  * Callers:
- *     KiTraceCpuPartitionRundown @ 0x1407BB200 (KiTraceCpuPartitionRundown.c)
+ *     KiTraceCpuPartitionRundown @ 0x1407BE260 (KiTraceCpuPartitionRundown.c)
  * Callees:
- *     KeQueryMaximumProcessorCountEx @ 0x1402767B0 (KeQueryMaximumProcessorCountEx.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     KeQueryMaximumProcessorCountEx @ 0x140275D20 (KeQueryMaximumProcessorCountEx.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 int __fastcall KiInitializeCpuPartitionLogPerProcessorBuffer(unsigned __int64 a1, size_t a2, unsigned __int16 a3)
 {
   __int64 v4; // rbp
   __int64 v6; // rax
-  _QWORD *v7; // r13
+  _QWORD *SListFaultAddress; // r13
   unsigned int v8; // esi
   __int64 v9; // rdi
   unsigned int v10; // ecx
@@ -25,14 +25,14 @@ int __fastcall KiInitializeCpuPartitionLogPerProcessorBuffer(unsigned __int64 a1
   LODWORD(v6) = KeQueryMaximumProcessorCountEx(0xFFFFu);
   if ( (_DWORD)v6 )
   {
-    v7 = (_QWORD *)ExSaPageArrays;
+    SListFaultAddress = ExSaPageGroupDescriptorArrayLock.SListFaultAddress;
     v8 = ((unsigned int)a1 >> 13) & 0x3FFFF;
     v9 = (a1 >> 4) & 0x1FF;
     v16 = (unsigned int)v6;
     do
     {
       _BitScanReverse(&v10, v8);
-      v11 = (_QWORD *)(*(_QWORD *)(*(_QWORD *)(*v7 + 8LL * (v10 - 2))
+      v11 = (_QWORD *)(*(_QWORD *)(*(_QWORD *)(*SListFaultAddress + 8LL * (v10 - 2))
                                  + 8 * (v8 ^ (unsigned __int64)(unsigned int)(1 << v10))
                                  + 8)
                      + 8 * v9);
@@ -44,7 +44,7 @@ int __fastcall KiInitializeCpuPartitionLogPerProcessorBuffer(unsigned __int64 a1
       v13 = v12 + 8 * v4;
       v11[1] = v12;
       v11[2] = v13;
-      ++v7;
+      ++SListFaultAddress;
       v6 = 16LL * (unsigned int)(2 * v4 + 4) + v13;
       v14 = v16-- == 1;
       v11[3] = v6;

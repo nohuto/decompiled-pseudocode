@@ -1,9 +1,9 @@
 /*
- * XREFs of MiConvertWorkingSetLockExclusiveToShared @ 0x1407034C0
+ * XREFs of MiConvertWorkingSetLockExclusiveToShared @ 0x140708190
  * Callers:
- *     MiInsertLargeVadMapping @ 0x140510234 (MiInsertLargeVadMapping.c)
+ *     MiInsertLargeVadMapping @ 0x140509CA4 (MiInsertLargeVadMapping.c)
  * Callees:
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
  */
 
 void __fastcall MiConvertWorkingSetLockExclusiveToShared(__int64 a1)
@@ -19,7 +19,7 @@ void __fastcall MiConvertWorkingSetLockExclusiveToShared(__int64 a1)
   unsigned int v9; // ecx
   signed __int32 v10; // ecx
 
-  v1 = (volatile signed __int32 **)&qword_140E37800;
+  v1 = (volatile signed __int32 **)&qword_140E37980;
   if ( (*(_DWORD *)(a1 + 184) & 0xF) != 1 )
     v1 = (volatile signed __int32 **)(a1 + 192);
   v2 = (KeGetPcr()->Prcb.Number >> 1) & 3;

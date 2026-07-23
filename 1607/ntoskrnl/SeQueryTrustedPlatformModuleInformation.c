@@ -1,9 +1,9 @@
 /*
- * XREFs of SeQueryTrustedPlatformModuleInformation @ 0x14021A7E4
+ * XREFs of SeQueryTrustedPlatformModuleInformation @ 0x14021A610
  * Callers:
- *     ExpQuerySystemInformation @ 0x140415620 (ExpQuerySystemInformation.c)
+ *     ExpQuerySystemInformation @ 0x1404144E0 (ExpQuerySystemInformation.c)
  * Callees:
- *     ExSystemExceptionFilter @ 0x1404BBBFC (ExSystemExceptionFilter.c)
+ *     ExSystemExceptionFilter @ 0x1404A792C (ExSystemExceptionFilter.c)
  */
 
 __int64 __fastcall SeQueryTrustedPlatformModuleInformation(_DWORD *a1, unsigned int a2, _DWORD *a3)

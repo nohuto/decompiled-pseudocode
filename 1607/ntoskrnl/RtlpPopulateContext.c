@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlpPopulateContext @ 0x14007D030
+ * XREFs of RtlpPopulateContext @ 0x14007D0B0
  * Callers:
- *     RtlInitEnumerationHashTable @ 0x14007CF48 (RtlInitEnumerationHashTable.c)
- *     RtlInsertEntryHashTable @ 0x14007CFAC (RtlInsertEntryHashTable.c)
- *     RtlRemoveEntryHashTable @ 0x14009211C (RtlRemoveEntryHashTable.c)
- *     RtlInitStrongEnumerationHashTable @ 0x1402136C0 (RtlInitStrongEnumerationHashTable.c)
+ *     RtlInitEnumerationHashTable @ 0x14007CFC8 (RtlInitEnumerationHashTable.c)
+ *     RtlInsertEntryHashTable @ 0x14007D02C (RtlInsertEntryHashTable.c)
+ *     RtlRemoveEntryHashTable @ 0x14009187C (RtlRemoveEntryHashTable.c)
+ *     RtlInitStrongEnumerationHashTable @ 0x1402134EC (RtlInitStrongEnumerationHashTable.c)
  * Callees:
- *     RtlpGetChainHead @ 0x14007D0C4 (RtlpGetChainHead.c)
+ *     RtlpGetChainHead @ 0x14007D144 (RtlpGetChainHead.c)
  */
 
 _QWORD *__fastcall RtlpPopulateContext(_DWORD *a1, __int64 a2, unsigned int a3)

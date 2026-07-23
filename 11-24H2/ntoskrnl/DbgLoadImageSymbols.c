@@ -1,11 +1,11 @@
 /*
- * XREFs of DbgLoadImageSymbols @ 0x1404A4130
+ * XREFs of DbgLoadImageSymbols @ 0x14049EEC0
  * Callers:
- *     DbgLoadImageSymbolsUnicode @ 0x1404A3FCC (DbgLoadImageSymbolsUnicode.c)
- *     KdInitSystem @ 0x140B75E30 (KdInitSystem.c)
- *     InitLoadDebuggerSymbols @ 0x140C0B7D0 (InitLoadDebuggerSymbols.c)
+ *     DbgLoadImageSymbolsUnicode @ 0x14049ED5C (DbgLoadImageSymbolsUnicode.c)
+ *     KdInitSystem @ 0x140B77E30 (KdInitSystem.c)
+ *     InitLoadDebuggerSymbols @ 0x140C0D7D0 (InitLoadDebuggerSymbols.c)
  * Callees:
- *     DebugService2 @ 0x1404FC860 (DebugService2.c)
+ *     DebugService2 @ 0x1404FA120 (DebugService2.c)
  */
 
 __int64 __fastcall DbgLoadImageSymbols(__int64 a1, unsigned __int64 a2, __int64 a3)

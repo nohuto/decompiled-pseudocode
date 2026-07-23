@@ -1,16 +1,16 @@
 /*
- * XREFs of KiInsertTimerTable @ 0x140059E30
+ * XREFs of KiInsertTimerTable @ 0x1400599B0
  * Callers:
- *     KiSetTimerEx @ 0x140006E00 (KiSetTimerEx.c)
- *     KeSetTimerEx @ 0x1400561D0 (KeSetTimerEx.c)
- *     KiTimerWaitTest @ 0x140058C90 (KiTimerWaitTest.c)
- *     KiCommitThreadWait @ 0x14005ACD0 (KiCommitThreadWait.c)
- *     KiResumeThread @ 0x1400CB420 (KiResumeThread.c)
- *     KeSetCoalescableTimer @ 0x1400EFC00 (KeSetCoalescableTimer.c)
- *     KiAdjustTimerDueTimes @ 0x14012A614 (KiAdjustTimerDueTimes.c)
+ *     KiSetTimerEx @ 0x140006F70 (KiSetTimerEx.c)
+ *     KeSetTimerEx @ 0x140055D50 (KeSetTimerEx.c)
+ *     KiTimerWaitTest @ 0x140058810 (KiTimerWaitTest.c)
+ *     KiCommitThreadWait @ 0x14005A850 (KiCommitThreadWait.c)
+ *     KiResumeThread @ 0x1400C92C0 (KiResumeThread.c)
+ *     KeSetCoalescableTimer @ 0x1400EDA80 (KeSetCoalescableTimer.c)
+ *     KiAdjustTimerDueTimes @ 0x14012AB84 (KiAdjustTimerDueTimes.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x14002ECB0 (KeYieldProcessorEx.c)
- *     KiRemoveEntryTimer @ 0x140110D34 (KiRemoveEntryTimer.c)
+ *     KeYieldProcessorEx @ 0x14002E830 (KeYieldProcessorEx.c)
+ *     KiRemoveEntryTimer @ 0x140111298 (KiRemoveEntryTimer.c)
  */
 
 bool __fastcall KiInsertTimerTable(__int64 a1, __int64 a2, __int64 a3, unsigned int a4, char *a5)

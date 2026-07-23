@@ -22,51 +22,51 @@
 
 __int64 __fastcall RtlpDosPathNameToRelativeNtPathName(
         int a1,
-        __m128i *a2,
-        unsigned __int16 *a3,
-        unsigned __int16 *a4,
-        unsigned __int16 **a5,
+        _UNICODE_STRING *a2,
+        _UNICODE_STRING *a3,
+        _UNICODE_STRING *a4,
+        _UNICODE_STRING **a5,
         _QWORD *a6,
         __int64 a7)
 {
-  unsigned __int16 *v8; // r15
+  _UNICODE_STRING *v8; // r15
   int v9; // r12d
-  _WORD *v10; // rax
+  wchar_t *Buffer; // rax
   unsigned int v11; // ebx
   unsigned int v12; // r13d
   unsigned int i; // eax
   unsigned int v14; // esi
   int v15; // eax
-  void *v16; // r11
-  const wchar_t *v17; // r13
-  wchar_t v18; // di
+  _UNICODE_STRING *v16; // r11
+  const _UNICODE_STRING *v17; // r13
+  unsigned __int16 Length; // di
   unsigned int v19; // r12d
-  __int64 Heap; // rax
+  wchar_t *Heap; // rax
   __int64 v21; // rdx
-  const void *v22; // rdx
+  wchar_t *v22; // rdx
   int v23; // ecx
-  unsigned int v24; // eax
+  unsigned int MaximumLength; // eax
   unsigned __int16 v25; // di
   int v26; // ecx
   unsigned int v27; // eax
   _QWORD *v28; // rcx
   bool v29; // zf
   __int64 v31; // rax
-  __int64 v32; // rdi
+  HANDLE *v32; // rdi
   _WORD *v33; // r12
   _WORD *v34; // rcx
   __int16 v35; // si
-  __int64 v36; // rax
+  PVOID v36; // rax
   _BYTE v37[4]; // [rsp+30h] [rbp-D0h] BYREF
   int v38; // [rsp+34h] [rbp-CCh]
-  unsigned __int16 *v39; // [rsp+38h] [rbp-C8h]
+  _UNICODE_STRING *v39; // [rsp+38h] [rbp-C8h]
   int v40; // [rsp+40h] [rbp-C0h]
-  __int64 v41; // [rsp+48h] [rbp-B8h]
-  _BYTE *v42; // [rsp+50h] [rbp-B0h]
-  __m128i v43; // [rsp+58h] [rbp-A8h] BYREF
+  unsigned __int64 v41; // [rsp+48h] [rbp-B8h]
+  PVOID BaseAddress; // [rsp+50h] [rbp-B0h]
+  _UNICODE_STRING String2; // [rsp+58h] [rbp-A8h] BYREF
   int v44; // [rsp+68h] [rbp-98h] BYREF
   _QWORD *v45; // [rsp+70h] [rbp-90h]
-  unsigned __int16 **v46; // [rsp+78h] [rbp-88h]
+  _UNICODE_STRING **v46; // [rsp+78h] [rbp-88h]
   _BYTE v47[528]; // [rsp+80h] [rbp-80h] BYREF
 
   v8 = a3;
@@ -75,34 +75,34 @@ __int64 __fastcall RtlpDosPathNameToRelativeNtPathName(
   v39 = a4;
   v46 = a5;
   v45 = a6;
-  if ( a2->m128i_i16[0] > 8u )
+  if ( a2->Length > 8u )
   {
-    v10 = (_WORD *)a2->m128i_i64[1];
-    if ( *v10 == 92 && (v10[1] == 92 || v10[1] == 63) && v10[2] == 63 && v10[3] == 92 )
+    Buffer = a2->Buffer;
+    if ( *Buffer == 92 && (Buffer[1] == 92 || Buffer[1] == 63) && Buffer[2] == 63 && Buffer[3] == 92 )
       return RtlpWin32NtNameToNtPathName(a2, a3, a4, a5, a6, a7);
   }
   v11 = 0;
   if ( a6 )
     *a6 = 0LL;
   v41 = 4LL;
-  v42 = v47;
+  BaseAddress = v47;
   v12 = 520;
   if ( (a1 & 1) != 0 )
   {
-    v43 = *a2;
-    v15 = RtlDetermineDosPathNameType_Ustr(&v43);
-    LOWORD(v14) = v43.m128i_i16[0];
+    String2 = *a2;
+    v15 = RtlDetermineDosPathNameType_Ustr(&String2);
+    LOWORD(v14) = String2.Length;
     v44 = v15;
 LABEL_11:
     if ( v15 == 1 )
     {
-      v17 = (const wchar_t *)&RtlpDosDevicesUncPrefix;
+      v17 = &RtlpDosDevicesUncPrefix;
       v9 = 4;
       LOWORD(v38) = 4;
     }
     else
     {
-      v17 = L"\b\n";
+      v17 = &RtlpDosDevicesPrefix;
       if ( v15 == 6 )
       {
         v41 = 8LL;
@@ -115,8 +115,8 @@ LABEL_11:
         v38 = 0;
       }
     }
-    v18 = *v17;
-    v19 = *v17 - v9 + (unsigned __int16)v14 + 2;
+    Length = v17->Length;
+    v19 = v17->Length - v9 + (unsigned __int16)v14 + 2;
     if ( v19 <= 0xFFFE )
     {
       if ( !v8 )
@@ -128,42 +128,42 @@ LABEL_11:
         }
         goto LABEL_17;
       }
-      if ( v19 <= v8[1] )
+      if ( v19 <= v8->MaximumLength )
       {
 LABEL_19:
-        if ( v18 )
+        if ( Length )
         {
-          v21 = *v8;
-          if ( (unsigned int)v21 + v18 > v8[1] )
+          v21 = v8->Length;
+          if ( (unsigned int)v21 + Length > v8->MaximumLength )
             goto LABEL_24;
-          v22 = (const void *)*((_QWORD *)v17 + 1);
-          v39 = (unsigned __int16 *)(*((_QWORD *)v8 + 1) + 2 * ((unsigned __int64)*v8 >> 1));
-          memmove(v39, v22, v18);
-          v23 = (unsigned __int16)(v18 + *v8);
-          v24 = v8[1];
-          *v8 = v23;
-          if ( v23 + 1 < v24 )
-            v39[(unsigned __int64)v18 >> 1] = 0;
+          v22 = v17->Buffer;
+          v39 = (_UNICODE_STRING *)&v8->Buffer[(unsigned __int64)v8->Length >> 1];
+          memmove(v39, v22, Length);
+          v23 = (unsigned __int16)(Length + v8->Length);
+          MaximumLength = v8->MaximumLength;
+          v8->Length = v23;
+          if ( v23 + 1 < MaximumLength )
+            *(&v39->Length + ((unsigned __int64)Length >> 1)) = 0;
         }
-        v21 = *v8;
+        v21 = v8->Length;
 LABEL_24:
         v25 = v14 - v38;
-        if ( (_WORD)v14 != (_WORD)v38 && v25 + (unsigned int)(unsigned __int16)v21 <= v8[1] )
+        if ( (_WORD)v14 != (_WORD)v38 && v25 + (unsigned int)(unsigned __int16)v21 <= v8->MaximumLength )
         {
-          v39 = (unsigned __int16 *)(*((_QWORD *)v8 + 1) + 2 * ((unsigned __int64)(unsigned __int16)v21 >> 1));
-          memmove(v39, (const void *)(v43.m128i_i64[1] + v41), v25);
-          v26 = (unsigned __int16)(v25 + *v8);
-          v27 = v8[1];
-          *v8 = v26;
+          v39 = (_UNICODE_STRING *)&v8->Buffer[(unsigned __int64)(unsigned __int16)v21 >> 1];
+          memmove(v39, &String2.Buffer[v41 / 2], v25);
+          v26 = (unsigned __int16)(v25 + v8->Length);
+          v27 = v8->MaximumLength;
+          v8->Length = v26;
           if ( v26 + 1 < v27 )
-            v39[(unsigned __int64)v25 >> 1] = 0;
+            *(&v39->Length + ((unsigned __int64)v25 >> 1)) = 0;
         }
         if ( v46 )
           *v46 = v8;
-        *(_WORD *)(*((_QWORD *)v8 + 1) + 2 * ((unsigned __int64)*v8 >> 1)) = 0;
+        v8->Buffer[(unsigned __int64)v8->Length >> 1] = 0;
         v28 = v45;
         if ( v45 && *v45 )
-          *v45 += *((_QWORD *)v8 + 1) + *v17 - v41 - (_QWORD)v42;
+          *v45 += (char *)v8->Buffer + v17->Length - v41 - (_QWORD)BaseAddress;
         if ( a7 )
         {
           v29 = v44 == 5;
@@ -175,13 +175,13 @@ LABEL_24:
           {
             LOBYTE(v28) = 1;
             v31 = RtlpReferenceCurrentDirectory(v28, v21);
-            v32 = v31;
+            v32 = (HANDLE *)v31;
             if ( v31 )
             {
               v33 = (_WORD *)(v31 + 24);
-              if ( !RtlPrefixUnicodeString((unsigned __int16 *)(v31 + 24), (__int64)&v43, 1) )
+              if ( !RtlPrefixUnicodeString((PUNICODE_STRING)(v31 + 24), &String2, 1u) )
                 goto LABEL_66;
-              v34 = (_WORD *)(*((_QWORD *)v8 + 1) + *v17 + (unsigned __int16)*v33 - v41);
+              v34 = (wchar_t *)((char *)v8->Buffer + v17->Length + (unsigned __int16)*v33 - v41);
               *(_QWORD *)(a7 + 8) = v34;
               v35 = v14 - *v33;
               *(_WORD *)a7 = v35;
@@ -198,14 +198,14 @@ LABEL_24:
 LABEL_66:
                 if ( _InterlockedExchangeAdd((volatile signed __int32 *)v32, 0xFFFFFFFF) == 1 )
                 {
-                  NtClose(*(HANDLE *)(v32 + 8));
-                  RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0LL, v32);
+                  NtClose(v32[1]);
+                  RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v32);
                 }
               }
               else
               {
                 *(_QWORD *)(a7 + 24) = v32;
-                *(_QWORD *)(a7 + 16) = *(_QWORD *)(v32 + 8);
+                *(_QWORD *)(a7 + 16) = v32[1];
               }
             }
             else
@@ -219,21 +219,21 @@ LABEL_66:
       if ( v16 )
       {
 LABEL_17:
-        Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0LL, v19);
+        Heap = (wchar_t *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, v19);
         v8 = v39;
-        *((_QWORD *)v39 + 1) = Heap;
+        v39->Buffer = Heap;
         if ( Heap )
         {
-          LOWORD(v14) = v43.m128i_i16[0];
-          *v8 = 0;
-          v8[1] = v19;
-          v18 = *v17;
+          LOWORD(v14) = String2.Length;
+          v8->Length = 0;
+          v8->MaximumLength = v19;
+          Length = v17->Length;
           goto LABEL_19;
         }
         v11 = -1073741801;
 LABEL_33:
-        if ( v42 != v47 )
-          RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0LL, v42);
+        if ( BaseAddress != v47 )
+          RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, BaseAddress);
         return v11;
       }
     }
@@ -253,17 +253,17 @@ LABEL_60:
     }
     if ( i <= v12 )
     {
-      v43.m128i_i64[1] = (__int64)v42;
-      v43.m128i_i16[0] = i;
-      v43.m128i_i16[1] = v12;
-      v15 = RtlDetermineDosPathNameType_Ustr(&v43);
+      String2.Buffer = (wchar_t *)BaseAddress;
+      String2.Length = i;
+      String2.MaximumLength = v12;
+      v15 = RtlDetermineDosPathNameType_Ustr(&String2);
       v16 = v39;
       goto LABEL_11;
     }
     if ( (v40 & 4) == 0 && ((v40 & 8) != 0 || (NtCurrentPeb()->BitField & 0x80u) == 0) )
       goto LABEL_60;
-    v36 = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0LL, i);
-    v42 = (_BYTE *)v36;
+    v36 = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, i);
+    BaseAddress = v36;
     if ( !v36 )
       break;
     v12 = v14;

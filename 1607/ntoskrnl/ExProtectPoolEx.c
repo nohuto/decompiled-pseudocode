@@ -1,16 +1,16 @@
 /*
- * XREFs of ExProtectPoolEx @ 0x1400EA270
+ * XREFs of ExProtectPoolEx @ 0x1400E80E0
  * Callers:
- *     ExProtectPool @ 0x1400F0300 (ExProtectPool.c)
- *     CmpProtectPool @ 0x1400F0310 (CmpProtectPool.c)
- *     HvpSetRangeProtection @ 0x1405139A4 (HvpSetRangeProtection.c)
+ *     ExProtectPool @ 0x1400EE180 (ExProtectPool.c)
+ *     CmpProtectPool @ 0x1400EE190 (CmpProtectPool.c)
+ *     HvpSetRangeProtection @ 0x1404F6D94 (HvpSetRangeProtection.c)
  * Callees:
- *     ExReleaseSpinLockShared @ 0x1400EA240 (ExReleaseSpinLockShared.c)
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1400EA3E0 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     MiProtectPool @ 0x1400EA400 (MiProtectPool.c)
- *     ExAcquireSpinLockShared @ 0x1400EB1D0 (ExAcquireSpinLockShared.c)
- *     MmDeterminePoolType @ 0x1400EB21C (MmDeterminePoolType.c)
- *     MmIsSpecialPoolAddress @ 0x1400EB24C (MmIsSpecialPoolAddress.c)
+ *     ExReleaseSpinLockShared @ 0x1400E80B0 (ExReleaseSpinLockShared.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1400E8250 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     MiProtectPool @ 0x1400E8270 (MiProtectPool.c)
+ *     ExAcquireSpinLockShared @ 0x1400E9040 (ExAcquireSpinLockShared.c)
+ *     MmDeterminePoolType @ 0x1400E908C (MmDeterminePoolType.c)
+ *     MmIsSpecialPoolAddress @ 0x1400E90BC (MmIsSpecialPoolAddress.c)
  */
 
 __int64 __fastcall ExProtectPoolEx(unsigned __int64 a1, unsigned __int64 a2, __int64 a3, unsigned int a4)

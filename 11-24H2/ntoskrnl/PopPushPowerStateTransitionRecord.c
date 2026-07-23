@@ -1,15 +1,15 @@
 /*
- * XREFs of PopPushPowerStateTransitionRecord @ 0x140B6D1E8
+ * XREFs of PopPushPowerStateTransitionRecord @ 0x140B6EA88
  * Callers:
- *     PopUmpoSendPowerMessage @ 0x140331990 (PopUmpoSendPowerMessage.c)
- *     PoPushPowerStateTransitionRecord @ 0x1405D395C (PoPushPowerStateTransitionRecord.c)
- *     PopInitSystemSleeperThread @ 0x140A219E8 (PopInitSystemSleeperThread.c)
- *     PopIssueActionRequest @ 0x140A87C34 (PopIssueActionRequest.c)
+ *     PopUmpoSendPowerMessage @ 0x1402BB090 (PopUmpoSendPowerMessage.c)
+ *     PoPushPowerStateTransitionRecord @ 0x1405D107C (PoPushPowerStateTransitionRecord.c)
+ *     PopInitSystemSleeperThread @ 0x1408F8198 (PopInitSystemSleeperThread.c)
+ *     PopIssueActionRequest @ 0x140A84124 (PopIssueActionRequest.c)
  * Callees:
- *     PopPushPowerStateTransitionRecordWithCallback @ 0x140428294 (PopPushPowerStateTransitionRecordWithCallback.c)
+ *     PopPushPowerStateTransitionRecordWithCallback @ 0x14041C424 (PopPushPowerStateTransitionRecordWithCallback.c)
  */
 
-__int64 __fastcall PopPushPowerStateTransitionRecord(__int64 a1, __int64 a2)
+__int64 __fastcall PopPushPowerStateTransitionRecord(LARGE_INTEGER a1, LONGLONG a2)
 {
   return PopPushPowerStateTransitionRecordWithCallback(a1, a2, 0LL, 0, 0LL);
 }

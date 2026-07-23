@@ -1,10 +1,10 @@
 /*
- * XREFs of MiInitializeCfg @ 0x140C58EE4
+ * XREFs of MiInitializeCfg @ 0x140C5B074
  * Callers:
- *     MiInitSystem @ 0x140C4DC40 (MiInitSystem.c)
+ *     MiInitSystem @ 0x140C4FDD0 (MiInitSystem.c)
  * Callees:
- *     MiSectionControlArea @ 0x1402D4800 (MiSectionControlArea.c)
- *     MmCreateSection @ 0x140940B50 (MmCreateSection.c)
+ *     MiSectionControlArea @ 0x140355A80 (MiSectionControlArea.c)
+ *     MmCreateSection @ 0x14098ADB0 (MmCreateSection.c)
  */
 
 __int64 MiInitializeCfg()
@@ -22,8 +22,8 @@ __int64 MiInitializeCfg()
   result = MmCreateSection((int)&v5, 983071LL, 0, &v6, 4, 0x4000000, 0LL, 0LL);
   if ( (int)result >= 0 )
   {
-    qword_140E2D700 = v5;
-    qword_140E2D708 = MiSectionControlArea(v5);
+    qword_140E2D840 = v5;
+    qword_140E2D848 = MiSectionControlArea(v5);
     for ( i = 0; !i; i = 1 )
     {
       v6 = 0x4000000LL;

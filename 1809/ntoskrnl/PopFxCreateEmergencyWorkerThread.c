@@ -1,11 +1,11 @@
 /*
- * XREFs of PopFxCreateEmergencyWorkerThread @ 0x14075B5D4
+ * XREFs of PopFxCreateEmergencyWorkerThread @ 0x14075C7C4
  * Callers:
- *     PopFxRegisterPluginEx @ 0x1402D8F98 (PopFxRegisterPluginEx.c)
- *     PoFxInitPowerManagement @ 0x1409D8614 (PoFxInitPowerManagement.c)
+ *     PopFxRegisterPluginEx @ 0x1402D9188 (PopFxRegisterPluginEx.c)
+ *     PoFxInitPowerManagement @ 0x1409D9614 (PoFxInitPowerManagement.c)
  * Callees:
- *     ZwClose @ 0x1401B8370 (ZwClose.c)
- *     PsCreateSystemThreadEx @ 0x14066AAC0 (PsCreateSystemThreadEx.c)
+ *     ZwClose @ 0x1401B84D0 (ZwClose.c)
+ *     PsCreateSystemThreadEx @ 0x14066BC80 (PsCreateSystemThreadEx.c)
  */
 
 __int64 __fastcall PopFxCreateEmergencyWorkerThread(__int64 a1)

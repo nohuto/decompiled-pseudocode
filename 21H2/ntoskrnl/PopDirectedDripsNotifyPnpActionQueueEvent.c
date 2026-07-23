@@ -1,13 +1,13 @@
 /*
- * XREFs of PopDirectedDripsNotifyPnpActionQueueEvent @ 0x14037A354
+ * XREFs of PopDirectedDripsNotifyPnpActionQueueEvent @ 0x140379EA4
  * Callers:
- *     PoNotifyPnpActionQueueEvent @ 0x14057699C (PoNotifyPnpActionQueueEvent.c)
+ *     PoNotifyPnpActionQueueEvent @ 0x140576BDC (PoNotifyPnpActionQueueEvent.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
- *     PopDirectedDripsDiagNotifyPnpActionQueueEvent @ 0x14037A3F0 (PopDirectedDripsDiagNotifyPnpActionQueueEvent.c)
- *     PopDirectedDripsClearDisengageReason @ 0x14037A4DC (PopDirectedDripsClearDisengageReason.c)
- *     PopDirectedDripsSetDisengageReason @ 0x14037A544 (PopDirectedDripsSetDisengageReason.c)
+ *     KxReleaseSpinLock @ 0x140212140 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140362F80 (KeAcquireSpinLockRaiseToDpc.c)
+ *     PopDirectedDripsDiagNotifyPnpActionQueueEvent @ 0x140379F40 (PopDirectedDripsDiagNotifyPnpActionQueueEvent.c)
+ *     PopDirectedDripsClearDisengageReason @ 0x14037A02C (PopDirectedDripsClearDisengageReason.c)
+ *     PopDirectedDripsSetDisengageReason @ 0x14037A094 (PopDirectedDripsSetDisengageReason.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
@@ -20,17 +20,17 @@ __int64 __fastcall PopDirectedDripsNotifyPnpActionQueueEvent(unsigned int a1, un
   int v9; // eax
   bool v10; // zf
 
-  v4 = KeAcquireSpinLockRaiseToDpc(&qword_140C24E48);
+  v4 = KeAcquireSpinLockRaiseToDpc(&qword_140C24EA8);
   if ( a1 )
   {
-    if ( a1 == 1 && !--dword_140C24E50 )
+    if ( a1 == 1 && !--dword_140C24EB0 )
       PopDirectedDripsClearDisengageReason(4LL);
   }
-  else if ( ++dword_140C24E50 == 1 )
+  else if ( ++dword_140C24EB0 == 1 )
   {
     PopDirectedDripsSetDisengageReason(4LL);
   }
-  KxReleaseSpinLock(&qword_140C24E48);
+  KxReleaseSpinLock(&qword_140C24EA8);
   if ( KiIrqlFlags )
   {
     if ( (KiIrqlFlags & 1) != 0 )

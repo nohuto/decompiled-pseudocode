@@ -1,9 +1,9 @@
 /*
- * XREFs of EtwpValidateBuffer @ 0x14045AF10
+ * XREFs of EtwpValidateBuffer @ 0x1404502B0
  * Callers:
- *     EtwpDequeueFreeBuffer @ 0x1404EF438 (EtwpDequeueFreeBuffer.c)
+ *     EtwpDequeueFreeBuffer @ 0x1404EC950 (EtwpDequeueFreeBuffer.c)
  * Callees:
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall EtwpValidateBuffer(__int64 a1, unsigned int *a2)

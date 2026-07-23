@@ -1,16 +1,16 @@
 /*
- * XREFs of ObClearProcessDeviceMap @ 0x1407AFD88
+ * XREFs of ObClearProcessDeviceMap @ 0x1407AFF78
  * Callers:
- *     PspProcessDelete @ 0x1407610B0 (PspProcessDelete.c)
- *     PspAssignPrimaryToken @ 0x140840128 (PspAssignPrimaryToken.c)
+ *     PspProcessDelete @ 0x1407612A0 (PspProcessDelete.c)
+ *     PspAssignPrimaryToken @ 0x140840428 (PspAssignPrimaryToken.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     PsGetProcessServerSilo @ 0x14028C180 (PsGetProcessServerSilo.c)
- *     PsGetServerSiloGlobals @ 0x140297694 (PsGetServerSiloGlobals.c)
- *     ExfTryToWakePushLock @ 0x1402BD960 (ExfTryToWakePushLock.c)
- *     KiCheckForKernelApcDelivery @ 0x14030F820 (KiCheckForKernelApcDelivery.c)
- *     ObDereferenceDeviceMap @ 0x1407AFE5C (ObDereferenceDeviceMap.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140231120 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     PsGetProcessServerSilo @ 0x14028C410 (PsGetProcessServerSilo.c)
+ *     PsGetServerSiloGlobals @ 0x140297924 (PsGetServerSiloGlobals.c)
+ *     ExfTryToWakePushLock @ 0x1402BDBF0 (ExfTryToWakePushLock.c)
+ *     KiCheckForKernelApcDelivery @ 0x14030FAB0 (KiCheckForKernelApcDelivery.c)
+ *     ObDereferenceDeviceMap @ 0x1407B004C (ObDereferenceDeviceMap.c)
  */
 
 void __fastcall ObClearProcessDeviceMap(__int64 a1)

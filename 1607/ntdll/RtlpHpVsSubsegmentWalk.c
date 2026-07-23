@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpHpVsSubsegmentWalk @ 0x18004E298
+ * XREFs of RtlpHpVsSubsegmentWalk @ 0x18004E288
  * Callers:
- *     RtlpHpSegWalkHeap @ 0x18004DEFC (RtlpHpSegWalkHeap.c)
+ *     RtlpHpSegWalkHeap @ 0x18004DEEC (RtlpHpSegWalkHeap.c)
  * Callees:
- *     RtlpHpVsChunkSize @ 0x18004BDF8 (RtlpHpVsChunkSize.c)
+ *     RtlpHpVsChunkSize @ 0x18004BDE8 (RtlpHpVsChunkSize.c)
  */
 
 unsigned __int64 __fastcall RtlpHpVsSubsegmentWalk(__int64 a1, __int64 a2, __int64 a3, _DWORD *a4, _DWORD *a5, int *a6)

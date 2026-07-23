@@ -1,23 +1,23 @@
 /*
- * XREFs of CmLockKeyForWrite @ 0x1409E1DB8
+ * XREFs of CmLockKeyForWrite @ 0x1409DBB68
  * Callers:
- *     NtLockRegistryKey @ 0x1407CFD80 (NtLockRegistryKey.c)
+ *     NtLockRegistryKey @ 0x1407D0270 (NtLockRegistryKey.c)
  * Callees:
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     ExfAcquirePushLockSharedEx @ 0x14034050C (ExfAcquirePushLockSharedEx.c)
- *     PsGetCurrentSilo @ 0x140402420 (PsGetCurrentSilo.c)
- *     CmpPerformSiloKeyLockTrackerEnabledCheck @ 0x1406FB58C (CmpPerformSiloKeyLockTrackerEnabledCheck.c)
- *     CmpCreateSiloKeyLockEntry @ 0x1407DDDF4 (CmpCreateSiloKeyLockEntry.c)
- *     CmpFreeSiloKeyLockEntry @ 0x1407DDE48 (CmpFreeSiloKeyLockEntry.c)
- *     CmpLockKcbExclusive @ 0x140870470 (CmpLockKcbExclusive.c)
- *     KsepCacheLock @ 0x1408BB520 (KsepCacheLock.c)
- *     CmpGetContextForSiloNoRef @ 0x1409E1EF0 (CmpGetContextForSiloNoRef.c)
- *     CmpGlobalLockKeyForWrite @ 0x140A66C2C (CmpGlobalLockKeyForWrite.c)
- *     CmpUnlockSiloKeyLockTracker @ 0x140A872EC (CmpUnlockSiloKeyLockTracker.c)
- *     CmpUnlockKcb @ 0x140BB92C0 (CmpUnlockKcb.c)
- *     CmpPerformKeyBodyDeletionCheck @ 0x140BB97D0 (CmpPerformKeyBodyDeletionCheck.c)
- *     CmpLockRegistry @ 0x140BB9E60 (CmpLockRegistry.c)
- *     CmpUnlockRegistry @ 0x140BB9F50 (CmpUnlockRegistry.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     ExfAcquirePushLockSharedEx @ 0x14031F9EC (ExfAcquirePushLockSharedEx.c)
+ *     PsGetCurrentSilo @ 0x1403FCA20 (PsGetCurrentSilo.c)
+ *     CmpPerformSiloKeyLockTrackerEnabledCheck @ 0x1406F91CC (CmpPerformSiloKeyLockTrackerEnabledCheck.c)
+ *     CmpCreateSiloKeyLockEntry @ 0x1407DE344 (CmpCreateSiloKeyLockEntry.c)
+ *     CmpFreeSiloKeyLockEntry @ 0x1407DE398 (CmpFreeSiloKeyLockEntry.c)
+ *     CmpLockKcbExclusive @ 0x1408747A0 (CmpLockKcbExclusive.c)
+ *     KsepCacheLock @ 0x1408B8ED0 (KsepCacheLock.c)
+ *     CmpGetContextForSiloNoRef @ 0x1409DBCA0 (CmpGetContextForSiloNoRef.c)
+ *     CmpGlobalLockKeyForWrite @ 0x140A5FA10 (CmpGlobalLockKeyForWrite.c)
+ *     CmpUnlockSiloKeyLockTracker @ 0x140A8203C (CmpUnlockSiloKeyLockTracker.c)
+ *     CmpUnlockKcb @ 0x140BBB2C0 (CmpUnlockKcb.c)
+ *     CmpPerformKeyBodyDeletionCheck @ 0x140BBB7D0 (CmpPerformKeyBodyDeletionCheck.c)
+ *     CmpLockRegistry @ 0x140BBBE60 (CmpLockRegistry.c)
+ *     CmpUnlockRegistry @ 0x140BBBF50 (CmpUnlockRegistry.c)
  */
 
 __int64 __fastcall CmLockKeyForWrite(__int64 a1)
@@ -29,7 +29,7 @@ __int64 __fastcall CmLockKeyForWrite(__int64 a1)
   ULONG_PTR v6; // rbp
   int v7; // ebx
   struct _KTHREAD *CurrentThread; // rax
-  _QWORD *v9; // rbx
+  char *v9; // rbx
   ULONG_PTR v10; // rcx
   signed __int64 *v11; // r14
   signed __int64 *i; // rax
@@ -58,11 +58,11 @@ __int64 __fastcall CmLockKeyForWrite(__int64 a1)
     }
     CurrentThread = KeGetCurrentThread();
     --CurrentThread->KernelApcDisable;
-    v9 = KeAbPreAcquire((__int64)ContextForSiloNoRef, 0LL);
+    v9 = (char *)KeAbPreAcquire((__int64)ContextForSiloNoRef, 0LL);
     if ( _InterlockedCompareExchange64(ContextForSiloNoRef, 17LL, 0LL) )
       ExfAcquirePushLockSharedEx(ContextForSiloNoRef, 0, v9, (__int64)ContextForSiloNoRef);
     if ( v9 )
-      *((_BYTE *)v9 + 10) = 1;
+      v9[10] = 1;
     v7 = CmpPerformSiloKeyLockTrackerEnabledCheck((__int64)ContextForSiloNoRef);
     if ( v7 >= 0 )
     {

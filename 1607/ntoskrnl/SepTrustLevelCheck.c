@@ -1,17 +1,17 @@
 /*
- * XREFs of SepTrustLevelCheck @ 0x14008DA00
+ * XREFs of SepTrustLevelCheck @ 0x14008D160
  * Callers:
- *     SeAccessCheckByType @ 0x14005FEF0 (SeAccessCheckByType.c)
- *     SepCommonAccessCheckEx @ 0x140135790 (SepCommonAccessCheckEx.c)
- *     SepAccessCheckAndAuditAlarm @ 0x1404B6D30 (SepAccessCheckAndAuditAlarm.c)
+ *     SeAccessCheckByType @ 0x14005FA70 (SeAccessCheckByType.c)
+ *     SepCommonAccessCheckEx @ 0x140135D00 (SepCommonAccessCheckEx.c)
+ *     SepAccessCheckAndAuditAlarm @ 0x1404A1110 (SepAccessCheckAndAuditAlarm.c)
  * Callees:
- *     ExAcquireResourceSharedLite @ 0x1400685B0 (ExAcquireResourceSharedLite.c)
- *     ExReleaseResourceLite @ 0x140068940 (ExReleaseResourceLite.c)
- *     KeLeaveCriticalRegion @ 0x140069D00 (KeLeaveCriticalRegion.c)
- *     SeGetTrustLabelAce @ 0x14008DA70 (SeGetTrustLabelAce.c)
- *     RtlSidDominatesForTrust @ 0x1400D3CA0 (RtlSidDominatesForTrust.c)
- *     SeLockSubjectContext @ 0x14044DBB0 (SeLockSubjectContext.c)
- *     SeUnlockSubjectContext @ 0x14044DC10 (SeUnlockSubjectContext.c)
+ *     ExAcquireResourceSharedLite @ 0x140068130 (ExAcquireResourceSharedLite.c)
+ *     ExReleaseResourceLite @ 0x1400684C0 (ExReleaseResourceLite.c)
+ *     KeLeaveCriticalRegion @ 0x140069880 (KeLeaveCriticalRegion.c)
+ *     SeGetTrustLabelAce @ 0x14008D1D0 (SeGetTrustLabelAce.c)
+ *     RtlSidDominatesForTrust @ 0x1400D1B40 (RtlSidDominatesForTrust.c)
+ *     SeLockSubjectContext @ 0x14044CA80 (SeLockSubjectContext.c)
+ *     SeUnlockSubjectContext @ 0x14044CAE0 (SeUnlockSubjectContext.c)
  */
 
 __int64 __fastcall SepTrustLevelCheck(
@@ -19,27 +19,27 @@ __int64 __fastcall SepTrustLevelCheck(
         __int64 a2,
         struct _SECURITY_SUBJECT_CONTEXT *a3,
         __int64 a4,
-        __int64 a5,
+        PSID Sid1,
         char a6,
         int *a7)
 {
-  int v7; // esi
+  NTSTATUS v7; // esi
   char v10; // r15
   __int64 TrustLabelAce; // rax
   int v13; // r14d
-  __int64 v14; // r12
+  void *v14; // r12
   struct _KTHREAD *CurrentThread; // rax
-  __int64 v16; // rbp
-  _BYTE v17[56]; // [rsp+20h] [rbp-38h] BYREF
-  __int64 v18; // [rsp+60h] [rbp+8h] BYREF
+  PSID v16; // rbp
+  BOOLEAN v17[56]; // [rsp+20h] [rbp-38h] BYREF
+  __int64 DominatesTrust; // [rsp+60h] [rbp+8h] BYREF
 
-  v18 = a1;
+  DominatesTrust = a1;
   v7 = 0;
   v17[0] = 0;
-  LOBYTE(v18) = 0;
+  LOBYTE(DominatesTrust) = 0;
   v10 = 0;
   TrustLabelAce = SeGetTrustLabelAce(a2);
-  if ( !TrustLabelAce || (v13 = *(_DWORD *)(TrustLabelAce + 4), v14 = TrustLabelAce + 8, TrustLabelAce == -8) )
+  if ( !TrustLabelAce || (v13 = *(_DWORD *)(TrustLabelAce + 4), v14 = (void *)(TrustLabelAce + 8), TrustLabelAce == -8) )
   {
     *a7 = -1;
     return (unsigned int)v7;
@@ -60,13 +60,13 @@ __int64 __fastcall SepTrustLevelCheck(
   }
   if ( a4 )
   {
-    v16 = a5;
+    v16 = Sid1;
     goto LABEL_15;
   }
   if ( !a3->ClientToken )
   {
 LABEL_14:
-    v16 = *((_QWORD *)a3->PrimaryToken + 138);
+    v16 = (PSID)*((_QWORD *)a3->PrimaryToken + 138);
 LABEL_15:
     v7 = RtlSidDominatesForTrust(v16, v14, v17);
     if ( v7 >= 0 )
@@ -78,11 +78,11 @@ LABEL_15:
     }
     goto LABEL_19;
   }
-  v16 = *((_QWORD *)a3->ClientToken + 138);
-  v7 = RtlSidDominatesForTrust(*((_QWORD *)a3->PrimaryToken + 138), v16, &v18);
+  v16 = (PSID)*((_QWORD *)a3->ClientToken + 138);
+  v7 = RtlSidDominatesForTrust(*((PSID *)a3->PrimaryToken + 138), v16, (PBOOLEAN)&DominatesTrust);
   if ( v7 >= 0 )
   {
-    if ( (_BYTE)v18 )
+    if ( (_BYTE)DominatesTrust )
       goto LABEL_15;
     goto LABEL_14;
   }

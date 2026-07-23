@@ -1,15 +1,15 @@
 /*
- * XREFs of MiGetNextPartition @ 0x140001C94
+ * XREFs of MiGetNextPartition @ 0x140001E08
  * Callers:
- *     MiCheckControlArea @ 0x140027EE0 (MiCheckControlArea.c)
- *     MiFreeExcessSegments @ 0x1400A3910 (MiFreeExcessSegments.c)
- *     MiFinishResume @ 0x140120570 (MiFinishResume.c)
- *     MiPurgeTransitionList @ 0x1401F3960 (MiPurgeTransitionList.c)
+ *     MiCheckControlArea @ 0x140027A60 (MiCheckControlArea.c)
+ *     MiFreeExcessSegments @ 0x1400A2238 (MiFreeExcessSegments.c)
+ *     MiFinishResume @ 0x140120AE0 (MiFinishResume.c)
+ *     MiPurgeTransitionList @ 0x1401F378C (MiPurgeTransitionList.c)
  *     MmEnablePeriodicAccessClearing @ 0x1403C8460 (MmEnablePeriodicAccessClearing.c)
  * Callees:
- *     MiDereferencePartition @ 0x140001D0C (MiDereferencePartition.c)
- *     KeReleaseInStackQueuedSpinLock @ 0x140012750 (KeReleaseInStackQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14001BD40 (KeAcquireInStackQueuedSpinLock.c)
+ *     MiDereferencePartition @ 0x140001E80 (MiDereferencePartition.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x1400122D0 (KeReleaseInStackQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14001B8C0 (KeAcquireInStackQueuedSpinLock.c)
  */
 
 __int64 *__fastcall MiGetNextPartition(_QWORD *a1)
@@ -20,10 +20,10 @@ __int64 *__fastcall MiGetNextPartition(_QWORD *a1)
 
   v2 = 0LL;
   KeAcquireInStackQueuedSpinLock(&SpinLock, &LockHandle);
-  v3 = (__int64 *)qword_140326FC8;
+  v3 = (__int64 *)qword_140327008;
   if ( a1 )
     v3 = (__int64 *)a1[4];
-  while ( v3 != &qword_140326FC8 )
+  while ( v3 != &qword_140327008 )
   {
     if ( (*((_DWORD *)v3 - 7) & 1) == 0 )
     {

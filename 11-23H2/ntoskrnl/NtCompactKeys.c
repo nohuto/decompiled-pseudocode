@@ -1,19 +1,19 @@
 /*
- * XREFs of NtCompactKeys @ 0x140A0D370
+ * XREFs of NtCompactKeys @ 0x140A0D620
  * Callers:
  *     <none>
  * Callees:
  *     CmSiFreeMemory @ 0x140208C40 (CmSiFreeMemory.c)
- *     CmpInitializeThreadInfo @ 0x14022E640 (CmpInitializeThreadInfo.c)
- *     CmCleanupThreadInfo @ 0x14022E680 (CmCleanupThreadInfo.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     CmpAllocateTransientPoolWithQuota @ 0x1402975FC (CmpAllocateTransientPoolWithQuota.c)
- *     memmove @ 0x140435700 (memmove.c)
+ *     CmpInitializeThreadInfo @ 0x14022E750 (CmpInitializeThreadInfo.c)
+ *     CmCleanupThreadInfo @ 0x14022E790 (CmCleanupThreadInfo.c)
+ *     ObfDereferenceObject @ 0x140231660 (ObfDereferenceObject.c)
+ *     CmpAllocateTransientPoolWithQuota @ 0x14029788C (CmpAllocateTransientPoolWithQuota.c)
+ *     memmove @ 0x140435B00 (memmove.c)
  *     CmCheckNoTxContext @ 0x140691C88 (CmCheckNoTxContext.c)
- *     SeSinglePrivilegeCheck @ 0x140737B00 (SeSinglePrivilegeCheck.c)
- *     CmpLockRegistryExclusive @ 0x1407691EC (CmpLockRegistryExclusive.c)
- *     ExRaiseDatatypeMisalignment @ 0x140A00B60 (ExRaiseDatatypeMisalignment.c)
- *     CmpLogUnsupportedOperation @ 0x140A1FDF0 (CmpLogUnsupportedOperation.c)
+ *     SeSinglePrivilegeCheck @ 0x140737CF0 (SeSinglePrivilegeCheck.c)
+ *     CmpLockRegistryExclusive @ 0x1407693DC (CmpLockRegistryExclusive.c)
+ *     ExRaiseDatatypeMisalignment @ 0x140A00DF0 (ExRaiseDatatypeMisalignment.c)
+ *     CmpLogUnsupportedOperation @ 0x140A200A0 (CmpLogUnsupportedOperation.c)
  *     CmpPerformKeyBodyDeletionCheck @ 0x140AF5160 (CmpPerformKeyBodyDeletionCheck.c)
  *     CmpAcquireShutdownRundown @ 0x140AF5380 (CmpAcquireShutdownRundown.c)
  *     CmObReferenceObjectByHandle @ 0x140AF53D0 (CmObReferenceObjectByHandle.c)
@@ -21,20 +21,20 @@
  *     CmpUnlockRegistry @ 0x140AF54F0 (CmpUnlockRegistry.c)
  */
 
-__int64 __fastcall NtCompactKeys(unsigned int a1, char *a2)
+NTSTATUS __cdecl NtCompactKeys(ULONG Count, HANDLE KeyArray[])
 {
   struct _PRIVILEGE_SET *TransientPoolWithQuota; // rsi
-  unsigned int v5; // r12d
+  ULONG v5; // r12d
   char v6; // r13
   __int64 v7; // rdx
   __int64 v8; // rcx
-  int v9; // ebx
+  NTSTATUS v9; // ebx
   __int64 v10; // r8
   __int64 v11; // r9
   char v12; // al
-  __int64 v13; // r13
+  unsigned __int64 v13; // r13
   struct _PRIVILEGE_SET *v14; // r15
-  unsigned int v15; // r15d
+  ULONG v15; // r15d
   struct _PRIVILEGE_SET *v16; // r13
   __int64 v17; // rax
   PVOID *v18; // rdi
@@ -61,17 +61,17 @@ LABEL_4:
     v12 = 0;
     goto LABEL_41;
   }
-  if ( !a1 )
+  if ( !Count )
   {
     v9 = 0;
     goto LABEL_7;
   }
-  if ( a1 >= 0x1FFFFFFF )
+  if ( Count >= 0x1FFFFFFF )
   {
     v9 = -1073741811;
     goto LABEL_4;
   }
-  v13 = 8 * a1;
+  v13 = 8 * Count;
   TransientPoolWithQuota = (struct _PRIVILEGE_SET *)CmpAllocateTransientPoolWithQuota(v8, v13, 1633832259LL);
   if ( !TransientPoolWithQuota )
   {
@@ -82,12 +82,12 @@ LABEL_4:
   }
   if ( PreviousMode == 1 && (_DWORD)v13 )
   {
-    if ( ((unsigned __int8)a2 & 3) != 0 )
+    if ( ((unsigned __int8)KeyArray & 3) != 0 )
       ExRaiseDatatypeMisalignment();
-    if ( (unsigned __int64)&a2[v13] > 0x7FFFFFFF0000LL || &a2[v13] < a2 )
+    if ( (unsigned __int64)&KeyArray[v13 / 8] > 0x7FFFFFFF0000LL || &KeyArray[v13 / 8] < KeyArray )
       MEMORY[0x7FFFFFFF0000] = 0;
   }
-  memmove(TransientPoolWithQuota, a2, (unsigned int)v13);
+  memmove(TransientPoolWithQuota, KeyArray, (unsigned int)v13);
   v14 = TransientPoolWithQuota;
   do
   {
@@ -108,7 +108,7 @@ LABEL_4:
     ++v5;
     v14 = (struct _PRIVILEGE_SET *)((char *)v14 + 8);
   }
-  while ( v5 < a1 );
+  while ( v5 < Count );
   v6 = CmpAcquireShutdownRundown(v8, v7, v10);
   v25 = v6;
   if ( !v6 )
@@ -147,7 +147,7 @@ LABEL_39:
     ++v15;
     v16 = (struct _PRIVILEGE_SET *)((char *)v16 + 8);
   }
-  while ( v15 < a1 );
+  while ( v15 < Count );
   v6 = v25;
   v9 = 0;
   CmpUnlockRegistry(v8, v7, v10, v11);
@@ -175,5 +175,5 @@ LABEL_41:
     CmSiFreeMemory(TransientPoolWithQuota);
   }
   CmCleanupThreadInfo((__int64 *)&v24);
-  return (unsigned int)v9;
+  return v9;
 }

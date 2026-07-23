@@ -7,14 +7,14 @@
  *     _LdrRscIsTypeExist@16 @ 0x4B2BE7B0 (_LdrRscIsTypeExist@16.c)
  */
 
-int __fastcall LdrIsResItemExist(int a1, wchar_t **a2, int a3, int a4)
+int __fastcall LdrIsResItemExist(void *a1, wchar_t **a2, int a3, int a4)
 {
   int RcConfig; // esi
   int result; // eax
   int v7; // [esp+8h] [ebp-4h] BYREF
 
   v7 = 0;
-  RcConfig = LdrpGetRcConfig(1, 1);
+  RcConfig = LdrpGetRcConfig(a1, 1, 1);
   if ( !RcConfig )
     return 0x80000;
   if ( LdrRscIsTypeExist(RcConfig, *a2, a4, (int)&v7) < 0 )

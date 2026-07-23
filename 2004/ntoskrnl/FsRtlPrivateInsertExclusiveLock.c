@@ -11,7 +11,7 @@ PRTL_SPLAY_LINKS __fastcall FsRtlPrivateInsertExclusiveLock(__int64 a1, _RTL_SPL
 {
   PRTL_SPLAY_LINKS result; // rax
   char v5; // [rsp+40h] [rbp+8h] BYREF
-  RTL_SPLAY_LINKS *v6; // [rsp+48h] [rbp+10h] BYREF
+  _RTL_SPLAY_LINKS *v6; // [rsp+48h] [rbp+10h] BYREF
 
   v6 = 0LL;
   v5 = 0;

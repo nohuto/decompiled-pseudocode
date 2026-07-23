@@ -1,12 +1,12 @@
 /*
- * XREFs of PopCloneUnicodeString @ 0x140B313BC
+ * XREFs of PopCloneUnicodeString @ 0x140B335BC
  * Callers:
- *     PopDirectedDripsDiagCreateDeviceDescription @ 0x1407E20F8 (PopDirectedDripsDiagCreateDeviceDescription.c)
- *     PopQueryMostRecentWakeSourceInfo @ 0x140B62680 (PopQueryMostRecentWakeSourceInfo.c)
+ *     PopDirectedDripsDiagCreateDeviceDescription @ 0x1407E7188 (PopDirectedDripsDiagCreateDeviceDescription.c)
+ *     PopQueryMostRecentWakeSourceInfo @ 0x140B65720 (PopQueryMostRecentWakeSourceInfo.c)
  * Callees:
- *     RtlUnicodeStringCopy @ 0x14043D5D0 (RtlUnicodeStringCopy.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     RtlUnicodeStringCopy @ 0x14042FE80 (RtlUnicodeStringCopy.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PopCloneUnicodeString(PCUNICODE_STRING SourceString, PUNICODE_STRING DestinationString)

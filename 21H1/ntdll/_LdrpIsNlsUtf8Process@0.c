@@ -11,19 +11,20 @@ char __stdcall LdrpIsNlsUtf8Process()
 {
   char v0; // bl
   int v1; // eax
-  unsigned __int16 v3[8]; // [esp+4h] [ebp-14h] BYREF
+  ULONG_PTR *v3; // [esp+0h] [ebp-18h]
+  WCHAR Buffer[8]; // [esp+4h] [ebp-14h] BYREF
 
   v0 = 0;
   if ( RtlQueryActivationContextApplicationSettings(
          0,
          0,
-         L"http://schemas.microsoft.com/SMI/2019/WindowsSettings",
-         L"activeCodePage",
-         v3,
-         8u,
-         0) >= 0 )
+         (PWSTR)L"http://schemas.microsoft.com/SMI/2019/WindowsSettings",
+         (PWSTR)L"activeCodePage",
+         Buffer,
+         8uLL,
+         v3) >= 0 )
   {
-    v1 = wcscmp(v3, L"UTF-8");
+    v1 = wcscmp((const unsigned __int16 *)Buffer, L"UTF-8");
     if ( v1 )
       v1 = v1 < 0 ? -1 : 1;
     if ( !v1 )

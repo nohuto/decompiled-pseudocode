@@ -1,11 +1,11 @@
 /*
- * XREFs of MiTrimUnusedPageFileRegionsApc @ 0x1402B8970
+ * XREFs of MiTrimUnusedPageFileRegionsApc @ 0x1402B8B60
  * Callers:
  *     <none>
  * Callees:
  *     MiSwizzleInvalidPte @ 0x14003D7C0 (MiSwizzleInvalidPte.c)
- *     KeSetEvent @ 0x1400C2B00 (KeSetEvent.c)
- *     MiFindFreePageFileSpace @ 0x14012413C (MiFindFreePageFileSpace.c)
+ *     KeSetEvent @ 0x1400C2A40 (KeSetEvent.c)
+ *     MiFindFreePageFileSpace @ 0x14012420C (MiFindFreePageFileSpace.c)
  */
 
 LONG __fastcall MiTrimUnusedPageFileRegionsApc(PRKEVENT Event)
@@ -32,8 +32,8 @@ LONG __fastcall MiTrimUnusedPageFileRegionsApc(PRKEVENT Event)
   if ( FreePageFileSpace >= HIDWORD(Event[1].Header.WaitListHead.Flink) )
   {
     v8 = v13;
-    if ( qword_14043A0C0 && (v13 & 0x10) == 0 )
-      v8 = v13 & ~qword_14043A0C0;
+    if ( qword_14043B180 && (v13 & 0x10) == 0 )
+      v8 = v13 & ~qword_14043B180;
     v9 = HIDWORD(v8);
     LODWORD(Event[1].Header.WaitListHead.Blink) = v9;
     v10 = MiSwizzleInvalidPte((unsigned __int64)(FreePageFileSpace + (unsigned int)v9) << 32);

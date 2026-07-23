@@ -24,17 +24,17 @@ __int64 __fastcall RtlpCopyAces(
         char a11,
         int a12,
         unsigned int *a13,
-        __int64 a14)
+        PACL Acl)
 {
   char v14; // r14
-  __int64 v15; // r15
+  PACL v15; // r15
   int v16; // esi
   __int64 v17; // r11
   unsigned __int8 v18; // al
   __int64 v19; // r9
-  unsigned int v20; // edx
-  unsigned __int16 *v21; // r10
-  int *v22; // rcx
+  unsigned int AceCount; // edx
+  USHORT *p_AclSize; // r10
+  PACL v22; // rcx
   int *v23; // rbx
   unsigned int v24; // r8d
   __int64 v25; // rdi
@@ -70,7 +70,7 @@ __int64 __fastcall RtlpCopyAces(
   unsigned __int16 v57; // [rsp+ECh] [rbp-14h]
 
   v14 = 0;
-  v15 = a14;
+  v15 = Acl;
   v16 = a3;
   v54 = a6;
   v17 = a2;
@@ -78,38 +78,38 @@ __int64 __fastcall RtlpCopyAces(
   v52 = a8;
   v51 = a9;
   v55 = a13;
-  v18 = *(_BYTE *)a14 - 2;
+  v18 = Acl->AclRevision - 2;
   v49 = a3;
   v19 = a1;
   v48 = a2;
   v50 = a1;
-  v46 = a14;
+  v46 = (__int64)Acl;
   if ( v18 > 2u )
     return 3221225560LL;
-  v20 = *(unsigned __int16 *)(a14 + 4);
-  v21 = (unsigned __int16 *)(a14 + 2);
-  v22 = (int *)(a14 + 8);
+  AceCount = Acl->AceCount;
+  p_AclSize = &Acl->AclSize;
+  v22 = Acl + 1;
   v23 = 0LL;
   v24 = 0;
-  *(_QWORD *)&v44[7] = a14 + 2;
-  if ( v20 )
+  *(_QWORD *)&v44[7] = &Acl->AclSize;
+  if ( AceCount )
   {
     do
     {
-      if ( (unsigned __int64)v22 >= a14 + (unsigned __int64)*v21 )
+      if ( v22 >= (PACL)((char *)Acl + *p_AclSize) )
         return 3221225597LL;
       ++v24;
-      v22 = (int *)((char *)v22 + *((unsigned __int16 *)v22 + 1));
+      v22 = (PACL)((char *)v22 + v22->AclSize);
     }
-    while ( v24 < v20 );
+    while ( v24 < AceCount );
     v19 = v50;
   }
   else
   {
-    *(_QWORD *)&v44[7] = a14 + 2;
+    *(_QWORD *)&v44[7] = &Acl->AclSize;
   }
-  if ( (unsigned __int64)v22 <= a14 + (unsigned __int64)*v21 )
-    v23 = v22;
+  if ( v22 <= (PACL)((char *)Acl + *p_AclSize) )
+    v23 = (int *)v22;
   v25 = v19 + 8;
   v26 = 0;
   v27 = 0;
@@ -127,11 +127,11 @@ LABEL_30:
     {
       if ( v28 != 3 )
         goto LABEL_28;
-      if ( RtlFindAceByType(v15, 17, 0LL) )
+      if ( RtlFindAceByType(v15, 0x11u, 0LL) )
         break;
       v26 = v45;
       v19 = v50;
-      v21 = *(unsigned __int16 **)&v44[7];
+      p_AclSize = *(USHORT **)&v44[7];
       v17 = v48;
     }
     else if ( v28 == 3 )
@@ -148,7 +148,7 @@ LABEL_15:
         if ( !a5 )
         {
           v30 = *(unsigned __int16 *)(v25 + 2);
-          if ( v23 && v30 <= v15 + *v21 - (_QWORD)v23 )
+          if ( v23 && v30 <= (__int64)v15 + *p_AclSize - (_QWORD)v23 )
           {
             if ( !v14 )
             {
@@ -175,7 +175,7 @@ LABEL_15:
                 v23[1] = v38 & v40;
               }
               *((_BYTE *)v23 + 1) &= ~a4;
-              ++*(_WORD *)(v15 + 4);
+              ++v15->AceCount;
               goto LABEL_26;
             }
           }
@@ -224,7 +224,7 @@ LABEL_24:
             if ( !v31 )
             {
 LABEL_25:
-              v15 = v46;
+              v15 = (PACL)v46;
               if ( !v14 )
               {
 LABEL_26:
@@ -250,7 +250,7 @@ LABEL_27:
                 if ( (unsigned int)v30 > 0xFFFF )
                   return 3221225597LL;
                 v41 = *(unsigned __int16 **)&v44[7];
-                v15 = v46;
+                v15 = (PACL)v46;
                 if ( *(unsigned __int16 *)(v25 + 2) > v46 + (unsigned __int16)**(_WORD **)&v44[7] - (_QWORD)v47 )
                 {
                   v14 = 1;
@@ -262,16 +262,16 @@ LABEL_27:
                   memmove(v47, (const void *)v25, *(unsigned __int16 *)(v25 + 2));
                   *((_BYTE *)v47 + 1) |= 8u;
                   *((_BYTE *)v47 + 1) &= ~a4;
-                  ++*(_WORD *)(v15 + 4);
+                  ++v15->AceCount;
                   goto LABEL_26;
                 }
 LABEL_59:
-                v23 = (int *)(v15 + *v41);
+                v23 = (int *)((char *)v15 + *v41);
                 goto LABEL_27;
               }
               goto LABEL_25;
             }
-            v15 = v46;
+            v15 = (PACL)v46;
             if ( !v14 )
             {
               *((_BYTE *)v23 + 1) = ~v32 & (*((_BYTE *)v23 + 1) | *(_BYTE *)(v25 + 1) & 0x1F);
@@ -296,7 +296,7 @@ LABEL_28:
     ++v26;
     v16 = v49;
     v25 += *(unsigned __int16 *)(v25 + 2);
-    v21 = *(unsigned __int16 **)&v44[7];
+    p_AclSize = *(USHORT **)&v44[7];
     v33 = v26 < *(unsigned __int16 *)(v19 + 4);
     v28 = a12;
     v17 = v48;

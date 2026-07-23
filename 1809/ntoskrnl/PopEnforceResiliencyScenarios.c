@@ -1,17 +1,17 @@
 /*
- * XREFs of PopEnforceResiliencyScenarios @ 0x1406E2064
+ * XREFs of PopEnforceResiliencyScenarios @ 0x1406E3304
  * Callers:
- *     PopTransitionSystemPowerStateEx @ 0x140566D74 (PopTransitionSystemPowerStateEx.c)
- *     NtPowerInformation @ 0x14058C170 (NtPowerInformation.c)
+ *     PopTransitionSystemPowerStateEx @ 0x140567D74 (PopTransitionSystemPowerStateEx.c)
+ *     NtPowerInformation @ 0x14058D170 (NtPowerInformation.c)
  * Callees:
  *     PopDeepSleepEnabled @ 0x140003A5C (PopDeepSleepEnabled.c)
  *     PopDeepSleepSetDisengageReason @ 0x140004DF8 (PopDeepSleepSetDisengageReason.c)
  *     PopDeepSleepClearDisengageReason @ 0x140004E80 (PopDeepSleepClearDisengageReason.c)
  *     PoFxSendSystemLatencyUpdate @ 0x140005DA8 (PoFxSendSystemLatencyUpdate.c)
  *     PpmAcquireLock @ 0x140006020 (PpmAcquireLock.c)
- *     PpmReleaseLock @ 0x14008BC30 (PpmReleaseLock.c)
- *     KeSetMaxDynamicTickDuration @ 0x14028F144 (KeSetMaxDynamicTickDuration.c)
- *     PopEnsureCoalescingWorkerWillRun @ 0x1402DB9B0 (PopEnsureCoalescingWorkerWillRun.c)
+ *     PpmReleaseLock @ 0x14008BC20 (PpmReleaseLock.c)
+ *     KeSetMaxDynamicTickDuration @ 0x14028F334 (KeSetMaxDynamicTickDuration.c)
+ *     PopEnsureCoalescingWorkerWillRun @ 0x1402DBBA0 (PopEnsureCoalescingWorkerWillRun.c)
  */
 
 void __fastcall PopEnforceResiliencyScenarios(int *a1)
@@ -37,7 +37,7 @@ LABEL_12:
       KeSetMaxDynamicTickDuration(PopMaxDynamicTickDurationOriginalValue);
       PopDeepSleepEnforced = 0;
       PopDeepSleepSetDisengageReason(0);
-      if ( !byte_140418234 )
+      if ( !byte_1404192F4 )
         PopDeepSleepSetDisengageReason(1u);
     }
     goto LABEL_6;

@@ -10,43 +10,42 @@
  *     _RtlResetStackOverflow@0 @ 0x4B33BCA7 (_RtlResetStackOverflow@0.c)
  */
 
-int __stdcall RtlQueryWnfStateDataWithExplicitScope(
+NTSTATUS __stdcall RtlQueryWnfStateDataWithExplicitScope(
         _DWORD *a1,
         int a2,
         int a3,
-        int a4,
-        int (__thiscall *a5)(_DWORD, int, int, int, int, int, _DWORD *, int),
+        const void *a4,
+        int (__thiscall *a5)(_DWORD, unsigned int, unsigned int, ULONG, PCWNF_TYPE_ID, int, _DWORD *, ULONG),
         int a6,
-        int a7)
+        PCWNF_TYPE_ID TypeId)
 {
   void *v7; // esp
-  int result; // eax
-  int v9; // eax
+  NTSTATUS result; // eax
+  ULONG v9; // eax
   _DWORD v10[1029]; // [esp-1000h] [ebp-104Ch] BYREF
   int v11; // [esp+14h] [ebp-38h]
   _DWORD *v12; // [esp+18h] [ebp-34h]
-  _DWORD v13[2]; // [esp+1Ch] [ebp-30h] BYREF
-  int v14; // [esp+24h] [ebp-28h] BYREF
-  int v15; // [esp+28h] [ebp-24h] BYREF
-  int v16; // [esp+2Ch] [ebp-20h]
+  ULONG ChangeStamp[2]; // [esp+1Ch] [ebp-30h] BYREF
+  ULONG BufferSize; // [esp+24h] [ebp-28h] BYREF
+  WNF_STATE_NAME StateName; // [esp+28h] [ebp-24h] BYREF
   CPPEH_RECORD ms_exc; // [esp+34h] [ebp-18h]
 
   v12 = a1;
-  v15 = a2;
-  v16 = a3;
-  v13[1] = a4;
+  StateName.Data[0] = a2;
+  StateName.Data[1] = a3;
+  ChangeStamp[1] = (ULONG)a4;
   v11 = a6;
   v7 = alloca(4096);
   ms_exc.old_esp = (DWORD)v10;
   v10[1028] = v10;
   ms_exc.registration.TryLevel = -2;
-  v14 = 4096;
-  result = NtQueryWnfStateData((int)&v15, a7, a4, (int)v13, (int)v10, (int)&v14);
+  BufferSize = 4096;
+  result = NtQueryWnfStateData(&StateName, TypeId, a4, ChangeStamp, v10, &BufferSize);
   if ( result >= 0 )
   {
-    v9 = v13[0];
-    *v12 = v13[0];
-    return a5(a5, v15, v16, v9, a7, v11, v10, v14);
+    v9 = ChangeStamp[0];
+    *v12 = ChangeStamp[0];
+    return a5(a5, StateName.Data[0], StateName.Data[1], v9, TypeId, v11, v10, BufferSize);
   }
   return result;
 }

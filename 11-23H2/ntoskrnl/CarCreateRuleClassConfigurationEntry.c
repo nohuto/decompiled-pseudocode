@@ -1,9 +1,9 @@
 /*
- * XREFs of CarCreateRuleClassConfigurationEntry @ 0x1405D3904
+ * XREFs of CarCreateRuleClassConfigurationEntry @ 0x1405D3E74
  * Callers:
- *     CarRegisterRuleClassConfiguration @ 0x1405D40A0 (CarRegisterRuleClassConfiguration.c)
+ *     CarRegisterRuleClassConfiguration @ 0x1405D4610 (CarRegisterRuleClassConfiguration.c)
  * Callees:
- *     memset @ 0x140435A00 (memset.c)
+ *     memset @ 0x140435E00 (memset.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
 

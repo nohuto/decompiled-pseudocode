@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlpInitializeMap @ 0x180042390
+ * XREFs of RtlpInitializeMap @ 0x180022B44
  * Callers:
- *     RtlpSetBlockInfo @ 0x18004156C (RtlpSetBlockInfo.c)
- *     RtlpInitializeLeakDetection @ 0x18010A7C8 (RtlpInitializeLeakDetection.c)
+ *     RtlpSetBlockInfo @ 0x180021E9C (RtlpSetBlockInfo.c)
+ *     RtlpInitializeLeakDetection @ 0x180022D68 (RtlpInitializeLeakDetection.c)
  * Callees:
- *     memset$thunk$772440563353939046 @ 0x180172030 (memset$thunk$772440563353939046.c)
+ *     memset$thunk$772440563353939046 @ 0x180171030 (memset$thunk$772440563353939046.c)
  */
 
 void *__fastcall RtlpInitializeMap(_QWORD *a1, _QWORD *a2)

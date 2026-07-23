@@ -1,13 +1,13 @@
 /*
- * XREFs of PspGetNextJob @ 0x1406009A0
+ * XREFs of PspGetNextJob @ 0x1406019A0
  * Callers:
- *     PspEnforceLimits @ 0x1405FD570 (PspEnforceLimits.c)
- *     PspGetNextSilo @ 0x140600968 (PspGetNextSilo.c)
+ *     PspEnforceLimits @ 0x1405FE570 (PspEnforceLimits.c)
+ *     PspGetNextSilo @ 0x140601968 (PspGetNextSilo.c)
  * Callees:
  *     ExAcquirePushLockSharedEx @ 0x14004EE20 (ExAcquirePushLockSharedEx.c)
  *     ObReferenceObjectSafeWithTag @ 0x1400514C0 (ObReferenceObjectSafeWithTag.c)
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
- *     PspUnlockJobListShared @ 0x140600A50 (PspUnlockJobListShared.c)
+ *     PspUnlockJobListShared @ 0x140601A50 (PspUnlockJobListShared.c)
  */
 
 __int64 *__fastcall PspGetNextJob(_QWORD *Object)

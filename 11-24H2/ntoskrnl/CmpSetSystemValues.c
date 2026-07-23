@@ -1,20 +1,20 @@
 /*
- * XREFs of CmpSetSystemValues @ 0x140C480A0
+ * XREFs of CmpSetSystemValues @ 0x140C4A1F0
  * Callers:
- *     CmInitSystem1 @ 0x140C44EC0 (CmInitSystem1.c)
+ *     CmInitSystem1 @ 0x140C47010 (CmInitSystem1.c)
  * Callees:
- *     CmpSetSystemRegistryString @ 0x140667790 (CmpSetSystemRegistryString.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     ZwOpenKey @ 0x1406A6650 (ZwOpenKey.c)
- *     ZwQueryValueKey @ 0x1406A66F0 (ZwQueryValueKey.c)
- *     ZwSetValueKey @ 0x1406A7010 (ZwSetValueKey.c)
- *     BcdSetBootBcdAsSystemStore @ 0x140C5C8E8 (BcdSetBootBcdAsSystemStore.c)
+ *     CmpSetSystemRegistryString @ 0x140666080 (CmpSetSystemRegistryString.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     ZwOpenKey @ 0x1406A75F0 (ZwOpenKey.c)
+ *     ZwQueryValueKey @ 0x1406A7690 (ZwQueryValueKey.c)
+ *     ZwSetValueKey @ 0x1406A7FB0 (ZwSetValueKey.c)
+ *     BcdSetBootBcdAsSystemStore @ 0x140C5EA78 (BcdSetBootBcdAsSystemStore.c)
  */
 
-__int64 __fastcall CmpSetSystemValues(__int64 *a1)
+__int64 __fastcall CmpSetSystemValues(__int64 a1)
 {
-  int v2; // ebx
+  NTSTATUS v2; // ebx
   int v3; // ecx
   HANDLE KeyHandle; // [rsp+38h] [rbp-D0h] BYREF
   int Data; // [rsp+40h] [rbp-C8h] BYREF
@@ -44,27 +44,27 @@ __int64 __fastcall CmpSetSystemValues(__int64 *a1)
            CmpLoadOptions.Length);
     if ( v2 >= 0 )
     {
-      v2 = CmpSetSystemRegistryString(KeyHandle, (PUNICODE_STRING)&CmpSystemBootDeviceString, a1[23]);
+      v2 = CmpSetSystemRegistryString(KeyHandle, (PUNICODE_STRING)&CmpSystemBootDeviceString, *(PCSTR *)(a1 + 184));
       if ( v2 >= 0 )
       {
-        v2 = CmpSetSystemRegistryString(KeyHandle, (PUNICODE_STRING)&CmpFirmwareBootDeviceString, a1[24]);
+        v2 = CmpSetSystemRegistryString(KeyHandle, (PUNICODE_STRING)&CmpFirmwareBootDeviceString, *(PCSTR *)(a1 + 192));
         if ( v2 >= 0 )
         {
-          v2 = CmpSetSystemRegistryString(KeyHandle, (PUNICODE_STRING)&CmpWindowsSysPartString, a1[43]);
+          v2 = CmpSetSystemRegistryString(KeyHandle, (PUNICODE_STRING)&CmpWindowsSysPartString, *(PCSTR *)(a1 + 344));
           if ( v2 >= 0 )
           {
-            v2 = CmpSetSystemRegistryString(KeyHandle, (PUNICODE_STRING)&CmpOsBootstatPathString, a1[41]);
+            v2 = CmpSetSystemRegistryString(KeyHandle, (PUNICODE_STRING)&CmpOsBootstatPathString, *(PCSTR *)(a1 + 328));
             if ( v2 >= 0 )
             {
-              Data = *(_DWORD *)(a1[30] + 132) & 1;
+              Data = *(_DWORD *)(*(_QWORD *)(a1 + 240) + 132LL) & 1;
               v2 = ZwSetValueKey(KeyHandle, (PUNICODE_STRING)&CmpLastBootSucceededString, 0, 4u, &Data, 4u);
               if ( v2 >= 0 )
               {
-                Data = (*(_DWORD *)(a1[30] + 132) >> 1) & 1;
+                Data = (*(_DWORD *)(*(_QWORD *)(a1 + 240) + 132LL) >> 1) & 1;
                 v2 = ZwSetValueKey(KeyHandle, (PUNICODE_STRING)&CmpLastBootShutdownString, 0, 4u, &Data, 4u);
                 if ( v2 >= 0 )
                 {
-                  if ( (*(_DWORD *)(a1[30] + 132) & 2) != 0
+                  if ( (*(_DWORD *)(*(_QWORD *)(a1 + 240) + 132LL) & 2) != 0
                     || (ZwQueryValueKey(
                           KeyHandle,
                           (PUNICODE_STRING)&CmpDirtyShutdownCountString,
@@ -79,8 +79,11 @@ __int64 __fastcall CmpSetSystemValues(__int64 *a1)
                         v2 = ZwSetValueKey(KeyHandle, (PUNICODE_STRING)&CmpDirtyShutdownCountString, 0, 4u, &v7, 4u),
                         v2 >= 0) )
                   {
-                    if ( (*(_DWORD *)(a1[30] + 2648) & 0x10000LL) == 0 || (v2 = BcdSetBootBcdAsSystemStore(), v2 >= 0) )
+                    if ( (*(_DWORD *)(*(_QWORD *)(a1 + 240) + 2648LL) & 0x10000LL) == 0
+                      || (v2 = BcdSetBootBcdAsSystemStore(), v2 >= 0) )
+                    {
                       v2 = 0;
+                    }
                   }
                 }
               }

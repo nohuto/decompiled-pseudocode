@@ -1,11 +1,11 @@
 /*
- * XREFs of MiWriteProtectSystemImages @ 0x140553C60
+ * XREFs of MiWriteProtectSystemImages @ 0x1405541A0
  * Callers:
  *     MiInitSystem @ 0x1407A3AAC (MiInitSystem.c)
  * Callees:
- *     MiSectionControlArea @ 0x14002C4D0 (MiSectionControlArea.c)
- *     MiAcquireResourceExclusiveLite @ 0x140084C38 (MiAcquireResourceExclusiveLite.c)
- *     MiProtectSystemImage @ 0x140553CC4 (MiProtectSystemImage.c)
+ *     MiSectionControlArea @ 0x14002C050 (MiSectionControlArea.c)
+ *     MiAcquireResourceExclusiveLite @ 0x140082D98 (MiAcquireResourceExclusiveLite.c)
+ *     MiProtectSystemImage @ 0x140554204 (MiProtectSystemImage.c)
  */
 
 __int64 MiWriteProtectSystemImages()

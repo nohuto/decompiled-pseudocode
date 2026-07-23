@@ -12,10 +12,10 @@ int HalpWatchdogCheckPreResetNMI()
   unsigned __int64 v0; // rax
   int v1; // ecx
   ULONG_PTR v2; // rbx
-  ULONG_PTR InterruptTimePrecise; // r8
-  ULONG_PTR BugCheckParameter3; // [rsp+40h] [rbp+8h] BYREF
+  LARGE_INTEGER InterruptTimePrecise; // r8
+  LARGE_INTEGER PerformanceCounter; // [rsp+40h] [rbp+8h] BYREF
 
-  BugCheckParameter3 = 0LL;
+  PerformanceCounter.QuadPart = 0LL;
   LODWORD(v0) = HalpWatchdogTimer;
   if ( HalpWatchdogTimer )
   {
@@ -39,12 +39,22 @@ int HalpWatchdogCheckPreResetNMI()
         return v0;
     }
     v2 = MEMORY[0xFFFFF78000000008] - HalpTimerWatchdogLastReset;
-    InterruptTimePrecise = RtlGetInterruptTimePrecise(&BugCheckParameter3);
+    InterruptTimePrecise = RtlGetInterruptTimePrecise(&PerformanceCounter);
     LODWORD(v0) = *(_DWORD *)(HalpWatchdogTimer + 228);
     if ( (_DWORD)v0 == 8 )
-      KeBugCheckEx(0x1CAu, v2, InterruptTimePrecise, BugCheckParameter3, (unsigned int)KiClockTimerOwner);
+      KeBugCheckEx(
+        0x1CAu,
+        v2,
+        InterruptTimePrecise.QuadPart,
+        PerformanceCounter.QuadPart,
+        (unsigned int)KiClockTimerOwner);
     if ( (_DWORD)v0 == 13 )
-      KeBugCheckEx(0x1CFu, v2, InterruptTimePrecise, BugCheckParameter3, (unsigned int)KiClockTimerOwner);
+      KeBugCheckEx(
+        0x1CFu,
+        v2,
+        InterruptTimePrecise.QuadPart,
+        PerformanceCounter.QuadPart,
+        (unsigned int)KiClockTimerOwner);
   }
   return v0;
 }

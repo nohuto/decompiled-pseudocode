@@ -1,8 +1,8 @@
 /*
- * XREFs of DecodeProviderTraits @ 0x140419C00
+ * XREFs of DecodeProviderTraits @ 0x140411450
  * Callers:
- *     EtwpEventWriteFull @ 0x14021336C (EtwpEventWriteFull.c)
- *     EtwpWriteUserEvent @ 0x140B7D098 (EtwpWriteUserEvent.c)
+ *     EtwpEventWriteFull @ 0x14021344C (EtwpEventWriteFull.c)
+ *     EtwpWriteUserEvent @ 0x140B85DAC (EtwpWriteUserEvent.c)
  * Callees:
  *     <none>
  */

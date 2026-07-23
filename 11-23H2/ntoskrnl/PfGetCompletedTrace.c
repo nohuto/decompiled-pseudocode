@@ -1,15 +1,15 @@
 /*
- * XREFs of PfGetCompletedTrace @ 0x14075EA38
+ * XREFs of PfGetCompletedTrace @ 0x14075EC28
  * Callers:
- *     PfQuerySuperfetchInformation @ 0x14075D918 (PfQuerySuperfetchInformation.c)
+ *     PfQuerySuperfetchInformation @ 0x14075DB08 (PfQuerySuperfetchInformation.c)
  * Callees:
- *     ExAcquireFastMutex @ 0x140230720 (ExAcquireFastMutex.c)
- *     ExReleaseFastMutex @ 0x140230860 (ExReleaseFastMutex.c)
- *     KeSetEvent @ 0x14023C5E0 (KeSetEvent.c)
- *     PfFbBufferListFlushStandby @ 0x1402F573C (PfFbBufferListFlushStandby.c)
- *     PfTFreeTraceDump @ 0x1402FA264 (PfTFreeTraceDump.c)
- *     memmove @ 0x140435700 (memmove.c)
- *     ProbeForWrite @ 0x140729380 (ProbeForWrite.c)
+ *     ExAcquireFastMutex @ 0x140230810 (ExAcquireFastMutex.c)
+ *     ExReleaseFastMutex @ 0x140230950 (ExReleaseFastMutex.c)
+ *     KeSetEvent @ 0x14023C6B0 (KeSetEvent.c)
+ *     PfFbBufferListFlushStandby @ 0x1402F59CC (PfFbBufferListFlushStandby.c)
+ *     PfTFreeTraceDump @ 0x1402FA4F4 (PfTFreeTraceDump.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     ProbeForWrite @ 0x140729580 (ProbeForWrite.c)
  *     PfTAccessTracingStart @ 0x140A88964 (PfTAccessTracingStart.c)
  */
 

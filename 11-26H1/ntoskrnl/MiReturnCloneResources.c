@@ -1,23 +1,23 @@
 /*
- * XREFs of MiReturnCloneResources @ 0x1409620A4
+ * XREFs of MiReturnCloneResources @ 0x140A07D98
  * Callers:
- *     MiCloneProcessAddressSpace @ 0x140961614 (MiCloneProcessAddressSpace.c)
+ *     MiCloneProcessAddressSpace @ 0x140A07308 (MiCloneProcessAddressSpace.c)
  * Callees:
- *     KiUnstackDetachProcess @ 0x1402307C0 (KiUnstackDetachProcess.c)
- *     KiStackAttachProcess @ 0x140247880 (KiStackAttachProcess.c)
- *     MiLockAndInsertPageInFreeList @ 0x140293098 (MiLockAndInsertPageInFreeList.c)
- *     PsReturnProcessNonPagedPoolQuota @ 0x1403BD130 (PsReturnProcessNonPagedPoolQuota.c)
- *     MiInsertClone @ 0x1404F6B70 (MiInsertClone.c)
- *     MiLockProcessParentPage @ 0x14050E464 (MiLockProcessParentPage.c)
- *     MiFreeCloneDescriptorAndHeader @ 0x1405330A4 (MiFreeCloneDescriptorAndHeader.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     MiFreeForkMaps @ 0x14096220C (MiFreeForkMaps.c)
- *     MiReturnFullProcessCommitment @ 0x140A82B94 (MiReturnFullProcessCommitment.c)
- *     MiDeleteInsertedCloneVads @ 0x140B40254 (MiDeleteInsertedCloneVads.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     KiUnstackDetachProcess @ 0x140232120 (KiUnstackDetachProcess.c)
+ *     KiStackAttachProcess @ 0x1402491E0 (KiStackAttachProcess.c)
+ *     MiLockAndInsertPageInFreeList @ 0x1402925F8 (MiLockAndInsertPageInFreeList.c)
+ *     PsReturnProcessNonPagedPoolQuota @ 0x1403C6FA0 (PsReturnProcessNonPagedPoolQuota.c)
+ *     MiInsertClone @ 0x1404F0180 (MiInsertClone.c)
+ *     MiLockProcessParentPage @ 0x140507ED4 (MiLockProcessParentPage.c)
+ *     MiFreeCloneDescriptorAndHeader @ 0x140535524 (MiFreeCloneDescriptorAndHeader.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     MiFreeForkMaps @ 0x140A07F00 (MiFreeForkMaps.c)
+ *     MiReturnFullProcessCommitment @ 0x140A88A04 (MiReturnFullProcessCommitment.c)
+ *     MiDeleteInsertedCloneVads @ 0x140B42284 (MiDeleteInsertedCloneVads.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
-$7A85BAF4F1FA08634C1C4A3E45B775B3 *__fastcall MiReturnCloneResources(_QWORD *a1, int a2)
+$241382875694CED3D471BC5892DE3337 *__fastcall MiReturnCloneResources(_QWORD *a1, int a2)
 {
   _KPROCESS *v2; // rsi
   __int64 v5; // rdx

@@ -1,12 +1,12 @@
 /*
- * XREFs of FsFilterFreeCompletionStack @ 0x1404F1198
+ * XREFs of FsFilterFreeCompletionStack @ 0x1404F1118
  * Callers:
- *     FsRtlReleaseFileForModWrite @ 0x140254F94 (FsRtlReleaseFileForModWrite.c)
- *     FsRtlAcquireFileForModWriteEx @ 0x1402559CC (FsRtlAcquireFileForModWriteEx.c)
- *     FsFilterCtrlFree @ 0x140356C58 (FsFilterCtrlFree.c)
+ *     FsRtlReleaseFileForModWrite @ 0x140276504 (FsRtlReleaseFileForModWrite.c)
+ *     FsRtlAcquireFileForModWriteEx @ 0x140276F3C (FsRtlAcquireFileForModWriteEx.c)
+ *     FsFilterCtrlFree @ 0x1403619A8 (FsFilterCtrlFree.c)
  * Callees:
- *     KeSetEvent @ 0x1403435A0 (KeSetEvent.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     KeSetEvent @ 0x14034E2F0 (KeSetEvent.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 void __fastcall FsFilterFreeCompletionStack(__int64 a1)

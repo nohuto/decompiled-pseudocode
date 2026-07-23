@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpHpSegContextInitialize @ 0x1800A570C
+ * XREFs of RtlpHpSegContextInitialize @ 0x1800F1F2C
  * Callers:
- *     RtlpHpHeapCreate @ 0x1800A6374 (RtlpHpHeapCreate.c)
+ *     RtlpHpHeapCreate @ 0x180026120 (RtlpHpHeapCreate.c)
  * Callees:
- *     memset$thunk$772440563353939046 @ 0x180172030 (memset$thunk$772440563353939046.c)
+ *     memset$thunk$772440563353939046 @ 0x180171030 (memset$thunk$772440563353939046.c)
  */
 
 _OWORD *__fastcall RtlpHpSegContextInitialize(

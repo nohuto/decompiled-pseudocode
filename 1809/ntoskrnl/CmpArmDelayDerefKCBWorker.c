@@ -1,11 +1,11 @@
 /*
- * XREFs of CmpArmDelayDerefKCBWorker @ 0x14068A128
+ * XREFs of CmpArmDelayDerefKCBWorker @ 0x14068B2E8
  * Callers:
- *     CmpDelayDerefKCBWorker @ 0x1405B10B0 (CmpDelayDerefKCBWorker.c)
- *     CmpDelayDerefKeyControlBlock @ 0x1405D4264 (CmpDelayDerefKeyControlBlock.c)
- *     CmpDeleteKeyObject @ 0x14063F500 (CmpDeleteKeyObject.c)
+ *     CmpDelayDerefKCBWorker @ 0x1405B20B0 (CmpDelayDerefKCBWorker.c)
+ *     CmpDelayDerefKeyControlBlock @ 0x1405D5264 (CmpDelayDerefKeyControlBlock.c)
+ *     CmpDeleteKeyObject @ 0x140640520 (CmpDeleteKeyObject.c)
  * Callees:
- *     KeSetTimer2 @ 0x1400FC170 (KeSetTimer2.c)
+ *     KeSetTimer2 @ 0x1400FC1F0 (KeSetTimer2.c)
  */
 
 _BOOL8 CmpArmDelayDerefKCBWorker()

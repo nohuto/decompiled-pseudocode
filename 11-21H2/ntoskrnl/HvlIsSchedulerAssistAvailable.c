@@ -8,5 +8,5 @@
 
 bool HvlIsSchedulerAssistAvailable()
 {
-  return (HvlpFlags & 0x8000) != 0;
+  return (dword_140D0688C & 0x8000) != 0;
 }

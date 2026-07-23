@@ -1,16 +1,16 @@
 /*
- * XREFs of _CmGetInstallerClassCompoundFiltersWorker @ 0x14077CB10
+ * XREFs of _CmGetInstallerClassCompoundFiltersWorker @ 0x14077F604
  * Callers:
- *     _CmGetInstallerClassCompoundFilters @ 0x140918A78 (_CmGetInstallerClassCompoundFilters.c)
+ *     _CmGetInstallerClassCompoundFilters @ 0x1409734D8 (_CmGetInstallerClassCompoundFilters.c)
  * Callees:
- *     _CmGetDeclarativeFilterList @ 0x14089B814 (_CmGetDeclarativeFilterList.c)
- *     _CmGetInstallerClassMappedPropertyFromRegProp @ 0x140918C2C (_CmGetInstallerClassMappedPropertyFromRegProp.c)
- *     _PnpCtxRegQueryInfoKey @ 0x14091B2F8 (_PnpCtxRegQueryInfoKey.c)
- *     _PnpGetObjectProperty @ 0x14099E300 (_PnpGetObjectProperty.c)
- *     _PnpSetObjectProperty @ 0x1409DBEB0 (_PnpSetObjectProperty.c)
- *     _CmMergeFilterLists @ 0x140B524DC (_CmMergeFilterLists.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     _CmGetDeclarativeFilterList @ 0x1408A1C14 (_CmGetDeclarativeFilterList.c)
+ *     _PnpGetObjectProperty @ 0x14095ED60 (_PnpGetObjectProperty.c)
+ *     _CmGetInstallerClassMappedPropertyFromRegProp @ 0x14097368C (_CmGetInstallerClassMappedPropertyFromRegProp.c)
+ *     _PnpCtxRegQueryInfoKey @ 0x140975D5C (_PnpCtxRegQueryInfoKey.c)
+ *     _PnpSetObjectProperty @ 0x140A19100 (_PnpSetObjectProperty.c)
+ *     _CmMergeFilterLists @ 0x140B54D7C (_CmMergeFilterLists.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall CmGetInstallerClassCompoundFiltersWorker(
@@ -216,7 +216,7 @@ LABEL_44:
     if ( ObjectProperty < 0 )
       goto LABEL_44;
     v22 = a3;
-    PnpSetObjectProperty(v12, a2, 2, a3, 0LL, (__int64)v31, 8210, (__int64)v14, v28, 0);
+    PnpSetObjectProperty(v12, a2, 2, 0LL, (__int64)v31, 8210, (__int64)v14, v28, 0);
 LABEL_15:
     InstallerClassMappedPropertyFromRegProp = CmGetInstallerClassMappedPropertyFromRegProp(
                                                 v12,

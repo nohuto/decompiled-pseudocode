@@ -1,15 +1,15 @@
 /*
- * XREFs of PiFindDevInstMatch @ 0x14070978C
+ * XREFs of PiFindDevInstMatch @ 0x14070AA2C
  * Callers:
- *     PiProcessDriverInstance @ 0x140708DA0 (PiProcessDriverInstance.c)
+ *     PiProcessDriverInstance @ 0x14070A040 (PiProcessDriverInstance.c)
  * Callees:
  *     RtlStringCchPrintfExW @ 0x140015EF4 (RtlStringCchPrintfExW.c)
- *     ZwQueryValueKey @ 0x1401B8470 (ZwQueryValueKey.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     RtlEqualUnicodeString @ 0x140625D40 (RtlEqualUnicodeString.c)
- *     IopGetRegistryValue @ 0x1406804D4 (IopGetRegistryValue.c)
- *     PnpRegSzToString @ 0x1406F5B74 (PnpRegSzToString.c)
+ *     ZwQueryValueKey @ 0x1401B85D0 (ZwQueryValueKey.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     RtlEqualUnicodeString @ 0x140626D60 (RtlEqualUnicodeString.c)
+ *     IopGetRegistryValue @ 0x140681694 (IopGetRegistryValue.c)
+ *     PnpRegSzToString @ 0x1406F6E14 (PnpRegSzToString.c)
  */
 
 NTSTATUS __fastcall PiFindDevInstMatch(

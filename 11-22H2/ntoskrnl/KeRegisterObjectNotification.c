@@ -48,7 +48,7 @@ char __fastcall KeRegisterObjectNotification(__int64 a1, __int64 a2, __int64 a3)
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
   LODWORD(v7) = 4;
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     if ( CurrentIrql == 2 )
@@ -72,7 +72,7 @@ char __fastcall KeRegisterObjectNotification(__int64 a1, __int64 a2, __int64 a3)
     *(_QWORD *)a3 = v13;
     v14 = KeGetCurrentIrql();
     __writecr8(2uLL);
-    if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && v14 <= 0xFu )
+    if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && v14 <= 0xFu )
     {
       v19 = KeGetCurrentPrcb()->SchedulerAssist;
       if ( v14 != 2 )
@@ -111,7 +111,7 @@ LABEL_29:
     }
     _InterlockedAnd((volatile signed __int32 *)a2, 0xFFFFFF7F);
     _InterlockedAnd((volatile signed __int32 *)a1, 0xFFFFFF7F);
-    KiExitDispatcher((__int64)KeGetCurrentPrcb(), 0, (struct _PROCESSOR_NUMBER)1, 0, CurrentIrql);
+    KiExitDispatcher((__int64)KeGetCurrentPrcb(), 0, (_PROCESSOR_NUMBER)1, 0, CurrentIrql);
     return 1;
   }
   v8 = *(_QWORD **)(a1 + 16);
@@ -122,10 +122,10 @@ LABEL_29:
   *v8 = a3;
   *(_QWORD *)(a1 + 16) = a3;
   _InterlockedAnd((volatile signed __int32 *)a1, 0xFFFFFF7F);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v21 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v21 <= 0xFu && CurrentIrql <= 0xFu && v21 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v21 <= 0xFu && CurrentIrql <= 0xFu && v21 >= 2u )
     {
       v22 = KeGetCurrentPrcb();
       v23 = v22->SchedulerAssist;

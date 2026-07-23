@@ -1,10 +1,10 @@
 /*
- * XREFs of TxtpAddCacheEntry @ 0x140C527F0
+ * XREFs of TxtpAddCacheEntry @ 0x140C587F0
  * Callers:
- *     BgpTxtDisplayCharacter @ 0x1404AD084 (BgpTxtDisplayCharacter.c)
+ *     BgpTxtDisplayCharacter @ 0x1404A6714 (BgpTxtDisplayCharacter.c)
  * Callees:
- *     BgpFwAllocateMemory @ 0x140355EBC (BgpFwAllocateMemory.c)
- *     TxtpDestroyCacheEntry @ 0x140C52B30 (TxtpDestroyCacheEntry.c)
+ *     BgpFwAllocateMemory @ 0x140357C64 (BgpFwAllocateMemory.c)
+ *     TxtpDestroyCacheEntry @ 0x140C58B30 (TxtpDestroyCacheEntry.c)
  */
 
 __int64 __fastcall TxtpAddCacheEntry(__int64 *a1, __int16 a2, __int64 a3, __int64 a4)

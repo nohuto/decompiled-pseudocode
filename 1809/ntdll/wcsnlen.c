@@ -1,8 +1,8 @@
 /*
- * XREFs of wcsnlen @ 0x180095C00
+ * XREFs of wcsnlen @ 0x180095C10
  * Callers:
- *     _wcslwr_s @ 0x1800919A0 (_wcslwr_s.c)
- *     _wcsupr_s @ 0x180091E80 (_wcsupr_s.c)
+ *     _wcslwr_s @ 0x1800919B0 (_wcslwr_s.c)
+ *     _wcsupr_s @ 0x180091E90 (_wcsupr_s.c)
  *     RtlpQueryTimeZoneKeyNameRoutine @ 0x1800EE460 (RtlpQueryTimeZoneKeyNameRoutine.c)
  *     RtlpSetTimeZoneInformationWorker @ 0x1800EE4E8 (RtlpSetTimeZoneInformationWorker.c)
  *     RtlpConvertCultureNamesToLCIDs @ 0x1800EFC00 (RtlpConvertCultureNamesToLCIDs.c)

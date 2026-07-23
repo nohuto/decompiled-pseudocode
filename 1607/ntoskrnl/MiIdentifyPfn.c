@@ -1,28 +1,28 @@
 /*
- * XREFs of MiIdentifyPfn @ 0x14000FC90
+ * XREFs of MiIdentifyPfn @ 0x14000F810
  * Callers:
- *     MiIdentifyPfnWrapper @ 0x14000FBF0 (MiIdentifyPfnWrapper.c)
- *     MmCopyToCachedPage @ 0x140037900 (MmCopyToCachedPage.c)
- *     MmSetPfnListPriorities @ 0x1400BE170 (MmSetPfnListPriorities.c)
- *     MiCopyOnWriteEx @ 0x1400E2730 (MiCopyOnWriteEx.c)
- *     MiDeletePageTableHierarchy @ 0x1400E4D40 (MiDeletePageTableHierarchy.c)
- *     MiDeleteValidSystemPte @ 0x140100BF0 (MiDeleteValidSystemPte.c)
- *     MmTryIdentifyPage @ 0x1401E55C8 (MmTryIdentifyPage.c)
- *     MiConvertPrivateToProto @ 0x1401F8908 (MiConvertPrivateToProto.c)
- *     MiDemoteCombinedPte @ 0x1401F97B0 (MiDemoteCombinedPte.c)
+ *     MiIdentifyPfnWrapper @ 0x14000F770 (MiIdentifyPfnWrapper.c)
+ *     MmCopyToCachedPage @ 0x140037480 (MmCopyToCachedPage.c)
+ *     MmSetPfnListPriorities @ 0x1400BC000 (MmSetPfnListPriorities.c)
+ *     MiCopyOnWriteEx @ 0x1400E05D0 (MiCopyOnWriteEx.c)
+ *     MiDeletePageTableHierarchy @ 0x1400E2BE0 (MiDeletePageTableHierarchy.c)
+ *     MiDeleteValidSystemPte @ 0x1400FE970 (MiDeleteValidSystemPte.c)
+ *     MmTryIdentifyPage @ 0x1401E53F4 (MmTryIdentifyPage.c)
+ *     MiConvertPrivateToProto @ 0x1401F8734 (MiConvertPrivateToProto.c)
+ *     MiDemoteCombinedPte @ 0x1401F95DC (MiDemoteCombinedPte.c)
  * Callees:
- *     MiGetSubsectionDriverProtos @ 0x140026CD4 (MiGetSubsectionDriverProtos.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14002E9E0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KeYieldProcessorEx @ 0x14002ECB0 (KeYieldProcessorEx.c)
- *     ExpWaitForSpinLockExclusiveAndAcquire @ 0x14002EF00 (ExpWaitForSpinLockExclusiveAndAcquire.c)
- *     MiStartingOffset @ 0x140031D40 (MiStartingOffset.c)
- *     MiGetTopLevelPfn @ 0x14010A970 (MiGetTopLevelPfn.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     MmQuerySpecialPoolBlockType @ 0x1401EC660 (MmQuerySpecialPoolBlockType.c)
- *     MiGetPrototypePteDirect @ 0x1401F26B0 (MiGetPrototypePteDirect.c)
- *     MiGetSharedProtos @ 0x1401F5088 (MiGetSharedProtos.c)
- *     ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x14022DD30 (ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented.c)
- *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x14022DE9C (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
+ *     MiGetSubsectionDriverProtos @ 0x140026854 (MiGetSubsectionDriverProtos.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14002E560 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KeYieldProcessorEx @ 0x14002E830 (KeYieldProcessorEx.c)
+ *     ExpWaitForSpinLockExclusiveAndAcquire @ 0x14002EA80 (ExpWaitForSpinLockExclusiveAndAcquire.c)
+ *     MiStartingOffset @ 0x1400318C0 (MiStartingOffset.c)
+ *     MiGetTopLevelPfn @ 0x1401086F0 (MiGetTopLevelPfn.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     MmQuerySpecialPoolBlockType @ 0x1401EC48C (MmQuerySpecialPoolBlockType.c)
+ *     MiGetPrototypePteDirect @ 0x1401F24DC (MiGetPrototypePteDirect.c)
+ *     MiGetSharedProtos @ 0x1401F4EB4 (MiGetSharedProtos.c)
+ *     ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x14022DB5C (ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented.c)
+ *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x14022DCC8 (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
  */
 
 void __fastcall MiIdentifyPfn(__m128i *a1, _QWORD *a2)
@@ -294,10 +294,10 @@ LABEL_9:
       v37 = v36;
       if ( v36 && ((v16 >> 54) & 7) != 1 )
         v37 = v36 | 0x8000000000000000uLL;
-      if ( v37 >= qword_140327F20 && v37 < qword_140327F20 + 0x100000000000LL
-        || qword_140326C30
-        && v37 >= qword_140326C30
-        && v37 < qword_140326C30 + (qword_140326C10 << 21)
+      if ( v37 >= qword_140327F60 && v37 < qword_140327F60 + 0x100000000000LL
+        || qword_140326C70
+        && v37 >= qword_140326C70
+        && v37 < qword_140326C70 + (qword_140326C50 << 21)
         && (*(_BYTE *)(48 * ((*(_QWORD *)(((v37 >> 18) & 0x3FFFFFF8) - 0x904C0000000LL) >> 12) & 0xFFFFFFFFFLL)
                      - 0x57FFFFFFFDALL) & 0xF0) == 0xD0 )
       {
@@ -319,7 +319,7 @@ LABEL_9:
           v44 = (__int64)(v37 << 25) >> 16;
         else
           v44 = 0LL;
-        if ( v44 >= qword_140327F20 && v44 < qword_140327F20 + 0x100000000000LL )
+        if ( v44 >= qword_140327F60 && v44 < qword_140327F60 + 0x100000000000LL )
         {
           v45 = *v4 & 0xFFFFFFFFFFFFFFF5uLL;
           v4[2] = v44;
@@ -329,7 +329,7 @@ LABEL_9:
         v4[2] = v44 & 0xFFFFFFFFFFFFF000uLL;
         if ( (v16 & 0xFFFFFFFFFLL) == 0xFFFFFFFFDLL )
         {
-          if ( v44 < qword_140326AF0 || v44 >= qword_140326AF0 + (qword_140326AE0 << 21) )
+          if ( v44 < qword_140326B30 || v44 >= qword_140326B30 + (qword_140326B20 << 21) )
           {
             v19 = *v4 & 0xFFFFFFFFFFFFFFF0uLL | 0xA;
             goto LABEL_184;
@@ -343,7 +343,7 @@ LABEL_9:
             v19 = *v4 & 0xFFFFFFFFFFFFFFF0uLL | 0xB;
             goto LABEL_184;
           }
-          if ( v44 >= qword_140326910 && v44 < qword_140326910 + 0x8000000000LL )
+          if ( v44 >= qword_140326950 && v44 < qword_140326950 + 0x8000000000LL )
           {
             v46 = *(_QWORD *)(((unsigned __int64)&v78 & 0xFFFFFFFFFFFFFFE0uLL) + 8);
             *(_QWORD *)(((unsigned __int64)&v78 & 0xFFFFFFFFFFFFFFE0uLL) + 0x60) = 0LL;
@@ -398,21 +398,22 @@ LABEL_9:
             v19 = *v4 & 0xFFFFFFFFFFFFFFF0uLL | 7;
             goto LABEL_184;
           }
-          if ( v44 >= qword_140327F30 && v44 < qword_140327F30 + 0xF8000000000LL )
+          if ( v44 >= qword_140327F70 && v44 < qword_140327F70 + 0xF8000000000LL )
           {
             v19 = *v4 & 0xFFFFFFFFFFFFFFF0uLL | 4;
             goto LABEL_184;
           }
-          if ( v44 >= qword_140326AF0 && v44 < qword_140326AF0 + (qword_140326AE0 << 21)
-            || v44 >= qword_140327FF0 && v44 < qword_140327FF0 + 0x8000000000LL
+          if ( v44 >= qword_140326B30 && v44 < qword_140326B30 + (qword_140326B20 << 21)
+            || v44 >= qword_140328030 && v44 < qword_140328030 + 0x8000000000LL
             || PsNtosImageBase
-            && (v44 >= PsNtosImageBase && v44 < PsNtosImageEnd || v44 >= PsHalImageBase && v44 < PsHalImageEnd) )
+            && (v44 >= (unsigned __int64)PsNtosImageBase && v44 < PsNtosImageEnd
+             || v44 >= (unsigned __int64)PsHalImageBase && v44 < PsHalImageEnd) )
           {
 LABEL_97:
             v19 = *v4 & 0xFFFFFFFFFFFFFFF0uLL | 6;
             goto LABEL_184;
           }
-          if ( qword_140326C30 && v44 >= qword_140326C30 && v44 < qword_140326C30 + (qword_140326C10 << 21) )
+          if ( qword_140326C70 && v44 >= qword_140326C70 && v44 < qword_140326C70 + (qword_140326C50 << 21) )
           {
             v54 = *v4 & 0xFFFFFFFFFFFFFFF0uLL | 4;
             *v4 = v54;
@@ -425,9 +426,9 @@ LABEL_97:
         {
           if ( v44 > 0x7FFFFFFEFFFFLL )
           {
-            v56 = (((unsigned __int64)qword_140326CF8 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
+            v56 = (((unsigned __int64)qword_140326D38 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
             v57 = v36 | 0x8000000000000000uLL;
-            v58 = (((unsigned __int64)qword_140327F90 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
+            v58 = (((unsigned __int64)qword_140327FD0 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
             *(_QWORD *)(((unsigned __int64)&v78 & 0xFFFFFFFFFFFFFFE0uLL) + 0x18) = v57;
             v59 = v57;
             v60 = 0;
@@ -461,7 +462,7 @@ LABEL_184:
             }
 LABEL_148:
             v61 = 0;
-            v62 = (__int64 *)&unk_140326DB8;
+            v62 = (__int64 *)&unk_140326DF8;
             do
             {
               v63 = *v62;
@@ -570,8 +571,8 @@ LABEL_21:
       v39 = *v4;
       if ( v37 >= 0xFFFFF68000000000uLL && v37 <= 0xFFFFF6FFFFFFFFFFuLL )
       {
-        v40 = (_QWORD *)qword_140326A98;
-        if ( qword_140326A98 )
+        v40 = (_QWORD *)qword_140326AD8;
+        if ( qword_140326AD8 )
         {
           v41 = (__int64)(v2 + 0x58000000028LL) / 48;
           do

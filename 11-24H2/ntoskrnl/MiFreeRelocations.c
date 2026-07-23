@@ -1,12 +1,12 @@
 /*
- * XREFs of MiFreeRelocations @ 0x1408F7358
+ * XREFs of MiFreeRelocations @ 0x14093B4DC
  * Callers:
- *     MiDeleteControlArea @ 0x14036F6E8 (MiDeleteControlArea.c)
- *     MiRelocateImage @ 0x1408F5784 (MiRelocateImage.c)
+ *     MiDeleteControlArea @ 0x14043F354 (MiDeleteControlArea.c)
+ *     MiRelocateImage @ 0x140AEA57C (MiRelocateImage.c)
  * Callees:
- *     MiReturnImageBase @ 0x1408F6610 (MiReturnImageBase.c)
- *     MiFreeImageLoadConfig @ 0x1408F7410 (MiFreeImageLoadConfig.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     MiFreeImageLoadConfig @ 0x14093B594 (MiFreeImageLoadConfig.c)
+ *     MiReturnImageBase @ 0x1409D83E0 (MiReturnImageBase.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __fastcall MiFreeRelocations(_DWORD *a1, _QWORD *a2)
@@ -40,7 +40,7 @@ void __fastcall MiFreeRelocations(_DWORD *a1, _QWORD *a2)
         BYTE12(v9) = 1;
         BYTE13(v9) = BYTE2(v7) & 1;
       }
-      MiReturnImageBase((__int64)&v9);
+      MiReturnImageBase(&v9, a2);
       a1[22] = -1;
     }
     MiFreeImageLoadConfig(a2 + 9);

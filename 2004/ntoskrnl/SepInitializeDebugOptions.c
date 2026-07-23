@@ -7,33 +7,35 @@
  *     ZwQuerySystemInformation @ 0x1403F3C80 (ZwQuerySystemInformation.c)
  */
 
-__int64 SepInitializeDebugOptions()
+int SepInitializeDebugOptions()
 {
-  __int64 result; // rax
-  __int128 v1; // [rsp+20h] [rbp-28h] BYREF
+  int result; // eax
+  __int128 SystemInformation; // [rsp+20h] [rbp-28h] BYREF
   __int64 v2; // [rsp+30h] [rbp-18h]
 
-  result = 0LL;
-  v1 = 0LL;
+  result = 0;
+  SystemInformation = 0LL;
   v2 = 0LL;
   if ( (_BYTE)KdDebuggerEnabled )
   {
     if ( !(_BYTE)KdDebuggerNotPresent )
     {
-      result = (unsigned int)SeCiDebugOptions;
+      result = SeCiDebugOptions;
       if ( (SeCiDebugOptions & 1) == 0 )
       {
-        result = SeCiDebugOptions | 2u;
+        result = SeCiDebugOptions | 2;
         SeCiDebugOptions |= 2u;
       }
     }
   }
   if ( SeILSigningPolicy )
   {
-    if ( (result = ZwQuerySystemInformation(143LL, (__int64)&v1), (int)result >= 0) && (v2 & 0x1000000000LL) != 0
-      || (_DWORD)result == -2143092730 )
+    if ( (result = ZwQuerySystemInformation(SystemSecureBootPolicyInformation, &SystemInformation, 0x18u, 0LL),
+          result >= 0)
+      && (v2 & 0x1000000000LL) != 0
+      || result == -2143092730 )
     {
-      if ( (SeCiDebugOptions & 1) == 0 && ((int)result < 0 || (v2 & 0x800000000000LL) == 0) )
+      if ( (SeCiDebugOptions & 1) == 0 && (result < 0 || (v2 & 0x800000000000LL) == 0) )
         SeCiDebugOptions |= 4u;
     }
   }

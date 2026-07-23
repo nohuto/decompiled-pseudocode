@@ -17,7 +17,7 @@ void __fastcall TlgAggregateInternalProviderCallback(const struct _GUID *a1, int
 
   if ( a2 == 2 && a4 == 32 )
   {
-    v4 = KeAbPreAcquire((ULONG_PTR)&qword_140CDB450, 0LL, 1LL);
+    v4 = KeAbPreAcquire((ULONG_PTR)&qword_140CDB450, 0LL, 1);
     if ( _interlockedbittestandset64((volatile signed __int32 *)&qword_140CDB450, 0LL) )
     {
       if ( v4 )

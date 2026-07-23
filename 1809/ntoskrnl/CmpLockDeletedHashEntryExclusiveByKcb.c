@@ -1,12 +1,12 @@
 /*
- * XREFs of CmpLockDeletedHashEntryExclusiveByKcb @ 0x1405AA814
+ * XREFs of CmpLockDeletedHashEntryExclusiveByKcb @ 0x1405AB814
  * Callers:
- *     CmpDiscardKcb @ 0x1405AA6A8 (CmpDiscardKcb.c)
- *     CmpCleanUpKcbCacheWithLock @ 0x1405D43B8 (CmpCleanUpKcbCacheWithLock.c)
+ *     CmpDiscardKcb @ 0x1405AB6A8 (CmpDiscardKcb.c)
+ *     CmpCleanUpKcbCacheWithLock @ 0x1405D53B8 (CmpCleanUpKcbCacheWithLock.c)
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
- *     CmpReferenceHive @ 0x1405D16FC (CmpReferenceHive.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
+ *     CmpReferenceHive @ 0x1405D26FC (CmpReferenceHive.c)
  */
 
 __int64 __fastcall CmpLockDeletedHashEntryExclusiveByKcb(ULONG_PTR BugCheckParameter4)

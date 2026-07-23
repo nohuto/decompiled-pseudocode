@@ -1,22 +1,22 @@
 /*
- * XREFs of PopWnfAudioCallback @ 0x140A3B7C0
+ * XREFs of PopWnfAudioCallback @ 0x140A30FA0
  * Callers:
  *     <none>
  * Callees:
- *     ExReleaseRundownProtection_0 @ 0x140245670 (ExReleaseRundownProtection_0.c)
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     PopReleaseRwLock @ 0x1403B5EC8 (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x1404283D4 (PopAcquireRwLockExclusive.c)
- *     PopPowerRequestStatsNotifyScenarioStateChange @ 0x14044DBC4 (PopPowerRequestStatsNotifyScenarioStateChange.c)
- *     PopGetDozeTimerSource @ 0x1405D8078 (PopGetDozeTimerSource.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     PopUpdateSmartUserPresencePredictions @ 0x14075C5C0 (PopUpdateSmartUserPresencePredictions.c)
- *     ExpWnfReadStateData @ 0x1408ABA3C (ExpWnfReadStateData.c)
- *     ExpWnfAcquireSubscriptionNameInstance @ 0x140A3BBFC (ExpWnfAcquireSubscriptionNameInstance.c)
- *     PopPowerRequestHandleExecutionEnablementUpdate @ 0x140A3BCEC (PopPowerRequestHandleExecutionEnablementUpdate.c)
- *     PopAudioAccountingCallback @ 0x140A3BDA4 (PopAudioAccountingCallback.c)
- *     PopAcquirePolicyLock @ 0x140B67CB0 (PopAcquirePolicyLock.c)
- *     PopReleasePolicyLock @ 0x140B67D00 (PopReleasePolicyLock.c)
+ *     ExReleaseRundownProtection_0 @ 0x14020DE50 (ExReleaseRundownProtection_0.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     PopReleaseRwLock @ 0x1402AE8FC (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x14041C564 (PopAcquireRwLockExclusive.c)
+ *     PopPowerRequestStatsNotifyScenarioStateChange @ 0x140444AC4 (PopPowerRequestStatsNotifyScenarioStateChange.c)
+ *     PopGetDozeTimerSource @ 0x1405D55F8 (PopGetDozeTimerSource.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     PopUpdateSmartUserPresencePredictions @ 0x14075B55C (PopUpdateSmartUserPresencePredictions.c)
+ *     ExpWnfReadStateData @ 0x140901C9C (ExpWnfReadStateData.c)
+ *     ExpWnfAcquireSubscriptionNameInstance @ 0x140A313DC (ExpWnfAcquireSubscriptionNameInstance.c)
+ *     PopPowerRequestHandleExecutionEnablementUpdate @ 0x140A314CC (PopPowerRequestHandleExecutionEnablementUpdate.c)
+ *     PopAudioAccountingCallback @ 0x140A31584 (PopAudioAccountingCallback.c)
+ *     PopAcquirePolicyLock @ 0x140B69DF0 (PopAcquirePolicyLock.c)
+ *     PopReleasePolicyLock @ 0x140B69E40 (PopReleasePolicyLock.c)
  */
 
 __int64 __fastcall PopWnfAudioCallback(__int64 a1)
@@ -62,25 +62,25 @@ __int64 __fastcall PopWnfAudioCallback(__int64 a1)
         if ( (v17[0] & 2) != 0 )
         {
           LOBYTE(v7) = 1;
-          byte_140F0BA8D = 1;
+          byte_140F0B3CD = 1;
           PopAudioAccountingCallback(v7);
           if ( (unsigned int)PopGetDozeTimerSource() == 2 )
             PopUpdateSmartUserPresencePredictions(0LL, 5u);
         }
         else
         {
-          byte_140F0BA8D = 0;
+          byte_140F0B3CD = 0;
           PopAudioAccountingCallback(0LL);
         }
-        v8 = byte_140F0BA8D;
-        PopAcquireRwLockExclusive(&PopPowerRequestLock);
-        if ( byte_140F0E082 != v8 )
+        v8 = byte_140F0B3CD;
+        PopAcquireRwLockExclusive((unsigned __int64 *)&PopPowerRequestLock);
+        if ( byte_140F0E222 != v8 )
         {
-          byte_140F0E082 = v8;
+          byte_140F0E222 = v8;
           PopPowerRequestStatsNotifyScenarioStateChange(0, v8);
         }
         PopPowerRequestHandleExecutionEnablementUpdate();
-        PopReleaseRwLock((signed __int64 *)&PopPowerRequestLock);
+        PopReleaseRwLock(&PopPowerRequestLock);
         PopReleasePolicyLock(v10, v9, v11, v12, v14);
       }
     }

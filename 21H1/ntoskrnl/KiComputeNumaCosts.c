@@ -30,7 +30,7 @@ char KiComputeNumaCosts()
   __int16 v8; // di
   unsigned int v9; // r15d
   __int64 *v10; // rax
-  struct _GROUP_AFFINITY *p_PreviousAffinity; // rdx
+  _GROUP_AFFINITY *p_PreviousAffinity; // rdx
   unsigned int v12; // r14d
   struct _MDL *PartitionNodePagesForMdl; // rax
   struct _MDL *v14; // r13
@@ -88,9 +88,9 @@ char KiComputeNumaCosts()
   unsigned __int64 v67; // [rsp+58h] [rbp-B0h]
   __int64 v68; // [rsp+60h] [rbp-A8h] BYREF
   __int64 Affinity; // [rsp+68h] [rbp-A0h]
-  struct _GROUP_AFFINITY Affinity_8; // [rsp+70h] [rbp-98h] BYREF
+  _GROUP_AFFINITY Affinity_8; // [rsp+70h] [rbp-98h] BYREF
   unsigned __int64 v71; // [rsp+80h] [rbp-88h]
-  struct _GROUP_AFFINITY PreviousAffinity; // [rsp+88h] [rbp-80h] BYREF
+  _GROUP_AFFINITY PreviousAffinity; // [rsp+88h] [rbp-80h] BYREF
   _WORD Base[4]; // [rsp+98h] [rbp-70h] BYREF
   _QWORD v74[127]; // [rsp+A0h] [rbp-68h] BYREF
 

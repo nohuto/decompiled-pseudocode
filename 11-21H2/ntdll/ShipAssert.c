@@ -14,7 +14,7 @@ __int64 __fastcall ShipAssert(int a1, int a2)
   struct _TEB *v4; // rbx
   unsigned int LastErrorValue; // edi
   __int64 result; // rax
-  __int64 ShipAssertBuffer; // rax
+  _DWORD *ShipAssertBuffer; // rax
   unsigned int v8; // ecx
   _DWORD v9[4]; // [rsp+38h] [rbp-20h] BYREF
 
@@ -25,11 +25,11 @@ __int64 __fastcall ShipAssert(int a1, int a2)
   {
     v4->SameTebFlags = result | 0x10;
     ShipAssertBuffer = GetShipAssertBuffer();
-    if ( ShipAssertBuffer && ShipAssertBuffer != 255 && ShipAssertBuffer != 238 )
+    if ( ShipAssertBuffer && ShipAssertBuffer != (_DWORD *)255 && ShipAssertBuffer != (_DWORD *)238 )
     {
       v8 = ((unsigned __int16)_InterlockedExchangeAdd(&dword_180177E94, 1u) + 1) & 0x3FF;
-      *(_DWORD *)(ShipAssertBuffer + 8LL * v8) = a1;
-      *(_DWORD *)(ShipAssertBuffer + 8LL * v8 + 4) = a2;
+      ShipAssertBuffer[2 * v8] = a1;
+      ShipAssertBuffer[2 * v8 + 1] = a2;
     }
     v9[0] = a1;
     v9[1] = a2;

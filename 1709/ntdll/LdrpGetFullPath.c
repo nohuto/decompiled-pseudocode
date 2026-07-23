@@ -26,7 +26,7 @@ __int64 __fastcall LdrpGetFullPath(unsigned __int16 *a1, __int64 a2)
   FullPathName_Ustr = RtlGetFullPathName_Ustr(
                         a1,
                         *(unsigned __int16 *)(a2 + 2),
-                        *(_WORD **)(a2 + 8),
+                        *(wchar_t **)(a2 + 8),
                         &v13,
                         &v10,
                         (__int64)&v11);
@@ -45,7 +45,7 @@ __int64 __fastcall LdrpGetFullPath(unsigned __int16 *a1, __int64 a2)
       *(_WORD *)a2 = FullPathName_Ustr;
       return v5;
     }
-    StringRoutine = (_WORD *)NtdllpAllocateStringRoutine(FullPathName_Ustr);
+    StringRoutine = NtdllpAllocateStringRoutine(FullPathName_Ustr);
     if ( !StringRoutine )
       return (unsigned int)-1073741801;
     v9 = *(_QWORD *)(a2 + 8);
@@ -59,7 +59,7 @@ __int64 __fastcall LdrpGetFullPath(unsigned __int16 *a1, __int64 a2)
     FullPathName_Ustr = RtlGetFullPathName_Ustr(
                           a1,
                           *(unsigned __int16 *)(a2 + 2),
-                          *(_WORD **)(a2 + 8),
+                          *(wchar_t **)(a2 + 8),
                           &v13,
                           &v10,
                           (__int64)&v11);

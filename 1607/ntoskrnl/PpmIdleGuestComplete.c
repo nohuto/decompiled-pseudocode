@@ -1,9 +1,9 @@
 /*
- * XREFs of PpmIdleGuestComplete @ 0x14020D748
+ * XREFs of PpmIdleGuestComplete @ 0x14020D574
  * Callers:
  *     <none>
  * Callees:
- *     HvlSetPlatformIdleState @ 0x1401BF508 (HvlSetPlatformIdleState.c)
+ *     HvlSetPlatformIdleState @ 0x1401BF3EC (HvlSetPlatformIdleState.c)
  */
 
 struct _KPRCB *__fastcall PpmIdleGuestComplete(__int64 a1, __int64 a2, int a3)

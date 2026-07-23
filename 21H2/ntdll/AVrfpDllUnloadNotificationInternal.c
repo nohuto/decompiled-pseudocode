@@ -1,7 +1,7 @@
 /*
- * XREFs of AVrfpDllUnloadNotificationInternal @ 0x1800DA93C
+ * XREFs of AVrfpDllUnloadNotificationInternal @ 0x1800DA8FC
  * Callers:
- *     AVrfDllUnloadNotification @ 0x1800D9884 (AVrfDllUnloadNotification.c)
+ *     AVrfDllUnloadNotification @ 0x1800D9844 (AVrfDllUnloadNotification.c)
  * Callees:
  *     DbgPrint @ 0x180051AC0 (DbgPrint.c)
  *     _wcsicmp @ 0x18008E370 (_wcsicmp.c)

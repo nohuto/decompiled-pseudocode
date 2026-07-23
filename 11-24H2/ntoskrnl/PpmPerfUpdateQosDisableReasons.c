@@ -1,10 +1,10 @@
 /*
- * XREFs of PpmPerfUpdateQosDisableReasons @ 0x14048DA40
+ * XREFs of PpmPerfUpdateQosDisableReasons @ 0x1404882D8
  * Callers:
- *     PpmCheckPausePpmEngineForSx @ 0x14048D954 (PpmCheckPausePpmEngineForSx.c)
- *     PpmCheckResumePpmEngineFromSx @ 0x14048D998 (PpmCheckResumePpmEngineFromSx.c)
- *     PpmPerfTelemetryWorker @ 0x14074FD20 (PpmPerfTelemetryWorker.c)
- *     PpmPerfUpdateDomainPolicy @ 0x140AC66D0 (PpmPerfUpdateDomainPolicy.c)
+ *     PpmCheckPausePpmEngineForSx @ 0x1404881EC (PpmCheckPausePpmEngineForSx.c)
+ *     PpmCheckResumePpmEngineFromSx @ 0x140488230 (PpmCheckResumePpmEngineFromSx.c)
+ *     PpmPerfTelemetryWorker @ 0x14074E040 (PpmPerfTelemetryWorker.c)
+ *     PpmPerfUpdateDomainPolicy @ 0x140AC40C8 (PpmPerfUpdateDomainPolicy.c)
  * Callees:
  *     <none>
  */
@@ -20,14 +20,14 @@ char __fastcall PpmPerfUpdateQosDisableReasons(int *a1)
 
   v1 = 0;
   v3 = MEMORY[0xFFFFF78000000008];
-  if ( !byte_140FC67A8 )
+  if ( !byte_140FC7808 )
   {
     v4 = MEMORY[0xFFFFF78000000008] - PpmPerfQosDisableAccounting;
-    qword_140FC66F8 += MEMORY[0xFFFFF78000000008] - PpmPerfQosDisableAccounting;
+    qword_140FC7758 += MEMORY[0xFFFFF78000000008] - PpmPerfQosDisableAccounting;
     if ( PpmPerfQosEnabled )
-      qword_140FC6708 += v4;
+      qword_140FC7768 += v4;
     v5 = 0;
-    v6 = &unk_140FC6718;
+    v6 = &unk_140FC7778;
     do
     {
       v7 = PpmPerfQosDisableReasons;

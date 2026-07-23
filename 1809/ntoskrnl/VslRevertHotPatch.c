@@ -1,11 +1,11 @@
 /*
- * XREFs of VslRevertHotPatch @ 0x14027BF0C
+ * XREFs of VslRevertHotPatch @ 0x14027C0FC
  * Callers:
- *     MiUnapplyDriverHotPatch @ 0x140858114 (MiUnapplyDriverHotPatch.c)
- *     MiUnloadHotPatch @ 0x1408581F8 (MiUnloadHotPatch.c)
+ *     MiUnapplyDriverHotPatch @ 0x140859374 (MiUnapplyDriverHotPatch.c)
+ *     MiUnloadHotPatch @ 0x140859458 (MiUnloadHotPatch.c)
  * Callees:
- *     VslpEnterIumSecureMode @ 0x140129CB0 (VslpEnterIumSecureMode.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     VslpEnterIumSecureMode @ 0x140129D80 (VslpEnterIumSecureMode.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall VslRevertHotPatch(__int64 a1, unsigned int a2, unsigned int a3)

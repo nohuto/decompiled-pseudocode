@@ -1,22 +1,22 @@
 /*
- * XREFs of NtQueryIntervalProfile @ 0x140842770
+ * XREFs of NtQueryIntervalProfile @ 0x14084B810
  * Callers:
- *     DifNtQueryIntervalProfileWrapper @ 0x140683E50 (DifNtQueryIntervalProfileWrapper.c)
+ *     DifNtQueryIntervalProfileWrapper @ 0x140687A30 (DifNtQueryIntervalProfileWrapper.c)
  * Callees:
- *     RtlReadULongFromUser @ 0x14077F590 (RtlReadULongFromUser.c)
- *     RtlWriteULongToUser @ 0x14077F7A0 (RtlWriteULongToUser.c)
- *     KeQueryIntervalProfile @ 0x1407BADFC (KeQueryIntervalProfile.c)
+ *     RtlReadULongFromUser @ 0x140782090 (RtlReadULongFromUser.c)
+ *     RtlWriteULongToUser @ 0x1407822A0 (RtlWriteULongToUser.c)
+ *     KeQueryIntervalProfile @ 0x1407BDE5C (KeQueryIntervalProfile.c)
  */
 
-__int64 __fastcall NtQueryIntervalProfile(int a1, unsigned int *a2)
+NTSTATUS __cdecl NtQueryIntervalProfile(KPROFILE_SOURCE ProfileSource, PULONG Interval)
 {
   int ULongFromUser; // eax
 
   if ( KeGetCurrentThread()->PreviousMode )
   {
-    ULongFromUser = RtlReadULongFromUser(a2);
-    RtlWriteULongToUser(a2, ULongFromUser);
+    ULongFromUser = RtlReadULongFromUser(Interval);
+    RtlWriteULongToUser(Interval, ULongFromUser);
   }
-  *a2 = KeQueryIntervalProfile(a1);
-  return 0LL;
+  *Interval = KeQueryIntervalProfile(ProfileSource);
+  return 0;
 }

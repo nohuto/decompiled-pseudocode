@@ -1,23 +1,23 @@
 /*
- * XREFs of CcDeletePartition @ 0x14026B1A0
+ * XREFs of CcDeletePartition @ 0x14026B390
  * Callers:
- *     CcInitializeCacheMapEx @ 0x1400AC050 (CcInitializeCacheMapEx.c)
- *     CcCreatePartition @ 0x14018A55C (CcCreatePartition.c)
- *     CcExitPartition @ 0x14026B5B0 (CcExitPartition.c)
+ *     CcInitializeCacheMapEx @ 0x1400ABF90 (CcInitializeCacheMapEx.c)
+ *     CcCreatePartition @ 0x14018A69C (CcCreatePartition.c)
+ *     CcExitPartition @ 0x14026B7A0 (CcExitPartition.c)
  * Callees:
  *     KeCancelTimer @ 0x14001CEB0 (KeCancelTimer.c)
- *     KxReleaseSpinLock @ 0x1400630E0 (KxReleaseSpinLock.c)
- *     CcDereferencePartition @ 0x14007C998 (CcDereferencePartition.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14008CF40 (KeAcquireSpinLockRaiseToDpc.c)
- *     KeSetEvent @ 0x1400C2B00 (KeSetEvent.c)
- *     KeFlushQueuedDpcs @ 0x1400DBE50 (KeFlushQueuedDpcs.c)
- *     DbgPrintEx @ 0x140160460 (DbgPrintEx.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     ZwWaitForSingleObject @ 0x1401B8210 (ZwWaitForSingleObject.c)
- *     ZwClose @ 0x1401B8370 (ZwClose.c)
- *     CcUninitializePartitionVacbs @ 0x14026B804 (CcUninitializePartitionVacbs.c)
- *     CcUninitializeAsyncRead @ 0x14026BA2C (CcUninitializeAsyncRead.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
+ *     KxReleaseSpinLock @ 0x1400630D0 (KxReleaseSpinLock.c)
+ *     CcDereferencePartition @ 0x14007C988 (CcDereferencePartition.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14008CE80 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KeSetEvent @ 0x1400C2A40 (KeSetEvent.c)
+ *     KeFlushQueuedDpcs @ 0x1400DBED0 (KeFlushQueuedDpcs.c)
+ *     DbgPrintEx @ 0x140160560 (DbgPrintEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     ZwWaitForSingleObject @ 0x1401B8370 (ZwWaitForSingleObject.c)
+ *     ZwClose @ 0x1401B84D0 (ZwClose.c)
+ *     CcUninitializePartitionVacbs @ 0x14026B9F4 (CcUninitializePartitionVacbs.c)
+ *     CcUninitializeAsyncRead @ 0x14026BC1C (CcUninitializeAsyncRead.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
  */
 
 void __fastcall CcDeletePartition(char *P)

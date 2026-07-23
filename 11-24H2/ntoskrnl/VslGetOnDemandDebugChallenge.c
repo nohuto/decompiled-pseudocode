@@ -1,14 +1,14 @@
 /*
- * XREFs of VslGetOnDemandDebugChallenge @ 0x14070F8C8
+ * XREFs of VslGetOnDemandDebugChallenge @ 0x14070D458
  * Callers:
- *     PsIumGetOnDemandDebugChallenge @ 0x140AB27D4 (PsIumGetOnDemandDebugChallenge.c)
+ *     PsIumGetOnDemandDebugChallenge @ 0x140AAD744 (PsIumGetOnDemandDebugChallenge.c)
  * Callees:
- *     VslpEnterIumSecureMode @ 0x140265D90 (VslpEnterIumSecureMode.c)
- *     VslpLockPagesForTransfer @ 0x140266DCC (VslpLockPagesForTransfer.c)
- *     VslpUnlockPagesForTransfer @ 0x140267E9C (VslpUnlockPagesForTransfer.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     VslpLockPagesForTransfer @ 0x14025E3AC (VslpLockPagesForTransfer.c)
+ *     VslpUnlockPagesForTransfer @ 0x14025F47C (VslpUnlockPagesForTransfer.c)
+ *     VslpEnterIumSecureMode @ 0x1403AADB0 (VslpEnterIumSecureMode.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 __int64 __fastcall VslGetOnDemandDebugChallenge(__int64 a1, void *a2, unsigned int a3, _DWORD *a4)
@@ -31,7 +31,7 @@ __int64 __fastcall VslGetOnDemandDebugChallenge(__int64 a1, void *a2, unsigned i
     v13 = *(_QWORD *)(a1 + 368);
     Size = (size_t)v11[0];
     v15 = v11[7];
-    v9 = VslpEnterIumSecureMode(2u, 18LL, 0, (__int64)v12);
+    v9 = VslpEnterIumSecureMode(2u, 0x12u, 0, (__int64)v12);
     VslpUnlockPagesForTransfer(v11);
     if ( v9 >= 0 )
     {

@@ -6,11 +6,13 @@
  *     <none>
  */
 
-__int64 NtQueryFullAttributesFile()
+NTSTATUS __cdecl NtQueryFullAttributesFile(
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        PFILE_NETWORK_OPEN_INFORMATION FileInformation)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 302LL;
+  result = 302;
   __asm { syscall; Low latency system call }
   return result;
 }

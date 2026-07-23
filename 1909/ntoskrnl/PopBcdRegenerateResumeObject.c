@@ -14,65 +14,65 @@
  *     BcdSetElementData @ 0x14092E6F4 (BcdSetElementData.c)
  */
 
-__int64 __fastcall PopBcdRegenerateResumeObject(__int64 a1, __int64 a2, __int64 *a3)
+__int64 __fastcall PopBcdRegenerateResumeObject(void *a1, void *a2, _QWORD *a3)
 {
   PVOID v5; // rsi
-  int Object; // ebx
-  __int64 v7; // rdi
-  int v8; // eax
-  unsigned int v10; // [rsp+20h] [rbp-50h] BYREF
-  unsigned int v11; // [rsp+24h] [rbp-4Ch] BYREF
-  PVOID P; // [rsp+28h] [rbp-48h] BYREF
-  __int64 v13; // [rsp+30h] [rbp-40h] BYREF
-  PVOID v14; // [rsp+38h] [rbp-38h] BYREF
-  _DWORD v15[2]; // [rsp+40h] [rbp-30h] BYREF
-  GUID v16; // [rsp+48h] [rbp-28h] BYREF
-  _QWORD v17[2]; // [rsp+58h] [rbp-18h] BYREF
+  int v6; // ebx
+  HANDLE v7; // rdi
+  NTSTATUS v8; // eax
+  ULONG BufferSize; // [rsp+20h] [rbp-50h] BYREF
+  ULONG v11[3]; // [rsp+24h] [rbp-4Ch] BYREF
+  HANDLE BcdObjectHandle; // [rsp+30h] [rbp-40h] BYREF
+  PVOID P; // [rsp+38h] [rbp-38h] BYREF
+  _BCD_OBJECT_DESCRIPTION Description; // [rsp+40h] [rbp-30h] BYREF
+  GUID v15; // [rsp+48h] [rbp-28h] BYREF
+  GUID Identifier; // [rsp+58h] [rbp-18h] BYREF
 
-  v15[0] = 1;
-  P = 0LL;
-  v13 = 0LL;
+  Description.Version = 1;
+  BufferSize = 0;
+  memset(v11, 0, sizeof(v11));
+  BcdObjectHandle = 0LL;
   v5 = 0LL;
-  v17[0] = 0LL;
-  v17[1] = 0LL;
-  v16 = (GUID)0LL;
-  v14 = 0LL;
-  v15[1] = 270532612;
-  Object = BcdCreateObject(a1, 0LL, v15, &v13, 0LL);
-  if ( Object < 0 )
+  *(_QWORD *)&Identifier.Data1 = 0LL;
+  *(_QWORD *)Identifier.Data4 = 0LL;
+  v15 = (GUID)0LL;
+  P = 0LL;
+  Description.Type = 270532612;
+  v6 = BcdCreateObject(a1, 0LL, &Description, &BcdObjectHandle);
+  if ( v6 < 0 )
   {
-    v7 = v13;
+    v7 = BcdObjectHandle;
   }
   else
   {
-    Object = PopBcdReadElement(a2, 301989892, &P, &v10);
-    if ( Object < 0 )
+    v6 = PopBcdReadElement(a2, 0x12000004u, &v11[1], &BufferSize);
+    if ( v6 < 0 )
     {
-      v7 = v13;
+      v7 = BcdObjectHandle;
     }
     else
     {
-      PopBcdReadElement(a2, 301989893, &v14, &v11);
-      v7 = v13;
-      v8 = BcdSetElementData(v13, 301989892LL, P, v10);
-      v5 = v14;
-      Object = v8;
+      PopBcdReadElement(a2, 0x12000005u, &P, v11);
+      v7 = BcdObjectHandle;
+      v8 = BcdSetElementData(BcdObjectHandle, 0x12000004u, *(PVOID *)&v11[1], BufferSize);
+      v5 = P;
+      v6 = v8;
       if ( v8 >= 0 )
       {
-        if ( !v14 || (Object = BcdSetElementData(v7, 301989893LL, v14, v11), Object >= 0) )
+        if ( !P || (v6 = BcdSetElementData(v7, 0x12000005u, P, v11[0]), v6 >= 0) )
         {
-          Object = PopBcdSetDefaultResumeObjectElements(v7, a2);
-          if ( Object >= 0 )
+          v6 = PopBcdSetDefaultResumeObjectElements(v7, a2);
+          if ( v6 >= 0 )
           {
-            v16 = GUID_RESUME_LOADER_SETTINGS_GROUP;
-            Object = BcdSetElementData(v7, 335544326LL, &v16, 16LL);
-            if ( Object >= 0 )
+            v15 = GUID_RESUME_LOADER_SETTINGS_GROUP;
+            v6 = BcdSetElementData(v7, 0x14000006u, &v15, 0x10u);
+            if ( v6 >= 0 )
             {
-              Object = BcdQueryObject(v7, 0, 0LL, (__int64)v17);
-              if ( Object >= 0 )
+              v6 = BcdQueryObject(v7, 0, 0LL, &Identifier);
+              if ( v6 >= 0 )
               {
-                Object = BcdSetElementData(a2, 587202563LL, v17, 16LL);
-                if ( Object >= 0 )
+                v6 = BcdSetElementData(a2, 0x23000003u, &Identifier, 0x10u);
+                if ( v6 >= 0 )
                 {
                   *a3 = v7;
                   v7 = 0LL;
@@ -83,17 +83,17 @@ __int64 __fastcall PopBcdRegenerateResumeObject(__int64 a1, __int64 a2, __int64 
         }
       }
     }
-    if ( P )
-      ExFreePoolWithTag(P, 0);
+    if ( *(_QWORD *)&v11[1] )
+      ExFreePoolWithTag(*(PVOID *)&v11[1], 0);
     if ( v5 )
       ExFreePoolWithTag(v5, 0);
   }
   if ( v7 )
   {
-    if ( Object < 0 )
+    if ( v6 < 0 )
       BcdDeleteObject(v7);
     else
       BcdCloseObject(v7);
   }
-  return (unsigned int)Object;
+  return (unsigned int)v6;
 }

@@ -1,16 +1,16 @@
 /*
- * XREFs of PopFxActivateComponent @ 0x1400FE110
+ * XREFs of PopFxActivateComponent @ 0x1400FE190
  * Callers:
- *     PoFxActivateComponent @ 0x1400FE090 (PoFxActivateComponent.c)
- *     PopFxActivateComponentWorker @ 0x1400FE230 (PopFxActivateComponentWorker.c)
- *     PopFxRegisterDeviceWorker @ 0x1407249B8 (PopFxRegisterDeviceWorker.c)
+ *     PoFxActivateComponent @ 0x1400FE110 (PoFxActivateComponent.c)
+ *     PopFxActivateComponentWorker @ 0x1400FE2B0 (PopFxActivateComponentWorker.c)
+ *     PopFxRegisterDeviceWorker @ 0x140725C58 (PopFxRegisterDeviceWorker.c)
  * Callees:
  *     KiLeaveGuardedRegionUnsafe @ 0x14004F090 (KiLeaveGuardedRegionUnsafe.c)
  *     KeWaitForSingleObject @ 0x140054880 (KeWaitForSingleObject.c)
- *     KxReleaseSpinLock @ 0x1400630E0 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14008CF40 (KeAcquireSpinLockRaiseToDpc.c)
- *     PopFxActivateComponentWorker @ 0x1400FE230 (PopFxActivateComponentWorker.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1400630D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14008CE80 (KeAcquireSpinLockRaiseToDpc.c)
+ *     PopFxActivateComponentWorker @ 0x1400FE2B0 (PopFxActivateComponentWorker.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 NTSTATUS __fastcall PopFxActivateComponent(__int64 a1, __int64 a2, char a3, unsigned __int8 a4)

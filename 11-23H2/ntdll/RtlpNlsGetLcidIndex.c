@@ -3,7 +3,7 @@
  * Callers:
  *     RtlLcidToLocaleName @ 0x180015D90 (RtlLcidToLocaleName.c)
  *     RtlpConsoleFallbackNameFromLocaleName @ 0x18007AE4C (RtlpConsoleFallbackNameFromLocaleName.c)
- *     RtlpGetProcessCodepagesForLocale @ 0x18010B0A0 (RtlpGetProcessCodepagesForLocale.c)
+ *     RtlpGetProcessCodepagesForLocale @ 0x18010B070 (RtlpGetProcessCodepagesForLocale.c)
  * Callees:
  *     <none>
  */

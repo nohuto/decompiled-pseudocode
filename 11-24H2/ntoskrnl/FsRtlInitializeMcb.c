@@ -1,9 +1,9 @@
 /*
- * XREFs of FsRtlInitializeMcb @ 0x14070A870
+ * XREFs of FsRtlInitializeMcb @ 0x140708430
  * Callers:
  *     <none>
  * Callees:
- *     FsRtlInitializeLargeMcb @ 0x1403F9FF0 (FsRtlInitializeLargeMcb.c)
+ *     FsRtlInitializeLargeMcb @ 0x1403EFF00 (FsRtlInitializeLargeMcb.c)
  */
 
 void __stdcall FsRtlInitializeMcb(PMCB Mcb, POOL_TYPE PoolType)

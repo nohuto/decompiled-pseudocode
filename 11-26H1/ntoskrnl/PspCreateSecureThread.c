@@ -1,17 +1,17 @@
 /*
- * XREFs of PspCreateSecureThread @ 0x140B342F8
+ * XREFs of PspCreateSecureThread @ 0x140B36748
  * Callers:
- *     PspInsertThread @ 0x140A026D0 (PspInsertThread.c)
+ *     PspInsertThread @ 0x140A7B188 (PspInsertThread.c)
  * Callees:
- *     KiUnstackDetachProcess @ 0x1402307C0 (KiUnstackDetachProcess.c)
- *     KiStackAttachProcess @ 0x140247880 (KiStackAttachProcess.c)
- *     MmProbeAndLockPagesEx @ 0x14039FAC0 (MmProbeAndLockPagesEx.c)
- *     MmUnlockPages @ 0x140410C10 (MmUnlockPages.c)
- *     MmSizeOfMdl @ 0x140488370 (MmSizeOfMdl.c)
- *     KeSecureThread @ 0x1404F8EE8 (KeSecureThread.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     KiUnstackDetachProcess @ 0x140232120 (KiUnstackDetachProcess.c)
+ *     KiStackAttachProcess @ 0x1402491E0 (KiStackAttachProcess.c)
+ *     MmProbeAndLockPagesEx @ 0x1403A1820 (MmProbeAndLockPagesEx.c)
+ *     MmUnlockPages @ 0x140410330 (MmUnlockPages.c)
+ *     MmSizeOfMdl @ 0x140481EB0 (MmSizeOfMdl.c)
+ *     KeSecureThread @ 0x1404F24F8 (KeSecureThread.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PspCreateSecureThread(__int64 Base, __int64 a2)

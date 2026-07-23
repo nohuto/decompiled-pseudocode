@@ -6,9 +6,9 @@
  *     <none>
  */
 
-__int64 __fastcall ZwSetLowEventPair(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwSetLowEventPair(HANDLE EventPairHandle)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(EventPairHandle);
 }

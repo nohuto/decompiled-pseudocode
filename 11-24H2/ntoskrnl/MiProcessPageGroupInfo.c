@@ -1,13 +1,13 @@
 /*
- * XREFs of MiProcessPageGroupInfo @ 0x1403A2E30
+ * XREFs of MiProcessPageGroupInfo @ 0x1402709E8
  * Callers:
- *     MiZeroAndReleasePages @ 0x1403A0C10 (MiZeroAndReleasePages.c)
- *     MiAllocateLargeZeroPages @ 0x1403A7BB8 (MiAllocateLargeZeroPages.c)
+ *     MiZeroAndReleasePages @ 0x140217770 (MiZeroAndReleasePages.c)
+ *     MiAllocateLargeZeroPages @ 0x14026F2E8 (MiAllocateLargeZeroPages.c)
  * Callees:
- *     MiGetPfnPageSizeIndex @ 0x1403070C0 (MiGetPfnPageSizeIndex.c)
- *     MiZeroInParallel @ 0x1404155D0 (MiZeroInParallel.c)
- *     MiAssemblePfnList @ 0x1404711DC (MiAssemblePfnList.c)
- *     MiDereferencePageChains @ 0x140491294 (MiDereferencePageChains.c)
+ *     MiAssemblePfnList @ 0x140270A88 (MiAssemblePfnList.c)
+ *     MiDereferencePageChains @ 0x140270AC0 (MiDereferencePageChains.c)
+ *     MiZeroInParallel @ 0x140271430 (MiZeroInParallel.c)
+ *     MiGetPfnPageSizeIndex @ 0x140310FA0 (MiGetPfnPageSizeIndex.c)
  */
 
 __int64 __fastcall MiProcessPageGroupInfo(__int64 a1, __int64 a2)
@@ -18,7 +18,7 @@ __int64 __fastcall MiProcessPageGroupInfo(__int64 a1, __int64 a2)
   _QWORD *v7; // r14
   unsigned int PfnPageSizeIndex; // eax
 
-  MiZeroInParallel();
+  MiZeroInParallel(a1);
   v4 = 0;
   if ( *(_DWORD *)(a1 + 24) )
   {
@@ -32,7 +32,7 @@ __int64 __fastcall MiProcessPageGroupInfo(__int64 a1, __int64 a2)
         {
           v7 = (_QWORD *)*v6;
           if ( (v6[5] & 0x10000000000LL) != 0 )
-            PfnPageSizeIndex = MiGetPfnPageSizeIndex((__int64)v6);
+            PfnPageSizeIndex = MiGetPfnPageSizeIndex(v6);
           else
             PfnPageSizeIndex = 3;
           MiAssemblePfnList(a2, v6, PfnPageSizeIndex);

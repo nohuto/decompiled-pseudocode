@@ -1,14 +1,14 @@
 /*
- * XREFs of TtmNotifySessionPowerRequestDeleted @ 0x1407E643C
+ * XREFs of TtmNotifySessionPowerRequestDeleted @ 0x1407EBF9C
  * Callers:
- *     PopPowerRequestDelete @ 0x140AD6100 (PopPowerRequestDelete.c)
+ *     PopPowerRequestDelete @ 0x140AD30B0 (PopPowerRequestDelete.c)
  * Callees:
- *     ExReleaseResourceLite @ 0x1402B4CF0 (ExReleaseResourceLite.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     TtmiLogSessionPowerRequestDeleted @ 0x1407EA870 (TtmiLogSessionPowerRequestDeleted.c)
- *     TtmpAcquireSessionById @ 0x140A3AA34 (TtmpAcquireSessionById.c)
- *     TtmiLogError @ 0x140A3AAD8 (TtmiLogError.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ExReleaseResourceLite @ 0x1402FF9C0 (ExReleaseResourceLite.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     TtmiLogSessionPowerRequestDeleted @ 0x1407F03D0 (TtmiLogSessionPowerRequestDeleted.c)
+ *     TtmpAcquireSessionById @ 0x1409F6634 (TtmpAcquireSessionById.c)
+ *     TtmiLogError @ 0x1409F66D8 (TtmiLogError.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __fastcall TtmNotifySessionPowerRequestDeleted(unsigned int a1, int a2)
@@ -78,7 +78,7 @@ LABEL_11:
   }
   if ( v6 )
   {
-    ExReleaseResourceLite((PERESOURCE)&PsAltSystemCallRegistrationLock.WriteOperationCount);
+    ExReleaseResourceLite((PERESOURCE)&PsAltSystemCallRegistrationLock.WpsFeedback);
     KeLeaveCriticalRegion();
   }
 }

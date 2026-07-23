@@ -10,13 +10,13 @@
  *     RtlpMuiRegFreeRegistryInfo @ 0x1800491B0 (RtlpMuiRegFreeRegistryInfo.c)
  */
 
-__int64 __fastcall RtlpMuiFreeLangRegistryInfo(unsigned __int64 a1)
+__int64 __fastcall RtlpMuiFreeLangRegistryInfo(PVOID BaseAddress)
 {
   unsigned int v2; // ebx
 
-  if ( !a1 )
+  if ( !BaseAddress )
     return 3221225485LL;
-  v2 = RtlpMuiRegFreeRegistryInfo(a1, 4095LL);
-  RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, a1);
+  v2 = RtlpMuiRegFreeRegistryInfo(BaseAddress, 4095LL);
+  RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, BaseAddress);
   return v2;
 }

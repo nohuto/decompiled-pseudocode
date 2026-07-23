@@ -1,22 +1,22 @@
 /*
- * XREFs of RtlIsValidProcessTrustLabelSid @ 0x1400ABB60
+ * XREFs of RtlIsValidProcessTrustLabelSid @ 0x1400ABAA0
  * Callers:
- *     SepReconcileTrustSidWithProcessProtection @ 0x1400ABA70 (SepReconcileTrustSidWithProcessProtection.c)
- *     RtlSidDominatesForTrust @ 0x1400AD1A0 (RtlSidDominatesForTrust.c)
- *     RtlAddProcessTrustLabelAce @ 0x140727930 (RtlAddProcessTrustLabelAce.c)
- *     RtlAddAccessFilterAce @ 0x140892700 (RtlAddAccessFilterAce.c)
+ *     SepReconcileTrustSidWithProcessProtection @ 0x1400AB9B0 (SepReconcileTrustSidWithProcessProtection.c)
+ *     RtlSidDominatesForTrust @ 0x1400AD0E0 (RtlSidDominatesForTrust.c)
+ *     RtlAddProcessTrustLabelAce @ 0x140728BD0 (RtlAddProcessTrustLabelAce.c)
+ *     RtlAddAccessFilterAce @ 0x140893960 (RtlAddAccessFilterAce.c)
  * Callees:
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
  */
 
-bool __fastcall RtlIsValidProcessTrustLabelSid(__int64 a1)
+BOOLEAN __cdecl RtlIsValidProcessTrustLabelSid(PSID Sid)
 {
   int v1; // edx
 
-  if ( *(_BYTE *)(a1 + 1) != 2 || *(_BYTE *)a1 != 1 )
+  if ( *((_BYTE *)Sid + 1) != 2 || *(_BYTE *)Sid != 1 )
     return 0;
-  v1 = *(_DWORD *)(a1 + 2);
+  v1 = *(_DWORD *)((char *)Sid + 2);
   if ( !v1 )
-    v1 = *(unsigned __int16 *)(a1 + 6) - 4864;
-  return !v1 && (*(_DWORD *)(a1 + 8) || !*(_DWORD *)(a1 + 12));
+    v1 = *((unsigned __int16 *)Sid + 3) - 4864;
+  return !v1 && (*((_DWORD *)Sid + 2) || !*((_DWORD *)Sid + 3));
 }

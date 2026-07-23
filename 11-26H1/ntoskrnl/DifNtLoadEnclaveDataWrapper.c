@@ -1,27 +1,27 @@
 /*
- * XREFs of DifNtLoadEnclaveDataWrapper @ 0x14067A450
+ * XREFs of DifNtLoadEnclaveDataWrapper @ 0x14067E030
  * Callers:
  *     <none>
  * Callees:
- *     DifGetReturnAddressForWrappers @ 0x140260EA4 (DifGetReturnAddressForWrappers.c)
- *     ExReleaseRundownProtection_0 @ 0x140266240 (ExReleaseRundownProtection_0.c)
- *     ExAcquireRundownProtection_0 @ 0x1402F0590 (ExAcquireRundownProtection_0.c)
- *     DifGetAPIThunkContextById @ 0x1404C17A4 (DifGetAPIThunkContextById.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     NtLoadEnclaveData @ 0x140AEE740 (NtLoadEnclaveData.c)
+ *     DifGetReturnAddressForWrappers @ 0x14026040C (DifGetReturnAddressForWrappers.c)
+ *     ExReleaseRundownProtection_0 @ 0x1402657B0 (ExReleaseRundownProtection_0.c)
+ *     ExAcquireRundownProtection_0 @ 0x1402D2610 (ExAcquireRundownProtection_0.c)
+ *     DifGetAPIThunkContextById @ 0x1404BAFF4 (DifGetAPIThunkContextById.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     NtLoadEnclaveData @ 0x140AF16E0 (NtLoadEnclaveData.c)
  */
 
 __int64 __fastcall DifNtLoadEnclaveDataWrapper(
-        __int64 a1,
-        __int64 a2,
-        __int64 a3,
-        __int64 a4,
-        int a5,
-        __int64 a6,
-        int a7,
-        __int64 a8,
-        __int64 a9)
+        void *a1,
+        void *a2,
+        void *a3,
+        SIZE_T a4,
+        ULONG Protect,
+        PVOID PageInformation,
+        ULONG PageInformationLength,
+        ULONG_PTR *NumberOfBytesWritten,
+        ULONG *EnclaveError)
 {
   __int128 *APIThunkContextById; // rax
   __int64 v13; // rdx
@@ -33,19 +33,18 @@ __int64 __fastcall DifNtLoadEnclaveDataWrapper(
   __int64 v19; // rdx
   BOOLEAN v20; // di
   __int128 *j; // rbx
-  size_t Size; // [rsp+38h] [rbp-71h]
-  _QWORD v24[3]; // [rsp+58h] [rbp-51h] BYREF
-  int v25; // [rsp+70h] [rbp-39h]
-  __int64 v26; // [rsp+78h] [rbp-31h]
-  int v27; // [rsp+80h] [rbp-29h]
-  __int64 v28; // [rsp+88h] [rbp-21h]
-  __int64 v29; // [rsp+90h] [rbp-19h]
-  __int64 v30; // [rsp+98h] [rbp-11h]
-  __int64 v31; // [rsp+A0h] [rbp-9h]
+  _QWORD v23[3]; // [rsp+58h] [rbp-51h] BYREF
+  ULONG v24; // [rsp+70h] [rbp-39h]
+  PVOID v25; // [rsp+78h] [rbp-31h]
+  ULONG v26; // [rsp+80h] [rbp-29h]
+  SIZE_T v27; // [rsp+88h] [rbp-21h]
+  void *v28; // [rsp+90h] [rbp-19h]
+  void *v29; // [rsp+98h] [rbp-11h]
+  void *v30; // [rsp+A0h] [rbp-9h]
   unsigned int EnclaveData; // [rsp+A8h] [rbp-1h]
   void *retaddr; // [rsp+E0h] [rbp+37h]
 
-  memset_0(v24, 0, 0x58uLL);
+  memset_0(v23, 0, 0x58uLL);
   APIThunkContextById = DifGetAPIThunkContextById(758);
   v14 = APIThunkContextById;
   if ( !APIThunkContextById )
@@ -61,32 +60,40 @@ __int64 __fastcall DifNtLoadEnclaveDataWrapper(
       goto LABEL_7;
     ReturnAddressForWrappers = DifGetReturnAddressForWrappers();
   }
-  v24[0] = ReturnAddressForWrappers;
+  v23[0] = ReturnAddressForWrappers;
 LABEL_7:
   v17 = 0;
-  v31 = a1;
-  v27 = a5;
-  v26 = a6;
-  v25 = a7;
-  v24[2] = a8;
-  v24[1] = a9;
-  v30 = a2;
-  v29 = a3;
-  v28 = a4;
+  v30 = a1;
+  v26 = Protect;
+  v25 = PageInformation;
+  v24 = PageInformationLength;
+  v23[2] = NumberOfBytesWritten;
+  v23[1] = EnclaveError;
+  v29 = a2;
+  v28 = a3;
+  v27 = a4;
   if ( !VfDifRunningWithoutReboot && (VfOptionFlags & 0x800) == 0
     || (v17 = ExAcquireRundownProtection_0(&DifRebootlessRundown)) != 0 )
   {
     for ( i = (__int128 *)*((_QWORD *)v14 + 4); i != v14 + 2; i = *(__int128 **)i )
     {
       if ( i != (__int128 *)16 )
-        guard_dispatch_icall_no_overrides(v24, v13);
+        guard_dispatch_icall_no_overrides(v23, v13);
     }
     if ( v17 )
       ExReleaseRundownProtection_0(&DifRebootlessRundown);
   }
 LABEL_17:
-  LODWORD(Size) = a7;
-  EnclaveData = NtLoadEnclaveData(a1, a2, a3, a4, a5, a6, Size, a8, a9);
+  EnclaveData = NtLoadEnclaveData(
+                  a1,
+                  a2,
+                  a3,
+                  a4,
+                  Protect,
+                  PageInformation,
+                  PageInformationLength,
+                  NumberOfBytesWritten,
+                  EnclaveError);
   if ( v14 )
   {
     if ( (v20 = 0, !VfDifRunningWithoutReboot) && (VfOptionFlags & 0x800) == 0
@@ -95,7 +102,7 @@ LABEL_17:
       for ( j = (__int128 *)*((_QWORD *)v14 + 6); j != v14 + 3; j = *(__int128 **)j )
       {
         if ( j != (__int128 *)16 )
-          guard_dispatch_icall_no_overrides(v24, v19);
+          guard_dispatch_icall_no_overrides(v23, v19);
       }
       if ( v20 )
         ExReleaseRundownProtection_0(&DifRebootlessRundown);

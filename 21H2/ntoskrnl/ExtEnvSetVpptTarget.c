@@ -1,15 +1,15 @@
 /*
- * XREFs of ExtEnvSetVpptTarget @ 0x1404BF7A4
+ * XREFs of ExtEnvSetVpptTarget @ 0x1404BF9E4
  * Callers:
- *     HalpVpptUpdatePhysicalTimer @ 0x1404C0E54 (HalpVpptUpdatePhysicalTimer.c)
+ *     HalpVpptUpdatePhysicalTimer @ 0x1404C1094 (HalpVpptUpdatePhysicalTimer.c)
  * Callees:
- *     HalpInterruptSetDestination @ 0x140378990 (HalpInterruptSetDestination.c)
- *     HalpInterruptApplyOverrides @ 0x140378E24 (HalpInterruptApplyOverrides.c)
- *     HalpInterruptGsiToLine @ 0x140378F5C (HalpInterruptGsiToLine.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
- *     memset @ 0x140414200 (memset.c)
- *     HalpInterruptLineToGsi @ 0x1404BC704 (HalpInterruptLineToGsi.c)
+ *     HalpInterruptSetDestination @ 0x1403784E0 (HalpInterruptSetDestination.c)
+ *     HalpInterruptApplyOverrides @ 0x140378974 (HalpInterruptApplyOverrides.c)
+ *     HalpInterruptGsiToLine @ 0x140378AAC (HalpInterruptGsiToLine.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     HalpInterruptLineToGsi @ 0x1404BC944 (HalpInterruptLineToGsi.c)
  */
 
 __int64 __fastcall ExtEnvSetVpptTarget(__int64 a1, unsigned int a2)

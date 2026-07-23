@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlpHpEnvFreeVA @ 0x14024421C
+ * XREFs of RtlpHpEnvFreeVA @ 0x14020C9AC
  * Callers:
- *     RtlpHpEnvAllocVA @ 0x1402EAA50 (RtlpHpEnvAllocVA.c)
- *     RtlpHpFreeVA @ 0x140420FB8 (RtlpHpFreeVA.c)
- *     RtlpHpVaMgrCtxFree @ 0x140421038 (RtlpHpVaMgrCtxFree.c)
- *     RtlpHpVaMgrAlloc @ 0x140421420 (RtlpHpVaMgrAlloc.c)
- *     RtlpHpVaMgrRegionAllocate @ 0x140421A48 (RtlpHpVaMgrRegionAllocate.c)
+ *     RtlpHpVaMgrRegionAllocate @ 0x14021BAD8 (RtlpHpVaMgrRegionAllocate.c)
+ *     RtlpHpEnvAllocVA @ 0x14034C090 (RtlpHpEnvAllocVA.c)
+ *     RtlpHpFreeVA @ 0x14045928C (RtlpHpFreeVA.c)
+ *     RtlpHpVaMgrCtxFree @ 0x14045930C (RtlpHpVaMgrCtxFree.c)
+ *     RtlpHpVaMgrAlloc @ 0x1404596F4 (RtlpHpVaMgrAlloc.c)
  * Callees:
- *     MmFreePoolMemory @ 0x140243A40 (MmFreePoolMemory.c)
+ *     MmFreePoolMemory @ 0x14020C540 (MmFreePoolMemory.c)
  */
 
 __int64 __fastcall RtlpHpEnvFreeVA(ULONG_PTR *a1, ULONG_PTR *a2, int a3)

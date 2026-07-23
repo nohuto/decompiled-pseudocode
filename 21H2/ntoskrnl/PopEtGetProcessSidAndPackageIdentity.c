@@ -1,35 +1,35 @@
 /*
- * XREFs of PopEtGetProcessSidAndPackageIdentity @ 0x140698894
+ * XREFs of PopEtGetProcessSidAndPackageIdentity @ 0x1405F758C
  * Callers:
- *     PopEtGetProcessAppId @ 0x140698028 (PopEtGetProcessAppId.c)
+ *     PopEtGetProcessAppId @ 0x1405F6D20 (PopEtGetProcessAppId.c)
  * Callees:
- *     RtlQueryPackageIdentity @ 0x14024F4D0 (RtlQueryPackageIdentity.c)
- *     ObFastDereferenceObject @ 0x14027C610 (ObFastDereferenceObject.c)
- *     PsQueryProcessAttributesByToken @ 0x140601050 (PsQueryProcessAttributesByToken.c)
- *     PsReferencePrimaryToken @ 0x140706D00 (PsReferencePrimaryToken.c)
- *     SeQueryUserSidToken @ 0x140706E24 (SeQueryUserSidToken.c)
+ *     ObFastDereferenceObject @ 0x14026A5B0 (ObFastDereferenceObject.c)
+ *     RtlQueryPackageIdentity @ 0x1402F3D20 (RtlQueryPackageIdentity.c)
+ *     PsQueryProcessAttributesByToken @ 0x1406F07B0 (PsQueryProcessAttributesByToken.c)
+ *     PsReferencePrimaryToken @ 0x14071E0E0 (PsReferencePrimaryToken.c)
+ *     SeQueryUserSidToken @ 0x14071E204 (SeQueryUserSidToken.c)
  */
 
 void __fastcall PopEtGetProcessSidAndPackageIdentity(struct _KPROCESS *a1, __int64 a2, __int64 a3)
 {
   struct _DMA_ADAPTER *v6; // rsi
-  size_t v7; // [rsp+50h] [rbp+8h] BYREF
-  size_t v8; // [rsp+58h] [rbp+10h] BYREF
+  ULONG_PTR PackageSize; // [rsp+50h] [rbp+8h] BYREF
+  ULONG_PTR AppIdSize; // [rsp+58h] [rbp+10h] BYREF
 
   *(_DWORD *)a3 = 0;
   *(_QWORD *)a2 = 0LL;
   *(_DWORD *)(a2 + 8) = 0;
-  LOBYTE(v7) = 0;
+  LOBYTE(PackageSize) = 0;
   v6 = (struct _DMA_ADAPTER *)PsReferencePrimaryToken(a1);
-  PsQueryProcessAttributesByToken((__int64)v6, &v7, &v8);
-  if ( (_BYTE)v7 )
+  PsQueryProcessAttributesByToken(v6, &PackageSize, &AppIdSize);
+  if ( (_BYTE)PackageSize )
   {
-    v7 = 256LL;
-    v8 = 132LL;
-    if ( RtlQueryPackageIdentity((int)v6, (wchar_t *)(a3 + 4), &v7, (wchar_t *)(a3 + 260), &v8, 0LL) >= 0 )
+    PackageSize = 256LL;
+    AppIdSize = 132LL;
+    if ( RtlQueryPackageIdentity(v6, (PWSTR)(a3 + 4), &PackageSize, (PWSTR)(a3 + 260), &AppIdSize, 0LL) >= 0 )
     {
-      *(_WORD *)a3 = (v7 >> 1) - 1;
-      *(_WORD *)(a3 + 2) = (v8 >> 1) - 1;
+      *(_WORD *)a3 = (PackageSize >> 1) - 1;
+      *(_WORD *)(a3 + 2) = (AppIdSize >> 1) - 1;
     }
   }
   if ( (int)SeQueryUserSidToken(v6, a2, 68LL) < 0 )

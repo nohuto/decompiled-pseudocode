@@ -1,11 +1,11 @@
 /*
- * XREFs of _NtPlugPlayGetDeviceRelatedDevice @ 0x1406B0B88
+ * XREFs of _NtPlugPlayGetDeviceRelatedDevice @ 0x14060FB38
  * Callers:
- *     _CmGetDeviceParent @ 0x1406B09D4 (_CmGetDeviceParent.c)
- *     _CmGetDeviceChildren @ 0x140979D9C (_CmGetDeviceChildren.c)
+ *     _CmGetDeviceParent @ 0x14060F984 (_CmGetDeviceParent.c)
+ *     _CmGetDeviceChildren @ 0x140979F7C (_CmGetDeviceChildren.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     _PnpCtxGetNtPlugPlayRoutine @ 0x140641440 (_PnpCtxGetNtPlugPlayRoutine.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     _PnpCtxGetNtPlugPlayRoutine @ 0x140636250 (_PnpCtxGetNtPlugPlayRoutine.c)
  */
 
 __int64 __fastcall NtPlugPlayGetDeviceRelatedDevice(
@@ -22,7 +22,7 @@ __int64 __fastcall NtPlugPlayGetDeviceRelatedDevice(
   _QWORD v11[3]; // [rsp+40h] [rbp-18h] BYREF
 
   v11[0] = 0LL;
-  result = PnpCtxGetNtPlugPlayRoutine(a1, 3, v11);
+  result = PnpCtxGetNtPlugPlayRoutine(a1, 3LL, v11);
   if ( (int)result >= 0 )
   {
     if ( v11[0] )

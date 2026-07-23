@@ -1,10 +1,10 @@
 /*
- * XREFs of SdbpGetDeviceDWORD @ 0x1408046B0
+ * XREFs of SdbpGetDeviceDWORD @ 0x140804DF0
  * Callers:
- *     SdbpMatchDeviceDWORD @ 0x140805338 (SdbpMatchDeviceDWORD.c)
+ *     SdbpMatchDeviceDWORD @ 0x140805A78 (SdbpMatchDeviceDWORD.c)
  * Callees:
- *     SdbReadDWORDTag @ 0x14095F0F8 (SdbReadDWORDTag.c)
- *     SdbFindFirstTag @ 0x14096003C (SdbFindFirstTag.c)
+ *     SdbReadDWORDTag @ 0x140946BB8 (SdbReadDWORDTag.c)
+ *     SdbFindFirstTag @ 0x140947AFC (SdbFindFirstTag.c)
  */
 
 __int64 __fastcall SdbpGetDeviceDWORD(__int64 a1, __int64 a2, unsigned __int16 a3)

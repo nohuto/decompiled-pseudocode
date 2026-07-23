@@ -1,200 +1,207 @@
 /*
- * XREFs of RtlLCIDToCultureName @ 0x1800360C0
+ * XREFs of RtlLCIDToCultureName @ 0x180016340
  * Callers:
- *     RtlpMuiRegGetInstalledLanguageIndexByLangId @ 0x1800122F0 (RtlpMuiRegGetInstalledLanguageIndexByLangId.c)
- *     RtlpMuiRegAddMultiSzToLangFallbackList @ 0x1800322A0 (RtlpMuiRegAddMultiSzToLangFallbackList.c)
- *     RtlpAddNeutralsToMergedList @ 0x180033B90 (RtlpAddNeutralsToMergedList.c)
- *     GetNameFromLangListNode @ 0x180033ED0 (GetNameFromLangListNode.c)
- *     LdrpMergeParentBaseLanguagesToList @ 0x180034340 (LdrpMergeParentBaseLanguagesToList.c)
- *     LdrpMergeLangFallbackLists @ 0x1800356C0 (LdrpMergeLangFallbackLists.c)
- *     RtlpMuiRegTryToAppendLanguageName @ 0x180035F10 (RtlpMuiRegTryToAppendLanguageName.c)
- *     RtlpComputeLangListCheckSum @ 0x180036440 (RtlpComputeLangListCheckSum.c)
- *     RtlGetThreadPreferredUILanguages @ 0x180037120 (RtlGetThreadPreferredUILanguages.c)
- *     LdrpConvertLangFallbackListToMultiSz @ 0x180037FF0 (LdrpConvertLangFallbackListToMultiSz.c)
- *     GetLCIDFromLangListNodeWithLICCheck @ 0x180061A10 (GetLCIDFromLangListNodeWithLICCheck.c)
- *     RtlGetUILanguageInfo @ 0x18007B9D0 (RtlGetUILanguageInfo.c)
- *     RtlpMUIRegPatchLicenseInfortmation @ 0x18007D170 (RtlpMUIRegPatchLicenseInfortmation.c)
- *     RtlGetFileMUIPath @ 0x18007E370 (RtlGetFileMUIPath.c)
- *     RtlpGetNameFromLangInfoNode @ 0x1800E1030 (RtlpGetNameFromLangInfoNode.c)
- *     RtlpInitAndCallLcidToCultureName @ 0x1800ED404 (RtlpInitAndCallLcidToCultureName.c)
- *     RtlUnicodeStringToLcid @ 0x180116D44 (RtlUnicodeStringToLcid.c)
- *     RtlpCleanupRegistryKeys @ 0x18013F570 (RtlpCleanupRegistryKeys.c)
- *     RtlpConvertLCIDsToCultureNames @ 0x18013F9D0 (RtlpConvertLCIDsToCultureNames.c)
- *     RtlpGetDefaultLanguageBaseOrParent @ 0x18013FD58 (RtlpGetDefaultLanguageBaseOrParent.c)
- *     RtlpSetInstallLanguage @ 0x180140140 (RtlpSetInstallLanguage.c)
- *     RtlpSetPreferredUILanguages @ 0x180140750 (RtlpSetPreferredUILanguages.c)
- *     RtlpVerifyAndCommitUILanguageSettings @ 0x180141330 (RtlpVerifyAndCommitUILanguageSettings.c)
- *     RtlpMuiRegGetInstalledLanguageInfoByIndex @ 0x180149640 (RtlpMuiRegGetInstalledLanguageInfoByIndex.c)
- *     _RtlpMuiRegPopulateBaseLanguages @ 0x18014A770 (_RtlpMuiRegPopulateBaseLanguages.c)
- *     _RtlpMuiRegValidateAndGetInstallFallbackBase @ 0x18014ABB8 (_RtlpMuiRegValidateAndGetInstallFallbackBase.c)
+ *     RtlGetFileMUIPath @ 0x1800016B0 (RtlGetFileMUIPath.c)
+ *     RtlpAddNeutralsToMergedList @ 0x180012510 (RtlpAddNeutralsToMergedList.c)
+ *     RtlpMuiRegAddMultiSzToLangFallbackList @ 0x180013360 (RtlpMuiRegAddMultiSzToLangFallbackList.c)
+ *     LdrpMergeParentBaseLanguagesToList @ 0x1800145C0 (LdrpMergeParentBaseLanguagesToList.c)
+ *     LdrpMergeLangFallbackLists @ 0x180015940 (LdrpMergeLangFallbackLists.c)
+ *     RtlpMuiRegTryToAppendLanguageName @ 0x180016190 (RtlpMuiRegTryToAppendLanguageName.c)
+ *     RtlpComputeLangListCheckSum @ 0x1800166C0 (RtlpComputeLangListCheckSum.c)
+ *     RtlGetThreadPreferredUILanguages @ 0x1800173A0 (RtlGetThreadPreferredUILanguages.c)
+ *     LdrpConvertLangFallbackListToMultiSz @ 0x180018270 (LdrpConvertLangFallbackListToMultiSz.c)
+ *     RtlpMuiRegGetInstalledLanguageIndexByLangId @ 0x18003ECF0 (RtlpMuiRegGetInstalledLanguageIndexByLangId.c)
+ *     GetLCIDFromLangListNodeWithLICCheck @ 0x1800775F0 (GetLCIDFromLangListNodeWithLICCheck.c)
+ *     GetNameFromLangListNode @ 0x1800C7870 (GetNameFromLangListNode.c)
+ *     RtlGetUILanguageInfo @ 0x1800CA620 (RtlGetUILanguageInfo.c)
+ *     RtlpMUIRegPatchLicenseInfortmation @ 0x1800CAB90 (RtlpMUIRegPatchLicenseInfortmation.c)
+ *     RtlUnicodeStringToLcid @ 0x1800CB240 (RtlUnicodeStringToLcid.c)
+ *     RtlpGetNameFromLangInfoNode @ 0x1800DC580 (RtlpGetNameFromLangInfoNode.c)
+ *     RtlpInitAndCallLcidToCultureName @ 0x1800E83D4 (RtlpInitAndCallLcidToCultureName.c)
+ *     RtlpCleanupRegistryKeys @ 0x18013D760 (RtlpCleanupRegistryKeys.c)
+ *     RtlpConvertLCIDsToCultureNames @ 0x18013DBC0 (RtlpConvertLCIDsToCultureNames.c)
+ *     RtlpGetDefaultLanguageBaseOrParent @ 0x18013DF48 (RtlpGetDefaultLanguageBaseOrParent.c)
+ *     RtlpSetInstallLanguage @ 0x18013E330 (RtlpSetInstallLanguage.c)
+ *     RtlpSetPreferredUILanguages @ 0x18013E940 (RtlpSetPreferredUILanguages.c)
+ *     RtlpVerifyAndCommitUILanguageSettings @ 0x18013F520 (RtlpVerifyAndCommitUILanguageSettings.c)
+ *     RtlpMuiRegGetInstalledLanguageInfoByIndex @ 0x1801479F0 (RtlpMuiRegGetInstalledLanguageInfoByIndex.c)
+ *     _RtlpMuiRegPopulateBaseLanguages @ 0x180148B20 (_RtlpMuiRegPopulateBaseLanguages.c)
+ *     _RtlpMuiRegValidateAndGetInstallFallbackBase @ 0x180148F68 (_RtlpMuiRegValidateAndGetInstallFallbackBase.c)
  * Callees:
- *     RtlpMuiRegGetInstalledLanguageIndexByLangId @ 0x1800122F0 (RtlpMuiRegGetInstalledLanguageIndexByLangId.c)
- *     RtlpLoadNlsData @ 0x1800333EC (RtlpLoadNlsData.c)
- *     RtlpNlsGetLcidIndex @ 0x1800363D0 (RtlpNlsGetLcidIndex.c)
- *     RtlpGetUserLocaleName @ 0x1800D2DDC (RtlpGetUserLocaleName.c)
- *     RtlpGetUserOrMachineUILanguage4NLS @ 0x1800D2EC0 (RtlpGetUserOrMachineUILanguage4NLS.c)
- *     RtlpInitUnicodeStringUsingBuffer @ 0x1800D30B0 (RtlpInitUnicodeStringUsingBuffer.c)
- *     wcslen @ 0x1801277D0 (wcslen.c)
- *     __security_check_cookie @ 0x1801659C0 (__security_check_cookie.c)
- *     memmove @ 0x180167400 (memmove.c)
+ *     RtlpLoadNlsData @ 0x1800144AC (RtlpLoadNlsData.c)
+ *     RtlpNlsGetLcidIndex @ 0x180016650 (RtlpNlsGetLcidIndex.c)
+ *     RtlpMuiRegGetInstalledLanguageIndexByLangId @ 0x18003ECF0 (RtlpMuiRegGetInstalledLanguageIndexByLangId.c)
+ *     RtlpGetUserLocaleName @ 0x180099D30 (RtlpGetUserLocaleName.c)
+ *     RtlpGetUserOrMachineUILanguage4NLS @ 0x180099E20 (RtlpGetUserOrMachineUILanguage4NLS.c)
+ *     RtlpInitUnicodeStringUsingBuffer @ 0x18009A010 (RtlpInitUnicodeStringUsingBuffer.c)
+ *     wcslen @ 0x180125A00 (wcslen.c)
+ *     __security_check_cookie @ 0x180163D80 (__security_check_cookie.c)
+ *     memmove @ 0x1801657C0 (memmove.c)
  */
 
-__int64 __fastcall RtlLCIDToCultureName(unsigned int a1, __int64 a2)
+BOOLEAN __cdecl RtlLCIDToCultureName(LCID Lcid, PUNICODE_STRING String)
 {
+  PVOID v2; // r8
+  ULONG *v3; // r9
   int inited; // r14d
-  unsigned __int8 v3; // bp
-  unsigned int v5; // ebx
-  __int64 v6; // rdx
-  __int64 v7; // r8
-  __int64 v8; // rdx
-  __int64 v9; // rbx
-  size_t v10; // rax
+  BOOLEAN v5; // bp
+  PUNICODE_STRING v6; // rsi
+  LCID v7; // ebx
+  __int64 v8; // rcx
+  __int64 v9; // r8
+  __int64 v10; // rdx
+  __int64 v11; // rbx
+  size_t v12; // rax
   unsigned __int16 Length; // r9
-  unsigned __int64 v12; // rdx
-  unsigned __int64 v13; // rdx
-  _WORD *v14; // rcx
-  unsigned __int64 v15; // r8
-  __int64 v16; // rbx
-  __int16 v17; // ax
-  _WORD *v18; // rax
+  unsigned __int64 MaximumLength; // rdx
+  unsigned __int64 v15; // rdx
+  wchar_t *Buffer; // rcx
+  unsigned __int64 v17; // r8
+  __int64 v18; // rbx
+  wchar_t v19; // ax
+  wchar_t *v20; // rax
   int LcidIndex; // eax
-  __int64 v21; // rcx
-  wchar_t *Buffer; // rdx
-  _WORD *v23; // rax
-  __int64 v24; // rcx
-  __int64 v25; // r8
-  unsigned __int64 v26; // rdi
-  __int16 v27; // bx
-  __int16 v28; // [rsp+20h] [rbp-F8h] BYREF
-  __int64 v29; // [rsp+28h] [rbp-F0h] BYREF
-  UNICODE_STRING DestinationString; // [rsp+30h] [rbp-E8h] BYREF
+  __int64 v23; // rcx
+  wchar_t *v24; // rdx
+  _WORD *v25; // rax
+  __int64 v26; // rcx
+  __int64 v27; // r8
+  unsigned __int64 v28; // rdi
+  unsigned __int16 v29; // bx
+  __int16 v30; // [rsp+20h] [rbp-F8h] BYREF
+  __int64 v31; // [rsp+28h] [rbp-F0h] BYREF
+  _UNICODE_STRING DestinationString; // [rsp+30h] [rbp-E8h] BYREF
   _BYTE Src[176]; // [rsp+40h] [rbp-D8h] BYREF
 
   inited = 0;
-  v3 = 0;
-  v28 = 0;
-  v5 = a1;
-  if ( !a1 || !a2 || a1 == 4096 )
-    return v3;
+  v5 = 0;
+  v30 = 0;
+  v6 = String;
+  v7 = Lcid;
+  if ( !Lcid || !String || Lcid == 4096 )
+    return v5;
+  v8 = (__int64)g_RegInfo;
   if ( g_RegInfo )
   {
-    if ( (int)RtlpMuiRegGetInstalledLanguageIndexByLangId(g_RegInfo, a1, 0, &v28) >= 0 )
+    if ( (int)RtlpMuiRegGetInstalledLanguageIndexByLangId(g_RegInfo, (unsigned __int16)v7, 0LL, &v30) >= 0 )
     {
-      v6 = *(__int16 *)(*(_QWORD *)(*(_QWORD *)(g_RegInfo + 24) + 16LL) + 28LL * v28 + 6);
-      if ( (__int16)v6 > 0 )
+      v2 = g_RegInfo;
+      v8 = 28LL * v30;
+      String = (PUNICODE_STRING)*(__int16 *)(*(_QWORD *)(*((_QWORD *)g_RegInfo + 3) + 16LL) + v8 + 6);
+      if ( (__int16)String > 0 )
       {
-        v7 = *(_QWORD *)(g_RegInfo + 32);
+        v9 = *((_QWORD *)g_RegInfo + 4);
         DestinationString = 0LL;
-        v8 = *(__int16 *)(*(_QWORD *)(v7 + 16) + 2 * v6);
-        v9 = *(_QWORD *)(v7 + 24) + 2 * v8;
-        LOWORD(v10) = 0;
-        if ( v9 )
+        v10 = *(__int16 *)(*(_QWORD *)(v9 + 16) + 2LL * (_QWORD)String);
+        v11 = *(_QWORD *)(v9 + 24) + 2 * v10;
+        LOWORD(v12) = 0;
+        if ( v11 )
         {
-          v10 = 2 * wcslen((const wchar_t *)(*(_QWORD *)(v7 + 24) + 2 * v8));
-          if ( v10 >= 0xFFFE )
-            LOWORD(v10) = -4;
-          Length = v10;
+          v12 = 2 * wcslen((const wchar_t *)(*(_QWORD *)(v9 + 24) + 2 * v10));
+          if ( v12 >= 0xFFFE )
+            LOWORD(v12) = -4;
+          Length = v12;
         }
         else
         {
           Length = DestinationString.Length;
         }
-        v12 = *(unsigned __int16 *)(a2 + 2);
-        if ( (unsigned __int16)v10 > (unsigned __int16)v12 )
-          return v3;
-        v13 = v12 >> 1;
-        v14 = *(_WORD **)(a2 + 8);
-        if ( !v13 )
-          return v3;
-        v15 = 2147483646 - v13;
-        v16 = v9 - (_QWORD)v14;
+        MaximumLength = v6->MaximumLength;
+        if ( (unsigned __int16)v12 > (unsigned __int16)MaximumLength )
+          return v5;
+        v15 = MaximumLength >> 1;
+        Buffer = v6->Buffer;
+        if ( !v15 )
+          return v5;
+        v17 = 2147483646 - v15;
+        v18 = v11 - (_QWORD)Buffer;
         do
         {
-          if ( !(v15 + v13) )
+          if ( !(v17 + v15) )
             break;
-          v17 = *(_WORD *)((char *)v14 + v16);
-          if ( !v17 )
+          v19 = *(wchar_t *)((char *)Buffer + v18);
+          if ( !v19 )
             break;
-          *v14++ = v17;
-          --v13;
+          *Buffer++ = v19;
+          --v15;
         }
-        while ( v13 );
-        v18 = v14 - 1;
-        if ( v13 )
-          v18 = v14;
-        *v18 = 0;
-        if ( !v13 )
-          return v3;
-        *(_WORD *)a2 = Length;
+        while ( v15 );
+        v20 = Buffer - 1;
+        if ( v15 )
+          v20 = Buffer;
+        *v20 = 0;
+        if ( !v15 )
+          return v5;
+        v6->Length = Length;
         return 1;
       }
     }
   }
-  v29 = 85LL;
+  v31 = 85LL;
   DestinationString = 0LL;
-  if ( !*(_QWORD *)(a2 + 8) )
-    return v3;
-  if ( v5 == 5120 )
+  if ( !v6->Buffer )
+    return v5;
+  if ( v7 == 5120 )
   {
-    if ( (int)RtlpGetUserOrMachineUILanguage4NLS(1LL, Src, &v29) < 0 )
-      return v3;
-    if ( (unsigned int)v29 >= 0x55 || (v26 = 2LL * (unsigned int)v29, *(unsigned __int16 *)(a2 + 2) <= v26) )
+    if ( (int)RtlpGetUserOrMachineUILanguage4NLS(1LL, Src, &v31) < 0 )
+      return v5;
+    if ( (unsigned int)v31 >= 0x55 || (v28 = 2LL * (unsigned int)v31, v6->MaximumLength <= v28) )
     {
       inited = -1073741789;
     }
     else
     {
-      v27 = 2 * v29;
-      memmove(*(void **)(a2 + 8), Src, (unsigned __int16)(2 * v29));
-      *(_WORD *)(v26 + *(_QWORD *)(a2 + 8)) = 0;
-      *(_WORD *)a2 = v27;
+      v29 = 2 * v31;
+      memmove(v6->Buffer, Src, (unsigned __int16)(2 * v31));
+      v6->Buffer[v28 / 2] = 0;
+      v6->Length = v29;
     }
 LABEL_35:
     if ( inited < 0 )
-      return v3;
+      return v5;
     return 1;
   }
-  if ( ((v5 - 1024) & 0xFFFFF7FF) == 0 )
+  if ( ((v7 - 1024) & 0xFFFFF7FF) == 0 )
   {
     DestinationString.Buffer = (wchar_t *)Src;
     DestinationString.MaximumLength = 170;
     if ( (int)RtlpGetUserLocaleName(&DestinationString) < 0 )
-      return v3;
-    Buffer = DestinationString.Buffer;
-    v25 = DestinationString.Length >> 1;
+      return v5;
+    v24 = DestinationString.Buffer;
+    v27 = DestinationString.Length >> 1;
     goto LABEL_34;
   }
-  if ( pTblPtrs || RtlpLoadNlsData() )
+  if ( pTblPtrs || RtlpLoadNlsData(v8, (__int64)String, (__int64)v2, v3) )
   {
-    if ( v5 == 2048 )
-      v5 = gSystemLocale;
-    LcidIndex = RtlpNlsGetLcidIndex(v5);
+    if ( v7 == 2048 )
+      v7 = gSystemLocale;
+    LcidIndex = RtlpNlsGetLcidIndex(v7);
     if ( LcidIndex >= 0 )
     {
       _mm_lfence();
-      v21 = *(unsigned __int16 *)(*(_QWORD *)(pTblPtrs + 16) + 8LL * LcidIndex + 6);
-      Buffer = (wchar_t *)(*(_QWORD *)(pTblPtrs + 32) + 2LL + 2 * v21);
-      if ( Buffer )
+      v23 = *(unsigned __int16 *)(*(_QWORD *)(pTblPtrs + 16) + 8LL * LcidIndex + 6);
+      v24 = (wchar_t *)(*(_QWORD *)(pTblPtrs + 32) + 2LL + 2 * v23);
+      if ( v24 )
       {
-        v23 = (_WORD *)(*(_QWORD *)(pTblPtrs + 32) + 2LL + 2 * v21);
-        v24 = 84LL;
+        v25 = (_WORD *)(*(_QWORD *)(pTblPtrs + 32) + 2LL + 2 * v23);
+        v26 = 84LL;
         do
         {
-          if ( !*v23 )
+          if ( !*v25 )
             break;
-          ++v23;
-          --v24;
+          ++v25;
+          --v26;
         }
-        while ( v24 );
-        if ( v24 )
+        while ( v26 );
+        if ( v26 )
         {
-          v25 = 84 - v24;
+          v27 = 84 - v26;
 LABEL_34:
-          inited = RtlpInitUnicodeStringUsingBuffer(0LL, Buffer, v25, a2);
+          inited = RtlpInitUnicodeStringUsingBuffer(0LL, v24, v27, v6);
           goto LABEL_35;
         }
       }
     }
   }
-  return v3;
+  return v5;
 }

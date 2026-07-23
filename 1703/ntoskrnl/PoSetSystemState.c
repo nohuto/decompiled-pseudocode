@@ -11,9 +11,6 @@
 void __stdcall PoSetSystemState(EXECUTION_STATE Flags)
 {
   char v2; // bl
-  __int64 v3; // rdx
-  __int64 v4; // rcx
-  __int64 v5; // r8
 
   v2 = 0;
   if ( KeGetCurrentIrql() < 2u )
@@ -23,5 +20,5 @@ void __stdcall PoSetSystemState(EXECUTION_STATE Flags)
   }
   PopSetSystemState(Flags, 7u);
   if ( v2 )
-    PopReleasePolicyLock(v4, v3, v5);
+    PopReleasePolicyLock();
 }

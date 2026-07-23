@@ -1,23 +1,23 @@
 /*
- * XREFs of CmpDoReOpenTransKey @ 0x1407E6EF4
+ * XREFs of CmpDoReOpenTransKey @ 0x1407E74C4
  * Callers:
- *     CmpDoReDoCreateKey @ 0x1407E6BD4 (CmpDoReDoCreateKey.c)
- *     CmpDoReDoRecord @ 0x1407E6CC4 (CmpDoReDoRecord.c)
+ *     CmpDoReDoCreateKey @ 0x1407E71A4 (CmpDoReDoCreateKey.c)
+ *     CmpDoReDoRecord @ 0x1407E7294 (CmpDoReDoRecord.c)
  * Callees:
- *     ExIsResourceAcquiredSharedLite @ 0x140274B00 (ExIsResourceAcquiredSharedLite.c)
- *     ObfDereferenceObject @ 0x140325680 (ObfDereferenceObject.c)
- *     CmpTestRegistryLock @ 0x1406680A4 (CmpTestRegistryLock.c)
- *     Feature_Servicing_RemainingPathForLocalKeyName__private_IsEnabledDeviceUsageNoInline @ 0x140668D6C (Feature_Servicing_RemainingPathForLocalKeyName__private_IsEnabledDeviceUsageNoInline.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     ObReferenceObjectByHandle @ 0x14084AF40 (ObReferenceObjectByHandle.c)
- *     ObOpenObjectByName @ 0x14089B210 (ObOpenObjectByName.c)
- *     CmpInitializeParseContext @ 0x14092D400 (CmpInitializeParseContext.c)
- *     CmpCleanupParseContext @ 0x14092D4B0 (CmpCleanupParseContext.c)
- *     CmpSplitParentKeyName @ 0x140BB9D74 (CmpSplitParentKeyName.c)
- *     CmpLockRegistry @ 0x140BB9E60 (CmpLockRegistry.c)
- *     CmpUnlockRegistry @ 0x140BB9F50 (CmpUnlockRegistry.c)
+ *     ExIsResourceAcquiredSharedLite @ 0x14022A090 (ExIsResourceAcquiredSharedLite.c)
+ *     ObfDereferenceObject @ 0x1402CE210 (ObfDereferenceObject.c)
+ *     CmpTestRegistryLock @ 0x140666994 (CmpTestRegistryLock.c)
+ *     Feature_Servicing_RemainingPathForLocalKeyName__private_IsEnabledDeviceUsageNoInline @ 0x140669F44 (Feature_Servicing_RemainingPathForLocalKeyName__private_IsEnabledDeviceUsageNoInline.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     ObReferenceObjectByHandle @ 0x140847200 (ObReferenceObjectByHandle.c)
+ *     ObOpenObjectByName @ 0x1408A38B0 (ObOpenObjectByName.c)
+ *     CmpInitializeParseContext @ 0x14092F540 (CmpInitializeParseContext.c)
+ *     CmpCleanupParseContext @ 0x14092F5F0 (CmpCleanupParseContext.c)
+ *     CmpSplitParentKeyName @ 0x140BBBD74 (CmpSplitParentKeyName.c)
+ *     CmpLockRegistry @ 0x140BBBE60 (CmpLockRegistry.c)
+ *     CmpUnlockRegistry @ 0x140BBBF50 (CmpUnlockRegistry.c)
  */
 
 __int64 __fastcall CmpDoReOpenTransKey(__int64 a1, __int128 *a2, int a3, _QWORD *a4)
@@ -62,7 +62,7 @@ __int64 __fastcall CmpDoReOpenTransKey(__int64 a1, __int128 *a2, int a3, _QWORD 
   v27 = 0LL;
   Handle = 0LL;
   v26 = v7;
-  if ( dword_140EF6D28 == 1 )
+  if ( dword_140EF6F68 == 1 )
     v8 = !CmpTestRegistryLock();
   else
     v8 = ExIsResourceAcquiredSharedLite(CmpRegistryLock) == 0;

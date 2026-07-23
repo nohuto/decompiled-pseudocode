@@ -1,12 +1,12 @@
 /*
  * XREFs of KiUpdateProcessorCount @ 0x140A88CA8
  * Callers:
- *     KiUpdateNumberProcessorsIpi @ 0x140A9F580 (KiUpdateNumberProcessorsIpi.c)
+ *     KiUpdateNumberProcessorsIpi @ 0x140A9F3F0 (KiUpdateNumberProcessorsIpi.c)
  *     KeStartAllProcessors @ 0x140B47590 (KeStartAllProcessors.c)
  * Callees:
- *     KeAddProcessorAffinityEx @ 0x1402573A0 (KeAddProcessorAffinityEx.c)
- *     KiGetCurrentGroupCount @ 0x14036F174 (KiGetCurrentGroupCount.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeAddProcessorAffinityEx @ 0x140257460 (KeAddProcessorAffinityEx.c)
+ *     KiGetCurrentGroupCount @ 0x14036F314 (KiGetCurrentGroupCount.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 char __fastcall KiUpdateProcessorCount(__int64 a1, int a2)

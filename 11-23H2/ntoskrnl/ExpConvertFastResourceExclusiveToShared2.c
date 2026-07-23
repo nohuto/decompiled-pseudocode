@@ -1,16 +1,16 @@
 /*
- * XREFs of ExpConvertFastResourceExclusiveToShared2 @ 0x14041532C
+ * XREFs of ExpConvertFastResourceExclusiveToShared2 @ 0x1404156C0
  * Callers:
- *     ExConvertFastResourceExclusiveToShared2 @ 0x140413310 (ExConvertFastResourceExclusiveToShared2.c)
- *     ExpFastResourceLegacyConvertExclusiveToShared2 @ 0x140415608 (ExpFastResourceLegacyConvertExclusiveToShared2.c)
+ *     ExConvertFastResourceExclusiveToShared2 @ 0x1404136A4 (ExConvertFastResourceExclusiveToShared2.c)
+ *     ExpFastResourceLegacyConvertExclusiveToShared2 @ 0x14041599C (ExpFastResourceLegacyConvertExclusiveToShared2.c)
  * Callees:
- *     KeWakeWaitChain @ 0x140260940 (KeWakeWaitChain.c)
- *     KeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x14029CBD0 (KeAcquireInStackQueuedSpinLockAtDpcLevel.c)
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x14031A650 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     ExpAddFastOwnerEntryToThreadList2 @ 0x140415270 (ExpAddFastOwnerEntryToThreadList2.c)
- *     ExpRemoveEntryListAndClear2 @ 0x14041676C (ExpRemoveEntryListAndClear2.c)
- *     ExpUpdateLockWordForRelease @ 0x1404167A0 (ExpUpdateLockWordForRelease.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeWakeWaitChain @ 0x140260BD0 (KeWakeWaitChain.c)
+ *     KeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x14029CE60 (KeAcquireInStackQueuedSpinLockAtDpcLevel.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x14031A8E0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     ExpAddFastOwnerEntryToThreadList2 @ 0x140415604 (ExpAddFastOwnerEntryToThreadList2.c)
+ *     ExpRemoveEntryListAndClear2 @ 0x140416B00 (ExpRemoveEntryListAndClear2.c)
+ *     ExpUpdateLockWordForRelease @ 0x140416B34 (ExpUpdateLockWordForRelease.c)
  */
 
 __int64 __fastcall ExpConvertFastResourceExclusiveToShared2(__int64 a1)
@@ -37,7 +37,7 @@ __int64 __fastcall ExpConvertFastResourceExclusiveToShared2(__int64 a1)
   CurrentThread = KeGetCurrentThread();
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     v5 = 4;
@@ -64,10 +64,10 @@ __int64 __fastcall ExpConvertFastResourceExclusiveToShared2(__int64 a1)
   ExpUpdateLockWordForRelease(a1, v10, v8);
   KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
   KeWakeWaitChain(&v18, 0, 0);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v11 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v11 <= 0xFu && CurrentIrql <= 0xFu && v11 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v11 <= 0xFu && CurrentIrql <= 0xFu && v11 >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       v13 = CurrentPrcb->SchedulerAssist;
@@ -75,7 +75,7 @@ __int64 __fastcall ExpConvertFastResourceExclusiveToShared2(__int64 a1)
       v15 = (v14 & v13[5]) == 0;
       v13[5] &= v14;
       if ( v15 )
-        KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+        KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
     }
   }
   result = CurrentIrql;

@@ -30,7 +30,7 @@ void __fastcall IopInitializeBootLogging(__int64 a1, __int64 a2)
   unsigned __int64 v13; // rcx
   wchar_t *v14; // rax
   PVOID *i; // rbx
-  STRING SourceString; // [rsp+30h] [rbp-10h] BYREF
+  ANSI_STRING SourceString; // [rsp+30h] [rbp-10h] BYREF
   PMESSAGE_RESOURCE_ENTRY MessageResourceEntry; // [rsp+70h] [rbp+30h] BYREF
 
   if ( !qword_1407AC020 )

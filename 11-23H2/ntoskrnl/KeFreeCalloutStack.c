@@ -1,9 +1,9 @@
 /*
- * XREFs of KeFreeCalloutStack @ 0x1408849A0
+ * XREFs of KeFreeCalloutStack @ 0x140884BE0
  * Callers:
  *     <none>
  * Callees:
- *     MmDeleteKernelStack @ 0x1403D6640 (MmDeleteKernelStack.c)
+ *     MmDeleteKernelStack @ 0x1403D6820 (MmDeleteKernelStack.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

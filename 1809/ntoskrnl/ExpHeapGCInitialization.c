@@ -1,9 +1,9 @@
 /*
- * XREFs of ExpHeapGCInitialization @ 0x1401B75B0
+ * XREFs of ExpHeapGCInitialization @ 0x1401B7710
  * Callers:
- *     ExpInitSystemPhase1 @ 0x1409B0434 (ExpInitSystemPhase1.c)
+ *     ExpInitSystemPhase1 @ 0x1409B1434 (ExpInitSystemPhase1.c)
  * Callees:
- *     ExAllocateTimer @ 0x14016B920 (ExAllocateTimer.c)
+ *     ExAllocateTimer @ 0x14016BA20 (ExAllocateTimer.c)
  */
 
 bool ExpHeapGCInitialization()

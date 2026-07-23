@@ -1,15 +1,15 @@
 /*
- * XREFs of PsInitializeVsmEnclave @ 0x14088E1DC
+ * XREFs of PsInitializeVsmEnclave @ 0x14088F43C
  * Callers:
- *     MiInitializeEnclave @ 0x14085A240 (MiInitializeEnclave.c)
+ *     MiInitializeEnclave @ 0x14085B4A0 (MiInitializeEnclave.c)
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     ExAllocatePoolWithQuotaTag @ 0x1400B7670 (ExAllocatePoolWithQuotaTag.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     VslInitializeEnclave @ 0x14081897C (VslInitializeEnclave.c)
+ *     ExfTryToWakePushLock @ 0x140091500 (ExfTryToWakePushLock.c)
+ *     ExAllocatePoolWithQuotaTag @ 0x1400B75B0 (ExAllocatePoolWithQuotaTag.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B78F0 (KiLeaveCriticalRegionUnsafe.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     VslInitializeEnclave @ 0x140819B7C (VslInitializeEnclave.c)
  */
 
 __int64 __fastcall PsInitializeVsmEnclave(__int64 a1, unsigned int a2)

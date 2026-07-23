@@ -1,23 +1,23 @@
 /*
- * XREFs of TppIopExecuteCallback @ 0x18002ABD0
+ * XREFs of TppIopExecuteCallback @ 0x180015CD0
  * Callers:
  *     <none>
  * Callees:
- *     LdrUnlockLoaderLock @ 0x18002B040 (LdrUnlockLoaderLock.c)
- *     TppCompleteThreadData @ 0x18002B100 (TppCompleteThreadData.c)
- *     TppCleanupGroupMemberCallbackProlog @ 0x18002B6D0 (TppCleanupGroupMemberCallbackProlog.c)
- *     LdrpFindLoadedDllByHandle @ 0x180054BC0 (LdrpFindLoadedDllByHandle.c)
- *     LdrpIncrementModuleLoadCount @ 0x180054D50 (LdrpIncrementModuleLoadCount.c)
- *     LdrpDereferenceModule @ 0x180054E10 (LdrpDereferenceModule.c)
- *     LdrLockLoaderLock @ 0x1800E67E0 (LdrLockLoaderLock.c)
- *     NtTraceEvent @ 0x18015FAF0 (NtTraceEvent.c)
- *     __security_check_cookie @ 0x180162C90 (__security_check_cookie.c)
- *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x180170020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
+ *     LdrUnlockLoaderLock @ 0x180016140 (LdrUnlockLoaderLock.c)
+ *     TppCompleteThreadData @ 0x180016200 (TppCompleteThreadData.c)
+ *     TppCleanupGroupMemberCallbackProlog @ 0x1800167D0 (TppCleanupGroupMemberCallbackProlog.c)
+ *     LdrpFindLoadedDllByHandle @ 0x18003F140 (LdrpFindLoadedDllByHandle.c)
+ *     LdrpIncrementModuleLoadCount @ 0x18003F2D0 (LdrpIncrementModuleLoadCount.c)
+ *     LdrpDereferenceModule @ 0x18003F390 (LdrpDereferenceModule.c)
+ *     LdrLockLoaderLock @ 0x1800E49F0 (LdrLockLoaderLock.c)
+ *     NtTraceEvent @ 0x18015F9F0 (NtTraceEvent.c)
+ *     __security_check_cookie @ 0x180162B90 (__security_check_cookie.c)
+ *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x18016F020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
  */
 
 __int64 __fastcall TppIopExecuteCallback(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
-  __int64 v6; // r15
+  PVOID v6; // r15
   __int64 v7; // rbx
   __int64 v8; // rdi
   int v9; // r14d
@@ -43,12 +43,12 @@ __int64 __fastcall TppIopExecuteCallback(__int64 a1, __int64 a2, __int64 a3, __i
   int Count; // [rsp+30h] [rbp-128h] BYREF
   int v30; // [rsp+34h] [rbp-124h]
   int v31; // [rsp+38h] [rbp-120h]
-  __int64 v32; // [rsp+40h] [rbp-118h] BYREF
-  __int64 v33; // [rsp+48h] [rbp-110h] BYREF
+  PVOID Cookie; // [rsp+40h] [rbp-118h] BYREF
+  PVOID BaseAddress; // [rsp+48h] [rbp-110h] BYREF
   __int64 v34; // [rsp+50h] [rbp-108h]
   __int64 v35; // [rsp+58h] [rbp-100h]
   __int64 v36; // [rsp+60h] [rbp-F8h]
-  _DWORD v37[2]; // [rsp+70h] [rbp-E8h] BYREF
+  _DWORD Fields[2]; // [rsp+70h] [rbp-E8h] BYREF
   __int64 v38; // [rsp+78h] [rbp-E0h]
   __int128 v39; // [rsp+80h] [rbp-D8h]
   __int64 v40; // [rsp+90h] [rbp-C8h]
@@ -68,7 +68,7 @@ __int64 __fastcall TppIopExecuteCallback(__int64 a1, __int64 a2, __int64 a3, __i
   v35 = a4;
   v36 = a3;
   v6 = 0LL;
-  v32 = 0LL;
+  Cookie = 0LL;
   v7 = a2 - 200;
   v8 = *(_QWORD *)(a2 - 200 + 136);
   v34 = v8;
@@ -77,8 +77,8 @@ __int64 __fastcall TppIopExecuteCallback(__int64 a1, __int64 a2, __int64 a3, __i
   {
     v10 = 1;
     v30 = 1;
-    LdrLockLoaderLock(0LL, 0LL, &v32);
-    v6 = v32;
+    LdrLockLoaderLock(0, 0LL, &Cookie);
+    v6 = Cookie;
   }
   else
   {
@@ -99,10 +99,10 @@ LABEL_6:
   v31 = v9;
   if ( v10 && v9 )
   {
-    v33 = 0LL;
+    BaseAddress = 0LL;
     Count = 0;
-    if ( (int)LdrpFindLoadedDllByHandle(v8, &v33, &Count) < 0
-      || (Count = LdrpIncrementModuleLoadCount(v33), LdrpDereferenceModule(v33), Count < 0) )
+    if ( (int)LdrpFindLoadedDllByHandle(v8, &BaseAddress, &Count) < 0
+      || (Count = LdrpIncrementModuleLoadCount(BaseAddress), LdrpDereferenceModule(BaseAddress), Count < 0) )
     {
       v9 = 0;
       v31 = 0;
@@ -114,7 +114,7 @@ LABEL_6:
     }
   }
   if ( v10 )
-    LdrUnlockLoaderLock(0LL, v6);
+    LdrUnlockLoaderLock(0, v6);
   if ( v9 )
   {
     TppCleanupGroupMemberCallbackProlog(a1, v7);
@@ -131,8 +131,8 @@ LABEL_6:
     }
     if ( *(_BYTE *)v15 )
     {
-      v37[0] = 0;
-      v37[1] = 471990272;
+      Fields[0] = 0;
+      Fields[1] = 471990272;
       v38 = 0LL;
       v39 = 0LL;
       v40 = *(_QWORD *)(v7 + 144);
@@ -145,7 +145,7 @@ LABEL_6:
         v17 = (__int64)NtCurrentPeb()->SharedData + 556;
       else
         v17 = 2147353478LL;
-      NtTraceEvent(*(unsigned __int8 *)v17, 1026LL, 40LL, v37);
+      NtTraceEvent((HANDLE)*(unsigned __int8 *)v17, 0x402u, 0x28u, Fields);
     }
     v18 = *(_QWORD *)(v7 + 104);
     v19 = *(_QWORD *)(v7 + 88);
@@ -198,7 +198,7 @@ LABEL_6:
         if ( *v27 )
           v14 = (__int64)NtCurrentPeb()->SharedData + 556;
       }
-      NtTraceEvent(*(unsigned __int8 *)v14, 1027LL, 40LL, v45);
+      NtTraceEvent((HANDLE)*(unsigned __int8 *)v14, 0x403u, 0x28u, v45);
     }
     return TppCompleteThreadData(v24);
   }

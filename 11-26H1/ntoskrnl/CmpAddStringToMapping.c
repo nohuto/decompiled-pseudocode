@@ -1,64 +1,64 @@
 /*
- * XREFs of CmpAddStringToMapping @ 0x140AFD41C
+ * XREFs of CmpAddStringToMapping @ 0x140AFEF8C
  * Callers:
- *     CmpVEAddHiveToSIDMappingTable @ 0x140AFD380 (CmpVEAddHiveToSIDMappingTable.c)
+ *     CmpVEAddHiveToSIDMappingTable @ 0x140AFEEF0 (CmpVEAddHiveToSIDMappingTable.c)
  * Callees:
- *     ExAcquireFastMutex @ 0x140278070 (ExAcquireFastMutex.c)
- *     KeReleaseGuardedMutex @ 0x140278D40 (KeReleaseGuardedMutex.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     CmpHashUnicodeComponent @ 0x1408D1470 (CmpHashUnicodeComponent.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ExAcquireFastMutex @ 0x1402775E0 (ExAcquireFastMutex.c)
+ *     KeReleaseGuardedMutex @ 0x1402782B0 (KeReleaseGuardedMutex.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     CmpHashUnicodeComponent @ 0x1408D7A30 (CmpHashUnicodeComponent.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall CmpAddStringToMapping(const void **a1, struct _LIST_ENTRY *a2)
+__int64 __fastcall CmpAddStringToMapping(const void **a1, __int64 a2)
 {
   unsigned int v4; // edi
-  _KPROCESS *v6; // rdx
+  _DISPATCHER_HEADER *volatile v6; // rdx
   __int64 v7; // r9
   struct _LIST_ENTRY *v8; // rax
-  __int64 v9; // rbx
-  _KPROCESS *v10; // rbp
+  __int64 Teb_high; // rbx
+  _DISPATCHER_HEADER *volatile v10; // rbp
   int v11; // eax
-  _KPROCESS *Process; // rbx
-  _KPROCESS *Pool2; // rax
+  _DISPATCHER_HEADER *Queue; // rbx
+  _DISPATCHER_HEADER *Pool2; // rax
 
   v4 = 0;
   ExAcquireFastMutex((PKGUARDED_MUTEX)&CmpKeyLockTracker.ApcStateFill[8]);
-  if ( *(_DWORD *)&WheapPfaLock.ApcStateFill[24] != -1 )
+  if ( HIDWORD(WheapPfaLock.Teb) != -1 )
   {
-    if ( (unsigned int)(*(_DWORD *)&WheapPfaLock.ApcStateFill[24] + 1) >= *(_DWORD *)&WheapPfaLock.ApcStateFill[28] )
+    if ( (unsigned int)(HIDWORD(WheapPfaLock.Teb) + 1) >= LODWORD(WheapPfaLock.Teb) )
     {
-      Process = WheapPfaLock.ApcState.Process;
-      Pool2 = (_KPROCESS *)ExAllocatePool2(0x100uLL);
-      WheapPfaLock.ApcState.Process = Pool2;
+      Queue = WheapPfaLock.Queue;
+      Pool2 = (_DISPATCHER_HEADER *)ExAllocatePool2(0x100uLL);
+      WheapPfaLock.Queue = Pool2;
       if ( !Pool2 )
       {
-        WheapPfaLock.ApcState.Process = Process;
+        WheapPfaLock.Queue = Queue;
         goto LABEL_9;
       }
-      *(_DWORD *)&WheapPfaLock.ApcStateFill[28] += 4;
-      if ( Process )
+      LODWORD(WheapPfaLock.Teb) += 4;
+      if ( Queue )
       {
-        memmove(Pool2, Process, 32LL * *(unsigned int *)&WheapPfaLock.ApcStateFill[24]);
-        ExFreePoolWithTag(Process, 0x65564D43u);
+        memmove(Pool2, Queue, 32LL * HIDWORD(WheapPfaLock.Teb));
+        ExFreePoolWithTag(Queue, 0x65564D43u);
       }
     }
-    v6 = WheapPfaLock.ApcState.Process;
-    v7 = 32LL * *(unsigned int *)&WheapPfaLock.ApcStateFill[24];
-    *(struct _LIST_ENTRY **)((char *)&WheapPfaLock.ApcState.Process->ProfileListHead.Flink + v7) = a2;
-    *(_WORD *)((char *)&v6->Header.Lock + v7) = *(_WORD *)a1;
-    *(_WORD *)(&v6->Header.Size + v7) = *(_WORD *)a1;
+    v6 = WheapPfaLock.Queue;
+    v7 = 32LL * HIDWORD(WheapPfaLock.Teb);
+    *(_QWORD *)((char *)&WheapPfaLock.Queue[1].Lock + v7) = a2;
+    *(_WORD *)((char *)&v6->Lock + v7) = *(_WORD *)a1;
+    *(_WORD *)(&v6->Size + v7) = *(_WORD *)a1;
     v8 = (struct _LIST_ENTRY *)ExAllocatePool2(0x100uLL);
-    v9 = *(unsigned int *)&WheapPfaLock.ApcStateFill[24];
-    v10 = WheapPfaLock.ApcState.Process;
-    (&WheapPfaLock.ApcState.Process->Header.WaitListHead.Flink)[4 * *(unsigned int *)&WheapPfaLock.ApcStateFill[24]] = v8;
+    Teb_high = HIDWORD(WheapPfaLock.Teb);
+    v10 = WheapPfaLock.Queue;
+    (&WheapPfaLock.Queue->WaitListHead.Flink)[4 * HIDWORD(WheapPfaLock.Teb)] = v8;
     if ( v8 )
     {
       memmove(v8, a1[1], *(unsigned __int16 *)a1);
       v11 = CmpHashUnicodeComponent((__m128i *)a1);
-      ++*(_DWORD *)&WheapPfaLock.ApcStateFill[24];
-      LODWORD((&v10->Header.WaitListHead.Blink)[4 * v9]) = v11;
+      ++HIDWORD(WheapPfaLock.Teb);
+      LODWORD((&v10->WaitListHead.Blink)[4 * Teb_high]) = v11;
       goto LABEL_3;
     }
 LABEL_9:

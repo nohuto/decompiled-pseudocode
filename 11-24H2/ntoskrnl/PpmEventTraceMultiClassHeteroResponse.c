@@ -1,12 +1,12 @@
 /*
- * XREFs of PpmEventTraceMultiClassHeteroResponse @ 0x140423A2C
+ * XREFs of PpmEventTraceMultiClassHeteroResponse @ 0x1404178DC
  * Callers:
- *     PpmHeteroComputeMultiClassUnparkCount @ 0x140422584 (PpmHeteroComputeMultiClassUnparkCount.c)
- *     PpmCheckComputeMultiClassHeteroResponse @ 0x140422A90 (PpmCheckComputeMultiClassHeteroResponse.c)
+ *     PpmHeteroComputeMultiClassUnparkCount @ 0x140416434 (PpmHeteroComputeMultiClassUnparkCount.c)
+ *     PpmCheckComputeMultiClassHeteroResponse @ 0x140416940 (PpmCheckComputeMultiClassHeteroResponse.c)
  * Callees:
- *     EtwWriteEx @ 0x140259680 (EtwWriteEx.c)
- *     EtwEventEnabled @ 0x1402A1BD0 (EtwEventEnabled.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     EtwWriteEx @ 0x140289C90 (EtwWriteEx.c)
+ *     EtwEventEnabled @ 0x1402D1300 (EtwEventEnabled.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 char __fastcall PpmEventTraceMultiClassHeteroResponse(

@@ -1,13 +1,13 @@
 /*
- * XREFs of PpmEnableProfile @ 0x140756E1C
+ * XREFs of PpmEnableProfile @ 0x14075800C
  * Callers:
- *     PdcPoPpmResetProfile @ 0x14086ECF0 (PdcPoPpmResetProfile.c)
- *     PpmRegisterSpmSettings @ 0x14087AA40 (PpmRegisterSpmSettings.c)
- *     PpmInitPolicyConfiguration @ 0x1409D7234 (PpmInitPolicyConfiguration.c)
+ *     PdcPoPpmResetProfile @ 0x14086FF50 (PdcPoPpmResetProfile.c)
+ *     PpmRegisterSpmSettings @ 0x14087BCA0 (PpmRegisterSpmSettings.c)
+ *     PpmInitPolicyConfiguration @ 0x1409D8234 (PpmInitPolicyConfiguration.c)
  * Callees:
  *     PpmAcquireLock @ 0x140006020 (PpmAcquireLock.c)
- *     PpmReinitializeHeteroEngine @ 0x14074E488 (PpmReinitializeHeteroEngine.c)
- *     PpmEventTraceProfileEnable @ 0x140756EC4 (PpmEventTraceProfileEnable.c)
+ *     PpmReinitializeHeteroEngine @ 0x14074F678 (PpmReinitializeHeteroEngine.c)
+ *     PpmEventTraceProfileEnable @ 0x1407580B4 (PpmEventTraceProfileEnable.c)
  */
 
 __int64 __fastcall PpmEnableProfile(__int64 a1, __int64 a2)

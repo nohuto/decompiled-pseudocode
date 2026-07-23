@@ -1,13 +1,13 @@
 /*
- * XREFs of KiConfigureCooperativeIdleSearchContextTargets @ 0x1405B6868
+ * XREFs of KiConfigureCooperativeIdleSearchContextTargets @ 0x1405B3B28
  * Callers:
- *     KiConfigureCooperativeIdleSearchTargets @ 0x1405B6964 (KiConfigureCooperativeIdleSearchTargets.c)
+ *     KiConfigureCooperativeIdleSearchTargets @ 0x1405B3C24 (KiConfigureCooperativeIdleSearchTargets.c)
  * Callees:
- *     KiEnumerateNextSchedulerSubNodeInSystem @ 0x140208D20 (KiEnumerateNextSchedulerSubNodeInSystem.c)
- *     KiInitializeSystemSubNodeEnumerationContext @ 0x140439854 (KiInitializeSystemSubNodeEnumerationContext.c)
- *     KiAddSubNodeToIdleSearchContextTargets @ 0x1405B58A8 (KiAddSubNodeToIdleSearchContextTargets.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     KiEnumerateNextSchedulerSubNodeInSystem @ 0x140330300 (KiEnumerateNextSchedulerSubNodeInSystem.c)
+ *     KiInitializeSystemSubNodeEnumerationContext @ 0x14042C414 (KiInitializeSystemSubNodeEnumerationContext.c)
+ *     KiAddSubNodeToIdleSearchContextTargets @ 0x1405B2B70 (KiAddSubNodeToIdleSearchContextTargets.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 __int64 __fastcall KiConfigureCooperativeIdleSearchContextTargets(__int64 a1, int a2, __int64 a3)

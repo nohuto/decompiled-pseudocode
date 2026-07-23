@@ -1,10 +1,10 @@
 /*
- * XREFs of SshSessionManagerTraceCsExitReason @ 0x1409A17DC
+ * XREFs of SshSessionManagerTraceCsExitReason @ 0x1409A19DC
  * Callers:
- *     PopSleepstudyCaptureSessionStatistics @ 0x140878564 (PopSleepstudyCaptureSessionStatistics.c)
+ *     PopSleepstudyCaptureSessionStatistics @ 0x1408787A4 (PopSleepstudyCaptureSessionStatistics.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     SshpSessionManagerSendControlEvent @ 0x1408741A8 (SshpSessionManagerSendControlEvent.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     SshpSessionManagerSendControlEvent @ 0x1408743E8 (SshpSessionManagerSendControlEvent.c)
  */
 
 signed __int32 __fastcall SshSessionManagerTraceCsExitReason(__int64 a1, __int64 a2, _DWORD *a3)

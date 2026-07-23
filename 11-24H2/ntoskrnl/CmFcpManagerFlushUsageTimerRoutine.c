@@ -1,9 +1,9 @@
 /*
- * XREFs of CmFcpManagerFlushUsageTimerRoutine @ 0x1404D32F0
+ * XREFs of CmFcpManagerFlushUsageTimerRoutine @ 0x1404CC4B0
  * Callers:
  *     <none>
  * Callees:
- *     CmpWorkItemQueueWork @ 0x1403A68B0 (CmpWorkItemQueueWork.c)
+ *     CmpWorkItemQueueWork @ 0x14021E9B0 (CmpWorkItemQueueWork.c)
  */
 
 void __fastcall CmFcpManagerFlushUsageTimerRoutine(__int64 a1, __int64 a2)
@@ -13,11 +13,11 @@ void __fastcall CmFcpManagerFlushUsageTimerRoutine(__int64 a1, __int64 a2)
 
   do
   {
-    v2 = *(_DWORD *)(a2 + 1744);
+    v2 = *(_DWORD *)(a2 + 1816);
     v3 = v2 & 0xFFFFFFED | 0x10;
     if ( (v2 & 1) == 0 )
-      v3 = *(_DWORD *)(a2 + 1744) & 0xFFFFFFFD;
+      v3 = *(_DWORD *)(a2 + 1816) & 0xFFFFFFFD;
   }
-  while ( v2 != _InterlockedCompareExchange((volatile signed __int32 *)(a2 + 1744), v3, v2) );
-  CmpWorkItemQueueWork((PWORK_QUEUE_ITEM)(a2 + 1552));
+  while ( v2 != _InterlockedCompareExchange((volatile signed __int32 *)(a2 + 1816), v3, v2) );
+  CmpWorkItemQueueWork((PWORK_QUEUE_ITEM)(a2 + 1624));
 }

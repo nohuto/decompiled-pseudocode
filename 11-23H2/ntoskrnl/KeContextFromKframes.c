@@ -1,14 +1,14 @@
 /*
- * XREFs of KeContextFromKframes @ 0x14030E120
+ * XREFs of KeContextFromKframes @ 0x14030E3B0
  * Callers:
  *     KiSaveProcessorState @ 0x14020E550 (KiSaveProcessorState.c)
- *     KiDispatchException @ 0x14030CCA0 (KiDispatchException.c)
- *     KiInitializeUserApc @ 0x14030F1D8 (KiInitializeUserApc.c)
+ *     KiDispatchException @ 0x14030CF30 (KiDispatchException.c)
+ *     KiInitializeUserApc @ 0x14030F468 (KiInitializeUserApc.c)
  * Callees:
- *     KeCopyLastBranchInformation @ 0x14030E530 (KeCopyLastBranchInformation.c)
- *     RtlXSaveS @ 0x14036E4A4 (RtlXSaveS.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     KiCopyXStateArea @ 0x1405726E0 (KiCopyXStateArea.c)
+ *     KeCopyLastBranchInformation @ 0x14030E7C0 (KeCopyLastBranchInformation.c)
+ *     RtlXSaveS @ 0x14036E644 (RtlXSaveS.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     KiCopyXStateArea @ 0x140572C20 (KiCopyXStateArea.c)
  */
 
 __int64 __fastcall KeContextFromKframes(__int64 a1, __int64 a2, __int64 a3)
@@ -143,10 +143,10 @@ LABEL_29:
   }
   if ( !CurrentIrql )
   {
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v15 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && (unsigned __int8)(v15 - 2) <= 0xDu )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && (unsigned __int8)(v15 - 2) <= 0xDu )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;

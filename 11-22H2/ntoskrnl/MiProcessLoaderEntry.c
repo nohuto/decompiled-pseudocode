@@ -58,7 +58,9 @@ _QWORD *__fastcall MiProcessLoaderEntry(unsigned __int64 *a1, int a2)
       *(_QWORD *)(v13 + 8) = v14;
       RtlAvlRemoveNode(&BugCheckParameter3, a1 + 29);
       ExReleaseSpinLockExclusiveFromDpcLevel(&PsLoadedModuleSpinLock);
-      if ( KiIrqlFlags && (CurrentIrql = KeGetCurrentIrql(), (KiIrqlFlags & 1) != 0) && CurrentIrql <= 0xFu )
+      if ( (_DWORD)KiIrqlFlags
+        && (CurrentIrql = KeGetCurrentIrql(), ((unsigned __int8)KiIrqlFlags & 1) != 0)
+        && CurrentIrql <= 0xFu )
       {
         v15 = v25;
         if ( v25 <= 0xFu && CurrentIrql >= 2u )
@@ -124,7 +126,7 @@ LABEL_24:
   }
   RtlAvlInsertNodeEx(&BugCheckParameter3, (unsigned __int64)v7, v6, (unsigned __int64)(a1 + 29));
   ExReleaseSpinLockExclusiveFromDpcLevel(&PsLoadedModuleSpinLock);
-  if ( KiIrqlFlags && (v16 = KeGetCurrentIrql(), (KiIrqlFlags & 1) != 0) && v16 <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && (v16 = KeGetCurrentIrql(), ((unsigned __int8)KiIrqlFlags & 1) != 0) && v16 <= 0xFu )
   {
     v11 = v25;
     if ( v25 <= 0xFu && v16 >= 2u )

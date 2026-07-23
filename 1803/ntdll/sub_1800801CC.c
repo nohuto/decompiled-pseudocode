@@ -15,14 +15,14 @@ __int64 __fastcall sub_1800801CC(__int64 a1, __int64 a2)
   if ( !*(_QWORD *)(a1 + 96) )
   {
     sub_180031FD4();
-    RtlEnterCriticalSection((__int64)&unk_18015ABE0);
+    RtlEnterCriticalSection(&stru_18015ABE0);
     if ( !*(_QWORD *)(a1 + 96) )
     {
       *(_DWORD *)(a2 + 40) |= 0x40u;
       *(_DWORD *)a1 |= 0x200u;
       *(_QWORD *)(a1 + 96) = a2;
     }
-    RtlLeaveCriticalSection((__int64)&unk_18015ABE0);
+    RtlLeaveCriticalSection(&stru_18015ABE0);
   }
   return 0LL;
 }

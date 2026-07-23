@@ -1,15 +1,15 @@
 /*
- * XREFs of DifZwResetEventWrapper @ 0x1405F63A0
+ * XREFs of DifZwResetEventWrapper @ 0x1405F6910
  * Callers:
  *     <none>
  * Callees:
- *     ZwResetEvent @ 0x14041DE00 (ZwResetEvent.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     DifGetAPIThunkContextById @ 0x1404664BE (DifGetAPIThunkContextById.c)
- *     DifGetReturnAddressForWrappers @ 0x1405F88C4 (DifGetReturnAddressForWrappers.c)
+ *     ZwResetEvent @ 0x14041E190 (ZwResetEvent.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     DifGetAPIThunkContextById @ 0x1404668BE (DifGetAPIThunkContextById.c)
+ *     DifGetReturnAddressForWrappers @ 0x1405F8E34 (DifGetReturnAddressForWrappers.c)
  */
 
-__int64 __fastcall DifZwResetEventWrapper(__int64 a1, __int64 a2)
+NTSTATUS __fastcall DifZwResetEventWrapper(HANDLE EventHandle, PLONG PreviousState)
 {
   __int64 *APIThunkContextById; // rax
   __int64 v5; // rdx
@@ -20,7 +20,7 @@ __int64 __fastcall DifZwResetEventWrapper(__int64 a1, __int64 a2)
   int v10; // eax
   __int64 ReturnAddressForWrappers; // rax
   __int64 *i; // rbx
-  __int64 result; // rax
+  NTSTATUS result; // eax
   _QWORD **v14; // rdi
   _QWORD *v15; // rbx
   __int128 v16; // [rsp+20h] [rbp-20h] BYREF
@@ -58,15 +58,15 @@ LABEL_8:
   }
   *(_QWORD *)&v16 = 0LL;
 LABEL_10:
-  *(_QWORD *)&v17 = a1;
-  *((_QWORD *)&v16 + 1) = a2;
+  *(_QWORD *)&v17 = EventHandle;
+  *((_QWORD *)&v16 + 1) = PreviousState;
   for ( i = (__int64 *)v9[4]; i != v9 + 4; i = (__int64 *)*i )
   {
     if ( i != (__int64 *)16 )
       ((void (__fastcall *)(__int128 *))*(i - 1))(&v16);
   }
 LABEL_17:
-  result = ZwResetEvent(a1, a2);
+  result = ZwResetEvent(EventHandle, PreviousState);
   DWORD2(v17) = result;
   if ( v9 )
   {

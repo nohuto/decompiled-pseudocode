@@ -1,14 +1,14 @@
 /*
- * XREFs of PnpSetDeviceInstancePropertyChangeEventFromDeviceInstance @ 0x1404C2EA8
+ * XREFs of PnpSetDeviceInstancePropertyChangeEventFromDeviceInstance @ 0x1404BC6F8
  * Callers:
- *     PnpSetDeviceInstancePropertyChangeEvent @ 0x1404C2E8C (PnpSetDeviceInstancePropertyChangeEvent.c)
- *     PiCMDeleteDeviceWorker @ 0x1407B0854 (PiCMDeleteDeviceWorker.c)
- *     PiCMSetRegistryProperty @ 0x14098D258 (PiCMSetRegistryProperty.c)
- *     PiCMSetObjectProperty @ 0x14098DA68 (PiCMSetObjectProperty.c)
+ *     PnpSetDeviceInstancePropertyChangeEvent @ 0x1404BC6DC (PnpSetDeviceInstancePropertyChangeEvent.c)
+ *     PiCMDeleteDeviceWorker @ 0x1407B38B4 (PiCMDeleteDeviceWorker.c)
+ *     PiCMSetRegistryProperty @ 0x14094DCB8 (PiCMSetRegistryProperty.c)
+ *     PiCMSetObjectProperty @ 0x14094E4C8 (PiCMSetObjectProperty.c)
  * Callees:
- *     memmove @ 0x14073D480 (memmove.c)
- *     PnpCreateDeviceEventEntry @ 0x14090962C (PnpCreateDeviceEventEntry.c)
- *     PnpInsertEventInQueue @ 0x14090965C (PnpInsertEventInQueue.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     PnpCreateDeviceEventEntry @ 0x1409AB1EC (PnpCreateDeviceEventEntry.c)
+ *     PnpInsertEventInQueue @ 0x1409AB21C (PnpInsertEventInQueue.c)
  */
 
 __int64 __fastcall PnpSetDeviceInstancePropertyChangeEventFromDeviceInstance(unsigned __int16 *a1)

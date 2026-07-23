@@ -1,14 +1,14 @@
 /*
- * XREFs of PiSwProcessParentStartIrp @ 0x1404C8128
+ * XREFs of PiSwProcessParentStartIrp @ 0x1404CFB84
  * Callers:
- *     PnpStartDeviceNode @ 0x1403F10D4 (PnpStartDeviceNode.c)
- *     PnpDeviceCompletionProcessCompletedRequest @ 0x1403F2B90 (PnpDeviceCompletionProcessCompletedRequest.c)
+ *     PnpStartDeviceNode @ 0x1403EFF98 (PnpStartDeviceNode.c)
+ *     PnpDeviceCompletionProcessCompletedRequest @ 0x1403F1A54 (PnpDeviceCompletionProcessCompletedRequest.c)
  * Callees:
- *     KiLeaveCriticalRegionUnsafe @ 0x140055FA0 (KiLeaveCriticalRegionUnsafe.c)
- *     ExReleaseResourceLite @ 0x140068940 (ExReleaseResourceLite.c)
- *     IoInvalidateDeviceRelations @ 0x14009ECD4 (IoInvalidateDeviceRelations.c)
- *     PiSwLock @ 0x1403F1A74 (PiSwLock.c)
- *     PiSwFindChildren @ 0x1403F1A94 (PiSwFindChildren.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140055B20 (KiLeaveCriticalRegionUnsafe.c)
+ *     ExReleaseResourceLite @ 0x1400684C0 (ExReleaseResourceLite.c)
+ *     IoInvalidateDeviceRelations @ 0x140085F2C (IoInvalidateDeviceRelations.c)
+ *     PiSwLock @ 0x1403F0938 (PiSwLock.c)
+ *     PiSwFindChildren @ 0x1403F0958 (PiSwFindChildren.c)
  */
 
 void __fastcall PiSwProcessParentStartIrp(PDEVICE_OBJECT DeviceObject)

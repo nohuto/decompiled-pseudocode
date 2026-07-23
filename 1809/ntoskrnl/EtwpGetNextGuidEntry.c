@@ -1,20 +1,20 @@
 /*
- * XREFs of EtwpGetNextGuidEntry @ 0x1405C2614
+ * XREFs of EtwpGetNextGuidEntry @ 0x1405C3614
  * Callers:
- *     EtwpDisableTraceProviders @ 0x1405C2530 (EtwpDisableTraceProviders.c)
- *     EtwpEnumerateTraceGuids @ 0x1406D4A90 (EtwpEnumerateTraceGuids.c)
- *     EtwpTracingProvEnableCallback @ 0x1407642F0 (EtwpTracingProvEnableCallback.c)
- *     EtwpGetTraceGroupList @ 0x1408B5DD8 (EtwpGetTraceGroupList.c)
- *     EtwpGetTraceGuidList @ 0x1408B63BC (EtwpGetTraceGuidList.c)
- *     EtwpSetProviderBinaryTracking @ 0x1408C2958 (EtwpSetProviderBinaryTracking.c)
- *     EtwpEventTracingCounterSetCallback @ 0x1409085D0 (EtwpEventTracingCounterSetCallback.c)
+ *     EtwpDisableTraceProviders @ 0x1405C3530 (EtwpDisableTraceProviders.c)
+ *     EtwpEnumerateTraceGuids @ 0x1406D5D30 (EtwpEnumerateTraceGuids.c)
+ *     EtwpTracingProvEnableCallback @ 0x1407654E0 (EtwpTracingProvEnableCallback.c)
+ *     EtwpGetTraceGroupList @ 0x1408B7098 (EtwpGetTraceGroupList.c)
+ *     EtwpGetTraceGuidList @ 0x1408B767C (EtwpGetTraceGuidList.c)
+ *     EtwpSetProviderBinaryTracking @ 0x1408C3C18 (EtwpSetProviderBinaryTracking.c)
+ *     EtwpEventTracingCounterSetCallback @ 0x140909890 (EtwpEventTracingCounterSetCallback.c)
  * Callees:
  *     ExAcquirePushLockSharedEx @ 0x14004EE20 (ExAcquirePushLockSharedEx.c)
  *     KeLeaveCriticalRegion @ 0x14004F410 (KeLeaveCriticalRegion.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
- *     ExfReleasePushLockShared @ 0x1400914B0 (ExfReleasePushLockShared.c)
- *     EtwpUnreferenceGuidEntry @ 0x1405C4098 (EtwpUnreferenceGuidEntry.c)
- *     EtwpReferenceGuidEntry @ 0x1405C4288 (EtwpReferenceGuidEntry.c)
+ *     ExfReleasePushLockShared @ 0x1400913F0 (ExfReleasePushLockShared.c)
+ *     EtwpUnreferenceGuidEntry @ 0x1405C5098 (EtwpUnreferenceGuidEntry.c)
+ *     EtwpReferenceGuidEntry @ 0x1405C5288 (EtwpReferenceGuidEntry.c)
  */
 
 signed __int64 *__fastcall EtwpGetNextGuidEntry(__int64 a1, signed __int64 *a2, int a3)

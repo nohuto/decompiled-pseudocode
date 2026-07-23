@@ -1,10 +1,10 @@
 /*
- * XREFs of IvtSetupScalableModeDefaultPasidTables @ 0x140A98FB0
+ * XREFs of IvtSetupScalableModeDefaultPasidTables @ 0x140A98E20
  * Callers:
  *     IvtInitializeIommu @ 0x140A89E10 (IvtInitializeIommu.c)
  * Callees:
- *     IvtAllocateScalableModePasidTables @ 0x14052B480 (IvtAllocateScalableModePasidTables.c)
- *     IvtUpdateScalableModePasidTablesForPasid @ 0x14052DE30 (IvtUpdateScalableModePasidTablesForPasid.c)
+ *     IvtAllocateScalableModePasidTables @ 0x14052B9D0 (IvtAllocateScalableModePasidTables.c)
+ *     IvtUpdateScalableModePasidTablesForPasid @ 0x14052E380 (IvtUpdateScalableModePasidTablesForPasid.c)
  */
 
 __int64 __fastcall IvtSetupScalableModeDefaultPasidTables(__int64 a1, int a2, __int16 a3, __int64 a4)

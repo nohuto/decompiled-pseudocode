@@ -32,11 +32,11 @@ __int64 __fastcall HvlPrepareForHibernate(_OWORD *a1, _QWORD *a2, _QWORD *a3, _Q
   _SLIST_ENTRY *Next; // [rsp+30h] [rbp-A8h]
   PSLIST_ENTRY v26; // [rsp+38h] [rbp-A0h]
   PSLIST_ENTRY ListEntry; // [rsp+48h] [rbp-90h]
-  union _SLIST_HEADER *v28; // [rsp+58h] [rbp-80h]
-  struct _SLIST_ENTRY *v29; // [rsp+60h] [rbp-78h]
+  _SLIST_HEADER *v28; // [rsp+58h] [rbp-80h]
+  _SLIST_ENTRY *v29; // [rsp+60h] [rbp-78h]
   _SLIST_ENTRY *v30; // [rsp+68h] [rbp-70h]
-  union _SLIST_HEADER *v31; // [rsp+78h] [rbp-60h]
-  struct _SLIST_ENTRY *v32; // [rsp+80h] [rbp-58h]
+  _SLIST_HEADER *v31; // [rsp+78h] [rbp-60h]
+  _SLIST_ENTRY *v32; // [rsp+80h] [rbp-58h]
   _SLIST_ENTRY *v33; // [rsp+88h] [rbp-50h]
   __int16 v34; // [rsp+D0h] [rbp-8h]
 
@@ -48,7 +48,7 @@ __int64 __fastcall HvlPrepareForHibernate(_OWORD *a1, _QWORD *a2, _QWORD *a3, _Q
     HypercallCachedPages = v8;
     if ( v8 )
     {
-      v28 = (union _SLIST_HEADER *)CurrentPrcb;
+      v28 = (_SLIST_HEADER *)CurrentPrcb;
       v9 = BYTE4(CurrentPrcb);
       Next = v8[1].Next;
       v23 = 1;
@@ -83,7 +83,7 @@ LABEL_7:
     p_Next = &v14->Next;
     if ( v14 )
     {
-      v31 = (union _SLIST_HEADER *)v13;
+      v31 = (_SLIST_HEADER *)v13;
       v5 = 1;
       v15 = BYTE4(v13);
       v10 = (char)v31;

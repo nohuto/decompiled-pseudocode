@@ -11,10 +11,12 @@
 
 char __fastcall sub_180105FE0(_DWORD *a1)
 {
+  int v1; // edi
   char v2; // bl
 
+  v1 = (int)a1;
   v2 = 0;
   if ( sub_180019C74(a1, "RtlWalkHeap") )
-    return sub_1801061B8(a1, 0LL);
+    return sub_1801061B8(v1);
   return v2;
 }

@@ -1,20 +1,20 @@
 /*
- * XREFs of PiDevCfgBuildIndirectString @ 0x140A65E4C
+ * XREFs of PiDevCfgBuildIndirectString @ 0x140A5E534
  * Callers:
- *     PiDevCfgConfigureDevice @ 0x140997CFC (PiDevCfgConfigureDevice.c)
+ *     PiDevCfgConfigureDevice @ 0x1409CA478 (PiDevCfgConfigureDevice.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     RtlUnicodeStringPrintf @ 0x140480894 (RtlUnicodeStringPrintf.c)
- *     RtlUnicodeStringPrintfEx @ 0x14049EF80 (RtlUnicodeStringPrintfEx.c)
- *     PnpValidateRegistryString @ 0x1404ACEE0 (PnpValidateRegistryString.c)
- *     PnpDuplicateUnicodeString @ 0x1404C0414 (PnpDuplicateUnicodeString.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     ZwOpenKey @ 0x1406A6650 (ZwOpenKey.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     IopGetRegistryValue @ 0x1409CAD5C (IopGetRegistryValue.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePool @ 0x140B72CB0 (ExFreePool.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     RtlUnicodeStringPrintf @ 0x14047B368 (RtlUnicodeStringPrintf.c)
+ *     RtlUnicodeStringPrintfEx @ 0x140499DB0 (RtlUnicodeStringPrintfEx.c)
+ *     PnpValidateRegistryString @ 0x1404A75C4 (PnpValidateRegistryString.c)
+ *     PnpDuplicateUnicodeString @ 0x1404BBB34 (PnpDuplicateUnicodeString.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     ZwOpenKey @ 0x1406A75F0 (ZwOpenKey.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     IopGetRegistryValue @ 0x1409B5F9C (IopGetRegistryValue.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePool @ 0x140B74850 (ExFreePool.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PiDevCfgBuildIndirectString(__int64 a1, unsigned __int16 *a2, __int64 a3, UNICODE_STRING *a4)
@@ -73,7 +73,7 @@ __int64 __fastcall PiDevCfgBuildIndirectString(__int64 a1, unsigned __int16 *a2,
   if ( ZwOpenKey(&KeyHandle, 0x20019u, &ObjectAttributes) < 0 )
     goto LABEL_12;
   v13 = *a2 - 4;
-  Pool2 = (WCHAR *)ExAllocatePool2(0x100uLL);
+  Pool2 = (WCHAR *)ExAllocatePool2(0x100uLL, (unsigned __int16)(v13 + 2), 0x67727453u);
   v15 = Pool2;
   if ( !Pool2 )
   {
@@ -125,7 +125,7 @@ LABEL_12:
   {
     DestinationString.Length = v20;
     DestinationString.MaximumLength = v20 + 2;
-    DestinationString.Buffer = (wchar_t *)ExAllocatePool2(0x100uLL);
+    DestinationString.Buffer = (wchar_t *)ExAllocatePool2(0x100uLL, (unsigned __int16)(v20 + 2), 0x67727453u);
     Buffer = DestinationString.Buffer;
     if ( !DestinationString.Buffer )
     {

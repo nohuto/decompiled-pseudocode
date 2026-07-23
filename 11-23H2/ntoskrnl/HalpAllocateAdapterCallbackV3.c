@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpAllocateAdapterCallbackV3 @ 0x14050F3A0
+ * XREFs of HalpAllocateAdapterCallbackV3 @ 0x14050F8F0
  * Callers:
- *     HalpBuildScatterGatherList @ 0x14050F900 (HalpBuildScatterGatherList.c)
+ *     HalpBuildScatterGatherList @ 0x14050FE50 (HalpBuildScatterGatherList.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     HalMapTransferEx @ 0x140514670 (HalMapTransferEx.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     HalMapTransferEx @ 0x140514BC0 (HalMapTransferEx.c)
  */
 
 __int64 __fastcall HalpAllocateAdapterCallbackV3(__int64 a1, __int64 a2, __int64 a3, __int64 a4)

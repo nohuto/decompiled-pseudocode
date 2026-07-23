@@ -1,18 +1,18 @@
 /*
- * XREFs of CmpCommitLightWeightTransaction @ 0x140A1C46C
+ * XREFs of CmpCommitLightWeightTransaction @ 0x140A1C71C
  * Callers:
- *     CmpTransMgrCommit @ 0x140768C68 (CmpTransMgrCommit.c)
- *     NtCommitRegistryTransaction @ 0x140A0D250 (NtCommitRegistryTransaction.c)
+ *     CmpTransMgrCommit @ 0x140768E58 (CmpTransMgrCommit.c)
+ *     NtCommitRegistryTransaction @ 0x140A0D500 (NtCommitRegistryTransaction.c)
  * Callees:
- *     CmpDrainDelayDerefContext @ 0x14022D4F0 (CmpDrainDelayDerefContext.c)
- *     CmpInitializeDelayDerefContext @ 0x1402314A4 (CmpInitializeDelayDerefContext.c)
- *     ExfUnblockPushLock @ 0x140412160 (ExfUnblockPushLock.c)
- *     CmpLockRegistryExclusive @ 0x1407691EC (CmpLockRegistryExclusive.c)
- *     CmpAbortLightWeightTransaction @ 0x1407D0898 (CmpAbortLightWeightTransaction.c)
- *     CmpCleanupLightWeightTransaction @ 0x1407D09B4 (CmpCleanupLightWeightTransaction.c)
- *     CmpCleanupLightWeightPrepare @ 0x140A1C2F4 (CmpCleanupLightWeightPrepare.c)
- *     CmpCommitPreparedLightWeightTransaction @ 0x140A1C5E4 (CmpCommitPreparedLightWeightTransaction.c)
- *     CmpPrepareLightWeightTransaction @ 0x140A1C754 (CmpPrepareLightWeightTransaction.c)
+ *     CmpDrainDelayDerefContext @ 0x14022D600 (CmpDrainDelayDerefContext.c)
+ *     CmpInitializeDelayDerefContext @ 0x140231594 (CmpInitializeDelayDerefContext.c)
+ *     ExfUnblockPushLock @ 0x1404124A0 (ExfUnblockPushLock.c)
+ *     CmpLockRegistryExclusive @ 0x1407693DC (CmpLockRegistryExclusive.c)
+ *     CmpAbortLightWeightTransaction @ 0x1407D0B68 (CmpAbortLightWeightTransaction.c)
+ *     CmpCleanupLightWeightTransaction @ 0x1407D0C84 (CmpCleanupLightWeightTransaction.c)
+ *     CmpCleanupLightWeightPrepare @ 0x140A1C5A4 (CmpCleanupLightWeightPrepare.c)
+ *     CmpCommitPreparedLightWeightTransaction @ 0x140A1C894 (CmpCommitPreparedLightWeightTransaction.c)
+ *     CmpPrepareLightWeightTransaction @ 0x140A1CA04 (CmpPrepareLightWeightTransaction.c)
  *     CmpUnlockRegistry @ 0x140AF54F0 (CmpUnlockRegistry.c)
  */
 

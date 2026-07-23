@@ -1,21 +1,21 @@
 /*
- * XREFs of SshNotifySystemSessionChange @ 0x140ADF00C
+ * XREFs of SshNotifySystemSessionChange @ 0x140ADC854
  * Callers:
- *     PopSleepstudyStartNextSession @ 0x140A39120 (PopSleepstudyStartNextSession.c)
+ *     PopSleepstudyStartNextSession @ 0x1409F4CE0 (PopSleepstudyStartNextSession.c)
  * Callees:
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     CmpFreeTransientPoolWithTag @ 0x140477290 (CmpFreeTransientPoolWithTag.c)
- *     SshpDereferenceBlocker @ 0x14049BA90 (SshpDereferenceBlocker.c)
- *     SshpQueryAndResetBlockerAccounting @ 0x1404A29F8 (SshpQueryAndResetBlockerAccounting.c)
- *     SSHSupportReleasePushLockExclusive @ 0x1404B32FC (SSHSupportReleasePushLockExclusive.c)
- *     SshpReferenceBlocker @ 0x1404B6494 (SshpReferenceBlocker.c)
- *     SshpWriteBlocker @ 0x1404C9220 (SshpWriteBlocker.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     SshpFlushBlockerDataCache @ 0x140ADF458 (SshpFlushBlockerDataCache.c)
- *     SshpAddBlockerDataToCache @ 0x140ADF650 (SshpAddBlockerDataToCache.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     CmpFreeTransientPoolWithTag @ 0x140470A10 (CmpFreeTransientPoolWithTag.c)
+ *     SshpDereferenceBlocker @ 0x1404955E0 (SshpDereferenceBlocker.c)
+ *     SshpQueryAndResetBlockerAccounting @ 0x14049C418 (SshpQueryAndResetBlockerAccounting.c)
+ *     SSHSupportReleasePushLockExclusive @ 0x1404AC97C (SSHSupportReleasePushLockExclusive.c)
+ *     SshpReferenceBlocker @ 0x1404AF8E4 (SshpReferenceBlocker.c)
+ *     SshpWriteBlocker @ 0x1404C2C40 (SshpWriteBlocker.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     SshpFlushBlockerDataCache @ 0x140ADCCA0 (SshpFlushBlockerDataCache.c)
+ *     SshpAddBlockerDataToCache @ 0x140ADCE98 (SshpAddBlockerDataToCache.c)
  */
 
 __int64 __fastcall SshNotifySystemSessionChange(int a1, __int64 a2)

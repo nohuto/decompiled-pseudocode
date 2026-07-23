@@ -1,12 +1,12 @@
 /*
- * XREFs of PoNotifyMediaBuffering @ 0x140476430
+ * XREFs of PoNotifyMediaBuffering @ 0x1402E1780
  * Callers:
  *     <none>
  * Callees:
- *     KeQueryPriorityThread @ 0x140248260 (KeQueryPriorityThread.c)
- *     KxAcquireSpinLock @ 0x140254AE0 (KxAcquireSpinLock.c)
- *     KxReleaseSpinLock @ 0x140279CC0 (KxReleaseSpinLock.c)
- *     ExQueueWorkItem @ 0x140325850 (ExQueueWorkItem.c)
+ *     KxReleaseSpinLock @ 0x14022F250 (KxReleaseSpinLock.c)
+ *     KxAcquireSpinLock @ 0x1402850F0 (KxAcquireSpinLock.c)
+ *     ExQueueWorkItem @ 0x1402CE3E0 (ExQueueWorkItem.c)
+ *     KeQueryPriorityThread @ 0x1402E24A0 (KeQueryPriorityThread.c)
  */
 
 void __fastcall PoNotifyMediaBuffering(char a1)
@@ -18,12 +18,12 @@ void __fastcall PoNotifyMediaBuffering(char a1)
 
   v2 = 0;
   KxAcquireSpinLock(&PpmMediaBufferingWork);
-  if ( !byte_140F0D428 )
+  if ( !byte_140F0D748 )
   {
     v2 = 1;
-    byte_140F0D428 = 1;
+    byte_140F0D748 = 1;
   }
-  byte_140F0D429 = a1;
+  byte_140F0D749 = a1;
   KxReleaseSpinLock((volatile signed __int64 *)&PpmMediaBufferingWork);
   if ( v2 )
   {
@@ -38,6 +38,6 @@ void __fastcall PoNotifyMediaBuffering(char a1)
         v5 = v4;
       v4 = v5;
     }
-    ExQueueWorkItem(&stru_140F0D430, (WORK_QUEUE_TYPE)(v4 + 32));
+    ExQueueWorkItem(&WorkItem, (WORK_QUEUE_TYPE)(v4 + 32));
   }
 }

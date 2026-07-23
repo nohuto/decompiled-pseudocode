@@ -8,7 +8,7 @@
  *     _wcsicmp @ 0x1800976A0 (_wcsicmp.c)
  */
 
-bool __fastcall sub_180038554(unsigned __int64 a1, unsigned __int64 a2, const wchar_t *a3, __int16 a4)
+bool __fastcall sub_180038554(void *a1, void *a2, const wchar_t *a3, __int16 a4)
 {
   __int64 v6; // rdx
   _DWORD *v7; // rax
@@ -20,8 +20,8 @@ bool __fastcall sub_180038554(unsigned __int64 a1, unsigned __int64 a2, const wc
     return 0;
   if ( (a4 & 0x1000) != 0 )
   {
-    if ( (int)LdrResGetRCConfig(a1, 0, (unsigned int)&v10, 4096, 1) < 0
-      || (int)LdrResGetRCConfig(a2, 0, (unsigned int)&v11, 4096, 0) < 0 )
+    if ( (int)LdrResGetRCConfig((_DWORD)a1, 0, (unsigned int)&v10, 4096, 1) < 0
+      || (int)LdrResGetRCConfig((_DWORD)a2, 0, (unsigned int)&v11, 4096, 0) < 0 )
     {
       return 0;
     }
@@ -29,7 +29,7 @@ bool __fastcall sub_180038554(unsigned __int64 a1, unsigned __int64 a2, const wc
   }
   else
   {
-    v10 = sub_18003660C(a1, a2, 0, 1);
+    v10 = sub_18003660C(a1, (__int64)a2, 0, 1);
     if ( !v10 )
       return 0;
     v7 = sub_18003660C(a2, v6, 0, 0);

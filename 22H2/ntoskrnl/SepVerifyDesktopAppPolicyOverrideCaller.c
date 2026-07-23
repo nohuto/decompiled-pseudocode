@@ -12,7 +12,7 @@
  *     PsReferenceEffectiveToken @ 0x1406D5B10 (PsReferenceEffectiveToken.c)
  */
 
-char __fastcall SepVerifyDesktopAppPolicyOverrideCaller(int a1)
+char __fastcall SepVerifyDesktopAppPolicyOverrideCaller(HANDLE TokenHandle)
 {
   bool v2; // si
   KPROCESSOR_MODE PreviousMode; // dl
@@ -22,27 +22,27 @@ char __fastcall SepVerifyDesktopAppPolicyOverrideCaller(int a1)
   signed __int64 v7; // rtt
   char v9; // [rsp+48h] [rbp-C0h] BYREF
   int v10; // [rsp+4Ch] [rbp-BCh] BYREF
-  __int64 v11; // [rsp+50h] [rbp-B8h] BYREF
-  size_t v12; // [rsp+58h] [rbp-B0h] BYREF
-  size_t String2; // [rsp+60h] [rbp-A8h] BYREF
-  UNICODE_STRING String2_8; // [rsp+68h] [rbp-A0h] BYREF
+  _PS_PKG_CLAIM PkgClaim; // [rsp+50h] [rbp-B8h] BYREF
+  ULONG_PTR PackageSize; // [rsp+58h] [rbp-B0h] BYREF
+  ULONG_PTR v13; // [rsp+60h] [rbp-A8h] BYREF
+  UNICODE_STRING v14; // [rsp+68h] [rbp-A0h] BYREF
   UNICODE_STRING String1_8; // [rsp+78h] [rbp-90h] BYREF
   char v16; // [rsp+88h] [rbp-80h] BYREF
-  wchar_t v17[128]; // [rsp+98h] [rbp-70h] BYREF
-  wchar_t v18[128]; // [rsp+198h] [rbp+90h] BYREF
+  WCHAR PackageFullName[128]; // [rsp+98h] [rbp-70h] BYREF
+  WCHAR v18[128]; // [rsp+198h] [rbp+90h] BYREF
 
-  v11 = 0LL;
+  PkgClaim = 0LL;
   v10 = 0;
-  String2 = 256LL;
-  v12 = 256LL;
+  v13 = 256LL;
+  PackageSize = 256LL;
   v2 = 0;
   v9 = 0;
-  String2_8 = 0LL;
+  v14 = 0LL;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   String1_8 = 0LL;
   if ( SeSinglePrivilegeCheck(SeTcbPrivilege, PreviousMode) )
     return 1;
-  if ( RtlQueryPackageClaims(a1, v17, &v12, 0LL, 0LL, 0LL, 0LL, 0LL) >= 0 )
+  if ( RtlQueryPackageClaims(TokenHandle, PackageFullName, &PackageSize, 0LL, 0LL, 0LL, 0LL, 0LL) >= 0 )
   {
     v4 = PsReferenceEffectiveToken(
            (unsigned int)KeGetCurrentThread(),
@@ -50,15 +50,15 @@ char __fastcall SepVerifyDesktopAppPolicyOverrideCaller(int a1)
            (unsigned int)&v9,
            (unsigned int)&v16,
            0LL);
-    if ( RtlQueryPackageClaims(v4, v18, &String2, 0LL, 0LL, 0LL, &v11, 0LL) >= 0 && (v11 & 4) != 0 )
+    if ( RtlQueryPackageClaims((HANDLE)v4, v18, &v13, 0LL, 0LL, 0LL, &PkgClaim, 0LL) >= 0 && (PkgClaim.Flags & 4) != 0 )
     {
-      String1_8.Length = v12 - 2;
-      String1_8.MaximumLength = v12 - 2;
-      String1_8.Buffer = v17;
-      String2_8.Length = String2 - 2;
-      String2_8.MaximumLength = String2 - 2;
-      String2_8.Buffer = v18;
-      v2 = RtlCompareUnicodeString(&String1_8, &String2_8, 0) == 0;
+      String1_8.Length = PackageSize - 2;
+      String1_8.MaximumLength = PackageSize - 2;
+      String1_8.Buffer = PackageFullName;
+      v14.Length = v13 - 2;
+      v14.MaximumLength = v13 - 2;
+      v14.Buffer = v18;
+      v2 = RtlCompareUnicodeString(&String1_8, &v14, 0) == 0;
     }
     if ( v4 )
     {

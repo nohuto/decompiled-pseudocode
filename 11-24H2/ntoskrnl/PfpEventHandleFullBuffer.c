@@ -1,11 +1,11 @@
 /*
- * XREFs of PfpEventHandleFullBuffer @ 0x140245E30
+ * XREFs of PfpEventHandleFullBuffer @ 0x14020E610
  * Callers:
- *     PfFbLogEntryComplete @ 0x140245330 (PfFbLogEntryComplete.c)
- *     PfLogEvent @ 0x140245398 (PfLogEvent.c)
+ *     PfFbLogEntryComplete @ 0x14020DB10 (PfFbLogEntryComplete.c)
+ *     PfLogEvent @ 0x14020DB78 (PfLogEvent.c)
  * Callees:
- *     KeSetEvent @ 0x1402725A0 (KeSetEvent.c)
- *     PfTFullEventListAdd @ 0x140488B58 (PfTFullEventListAdd.c)
+ *     KeSetEvent @ 0x140227B30 (KeSetEvent.c)
+ *     PfTFullEventListAdd @ 0x140483C48 (PfTFullEventListAdd.c)
  */
 
 unsigned int __fastcall PfpEventHandleFullBuffer(__int64 a1)

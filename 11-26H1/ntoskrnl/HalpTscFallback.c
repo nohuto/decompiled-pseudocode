@@ -1,14 +1,14 @@
 /*
- * XREFs of HalpTscFallback @ 0x140583C10
+ * XREFs of HalpTscFallback @ 0x140586130
  * Callers:
  *     <none>
  * Callees:
- *     KeQueryPerformanceCounter @ 0x14021C3F0 (KeQueryPerformanceCounter.c)
- *     HalpDisableInterrupts @ 0x1402C7D00 (HalpDisableInterrupts.c)
- *     RtlSetSystemGlobalData @ 0x1404BE960 (RtlSetSystemGlobalData.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     HalCalibratePerformanceCounter @ 0x140576AC0 (HalCalibratePerformanceCounter.c)
- *     HalpTimerCalculateMaximumAllowableDrift @ 0x1405819AC (HalpTimerCalculateMaximumAllowableDrift.c)
+ *     KeQueryPerformanceCounter @ 0x14021DD80 (KeQueryPerformanceCounter.c)
+ *     HalpDisableInterrupts @ 0x1403129A0 (HalpDisableInterrupts.c)
+ *     RtlSetSystemGlobalData @ 0x1404B81B0 (RtlSetSystemGlobalData.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     HalCalibratePerformanceCounter @ 0x140578FF0 (HalCalibratePerformanceCounter.c)
+ *     HalpTimerCalculateMaximumAllowableDrift @ 0x140583ECC (HalpTimerCalculateMaximumAllowableDrift.c)
  */
 
 __int64 __fastcall HalpTscFallback(ULONG_PTR Argument)
@@ -17,9 +17,9 @@ __int64 __fastcall HalpTscFallback(ULONG_PTR Argument)
   __int64 v3; // r8
   __int64 result; // rax
   signed __int32 v5[8]; // [rsp+0h] [rbp-38h] BYREF
-  __int64 v6; // [rsp+48h] [rbp+10h] BYREF
+  char Buffer; // [rsp+48h] [rbp+10h] BYREF
 
-  LOBYTE(v6) = 0;
+  Buffer = 0;
   v2 = HalpDisableInterrupts();
   if ( _InterlockedExchangeAdd((volatile signed __int32 *)Argument, 0xFFFFFFFF) == 1 )
   {
@@ -34,7 +34,7 @@ __int64 __fastcall HalpTscFallback(ULONG_PTR Argument)
     HalpPerformanceCounter = HalpFallbackPerformanceCounter;
     if ( HalpAlwaysOnCounter )
       HalpTimerMaximumAllowableDrift = HalpTimerCalculateMaximumAllowableDrift();
-    RtlSetSystemGlobalData(16, &v6, 1);
+    RtlSetSystemGlobalData(GlobalDataIdQpcShift, &Buffer, 1u);
     _InterlockedDecrement((volatile signed __int32 *)Argument);
   }
   else

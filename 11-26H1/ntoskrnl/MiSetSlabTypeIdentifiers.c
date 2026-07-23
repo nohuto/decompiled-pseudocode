@@ -1,10 +1,10 @@
 /*
- * XREFs of MiSetSlabTypeIdentifiers @ 0x140206F68
+ * XREFs of MiSetSlabTypeIdentifiers @ 0x140207048
  * Callers:
- *     MiCreateSlabEntry @ 0x140206284 (MiCreateSlabEntry.c)
- *     MiChangeSlabEntryIdentity @ 0x140705BF8 (MiChangeSlabEntryIdentity.c)
- *     MiCreateBootSlabEntries @ 0x140CFE048 (MiCreateBootSlabEntries.c)
- *     MmUpdateSlabRangeType @ 0x140CFE76C (MmUpdateSlabRangeType.c)
+ *     MiCreateSlabEntry @ 0x140206364 (MiCreateSlabEntry.c)
+ *     MiChangeSlabEntryIdentity @ 0x14070A8C8 (MiChangeSlabEntryIdentity.c)
+ *     MiCreateBootSlabEntries @ 0x140D043F0 (MiCreateBootSlabEntries.c)
+ *     MmUpdateSlabRangeType @ 0x140D04B0C (MmUpdateSlabRangeType.c)
  * Callees:
  *     <none>
  */
@@ -20,8 +20,8 @@ char __fastcall MiSetSlabTypeIdentifiers(unsigned __int64 a1, __int64 a2, int a3
   if ( a3 != 9 )
     v5 = a3 + 1;
   v7 = (a1 + a2 - 1) >> 9;
-  v8 = qword_140E3D0C0 + 2 * v7;
-  for ( i = (_BYTE *)(qword_140E3D0C0 + 2 * (a1 >> 9)); (unsigned __int64)i <= v8; i += 2 )
+  v8 = qword_140E3D240 + 2 * v7;
+  for ( i = (_BYTE *)(qword_140E3D240 + 2 * (a1 >> 9)); (unsigned __int64)i <= v8; i += 2 )
   {
     *i = v5;
     LOBYTE(v7) = (a5 != 0 ? 0x80 : 0) | a4 & 0x7F;

@@ -1,7 +1,7 @@
 /*
- * XREFs of IopLiveDumpFreeProcessFilters @ 0x14094E3F4
+ * XREFs of IopLiveDumpFreeProcessFilters @ 0x14094E5F4
  * Callers:
- *     IopLiveDumpReleaseResources @ 0x14094EE18 (IopLiveDumpReleaseResources.c)
+ *     IopLiveDumpReleaseResources @ 0x14094F018 (IopLiveDumpReleaseResources.c)
  * Callees:
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */

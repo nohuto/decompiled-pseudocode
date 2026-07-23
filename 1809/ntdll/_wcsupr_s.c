@@ -1,10 +1,10 @@
 /*
- * XREFs of _wcsupr_s @ 0x180091E80
+ * XREFs of _wcsupr_s @ 0x180091E90
  * Callers:
  *     <none>
  * Callees:
- *     _invalid_parameter @ 0x18008FDE8 (_invalid_parameter.c)
- *     wcsnlen @ 0x180095C00 (wcsnlen.c)
+ *     _invalid_parameter @ 0x18008FDF8 (_invalid_parameter.c)
+ *     wcsnlen @ 0x180095C10 (wcsnlen.c)
  */
 
 errno_t __cdecl wcsupr_s(wchar_t *String, size_t Size)

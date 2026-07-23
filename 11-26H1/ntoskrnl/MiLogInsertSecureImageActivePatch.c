@@ -1,11 +1,11 @@
 /*
- * XREFs of MiLogInsertSecureImageActivePatch @ 0x140872D50
+ * XREFs of MiLogInsertSecureImageActivePatch @ 0x1408790B0
  * Callers:
- *     MmInsertSecureImageActivePatch @ 0x140874B1C (MmInsertSecureImageActivePatch.c)
+ *     MmInsertSecureImageActivePatch @ 0x14087AF00 (MmInsertSecureImageActivePatch.c)
  * Callees:
- *     _tlgKeywordOn @ 0x14044F850 (_tlgKeywordOn.c)
- *     _tlgWriteEx_EtwWriteEx @ 0x1404E33C4 (_tlgWriteEx_EtwWriteEx.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     _tlgKeywordOn @ 0x140447980 (_tlgKeywordOn.c)
+ *     _tlgWriteEx_EtwWriteEx @ 0x1404DC958 (_tlgWriteEx_EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 void __fastcall MiLogInsertSecureImageActivePatch(
@@ -46,8 +46,8 @@ void __fastcall MiLogInsertSecureImageActivePatch(
   __int64 *v33; // [rsp+E0h] [rbp+1Fh]
   __int64 v34; // [rsp+E8h] [rbp+27h]
 
-  if ( *(_DWORD *)stru_140E36558.FirstArgument > 5u
-    && tlgKeywordOn((__int64)stru_140E36558.FirstArgument, 0x400000000020LL) )
+  if ( *(_DWORD *)stru_140E366D8.FirstArgument > 5u
+    && tlgKeywordOn((__int64)stru_140E366D8.FirstArgument, 0x400000000020LL) )
   {
     v13 = a7;
     v16 = v8;
@@ -70,6 +70,6 @@ void __fastcall MiLogInsertSecureImageActivePatch(
     v30 = 4LL;
     v32 = 4LL;
     v34 = 8LL;
-    tlgWriteEx_EtwWriteEx(v9, (unsigned __int8 *)&byte_140058525, v7, 1u, v11, v12, 9u, &v20);
+    tlgWriteEx_EtwWriteEx(v9, (unsigned __int8 *)&byte_140059903, v7, 1u, v11, v12, 9u, &v20);
   }
 }

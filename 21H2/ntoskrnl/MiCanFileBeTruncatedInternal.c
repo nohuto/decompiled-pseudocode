@@ -1,19 +1,19 @@
 /*
- * XREFs of MiCanFileBeTruncatedInternal @ 0x1402A10AC
+ * XREFs of MiCanFileBeTruncatedInternal @ 0x14021E62C
  * Callers:
- *     MmPurgeSection @ 0x140238BA0 (MmPurgeSection.c)
- *     MmCanFileBeTruncated @ 0x1402A1030 (MmCanFileBeTruncated.c)
+ *     MmCanFileBeTruncated @ 0x14021E5B0 (MmCanFileBeTruncated.c)
+ *     MmPurgeSection @ 0x1402DD3F0 (MmPurgeSection.c)
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x14021D060 (ExAcquireSpinLockExclusive.c)
- *     ExTryAcquireSpinLockExclusiveAtDpcLevel @ 0x140261880 (ExTryAcquireSpinLockExclusiveAtDpcLevel.c)
- *     MiFindLastSubsection @ 0x1402A13FC (MiFindLastSubsection.c)
- *     MmFlushImageSection @ 0x1402B9080 (MmFlushImageSection.c)
- *     MiEndingOffset @ 0x14031C840 (MiEndingOffset.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14033BD80 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiFindLastSubsection @ 0x14021E97C (MiFindLastSubsection.c)
+ *     MmFlushImageSection @ 0x140237290 (MmFlushImageSection.c)
+ *     ExTryAcquireSpinLockExclusiveAtDpcLevel @ 0x140282D50 (ExTryAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     ExAcquireSpinLockExclusive @ 0x1402C1960 (ExAcquireSpinLockExclusive.c)
+ *     MiEndingOffset @ 0x140327590 (MiEndingOffset.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140346AD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
-volatile signed __int32 *__fastcall MiCanFileBeTruncatedInternal(
+char *__fastcall MiCanFileBeTruncatedInternal(
         PSECTION_OBJECT_POINTERS SectionObjectPointer,
         unsigned __int64 *a2,
         int a3,
@@ -22,7 +22,7 @@ volatile signed __int32 *__fastcall MiCanFileBeTruncatedInternal(
 {
   bool v8; // zf
   unsigned __int64 v9; // rbx
-  volatile signed __int32 *DataSectionObject; // rdi
+  char *DataSectionObject; // rdi
   __int64 LastSubsection; // rax
   __int64 i; // rcx
   unsigned __int64 v14; // rax
@@ -51,10 +51,10 @@ volatile signed __int32 *__fastcall MiCanFileBeTruncatedInternal(
     *a5 = 17;
     if ( v8 )
     {
-      v9 = ExAcquireSpinLockExclusive(&dword_140C4C980);
+      v9 = ExAcquireSpinLockExclusive(&dword_140C4C9C0);
       if ( !SectionObjectPointer->ImageSectionObject )
         goto LABEL_3;
-      ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140C4C980);
+      ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140C4C9C0);
       if ( KiIrqlFlags )
       {
         if ( (KiIrqlFlags & 1) != 0 )
@@ -76,12 +76,12 @@ volatile signed __int32 *__fastcall MiCanFileBeTruncatedInternal(
     }
     if ( !MmFlushImageSection(SectionObjectPointer, MmFlushForWrite) )
       return 0LL;
-    LOBYTE(v9) = ExAcquireSpinLockExclusive(&dword_140C4C980);
+    LOBYTE(v9) = ExAcquireSpinLockExclusive(&dword_140C4C9C0);
 LABEL_3:
-    DataSectionObject = (volatile signed __int32 *)SectionObjectPointer->DataSectionObject;
+    DataSectionObject = (char *)SectionObjectPointer->DataSectionObject;
     if ( !SectionObjectPointer->DataSectionObject )
     {
-      ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140C4C980);
+      ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140C4C9C0);
       if ( KiIrqlFlags )
       {
         if ( (KiIrqlFlags & 1) != 0 )
@@ -103,9 +103,9 @@ LABEL_3:
       *a5 = 0;
       return 0LL;
     }
-    if ( (unsigned int)ExTryAcquireSpinLockExclusiveAtDpcLevel(DataSectionObject + 18) )
+    if ( (unsigned int)ExTryAcquireSpinLockExclusiveAtDpcLevel(DataSectionObject + 72) )
       break;
-    ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140C4C980);
+    ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140C4C9C0);
     if ( KiIrqlFlags )
     {
       if ( (KiIrqlFlags & 1) != 0 )
@@ -125,9 +125,9 @@ LABEL_3:
     }
     __writecr8((unsigned __int8)v9);
   }
-  ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140C4C980);
-  if ( DataSectionObject[14] & 1 | ((DataSectionObject[14] & 2) != 0)
-    || *((_QWORD *)DataSectionObject + 14) > 1uLL && (DataSectionObject[14] & 8) == 0 && !a4 )
+  ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140C4C9C0);
+  if ( *((_DWORD *)DataSectionObject + 14) & 1 | ((*((_DWORD *)DataSectionObject + 14) & 2) != 0)
+    || *((_QWORD *)DataSectionObject + 14) > 1uLL && (*((_DWORD *)DataSectionObject + 14) & 8) == 0 && !a4 )
   {
     goto LABEL_22;
   }
@@ -135,7 +135,7 @@ LABEL_3:
   {
     if ( a2 )
     {
-      LastSubsection = (__int64)(DataSectionObject + 32);
+      LastSubsection = (__int64)(DataSectionObject + 128);
       if ( *((_QWORD *)DataSectionObject + 8) )
         LastSubsection = MiFindLastSubsection(DataSectionObject, 1LL);
       for ( i = *(_QWORD *)(LastSubsection + 16); i; i = *(_QWORD *)(i + 16) )
@@ -148,11 +148,11 @@ LABEL_3:
           *a2 = v28;
         goto LABEL_11;
       }
-      v15 = DataSectionObject + 18;
+      v15 = (volatile LONG *)(DataSectionObject + 72);
       goto LABEL_20;
     }
 LABEL_22:
-    v15 = DataSectionObject + 18;
+    v15 = (volatile LONG *)(DataSectionObject + 72);
 LABEL_20:
     ExReleaseSpinLockExclusiveFromDpcLevel(v15);
     if ( KiIrqlFlags )

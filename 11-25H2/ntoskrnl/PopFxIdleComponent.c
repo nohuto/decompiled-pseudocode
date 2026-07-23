@@ -25,15 +25,15 @@
 void __fastcall PopFxIdleComponent(ULONG_PTR BugCheckParameter2, ULONG_PTR BugCheckParameter3, char a3, void *a4)
 {
   unsigned int v4; // ebp
-  unsigned __int64 v8; // r8
+  LARGE_INTEGER v8; // r8
   ULONG_PTR v9; // rbx
   unsigned __int64 v10; // rsi
   unsigned __int64 v11; // rax
   unsigned __int64 v12; // rcx
-  unsigned __int64 InterruptTimePrecise; // rax
+  LARGE_INTEGER InterruptTimePrecise; // rax
   unsigned __int64 v14; // rcx
   unsigned __int64 v15; // rax
-  unsigned __int64 v16[7]; // [rsp+20h] [rbp-38h] BYREF
+  LARGE_INTEGER PerformanceCounter; // [rsp+20h] [rbp-38h] BYREF
   int v17; // [rsp+70h] [rbp+18h] BYREF
 
   v4 = BugCheckParameter3;
@@ -42,25 +42,25 @@ void __fastcall PopFxIdleComponent(ULONG_PTR BugCheckParameter2, ULONG_PTR BugCh
   if ( (unsigned int)BugCheckParameter3 >= *(_DWORD *)(BugCheckParameter2 + 868) )
     PopFxBugCheck(0x614uLL, BugCheckParameter2, (unsigned int)BugCheckParameter3, 2uLL);
   _mm_lfence();
-  v8 = 0LL;
+  v8.QuadPart = 0LL;
   v9 = *(_QWORD *)(*(_QWORD *)(BugCheckParameter2 + 872) + 8LL * (unsigned int)BugCheckParameter3);
   if ( PopFxActiveIdleLevel == 2 )
   {
-    InterruptTimePrecise = RtlGetInterruptTimePrecise(v16);
+    InterruptTimePrecise = RtlGetInterruptTimePrecise(&PerformanceCounter);
     v10 = *(_QWORD *)(v9 + 144);
     v8 = InterruptTimePrecise;
-    if ( v10 < InterruptTimePrecise )
+    if ( v10 < InterruptTimePrecise.QuadPart )
     {
       do
       {
         v14 = v10;
-        v15 = _InterlockedCompareExchange64((volatile signed __int64 *)(v9 + 144), v8, v10);
+        v15 = _InterlockedCompareExchange64((volatile signed __int64 *)(v9 + 144), v8.QuadPart, v10);
         v10 = v15;
         if ( v14 == v15 )
           break;
         _mm_pause();
       }
-      while ( v15 < v8 );
+      while ( v15 < v8.QuadPart );
     }
   }
   else
@@ -71,9 +71,11 @@ void __fastcall PopFxIdleComponent(ULONG_PTR BugCheckParameter2, ULONG_PTR BugCh
     PopFxBugCheck(0x608uLL, v9, *(int *)(v9 + 88), 0LL);
   if ( _InterlockedDecrement((volatile signed __int32 *)(v9 + 88)) == 0x80000000 )
   {
-    if ( !v8 )
-      v8 = RtlGetInterruptTimePrecise(v16);
-    if ( (*(_DWORD *)(v9 + 92) & 2) == 0 && !PopFxLowPowerEpoch && v8 - v10 < (unsigned int)PopFxActiveIdleThreshold )
+    if ( !v8.QuadPart )
+      v8 = RtlGetInterruptTimePrecise(&PerformanceCounter);
+    if ( (*(_DWORD *)(v9 + 92) & 2) == 0
+      && !PopFxLowPowerEpoch
+      && v8.QuadPart - v10 < (unsigned int)PopFxActiveIdleThreshold )
     {
       if ( _InterlockedCompareExchange((volatile signed __int32 *)(v9 + 88), -2147483647, 0x80000000) != 0x80000000 )
         return;
@@ -89,10 +91,10 @@ void __fastcall PopFxIdleComponent(ULONG_PTR BugCheckParameter2, ULONG_PTR BugCh
     if ( PopFxActiveIdleLevel == 1 )
     {
       v11 = *(_QWORD *)(v9 + 144);
-      while ( v11 < v8 )
+      while ( v11 < v8.QuadPart )
       {
         v12 = v11;
-        v11 = _InterlockedCompareExchange64((volatile signed __int64 *)(v9 + 144), v8, v11);
+        v11 = _InterlockedCompareExchange64((volatile signed __int64 *)(v9 + 144), v8.QuadPart, v11);
         if ( v12 == v11 )
           break;
         _mm_pause();
@@ -105,7 +107,7 @@ void __fastcall PopFxIdleComponent(ULONG_PTR BugCheckParameter2, ULONG_PTR BugCh
     else
     {
       if ( KeGetCurrentIrql() < 2u )
-        KiSetSystemPriorityThread((ULONG_PTR)KeGetCurrentThread(), 16, v8);
+        KiSetSystemPriorityThread((ULONG_PTR)KeGetCurrentThread(), 16, v8.LowPart);
       PopFxIdleWorker((_QWORD *)BugCheckParameter2, v4, a4);
       if ( KeGetCurrentIrql() < 2u )
       {

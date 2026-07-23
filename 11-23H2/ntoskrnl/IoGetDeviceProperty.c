@@ -1,39 +1,39 @@
 /*
- * XREFs of IoGetDeviceProperty @ 0x1407929A0
+ * XREFs of IoGetDeviceProperty @ 0x140792B90
  * Callers:
- *     PoStoreRequester @ 0x14032CF44 (PoStoreRequester.c)
- *     HalpDmaGetReservedRegionsForHybridPassthroughDomain @ 0x1405128F8 (HalpDmaGetReservedRegionsForHybridPassthroughDomain.c)
- *     PiRebalanceOptOut @ 0x140564D90 (PiRebalanceOptOut.c)
- *     KseDsCallbackHookAddDevice @ 0x140580DB0 (KseDsCallbackHookAddDevice.c)
- *     PiControlGetPropertyData @ 0x140792750 (PiControlGetPropertyData.c)
- *     IopProcessSetInterfaceState @ 0x1407936D4 (IopProcessSetInterfaceState.c)
- *     IoGetDmaAdapter @ 0x140828040 (IoGetDmaAdapter.c)
- *     SshpGenerateDeviceFriendlyName @ 0x140843E94 (SshpGenerateDeviceFriendlyName.c)
- *     SshpGenerateDeviceVerboseDescription @ 0x14084408C (SshpGenerateDeviceVerboseDescription.c)
- *     PopGenerateDeviceFriendlyName @ 0x140849204 (PopGenerateDeviceFriendlyName.c)
- *     ArbQueryConflict @ 0x140936320 (ArbQueryConflict.c)
- *     ArbShareDriverExclusive @ 0x1409368AC (ArbShareDriverExclusive.c)
- *     IopIsPciRootBus @ 0x140959EA0 (IopIsPciRootBus.c)
- *     PopRegisterCoolingExtensionProtection @ 0x140983294 (PopRegisterCoolingExtensionProtection.c)
- *     PopWakeSourceGetDeviceProperty @ 0x140987AA0 (PopWakeSourceGetDeviceProperty.c)
- *     PopDiagQueryDevicePropertyString @ 0x14098C088 (PopDiagQueryDevicePropertyString.c)
- *     IoWMISuggestInstanceName @ 0x1409DF200 (IoWMISuggestInstanceName.c)
- *     VfIsPCIBus @ 0x140AC6EA4 (VfIsPCIBus.c)
+ *     PoStoreRequester @ 0x14032D1D4 (PoStoreRequester.c)
+ *     HalpDmaGetReservedRegionsForHybridPassthroughDomain @ 0x140512E48 (HalpDmaGetReservedRegionsForHybridPassthroughDomain.c)
+ *     PiRebalanceOptOut @ 0x140565450 (PiRebalanceOptOut.c)
+ *     KseDsCallbackHookAddDevice @ 0x1405812A0 (KseDsCallbackHookAddDevice.c)
+ *     PiControlGetPropertyData @ 0x140792940 (PiControlGetPropertyData.c)
+ *     IopProcessSetInterfaceState @ 0x1407938C4 (IopProcessSetInterfaceState.c)
+ *     IoGetDmaAdapter @ 0x140828340 (IoGetDmaAdapter.c)
+ *     SshpGenerateDeviceFriendlyName @ 0x140844194 (SshpGenerateDeviceFriendlyName.c)
+ *     SshpGenerateDeviceVerboseDescription @ 0x14084438C (SshpGenerateDeviceVerboseDescription.c)
+ *     PopGenerateDeviceFriendlyName @ 0x140849504 (PopGenerateDeviceFriendlyName.c)
+ *     ArbQueryConflict @ 0x140936520 (ArbQueryConflict.c)
+ *     ArbShareDriverExclusive @ 0x140936AAC (ArbShareDriverExclusive.c)
+ *     IopIsPciRootBus @ 0x14095A0A0 (IopIsPciRootBus.c)
+ *     PopRegisterCoolingExtensionProtection @ 0x140983494 (PopRegisterCoolingExtensionProtection.c)
+ *     PopWakeSourceGetDeviceProperty @ 0x140987CA0 (PopWakeSourceGetDeviceProperty.c)
+ *     PopDiagQueryDevicePropertyString @ 0x14098C288 (PopDiagQueryDevicePropertyString.c)
+ *     IoWMISuggestInstanceName @ 0x1409DF400 (IoWMISuggestInstanceName.c)
+ *     VfIsPCIBus @ 0x140AC6E94 (VfIsPCIBus.c)
  * Callees:
- *     ExAcquireFastMutex @ 0x140230720 (ExAcquireFastMutex.c)
- *     ExReleaseFastMutex @ 0x140230860 (ExReleaseFastMutex.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memmove @ 0x140435700 (memmove.c)
- *     memset @ 0x140435A00 (memset.c)
- *     PpvUtilFailDriver @ 0x140564B64 (PpvUtilFailDriver.c)
- *     _CmGetDeviceRegProp @ 0x1406CD45C (_CmGetDeviceRegProp.c)
- *     ObQueryNameStringMode @ 0x14075B7F4 (ObQueryNameStringMode.c)
- *     PnpDetermineResourceListSize @ 0x1407901CC (PnpDetermineResourceListSize.c)
- *     PiGetDeviceRegProperty @ 0x140792F08 (PiGetDeviceRegProperty.c)
- *     PpHotSwapGetDevnodeRemovalPolicy @ 0x140793124 (PpHotSwapGetDevnodeRemovalPolicy.c)
- *     PpIrpQueryCapabilities @ 0x14079B938 (PpIrpQueryCapabilities.c)
- *     PnpBusTypeGuidGet @ 0x1407E9644 (PnpBusTypeGuidGet.c)
- *     PiGetDeviceRegistryProperty @ 0x140954D18 (PiGetDeviceRegistryProperty.c)
+ *     ExAcquireFastMutex @ 0x140230810 (ExAcquireFastMutex.c)
+ *     ExReleaseFastMutex @ 0x140230950 (ExReleaseFastMutex.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     PpvUtilFailDriver @ 0x140565224 (PpvUtilFailDriver.c)
+ *     _CmGetDeviceRegProp @ 0x1406CD48C (_CmGetDeviceRegProp.c)
+ *     ObQueryNameStringMode @ 0x14075B9E4 (ObQueryNameStringMode.c)
+ *     PnpDetermineResourceListSize @ 0x1407903BC (PnpDetermineResourceListSize.c)
+ *     PiGetDeviceRegProperty @ 0x1407930F8 (PiGetDeviceRegProperty.c)
+ *     PpHotSwapGetDevnodeRemovalPolicy @ 0x140793314 (PpHotSwapGetDevnodeRemovalPolicy.c)
+ *     PpIrpQueryCapabilities @ 0x14079BB28 (PpIrpQueryCapabilities.c)
+ *     PnpBusTypeGuidGet @ 0x1407E9914 (PnpBusTypeGuidGet.c)
+ *     PiGetDeviceRegistryProperty @ 0x140954F18 (PiGetDeviceRegistryProperty.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
@@ -214,7 +214,7 @@ LABEL_11:
                                   v14,
                                   v15,
                                   PropertyBuffer,
-                                  (__int64)ResultLength);
+                                  ResultLength);
             v17 = DeviceRegProperty == -1073741275;
             goto LABEL_13;
           }

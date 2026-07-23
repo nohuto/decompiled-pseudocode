@@ -1,9 +1,9 @@
 /*
- * XREFs of TtmpCalloutArmWatchdog @ 0x1409A3248
+ * XREFs of TtmpCalloutArmWatchdog @ 0x1409A3448
  * Callers:
- *     TtmpStartCallout @ 0x1409A3C80 (TtmpStartCallout.c)
+ *     TtmpStartCallout @ 0x1409A3E80 (TtmpStartCallout.c)
  * Callees:
- *     NtPowerInformation @ 0x140783F20 (NtPowerInformation.c)
+ *     NtPowerInformation @ 0x140784110 (NtPowerInformation.c)
  */
 
 int __fastcall TtmpCalloutArmWatchdog(__int64 a1, int a2, int a3, __int64 a4)

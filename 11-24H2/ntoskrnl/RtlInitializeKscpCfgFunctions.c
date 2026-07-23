@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlInitializeKscpCfgFunctions @ 0x140C36ED4
+ * XREFs of RtlInitializeKscpCfgFunctions @ 0x140C39014
  * Callers:
- *     MiApplyDynamicFixupsToKernelAndHal @ 0x140C55264 (MiApplyDynamicFixupsToKernelAndHal.c)
+ *     MiApplyDynamicFixupsToKernelAndHal @ 0x140C573F4 (MiApplyDynamicFixupsToKernelAndHal.c)
  * Callees:
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 __int64 __fastcall RtlInitializeKscpCfgFunctions(_DWORD *a1, unsigned int a2)

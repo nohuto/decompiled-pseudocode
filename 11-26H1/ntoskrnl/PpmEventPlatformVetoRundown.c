@@ -1,14 +1,14 @@
 /*
- * XREFs of PpmEventPlatformVetoRundown @ 0x1404C5BDC
+ * XREFs of PpmEventPlatformVetoRundown @ 0x1404BF58C
  * Callers:
- *     PpmEventTraceControlCallback @ 0x1407DCAD0 (PpmEventTraceControlCallback.c)
+ *     PpmEventTraceControlCallback @ 0x1407E0E70 (PpmEventTraceControlCallback.c)
  * Callees:
- *     EtwEventEnabled @ 0x140212D90 (EtwEventEnabled.c)
- *     EtwWriteEx @ 0x140212F70 (EtwWriteEx.c)
- *     KeReleaseSpinLock @ 0x1402BE860 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14032F300 (KeAcquireSpinLockRaiseToDpc.c)
- *     PpmEventTracePreVetoAccounting @ 0x1404C5F1C (PpmEventTracePreVetoAccounting.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x140212E70 (EtwEventEnabled.c)
+ *     EtwWriteEx @ 0x140213050 (EtwWriteEx.c)
+ *     KeReleaseSpinLock @ 0x140309520 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140331330 (KeAcquireSpinLockRaiseToDpc.c)
+ *     PpmEventTracePreVetoAccounting @ 0x1404BF8CC (PpmEventTracePreVetoAccounting.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 void PpmEventPlatformVetoRundown()
@@ -35,12 +35,9 @@ void PpmEventPlatformVetoRundown()
       UserData.Ptr = (ULONGLONG)&i;
       PpmEventTracePreVetoAccounting(&PPM_ETW_PLATFORM_PRE_VETO_ACCOUNTING_RUNDOWN);
     }
-    if ( PpmEtwRegistered
-      && EtwEventEnabled(
-           (REGHANDLE)PopModernStandbyStateNotify.ApcState.ApcListHead[1].Blink,
-           &PPM_ETW_PLATFORM_IDLE_VETO_RUNDOWN) )
+    if ( PpmEtwRegistered && EtwEventEnabled(PpmEtwHandle, &PPM_ETW_PLATFORM_IDLE_VETO_RUNDOWN) )
     {
-      v0 = KeAcquireSpinLockRaiseToDpc(&stru_140F10070.KcsanThread);
+      v0 = KeAcquireSpinLockRaiseToDpc(&PpmIdleVetoLock);
       v1 = PpmPlatformStates;
       v2 = 0;
       i = 0;
@@ -62,15 +59,7 @@ void PpmEventPlatformVetoRundown()
               v10 = 4LL;
               v11 = (char *)v6 + 20;
               v12 = 4LL;
-              EtwWriteEx(
-                (REGHANDLE)PopModernStandbyStateNotify.ApcState.ApcListHead[1].Blink,
-                &PPM_ETW_PLATFORM_IDLE_VETO_RUNDOWN,
-                0LL,
-                0,
-                0LL,
-                0LL,
-                3u,
-                &UserData);
+              EtwWriteEx(PpmEtwHandle, &PPM_ETW_PLATFORM_IDLE_VETO_RUNDOWN, 0LL, 0, 0LL, 0LL, 3u, &UserData);
               v6 = (_QWORD *)*v6;
             }
             while ( v6 != v5 );
@@ -82,7 +71,7 @@ void PpmEventPlatformVetoRundown()
         }
         while ( v2 < *(_DWORD *)PpmPlatformStates );
       }
-      KeReleaseSpinLock(&stru_140F10070.KcsanThread, v3);
+      KeReleaseSpinLock(&PpmIdleVetoLock, v3);
     }
   }
 }

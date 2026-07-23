@@ -1,10 +1,10 @@
 /*
- * XREFs of IvtMarkHiberRegions @ 0x140B52760
+ * XREFs of IvtMarkHiberRegions @ 0x140B547B0
  * Callers:
  *     <none>
  * Callees:
- *     HalpIommuExtMarkHiberMemory @ 0x1405521C4 (HalpIommuExtMarkHiberMemory.c)
- *     IvtMarkHiberMemoryScalableModePasidTables @ 0x140B526C0 (IvtMarkHiberMemoryScalableModePasidTables.c)
+ *     HalpIommuExtMarkHiberMemory @ 0x14054FB04 (HalpIommuExtMarkHiberMemory.c)
+ *     IvtMarkHiberMemoryScalableModePasidTables @ 0x140B54710 (IvtMarkHiberMemoryScalableModePasidTables.c)
  */
 
 void __fastcall IvtMarkHiberRegions(void *a1, __int64 a2)

@@ -1,10 +1,10 @@
 /*
- * XREFs of MiCauseOverCommitPopup @ 0x140480358
+ * XREFs of MiCauseOverCommitPopup @ 0x14047AF98
  * Callers:
- *     MiChargeCommit @ 0x140211450 (MiChargeCommit.c)
- *     MiPageFileNoFreeSpace @ 0x1404D0994 (MiPageFileNoFreeSpace.c)
+ *     MiChargeCommit @ 0x14033A7B0 (MiChargeCommit.c)
+ *     MiPageFileNoFreeSpace @ 0x14046F624 (MiPageFileNoFreeSpace.c)
  * Callees:
- *     IoRaiseInformationalHardError @ 0x1404ADFA0 (IoRaiseInformationalHardError.c)
+ *     IoRaiseInformationalHardError @ 0x1404A88B0 (IoRaiseInformationalHardError.c)
  */
 
 char __fastcall MiCauseOverCommitPopup(__int64 a1)

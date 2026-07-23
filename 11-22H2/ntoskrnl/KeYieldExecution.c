@@ -215,7 +215,7 @@ __int64 __fastcall KeYieldExecution(int a1)
   CurrentIrql = KeGetCurrentIrql();
   v154 = CurrentIrql;
   __writecr8(2uLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && (unsigned __int8)CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && (unsigned __int8)CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     if ( (_BYTE)CurrentIrql == 2 )
@@ -940,10 +940,10 @@ LABEL_203:
   CurrentThread->ThreadLock = 0LL;
   v2 = 1073741860;
 LABEL_256:
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v133 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v133 <= 0xFu && (unsigned __int8)CurrentIrql <= 0xFu && v133 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v133 <= 0xFu && (unsigned __int8)CurrentIrql <= 0xFu && v133 >= 2u )
     {
       v134 = KeGetCurrentPrcb();
       v135 = v134->SchedulerAssist;

@@ -10,18 +10,17 @@
  *     RtlReleaseSRWLockShared @ 0x180028DE0 (RtlReleaseSRWLockShared.c)
  */
 
-_QWORD *__fastcall sub_180006420(__int64 a1, __int64 a2, unsigned int a3)
+void __fastcall sub_180006420(__int64 a1, __int64 a2, unsigned int a3)
 {
   __int64 v5; // rdi
   __int64 v6; // rsi
   _QWORD **v7; // rdi
-  __int64 v8; // rsi
+  _RTL_SRWLOCK *v8; // rsi
   _QWORD *v9; // rbx
-  _QWORD *result; // rax
-  __int64 v11; // [rsp+50h] [rbp+8h]
-  __int64 v12; // [rsp+58h] [rbp+10h]
+  __int64 v10; // [rsp+50h] [rbp+8h]
+  _RTL_SRWLOCK *v11; // [rsp+58h] [rbp+10h]
 
-  v11 = a1;
+  v10 = a1;
   if ( (*(_BYTE *)a2 & 1) != 0 )
   {
     v5 = 0LL;
@@ -31,7 +30,7 @@ _QWORD *__fastcall sub_180006420(__int64 a1, __int64 a2, unsigned int a3)
       do
       {
         sub_180006420(a1, *(_QWORD *)(v5 + *(_QWORD *)(a2 + 104)), a3);
-        a1 = v11;
+        a1 = v10;
         v5 += 8LL;
         --v6;
       }
@@ -39,23 +38,22 @@ _QWORD *__fastcall sub_180006420(__int64 a1, __int64 a2, unsigned int a3)
     }
   }
   v7 = (_QWORD **)(a2 + 24);
-  if ( *v7 != v7 || (result = (_QWORD *)(a2 + 40), (_QWORD *)*result != result) )
+  if ( *v7 != v7 || *(_QWORD *)(a2 + 40) != a2 + 40 )
   {
-    v8 = a2 + 16;
-    v12 = a2 + 16;
-    RtlAcquireSRWLockShared(a2 + 16);
+    v8 = (_RTL_SRWLOCK *)(a2 + 16);
+    v11 = (_RTL_SRWLOCK *)(a2 + 16);
+    RtlAcquireSRWLockShared((PRTL_SRWLOCK)(a2 + 16));
     v9 = *v7;
     if ( *v7 != v7 )
     {
       do
       {
-        sub_1800215C8(v11, (_DWORD)v9, -1, 1, a3);
+        sub_1800215C8(v10, (_DWORD)v9, -1, 1, a3);
         v9 = (_QWORD *)*v9;
       }
       while ( v9 != v7 );
-      v8 = v12;
+      v8 = v11;
     }
-    return (_QWORD *)RtlReleaseSRWLockShared(v8);
+    RtlReleaseSRWLockShared(v8);
   }
-  return result;
 }

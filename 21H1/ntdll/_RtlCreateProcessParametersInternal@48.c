@@ -18,7 +18,7 @@
  */
 
 int __fastcall RtlCreateProcessParametersInternal(
-        unsigned int **a1,
+        _RTL_USER_PROCESS_PARAMETERS **a1,
         unsigned __int16 *a2,
         int a3,
         unsigned __int16 *a4,
@@ -46,14 +46,14 @@ int __fastcall RtlCreateProcessParametersInternal(
   unsigned int v24; // edi
   unsigned int BlockSize; // eax
   unsigned int v26; // ebx
-  unsigned int *Heap; // esi
-  size_t EnvironmentSize; // eax
-  int v29; // ecx
-  int v30; // eax
-  int v33; // [esp+10h] [ebp-1Ch]
-  unsigned int v34; // [esp+14h] [ebp-18h]
+  _RTL_USER_PROCESS_PARAMETERS *Heap; // esi
+  int v28; // ecx
+  int v29; // eax
+  SIZE_T v31; // [esp-4h] [ebp-30h]
+  size_t v32; // [esp-4h] [ebp-30h]
+  int v34; // [esp+10h] [ebp-1Ch]
   _RTL_USER_PROCESS_PARAMETERS *ProcessParameters; // [esp+1Ch] [ebp-10h]
-  size_t Size; // [esp+20h] [ebp-Ch]
+  unsigned int Size; // [esp+20h] [ebp-Ch]
   char v38; // [esp+2Bh] [ebp-1h]
 
   if ( (a12 & 0xFFFFFFFE) != 0 )
@@ -65,10 +65,10 @@ int __fastcall RtlCreateProcessParametersInternal(
   if ( v12 < 0 )
     return -1073741811;
   v38 = 0;
-  v33 = 0;
+  v34 = 0;
   if ( a4 )
   {
-    v33 = *a4 >> 1;
+    v34 = *a4 >> 1;
     if ( ValidateStringParameter(a4) < 0 || !v13 )
       return -1073741811;
     if ( *(_WORD *)(*(_DWORD *)(v14 + 4) + 2 * v13 - 2) == 92 )
@@ -145,35 +145,36 @@ LABEL_12:
     {
       if ( v26 + v24 < v24 )
         return -1073741675;
-      Heap = (unsigned int *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, v26 + v24);
+      LODWORD(v31) = v26 + v24;
+      Heap = (_RTL_USER_PROCESS_PARAMETERS *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, v31);
       if ( !Heap )
         return -1073741670;
       if ( Src )
         break;
       RtlEnterCriticalSection(&FastPebLock);
-      EnvironmentSize = ProcessParameters->EnvironmentSize;
-      Size = EnvironmentSize;
-      v34 = (EnvironmentSize + 3) & 0xFFFFFFFC;
-      if ( EnvironmentSize <= v26 )
+      Size = ProcessParameters->EnvironmentSize;
+      if ( Size <= v26 )
       {
-        memcpy((char *)Heap + v24, ProcessParameters->Environment, EnvironmentSize);
+        LODWORD(v31) = ProcessParameters->EnvironmentSize;
+        memcpy((char *)Heap + v24, ProcessParameters->Environment, v31);
         RtlLeaveCriticalSection(&FastPebLock);
-        v26 = v34;
+        v26 = (Size + 3) & 0xFFFFFFFC;
 LABEL_54:
-        memset(Heap, 0, 0x2C0u);
-        Heap[164] = v26;
-        Heap[18] = (unsigned int)Heap + v24;
-        *Heap = v24;
-        Heap[1] = v24;
-        Heap[2] = 1;
-        Heap[5] = ProcessParameters->ConsoleFlags & 1;
+        LODWORD(v32) = 704;
+        memset(Heap, 0, v32);
+        Heap->EnvironmentSize = v26;
+        Heap->Environment = (char *)Heap + v24;
+        Heap->MaximumLength = v24;
+        Heap->Length = v24;
+        Heap->Flags = 1;
+        Heap->ConsoleFlags = ProcessParameters->ConsoleFlags & 1;
         if ( a4 )
         {
           RtlpCopyProcString(a4, 520);
           if ( v38 )
           {
-            *(_WORD *)(Heap[10] + 2 * v33) = 92;
-            *((_WORD *)Heap + 18) += 2;
+            Heap->CurrentDirectory.DosPath.Buffer[v34] = 92;
+            Heap->CurrentDirectory.DosPath.Length += 2;
           }
         }
         else
@@ -187,28 +188,29 @@ LABEL_54:
         if ( a11 )
           RtlpCopyProcString(a11, *(unsigned __int16 *)(a11 + 2));
         RtlpCopyProcString(a2, *a2 + 2);
-        v29 = *a5;
-        v30 = a5[1];
-        if ( (_WORD)v29 != (_WORD)v30 )
-          v30 = v29 + 2;
-        RtlpCopyProcString(a5, v30);
+        v28 = *a5;
+        v29 = a5[1];
+        if ( (_WORD)v28 != (_WORD)v29 )
+          v29 = v28 + 2;
+        RtlpCopyProcString(a5, v29);
         RtlpCopyProcString(a7, *((unsigned __int16 *)a7 + 1));
         RtlpCopyProcString(a8, *((unsigned __int16 *)a8 + 1));
         RtlpCopyProcString(a9, *((unsigned __int16 *)a9 + 1));
         if ( *(_WORD *)a10 )
           RtlpCopyProcString(a10, *((unsigned __int16 *)a10 + 1));
         if ( (a12 & 1) == 0 )
-          Heap = (unsigned int *)RtlDeNormalizeProcessParams(Heap);
+          Heap = RtlDeNormalizeProcessParams(Heap);
         *a1 = Heap;
         return 0;
       }
       RtlLeaveCriticalSection(&FastPebLock);
       RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, Heap);
-      v26 = v34;
-      if ( v34 < Size )
+      v26 = (Size + 3) & 0xFFFFFFFC;
+      if ( v26 < Size )
         return -1073741675;
     }
-    memcpy((char *)Heap + v24, Src, Size);
+    LODWORD(v31) = Size;
+    memcpy((char *)Heap + v24, Src, v31);
     goto LABEL_54;
   }
   return -1073741675;

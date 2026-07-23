@@ -1,7 +1,7 @@
 /*
- * XREFs of ExpAeStopMeasurement @ 0x14008C0B8
+ * XREFs of ExpAeStopMeasurement @ 0x14008B818
  * Callers:
- *     ExfReleasePushLockSharedEx @ 0x14008BFE4 (ExfReleasePushLockSharedEx.c)
+ *     ExfReleasePushLockSharedEx @ 0x14008B744 (ExfReleasePushLockSharedEx.c)
  * Callees:
  *     <none>
  */

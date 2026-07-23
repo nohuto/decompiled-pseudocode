@@ -17,21 +17,20 @@
  *     RtlStackDbStackRemove @ 0x18011FEA8 (RtlStackDbStackRemove.c)
  */
 
-unsigned __int64 __fastcall RtlpHpStackTraceAddStack(__int64 a1, unsigned __int64 a2)
+void __fastcall RtlpHpStackTraceAddStack(__int64 a1, unsigned __int64 a2)
 {
   unsigned __int64 v2; // rbx
   char *SchedulerSharedDataSlot; // r9
   unsigned int i; // r8d
   char *v7; // rax
-  unsigned __int64 v8; // rax
-  unsigned __int64 result; // rax
-  PVOID *v10; // rax
-  __int64 v11; // rax
-  __int64 v12; // rdi
-  bool v13; // zf
-  __int64 v14; // rcx
-  __int128 v15; // [rsp+20h] [rbp-18h] BYREF
-  unsigned __int64 v16; // [rsp+50h] [rbp+18h] BYREF
+  char *v8; // rax
+  PVOID *v9; // rax
+  __int64 v10; // rax
+  __int64 v11; // rdi
+  bool v12; // zf
+  __int64 v13; // rcx
+  __int128 v14; // [rsp+20h] [rbp-18h] BYREF
+  PVOID Context; // [rsp+50h] [rbp+18h] BYREF
 
   v2 = 0LL;
   SchedulerSharedDataSlot = (char *)NtCurrentTeb()->SchedulerSharedDataSlot;
@@ -48,39 +47,31 @@ unsigned __int64 __fastcall RtlpHpStackTraceAddStack(__int64 a1, unsigned __int6
       }
     }
   }
-  v8 = _InterlockedCompareExchange64(&RtlpHpStackTrackingContext, 17LL, 0LL);
+  v8 = (char *)_InterlockedCompareExchange64((volatile signed __int64 *)&RtlpHpStackTrackingContext, 17LL, 0LL);
   if ( v8 )
-    RtlpAcquireSRWLockSharedContended(
-      (unsigned __int64)&RtlpHpStackTrackingContext,
-      a2,
-      v8,
-      (unsigned __int64)SchedulerSharedDataSlot);
+    RtlpAcquireSRWLockSharedContended((unsigned __int64)&RtlpHpStackTrackingContext, a2, v8, SchedulerSharedDataSlot);
   if ( (dword_1801D0918 & 1) != 0 && (dword_1801D0918 & 2) != 0 )
   {
-    v13 = *(_DWORD *)(a1 + 16) == -571548178;
-    v16 = 0LL;
-    v14 = 112LL;
-    if ( !v13 )
-      v14 = 368LL;
-    if ( (int)RtlRunOnceExecuteOnce(
-                (volatile signed __int64 *)(a1 + v14),
-                (unsigned int (__fastcall *)(volatile signed __int64 *, __int64, unsigned __int64 *))RtlpHpPerHeapStackTraceInitialize,
-                0LL,
-                &v16) >= 0 )
+    v12 = *(_DWORD *)(a1 + 16) == -571548178;
+    Context = 0LL;
+    v13 = 112LL;
+    if ( !v12 )
+      v13 = 368LL;
+    if ( RtlRunOnceExecuteOnce((PRTL_RUN_ONCE)(a1 + v13), RtlpHpPerHeapStackTraceInitialize, 0LL, &Context) >= 0 )
     {
-      v15 = RtlpHpEnvHandle;
-      v10 = (PVOID *)RtlpHpMetadataAlloc(0x600uLL, 0x600uLL, 0, &v15);
-      v2 = (unsigned __int64)v10;
-      if ( v10 )
+      v14 = RtlpHpEnvHandle;
+      v9 = (PVOID *)RtlpHpMetadataAlloc(0x600uLL, 0x600uLL, 0, &v14);
+      v2 = (unsigned __int64)v9;
+      if ( v9 )
       {
-        if ( RtlCaptureStackBackTrace(1u, 0xC0u, v10, 0LL) )
+        if ( RtlCaptureStackBackTrace(1u, 0xC0u, v9, 0LL) )
         {
-          v11 = RtlStackDbStackAdd(&qword_1801D0920, v2);
-          v12 = v11;
-          if ( v11 )
+          v10 = RtlStackDbStackAdd(&qword_1801D0920, v2);
+          v11 = v10;
+          if ( v10 )
           {
-            if ( !(unsigned int)RtlpHpStackTraceAllocAdd(v16, a2, v11) )
-              RtlStackDbStackRemove(&qword_1801D0920, v12);
+            if ( !(unsigned int)RtlpHpStackTraceAllocAdd(Context, a2, v10) )
+              RtlStackDbStackRemove(&qword_1801D0920, v11);
             RtlReleaseSRWLockShared(&RtlpHpStackTrackingContext);
             goto LABEL_19;
           }
@@ -88,12 +79,11 @@ unsigned __int64 __fastcall RtlpHpStackTraceAddStack(__int64 a1, unsigned __int6
       }
     }
   }
-  result = RtlReleaseSRWLockShared(&RtlpHpStackTrackingContext);
+  RtlReleaseSRWLockShared(&RtlpHpStackTrackingContext);
   if ( v2 )
   {
 LABEL_19:
-    v15 = RtlpHpEnvHandle;
-    return RtlpHpMetadataFree(v2, &v15);
+    v14 = RtlpHpEnvHandle;
+    RtlpHpMetadataFree(v2, &v14);
   }
-  return result;
 }

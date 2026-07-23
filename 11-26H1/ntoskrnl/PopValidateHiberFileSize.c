@@ -1,15 +1,15 @@
 /*
- * XREFs of PopValidateHiberFileSize @ 0x140B01614
+ * XREFs of PopValidateHiberFileSize @ 0x140B03344
  * Callers:
- *     PopSetHiberFileType @ 0x140777454 (PopSetHiberFileType.c)
- *     PopSetHiberFileSize @ 0x1407D0888 (PopSetHiberFileSize.c)
- *     PopResizeHiberFile @ 0x140B0143C (PopResizeHiberFile.c)
+ *     PopSetHiberFileType @ 0x14077A2FC (PopSetHiberFileType.c)
+ *     PopSetHiberFileSize @ 0x1407D3928 (PopSetHiberFileSize.c)
+ *     PopResizeHiberFile @ 0x140B0316C (PopResizeHiberFile.c)
  * Callees:
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     ZwQueryInformationFile @ 0x140723610 (ZwQueryInformationFile.c)
- *     ZwOpenFile @ 0x140723A50 (ZwOpenFile.c)
- *     ZwQueryVolumeInformationFile @ 0x140723D10 (ZwQueryVolumeInformationFile.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     ZwQueryInformationFile @ 0x1407281E0 (ZwQueryInformationFile.c)
+ *     ZwOpenFile @ 0x140728620 (ZwOpenFile.c)
+ *     ZwQueryVolumeInformationFile @ 0x1407288E0 (ZwQueryVolumeInformationFile.c)
  */
 
 __int64 __fastcall PopValidateHiberFileSize(__int64 a1, _QWORD *a2, _QWORD *a3, int *a4)
@@ -40,7 +40,7 @@ __int64 __fastcall PopValidateHiberFileSize(__int64 a1, _QWORD *a2, _QWORD *a3, 
   IoStatusBlock = 0LL;
   if ( FileObject )
   {
-    v10 = ZwQueryInformationFile(::FileHandle, &IoStatusBlock, &FileInformation, 0x18u, FileStandardInformation);
+    v10 = ZwQueryInformationFile(PopHiberInfo, &IoStatusBlock, &FileInformation, 0x18u, FileStandardInformation);
     if ( v10 < 0 )
     {
       v14 = 0LL;
@@ -54,7 +54,7 @@ __int64 __fastcall PopValidateHiberFileSize(__int64 a1, _QWORD *a2, _QWORD *a3, 
     v9 = 0LL;
   }
   ObjectAttributes.RootDirectory = 0LL;
-  ObjectAttributes.ObjectName = &unk_140F10DF0;
+  ObjectAttributes.ObjectName = &PoHiberFileRoot;
   ObjectAttributes.Length = 48;
   ObjectAttributes.Attributes = 576;
   *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;

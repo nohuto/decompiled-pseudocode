@@ -1,15 +1,15 @@
 /*
- * XREFs of KiActivateWaiterQueueWithThreadLock @ 0x1402A61D0
+ * XREFs of KiActivateWaiterQueueWithThreadLock @ 0x1402D5900
  * Callers:
- *     KiCommitThreadWait @ 0x140340C20 (KiCommitThreadWait.c)
+ *     KiCommitThreadWait @ 0x140320100 (KiCommitThreadWait.c)
  * Callees:
- *     ExAcquireSpinLockSharedAtDpcLevel @ 0x140210120 (ExAcquireSpinLockSharedAtDpcLevel.c)
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x140210C80 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     KiActivateWaiterKQueue @ 0x1402A6120 (KiActivateWaiterKQueue.c)
- *     KiAcquireKobjectLockSafe @ 0x14031E740 (KiAcquireKobjectLockSafe.c)
- *     KiWakePriQueueWaiter @ 0x1403248F0 (KiWakePriQueueWaiter.c)
- *     KiWakeQueueWaiter @ 0x140324B20 (KiWakeQueueWaiter.c)
- *     KiAttemptFastRemovePriQueue @ 0x140433950 (KiAttemptFastRemovePriQueue.c)
+ *     KiAcquireKobjectLockSafe @ 0x1402C72D0 (KiAcquireKobjectLockSafe.c)
+ *     KiWakePriQueueWaiter @ 0x1402CD480 (KiWakePriQueueWaiter.c)
+ *     KiWakeQueueWaiter @ 0x1402CD6B0 (KiWakeQueueWaiter.c)
+ *     KiActivateWaiterKQueue @ 0x1402D5850 (KiActivateWaiterKQueue.c)
+ *     KiAttemptFastRemovePriQueue @ 0x1402D6CB0 (KiAttemptFastRemovePriQueue.c)
+ *     ExAcquireSpinLockSharedAtDpcLevel @ 0x140339480 (ExAcquireSpinLockSharedAtDpcLevel.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x140339FE0 (ExReleaseSpinLockSharedFromDpcLevel.c)
  */
 
 void __fastcall KiActivateWaiterQueueWithThreadLock(__int64 a1, ULONG_PTR a2)
@@ -65,7 +65,7 @@ void __fastcall KiActivateWaiterQueueWithThreadLock(__int64 a1, ULONG_PTR a2)
           v10 = (_QWORD *)v9;
           if ( v9 )
           {
-            if ( !(unsigned __int8)KiWakePriQueueWaiter(KeGetCurrentPrcb(), a2, v9, 0LL) )
+            if ( !(unsigned __int8)KiWakePriQueueWaiter((__int64)KeGetCurrentPrcb(), a2, v9, 0) )
             {
               ++*(_DWORD *)(a2 + 4);
               v11 = a2 + 24;
@@ -95,7 +95,7 @@ LABEL_20:
         *v14 = v13;
         *(_QWORD *)(v13 + 8) = v14;
         *v7 = 0LL;
-        if ( (unsigned __int8)KiWakeQueueWaiter(KeGetCurrentPrcb(), a2, v7) )
+        if ( KiWakeQueueWaiter((__int64)KeGetCurrentPrcb(), a2, (__int64)v7) )
         {
           --*(_DWORD *)(a2 + 4);
         }
@@ -118,7 +118,7 @@ LABEL_20:
     v16 = (volatile LONG *)((char *)&KiObjectRundownLocks + 64 * ((a2 >> 4) & 0x3F));
     ExAcquireSpinLockSharedAtDpcLevel(v16);
     v17 = *(_QWORD *)(a1 + 232);
-    if ( !v17 || (KiAcquireKobjectLockSafe(*(_QWORD *)(a1 + 232)), *(_QWORD *)(a1 + 232)) )
+    if ( !v17 || (KiAcquireKobjectLockSafe(*(volatile signed __int32 **)(a1 + 232)), *(_QWORD *)(a1 + 232)) )
     {
       ExReleaseSpinLockSharedFromDpcLevel(v16);
       if ( v17 )
@@ -133,7 +133,7 @@ LABEL_20:
               v19 = (_QWORD *)v18;
               if ( v18 )
               {
-                if ( !(unsigned __int8)KiWakePriQueueWaiter(KeGetCurrentPrcb(), v17, v18, 0LL) )
+                if ( !(unsigned __int8)KiWakePriQueueWaiter((__int64)KeGetCurrentPrcb(), v17, v18, 0) )
                 {
                   ++*(_DWORD *)(v17 + 4);
                   v20 = v17 + 24;

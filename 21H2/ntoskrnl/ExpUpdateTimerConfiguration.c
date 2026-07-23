@@ -1,13 +1,13 @@
 /*
- * XREFs of ExpUpdateTimerConfiguration @ 0x1402EAF00
+ * XREFs of ExpUpdateTimerConfiguration @ 0x14029C250
  * Callers:
- *     ExpUpdateTimerResolution @ 0x1402EC99C (ExpUpdateTimerResolution.c)
- *     NtSetSystemInformation @ 0x1406DA380 (NtSetSystemInformation.c)
+ *     ExpUpdateTimerResolution @ 0x14029DCEC (ExpUpdateTimerResolution.c)
+ *     NtSetSystemInformation @ 0x1406B1660 (NtSetSystemInformation.c)
  * Callees:
- *     KeAddProcessorAffinityEx @ 0x140229380 (KeAddProcessorAffinityEx.c)
- *     KeGenericProcessorCallback @ 0x1402EB178 (KeGenericProcessorCallback.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     memset @ 0x140414200 (memset.c)
+ *     KeGenericProcessorCallback @ 0x14029C4C8 (KeGenericProcessorCallback.c)
+ *     KeAddProcessorAffinityEx @ 0x1402CDC80 (KeAddProcessorAffinityEx.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     memset @ 0x140414300 (memset.c)
  */
 
 __int64 __fastcall ExpUpdateTimerConfiguration(__int64 a1, __int64 a2, __int64 a3)
@@ -19,7 +19,7 @@ __int64 __fastcall ExpUpdateTimerConfiguration(__int64 a1, __int64 a2, __int64 a
   v8 = 0LL;
   v9[0] = 1310721;
   memset(&v9[1], 0, 0xA4uLL);
-  KeAddProcessorAffinityEx(v9, KiClockTimerOwner);
+  KeAddProcessorAffinityEx(v9, (unsigned int)KiClockTimerOwner);
   v7[0] = a1;
   v7[1] = a2;
   v7[2] = a3;

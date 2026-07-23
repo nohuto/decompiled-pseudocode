@@ -1,27 +1,27 @@
 /*
- * XREFs of EtwpReleaseQueueEntry @ 0x1406E491C
+ * XREFs of EtwpReleaseQueueEntry @ 0x1406BBBFC
  * Callers:
- *     EtwpDeleteRegistrationObject @ 0x1405FC900 (EtwpDeleteRegistrationObject.c)
- *     EtwpRundownNotifications @ 0x14069322C (EtwpRundownNotifications.c)
- *     EtwpSendReplyDataBlock @ 0x1406BB2E8 (EtwpSendReplyDataBlock.c)
- *     EtwpQueueNotification @ 0x1406E424C (EtwpQueueNotification.c)
- *     EtwpReceiveNotification @ 0x1406E478C (EtwpReceiveNotification.c)
+ *     EtwpQueueNotification @ 0x1406BB52C (EtwpQueueNotification.c)
+ *     EtwpReceiveNotification @ 0x1406BBA6C (EtwpReceiveNotification.c)
+ *     EtwpSendReplyDataBlock @ 0x1406BCB68 (EtwpSendReplyDataBlock.c)
+ *     EtwpRundownNotifications @ 0x1406BCF58 (EtwpRundownNotifications.c)
+ *     EtwpDeleteRegistrationObject @ 0x1406EC060 (EtwpDeleteRegistrationObject.c)
  * Callees:
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     PsReleaseProcessWakeCounter @ 0x1405DE9D0 (PsReleaseProcessWakeCounter.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     PsReleaseProcessWakeCounter @ 0x1406CE130 (PsReleaseProcessWakeCounter.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 void __fastcall EtwpReleaseQueueEntry(PADAPTER_OBJECT *P, int a2)
 {
-  __int64 v4; // rcx
+  PADAPTER_OBJECT v4; // rcx
 
   if ( (a2 & 2) != 0 )
   {
     HalPutDmaAdapter(P[4]);
-    v4 = (__int64)P[5];
+    v4 = P[5];
     if ( v4 )
-      PsReleaseProcessWakeCounter(v4);
+      PsReleaseProcessWakeCounter(v4, P[3]);
   }
   _m_prefetchw((char *)P + 52);
   if ( (~a2 & _InterlockedAnd((volatile signed __int32 *)P + 13, ~a2)) == 0 )

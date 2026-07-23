@@ -26,7 +26,10 @@ __int64 __fastcall HalpAddAdapterToSystemList(__int64 a1, __int64 a2)
   v2 = *(unsigned __int8 *)(a1 + 176);
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(v2);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)(v2 - 2) <= 0xDu )
+  if ( (_DWORD)KiIrqlFlags
+    && ((unsigned __int8)KiIrqlFlags & 1) != 0
+    && CurrentIrql <= 0xFu
+    && (unsigned __int8)(v2 - 2) <= 0xDu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     if ( CurrentIrql == (_BYTE)v2 )
@@ -45,10 +48,10 @@ __int64 __fastcall HalpAddAdapterToSystemList(__int64 a1, __int64 a2)
   *v8 = v9;
   *(_QWORD *)(a1 + 24) = v9;
   KxReleaseSpinLock((volatile signed __int64 *)(a1 + 168));
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v10 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v10 <= 0xFu && CurrentIrql <= 0xFu && v10 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v10 <= 0xFu && CurrentIrql <= 0xFu && v10 >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       v12 = CurrentPrcb->SchedulerAssist;

@@ -1,22 +1,22 @@
 /*
- * XREFs of MiEmptyPageAccessLog @ 0x1402CFDDC
+ * XREFs of MiEmptyPageAccessLog @ 0x1402B1B9C
  * Callers:
- *     MiPeriodicTrimWorkingSet @ 0x1403B9E10 (MiPeriodicTrimWorkingSet.c)
- *     MiDrainOldAccessBuffers @ 0x1403BAF90 (MiDrainOldAccessBuffers.c)
- *     MiDrainSystemAccessLog @ 0x1403BB21C (MiDrainSystemAccessLog.c)
- *     MiAllocateAccessLog @ 0x140495568 (MiAllocateAccessLog.c)
- *     MmOutSwapProcess @ 0x14049A5C8 (MmOutSwapProcess.c)
- *     MmDeleteProcessAddressSpace @ 0x140B3F940 (MmDeleteProcessAddressSpace.c)
+ *     MiPeriodicTrimWorkingSet @ 0x1403C3C80 (MiPeriodicTrimWorkingSet.c)
+ *     MiDrainOldAccessBuffers @ 0x1403C4E00 (MiDrainOldAccessBuffers.c)
+ *     MiDrainSystemAccessLog @ 0x1403C508C (MiDrainSystemAccessLog.c)
+ *     MiAllocateAccessLog @ 0x14048F0B8 (MiAllocateAccessLog.c)
+ *     MmOutSwapProcess @ 0x140494118 (MmOutSwapProcess.c)
+ *     MmDeleteProcessAddressSpace @ 0x140B41970 (MmDeleteProcessAddressSpace.c)
  * Callees:
- *     ObReferenceObjectSafeWithTag @ 0x140258450 (ObReferenceObjectSafeWithTag.c)
- *     ObFastDereferenceObjectDeferDelete @ 0x140264A20 (ObFastDereferenceObjectDeferDelete.c)
- *     MiSwizzleInvalidPte @ 0x1402D0130 (MiSwizzleInvalidPte.c)
- *     MiGetPrototypePteDirect @ 0x1402D0DC0 (MiGetPrototypePteDirect.c)
- *     PsGetSessionIdEx @ 0x14030B820 (PsGetSessionIdEx.c)
- *     MiStartingOffset @ 0x14036CEA0 (MiStartingOffset.c)
- *     MiReferenceControlAreaFileWithTag @ 0x14038ED10 (MiReferenceControlAreaFileWithTag.c)
- *     MiQueuePageAccessLog @ 0x1403BA328 (MiQueuePageAccessLog.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ObReferenceObjectSafeWithTag @ 0x140259C30 (ObReferenceObjectSafeWithTag.c)
+ *     ObFastDereferenceObjectDeferDelete @ 0x140263F90 (ObFastDereferenceObjectDeferDelete.c)
+ *     MiSwizzleInvalidPte @ 0x1402B1EF0 (MiSwizzleInvalidPte.c)
+ *     MiGetPrototypePteDirect @ 0x1402B2B80 (MiGetPrototypePteDirect.c)
+ *     PsGetSessionIdEx @ 0x1402ED8A0 (PsGetSessionIdEx.c)
+ *     MiStartingOffset @ 0x14036EC40 (MiStartingOffset.c)
+ *     MiReferenceControlAreaFileWithTag @ 0x140390AC0 (MiReferenceControlAreaFileWithTag.c)
+ *     MiQueuePageAccessLog @ 0x1403C4198 (MiQueuePageAccessLog.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __fastcall MiEmptyPageAccessLog(__int64 a1, _QWORD *a2)

@@ -1,19 +1,19 @@
 /*
- * XREFs of AlpcpDeletePort @ 0x140718710
+ * XREFs of AlpcpDeletePort @ 0x140718910
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14022F5B0 (ObfDereferenceObjectWithTag.c)
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     ExfTryToWakePushLock @ 0x1402BD960 (ExfTryToWakePushLock.c)
- *     AlpcpFreeCompletionPacketLookaside @ 0x1403644BC (AlpcpFreeCompletionPacketLookaside.c)
- *     AlpcpSendCloseMessage @ 0x140718550 (AlpcpSendCloseMessage.c)
- *     AlpcpDestroyPort @ 0x140718670 (AlpcpDestroyPort.c)
- *     SeDeleteClientSecurity @ 0x14071D180 (SeDeleteClientSecurity.c)
- *     AlpcpDereferenceBlobEx @ 0x14071E93C (AlpcpDereferenceBlobEx.c)
+ *     ObfDereferenceObjectWithTag @ 0x14022F6C0 (ObfDereferenceObjectWithTag.c)
+ *     KeLeaveCriticalRegionThread @ 0x14022F7F0 (KeLeaveCriticalRegionThread.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140231120 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     ObfDereferenceObject @ 0x140231660 (ObfDereferenceObject.c)
+ *     ExfTryToWakePushLock @ 0x1402BDBF0 (ExfTryToWakePushLock.c)
+ *     AlpcpFreeCompletionPacketLookaside @ 0x14036465C (AlpcpFreeCompletionPacketLookaside.c)
+ *     AlpcpSendCloseMessage @ 0x140718750 (AlpcpSendCloseMessage.c)
+ *     AlpcpDestroyPort @ 0x140718870 (AlpcpDestroyPort.c)
+ *     SeDeleteClientSecurity @ 0x14071D380 (SeDeleteClientSecurity.c)
+ *     AlpcpDereferenceBlobEx @ 0x14071EB3C (AlpcpDereferenceBlobEx.c)
  */
 
 _QWORD *__fastcall AlpcpDeletePort(__int64 a1)

@@ -1,13 +1,13 @@
 /*
- * XREFs of PpmHeteroComputeMultiClassUnparkCount @ 0x140596E90
+ * XREFs of PpmHeteroComputeMultiClassUnparkCount @ 0x140597380
  * Callers:
- *     PpmCheckComputeMultiClassHeteroResponse @ 0x1405968A8 (PpmCheckComputeMultiClassHeteroResponse.c)
+ *     PpmCheckComputeMultiClassHeteroResponse @ 0x140596D98 (PpmCheckComputeMultiClassHeteroResponse.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     PpmHeteroComputeCoreParkingUtilities @ 0x140596CC8 (PpmHeteroComputeCoreParkingUtilities.c)
- *     PpmHeteroComputeUnparkCount @ 0x140597160 (PpmHeteroComputeUnparkCount.c)
- *     PpmEventTraceMultiClassHeteroResponse @ 0x14059BBA0 (PpmEventTraceMultiClassHeteroResponse.c)
- *     PpmEventTraceMultiClassHeteroResponseUpdate @ 0x14059BD98 (PpmEventTraceMultiClassHeteroResponseUpdate.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     PpmHeteroComputeCoreParkingUtilities @ 0x1405971B8 (PpmHeteroComputeCoreParkingUtilities.c)
+ *     PpmHeteroComputeUnparkCount @ 0x140597650 (PpmHeteroComputeUnparkCount.c)
+ *     PpmEventTraceMultiClassHeteroResponse @ 0x14059C090 (PpmEventTraceMultiClassHeteroResponse.c)
+ *     PpmEventTraceMultiClassHeteroResponseUpdate @ 0x14059C288 (PpmEventTraceMultiClassHeteroResponseUpdate.c)
  */
 
 __int64 __fastcall PpmHeteroComputeMultiClassUnparkCount(

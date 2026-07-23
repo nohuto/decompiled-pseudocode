@@ -1,13 +1,13 @@
 /*
- * XREFs of MiMakeProtoPrivate @ 0x1403114CC
+ * XREFs of MiMakeProtoPrivate @ 0x140313500
  * Callers:
- *     MiProtectValidPte @ 0x140311A38 (MiProtectValidPte.c)
+ *     MiProtectValidPte @ 0x140313A6C (MiProtectValidPte.c)
  * Callees:
- *     MiUnlockPageTableInternal @ 0x1402D13E0 (MiUnlockPageTableInternal.c)
- *     MiUnlockWorkingSetShared @ 0x1402EB6C0 (MiUnlockWorkingSetShared.c)
- *     MiCopyOnWrite @ 0x14036AD38 (MiCopyOnWrite.c)
- *     MiLocateCloneAddress @ 0x14036BA4C (MiLocateCloneAddress.c)
- *     MiCopyOnWriteCheckConditions @ 0x1403A2E0C (MiCopyOnWriteCheckConditions.c)
+ *     MiUnlockPageTableInternal @ 0x1402B31A0 (MiUnlockPageTableInternal.c)
+ *     MiUnlockWorkingSetShared @ 0x1402CD700 (MiUnlockWorkingSetShared.c)
+ *     MiCopyOnWrite @ 0x14036CAD8 (MiCopyOnWrite.c)
+ *     MiLocateCloneAddress @ 0x14036D7EC (MiLocateCloneAddress.c)
+ *     MiCopyOnWriteCheckConditions @ 0x1403A4B6C (MiCopyOnWriteCheckConditions.c)
  */
 
 __int64 __fastcall MiMakeProtoPrivate(__int64 a1, char a2, unsigned __int64 a3)

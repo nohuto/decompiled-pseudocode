@@ -1,7 +1,7 @@
 /*
- * XREFs of CarIncrementEtwEventCount @ 0x1405D317C
+ * XREFs of CarIncrementEtwEventCount @ 0x1405D36EC
  * Callers:
- *     CarEtwWriteBugCheckEvent @ 0x1405D2BAC (CarEtwWriteBugCheckEvent.c)
+ *     CarEtwWriteBugCheckEvent @ 0x1405D311C (CarEtwWriteBugCheckEvent.c)
  * Callees:
  *     <none>
  */

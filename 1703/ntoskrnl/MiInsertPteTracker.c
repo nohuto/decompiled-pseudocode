@@ -14,13 +14,13 @@
  *     ExFreePoolWithTag @ 0x140286010 (ExFreePoolWithTag.c)
  */
 
-struct _SLIST_ENTRY *__fastcall MiInsertPteTracker(__int64 a1, int a2, char a3, char a4)
+_SLIST_ENTRY *__fastcall MiInsertPteTracker(__int64 a1, int a2, char a3, char a4)
 {
   PSLIST_ENTRY v8; // rdi
   PSLIST_ENTRY v9; // rax
   _SLIST_ENTRY *Next; // rcx
   _SLIST_ENTRY *v11; // rbx
-  struct _SLIST_ENTRY *result; // rax
+  _SLIST_ENTRY *result; // rax
   unsigned __int64 v13; // rcx
   __int64 v14; // rcx
   __int64 v15; // rax
@@ -60,7 +60,7 @@ LABEL_6:
     if ( v8 )
       goto LABEL_9;
   }
-  result = (struct _SLIST_ENTRY *)ExAllocatePoolWithTag(NonPagedPoolNx, 0x80uLL, 0x79536D4Du);
+  result = (_SLIST_ENTRY *)ExAllocatePoolWithTag(NonPagedPoolNx, 0x80uLL, 0x79536D4Du);
   v8 = result;
   if ( !result )
   {
@@ -116,7 +116,7 @@ LABEL_15:
   if ( qword_14036D678 > (unsigned __int64)qword_14036D680 )
     qword_14036D680 = v24;
   KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
-  result = (struct _SLIST_ENTRY *)LockHandle.OldIrql;
+  result = (_SLIST_ENTRY *)LockHandle.OldIrql;
   __writecr8(LockHandle.OldIrql);
   return result;
 }

@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlpStackTraceDatabaseLogPrefix @ 0x1800EC0E0
+ * XREFs of RtlpStackTraceDatabaseLogPrefix @ 0x1800EB2B0
  * Callers:
- *     RtlpCallInterceptRoutine @ 0x18001C570 (RtlpCallInterceptRoutine.c)
+ *     RtlpCallInterceptRoutine @ 0x180007640 (RtlpCallInterceptRoutine.c)
  * Callees:
- *     RtlCaptureStackBackTrace @ 0x180010460 (RtlCaptureStackBackTrace.c)
- *     RtlpRegisterStackTrace @ 0x1800EC194 (RtlpRegisterStackTrace.c)
- *     __security_check_cookie @ 0x180162C90 (__security_check_cookie.c)
- *     memset$thunk$772440563353939046 @ 0x180170030 (memset$thunk$772440563353939046.c)
+ *     RtlCaptureStackBackTrace @ 0x18005BB90 (RtlCaptureStackBackTrace.c)
+ *     RtlpRegisterStackTrace @ 0x1800EB364 (RtlpRegisterStackTrace.c)
+ *     __security_check_cookie @ 0x180162B90 (__security_check_cookie.c)
+ *     memset$thunk$772440563353939046 @ 0x18016F030 (memset$thunk$772440563353939046.c)
  */
 
 __int64 __fastcall RtlpStackTraceDatabaseLogPrefix(__int64 a1, __int64 a2, int a3, _QWORD *a4)

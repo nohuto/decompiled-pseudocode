@@ -16,13 +16,13 @@
  *     LdrpLogDbgPrint @ 0x1800C9198 (LdrpLogDbgPrint.c)
  */
 
-__int64 __fastcall LdrLoadDll(__int64 a1, int *a2, __int64 a3, _QWORD *a4)
+NTSTATUS __cdecl LdrLoadDll(PWSTR DllPath, PULONG DllCharacteristics, PUNICODE_STRING DllName, PVOID *DllHandle)
 {
-  int v9; // ebx
-  int Dll; // ebx
+  ULONG v9; // ebx
+  NTSTATUS Dll; // ebx
   int v11; // r9d
-  __int64 v12; // rcx
-  __int64 v13; // [rsp+30h] [rbp-C8h] BYREF
+  PVOID v12; // rcx
+  PVOID BaseAddress[2]; // [rsp+30h] [rbp-C8h] BYREF
   _BYTE v14[128]; // [rsp+40h] [rbp-B8h] BYREF
 
   if ( (LdrpDebugFlags & 9) != 0 )
@@ -32,25 +32,25 @@ __int64 __fastcall LdrLoadDll(__int64 a1, int *a2, __int64 a3, _QWORD *a4)
       (unsigned int)"LdrLoadDll",
       3,
       (__int64)"DLL name: %wZ\n");
-  if ( LdrpAppPackagesPath.Buffer && (a1 & 0x401) == 0x401 )
-    return 3221225485LL;
-  if ( !a2 )
+  if ( LdrpAppPackagesPath.Buffer && ((unsigned __int16)DllPath & 0x401) == 0x401LL )
+    return -1073741811;
+  if ( !DllCharacteristics )
   {
     v9 = 0;
     goto LABEL_15;
   }
-  v9 = *a2;
+  v9 = *DllCharacteristics;
   if ( (v9 & 4) == 0 || LdrpAppPackagesPath.Buffer )
   {
 LABEL_15:
-    LdrpInitializeDllPath(*(_QWORD *)(a3 + 8), a1, v14);
+    LdrpInitializeDllPath(DllName->Buffer, DllPath, v14);
     LOBYTE(v11) = 1;
-    Dll = LdrpLoadDll(a3, (unsigned int)v14, v9, v11, (__int64)&v13);
+    Dll = LdrpLoadDll((_DWORD)DllName, (unsigned int)v14, v9, v11, (__int64)BaseAddress);
     LdrpReleaseDllPath(v14);
     if ( Dll >= 0 )
     {
-      v12 = v13;
-      *a4 = *(_QWORD *)(v13 + 48);
+      v12 = BaseAddress[0];
+      *DllHandle = (PVOID)*((_QWORD *)BaseAddress[0] + 6);
       LdrpDereferenceModule(v12);
     }
     goto LABEL_17;
@@ -73,5 +73,5 @@ LABEL_17:
       (unsigned int)"LdrLoadDll",
       4,
       (__int64)"Status: 0x%08lx\n");
-  return (unsigned int)Dll;
+  return Dll;
 }

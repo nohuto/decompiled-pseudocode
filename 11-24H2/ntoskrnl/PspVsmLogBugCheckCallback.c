@@ -1,10 +1,10 @@
 /*
- * XREFs of PspVsmLogBugCheckCallback @ 0x1405E6800
+ * XREFs of PspVsmLogBugCheckCallback @ 0x1405E3E00
  * Callers:
  *     <none>
  * Callees:
- *     WheaLogInternalEvent @ 0x14065E070 (WheaLogInternalEvent.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     WheaLogInternalEvent @ 0x14065C840 (WheaLogInternalEvent.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 void __fastcall PspVsmLogBugCheckCallback(
@@ -33,16 +33,16 @@ void __fastcall PspVsmLogBugCheckCallback(
   {
     ReasonSpecificData[4] = PspIumLogBuffer;
     *((_DWORD *)ReasonSpecificData + 10) = 0x2000;
-    *((_OWORD *)ReasonSpecificData + 1) = xmmword_14002B238;
-    memset_0(&unk_140F05000, 0, 0x100uLL);
+    *((_OWORD *)ReasonSpecificData + 1) = xmmword_14002B6A0;
+    memset_0(&unk_140F052E0, 0, 0x100uLL);
     v6 = 0;
     SkStackDumpEventLog[0] = 1733060695;
-    dword_140F04FE4 = 1;
-    qword_140F04FE8 = 288LL;
-    dword_140F04FF4 = -2147483541;
-    dword_140F04FF0 = -2147483541;
-    dword_140F04FF8 = 24;
-    dword_140F04FFC = 256;
+    dword_140F052C4 = 1;
+    qword_140F052C8 = 288LL;
+    dword_140F052D4 = -2147483541;
+    dword_140F052D0 = -2147483541;
+    dword_140F052D8 = 24;
+    dword_140F052DC = 256;
     while ( 1 )
     {
       v7 = *(_DWORD *)(v4 + 12);

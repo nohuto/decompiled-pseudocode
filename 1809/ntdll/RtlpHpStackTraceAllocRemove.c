@@ -9,38 +9,38 @@
  *     RtlpHpStackTraceAllocFindMapping @ 0x1801048D8 (RtlpHpStackTraceAllocFindMapping.c)
  */
 
-__int64 __fastcall RtlpHpStackTraceAllocRemove(__int64 a1, unsigned __int64 a2, unsigned __int64 *a3, __int64 a4)
+__int64 __fastcall RtlpHpStackTraceAllocRemove(__int64 a1, __int64 a2)
 {
   _QWORD *Mapping; // rax
-  __int64 v7; // rbx
-  __int64 v8; // rsi
-  unsigned __int64 v9; // r9
+  __int64 v5; // rbx
+  __int64 v6; // rsi
+  unsigned __int64 v7; // r9
   _QWORD *i; // rdx
-  __int128 v12; // [rsp+20h] [rbp-18h] BYREF
+  __int128 v10; // [rsp+20h] [rbp-18h] BYREF
 
-  RtlAcquireSRWLockExclusive(a1 + 8, a2, a3, a4);
+  RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)(a1 + 8));
   *(_DWORD *)a1 = NtCurrentTeb()->ClientId.UniqueThread;
   Mapping = (_QWORD *)RtlpHpStackTraceAllocFindMapping(a1, a2);
-  v7 = (__int64)Mapping;
+  v5 = (__int64)Mapping;
   if ( Mapping )
   {
-    v9 = Mapping[1] & (-1LL << (*(_DWORD *)(a1 + 20) & 0x1F));
+    v7 = Mapping[1] & (-1LL << (*(_DWORD *)(a1 + 20) & 0x1F));
     for ( i = (_QWORD *)(*(_QWORD *)(a1 + 24)
                        + 8
-                       * ((HIBYTE(v9)
+                       * ((HIBYTE(v7)
                          + 37
-                         * (BYTE6(v9)
+                         * (BYTE6(v7)
                           + 37
-                          * (BYTE5(v9)
+                          * (BYTE5(v7)
                            + 37
-                           * (BYTE4(v9)
+                           * (BYTE4(v7)
                             + 37
                             * ((((_DWORD)Mapping[1] & (unsigned int)(-1 << (*(_DWORD *)(a1 + 20) & 0x1F))) >> 24)
                              + 37
                              * ((unsigned __int8)(((_DWORD)Mapping[1] & (unsigned int)(-1 << (*(_DWORD *)(a1 + 20) & 0x1F))) >> 16)
                               + 37
                               * ((unsigned __int8)((unsigned __int16)(Mapping[1] & (-1 << (*(_DWORD *)(a1 + 20) & 0x1F))) >> 8)
-                               + 37 * ((unsigned __int8)v9 + 11623883)))))))) & ((*(_DWORD *)(a1 + 20) >> 5) - 1)));
+                               + 37 * ((unsigned __int8)v7 + 11623883)))))))) & ((*(_DWORD *)(a1 + 20) >> 5) - 1)));
           (*i & 1) == 0;
           i = (_QWORD *)*i )
     {
@@ -52,18 +52,18 @@ __int64 __fastcall RtlpHpStackTraceAllocRemove(__int64 a1, unsigned __int64 a2, 
         break;
       }
     }
-    v8 = Mapping[2];
+    v6 = Mapping[2];
   }
   else
   {
-    v8 = 0LL;
+    v6 = 0LL;
   }
   *(_DWORD *)a1 = 0;
-  RtlReleaseSRWLockExclusive((volatile signed __int64 *)(a1 + 8));
-  if ( v7 )
+  RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(a1 + 8));
+  if ( v5 )
   {
-    v12 = RtlpHpEnvHandle;
-    RtlpHpMetadataFree(v7, &v12);
+    v10 = RtlpHpEnvHandle;
+    RtlpHpMetadataFree(v5, &v10);
   }
-  return v8;
+  return v6;
 }

@@ -1,16 +1,16 @@
 /*
- * XREFs of PiUEventBroadcastEventWorker @ 0x140528030
+ * XREFs of PiUEventBroadcastEventWorker @ 0x140528570
  * Callers:
  *     <none>
  * Callees:
- *     KeReleaseGuardedMutex @ 0x14000CA40 (KeReleaseGuardedMutex.c)
- *     ExAcquireFastMutex @ 0x14002D0A0 (ExAcquireFastMutex.c)
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
- *     MmGetSessionById @ 0x1400765C0 (MmGetSessionById.c)
- *     ZwUpdateWnfStateData @ 0x14015D3C0 (ZwUpdateWnfStateData.c)
+ *     KeReleaseGuardedMutex @ 0x14000C5C0 (KeReleaseGuardedMutex.c)
+ *     ExAcquireFastMutex @ 0x14002CC20 (ExAcquireFastMutex.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
+ *     MmGetSessionById @ 0x140076640 (MmGetSessionById.c)
+ *     ZwUpdateWnfStateData @ 0x14015D930 (ZwUpdateWnfStateData.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
- *     PiUEventBroadcastHardwareProfilesChangedEvent @ 0x14062E460 (PiUEventBroadcastHardwareProfilesChangedEvent.c)
- *     PiUEventBroadcastPortsChangedEvent @ 0x14062E4E4 (PiUEventBroadcastPortsChangedEvent.c)
+ *     PiUEventBroadcastHardwareProfilesChangedEvent @ 0x14062E514 (PiUEventBroadcastHardwareProfilesChangedEvent.c)
+ *     PiUEventBroadcastPortsChangedEvent @ 0x14062E598 (PiUEventBroadcastPortsChangedEvent.c)
  */
 
 void __fastcall PiUEventBroadcastEventWorker(void *a1)
@@ -22,13 +22,14 @@ void __fastcall PiUEventBroadcastEventWorker(void *a1)
   __int64 v6; // r8
   int v7; // ecx
   unsigned int v8; // ecx
-  void *v9; // rcx
+  const WNF_STATE_NAME *v9; // rcx
   __int64 v10; // rcx
   void *SessionById; // rbx
-  void *v12; // rcx
+  const WNF_STATE_NAME *v12; // rcx
   int v13; // ecx
   int v14; // ecx
   unsigned int v15; // ecx
+  unsigned int ExplicitScope; // [rsp+58h] [rbp+10h] BYREF
 
   v2 = 0;
   do
@@ -43,11 +44,12 @@ void __fastcall PiUEventBroadcastEventWorker(void *a1)
       if ( !v7 )
       {
         v8 = v3[6];
+        ExplicitScope = v8;
         if ( v8 == -1 )
         {
           v9 = &WNF_PNPA_DEVNODES_CHANGED;
 LABEL_6:
-          ZwUpdateWnfStateData((__int64)v9, 0LL, 0LL);
+          ZwUpdateWnfStateData(v9, 0LL, 0, 0LL, 0LL, 0, 0);
           goto LABEL_7;
         }
         SessionById = (void *)MmGetSessionById(v8, v5, v6);
@@ -60,17 +62,18 @@ LABEL_6:
       if ( !v13 )
       {
         v15 = v3[6];
+        ExplicitScope = v15;
         if ( v15 == -1 )
         {
-          v9 = &WNF_PNPA_VOLUMES_CHANGED;
+          v9 = (const WNF_STATE_NAME *)&WNF_PNPA_VOLUMES_CHANGED;
           goto LABEL_6;
         }
         SessionById = (void *)MmGetSessionById(v15, v5, v6);
         if ( !SessionById )
           goto LABEL_7;
-        v12 = &WNF_PNPA_VOLUMES_CHANGED_SESSION;
+        v12 = (const WNF_STATE_NAME *)&WNF_PNPA_VOLUMES_CHANGED_SESSION;
 LABEL_15:
-        ZwUpdateWnfStateData((__int64)v12, 0LL, 0LL);
+        ZwUpdateWnfStateData(v12, 0LL, 0, 0LL, &ExplicitScope, 0, 0);
         ObfDereferenceObject(SessionById);
         goto LABEL_7;
       }

@@ -1,14 +1,14 @@
 /*
- * XREFs of MiFindLastSubsection @ 0x140314EB0
+ * XREFs of MiFindLastSubsection @ 0x1403F2490
  * Callers:
- *     MiComputeDataFlushRange @ 0x14022F300 (MiComputeDataFlushRange.c)
- *     MiCanFileBeTruncatedInternal @ 0x140314C44 (MiCanFileBeTruncatedInternal.c)
- *     MmExtendSection @ 0x140946018 (MmExtendSection.c)
- *     MmFlushVirtualMemory @ 0x1409D1A4C (MmFlushVirtualMemory.c)
+ *     MiComputeDataFlushRange @ 0x140302C10 (MiComputeDataFlushRange.c)
+ *     MiCanFileBeTruncatedInternal @ 0x1403F2224 (MiCanFileBeTruncatedInternal.c)
+ *     MmExtendSection @ 0x14098A134 (MmExtendSection.c)
+ *     MmFlushVirtualMemory @ 0x1409C187C (MmFlushVirtualMemory.c)
  * Callees:
- *     ExpReleaseSpinLockSharedFromDpcLevelInstrumented @ 0x1402465FC (ExpReleaseSpinLockSharedFromDpcLevelInstrumented.c)
- *     ExAcquireSpinLockShared @ 0x14031A1A0 (ExAcquireSpinLockShared.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
+ *     ExpReleaseSpinLockSharedFromDpcLevelInstrumented @ 0x140219638 (ExpReleaseSpinLockSharedFromDpcLevelInstrumented.c)
+ *     ExAcquireSpinLockShared @ 0x1402C2D30 (ExAcquireSpinLockShared.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
  */
 
 __int64 __fastcall MiFindLastSubsection(__int64 a1, int a2)

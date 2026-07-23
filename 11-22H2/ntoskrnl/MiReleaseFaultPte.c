@@ -12,17 +12,18 @@
  *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
  */
 
-__int64 __fastcall MiReleaseFaultPte(unsigned __int64 a1)
+void __fastcall MiReleaseFaultPte(unsigned __int64 a1)
 {
   unsigned __int64 v1; // rbx
   int v3; // esi
   __int64 v4; // r8
   bool v5; // zf
   __int64 v6; // rdi
-  __int64 result; // rax
   unsigned __int64 OldIrql; // rbx
+  unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
+  int v11; // eax
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+30h] [rbp-28h] BYREF
 
   v1 = ZeroPte;
@@ -54,25 +55,24 @@ LABEL_9:
   v6 = (__int64)(a1 - qword_140C697C8) >> 3;
   KeAcquireInStackQueuedSpinLock(&qword_140C697D0, &LockHandle);
   byte_140C697D8[(unsigned __int64)(unsigned int)v6 >> 3] &= ~(1 << (v6 & 7));
-  result = KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
+  KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
   OldIrql = LockHandle.OldIrql;
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
-    result = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0
-      && (unsigned __int8)result <= 0xFu
+    CurrentIrql = KeGetCurrentIrql();
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
       && LockHandle.OldIrql <= 0xFu
-      && (unsigned __int8)result >= 2u )
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;
-      result = ~(unsigned __int16)(-1LL << (LockHandle.OldIrql + 1));
-      v5 = ((unsigned int)result & SchedulerAssist[5]) == 0;
-      SchedulerAssist[5] &= result;
+      v11 = ~(unsigned __int16)(-1LL << (LockHandle.OldIrql + 1));
+      v5 = (v11 & SchedulerAssist[5]) == 0;
+      SchedulerAssist[5] &= v11;
       if ( v5 )
-        result = KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+        KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
     }
   }
   __writecr8(OldIrql);
-  return result;
 }

@@ -1,13 +1,13 @@
 /*
- * XREFs of AlpcSectionDeleteProcedure @ 0x14061B210
+ * XREFs of AlpcSectionDeleteProcedure @ 0x14061C210
  * Callers:
  *     <none>
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
- *     AlpcpLockForCachedReferenceBlob @ 0x140616E4C (AlpcpLockForCachedReferenceBlob.c)
- *     AlpcpRemoveResourcePort @ 0x140617574 (AlpcpRemoveResourcePort.c)
- *     AlpcDeleteBlobByHandle @ 0x140618F20 (AlpcDeleteBlobByHandle.c)
- *     AlpcpUnlockBlob @ 0x140637040 (AlpcpUnlockBlob.c)
+ *     AlpcpLockForCachedReferenceBlob @ 0x140617E4C (AlpcpLockForCachedReferenceBlob.c)
+ *     AlpcpRemoveResourcePort @ 0x140618574 (AlpcpRemoveResourcePort.c)
+ *     AlpcDeleteBlobByHandle @ 0x140619F20 (AlpcDeleteBlobByHandle.c)
+ *     AlpcpUnlockBlob @ 0x140638060 (AlpcpUnlockBlob.c)
  */
 
 char __fastcall AlpcSectionDeleteProcedure(_QWORD *BugCheckParameter2)

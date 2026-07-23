@@ -1,15 +1,15 @@
 /*
- * XREFs of PopPowerAggregatorScreenOffEnterStateHandler @ 0x140A38950
+ * XREFs of PopPowerAggregatorScreenOffEnterStateHandler @ 0x1409F4510
  * Callers:
  *     <none>
  * Callees:
- *     PopReleaseRwLock @ 0x14043630C (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x140436378 (PopAcquireRwLockExclusive.c)
- *     PopPowerAggregatorEngageModernStandby @ 0x1407D683C (PopPowerAggregatorEngageModernStandby.c)
- *     PopExecutePowerAction @ 0x140A37D58 (PopExecutePowerAction.c)
- *     PopPowerAggregatorEnterScreenOff @ 0x140A38AE8 (PopPowerAggregatorEnterScreenOff.c)
- *     PopAcquirePolicyLock @ 0x140C04BF0 (PopAcquirePolicyLock.c)
- *     PopReleasePolicyLock @ 0x140C04C40 (PopReleasePolicyLock.c)
+ *     PopReleaseRwLock @ 0x14021B1A8 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x140425310 (PopAcquireRwLockExclusive.c)
+ *     PopPowerAggregatorEngageModernStandby @ 0x1407D99CC (PopPowerAggregatorEngageModernStandby.c)
+ *     PopExecutePowerAction @ 0x1409F3918 (PopExecutePowerAction.c)
+ *     PopPowerAggregatorEnterScreenOff @ 0x1409F46A8 (PopPowerAggregatorEnterScreenOff.c)
+ *     PopAcquirePolicyLock @ 0x140C0AE00 (PopAcquirePolicyLock.c)
+ *     PopReleasePolicyLock @ 0x140C0AE50 (PopReleasePolicyLock.c)
  */
 
 __int64 __fastcall PopPowerAggregatorScreenOffEnterStateHandler(__int64 a1)
@@ -61,7 +61,7 @@ LABEL_16:
       v16 = 0LL;
       v15[0] = 7;
       v15[1] = 128;
-      PopReleaseRwLock(&PopPowerAggregatorLock);
+      PopReleaseRwLock((struct _KTHREAD *)&PopPowerAggregatorLock);
       PopAcquirePolicyLock(v3, v2);
       PopExecutePowerAction(v15, 0, &v13, v1, 1u);
       PopReleasePolicyLock(v5, v4, v6, v7, v12);

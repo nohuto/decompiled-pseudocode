@@ -1,22 +1,22 @@
 /*
- * XREFs of MiDereferencePageRunsEx @ 0x140357BE4
+ * XREFs of MiDereferencePageRunsEx @ 0x140357D84
  * Callers:
- *     MiDereferencePageRuns @ 0x140357BC8 (MiDereferencePageRuns.c)
- *     MiZeroNodePages @ 0x140393AF0 (MiZeroNodePages.c)
- *     MiComputeNodeMemory @ 0x1403AC99C (MiComputeNodeMemory.c)
- *     MiFindContiguousPagesEx @ 0x1403BB018 (MiFindContiguousPagesEx.c)
- *     MiRebuildLargePage @ 0x14046E7E8 (MiRebuildLargePage.c)
- *     MiFinishResume @ 0x1406268D0 (MiFinishResume.c)
- *     MiGetListOfPendingBadPages @ 0x140629FF8 (MiGetListOfPendingBadPages.c)
- *     MiDeleteZeroThreadContext @ 0x140654CE4 (MiDeleteZeroThreadContext.c)
- *     MiDeletePartitionResources @ 0x140659488 (MiDeletePartitionResources.c)
- *     MiUpdatePartitionMemory @ 0x14065BDCC (MiUpdatePartitionMemory.c)
- *     MiMakePartitionMemoryBlock @ 0x140A45090 (MiMakePartitionMemoryBlock.c)
+ *     MiDereferencePageRuns @ 0x140357D68 (MiDereferencePageRuns.c)
+ *     MiZeroNodePages @ 0x140393CD0 (MiZeroNodePages.c)
+ *     MiComputeNodeMemory @ 0x1403ACB7C (MiComputeNodeMemory.c)
+ *     MiFindContiguousPagesEx @ 0x1403BB1F8 (MiFindContiguousPagesEx.c)
+ *     MiRebuildLargePage @ 0x14046EBE8 (MiRebuildLargePage.c)
+ *     MiFinishResume @ 0x140626E20 (MiFinishResume.c)
+ *     MiGetListOfPendingBadPages @ 0x14062A548 (MiGetListOfPendingBadPages.c)
+ *     MiDeleteZeroThreadContext @ 0x140655234 (MiDeleteZeroThreadContext.c)
+ *     MiDeletePartitionResources @ 0x1406599D8 (MiDeletePartitionResources.c)
+ *     MiUpdatePartitionMemory @ 0x14065C31C (MiUpdatePartitionMemory.c)
+ *     MiMakePartitionMemoryBlock @ 0x140A45340 (MiMakePartitionMemoryBlock.c)
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x14024D360 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402894C0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KeSignalGate @ 0x14035D33C (KeSignalGate.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024D430 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140289750 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KeSignalGate @ 0x14035D4DC (KeSignalGate.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 
@@ -53,10 +53,13 @@ void __fastcall MiDereferencePageRunsEx(__int64 a1, int a2)
     if ( (_UNKNOWN *)v4 != &MiSystemPartition )
     {
       ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(v4 + 224));
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         CurrentIrql = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v7 <= 0xFu && CurrentIrql >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+          && CurrentIrql <= 0xFu
+          && (unsigned __int8)v7 <= 0xFu
+          && CurrentIrql >= 2u )
         {
           CurrentPrcb = KeGetCurrentPrcb();
           SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -76,10 +79,10 @@ void __fastcall MiDereferencePageRunsEx(__int64 a1, int a2)
       qword_140C6B498 = 0LL;
     }
     ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140C6B520);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v17 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v17 <= 0xFu && (unsigned __int8)v7 <= 0xFu && v17 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v17 <= 0xFu && (unsigned __int8)v7 <= 0xFu && v17 >= 2u )
       {
         v18 = KeGetCurrentPrcb();
         v19 = v18->SchedulerAssist;
@@ -105,10 +108,10 @@ void __fastcall MiDereferencePageRunsEx(__int64 a1, int a2)
   else
   {
     ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(v4 + 224));
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v9 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v9 <= 0xFu && (unsigned __int8)v7 <= 0xFu && v9 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v9 <= 0xFu && (unsigned __int8)v7 <= 0xFu && v9 >= 2u )
       {
         v10 = KeGetCurrentPrcb();
         v11 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v7 + 1));

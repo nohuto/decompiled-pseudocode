@@ -1,9 +1,9 @@
 /*
- * XREFs of FsRtlpRestoreCallerEcpsToCallerList @ 0x1401B8120
+ * XREFs of FsRtlpRestoreCallerEcpsToCallerList @ 0x1401B8004
  * Callers:
- *     IopFastQueryNetworkAttributes @ 0x140623EB8 (IopFastQueryNetworkAttributes.c)
+ *     IopFastQueryNetworkAttributes @ 0x140623F6C (IopFastQueryNetworkAttributes.c)
  * Callees:
- *     FsRtlFreeExtraCreateParameterList @ 0x140414F98 (FsRtlFreeExtraCreateParameterList.c)
+ *     FsRtlFreeExtraCreateParameterList @ 0x140413E58 (FsRtlFreeExtraCreateParameterList.c)
  */
 
 __int64 __fastcall FsRtlpRestoreCallerEcpsToCallerList(__int64 a1, struct _ECP_LIST *a2)

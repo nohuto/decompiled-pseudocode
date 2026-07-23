@@ -34,9 +34,9 @@ __int64 __fastcall CmGetRegKeySecurityDescriptor(char a1, _QWORD *a2)
   ULONG v11; // eax
   void *v12; // rax
   void *v13; // rdi
-  struct _SID_IDENTIFIER_AUTHORITY IdentifierAuthority; // [rsp+38h] [rbp-49h] BYREF
-  struct _SID_IDENTIFIER_AUTHORITY v16; // [rsp+40h] [rbp-41h] BYREF
-  struct _SID_IDENTIFIER_AUTHORITY v17; // [rsp+48h] [rbp-39h] BYREF
+  _SID_IDENTIFIER_AUTHORITY IdentifierAuthority; // [rsp+38h] [rbp-49h] BYREF
+  _SID_IDENTIFIER_AUTHORITY v16; // [rsp+40h] [rbp-41h] BYREF
+  _SID_IDENTIFIER_AUTHORITY v17; // [rsp+48h] [rbp-39h] BYREF
   _OWORD SecurityDescriptor[2]; // [rsp+50h] [rbp-31h] BYREF
   __int64 v19; // [rsp+70h] [rbp-11h]
   unsigned __int8 Owner[16]; // [rsp+78h] [rbp-9h] BYREF
@@ -96,16 +96,16 @@ __int64 __fastcall CmGetRegKeySecurityDescriptor(char a1, _QWORD *a2)
       Acl = RtlCreateAcl(Pool2, v8, 2u);
       if ( Acl >= 0 )
       {
-        Acl = RtlpAddKnownAce((__int64)v10, 2u, 2, 983103, Sid, 0);
+        Acl = RtlpAddKnownAce(v10, 2u, 2, 983103, Sid, 0);
         if ( Acl >= 0 )
         {
-          Acl = RtlpAddKnownAce((__int64)v10, 2u, 2, 131097, Src, 0);
+          Acl = RtlpAddKnownAce(v10, 2u, 2, 131097, Src, 0);
           if ( Acl >= 0 )
           {
-            Acl = RtlpAddKnownAce((__int64)v10, 2u, 2, 983103, Owner, 0);
+            Acl = RtlpAddKnownAce(v10, 2u, 2, 983103, Owner, 0);
             if ( Acl >= 0 )
             {
-              if ( !a1 || (Acl = RtlpAddKnownAce((__int64)v10, 2u, 2, 131097, v4, 0), Acl >= 0) )
+              if ( !a1 || (Acl = RtlpAddKnownAce(v10, 2u, 2, 131097, v4, 0), Acl >= 0) )
               {
                 Acl = RtlCreateSecurityDescriptor(SecurityDescriptor, 1u);
                 if ( Acl >= 0 )

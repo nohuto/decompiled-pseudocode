@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlpUpdateTEBLanguage @ 0x1800355A0
+ * XREFs of RtlpUpdateTEBLanguage @ 0x180015820
  * Callers:
- *     InitializeTEBUserLangList @ 0x180036A80 (InitializeTEBUserLangList.c)
- *     RtlSetThreadPreferredUILanguages @ 0x18007C4E0 (RtlSetThreadPreferredUILanguages.c)
- *     RtlpInitializeUserList @ 0x18007D9E0 (RtlpInitializeUserList.c)
+ *     RtlSetThreadPreferredUILanguages @ 0x180011A20 (RtlSetThreadPreferredUILanguages.c)
+ *     InitializeTEBUserLangList @ 0x180016D00 (InitializeTEBUserLangList.c)
+ *     RtlpInitializeUserList @ 0x1800C87E0 (RtlpInitializeUserList.c)
  * Callees:
- *     RtlAllocateHeap @ 0x180011260 (RtlAllocateHeap.c)
- *     RtlpMuiRegFreeLanguageConfigList @ 0x180035694 (RtlpMuiRegFreeLanguageConfigList.c)
- *     RtlpMuiRegFreeLanguageList @ 0x180035EE0 (RtlpMuiRegFreeLanguageList.c)
+ *     RtlpMuiRegFreeLanguageConfigList @ 0x180015914 (RtlpMuiRegFreeLanguageConfigList.c)
+ *     RtlpMuiRegFreeLanguageList @ 0x180016160 (RtlpMuiRegFreeLanguageList.c)
+ *     RtlAllocateHeap @ 0x18003DC60 (RtlAllocateHeap.c)
  */
 
 __int64 __fastcall RtlpUpdateTEBLanguage(__int64 a1, __int64 a2, int a3)
@@ -22,7 +22,7 @@ __int64 __fastcall RtlpUpdateTEBLanguage(__int64 a1, __int64 a2, int a3)
   }
   else
   {
-    Heap = (_QWORD *)RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 8u, 0x10uLL);
+    Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, 0x10uLL);
     UserPrefLanguages = Heap;
     if ( !Heap )
       return 3221225495LL;

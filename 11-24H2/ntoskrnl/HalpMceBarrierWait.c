@@ -1,7 +1,7 @@
 /*
- * XREFs of HalpMceBarrierWait @ 0x140540248
+ * XREFs of HalpMceBarrierWait @ 0x14053DB48
  * Callers:
- *     HalpMceHandlerWithRendezvous @ 0x1405405C0 (HalpMceHandlerWithRendezvous.c)
+ *     HalpMceHandlerWithRendezvous @ 0x14053DEC0 (HalpMceHandlerWithRendezvous.c)
  * Callees:
  *     <none>
  */

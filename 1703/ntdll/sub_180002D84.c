@@ -8,22 +8,22 @@
  *     sub_18010D634 @ 0x18010D634 (sub_18010D634.c)
  */
 
-__int64 __fastcall sub_180002D84(int a1)
+void *__fastcall sub_180002D84(int a1)
 {
-  __int64 result; // rax
-  __int64 v2; // rdi
+  void *result; // rax
+  void *v2; // rdi
   __int64 v3; // rbx
   unsigned int v4; // [rsp+48h] [rbp+10h] BYREF
 
   v4 = 0;
-  result = sub_18005DC24(32, a1, (unsigned int)&v4, 0, 0LL);
+  result = (void *)sub_18005DC24(32, a1, (int)&v4, 0, 0LL);
   v2 = result;
   if ( result )
   {
     v3 = sub_180002DE4(result, v4, 1LL);
     if ( !v3 )
       sub_18010D634(v2);
-    return v3;
+    return (void *)v3;
   }
   return result;
 }

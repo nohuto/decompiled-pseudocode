@@ -1,26 +1,26 @@
 /*
- * XREFs of EtwpCoverageEnsureContext @ 0x14075B044
+ * XREFs of EtwpCoverageEnsureContext @ 0x14075C234
  * Callers:
- *     EtwTelemetryCoverageReport @ 0x14012A580 (EtwTelemetryCoverageReport.c)
- *     EtwSetProcessTelemetryCoverage @ 0x1406B3F80 (EtwSetProcessTelemetryCoverage.c)
+ *     EtwTelemetryCoverageReport @ 0x14012A650 (EtwTelemetryCoverageReport.c)
+ *     EtwSetProcessTelemetryCoverage @ 0x1406B5220 (EtwSetProcessTelemetryCoverage.c)
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     KeLeaveCriticalRegion @ 0x14004F410 (KeLeaveCriticalRegion.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     KeSetTimer2 @ 0x1400FC170 (KeSetTimer2.c)
- *     KeInitializeTimer2 @ 0x1400FD4D0 (KeInitializeTimer2.c)
- *     EtwTelemetryCoverageReport @ 0x14012A580 (EtwTelemetryCoverageReport.c)
- *     TelemetryCoverageStringHashInternal @ 0x14012A768 (TelemetryCoverageStringHashInternal.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     MmMapViewInSystemSpace @ 0x1405A23A0 (MmMapViewInSystemSpace.c)
- *     MmUnmapViewInSystemSpace @ 0x1405DF390 (MmUnmapViewInSystemSpace.c)
- *     MmCreateSection @ 0x14061B2D0 (MmCreateSection.c)
- *     EtwpCoverageEnsureStringBuffer @ 0x14075B438 (EtwpCoverageEnsureStringBuffer.c)
- *     EtwpCoverageFreeStringBuffers @ 0x1408B697C (EtwpCoverageFreeStringBuffers.c)
+ *     ExfTryToWakePushLock @ 0x140091500 (ExfTryToWakePushLock.c)
+ *     KeSetTimer2 @ 0x1400FC1F0 (KeSetTimer2.c)
+ *     KeInitializeTimer2 @ 0x1400FD550 (KeInitializeTimer2.c)
+ *     EtwTelemetryCoverageReport @ 0x14012A650 (EtwTelemetryCoverageReport.c)
+ *     TelemetryCoverageStringHashInternal @ 0x14012A838 (TelemetryCoverageStringHashInternal.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     MmMapViewInSystemSpace @ 0x1405A33A0 (MmMapViewInSystemSpace.c)
+ *     MmUnmapViewInSystemSpace @ 0x1405E0390 (MmUnmapViewInSystemSpace.c)
+ *     MmCreateSection @ 0x14061C2D0 (MmCreateSection.c)
+ *     EtwpCoverageEnsureStringBuffer @ 0x14075C628 (EtwpCoverageEnsureStringBuffer.c)
+ *     EtwpCoverageFreeStringBuffers @ 0x1408B7C3C (EtwpCoverageFreeStringBuffers.c)
  */
 
 __int64 EtwpCoverageEnsureContext()
@@ -169,17 +169,17 @@ __int64 EtwpCoverageEnsureContext()
                 ExfTryToWakePushLock((volatile signed __int64 *)&EtwpCoverageLock);
               KeAbPostRelease((ULONG_PTR)&EtwpCoverageLock);
               KeLeaveCriticalRegion();
-              if ( (unsigned int)dword_140400C6C < MEMORY[0xFFFFF7800000037C] )
+              if ( (unsigned int)dword_140401C6C < MEMORY[0xFFFFF7800000037C] )
               {
-                if ( !dword_140400C68 )
-                  dword_140400C68 = TelemetryCoverageStringHashInternal(off_140400C60, &v23);
-                EtwTelemetryCoverageReport(&off_140400C60);
+                if ( !dword_140401C68 )
+                  dword_140401C68 = TelemetryCoverageStringHashInternal(off_140401C60, &v23);
+                EtwTelemetryCoverageReport(&off_140401C60);
               }
-              if ( EtwpCoverageCoreTracingEnabled && (unsigned int)dword_140401D04 < MEMORY[0xFFFFF7800000037C] )
+              if ( EtwpCoverageCoreTracingEnabled && (unsigned int)dword_140402D04 < MEMORY[0xFFFFF7800000037C] )
               {
-                if ( !dword_140401D00 )
-                  dword_140401D00 = TelemetryCoverageStringHashInternal(off_140401CF8, &v24);
-                EtwTelemetryCoverageReport(&off_140401CF8);
+                if ( !dword_140402D00 )
+                  dword_140402D00 = TelemetryCoverageStringHashInternal(off_140402CF8, &v24);
+                EtwTelemetryCoverageReport(&off_140402CF8);
               }
               v9 = 0;
             }

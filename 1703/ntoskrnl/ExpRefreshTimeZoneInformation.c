@@ -52,16 +52,16 @@ char ExpRefreshTimeZoneInformation()
   __int16 v23; // bx
   char result; // al
   LARGE_INTEGER LocalTime; // [rsp+48h] [rbp-C0h] BYREF
-  unsigned __int64 v26; // [rsp+50h] [rbp-B8h] BYREF
+  unsigned __int64 Buffer; // [rsp+50h] [rbp-B8h] BYREF
   LARGE_INTEGER Time; // [rsp+58h] [rbp-B0h] BYREF
   LARGE_INTEGER v28; // [rsp+60h] [rbp-A8h] BYREF
-  struct _TIME_FIELDS TimeFields; // [rsp+68h] [rbp-A0h] BYREF
+  _TIME_FIELDS TimeFields; // [rsp+68h] [rbp-A0h] BYREF
   LARGE_INTEGER SystemTime; // [rsp+78h] [rbp-90h] BYREF
   LARGE_INTEGER v31; // [rsp+80h] [rbp-88h] BYREF
   char ValueData[68]; // [rsp+88h] [rbp-80h] BYREF
-  struct _TIME_FIELDS CutoverTimeFields; // [rsp+CCh] [rbp-3Ch] BYREF
+  _TIME_FIELDS CutoverTimeFields; // [rsp+CCh] [rbp-3Ch] BYREF
   int v34; // [rsp+DCh] [rbp-2Ch]
-  struct _TIME_FIELDS v35; // [rsp+120h] [rbp+18h] BYREF
+  _TIME_FIELDS v35; // [rsp+120h] [rbp+18h] BYREF
   int v36; // [rsp+130h] [rbp+28h]
   __int16 v37; // [rsp+134h] [rbp+2Ch]
   char v38; // [rsp+234h] [rbp+12Ch]
@@ -155,8 +155,8 @@ LABEL_18:
   ExpCurrentTimeZoneId = v7;
   if ( ExpLastTimeZoneBias != v3 )
   {
-    v26 = 0xFFFFFFFF00000000uLL;
-    ZwUpdateWnfStateData((__int64)&WNF_SEB_TIME_ZONE_CHANGE, (__int64)&v26, 8LL);
+    Buffer = 0xFFFFFFFF00000000uLL;
+    ZwUpdateWnfStateData(&WNF_SEB_TIME_ZONE_CHANGE, &Buffer, 8u, 0LL, 0LL, 0, 0);
     v7 = ExpCurrentTimeZoneId;
   }
   v8 = 3LL;

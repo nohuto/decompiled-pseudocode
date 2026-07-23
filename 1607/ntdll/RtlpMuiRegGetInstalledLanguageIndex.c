@@ -1,14 +1,14 @@
 /*
- * XREFs of RtlpMuiRegGetInstalledLanguageIndex @ 0x180044478
+ * XREFs of RtlpMuiRegGetInstalledLanguageIndex @ 0x180044468
  * Callers:
- *     RtlpMuiRegAddMultiSzToLangFallbackList @ 0x180044194 (RtlpMuiRegAddMultiSzToLangFallbackList.c)
- *     RtlpMuiRegValidateConfigNode @ 0x180089418 (RtlpMuiRegValidateConfigNode.c)
- *     RtlpMuiRegConfigMatchesInstalled @ 0x180094AB0 (RtlpMuiRegConfigMatchesInstalled.c)
+ *     RtlpMuiRegAddMultiSzToLangFallbackList @ 0x180044184 (RtlpMuiRegAddMultiSzToLangFallbackList.c)
+ *     RtlpMuiRegValidateConfigNode @ 0x180089408 (RtlpMuiRegValidateConfigNode.c)
+ *     RtlpMuiRegConfigMatchesInstalled @ 0x180094AA0 (RtlpMuiRegConfigMatchesInstalled.c)
  *     RtlpLoadPolicyLanguageSpec @ 0x1800F3D64 (RtlpLoadPolicyLanguageSpec.c)
  * Callees:
- *     RtlCultureNameToLCID @ 0x180043F70 (RtlCultureNameToLCID.c)
- *     RtlInitUnicodeString @ 0x180044150 (RtlInitUnicodeString.c)
- *     RtlpMuiRegGetInstalledLanguageIndexByLangId @ 0x180044994 (RtlpMuiRegGetInstalledLanguageIndexByLangId.c)
+ *     RtlCultureNameToLCID @ 0x180043F60 (RtlCultureNameToLCID.c)
+ *     RtlInitUnicodeString @ 0x180044140 (RtlInitUnicodeString.c)
+ *     RtlpMuiRegGetInstalledLanguageIndexByLangId @ 0x180044984 (RtlpMuiRegGetInstalledLanguageIndexByLangId.c)
  */
 
 __int64 __fastcall RtlpMuiRegGetInstalledLanguageIndex(__int64 a1, int a2, __int64 a3, __int16 *a4)
@@ -20,8 +20,8 @@ __int64 __fastcall RtlpMuiRegGetInstalledLanguageIndex(__int64 a1, int a2, __int
   _WORD *v11; // rdx
   __int64 v12; // r8
   const WCHAR *v13; // rdx
-  UNICODE_STRING DestinationString; // [rsp+20h] [rbp-18h] BYREF
-  int v15; // [rsp+40h] [rbp+8h] BYREF
+  _UNICODE_STRING DestinationString; // [rsp+20h] [rbp-18h] BYREF
+  DWORD Lcid; // [rsp+40h] [rbp+8h] BYREF
 
   v4 = 0;
   v5 = a3;
@@ -43,9 +43,9 @@ LABEL_13:
     if ( !v13 )
       return (unsigned int)-1073741772;
     RtlInitUnicodeString(&DestinationString, v13);
-    if ( !RtlCultureNameToLCID(&DestinationString.Length, &v15) )
+    if ( !RtlCultureNameToLCID(&DestinationString, &Lcid) )
       return (unsigned int)-1073741772;
-    v5 = v15;
+    v5 = Lcid;
     a2 = 1;
     LOBYTE(a3) = 0;
 LABEL_3:

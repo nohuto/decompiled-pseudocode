@@ -1,14 +1,14 @@
 /*
- * XREFs of SymCryptCallbackAlloc @ 0x14067D9E0
+ * XREFs of SymCryptCallbackAlloc @ 0x14067DF30
  * Callers:
- *     SymCryptRsakeySetValue @ 0x1403F7B0C (SymCryptRsakeySetValue.c)
- *     SymCryptEcurveAllocate @ 0x1403F80AC (SymCryptEcurveAllocate.c)
- *     SymCryptEckeyAllocate @ 0x1403F8874 (SymCryptEckeyAllocate.c)
- *     SymCryptEckeySetValue @ 0x1403F8A98 (SymCryptEckeySetValue.c)
- *     SymCryptEcDsaVerify @ 0x1403F9B90 (SymCryptEcDsaVerify.c)
- *     SymCryptRsaPkcs1Verify @ 0x1403FA3B0 (SymCryptRsaPkcs1Verify.c)
+ *     SymCryptRsakeySetValue @ 0x1403F7CEC (SymCryptRsakeySetValue.c)
+ *     SymCryptEcurveAllocate @ 0x1403F828C (SymCryptEcurveAllocate.c)
+ *     SymCryptEckeyAllocate @ 0x1403F8A54 (SymCryptEckeyAllocate.c)
+ *     SymCryptEckeySetValue @ 0x1403F8C78 (SymCryptEckeySetValue.c)
+ *     SymCryptEcDsaVerify @ 0x1403F9D70 (SymCryptEcDsaVerify.c)
+ *     SymCryptRsaPkcs1Verify @ 0x1403FA590 (SymCryptRsaPkcs1Verify.c)
  * Callees:
- *     MincryptAlloc @ 0x140A71D0C (MincryptAlloc.c)
+ *     MincryptAlloc @ 0x140A71FBC (MincryptAlloc.c)
  */
 
 unsigned __int64 __fastcall SymCryptCallbackAlloc(__int64 a1)

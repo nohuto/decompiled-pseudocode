@@ -1,25 +1,25 @@
 /*
  * XREFs of RtlWalkFrameChain @ 0x140295F90
  * Callers:
- *     SepCreateTokenEx @ 0x1402022FC (SepCreateTokenEx.c)
+ *     sub_1402022FC @ 0x1402022FC (sub_1402022FC.c)
  *     RtlCaptureStackBackTrace @ 0x140295EF0 (RtlCaptureStackBackTrace.c)
- *     SepGetStackTraceHash @ 0x140374FC8 (SepGetStackTraceHash.c)
- *     CmpThreadInfoLogStack @ 0x14053E958 (CmpThreadInfoLogStack.c)
- *     KiDpcWatchdogCaptureStack @ 0x140568930 (KiDpcWatchdogCaptureStack.c)
- *     EtwpGetStackExtendedHeaderItem @ 0x14063130C (EtwpGetStackExtendedHeaderItem.c)
- *     EtwpTraceStackWalk @ 0x140631A8C (EtwpTraceStackWalk.c)
- *     EtwpCovSampCaptureKernelStack @ 0x140636208 (EtwpCovSampCaptureKernelStack.c)
- *     PoDiagCaptureUsermodeStack @ 0x1406E8628 (PoDiagCaptureUsermodeStack.c)
- *     SepFilterToken @ 0x14078E3F0 (SepFilterToken.c)
- *     SepDuplicateToken @ 0x1407CDED0 (SepDuplicateToken.c)
- *     EtwpCovSampCaptureUserStack @ 0x140883ABA (EtwpCovSampCaptureUserStack.c)
- *     EtwTimLogRedirectionTrustPolicy @ 0x1409E7AD4 (EtwTimLogRedirectionTrustPolicy.c)
- *     ExpUpdateDebugInfo @ 0x1409F92FC (ExpUpdateDebugInfo.c)
+ *     sub_140374FC8 @ 0x140374FC8 (sub_140374FC8.c)
+ *     sub_14053E958 @ 0x14053E958 (sub_14053E958.c)
+ *     sub_140568930 @ 0x140568930 (sub_140568930.c)
+ *     sub_14063130C @ 0x14063130C (sub_14063130C.c)
+ *     sub_140631A8C @ 0x140631A8C (sub_140631A8C.c)
+ *     sub_140636208 @ 0x140636208 (sub_140636208.c)
+ *     sub_1406E8628 @ 0x1406E8628 (sub_1406E8628.c)
+ *     sub_14078E3F0 @ 0x14078E3F0 (sub_14078E3F0.c)
+ *     sub_1407CDED0 @ 0x1407CDED0 (sub_1407CDED0.c)
+ *     sub_140883ABA @ 0x140883ABA (sub_140883ABA.c)
+ *     sub_1409E7AD4 @ 0x1409E7AD4 (sub_1409E7AD4.c)
+ *     sub_1409F92FC @ 0x1409F92FC (sub_1409F92FC.c)
  * Callees:
- *     RtlpWalkFrameChain @ 0x140296110 (RtlpWalkFrameChain.c)
- *     MmCanThreadFault @ 0x140297EF0 (MmCanThreadFault.c)
- *     RtlpGetStackLimits @ 0x1402AB970 (RtlpGetStackLimits.c)
- *     KeGetCurrentStackPointer @ 0x14041FAB0 (KeGetCurrentStackPointer.c)
+ *     sub_140296110 @ 0x140296110 (sub_140296110.c)
+ *     sub_140297EF0 @ 0x140297EF0 (sub_140297EF0.c)
+ *     sub_1402AB970 @ 0x1402AB970 (sub_1402AB970.c)
+ *     sub_14041FAB0 @ 0x14041FAB0 (sub_14041FAB0.c)
  */
 
 ULONG __stdcall RtlWalkFrameChain(PVOID *Callers, ULONG Count, ULONG Flags)
@@ -42,13 +42,13 @@ ULONG __stdcall RtlWalkFrameChain(PVOID *Callers, ULONG Count, ULONG Flags)
   v8 = (Flags & 2) == 0;
   v5 = v8 + (Flags >> 8);
   v6 = v8 + Count;
-  if ( !(unsigned int)MmCanThreadFault() && (v4 & 1) != 0 )
+  if ( !(unsigned int)sub_140297EF0() && (v4 & 1) != 0 )
     return 0;
   v9[0] = 0LL;
   v10 = 0LL;
-  if ( !(unsigned __int8)RtlpGetStackLimits(&v10, v9) || (unsigned __int64)(KeGetCurrentStackPointer() - v10) < 0xE30 )
+  if ( !(unsigned __int8)sub_1402AB970(&v10, v9) || (unsigned __int64)(sub_14041FAB0() - v10) < 0xE30 )
     return 0;
-  result = RtlpWalkFrameChain(Callers, v6, v4, v5);
+  result = sub_140296110(Callers, v6, v4, v5);
   if ( result )
     result -= v8;
   return result;

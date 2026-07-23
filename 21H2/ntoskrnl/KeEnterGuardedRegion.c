@@ -1,5 +1,5 @@
 /*
- * XREFs of KeEnterGuardedRegion @ 0x1403083F0
+ * XREFs of KeEnterGuardedRegion @ 0x140313140
  * Callers:
  *     <none>
  * Callees:

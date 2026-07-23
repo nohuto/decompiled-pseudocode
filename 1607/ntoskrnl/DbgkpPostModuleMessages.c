@@ -1,19 +1,19 @@
 /*
- * XREFs of DbgkpPostModuleMessages @ 0x140618B20
+ * XREFs of DbgkpPostModuleMessages @ 0x140618BD4
  * Callers:
- *     DbgkCreateThread @ 0x140459228 (DbgkCreateThread.c)
- *     DbgkpPostFakeProcessCreateMessages @ 0x1406186A4 (DbgkpPostFakeProcessCreateMessages.c)
+ *     DbgkCreateThread @ 0x1404580F8 (DbgkCreateThread.c)
+ *     DbgkpPostFakeProcessCreateMessages @ 0x140618758 (DbgkpPostFakeProcessCreateMessages.c)
  * Callees:
- *     RtlImageNtHeader @ 0x140014238 (RtlImageNtHeader.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     ZwOpenFile @ 0x14015A2E0 (ZwOpenFile.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     RtlImageNtHeader @ 0x140013DB8 (RtlImageNtHeader.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     ZwOpenFile @ 0x14015A850 (ZwOpenFile.c)
+ *     memset @ 0x140171AC0 (memset.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
- *     ObCloseHandle @ 0x14050C73C (ObCloseHandle.c)
- *     DbgkpQueueMessage @ 0x140618F9C (DbgkpQueueMessage.c)
- *     DbgkpSendApiMessage @ 0x14061A30C (DbgkpSendApiMessage.c)
- *     VslGetSecurePebAddress @ 0x14062092C (VslGetSecurePebAddress.c)
- *     MmGetFileNameForAddress @ 0x140656B10 (MmGetFileNameForAddress.c)
+ *     ObCloseHandle @ 0x1404EF6CC (ObCloseHandle.c)
+ *     DbgkpQueueMessage @ 0x140619050 (DbgkpQueueMessage.c)
+ *     DbgkpSendApiMessage @ 0x14061A3C0 (DbgkpSendApiMessage.c)
+ *     VslGetSecurePebAddress @ 0x1406209E0 (VslGetSecurePebAddress.c)
+ *     MmGetFileNameForAddress @ 0x140656BF4 (MmGetFileNameForAddress.c)
  */
 
 __int64 __fastcall DbgkpPostModuleMessages(_QWORD *Object, PVOID a2, PRKEVENT a3)
@@ -88,7 +88,7 @@ __int64 __fastcall DbgkpPostModuleMessages(_QWORD *Object, PVOID a2, PRKEVENT a3
       }
       else
       {
-        DbgkpSendApiMessage((ULONG_PTR)Object);
+        DbgkpSendApiMessage(Object);
         v11 = -1073741823;
       }
       if ( v11 < 0 )
@@ -140,7 +140,7 @@ __int64 __fastcall DbgkpPostModuleMessages(_QWORD *Object, PVOID a2, PRKEVENT a3
         }
         else
         {
-          DbgkpSendApiMessage((ULONG_PTR)Object);
+          DbgkpSendApiMessage(Object);
           v18 = -1073741823;
         }
         if ( v18 < 0 && v33[6] )

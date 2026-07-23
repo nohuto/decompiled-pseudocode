@@ -1,9 +1,9 @@
 /*
- * XREFs of MiCaptureProtectionFromLockedProto @ 0x1404B3FC4
+ * XREFs of MiCaptureProtectionFromLockedProto @ 0x1404AD594
  * Callers:
- *     MiGetPageProtection @ 0x1403061E4 (MiGetPageProtection.c)
+ *     MiGetPageProtection @ 0x1402E8264 (MiGetPageProtection.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
  */
 
 __int64 __fastcall MiCaptureProtectionFromLockedProto(unsigned __int64 *a1)
@@ -27,7 +27,7 @@ __int64 __fastcall MiCaptureProtectionFromLockedProto(unsigned __int64 *a1)
       v5 = (v2 >> 12) & 0xFFFFFFFFFFLL;
       v6 = 48 * v5;
     }
-    while ( v5 > qword_140E2D7A0 || ((*(_QWORD *)(v6 - 0x21FFFFFFFFD8LL) >> 54) & 1) == 0 );
+    while ( v5 > qword_140E2D920 || ((*(_QWORD *)(v6 - 0x21FFFFFFFFD8LL) >> 54) & 1) == 0 );
     v7 = 0;
     while ( _interlockedbittestandset64((volatile signed __int32 *)(v6 - 0x21FFFFFFFFE8LL), 0x3FuLL) )
     {

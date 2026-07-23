@@ -1,22 +1,22 @@
 /*
- * XREFs of PspInitializeFullProcessImageName @ 0x140966D20
+ * XREFs of PspInitializeFullProcessImageName @ 0x140AA6F44
  * Callers:
- *     PspAllocateProcess @ 0x140964C24 (PspAllocateProcess.c)
+ *     PspAllocateProcess @ 0x140B7E8A8 (PspAllocateProcess.c)
  * Callees:
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     PspSetProcessShortName @ 0x140966EF8 (PspSetProcessShortName.c)
- *     ObQueryNameStringMode @ 0x1409FDA40 (ObQueryNameStringMode.c)
- *     MmGetFileObjectForSection @ 0x140AAE5D0 (MmGetFileObjectForSection.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     ObQueryNameStringMode @ 0x140922640 (ObQueryNameStringMode.c)
+ *     PspSetProcessShortName @ 0x140AA711C (PspSetProcessShortName.c)
+ *     MmGetFileObjectForSection @ 0x140AA75C0 (MmGetFileObjectForSection.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PspInitializeFullProcessImageName(__int64 a1, __int64 a2)
 {
   __int64 FileObjectForSection; // rsi
-  int NameStringMode; // eax
+  int v5; // eax
   signed int v6; // edi
   __int64 v7; // rax
   void *v8; // rbx
@@ -43,9 +43,9 @@ __int64 __fastcall PspInitializeFullProcessImageName(__int64 a1, __int64 a2)
   v13 = *(_OWORD *)(FileObjectForSection + 88);
   PspSetProcessShortName(a2, &v13);
   v12 = 272;
-  NameStringMode = ObQueryNameStringMode(FileObjectForSection, (unsigned int)Src, 272, (unsigned int)&v12, 0);
-  v6 = NameStringMode;
-  if ( NameStringMode == -2147483643 || NameStringMode == -1073741820 || NameStringMode == -1073741789 )
+  v5 = ObQueryNameStringMode(FileObjectForSection, (__int64)Src, 0x110u, &v12, 0);
+  v6 = v5;
+  if ( v5 == -2147483643 || v5 == -1073741820 || v5 == -1073741789 )
   {
     if ( v12 > 0x110 )
     {
@@ -53,7 +53,7 @@ __int64 __fastcall PspInitializeFullProcessImageName(__int64 a1, __int64 a2)
       v8 = (void *)Pool2;
       if ( Pool2 )
       {
-        v6 = ObQueryNameStringMode(FileObjectForSection, Pool2, v12, (unsigned int)&v12, 0);
+        v6 = ObQueryNameStringMode(FileObjectForSection, Pool2, v12, &v12, 0);
         if ( v6 >= 0 )
           goto LABEL_11;
         ExFreePoolWithTag(v8, 0);
@@ -65,7 +65,7 @@ LABEL_16:
     v6 = v8 == 0LL ? 0xC0000017 : 0;
     goto LABEL_11;
   }
-  if ( NameStringMode < 0 )
+  if ( v5 < 0 )
     goto LABEL_16;
   if ( v12 - 17 > 0xFF )
     goto LABEL_16;

@@ -34,20 +34,20 @@ __int64 __fastcall FsRtlPrivateFastUnlockAll(
   _RTL_SPLAY_LINKS *v9; // r15
   KIRQL v10; // al
   __int64 v11; // r8
-  struct _RTL_SPLAY_LINKS *v12; // rbp
+  _RTL_SPLAY_LINKS *v12; // rbp
   KIRQL v13; // r14
   _RTL_SPLAY_LINKS *i; // rax
-  struct _RTL_SPLAY_LINKS *v15; // r12
+  _RTL_SPLAY_LINKS *v15; // r12
   PRTL_SPLAY_LINKS v16; // rax
   _RTL_SPLAY_LINKS *Parent; // r14
   _RTL_SPLAY_LINKS *v18; // rbx
-  struct _RTL_SPLAY_LINKS *v19; // rcx
+  _RTL_SPLAY_LINKS *v19; // rcx
   PRTL_SPLAY_LINKS v20; // r15
-  struct _RTL_SPLAY_LINKS *v21; // rdx
+  _RTL_SPLAY_LINKS *v21; // rdx
   PRTL_SPLAY_LINKS v22; // rbx
   void *v23; // rbx
   void **v24; // r14
-  struct _RTL_SPLAY_LINKS *v26; // rax
+  _RTL_SPLAY_LINKS *v26; // rax
   _RTL_SPLAY_LINKS *v27; // rax
   _RTL_SPLAY_LINKS *k; // rax
   PVOID v29; // rbx
@@ -58,11 +58,11 @@ __int64 __fastcall FsRtlPrivateFastUnlockAll(
   __int64 v34; // r15
   KIRQL v35; // dl
   char v36; // [rsp+30h] [rbp-78h]
-  struct _RTL_SPLAY_LINKS *v37; // [rsp+38h] [rbp-70h] BYREF
+  _RTL_SPLAY_LINKS *v37; // [rsp+38h] [rbp-70h] BYREF
   _RTL_SPLAY_LINKS *v38; // [rsp+40h] [rbp-68h] BYREF
   PRTL_SPLAY_LINKS v39; // [rsp+48h] [rbp-60h] BYREF
   PVOID Entry; // [rsp+50h] [rbp-58h]
-  struct _RTL_SPLAY_LINKS *v41; // [rsp+58h] [rbp-50h]
+  _RTL_SPLAY_LINKS *v41; // [rsp+58h] [rbp-50h]
   KIRQL v42; // [rsp+B0h] [rbp+8h]
 
   v6 = *(_QWORD **)(a1 + 24);
@@ -74,7 +74,7 @@ __int64 __fastcall FsRtlPrivateFastUnlockAll(
     return 3221225598LL;
   a2[5].Parent = 0LL;
   v10 = KeAcquireSpinLockRaiseToDpc(v6 + 3);
-  v12 = (struct _RTL_SPLAY_LINKS *)v6[4];
+  v12 = (_RTL_SPLAY_LINKS *)v6[4];
   v13 = v10;
   v42 = v10;
   if ( v12 )
@@ -204,7 +204,7 @@ LABEL_19:
           {
             KxReleaseSpinLock(v6 + 3);
             __writecr8(v13);
-            ((void (__fastcall *)(__int64, struct _RTL_SPLAY_LINKS *))v6[2])(a6, &v22[1]);
+            ((void (__fastcall *)(__int64, _RTL_SPLAY_LINKS *))v6[2])(a6, &v22[1]);
             v31 = KeAcquireSpinLockRaiseToDpc(v6 + 3);
             v7 = (PRTL_SPLAY_LINKS)v6[5];
             v13 = v31;

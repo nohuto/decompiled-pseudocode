@@ -1,24 +1,24 @@
 /*
- * XREFs of KiComputeNumaCosts @ 0x140CC93EC
+ * XREFs of KiComputeNumaCosts @ 0x140CCF47C
  * Callers:
- *     KeInitSystem @ 0x140CC82B8 (KeInitSystem.c)
+ *     KeInitSystem @ 0x140CCE3A8 (KeInitSystem.c)
  * Callees:
  *     KeQueryNodeActiveAffinity @ 0x140201320 (KeQueryNodeActiveAffinity.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     MiFreePagesFromMdl @ 0x1403454C0 (MiFreePagesFromMdl.c)
- *     MmAllocatePartitionNodePagesForMdlEx @ 0x140348260 (MmAllocatePartitionNodePagesForMdlEx.c)
- *     MmMapLockedPagesSpecifyCache @ 0x14035D330 (MmMapLockedPagesSpecifyCache.c)
- *     KeSetSystemGroupAffinityThread @ 0x14037A1C0 (KeSetSystemGroupAffinityThread.c)
- *     KeRevertToUserGroupAffinityThread @ 0x14037C490 (KeRevertToUserGroupAffinityThread.c)
- *     KeIsEmptyGroupMask @ 0x14040B460 (KeIsEmptyGroupMask.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     qsort @ 0x140536F00 (qsort.c)
- *     HvlQueryNumaDistance @ 0x1405B9590 (HvlQueryNumaDistance.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
- *     KiGetHalNumaConversionFactor @ 0x140CC9B74 (KiGetHalNumaConversionFactor.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     MiFreePagesFromMdl @ 0x140347540 (MiFreePagesFromMdl.c)
+ *     MmAllocatePartitionNodePagesForMdlEx @ 0x14034A2E0 (MmAllocatePartitionNodePagesForMdlEx.c)
+ *     MmMapLockedPagesSpecifyCache @ 0x14035F0D0 (MmMapLockedPagesSpecifyCache.c)
+ *     KeSetSystemGroupAffinityThread @ 0x14037BF70 (KeSetSystemGroupAffinityThread.c)
+ *     KeRevertToUserGroupAffinityThread @ 0x14037E240 (KeRevertToUserGroupAffinityThread.c)
+ *     KeIsEmptyGroupMask @ 0x140404550 (KeIsEmptyGroupMask.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     qsort @ 0x140539380 (qsort.c)
+ *     HvlQueryNumaDistance @ 0x1405BBE00 (HvlQueryNumaDistance.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
+ *     KiGetHalNumaConversionFactor @ 0x140CCFC5C (KiGetHalNumaConversionFactor.c)
  */
 
 char KiComputeNumaCosts()
@@ -36,7 +36,7 @@ char KiComputeNumaCosts()
   unsigned int v10; // r14d
   USHORT i; // r15
   int v12; // eax
-  struct _GROUP_AFFINITY *p_PreviousAffinity_8; // rdx
+  _GROUP_AFFINITY *p_PreviousAffinity_8; // rdx
   unsigned int v14; // r15d
   struct _MDL *PartitionNodePagesForMdl; // rax
   struct _MDL *v16; // r13
@@ -83,8 +83,8 @@ char KiComputeNumaCosts()
   __int64 v58; // [rsp+50h] [rbp-B8h] BYREF
   int v59[2]; // [rsp+58h] [rbp-B0h]
   unsigned __int64 Affinity; // [rsp+60h] [rbp-A8h]
-  struct _GROUP_AFFINITY Affinity_8; // [rsp+68h] [rbp-A0h] BYREF
-  struct _GROUP_AFFINITY PreviousAffinity_8; // [rsp+78h] [rbp-90h] BYREF
+  _GROUP_AFFINITY Affinity_8; // [rsp+68h] [rbp-A0h] BYREF
+  _GROUP_AFFINITY PreviousAffinity_8; // [rsp+78h] [rbp-90h] BYREF
   _WORD Base[4]; // [rsp+88h] [rbp-80h] BYREF
   _QWORD v64[127]; // [rsp+90h] [rbp-78h] BYREF
 

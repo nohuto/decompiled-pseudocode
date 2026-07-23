@@ -1,13 +1,13 @@
 /*
- * XREFs of IoGetDumpHiberRanges @ 0x1405919AC
+ * XREFs of IoGetDumpHiberRanges @ 0x14058E9CC
  * Callers:
- *     PopSaveHiberContext @ 0x140B6EC80 (PopSaveHiberContext.c)
+ *     PopSaveHiberContext @ 0x140B70CF0 (PopSaveHiberContext.c)
  * Callees:
- *     PoSetHiberRange @ 0x1402649E0 (PoSetHiberRange.c)
- *     RtlImageNtHeaderEx @ 0x14041E7E0 (RtlImageNtHeaderEx.c)
+ *     RtlImageNtHeaderEx @ 0x140414520 (RtlImageNtHeaderEx.c)
+ *     PoSetHiberRange @ 0x14046AD10 (PoSetHiberRange.c)
  */
 
-void __fastcall IoGetDumpHiberRanges(__int64 a1, __int64 a2)
+void __fastcall IoGetDumpHiberRanges(_IMAGE_NT_HEADERS64 *a1, __int64 a2)
 {
   __int64 v2; // rcx
   __int64 *v4; // rsi
@@ -18,11 +18,11 @@ void __fastcall IoGetDumpHiberRanges(__int64 a1, __int64 a2)
   ULONG_PTR v9; // r9
   __int64 ***v10; // rdi
   __int64 **j; // rbx
-  __int64 v12; // [rsp+50h] [rbp+8h] BYREF
+  PIMAGE_NT_HEADERS OutHeaders; // [rsp+50h] [rbp+8h] BYREF
 
   if ( !a2 )
     return;
-  v12 = a1;
+  OutHeaders = a1;
   v2 = *(_QWORD *)(a2 + 272);
   if ( !v2 )
     return;
@@ -66,9 +66,9 @@ LABEL_18:
 LABEL_19:
   if ( CrashdmpImageBase )
   {
-    v12 = 0LL;
-    RtlImageNtHeaderEx(1, (unsigned __int64)CrashdmpImageBase, 0LL, &v12);
-    PoSetHiberRange(0LL, 0x10000u, CrashdmpImageBase, *(unsigned int *)(v12 + 80), 0x676D4944u);
+    OutHeaders = 0LL;
+    RtlImageNtHeaderEx(1u, CrashdmpImageBase, 0LL, &OutHeaders);
+    PoSetHiberRange(0LL, 0x10000u, CrashdmpImageBase, OutHeaders->OptionalHeader.SizeOfImage, 0x676D4944u);
   }
   v10 = (__int64 ***)(a2 + 296);
   for ( j = *v10; j != (__int64 **)v10; j = (__int64 **)*j )

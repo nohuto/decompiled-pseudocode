@@ -1,27 +1,27 @@
 /*
- * XREFs of MiPrepareToHotPatchImage @ 0x1408735EC
+ * XREFs of MiPrepareToHotPatchImage @ 0x14087994C
  * Callers:
- *     MiPrepareToHotPatchVad @ 0x140873C64 (MiPrepareToHotPatchVad.c)
+ *     MiPrepareToHotPatchVad @ 0x140879FC4 (MiPrepareToHotPatchVad.c)
  * Callees:
- *     ExAllocatePoolMm @ 0x1403985B0 (ExAllocatePoolMm.c)
- *     RtlSetAllBits @ 0x1403F4780 (RtlSetAllBits.c)
- *     RtlFindNextForwardRunClear @ 0x14041D9C0 (RtlFindNextForwardRunClear.c)
- *     MmGetCurrentProcessorColor @ 0x14044ADC0 (MmGetCurrentProcessorColor.c)
- *     RtlAreBitsSet @ 0x140476320 (RtlAreBitsSet.c)
- *     RtlClearAllBits @ 0x14047EA90 (RtlClearAllBits.c)
- *     MiModeCopyExceptionFilterEx @ 0x1404E5578 (MiModeCopyExceptionFilterEx.c)
- *     MiCommitHotPatchTable @ 0x1406FBFCC (MiCommitHotPatchTable.c)
- *     MiPrepareImagePagesForHotPatch @ 0x1406FC830 (MiPrepareImagePagesForHotPatch.c)
- *     RtlHotPatchSynchronizationRequired @ 0x140720C00 (RtlHotPatchSynchronizationRequired.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     MiMapHotPatchImageInSystemSpace @ 0x140872E78 (MiMapHotPatchImageInSystemSpace.c)
- *     MiProcessHotPatchUndoTable @ 0x140873D14 (MiProcessHotPatchUndoTable.c)
- *     RtlCountRequiredHotPatchAddressTableEntries @ 0x1408AAD4C (RtlCountRequiredHotPatchAddressTableEntries.c)
- *     RtlEnumerateHotPatchPatches @ 0x1408AAF38 (RtlEnumerateHotPatchPatches.c)
- *     RtlFindHotPatchBaseMachine @ 0x1408AB00C (RtlFindHotPatchBaseMachine.c)
- *     RtlpCheckFunctionPatchApplied @ 0x140C025DC (RtlpCheckFunctionPatchApplied.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolMm @ 0x14039A310 (ExAllocatePoolMm.c)
+ *     RtlSetAllBits @ 0x1403EE130 (RtlSetAllBits.c)
+ *     RtlFindNextForwardRunClear @ 0x140415210 (RtlFindNextForwardRunClear.c)
+ *     MmGetCurrentProcessorColor @ 0x140442EF0 (MmGetCurrentProcessorColor.c)
+ *     RtlAreBitsSet @ 0x14046FAA0 (RtlAreBitsSet.c)
+ *     RtlClearAllBits @ 0x140478400 (RtlClearAllBits.c)
+ *     MiModeCopyExceptionFilterEx @ 0x1404DEB18 (MiModeCopyExceptionFilterEx.c)
+ *     MiCommitHotPatchTable @ 0x140700C9C (MiCommitHotPatchTable.c)
+ *     MiPrepareImagePagesForHotPatch @ 0x140701500 (MiPrepareImagePagesForHotPatch.c)
+ *     RtlHotPatchSynchronizationRequired @ 0x140725820 (RtlHotPatchSynchronizationRequired.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     MiMapHotPatchImageInSystemSpace @ 0x1408791D8 (MiMapHotPatchImageInSystemSpace.c)
+ *     MiProcessHotPatchUndoTable @ 0x14087A074 (MiProcessHotPatchUndoTable.c)
+ *     RtlCountRequiredHotPatchAddressTableEntries @ 0x1408B11BC (RtlCountRequiredHotPatchAddressTableEntries.c)
+ *     RtlEnumerateHotPatchPatches @ 0x1408B13A8 (RtlEnumerateHotPatchPatches.c)
+ *     RtlFindHotPatchBaseMachine @ 0x1408B147C (RtlFindHotPatchBaseMachine.c)
+ *     RtlpCheckFunctionPatchApplied @ 0x140C087EC (RtlpCheckFunctionPatchApplied.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall MiPrepareToHotPatchImage(__int64 a1, _DWORD *a2, unsigned int *a3)
@@ -32,13 +32,13 @@ __int64 __fastcall MiPrepareToHotPatchImage(__int64 a1, _DWORD *a2, unsigned int
   int CurrentProcessorColor; // eax
   unsigned int v8; // r8d
   __int64 PoolMm; // rax
-  RTL_BITMAP *v10; // rcx
+  _RTL_BITMAP *v10; // rcx
   int v11; // edi
   unsigned int *v12; // r14
   int v13; // eax
   unsigned int v14; // r9d
   __int64 v15; // rax
-  RTL_BITMAP *v16; // rcx
+  _RTL_BITMAP *v16; // rcx
   __int64 v17; // r8
   int v18; // r9d
   int *v19; // r12
@@ -51,7 +51,7 @@ __int64 __fastcall MiPrepareToHotPatchImage(__int64 a1, _DWORD *a2, unsigned int
   const void *v26; // rdx
   int v27; // eax
   __int64 v28; // rax
-  RTL_BITMAP *v29; // rcx
+  _RTL_BITMAP *v29; // rcx
   __int64 v30; // rdi
   ULONG v31; // r14d
   __int64 i; // rdi
@@ -108,7 +108,7 @@ __int64 __fastcall MiPrepareToHotPatchImage(__int64 a1, _DWORD *a2, unsigned int
     *(_DWORD *)PoolMm = *(_DWORD *)(a1 + 32) >> 12;
     *(_QWORD *)(PoolMm + 8) = PoolMm + 16;
   }
-  v10 = *(RTL_BITMAP **)(a1 + 48);
+  v10 = *(_RTL_BITMAP **)(a1 + 48);
   if ( !v10 )
     return (unsigned int)-1073741670;
   RtlSetAllBits(v10);
@@ -124,7 +124,7 @@ __int64 __fastcall MiPrepareToHotPatchImage(__int64 a1, _DWORD *a2, unsigned int
       *(_DWORD *)v15 = *v12;
       *(_QWORD *)(v15 + 8) = v15 + 16;
     }
-    v16 = *(RTL_BITMAP **)(a1 + 40);
+    v16 = *(_RTL_BITMAP **)(a1 + 40);
     if ( !v16 )
       return (unsigned int)-1073741670;
     RtlClearAllBits(v16);
@@ -172,7 +172,7 @@ __int64 __fastcall MiPrepareToHotPatchImage(__int64 a1, _DWORD *a2, unsigned int
       *(_DWORD *)v28 = v21;
       *(_QWORD *)(v28 + 8) = v28 + 16;
     }
-    v29 = *(RTL_BITMAP **)(a1 + 40);
+    v29 = *(_RTL_BITMAP **)(a1 + 40);
     if ( !v29 )
       return (unsigned int)-1073741670;
     RtlClearAllBits(v29);

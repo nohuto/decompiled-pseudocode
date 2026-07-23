@@ -18,7 +18,11 @@
  *     ObpDeregisterObject @ 0x1409CF758 (ObpDeregisterObject.c)
  */
 
-NTSTATUS __fastcall NtSignalAndWaitForSingleObject(void *a1, void *a2, BOOLEAN a3, unsigned __int64 a4)
+NTSTATUS __cdecl NtSignalAndWaitForSingleObject(
+        HANDLE SignalHandle,
+        HANDLE WaitHandle,
+        BOOLEAN Alertable,
+        PLARGE_INTEGER Timeout)
 {
   int v6; // esi
   KPROCESSOR_MODE PreviousMode; // bl
@@ -38,8 +42,8 @@ NTSTATUS __fastcall NtSignalAndWaitForSingleObject(void *a1, void *a2, BOOLEAN a
   __int64 v21; // rax
   __int64 v22; // rax
   __int64 v23; // rax
-  int v24; // eax
-  int v25; // [rsp+40h] [rbp-78h]
+  NTSTATUS v24; // eax
+  NTSTATUS v25; // [rsp+40h] [rbp-78h]
   __int64 v26; // [rsp+48h] [rbp-70h]
   PVOID SystemArgument1; // [rsp+50h] [rbp-68h] BYREF
   PVOID Object; // [rsp+58h] [rbp-60h] BYREF
@@ -53,19 +57,26 @@ NTSTATUS __fastcall NtSignalAndWaitForSingleObject(void *a1, void *a2, BOOLEAN a
   v30[0] = 0LL;
   Object = 0LL;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
-  v8 = (LARGE_INTEGER *)a4;
-  if ( a4 && PreviousMode )
+  v8 = Timeout;
+  if ( Timeout && PreviousMode )
   {
     v23 = 0x7FFFFFFF0000LL;
-    if ( a4 < 0x7FFFFFFF0000LL )
-      v23 = a4;
+    if ( (unsigned __int64)Timeout < 0x7FFFFFFF0000LL )
+      v23 = (__int64)Timeout;
     v30[0] = *(_QWORD *)v23;
     v8 = (LARGE_INTEGER *)v30;
   }
-  result = ObReferenceObjectByHandleWithTag(a1, 0, 0LL, PreviousMode, 0x7457624Fu, &SystemArgument1, &HandleInformation);
+  result = ObReferenceObjectByHandleWithTag(
+             SignalHandle,
+             0,
+             0LL,
+             PreviousMode,
+             0x7457624Fu,
+             &SystemArgument1,
+             &HandleInformation);
   if ( result >= 0 )
   {
-    v25 = ObReferenceObjectByHandleWithTag(a2, 0x100000u, 0LL, PreviousMode, 0x7457624Fu, &Object, 0LL);
+    v25 = ObReferenceObjectByHandleWithTag(WaitHandle, 0x100000u, 0LL, PreviousMode, 0x7457624Fu, &Object, 0LL);
     if ( v25 < 0 )
     {
 LABEL_16:
@@ -142,7 +153,7 @@ LABEL_7:
         {
           KeSetEvent((PRKEVENT)SystemArgument1, 1, 1u);
 LABEL_12:
-          v25 = KeWaitForSingleObject((PVOID)DefaultObject, UserRequest, PreviousMode, a3, v8);
+          v25 = KeWaitForSingleObject((PVOID)DefaultObject, UserRequest, PreviousMode, Alertable, v8);
           v14 = v26;
 LABEL_13:
           if ( ObpTraceFlags )

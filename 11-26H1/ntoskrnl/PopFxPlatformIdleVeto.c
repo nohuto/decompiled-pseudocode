@@ -1,12 +1,12 @@
 /*
- * XREFs of PopFxPlatformIdleVeto @ 0x1403B62F0
+ * XREFs of PopFxPlatformIdleVeto @ 0x1403C01F0
  * Callers:
  *     <none>
  * Callees:
- *     PopFxTryReferenceDevice @ 0x140218E68 (PopFxTryReferenceDevice.c)
- *     PopFxDereferenceDevice @ 0x1403B61F4 (PopFxDereferenceDevice.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     PopFxTryReferenceDevice @ 0x14021B7B8 (PopFxTryReferenceDevice.c)
+ *     PopFxDereferenceDevice @ 0x1403C00F4 (PopFxDereferenceDevice.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall PopFxPlatformIdleVeto(__int64 a1)

@@ -1,19 +1,19 @@
 /*
- * XREFs of CcUnpinRepinnedBcb @ 0x1401B1E6C
+ * XREFs of CcUnpinRepinnedBcb @ 0x1401B1D50
  * Callers:
  *     <none>
  * Callees:
- *     MmSetAddressRangeModified @ 0x140016FA0 (MmSetAddressRangeModified.c)
- *     MmFlushSection @ 0x140022558 (MmFlushSection.c)
- *     ExAcquireResourceExclusiveLite @ 0x140068160 (ExAcquireResourceExclusiveLite.c)
- *     CcSetDirtyPinnedData @ 0x14006F270 (CcSetDirtyPinnedData.c)
- *     CcIsFatalWriteError @ 0x14008E97C (CcIsFatalWriteError.c)
- *     CcPerfLogFlushSection @ 0x1400AC4F0 (CcPerfLogFlushSection.c)
- *     CcUnpinFileDataEx @ 0x1400CF860 (CcUnpinFileDataEx.c)
- *     CcDereferenceSharedCacheMapFileObject @ 0x1400CFCF4 (CcDereferenceSharedCacheMapFileObject.c)
- *     CcReferenceSharedCacheMapFileObject @ 0x1400CFD4C (CcReferenceSharedCacheMapFileObject.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
- *     CcPostDeferredWrites @ 0x1401B1B04 (CcPostDeferredWrites.c)
+ *     MmSetAddressRangeModified @ 0x140016B20 (MmSetAddressRangeModified.c)
+ *     MmFlushSection @ 0x1400220D8 (MmFlushSection.c)
+ *     ExAcquireResourceExclusiveLite @ 0x140067CE0 (ExAcquireResourceExclusiveLite.c)
+ *     CcSetDirtyPinnedData @ 0x14006EDF0 (CcSetDirtyPinnedData.c)
+ *     CcIsFatalWriteError @ 0x14008E0DC (CcIsFatalWriteError.c)
+ *     CcPerfLogFlushSection @ 0x1400AAA58 (CcPerfLogFlushSection.c)
+ *     CcUnpinFileDataEx @ 0x1400CD700 (CcUnpinFileDataEx.c)
+ *     CcDereferenceSharedCacheMapFileObject @ 0x1400CDB94 (CcDereferenceSharedCacheMapFileObject.c)
+ *     CcReferenceSharedCacheMapFileObject @ 0x1400CDBEC (CcReferenceSharedCacheMapFileObject.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
+ *     CcPostDeferredWrites @ 0x1401B19E8 (CcPostDeferredWrites.c)
  */
 
 void __stdcall CcUnpinRepinnedBcb(PVOID Bcb, BOOLEAN WriteThrough, PIO_STATUS_BLOCK IoStatus)

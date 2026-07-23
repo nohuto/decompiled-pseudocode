@@ -1,9 +1,9 @@
 /*
- * XREFs of MmGetImageSectionBasedAddress @ 0x1408C4550
+ * XREFs of MmGetImageSectionBasedAddress @ 0x1408C46B0
  * Callers:
- *     PspAllocateProcess @ 0x1406D6638 (PspAllocateProcess.c)
+ *     PspAllocateProcess @ 0x1406AD918 (PspAllocateProcess.c)
  * Callees:
- *     MiSectionControlArea @ 0x140315260 (MiSectionControlArea.c)
+ *     MiSectionControlArea @ 0x14031FFB0 (MiSectionControlArea.c)
  */
 
 __int64 __fastcall MmGetImageSectionBasedAddress(__int64 a1)

@@ -1,14 +1,14 @@
 /*
- * XREFs of SepAcquireOrderedReadLocks @ 0x1402B2790
+ * XREFs of SepAcquireOrderedReadLocks @ 0x1402FD460
  * Callers:
- *     SeTokenCanImpersonate @ 0x140929184 (SeTokenCanImpersonate.c)
- *     SeCompareTokens @ 0x140A28A40 (SeCompareTokens.c)
- *     SepIsSiblingTokenByPointer @ 0x140AB7BE8 (SepIsSiblingTokenByPointer.c)
+ *     SeTokenCanImpersonate @ 0x140904C94 (SeTokenCanImpersonate.c)
+ *     SeCompareTokens @ 0x140A3BAE0 (SeCompareTokens.c)
+ *     SepIsSiblingTokenByPointer @ 0x140AB9228 (SepIsSiblingTokenByPointer.c)
  * Callees:
- *     ExAcquireResourceSharedLite @ 0x1402B3C80 (ExAcquireResourceSharedLite.c)
- *     ExpAcquireResourceSharedLite @ 0x1402B4158 (ExpAcquireResourceSharedLite.c)
- *     ExpFastResourceLegacyAcquireShared @ 0x1404B8FEC (ExpFastResourceLegacyAcquireShared.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
+ *     ExAcquireResourceSharedLite @ 0x1402FE950 (ExAcquireResourceSharedLite.c)
+ *     ExpAcquireResourceSharedLite @ 0x1402FEE28 (ExpAcquireResourceSharedLite.c)
+ *     ExpFastResourceLegacyAcquireShared @ 0x1404B281C (ExpFastResourceLegacyAcquireShared.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
  */
 
 BOOLEAN __fastcall SepAcquireOrderedReadLocks(unsigned __int64 a1, struct _KTHREAD *a2)

@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlCopyMappedMemory @ 0x1800F9D30
+ * XREFs of RtlCopyMappedMemory @ 0x1800F4A90
  * Callers:
  *     <none>
  * Callees:
- *     RtlpCopyMappedMemoryEx @ 0x1800F9D50 (RtlpCopyMappedMemoryEx.c)
+ *     RtlpCopyMappedMemoryEx @ 0x1800F4AB0 (RtlpCopyMappedMemoryEx.c)
  */
 
 __int64 __fastcall RtlCopyMappedMemory(__int64 a1, __int64 a2, __int64 a3)

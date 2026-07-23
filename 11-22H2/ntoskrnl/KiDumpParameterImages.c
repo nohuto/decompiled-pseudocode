@@ -17,14 +17,14 @@ void __fastcall KiDumpParameterImages(NTSTRSAFE_PSTR pszDest, const void **a2, u
 {
   __int64 v7; // rbp
   const void *v8; // rbx
-  int v9; // r12d
+  unsigned int TimeDateStamp; // r12d
   const void *v10; // rsi
   __int64 UnloadedDriver; // rax
   __int64 v12; // rdi
   int v13; // ebx
   unsigned __int16 *v14; // rcx
   __int64 v15; // rdi
-  __int64 v16; // rax
+  PIMAGE_NT_HEADERS v16; // rax
   const char *v17; // r9
   char v18; // [rsp+40h] [rbp-D8h]
   _BYTE v19[7]; // [rsp+41h] [rbp-D7h] BYREF
@@ -42,7 +42,7 @@ void __fastcall KiDumpParameterImages(NTSTRSAFE_PSTR pszDest, const void **a2, u
     while ( 1 )
     {
       v8 = *a2;
-      v9 = 0;
+      TimeDateStamp = 0;
       v10 = (const void *)KiPcToFileHeader(*a2, &v20, 1LL, v19);
       if ( v10 )
         break;
@@ -67,9 +67,9 @@ LABEL_20:
     v15 = v20;
     if ( MmIsAddressValidEx(*(_QWORD *)(v20 + 48)) )
     {
-      v16 = RtlImageNtHeader(*(_QWORD *)(v15 + 48));
+      v16 = RtlImageNtHeader(*(PVOID *)(v15 + 48));
       if ( v16 )
-        v9 = *(_DWORD *)(v16 + 8);
+        TimeDateStamp = v16->FileHeader.TimeDateStamp;
     }
     v12 = v15 + 88;
     v13 = (_DWORD)v8 - (_DWORD)v10;
@@ -93,7 +93,7 @@ LABEL_15:
         v21,
         *a2,
         v10,
-        v9);
+        TimeDateStamp);
     }
     KiBugCheckDriver = v12;
     KiBugCheckDriverOffset = v13;

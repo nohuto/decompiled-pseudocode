@@ -1,44 +1,38 @@
 /*
- * XREFs of OpenGlobalizationUserSettingsKey_ForMua @ 0x1405BA900
+ * XREFs of OpenGlobalizationUserSettingsKey_ForMua @ 0x1405BAB30
  * Callers:
- *     OpenGlobalizationUserSettingsKey @ 0x1403A484C (OpenGlobalizationUserSettingsKey.c)
+ *     OpenGlobalizationUserSettingsKey @ 0x1403A499C (OpenGlobalizationUserSettingsKey.c)
  * Callees:
- *     RtlAppendUnicodeToString @ 0x140265A40 (RtlAppendUnicodeToString.c)
- *     RtlAppendUnicodeStringToString @ 0x14027F0B0 (RtlAppendUnicodeStringToString.c)
- *     ExFreeHeapPool @ 0x140341AC0 (ExFreeHeapPool.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     ZwClose @ 0x1403FA580 (ZwClose.c)
- *     ZwOpenKey @ 0x1403FA5E0 (ZwOpenKey.c)
- *     ZwQueryInformationToken @ 0x1403FA7C0 (ZwQueryInformationToken.c)
- *     AllocateMemory @ 0x1405BA8B4 (AllocateMemory.c)
- *     OpenGlobalizationUserSettingsKey_ForSingleUserModel @ 0x1405BAB90 (OpenGlobalizationUserSettingsKey_ForSingleUserModel.c)
- *     RtlFreeAnsiString @ 0x140602CB0 (RtlFreeAnsiString.c)
- *     RtlGetPersistedStateLocation @ 0x14063F9C0 (RtlGetPersistedStateLocation.c)
- *     RtlConvertSidToUnicodeString @ 0x1406745A0 (RtlConvertSidToUnicodeString.c)
+ *     RtlAppendUnicodeToString @ 0x1402539E0 (RtlAppendUnicodeToString.c)
+ *     RtlAppendUnicodeStringToString @ 0x14026D4E0 (RtlAppendUnicodeStringToString.c)
+ *     ExFreeHeapPool @ 0x14034C810 (ExFreeHeapPool.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     ZwClose @ 0x1403FA760 (ZwClose.c)
+ *     ZwOpenKey @ 0x1403FA7C0 (ZwOpenKey.c)
+ *     ZwQueryInformationToken @ 0x1403FA9A0 (ZwQueryInformationToken.c)
+ *     AllocateMemory @ 0x1405BAAE4 (AllocateMemory.c)
+ *     OpenGlobalizationUserSettingsKey_ForSingleUserModel @ 0x1405BADC0 (OpenGlobalizationUserSettingsKey_ForSingleUserModel.c)
+ *     RtlGetPersistedStateLocation @ 0x1406347D0 (RtlGetPersistedStateLocation.c)
+ *     RtlFreeAnsiString @ 0x14063DA40 (RtlFreeAnsiString.c)
+ *     RtlConvertSidToUnicodeString @ 0x1406697D0 (RtlConvertSidToUnicodeString.c)
  */
 
 __int64 __fastcall OpenGlobalizationUserSettingsKey_ForMua(__int64 a1, __int64 a2, HANDLE *a3, _DWORD *a4)
 {
   __int64 v4; // rdi
   int v7; // r14d
-  __int64 v8; // rdx
-  __int64 v9; // rcx
+  __int64 v8; // rcx
   __int64 *Memory; // rsi
-  __int64 v11; // r8
-  _DWORD *v12; // r9
   NTSTATUS InformationToken; // ebx
-  unsigned __int8 v14; // al
-  unsigned __int16 v15; // bx
-  wchar_t *v16; // rax
-  ULONG_PTR v17; // rdi
-  __int64 v18; // rdx
-  __int64 v19; // r8
-  _DWORD *v20; // r9
+  unsigned __int8 v11; // al
+  unsigned __int16 v12; // bx
+  wchar_t *v13; // rax
+  ULONG_PTR v14; // rdi
   ULONG ReturnLength[2]; // [rsp+40h] [rbp-C0h] BYREF
   UNICODE_STRING Destination; // [rsp+48h] [rbp-B8h] BYREF
   UNICODE_STRING UnicodeString; // [rsp+58h] [rbp-A8h] BYREF
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+68h] [rbp-98h] BYREF
-  WCHAR Source[264]; // [rsp+A0h] [rbp-60h] BYREF
+  WCHAR TargetPath[264]; // [rsp+A0h] [rbp-60h] BYREF
 
   v4 = 0LL;
   v7 = 0;
@@ -59,8 +53,8 @@ __int64 __fastcall OpenGlobalizationUserSettingsKey_ForMua(__int64 a1, __int64 a
   }
   if ( InformationToken >= 0 )
   {
-    v14 = *(_BYTE *)(v4 + 1);
-    if ( v14 < 2u || v14 == 5 && *(_DWORD *)(v4 + 8) == 21 && *(_DWORD *)(v4 + 24) == 503 )
+    v11 = *(_BYTE *)(v4 + 1);
+    if ( v11 < 2u || v11 == 5 && *(_DWORD *)(v4 + 8) == 21 && *(_DWORD *)(v4 + 24) == 503 )
     {
       *a4 = 0;
       InformationToken = -1073741514;
@@ -74,20 +68,23 @@ __int64 __fastcall OpenGlobalizationUserSettingsKey_ForMua(__int64 a1, __int64 a
         ReturnLength[0] = 0;
         InformationToken = RtlGetPersistedStateLocation(
                              L"GlobalizationUserSettings",
-                             Source,
-                             520,
-                             (__int64)ReturnLength);
+                             L"TargetNtPath",
+                             L"\\Registry\\Machine\\SYSTEM\\CurrentControlSet\\Control\\International",
+                             LocationTypeRegistry,
+                             TargetPath,
+                             0x208u,
+                             ReturnLength);
         if ( InformationToken >= 0 )
         {
-          v15 = LOWORD(ReturnLength[0]) + UnicodeString.Length + 4;
-          v16 = (wchar_t *)AllocateMemory(v15);
-          v17 = (ULONG_PTR)v16;
-          if ( v16 )
+          v12 = LOWORD(ReturnLength[0]) + UnicodeString.Length + 4;
+          v13 = (wchar_t *)AllocateMemory(v12);
+          v14 = (ULONG_PTR)v13;
+          if ( v13 )
           {
             *(_QWORD *)&Destination.Length = 0LL;
-            Destination.MaximumLength = v15;
-            Destination.Buffer = v16;
-            InformationToken = RtlAppendUnicodeToString(&Destination, Source);
+            Destination.MaximumLength = v12;
+            Destination.Buffer = v13;
+            InformationToken = RtlAppendUnicodeToString(&Destination, TargetPath);
             if ( InformationToken >= 0 )
             {
               InformationToken = RtlAppendUnicodeToString(&Destination, L"\\");
@@ -116,7 +113,7 @@ __int64 __fastcall OpenGlobalizationUserSettingsKey_ForMua(__int64 a1, __int64 a
                 }
               }
             }
-            ExFreeHeapPool(v17, v18, v19, v20);
+            ExFreeHeapPool(v14);
           }
           else
           {
@@ -127,10 +124,10 @@ __int64 __fastcall OpenGlobalizationUserSettingsKey_ForMua(__int64 a1, __int64 a
       }
     }
     if ( v7 )
-      InformationToken = OpenGlobalizationUserSettingsKey_ForSingleUserModel(v9, a3);
+      InformationToken = OpenGlobalizationUserSettingsKey_ForSingleUserModel(v8, a3);
   }
 LABEL_26:
   if ( Memory )
-    ExFreeHeapPool((ULONG_PTR)Memory, v8, v11, v12);
+    ExFreeHeapPool((ULONG_PTR)Memory);
   return (unsigned int)InformationToken;
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of PoAllProcessorsDeepIdle @ 0x140293618
+ * XREFs of PoAllProcessorsDeepIdle @ 0x140211588
  * Callers:
- *     KePrepareClockTimerForIdle @ 0x140293310 (KePrepareClockTimerForIdle.c)
+ *     KePrepareClockTimerForIdle @ 0x140211280 (KePrepareClockTimerForIdle.c)
  * Callees:
- *     MmGetNextNode @ 0x1402936D4 (MmGetNextNode.c)
+ *     MmGetNextNode @ 0x140211644 (MmGetNextNode.c)
  */
 
 char PoAllProcessorsDeepIdle()

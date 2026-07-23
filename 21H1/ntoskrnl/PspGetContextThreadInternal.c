@@ -28,11 +28,11 @@
  *     RtlpWriteExtendedContext @ 0x1406FCFC4 (RtlpWriteExtendedContext.c)
  */
 
-__int64 __fastcall PspGetContextThreadInternal(__int64 a1, __int64 a2, char a3, char a4, char a5)
+int __fastcall PspGetContextThreadInternal(__int64 a1, __int64 a2, char a3, char a4, char a5)
 {
   struct _KTHREAD *CurrentThread; // r12
-  __int64 result; // rax
-  __int64 v11; // rsi
+  int result; // eax
+  PCONTEXT_EX v11; // rsi
   __int64 v12; // rdx
   __int64 v13; // r8
   __int64 v14; // r9
@@ -42,16 +42,16 @@ __int64 __fastcall PspGetContextThreadInternal(__int64 a1, __int64 a2, char a3, 
   void *v18; // rsp
   void *v19; // rsp
   int v20; // ecx
-  unsigned int v21; // [rsp+40h] [rbp+0h] BYREF
-  unsigned int v22; // [rsp+44h] [rbp+4h] BYREF
-  __int64 v23; // [rsp+48h] [rbp+8h] BYREF
+  ULONG ContextFlags; // [rsp+40h] [rbp+0h] BYREF
+  ULONG ContextLength; // [rsp+44h] [rbp+4h] BYREF
+  PCONTEXT_EX ContextEx; // [rsp+48h] [rbp+8h] BYREF
   _QWORD v24[48]; // [rsp+50h] [rbp+10h] BYREF
   __int128 v25; // [rsp+1D0h] [rbp+190h] BYREF
   __int64 v26; // [rsp+1E0h] [rbp+1A0h]
 
-  v23 = 0LL;
+  ContextEx = 0LL;
   memset(v24, 0, sizeof(v24));
-  v22 = 0;
+  ContextLength = 0;
   v25 = 0LL;
   v26 = 0LL;
   CurrentThread = KeGetCurrentThread();
@@ -60,43 +60,43 @@ __int64 __fastcall PspGetContextThreadInternal(__int64 a1, __int64 a2, char a3, 
     v15 = a2 + 48;
     if ( (unsigned __int64)(a2 + 48) >= 0x7FFFFFFF0000LL )
       v15 = 0x7FFFFFFF0000LL;
-    v21 = *(_DWORD *)v15;
+    ContextFlags = *(_DWORD *)v15;
   }
   else
   {
-    v21 = *(_DWORD *)(a2 + 48);
+    ContextFlags = *(_DWORD *)(a2 + 48);
   }
-  result = RtlpSanitizeContextFlags(&v21, a3);
-  if ( (int)result >= 0 )
+  result = RtlpSanitizeContextFlags(&ContextFlags, a3);
+  if ( result >= 0 )
   {
     if ( a3 )
     {
-      result = RtlGetExtendedContextLength(v21, &v22);
-      if ( (int)result < 0 )
+      result = RtlGetExtendedContextLength(ContextFlags, &ContextLength);
+      if ( result < 0 )
         return result;
-      v16 = v22 + 15LL;
-      if ( v16 <= v22 )
+      v16 = ContextLength + 15LL;
+      if ( v16 <= ContextLength )
         v16 = 0xFFFFFFFFFFFFFF0LL;
       v17 = v16 & 0xFFFFFFFFFFFFFFF0uLL;
       v18 = alloca(v17);
       v19 = alloca(v17);
-      v24[15] = &v21;
-      result = RtlInitializeExtendedContext((__int64)&v21, v21, (__int64)&v23);
-      if ( (int)result < 0 )
+      v24[15] = &ContextFlags;
+      result = RtlInitializeExtendedContext((PCONTEXT)&ContextFlags, ContextFlags, &ContextEx);
+      if ( result < 0 )
         return result;
-      v11 = v23;
-      v24[15] = v23 - 1232;
-      result = RtlpReadExtendedContext(v20, 0, v23, v21, a2, (__int64)&v25);
-      if ( (int)result < 0 )
+      v11 = ContextEx;
+      v24[15] = (char *)ContextEx - 1232;
+      result = RtlpReadExtendedContext(v20, 0, (_DWORD)ContextEx, ContextFlags, a2, (__int64)&v25);
+      if ( result < 0 )
         return result;
     }
     else
     {
       v24[15] = a2;
-      v11 = a2 + 1232;
+      v11 = (PCONTEXT_EX)(a2 + 1232);
     }
     if ( a4 && (*(_DWORD *)(a1 + 116) & 0x400) != 0 )
-      return 3221225520LL;
+      return -1073741776;
     LOBYTE(v24[11]) = a4;
     if ( (struct _KTHREAD *)a1 == CurrentThread )
     {
@@ -113,12 +113,17 @@ __int64 __fastcall PspGetContextThreadInternal(__int64 a1, __int64 a2, char a3, 
       KeInitializeGate((__int64)&v24[12]);
       KeInitializeApc((__int64)v24, a1, 0, (__int64)PspGetSetContextSpecialApc, 0LL, 0LL, 0, 0LL);
       if ( !KeInsertQueueApc((__int64)v24, 0LL, a1, 2u) )
-        return 3221225473LL;
+        return -1073741823;
       KeWaitForGate((__int64)&v24[12], 0);
     }
     result = HIDWORD(v24[11]);
     if ( v24[11] >= 0 && v24[15] != a2 )
-      return RtlpWriteExtendedContext(v24[15], (int)a2 + 1232, (unsigned int)&v25, *(_DWORD *)(v24[15] + 48LL), v11);
+      return RtlpWriteExtendedContext(
+               v24[15],
+               (int)a2 + 1232,
+               (unsigned int)&v25,
+               *(_DWORD *)(v24[15] + 48LL),
+               (__int64)v11);
   }
   return result;
 }

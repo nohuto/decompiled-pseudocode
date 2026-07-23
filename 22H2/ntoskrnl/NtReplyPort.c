@@ -11,10 +11,10 @@
  *     ObReferenceObjectByHandle @ 0x14063E2E0 (ObReferenceObjectByHandle.c)
  */
 
-__int64 __fastcall NtReplyPort(HANDLE Handle, __int64 a2)
+NTSTATUS __cdecl NtReplyPort(HANDLE PortHandle, PPORT_MESSAGE ReplyMessage)
 {
   struct _KTHREAD *CurrentThread; // rax
-  NTSTATUS v5; // ebx
+  int v5; // ebx
   __int64 v6; // r8
   __int64 v7; // r9
   _QWORD v9[9]; // [rsp+30h] [rbp-48h] BYREF
@@ -24,7 +24,7 @@ __int64 __fastcall NtReplyPort(HANDLE Handle, __int64 a2)
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
   Object = 0LL;
-  v5 = ObReferenceObjectByHandle(Handle, 1u, AlpcPortObjectType, KeGetCurrentThread()->PreviousMode, &Object, 0LL);
+  v5 = ObReferenceObjectByHandle(PortHandle, 1u, AlpcPortObjectType, KeGetCurrentThread()->PreviousMode, &Object, 0LL);
   if ( v5 >= 0 )
   {
     LODWORD(v9[6]) = 0;
@@ -32,18 +32,18 @@ __int64 __fastcall NtReplyPort(HANDLE Handle, __int64 a2)
     if ( (*((_DWORD *)Object + 104) & 0x2000) != 0 )
     {
       LOBYTE(v6) = KeGetCurrentThread()->PreviousMode;
-      v5 = AlpcpReplyLegacySynchronousRequest(v9, a2, v6);
+      v5 = AlpcpReplyLegacySynchronousRequest(v9, ReplyMessage, v6);
     }
     else
     {
       LODWORD(v9[6]) = 65537;
       LOBYTE(v7) = KeGetCurrentThread()->PreviousMode;
-      v5 = AlpcpSendMessage(v9, a2, 0LL, v7);
+      v5 = AlpcpSendMessage(v9, ReplyMessage, 0LL, v7);
       if ( v5 == -1073740029 )
         v5 = -1073741769;
     }
     HalPutDmaAdapter((PADAPTER_OBJECT)Object);
   }
   KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
-  return (unsigned int)v5;
+  return v5;
 }

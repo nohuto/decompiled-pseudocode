@@ -1,7 +1,7 @@
 /*
- * XREFs of PoEndPartitionReplace @ 0x140989568
+ * XREFs of PoEndPartitionReplace @ 0x140989768
  * Callers:
- *     PnprWakeDevices @ 0x140A9DF9C (PnprWakeDevices.c)
+ *     PnprWakeDevices @ 0x140A9DE0C (PnprWakeDevices.c)
  * Callees:
  *     PopDispatchStateCallout @ 0x140682AC8 (PopDispatchStateCallout.c)
  */

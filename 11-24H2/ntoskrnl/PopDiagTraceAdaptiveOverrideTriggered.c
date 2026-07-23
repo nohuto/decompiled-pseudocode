@@ -1,11 +1,11 @@
 /*
- * XREFs of PopDiagTraceAdaptiveOverrideTriggered @ 0x1407554F8
+ * XREFs of PopDiagTraceAdaptiveOverrideTriggered @ 0x140753818
  * Callers:
- *     PopAdaptiveConsoleSessionOverrideTrigger @ 0x14075F23C (PopAdaptiveConsoleSessionOverrideTrigger.c)
+ *     PopAdaptiveConsoleSessionOverrideTrigger @ 0x14075E1DC (PopAdaptiveConsoleSessionOverrideTrigger.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140330CB0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgKeywordOn @ 0x140426AF0 (_tlgKeywordOn.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402B92F0 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x14041A970 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 void PopDiagTraceAdaptiveOverrideTriggered()
@@ -40,7 +40,7 @@ void PopDiagTraceAdaptiveOverrideTriggered()
   int v27; // [rsp+D8h] [rbp+3Fh]
   int v28; // [rsp+DCh] [rbp+43h]
 
-  if ( (unsigned int)dword_140E076F0 > 5 && tlgKeywordOn((__int64)&dword_140E076F0, 0x400000000000LL) )
+  if ( (unsigned int)dword_140E07680 > 5 && tlgKeywordOn((__int64)&dword_140E07680, 0x400000000000LL) )
   {
     v13 = 0;
     v11 = &v7;
@@ -67,6 +67,6 @@ void PopDiagTraceAdaptiveOverrideTriggered()
     v4 = v2;
     v9 = 0x1000000LL;
     v27 = 8;
-    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140E076F0, (unsigned __int8 *)byte_14004B859, 0LL, 0LL, 8u, &v10);
+    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140E07680, (unsigned __int8 *)word_14004BBB2, 0LL, 0LL, 8u, &v10);
   }
 }

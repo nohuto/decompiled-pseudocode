@@ -24,7 +24,7 @@ ACL *__fastcall BiCreateKeySecurityDescriptor(int a1)
   ULONG v6; // r12d
   ACL *Pool2; // rax
   ACL *v8; // rdi
-  __int64 v9; // rbx
+  ACL *v9; // rbx
   __int16 AclSize; // ax
   __int16 v12; // ax
   ULONG v13; // ebx
@@ -40,7 +40,7 @@ ACL *__fastcall BiCreateKeySecurityDescriptor(int a1)
   v8 = Pool2;
   if ( !Pool2 )
     return 0LL;
-  v9 = (__int64)&Pool2[5];
+  v9 = Pool2 + 5;
   if ( RtlCreateAcl(Pool2 + 5, v5, 2u) < 0 )
     goto LABEL_5;
   if ( (int)RtlpAddKnownAce(v9, 2u, 0, a1, (unsigned __int8 *)Src, 0) < 0 )

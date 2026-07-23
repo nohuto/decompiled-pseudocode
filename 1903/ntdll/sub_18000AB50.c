@@ -13,7 +13,7 @@
 
 _QWORD *__fastcall sub_18000AB50(_QWORD *Buf1)
 {
-  unsigned __int64 v2; // rbx
+  unsigned __int64 Root; // rbx
   int v3; // esi
   _QWORD *i; // rdi
   int v5; // eax
@@ -23,30 +23,30 @@ _QWORD *__fastcall sub_18000AB50(_QWORD *Buf1)
   _QWORD *v10; // rcx
   __int64 v11; // rax
 
-  RtlAcquireSRWLockExclusive(&unk_180166440);
-  v2 = qword_180166420;
-  if ( (qword_180166428 & 1) != 0 && qword_180166420 )
-    v2 = (unsigned __int64)&qword_180166420 ^ qword_180166420;
-  v3 = qword_180166428 & 1;
+  RtlAcquireSRWLockExclusive(&stru_180166440);
+  Root = (unsigned __int64)Parent.Root;
+  if ( ((__int64)Parent.Min & 1) != 0 && Parent.Root )
+    Root = (unsigned __int64)&Parent ^ (unsigned __int64)Parent.Root;
+  v3 = (__int64)Parent.Min & 1;
   i = 0LL;
-  while ( v2 )
+  while ( Root )
   {
-    v5 = memcmp(Buf1, (const void *)(v2 + 24), 0x10uLL);
+    v5 = memcmp(Buf1, (const void *)(Root + 24), 0x10uLL);
     if ( v5 < 0 )
       goto LABEL_10;
     if ( v5 <= 0 )
     {
-      i = (_QWORD *)v2;
+      i = (_QWORD *)Root;
 LABEL_10:
-      v6 = *(_QWORD *)v2;
+      v6 = *(_QWORD *)Root;
       goto LABEL_11;
     }
-    v6 = *(_QWORD *)(v2 + 8);
+    v6 = *(_QWORD *)(Root + 8);
 LABEL_11:
     if ( v3 && v6 )
-      v2 ^= v6;
+      Root ^= v6;
     else
-      v2 = v6;
+      Root = v6;
   }
   if ( i )
   {
@@ -85,6 +85,6 @@ LABEL_11:
 LABEL_16:
     i = 0LL;
   }
-  RtlReleaseSRWLockExclusive(&unk_180166440);
+  RtlReleaseSRWLockExclusive(&stru_180166440);
   return i;
 }

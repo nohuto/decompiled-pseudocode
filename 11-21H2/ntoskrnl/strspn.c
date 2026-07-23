@@ -4,7 +4,7 @@
  *     <none>
  * Callees:
  *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     __report_rangecheckfailure @ 0x140502A3C (__report_rangecheckfailure.c)
+ *     sub_140502A3C @ 0x140502A3C (sub_140502A3C.c)
  */
 
 size_t __cdecl strspn(const char *Str, const char *Control)
@@ -25,7 +25,7 @@ size_t __cdecl strspn(const char *Str, const char *Control)
   do
   {
     if ( !v6 )
-      _report_rangecheckfailure(Str, Control, Control);
+      sub_140502A3C(Str, Control, Control);
     v9[v4++] = 0;
     v6 = (unsigned __int64)v4 < 0x20;
   }

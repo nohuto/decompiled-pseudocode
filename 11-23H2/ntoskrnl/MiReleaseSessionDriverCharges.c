@@ -3,9 +3,9 @@
  * Callers:
  *     MiUnloadSystemImage @ 0x1406962FC (MiUnloadSystemImage.c)
  * Callees:
- *     MiManageSubsectionView @ 0x1402A0500 (MiManageSubsectionView.c)
- *     memset @ 0x140435A00 (memset.c)
- *     MiReturnCrossPartitionControlAreaCharges @ 0x140625CFC (MiReturnCrossPartitionControlAreaCharges.c)
+ *     MiManageSubsectionView @ 0x1402A0790 (MiManageSubsectionView.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     MiReturnCrossPartitionControlAreaCharges @ 0x14062624C (MiReturnCrossPartitionControlAreaCharges.c)
  */
 
 int __fastcall MiReleaseSessionDriverCharges(__int64 a1)

@@ -2,9 +2,9 @@
  * XREFs of MiAddZeroingThreads @ 0x140222574
  * Callers:
  *     MiWakeZeroingThreads @ 0x1402224D4 (MiWakeZeroingThreads.c)
- *     MiReassessZeroThreads @ 0x1403515FC (MiReassessZeroThreads.c)
+ *     MiReassessZeroThreads @ 0x14035179C (MiReassessZeroThreads.c)
  * Callees:
- *     KeSetEvent @ 0x14023C5E0 (KeSetEvent.c)
+ *     KeSetEvent @ 0x14023C6B0 (KeSetEvent.c)
  */
 
 __int64 __fastcall MiAddZeroingThreads(__int64 a1)

@@ -1,11 +1,11 @@
 /*
- * XREFs of KiConfigureInitialNodes @ 0x1403A8B08
+ * XREFs of KiConfigureInitialNodes @ 0x1403A8CE8
  * Callers:
  *     KiInitializeKernel @ 0x140A8BF10 (KiInitializeKernel.c)
  * Callees:
- *     KiAssignProcessorNumberToPrcb @ 0x140376640 (KiAssignProcessorNumberToPrcb.c)
- *     KiAllocateProcessorNumber @ 0x1403772B8 (KiAllocateProcessorNumber.c)
- *     KiInitializeSchedulerSubNode @ 0x1403A8C58 (KiInitializeSchedulerSubNode.c)
+ *     KiAssignProcessorNumberToPrcb @ 0x1403767E0 (KiAssignProcessorNumberToPrcb.c)
+ *     KiAllocateProcessorNumber @ 0x140377458 (KiAllocateProcessorNumber.c)
+ *     KiInitializeSchedulerSubNode @ 0x1403A8E38 (KiInitializeSchedulerSubNode.c)
  */
 
 __int64 __fastcall KiConfigureInitialNodes(__int64 a1)

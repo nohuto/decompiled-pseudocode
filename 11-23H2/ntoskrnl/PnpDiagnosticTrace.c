@@ -1,18 +1,18 @@
 /*
- * XREFs of PnpDiagnosticTrace @ 0x140362B58
+ * XREFs of PnpDiagnosticTrace @ 0x140362CF8
  * Callers:
- *     PnpDiagnosticTraceDriverFullInfo @ 0x140362934 (PnpDiagnosticTraceDriverFullInfo.c)
- *     PnpDiagnosticTraceDeviceOperation @ 0x140362A74 (PnpDiagnosticTraceDeviceOperation.c)
- *     PnpCompleteSystemStartProcess @ 0x1403A0E28 (PnpCompleteSystemStartProcess.c)
- *     PnpDiagnosticTraceAppVeto @ 0x140562A44 (PnpDiagnosticTraceAppVeto.c)
- *     PiProcessStartSystemDevices @ 0x1408641C0 (PiProcessStartSystemDevices.c)
+ *     PnpDiagnosticTraceDriverFullInfo @ 0x140362AD4 (PnpDiagnosticTraceDriverFullInfo.c)
+ *     PnpDiagnosticTraceDeviceOperation @ 0x140362C14 (PnpDiagnosticTraceDeviceOperation.c)
+ *     PnpCompleteSystemStartProcess @ 0x1403A1008 (PnpCompleteSystemStartProcess.c)
+ *     PnpDiagnosticTraceAppVeto @ 0x140563104 (PnpDiagnosticTraceAppVeto.c)
+ *     PiProcessStartSystemDevices @ 0x140864400 (PiProcessStartSystemDevices.c)
  *     IopInitializeSystemDrivers @ 0x140B3CA80 (IopInitializeSystemDrivers.c)
  *     IopInitializeBootDrivers @ 0x140B3CEB4 (IopInitializeBootDrivers.c)
  *     IopInitializePlugPlayServices @ 0x140B3E904 (IopInitializePlugPlayServices.c)
  *     IopCallBootDriverReinitializationRoutines @ 0x140B6D2E0 (IopCallBootDriverReinitializationRoutines.c)
  * Callees:
- *     EtwWrite @ 0x1402578A0 (EtwWrite.c)
- *     EtwEventEnabled @ 0x140258420 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x140257960 (EtwWrite.c)
+ *     EtwEventEnabled @ 0x1402584E0 (EtwEventEnabled.c)
  */
 
 NTSTATUS __fastcall PnpDiagnosticTrace(

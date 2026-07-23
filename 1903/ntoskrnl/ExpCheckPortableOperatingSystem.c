@@ -33,15 +33,14 @@ __int64 __fastcall ExpCheckPortableOperatingSystem(_DWORD *a1)
   char v13; // dl
   char *v14; // rcx
   char *v15; // r8
-  bool v16; // [rsp+48h] [rbp-C0h] BYREF
-  char Data; // [rsp+49h] [rbp-BFh] BYREF
+  BOOLEAN IsPortable[8]; // [rsp+48h] [rbp-C0h] BYREF
   SIZE_T NumberOfBytes; // [rsp+50h] [rbp-B8h] BYREF
-  ULONG_PTR v19; // [rsp+58h] [rbp-B0h] BYREF
+  ULONG_PTR v18; // [rsp+58h] [rbp-B0h] BYREF
   PDEVICE_OBJECT Pdo; // [rsp+60h] [rbp-A8h] BYREF
-  UNICODE_STRING v21; // [rsp+68h] [rbp-A0h] BYREF
+  UNICODE_STRING v20; // [rsp+68h] [rbp-A0h] BYREF
   ULONG RequiredSize[2]; // [rsp+78h] [rbp-90h] BYREF
   UNICODE_STRING DestinationString; // [rsp+80h] [rbp-88h] BYREF
-  _QWORD v24[2]; // [rsp+90h] [rbp-78h] BYREF
+  _QWORD v23[2]; // [rsp+90h] [rbp-78h] BYREF
   WCHAR SourceString[12]; // [rsp+A0h] [rbp-68h] BYREF
   wchar_t pszDest[264]; // [rsp+B8h] [rbp-50h] BYREF
 
@@ -49,13 +48,13 @@ __int64 __fastcall ExpCheckPortableOperatingSystem(_DWORD *a1)
   *(_QWORD *)&DestinationString.Length = 0LL;
   DestinationString.Buffer = 0LL;
   v2 = 0LL;
-  memset(v24, 0, 12);
+  memset(v23, 0, 12);
   NumberOfBytes = 0LL;
-  *(_QWORD *)&v21.Length = 0LL;
-  v21.Buffer = 0LL;
+  *(_QWORD *)&v20.Length = 0LL;
+  v20.Buffer = 0LL;
   Pdo = 0LL;
-  DevicePropertyData = RtlCheckPortableOperatingSystem(&v16);
-  if ( DevicePropertyData >= 0 && v16 )
+  DevicePropertyData = RtlCheckPortableOperatingSystem(IsPortable);
+  if ( DevicePropertyData >= 0 && IsPortable[0] )
   {
     wcscpy(SourceString, L"\\??\\x:");
     HostSilo = PsGetHostSilo();
@@ -78,12 +77,12 @@ __int64 __fastcall ExpCheckPortableOperatingSystem(_DWORD *a1)
         if ( *v2 == 1 )
         {
           RtlStringCchPrintfW(pszDest, 0x104uLL, L"\\??\\PhysicalDrive%u", v2[2]);
-          RtlInitUnicodeString(&v21, pszDest);
-          memset(v24, 0, 12);
+          RtlInitUnicodeString(&v20, pszDest);
+          memset(v23, 0, 12);
           DevicePropertyData = ExpHwidSendSynchronousIrpToDevice(
-                                 &v21,
+                                 &v20,
                                  0x2D1400u,
-                                 v24,
+                                 v23,
                                  0xCu,
                                  &NumberOfBytes,
                                  8u,
@@ -94,21 +93,21 @@ __int64 __fastcall ExpCheckPortableOperatingSystem(_DWORD *a1)
             v10 = (unsigned int *)ExAllocatePoolWithTag(PagedPool, HIDWORD(NumberOfBytes), 0x20475457u);
             if ( v10 )
             {
-              v19 = 0LL;
+              v18 = 0LL;
               v11 = ExpHwidSendSynchronousIrpToDevice(
-                      &v21,
+                      &v20,
                       0x2D1400u,
-                      v24,
+                      v23,
                       0xCu,
                       v10,
                       HIDWORD(NumberOfBytes),
-                      &v19,
+                      &v18,
                       &Pdo);
               v12 = Pdo;
               DevicePropertyData = v11;
               if ( v11 >= 0 )
               {
-                if ( Pdo && v19 >= 0x28 && v19 >= v10[1] )
+                if ( Pdo && v18 >= 0x28 && v18 >= v10[1] )
                 {
                   if ( v10[7] == 7 )
                   {
@@ -118,10 +117,10 @@ __int64 __fastcall ExpCheckPortableOperatingSystem(_DWORD *a1)
                                            0,
                                            0,
                                            1u,
-                                           &Data,
+                                           &IsPortable[1],
                                            &RequiredSize[1],
                                            RequiredSize);
-                    if ( DevicePropertyData >= 0 && !Data )
+                    if ( DevicePropertyData >= 0 && !IsPortable[1] )
                     {
                       *a1 = 2;
                       v13 = 0;

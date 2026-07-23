@@ -1,22 +1,22 @@
 /*
- * XREFs of _RtlpMuiRegInitLIPLanguage @ 0x180106944
+ * XREFs of _RtlpMuiRegInitLIPLanguage @ 0x180106904
  * Callers:
- *     RtlpMuiRegAddLanguageByName @ 0x1801040F8 (RtlpMuiRegAddLanguageByName.c)
+ *     RtlpMuiRegAddLanguageByName @ 0x1801040B8 (RtlpMuiRegAddLanguageByName.c)
  * Callees:
  *     RtlCompareUnicodeStrings @ 0x180015FF0 (RtlCompareUnicodeStrings.c)
  *     RtlInitUnicodeString @ 0x18003BA40 (RtlInitUnicodeString.c)
  *     LdrpQueryValueKey @ 0x18003F680 (LdrpQueryValueKey.c)
  *     __security_check_cookie @ 0x18008C940 (__security_check_cookie.c)
- *     ZwEnumerateValueKey @ 0x18009D8A0 (ZwEnumerateValueKey.c)
- *     memset @ 0x1800A4780 (memset.c)
- *     _RtlMuiRegAddLIPParent @ 0x180106340 (_RtlMuiRegAddLIPParent.c)
+ *     ZwEnumerateValueKey @ 0x18009D860 (ZwEnumerateValueKey.c)
+ *     memset @ 0x1800A4740 (memset.c)
+ *     _RtlMuiRegAddLIPParent @ 0x180106300 (_RtlMuiRegAddLIPParent.c)
  */
 
-__int64 __fastcall RtlpMuiRegInitLIPLanguage(__int64 a1, __int64 a2, _BYTE *a3)
+__int64 __fastcall RtlpMuiRegInitLIPLanguage(__int64 a1, void *a2, _BYTE *a3)
 {
   unsigned __int64 v3; // rbp
   unsigned int v7; // edi
-  int v8; // r12d
+  ULONG v8; // r12d
   __int64 v9; // rsi
   int ValueKey; // eax
   int v11; // ebx
@@ -36,17 +36,22 @@ __int64 __fastcall RtlpMuiRegInitLIPLanguage(__int64 a1, __int64 a2, _BYTE *a3)
   *(_DWORD *)(((unsigned __int64)&v14 & 0xFFFFFFFFFFFFFFE0uLL) + 4) = 170;
   if ( (int)LdrpQueryValueKey(
               a2,
-              v3 + 16,
+              (PUNICODE_STRING)(v3 + 16),
               (_DWORD *)((unsigned __int64)&v14 & 0xFFFFFFFFFFFFFFE0uLL),
               (void *)(v3 + 32),
-              (unsigned int *)(v3 + 4)) < 0
+              (ULONG *)(v3 + 4)) < 0
     || *(_DWORD *)v3 != 1 )
   {
     goto LABEL_16;
   }
   RtlInitUnicodeString((PUNICODE_STRING)(v3 + 16), (PCWSTR)(v3 + 32));
   *(_DWORD *)v3 = 7;
-  ValueKey = LdrpQueryValueKey(a2, v3 + 16, (_DWORD *)((unsigned __int64)&v14 & 0xFFFFFFFFFFFFFFE0uLL), 0LL, 0LL);
+  ValueKey = LdrpQueryValueKey(
+               a2,
+               (PUNICODE_STRING)(v3 + 16),
+               (_DWORD *)((unsigned __int64)&v14 & 0xFFFFFFFFFFFFFFE0uLL),
+               0LL,
+               0LL);
   v11 = ValueKey;
   if ( (!ValueKey || ValueKey == -2147483643)
     && (*(_DWORD *)v3 == 7 || *(_DWORD *)v3 == 1)
@@ -61,7 +66,8 @@ __int64 __fastcall RtlpMuiRegInitLIPLanguage(__int64 a1, __int64 a2, _BYTE *a3)
   if ( v11 != -2147483622 )
   {
 LABEL_16:
-    while ( v7 < 4 && (int)ZwEnumerateValueKey() >= 0 )
+    while ( v7 < 4
+         && ZwEnumerateValueKey(a2, v8, KeyValueFullInformation, (PVOID)(v3 + 224), 0x200u, (PULONG)(v3 + 8)) >= 0 )
     {
       if ( *(_DWORD *)(((unsigned __int64)&v14 & 0xFFFFFFFFFFFFFFE0uLL) + 0xE4) == 7
         || *(_DWORD *)(((unsigned __int64)&v14 & 0xFFFFFFFFFFFFFFE0uLL) + 0xE4) == 1 )
@@ -72,13 +78,12 @@ LABEL_16:
           *(_WORD *)(((unsigned __int64)&v14 & 0xFFFFFFFFFFFFFFE0uLL) + 0xF4 + 2 * (v12 >> 1)) = 0;
           RtlInitUnicodeString((PUNICODE_STRING)(v3 + 16), (PCWSTR)(v3 + 244));
           if ( (!(_DWORD)v9
-             || (unsigned int)RtlCompareUnicodeStrings(
-                                *(_WORD **)(((unsigned __int64)&v14 & 0xFFFFFFFFFFFFFFE0uLL) + 0x18),
-                                (unsigned __int64)*(unsigned __int16 *)(((unsigned __int64)&v14 & 0xFFFFFFFFFFFFFFE0uLL)
-                                                                      + 0x10) >> 1,
-                                v3 + 32,
-                                (unsigned int)v9,
-                                1))
+             || RtlCompareUnicodeStrings(
+                  *(PCWCH *)(((unsigned __int64)&v14 & 0xFFFFFFFFFFFFFFE0uLL) + 0x18),
+                  (unsigned __int64)*(unsigned __int16 *)(((unsigned __int64)&v14 & 0xFFFFFFFFFFFFFFE0uLL) + 0x10) >> 1,
+                  (PCWCH)(v3 + 32),
+                  (unsigned int)v9,
+                  1u))
             && (int)RtlMuiRegAddLIPParent(
                       a1,
                       (__int64)a3,

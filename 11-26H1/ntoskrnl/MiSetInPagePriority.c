@@ -1,8 +1,8 @@
 /*
- * XREFs of MiSetInPagePriority @ 0x140490468
+ * XREFs of MiSetInPagePriority @ 0x140489F18
  * Callers:
- *     MiPfPutPagesInTransition @ 0x140372C60 (MiPfPutPagesInTransition.c)
- *     MiPfAllocateMdls @ 0x140A526F0 (MiPfAllocateMdls.c)
+ *     MiPfPutPagesInTransition @ 0x140374A10 (MiPfPutPagesInTransition.c)
+ *     MiPfAllocateMdls @ 0x140A5B9E0 (MiPfAllocateMdls.c)
  * Callees:
  *     <none>
  */

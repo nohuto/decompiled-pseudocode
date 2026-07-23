@@ -1,13 +1,13 @@
 /*
- * XREFs of PnpCompleteDeviceEvent @ 0x140783D70
+ * XREFs of PnpCompleteDeviceEvent @ 0x140783F60
  * Callers:
- *     PnpDeviceEventWorker @ 0x140786860 (PnpDeviceEventWorker.c)
- *     PnpProcessCompletedEject @ 0x140958FF0 (PnpProcessCompletedEject.c)
+ *     PnpDeviceEventWorker @ 0x140786A50 (PnpDeviceEventWorker.c)
+ *     PnpProcessCompletedEject @ 0x1409591F0 (PnpProcessCompletedEject.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14022F5B0 (ObfDereferenceObjectWithTag.c)
- *     KeSetEvent @ 0x14023C5E0 (KeSetEvent.c)
- *     KeDelayExecutionThread @ 0x140246810 (KeDelayExecutionThread.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
+ *     ObfDereferenceObjectWithTag @ 0x14022F6C0 (ObfDereferenceObjectWithTag.c)
+ *     KeSetEvent @ 0x14023C6B0 (KeSetEvent.c)
+ *     KeDelayExecutionThread @ 0x1402468E0 (KeDelayExecutionThread.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

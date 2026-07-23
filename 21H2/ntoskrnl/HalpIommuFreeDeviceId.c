@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpIommuFreeDeviceId @ 0x140379A1C
+ * XREFs of HalpIommuFreeDeviceId @ 0x14037956C
  * Callers:
- *     HalpQueryIommuReservedRegionInformation @ 0x140765484 (HalpQueryIommuReservedRegionInformation.c)
+ *     HalpQueryIommuReservedRegionInformation @ 0x140765644 (HalpQueryIommuReservedRegionInformation.c)
  * Callees:
- *     HalpMmAllocCtxFree @ 0x140379460 (HalpMmAllocCtxFree.c)
+ *     HalpMmAllocCtxFree @ 0x140378FB0 (HalpMmAllocCtxFree.c)
  */
 
 __int64 __fastcall HalpIommuFreeDeviceId(__int64 a1)

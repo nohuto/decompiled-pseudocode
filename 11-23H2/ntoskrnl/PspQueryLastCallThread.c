@@ -1,7 +1,7 @@
 /*
- * XREFs of PspQueryLastCallThread @ 0x1409AF2C8
+ * XREFs of PspQueryLastCallThread @ 0x1409AF4C8
  * Callers:
- *     NtQueryInformationThread @ 0x14079F6D0 (NtQueryInformationThread.c)
+ *     NtQueryInformationThread @ 0x14079F8C0 (NtQueryInformationThread.c)
  * Callees:
  *     <none>
  */
@@ -32,7 +32,7 @@ __int64 __fastcall PspQueryLastCallThread(__int64 a1, __int64 a2, int a3, int *a
   _InterlockedOr(v10, 0);
   if ( v5 != *(_DWORD *)(a1 + 340) )
     return 3221225473LL;
-  v8 = (unsigned int)(MEMORY[0xFFFFF78000000320] - v11) * (unsigned __int64)(unsigned int)KeMaximumIncrement;
+  v8 = (unsigned int)(MEMORY[0xFFFFF78000000320] - v11) * (unsigned __int64)KeMaximumIncrement;
   *(_QWORD *)a2 = v6;
   *(_WORD *)(a2 + 8) = v7;
   v9 = 16;

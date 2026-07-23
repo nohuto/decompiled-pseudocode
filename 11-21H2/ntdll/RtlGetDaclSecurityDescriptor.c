@@ -7,33 +7,37 @@
  *     <none>
  */
 
-__int64 __fastcall RtlGetDaclSecurityDescriptor(__int64 a1, _BYTE *a2, _QWORD *a3, bool *a4)
+NTSTATUS __cdecl RtlGetDaclSecurityDescriptor(
+        PSECURITY_DESCRIPTOR SecurityDescriptor,
+        PBOOLEAN DaclPresent,
+        PACL *Dacl,
+        PBOOLEAN DaclDefaulted)
 {
-  __int64 v4; // rax
+  ACL *v4; // rax
 
-  if ( *(_BYTE *)a1 != 1 )
-    return 3221225560LL;
+  if ( *(_BYTE *)SecurityDescriptor != 1 )
+    return -1073741736;
   v4 = 0LL;
-  if ( (*(_BYTE *)(a1 + 2) & 4) != 0 )
+  if ( (*((_BYTE *)SecurityDescriptor + 2) & 4) != 0 )
   {
-    *a2 = 1;
-    if ( (*(_BYTE *)(a1 + 2) & 4) != 0 )
+    *DaclPresent = 1;
+    if ( (*((_BYTE *)SecurityDescriptor + 2) & 4) != 0 )
     {
-      if ( *(__int16 *)(a1 + 2) >= 0 )
+      if ( *((__int16 *)SecurityDescriptor + 1) >= 0 )
       {
-        v4 = *(_QWORD *)(a1 + 32);
+        v4 = (ACL *)*((_QWORD *)SecurityDescriptor + 4);
       }
-      else if ( *(_DWORD *)(a1 + 16) )
+      else if ( *((_DWORD *)SecurityDescriptor + 4) )
       {
-        v4 = a1 + *(unsigned int *)(a1 + 16);
+        v4 = (ACL *)((char *)SecurityDescriptor + *((unsigned int *)SecurityDescriptor + 4));
       }
     }
-    *a3 = v4;
-    *a4 = (*(_BYTE *)(a1 + 2) & 8) != 0;
+    *Dacl = v4;
+    *DaclDefaulted = (*((_BYTE *)SecurityDescriptor + 2) & 8) != 0;
   }
   else
   {
-    *a2 = 0;
+    *DaclPresent = 0;
   }
-  return 0LL;
+  return 0;
 }

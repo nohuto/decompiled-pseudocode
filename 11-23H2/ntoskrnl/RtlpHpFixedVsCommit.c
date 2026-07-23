@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpHpFixedVsCommit @ 0x140369E80
+ * XREFs of RtlpHpFixedVsCommit @ 0x14036A020
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall RtlpHpFixedVsCommit(__int64 a1, __int64 a2, unsigned int a3)

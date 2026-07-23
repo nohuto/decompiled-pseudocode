@@ -8,27 +8,23 @@
  *     memmove @ 0x1800A5980 (memmove.c)
  */
 
-__int64 __fastcall LdrpRecordUnloadEvent(__int64 a1)
+PVOID __fastcall LdrpRecordUnloadEvent(__int64 a1)
 {
   int v1; // eax
   __int64 v2; // r14
   __int64 v4; // rbx
   unsigned __int16 v5; // bp
   unsigned __int64 v6; // rdi
-  int v7; // eax
-  int v8; // r12d
-  __int64 v9; // r8
-  int v10; // r13d
-  int v11; // ett
-  __int64 v12; // r14
-  __int64 v13; // rbx
-  int v14; // ecx
-  __int64 result; // rax
-  unsigned int v16; // ecx
-  int v17; // [rsp+20h] [rbp-38h] BYREF
-  int v18; // [rsp+24h] [rbp-34h]
-  int v19; // [rsp+28h] [rbp-30h]
-  int v20; // [rsp+2Ch] [rbp-2Ch]
+  __int64 v7; // r8
+  int v8; // ett
+  __int64 v9; // r14
+  __int64 v10; // rbx
+  PVOID result; // rax
+  unsigned int v12; // ecx
+  int v13; // [rsp+20h] [rbp-38h]
+  int v14; // [rsp+24h] [rbp-34h]
+  int v15; // [rsp+28h] [rbp-30h]
+  int v16; // [rsp+2Ch] [rbp-2Ch]
 
   v1 = LdrpUnloadIndex;
   v2 = LdrpUnloadIndex & 0xF;
@@ -44,43 +40,39 @@ __int64 __fastcall LdrpRecordUnloadEvent(__int64 a1)
   v6 = (unsigned __int64)v5 >> 1;
   if ( v5 < 0x40u )
     RtlpUnloadEventTrace[52 * v2 + 14 + v6] = 0;
-  WerEscalationReadImageVersionInfoForModuleBaseSafe(*(_QWORD *)(a1 + 48), *(unsigned int *)(a1 + 64), &v17);
-  v7 = v19;
-  v8 = v17;
-  v9 = RtlpUnloadEventTraceEx;
-  *(_DWORD *)&RtlpUnloadEventTrace[v4 + 10] = v17;
-  v10 = v18;
-  *(_DWORD *)&RtlpUnloadEventTrace[v4 + 12] = v18;
-  *(_DWORD *)&RtlpUnloadEventTrace[v4 + 46] = v7;
-  *(_DWORD *)&RtlpUnloadEventTrace[v4 + 48] = v20;
-  if ( v9 )
+  WerEscalationReadImageVersionInfoForModuleBaseSafe(*(PVOID *)(a1 + 48));
+  v7 = RtlpUnloadEventTraceEx;
+  *(_DWORD *)&RtlpUnloadEventTrace[v4 + 10] = v13;
+  *(_DWORD *)&RtlpUnloadEventTrace[v4 + 12] = v14;
+  *(_DWORD *)&RtlpUnloadEventTrace[v4 + 46] = v15;
+  *(_DWORD *)&RtlpUnloadEventTrace[v4 + 48] = v16;
+  if ( v7 )
     goto LABEL_6;
-  v16 = RtlpUnloadEventTraceExNumber;
+  v12 = RtlpUnloadEventTraceExNumber;
   if ( (unsigned int)RtlpUnloadEventTraceExNumber > 0xFFFF )
-    v16 = 0xFFFF;
-  RtlpUnloadEventTraceExNumber = v16;
-  result = RtlAllocateHeap(LdrpHeap, (NtdllBaseTag + 0x40000) | 8u, 104LL * v16);
-  RtlpUnloadEventTraceEx = result;
-  v9 = result;
+    v12 = 0xFFFF;
+  RtlpUnloadEventTraceExNumber = v12;
+  result = RtlAllocateHeap(LdrpHeap, (NtdllBaseTag + 0x40000) | 8, 104LL * v12);
+  RtlpUnloadEventTraceEx = (__int64)result;
+  v7 = (__int64)result;
   if ( result )
   {
 LABEL_6:
-    v11 = LdrpUnloadIndexEx;
-    v12 = (unsigned __int16)(LdrpUnloadIndexEx % (unsigned int)RtlpUnloadEventTraceExNumber);
-    v13 = 104 * v12;
-    *(_DWORD *)(v13 + v9 + 16) = LdrpUnloadIndexEx;
-    LdrpUnloadIndexEx = v11 + 1;
-    *(_QWORD *)(v13 + RtlpUnloadEventTraceEx) = *(_QWORD *)(a1 + 48);
-    *(_QWORD *)(v13 + RtlpUnloadEventTraceEx + 8) = *(unsigned int *)(a1 + 64);
-    memmove((void *)(104 * v12 + RtlpUnloadEventTraceEx + 28), *(const void **)(a1 + 96), v5);
+    v8 = LdrpUnloadIndexEx;
+    v9 = (unsigned __int16)(LdrpUnloadIndexEx % (unsigned int)RtlpUnloadEventTraceExNumber);
+    v10 = 104 * v9;
+    *(_DWORD *)(v10 + v7 + 16) = LdrpUnloadIndexEx;
+    LdrpUnloadIndexEx = v8 + 1;
+    *(_QWORD *)(v10 + RtlpUnloadEventTraceEx) = *(_QWORD *)(a1 + 48);
+    *(_QWORD *)(v10 + RtlpUnloadEventTraceEx + 8) = *(unsigned int *)(a1 + 64);
+    memmove((void *)(104 * v9 + RtlpUnloadEventTraceEx + 28), *(const void **)(a1 + 96), v5);
     if ( v5 < 0x40u )
-      *(_WORD *)(RtlpUnloadEventTraceEx + 2 * (v6 + 52 * v12) + 28) = 0;
-    v14 = v19;
-    *(_DWORD *)(v13 + RtlpUnloadEventTraceEx + 20) = v8;
-    *(_DWORD *)(v13 + RtlpUnloadEventTraceEx + 24) = v10;
-    *(_DWORD *)(v13 + RtlpUnloadEventTraceEx + 92) = v14;
-    result = RtlpUnloadEventTraceEx;
-    *(_DWORD *)(v13 + RtlpUnloadEventTraceEx + 96) = v20;
+      *(_WORD *)(RtlpUnloadEventTraceEx + 2 * (v6 + 52 * v9) + 28) = 0;
+    *(_DWORD *)(v10 + RtlpUnloadEventTraceEx + 20) = v13;
+    *(_DWORD *)(v10 + RtlpUnloadEventTraceEx + 24) = v14;
+    *(_DWORD *)(v10 + RtlpUnloadEventTraceEx + 92) = v15;
+    result = (PVOID)RtlpUnloadEventTraceEx;
+    *(_DWORD *)(v10 + RtlpUnloadEventTraceEx + 96) = v16;
   }
   return result;
 }

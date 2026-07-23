@@ -56,7 +56,7 @@ LABEL_16:
   if ( v11 )
   {
     do
-      WdipSemFastFree(5, (struct _SLIST_ENTRY *)v10[v6++]);
+      WdipSemFastFree(5, (_SLIST_ENTRY *)v10[v6++]);
     while ( v6 < v11 );
   }
   return (unsigned int)updated;

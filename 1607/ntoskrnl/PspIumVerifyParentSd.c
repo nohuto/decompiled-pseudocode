@@ -1,13 +1,13 @@
 /*
- * XREFs of PspIumVerifyParentSd @ 0x1406822E8
+ * XREFs of PspIumVerifyParentSd @ 0x1406823CC
  * Callers:
- *     PsDispatchIumService @ 0x14020FC24 (PsDispatchIumService.c)
+ *     PsDispatchIumService @ 0x14020FA50 (PsDispatchIumService.c)
  * Callees:
- *     SeAccessCheck @ 0x140062B10 (SeAccessCheck.c)
- *     SeConvertStringSecurityDescriptorToSecurityDescriptor @ 0x1400AA388 (SeConvertStringSecurityDescriptorToSecurityDescriptor.c)
+ *     SeAccessCheck @ 0x140062690 (SeAccessCheck.c)
+ *     SeConvertStringSecurityDescriptorToSecurityDescriptor @ 0x1400A8908 (SeConvertStringSecurityDescriptorToSecurityDescriptor.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
- *     SeCaptureSubjectContext @ 0x140412030 (SeCaptureSubjectContext.c)
- *     SeReleaseSubjectContext @ 0x14041F9B0 (SeReleaseSubjectContext.c)
+ *     SeCaptureSubjectContext @ 0x140410EF0 (SeCaptureSubjectContext.c)
+ *     SeReleaseSubjectContext @ 0x14041E870 (SeReleaseSubjectContext.c)
  */
 
 __int64 __fastcall PspIumVerifyParentSd(int a1, NTSTATUS a2, __int64 a3)

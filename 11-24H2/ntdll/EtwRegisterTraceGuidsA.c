@@ -1,12 +1,20 @@
 /*
- * XREFs of EtwRegisterTraceGuidsA @ 0x1800EA170
+ * XREFs of EtwRegisterTraceGuidsA @ 0x1800E5900
  * Callers:
  *     <none>
  * Callees:
- *     EtwRegisterTraceGuidsW @ 0x1800EA1B0 (EtwRegisterTraceGuidsW.c)
+ *     EtwRegisterTraceGuidsW @ 0x1800E5940 (EtwRegisterTraceGuidsW.c)
  */
 
-__int64 __fastcall EtwRegisterTraceGuidsA(int a1, int a2, int a3, int a4, __int64 a5, int a6, int a7, __int64 a8)
+__int64 __fastcall EtwRegisterTraceGuidsA(
+        ULONG (__cdecl *a1)(PETW_NOTIFICATION_HEADER, PVOID),
+        __int64 a2,
+        __int64 a3,
+        __int64 a4,
+        __int64 a5,
+        int a6,
+        int a7,
+        __int64 a8)
 {
-  return EtwRegisterTraceGuidsW(a1, a2, a3, a4, a5, 0, 0, a8);
+  return EtwRegisterTraceGuidsW(a1, a5, 0, 0, a8);
 }

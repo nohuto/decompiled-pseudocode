@@ -1,8 +1,8 @@
 /*
- * XREFs of RtlpTimeFieldsToTime @ 0x1800A0DF0
+ * XREFs of RtlpTimeFieldsToTime @ 0x18009FF20
  * Callers:
- *     RtlCutoverTimeToSystemTime @ 0x1800A0BA0 (RtlCutoverTimeToSystemTime.c)
- *     RtlTimeFieldsToTime @ 0x1800A0DE0 (RtlTimeFieldsToTime.c)
+ *     RtlCutoverTimeToSystemTime @ 0x18009FCD0 (RtlCutoverTimeToSystemTime.c)
+ *     RtlTimeFieldsToTime @ 0x18009FF10 (RtlTimeFieldsToTime.c)
  * Callees:
  *     <none>
  */

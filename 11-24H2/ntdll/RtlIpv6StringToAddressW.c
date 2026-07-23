@@ -1,19 +1,19 @@
 /*
- * XREFs of RtlIpv6StringToAddressW @ 0x1800BAC80
+ * XREFs of RtlIpv6StringToAddressW @ 0x1800B2A40
  * Callers:
- *     RtlIpv6StringToAddressExW @ 0x1800BA9B0 (RtlIpv6StringToAddressExW.c)
+ *     RtlIpv6StringToAddressExW @ 0x1800B2770 (RtlIpv6StringToAddressExW.c)
  * Callees:
- *     iswctype @ 0x180124B20 (iswctype.c)
- *     wcstol @ 0x1801281D0 (wcstol.c)
- *     memmove @ 0x180167400 (memmove.c)
- *     memset$thunk$772440563353939046 @ 0x180172030 (memset$thunk$772440563353939046.c)
+ *     iswctype @ 0x180122D50 (iswctype.c)
+ *     wcstol @ 0x180126400 (wcstol.c)
+ *     memmove @ 0x1801657C0 (memmove.c)
+ *     memset$thunk$772440563353939046 @ 0x180171030 (memset$thunk$772440563353939046.c)
  */
 
 LONG __stdcall RtlIpv6StringToAddressW(PCWSTR S, PCWSTR *Terminator, struct in6_addr *Addr)
 {
   char v3; // al
   char v5; // r8
-  int v6; // edx
+  unsigned int v6; // edx
   int v8; // r14d
   const wchar_t *v9; // r9
   unsigned int v10; // ebp
@@ -26,7 +26,7 @@ LONG __stdcall RtlIpv6StringToAddressW(PCWSTR S, PCWSTR *Terminator, struct in6_
   char v18; // [rsp+20h] [rbp-48h]
   wchar_t *String; // [rsp+28h] [rbp-40h]
   char v20; // [rsp+70h] [rbp+8h]
-  int v22; // [rsp+88h] [rbp+20h]
+  unsigned int v22; // [rsp+88h] [rbp+20h]
 
   v3 = 0;
   String = 0LL;
@@ -107,13 +107,13 @@ LABEL_37:
             v16 = wcstol(v9, 0LL, 10);
             if ( v16 > 0xFF )
               return -1073741811;
-            Addr->u.Byte[2 * v22 - 1 + v11] = v16;
+            *((_BYTE *)Addr + 2 * v22 + v11 - 1) = v16;
           }
           else
           {
             if ( v12 > 4 )
               return -1073741811;
-            Addr->u.Word[v22++] = __ROR2__(wcstol(v9, 0LL, 16), 8);
+            *((_WORD *)Addr + v22++) = __ROR2__(wcstol(v9, 0LL, 16), 8);
           }
           goto LABEL_54;
         }
@@ -139,7 +139,7 @@ LABEL_54:
       v18 = v5;
       v22 = v6 + 1;
       ++S;
-      Addr->u.Word[v6] = 0;
+      *((_WORD *)Addr + v6) = 0;
       v8 = 2;
       goto LABEL_37;
     }
@@ -184,24 +184,24 @@ LABEL_19:
       v17 = wcstol(String, 0LL, 10);
       if ( v17 > 0xFF )
         return -1073741811;
-      Addr->u.Byte[2 * v22 + v11] = v17;
+      *((_BYTE *)Addr + 2 * v22 + v11) = v17;
     }
     else
     {
       if ( v12 > 4 )
         return -1073741811;
-      Addr->u.Word[v22] = __ROR2__(wcstol(String, 0LL, 16), 8);
+      *((_WORD *)Addr + v22) = __ROR2__(wcstol(String, 0LL, 16), 8);
     }
   }
   else
   {
     if ( v8 != 2 )
       return -1073741811;
-    Addr->u.Word[v22] = 0;
+    *((_WORD *)Addr + v22) = 0;
   }
   if ( v13 )
   {
-    memmove((char *)&Addr[1] + 2 * (v13 - v10), (char *)Addr + 2 * v13, 2LL * (v10 - v13));
+    memmove((char *)Addr + 2 * (v13 - v10) + 16, (char *)Addr + 2 * v13, 2LL * (v10 - v13));
     memset_thunk_772440563353939046((char *)Addr + 2 * v13, 0, 2LL * (8 - v10));
   }
   return 0;

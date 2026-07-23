@@ -21,7 +21,7 @@ _QWORD *MiRemoveEnclavePagesFromMirror()
   }
   while ( v1 )
   {
-    RtlInterlockedClearBitRunEx((__int64)&qword_14036C970, v1[3], v1[4]);
+    RtlInterlockedClearBitRunEx((__int64)&stru_14036C970, v1[3], v1[4]);
     v2 = (_QWORD *)v1[1];
     result = v1;
     if ( v2 )

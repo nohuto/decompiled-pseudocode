@@ -1,12 +1,12 @@
 /*
- * XREFs of PpmPerfReApplyStates @ 0x1409869D4
+ * XREFs of PpmPerfReApplyStates @ 0x140986BD4
  * Callers:
- *     PopTransitionSystemPowerStateEx @ 0x140AA90F0 (PopTransitionSystemPowerStateEx.c)
+ *     PopTransitionSystemPowerStateEx @ 0x140AA8F60 (PopTransitionSystemPowerStateEx.c)
  * Callees:
- *     PpmPerfSetAllDomainsToUpdate @ 0x14032B1B0 (PpmPerfSetAllDomainsToUpdate.c)
- *     PpmCheckCustomRun @ 0x14032B63C (PpmCheckCustomRun.c)
- *     PpmAcquireLock @ 0x14032C2D0 (PpmAcquireLock.c)
- *     PpmUpdateProcessorPolicy @ 0x14082C7B0 (PpmUpdateProcessorPolicy.c)
+ *     PpmPerfSetAllDomainsToUpdate @ 0x14032B440 (PpmPerfSetAllDomainsToUpdate.c)
+ *     PpmCheckCustomRun @ 0x14032B8CC (PpmCheckCustomRun.c)
+ *     PpmAcquireLock @ 0x14032C560 (PpmAcquireLock.c)
+ *     PpmUpdateProcessorPolicy @ 0x14082CAB0 (PpmUpdateProcessorPolicy.c)
  */
 
 void PpmPerfReApplyStates()

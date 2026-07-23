@@ -1,19 +1,19 @@
 /*
- * XREFs of PipChangeDeviceObjectFromRegistryProperties @ 0x1404E1F74
+ * XREFs of PipChangeDeviceObjectFromRegistryProperties @ 0x1404D3B60
  * Callers:
- *     PipCallDriverAddDevice @ 0x1403F4CEC (PipCallDriverAddDevice.c)
+ *     PipCallDriverAddDevice @ 0x1403F3BB0 (PipCallDriverAddDevice.c)
  * Callees:
- *     RtlGetDaclSecurityDescriptor @ 0x140009CC4 (RtlGetDaclSecurityDescriptor.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     RtlGetDaclSecurityDescriptor @ 0x140009844 (RtlGetDaclSecurityDescriptor.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     memset @ 0x140171AC0 (memset.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
- *     RtlGetSaclSecurityDescriptor @ 0x1403F6FEC (RtlGetSaclSecurityDescriptor.c)
- *     ObSetSecurityObjectByPointer @ 0x1404072C4 (ObSetSecurityObjectByPointer.c)
- *     IopCreateDefaultDeviceSecurityDescriptor @ 0x14047391C (IopCreateDefaultDeviceSecurityDescriptor.c)
- *     RtlGetOwnerSecurityDescriptor @ 0x140489DD8 (RtlGetOwnerSecurityDescriptor.c)
- *     PipGetRegistryDwordWithFallback @ 0x1404E22DC (PipGetRegistryDwordWithFallback.c)
- *     PipGetRegistrySecurityWithFallback @ 0x1404E23B8 (PipGetRegistrySecurityWithFallback.c)
- *     RtlGetGroupSecurityDescriptor @ 0x140543158 (RtlGetGroupSecurityDescriptor.c)
+ *     RtlGetSaclSecurityDescriptor @ 0x1403F5EAC (RtlGetSaclSecurityDescriptor.c)
+ *     ObSetSecurityObjectByPointer @ 0x140406184 (ObSetSecurityObjectByPointer.c)
+ *     IopCreateDefaultDeviceSecurityDescriptor @ 0x1404727EC (IopCreateDefaultDeviceSecurityDescriptor.c)
+ *     PipGetRegistryDwordWithFallback @ 0x1404D3EC8 (PipGetRegistryDwordWithFallback.c)
+ *     PipGetRegistrySecurityWithFallback @ 0x1404D3FA4 (PipGetRegistrySecurityWithFallback.c)
+ *     RtlGetOwnerSecurityDescriptor @ 0x1404D5328 (RtlGetOwnerSecurityDescriptor.c)
+ *     RtlGetGroupSecurityDescriptor @ 0x140543698 (RtlGetGroupSecurityDescriptor.c)
  */
 
 __int64 __fastcall PipChangeDeviceObjectFromRegistryProperties(__int64 a1, ACL *a2, __int64 a3, __int64 a4, char a5)

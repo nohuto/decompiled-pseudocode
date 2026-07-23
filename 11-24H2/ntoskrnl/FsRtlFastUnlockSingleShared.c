@@ -1,23 +1,23 @@
 /*
- * XREFs of FsRtlFastUnlockSingleShared @ 0x14024A1C0
+ * XREFs of FsRtlFastUnlockSingleShared @ 0x1402E4400
  * Callers:
- *     FsRtlPrivateRemoveLock @ 0x1404D8BCC (FsRtlPrivateRemoveLock.c)
+ *     FsRtlPrivateRemoveLock @ 0x1404D201C (FsRtlPrivateRemoveLock.c)
  * Callees:
- *     RtlRealSuccessor @ 0x140248410 (RtlRealSuccessor.c)
- *     ExAllocateFromNPagedLookasideList @ 0x140248B90 (ExAllocateFromNPagedLookasideList.c)
- *     RtlDelete @ 0x14024A8A0 (RtlDelete.c)
- *     FsRtlPrivateResetLowestLockOffset @ 0x14024A944 (FsRtlPrivateResetLowestLockOffset.c)
- *     FsRtlPrivateCheckWaitingLocks @ 0x14024ACAC (FsRtlPrivateCheckWaitingLocks.c)
- *     KeReleaseSpinLock @ 0x14024DD30 (KeReleaseSpinLock.c)
- *     KiReleaseSpinLockInstrumented @ 0x14024E080 (KiReleaseSpinLockInstrumented.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140254B20 (KeAcquireSpinLockRaiseToDpc.c)
- *     KxReleaseSpinLock @ 0x140279CC0 (KxReleaseSpinLock.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     RtlpInterlockedPushEntrySList @ 0x1406B38D0 (RtlpInterlockedPushEntrySList.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     KxReleaseSpinLock @ 0x14022F250 (KxReleaseSpinLock.c)
+ *     KeReleaseSpinLock @ 0x14027E340 (KeReleaseSpinLock.c)
+ *     KiReleaseSpinLockInstrumented @ 0x14027E690 (KiReleaseSpinLockInstrumented.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140285130 (KeAcquireSpinLockRaiseToDpc.c)
+ *     RtlRealSuccessor @ 0x1402E2650 (RtlRealSuccessor.c)
+ *     ExAllocateFromNPagedLookasideList @ 0x1402E2DD0 (ExAllocateFromNPagedLookasideList.c)
+ *     RtlDelete @ 0x1402E4AE0 (RtlDelete.c)
+ *     FsRtlPrivateResetLowestLockOffset @ 0x1402E4B84 (FsRtlPrivateResetLowestLockOffset.c)
+ *     FsRtlPrivateCheckWaitingLocks @ 0x1402E4EEC (FsRtlPrivateCheckWaitingLocks.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1406B4870 (RtlpInterlockedPushEntrySList.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall FsRtlFastUnlockSingleShared(
@@ -37,50 +37,45 @@ __int64 __fastcall FsRtlFastUnlockSingleShared(
   KSPIN_LOCK v14; // r10
   KIRQL v15; // r11
   char *v16; // r8
-  struct _SLIST_ENTRY **v17; // r14
-  struct _SLIST_ENTRY **v18; // rcx
+  _SLIST_ENTRY **v17; // r14
+  _SLIST_ENTRY **v18; // rcx
   _QWORD *v19; // rdx
   unsigned __int64 v20; // rax
-  _SLIST_ENTRY *v21; // r8
   _SLIST_ENTRY *Next; // rdi
-  __int64 v23; // rdx
-  struct _SLIST_ENTRY **p_Next; // r15
-  struct _SLIST_ENTRY *v25; // r12
-  ULONG_PTR v26; // r10
-  void (__stdcall *v27)(PPRIVILEGE_SET); // r9
-  KSPIN_LOCK *v28; // r13
-  __int64 v29; // rdx
+  __int64 v22; // rdx
+  _SLIST_ENTRY **p_Next; // r15
+  _SLIST_ENTRY *v24; // r12
+  ULONG_PTR v25; // r10
+  void (__stdcall *v26)(PPRIVILEGE_SET); // r9
+  KSPIN_LOCK *v27; // r13
+  __int64 v28; // rdx
+  ULONG_PTR v29; // r9
   __int64 v30; // r8
-  __int64 v31; // r9
-  ULONG_PTR v32; // r9
-  __int64 v33; // r8
-  _QWORD *v34; // rbx
-  struct _SLIST_ENTRY *v35; // rbx
-  __int64 v36; // rbp
-  _SLIST_ENTRY *v37; // rsi
-  struct _SLIST_ENTRY *v38; // rcx
-  struct _SLIST_ENTRY *v39; // rdi
-  unsigned __int64 v40; // rax
-  struct _SLIST_ENTRY *v41; // rax
-  KIRQL v42; // di
-  ULONG_PTR v43; // r9
-  __int64 v44; // r8
-  size_t v46; // r8
-  size_t v47; // r8
-  __int64 v48; // r8
-  __int64 v49; // r9
-  _RTL_SPLAY_LINKS *v50; // rax
-  struct _SLIST_ENTRY **v51; // rcx
-  int v52; // eax
-  _RTL_SPLAY_LINKS *v53; // rdi
-  PRTL_SPLAY_LINKS v54; // rax
-  struct _SLIST_ENTRY *v55; // rax
+  _QWORD *v31; // rbx
+  _SLIST_ENTRY *v32; // rbx
+  __int64 v33; // rbp
+  _SLIST_ENTRY *v34; // rsi
+  _SLIST_ENTRY *v35; // rcx
+  _SLIST_ENTRY *v36; // rdi
+  unsigned __int64 v37; // rax
+  _SLIST_ENTRY *v38; // rax
+  KIRQL v39; // di
+  ULONG_PTR v40; // r9
+  __int64 v41; // r8
+  size_t v43; // r8
+  size_t v44; // r8
+  _RTL_SPLAY_LINKS *v45; // rax
+  _SLIST_ENTRY **v46; // rcx
+  int v47; // eax
+  _RTL_SPLAY_LINKS *v48; // rdi
+  PRTL_SPLAY_LINKS v49; // rax
+  _SLIST_ENTRY *v50; // rax
   PKSPIN_LOCK SpinLock; // [rsp+30h] [rbp-58h]
   int SpinLocka; // [rsp+30h] [rbp-58h]
-  struct _SLIST_ENTRY *v58; // [rsp+38h] [rbp-50h]
-  struct _SLIST_ENTRY **v59; // [rsp+40h] [rbp-48h]
-  void *retaddr; // [rsp+88h] [rbp+0h]
-  KIRQL v62; // [rsp+A0h] [rbp+18h]
+  _SLIST_ENTRY *v53; // [rsp+38h] [rbp-50h]
+  _SLIST_ENTRY **v54; // [rsp+40h] [rbp-48h]
+  __int64 retaddr; // [rsp+88h] [rbp+0h]
+  KIRQL v57; // [rsp+A0h] [rbp+18h]
 
   v9 = *a3;
   v10 = a1 + 3;
@@ -88,14 +83,14 @@ __int64 __fastcall FsRtlFastUnlockSingleShared(
   v13 = KeAcquireSpinLockRaiseToDpc(a1 + 3);
   v14 = v10[1];
   v15 = v13;
-  v62 = v13;
+  v57 = v13;
   if ( !v14 )
     goto LABEL_86;
   v16 = (char *)&(*a4)[-1].Next + v9 + 15;
   v17 = 0LL;
   while ( 1 )
   {
-    v18 = (struct _SLIST_ENTRY **)(v14 - 24);
+    v18 = (_SLIST_ENTRY **)(v14 - 24);
     v19 = *(_QWORD **)(v14 - 24);
     if ( *(_QWORD *)(v14 - 8) < v9 )
       break;
@@ -109,7 +104,7 @@ LABEL_63:
       {
         if ( v20 <= v9 )
           goto LABEL_8;
-        v17 = (struct _SLIST_ENTRY **)(v14 - 24);
+        v17 = (_SLIST_ENTRY **)(v14 - 24);
       }
       goto LABEL_6;
     }
@@ -129,264 +124,263 @@ LABEL_7:
 LABEL_8:
   if ( v14 )
     v17 = v18;
-  if ( !v17 || v17 == (struct _SLIST_ENTRY **)-24LL )
+  if ( !v17 || v17 == (_SLIST_ENTRY **)-24LL )
   {
 LABEL_86:
     KeReleaseSpinLock(v10, v15);
     return 3221225598LL;
   }
-  v21 = *a4;
   Next = 0LL;
-  v23 = a5;
+  v22 = a5;
   p_Next = v17;
   while ( 1 )
   {
-    v25 = *p_Next;
+    v24 = *p_Next;
     if ( !*p_Next )
     {
 LABEL_66:
-      KxReleaseSpinLock(SpinLock);
+      KxReleaseSpinLock((volatile signed __int64 *)SpinLock);
       if ( KiIrqlFlags )
-        KiLowerIrqlProcessIrqlFlags(KeGetCurrentIrql(), v62);
-      __writecr8(v62);
+        KiLowerIrqlProcessIrqlFlags(KeGetCurrentIrql(), v57);
+      __writecr8(v57);
       return 3221225598LL;
     }
-    if ( v25[2].Next == (_SLIST_ENTRY *)a2
-      && *((_QWORD *)&v25[2].Next + 1) == a5
-      && *((_DWORD *)&v25[1].Next + 3) == a6
-      && *((_QWORD *)&v25->Next + 1) == v9
-      && v25[1].Next == v21 )
+    if ( v24[2].Next == (_SLIST_ENTRY *)a2
+      && *((_QWORD *)&v24[2].Next + 1) == a5
+      && *((_DWORD *)&v24[1].Next + 3) == a6
+      && *((_QWORD *)&v24->Next + 1) == v9
+      && v24[1].Next == *a4 )
     {
       break;
     }
-    if ( *((_QWORD *)&v25->Next + 1) > v9 )
+    if ( *((_QWORD *)&v24->Next + 1) > v9 )
       goto LABEL_66;
-    p_Next = (struct _SLIST_ENTRY **)*p_Next;
-    if ( Next < v25[3].Next )
-      Next = v25[3].Next;
+    p_Next = (_SLIST_ENTRY **)*p_Next;
+    if ( Next < v24[3].Next )
+      Next = v24[3].Next;
   }
-  if ( *(struct _SLIST_ENTRY **)(a2 + 120) == (struct _SLIST_ENTRY *)(&v25->Next + 1) )
+  if ( *(_SLIST_ENTRY **)(a2 + 120) == (_SLIST_ENTRY *)(&v24->Next + 1) )
     *(_QWORD *)(a2 + 120) = 0LL;
   if ( *p_Next == v17[6] )
-    v17[6] = (struct _SLIST_ENTRY *)p_Next;
-  v26 = 1LL;
-  *p_Next = v25->Next;
-  v27 = CmSiFreeMemory;
+    v17[6] = (_SLIST_ENTRY *)p_Next;
+  v25 = 1LL;
+  *p_Next = v24->Next;
+  v26 = CmSiFreeMemory;
   if ( p_Next == v17 )
   {
     if ( *v17 )
     {
-      v28 = SpinLock;
+      v27 = SpinLock;
     }
     else
     {
-      v28 = SpinLock;
+      v27 = SpinLock;
       SpinLock[1] = (KSPIN_LOCK)RtlDelete((PRTL_SPLAY_LINKS)v17 + 1);
-      ++FsRtlLockTreeNodeLookasideList.L.TotalFrees;
-      if ( LOWORD(FsRtlLockTreeNodeLookasideList.L.ListHead.Alignment) >= FsRtlLockTreeNodeLookasideList.L.Depth )
+      ++unk_140E1225C;
+      if ( LOWORD(FsRtlLockTreeNodeLookasideList.Alignment) >= unk_140E12250 )
       {
-        ++FsRtlLockTreeNodeLookasideList.L.FreeMisses;
-        if ( (void (__stdcall *)(PVOID))FsRtlLockTreeNodeLookasideList.L.FreeEx == ExFreePool )
+        ++unk_140E12260;
+        if ( (void (__stdcall *)(PVOID))unk_140E12278 == ExFreePool )
           ExFreePoolWithTag(v17, 0);
         else
-          guard_dispatch_icall_no_overrides(v17, v29, v30, v31);
+          guard_dispatch_icall_no_overrides(v17, v28);
       }
       else
       {
-        if ( (void (__stdcall *)(PPRIVILEGE_SET))FsRtlLockTreeNodeLookasideList.L.FreeEx == CmSiFreeMemory )
+        if ( (void (__stdcall *)(PPRIVILEGE_SET))unk_140E12278 == CmSiFreeMemory )
         {
-          v32 = (ULONG_PTR)(v17 + 1);
-          v33 = FsRtlLockTreeNodeLookasideList.L.Size - 8LL;
-          if ( byte_140FCDC28 )
+          v29 = (ULONG_PTR)(v17 + 1);
+          v30 = dword_140E1226C[0] - 8LL;
+          if ( byte_140FCECA8 )
           {
-            if ( v32 < 0xFFFF800000000000uLL )
-              KeBugCheckEx(0x1F1u, 2uLL, 1uLL, v32, 0LL);
-            if ( (v32 & 7) != 0 )
-              KeBugCheckEx(0x1F1u, 2uLL, 2uLL, v32, 8uLL);
-            if ( v32 + v33 < v32 )
-              KeBugCheckEx(0x1F1u, 2uLL, 3uLL, v32, FsRtlLockTreeNodeLookasideList.L.Size - 8LL);
-            v47 = (v33 - (unsigned __int64)((LOBYTE(FsRtlLockTreeNodeLookasideList.L.Size) - 9) & 7) + 7) >> 3;
-            if ( v47 )
+            if ( v29 < 0xFFFF800000000000uLL )
+              KeBugCheckEx(0x1F1u, 2uLL, 1uLL, v29, 0LL);
+            if ( (v29 & 7) != 0 )
+              KeBugCheckEx(0x1F1u, 2uLL, 2uLL, v29, 8uLL);
+            if ( v29 + v30 < v29 )
+              KeBugCheckEx(0x1F1u, 2uLL, 3uLL, v29, dword_140E1226C[0] - 8LL);
+            v44 = (v30 - (unsigned __int64)((LOBYTE(dword_140E1226C[0]) - 9) & 7) + 7) >> 3;
+            if ( v44 )
             {
-              LOBYTE(v29) = -116;
-              memset_0((void *)(KasaniShadow + ((unsigned __int64)(v17 + 0x100000000001LL) >> 3)), v29, v47);
+              LOBYTE(v28) = -116;
+              memset_0((void *)(KasaniShadow + ((unsigned __int64)(v17 + 0x100000000001LL) >> 3)), v28, v44);
             }
           }
         }
-        RtlpInterlockedPushEntrySList(&FsRtlLockTreeNodeLookasideList.L.ListHead, (PSLIST_ENTRY)v17);
+        RtlpInterlockedPushEntrySList(&FsRtlLockTreeNodeLookasideList, (PSLIST_ENTRY)v17);
       }
-      v15 = v62;
-      v27 = CmSiFreeMemory;
+      v15 = v57;
+      v26 = CmSiFreeMemory;
       v17 = 0LL;
-      v26 = 1LL;
+      v25 = 1LL;
     }
-    v34 = a1;
-    if ( *a1 == *((_QWORD *)&v25->Next + 1) )
+    v31 = a1;
+    if ( *a1 == *((_QWORD *)&v24->Next + 1) )
       FsRtlPrivateResetLowestLockOffset(a1);
     if ( !v17 )
       goto LABEL_46;
   }
   else
   {
-    v28 = SpinLock;
+    v27 = SpinLock;
   }
-  v35 = 0LL;
-  v36 = 0LL;
+  v32 = 0LL;
+  v33 = 0LL;
   SpinLocka = 0;
   if ( *((_BYTE *)v17 + 8) )
   {
-    v37 = v17[2];
+    v34 = v17[2];
     p_Next = v17;
     *((_BYTE *)v17 + 8) = 0;
   }
   else
   {
-    v35 = Next;
-    v37 = v25[3].Next;
-    if ( !*v17 || v37 <= Next )
+    v32 = Next;
+    v34 = v24[3].Next;
+    if ( !*v17 || v34 <= Next )
       goto LABEL_45;
   }
-  v38 = v17[2];
-  v58 = v38;
+  v35 = v17[2];
+  v53 = v35;
   while ( 1 )
   {
-    v39 = *p_Next;
+    v36 = *p_Next;
     if ( !*p_Next )
       break;
-    if ( *v17 != v39 )
+    if ( *v17 != v36 )
     {
-      v40 = *((_QWORD *)&v39->Next + 1);
-      if ( v40 <= (unsigned __int64)v35 || !v39[1].Next && v40 == v36 )
+      v37 = *((_QWORD *)&v36->Next + 1);
+      if ( v37 <= (unsigned __int64)v32 || !v36[1].Next && v37 == v33 )
         goto LABEL_40;
-      v50 = (_RTL_SPLAY_LINKS *)ExAllocateFromNPagedLookasideList(&FsRtlLockTreeNodeLookasideList);
-      v59 = (struct _SLIST_ENTRY **)v50;
-      v51 = (struct _SLIST_ENTRY **)v50;
-      if ( v50 )
+      v45 = (_RTL_SPLAY_LINKS *)ExAllocateFromNPagedLookasideList((PNPAGED_LOOKASIDE_LIST)&FsRtlLockTreeNodeLookasideList);
+      v54 = (_SLIST_ENTRY **)v45;
+      v46 = (_SLIST_ENTRY **)v45;
+      if ( v45 )
       {
-        v53 = v50 + 1;
-        v50[1].LeftChild = 0LL;
-        v50[1].Parent = v50 + 1;
-        v50[1].RightChild = 0LL;
-        LOBYTE(v50->LeftChild) = 0;
-        v54 = (PRTL_SPLAY_LINKS)(v17 + 3);
+        v48 = v45 + 1;
+        v45[1].LeftChild = 0LL;
+        v45[1].Parent = v45 + 1;
+        v45[1].RightChild = 0LL;
+        LOBYTE(v45->LeftChild) = 0;
+        v49 = (PRTL_SPLAY_LINKS)(v17 + 3);
         if ( v17[5] )
         {
-          v54 = RtlRealSuccessor((PRTL_SPLAY_LINKS)v17 + 1);
-          v51 = v59;
-          v54->LeftChild = v53;
+          v49 = RtlRealSuccessor((PRTL_SPLAY_LINKS)v17 + 1);
+          v46 = v54;
+          v49->LeftChild = v48;
         }
         else
         {
-          v17[5] = (struct _SLIST_ENTRY *)v53;
+          v17[5] = (_SLIST_ENTRY *)v48;
         }
-        v53->Parent = v54;
-        v39 = (struct _SLIST_ENTRY *)v51;
-        *v51 = *p_Next;
+        v48->Parent = v49;
+        v36 = (_SLIST_ENTRY *)v46;
+        *v46 = *p_Next;
         *p_Next = 0LL;
-        v51[6] = v17[6];
-        v55 = v17[2];
-        v17[6] = (struct _SLIST_ENTRY *)p_Next;
-        v51[2] = v55;
-        v17[2] = v35;
+        v46[6] = v17[6];
+        v50 = v17[2];
+        v17[6] = (_SLIST_ENTRY *)p_Next;
+        v46[2] = v50;
+        v17[2] = v32;
         if ( SpinLocka )
           SpinLocka = 0;
         else
           *((_BYTE *)v17 + 8) = 0;
-        v17 = v51;
-        v26 = 1LL;
-        v38 = v58;
+        v17 = v46;
+        v25 = 1LL;
+        v35 = v53;
       }
       else
       {
-        v26 = 1LL;
-        v52 = SpinLocka;
-        v38 = v58;
+        v25 = 1LL;
+        v47 = SpinLocka;
+        v35 = v53;
         if ( *((_BYTE *)v17 + 8) )
-          v52 = 1;
-        SpinLocka = v52;
+          v47 = 1;
+        SpinLocka = v47;
         *((_BYTE *)v17 + 8) = 1;
 LABEL_40:
-        if ( v38 > v37 && *((_QWORD *)&v39->Next + 1) > (unsigned __int64)v37 )
+        if ( v35 > v34 && *((_QWORD *)&v36->Next + 1) > (unsigned __int64)v34 )
           goto LABEL_44;
-        v41 = v39[3].Next;
-        if ( v35 < v41 )
+        v38 = v36[3].Next;
+        if ( v32 < v38 )
         {
-          v35 = v39[3].Next;
-          if ( v38 <= v37 )
-            v17[2] = v41;
+          v32 = v36[3].Next;
+          if ( v35 <= v34 )
+            v17[2] = v38;
         }
       }
 LABEL_42:
-      p_Next = &v39->Next;
+      p_Next = &v36->Next;
       continue;
     }
-    v35 = v39[3].Next;
-    v36 = *((_QWORD *)&v39->Next + 1);
-    if ( v38 > v37 )
+    v32 = v36[3].Next;
+    v33 = *((_QWORD *)&v36->Next + 1);
+    if ( v35 > v34 )
       goto LABEL_42;
-    v17[2] = v35;
-    p_Next = &v39->Next;
+    v17[2] = v32;
+    p_Next = &v36->Next;
   }
-  v17[2] = v35;
+  v17[2] = v32;
 LABEL_44:
-  v15 = v62;
-  v27 = CmSiFreeMemory;
+  v15 = v57;
+  v26 = CmSiFreeMemory;
 LABEL_45:
-  v34 = a1;
+  v31 = a1;
 LABEL_46:
-  if ( !a8 && v34[2] )
+  if ( !a8 && v31[2] )
   {
-    KeReleaseSpinLock(v28, v15);
-    guard_dispatch_icall_no_overrides(a7, &v25->Next + 1, v48, v49);
-    v42 = KeAcquireSpinLockRaiseToDpc(v28);
-    v27 = CmSiFreeMemory;
-    v26 = 1LL;
+    KeReleaseSpinLock(v27, v15);
+    guard_dispatch_icall_no_overrides(a7, &v24->Next + 1);
+    v39 = KeAcquireSpinLockRaiseToDpc(v27);
+    v26 = CmSiFreeMemory;
+    v25 = 1LL;
   }
   else
   {
-    v42 = v62;
+    v39 = v57;
   }
-  ++FsRtlSharedLockLookasideList.L.TotalFrees;
-  if ( LOWORD(FsRtlSharedLockLookasideList.L.ListHead.Alignment) >= FsRtlSharedLockLookasideList.L.Depth )
+  ++unk_140E11FDC;
+  if ( LOWORD(FsRtlSharedLockLookasideList.Alignment) >= unk_140E11FD0 )
   {
-    ++FsRtlSharedLockLookasideList.L.FreeMisses;
-    if ( (void (__stdcall *)(PVOID))FsRtlSharedLockLookasideList.L.FreeEx == ExFreePool )
-      ExFreePoolWithTag(v25, 0);
+    ++unk_140E11FE0;
+    if ( (void (__stdcall *)(PVOID))unk_140E11FF8 == ExFreePool )
+      ExFreePoolWithTag(v24, 0);
     else
-      guard_dispatch_icall_no_overrides(v25, v23, v21, v27);
+      guard_dispatch_icall_no_overrides(v24, v22);
   }
   else
   {
-    if ( (void (__stdcall *)(PPRIVILEGE_SET))FsRtlSharedLockLookasideList.L.FreeEx == v27 )
+    if ( (void (__stdcall *)(PPRIVILEGE_SET))unk_140E11FF8 == v26 )
     {
-      v43 = (ULONG_PTR)(&v25->Next + 1);
-      v44 = FsRtlSharedLockLookasideList.L.Size - 8LL;
-      if ( byte_140FCDC28 )
+      v40 = (ULONG_PTR)(&v24->Next + 1);
+      v41 = dword_140E11FEC[0] - 8LL;
+      if ( byte_140FCECA8 )
       {
-        if ( v43 < 0xFFFF800000000000uLL )
-          KeBugCheckEx(0x1F1u, 2uLL, v26, v43, 0LL);
-        if ( (v43 & 7) != 0 )
-          KeBugCheckEx(0x1F1u, 2uLL, 2uLL, v43, 8uLL);
-        if ( v43 + v44 < v43 )
-          KeBugCheckEx(0x1F1u, 2uLL, 3uLL, v43, FsRtlSharedLockLookasideList.L.Size - 8LL);
-        v46 = (v44 - (unsigned __int64)((LOBYTE(FsRtlSharedLockLookasideList.L.Size) - 9) & 7) + 7) >> 3;
-        if ( v46 )
+        if ( v40 < 0xFFFF800000000000uLL )
+          KeBugCheckEx(0x1F1u, 2uLL, v25, v40, 0LL);
+        if ( (v40 & 7) != 0 )
+          KeBugCheckEx(0x1F1u, 2uLL, 2uLL, v40, 8uLL);
+        if ( v40 + v41 < v40 )
+          KeBugCheckEx(0x1F1u, 2uLL, 3uLL, v40, dword_140E11FEC[0] - 8LL);
+        v43 = (v41 - (unsigned __int64)((LOBYTE(dword_140E11FEC[0]) - 9) & 7) + 7) >> 3;
+        if ( v43 )
         {
-          LOBYTE(v23) = -116;
-          memset_0((void *)(KasaniShadow + ((unsigned __int64)(&v25[0x80000000000LL].Next + 1) >> 3)), v23, v46);
+          LOBYTE(v22) = -116;
+          memset_0((void *)(KasaniShadow + ((unsigned __int64)(&v24[0x80000000000LL].Next + 1) >> 3)), v22, v43);
         }
       }
     }
-    RtlpInterlockedPushEntrySList(&FsRtlSharedLockLookasideList.L.ListHead, v25);
+    RtlpInterlockedPushEntrySList(&FsRtlSharedLockLookasideList, v24);
   }
-  if ( a9 && v28[3] )
-    FsRtlPrivateCheckWaitingLocks(v34, v28, v42);
+  if ( a9 && v27[3] )
+    FsRtlPrivateCheckWaitingLocks(v31, v27, v39);
   if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || PopHibernateInProgress )
-    _InterlockedAnd64((volatile signed __int64 *)v28, 0LL);
+    _InterlockedAnd64((volatile signed __int64 *)v27, 0LL);
   else
-    KiReleaseSpinLockInstrumented(v28, retaddr);
+    KiReleaseSpinLockInstrumented((volatile signed __int64 *)v27, retaddr);
   if ( KiIrqlFlags )
-    KiLowerIrqlProcessIrqlFlags(KeGetCurrentIrql(), v42);
-  __writecr8(v42);
+    KiLowerIrqlProcessIrqlFlags(KeGetCurrentIrql(), v39);
+  __writecr8(v39);
   return 0LL;
 }

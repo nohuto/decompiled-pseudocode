@@ -1,17 +1,17 @@
 /*
- * XREFs of PnpCmResourcesToIoResources @ 0x14072FED4
+ * XREFs of PnpCmResourcesToIoResources @ 0x1407310C4
  * Callers:
- *     PnpReleaseBootResourcesForFilteredRequirements @ 0x140180A78 (PnpReleaseBootResourcesForFilteredRequirements.c)
- *     IopQueryDeviceResources @ 0x1406FB4F4 (IopQueryDeviceResources.c)
- *     IopAllocateBootResourcesInternal @ 0x14072E5C0 (IopAllocateBootResourcesInternal.c)
- *     PnpFilterResourceRequirementsList @ 0x14073FB20 (PnpFilterResourceRequirementsList.c)
- *     IoReportResourceUsageInternal @ 0x1408264B8 (IoReportResourceUsageInternal.c)
- *     PnpRestoreResourcesInternal @ 0x14083B524 (PnpRestoreResourcesInternal.c)
- *     IopQueryConflictListInternal @ 0x140842054 (IopQueryConflictListInternal.c)
+ *     PnpReleaseBootResourcesForFilteredRequirements @ 0x140180BB8 (PnpReleaseBootResourcesForFilteredRequirements.c)
+ *     IopQueryDeviceResources @ 0x1406FC794 (IopQueryDeviceResources.c)
+ *     IopAllocateBootResourcesInternal @ 0x14072F7B0 (IopAllocateBootResourcesInternal.c)
+ *     PnpFilterResourceRequirementsList @ 0x140740D10 (PnpFilterResourceRequirementsList.c)
+ *     IoReportResourceUsageInternal @ 0x1408276B8 (IoReportResourceUsageInternal.c)
+ *     PnpRestoreResourcesInternal @ 0x14083C784 (PnpRestoreResourcesInternal.c)
+ *     IopQueryConflictListInternal @ 0x1408432B4 (IopQueryConflictListInternal.c)
  * Callees:
- *     RtlCmDecodeMemIoResource @ 0x140139400 (RtlCmDecodeMemIoResource.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
+ *     RtlCmDecodeMemIoResource @ 0x140139500 (RtlCmDecodeMemIoResource.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
  */
 
 char *__fastcall PnpCmResourcesToIoResources(__int64 a1, _DWORD *a2, int a3)

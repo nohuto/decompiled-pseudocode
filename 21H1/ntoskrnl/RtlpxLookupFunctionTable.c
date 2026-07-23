@@ -22,9 +22,9 @@ PVOID __fastcall RtlpxLookupFunctionTable(unsigned __int64 a1, __int64 a2)
   int v8; // r8d
   int v9; // r9d
   int v10; // eax
-  unsigned __int64 v11; // rbx
+  char *v11; // rbx
   int *v12; // r11
-  unsigned __int64 v13; // r10
+  char *v13; // r10
   int v14; // r14d
   PVOID result; // rax
   int v16; // ebp
@@ -33,9 +33,9 @@ PVOID __fastcall RtlpxLookupFunctionTable(unsigned __int64 a1, __int64 a2)
   int v19; // r11d
   int v20; // r8d
   int v21; // r9d
-  unsigned __int64 v22; // rbp
+  char *v22; // rbp
   int *v23; // r10
-  unsigned __int64 v24; // rdx
+  char *v24; // rdx
   unsigned int v25; // r9d
   PVOID *v26; // rdx
   unsigned __int64 v27; // rax
@@ -75,26 +75,26 @@ LABEL_29:
         do
         {
           v21 = (v20 + v16) >> 1;
-          v22 = *(_QWORD *)&RtlpInvertedFunctionTable[0][6 * v21 + 6];
+          v22 = *(char **)&RtlpInvertedFunctionTable[0][6 * v21 + 6];
           v23 = &RtlpInvertedFunctionTable[0][6 * v21];
-          v24 = v22 + (unsigned int)v23[8];
-          if ( a1 >= v22 )
+          v24 = &v22[v23[8]];
+          if ( a1 >= (unsigned __int64)v22 )
           {
             if ( a1 > 0x7FFFFFFEFFFFLL
               && v19
-              && a1 >= v24 + v18
-              && a1 < v24 + v19 + v18
+              && a1 >= (unsigned __int64)&v24[v18]
+              && a1 < (unsigned __int64)&v24[v19 + v18]
               && v22 != PsNtosImageBase
               && v22 != PsHalImageBase )
             {
               *(_QWORD *)a2 = &RtlRetpolineStubsFunctionTable;
-              *(_QWORD *)(a2 + 8) = v24 + v18;
+              *(_QWORD *)(a2 + 8) = &v24[v18];
               v2 = &RtlRetpolineStubsFunctionTable;
               *(_DWORD *)(a2 + 20) = RtlRetpolineStubsFunctionTableSize;
               *(_DWORD *)(a2 + 16) = v19;
               goto LABEL_62;
             }
-            if ( a1 < v24 )
+            if ( a1 < (unsigned __int64)v24 )
             {
               *(_OWORD *)a2 = *((_OWORD *)v23 + 1);
               *(_QWORD *)(a2 + 16) = *((_QWORD *)v23 + 4);
@@ -196,10 +196,10 @@ LABEL_21:
   while ( 1 )
   {
     v10 = (v9 + v8) >> 1;
-    v11 = *(_QWORD *)&RtlpInvertedFunctionTable[0][6 * v10 + 6];
+    v11 = *(char **)&RtlpInvertedFunctionTable[0][6 * v10 + 6];
     v12 = &RtlpInvertedFunctionTable[0][6 * v10];
-    v13 = v11 + (unsigned int)v12[8];
-    if ( a1 < v11 )
+    v13 = &v11[v12[8]];
+    if ( a1 < (unsigned __int64)v11 )
     {
       if ( !v10 )
         goto LABEL_10;
@@ -211,11 +211,16 @@ LABEL_21:
       if ( v7 )
       {
         v17 = v31;
-        if ( a1 >= v13 + v31 && a1 < v13 + v7 + v31 && v11 != PsNtosImageBase && v11 != PsHalImageBase )
+        if ( a1 >= (unsigned __int64)&v13[v31]
+          && a1 < (unsigned __int64)&v13[v7 + v31]
+          && v11 != PsNtosImageBase
+          && v11 != PsHalImageBase )
+        {
           break;
+        }
       }
     }
-    if ( a1 < v13 )
+    if ( a1 < (unsigned __int64)v13 )
     {
       *(_OWORD *)a2 = *((_OWORD *)v12 + 1);
       *(_QWORD *)(a2 + 16) = *((_QWORD *)v12 + 4);
@@ -228,7 +233,7 @@ LABEL_9:
       goto LABEL_10;
   }
   *(_DWORD *)(a2 + 16) = v7;
-  *(_QWORD *)(a2 + 8) = v13 + v17;
+  *(_QWORD *)(a2 + 8) = &v13[v17];
   *(_DWORD *)(a2 + 20) = RtlRetpolineStubsFunctionTableSize;
   result = &RtlRetpolineStubsFunctionTable;
   *(_QWORD *)a2 = &RtlRetpolineStubsFunctionTable;

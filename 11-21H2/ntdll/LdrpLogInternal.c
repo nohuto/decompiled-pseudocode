@@ -92,7 +92,7 @@ __int64 LdrpLogInternal(_DWORD a1, int a2, __int64 a3, unsigned int a4, const ch
     v9 = 2147353476LL;
   if ( *(_BYTE *)v9 && (NtCurrentPeb()->TracingFlags & 4) != 0 )
   {
-    v12 = (unsigned int)RtlGetCurrentServiceSessionId() ? (char *)NtCurrentPeb()->SharedData + 555 : (char *)2147353477;
+    v12 = RtlGetCurrentServiceSessionId() ? (char *)NtCurrentPeb()->SharedData + 555 : (char *)2147353477;
     if ( *v12 < 0 )
       LdrpEtwLogLoaderSnaps(a3, a4, a5, (__int64 *)va);
   }

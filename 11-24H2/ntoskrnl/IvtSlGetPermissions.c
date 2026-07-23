@@ -1,5 +1,5 @@
 /*
- * XREFs of IvtSlGetPermissions @ 0x140574620
+ * XREFs of IvtSlGetPermissions @ 0x140571AB0
  * Callers:
  *     <none>
  * Callees:

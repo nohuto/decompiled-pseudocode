@@ -6,42 +6,42 @@
  *     <none>
  */
 
-unsigned int __stdcall RtlLengthSecurityDescriptor(int a1)
+ULONG __cdecl RtlLengthSecurityDescriptor(PSECURITY_DESCRIPTOR SecurityDescriptor)
 {
   __int16 v1; // bx
-  int v2; // edx
-  unsigned int v3; // esi
-  int v4; // edx
-  int v5; // edx
-  int v7; // edx
+  char *v2; // edx
+  ULONG v3; // esi
+  char *v4; // edx
+  char *v5; // edx
+  char *v7; // edx
 
-  v1 = *(_WORD *)(a1 + 2);
-  v2 = *(_DWORD *)(a1 + 4);
+  v1 = *((_WORD *)SecurityDescriptor + 1);
+  v2 = (char *)*((_DWORD *)SecurityDescriptor + 1);
   if ( v1 < 0 )
-    v2 = v2 != 0 ? v2 + a1 : 0;
+    v2 = v2 != 0 ? (char *)SecurityDescriptor + (_DWORD)v2 : 0;
   v3 = 20;
   if ( v2 )
-    v3 = ((4 * *(unsigned __int8 *)(v2 + 1) + 11) & 0xFFFFFFFC) + 20;
-  v4 = *(_DWORD *)(a1 + 8);
+    v3 = ((4 * (unsigned __int8)v2[1] + 11) & 0xFFFFFFFC) + 20;
+  v4 = (char *)*((_DWORD *)SecurityDescriptor + 2);
   if ( v1 < 0 )
-    v4 = v4 != 0 ? v4 + a1 : 0;
+    v4 = v4 != 0 ? (char *)SecurityDescriptor + (_DWORD)v4 : 0;
   if ( v4 )
-    v3 += (4 * *(unsigned __int8 *)(v4 + 1) + 11) & 0xFFFFFFFC;
+    v3 += (4 * (unsigned __int8)v4[1] + 11) & 0xFFFFFFFC;
   if ( (v1 & 4) != 0 )
   {
-    v5 = *(_DWORD *)(a1 + 16);
+    v5 = (char *)*((_DWORD *)SecurityDescriptor + 4);
     if ( v1 < 0 )
-      v5 = v5 != 0 ? v5 + a1 : 0;
+      v5 = v5 != 0 ? (char *)SecurityDescriptor + (_DWORD)v5 : 0;
     if ( v5 )
-      v3 += (*(unsigned __int16 *)(v5 + 2) + 3) & 0xFFFFFFFC;
+      v3 += (*((unsigned __int16 *)v5 + 1) + 3) & 0xFFFFFFFC;
   }
   if ( (v1 & 0x10) != 0 )
   {
-    v7 = *(_DWORD *)(a1 + 12);
+    v7 = (char *)*((_DWORD *)SecurityDescriptor + 3);
     if ( v1 < 0 )
-      v7 = v7 != 0 ? v7 + a1 : 0;
+      v7 = v7 != 0 ? (char *)SecurityDescriptor + (_DWORD)v7 : 0;
     if ( v7 )
-      v3 += (*(unsigned __int16 *)(v7 + 2) + 3) & 0xFFFFFFFC;
+      v3 += (*((unsigned __int16 *)v7 + 1) + 3) & 0xFFFFFFFC;
   }
   return v3;
 }

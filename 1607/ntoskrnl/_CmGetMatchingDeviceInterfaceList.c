@@ -1,11 +1,11 @@
 /*
- * XREFs of _CmGetMatchingDeviceInterfaceList @ 0x14057EE9C
+ * XREFs of _CmGetMatchingDeviceInterfaceList @ 0x14057F348
  * Callers:
- *     _PnpDispatchDeviceInterface @ 0x1405010E0 (_PnpDispatchDeviceInterface.c)
+ *     _PnpDispatchDeviceInterface @ 0x1404E4070 (_PnpDispatchDeviceInterface.c)
  * Callees:
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     _CmGetMatchingFilteredDeviceInterfaceList @ 0x1404F64E0 (_CmGetMatchingFilteredDeviceInterfaceList.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     _CmGetMatchingFilteredDeviceInterfaceList @ 0x1404D946C (_CmGetMatchingFilteredDeviceInterfaceList.c)
  */
 
 __int64 __fastcall CmGetMatchingDeviceInterfaceList(

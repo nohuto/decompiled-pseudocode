@@ -1,16 +1,16 @@
 /*
- * XREFs of RtlGetSuiteMask @ 0x140758DC0
+ * XREFs of RtlGetSuiteMask @ 0x140758FB0
  * Callers:
- *     RtlGetVersion @ 0x140758D00 (RtlGetVersion.c)
+ *     RtlGetVersion @ 0x140758EF0 (RtlGetVersion.c)
  * Callees:
- *     PsGetCurrentServerSiloGlobals @ 0x14022D370 (PsGetCurrentServerSiloGlobals.c)
- *     PsIsCurrentThreadInServerSilo @ 0x140287470 (PsIsCurrentThreadInServerSilo.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x14022D480 (PsGetCurrentServerSiloGlobals.c)
+ *     PsIsCurrentThreadInServerSilo @ 0x140287700 (PsIsCurrentThreadInServerSilo.c)
  */
 
-__int64 RtlGetSuiteMask()
+ULONG RtlGetSuiteMask(void)
 {
   if ( PsIsCurrentThreadInServerSilo() )
-    return *(unsigned int *)(*((_QWORD *)PsGetCurrentServerSiloGlobals() + 165) + 20LL);
+    return *(_DWORD *)(*((_QWORD *)PsGetCurrentServerSiloGlobals() + 165) + 20LL);
   else
     return MEMORY[0xFFFFF780000002D0];
 }

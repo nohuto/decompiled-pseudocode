@@ -1,16 +1,16 @@
 /*
- * XREFs of ZwImpersonateClientOfPort @ 0x1800A06C0
+ * XREFs of ZwImpersonateClientOfPort @ 0x1800A06E0
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 ZwImpersonateClientOfPort()
+NTSTATUS __cdecl ZwImpersonateClientOfPort(HANDLE PortHandle, PPORT_MESSAGE Message)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 31LL;
+  result = 31;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

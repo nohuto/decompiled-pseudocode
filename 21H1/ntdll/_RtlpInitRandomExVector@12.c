@@ -7,22 +7,22 @@
  *     _RtlRaiseStatus@4 @ 0x4B308980 (_RtlRaiseStatus@4.c)
  */
 
-int __fastcall RtlpInitRandomExVector(int a1, int a2, int a3, int a4, int a5)
+LOGICAL __fastcall RtlpInitRandomExVector(int a1, int a2, PRTL_RUN_ONCE a3, PVOID a4, PVOID *a5)
 {
-  int InformationProcess; // eax
+  int v5; // eax
   int v6; // ecx
   unsigned int i; // ebx
   unsigned __int64 v8; // kr10_8
   int v9; // eax
   unsigned __int64 v10; // kr20_8
   int v11; // kr0C_4
-  int v13; // [esp+0h] [ebp-4h] BYREF
+  int ProcessInformation; // [esp+0h] [ebp-4h] BYREF
 
-  v13 = a1;
-  InformationProcess = ZwQueryInformationProcess(-1, 36, (int)&v13, 4, 0);
-  if ( InformationProcess < 0 )
-    RtlRaiseStatus(InformationProcess);
-  v6 = dword_4B3A92E0 ^ v13;
+  ProcessInformation = a1;
+  v5 = ZwQueryInformationProcess((HANDLE)0xFFFFFFFF, ProcessCookie, &ProcessInformation, 4u, 0);
+  if ( v5 < 0 )
+    RtlRaiseStatus(v5);
+  v6 = dword_4B3A92E0 ^ ProcessInformation;
   for ( i = 0; i < 128; ++i )
   {
     v8 = 2147483629LL * (unsigned int)v6 + 2147483587;

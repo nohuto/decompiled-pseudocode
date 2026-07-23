@@ -1,14 +1,14 @@
 /*
- * XREFs of RtlpHpVaMgrCtxAlloc @ 0x140421384
+ * XREFs of RtlpHpVaMgrCtxAlloc @ 0x140459658
  * Callers:
- *     RtlpHpSegMgrReserve @ 0x1402C11C4 (RtlpHpSegMgrReserve.c)
- *     RtlpHpAllocVA @ 0x1402E98A8 (RtlpHpAllocVA.c)
- *     RtlpHpLargeAlloc @ 0x140420250 (RtlpHpLargeAlloc.c)
+ *     RtlpHpAllocVA @ 0x14034AEE8 (RtlpHpAllocVA.c)
+ *     RtlpHpSegMgrReserve @ 0x14035D608 (RtlpHpSegMgrReserve.c)
+ *     RtlpHpLargeAlloc @ 0x1404585E4 (RtlpHpLargeAlloc.c)
  * Callees:
- *     ExReleaseSpinLockShared @ 0x140246D40 (ExReleaseSpinLockShared.c)
- *     ExAcquireSpinLockShared @ 0x14031A1A0 (ExAcquireSpinLockShared.c)
- *     RtlpHpVaMgrAlloc @ 0x140421420 (RtlpHpVaMgrAlloc.c)
- *     RtlpHpVaMgrCtxAllocatorFind @ 0x1404F8FF8 (RtlpHpVaMgrCtxAllocatorFind.c)
+ *     ExReleaseSpinLockShared @ 0x1402195E0 (ExReleaseSpinLockShared.c)
+ *     ExAcquireSpinLockShared @ 0x1402C2D30 (ExAcquireSpinLockShared.c)
+ *     RtlpHpVaMgrAlloc @ 0x1404596F4 (RtlpHpVaMgrAlloc.c)
+ *     RtlpHpVaMgrCtxAllocatorFind @ 0x1404F68D8 (RtlpHpVaMgrCtxAllocatorFind.c)
  */
 
 __int64 __fastcall RtlpHpVaMgrCtxAlloc(__int64 a1, __int64 a2, __int64 a3, unsigned int *a4)

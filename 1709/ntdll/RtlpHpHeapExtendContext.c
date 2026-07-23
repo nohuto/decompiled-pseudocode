@@ -11,49 +11,49 @@
  *     RtlpHpTlLogVAChange @ 0x180106054 (RtlpHpTlLogVAChange.c)
  */
 
-signed __int64 __fastcall RtlpHpHeapExtendContext(__int64 a1, __int64 a2)
+__int64 __fastcall RtlpHpHeapExtendContext(_RTL_SRWLOCK *BaseAddress, __int64 a2)
 {
-  __int64 v2; // rdi
-  signed __int64 v5; // rsi
-  __int64 v7; // rcx
+  _RTL_SRWLOCK *v2; // rdi
+  signed __int64 Value; // rsi
+  unsigned __int64 v7; // rcx
   unsigned __int64 v8; // rdx
-  int v9; // eax
-  int v10; // esi
-  unsigned __int64 v11; // [rsp+50h] [rbp+8h] BYREF
-  __int64 v12; // [rsp+58h] [rbp+10h] BYREF
+  ULONG Protect; // eax
+  NTSTATUS v10; // esi
+  ULONG_PTR RegionSize; // [rsp+50h] [rbp+8h] BYREF
+  PVOID BaseAddressa; // [rsp+58h] [rbp+10h] BYREF
 
-  v2 = a1 + 328;
-  RtlAcquireReleaseSRWLockExclusive(a1 + 328);
+  v2 = BaseAddress + 41;
+  RtlAcquireReleaseSRWLockExclusive(BaseAddress + 41);
   while ( 1 )
   {
     while ( 1 )
     {
-      v5 = *(_QWORD *)(a1 + 336);
-      if ( (unsigned __int64)(v5 + a2) > *(_QWORD *)(a1 + 344) )
+      Value = BaseAddress[42].Value;
+      if ( Value + a2 > BaseAddress[43].Value )
         break;
-      if ( v5 == _InterlockedCompareExchange64((volatile signed __int64 *)(a1 + 336), v5 + a2, v5) )
-        return v5;
+      if ( Value == _InterlockedCompareExchange64((volatile signed __int64 *)&BaseAddress[42], Value + a2, Value) )
+        return Value;
     }
     RtlAcquireSRWLockExclusive(v2);
-    v7 = *(_QWORD *)(a1 + 336);
-    v8 = *(_QWORD *)(a1 + 344);
+    v7 = BaseAddress[42].Value;
+    v8 = BaseAddress[43].Value;
     if ( v7 + a2 > v8 )
       break;
 LABEL_10:
     RtlReleaseSRWLockExclusive(v2);
   }
-  v12 = *(_QWORD *)(a1 + 344);
-  v11 = (v7 - v8 + a2 + 4095) & 0xFFFFFFFFFFFFF000uLL;
-  v9 = RtlpHpHeapValidateProtection(a1, (*(_DWORD *)(a1 + 20) & 0x40000000) != 0 ? 64 : 4);
-  v10 = ZwAllocateVirtualMemory(-1LL, &v12, 0LL, &v11, 4096, v9);
+  BaseAddressa = BaseAddress[43].Ptr;
+  RegionSize = (v7 - v8 + a2 + 4095) & 0xFFFFFFFFFFFFF000uLL;
+  Protect = RtlpHpHeapValidateProtection(BaseAddress);
+  v10 = ZwAllocateVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &BaseAddressa, 0LL, &RegionSize, 0x1000u, Protect);
   if ( (RtlpHpHeapFeatures & 8) != 0 )
-    RtlpHpTlLogVAChange(4096LL, v11, v12);
+    RtlpHpTlLogVAChange(4096LL, RegionSize, BaseAddressa);
   if ( v10 >= 0 )
   {
-    *(_QWORD *)(a1 + 344) += v11;
+    BaseAddress[43].Value += RegionSize;
     goto LABEL_10;
   }
-  v5 = 0LL;
+  Value = 0LL;
   RtlReleaseSRWLockExclusive(v2);
-  return v5;
+  return Value;
 }

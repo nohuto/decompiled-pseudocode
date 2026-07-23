@@ -1,5 +1,5 @@
 /*
- * XREFs of HalpChannelAssignmentSort @ 0x140CB4C60
+ * XREFs of HalpChannelAssignmentSort @ 0x140CBACA0
  * Callers:
  *     <none>
  * Callees:

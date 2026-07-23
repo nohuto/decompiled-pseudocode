@@ -1,8 +1,8 @@
 /*
- * XREFs of PopEtBucketsFree @ 0x1407EA850
+ * XREFs of PopEtBucketsFree @ 0x1407EAB20
  * Callers:
- *     PopEtProcessSnapshotCreate @ 0x1407B1918 (PopEtProcessSnapshotCreate.c)
- *     PopEtAggregateGet @ 0x1407B2578 (PopEtAggregateGet.c)
+ *     PopEtProcessSnapshotCreate @ 0x1407B1B08 (PopEtProcessSnapshotCreate.c)
+ *     PopEtAggregateGet @ 0x1407B2768 (PopEtAggregateGet.c)
  * Callees:
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */

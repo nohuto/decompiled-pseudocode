@@ -1,9 +1,9 @@
 /*
- * XREFs of ExShareAddressSpaceWithDevice @ 0x140840E10
+ * XREFs of ExShareAddressSpaceWithDevice @ 0x140847050
  * Callers:
  *     <none>
  * Callees:
- *     ExpShareAddressSpaceWithDevice @ 0x1406D1A1C (ExpShareAddressSpaceWithDevice.c)
+ *     ExpShareAddressSpaceWithDevice @ 0x1406D5A4C (ExpShareAddressSpaceWithDevice.c)
  */
 
 __int64 __fastcall ExShareAddressSpaceWithDevice(__int64 a1, unsigned int *a2)

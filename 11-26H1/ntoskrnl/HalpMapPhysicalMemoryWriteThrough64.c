@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpMapPhysicalMemoryWriteThrough64 @ 0x14057DBF0
+ * XREFs of HalpMapPhysicalMemoryWriteThrough64 @ 0x140580110
  * Callers:
  *     <none>
  * Callees:
- *     HalpMap @ 0x1403439AC (HalpMap.c)
+ *     HalpMap @ 0x140345A2C (HalpMap.c)
  */
 
 unsigned __int64 __fastcall HalpMapPhysicalMemoryWriteThrough64(__int64 a1, __int64 a2, char a3)

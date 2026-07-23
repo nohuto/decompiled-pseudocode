@@ -1,39 +1,39 @@
 /*
- * XREFs of MiMapViewOfSectionExCommon @ 0x1407125A8
+ * XREFs of MiMapViewOfSectionExCommon @ 0x1406C0BF8
  * Callers:
- *     MmMapViewOfSectionEx @ 0x14035E770 (MmMapViewOfSectionEx.c)
- *     NtMapViewOfSectionEx @ 0x140711340 (NtMapViewOfSectionEx.c)
- *     MiPerformImageHotPatch @ 0x1408CCEC4 (MiPerformImageHotPatch.c)
+ *     MmMapViewOfSectionEx @ 0x1402A36A0 (MmMapViewOfSectionEx.c)
+ *     NtMapViewOfSectionEx @ 0x1406BF990 (NtMapViewOfSectionEx.c)
+ *     MiPerformImageHotPatch @ 0x1408CD024 (MiPerformImageHotPatch.c)
  * Callees:
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
- *     memset @ 0x140414200 (memset.c)
- *     MiCaptureAllocateMapExtendedParameters @ 0x1405F9738 (MiCaptureAllocateMapExtendedParameters.c)
- *     EtwTiLogMapExecView @ 0x1406BDCE4 (EtwTiLogMapExecView.c)
- *     MiMapViewOfSectionCommon @ 0x1406EAF70 (MiMapViewOfSectionCommon.c)
- *     MiMapViewOfSection @ 0x1406EBA30 (MiMapViewOfSection.c)
- *     MiMapParametersInitialize @ 0x1406EBFB0 (MiMapParametersInitialize.c)
- *     MiMapExParametersInitialize @ 0x140712858 (MiMapExParametersInitialize.c)
- *     DbgkMapViewOfSection @ 0x1407129A4 (DbgkMapViewOfSection.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     ObfDereferenceObjectWithTag @ 0x140355E90 (ObfDereferenceObjectWithTag.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     EtwTiLogMapExecView @ 0x14061CEF4 (EtwTiLogMapExecView.c)
+ *     MiMapExParametersInitialize @ 0x1406C0EA8 (MiMapExParametersInitialize.c)
+ *     DbgkMapViewOfSection @ 0x1406C0FF4 (DbgkMapViewOfSection.c)
+ *     MiCaptureAllocateMapExtendedParameters @ 0x1406E8E98 (MiCaptureAllocateMapExtendedParameters.c)
+ *     MiMapViewOfSectionCommon @ 0x140702350 (MiMapViewOfSectionCommon.c)
+ *     MiMapViewOfSection @ 0x140702E10 (MiMapViewOfSection.c)
+ *     MiMapParametersInitialize @ 0x140703390 (MiMapParametersInitialize.c)
  */
 
-NTSTATUS __fastcall MiMapViewOfSectionExCommon(
-        void *a1,
+__int64 __fastcall MiMapViewOfSectionExCommon(
+        __int64 a1,
         __int64 a2,
-        int a3,
-        __int64 *a4,
+        unsigned int a3,
+        _QWORD *a4,
         _QWORD *a5,
         _QWORD *a6,
         int a7,
         int a8,
-        __int64 *Address,
+        volatile void *Address,
         ULONGLONG ullMultiplicand,
         int a11,
         __int64 a12,
-        KPROCESSOR_MODE a13,
+        char a13,
         int a14)
 {
-  NTSTATUS result; // eax
+  __int64 result; // rax
   int MapExtendedParameters; // ebx
   void *v19; // [rsp+20h] [rbp-168h]
   int v20[2]; // [rsp+28h] [rbp-160h]
@@ -49,16 +49,16 @@ NTSTATUS __fastcall MiMapViewOfSectionExCommon(
   v22 = 0LL;
   *(_OWORD *)DmaAdapter = 0LL;
   memset(v26, 0, 0x48uLL);
-  result = MiMapViewOfSectionCommon(a2, a1, a3, a4, (unsigned __int64)a6, (unsigned __int64)a5, a8, 0, a13, v21);
-  if ( result < 0 )
+  result = MiMapViewOfSectionCommon(a2, a1, a3, a4, a6, a5, a8, 0LL, a13, v21);
+  if ( (int)result < 0 )
   {
     if ( v21[0] )
-      ++dword_140C4E7E4;
+      ++dword_140C4E824;
     else
-      ++dword_140C4E7E0;
+      ++dword_140C4E820;
     return result;
   }
-  MapExtendedParameters = MiCaptureAllocateMapExtendedParameters(Address, (unsigned int)ullMultiplicand, a13, 38, v26);
+  MapExtendedParameters = MiCaptureAllocateMapExtendedParameters(Address, (unsigned int)ullMultiplicand, v26);
   if ( MapExtendedParameters < 0 )
   {
 LABEL_12:
@@ -68,15 +68,7 @@ LABEL_12:
   }
   if ( (v26[7] & 0xFFFFFFFFFFFFFFDFuLL) == 0 )
   {
-    MapExtendedParameters = MiMapParametersInitialize(
-                              v25,
-                              (__int64)DmaAdapter[0],
-                              (__int64)DmaAdapter[1],
-                              v21[0],
-                              v21[1],
-                              a7,
-                              a8,
-                              0LL);
+    MapExtendedParameters = MiMapParametersInitialize(v25, v21[1], a7, a8, 0LL);
     if ( MapExtendedParameters >= 0 )
     {
       MapExtendedParameters = MiMapExParametersInitialize(v25, v21, v26);
@@ -86,11 +78,11 @@ LABEL_12:
         v25[10] = a12;
         HIDWORD(v25[7]) |= a14;
         MapExtendedParameters = MiMapViewOfSection(
-                                  (__int64)DmaAdapter[0],
-                                  (__int64)v25,
-                                  (void **)v21,
-                                  0LL,
-                                  (unsigned __int64 *)&v22,
+                                  DmaAdapter[0],
+                                  (unsigned int)v25,
+                                  (unsigned int)v21,
+                                  0,
+                                  (__int64)&v22,
                                   1,
                                   0);
         v24 = MapExtendedParameters;
@@ -116,14 +108,14 @@ LABEL_12:
   MapExtendedParameters = -1073741811;
 LABEL_22:
   if ( v21[0] )
-    ++dword_140C4E7E4;
+    ++dword_140C4E824;
   else
-    ++dword_140C4E7E0;
+    ++dword_140C4E820;
 LABEL_13:
   if ( !a3 )
   {
     HalPutDmaAdapter(DmaAdapter[0]);
     ObfDereferenceObjectWithTag(DmaAdapter[1], 0x77566D4Du);
   }
-  return MapExtendedParameters;
+  return (unsigned int)MapExtendedParameters;
 }

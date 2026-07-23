@@ -1,8 +1,8 @@
 /*
- * XREFs of MiGetAvailablePagesExcludeSlists @ 0x140477508
+ * XREFs of MiGetAvailablePagesExcludeSlists @ 0x140473AA8
  * Callers:
- *     MiAddPhysicalMemoryChunks @ 0x1407E8944 (MiAddPhysicalMemoryChunks.c)
- *     MiPfPrepareSequentialReadList @ 0x140956378 (MiPfPrepareSequentialReadList.c)
+ *     MiAddPhysicalMemoryChunks @ 0x1407E8F14 (MiAddPhysicalMemoryChunks.c)
+ *     MiPfPrepareSequentialReadList @ 0x140939D28 (MiPfPrepareSequentialReadList.c)
  * Callees:
  *     <none>
  */

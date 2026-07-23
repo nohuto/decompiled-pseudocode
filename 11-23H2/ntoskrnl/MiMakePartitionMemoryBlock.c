@@ -1,19 +1,19 @@
 /*
- * XREFs of MiMakePartitionMemoryBlock @ 0x140A45090
+ * XREFs of MiMakePartitionMemoryBlock @ 0x140A45340
  * Callers:
- *     MiClearPartitionPageBitMap @ 0x140658FC0 (MiClearPartitionPageBitMap.c)
- *     MiDeletePartitionResources @ 0x140659488 (MiDeletePartitionResources.c)
- *     MiInsertPartitionPages @ 0x14065A480 (MiInsertPartitionPages.c)
- *     MiPartitionDeleteMemoryNode @ 0x14065B18C (MiPartitionDeleteMemoryNode.c)
- *     MiGetPhysicalMemoryRanges @ 0x140834478 (MiGetPhysicalMemoryRanges.c)
+ *     MiClearPartitionPageBitMap @ 0x140659510 (MiClearPartitionPageBitMap.c)
+ *     MiDeletePartitionResources @ 0x1406599D8 (MiDeletePartitionResources.c)
+ *     MiInsertPartitionPages @ 0x14065A9D0 (MiInsertPartitionPages.c)
+ *     MiPartitionDeleteMemoryNode @ 0x14065B6DC (MiPartitionDeleteMemoryNode.c)
+ *     MiGetPhysicalMemoryRanges @ 0x140834778 (MiGetPhysicalMemoryRanges.c)
  * Callees:
- *     MiAllocatePool @ 0x1402DF1A0 (MiAllocatePool.c)
- *     MiDereferencePageRunsEx @ 0x140357BE4 (MiDereferencePageRunsEx.c)
- *     memset @ 0x140435A00 (memset.c)
- *     MiActOnPartitionNodePages @ 0x140658080 (MiActOnPartitionNodePages.c)
- *     MiUpdatePartitionMemory @ 0x14065BDCC (MiUpdatePartitionMemory.c)
- *     MiConvertInitialMemoryBlock @ 0x14081B82C (MiConvertInitialMemoryBlock.c)
- *     MiCreateNodeLists @ 0x14081B934 (MiCreateNodeLists.c)
+ *     MiAllocatePool @ 0x1402DF430 (MiAllocatePool.c)
+ *     MiDereferencePageRunsEx @ 0x140357D84 (MiDereferencePageRunsEx.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     MiActOnPartitionNodePages @ 0x1406585D0 (MiActOnPartitionNodePages.c)
+ *     MiUpdatePartitionMemory @ 0x14065C31C (MiUpdatePartitionMemory.c)
+ *     MiConvertInitialMemoryBlock @ 0x14081BAFC (MiConvertInitialMemoryBlock.c)
+ *     MiCreateNodeLists @ 0x14081BC04 (MiCreateNodeLists.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

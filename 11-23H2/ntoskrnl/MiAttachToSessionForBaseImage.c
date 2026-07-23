@@ -1,12 +1,12 @@
 /*
- * XREFs of MiAttachToSessionForBaseImage @ 0x140641B94
+ * XREFs of MiAttachToSessionForBaseImage @ 0x1406420E4
  * Callers:
- *     MiApplyHotPatchToLoadedDriver @ 0x140A35068 (MiApplyHotPatchToLoadedDriver.c)
- *     MiUnapplyDriverHotPatch @ 0x140A3BD68 (MiUnapplyDriverHotPatch.c)
+ *     MiApplyHotPatchToLoadedDriver @ 0x140A35318 (MiApplyHotPatchToLoadedDriver.c)
+ *     MiUnapplyDriverHotPatch @ 0x140A3C018 (MiUnapplyDriverHotPatch.c)
  * Callees:
- *     MiAttachSessionGlobal @ 0x14033DA9C (MiAttachSessionGlobal.c)
- *     MiDetachSessionGlobal @ 0x14033EFBC (MiDetachSessionGlobal.c)
- *     MiGetNextSessionGlobal @ 0x140637524 (MiGetNextSessionGlobal.c)
+ *     MiAttachSessionGlobal @ 0x14033DD2C (MiAttachSessionGlobal.c)
+ *     MiDetachSessionGlobal @ 0x14033F24C (MiDetachSessionGlobal.c)
+ *     MiGetNextSessionGlobal @ 0x140637A74 (MiGetNextSessionGlobal.c)
  *     MmIsDriverLoadedCurrentSession @ 0x140695E68 (MmIsDriverLoadedCurrentSession.c)
  */
 

@@ -1,8 +1,8 @@
 /*
- * XREFs of HalpIommuCheckExceptionList @ 0x140501974
+ * XREFs of HalpIommuCheckExceptionList @ 0x1404FB164
  * Callers:
- *     HalpIommuUnblockDevice @ 0x14050C0A0 (HalpIommuUnblockDevice.c)
- *     HalpDmaAllocateChildAdapterV3 @ 0x14078041C (HalpDmaAllocateChildAdapterV3.c)
+ *     HalpIommuUnblockDevice @ 0x140505B10 (HalpIommuUnblockDevice.c)
+ *     HalpDmaAllocateChildAdapterV3 @ 0x140782F1C (HalpDmaAllocateChildAdapterV3.c)
  * Callees:
  *     <none>
  */

@@ -1,16 +1,16 @@
 /*
- * XREFs of MiLargePagePromote @ 0x140479C00
+ * XREFs of MiLargePagePromote @ 0x140473560
  * Callers:
- *     MiCoalesceFreeLargePages @ 0x1403C9274 (MiCoalesceFreeLargePages.c)
- *     MiCoalesceActivePagesIntoFree @ 0x14070B328 (MiCoalesceActivePagesIntoFree.c)
+ *     MiCoalesceFreeLargePages @ 0x1403D3124 (MiCoalesceFreeLargePages.c)
+ *     MiCoalesceActivePagesIntoFree @ 0x14070FFD8 (MiCoalesceActivePagesIntoFree.c)
  * Callees:
- *     MiPageToNode @ 0x140289710 (MiPageToNode.c)
- *     MiGetPfnPageSizeIndex @ 0x14028B290 (MiGetPfnPageSizeIndex.c)
- *     MiUpdatePageFileHighInPte @ 0x14028C010 (MiUpdatePageFileHighInPte.c)
- *     MiUnlinkFreeOrZeroedPage @ 0x14028C8F4 (MiUnlinkFreeOrZeroedPage.c)
- *     MiInsertPageInFreeOrZeroedList @ 0x1402DCDD0 (MiInsertPageInFreeOrZeroedList.c)
- *     MiDetermineCoalescedLargePageHeatState @ 0x140479F38 (MiDetermineCoalescedLargePageHeatState.c)
- *     MiConvertBaseLargePage @ 0x14047D5D0 (MiConvertBaseLargePage.c)
+ *     MiPageToNode @ 0x140288C70 (MiPageToNode.c)
+ *     MiGetPfnPageSizeIndex @ 0x14028A7F0 (MiGetPfnPageSizeIndex.c)
+ *     MiUpdatePageFileHighInPte @ 0x14028B570 (MiUpdatePageFileHighInPte.c)
+ *     MiUnlinkFreeOrZeroedPage @ 0x14028BE54 (MiUnlinkFreeOrZeroedPage.c)
+ *     MiInsertPageInFreeOrZeroedList @ 0x1402BEB90 (MiInsertPageInFreeOrZeroedList.c)
+ *     MiDetermineCoalescedLargePageHeatState @ 0x1404738A4 (MiDetermineCoalescedLargePageHeatState.c)
+ *     MiConvertBaseLargePage @ 0x140476F40 (MiConvertBaseLargePage.c)
  */
 
 int __fastcall MiLargePagePromote(ULONG_PTR a1, unsigned int a2, __int64 a3, int a4, _DWORD *a5)
@@ -52,7 +52,7 @@ int __fastcall MiLargePagePromote(ULONG_PTR a1, unsigned int a2, __int64 a3, int
   v11 = v7;
   v12 = MiPageSizes[PfnPageSizeIndex];
   v13 = MiLargePageShifts[PfnPageSizeIndex];
-  v14 = *(_QWORD *)(stru_140E2EB88.ThreadLock + 8 * ((*(_QWORD *)(v7 + 40) >> 43) & 0x3FFLL));
+  v14 = *(_QWORD *)(stru_140E2ED08.ThreadLock + 8 * ((*(_QWORD *)(v7 + 40) >> 43) & 0x3FFLL));
   v15 = MiPageToNode(a1);
   v16 = a2;
   v17 = *(_QWORD *)(v14 + 16) + 56320LL * v15;
@@ -83,9 +83,12 @@ int __fastcall MiLargePagePromote(ULONG_PTR a1, unsigned int a2, __int64 a3, int
       }
       v25 = *(_QWORD *)(v11 + 16);
       v10 |= ((v25 & 0x3E0) != 0) + 1;
-      if ( qword_140E2D740 && (v25 & 0x10) == 0 )
-        HIDWORD(v25) &= HIDWORD(qword_140E2D748);
-      v9 |= (HIDWORD(v25) != -3) + 1;
+      if ( qword_140E2D8C0 && (v25 & 0x10) == 0 )
+        HIDWORD(v25) &= HIDWORD(qword_140E2D8C8);
+      if ( HIDWORD(v25) == -3 )
+        v9 |= 1u;
+      else
+        v9 |= 2u;
       if ( v22 )
       {
         *(_QWORD *)(v11 + 8) = 0LL;

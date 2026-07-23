@@ -1,22 +1,22 @@
 /*
- * XREFs of RtlPerformRetpolineRelocationsOnImageEx @ 0x1402F70A4
+ * XREFs of RtlPerformRetpolineRelocationsOnImageEx @ 0x1402F7294
  * Callers:
- *     RtlPerformRetpolineRelocationsOnImage @ 0x1402F7074 (RtlPerformRetpolineRelocationsOnImage.c)
- *     MiApplyRetpolineToBootDrivers @ 0x1409B88C4 (MiApplyRetpolineToBootDrivers.c)
- *     MiApplyRetpolineFixupsToKernelAndHal @ 0x1409D2744 (MiApplyRetpolineFixupsToKernelAndHal.c)
+ *     RtlPerformRetpolineRelocationsOnImage @ 0x1402F7264 (RtlPerformRetpolineRelocationsOnImage.c)
+ *     MiApplyRetpolineToBootDrivers @ 0x1409B98C4 (MiApplyRetpolineToBootDrivers.c)
+ *     MiApplyRetpolineFixupsToKernelAndHal @ 0x1409D3744 (MiApplyRetpolineFixupsToKernelAndHal.c)
  * Callees:
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     RtlApplyImportRelocationToImage @ 0x1402F6B44 (RtlApplyImportRelocationToImage.c)
- *     RtlpApplyGenericRetpolineFixup @ 0x1402F755C (RtlpApplyGenericRetpolineFixup.c)
- *     RtlpCaptureDynamicRelocationTableRva @ 0x1402F75A4 (RtlpCaptureDynamicRelocationTableRva.c)
- *     RtlpCaptureRetpolineBinaryInfoForImage @ 0x1402F7670 (RtlpCaptureRetpolineBinaryInfoForImage.c)
- *     RtlpConstructIndirectRelocationFixup @ 0x1402F7AA0 (RtlpConstructIndirectRelocationFixup.c)
- *     RtlpConstructSwitchJumpRelocationFixup @ 0x1402F7C58 (RtlpConstructSwitchJumpRelocationFixup.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     RtlApplyImportRelocationToImage @ 0x1402F6D34 (RtlApplyImportRelocationToImage.c)
+ *     RtlpApplyGenericRetpolineFixup @ 0x1402F774C (RtlpApplyGenericRetpolineFixup.c)
+ *     RtlpCaptureDynamicRelocationTableRva @ 0x1402F7794 (RtlpCaptureDynamicRelocationTableRva.c)
+ *     RtlpCaptureRetpolineBinaryInfoForImage @ 0x1402F7860 (RtlpCaptureRetpolineBinaryInfoForImage.c)
+ *     RtlpConstructIndirectRelocationFixup @ 0x1402F7C90 (RtlpConstructIndirectRelocationFixup.c)
+ *     RtlpConstructSwitchJumpRelocationFixup @ 0x1402F7E48 (RtlpConstructSwitchJumpRelocationFixup.c)
  */
 
 __int64 __fastcall RtlPerformRetpolineRelocationsOnImageEx(
-        char *BaseAddress,
+        char *BaseOfImage,
         __int64 a2,
         unsigned int a3,
         __int64 a4,
@@ -58,13 +58,13 @@ __int64 __fastcall RtlPerformRetpolineRelocationsOnImageEx(
   v10 = 0LL;
   v11 = 0LL;
   v12 = 0LL;
-  result = RtlpCaptureRetpolineBinaryInfoForImage(BaseAddress, a5 & -(__int64)(a6 != 0), v37);
+  result = RtlpCaptureRetpolineBinaryInfoForImage(BaseOfImage, a5 & -(__int64)(a6 != 0), v37);
   if ( (int)result >= 0 )
   {
-    result = RtlpCaptureDynamicRelocationTableRva(BaseAddress, a3);
+    result = RtlpCaptureDynamicRelocationTableRva(BaseOfImage, a3);
     if ( (int)result >= 0 )
     {
-      v14 = &BaseAddress[v34];
+      v14 = &BaseOfImage[v34];
       v15 = (unsigned __int64)&v14[*((unsigned int *)v14 + 1) + 8];
       v16 = v14 + 8;
       if ( (unsigned __int64)v16 >= v15 )
@@ -107,7 +107,7 @@ __int64 __fastcall RtlPerformRetpolineRelocationsOnImageEx(
                 do
                 {
                   if ( (*v21 & 0xFFF) != 0 || v21 == v18 + 2 )
-                    RtlApplyImportRelocationToImage((__int64)BaseAddress, a3, (int)v37, a5, *v18, v21, a6, 0);
+                    RtlApplyImportRelocationToImage((__int64)BaseOfImage, a3, (int)v37, a5, *v18, v21, a6, 0);
                   ++v21;
                 }
                 while ( (unsigned __int64)v21 < v20 );
@@ -147,7 +147,7 @@ LABEL_42:
                     {
                       v32 = (*(_WORD *)v31 & 0xFFF) + *v27;
                       RtlpConstructSwitchJumpRelocationFixup(v32, (unsigned int)v37, a5, (_DWORD)v31, a6, (__int64)v39);
-                      RtlpApplyGenericRetpolineFixup(BaseAddress, a3, v39, v32);
+                      RtlpApplyGenericRetpolineFixup(BaseOfImage, a3, v39, v32);
                     }
                     v31 = (unsigned int *)((char *)v31 + 2);
                   }
@@ -188,7 +188,7 @@ LABEL_42:
                 {
                   v26 = (*(_WORD *)v25 & 0xFFF) + *v22;
                   RtlpConstructIndirectRelocationFixup(v26, (unsigned int)v37, a5, (_DWORD)v25, a6, (__int64)v38);
-                  RtlpApplyGenericRetpolineFixup(BaseAddress, a3, v38, v26);
+                  RtlpApplyGenericRetpolineFixup(BaseOfImage, a3, v38, v26);
                 }
                 v25 = (unsigned int *)((char *)v25 + 2);
               }

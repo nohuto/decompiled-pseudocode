@@ -1,16 +1,16 @@
 /*
- * XREFs of MiAcquireResourceExclusiveLite @ 0x140084C38
+ * XREFs of MiAcquireResourceExclusiveLite @ 0x140082D98
  * Callers:
- *     MiProcessLoaderEntry @ 0x140084B4C (MiProcessLoaderEntry.c)
- *     MiCancelPhase0Locking @ 0x14047DD28 (MiCancelPhase0Locking.c)
- *     MmLockPagableDataSection @ 0x1404830A8 (MmLockPagableDataSection.c)
- *     MmChangeImageProtection @ 0x140483178 (MmChangeImageProtection.c)
- *     MiRememberUnloadedDriver @ 0x140545B24 (MiRememberUnloadedDriver.c)
- *     MmFreeBootDriverInitializationCode @ 0x14054EA74 (MmFreeBootDriverInitializationCode.c)
- *     MiWriteProtectSystemImages @ 0x140553C60 (MiWriteProtectSystemImages.c)
+ *     MiProcessLoaderEntry @ 0x140082CAC (MiProcessLoaderEntry.c)
+ *     MiCancelPhase0Locking @ 0x14047CA7C (MiCancelPhase0Locking.c)
+ *     MmLockPagableDataSection @ 0x140481DFC (MmLockPagableDataSection.c)
+ *     MmChangeImageProtection @ 0x140481ECC (MmChangeImageProtection.c)
+ *     MiRememberUnloadedDriver @ 0x140546064 (MiRememberUnloadedDriver.c)
+ *     MmFreeBootDriverInitializationCode @ 0x14054EE14 (MmFreeBootDriverInitializationCode.c)
+ *     MiWriteProtectSystemImages @ 0x1405541A0 (MiWriteProtectSystemImages.c)
  *     MiUnlockBootPageSections @ 0x1407A412C (MiUnlockBootPageSections.c)
  * Callees:
- *     ExAcquireResourceExclusiveLite @ 0x140068160 (ExAcquireResourceExclusiveLite.c)
+ *     ExAcquireResourceExclusiveLite @ 0x140067CE0 (ExAcquireResourceExclusiveLite.c)
  */
 
 char __fastcall MiAcquireResourceExclusiveLite(__int64 a1)

@@ -1,11 +1,11 @@
 /*
- * XREFs of IopFindLegacyBusDeviceNode @ 0x14055741C
+ * XREFs of IopFindLegacyBusDeviceNode @ 0x14055795C
  * Callers:
- *     IoTranslateBusAddress @ 0x1401CD674 (IoTranslateBusAddress.c)
- *     IopDuplicateDetection @ 0x140555458 (IopDuplicateDetection.c)
- *     PnpReleaseResourcesInternal @ 0x1405559CC (PnpReleaseResourcesInternal.c)
- *     IopChildToRootTranslation @ 0x140556850 (IopChildToRootTranslation.c)
- *     IopSetupArbiterAndTranslators @ 0x140556FA8 (IopSetupArbiterAndTranslators.c)
+ *     IoTranslateBusAddress @ 0x1401CD4C0 (IoTranslateBusAddress.c)
+ *     IopDuplicateDetection @ 0x140555998 (IopDuplicateDetection.c)
+ *     PnpReleaseResourcesInternal @ 0x140555F0C (PnpReleaseResourcesInternal.c)
+ *     IopChildToRootTranslation @ 0x140556D90 (IopChildToRootTranslation.c)
+ *     IopSetupArbiterAndTranslators @ 0x1405574E8 (IopSetupArbiterAndTranslators.c)
  * Callees:
  *     <none>
  */

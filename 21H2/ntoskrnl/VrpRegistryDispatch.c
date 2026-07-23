@@ -3,7 +3,7 @@
  * Callers:
  *     <none>
  * Callees:
- *     IofCompleteRequest @ 0x140243490 (IofCompleteRequest.c)
+ *     IofCompleteRequest @ 0x1402E7CE0 (IofCompleteRequest.c)
  */
 
 __int64 __fastcall VrpRegistryDispatch(__int64 a1, __int64 a2)

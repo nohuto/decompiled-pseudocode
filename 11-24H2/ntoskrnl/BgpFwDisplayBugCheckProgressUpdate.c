@@ -1,17 +1,17 @@
 /*
- * XREFs of BgpFwDisplayBugCheckProgressUpdate @ 0x14069A194
+ * XREFs of BgpFwDisplayBugCheckProgressUpdate @ 0x14069B214
  * Callers:
- *     KiBugCheckProgress @ 0x1405B2E40 (KiBugCheckProgress.c)
- *     BgpFwDisplayBugCheckProgressUpdate @ 0x14069A194 (BgpFwDisplayBugCheckProgressUpdate.c)
+ *     KiBugCheckProgress @ 0x1405AFDB0 (KiBugCheckProgress.c)
+ *     BgpFwDisplayBugCheckProgressUpdate @ 0x14069B214 (BgpFwDisplayBugCheckProgressUpdate.c)
  * Callees:
- *     KeStallExecutionProcessor @ 0x14033A030 (KeStallExecutionProcessor.c)
- *     KeQueryPerformanceCounter @ 0x14034FA10 (KeQueryPerformanceCounter.c)
- *     BcpConvertProgressToString @ 0x1406988EC (BcpConvertProgressToString.c)
- *     BcpDisplayProgress @ 0x1406997F4 (BcpDisplayProgress.c)
- *     BcpDisplayProgressModernized @ 0x140699A04 (BcpDisplayProgressModernized.c)
- *     BcpGetDisplayType @ 0x140699DC0 (BcpGetDisplayType.c)
- *     BcpSetCursorPosition @ 0x14069A0C8 (BcpSetCursorPosition.c)
- *     BgpFwDisplayBugCheckProgressUpdate @ 0x14069A194 (BgpFwDisplayBugCheckProgressUpdate.c)
+ *     KeStallExecutionProcessor @ 0x140319510 (KeStallExecutionProcessor.c)
+ *     KeQueryPerformanceCounter @ 0x14036DEF0 (KeQueryPerformanceCounter.c)
+ *     BcpConvertProgressToString @ 0x14069996C (BcpConvertProgressToString.c)
+ *     BcpDisplayProgress @ 0x14069A874 (BcpDisplayProgress.c)
+ *     BcpDisplayProgressModernized @ 0x14069AA84 (BcpDisplayProgressModernized.c)
+ *     BcpGetDisplayType @ 0x14069AE40 (BcpGetDisplayType.c)
+ *     BcpSetCursorPosition @ 0x14069B148 (BcpSetCursorPosition.c)
+ *     BgpFwDisplayBugCheckProgressUpdate @ 0x14069B214 (BgpFwDisplayBugCheckProgressUpdate.c)
  */
 
 __int64 __fastcall BgpFwDisplayBugCheckProgressUpdate(unsigned int a1, UNICODE_STRING **a2, char a3)
@@ -35,7 +35,7 @@ __int64 __fastcall BgpFwDisplayBugCheckProgressUpdate(unsigned int a1, UNICODE_S
 
   v3 = 0;
   v22.QuadPart = 0LL;
-  if ( (dword_140EF0050 & 0x400000) != 0 || (dword_140EF0050 & 0x10) == 0 )
+  if ( (dword_140EF0270 & 0x400000) != 0 || (dword_140EF0270 & 0x10) == 0 )
     return 0LL;
   v7 = KeQueryPerformanceCounter(&v22);
   v8 = v22;
@@ -58,7 +58,7 @@ __int64 __fastcall BgpFwDisplayBugCheckProgressUpdate(unsigned int a1, UNICODE_S
     v21[1] = DWORD1(BgInternal);
     v21[2] = HIDWORD(BgInternal);
     BcpGetDisplayType(v21);
-    BcpSetCursorPosition(BcpProgressOffset, dword_140EEFFA4, (int *)&unk_140EEFFA8);
+    BcpSetCursorPosition(BcpProgressOffset, dword_140EF01E4, &dword_140EF01E8);
     if ( FeatureEnabledBsodRejuvenation )
       BcpDisplayProgressModernized(v12, v14);
     else
@@ -68,18 +68,18 @@ __int64 __fastcall BgpFwDisplayBugCheckProgressUpdate(unsigned int a1, UNICODE_S
   }
   if ( a1 != 100 || (_DWORD)v12 == 100 )
   {
-    v17 = &stru_140E3E9A0;
+    v17 = &stru_140E3EAE0;
     if ( !a3 )
-      v17 = &stru_140E3E9B0;
+      v17 = &stru_140E3EAF0;
     *a2 = v17;
     BcpConvertProgressToString(v12, (__int64)(a2 + 3));
-    v18 = &stru_140E3E9E0;
+    v18 = &stru_140E3EB20;
     if ( a1 != 1 )
-      v18 = &stru_140E3EA00;
+      v18 = &stru_140E3EB40;
     a2[1] = v18;
-    v19 = &stru_140E3E9F0;
+    v19 = &stru_140E3EB30;
     if ( a1 != 1 )
-      v19 = &stru_140E3EA10;
+      v19 = &stru_140E3EB50;
     a2[2] = v19;
   }
   else

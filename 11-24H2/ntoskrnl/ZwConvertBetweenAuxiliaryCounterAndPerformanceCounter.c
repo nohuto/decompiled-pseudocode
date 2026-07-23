@@ -1,14 +1,19 @@
 /*
- * XREFs of ZwConvertBetweenAuxiliaryCounterAndPerformanceCounter @ 0x1406A78D0
+ * XREFs of ZwConvertBetweenAuxiliaryCounterAndPerformanceCounter @ 0x1406A8870
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwConvertBetweenAuxiliaryCounterAndPerformanceCounter(__int64 a1, __int64 a2)
+// local variable allocation has failed, the output may be wrong!
+NTSTATUS __cdecl ZwConvertBetweenAuxiliaryCounterAndPerformanceCounter(
+        BOOLEAN ConvertAuxiliaryToPerformanceCounter,
+        PLARGE_INTEGER PerformanceOrAuxiliaryCounterValue,
+        PLARGE_INTEGER ConvertedValue,
+        PLARGE_INTEGER ConversionError)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(ConvertAuxiliaryToPerformanceCounter);
 }

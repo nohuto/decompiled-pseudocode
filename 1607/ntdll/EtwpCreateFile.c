@@ -1,65 +1,71 @@
 /*
- * XREFs of EtwpCreateFile @ 0x180054F48
+ * XREFs of EtwpCreateFile @ 0x180054F38
  * Callers:
- *     EtwpAddLogHeaderToLogFile @ 0x180054914 (EtwpAddLogHeaderToLogFile.c)
+ *     EtwpAddLogHeaderToLogFile @ 0x180054904 (EtwpAddLogHeaderToLogFile.c)
  * Callees:
- *     RtlDosPathNameToNtPathName_U_WithStatus @ 0x180011800 (RtlDosPathNameToNtPathName_U_WithStatus.c)
- *     RtlFreeAnsiString @ 0x1800427E0 (RtlFreeAnsiString.c)
- *     RtlInitUnicodeString @ 0x180044150 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x180096C40 (__security_check_cookie.c)
+ *     RtlDosPathNameToNtPathName_U_WithStatus @ 0x1800117F0 (RtlDosPathNameToNtPathName_U_WithStatus.c)
+ *     RtlFreeAnsiString @ 0x1800427D0 (RtlFreeAnsiString.c)
+ *     RtlInitUnicodeString @ 0x180044140 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x180096C30 (__security_check_cookie.c)
  *     ZwSetInformationFile @ 0x1800A6900 (ZwSetInformationFile.c)
  *     ZwCreateFile @ 0x1800A6EC0 (ZwCreateFile.c)
  *     memset @ 0x1800ACCC0 (memset.c)
  */
 
-__int64 __fastcall EtwpCreateFile(PCWSTR SourceString, __int64 a2, __int64 a3, _BYTE *a4, int a5, _QWORD *a6)
+__int64 __fastcall EtwpCreateFile(PCWSTR SourceString, __int64 a2, __int64 a3, _BYTE *a4, int a5, HANDLE *a6)
 {
-  int v8; // r15d
+  ULONG CreateDisposition; // r15d
   bool v9; // di
-  int v10; // ebx
-  __int64 v12; // [rsp+60h] [rbp-79h] BYREF
-  UNICODE_STRING DestinationString; // [rsp+68h] [rbp-71h] BYREF
-  UNICODE_STRING UnicodeString; // [rsp+78h] [rbp-61h] BYREF
-  _BYTE v15[8]; // [rsp+88h] [rbp-51h] BYREF
-  __int64 v16; // [rsp+90h] [rbp-49h]
-  int v17; // [rsp+98h] [rbp-41h] BYREF
-  __int64 v18; // [rsp+A0h] [rbp-39h]
-  UNICODE_STRING *p_UnicodeString; // [rsp+A8h] [rbp-31h]
-  int v20; // [rsp+B0h] [rbp-29h]
-  __int128 v21; // [rsp+B8h] [rbp-21h]
-  _DWORD v22[10]; // [rsp+C8h] [rbp-11h] BYREF
+  NTSTATUS v10; // ebx
+  HANDLE FileHandle; // [rsp+60h] [rbp-79h] BYREF
+  _UNICODE_STRING DestinationString; // [rsp+68h] [rbp-71h] BYREF
+  _UNICODE_STRING NtFileName; // [rsp+78h] [rbp-61h] BYREF
+  _IO_STATUS_BLOCK IoStatusBlock; // [rsp+88h] [rbp-51h] BYREF
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+98h] [rbp-41h] BYREF
+  _DWORD FileInformation[10]; // [rsp+C8h] [rbp-11h] BYREF
 
   *a6 = 0LL;
-  v8 = 5;
+  CreateDisposition = 5;
   if ( *a4 == 1 )
-    v8 = 3;
+    CreateDisposition = 3;
   RtlInitUnicodeString(&DestinationString, SourceString);
-  RtlInitUnicodeString(&UnicodeString, 0LL);
+  RtlInitUnicodeString(&NtFileName, 0LL);
   v9 = 0;
   if ( DestinationString.Length > 1u )
     v9 = SourceString[(DestinationString.Length >> 1) - 1] == 92;
-  v10 = RtlDosPathNameToNtPathName_U_WithStatus((int)DestinationString.Buffer, (int)&UnicodeString, 0LL, 0LL);
+  v10 = RtlDosPathNameToNtPathName_U_WithStatus(DestinationString.Buffer, &NtFileName, 0LL, 0LL);
   if ( v10 >= 0 )
   {
-    v18 = 0LL;
-    v17 = 48;
-    v20 = 64;
-    p_UnicodeString = &UnicodeString;
-    v21 = 0LL;
-    v10 = ZwCreateFile(&v12, 3222274176LL, &v17, v15, 0LL, 128, 5, v8, 104, 0LL, 0);
+    ObjectAttributes.RootDirectory = 0LL;
+    ObjectAttributes.Length = 48;
+    ObjectAttributes.Attributes = 64;
+    ObjectAttributes.ObjectName = &NtFileName;
+    *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+    v10 = ZwCreateFile(
+            &FileHandle,
+            0xC0100080,
+            &ObjectAttributes,
+            &IoStatusBlock,
+            0LL,
+            0x80u,
+            5u,
+            CreateDisposition,
+            0x68u,
+            0LL,
+            0);
     if ( v10 >= 0 )
     {
-      if ( *a4 == 1 && v16 == 2 )
+      if ( *a4 == 1 && IoStatusBlock.Information == 2 )
         *a4 = 0;
       if ( !v9 )
       {
-        memset(v22, 0, sizeof(v22));
-        v22[8] = 0x2000;
-        v10 = ZwSetInformationFile(v12, v15, v22, 40LL, 4);
+        memset(FileInformation, 0, sizeof(FileInformation));
+        FileInformation[8] = 0x2000;
+        v10 = ZwSetInformationFile(FileHandle, &IoStatusBlock, FileInformation, 0x28u, FileBasicInformation);
       }
-      *a6 = v12;
+      *a6 = FileHandle;
     }
   }
-  RtlFreeAnsiString(&UnicodeString);
+  RtlFreeAnsiString(&NtFileName);
   return (unsigned int)v10;
 }

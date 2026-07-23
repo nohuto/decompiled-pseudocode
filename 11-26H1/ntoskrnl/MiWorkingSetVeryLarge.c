@@ -1,9 +1,9 @@
 /*
- * XREFs of MiWorkingSetVeryLarge @ 0x1403B99E0
+ * XREFs of MiWorkingSetVeryLarge @ 0x1403C38E0
  * Callers:
- *     MiOrderTrimList @ 0x1403B9490 (MiOrderTrimList.c)
+ *     MiOrderTrimList @ 0x1403C3390 (MiOrderTrimList.c)
  * Callees:
- *     MiGetAvailablePagesForTrimPass @ 0x1403B9C08 (MiGetAvailablePagesForTrimPass.c)
+ *     MiGetAvailablePagesForTrimPass @ 0x1403C3B08 (MiGetAvailablePagesForTrimPass.c)
  */
 
 unsigned __int64 __fastcall MiWorkingSetVeryLarge(__int64 a1, __int64 a2)
@@ -40,7 +40,7 @@ unsigned __int64 __fastcall MiWorkingSetVeryLarge(__int64 a1, __int64 a2)
   if ( v2 <= v4 )
     return 0LL;
   v5 = *(unsigned __int16 *)(a1 + 174);
-  v6 = *(_QWORD *)(stru_140E2EB88.ThreadLock + 8 * v5);
+  v6 = *(_QWORD *)(stru_140E2ED08.ThreadLock + 8 * v5);
   v7 = *(_QWORD *)(v6 + 22288);
   if ( a2 && ((v2 ^ (v2 + a2)) & 0xFFFFFFFFFFFFFFC0uLL) == 0 )
   {
@@ -52,7 +52,7 @@ unsigned __int64 __fastcall MiWorkingSetVeryLarge(__int64 a1, __int64 a2)
   {
     v8 = 0;
     v9 = 1;
-    AvailablePagesForTrimPass = MiGetAvailablePagesForTrimPass(*(_QWORD *)(stru_140E2EB88.ThreadLock + 8 * v5));
+    AvailablePagesForTrimPass = MiGetAvailablePagesForTrimPass(*(_QWORD *)(stru_140E2ED08.ThreadLock + 8 * v5));
     if ( AvailablePagesForTrimPass < v7 >> 4 && AvailablePagesForTrimPass < 0x800000 )
       v8 = v11 >= v7 >> 4;
     v12 = v11 - v4;
@@ -85,7 +85,7 @@ unsigned __int64 __fastcall MiWorkingSetVeryLarge(__int64 a1, __int64 a2)
   if ( AvailablePagesForTrimPass >= 8LL * *(_QWORD *)(v6 + 18400) )
     return 0LL;
 LABEL_15:
-  v20 = *(_QWORD **)(stru_140E2EB88.ThreadLock + 8LL * *(unsigned __int16 *)(v3 + 174));
+  v20 = *(_QWORD **)(stru_140E2ED08.ThreadLock + 8LL * *(unsigned __int16 *)(v3 + 174));
   v21 = v20[2300];
   if ( (*(_DWORD *)(v3 + 184) & 0xF) == 0 )
   {

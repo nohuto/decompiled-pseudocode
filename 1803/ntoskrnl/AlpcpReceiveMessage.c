@@ -79,7 +79,7 @@ __int64 __fastcall AlpcpReceiveMessage(__int64 a1, unsigned __int64 a2, _QWORD *
   __int64 v57; // rdx
   __int64 v58; // r8
   __int64 v59; // r9
-  union _SLIST_HEADER *v60; // rcx
+  _SLIST_HEADER *v60; // rcx
   void *v61; // rcx
   unsigned int v63; // [rsp+30h] [rbp-98h]
   unsigned int v64; // [rsp+34h] [rbp-94h]

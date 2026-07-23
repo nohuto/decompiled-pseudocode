@@ -1,11 +1,11 @@
 /*
- * XREFs of CmpAddUoWToRollbackPacket @ 0x140874BD0
+ * XREFs of CmpAddUoWToRollbackPacket @ 0x140874D30
  * Callers:
- *     CmpSnapshotTxOwnerArrayToRollbackPacket @ 0x14087514C (CmpSnapshotTxOwnerArrayToRollbackPacket.c)
+ *     CmpSnapshotTxOwnerArrayToRollbackPacket @ 0x1408752AC (CmpSnapshotTxOwnerArrayToRollbackPacket.c)
  * Callees:
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     ObfReferenceObject @ 0x14034B230 (ObfReferenceObject.c)
- *     CmpAddPointerToRollbackPacket @ 0x140874B7C (CmpAddPointerToRollbackPacket.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     ObfReferenceObject @ 0x140355F80 (ObfReferenceObject.c)
+ *     CmpAddPointerToRollbackPacket @ 0x140874CDC (CmpAddPointerToRollbackPacket.c)
  */
 
 __int64 __fastcall CmpAddUoWToRollbackPacket(unsigned int *a1, __int64 a2)

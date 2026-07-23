@@ -1,13 +1,13 @@
 /*
- * XREFs of PoLatencySensitivityHint @ 0x1403B7A90
+ * XREFs of PoLatencySensitivityHint @ 0x14044BDE0
  * Callers:
- *     PopPowerRequestCallbackPerfBoostRequired @ 0x140A951D0 (PopPowerRequestCallbackPerfBoostRequired.c)
- *     PopPowerInformationInternal @ 0x140AC4A30 (PopPowerInformationInternal.c)
+ *     PopPowerRequestCallbackPerfBoostRequired @ 0x140A91980 (PopPowerRequestCallbackPerfBoostRequired.c)
+ *     PopPowerInformationInternal @ 0x140AC2410 (PopPowerInformationInternal.c)
  * Callees:
- *     ExQueueWorkItem @ 0x140325850 (ExQueueWorkItem.c)
- *     PpmCheckCustomRun @ 0x1403B45DC (PpmCheckCustomRun.c)
- *     PpmTryAcquireLock @ 0x1403B6E5C (PpmTryAcquireLock.c)
- *     PpmEventTraceLatencySensitivityHint @ 0x1403B7BDC (PpmEventTraceLatencySensitivityHint.c)
+ *     ExQueueWorkItem @ 0x1402CE3E0 (ExQueueWorkItem.c)
+ *     PpmEventTraceLatencySensitivityHint @ 0x14044BF2C (PpmEventTraceLatencySensitivityHint.c)
+ *     PpmTryAcquireLock @ 0x14044BFCC (PpmTryAcquireLock.c)
+ *     PpmCheckCustomRun @ 0x14044C05C (PpmCheckCustomRun.c)
  */
 
 void __fastcall PoLatencySensitivityHint(unsigned int a1)
@@ -16,7 +16,7 @@ void __fastcall PoLatencySensitivityHint(unsigned int a1)
   unsigned __int64 v3; // rdx
   unsigned __int64 v4; // r8
   unsigned __int64 v5; // r10
-  char v6; // r9
+  __int64 v6; // r9
   unsigned __int64 v7; // rcx
   unsigned __int64 v8; // rcx
   signed __int32 v9[10]; // [rsp+0h] [rbp-28h] BYREF
@@ -25,20 +25,20 @@ void __fastcall PoLatencySensitivityHint(unsigned int a1)
   {
     for ( i = 0LL; (unsigned int)i < 2; i = (unsigned int)(i + 1) )
     {
-      if ( *((_BYTE *)&PpmCurrentProfile[0][61 * dword_140F0BA4C + 16] + i + 5) )
+      if ( *((_BYTE *)&PpmCurrentProfile[0][61 * dword_140F0B38C + 16] + i + 5) )
       {
         PpmEventTraceLatencySensitivityHint(a1);
         v3 = 0LL;
         v4 = PpmCheckPeriod + MEMORY[0xFFFFF78000000008];
         v5 = PpmPerfLatencyBoostExpiration;
-        v6 = 0;
+        LOBYTE(v6) = 0;
         while ( v5 < v4 )
         {
           v7 = v5;
           v5 = _InterlockedCompareExchange64(&PpmPerfLatencyBoostExpiration, v4, v5);
           if ( v7 == v5 )
           {
-            v6 = 1;
+            LOBYTE(v6) = 1;
             break;
           }
           _mm_pause();
@@ -55,13 +55,13 @@ void __fastcall PoLatencySensitivityHint(unsigned int a1)
             _mm_pause();
           }
         }
-        if ( v6 )
+        if ( (_BYTE)v6 )
         {
 LABEL_17:
           _InterlockedOr(v9, 0);
           if ( a1 == 4 && v3 <= PpmCheckLastEffectiveExecutionTime || v5 <= PpmCheckLastEffectiveExecutionTime )
           {
-            if ( PpmTryAcquireLock(PpmCheckLastEffectiveExecutionTime, v3, v4) )
+            if ( (unsigned __int8)PpmTryAcquireLock(PpmCheckLastEffectiveExecutionTime, v3, v4, v6) )
             {
               PpmCheckCustomRun(3LL);
             }

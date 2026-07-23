@@ -13,7 +13,7 @@
 
 LONG __fastcall SmIoRequestComplete(__int64 a1, _DWORD *a2, __int64 a3, __int64 a4)
 {
-  struct _SLIST_ENTRY *v4; // rdi
+  _SLIST_ENTRY *v4; // rdi
   int v5; // eax
   __int64 v6; // rsi
   __int64 v8; // rbx
@@ -30,7 +30,7 @@ LONG __fastcall SmIoRequestComplete(__int64 a1, _DWORD *a2, __int64 a3, __int64 
   }
   if ( a3 < 0 )
     return KeSetEvent((PRKEVENT)a3, 1, 0);
-  v4 = (struct _SLIST_ENTRY *)(a3 | 0x8000000000000000uLL);
+  v4 = (_SLIST_ENTRY *)(a3 | 0x8000000000000000uLL);
   v5 = *(_DWORD *)((a3 | 0x8000000000000000uLL) + 0x10);
   v6 = *(_QWORD *)(*(_QWORD *)((a3 | 0x8000000000000000uLL) + 0x38) + 192LL);
   if ( v5 < 0 )

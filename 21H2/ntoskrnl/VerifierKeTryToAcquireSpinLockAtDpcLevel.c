@@ -1,10 +1,10 @@
 /*
- * XREFs of VerifierKeTryToAcquireSpinLockAtDpcLevel @ 0x1409DB860
+ * XREFs of VerifierKeTryToAcquireSpinLockAtDpcLevel @ 0x1409DC860
  * Callers:
  *     <none>
  * Callees:
- *     ViKeTryToAcquireSpinLockAtDpcLevelCommon @ 0x1409DC3D0 (ViKeTryToAcquireSpinLockAtDpcLevelCommon.c)
- *     VfDeadlockAcquireResource @ 0x1409DD5C8 (VfDeadlockAcquireResource.c)
+ *     ViKeTryToAcquireSpinLockAtDpcLevelCommon @ 0x1409DD3D0 (ViKeTryToAcquireSpinLockAtDpcLevelCommon.c)
+ *     VfDeadlockAcquireResource @ 0x1409DE5C8 (VfDeadlockAcquireResource.c)
  */
 
 char __fastcall VerifierKeTryToAcquireSpinLockAtDpcLevel(ULONG_PTR a1)

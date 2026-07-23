@@ -1,8 +1,8 @@
 /*
- * XREFs of RtlpHpTagContextFindMapping @ 0x180050DDC
+ * XREFs of RtlpHpTagContextFindMapping @ 0x180050DCC
  * Callers:
- *     RtlpHpTagContextAllocateTag @ 0x180050C04 (RtlpHpTagContextAllocateTag.c)
- *     RtlpHpTagQueryTags @ 0x180081A70 (RtlpHpTagQueryTags.c)
+ *     RtlpHpTagContextAllocateTag @ 0x180050BF4 (RtlpHpTagContextAllocateTag.c)
+ *     RtlpHpTagQueryTags @ 0x180081A60 (RtlpHpTagQueryTags.c)
  *     RtlpHpTagContextGetTag @ 0x1800F7674 (RtlpHpTagContextGetTag.c)
  * Callees:
  *     <none>

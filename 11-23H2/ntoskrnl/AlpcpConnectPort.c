@@ -1,20 +1,20 @@
 /*
- * XREFs of AlpcpConnectPort @ 0x140717370
+ * XREFs of AlpcpConnectPort @ 0x140717570
  * Callers:
- *     NtAlpcConnectPort @ 0x140715040 (NtAlpcConnectPort.c)
- *     NtAlpcConnectPortEx @ 0x140715680 (NtAlpcConnectPortEx.c)
+ *     NtAlpcConnectPort @ 0x140715250 (NtAlpcConnectPort.c)
+ *     NtAlpcConnectPortEx @ 0x140715880 (NtAlpcConnectPortEx.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memset @ 0x140435A00 (memset.c)
- *     SeReleaseSid @ 0x1406BB2A4 (SeReleaseSid.c)
- *     SeCaptureSid @ 0x1406BB2CC (SeCaptureSid.c)
- *     NtClose @ 0x1406E44C0 (NtClose.c)
- *     AlpcpProcessConnectionRequest @ 0x140715BD4 (AlpcpProcessConnectionRequest.c)
- *     AlpcpCreateClientPort @ 0x140717744 (AlpcpCreateClientPort.c)
- *     SeCaptureSecurityDescriptor @ 0x140736B50 (SeCaptureSecurityDescriptor.c)
- *     SeReleaseSecurityDescriptor @ 0x1407373D0 (SeReleaseSecurityDescriptor.c)
+ *     KeLeaveCriticalRegionThread @ 0x14022F7F0 (KeLeaveCriticalRegionThread.c)
+ *     ObfDereferenceObject @ 0x140231660 (ObfDereferenceObject.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     SeReleaseSid @ 0x1406BB2D4 (SeReleaseSid.c)
+ *     SeCaptureSid @ 0x1406BB2FC (SeCaptureSid.c)
+ *     NtClose @ 0x1406E44F0 (NtClose.c)
+ *     AlpcpProcessConnectionRequest @ 0x140715DD4 (AlpcpProcessConnectionRequest.c)
+ *     AlpcpCreateClientPort @ 0x140717944 (AlpcpCreateClientPort.c)
+ *     SeCaptureSecurityDescriptor @ 0x140736D40 (SeCaptureSecurityDescriptor.c)
+ *     SeReleaseSecurityDescriptor @ 0x1407375C0 (SeReleaseSecurityDescriptor.c)
  */
 
 __int64 __fastcall AlpcpConnectPort(

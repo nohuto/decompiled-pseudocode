@@ -36,7 +36,7 @@ __int64 __fastcall CmpCreateHwProfileFriendlyName(void *a1, char a2, unsigned in
   ULONG ResultLength; // [rsp+60h] [rbp-A0h] BYREF
   UNICODE_STRING v22; // [rsp+68h] [rbp-98h] BYREF
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+78h] [rbp-88h] BYREF
-  STRING SourceString; // [rsp+A8h] [rbp-58h] BYREF
+  _STRING SourceString; // [rsp+A8h] [rbp-58h] BYREF
   wchar_t Dst[80]; // [rsp+C0h] [rbp-40h] BYREF
   _DWORD KeyValueInformation[64]; // [rsp+160h] [rbp+60h] BYREF
 

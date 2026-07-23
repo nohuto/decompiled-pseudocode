@@ -1,5 +1,5 @@
 /*
- * XREFs of NtSetInformationCpuPartition @ 0x1409B07D0
+ * XREFs of NtSetInformationCpuPartition @ 0x1409B09D0
  * Callers:
  *     <none>
  * Callees:

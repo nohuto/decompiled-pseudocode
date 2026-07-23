@@ -38,7 +38,7 @@ bool __fastcall SeAccessCheckWithHintWithAdminlessChecks(
         __int64 a8,
         char a9,
         unsigned int *a10,
-        int *a11,
+        NTSTATUS *a11,
         char a12)
 {
   unsigned int v12; // r14d
@@ -48,7 +48,7 @@ bool __fastcall SeAccessCheckWithHintWithAdminlessChecks(
   ULONGLONG v19; // rax
   ULONGLONG v20; // rcx
   unsigned int v21; // r10d
-  __int64 v22; // rdi
+  void *v22; // rdi
   int v23; // eax
   unsigned int v24; // edi
   unsigned int v25; // ecx
@@ -103,8 +103,8 @@ bool __fastcall SeAccessCheckWithHintWithAdminlessChecks(
   __int64 v74; // rcx
   struct _SECURITY_SUBJECT_CONTEXT *v75; // rcx
   unsigned int v76; // ecx
-  __int64 v77; // rax
-  int v78; // eax
+  unsigned int *v77; // rax
+  NTSTATUS v78; // eax
   __int64 v79; // rcx
   char v80; // r14
   ULONGLONG TokenTrustLevel; // rax
@@ -113,7 +113,7 @@ bool __fastcall SeAccessCheckWithHintWithAdminlessChecks(
   __int64 v84; // rax
   __int16 v85; // cx
   __int64 v86; // rax
-  __int64 v87; // rax
+  ACL *v87; // rax
   void *ScopedPolicySid; // rax
   int Cap; // eax
   __int64 v90; // rdx
@@ -122,7 +122,7 @@ bool __fastcall SeAccessCheckWithHintWithAdminlessChecks(
   int v93; // eax
   __int64 v94; // r8
   int v95; // ecx
-  __int64 v96; // r8
+  unsigned int *v96; // r8
   int v97; // eax
   int v98; // r9d
   _QWORD *v99; // rax
@@ -148,25 +148,25 @@ bool __fastcall SeAccessCheckWithHintWithAdminlessChecks(
   __int64 v119; // rcx
   char v120; // [rsp+28h] [rbp-F8h]
   char v121; // [rsp+A0h] [rbp-80h]
-  char v122; // [rsp+A1h] [rbp-7Fh] BYREF
+  BOOLEAN v122; // [rsp+A1h] [rbp-7Fh] BYREF
   char v123; // [rsp+A2h] [rbp-7Eh]
   char v124; // [rsp+A3h] [rbp-7Dh] BYREF
   int v125; // [rsp+A4h] [rbp-7Ch]
   bool v126; // [rsp+A8h] [rbp-78h]
   int v127; // [rsp+ACh] [rbp-74h]
-  int v128; // [rsp+B0h] [rbp-70h] BYREF
+  BOOLEAN v128[4]; // [rsp+B0h] [rbp-70h] BYREF
   int v129; // [rsp+B4h] [rbp-6Ch]
-  char v130[4]; // [rsp+B8h] [rbp-68h] BYREF
+  BOOLEAN DominatesTrust[4]; // [rsp+B8h] [rbp-68h] BYREF
   int v131; // [rsp+BCh] [rbp-64h]
   int v132; // [rsp+C0h] [rbp-60h] BYREF
-  __int64 v133; // [rsp+C8h] [rbp-58h]
+  unsigned int *v133; // [rsp+C8h] [rbp-58h]
   unsigned int v134; // [rsp+D0h] [rbp-50h]
   PVOID P; // [rsp+D8h] [rbp-48h] BYREF
   int v136; // [rsp+E0h] [rbp-40h]
   __int64 v137; // [rsp+E8h] [rbp-38h]
   int v138; // [rsp+F0h] [rbp-30h] BYREF
   int v139; // [rsp+F4h] [rbp-2Ch] BYREF
-  __int64 v140; // [rsp+F8h] [rbp-28h]
+  ACL *v140; // [rsp+F8h] [rbp-28h]
   __int64 v141; // [rsp+100h] [rbp-20h] BYREF
   __int64 v142; // [rsp+108h] [rbp-18h]
   __int64 v143; // [rsp+110h] [rbp-10h] BYREF
@@ -238,7 +238,7 @@ LABEL_209:
   v17 = *(_WORD *)(a1 + 2);
   LODWORD(v18) = 0;
   v122 = 0;
-  LOBYTE(v128) = 0;
+  v128[0] = 0;
   v132 = -1;
   while ( 1 )
   {
@@ -281,7 +281,7 @@ LABEL_13:
   if ( v20 )
     v132 = *(_DWORD *)(v20 + 4);
 LABEL_20:
-  v22 = v20 + 8;
+  v22 = (void *)(v20 + 8);
   if ( !v20 )
     v22 = 0LL;
   if ( !v22 )
@@ -294,15 +294,15 @@ LABEL_20:
   if ( !*(_QWORD *)a3 )
   {
 LABEL_187:
-    v77 = *(_QWORD *)(*((_QWORD *)a3 + 2) + 1104LL);
+    v77 = *(unsigned int **)(*((_QWORD *)a3 + 2) + 1104LL);
     goto LABEL_188;
   }
   v79 = *((_QWORD *)a3 + 2);
-  v133 = *(_QWORD *)(*(_QWORD *)a3 + 1104LL);
-  v78 = RtlSidDominatesForTrust(*(_QWORD *)(v79 + 1104), v133, &v128);
+  v133 = *(unsigned int **)(*(_QWORD *)a3 + 1104LL);
+  v78 = RtlSidDominatesForTrust(*(PSID *)(v79 + 1104), v133, v128);
   if ( v78 >= 0 )
   {
-    if ( !(_BYTE)v128 )
+    if ( !v128[0] )
       goto LABEL_187;
     v77 = v133;
 LABEL_188:
@@ -430,7 +430,7 @@ LABEL_220:
   }
   if ( v85 >= 0 )
   {
-    v87 = *(_QWORD *)(a1 + 24);
+    v87 = *(ACL **)(a1 + 24);
   }
   else
   {
@@ -440,7 +440,7 @@ LABEL_220:
       v140 = 0LL;
       goto LABEL_220;
     }
-    v87 = a1 + v86;
+    v87 = (ACL *)(a1 + v86);
   }
   v140 = v87;
   if ( !v87 )
@@ -485,7 +485,7 @@ LABEL_44:
     goto LABEL_52;
   v36 = v34[1];
   v37 = *(_WORD *)v34;
-  LOWORD(v128) = v37;
+  *(_WORD *)v128 = v37;
   v38 = (unsigned int)(4 * v36 + 8);
   v134 = 4 * v36 + 8;
   v39 = v34[4 * HIBYTE(v37) + 4];
@@ -519,7 +519,7 @@ LABEL_83:
           {
             v43 = 1;
             if ( *(_DWORD *)(v26 + 128) )
-              v43 = SepSidInTokenSidHash(v26 + 504, 0LL, v34, 0, 1, 0, a12);
+              v43 = SepSidInTokenSidHash((PSID_AND_ATTRIBUTES_HASH)(v26 + 504), 0LL, v34, 0, 1, 0, a12);
           }
           else
           {
@@ -600,12 +600,12 @@ LABEL_123:
           }
           goto LABEL_123;
         }
-        v37 = v128;
+        v37 = *(_WORD *)v128;
         v38 = v134;
         v57 = i;
       }
       v56 = (unsigned __int8)v129 ^ (1 << v131);
-      v41 = v133;
+      v41 = (int)v133;
       v129 = v56;
       if ( (_BYTE)v56 )
         continue;
@@ -635,8 +635,8 @@ LABEL_51:
       {
         if ( !memcmp(v34, *v59, v38) )
           goto LABEL_83;
-        v37 = v128;
-        v42 = v133;
+        v37 = *(_WORD *)v128;
+        v42 = (unsigned int)v133;
         v38 = v134;
         v92 = v129;
       }
@@ -701,7 +701,7 @@ LABEL_55:
   v46 = 0LL;
   v122 = 0;
   v127 = v95;
-  LOBYTE(v128) = 0;
+  v128[0] = 0;
   v129 = 0;
   if ( !*(_DWORD *)(v137 + 60) )
   {
@@ -712,19 +712,19 @@ LABEL_296:
   v49 = P;
   while ( 2 )
   {
-    v96 = *(_QWORD *)(v94 + 8LL * (unsigned int)v46 + 64);
+    v96 = *(unsigned int **)(v94 + 8LL * (unsigned int)v46 + 64);
     v133 = v96;
-    if ( *(_QWORD *)(v96 + 24) )
+    if ( *((_QWORD *)v96 + 3) )
     {
       if ( !v49 )
       {
-        v97 = AuthzBasepInitializeResourceClaimsFromSacl(v140, (__int64 *)&P);
+        v97 = AuthzBasepInitializeResourceClaimsFromSacl((__int64)v140, (__int64 *)&P);
         v49 = P;
         v96 = v133;
-        v98 = (unsigned __int8)v128;
+        v98 = v128[0];
         if ( v97 < 0 )
           v98 = 1;
-        v128 = v98;
+        *(_DWORD *)v128 = v98;
       }
       v99 = *(_QWORD **)(v26 + 1096);
       if ( v99 )
@@ -749,8 +749,8 @@ LABEL_296:
                v102,
                v101,
                v100,
-               *(_DWORD **)(v96 + 24),
-               *(_DWORD *)(v96 + 16),
+               *((_DWORD **)v96 + 3),
+               v96[4],
                1u,
                0,
                &v132);
@@ -797,8 +797,8 @@ LABEL_296:
                    v111,
                    v110,
                    v109,
-                   *(_DWORD **)(v133 + 24),
-                   *(_DWORD *)(v133 + 16),
+                   *((_DWORD **)v133 + 3),
+                   v133[4],
                    1u,
                    1u,
                    &v132);
@@ -825,7 +825,7 @@ LABEL_284:
           return 0;
         }
 LABEL_263:
-        if ( !(_BYTE)v128 && v107 != 1 )
+        if ( !v128[0] && v107 != 1 )
         {
           v93 = v134;
           v95 = v127;
@@ -846,7 +846,7 @@ LABEL_263:
       return 0;
     }
     v116 = v12;
-    if ( (*(_DWORD *)(v133 + 48) & 1) != 0 )
+    if ( (v133[12] & 1) != 0 )
     {
       v117 = 0;
       if ( (v12 & 0x2000000) == 0 )
@@ -1016,8 +1016,8 @@ LABEL_139:
     v155 = *(_QWORD *)a3;
     if ( *(_QWORD *)a3 )
     {
-      RtlSidDominatesForTrust(*(_QWORD *)(v74 + 1104), *(_QWORD *)(*(_QWORD *)a3 + 1104LL), v130);
-      if ( v130[0] )
+      RtlSidDominatesForTrust(*(PSID *)(v74 + 1104), *(PSID *)(*(_QWORD *)a3 + 1104LL), DominatesTrust);
+      if ( DominatesTrust[0] )
         v74 = v155;
       else
         v74 = v156;

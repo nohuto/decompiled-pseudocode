@@ -1,13 +1,13 @@
 /*
- * XREFs of SeCaptureObjectTypeList @ 0x14035ED40
+ * XREFs of SeCaptureObjectTypeList @ 0x14041E500
  * Callers:
- *     SeAccessCheckByType @ 0x14035C8A0 (SeAccessCheckByType.c)
- *     SepAccessCheckAndAuditAlarm @ 0x14091DB90 (SepAccessCheckAndAuditAlarm.c)
+ *     SeAccessCheckByType @ 0x14042DC70 (SeAccessCheckByType.c)
+ *     SepAccessCheckAndAuditAlarm @ 0x140A07A00 (SepAccessCheckAndAuditAlarm.c)
  * Callees:
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ExRaiseDatatypeMisalignment @ 0x14089B1F0 (ExRaiseDatatypeMisalignment.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408A3890 (ExRaiseDatatypeMisalignment.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall SeCaptureObjectTypeList(__int64 a1, unsigned int a2, char a3, _QWORD *a4)
@@ -40,7 +40,7 @@ __int64 __fastcall SeCaptureObjectTypeList(__int64 a1, unsigned int a2, char a3,
     {
       if ( 16LL * a2 && (a1 & 3) != 0 )
         ExRaiseDatatypeMisalignment();
-      Pool2 = (char *)ExAllocatePool2(0x100uLL);
+      Pool2 = (char *)ExAllocatePool2(0x100uLL, 48LL * a2, 0x744F6553u);
       v21 = Pool2;
       v8 = Pool2;
       if ( Pool2 )

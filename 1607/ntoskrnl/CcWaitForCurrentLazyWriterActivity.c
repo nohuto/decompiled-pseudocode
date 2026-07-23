@@ -1,15 +1,15 @@
 /*
- * XREFs of CcWaitForCurrentLazyWriterActivity @ 0x14010F010
+ * XREFs of CcWaitForCurrentLazyWriterActivity @ 0x14010F574
  * Callers:
- *     CcSetPrivateWriteFile @ 0x1401B240C (CcSetPrivateWriteFile.c)
+ *     CcSetPrivateWriteFile @ 0x1401B22F0 (CcSetPrivateWriteFile.c)
  *     PopGracefulShutdown @ 0x1403DEE20 (PopGracefulShutdown.c)
  * Callees:
- *     KeWaitForSingleObject @ 0x14005C880 (KeWaitForSingleObject.c)
- *     CcPerfLogWorkItemEnqueue @ 0x14006B848 (CcPerfLogWorkItemEnqueue.c)
- *     CcScheduleLazyWriteScan @ 0x14007091C (CcScheduleLazyWriteScan.c)
- *     CcAllocateWorkQueueEntry @ 0x140072080 (CcAllocateWorkQueueEntry.c)
- *     KeAcquireQueuedSpinLock @ 0x1400E8D30 (KeAcquireQueuedSpinLock.c)
- *     KeReleaseQueuedSpinLock @ 0x1400E8DA0 (KeReleaseQueuedSpinLock.c)
+ *     KeWaitForSingleObject @ 0x14005C400 (KeWaitForSingleObject.c)
+ *     CcPerfLogWorkItemEnqueue @ 0x14006B3C8 (CcPerfLogWorkItemEnqueue.c)
+ *     CcScheduleLazyWriteScan @ 0x14007049C (CcScheduleLazyWriteScan.c)
+ *     CcAllocateWorkQueueEntry @ 0x140071C00 (CcAllocateWorkQueueEntry.c)
+ *     KeAcquireQueuedSpinLock @ 0x1400E6BD0 (KeAcquireQueuedSpinLock.c)
+ *     KeReleaseQueuedSpinLock @ 0x1400E6C40 (KeReleaseQueuedSpinLock.c)
  */
 
 NTSTATUS CcWaitForCurrentLazyWriterActivity(void)
@@ -39,15 +39,15 @@ NTSTATUS CcWaitForCurrentLazyWriterActivity(void)
     if ( (xmmword_1403AA2D0 & 0x20000) != 0 )
       CcPerfLogWorkItemEnqueue(&CcPostTickWorkQueue, (__int64)v1, 0, 0);
     v2 = KeAcquireQueuedSpinLock(5uLL);
-    v3 = (PSLIST_ENTRY *)qword_1403230B8;
+    v3 = (PSLIST_ENTRY *)qword_1403230D8;
     v4 = v2;
-    if ( *(__int64 **)qword_1403230B8 != &CcPostTickWorkQueue )
+    if ( *(__int64 **)qword_1403230D8 != &CcPostTickWorkQueue )
       __fastfail(3u);
     v1->Next = (_SLIST_ENTRY *)&CcPostTickWorkQueue;
     *((_QWORD *)&v1->Next + 1) = v3;
     *v3 = v1;
-    qword_1403230B8 = (__int64)v1;
-    byte_1403231C1 = 1;
+    qword_1403230D8 = (__int64)v1;
+    byte_1403231E1 = 1;
     _InterlockedIncrement(&CcPostTickWorkItemCount);
     CcScheduleLazyWriteScan(1, 1);
     KeReleaseQueuedSpinLock(5uLL, v4);

@@ -120,9 +120,9 @@ LONG __fastcall PnpReplacePartitionUnit(ULONG_PTR *a1)
   void *v76; // rcx
   void *v77; // rcx
   ULONG Affinity; // [rsp+38h] [rbp-D0h]
-  struct _GROUP_AFFINITY Affinity_8; // [rsp+40h] [rbp-C8h] BYREF
+  _GROUP_AFFINITY Affinity_8; // [rsp+40h] [rbp-C8h] BYREF
   ULONG_PTR *PreviousAffinity; // [rsp+50h] [rbp-B8h]
-  struct _GROUP_AFFINITY PreviousAffinity_8; // [rsp+58h] [rbp-B0h] BYREF
+  _GROUP_AFFINITY PreviousAffinity_8; // [rsp+58h] [rbp-B0h] BYREF
   _OWORD v83[3]; // [rsp+68h] [rbp-A0h] BYREF
   __int64 v84; // [rsp+98h] [rbp-70h]
   int v85; // [rsp+A0h] [rbp-68h]

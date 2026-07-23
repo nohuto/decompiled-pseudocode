@@ -1,37 +1,37 @@
 /*
- * XREFs of NtCancelTimer @ 0x140248B00
+ * XREFs of NtCancelTimer @ 0x1402ED350
  * Callers:
  *     <none>
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
- *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
- *     ExpCancelTimer @ 0x14024A190 (ExpCancelTimer.c)
- *     KiCheckForKernelApcDelivery @ 0x14024A6E0 (KiCheckForKernelApcDelivery.c)
- *     ExpSetTimerObject2 @ 0x14028026C (ExpSetTimerObject2.c)
- *     PoDestroyReasonContext @ 0x140282BD8 (PoDestroyReasonContext.c)
- *     KiAbEntryRemoveFromTree @ 0x14028F490 (KiAbEntryRemoveFromTree.c)
- *     ObpDeferObjectDeletion @ 0x1402BC2D0 (ObpDeferObjectDeletion.c)
- *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1402F2C90 (ExfAcquirePushLockExclusiveEx.c)
- *     MiGetSystemRegionType @ 0x14034A950 (MiGetSystemRegionType.c)
- *     KiAbThreadRemoveBoosts @ 0x14034AD00 (KiAbThreadRemoveBoosts.c)
- *     MmGetSessionIdEx @ 0x14034AE60 (MmGetSessionIdEx.c)
- *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
- *     KxWaitForSpinLockAndAcquire @ 0x1403582C0 (KxWaitForSpinLockAndAcquire.c)
+ *     KiAbEntryRemoveFromTree @ 0x14020C630 (KiAbEntryRemoveFromTree.c)
+ *     KxReleaseSpinLock @ 0x140212140 (KxReleaseSpinLock.c)
+ *     ObpDeferObjectDeletion @ 0x14023A834 (ObpDeferObjectDeletion.c)
+ *     ExpSetTimerObject2 @ 0x14026E4AC (ExpSetTimerObject2.c)
+ *     PoDestroyReasonContext @ 0x140270E84 (PoDestroyReasonContext.c)
+ *     KeLeaveCriticalRegionThread @ 0x1402AB8C0 (KeLeaveCriticalRegionThread.c)
+ *     ExpCancelTimer @ 0x1402EE9E0 (ExpCancelTimer.c)
+ *     KiCheckForKernelApcDelivery @ 0x1402EEF30 (KiCheckForKernelApcDelivery.c)
+ *     ExfTryToWakePushLock @ 0x1402FC2C0 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402FD9E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     MiGetSystemRegionType @ 0x1403556A0 (MiGetSystemRegionType.c)
+ *     KiAbThreadRemoveBoosts @ 0x140355A50 (KiAbThreadRemoveBoosts.c)
+ *     MmGetSessionIdEx @ 0x140355BB0 (MmGetSessionIdEx.c)
+ *     ObfDereferenceObjectWithTag @ 0x140355E90 (ObfDereferenceObjectWithTag.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140362F80 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KxWaitForSpinLockAndAcquire @ 0x140363010 (KxWaitForSpinLockAndAcquire.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     EtwTraceAutoBoostEntryExhaustion @ 0x1403F921C (EtwTraceAutoBoostEntryExhaustion.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
- *     KiAcquireSpinLockInstrumented @ 0x14051688C (KiAcquireSpinLockInstrumented.c)
- *     KiReleaseSpinLockInstrumented @ 0x140516998 (KiReleaseSpinLockInstrumented.c)
- *     ObpPushStackInfo @ 0x140564D28 (ObpPushStackInfo.c)
- *     ObReferenceObjectByHandle @ 0x1406F0BC0 (ObReferenceObjectByHandle.c)
+ *     EtwTraceAutoBoostEntryExhaustion @ 0x1403F9348 (EtwTraceAutoBoostEntryExhaustion.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
+ *     KiAcquireSpinLockInstrumented @ 0x140516ACC (KiAcquireSpinLockInstrumented.c)
+ *     KiReleaseSpinLockInstrumented @ 0x140516BD8 (KiReleaseSpinLockInstrumented.c)
+ *     ObpPushStackInfo @ 0x140564F68 (ObpPushStackInfo.c)
+ *     ObReferenceObjectByHandle @ 0x140707FA0 (ObReferenceObjectByHandle.c)
  */
 
-__int64 __fastcall NtCancelTimer(HANDLE Handle, _BYTE *a2)
+NTSTATUS __cdecl NtCancelTimer(HANDLE TimerHandle, PBOOLEAN CurrentState)
 {
   KPROCESSOR_MODE PreviousMode; // r13
-  NTSTATUS v5; // r14d
+  int v5; // r14d
   struct _KTIMER *v6; // rbx
   char *v7; // r15
   struct _OBJECT_TYPE *v8; // rax
@@ -39,7 +39,7 @@ __int64 __fastcall NtCancelTimer(HANDLE Handle, _BYTE *a2)
   unsigned __int8 CurrentIrql; // cl
   struct _KPRCB *CurrentPrcb; // rbx
   _DWORD *v12; // rcx
-  void *v13; // rsi
+  _QWORD *v13; // rsi
   int v14; // ebx
   struct _KPRCB *v15; // rcx
   _DWORD *v16; // rdx
@@ -51,74 +51,80 @@ __int64 __fastcall NtCancelTimer(HANDLE Handle, _BYTE *a2)
   char v23; // dl
   __int64 v24; // rdx
   int SessionId; // ecx
-  struct _KTHREAD *v26; // rcx
-  bool v27; // zf
-  _QWORD *v29; // rax
-  __int64 v30; // rdx
-  _QWORD *v31; // rcx
-  char v32; // r10
+  __int64 v26; // rdx
+  __int64 v27; // r8
+  __int64 v28; // r9
+  struct _KTHREAD *v29; // rcx
+  bool v30; // zf
+  _QWORD *v32; // rax
   __int64 v33; // rdx
-  ULONG_PTR v34; // r10
-  __int64 v35; // r9
-  unsigned int v36; // r11d
-  __int64 v37; // rcx
-  __int64 v38; // rcx
-  unsigned __int8 v39; // al
+  _QWORD *v34; // rcx
+  char v35; // r10
+  unsigned int v36; // edx
+  ULONG_PTR v37; // r10
+  __int64 v38; // r9
+  unsigned int v39; // r11d
   __int64 v40; // rcx
+  __int64 v41; // rcx
+  unsigned __int8 v42; // al
+  __int64 v43; // rdx
+  __int64 v44; // r8
+  __int64 v45; // r9
+  __int64 v46; // rcx
   _DWORD *SchedulerAssist; // r9
-  int v42; // eax
-  int v43; // eax
-  unsigned __int8 v44; // al
-  struct _KPRCB *v45; // r10
-  _DWORD *v46; // r9
-  int v47; // eax
-  unsigned __int8 AbOrphanedEntrySummary; // al
+  int v48; // eax
   int v49; // eax
   unsigned __int8 v50; // al
-  struct _KPRCB *v51; // r11
+  struct _KPRCB *v51; // r10
   _DWORD *v52; // r9
   int v53; // eax
+  __int64 AbOrphanedEntrySummary; // rax
+  int v55; // eax
+  unsigned __int8 v56; // al
+  struct _KPRCB *v57; // r11
+  _DWORD *v58; // r9
+  int v59; // eax
   KIRQL BugCheckParameter1; // [rsp+30h] [rbp-78h]
   struct _KTHREAD *BugCheckParameter1a; // [rsp+30h] [rbp-78h]
   PVOID Object; // [rsp+38h] [rbp-70h] BYREF
-  struct _KTHREAD *v57; // [rsp+40h] [rbp-68h]
-  int v58; // [rsp+48h] [rbp-60h]
-  int v59; // [rsp+4Ch] [rbp-5Ch]
-  NTSTATUS v60; // [rsp+50h] [rbp-58h]
+  struct _KTHREAD *v63; // [rsp+40h] [rbp-68h]
+  int v64; // [rsp+48h] [rbp-60h]
+  int v65; // [rsp+4Ch] [rbp-5Ch]
+  int v66; // [rsp+50h] [rbp-58h]
   struct _KTHREAD *CurrentThread; // [rsp+58h] [rbp-50h]
-  void *v62; // [rsp+60h] [rbp-48h]
-  unsigned __int64 v63; // [rsp+68h] [rbp-40h]
+  _QWORD *v68; // [rsp+60h] [rbp-48h]
+  unsigned __int64 v69; // [rsp+68h] [rbp-40h]
   void *retaddr; // [rsp+A8h] [rbp+0h]
-  char v65; // [rsp+B8h] [rbp+10h]
-  __int64 v66; // [rsp+B8h] [rbp+10h]
-  unsigned __int8 v67; // [rsp+B8h] [rbp+10h]
+  char v71; // [rsp+B8h] [rbp+10h]
+  __int64 v72; // [rsp+B8h] [rbp+10h]
+  unsigned __int8 v73; // [rsp+B8h] [rbp+10h]
 
   PreviousMode = KeGetCurrentThread()->PreviousMode;
-  if ( a2 && PreviousMode )
+  if ( CurrentState && PreviousMode )
   {
-    v40 = 0x7FFFFFFF0000LL;
-    if ( (unsigned __int64)a2 < 0x7FFFFFFF0000LL )
-      v40 = (__int64)a2;
-    *(_BYTE *)v40 = *(_BYTE *)v40;
+    v46 = 0x7FFFFFFF0000LL;
+    if ( (unsigned __int64)CurrentState < 0x7FFFFFFF0000LL )
+      v46 = (__int64)CurrentState;
+    *(_BYTE *)v46 = *(_BYTE *)v46;
   }
   Object = 0LL;
-  v5 = ObReferenceObjectByHandle(Handle, 2u, 0LL, PreviousMode, &Object, 0LL);
-  v60 = v5;
+  v5 = ObReferenceObjectByHandle(TimerHandle, 2u, 0LL, PreviousMode, &Object, 0LL);
+  v66 = v5;
   if ( v5 < 0 )
-    return (unsigned int)v5;
+    return v5;
   v6 = (struct _KTIMER *)Object;
   v7 = (char *)Object - 48;
   v8 = (struct _OBJECT_TYPE *)ObTypeIndexTable[(unsigned __int8)ObHeaderCookie ^ (unsigned __int8)*((char *)Object - 24) ^ (unsigned __int64)(unsigned __int8)((unsigned __int16)((_WORD)Object - 48) >> 8)];
   if ( v8 == ExpIRTimerObjectType )
   {
-    if ( a2 )
+    if ( CurrentState )
     {
       ObfDereferenceObjectWithTag(Object, 0x746C6644u);
-      return 3221225485LL;
+      return -1073741811;
     }
     else
     {
-      return ExpSetTimerObject2(Object);
+      return ExpSetTimerObject2(Object, 0LL, 0LL, 0LL);
     }
   }
   else
@@ -126,7 +132,7 @@ __int64 __fastcall NtCancelTimer(HANDLE Handle, _BYTE *a2)
     if ( v8 == ExTimerObjectType )
     {
       CurrentThread = 0LL;
-      v65 = 0;
+      v71 = 0;
       v9 = (volatile signed __int32 *)((char *)Object + 64);
       CurrentIrql = KeGetCurrentIrql();
       BugCheckParameter1 = CurrentIrql;
@@ -149,9 +155,9 @@ __int64 __fastcall NtCancelTimer(HANDLE Handle, _BYTE *a2)
         {
           if ( CurrentPrcb->NestingLevel <= 1u )
           {
-            v42 = v12[6];
-            v12[6] = v42 + 1;
-            if ( v42 == -1 )
+            v48 = v12[6];
+            v12[6] = v48 + 1;
+            if ( v48 == -1 )
               KiRemoveSystemWorkPriorityKick(CurrentPrcb);
           }
         }
@@ -162,9 +168,9 @@ __int64 __fastcall NtCancelTimer(HANDLE Handle, _BYTE *a2)
           {
             if ( CurrentPrcb->NestingLevel <= 1u )
             {
-              v43 = v20[6] - 1;
-              v20[6] = v43;
-              if ( !v43 )
+              v49 = v20[6] - 1;
+              v20[6] = v49;
+              if ( !v49 )
                 KiRemoveSystemWorkPriorityKick(CurrentPrcb);
             }
           }
@@ -172,8 +178,8 @@ __int64 __fastcall NtCancelTimer(HANDLE Handle, _BYTE *a2)
         }
         v6 = (struct _KTIMER *)Object;
       }
-      v13 = *(void **)&v6[4].Header.Lock;
-      v62 = v13;
+      v13 = *(_QWORD **)&v6[4].Header.Lock;
+      v68 = v13;
       if ( !v13 )
         goto LABEL_11;
       KxReleaseSpinLock((PKSPIN_LOCK)v9);
@@ -181,40 +187,40 @@ __int64 __fastcall NtCancelTimer(HANDLE Handle, _BYTE *a2)
       {
         if ( (KiIrqlFlags & 1) != 0 )
         {
-          v44 = KeGetCurrentIrql();
-          if ( v44 <= 0xFu && BugCheckParameter1 <= 0xFu && v44 >= 2u )
+          v50 = KeGetCurrentIrql();
+          if ( v50 <= 0xFu && BugCheckParameter1 <= 0xFu && v50 >= 2u )
           {
-            v45 = KeGetCurrentPrcb();
-            v46 = v45->SchedulerAssist;
-            v47 = ~(unsigned __int16)(-1LL << (BugCheckParameter1 + 1));
-            v27 = (v47 & v46[5]) == 0;
-            v46[5] &= v47;
-            if ( v27 )
-              KiRemoveSystemWorkPriorityKick(v45);
+            v51 = KeGetCurrentPrcb();
+            v52 = v51->SchedulerAssist;
+            v53 = ~(unsigned __int16)(-1LL << (BugCheckParameter1 + 1));
+            v30 = (v53 & v52[5]) == 0;
+            v52[5] &= v53;
+            if ( v30 )
+              KiRemoveSystemWorkPriorityKick(v51);
           }
         }
       }
       __writecr8(BugCheckParameter1);
       CurrentThread = KeGetCurrentThread();
       --CurrentThread->KernelApcDisable;
-      v59 = 0;
+      v65 = 0;
       v21 = KeGetCurrentThread();
-      v57 = v21;
+      v63 = v21;
       --v21->SpecialApcDisable;
       if ( ++v21->AbAllocationRegionCount != 1 )
         KeBugCheckEx(0x192u, (ULONG_PTR)v21, (ULONG_PTR)&ExpWakeTimerLock, KeGetCurrentIrql(), 0LL);
-      v58 = 0;
+      v64 = 0;
       LOBYTE(v22) = v21->AbEntrySummary;
       if ( !(_BYTE)v22 )
       {
         if ( !v21->AbOrphanedEntrySummary )
         {
           v24 = 0LL;
-          v66 = 0LL;
+          v72 = 0LL;
           if ( (WORD2(PerfGlobalGroupMask) & 0x200) != 0 )
           {
             EtwTraceAutoBoostEntryExhaustion(v21, &ExpWakeTimerLock);
-            v21 = v57;
+            v21 = v63;
             v24 = 0LL;
           }
           goto LABEL_30;
@@ -225,19 +231,19 @@ __int64 __fastcall NtCancelTimer(HANDLE Handle, _BYTE *a2)
       }
       v23 = v22;
       _BitScanForward((unsigned int *)&v22, (unsigned __int8)v22);
-      v58 = v22;
+      v64 = v22;
       v21->AbEntrySummary = v23 & ~(1 << v22);
       v24 = (__int64)&v21->LockEntries[v22];
-      v66 = v24;
+      v72 = v24;
 LABEL_30:
       if ( v24 )
       {
         if ( (unsigned __int64)&ExpWakeTimerLock >= 0xFFFF800000000000uLL
-          && byte_140C4F9C8[(((unsigned __int64)&ExpWakeTimerLock >> 39) & 0x1FF) - 256] == 1 )
+          && byte_140C4FA08[(((unsigned __int64)&ExpWakeTimerLock >> 39) & 0x1FF) - 256] == 1 )
         {
           SessionId = MmGetSessionIdEx(v21->ApcState.Process);
-          v21 = v57;
-          v24 = v66;
+          v21 = v63;
+          v24 = v72;
         }
         else
         {
@@ -252,18 +258,18 @@ LABEL_30:
       }
       --v21->AbAllocationRegionCount;
       KiAbThreadRemoveBoosts((ULONG_PTR)v21);
-      v26 = v57;
-      v27 = v57->SpecialApcDisable++ == -1;
-      if ( v27 && ($C459BD0D405E8E46662177FB3D0A143F *)v26->ApcState.ApcListHead[0].Flink != &v26->152 )
-        KiCheckForKernelApcDelivery();
+      v29 = v63;
+      v30 = v63->SpecialApcDisable++ == -1;
+      if ( v30 && ($C459BD0D405E8E46662177FB3D0A143F *)v29->ApcState.ApcListHead[0].Flink != &v29->152 )
+        KiCheckForKernelApcDelivery(v29, v26, v27, v28);
       if ( _interlockedbittestandset64((volatile signed __int32 *)&ExpWakeTimerLock, 0LL) )
-        ExfAcquirePushLockExclusiveEx(&ExpWakeTimerLock, v66, &ExpWakeTimerLock);
-      if ( v66 )
-        *(_BYTE *)(v66 + 26) |= 1u;
-      v65 = 1;
+        ExfAcquirePushLockExclusiveEx(&ExpWakeTimerLock, v72, &ExpWakeTimerLock);
+      if ( v72 )
+        *(_BYTE *)(v72 + 26) |= 1u;
+      v71 = 1;
       BugCheckParameter1 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)v9);
-      v13 = *(void **)&v6[4].Header.Lock;
-      v62 = v13;
+      v13 = *(_QWORD **)&v6[4].Header.Lock;
+      v68 = v13;
       *(_QWORD *)&v6[4].Header.Lock = 0LL;
       v6 = (struct _KTIMER *)Object;
 LABEL_11:
@@ -278,9 +284,9 @@ LABEL_11:
       {
         if ( v15->NestingLevel <= 1u )
         {
-          v49 = v16[6] - 1;
-          v16[6] = v49;
-          if ( !v49 )
+          v55 = v16[6] - 1;
+          v16[6] = v55;
+          if ( !v55 )
             KiRemoveSystemWorkPriorityKick(v15);
         }
       }
@@ -288,103 +294,103 @@ LABEL_11:
       {
         if ( (KiIrqlFlags & 1) != 0 )
         {
-          v50 = KeGetCurrentIrql();
-          if ( v50 <= 0xFu && BugCheckParameter1 <= 0xFu && v50 >= 2u )
+          v56 = KeGetCurrentIrql();
+          if ( v56 <= 0xFu && BugCheckParameter1 <= 0xFu && v56 >= 2u )
           {
-            v51 = KeGetCurrentPrcb();
-            v52 = v51->SchedulerAssist;
-            v53 = ~(unsigned __int16)(-1LL << (BugCheckParameter1 + 1));
-            v27 = (v53 & v52[5]) == 0;
-            v52[5] &= v53;
-            if ( v27 )
-              KiRemoveSystemWorkPriorityKick(v51);
+            v57 = KeGetCurrentPrcb();
+            v58 = v57->SchedulerAssist;
+            v59 = ~(unsigned __int16)(-1LL << (BugCheckParameter1 + 1));
+            v30 = (v59 & v58[5]) == 0;
+            v58[5] &= v59;
+            if ( v30 )
+              KiRemoveSystemWorkPriorityKick(v57);
           }
         }
       }
       __writecr8(BugCheckParameter1);
-      if ( v65 )
+      if ( v71 )
       {
         if ( v13 )
         {
-          v29 = (char *)Object + 264;
-          v30 = *((_QWORD *)Object + 33);
-          v31 = (_QWORD *)*((_QWORD *)Object + 34);
-          if ( *(PVOID *)(v30 + 8) != (char *)Object + 264 || (_QWORD *)*v31 != v29 )
+          v32 = (char *)Object + 264;
+          v33 = *((_QWORD *)Object + 33);
+          v34 = (_QWORD *)*((_QWORD *)Object + 34);
+          if ( *(PVOID *)(v33 + 8) != (char *)Object + 264 || (_QWORD *)*v34 != v32 )
             __fastfail(3u);
-          *v31 = v30;
-          *(_QWORD *)(v30 + 8) = v31;
-          *v29 = 0LL;
+          *v34 = v33;
+          *(_QWORD *)(v33 + 8) = v34;
+          *v32 = 0LL;
         }
-        v32 = _InterlockedExchangeAdd64((volatile signed __int64 *)&ExpWakeTimerLock, 0xFFFFFFFFFFFFFFFFuLL);
-        if ( (v32 & 2) != 0 && (v32 & 4) == 0 )
+        v35 = _InterlockedExchangeAdd64((volatile signed __int64 *)&ExpWakeTimerLock, 0xFFFFFFFFFFFFFFFFuLL);
+        if ( (v35 & 2) != 0 && (v35 & 4) == 0 )
           ExfTryToWakePushLock(&ExpWakeTimerLock);
         BugCheckParameter1a = KeGetCurrentThread();
         if ( (unsigned int)MiGetSystemRegionType(&ExpWakeTimerLock) == 1 )
-          v33 = (unsigned int)MmGetSessionIdEx(BugCheckParameter1a->ApcState.Process);
+          v36 = MmGetSessionIdEx(BugCheckParameter1a->ApcState.Process);
         else
-          v33 = 0xFFFFFFFFLL;
-        v34 = (ULONG_PTR)BugCheckParameter1a;
+          v36 = -1;
+        v37 = (ULONG_PTR)BugCheckParameter1a;
         --BugCheckParameter1a->SpecialApcDisable;
-        v67 = ++BugCheckParameter1a->AbAllocationRegionCount;
-        v35 = 0LL;
-        v57 = 0LL;
-        v63 = (unsigned __int64)&ExpWakeTimerLock & 0x7FFFFFFFFFFFFFFCLL;
-        v36 = ((char)BugCheckParameter1a->AbEntrySummary | (char)BugCheckParameter1a->AbOrphanedEntrySummary) ^ 0x3F;
-        v27 = !_BitScanReverse((unsigned int *)&v37, v36);
-        if ( !v27 )
+        v73 = ++BugCheckParameter1a->AbAllocationRegionCount;
+        v38 = 0LL;
+        v63 = 0LL;
+        v69 = (unsigned __int64)&ExpWakeTimerLock & 0x7FFFFFFFFFFFFFFCLL;
+        v39 = ((char)BugCheckParameter1a->AbEntrySummary | (char)BugCheckParameter1a->AbOrphanedEntrySummary) ^ 0x3F;
+        v30 = !_BitScanReverse((unsigned int *)&v40, v39);
+        if ( !v30 )
         {
           while ( 1 )
           {
-            v36 &= ~(1 << v37);
-            v38 = (__int64)&BugCheckParameter1a->LockEntries[v37];
-            if ( (*(_BYTE *)(v38 + 26) & 1) != 0
-              && (*(_DWORD *)(v38 + 32) & 1) == 0
-              && (*(_QWORD *)(v38 + 32) & 0x7FFFFFFFFFFFFFFCLL) == v63
-              && *(_DWORD *)(v38 + 40) == (_DWORD)v33 )
+            v39 &= ~(1 << v40);
+            v41 = (__int64)&BugCheckParameter1a->LockEntries[v40];
+            if ( (*(_BYTE *)(v41 + 26) & 1) != 0
+              && (*(_DWORD *)(v41 + 32) & 1) == 0
+              && (*(_QWORD *)(v41 + 32) & 0x7FFFFFFFFFFFFFFCLL) == v69
+              && *(_DWORD *)(v41 + 40) == v36 )
             {
-              *(_BYTE *)(v38 + 26) &= ~1u;
-              if ( *(_QWORD *)(v38 + 32) )
+              *(_BYTE *)(v41 + 26) &= ~1u;
+              if ( *(_QWORD *)(v41 + 32) )
                 break;
             }
-            v27 = !_BitScanReverse((unsigned int *)&v37, v36);
-            if ( v27 )
+            v30 = !_BitScanReverse((unsigned int *)&v40, v39);
+            if ( v30 )
               goto LABEL_57;
           }
-          v35 = v38;
-          v57 = (struct _KTHREAD *)v38;
+          v38 = v41;
+          v63 = (struct _KTHREAD *)v41;
         }
 LABEL_57:
-        if ( v35 )
+        if ( v38 )
         {
-          *(_BYTE *)(v35 + 32) |= 2u;
-          if ( *(__int64 *)(v35 + 32) < 0 )
+          *(_BYTE *)(v38 + 32) |= 2u;
+          if ( *(__int64 *)(v38 + 32) < 0 )
           {
-            KiAbEntryRemoveFromTree(v35, v33, 0x7FFFFFFFFFFFFFFCLL);
-            v34 = (ULONG_PTR)BugCheckParameter1a;
-            v35 = (__int64)v57;
+            KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)v38);
+            v37 = (ULONG_PTR)BugCheckParameter1a;
+            v38 = (__int64)v63;
           }
-          *(_DWORD *)(v35 + 88) &= 0xFFFE0000;
-          *(_BYTE *)(v35 + 25) &= ~1u;
-          *(_QWORD *)(v35 + 32) = 0LL;
-          v39 = 1 << ((v35 - *(_QWORD *)(v34 + 800)) / 96);
-          if ( v67 == 1 )
-            *(_BYTE *)(v34 + 792) |= v39;
+          *(_DWORD *)(v38 + 88) &= 0xFFFE0000;
+          *(_BYTE *)(v38 + 25) &= ~1u;
+          *(_QWORD *)(v38 + 32) = 0LL;
+          v42 = 1 << ((v38 - *(_QWORD *)(v37 + 800)) / 96);
+          if ( v73 == 1 )
+            *(_BYTE *)(v37 + 792) |= v42;
           else
-            _InterlockedOr8((volatile signed __int8 *)(v34 + 870), v39);
+            _InterlockedOr8((volatile signed __int8 *)(v37 + 870), v42);
         }
         else if ( (*((_DWORD *)&BugCheckParameter1a->0 + 1) & 0x10000) == 0 )
         {
-          KeBugCheckEx(0x162u, (ULONG_PTR)BugCheckParameter1a, (ULONG_PTR)&ExpWakeTimerLock, (unsigned int)v33, 0LL);
+          KeBugCheckEx(0x162u, (ULONG_PTR)BugCheckParameter1a, (ULONG_PTR)&ExpWakeTimerLock, v36, 0LL);
         }
-        --*(_BYTE *)(v34 + 794);
-        KiAbThreadRemoveBoosts(v34);
-        v27 = BugCheckParameter1a->SpecialApcDisable++ == -1;
-        if ( v27
+        --*(_BYTE *)(v37 + 794);
+        KiAbThreadRemoveBoosts(v37);
+        v30 = BugCheckParameter1a->SpecialApcDisable++ == -1;
+        if ( v30
           && ($C459BD0D405E8E46662177FB3D0A143F *)BugCheckParameter1a->ApcState.ApcListHead[0].Flink != &BugCheckParameter1a->152 )
         {
-          KiCheckForKernelApcDelivery();
+          KiCheckForKernelApcDelivery(BugCheckParameter1a, v43, v44, v45);
         }
-        KeLeaveCriticalRegionThread((__int64)CurrentThread);
+        KeLeaveCriticalRegionThread((__int64)CurrentThread, v43, v44, v45);
       }
       v17 = *((_DWORD *)Object + 1);
       if ( ObpTraceFlags )
@@ -401,15 +407,15 @@ LABEL_57:
             *((_QWORD *)v7 + 1));
         if ( v18 < 0 )
           KeBugCheckEx(0x18u, 0LL, (ULONG_PTR)Object, 5uLL, v18);
-        ObpDeferObjectDeletion(v7);
+        ObpDeferObjectDeletion((signed __int64)v7);
       }
-      if ( a2 )
-        *a2 = v17;
+      if ( CurrentState )
+        *CurrentState = v17;
       if ( v13 )
         PoDestroyReasonContext(v13);
-      return (unsigned int)v5;
+      return v5;
     }
     ObfDereferenceObjectWithTag(Object, 0x746C6644u);
-    return 3221225508LL;
+    return -1073741788;
   }
 }

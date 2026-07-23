@@ -1,12 +1,12 @@
 /*
- * XREFs of ResFwpDestroyBackground @ 0x140C50EEC
+ * XREFs of ResFwpDestroyBackground @ 0x140C56EEC
  * Callers:
- *     ResFwBackgroundTransition @ 0x140C54F20 (ResFwBackgroundTransition.c)
+ *     ResFwBackgroundTransition @ 0x140C5AF20 (ResFwBackgroundTransition.c)
  * Callees:
- *     BgpFwFreeMemory @ 0x140355E00 (BgpFwFreeMemory.c)
- *     BgpFwAcquireLock @ 0x1404E7E04 (BgpFwAcquireLock.c)
- *     BgpFwReleaseLock @ 0x1404E81BC (BgpFwReleaseLock.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     BgpFwFreeMemory @ 0x140357BA8 (BgpFwFreeMemory.c)
+ *     BgpFwAcquireLock @ 0x1404E11C4 (BgpFwAcquireLock.c)
+ *     BgpFwReleaseLock @ 0x1404E157C (BgpFwReleaseLock.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void ResFwpDestroyBackground()

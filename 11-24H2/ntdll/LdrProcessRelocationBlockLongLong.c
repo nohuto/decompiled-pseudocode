@@ -1,12 +1,12 @@
 /*
- * XREFs of LdrProcessRelocationBlockLongLong @ 0x1800E5510
+ * XREFs of LdrProcessRelocationBlockLongLong @ 0x1800E09C0
  * Callers:
- *     LdrRelocateImageWithBias @ 0x1800E5420 (LdrRelocateImageWithBias.c)
- *     LdrProcessRelocationBlock @ 0x1801382C0 (LdrProcessRelocationBlock.c)
- *     LdrProcessRelocationBlockEx @ 0x1801382F0 (LdrProcessRelocationBlockEx.c)
+ *     LdrRelocateImageWithBias @ 0x1800E08D0 (LdrRelocateImageWithBias.c)
+ *     LdrProcessRelocationBlock @ 0x1801364F0 (LdrProcessRelocationBlock.c)
+ *     LdrProcessRelocationBlockEx @ 0x180136520 (LdrProcessRelocationBlockEx.c)
  * Callees:
- *     LdrpArmProcessRelocation @ 0x1800E5664 (LdrpArmProcessRelocation.c)
- *     LdrpThumbProcessRelocation @ 0x1800E5738 (LdrpThumbProcessRelocation.c)
+ *     LdrpArmProcessRelocation @ 0x1800E0B14 (LdrpArmProcessRelocation.c)
+ *     LdrpThumbProcessRelocation @ 0x1800E0BE8 (LdrpThumbProcessRelocation.c)
  */
 
 unsigned __int16 *__fastcall LdrProcessRelocationBlockLongLong(

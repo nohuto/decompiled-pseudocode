@@ -1,9 +1,9 @@
 /*
- * XREFs of EtwpGetSchematizedFilterSize @ 0x1408384F4
+ * XREFs of EtwpGetSchematizedFilterSize @ 0x1409E9380
  * Callers:
- *     EtwpAddRegEntryToGroup @ 0x140839260 (EtwpAddRegEntryToGroup.c)
- *     EtwpClearSessionAndUnreferenceEntry @ 0x14083ECD8 (EtwpClearSessionAndUnreferenceEntry.c)
- *     EtwpRegisterKMProvider @ 0x140A57524 (EtwpRegisterKMProvider.c)
+ *     EtwpClearSessionAndUnreferenceEntry @ 0x140837F48 (EtwpClearSessionAndUnreferenceEntry.c)
+ *     EtwpRegisterKMProvider @ 0x1409EA1C4 (EtwpRegisterKMProvider.c)
+ *     EtwpAddRegEntryToGroup @ 0x140AD9390 (EtwpAddRegEntryToGroup.c)
  * Callees:
  *     <none>
  */

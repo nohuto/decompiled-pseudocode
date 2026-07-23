@@ -10,7 +10,7 @@
  *     ZwQuerySystemInformation @ 0x14041AD60 (ZwQuerySystemInformation.c)
  */
 
-__int64 __fastcall SmQuerySystemInformation(__int64 a1, __int64 a2, __int64 a3)
+__int64 __fastcall SmQuerySystemInformation(__int64 a1, __int64 a2, void *a3)
 {
   unsigned int SystemInformation; // ebx
   $115DCDF994C6370D29323EAB0E0C9502 v6; // [rsp+20h] [rbp-48h] BYREF
@@ -19,7 +19,7 @@ __int64 __fastcall SmQuerySystemInformation(__int64 a1, __int64 a2, __int64 a3)
   if ( (a1 & 1) != 0 )
     a1 = *(_QWORD *)((a1 & 0xFFFFFFFFFFFFFFFEuLL) + 6728);
   KiStackAttachProcess(*(_KPROCESS **)(a1 + 2008), 0, (__int64)&v6);
-  SystemInformation = ZwQuerySystemInformation(182LL, a3);
+  SystemInformation = ZwQuerySystemInformation(SystemMemoryUsageInformation, a3, 0x38u, 0LL);
   KiUnstackDetachProcess(&v6);
   return SystemInformation;
 }

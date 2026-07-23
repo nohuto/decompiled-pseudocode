@@ -14,11 +14,17 @@
  *     AlpcpProbeAndCaptureMessageHeader @ 0x1409CD120 (AlpcpProbeAndCaptureMessageHeader.c)
  */
 
-__int64 __fastcall NtAlpcOpenSenderThread(_QWORD *a1, void *a2, __int128 *a3, __int64 a4, int a5, __int128 *Src)
+NTSTATUS __cdecl NtAlpcOpenSenderThread(
+        PHANDLE ThreadHandle,
+        HANDLE PortHandle,
+        PPORT_MESSAGE PortMessage,
+        ULONG Flags,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes)
 {
   struct _KTHREAD *CurrentThread; // rax
   KPROCESSOR_MODE PreviousMode; // r15
-  int v10; // ebx
+  NTSTATUS v10; // ebx
   __int64 v11; // r9
   __int64 v12; // rbx
   __int64 v13; // rcx
@@ -31,50 +37,43 @@ __int64 __fastcall NtAlpcOpenSenderThread(_QWORD *a1, void *a2, __int128 *a3, __
   HANDLE v21; // [rsp+40h] [rbp-68h] BYREF
   __int128 v22; // [rsp+48h] [rbp-60h] BYREF
   __int128 v23; // [rsp+58h] [rbp-50h]
-  __int64 v24; // [rsp+68h] [rbp-40h]
-  __int128 v25; // [rsp+70h] [rbp-38h] BYREF
-  __int128 v26; // [rsp+80h] [rbp-28h]
-  __int128 v27; // [rsp+90h] [rbp-18h]
+  unsigned __int64 ClientViewSize; // [rsp+68h] [rbp-40h]
+  OBJECT_ATTRIBUTES v25; // [rsp+70h] [rbp-38h] BYREF
 
   v22 = 0LL;
   v23 = 0LL;
-  v24 = 0LL;
-  v25 = 0LL;
-  v26 = 0LL;
-  *(_QWORD *)&v27 = 0LL;
-  DWORD2(v27) = 0;
+  ClientViewSize = 0LL;
+  memset(&v25, 0, 44);
   v21 = 0LL;
   BugCheckParameter2 = 0LL;
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   Object = 0LL;
-  v10 = ObReferenceObjectByHandle(a2, 0x20000u, AlpcPortObjectType, PreviousMode, &Object, 0LL);
+  v10 = ObReferenceObjectByHandle(PortHandle, 0x20000u, AlpcPortObjectType, PreviousMode, &Object, 0LL);
   if ( v10 >= 0 )
   {
     if ( PreviousMode )
     {
       v12 = 0x7FFFFFFF0000LL;
       v13 = 0x7FFFFFFF0000LL;
-      if ( (unsigned __int64)a1 < 0x7FFFFFFF0000LL )
-        v13 = (__int64)a1;
+      if ( (unsigned __int64)ThreadHandle < 0x7FFFFFFF0000LL )
+        v13 = (__int64)ThreadHandle;
       *(_QWORD *)v13 = *(_QWORD *)v13;
-      AlpcpProbeAndCaptureMessageHeader(a3, &v22);
-      if ( (unsigned __int64)Src < 0x7FFFFFFF0000LL )
-        v12 = (__int64)Src;
+      AlpcpProbeAndCaptureMessageHeader(PortMessage, &v22);
+      if ( (unsigned __int64)ObjectAttributes < 0x7FFFFFFF0000LL )
+        v12 = (__int64)ObjectAttributes;
       RtlCopyVolatileMemory(&v25, (const void *)v12, 0x30uLL);
     }
     else
     {
-      v22 = *a3;
-      v23 = a3[1];
-      v24 = *((_QWORD *)a3 + 4);
-      v25 = *Src;
-      v26 = Src[1];
-      v27 = Src[2];
+      v22 = *(_OWORD *)&PortMessage->u1.s1.DataLength;
+      v23 = *(__int128 *)((char *)&PortMessage->8 + 8);
+      ClientViewSize = PortMessage->ClientViewSize;
+      v25 = *ObjectAttributes;
     }
     v14 = Object;
-    v10 = AlpcpLookupMessage((__int64)Object, DWORD2(v23), v24, v11, &BugCheckParameter2);
+    v10 = AlpcpLookupMessage((__int64)Object, DWORD2(v23), ClientViewSize, v11, &BugCheckParameter2);
     if ( v10 < 0 )
     {
       ObfDereferenceObject(v14);
@@ -107,15 +106,15 @@ LABEL_18:
         {
           PsReferenceSiloContext(*(void **)(BugCheckParameter2 + 32));
           AlpcpUnlockMessage(v15);
-          v10 = PsOpenThread(&v21, a5, (__int64)&v25, (__int128 *)((char *)&v22 + 8), 0, PreviousMode);
+          v10 = PsOpenThread(&v21, DesiredAccess, (__int64)&v25, (__int128 *)((char *)&v22 + 8), 0, PreviousMode);
           ObfDereferenceObject(v16);
           ObfDereferenceObject(v14);
           if ( v10 >= 0 )
-            *a1 = v21;
+            *ThreadHandle = v21;
         }
       }
     }
   }
   KeLeaveCriticalRegion();
-  return (unsigned int)v10;
+  return v10;
 }

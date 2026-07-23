@@ -1,9 +1,9 @@
 /*
- * XREFs of KiQueryNodeCapacity @ 0x1405EFC20
+ * XREFs of KiQueryNodeCapacity @ 0x1405F2590
  * Callers:
- *     KiPopulateNodeInformation @ 0x140CCAA4C (KiPopulateNodeInformation.c)
+ *     KiPopulateNodeInformation @ 0x140CD0B2C (KiPopulateNodeInformation.c)
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall KiQueryNodeCapacity(__int64 a1, __int64 a2)

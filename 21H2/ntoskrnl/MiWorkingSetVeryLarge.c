@@ -1,9 +1,9 @@
 /*
- * XREFs of MiWorkingSetVeryLarge @ 0x140530784
+ * XREFs of MiWorkingSetVeryLarge @ 0x1405309C4
  * Callers:
- *     MiOrderTrimList @ 0x14053B640 (MiOrderTrimList.c)
+ *     MiOrderTrimList @ 0x14053B880 (MiOrderTrimList.c)
  * Callees:
- *     MiGetStandbyRepurposed @ 0x1402717A4 (MiGetStandbyRepurposed.c)
+ *     MiGetStandbyRepurposed @ 0x14025F744 (MiGetStandbyRepurposed.c)
  */
 
 _BOOL8 __fastcall MiWorkingSetVeryLarge(__int64 a1)
@@ -21,7 +21,7 @@ _BOOL8 __fastcall MiWorkingSetVeryLarge(__int64 a1)
   v2 = *(_QWORD *)(*(_QWORD *)(a1 + 16) + 32LL);
   if ( v1 <= v2 )
     return 0LL;
-  v3 = *(_QWORD **)(qword_140C4E648 + 8LL * *(unsigned __int16 *)(a1 + 174));
+  v3 = *(_QWORD **)(qword_140C4E688 + 8LL * *(unsigned __int16 *)(a1 + 174));
   v4 = v3[866];
   v5 = v1 & 0x3F;
   if ( (v1 & 0x3F) == 0 && v3[888] < v4 / 0x14 && v1 >= v4 / 0x14 )

@@ -1,17 +1,17 @@
 /*
- * XREFs of CmpFindDrivers @ 0x140C4B4CC
+ * XREFs of CmpFindDrivers @ 0x140C4D668
  * Callers:
- *     CmGetSystemDriverList @ 0x140C62C58 (CmGetSystemDriverList.c)
+ *     CmGetSystemDriverList @ 0x140C64DD4 (CmGetSystemDriverList.c)
  * Callees:
- *     HvpReleaseCellPaged @ 0x140875760 (HvpReleaseCellPaged.c)
- *     CmpFindSubKeyByNumber @ 0x1408842B0 (CmpFindSubKeyByNumber.c)
- *     HvpReleaseCellFlat @ 0x140884BB0 (HvpReleaseCellFlat.c)
- *     CmpAddDriverToList @ 0x140C4AC68 (CmpAddDriverToList.c)
- *     CmpFindGroupOrderList @ 0x140C4B7C0 (CmpFindGroupOrderList.c)
- *     CmpFindRedirectedDriverServiceStateNode @ 0x140C4B990 (CmpFindRedirectedDriverServiceStateNode.c)
- *     CmpIsLoadType @ 0x140C4C108 (CmpIsLoadType.c)
- *     CmpLoadManufacturingProfileServicesNode @ 0x140C4C6C4 (CmpLoadManufacturingProfileServicesNode.c)
- *     CmpLoadServicesNode @ 0x140C4C784 (CmpLoadServicesNode.c)
+ *     HvpReleaseCellPaged @ 0x140879A90 (HvpReleaseCellPaged.c)
+ *     CmpFindSubKeyByNumber @ 0x140888160 (CmpFindSubKeyByNumber.c)
+ *     HvpReleaseCellFlat @ 0x140888A60 (HvpReleaseCellFlat.c)
+ *     CmpAddDriverToList @ 0x140C4CE04 (CmpAddDriverToList.c)
+ *     CmpFindGroupOrderList @ 0x140C4D95C (CmpFindGroupOrderList.c)
+ *     CmpFindRedirectedDriverServiceStateNode @ 0x140C4DB2C (CmpFindRedirectedDriverServiceStateNode.c)
+ *     CmpIsLoadType @ 0x140C4E2A4 (CmpIsLoadType.c)
+ *     CmpLoadManufacturingProfileServicesNode @ 0x140C4E860 (CmpLoadManufacturingProfileServicesNode.c)
+ *     CmpLoadServicesNode @ 0x140C4E920 (CmpLoadServicesNode.c)
  */
 
 char __fastcall CmpFindDrivers(

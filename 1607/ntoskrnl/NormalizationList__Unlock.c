@@ -1,10 +1,10 @@
 /*
- * XREFs of NormalizationList__Unlock @ 0x1402193D8
+ * XREFs of NormalizationList__Unlock @ 0x140219204
  * Callers:
- *     RtlpGetNormalization @ 0x14068C59C (RtlpGetNormalization.c)
+ *     RtlpGetNormalization @ 0x14068C680 (RtlpGetNormalization.c)
  * Callees:
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1400C8738 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     ExfTryToWakePushLock @ 0x1400C65D8 (ExfTryToWakePushLock.c)
  */
 
 __int64 NormalizationList__Unlock()

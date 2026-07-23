@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlpInitializeLfhRandomDataArray @ 0x18003F31C
+ * XREFs of RtlpInitializeLfhRandomDataArray @ 0x18003F30C
  * Callers:
- *     RtlpCreateLowFragHeap @ 0x180029C34 (RtlpCreateLowFragHeap.c)
- *     RtlpHpLfhContextInitialize @ 0x18007F714 (RtlpHpLfhContextInitialize.c)
+ *     RtlpCreateLowFragHeap @ 0x180029C24 (RtlpCreateLowFragHeap.c)
+ *     RtlpHpLfhContextInitialize @ 0x18007F704 (RtlpHpLfhContextInitialize.c)
  * Callees:
- *     RtlpHeapGenerateRandomValue64 @ 0x180041770 (RtlpHeapGenerateRandomValue64.c)
+ *     RtlpHeapGenerateRandomValue64 @ 0x180041760 (RtlpHeapGenerateRandomValue64.c)
  */
 
 __int64 RtlpInitializeLfhRandomDataArray()

@@ -21,7 +21,7 @@ __int64 __fastcall WheapCallInUsePageNotificationCallbacks(__int64 a1, char a2, 
 
   if ( WheapInUsePageOfflineNotifyInit != 1 )
     return 3221225473LL;
-  v7 = KeAbPreAcquire((ULONG_PTR)&WheapInUsePageOfflineNotifyLock, 0LL, 0LL);
+  v7 = KeAbPreAcquire((ULONG_PTR)&WheapInUsePageOfflineNotifyLock, 0LL, 0);
   v10 = _interlockedbittestandset64((volatile signed __int32 *)&WheapInUsePageOfflineNotifyLock, 0LL);
   v11 = v7;
   if ( v10 )

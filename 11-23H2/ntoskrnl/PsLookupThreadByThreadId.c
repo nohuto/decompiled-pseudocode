@@ -1,21 +1,21 @@
 /*
- * XREFs of PsLookupThreadByThreadId @ 0x1406FAF10
+ * XREFs of PsLookupThreadByThreadId @ 0x1406FB120
  * Callers:
- *     PspThreadFromTicket @ 0x1406FAB28 (PspThreadFromTicket.c)
- *     NtAlertThreadByThreadId @ 0x14073E440 (NtAlertThreadByThreadId.c)
- *     PsOpenThread @ 0x1407BB7E0 (PsOpenThread.c)
- *     PsLookupProcessThreadByCid @ 0x1407BBBB0 (PsLookupProcessThreadByCid.c)
- *     PfpServiceMainThreadBoostPrep @ 0x14097ECA8 (PfpServiceMainThreadBoostPrep.c)
- *     PopInitSystemSleeperThread @ 0x14098B7A0 (PopInitSystemSleeperThread.c)
- *     PopTransitionSystemPowerStateEx @ 0x140AA90F0 (PopTransitionSystemPowerStateEx.c)
+ *     PspThreadFromTicket @ 0x1406FAD38 (PspThreadFromTicket.c)
+ *     NtAlertThreadByThreadId @ 0x14073E630 (NtAlertThreadByThreadId.c)
+ *     PsOpenThread @ 0x1407BBAB0 (PsOpenThread.c)
+ *     PsLookupProcessThreadByCid @ 0x1407BBE80 (PsLookupProcessThreadByCid.c)
+ *     PfpServiceMainThreadBoostPrep @ 0x14097EEA8 (PfpServiceMainThreadBoostPrep.c)
+ *     PopInitSystemSleeperThread @ 0x14098B9A0 (PopInitSystemSleeperThread.c)
+ *     PopTransitionSystemPowerStateEx @ 0x140AA8F60 (PopTransitionSystemPowerStateEx.c)
  * Callees:
  *     ExfAcquireReleasePushLockExclusive @ 0x140201DF4 (ExfAcquireReleasePushLockExclusive.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     IoThreadToProcess @ 0x140289F80 (IoThreadToProcess.c)
- *     PsGetCurrentServerSilo @ 0x140289F90 (PsGetCurrentServerSilo.c)
- *     PsIsProcessInSilo @ 0x140289FEC (PsIsProcessInSilo.c)
- *     KiCheckForKernelApcDelivery @ 0x14030F820 (KiCheckForKernelApcDelivery.c)
- *     PspReferenceCidTableEntry @ 0x1406FB1B0 (PspReferenceCidTableEntry.c)
+ *     ObfDereferenceObject @ 0x140231660 (ObfDereferenceObject.c)
+ *     IoThreadToProcess @ 0x14028A210 (IoThreadToProcess.c)
+ *     PsGetCurrentServerSilo @ 0x14028A220 (PsGetCurrentServerSilo.c)
+ *     PsIsProcessInSilo @ 0x14028A27C (PsIsProcessInSilo.c)
+ *     KiCheckForKernelApcDelivery @ 0x14030FAB0 (KiCheckForKernelApcDelivery.c)
+ *     PspReferenceCidTableEntry @ 0x1406FB3C0 (PspReferenceCidTableEntry.c)
  */
 
 NTSTATUS __stdcall PsLookupThreadByThreadId(HANDLE ThreadId, PETHREAD *Thread)

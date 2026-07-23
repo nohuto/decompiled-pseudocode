@@ -1,18 +1,18 @@
 /*
- * XREFs of MiScrubNode @ 0x14056404C
+ * XREFs of MiScrubNode @ 0x14056428C
  * Callers:
- *     MiScrubMemoryWorker @ 0x1408DBFA0 (MiScrubMemoryWorker.c)
+ *     MiScrubMemoryWorker @ 0x1408DC100 (MiScrubMemoryWorker.c)
  * Callees:
- *     MiInsertPageInFreeOrZeroedList @ 0x140234F10 (MiInsertPageInFreeOrZeroedList.c)
- *     MiLockPageInline @ 0x1402FFE30 (MiLockPageInline.c)
- *     MiClaimPhysicalRun @ 0x140300A2C (MiClaimPhysicalRun.c)
- *     MiPfnsWorthTrying @ 0x140302130 (MiPfnsWorthTrying.c)
- *     MiEmptyKernelStackCache @ 0x1403D02A4 (MiEmptyKernelStackCache.c)
+ *     MiInsertPageInFreeOrZeroedList @ 0x1402D9760 (MiInsertPageInFreeOrZeroedList.c)
+ *     MiLockPageInline @ 0x14030AB80 (MiLockPageInline.c)
+ *     MiClaimPhysicalRun @ 0x14030B77C (MiClaimPhysicalRun.c)
+ *     MiPfnsWorthTrying @ 0x14030CE80 (MiPfnsWorthTrying.c)
+ *     MiEmptyKernelStackCache @ 0x1403D0414 (MiEmptyKernelStackCache.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     MiMakePageBad @ 0x140563934 (MiMakePageBad.c)
- *     MiScrubInterrupted @ 0x140563A58 (MiScrubInterrupted.c)
- *     MiScrubPage @ 0x1405642F4 (MiScrubPage.c)
- *     MiScrubNodeLargePages @ 0x1408D87C8 (MiScrubNodeLargePages.c)
+ *     MiMakePageBad @ 0x140563B74 (MiMakePageBad.c)
+ *     MiScrubInterrupted @ 0x140563C98 (MiScrubInterrupted.c)
+ *     MiScrubPage @ 0x140564534 (MiScrubPage.c)
+ *     MiScrubNodeLargePages @ 0x1408D8928 (MiScrubNodeLargePages.c)
  */
 
 unsigned __int64 __fastcall MiScrubNode(__int64 a1)
@@ -107,7 +107,7 @@ LABEL_26:
           if ( v14 < 0 || (*(_BYTE *)(i + 35) & 0x40) != 0 )
           {
             v3 = v25;
-            if ( *(__int16 **)(qword_140C4E648 + 8 * ((*(_QWORD *)(i + 40) >> 39) & 0x3FFLL)) == v25 )
+            if ( *(__int16 **)(qword_140C4E688 + 8 * ((*(_QWORD *)(i + 40) >> 39) & 0x3FFLL)) == v25 )
             {
               MiMakePageBad(i, 2LL, v18, v19);
               goto LABEL_16;

@@ -18,7 +18,7 @@ __int64 __fastcall SC_DEVICE::GetStorageProperty(
   unsigned int v6; // edx
   int v7; // edi
   unsigned __int8 v8; // r8
-  ULONG Size; // esi
+  DWORD Size; // esi
   struct _STORAGE_DESCRIPTOR_HEADER *v10; // rbx
   unsigned int v11; // edx
   unsigned __int8 v12; // r8
@@ -40,7 +40,7 @@ __int64 __fastcall SC_DEVICE::GetStorageProperty(
     {
       while ( 1 )
       {
-        v7 = (*(__int64 (__fastcall **)(SC_DEVICE *, __int64, _DWORD *, __int64, struct _STORAGE_DESCRIPTOR_HEADER *, ULONG))(*(_QWORD *)this + 16LL))(
+        v7 = (*(__int64 (__fastcall **)(SC_DEVICE *, __int64, _DWORD *, __int64, struct _STORAGE_DESCRIPTOR_HEADER *, DWORD))(*(_QWORD *)this + 16LL))(
                this,
                2954240LL,
                v15,

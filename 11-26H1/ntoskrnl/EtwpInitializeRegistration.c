@@ -1,12 +1,12 @@
 /*
- * XREFs of EtwpInitializeRegistration @ 0x140CE1A0C
+ * XREFs of EtwpInitializeRegistration @ 0x140CE7DAC
  * Callers:
- *     EtwpInitialize @ 0x140CE08F4 (EtwpInitialize.c)
+ *     EtwpInitialize @ 0x140CE6C94 (EtwpInitialize.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     ?KiInitializeMutant@@YAXPEAU_KMUTANT@@EEK@Z @ 0x1404A3A7C (-KiInitializeMutant@@YAXPEAU_KMUTANT@@EEK@Z.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     ObCreateObjectType @ 0x14077B990 (ObCreateObjectType.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     ?KiInitializeMutant@@YAXPEAU_KMUTANT@@EEK@Z @ 0x14049D58C (-KiInitializeMutant@@YAXPEAU_KMUTANT@@EEK@Z.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     ObCreateObjectType @ 0x14077E5D0 (ObCreateObjectType.c)
  */
 
 __int64 EtwpInitializeRegistration()
@@ -24,10 +24,10 @@ __int64 EtwpInitializeRegistration()
   __int64 (__fastcall *v11)(__int64 *, __int64, __int64, struct _KLOCK_ENTRIES *); // [rsp+78h] [rbp+1Fh]
 
   DestinationString = 0LL;
-  KiInitializeMutant((struct _KMUTANT *)ExpSysDbgLock.Padding, 0LL, 1u, 0LL);
-  ExpSysDbgLock.Spare32 = 0LL;
-  ExpSysDbgLock.SchedulerAssistLastYieldBoostTime = (__int64)&ExpSysDbgLock.SchedulerAssistYieldCounter;
-  *(_QWORD *)&ExpSysDbgLock.SchedulerAssistYieldCounter = &ExpSysDbgLock.SchedulerAssistYieldCounter;
+  KiInitializeMutant((struct _KMUTANT *)&stru_140F03830.Header.WaitListHead.Blink, 0LL, 1u, 0LL);
+  *(_QWORD *)&stru_140F03830.Header.Lock = 0LL;
+  ExpSysDbgLock.Padding[4] = (unsigned __int64)&ExpSysDbgLock.Padding[3];
+  ExpSysDbgLock.Padding[3] = (unsigned __int64)&ExpSysDbgLock.Padding[3];
   memset_0(&v2, 0, 0x78uLL);
   v3 |= 0x18u;
   v9 = IopOpenIoRing;

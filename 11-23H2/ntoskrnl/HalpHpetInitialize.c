@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpHpetInitialize @ 0x1403B55A0
+ * XREFs of HalpHpetInitialize @ 0x1403B5780
  * Callers:
  *     <none>
  * Callees:
- *     HalMapIoSpace @ 0x14037E130 (HalMapIoSpace.c)
+ *     HalMapIoSpace @ 0x14037E2D0 (HalMapIoSpace.c)
  */
 
 __int64 __fastcall HalpHpetInitialize(__int64 a1)

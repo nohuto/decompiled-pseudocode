@@ -1,18 +1,18 @@
 /*
- * XREFs of NtReplyWaitReceivePortEx @ 0x140613CE0
+ * XREFs of NtReplyWaitReceivePortEx @ 0x140614CE0
  * Callers:
- *     NtReplyWaitReceivePort @ 0x140613CC0 (NtReplyWaitReceivePort.c)
- *     NtListenPort @ 0x140763440 (NtListenPort.c)
+ *     NtReplyWaitReceivePort @ 0x140614CC0 (NtReplyWaitReceivePort.c)
+ *     NtListenPort @ 0x140764630 (NtListenPort.c)
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     ObReferenceObjectByHandle @ 0x1405E8350 (ObReferenceObjectByHandle.c)
- *     AlpcpReceiveLegacyMessage @ 0x140613E70 (AlpcpReceiveLegacyMessage.c)
- *     AlpcpCompleteDeferSignalRequest @ 0x140614128 (AlpcpCompleteDeferSignalRequest.c)
- *     AlpcpReplyLegacySynchronousRequest @ 0x140615538 (AlpcpReplyLegacySynchronousRequest.c)
- *     AlpcpSendMessage @ 0x1406348F0 (AlpcpSendMessage.c)
- *     ExRaiseDatatypeMisalignment @ 0x1408D65C0 (ExRaiseDatatypeMisalignment.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B78F0 (KiLeaveCriticalRegionUnsafe.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     ObReferenceObjectByHandle @ 0x1405E9350 (ObReferenceObjectByHandle.c)
+ *     AlpcpReceiveLegacyMessage @ 0x140614E70 (AlpcpReceiveLegacyMessage.c)
+ *     AlpcpCompleteDeferSignalRequest @ 0x140615128 (AlpcpCompleteDeferSignalRequest.c)
+ *     AlpcpReplyLegacySynchronousRequest @ 0x140616538 (AlpcpReplyLegacySynchronousRequest.c)
+ *     AlpcpSendMessage @ 0x140635910 (AlpcpSendMessage.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408D7880 (ExRaiseDatatypeMisalignment.c)
  */
 
 NTSTATUS __stdcall NtReplyWaitReceivePortEx(

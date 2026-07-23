@@ -1,11 +1,11 @@
 /*
- * XREFs of MiForcedTrim @ 0x14013F210
+ * XREFs of MiForcedTrim @ 0x14013F310
  * Callers:
- *     MiPreUnlockWorkingSetShared @ 0x140130C48 (MiPreUnlockWorkingSetShared.c)
+ *     MiPreUnlockWorkingSetShared @ 0x140130D18 (MiPreUnlockWorkingSetShared.c)
  * Callees:
  *     MiGetAvailablePagesBelowPriority @ 0x140030FC4 (MiGetAvailablePagesBelowPriority.c)
- *     MiTrimWorkingSet @ 0x140130E38 (MiTrimWorkingSet.c)
- *     MiForceAgeWorkingSet @ 0x1402B3120 (MiForceAgeWorkingSet.c)
+ *     MiTrimWorkingSet @ 0x140130F08 (MiTrimWorkingSet.c)
+ *     MiForceAgeWorkingSet @ 0x1402B3310 (MiForceAgeWorkingSet.c)
  */
 
 __int64 __fastcall MiForcedTrim(__int64 a1, char a2)
@@ -33,7 +33,7 @@ __int64 __fastcall MiForcedTrim(__int64 a1, char a2)
   unsigned __int64 v24; // [rsp+70h] [rbp+8h]
 
   v2 = 0LL;
-  v4 = *(_QWORD **)(qword_14043A748 + 8LL * *(unsigned __int16 *)(a1 + 174));
+  v4 = *(_QWORD **)(qword_14043B808 + 8LL * *(unsigned __int16 *)(a1 + 174));
   v5 = v4[878];
   AvailablePagesBelowPriority = MiGetAvailablePagesBelowPriority(v4, 6u);
   v7 = *(_QWORD *)(a1 + 136);

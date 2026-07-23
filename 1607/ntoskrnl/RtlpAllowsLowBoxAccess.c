@@ -1,19 +1,19 @@
 /*
- * XREFs of RtlpAllowsLowBoxAccess @ 0x1400AF76C
+ * XREFs of RtlpAllowsLowBoxAccess @ 0x1400ADCD4
  * Callers:
- *     RtlpLookupLowBox @ 0x140013E94 (RtlpLookupLowBox.c)
+ *     RtlpLookupLowBox @ 0x140013A14 (RtlpLookupLowBox.c)
  * Callees:
- *     SeClearLearningModeObjectInformation @ 0x14000F640 (SeClearLearningModeObjectInformation.c)
- *     SeSetLearningModeObjectInformation @ 0x14000FB70 (SeSetLearningModeObjectInformation.c)
- *     RtlInitUnicodeString @ 0x14002DC60 (RtlInitUnicodeString.c)
- *     SeAccessCheckWithHint @ 0x140062B80 (SeAccessCheckWithHint.c)
- *     ObfDereferenceObjectWithTag @ 0x14006ACD0 (ObfDereferenceObjectWithTag.c)
- *     RtlStringCbCopyW @ 0x1400C47BC (RtlStringCbCopyW.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     SeClearLearningModeObjectInformation @ 0x14000F1C0 (SeClearLearningModeObjectInformation.c)
+ *     SeSetLearningModeObjectInformation @ 0x14000F6F0 (SeSetLearningModeObjectInformation.c)
+ *     RtlInitUnicodeString @ 0x14002D7E0 (RtlInitUnicodeString.c)
+ *     SeAccessCheckWithHint @ 0x140062700 (SeAccessCheckWithHint.c)
+ *     ObfDereferenceObjectWithTag @ 0x14006A850 (ObfDereferenceObjectWithTag.c)
+ *     RtlStringCbCopyW @ 0x1400C265C (RtlStringCbCopyW.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     memset @ 0x140171AC0 (memset.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     PsReferenceEffectiveToken @ 0x1404124C0 (PsReferenceEffectiveToken.c)
+ *     PsReferenceEffectiveToken @ 0x140411380 (PsReferenceEffectiveToken.c)
  */
 
 char __fastcall RtlpAllowsLowBoxAccess(__int64 a1)
@@ -50,7 +50,7 @@ char __fastcall RtlpAllowsLowBoxAccess(__int64 a1)
   memset(v21, 0, sizeof(v21));
   if ( (*(_BYTE *)(a1 + 38) & 2) != 0 )
     return 1;
-  if ( !byte_1403296DC )
+  if ( !byte_14032972C )
     return 0;
   RtlInitUnicodeString(&DestinationString, L"Global Atom Table Entry");
   v3 = 1;

@@ -1,7 +1,7 @@
 /*
- * XREFs of KiGetClockTimerState @ 0x14036F184
+ * XREFs of KiGetClockTimerState @ 0x14036F324
  * Callers:
- *     KeInitializeClockOtherProcessors @ 0x140A9195C (KeInitializeClockOtherProcessors.c)
+ *     KeInitializeClockOtherProcessors @ 0x140A917DC (KeInitializeClockOtherProcessors.c)
  * Callees:
  *     <none>
  */

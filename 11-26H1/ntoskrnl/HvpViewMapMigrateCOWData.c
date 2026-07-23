@@ -1,13 +1,13 @@
 /*
- * XREFs of HvpViewMapMigrateCOWData @ 0x14085C9CC
+ * XREFs of HvpViewMapMigrateCOWData @ 0x140862CBC
  * Callers:
- *     HvpViewMapPromoteRangeToMapping @ 0x1408DD1F4 (HvpViewMapPromoteRangeToMapping.c)
+ *     HvpViewMapPromoteRangeToMapping @ 0x1408E37B4 (HvpViewMapPromoteRangeToMapping.c)
  * Callees:
- *     CmSiProtectViewOfSection @ 0x1404A2CD4 (CmSiProtectViewOfSection.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     HvpAllExceptionsFatalFilter @ 0x14085C964 (HvpAllExceptionsFatalFilter.c)
- *     HvpViewMapMakeViewRangeReadOnly @ 0x1408B92F8 (HvpViewMapMakeViewRangeReadOnly.c)
- *     HvpViewMapMakeViewRangeCOWByCaller @ 0x1408B93E8 (HvpViewMapMakeViewRangeCOWByCaller.c)
+ *     CmSiProtectViewOfSection @ 0x14049C6F4 (CmSiProtectViewOfSection.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     HvpAllExceptionsFatalFilter @ 0x140862C54 (HvpAllExceptionsFatalFilter.c)
+ *     HvpViewMapMakeViewRangeReadOnly @ 0x1408BF8C8 (HvpViewMapMakeViewRangeReadOnly.c)
+ *     HvpViewMapMakeViewRangeCOWByCaller @ 0x1408BF9B8 (HvpViewMapMakeViewRangeCOWByCaller.c)
  */
 
 __int64 __fastcall HvpViewMapMigrateCOWData(__int64 a1, _QWORD *a2, _QWORD *a3)
@@ -26,7 +26,7 @@ __int64 __fastcall HvpViewMapMigrateCOWData(__int64 a1, _QWORD *a2, _QWORD *a3)
   size_t v16; // r14
   __int64 v17; // rcx
   unsigned __int8 *v18; // [rsp+50h] [rbp-48h]
-  int v21; // [rsp+B8h] [rbp+20h] BYREF
+  __int64 v21; // [rsp+B8h] [rbp+20h] BYREF
 
   v5 = a1;
   v6 = a2;
@@ -62,16 +62,16 @@ __int64 __fastcall HvpViewMapMigrateCOWData(__int64 a1, _QWORD *a2, _QWORD *a3)
       }
       else
       {
-        v21 = 0;
+        LODWORD(v21) = 0;
         v15 = a2 + 3;
         v16 = i - v7;
         CmSiProtectViewOfSection(
-          (__int64)(a2 + 7),
-          *(__int64 **)(v5 + 24),
-          v7 + a2[7] - a2[3],
+          (ULONG_PTR)(a2 + 7),
+          *(void ***)(v5 + 24),
+          (void *)(v7 + a2[7] - a2[3]),
           i - v7,
           8u,
-          (__int64)&v21);
+          (ULONG *)&v21);
         v17 = v7;
         if ( v7 >= i )
         {

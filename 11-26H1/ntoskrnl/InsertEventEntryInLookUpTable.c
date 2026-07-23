@@ -1,23 +1,23 @@
 /*
- * XREFs of InsertEventEntryInLookUpTable @ 0x140459DC4
+ * XREFs of InsertEventEntryInLookUpTable @ 0x140451644
  * Callers:
- *     _tlgWriteAgg @ 0x1404599C0 (_tlgWriteAgg.c)
- *     MiLogBadMapper @ 0x140459AC0 (MiLogBadMapper.c)
+ *     _tlgWriteAgg @ 0x140451240 (_tlgWriteAgg.c)
+ *     MiLogBadMapper @ 0x140451340 (MiLogBadMapper.c)
  * Callees:
- *     ExReleaseSpinLockShared @ 0x14026CEE0 (ExReleaseSpinLockShared.c)
- *     ExfAcquirePushLockSharedEx @ 0x140277CC0 (ExfAcquirePushLockSharedEx.c)
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     ExfReleasePushLockShared @ 0x140278BD0 (ExfReleasePushLockShared.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402DC6D0 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     ExAcquireSpinLockShared @ 0x1402EDF10 (ExAcquireSpinLockShared.c)
- *     ExAcquireSpinLockSharedAtDpcLevel @ 0x1402EDFB0 (ExAcquireSpinLockSharedAtDpcLevel.c)
- *     ComputeEventEntryHash @ 0x14045A1D0 (ComputeEventEntryHash.c)
- *     EnableFlushTimer @ 0x14045A2F8 (EnableFlushTimer.c)
- *     CreateNewEventEntry @ 0x14045A338 (CreateNewEventEntry.c)
- *     DestroyEventEntry @ 0x1404E50F0 (DestroyEventEntry.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     memcmp @ 0x14073D750 (memcmp.c)
+ *     ExReleaseSpinLockShared @ 0x14026C450 (ExReleaseSpinLockShared.c)
+ *     ExfAcquirePushLockSharedEx @ 0x140277230 (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     ExfReleasePushLockShared @ 0x140278140 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402BE490 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     ExAcquireSpinLockShared @ 0x1402CFF90 (ExAcquireSpinLockShared.c)
+ *     ExAcquireSpinLockSharedAtDpcLevel @ 0x1402D0030 (ExAcquireSpinLockSharedAtDpcLevel.c)
+ *     ComputeEventEntryHash @ 0x140451A50 (ComputeEventEntryHash.c)
+ *     EnableFlushTimer @ 0x140451B78 (EnableFlushTimer.c)
+ *     CreateNewEventEntry @ 0x140451BB8 (CreateNewEventEntry.c)
+ *     DestroyEventEntry @ 0x1404DE690 (DestroyEventEntry.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     memcmp @ 0x140742350 (memcmp.c)
  */
 
 __int64 __fastcall InsertEventEntryInLookUpTable(

@@ -1,11 +1,11 @@
 /*
- * XREFs of PnpTraceStartDevice @ 0x140160088
+ * XREFs of PnpTraceStartDevice @ 0x140160188
  * Callers:
- *     PnpDeviceCompletionRoutine @ 0x140159BC0 (PnpDeviceCompletionRoutine.c)
- *     PnpStartDeviceNode @ 0x1406EBA5C (PnpStartDeviceNode.c)
+ *     PnpDeviceCompletionRoutine @ 0x140159CC0 (PnpDeviceCompletionRoutine.c)
+ *     PnpStartDeviceNode @ 0x1406ECCFC (PnpStartDeviceNode.c)
  * Callees:
- *     RtlImageNtHeader @ 0x14009DAE0 (RtlImageNtHeader.c)
- *     PnpDiagnosticTraceDeviceOperation @ 0x1401600DC (PnpDiagnosticTraceDeviceOperation.c)
+ *     RtlImageNtHeader @ 0x14009DA20 (RtlImageNtHeader.c)
+ *     PnpDiagnosticTraceDeviceOperation @ 0x1401601DC (PnpDiagnosticTraceDeviceOperation.c)
  */
 
 __int64 __fastcall PnpTraceStartDevice(__int64 a1, __int64 a2, __int64 a3)

@@ -1,15 +1,15 @@
 /*
  * XREFs of KeThawExecution @ 0x14020D410
  * Callers:
- *     ExpWaitForBootDevices @ 0x140609720 (ExpWaitForBootDevices.c)
+ *     ExpWaitForBootDevices @ 0x140609C70 (ExpWaitForBootDevices.c)
  *     KdExitDebugger @ 0x140AB0008 (KdExitDebugger.c)
  * Callees:
  *     KiSendThawExecution @ 0x14020D210 (KiSendThawExecution.c)
  *     KiEndDebugAccumulation @ 0x14020E5F0 (KiEndDebugAccumulation.c)
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KeQueryPerformanceCounter @ 0x1402C3270 (KeQueryPerformanceCounter.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KeQueryPerformanceCounter @ 0x1402C3500 (KeQueryPerformanceCounter.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall KeThawExecution(char a1)
@@ -53,10 +53,10 @@ __int64 __fastcall KeThawExecution(char a1)
     __writecr3(v9);
   }
   result = KiEndDebugAccumulation(KeGetCurrentPrcb());
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     result = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
       && (unsigned __int8)result <= 0xFu
       && (unsigned __int8)v3 <= 0xFu
       && (unsigned __int8)result >= 2u )

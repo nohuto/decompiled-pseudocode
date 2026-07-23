@@ -1,5 +1,5 @@
 /*
- * XREFs of LdrUnregisterDllNotification @ 0x1800CE6E0
+ * XREFs of LdrUnregisterDllNotification @ 0x1800CE6A0
  * Callers:
  *     <none>
  * Callees:
@@ -8,41 +8,39 @@
  *     RtlEnterCriticalSection @ 0x18002FAA0 (RtlEnterCriticalSection.c)
  */
 
-__int64 __fastcall LdrUnregisterDllNotification(_QWORD *a1)
+NTSTATUS __cdecl LdrUnregisterDllNotification(PVOID Cookie)
 {
-  __int64 v2; // rdi
-  int v3; // ebx
-  __int64 v4; // r8
-  _QWORD *v5; // rax
-  _QWORD *v6; // rdx
-  _QWORD *v7; // rcx
+  void *v2; // rdi
+  NTSTATUS v3; // ebx
+  _QWORD *v4; // rax
+  _QWORD *v5; // rcx
+  _QWORD *v7; // rdx
 
   v2 = 0LL;
   v3 = -1073741515;
-  RtlEnterCriticalSection((__int64)&LdrpDllNotificationLock);
-  v5 = LdrpDllNotificationList;
-  v6 = &LdrpDllNotificationList;
+  RtlEnterCriticalSection(&LdrpDllNotificationLock);
+  v4 = LdrpDllNotificationList;
   if ( LdrpDllNotificationList != (_UNKNOWN *)&LdrpDllNotificationList )
   {
     while ( 1 )
     {
-      v7 = (_QWORD *)*v5;
-      v2 = (__int64)v5;
-      if ( v5 == a1 )
+      v5 = (_QWORD *)*v4;
+      v2 = v4;
+      if ( v4 == Cookie )
         break;
-      v5 = (_QWORD *)*v5;
-      if ( v7 == &LdrpDllNotificationList )
+      v4 = (_QWORD *)*v4;
+      if ( v5 == &LdrpDllNotificationList )
         goto LABEL_4;
     }
-    if ( (_QWORD *)v7[1] != v5 || (v6 = (_QWORD *)v5[1], (_QWORD *)*v6 != v5) )
+    if ( (_QWORD *)v5[1] != v4 || (v7 = (_QWORD *)v4[1], (_QWORD *)*v7 != v4) )
       __fastfail(3u);
-    *v6 = v7;
+    *v7 = v5;
     v3 = 0;
-    v7[1] = v6;
+    v5[1] = v7;
   }
 LABEL_4:
-  RtlLeaveCriticalSection((__int64)&LdrpDllNotificationLock, (__int64)v6, v4);
+  RtlLeaveCriticalSection(&LdrpDllNotificationLock);
   if ( v3 >= 0 )
     RtlFreeHeap(LdrpHeap, 0, v2);
-  return (unsigned int)v3;
+  return v3;
 }

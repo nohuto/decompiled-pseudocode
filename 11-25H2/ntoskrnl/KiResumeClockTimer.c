@@ -22,11 +22,11 @@ unsigned __int8 __fastcall KiResumeClockTimer(__int64 a1, __int64 a2)
   unsigned __int8 result; // al
   __int64 v6; // rdx
   __int64 v7; // rcx
-  __int64 InterruptTimePrecise; // rbp
+  LARGE_INTEGER InterruptTimePrecise; // rbp
   unsigned __int8 CurrentIrql; // r14
   __int64 v10; // [rsp+70h] [rbp+8h] BYREF
   __int64 v11; // [rsp+78h] [rbp+10h] BYREF
-  unsigned __int64 v12; // [rsp+80h] [rbp+18h] BYREF
+  LARGE_INTEGER PerformanceCounter; // [rsp+80h] [rbp+18h] BYREF
 
   v11 = 0LL;
   v2 = 0;
@@ -57,7 +57,7 @@ LABEL_8:
   ++KiClockStats;
   CurrentPrcb->ClockOwner = 1;
 LABEL_9:
-  InterruptTimePrecise = RtlGetInterruptTimePrecise(&v12);
+  InterruptTimePrecise = RtlGetInterruptTimePrecise(&PerformanceCounter);
   if ( KiClockTimerPerCpuTickScheduling )
   {
     CurrentIrql = KeGetCurrentIrql();
@@ -78,14 +78,14 @@ LABEL_9:
       KiLowerIrqlProcessIrqlFlags(KeGetCurrentIrql(), CurrentIrql);
     __writecr8(CurrentIrql);
   }
-  result = KiRestoreClockTickRate(InterruptTimePrecise, &v10, (int *)&v11);
+  result = KiRestoreClockTickRate(InterruptTimePrecise.QuadPart, &v10, (int *)&v11);
   if ( v2 )
   {
     if ( v4 == 2 )
       LOBYTE(v4) = _InterlockedExchange(&KiClockState, 0);
     KiEventClockStateChange(0, v4, &v11, &v10);
-    result = InterruptTimePrecise + KeTimeIncrement;
-    KiClockTimerNextTickTime = InterruptTimePrecise + (unsigned int)KeTimeIncrement;
+    result = LOBYTE(InterruptTimePrecise.LowPart) + KeTimeIncrement;
+    KiClockTimerNextTickTime = InterruptTimePrecise.QuadPart + (unsigned int)KeTimeIncrement;
   }
   return result;
 }

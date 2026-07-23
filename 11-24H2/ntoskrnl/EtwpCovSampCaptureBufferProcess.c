@@ -1,15 +1,15 @@
 /*
- * XREFs of EtwpCovSampCaptureBufferProcess @ 0x140900208
+ * XREFs of EtwpCovSampCaptureBufferProcess @ 0x140922AE8
  * Callers:
- *     EtwpCovSampCaptureWorkerThread @ 0x1407B24B0 (EtwpCovSampCaptureWorkerThread.c)
+ *     EtwpCovSampCaptureWorkerThread @ 0x1407B2900 (EtwpCovSampCaptureWorkerThread.c)
  * Callees:
- *     ExfAcquireRundownProtection @ 0x140247210 (ExfAcquireRundownProtection.c)
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     EtwpCovSampReleaseSamplerRundown @ 0x140900574 (EtwpCovSampReleaseSamplerRundown.c)
- *     EtwpCovSampProcessMapAddresses @ 0x1409005D0 (EtwpCovSampProcessMapAddresses.c)
- *     EtwpCovSampStackHashCheck @ 0x14090090C (EtwpCovSampStackHashCheck.c)
- *     EtwpCovSampContextAddSamples @ 0x140900C90 (EtwpCovSampContextAddSamples.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     ExfAcquireRundownProtection @ 0x1402F60C0 (ExfAcquireRundownProtection.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     EtwpCovSampReleaseSamplerRundown @ 0x140922E54 (EtwpCovSampReleaseSamplerRundown.c)
+ *     EtwpCovSampProcessMapAddresses @ 0x140922EB0 (EtwpCovSampProcessMapAddresses.c)
+ *     EtwpCovSampStackHashCheck @ 0x1409231EC (EtwpCovSampStackHashCheck.c)
+ *     EtwpCovSampContextAddSamples @ 0x140923570 (EtwpCovSampContextAddSamples.c)
  */
 
 __int64 __fastcall EtwpCovSampCaptureBufferProcess(__int64 a1, __int64 a2)
@@ -29,22 +29,22 @@ __int64 __fastcall EtwpCovSampCaptureBufferProcess(__int64 a1, __int64 a2)
   CurrentThread = KeGetCurrentThread();
   v3 = 0LL;
   --CurrentThread->KernelApcDisable;
-  _m_prefetchw(&stru_140EFEC80);
-  v6 = stru_140EFEC80.Count & 0xFFFFFFFFFFFFFFFEuLL;
+  _m_prefetchw(&stru_140EFEFA0);
+  v6 = stru_140EFEFA0.Count & 0xFFFFFFFFFFFFFFFEuLL;
   if ( v6 != _InterlockedCompareExchange64(
-               (volatile signed __int64 *)&stru_140EFEC80,
-               (stru_140EFEC80.Count & 0xFFFFFFFFFFFFFFFEuLL) + 2,
-               stru_140EFEC80.Count & 0xFFFFFFFFFFFFFFFEuLL)
-    && !ExfAcquireRundownProtection(&stru_140EFEC80) )
+               (volatile signed __int64 *)&stru_140EFEFA0,
+               (stru_140EFEFA0.Count & 0xFFFFFFFFFFFFFFFEuLL) + 2,
+               stru_140EFEFA0.Count & 0xFFFFFFFFFFFFFFFEuLL)
+    && !ExfAcquireRundownProtection(&stru_140EFEFA0) )
   {
     KeLeaveCriticalRegion();
     return EtwpCovSampReleaseSamplerRundown(v3);
   }
   v7 = (_QWORD *)(a2 + 64);
-  v3 = qword_140EFEC78;
+  v3 = qword_140EFEF98;
   if ( (*(_DWORD *)(a2 + 56) & 4) != 0 )
   {
-    EtwpCovSampContextAddSamples(qword_140EFEC78);
+    EtwpCovSampContextAddSamples(qword_140EFEF98);
   }
   else if ( !(unsigned int)EtwpCovSampStackHashCheck(a1, a2, a2 + 64, *(unsigned __int16 *)(a2 + 62)) )
   {

@@ -1,11 +1,11 @@
 /*
- * XREFs of PnprRecopyMappingReserve @ 0x14050F818
+ * XREFs of PnprRecopyMappingReserve @ 0x14050FA58
  * Callers:
- *     PnprRecopyMirrorPages @ 0x14050F8EC (PnprRecopyMirrorPages.c)
+ *     PnprRecopyMirrorPages @ 0x14050FB2C (PnprRecopyMirrorPages.c)
  * Callees:
- *     MiGetContainingPageTable @ 0x14023E450 (MiGetContainingPageTable.c)
- *     PnprRecopyAddress @ 0x14050F7C0 (PnprRecopyAddress.c)
- *     PnprMarkOrMirrorPages @ 0x1409ADEC8 (PnprMarkOrMirrorPages.c)
+ *     MiGetContainingPageTable @ 0x1402E2CA0 (MiGetContainingPageTable.c)
+ *     PnprRecopyAddress @ 0x14050FA00 (PnprRecopyAddress.c)
+ *     PnprMarkOrMirrorPages @ 0x1409AEDF8 (PnprMarkOrMirrorPages.c)
  */
 
 __int64 __fastcall PnprRecopyMappingReserve(__int64 *a1)

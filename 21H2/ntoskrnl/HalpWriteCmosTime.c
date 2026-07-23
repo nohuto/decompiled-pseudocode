@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpWriteCmosTime @ 0x1404CC36C
+ * XREFs of HalpWriteCmosTime @ 0x1404CC5AC
  * Callers:
- *     HalSetRealTimeClock @ 0x1404B6B40 (HalSetRealTimeClock.c)
+ *     HalSetRealTimeClock @ 0x1404B6D80 (HalSetRealTimeClock.c)
  * Callees:
- *     HalpAcquireCmosSpinLockAndWait @ 0x1402B60FC (HalpAcquireCmosSpinLockAndWait.c)
+ *     HalpAcquireCmosSpinLockAndWait @ 0x1402342DC (HalpAcquireCmosSpinLockAndWait.c)
  */
 
 __int64 __fastcall HalpWriteCmosTime(unsigned __int8 *a1)

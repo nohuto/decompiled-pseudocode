@@ -1,15 +1,15 @@
 /*
- * XREFs of MiReplaceSecondaryListStandbyPage @ 0x1402CA5B0
+ * XREFs of MiReplaceSecondaryListStandbyPage @ 0x1402AC370
  * Callers:
- *     MiReplaceTransitionPageInList @ 0x1402FC830 (MiReplaceTransitionPageInList.c)
+ *     MiReplaceTransitionPageInList @ 0x1402DE8B0 (MiReplaceTransitionPageInList.c)
  * Callees:
- *     MiPageToNode @ 0x140289710 (MiPageToNode.c)
- *     MiInsertSecondaryListStandbyPage @ 0x1402C9E90 (MiInsertSecondaryListStandbyPage.c)
- *     MiGetSlabSecondaryStandbyList @ 0x1402CAB60 (MiGetSlabSecondaryStandbyList.c)
- *     MiUnlinkSecondaryListStandbyPage @ 0x1402CAE00 (MiUnlinkSecondaryListStandbyPage.c)
- *     MiSearchChannelTable @ 0x1402CBEE8 (MiSearchChannelTable.c)
- *     MiIsDecayPfn @ 0x1402F9850 (MiIsDecayPfn.c)
- *     MiGetPfnSlabType @ 0x1402FDC40 (MiGetPfnSlabType.c)
+ *     MiPageToNode @ 0x140288C70 (MiPageToNode.c)
+ *     MiInsertSecondaryListStandbyPage @ 0x1402ABC50 (MiInsertSecondaryListStandbyPage.c)
+ *     MiGetSlabSecondaryStandbyList @ 0x1402AC920 (MiGetSlabSecondaryStandbyList.c)
+ *     MiUnlinkSecondaryListStandbyPage @ 0x1402ACBC0 (MiUnlinkSecondaryListStandbyPage.c)
+ *     MiSearchChannelTable @ 0x1402ADCA8 (MiSearchChannelTable.c)
+ *     MiIsDecayPfn @ 0x1402DB8D0 (MiIsDecayPfn.c)
+ *     MiGetPfnSlabType @ 0x1402DFCC0 (MiGetPfnSlabType.c)
  */
 
 signed __int64 __fastcall MiReplaceSecondaryListStandbyPage(__int64 a1, __int64 a2, unsigned int a3, int a4, _BYTE *a5)
@@ -51,13 +51,13 @@ signed __int64 __fastcall MiReplaceSecondaryListStandbyPage(__int64 a1, __int64 
   v38 = 0LL;
   v8 = (a1 + 0x220000000000LL) / 48;
   v9 = MiPageToNode(v8);
-  if ( qword_140E2D6E8 )
+  if ( qword_140E2D868 )
     v39 = *(_BYTE *)(MiSearchChannelTable(v8) + 12);
   else
     v39 = 0;
   v10 = (a2 + 0x220000000000LL) / 48;
   v11 = MiPageToNode(v10);
-  if ( qword_140E2D6E8 )
+  if ( qword_140E2D868 )
     v12 = *(_BYTE *)(MiSearchChannelTable(v10) + 12);
   else
     v12 = 0;
@@ -66,7 +66,7 @@ signed __int64 __fastcall MiReplaceSecondaryListStandbyPage(__int64 a1, __int64 
     || v39 != v12
     || a3 != a4
     || (unsigned int)MiGetPfnSlabType(a1) == 8
-    && ((*(_BYTE *)(qword_140E3D0C0 + 2 * (v8 >> 9) + 1) ^ *(_BYTE *)(qword_140E3D0C0 + 2 * (v10 >> 9) + 1)) & 0x7F) != 0 )
+    && ((*(_BYTE *)(qword_140E3D240 + 2 * (v8 >> 9) + 1) ^ *(_BYTE *)(qword_140E3D240 + 2 * (v10 >> 9) + 1)) & 0x7F) != 0 )
   {
     v37 = a5;
     MiUnlinkSecondaryListStandbyPage(a1, v13);
@@ -75,7 +75,7 @@ signed __int64 __fastcall MiReplaceSecondaryListStandbyPage(__int64 a1, __int64 
     return MiInsertSecondaryListStandbyPage(a2, a4, v37);
   }
   v14 = 48 * v10 - 0x220000000000LL;
-  v40 = *(_QWORD *)(stru_140E2EB88.ThreadLock + 8 * ((*(_QWORD *)(v14 + 40) >> 43) & 0x3FFLL));
+  v40 = *(_QWORD *)(stru_140E2ED08.ThreadLock + 8 * ((*(_QWORD *)(v14 + 40) >> 43) & 0x3FFLL));
   v15 = MiPageToNode(v10);
   v16 = *(_DWORD *)(v14 + 32);
   v17 = v15;
@@ -84,7 +84,7 @@ signed __int64 __fastcall MiReplaceSecondaryListStandbyPage(__int64 a1, __int64 
   if ( (*(_DWORD *)(v14 + 32) & 0x8000000) == 0 )
     goto LABEL_11;
   if ( v14 < 0xFFFFDE0000000000uLL
-    || v14 >= 48 * qword_140E2D7A0 - 0x21FFFFFFFFD0LL
+    || v14 >= 48 * qword_140E2D920 - 0x21FFFFFFFFD0LL
     || (unsigned int)MiIsDecayPfn((__int64)(48 * v10) / 48) )
   {
 LABEL_29:
@@ -99,7 +99,7 @@ LABEL_29:
 LABEL_11:
   v18 = HIBYTE(v16) & 7;
 LABEL_12:
-  if ( qword_140E2D6E8 )
+  if ( qword_140E2D868 )
     v19 = *(_BYTE *)(MiSearchChannelTable(v10) + 12);
   else
     v19 = 0;

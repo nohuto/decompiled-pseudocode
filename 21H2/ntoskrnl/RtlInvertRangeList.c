@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlInvertRangeList @ 0x1407B7930
+ * XREFs of RtlInvertRangeList @ 0x1407B7E50
  * Callers:
  *     <none>
  * Callees:
- *     RtlInvertRangeListEx @ 0x1407B7960 (RtlInvertRangeListEx.c)
+ *     RtlInvertRangeListEx @ 0x1407B7E80 (RtlInvertRangeListEx.c)
  */
 
 __int64 __fastcall RtlInvertRangeList(int a1, int a2)

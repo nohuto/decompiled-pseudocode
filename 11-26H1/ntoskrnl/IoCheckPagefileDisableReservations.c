@@ -1,15 +1,15 @@
 /*
- * XREFs of IoCheckPagefileDisableReservations @ 0x140795E9C
+ * XREFs of IoCheckPagefileDisableReservations @ 0x1407989CC
  * Callers:
- *     MiCreatePagingFile @ 0x14086B464 (MiCreatePagingFile.c)
+ *     MiCreatePagingFile @ 0x140871844 (MiCreatePagingFile.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     IoBuildDeviceIoControlRequest @ 0x14026B150 (IoBuildDeviceIoControlRequest.c)
- *     KeWaitForSingleObject @ 0x140278560 (KeWaitForSingleObject.c)
- *     KeInitializeEvent @ 0x140466F30 (KeInitializeEvent.c)
- *     PoCallDriver @ 0x1404D4A70 (PoCallDriver.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     IoGetRelatedTargetDevice @ 0x140AF2128 (IoGetRelatedTargetDevice.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     IoBuildDeviceIoControlRequest @ 0x14026A6C0 (IoBuildDeviceIoControlRequest.c)
+ *     KeWaitForSingleObject @ 0x140277AD0 (KeWaitForSingleObject.c)
+ *     KeInitializeEvent @ 0x140460680 (KeInitializeEvent.c)
+ *     PoCallDriver @ 0x1404CE2E0 (PoCallDriver.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     IoGetRelatedTargetDevice @ 0x140AF49F8 (IoGetRelatedTargetDevice.c)
  */
 
 __int64 __fastcall IoCheckPagefileDisableReservations(__int64 a1, _DWORD *a2)

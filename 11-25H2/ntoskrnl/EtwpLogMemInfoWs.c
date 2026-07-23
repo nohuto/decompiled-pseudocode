@@ -37,24 +37,21 @@ void __fastcall EtwpLogMemInfoWs(__int64 a1, unsigned __int64 a2)
   unsigned int v19; // ebx
   unsigned int *v20; // rax
   unsigned int *v21; // r14
-  __int64 v22; // rax
-  char *v23; // rdx
+  __int64 RegionsInUse; // rax
+  _ST_DATA_MGR_STATS::$94C4BE97FD0F81C7851F3B6009F5EE10 *Space; // rdx
   unsigned __int64 v24; // rcx
   __int64 v25; // r8
-  __int64 v26; // rax
-  unsigned int v27; // [rsp+28h] [rbp-E0h]
+  __int64 PagesStored; // rax
+  SYSTEM_INFORMATION_CLASS v27; // [rsp+28h] [rbp-E0h]
   _DWORD *v29; // [rsp+38h] [rbp-D0h]
-  _QWORD v30[8]; // [rsp+48h] [rbp-C0h] BYREF
-  _BYTE v31[12]; // [rsp+88h] [rbp-80h] BYREF
-  unsigned int v32; // [rsp+94h] [rbp-74h]
-  unsigned int v33; // [rsp+A8h] [rbp-60h]
-  char v34; // [rsp+B4h] [rbp-54h] BYREF
-  _DWORD v35[4]; // [rsp+688h] [rbp+580h]
+  _QWORD SystemInformation[8]; // [rsp+48h] [rbp-C0h] BYREF
+  struct _ST_STATS v31; // [rsp+88h] [rbp-80h] BYREF
+  SYSTEM_INFORMATION_CLASS SystemInformationClass[4]; // [rsp+688h] [rbp+580h]
 
-  v35[0] = 81;
-  v35[1] = 119;
-  v35[2] = 120;
-  memset_0(v30, 0, sizeof(v30));
+  SystemInformationClass[0] = SystemFileCacheInformationEx;
+  SystemInformationClass[1] = SystemPagedPoolInformationEx;
+  SystemInformationClass[2] = SystemSystemPtesInformationEx;
+  memset_0(SystemInformation, 0, sizeof(SystemInformation));
   v3 = 4356;
   v4 = -1;
   v5 = 64;
@@ -68,12 +65,12 @@ void __fastcall EtwpLogMemInfoWs(__int64 a1, unsigned __int64 a2)
   v29 = Pool2 + 1089;
   while ( v9 < 3 )
   {
-    v27 = v35[v9];
-    if ( (unsigned int)ZwQuerySystemInformation(v27, (__int64)v30) )
+    v27 = SystemInformationClass[v9];
+    if ( ZwQuerySystemInformation(v27, SystemInformation, 0x40u, 0LL) )
       goto LABEL_27;
     *v8 = v4;
-    v10 = v30[0] >> 12;
-    *(_QWORD *)(v8 + 1) = v30[0] >> 12;
+    v10 = SystemInformation[0] >> 12;
+    *(_QWORD *)(v8 + 1) = SystemInformation[0] >> 12;
     *(_QWORD *)(v8 + 7) = v10;
     *(_QWORD *)(v8 + 3) = v10;
     *(_QWORD *)(v8 + 15) = 0LL;
@@ -81,7 +78,7 @@ void __fastcall EtwpLogMemInfoWs(__int64 a1, unsigned __int64 a2)
     *(_QWORD *)(v8 + 11) = 0LL;
     *(_QWORD *)(v8 + 9) = 0LL;
     *(_QWORD *)(v8 + 13) = 0LL;
-    if ( v27 == 119 && a2 > v10 )
+    if ( v27 == SystemPagedPoolInformationEx && a2 > v10 )
     {
       *(_QWORD *)(v8 + 3) = a2;
       *(_QWORD *)(v8 + 5) = a2;
@@ -136,23 +133,23 @@ LABEL_20:
       v17 = v16;
     *(_QWORD *)(v8 + 7) = v17;
     *(_QWORD *)(v8 + 13) = NextProcess->Vm.Shared.ReleasedCommitDebt;
-    memset_0(v31, 0, 0x600uLL);
-    if ( (int)SmpProcessQueryStoreStats(NextProcess, (struct _ST_STATS *)v31) >= 0 )
+    memset_0(&v31, 0, sizeof(v31));
+    if ( (int)SmpProcessQueryStoreStats(NextProcess, &v31) >= 0 )
     {
       v24 = 0LL;
-      v23 = &v34;
+      Space = v31.Basic.UserData.Space;
       v25 = 8LL;
       do
       {
-        v22 = *(unsigned int *)v23;
-        v23 += 8;
-        v24 += v32 * v22;
+        RegionsInUse = Space->RegionsInUse;
+        ++Space;
+        v24 += v31.Basic.RegionSize * RegionsInUse;
         --v25;
       }
       while ( v25 );
-      v26 = v33;
+      PagesStored = v31.Basic.UserData.PagesStored;
       *(_QWORD *)(v8 + 9) = v24 >> 12;
-      *(_QWORD *)(v8 + 11) = v26;
+      *(_QWORD *)(v8 + 11) = PagesStored;
     }
     v8 += 17;
     ++*v7;

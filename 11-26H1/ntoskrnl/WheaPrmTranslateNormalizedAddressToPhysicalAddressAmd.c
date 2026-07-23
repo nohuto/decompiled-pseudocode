@@ -1,9 +1,9 @@
 /*
- * XREFs of WheaPrmTranslateNormalizedAddressToPhysicalAddressAmd @ 0x1406D74F0
+ * XREFs of WheaPrmTranslateNormalizedAddressToPhysicalAddressAmd @ 0x1406DB680
  * Callers:
  *     <none>
  * Callees:
- *     WheapPrmInvokeHandler @ 0x1406D75C0 (WheapPrmInvokeHandler.c)
+ *     WheapPrmInvokeHandler @ 0x1406DB750 (WheapPrmInvokeHandler.c)
  */
 
 __int64 __fastcall WheaPrmTranslateNormalizedAddressToPhysicalAddressAmd(__int64 a1, char a2, __int64 a3, __int64 *a4)

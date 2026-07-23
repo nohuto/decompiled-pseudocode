@@ -1,7 +1,7 @@
 /*
- * XREFs of _CmDeleteInterfaceClassRegKey @ 0x1406D930C
+ * XREFs of _CmDeleteInterfaceClassRegKey @ 0x1406D9444
  * Callers:
- *     _CmDeleteInterfaceClassWorker @ 0x1406D9330 (_CmDeleteInterfaceClassWorker.c)
+ *     _CmDeleteInterfaceClassWorker @ 0x1406D9468 (_CmDeleteInterfaceClassWorker.c)
  * Callees:
  *     <none>
  */

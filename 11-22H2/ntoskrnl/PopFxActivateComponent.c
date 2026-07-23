@@ -71,11 +71,14 @@ LABEL_14:
     {
       v13 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(a2 + 128));
       KxReleaseSpinLock((volatile signed __int64 *)(v7 + 128));
-      LODWORD(v6) = KiIrqlFlags;
-      if ( KiIrqlFlags )
+      LODWORD(v6) = (_DWORD)KiIrqlFlags;
+      if ( (_DWORD)KiIrqlFlags )
       {
         CurrentIrql = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v13 <= 0xFu && CurrentIrql >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+          && CurrentIrql <= 0xFu
+          && (unsigned __int8)v13 <= 0xFu
+          && CurrentIrql >= 2u )
         {
           CurrentPrcb = KeGetCurrentPrcb();
           a2 = -1LL << ((unsigned __int8)v13 + 1);

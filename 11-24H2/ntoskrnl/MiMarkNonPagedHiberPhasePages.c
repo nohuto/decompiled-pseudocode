@@ -1,19 +1,19 @@
 /*
- * XREFs of MiMarkNonPagedHiberPhasePages @ 0x140B6282C
+ * XREFs of MiMarkNonPagedHiberPhasePages @ 0x140B648FC
  * Callers:
- *     MmMarkHiberPhase @ 0x140B62DB8 (MmMarkHiberPhase.c)
- *     MmMarkImageForHiberPhase @ 0x140B6312C (MmMarkImageForHiberPhase.c)
- *     MiMarkHotPatchForHiberPhase @ 0x140B633F0 (MiMarkHotPatchForHiberPhase.c)
- *     MiMarkHotPatchesForHiberPhase @ 0x140B63450 (MiMarkHotPatchesForHiberPhase.c)
+ *     MmMarkHiberPhase @ 0x140B64E88 (MmMarkHiberPhase.c)
+ *     MmMarkImageForHiberPhase @ 0x140B651FC (MmMarkImageForHiberPhase.c)
+ *     MiMarkHotPatchForHiberPhase @ 0x140B654C0 (MiMarkHotPatchForHiberPhase.c)
+ *     MiMarkHotPatchesForHiberPhase @ 0x140B65520 (MiMarkHotPatchesForHiberPhase.c)
  * Callees:
- *     MiWalkPageTables @ 0x140235640 (MiWalkPageTables.c)
- *     MiGetAnyMultiplexedVm @ 0x140442630 (MiGetAnyMultiplexedVm.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     MiWalkPageTables @ 0x14020F7D0 (MiWalkPageTables.c)
+ *     MiGetAnyMultiplexedVm @ 0x140439200 (MiGetAnyMultiplexedVm.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 __int64 __fastcall MiMarkNonPagedHiberPhasePages(__int64 a1, __int64 a2, unsigned __int16 a3)
 {
-  _DWORD v7[2]; // [rsp+20h] [rbp-C8h] BYREF
+  int v7[2]; // [rsp+20h] [rbp-C8h] BYREF
   char v8; // [rsp+29h] [rbp-BFh]
   char *AnyMultiplexedVm; // [rsp+40h] [rbp-A8h]
   __int64 v10; // [rsp+48h] [rbp-A0h]
@@ -27,5 +27,5 @@ __int64 __fastcall MiMarkNonPagedHiberPhasePages(__int64 a1, __int64 a2, unsigne
   v8 = 17;
   v10 = a1;
   v11 = a2;
-  return MiWalkPageTables((__int64)v7);
+  return MiWalkPageTables(v7);
 }

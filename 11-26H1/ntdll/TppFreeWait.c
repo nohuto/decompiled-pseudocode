@@ -1,16 +1,19 @@
 /*
- * XREFs of TppFreeWait @ 0x1800DA460
+ * XREFs of TppFreeWait @ 0x1800D7420
  * Callers:
  *     <none>
  * Callees:
- *     TppDestroyTimer @ 0x1800DA4B4 (TppDestroyTimer.c)
- *     NtClose @ 0x18015F120 (NtClose.c)
+ *     TppDestroyTimer @ 0x1800D7474 (TppDestroyTimer.c)
+ *     NtClose @ 0x18015F020 (NtClose.c)
  */
 
-__int64 __fastcall TppFreeWait(__int64 a1)
+LOGICAL __fastcall TppFreeWait(HANDLE *BaseAddress)
 {
+  ULONG v2; // edx
+
   TppDestroyTimer();
-  NtClose(*(HANDLE *)(a1 + 368));
-  *(_QWORD *)(a1 + 448) = 0LL;
-  return RtlFreeHeap_0();
+  NtClose(BaseAddress[46]);
+  v2 = TppHeapTag;
+  BaseAddress[56] = 0LL;
+  return RtlFreeHeap_0(NtCurrentPeb()->ProcessHeap, v2 + 1835008, BaseAddress);
 }

@@ -1,11 +1,11 @@
 /*
- * XREFs of MiAddPartitionToCrashDump @ 0x1406F5F4C
+ * XREFs of MiAddPartitionToCrashDump @ 0x1406FABBC
  * Callers:
- *     MiAddPartitionDataToCrashDump @ 0x1406F5D34 (MiAddPartitionDataToCrashDump.c)
+ *     MiAddPartitionDataToCrashDump @ 0x1406FA9A4 (MiAddPartitionDataToCrashDump.c)
  * Callees:
- *     MmIsAddressValidEx @ 0x14034DFD0 (MmIsAddressValidEx.c)
- *     MiAddRangeToCrashDump @ 0x1406F61BC (MiAddRangeToCrashDump.c)
- *     MiAddUnicodeStringToCrashDump @ 0x1406F62F4 (MiAddUnicodeStringToCrashDump.c)
+ *     MmIsAddressValidEx @ 0x140350050 (MmIsAddressValidEx.c)
+ *     MiAddRangeToCrashDump @ 0x1406FAE2C (MiAddRangeToCrashDump.c)
+ *     MiAddUnicodeStringToCrashDump @ 0x1406FAF64 (MiAddUnicodeStringToCrashDump.c)
  */
 
 __int64 __fastcall MiAddPartitionToCrashDump(__int64 a1, ULONG *a2)
@@ -21,18 +21,18 @@ __int64 __fastcall MiAddPartitionToCrashDump(__int64 a1, ULONG *a2)
   __int64 v11; // rdi
   __int128 v12; // [rsp+20h] [rbp-18h] BYREF
 
-  KernelStack = (char *)stru_140E2EB88.KernelStack;
+  KernelStack = (char *)stru_140E2ED08.KernelStack;
   v3 = a2;
   if ( a2 == &MiSystemPartition )
   {
     result = MiAddRangeToCrashDump(a1, a2, 27712LL, 0LL);
     if ( (int)result < 0 )
       return result;
-    a2 = *(ULONG **)&stru_140E2EB88.CurrentRunTime;
+    a2 = *(ULONG **)&stru_140E2ED08.CurrentRunTime;
   }
   else
   {
-    KernelStack = (char *)stru_140E2EB88.KernelStack + 27712;
+    KernelStack = (char *)stru_140E2ED08.KernelStack + 27712;
   }
   result = MiAddRangeToCrashDump(a1, a2, KernelStack, 0LL);
   v6 = result;

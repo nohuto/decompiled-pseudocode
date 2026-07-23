@@ -8,24 +8,24 @@
  *     sub_180104F6C @ 0x180104F6C (sub_180104F6C.c)
  */
 
-__int64 __fastcall sub_180053748(__int64 a1, __int64 a2, unsigned int a3)
+int __fastcall sub_180053748(__int64 a1, __int64 a2, unsigned int a3)
 {
   _QWORD *v3; // rdi
-  __int64 result; // rax
+  _QWORD *v7; // rax
 
   v3 = (_QWORD *)(a1 + 480);
-  if ( (_QWORD *)*v3 != v3 || (result = a1 + 464, *(_QWORD *)result != result) )
+  if ( (_QWORD *)*v3 != v3 || (v7 = (_QWORD *)(a1 + 464), (_QWORD *)*v7 != v7) )
   {
-    result = *(unsigned int *)(a2 + 4);
-    if ( (unsigned int)result < a3 && (unsigned int)result >= 0x180 )
+    LODWORD(v7) = *(_DWORD *)(a2 + 4);
+    if ( (unsigned int)v7 < a3 && (unsigned int)v7 >= 0x180 )
     {
-      *(_DWORD *)(a2 + 48) = result;
-      result = a1 + 464;
-      if ( *(_QWORD *)result != result )
-        result = sub_180050924(a1, a2, a3);
+      *(_DWORD *)(a2 + 48) = (_DWORD)v7;
+      v7 = (_QWORD *)(a1 + 464);
+      if ( (_QWORD *)*v7 != v7 )
+        LODWORD(v7) = sub_180050924(a1, a2, a3);
       if ( (_QWORD *)*v3 != v3 )
-        return sub_180104F6C(a1, a2, a3);
+        LODWORD(v7) = sub_180104F6C(a1, a2, a3);
     }
   }
-  return result;
+  return (int)v7;
 }

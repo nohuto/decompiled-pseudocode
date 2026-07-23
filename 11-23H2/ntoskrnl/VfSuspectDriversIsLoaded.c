@@ -1,9 +1,9 @@
 /*
  * XREFs of VfSuspectDriversIsLoaded @ 0x140B96D64
  * Callers:
- *     ViDriverReApplyVerifierForAll @ 0x140ACA964 (ViDriverReApplyVerifierForAll.c)
+ *     ViDriverReApplyVerifierForAll @ 0x140ACA954 (ViDriverReApplyVerifierForAll.c)
  * Callees:
- *     ViSuspectDriversLookupEntry @ 0x140ADAD10 (ViSuspectDriversLookupEntry.c)
+ *     ViSuspectDriversLookupEntry @ 0x140ADAD00 (ViSuspectDriversLookupEntry.c)
  */
 
 __int64 __fastcall VfSuspectDriversIsLoaded(const UNICODE_STRING *a1)

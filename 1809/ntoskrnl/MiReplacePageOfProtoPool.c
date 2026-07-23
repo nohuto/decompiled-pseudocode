@@ -1,17 +1,17 @@
 /*
- * XREFs of MiReplacePageOfProtoPool @ 0x140124D9C
+ * XREFs of MiReplacePageOfProtoPool @ 0x140124E6C
  * Callers:
- *     MiStealPage @ 0x1400EBF44 (MiStealPage.c)
+ *     MiStealPage @ 0x1400EBFC4 (MiStealPage.c)
  * Callees:
  *     RtlFindNextForwardRunClearCapped @ 0x14002B750 (RtlFindNextForwardRunClearCapped.c)
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
- *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
- *     MiLockLeafPage @ 0x140080ED0 (MiLockLeafPage.c)
- *     MiLockNestedPageAtDpcInline @ 0x140120F04 (MiLockNestedPageAtDpcInline.c)
- *     MiGetPrototypePteRanges @ 0x140125214 (MiGetPrototypePteRanges.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     KeCopyPage @ 0x1401C09D0 (KeCopyPage.c)
- *     memset @ 0x1401D1880 (memset.c)
+ *     KeYieldProcessorEx @ 0x14006C9E0 (KeYieldProcessorEx.c)
+ *     MiLockLeafPage @ 0x140080EC0 (MiLockLeafPage.c)
+ *     MiLockNestedPageAtDpcInline @ 0x140120FD4 (MiLockNestedPageAtDpcInline.c)
+ *     MiGetPrototypePteRanges @ 0x1401252E4 (MiGetPrototypePteRanges.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     KeCopyPage @ 0x1401C0B30 (KeCopyPage.c)
+ *     memset @ 0x1401D1980 (memset.c)
  */
 
 __int64 __fastcall MiReplacePageOfProtoPool(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
@@ -250,12 +250,12 @@ LABEL_52:
     {
       v43 = MI_READ_PTE_LOCK_FREE((unsigned __int64)&v60);
     }
-    else if ( qword_14043A0C0 )
+    else if ( qword_14043B180 )
     {
       if ( (v43 & 0x10) != 0 )
         v43 &= ~0x10uLL;
       else
-        v43 &= ~qword_14043A0C0;
+        v43 &= ~qword_14043B180;
     }
     if ( v29 == 1 )
       *(_QWORD *)(48 * ((v43 >> 12) & 0xFFFFFFFFFLL) - 0x58000000000LL + 40) ^= (v53 ^ *(_QWORD *)(48

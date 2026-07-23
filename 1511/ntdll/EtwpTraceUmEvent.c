@@ -23,7 +23,7 @@ __int64 __fastcall EtwpTraceUmEvent(__int16 a1, unsigned __int16 *a2, unsigned i
   unsigned int v12; // edx
   unsigned int v13; // ebx
   unsigned int i; // ecx
-  unsigned __int64 *v15; // r9
+  LARGE_INTEGER *v15; // r9
   char *v16; // rax
   char *v17; // rdi
   char *v18; // r12
@@ -124,7 +124,7 @@ __int64 __fastcall EtwpTraceUmEvent(__int16 a1, unsigned __int16 *a2, unsigned i
         else
         {
           v26 = 0;
-          v15 = &v34;
+          v15 = (LARGE_INTEGER *)&v34;
         }
         v39 = NtCurrentTeb();
         v7 = *(_QWORD *)&v31[1];

@@ -1,10 +1,10 @@
 /*
- * XREFs of IvtpGetNextInternalDeviceScope @ 0x14037F43C
+ * XREFs of IvtpGetNextInternalDeviceScope @ 0x14037F5DC
  * Callers:
- *     IvtFindDevice @ 0x14037F3A0 (IvtFindDevice.c)
- *     IvtCreateDevice @ 0x14037F900 (IvtCreateDevice.c)
+ *     IvtFindDevice @ 0x14037F540 (IvtFindDevice.c)
+ *     IvtCreateDevice @ 0x14037FAA0 (IvtCreateDevice.c)
  * Callees:
- *     DmrGetNextDeviceScope @ 0x14037F470 (DmrGetNextDeviceScope.c)
+ *     DmrGetNextDeviceScope @ 0x14037F610 (DmrGetNextDeviceScope.c)
  */
 
 __int64 __fastcall IvtpGetNextInternalDeviceScope(__int64 a1, __int64 a2)

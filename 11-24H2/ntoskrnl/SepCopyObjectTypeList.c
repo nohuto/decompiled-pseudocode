@@ -1,10 +1,10 @@
 /*
- * XREFs of SepCopyObjectTypeList @ 0x1406087D0
+ * XREFs of SepCopyObjectTypeList @ 0x140605ED0
  * Callers:
- *     SeAccessCheckByType @ 0x14035C8A0 (SeAccessCheckByType.c)
- *     SepAccessCheckAndAuditAlarm @ 0x14091DB90 (SepAccessCheckAndAuditAlarm.c)
+ *     SeAccessCheckByType @ 0x14042DC70 (SeAccessCheckByType.c)
+ *     SepAccessCheckAndAuditAlarm @ 0x140A07A00 (SepAccessCheckAndAuditAlarm.c)
  * Callees:
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall SepCopyObjectTypeList(__int64 a1, unsigned int a2, __int64 *a3)
@@ -19,7 +19,7 @@ __int64 __fastcall SepCopyObjectTypeList(__int64 a1, unsigned int a2, __int64 *a
   if ( a2 )
   {
     v6 = a2;
-    Pool2 = ExAllocatePool2(0x100uLL);
+    Pool2 = ExAllocatePool2(0x100uLL, 48LL * a2, 0x744F6553u);
     if ( !Pool2 )
       return 3221225626LL;
     if ( a2 )

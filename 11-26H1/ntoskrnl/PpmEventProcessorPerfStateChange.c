@@ -1,11 +1,11 @@
 /*
- * XREFs of PpmEventProcessorPerfStateChange @ 0x140255C1C
+ * XREFs of PpmEventProcessorPerfStateChange @ 0x1402575A0
  * Callers:
- *     PpmPerfApplyHiddenProcessorState @ 0x1406063C8 (PpmPerfApplyHiddenProcessorState.c)
+ *     PpmPerfApplyHiddenProcessorState @ 0x140608EC8 (PpmPerfApplyHiddenProcessorState.c)
  * Callees:
- *     EtwWriteEx @ 0x140212F70 (EtwWriteEx.c)
- *     EtwpLevelKeywordEnabled @ 0x140255F60 (EtwpLevelKeywordEnabled.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwWriteEx @ 0x140213050 (EtwWriteEx.c)
+ *     EtwpLevelKeywordEnabled @ 0x1402578F0 (EtwpLevelKeywordEnabled.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 char __fastcall PpmEventProcessorPerfStateChange(__int64 a1, int a2, int a3)
@@ -14,10 +14,10 @@ char __fastcall PpmEventProcessorPerfStateChange(__int64 a1, int a2, int a3)
   __int64 v4; // r9
   const EVENT_DESCRIPTOR *v5; // r10
   int *v6; // rax
-  struct _LIST_ENTRY *Blink; // rdx
-  struct _LIST_ENTRY *Flink; // rcx
+  REGHANDLE v7; // rdx
+  __int64 v8; // rcx
   unsigned __int64 Keyword; // r8
-  struct _LIST_ENTRY *v10; // rcx
+  __int64 v10; // rcx
   __int64 v11; // rcx
   int v13; // [rsp+48h] [rbp-C0h] BYREF
   int v14; // [rsp+4Ch] [rbp-BCh] BYREF
@@ -75,36 +75,32 @@ char __fastcall PpmEventProcessorPerfStateChange(__int64 a1, int a2, int a3)
   v20 = &v13;
   if ( PpmEtwRegistered )
   {
-    Blink = PopModernStandbyStateNotify.ApcState.ApcListHead[1].Blink;
-    if ( PopModernStandbyStateNotify.ApcState.ApcListHead[1].Blink )
+    v7 = PpmEtwHandle;
+    if ( PpmEtwHandle )
     {
-      Flink = PopModernStandbyStateNotify.ApcState.ApcListHead[1].Blink[2].Flink;
+      v8 = *(_QWORD *)(PpmEtwHandle + 32);
       Keyword = v5->Keyword;
-      if ( LODWORD(Flink[6].Flink) )
+      if ( *(_DWORD *)(v8 + 96) )
       {
-        LOBYTE(v6) = BYTE4(Flink[6].Flink);
+        LOBYTE(v6) = *(_BYTE *)(v8 + 100);
         if ( v5->Level <= (unsigned __int8)v6 || !(_BYTE)v6 )
         {
-          LODWORD(v6) = Flink[6].Blink;
+          LODWORD(v6) = *(_DWORD *)(v8 + 104);
           if ( ((unsigned __int8)v6 & 0x40) != 0 && !Keyword )
             goto LABEL_15;
-          if ( (Keyword & (unsigned __int64)Flink[7].Flink) != 0 )
+          if ( (Keyword & *(_QWORD *)(v8 + 112)) != 0 )
           {
-            v10 = Flink[7].Blink;
-            LOBYTE(v6) = Keyword & (unsigned __int8)v10;
-            if ( (struct _LIST_ENTRY *)(Keyword & (unsigned __int64)v10) == v10 )
+            v10 = *(_QWORD *)(v8 + 120);
+            LOBYTE(v6) = Keyword & v10;
+            if ( (Keyword & v10) == v10 )
               goto LABEL_15;
           }
         }
       }
-      if ( HIWORD(PopModernStandbyStateNotify.ApcState.ApcListHead[1].Blink[6].Flink) )
+      if ( *(_WORD *)(PpmEtwHandle + 102) )
       {
-        LOBYTE(Blink) = v5->Level;
-        LOBYTE(v6) = EtwpLevelKeywordEnabled(
-                       &PopModernStandbyStateNotify.ApcState.ApcListHead[1].Blink[2].Blink[6],
-                       Blink,
-                       v5->Keyword,
-                       v4);
+        LOBYTE(v7) = v5->Level;
+        LOBYTE(v6) = EtwpLevelKeywordEnabled(*(_QWORD *)(PpmEtwHandle + 40) + 96LL, v7, v5->Keyword, v4);
         if ( (_BYTE)v6 )
         {
 LABEL_15:
@@ -138,15 +134,7 @@ LABEL_15:
           v39 = 4LL;
           v41 = 8LL;
           v43 = 4LL;
-          LOBYTE(v6) = EtwWriteEx(
-                         (REGHANDLE)PopModernStandbyStateNotify.ApcState.ApcListHead[1].Blink,
-                         v5,
-                         0LL,
-                         0,
-                         ActivityId,
-                         ActivityId,
-                         0xEu,
-                         &UserData);
+          LOBYTE(v6) = EtwWriteEx(PpmEtwHandle, v5, 0LL, 0, ActivityId, ActivityId, 0xEu, &UserData);
         }
       }
     }

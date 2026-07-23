@@ -1,21 +1,21 @@
 /*
- * XREFs of EtwpEnableKernelTrace @ 0x140495E58
+ * XREFs of EtwpEnableKernelTrace @ 0x1404968E8
  * Callers:
- *     EtwpUpdateKernelGroupMasks @ 0x140495D10 (EtwpUpdateKernelGroupMasks.c)
+ *     EtwpUpdateKernelGroupMasks @ 0x1404967A0 (EtwpUpdateKernelGroupMasks.c)
  * Callees:
- *     KeSetTimer2 @ 0x1400EB320 (KeSetTimer2.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     IoPerfInit @ 0x1401CA614 (IoPerfInit.c)
- *     KeStartProfile @ 0x1401D6D44 (KeStartProfile.c)
- *     DbgSetDebugPrintCallback @ 0x1402113B8 (DbgSetDebugPrintCallback.c)
- *     EtwpDisableKernelTrace @ 0x1404960E4 (EtwpDisableKernelTrace.c)
- *     EtwpUpdateFileInfoDriverState @ 0x140496284 (EtwpUpdateFileInfoDriverState.c)
- *     KeSetIntervalProfile @ 0x14052A364 (KeSetIntervalProfile.c)
- *     KeInitializeProfileCallback @ 0x14064FD1C (KeInitializeProfileCallback.c)
- *     AlpcRegisterLogRoutine @ 0x140656478 (AlpcRegisterLogRoutine.c)
- *     ObEnableEtwReferenceTrace @ 0x1406672E4 (ObEnableEtwReferenceTrace.c)
- *     WmiSetNetworkNotify @ 0x14069EF1C (WmiSetNetworkNotify.c)
+ *     KeSetTimer2 @ 0x1400E9190 (KeSetTimer2.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     IoPerfInit @ 0x1401CA4B4 (IoPerfInit.c)
+ *     KeStartProfile @ 0x1401D6B70 (KeStartProfile.c)
+ *     DbgSetDebugPrintCallback @ 0x1402111E4 (DbgSetDebugPrintCallback.c)
+ *     EtwpDisableKernelTrace @ 0x140496B74 (EtwpDisableKernelTrace.c)
+ *     EtwpUpdateFileInfoDriverState @ 0x140496D14 (EtwpUpdateFileInfoDriverState.c)
+ *     KeSetIntervalProfile @ 0x14052A8A4 (KeSetIntervalProfile.c)
+ *     KeInitializeProfileCallback @ 0x14064FE00 (KeInitializeProfileCallback.c)
+ *     AlpcRegisterLogRoutine @ 0x14065655C (AlpcRegisterLogRoutine.c)
+ *     ObEnableEtwReferenceTrace @ 0x1406673C8 (ObEnableEtwReferenceTrace.c)
+ *     WmiSetNetworkNotify @ 0x14069F054 (WmiSetNetworkNotify.c)
  */
 
 __int64 __fastcall EtwpEnableKernelTrace(__int64 a1, const __m128i *a2, unsigned int a3)
@@ -102,20 +102,20 @@ LABEL_56:
   if ( (a2->m128i_i32[0] & 0x400) != 0 )
   {
     v11 |= 0x400u;
-    qword_1403263C8 = (__int64)EtwpTraceIoInit;
+    qword_140326408 = (__int64)EtwpTraceIoInit;
     v20[0] = v11;
   }
   v12 = v20[4];
   if ( (a2[1].m128i_i32[0] & 1) != 0 )
   {
     v12 = v20[4] | 1;
-    qword_1403263D0 = (__int64)EtwpTraceOpticalIo;
+    qword_140326410 = (__int64)EtwpTraceOpticalIo;
     v20[4] |= 1u;
   }
   if ( (a2[1].m128i_i32[0] & 2) != 0 )
   {
     v12 |= 2u;
-    qword_1403263D8 = (__int64)EtwpTraceOpticalIoInit;
+    qword_140326418 = (__int64)EtwpTraceOpticalIoInit;
     v20[4] = v12;
   }
   if ( (a2->m128i_i32[0] & 0x200000) != 0 )
@@ -211,7 +211,7 @@ LABEL_49:
     if ( (a2->m128i_i32[1] & 0x400) != 0 )
     {
       for ( i = 0; i < EtwpPmcProfile; ++i )
-        KeStartProfile((ULONG_PTR)qword_1402FD688 + 248 * i);
+        KeStartProfile((ULONG_PTR)qword_1402FD668 + 248 * i);
       v20[1] = v8 | 0x400;
     }
     if ( (a2[1].m128i_i32[0] & 0x80u) != 0 )

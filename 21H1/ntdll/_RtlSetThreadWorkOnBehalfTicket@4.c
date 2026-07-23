@@ -10,13 +10,15 @@
 int __stdcall RtlSetThreadWorkOnBehalfTicket(_QWORD *Buf2)
 {
   int result; // eax
+  size_t v2; // [esp-4h] [ebp-8h]
 
   if ( !Buf2 )
     return -1073741811;
-  result = memcmp(NtCurrentTeb()->WorkingOnBehalfTicket, Buf2, 8u);
+  LODWORD(v2) = 8;
+  result = memcmp(NtCurrentTeb()->WorkingOnBehalfTicket, Buf2, v2);
   if ( result )
   {
-    result = ZwSetInformationThread(-2, 44, Buf2, 8);
+    result = ZwSetInformationThread((HANDLE)0xFFFFFFFE, ThreadWorkOnBehalfTicket, Buf2, 8u);
     if ( result >= 0 )
       *(_QWORD *)NtCurrentTeb()->WorkingOnBehalfTicket = *Buf2;
   }

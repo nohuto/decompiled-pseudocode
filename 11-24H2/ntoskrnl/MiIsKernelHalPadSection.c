@@ -1,8 +1,8 @@
 /*
- * XREFs of MiIsKernelHalPadSection @ 0x1404C1520
+ * XREFs of MiIsKernelHalPadSection @ 0x1404BCB10
  * Callers:
- *     MiSnapDriverRange @ 0x140A3DE88 (MiSnapDriverRange.c)
- *     MiFreeKernelPadSections @ 0x140C5AC08 (MiFreeKernelPadSections.c)
+ *     MiSnapDriverRange @ 0x140A33798 (MiSnapDriverRange.c)
+ *     MiFreeKernelPadSections @ 0x140C5CD98 (MiFreeKernelPadSections.c)
  * Callees:
  *     <none>
  */

@@ -51,27 +51,27 @@
  *     LdrpWorkCallback @ 0x180070C60 (LdrpWorkCallback.c)
  *     LdrpProcessWork @ 0x180070CEC (LdrpProcessWork.c)
  *     LdrpQueueWork @ 0x1800718CC (LdrpQueueWork.c)
- *     LdrAddLoadAsDataTable @ 0x1800783D0 (LdrAddLoadAsDataTable.c)
- *     LdrRemoveLoadAsDataTable @ 0x180078F30 (LdrRemoveLoadAsDataTable.c)
- *     LdrpDropLastInProgressCount @ 0x180079EDC (LdrpDropLastInProgressCount.c)
- *     RtlpQueryExtendedHeapInformation @ 0x18007B16C (RtlpQueryExtendedHeapInformation.c)
- *     RtlpEnumProcessHeaps @ 0x18007B33C (RtlpEnumProcessHeaps.c)
- *     RtlSetCurrentDirectory_U @ 0x18007B760 (RtlSetCurrentDirectory_U.c)
- *     RtlpCheckForSameCurdir @ 0x18007B8FC (RtlpCheckForSameCurdir.c)
- *     RtlGetCurrentDirectory_U @ 0x18007B9C0 (RtlGetCurrentDirectory_U.c)
- *     RtlpReferenceCurrentDirectory @ 0x18007BAA8 (RtlpReferenceCurrentDirectory.c)
- *     RtlReleasePebLock @ 0x18007BE70 (RtlReleasePebLock.c)
- *     RtlSetHeapInformation @ 0x18007E690 (RtlSetHeapInformation.c)
- *     RtlpSetRequestedFrontEndHeap @ 0x18007E754 (RtlpSetRequestedFrontEndHeap.c)
- *     RtlpSetProcMergedLangList @ 0x180084AFC (RtlpSetProcMergedLangList.c)
- *     RtlSetEnvironmentStrings @ 0x180085E50 (RtlSetEnvironmentStrings.c)
- *     AVrfDllLoadNotification @ 0x180087A7C (AVrfDllLoadNotification.c)
- *     LdrRegisterDllNotification @ 0x180087BC0 (LdrRegisterDllNotification.c)
- *     RtlSetProcessPreferredUILanguages @ 0x180088CD0 (RtlSetProcessPreferredUILanguages.c)
- *     RtlGetProcessPreferredUILanguages @ 0x18008BBD0 (RtlGetProcessPreferredUILanguages.c)
- *     RtlCompactHeap @ 0x18008C090 (RtlCompactHeap.c)
- *     RtlpQueryPseudoEnvironmentVariable @ 0x18008E184 (RtlpQueryPseudoEnvironmentVariable.c)
- *     RtlSetCurrentEnvironment @ 0x18008F010 (RtlSetCurrentEnvironment.c)
+ *     LdrAddLoadAsDataTable @ 0x1800783E0 (LdrAddLoadAsDataTable.c)
+ *     LdrRemoveLoadAsDataTable @ 0x180078F40 (LdrRemoveLoadAsDataTable.c)
+ *     LdrpDropLastInProgressCount @ 0x180079EEC (LdrpDropLastInProgressCount.c)
+ *     RtlpQueryExtendedHeapInformation @ 0x18007B17C (RtlpQueryExtendedHeapInformation.c)
+ *     RtlpEnumProcessHeaps @ 0x18007B34C (RtlpEnumProcessHeaps.c)
+ *     RtlSetCurrentDirectory_U @ 0x18007B770 (RtlSetCurrentDirectory_U.c)
+ *     RtlpCheckForSameCurdir @ 0x18007B90C (RtlpCheckForSameCurdir.c)
+ *     RtlGetCurrentDirectory_U @ 0x18007B9D0 (RtlGetCurrentDirectory_U.c)
+ *     RtlpReferenceCurrentDirectory @ 0x18007BAB8 (RtlpReferenceCurrentDirectory.c)
+ *     RtlReleasePebLock @ 0x18007BE80 (RtlReleasePebLock.c)
+ *     RtlSetHeapInformation @ 0x18007E6A0 (RtlSetHeapInformation.c)
+ *     RtlpSetRequestedFrontEndHeap @ 0x18007E764 (RtlpSetRequestedFrontEndHeap.c)
+ *     RtlpSetProcMergedLangList @ 0x180084B0C (RtlpSetProcMergedLangList.c)
+ *     RtlSetEnvironmentStrings @ 0x180085E60 (RtlSetEnvironmentStrings.c)
+ *     AVrfDllLoadNotification @ 0x180087A8C (AVrfDllLoadNotification.c)
+ *     LdrRegisterDllNotification @ 0x180087BD0 (LdrRegisterDllNotification.c)
+ *     RtlSetProcessPreferredUILanguages @ 0x180088CE0 (RtlSetProcessPreferredUILanguages.c)
+ *     RtlGetProcessPreferredUILanguages @ 0x18008BBE0 (RtlGetProcessPreferredUILanguages.c)
+ *     RtlCompactHeap @ 0x18008C0A0 (RtlCompactHeap.c)
+ *     RtlpQueryPseudoEnvironmentVariable @ 0x18008E194 (RtlpQueryPseudoEnvironmentVariable.c)
+ *     RtlSetCurrentEnvironment @ 0x18008F020 (RtlSetCurrentEnvironment.c)
  *     LdrDeleteEnclave @ 0x1800CECB0 (LdrDeleteEnclave.c)
  *     LdrInitializeEnclave @ 0x1800CED30 (LdrInitializeEnclave.c)
  *     LdrIsEnclaveAddress @ 0x1800CEE1C (LdrIsEnclaveAddress.c)
@@ -119,56 +119,56 @@
  * Callees:
  *     RtlpWakeByAddress @ 0x18005E81C (RtlpWakeByAddress.c)
  *     RtlpCreateDeferredCriticalSectionEvent @ 0x18005F030 (RtlpCreateDeferredCriticalSectionEvent.c)
- *     RtlRaiseStatus @ 0x18009F6A0 (RtlRaiseStatus.c)
- *     ZwSetEvent @ 0x1800A04A0 (ZwSetEvent.c)
+ *     RtlRaiseStatus @ 0x18009F6C0 (RtlRaiseStatus.c)
+ *     ZwSetEvent @ 0x1800A04C0 (ZwSetEvent.c)
  *     RtlpNotOwnerCriticalSection @ 0x1800E9920 (RtlpNotOwnerCriticalSection.c)
  */
 
-__int64 __fastcall RtlLeaveCriticalSection(__int64 a1)
+NTSTATUS __cdecl RtlLeaveCriticalSection(PRTL_CRITICAL_SECTION CriticalSection)
 {
   bool v1; // zf
   signed __int32 v3; // esi
-  __int64 DeferredCriticalSectionEvent; // r8
+  void *LockSemaphore; // r8
   int v6; // edx
   signed __int32 v7; // eax
   int v8; // eax
   signed __int32 v9[10]; // [rsp+0h] [rbp-28h] BYREF
 
-  v1 = (*(_DWORD *)(a1 + 12))-- == 1;
+  v1 = CriticalSection->RecursionCount-- == 1;
   if ( v1 )
   {
-    *(_QWORD *)(a1 + 16) = 0LL;
-    v3 = _InterlockedCompareExchange((volatile signed __int32 *)(a1 + 8), -1, -2);
+    CriticalSection->OwningThread = 0LL;
+    v3 = _InterlockedCompareExchange(&CriticalSection->LockCount, -1, -2);
     if ( v3 != -2 )
     {
-      if ( (*(_BYTE *)(a1 + 8) & 1) != 0 )
-        RtlpNotOwnerCriticalSection(a1);
-      DeferredCriticalSectionEvent = *(_QWORD *)(a1 + 24);
-      if ( !DeferredCriticalSectionEvent )
-        DeferredCriticalSectionEvent = RtlpCreateDeferredCriticalSectionEvent(a1);
+      if ( (CriticalSection->LockCount & 1) != 0 )
+        RtlpNotOwnerCriticalSection(CriticalSection);
+      LockSemaphore = CriticalSection->LockSemaphore;
+      if ( !LockSemaphore )
+        LockSemaphore = (void *)RtlpCreateDeferredCriticalSectionEvent(CriticalSection);
       do
       {
         v6 = v3 & 2 | 1;
-        v7 = _InterlockedCompareExchange((volatile signed __int32 *)(a1 + 8), v6 + v3, v3);
+        v7 = _InterlockedCompareExchange(&CriticalSection->LockCount, v6 + v3, v3);
         v1 = v3 == v7;
         v3 = v7;
       }
       while ( !v1 );
       if ( (v6 & 2) != 0 )
       {
-        if ( DeferredCriticalSectionEvent == -1 )
+        if ( LockSemaphore == (void *)-1LL )
         {
           _InterlockedOr(v9, 0);
-          RtlpWakeByAddress(a1 + 8, 0LL);
+          RtlpWakeByAddress(&CriticalSection->LockCount, 0LL);
         }
         else
         {
-          v8 = ZwSetEvent(DeferredCriticalSectionEvent, 0LL);
+          v8 = ZwSetEvent(LockSemaphore, 0LL);
           if ( v8 < 0 )
-            RtlRaiseStatus((unsigned int)v8);
+            RtlRaiseStatus(v8);
         }
       }
     }
   }
-  return 0LL;
+  return 0;
 }

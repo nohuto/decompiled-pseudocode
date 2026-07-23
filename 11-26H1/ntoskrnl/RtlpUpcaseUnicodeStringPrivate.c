@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlpUpcaseUnicodeStringPrivate @ 0x1403CFF00
+ * XREFs of RtlpUpcaseUnicodeStringPrivate @ 0x1402FAF10
  * Callers:
- *     RtlIsNameInExpression @ 0x1403CF800 (RtlIsNameInExpression.c)
- *     RtlIsNameInUnUpcasedExpression @ 0x1403CF880 (RtlIsNameInUnUpcasedExpression.c)
- *     RtlAreNamesEqual @ 0x1403D0060 (RtlAreNamesEqual.c)
+ *     RtlIsNameInExpression @ 0x1402FA830 (RtlIsNameInExpression.c)
+ *     RtlIsNameInUnUpcasedExpression @ 0x1402FA8B0 (RtlIsNameInUnUpcasedExpression.c)
+ *     RtlAreNamesEqual @ 0x14041C900 (RtlAreNamesEqual.c)
  * Callees:
- *     PsGetEffectiveServerSilo @ 0x140216800 (PsGetEffectiveServerSilo.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     PsGetEffectiveServerSilo @ 0x140216B30 (PsGetEffectiveServerSilo.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall RtlpUpcaseUnicodeStringPrivate(__int64 a1, unsigned __int16 *a2)

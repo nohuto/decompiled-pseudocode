@@ -10,7 +10,7 @@
  *     wcslen @ 0x1801292B0 (wcslen.c)
  */
 
-__int64 __fastcall GetNameFromLangListNode(__int64 a1, unsigned __int16 *a2, UNICODE_STRING *a3)
+__int64 __fastcall GetNameFromLangListNode(__int64 a1, unsigned __int16 *a2, _UNICODE_STRING *a3)
 {
   unsigned int v3; // ebx
   int v6; // r8d
@@ -23,7 +23,7 @@ __int64 __fastcall GetNameFromLangListNode(__int64 a1, unsigned __int16 *a2, UNI
   const wchar_t *v13; // rcx
   size_t v14; // rax
   int v16; // r8d
-  unsigned int v17; // ecx
+  LCID v17; // ecx
 
   v3 = 0;
   if ( !a1 || !a2 || !a3 )
@@ -62,7 +62,7 @@ __int64 __fastcall GetNameFromLangListNode(__int64 a1, unsigned __int16 *a2, UNI
   {
     v17 = (__int16)a2[2];
 LABEL_13:
-    if ( (unsigned __int8)RtlLCIDToCultureName(v17, (__int64)a3) )
+    if ( RtlLCIDToCultureName(v17, a3) )
       return v3;
     return (unsigned int)-1073741595;
   }

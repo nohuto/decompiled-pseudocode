@@ -32,7 +32,7 @@ __int64 __fastcall MiCreateVadEventBitmap(__int64 a1, __int64 a2, unsigned __int
     *((_DWORD *)PoolWithTag + 16) = a4;
     *((_QWORD *)PoolWithTag + 1) = a3;
     *((_QWORD *)PoolWithTag + 2) = PoolWithTag + 72;
-    RtlClearAllBitsEx((__int64)(PoolWithTag + 8));
+    RtlClearAllBitsEx((PRTL_BITMAP_EX)(PoolWithTag + 8));
     MiInsertVadEvent(a2, (__int64 *)PoolWithTag, 1);
     return 0LL;
   }

@@ -1,25 +1,25 @@
 /*
- * XREFs of CmpAddToLeaf @ 0x1408D171C
+ * XREFs of CmpAddToLeaf @ 0x1408D7CDC
  * Callers:
- *     CmpAddSubKeyToList @ 0x1408C1970 (CmpAddSubKeyToList.c)
+ *     CmpAddSubKeyToList @ 0x1408C7F40 (CmpAddSubKeyToList.c)
  * Callees:
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     HvpGetCellFlat @ 0x14085EB00 (HvpGetCellFlat.c)
- *     CmpHashUnicodeComponent @ 0x1408D1470 (CmpHashUnicodeComponent.c)
- *     HvFreeCell @ 0x1408D1528 (HvFreeCell.c)
- *     CmpCompareInIndex @ 0x1408D27E0 (CmpCompareInIndex.c)
- *     CmpFindSubKeyInLeafWithStatus @ 0x1408D2EE0 (CmpFindSubKeyInLeafWithStatus.c)
- *     HvpReleaseCellFlat @ 0x1408D51E0 (HvpReleaseCellFlat.c)
- *     HvpReleaseCellPaged @ 0x1408D73B0 (HvpReleaseCellPaged.c)
- *     HvpGetCellPaged @ 0x1408D7410 (HvpGetCellPaged.c)
- *     HvpGetCellContextInitialize @ 0x1408D9320 (HvpGetCellContextInitialize.c)
- *     HvLockHiveWriter @ 0x1408DAEB0 (HvLockHiveWriter.c)
- *     HvUnlockHiveWriter @ 0x1408DAF14 (HvUnlockHiveWriter.c)
- *     HvpMarkDirty @ 0x1408DAF50 (HvpMarkDirty.c)
- *     HvReallocateCell @ 0x1408DCC94 (HvReallocateCell.c)
- *     CmpGenerateFastLeafHintForUnicodeString @ 0x140A0AB74 (CmpGenerateFastLeafHintForUnicodeString.c)
- *     HvpGetCellMap @ 0x140C58690 (HvpGetCellMap.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     HvpGetCellFlat @ 0x140864DF0 (HvpGetCellFlat.c)
+ *     CmpHashUnicodeComponent @ 0x1408D7A30 (CmpHashUnicodeComponent.c)
+ *     HvFreeCell @ 0x1408D7AE8 (HvFreeCell.c)
+ *     CmpCompareInIndex @ 0x1408D8DA0 (CmpCompareInIndex.c)
+ *     CmpFindSubKeyInLeafWithStatus @ 0x1408D94A0 (CmpFindSubKeyInLeafWithStatus.c)
+ *     HvpReleaseCellFlat @ 0x1408DB7A0 (HvpReleaseCellFlat.c)
+ *     HvpReleaseCellPaged @ 0x1408DD970 (HvpReleaseCellPaged.c)
+ *     HvpGetCellPaged @ 0x1408DD9D0 (HvpGetCellPaged.c)
+ *     HvpGetCellContextInitialize @ 0x1408DF8E0 (HvpGetCellContextInitialize.c)
+ *     HvLockHiveWriter @ 0x1408E1470 (HvLockHiveWriter.c)
+ *     HvUnlockHiveWriter @ 0x1408E14D4 (HvUnlockHiveWriter.c)
+ *     HvpMarkDirty @ 0x1408E1510 (HvpMarkDirty.c)
+ *     HvReallocateCell @ 0x1408E3254 (HvReallocateCell.c)
+ *     CmpGenerateFastLeafHintForUnicodeString @ 0x140A20C44 (CmpGenerateFastLeafHintForUnicodeString.c)
+ *     HvpGetCellMap @ 0x140C5E690 (HvpGetCellMap.c)
  */
 
 __int64 __fastcall CmpAddToLeaf(

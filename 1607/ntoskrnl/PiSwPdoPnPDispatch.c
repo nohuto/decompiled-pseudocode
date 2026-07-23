@@ -1,22 +1,22 @@
 /*
- * XREFs of PiSwPdoPnPDispatch @ 0x1403F1680
+ * XREFs of PiSwPdoPnPDispatch @ 0x1403F0544
  * Callers:
  *     <none>
  * Callees:
- *     IofCompleteRequest @ 0x140053560 (IofCompleteRequest.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x140055FA0 (KiLeaveCriticalRegionUnsafe.c)
- *     ExReleaseResourceLite @ 0x140068940 (ExReleaseResourceLite.c)
- *     ObfReferenceObject @ 0x14006A060 (ObfReferenceObject.c)
+ *     IofCompleteRequest @ 0x1400530E0 (IofCompleteRequest.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140055B20 (KiLeaveCriticalRegionUnsafe.c)
+ *     ExReleaseResourceLite @ 0x1400684C0 (ExReleaseResourceLite.c)
+ *     ObfReferenceObject @ 0x140069BE0 (ObfReferenceObject.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     PiSwLock @ 0x1403F1A74 (PiSwLock.c)
- *     PiSwDeviceInterfacesUpdateState @ 0x1404C35D0 (PiSwDeviceInterfacesUpdateState.c)
- *     PiSwProcessRemove @ 0x1404C36B0 (PiSwProcessRemove.c)
- *     PiSwDestroyDeviceObject @ 0x1404C3958 (PiSwDestroyDeviceObject.c)
- *     PiSwCompleteCreate @ 0x1404C6A1C (PiSwCompleteCreate.c)
- *     PnpAllocateMultiSZ @ 0x1404C72CC (PnpAllocateMultiSZ.c)
- *     _PnpStringFromGuid @ 0x1404E9270 (_PnpStringFromGuid.c)
- *     PiSwDeviceMakeCompatibleIds @ 0x1404EC670 (PiSwDeviceMakeCompatibleIds.c)
- *     PnpAllocatePWSTR @ 0x140501D70 (PnpAllocatePWSTR.c)
+ *     PiSwLock @ 0x1403F0938 (PiSwLock.c)
+ *     PiSwDeviceInterfacesUpdateState @ 0x140483938 (PiSwDeviceInterfacesUpdateState.c)
+ *     PiSwProcessRemove @ 0x140483A18 (PiSwProcessRemove.c)
+ *     PiSwDestroyDeviceObject @ 0x140483C74 (PiSwDestroyDeviceObject.c)
+ *     PiSwCompleteCreate @ 0x140487650 (PiSwCompleteCreate.c)
+ *     PnpAllocateMultiSZ @ 0x140487D60 (PnpAllocateMultiSZ.c)
+ *     _PnpStringFromGuid @ 0x1404CB360 (_PnpStringFromGuid.c)
+ *     PiSwDeviceMakeCompatibleIds @ 0x1404CE6F8 (PiSwDeviceMakeCompatibleIds.c)
+ *     PnpAllocatePWSTR @ 0x1404E4D00 (PnpAllocatePWSTR.c)
  */
 
 __int64 __fastcall PiSwPdoPnPDispatch(_QWORD *Object, PIRP Irp)

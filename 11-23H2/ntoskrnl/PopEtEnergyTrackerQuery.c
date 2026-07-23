@@ -1,20 +1,20 @@
 /*
- * XREFs of PopEtEnergyTrackerQuery @ 0x1407B83CC
+ * XREFs of PopEtEnergyTrackerQuery @ 0x1407B86AC
  * Callers:
- *     NtPowerInformation @ 0x140783F20 (NtPowerInformation.c)
+ *     NtPowerInformation @ 0x140784110 (NtPowerInformation.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14022F5B0 (ObfDereferenceObjectWithTag.c)
- *     KeQueryTimelineBitmapTime @ 0x1402C0864 (KeQueryTimelineBitmapTime.c)
- *     KiQueryUnbiasedInterruptTime @ 0x1402E7464 (KiQueryUnbiasedInterruptTime.c)
- *     PopReleaseRwLock @ 0x14032C480 (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x14032C5E4 (PopAcquireRwLockExclusive.c)
- *     memset @ 0x140435A00 (memset.c)
- *     ObpReferenceObjectByHandleWithTag @ 0x1406E6300 (ObpReferenceObjectByHandleWithTag.c)
- *     PopEtDataSectionCopyData @ 0x1407B90B4 (PopEtDataSectionCopyData.c)
- *     PopEtDataSectionReserve @ 0x1407B9100 (PopEtDataSectionReserve.c)
- *     PopEtDataSectionStart @ 0x1407B9150 (PopEtDataSectionStart.c)
- *     PopEtEnergyTrackerCleanupAggregates @ 0x1407B9170 (PopEtEnergyTrackerCleanupAggregates.c)
- *     PsEnumProcesses @ 0x1407CF4CC (PsEnumProcesses.c)
+ *     ObfDereferenceObjectWithTag @ 0x14022F6C0 (ObfDereferenceObjectWithTag.c)
+ *     KeQueryTimelineBitmapTime @ 0x1402C0AF4 (KeQueryTimelineBitmapTime.c)
+ *     KiQueryUnbiasedInterruptTime @ 0x1402E76F4 (KiQueryUnbiasedInterruptTime.c)
+ *     PopReleaseRwLock @ 0x14032C710 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x14032C874 (PopAcquireRwLockExclusive.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     ObpReferenceObjectByHandleWithTag @ 0x1406E6330 (ObpReferenceObjectByHandleWithTag.c)
+ *     PopEtDataSectionCopyData @ 0x1407B9394 (PopEtDataSectionCopyData.c)
+ *     PopEtDataSectionReserve @ 0x1407B93E0 (PopEtDataSectionReserve.c)
+ *     PopEtDataSectionStart @ 0x1407B9430 (PopEtDataSectionStart.c)
+ *     PopEtEnergyTrackerCleanupAggregates @ 0x1407B9450 (PopEtEnergyTrackerCleanupAggregates.c)
+ *     PsEnumProcesses @ 0x1407CF79C (PsEnumProcesses.c)
  */
 
 __int64 __fastcall PopEtEnergyTrackerQuery(ULONG_PTR a1, __int64 a2, unsigned int a3)

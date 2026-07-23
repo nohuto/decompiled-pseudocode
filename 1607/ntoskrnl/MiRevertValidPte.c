@@ -1,24 +1,24 @@
 /*
- * XREFs of MiRevertValidPte @ 0x1400E17F0
+ * XREFs of MiRevertValidPte @ 0x1400DF690
  * Callers:
- *     MiSetReadOnlyOnSectionView @ 0x14000CE40 (MiSetReadOnlyOnSectionView.c)
- *     MiSetProtectionOnSection @ 0x140043BF0 (MiSetProtectionOnSection.c)
- *     MiProtectPrivateMemory @ 0x1400E1040 (MiProtectPrivateMemory.c)
+ *     MiSetReadOnlyOnSectionView @ 0x14000C9C0 (MiSetReadOnlyOnSectionView.c)
+ *     MiSetProtectionOnSection @ 0x140043770 (MiSetProtectionOnSection.c)
+ *     MiProtectPrivateMemory @ 0x1400DEEE0 (MiProtectPrivateMemory.c)
  * Callees:
- *     MiReleasePageFileInfo @ 0x14001A280 (MiReleasePageFileInfo.c)
- *     MiLockPageAtDpcInline @ 0x14002EB30 (MiLockPageAtDpcInline.c)
- *     KeYieldProcessorEx @ 0x14002ECB0 (KeYieldProcessorEx.c)
- *     MiIsPfnInline @ 0x140030920 (MiIsPfnInline.c)
- *     MiPartitionIdToPointer @ 0x1400680A0 (MiPartitionIdToPointer.c)
- *     MiCapturePageFileInfoInline @ 0x140098320 (MiCapturePageFileInfoInline.c)
- *     MiCaptureWriteWatchDirtyBit @ 0x1400AA768 (MiCaptureWriteWatchDirtyBit.c)
- *     MiRotatedToFrameBuffer @ 0x1400BDE00 (MiRotatedToFrameBuffer.c)
- *     MiInsertTbFlushEntry @ 0x1400E0240 (MiInsertTbFlushEntry.c)
- *     MiGetPagePrivilege @ 0x1400E3730 (MiGetPagePrivilege.c)
- *     MiMarkPfnVerified @ 0x14010A2D4 (MiMarkPfnVerified.c)
- *     MiPteInShadowRange @ 0x1401EF3B8 (MiPteInShadowRange.c)
- *     MiWritePteShadow @ 0x1401EF658 (MiWritePteShadow.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1401F25D0 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiReleasePageFileInfo @ 0x140019E00 (MiReleasePageFileInfo.c)
+ *     MiLockPageAtDpcInline @ 0x14002E6B0 (MiLockPageAtDpcInline.c)
+ *     KeYieldProcessorEx @ 0x14002E830 (KeYieldProcessorEx.c)
+ *     MiIsPfnInline @ 0x1400304A0 (MiIsPfnInline.c)
+ *     MiPartitionIdToPointer @ 0x140067C20 (MiPartitionIdToPointer.c)
+ *     MiCapturePageFileInfoInline @ 0x140097B20 (MiCapturePageFileInfoInline.c)
+ *     MiCaptureWriteWatchDirtyBit @ 0x1400A8CE8 (MiCaptureWriteWatchDirtyBit.c)
+ *     MiRotatedToFrameBuffer @ 0x1400BBC90 (MiRotatedToFrameBuffer.c)
+ *     MiInsertTbFlushEntry @ 0x1400DE0E0 (MiInsertTbFlushEntry.c)
+ *     MiGetPagePrivilege @ 0x1400E15D0 (MiGetPagePrivilege.c)
+ *     MiMarkPfnVerified @ 0x140108054 (MiMarkPfnVerified.c)
+ *     MiPteInShadowRange @ 0x1401EF1E4 (MiPteInShadowRange.c)
+ *     MiWritePteShadow @ 0x1401EF484 (MiWritePteShadow.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1401F23FC (MI_READ_PTE_LOCK_FREE.c)
  */
 
 void __fastcall MiRevertValidPte(__int64 a1, __int64 a2, unsigned int a3, __int64 a4, __int64 a5)
@@ -75,7 +75,7 @@ void __fastcall MiRevertValidPte(__int64 a1, __int64 a2, unsigned int a3, __int6
   {
     v15 = 0LL;
   }
-  v23 = MmProtectToPteMask[a3] & 0xFFFFFFFFFFFFFF7FuLL | (((16 * (a4 & 0xFFFFFFFFFLL)) | HIBYTE(word_140326AA8) & 1) << 8) | 0x25;
+  v23 = MmProtectToPteMask[a3] & 0xFFFFFFFFFFFFFF7FuLL | (((16 * (a4 & 0xFFFFFFFFFLL)) | HIBYTE(word_140326AE8) & 1) << 8) | 0x25;
   v16 = v23;
   do
   {

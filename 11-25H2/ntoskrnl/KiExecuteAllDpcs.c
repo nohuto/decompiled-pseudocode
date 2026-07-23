@@ -726,7 +726,7 @@ LABEL_123:
       else
         *(_QWORD *)&v176 = 0LL;
       if ( (v21 & 4) != 0 )
-        *((_QWORD *)&v176 + 1) = RtlGetSystemTimePrecise();
+        *((LARGE_INTEGER *)&v176 + 1) = RtlGetSystemTimePrecise();
       else
         *((_QWORD *)&v176 + 1) = 0LL;
       if ( (v21 & 8) != 0 )

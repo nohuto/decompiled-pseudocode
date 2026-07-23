@@ -1,9 +1,9 @@
 /*
- * XREFs of CmpUnlockTwoSecurityCaches @ 0x1407DDDCC
+ * XREFs of CmpUnlockTwoSecurityCaches @ 0x1407DE09C
  * Callers:
- *     CmpCopyKeyPartial @ 0x1407DD858 (CmpCopyKeyPartial.c)
- *     CmpDoBuildVirtualStack @ 0x140A190BC (CmpDoBuildVirtualStack.c)
- *     CmpSyncKeyValues @ 0x140A22DD4 (CmpSyncKeyValues.c)
+ *     CmpCopyKeyPartial @ 0x1407DDB28 (CmpCopyKeyPartial.c)
+ *     CmpDoBuildVirtualStack @ 0x140A1936C (CmpDoBuildVirtualStack.c)
+ *     CmpSyncKeyValues @ 0x140A23084 (CmpSyncKeyValues.c)
  * Callees:
  *     CmUnlockHiveSecurity @ 0x140AF5100 (CmUnlockHiveSecurity.c)
  */

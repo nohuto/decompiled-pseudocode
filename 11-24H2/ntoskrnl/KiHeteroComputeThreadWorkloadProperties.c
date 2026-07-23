@@ -1,10 +1,10 @@
 /*
- * XREFs of KiHeteroComputeThreadWorkloadProperties @ 0x140438600
+ * XREFs of KiHeteroComputeThreadWorkloadProperties @ 0x14042B1C0
  * Callers:
- *     KiCheckPreferredHeteroProcessor @ 0x14029D8F0 (KiCheckPreferredHeteroProcessor.c)
- *     KiDeferredReadySingleThread @ 0x14031ED40 (KiDeferredReadySingleThread.c)
+ *     KiCheckPreferredHeteroProcessor @ 0x1402AC3E0 (KiCheckPreferredHeteroProcessor.c)
+ *     KiDeferredReadySingleThread @ 0x1402C78D0 (KiDeferredReadySingleThread.c)
  * Callees:
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 __int64 __fastcall KiHeteroComputeThreadWorkloadProperties(__int64 a1, __int64 a2)

@@ -1,14 +1,14 @@
 /*
- * XREFs of MiDecommitLargePte @ 0x1404C7F24
+ * XREFs of MiDecommitLargePte @ 0x1404C1658
  * Callers:
- *     MiDecommitHandleTransitionPte @ 0x140286C5C (MiDecommitHandleTransitionPte.c)
- *     MiDecommitHandleValidPte @ 0x140288180 (MiDecommitHandleValidPte.c)
- *     MiDecommitPages @ 0x140288300 (MiDecommitPages.c)
- *     MiDeleteVa @ 0x1402DB780 (MiDeleteVa.c)
+ *     MiDeleteVa @ 0x14023D060 (MiDeleteVa.c)
+ *     MiDecommitHandleTransitionPte @ 0x14029685C (MiDecommitHandleTransitionPte.c)
+ *     MiDecommitHandleValidPte @ 0x140297D80 (MiDecommitHandleValidPte.c)
+ *     MiDecommitPages @ 0x140297F00 (MiDecommitPages.c)
  * Callees:
- *     MiRewritePteWithLockBit @ 0x14020CBCC (MiRewritePteWithLockBit.c)
- *     KeYieldProcessorEx @ 0x1403F9C60 (KeYieldProcessorEx.c)
- *     MiDecommitAddTbFlushEntries @ 0x1404FA094 (MiDecommitAddTbFlushEntries.c)
+ *     MiRewritePteWithLockBit @ 0x140335F2C (MiRewritePteWithLockBit.c)
+ *     KeYieldProcessorEx @ 0x1403EFB70 (KeYieldProcessorEx.c)
+ *     MiDecommitAddTbFlushEntries @ 0x1404F7974 (MiDecommitAddTbFlushEntries.c)
  */
 
 __int64 __fastcall MiDecommitLargePte(__int64 a1)
@@ -39,12 +39,12 @@ __int64 __fastcall MiDecommitLargePte(__int64 a1)
   v6 = *v2;
   v18 = *(_QWORD *)(a1 + 24);
   v7 = v6 & 1;
-  if ( !v7 && qword_140E2DB80 )
+  if ( !v7 && qword_140E2DCC0 )
   {
     if ( (v4 & 0x10) != 0 )
       v4 &= ~0x10uLL;
     else
-      v4 &= ~qword_140E2DB80;
+      v4 &= ~qword_140E2DCC0;
   }
   v8 = (v4 >> 12) & 0xFFFFFFFFFFLL;
   v9 = v2;

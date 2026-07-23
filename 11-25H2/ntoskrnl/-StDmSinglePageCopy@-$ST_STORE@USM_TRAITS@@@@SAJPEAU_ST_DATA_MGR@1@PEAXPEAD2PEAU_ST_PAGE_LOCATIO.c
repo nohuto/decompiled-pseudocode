@@ -32,7 +32,7 @@ __int64 __fastcall ST_STORE<SM_TRAITS>::StDmSinglePageCopy(
   struct VLOCK *v16; // rcx
   unsigned int v17; // ecx
   _QWORD *v18; // r13
-  int v19; // r9d
+  unsigned __int64 v19; // r9
   size_t v20; // r8
   int v22; // [rsp+40h] [rbp-58h]
   __int64 v23; // [rsp+48h] [rbp-50h] BYREF
@@ -98,7 +98,7 @@ __int64 __fastcall ST_STORE<SM_TRAITS>::StDmSinglePageCopy(
   v18 = (_QWORD *)(a5 + 8);
   v19 = v11;
   v11 = (unsigned __int64)Src;
-  v22 = SmStoreDecompressBuffer(*(_QWORD *)(a1 + 800), (_DWORD)Src, v13, v19, v17, a2, a5 + 8);
+  v22 = SmStoreDecompressBuffer(*(_QWORD *)(a1 + 800), Src, v13, v19, v17, a2, a5 + 8);
   if ( v22 == -1073741420 )
   {
     v22 = -1073741552;

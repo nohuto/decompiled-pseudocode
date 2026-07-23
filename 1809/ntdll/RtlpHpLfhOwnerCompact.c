@@ -10,40 +10,36 @@
  *     RtlpHpLfhOwnerCompact @ 0x18002098C (RtlpHpLfhOwnerCompact.c)
  */
 
-_QWORD *__fastcall RtlpHpLfhOwnerCompact(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+void __fastcall RtlpHpLfhOwnerCompact(_RTL_SRWLOCK *a1, __int64 a2, unsigned int a3)
 {
-  unsigned int v4; // ebp
-  __int64 v7; // rdi
-  __int64 v8; // rsi
-  _QWORD **v9; // rdi
-  _QWORD *result; // rax
-  volatile signed __int64 *v11; // rsi
+  __int64 v6; // rdi
+  __int64 v7; // rsi
+  _QWORD **v8; // rdi
+  _RTL_SRWLOCK *v9; // rsi
   _QWORD *i; // rbx
 
-  v4 = a3;
   if ( (*(_BYTE *)a2 & 1) != 0 )
   {
-    v7 = 0LL;
+    v6 = 0LL;
     if ( *(_BYTE *)(a2 + 2) )
     {
-      v8 = *(unsigned __int8 *)(a2 + 2);
+      v7 = *(unsigned __int8 *)(a2 + 2);
       do
       {
-        RtlpHpLfhOwnerCompact(a1, *(_QWORD *)(v7 + *(_QWORD *)(a2 + 96)), v4);
-        v7 += 8LL;
-        --v8;
+        RtlpHpLfhOwnerCompact(a1, *(_QWORD *)(v6 + *(_QWORD *)(a2 + 96)), a3);
+        v6 += 8LL;
+        --v7;
       }
-      while ( v8 );
+      while ( v7 );
     }
   }
-  v9 = (_QWORD **)(a2 + 24);
-  if ( *v9 != v9 || (result = (_QWORD *)(a2 + 40), (_QWORD *)*result != result) )
+  v8 = (_QWORD **)(a2 + 24);
+  if ( *v8 != v8 || *(_QWORD *)(a2 + 40) != a2 + 40 )
   {
-    v11 = (volatile signed __int64 *)(a2 + 16);
-    RtlAcquireSRWLockShared((volatile signed __int64 *)(a2 + 16), (char *)a2, a3, a4);
-    for ( i = *v9; i != v9; i = (_QWORD *)*i )
-      RtlpHpLfhSubsegmentDecommitPages(a1, (__int64)i, -1, 1u, v4);
-    return (_QWORD *)RtlReleaseSRWLockShared(v11);
+    v9 = (_RTL_SRWLOCK *)(a2 + 16);
+    RtlAcquireSRWLockShared((PRTL_SRWLOCK)(a2 + 16));
+    for ( i = *v8; i != v8; i = (_QWORD *)*i )
+      RtlpHpLfhSubsegmentDecommitPages(a1, (__int64)i, -1, 1u, a3);
+    RtlReleaseSRWLockShared(v9);
   }
-  return result;
 }

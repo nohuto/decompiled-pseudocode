@@ -8,18 +8,18 @@
 
 wchar_t *__cdecl wcsncpy(wchar_t *Destination, const wchar_t *Source, size_t Count)
 {
-  size_t v3; // ecx
+  int v3; // ecx
   wchar_t *v4; // edi
   wchar_t v5; // ax
-  size_t v6; // ecx
+  unsigned int v6; // ecx
   char v7; // cf
-  size_t v8; // ecx
+  unsigned int v8; // ecx
   wchar_t *v9; // edi
   int i; // ecx
 
   v3 = Count;
   v4 = Destination;
-  if ( Count )
+  if ( (_DWORD)Count )
   {
     do
     {

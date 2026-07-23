@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlUnicodeStringExHandleOtherFlags @ 0x1405D8FE0
+ * XREFs of RtlUnicodeStringExHandleOtherFlags @ 0x1405DB7E0
  * Callers:
- *     RtlUnicodeStringPrintfEx @ 0x1404DEF40 (RtlUnicodeStringPrintfEx.c)
+ *     RtlUnicodeStringPrintfEx @ 0x1404D8620 (RtlUnicodeStringPrintfEx.c)
  * Callees:
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 NTSTATUS __stdcall RtlUnicodeStringExHandleOtherFlags(

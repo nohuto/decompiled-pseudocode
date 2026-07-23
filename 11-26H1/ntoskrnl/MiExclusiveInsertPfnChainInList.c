@@ -1,14 +1,14 @@
 /*
- * XREFs of MiExclusiveInsertPfnChainInList @ 0x1402CC408
+ * XREFs of MiExclusiveInsertPfnChainInList @ 0x1402AE1C8
  * Callers:
- *     MiInsertPagesInList @ 0x1402CD600 (MiInsertPagesInList.c)
+ *     MiInsertPagesInList @ 0x1402AF3C0 (MiInsertPagesInList.c)
  * Callees:
- *     MiSetPfnNodeFlinkHigh @ 0x1402CA550 (MiSetPfnNodeFlinkHigh.c)
- *     MiMarkLockedChainAsProtected @ 0x1402CB2F0 (MiMarkLockedChainAsProtected.c)
- *     MiSetPreviousStandbyPageSecondaryNoLockAsserts @ 0x1402CB340 (MiSetPreviousStandbyPageSecondaryNoLockAsserts.c)
- *     MiPfnToStandbyLookaside @ 0x1402CBFB0 (MiPfnToStandbyLookaside.c)
- *     MiMakeTransitionPte @ 0x14030DC00 (MiMakeTransitionPte.c)
- *     MiSetPfnContainingFrame @ 0x14033BC10 (MiSetPfnContainingFrame.c)
+ *     MiSetPfnNodeFlinkHigh @ 0x1402AC310 (MiSetPfnNodeFlinkHigh.c)
+ *     MiMarkLockedChainAsProtected @ 0x1402AD0B0 (MiMarkLockedChainAsProtected.c)
+ *     MiSetPreviousStandbyPageSecondaryNoLockAsserts @ 0x1402AD100 (MiSetPreviousStandbyPageSecondaryNoLockAsserts.c)
+ *     MiPfnToStandbyLookaside @ 0x1402ADD70 (MiPfnToStandbyLookaside.c)
+ *     MiMakeTransitionPte @ 0x1402EFC80 (MiMakeTransitionPte.c)
+ *     MiSetPfnContainingFrame @ 0x14033DC90 (MiSetPfnContainingFrame.c)
  */
 
 __int64 __fastcall MiExclusiveInsertPfnChainInList(__int64 *a1, __int64 *a2)
@@ -42,8 +42,8 @@ __int64 __fastcall MiExclusiveInsertPfnChainInList(__int64 *a1, __int64 *a2)
     v6 = 0x3FFFFFFFFFLL;
     v13 = *(_QWORD *)(v2 + 16);
     v14 = (v2 - v11) / 48;
-    if ( qword_140E2D740 && (v13 & 0x10) == 0 )
-      v13 &= qword_140E2D748;
+    if ( qword_140E2D8C0 && (v13 & 0x10) == 0 )
+      v13 &= qword_140E2D8C8;
     v15 = *(_QWORD *)(v2 + 40);
     *v5 = v14 ^ (v14 ^ *v5) & 0xFFFFFF0000000000uLL;
     *(_QWORD *)(v4 + 24) = v15 ^ (v15 ^ *(_QWORD *)(v4 + 24)) & 0xFFFFFF0000000000uLL;

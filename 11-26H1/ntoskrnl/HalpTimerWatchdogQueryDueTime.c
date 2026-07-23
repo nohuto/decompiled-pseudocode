@@ -1,5 +1,5 @@
 /*
- * XREFs of HalpTimerWatchdogQueryDueTime @ 0x140585560
+ * XREFs of HalpTimerWatchdogQueryDueTime @ 0x140587A80
  * Callers:
  *     <none>
  * Callees:

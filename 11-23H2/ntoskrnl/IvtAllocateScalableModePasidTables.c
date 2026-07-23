@@ -1,19 +1,19 @@
 /*
- * XREFs of IvtAllocateScalableModePasidTables @ 0x14052B480
+ * XREFs of IvtAllocateScalableModePasidTables @ 0x14052B9D0
  * Callers:
- *     IvtAllocateTranslationStructures @ 0x14052B77C (IvtAllocateTranslationStructures.c)
- *     IvtGrowPasidTable @ 0x14052CD00 (IvtGrowPasidTable.c)
- *     IvtSetupScalableModeDefaultPasidTables @ 0x140A98FB0 (IvtSetupScalableModeDefaultPasidTables.c)
+ *     IvtAllocateTranslationStructures @ 0x14052BCCC (IvtAllocateTranslationStructures.c)
+ *     IvtGrowPasidTable @ 0x14052D250 (IvtGrowPasidTable.c)
+ *     IvtSetupScalableModeDefaultPasidTables @ 0x140A98E20 (IvtSetupScalableModeDefaultPasidTables.c)
  * Callees:
- *     KxReleaseQueuedSpinLock @ 0x140260360 (KxReleaseQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x14029CBD0 (KeAcquireInStackQueuedSpinLockAtDpcLevel.c)
- *     ExtEnvAllocateMemory @ 0x14037FC68 (ExtEnvAllocateMemory.c)
- *     memset @ 0x140435A00 (memset.c)
- *     ExtEnvAllocatePhysicalMemory @ 0x14051F280 (ExtEnvAllocatePhysicalMemory.c)
- *     IvtExtendScalableModePasidTables @ 0x14052C534 (IvtExtendScalableModePasidTables.c)
- *     IvtFreeScalableModePasidTables @ 0x14052C7D8 (IvtFreeScalableModePasidTables.c)
- *     IvtGetScalableModePasidTables @ 0x14052CCB4 (IvtGetScalableModePasidTables.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseQueuedSpinLock @ 0x1402605F0 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x14029CE60 (KeAcquireInStackQueuedSpinLockAtDpcLevel.c)
+ *     ExtEnvAllocateMemory @ 0x14037FE08 (ExtEnvAllocateMemory.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     ExtEnvAllocatePhysicalMemory @ 0x14051F7D0 (ExtEnvAllocatePhysicalMemory.c)
+ *     IvtExtendScalableModePasidTables @ 0x14052CA84 (IvtExtendScalableModePasidTables.c)
+ *     IvtFreeScalableModePasidTables @ 0x14052CD28 (IvtFreeScalableModePasidTables.c)
+ *     IvtGetScalableModePasidTables @ 0x14052D204 (IvtGetScalableModePasidTables.c)
  */
 
 __int64 __fastcall IvtAllocateScalableModePasidTables(
@@ -87,7 +87,7 @@ __int64 __fastcall IvtAllocateScalableModePasidTables(
   }
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(0xFuLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     if ( CurrentIrql == 15 )
@@ -139,10 +139,10 @@ __int64 __fastcall IvtAllocateScalableModePasidTables(
     *v27 = v28;
   }
   KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v20 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v20 <= 0xFu && CurrentIrql <= 0xFu && v20 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v20 <= 0xFu && CurrentIrql <= 0xFu && v20 >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       v22 = CurrentPrcb->SchedulerAssist;
@@ -150,7 +150,7 @@ __int64 __fastcall IvtAllocateScalableModePasidTables(
       v24 = (v23 & v22[5]) == 0;
       v22[5] &= v23;
       if ( v24 )
-        KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+        KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
       v13 = v31;
     }
   }

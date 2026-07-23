@@ -1,9 +1,9 @@
 /*
- * XREFs of SymCryptModExp @ 0x1403F9874
+ * XREFs of SymCryptModExp @ 0x1403F9A54
  * Callers:
- *     SymCryptRsaCoreEnc @ 0x1403FA114 (SymCryptRsaCoreEnc.c)
+ *     SymCryptRsaCoreEnc @ 0x1403FA2F4 (SymCryptRsaCoreEnc.c)
  * Callees:
- *     SymCryptModExpGeneric @ 0x1404091E8 (SymCryptModExpGeneric.c)
+ *     SymCryptModExpGeneric @ 0x1404093C8 (SymCryptModExpGeneric.c)
  */
 
 __int64 __fastcall SymCryptModExp(int a1, int a2, int a3, int a4, char a5, __int64 a6, __int64 a7, __int64 a8)

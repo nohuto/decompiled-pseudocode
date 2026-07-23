@@ -1,7 +1,7 @@
 /*
- * XREFs of PfpOpenHandleInitialize @ 0x140AAE5F8
+ * XREFs of PfpOpenHandleInitialize @ 0x140AAC258
  * Callers:
- *     PfpReadSupportInitialize @ 0x1404DC7A0 (PfpReadSupportInitialize.c)
+ *     PfpReadSupportInitialize @ 0x1404D5E80 (PfpReadSupportInitialize.c)
  * Callees:
  *     <none>
  */

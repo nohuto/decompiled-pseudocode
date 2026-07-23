@@ -143,8 +143,8 @@ LABEL_10:
       {
         *(_DWORD *)(v20 + 52) = *(_DWORD *)(v15 + 52) + v21;
         *(_DWORD *)(v15 + 52) = 0;
-        RtlRbRemoveNode((unsigned __int64 *)(a1 + 144), (unsigned __int64 *)v15);
-        RtlRbRemoveNode((unsigned __int64 *)(a1 + 160), (unsigned __int64 *)(v15 + 24));
+        RtlRbRemoveNode((PRTL_RB_TREE)(a1 + 144), (PRTL_BALANCED_NODE)v15);
+        RtlRbRemoveNode((PRTL_RB_TREE)(a1 + 160), (PRTL_BALANCED_NODE)(v15 + 24));
         v53 = *(unsigned __int64 **)(a1 + 184);
         *(_QWORD *)v15 = a1 + 176;
         *(_QWORD *)(v15 + 8) = v53;

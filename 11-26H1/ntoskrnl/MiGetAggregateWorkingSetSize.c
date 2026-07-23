@@ -1,7 +1,7 @@
 /*
- * XREFs of MiGetAggregateWorkingSetSize @ 0x14070DE78
+ * XREFs of MiGetAggregateWorkingSetSize @ 0x140712B28
  * Callers:
- *     MmLogSystemShareablePfnInfo @ 0x140877454 (MmLogSystemShareablePfnInfo.c)
+ *     MmLogSystemShareablePfnInfo @ 0x14087D834 (MmLogSystemShareablePfnInfo.c)
  * Callees:
  *     <none>
  */
@@ -14,7 +14,7 @@ __int64 __fastcall MiGetAggregateWorkingSetSize(__int64 a1)
 
   v1 = *(_QWORD *)(a1 + 152);
   v2 = *(_DWORD *)(a1 + 184);
-  v3 = &dword_140E37880;
+  v3 = &dword_140E37A00;
   if ( (v2 & 0xF) != 1 )
     v3 = 0LL;
   if ( v3 )

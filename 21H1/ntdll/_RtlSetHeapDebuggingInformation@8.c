@@ -23,12 +23,12 @@ int __fastcall RtlSetHeapDebuggingInformation(_DWORD *a1, _DWORD *a2)
     }
     else
     {
-      RtlEnterCriticalSection((int)&RtlpProcessHeapsListLock);
+      RtlEnterCriticalSection(&RtlpProcessHeapsListLock);
       if ( RtlpIsProtectedHeap(a1) )
         v5 = -1073741811;
       else
         v5 = RtlpSetHeapDebuggingInformation(a1, a2);
-      RtlLeaveCriticalSection((int)&RtlpProcessHeapsListLock);
+      RtlLeaveCriticalSection(&RtlpProcessHeapsListLock);
       return v5;
     }
   }

@@ -1,10 +1,10 @@
 /*
- * XREFs of _CmGetDeviceInterfaceMappedProperty @ 0x14059B38C
+ * XREFs of _CmGetDeviceInterfaceMappedProperty @ 0x14059C38C
  * Callers:
- *     _PnpDispatchDeviceInterface @ 0x14059AE70 (_PnpDispatchDeviceInterface.c)
+ *     _PnpDispatchDeviceInterface @ 0x14059BE70 (_PnpDispatchDeviceInterface.c)
  * Callees:
- *     _CmGetDeviceInterfaceMappedPropertyFromComposite @ 0x14059BAB4 (_CmGetDeviceInterfaceMappedPropertyFromComposite.c)
- *     _CmGetDeviceInterfaceMappedPropertyFromRegValue @ 0x14059EE90 (_CmGetDeviceInterfaceMappedPropertyFromRegValue.c)
+ *     _CmGetDeviceInterfaceMappedPropertyFromComposite @ 0x14059CAB4 (_CmGetDeviceInterfaceMappedPropertyFromComposite.c)
+ *     _CmGetDeviceInterfaceMappedPropertyFromRegValue @ 0x14059FE90 (_CmGetDeviceInterfaceMappedPropertyFromRegValue.c)
  */
 
 __int64 __fastcall CmGetDeviceInterfaceMappedProperty(
@@ -31,7 +31,7 @@ __int64 __fastcall CmGetDeviceInterfaceMappedProperty(
   *a9 = 0;
   if ( !a4 )
   {
-    v13 = &off_140908EF8;
+    v13 = &off_14090A1B8;
     while ( 1 )
     {
       v14 = *v13;
@@ -60,7 +60,7 @@ __int64 __fastcall CmGetDeviceInterfaceMappedProperty(
     if ( DeviceInterfaceMappedPropertyFromRegValue != -1073741802 )
       return DeviceInterfaceMappedPropertyFromRegValue;
 LABEL_6:
-    v15 = &off_140909420;
+    v15 = &off_14090A6E0;
     v16 = 0;
     while ( 1 )
     {

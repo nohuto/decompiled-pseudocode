@@ -1,5 +1,5 @@
 /*
- * XREFs of MY_WRITE_REGISTER_UCHAR @ 0x140171A88
+ * XREFs of MY_WRITE_REGISTER_UCHAR @ 0x140171F88
  * Callers:
  *     <none>
  * Callees:

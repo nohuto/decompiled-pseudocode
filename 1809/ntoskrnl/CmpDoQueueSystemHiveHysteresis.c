@@ -1,11 +1,11 @@
 /*
- * XREFs of CmpDoQueueSystemHiveHysteresis @ 0x1407EC684
+ * XREFs of CmpDoQueueSystemHiveHysteresis @ 0x1407ED884
  * Callers:
- *     CmpUpdateSystemHiveHysteresis @ 0x1405A24F4 (CmpUpdateSystemHiveHysteresis.c)
- *     CmRegisterSystemHiveLimitCallback @ 0x140763330 (CmRegisterSystemHiveLimitCallback.c)
+ *     CmpUpdateSystemHiveHysteresis @ 0x1405A34F4 (CmpUpdateSystemHiveHysteresis.c)
+ *     CmRegisterSystemHiveLimitCallback @ 0x140764520 (CmRegisterSystemHiveLimitCallback.c)
  * Callees:
- *     ExQueueWorkItem @ 0x1400D1A00 (ExQueueWorkItem.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
+ *     ExQueueWorkItem @ 0x1400D1A80 (ExQueueWorkItem.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
  */
 
 char __fastcall CmpDoQueueSystemHiveHysteresis(int a1)

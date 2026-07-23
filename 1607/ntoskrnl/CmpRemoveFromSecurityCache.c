@@ -1,11 +1,11 @@
 /*
- * XREFs of CmpRemoveFromSecurityCache @ 0x1404D97E8
+ * XREFs of CmpRemoveFromSecurityCache @ 0x1404BCDEC
  * Callers:
- *     CmpRemoveSecurityCellList @ 0x1400AB604 (CmpRemoveSecurityCellList.c)
+ *     CmpRemoveSecurityCellList @ 0x1400A9B6C (CmpRemoveSecurityCellList.c)
  * Callees:
- *     memmove @ 0x140171280 (memmove.c)
+ *     memmove @ 0x140171780 (memmove.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
- *     CmpFindSecurityCellCacheIndex @ 0x1403FDF60 (CmpFindSecurityCellCacheIndex.c)
+ *     CmpFindSecurityCellCacheIndex @ 0x1403FCE20 (CmpFindSecurityCellCacheIndex.c)
  */
 
 char __fastcall CmpRemoveFromSecurityCache(__int64 a1, int a2)

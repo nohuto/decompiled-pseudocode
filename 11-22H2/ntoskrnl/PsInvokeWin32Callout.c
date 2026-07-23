@@ -40,7 +40,7 @@ __int64 __fastcall PsInvokeWin32Callout(int a1, __int64 a2, int a3, __int64 a4)
   __int64 v4; // r11
   __int64 v5; // r10
   __int64 v7; // rbx
-  union _RTL_RUN_ONCE *Win32Callouts; // rax
+  _RTL_RUN_ONCE *Win32Callouts; // rax
   __int64 result; // rax
   int v10; // r8d
   _KPROCESS *Process; // rcx

@@ -1,12 +1,12 @@
 /*
- * XREFs of KiUnmaskSecondaryInterruptInternal @ 0x140423578
+ * XREFs of KiUnmaskSecondaryInterruptInternal @ 0x140430668
  * Callers:
- *     KeUnmaskInterrupt @ 0x140423A04 (KeUnmaskInterrupt.c)
- *     KeConnectInterrupt @ 0x140424368 (KeConnectInterrupt.c)
+ *     KeUnmaskInterrupt @ 0x140430AF4 (KeUnmaskInterrupt.c)
+ *     KeConnectInterrupt @ 0x140431458 (KeConnectInterrupt.c)
  * Callees:
- *     HalpReleaseHighLevelLock @ 0x1402C4DEC (HalpReleaseHighLevelLock.c)
- *     KiAcquireSecondaryInterruptConnectLock @ 0x1404238CC (KiAcquireSecondaryInterruptConnectLock.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     HalpReleaseHighLevelLock @ 0x14030FAAC (HalpReleaseHighLevelLock.c)
+ *     KiAcquireSecondaryInterruptConnectLock @ 0x1404309BC (KiAcquireSecondaryInterruptConnectLock.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall KiUnmaskSecondaryInterruptInternal(int a1, unsigned int a2)
@@ -14,37 +14,37 @@ __int64 __fastcall KiUnmaskSecondaryInterruptInternal(int a1, unsigned int a2)
   __int64 v3; // rsi
   KSPIN_LOCK *v4; // rbp
   unsigned int v5; // ebx
-  struct _LIST_ENTRY *Blink; // rax
-  struct _LIST_ENTRY **p_Blink; // rcx
-  struct _LIST_ENTRY **v8; // rax
+  __int64 v6; // rax
+  __int64 *v7; // rcx
+  __int64 *v8; // rax
   int v9; // edi
 
-  v3 = 3LL * (unsigned int)(a1 - 256);
-  v4 = (KSPIN_LOCK *)&KiDpcCorralLock.WaitBlock[2].WaitListEntry.Flink[v3];
+  v3 = 48LL * (unsigned int)(a1 - 256);
+  v4 = (KSPIN_LOCK *)(v3 + KiDpcCorralLock.Timer.DueTime.QuadPart);
   v5 = 0;
-  KiAcquireSecondaryInterruptConnectLock((PKSPIN_LOCK)&KiDpcCorralLock.WaitBlock[2].WaitListEntry.Flink[v3]);
-  if ( !LOBYTE(KiDpcCorralLock.WaitBlock[2].WaitListEntry.Flink[v3 + 2].Flink) )
+  KiAcquireSecondaryInterruptConnectLock((PKSPIN_LOCK)(v3 + KiDpcCorralLock.Timer.DueTime.QuadPart));
+  if ( !*(_BYTE *)(v3 + KiDpcCorralLock.Timer.DueTime.QuadPart + 32) )
   {
     v5 = 296;
 LABEL_4:
     HalpReleaseHighLevelLock(v4, 0);
     return v5;
   }
-  Blink = KiDpcCorralLock.WaitBlock[2].WaitListEntry.Flink[v3 + 2].Blink;
-  if ( !Blink )
+  v6 = *(_QWORD *)(v3 + KiDpcCorralLock.Timer.DueTime.QuadPart + 40);
+  if ( !v6 )
     goto LABEL_4;
-  p_Blink = &Blink->Blink;
-  v8 = &Blink->Blink;
+  v7 = (__int64 *)(v6 + 8);
+  v8 = (__int64 *)(v6 + 8);
   while ( 1 )
   {
-    v9 = (_DWORD)v8[12] & 1;
+    v9 = v8[12] & 1;
     if ( !v9 )
       break;
-    v8 = (struct _LIST_ENTRY **)*v8;
-    if ( v8 == p_Blink )
+    v8 = (__int64 *)*v8;
+    if ( v8 == v7 )
       goto LABEL_10;
   }
-  LOBYTE(KiDpcCorralLock.WaitBlock[2].WaitListEntry.Flink[v3 + 2].Flink) = 0;
+  *(_BYTE *)(v3 + KiDpcCorralLock.Timer.DueTime.QuadPart + 32) = 0;
 LABEL_10:
   HalpReleaseHighLevelLock(v4, 0);
   if ( !v9 )

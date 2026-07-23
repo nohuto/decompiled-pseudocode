@@ -1,17 +1,17 @@
 /*
- * XREFs of PfpProcessScenarioPhase @ 0x1407D3650
+ * XREFs of PfpProcessScenarioPhase @ 0x1407D3920
  * Callers:
- *     PfSnSetPrefetcherInformation @ 0x14074D584 (PfSnSetPrefetcherInformation.c)
- *     PfSetSuperfetchInformation @ 0x14075F994 (PfSetSuperfetchInformation.c)
+ *     PfSnSetPrefetcherInformation @ 0x14074D774 (PfSnSetPrefetcherInformation.c)
+ *     PfSetSuperfetchInformation @ 0x14075FB84 (PfSetSuperfetchInformation.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     PsGetCurrentProcessSessionId @ 0x1402A1DE0 (PsGetCurrentProcessSessionId.c)
- *     RtlGetActiveConsoleId @ 0x14035ECC0 (RtlGetActiveConsoleId.c)
- *     MmGetNextSession @ 0x14035ECF0 (MmGetNextSession.c)
- *     PfpLogScenarioEvent @ 0x1407D3AE8 (PfpLogScenarioEvent.c)
+ *     ObfDereferenceObject @ 0x140231660 (ObfDereferenceObject.c)
+ *     PsGetCurrentProcessSessionId @ 0x1402A2070 (PsGetCurrentProcessSessionId.c)
+ *     RtlGetActiveConsoleId @ 0x14035EE60 (RtlGetActiveConsoleId.c)
+ *     MmGetNextSession @ 0x14035EE90 (MmGetNextSession.c)
+ *     PfpLogScenarioEvent @ 0x1407D3DB8 (PfpLogScenarioEvent.c)
  *     PfpScenCtxScenarioSet @ 0x140A883D8 (PfpScenCtxScenarioSet.c)
- *     PfPowerActionNotify @ 0x140A9FE74 (PfPowerActionNotify.c)
- *     PfpScenCtxPrefetchWait @ 0x140AA0354 (PfpScenCtxPrefetchWait.c)
+ *     PfPowerActionNotify @ 0x140A9FCE4 (PfPowerActionNotify.c)
+ *     PfpScenCtxPrefetchWait @ 0x140AA01C4 (PfpScenCtxPrefetchWait.c)
  */
 
 __int64 __fastcall PfpProcessScenarioPhase(_DWORD *a1, char a2)
@@ -19,9 +19,9 @@ __int64 __fastcall PfpProcessScenarioPhase(_DWORD *a1, char a2)
   unsigned int v2; // edi
   int v3; // r9d
   int v4; // ecx
-  int v5; // ebx
+  ULONG v5; // ebx
   int v7; // ecx
-  int ActiveConsoleId; // ebx
+  ULONG ActiveConsoleId; // ebx
   int v9; // ebp
   void *NextSession; // rax
 

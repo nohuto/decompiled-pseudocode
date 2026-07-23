@@ -1,22 +1,22 @@
 /*
- * XREFs of PspCreateThread @ 0x140A0175C
+ * XREFs of PspCreateThread @ 0x140A7A214
  * Callers:
- *     NtCreateThread @ 0x1407EFC80 (NtCreateThread.c)
- *     NtCreateThreadEx @ 0x140A008A0 (NtCreateThreadEx.c)
- *     PsCreateSystemThreadEx @ 0x140A03170 (PsCreateSystemThreadEx.c)
+ *     NtCreateThread @ 0x1407F57E0 (NtCreateThread.c)
+ *     PsCreateSystemThreadEx @ 0x140A78DE0 (PsCreateSystemThreadEx.c)
+ *     NtCreateThreadEx @ 0x140A79100 (NtCreateThreadEx.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     ExReleaseRundownProtection_0 @ 0x140266240 (ExReleaseRundownProtection_0.c)
- *     ObfReferenceObjectWithTag @ 0x140278B30 (ObfReferenceObjectWithTag.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402BA1B0 (KiLeaveCriticalRegionUnsafe.c)
- *     ExAcquireRundownProtection_0 @ 0x1402F0590 (ExAcquireRundownProtection_0.c)
- *     PspIsProcessReadyForRemoteThread @ 0x1404B3DE0 (PspIsProcessReadyForRemoteThread.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     ObpReferenceObjectByHandleWithTag @ 0x1408FA680 (ObpReferenceObjectByHandleWithTag.c)
- *     PspAllocateThread @ 0x140A01BF0 (PspAllocateThread.c)
- *     PspInsertThread @ 0x140A026D0 (PspInsertThread.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     ExReleaseRundownProtection_0 @ 0x1402657B0 (ExReleaseRundownProtection_0.c)
+ *     ObfReferenceObjectWithTag @ 0x1402780A0 (ObfReferenceObjectWithTag.c)
+ *     ExAcquireRundownProtection_0 @ 0x1402D2610 (ExAcquireRundownProtection_0.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140304E70 (KiLeaveCriticalRegionUnsafe.c)
+ *     PspIsProcessReadyForRemoteThread @ 0x1404AD3B0 (PspIsProcessReadyForRemoteThread.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     ObpReferenceObjectByHandleWithTag @ 0x14092A610 (ObpReferenceObjectByHandleWithTag.c)
+ *     PspAllocateThread @ 0x140A7A6A8 (PspAllocateThread.c)
+ *     PspInsertThread @ 0x140A7B188 (PspInsertThread.c)
  */
 
 __int64 __fastcall PspCreateThread(
@@ -83,8 +83,8 @@ __int64 __fastcall PspCreateThread(
   {
     Thread = ObpReferenceObjectByHandleWithTag(
                a4,
-               2LL,
-               PsProcessType,
+               2,
+               (__int64)PsProcessType,
                KeGetCurrentThread()->PreviousMode,
                0x72437350u,
                &Object,

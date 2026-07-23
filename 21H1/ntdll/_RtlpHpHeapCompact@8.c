@@ -11,23 +11,23 @@
  *     _RtlpHpVsContextFreeList@12 @ 0x4B37F65A (_RtlpHpVsContextFreeList@12.c)
  */
 
-int __fastcall RtlpHpHeapCompact(int a1, int a2)
+int __fastcall RtlpHpHeapCompact(_RTL_SRWLOCK *a1, int a2)
 {
-  int v3; // esi
-  void *v4; // ecx
+  unsigned int Value; // esi
+  void *Ptr; // ecx
   int v5; // esi
   int v6; // eax
 
-  v3 = *(_DWORD *)(a1 + 12);
-  v4 = *(void **)(a1 + 176);
-  v5 = a2 | v3 & 0x13000003;
-  if ( v4 && v4 == NtCurrentTeb()->ClientId.UniqueThread )
+  Value = a1[3].Value;
+  Ptr = a1[44].Ptr;
+  v5 = a2 | Value & 0x13000003;
+  if ( Ptr && Ptr == NtCurrentTeb()->ClientId.UniqueThread )
     v5 |= 1u;
-  v6 = RtlpInterlockedFlushSList(a1 + 576);
+  v6 = RtlpInterlockedFlushSList((unsigned int)&a1[144]);
   if ( v6 )
-    RtlpHpVsContextFreeList(v6);
-  RtlpHpLfhContextCompact(a1 + 704, v5);
-  RtlpHpSegContextCompact(a1 + 256, v5);
-  RtlpHpSegContextCompact(a1 + 384, v5);
+    RtlpHpVsContextFreeList(a1 + 128, v5, v6);
+  RtlpHpLfhContextCompact(a1 + 176, v5);
+  RtlpHpSegContextCompact(&a1[64], v5);
+  RtlpHpSegContextCompact(&a1[96], v5);
   return 0;
 }

@@ -1,14 +1,14 @@
 /*
- * XREFs of VslSetupLiveDumpBufferInSk @ 0x1404FD7D8
+ * XREFs of VslSetupLiveDumpBufferInSk @ 0x1404FD758
  * Callers:
- *     HvlPrepareLivedumpDescriptor @ 0x1404F8EB4 (HvlPrepareLivedumpDescriptor.c)
+ *     HvlPrepareLivedumpDescriptor @ 0x1404F8E34 (HvlPrepareLivedumpDescriptor.c)
  * Callees:
- *     VslpEnterIumSecureMode @ 0x140262C90 (VslpEnterIumSecureMode.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     memset @ 0x140414200 (memset.c)
- *     VslpAddLiveDumpBufferChunk @ 0x1404FDC3C (VslpAddLiveDumpBufferChunk.c)
- *     VslpLiveDumpStart @ 0x1404FDF60 (VslpLiveDumpStart.c)
- *     VslpSetupLiveDumpBuffer @ 0x1404FDFEC (VslpSetupLiveDumpBuffer.c)
+ *     VslpEnterIumSecureMode @ 0x1402840D0 (VslpEnterIumSecureMode.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     VslpAddLiveDumpBufferChunk @ 0x1404FDBBC (VslpAddLiveDumpBufferChunk.c)
+ *     VslpLiveDumpStart @ 0x1404FDEE0 (VslpLiveDumpStart.c)
+ *     VslpSetupLiveDumpBuffer @ 0x1404FDF6C (VslpSetupLiveDumpBuffer.c)
  */
 
 __int64 __fastcall VslSetupLiveDumpBufferInSk(

@@ -23,7 +23,7 @@ void __fastcall BiCleanupLoadedStores(char a1)
   const wchar_t **v3; // rdi
   __int64 v4; // r14
   char IsSystemStore; // al
-  __int64 v6; // [rsp+48h] [rbp+10h] BYREF
+  HANDLE BcdStoreHandle; // [rsp+48h] [rbp+10h] BYREF
   HANDLE Handle; // [rsp+50h] [rbp+18h] BYREF
   PVOID P; // [rsp+58h] [rbp+20h] BYREF
 
@@ -32,28 +32,28 @@ void __fastcall BiCleanupLoadedStores(char a1)
   IsWinPEBoot = BiIsWinPEBoot();
   if ( (int)BiOpenKeyNonBcd(0LL, L"\\Registry\\Machine", 983103LL, &Handle) >= 0 )
   {
-    if ( (int)BiEnumerateSubKeys(Handle, &P, &v6) >= 0 && (_DWORD)v6 )
+    if ( (int)BiEnumerateSubKeys(Handle, &P, &BcdStoreHandle) >= 0 && (_DWORD)BcdStoreHandle )
     {
       v3 = (const wchar_t **)P;
-      v4 = (unsigned int)v6;
+      v4 = (unsigned int)BcdStoreHandle;
       do
       {
         if ( !wcsnicmp(*v3, L"BCD", 3uLL)
           && wcstoul(*v3 + 3, 0LL, 10) != -1
-          && (int)BiOpenKey(Handle, *v3, 131097LL, &v6) >= 0 )
+          && (int)BiOpenKey(Handle, *v3, 131097LL, &BcdStoreHandle) >= 0 )
         {
-          IsSystemStore = BiIsSystemStore(v6);
+          IsSystemStore = BiIsSystemStore(BcdStoreHandle);
           if ( (a1 & 0x10) != 0 && IsSystemStore )
           {
-            BcdForciblyUnloadStore(v6);
+            BcdForciblyUnloadStore(BcdStoreHandle);
           }
           else if ( (a1 & 8) != 0 || IsWinPEBoot || !IsSystemStore )
           {
-            BiUnloadHiveByHandle(v6, 0LL);
+            BiUnloadHiveByHandle(BcdStoreHandle, 0LL);
           }
           else
           {
-            BiCloseKey(v6);
+            BiCloseKey(BcdStoreHandle);
           }
         }
         ++v3;

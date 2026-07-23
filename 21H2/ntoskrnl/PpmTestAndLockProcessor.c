@@ -1,13 +1,13 @@
 /*
- * XREFs of PpmTestAndLockProcessor @ 0x140567A2C
+ * XREFs of PpmTestAndLockProcessor @ 0x140567C6C
  * Callers:
- *     PpmIdleExecuteTransition @ 0x1402224B0 (PpmIdleExecuteTransition.c)
- *     PpmIdleCheckCoordinatedDependencies @ 0x140565FE0 (PpmIdleCheckCoordinatedDependencies.c)
- *     PpmIdleCheckCoordinatedDependency @ 0x140566140 (PpmIdleCheckCoordinatedDependency.c)
+ *     PpmIdleExecuteTransition @ 0x1402C6DB0 (PpmIdleExecuteTransition.c)
+ *     PpmIdleCheckCoordinatedDependencies @ 0x140566220 (PpmIdleCheckCoordinatedDependencies.c)
+ *     PpmIdleCheckCoordinatedDependency @ 0x140566380 (PpmIdleCheckCoordinatedDependency.c)
  * Callees:
- *     KeAddProcessorAffinityEx @ 0x140229380 (KeAddProcessorAffinityEx.c)
- *     PpmIdleLockProcessor @ 0x140566A9C (PpmIdleLockProcessor.c)
- *     PpmIdleTransitionStall @ 0x140566F98 (PpmIdleTransitionStall.c)
+ *     KeAddProcessorAffinityEx @ 0x1402CDC80 (KeAddProcessorAffinityEx.c)
+ *     PpmIdleLockProcessor @ 0x140566CDC (PpmIdleLockProcessor.c)
+ *     PpmIdleTransitionStall @ 0x1405671D8 (PpmIdleTransitionStall.c)
  */
 
 __int64 __fastcall PpmTestAndLockProcessor(__int64 a1, _WORD *a2, __int64 a3)

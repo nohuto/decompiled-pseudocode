@@ -1,20 +1,20 @@
 /*
- * XREFs of PspTimerDelayWorkerRoutine @ 0x1405E5FD0
+ * XREFs of PspTimerDelayWorkerRoutine @ 0x1405E3570
  * Callers:
  *     <none>
  * Callees:
- *     ExReleaseRundownProtection_0 @ 0x140245670 (ExReleaseRundownProtection_0.c)
- *     ExAcquireRundownProtection @ 0x1402792A0 (ExAcquireRundownProtection.c)
- *     ObfDereferenceObjectWithTag @ 0x1403254A0 (ObfDereferenceObjectWithTag.c)
- *     PspApplyTimerDelayProcess @ 0x1405E5820 (PspApplyTimerDelayProcess.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ExReleaseRundownProtection_0 @ 0x14020DE50 (ExReleaseRundownProtection_0.c)
+ *     ExAcquireRundownProtection_0 @ 0x14022E830 (ExAcquireRundownProtection_0.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CE030 (ObfDereferenceObjectWithTag.c)
+ *     PspApplyTimerDelayProcess @ 0x1405E2DC8 (PspApplyTimerDelayProcess.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __fastcall PspTimerDelayWorkerRoutine(_QWORD *P)
 {
   __int64 v2; // r8
 
-  if ( ExAcquireRundownProtection((PEX_RUNDOWN_REF)(P[4] + 488LL)) )
+  if ( ExAcquireRundownProtection_0((PEX_RUNDOWN_REF)(P[4] + 488LL)) )
   {
     PspApplyTimerDelayProcess(P[4], 0LL, v2);
     ExReleaseRundownProtection_0((PEX_RUNDOWN_REF)(P[4] + 488LL));

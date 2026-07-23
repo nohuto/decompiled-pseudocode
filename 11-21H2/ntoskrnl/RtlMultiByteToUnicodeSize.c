@@ -4,9 +4,9 @@
  *     RtlxAnsiStringToUnicodeSize @ 0x14075A820 (RtlxAnsiStringToUnicodeSize.c)
  *     RtlxOemStringToUnicodeSize @ 0x1407F9CA0 (RtlxOemStringToUnicodeSize.c)
  * Callees:
- *     PsGetCurrentServerSiloGlobals @ 0x140347DB0 (PsGetCurrentServerSiloGlobals.c)
+ *     sub_140347DB0 @ 0x140347DB0 (sub_140347DB0.c)
  *     RtlUTF8ToUnicodeN @ 0x14075AA20 (RtlUTF8ToUnicodeN.c)
- *     RtlpIsUtf8Process @ 0x1407CDA20 (RtlpIsUtf8Process.c)
+ *     sub_1407CDA20 @ 0x1407CDA20 (sub_1407CDA20.c)
  */
 
 NTSTATUS __stdcall RtlMultiByteToUnicodeSize(
@@ -14,14 +14,14 @@ NTSTATUS __stdcall RtlMultiByteToUnicodeSize(
         const CHAR *MultiByteString,
         ULONG BytesInMultiByteString)
 {
-  _QWORD *CurrentServerSiloGlobals; // rax
+  _QWORD *v6; // rax
   ULONG v7; // edx
   __int16 v8; // r9
   __int64 v9; // r8
   __int64 v10; // rax
   signed __int32 v12[8]; // [rsp+0h] [rbp-38h] BYREF
 
-  if ( (unsigned __int8)RtlpIsUtf8Process(0LL) )
+  if ( (unsigned __int8)sub_1407CDA20(0LL) )
   {
     if ( BytesInMultiByteString )
       RtlUTF8ToUnicodeN(0LL, 0, BytesInUnicodeString, MultiByteString, BytesInMultiByteString);
@@ -31,9 +31,9 @@ NTSTATUS __stdcall RtlMultiByteToUnicodeSize(
   else
   {
     _InterlockedOr(v12, 0);
-    CurrentServerSiloGlobals = PsGetCurrentServerSiloGlobals();
-    v9 = CurrentServerSiloGlobals[151];
-    if ( *((_WORD *)CurrentServerSiloGlobals + 538) != v8 )
+    v6 = sub_140347DB0();
+    v9 = v6[151];
+    if ( *((_WORD *)v6 + 538) != v8 )
     {
       if ( !BytesInMultiByteString )
         goto LABEL_14;

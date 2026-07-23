@@ -1,13 +1,13 @@
 /*
- * XREFs of ExpCheckForWorker @ 0x14060CC08
+ * XREFs of ExpCheckForWorker @ 0x14060D158
  * Callers:
- *     ExpFreePoolChecks @ 0x1402AC3A0 (ExpFreePoolChecks.c)
- *     ExFreeHeapPool @ 0x1403230B0 (ExFreeHeapPool.c)
+ *     ExpFreePoolChecks @ 0x1402AC630 (ExpFreePoolChecks.c)
+ *     ExFreeHeapPool @ 0x140323340 (ExFreeHeapPool.c)
  * Callees:
- *     KiAcquireKobjectLockSafe @ 0x140252030 (KiAcquireKobjectLockSafe.c)
- *     PsGetNextPartition @ 0x14036AD70 (PsGetNextPartition.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiAcquireKobjectLockSafe @ 0x1402520F0 (KiAcquireKobjectLockSafe.c)
+ *     PsGetNextPartition @ 0x14036AF10 (PsGetNextPartition.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
  */
 
 _QWORD *__fastcall ExpCheckForWorker(ULONG_PTR BugCheckParameter3, __int64 a2)
@@ -56,7 +56,7 @@ _QWORD *__fastcall ExpCheckForWorker(ULONG_PTR BugCheckParameter3, __int64 a2)
           {
             CurrentIrql = KeGetCurrentIrql();
             __writecr8(2uLL);
-            if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+            if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
             {
               SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
               if ( CurrentIrql == 2 )
@@ -77,10 +77,10 @@ _QWORD *__fastcall ExpCheckForWorker(ULONG_PTR BugCheckParameter3, __int64 a2)
               v14 += 2;
             }
             _InterlockedAnd(v10, 0xFFFFFF7F);
-            if ( KiIrqlFlags )
+            if ( (_DWORD)KiIrqlFlags )
             {
               v17 = KeGetCurrentIrql();
-              if ( (KiIrqlFlags & 1) != 0 && v17 <= 0xFu && CurrentIrql <= 0xFu && v17 >= 2u )
+              if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v17 <= 0xFu && CurrentIrql <= 0xFu && v17 >= 2u )
               {
                 CurrentPrcb = KeGetCurrentPrcb();
                 v19 = CurrentPrcb->SchedulerAssist;

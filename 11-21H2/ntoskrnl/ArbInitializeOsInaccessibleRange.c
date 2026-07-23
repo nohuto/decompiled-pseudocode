@@ -1,7 +1,7 @@
 /*
  * XREFs of ArbInitializeOsInaccessibleRange @ 0x140B2D294
  * Callers:
- *     IopInitializePlugPlayServices @ 0x140B0046C (IopInitializePlugPlayServices.c)
+ *     sub_140B0046C @ 0x140B0046C (sub_140B0046C.c)
  * Callees:
  *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
  *     ZwClose @ 0x14041B940 (ZwClose.c)

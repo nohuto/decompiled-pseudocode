@@ -1,24 +1,24 @@
 /*
- * XREFs of MiDriverLoadSucceeded @ 0x140681BE4
+ * XREFs of MiDriverLoadSucceeded @ 0x140682DA4
  * Callers:
- *     MmLoadSystemImageEx @ 0x140680FF8 (MmLoadSystemImageEx.c)
- *     MiApplyHotPatchToLoadedDriver @ 0x1408543C8 (MiApplyHotPatchToLoadedDriver.c)
+ *     MmLoadSystemImageEx @ 0x1406821B8 (MmLoadSystemImageEx.c)
+ *     MiApplyHotPatchToLoadedDriver @ 0x140855628 (MiApplyHotPatchToLoadedDriver.c)
  * Callees:
  *     RtlStringCbPrintfW @ 0x1400161B0 (RtlStringCbPrintfW.c)
  *     MiDereferenceControlAreaFile @ 0x14001CA78 (MiDereferenceControlAreaFile.c)
  *     MiReferenceControlAreaFile @ 0x14001CBB0 (MiReferenceControlAreaFile.c)
  *     MiGetSystemRegionType @ 0x14004EC30 (MiGetSystemRegionType.c)
- *     MiSectionControlArea @ 0x140075E70 (MiSectionControlArea.c)
- *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
- *     DbgLoadImageSymbolsUnicode @ 0x1400F4C0C (DbgLoadImageSymbolsUnicode.c)
- *     MiSessionUpdateImageCharges @ 0x1401733A8 (MiSessionUpdateImageCharges.c)
- *     _wcsnicmp @ 0x140195A70 (_wcsnicmp.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     PsCallImageNotifyRoutines @ 0x1405F50F0 (PsCallImageNotifyRoutines.c)
- *     RtlGetNtSystemRoot @ 0x140682410 (RtlGetNtSystemRoot.c)
- *     MiCacheImageSymbols @ 0x140682438 (MiCacheImageSymbols.c)
- *     MiProtectSystemImage @ 0x14072B664 (MiProtectSystemImage.c)
+ *     MiSectionControlArea @ 0x140075E60 (MiSectionControlArea.c)
+ *     RtlInitUnicodeString @ 0x1400B99D0 (RtlInitUnicodeString.c)
+ *     DbgLoadImageSymbolsUnicode @ 0x1400F4C8C (DbgLoadImageSymbolsUnicode.c)
+ *     MiSessionUpdateImageCharges @ 0x1401734A8 (MiSessionUpdateImageCharges.c)
+ *     _wcsnicmp @ 0x140195BB0 (_wcsnicmp.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     PsCallImageNotifyRoutines @ 0x1405F60F0 (PsCallImageNotifyRoutines.c)
+ *     RtlGetNtSystemRoot @ 0x1406835D0 (RtlGetNtSystemRoot.c)
+ *     MiCacheImageSymbols @ 0x1406835F8 (MiCacheImageSymbols.c)
+ *     MiProtectSystemImage @ 0x14072C854 (MiProtectSystemImage.c)
  */
 
 __int64 __fastcall MiDriverLoadSucceeded(__int64 a1, __int64 a2, _BYTE *a3, __int64 a4, __int64 a5, char a6)
@@ -29,7 +29,7 @@ __int64 __fastcall MiDriverLoadSucceeded(__int64 a1, __int64 a2, _BYTE *a3, __in
   ULONG_PTR v12; // rbx
   wchar_t *PoolWithTag; // rbx
   __m128i v14; // xmm0
-  __int64 NtSystemRoot; // rax
+  PWSTR NtSystemRoot; // rax
   NTSTATUS v16; // eax
   __int64 result; // rax
   UNICODE_STRING DestinationString; // [rsp+30h] [rbp-50h] BYREF
@@ -72,7 +72,7 @@ __int64 __fastcall MiDriverLoadSucceeded(__int64 a1, __int64 a2, _BYTE *a3, __in
           DestinationString.Buffer = (wchar_t *)(_mm_srli_si128(v14, 8).m128i_u64[0] + 22);
           DestinationString.Length -= 22;
           NtSystemRoot = RtlGetNtSystemRoot();
-          v16 = RtlStringCbPrintfW(PoolWithTag, 0x100uLL, L"%ws%wZ", NtSystemRoot + 4, &DestinationString);
+          v16 = RtlStringCbPrintfW(PoolWithTag, 0x100uLL, L"%ws%wZ", NtSystemRoot + 2, &DestinationString);
         }
         if ( v16 >= 0 )
         {

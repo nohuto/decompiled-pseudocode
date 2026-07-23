@@ -1,9 +1,9 @@
 /*
- * XREFs of CcSetParallelFlushFile @ 0x1400E8DCC
+ * XREFs of CcSetParallelFlushFile @ 0x1400E6C6C
  * Callers:
  *     <none>
  * Callees:
- *     KeAcquireQueuedSpinLock @ 0x1400E8D30 (KeAcquireQueuedSpinLock.c)
+ *     KeAcquireQueuedSpinLock @ 0x1400E6BD0 (KeAcquireQueuedSpinLock.c)
  */
 
 void __stdcall CcSetParallelFlushFile(PFILE_OBJECT FileObject, BOOLEAN EnableParallelFlush)

@@ -1,26 +1,26 @@
 /*
- * XREFs of RtlFindClearBitsAndSet @ 0x1800C62D0
+ * XREFs of RtlFindClearBitsAndSet @ 0x1800BDE90
  * Callers:
  *     <none>
  * Callees:
- *     memset$thunk$772440563353939046 @ 0x180172030 (memset$thunk$772440563353939046.c)
+ *     memset$thunk$772440563353939046 @ 0x180171030 (memset$thunk$772440563353939046.c)
  */
 
-__int64 __fastcall RtlFindClearBitsAndSet(__int64 a1, unsigned int a2, unsigned int a3)
+ULONG __cdecl RtlFindClearBitsAndSet(PRTL_BITMAP BitMapHeader, ULONG NumberToFind, ULONG HintIndex)
 {
-  unsigned int v3; // edi
-  unsigned int v4; // r13d
-  __int64 v5; // rax
-  __int64 v6; // r10
+  ULONG v3; // edi
+  unsigned int SizeOfBitMap; // r13d
+  PRTL_BITMAP v5; // rax
+  unsigned int *Buffer; // r10
   __int64 v7; // r14
   unsigned int v8; // r9d
   __int64 v9; // rcx
-  unsigned int v10; // ebp
+  ULONG v10; // ebp
   int v11; // r12d
   unsigned int v12; // r11d
-  unsigned int v13; // edx
-  __int64 v14; // rsi
-  unsigned int v15; // r15d
+  ULONG v13; // edx
+  char *v14; // rsi
+  ULONG v15; // r15d
   unsigned __int64 v16; // rbx
   unsigned __int64 v17; // rax
   __int64 v18; // r10
@@ -33,7 +33,7 @@ __int64 __fastcall RtlFindClearBitsAndSet(__int64 a1, unsigned int a2, unsigned 
   unsigned __int64 v25; // rdx
   __int64 v26; // rdi
   __int64 v27; // rax
-  unsigned int v28; // edi
+  ULONG v28; // edi
   unsigned int v29; // r9d
   unsigned __int64 v30; // rax
   unsigned int v31; // edx
@@ -54,25 +54,25 @@ __int64 __fastcall RtlFindClearBitsAndSet(__int64 a1, unsigned int a2, unsigned 
   unsigned __int64 *v47; // r9
   __int64 v48; // rax
   __int64 v49; // [rsp+20h] [rbp-58h]
-  unsigned int v51; // [rsp+90h] [rbp+18h]
-  __int64 v52; // [rsp+98h] [rbp+20h]
+  ULONG v51; // [rsp+90h] [rbp+18h]
+  unsigned int *v52; // [rsp+98h] [rbp+20h]
 
-  v51 = a3;
+  v51 = HintIndex;
   v3 = 0;
-  v4 = *(_DWORD *)a1;
-  v5 = a1;
-  v6 = *(_QWORD *)(a1 + 8);
-  v7 = a2;
-  if ( a3 < *(_DWORD *)a1 )
-    v3 = a3;
-  v52 = *(_QWORD *)(a1 + 8);
-  v8 = v4 - 1;
-  if ( !a2 )
+  SizeOfBitMap = BitMapHeader->SizeOfBitMap;
+  v5 = BitMapHeader;
+  Buffer = BitMapHeader->Buffer;
+  v7 = NumberToFind;
+  if ( HintIndex < BitMapHeader->SizeOfBitMap )
+    v3 = HintIndex;
+  v52 = BitMapHeader->Buffer;
+  v8 = SizeOfBitMap - 1;
+  if ( !NumberToFind )
   {
     v28 = v3 & 0xFFFFFFF8;
     goto LABEL_45;
   }
-  v9 = *(_QWORD *)(a1 + 8) & 4LL;
+  v9 = (__int64)BitMapHeader->Buffer & 4;
   v49 = v9;
   v10 = v3;
   v11 = (unsigned int)v9 != 0LL ? 0x20 : 0;
@@ -80,19 +80,19 @@ __int64 __fastcall RtlFindClearBitsAndSet(__int64 a1, unsigned int a2, unsigned 
   {
     v12 = v11 + v8;
     v13 = v11 + v10;
-    v14 = v6 - (v9 != 0 ? 4 : 0);
+    v14 = (char *)Buffer - (v9 != 0 ? 4 : 0);
     if ( v8 - v10 + 1 >= (unsigned int)v7 )
     {
       v15 = v12 - v7 + 1;
-      v16 = v14 + 8 * ((unsigned __int64)v15 >> 6);
+      v16 = (unsigned __int64)&v14[8 * ((unsigned __int64)v15 >> 6)];
       v17 = (unsigned __int64)v13 >> 6;
-      v18 = *(_QWORD *)(v14 + 8 * v17) | ((1LL << (v13 & 0x3F)) - 1);
-      v19 = (unsigned __int64 *)(v14 + 8 * v17);
+      v18 = *(_QWORD *)&v14[8 * v17] | ((1LL << (v13 & 0x3F)) - 1);
+      v19 = (unsigned __int64 *)&v14[8 * v17];
       if ( (unsigned int)v7 > 0x7F )
       {
         v41 = v16 + 8;
         if ( (v15 & 0x3F) == 0 )
-          v41 = v14 + 8 * ((unsigned __int64)(v12 - (unsigned int)v7 + 1) >> 6);
+          v41 = (unsigned __int64)&v14[8 * ((unsigned __int64)(v12 - (unsigned int)v7 + 1) >> 6)];
         if ( !v18 )
         {
           v44 = 0;
@@ -121,7 +121,7 @@ LABEL_75:
             else
               v44 = 63 - v43;
 LABEL_79:
-            v28 = ((unsigned int)(((__int64)v19 - v14) >> 3) << 6) - v44;
+            v28 = ((unsigned int)(((char *)v19 - v14) >> 3) << 6) - v44;
             if ( v28 > v15 )
               goto LABEL_26;
             v45 = (unsigned int)(v7 - v44);
@@ -154,7 +154,7 @@ LABEL_79:
             v18 = *v19;
           }
           _BitScanForward64(&v30, ~v18);
-          v28 = v30 + ((unsigned int)(((__int64)v19 - v14) >> 3) << 6);
+          v28 = v30 + ((unsigned int)(((char *)v19 - v14) >> 3) << 6);
           if ( v28 <= v15 )
           {
 LABEL_42:
@@ -169,12 +169,12 @@ LABEL_42:
             v28 = -1;
           }
 LABEL_27:
-          v6 = v52;
-          a3 = v51;
+          Buffer = v52;
+          HintIndex = v51;
           goto LABEL_28;
         }
         v20 = 0;
-        v21 = (unsigned __int64 *)(v14 + 8 * ((unsigned __int64)v12 >> 6));
+        v21 = (unsigned __int64 *)&v14[8 * ((unsigned __int64)v12 >> 6)];
         while ( 1 )
         {
           if ( v18 == -1 )
@@ -227,7 +227,7 @@ LABEL_27:
         }
         LODWORD(v26) = -v20;
 LABEL_25:
-        v28 = ((unsigned int)(((__int64)v19 - v14) >> 3) << 6) + v26;
+        v28 = ((unsigned int)(((char *)v19 - v14) >> 3) << 6) + v26;
         if ( v28 <= v15 )
           goto LABEL_42;
 LABEL_26:
@@ -249,7 +249,7 @@ LABEL_26:
             v37 = 64;
           else
             v37 = 63 - v36;
-          v28 = (((unsigned int)(((__int64)v19 - v14) >> 3) + 1) << 6) - v37;
+          v28 = (((unsigned int)(((char *)v19 - v14) >> 3) + 1) << 6) - v37;
           if ( v28 > v15 )
             goto LABEL_26;
           v38 = v7 - v37;
@@ -283,24 +283,24 @@ LABEL_28:
     if ( !v10 )
       break;
     v9 = v49;
-    v29 = v7 + a3;
-    if ( (unsigned int)v7 + a3 > v4 )
-      v29 = v4;
+    v29 = v7 + HintIndex;
+    if ( (unsigned int)v7 + HintIndex > SizeOfBitMap )
+      v29 = SizeOfBitMap;
     v8 = v29 - 1;
     v10 = 0;
   }
-  v5 = a1;
+  v5 = BitMapHeader;
 LABEL_45:
   if ( v28 != -1 && (_DWORD)v7 )
   {
     v33 = v28 & 7;
-    v34 = (_BYTE *)(*(_QWORD *)(v5 + 8) + ((unsigned __int64)v28 >> 3));
+    v34 = (char *)v5->Buffer + ((unsigned __int64)v28 >> 3);
     if ( (unsigned int)(v33 + v7) > 8 )
     {
       if ( (v28 & 7) != 0 )
       {
         v7 = (unsigned int)(v33 + v7 - 8);
-        *v34++ |= byte_180180328[v33];
+        *v34++ |= byte_18017EB08[v33];
       }
       if ( (unsigned int)v7 > 8 )
       {
@@ -309,11 +309,11 @@ LABEL_45:
         v7 &= 7u;
       }
       if ( (_DWORD)v7 )
-        *v34 |= byte_180192060[v7];
+        *v34 |= byte_180191058[v7];
     }
     else
     {
-      *v34 |= byte_180192060[v7] << v33;
+      *v34 |= byte_180191058[v7] << v33;
     }
   }
   return v28;

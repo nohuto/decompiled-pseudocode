@@ -1,10 +1,10 @@
 /*
- * XREFs of IommupHvUnmapDeviceIdentityRange @ 0x1405254D4
+ * XREFs of IommupHvUnmapDeviceIdentityRange @ 0x140525A24
  * Callers:
- *     HalpIommuDomainUnmapIdentityRange @ 0x140517DD4 (HalpIommuDomainUnmapIdentityRange.c)
+ *     HalpIommuDomainUnmapIdentityRange @ 0x140518324 (HalpIommuDomainUnmapIdentityRange.c)
  * Callees:
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall IommupHvUnmapDeviceIdentityRange(ULONG_PTR BugCheckParameter3)

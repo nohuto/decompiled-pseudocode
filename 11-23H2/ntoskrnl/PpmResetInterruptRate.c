@@ -1,9 +1,9 @@
 /*
- * XREFs of PpmResetInterruptRate @ 0x140463840
+ * XREFs of PpmResetInterruptRate @ 0x140463C40
  * Callers:
  *     <none>
  * Callees:
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall PpmResetInterruptRate(_DWORD *a1)
@@ -29,7 +29,7 @@ __int64 __fastcall PpmResetInterruptRate(_DWORD *a1)
     }
     while ( v4 != v3 );
     if ( (v3 & 0x200000) != 0 )
-      KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+      KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
   }
   _enable();
   return 0LL;

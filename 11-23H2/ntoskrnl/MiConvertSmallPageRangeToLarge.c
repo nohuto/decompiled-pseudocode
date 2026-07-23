@@ -1,18 +1,18 @@
 /*
- * XREFs of MiConvertSmallPageRangeToLarge @ 0x1403B8360
+ * XREFs of MiConvertSmallPageRangeToLarge @ 0x1403B8540
  * Callers:
- *     MiFreeMdlPageRun @ 0x1402C89E0 (MiFreeMdlPageRun.c)
- *     MiFreeLargePageMemory @ 0x1402E7498 (MiFreeLargePageMemory.c)
- *     MiAllocateLargeZeroPages @ 0x1402E77E0 (MiAllocateLargeZeroPages.c)
- *     MiInitializeMdlBatchPages @ 0x1402F9310 (MiInitializeMdlBatchPages.c)
- *     MiRebuildLargePage @ 0x14046E7E8 (MiRebuildLargePage.c)
- *     MiDeleteSubsectionLargePages @ 0x14064EDA8 (MiDeleteSubsectionLargePages.c)
+ *     MiFreeMdlPageRun @ 0x1402C8C70 (MiFreeMdlPageRun.c)
+ *     MiFreeLargePageMemory @ 0x1402E7728 (MiFreeLargePageMemory.c)
+ *     MiAllocateLargeZeroPages @ 0x1402E7A70 (MiAllocateLargeZeroPages.c)
+ *     MiInitializeMdlBatchPages @ 0x1402F95A0 (MiInitializeMdlBatchPages.c)
+ *     MiRebuildLargePage @ 0x14046EBE8 (MiRebuildLargePage.c)
+ *     MiDeleteSubsectionLargePages @ 0x14064F2F8 (MiDeleteSubsectionLargePages.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x140242E40 (KeYieldProcessorEx.c)
- *     MiSetPfnTbFlushStamp @ 0x1402E1630 (MiSetPfnTbFlushStamp.c)
- *     KeShouldYieldProcessor @ 0x140333C70 (KeShouldYieldProcessor.c)
- *     MiSetPfnNodeBlinkLow @ 0x14034A2A0 (MiSetPfnNodeBlinkLow.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeYieldProcessorEx @ 0x140242F10 (KeYieldProcessorEx.c)
+ *     MiSetPfnTbFlushStamp @ 0x1402E18C0 (MiSetPfnTbFlushStamp.c)
+ *     KeShouldYieldProcessor @ 0x140333F00 (KeShouldYieldProcessor.c)
+ *     MiSetPfnNodeBlinkLow @ 0x14034A438 (MiSetPfnNodeBlinkLow.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiConvertSmallPageRangeToLarge(__int64 a1, int a2)
@@ -59,7 +59,7 @@ __int64 __fastcall MiConvertSmallPageRangeToLarge(__int64 a1, int a2)
   v6 = v3 + 48 * MiLargePageSizes[a2];
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     if ( CurrentIrql == 2 )
@@ -138,10 +138,10 @@ __int64 __fastcall MiConvertSmallPageRangeToLarge(__int64 a1, int a2)
       _InterlockedAnd64(v8 - 2, 0x7FFFFFFFFFFFFFFFuLL);
       if ( (v4 & 0xF) == 0 && CurrentIrql < 2u && KeShouldYieldProcessor() )
       {
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
           v22 = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && (unsigned __int8)(v22 - 2) <= 0xDu )
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && (unsigned __int8)(v22 - 2) <= 0xDu )
           {
             CurrentPrcb = KeGetCurrentPrcb();
             v24 = CurrentPrcb->SchedulerAssist;
@@ -155,7 +155,7 @@ __int64 __fastcall MiConvertSmallPageRangeToLarge(__int64 a1, int a2)
         __writecr8(CurrentIrql);
         v17 = KeGetCurrentIrql();
         __writecr8(2uLL);
-        if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && v17 <= 0xFu )
+        if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && v17 <= 0xFu )
         {
           v18 = KeGetCurrentPrcb()->SchedulerAssist;
           if ( v17 == 2 )
@@ -172,10 +172,10 @@ __int64 __fastcall MiConvertSmallPageRangeToLarge(__int64 a1, int a2)
     }
     while ( (unsigned __int64)(v8 - 5) < v6 );
   }
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v27 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v27 <= 0xFu && CurrentIrql <= 0xFu && v27 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v27 <= 0xFu && CurrentIrql <= 0xFu && v27 >= 2u )
     {
       v28 = KeGetCurrentPrcb();
       v29 = v28->SchedulerAssist;

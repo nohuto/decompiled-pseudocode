@@ -1,24 +1,24 @@
 /*
- * XREFs of HvHiveStartFileBacked @ 0x14097F464
+ * XREFs of HvHiveStartFileBacked @ 0x140967C74
  * Callers:
- *     CmpCreateHive @ 0x14092F538 (CmpCreateHive.c)
+ *     CmpCreateHive @ 0x140931678 (CmpCreateHive.c)
  * Callees:
- *     SetFailureLocation @ 0x1404649E0 (SetFailureLocation.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     HvMarkBaseBlockDirty @ 0x140931488 (HvMarkBaseBlockDirty.c)
- *     CmpTraceHiveMountStop @ 0x14097F67C (CmpTraceHiveMountStop.c)
- *     CmpTraceHiveMountStart @ 0x14097F70C (CmpTraceHiveMountStart.c)
- *     HvLoadHive @ 0x14098133C (HvLoadHive.c)
- *     HvpFillFileName @ 0x140A56AF4 (HvpFillFileName.c)
- *     HvpHeaderCheckSum @ 0x140BB97A0 (HvpHeaderCheckSum.c)
+ *     SetFailureLocation @ 0x14045B110 (SetFailureLocation.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     HvMarkBaseBlockDirty @ 0x1409335C8 (HvMarkBaseBlockDirty.c)
+ *     CmpTraceHiveMountStop @ 0x140967E8C (CmpTraceHiveMountStop.c)
+ *     CmpTraceHiveMountStart @ 0x140967F1C (CmpTraceHiveMountStart.c)
+ *     HvLoadHive @ 0x140969B4C (HvLoadHive.c)
+ *     HvpFillFileName @ 0x140A4E984 (HvpFillFileName.c)
+ *     HvpHeaderCheckSum @ 0x140BBB7A0 (HvpHeaderCheckSum.c)
  */
 
 __int64 __fastcall HvHiveStartFileBacked(
         ULONG_PTR a1,
         char a2,
         unsigned int a3,
-        __int64 a4,
+        unsigned int a4,
         _QWORD *a5,
         unsigned int a6,
         int a7,
@@ -40,7 +40,7 @@ __int64 __fastcall HvHiveStartFileBacked(
   int v24; // ebp
   int v25; // eax
 
-  if ( *(_DWORD *)a1 != -1092567328 || (a3 & 0xF5617CEC) != 0 || (unsigned int)a4 > 2 || (v16 = a6, a6 - 1 > 7) )
+  if ( *(_DWORD *)a1 != -1092567328 || (a3 & 0xF5617CEC) != 0 || a4 > 2 || (v16 = a6, a6 - 1 > 7) )
     __fastfail(5u);
   v17 = a3 & 0xFFFDFFFF;
   if ( !a2 )
@@ -53,10 +53,10 @@ __int64 __fastcall HvHiveStartFileBacked(
     *(_QWORD *)(a1 + 40) = a5[3];
     *(_QWORD *)(a1 + 48) = a5[4];
   }
-  if ( (_DWORD)a4 )
+  if ( a4 )
   {
     v18 = 4;
-    if ( (_DWORD)a4 == 1 )
+    if ( a4 == 1 )
       v18 = 1;
     *(_DWORD *)(a1 + 168) = v18;
   }
@@ -73,7 +73,7 @@ __int64 __fastcall HvHiveStartFileBacked(
   if ( a2 )
   {
     LOBYTE(v16) = 1;
-    v22 = (char *)guard_dispatch_icall_no_overrides(*(unsigned int *)(a1 + 132), v16, 825314627LL, a4);
+    v22 = (char *)guard_dispatch_icall_no_overrides(*(unsigned int *)(a1 + 132), v16);
     v23 = v22;
     if ( !v22 )
     {

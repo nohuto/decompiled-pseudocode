@@ -1,9 +1,9 @@
 /*
- * XREFs of KscpCopyToUserSmap @ 0x140C5EC40
+ * XREFs of KscpCopyToUserSmap @ 0x140C64C40
  * Callers:
  *     <none>
  * Callees:
- *     KscpMemcpy @ 0x140C5EE80 (KscpMemcpy.c)
+ *     KscpMemcpy @ 0x140C64E80 (KscpMemcpy.c)
  */
 
 __int64 __fastcall KscpCopyToUserSmap(unsigned __int64 a1, __int64 a2)

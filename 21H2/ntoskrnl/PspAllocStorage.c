@@ -1,10 +1,10 @@
 /*
- * XREFs of PspAllocStorage @ 0x1406C2B10
+ * XREFs of PspAllocStorage @ 0x140621810
  * Callers:
  *     PspCreateSilo @ 0x1405D90DC (PspCreateSilo.c)
- *     PspInitializeSiloStructures @ 0x140A3CBC4 (PspInitializeSiloStructures.c)
+ *     PspInitializeSiloStructures @ 0x140A3DBC4 (PspInitializeSiloStructures.c)
  * Callees:
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PspAllocStorage(_QWORD *a1)

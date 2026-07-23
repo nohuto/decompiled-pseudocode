@@ -27,7 +27,7 @@ int *__fastcall LdrpMapAndSnapDependency(__int64 a1)
   bool v2; // zf
   char v4; // si
   int DllActivationContext; // edi
-  unsigned __int64 v6; // rdx
+  __int64 v6; // rdx
   unsigned int *v7; // r8
   unsigned int v8; // r13d
   __int64 v9; // rcx
@@ -35,7 +35,7 @@ int *__fastcall LdrpMapAndSnapDependency(__int64 a1)
   __int64 v11; // r15
   unsigned int v12; // r12d
   unsigned int v13; // eax
-  __int64 Heap; // rax
+  PVOID Heap; // rax
   unsigned int v15; // r12d
   _DWORD *v16; // r15
   __int64 v17; // rcx
@@ -46,8 +46,8 @@ int *__fastcall LdrpMapAndSnapDependency(__int64 a1)
   __int64 v22; // rax
   int *result; // rax
   __int128 v24; // [rsp+30h] [rbp-20h] BYREF
-  STRING SourceString; // [rsp+40h] [rbp-10h] BYREF
-  __int64 v26; // [rsp+80h] [rbp+30h] BYREF
+  ANSI_STRING SourceString; // [rsp+40h] [rbp-10h] BYREF
+  PVOID BaseAddress; // [rsp+80h] [rbp+30h] BYREF
 
   v1 = *(_QWORD *)(a1 + 56);
   v2 = (*(_DWORD *)(a1 + 32) & 0x800000) == 0;
@@ -104,7 +104,7 @@ int *__fastcall LdrpMapAndSnapDependency(__int64 a1)
         if ( v4 )
         {
 LABEL_23:
-          Heap = RtlAllocateHeap(LdrpHeap, (NtdllBaseTag + 1572864) | 8u, 8LL * v12);
+          Heap = RtlAllocateHeap(LdrpHeap, (NtdllBaseTag + 1572864) | 8, 8LL * v12);
           *(_QWORD *)(a1 + 88) = Heap;
           if ( Heap )
           {
@@ -113,7 +113,7 @@ LABEL_23:
             *(_QWORD *)(a1 + 136) = v11;
             if ( v4 )
               *(_DWORD *)(a1 + 108) = v8 + 2;
-            v26 = 0LL;
+            BaseAddress = 0LL;
             v15 = 0;
             if ( v11 )
             {
@@ -145,7 +145,7 @@ LABEL_23:
                   DllActivationContext = LdrpLoadDependentModuleA(
                                            &SourceString,
                                            *(_QWORD *)(a1 + 88) + 8LL * v15,
-                                           (__int64)&v26);
+                                           (__int64)&BaseAddress);
                   if ( DllActivationContext < 0 )
                     break;
                 }
@@ -157,17 +157,17 @@ LABEL_23:
             }
             if ( v4 )
             {
-              DependentModuleW = LdrpLoadDependentModuleW((unsigned int)&v24, a1, v1, 0, a1 + 96, (__int64)&v26);
+              DependentModuleW = LdrpLoadDependentModuleW((unsigned int)&v24, a1, v1, 0, a1 + 96, (__int64)&BaseAddress);
               DllActivationContext = DependentModuleW;
               if ( DependentModuleW < 0 )
                 LdrpLogEtwHotPatchStatus(LdrpImageEntry + 88, v1, (unsigned int)&v24, DependentModuleW, 5);
             }
-            v7 = (unsigned int *)v26;
-            if ( v26 )
-              RtlFreeHeap(LdrpHeap, 0, v26);
+            v7 = (unsigned int *)BaseAddress;
+            if ( BaseAddress )
+              RtlFreeHeap(LdrpHeap, 0, BaseAddress);
             if ( DllActivationContext >= 0 )
             {
-              RtlAcquireSRWLockExclusive((unsigned __int64)&LdrpModuleDatatableLock, v6, (unsigned __int64)v7, 0LL);
+              RtlAcquireSRWLockExclusive(&LdrpModuleDatatableLock);
               v8 = --*(_DWORD *)(a1 + 108);
               RtlReleaseSRWLockExclusive(&LdrpModuleDatatableLock);
             }

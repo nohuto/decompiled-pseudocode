@@ -6,18 +6,18 @@
  *     RtlpHpHeapCreate @ 0x180066018 (RtlpHpHeapCreate.c)
  */
 
-__int64 __fastcall RtlpHpMetadataHeapCreate(__int64 a1, __int128 *a2)
+__int64 __fastcall RtlpHpMetadataHeapCreate(PRTL_RUN_ONCE a1, __int128 *a2, PVOID *a3)
 {
-  __int64 v3; // rdx
+  _RTL_RUN_ONCE v4; // rdx
   __int64 result; // rax
-  __int128 v5; // [rsp+20h] [rbp-18h] BYREF
+  __int128 v6; // [rsp+20h] [rbp-18h] BYREF
 
-  v5 = *a2;
-  v3 = RtlpHpHeapCreate(0LL, 0LL, 0LL, &v5);
+  v6 = *a2;
+  v4.Value = RtlpHpHeapCreate(0LL, 0LL, 0LL, &v6);
   result = 0LL;
-  if ( v3 )
+  if ( v4.Value )
   {
-    *(_QWORD *)(a1 - 8) = v3;
+    a1[-1].Ptr = v4.Ptr;
     return 1LL;
   }
   return result;

@@ -1,13 +1,13 @@
 /*
- * XREFs of PopStatsMarkPowerRequestActive @ 0x14062BDC0
+ * XREFs of PopStatsMarkPowerRequestActive @ 0x1406709E8
  * Callers:
- *     PopUpdatePowerRequestProcessWakeCounter @ 0x14067BC50 (PopUpdatePowerRequestProcessWakeCounter.c)
+ *     PopUpdatePowerRequestProcessWakeCounter @ 0x14066F390 (PopUpdatePowerRequestProcessWakeCounter.c)
  * Callees:
- *     PoStartStopWatch @ 0x140263F5C (PoStartStopWatch.c)
- *     PopReleaseRwLock @ 0x14027C284 (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x140281AD4 (PopAcquireRwLockExclusive.c)
- *     PopLogPowerRequestAction @ 0x14062B588 (PopLogPowerRequestAction.c)
- *     PopGetStopWatchByRequestType @ 0x14062BEE8 (PopGetStopWatchByRequestType.c)
+ *     PopReleaseRwLock @ 0x14026A224 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x14026FD14 (PopAcquireRwLockExclusive.c)
+ *     PoStartStopWatch @ 0x14027137C (PoStartStopWatch.c)
+ *     PopLogPowerRequestAction @ 0x14066FB30 (PopLogPowerRequestAction.c)
+ *     PopGetStopWatchByRequestType @ 0x140670B10 (PopGetStopWatchByRequestType.c)
  */
 
 void __fastcall PopStatsMarkPowerRequestActive(__int64 a1)

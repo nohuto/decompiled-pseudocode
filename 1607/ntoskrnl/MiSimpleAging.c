@@ -1,16 +1,16 @@
 /*
- * XREFs of MiSimpleAging @ 0x1400AC264
+ * XREFs of MiSimpleAging @ 0x1400AA7CC
  * Callers:
- *     MiAllocateWsle @ 0x14003C0F0 (MiAllocateWsle.c)
- *     MiReplaceWorkingSetEntryIfNecessary @ 0x1401E9EA0 (MiReplaceWorkingSetEntryIfNecessary.c)
+ *     MiAllocateWsle @ 0x14003BC70 (MiAllocateWsle.c)
+ *     MiReplaceWorkingSetEntryIfNecessary @ 0x1401E9CCC (MiReplaceWorkingSetEntryIfNecessary.c)
  * Callees:
- *     MiRotateHeadWsle @ 0x140016DF0 (MiRotateHeadWsle.c)
- *     MiGetSharedWorkingSetList @ 0x140047070 (MiGetSharedWorkingSetList.c)
- *     MiFlushTbList @ 0x1400E0490 (MiFlushTbList.c)
- *     MiClearPteAccessed @ 0x1400E1EF0 (MiClearPteAccessed.c)
- *     MiTbFlushType @ 0x140100DBC (MiTbFlushType.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1401F25D0 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiRotateHeadWsle @ 0x140016970 (MiRotateHeadWsle.c)
+ *     MiGetSharedWorkingSetList @ 0x140046BF0 (MiGetSharedWorkingSetList.c)
+ *     MiFlushTbList @ 0x1400DE330 (MiFlushTbList.c)
+ *     MiClearPteAccessed @ 0x1400DFD90 (MiClearPteAccessed.c)
+ *     MiTbFlushType @ 0x1400FEB3C (MiTbFlushType.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1401F23FC (MI_READ_PTE_LOCK_FREE.c)
  */
 
 void __fastcall MiSimpleAging(__int64 a1)
@@ -73,7 +73,7 @@ void __fastcall MiSimpleAging(__int64 a1)
           else
             v12 = v11 & 0xFFFFFFFFFFFFLL;
           v13 = MI_READ_PTE_LOCK_FREE(((v12 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL);
-          MiClearPteAccessed(a1, 48 * (v13 >> 12), v15, v14, (__int64)&v16, dword_140327188);
+          MiClearPteAccessed(a1, 48 * (v13 >> 12), v15, v14, (__int64)&v16, dword_1403271C8);
         }
       }
       MiFlushTbList(&v16);

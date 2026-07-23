@@ -1,10 +1,10 @@
 /*
- * XREFs of rbc_InitializeFeatureStaging @ 0x1401B6D58
+ * XREFs of rbc_InitializeFeatureStaging @ 0x1401B6EC0
  * Callers:
- *     SeRmInitPhase1 @ 0x1409C61C4 (SeRmInitPhase1.c)
+ *     SeRmInitPhase1 @ 0x1409C71C4 (SeRmInitPhase1.c)
  * Callees:
- *     reg_FeatureDescriptors_SkipPadding @ 0x1401B2F14 (reg_FeatureDescriptors_SkipPadding.c)
- *     EvaluateFeature @ 0x1401B373C (EvaluateFeature.c)
+ *     reg_FeatureDescriptors_SkipPadding @ 0x1401B3054 (reg_FeatureDescriptors_SkipPadding.c)
+ *     EvaluateFeature @ 0x1401B4018 (EvaluateFeature.c)
  */
 
 __int64 rbc_InitializeFeatureStaging()
@@ -13,7 +13,7 @@ __int64 rbc_InitializeFeatureStaging()
   unsigned int **v1; // rax
   unsigned int **v2; // rbx
 
-  for ( i = &reg_FeatureDescriptors_a; ; i = v2 + 5 )
+  for ( i = &g_Feature_1627116858_61432006_FeatureDescriptorDetails; ; i = v2 + 5 )
   {
     v1 = (unsigned int **)reg_FeatureDescriptors_SkipPadding(i);
     v2 = v1;

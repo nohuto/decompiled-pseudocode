@@ -1,15 +1,20 @@
 /*
- * XREFs of ZwQueryWnfStateNameInformation @ 0x1403FD040
+ * XREFs of ZwQueryWnfStateNameInformation @ 0x1403FD220
  * Callers:
- *     RtlRaiseCustomSystemEventTrigger @ 0x14058E5E0 (RtlRaiseCustomSystemEventTrigger.c)
- *     DbgkpStartSystemErrorHandler @ 0x140887850 (DbgkpStartSystemErrorHandler.c)
+ *     RtlRaiseCustomSystemEventTrigger @ 0x14058E810 (RtlRaiseCustomSystemEventTrigger.c)
+ *     DbgkpStartSystemErrorHandler @ 0x1408879B0 (DbgkpStartSystemErrorHandler.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwQueryWnfStateNameInformation(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwQueryWnfStateNameInformation(
+        PCWNF_STATE_NAME StateName,
+        WNF_STATE_NAME_INFORMATION NameInfoClass,
+        const void *ExplicitScope,
+        PVOID InfoBuffer,
+        ULONG InfoBufferSize)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(StateName);
 }

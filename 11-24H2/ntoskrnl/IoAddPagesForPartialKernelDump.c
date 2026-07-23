@@ -1,15 +1,15 @@
 /*
- * XREFs of IoAddPagesForPartialKernelDump @ 0x14059FF50
+ * XREFs of IoAddPagesForPartialKernelDump @ 0x14059CE74
  * Callers:
- *     IoWriteCrashDump @ 0x1405927D4 (IoWriteCrashDump.c)
+ *     IoWriteCrashDump @ 0x14058F7F8 (IoWriteCrashDump.c)
  * Callees:
- *     MmIsAddressValidEx @ 0x140262FC0 (MmIsAddressValidEx.c)
- *     IoSaveBugCheckProgress @ 0x140591F10 (IoSaveBugCheckProgress.c)
- *     IopDumpCallRemovePagesCallbacks @ 0x140593BF4 (IopDumpCallRemovePagesCallbacks.c)
- *     IopAddLiveDumpPagesToPartialKernelDump @ 0x1405A03BC (IopAddLiveDumpPagesToPartialKernelDump.c)
- *     IopAddMiniDumpPagesToPartialKernelDump @ 0x1405A0708 (IopAddMiniDumpPagesToPartialKernelDump.c)
- *     IopCompactRemovePagesArray @ 0x1405A0A44 (IopCompactRemovePagesArray.c)
- *     ExpHeapDumpEnumLargeAllocs @ 0x14065A17C (ExpHeapDumpEnumLargeAllocs.c)
+ *     MmIsAddressValidEx @ 0x140244560 (MmIsAddressValidEx.c)
+ *     IoSaveBugCheckProgress @ 0x14058EF30 (IoSaveBugCheckProgress.c)
+ *     IopDumpCallRemovePagesCallbacks @ 0x140590C18 (IopDumpCallRemovePagesCallbacks.c)
+ *     IopAddLiveDumpPagesToPartialKernelDump @ 0x14059D2EC (IopAddLiveDumpPagesToPartialKernelDump.c)
+ *     IopAddMiniDumpPagesToPartialKernelDump @ 0x14059D638 (IopAddMiniDumpPagesToPartialKernelDump.c)
+ *     IopCompactRemovePagesArray @ 0x14059D974 (IopCompactRemovePagesArray.c)
+ *     ExpHeapDumpEnumLargeAllocs @ 0x14065881C (ExpHeapDumpEnumLargeAllocs.c)
  */
 
 __int64 __fastcall IoAddPagesForPartialKernelDump(int a1, int a2, int a3, int a4, __int64 a5, __int64 a6, __int64 a7)
@@ -26,11 +26,11 @@ __int64 __fastcall IoAddPagesForPartialKernelDump(int a1, int a2, int a3, int a4
   IoSaveBugCheckProgress(34);
   if ( MmIsAddressValidEx((__int64)IopRemoveLargeAllocsFromPartialDump) )
   {
-    for ( i = 0; i < dword_140E6BC10; ++i )
+    for ( i = 0; i < dword_140E6BE10; ++i )
     {
       for ( j = 0LL; (unsigned int)j <= 1; j = (unsigned int)(j + 1) )
       {
-        if ( *((_QWORD *)&unk_140E6BC40 + 1048 * i + j) && (int)ExpHeapDumpEnumLargeAllocs() < 0 )
+        if ( *((_QWORD *)&unk_140E6BE40 + 1048 * i + j) && (int)ExpHeapDumpEnumLargeAllocs() < 0 )
           goto LABEL_9;
       }
     }

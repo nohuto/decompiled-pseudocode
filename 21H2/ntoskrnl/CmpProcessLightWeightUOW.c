@@ -1,27 +1,27 @@
 /*
- * XREFs of CmpProcessLightWeightUOW @ 0x1406A3E64
+ * XREFs of CmpProcessLightWeightUOW @ 0x1405E1934
  * Callers:
- *     CmpCommitPreparedLightWeightTransaction @ 0x1406A3444 (CmpCommitPreparedLightWeightTransaction.c)
- *     CmpPrepareLightWeightTransaction @ 0x1406A3574 (CmpPrepareLightWeightTransaction.c)
+ *     CmpCommitPreparedLightWeightTransaction @ 0x1405DF198 (CmpCommitPreparedLightWeightTransaction.c)
+ *     CmpPrepareLightWeightTransaction @ 0x1405DF2C8 (CmpPrepareLightWeightTransaction.c)
  * Callees:
  *     CmpLightWeightCommitRecreateKeyUoW @ 0x1405CD7BC (CmpLightWeightCommitRecreateKeyUoW.c)
  *     CmpLightWeightPrepareRecreateKeyUoW @ 0x1405CD868 (CmpLightWeightPrepareRecreateKeyUoW.c)
- *     CmpSignalDeferredPosts @ 0x140667890 (CmpSignalDeferredPosts.c)
- *     CmpReportNotify @ 0x1406A405C (CmpReportNotify.c)
- *     CmpLightWeightCommitSetValueKeyUoW @ 0x1406A40E8 (CmpLightWeightCommitSetValueKeyUoW.c)
- *     CmpLightWeightPrepareSetValueKeyUoW @ 0x1406A4248 (CmpLightWeightPrepareSetValueKeyUoW.c)
- *     CmpLightWeightPrepareDeleteValueKeyUoW @ 0x1407319B8 (CmpLightWeightPrepareDeleteValueKeyUoW.c)
- *     CmpLightWeightCommitDeleteValueKeyUoW @ 0x14073293C (CmpLightWeightCommitDeleteValueKeyUoW.c)
- *     CmpLightWeightCommitSetUserFlagsUoW @ 0x140732E34 (CmpLightWeightCommitSetUserFlagsUoW.c)
- *     CmpLightWeightPrepareSetKeyUserFlags @ 0x140733184 (CmpLightWeightPrepareSetKeyUserFlags.c)
- *     CmpLightWeightCommitAddKeyUoW @ 0x14087EB4C (CmpLightWeightCommitAddKeyUoW.c)
- *     CmpLightWeightCommitDeleteKeyUoW @ 0x14087ECD4 (CmpLightWeightCommitDeleteKeyUoW.c)
- *     CmpLightWeightCommitRenameKeyUoW @ 0x14087EEC4 (CmpLightWeightCommitRenameKeyUoW.c)
- *     CmpLightWeightCommitSetSecDescUoW @ 0x14087F0BC (CmpLightWeightCommitSetSecDescUoW.c)
- *     CmpLightWeightPrepareAddKeyUoW @ 0x14087F3B4 (CmpLightWeightPrepareAddKeyUoW.c)
- *     CmpLightWeightPrepareDeleteKeyUoW @ 0x14087F610 (CmpLightWeightPrepareDeleteKeyUoW.c)
- *     CmpLightWeightPrepareRenameKeyUoW @ 0x14087F7C4 (CmpLightWeightPrepareRenameKeyUoW.c)
- *     CmpLightWeightPrepareSetSecDescUoW @ 0x14087FAF0 (CmpLightWeightPrepareSetSecDescUoW.c)
+ *     CmpReportNotify @ 0x1405E1B2C (CmpReportNotify.c)
+ *     CmpLightWeightCommitSetValueKeyUoW @ 0x1405E1BB8 (CmpLightWeightCommitSetValueKeyUoW.c)
+ *     CmpLightWeightPrepareSetValueKeyUoW @ 0x1405E1D18 (CmpLightWeightPrepareSetValueKeyUoW.c)
+ *     CmpSignalDeferredPosts @ 0x14065C6B0 (CmpSignalDeferredPosts.c)
+ *     CmpLightWeightPrepareDeleteValueKeyUoW @ 0x140731B78 (CmpLightWeightPrepareDeleteValueKeyUoW.c)
+ *     CmpLightWeightCommitDeleteValueKeyUoW @ 0x140732AFC (CmpLightWeightCommitDeleteValueKeyUoW.c)
+ *     CmpLightWeightCommitSetUserFlagsUoW @ 0x140732FF4 (CmpLightWeightCommitSetUserFlagsUoW.c)
+ *     CmpLightWeightPrepareSetKeyUserFlags @ 0x140733344 (CmpLightWeightPrepareSetKeyUserFlags.c)
+ *     CmpLightWeightCommitAddKeyUoW @ 0x14087ECAC (CmpLightWeightCommitAddKeyUoW.c)
+ *     CmpLightWeightCommitDeleteKeyUoW @ 0x14087EE34 (CmpLightWeightCommitDeleteKeyUoW.c)
+ *     CmpLightWeightCommitRenameKeyUoW @ 0x14087F024 (CmpLightWeightCommitRenameKeyUoW.c)
+ *     CmpLightWeightCommitSetSecDescUoW @ 0x14087F21C (CmpLightWeightCommitSetSecDescUoW.c)
+ *     CmpLightWeightPrepareAddKeyUoW @ 0x14087F514 (CmpLightWeightPrepareAddKeyUoW.c)
+ *     CmpLightWeightPrepareDeleteKeyUoW @ 0x14087F770 (CmpLightWeightPrepareDeleteKeyUoW.c)
+ *     CmpLightWeightPrepareRenameKeyUoW @ 0x14087F924 (CmpLightWeightPrepareRenameKeyUoW.c)
+ *     CmpLightWeightPrepareSetSecDescUoW @ 0x14087FC50 (CmpLightWeightPrepareSetSecDescUoW.c)
  */
 
 __int64 __fastcall CmpProcessLightWeightUOW(__int64 a1, _QWORD *a2, int a3, __int64 a4)
@@ -30,7 +30,7 @@ __int64 __fastcall CmpProcessLightWeightUOW(__int64 a1, _QWORD *a2, int a3, __in
   unsigned int v9; // ebx
   int v10; // eax
   __int64 v11; // r8
-  _QWORD *v13[3]; // [rsp+20h] [rbp-18h] BYREF
+  _QWORD v13[3]; // [rsp+20h] [rbp-18h] BYREF
 
   v13[1] = v13;
   v13[0] = v13;
@@ -49,7 +49,7 @@ __int64 __fastcall CmpProcessLightWeightUOW(__int64 a1, _QWORD *a2, int a3, __in
       CmpLightWeightCommitSetSecDescUoW(a1, a2);
       v11 = 10LL;
 LABEL_46:
-      ((void (__fastcall *)(_QWORD, _QWORD, __int64, _QWORD **))CmpReportNotify)(*(_QWORD *)(a1 + 48), 0LL, v11, v13);
+      ((void (__fastcall *)(_QWORD, _QWORD, __int64, _QWORD *))CmpReportNotify)(*(_QWORD *)(a1 + 48), 0LL, v11, v13);
       goto LABEL_47;
     }
     if ( v8 <= 11 )
@@ -110,11 +110,7 @@ LABEL_24:
             goto LABEL_14;
           }
           CmpLightWeightCommitDeleteValueKeyUoW(a1, a2, a4);
-          ((void (__fastcall *)(_QWORD, _QWORD, __int64, _QWORD **))CmpReportNotify)(
-            *(_QWORD *)(a1 + 48),
-            0LL,
-            4LL,
-            v13);
+          ((void (__fastcall *)(_QWORD, _QWORD, __int64, _QWORD *))CmpReportNotify)(*(_QWORD *)(a1 + 48), 0LL, 4LL, v13);
 LABEL_13:
           if ( a3 )
           {
@@ -144,7 +140,7 @@ LABEL_47:
   }
   if ( a3 )
   {
-    ((void (__fastcall *)(_QWORD, _QWORD, __int64, _QWORD **))CmpReportNotify)(*(_QWORD *)(a1 + 48), 0LL, 1LL, v13);
+    ((void (__fastcall *)(_QWORD, _QWORD, __int64, _QWORD *))CmpReportNotify)(*(_QWORD *)(a1 + 48), 0LL, 1LL, v13);
     CmpLightWeightCommitDeleteKeyUoW(a1, a2, a4);
     goto LABEL_47;
   }

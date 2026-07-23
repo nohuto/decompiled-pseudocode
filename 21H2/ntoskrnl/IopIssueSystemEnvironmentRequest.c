@@ -1,16 +1,16 @@
 /*
- * XREFs of IopIssueSystemEnvironmentRequest @ 0x14089A928
+ * XREFs of IopIssueSystemEnvironmentRequest @ 0x14089AA88
  * Callers:
- *     IopIssueTrEERequest @ 0x14050AC40 (IopIssueTrEERequest.c)
- *     IopEnumerateEnvironmentVariablesSysEnv @ 0x14089A110 (IopEnumerateEnvironmentVariablesSysEnv.c)
- *     IopGetEnvironmentVariableSysEnv @ 0x14089A610 (IopGetEnvironmentVariableSysEnv.c)
- *     IopQueryEnvironmentVariableInfoSysEnv @ 0x14089ABF0 (IopQueryEnvironmentVariableInfoSysEnv.c)
- *     IopSetEnvironmentVariableSysEnv @ 0x14089ADC0 (IopSetEnvironmentVariableSysEnv.c)
+ *     IopIssueTrEERequest @ 0x14050AE80 (IopIssueTrEERequest.c)
+ *     IopEnumerateEnvironmentVariablesSysEnv @ 0x14089A270 (IopEnumerateEnvironmentVariablesSysEnv.c)
+ *     IopGetEnvironmentVariableSysEnv @ 0x14089A770 (IopGetEnvironmentVariableSysEnv.c)
+ *     IopQueryEnvironmentVariableInfoSysEnv @ 0x14089AD50 (IopQueryEnvironmentVariableInfoSysEnv.c)
+ *     IopSetEnvironmentVariableSysEnv @ 0x14089AF20 (IopSetEnvironmentVariableSysEnv.c)
  * Callees:
- *     IoBuildDeviceIoControlRequest @ 0x14022C130 (IoBuildDeviceIoControlRequest.c)
- *     KeExpandKernelStackAndCalloutEx @ 0x140329FC0 (KeExpandKernelStackAndCalloutEx.c)
- *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
- *     KeInitializeEvent @ 0x1403538F0 (KeInitializeEvent.c)
+ *     IoBuildDeviceIoControlRequest @ 0x1402D09B0 (IoBuildDeviceIoControlRequest.c)
+ *     KeExpandKernelStackAndCalloutEx @ 0x140334D10 (KeExpandKernelStackAndCalloutEx.c)
+ *     KeWaitForSingleObject @ 0x1403504C0 (KeWaitForSingleObject.c)
+ *     KeInitializeEvent @ 0x14035E640 (KeInitializeEvent.c)
  */
 
 __int64 __fastcall IopIssueSystemEnvironmentRequest(

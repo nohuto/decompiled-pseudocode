@@ -1,24 +1,24 @@
 /*
- * XREFs of MmCopyVirtualMemory @ 0x14050BE60
+ * XREFs of MmCopyVirtualMemory @ 0x1404EEDF0
  * Callers:
- *     PsQueryProcessCommandLine @ 0x1400B2134 (PsQueryProcessCommandLine.c)
- *     NtQueryInformationProcess @ 0x140422590 (NtQueryInformationProcess.c)
- *     MiReadWriteVirtualMemory @ 0x14050BC60 (MiReadWriteVirtualMemory.c)
- *     NtQueryInformationThread @ 0x140519650 (NtQueryInformationThread.c)
- *     AlpcpCopyRequestData @ 0x140655200 (AlpcpCopyRequestData.c)
+ *     PsQueryProcessCommandLine @ 0x1400B0074 (PsQueryProcessCommandLine.c)
+ *     NtQueryInformationProcess @ 0x140421450 (NtQueryInformationProcess.c)
+ *     MiReadWriteVirtualMemory @ 0x1404EEBF0 (MiReadWriteVirtualMemory.c)
+ *     NtQueryInformationThread @ 0x1404FCA40 (NtQueryInformationThread.c)
+ *     AlpcpCopyRequestData @ 0x1406552E4 (AlpcpCopyRequestData.c)
  * Callees:
- *     LOCK_ADDRESS_SPACE @ 0x14002C390 (LOCK_ADDRESS_SPACE.c)
- *     UNLOCK_ADDRESS_SPACE @ 0x14002CFD0 (UNLOCK_ADDRESS_SPACE.c)
- *     MmProbeAndLockPages @ 0x14002F120 (MmProbeAndLockPages.c)
- *     MmUnlockPages @ 0x140051A80 (MmUnlockPages.c)
- *     KiStackAttachProcess @ 0x1400CD1F0 (KiStackAttachProcess.c)
- *     KiUnstackDetachProcess @ 0x1400CE820 (KiUnstackDetachProcess.c)
- *     MmMapLockedPagesSpecifyCache @ 0x1400DE220 (MmMapLockedPagesSpecifyCache.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     memmove @ 0x140171280 (memmove.c)
+ *     LOCK_ADDRESS_SPACE @ 0x14002BF10 (LOCK_ADDRESS_SPACE.c)
+ *     UNLOCK_ADDRESS_SPACE @ 0x14002CB50 (UNLOCK_ADDRESS_SPACE.c)
+ *     MmProbeAndLockPages @ 0x14002ECA0 (MmProbeAndLockPages.c)
+ *     MmUnlockPages @ 0x140051600 (MmUnlockPages.c)
+ *     KiStackAttachProcess @ 0x1400CB090 (KiStackAttachProcess.c)
+ *     KiUnstackDetachProcess @ 0x1400CC6C0 (KiUnstackDetachProcess.c)
+ *     MmMapLockedPagesSpecifyCache @ 0x1400DC0C0 (MmMapLockedPagesSpecifyCache.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     memmove @ 0x140171780 (memmove.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     MiDbgReadWriteEnclave @ 0x14065F178 (MiDbgReadWriteEnclave.c)
+ *     MiDbgReadWriteEnclave @ 0x14065F25C (MiDbgReadWriteEnclave.c)
  */
 
 __int64 __fastcall MmCopyVirtualMemory(
@@ -137,7 +137,7 @@ __int64 __fastcall MmCopyVirtualMemory(
       v9 = BugCheckParameter1;
     }
     v17 = 0LL;
-    if ( !*(_DWORD *)(qword_140327F90 + 276840556) )
+    if ( !*(_DWORD *)(qword_140327FD0 + 276840556) )
     {
       v70 = v11;
       goto LABEL_7;
@@ -287,7 +287,7 @@ LABEL_7:
       v22 = (__int64)a3;
     }
     v23 = 0LL;
-    if ( !*(_DWORD *)(qword_140327F90 + 276840556) )
+    if ( !*(_DWORD *)(qword_140327FD0 + 276840556) )
     {
       v11 = Size;
       v24 = Size;

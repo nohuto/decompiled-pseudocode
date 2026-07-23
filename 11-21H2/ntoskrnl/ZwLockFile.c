@@ -20,5 +20,5 @@ NTSTATUS __stdcall ZwLockFile(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(FileHandle, Event);
+  return sub_140433F80(FileHandle, Event);
 }

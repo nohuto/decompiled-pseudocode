@@ -1,9 +1,9 @@
 /*
- * XREFs of Feature_Servicing_MmStPoolCorruptionRaceCondition__private_IsEnabledNoReporting @ 0x14041A120
+ * XREFs of Feature_Servicing_MmStPoolCorruptionRaceCondition__private_IsEnabledNoReporting @ 0x14041A4B0
  * Callers:
- *     MiStealPage @ 0x1403BC3DC (MiStealPage.c)
+ *     MiStealPage @ 0x1403BC5BC (MiStealPage.c)
  * Callees:
- *     Feature_Servicing_MmStPoolCorruptionRaceCondition__private_IsEnabledFallback @ 0x14041A100 (Feature_Servicing_MmStPoolCorruptionRaceCondition__private_IsEnabledFallback.c)
+ *     Feature_Servicing_MmStPoolCorruptionRaceCondition__private_IsEnabledFallback @ 0x14041A490 (Feature_Servicing_MmStPoolCorruptionRaceCondition__private_IsEnabledFallback.c)
  */
 
 __int64 Feature_Servicing_MmStPoolCorruptionRaceCondition__private_IsEnabledNoReporting()

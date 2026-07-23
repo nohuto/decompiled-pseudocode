@@ -1,24 +1,28 @@
 /*
- * XREFs of NtSignalAndWaitForSingleObject @ 0x1403C29A0
+ * XREFs of NtSignalAndWaitForSingleObject @ 0x1403B1560
  * Callers:
  *     <none>
  * Callees:
- *     KeSetEvent @ 0x1402725A0 (KeSetEvent.c)
- *     KeReleaseSemaphoreEx @ 0x1402A1600 (KeReleaseSemaphoreEx.c)
- *     KeReleaseMutantEx @ 0x1403379F0 (KeReleaseMutantEx.c)
- *     KeWaitForSingleObject @ 0x14033E960 (KeWaitForSingleObject.c)
- *     ObpPushStackInfo @ 0x1403407AC (ObpPushStackInfo.c)
- *     KeAreAllApcsDisabled @ 0x1403C3440 (KeAreAllApcsDisabled.c)
- *     OBJECT_HEADER_TO_HANDLE_REVOCATION_INFO @ 0x1403C3480 (OBJECT_HEADER_TO_HANDLE_REVOCATION_INFO.c)
- *     ObpDeferObjectDeletion @ 0x1403C485C (ObpDeferObjectDeletion.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     ObpRemoveObjectRoutine @ 0x140846830 (ObpRemoveObjectRoutine.c)
- *     ObReferenceObjectByHandleWithTag @ 0x14084B7A0 (ObReferenceObjectByHandleWithTag.c)
- *     ObpHandleRevocationBlockRemoveObject @ 0x1409D2920 (ObpHandleRevocationBlockRemoveObject.c)
- *     ObpDeregisterObject @ 0x1409D2A68 (ObpDeregisterObject.c)
+ *     KeSetEvent @ 0x140227B30 (KeSetEvent.c)
+ *     KeReleaseMutantEx @ 0x1402DEAA0 (KeReleaseMutantEx.c)
+ *     KeWaitForSingleObject @ 0x14031DE40 (KeWaitForSingleObject.c)
+ *     ObpPushStackInfo @ 0x14031FC8C (ObpPushStackInfo.c)
+ *     KeReleaseSemaphoreEx @ 0x1403AB4BC (KeReleaseSemaphoreEx.c)
+ *     KeAreAllApcsDisabled @ 0x1403B2000 (KeAreAllApcsDisabled.c)
+ *     OBJECT_HEADER_TO_HANDLE_REVOCATION_INFO @ 0x1403B2040 (OBJECT_HEADER_TO_HANDLE_REVOCATION_INFO.c)
+ *     ObpDeferObjectDeletion @ 0x1403B341C (ObpDeferObjectDeletion.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     ObpRemoveObjectRoutine @ 0x140842AF0 (ObpRemoveObjectRoutine.c)
+ *     ObReferenceObjectByHandleWithTag @ 0x140847A60 (ObReferenceObjectByHandleWithTag.c)
+ *     ObpHandleRevocationBlockRemoveObject @ 0x1409C2750 (ObpHandleRevocationBlockRemoveObject.c)
+ *     ObpDeregisterObject @ 0x1409C2898 (ObpDeregisterObject.c)
  */
 
-NTSTATUS __fastcall NtSignalAndWaitForSingleObject(void *a1, void *a2, BOOLEAN a3, unsigned __int64 a4)
+NTSTATUS __cdecl NtSignalAndWaitForSingleObject(
+        HANDLE SignalHandle,
+        HANDLE WaitHandle,
+        BOOLEAN Alertable,
+        PLARGE_INTEGER Timeout)
 {
   int v6; // esi
   KPROCESSOR_MODE PreviousMode; // bl
@@ -38,8 +42,8 @@ NTSTATUS __fastcall NtSignalAndWaitForSingleObject(void *a1, void *a2, BOOLEAN a
   __int64 v21; // rax
   __int64 v22; // rax
   __int64 v23; // rax
-  int v24; // eax
-  int v25; // [rsp+40h] [rbp-78h]
+  NTSTATUS v24; // eax
+  NTSTATUS v25; // [rsp+40h] [rbp-78h]
   __int64 v26; // [rsp+48h] [rbp-70h]
   PVOID SystemArgument1; // [rsp+50h] [rbp-68h] BYREF
   PVOID Object; // [rsp+58h] [rbp-60h] BYREF
@@ -53,19 +57,26 @@ NTSTATUS __fastcall NtSignalAndWaitForSingleObject(void *a1, void *a2, BOOLEAN a
   v30[0] = 0LL;
   Object = 0LL;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
-  v8 = (LARGE_INTEGER *)a4;
-  if ( a4 && PreviousMode )
+  v8 = Timeout;
+  if ( Timeout && PreviousMode )
   {
     v21 = 0x7FFFFFFF0000LL;
-    if ( a4 < 0x7FFFFFFF0000LL )
-      v21 = a4;
+    if ( (unsigned __int64)Timeout < 0x7FFFFFFF0000LL )
+      v21 = (__int64)Timeout;
     v30[0] = *(_QWORD *)v21;
     v8 = (LARGE_INTEGER *)v30;
   }
-  result = ObReferenceObjectByHandleWithTag(a1, 0, 0LL, PreviousMode, 0x7457624Fu, &SystemArgument1, &HandleInformation);
+  result = ObReferenceObjectByHandleWithTag(
+             SignalHandle,
+             0,
+             0LL,
+             PreviousMode,
+             0x7457624Fu,
+             &SystemArgument1,
+             &HandleInformation);
   if ( result >= 0 )
   {
-    v25 = ObReferenceObjectByHandleWithTag(a2, 0x100000u, 0LL, PreviousMode, 0x7457624Fu, &Object, 0LL);
+    v25 = ObReferenceObjectByHandleWithTag(WaitHandle, 0x100000u, 0LL, PreviousMode, 0x7457624Fu, &Object, 0LL);
     if ( v25 < 0 )
     {
 LABEL_16:
@@ -142,7 +153,7 @@ LABEL_7:
         {
           KeSetEvent((PRKEVENT)SystemArgument1, 1, 1u);
 LABEL_12:
-          v25 = KeWaitForSingleObject((PVOID)DefaultObject, UserRequest, PreviousMode, a3, v8);
+          v25 = KeWaitForSingleObject((PVOID)DefaultObject, UserRequest, PreviousMode, Alertable, v8);
           v14 = v26;
 LABEL_13:
           if ( ObpTraceFlags )
@@ -193,7 +204,7 @@ LABEL_62:
       {
         if ( !PreviousMode || (~LOBYTE(HandleInformation.GrantedAccess) & 2) == 0 )
         {
-          v25 = KeReleaseSemaphoreEx((volatile signed __int32 *)SystemArgument1, 1LL, 1, (__int64)Object, 1, 0LL);
+          v25 = KeReleaseSemaphoreEx((volatile signed __int32 *)SystemArgument1, 1LL, 1, (__int64)Object, 1u, 0LL);
           if ( v25 != -1073741753 )
             goto LABEL_12;
         }

@@ -1,9 +1,9 @@
 /*
- * XREFs of KzRaiseIrql @ 0x14041BC90
+ * XREFs of KzRaiseIrql @ 0x1404134E0
  * Callers:
- *     KiVirtualizationException @ 0x140739380 (KiVirtualizationException.c)
+ *     KiVirtualizationException @ 0x14073DF80 (KiVirtualizationException.c)
  * Callees:
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 KIRQL __stdcall KzRaiseIrql(KIRQL NewIrql)

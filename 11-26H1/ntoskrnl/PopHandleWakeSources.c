@@ -1,20 +1,20 @@
 /*
- * XREFs of PopHandleWakeSources @ 0x140BF952C
+ * XREFs of PopHandleWakeSources @ 0x140BFF52C
  * Callers:
- *     PopTransitionSystemPowerStateEx @ 0x140C0B0A0 (PopTransitionSystemPowerStateEx.c)
+ *     PopTransitionSystemPowerStateEx @ 0x140C112B0 (PopTransitionSystemPowerStateEx.c)
  * Callees:
- *     KeSetEvent @ 0x1402DE9C0 (KeSetEvent.c)
- *     PopAcquireWakeSourceSpinLock @ 0x1404F94F8 (PopAcquireWakeSourceSpinLock.c)
- *     PopReleaseWakeSourceSpinLock @ 0x1404FF4EC (PopReleaseWakeSourceSpinLock.c)
- *     ExCopyWakeTimerInfo @ 0x1406CEBE0 (ExCopyWakeTimerInfo.c)
- *     PopNewWakeSource @ 0x14077577C (PopNewWakeSource.c)
- *     PopUnlinkWakeSources @ 0x140B45F68 (PopUnlinkWakeSources.c)
- *     PopValidateRTCWake @ 0x140C0969C (PopValidateRTCWake.c)
+ *     KeSetEvent @ 0x1402C0780 (KeSetEvent.c)
+ *     PopAcquireWakeSourceSpinLock @ 0x1404F2B08 (PopAcquireWakeSourceSpinLock.c)
+ *     PopReleaseWakeSourceSpinLock @ 0x1404F8CDC (PopReleaseWakeSourceSpinLock.c)
+ *     ExCopyWakeTimerInfo @ 0x1406D2C10 (ExCopyWakeTimerInfo.c)
+ *     PopNewWakeSource @ 0x14077877C (PopNewWakeSource.c)
+ *     PopUnlinkWakeSources @ 0x140B47F98 (PopUnlinkWakeSources.c)
+ *     PopValidateRTCWake @ 0x140C0F8AC (PopValidateRTCWake.c)
  */
 
 LONG PopHandleWakeSources()
 {
-  struct _LIST_ENTRY *Flink; // rsi
+  __int64 v0; // rsi
   bool v1; // bl
   __int64 v2; // rdx
   int v3; // r14d
@@ -22,10 +22,10 @@ LONG PopHandleWakeSources()
   int v5; // ecx
   __int64 v6; // rdi
   int v7; // eax
-  struct _LIST_ENTRY **p_Flink; // rcx
-  unsigned __int64 RelativeTimerBias; // rax
-  char *p_Blink; // rax
-  int Blink; // r9d
+  __int64 *v8; // rcx
+  __int64 v9; // rax
+  __int64 v10; // rax
+  int v11; // r9d
   __int64 *v12; // rcx
   char v13; // r8
   int v14; // edx
@@ -39,37 +39,35 @@ LONG PopHandleWakeSources()
 
   memset(&LockHandle, 0, sizeof(LockHandle));
   PopAcquireWakeSourceSpinLock(&LockHandle);
-  Flink = stru_140F11D08.Timer.Header.WaitListHead.Flink;
+  v0 = PopCurrentWakeInfo;
   v1 = 0;
-  *(_DWORD *)&stru_140F11D08.WaitBlockFill11[16] = 3;
-  if ( !stru_140F11D08.Timer.Header.WaitListHead.Flink )
+  PopWakeSourceWorkState = 3;
+  if ( !PopCurrentWakeInfo )
     goto LABEL_59;
-  stru_140F11D08.Timer.Header.WaitListHead.Flink = 0LL;
+  PopCurrentWakeInfo = 0LL;
   PopReleaseWakeSourceSpinLock(&LockHandle);
   LOBYTE(v2) = 0;
   v22 = 0;
-  if ( (*(_DWORD *)&stru_140F10828.WaitBlockFill11[100] & 0x200000) != 0
-    || ((__int64)stru_140F11D08.Timer.TimerListEntry.Blink & 1) != 0 )
+  if ( (PpmIdlePolicyLock.SchedulerAssistLastYieldBoostTime & 0x200000) != 0 || (PopFixedWakeSourceMask & 1) != 0 )
   {
     v3 = 1;
     goto LABEL_9;
   }
-  if ( (*(_DWORD *)&stru_140F10828.WaitBlockFill11[100] & 0x400000) != 0
-    || ((__int64)stru_140F11D08.Timer.TimerListEntry.Blink & 2) != 0 )
+  if ( (PpmIdlePolicyLock.SchedulerAssistLastYieldBoostTime & 0x400000) != 0 || (PopFixedWakeSourceMask & 2) != 0 )
   {
     v3 = 2;
     goto LABEL_9;
   }
   if ( (unsigned __int8)PopValidateRTCWake(&v22, v2)
-    && (*(_DWORD *)&stru_140F10828.WaitBlockFill11[100] & 0x100000) == 0 )
+    && (PpmIdlePolicyLock.SchedulerAssistLastYieldBoostTime & 0x100000) == 0 )
   {
     LOBYTE(v2) = v22;
     v3 = 4;
 LABEL_9:
-    if ( dword_140F0FBD0 < 0 || (unsigned __int64)dword_140F0FBD0 >= 3 )
+    if ( dword_140F10490 < 0 || (unsigned __int64)dword_140F10490 >= 3 )
       v4 = 0LL;
     else
-      v4 = (_QWORD *)qword_140F0FBE8[3 * dword_140F0FBD0];
+      v4 = (_QWORD *)qword_140F104A8[3 * dword_140F10490];
     if ( v3 == 4 )
     {
       if ( (unsigned __int64)v4 > 0xFFFFFFFFFFFFFFFCuLL )
@@ -82,7 +80,7 @@ LABEL_9:
       v5 = 1;
     }
     v6 = PopNewWakeSource(v5);
-    PopUnlinkWakeSources((__int64)Flink);
+    PopUnlinkWakeSources(v0);
     if ( v6 )
     {
       v7 = *(_DWORD *)(v6 + 16);
@@ -104,33 +102,33 @@ LABEL_9:
           v3 = 2;
         *(_DWORD *)(v6 + 24) = v3;
       }
-      p_Flink = &Flink[2].Flink->Flink;
-      if ( *p_Flink != (struct _LIST_ENTRY *)&Flink[1].Blink )
+      v8 = *(__int64 **)(v0 + 32);
+      if ( *v8 != v0 + 24 )
 LABEL_32:
         __fastfail(3u);
-      *(_QWORD *)v6 = (char *)Flink + 24;
-      *(_QWORD *)(v6 + 8) = p_Flink;
-      *p_Flink = (struct _LIST_ENTRY *)v6;
-      Flink[2].Flink = (struct _LIST_ENTRY *)v6;
-      LODWORD(Flink[2].Blink) = 1;
+      *(_QWORD *)v6 = v0 + 24;
+      *(_QWORD *)(v6 + 8) = v8;
+      *v8 = v6;
+      *(_QWORD *)(v0 + 32) = v6;
+      *(_DWORD *)(v0 + 40) = 1;
     }
   }
   PopAcquireWakeSourceSpinLock(&LockHandle);
-  RelativeTimerBias = stru_140F11D08.RelativeTimerBias;
-  if ( *(struct _KTHREAD **)(stru_140F11D08.RelativeTimerBias + 8) != (struct _KTHREAD *)&stru_140F11D08.RelativeTimerBias )
+  v9 = PopWakeInfoList;
+  if ( *(__int64 **)(PopWakeInfoList + 8) != &PopWakeInfoList )
     goto LABEL_32;
-  ++LODWORD(stru_140F11D08.Queue);
-  Flink->Flink = (struct _LIST_ENTRY *)stru_140F11D08.RelativeTimerBias;
-  Flink->Blink = (struct _LIST_ENTRY *)&stru_140F11D08.RelativeTimerBias;
-  *(_QWORD *)(RelativeTimerBias + 8) = Flink;
-  p_Blink = (char *)&Flink[1].Blink;
-  stru_140F11D08.RelativeTimerBias = (unsigned __int64)Flink;
-  Blink = (int)Flink[2].Blink;
-  if ( Blink )
+  ++PopWakeInfoCount;
+  *(_QWORD *)v0 = PopWakeInfoList;
+  *(_QWORD *)(v0 + 8) = &PopWakeInfoList;
+  *(_QWORD *)(v9 + 8) = v0;
+  v10 = v0 + 24;
+  PopWakeInfoList = v0;
+  v11 = *(_DWORD *)(v0 + 40);
+  if ( v11 )
   {
-    v12 = *(__int64 **)p_Blink;
+    v12 = *(__int64 **)v10;
     v13 = 0;
-    while ( v12 != (__int64 *)p_Blink )
+    while ( v12 != (__int64 *)v10 )
     {
       v14 = *((_DWORD *)v12 + 4);
       if ( v14 == 1 )
@@ -157,11 +155,11 @@ LABEL_32:
 LABEL_45:
     v13 = 1;
   }
-  LOBYTE(Flink[5].Flink) = v13;
+  *(_BYTE *)(v0 + 80) = v13;
   v17 = 0;
-  if ( Blink )
+  if ( v11 )
   {
-    for ( i = *(__int64 **)p_Blink; i != (__int64 *)p_Blink; i = (__int64 *)*i )
+    for ( i = *(__int64 **)v10; i != (__int64 *)v10; i = (__int64 *)*i )
     {
       if ( !*((_DWORD *)i + 4) )
       {
@@ -176,12 +174,12 @@ LABEL_45:
       }
     }
   }
-  BYTE1(Flink[5].Flink) = v17;
-  if ( Blink == 1 && *(_DWORD *)(*(_QWORD *)p_Blink + 16LL) == 4 )
-    v1 = *(_DWORD *)(*(_QWORD *)p_Blink + 24LL) == 1;
-  BYTE2(Flink[5].Flink) = v1;
+  *(_BYTE *)(v0 + 81) = v17;
+  if ( v11 == 1 && *(_DWORD *)(*(_QWORD *)v10 + 16LL) == 4 )
+    v1 = *(_DWORD *)(*(_QWORD *)v10 + 24LL) == 1;
+  *(_BYTE *)(v0 + 82) = v1;
 LABEL_59:
-  *(_DWORD *)&stru_140F11D08.WaitBlockFill11[16] = 4;
+  PopWakeSourceWorkState = 4;
   PopReleaseWakeSourceSpinLock(&LockHandle);
-  return KeSetEvent((PRKEVENT)&stru_140F11D08.Timer.Processor, 0, 0);
+  return KeSetEvent(&PopWakeSourceAvailable, 0, 0);
 }

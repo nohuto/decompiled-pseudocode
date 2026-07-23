@@ -49,14 +49,14 @@ unsigned __int64 __fastcall RtlpHpLfhSubsegmentDecommitPages(
   unsigned int v21; // esi
   unsigned int v22; // edi
   struct _KTHREAD *CurrentThread; // rdi
-  __int64 SessionId; // rdx
+  unsigned int SessionId; // edx
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
   int v28; // eax
   bool v29; // zf
   unsigned __int8 v30; // bp
-  __int64 v31; // r8
+  unsigned int v31; // r8d
   __int64 v32; // rcx
   __int64 v33; // rbx
   unsigned __int8 v34; // r14
@@ -181,23 +181,23 @@ unsigned __int64 __fastcall RtlpHpLfhSubsegmentDecommitPages(
         v42 = 0;
         CurrentThread = KeGetCurrentThread();
         if ( (unsigned int)MiGetSystemRegionType(v17) == 1 )
-          SessionId = (unsigned int)MmGetSessionIdEx(CurrentThread->ApcState.Process);
+          SessionId = MmGetSessionIdEx(CurrentThread->ApcState.Process);
         else
-          SessionId = 0xFFFFFFFFLL;
+          SessionId = -1;
         --CurrentThread->SpecialApcDisable;
         v30 = ++CurrentThread->AbAllocationRegionCount;
-        LODWORD(v31) = ((char)CurrentThread->AbEntrySummary | (char)CurrentThread->AbOrphanedEntrySummary) ^ 0x3F;
+        v31 = ((char)CurrentThread->AbEntrySummary | (char)CurrentThread->AbOrphanedEntrySummary) ^ 0x3F;
         v29 = !_BitScanReverse((unsigned int *)&v32, v31);
         if ( v29 )
           goto LABEL_54;
         while ( 1 )
         {
           v33 = (__int64)&CurrentThread->LockEntries[v32];
-          v31 = ~(1 << v32) & (unsigned int)v31;
+          v31 &= ~(1 << v32);
           if ( (*(_BYTE *)(v33 + 26) & 1) != 0
             && (*(_DWORD *)(v33 + 32) & 1) == 0
             && (*(_QWORD *)(v33 + 32) & 0x7FFFFFFFFFFFFFFCLL) == (v17 & 0x7FFFFFFFFFFFFFFCLL)
-            && *(_DWORD *)(v33 + 40) == (_DWORD)SessionId )
+            && *(_DWORD *)(v33 + 40) == SessionId )
           {
             *(_BYTE *)(v33 + 26) &= ~1u;
             if ( *(_QWORD *)(v33 + 32) )
@@ -211,13 +211,13 @@ unsigned __int64 __fastcall RtlpHpLfhSubsegmentDecommitPages(
         {
 LABEL_54:
           if ( (*((_DWORD *)&CurrentThread->0 + 1) & 0x10000) == 0 )
-            KeBugCheckEx(0x162u, (ULONG_PTR)CurrentThread, v17, (unsigned int)SessionId, 0LL);
+            KeBugCheckEx(0x162u, (ULONG_PTR)CurrentThread, v17, SessionId, 0LL);
         }
         else
         {
           *(_BYTE *)(v33 + 32) |= 2u;
           if ( *(__int64 *)(v33 + 32) < 0 )
-            KiAbEntryRemoveFromTree(v33, SessionId, v31);
+            KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)v33);
           v42 = *(_DWORD *)(v33 + 88) & 0x1FFFF;
           *(_DWORD *)(v33 + 88) &= 0xFFFE0000;
           *(_BYTE *)(v33 + 25) &= ~1u;

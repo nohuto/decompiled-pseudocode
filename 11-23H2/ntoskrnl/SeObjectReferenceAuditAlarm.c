@@ -1,12 +1,12 @@
 /*
- * XREFs of SeObjectReferenceAuditAlarm @ 0x1406C31D0
+ * XREFs of SeObjectReferenceAuditAlarm @ 0x1406C3200
  * Callers:
- *     ObpCheckObjectReference @ 0x1406C2F6C (ObpCheckObjectReference.c)
+ *     ObpCheckObjectReference @ 0x1406C2F9C (ObpCheckObjectReference.c)
  * Callees:
- *     SepAdtAuditThisEventWithContext @ 0x1406C34D0 (SepAdtAuditThisEventWithContext.c)
- *     SeExamineSacl @ 0x1408A6250 (SeExamineSacl.c)
- *     SeExamineGlobalSacl @ 0x1408A670A (SeExamineGlobalSacl.c)
- *     SepAdtObjectReferenceAuditAlarm @ 0x1409CBF3C (SepAdtObjectReferenceAuditAlarm.c)
+ *     SepAdtAuditThisEventWithContext @ 0x1406C3500 (SepAdtAuditThisEventWithContext.c)
+ *     SeExamineSacl @ 0x1408A64A0 (SeExamineSacl.c)
+ *     SeExamineGlobalSacl @ 0x1408A695A (SeExamineGlobalSacl.c)
+ *     SepAdtObjectReferenceAuditAlarm @ 0x1409CC13C (SepAdtObjectReferenceAuditAlarm.c)
  */
 
 void __fastcall SeObjectReferenceAuditAlarm(

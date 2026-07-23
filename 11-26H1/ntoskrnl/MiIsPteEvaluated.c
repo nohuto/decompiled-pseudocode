@@ -1,11 +1,11 @@
 /*
- * XREFs of MiIsPteEvaluated @ 0x1403D9CDC
+ * XREFs of MiIsPteEvaluated @ 0x1403DCEC8
  * Callers:
- *     MiExpandSharedZeroCluster @ 0x1403D9910 (MiExpandSharedZeroCluster.c)
- *     MiGetClusterPage @ 0x14050E5D0 (MiGetClusterPage.c)
+ *     MiExpandSharedZeroCluster @ 0x1403DCAFC (MiExpandSharedZeroCluster.c)
+ *     MiGetClusterPage @ 0x140508040 (MiGetClusterPage.c)
  * Callees:
- *     MiReadPteShadow @ 0x140314FF0 (MiReadPteShadow.c)
- *     MiIsPrototypePteVadLookup @ 0x14031C350 (MiIsPrototypePteVadLookup.c)
+ *     MiReadPteShadow @ 0x140317020 (MiReadPteShadow.c)
+ *     MiIsPrototypePteVadLookup @ 0x14031E380 (MiIsPrototypePteVadLookup.c)
  */
 
 __int64 __fastcall MiIsPteEvaluated(__int64 *a1)

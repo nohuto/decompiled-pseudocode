@@ -1,14 +1,14 @@
 /*
- * XREFs of MmCreateSectionEx @ 0x14061B34C
+ * XREFs of MmCreateSectionEx @ 0x14061C34C
  * Callers:
- *     FsRtlCreateSectionForDataScan @ 0x140092540 (FsRtlCreateSectionForDataScan.c)
- *     MmCreateSection @ 0x14061B2D0 (MmCreateSection.c)
+ *     FsRtlCreateSectionForDataScan @ 0x140092480 (FsRtlCreateSectionForDataScan.c)
+ *     MmCreateSection @ 0x14061C2D0 (MmCreateSection.c)
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
  *     MmGetSessionIdEx @ 0x14004F060 (MmGetSessionIdEx.c)
- *     PsReferencePrimaryToken @ 0x1405DD640 (PsReferencePrimaryToken.c)
- *     MiCreateSection @ 0x1405DDAC0 (MiCreateSection.c)
- *     MiCaptureSectionCreateExtendedParameters @ 0x1405DE780 (MiCaptureSectionCreateExtendedParameters.c)
+ *     PsReferencePrimaryToken @ 0x1405DE640 (PsReferencePrimaryToken.c)
+ *     MiCreateSection @ 0x1405DEAC0 (MiCreateSection.c)
+ *     MiCaptureSectionCreateExtendedParameters @ 0x1405DF780 (MiCaptureSectionCreateExtendedParameters.c)
  */
 
 __int64 __fastcall MmCreateSectionEx(

@@ -1,13 +1,13 @@
 /*
- * XREFs of MiFreeWorkingSetSwapContext @ 0x1406B8DE4
+ * XREFs of MiFreeWorkingSetSwapContext @ 0x1406BA084
  * Callers:
  *     MiBeginProcessClean @ 0x140011D68 (MiBeginProcessClean.c)
- *     MmInSwapWorkingSet @ 0x1400E4E84 (MmInSwapWorkingSet.c)
- *     MmOutSwapWorkingSet @ 0x1400E5128 (MmOutSwapWorkingSet.c)
- *     MiInSwapSharedWorkingSetWorker @ 0x14085EA70 (MiInSwapSharedWorkingSetWorker.c)
+ *     MmInSwapWorkingSet @ 0x1400E4F04 (MmInSwapWorkingSet.c)
+ *     MmOutSwapWorkingSet @ 0x1400E51A8 (MmOutSwapWorkingSet.c)
+ *     MiInSwapSharedWorkingSetWorker @ 0x14085FCD0 (MiInSwapSharedWorkingSetWorker.c)
  * Callees:
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     MiFreeReservationRun @ 0x1406B8E94 (MiFreeReservationRun.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     MiFreeReservationRun @ 0x1406BA134 (MiFreeReservationRun.c)
  */
 
 void __fastcall MiFreeWorkingSetSwapContext(__int64 a1, __int64 a2)

@@ -1,7 +1,7 @@
 /*
- * XREFs of MiFreeUnusedPfnPages @ 0x140183FE0
+ * XREFs of MiFreeUnusedPfnPages @ 0x140184120
  * Callers:
- *     MiInitNucleus @ 0x1409B9108 (MiInitNucleus.c)
+ *     MiInitNucleus @ 0x1409BA108 (MiInitNucleus.c)
  * Callees:
  *     KiAbEntryRemoveFromTree @ 0x140004530 (KiAbEntryRemoveFromTree.c)
  *     KiCheckForKernelApcDelivery @ 0x140005A50 (KiCheckForKernelApcDelivery.c)
@@ -11,18 +11,18 @@
  *     KiAbThreadRemoveBoosts @ 0x14004EFD0 (KiAbThreadRemoveBoosts.c)
  *     MmGetSessionIdEx @ 0x14004F060 (MmGetSessionIdEx.c)
  *     KiLeaveGuardedRegionUnsafe @ 0x14004F090 (KiLeaveGuardedRegionUnsafe.c)
- *     MiUnlockWorkingSetExclusive @ 0x140063CE0 (MiUnlockWorkingSetExclusive.c)
- *     MiGetSharedVm @ 0x140064D30 (MiGetSharedVm.c)
- *     MiIsAddressValid @ 0x1400685A0 (MiIsAddressValid.c)
- *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     ExAcquireSpinLockExclusive @ 0x1400BC4E0 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC660 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExQueueWorkItem @ 0x1400D1A00 (ExQueueWorkItem.c)
- *     KeWaitForGate @ 0x1400FA304 (KeWaitForGate.c)
- *     MiGetNextNonGapPfnPage @ 0x140184468 (MiGetNextNonGapPfnPage.c)
- *     MiPfnRangeIsZero @ 0x140184654 (MiPfnRangeIsZero.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
- *     RtlCompareMemoryUlong @ 0x1401C5C50 (RtlCompareMemoryUlong.c)
+ *     MiUnlockWorkingSetExclusive @ 0x140063CD0 (MiUnlockWorkingSetExclusive.c)
+ *     MiGetSharedVm @ 0x140064D20 (MiGetSharedVm.c)
+ *     MiIsAddressValid @ 0x140068590 (MiIsAddressValid.c)
+ *     ExfTryToWakePushLock @ 0x140091500 (ExfTryToWakePushLock.c)
+ *     ExAcquireSpinLockExclusive @ 0x1400BC420 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC5A0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExQueueWorkItem @ 0x1400D1A80 (ExQueueWorkItem.c)
+ *     KeWaitForGate @ 0x1400FA384 (KeWaitForGate.c)
+ *     MiGetNextNonGapPfnPage @ 0x1401845A8 (MiGetNextNonGapPfnPage.c)
+ *     MiPfnRangeIsZero @ 0x140184794 (MiPfnRangeIsZero.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
+ *     RtlCompareMemoryUlong @ 0x1401C5DB0 (RtlCompareMemoryUlong.c)
  */
 
 __int64 __fastcall MiFreeUnusedPfnPages(ULONG_PTR *a1)
@@ -138,7 +138,7 @@ __int64 __fastcall MiFreeUnusedPfnPages(ULONG_PTR *a1)
       {
         *(_BYTE *)(v47 + 32) |= 2u;
         if ( *(__int64 *)(v47 + 32) < 0 )
-          KiAbEntryRemoveFromTree(v47, v45);
+          KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)v47, v45);
         v64 = 0;
         v64 = *(_DWORD *)(v47 + 88) & 0x1FFFF;
         *(_DWORD *)(v47 + 88) &= 0xFFFE0000;
@@ -269,7 +269,7 @@ LABEL_17:
                 {
                   v25->CrossThreadReleasableAndBusyByte |= 2u;
                   if ( (__int64)v25->LockState.LockState < 0 )
-                    KiAbEntryRemoveFromTree((__int64)&v18->LockEntries[v24], v20);
+                    KiAbEntryRemoveFromTree(&v18->LockEntries[v24].TreeNode, v20);
                   v65 = 0;
                   v65 = v25->BoostBitmap.AllFields & 0x1FFFF;
                   v25->BoostBitmap.AllFields &= 0xFFFE0000;
@@ -354,7 +354,7 @@ LABEL_48:
           {
             *(_BYTE *)(v41 + 32) |= 2u;
             if ( *(__int64 *)(v41 + 32) < 0 )
-              KiAbEntryRemoveFromTree(v41, v37);
+              KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)v41, v37);
             v63 = 0;
             v63 = *(_DWORD *)(v41 + 88) & 0x1FFFF;
             *(_DWORD *)(v41 + 88) &= 0xFFFE0000;

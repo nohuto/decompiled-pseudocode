@@ -25,7 +25,7 @@ __int64 __fastcall sub_180068BD4(__int64 a1, __int64 a2, __int64 a3, unsigned in
   unsigned int v18; // eax
 
   v6 = 1;
-  RtlAcquireSRWLockExclusive(qword_180166120);
+  RtlAcquireSRWLockExclusive(&stru_180166120);
   v7 = sub_180068D20(&unk_180166128);
   if ( v7 == -1 )
     goto LABEL_8;
@@ -37,7 +37,7 @@ __int64 __fastcall sub_180068BD4(__int64 a1, __int64 a2, __int64 a3, unsigned in
       break;
     _BitScanReverse(&v10, 0x10u);
     v11 = (1 << v10) ^ 0x10;
-    v12 = qword_180166120[v10 - 3];
+    v12 = *((_QWORD *)&stru_180166120 + v10 - 3);
     if ( v12 )
       v13 = v12 + 16 * (v11 + 1LL);
     else
@@ -55,7 +55,7 @@ LABEL_8:
   else
   {
     _BitScanReverse((unsigned int *)&v16, v7);
-    v17 = qword_180166120[(unsigned int)(v16 - 4) + 1];
+    v17 = *((_QWORD *)&stru_180166120 + (unsigned int)(v16 - 4) + 1);
     if ( v17 )
       v8 = v17 + 16 * ((v7 ^ (unsigned __int64)(unsigned int)(1 << v16)) + 1);
     if ( !a3 )
@@ -65,7 +65,7 @@ LABEL_8:
     if ( v9 > (unsigned int)qword_180166178 )
       v18 = v7 - 16;
     LODWORD(qword_180166178) = v18;
-    RtlReleaseSRWLockExclusive(qword_180166120);
+    RtlReleaseSRWLockExclusive(&stru_180166120);
     v6 = 0;
     *a4 = v9;
     v14 = 0;
@@ -74,6 +74,6 @@ LABEL_8:
   if ( v7 != -1 )
     sub_1800747CC(&unk_180166128);
   if ( v6 )
-    RtlReleaseSRWLockExclusive(qword_180166120);
+    RtlReleaseSRWLockExclusive(&stru_180166120);
   return v14;
 }

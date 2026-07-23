@@ -1,13 +1,13 @@
 /*
- * XREFs of MiDeleteTransitionPte @ 0x140095430
+ * XREFs of MiDeleteTransitionPte @ 0x140095370
  * Callers:
  *     MiWalkEntireImage @ 0x14002F290 (MiWalkEntireImage.c)
- *     MiDecommitPages @ 0x140068950 (MiDecommitPages.c)
- *     MiDeleteSystemPagableVm @ 0x140079F10 (MiDeleteSystemPagableVm.c)
- *     MiTryDeleteTransitionPte @ 0x140094F2C (MiTryDeleteTransitionPte.c)
- *     MiDeleteSubsectionPages @ 0x140094F80 (MiDeleteSubsectionPages.c)
- *     MiDeletePerSessionProtos @ 0x140136FA4 (MiDeletePerSessionProtos.c)
- *     MiPurgeFileOnlyPfn @ 0x1402B69A8 (MiPurgeFileOnlyPfn.c)
+ *     MiDecommitPages @ 0x140068940 (MiDecommitPages.c)
+ *     MiDeleteSystemPagableVm @ 0x140079F00 (MiDeleteSystemPagableVm.c)
+ *     MiTryDeleteTransitionPte @ 0x140094E6C (MiTryDeleteTransitionPte.c)
+ *     MiDeleteSubsectionPages @ 0x140094EC0 (MiDeleteSubsectionPages.c)
+ *     MiDeletePerSessionProtos @ 0x1401370A4 (MiDeletePerSessionProtos.c)
+ *     MiPurgeFileOnlyPfn @ 0x1402B6B98 (MiPurgeFileOnlyPfn.c)
  * Callees:
  *     MiReleasePageFileInfo @ 0x14002A628 (MiReleasePageFileInfo.c)
  *     MiPfnShareCountIsZero @ 0x1400382F0 (MiPfnShareCountIsZero.c)
@@ -15,14 +15,14 @@
  *     MiUnlinkPageFromList @ 0x14003B930 (MiUnlinkPageFromList.c)
  *     MiPteInShadowRange @ 0x14003D740 (MiPteInShadowRange.c)
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
- *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
- *     MiSetNonResidentPteHeat @ 0x140081E50 (MiSetNonResidentPteHeat.c)
- *     MiInvalidateCollidedIos @ 0x140117D48 (MiInvalidateCollidedIos.c)
- *     MiDereferenceControlAreaPfnList @ 0x140119E2C (MiDereferenceControlAreaPfnList.c)
- *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     KeYieldProcessorEx @ 0x14006C9E0 (KeYieldProcessorEx.c)
+ *     MiSetNonResidentPteHeat @ 0x140081E40 (MiSetNonResidentPteHeat.c)
+ *     MiInvalidateCollidedIos @ 0x140117DB8 (MiInvalidateCollidedIos.c)
+ *     MiDereferenceControlAreaPfnList @ 0x140119E9C (MiDereferenceControlAreaPfnList.c)
+ *     MiWritePteShadow @ 0x140120F40 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120FA0 (MiPteHasShadow.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall MiDeleteTransitionPte(ULONG_PTR BugCheckParameter2, ULONG_PTR a2, unsigned __int8 a3, int a4)
@@ -87,8 +87,8 @@ __int64 __fastcall MiDeleteTransitionPte(ULONG_PTR BugCheckParameter2, ULONG_PTR
   v30 = 0LL;
   if ( (v11 & 0x400) != 0 )
   {
-    if ( qword_14043A0C0 && (v11 & 0x10) == 0 )
-      v11 &= ~qword_14043A0C0;
+    if ( qword_14043B180 && (v11 & 0x10) == 0 )
+      v11 &= ~qword_14043B180;
     MiDereferenceControlAreaPfnList(*(_QWORD *)(v11 >> 16), v11 >> 16, v8, 2LL);
     v32 = *(_QWORD *)(a2 + 16);
     MiSetNonResidentPteHeat(&v32, 0);
@@ -126,7 +126,7 @@ __int64 __fastcall MiDeleteTransitionPte(ULONG_PTR BugCheckParameter2, ULONG_PTR
       if ( (v11 & 4) != 0 || (LOBYTE(v11) = (unsigned __int8)v11 >> 1, (v11 & 1) != 0) )
         v13 = MI_READ_PTE_LOCK_FREE(a2 + 16);
       v10 = (*(_QWORD *)(a2 + 40) >> 40) & 0x3FFLL;
-      v30 = *(struct _KEVENT **)(qword_14043A748 + 8 * v10);
+      v30 = *(struct _KEVENT **)(qword_14043B808 + 8 * v10);
     }
     v16 = 4;
   }
@@ -143,7 +143,7 @@ LABEL_12:
     *(_QWORD *)BugCheckParameter2 = v15;
     goto LABEL_13;
   }
-  if ( !HIBYTE(word_14043A1AC) && (v15 & 1) != 0 )
+  if ( !HIBYTE(word_14043B26C) && (v15 & 1) != 0 )
     v15 |= 0x8000000000000000uLL;
   *(_QWORD *)BugCheckParameter2 = v15;
   MiWritePteShadow(BugCheckParameter2);

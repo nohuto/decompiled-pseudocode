@@ -148,7 +148,7 @@ __int64 __fastcall PfFileInfoNotify(_DWORD *a1)
   __int64 v110; // rcx
   _KLOCK_ENTRY *v111; // r15
   __int64 v112; // rdx
-  struct _SLIST_ENTRY *v113; // rcx
+  _SLIST_ENTRY *v113; // rcx
   int v114; // [rsp+30h] [rbp-69h] BYREF
   PSLIST_ENTRY ListEntry; // [rsp+38h] [rbp-61h] BYREF
   unsigned int *v116; // [rsp+40h] [rbp-59h] BYREF
@@ -251,7 +251,7 @@ LABEL_85:
           {
             v78->CrossThreadReleasableAndBusyByte |= 2u;
             if ( (__int64)v78->LockState.LockState < 0 )
-              KiAbEntryRemoveFromTree(&v72->LockEntries[v77]);
+              KiAbEntryRemoveFromTree(&v72->LockEntries[v77].TreeNode);
             v133 = 0;
             v133 = v78->BoostBitmap.AllFields & 0x1FFFF;
             v78->BoostBitmap.AllFields &= 0xFFFE0000;
@@ -318,7 +318,7 @@ LABEL_97:
         {
           v84->CrossThreadReleasableAndBusyByte |= 2u;
           if ( (__int64)v84->LockState.LockState < 0 )
-            KiAbEntryRemoveFromTree(&v79->LockEntries[v83]);
+            KiAbEntryRemoveFromTree(&v79->LockEntries[v83].TreeNode);
           v114 = 0;
           v114 = v84->BoostBitmap.AllFields & 0x1FFFF;
           v84->BoostBitmap.AllFields &= 0xFFFE0000;
@@ -402,7 +402,7 @@ LABEL_149:
           {
             v104->CrossThreadReleasableAndBusyByte |= 2u;
             if ( (__int64)v104->LockState.LockState < 0 )
-              KiAbEntryRemoveFromTree(&v98->LockEntries[v103]);
+              KiAbEntryRemoveFromTree(&v98->LockEntries[v103].TreeNode);
             LODWORD(v131) = 0;
             LODWORD(v131) = v104->BoostBitmap.AllFields & 0x1FFFF;
             v104->BoostBitmap.AllFields &= 0xFFFE0000;
@@ -473,7 +473,7 @@ LABEL_173:
         {
           v111->CrossThreadReleasableAndBusyByte |= 2u;
           if ( (__int64)v111->LockState.LockState < 0 )
-            KiAbEntryRemoveFromTree(&v106->LockEntries[v110]);
+            KiAbEntryRemoveFromTree(&v106->LockEntries[v110].TreeNode);
           v132 = 0;
           v132 = v111->BoostBitmap.AllFields & 0x1FFFF;
           v111->BoostBitmap.AllFields &= 0xFFFE0000;

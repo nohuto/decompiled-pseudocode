@@ -1,17 +1,17 @@
 /*
- * XREFs of HsaAttachDeviceDomainInternal @ 0x1405A8F88
+ * XREFs of HsaAttachDeviceDomainInternal @ 0x1405AB798
  * Callers:
- *     HsaAttachDeviceDomain @ 0x1405A8F70 (HsaAttachDeviceDomain.c)
- *     HsaDetachDeviceDomain @ 0x1405A94C0 (HsaDetachDeviceDomain.c)
+ *     HsaAttachDeviceDomain @ 0x1405AB780 (HsaAttachDeviceDomain.c)
+ *     HsaDetachDeviceDomain @ 0x1405ABCD0 (HsaDetachDeviceDomain.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     KeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x1402B4630 (KeAcquireInStackQueuedSpinLockAtDpcLevel.c)
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402B9F90 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     HsaFlushTbInternal @ 0x14047E3E0 (HsaFlushTbInternal.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     HsaBuildDefaultDomain @ 0x1405A911C (HsaBuildDefaultDomain.c)
- *     HsaUpdateDeviceTableEntry @ 0x1405AAA50 (HsaUpdateDeviceTableEntry.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x1402FF300 (KeAcquireInStackQueuedSpinLockAtDpcLevel.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140304C50 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     HsaFlushTbInternal @ 0x140477D50 (HsaFlushTbInternal.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     HsaBuildDefaultDomain @ 0x1405AB92C (HsaBuildDefaultDomain.c)
+ *     HsaUpdateDeviceTableEntry @ 0x1405AD260 (HsaUpdateDeviceTableEntry.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall HsaAttachDeviceDomainInternal(_QWORD *a1, __int64 a2, _BYTE *a3)

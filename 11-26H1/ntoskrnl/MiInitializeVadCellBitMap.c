@@ -1,11 +1,11 @@
 /*
- * XREFs of MiInitializeVadCellBitMap @ 0x140963190
+ * XREFs of MiInitializeVadCellBitMap @ 0x140A09018
  * Callers:
- *     MiSelectUserAddress @ 0x1409C4FA0 (MiSelectUserAddress.c)
+ *     MiSelectUserAddress @ 0x140995F80 (MiSelectUserAddress.c)
  * Callees:
- *     UNLOCK_ADDRESS_SPACE_UNORDERED @ 0x140315540 (UNLOCK_ADDRESS_SPACE_UNORDERED.c)
- *     LOCK_ADDRESS_SPACE @ 0x1403155B4 (LOCK_ADDRESS_SPACE.c)
- *     MiExpandVadBitMap @ 0x140963274 (MiExpandVadBitMap.c)
+ *     UNLOCK_ADDRESS_SPACE_UNORDERED @ 0x140317570 (UNLOCK_ADDRESS_SPACE_UNORDERED.c)
+ *     LOCK_ADDRESS_SPACE @ 0x1403175E4 (LOCK_ADDRESS_SPACE.c)
+ *     MiExpandVadBitMap @ 0x140A090FC (MiExpandVadBitMap.c)
  */
 
 __int64 __fastcall MiInitializeVadCellBitMap(_QWORD *a1, int a2, __int64 a3, struct _KLOCK_ENTRIES *a4)
@@ -22,14 +22,14 @@ __int64 __fastcall MiInitializeVadCellBitMap(_QWORD *a1, int a2, __int64 a3, str
   Process = (__int64)CurrentThread->ApcState.Process;
   v9 = *(_QWORD *)(Process + 1040);
   a1[2] = a1[8] & 0x7FFFLL;
-  v10 = qword_140E2DE48 + v7;
+  v10 = qword_140E2DFC8 + v7;
   a1[1] = v10;
   *a1 = 0LL;
   if ( a2 )
     ++*(_QWORD *)(v9 + 1112);
   else
     LOCK_ADDRESS_SPACE((__int64)CurrentThread, Process, v10, a4);
-  v11 = MiExpandVadBitMap(a1, 1LL, 0LL);
+  v11 = MiExpandVadBitMap(a1, 1LL, 0LL, 0LL);
   if ( !v11 )
   {
     if ( a2 )

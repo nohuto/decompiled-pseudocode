@@ -1,12 +1,12 @@
 /*
- * XREFs of EtwTraceFreezeThawProcess @ 0x1406A16CC
+ * XREFs of EtwTraceFreezeThawProcess @ 0x1406A1804
  * Callers:
- *     PsThawProcess @ 0x14051DFE8 (PsThawProcess.c)
- *     PsFreezeProcess @ 0x14051E428 (PsFreezeProcess.c)
+ *     PsThawProcess @ 0x140501050 (PsThawProcess.c)
+ *     PsFreezeProcess @ 0x140501490 (PsFreezeProcess.c)
  * Callees:
- *     EtwWrite @ 0x140013320 (EtwWrite.c)
- *     EtwTraceKernelEvent @ 0x140014190 (EtwTraceKernelEvent.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
+ *     EtwWrite @ 0x140012EA0 (EtwWrite.c)
+ *     EtwTraceKernelEvent @ 0x140013D10 (EtwTraceKernelEvent.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall EtwTraceFreezeThawProcess(__int64 a1, char a2)
@@ -26,7 +26,7 @@ __int64 __fastcall EtwTraceFreezeThawProcess(__int64 a1, char a2)
   v8 = a1 + 776;
   v10 = 0;
   v9 = 8;
-  if ( (dword_1402FD548 & 2) != 0 )
+  if ( (dword_1402FD528 & 2) != 0 )
   {
     v3 = (const EVENT_DESCRIPTOR *)&ProcessFreezeEvent;
     if ( !a2 )

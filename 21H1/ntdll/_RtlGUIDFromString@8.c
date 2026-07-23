@@ -8,7 +8,7 @@
  *     ScanHexFormat @ 0x4B3626D0 (ScanHexFormat.c)
  */
 
-int __stdcall RtlGUIDFromString(unsigned __int16 *a1, int a2)
+NTSTATUS __cdecl RtlGUIDFromString(PUNICODE_STRING GuidString, PGUID Guid)
 {
   unsigned int i; // ecx
   int v4; // [esp+8h] [ebp-14h] BYREF
@@ -21,12 +21,12 @@ int __stdcall RtlGUIDFromString(unsigned __int16 *a1, int a2)
   v6 = 0;
   v7 = 0;
   if ( ScanHexFormat(
-         *((_DWORD *)a1 + 1),
-         *a1 >> 1,
+         GuidString->Buffer,
+         GuidString->Length >> 1,
          L"{%08lx-%04x-%04x-%02x%02x-%02x%02x%02x%02x%02x%02x}",
-         a2,
-         a2 + 4,
-         a2 + 6,
+         Guid,
+         &Guid->Data2,
+         &Guid->Data3,
          &v4,
          (char *)&v4 + 2,
          &v5,
@@ -37,6 +37,6 @@ int __stdcall RtlGUIDFromString(unsigned __int16 *a1, int a2)
          (char *)&v7 + 2) == -1 )
     return -1073741811;
   for ( i = 0; i < 8; ++i )
-    *(_BYTE *)(a2 + i + 8) = *((_BYTE *)&v4 + 2 * i);
+    Guid->Data4[i] = *((_BYTE *)&v4 + 2 * i);
   return 0;
 }

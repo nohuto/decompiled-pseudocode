@@ -1,13 +1,13 @@
 /*
- * XREFs of HalpMcGetRollbackRequest @ 0x14055996C
+ * XREFs of HalpMcGetRollbackRequest @ 0x14055759C
  * Callers:
- *     HalpLoadMicrocode @ 0x140701A80 (HalpLoadMicrocode.c)
+ *     HalpLoadMicrocode @ 0x1406FF6C0 (HalpLoadMicrocode.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     PrExtControlOperations @ 0x140663EEC (PrExtControlOperations.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     MmGetSystemRoutineAddress @ 0x1408B0D70 (MmGetSystemRoutineAddress.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     PrExtControlOperations @ 0x1406627DC (PrExtControlOperations.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     MmGetSystemRoutineAddress @ 0x140906FD0 (MmGetSystemRoutineAddress.c)
  */
 
 __int64 HalpMcGetRollbackRequest()
@@ -29,7 +29,7 @@ __int64 HalpMcGetRollbackRequest()
   DestinationString = 0LL;
   RtlInitUnicodeString(&DestinationString, L"RtlQueryRegistryValuesEx");
   MmGetSystemRoutineAddress(&DestinationString);
-  if ( (int)guard_dispatch_icall_no_overrides(2LL, L"McUpdate", v2, 0LL) >= 0 )
+  if ( (int)guard_dispatch_icall_no_overrides(2LL, L"McUpdate") >= 0 )
     v7 &= 1u;
   return PrExtControlOperations(11LL, &v7);
 }

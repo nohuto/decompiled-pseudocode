@@ -1,18 +1,18 @@
 /*
- * XREFs of PiQueryAndAllocateBootResources @ 0x1404C881C
+ * XREFs of PiQueryAndAllocateBootResources @ 0x14050EC10
  * Callers:
- *     PiProcessNewDeviceNode @ 0x140487BC4 (PiProcessNewDeviceNode.c)
+ *     PiProcessNewDeviceNode @ 0x140510338 (PiProcessNewDeviceNode.c)
  * Callees:
- *     KiLeaveCriticalRegionUnsafe @ 0x140055FA0 (KiLeaveCriticalRegionUnsafe.c)
- *     ExAcquireResourceSharedLite @ 0x1400685B0 (ExAcquireResourceSharedLite.c)
- *     ExReleaseResourceLite @ 0x140068940 (ExReleaseResourceLite.c)
- *     ZwClose @ 0x140159E60 (ZwClose.c)
- *     ZwSetValueKey @ 0x14015A880 (ZwSetValueKey.c)
- *     ZwDeleteValueKey @ 0x14015B5E0 (ZwDeleteValueKey.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140055B20 (KiLeaveCriticalRegionUnsafe.c)
+ *     ExAcquireResourceSharedLite @ 0x140068130 (ExAcquireResourceSharedLite.c)
+ *     ExReleaseResourceLite @ 0x1400684C0 (ExReleaseResourceLite.c)
+ *     ZwClose @ 0x14015A3D0 (ZwClose.c)
+ *     ZwSetValueKey @ 0x14015ADF0 (ZwSetValueKey.c)
+ *     ZwDeleteValueKey @ 0x14015BB50 (ZwDeleteValueKey.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
- *     PipSetDevNodeFlags @ 0x1403F33A0 (PipSetDevNodeFlags.c)
- *     IopQueryDeviceResources @ 0x1404C89E8 (IopQueryDeviceResources.c)
- *     _CmOpenDeviceRegKey @ 0x1404FCD30 (_CmOpenDeviceRegKey.c)
+ *     PipSetDevNodeFlags @ 0x1403F2264 (PipSetDevNodeFlags.c)
+ *     _CmOpenDeviceRegKey @ 0x1404DFCC0 (_CmOpenDeviceRegKey.c)
+ *     IopQueryDeviceResources @ 0x14050EDDC (IopQueryDeviceResources.c)
  */
 
 __int64 __fastcall PiQueryAndAllocateBootResources(__int64 a1)
@@ -44,7 +44,15 @@ __int64 __fastcall PiQueryAndAllocateBootResources(__int64 a1)
   if ( ((*(_DWORD *)(a1 + 396) & 0x2000) == 0 || *(_DWORD *)(a1 + 404) != 9)
     && ((*(_DWORD *)(a1 + 396) & 0x2000) == 0 || *(_DWORD *)(a1 + 404) != 3 && *(_DWORD *)(a1 + 404) != 19) )
   {
-    v4 = CmOpenDeviceRegKey(PiPnpRtlCtx, *(_QWORD *)(a1 + 48), 20, 0, 983103, v2 != 0LL, (__int64)&KeyHandle, 0LL);
+    v4 = CmOpenDeviceRegKey(
+           *(__int64 *)&PiPnpRtlCtx,
+           *(_QWORD *)(a1 + 48),
+           0x14u,
+           0,
+           983103,
+           v2 != 0LL,
+           (__int64)&KeyHandle,
+           0LL);
     v5 = KeyHandle;
     if ( v4 < 0 )
       v5 = 0LL;

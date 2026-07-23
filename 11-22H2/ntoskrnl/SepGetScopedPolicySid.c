@@ -10,21 +10,21 @@
  *     RtlFindAceByType @ 0x1402AD1C0 (RtlFindAceByType.c)
  */
 
-unsigned __int8 *__fastcall SepGetScopedPolicySid(__int64 a1)
+_BYTE *__fastcall SepGetScopedPolicySid(PACL Acl)
 {
-  unsigned __int8 *result; // rax
-  unsigned int v3; // [rsp+38h] [rbp+10h] BYREF
+  _BYTE *result; // rax
+  ULONG Index; // [rsp+38h] [rbp+10h] BYREF
 
-  v3 = 0;
+  Index = 0;
   while ( 1 )
   {
-    result = RtlFindAceByType(a1, 19, &v3);
+    result = RtlFindAceByType(Acl, 0x13u, &Index);
     if ( result )
     {
       if ( (result[1] & 8) == 0 )
         break;
     }
-    ++v3;
+    ++Index;
     if ( !result )
       return result;
   }

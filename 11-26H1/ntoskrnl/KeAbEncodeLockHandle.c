@@ -1,12 +1,12 @@
 /*
- * XREFs of KeAbEncodeLockHandle @ 0x140456960
+ * XREFs of KeAbEncodeLockHandle @ 0x14025FF70
  * Callers:
- *     ExpAcquireFastResourceSharedSlow @ 0x140276E40 (ExpAcquireFastResourceSharedSlow.c)
- *     KeWaitForMultipleObjects @ 0x140396440 (KeWaitForMultipleObjects.c)
- *     KiWaitForAllObjects @ 0x1403C0E68 (KiWaitForAllObjects.c)
- *     ExAcquireFastResourceSharedStarveExclusive @ 0x140456410 (ExAcquireFastResourceSharedStarveExclusive.c)
- *     ExInitializeFastResourceAcquired @ 0x1404567B0 (ExInitializeFastResourceAcquired.c)
- *     ExAcquireFastResourceWithFlags @ 0x1406CDB10 (ExAcquireFastResourceWithFlags.c)
+ *     ExAcquireFastResourceSharedStarveExclusive @ 0x14025FA20 (ExAcquireFastResourceSharedStarveExclusive.c)
+ *     ExInitializeFastResourceAcquired @ 0x14025FDC0 (ExInitializeFastResourceAcquired.c)
+ *     ExpAcquireFastResourceSharedSlow @ 0x1402763B0 (ExpAcquireFastResourceSharedSlow.c)
+ *     KeWaitForMultipleObjects @ 0x1403981C0 (KeWaitForMultipleObjects.c)
+ *     KiWaitForAllObjects @ 0x1403CAD68 (KiWaitForAllObjects.c)
+ *     ExAcquireFastResourceWithFlags @ 0x1406D1B40 (ExAcquireFastResourceWithFlags.c)
  * Callees:
  *     <none>
  */

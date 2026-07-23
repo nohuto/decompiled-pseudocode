@@ -9,45 +9,42 @@
  *     ViThunkFindAPIContextByName @ 0x1409D5F9C (ViThunkFindAPIContextByName.c)
  */
 
-__int64 __fastcall ViThunkSnapSharedExportByName(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+__int64 __fastcall ViThunkSnapSharedExportByName(char *a1, __int64 a2, __int64 a3, __int64 a4)
 {
   unsigned int v4; // ebx
-  __int64 v6; // r15
-  __int64 v8; // rax
+  unsigned int *v8; // rax
   unsigned int *v9; // rsi
   const char *v10; // rbp
   __int64 *v12; // r14
-  __int64 v13; // rbp
+  char *v13; // rbp
   char v14; // si
   char *v15; // rcx
   int v16; // ecx
-  char v17; // [rsp+60h] [rbp+18h] BYREF
+  ULONG Size; // [rsp+60h] [rbp+18h] BYREF
   __int64 v18; // [rsp+68h] [rbp+20h]
 
   v4 = 0;
-  v6 = a2;
   *(_QWORD *)a4 = 0LL;
   *(_QWORD *)(a4 + 8) = 0LL;
-  LOBYTE(a2) = 1;
-  v8 = RtlImageDirectoryEntryToData(a1, a2, 1, (int)&v17);
-  v9 = (unsigned int *)v8;
-  if ( v8 && *(_DWORD *)(v8 + 12) )
+  v8 = (unsigned int *)RtlImageDirectoryEntryToData(a1, 1u, 1u, &Size);
+  v9 = v8;
+  if ( v8 && v8[3] )
   {
     do
     {
       if ( !*v9 )
         break;
-      v10 = (const char *)(a1 + v9[3]);
+      v10 = &a1[v9[3]];
       if ( !stricmp(v10, "ntoskrnl.exe") || !stricmp(v10, "hal.dll") )
       {
-        v12 = (__int64 *)(a1 + *v9);
-        v13 = a1 + v9[4];
+        v12 = (__int64 *)&a1[*v9];
+        v13 = &a1[v9[4]];
         while ( *v12 )
         {
-          if ( *v12 >= 0 && !stricmp((const char *)(*v12 + a1 + 2), *(const char **)v6) )
+          if ( *v12 >= 0 && !stricmp(&a1[*v12 + 2], *(const char **)a2) )
           {
             *(_QWORD *)a4 = v13;
-            *(_QWORD *)(a4 + 8) = *(_QWORD *)(v6 + 8);
+            *(_QWORD *)(a4 + 8) = *(_QWORD *)(a2 + 8);
             v14 = BYTE4(VfRuleClasses);
             if ( (VfRuleClasses & 0x800000000LL) == 0
               || (unsigned int)VfIsVerifierEnabled()
@@ -59,15 +56,15 @@ __int64 __fastcall ViThunkSnapSharedExportByName(__int64 a1, __int64 a2, __int64
             {
               if ( VfDifAPIThunkContextHead )
               {
-                *(_QWORD *)(a4 + 16) = *(_QWORD *)(v6 + 32);
-                v15 = *(char **)v6;
+                *(_QWORD *)(a4 + 16) = *(_QWORD *)(a2 + 32);
+                v15 = *(char **)a2;
                 v18 = 0LL;
                 ViThunkFindAPIContextByName(v15);
                 if ( v18 )
                 {
                   v16 = *(_DWORD *)(a4 + 24) | 1;
                   *(_DWORD *)(a4 + 24) = v16;
-                  if ( (*(_DWORD *)(v6 + 24) & 4) != 0 )
+                  if ( (*(_DWORD *)(a2 + 24) & 4) != 0 )
                     *(_DWORD *)(a4 + 24) = v16 | 4;
                 }
               }
@@ -75,7 +72,7 @@ __int64 __fastcall ViThunkSnapSharedExportByName(__int64 a1, __int64 a2, __int64
             return 1;
           }
           ++v12;
-          v13 += 8LL;
+          v13 += 8;
         }
       }
       v9 += 5;

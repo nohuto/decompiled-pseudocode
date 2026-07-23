@@ -1,29 +1,29 @@
 /*
- * XREFs of CcUnmapVacbArray @ 0x14039AEF0
+ * XREFs of CcUnmapVacbArray @ 0x14039CC50
  * Callers:
- *     CcGetVirtualAddress @ 0x1402E0F50 (CcGetVirtualAddress.c)
- *     CcFlushCachePreProcess @ 0x1403991C8 (CcFlushCachePreProcess.c)
- *     CcUnmapAndPurge @ 0x14039A0C8 (CcUnmapAndPurge.c)
- *     CcPurgeCacheSection @ 0x14039B300 (CcPurgeCacheSection.c)
- *     CcUnmapFileOffsetFromSystemCache @ 0x14039CC20 (CcUnmapFileOffsetFromSystemCache.c)
- *     CcSetFileSizesEx @ 0x14039E300 (CcSetFileSizesEx.c)
+ *     CcGetVirtualAddress @ 0x1402C2D60 (CcGetVirtualAddress.c)
+ *     CcFlushCachePreProcess @ 0x14039AF28 (CcFlushCachePreProcess.c)
+ *     CcUnmapAndPurge @ 0x14039BE28 (CcUnmapAndPurge.c)
+ *     CcPurgeCacheSection @ 0x14039D060 (CcPurgeCacheSection.c)
+ *     CcUnmapFileOffsetFromSystemCache @ 0x14039E980 (CcUnmapFileOffsetFromSystemCache.c)
+ *     CcSetFileSizesEx @ 0x1403A0060 (CcSetFileSizesEx.c)
  * Callees:
- *     ExAcquireFastMutex @ 0x140278070 (ExAcquireFastMutex.c)
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     KeWaitForSingleObject @ 0x140278560 (KeWaitForSingleObject.c)
- *     KeReleaseGuardedMutex @ 0x140278D40 (KeReleaseGuardedMutex.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAcquireQueuedSpinLock @ 0x1402B4690 (KeAcquireQueuedSpinLock.c)
- *     CcAcquireBcbLockAndVacbLock @ 0x1402E0E50 (CcAcquireBcbLockAndVacbLock.c)
- *     CcReleaseBcbLockAndVacbLock @ 0x1402E0ED0 (CcReleaseBcbLockAndVacbLock.c)
- *     CcSetVacbLargeOffset @ 0x1402E1620 (CcSetVacbLargeOffset.c)
- *     KeReleaseQueuedSpinLock @ 0x1402E2650 (KeReleaseQueuedSpinLock.c)
- *     CcSetVacbInFreeList @ 0x1402E28F0 (CcSetVacbInFreeList.c)
- *     ExfReleasePushLock @ 0x1402E3120 (ExfReleasePushLock.c)
- *     KeResetEvent @ 0x140395BB0 (KeResetEvent.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     CcUnmapVacb @ 0x140AFAAD0 (CcUnmapVacb.c)
+ *     ExfReleasePushLock @ 0x14021B220 (ExfReleasePushLock.c)
+ *     ExAcquireFastMutex @ 0x1402775E0 (ExAcquireFastMutex.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     KeWaitForSingleObject @ 0x140277AD0 (KeWaitForSingleObject.c)
+ *     KeReleaseGuardedMutex @ 0x1402782B0 (KeReleaseGuardedMutex.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     CcAcquireBcbLockAndVacbLock @ 0x1402C2C60 (CcAcquireBcbLockAndVacbLock.c)
+ *     CcReleaseBcbLockAndVacbLock @ 0x1402C2CE0 (CcReleaseBcbLockAndVacbLock.c)
+ *     CcSetVacbLargeOffset @ 0x1402C3430 (CcSetVacbLargeOffset.c)
+ *     KeReleaseQueuedSpinLock @ 0x1402C4710 (KeReleaseQueuedSpinLock.c)
+ *     CcSetVacbInFreeList @ 0x1402C49B0 (CcSetVacbInFreeList.c)
+ *     KeAcquireQueuedSpinLock @ 0x1402FF360 (KeAcquireQueuedSpinLock.c)
+ *     KeResetEvent @ 0x140397930 (KeResetEvent.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     CcUnmapVacb @ 0x140AFCD38 (CcUnmapVacb.c)
  */
 
 char __fastcall CcUnmapVacbArray(__int64 a1, __int64 *a2, unsigned int a3, struct _KLOCK_ENTRIES *a4, char a5, char a6)
@@ -164,7 +164,7 @@ LABEL_26:
         else
           *(_QWORD *)(*(_QWORD *)(a1 + 88) + 8 * ((unsigned __int64)(unsigned int)v37 >> 18)) = 0LL;
         _InterlockedDecrement((volatile signed __int32 *)(a1 + 548));
-        if ( *(_DWORD *)(v38 + 1248) < *(_DWORD *)EmpParseLock.PriorityFloorCounts )
+        if ( *(_DWORD *)(v38 + 1248) < LODWORD(EmpParseLock.PropagateBoostsEntry.Next) )
           v7 |= 2u;
         else
           v7 &= ~2u;
@@ -175,7 +175,7 @@ LABEL_26:
         v27 = v24;
         LOBYTE(v26) = (v7 & 2) != 0;
         *(_QWORD *)(v22 + 8) = 0LL;
-        CcSetVacbInFreeList(v25, (struct _SINGLE_LIST_ENTRY *)v22, v26);
+        CcSetVacbInFreeList(v25, (_QWORD *)v22, v26);
         KeReleaseQueuedSpinLock(4uLL, v27);
         v15 = 1;
         goto LABEL_26;

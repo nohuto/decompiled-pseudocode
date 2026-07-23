@@ -1,9 +1,9 @@
 /*
- * XREFs of VfInitDifWithoutReboot @ 0x140C21E44
+ * XREFs of VfInitDifWithoutReboot @ 0x140C27E54
  * Callers:
- *     VfVolatileSetDifRuleClass @ 0x140647B64 (VfVolatileSetDifRuleClass.c)
+ *     VfVolatileSetDifRuleClass @ 0x14064B744 (VfVolatileSetDifRuleClass.c)
  * Callees:
- *     MmLockPagableDataSection @ 0x140ABB180 (MmLockPagableDataSection.c)
+ *     MmLockPagableDataSection @ 0x140ABC640 (MmLockPagableDataSection.c)
  */
 
 __int64 VfInitDifWithoutReboot()

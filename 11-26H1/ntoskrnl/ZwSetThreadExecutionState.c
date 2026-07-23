@@ -1,14 +1,15 @@
 /*
- * XREFs of ZwSetThreadExecutionState @ 0x140726BF0
+ * XREFs of ZwSetThreadExecutionState @ 0x14072B7C0
  * Callers:
- *     DifZwSetThreadExecutionStateWrapper @ 0x1406BC0A0 (DifZwSetThreadExecutionStateWrapper.c)
+ *     DifZwSetThreadExecutionStateWrapper @ 0x1406BFC80 (DifZwSetThreadExecutionStateWrapper.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwSetThreadExecutionState(__int64 a1, __int64 a2)
+// local variable allocation has failed, the output may be wrong!
+NTSTATUS __cdecl ZwSetThreadExecutionState(EXECUTION_STATE NewFlags, EXECUTION_STATE *PreviousFlags)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(*(_QWORD *)&NewFlags);
 }

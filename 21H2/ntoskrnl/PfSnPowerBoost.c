@@ -1,14 +1,14 @@
 /*
- * XREFs of PfSnPowerBoost @ 0x1406C58FC
+ * XREFs of PfSnPowerBoost @ 0x1406741EC
  * Callers:
- *     PfSnAsyncPrefetchWorker @ 0x1406C62F0 (PfSnAsyncPrefetchWorker.c)
+ *     PfSnAsyncPrefetchWorker @ 0x140674BE0 (PfSnAsyncPrefetchWorker.c)
  * Callees:
- *     KiSetTimerEx @ 0x14025FD70 (KiSetTimerEx.c)
- *     KeCancelTimer @ 0x140260240 (KeCancelTimer.c)
- *     ExWaitForRundownProtectionRelease @ 0x1402797E0 (ExWaitForRundownProtectionRelease.c)
- *     ExReleaseRundownProtection_0 @ 0x14027C4F0 (ExReleaseRundownProtection_0.c)
- *     ExAcquireRundownProtection_0 @ 0x14027C9B0 (ExAcquireRundownProtection_0.c)
- *     PfSnPowerBoostUpdate @ 0x1406C5874 (PfSnPowerBoostUpdate.c)
+ *     ExWaitForRundownProtectionRelease @ 0x140267780 (ExWaitForRundownProtectionRelease.c)
+ *     ExReleaseRundownProtection @ 0x14026A490 (ExReleaseRundownProtection.c)
+ *     ExAcquireRundownProtection @ 0x14026A950 (ExAcquireRundownProtection.c)
+ *     KiSetTimerEx @ 0x1402814E0 (KiSetTimerEx.c)
+ *     KeCancelTimer @ 0x1402819B0 (KeCancelTimer.c)
+ *     PfSnPowerBoostUpdate @ 0x140674164 (PfSnPowerBoostUpdate.c)
  */
 
 void __fastcall PfSnPowerBoost(PEX_RUNDOWN_REF RunRef, int a2)
@@ -16,7 +16,7 @@ void __fastcall PfSnPowerBoost(PEX_RUNDOWN_REF RunRef, int a2)
   if ( a2 )
   {
     PfSnPowerBoostUpdate(1);
-    ExAcquireRundownProtection_0(RunRef);
+    ExAcquireRundownProtection(RunRef);
     KiSetTimerEx((__int64)&RunRef[1], -30000000LL, 0, 0, (__int64)&RunRef[9]);
   }
   else
@@ -24,7 +24,7 @@ void __fastcall PfSnPowerBoost(PEX_RUNDOWN_REF RunRef, int a2)
     if ( KeCancelTimer((PKTIMER)&RunRef[1]) )
     {
       PfSnPowerBoostUpdate(0);
-      ExReleaseRundownProtection_0(RunRef);
+      ExReleaseRundownProtection(RunRef);
     }
     ExWaitForRundownProtectionRelease(RunRef);
   }

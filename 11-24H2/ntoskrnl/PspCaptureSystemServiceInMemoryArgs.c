@@ -1,11 +1,11 @@
 /*
- * XREFs of PspCaptureSystemServiceInMemoryArgs @ 0x1407711A0
+ * XREFs of PspCaptureSystemServiceInMemoryArgs @ 0x1407713C0
  * Callers:
- *     PspSyscallProviderServiceDispatch @ 0x1406B3710 (PspSyscallProviderServiceDispatch.c)
- *     PspSyscallProviderServiceDispatchGeneric @ 0x1407716B4 (PspSyscallProviderServiceDispatchGeneric.c)
+ *     PspSyscallProviderServiceDispatch @ 0x1406B46B0 (PspSyscallProviderServiceDispatch.c)
+ *     PspSyscallProviderServiceDispatchGeneric @ 0x1407718D4 (PspSyscallProviderServiceDispatchGeneric.c)
  * Callees:
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     ExRaiseDatatypeMisalignment @ 0x14089B1F0 (ExRaiseDatatypeMisalignment.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408A3890 (ExRaiseDatatypeMisalignment.c)
  */
 
 __int64 __fastcall PspCaptureSystemServiceInMemoryArgs(void *Src, void *a2, unsigned __int8 a3)

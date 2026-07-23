@@ -1,15 +1,15 @@
 /*
- * XREFs of RtlpHpHeapHandleError @ 0x180108500
+ * XREFs of RtlpHpHeapHandleError @ 0x1801084C0
  * Callers:
- *     RtlpLogHeapFailure @ 0x18010E1BC (RtlpLogHeapFailure.c)
+ *     RtlpLogHeapFailure @ 0x18010E17C (RtlpLogHeapFailure.c)
  * Callees:
  *     RtlCaptureStackBackTrace @ 0x1800526A0 (RtlCaptureStackBackTrace.c)
- *     memset @ 0x1800A4780 (memset.c)
- *     HeapCommitFailAvoidTriageRules @ 0x180107E90 (HeapCommitFailAvoidTriageRules.c)
- *     RtlpHeapHandleError @ 0x180108280 (RtlpHeapHandleError.c)
- *     RtlpHpRaiseFatalLimitError @ 0x1801087AC (RtlpHpRaiseFatalLimitError.c)
- *     RtlpLocateRelatedBlocks @ 0x180109AFC (RtlpLocateRelatedBlocks.c)
- *     RtlpHeapExceptionFilter @ 0x18010E0A4 (RtlpHeapExceptionFilter.c)
+ *     memset @ 0x1800A4740 (memset.c)
+ *     HeapCommitFailAvoidTriageRules @ 0x180107E50 (HeapCommitFailAvoidTriageRules.c)
+ *     RtlpHeapHandleError @ 0x180108240 (RtlpHeapHandleError.c)
+ *     RtlpHpRaiseFatalLimitError @ 0x18010876C (RtlpHpRaiseFatalLimitError.c)
+ *     RtlpLocateRelatedBlocks @ 0x180109ABC (RtlpLocateRelatedBlocks.c)
+ *     RtlpHeapExceptionFilter @ 0x18010E064 (RtlpHeapExceptionFilter.c)
  */
 
 __int64 __fastcall RtlpHpHeapHandleError(int a1, __int64 a2, __int64 a3)

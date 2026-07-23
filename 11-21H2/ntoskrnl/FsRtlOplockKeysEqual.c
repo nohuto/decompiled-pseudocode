@@ -3,10 +3,10 @@
  * Callers:
  *     <none>
  * Callees:
- *     FsRtlpOplockKeysEqual @ 0x1402A6AB0 (FsRtlpOplockKeysEqual.c)
+ *     sub_1402A6AB0 @ 0x1402A6AB0 (sub_1402A6AB0.c)
  */
 
 BOOLEAN __stdcall FsRtlOplockKeysEqual(PFILE_OBJECT Fo1, PFILE_OBJECT Fo2)
 {
-  return FsRtlpOplockKeysEqual((__int64)Fo1, (__int64)Fo2, 0);
+  return sub_1402A6AB0((__int64)Fo1, (__int64)Fo2, 0);
 }

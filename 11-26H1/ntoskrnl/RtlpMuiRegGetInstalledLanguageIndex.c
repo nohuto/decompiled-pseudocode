@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlpMuiRegGetInstalledLanguageIndex @ 0x1408A8648
+ * XREFs of RtlpMuiRegGetInstalledLanguageIndex @ 0x1408AEAB8
  * Callers:
- *     RtlpMuiRegValidateConfigNode @ 0x1407200CC (RtlpMuiRegValidateConfigNode.c)
- *     RtlpLoadPolicyLanguageSpec @ 0x1408A7B88 (RtlpLoadPolicyLanguageSpec.c)
- *     RtlpMuiRegConfigMatchesInstalled @ 0x1408A7E84 (RtlpMuiRegConfigMatchesInstalled.c)
+ *     RtlpMuiRegValidateConfigNode @ 0x140724CEC (RtlpMuiRegValidateConfigNode.c)
+ *     RtlpLoadPolicyLanguageSpec @ 0x1408ADFF8 (RtlpLoadPolicyLanguageSpec.c)
+ *     RtlpMuiRegConfigMatchesInstalled @ 0x1408AE2F4 (RtlpMuiRegConfigMatchesInstalled.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     RtlCultureNameToLCID @ 0x140779FB0 (RtlCultureNameToLCID.c)
- *     RtlpMuiRegGetInstalledLanguageIndexByLangId @ 0x1408A8798 (RtlpMuiRegGetInstalledLanguageIndexByLangId.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     RtlCultureNameToLCID @ 0x14077CEE0 (RtlCultureNameToLCID.c)
+ *     RtlpMuiRegGetInstalledLanguageIndexByLangId @ 0x1408AEC08 (RtlpMuiRegGetInstalledLanguageIndexByLangId.c)
  */
 
 __int64 __fastcall RtlpMuiRegGetInstalledLanguageIndex(__int64 a1, int a2, __int16 a3, _WORD *a4)
@@ -22,11 +22,11 @@ __int64 __fastcall RtlpMuiRegGetInstalledLanguageIndex(__int64 a1, int a2, __int
   __int64 v13; // r8
   const WCHAR *v14; // rdx
   UNICODE_STRING DestinationString; // [rsp+20h] [rbp-28h] BYREF
-  int v17; // [rsp+50h] [rbp+8h] BYREF
+  DWORD Lcid; // [rsp+50h] [rbp+8h] BYREF
 
   v4 = 0;
   v5 = a3;
-  v17 = 0;
+  Lcid = 0;
   DestinationString = 0LL;
   if ( !a1 )
     return (unsigned int)-1073741811;
@@ -53,9 +53,9 @@ __int64 __fastcall RtlpMuiRegGetInstalledLanguageIndex(__int64 a1, int a2, __int
         if ( v14 )
         {
           RtlInitUnicodeString(&DestinationString, v14);
-          if ( RtlCultureNameToLCID(&DestinationString.Length, &v17) )
+          if ( RtlCultureNameToLCID(&DestinationString, &Lcid) )
           {
-            LOWORD(v5) = v17;
+            LOWORD(v5) = Lcid;
             LOBYTE(v9) = 0;
             return (unsigned int)RtlpMuiRegGetInstalledLanguageIndexByLangId(a1, (unsigned __int16)v5, v9, a4);
           }

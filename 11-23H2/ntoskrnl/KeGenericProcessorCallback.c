@@ -1,26 +1,26 @@
 /*
- * XREFs of KeGenericProcessorCallback @ 0x140305B34
+ * XREFs of KeGenericProcessorCallback @ 0x140305DC4
  * Callers:
- *     KeFlushQueuedDpcs @ 0x14028F9C0 (KeFlushQueuedDpcs.c)
- *     KeDisableTimer2 @ 0x14031DB78 (KeDisableTimer2.c)
- *     KeRemoveQueueDpcEx @ 0x14031F0D0 (KeRemoveQueueDpcEx.c)
- *     KeGenericCallDpc @ 0x14036BDB0 (KeGenericCallDpc.c)
- *     ExpUpdateTimerConfiguration @ 0x1403C2F78 (ExpUpdateTimerConfiguration.c)
- *     KeUpdateDpcWatchdogConfiguration @ 0x14056AFB0 (KeUpdateDpcWatchdogConfiguration.c)
- *     RtlUpdateSwapReference @ 0x14080E0D8 (RtlUpdateSwapReference.c)
- *     KeSetIntervalProfile @ 0x140975118 (KeSetIntervalProfile.c)
- *     PspSetVmProcessorHostProcessWorkerRoutine @ 0x1409B19F0 (PspSetVmProcessorHostProcessWorkerRoutine.c)
+ *     KeFlushQueuedDpcs @ 0x14028FC50 (KeFlushQueuedDpcs.c)
+ *     KeDisableTimer2 @ 0x14031DE08 (KeDisableTimer2.c)
+ *     KeRemoveQueueDpcEx @ 0x14031F360 (KeRemoveQueueDpcEx.c)
+ *     KeGenericCallDpc @ 0x14036BF50 (KeGenericCallDpc.c)
+ *     ExpUpdateTimerConfiguration @ 0x1403C3158 (ExpUpdateTimerConfiguration.c)
+ *     KeUpdateDpcWatchdogConfiguration @ 0x14056B670 (KeUpdateDpcWatchdogConfiguration.c)
+ *     RtlUpdateSwapReference @ 0x14080E3A8 (RtlUpdateSwapReference.c)
+ *     KeSetIntervalProfile @ 0x140975318 (KeSetIntervalProfile.c)
+ *     PspSetVmProcessorHostProcessWorkerRoutine @ 0x1409B1BF0 (PspSetVmProcessorHostProcessWorkerRoutine.c)
  * Callees:
- *     KeSetPriorityThread @ 0x1402B0340 (KeSetPriorityThread.c)
- *     KiRemoveBoostThread @ 0x1402BB250 (KiRemoveBoostThread.c)
- *     KiCheckForThreadDispatch @ 0x1402BCA78 (KiCheckForThreadDispatch.c)
- *     KiEnumerateNextProcessorNumber @ 0x140305D8C (KiEnumerateNextProcessorNumber.c)
- *     KeRevertToUserGroupAffinityThread @ 0x140305E00 (KeRevertToUserGroupAffinityThread.c)
- *     KeSetSystemGroupAffinityThread @ 0x140306C50 (KeSetSystemGroupAffinityThread.c)
- *     KeSetPriorityBoost @ 0x140307990 (KeSetPriorityBoost.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     memset @ 0x140435A00 (memset.c)
+ *     KeSetPriorityThread @ 0x1402B05D0 (KeSetPriorityThread.c)
+ *     KiRemoveBoostThread @ 0x1402BB4E0 (KiRemoveBoostThread.c)
+ *     KiCheckForThreadDispatch @ 0x1402BCD08 (KiCheckForThreadDispatch.c)
+ *     KiEnumerateNextProcessorNumber @ 0x14030601C (KiEnumerateNextProcessorNumber.c)
+ *     KeRevertToUserGroupAffinityThread @ 0x140306090 (KeRevertToUserGroupAffinityThread.c)
+ *     KeSetSystemGroupAffinityThread @ 0x140306EE0 (KeSetSystemGroupAffinityThread.c)
+ *     KeSetPriorityBoost @ 0x140307C20 (KeSetPriorityBoost.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     memset @ 0x140435E00 (memset.c)
  */
 
 char __fastcall KeGenericProcessorCallback(
@@ -29,7 +29,7 @@ char __fastcall KeGenericProcessorCallback(
         __int64 a3,
         int a4)
 {
-  struct _GROUP_AFFINITY *p_PreviousAffinity; // r15
+  _GROUP_AFFINITY *p_PreviousAffinity; // r15
   struct _KPRCB *CurrentPrcb; // rbx
   KPRIORITY v9; // r12d
   struct _KTHREAD *CurrentThread; // rsi
@@ -42,12 +42,12 @@ char __fastcall KeGenericProcessorCallback(
   int v18; // [rsp+20h] [rbp-E0h] BYREF
   int v19; // [rsp+24h] [rbp-DCh]
   __int64 v20; // [rsp+28h] [rbp-D8h]
-  struct _GROUP_AFFINITY Affinity; // [rsp+30h] [rbp-D0h] BYREF
+  _GROUP_AFFINITY Affinity; // [rsp+30h] [rbp-D0h] BYREF
   _QWORD v22[2]; // [rsp+40h] [rbp-C0h] BYREF
   __int16 v23; // [rsp+50h] [rbp-B0h]
   int v24; // [rsp+52h] [rbp-AEh]
   __int16 v25; // [rsp+56h] [rbp-AAh]
-  struct _GROUP_AFFINITY PreviousAffinity; // [rsp+58h] [rbp-A8h] BYREF
+  _GROUP_AFFINITY PreviousAffinity; // [rsp+58h] [rbp-A8h] BYREF
   _QWORD v27[34]; // [rsp+70h] [rbp-90h] BYREF
 
   v20 = a3;
@@ -95,7 +95,7 @@ char __fastcall KeGenericProcessorCallback(
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
   v14 = v19;
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     LODWORD(v17) = 4;

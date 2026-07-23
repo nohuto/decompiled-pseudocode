@@ -1,17 +1,17 @@
 /*
- * XREFs of SeReleaseImageValidationContext @ 0x14078E874
+ * XREFs of SeReleaseImageValidationContext @ 0x14078EA34
  * Callers:
- *     MiDeleteControlArea @ 0x1402F7AE4 (MiDeleteControlArea.c)
- *     MiValidateSectionCreate @ 0x140714C70 (MiValidateSectionCreate.c)
+ *     MiDeleteControlArea @ 0x140302834 (MiDeleteControlArea.c)
+ *     MiValidateSectionCreate @ 0x1406C32C0 (MiValidateSectionCreate.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 void __fastcall SeReleaseImageValidationContext(void *a1)
 {
-  if ( qword_140C1DB28 )
-    qword_140C1DB28();
+  if ( qword_140C1DB48 )
+    qword_140C1DB48();
   else
     ExFreePoolWithTag(a1, 0);
 }

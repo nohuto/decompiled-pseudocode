@@ -9,17 +9,17 @@
  *     KiResumeClockTimer @ 0x140119C68 (KiResumeClockTimer.c)
  */
 
-__int64 KeResumeClockTimerSafe()
+LARGE_INTEGER KeResumeClockTimerSafe()
 {
   unsigned __int8 CurrentIrql; // bl
-  __int64 result; // rax
+  LARGE_INTEGER result; // rax
 
   if ( KeGetEffectiveIrql() >= 0xDu )
     return KiResumeClockTimer();
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(0xDuLL);
   KiResumeClockTimer();
-  result = CurrentIrql;
+  result.QuadPart = CurrentIrql;
   __writecr8(CurrentIrql);
   return result;
 }

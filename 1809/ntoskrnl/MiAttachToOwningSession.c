@@ -1,16 +1,16 @@
 /*
- * XREFs of MiAttachToOwningSession @ 0x14011A4CC
+ * XREFs of MiAttachToOwningSession @ 0x14011A53C
  * Callers:
- *     MiCapturePfnVm @ 0x140083648 (MiCapturePfnVm.c)
- *     MiLockStealSystemVm @ 0x1400E9978 (MiLockStealSystemVm.c)
+ *     MiCapturePfnVm @ 0x140083638 (MiCapturePfnVm.c)
+ *     MiLockStealSystemVm @ 0x1400E99F8 (MiLockStealSystemVm.c)
  * Callees:
  *     MiLockPageInline @ 0x14002CE40 (MiLockPageInline.c)
- *     MiSelectSessionAttachProcess @ 0x14007E614 (MiSelectSessionAttachProcess.c)
- *     MiGetTopLevelPfn @ 0x140083820 (MiGetTopLevelPfn.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
- *     MiTryToAcquireExpansionLockAtDpc @ 0x1400EE018 (MiTryToAcquireExpansionLockAtDpc.c)
- *     MmAttachSession @ 0x14011A650 (MmAttachSession.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiSelectSessionAttachProcess @ 0x14007E604 (MiSelectSessionAttachProcess.c)
+ *     MiGetTopLevelPfn @ 0x140083810 (MiGetTopLevelPfn.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC6A0 (KxReleaseQueuedSpinLock.c)
+ *     MiTryToAcquireExpansionLockAtDpc @ 0x1400EE098 (MiTryToAcquireExpansionLockAtDpc.c)
+ *     MmAttachSession @ 0x14011A6C0 (MmAttachSession.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 _QWORD *__fastcall MiAttachToOwningSession(__int64 a1, unsigned __int8 a2)

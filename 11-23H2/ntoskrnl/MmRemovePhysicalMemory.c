@@ -1,19 +1,19 @@
 /*
- * XREFs of MmRemovePhysicalMemory @ 0x140A2D210
+ * XREFs of MmRemovePhysicalMemory @ 0x140A2D4C0
  * Callers:
- *     WheapClearPoison @ 0x140A084B0 (WheapClearPoison.c)
+ *     WheapClearPoison @ 0x140A08760 (WheapClearPoison.c)
  * Callees:
- *     PsDereferencePartition @ 0x1402F9C4C (PsDereferencePartition.c)
- *     MiFindContiguousPagesEx @ 0x1403BB018 (MiFindContiguousPagesEx.c)
- *     MiFreeContiguousPages @ 0x1403C39DC (MiFreeContiguousPages.c)
- *     MiReferenceRemovePartition @ 0x14061BDAC (MiReferenceRemovePartition.c)
- *     MiRemoveBadPages @ 0x14062A440 (MiRemoveBadPages.c)
- *     MiReturnBadPagesToBadList @ 0x14062ABA8 (MiReturnBadPagesToBadList.c)
- *     MiAddRangeToPartitionTree @ 0x140658B1C (MiAddRangeToPartitionTree.c)
- *     MiDeletePartitionPageNodes @ 0x1406593F4 (MiDeletePartitionPageNodes.c)
- *     MiInsertPartitionPages @ 0x14065A480 (MiInsertPartitionPages.c)
- *     MiRemovePhysicalMemory @ 0x140A2CC4C (MiRemovePhysicalMemory.c)
- *     MiSpecialPurposeMemoryRemoved @ 0x140A47844 (MiSpecialPurposeMemoryRemoved.c)
+ *     PsDereferencePartition @ 0x1402F9EDC (PsDereferencePartition.c)
+ *     MiFindContiguousPagesEx @ 0x1403BB1F8 (MiFindContiguousPagesEx.c)
+ *     MiFreeContiguousPages @ 0x1403C3BBC (MiFreeContiguousPages.c)
+ *     MiReferenceRemovePartition @ 0x14061C2FC (MiReferenceRemovePartition.c)
+ *     MiRemoveBadPages @ 0x14062A990 (MiRemoveBadPages.c)
+ *     MiReturnBadPagesToBadList @ 0x14062B0F8 (MiReturnBadPagesToBadList.c)
+ *     MiAddRangeToPartitionTree @ 0x14065906C (MiAddRangeToPartitionTree.c)
+ *     MiDeletePartitionPageNodes @ 0x140659944 (MiDeletePartitionPageNodes.c)
+ *     MiInsertPartitionPages @ 0x14065A9D0 (MiInsertPartitionPages.c)
+ *     MiRemovePhysicalMemory @ 0x140A2CEFC (MiRemovePhysicalMemory.c)
+ *     MiSpecialPurposeMemoryRemoved @ 0x140A47AF4 (MiSpecialPurposeMemoryRemoved.c)
  */
 
 NTSTATUS __stdcall MmRemovePhysicalMemory(PPHYSICAL_ADDRESS StartAddress, PLARGE_INTEGER NumberOfBytes)

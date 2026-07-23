@@ -1,11 +1,11 @@
 /*
- * XREFs of MiCreatePatchTableProtos @ 0x140A366D0
+ * XREFs of MiCreatePatchTableProtos @ 0x140A36980
  * Callers:
- *     MmLoadSystemImageEx @ 0x140703DC0 (MmLoadSystemImageEx.c)
+ *     MmLoadSystemImageEx @ 0x140703FD0 (MmLoadSystemImageEx.c)
  * Callees:
- *     MiAllocatePool @ 0x1402DF1A0 (MiAllocatePool.c)
- *     memset @ 0x140435A00 (memset.c)
- *     MiLockPagedRange @ 0x140748340 (MiLockPagedRange.c)
+ *     MiAllocatePool @ 0x1402DF430 (MiAllocatePool.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     MiLockPagedRange @ 0x140748530 (MiLockPagedRange.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

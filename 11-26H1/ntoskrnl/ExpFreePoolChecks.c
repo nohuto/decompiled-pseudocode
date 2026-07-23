@@ -1,15 +1,15 @@
 /*
- * XREFs of ExpFreePoolChecks @ 0x140344A90
+ * XREFs of ExpFreePoolChecks @ 0x140346B10
  * Callers:
- *     ExRemovePoolTag @ 0x1403447D0 (ExRemovePoolTag.c)
- *     ExpFreeHeapSpecialPool @ 0x140345B28 (ExpFreeHeapSpecialPool.c)
- *     ExFreeHeapPool @ 0x1403A7BB0 (ExFreeHeapPool.c)
+ *     ExRemovePoolTag @ 0x140346850 (ExRemovePoolTag.c)
+ *     ExpFreeHeapSpecialPool @ 0x140347BA8 (ExpFreeHeapSpecialPool.c)
+ *     ExFreeHeapPool @ 0x1403A9910 (ExFreeHeapPool.c)
  * Callees:
- *     ExpCheckForResource @ 0x140344B48 (ExpCheckForResource.c)
- *     ExpCheckForWorker @ 0x140344BD8 (ExpCheckForWorker.c)
- *     KeCheckForTimer @ 0x140344DA0 (KeCheckForTimer.c)
- *     ExpCheckForLookaside @ 0x140344F78 (ExpCheckForLookaside.c)
- *     VfPtFreePoolNotification @ 0x140C44F7C (VfPtFreePoolNotification.c)
+ *     ExpCheckForResource @ 0x140346BC8 (ExpCheckForResource.c)
+ *     ExpCheckForWorker @ 0x140346C58 (ExpCheckForWorker.c)
+ *     KeCheckForTimer @ 0x140346E20 (KeCheckForTimer.c)
+ *     ExpCheckForLookaside @ 0x140346FF8 (ExpCheckForLookaside.c)
+ *     VfPtFreePoolNotification @ 0x140C4AF8C (VfPtFreePoolNotification.c)
  */
 
 unsigned __int8 __fastcall ExpFreePoolChecks(

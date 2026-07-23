@@ -1,13 +1,13 @@
 /*
- * XREFs of CmFcpMapSection @ 0x14080DE3C
+ * XREFs of CmFcpMapSection @ 0x14080E10C
  * Callers:
- *     CmFcpManagerCreateSectionFromBuffer @ 0x14080DD60 (CmFcpManagerCreateSectionFromBuffer.c)
- *     CmFcManagerOverwriteFeatureConfigurationSection @ 0x140A26E1C (CmFcManagerOverwriteFeatureConfigurationSection.c)
- *     CmFcManagerUpdateFeatureConfigurations @ 0x140A272F0 (CmFcManagerUpdateFeatureConfigurations.c)
- *     CmFcManagerUpdateFeatureUsageSubscriptions @ 0x140A27718 (CmFcManagerUpdateFeatureUsageSubscriptions.c)
+ *     CmFcpManagerCreateSectionFromBuffer @ 0x14080E030 (CmFcpManagerCreateSectionFromBuffer.c)
+ *     CmFcManagerOverwriteFeatureConfigurationSection @ 0x140A270CC (CmFcManagerOverwriteFeatureConfigurationSection.c)
+ *     CmFcManagerUpdateFeatureConfigurations @ 0x140A275A0 (CmFcManagerUpdateFeatureConfigurations.c)
+ *     CmFcManagerUpdateFeatureUsageSubscriptions @ 0x140A279C8 (CmFcManagerUpdateFeatureUsageSubscriptions.c)
  *     CmFcManagerStartRuntimePhase @ 0x140B37FF0 (CmFcManagerStartRuntimePhase.c)
  * Callees:
- *     MiMapViewInSystemSpace @ 0x1406AD6A4 (MiMapViewInSystemSpace.c)
+ *     MiMapViewInSystemSpace @ 0x1406AD6D4 (MiMapViewInSystemSpace.c)
  */
 
 __int64 __fastcall CmFcpMapSection(_QWORD *a1, _QWORD *a2)

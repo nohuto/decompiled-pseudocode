@@ -1,17 +1,17 @@
 /*
- * XREFs of ExAllocateCacheAwarePushLock @ 0x1403C86C0
+ * XREFs of ExAllocateCacheAwarePushLock @ 0x1403C8860
  * Callers:
  *     <none>
  * Callees:
- *     KeGetPrcb @ 0x140228E30 (KeGetPrcb.c)
- *     KeQueryNodeActiveAffinity @ 0x1402E2F80 (KeQueryNodeActiveAffinity.c)
- *     KeRevertToUserGroupAffinityThread @ 0x1402EB390 (KeRevertToUserGroupAffinityThread.c)
- *     KeSetSystemGroupAffinityThread @ 0x1402EB4F0 (KeSetSystemGroupAffinityThread.c)
- *     ExpAllocatePoolWithTagFromNode @ 0x14033C180 (ExpAllocatePoolWithTagFromNode.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     memset @ 0x140414200 (memset.c)
- *     ExFreeCacheAwarePushLock @ 0x1405B3E30 (ExFreeCacheAwarePushLock.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     KeQueryNodeActiveAffinity @ 0x1402942D0 (KeQueryNodeActiveAffinity.c)
+ *     KeRevertToUserGroupAffinityThread @ 0x14029C6E0 (KeRevertToUserGroupAffinityThread.c)
+ *     KeSetSystemGroupAffinityThread @ 0x14029C840 (KeSetSystemGroupAffinityThread.c)
+ *     KeGetPrcb @ 0x1402CD730 (KeGetPrcb.c)
+ *     ExpAllocatePoolWithTagFromNode @ 0x140346ED0 (ExpAllocatePoolWithTagFromNode.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     ExFreeCacheAwarePushLock @ 0x1405B4060 (ExFreeCacheAwarePushLock.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 ULONG_PTR __fastcall ExAllocateCacheAwarePushLock(char a1)
@@ -34,8 +34,8 @@ ULONG_PTR __fastcall ExAllocateCacheAwarePushLock(char a1)
   _QWORD *v17; // rdi
   unsigned int v18; // [rsp+30h] [rbp-68h]
   _QWORD *v19; // [rsp+38h] [rbp-60h]
-  struct _GROUP_AFFINITY Affinity; // [rsp+40h] [rbp-58h] BYREF
-  struct _GROUP_AFFINITY PreviousAffinity; // [rsp+50h] [rbp-48h] BYREF
+  _GROUP_AFFINITY Affinity; // [rsp+40h] [rbp-58h] BYREF
+  _GROUP_AFFINITY PreviousAffinity; // [rsp+50h] [rbp-48h] BYREF
 
   v1 = 0;
   v2 = a1 & 1;

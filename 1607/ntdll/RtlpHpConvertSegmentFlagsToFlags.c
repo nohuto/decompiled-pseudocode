@@ -1,7 +1,7 @@
 /*
  * XREFs of RtlpHpConvertSegmentFlagsToFlags @ 0x1800F7494
  * Callers:
- *     RtlHpQuerySegmentHeapRoutine @ 0x18008A3A0 (RtlHpQuerySegmentHeapRoutine.c)
+ *     RtlHpQuerySegmentHeapRoutine @ 0x18008A390 (RtlHpQuerySegmentHeapRoutine.c)
  * Callees:
  *     <none>
  */

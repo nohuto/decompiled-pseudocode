@@ -1,8 +1,8 @@
 /*
- * XREFs of MiQuerySystemBase @ 0x14036F0C4
+ * XREFs of MiQuerySystemBase @ 0x14036F264
  * Callers:
- *     MiInitializeSystemCache @ 0x14085C388 (MiInitializeSystemCache.c)
- *     MmMarkHiberPhase @ 0x140AACCE0 (MmMarkHiberPhase.c)
+ *     MiInitializeSystemCache @ 0x14085C5C8 (MiInitializeSystemCache.c)
+ *     MmMarkHiberPhase @ 0x140AACB50 (MmMarkHiberPhase.c)
  * Callees:
  *     <none>
  */

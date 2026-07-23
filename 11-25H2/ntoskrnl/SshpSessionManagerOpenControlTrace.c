@@ -50,7 +50,7 @@ __int64 __fastcall SshpSessionManagerOpenControlTrace(__int64 a1, __int64 a2)
       v4 = KeAbPreAcquire((__int64)&SshpSessionManagerLock, 0LL);
       v5 = v4;
       if ( _interlockedbittestandset64((volatile signed __int32 *)&SshpSessionManagerLock, 0LL) )
-        ExfAcquirePushLockExclusiveEx(&SshpSessionManagerLock, v4, (__int64)&SshpSessionManagerLock);
+        ExfAcquirePushLockExclusiveEx((unsigned __int64 *)&SshpSessionManagerLock, v4, (__int64)&SshpSessionManagerLock);
       if ( v5 )
         *((_BYTE *)v5 + 10) = 1;
       if ( FileHandle )

@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlpHpSetHeapTag @ 0x1801222A4
+ * XREFs of RtlpHpSetHeapTag @ 0x180122044
  * Callers:
- *     RtlSetHeapInformation @ 0x180111030 (RtlSetHeapInformation.c)
+ *     RtlSetHeapInformation @ 0x180110BC0 (RtlSetHeapInformation.c)
  * Callees:
- *     RtlGetCurrentServiceSessionId @ 0x180028160 (RtlGetCurrentServiceSessionId.c)
- *     RtlpLogHeapTagUpdateEvent @ 0x180150338 (RtlpLogHeapTagUpdateEvent.c)
+ *     RtlGetCurrentServiceSessionId @ 0x180013230 (RtlGetCurrentServiceSessionId.c)
+ *     RtlpLogHeapTagUpdateEvent @ 0x1801501E8 (RtlpLogHeapTagUpdateEvent.c)
  */
 
 __int64 __fastcall RtlpHpSetHeapTag(__int64 a1, __int64 *a2, __int64 a3)
@@ -18,7 +18,7 @@ __int64 __fastcall RtlpHpSetHeapTag(__int64 a1, __int64 *a2, __int64 a3)
   {
     v5 = *a2;
     *(_QWORD *)(a1 + 104) = *a2;
-    if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+    if ( RtlGetCurrentServiceSessionId() )
       v6 = (__int64)NtCurrentPeb()->SharedData + 550;
     else
       v6 = 2147353472LL;

@@ -8,7 +8,7 @@
  *     ExAllocatePool2 @ 0x140B620F0 (ExAllocatePool2.c)
  */
 
-NTSTATUS __fastcall NtRegisterThreadTerminatePort(void *a1)
+NTSTATUS __cdecl NtRegisterThreadTerminatePort(HANDLE PortHandle)
 {
   struct _KTHREAD *CurrentThread; // rbx
   NTSTATUS result; // eax
@@ -18,7 +18,7 @@ NTSTATUS __fastcall NtRegisterThreadTerminatePort(void *a1)
 
   CurrentThread = KeGetCurrentThread();
   Object = 0LL;
-  result = ObReferenceObjectByHandle(a1, 1u, LpcPortObjectType, CurrentThread->PreviousMode, &Object, 0LL);
+  result = ObReferenceObjectByHandle(PortHandle, 1u, LpcPortObjectType, CurrentThread->PreviousMode, &Object, 0LL);
   if ( result >= 0 )
   {
     Pool2 = (void **)ExAllocatePool2(0x101uLL);

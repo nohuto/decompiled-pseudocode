@@ -12,16 +12,16 @@
  *     __SEH_prolog4 @ 0x4B307AC4 (__SEH_prolog4.c)
  */
 
-int __stdcall LdrEnumerateLoadedModules(int a1, void (__thiscall *a2)(_DWORD, int *, int, char *), int a3)
+NTSTATUS __cdecl LdrEnumerateLoadedModules(BOOLEAN ReservedFlag, PLDR_ENUM_CALLBACK EnumProc, PVOID Context)
 {
   char v3; // bl
   int v4; // ecx
-  int *i; // esi
-  int result; // eax
-  char v7; // [esp+13h] [ebp-19h] BYREF
+  PLDR_DATA_TABLE_ENTRY i; // esi
+  NTSTATUS result; // eax
+  BOOLEAN v7; // [esp+13h] [ebp-19h] BYREF
   CPPEH_RECORD ms_exc; // [esp+14h] [ebp-18h]
 
-  if ( a1 || !a2 )
+  if ( ReservedFlag || !EnumProc )
     return -1073741811;
   v7 = 0;
   if ( (NtCurrentTeb()->SameTebFlags & 0x1000) != 0 )
@@ -35,9 +35,15 @@ int __stdcall LdrEnumerateLoadedModules(int a1, void (__thiscall *a2)(_DWORD, in
   }
   LdrpAcquireLoaderLock();
   ms_exc.registration.TryLevel = 0;
-  for ( i = (int *)dword_4B3A5D8C; i != &dword_4B3A5D8C; i = (int *)*i )
+  for ( i = dword_4B3A5D8C;
+        i != (PLDR_DATA_TABLE_ENTRY)&dword_4B3A5D8C;
+        i = (PLDR_DATA_TABLE_ENTRY)i->InLoadOrderLinks.Flink )
   {
-    a2(a2, i, a3, &v7);
+    ((void (__thiscall *)(PLDR_ENUM_CALLBACK, PLDR_DATA_TABLE_ENTRY, PVOID, BOOLEAN *))EnumProc)(
+      EnumProc,
+      i,
+      Context,
+      &v7);
     if ( v7 )
       break;
   }

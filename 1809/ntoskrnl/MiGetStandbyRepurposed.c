@@ -1,11 +1,11 @@
 /*
- * XREFs of MiGetStandbyRepurposed @ 0x1400EF34C
+ * XREFs of MiGetStandbyRepurposed @ 0x1400EF3CC
  * Callers:
  *     MiAddWorkingSetEntries @ 0x140048CE0 (MiAddWorkingSetEntries.c)
- *     MiUseLowIoPriorityForModifiedPages @ 0x1400EEF48 (MiUseLowIoPriorityForModifiedPages.c)
- *     MiComputeSystemTrimCriteria @ 0x1400EEFD8 (MiComputeSystemTrimCriteria.c)
- *     MmQuerySystemWorkingSetInformation @ 0x140130A34 (MmQuerySystemWorkingSetInformation.c)
- *     MiWorkingSetVeryLarge @ 0x1402A7F0C (MiWorkingSetVeryLarge.c)
+ *     MiUseLowIoPriorityForModifiedPages @ 0x1400EEFC8 (MiUseLowIoPriorityForModifiedPages.c)
+ *     MiComputeSystemTrimCriteria @ 0x1400EF058 (MiComputeSystemTrimCriteria.c)
+ *     MmQuerySystemWorkingSetInformation @ 0x140130B04 (MmQuerySystemWorkingSetInformation.c)
+ *     MiWorkingSetVeryLarge @ 0x1402A80FC (MiWorkingSetVeryLarge.c)
  * Callees:
  *     <none>
  */

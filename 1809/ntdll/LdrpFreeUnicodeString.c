@@ -13,12 +13,12 @@
  *     NtdllpFreeStringRoutine @ 0x1800178B0 (NtdllpFreeStringRoutine.c)
  */
 
-__int64 __fastcall LdrpFreeUnicodeString(__int64 a1)
+LOGICAL __fastcall LdrpFreeUnicodeString(__int64 a1)
 {
-  __int64 v2; // rcx
-  __int64 result; // rax
+  void *v2; // rcx
+  LOGICAL result; // eax
 
-  v2 = *(_QWORD *)(a1 + 8);
+  v2 = *(void **)(a1 + 8);
   if ( v2 )
   {
     result = NtdllpFreeStringRoutine(v2);

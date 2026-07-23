@@ -1,61 +1,63 @@
 /*
- * XREFs of KiCheckForPendingQosUpdate @ 0x14029DE4C
+ * XREFs of KiCheckForPendingQosUpdate @ 0x1402AC93C
  * Callers:
- *     KiUpdateRunTime @ 0x14029BDF0 (KiUpdateRunTime.c)
+ *     KiUpdateRunTime @ 0x1402AA8E0 (KiUpdateRunTime.c)
  * Callees:
- *     KiRemoveSystemWorkPriorityKick @ 0x14025E408 (KiRemoveSystemWorkPriorityKick.c)
- *     KeCheckAndApplyBamQos @ 0x14029DF30 (KeCheckAndApplyBamQos.c)
- *     PoSetProcessorQos @ 0x14029E1A0 (PoSetProcessorQos.c)
- *     KeUpdatePendingQosRequest @ 0x14029E99C (KeUpdatePendingQosRequest.c)
- *     KeDisableInterrupts @ 0x140321E80 (KeDisableInterrupts.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14028EA18 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeCheckAndApplyBamQos @ 0x1402ACA20 (KeCheckAndApplyBamQos.c)
+ *     PoSetProcessorQos @ 0x1402ACC90 (PoSetProcessorQos.c)
+ *     KeUpdatePendingQosRequest @ 0x1402AD48C (KeUpdatePendingQosRequest.c)
+ *     KeDisableInterrupts @ 0x1402CAA10 (KeDisableInterrupts.c)
  */
 
 __int64 __fastcall KiCheckForPendingQosUpdate(__int64 a1, __int64 a2, __int64 a3)
 {
   struct _KPRCB *CurrentPrcb; // rbx
+  __int64 v4; // r9
   __int64 result; // rax
-  unsigned int v5; // r9d
-  _KPRCBFLAG v6; // r8d
-  char v7; // di
-  struct _KPRCB *v8; // rcx
+  unsigned int v6; // r9d
+  _KPRCBFLAG v7; // r8d
+  char v8; // di
+  struct _KPRCB *v9; // rcx
   _DWORD *SchedulerAssist; // r8
-  int v10; // ett
+  int v11; // ett
 
   CurrentPrcb = KeGetCurrentPrcb();
+  v4 = *(unsigned __int8 *)(a1 + 516);
   LODWORD(result) = CurrentPrcb->PrcbFlags.PrcbFlags;
   if ( (result & 0x100) != 0 )
   {
-    result = KeDisableInterrupts(a1, a2, a3);
-    v6.PrcbFlags = (volatile int)CurrentPrcb->PrcbFlags;
-    v7 = result;
-    if ( v5 == LOBYTE(v6.PrcbFlags) )
+    result = KeDisableInterrupts(a1, a2, a3, v4);
+    v7.PrcbFlags = (volatile int)CurrentPrcb->PrcbFlags;
+    v8 = result;
+    if ( v6 == LOBYTE(v7.PrcbFlags) )
     {
-      CurrentPrcb->PrcbFlagsReserved = v6.PrcbFlags & 0xFFFFFEFF;
+      CurrentPrcb->PrcbFlagsReserved = v7.PrcbFlags & 0xFFFFFEFF;
     }
     else
     {
-      result = PoSetProcessorQos(CurrentPrcb, v5);
+      result = PoSetProcessorQos(CurrentPrcb, v6);
       if ( (_BYTE)result )
         CurrentPrcb->PrcbFlagsReserved &= ~0x100u;
     }
     if ( (CurrentPrcb->PrcbFlagsReserved & 0x100) == 0 )
       result = KeUpdatePendingQosRequest(CurrentPrcb);
-    if ( v7 )
+    if ( v8 )
     {
-      v8 = KeGetCurrentPrcb();
-      SchedulerAssist = v8->SchedulerAssist;
+      v9 = KeGetCurrentPrcb();
+      SchedulerAssist = v9->SchedulerAssist;
       if ( SchedulerAssist )
       {
         _m_prefetchw(SchedulerAssist);
         LODWORD(result) = *SchedulerAssist;
         do
         {
-          v10 = result;
+          v11 = result;
           result = (unsigned int)_InterlockedCompareExchange(SchedulerAssist, result & 0xFFDFFFFF, result);
         }
-        while ( v10 != (_DWORD)result );
+        while ( v11 != (_DWORD)result );
         if ( (result & 0x200000) != 0 )
-          result = KiRemoveSystemWorkPriorityKick((__int64)v8);
+          result = KiRemoveSystemWorkPriorityKick((__int64)v9);
       }
       _enable();
     }
@@ -63,7 +65,7 @@ __int64 __fastcall KiCheckForPendingQosUpdate(__int64 a1, __int64 a2, __int64 a3
   else
   {
     result = (unsigned __int8)result;
-    if ( *(unsigned __int8 *)(a1 + 516) != (unsigned __int8)result )
+    if ( (_DWORD)v4 != (unsigned __int8)result )
       return KeCheckAndApplyBamQos(CurrentPrcb, a1);
   }
   return result;

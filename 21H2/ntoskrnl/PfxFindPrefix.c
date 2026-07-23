@@ -1,11 +1,11 @@
 /*
- * XREFs of PfxFindPrefix @ 0x140911CE0
+ * XREFs of PfxFindPrefix @ 0x140911E40
  * Callers:
  *     <none>
  * Callees:
- *     RtlSplay @ 0x140359770 (RtlSplay.c)
- *     CompareNamesCaseSensitive @ 0x140911AD4 (CompareNamesCaseSensitive.c)
- *     ComputeNameLength @ 0x140911C54 (ComputeNameLength.c)
+ *     RtlSplay @ 0x1403644C0 (RtlSplay.c)
+ *     CompareNamesCaseSensitive @ 0x140911C34 (CompareNamesCaseSensitive.c)
+ *     ComputeNameLength @ 0x140911DB4 (ComputeNameLength.c)
  */
 
 PPREFIX_TABLE_ENTRY __stdcall PfxFindPrefix(PPREFIX_TABLE PrefixTable, PSTRING FullName)
@@ -13,10 +13,10 @@ PPREFIX_TABLE_ENTRY __stdcall PfxFindPrefix(PPREFIX_TABLE PrefixTable, PSTRING F
   PPREFIX_TABLE_ENTRY NextPrefixTree; // rdi
   PPREFIX_TABLE v3; // rbp
   CSHORT v5; // ax
-  RTL_SPLAY_LINKS *i; // rsi
-  PREFIX_TABLE_ENTRY *p_LeftChild; // r14
+  _RTL_SPLAY_LINKS *i; // rsi
+  _PREFIX_TABLE_ENTRY *p_LeftChild; // r14
   int v8; // eax
-  struct _PREFIX_TABLE_ENTRY *v10; // rbx
+  _PREFIX_TABLE_ENTRY *v10; // rbx
 
   NextPrefixTree = PrefixTable->NextPrefixTree;
   v3 = PrefixTable;
@@ -39,7 +39,7 @@ LABEL_12:
         NextPrefixTree = NextPrefixTree->NextPrefixTree;
         goto LABEL_12;
       }
-      p_LeftChild = (PREFIX_TABLE_ENTRY *)&i[-1].LeftChild;
+      p_LeftChild = (_PREFIX_TABLE_ENTRY *)&i[-1].LeftChild;
       v8 = CompareNamesCaseSensitive((unsigned __int16 *)i[1].Parent, &FullName->Length);
       if ( v8 != 3 )
         break;
@@ -53,7 +53,7 @@ LABEL_12:
     v10 = NextPrefixTree->NextPrefixTree;
     NextPrefixTree->NextPrefixTree = 0LL;
     NextPrefixTree->NodeTypeCode = 514;
-    p_LeftChild = (PREFIX_TABLE_ENTRY *)&RtlSplay(i)[-1].LeftChild;
+    p_LeftChild = (_PREFIX_TABLE_ENTRY *)&RtlSplay(i)[-1].LeftChild;
     p_LeftChild->NodeTypeCode = 513;
     v3->NextPrefixTree = p_LeftChild;
     p_LeftChild->NextPrefixTree = v10;

@@ -1,5 +1,5 @@
 /*
- * XREFs of PsIsWin32KFilterAuditEnabled @ 0x140367D60
+ * XREFs of PsIsWin32KFilterAuditEnabled @ 0x140367F00
  * Callers:
  *     <none>
  * Callees:

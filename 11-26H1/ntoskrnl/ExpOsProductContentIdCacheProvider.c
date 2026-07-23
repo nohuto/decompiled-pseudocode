@@ -1,9 +1,9 @@
 /*
- * XREFs of ExpOsProductContentIdCacheProvider @ 0x140838F00
+ * XREFs of ExpOsProductContentIdCacheProvider @ 0x14083F140
  * Callers:
  *     <none>
  * Callees:
- *     ExpOsProductCacheProviderHelper @ 0x140838DA8 (ExpOsProductCacheProviderHelper.c)
+ *     ExpOsProductCacheProviderHelper @ 0x14083EFE8 (ExpOsProductCacheProviderHelper.c)
  */
 
 __int64 __fastcall ExpOsProductContentIdCacheProvider(

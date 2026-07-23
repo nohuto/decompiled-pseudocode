@@ -1,20 +1,20 @@
 /*
- * XREFs of KiAddThreadToReadyQueue @ 0x1402348E0
+ * XREFs of KiAddThreadToReadyQueue @ 0x1402349B0
  * Callers:
- *     KiQueueReadyThread @ 0x140234510 (KiQueueReadyThread.c)
+ *     KiQueueReadyThread @ 0x1402345E0 (KiQueueReadyThread.c)
  * Callees:
- *     KiScheduleSoftParkElectionIfNecessary @ 0x140234CF0 (KiScheduleSoftParkElectionIfNecessary.c)
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KxAcquireSpinLock @ 0x1402515B0 (KxAcquireSpinLock.c)
- *     KiInsertQueueDpc @ 0x140254790 (KiInsertQueueDpc.c)
- *     KiGetThreadEffectiveRankNonZero @ 0x1402B3240 (KiGetThreadEffectiveRankNonZero.c)
- *     KiAddThreadToScbQueue @ 0x140305A20 (KiAddThreadToScbQueue.c)
- *     KeQueryGroupAffinityEx @ 0x1403B69C0 (KeQueryGroupAffinityEx.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1403CD2C0 (KiCheckVpBackingLongSpinWaitHypercall.c)
- *     HvlNotifyLongSpinWait @ 0x1403CD2F0 (HvlNotifyLongSpinWait.c)
- *     KiAcquireSoftParkElectionLock @ 0x140410348 (KiAcquireSoftParkElectionLock.c)
- *     KiReadGuestSchedulerAssistPriority @ 0x140410388 (KiReadGuestSchedulerAssistPriority.c)
- *     KiUpdateLocalReadyQueueStatisticsOnInsertion @ 0x140410E10 (KiUpdateLocalReadyQueueStatisticsOnInsertion.c)
+ *     KiScheduleSoftParkElectionIfNecessary @ 0x140234DC0 (KiScheduleSoftParkElectionIfNecessary.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KxAcquireSpinLock @ 0x140251670 (KxAcquireSpinLock.c)
+ *     KiInsertQueueDpc @ 0x140254850 (KiInsertQueueDpc.c)
+ *     KiGetThreadEffectiveRankNonZero @ 0x1402B34D0 (KiGetThreadEffectiveRankNonZero.c)
+ *     KiAddThreadToScbQueue @ 0x140305CB0 (KiAddThreadToScbQueue.c)
+ *     KeQueryGroupAffinityEx @ 0x1403B6BA0 (KeQueryGroupAffinityEx.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1403CD4A0 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     HvlNotifyLongSpinWait @ 0x1403CD4D0 (HvlNotifyLongSpinWait.c)
+ *     KiAcquireSoftParkElectionLock @ 0x140410424 (KiAcquireSoftParkElectionLock.c)
+ *     KiReadGuestSchedulerAssistPriority @ 0x140410464 (KiReadGuestSchedulerAssistPriority.c)
+ *     KiUpdateLocalReadyQueueStatisticsOnInsertion @ 0x14041101C (KiUpdateLocalReadyQueueStatisticsOnInsertion.c)
  */
 
 __int64 __fastcall KiAddThreadToReadyQueue(__int64 a1, __int64 a2, __int64 a3, char a4, unsigned int a5)

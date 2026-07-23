@@ -1,38 +1,42 @@
 /*
- * XREFs of SepReferenceTokenUsingPseudoHandle @ 0x14027DC90
+ * XREFs of SepReferenceTokenUsingPseudoHandle @ 0x14026BC30
  * Callers:
- *     SepReferenceTokenByHandle @ 0x14027CA20 (SepReferenceTokenByHandle.c)
+ *     SepReferenceTokenByHandle @ 0x14026A9C0 (SepReferenceTokenByHandle.c)
  * Callees:
- *     RtlSidDominatesForTrust @ 0x14027DDE0 (RtlSidDominatesForTrust.c)
- *     SepSidFromProcessProtection @ 0x14027DEE0 (SepSidFromProcessProtection.c)
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     PsReferenceImpersonationTokenEx @ 0x140656960 (PsReferenceImpersonationTokenEx.c)
- *     PsReferenceEffectiveToken @ 0x14065CD50 (PsReferenceEffectiveToken.c)
- *     PsReferencePrimaryToken @ 0x140706D00 (PsReferencePrimaryToken.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     RtlSidDominatesForTrust @ 0x14026BD80 (RtlSidDominatesForTrust.c)
+ *     SepSidFromProcessProtection @ 0x14026BE80 (SepSidFromProcessProtection.c)
+ *     PsReferenceImpersonationTokenEx @ 0x14064B780 (PsReferenceImpersonationTokenEx.c)
+ *     PsReferenceEffectiveToken @ 0x140651B70 (PsReferenceEffectiveToken.c)
+ *     PsReferencePrimaryToken @ 0x14071E0E0 (PsReferencePrimaryToken.c)
  */
 
-__int64 __fastcall SepReferenceTokenUsingPseudoHandle(__int64 a1, PACCESS_TOKEN *a2, _BYTE *a3, __int64 *a4)
+__int64 __fastcall SepReferenceTokenUsingPseudoHandle(__int64 a1, PACCESS_TOKEN *a2, _BYTE *a3, _QWORD *a4)
 {
   struct _KTHREAD *CurrentThread; // rax
   struct _DMA_ADAPTER *v8; // rax
-  __int64 v9; // rbp
-  __int64 v10; // r9
-  void *v11; // r11
-  int v13; // [rsp+30h] [rbp-38h] BYREF
-  int v14; // [rsp+34h] [rbp-34h] BYREF
-  char v15; // [rsp+70h] [rbp+8h] BYREF
-  char v16; // [rsp+78h] [rbp+10h] BYREF
-  char v17; // [rsp+80h] [rbp+18h] BYREF
-  char v18; // [rsp+88h] [rbp+20h] BYREF
+  __int64 v9; // rdx
+  __int64 v10; // r8
+  struct _DMA_ADAPTER *v11; // r11
+  __int64 v12; // r9
+  void *v13; // rbp
+  PSID v14; // r9
+  void *v15; // r11
+  int v17; // [rsp+30h] [rbp-38h] BYREF
+  int v18; // [rsp+34h] [rbp-34h] BYREF
+  char v19; // [rsp+70h] [rbp+8h] BYREF
+  char v20; // [rsp+78h] [rbp+10h] BYREF
+  BOOLEAN DominatesTrust; // [rsp+80h] [rbp+18h] BYREF
+  char v22; // [rsp+88h] [rbp+20h] BYREF
 
-  v16 = 0;
+  v20 = 0;
   *a2 = 0LL;
   *a3 = 0;
   *a4 = 0LL;
   CurrentThread = KeGetCurrentThread();
-  v13 = 0;
-  v14 = 0;
-  v15 = 0;
+  v17 = 0;
+  v18 = 0;
+  v19 = 0;
   if ( a1 == -4 )
   {
     *a2 = PsReferencePrimaryToken(CurrentThread->ApcState.Process);
@@ -43,10 +47,11 @@ __int64 __fastcall SepReferenceTokenUsingPseudoHandle(__int64 a1, PACCESS_TOKEN 
     v8 = (struct _DMA_ADAPTER *)PsReferenceImpersonationTokenEx(
                                   (_DWORD)CurrentThread,
                                   0,
-                                  (unsigned int)&v18,
-                                  (unsigned int)&v16,
-                                  (__int64)&v13,
-                                  (__int64)&v15);
+                                  (unsigned int)&v22,
+                                  (unsigned int)&v20,
+                                  (__int64)&v17,
+                                  (__int64)&v19);
+    v11 = v8;
     if ( !v8 )
       return 3221225596LL;
   }
@@ -54,29 +59,31 @@ __int64 __fastcall SepReferenceTokenUsingPseudoHandle(__int64 a1, PACCESS_TOKEN 
   {
     v8 = (struct _DMA_ADAPTER *)PsReferenceEffectiveToken(
                                   (_DWORD)CurrentThread,
-                                  (unsigned int)&v14,
-                                  (unsigned int)&v16,
-                                  (unsigned int)&v13,
-                                  (__int64)&v15);
-    if ( v14 != 2 )
+                                  (unsigned int)&v18,
+                                  (unsigned int)&v20,
+                                  (unsigned int)&v17,
+                                  (__int64)&v19);
+    v11 = v8;
+    if ( v18 != 2 )
       goto LABEL_7;
   }
-  if ( !v13 )
+  if ( !v17 )
   {
     HalPutDmaAdapter(v8);
     return 3221225638LL;
   }
 LABEL_7:
+  v12 = *(_QWORD *)&v11[69].Version;
   *a3 = 0;
   *a4 = 0LL;
-  v17 = 0;
-  v9 = SepSidFromProcessProtection(&v15);
-  RtlSidDominatesForTrust(v9, v10, &v17);
-  if ( !v17 )
+  DominatesTrust = 0;
+  v13 = (void *)SepSidFromProcessProtection(&v19, v9, v10, v12);
+  RtlSidDominatesForTrust(v13, v14, &DominatesTrust);
+  if ( !DominatesTrust )
   {
     *a3 = 1;
-    *a4 = v9;
+    *a4 = v13;
   }
-  *a2 = v11;
+  *a2 = v15;
   return 0LL;
 }

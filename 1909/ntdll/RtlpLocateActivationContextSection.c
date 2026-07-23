@@ -48,8 +48,8 @@ __int64 __fastcall RtlpLocateActivationContextSection(_DWORD *a1, _QWORD *a2, un
   if ( v6 < 0x20 || a1[1] < 0x20u )
   {
     DbgPrintEx(
-      51LL,
-      0LL,
+      0x33u,
+      0,
       "SXS/RTL: Activation context data at %p too small; TotalSize = %lu; HeaderSize = %lu\n",
       a1,
       v6,
@@ -86,8 +86,8 @@ __int64 __fastcall RtlpLocateActivationContextSection(_DWORD *a1, _QWORD *a2, un
         if ( (unsigned __int8)ARRAY_FITS(*(unsigned int *)&v29[24 * v30 + 16], 1LL, 16LL) )
           goto LABEL_5;
         DbgPrintEx(
-          51LL,
-          0LL,
+          0x33u,
+          0,
           "SXS/RTL: Extended TOC section TOC %d (offset: %ld, size: %u) is outside activation context data bounds (%lu bytes)\n",
           v30,
           v11,
@@ -97,8 +97,8 @@ __int64 __fastcall RtlpLocateActivationContextSection(_DWORD *a1, _QWORD *a2, un
       else
       {
         DbgPrintEx(
-          51LL,
-          0LL,
+          0x33u,
+          0,
           "SXS/RTL: Extended TOC entry array (starting at offset %ld; count = %lu; entry size = %u) is outside bounds of "
           "activation context data (%lu bytes)\n",
           (unsigned int)v26,
@@ -110,8 +110,8 @@ __int64 __fastcall RtlpLocateActivationContextSection(_DWORD *a1, _QWORD *a2, un
     else
     {
       DbgPrintEx(
-        51LL,
-        0LL,
+        0x33u,
+        0,
         "SXS/RTL: Extended TOC offset (%ld) is outside bounds of activation context data (%lu bytes)\n",
         v23,
         v24);
@@ -136,8 +136,8 @@ LABEL_5:
     || (int)v15 + (int)v14 > v6 )
   {
     DbgPrintEx(
-      51LL,
-      0LL,
+      0x33u,
+      0,
       "SXS/RTL: TOC entry array (offset: %ld; count = %lu; entry size = %u) is outside bounds of activation context data (%lu bytes)\n",
       (unsigned int)v14,
       *((_DWORD *)v12 + 1),
@@ -184,8 +184,8 @@ LABEL_15:
   if ( (unsigned int)v18 + v19 < v19 || (unsigned int)v18 >= v20 || (unsigned int)v18 + v19 > v20 )
   {
     DbgPrintEx(
-      51LL,
-      0LL,
+      0x33u,
+      0,
       "SXS/RTL: Section found (offset %ld; length %lu) extends past end of activation context data (%lu bytes)\n",
       v18,
       v19,

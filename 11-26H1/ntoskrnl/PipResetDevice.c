@@ -1,18 +1,18 @@
 /*
- * XREFs of PipResetDevice @ 0x140CC2E88
+ * XREFs of PipResetDevice @ 0x140CC8F58
  * Callers:
- *     PipResetMatchingFilteredDevices @ 0x140CC3170 (PipResetMatchingFilteredDevices.c)
+ *     PipResetMatchingFilteredDevices @ 0x140CC9240 (PipResetMatchingFilteredDevices.c)
  * Callees:
- *     DbgPrintEx @ 0x140397530 (DbgPrintEx.c)
- *     RtlInitUnicodeStringEx @ 0x14045D040 (RtlInitUnicodeStringEx.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memcmp @ 0x14073D750 (memcmp.c)
- *     _CmDeleteDevice @ 0x14089690C (_CmDeleteDevice.c)
- *     _CmSetDeviceRegProp @ 0x14090A0E8 (_CmSetDeviceRegProp.c)
- *     _CmGetDeviceRegProp @ 0x140996210 (_CmGetDeviceRegProp.c)
- *     RtlGUIDFromString @ 0x1409A1880 (RtlGUIDFromString.c)
- *     _CmIsRootEnumeratedDevice @ 0x1409DC040 (_CmIsRootEnumeratedDevice.c)
- *     _CmDeleteDeviceRegKey @ 0x140A8A734 (_CmDeleteDeviceRegKey.c)
+ *     DbgPrintEx @ 0x1403992B0 (DbgPrintEx.c)
+ *     RtlInitUnicodeStringEx @ 0x140456BE0 (RtlInitUnicodeStringEx.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memcmp @ 0x140742350 (memcmp.c)
+ *     _CmDeleteDevice @ 0x14089CD0C (_CmDeleteDevice.c)
+ *     _CmGetDeviceRegProp @ 0x140956C70 (_CmGetDeviceRegProp.c)
+ *     RtlGUIDFromString @ 0x1409622E0 (RtlGUIDFromString.c)
+ *     _CmSetDeviceRegProp @ 0x1409AC6A0 (_CmSetDeviceRegProp.c)
+ *     _CmDeleteDeviceRegKey @ 0x1409B7554 (_CmDeleteDeviceRegKey.c)
+ *     _CmIsRootEnumeratedDevice @ 0x140A19290 (_CmIsRootEnumeratedDevice.c)
  */
 
 __int64 __fastcall PipResetDevice(__int64 a1, const WCHAR *a2)
@@ -45,7 +45,7 @@ __int64 __fastcall PipResetDevice(__int64 a1, const WCHAR *a2)
   {
     Guid = 0LL;
   }
-  if ( CmIsRootEnumeratedDevice(a2) || !memcmp(&Guid, qword_14002E188, 0x10uLL) )
+  if ( CmIsRootEnumeratedDevice(a2) || !memcmp(&Guid, qword_14002DC30, 0x10uLL) )
   {
     v5 = CmDeleteDeviceRegKey(a1, (__int64)a2, 17, 0);
     v4 = 0;

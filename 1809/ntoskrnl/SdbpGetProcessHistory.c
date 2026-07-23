@@ -1,14 +1,14 @@
 /*
- * XREFs of SdbpGetProcessHistory @ 0x1408E7C30
+ * XREFs of SdbpGetProcessHistory @ 0x1408E8EF0
  * Callers:
- *     SdbpInitializeSearchDBContext @ 0x140722578 (SdbpInitializeSearchDBContext.c)
+ *     SdbpInitializeSearchDBContext @ 0x140723818 (SdbpInitializeSearchDBContext.c)
  * Callees:
- *     _wcsnicmp @ 0x140195A70 (_wcsnicmp.c)
- *     memmove @ 0x1401D1540 (memmove.c)
- *     RtlUpcaseUnicodeChar @ 0x1405D5C10 (RtlUpcaseUnicodeChar.c)
- *     AslAlloc @ 0x14067C780 (AslAlloc.c)
- *     AslLogCallPrintf @ 0x140680C60 (AslLogCallPrintf.c)
- *     RtlGetNtSystemRoot @ 0x140682410 (RtlGetNtSystemRoot.c)
+ *     _wcsnicmp @ 0x140195BB0 (_wcsnicmp.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     RtlUpcaseUnicodeChar @ 0x1405D6C10 (RtlUpcaseUnicodeChar.c)
+ *     AslAlloc @ 0x14067D940 (AslAlloc.c)
+ *     AslLogCallPrintf @ 0x140681E20 (AslLogCallPrintf.c)
+ *     RtlGetNtSystemRoot @ 0x1406835D0 (RtlGetNtSystemRoot.c)
  */
 
 _WORD *__fastcall SdbpGetProcessHistory(WCHAR *a1, _WORD *a2, _WORD *a3)
@@ -19,7 +19,7 @@ _WORD *__fastcall SdbpGetProcessHistory(WCHAR *a1, _WORD *a2, _WORD *a3)
   __int64 v6; // rax
   WCHAR *v7; // rsi
   __int64 v8; // rcx
-  __int64 NtSystemRoot; // rax
+  PWSTR NtSystemRoot; // rax
   __int64 v10; // rsi
   WCHAR *v11; // r12
   WCHAR *v12; // r14
@@ -36,9 +36,9 @@ _WORD *__fastcall SdbpGetProcessHistory(WCHAR *a1, _WORD *a2, _WORD *a3)
   _WORD *result; // rax
   WCHAR *v24; // rdx
   SIZE_T v25; // rbp
-  __int64 v26; // rax
+  PWSTR v26; // rax
   size_t v27; // rdi
-  _BYTE *v28; // rdx
+  PWSTR v28; // rdx
   WCHAR *v29; // r15
   WCHAR v30; // r12
   WCHAR v31; // bx
@@ -72,7 +72,7 @@ _WORD *__fastcall SdbpGetProcessHistory(WCHAR *a1, _WORD *a2, _WORD *a3)
     v10 = -1LL;
     do
       ++v10;
-    while ( *(_WORD *)(NtSystemRoot + 2 * v10) );
+    while ( NtSystemRoot[v10] );
 LABEL_33:
     v8 = (unsigned int)v5 + v43 + 2;
     v18 = -1073741789;
@@ -163,11 +163,11 @@ LABEL_25:
     v26 = RtlGetNtSystemRoot();
     do
       ++v3;
-    while ( *(_WORD *)(v26 + 2 * v3) );
+    while ( v26[v3] );
     if ( v3 >= v25 )
       goto LABEL_61;
     v27 = v3;
-    v28 = (_BYTE *)v26;
+    v28 = v26;
     goto LABEL_64;
   }
   if ( !v4 || !*v4 )
@@ -225,7 +225,7 @@ LABEL_55:
   if ( !v32 )
     goto LABEL_53;
   v28 = v34 + 1;
-  v36 = ((char *)v4 - v28) >> 1;
+  v36 = v4 - v28;
   if ( v36 < v25 )
   {
     v27 = v36;

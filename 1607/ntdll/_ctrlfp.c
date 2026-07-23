@@ -1,14 +1,14 @@
 /*
- * XREFs of _ctrlfp @ 0x18009FAB0
+ * XREFs of _ctrlfp @ 0x18009FAA0
  * Callers:
  *     fabs @ 0x180099F50 (fabs.c)
- *     _call_matherr @ 0x18009E8C8 (_call_matherr.c)
- *     _handle_error @ 0x18009E9F4 (_handle_error.c)
- *     _except1 @ 0x18009F150 (_except1.c)
- *     _handle_qnan1 @ 0x18009F4B0 (_handle_qnan1.c)
- *     _umatherr @ 0x18009F7F8 (_umatherr.c)
+ *     _call_matherr @ 0x18009E8B8 (_call_matherr.c)
+ *     _handle_error @ 0x18009E9E4 (_handle_error.c)
+ *     _except1 @ 0x18009F140 (_except1.c)
+ *     _handle_qnan1 @ 0x18009F4A0 (_handle_qnan1.c)
+ *     _umatherr @ 0x18009F7E8 (_umatherr.c)
  * Callees:
- *     _set_fpsr @ 0x1800A0AB0 (_set_fpsr.c)
+ *     _set_fpsr @ 0x1800A0AA0 (_set_fpsr.c)
  *     _get_fpsr @ 0x1800AC920 (_get_fpsr.c)
  */
 

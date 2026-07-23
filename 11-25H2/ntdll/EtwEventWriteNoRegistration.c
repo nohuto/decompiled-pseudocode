@@ -13,43 +13,42 @@
  *     memset$thunk$772440563353939046 @ 0x180174030 (memset$thunk$772440563353939046.c)
  */
 
-__int64 __fastcall EtwEventWriteNoRegistration(__int64 a1, __int128 *a2, int a3, __int64 a4)
+ULONG __cdecl EtwEventWriteNoRegistration(
+        LPCGUID ProviderId,
+        PCEVENT_DESCRIPTOR EventDescriptor,
+        ULONG UserDataCount,
+        PEVENT_DATA_DESCRIPTOR UserData)
 {
-  unsigned int v8; // ebx
-  __int128 v9; // xmm0
+  ULONG v8; // ebx
+  EVENT_DESCRIPTOR v9; // xmm0
   _GUID ActivityId; // xmm0
   NTSTATUS v11; // eax
-  _BYTE v13[4]; // [rsp+20h] [rbp-A8h] BYREF
+  _BYTE Fields[4]; // [rsp+20h] [rbp-A8h] BYREF
   int v14; // [rsp+24h] [rbp-A4h]
-  __int128 v15; // [rsp+48h] [rbp-80h]
+  EVENT_DESCRIPTOR v15; // [rsp+48h] [rbp-80h]
   _GUID v16; // [rsp+60h] [rbp-68h]
   char v17; // [rsp+70h] [rbp-58h]
   __int16 v18; // [rsp+72h] [rbp-56h]
-  int v19; // [rsp+74h] [rbp-54h]
-  __int64 v20; // [rsp+78h] [rbp-50h]
+  ULONG v19; // [rsp+74h] [rbp-54h]
+  PEVENT_DATA_DESCRIPTOR v20; // [rsp+78h] [rbp-50h]
   int v21; // [rsp+90h] [rbp-38h]
 
-  memset_thunk_772440563353939046(v13, 0, 0x78uLL);
+  memset_thunk_772440563353939046(Fields, 0, 0x78uLL);
   v8 = 0;
-  if ( a2 && a1 )
-  {
-    v9 = *a2;
-    v14 = 0;
-    v19 = a3;
-    v15 = v9;
-    v20 = a4;
-    ActivityId = NtCurrentTeb()->ActivityId;
-    v17 = 0;
-    v18 = 0;
-    v16 = ActivityId;
-    v21 = 0;
-    v11 = NtTraceEvent(a1, 1792LL, 120LL, v13);
-    if ( v11 )
-      return RtlNtStatusToDosError(v11);
-  }
-  else
-  {
+  if ( !EventDescriptor || !ProviderId )
     return 87;
-  }
+  v9 = *EventDescriptor;
+  v14 = 0;
+  v19 = UserDataCount;
+  v15 = v9;
+  v20 = UserData;
+  ActivityId = NtCurrentTeb()->ActivityId;
+  v17 = 0;
+  v18 = 0;
+  v16 = ActivityId;
+  v21 = 0;
+  v11 = NtTraceEvent((HANDLE)ProviderId, 0x700u, 0x78u, Fields);
+  if ( v11 )
+    return RtlNtStatusToDosError(v11);
   return v8;
 }

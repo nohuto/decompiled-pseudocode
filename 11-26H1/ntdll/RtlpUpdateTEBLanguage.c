@@ -1,26 +1,27 @@
 /*
- * XREFs of RtlpUpdateTEBLanguage @ 0x18000D840
+ * XREFs of RtlpUpdateTEBLanguage @ 0x180058F70
  * Callers:
- *     InitializeTEBUserLangList @ 0x180008900 (InitializeTEBUserLangList.c)
+ *     InitializeTEBUserLangList @ 0x180054030 (InitializeTEBUserLangList.c)
  * Callees:
- *     RtlpMuiRegFreeLanguageList @ 0x180006B20 (RtlpMuiRegFreeLanguageList.c)
- *     RtlpMuiRegFreeStringPool @ 0x18000D934 (RtlpMuiRegFreeStringPool.c)
- *     RtlAllocateHeap_0 @ 0x1800439E0 (RtlAllocateHeap_0.c)
+ *     RtlAllocateHeap_0 @ 0x18002DF50 (RtlAllocateHeap_0.c)
+ *     RtlpMuiRegFreeLanguageList @ 0x180052250 (RtlpMuiRegFreeLanguageList.c)
+ *     RtlpMuiRegFreeStringPool @ 0x180059064 (RtlpMuiRegFreeStringPool.c)
  */
 
-__int64 __fastcall RtlpUpdateTEBLanguage(__int64 a1, __int64 a2, int a3)
+__int64 __fastcall RtlpUpdateTEBLanguage(_DWORD *a1, void *a2, int a3)
 {
-  __int64 *Heap_0; // rax
-  __int64 *UserPrefLanguages; // rbx
+  PVOID *Heap_0; // rax
+  PVOID *UserPrefLanguages; // rbx
   int v9; // edi
+  PVOID v10; // rcx
 
   if ( NtCurrentTeb()->UserPrefLanguages )
   {
-    UserPrefLanguages = (__int64 *)NtCurrentTeb()->UserPrefLanguages;
+    UserPrefLanguages = (PVOID *)NtCurrentTeb()->UserPrefLanguages;
   }
   else
   {
-    Heap_0 = (__int64 *)RtlAllocateHeap_0(NtCurrentPeb()->ProcessHeap, 8LL, 16LL);
+    Heap_0 = (PVOID *)RtlAllocateHeap_0(NtCurrentPeb()->ProcessHeap, 8u, 0x10uLL);
     UserPrefLanguages = Heap_0;
     if ( !Heap_0 )
       return 3221225495LL;
@@ -35,8 +36,9 @@ __int64 __fastcall RtlpUpdateTEBLanguage(__int64 a1, __int64 a2, int a3)
       return 0LL;
     if ( a2 )
     {
-      if ( UserPrefLanguages[1] )
-        RtlpMuiRegFreeStringPool();
+      v10 = UserPrefLanguages[1];
+      if ( v10 )
+        RtlpMuiRegFreeStringPool(v10);
       UserPrefLanguages[1] = a2;
       return 0LL;
     }
@@ -45,7 +47,7 @@ __int64 __fastcall RtlpUpdateTEBLanguage(__int64 a1, __int64 a2, int a3)
   {
     if ( *UserPrefLanguages )
     {
-      *(_DWORD *)(a1 + 40) = *(_DWORD *)(*UserPrefLanguages + 40);
+      a1[10] = *((_DWORD *)*UserPrefLanguages + 10);
       RtlpMuiRegFreeLanguageList(*UserPrefLanguages);
     }
     *UserPrefLanguages = a1;

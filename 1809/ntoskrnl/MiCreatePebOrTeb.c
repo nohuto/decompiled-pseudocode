@@ -1,11 +1,11 @@
 /*
- * XREFs of MiCreatePebOrTeb @ 0x1405F8B40
+ * XREFs of MiCreatePebOrTeb @ 0x1405F9B40
  * Callers:
- *     MmCreateTeb @ 0x1405F8848 (MmCreateTeb.c)
- *     MmCreatePeb @ 0x140678530 (MmCreatePeb.c)
- *     MiInitializeWowPeb @ 0x14068B5F4 (MiInitializeWowPeb.c)
+ *     MmCreateTeb @ 0x1405F9848 (MmCreateTeb.c)
+ *     MmCreatePeb @ 0x1406796F0 (MmCreatePeb.c)
+ *     MiInitializeWowPeb @ 0x14068C7B4 (MiInitializeWowPeb.c)
  * Callees:
- *     MiAllocateFromSubAllocatedRegion @ 0x1405F8BBC (MiAllocateFromSubAllocatedRegion.c)
+ *     MiAllocateFromSubAllocatedRegion @ 0x1405F9BBC (MiAllocateFromSubAllocatedRegion.c)
  */
 
 __int64 __fastcall MiCreatePebOrTeb(int a1, __int64 a2, _QWORD *a3)

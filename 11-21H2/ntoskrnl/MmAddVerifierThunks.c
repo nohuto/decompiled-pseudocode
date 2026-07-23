@@ -1,12 +1,12 @@
 /*
  * XREFs of MmAddVerifierThunks @ 0x14096A0D0
  * Callers:
- *     NtSetSystemInformation @ 0x1407D6120 (NtSetSystemInformation.c)
+ *     sub_1407D6120 @ 0x1407D6120 (sub_1407D6120.c)
  * Callees:
- *     MiLookupDataTableEntry @ 0x1402FDA80 (MiLookupDataTableEntry.c)
- *     MmReleaseLoadLock @ 0x1406F5AF0 (MmReleaseLoadLock.c)
- *     MmAcquireLoadLock @ 0x1406F5B50 (MmAcquireLoadLock.c)
- *     VfThunkAddDriverThunks @ 0x140A932F4 (VfThunkAddDriverThunks.c)
+ *     sub_1402FDA80 @ 0x1402FDA80 (sub_1402FDA80.c)
+ *     sub_1406F5AF0 @ 0x1406F5AF0 (sub_1406F5AF0.c)
+ *     sub_1406F5B50 @ 0x1406F5B50 (sub_1406F5B50.c)
+ *     sub_140A932F4 @ 0x140A932F4 (sub_140A932F4.c)
  */
 
 NTSTATUS __stdcall MmAddVerifierThunks(PVOID ThunkBuffer, ULONG ThunkBufferSize)
@@ -14,7 +14,7 @@ NTSTATUS __stdcall MmAddVerifierThunks(PVOID ThunkBuffer, ULONG ThunkBufferSize)
   int v5; // edi
   ULONG v6; // ebx
   unsigned __int64 *v7; // rsi
-  struct _KTHREAD *Lock; // r15
+  struct _KTHREAD *v8; // r15
   PVOID *v9; // rax
   PVOID *v10; // r8
   PVOID v11; // r10
@@ -24,16 +24,16 @@ NTSTATUS __stdcall MmAddVerifierThunks(PVOID ThunkBuffer, ULONG ThunkBufferSize)
   unsigned __int64 v15; // rax
   NTSTATUS v16; // ebx
 
-  if ( (MiFlags & 1) == 0 )
+  if ( (dword_140D06880 & 1) == 0 )
     return -1073741637;
   v5 = 0;
   v6 = ThunkBufferSize >> 4;
   v7 = (unsigned __int64 *)ThunkBuffer;
   if ( !(ThunkBufferSize >> 4) )
     return -1073741585;
-  VfNumberOfClassDriverThunks += v6;
-  Lock = MmAcquireLoadLock();
-  v9 = (PVOID *)MiLookupDataTableEntry(*(_QWORD *)ThunkBuffer, 0);
+  dword_140C1AA74 += v6;
+  v8 = sub_1406F5B50();
+  v9 = (PVOID *)sub_1402FDA80(*(_QWORD *)ThunkBuffer, 0);
   v10 = v9;
   if ( v9 )
   {
@@ -60,7 +60,7 @@ LABEL_11:
           v7 += 2;
           if ( ++v5 >= v6 )
           {
-            v16 = VfThunkAddDriverThunks(ThunkBuffer, ThunkBufferSize, v10, v14);
+            v16 = sub_140A932F4(ThunkBuffer, ThunkBufferSize, v10, v14);
             goto LABEL_18;
           }
         }
@@ -71,6 +71,6 @@ LABEL_11:
   }
   v16 = -1073741584;
 LABEL_18:
-  MmReleaseLoadLock((__int64)Lock);
+  sub_1406F5AF0((__int64)v8);
   return v16;
 }

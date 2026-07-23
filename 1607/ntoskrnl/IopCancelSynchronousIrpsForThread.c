@@ -1,12 +1,12 @@
 /*
- * XREFs of IopCancelSynchronousIrpsForThread @ 0x140620FEC
+ * XREFs of IopCancelSynchronousIrpsForThread @ 0x1406210A0
  * Callers:
- *     NtCancelSynchronousIoFile @ 0x1406242CC (NtCancelSynchronousIoFile.c)
+ *     NtCancelSynchronousIoFile @ 0x140624380 (NtCancelSynchronousIoFile.c)
  * Callees:
- *     KeInitializeEvent @ 0x14002DEA0 (KeInitializeEvent.c)
- *     IopCancelApcRequired @ 0x1400F0044 (IopCancelApcRequired.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     IopCancelIrpsInThreadList @ 0x1404CC8BC (IopCancelIrpsInThreadList.c)
+ *     KeInitializeEvent @ 0x14002DA20 (KeInitializeEvent.c)
+ *     IopCancelApcRequired @ 0x1400EDEC4 (IopCancelApcRequired.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     IopCancelIrpsInThreadList @ 0x1404B22E8 (IopCancelIrpsInThreadList.c)
  */
 
 __int64 __fastcall IopCancelSynchronousIrpsForThread(__int64 a1, __int64 a2)

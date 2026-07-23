@@ -1,20 +1,20 @@
 /*
- * XREFs of HalpTimerInitializeHypervisorTimer @ 0x1403A8104
+ * XREFs of HalpTimerInitializeHypervisorTimer @ 0x1403A8E94
  * Callers:
- *     HalpTimerInitSystem @ 0x1403A85B0 (HalpTimerInitSystem.c)
+ *     HalpTimerInitSystem @ 0x1403A9340 (HalpTimerInitSystem.c)
  * Callees:
- *     HalpInterruptLookupController @ 0x140378D00 (HalpInterruptLookupController.c)
- *     HalpInterruptApplyOverrides @ 0x140378E24 (HalpInterruptApplyOverrides.c)
- *     HalpInterruptGsiToLine @ 0x140378F5C (HalpInterruptGsiToLine.c)
- *     HalpTimerEnableHypervisorTimer @ 0x14038698C (HalpTimerEnableHypervisorTimer.c)
- *     HalpFindTimer @ 0x14039D458 (HalpFindTimer.c)
- *     HalpIsPartitionCpuManager @ 0x1403A81EC (HalpIsPartitionCpuManager.c)
- *     HalpTimerInitialize @ 0x1403AA034 (HalpTimerInitialize.c)
- *     HalpInterruptSetRemappedLineStateInternal @ 0x1403CB7B4 (HalpInterruptSetRemappedLineStateInternal.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     HalpTimerTestHypervisorTimer @ 0x1404C1B2C (HalpTimerTestHypervisorTimer.c)
- *     HalpHvBuildDeviceId @ 0x1409A70C8 (HalpHvBuildDeviceId.c)
+ *     HalpInterruptLookupController @ 0x140378850 (HalpInterruptLookupController.c)
+ *     HalpInterruptApplyOverrides @ 0x140378974 (HalpInterruptApplyOverrides.c)
+ *     HalpInterruptGsiToLine @ 0x140378AAC (HalpInterruptGsiToLine.c)
+ *     HalpTimerEnableHypervisorTimer @ 0x140386ADC (HalpTimerEnableHypervisorTimer.c)
+ *     HalpFindTimer @ 0x14039D5A8 (HalpFindTimer.c)
+ *     HalpIsPartitionCpuManager @ 0x1403A8F7C (HalpIsPartitionCpuManager.c)
+ *     HalpTimerInitialize @ 0x1403AADC4 (HalpTimerInitialize.c)
+ *     HalpInterruptSetRemappedLineStateInternal @ 0x1403CB924 (HalpInterruptSetRemappedLineStateInternal.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     HalpTimerTestHypervisorTimer @ 0x1404C1D6C (HalpTimerTestHypervisorTimer.c)
+ *     HalpHvBuildDeviceId @ 0x1409A7FF8 (HalpHvBuildDeviceId.c)
  */
 
 void __fastcall HalpTimerInitializeHypervisorTimer(__int64 a1, __int64 a2)
@@ -50,7 +50,7 @@ void __fastcall HalpTimerInitializeHypervisorTimer(__int64 a1, __int64 a2)
   v20[0] = 0;
   if ( (unsigned __int8)HalpIsPartitionCpuManager(a1, a2) )
   {
-    if ( qword_140C4A1C0 )
+    if ( qword_140C4A200 )
     {
       _RAX = 1073741830LL;
       __asm { cpuid }
@@ -108,7 +108,7 @@ void __fastcall HalpTimerInitializeHypervisorTimer(__int64 a1, __int64 a2)
                 LOBYTE(v24) = v21;
               }
               LOBYTE(v15) = v11;
-              if ( (int)((__int64 (__fastcall *)(_QWORD, _QWORD, unsigned __int64, __int64, __int128 *))qword_140C4A1C0)(
+              if ( (int)((__int64 (__fastcall *)(_QWORD, _QWORD, unsigned __int64, __int64, __int128 *))qword_140C4A200)(
                           *((_QWORD *)v12 + 3),
                           *v12,
                           v24,

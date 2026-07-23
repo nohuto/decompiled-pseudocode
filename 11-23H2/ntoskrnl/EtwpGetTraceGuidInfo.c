@@ -1,18 +1,18 @@
 /*
- * XREFs of EtwpGetTraceGuidInfo @ 0x140852588
+ * XREFs of EtwpGetTraceGuidInfo @ 0x140852888
  * Callers:
- *     NtTraceControl @ 0x140725BD0 (NtTraceControl.c)
+ *     NtTraceControl @ 0x140725DD0 (NtTraceControl.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     ExReleasePushLockEx @ 0x140231190 (ExReleasePushLockEx.c)
- *     EtwpGetMetaProviderContext @ 0x14031D028 (EtwpGetMetaProviderContext.c)
- *     memset @ 0x140435A00 (memset.c)
- *     EtwpMapMetaProviderKeywords @ 0x14046B0BC (EtwpMapMetaProviderKeywords.c)
- *     EtwpReleaseLoggerContext @ 0x1406BE208 (EtwpReleaseLoggerContext.c)
- *     EtwpAcquireLoggerContextByLoggerId @ 0x1406BECCC (EtwpAcquireLoggerContextByLoggerId.c)
- *     EtwpFindGuidEntryByGuid @ 0x1406BF820 (EtwpFindGuidEntryByGuid.c)
- *     EtwpUnreferenceGuidEntry @ 0x1406BF954 (EtwpUnreferenceGuidEntry.c)
+ *     KeLeaveCriticalRegionThread @ 0x14022F7F0 (KeLeaveCriticalRegionThread.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140231120 (ExAcquirePushLockExclusiveEx.c)
+ *     ExReleasePushLockEx @ 0x140231280 (ExReleasePushLockEx.c)
+ *     EtwpGetMetaProviderContext @ 0x14031D2B8 (EtwpGetMetaProviderContext.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     EtwpMapMetaProviderKeywords @ 0x14046B4BC (EtwpMapMetaProviderKeywords.c)
+ *     EtwpReleaseLoggerContext @ 0x1406BE238 (EtwpReleaseLoggerContext.c)
+ *     EtwpAcquireLoggerContextByLoggerId @ 0x1406BECFC (EtwpAcquireLoggerContextByLoggerId.c)
+ *     EtwpFindGuidEntryByGuid @ 0x1406BF850 (EtwpFindGuidEntryByGuid.c)
+ *     EtwpUnreferenceGuidEntry @ 0x1406BF984 (EtwpUnreferenceGuidEntry.c)
  */
 
 __int64 __fastcall EtwpGetTraceGuidInfo(__int64 a1, _QWORD *a2, int *a3, unsigned int *a4)
@@ -23,7 +23,7 @@ __int64 __fastcall EtwpGetTraceGuidInfo(__int64 a1, _QWORD *a2, int *a3, unsigne
   __int64 v10; // rbp
   unsigned int i; // edx
   __int64 v12; // r13
-  __int64 *v13; // r8
+  GUID *v13; // r8
   __int64 v14; // rcx
   __int64 (**MetaProviderContext)[2]; // rax
   _QWORD *GuidEntryByGuid; // rbp
@@ -85,14 +85,14 @@ __int64 __fastcall EtwpGetTraceGuidInfo(__int64 a1, _QWORD *a2, int *a3, unsigne
   for ( i = 0; i < 0xA; ++i )
   {
     v12 = 2LL * i;
-    v13 = (__int64 *)(&EtwpUmglProviders)[2 * i];
-    v14 = *v13 - *a2;
-    if ( *v13 == *a2 )
-      v14 = v13[1] - a2[1];
+    v13 = (&EtwpUmglProviders)[2 * i];
+    v14 = *(_QWORD *)&v13->Data1 - *a2;
+    if ( *(_QWORD *)&v13->Data1 == *a2 )
+      v14 = *(_QWORD *)v13->Data4 - a2[1];
     if ( !v14 )
     {
       memset(a3, 0, v4);
-      v56 = LOBYTE((&EtwpUmglProviders)[v12 + 1]);
+      v56 = *((unsigned __int8 *)&(&EtwpUmglProviders)[v12] + 8);
       v39 = 24;
       if ( *(_BYTE *)(v10 + 2 * v56) )
       {

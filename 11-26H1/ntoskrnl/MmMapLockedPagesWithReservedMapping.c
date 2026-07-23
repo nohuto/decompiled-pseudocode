@@ -1,26 +1,26 @@
 /*
- * XREFs of MmMapLockedPagesWithReservedMapping @ 0x1404B5970
+ * XREFs of MmMapLockedPagesWithReservedMapping @ 0x1404AECD0
  * Callers:
- *     ?SmIoCtxQueueWork@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU_SM_IO_CONTEXT@1@PEAU1@KPEAU_SM_WORK_ITEM@1@@Z @ 0x140281140 (-SmIoCtxQueueWork@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU_SM_IO_CONTEXT@1@PEAU1@KPEAU_SM_WORK_ITE.c)
- *     HalpDmaAcquireBufferMappings @ 0x14035C1E8 (HalpDmaAcquireBufferMappings.c)
- *     SmFpAllocate @ 0x14035D180 (SmFpAllocate.c)
- *     SmKmStoreHelperCommandProcess @ 0x140382C98 (SmKmStoreHelperCommandProcess.c)
- *     PspIumFreePhysicalPages @ 0x1403C2C2C (PspIumFreePhysicalPages.c)
- *     HalpDmaFlushBufferWithEmergencyResources @ 0x1404413A8 (HalpDmaFlushBufferWithEmergencyResources.c)
- *     HalpDmaSyncMapBuffersWithEmergencyResources @ 0x140441650 (HalpDmaSyncMapBuffersWithEmergencyResources.c)
- *     PnprCopyReservedMapping @ 0x14050D5C8 (PnprCopyReservedMapping.c)
- *     sub_1405517D0 @ 0x1405517D0 (sub_1405517D0.c)
- *     EtwpSavePersistedLogger @ 0x14082E8E4 (EtwpSavePersistedLogger.c)
- *     PnprMapPhysicalPages @ 0x140BF1AD0 (PnprMapPhysicalPages.c)
+ *     ?SmIoCtxQueueWork@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU_SM_IO_CONTEXT@1@PEAU1@KPEAU_SM_WORK_ITEM@1@@Z @ 0x1402806B0 (-SmIoCtxQueueWork@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU_SM_IO_CONTEXT@1@PEAU1@KPEAU_SM_WORK_ITE.c)
+ *     HalpDmaAcquireBufferMappings @ 0x14035DF88 (HalpDmaAcquireBufferMappings.c)
+ *     SmFpAllocate @ 0x14035EF20 (SmFpAllocate.c)
+ *     SmKmStoreHelperCommandProcess @ 0x140384A48 (SmKmStoreHelperCommandProcess.c)
+ *     PspIumFreePhysicalPages @ 0x1403CCB2C (PspIumFreePhysicalPages.c)
+ *     HalpDmaFlushBufferWithEmergencyResources @ 0x140439EB8 (HalpDmaFlushBufferWithEmergencyResources.c)
+ *     HalpDmaSyncMapBuffersWithEmergencyResources @ 0x14043A160 (HalpDmaSyncMapBuffersWithEmergencyResources.c)
+ *     PnprCopyReservedMapping @ 0x140507038 (PnprCopyReservedMapping.c)
+ *     sub_140553C50 @ 0x140553C50 (sub_140553C50.c)
+ *     EtwpSavePersistedLogger @ 0x140834B24 (EtwpSavePersistedLogger.c)
+ *     PnprMapPhysicalPages @ 0x140BF7AD0 (PnprMapPhysicalPages.c)
  * Callees:
- *     ExReleaseSpinLockShared @ 0x14026CEE0 (ExReleaseSpinLockShared.c)
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402DC6D0 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     ExAcquireSpinLockShared @ 0x1402EDF10 (ExAcquireSpinLockShared.c)
- *     ExAcquireSpinLockSharedAtDpcLevel @ 0x1402EDFB0 (ExAcquireSpinLockSharedAtDpcLevel.c)
- *     MiLegitimatePageForDriversToMap @ 0x1402F09B0 (MiLegitimatePageForDriversToMap.c)
- *     MiMapMdlCommon @ 0x140312C2C (MiMapMdlCommon.c)
- *     MiTranslateCacheType @ 0x140348400 (MiTranslateCacheType.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
+ *     ExReleaseSpinLockShared @ 0x14026C450 (ExReleaseSpinLockShared.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402BE490 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     ExAcquireSpinLockShared @ 0x1402CFF90 (ExAcquireSpinLockShared.c)
+ *     ExAcquireSpinLockSharedAtDpcLevel @ 0x1402D0030 (ExAcquireSpinLockSharedAtDpcLevel.c)
+ *     MiLegitimatePageForDriversToMap @ 0x1402D2A30 (MiLegitimatePageForDriversToMap.c)
+ *     MiMapMdlCommon @ 0x140314C5C (MiMapMdlCommon.c)
+ *     MiTranslateCacheType @ 0x14034A480 (MiTranslateCacheType.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
  */
 
 PVOID __stdcall MmMapLockedPagesWithReservedMapping(
@@ -55,15 +55,15 @@ PVOID __stdcall MmMapLockedPagesWithReservedMapping(
   if ( CurrentIrql == 2 )
   {
     v11 = 17;
-    ExAcquireSpinLockSharedAtDpcLevel(&dword_140E34B68);
+    ExAcquireSpinLockSharedAtDpcLevel(&dword_140E34CE8);
   }
   else
   {
-    v11 = ExAcquireSpinLockShared(&dword_140E34B68);
+    v11 = ExAcquireSpinLockShared(&dword_140E34CE8);
   }
-  v12 = qword_140E34B70;
+  v12 = qword_140E34CF0;
   v13 = (unsigned __int64)MappingAddress & 0xFFFFFFFFFFFFF000uLL;
-  if ( !qword_140E34B70 )
+  if ( !qword_140E34CF0 )
     goto LABEL_33;
   do
   {
@@ -84,9 +84,9 @@ PVOID __stdcall MmMapLockedPagesWithReservedMapping(
 LABEL_33:
     KeBugCheckEx(0xDAu, 0x106uLL, (ULONG_PTR)MappingAddress, v5, 1uLL);
   if ( v11 == 17 )
-    ExReleaseSpinLockSharedFromDpcLevel(&dword_140E34B68);
+    ExReleaseSpinLockSharedFromDpcLevel(&dword_140E34CE8);
   else
-    ExReleaseSpinLockShared(&dword_140E34B68, v11);
+    ExReleaseSpinLockShared(&dword_140E34CE8, v11);
   if ( *(_DWORD *)(v12 + 40) != (_DWORD)v5 )
     KeBugCheckEx(0xDAu, 0x104uLL, (ULONG_PTR)MappingAddress, v5, *(unsigned int *)(v12 + 40));
   if ( (*(_DWORD *)(v12 + 44) & 1) != 0 )
@@ -118,7 +118,7 @@ LABEL_33:
       while ( (unsigned __int64)v20 < BugCheckParameter4 );
     }
     for ( i = MemoryDescriptorList + 1;
-          i->Next > (struct _MDL *)qword_140E2D7A0
+          i->Next > (struct _MDL *)qword_140E2D920
        || ((*(_QWORD *)(48 * (__int64)i->Next - 0x21FFFFFFFFD8LL) >> 54) & 1) == 0
        || (int)MiLegitimatePageForDriversToMap(48 * (__int64)i->Next - 0x220000000000LL, v16, v15) >= 0;
           i = (PMDL)((char *)i + 8) )

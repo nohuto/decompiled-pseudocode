@@ -1,19 +1,19 @@
 /*
- * XREFs of PerfDiagpProxyWorker @ 0x14079C220
+ * XREFs of PerfDiagpProxyWorker @ 0x14079C420
  * Callers:
  *     <none>
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
- *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
- *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
- *     NtTraceControl @ 0x1405EAF60 (NtTraceControl.c)
- *     PerfDiagpStartPerfDiagLogger @ 0x14079B214 (PerfDiagpStartPerfDiagLogger.c)
- *     PerfDiagpIsTracingAllowed @ 0x14079C350 (PerfDiagpIsTracingAllowed.c)
- *     PerfDiagpUpdatePerfDiagLoggerEnableFlags @ 0x14079C468 (PerfDiagpUpdatePerfDiagLoggerEnableFlags.c)
- *     PerfDiagpInitializeLoggerInfo @ 0x14079C57C (PerfDiagpInitializeLoggerInfo.c)
- *     PerfDiagpSaveActiveDCLLogFileName @ 0x14092FBC8 (PerfDiagpSaveActiveDCLLogFileName.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     KeLeaveCriticalRegionThread @ 0x1402AB8C0 (KeLeaveCriticalRegionThread.c)
+ *     ExfTryToWakePushLock @ 0x1402FC2C0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x1403539D0 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1403556E0 (ExAcquirePushLockExclusiveEx.c)
+ *     NtTraceControl @ 0x1406DA6C0 (NtTraceControl.c)
+ *     PerfDiagpStartPerfDiagLogger @ 0x14079B414 (PerfDiagpStartPerfDiagLogger.c)
+ *     PerfDiagpIsTracingAllowed @ 0x14079C550 (PerfDiagpIsTracingAllowed.c)
+ *     PerfDiagpUpdatePerfDiagLoggerEnableFlags @ 0x14079C668 (PerfDiagpUpdatePerfDiagLoggerEnableFlags.c)
+ *     PerfDiagpInitializeLoggerInfo @ 0x14079C77C (PerfDiagpInitializeLoggerInfo.c)
+ *     PerfDiagpSaveActiveDCLLogFileName @ 0x14092FD28 (PerfDiagpSaveActiveDCLLogFileName.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 void __fastcall PerfDiagpProxyWorker(_DWORD *a1)
@@ -24,12 +24,15 @@ void __fastcall PerfDiagpProxyWorker(_DWORD *a1)
   const wchar_t *v4; // rdx
   int updated; // eax
   char v6; // di
-  const wchar_t *v7; // rcx
-  int v8; // [rsp+40h] [rbp+8h] BYREF
+  __int64 v7; // rdx
+  __int64 v8; // r8
+  __int64 v9; // r9
+  const wchar_t *v10; // rcx
+  ULONG ReturnLength; // [rsp+40h] [rbp+8h] BYREF
 
   if ( !a1 )
     return;
-  v8 = 0;
+  ReturnLength = 0;
   v1 = a1[8];
   ExFreePoolWithTag(a1, 0);
   CurrentThread = KeGetCurrentThread();
@@ -60,7 +63,7 @@ LABEL_30:
 LABEL_4:
   if ( v1 == 1 )
   {
-    v7 = L"Diagnostics\\Performance\\BootCKCLSettings";
+    v10 = L"Diagnostics\\Performance\\BootCKCLSettings";
   }
   else
   {
@@ -81,22 +84,22 @@ LABEL_9:
       case 4:
 LABEL_16:
         PerfDiagpInitializeLoggerInfo(0LL, 0LL);
-        NtTraceControl(2LL, dword_140C1A250, dword_140C1A250[0], dword_140C1A250, dword_140C1A250[0], &v8);
+        NtTraceControl(EtwStopLoggerCode, &OutputBuffer, OutputBuffer, &OutputBuffer, OutputBuffer, &ReturnLength);
         goto LABEL_11;
       case 5:
-        v7 = L"Diagnostics\\Performance\\SecondaryLogonCKCLSettings";
+        v10 = L"Diagnostics\\Performance\\SecondaryLogonCKCLSettings";
         break;
       case 6:
         goto LABEL_16;
       case 7:
         PerfDiagpSaveActiveDCLLogFileName();
-        v7 = L"Diagnostics\\Performance\\ShutdownCKCLSettings";
+        v10 = L"Diagnostics\\Performance\\ShutdownCKCLSettings";
         break;
       default:
         goto LABEL_11;
     }
   }
-  updated = PerfDiagpStartPerfDiagLogger(v7);
+  updated = PerfDiagpStartPerfDiagLogger(v10);
 LABEL_10:
   if ( updated < 0 )
     goto LABEL_30;
@@ -107,5 +110,5 @@ LABEL_12:
   if ( (v6 & 2) != 0 && (v6 & 4) == 0 )
     ExfTryToWakePushLock(&qword_140C1A220);
   KeAbPostRelease((ULONG_PTR)&qword_140C1A220);
-  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v7, v8, v9);
 }

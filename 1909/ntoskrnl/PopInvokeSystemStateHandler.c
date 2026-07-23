@@ -60,7 +60,7 @@ __int64 __fastcall PopInvokeSystemStateHandler(int a1, __int64 a2)
   int v31; // [rsp+ECh] [rbp-14h]
   _QWORD v32[2]; // [rsp+F0h] [rbp-10h] BYREF
   _QWORD v33[2]; // [rsp+100h] [rbp+0h] BYREF
-  struct _SLIST_ENTRY v34[9]; // [rsp+110h] [rbp+10h] BYREF
+  _SLIST_ENTRY v34[9]; // [rsp+110h] [rbp+10h] BYREF
   _QWORD v35[3]; // [rsp+1A0h] [rbp+A0h] BYREF
 
   v2 = a1;

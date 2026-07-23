@@ -12,7 +12,7 @@
  *     sub_1800D82C8 @ 0x1800D82C8 (sub_1800D82C8.c)
  */
 
-__int64 __fastcall sub_180005150(__int64 a1, int a2, UNICODE_STRING *a3)
+__int64 __fastcall sub_180005150(__int64 a1, int a2, _UNICODE_STRING *a3)
 {
   wchar_t *v6; // r8
   wchar_t *v7; // rdx
@@ -36,7 +36,7 @@ __int64 __fastcall sub_180005150(__int64 a1, int a2, UNICODE_STRING *a3)
       return (unsigned __int16)result;
     v7 = Buffer;
   }
-  if ( (unsigned __int8)RtlCreateUnicodeString(a3, v7) )
+  if ( RtlCreateUnicodeString(a3, v7) )
     return 0LL;
   else
     return 8LL;

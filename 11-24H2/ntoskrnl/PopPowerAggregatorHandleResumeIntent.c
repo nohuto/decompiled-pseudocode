@@ -1,9 +1,9 @@
 /*
- * XREFs of PopPowerAggregatorHandleResumeIntent @ 0x1405D7960
+ * XREFs of PopPowerAggregatorHandleResumeIntent @ 0x1405D4E80
  * Callers:
  *     <none>
  * Callees:
- *     PopPowerAggregatorDetermineTargetSystemPowerState @ 0x1409B84C8 (PopPowerAggregatorDetermineTargetSystemPowerState.c)
+ *     PopPowerAggregatorDetermineTargetSystemPowerState @ 0x14099EB18 (PopPowerAggregatorDetermineTargetSystemPowerState.c)
  */
 
 __int64 __fastcall PopPowerAggregatorHandleResumeIntent(__int64 a1, __int64 a2, __int64 a3, __int64 a4, __int64 a5)

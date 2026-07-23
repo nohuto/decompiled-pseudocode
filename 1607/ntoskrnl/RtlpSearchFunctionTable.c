@@ -1,8 +1,8 @@
 /*
- * XREFs of RtlpSearchFunctionTable @ 0x1400849E0
+ * XREFs of RtlpSearchFunctionTable @ 0x140082B40
  * Callers:
- *     KiLockServiceTable @ 0x14012DA94 (KiLockServiceTable.c)
- *     RtlMarkExceptionHandlingPages @ 0x140482230 (RtlMarkExceptionHandlingPages.c)
+ *     KiLockServiceTable @ 0x14012E004 (KiLockServiceTable.c)
+ *     RtlMarkExceptionHandlingPages @ 0x140480F84 (RtlMarkExceptionHandlingPages.c)
  *     KiFatalExceptionFilter @ 0x1407BA49C (KiFatalExceptionFilter.c)
  * Callees:
  *     <none>

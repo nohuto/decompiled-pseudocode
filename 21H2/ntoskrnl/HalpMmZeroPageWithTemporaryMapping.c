@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpMmZeroPageWithTemporaryMapping @ 0x1403BB428
+ * XREFs of HalpMmZeroPageWithTemporaryMapping @ 0x1403BB598
  * Callers:
- *     HalpMmAllocateAndInsertPageTablePage @ 0x1403BB3A0 (HalpMmAllocateAndInsertPageTablePage.c)
+ *     HalpMmAllocateAndInsertPageTablePage @ 0x1403BB510 (HalpMmAllocateAndInsertPageTablePage.c)
  * Callees:
- *     HalpFlushTLB @ 0x1403BBBB0 (HalpFlushTLB.c)
- *     memset @ 0x140414200 (memset.c)
+ *     HalpFlushTLB @ 0x1403BBD20 (HalpFlushTLB.c)
+ *     memset @ 0x140414300 (memset.c)
  */
 
 __int64 __fastcall HalpMmZeroPageWithTemporaryMapping(__int64 a1)

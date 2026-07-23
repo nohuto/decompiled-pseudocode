@@ -1,10 +1,10 @@
 /*
- * XREFs of IoSetBugCheckProgressAndFlag @ 0x1405C798C
+ * XREFs of IoSetBugCheckProgressAndFlag @ 0x1405CA25C
  * Callers:
- *     IoWriteCrashDump @ 0x1405C7FAC (IoWriteCrashDump.c)
+ *     IoWriteCrashDump @ 0x1405CA87C (IoWriteCrashDump.c)
  * Callees:
- *     IopBugCheckProgressEfiVariableServicesAvailable @ 0x1405C8928 (IopBugCheckProgressEfiVariableServicesAvailable.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     IopBugCheckProgressEfiVariableServicesAvailable @ 0x1405CB1F8 (IopBugCheckProgressEfiVariableServicesAvailable.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 void IoSetBugCheckProgressAndFlag()

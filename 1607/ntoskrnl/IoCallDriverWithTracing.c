@@ -1,12 +1,12 @@
 /*
- * XREFs of IoCallDriverWithTracing @ 0x1400EBBFC
+ * XREFs of IoCallDriverWithTracing @ 0x1400E9A6C
  * Callers:
- *     IopCallDriverReference @ 0x1400EBA7C (IopCallDriverReference.c)
+ *     IopCallDriverReference @ 0x1400E98EC (IopCallDriverReference.c)
  * Callees:
- *     EtwActivityIdControlKernel @ 0x140007EA8 (EtwActivityIdControlKernel.c)
- *     IofCallDriver @ 0x14002E060 (IofCallDriver.c)
- *     IopfCallDriver @ 0x1400EBC60 (IopfCallDriver.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
+ *     IofCallDriver @ 0x14002DBE0 (IofCallDriver.c)
+ *     EtwActivityIdControlKernel @ 0x140086AF0 (EtwActivityIdControlKernel.c)
+ *     IopfCallDriver @ 0x1400E9AD0 (IopfCallDriver.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall IoCallDriverWithTracing(__int64 a1, __int64 a2)

@@ -1,11 +1,11 @@
 /*
- * XREFs of VslRegisterSecureSystemProcess @ 0x14058DEA0
+ * XREFs of VslRegisterSecureSystemProcess @ 0x14058B1F8
  * Callers:
- *     PspCreateSecureSystemProcess @ 0x140C34DEC (PspCreateSecureSystemProcess.c)
+ *     PspCreateSecureSystemProcess @ 0x140C36F2C (PspCreateSecureSystemProcess.c)
  * Callees:
- *     VslpEnterIumSecureMode @ 0x140265D90 (VslpEnterIumSecureMode.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     VslpEnterIumSecureMode @ 0x1403AADB0 (VslpEnterIumSecureMode.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 __int64 VslRegisterSecureSystemProcess()
@@ -21,7 +21,7 @@ __int64 VslRegisterSecureSystemProcess()
   memset_0(v2, 0, 0x68uLL);
   v3 = *(_QWORD *)(v0 + 464);
   v4 = v0;
-  result = VslpEnterIumSecureMode(2u, 5LL, 0, (__int64)v2);
+  result = VslpEnterIumSecureMode(2u, 5u, 0, (__int64)v2);
   if ( (int)result >= 0 )
   {
     *(_QWORD *)(v0 + 368) = v5;

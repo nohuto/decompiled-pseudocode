@@ -1,14 +1,14 @@
 /*
- * XREFs of HalpIommuLogEarlyFault @ 0x140554200
+ * XREFs of HalpIommuLogEarlyFault @ 0x140551B40
  * Callers:
- *     HalpIommuEarlyFaultDpcRoutine @ 0x140553CA0 (HalpIommuEarlyFaultDpcRoutine.c)
- *     HalpIommuInitSystem @ 0x140B4D550 (HalpIommuInitSystem.c)
+ *     HalpIommuEarlyFaultDpcRoutine @ 0x1405515E0 (HalpIommuEarlyFaultDpcRoutine.c)
+ *     HalpIommuInitSystem @ 0x140B4F5A0 (HalpIommuInitSystem.c)
  * Callees:
- *     KeReleaseSpinLock @ 0x14024DD30 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140254B20 (KeAcquireSpinLockRaiseToDpc.c)
- *     EtwWriteEx @ 0x140259680 (EtwWriteEx.c)
- *     EtwEventEnabled @ 0x1402A1BD0 (EtwEventEnabled.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     KeReleaseSpinLock @ 0x14027E340 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140285130 (KeAcquireSpinLockRaiseToDpc.c)
+ *     EtwWriteEx @ 0x140289C90 (EtwWriteEx.c)
+ *     EtwEventEnabled @ 0x1402D1300 (EtwEventEnabled.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 void HalpIommuLogEarlyFault()
@@ -39,11 +39,11 @@ void HalpIommuLogEarlyFault()
           v4 = 0;
           v7 = 0;
           v10 = 0;
-          UserData.Ptr = (ULONGLONG)&qword_140FC08E8;
-          v2 = &qword_140FC08F0;
-          v5 = &dword_140FC08E4;
+          UserData.Ptr = (ULONGLONG)&qword_140FC0B48;
+          v2 = &qword_140FC0B50;
+          v5 = &dword_140FC0B44;
           UserData.Size = 8;
-          v8 = &qword_140FC08F8;
+          v8 = &qword_140FC0B58;
           v3 = 8;
           v6 = 4;
           v9 = 8;

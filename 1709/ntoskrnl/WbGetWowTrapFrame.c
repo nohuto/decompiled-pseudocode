@@ -10,7 +10,7 @@
 __int64 __fastcall WbGetWowTrapFrame(_DWORD *a1, __int64 a2)
 {
   __int16 ProcessMachine; // si
-  int *v5; // rdx
+  ULONG *v5; // rdx
   int v6; // r8d
   int ContextThread; // edx
 

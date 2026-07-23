@@ -1,10 +1,10 @@
 /*
- * XREFs of FsRtlpPrepareExtraCreateParametersForCreate @ 0x1406B9600
+ * XREFs of FsRtlpPrepareExtraCreateParametersForCreate @ 0x1406B9630
  * Callers:
- *     IoCreateFileEx @ 0x1406B94B0 (IoCreateFileEx.c)
- *     IoQueryInformationByName @ 0x1407BEE90 (IoQueryInformationByName.c)
+ *     IoCreateFileEx @ 0x1406B94E0 (IoCreateFileEx.c)
+ *     IoQueryInformationByName @ 0x1407BF160 (IoQueryInformationByName.c)
  * Callees:
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall FsRtlpPrepareExtraCreateParametersForCreate(ULONG_PTR BugCheckParameter4)

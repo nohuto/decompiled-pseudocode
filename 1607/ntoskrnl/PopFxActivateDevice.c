@@ -1,21 +1,21 @@
 /*
- * XREFs of PopFxActivateDevice @ 0x140008088
+ * XREFs of PopFxActivateDevice @ 0x140007BFC
  * Callers:
- *     PoFxActivateDevice @ 0x140008080 (PoFxActivateDevice.c)
- *     PoFxActivateDeviceForSystemTransition @ 0x14011450C (PoFxActivateDeviceForSystemTransition.c)
- *     PopFxActivateDevicesForSx @ 0x140124F70 (PopFxActivateDevicesForSx.c)
- *     PoFxStartDevicePowerManagement @ 0x140141B30 (PoFxStartDevicePowerManagement.c)
- *     PopFxSetDeviceAccountingCsPlatformState @ 0x140203BC0 (PopFxSetDeviceAccountingCsPlatformState.c)
- *     PopPepInitializeVetoMasks @ 0x1402065A8 (PopPepInitializeVetoMasks.c)
- *     PopPepResetDeviceAccountingLevel @ 0x140206E00 (PopPepResetDeviceAccountingLevel.c)
+ *     PoFxActivateDevice @ 0x140007BF4 (PoFxActivateDevice.c)
+ *     PoFxActivateDeviceForSystemTransition @ 0x140114A7C (PoFxActivateDeviceForSystemTransition.c)
+ *     PopFxActivateDevicesForSx @ 0x1401254E0 (PopFxActivateDevicesForSx.c)
+ *     PoFxStartDevicePowerManagement @ 0x1401420A0 (PoFxStartDevicePowerManagement.c)
+ *     PopFxSetDeviceAccountingCsPlatformState @ 0x1402039EC (PopFxSetDeviceAccountingCsPlatformState.c)
+ *     PopPepInitializeVetoMasks @ 0x1402063D4 (PopPepInitializeVetoMasks.c)
+ *     PopPepResetDeviceAccountingLevel @ 0x140206C2C (PopPepResetDeviceAccountingLevel.c)
  * Callees:
- *     ExReleaseSpinLockExclusive @ 0x14002E9A0 (ExReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x14002EB90 (ExAcquireSpinLockExclusive.c)
- *     KeWaitForSingleObject @ 0x14005C880 (KeWaitForSingleObject.c)
- *     IoReleaseRemoveLockEx @ 0x14009DD7C (IoReleaseRemoveLockEx.c)
- *     PoFxActivateComponent @ 0x1400C10E0 (PoFxActivateComponent.c)
- *     PopFxAddRefDevice @ 0x1400C16F4 (PopFxAddRefDevice.c)
- *     PopFxBugCheck @ 0x1402022F4 (PopFxBugCheck.c)
+ *     ExReleaseSpinLockExclusive @ 0x14002E520 (ExReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14002E710 (ExAcquireSpinLockExclusive.c)
+ *     KeWaitForSingleObject @ 0x14005C400 (KeWaitForSingleObject.c)
+ *     IoReleaseRemoveLockEx @ 0x14009D57C (IoReleaseRemoveLockEx.c)
+ *     PoFxActivateComponent @ 0x1400BEF70 (PoFxActivateComponent.c)
+ *     PopFxAddRefDevice @ 0x1400BF584 (PopFxAddRefDevice.c)
+ *     PopFxBugCheck @ 0x140202120 (PopFxBugCheck.c)
  */
 
 void __fastcall PopFxActivateDevice(__int64 a1, char a2)

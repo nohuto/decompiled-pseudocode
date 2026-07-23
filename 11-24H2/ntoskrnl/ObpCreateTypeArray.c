@@ -1,23 +1,24 @@
 /*
- * XREFs of ObpCreateTypeArray @ 0x1409D6624
+ * XREFs of ObpCreateTypeArray @ 0x1409C6454
  * Callers:
- *     ObEnumerateObjectsByType @ 0x1407442A0 (ObEnumerateObjectsByType.c)
- *     ObGetObjectInformation @ 0x1409D5F50 (ObGetObjectInformation.c)
+ *     ObEnumerateObjectsByType @ 0x140742590 (ObEnumerateObjectsByType.c)
+ *     ObGetObjectInformation @ 0x1409C5D80 (ObGetObjectInformation.c)
  * Callees:
- *     ObReferenceObjectSafe @ 0x14041D310 (ObReferenceObjectSafe.c)
- *     ObpUnlockObjectType @ 0x1409D66BC (ObpUnlockObjectType.c)
- *     ObpLockObjectTypeExclusive @ 0x1409D6734 (ObpLockObjectTypeExclusive.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     ObReferenceObjectSafe @ 0x140411C00 (ObReferenceObjectSafe.c)
+ *     ObpUnlockObjectType @ 0x1409C64EC (ObpUnlockObjectType.c)
+ *     ObpLockObjectTypeExclusive @ 0x1409C6564 (ObpLockObjectTypeExclusive.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
-_DWORD *__fastcall ObpCreateTypeArray(_QWORD **a1)
+unsigned int *__fastcall ObpCreateTypeArray(_QWORD **a1)
 {
   _QWORD *v2; // rax
-  _DWORD *v3; // rsi
-  int v4; // edi
-  _DWORD *Pool2; // rax
-  __int64 v7; // rbp
-  _QWORD *v8; // rdi
+  unsigned int *v3; // rsi
+  unsigned int v4; // edi
+  __int64 v6; // rcx
+  unsigned int *Pool2; // rax
+  __int64 v8; // rbp
+  _QWORD *v9; // rdi
 
   ObpLockObjectTypeExclusive(a1);
   v2 = *a1;
@@ -28,25 +29,25 @@ _DWORD *__fastcall ObpCreateTypeArray(_QWORD **a1)
     do
     {
       v2 = (_QWORD *)*v2;
-      ++v4;
+      v6 = v4++;
     }
     while ( v2 != a1 );
     if ( v4 )
     {
-      Pool2 = (_DWORD *)ExAllocatePool2(0x100uLL);
+      Pool2 = (unsigned int *)ExAllocatePool2(0x100uLL, 8 * v6 + 16, 0x7241624Fu);
       v3 = Pool2;
       if ( Pool2 )
       {
         *Pool2 = v4;
-        v7 = 0LL;
-        v8 = *a1;
-        while ( v8 != a1 )
+        v8 = 0LL;
+        v9 = *a1;
+        while ( v9 != a1 )
         {
-          *(_QWORD *)&v3[2 * v7 + 2] = v8;
-          if ( !ObReferenceObjectSafe((__int64)(v8 + 10)) )
-            *(_QWORD *)&v3[2 * v7 + 2] = 0LL;
-          v8 = (_QWORD *)*v8;
-          v7 = (unsigned int)(v7 + 1);
+          *(_QWORD *)&v3[2 * v8 + 2] = v9;
+          if ( !ObReferenceObjectSafe((__int64)(v9 + 10)) )
+            *(_QWORD *)&v3[2 * v8 + 2] = 0LL;
+          v9 = (_QWORD *)*v9;
+          v8 = (unsigned int)(v8 + 1);
         }
       }
     }

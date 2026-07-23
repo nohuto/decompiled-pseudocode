@@ -64,7 +64,7 @@ __int64 ExpWorkerInitialization()
   _DWORD *v35; // r9
   __int64 v36; // r8
   __int64 v37; // rcx
-  unsigned __int64 v38; // rsi
+  __int64 v38; // rsi
   unsigned int v39; // eax
   __int64 v40; // rdx
   __int64 v41; // rax
@@ -232,7 +232,7 @@ LABEL_36:
         v30 = !_BitScanReverse((unsigned int *)&v37, v36);
         if ( v30 )
           goto LABEL_68;
-        v38 = (unsigned __int64)&v31->LockEntries[v37];
+        v38 = (__int64)&v31->LockEntries[v37];
         v36 = ~(1 << v37) & (unsigned int)v36;
         if ( (*(_BYTE *)(v38 + 26) & 1) != 0
           && (*(_DWORD *)(v38 + 32) & 1) == 0
@@ -253,14 +253,14 @@ LABEL_68:
       }
       *(_BYTE *)(v38 + 32) |= 2u;
       if ( *(__int64 *)(v38 + 32) < 0 )
-        KiAbEntryRemoveFromTree(v38);
+        KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)v38);
       v32 = *(_DWORD *)(v38 + 88) & 0x1FFFF;
       v39 = *(_DWORD *)(v38 + 88) & 0xFFFE0000;
       *(_BYTE *)(v38 + 25) &= ~1u;
       v43 = BYTE2(v32);
       *(_DWORD *)(v38 + 88) = v39;
       *(_QWORD *)(v38 + 32) = 0LL;
-      v40 = (__int64)(v38 - (unsigned __int64)v31->LockEntries) / 96;
+      v40 = (signed __int64)(v38 - (unsigned __int64)v31->LockEntries) / 96;
       if ( v34 == 1 )
       {
         v31->AbEntrySummary |= 1 << v40;

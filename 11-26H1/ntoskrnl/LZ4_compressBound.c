@@ -1,8 +1,8 @@
 /*
- * XREFs of LZ4_compressBound @ 0x140474890
+ * XREFs of LZ4_compressBound @ 0x14046E010
  * Callers:
- *     LZ4_compress_fast_extState_progress @ 0x1406298E8 (LZ4_compress_fast_extState_progress.c)
- *     LZ4_compress_HC_extStateHC_fastReset @ 0x140635084 (LZ4_compress_HC_extStateHC_fastReset.c)
+ *     LZ4_compress_fast_extState_progress @ 0x14062C938 (LZ4_compress_fast_extState_progress.c)
+ *     LZ4_compress_HC_extStateHC_fastReset @ 0x14063808C (LZ4_compress_HC_extStateHC_fastReset.c)
  * Callees:
  *     <none>
  */

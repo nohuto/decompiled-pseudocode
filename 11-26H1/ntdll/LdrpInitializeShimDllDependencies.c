@@ -1,16 +1,16 @@
 /*
- * XREFs of LdrpInitializeShimDllDependencies @ 0x18011901C
+ * XREFs of LdrpInitializeShimDllDependencies @ 0x180118DCC
  * Callers:
- *     LdrpLoadShimEngine @ 0x1800C6518 (LdrpLoadShimEngine.c)
+ *     LdrpLoadShimEngine @ 0x1800C3CD8 (LdrpLoadShimEngine.c)
  * Callees:
- *     LdrpLogInternal @ 0x180046B90 (LdrpLogInternal.c)
- *     LdrpInitializationFailure @ 0x1800CDD30 (LdrpInitializationFailure.c)
- *     LdrpInitializeGraphRecurse @ 0x1800E81A0 (LdrpInitializeGraphRecurse.c)
- *     ZwTerminateProcess @ 0x18015F4C0 (ZwTerminateProcess.c)
- *     memset$thunk$772440563353939046 @ 0x180170030 (memset$thunk$772440563353939046.c)
+ *     LdrpLogInternal @ 0x180031100 (LdrpLogInternal.c)
+ *     LdrpInitializationFailure @ 0x1800CB4A0 (LdrpInitializationFailure.c)
+ *     LdrpInitializeGraphRecurse @ 0x1800E73B0 (LdrpInitializeGraphRecurse.c)
+ *     ZwTerminateProcess @ 0x18015F3C0 (ZwTerminateProcess.c)
+ *     memset$thunk$772440563353939046 @ 0x18016F030 (memset$thunk$772440563353939046.c)
  */
 
-__int64 *LdrpInitializeShimDllDependencies()
+int LdrpInitializeShimDllDependencies()
 {
   __int64 *v0; // rdx
   __int64 v1; // rbx
@@ -20,30 +20,30 @@ __int64 *LdrpInitializeShimDllDependencies()
   __int64 *v5; // rdi
   __int64 v6; // rcx
   int v7; // eax
-  __int64 *result; // rax
-  _BYTE v9[32]; // [rsp+40h] [rbp-C0h] BYREF
-  int v10; // [rsp+60h] [rbp-A0h]
-  int *v11; // [rsp+68h] [rbp-98h]
-  char v12; // [rsp+140h] [rbp+40h] BYREF
-  int v13; // [rsp+148h] [rbp+48h] BYREF
+  __int64 *i; // rax
+  _BYTE v10[32]; // [rsp+40h] [rbp-C0h] BYREF
+  int v11; // [rsp+60h] [rbp-A0h]
+  NTSTATUS *p_ExitStatus; // [rsp+68h] [rbp-98h]
+  char v13; // [rsp+140h] [rbp+40h] BYREF
+  NTSTATUS ExitStatus; // [rsp+148h] [rbp+48h] BYREF
 
-  v13 = 0;
-  memset_thunk_772440563353939046(v9, 0, 0xD0uLL);
-  v0 = (__int64 *)qword_1801CB890;
-  v11 = &v13;
-  v10 = 0x80000;
-  while ( v0 != &qword_1801CB890 )
+  ExitStatus = 0;
+  memset_thunk_772440563353939046(v10, 0, 0xD0uLL);
+  v0 = (__int64 *)qword_1801CA8D0;
+  p_ExitStatus = &ExitStatus;
+  v11 = 0x80000;
+  while ( v0 != &qword_1801CA8D0 )
   {
     if ( *(_DWORD *)(v0[19] + 56) == 7 && !v0[22] )
-      v0[22] = (__int64)v9;
+      v0[22] = (__int64)v10;
     v0 = (__int64 *)*v0;
   }
-  v1 = qword_1801CB890;
+  v1 = qword_1801CA8D0;
   v2 = 0LL;
-  v13 = 0;
+  ExitStatus = 0;
   while ( 1 )
   {
-    if ( (__int64 *)v1 == &qword_1801CB890 )
+    if ( (__int64 *)v1 == &qword_1801CA8D0 )
       goto LABEL_21;
     v2 = v1;
     if ( (*(_DWORD *)(v1 + 104) & 0x100) != 0 )
@@ -66,9 +66,9 @@ LABEL_17:
       v7 = *(_DWORD *)(v6 + 56);
       if ( v7 == 7 )
       {
-        v12 = 0;
-        v13 = LdrpInitializeGraphRecurse((__int64 *)v6, (__int64)&v13, &v12);
-        if ( v13 < 0 )
+        v13 = 0;
+        ExitStatus = LdrpInitializeGraphRecurse((__int64 *)v6, (__int64)&ExitStatus, &v13);
+        if ( ExitStatus < 0 )
           goto LABEL_21;
         goto LABEL_16;
       }
@@ -79,26 +79,26 @@ LABEL_16:
     if ( v5 == v4 )
       goto LABEL_17;
   }
-  v13 = -1073741502;
+  ExitStatus = -1073741502;
 LABEL_21:
-  for ( result = (__int64 *)qword_1801CB890; result != &qword_1801CB890; result = (__int64 *)*result )
+  for ( i = (__int64 *)qword_1801CA8D0; i != &qword_1801CA8D0; i = (__int64 *)*i )
   {
-    v2 = (__int64)result;
-    if ( (_BYTE *)result[22] == v9 )
-      result[22] = 0LL;
+    v2 = (__int64)i;
+    if ( (_BYTE *)i[22] == v10 )
+      i[22] = 0LL;
   }
-  if ( v13 < 0 )
+  if ( ExitStatus < 0 )
   {
     LdrpLogInternal(
-      (int)"minkernel\\ldr\\ldrinit.c",
+      "minkernel\\ldr\\ldrinit.c",
       3663,
       (__int64)"LdrpInitializeShimDllDependencies",
       0,
       "Initializing a shim dependency \"%wZ\" failed with status 0x%08lx\n",
       v2 + 72,
-      v13);
-    LdrpInitializationFailure(v13);
-    return (__int64 *)ZwTerminateProcess(-1LL, (unsigned int)v13);
+      ExitStatus);
+    LdrpInitializationFailure(ExitStatus);
+    LODWORD(i) = ZwTerminateProcess((HANDLE)0xFFFFFFFFFFFFFFFFLL, ExitStatus);
   }
-  return result;
+  return (int)i;
 }

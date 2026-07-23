@@ -1,10 +1,10 @@
 /*
- * XREFs of IvtInvalidateAllContextEntries @ 0x1404E0660
+ * XREFs of IvtInvalidateAllContextEntries @ 0x1404E08A0
  * Callers:
- *     IvtInitializeIommu @ 0x1409A9950 (IvtInitializeIommu.c)
+ *     IvtInitializeIommu @ 0x1409AA880 (IvtInitializeIommu.c)
  * Callees:
- *     IvtIommuSendCommand @ 0x1404E0830 (IvtIommuSendCommand.c)
- *     IvtIommuWaitCommand @ 0x1404E0A30 (IvtIommuWaitCommand.c)
+ *     IvtIommuSendCommand @ 0x1404E0A70 (IvtIommuSendCommand.c)
+ *     IvtIommuWaitCommand @ 0x1404E0C70 (IvtIommuWaitCommand.c)
  */
 
 __int64 __fastcall IvtInvalidateAllContextEntries(__int64 a1)

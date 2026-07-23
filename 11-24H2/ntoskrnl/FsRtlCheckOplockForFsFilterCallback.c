@@ -1,16 +1,16 @@
 /*
- * XREFs of FsRtlCheckOplockForFsFilterCallback @ 0x1409ED190
+ * XREFs of FsRtlCheckOplockForFsFilterCallback @ 0x1409E64C0
  * Callers:
  *     <none>
  * Callees:
- *     ExReleaseFastMutexUnsafe @ 0x14031CF70 (ExReleaseFastMutexUnsafe.c)
- *     _tlgWriteAgg @ 0x1403D06F8 (_tlgWriteAgg.c)
- *     ExAcquireFastMutexUnsafe @ 0x1403DB130 (ExAcquireFastMutexUnsafe.c)
- *     _tlgKeywordOn @ 0x140426AF0 (_tlgKeywordOn.c)
- *     Feature_OpocksAndMappedSections__private_ReportDeviceUsage @ 0x140463230 (Feature_OpocksAndMappedSections__private_ReportDeviceUsage.c)
- *     FsRtlpOplockBreakByCacheFlags @ 0x1404E1388 (FsRtlpOplockBreakByCacheFlags.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     _tlgWriteAgg @ 0x140273698 (_tlgWriteAgg.c)
+ *     ExReleaseFastMutexUnsafe @ 0x1402C5B00 (ExReleaseFastMutexUnsafe.c)
+ *     ExAcquireFastMutexUnsafe @ 0x1403CD970 (ExAcquireFastMutexUnsafe.c)
+ *     FsRtlpOplockBreakByCacheFlags @ 0x1403CF664 (FsRtlpOplockBreakByCacheFlags.c)
+ *     _tlgKeywordOn @ 0x14041A970 (_tlgKeywordOn.c)
+ *     Feature_OpocksAndMappedSections__private_ReportDeviceUsage @ 0x140459D1C (Feature_OpocksAndMappedSections__private_ReportDeviceUsage.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 __int64 __fastcall FsRtlCheckOplockForFsFilterCallback(__int64 *a1, __int64 a2, int a3)
@@ -80,7 +80,7 @@ __int64 __fastcall FsRtlCheckOplockForFsFilterCallback(__int64 *a1, __int64 a2, 
           v19[0] = 0x1000000LL;
           v31 = v19;
           v32 = 8LL;
-          tlgWriteAgg((__int64)&dword_140E06C30, (unsigned __int8 *)&byte_140044FEF, v9, 7u, (__int64)v22);
+          tlgWriteAgg((__int64)&dword_140E06C30, (unsigned __int8 *)&byte_1400453EF, v9, 7u, (__int64)v22);
         }
         LODWORD(v13) = 0;
         v5 = FsRtlpOplockBreakByCacheFlags(

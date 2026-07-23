@@ -1,9 +1,9 @@
 /*
- * XREFs of MiIsPfnEnclave @ 0x1403A2840
+ * XREFs of MiIsPfnEnclave @ 0x140219470
  * Callers:
- *     MiGetWorkingSetInfoList @ 0x1403032B0 (MiGetWorkingSetInfoList.c)
- *     MiFreeSmallPageFromMdl @ 0x1403A2098 (MiFreeSmallPageFromMdl.c)
- *     MiFreePagesFromMdl @ 0x1403A2330 (MiFreePagesFromMdl.c)
+ *     MiFreeSmallPageFromMdl @ 0x140218CC8 (MiFreeSmallPageFromMdl.c)
+ *     MiFreePagesFromMdl @ 0x140218F60 (MiFreePagesFromMdl.c)
+ *     MiGetWorkingSetInfoList @ 0x14030D190 (MiGetWorkingSetInfoList.c)
  * Callees:
  *     <none>
  */
@@ -14,13 +14,13 @@ __int64 __fastcall MiIsPfnEnclave(__int64 a1)
   unsigned __int64 v2; // r8
   unsigned __int64 v3; // rdx
 
-  v1 = (_QWORD *)qword_140E374B8;
-  if ( qword_140E374B8 )
+  v1 = (_QWORD *)qword_140E375F8;
+  if ( qword_140E375F8 )
   {
     if ( ((*(_QWORD *)(a1 + 40) >> 60) & 7) == 1 )
     {
       v2 = 0xAAAAAAAAAAAAAAABuLL * ((a1 + 0x220000000000LL) >> 4);
-      if ( qword_140E374B8 )
+      if ( qword_140E375F8 )
       {
         do
         {

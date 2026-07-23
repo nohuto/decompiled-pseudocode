@@ -1,11 +1,11 @@
 /*
- * XREFs of SepInitializeCodeIntegrity @ 0x14078E4CC
+ * XREFs of SepInitializeCodeIntegrity @ 0x14078E3FC
  * Callers:
- *     SepInitializationPhase1 @ 0x14078EEE0 (SepInitializationPhase1.c)
+ *     SepInitializationPhase1 @ 0x14078EEB0 (SepInitializationPhase1.c)
  * Callees:
- *     strstr @ 0x1404FD9B0 (strstr.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     strstr @ 0x1404FB270 (strstr.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 __int64 SepInitializeCodeIntegrity()
@@ -24,9 +24,9 @@ __int64 SepInitializeCodeIntegrity()
   v7 = 0LL;
   v0 = 6;
   v8 = 0LL;
-  memset_0(&unk_140F04884, 0, 0xFCuLL);
-  SeCiCallbacks = 264;
-  qword_140F04980 = 167772176LL;
+  memset_0(&unk_140F04B24, 0, 0x104uLL);
+  SeCiCallbacks = 272;
+  qword_140F04C28 = 167772176LL;
   if ( KeLoaderBlock_0 )
   {
     v1 = *(_QWORD *)(KeLoaderBlock_0 + 240);

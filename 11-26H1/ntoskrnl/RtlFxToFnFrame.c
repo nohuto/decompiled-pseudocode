@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlFxToFnFrame @ 0x14043DC00
+ * XREFs of RtlFxToFnFrame @ 0x140436710
  * Callers:
- *     RtlpWow64CtxFromAmd64 @ 0x140A58B50 (RtlpWow64CtxFromAmd64.c)
+ *     RtlpWow64CtxFromAmd64 @ 0x140A660D0 (RtlpWow64CtxFromAmd64.c)
  * Callees:
  *     <none>
  */

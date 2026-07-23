@@ -1,10 +1,10 @@
 /*
- * XREFs of ViDeadlockRemoveNode @ 0x14093D814
+ * XREFs of ViDeadlockRemoveNode @ 0x14093E814
  * Callers:
- *     ViDeadlockForgetResourceHistory @ 0x14093D394 (ViDeadlockForgetResourceHistory.c)
- *     ViDeadlockRemoveResource @ 0x14093D948 (ViDeadlockRemoveResource.c)
+ *     ViDeadlockForgetResourceHistory @ 0x14093E394 (ViDeadlockForgetResourceHistory.c)
+ *     ViDeadlockRemoveResource @ 0x14093E948 (ViDeadlockRemoveResource.c)
  * Callees:
- *     ViDeadlockUpdateChildrenCount @ 0x14093DE10 (ViDeadlockUpdateChildrenCount.c)
+ *     ViDeadlockUpdateChildrenCount @ 0x14093EE10 (ViDeadlockUpdateChildrenCount.c)
  */
 
 _QWORD *__fastcall ViDeadlockRemoveNode(_QWORD *a1, int a2)

@@ -35,7 +35,7 @@ __int64 __fastcall SMKM_STORE_MGR<SM_TRAITS>::SmFeStoreDelete(__int64 a1, int a2
   unsigned int v15; // r8d
   bool v16; // zf
   __int64 v17; // rcx
-  unsigned __int64 v18; // rdi
+  __int64 v18; // rdi
   __int64 v19; // rdx
   __int64 v20; // rcx
   __int64 v22; // rcx
@@ -128,7 +128,7 @@ LABEL_2:
     v16 = !_BitScanReverse((unsigned int *)&v17, v15);
     if ( v16 )
       break;
-    v18 = (unsigned __int64)&v12->LockEntries[v17];
+    v18 = (__int64)&v12->LockEntries[v17];
     v15 &= ~(1 << v17);
     if ( (*(_BYTE *)(v18 + 26) & 1) != 0
       && (*(_DWORD *)(v18 + 32) & 1) == 0
@@ -142,12 +142,12 @@ LABEL_2:
         {
           *(_BYTE *)(v18 + 32) |= 2u;
           if ( *(__int64 *)(v18 + 32) < 0 )
-            KiAbEntryRemoveFromTree(v18);
+            KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)v18);
           v23 = *(_DWORD *)(v18 + 88) & 0x1FFFF;
           *(_DWORD *)(v18 + 88) &= 0xFFFE0000;
           *(_BYTE *)(v18 + 25) &= ~1u;
           *(_QWORD *)(v18 + 32) = 0LL;
-          v19 = (__int64)(v18 - (unsigned __int64)v12->LockEntries) / 96;
+          v19 = (signed __int64)(v18 - (unsigned __int64)v12->LockEntries) / 96;
           if ( v14 == 1 )
             v12->AbEntrySummary |= 1 << v19;
           else

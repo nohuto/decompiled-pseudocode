@@ -1,27 +1,27 @@
 /*
- * XREFs of ExProcessCounterSetCallback @ 0x140969300
+ * XREFs of ExProcessCounterSetCallback @ 0x14091D960
  * Callers:
  *     <none>
  * Callees:
- *     RtlGetInterruptTimePrecise @ 0x140208110 (RtlGetInterruptTimePrecise.c)
- *     PsGetCurrentServerSilo @ 0x140215E70 (PsGetCurrentServerSilo.c)
- *     KeFlushProcessWriteBuffers @ 0x14025167C (KeFlushProcessWriteBuffers.c)
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     PsIsProcessInSilo @ 0x14043D820 (PsIsProcessInSilo.c)
- *     ExReleaseExtensionTable @ 0x14048FC18 (ExReleaseExtensionTable.c)
- *     ExGetExtensionTable @ 0x14049B7B0 (ExGetExtensionTable.c)
- *     RtlUnicodeStringPrintf @ 0x1404B9F90 (RtlUnicodeStringPrintf.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     ExpCopyProcessInfo @ 0x140968E30 (ExpCopyProcessInfo.c)
- *     ExGetNextProcess @ 0x140969F30 (ExGetNextProcess.c)
- *     ExpSysInfoShouldSkipProcess @ 0x14096A180 (ExpSysInfoShouldSkipProcess.c)
- *     RtlIntegerToUnicodeString @ 0x14096B330 (RtlIntegerToUnicodeString.c)
- *     PsGetAllocatedFullProcessImageNameEx @ 0x1409FABB0 (PsGetAllocatedFullProcessImageNameEx.c)
- *     ExpPcwDisabledStatus @ 0x140A69904 (ExpPcwDisabledStatus.c)
- *     ExIsRestrictedCaller @ 0x140A8C678 (ExIsRestrictedCaller.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     RtlGetInterruptTimePrecise @ 0x1402081F0 (RtlGetInterruptTimePrecise.c)
+ *     PsGetCurrentServerSilo @ 0x1402161A0 (PsGetCurrentServerSilo.c)
+ *     KeFlushProcessWriteBuffers @ 0x140252FDC (KeFlushProcessWriteBuffers.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     PsIsProcessInSilo @ 0x1404300D0 (PsIsProcessInSilo.c)
+ *     ExReleaseExtensionTable @ 0x1404896C4 (ExReleaseExtensionTable.c)
+ *     ExGetExtensionTable @ 0x140495300 (ExGetExtensionTable.c)
+ *     RtlUnicodeStringPrintf @ 0x1404B3820 (RtlUnicodeStringPrintf.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     ExGetNextProcess @ 0x14091E590 (ExGetNextProcess.c)
+ *     ExpSysInfoShouldSkipProcess @ 0x14091E7E0 (ExpSysInfoShouldSkipProcess.c)
+ *     ExpCopyProcessInfo @ 0x14091E820 (ExpCopyProcessInfo.c)
+ *     PsGetAllocatedFullProcessImageNameEx @ 0x14091F7B0 (PsGetAllocatedFullProcessImageNameEx.c)
+ *     RtlIntegerToUnicodeString @ 0x14097BC70 (RtlIntegerToUnicodeString.c)
+ *     ExIsRestrictedCaller @ 0x1409DDEE0 (ExIsRestrictedCaller.c)
+ *     ExpPcwDisabledStatus @ 0x140A768D4 (ExpPcwDisabledStatus.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall ExProcessCounterSetCallback(int a1, __int64 a2)
@@ -30,12 +30,12 @@ __int64 __fastcall ExProcessCounterSetCallback(int a1, __int64 a2)
   unsigned __int64 CurrentServerSilo; // rsi
   __int64 v6; // r15
   __int64 v7; // rcx
-  __int64 InterruptTimePrecise; // rax
+  LARGE_INTEGER InterruptTimePrecise; // rax
   PEPROCESS NextProcess; // rbx
-  __int64 v10; // r12
+  LARGE_INTEGER v10; // r12
   int v11; // edi
   bool v12; // sf
-  __int128 *LastRebalanceQpc; // rax
+  __int128 *QuadPart; // rax
   __int128 v14; // xmm0
   unsigned __int16 v15; // cx
   unsigned __int16 v16; // r8
@@ -44,8 +44,8 @@ __int64 __fastcall ExProcessCounterSetCallback(int a1, __int64 a2)
   __int16 v19; // ax
   _QWORD **v21; // [rsp+28h] [rbp-E0h]
   __int128 v22; // [rsp+38h] [rbp-D0h] BYREF
-  __int128 *String; // [rsp+48h] [rbp-C0h] BYREF
-  UNICODE_STRING String_8; // [rsp+50h] [rbp-B8h] BYREF
+  LARGE_INTEGER PerformanceCounter; // [rsp+48h] [rbp-C0h] BYREF
+  UNICODE_STRING PerformanceCounter_8; // [rsp+50h] [rbp-B8h] BYREF
   UNICODE_STRING DestinationString_8; // [rsp+60h] [rbp-A8h] BYREF
   _QWORD *v26; // [rsp+70h] [rbp-98h] BYREF
   int v27; // [rsp+78h] [rbp-90h]
@@ -99,7 +99,7 @@ __int64 __fastcall ExProcessCounterSetCallback(int a1, __int64 a2)
   __int64 v75; // [rsp+2B0h] [rbp+1A8h]
   __int64 v76; // [rsp+2B8h] [rbp+1B0h]
   __int64 v77; // [rsp+2C0h] [rbp+1B8h]
-  __int64 v78; // [rsp+2C8h] [rbp+1C0h]
+  LARGE_INTEGER v78; // [rsp+2C8h] [rbp+1C0h]
   char v79; // [rsp+2D8h] [rbp+1D0h] BYREF
   char v80; // [rsp+2F8h] [rbp+1F0h] BYREF
 
@@ -111,7 +111,7 @@ __int64 __fastcall ExProcessCounterSetCallback(int a1, __int64 a2)
   ExIsRestrictedCaller(v4, 0LL);
   LOBYTE(v7) = 1;
   KeFlushProcessWriteBuffers(v7);
-  InterruptTimePrecise = RtlGetInterruptTimePrecise((unsigned __int64 *)&String);
+  InterruptTimePrecise = RtlGetInterruptTimePrecise(&PerformanceCounter);
   NextProcess = (PEPROCESS)PsIdleProcess;
   v10 = InterruptTimePrecise;
   v11 = 0;
@@ -122,14 +122,14 @@ __int64 __fastcall ExProcessCounterSetCallback(int a1, __int64 a2)
       memset_0(v53, 0, 0xD8uLL);
       memset_0(v28, 0, 0x100uLL);
       memset_0(v52, 0, 0x68uLL);
-      String = 0LL;
+      PerformanceCounter.QuadPart = 0LL;
       v22 = 0LL;
-      String_8 = 0LL;
+      PerformanceCounter_8 = 0LL;
       DestinationString_8 = 0LL;
       if ( !(unsigned __int8)ExpSysInfoShouldSkipProcess(NextProcess)
         && PsIsProcessInSilo(NextProcess, CurrentServerSilo) )
       {
-        v11 = ExpCopyProcessInfo((__int64)v28, (__int64)NextProcess, 0, (__int64)v52);
+        v11 = ExpCopyProcessInfo(v28, NextProcess, 0LL, v52, v21);
         if ( v11 < 0 )
           break;
         v53[1] = v30;
@@ -162,7 +162,7 @@ __int64 __fastcall ExProcessCounterSetCallback(int a1, __int64 a2)
         v76 = v29;
         v77 = 10000000LL;
         v78 = v10;
-        String = 0LL;
+        PerformanceCounter.QuadPart = 0LL;
         if ( NextProcess == PsIdleProcess )
         {
           v14 = *(_OWORD *)L"\b\n";
@@ -170,13 +170,13 @@ __int64 __fastcall ExProcessCounterSetCallback(int a1, __int64 a2)
         }
         else if ( NextProcess == PsInitialSystemProcess )
         {
-          v14 = *(_OWORD *)&ExpSystemProcessName;
+          v14 = *(_OWORD *)ExpSystemProcessName;
         }
         else if ( NextProcess == (PEPROCESS)PsSecureSystemProcess )
         {
           v14 = *(_OWORD *)&ExpSecureSystemProcessName;
-          v57 = qword_140E2D7A8 << 12;
-          v76 = qword_140E2D7A8 << 12;
+          v57 = qword_140E2D928 << 12;
+          v76 = qword_140E2D928 << 12;
         }
         else if ( (NextProcess[3].ActiveGroupsMask.Masks[1] & 0x4000000000000000LL) != 0 )
         {
@@ -184,11 +184,11 @@ __int64 __fastcall ExProcessCounterSetCallback(int a1, __int64 a2)
         }
         else
         {
-          v12 = (int)PsGetAllocatedFullProcessImageNameEx(NextProcess, &String) < 0;
-          LastRebalanceQpc = String;
+          v12 = (int)PsGetAllocatedFullProcessImageNameEx(NextProcess, &PerformanceCounter) < 0;
+          QuadPart = (__int128 *)PerformanceCounter.QuadPart;
           if ( v12 )
-            LastRebalanceQpc = (__int128 *)NextProcess[1].LastRebalanceQpc;
-          v14 = *LastRebalanceQpc;
+            QuadPart = (__int128 *)NextProcess[1].LastRebalanceQpc;
+          v14 = *QuadPart;
         }
         v22 = v14;
         v15 = (unsigned __int16)v14 >> 1;
@@ -213,19 +213,19 @@ __int64 __fastcall ExProcessCounterSetCallback(int a1, __int64 a2)
           }
           while ( !v18 );
         }
-        *(_DWORD *)&String_8.Length = 1310720;
+        *(_DWORD *)&PerformanceCounter_8.Length = 1310720;
         LOWORD(v22) = 2 * (v15 - v17);
         WORD1(v22) = v22;
         *((_QWORD *)&v22 + 1) = *((_QWORD *)&v14 + 1) + 2LL * v16;
-        String_8.Buffer = (wchar_t *)&v79;
-        RtlIntegerToUnicodeString(Value, 0xAu, &String_8);
+        PerformanceCounter_8.Buffer = (wchar_t *)&v79;
+        RtlIntegerToUnicodeString(Value, 0xAu, &PerformanceCounter_8);
         v19 = v22;
         *(_DWORD *)&DestinationString_8.Length = 0x800000;
-        if ( (unsigned __int16)(126 - String_8.Length) < (unsigned __int16)v22 )
-          v19 = 126 - String_8.Length;
+        if ( (unsigned __int16)(126 - PerformanceCounter_8.Length) < (unsigned __int16)v22 )
+          v19 = 126 - PerformanceCounter_8.Length;
         LOWORD(v22) = v19;
         DestinationString_8.Buffer = (wchar_t *)&v80;
-        RtlUnicodeStringPrintf(&DestinationString_8, L"%wZ:%wZ", &v22, &String_8, v21);
+        RtlUnicodeStringPrintf(&DestinationString_8, L"%wZ:%wZ", &v22, &PerformanceCounter_8);
         v26 = v53;
         v27 = 216;
         if ( ExGetExtensionTable((struct _EX_RUNDOWN_REF *)ExpPcwExtensionHost) )
@@ -238,8 +238,8 @@ __int64 __fastcall ExProcessCounterSetCallback(int a1, __int64 a2)
         {
           v11 = ExpPcwDisabledStatus();
         }
-        if ( String )
-          ExFreePoolWithTag(String, 0);
+        if ( PerformanceCounter.QuadPart )
+          ExFreePoolWithTag((PVOID)PerformanceCounter.QuadPart, 0);
         if ( v11 < 0 )
           break;
       }

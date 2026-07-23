@@ -1,43 +1,42 @@
 /*
- * XREFs of LdrIsResItemExist @ 0x14044EAD4
+ * XREFs of LdrIsResItemExist @ 0x1402DC488
  * Callers:
- *     LdrpResSearchResourceMappedFile @ 0x14044E290 (LdrpResSearchResourceMappedFile.c)
- *     LdrpSearchResourceSection_U @ 0x140A0253C (LdrpSearchResourceSection_U.c)
+ *     LdrpResSearchResourceMappedFile @ 0x14044EAD4 (LdrpResSearchResourceMappedFile.c)
+ *     LdrpSearchResourceSection_U @ 0x1409B999C (LdrpSearchResourceSection_U.c)
  * Callees:
- *     LdrpGetRcConfig @ 0x14044EB54 (LdrpGetRcConfig.c)
- *     LdrRscIsTypeExist @ 0x14044F1B4 (LdrRscIsTypeExist.c)
+ *     LdrRscIsTypeExist @ 0x1402DC264 (LdrRscIsTypeExist.c)
+ *     LdrpGetRcConfig @ 0x1402DC5EC (LdrpGetRcConfig.c)
  */
 
-__int64 __fastcall LdrIsResItemExist(__int64 a1, _QWORD *a2, __int64 a3)
+__int64 __fastcall LdrIsResItemExist(void *a1, unsigned __int64 *a2)
 {
-  __int64 RcConfig; // rax
-  __int64 v5; // r8
-  __int64 v6; // rbx
-  unsigned int v7; // ecx
-  unsigned int v9; // [rsp+48h] [rbp+20h] BYREF
+  unsigned int *RcConfig; // rax
+  __int64 v4; // r8
+  unsigned int *v5; // rbx
+  unsigned int v6; // ecx
+  unsigned int v8; // [rsp+48h] [rbp+20h] BYREF
 
-  v9 = 0;
-  LOBYTE(a3) = 1;
-  RcConfig = LdrpGetRcConfig(a1, a2, a3);
-  v6 = RcConfig;
+  v8 = 0;
+  RcConfig = (unsigned int *)LdrpGetRcConfig(a1);
+  v5 = RcConfig;
   if ( RcConfig )
   {
-    if ( (int)LdrRscIsTypeExist(RcConfig, *a2, v5, &v9) < 0 )
+    if ( (int)LdrRscIsTypeExist(RcConfig, *a2, v4, &v8) < 0 )
     {
       return 393216;
     }
     else
     {
-      v7 = v9;
-      if ( (*(_DWORD *)(v6 + 20) & 0x100) != 0 )
-        v7 = v9 | 0x100000;
-      if ( (*(_DWORD *)(v6 + 16) & 0x10) != 0 )
-        v7 |= 0x200000u;
+      v6 = v8;
+      if ( (v5[5] & 0x100) != 0 )
+        v6 = v8 | 0x100000;
+      if ( (v5[4] & 0x10) != 0 )
+        v6 |= 0x200000u;
     }
   }
   else
   {
     return 0x80000;
   }
-  return v7;
+  return v6;
 }

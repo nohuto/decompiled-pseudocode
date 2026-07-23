@@ -1,15 +1,15 @@
 /*
- * XREFs of PopDiagTraceThermalZoneEnumeration @ 0x1406094C4
+ * XREFs of PopDiagTraceThermalZoneEnumeration @ 0x14060C084
  * Callers:
- *     PopThermalWorker @ 0x140AC3C50 (PopThermalWorker.c)
- *     PopDiagInitialize @ 0x140CD1950 (PopDiagInitialize.c)
+ *     PopThermalWorker @ 0x140AC58C0 (PopThermalWorker.c)
+ *     PopDiagInitialize @ 0x140CD7AF8 (PopDiagInitialize.c)
  * Callees:
- *     EtwEventEnabled @ 0x140212D90 (EtwEventEnabled.c)
- *     EtwWriteEx @ 0x140212F70 (EtwWriteEx.c)
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     IoGetDeviceAttachmentBaseRefWithTag @ 0x14026F2B4 (IoGetDeviceAttachmentBaseRefWithTag.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     PopSqmThermalZoneEnumeration @ 0x1407E35C0 (PopSqmThermalZoneEnumeration.c)
+ *     EtwEventEnabled @ 0x140212E70 (EtwEventEnabled.c)
+ *     EtwWriteEx @ 0x140213050 (EtwWriteEx.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     IoGetDeviceAttachmentBaseRefWithTag @ 0x14026E824 (IoGetDeviceAttachmentBaseRefWithTag.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     PopSqmThermalZoneEnumeration @ 0x1407E8650 (PopSqmThermalZoneEnumeration.c)
  */
 
 _UNKNOWN **__fastcall PopDiagTraceThermalZoneEnumeration(__int64 a1)
@@ -62,7 +62,7 @@ _UNKNOWN **__fastcall PopDiagTraceThermalZoneEnumeration(__int64 a1)
   LOWORD(v24) = 0;
   v28 = 0;
   v26 = 0;
-  if ( byte_140E67628 )
+  if ( PopDiagHandleRegistered )
   {
     v3 = (unsigned __int16 *)(a1 + 1040);
     result = (_UNKNOWN **)IoGetDeviceAttachmentBaseRefWithTag(*(_QWORD *)(a1 + 48), 0x67446F50u);
@@ -78,9 +78,7 @@ _UNKNOWN **__fastcall PopDiagTraceThermalZoneEnumeration(__int64 a1)
         v27 = *(_DWORD *)(a1 + 140) / 0xAu;
         v26 = *(_DWORD *)(a1 + 188) / 0xAu;
         v7 = *(_DWORD *)(a1 + 136) / 0xAu;
-        if ( EtwEventEnabled(
-               *(REGHANDLE *)&PopSleepstudySessionLock.PriorityFloorCounts[16],
-               &POP_ETW_EVENT_THERMAL_ZONE_ENUMERATED) )
+        if ( EtwEventEnabled(PopDiagHandle, &POP_ETW_EVENT_THERMAL_ZONE_ENUMERATED) )
         {
           *(_QWORD *)&UserData.Size = 2LL;
           UserData.Ptr = (ULONGLONG)&v24;
@@ -142,15 +140,7 @@ _UNKNOWN **__fastcall PopDiagTraceThermalZoneEnumeration(__int64 a1)
           v23 = 2LL * (v15 + 1);
           *(&UserData.Ptr + v23) = a1 + 200;
           *((_QWORD *)&UserData.Size + v23) = 4LL;
-          EtwWriteEx(
-            *(REGHANDLE *)&PopSleepstudySessionLock.PriorityFloorCounts[16],
-            &POP_ETW_EVENT_THERMAL_ZONE_ENUMERATED,
-            0LL,
-            0,
-            0LL,
-            0LL,
-            0x18u,
-            &UserData);
+          EtwWriteEx(PopDiagHandle, &POP_ETW_EVENT_THERMAL_ZONE_ENUMERATED, 0LL, 0, 0LL, 0LL, 0x18u, &UserData);
         }
         PopSqmThermalZoneEnumeration(
           v6,

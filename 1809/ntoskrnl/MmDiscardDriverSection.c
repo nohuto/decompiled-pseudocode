@@ -1,12 +1,12 @@
 /*
- * XREFs of MmDiscardDriverSection @ 0x1409F7A3C
+ * XREFs of MmDiscardDriverSection @ 0x1409F8A3C
  * Callers:
- *     KeFreeInitializationCode @ 0x14098EB24 (KeFreeInitializationCode.c)
+ *     KeFreeInitializationCode @ 0x14098FB24 (KeFreeInitializationCode.c)
  * Callees:
- *     MI_IS_PHYSICAL_ADDRESS @ 0x14009D910 (MI_IS_PHYSICAL_ADDRESS.c)
- *     MiLookupDataTableEntry @ 0x1400DA590 (MiLookupDataTableEntry.c)
- *     MiSnapDriverRange @ 0x140653BE0 (MiSnapDriverRange.c)
- *     MiFreeInitializationCode @ 0x1406C781C (MiFreeInitializationCode.c)
+ *     MI_IS_PHYSICAL_ADDRESS @ 0x14009D850 (MI_IS_PHYSICAL_ADDRESS.c)
+ *     MiLookupDataTableEntry @ 0x1400DA610 (MiLookupDataTableEntry.c)
+ *     MiSnapDriverRange @ 0x140654DA0 (MiSnapDriverRange.c)
+ *     MiFreeInitializationCode @ 0x1406C8ABC (MiFreeInitializationCode.c)
  */
 
 unsigned __int64 __fastcall MmDiscardDriverSection(unsigned __int64 a1)
@@ -20,7 +20,7 @@ unsigned __int64 __fastcall MmDiscardDriverSection(unsigned __int64 a1)
   v2 = MiLookupDataTableEntry(a1, 1);
   v3 = (PVOID)v2[6];
   result = MI_IS_PHYSICAL_ADDRESS((unsigned __int64)v3);
-  if ( !(_DWORD)result || v3 == (PVOID)PsNtosImageBase || v3 == PsHalImageBase )
+  if ( !(_DWORD)result || v3 == PsNtosImageBase || v3 == PsHalImageBase )
   {
     result = MiSnapDriverRange((__int64)v2, 0, 0, a1, &v5, (unsigned __int64 *)&v6);
     if ( v5 )

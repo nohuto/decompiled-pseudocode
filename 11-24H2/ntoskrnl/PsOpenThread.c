@@ -1,22 +1,22 @@
 /*
- * XREFs of PsOpenThread @ 0x14083F680
+ * XREFs of PsOpenThread @ 0x14083B940
  * Callers:
- *     NtOpenThread @ 0x14083F650 (NtOpenThread.c)
- *     NtAlpcOpenSenderThread @ 0x14093C960 (NtAlpcOpenSenderThread.c)
+ *     NtOpenThread @ 0x14083B910 (NtOpenThread.c)
+ *     NtAlpcOpenSenderThread @ 0x1409A9420 (NtAlpcOpenSenderThread.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140325680 (ObfDereferenceObject.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140330CB0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     SepCreateAccessStateFromSubjectContext @ 0x1403EBC80 (SepCreateAccessStateFromSubjectContext.c)
- *     EtwWrite @ 0x14041C1B0 (EtwWrite.c)
- *     PsGetThreadId @ 0x14044B4F0 (PsGetThreadId.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     SeCaptureSubjectContextEx @ 0x14083FC40 (SeCaptureSubjectContextEx.c)
- *     SeDeleteAccessState @ 0x140840F80 (SeDeleteAccessState.c)
- *     PsLookupThreadByThreadId @ 0x14084A4B0 (PsLookupThreadByThreadId.c)
- *     SeSinglePrivilegeCheck @ 0x140853E90 (SeSinglePrivilegeCheck.c)
- *     ObOpenObjectByPointer @ 0x140854F10 (ObOpenObjectByPointer.c)
- *     ExRaiseDatatypeMisalignment @ 0x14089B1F0 (ExRaiseDatatypeMisalignment.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402B92F0 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     ObfDereferenceObject @ 0x1402CE210 (ObfDereferenceObject.c)
+ *     SepCreateAccessStateFromSubjectContext @ 0x1403E0270 (SepCreateAccessStateFromSubjectContext.c)
+ *     EtwWrite @ 0x14040FFB0 (EtwWrite.c)
+ *     PsGetThreadId @ 0x140442630 (PsGetThreadId.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     SeCaptureSubjectContextEx @ 0x14083BF00 (SeCaptureSubjectContextEx.c)
+ *     SeDeleteAccessState @ 0x14083D240 (SeDeleteAccessState.c)
+ *     PsLookupThreadByThreadId @ 0x140846770 (PsLookupThreadByThreadId.c)
+ *     SeSinglePrivilegeCheck @ 0x140850150 (SeSinglePrivilegeCheck.c)
+ *     ObOpenObjectByPointer @ 0x1408511D0 (ObOpenObjectByPointer.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408A3890 (ExRaiseDatatypeMisalignment.c)
  */
 
 __int64 __fastcall PsOpenThread(unsigned __int64 a1, int a2, __int64 a3, _OWORD *a4, char a5, KPROCESSOR_MODE a6)
@@ -189,9 +189,9 @@ LABEL_40:
       {
         *v33 = Handle;
         if ( v28
-          && (unsigned int)dword_140E085C0 > 5
-          && (qword_140E085D0 & 0x400000000000LL) != 0
-          && (qword_140E085D8 & 0x400000000000LL) == qword_140E085D8 )
+          && (unsigned int)dword_140E08630 > 5
+          && (qword_140E08640 & 0x400000000000LL) != 0
+          && (qword_140E08648 & 0x400000000000LL) == qword_140E08648 )
         {
           v29 = (unsigned int)PsGetThreadId(v21);
           v45 = &v29;
@@ -215,8 +215,8 @@ LABEL_40:
           v57 = &v36;
           v58 = 8LL;
           tlgWriteTransfer_EtwWriteTransfer(
-            (__int64)&dword_140E085C0,
-            (unsigned __int8 *)byte_140051071,
+            (__int64)&dword_140E08630,
+            (unsigned __int8 *)byte_140051B6B,
             0LL,
             0LL,
             9u,

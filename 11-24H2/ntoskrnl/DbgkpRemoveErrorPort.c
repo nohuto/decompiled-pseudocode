@@ -1,37 +1,37 @@
 /*
- * XREFs of DbgkpRemoveErrorPort @ 0x140707938
+ * XREFs of DbgkpRemoveErrorPort @ 0x1407054F8
  * Callers:
- *     DbgkFlushErrorPort @ 0x140939888 (DbgkFlushErrorPort.c)
- *     DbgkpSendErrorMessage @ 0x14093A900 (DbgkpSendErrorMessage.c)
+ *     DbgkpSendErrorMessage @ 0x1409E93F0 (DbgkpSendErrorMessage.c)
+ *     DbgkFlushErrorPort @ 0x140A527EC (DbgkFlushErrorPort.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x1402595A0 (KeLeaveCriticalRegionThread.c)
- *     ExfTryToWakePushLock @ 0x14025F9A0 (ExfTryToWakePushLock.c)
- *     KeResetEvent @ 0x14028EEC0 (KeResetEvent.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     PsGetServerSiloGlobals @ 0x140349380 (PsGetServerSiloGlobals.c)
- *     PdcCreateWatchdogAroundClientCall @ 0x140484160 (PdcCreateWatchdogAroundClientCall.c)
- *     DbgkpDereferenceErrorPort @ 0x14057E5A8 (DbgkpDereferenceErrorPort.c)
+ *     KeLeaveCriticalRegionThread @ 0x140289BB0 (KeLeaveCriticalRegionThread.c)
+ *     ExfTryToWakePushLock @ 0x14028FFB0 (ExfTryToWakePushLock.c)
+ *     KeResetEvent @ 0x14029EAC0 (KeResetEvent.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     PsGetServerSiloGlobals @ 0x1403C2DC0 (PsGetServerSiloGlobals.c)
+ *     PdcCreateWatchdogAroundClientCall @ 0x14047F700 (PdcCreateWatchdogAroundClientCall.c)
+ *     DbgkpDereferenceErrorPort @ 0x14057BA38 (DbgkpDereferenceErrorPort.c)
  */
 
 void __fastcall DbgkpRemoveErrorPort(__int64 a1, ULONG_PTR a2, volatile signed __int32 *a3)
 {
   int v5; // r15d
-  _QWORD *v6; // rax
-  _QWORD *v7; // rbp
+  char *v6; // rax
+  char *v7; // rbp
   __int64 v8; // rax
 
   if ( !_interlockedbittestandset(a3 + 1, 0) )
   {
     --*(_WORD *)(a1 + 484);
     v5 = 0;
-    v6 = KeAbPreAcquire(a2, 0LL);
+    v6 = (char *)KeAbPreAcquire(a2, 0LL);
     v7 = v6;
     if ( _interlockedbittestandset64((volatile signed __int32 *)a2, 0LL) )
-      ExfAcquirePushLockExclusiveEx((unsigned __int64 *)a2, (__int64)v6, a2);
+      ExfAcquirePushLockExclusiveEx((unsigned __int64 *)a2, v6, a2);
     if ( v7 )
-      *((_BYTE *)v7 + 10) = 1;
+      v7[10] = 1;
     if ( *(volatile signed __int32 **)(a2 + 8) == a3 )
     {
       *(_QWORD *)(a2 + 16) = 0LL;

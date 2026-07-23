@@ -1,8 +1,8 @@
 /*
- * XREFs of HalpTimerCalculateMaximumAllowableDrift @ 0x1403A42D0
+ * XREFs of HalpTimerCalculateMaximumAllowableDrift @ 0x1403A44B0
  * Callers:
- *     HalpInitializeTimers @ 0x1403A4134 (HalpInitializeTimers.c)
- *     HalpTimerSelectFallbackPerformanceCounter @ 0x140509750 (HalpTimerSelectFallbackPerformanceCounter.c)
+ *     HalpInitializeTimers @ 0x1403A4314 (HalpInitializeTimers.c)
+ *     HalpTimerSelectFallbackPerformanceCounter @ 0x140509CA0 (HalpTimerSelectFallbackPerformanceCounter.c)
  * Callees:
  *     <none>
  */

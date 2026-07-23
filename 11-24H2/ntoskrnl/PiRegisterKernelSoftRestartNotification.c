@@ -1,14 +1,14 @@
 /*
- * XREFs of PiRegisterKernelSoftRestartNotification @ 0x140734038
+ * XREFs of PiRegisterKernelSoftRestartNotification @ 0x140731F6C
  * Callers:
- *     IoRegisterPlugPlayNotification @ 0x1409ED860 (IoRegisterPlugPlayNotification.c)
+ *     IoRegisterPlugPlayNotification @ 0x1409EB2A0 (IoRegisterPlugPlayNotification.c)
  * Callees:
- *     KeReleaseGuardedMutex @ 0x14031E470 (KeReleaseGuardedMutex.c)
- *     ExAcquireFastMutex @ 0x14033E850 (ExAcquireFastMutex.c)
- *     PnpDeferNotification @ 0x1408B3660 (PnpDeferNotification.c)
- *     PnpInitializeNotifyEntry @ 0x1409ED73C (PnpInitializeNotifyEntry.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     KeReleaseGuardedMutex @ 0x1402C7000 (KeReleaseGuardedMutex.c)
+ *     ExAcquireFastMutex @ 0x14031DD30 (ExAcquireFastMutex.c)
+ *     PnpDeferNotification @ 0x1408B0F50 (PnpDeferNotification.c)
+ *     PnpInitializeNotifyEntry @ 0x1409EB17C (PnpInitializeNotifyEntry.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PiRegisterKernelSoftRestartNotification(__int64 a1, int a2, int a3, _QWORD *a4)
@@ -22,7 +22,7 @@ __int64 __fastcall PiRegisterKernelSoftRestartNotification(__int64 a1, int a2, i
   {
     if ( !PnpKsrPrepared || PnpKsrIsHhrPrepare )
     {
-      Pool2 = ExAllocatePool2(0x100uLL);
+      Pool2 = ExAllocatePool2(0x100uLL, 0x58uLL, 0x61706E50u);
       v10 = (_QWORD *)Pool2;
       if ( Pool2 )
       {
@@ -34,13 +34,13 @@ __int64 __fastcall PiRegisterKernelSoftRestartNotification(__int64 a1, int a2, i
         else
         {
           ExAcquireFastMutex(&PnpKsrNotifyLock);
-          v11 = (_QWORD *)qword_140F89AB8;
-          if ( *(PVOID **)qword_140F89AB8 != &PnpKsrNotifyList )
+          v11 = (_QWORD *)qword_140F89D48;
+          if ( *(PVOID **)qword_140F89D48 != &PnpKsrNotifyList )
             __fastfail(3u);
           *v10 = &PnpKsrNotifyList;
           v10[1] = v11;
           *v11 = v10;
-          qword_140F89AB8 = (__int64)v10;
+          qword_140F89D48 = (__int64)v10;
           KeReleaseGuardedMutex(&PnpKsrNotifyLock);
           *a4 = v10;
         }

@@ -1,22 +1,22 @@
 /*
- * XREFs of IoSaveBugCheckProgress @ 0x1405C7540
+ * XREFs of IoSaveBugCheckProgress @ 0x1405C9E10
  * Callers:
- *     IoEscalateBugCheck @ 0x1405C6638 (IoEscalateBugCheck.c)
- *     IoWriteCrashDump @ 0x1405C7FAC (IoWriteCrashDump.c)
- *     IoAddPagesForPartialKernelDump @ 0x1405D4728 (IoAddPagesForPartialKernelDump.c)
- *     IopAddLiveDumpPagesToPartialKernelDump @ 0x1405D4BE0 (IopAddLiveDumpPagesToPartialKernelDump.c)
- *     KeBugCheck2 @ 0x1405E5F10 (KeBugCheck2.c)
- *     KiBugCheckWriteCrashDump @ 0x1405E7910 (KiBugCheckWriteCrashDump.c)
- *     KiDisplayBlueScreen @ 0x1405E7FF4 (KiDisplayBlueScreen.c)
- *     KiUpdateBugcheckRecoveryProgress @ 0x1405FA874 (KiUpdateBugcheckRecoveryProgress.c)
- *     BgpFwDisplayBugCheckScreen @ 0x1407180B4 (BgpFwDisplayBugCheckScreen.c)
- *     BgpFwDisplayBugCheckScreenModernized @ 0x14071840C (BgpFwDisplayBugCheckScreenModernized.c)
+ *     IoEscalateBugCheck @ 0x1405C8F08 (IoEscalateBugCheck.c)
+ *     IoWriteCrashDump @ 0x1405CA87C (IoWriteCrashDump.c)
+ *     IoAddPagesForPartialKernelDump @ 0x1405D6F18 (IoAddPagesForPartialKernelDump.c)
+ *     IopAddLiveDumpPagesToPartialKernelDump @ 0x1405D73D0 (IopAddLiveDumpPagesToPartialKernelDump.c)
+ *     KeBugCheck2 @ 0x1405E8880 (KeBugCheck2.c)
+ *     KiBugCheckWriteCrashDump @ 0x1405EA280 (KiBugCheckWriteCrashDump.c)
+ *     KiDisplayBlueScreen @ 0x1405EA964 (KiDisplayBlueScreen.c)
+ *     KiUpdateBugcheckRecoveryProgress @ 0x1405FD294 (KiUpdateBugcheckRecoveryProgress.c)
+ *     BgpFwDisplayBugCheckScreen @ 0x14071CDA4 (BgpFwDisplayBugCheckScreen.c)
+ *     BgpFwDisplayBugCheckScreenModernized @ 0x14071D0FC (BgpFwDisplayBugCheckScreenModernized.c)
  * Callees:
- *     WheaLogInternalEvent @ 0x1403DFEC0 (WheaLogInternalEvent.c)
- *     IopBugCheckProgressEfiVariableServicesAvailable @ 0x1405C8928 (IopBugCheckProgressEfiVariableServicesAvailable.c)
- *     IopWheaSelLogCheckPointEx @ 0x1405CA070 (IopWheaSelLogCheckPointEx.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     WheaLogInternalEvent @ 0x1403E30B0 (WheaLogInternalEvent.c)
+ *     IopBugCheckProgressEfiVariableServicesAvailable @ 0x1405CB1F8 (IopBugCheckProgressEfiVariableServicesAvailable.c)
+ *     IopWheaSelLogCheckPointEx @ 0x1405CC940 (IopWheaSelLogCheckPointEx.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 void __fastcall IoSaveBugCheckProgress(int a1)
@@ -51,7 +51,7 @@ void __fastcall IoSaveBugCheckProgress(int a1)
     }
     if ( a1 == 4 )
     {
-      if ( LODWORD(CmpCallbackListLock.PropagateBoostsEntry.Next) )
+      if ( *(_DWORD *)&CmpContextListLock.SchedulerApcFill5[56] )
       {
         v3 = 4 - *(_DWORD *)(CrashdmpDumpBlock + 1336);
         Src[0] = 1733060695;

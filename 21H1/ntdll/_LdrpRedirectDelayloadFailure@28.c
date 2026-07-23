@@ -17,7 +17,7 @@ int __fastcall LdrpRedirectDelayloadFailure(
         int (__thiscall *a4)(_DWORD, int, _DWORD *),
         int (__thiscall *a5)(_DWORD, int, int),
         int a6,
-        unsigned int a7)
+        NTSTATUS Status)
 {
   int v7; // eax
   int v9; // ebx
@@ -31,7 +31,7 @@ int __fastcall LdrpRedirectDelayloadFailure(
   int v18; // [esp+24h] [ebp-20h]
   int v19; // [esp+28h] [ebp-1Ch]
   int v20; // [esp+2Ch] [ebp-18h]
-  int v21; // [esp+30h] [ebp-14h]
+  ULONG v21; // [esp+30h] [ebp-14h]
   int v22; // [esp+34h] [ebp-10h]
   const char *v23; // [esp+38h] [ebp-Ch] BYREF
   int v24; // [esp+3Ch] [ebp-8h]
@@ -52,14 +52,14 @@ int __fastcall LdrpRedirectDelayloadFailure(
     LdrpLogDbgPrint(
       (int)"minkernel\\ntdll\\ldrdload.c",
       460,
-      "LdrpRedirectDelayloadFailure",
+      (int)"LdrpRedirectDelayloadFailure",
       0,
       "Failed to find export %s!%s (Ordinal:%d) in \"%wZ\"  0x%08lx\n",
       v24,
       v12,
       v25,
       v22 + 44,
-      a7);
+      Status);
     v10 = ShowSnaps;
   }
   if ( (v10 & 0x10) != 0 )
@@ -84,7 +84,7 @@ LABEL_13:
   v16[0] = 36;
   v16[3] = v24;
   v19 = v13;
-  v21 = RtlNtStatusToDosErrorNoTeb(a7);
+  v21 = RtlNtStatusToDosErrorNoTeb(Status);
   if ( v11 )
   {
     v17 = 1;

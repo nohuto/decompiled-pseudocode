@@ -1,13 +1,13 @@
 /*
- * XREFs of MiWalkReadInProgressPte @ 0x1407056C8
+ * XREFs of MiWalkReadInProgressPte @ 0x14070A398
  * Callers:
- *     MiWalkEntireSubsection @ 0x14031B370 (MiWalkEntireSubsection.c)
+ *     MiWalkEntireSubsection @ 0x14031D3A0 (MiWalkEntireSubsection.c)
  * Callees:
- *     MiInitializePageFaultPacket @ 0x140339350 (MiInitializePageFaultPacket.c)
- *     MiDeleteTransitionPte @ 0x14033E7F0 (MiDeleteTransitionPte.c)
- *     MiWaitForCollidedFaultComplete @ 0x14038B588 (MiWaitForCollidedFaultComplete.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     MiInitializePageFaultPacket @ 0x14033B3D0 (MiInitializePageFaultPacket.c)
+ *     MiDeleteTransitionPte @ 0x140340870 (MiDeleteTransitionPte.c)
+ *     MiWaitForCollidedFaultComplete @ 0x14038D338 (MiWaitForCollidedFaultComplete.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall MiWalkReadInProgressPte(_QWORD **a1, __int64 a2, ULONG_PTR a3, char a4)

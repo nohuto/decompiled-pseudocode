@@ -13,7 +13,7 @@
 
 __int64 RtlpHeapGenerateRandomValue32()
 {
-  int v0; // eax
+  NTSTATUS v0; // eax
   __int32 v1; // r8d
   int v2; // ecx
   unsigned int v5; // r8d
@@ -21,16 +21,16 @@ __int64 RtlpHeapGenerateRandomValue32()
   __int64 v8; // [rsp+48h] [rbp+10h]
 
   if ( !dword_180145F48
-    && NtQueryInformationProcess((HANDLE)0xFFFFFFFFFFFFFFFFLL, (PROCESSINFOCLASS)36, &dword_180145F48, 4u, 0LL) < 0 )
+    && NtQueryInformationProcess((HANDLE)0xFFFFFFFFFFFFFFFFLL, ProcessCookie, &dword_180145F48, 4u, 0LL) < 0 )
   {
     dword_180145F48 = (MEMORY[0x7FFE0320] * (unsigned __int64)MEMORY[0x7FFE0004]) >> 24;
   }
-  v0 = RtlRunOnceBeginInitialize(&RtlpRandomExInit, 0LL, 0LL);
+  v0 = RtlRunOnceBeginInitialize(&RtlpRandomExInit, 0, 0LL);
   if ( v0 >= 0 )
   {
     if ( v0 != 259 )
       goto LABEL_13;
-    if ( (unsigned int)RtlpInitRandomExVector(&RtlpRandomExInit, 0LL, 0LL) )
+    if ( RtlpInitRandomExVector(&RtlpRandomExInit, 0LL, 0LL) )
     {
       v0 = RtlRunOnceComplete(&RtlpRandomExInit, 0, 0LL);
       if ( v0 >= 0 )
@@ -39,7 +39,7 @@ __int64 RtlpHeapGenerateRandomValue32()
     }
     else
     {
-      v0 = RtlRunOnceComplete(&RtlpRandomExInit, 4, 0LL);
+      v0 = RtlRunOnceComplete(&RtlpRandomExInit, 4u, 0LL);
       if ( v0 >= 0 )
         goto LABEL_13;
       v7 = 2;

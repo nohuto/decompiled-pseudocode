@@ -46,8 +46,7 @@ void *PnpGetPropertiesSecurityDescriptor()
     v3 = Pool2;
     if ( Pool2 )
     {
-      if ( RtlCreateAcl(Pool2, v1, 2u) >= 0
-        && (int)RtlpAddKnownAce((__int64)v3, 2u, 2, 983103, (unsigned __int8 *)Sid, 0) >= 0 )
+      if ( RtlCreateAcl(Pool2, v1, 2u) >= 0 && (int)RtlpAddKnownAce(v3, 2u, 2, 983103, (unsigned __int8 *)Sid, 0) >= 0 )
       {
         v9 = 1024;
         v10 = 0;

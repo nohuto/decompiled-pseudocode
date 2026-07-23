@@ -3,14 +3,14 @@
  * Callers:
  *     <none>
  * Callees:
- *     PoDestroyReasonContext @ 0x14036B090 (PoDestroyReasonContext.c)
- *     PopDeactiveThermalRequest @ 0x14098B5B8 (PopDeactiveThermalRequest.c)
+ *     sub_14036B090 @ 0x14036B090 (sub_14036B090.c)
+ *     sub_14098B5B8 @ 0x14098B5B8 (sub_14098B5B8.c)
  *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
  */
 
-void __fastcall PoDeleteThermalRequest(_QWORD **P)
+void __fastcall PoDeleteThermalRequest(CMSPAddress *P)
 {
-  PopDeactiveThermalRequest();
-  PoDestroyReasonContext(P[3]);
+  sub_14098B5B8(P);
+  sub_14036B090(*((_QWORD **)P + 3));
   ExFreePoolWithTag(P, 0x6C6F4350u);
 }

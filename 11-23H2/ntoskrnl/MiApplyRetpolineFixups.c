@@ -1,14 +1,14 @@
 /*
- * XREFs of MiApplyRetpolineFixups @ 0x140325600
+ * XREFs of MiApplyRetpolineFixups @ 0x140325890
  * Callers:
- *     MiReapplyImportOptimizationWorker @ 0x140640E80 (MiReapplyImportOptimizationWorker.c)
- *     MiPerformFixups @ 0x14079D900 (MiPerformFixups.c)
+ *     MiReapplyImportOptimizationWorker @ 0x1406413D0 (MiReapplyImportOptimizationWorker.c)
+ *     MiPerformFixups @ 0x14079DAF0 (MiPerformFixups.c)
  * Callees:
- *     RtlApplyImportRelocationToPage @ 0x140325098 (RtlApplyImportRelocationToPage.c)
- *     RtlpConstructImportRelocationFixup @ 0x1403257E0 (RtlpConstructImportRelocationFixup.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     RtlApplyIndirectRelocationToPage @ 0x14067A494 (RtlApplyIndirectRelocationToPage.c)
- *     RtlApplySwitchJumpRelocationToPage @ 0x14067A540 (RtlApplySwitchJumpRelocationToPage.c)
+ *     RtlApplyImportRelocationToPage @ 0x140325328 (RtlApplyImportRelocationToPage.c)
+ *     RtlpConstructImportRelocationFixup @ 0x140325A70 (RtlpConstructImportRelocationFixup.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     RtlApplyIndirectRelocationToPage @ 0x14067A9E4 (RtlApplyIndirectRelocationToPage.c)
+ *     RtlApplySwitchJumpRelocationToPage @ 0x14067AA90 (RtlApplySwitchJumpRelocationToPage.c)
  */
 
 unsigned __int64 __fastcall MiApplyRetpolineFixups(

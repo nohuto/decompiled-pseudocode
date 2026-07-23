@@ -1,8 +1,8 @@
 /*
- * XREFs of WerpCreateCrashDataSection @ 0x180006D00
+ * XREFs of WerpCreateCrashDataSection @ 0x180006CF0
  * Callers:
- *     RtlReportExceptionHelper @ 0x18000787C (RtlReportExceptionHelper.c)
- *     RtlReportExceptionEx @ 0x1800D86C0 (RtlReportExceptionEx.c)
+ *     RtlReportExceptionHelper @ 0x18000786C (RtlReportExceptionHelper.c)
+ *     RtlReportExceptionEx @ 0x1800D8780 (RtlReportExceptionEx.c)
  * Callees:
  *     NtClose @ 0x1800A6600 (NtClose.c)
  *     ZwMapViewOfSection @ 0x1800A6920 (ZwMapViewOfSection.c)
@@ -11,22 +11,22 @@
  *     memset @ 0x1800ACCC0 (memset.c)
  */
 
-__int64 __fastcall WerpCreateCrashDataSection(_QWORD *a1, void **a2)
+__int64 __fastcall WerpCreateCrashDataSection(HANDLE *a1, PVOID *a2)
 {
-  int v4; // ebx
-  void *v5; // rcx
-  void *v6; // rdx
-  _OWORD v8[3]; // [rsp+50h] [rbp-30h] BYREF
-  void *v9; // [rsp+B0h] [rbp+30h] BYREF
-  void *v10; // [rsp+B8h] [rbp+38h] BYREF
-  __int64 v11; // [rsp+C0h] [rbp+40h] BYREF
-  __int64 v12; // [rsp+C8h] [rbp+48h] BYREF
+  NTSTATUS v4; // ebx
+  HANDLE v5; // rcx
+  PVOID v6; // rdx
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+50h] [rbp-30h] BYREF
+  PVOID BaseAddress; // [rsp+B0h] [rbp+30h] BYREF
+  HANDLE SectionHandle; // [rsp+B8h] [rbp+38h] BYREF
+  LARGE_INTEGER MaximumSize; // [rsp+C0h] [rbp+40h] BYREF
+  ULONG_PTR ViewSize; // [rsp+C8h] [rbp+48h] BYREF
 
-  LODWORD(v8[0]) = 0;
-  memset((char *)v8 + 8, 0, 0x28uLL);
-  v10 = 0LL;
-  v9 = 0LL;
-  v12 = 0LL;
+  ObjectAttributes.Length = 0;
+  memset(&ObjectAttributes.RootDirectory, 0, 0x28uLL);
+  SectionHandle = 0LL;
+  BaseAddress = 0LL;
+  ViewSize = 0LL;
   if ( a1 )
     *a1 = 0LL;
   if ( a2 )
@@ -35,34 +35,46 @@ __int64 __fastcall WerpCreateCrashDataSection(_QWORD *a1, void **a2)
   {
     if ( a2 )
     {
-      LODWORD(v8[0]) = 48;
-      *((_QWORD *)&v8[0] + 1) = 0LL;
-      v8[2] = 0LL;
-      DWORD2(v8[1]) = 2;
-      *(_QWORD *)&v8[1] = 0LL;
-      v11 = 248LL;
-      v4 = NtCreateSection(&v10, 983047LL, v8, &v11, 4, 0x8000000, 0LL);
-      if ( v4 < 0 || (v4 = ZwMapViewOfSection(v10, -1LL, &v9, 0LL, 0LL, 0LL, &v12, 1, 0, 4), v4 < 0) )
+      ObjectAttributes.Length = 48;
+      ObjectAttributes.RootDirectory = 0LL;
+      *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+      ObjectAttributes.Attributes = 2;
+      ObjectAttributes.ObjectName = 0LL;
+      MaximumSize.QuadPart = 248LL;
+      v4 = NtCreateSection(&SectionHandle, 0xF0007u, &ObjectAttributes, &MaximumSize, 4u, 0x8000000u, 0LL);
+      if ( v4 < 0
+        || (v4 = ZwMapViewOfSection(
+                   SectionHandle,
+                   (HANDLE)0xFFFFFFFFFFFFFFFFLL,
+                   &BaseAddress,
+                   0LL,
+                   0LL,
+                   0LL,
+                   &ViewSize,
+                   ViewShare,
+                   0,
+                   4u),
+            v4 < 0) )
       {
-        v5 = v10;
-        v6 = v9;
+        v5 = SectionHandle;
+        v6 = BaseAddress;
       }
       else
       {
-        memset(v9, 0, 0xF8uLL);
+        memset(BaseAddress, 0, 0xF8uLL);
         v5 = 0LL;
-        *a1 = v10;
+        *a1 = SectionHandle;
         v6 = 0LL;
         v4 = 0;
-        *a2 = v9;
-        v10 = 0LL;
-        v9 = 0LL;
+        *a2 = BaseAddress;
+        SectionHandle = 0LL;
+        BaseAddress = 0LL;
       }
       if ( v6 )
       {
-        NtUnmapViewOfSection(-1LL, v6);
-        v5 = v10;
-        v9 = 0LL;
+        NtUnmapViewOfSection((HANDLE)0xFFFFFFFFFFFFFFFFLL, v6);
+        v5 = SectionHandle;
+        BaseAddress = 0LL;
       }
       if ( v5 )
         NtClose(v5);

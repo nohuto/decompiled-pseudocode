@@ -1,14 +1,16 @@
 /*
- * XREFs of PspLockThreadSecurityShared @ 0x14044ADE0
+ * XREFs of PspLockThreadSecurityShared @ 0x140442F10
  * Callers:
- *     AlpcpCreateClientPort @ 0x1408E9A60 (AlpcpCreateClientPort.c)
- *     PsOpenProcess @ 0x1408EFC40 (PsOpenProcess.c)
- *     MiIsUserQueryVmCallerTrusted @ 0x140920364 (MiIsUserQueryVmCallerTrusted.c)
- *     NtQueryInformationThread @ 0x140A1F330 (NtQueryInformationThread.c)
- *     PspWow64ReadOrWriteThreadCpuArea @ 0x140B792F0 (PspWow64ReadOrWriteThreadCpuArea.c)
+ *     EtwpTraceThreadRundown @ 0x14051ED18 (EtwpTraceThreadRundown.c)
+ *     PsLockThreadNameShared @ 0x140617DC4 (PsLockThreadNameShared.c)
+ *     AlpcpCreateClientPort @ 0x1408F0020 (AlpcpCreateClientPort.c)
+ *     PsOpenProcess @ 0x1408F6200 (PsOpenProcess.c)
+ *     MiIsUserQueryVmCallerTrusted @ 0x140923720 (MiIsUserQueryVmCallerTrusted.c)
+ *     NtQueryInformationThread @ 0x140A28950 (NtQueryInformationThread.c)
+ *     PspWow64ReadOrWriteThreadCpuArea @ 0x140B81560 (PspWow64ReadOrWriteThreadCpuArea.c)
  * Callees:
- *     ExfAcquirePushLockSharedEx @ 0x140277CC0 (ExfAcquirePushLockSharedEx.c)
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
+ *     ExfAcquirePushLockSharedEx @ 0x140277230 (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
  */
 
 signed __int64 __fastcall PspLockThreadSecurityShared(__int64 a1, __int64 a2, __int64 a3, struct _KLOCK_ENTRIES *a4)

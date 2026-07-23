@@ -1,15 +1,12 @@
 /*
- * XREFs of PiPnpRtlObjectEventCompareObjects @ 0x1407BE840
+ * XREFs of PiPnpRtlObjectEventCompareObjects @ 0x1407BEB10
  * Callers:
  *     <none>
  * Callees:
- *     _wcsicmp @ 0x1403D9A50 (_wcsicmp.c)
+ *     _wcsicmp @ 0x1403D9C30 (_wcsicmp.c)
  */
 
-__int64 __fastcall PiPnpRtlObjectEventCompareObjects(
-        struct _RTL_AVL_TABLE *Table,
-        __int64 *FirstStruct,
-        __int64 *SecondStruct)
+__int64 __fastcall PiPnpRtlObjectEventCompareObjects(_RTL_AVL_TABLE *a1, __int64 *a2, __int64 *a3)
 {
   __int64 v3; // rax
   __int64 v4; // rdx
@@ -22,9 +19,9 @@ __int64 __fastcall PiPnpRtlObjectEventCompareObjects(
   int v11; // ecx
   int v12; // eax
 
-  v3 = *FirstStruct;
-  v4 = *SecondStruct;
-  if ( v3 == *SecondStruct )
+  v3 = *a2;
+  v4 = *a3;
+  if ( v3 == *a3 )
     return 2LL;
   v5 = *(_QWORD *)(v3 + 8);
   v6 = *(_QWORD *)(v4 + 8);

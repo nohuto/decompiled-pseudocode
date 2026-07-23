@@ -1,12 +1,12 @@
 /*
- * XREFs of PspSetRedirectionTrustPolicy @ 0x1407DD524
+ * XREFs of PspSetRedirectionTrustPolicy @ 0x1407DD7F4
  * Callers:
- *     PspApplyMitigationOptions @ 0x1406B3700 (PspApplyMitigationOptions.c)
- *     NtSetInformationProcess @ 0x140774540 (NtSetInformationProcess.c)
+ *     PspApplyMitigationOptions @ 0x1406B3730 (PspApplyMitigationOptions.c)
+ *     NtSetInformationProcess @ 0x140774730 (NtSetInformationProcess.c)
  * Callees:
- *     PsReferencePrimaryTokenWithTag @ 0x1402329C0 (PsReferencePrimaryTokenWithTag.c)
- *     ObFastDereferenceObject @ 0x140297C80 (ObFastDereferenceObject.c)
- *     SeTokenSetRedirectionTrustPolicy @ 0x140365198 (SeTokenSetRedirectionTrustPolicy.c)
+ *     PsReferencePrimaryTokenWithTag @ 0x140232A90 (PsReferencePrimaryTokenWithTag.c)
+ *     ObFastDereferenceObject @ 0x140297F10 (ObFastDereferenceObject.c)
+ *     SeTokenSetRedirectionTrustPolicy @ 0x140365338 (SeTokenSetRedirectionTrustPolicy.c)
  */
 
 signed __int64 __fastcall PspSetRedirectionTrustPolicy(__int64 a1, int a2)

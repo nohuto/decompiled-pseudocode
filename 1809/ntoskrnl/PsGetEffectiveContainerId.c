@@ -1,10 +1,10 @@
 /*
- * XREFs of PsGetEffectiveContainerId @ 0x1401254A0
+ * XREFs of PsGetEffectiveContainerId @ 0x140125570
  * Callers:
- *     NtQueryInformationThread @ 0x14064A560 (NtQueryInformationThread.c)
+ *     NtQueryInformationThread @ 0x14064B720 (NtQueryInformationThread.c)
  * Callees:
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
- *     PsGetWorkOnBehalfThread @ 0x1400ACD14 (PsGetWorkOnBehalfThread.c)
+ *     PsGetWorkOnBehalfThread @ 0x1400ACC54 (PsGetWorkOnBehalfThread.c)
  */
 
 __int64 __fastcall PsGetEffectiveContainerId(int a1, struct _KTHREAD *a2, __int64 a3)

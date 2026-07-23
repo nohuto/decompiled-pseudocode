@@ -1,13 +1,13 @@
 /*
- * XREFs of SepCreateImpersonationTokenDacl @ 0x140420C60
+ * XREFs of SepCreateImpersonationTokenDacl @ 0x14041FB20
  * Callers:
- *     NtOpenThreadTokenEx @ 0x140413580 (NtOpenThreadTokenEx.c)
+ *     NtOpenThreadTokenEx @ 0x140412440 (NtOpenThreadTokenEx.c)
  * Callees:
- *     RtlEqualSid @ 0x14000F570 (RtlEqualSid.c)
+ *     RtlEqualSid @ 0x14000F0F0 (RtlEqualSid.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     RtlCreateAcl @ 0x140420AB8 (RtlCreateAcl.c)
- *     RtlpAddKnownAce @ 0x140421800 (RtlpAddKnownAce.c)
- *     RtlAddAccessAllowedAce @ 0x14048D14C (RtlAddAccessAllowedAce.c)
+ *     RtlCreateAcl @ 0x14041F978 (RtlCreateAcl.c)
+ *     RtlpAddKnownAce @ 0x1404206C0 (RtlpAddKnownAce.c)
+ *     RtlAddAccessAllowedAce @ 0x14048DBDC (RtlAddAccessAllowedAce.c)
  */
 
 __int64 __fastcall SepCreateImpersonationTokenDacl(__int64 a1, __int64 a2, ACL **a3)

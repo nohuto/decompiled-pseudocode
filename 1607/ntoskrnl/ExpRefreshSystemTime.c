@@ -1,20 +1,20 @@
 /*
- * XREFs of ExpRefreshSystemTime @ 0x14055E2B0
+ * XREFs of ExpRefreshSystemTime @ 0x14055E7F0
  * Callers:
- *     NtInitializeRegistry @ 0x140547164 (NtInitializeRegistry.c)
- *     CmpFinishSystemHivesLoad @ 0x14055D110 (CmpFinishSystemHivesLoad.c)
+ *     NtInitializeRegistry @ 0x1405476A4 (NtInitializeRegistry.c)
+ *     CmpFinishSystemHivesLoad @ 0x14055D650 (CmpFinishSystemHivesLoad.c)
  * Callees:
- *     ExReleaseResourceLite @ 0x140068940 (ExReleaseResourceLite.c)
- *     KeLeaveCriticalRegion @ 0x140069D00 (KeLeaveCriticalRegion.c)
- *     ExLocalTimeToSystemTime @ 0x1400A4D0C (ExLocalTimeToSystemTime.c)
- *     RtlTimeFieldsToTime @ 0x1400A4D20 (RtlTimeFieldsToTime.c)
- *     RtlTimeToTimeFields @ 0x1400AADE8 (RtlTimeToTimeFields.c)
- *     ExSystemTimeToLocalTime @ 0x1400B53D0 (ExSystemTimeToLocalTime.c)
- *     KeSetSystemTime @ 0x140126824 (KeSetSystemTime.c)
- *     PoNotifySystemTimeSet @ 0x140131E00 (PoNotifySystemTimeSet.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     ExAcquireTimeRefreshLock @ 0x1403EA8B0 (ExAcquireTimeRefreshLock.c)
- *     ExpRefreshTimeZoneInformation @ 0x14055EB0C (ExpRefreshTimeZoneInformation.c)
+ *     ExReleaseResourceLite @ 0x1400684C0 (ExReleaseResourceLite.c)
+ *     KeLeaveCriticalRegion @ 0x140069880 (KeLeaveCriticalRegion.c)
+ *     ExLocalTimeToSystemTime @ 0x1400A3284 (ExLocalTimeToSystemTime.c)
+ *     RtlTimeFieldsToTime @ 0x1400A3298 (RtlTimeFieldsToTime.c)
+ *     RtlTimeToTimeFields @ 0x1400A9368 (RtlTimeToTimeFields.c)
+ *     ExSystemTimeToLocalTime @ 0x1400B3208 (ExSystemTimeToLocalTime.c)
+ *     KeSetSystemTime @ 0x140126D94 (KeSetSystemTime.c)
+ *     PoNotifySystemTimeSet @ 0x140132370 (PoNotifySystemTimeSet.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     ExAcquireTimeRefreshLock @ 0x1403EBEE0 (ExAcquireTimeRefreshLock.c)
+ *     ExpRefreshTimeZoneInformation @ 0x14055F04C (ExpRefreshTimeZoneInformation.c)
  */
 
 void ExpRefreshSystemTime()
@@ -25,7 +25,7 @@ void ExpRefreshSystemTime()
   LARGE_INTEGER SystemTime; // [rsp+20h] [rbp-30h] BYREF
   LARGE_INTEGER v4; // [rsp+28h] [rbp-28h] BYREF
   LARGE_INTEGER Time; // [rsp+30h] [rbp-20h] BYREF
-  struct _TIME_FIELDS TimeFields; // [rsp+38h] [rbp-18h] BYREF
+  _TIME_FIELDS TimeFields; // [rsp+38h] [rbp-18h] BYREF
 
   ExAcquireTimeRefreshLock(1u);
   v0 = ExpSystemIsInCmosMode;

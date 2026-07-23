@@ -1,12 +1,12 @@
 /*
- * XREFs of PpmParkEvaluateRestriction @ 0x14025B2D8
+ * XREFs of PpmParkEvaluateRestriction @ 0x14025CAB4
  * Callers:
- *     PpmParkComputeDiff @ 0x14025A848 (PpmParkComputeDiff.c)
+ *     PpmParkComputeDiff @ 0x14025C028 (PpmParkComputeDiff.c)
  * Callees:
- *     ?RtlpAndAffinityExNoResult@@YAKPEAU_KAFFINITY_EX@@0@Z @ 0x14025234C (-RtlpAndAffinityExNoResult@@YAKPEAU_KAFFINITY_EX@@0@Z.c)
- *     PpmEventParkNodeRestriction @ 0x140421920 (PpmEventParkNodeRestriction.c)
- *     PpmEventTraceHeteroSets @ 0x1404BDA24 (PpmEventTraceHeteroSets.c)
- *     KeUpdateProcessorRestrictions @ 0x1405E9610 (KeUpdateProcessorRestrictions.c)
+ *     ?RtlpAndAffinityExNoResult@@YAKPEAU_KAFFINITY_EX@@0@Z @ 0x140253CAC (-RtlpAndAffinityExNoResult@@YAKPEAU_KAFFINITY_EX@@0@Z.c)
+ *     PpmEventParkNodeRestriction @ 0x140419160 (PpmEventParkNodeRestriction.c)
+ *     PpmEventTraceHeteroSets @ 0x1404B7270 (PpmEventTraceHeteroSets.c)
+ *     KeUpdateProcessorRestrictions @ 0x1405EBF80 (KeUpdateProcessorRestrictions.c)
  */
 
 void __fastcall PpmParkEvaluateRestriction(__int64 a1)

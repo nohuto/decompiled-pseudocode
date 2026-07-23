@@ -1,9 +1,9 @@
 /*
- * XREFs of MiDeletePxeSharedLocks @ 0x140296D44
+ * XREFs of MiDeletePxeSharedLocks @ 0x140273E2C
  * Callers:
- *     MmDeleteProcessAddressSpace @ 0x140682D54 (MmDeleteProcessAddressSpace.c)
+ *     MmDeleteProcessAddressSpace @ 0x14067C848 (MmDeleteProcessAddressSpace.c)
  * Callees:
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 void __fastcall MiDeletePxeSharedLocks(__int64 a1)

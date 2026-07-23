@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpVpptArmTimer @ 0x140583140
+ * XREFs of HalpVpptArmTimer @ 0x140585660
  * Callers:
  *     <none>
  * Callees:
- *     RtlGetInterruptTimePrecise @ 0x140208110 (RtlGetInterruptTimePrecise.c)
- *     HalpReleaseHighLevelLock @ 0x1402C4DEC (HalpReleaseHighLevelLock.c)
- *     HalpAcquireHighLevelLock @ 0x140426EEC (HalpAcquireHighLevelLock.c)
- *     HalpVpptUpdatePhysicalTimer @ 0x140426F38 (HalpVpptUpdatePhysicalTimer.c)
+ *     RtlGetInterruptTimePrecise @ 0x1402081F0 (RtlGetInterruptTimePrecise.c)
+ *     HalpReleaseHighLevelLock @ 0x14030FAAC (HalpReleaseHighLevelLock.c)
+ *     HalpAcquireHighLevelLock @ 0x140433FFC (HalpAcquireHighLevelLock.c)
+ *     HalpVpptUpdatePhysicalTimer @ 0x140434048 (HalpVpptUpdatePhysicalTimer.c)
  */
 
 __int64 __fastcall HalpVpptArmTimer(__int64 *a1, int a2, __int64 a3)
@@ -16,16 +16,16 @@ __int64 __fastcall HalpVpptArmTimer(__int64 *a1, int a2, __int64 a3)
   int v9; // esi
   __int64 *v10; // rcx
   __int64 **v11; // rax
-  __int64 InterruptTimePrecise; // rax
+  LARGE_INTEGER InterruptTimePrecise; // rax
   unsigned __int64 v13; // rdx
   int *v14; // rax
   __int64 i; // rcx
   __int64 v16; // rdx
-  unsigned __int64 v17; // [rsp+50h] [rbp+8h] BYREF
+  LARGE_INTEGER PerformanceCounter; // [rsp+50h] [rbp+8h] BYREF
 
   if ( ((a2 - 1) & 0xFFFFFFFD) != 0 )
     return 3221225659LL;
-  byte_140FBB3F8 = HalpAcquireHighLevelLock(&qword_140FBB3F0);
+  byte_140FBB798 = HalpAcquireHighLevelLock(&qword_140FBB790);
   v7 = 0LL;
   if ( *(int **)&HalpVpptQueue == &HalpVpptQueue )
   {
@@ -48,10 +48,10 @@ __int64 __fastcall HalpVpptArmTimer(__int64 *a1, int a2, __int64 a3)
     *v11 = v10;
     v10[1] = (__int64)v11;
   }
-  InterruptTimePrecise = RtlGetInterruptTimePrecise(&v17);
+  InterruptTimePrecise = RtlGetInterruptTimePrecise(&PerformanceCounter);
   if ( a2 != 3 )
     v7 = a3;
-  v13 = InterruptTimePrecise + a3;
+  v13 = InterruptTimePrecise.QuadPart + a3;
   v14 = &HalpVpptQueue;
   a1[4] = v13;
   a1[5] = v7;
@@ -69,6 +69,6 @@ LABEL_17:
     HalpVpptUpdatePhysicalTimer(i);
   *((_DWORD *)a1 + 5) = 2;
   *((_BYTE *)a1 + 24) = 1;
-  HalpReleaseHighLevelLock(&qword_140FBB3F0, byte_140FBB3F8);
+  HalpReleaseHighLevelLock(&qword_140FBB790, byte_140FBB798);
   return 0LL;
 }

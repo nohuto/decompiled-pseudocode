@@ -1,14 +1,14 @@
 /*
- * XREFs of GetOperatorIndexByName @ 0x1406CD520
+ * XREFs of GetOperatorIndexByName @ 0x1406CD658
  * Callers:
- *     GetConditionToken @ 0x1406CCD30 (GetConditionToken.c)
+ *     GetConditionToken @ 0x1406CCE68 (GetConditionToken.c)
  * Callees:
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     _wcsnicmp @ 0x14014D8A0 (_wcsnicmp.c)
- *     wcsncpy_s @ 0x140153224 (wcsncpy_s.c)
- *     wcstok_s @ 0x1401592F0 (wcstok_s.c)
- *     SddlpFree @ 0x1404D6ABC (SddlpFree.c)
- *     SddlpAlloc @ 0x1404D7574 (SddlpAlloc.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     _wcsnicmp @ 0x14014DE10 (_wcsnicmp.c)
+ *     wcsncpy_s @ 0x1401537E4 (wcsncpy_s.c)
+ *     wcstok_s @ 0x140159860 (wcstok_s.c)
+ *     SddlpFree @ 0x1404BA0C0 (SddlpFree.c)
+ *     SddlpAlloc @ 0x1404BAB78 (SddlpAlloc.c)
  */
 
 __int64 __fastcall GetOperatorIndexByName(wchar_t *Src)

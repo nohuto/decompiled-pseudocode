@@ -8,6 +8,6 @@
 
 void __stdcall IoUninitializeWorkItem(PIO_WORKITEM IoWorkItem)
 {
-  if ( IoWorkItem->WorkItem.List.Flink )
-    KeBugCheckEx(0xE4u, 2uLL, (ULONG_PTR)IoWorkItem, (ULONG_PTR)&IoWorkItem->Routine, 0LL);
+  if ( *(_QWORD *)IoWorkItem )
+    KeBugCheckEx(0xE4u, 2uLL, (ULONG_PTR)IoWorkItem, (ULONG_PTR)IoWorkItem + 32, 0LL);
 }

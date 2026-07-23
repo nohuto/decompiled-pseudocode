@@ -1,29 +1,29 @@
 /*
- * XREFs of PiDqIrpQueryCreate @ 0x140590B08
+ * XREFs of PiDqIrpQueryCreate @ 0x140591B08
  * Callers:
- *     PiDqDispatch @ 0x140590640 (PiDqDispatch.c)
+ *     PiDqDispatch @ 0x140591640 (PiDqDispatch.c)
  * Callees:
  *     IoSetActivityIdThread @ 0x140006780 (IoSetActivityIdThread.c)
  *     IoClearActivityIdThread @ 0x1400067A0 (IoClearActivityIdThread.c)
  *     PsGetCurrentThreadProcessId @ 0x14004D240 (PsGetCurrentThreadProcessId.c)
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     ExReleasePushLockEx @ 0x14004F160 (ExReleasePushLockEx.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     memmove @ 0x1401D1540 (memmove.c)
- *     McTemplateK0pqzzzzzzz @ 0x140288C94 (McTemplateK0pqzzzzzzz.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     PiDqQueryFreeActiveData @ 0x140590124 (PiDqQueryFreeActiveData.c)
- *     PnpIsNullGuid @ 0x1405901B0 (PnpIsNullGuid.c)
- *     PiDqQueryGetNextIoctlInfo @ 0x1405901DC (PiDqQueryGetNextIoctlInfo.c)
- *     PiDqQueryValidateQueryData @ 0x14059093C (PiDqQueryValidateQueryData.c)
- *     PiDqIrpComplete @ 0x140590A9C (PiDqIrpComplete.c)
- *     PiDqQuerySerializeActionQueue @ 0x140591044 (PiDqQuerySerializeActionQueue.c)
- *     PnpConvertDevpropcompkeyArrayToString @ 0x140827B9C (PnpConvertDevpropcompkeyArrayToString.c)
- *     PiDqConvertObjectTypeToString @ 0x14082AA50 (PiDqConvertObjectTypeToString.c)
- *     PiDqConvertQueryFlagsToString @ 0x14082AB18 (PiDqConvertQueryFlagsToString.c)
- *     FilterConvertToString @ 0x140904E6C (FilterConvertToString.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B78F0 (KiLeaveCriticalRegionUnsafe.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     McTemplateK0pqzzzzzzz @ 0x140288E84 (McTemplateK0pqzzzzzzz.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     PiDqQueryFreeActiveData @ 0x140591124 (PiDqQueryFreeActiveData.c)
+ *     PnpIsNullGuid @ 0x1405911B0 (PnpIsNullGuid.c)
+ *     PiDqQueryGetNextIoctlInfo @ 0x1405911DC (PiDqQueryGetNextIoctlInfo.c)
+ *     PiDqQueryValidateQueryData @ 0x14059193C (PiDqQueryValidateQueryData.c)
+ *     PiDqIrpComplete @ 0x140591A9C (PiDqIrpComplete.c)
+ *     PiDqQuerySerializeActionQueue @ 0x140592044 (PiDqQuerySerializeActionQueue.c)
+ *     PnpConvertDevpropcompkeyArrayToString @ 0x140828D9C (PnpConvertDevpropcompkeyArrayToString.c)
+ *     PiDqConvertObjectTypeToString @ 0x14082BC50 (PiDqConvertObjectTypeToString.c)
+ *     PiDqConvertQueryFlagsToString @ 0x14082BD18 (PiDqConvertQueryFlagsToString.c)
+ *     FilterConvertToString @ 0x14090612C (FilterConvertToString.c)
  */
 
 __int64 __fastcall PiDqIrpQueryCreate(IRP *a1)
@@ -136,7 +136,7 @@ __int64 __fastcall PiDqIrpQueryCreate(IRP *a1)
       if ( ValidateQueryData < 0 )
         goto LABEL_13;
       v10 = (void **)(v3 + 24);
-      NdrMesTypeDecode3(*(_QWORD *)(v3 + 16), "TP 3\a", &off_14034F000, &off_1403FF520, 0, v3 + 24);
+      NdrMesTypeDecode3(*(_QWORD *)(v3 + 16), "TP 3\a", &off_140350000, &off_140400520, 0, v3 + 24);
       ValidateQueryData = PiDqQueryValidateQueryData(*(_QWORD *)(v3 + 24));
       if ( ValidateQueryData < 0 )
         goto LABEL_13;
@@ -147,7 +147,7 @@ __int64 __fastcall PiDqIrpQueryCreate(IRP *a1)
         v53 = v5;
         v40 = 1;
       }
-      if ( (byte_140405846 & 0x40) == 0 )
+      if ( (byte_140406846 & 0x40) == 0 )
       {
 LABEL_12:
         *(_DWORD *)(v3 + 216) |= 4u;
@@ -339,7 +339,7 @@ LABEL_83:
                 goto LABEL_85;
               }
 LABEL_68:
-              if ( (byte_140405846 & 0x40) != 0 )
+              if ( (byte_140406846 & 0x40) != 0 )
               {
                 CurrentThreadProcessId = PsGetCurrentThreadProcessId();
                 v14 = v45;

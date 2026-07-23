@@ -3,13 +3,13 @@
  * Callers:
  *     KiInitializeKernel @ 0x140A8BF10 (KiInitializeKernel.c)
  * Callees:
- *     KeAddProcessorAffinityEx @ 0x1402573A0 (KeAddProcessorAffinityEx.c)
- *     KeCountSetBitsAffinityEx @ 0x1402C01C0 (KeCountSetBitsAffinityEx.c)
- *     KeGetProcessorNode @ 0x14036E9E0 (KeGetProcessorNode.c)
- *     KiAddProcessorToCoreControlBlock @ 0x140381534 (KiAddProcessorToCoreControlBlock.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     memset @ 0x140435A00 (memset.c)
+ *     KeAddProcessorAffinityEx @ 0x140257460 (KeAddProcessorAffinityEx.c)
+ *     KeCountSetBitsAffinityEx @ 0x1402C0450 (KeCountSetBitsAffinityEx.c)
+ *     KeGetProcessorNode @ 0x14036EB80 (KeGetProcessorNode.c)
+ *     KiAddProcessorToCoreControlBlock @ 0x1403816D4 (KiAddProcessorToCoreControlBlock.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
+ *     memset @ 0x140435E00 (memset.c)
  */
 
 __int64 __fastcall KiInitializeTopologyStructures(__int64 BugCheckParameter1)

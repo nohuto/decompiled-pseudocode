@@ -1,9 +1,9 @@
 /*
- * XREFs of MiClusterVadActive @ 0x1401F60F8
+ * XREFs of MiClusterVadActive @ 0x1401F5F24
  * Callers:
- *     MiStealPage @ 0x140107E84 (MiStealPage.c)
+ *     MiStealPage @ 0x140105C04 (MiStealPage.c)
  * Callees:
- *     MI_READ_PTE_LOCK_FREE @ 0x1401F25D0 (MI_READ_PTE_LOCK_FREE.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1401F23FC (MI_READ_PTE_LOCK_FREE.c)
  */
 
 __int64 __fastcall MiClusterVadActive(__int64 a1, __int64 a2, _QWORD *a3)

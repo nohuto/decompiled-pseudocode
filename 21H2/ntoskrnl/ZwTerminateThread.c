@@ -1,16 +1,16 @@
 /*
- * XREFs of ZwTerminateThread @ 0x1403FAE00
+ * XREFs of ZwTerminateThread @ 0x1403FAFE0
  * Callers:
- *     KiParkUmsThread @ 0x140525F20 (KiParkUmsThread.c)
- *     RtlAssert @ 0x140588810 (RtlAssert.c)
- *     KiSwapToUmsThread @ 0x1408BD920 (KiSwapToUmsThread.c)
+ *     KiParkUmsThread @ 0x140526160 (KiParkUmsThread.c)
+ *     RtlAssert @ 0x140588A40 (RtlAssert.c)
+ *     KiSwapToUmsThread @ 0x1408BDA80 (KiSwapToUmsThread.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwTerminateThread(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwTerminateThread(HANDLE ThreadHandle, NTSTATUS ExitStatus)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(ThreadHandle);
 }

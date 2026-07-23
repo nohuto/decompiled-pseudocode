@@ -1,18 +1,18 @@
 /*
- * XREFs of DrvDbGetObjectDatabaseNode @ 0x14063ECFC
+ * XREFs of DrvDbGetObjectDatabaseNode @ 0x140633B0C
  * Callers:
- *     DrvDbOpenObjectRegKey @ 0x140640410 (DrvDbOpenObjectRegKey.c)
- *     DrvDbDeleteObjectRegKey @ 0x14097CC44 (DrvDbDeleteObjectRegKey.c)
+ *     DrvDbOpenObjectRegKey @ 0x140635220 (DrvDbOpenObjectRegKey.c)
+ *     DrvDbDeleteObjectRegKey @ 0x14097CE24 (DrvDbDeleteObjectRegKey.c)
  * Callees:
- *     wcschr @ 0x1403D3F10 (wcschr.c)
- *     DrvDbFindDatabaseNode @ 0x14060258C (DrvDbFindDatabaseNode.c)
- *     RtlFreeAnsiString @ 0x140602CB0 (RtlFreeAnsiString.c)
- *     RtlDuplicateUnicodeString @ 0x14068B130 (RtlDuplicateUnicodeString.c)
+ *     wcschr @ 0x1403D4080 (wcschr.c)
+ *     RtlDuplicateUnicodeString @ 0x1405EAFA0 (RtlDuplicateUnicodeString.c)
+ *     RtlFreeAnsiString @ 0x14063DA40 (RtlFreeAnsiString.c)
+ *     DrvDbFindDatabaseNode @ 0x1406F1CEC (DrvDbFindDatabaseNode.c)
  */
 
-__int64 __fastcall DrvDbGetObjectDatabaseNode(__int64 a1, wchar_t *a2, wchar_t **a3, const UNICODE_STRING **a4)
+__int64 __fastcall DrvDbGetObjectDatabaseNode(__int64 a1, wchar_t *a2, wchar_t **a3, _QWORD *a4)
 {
-  int DatabaseNode; // ebx
+  NTSTATUS DatabaseNode; // ebx
   bool v6; // zf
   wchar_t *v10; // rdi
   wchar_t *v12; // rbp
@@ -34,7 +34,7 @@ __int64 __fastcall DrvDbGetObjectDatabaseNode(__int64 a1, wchar_t *a2, wchar_t *
   {
     v10 = a2;
 LABEL_3:
-    *a4 = *(const UNICODE_STRING **)(a1 + 40);
+    *a4 = *(_QWORD *)(a1 + 40);
     goto LABEL_4;
   }
   if ( v10 == a2 )

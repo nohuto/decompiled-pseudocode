@@ -1,48 +1,48 @@
 /*
- * XREFs of CmpIsHiveEligibleForLazyReconcile @ 0x140725194
+ * XREFs of CmpIsHiveEligibleForLazyReconcile @ 0x1406645B0
  * Callers:
- *     CmpDoReconcileNextHive @ 0x140725080 (CmpDoReconcileNextHive.c)
+ *     CmpDoReconcileNextHive @ 0x140664660 (CmpDoReconcileNextHive.c)
  * Callees:
- *     KiQueryUnbiasedInterruptTime @ 0x1402546F4 (KiQueryUnbiasedInterruptTime.c)
- *     HvGetEffectiveLogSizeCapForHive @ 0x1407245F0 (HvGetEffectiveLogSizeCapForHive.c)
+ *     KiQueryUnbiasedInterruptTime @ 0x140275C64 (KiQueryUnbiasedInterruptTime.c)
+ *     HvGetEffectiveLogSizeCapForHive @ 0x1406FC61C (HvGetEffectiveLogSizeCapForHive.c)
  */
 
-char __fastcall CmpIsHiveEligibleForLazyReconcile(unsigned int *a1)
+char __fastcall CmpIsHiveEligibleForLazyReconcile(__int64 a1, __int64 a2, __int64 a3)
 {
   unsigned int EffectiveLogSizeCapForHive; // eax
-  unsigned int v2; // r10d
-  __int64 v3; // r11
-  int v4; // r8d
-  unsigned int v5; // ecx
-  unsigned int v6; // eax
-  __int64 v7; // rdx
+  unsigned int v4; // r10d
+  __int64 v5; // r11
+  int v6; // r8d
+  unsigned int v7; // ecx
+  unsigned int v8; // eax
+  __int64 v9; // rdx
   unsigned __int64 UnbiasedInterruptTime; // rax
-  __int64 v9; // r11
+  __int64 v11; // r11
 
-  if ( (a1[40] & 0x8001) != 0 || !a1[32] || CmpHoldLazyFlush )
+  if ( (*(_DWORD *)(a1 + 160) & 0x8001) != 0 || !*(_DWORD *)(a1 + 128) || CmpHoldLazyFlush )
     return 0;
   if ( !CmpUserPresent )
     return 1;
-  EffectiveLogSizeCapForHive = HvGetEffectiveLogSizeCapForHive(a1);
-  if ( *(_DWORD *)(v3 + 176) >= EffectiveLogSizeCapForHive )
+  EffectiveLogSizeCapForHive = HvGetEffectiveLogSizeCapForHive(a1, a2, a3);
+  if ( *(_DWORD *)(v5 + 176) >= EffectiveLogSizeCapForHive )
     return 1;
-  v4 = *(_DWORD *)(v3 + 164);
-  v5 = v2;
-  if ( v4 == 1 )
+  v6 = *(_DWORD *)(v5 + 164);
+  v7 = v4;
+  if ( v6 == 1 )
     return 1;
-  v6 = v2;
-  v7 = v2;
+  v8 = v4;
+  v9 = v4;
   do
   {
-    if ( v6 != v4 && *(_BYTE *)(v7 + v3 + 188) == (_BYTE)v2 )
-      ++v5;
-    ++v6;
-    ++v7;
+    if ( v8 != v6 && *(_BYTE *)(v9 + v5 + 188) == (_BYTE)v4 )
+      ++v7;
+    ++v8;
+    ++v9;
   }
-  while ( v6 < 2 );
-  if ( v5
+  while ( v8 < 2 );
+  if ( v7
     && (UnbiasedInterruptTime = KiQueryUnbiasedInterruptTime(),
-        UnbiasedInterruptTime < *(_QWORD *)(v9 + 4184) + 10000000 * (unsigned __int64)(unsigned int)dword_140C004C0) )
+        UnbiasedInterruptTime < *(_QWORD *)(v11 + 4184) + 10000000 * (unsigned __int64)(unsigned int)dword_140C004C0) )
   {
     return 0;
   }

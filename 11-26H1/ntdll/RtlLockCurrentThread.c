@@ -1,14 +1,14 @@
 /*
- * XREFs of RtlLockCurrentThread @ 0x1800FB260
+ * XREFs of RtlLockCurrentThread @ 0x1800FA9D0
  * Callers:
  *     <none>
  * Callees:
- *     RtlpLockStack @ 0x1800FB368 (RtlpLockStack.c)
- *     NtLockVirtualMemory @ 0x180161210 (NtLockVirtualMemory.c)
- *     ZwUnlockVirtualMemory @ 0x180162B10 (ZwUnlockVirtualMemory.c)
+ *     RtlpLockStack @ 0x1800FAAD8 (RtlpLockStack.c)
+ *     NtLockVirtualMemory @ 0x180161110 (NtLockVirtualMemory.c)
+ *     ZwUnlockVirtualMemory @ 0x180162A10 (ZwUnlockVirtualMemory.c)
  */
 
-__int64 RtlLockCurrentThread()
+NTSTATUS RtlLockCurrentThread(void)
 {
   struct _TEB *v0; // rsi
   unsigned int LockCount; // eax
@@ -16,10 +16,10 @@ __int64 RtlLockCurrentThread()
   struct _TEB *v3; // rcx
   char v4; // bl
   __int64 WowTebOffset; // rax
-  __int64 v7; // [rsp+60h] [rbp+38h] BYREF
-  __int64 v8; // [rsp+68h] [rbp+40h] BYREF
-  struct _TEB *v9; // [rsp+70h] [rbp+48h] BYREF
-  struct _TEB *v10; // [rsp+78h] [rbp+50h] BYREF
+  ULONG_PTR v7; // [rsp+60h] [rbp+38h] BYREF
+  ULONG_PTR RegionSize; // [rsp+68h] [rbp+40h] BYREF
+  PVOID BaseAddress; // [rsp+70h] [rbp+48h] BYREF
+  PVOID v10; // [rsp+78h] [rbp+50h] BYREF
 
   v7 = 0LL;
   v0 = NtCurrentTeb();
@@ -27,11 +27,11 @@ __int64 RtlLockCurrentThread()
   if ( LockCount )
   {
     v0->LockCount = LockCount + 1;
-    return 0LL;
+    return 0;
   }
-  v9 = v0;
-  v8 = 6256LL;
-  v2 = NtLockVirtualMemory(-1LL, &v9, &v8, 1LL);
+  BaseAddress = v0;
+  RegionSize = 6256LL;
+  v2 = NtLockVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &BaseAddress, &RegionSize, 1u);
   if ( v2 >= 0 )
   {
     v3 = NtCurrentTeb();
@@ -43,14 +43,14 @@ __int64 RtlLockCurrentThread()
     if ( v0 != v3 )
     {
       v7 = 6256LL;
-      v2 = NtLockVirtualMemory(-1LL, &v10, &v7, 1LL);
+      v2 = NtLockVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &v10, &v7, 1u);
       if ( v2 < 0 )
       {
 LABEL_12:
-        ZwUnlockVirtualMemory(-1LL, &v9, &v8, 1LL);
+        ZwUnlockVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &BaseAddress, &RegionSize, 1u);
         if ( (unsigned __int8)v4 >= 2u )
-          ZwUnlockVirtualMemory(-1LL, &v10, &v7, 1LL);
-        return (unsigned int)v2;
+          ZwUnlockVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &v10, &v7, 1u);
+        return v2;
       }
       v4 = 3;
     }
@@ -58,9 +58,9 @@ LABEL_12:
     if ( v2 >= 0 )
     {
       v0->LockCount = 1;
-      return 0LL;
+      return 0;
     }
     goto LABEL_12;
   }
-  return (unsigned int)v2;
+  return v2;
 }

@@ -1,17 +1,16 @@
 /*
- * XREFs of PspExpandQuota @ 0x14024B688
+ * XREFs of PspExpandQuota @ 0x14027BC98
  * Callers:
- *     PspChargeQuota @ 0x14024B520 (PspChargeQuota.c)
- *     PsChargeProcessNonPagedPoolQuota @ 0x1403CDFC0 (PsChargeProcessNonPagedPoolQuota.c)
- *     PsChargeProcessPoolQuota @ 0x1403EF000 (PsChargeProcessPoolQuota.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExpAllocatePoolWithQuotaTag @ 0x140B72670 (ExpAllocatePoolWithQuotaTag.c)
+ *     PsChargeProcessNonPagedPoolQuota @ 0x1402676E0 (PsChargeProcessNonPagedPoolQuota.c)
+ *     PspChargeQuota @ 0x14027BB30 (PspChargeQuota.c)
+ *     PsChargeProcessPoolQuota @ 0x1403E1A90 (PsChargeProcessPoolQuota.c)
+ *     ExpAllocatePoolWithQuotaTag @ 0x140B74210 (ExpAllocatePoolWithQuotaTag.c)
  * Callees:
- *     PspLockQuotaExpansion @ 0x14024B79C (PspLockQuotaExpansion.c)
- *     MmRaisePoolQuota @ 0x14024B810 (MmRaisePoolQuota.c)
- *     PspUnlockQuotaExpansion @ 0x14024C868 (PspUnlockQuotaExpansion.c)
- *     PspReleaseReturnedQuota @ 0x1405E52A0 (PspReleaseReturnedQuota.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
+ *     PspLockQuotaExpansion @ 0x14027BDAC (PspLockQuotaExpansion.c)
+ *     MmRaisePoolQuota @ 0x14027BE20 (MmRaisePoolQuota.c)
+ *     PspUnlockQuotaExpansion @ 0x14027CE78 (PspUnlockQuotaExpansion.c)
+ *     PspReleaseReturnedQuota @ 0x1405E27C8 (PspReleaseReturnedQuota.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
  */
 
 char __fastcall PspExpandQuota(unsigned int a1, __int64 a2, __int64 a3, __int64 a4, unsigned __int64 *a5)

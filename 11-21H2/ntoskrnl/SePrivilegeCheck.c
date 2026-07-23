@@ -1,19 +1,19 @@
 /*
  * XREFs of SePrivilegeCheck @ 0x14072B5E0
  * Callers:
- *     PiAuDoesClientHavePrivilege @ 0x14065FC74 (PiAuDoesClientHavePrivilege.c)
- *     NtSetInformationJobObject @ 0x140685A20 (NtSetInformationJobObject.c)
- *     SeCheckPrivilegedObject @ 0x1406E856C (SeCheckPrivilegedObject.c)
- *     ObpAdjustCreatorAccessState @ 0x1407227B0 (ObpAdjustCreatorAccessState.c)
- *     SeSinglePrivilegeCheckEx @ 0x140724418 (SeSinglePrivilegeCheckEx.c)
- *     PsOpenProcess @ 0x1407292A0 (PsOpenProcess.c)
- *     IopParseDevice @ 0x14072B8B0 (IopParseDevice.c)
- *     ObpCreateHandle @ 0x140731DA0 (ObpCreateHandle.c)
- *     RtlpNewSecurityObject @ 0x1407CE760 (RtlpNewSecurityObject.c)
- *     PspSinglePrivCheck @ 0x1407F3230 (PspSinglePrivCheck.c)
- *     CMFCheckAccess @ 0x140A03FB4 (CMFCheckAccess.c)
+ *     sub_14065FC74 @ 0x14065FC74 (sub_14065FC74.c)
+ *     sub_140685A20 @ 0x140685A20 (sub_140685A20.c)
+ *     sub_1406E856C @ 0x1406E856C (sub_1406E856C.c)
+ *     sub_1407227B0 @ 0x1407227B0 (sub_1407227B0.c)
+ *     sub_140724418 @ 0x140724418 (sub_140724418.c)
+ *     sub_1407292A0 @ 0x1407292A0 (sub_1407292A0.c)
+ *     sub_14072B8B0 @ 0x14072B8B0 (sub_14072B8B0.c)
+ *     sub_140731DA0 @ 0x140731DA0 (sub_140731DA0.c)
+ *     sub_1407CE760 @ 0x1407CE760 (sub_1407CE760.c)
+ *     sub_1407F3230 @ 0x1407F3230 (sub_1407F3230.c)
+ *     sub_140A03FB4 @ 0x140A03FB4 (sub_140A03FB4.c)
  * Callees:
- *     SepPrivilegeCheck @ 0x1402A70F0 (SepPrivilegeCheck.c)
+ *     sub_1402A70F0 @ 0x1402A70F0 (sub_1402A70F0.c)
  */
 
 BOOLEAN __stdcall SePrivilegeCheck(
@@ -29,7 +29,7 @@ BOOLEAN __stdcall SePrivilegeCheck(
   if ( !SubjectSecurityContext->ClientToken )
   {
     ClientToken = SubjectSecurityContext->PrimaryToken;
-    return SepPrivilegeCheck(
+    return sub_1402A70F0(
              (__int64)ClientToken,
              (__int64)RequiredPrivileges->Privilege,
              RequiredPrivileges->PrivilegeCount,
@@ -37,7 +37,7 @@ BOOLEAN __stdcall SePrivilegeCheck(
              AccessMode);
   }
   if ( SubjectSecurityContext->ImpersonationLevel >= SecurityImpersonation )
-    return SepPrivilegeCheck(
+    return sub_1402A70F0(
              (__int64)ClientToken,
              (__int64)RequiredPrivileges->Privilege,
              RequiredPrivileges->PrivilegeCount,

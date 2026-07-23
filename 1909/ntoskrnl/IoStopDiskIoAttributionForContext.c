@@ -12,14 +12,14 @@
  *     KiRemoveSystemWorkPriorityKick @ 0x1401BF308 (KiRemoveSystemWorkPriorityKick.c)
  */
 
-void __fastcall IoStopDiskIoAttributionForContext(struct _EX_RUNDOWN_REF *a1)
+void __fastcall IoStopDiskIoAttributionForContext(PRTL_BALANCED_NODE Node)
 {
   KIRQL v2; // bl
   struct _KPRCB *CurrentPrcb; // rcx
 
   v2 = ExAcquireSpinLockExclusive(&IopDiskIoAttributionLock);
-  RtlRbRemoveNode((unsigned __int64 *)&IopDiskIoAttributionTree, (unsigned __int64)a1);
-  a1[2].Count = -1LL;
+  RtlRbRemoveNode(&IopDiskIoAttributionTree, Node);
+  Node->ParentValue = -1LL;
   ExReleaseSpinLockExclusiveFromDpcLevel(&IopDiskIoAttributionLock);
   if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && KeGetCurrentIrql() >= 2u && v2 < 2u )
   {
@@ -28,5 +28,5 @@ void __fastcall IoStopDiskIoAttributionForContext(struct _EX_RUNDOWN_REF *a1)
     KiRemoveSystemWorkPriorityKick(CurrentPrcb);
   }
   __writecr8(v2);
-  ExWaitForRundownProtectionRelease(a1 + 21);
+  ExWaitForRundownProtectionRelease((PEX_RUNDOWN_REF)&Node[7]);
 }

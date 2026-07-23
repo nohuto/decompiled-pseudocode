@@ -1,15 +1,15 @@
 /*
- * XREFs of MiFreeLargePages @ 0x1402C55CC
+ * XREFs of MiFreeLargePages @ 0x1402C57BC
  * Callers:
- *     MiDeletePagablePteRange @ 0x140067FE0 (MiDeletePagablePteRange.c)
+ *     MiDeletePagablePteRange @ 0x140067FD0 (MiDeletePagablePteRange.c)
  * Callees:
  *     MiReturnResidentAvailable @ 0x140022D18 (MiReturnResidentAvailable.c)
  *     MiFreeLargePageMemory @ 0x140026200 (MiFreeLargePageMemory.c)
  *     MiLockPageInline @ 0x14002CE40 (MiLockPageInline.c)
- *     MiReturnCommit @ 0x140065D40 (MiReturnCommit.c)
- *     MiGetLeafPfnBuddy @ 0x14015E8D4 (MiGetLeafPfnBuddy.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     MiReturnCrossPartitionCharges @ 0x1402D24BC (MiReturnCrossPartitionCharges.c)
+ *     MiReturnCommit @ 0x140065D30 (MiReturnCommit.c)
+ *     MiGetLeafPfnBuddy @ 0x14015E9D4 (MiGetLeafPfnBuddy.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiReturnCrossPartitionCharges @ 0x1402D26AC (MiReturnCrossPartitionCharges.c)
  */
 
 unsigned __int64 __fastcall MiFreeLargePages(__int64 a1)
@@ -25,7 +25,7 @@ unsigned __int64 __fastcall MiFreeLargePages(__int64 a1)
   v1 = a1;
   v2 = 0LL;
   v3 = 0LL;
-  v4 = *(_QWORD *)(qword_14043A748 + 8 * ((*(_QWORD *)(a1 + 40) >> 40) & 0x3FFLL));
+  v4 = *(_QWORD *)(qword_14043B808 + 8 * ((*(_QWORD *)(a1 + 40) >> 40) & 0x3FFLL));
   do
   {
     v5 = MiLockPageInline(v1);
@@ -51,7 +51,7 @@ unsigned __int64 __fastcall MiFreeLargePages(__int64 a1)
     else
       _InterlockedExchangeAdd64((volatile signed __int64 *)(v4 + 7360), v3);
   }
-  if ( v4 != *(_QWORD *)(qword_14043A748
+  if ( v4 != *(_QWORD *)(qword_14043B808
                        + 8LL * *((unsigned __int16 *)&KeGetCurrentThread()->ApcState.Process[1].SecureState.Flags + 3)) )
   {
     if ( v3 )

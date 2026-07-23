@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpInitializeInterruptsPn @ 0x14057D1EC
+ * XREFs of HalpInitializeInterruptsPn @ 0x14057F70C
  * Callers:
- *     HalpInterruptInitSystem @ 0x140BEB450 (HalpInterruptInitSystem.c)
+ *     HalpInterruptInitSystem @ 0x140BF1450 (HalpInterruptInitSystem.c)
  * Callees:
- *     HalpInterruptReinitializeThisProcessor @ 0x140513164 (HalpInterruptReinitializeThisProcessor.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     HalpInterruptInitializeIpis @ 0x14057F394 (HalpInterruptInitializeIpis.c)
- *     HalpInterruptSetIdtEntry @ 0x140594700 (HalpInterruptSetIdtEntry.c)
+ *     HalpInterruptReinitializeThisProcessor @ 0x14050CBD4 (HalpInterruptReinitializeThisProcessor.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     HalpInterruptInitializeIpis @ 0x1405818B4 (HalpInterruptInitializeIpis.c)
+ *     HalpInterruptSetIdtEntry @ 0x140596E80 (HalpInterruptSetIdtEntry.c)
  */
 
 __int64 __fastcall HalpInitializeInterruptsPn(__int64 a1, __int64 a2, __int64 a3, int a4)
@@ -20,7 +20,7 @@ __int64 __fastcall HalpInitializeInterruptsPn(__int64 a1, __int64 a2, __int64 a3
   int v10; // r9d
   __int64 result; // rax
 
-  *((_QWORD *)&HalpDeviceBlockUnblockPushLock.Timer.Header.WaitListHead.Blink->Flink + KeGetPcr()->Prcb.Number) = KeGetPcr();
+  *((_QWORD *)&HalpDeviceBlockUnblockPushLock.Timer.Header.WaitListHead.Flink->Flink + KeGetPcr()->Prcb.Number) = KeGetPcr();
   HalpInterruptSetIdtEntry(53, (unsigned int)HalpInterruptDeferredErrorService, 5, a4, -1LL);
   HalpInterruptSetIdtEntry(54, (unsigned int)HalpInterruptDeferredErrorService, 5, v4, -1LL);
   HalpInterruptSetIdtEntry(223, (unsigned int)HalpInterruptSpuriousService, 15, v5, -2LL);

@@ -1,15 +1,15 @@
 /*
- * XREFs of PnpRemoveDeviceActionRequestFromQueue @ 0x14056265C
+ * XREFs of PnpRemoveDeviceActionRequestFromQueue @ 0x140562D1C
  * Callers:
- *     PiControlGetSetDeviceStatus @ 0x1406CBD20 (PiControlGetSetDeviceStatus.c)
- *     PiQueueDeviceRequest @ 0x14096DEE8 (PiQueueDeviceRequest.c)
+ *     PiControlGetSetDeviceStatus @ 0x1406CBD50 (PiControlGetSetDeviceStatus.c)
+ *     PiQueueDeviceRequest @ 0x14096E0E8 (PiQueueDeviceRequest.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14022F5B0 (ObfDereferenceObjectWithTag.c)
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250E80 (KeAcquireSpinLockRaiseToDpc.c)
- *     PnpDeleteDeviceActionRequest @ 0x140359BE0 (PnpDeleteDeviceActionRequest.c)
- *     PopDirectedDripsClearDisengageReason @ 0x14035E638 (PopDirectedDripsClearDisengageReason.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     ObfDereferenceObjectWithTag @ 0x14022F6C0 (ObfDereferenceObjectWithTag.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140250F40 (KeAcquireSpinLockRaiseToDpc.c)
+ *     PnpDeleteDeviceActionRequest @ 0x140359D80 (PnpDeleteDeviceActionRequest.c)
+ *     PopDirectedDripsClearDisengageReason @ 0x14035E7D8 (PopDirectedDripsClearDisengageReason.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall PnpRemoveDeviceActionRequestFromQueue(volatile signed __int32 *a1)
@@ -55,10 +55,13 @@ __int64 __fastcall PnpRemoveDeviceActionRequestFromQueue(volatile signed __int32
     if ( v8 )
       PopDirectedDripsClearDisengageReason(4);
     KxReleaseSpinLock((volatile signed __int64 *)&qword_140C3F308);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v9 <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+        && CurrentIrql <= 0xFu
+        && (unsigned __int8)v9 <= 0xFu
+        && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -66,22 +69,22 @@ __int64 __fastcall PnpRemoveDeviceActionRequestFromQueue(volatile signed __int32
         v8 = (v13 & SchedulerAssist[5]) == 0;
         SchedulerAssist[5] &= v13;
         if ( v8 )
-          KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+          KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
       }
     }
     __writecr8(v9);
-    v14 = KeAcquireSpinLockRaiseToDpc(&qword_140C38ED0);
-    if ( !--dword_140C38ED8 && byte_140C38F50 )
+    v14 = KeAcquireSpinLockRaiseToDpc(&qword_140C38FF0);
+    if ( !--dword_140C38FF8 && byte_140C39070 )
     {
-      qword_140C38F58 += MEMORY[0xFFFFF78000000008] - qword_140C38F60;
-      qword_140C38F60 = 0LL;
+      qword_140C39078 += MEMORY[0xFFFFF78000000008] - qword_140C39080;
+      qword_140C39080 = 0LL;
     }
-    --dword_140C38EE0[v6];
-    KxReleaseSpinLock((volatile signed __int64 *)&qword_140C38ED0);
-    if ( KiIrqlFlags )
+    --dword_140C39000[v6];
+    KxReleaseSpinLock((volatile signed __int64 *)&qword_140C38FF0);
+    if ( (_DWORD)KiIrqlFlags )
     {
       v15 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v15 <= 0xFu && (unsigned __int8)v14 <= 0xFu && v15 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v15 <= 0xFu && (unsigned __int8)v14 <= 0xFu && v15 >= 2u )
       {
         v16 = KeGetCurrentPrcb();
         v17 = v16->SchedulerAssist;
@@ -89,16 +92,16 @@ __int64 __fastcall PnpRemoveDeviceActionRequestFromQueue(volatile signed __int32
         v8 = (v18 & v17[5]) == 0;
         v17[5] &= v18;
         if ( v8 )
-          KiRemoveSystemWorkPriorityKick(v16);
+          KiRemoveSystemWorkPriorityKick((__int64)v16);
       }
     }
     __writecr8(v14);
   }
   KxReleaseSpinLock((volatile signed __int64 *)&PnpSpinLock);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v19 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v19 <= 0xFu && (unsigned __int8)v3 <= 0xFu && v19 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v19 <= 0xFu && (unsigned __int8)v3 <= 0xFu && v19 >= 2u )
     {
       v20 = KeGetCurrentPrcb();
       v21 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v3 + 1));
@@ -106,7 +109,7 @@ __int64 __fastcall PnpRemoveDeviceActionRequestFromQueue(volatile signed __int32
       v8 = (v21 & v22[5]) == 0;
       v22[5] &= v21;
       if ( v8 )
-        KiRemoveSystemWorkPriorityKick(v20);
+        KiRemoveSystemWorkPriorityKick((__int64)v20);
     }
   }
   __writecr8(v3);

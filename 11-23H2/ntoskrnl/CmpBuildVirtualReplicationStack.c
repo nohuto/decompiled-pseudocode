@@ -1,7 +1,7 @@
 /*
- * XREFs of CmpBuildVirtualReplicationStack @ 0x140A18C98
+ * XREFs of CmpBuildVirtualReplicationStack @ 0x140A18F48
  * Callers:
- *     CmpReplicateKeyToVirtual @ 0x140A19FA8 (CmpReplicateKeyToVirtual.c)
+ *     CmpReplicateKeyToVirtual @ 0x140A1A258 (CmpReplicateKeyToVirtual.c)
  * Callees:
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)

@@ -23,7 +23,7 @@ __int64 __fastcall MiAllocateInPageSupport(
   __int64 result; // rax
   __int64 v13; // r8
   unsigned __int64 v14; // r9
-  struct _SLIST_ENTRY *v15; // r15
+  _SLIST_ENTRY *v15; // r15
   unsigned __int64 v16; // rax
 
   if ( a4 )
@@ -56,13 +56,13 @@ __int64 __fastcall MiAllocateInPageSupport(
       v10 &= ~1u;
       *a3 = 16;
     }
-    v15 = (struct _SLIST_ENTRY *)MiGetInPageSupportBlock(v10, a5);
+    v15 = (_SLIST_ENTRY *)MiGetInPageSupportBlock(v10, a5);
     if ( !v15 )
     {
       if ( (v10 & 1) == 0 )
         return (__int64)v15;
       *a3 = 16;
-      v15 = (struct _SLIST_ENTRY *)MiGetInPageSupportBlock(v10 & 0xFFFFFFFE, a5);
+      v15 = (_SLIST_ENTRY *)MiGetInPageSupportBlock(v10 & 0xFFFFFFFE, a5);
       if ( !v15 )
         return 0LL;
     }

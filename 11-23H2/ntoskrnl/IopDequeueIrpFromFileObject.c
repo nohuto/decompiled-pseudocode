@@ -1,15 +1,15 @@
 /*
- * XREFs of IopDequeueIrpFromFileObject @ 0x14028CE8C
+ * XREFs of IopDequeueIrpFromFileObject @ 0x14028D11C
  * Callers:
- *     IopCopyCompleteReadRequest @ 0x14028C5D0 (IopCopyCompleteReadRequest.c)
- *     IopDropIrp @ 0x14028CDC8 (IopDropIrp.c)
- *     IopCompleteRequest @ 0x1402AB480 (IopCompleteRequest.c)
- *     IopIoRingCompleteIrp @ 0x1405594DC (IopIoRingCompleteIrp.c)
+ *     IopCopyCompleteReadRequest @ 0x14028C860 (IopCopyCompleteReadRequest.c)
+ *     IopDropIrp @ 0x14028D058 (IopDropIrp.c)
+ *     IopCompleteRequest @ 0x1402AB710 (IopCompleteRequest.c)
+ *     IopIoRingCompleteIrp @ 0x140559B9C (IopIoRingCompleteIrp.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14022F5B0 (ObfDereferenceObjectWithTag.c)
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250E80 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     ObfDereferenceObjectWithTag @ 0x14022F6C0 (ObfDereferenceObjectWithTag.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140250F40 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall IopDequeueIrpFromFileObject(__int64 a1, __int64 a2)
@@ -42,10 +42,10 @@ __int64 __fastcall IopDequeueIrpFromFileObject(__int64 a1, __int64 a2)
   ObfDereferenceObjectWithTag((PVOID)(v9 & 0xFFFFFFFFFFFFFFF9uLL), 0x70436F49u);
   *(_DWORD *)(a1 + 16) = *(_DWORD *)(a1 + 16) & 0xFFFF5FFF | 0x8000;
   result = KxReleaseSpinLock(v2);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     result = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
       && (unsigned __int8)result <= 0xFu
       && (unsigned __int8)v6 <= 0xFu
       && (unsigned __int8)result >= 2u )

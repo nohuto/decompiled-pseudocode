@@ -1,88 +1,88 @@
 /*
- * XREFs of EtwpInsertRegistration @ 0x18006CFB0
+ * XREFs of EtwpInsertRegistration @ 0x18008D400
  * Callers:
- *     EtwNotificationRegister @ 0x1800571C0 (EtwNotificationRegister.c)
+ *     EtwNotificationRegister @ 0x180041740 (EtwNotificationRegister.c)
  * Callees:
- *     RtlAcquireSRWLockExclusive @ 0x18003F4D0 (RtlAcquireSRWLockExclusive.c)
- *     RtlRbInsertNodeEx @ 0x18006C700 (RtlRbInsertNodeEx.c)
- *     memcmp @ 0x1801649D0 (memcmp.c)
+ *     RtlAcquireSRWLockExclusive @ 0x180029A40 (RtlAcquireSRWLockExclusive.c)
+ *     RtlRbInsertNodeEx @ 0x18008CB50 (RtlRbInsertNodeEx.c)
+ *     memcmp @ 0x1801648D0 (memcmp.c)
  */
 
-struct _TEB *__fastcall EtwpInsertRegistration(unsigned __int64 a1, __int64 a2)
+void __fastcall EtwpInsertRegistration(PRTL_BALANCED_NODE Node)
 {
   void *UniqueThread; // rbx
-  unsigned __int16 v4; // r14
-  __int64 v5; // rbx
-  bool v6; // r8
-  int v7; // esi
-  int v8; // eax
-  __int64 v9; // rax
+  unsigned __int16 v3; // r14
+  unsigned __int64 Root; // rbx
+  BOOLEAN v5; // r8
+  int v6; // esi
+  int v7; // eax
+  unsigned __int64 v8; // rax
 
   UniqueThread = NtCurrentTeb()->ClientId.UniqueThread;
-  v4 = *(_WORD *)(a1 + 84);
+  v3 = WORD2(Node[3].Right);
   if ( EtwpProvLockOwner == (_DWORD)UniqueThread )
     __fastfail(0x24u);
-  RtlAcquireSRWLockExclusive(&EtwpProvLock, a2);
+  RtlAcquireSRWLockExclusive(&EtwpProvLock);
   EtwpProvLockOwner = (int)UniqueThread;
-  v5 = EtwpRegistrationTable;
-  if ( (qword_1801CB210 & 1) != 0 )
+  Root = (unsigned __int64)EtwpRegistrationTable.Root;
+  if ( (*(_BYTE *)&EtwpRegistrationTable.0 & 1) != 0 )
   {
-    if ( !EtwpRegistrationTable )
+    if ( !EtwpRegistrationTable.Root )
     {
-      v6 = 0;
+      v5 = 0;
       goto LABEL_15;
     }
-    v5 = (unsigned __int64)&EtwpRegistrationTable ^ EtwpRegistrationTable;
+    Root = (unsigned __int64)&EtwpRegistrationTable ^ (unsigned __int64)EtwpRegistrationTable.Root;
   }
-  v6 = 0;
-  v7 = qword_1801CB210 & 1;
-  if ( v5 )
+  v5 = 0;
+  v6 = *(_BYTE *)&EtwpRegistrationTable.0 & 1;
+  if ( Root )
   {
     while ( 1 )
     {
-      v8 = memcmp((const void *)(a1 + 32), (const void *)(v5 + 32), 0x10uLL);
-      if ( v8 )
+      v7 = memcmp(&Node[1].Right, (const void *)(Root + 32), 0x10uLL);
+      if ( v7 )
       {
-        if ( v8 >= 0 )
+        if ( v7 >= 0 )
           goto LABEL_12;
       }
-      else if ( v4 <= *(_WORD *)(v5 + 84) )
+      else if ( v3 <= *(_WORD *)(Root + 84) )
       {
 LABEL_12:
-        v9 = *(_QWORD *)(v5 + 8);
-        if ( v7 )
+        v8 = *(_QWORD *)(Root + 8);
+        if ( v6 )
         {
-          if ( !v9 )
+          if ( !v8 )
           {
 LABEL_14:
-            v6 = 1;
+            v5 = 1;
             break;
           }
-          v9 ^= v5;
+          v8 ^= Root;
         }
-        if ( !v9 )
+        if ( !v8 )
           goto LABEL_14;
         goto LABEL_10;
       }
-      v9 = *(_QWORD *)v5;
-      if ( v7 )
+      v8 = *(_QWORD *)Root;
+      if ( v6 )
       {
-        if ( !v9 )
+        if ( !v8 )
           goto LABEL_18;
-        v9 ^= v5;
+        v8 ^= Root;
       }
-      if ( !v9 )
+      if ( !v8 )
       {
 LABEL_18:
-        v6 = 0;
+        v5 = 0;
         break;
       }
 LABEL_10:
-      v5 = v9;
+      Root = v8;
     }
   }
 LABEL_15:
-  RtlRbInsertNodeEx((unsigned __int64 *)&EtwpRegistrationTable, v5, v6, a1);
+  RtlRbInsertNodeEx(&EtwpRegistrationTable, (PRTL_BALANCED_NODE)Root, v5, Node);
   EtwpProvLockOwner = 0;
-  return RtlReleaseSRWLockExclusive(&EtwpProvLock);
+  RtlReleaseSRWLockExclusive(&EtwpProvLock);
 }

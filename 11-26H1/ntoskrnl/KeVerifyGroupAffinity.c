@@ -1,12 +1,12 @@
 /*
- * XREFs of KeVerifyGroupAffinity @ 0x140483914
+ * XREFs of KeVerifyGroupAffinity @ 0x14047D244
  * Callers:
- *     sub_140542730 @ 0x140542730 (sub_140542730.c)
- *     IopConnectInterruptFullySpecified @ 0x14079F708 (IopConnectInterruptFullySpecified.c)
- *     ExpProfileCreate @ 0x140842064 (ExpProfileCreate.c)
- *     PspBuildCreateProcessContext @ 0x140A00BC4 (PspBuildCreateProcessContext.c)
- *     NtSetInformationThread @ 0x140A833F0 (NtSetInformationThread.c)
- *     NtSetInformationProcess @ 0x140B72B10 (NtSetInformationProcess.c)
+ *     sub_140544BB0 @ 0x140544BB0 (sub_140544BB0.c)
+ *     IopConnectInterruptFullySpecified @ 0x1407A2248 (IopConnectInterruptFullySpecified.c)
+ *     ExpProfileCreate @ 0x14084B100 (ExpProfileCreate.c)
+ *     NtSetInformationThread @ 0x14094C4F0 (NtSetInformationThread.c)
+ *     PspBuildCreateProcessContext @ 0x140A79424 (PspBuildCreateProcessContext.c)
+ *     NtSetInformationProcess @ 0x140B781E0 (NtSetInformationProcess.c)
  * Callees:
  *     <none>
  */
@@ -18,6 +18,6 @@ bool __fastcall KeVerifyGroupAffinity(__int64 a1, char a2)
   v2 = *(unsigned __int16 *)(a1 + 8);
   return (unsigned __int16)v2 < (unsigned __int16)KiActiveGroups
       && (a2 || *(_QWORD *)a1)
-      && (*(_QWORD *)((char *)&stru_140FC01F0.116 + 8 * v2 + 4) & *(_QWORD *)a1) == *(_QWORD *)a1
+      && (*(_QWORD *)((char *)&stru_140FC11F0.116 + 8 * v2 + 4) & *(_QWORD *)a1) == *(_QWORD *)a1
       && !(*(_WORD *)(a1 + 10) | (unsigned __int16)(*(_WORD *)(a1 + 12) | *(_WORD *)(a1 + 14)));
 }

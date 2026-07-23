@@ -8,25 +8,31 @@
  *     _memcpy @ 0x4B2F88B0 (_memcpy.c)
  */
 
-int __stdcall RtlCopySecurityDescriptor(void *Src, _DWORD *a2)
+NTSTATUS __cdecl RtlCopySecurityDescriptor(
+        PSECURITY_DESCRIPTOR InputSecurityDescriptor,
+        PSECURITY_DESCRIPTOR *OutputSecurityDescriptor)
 {
   unsigned int v2; // esi
-  void *Heap; // eax
-  int v5; // [esp+4h] [ebp-20h] BYREF
-  int v6; // [esp+8h] [ebp-1Ch] BYREF
-  int v7; // [esp+Ch] [ebp-18h] BYREF
-  int v8; // [esp+10h] [ebp-14h] BYREF
-  unsigned int v9; // [esp+14h] [ebp-10h] BYREF
-  unsigned int v10; // [esp+18h] [ebp-Ch] BYREF
-  unsigned int v11; // [esp+1Ch] [ebp-8h] BYREF
-  unsigned int v12; // [esp+20h] [ebp-4h] BYREF
+  PVOID Heap; // eax
+  SIZE_T v5; // [esp-4h] [ebp-28h]
+  size_t v6; // [esp-4h] [ebp-28h]
+  int v7; // [esp+4h] [ebp-20h] BYREF
+  int v8; // [esp+8h] [ebp-1Ch] BYREF
+  int v9; // [esp+Ch] [ebp-18h] BYREF
+  int v10; // [esp+10h] [ebp-14h] BYREF
+  unsigned int v11; // [esp+14h] [ebp-10h] BYREF
+  unsigned int v12; // [esp+18h] [ebp-Ch] BYREF
+  unsigned int v13; // [esp+1Ch] [ebp-8h] BYREF
+  unsigned int v14; // [esp+20h] [ebp-4h] BYREF
 
-  RtlpQuerySecurityDescriptor((int)Src, &v5, &v11, &v6, &v12, &v7, &v10, &v8, &v9);
-  v2 = v10 + v11 + v12 + v9 + 20;
-  Heap = (void *)RtlAllocateHeap((int)NtCurrentPeb()->ProcessHeap, NtdllBaseTag + 1310720, v2);
-  *a2 = Heap;
+  RtlpQuerySecurityDescriptor((int)InputSecurityDescriptor, &v7, &v13, &v8, &v14, &v9, &v12, &v10, &v11);
+  v2 = v12 + v13 + v14 + v11 + 20;
+  LODWORD(v5) = v2;
+  Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, NtdllBaseTag + 1310720, v5);
+  *OutputSecurityDescriptor = Heap;
   if ( !Heap )
     return -1073741801;
-  memcpy(Heap, Src, v2);
+  LODWORD(v6) = v2;
+  memcpy(Heap, InputSecurityDescriptor, v6);
   return 0;
 }

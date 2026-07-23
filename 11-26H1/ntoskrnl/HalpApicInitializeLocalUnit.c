@@ -1,14 +1,14 @@
 /*
- * XREFs of HalpApicInitializeLocalUnit @ 0x1405A18A0
+ * XREFs of HalpApicInitializeLocalUnit @ 0x1405A40B0
  * Callers:
  *     <none>
  * Callees:
- *     HalpApicSetupRegisterAccess @ 0x1405913A8 (HalpApicSetupRegisterAccess.c)
- *     HalMapIoSpace @ 0x14059A1C0 (HalMapIoSpace.c)
- *     HalpApicDescribeLocalLines @ 0x1405A12B8 (HalpApicDescribeLocalLines.c)
- *     HalpApicIsCmciImplemented @ 0x1405A1ACC (HalpApicIsCmciImplemented.c)
- *     HalpApicSetPriority @ 0x1405A2010 (HalpApicSetPriority.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     HalpApicSetupRegisterAccess @ 0x140593B28 (HalpApicSetupRegisterAccess.c)
+ *     HalMapIoSpace @ 0x14059C940 (HalMapIoSpace.c)
+ *     HalpApicDescribeLocalLines @ 0x1405A3AC8 (HalpApicDescribeLocalLines.c)
+ *     HalpApicIsCmciImplemented @ 0x1405A42DC (HalpApicIsCmciImplemented.c)
+ *     HalpApicSetPriority @ 0x1405A4820 (HalpApicSetPriority.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall HalpApicInitializeLocalUnit(
@@ -65,7 +65,7 @@ __int64 __fastcall HalpApicInitializeLocalUnit(
       guard_dispatch_icall_no_overrides(v12, v11);
     HalpApicSetPriority(0LL, 15LL);
     v14 = a3 | 0x100;
-    if ( byte_140F87690 && (guard_dispatch_icall_no_overrides(48LL, v13) & 0x1000000) != 0 )
+    if ( byte_140F87A70 && (guard_dispatch_icall_no_overrides(48LL, v13) & 0x1000000) != 0 )
       v14 |= 0x1000u;
     guard_dispatch_icall_no_overrides(240LL, v14);
     guard_dispatch_icall_no_overrides(800LL, a4 | 0x30000u);

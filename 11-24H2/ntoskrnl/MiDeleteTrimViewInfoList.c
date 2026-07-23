@@ -1,12 +1,12 @@
 /*
- * XREFs of MiDeleteTrimViewInfoList @ 0x140A4C370
+ * XREFs of MiDeleteTrimViewInfoList @ 0x140A42F00
  * Callers:
- *     MiTrimSharedPageFromViews @ 0x1402BB5D0 (MiTrimSharedPageFromViews.c)
- *     MiLocateSharedPageViews @ 0x1406790E0 (MiLocateSharedPageViews.c)
- *     MmQueryBadAddresses @ 0x1409876D4 (MmQueryBadAddresses.c)
+ *     MiTrimSharedPageFromViews @ 0x140362D10 (MiTrimSharedPageFromViews.c)
+ *     MiLocateSharedPageViews @ 0x14067A2C0 (MiLocateSharedPageViews.c)
+ *     MmQueryBadAddresses @ 0x14096FEB8 (MmQueryBadAddresses.c)
  * Callees:
- *     ObDereferenceObjectDeferDeleteWithTag @ 0x14025E950 (ObDereferenceObjectDeferDeleteWithTag.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ObDereferenceObjectDeferDeleteWithTag @ 0x14028EF60 (ObDereferenceObjectDeferDeleteWithTag.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __fastcall MiDeleteTrimViewInfoList(_QWORD *P)

@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwDisplayString @ 0x1403FBF20
+ * XREFs of ZwDisplayString @ 0x1403FC100
  * Callers:
  *     <none>
  * Callees:
@@ -8,9 +8,7 @@
 
 NTSTATUS __stdcall ZwDisplayString(PUNICODE_STRING String)
 {
-  __int64 v1; // rdx
-
   _disable();
   __readeflags();
-  return KiServiceInternal(String, v1);
+  return KiServiceInternal(String);
 }

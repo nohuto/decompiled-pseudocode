@@ -1,21 +1,21 @@
 /*
- * XREFs of KiForceParkDutyCycleDpcCallback @ 0x1405F8980
+ * XREFs of KiForceParkDutyCycleDpcCallback @ 0x1405FB3A0
  * Callers:
  *     <none>
  * Callees:
- *     KiSearchForNewThreadsForRescheduleContext @ 0x14022CBE0 (KiSearchForNewThreadsForRescheduleContext.c)
- *     ?KiCompleteRescheduleContextEntry@@YAXPEAU_KI_RESCHEDULE_CONTEXT_ENTRY@@PEAU_KPRCB@@PEAU_KTHREAD@@PEAU_KTHREAD_SCHEDULE_REASON_DATA@@@Z @ 0x14022DEE0 (-KiCompleteRescheduleContextEntry@@YAXPEAU_KI_RESCHEDULE_CONTEXT_ENTRY@@PEAU_KPRCB@@PEAU_KTHREAD.c)
- *     KiReleasePrcbLocksForIsolationUnit @ 0x140237A80 (KiReleasePrcbLocksForIsolationUnit.c)
- *     KiCommitRescheduleContext @ 0x14023F070 (KiCommitRescheduleContext.c)
- *     KiFlushSoftwareInterruptBatch @ 0x1402436D0 (KiFlushSoftwareInterruptBatch.c)
- *     KiAcquirePrcbLocksForIsolationUnit @ 0x1402BBDD0 (KiAcquirePrcbLocksForIsolationUnit.c)
- *     KiStartRescheduleContext @ 0x14032F5E0 (KiStartRescheduleContext.c)
- *     KiAdjustRescheduleContextForParking @ 0x14033559C (KiAdjustRescheduleContextForParking.c)
- *     KeSetTimer2 @ 0x14037A500 (KeSetTimer2.c)
- *     KiProcessDeferredReadyList @ 0x14037C920 (KiProcessDeferredReadyList.c)
- *     KeCancelTimer2 @ 0x1403AA4E0 (KeCancelTimer2.c)
- *     EtwTraceForceParkTransition @ 0x1406C4910 (EtwTraceForceParkTransition.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     KiSearchForNewThreadsForRescheduleContext @ 0x14022E570 (KiSearchForNewThreadsForRescheduleContext.c)
+ *     ?KiCompleteRescheduleContextEntry@@YAXPEAU_KI_RESCHEDULE_CONTEXT_ENTRY@@PEAU_KPRCB@@PEAU_KTHREAD@@PEAU_KTHREAD_SCHEDULE_REASON_DATA@@@Z @ 0x14022F870 (-KiCompleteRescheduleContextEntry@@YAXPEAU_KI_RESCHEDULE_CONTEXT_ENTRY@@PEAU_KPRCB@@PEAU_KTHREAD.c)
+ *     KiReleasePrcbLocksForIsolationUnit @ 0x1402393E0 (KiReleasePrcbLocksForIsolationUnit.c)
+ *     KiCommitRescheduleContext @ 0x1402409D0 (KiCommitRescheduleContext.c)
+ *     KiFlushSoftwareInterruptBatch @ 0x140245030 (KiFlushSoftwareInterruptBatch.c)
+ *     KiAcquirePrcbLocksForIsolationUnit @ 0x140306A90 (KiAcquirePrcbLocksForIsolationUnit.c)
+ *     KiStartRescheduleContext @ 0x140331610 (KiStartRescheduleContext.c)
+ *     KiAdjustRescheduleContextForParking @ 0x1403375CC (KiAdjustRescheduleContextForParking.c)
+ *     KeSetTimer2 @ 0x14037C2B0 (KeSetTimer2.c)
+ *     KiProcessDeferredReadyList @ 0x14037E6D0 (KiProcessDeferredReadyList.c)
+ *     KeCancelTimer2 @ 0x1403B40F0 (KeCancelTimer2.c)
+ *     EtwTraceForceParkTransition @ 0x1406C8550 (EtwTraceForceParkTransition.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 unsigned __int8 __fastcall KiForceParkDutyCycleDpcCallback(__int64 a1, struct _KPRCB *a2)
@@ -48,8 +48,8 @@ unsigned __int8 __fastcall KiForceParkDutyCycleDpcCallback(__int64 a1, struct _K
   if ( DpcTransition == KiForceParkDutyCycleTransitionArm )
   {
     KiReleasePrcbLocksForIsolationUnit(&v19);
-    v16 = -10LL * (unsigned int)dword_140FBE1F4;
-    v17 = (unsigned int)(10 * dword_140FBE1F4);
+    v16 = -10LL * (unsigned int)dword_140FBF1EC;
+    v17 = (unsigned int)(10 * dword_140FBF1EC);
     p_StartSingleDutyCycleTimer = (__int64)&ForceParkDutyCycleData->StartSingleDutyCycleTimer;
     goto LABEL_19;
   }
@@ -98,7 +98,7 @@ unsigned __int8 __fastcall KiForceParkDutyCycleDpcCallback(__int64 a1, struct _K
   if ( DpcTransition == KiForceParkDutyCycleTransitionStart )
   {
     p_StartSingleDutyCycleTimer = (__int64)&ForceParkDutyCycleData->StopSingleDutyCycleTimer;
-    v16 = -10LL * (unsigned int)dword_140FBE1F8;
+    v16 = -10LL * (unsigned int)dword_140FBF1F0;
     v17 = 0LL;
 LABEL_19:
     result = KeSetTimer2(p_StartSingleDutyCycleTimer, v16, v17, 0LL);
@@ -106,7 +106,7 @@ LABEL_19:
 LABEL_20:
   if ( v19 )
     result = KiReleasePrcbLocksForIsolationUnit(&v19);
-  if ( (WORD2(xmmword_140FBFC10) & 0x2000) != 0 )
+  if ( (WORD2(xmmword_140FC0C10) & 0x2000) != 0 )
   {
     LOBYTE(v5) = DpcTransition;
     LOBYTE(v4) = CurrentState;

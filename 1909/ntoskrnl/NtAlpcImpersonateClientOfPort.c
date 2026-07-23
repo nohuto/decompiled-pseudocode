@@ -13,16 +13,16 @@
  *     ExRaiseDatatypeMisalignment @ 0x140913920 (ExRaiseDatatypeMisalignment.c)
  */
 
-__int64 __fastcall NtAlpcImpersonateClientOfPort(HANDLE Handle, __int64 a2, unsigned __int64 a3)
+NTSTATUS __cdecl NtAlpcImpersonateClientOfPort(HANDLE PortHandle, PPORT_MESSAGE Message, PVOID Flags)
 {
   int v3; // r12d
   struct _KTHREAD *CurrentThread; // rax
   KPROCESSOR_MODE PreviousMode; // r11
   __int64 v7; // rcx
-  unsigned int v8; // esi
-  int v9; // r15d
+  unsigned int MessageId; // esi
+  unsigned int CallbackId; // r15d
   unsigned __int64 v10; // rbx
-  int v11; // edi
+  NTSTATUS v11; // edi
   __int64 v12; // r9
   __int64 v13; // rdx
   PVOID v14; // rsi
@@ -32,40 +32,40 @@ __int64 __fastcall NtAlpcImpersonateClientOfPort(HANDLE Handle, __int64 a2, unsi
   ULONG_PTR BugCheckParameter2[4]; // [rsp+38h] [rbp-20h] BYREF
   PVOID v20; // [rsp+78h] [rbp+20h] BYREF
 
-  v3 = a3;
+  v3 = (int)Flags;
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   if ( PreviousMode )
   {
-    v7 = a2 & 3;
-    if ( (a2 & 3) != 0 )
+    v7 = (unsigned __int8)Message & 3;
+    if ( ((unsigned __int8)Message & 3) != 0 )
       ExRaiseDatatypeMisalignment();
   }
   else
   {
-    v7 = a2 & 3;
+    v7 = (unsigned __int8)Message & 3;
   }
-  if ( (*(_WORD *)(a2 + 4) & 0x1000) != 0 )
+  if ( (Message->u2.s2.Type & 0x1000) != 0 )
   {
-    v8 = *(_DWORD *)(a2 + 16);
-    v9 = *(_DWORD *)(a2 + 20);
+    MessageId = *((_DWORD *)&Message->DoNotUseThisField + 2);
+    CallbackId = *((_DWORD *)&Message->DoNotUseThisField + 3);
   }
   else
   {
     if ( PreviousMode && v7 )
       ExRaiseDatatypeMisalignment();
-    v8 = *(_DWORD *)(a2 + 24);
-    v9 = *(_DWORD *)(a2 + 32);
+    MessageId = Message->MessageId;
+    CallbackId = Message->CallbackId;
   }
-  if ( v8 && (v10 = a3 >> 2, (unsigned int)(a3 >> 2) <= 3) )
+  if ( MessageId && (v10 = (unsigned __int64)Flags >> 2, (unsigned int)((unsigned __int64)Flags >> 2) <= 3) )
   {
-    v11 = ObReferenceObjectByHandle(Handle, 1u, AlpcPortObjectType, PreviousMode, &v20, 0LL);
+    v11 = ObReferenceObjectByHandle(PortHandle, 1u, AlpcPortObjectType, PreviousMode, &v20, 0LL);
     if ( v11 >= 0 )
     {
-      v13 = v8;
+      v13 = MessageId;
       v14 = v20;
-      v11 = AlpcpLookupMessage((__int64)v20, v13, v9, v12, BugCheckParameter2);
+      v11 = AlpcpLookupMessage((__int64)v20, v13, CallbackId, v12, BugCheckParameter2);
       if ( v11 >= 0 )
       {
         v15 = (((4 * (_DWORD)v10) | 2) & v3) != 0LL;
@@ -84,5 +84,5 @@ __int64 __fastcall NtAlpcImpersonateClientOfPort(HANDLE Handle, __int64 a2, unsi
     v11 = -1073741811;
   }
   KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
-  return (unsigned int)v11;
+  return v11;
 }

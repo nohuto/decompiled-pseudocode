@@ -1,5 +1,5 @@
 /*
- * XREFs of RtlCopyLuid @ 0x1406FE300
+ * XREFs of RtlCopyLuid @ 0x1406FF5A0
  * Callers:
  *     <none>
  * Callees:

@@ -1,17 +1,17 @@
 /*
- * XREFs of PrmUnlockModule @ 0x140657B90
+ * XREFs of PrmUnlockModule @ 0x140656290
  * Callers:
  *     <none>
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
  */
 
-__int64 __fastcall PrmUnlockModule(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+__int64 __fastcall PrmUnlockModule(__int64 a1, __int64 a2)
 {
   unsigned __int8 CurrentIrql; // bl
-  unsigned int v6; // edi
+  unsigned int v4; // edi
 
   CurrentIrql = KeGetCurrentIrql();
   if ( CurrentIrql < 2u )
@@ -24,17 +24,17 @@ __int64 __fastcall PrmUnlockModule(__int64 a1, __int64 a2, __int64 a3, __int64 a
       KiRaiseIrqlProcessIrqlFlags(CurrentIrql, a2);
     }
   }
-  _InterlockedIncrement(&dword_140EFA584);
+  _InterlockedIncrement(&dword_140EFA8A4);
   if ( ExPrmContext == 2 )
-    v6 = guard_dispatch_icall_no_overrides(a1, a2, a3, a4);
+    v4 = guard_dispatch_icall_no_overrides(a1, a2);
   else
-    v6 = -1058143731;
-  _InterlockedDecrement(&dword_140EFA584);
+    v4 = -1058143731;
+  _InterlockedDecrement(&dword_140EFA8A4);
   if ( CurrentIrql < 2u )
   {
     if ( KiIrqlFlags )
       KiLowerIrqlProcessIrqlFlags(KeGetCurrentIrql(), CurrentIrql);
     __writecr8(CurrentIrql);
   }
-  return v6;
+  return v4;
 }

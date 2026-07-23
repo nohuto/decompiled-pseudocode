@@ -1,9 +1,9 @@
 /*
- * XREFs of Feature_ForegroundBoost_ApiRemoval__private_IsEnabledDeviceUsageNoInline @ 0x1404AD368
+ * XREFs of Feature_ForegroundBoost_ApiRemoval__private_IsEnabledDeviceUsageNoInline @ 0x1404A7A48
  * Callers:
- *     NtSetInformationProcess @ 0x140947500 (NtSetInformationProcess.c)
+ *     NtSetInformationProcess @ 0x1408EBA70 (NtSetInformationProcess.c)
  * Callees:
- *     Feature_ForegroundBoost_ApiRemoval__private_IsEnabledFallback @ 0x1405E55C0 (Feature_ForegroundBoost_ApiRemoval__private_IsEnabledFallback.c)
+ *     Feature_ForegroundBoost_ApiRemoval__private_IsEnabledFallback @ 0x1405E2B20 (Feature_ForegroundBoost_ApiRemoval__private_IsEnabledFallback.c)
  */
 
 __int64 Feature_ForegroundBoost_ApiRemoval__private_IsEnabledDeviceUsageNoInline()

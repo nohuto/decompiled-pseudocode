@@ -38,7 +38,7 @@ NTSTATUS __stdcall RtlAddAccessAllowedAceEx(
     v13 = v12;
   if ( (AceFlags & 0xFFFFFFE0) != 0 && (AceFlags & 0xFFFFFFC0) != 0 )
     return -1073741811;
-  if ( !(unsigned __int8)RtlValidAcl(Acl) )
+  if ( !RtlValidAcl(Acl) )
     return -1073741705;
   v14 = Acl + 1;
   for ( i = 0; i < Acl->AceCount; ++i )

@@ -18,9 +18,8 @@ __int64 __fastcall SwitchedRtlGetVersion(int *a1)
   int v5; // edi
   wchar_t *Buffer; // r8
   int v7; // edi
-  __int64 v8; // rcx
-  int v9; // eax
-  int v11; // [rsp+30h] [rbp+8h] BYREF
+  _NT_PRODUCT_TYPE v8; // eax
+  _NT_PRODUCT_TYPE NtProductType; // [rsp+30h] [rbp+8h] BYREF
 
   v1 = NtCurrentPeb();
   v3 = 0;
@@ -58,15 +57,15 @@ LABEL_5:
   {
     *((_WORD *)a1 + 138) = HIBYTE(v1->OSCSDVersion);
     *((_WORD *)a1 + 139) = (unsigned __int8)v1->OSCSDVersion;
-    *((_WORD *)a1 + 140) = RtlGetSuiteMask(255LL);
+    *((_WORD *)a1 + 140) = RtlGetSuiteMask();
     if ( v7 == 292 )
-      a1[71] = RtlGetSuiteMask(v8) & 0x1FFFF;
+      a1[71] = RtlGetSuiteMask() & 0x1FFFF;
     *((_BYTE *)a1 + 282) = 0;
-    if ( (unsigned __int8)RtlGetNtProductType(&v11) )
+    if ( RtlGetNtProductType(&NtProductType) )
     {
-      v9 = v11;
-      *((_BYTE *)a1 + 282) = v11;
-      if ( v9 == 1 )
+      v8 = NtProductType;
+      *((_BYTE *)a1 + 282) = NtProductType;
+      if ( v8 == NtProductWinNt )
       {
         *((_WORD *)a1 + 140) &= ~0x10u;
         if ( *a1 == 292 )

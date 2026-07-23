@@ -1,13 +1,13 @@
 /*
- * XREFs of IoWritePartitionTable @ 0x140940C40
+ * XREFs of IoWritePartitionTable @ 0x140940E40
  * Callers:
- *     DifIoWritePartitionTableWrapper @ 0x1405E1D80 (DifIoWritePartitionTableWrapper.c)
+ *     DifIoWritePartitionTableWrapper @ 0x1405E22F0 (DifIoWritePartitionTableWrapper.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     ??0SC_DISK@@QEAA@XZ @ 0x140675368 (--0SC_DISK@@QEAA@XZ.c)
- *     ??1SC_DISK@@UEAA@XZ @ 0x140675490 (--1SC_DISK@@UEAA@XZ.c)
- *     ?WritePartitionTable@SC_DISK@@QEAAJPEAVSC_DISK_LAYOUT@@@Z @ 0x140675DD8 (-WritePartitionTable@SC_DISK@@QEAAJPEAVSC_DISK_LAYOUT@@@Z.c)
- *     ?Initialize@NT_DISK@@QEAAJPEAU_DEVICE_OBJECT@@@Z @ 0x140940438 (-Initialize@NT_DISK@@QEAAJPEAU_DEVICE_OBJECT@@@Z.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     ??0SC_DISK@@QEAA@XZ @ 0x1406758B8 (--0SC_DISK@@QEAA@XZ.c)
+ *     ??1SC_DISK@@UEAA@XZ @ 0x1406759E0 (--1SC_DISK@@UEAA@XZ.c)
+ *     ?WritePartitionTable@SC_DISK@@QEAAJPEAVSC_DISK_LAYOUT@@@Z @ 0x140676328 (-WritePartitionTable@SC_DISK@@QEAAJPEAVSC_DISK_LAYOUT@@@Z.c)
+ *     ?Initialize@NT_DISK@@QEAAJPEAU_DEVICE_OBJECT@@@Z @ 0x140940638 (-Initialize@NT_DISK@@QEAAJPEAU_DEVICE_OBJECT@@@Z.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140AAEC80 (ExAllocatePoolWithTag.c)
  */
@@ -19,7 +19,7 @@ NTSTATUS __stdcall IoWritePartitionTable(
         ULONG NumberOfHeads,
         struct _DRIVE_LAYOUT_INFORMATION *PartitionBuffer)
 {
-  ULONG PartitionCount; // eax
+  DWORD PartitionCount; // eax
   struct SC_DISK_LAYOUT *PoolWithTag; // rax
   struct SC_DISK_LAYOUT *v8; // rbx
   NTSTATUS v9; // edi

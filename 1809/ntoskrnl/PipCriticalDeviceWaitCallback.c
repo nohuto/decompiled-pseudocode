@@ -1,21 +1,21 @@
 /*
- * XREFs of PipCriticalDeviceWaitCallback @ 0x1409F51A0
+ * XREFs of PipCriticalDeviceWaitCallback @ 0x1409F61A0
  * Callers:
  *     <none>
  * Callees:
- *     RtlInitAnsiString @ 0x1400EED90 (RtlInitAnsiString.c)
- *     RtlStringCchPrintfA @ 0x14018DFC0 (RtlStringCchPrintfA.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     ZwClose @ 0x1401B8370 (ZwClose.c)
- *     ZwOpenFile @ 0x1401B87F0 (ZwOpenFile.c)
- *     RtlAnsiStringToUnicodeString @ 0x1405AADA0 (RtlAnsiStringToUnicodeString.c)
+ *     RtlInitAnsiString @ 0x1400EEE10 (RtlInitAnsiString.c)
+ *     RtlStringCchPrintfA @ 0x14018E100 (RtlStringCchPrintfA.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     ZwClose @ 0x1401B84D0 (ZwClose.c)
+ *     ZwOpenFile @ 0x1401B8950 (ZwOpenFile.c)
+ *     RtlAnsiStringToUnicodeString @ 0x1405ABDA0 (RtlAnsiStringToUnicodeString.c)
  */
 
 __int64 __fastcall PipCriticalDeviceWaitCallback(__int64 a1, const char *a2, UNICODE_STRING *a3)
 {
   NTSTATUS v4; // ebx
   HANDLE FileHandle; // [rsp+30h] [rbp-D0h] BYREF
-  STRING DestinationString; // [rsp+38h] [rbp-C8h] BYREF
+  _STRING DestinationString; // [rsp+38h] [rbp-C8h] BYREF
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+48h] [rbp-B8h] BYREF
   struct _IO_STATUS_BLOCK IoStatusBlock; // [rsp+78h] [rbp-88h] BYREF
   char pszDest[256]; // [rsp+90h] [rbp-70h] BYREF

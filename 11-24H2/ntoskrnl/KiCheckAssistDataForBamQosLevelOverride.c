@@ -1,8 +1,8 @@
 /*
- * XREFs of KiCheckAssistDataForBamQosLevelOverride @ 0x1404E6CE0
+ * XREFs of KiCheckAssistDataForBamQosLevelOverride @ 0x1404DD3DC
  * Callers:
- *     KeSetThreadSchedulerAssist @ 0x140487FC8 (KeSetThreadSchedulerAssist.c)
- *     KiUpdateVpBackingThreadPriorityFromTopLevel @ 0x14049E5FC (KiUpdateVpBackingThreadPriorityFromTopLevel.c)
+ *     KeSetThreadSchedulerAssist @ 0x140483038 (KeSetThreadSchedulerAssist.c)
+ *     KiUpdateVpBackingThreadPriorityFromTopLevel @ 0x1404993FC (KiUpdateVpBackingThreadPriorityFromTopLevel.c)
  * Callees:
  *     <none>
  */

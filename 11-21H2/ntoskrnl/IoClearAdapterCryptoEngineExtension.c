@@ -3,9 +3,9 @@
  * Callers:
  *     <none>
  * Callees:
- *     IopFreeIrpExtension @ 0x14020B888 (IopFreeIrpExtension.c)
- *     IopIrpHasExtensionType @ 0x14020C0F0 (IopIrpHasExtensionType.c)
- *     IopAllocateIrpExtension @ 0x14020C420 (IopAllocateIrpExtension.c)
+ *     sub_14020B888 @ 0x14020B888 (sub_14020B888.c)
+ *     sub_14020C0F0 @ 0x14020C0F0 (sub_14020C0F0.c)
+ *     sub_14020C420 @ 0x14020C420 (sub_14020C420.c)
  */
 
 __int64 __fastcall IoClearAdapterCryptoEngineExtension(__int64 a1)
@@ -14,14 +14,14 @@ __int64 __fastcall IoClearAdapterCryptoEngineExtension(__int64 a1)
   __int64 v3; // rcx
   __int64 v4; // r8
   __int64 v5; // r9
-  _WORD *IrpExtension; // rax
+  _WORD *v6; // rax
 
-  if ( !IopIrpHasExtensionType(a1, 7u) )
+  if ( !sub_14020C0F0(a1, 7u) )
     return 3221226021LL;
-  IrpExtension = IopAllocateIrpExtension(v3, v2, v4, v5);
-  if ( !IrpExtension )
+  v6 = sub_14020C420(v3, v2, v4, v5);
+  if ( !v6 )
     return 3221226021LL;
-  *(_OWORD *)(IrpExtension + 20) = 0LL;
-  IopFreeIrpExtension(a1, 7, 0);
+  *(_OWORD *)(v6 + 20) = 0LL;
+  sub_14020B888(a1, 7, 0);
   return 0LL;
 }

@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwCompressKey @ 0x1401B9530
+ * XREFs of ZwCompressKey @ 0x1401B9690
  * Callers:
  *     <none>
  * Callees:
@@ -8,10 +8,7 @@
 
 NTSTATUS __stdcall ZwCompressKey(HANDLE Key)
 {
-  __int64 v1; // rdx
-  __int64 v2; // r8
-
   _disable();
   __readeflags();
-  return KiServiceInternal(Key, v1, v2);
+  return KiServiceInternal(Key);
 }

@@ -16,7 +16,7 @@ __int64 __fastcall sub_18005879C(__int64 a1, __int64 a2, unsigned int a3, unsign
   __int64 i; // rsi
 
   v7 = a3;
-  result = sub_180058844();
+  result = sub_180058844((PRTL_SRWLOCK)a1);
   if ( (int)result >= 0 )
   {
     v10 = *(_DWORD *)(a1 + 72) & 1;

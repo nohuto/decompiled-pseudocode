@@ -1,14 +1,14 @@
 /*
- * XREFs of WmipFindISinGEbyName @ 0x1407084F8
+ * XREFs of WmipFindISinGEbyName @ 0x140709798
  * Callers:
- *     WmipMangleInstanceName @ 0x140708400 (WmipMangleInstanceName.c)
+ *     WmipMangleInstanceName @ 0x1407096A0 (WmipMangleInstanceName.c)
  * Callees:
  *     KeReleaseMutex @ 0x140006340 (KeReleaseMutex.c)
  *     KeWaitForSingleObject @ 0x140054880 (KeWaitForSingleObject.c)
- *     _wtoi @ 0x140195C80 (_wtoi.c)
- *     wcsncmp @ 0x140197800 (wcsncmp.c)
- *     WmipReferenceEntry @ 0x140612C30 (WmipReferenceEntry.c)
- *     WmipIsNumber @ 0x14071ECF8 (WmipIsNumber.c)
+ *     _wtoi @ 0x140195DC0 (_wtoi.c)
+ *     wcsncmp @ 0x140197940 (wcsncmp.c)
+ *     WmipReferenceEntry @ 0x140613C30 (WmipReferenceEntry.c)
+ *     WmipIsNumber @ 0x14071FF98 (WmipIsNumber.c)
  */
 
 ULONG_PTR __fastcall WmipFindISinGEbyName(__int64 a1, const wchar_t *a2, unsigned int *a3)

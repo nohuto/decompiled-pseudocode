@@ -1,13 +1,13 @@
 /*
- * XREFs of MiPerformFinalZeroing @ 0x140513B9C
+ * XREFs of MiPerformFinalZeroing @ 0x14050D60C
  * Callers:
- *     MiGetPageChain @ 0x140285DD0 (MiGetPageChain.c)
- *     MiGetPageChainSmallPageProcess @ 0x140287AA0 (MiGetPageChainSmallPageProcess.c)
+ *     MiGetPageChain @ 0x140285330 (MiGetPageChain.c)
+ *     MiGetPageChainSmallPageProcess @ 0x140287000 (MiGetPageChainSmallPageProcess.c)
  * Callees:
- *     MiZeroPhysicalPage @ 0x1402D8B20 (MiZeroPhysicalPage.c)
- *     MiChangePageAttributeBatch @ 0x140368E1C (MiChangePageAttributeBatch.c)
- *     MiGetPteLink @ 0x140369198 (MiGetPteLink.c)
- *     MiSetPfnTbFlushStamp @ 0x14036BAE0 (MiSetPfnTbFlushStamp.c)
+ *     MiZeroPhysicalPage @ 0x1402BA8E0 (MiZeroPhysicalPage.c)
+ *     MiChangePageAttributeBatch @ 0x14036ABBC (MiChangePageAttributeBatch.c)
+ *     MiGetPteLink @ 0x14036AF38 (MiGetPteLink.c)
+ *     MiSetPfnTbFlushStamp @ 0x14036D880 (MiSetPfnTbFlushStamp.c)
  */
 
 void __fastcall MiPerformFinalZeroing(__int64 a1, int a2)

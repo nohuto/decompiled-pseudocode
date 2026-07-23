@@ -9,10 +9,10 @@
  *     memmove @ 0x1800AAB40 (memmove.c)
  */
 
-__int64 __fastcall RtlpAddHeapToUnprotectedList(__int64 a1)
+unsigned __int64 __fastcall RtlpAddHeapToUnprotectedList(__int64 a1)
 {
   struct _PEB *v1; // rbx
-  __int64 result; // rax
+  unsigned __int64 result; // rax
   unsigned int v4; // edi
   unsigned int MaximumNumberOfHeaps; // ecx
   void **v6; // rbp
@@ -27,7 +27,7 @@ __int64 __fastcall RtlpAddHeapToUnprotectedList(__int64 a1)
     if ( v4 == MaximumNumberOfHeaps )
     {
       v1->MaximumNumberOfHeaps = 2 * MaximumNumberOfHeaps;
-      result = RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, 16LL * MaximumNumberOfHeaps);
+      result = (unsigned __int64)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, 16LL * MaximumNumberOfHeaps);
       v6 = (void **)result;
       if ( !result )
       {
@@ -37,7 +37,7 @@ __int64 __fastcall RtlpAddHeapToUnprotectedList(__int64 a1)
       memmove((void *)result, v1->ProcessHeaps, 8LL * v1->NumberOfHeaps);
       ProcessHeaps = v1->ProcessHeaps;
       if ( ProcessHeaps != (void **)&RtlpProcessHeapsListBuffer )
-        RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, (__int64)ProcessHeaps);
+        RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, ProcessHeaps);
       LODWORD(result) = v1->NumberOfHeaps;
       v1->ProcessHeaps = v6;
     }

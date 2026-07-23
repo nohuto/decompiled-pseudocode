@@ -1,54 +1,54 @@
 /*
- * XREFs of CmLoadDifferencingKey @ 0x14097B3F0
+ * XREFs of CmLoadDifferencingKey @ 0x14093D400
  * Callers:
- *     NtLoadKey3 @ 0x14084EF30 (NtLoadKey3.c)
- *     VrpLoadDifferencingHive @ 0x14097955C (VrpLoadDifferencingHive.c)
- *     NtLoadKeyEx @ 0x14097B380 (NtLoadKeyEx.c)
- *     VrpPreLoadKey @ 0x140B1B118 (VrpPreLoadKey.c)
- *     NtLoadKey2 @ 0x140B388F0 (NtLoadKey2.c)
+ *     NtLoadKey3 @ 0x140855240 (NtLoadKey3.c)
+ *     VrpLoadDifferencingHive @ 0x14093B56C (VrpLoadDifferencingHive.c)
+ *     NtLoadKeyEx @ 0x14093D390 (NtLoadKeyEx.c)
+ *     VrpPreLoadKey @ 0x140B1D3C8 (VrpPreLoadKey.c)
+ *     NtLoadKey2 @ 0x140B3AB00 (NtLoadKey2.c)
  * Callees:
- *     CmpIsRegistryLockAcquired @ 0x140262890 (CmpIsRegistryLockAcquired.c)
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     CmpInitializeThreadInfo @ 0x14043CF00 (CmpInitializeThreadInfo.c)
- *     CmCleanupThreadInfo @ 0x14044C0A0 (CmCleanupThreadInfo.c)
- *     CmpFreeTransientPoolWithTag @ 0x140477290 (CmpFreeTransientPoolWithTag.c)
- *     CmpAllocateTransientPoolWithQuota @ 0x1404869D8 (CmpAllocateTransientPoolWithQuota.c)
- *     CmSiFreeMemory @ 0x140495010 (CmSiFreeMemory.c)
- *     RtlCopyFromUser @ 0x140533E38 (RtlCopyFromUser.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     RtlCopyVolatileMemory @ 0x140733080 (RtlCopyVolatileMemory.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     RtlWriteULong64ToUser @ 0x14077F758 (RtlWriteULong64ToUser.c)
- *     CmLoadAppKey @ 0x1408B2250 (CmLoadAppKey.c)
- *     CmpDereferenceKeyControlBlock @ 0x1408C8770 (CmpDereferenceKeyControlBlock.c)
- *     CmpCallCallBacksEx @ 0x1408C9E40 (CmpCallCallBacksEx.c)
- *     ObReferenceObjectByName @ 0x1408F2260 (ObReferenceObjectByName.c)
- *     CmpCaptureUnicodeStringBuffer @ 0x1408F2650 (CmpCaptureUnicodeStringBuffer.c)
- *     ExRaiseDatatypeMisalignment @ 0x1408F29F0 (ExRaiseDatatypeMisalignment.c)
- *     ObReferenceObjectByHandle @ 0x1408F9550 (ObReferenceObjectByHandle.c)
- *     ObOpenObjectByPointer @ 0x14092AFF0 (ObOpenObjectByPointer.c)
- *     SeSinglePrivilegeCheck @ 0x140932280 (SeSinglePrivilegeCheck.c)
- *     CmReleaseLoadKeyContext @ 0x14097B260 (CmReleaseLoadKeyContext.c)
- *     ObDeleteCapturedInsertInfo @ 0x14097B2C0 (ObDeleteCapturedInsertInfo.c)
- *     CmpTraceHiveLoadStop @ 0x14097C090 (CmpTraceHiveLoadStop.c)
- *     CmpInitializeParseContext @ 0x14097C5D0 (CmpInitializeParseContext.c)
- *     CmpCleanupParseContext @ 0x14097C850 (CmpCleanupParseContext.c)
- *     CmCheckNoTxContext @ 0x14097C910 (CmCheckNoTxContext.c)
- *     CmpNameFromAttributes @ 0x14097C958 (CmpNameFromAttributes.c)
- *     CmConvertHandleToKernelHandle @ 0x14097CB84 (CmConvertHandleToKernelHandle.c)
- *     CmpTraceHiveLoadStart @ 0x14097CC30 (CmpTraceHiveLoadStart.c)
- *     CmpDoesBufferRequireCapturing @ 0x14097DDF0 (CmpDoesBufferRequireCapturing.c)
- *     CmpCaptureUnicodeString @ 0x14097E720 (CmpCaptureUnicodeString.c)
- *     CmLoadKey @ 0x140AE15E4 (CmLoadKey.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
- *     CmObReferenceObjectByHandle @ 0x140C58340 (CmObReferenceObjectByHandle.c)
- *     CmpLockRegistry @ 0x140C58850 (CmpLockRegistry.c)
- *     CmpUnlockRegistry @ 0x140C58970 (CmpUnlockRegistry.c)
- *     CmpAcquireHiveLoadUnloadRundown @ 0x140C58CD4 (CmpAcquireHiveLoadUnloadRundown.c)
- *     CmpReleaseHiveLoadUnloadRundown @ 0x140C58F14 (CmpReleaseHiveLoadUnloadRundown.c)
+ *     CmpIsRegistryLockAcquired @ 0x140261E00 (CmpIsRegistryLockAcquired.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     CmpInitializeThreadInfo @ 0x14042F7B0 (CmpInitializeThreadInfo.c)
+ *     CmCleanupThreadInfo @ 0x1404441C0 (CmCleanupThreadInfo.c)
+ *     CmpFreeTransientPoolWithTag @ 0x140470A10 (CmpFreeTransientPoolWithTag.c)
+ *     CmpAllocateTransientPoolWithQuota @ 0x140480350 (CmpAllocateTransientPoolWithQuota.c)
+ *     CmSiFreeMemory @ 0x14048EB60 (CmSiFreeMemory.c)
+ *     RtlCopyFromUser @ 0x1405362B8 (RtlCopyFromUser.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     RtlCopyVolatileMemory @ 0x140737C50 (RtlCopyVolatileMemory.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     RtlWriteULong64ToUser @ 0x140782258 (RtlWriteULong64ToUser.c)
+ *     CmLoadAppKey @ 0x1408B87F4 (CmLoadAppKey.c)
+ *     CmpDereferenceKeyControlBlock @ 0x1408CED20 (CmpDereferenceKeyControlBlock.c)
+ *     CmpCallCallBacksEx @ 0x1408D03F0 (CmpCallCallBacksEx.c)
+ *     ObReferenceObjectByName @ 0x1408F8820 (ObReferenceObjectByName.c)
+ *     CmpCaptureUnicodeStringBuffer @ 0x1408F8C10 (CmpCaptureUnicodeStringBuffer.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408F8FB0 (ExRaiseDatatypeMisalignment.c)
+ *     ObOpenObjectByPointer @ 0x140906B20 (ObOpenObjectByPointer.c)
+ *     SeSinglePrivilegeCheck @ 0x14090DE50 (SeSinglePrivilegeCheck.c)
+ *     ObReferenceObjectByHandle @ 0x1409294E0 (ObReferenceObjectByHandle.c)
+ *     CmReleaseLoadKeyContext @ 0x14093D270 (CmReleaseLoadKeyContext.c)
+ *     ObDeleteCapturedInsertInfo @ 0x14093D2D0 (ObDeleteCapturedInsertInfo.c)
+ *     CmpTraceHiveLoadStop @ 0x14093E0A0 (CmpTraceHiveLoadStop.c)
+ *     CmpInitializeParseContext @ 0x14093E5E0 (CmpInitializeParseContext.c)
+ *     CmpCleanupParseContext @ 0x14093E860 (CmpCleanupParseContext.c)
+ *     CmCheckNoTxContext @ 0x14093E920 (CmCheckNoTxContext.c)
+ *     CmpNameFromAttributes @ 0x14093E968 (CmpNameFromAttributes.c)
+ *     CmConvertHandleToKernelHandle @ 0x14093EB94 (CmConvertHandleToKernelHandle.c)
+ *     CmpTraceHiveLoadStart @ 0x14093EC40 (CmpTraceHiveLoadStart.c)
+ *     CmpDoesBufferRequireCapturing @ 0x14093FE00 (CmpDoesBufferRequireCapturing.c)
+ *     CmpCaptureUnicodeString @ 0x140940730 (CmpCaptureUnicodeString.c)
+ *     CmLoadKey @ 0x140ADEAD4 (CmLoadKey.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
+ *     CmObReferenceObjectByHandle @ 0x140C5E340 (CmObReferenceObjectByHandle.c)
+ *     CmpLockRegistry @ 0x140C5E850 (CmpLockRegistry.c)
+ *     CmpUnlockRegistry @ 0x140C5E970 (CmpUnlockRegistry.c)
+ *     CmpAcquireHiveLoadUnloadRundown @ 0x140C5ECD4 (CmpAcquireHiveLoadUnloadRundown.c)
+ *     CmpReleaseHiveLoadUnloadRundown @ 0x140C5EF14 (CmpReleaseHiveLoadUnloadRundown.c)
  */
 
 __int64 __fastcall CmLoadDifferencingKey(
@@ -347,7 +347,7 @@ LABEL_35:
   v58 = 0LL;
   v54[1] = v54;
   v54[0] = v54;
-  if ( WheapPfaLock.ExpectedRunTime && !(unsigned int)CmpIsRegistryLockAcquired() )
+  if ( HIDWORD(WheapPfaLock.StateSaveArea) && !(unsigned int)CmpIsRegistryLockAcquired() )
   {
     if ( v59[1] )
     {
@@ -409,7 +409,7 @@ LABEL_35:
               (__int64)&v46,
               (__int64)&BugCheckParameter4);
     v20 = Key;
-    if ( WheapPfaLock.ExpectedRunTime && !(unsigned int)CmpIsRegistryLockAcquired() && (_QWORD *)v54[0] != v54 )
+    if ( HIDWORD(WheapPfaLock.StateSaveArea) && !(unsigned int)CmpIsRegistryLockAcquired() && (_QWORD *)v54[0] != v54 )
     {
       v67 = 0LL;
       v68 = 0LL;
@@ -481,7 +481,7 @@ LABEL_35:
     }
     else
     {
-      CmpLockRegistry(BugCheckParameter4);
+      CmpLockRegistry(BugCheckParameter4, v30, v18, v19);
       CmpDereferenceKeyControlBlock(BugCheckParameter4);
       CmpUnlockRegistry(v33);
     }

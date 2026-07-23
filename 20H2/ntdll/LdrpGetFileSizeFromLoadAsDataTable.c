@@ -12,29 +12,25 @@
 __int64 __fastcall LdrpGetFileSizeFromLoadAsDataTable(__int64 a1)
 {
   __int64 v2; // rbx
-  __int64 v3; // rdx
-  __int64 v4; // r8
-  int v5; // ecx
+  int v3; // ecx
 
   v2 = 0LL;
   if ( !a1 )
     return 0LL;
   LdrpInitMuiCrits();
-  RtlEnterCriticalSection((__int64)&LoadAsDataCrits);
-  v5 = LoadAsDataTableCount;
+  RtlEnterCriticalSection(&LoadAsDataCrits);
+  v3 = LoadAsDataTableCount;
   if ( LoadAsDataTableCount )
   {
-    v4 = LoadAsDataTable;
-    while ( v5 > 0 )
+    while ( v3 > 0 )
     {
-      v3 = 6LL * --v5;
-      if ( *(_QWORD *)(LoadAsDataTable + 48LL * v5) == a1 )
+      if ( *((_QWORD *)LoadAsDataTable + 6 * --v3) == a1 )
       {
-        v2 = *(_QWORD *)(LoadAsDataTable + 48LL * v5 + 16);
+        v2 = *((_QWORD *)LoadAsDataTable + 6 * v3 + 2);
         break;
       }
     }
   }
-  RtlLeaveCriticalSection((__int64)&LoadAsDataCrits, v3, v4);
+  RtlLeaveCriticalSection(&LoadAsDataCrits);
   return v2;
 }

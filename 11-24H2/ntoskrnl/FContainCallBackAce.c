@@ -1,10 +1,10 @@
 /*
- * XREFs of FContainCallBackAce @ 0x1408667C0
+ * XREFs of FContainCallBackAce @ 0x14086ADD0
  * Callers:
- *     LocalGetAclForString @ 0x140865750 (LocalGetAclForString.c)
- *     LocalGetAceCount @ 0x140866950 (LocalGetAceCount.c)
+ *     LocalGetAclForString @ 0x140869D60 (LocalGetAclForString.c)
+ *     LocalGetAceCount @ 0x14086AF60 (LocalGetAceCount.c)
  * Callees:
- *     _wcsnicmp @ 0x1404FE4F0 (_wcsnicmp.c)
+ *     _wcsnicmp @ 0x1404FBDB0 (_wcsnicmp.c)
  */
 
 __int64 __fastcall FContainCallBackAce(wchar_t *Str1)

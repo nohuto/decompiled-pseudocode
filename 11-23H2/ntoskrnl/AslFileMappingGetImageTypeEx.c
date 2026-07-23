@@ -1,12 +1,12 @@
 /*
- * XREFs of AslFileMappingGetImageTypeEx @ 0x140A54940
+ * XREFs of AslFileMappingGetImageTypeEx @ 0x140A54BF0
  * Callers:
- *     AslFileMappingGetFileKindDetail @ 0x140A5477C (AslFileMappingGetFileKindDetail.c)
+ *     AslFileMappingGetFileKindDetail @ 0x140A54A2C (AslFileMappingGetFileKindDetail.c)
  * Callees:
  *     AslLogCallPrintf @ 0x1406956FC (AslLogCallPrintf.c)
- *     AslFileMappingEnsure @ 0x140758EF0 (AslFileMappingEnsure.c)
- *     AslpFileGetImageNtHeader @ 0x140A58A90 (AslpFileGetImageNtHeader.c)
- *     AslpImageRvaToVa @ 0x140A59450 (AslpImageRvaToVa.c)
+ *     AslFileMappingEnsure @ 0x1407590E0 (AslFileMappingEnsure.c)
+ *     AslpFileGetImageNtHeader @ 0x140A58D40 (AslpFileGetImageNtHeader.c)
+ *     AslpImageRvaToVa @ 0x140A59700 (AslpImageRvaToVa.c)
  */
 
 __int64 __fastcall AslFileMappingGetImageTypeEx(_WORD *a1, _WORD *a2, int *a3, _DWORD *a4, __int64 a5)

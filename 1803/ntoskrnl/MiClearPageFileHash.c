@@ -23,7 +23,7 @@ void __fastcall MiClearPageFileHash(__int64 a1, unsigned int a2)
   __int64 v9; // rdx
   __int64 v10; // rcx
   __int64 v11; // r8
-  struct _SLIST_ENTRY *v12; // rdi
+  _SLIST_ENTRY *v12; // rdi
   unsigned int v13; // esi
   __int64 v14; // r8
   __int64 *v15; // r9
@@ -45,9 +45,9 @@ void __fastcall MiClearPageFileHash(__int64 a1, unsigned int a2)
     if ( (v4 & 1) != 0 )
     {
       *v5 = 1;
-      v12 = (struct _SLIST_ENTRY *)(48
-                                  * (((unsigned __int64)MI_READ_PTE_LOCK_FREE((unsigned __int64)&updated) >> 12) & 0xFFFFFFFFFLL)
-                                  - 0x58000000000LL);
+      v12 = (_SLIST_ENTRY *)(48
+                           * (((unsigned __int64)MI_READ_PTE_LOCK_FREE((unsigned __int64)&updated) >> 12) & 0xFFFFFFFFFLL)
+                           - 0x58000000000LL);
       v13 = MiGetPteTimeStamp(v12[1].Next) - 1;
       updated = MiUpdatePageFileHighInPte(v14, v13);
       *v15 = updated;

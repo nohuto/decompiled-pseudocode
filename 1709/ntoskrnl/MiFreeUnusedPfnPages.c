@@ -309,7 +309,7 @@ LABEL_106:
           {
             *(_BYTE *)(v18 + 32) |= 2u;
             if ( *(__int64 *)(v18 + 32) < 0 )
-              KiAbEntryRemoveFromTree(v18);
+              KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)v18);
             v69 = 0;
             v69 = *(_DWORD *)(v18 + 88) & 0x1FFFF;
             *(_DWORD *)(v18 + 88) &= 0xFFFE0000;
@@ -374,7 +374,7 @@ LABEL_28:
         {
           v29->CrossThreadReleasableAndBusyByte |= 2u;
           if ( (__int64)v29->LockState.LockState < 0 )
-            KiAbEntryRemoveFromTree((__int64)&v22->LockEntries[v28]);
+            KiAbEntryRemoveFromTree(&v22->LockEntries[v28].TreeNode);
           v70 = 0;
           v70 = v29->BoostBitmap.AllFields & 0x1FFFF;
           v29->BoostBitmap.AllFields &= 0xFFFE0000;

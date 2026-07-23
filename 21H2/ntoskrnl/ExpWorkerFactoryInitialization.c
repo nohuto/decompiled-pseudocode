@@ -1,15 +1,15 @@
 /*
- * XREFs of ExpWorkerFactoryInitialization @ 0x140A71A20
+ * XREFs of ExpWorkerFactoryInitialization @ 0x140A72A20
  * Callers:
- *     ExpInitSystemPhase1 @ 0x140A3CEBC (ExpInitSystemPhase1.c)
+ *     ExpInitSystemPhase1 @ 0x140A3DEBC (ExpInitSystemPhase1.c)
  * Callees:
- *     KeRegisterObjectNotification @ 0x140202F18 (KeRegisterObjectNotification.c)
- *     RtlRaiseStatus @ 0x14029AF80 (RtlRaiseStatus.c)
- *     KeInitializeQueue @ 0x1402B95A0 (KeInitializeQueue.c)
- *     ZwClose @ 0x1403FA580 (ZwClose.c)
- *     memset @ 0x140414200 (memset.c)
- *     PsCreateSystemThread @ 0x1406D0140 (PsCreateSystemThread.c)
- *     ObCreateObjectType @ 0x1407958D0 (ObCreateObjectType.c)
+ *     RtlRaiseStatus @ 0x140212910 (RtlRaiseStatus.c)
+ *     KeInitializeQueue @ 0x1402377B0 (KeInitializeQueue.c)
+ *     KeRegisterObjectNotification @ 0x1402A7858 (KeRegisterObjectNotification.c)
+ *     ZwClose @ 0x1403FA760 (ZwClose.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     PsCreateSystemThread @ 0x1406A7420 (PsCreateSystemThread.c)
+ *     ObCreateObjectType @ 0x140795AD0 (ObCreateObjectType.c)
  */
 
 __int64 ExpWorkerFactoryInitialization()
@@ -47,7 +47,7 @@ __int64 ExpWorkerFactoryInitialization()
   ExpWorkerFactoryDeferredLongTimeout = -10000000LL * v0;
   ExpWorkerFactoryDeferredShortTimeout.QuadPart = -300000LL;
   if ( ((unsigned __int8)&ExpWorkerFactoryThreadCreationList & 0xF) != 0 )
-    RtlRaiseStatus(0x80000002);
+    RtlRaiseStatus(-2147483646);
   ExpWorkerFactoryThreadCreationList = 0LL;
   KeInitializeQueue(&ExpWorkerFactoryManagerQueue, 0);
   *(_QWORD *)&ExpWorkerFactoryThreadCreationTimer.Header.Lock = 9LL;
@@ -71,7 +71,7 @@ __int64 ExpWorkerFactoryInitialization()
   *(_OWORD *)((char *)&v3[1] + 4) = ExpWorkerFactoryMapping;
   HIDWORD(v3[3]) = 983295;
   ObjectType = ObCreateObjectType(
-                 (const UNICODE_STRING *)&qword_140A97B30,
+                 (const UNICODE_STRING *)&qword_140A98B30,
                  (__int64)v3,
                  0LL,
                  (__int64)&ExpWorkerFactoryObjectType);

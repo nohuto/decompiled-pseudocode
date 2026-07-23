@@ -274,7 +274,7 @@ __int64 __fastcall CmpParseKey(
   __int64 v196; // [rsp+138h] [rbp+28h]
   UNICODE_STRING v197; // [rsp+140h] [rbp+30h] BYREF
   __int64 v198; // [rsp+150h] [rbp+40h] BYREF
-  struct _SLIST_ENTRY *v199; // [rsp+158h] [rbp+48h] BYREF
+  _SLIST_ENTRY *v199; // [rsp+158h] [rbp+48h] BYREF
   int v200; // [rsp+160h] [rbp+50h] BYREF
   int TokenInformation; // [rsp+164h] [rbp+54h] BYREF
   _QWORD TokenInformation_4[2]; // [rsp+168h] [rbp+58h] BYREF

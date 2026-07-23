@@ -129,7 +129,7 @@ char __fastcall sub_180034E60(__int64 a1, __int64 a2)
   PRUNTIME_FUNCTION FunctionEntry; // [rsp+D0h] [rbp-30h]
   unsigned __int64 v107; // [rsp+D8h] [rbp-28h]
   struct _CONTEXT *p_ContextRecord; // [rsp+E8h] [rbp-18h]
-  EXCEPTION_ROUTINE *v109; // [rsp+F0h] [rbp-10h]
+  EXCEPTION_DISPOSITION (__cdecl *v109)(_EXCEPTION_RECORD *, PVOID, _CONTEXT *, PVOID); // [rsp+F0h] [rbp-10h]
   _BYTE *v110; // [rsp+F8h] [rbp-8h]
   struct _UNWIND_HISTORY_TABLE *v111; // [rsp+100h] [rbp+0h]
   int v112; // [rsp+108h] [rbp+8h]
@@ -681,7 +681,7 @@ LABEL_51:
       ImageBase = v105;
       sub_180034554((__int64)&ContextRecord, (__int64)p_ContextRecord);
       v40 = RtlVirtualUnwind(1u, v34, Rip, v36, &ContextRecord, &HandlerData, &EstablisherFrame, 0LL);
-      if ( ((*((_QWORD *)&xmmword_18016B360 + 1) >> 12) & 3) == 1 )
+      if ( ((LdrSystemDllInitBlock.MitigationOptionsMap.Map[1] >> 12) & 3) == 1 )
       {
         if ( v40 != v109
           || (v41 = EstablisherFrame, EstablisherFrame != v107)

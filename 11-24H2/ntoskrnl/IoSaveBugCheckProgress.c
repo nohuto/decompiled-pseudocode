@@ -1,19 +1,19 @@
 /*
- * XREFs of IoSaveBugCheckProgress @ 0x140591F10
+ * XREFs of IoSaveBugCheckProgress @ 0x14058EF30
  * Callers:
- *     IoWriteCrashDump @ 0x1405927D4 (IoWriteCrashDump.c)
- *     IoAddPagesForPartialKernelDump @ 0x14059FF50 (IoAddPagesForPartialKernelDump.c)
- *     IopAddLiveDumpPagesToPartialKernelDump @ 0x1405A03BC (IopAddLiveDumpPagesToPartialKernelDump.c)
- *     KeBugCheck2 @ 0x1405B1780 (KeBugCheck2.c)
- *     KiBugCheckWriteCrashDump @ 0x1405B30F8 (KiBugCheckWriteCrashDump.c)
- *     KiDisplayBlueScreen @ 0x1405B38C0 (KiDisplayBlueScreen.c)
- *     KiUpdateBugcheckRecoveryProgress @ 0x1405C687C (KiUpdateBugcheckRecoveryProgress.c)
- *     BgpFwDisplayBugCheckScreen @ 0x14069A360 (BgpFwDisplayBugCheckScreen.c)
- *     BgpFwDisplayBugCheckScreenModernized @ 0x14069A6B0 (BgpFwDisplayBugCheckScreenModernized.c)
+ *     IoWriteCrashDump @ 0x14058F7F8 (IoWriteCrashDump.c)
+ *     IoAddPagesForPartialKernelDump @ 0x14059CE74 (IoAddPagesForPartialKernelDump.c)
+ *     IopAddLiveDumpPagesToPartialKernelDump @ 0x14059D2EC (IopAddLiveDumpPagesToPartialKernelDump.c)
+ *     KeBugCheck2 @ 0x1405AE6F0 (KeBugCheck2.c)
+ *     KiBugCheckWriteCrashDump @ 0x1405B0068 (KiBugCheckWriteCrashDump.c)
+ *     KiDisplayBlueScreen @ 0x1405B0834 (KiDisplayBlueScreen.c)
+ *     KiUpdateBugcheckRecoveryProgress @ 0x1405C3FAC (KiUpdateBugcheckRecoveryProgress.c)
+ *     BgpFwDisplayBugCheckScreen @ 0x14069B3E0 (BgpFwDisplayBugCheckScreen.c)
+ *     BgpFwDisplayBugCheckScreenModernized @ 0x14069B730 (BgpFwDisplayBugCheckScreenModernized.c)
  * Callees:
- *     IoUpdateBugCheckProgressEnvVariable @ 0x1405924DC (IoUpdateBugCheckProgressEnvVariable.c)
- *     WheaLogInternalEvent @ 0x14065E070 (WheaLogInternalEvent.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     IoUpdateBugCheckProgressEnvVariable @ 0x14058F500 (IoUpdateBugCheckProgressEnvVariable.c)
+ *     WheaLogInternalEvent @ 0x14065C840 (WheaLogInternalEvent.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 __int64 __fastcall IoSaveBugCheckProgress(int a1)

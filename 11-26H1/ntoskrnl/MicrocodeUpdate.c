@@ -1,15 +1,15 @@
 /*
- * XREFs of MicrocodeUpdate @ 0x1406DD970
+ * XREFs of MicrocodeUpdate @ 0x1406E1C10
  * Callers:
- *     PrExtApplyPatch @ 0x14052FDA8 (PrExtApplyPatch.c)
+ *     PrExtApplyPatch @ 0x1405322A8 (PrExtApplyPatch.c)
  * Callees:
- *     HviIsHypervisorVendorMicrosoft @ 0x1406DC990 (HviIsHypervisorVendorMicrosoft.c)
- *     MicrocodeInitLogging @ 0x1406DD898 (MicrocodeInitLogging.c)
- *     MicrocodePrePatchCheckAndLogging @ 0x1406DD8D0 (MicrocodePrePatchCheckAndLogging.c)
- *     IntelMicrocodeChecksumValidate @ 0x1406DE35C (IntelMicrocodeChecksumValidate.c)
- *     IntelMicrocodeGetRecordData @ 0x1406DE3A0 (IntelMicrocodeGetRecordData.c)
- *     GetCpuManufacturer @ 0x1406DE598 (GetCpuManufacturer.c)
- *     AMDMicrocodeGetRecordData @ 0x1406DE5FC (AMDMicrocodeGetRecordData.c)
+ *     HviIsHypervisorVendorMicrosoft @ 0x1406E0C30 (HviIsHypervisorVendorMicrosoft.c)
+ *     MicrocodeInitLogging @ 0x1406E1B38 (MicrocodeInitLogging.c)
+ *     MicrocodePrePatchCheckAndLogging @ 0x1406E1B70 (MicrocodePrePatchCheckAndLogging.c)
+ *     IntelMicrocodeChecksumValidate @ 0x1406E25FC (IntelMicrocodeChecksumValidate.c)
+ *     IntelMicrocodeGetRecordData @ 0x1406E2640 (IntelMicrocodeGetRecordData.c)
+ *     GetCpuManufacturer @ 0x1406E2838 (GetCpuManufacturer.c)
+ *     AMDMicrocodeGetRecordData @ 0x1406E289C (AMDMicrocodeGetRecordData.c)
  */
 
 __int64 __fastcall MicrocodeUpdate(__int64 a1, __int64 a2, int a3)
@@ -69,7 +69,7 @@ LABEL_6:
     if ( v15 != 11 )
     {
 LABEL_7:
-      HIDWORD(CmpCallbackListLock.Timer.Header.WaitListHead.Flink) = 8;
+      CmpContextListLock.Timer.Header.SignalState = 8;
       return 3221225659LL;
     }
     goto LABEL_6;
@@ -82,14 +82,14 @@ LABEL_7:
     if ( (int)IntelMicrocodeGetRecordData(a1, a2, v28, &v29) < 0 )
     {
 LABEL_19:
-      HIDWORD(CmpCallbackListLock.Timer.Header.WaitListHead.Flink) = 9;
+      CmpContextListLock.Timer.Header.SignalState = 9;
       return 3221225659LL;
     }
     v4 = v29;
     result = IntelMicrocodeChecksumValidate(v29, v28[0]);
     if ( (int)result < 0 )
     {
-      HIDWORD(CmpCallbackListLock.Timer.Header.WaitListHead.Flink) = 8;
+      CmpContextListLock.Timer.Header.SignalState = 8;
       return result;
     }
   }
@@ -105,15 +105,15 @@ LABEL_19:
   __asm { cpuid }
   v24 = __readmsr(0x8Bu) >> 32;
 LABEL_24:
-  CmpCallbackListLock.Timer.Header.LockNV = v24;
+  LODWORD(CmpContextListLock.RelativeTimerBias) = v24;
   if ( v18 == (_DWORD)v24 )
   {
-    HIDWORD(CmpCallbackListLock.Timer.Header.WaitListHead.Flink) = 0;
+    CmpContextListLock.Timer.Header.SignalState = 0;
     return 0LL;
   }
   else
   {
-    HIDWORD(CmpCallbackListLock.Timer.Header.WaitListHead.Flink) = 3;
+    CmpContextListLock.Timer.Header.SignalState = 3;
     return 3221225534LL;
   }
 }

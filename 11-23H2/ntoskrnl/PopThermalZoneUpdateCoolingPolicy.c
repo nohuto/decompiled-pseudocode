@@ -1,12 +1,12 @@
 /*
- * XREFs of PopThermalZoneUpdateCoolingPolicy @ 0x14098B16C
+ * XREFs of PopThermalZoneUpdateCoolingPolicy @ 0x14098B36C
  * Callers:
- *     PopThermalCoolingPowerSettingCallback @ 0x1403C7810 (PopThermalCoolingPowerSettingCallback.c)
+ *     PopThermalCoolingPowerSettingCallback @ 0x1403C79F0 (PopThermalCoolingPowerSettingCallback.c)
  * Callees:
- *     ExAcquirePushLockSharedEx @ 0x140230D90 (ExAcquirePushLockSharedEx.c)
- *     PopReleaseRwLock @ 0x14032C480 (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x14032C5E4 (PopAcquireRwLockExclusive.c)
- *     IoCancelIrp @ 0x140351E90 (IoCancelIrp.c)
+ *     ExAcquirePushLockSharedEx @ 0x140230E80 (ExAcquirePushLockSharedEx.c)
+ *     PopReleaseRwLock @ 0x14032C710 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x14032C874 (PopAcquireRwLockExclusive.c)
+ *     IoCancelIrp @ 0x140352030 (IoCancelIrp.c)
  */
 
 void PopThermalZoneUpdateCoolingPolicy()

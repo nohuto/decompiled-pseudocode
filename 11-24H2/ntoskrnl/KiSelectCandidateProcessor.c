@@ -1,23 +1,23 @@
 /*
- * XREFs of KiSelectCandidateProcessor @ 0x140293300
+ * XREFs of KiSelectCandidateProcessor @ 0x1402A2F00
  * Callers:
- *     KiHeteroSelectProcessorToPreempt @ 0x1402949C0 (KiHeteroSelectProcessorToPreempt.c)
- *     KiChooseTargetProcessor @ 0x1404E7710 (KiChooseTargetProcessor.c)
+ *     KiHeteroSelectProcessorToPreempt @ 0x1402A45C0 (KiHeteroSelectProcessorToPreempt.c)
+ *     KiChooseTargetProcessor @ 0x1404DE410 (KiChooseTargetProcessor.c)
  * Callees:
- *     ExpReleaseSpinLockSharedFromDpcLevelInstrumented @ 0x1402465FC (ExpReleaseSpinLockSharedFromDpcLevelInstrumented.c)
- *     HvlNotifyLongSpinWait @ 0x140293260 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140293290 (KiCheckVpBackingLongSpinWaitHypercall.c)
- *     ExpWaitForSpinLockSharedAndAcquire @ 0x1402C4AD0 (ExpWaitForSpinLockSharedAndAcquire.c)
- *     ExpAcquireSpinLockSharedAtDpcLevelInstrumented @ 0x1402DFAA0 (ExpAcquireSpinLockSharedAtDpcLevelInstrumented.c)
- *     KiAcquirePrcbLocksForPreemptionAttemptSlowPath @ 0x1404CC7A8 (KiAcquirePrcbLocksForPreemptionAttemptSlowPath.c)
+ *     ExpReleaseSpinLockSharedFromDpcLevelInstrumented @ 0x140219638 (ExpReleaseSpinLockSharedFromDpcLevelInstrumented.c)
+ *     ExpWaitForSpinLockSharedAndAcquire @ 0x140219B50 (ExpWaitForSpinLockSharedAndAcquire.c)
+ *     ExpAcquireSpinLockSharedAtDpcLevelInstrumented @ 0x140241380 (ExpAcquireSpinLockSharedAtDpcLevelInstrumented.c)
+ *     HvlNotifyLongSpinWait @ 0x1402A2E60 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1402A2E90 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     KiAcquirePrcbLocksForPreemptionAttemptSlowPath @ 0x1402A6534 (KiAcquirePrcbLocksForPreemptionAttemptSlowPath.c)
  */
 
-__int64 __fastcall KiSelectCandidateProcessor(__int64 a1, __int64 a2, __int64 a3, int a4, unsigned __int64 *a5)
+__int64 __fastcall KiSelectCandidateProcessor(__int64 a1, __int64 a2, __int64 a3, __int64 a4, unsigned __int64 *a5)
 {
   _WORD *v5; // r10
   __int64 v6; // r13
   __int64 v7; // rax
-  _QWORD *v9; // rdi
+  __int64 v9; // rdi
   __int64 v10; // rdx
   __int64 v11; // rbx
   _DWORD *v12; // r15
@@ -27,7 +27,7 @@ __int64 __fastcall KiSelectCandidateProcessor(__int64 a1, __int64 a2, __int64 a3
   __int64 v16; // r8
   char v17; // cl
   unsigned __int64 v18; // rax
-  unsigned int v19; // edx
+  int v19; // edx
   unsigned __int64 *v20; // r12
   unsigned int v21; // ebx
   _BYTE *v22; // rax
@@ -44,13 +44,13 @@ __int64 __fastcall KiSelectCandidateProcessor(__int64 a1, __int64 a2, __int64 a3
   v5 = *(_WORD **)(a2 + 576);
   v6 = a1;
   v7 = *(unsigned __int8 *)(a1 + 208);
-  v9 = *(_QWORD **)(a1 + 192);
+  v9 = *(_QWORD *)(a1 + 192);
   if ( (unsigned __int16)v7 >= *v5 )
     v10 = 0LL;
   else
     v10 = *(_QWORD *)&v5[4 * v7 + 4];
-  v11 = v10 & v9[16];
-  v12 = v9 + 15;
+  v11 = v10 & *(_QWORD *)(v9 + 128);
+  v12 = (_DWORD *)(v9 + 120);
   if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || PopHibernateInProgress )
   {
     _m_prefetchw(v12);
@@ -64,21 +64,20 @@ __int64 __fastcall KiSelectCandidateProcessor(__int64 a1, __int64 a2, __int64 a3
       if ( v13 < 0 )
       {
         LOBYTE(v10) = -1;
-        ExpWaitForSpinLockSharedAndAcquire(v9 + 15, v10);
+        ExpWaitForSpinLockSharedAndAcquire((signed __int32 *)(v9 + 120), v10, a3, a4);
         goto LABEL_6;
       }
     }
   }
   else
   {
-    LOBYTE(v10) = -1;
-    ExpAcquireSpinLockSharedAtDpcLevelInstrumented(v9 + 15, v10);
+    ExpAcquireSpinLockSharedAtDpcLevelInstrumented((_DWORD *)(v9 + 120), 0xFFu);
 LABEL_6:
-    a4 = v31;
+    LODWORD(a4) = v31;
   }
   if ( KiForceParkingConfiguration )
-    v11 &= ~v9[13];
-  v15 = v11 & v9[10];
+    v11 &= ~*(_QWORD *)(v9 + 104);
+  v15 = v11 & *(_QWORD *)(v9 + 80);
   if ( !v15 )
     v15 = v11;
   v16 = a3 & v15;
@@ -86,7 +85,7 @@ LABEL_6:
   {
     v17 = *(_BYTE *)(v6 + 209);
     _BitScanForward64(&v18, __ROR8__(v16, v17));
-    v6 = KiProcessorBlock[*((unsigned int *)qword_140F21E78
+    v6 = KiProcessorBlock[*((unsigned int *)qword_140F22998
                           + 64 * *(unsigned __int8 *)(v6 + 208)
                           + (((unsigned __int8)v18 + v17) & 0x3F))];
   }
@@ -94,9 +93,9 @@ LABEL_6:
   v20 = a5;
   v21 = **(unsigned __int8 **)(v6 + 56);
   v30 = v6;
-  if ( a4 < (int)(v21 >> 7) )
+  if ( (int)a4 < (int)(v21 >> 7) )
     v19 = v21 >> 7;
-  *a5 = (int)v19 ^ (v6 ^ (int)v19) & 0xFFFFFFFFFFFFFFFEuLL;
+  *a5 = v19 ^ (v6 ^ v19) & 0xFFFFFFFFFFFFFFFEuLL;
   if ( !v19 )
   {
     v24 = &v30;
@@ -137,7 +136,7 @@ LABEL_20:
         --v25;
       }
       while ( v25 );
-      a4 = v31;
+      LODWORD(a4) = v31;
     }
   }
   if ( ((**(_BYTE **)(v6 + 56) ^ v21) & 0x80u) != 0 )

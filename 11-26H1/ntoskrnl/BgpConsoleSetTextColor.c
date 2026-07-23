@@ -1,26 +1,26 @@
 /*
- * XREFs of BgpConsoleSetTextColor @ 0x140C50940
+ * XREFs of BgpConsoleSetTextColor @ 0x140C56940
  * Callers:
  *     <none>
  * Callees:
- *     BgpFwAcquireLock @ 0x1404E7E04 (BgpFwAcquireLock.c)
- *     BgpFwReleaseLock @ 0x1404E81BC (BgpFwReleaseLock.c)
+ *     BgpFwAcquireLock @ 0x1404E11C4 (BgpFwAcquireLock.c)
+ *     BgpFwReleaseLock @ 0x1404E157C (BgpFwReleaseLock.c)
  */
 
 __int64 __fastcall BgpConsoleSetTextColor(_DWORD *a1, _DWORD *a2)
 {
-  struct _LIST_ENTRY *Flink; // rax
+  _DWORD *NormalContext; // rax
   unsigned int v5; // ebx
 
   BgpFwAcquireLock();
-  Flink = WheapPfaLock.SavedApcState.ApcListHead[1].Flink;
+  NormalContext = WheapPfaLock.SchedulerApc.NormalContext;
   v5 = 0;
-  if ( WheapPfaLock.SavedApcState.ApcListHead[1].Flink )
+  if ( WheapPfaLock.SchedulerApc.NormalContext )
   {
     if ( a1 )
-      HIDWORD(WheapPfaLock.SavedApcState.ApcListHead[1].Flink->Blink) = *a1;
+      *((_DWORD *)WheapPfaLock.SchedulerApc.NormalContext + 3) = *a1;
     if ( a2 )
-      LODWORD(Flink[1].Flink) = *a2;
+      NormalContext[4] = *a2;
   }
   else
   {

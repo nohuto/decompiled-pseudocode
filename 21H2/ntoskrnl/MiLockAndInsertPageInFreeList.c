@@ -1,14 +1,14 @@
 /*
- * XREFs of MiLockAndInsertPageInFreeList @ 0x1403B750C
+ * XREFs of MiLockAndInsertPageInFreeList @ 0x1403B767C
  * Callers:
- *     MiTradePage @ 0x140300BE0 (MiTradePage.c)
- *     MiMakePageAvoidRead @ 0x140324070 (MiMakePageAvoidRead.c)
- *     MiBuildForkPte @ 0x1405582BC (MiBuildForkPte.c)
- *     MiFreeBootPageTable @ 0x140A577A4 (MiFreeBootPageTable.c)
- *     MiFreeEmptyBootPageTable @ 0x140A92F24 (MiFreeEmptyBootPageTable.c)
+ *     MiTradePage @ 0x14030B930 (MiTradePage.c)
+ *     MiMakePageAvoidRead @ 0x14032EDC0 (MiMakePageAvoidRead.c)
+ *     MiBuildForkPte @ 0x1405584FC (MiBuildForkPte.c)
+ *     MiFreeBootPageTable @ 0x140A587A4 (MiFreeBootPageTable.c)
+ *     MiFreeEmptyBootPageTable @ 0x140A93F24 (MiFreeEmptyBootPageTable.c)
  * Callees:
- *     MiInsertPageInFreeOrZeroedList @ 0x140234F10 (MiInsertPageInFreeOrZeroedList.c)
- *     MiLockPageInline @ 0x1402FFE30 (MiLockPageInline.c)
+ *     MiInsertPageInFreeOrZeroedList @ 0x1402D9760 (MiInsertPageInFreeOrZeroedList.c)
+ *     MiLockPageInline @ 0x14030AB80 (MiLockPageInline.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 

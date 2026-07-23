@@ -1,11 +1,11 @@
 /*
- * XREFs of KiRemovePrcbWaitEntry @ 0x140380F20
+ * XREFs of KiRemovePrcbWaitEntry @ 0x140382CD0
  * Callers:
- *     KiWakePriQueueWaiter @ 0x140380910 (KiWakePriQueueWaiter.c)
- *     KiAlertSingleThreadByThreadId @ 0x140381040 (KiAlertSingleThreadByThreadId.c)
- *     KeAlertThreadByThreadIdEx @ 0x140381260 (KeAlertThreadByThreadIdEx.c)
+ *     KiWakePriQueueWaiter @ 0x1403826C0 (KiWakePriQueueWaiter.c)
+ *     KiAlertSingleThreadByThreadId @ 0x140382DF0 (KiAlertSingleThreadByThreadId.c)
+ *     KeAlertThreadByThreadIdEx @ 0x140383010 (KeAlertThreadByThreadIdEx.c)
  * Callees:
- *     HvlNotifyLongSpinWait @ 0x1402BBF00 (HvlNotifyLongSpinWait.c)
+ *     HvlNotifyLongSpinWait @ 0x140306BC0 (HvlNotifyLongSpinWait.c)
  */
 
 void __fastcall KiRemovePrcbWaitEntry(_QWORD *a1)

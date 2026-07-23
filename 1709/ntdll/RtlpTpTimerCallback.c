@@ -13,54 +13,49 @@
  *     _guard_dispatch_icall_nop @ 0x1800A3A60 (_guard_dispatch_icall_nop.c)
  */
 
-__int64 __fastcall RtlpTpTimerCallback(__int64 a1, __int64 a2)
+void __fastcall RtlpTpTimerCallback(PTP_CALLBACK_INSTANCE a1, PVOID a2, PTP_TIMER a3)
 {
-  __int64 v3; // rcx
-  struct _TEB *v4; // rsi
-  __int64 v5; // rdi
-  __int64 v6; // rcx
-  __int64 v7; // rdx
-  __int64 v8; // rcx
-  __int64 result; // rax
-  __int64 v10; // [rsp+58h] [rbp+10h] BYREF
-  __int64 v11; // [rsp+68h] [rbp+20h] BYREF
+  __int64 v4; // rcx
+  struct _TEB *v5; // rsi
+  __int64 v6; // rdi
+  __int64 v7; // rcx
+  __int64 ThreadInformation; // [rsp+58h] [rbp+10h] BYREF
+  __int64 v9; // [rsp+68h] [rbp+20h] BYREF
 
-  if ( *(_BYTE *)(a2 + 88)
-    || (result = (unsigned int)_InterlockedExchange((volatile __int32 *)(a2 + 92), 1), !(_DWORD)result) )
+  if ( *((_BYTE *)a2 + 88) || !_InterlockedExchange((volatile __int32 *)a2 + 23, 1) )
   {
-    v3 = *(_QWORD *)(a2 + 16);
-    if ( v3 )
-      RtlpTpImpersonate();
-    v4 = NtCurrentTeb();
-    v5 = 2147353478LL;
-    if ( (unsigned int)RtlGetCurrentServiceSessionId(v3, a2) )
-      v6 = (__int64)NtCurrentPeb()->SharedData + 556;
+    v4 = *((_QWORD *)a2 + 2);
+    if ( v4 )
+      RtlpTpImpersonate(v4, a2, a3);
+    v5 = NtCurrentTeb();
+    v6 = 2147353478LL;
+    if ( RtlGetCurrentServiceSessionId() )
+      v7 = (__int64)NtCurrentPeb()->SharedData + 556;
     else
-      v6 = 2147353478LL;
-    if ( *(_BYTE *)v6 )
+      v7 = 2147353478LL;
+    if ( *(_BYTE *)v7 )
       RtlpTpETWCallbackStart(
         0LL,
-        *(_QWORD *)(a2 + 64),
-        *(_QWORD *)(a2 + 32),
-        *(_QWORD *)(a2 + 40),
-        (__int64)v4->SubProcessTag);
-    TppStartThreadData(&v11, *(_QWORD *)(a2 + 32), *(_QWORD *)(a2 + 40), v4->SubProcessTag);
+        *((_QWORD *)a2 + 8),
+        *((_QWORD *)a2 + 4),
+        *((_QWORD *)a2 + 5),
+        (__int64)v5->SubProcessTag);
+    TppStartThreadData(&v9, *((_QWORD *)a2 + 4), *((_QWORD *)a2 + 5), v5->SubProcessTag);
     _guard_dispatch_icall_fptr();
     if ( NtCurrentTeb()->IsImpersonating )
     {
-      v10 = 0LL;
-      NtSetInformationThread(-2LL, 5LL, &v10);
+      ThreadInformation = 0LL;
+      NtSetInformationThread((HANDLE)0xFFFFFFFFFFFFFFFELL, ThreadImpersonationToken, &ThreadInformation, 8u);
     }
-    if ( (unsigned int)RtlGetCurrentServiceSessionId(v8, v7) )
-      v5 = (__int64)NtCurrentPeb()->SharedData + 556;
-    if ( *(_BYTE *)v5 )
+    if ( RtlGetCurrentServiceSessionId() )
+      v6 = (__int64)NtCurrentPeb()->SharedData + 556;
+    if ( *(_BYTE *)v6 )
       RtlpTpETWCallbackStop(
         0LL,
-        *(_QWORD *)(a2 + 64),
-        *(_QWORD *)(a2 + 32),
-        *(_QWORD *)(a2 + 40),
-        (__int64)v4->SubProcessTag);
-    return TppCompleteThreadData(v11);
+        *((_QWORD *)a2 + 8),
+        *((_QWORD *)a2 + 4),
+        *((_QWORD *)a2 + 5),
+        (__int64)v5->SubProcessTag);
+    TppCompleteThreadData(v9);
   }
-  return result;
 }

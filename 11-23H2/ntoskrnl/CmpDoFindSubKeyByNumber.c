@@ -1,16 +1,16 @@
 /*
- * XREFs of CmpDoFindSubKeyByNumber @ 0x1406DADDC
+ * XREFs of CmpDoFindSubKeyByNumber @ 0x1406DAE0C
  * Callers:
- *     CmpFindSubKeyByNumber @ 0x1406DAF00 (CmpFindSubKeyByNumber.c)
- *     CmpFindSubKeyByNumberEx @ 0x1406DAFD0 (CmpFindSubKeyByNumberEx.c)
- *     CmpKeyEnumStackEntryAdvance @ 0x140A23B0C (CmpKeyEnumStackEntryAdvance.c)
- *     CmpKeyEnumStackEntryBegin @ 0x140A23C2C (CmpKeyEnumStackEntryBegin.c)
- *     CmpKeyEnumStackEntryNotifyPromotion @ 0x140A23EBC (CmpKeyEnumStackEntryNotifyPromotion.c)
+ *     CmpFindSubKeyByNumber @ 0x1406DAF30 (CmpFindSubKeyByNumber.c)
+ *     CmpFindSubKeyByNumberEx @ 0x1406DB000 (CmpFindSubKeyByNumberEx.c)
+ *     CmpKeyEnumStackEntryAdvance @ 0x140A23DBC (CmpKeyEnumStackEntryAdvance.c)
+ *     CmpKeyEnumStackEntryBegin @ 0x140A23EDC (CmpKeyEnumStackEntryBegin.c)
+ *     CmpKeyEnumStackEntryNotifyPromotion @ 0x140A2416C (CmpKeyEnumStackEntryNotifyPromotion.c)
  * Callees:
- *     HvpGetCellPaged @ 0x1406E0150 (HvpGetCellPaged.c)
- *     HvpReleaseCellPaged @ 0x1406E0260 (HvpReleaseCellPaged.c)
- *     HvpReleaseCellFlat @ 0x1407D9470 (HvpReleaseCellFlat.c)
- *     HvpGetCellFlat @ 0x1407FD9F0 (HvpGetCellFlat.c)
+ *     HvpGetCellPaged @ 0x1406E0180 (HvpGetCellPaged.c)
+ *     HvpReleaseCellPaged @ 0x1406E0290 (HvpReleaseCellPaged.c)
+ *     HvpReleaseCellFlat @ 0x1407D9740 (HvpReleaseCellFlat.c)
+ *     HvpGetCellFlat @ 0x1407FDCC0 (HvpGetCellFlat.c)
  */
 
 __int64 __fastcall CmpDoFindSubKeyByNumber(ULONG_PTR BugCheckParameter3, _WORD *a2, unsigned int a3)

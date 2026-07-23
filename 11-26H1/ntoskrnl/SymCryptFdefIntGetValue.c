@@ -1,9 +1,9 @@
 /*
- * XREFs of SymCryptFdefIntGetValue @ 0x140570BA0
+ * XREFs of SymCryptFdefIntGetValue @ 0x14056FD80
  * Callers:
- *     SymCryptIntGetValue @ 0x14055C2D4 (SymCryptIntGetValue.c)
+ *     SymCryptIntGetValue @ 0x14055E7BC (SymCryptIntGetValue.c)
  * Callees:
- *     SymCryptFdefRawGetValue @ 0x140570DB4 (SymCryptFdefRawGetValue.c)
+ *     SymCryptFdefRawGetValue @ 0x14056FF94 (SymCryptFdefRawGetValue.c)
  */
 
 __int64 __fastcall SymCryptFdefIntGetValue(__int64 a1, int a2, int a3, int a4)

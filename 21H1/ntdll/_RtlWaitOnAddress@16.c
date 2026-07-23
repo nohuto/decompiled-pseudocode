@@ -6,7 +6,12 @@
  *     _RtlpWaitOnAddress@20 @ 0x4B2DF747 (_RtlpWaitOnAddress@20.c)
  */
 
-int __stdcall RtlWaitOnAddress(volatile signed __int64 *a1, int a2, unsigned int a3, int a4)
+NTSTATUS __cdecl RtlWaitOnAddress(void *Address, PVOID CompareAddress, SIZE_T AddressSize, PLARGE_INTEGER Timeout)
 {
-  return RtlpWaitOnAddress(a1, a2, a3, a4, RtlpWaitOnAddressSpinCycleCount);
+  return RtlpWaitOnAddress(
+           (volatile signed __int64 *)Address,
+           (int)CompareAddress,
+           AddressSize,
+           (PLARGE_INTEGER)HIDWORD(AddressSize),
+           RtlpWaitOnAddressSpinCycleCount);
 }

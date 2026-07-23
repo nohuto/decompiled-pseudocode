@@ -1,16 +1,16 @@
 /*
- * XREFs of RtlpMuiRegConfigMatchesInstalled @ 0x14098102C
+ * XREFs of RtlpMuiRegConfigMatchesInstalled @ 0x14098120C
  * Callers:
- *     RtlpMuiRegValidateConfigNode @ 0x1405CA89C (RtlpMuiRegValidateConfigNode.c)
+ *     RtlpMuiRegValidateConfigNode @ 0x1405CAACC (RtlpMuiRegValidateConfigNode.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
- *     _MuiRegAllocArray @ 0x1403AD474 (_MuiRegAllocArray.c)
- *     _wcsicmp @ 0x1403D20D0 (_wcsicmp.c)
- *     RtlCultureNameToLCID @ 0x140793140 (RtlCultureNameToLCID.c)
- *     RtlLCIDToCultureName @ 0x140916020 (RtlLCIDToCultureName.c)
- *     RtlpMuiRegGetInstalledLanguageIndex @ 0x140981438 (RtlpMuiRegGetInstalledLanguageIndex.c)
- *     RtlpMuiRegLangInfoMatchesSpec @ 0x1409817B0 (RtlpMuiRegLangInfoMatchesSpec.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     RtlInitUnicodeString @ 0x14026A4C0 (RtlInitUnicodeString.c)
+ *     _MuiRegAllocArray @ 0x1403A8AE8 (_MuiRegAllocArray.c)
+ *     _wcsicmp @ 0x1403D2240 (_wcsicmp.c)
+ *     RtlCultureNameToLCID @ 0x14078EEE0 (RtlCultureNameToLCID.c)
+ *     RtlLCIDToCultureName @ 0x140916180 (RtlLCIDToCultureName.c)
+ *     RtlpMuiRegGetInstalledLanguageIndex @ 0x140981618 (RtlpMuiRegGetInstalledLanguageIndex.c)
+ *     RtlpMuiRegLangInfoMatchesSpec @ 0x140981990 (RtlpMuiRegLangInfoMatchesSpec.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 char __fastcall RtlpMuiRegConfigMatchesInstalled(
@@ -42,12 +42,12 @@ char __fastcall RtlpMuiRegConfigMatchesInstalled(
   __int64 v25; // r8
   UNICODE_STRING DestinationString; // [rsp+30h] [rbp-10h] BYREF
   __int16 v28; // [rsp+88h] [rbp+48h] BYREF
-  int v29; // [rsp+98h] [rbp+58h] BYREF
+  DWORD Lcid; // [rsp+98h] [rbp+58h] BYREF
 
   v7 = 0LL;
   v8 = a2;
   v9 = (__int16)a3;
-  v29 = 0;
+  Lcid = 0;
   v28 = 0;
   v11 = 0LL;
   DestinationString = 0LL;
@@ -96,9 +96,9 @@ LABEL_3:
         if ( v21 )
         {
           RtlInitUnicodeString(&DestinationString, v21);
-          if ( RtlCultureNameToLCID(&DestinationString.Length, &v29) )
+          if ( RtlCultureNameToLCID(&DestinationString, &Lcid) )
           {
-            v12 = (_WORD)v9 == (unsigned __int16)v29;
+            v12 = (_WORD)v9 == (unsigned __int16)Lcid;
             goto LABEL_3;
           }
         }

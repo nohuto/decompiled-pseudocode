@@ -1,16 +1,21 @@
 /*
- * XREFs of ZwQueryInformationTransaction @ 0x1800A2B90
+ * XREFs of ZwQueryInformationTransaction @ 0x1800A2BB0
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 ZwQueryInformationTransaction()
+NTSTATUS __cdecl ZwQueryInformationTransaction(
+        HANDLE TransactionHandle,
+        TRANSACTION_INFORMATION_CLASS TransactionInformationClass,
+        PVOID TransactionInformation,
+        ULONG TransactionInformationLength,
+        PULONG ReturnLength)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 326LL;
+  result = 326;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

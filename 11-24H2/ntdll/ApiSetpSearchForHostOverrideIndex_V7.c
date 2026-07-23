@@ -1,16 +1,16 @@
 /*
- * XREFs of ApiSetpSearchForHostOverrideIndex_V7 @ 0x1801365C4
+ * XREFs of ApiSetpSearchForHostOverrideIndex_V7 @ 0x1801347F4
  * Callers:
- *     ApiSetpResolveHost @ 0x180135C7C (ApiSetpResolveHost.c)
+ *     ApiSetpResolveHost @ 0x180133EAC (ApiSetpResolveHost.c)
  * Callees:
- *     RtlCompareUnicodeStrings @ 0x180072550 (RtlCompareUnicodeStrings.c)
+ *     RtlCompareUnicodeStrings @ 0x18008EE30 (RtlCompareUnicodeStrings.c)
  */
 
 __int64 __fastcall ApiSetpSearchForHostOverrideIndex_V7(
         __int64 a1,
         unsigned int a2,
         unsigned int a3,
-        unsigned __int16 *a4,
+        const WCHAR *a4,
         unsigned __int16 a5)
 {
   unsigned int i; // ebx
@@ -23,15 +23,12 @@ __int64 __fastcall ApiSetpSearchForHostOverrideIndex_V7(
     {
       v10 = *(unsigned __int16 *)(a1 + 18);
       v11 = *(unsigned int *)(a1 + 104) + a2 * (unsigned __int64)*(unsigned __int16 *)(a1 + 114) - v10;
-      if ( !(unsigned int)RtlCompareUnicodeStrings(
-                            a4,
-                            a5,
-                            (_BYTE *)(a1
-                                    + *(unsigned int *)(v11 + a1 + 4)
-                                    + (unsigned __int64)*(unsigned int *)(a1 + 36)
-                                    - v10),
-                            *(unsigned __int16 *)(v11 + a1 + 12),
-                            1) )
+      if ( !RtlCompareUnicodeStrings(
+              a4,
+              a5,
+              (PCWCH)(a1 + *(unsigned int *)(v11 + a1 + 4) + (unsigned __int64)*(unsigned int *)(a1 + 36) - v10),
+              *(unsigned __int16 *)(v11 + a1 + 12),
+              1u) )
         return a2;
       a2 = *(unsigned __int16 *)(v11 + a1);
     }

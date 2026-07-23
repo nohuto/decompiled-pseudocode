@@ -27,9 +27,9 @@ __int64 __fastcall WheaInitialize(__int64 a1, unsigned int a2)
   ULONG_PTR v3; // r15
   int v5; // eax
   int v6; // eax
-  unsigned __int64 v7; // rax
+  PRTL_BALANCED_NODE v7; // rax
   signed __int8 v8; // cf
-  unsigned __int64 v9; // rbx
+  PRTL_BALANCED_NODE v9; // rbx
   int v10; // eax
   ULONG i; // ebx
   __int64 Prcb; // rax
@@ -71,10 +71,10 @@ __int64 __fastcall WheaInitialize(__int64 a1, unsigned int a2)
     if ( v8 )
       ExfAcquirePushLockExclusiveEx(
         (unsigned __int64 *)&WheapDispatchPtr.DeviceLock.Header.WaitListHead,
-        v7,
+        (__int64)v7,
         (__int16 *)&WheapDispatchPtr.DeviceLock.Header.WaitListHead);
     if ( v9 )
-      *(_BYTE *)(v9 + 26) |= 1u;
+      BYTE2(v9[1].Left) |= 1u;
     v10 = WheapInitializeErrorSourceTable(v27, Address);
     if ( v10 < 0 )
       KeBugCheckEx(0x122u, 7uLL, v10, 0LL, 0LL);

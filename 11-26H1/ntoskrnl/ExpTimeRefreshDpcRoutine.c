@@ -1,14 +1,14 @@
 /*
- * XREFs of ExpTimeRefreshDpcRoutine @ 0x1404EF780
+ * XREFs of ExpTimeRefreshDpcRoutine @ 0x1404E8D60
  * Callers:
  *     <none>
  * Callees:
- *     ExQueueWorkItem @ 0x140381C70 (ExQueueWorkItem.c)
- *     _local_unwind @ 0x140536000 (_local_unwind.c)
- *     RtlpComputeEpilogueOffset @ 0x1405531C8 (RtlpComputeEpilogueOffset.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     KiCustomAccessRoutine7 @ 0x1407329F0 (KiCustomAccessRoutine7.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     ExQueueWorkItem @ 0x140383A20 (ExQueueWorkItem.c)
+ *     _local_unwind @ 0x140538480 (_local_unwind.c)
+ *     RtlpComputeEpilogueOffset @ 0x140555648 (RtlpComputeEpilogueOffset.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     KiCustomAccessRoutine7 @ 0x1407375C0 (KiCustomAccessRoutine7.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 void __fastcall ExpTimeRefreshDpcRoutine(__int64 a1, volatile signed __int32 *a2, __int64 a3, unsigned __int64 a4)
@@ -31,5 +31,5 @@ void __fastcall ExpTimeRefreshDpcRoutine(__int64 a1, volatile signed __int32 *a2
     KiCustomAccessRoutine7(a2);
   }
   if ( _InterlockedIncrement(a2) == 1 )
-    ExQueueWorkItem((PWORK_QUEUE_ITEM)&ExpSysDbgLock.216, DelayedWorkQueue);
+    ExQueueWorkItem((PWORK_QUEUE_ITEM)&ExpSysDbgLock.WaitBlockFill11[80], DelayedWorkQueue);
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of MiInitializeColors @ 0x140A450F4
+ * XREFs of MiInitializeColors @ 0x140A460F4
  * Callers:
- *     MiCreatePfnDatabase @ 0x140A436BC (MiCreatePfnDatabase.c)
+ *     MiCreatePfnDatabase @ 0x140A446BC (MiCreatePfnDatabase.c)
  * Callees:
- *     MiInitializeCacheSizes @ 0x140A4517C (MiInitializeCacheSizes.c)
+ *     MiInitializeCacheSizes @ 0x140A4617C (MiInitializeCacheSizes.c)
  */
 
 __int64 MiInitializeColors()
@@ -15,9 +15,9 @@ __int64 MiInitializeColors()
   __int64 result; // rax
 
   MiInitializeCacheSizes();
-  _BitScanReverse(&v0, dword_140C4DEFC);
+  _BitScanReverse(&v0, dword_140C4DF3C);
   LOBYTE(v1) = 1;
-  byte_140C4DE8D = v0;
+  byte_140C4DECD = v0;
   v2 = 1;
   MiChannelMaximumPowerOf2 = 1;
   if ( (unsigned int)MmNumberOfChannels > 1 )
@@ -32,9 +32,9 @@ __int64 MiInitializeColors()
   }
   MiChannelMaximumPowerOf2Mask = v2 - 1;
   _BitScanReverse(&v3, v2);
-  byte_140C4DE8C = v3 + byte_140C4DE8D;
-  dword_140C4DE80 = (1 << (v3 + byte_140C4DE8D)) - 1;
-  result = (unsigned int)dword_140C4DEF8;
-  KeGetCurrentPrcb()->SecondaryColorMask = dword_140C4DEF8;
+  byte_140C4DECC = v3 + byte_140C4DECD;
+  dword_140C4DEC0 = (1 << (v3 + byte_140C4DECD)) - 1;
+  result = (unsigned int)dword_140C4DF38;
+  KeGetCurrentPrcb()->SecondaryColorMask = dword_140C4DF38;
   return result;
 }

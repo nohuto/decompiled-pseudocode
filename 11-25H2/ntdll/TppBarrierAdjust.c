@@ -30,13 +30,13 @@
  *     NtWaitForAlertByThreadId @ 0x180166E70 (NtWaitForAlertByThreadId.c)
  */
 
-struct _TEB *__fastcall TppBarrierAdjust(volatile signed __int64 *a1, int a2, int a3)
+int __fastcall TppBarrierAdjust(_RTL_SRWLOCK *a1, int a2, int a3)
 {
   char v3; // r15
   char v4; // bp
-  unsigned __int64 v7; // rdi
+  unsigned __int64 Value; // rdi
   __int64 v8; // r12
-  volatile signed __int64 *v9; // rbp
+  _RTL_SRWLOCK *v9; // rbp
   signed __int64 v10; // rax
   char *SchedulerSharedDataSlot; // rcx
   __int64 v12; // rbp
@@ -49,22 +49,22 @@ struct _TEB *__fastcall TppBarrierAdjust(volatile signed __int64 *a1, int a2, in
   unsigned int j; // ecx
   volatile signed __int32 **v20; // rdx
   bool v21; // zf
-  struct _TEB *result; // rax
-  _QWORD *v23; // rbx
-  volatile signed __int64 *v24; // rsi
+  struct _TEB *v22; // rax
+  unsigned __int64 v23; // rbx
+  _RTL_SRWLOCK *v24; // rsi
   signed __int64 v25; // rax
   char *v26; // rcx
   unsigned int v27; // edx
   __int64 v28; // rsi
   char *v29; // rdi
-  _QWORD *v30; // rdi
+  unsigned __int64 v30; // rdi
   signed __int64 v31; // rax
   signed __int64 v32; // rdx
   __int64 v33; // rdx
   signed __int64 v34; // rcx
   signed __int64 v35; // rdx
   signed __int64 v36; // rtt
-  volatile signed __int64 *v37; // rbp
+  _RTL_SRWLOCK *v37; // rbp
   unsigned __int64 v38; // r9
   _QWORD *v39; // r8
   __int64 v40; // rcx
@@ -74,7 +74,7 @@ struct _TEB *__fastcall TppBarrierAdjust(volatile signed __int64 *a1, int a2, in
   signed __int64 v44; // rcx
   signed __int64 v45; // rdx
   signed __int64 v46; // rtt
-  volatile signed __int64 *v47; // r14
+  _RTL_SRWLOCK *v47; // r14
   unsigned __int64 v48; // r8
   _QWORD *v49; // r9
   __int64 v50; // rcx
@@ -88,22 +88,22 @@ struct _TEB *__fastcall TppBarrierAdjust(volatile signed __int64 *a1, int a2, in
   signed __int64 v58; // rax
   _QWORD *v59; // rax
   _QWORD *v60; // rax
-  _QWORD v61[2]; // [rsp+20h] [rbp-58h] BYREF
-  _QWORD v62[2]; // [rsp+30h] [rbp-48h] BYREF
-  __int128 v63; // [rsp+40h] [rbp-38h] BYREF
+  _QWORD v62[2]; // [rsp+20h] [rbp-58h] BYREF
+  _QWORD ThreadInformation[2]; // [rsp+30h] [rbp-48h] BYREF
+  __int128 v64; // [rsp+40h] [rbp-38h] BYREF
 
   v3 = 0;
-  v63 = 0LL;
+  v64 = 0LL;
   v4 = 0;
-  _m_prefetchw((const void *)a1);
-  v7 = *a1;
+  _m_prefetchw(a1);
+  Value = a1->Value;
   v8 = a2;
   do
   {
     if ( v4 )
     {
       v9 = a1 + 1;
-      v10 = _InterlockedCompareExchange64(a1 + 1, 0LL, 1LL);
+      v10 = _InterlockedCompareExchange64((volatile signed __int64 *)&a1[1], 0LL, 1LL);
       if ( v10 != 1 )
       {
         do
@@ -114,7 +114,7 @@ struct _TEB *__fastcall TppBarrierAdjust(volatile signed __int64 *a1, int a2, in
             v43 = -1LL;
           v45 = v10 + v43;
           v46 = v10;
-          v10 = _InterlockedCompareExchange64(v9, v45, v10);
+          v10 = _InterlockedCompareExchange64((volatile signed __int64 *)v9, v45, v10);
         }
         while ( v46 != v10 );
         if ( v44 == 2 )
@@ -124,7 +124,7 @@ struct _TEB *__fastcall TppBarrierAdjust(volatile signed __int64 *a1, int a2, in
           {
             while ( (v45 & 1) != 0 )
             {
-              v58 = _InterlockedCompareExchange64(v9, v45 - 4, v45);
+              v58 = _InterlockedCompareExchange64((volatile signed __int64 *)v9, v45 - 4, v45);
               v21 = v45 == v58;
               v45 = v58;
               if ( v21 )
@@ -153,7 +153,7 @@ struct _TEB *__fastcall TppBarrierAdjust(volatile signed __int64 *a1, int a2, in
                 break;
             }
             v47 = 0LL;
-            v52 = _InterlockedCompareExchange64(v9, 0LL, v45);
+            v52 = _InterlockedCompareExchange64((volatile signed __int64 *)v9, 0LL, v45);
             v21 = v45 == v52;
             v45 = v52;
             if ( v21 )
@@ -161,7 +161,7 @@ struct _TEB *__fastcall TppBarrierAdjust(volatile signed __int64 *a1, int a2, in
           }
           *(_QWORD *)((v45 & 0xFFFFFFFFFFFFFFF0uLL) + 8) = v51;
           *(_QWORD *)(v50 + 16) = 0LL;
-          _InterlockedAnd64(v9, 0xFFFFFFFFFFFFFFFBuLL);
+          _InterlockedAnd64((volatile signed __int64 *)v9, 0xFFFFFFFFFFFFFFFBuLL);
           do
           {
 LABEL_70:
@@ -190,9 +190,9 @@ LABEL_4:
               *v14 |= 2u;
               if ( v14[7] < 0 )
               {
-                v61[1] = 0LL;
-                v61[0] = (v14 - (char *)NtCurrentTeb()->SchedulerSharedDataSlot) >> 3;
-                NtSetInformationThread(-2LL, 56LL, v61);
+                v62[1] = 0LL;
+                v62[0] = (v14 - (char *)NtCurrentTeb()->SchedulerSharedDataSlot) >> 3;
+                NtSetInformationThread((HANDLE)0xFFFFFFFFFFFFFFFELL, ThreadUpdateLockOwnership, v62, 0x10u);
               }
               *(_QWORD *)v14 = 0LL;
             }
@@ -207,11 +207,11 @@ LABEL_4:
       RtlReleaseSRWLockShared(a1 + 1);
       v3 = 0;
     }
-    v15 = (v8 + v7) & 0xFFFFFFFFFFFFFFFLL;
-    v16 = (v8 + v7) ^ (v7 ^ (v8 + v7)) & 0xF000000000000000uLL;
-    if ( v15 == 0 && ((v7 >> 60) & 8) != 0 )
+    v15 = (v8 + Value) & 0xFFFFFFFFFFFFFFFLL;
+    v16 = (v8 + Value) ^ (Value ^ (v8 + Value)) & 0xF000000000000000uLL;
+    if ( v15 == 0 && ((Value >> 60) & 8) != 0 )
     {
-      v17 = (volatile signed __int32 *)(a1 + 1);
+      v17 = (volatile signed __int32 *)&a1[1];
       v16 &= ~0x8000000000000000uLL;
       v4 = 1;
       v18 = (char *)NtCurrentTeb()->SchedulerSharedDataSlot;
@@ -229,7 +229,7 @@ LABEL_4:
         }
       }
       if ( _interlockedbittestandset64(v17, 0LL) )
-        RtlpAcquireSRWLockExclusiveContended(a1 + 1);
+        RtlpAcquireSRWLockExclusiveContended(&a1[1]);
     }
     else if ( a3 && v15 )
     {
@@ -237,17 +237,17 @@ LABEL_4:
       v3 = 1;
       RtlAcquireSRWLockShared(a1 + 1);
     }
-    result = (struct _TEB *)_InterlockedCompareExchange64(a1, v16, v7);
-    v21 = v7 == (_QWORD)result;
-    v7 = (unsigned __int64)result;
+    v22 = (struct _TEB *)_InterlockedCompareExchange64((volatile signed __int64 *)a1, v16, Value);
+    v21 = Value == (_QWORD)v22;
+    Value = (unsigned __int64)v22;
   }
   while ( !v21 );
   if ( v4 )
   {
-    v23 = (_QWORD *)*((_QWORD *)a1 + 2);
-    *((_QWORD *)a1 + 2) = 0LL;
+    v23 = a1[2].Value;
+    a1[2].Value = 0LL;
     v24 = a1 + 1;
-    v25 = _InterlockedCompareExchange64(v24, 0LL, 1LL);
+    v25 = _InterlockedCompareExchange64((volatile signed __int64 *)v24, 0LL, 1LL);
     if ( v25 != 1 )
     {
       do
@@ -258,7 +258,7 @@ LABEL_4:
           v33 = -1LL;
         v35 = v25 + v33;
         v36 = v25;
-        v25 = _InterlockedCompareExchange64(v24, v35, v25);
+        v25 = _InterlockedCompareExchange64((volatile signed __int64 *)v24, v35, v25);
       }
       while ( v36 != v25 );
       if ( v34 == 2 )
@@ -268,7 +268,7 @@ LABEL_4:
         {
           while ( (v35 & 1) != 0 )
           {
-            v57 = _InterlockedCompareExchange64(v24, v35 - 4, v35);
+            v57 = _InterlockedCompareExchange64((volatile signed __int64 *)v24, v35 - 4, v35);
             v21 = v35 == v57;
             v35 = v57;
             if ( v21 )
@@ -297,7 +297,7 @@ LABEL_4:
               break;
           }
           v37 = 0LL;
-          v42 = _InterlockedCompareExchange64(v24, 0LL, v35);
+          v42 = _InterlockedCompareExchange64((volatile signed __int64 *)v24, 0LL, v35);
           v21 = v35 == v42;
           v35 = v42;
           if ( v21 )
@@ -305,7 +305,7 @@ LABEL_4:
         }
         *(_QWORD *)((v35 & 0xFFFFFFFFFFFFFFF0uLL) + 8) = v41;
         *(_QWORD *)(v40 + 16) = 0LL;
-        _InterlockedAnd64(v24, 0xFFFFFFFFFFFFFFFBuLL);
+        _InterlockedAnd64((volatile signed __int64 *)v24, 0xFFFFFFFFFFFFFFFBuLL);
         do
         {
 LABEL_65:
@@ -320,8 +320,8 @@ LABEL_65:
       }
     }
 LABEL_25:
-    result = NtCurrentTeb();
-    v26 = (char *)result->SchedulerSharedDataSlot;
+    v22 = NtCurrentTeb();
+    v26 = (char *)v22->SchedulerSharedDataSlot;
     if ( v26 )
     {
       v27 = 0;
@@ -329,17 +329,21 @@ LABEL_25:
       while ( v27 < 8 )
       {
         v29 = &v26[8 * v27];
-        result = (struct _TEB *)(*(_QWORD *)v29 & 0x7FFFFFFFFFFFFFFCLL);
-        if ( result == (struct _TEB *)v28 )
+        v22 = (struct _TEB *)(*(_QWORD *)v29 & 0x7FFFFFFFFFFFFFFCLL);
+        if ( v22 == (struct _TEB *)v28 )
         {
           if ( v29 )
           {
             *v29 |= 2u;
             if ( v29[7] < 0 )
             {
-              v62[1] = 0LL;
-              v62[0] = (v29 - (char *)NtCurrentTeb()->SchedulerSharedDataSlot) >> 3;
-              result = (struct _TEB *)NtSetInformationThread(-2LL, 56LL, v62);
+              ThreadInformation[1] = 0LL;
+              ThreadInformation[0] = (v29 - (char *)NtCurrentTeb()->SchedulerSharedDataSlot) >> 3;
+              LODWORD(v22) = NtSetInformationThread(
+                               (HANDLE)0xFFFFFFFFFFFFFFFELL,
+                               ThreadUpdateLockOwnership,
+                               ThreadInformation,
+                               0x10u);
             }
             *(_QWORD *)v29 = 0LL;
           }
@@ -352,8 +356,8 @@ LABEL_25:
     {
       do
       {
-        v30 = (_QWORD *)*v23;
-        result = (struct _TEB *)ZwAlertThreadByThreadId(v23[1]);
+        v30 = *(_QWORD *)v23;
+        LODWORD(v22) = ZwAlertThreadByThreadId(*(HANDLE *)(v23 + 8));
         v23 = v30;
       }
       while ( v30 );
@@ -361,18 +365,18 @@ LABEL_25:
   }
   else if ( v3 )
   {
-    *((_QWORD *)&v63 + 1) = NtCurrentTeb()->ClientId.UniqueThread;
-    _m_prefetchw((const void *)(a1 + 2));
-    v31 = *((_QWORD *)a1 + 2);
+    *((_QWORD *)&v64 + 1) = NtCurrentTeb()->ClientId.UniqueThread;
+    _m_prefetchw(&a1[2]);
+    v31 = a1[2].Value;
     do
     {
       v32 = v31;
-      *(_QWORD *)&v63 = v31;
-      v31 = _InterlockedCompareExchange64(a1 + 2, (signed __int64)&v63, v31);
+      *(_QWORD *)&v64 = v31;
+      v31 = _InterlockedCompareExchange64((volatile signed __int64 *)&a1[2], (signed __int64)&v64, v31);
     }
     while ( v31 != v32 );
     RtlReleaseSRWLockShared(a1 + 1);
-    return (struct _TEB *)NtWaitForAlertByThreadId(a1 + 2, 0LL);
+    LODWORD(v22) = NtWaitForAlertByThreadId(&a1[2], 0LL);
   }
-  return result;
+  return (int)v22;
 }

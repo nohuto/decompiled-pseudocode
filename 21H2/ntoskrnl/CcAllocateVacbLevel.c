@@ -1,11 +1,11 @@
 /*
- * XREFs of CcAllocateVacbLevel @ 0x14029B80C
+ * XREFs of CcAllocateVacbLevel @ 0x14021319C
  * Callers:
- *     CcExtendVacbArray @ 0x14029B324 (CcExtendVacbArray.c)
- *     CcSetVacbLargeOffset @ 0x1402F53AC (CcSetVacbLargeOffset.c)
+ *     CcExtendVacbArray @ 0x140212CB4 (CcExtendVacbArray.c)
+ *     CcSetVacbLargeOffset @ 0x1403000FC (CcSetVacbLargeOffset.c)
  * Callees:
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
- *     memset @ 0x140414200 (memset.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
+ *     memset @ 0x140414300 (memset.c)
  */
 
 _QWORD *__fastcall CcAllocateVacbLevel(__int64 a1, int a2)

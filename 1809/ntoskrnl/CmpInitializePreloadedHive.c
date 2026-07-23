@@ -1,20 +1,20 @@
 /*
- * XREFs of CmpInitializePreloadedHive @ 0x1409C3CAC
+ * XREFs of CmpInitializePreloadedHive @ 0x1409C4CAC
  * Callers:
- *     CmpInitializePreloadedHives @ 0x1409C3A28 (CmpInitializePreloadedHives.c)
+ *     CmpInitializePreloadedHives @ 0x1409C4A28 (CmpInitializePreloadedHives.c)
  * Callees:
  *     RtlAppendUnicodeToString @ 0x140015E00 (RtlAppendUnicodeToString.c)
- *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
- *     memmove @ 0x1401D1540 (memmove.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     CmpCreateHive @ 0x1405A6574 (CmpCreateHive.c)
- *     CmpLinkHiveToMaster @ 0x1405B8C48 (CmpLinkHiveToMaster.c)
- *     CmpSetupLoggingState @ 0x14073255C (CmpSetupLoggingState.c)
- *     CmpGetSystemRelativeRegistryHiveFilePath @ 0x1409F39C0 (CmpGetSystemRelativeRegistryHiveFilePath.c)
+ *     RtlInitUnicodeString @ 0x1400B99D0 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     CmpCreateHive @ 0x1405A7574 (CmpCreateHive.c)
+ *     CmpLinkHiveToMaster @ 0x1405B9C48 (CmpLinkHiveToMaster.c)
+ *     CmpSetupLoggingState @ 0x14073374C (CmpSetupLoggingState.c)
+ *     CmpGetSystemRelativeRegistryHiveFilePath @ 0x1409F49C0 (CmpGetSystemRelativeRegistryHiveFilePath.c)
  */
 
 __int64 __fastcall CmpInitializePreloadedHive(__int64 a1, __int64 a2)
@@ -153,14 +153,14 @@ LABEL_31:
   v19 = CmpLinkHiveToMaster((__int64)&v28, 0LL, v14, 0, 0x200u, 0, 0LL, a2, 0LL, 0LL, 1);
   if ( v19 < 0 )
     KeBugCheckEx(0x74u, 3uLL, 7uLL, v14, v19);
-  v20 = (_QWORD *)qword_1404381C8;
+  v20 = (_QWORD *)qword_140439288;
   v21 = (_QWORD *)(v14 + 1616);
-  if ( *(__int64 **)qword_1404381C8 != &CmpPreloadedHivesList )
+  if ( *(__int64 **)qword_140439288 != &CmpPreloadedHivesList )
     __fastfail(3u);
-  v21[1] = qword_1404381C8;
+  v21[1] = qword_140439288;
   *v21 = &CmpPreloadedHivesList;
   *v20 = v21;
   result = 0LL;
-  qword_1404381C8 = (__int64)v21;
+  qword_140439288 = (__int64)v21;
   return result;
 }

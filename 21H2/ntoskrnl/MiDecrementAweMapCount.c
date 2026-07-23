@@ -1,11 +1,11 @@
 /*
- * XREFs of MiDecrementAweMapCount @ 0x14054B9E8
+ * XREFs of MiDecrementAweMapCount @ 0x14054BC28
  * Callers:
- *     MiFreePhysicalPages @ 0x14054BF44 (MiFreePhysicalPages.c)
- *     MiWriteAwePtes @ 0x14054E298 (MiWriteAwePtes.c)
- *     MiReferenceIncomingPhysicalPages @ 0x1408D6104 (MiReferenceIncomingPhysicalPages.c)
+ *     MiFreePhysicalPages @ 0x14054C184 (MiFreePhysicalPages.c)
+ *     MiWriteAwePtes @ 0x14054E4D8 (MiWriteAwePtes.c)
+ *     MiReferenceIncomingPhysicalPages @ 0x1408D6264 (MiReferenceIncomingPhysicalPages.c)
  * Callees:
- *     MiLockPageInline @ 0x1402FFE30 (MiLockPageInline.c)
+ *     MiLockPageInline @ 0x14030AB80 (MiLockPageInline.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 

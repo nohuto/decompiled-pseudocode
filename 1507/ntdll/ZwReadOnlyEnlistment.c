@@ -6,11 +6,11 @@
  *     <none>
  */
 
-__int64 ZwReadOnlyEnlistment()
+NTSTATUS __cdecl ZwReadOnlyEnlistment(HANDLE EnlistmentHandle, PLARGE_INTEGER TmVirtualClock)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 334LL;
+  result = 334;
   __asm { syscall; Low latency system call }
   return result;
 }

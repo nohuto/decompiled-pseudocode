@@ -2,7 +2,7 @@
  * XREFs of EtwpReleasePrivateBuffers @ 0x1800505F8
  * Callers:
  *     EtwpEventWriteFull @ 0x180050388 (EtwpEventWriteFull.c)
- *     EtwEventWriteString @ 0x180110740 (EtwEventWriteString.c)
+ *     EtwEventWriteString @ 0x180110700 (EtwEventWriteString.c)
  * Callees:
  *     <none>
  */

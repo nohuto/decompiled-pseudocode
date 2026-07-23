@@ -1,12 +1,12 @@
 /*
- * XREFs of LdrRelocateImageWithBias @ 0x14072A758
+ * XREFs of LdrRelocateImageWithBias @ 0x14072B948
  * Callers:
- *     MiUseLargeDriverPage @ 0x140683260 (MiUseLargeDriverPage.c)
- *     LdrRelocateImage @ 0x14072A744 (LdrRelocateImage.c)
+ *     MiUseLargeDriverPage @ 0x140684420 (MiUseLargeDriverPage.c)
+ *     LdrRelocateImage @ 0x14072B934 (LdrRelocateImage.c)
  * Callees:
- *     RtlImageNtHeaderEx @ 0x14009D860 (RtlImageNtHeaderEx.c)
- *     RtlImageDirectoryEntryToData @ 0x1400F2C40 (RtlImageDirectoryEntryToData.c)
- *     LdrProcessRelocationBlockLongLong @ 0x14072A838 (LdrProcessRelocationBlockLongLong.c)
+ *     RtlImageNtHeaderEx @ 0x14009D7A0 (RtlImageNtHeaderEx.c)
+ *     RtlImageDirectoryEntryToData @ 0x1400F2CC0 (RtlImageDirectoryEntryToData.c)
+ *     LdrProcessRelocationBlockLongLong @ 0x14072BA28 (LdrProcessRelocationBlockLongLong.c)
  */
 
 ULONG __stdcall LdrRelocateImageWithBias(

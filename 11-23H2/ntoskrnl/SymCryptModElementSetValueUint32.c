@@ -1,15 +1,15 @@
 /*
- * XREFs of SymCryptModElementSetValueUint32 @ 0x1403F978C
+ * XREFs of SymCryptModElementSetValueUint32 @ 0x1403F996C
  * Callers:
- *     SymCryptEcurveAllocate @ 0x1403F80AC (SymCryptEcurveAllocate.c)
- *     SymCryptEcpointTransform @ 0x1403FF464 (SymCryptEcpointTransform.c)
- *     SymCryptTwistedEdwardsSetZero @ 0x1404007F0 (SymCryptTwistedEdwardsSetZero.c)
- *     SymCryptMontgomeryPointScalarMul @ 0x140400E40 (SymCryptMontgomeryPointScalarMul.c)
- *     SymCryptShortWeierstrassSetZero @ 0x140402B70 (SymCryptShortWeierstrassSetZero.c)
- *     SymCryptModExpSquareAndMultiply32 @ 0x140409254 (SymCryptModExpSquareAndMultiply32.c)
- *     SymCryptModExpWindowed @ 0x140409380 (SymCryptModExpWindowed.c)
+ *     SymCryptEcurveAllocate @ 0x1403F828C (SymCryptEcurveAllocate.c)
+ *     SymCryptEcpointTransform @ 0x1403FF644 (SymCryptEcpointTransform.c)
+ *     SymCryptTwistedEdwardsSetZero @ 0x1404009D0 (SymCryptTwistedEdwardsSetZero.c)
+ *     SymCryptMontgomeryPointScalarMul @ 0x140401020 (SymCryptMontgomeryPointScalarMul.c)
+ *     SymCryptShortWeierstrassSetZero @ 0x140402D50 (SymCryptShortWeierstrassSetZero.c)
+ *     SymCryptModExpSquareAndMultiply32 @ 0x140409434 (SymCryptModExpSquareAndMultiply32.c)
+ *     SymCryptModExpWindowed @ 0x140409560 (SymCryptModExpWindowed.c)
  * Callees:
- *     SymCryptFdefModElementSetValueUint32Generic @ 0x1404043E0 (SymCryptFdefModElementSetValueUint32Generic.c)
+ *     SymCryptFdefModElementSetValueUint32Generic @ 0x1404045C0 (SymCryptFdefModElementSetValueUint32Generic.c)
  */
 
 __int64 __fastcall SymCryptModElementSetValueUint32(int a1, _DWORD *a2, __int64 a3, __int64 a4, __int64 a5)

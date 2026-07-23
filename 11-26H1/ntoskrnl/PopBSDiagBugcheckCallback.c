@@ -1,11 +1,11 @@
 /*
- * XREFs of PopBSDiagBugcheckCallback @ 0x14060D990
+ * XREFs of PopBSDiagBugcheckCallback @ 0x140610A90
  * Callers:
  *     <none>
  * Callees:
- *     KeInitializeTriageDumpDataArray @ 0x1404F12A0 (KeInitializeTriageDumpDataArray.c)
- *     IopAddBugcheckTriageThread @ 0x1405D44EC (IopAddBugcheckTriageThread.c)
- *     KeAddTriageDumpDataBlock @ 0x1405E5DF0 (KeAddTriageDumpDataBlock.c)
+ *     KeInitializeTriageDumpDataArray @ 0x1404EA880 (KeInitializeTriageDumpDataArray.c)
+ *     IopAddBugcheckTriageThread @ 0x1405D6CDC (IopAddBugcheckTriageThread.c)
+ *     KeAddTriageDumpDataBlock @ 0x1405E8760 (KeAddTriageDumpDataBlock.c)
  */
 
 void __fastcall PopBSDiagBugcheckCallback(

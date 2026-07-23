@@ -1,11 +1,11 @@
 /*
- * XREFs of MiIssueFlowThroughFault @ 0x14023B720
+ * XREFs of MiIssueFlowThroughFault @ 0x140426F68
  * Callers:
- *     MiHandleCollidedFault @ 0x14023B504 (MiHandleCollidedFault.c)
+ *     MiHandleCollidedFault @ 0x140426D4C (MiHandleCollidedFault.c)
  * Callees:
- *     MiResolveMappedFileFault @ 0x140239490 (MiResolveMappedFileFault.c)
- *     PsGetIoPriorityThread @ 0x140276920 (PsGetIoPriorityThread.c)
- *     MiResolvePageFileFault @ 0x1402F783C (MiResolvePageFileFault.c)
+ *     MiResolveMappedFileFault @ 0x140214824 (MiResolveMappedFileFault.c)
+ *     PsGetIoPriorityThread @ 0x14022BEB0 (PsGetIoPriorityThread.c)
+ *     MiResolvePageFileFault @ 0x14033FD3C (MiResolvePageFileFault.c)
  */
 
 __int64 __fastcall MiIssueFlowThroughFault(
@@ -26,7 +26,7 @@ __int64 __fastcall MiIssueFlowThroughFault(
   v11 = *(_DWORD *)(a4 + 192);
   *a6 = 0LL;
   *a7 = 2;
-  if ( (v11 & 0x200) != 0 && (int)PsGetIoPriorityThread(CurrentThread) >= 2
+  if ( (v11 & 0x200) != 0 && (int)PsGetIoPriorityThread((__int64)CurrentThread) >= 2
     || CurrentThread == *(struct _KTHREAD **)(a4 + 152)
     || (CurrentThread->SameThreadTransientFlags & 2) != 0
     || CurrentThread->Process[3].StackCount.Value && (*(_QWORD *)(a4 + 256) || (v11 & 0x20) != 0) )
@@ -51,5 +51,5 @@ __int64 __fastcall MiIssueFlowThroughFault(
     return 0LL;
   _InterlockedAnd64((volatile signed __int64 *)(a5 + 24), 0x7FFFFFFFFFFFFFFFuLL);
   *a7 = 1;
-  return MiResolvePageFileFault(a1, a2, a3, a6);
+  return MiResolvePageFileFault(a1, (__int64 *)a2, a3, a6);
 }

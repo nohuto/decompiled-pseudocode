@@ -1,16 +1,16 @@
 /*
- * XREFs of MiMapBBTMemory @ 0x1409BA008
+ * XREFs of MiMapBBTMemory @ 0x1409BB008
  * Callers:
- *     MiInitSystem @ 0x1409BC5A8 (MiInitSystem.c)
+ *     MiInitSystem @ 0x1409BD5A8 (MiInitSystem.c)
  * Callees:
  *     MiReturnSystemVa @ 0x14002840C (MiReturnSystemVa.c)
  *     MiMakeZeroedPageTablesEx @ 0x140028584 (MiMakeZeroedPageTablesEx.c)
  *     MiPteInShadowRange @ 0x14003D740 (MiPteInShadowRange.c)
  *     MiMakeValidPte @ 0x14003D7F0 (MiMakeValidPte.c)
- *     MiObtainSystemVa @ 0x1400F6964 (MiObtainSystemVa.c)
- *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
- *     KeZeroPages @ 0x1401C0930 (KeZeroPages.c)
+ *     MiObtainSystemVa @ 0x1400F69E4 (MiObtainSystemVa.c)
+ *     MiWritePteShadow @ 0x140120F40 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120FA0 (MiPteHasShadow.c)
+ *     KeZeroPages @ 0x1401C0A90 (KeZeroPages.c)
  */
 
 unsigned __int64 __fastcall MiMapBBTMemory(__int64 a1)
@@ -82,7 +82,7 @@ LABEL_25:
       if ( (unsigned int)MiPteHasShadow() )
       {
         v12 = 1;
-        if ( HIBYTE(word_14043A1AC) )
+        if ( HIBYTE(word_14043B26C) )
           goto LABEL_20;
         v15 = (v14 & 1) == 0;
       }

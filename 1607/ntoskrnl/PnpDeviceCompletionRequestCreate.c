@@ -1,8 +1,8 @@
 /*
- * XREFs of PnpDeviceCompletionRequestCreate @ 0x1403F1AE4
+ * XREFs of PnpDeviceCompletionRequestCreate @ 0x1403F09A8
  * Callers:
- *     PnpStartDeviceNode @ 0x1403F10D4 (PnpStartDeviceNode.c)
- *     PipEnumerateDevice @ 0x1403F1CBC (PipEnumerateDevice.c)
+ *     PnpStartDeviceNode @ 0x1403EFF98 (PnpStartDeviceNode.c)
+ *     PipEnumerateDevice @ 0x1403F0B80 (PipEnumerateDevice.c)
  * Callees:
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
  */

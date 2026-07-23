@@ -1,20 +1,20 @@
 /*
- * XREFs of CmpIsKeyDeleted @ 0x140698120
+ * XREFs of CmpIsKeyDeleted @ 0x1406992E0
  * Callers:
- *     CmpFindSubKeyByNumberEx @ 0x1405D30B0 (CmpFindSubKeyByNumberEx.c)
- *     CmpQueryKeyDataFromCache @ 0x1405D79A0 (CmpQueryKeyDataFromCache.c)
- *     CmpVEExecuteOpenLogic @ 0x14063C000 (CmpVEExecuteOpenLogic.c)
- *     CmpDoParseKey @ 0x140641CA0 (CmpDoParseKey.c)
- *     CmGetVisibleMaxNameLenAndClassLen @ 0x1406BD508 (CmGetVisibleMaxNameLenAndClassLen.c)
- *     CmpSyncKcbCacheForHive @ 0x1407F39A0 (CmpSyncKcbCacheForHive.c)
- *     CmpVEExecuteRealStoreParseLogic @ 0x1407F39E8 (CmpVEExecuteRealStoreParseLogic.c)
+ *     CmpFindSubKeyByNumberEx @ 0x1405D40B0 (CmpFindSubKeyByNumberEx.c)
+ *     CmpQueryKeyDataFromCache @ 0x1405D89A0 (CmpQueryKeyDataFromCache.c)
+ *     CmpVEExecuteOpenLogic @ 0x14063D020 (CmpVEExecuteOpenLogic.c)
+ *     CmpDoParseKey @ 0x140642CC0 (CmpDoParseKey.c)
+ *     CmGetVisibleMaxNameLenAndClassLen @ 0x1406BE7A8 (CmGetVisibleMaxNameLenAndClassLen.c)
+ *     CmpSyncKcbCacheForHive @ 0x1407F4BA0 (CmpSyncKcbCacheForHive.c)
+ *     CmpVEExecuteRealStoreParseLogic @ 0x1407F4BE8 (CmpVEExecuteRealStoreParseLogic.c)
  * Callees:
  *     CmSiFreeMemory @ 0x140013000 (CmSiFreeMemory.c)
  *     CmpAllocateTransientPoolWithTag @ 0x140013040 (CmpAllocateTransientPoolWithTag.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     CmpIsKcbDiscarded @ 0x1405810B4 (CmpIsKcbDiscarded.c)
- *     CmpSetKcbAtLayerHeight @ 0x1405D5E8C (CmpSetKcbAtLayerHeight.c)
- *     CmpIsKeyStackDeleted @ 0x140644650 (CmpIsKeyStackDeleted.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     CmpIsKcbDiscarded @ 0x1405820B4 (CmpIsKcbDiscarded.c)
+ *     CmpSetKcbAtLayerHeight @ 0x1405D6E8C (CmpSetKcbAtLayerHeight.c)
+ *     CmpIsKeyStackDeleted @ 0x140645670 (CmpIsKeyStackDeleted.c)
  */
 
 char __fastcall CmpIsKeyDeleted(__int64 a1, __int64 a2)

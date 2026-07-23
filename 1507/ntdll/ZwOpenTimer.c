@@ -6,11 +6,11 @@
  *     <none>
  */
 
-__int64 ZwOpenTimer()
+NTSTATUS __cdecl ZwOpenTimer(PHANDLE TimerHandle, ACCESS_MASK DesiredAccess, POBJECT_ATTRIBUTES ObjectAttributes)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 282LL;
+  result = 282;
   __asm { syscall; Low latency system call }
   return result;
 }

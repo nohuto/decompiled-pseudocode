@@ -1,14 +1,14 @@
 /*
- * XREFs of CcChargeDirtyPages @ 0x140336210
+ * XREFs of CcChargeDirtyPages @ 0x140340F60
  * Callers:
- *     CcSetDirtyPinnedData @ 0x1402F9310 (CcSetDirtyPinnedData.c)
- *     CcSetDirtyInMask @ 0x140336470 (CcSetDirtyInMask.c)
- *     CcAddDirtyPagesToExternalCache @ 0x140392670 (CcAddDirtyPagesToExternalCache.c)
+ *     CcSetDirtyPinnedData @ 0x140304060 (CcSetDirtyPinnedData.c)
+ *     CcSetDirtyInMask @ 0x1403411C0 (CcSetDirtyInMask.c)
+ *     CcAddDirtyPagesToExternalCache @ 0x1403927C0 (CcAddDirtyPagesToExternalCache.c)
  * Callees:
- *     CcScheduleLazyWriteScan @ 0x1402F6D5C (CcScheduleLazyWriteScan.c)
- *     MmGetControlAreaPartition @ 0x140332B10 (MmGetControlAreaPartition.c)
- *     CcAdjustWriteBehindThreadPoolIfNeeded @ 0x140336330 (CcAdjustWriteBehindThreadPoolIfNeeded.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
+ *     CcScheduleLazyWriteScan @ 0x140301AAC (CcScheduleLazyWriteScan.c)
+ *     MmGetControlAreaPartition @ 0x14033D860 (MmGetControlAreaPartition.c)
+ *     CcAdjustWriteBehindThreadPoolIfNeeded @ 0x140341080 (CcAdjustWriteBehindThreadPoolIfNeeded.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall CcChargeDirtyPages(__int64 a1, __int64 a2, __int64 a3, _DWORD *a4)

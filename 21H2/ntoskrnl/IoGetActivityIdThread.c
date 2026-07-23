@@ -1,9 +1,9 @@
 /*
- * XREFs of IoGetActivityIdThread @ 0x1402EE820
+ * XREFs of IoGetActivityIdThread @ 0x1402F9570
  * Callers:
- *     IopMountVolume @ 0x1406E5720 (IopMountVolume.c)
- *     PnpInsertEventInQueue @ 0x1406E756C (PnpInsertEventInQueue.c)
- *     IoRegisterFsRegistrationChangeMountAware @ 0x1407C9C40 (IoRegisterFsRegistrationChangeMountAware.c)
+ *     IopMountVolume @ 0x1405DB490 (IopMountVolume.c)
+ *     PnpInsertEventInQueue @ 0x1406FE94C (PnpInsertEventInQueue.c)
+ *     IoRegisterFsRegistrationChangeMountAware @ 0x1407C9F60 (IoRegisterFsRegistrationChangeMountAware.c)
  * Callees:
  *     <none>
  */

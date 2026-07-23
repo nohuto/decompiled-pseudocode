@@ -1,12 +1,12 @@
 /*
- * XREFs of CmpAppendSection @ 0x140CB7CDC
+ * XREFs of CmpAppendSection @ 0x140CBDD20
  * Callers:
- *     CmpParseInfBuffer @ 0x140CB82B4 (CmpParseInfBuffer.c)
+ *     CmpParseInfBuffer @ 0x140CBE2F8 (CmpParseInfBuffer.c)
  * Callees:
- *     _stricmp @ 0x140536260 (_stricmp.c)
- *     _strnicmp @ 0x140536310 (_strnicmp.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     _stricmp @ 0x1405386E0 (_stricmp.c)
+ *     _strnicmp @ 0x140538790 (_strnicmp.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 char __fastcall CmpAppendSection(__int64 a1, __int64 a2, char a3)

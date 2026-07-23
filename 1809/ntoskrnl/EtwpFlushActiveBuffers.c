@@ -1,19 +1,19 @@
 /*
- * XREFs of EtwpFlushActiveBuffers @ 0x1405C2178
+ * XREFs of EtwpFlushActiveBuffers @ 0x1405C3178
  * Callers:
- *     EtwpLogger @ 0x1405C1430 (EtwpLogger.c)
+ *     EtwpLogger @ 0x1405C2430 (EtwpLogger.c)
  * Callees:
  *     EtwpLockUnlockBufferList @ 0x140014AC8 (EtwpLockUnlockBufferList.c)
  *     EtwpRequestFlushTimer @ 0x140014B58 (EtwpRequestFlushTimer.c)
  *     EtwpEnqueueAvailableBuffer @ 0x1400153E0 (EtwpEnqueueAvailableBuffer.c)
  *     EtwpQueryUsedProcessorCount @ 0x14001557C (EtwpQueryUsedProcessorCount.c)
  *     EtwpPrepareDirtyBuffer @ 0x140015598 (EtwpPrepareDirtyBuffer.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     EtwpWaitForBufferReferenceCount @ 0x1405C1CE0 (EtwpWaitForBufferReferenceCount.c)
- *     EtwpFlushBuffer @ 0x1405C1D14 (EtwpFlushBuffer.c)
- *     EtwpAdjustFreeBuffers @ 0x1405C1E48 (EtwpAdjustFreeBuffers.c)
- *     EtwpRealtimeSendEmptyMarker @ 0x14065AE54 (EtwpRealtimeSendEmptyMarker.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     EtwpWaitForBufferReferenceCount @ 0x1405C2CE0 (EtwpWaitForBufferReferenceCount.c)
+ *     EtwpFlushBuffer @ 0x1405C2D14 (EtwpFlushBuffer.c)
+ *     EtwpAdjustFreeBuffers @ 0x1405C2E48 (EtwpAdjustFreeBuffers.c)
+ *     EtwpRealtimeSendEmptyMarker @ 0x14065C014 (EtwpRealtimeSendEmptyMarker.c)
  */
 
 __int64 __fastcall EtwpFlushActiveBuffers(unsigned int *a1, int a2)

@@ -1,47 +1,47 @@
 /*
- * XREFs of PspAllocateThread @ 0x1408A49BC
+ * XREFs of PspAllocateThread @ 0x1408FAFD4
  * Callers:
- *     PspCreateThread @ 0x1408A42C8 (PspCreateThread.c)
- *     PspCreatePicoThread @ 0x140A94DC0 (PspCreatePicoThread.c)
- *     NtCreateUserProcess @ 0x140ACBA80 (NtCreateUserProcess.c)
+ *     PspCreateThread @ 0x1408FA8F0 (PspCreateThread.c)
+ *     PspCreatePicoThread @ 0x140A91570 (PspCreatePicoThread.c)
+ *     NtCreateUserProcess @ 0x140AC9930 (NtCreateUserProcess.c)
  * Callees:
- *     ExfTryToWakePushLock @ 0x14025F9A0 (ExfTryToWakePushLock.c)
- *     RtlLocateExtendedFeature @ 0x140281BD0 (RtlLocateExtendedFeature.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     KiStackAttachProcess @ 0x1403209E0 (KiStackAttachProcess.c)
- *     KiUnstackDetachProcess @ 0x140321EC0 (KiUnstackDetachProcess.c)
- *     ObfDereferenceObjectWithTag @ 0x1403254A0 (ObfDereferenceObjectWithTag.c)
- *     ObfDereferenceObject @ 0x140325680 (ObfDereferenceObject.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     KeQuerySystemTimePrecise @ 0x14034EC60 (KeQuerySystemTimePrecise.c)
- *     KeSelectInitialIdealProcessorForThread @ 0x1403B3DF4 (KeSelectInitialIdealProcessorForThread.c)
- *     RtlGetExtendedContextLength @ 0x1403E72F0 (RtlGetExtendedContextLength.c)
- *     PsQueryThreadStartAddress @ 0x1403FD0A0 (PsQueryThreadStartAddress.c)
- *     KeGetProcessorNodeNumber @ 0x140438120 (KeGetProcessorNodeNumber.c)
- *     KeGetProcessorNodeNumberByIndex @ 0x14043AC00 (KeGetProcessorNodeNumberByIndex.c)
- *     PoEnergyEstimationEnabled @ 0x140448760 (PoEnergyEstimationEnabled.c)
- *     KeInitializeSemaphore @ 0x14045C140 (KeInitializeSemaphore.c)
- *     PsAssignThreadId @ 0x14046A77C (PsAssignThreadId.c)
- *     KeQuerySystemTimeUnsafe @ 0x140477918 (KeQuerySystemTimeUnsafe.c)
- *     PsInitializeThreadRngState @ 0x14047F35C (PsInitializeThreadRngState.c)
- *     KeQueryMaximumGroupCount @ 0x140480670 (KeQueryMaximumGroupCount.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     ExRaiseDatatypeMisalignment @ 0x14089B1F0 (ExRaiseDatatypeMisalignment.c)
- *     ObCreateObjectEx @ 0x14089C4F0 (ObCreateObjectEx.c)
- *     PspDeleteUserStack @ 0x1408DB270 (PspDeleteUserStack.c)
- *     MmDeleteTeb @ 0x1408DB490 (MmDeleteTeb.c)
- *     PspSetupUserShadowStack @ 0x1408DDFB8 (PspSetupUserShadowStack.c)
- *     MmCreateTeb @ 0x1409C3084 (MmCreateTeb.c)
- *     PspSetupUserStack @ 0x1409E5B08 (PspSetupUserStack.c)
- *     PspWow64InitThread @ 0x1409E600C (PspWow64InitThread.c)
- *     MmSecureVirtualMemory @ 0x1409EA760 (MmSecureVirtualMemory.c)
- *     PspWow64SetupUserStack @ 0x140A1A7CC (PspWow64SetupUserStack.c)
- *     ObInitializeFastReference @ 0x140A3134C (ObInitializeFastReference.c)
- *     KeInitThread @ 0x140B69230 (KeInitThread.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     RtlLocateExtendedFeature @ 0x140237160 (RtlLocateExtendedFeature.c)
+ *     ExfTryToWakePushLock @ 0x14028FFB0 (ExfTryToWakePushLock.c)
+ *     KiStackAttachProcess @ 0x1402C9570 (KiStackAttachProcess.c)
+ *     KiUnstackDetachProcess @ 0x1402CAA50 (KiUnstackDetachProcess.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CE030 (ObfDereferenceObjectWithTag.c)
+ *     ObfDereferenceObject @ 0x1402CE210 (ObfDereferenceObject.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     KeQuerySystemTimePrecise @ 0x14036D140 (KeQuerySystemTimePrecise.c)
+ *     KeSelectInitialIdealProcessorForThread @ 0x1403A2604 (KeSelectInitialIdealProcessorForThread.c)
+ *     RtlGetExtendedContextLength @ 0x1403D4E90 (RtlGetExtendedContextLength.c)
+ *     PsQueryThreadStartAddress @ 0x1403F6A60 (PsQueryThreadStartAddress.c)
+ *     KeGetProcessorNodeNumber @ 0x14042ACE0 (KeGetProcessorNodeNumber.c)
+ *     KeGetProcessorNodeNumberByIndex @ 0x14042D440 (KeGetProcessorNodeNumberByIndex.c)
+ *     PoEnergyEstimationEnabled @ 0x140440E80 (PoEnergyEstimationEnabled.c)
+ *     KeInitializeSemaphore @ 0x1404514E0 (KeInitializeSemaphore.c)
+ *     PsAssignThreadId @ 0x140463114 (PsAssignThreadId.c)
+ *     KeQuerySystemTimeUnsafe @ 0x140473F10 (KeQuerySystemTimeUnsafe.c)
+ *     PsInitializeThreadRngState @ 0x14047A17C (PsInitializeThreadRngState.c)
+ *     KeQueryMaximumGroupCount @ 0x14047B1D0 (KeQueryMaximumGroupCount.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408A3890 (ExRaiseDatatypeMisalignment.c)
+ *     ObCreateObjectEx @ 0x1408A4B90 (ObCreateObjectEx.c)
+ *     MmDeleteTeb @ 0x1408D96BC (MmDeleteTeb.c)
+ *     MmCreateTeb @ 0x1408DE4D4 (MmCreateTeb.c)
+ *     PspSetupUserShadowStack @ 0x140914B74 (PspSetupUserShadowStack.c)
+ *     PspSetupUserStack @ 0x1409E0398 (PspSetupUserStack.c)
+ *     PspWow64InitThread @ 0x1409E089C (PspWow64InitThread.c)
+ *     MmSecureVirtualMemory @ 0x1409E5050 (MmSecureVirtualMemory.c)
+ *     PspWow64SetupUserStack @ 0x140A13008 (PspWow64SetupUserStack.c)
+ *     ObInitializeFastReference @ 0x140A4A4A0 (ObInitializeFastReference.c)
+ *     PspDeleteUserStack @ 0x140A59AF8 (PspDeleteUserStack.c)
+ *     KeInitThread @ 0x140B6A948 (KeInitThread.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PspAllocateThread(
@@ -81,113 +81,117 @@ __int64 __fastcall PspAllocateThread(
   char *v35; // rcx
   char *v36; // rcx
   volatile signed __int64 *v37; // r12
-  _QWORD *v38; // rax
-  _QWORD *v39; // rbx
+  char *v38; // rax
+  char *v39; // rbx
   char *v40; // rsi
-  int Teb; // r14d
+  int inited; // r14d
   __int64 v42; // rdx
   int v43; // r8d
-  __int16 v44; // dx
-  __int16 v45; // cx
-  __int16 v46; // r12
+  unsigned __int16 v44; // dx
+  unsigned __int16 v45; // cx
+  unsigned __int16 v46; // r12
   _BYTE *v47; // rcx
-  int v48; // edx
-  int v49; // eax
+  __int64 v48; // r9
+  int v49; // edx
   __int64 v50; // rbx
-  __int64 v51; // rax
-  _QWORD *v52; // rcx
+  int v51; // eax
+  __int64 v52; // rbx
+  __int64 v53; // r8
+  __int64 v54; // r9
+  __int64 v55; // rax
+  _QWORD *v56; // rcx
   __int64 Pool2; // rax
-  __int64 ExtendedFeature; // rax
-  SIZE_T v55; // rax
-  __int16 v56; // ax
-  __int16 v57; // dx
-  __int16 v58; // dx
-  __int64 v59; // rax
-  void *v60; // rcx
-  __int64 v61; // [rsp+20h] [rbp-1F8h]
-  char v62; // [rsp+50h] [rbp-1C8h]
-  signed int v63; // [rsp+54h] [rbp-1C4h]
-  int v64; // [rsp+54h] [rbp-1C4h]
-  char v65; // [rsp+58h] [rbp-1C0h]
-  int v66; // [rsp+5Ch] [rbp-1BCh]
-  __int64 v67; // [rsp+60h] [rbp-1B8h]
+  _QWORD *ExtendedFeature; // rax
+  SIZE_T v59; // rax
+  __int16 v60; // ax
+  __int16 v61; // dx
+  __int16 v62; // dx
+  __int64 v63; // rax
+  void *v64; // rcx
+  __int64 v65; // [rsp+20h] [rbp-1F8h]
+  char v66; // [rsp+50h] [rbp-1C8h]
+  signed int v67; // [rsp+54h] [rbp-1C4h]
+  int v68; // [rsp+54h] [rbp-1C4h]
+  char v69; // [rsp+58h] [rbp-1C0h]
+  int v70; // [rsp+5Ch] [rbp-1BCh]
+  __int64 v71; // [rsp+60h] [rbp-1B8h]
   PVOID Object; // [rsp+68h] [rbp-1B0h] BYREF
-  _BYTE *v69; // [rsp+70h] [rbp-1A8h]
-  __int64 v70; // [rsp+78h] [rbp-1A0h] BYREF
-  __int64 v71; // [rsp+80h] [rbp-198h]
-  __int64 v72; // [rsp+88h] [rbp-190h]
-  int v73; // [rsp+90h] [rbp-188h] BYREF
+  _BYTE *v73; // [rsp+70h] [rbp-1A8h]
+  __int64 v74; // [rsp+78h] [rbp-1A0h] BYREF
+  __int64 v75; // [rsp+80h] [rbp-198h]
+  __int64 v76; // [rsp+88h] [rbp-190h]
+  ULONG ContextLength; // [rsp+90h] [rbp-188h] BYREF
   size_t Size; // [rsp+98h] [rbp-180h]
-  __int64 v75; // [rsp+A0h] [rbp-178h]
-  __int64 v76; // [rsp+A8h] [rbp-170h]
+  __int64 v79; // [rsp+A0h] [rbp-178h]
+  __int64 v80; // [rsp+A8h] [rbp-170h]
   SIZE_T CurrentThread; // [rsp+B0h] [rbp-168h]
-  __int64 v78; // [rsp+B8h] [rbp-160h]
-  __int64 v79; // [rsp+C0h] [rbp-158h]
-  __int64 v80; // [rsp+C8h] [rbp-150h]
-  size_t v81; // [rsp+D0h] [rbp-148h]
-  ULONG_PTR v82; // [rsp+D8h] [rbp-140h]
-  size_t v83; // [rsp+E0h] [rbp-138h]
-  _QWORD *v84; // [rsp+E8h] [rbp-130h]
-  __int64 v85; // [rsp+F0h] [rbp-128h]
-  char v86; // [rsp+F8h] [rbp-120h] BYREF
-  int v87; // [rsp+F9h] [rbp-11Fh]
-  __int16 v88; // [rsp+FDh] [rbp-11Bh]
-  char v89; // [rsp+FFh] [rbp-119h]
-  __int64 v90; // [rsp+100h] [rbp-118h]
-  __int64 v91; // [rsp+108h] [rbp-110h]
-  __int64 v92; // [rsp+110h] [rbp-108h]
-  __int64 v93; // [rsp+120h] [rbp-F8h] BYREF
-  __int64 (__fastcall *v94)(__int64, __int64); // [rsp+128h] [rbp-F0h]
-  __int64 v95; // [rsp+130h] [rbp-E8h]
-  __int64 v96; // [rsp+138h] [rbp-E0h]
-  __int128 v97; // [rsp+140h] [rbp-D8h]
-  ULONG_PTR v98; // [rsp+150h] [rbp-C8h]
-  int v99; // [rsp+158h] [rbp-C0h]
-  int v100; // [rsp+15Ch] [rbp-BCh]
-  __int64 v101; // [rsp+160h] [rbp-B8h]
-  int v102; // [rsp+170h] [rbp-A8h]
-  int v103; // [rsp+174h] [rbp-A4h]
-  int v104; // [rsp+178h] [rbp-A0h]
-  int v105; // [rsp+17Ch] [rbp-9Ch]
-  __int64 v106; // [rsp+190h] [rbp-88h]
-  __int64 v107; // [rsp+198h] [rbp-80h]
-  _QWORD *v108; // [rsp+1A0h] [rbp-78h]
-  _OWORD v109[3]; // [rsp+1A8h] [rbp-70h] BYREF
+  __int64 v82; // [rsp+B8h] [rbp-160h]
+  __int64 v83; // [rsp+C0h] [rbp-158h]
+  __int64 v84; // [rsp+C8h] [rbp-150h]
+  size_t v85; // [rsp+D0h] [rbp-148h]
+  ULONG_PTR v86; // [rsp+D8h] [rbp-140h]
+  size_t v87; // [rsp+E0h] [rbp-138h]
+  _QWORD *v88; // [rsp+E8h] [rbp-130h]
+  __int64 v89; // [rsp+F0h] [rbp-128h]
+  char v90; // [rsp+F8h] [rbp-120h] BYREF
+  int v91; // [rsp+F9h] [rbp-11Fh]
+  __int16 v92; // [rsp+FDh] [rbp-11Bh]
+  char v93; // [rsp+FFh] [rbp-119h]
+  __int64 v94; // [rsp+100h] [rbp-118h]
+  __int64 v95; // [rsp+108h] [rbp-110h]
+  __int64 v96; // [rsp+110h] [rbp-108h]
+  __int64 v97; // [rsp+120h] [rbp-F8h] BYREF
+  __int64 (__fastcall *v98)(__int64, __int64); // [rsp+128h] [rbp-F0h]
+  __int64 v99; // [rsp+130h] [rbp-E8h]
+  __int64 v100; // [rsp+138h] [rbp-E0h]
+  __int128 v101; // [rsp+140h] [rbp-D8h]
+  ULONG_PTR v102; // [rsp+150h] [rbp-C8h]
+  int v103; // [rsp+158h] [rbp-C0h]
+  int v104; // [rsp+15Ch] [rbp-BCh]
+  __int64 v105; // [rsp+160h] [rbp-B8h]
+  int v106; // [rsp+170h] [rbp-A8h]
+  int v107; // [rsp+174h] [rbp-A4h]
+  int v108; // [rsp+178h] [rbp-A0h]
+  int v109; // [rsp+17Ch] [rbp-9Ch]
+  __int64 v110; // [rsp+190h] [rbp-88h]
+  __int64 v111; // [rsp+198h] [rbp-80h]
+  _QWORD *v112; // [rsp+1A0h] [rbp-78h]
+  _OWORD v113[3]; // [rsp+1A8h] [rbp-70h] BYREF
 
   v13 = a2;
-  v71 = a2;
-  v82 = BugCheckParameter1;
-  v78 = a2;
-  v83 = a5;
+  v75 = a2;
+  v86 = BugCheckParameter1;
+  v82 = a2;
+  v87 = a5;
   Size = a5;
-  v81 = a5;
-  v84 = a6;
-  v76 = a7;
-  v85 = a8;
-  v108 = a10;
-  v69 = a11;
+  v85 = a5;
+  v88 = a6;
+  v80 = a7;
+  v89 = a8;
+  v112 = a10;
+  v73 = a11;
   v15 = a12;
-  v80 = a12;
-  memset(v109, 0, sizeof(v109));
-  v70 = 0LL;
+  v84 = a12;
+  memset(v113, 0, sizeof(v113));
+  v74 = 0LL;
   Object = 0LL;
-  v87 = 0;
-  v88 = 0;
-  v89 = 0;
-  v73 = 0;
+  v91 = 0;
+  v92 = 0;
+  v93 = 0;
+  ContextLength = 0;
   CurrentThread = (SIZE_T)KeGetCurrentThread();
-  v66 = 0;
+  v70 = 0;
   v16 = 0LL;
-  v72 = 0LL;
-  v75 = 0LL;
+  v76 = 0LL;
+  v79 = 0LL;
   v17 = *(_BYTE *)(BugCheckParameter1 + 368) & 1;
-  v62 = v17;
+  v66 = v17;
   if ( a6 )
     v18 = *a6;
   else
     v18 = 0LL;
-  v79 = v18;
-  v67 = v18;
+  v83 = v18;
+  v71 = v18;
   if ( a4 )
   {
     v19 = 0LL;
@@ -200,18 +204,18 @@ __int64 __fastcall PspAllocateThread(
     if ( _bittest64(&KeFeatureBits, 0x37u) )
     {
       v16 = MEMORY[0xFFFFF780000003D8] & ~(unsigned int)*(_QWORD *)(BugCheckParameter1 + 408) & 0x40000;
-      v72 = v16;
-      v75 = v16;
+      v76 = v16;
+      v79 = v16;
     }
-    v13 = v71;
+    v13 = v75;
     if ( (v21 & 0x40000000) != 0 )
     {
       if ( *(_QWORD *)(BugCheckParameter1 + 784) )
         return 3221225485LL;
       if ( (*(_DWORD *)(BugCheckParameter1 + 1532) & 0x1000) != 0 )
         return 3221225659LL;
-      v72 = *(_QWORD *)(a4 + 480) | v16;
-      v75 = v72;
+      v76 = *(_QWORD *)(a4 + 480) | v16;
+      v79 = v76;
     }
     if ( v20 )
     {
@@ -240,17 +244,17 @@ __int64 __fastcall PspAllocateThread(
       *(_DWORD *)(a4 + 20) = v25;
       *(_QWORD *)(a4 + 8) |= 0x4000uLL;
       ProcessorNodeNumber = KeGetProcessorNodeNumberByIndex(v25);
-      v13 = v71;
-      v15 = v80;
+      v13 = v75;
+      v15 = v84;
     }
-    v66 = ProcessorNodeNumber + 1;
+    v70 = ProcessorNodeNumber + 1;
 LABEL_29:
-    v17 = v62;
+    v17 = v66;
   }
   *(_DWORD *)(v15 + 384) = 0;
   *(_BYTE *)(v15 + 388) = a3;
   v23 = 0;
-  v63 = 0;
+  v67 = 0;
   if ( a5 )
   {
     if ( (PEPROCESS)BugCheckParameter1 == PsInitialSystemProcess )
@@ -259,7 +263,7 @@ LABEL_29:
       goto LABEL_45;
     }
     v23 = v17 != 0 ? 0xC000000D : 0;
-    v63 = v23;
+    v67 = v23;
     if ( v17 )
       goto LABEL_45;
   }
@@ -270,40 +274,40 @@ LABEL_29:
       if ( (v13 & 3) != 0 )
         ExRaiseDatatypeMisalignment();
       *(_DWORD *)(v15 + 384) = *(_DWORD *)(v13 + 24) & 0x1DF2;
-      v23 = v63;
-      v26 = v71;
+      v23 = v67;
+      v26 = v75;
     }
     else
     {
       *(_DWORD *)(v15 + 384) = *(_DWORD *)(v13 + 24) & 0x11FF2;
-      v26 = v71;
+      v26 = v75;
     }
     if ( v23 < 0 )
       goto LABEL_45;
   }
   else
   {
-    v26 = v71;
+    v26 = v75;
   }
-  v65 = PoEnergyEstimationEnabled();
-  v27 = v65 != 0 ? 2144 : 1944;
+  v69 = PoEnergyEstimationEnabled();
+  v27 = v69 != 0 ? 2144 : 1944;
   MaximumGroupCount = KeQueryMaximumGroupCount();
   v29 = MaximumGroupCount;
   v30 = 0;
   if ( MaximumGroupCount > 1u )
   {
-    v30 = (v65 != 0 ? 2151 : 1951) & 0xFFFFFFF8;
+    v30 = (v69 != 0 ? 2151 : 1951) & 0xFFFFFFF8;
     v27 = v30 + 8 * MaximumGroupCount;
   }
-  LODWORD(v78) = (v27 + 7) & 0xFFFFFFF8;
-  LODWORD(v80) = (16 * MaximumGroupCount + 23 + v78) & 0xFFFFFFF8;
+  LODWORD(v82) = (v27 + 7) & 0xFFFFFFF8;
+  LODWORD(v84) = (16 * MaximumGroupCount + 23 + v82) & 0xFFFFFFF8;
   v31 = Size != 0;
   Size = -(__int64)Size;
-  LODWORD(v71) = v31 ? v80 + 544 : 0;
-  v31 = v81 != 0;
-  v81 = -(__int64)v81;
-  LODWORD(Size) = v80 + (v31 ? 1264 : 544);
-  v23 = ObCreateObjectEx(a3, PsThreadType, v26, a3, v61, Size, 0, Size, &Object, 0LL);
+  LODWORD(v75) = v31 ? v84 + 544 : 0;
+  v31 = v85 != 0;
+  v85 = -(__int64)v85;
+  LODWORD(Size) = v84 + (v31 ? 1264 : 544);
+  v23 = ObCreateObjectEx(a3, PsThreadType, v26, a3, v65, Size, 0, Size, &Object, 0LL);
   if ( v23 < 0 )
   {
 LABEL_45:
@@ -312,7 +316,7 @@ LABEL_45:
   }
   v32 = (char *)Object;
   memset_0(Object, 0, (unsigned int)Size);
-  if ( v65 )
+  if ( v69 )
   {
     *((_QWORD *)v32 + 209) = v32 + 1944;
     _interlockedbittestandset((volatile signed __int32 *)v32, 0x15u);
@@ -328,24 +332,24 @@ LABEL_45:
     *((_DWORD *)v32 + 360) |= 0x20000u;
     *((_QWORD *)v32 + 210) = &v32[v30];
   }
-  v33 = &v32[(unsigned int)v80];
+  v33 = &v32[(unsigned int)v84];
   *(_QWORD *)v33 = v32;
   v33[12] = 6;
   *((_QWORD *)v32 + 142) = v33;
   if ( a5 )
   {
-    v34 = &v32[(unsigned int)v71];
+    v34 = &v32[(unsigned int)v75];
     *(_QWORD *)v34 = v32;
     v34[12] = 8;
     *((_QWORD *)v32 + 143) = v34;
   }
-  v35 = &v32[(unsigned int)v78];
+  v35 = &v32[(unsigned int)v82];
   *((_QWORD *)v32 + 72) = v35;
   *(_WORD *)v35 = 1;
   *((_WORD *)v35 + 1) = v29;
   *((_DWORD *)v35 + 1) = 0;
   memset_0(v35 + 8, 0, 8 * v29);
-  v36 = &v32[(unsigned int)(v78 + 8 + 8 * v29)];
+  v36 = &v32[(unsigned int)(v82 + 8 + 8 * v29)];
   *((_QWORD *)v32 + 69) = v36;
   *(_WORD *)v36 = 1;
   *((_WORD *)v36 + 1) = v29;
@@ -395,44 +399,44 @@ LABEL_45:
   *((_QWORD *)v32 + 218) = v32 + 1744;
   *((_QWORD *)v32 + 239) = 0LL;
   v37 = (volatile signed __int64 *)(v32 + 1424);
-  v38 = KeAbPreAcquire((__int64)(v32 + 1424), 0LL);
+  v38 = (char *)KeAbPreAcquire((__int64)(v32 + 1424), 0LL);
   v39 = v38;
   if ( _interlockedbittestandset64((volatile signed __int32 *)v32 + 356, 0LL) )
-    ExfAcquirePushLockExclusiveEx((unsigned __int64 *)v32 + 178, (__int64)v38, (__int64)(v32 + 1424));
+    ExfAcquirePushLockExclusiveEx((unsigned __int64 *)v32 + 178, v38, (__int64)(v32 + 1424));
   if ( v39 )
-    *((_BYTE *)v39 + 10) = 1;
+    v39[10] = 1;
   v40 = (char *)Object;
-  Teb = PsAssignThreadId((__int64)Object);
-  v64 = Teb;
-  if ( Teb < 0 )
+  inited = PsAssignThreadId((__int64)Object);
+  v68 = inited;
+  if ( inited < 0 )
   {
     if ( (_InterlockedExchangeAdd64(v37, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
       ExfTryToWakePushLock(v37);
     KeAbPostRelease((ULONG_PTR)v37);
     v40 = (char *)Object;
-    goto LABEL_129;
+    goto LABEL_130;
   }
   if ( !a5 )
   {
-    v59 = v76;
-    *((_QWORD *)v40 + 156) = v76;
-    *((_QWORD *)v40 + 172) = v59;
-    v93 = 0LL;
-    v95 = v59;
-    v96 = v85;
+    v63 = v80;
+    *((_QWORD *)v40 + 156) = v80;
+    *((_QWORD *)v40 + 172) = v63;
     v97 = 0LL;
-    v98 = BugCheckParameter1;
-    v99 = v66;
-    v100 = 0;
-    v94 = PspSystemThreadStartup;
-    if ( (*a9 & 0x400) != 0 && v62 )
+    v99 = v63;
+    v100 = v89;
+    v101 = 0LL;
+    v102 = BugCheckParameter1;
+    v103 = v70;
+    v104 = 0;
+    v98 = PspSystemThreadStartup;
+    if ( (*a9 & 0x400) != 0 && v66 )
     {
-      v94 = (__int64 (__fastcall *)(__int64, __int64))PspSecureThreadStartup;
-      v100 = 16;
+      v98 = (__int64 (__fastcall *)(__int64, __int64))PspSecureThreadStartup;
+      v104 = 16;
       *((_DWORD *)v40 + 361) |= 0x200u;
     }
-    v50 = v70;
-    goto LABEL_125;
+    v52 = v74;
+    goto LABEL_126;
   }
   v43 = *a9;
   v44 = (16 * (*a9 & 0x40)) | 8;
@@ -444,82 +448,88 @@ LABEL_45:
   v46 = v45 | 0x4000;
   if ( (v43 & 0x100) == 0 )
     v46 = v45;
-  v47 = v69;
-  if ( v69 )
+  v47 = v73;
+  if ( v73 )
   {
     if ( (*(_DWORD *)(BugCheckParameter1 + 1876) & 0x4000) != 0 )
       *((_DWORD *)v40 + 29) |= 0x100000u;
     if ( *(_QWORD *)(BugCheckParameter1 + 784) )
     {
-      v86 = 0;
-      v91 = 0x8000LL;
-      v92 = 0x40000LL;
-      v90 = 0LL;
-      Teb = PspSetupUserStack(BugCheckParameter1, a5, v67, &v86, v66);
-      v64 = Teb;
-      if ( Teb >= 0 )
+      v90 = 0;
+      v95 = 0x8000LL;
+      v96 = 0x40000LL;
+      v94 = 0LL;
+      inited = PspSetupUserStack(BugCheckParameter1, a5, v71, &v90, v70);
+      v68 = inited;
+      if ( inited >= 0 )
       {
-        v48 = (int)v69;
-        *v69 = v86 & 2 | *v69 & 0xFD;
-        v49 = PspWow64SetupUserStack(BugCheckParameter1, v48, v67, v48, v66);
+        v49 = (int)v73;
+        *v73 = v90 & 2 | *v73 & 0xFD;
+        v50 = v71;
+        v51 = PspWow64SetupUserStack(BugCheckParameter1, v49, v71, v49, v70);
 LABEL_82:
-        Teb = v49;
-        v64 = v49;
+        inited = v51;
+        v68 = v51;
+LABEL_87:
+        if ( inited < 0 )
+          goto LABEL_130;
+        inited = MmCreateTeb(BugCheckParameter1, v50, (_QWORD *)v40 + 161, v48, &v74);
+        v68 = inited;
+        if ( inited < 0 )
+          goto LABEL_130;
+        *((_QWORD *)v40 + 156) = *(_QWORD *)(a5 + 248);
+        *((_QWORD *)v40 + 172) = *(_QWORD *)(a5 + 128);
+        v52 = v74;
+        if ( *(_QWORD *)(BugCheckParameter1 + 784) )
+        {
+          inited = PspWow64InitThread(BugCheckParameter1);
+          v68 = inited;
+          if ( inited < 0 )
+            goto LABEL_130;
+        }
+        if ( v46 )
+        {
+          KiStackAttachProcess((_KPROCESS *)BugCheckParameter1, 0, (__int64)v113);
+          *(_WORD *)(v52 + 6126) = v46;
+          if ( *(_QWORD *)(BugCheckParameter1 + 784) )
+          {
+            v53 = v46;
+            if ( *(_WORD *)(BugCheckParameter1 + 1772) == 0x8664 )
+            {
+              v110 = v52 + 0x2000;
+              *(_WORD *)(v52 + 14318) = v46;
+            }
+            else
+            {
+              v111 = v52 + 0x2000;
+              *(_WORD *)(v52 + 12234) = v46;
+            }
+          }
+          inited = 0;
+          v68 = 0;
+          goto LABEL_120;
+        }
+        goto LABEL_121;
       }
     }
     else
     {
-      Teb = PspSetupUserStack(BugCheckParameter1, a5, v67, v47, v66);
-      v64 = Teb;
-      if ( Teb >= 0 && (*((_DWORD *)v40 + 29) & 0x100000) != 0 )
+      inited = PspSetupUserStack(BugCheckParameter1, a5, v71, v47, v70);
+      v68 = inited;
+      if ( inited >= 0 && (*((_DWORD *)v40 + 29) & 0x100000) != 0 )
       {
-        v49 = PspSetupUserShadowStack(BugCheckParameter1, v66);
+        v50 = v71;
+        v51 = PspSetupUserShadowStack(BugCheckParameter1, v70);
         goto LABEL_82;
       }
     }
-    if ( Teb < 0 )
-      goto LABEL_129;
-    Teb = MmCreateTeb(BugCheckParameter1, (__int64)&v70);
-    v64 = Teb;
-    if ( Teb < 0 )
-      goto LABEL_129;
-    *((_QWORD *)v40 + 156) = *(_QWORD *)(a5 + 248);
-    *((_QWORD *)v40 + 172) = *(_QWORD *)(a5 + 128);
-    v50 = v70;
-    if ( *(_QWORD *)(BugCheckParameter1 + 784) )
-    {
-      Teb = PspWow64InitThread(BugCheckParameter1);
-      v64 = Teb;
-      if ( Teb < 0 )
-        goto LABEL_129;
-    }
-    if ( v46 )
-    {
-      KiStackAttachProcess((_KPROCESS *)BugCheckParameter1, 0, (__int64)v109);
-      *(_WORD *)(v50 + 6126) = v46;
-      if ( *(_QWORD *)(BugCheckParameter1 + 784) )
-      {
-        if ( *(_WORD *)(BugCheckParameter1 + 1772) == 0x8664 )
-        {
-          v106 = v50 + 0x2000;
-          *(_WORD *)(v50 + 14318) = v46;
-        }
-        else
-        {
-          v107 = v50 + 0x2000;
-          *(_WORD *)(v50 + 12234) = v46;
-        }
-      }
-      Teb = 0;
-      v64 = 0;
-      goto LABEL_119;
-    }
-    goto LABEL_120;
+    v50 = v71;
+    goto LABEL_87;
   }
   if ( !*(_QWORD *)(BugCheckParameter1 + 1600) )
   {
-    v50 = *(_QWORD *)(CurrentThread + 240);
-    v70 = v50;
+    v52 = *(_QWORD *)(CurrentThread + 240);
+    v74 = v52;
     *((_QWORD *)v40 + 156) = PsQueryThreadStartAddress(CurrentThread, 1);
     *((_QWORD *)v40 + 172) = *(_QWORD *)(CurrentThread + 1376);
     *((_DWORD *)v40 + 361) |= 0x10u;
@@ -527,130 +537,132 @@ LABEL_82:
       && (*(_DWORD *)(a5 + 48) & 0x100040) == 0x100040
       && (*(_DWORD *)(*(int *)(a5 + 1248) + a5 + 1232) & 0x800LL) != 0 )
     {
-      ExtendedFeature = RtlLocateExtendedFeature(a5 + 1232, 11);
+      ExtendedFeature = RtlLocateExtendedFeature((PCONTEXT_EX)(a5 + 1232), 0xBu, 0LL);
       if ( ExtendedFeature )
       {
-        if ( (*(_BYTE *)ExtendedFeature & 1) != 0 && *(_QWORD *)(ExtendedFeature + 8) )
+        if ( (*(_BYTE *)ExtendedFeature & 1) != 0 && ExtendedFeature[1] )
           *((_DWORD *)v40 + 29) |= 0x100000u;
       }
     }
     if ( *(_QWORD *)(BugCheckParameter1 + 784) )
     {
-      v55 = 14456LL;
+      v59 = 14456LL;
       if ( *(_WORD *)(BugCheckParameter1 + 1772) != 0x8664 )
-        v55 = 12344LL;
-      CurrentThread = v55;
+        v59 = 12344LL;
+      CurrentThread = v59;
     }
     else
     {
       CurrentThread = 6264LL;
     }
-    KiStackAttachProcess((_KPROCESS *)BugCheckParameter1, 0, (__int64)v109);
-    if ( MmSecureVirtualMemory((PVOID)v50, CurrentThread, 4u) )
+    KiStackAttachProcess((_KPROCESS *)BugCheckParameter1, 0, (__int64)v113);
+    if ( MmSecureVirtualMemory((PVOID)v52, CurrentThread, 4u) )
     {
-      *(_OWORD *)(v50 + 64) = *(_OWORD *)(v40 + 1288);
-      *(_OWORD *)(v50 + 2008) = *(_OWORD *)(v40 + 1288);
-      *(_DWORD *)(v50 + 6044) = 0;
-      *(_DWORD *)(v50 + 6120) = 0;
-      v56 = *(_WORD *)(v50 + 6126) & 0x62C;
-      *(_WORD *)(v50 + 6126) = v56;
-      *(_WORD *)(v50 + 6126) = v46 | v56 | 0x40;
-      *(_QWORD *)(v50 + 6224) = 0LL;
+      *(_OWORD *)(v52 + 64) = *(_OWORD *)(v40 + 1288);
+      *(_OWORD *)(v52 + 2008) = *(_OWORD *)(v40 + 1288);
+      *(_DWORD *)(v52 + 6044) = 0;
+      *(_DWORD *)(v52 + 6120) = 0;
+      v60 = *(_WORD *)(v52 + 6126) & 0x62C;
+      *(_WORD *)(v52 + 6126) = v60;
+      v53 = v46;
+      v54 = 64LL;
+      *(_WORD *)(v52 + 6126) = v46 | v60 | 0x40;
+      *(_QWORD *)(v52 + 6224) = 0LL;
       if ( *(_QWORD *)(BugCheckParameter1 + 784) )
       {
         if ( *(_WORD *)(BugCheckParameter1 + 1772) == 0x8664 )
         {
-          v106 = v50 + 0x2000;
-          *(_QWORD *)(v50 + 8256) = *((_QWORD *)v40 + 161);
-          *(_QWORD *)(v50 + 8264) = *((_QWORD *)v40 + 162);
-          *(_QWORD *)(v50 + 10200) = *((_QWORD *)v40 + 161);
-          *(_QWORD *)(v50 + 10208) = *((_QWORD *)v40 + 162);
-          *(_DWORD *)(v50 + 14236) = 0;
-          *(_DWORD *)(v50 + 14312) = 0;
-          *(_QWORD *)(v50 + 14416) = 0LL;
-          v57 = *(_WORD *)(v50 + 14318) & 0x62C;
-          *(_WORD *)(v50 + 14318) = v57;
-          *(_WORD *)(v50 + 14318) = v46 | v57 | 0x40;
+          v110 = v52 + 0x2000;
+          *(_QWORD *)(v52 + 8256) = *((_QWORD *)v40 + 161);
+          *(_QWORD *)(v52 + 8264) = *((_QWORD *)v40 + 162);
+          *(_QWORD *)(v52 + 10200) = *((_QWORD *)v40 + 161);
+          *(_QWORD *)(v52 + 10208) = *((_QWORD *)v40 + 162);
+          *(_DWORD *)(v52 + 14236) = 0;
+          *(_DWORD *)(v52 + 14312) = 0;
+          *(_QWORD *)(v52 + 14416) = 0LL;
+          v61 = *(_WORD *)(v52 + 14318) & 0x62C;
+          *(_WORD *)(v52 + 14318) = v61;
+          *(_WORD *)(v52 + 14318) = v46 | v61 | 0x40;
         }
         else
         {
-          v107 = v50 + 0x2000;
-          v102 = *((_DWORD *)v40 + 322);
-          *(_DWORD *)(v50 + 8224) = v102;
-          v103 = *((_DWORD *)v40 + 324);
-          *(_DWORD *)(v50 + 8228) = v103;
-          v104 = *((_DWORD *)v40 + 322);
-          *(_DWORD *)(v50 + 9908) = v104;
-          v105 = *((_DWORD *)v40 + 324);
-          *(_DWORD *)(v50 + 9912) = v105;
-          *(_DWORD *)(v50 + 12188) = 0;
-          *(_DWORD *)(v50 + 12228) = 0;
-          *(_DWORD *)(v50 + 12312) = 0;
-          v58 = *(_WORD *)(v50 + 12234) & 0x62C;
-          *(_WORD *)(v50 + 12234) = v58;
-          *(_WORD *)(v50 + 12234) = v46 | v58 | 0x40;
+          v111 = v52 + 0x2000;
+          v106 = *((_DWORD *)v40 + 322);
+          *(_DWORD *)(v52 + 8224) = v106;
+          v107 = *((_DWORD *)v40 + 324);
+          *(_DWORD *)(v52 + 8228) = v107;
+          v108 = *((_DWORD *)v40 + 322);
+          *(_DWORD *)(v52 + 9908) = v108;
+          v109 = *((_DWORD *)v40 + 324);
+          *(_DWORD *)(v52 + 9912) = v109;
+          *(_DWORD *)(v52 + 12188) = 0;
+          *(_DWORD *)(v52 + 12228) = 0;
+          *(_DWORD *)(v52 + 12312) = 0;
+          v62 = *(_WORD *)(v52 + 12234) & 0x62C;
+          *(_WORD *)(v52 + 12234) = v62;
+          *(_WORD *)(v52 + 12234) = v46 | v62 | 0x40;
         }
       }
     }
     else
     {
-      Teb = -1073741503;
-      v64 = -1073741503;
+      inited = -1073741503;
+      v68 = -1073741503;
     }
-LABEL_119:
-    KiUnstackDetachProcess((__int64)v109, 0);
-    if ( Teb < 0 )
-      goto LABEL_129;
-    goto LABEL_120;
+LABEL_120:
+    KiUnstackDetachProcess((__int64)v113, 0, v53, v54);
+    if ( inited < 0 )
+      goto LABEL_130;
+    goto LABEL_121;
   }
-  v51 = *(_QWORD *)(a5 + 248);
-  *((_QWORD *)v40 + 156) = v51;
-  *((_QWORD *)v40 + 172) = v51;
-  v52 = v84;
-  *((_QWORD *)v40 + 207) = v84[1];
-  *((_QWORD *)v40 + 208) = v52[2];
+  v55 = *(_QWORD *)(a5 + 248);
+  *((_QWORD *)v40 + 156) = v55;
+  *((_QWORD *)v40 + 172) = v55;
+  v56 = v88;
+  *((_QWORD *)v40 + 207) = v88[1];
+  *((_QWORD *)v40 + 208) = v56[2];
   _interlockedbittestandset((volatile signed __int32 *)v40, 0x1Au);
-  RtlGetExtendedContextLength(MEMORY[0xFFFFF780000003D8] != 0LL ? 1048671 : 1048607, &v73);
-  Pool2 = ExAllocatePool2(0x100uLL);
+  RtlGetExtendedContextLength(MEMORY[0xFFFFF780000003D8] != 0LL ? 1048671 : 1048607, &ContextLength);
+  Pool2 = ExAllocatePool2(0x100uLL, ContextLength, 0x63537350u);
   v40 = (char *)Object;
   *((_QWORD *)Object + 213) = Pool2;
   if ( !Pool2 )
   {
-    Teb = -1073741670;
-    v64 = -1073741670;
-    goto LABEL_129;
+    inited = -1073741670;
+    v68 = -1073741670;
+    goto LABEL_130;
   }
-  v50 = v70;
-LABEL_120:
-  v93 = 0LL;
-  v94 = (__int64 (__fastcall *)(__int64, __int64))PspUserThreadStartup;
-  v95 = v76;
-  v96 = *((_QWORD *)v40 + 156);
-  *(_QWORD *)&v97 = a5;
-  *((_QWORD *)&v97 + 1) = v50;
-  v98 = BugCheckParameter1;
-  v99 = v66;
-  v100 = 0;
-LABEL_125:
-  v101 = v72;
-  Teb = KeInitThread(v40, &v93);
-  v64 = Teb;
-  if ( Teb >= 0 )
+  v52 = v74;
+LABEL_121:
+  v97 = 0LL;
+  v98 = (__int64 (__fastcall *)(__int64, __int64))PspUserThreadStartup;
+  v99 = v80;
+  v100 = *((_QWORD *)v40 + 156);
+  *(_QWORD *)&v101 = a5;
+  *((_QWORD *)&v101 + 1) = v52;
+  v102 = BugCheckParameter1;
+  v103 = v70;
+  v104 = 0;
+LABEL_126:
+  v105 = v76;
+  inited = KeInitThread(v40, &v97);
+  v68 = inited;
+  if ( inited >= 0 )
   {
     PsInitializeThreadRngState((unsigned __int64)v40);
     ObInitializeFastReference(v40 + 1936, BugCheckParameter1);
-    *v108 = v40;
+    *v112 = v40;
     return 0LL;
   }
-  if ( v50 && v69 )
-    MmDeleteTeb(BugCheckParameter1, v50);
-LABEL_129:
-  if ( v69 && *v69 )
-    PspDeleteUserStack(BugCheckParameter1, v42, v67, v69);
-  v60 = (void *)*((_QWORD *)v40 + 213);
-  if ( v60 )
+  if ( v52 && v73 )
+    MmDeleteTeb((struct _KPROCESS *)BugCheckParameter1, v52);
+LABEL_130:
+  if ( v73 && *v73 )
+    PspDeleteUserStack(BugCheckParameter1, v42, v71, v73);
+  v64 = (void *)*((_QWORD *)v40 + 213);
+  if ( v64 )
   {
-    ExFreePoolWithTag(v60, 0x63537350u);
+    ExFreePoolWithTag(v64, 0x63537350u);
     *((_QWORD *)v40 + 213) = 0LL;
   }
   if ( *((_QWORD *)v40 + 162) )
@@ -658,11 +670,11 @@ LABEL_129:
     if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)v40 + 178, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
       ExfTryToWakePushLock((volatile signed __int64 *)v40 + 178);
     KeAbPostRelease((ULONG_PTR)(v40 + 1424));
-    Teb = v64;
+    inited = v68;
     v40 = (char *)Object;
   }
   if ( !*((_QWORD *)v40 + 68) )
     ObfDereferenceObjectWithTag((PVOID)BugCheckParameter1, 0x72437350u);
   ObfDereferenceObject(v40);
-  return (unsigned int)Teb;
+  return (unsigned int)inited;
 }

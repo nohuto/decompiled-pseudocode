@@ -1,32 +1,28 @@
 /*
- * XREFs of PpmCheckInit @ 0x140CD2C04
+ * XREFs of PpmCheckInit @ 0x140CD8DAC
  * Callers:
- *     PoInitSystem @ 0x140CCE870 (PoInitSystem.c)
+ *     PoInitSystem @ 0x140CD49D0 (PoInitSystem.c)
  * Callees:
- *     KiInitializeTimer2 @ 0x140456EEC (KiInitializeTimer2.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     KiInitializeTimer2 @ 0x14044E75C (KiInitializeTimer2.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 char PpmCheckInit()
 {
-  LODWORD(PopSleepstudySessionLock.SchedulingGroup) = 6;
-  *(_DWORD *)&PopSleepstudySessionLock.ApcStateFill[40] = 787;
-  PopSleepstudySessionLock.WaitListEntry.Flink = (struct _LIST_ENTRY *)PpmCheckRun;
-  PopSleepstudySessionLock.WaitListEntry.Blink = 0LL;
-  PopSleepstudySessionLock.WaitBlock[1].WaitListEntry.Blink = (struct _LIST_ENTRY *)PpmCheckPeriodicStart;
-  PopSleepstudySessionLock.RelativeTimerBias = 0LL;
-  PopSleepstudySessionLock.WaitBlockList = 0LL;
-  *(_DWORD *)&PopSleepstudySessionLock.WaitBlockFill11[32] = 787;
-  *(_QWORD *)&PopSleepstudySessionLock.WaitBlockFill11[64] = 0LL;
-  PopSleepstudySessionLock.WaitBlock[1].SparePtr = 0LL;
-  PopSleepstudySessionLock.WaitBlock[1].WaitListEntry.Flink = 0LL;
+  PpmCheckCurrentPipelineId = 6;
+  LODWORD(PpmCheckDpc) = 787;
+  qword_140F0F658 = (__int64)PpmCheckRun;
+  qword_140F0F660 = 0LL;
+  qword_140F0F698 = (__int64)PpmCheckPeriodicStart;
+  qword_140F0F678 = 0LL;
+  qword_140F0F650 = 0LL;
+  LODWORD(PpmCheckStartDpc) = 787;
+  qword_140F0F6A0 = 0LL;
+  qword_140F0F6B8 = 0LL;
+  qword_140F0F690 = 0LL;
   *(_QWORD *)&PpmCachedSystemAllowedCpuSet.Count = 2097153LL;
   memset_0(&PpmCachedSystemAllowedCpuSet.8, 0, sizeof(PpmCachedSystemAllowedCpuSet.8));
-  PopSleepstudySessionLock.WaitBlock[0].WaitListEntry.Flink = 0LL;
-  *(_WORD *)&PopSleepstudySessionLock.WaitBlockFill11[130] = 0;
-  return KiInitializeTimer2(
-           (unsigned __int64)&PopSleepstudySessionLock.WaitBlock[2].Object,
-           (__int64)PpmCheckTimerCallback,
-           0LL,
-           12);
+  PpmCheckExecutionLock = 0LL;
+  word_140F0F562 = 0;
+  return KiInitializeTimer2((unsigned __int64)&PpmCheckTimer, (__int64)PpmCheckTimerCallback, 0LL, 12);
 }

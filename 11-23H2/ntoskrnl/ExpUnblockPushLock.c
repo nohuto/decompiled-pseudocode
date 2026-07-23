@@ -3,22 +3,22 @@
  * Callers:
  *     CmpDecrementAppHiveUnloadCount @ 0x140207A0C (CmpDecrementAppHiveUnloadCount.c)
  *     CmpTryToRundownHive @ 0x1402092DC (CmpTryToRundownHive.c)
- *     ExUnblockPushLockEx @ 0x14022F6C0 (ExUnblockPushLockEx.c)
- *     MiUnlockImageSection @ 0x14025A460 (MiUnlockImageSection.c)
- *     ExSweepSingleHandle @ 0x1402BEB18 (ExSweepSingleHandle.c)
- *     ExBlockOnAddressPushLock @ 0x1403486A0 (ExBlockOnAddressPushLock.c)
- *     ExTimedWaitForUnblockPushLock @ 0x140348780 (ExTimedWaitForUnblockPushLock.c)
- *     RtlpCSparseBitmapPageDecommit @ 0x140355B7C (RtlpCSparseBitmapPageDecommit.c)
- *     RtlReleaseSwapReference @ 0x14035D244 (RtlReleaseSwapReference.c)
- *     ExUnblockOnAddressPushLockEx @ 0x1403D57B0 (ExUnblockOnAddressPushLockEx.c)
- *     ExfUnblockPushLock @ 0x140412160 (ExfUnblockPushLock.c)
- *     IopCheckHandleForRevocation @ 0x1405586E0 (IopCheckHandleForRevocation.c)
- *     PspHandleTableWalker @ 0x1405A3F40 (PspHandleTableWalker.c)
+ *     ExUnblockPushLockEx @ 0x14022F7B0 (ExUnblockPushLockEx.c)
+ *     MiUnlockImageSection @ 0x14025A6F0 (MiUnlockImageSection.c)
+ *     ExSweepSingleHandle @ 0x1402BEDA8 (ExSweepSingleHandle.c)
+ *     ExBlockOnAddressPushLock @ 0x140348930 (ExBlockOnAddressPushLock.c)
+ *     ExTimedWaitForUnblockPushLock @ 0x140348A10 (ExTimedWaitForUnblockPushLock.c)
+ *     RtlpCSparseBitmapPageDecommit @ 0x140355D1C (RtlpCSparseBitmapPageDecommit.c)
+ *     RtlReleaseSwapReference @ 0x14035D3E4 (RtlReleaseSwapReference.c)
+ *     ExUnblockOnAddressPushLockEx @ 0x1403D5990 (ExUnblockOnAddressPushLockEx.c)
+ *     ExfUnblockPushLock @ 0x1404124A0 (ExfUnblockPushLock.c)
+ *     IopCheckHandleForRevocation @ 0x140558DA0 (IopCheckHandleForRevocation.c)
+ *     PspHandleTableWalker @ 0x1405A44B0 (PspHandleTableWalker.c)
  * Callees:
- *     KeSetEvent @ 0x14023C5E0 (KeSetEvent.c)
- *     KeWaitForSingleObject @ 0x140243CE0 (KeWaitForSingleObject.c)
- *     ExTimedWaitForUnblockPushLock @ 0x140348780 (ExTimedWaitForUnblockPushLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeSetEvent @ 0x14023C6B0 (KeSetEvent.c)
+ *     KeWaitForSingleObject @ 0x140243DB0 (KeWaitForSingleObject.c)
+ *     ExTimedWaitForUnblockPushLock @ 0x140348A10 (ExTimedWaitForUnblockPushLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 void __fastcall ExpUnblockPushLock(volatile __int64 *a1, void *a2, char a3)
@@ -44,9 +44,9 @@ void __fastcall ExpUnblockPushLock(volatile __int64 *a1, void *a2, char a3)
     {
       CurrentIrql = KeGetCurrentIrql();
       __writecr8(2uLL);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
-        if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
         {
           SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
           LODWORD(v11) = 4;
@@ -68,10 +68,10 @@ void __fastcall ExpUnblockPushLock(volatile __int64 *a1, void *a2, char a3)
     while ( v9 );
     if ( CurrentIrql != 2 )
     {
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v12 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v12 <= 0xFu && CurrentIrql <= 0xFu && v12 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v12 <= 0xFu && CurrentIrql <= 0xFu && v12 >= 2u )
         {
           CurrentPrcb = KeGetCurrentPrcb();
           v14 = CurrentPrcb->SchedulerAssist;

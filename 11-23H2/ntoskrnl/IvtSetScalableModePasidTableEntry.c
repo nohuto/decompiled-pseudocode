@@ -1,9 +1,9 @@
 /*
- * XREFs of IvtSetScalableModePasidTableEntry @ 0x14052D8D0
+ * XREFs of IvtSetScalableModePasidTableEntry @ 0x14052DE20
  * Callers:
- *     IvtInitializeScalableModePasidTables @ 0x14052D290 (IvtInitializeScalableModePasidTables.c)
- *     IvtSetPasidAddressSpace @ 0x14052D700 (IvtSetPasidAddressSpace.c)
- *     IvtUpdateScalableModePasidTablesForPasid @ 0x14052DE30 (IvtUpdateScalableModePasidTablesForPasid.c)
+ *     IvtInitializeScalableModePasidTables @ 0x14052D7E0 (IvtInitializeScalableModePasidTables.c)
+ *     IvtSetPasidAddressSpace @ 0x14052DC50 (IvtSetPasidAddressSpace.c)
+ *     IvtUpdateScalableModePasidTablesForPasid @ 0x14052E380 (IvtUpdateScalableModePasidTablesForPasid.c)
  * Callees:
  *     <none>
  */

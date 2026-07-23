@@ -1,12 +1,12 @@
 /*
- * XREFs of PfSnIsVolumeMounted @ 0x14096C58C
+ * XREFs of PfSnIsVolumeMounted @ 0x140954FEC
  * Callers:
- *     PfSnOpenVolumesForPrefetch @ 0x14096BF6C (PfSnOpenVolumesForPrefetch.c)
+ *     PfSnOpenVolumesForPrefetch @ 0x1409549CC (PfSnOpenVolumesForPrefetch.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     NtClose @ 0x14084AA00 (NtClose.c)
- *     IopCreateFile @ 0x14096CD60 (IopCreateFile.c)
- *     NtQueryVolumeInformationFile @ 0x14096EFA0 (NtQueryVolumeInformationFile.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     NtClose @ 0x140846CC0 (NtClose.c)
+ *     IopCreateFile @ 0x1409557C0 (IopCreateFile.c)
+ *     NtQueryVolumeInformationFile @ 0x140957060 (NtQueryVolumeInformationFile.c)
  */
 
 __int64 __fastcall PfSnIsVolumeMounted(PCWSTR SourceString, int *a2, int *a3)

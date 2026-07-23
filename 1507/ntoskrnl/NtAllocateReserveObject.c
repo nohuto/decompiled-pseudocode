@@ -8,32 +8,37 @@
  *     ObCreateObject @ 0x140473208 (ObCreateObject.c)
  */
 
-__int64 __fastcall NtAllocateReserveObject(ULONG64 a1, int a2, int a3)
+NTSTATUS __cdecl NtAllocateReserveObject(
+        PHANDLE MemoryReserveHandle,
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        MEMORY_RESERVE_TYPE Type)
 {
   __int64 v3; // r14
-  _QWORD *v5; // rdi
+  int v4; // r8d
+  PHANDLE v5; // rdi
   char PreviousMode; // si
   _QWORD *v7; // rdx
-  __int64 result; // rax
-  NTSTATUS inserted; // edx
+  NTSTATUS result; // eax
+  int inserted; // edx
   HANDLE Handle; // [rsp+50h] [rbp-28h] BYREF
   PVOID Object; // [rsp+98h] [rbp+20h]
 
-  v3 = a3;
-  v5 = (_QWORD *)a1;
+  v3 = Type;
+  v4 = (int)ObjectAttributes;
+  v5 = MemoryReserveHandle;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   if ( PreviousMode )
   {
-    v7 = (_QWORD *)a1;
-    if ( a1 >= MmUserProbeAddress )
+    v7 = MemoryReserveHandle;
+    if ( (unsigned __int64)MemoryReserveHandle >= MmUserProbeAddress )
       v7 = (_QWORD *)MmUserProbeAddress;
     *v7 = *v7;
   }
   if ( (unsigned int)v3 > 1 )
-    return 3221225485LL;
-  LOBYTE(a1) = PreviousMode;
-  result = ObCreateObject(a1, (int)*(&PspMemoryReserveObjectTypes + v3), a2, PreviousMode);
-  if ( (int)result >= 0 )
+    return -1073741811;
+  LOBYTE(MemoryReserveHandle) = PreviousMode;
+  result = ObCreateObject((int)MemoryReserveHandle, (int)*(&PspMemoryReserveObjectTypes + v3), v4, PreviousMode);
+  if ( result >= 0 )
   {
     memset(Object, 0, PspMemoryReserveObjectSizes[v3]);
     if ( (_DWORD)v3 == 1 )
@@ -46,7 +51,7 @@ __int64 __fastcall NtAllocateReserveObject(ULONG64 a1, int a2, int a3)
     inserted = ObInsertObject(Object, 0LL, 0xF0003u, 0, 0LL, &Handle);
     if ( inserted >= 0 )
       *v5 = Handle;
-    return (unsigned int)inserted;
+    return inserted;
   }
   return result;
 }

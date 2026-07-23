@@ -1,5 +1,5 @@
 /*
- * XREFs of PoLowPowerEpochCallback @ 0x140603C90
+ * XREFs of PoLowPowerEpochCallback @ 0x140606790
  * Callers:
  *     <none>
  * Callees:
@@ -14,6 +14,6 @@ __int64 __fastcall PoLowPowerEpochCallback(_QWORD *a1, _DWORD *a2, int a3)
   if ( *(_QWORD *)&GUID_LOW_POWER_EPOCH.Data1 == *a1 )
     v3 = *(_QWORD *)GUID_LOW_POWER_EPOCH.Data4 - a1[1];
   if ( !v3 && a3 == 4 && a2 )
-    BYTE1(stru_140E2EB88.RelativeTimerBias) = *a2 != 0;
+    BYTE1(stru_140E2ED08.RelativeTimerBias) = *a2 != 0;
   return 0LL;
 }

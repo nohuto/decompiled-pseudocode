@@ -1,17 +1,17 @@
 /*
- * XREFs of MiCheckUserVirtualAddress @ 0x1402D1920
+ * XREFs of MiCheckUserVirtualAddress @ 0x1402B36E0
  * Callers:
- *     MiActOnPte @ 0x1402D4420 (MiActOnPte.c)
- *     MiResolveDemandZeroFault @ 0x1402D4B40 (MiResolveDemandZeroFault.c)
- *     MiUserFault @ 0x1403A3140 (MiUserFault.c)
- *     MiCheckVirtualAddress @ 0x1403A55E0 (MiCheckVirtualAddress.c)
- *     MiZeroFault @ 0x140422AB0 (MiZeroFault.c)
- *     MiCheckProtoAccess @ 0x140431F30 (MiCheckProtoAccess.c)
+ *     MiActOnPte @ 0x1402B61E0 (MiActOnPte.c)
+ *     MiResolveDemandZeroFault @ 0x1402B6900 (MiResolveDemandZeroFault.c)
+ *     MiUserFault @ 0x1403A4EA0 (MiUserFault.c)
+ *     MiCheckVirtualAddress @ 0x1403A7340 (MiCheckVirtualAddress.c)
+ *     MiZeroFault @ 0x14041A2F0 (MiZeroFault.c)
+ *     MiCheckProtoAccess @ 0x14041EF60 (MiCheckProtoAccess.c)
  * Callees:
- *     MiGetProtoPteAddress @ 0x1402D2540 (MiGetProtoPteAddress.c)
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402DC6D0 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     ExAcquireSpinLockSharedAtDpcLevel @ 0x1402EDFB0 (ExAcquireSpinLockSharedAtDpcLevel.c)
- *     MiLocateLockedVadEvent @ 0x1403BCC30 (MiLocateLockedVadEvent.c)
+ *     MiGetProtoPteAddress @ 0x1402B4300 (MiGetProtoPteAddress.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402BE490 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     ExAcquireSpinLockSharedAtDpcLevel @ 0x1402D0030 (ExAcquireSpinLockSharedAtDpcLevel.c)
+ *     MiLocateLockedVadEvent @ 0x1403C6AA0 (MiLocateLockedVadEvent.c)
  */
 
 __int64 __fastcall MiCheckUserVirtualAddress(unsigned __int64 a1, __int64 a2, int a3, int *a4)
@@ -36,13 +36,13 @@ __int64 __fastcall MiCheckUserVirtualAddress(unsigned __int64 a1, __int64 a2, in
     v8 = a1 & 0xFFFFFFFFFFFFF000uLL;
     if ( (a1 & 0xFFFFFFFFFFFFF000uLL) == 0x7FFE0000 )
     {
-      result = qword_140E2D628;
+      result = qword_140E2D7A8;
       *a4 = 1;
       return result;
     }
-    if ( v8 == qword_140E2D638 && v8 )
+    if ( v8 == qword_140E2D7B8 && v8 )
     {
-      result = qword_140E2D630;
+      result = qword_140E2D7B0;
       *a4 = 1;
       return result;
     }

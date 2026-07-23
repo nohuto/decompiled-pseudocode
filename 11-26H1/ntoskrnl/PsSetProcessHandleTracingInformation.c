@@ -1,13 +1,13 @@
 /*
- * XREFs of PsSetProcessHandleTracingInformation @ 0x14077B370
+ * XREFs of PsSetProcessHandleTracingInformation @ 0x14077DFB0
  * Callers:
- *     NtSetInformationProcess @ 0x140B72B10 (NtSetInformationProcess.c)
- *     ViSettingsEnableKernelHandleChecking @ 0x140C39240 (ViSettingsEnableKernelHandleChecking.c)
+ *     NtSetInformationProcess @ 0x140B781E0 (NtSetInformationProcess.c)
+ *     ViSettingsEnableKernelHandleChecking @ 0x140C3F250 (ViSettingsEnableKernelHandleChecking.c)
  * Callees:
- *     ExReleaseRundownProtection_0 @ 0x140266240 (ExReleaseRundownProtection_0.c)
- *     ExDisableHandleTracing @ 0x1406CB8EC (ExDisableHandleTracing.c)
- *     ExEnableHandleTracing @ 0x1407795D8 (ExEnableHandleTracing.c)
- *     ObReferenceProcessHandleTable @ 0x1409717D0 (ObReferenceProcessHandleTable.c)
+ *     ExReleaseRundownProtection_0 @ 0x1402657B0 (ExReleaseRundownProtection_0.c)
+ *     ExDisableHandleTracing @ 0x1406CF91C (ExDisableHandleTracing.c)
+ *     ExEnableHandleTracing @ 0x14077C508 (ExEnableHandleTracing.c)
+ *     ObReferenceProcessHandleTable @ 0x1409BB940 (ObReferenceProcessHandleTable.c)
  */
 
 __int64 __fastcall PsSetProcessHandleTracingInformation(struct _EX_RUNDOWN_REF *a1, __int64 a2)

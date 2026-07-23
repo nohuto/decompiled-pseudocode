@@ -12,42 +12,42 @@
  *     KiSetClockIntervalToMinimumRequested @ 0x1405700EC (KiSetClockIntervalToMinimumRequested.c)
  */
 
-__int64 __fastcall KiSetClockInterval(unsigned int a1, char a2, unsigned __int64 a3)
+__int64 __fastcall KiSetClockInterval(unsigned int a1, char a2, __int64 a3)
 {
-  __int64 v6; // rdx
-  bool v7; // r8
-  __int64 v8; // rax
+  unsigned __int64 Root; // rdx
+  BOOLEAN v7; // r8
+  unsigned __int64 v8; // rax
   unsigned int ClockTickDueTime; // eax
   int v10; // edx
   unsigned int v11; // ebx
 
   if ( *(_BYTE *)(a3 + 24) )
-    RtlRbRemoveNode((unsigned __int64 *)&KiClockIntervalRequests, a3);
+    RtlRbRemoveNode(&KiClockIntervalRequests, (PRTL_BALANCED_NODE)a3);
   *(_DWORD *)(a3 + 28) = a1;
-  if ( (qword_140D0C538 & 1) != 0 )
+  if ( (*(_BYTE *)&KiClockIntervalRequests.0 & 1) != 0 )
   {
-    if ( KiClockIntervalRequests )
-      v6 = KiClockIntervalRequests ^ (unsigned __int64)&KiClockIntervalRequests;
+    if ( KiClockIntervalRequests.Root )
+      Root = (unsigned __int64)KiClockIntervalRequests.Root ^ (unsigned __int64)&KiClockIntervalRequests;
     else
-      v6 = 0LL;
+      Root = 0LL;
   }
   else
   {
-    v6 = KiClockIntervalRequests;
+    Root = (unsigned __int64)KiClockIntervalRequests.Root;
   }
   v7 = 0;
-  if ( v6 )
+  if ( Root )
   {
     while ( 1 )
     {
-      if ( a1 >= *(_DWORD *)(v6 + 28) )
+      if ( a1 >= *(_DWORD *)(Root + 28) )
       {
-        v8 = *(_QWORD *)(v6 + 8);
-        if ( (qword_140D0C538 & 1) != 0 )
+        v8 = *(_QWORD *)(Root + 8);
+        if ( (*(_BYTE *)&KiClockIntervalRequests.0 & 1) != 0 )
         {
           if ( !v8 )
             goto LABEL_16;
-          v8 ^= v6;
+          v8 ^= Root;
         }
         if ( !v8 )
         {
@@ -58,20 +58,20 @@ LABEL_16:
       }
       else
       {
-        v8 = *(_QWORD *)v6;
-        if ( (qword_140D0C538 & 1) != 0 )
+        v8 = *(_QWORD *)Root;
+        if ( (*(_BYTE *)&KiClockIntervalRequests.0 & 1) != 0 )
         {
           if ( !v8 )
             break;
-          v8 ^= v6;
+          v8 ^= Root;
         }
         if ( !v8 )
           break;
       }
-      v6 = v8;
+      Root = v8;
     }
   }
-  RtlRbInsertNodeEx((unsigned __int64 *)&KiClockIntervalRequests, v6, v7, a3);
+  RtlRbInsertNodeEx(&KiClockIntervalRequests, (PRTL_BALANCED_NODE)Root, v7, (PRTL_BALANCED_NODE)a3);
   *(_BYTE *)(a3 + 24) = 1;
   if ( a2 )
     KePseudoHrTimeIncrement = a1;

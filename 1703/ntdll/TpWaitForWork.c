@@ -7,12 +7,8 @@
  *     sub_180014918 @ 0x180014918 (sub_180014918.c)
  */
 
-__int64 __fastcall TpWaitForWork(__int64 a1, unsigned int a2)
+void __cdecl TpWaitForWork(PTP_WORK Work, LOGICAL CancelPendingCallbacks)
 {
-  __int64 result; // rax
-
-  result = sub_180014918(a1, 0LL, 0LL);
-  if ( (_DWORD)result )
-    return sub_18001434C(a1, a2);
-  return result;
+  if ( (unsigned int)sub_180014918(Work, 0LL, 0LL) )
+    sub_18001434C(Work, CancelPendingCallbacks);
 }

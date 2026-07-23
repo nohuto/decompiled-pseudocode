@@ -1,9 +1,9 @@
 /*
- * XREFs of PsQuitNextProcessThread @ 0x140A6C570
+ * XREFs of PsQuitNextProcessThread @ 0x140A65AD0
  * Callers:
- *     ExpDebuggerWorker @ 0x140B79F70 (ExpDebuggerWorker.c)
+ *     ExpDebuggerWorker @ 0x140B7BF70 (ExpDebuggerWorker.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x1403254A0 (ObfDereferenceObjectWithTag.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CE030 (ObfDereferenceObjectWithTag.c)
  */
 
 LONG_PTR __fastcall PsQuitNextProcessThread(void *a1)

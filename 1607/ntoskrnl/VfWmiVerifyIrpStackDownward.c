@@ -3,8 +3,8 @@
  * Callers:
  *     <none>
  * Callees:
- *     ViErrorReport1 @ 0x140223660 (ViErrorReport1.c)
- *     VfGetPristineDriverInit @ 0x14070B8AC (VfGetPristineDriverInit.c)
+ *     ViErrorReport1 @ 0x14022348C (ViErrorReport1.c)
+ *     VfGetPristineDriverInit @ 0x14070B8DC (VfGetPristineDriverInit.c)
  */
 
 __int64 (__fastcall *__fastcall VfWmiVerifyIrpStackDownward(

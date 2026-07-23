@@ -1,12 +1,12 @@
 /*
- * XREFs of MiFindContiguousMemoryInPool @ 0x1401625D4
+ * XREFs of MiFindContiguousMemoryInPool @ 0x1401626D4
  * Callers:
- *     MiAllocateContiguousMemory @ 0x1400E651C (MiAllocateContiguousMemory.c)
+ *     MiAllocateContiguousMemory @ 0x1400E659C (MiAllocateContiguousMemory.c)
  * Callees:
- *     MiFreePoolPages @ 0x140161100 (MiFreePoolPages.c)
- *     MiExpandNonPagedPool @ 0x1401626E8 (MiExpandNonPagedPool.c)
- *     MiScanNonPagedPoolVa @ 0x1401635E0 (MiScanNonPagedPoolVa.c)
- *     MiPhysicalPoolCheck @ 0x140164548 (MiPhysicalPoolCheck.c)
+ *     MiFreePoolPages @ 0x140161200 (MiFreePoolPages.c)
+ *     MiExpandNonPagedPool @ 0x1401627E8 (MiExpandNonPagedPool.c)
+ *     MiScanNonPagedPoolVa @ 0x1401636E0 (MiScanNonPagedPoolVa.c)
+ *     MiPhysicalPoolCheck @ 0x140164648 (MiPhysicalPoolCheck.c)
  */
 
 unsigned __int64 __fastcall MiFindContiguousMemoryInPool(
@@ -19,7 +19,7 @@ unsigned __int64 __fastcall MiFindContiguousMemoryInPool(
   unsigned __int64 v6; // rbx
   unsigned __int64 v7; // rcx
   unsigned int v8; // ebp
-  union _SLIST_HEADER *v9; // rdi
+  _SLIST_HEADER *v9; // rdi
   unsigned __int64 Alignment; // rax
   __int64 v11; // rax
   unsigned __int64 v13; // rax
@@ -48,12 +48,12 @@ unsigned __int64 __fastcall MiFindContiguousMemoryInPool(
     }
   }
   v8 = a5;
-  v9 = &qword_14043A058[25 * a5];
+  v9 = &qword_14043B118[25 * a5];
   Alignment = v9[16].Alignment;
   if ( !Alignment
     || a2 < Alignment
     || a1 > v9[16].Region
-    || !*(_QWORD *)(1984LL * a5 + qword_14043C950 + 1808) && (_DWORD)InitializationPhase )
+    || !*(_QWORD *)(1984LL * a5 + qword_14043DA10 + 1808) && (_DWORD)InitializationPhase )
   {
     return 0LL;
   }

@@ -1,9 +1,9 @@
 /*
- * XREFs of ViMiscCheckResourceAcquire @ 0x140AE144C
+ * XREFs of ViMiscCheckResourceAcquire @ 0x140AE143C
  * Callers:
- *     VfMiscExAcquireSharedWaitForExclusive_Entry @ 0x140AC0810 (VfMiscExAcquireSharedWaitForExclusive_Entry.c)
+ *     VfMiscExAcquireSharedWaitForExclusive_Entry @ 0x140AC0800 (VfMiscExAcquireSharedWaitForExclusive_Entry.c)
  * Callees:
- *     VerifierBugCheckIfAppropriate @ 0x140ACD2B4 (VerifierBugCheckIfAppropriate.c)
+ *     VerifierBugCheckIfAppropriate @ 0x140ACD2A4 (VerifierBugCheckIfAppropriate.c)
  */
 
 struct _KTHREAD *__fastcall ViMiscCheckResourceAcquire(__int64 a1, char a2)

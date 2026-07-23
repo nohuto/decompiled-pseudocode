@@ -1,23 +1,23 @@
 /*
- * XREFs of RtlpHpSegPageRangeShrink @ 0x14024E6C0
+ * XREFs of RtlpHpSegPageRangeShrink @ 0x14024E790
  * Callers:
- *     RtlpHpFreeHeap @ 0x1402AC4C0 (RtlpHpFreeHeap.c)
- *     RtlpHpSegFree @ 0x14031515C (RtlpHpSegFree.c)
- *     ExFreeHeapPool @ 0x1403230B0 (ExFreeHeapPool.c)
- *     RtlpHpSegPageRangeFree @ 0x1405B6A80 (RtlpHpSegPageRangeFree.c)
+ *     RtlpHpFreeHeap @ 0x1402AC750 (RtlpHpFreeHeap.c)
+ *     RtlpHpSegFree @ 0x1403153EC (RtlpHpSegFree.c)
+ *     ExFreeHeapPool @ 0x140323340 (ExFreeHeapPool.c)
+ *     RtlpHpSegPageRangeFree @ 0x1405B6FF0 (RtlpHpSegPageRangeFree.c)
  * Callees:
  *     ExpWaitForSpinLockExclusiveAndAcquire @ 0x140207740 (ExpWaitForSpinLockExclusiveAndAcquire.c)
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     KeYieldProcessorEx @ 0x140242E40 (KeYieldProcessorEx.c)
- *     RtlRbInsertNodeEx @ 0x14024CCC0 (RtlRbInsertNodeEx.c)
- *     RtlpHpSegPageRangeCoalesce @ 0x14024EAD0 (RtlpHpSegPageRangeCoalesce.c)
- *     ExfTryToWakePushLock @ 0x1402BD960 (ExfTryToWakePushLock.c)
- *     KiCheckForKernelApcDelivery @ 0x14030F820 (KiCheckForKernelApcDelivery.c)
- *     RtlpHpSegSegmentFree @ 0x1403151F4 (RtlpHpSegSegmentFree.c)
- *     ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x14046B438 (ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x14060B0BC (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140231120 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     KeYieldProcessorEx @ 0x140242F10 (KeYieldProcessorEx.c)
+ *     RtlRbInsertNodeEx @ 0x14024CD90 (RtlRbInsertNodeEx.c)
+ *     RtlpHpSegPageRangeCoalesce @ 0x14024EBA0 (RtlpHpSegPageRangeCoalesce.c)
+ *     ExfTryToWakePushLock @ 0x1402BDBF0 (ExfTryToWakePushLock.c)
+ *     KiCheckForKernelApcDelivery @ 0x14030FAB0 (KiCheckForKernelApcDelivery.c)
+ *     RtlpHpSegSegmentFree @ 0x140315484 (RtlpHpSegSegmentFree.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x14046B838 (ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented.c)
+ *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x14060B60C (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
  */
 
 int __fastcall RtlpHpSegPageRangeShrink(__int64 a1, __int64 a2, int a3, int a4)
@@ -30,7 +30,7 @@ int __fastcall RtlpHpSegPageRangeShrink(__int64 a1, __int64 a2, int a3, int a4)
   int v11; // edx
   __int64 v12; // rax
   char v13; // dl
-  unsigned __int64 v14; // r14
+  __int64 v14; // r14
   char v15; // cl
   int v16; // r10d
   int v17; // r11d
@@ -40,10 +40,10 @@ int __fastcall RtlpHpSegPageRangeShrink(__int64 a1, __int64 a2, int a3, int a4)
   __int16 *v21; // rcx
   int v22; // eax
   unsigned int i; // edx
-  unsigned __int64 v24; // rdx
-  bool v25; // cl
+  __int64 v24; // rdx
+  BOOLEAN v25; // cl
   _QWORD *v26; // rdi
-  unsigned __int64 v27; // rcx
+  __int64 v27; // rcx
   char *v28; // rax
   __int64 v29; // r8
   char v30; // cl
@@ -91,7 +91,7 @@ int __fastcall RtlpHpSegPageRangeShrink(__int64 a1, __int64 a2, int a3, int a4)
     {
       CurrentIrql = KeGetCurrentIrql();
       __writecr8(2uLL);
-      if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+      if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
       {
         SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
         if ( CurrentIrql == 2 )
@@ -166,10 +166,9 @@ int __fastcall RtlpHpSegPageRangeShrink(__int64 a1, __int64 a2, int a3, int a4)
       v16 = *(unsigned __int8 *)(v14 + 31) << v15;
       v17 = 0;
       v18 = (*(_DWORD *)a1 & v14)
-          + ((__int64)(v14 - (*(_QWORD *)a1 & v14)) >> 5 << v15)
-          - (*(_DWORD *)a1 & ((*(_DWORD *)a1 & v14) + ((__int64)(v14 - (*(_QWORD *)a1 & v14)) >> 5 << v15)));
-      v19 = *(_QWORD *)((*(_QWORD *)a1 & ((*(_QWORD *)a1 & v14) + ((__int64)(v14 - (*(_QWORD *)a1 & v14)) >> 5 << v15)))
-                      + 0x18);
+          + ((v14 - (*(_QWORD *)a1 & v14)) >> 5 << v15)
+          - (*(_DWORD *)a1 & ((*(_DWORD *)a1 & v14) + ((v14 - (*(_QWORD *)a1 & v14)) >> 5 << v15)));
+      v19 = *(_QWORD *)((*(_QWORD *)a1 & ((*(_QWORD *)a1 & v14) + ((v14 - (*(_QWORD *)a1 & v14)) >> 5 << v15))) + 0x18);
       v20 = v19 + 2 * ((unsigned __int64)(v16 + v18 - 1) >> 21);
       v21 = (__int16 *)(v19 + 2 * ((unsigned __int64)v18 >> 21));
       v22 = 0;
@@ -249,7 +248,7 @@ LABEL_38:
       }
     }
 LABEL_25:
-    RtlRbInsertNodeEx((unsigned __int64 *)(a1 + 96), v24, v25, v14);
+    RtlRbInsertNodeEx((PRTL_RB_TREE)(a1 + 96), (PRTL_BALANCED_NODE)v24, v25, (PRTL_BALANCED_NODE)v14);
     v12 = *(__int16 *)(a1 + 22);
     _InterlockedExchangeAdd64((volatile signed __int64 *)(v12 + a1 + 16), (unsigned __int16)~*(_WORD *)(v14 + 28));
     v26 = 0LL;
@@ -262,7 +261,7 @@ LABEL_25:
         ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented(a1 + 64, retaddr);
       else
         *(_DWORD *)(a1 + 64) = 0;
-      if ( KiIrqlFlags && (v38 = KeGetCurrentIrql(), (KiIrqlFlags & 1) != 0) && v38 <= 0xFu )
+      if ( (_DWORD)KiIrqlFlags && (v38 = KeGetCurrentIrql(), ((unsigned __int8)KiIrqlFlags & 1) != 0) && v38 <= 0xFu )
       {
         v32 = v46;
         if ( (unsigned __int8)v46 <= 0xFu && v38 >= 2u )

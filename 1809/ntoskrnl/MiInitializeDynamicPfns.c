@@ -1,8 +1,8 @@
 /*
- * XREFs of MiInitializeDynamicPfns @ 0x1402A6704
+ * XREFs of MiInitializeDynamicPfns @ 0x1402A68F4
  * Callers:
- *     MiMapNewPfns @ 0x14084D3A0 (MiMapNewPfns.c)
- *     MiRemovePhysicalMemory @ 0x14084D54C (MiRemovePhysicalMemory.c)
+ *     MiMapNewPfns @ 0x14084E600 (MiMapNewPfns.c)
+ *     MiRemovePhysicalMemory @ 0x14084E7AC (MiRemovePhysicalMemory.c)
  * Callees:
  *     MiUpdateLargePageBitMap @ 0x140027BE8 (MiUpdateLargePageBitMap.c)
  *     MiReferenceControlAreaPfn @ 0x14002CA8C (MiReferenceControlAreaPfn.c)
@@ -10,15 +10,15 @@
  *     MiLockProtoPoolPage @ 0x14002F030 (MiLockProtoPoolPage.c)
  *     MiUnlockProtoPoolPage @ 0x14002F1F0 (MiUnlockProtoPoolPage.c)
  *     MmAccessFault @ 0x140043DA0 (MmAccessFault.c)
- *     MiAbortCombineScan @ 0x140082668 (MiAbortCombineScan.c)
- *     ExAcquireSpinLockExclusive @ 0x1400BC4E0 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC660 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KeGenericCallDpc @ 0x1401203F0 (KeGenericCallDpc.c)
- *     MiInitializeUnusablePfns @ 0x14017F04C (MiInitializeUnusablePfns.c)
- *     MiRestrictRangeToNode @ 0x14017F2AC (MiRestrictRangeToNode.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     memset @ 0x1401D1880 (memset.c)
+ *     MiAbortCombineScan @ 0x140082658 (MiAbortCombineScan.c)
+ *     ExAcquireSpinLockExclusive @ 0x1400BC420 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC5A0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KeGenericCallDpc @ 0x140120460 (KeGenericCallDpc.c)
+ *     MiInitializeUnusablePfns @ 0x14017F18C (MiInitializeUnusablePfns.c)
+ *     MiRestrictRangeToNode @ 0x14017F3EC (MiRestrictRangeToNode.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     memset @ 0x1401D1980 (memset.c)
  */
 
 unsigned __int8 __fastcall MiInitializeDynamicPfns(
@@ -75,11 +75,11 @@ unsigned __int8 __fastcall MiInitializeDynamicPfns(
   {
     v8 = 6;
     v31 = 6;
-    v11 = ExAcquireSpinLockExclusive(&dword_14043CA00);
-    qword_14043E510 += a2;
+    v11 = ExAcquireSpinLockExclusive(&dword_14043DAC0);
+    qword_14043F5D0 += a2;
     v12 = v11;
-    byte_14043C94C = 1;
-    ExReleaseSpinLockExclusiveFromDpcLevel(&dword_14043CA00);
+    byte_14043DA0C = 1;
+    ExReleaseSpinLockExclusiveFromDpcLevel(&dword_14043DAC0);
     if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && KeGetCurrentIrql() >= 2u && v12 < 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();

@@ -1,14 +1,14 @@
 /*
- * XREFs of PiDevCfgConfigureDeviceKeyCallback @ 0x14099A1E0
+ * XREFs of PiDevCfgConfigureDeviceKeyCallback @ 0x1409CC950
  * Callers:
  *     <none>
  * Callees:
- *     _wcsicmp @ 0x1404FE3B0 (_wcsicmp.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     PiDevCfgCopyDeviceProperties @ 0x1406FAF60 (PiDevCfgCopyDeviceProperties.c)
- *     PiDevCfgCopyDeviceKeys @ 0x14099B878 (PiDevCfgCopyDeviceKeys.c)
- *     IopOpenRegistryKeyEx @ 0x140A43B04 (IopOpenRegistryKeyEx.c)
- *     IopCreateRegistryKeyEx @ 0x140A71C1C (IopCreateRegistryKeyEx.c)
+ *     _wcsicmp @ 0x1404FBC70 (_wcsicmp.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     PiDevCfgCopyDeviceProperties @ 0x1406F8BA0 (PiDevCfgCopyDeviceProperties.c)
+ *     PiDevCfgCopyDeviceKeys @ 0x1409CDFE8 (PiDevCfgCopyDeviceKeys.c)
+ *     IopOpenRegistryKeyEx @ 0x140A39394 (IopOpenRegistryKeyEx.c)
+ *     IopCreateRegistryKeyEx @ 0x140A6AFFC (IopCreateRegistryKeyEx.c)
  */
 
 __int64 __fastcall PiDevCfgConfigureDeviceKeyCallback(

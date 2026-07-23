@@ -1,16 +1,16 @@
 /*
- * XREFs of PspAddSchedulingGroupToJobChain @ 0x14067F06C
+ * XREFs of PspAddSchedulingGroupToJobChain @ 0x1405D9B0C
  * Callers:
- *     NtSetInformationJobObject @ 0x140614200 (NtSetInformationJobObject.c)
- *     PspEstablishJobHierarchy @ 0x14071FA0C (PspEstablishJobHierarchy.c)
+ *     NtSetInformationJobObject @ 0x14067DE60 (NtSetInformationJobObject.c)
+ *     PspEstablishJobHierarchy @ 0x1406F5948 (PspEstablishJobHierarchy.c)
  * Callees:
- *     ObfReferenceObjectWithTag @ 0x1402056A0 (ObfReferenceObjectWithTag.c)
- *     KeInsertSchedulingGroup @ 0x140285278 (KeInsertSchedulingGroup.c)
- *     PspEnumJobsAndProcessesInJobHierarchy @ 0x140617FF0 (PspEnumJobsAndProcessesInJobHierarchy.c)
- *     PspFreeRateControl @ 0x14067F51C (PspFreeRateControl.c)
- *     PspAllocateRateControl @ 0x14067F56C (PspAllocateRateControl.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     KeInsertSchedulingGroup @ 0x140202418 (KeInsertSchedulingGroup.c)
+ *     ObfReferenceObjectWithTag @ 0x1402A9FE0 (ObfReferenceObjectWithTag.c)
+ *     PspFreeRateControl @ 0x1405D9FBC (PspFreeRateControl.c)
+ *     PspAllocateRateControl @ 0x1405DA00C (PspAllocateRateControl.c)
+ *     PspEnumJobsAndProcessesInJobHierarchy @ 0x140681C50 (PspEnumJobsAndProcessesInJobHierarchy.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PspAddSchedulingGroupToJobChain(__int64 a1, __int64 a2)
@@ -105,20 +105,8 @@ LABEL_6:
         }
         KeInsertSchedulingGroup(v9 + 128, *(_QWORD *)(v9 + 128), v10);
         if ( *(_QWORD *)(v7 + 1016) )
-          PspEnumJobsAndProcessesInJobHierarchy(
-            (_QWORD *)v7,
-            (int)PspSetCpuRateControlJobPreCallback,
-            (int)PspSetCpuRateControlJobPostCallback,
-            0,
-            0LL,
-            8);
-        PspEnumJobsAndProcessesInJobHierarchy(
-          (_QWORD *)v7,
-          (int)PspSetCpuRateControlJobPreCallback,
-          (int)PspSetCpuRateControlJobPostCallback,
-          0,
-          *(_QWORD *)(v7 + 1008),
-          8);
+          PspEnumJobsAndProcessesInJobHierarchy((PVOID)v7, 0LL, 8);
+        PspEnumJobsAndProcessesInJobHierarchy((PVOID)v7, *(_QWORD *)(v7 + 1008), 8);
         v11 = *v3;
         if ( *(_QWORD **)(*v3 + 8LL) != v3 )
           goto LABEL_15;

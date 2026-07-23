@@ -1,22 +1,22 @@
 /*
- * XREFs of SdbpCheckMatchingWildcardFiles @ 0x140803B30
+ * XREFs of SdbpCheckMatchingWildcardFiles @ 0x140804270
  * Callers:
  *     <none>
  * Callees:
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     SdbpInitializeSearchDBContext @ 0x140804F10 (SdbpInitializeSearchDBContext.c)
- *     SdbpResolveMatchingFile @ 0x140805590 (SdbpResolveMatchingFile.c)
- *     SdbpCheckAllAttributes @ 0x14080735C (SdbpCheckAllAttributes.c)
- *     AslPathWildcardFindClose @ 0x14080A060 (AslPathWildcardFindClose.c)
- *     AslPathWildcardFindFirst @ 0x14080A0A4 (AslPathWildcardFindFirst.c)
- *     AslPathWildcardFindNext @ 0x14080A69C (AslPathWildcardFindNext.c)
- *     AslFileMappingCreate @ 0x140959A94 (AslFileMappingCreate.c)
- *     AslFree @ 0x14095CD24 (AslFree.c)
- *     AslFileMappingDelete @ 0x14095CDD8 (AslFileMappingDelete.c)
- *     SdbGetStringTagPtr @ 0x14095FA98 (SdbGetStringTagPtr.c)
- *     SdbFindFirstTag @ 0x14096003C (SdbFindFirstTag.c)
- *     AslLogCallPrintf @ 0x1409601DC (AslLogCallPrintf.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     SdbpInitializeSearchDBContext @ 0x140805650 (SdbpInitializeSearchDBContext.c)
+ *     SdbpResolveMatchingFile @ 0x140805CD0 (SdbpResolveMatchingFile.c)
+ *     SdbpCheckAllAttributes @ 0x140807A9C (SdbpCheckAllAttributes.c)
+ *     AslPathWildcardFindClose @ 0x14080A7A0 (AslPathWildcardFindClose.c)
+ *     AslPathWildcardFindFirst @ 0x14080A7E4 (AslPathWildcardFindFirst.c)
+ *     AslPathWildcardFindNext @ 0x14080ADDC (AslPathWildcardFindNext.c)
+ *     AslFileMappingCreate @ 0x140941554 (AslFileMappingCreate.c)
+ *     AslFree @ 0x1409447E4 (AslFree.c)
+ *     AslFileMappingDelete @ 0x140944898 (AslFileMappingDelete.c)
+ *     SdbGetStringTagPtr @ 0x140947558 (SdbGetStringTagPtr.c)
+ *     SdbFindFirstTag @ 0x140947AFC (SdbFindFirstTag.c)
+ *     AslLogCallPrintf @ 0x140947C9C (AslLogCallPrintf.c)
  */
 
 __int64 __fastcall SdbpCheckMatchingWildcardFiles(

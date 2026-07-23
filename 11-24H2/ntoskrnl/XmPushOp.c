@@ -1,9 +1,9 @@
 /*
- * XREFs of XmPushOp @ 0x140468930
+ * XREFs of XmPushOp @ 0x1404612E0
  * Callers:
  *     <none>
  * Callees:
- *     XmPushStack @ 0x140468C28 (XmPushStack.c)
+ *     XmPushStack @ 0x1404615D8 (XmPushStack.c)
  */
 
 __int64 __fastcall XmPushOp(__int64 a1)

@@ -1,12 +1,12 @@
 /*
- * XREFs of MiIsUserQueryVmCallerTrusted @ 0x1407174C0
+ * XREFs of MiIsUserQueryVmCallerTrusted @ 0x1406C5B10
  * Callers:
- *     MmQueryVirtualMemory @ 0x14061E930 (MmQueryVirtualMemory.c)
+ *     MmQueryVirtualMemory @ 0x1406885A0 (MmQueryVirtualMemory.c)
  * Callees:
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     SeSinglePrivilegeCheck @ 0x140627640 (SeSinglePrivilegeCheck.c)
- *     PsReferenceEffectiveToken @ 0x14065CD50 (PsReferenceEffectiveToken.c)
- *     SeTokenIsAdmin @ 0x140717530 (SeTokenIsAdmin.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     PsReferenceEffectiveToken @ 0x140651B70 (PsReferenceEffectiveToken.c)
+ *     SeSinglePrivilegeCheck @ 0x140693750 (SeSinglePrivilegeCheck.c)
+ *     SeTokenIsAdmin @ 0x1406C5B80 (SeTokenIsAdmin.c)
  */
 
 __int64 __fastcall MiIsUserQueryVmCallerTrusted(__int64 a1)

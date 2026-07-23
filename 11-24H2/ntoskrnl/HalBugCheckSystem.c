@@ -1,10 +1,10 @@
 /*
- * XREFs of HalBugCheckSystem @ 0x14053E440
+ * XREFs of HalBugCheckSystem @ 0x14053BD40
  * Callers:
  *     <none>
  * Callees:
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     HalpNMIHalt @ 0x140543E84 (HalpNMIHalt.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     HalpNMIHalt @ 0x1405417D4 (HalpNMIHalt.c)
  */
 
 void __stdcall __noreturn HalBugCheckSystem(PWHEA_ERROR_SOURCE_DESCRIPTOR ErrorSource, PWHEA_ERROR_RECORD ErrorRecord)

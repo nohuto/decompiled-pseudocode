@@ -1,23 +1,23 @@
 /*
- * XREFs of IopApplySystemPartitionProt @ 0x1409F4F40
+ * XREFs of IopApplySystemPartitionProt @ 0x1409F5F40
  * Callers:
- *     IopProtectSystemPartition @ 0x1409DE514 (IopProtectSystemPartition.c)
+ *     IopProtectSystemPartition @ 0x1409DF514 (IopProtectSystemPartition.c)
  * Callees:
- *     RtlInitAnsiString @ 0x1400EED90 (RtlInitAnsiString.c)
- *     ExAllocatePoolWithTagPriority @ 0x1400FD830 (ExAllocatePoolWithTagPriority.c)
- *     RtlStringCchPrintfA @ 0x14018DFC0 (RtlStringCchPrintfA.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     ZwOpenFile @ 0x1401B87F0 (ZwOpenFile.c)
- *     ZwSetSecurityObject @ 0x1401BB590 (ZwSetSecurityObject.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     RtlAnsiStringToUnicodeString @ 0x1405AADA0 (RtlAnsiStringToUnicodeString.c)
- *     RtlSetDaclSecurityDescriptor @ 0x1405CADE0 (RtlSetDaclSecurityDescriptor.c)
- *     RtlCreateAcl @ 0x1405CAF70 (RtlCreateAcl.c)
- *     NtClose @ 0x1405E89E0 (NtClose.c)
- *     RtlFreeAnsiString @ 0x140623790 (RtlFreeAnsiString.c)
- *     RtlCreateSecurityDescriptor @ 0x14064FE90 (RtlCreateSecurityDescriptor.c)
- *     RtlAddAccessAllowedAce @ 0x140655580 (RtlAddAccessAllowedAce.c)
+ *     RtlInitAnsiString @ 0x1400EEE10 (RtlInitAnsiString.c)
+ *     ExAllocatePoolWithTagPriority @ 0x1400FD8B0 (ExAllocatePoolWithTagPriority.c)
+ *     RtlStringCchPrintfA @ 0x14018E100 (RtlStringCchPrintfA.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     ZwOpenFile @ 0x1401B8950 (ZwOpenFile.c)
+ *     ZwSetSecurityObject @ 0x1401BB6F0 (ZwSetSecurityObject.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     RtlAnsiStringToUnicodeString @ 0x1405ABDA0 (RtlAnsiStringToUnicodeString.c)
+ *     RtlSetDaclSecurityDescriptor @ 0x1405CBDE0 (RtlSetDaclSecurityDescriptor.c)
+ *     RtlCreateAcl @ 0x1405CBF70 (RtlCreateAcl.c)
+ *     NtClose @ 0x1405E99E0 (NtClose.c)
+ *     RtlFreeAnsiString @ 0x140624790 (RtlFreeAnsiString.c)
+ *     RtlCreateSecurityDescriptor @ 0x140651050 (RtlCreateSecurityDescriptor.c)
+ *     RtlAddAccessAllowedAce @ 0x140656740 (RtlAddAccessAllowedAce.c)
  */
 
 __int64 __fastcall IopApplySystemPartitionProt(__int64 a1)
@@ -28,7 +28,7 @@ __int64 __fastcall IopApplySystemPartitionProt(__int64 a1)
   NTSTATUS Acl; // ebx
   HANDLE FileHandle; // [rsp+38h] [rbp-D0h] BYREF
   UNICODE_STRING UnicodeString; // [rsp+40h] [rbp-C8h] BYREF
-  STRING DestinationString; // [rsp+50h] [rbp-B8h] BYREF
+  _STRING DestinationString; // [rsp+50h] [rbp-B8h] BYREF
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+60h] [rbp-A8h] BYREF
   _BYTE SecurityDescriptor[40]; // [rsp+90h] [rbp-78h] BYREF
   struct _IO_STATUS_BLOCK IoStatusBlock; // [rsp+B8h] [rbp-50h] BYREF

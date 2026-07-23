@@ -1,14 +1,14 @@
 /*
- * XREFs of FsRtlGetTunnelParameterValue @ 0x1407C6944
+ * XREFs of FsRtlGetTunnelParameterValue @ 0x1407C6C64
  * Callers:
- *     FsRtlInitializeTunnels @ 0x140A6C04C (FsRtlInitializeTunnels.c)
+ *     FsRtlInitializeTunnels @ 0x140A6D04C (FsRtlInitializeTunnels.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     ZwClose @ 0x1403FA580 (ZwClose.c)
- *     ZwOpenKey @ 0x1403FA5E0 (ZwOpenKey.c)
- *     ZwQueryValueKey @ 0x1403FA680 (ZwQueryValueKey.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     ZwClose @ 0x1403FA760 (ZwClose.c)
+ *     ZwOpenKey @ 0x1403FA7C0 (ZwOpenKey.c)
+ *     ZwQueryValueKey @ 0x1403FA860 (ZwQueryValueKey.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 NTSTATUS __fastcall FsRtlGetTunnelParameterValue(PUNICODE_STRING ValueName, _DWORD *a2)

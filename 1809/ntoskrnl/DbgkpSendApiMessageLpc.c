@@ -1,14 +1,14 @@
 /*
- * XREFs of DbgkpSendApiMessageLpc @ 0x140810CAC
+ * XREFs of DbgkpSendApiMessageLpc @ 0x140811EAC
  * Callers:
- *     DbgkForwardException @ 0x1406D68DC (DbgkForwardException.c)
+ *     DbgkForwardException @ 0x1406D7B7C (DbgkForwardException.c)
  * Callees:
  *     KeLeaveCriticalRegion @ 0x14004F410 (KeLeaveCriticalRegion.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     ZwFlushInstructionCache @ 0x1401B9DD0 (ZwFlushInstructionCache.c)
- *     PsThawProcess @ 0x14067E304 (PsThawProcess.c)
- *     LpcRequestWaitReplyPortEx @ 0x1406A43D0 (LpcRequestWaitReplyPortEx.c)
- *     DbgkpSuspendProcess @ 0x1408116E4 (DbgkpSuspendProcess.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     ZwFlushInstructionCache @ 0x1401B9F30 (ZwFlushInstructionCache.c)
+ *     PsThawProcess @ 0x14067F4C4 (PsThawProcess.c)
+ *     LpcRequestWaitReplyPortEx @ 0x1406A5670 (LpcRequestWaitReplyPortEx.c)
+ *     DbgkpSuspendProcess @ 0x1408128E4 (DbgkpSuspendProcess.c)
  */
 
 __int64 __fastcall DbgkpSendApiMessageLpc(__int64 a1, int a2, char a3)

@@ -1,20 +1,20 @@
 /*
- * XREFs of TtmNotifyDeviceArrival @ 0x1408FBC00
+ * XREFs of TtmNotifyDeviceArrival @ 0x1408FBD60
  * Callers:
  *     <none>
  * Callees:
- *     RtlStringCchLengthW @ 0x140264E74 (RtlStringCchLengthW.c)
- *     KeLeaveCriticalRegion @ 0x14034B3B0 (KeLeaveCriticalRegion.c)
- *     ExReleaseResourceLite @ 0x14034B3F0 (ExReleaseResourceLite.c)
- *     RtlStringCchCopyW @ 0x1403716A0 (RtlStringCchCopyW.c)
- *     memset @ 0x140414200 (memset.c)
- *     TtmpFindDeviceByToken @ 0x1408FCD48 (TtmpFindDeviceByToken.c)
- *     TtmiAcquireCurrentSession @ 0x1408FEFC4 (TtmiAcquireCurrentSession.c)
- *     TtmiScheduleSessionWorker @ 0x1408FF140 (TtmiScheduleSessionWorker.c)
- *     TtmiLogDeviceArrivalNotified @ 0x140901A68 (TtmiLogDeviceArrivalNotified.c)
- *     TtmiLogError @ 0x140902AC4 (TtmiLogError.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     RtlStringCchLengthW @ 0x140252F04 (RtlStringCchLengthW.c)
+ *     KeLeaveCriticalRegion @ 0x140356100 (KeLeaveCriticalRegion.c)
+ *     ExReleaseResourceLite @ 0x140356140 (ExReleaseResourceLite.c)
+ *     RtlStringCchCopyW @ 0x1403711F0 (RtlStringCchCopyW.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     TtmpFindDeviceByToken @ 0x1408FCEA8 (TtmpFindDeviceByToken.c)
+ *     TtmiAcquireCurrentSession @ 0x1408FF124 (TtmiAcquireCurrentSession.c)
+ *     TtmiScheduleSessionWorker @ 0x1408FF2A0 (TtmiScheduleSessionWorker.c)
+ *     TtmiLogDeviceArrivalNotified @ 0x140901BC8 (TtmiLogDeviceArrivalNotified.c)
+ *     TtmiLogError @ 0x140902C24 (TtmiLogError.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall TtmNotifyDeviceArrival(unsigned int a1, __int64 a2, _QWORD *a3, int a4, __int64 a5)

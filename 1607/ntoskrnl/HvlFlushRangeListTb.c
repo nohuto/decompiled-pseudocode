@@ -1,12 +1,12 @@
 /*
- * XREFs of HvlFlushRangeListTb @ 0x1401C14F0
+ * XREFs of HvlFlushRangeListTb @ 0x1401C13D4
  * Callers:
- *     MmSetAddressRangeModified @ 0x140016FA0 (MmSetAddressRangeModified.c)
- *     KeFlushMultipleRangeTb @ 0x1400B5D3C (KeFlushMultipleRangeTb.c)
- *     MiFlushTbList @ 0x1400E0490 (MiFlushTbList.c)
- *     KeFlushMultipleRangeCurrentTb @ 0x14012F798 (KeFlushMultipleRangeCurrentTb.c)
+ *     MmSetAddressRangeModified @ 0x140016B20 (MmSetAddressRangeModified.c)
+ *     KeFlushMultipleRangeTb @ 0x1400B3B64 (KeFlushMultipleRangeTb.c)
+ *     MiFlushTbList @ 0x1400DE330 (MiFlushTbList.c)
+ *     KeFlushMultipleRangeCurrentTb @ 0x14012FD08 (KeFlushMultipleRangeCurrentTb.c)
  * Callees:
- *     HvlpUseExtendedProcessorSetHypercalls @ 0x1401BFFF8 (HvlpUseExtendedProcessorSetHypercalls.c)
+ *     HvlpUseExtendedProcessorSetHypercalls @ 0x1401BFEDC (HvlpUseExtendedProcessorSetHypercalls.c)
  */
 
 __int64 __fastcall HvlFlushRangeListTb(int a1, __int64 a2, int a3, int a4, int a5, __int64 a6)

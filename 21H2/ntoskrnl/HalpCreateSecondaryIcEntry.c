@@ -1,14 +1,14 @@
 /*
- * XREFs of HalpCreateSecondaryIcEntry @ 0x1404D09A0
+ * XREFs of HalpCreateSecondaryIcEntry @ 0x1404D0BE0
  * Callers:
- *     HalpRegisterSecondaryIcInterface @ 0x1404D13F4 (HalpRegisterSecondaryIcInterface.c)
+ *     HalpRegisterSecondaryIcInterface @ 0x1404D1634 (HalpRegisterSecondaryIcInterface.c)
  * Callees:
- *     ObfReferenceObjectWithTag @ 0x1402056A0 (ObfReferenceObjectWithTag.c)
- *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
- *     HalpAcquireHighLevelLock @ 0x140378F20 (HalpAcquireHighLevelLock.c)
+ *     KxReleaseSpinLock @ 0x140212140 (KxReleaseSpinLock.c)
+ *     ObfReferenceObjectWithTag @ 0x1402A9FE0 (ObfReferenceObjectWithTag.c)
+ *     HalpAcquireHighLevelLock @ 0x140378A70 (HalpAcquireHighLevelLock.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     memset @ 0x140414200 (memset.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall HalpCreateSecondaryIcEntry(__int64 a1)
@@ -47,13 +47,13 @@ __int64 __fastcall HalpCreateSecondaryIcEntry(__int64 a1)
     *(_BYTE *)(v5 + 122) = 6;
     *(_DWORD *)(v5 + 124) = 1;
     v6 = HalpAcquireHighLevelLock(&SecondaryIcListSpinLock);
-    v7 = (__int64 *)qword_140C49BC8;
-    if ( *(__int64 **)qword_140C49BC8 != &SecondaryIcList )
+    v7 = (__int64 *)qword_140C49C08;
+    if ( *(__int64 **)qword_140C49C08 != &SecondaryIcList )
       __fastfail(3u);
     *(_QWORD *)v5 = &SecondaryIcList;
     *(_QWORD *)(v5 + 8) = v7;
     *v7 = v5;
-    qword_140C49BC8 = v5;
+    qword_140C49C08 = v5;
     KxReleaseSpinLock(&SecondaryIcListSpinLock);
     if ( KiIrqlFlags )
     {

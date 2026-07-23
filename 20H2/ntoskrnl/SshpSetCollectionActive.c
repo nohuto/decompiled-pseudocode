@@ -36,7 +36,7 @@ char __fastcall SshpSetCollectionActive(ULONG_PTR BugCheckParameter2, char a2)
   unsigned int SessionId; // edx
   unsigned __int8 v18; // bp
   unsigned int v19; // r8d
-  unsigned __int64 v20; // rdi
+  __int64 v20; // rdi
   __int64 v21; // rcx
   int v22; // eax
   unsigned int v23; // ecx
@@ -108,7 +108,7 @@ char __fastcall SshpSetCollectionActive(ULONG_PTR BugCheckParameter2, char a2)
     v29 = v21;
     if ( v15 )
       goto LABEL_30;
-    v20 = (unsigned __int64)&CurrentThread->LockEntries[v21];
+    v20 = (__int64)&CurrentThread->LockEntries[v21];
     v19 &= ~(1 << v21);
     if ( (*(_BYTE *)(v20 + 26) & 1) != 0
       && (*(_DWORD *)(v20 + 32) & 1) == 0
@@ -129,14 +129,14 @@ LABEL_30:
   }
   *(_BYTE *)(v20 + 32) |= 2u;
   if ( *(__int64 *)(v20 + 32) < 0 )
-    KiAbEntryRemoveFromTree(v20);
+    KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)v20);
   v22 = *(_DWORD *)(v20 + 88) & 0x1FFFF;
   v23 = *(_DWORD *)(v20 + 88) & 0xFFFE0000;
   *(_BYTE *)(v20 + 25) &= ~1u;
   v28 = v22;
   *(_DWORD *)(v20 + 88) = v23;
   *(_QWORD *)(v20 + 32) = 0LL;
-  v24 = (__int64)(v20 - (unsigned __int64)CurrentThread->LockEntries) / 96;
+  v24 = (signed __int64)(v20 - (unsigned __int64)CurrentThread->LockEntries) / 96;
   if ( v18 == 1 )
     CurrentThread->AbEntrySummary |= 1 << v24;
   else

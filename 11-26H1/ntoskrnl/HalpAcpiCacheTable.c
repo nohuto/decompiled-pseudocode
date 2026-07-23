@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpAcpiCacheTable @ 0x140579510
+ * XREFs of HalpAcpiCacheTable @ 0x14057BA40
  * Callers:
- *     HalpAcpiGetTableWork @ 0x140342B6C (HalpAcpiGetTableWork.c)
- *     HalpAcpiGetAllTablesWork @ 0x14057957C (HalpAcpiGetAllTablesWork.c)
- *     HalpAcpiCacheOverrideTables @ 0x140CAD6E4 (HalpAcpiCacheOverrideTables.c)
- *     HalpAcpiTableCacheInit @ 0x140D0A55C (HalpAcpiTableCacheInit.c)
+ *     HalpAcpiGetTableWork @ 0x140344BEC (HalpAcpiGetTableWork.c)
+ *     HalpAcpiGetAllTablesWork @ 0x14057BAAC (HalpAcpiGetAllTablesWork.c)
+ *     HalpAcpiCacheOverrideTables @ 0x140CB3724 (HalpAcpiCacheOverrideTables.c)
+ *     HalpAcpiTableCacheInit @ 0x140D1082C (HalpAcpiTableCacheInit.c)
  * Callees:
- *     HalpMmAllocCtxFree @ 0x140359004 (HalpMmAllocCtxFree.c)
+ *     HalpMmAllocCtxFree @ 0x14035ADA4 (HalpMmAllocCtxFree.c)
  */
 
 void __fastcall HalpAcpiCacheTable(__int64 a1, __int64 a2)
@@ -30,11 +30,11 @@ void __fastcall HalpAcpiCacheTable(__int64 a1, __int64 a2)
       }
     }
   }
-  v5 = (_QWORD *)qword_140E0F5D8;
-  if ( *(__int64 **)qword_140E0F5D8 != &HalpAcpiTableCacheList )
+  v5 = (_QWORD *)qword_140E0F708;
+  if ( *(__int64 **)qword_140E0F708 != &HalpAcpiTableCacheList )
     __fastfail(3u);
   *v3 = &HalpAcpiTableCacheList;
   v3[1] = v5;
   *v5 = v3;
-  qword_140E0F5D8 = (__int64)v3;
+  qword_140E0F708 = (__int64)v3;
 }

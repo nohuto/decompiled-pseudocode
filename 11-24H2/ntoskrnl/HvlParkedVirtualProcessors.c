@@ -1,15 +1,15 @@
 /*
- * XREFs of HvlParkedVirtualProcessors @ 0x1403C8E74
+ * XREFs of HvlParkedVirtualProcessors @ 0x1403A3A14
  * Callers:
- *     PpmParkReportMask @ 0x1403C88E0 (PpmParkReportMask.c)
+ *     PpmParkReportMask @ 0x1403A3480 (PpmParkReportMask.c)
  * Callees:
- *     HvcallFastExtended @ 0x1403AF3C0 (HvcallFastExtended.c)
- *     HvlpReleaseHypercallPage @ 0x1403AF6A0 (HvlpReleaseHypercallPage.c)
- *     HvcallInitiateHypercall @ 0x1403AF710 (HvcallInitiateHypercall.c)
- *     HvlpAffinityToHvProcessorSet @ 0x1403C9CC4 (HvlpAffinityToHvProcessorSet.c)
- *     HvlpAcquireHypercallPage @ 0x140465ED0 (HvlpAcquireHypercallPage.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     HvcallFastExtended @ 0x14039DBD0 (HvcallFastExtended.c)
+ *     HvlpReleaseHypercallPage @ 0x14039DEB0 (HvlpReleaseHypercallPage.c)
+ *     HvcallInitiateHypercall @ 0x14039DF20 (HvcallInitiateHypercall.c)
+ *     HvlpAffinityToHvProcessorSet @ 0x1403A4864 (HvlpAffinityToHvProcessorSet.c)
+ *     HvlpAcquireHypercallPage @ 0x14045D900 (HvlpAcquireHypercallPage.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 __int64 HvlParkedVirtualProcessors()

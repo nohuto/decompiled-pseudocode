@@ -1,12 +1,12 @@
 /*
- * XREFs of MiFreedUnusedPfnPagesWorker @ 0x1403B9758
+ * XREFs of MiFreedUnusedPfnPagesWorker @ 0x1403B98C8
  * Callers:
- *     MiFreeUnusedPfnPagesDpc @ 0x1403B9650 (MiFreeUnusedPfnPagesDpc.c)
+ *     MiFreeUnusedPfnPagesDpc @ 0x1403B97C0 (MiFreeUnusedPfnPagesDpc.c)
  * Callees:
- *     MmIsAddressValidEx @ 0x14030C4F0 (MmIsAddressValidEx.c)
- *     MiGetNextNonGapPfnPage @ 0x1403B9A00 (MiGetNextNonGapPfnPage.c)
- *     MiPfnRangeIsZero @ 0x1403B9BE8 (MiPfnRangeIsZero.c)
- *     RtlCompareMemoryUlong @ 0x140408230 (RtlCompareMemoryUlong.c)
+ *     MmIsAddressValidEx @ 0x140317240 (MmIsAddressValidEx.c)
+ *     MiGetNextNonGapPfnPage @ 0x1403B9B70 (MiGetNextNonGapPfnPage.c)
+ *     MiPfnRangeIsZero @ 0x1403B9D58 (MiPfnRangeIsZero.c)
+ *     RtlCompareMemoryUlong @ 0x140408410 (RtlCompareMemoryUlong.c)
  */
 
 void __fastcall MiFreedUnusedPfnPagesWorker(_QWORD *a1)
@@ -35,7 +35,7 @@ void __fastcall MiFreedUnusedPfnPagesWorker(_QWORD *a1)
   unsigned __int64 v22; // [rsp+88h] [rbp+20h]
 
   if ( !*a1 )
-    byte_140C50E4C = 1;
+    byte_140C50E8C = 1;
   v1 = 0LL;
 LABEL_4:
   v2 = 0xFFFFFA8000000000uLL;

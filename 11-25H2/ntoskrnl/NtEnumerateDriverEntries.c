@@ -20,11 +20,11 @@
  *     ExFreePoolWithTag @ 0x140B62CD0 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall NtEnumerateDriverEntries(unsigned __int64 Address, _DWORD *a2)
+NTSTATUS __cdecl NtEnumerateDriverEntries(PVOID Buffer, PULONG BufferLength)
 {
-  _DWORD *v2; // r15
+  PULONG v2; // r15
   unsigned int *v4; // r12
-  __int64 result; // rax
+  NTSTATUS result; // eax
   __int64 v6; // r8
   KPROCESSOR_MODE PreviousMode; // si
   __int64 v8; // rcx
@@ -33,7 +33,7 @@ __int64 __fastcall NtEnumerateDriverEntries(unsigned __int64 Address, _DWORD *a2
   int v11; // ebx
   _DWORD *v12; // r13
   struct _KTHREAD *v13; // rax
-  int v14; // r14d
+  NTSTATUS v14; // r14d
   __int64 Pool2; // rax
   unsigned int *v16; // r15
   __int64 v17; // rdx
@@ -70,16 +70,16 @@ __int64 __fastcall NtEnumerateDriverEntries(unsigned __int64 Address, _DWORD *a2
   struct _KTHREAD *CurrentThread; // [rsp+98h] [rbp-40h]
   unsigned int v50; // [rsp+F8h] [rbp+20h] BYREF
 
-  v2 = a2;
+  v2 = BufferLength;
   v42 = 0LL;
   P = 0LL;
   v4 = 0LL;
   if ( dword_140EFE810 != 2 )
-    return 3221225474LL;
-  if ( (Address & 0xFFFFFFFFFFFFFFFCuLL) != Address )
-    return 3221225485LL;
+    return -1073741822;
+  if ( (PVOID)((unsigned __int64)Buffer & 0xFFFFFFFFFFFFFFFCuLL) != Buffer )
+    return -1073741811;
   if ( PsIsCurrentThreadInServerSilo() )
-    return 3221225474LL;
+    return -1073741822;
   CurrentThread = KeGetCurrentThread();
   PreviousMode = CurrentThread->PreviousMode;
   if ( PreviousMode )
@@ -88,17 +88,17 @@ __int64 __fastcall NtEnumerateDriverEntries(unsigned __int64 Address, _DWORD *a2
     if ( (unsigned __int64)v2 < 0x7FFFFFFF0000LL )
       v8 = (__int64)v2;
     *(_DWORD *)v8 = *(_DWORD *)v8;
-    v9 = Address != 0 ? *v2 : 0;
+    v9 = Buffer != 0LL ? *v2 : 0;
     if ( v9 )
-      ProbeForWrite((volatile void *)Address, v9, 4u);
+      ProbeForWrite(Buffer, v9, 4u);
     if ( !SeSinglePrivilegeCheck(SeSystemEnvironmentPrivilege, PreviousMode) )
-      return 3221225569LL;
+      return -1073741727;
   }
   else
   {
-    v9 = Address != 0 ? *v2 : 0;
+    v9 = Buffer != 0LL ? *v2 : 0;
   }
-  if ( !v9 || (LOBYTE(v6) = PreviousMode, result = ExLockUserBuffer(Address, v9, v6, 1LL, &v42, &P), (int)result >= 0) )
+  if ( !v9 || (LOBYTE(v6) = PreviousMode, result = ExLockUserBuffer(Buffer, v9, v6, 1LL, &v42, &P), result >= 0) )
   {
     v10 = v42;
     v11 = 0;
@@ -141,7 +141,7 @@ LABEL_50:
       v34 = *v16;
       if ( !(_DWORD)v34 )
       {
-        v2 = a2;
+        v2 = BufferLength;
         if ( v12 )
           *v12 = 0;
 LABEL_54:
@@ -152,7 +152,7 @@ LABEL_54:
         if ( v14 >= 0 )
           v14 = v11;
         *v2 = (_DWORD)v10 - (_DWORD)v42;
-        return (unsigned int)v14;
+        return v14;
       }
       v16 = (unsigned int *)((char *)v16 + v34);
     }

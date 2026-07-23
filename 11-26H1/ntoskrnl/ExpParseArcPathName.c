@@ -1,11 +1,11 @@
 /*
- * XREFs of ExpParseArcPathName @ 0x14083BA78
+ * XREFs of ExpParseArcPathName @ 0x140841CB8
  * Callers:
- *     ExpTranslateArcPath @ 0x14083CBFC (ExpTranslateArcPath.c)
+ *     ExpTranslateArcPath @ 0x140842E3C (ExpTranslateArcPath.c)
  * Callees:
- *     towlower @ 0x140537DD0 (towlower.c)
- *     wcscpy_s @ 0x14053CB00 (wcscpy_s.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     towlower @ 0x14053A250 (towlower.c)
+ *     wcscpy_s @ 0x14053EF80 (wcscpy_s.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall ExpParseArcPathName(__int64 a1, _QWORD *a2, _QWORD *a3, unsigned int *a4, char *a5)

@@ -1,12 +1,12 @@
 /*
- * XREFs of MicrocodeLogRegistry @ 0x1404F72B0
+ * XREFs of MicrocodeLogRegistry @ 0x1404F08C0
  * Callers:
- *     HalpMcUpdatePostUpdate @ 0x140509770 (HalpMcUpdatePostUpdate.c)
+ *     HalpMcUpdatePostUpdate @ 0x140503220 (HalpMcUpdatePostUpdate.c)
  * Callees:
- *     PrpWriteLogsToRegistry @ 0x1404F7398 (PrpWriteLogsToRegistry.c)
- *     wcslen @ 0x1405380A0 (wcslen.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memmove @ 0x14073D480 (memmove.c)
+ *     PrpWriteLogsToRegistry @ 0x1404F09A8 (PrpWriteLogsToRegistry.c)
+ *     wcslen @ 0x14053A520 (wcslen.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memmove @ 0x140742080 (memmove.c)
  */
 
 __int64 MicrocodeLogRegistry()

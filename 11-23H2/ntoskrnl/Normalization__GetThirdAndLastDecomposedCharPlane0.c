@@ -1,7 +1,7 @@
 /*
- * XREFs of Normalization__GetThirdAndLastDecomposedCharPlane0 @ 0x1409C0A20
+ * XREFs of Normalization__GetThirdAndLastDecomposedCharPlane0 @ 0x1409C0C20
  * Callers:
- *     NormBuffer__ReplaceLastStartBasePair @ 0x1405B0A20 (NormBuffer__ReplaceLastStartBasePair.c)
+ *     NormBuffer__ReplaceLastStartBasePair @ 0x1405B0F90 (NormBuffer__ReplaceLastStartBasePair.c)
  * Callees:
  *     <none>
  */

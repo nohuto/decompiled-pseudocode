@@ -1,13 +1,13 @@
 /*
- * XREFs of VmpSecureMemoryForPin @ 0x14081DB10
+ * XREFs of VmpSecureMemoryForPin @ 0x140823D20
  * Callers:
- *     VmpSplitMemoryRange @ 0x1404C8B68 (VmpSplitMemoryRange.c)
- *     VmpMergeMemoryRanges @ 0x1405199E0 (VmpMergeMemoryRanges.c)
- *     VmpPinMemoryRanges @ 0x1406C1F74 (VmpPinMemoryRanges.c)
+ *     VmpSplitMemoryRange @ 0x1404C2504 (VmpSplitMemoryRange.c)
+ *     VmpMergeMemoryRanges @ 0x140513450 (VmpMergeMemoryRanges.c)
+ *     VmpPinMemoryRanges @ 0x1406C5B54 (VmpPinMemoryRanges.c)
  * Callees:
- *     ExReleaseRundownProtection_0 @ 0x140266240 (ExReleaseRundownProtection_0.c)
- *     ExAcquireRundownProtection_0 @ 0x1402F0590 (ExAcquireRundownProtection_0.c)
- *     MmSecureVirtualMemoryEx @ 0x140777750 (MmSecureVirtualMemoryEx.c)
+ *     ExReleaseRundownProtection_0 @ 0x1402657B0 (ExReleaseRundownProtection_0.c)
+ *     ExAcquireRundownProtection_0 @ 0x1402D2610 (ExAcquireRundownProtection_0.c)
+ *     MmSecureVirtualMemoryEx @ 0x14077A5F0 (MmSecureVirtualMemoryEx.c)
  */
 
 __int64 __fastcall VmpSecureMemoryForPin(struct _EX_RUNDOWN_REF *a1, __int64 a2, __int64 a3, __int64 *a4)

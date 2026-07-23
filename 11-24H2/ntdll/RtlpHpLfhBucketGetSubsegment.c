@@ -1,30 +1,30 @@
 /*
- * XREFs of RtlpHpLfhBucketGetSubsegment @ 0x18004B540
+ * XREFs of RtlpHpLfhBucketGetSubsegment @ 0x180061120
  * Callers:
- *     RtlpHpLfhSlotAllocateSlow @ 0x18004B690 (RtlpHpLfhSlotAllocateSlow.c)
+ *     RtlpHpLfhSlotAllocateSlow @ 0x180061270 (RtlpHpLfhSlotAllocateSlow.c)
  * Callees:
- *     RtlpHpLfhOwnerGetSubsegment @ 0x18004CC40 (RtlpHpLfhOwnerGetSubsegment.c)
- *     RtlpHpLfhOwnerRunMaintenance @ 0x18004D870 (RtlpHpLfhOwnerRunMaintenance.c)
- *     RtlpHpLfhOwnerMoveSubsegment @ 0x18004E450 (RtlpHpLfhOwnerMoveSubsegment.c)
- *     RtlpHpLfhBucketAddSubsegment @ 0x18004E6E0 (RtlpHpLfhBucketAddSubsegment.c)
- *     RtlAcquireSRWLockExclusive @ 0x180055AE0 (RtlAcquireSRWLockExclusive.c)
- *     RtlReleaseSRWLockExclusive @ 0x1800567B0 (RtlReleaseSRWLockExclusive.c)
- *     RtlpHpLfhSubsegmentReformatAsSingle @ 0x1800DFFC4 (RtlpHpLfhSubsegmentReformatAsSingle.c)
+ *     RtlpHpLfhOwnerGetSubsegment @ 0x180062820 (RtlpHpLfhOwnerGetSubsegment.c)
+ *     RtlpHpLfhOwnerRunMaintenance @ 0x180063450 (RtlpHpLfhOwnerRunMaintenance.c)
+ *     RtlpHpLfhOwnerMoveSubsegment @ 0x180064030 (RtlpHpLfhOwnerMoveSubsegment.c)
+ *     RtlpHpLfhBucketAddSubsegment @ 0x1800642C0 (RtlpHpLfhBucketAddSubsegment.c)
+ *     RtlAcquireSRWLockExclusive @ 0x18006B6C0 (RtlAcquireSRWLockExclusive.c)
+ *     RtlReleaseSRWLockExclusive @ 0x18006C390 (RtlReleaseSRWLockExclusive.c)
+ *     RtlpHpLfhSubsegmentReformatAsSingle @ 0x1800DB0C4 (RtlpHpLfhSubsegmentReformatAsSingle.c)
  */
 
-__int64 __fastcall RtlpHpLfhBucketGetSubsegment(__int64 a1, __int64 a2, int a3)
+__int64 __fastcall RtlpHpLfhBucketGetSubsegment(__int64 a1, _RTL_SRWLOCK *a2, int a3)
 {
-  _QWORD *v3; // rdi
+  unsigned __int64 *v3; // rdi
   __int64 Subsegment; // rax
   __int64 v9; // r15
   int v10; // eax
   _QWORD v11[2]; // [rsp+30h] [rbp-38h] BYREF
   _QWORD v12[5]; // [rsp+40h] [rbp-28h] BYREF
 
-  v3 = (_QWORD *)(a2 + 24);
-  if ( (_QWORD *)*v3 == v3 && !*(_QWORD *)(a2 + 8) )
+  v3 = (unsigned __int64 *)&a2[3];
+  if ( (unsigned __int64 *)*v3 == v3 && !a2[1].Value )
     return 0LL;
-  RtlAcquireSRWLockExclusive(a2 + 16);
+  RtlAcquireSRWLockExclusive(a2 + 2);
   while ( 1 )
   {
     Subsegment = RtlpHpLfhOwnerGetSubsegment(a1, a2);
@@ -34,14 +34,14 @@ __int64 __fastcall RtlpHpLfhBucketGetSubsegment(__int64 a1, __int64 a2, int a3)
     v11[1] = v11;
     v11[0] = v11;
     RtlpHpLfhOwnerRunMaintenance(a1, a2, v11, 0LL);
-    if ( (_QWORD *)*v3 == v3 )
+    if ( (unsigned __int64 *)*v3 == v3 )
     {
-      RtlReleaseSRWLockExclusive(a2 + 16);
+      RtlReleaseSRWLockExclusive(a2 + 2);
       return 0LL;
     }
   }
-  RtlpHpLfhOwnerMoveSubsegment(a1, a2, Subsegment, 3, 0);
-  RtlReleaseSRWLockExclusive(a2 + 16);
+  RtlpHpLfhOwnerMoveSubsegment(a1, (_DWORD)a2, Subsegment, 3, 0);
+  RtlReleaseSRWLockExclusive(a2 + 2);
   if ( a3 != 2 && (a3 < 1 || *(_BYTE *)(v9 + 39) <= 1u) )
     return v9;
   v10 = RtlpHpLfhSubsegmentReformatAsSingle(a1, v9);

@@ -1,13 +1,13 @@
 /*
- * XREFs of IvtBuildDefaultDomain @ 0x1405A5C80
+ * XREFs of IvtBuildDefaultDomain @ 0x1405A8490
  * Callers:
- *     IvtAttachDeviceDomainInternal @ 0x1405A5968 (IvtAttachDeviceDomainInternal.c)
- *     IvtConfigureAts @ 0x1405A5E50 (IvtConfigureAts.c)
- *     IvtSetDevicePasidTable @ 0x1405A77C0 (IvtSetDevicePasidTable.c)
+ *     IvtAttachDeviceDomainInternal @ 0x1405A8178 (IvtAttachDeviceDomainInternal.c)
+ *     IvtConfigureAts @ 0x1405A8660 (IvtConfigureAts.c)
+ *     IvtSetDevicePasidTable @ 0x1405A9FD0 (IvtSetDevicePasidTable.c)
  * Callees:
- *     IvtGetBlockedDomain @ 0x140500424 (IvtGetBlockedDomain.c)
- *     IommupGetTranslationTypeFromPolicy @ 0x14058C078 (IommupGetTranslationTypeFromPolicy.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     IvtGetBlockedDomain @ 0x1404F9C14 (IvtGetBlockedDomain.c)
+ *     IommupGetTranslationTypeFromPolicy @ 0x14058E7F8 (IommupGetTranslationTypeFromPolicy.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall IvtBuildDefaultDomain(__int64 a1, unsigned __int64 *a2, char a3)

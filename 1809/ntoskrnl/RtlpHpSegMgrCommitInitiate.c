@@ -9,12 +9,12 @@
  *     KiAbThreadRemoveBoosts @ 0x14004EFD0 (KiAbThreadRemoveBoosts.c)
  *     MmGetSessionIdEx @ 0x14004F060 (MmGetSessionIdEx.c)
  *     KiLeaveGuardedRegionUnsafe @ 0x14004F090 (KiLeaveGuardedRegionUnsafe.c)
- *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     RtlpHpAcquireLockExclusive @ 0x1400BC4A0 (RtlpHpAcquireLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC660 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     RtlpHpSegMgrApplyLargePagePolicy @ 0x14013977C (RtlpHpSegMgrApplyLargePagePolicy.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     ExfTryToWakePushLock @ 0x140091500 (ExfTryToWakePushLock.c)
+ *     RtlpHpAcquireLockExclusive @ 0x1400BC3E0 (RtlpHpAcquireLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC5A0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     RtlpHpSegMgrApplyLargePagePolicy @ 0x14013987C (RtlpHpSegMgrApplyLargePagePolicy.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall RtlpHpSegMgrCommitInitiate(
@@ -157,7 +157,7 @@ LABEL_8:
               {
                 *(_BYTE *)(v25 + 32) |= 2u;
                 if ( *(__int64 *)(v25 + 32) < 0 )
-                  KiAbEntryRemoveFromTree(v25, SessionId);
+                  KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)v25, SessionId);
                 v29 = 0;
                 v29 = *(_DWORD *)(v25 + 88) & 0x1FFFF;
                 *(_DWORD *)(v25 + 88) &= 0xFFFE0000;

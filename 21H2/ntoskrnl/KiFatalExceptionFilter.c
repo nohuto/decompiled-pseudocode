@@ -1,33 +1,33 @@
 /*
- * XREFs of KiFatalExceptionFilter @ 0x140A7221C
+ * XREFs of KiFatalExceptionFilter @ 0x140A7321C
  * Callers:
- *     KiLockServiceTable @ 0x14039F194 (KiLockServiceTable.c)
+ *     KiLockServiceTable @ 0x14039F2E4 (KiLockServiceTable.c)
  * Callees:
- *     RtlLookupExceptionHandler @ 0x1402D209C (RtlLookupExceptionHandler.c)
- *     RtlCaptureImageExceptionValues @ 0x1403725AC (RtlCaptureImageExceptionValues.c)
- *     KeBugCheck @ 0x1403FDED0 (KeBugCheck.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
+ *     RtlLookupExceptionHandler @ 0x14025046C (RtlLookupExceptionHandler.c)
+ *     RtlCaptureImageExceptionValues @ 0x1403720FC (RtlCaptureImageExceptionValues.c)
+ *     KeBugCheck @ 0x1403FE0B0 (KeBugCheck.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
  */
 
 __int64 KiFatalExceptionFilter()
 {
   struct _KPRCB *CurrentPrcb; // rsi
   __int64 v1; // r9
-  unsigned int v2; // edx
+  ULONG v2; // edx
   char *v3; // rbx
   unsigned int *v4; // rcx
   unsigned __int64 v5; // r8
   int v6; // eax
   int v8; // r10d
   int v9; // edx
-  unsigned int v10; // [rsp+50h] [rbp+8h] BYREF
+  ULONG v10; // [rsp+50h] [rbp+8h] BYREF
   __int64 v11; // [rsp+58h] [rbp+10h] BYREF
   ULONG_PTR v12; // [rsp+60h] [rbp+18h] BYREF
 
   _mm_lfence();
   CurrentPrcb = KeGetCurrentPrcb();
   CurrentPrcb->HalReserved[6] = (unsigned __int64)KiServiceTablesLocked;
-  RtlCaptureImageExceptionValues(0x40000000, &v11, &v10);
+  RtlCaptureImageExceptionValues((void *)0x140000000LL, &v11, &v10);
   if ( !v11 )
     goto LABEL_18;
   v2 = v10 / 0xC;

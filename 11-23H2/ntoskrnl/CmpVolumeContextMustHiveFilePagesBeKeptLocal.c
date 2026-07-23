@@ -1,13 +1,13 @@
 /*
- * XREFs of CmpVolumeContextMustHiveFilePagesBeKeptLocal @ 0x1407507AC
+ * XREFs of CmpVolumeContextMustHiveFilePagesBeKeptLocal @ 0x14075099C
  * Callers:
- *     CmpRecheckHiveVolumePolicy @ 0x1402F634C (CmpRecheckHiveVolumePolicy.c)
- *     CmpCreateHive @ 0x1407023CC (CmpCreateHive.c)
+ *     CmpRecheckHiveVolumePolicy @ 0x1402F65DC (CmpRecheckHiveVolumePolicy.c)
+ *     CmpCreateHive @ 0x1407025DC (CmpCreateHive.c)
  * Callees:
- *     KeAbPreAcquire @ 0x140230EE0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfReleasePushLockShared @ 0x1402BD860 (ExfReleasePushLockShared.c)
- *     ExfAcquirePushLockSharedEx @ 0x1402FD040 (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPreAcquire @ 0x140230FD0 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     ExfReleasePushLockShared @ 0x1402BDAF0 (ExfReleasePushLockShared.c)
+ *     ExfAcquirePushLockSharedEx @ 0x1402FD2D0 (ExfAcquirePushLockSharedEx.c)
  */
 
 bool __fastcall CmpVolumeContextMustHiveFilePagesBeKeptLocal(__int64 a1)

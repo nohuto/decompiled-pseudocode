@@ -1,15 +1,15 @@
 /*
- * XREFs of ??0SC_DISK@@QEAA@XZ @ 0x140675368
+ * XREFs of ??0SC_DISK@@QEAA@XZ @ 0x1406758B8
  * Callers:
- *     IoCreateDisk @ 0x1409405C0 (IoCreateDisk.c)
- *     IoReadDiskSignature @ 0x140940670 (IoReadDiskSignature.c)
- *     IoReadPartitionTable @ 0x140940770 (IoReadPartitionTable.c)
- *     IoReadPartitionTableEx @ 0x140940940 (IoReadPartitionTableEx.c)
- *     IoSetPartitionInformation @ 0x1409409F0 (IoSetPartitionInformation.c)
- *     IoSetPartitionInformationEx @ 0x140940AD0 (IoSetPartitionInformationEx.c)
- *     IoVerifyPartitionTable @ 0x140940B90 (IoVerifyPartitionTable.c)
- *     IoWritePartitionTable @ 0x140940C40 (IoWritePartitionTable.c)
- *     IoWritePartitionTableEx @ 0x140940DB0 (IoWritePartitionTableEx.c)
+ *     IoCreateDisk @ 0x1409407C0 (IoCreateDisk.c)
+ *     IoReadDiskSignature @ 0x140940870 (IoReadDiskSignature.c)
+ *     IoReadPartitionTable @ 0x140940970 (IoReadPartitionTable.c)
+ *     IoReadPartitionTableEx @ 0x140940B40 (IoReadPartitionTableEx.c)
+ *     IoSetPartitionInformation @ 0x140940BF0 (IoSetPartitionInformation.c)
+ *     IoSetPartitionInformationEx @ 0x140940CD0 (IoSetPartitionInformationEx.c)
+ *     IoVerifyPartitionTable @ 0x140940D90 (IoVerifyPartitionTable.c)
+ *     IoWritePartitionTable @ 0x140940E40 (IoWritePartitionTable.c)
+ *     IoWritePartitionTableEx @ 0x140940FB0 (IoWritePartitionTableEx.c)
  * Callees:
  *     <none>
  */

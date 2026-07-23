@@ -1,10 +1,10 @@
 /*
- * XREFs of HvlSetLogicalProcessorHwpRequest @ 0x140546EA0
+ * XREFs of HvlSetLogicalProcessorHwpRequest @ 0x140547560
  * Callers:
  *     <none>
  * Callees:
- *     memset @ 0x140435A00 (memset.c)
- *     HvlpSetPowerProperty @ 0x140547250 (HvlpSetPowerProperty.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     HvlpSetPowerProperty @ 0x140547910 (HvlpSetPowerProperty.c)
  */
 
 __int64 __fastcall HvlSetLogicalProcessorHwpRequest(int a1, __int64 a2)

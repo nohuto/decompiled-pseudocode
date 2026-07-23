@@ -1,36 +1,39 @@
 /*
- * XREFs of LdrVerifyImageMatchesChecksum @ 0x18015BC50
+ * XREFs of LdrVerifyImageMatchesChecksum @ 0x18015BB10
  * Callers:
  *     <none>
  * Callees:
- *     LdrVerifyImageMatchesChecksumEx @ 0x18010CE10 (LdrVerifyImageMatchesChecksumEx.c)
- *     memset$thunk$772440563353939046 @ 0x180170030 (memset$thunk$772440563353939046.c)
+ *     LdrVerifyImageMatchesChecksumEx @ 0x18010C960 (LdrVerifyImageMatchesChecksumEx.c)
+ *     memset$thunk$772440563353939046 @ 0x18016F030 (memset$thunk$772440563353939046.c)
  */
 
-__int64 __fastcall LdrVerifyImageMatchesChecksum(__int64 a1, __int64 a2, __int64 a3, _WORD *a4)
+NTSTATUS __cdecl LdrVerifyImageMatchesChecksum(
+        HANDLE ImageFileHandle,
+        PLDR_IMPORT_MODULE_CALLBACK ImportCallbackRoutine,
+        PVOID ImportCallbackParameter,
+        PUSHORT ImageCharacteristics)
 {
   int v8; // eax
-  __int64 result; // rax
-  _QWORD v10[7]; // [rsp+20h] [rbp-48h] BYREF
-  __int16 v11; // [rsp+58h] [rbp-10h]
+  NTSTATUS result; // eax
+  _LDR_VERIFY_IMAGE_INFO VerifyInfo; // [rsp+20h] [rbp-48h] BYREF
 
-  memset_thunk_772440563353939046(v10, 0, 0x40uLL);
+  memset_thunk_772440563353939046(&VerifyInfo, 0, 0x40uLL);
   v8 = 0;
-  v10[0] = 64LL;
-  if ( a2 )
+  *(_QWORD *)&VerifyInfo.Size = 64LL;
+  if ( ImportCallbackRoutine )
   {
     v8 = 1;
-    v10[1] = a2;
-    HIDWORD(v10[0]) = 1;
-    v10[2] = a3;
+    VerifyInfo.CallbackInfo.ImportCallbackRoutine = ImportCallbackRoutine;
+    VerifyInfo.Flags = 1;
+    VerifyInfo.CallbackInfo.ImportCallbackParameter = ImportCallbackParameter;
   }
-  if ( a4 )
-    HIDWORD(v10[0]) = v8 | 4;
-  result = LdrVerifyImageMatchesChecksumEx(a1, (unsigned __int64)v10);
-  if ( (int)result >= 0 )
+  if ( ImageCharacteristics )
+    VerifyInfo.Flags = v8 | 4;
+  result = LdrVerifyImageMatchesChecksumEx(ImageFileHandle, &VerifyInfo);
+  if ( result >= 0 )
   {
-    if ( a4 )
-      *a4 = v11;
+    if ( ImageCharacteristics )
+      *ImageCharacteristics = VerifyInfo.ImageCharacteristics;
   }
   return result;
 }

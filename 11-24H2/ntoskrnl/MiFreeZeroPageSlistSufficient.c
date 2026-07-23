@@ -1,7 +1,7 @@
 /*
- * XREFs of MiFreeZeroPageSlistSufficient @ 0x1404299A0
+ * XREFs of MiFreeZeroPageSlistSufficient @ 0x14041DD40
  * Callers:
- *     MiPageFreeToZero @ 0x14026ABD0 (MiPageFreeToZero.c)
+ *     MiPageFreeToZero @ 0x140220160 (MiPageFreeToZero.c)
  * Callees:
  *     <none>
  */

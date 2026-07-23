@@ -1,12 +1,12 @@
 /*
- * XREFs of PopPowerAggregatorSessionSwitchTimerCallback @ 0x14060BB90
+ * XREFs of PopPowerAggregatorSessionSwitchTimerCallback @ 0x14060EAB0
  * Callers:
  *     <none>
  * Callees:
- *     ExQueueWorkItem @ 0x140381C70 (ExQueueWorkItem.c)
+ *     ExQueueWorkItem @ 0x140383A20 (ExQueueWorkItem.c)
  */
 
 void PopPowerAggregatorSessionSwitchTimerCallback()
 {
-  ExQueueWorkItem((PWORK_QUEUE_ITEM)&PopPowerAggregatorLock.WaitRegister, DelayedWorkQueue);
+  ExQueueWorkItem(&stru_140F0D920, DelayedWorkQueue);
 }

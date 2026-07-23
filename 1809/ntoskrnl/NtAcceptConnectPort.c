@@ -1,10 +1,10 @@
 /*
- * XREFs of NtAcceptConnectPort @ 0x1406C4040
+ * XREFs of NtAcceptConnectPort @ 0x1406C52E0
  * Callers:
  *     <none>
  * Callees:
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
- *     AlpcpAcceptConnectPort @ 0x140619CD8 (AlpcpAcceptConnectPort.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B78F0 (KiLeaveCriticalRegionUnsafe.c)
+ *     AlpcpAcceptConnectPort @ 0x14061ACD8 (AlpcpAcceptConnectPort.c)
  */
 
 NTSTATUS __stdcall NtAcceptConnectPort(

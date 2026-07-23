@@ -4,9 +4,9 @@
  *     IntPartCreate @ 0x140B4E724 (IntPartCreate.c)
  * Callees:
  *     KeQueryActiveProcessorCountEx @ 0x140222050 (KeQueryActiveProcessorCountEx.c)
- *     IntPartGetProcessorEfficiencyClass @ 0x140383A44 (IntPartGetProcessorEfficiencyClass.c)
- *     qsort @ 0x1403DA430 (qsort.c)
- *     IntPartCriticalFailure @ 0x1405749F4 (IntPartCriticalFailure.c)
+ *     IntPartGetProcessorEfficiencyClass @ 0x140383C24 (IntPartGetProcessorEfficiencyClass.c)
+ *     qsort @ 0x1403DA610 (qsort.c)
+ *     IntPartCriticalFailure @ 0x140574F34 (IntPartCriticalFailure.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
 
@@ -18,7 +18,7 @@ void *__fastcall IntpAllocateProcessorContext(unsigned __int16 a1, _BYTE *a2)
   size_t v6; // rbp
   unsigned __int8 v7; // di
   _BYTE *v8; // rsi
-  struct _PROCESSOR_NUMBER v10; // [rsp+30h] [rbp+8h] BYREF
+  _PROCESSOR_NUMBER v10; // [rsp+30h] [rbp+8h] BYREF
 
   v10.Group = a1;
   ActiveProcessorCount = KeQueryActiveProcessorCountEx(0);

@@ -16,10 +16,10 @@
  *     PsReferenceImpersonationToken @ 0x1404978B0 (PsReferenceImpersonationToken.c)
  */
 
-__int64 __fastcall CmpBuildAdminInformation(_QWORD *a1)
+__int64 __fastcall CmpBuildAdminInformation(_SID_AND_ATTRIBUTES_HASH ***a1)
 {
   PACCESS_TOKEN v1; // rbx
-  enum _SECURITY_IMPERSONATION_LEVEL v2; // r15d
+  _SECURITY_IMPERSONATION_LEVEL v2; // r15d
   unsigned int **v3; // r12
   PSE_EXPORTS v4; // rdx
   unsigned int v5; // ebx
@@ -34,19 +34,19 @@ __int64 __fastcall CmpBuildAdminInformation(_QWORD *a1)
   int v14; // eax
   SIZE_T v15; // rdx
   char *PoolWithTag; // rax
-  _QWORD *v17; // rsi
-  char *v18; // rdi
+  _SID_AND_ATTRIBUTES_HASH **v17; // rsi
+  _SID_AND_ATTRIBUTES_HASH *v18; // rdi
   ULONG v19; // edx
-  __int64 v20; // rbx
+  char *v20; // rbx
   ULONG v21; // ecx
   __int64 v23; // rcx
-  struct _SID_AND_ATTRIBUTES *v24; // rsi
+  _SID_AND_ATTRIBUTES *v24; // rsi
   __int64 v25; // r13
-  enum _SECURITY_IMPERSONATION_LEVEL ImpersonationLevel; // [rsp+40h] [rbp-29h] BYREF
+  _SECURITY_IMPERSONATION_LEVEL ImpersonationLevel; // [rsp+40h] [rbp-29h] BYREF
   PSID RemainingSidArea; // [rsp+48h] [rbp-21h] BYREF
   PVOID TokenInformation; // [rsp+50h] [rbp-19h] BYREF
   PSE_EXPORTS v29; // [rsp+58h] [rbp-11h]
-  struct _SID_AND_ATTRIBUTES Src[6]; // [rsp+60h] [rbp-9h] BYREF
+  _SID_AND_ATTRIBUTES Src[6]; // [rsp+60h] [rbp-9h] BYREF
   PSID EffectiveOnly; // [rsp+D8h] [rbp+6Fh] BYREF
   BOOLEAN CopyOnOpen; // [rsp+E0h] [rbp+77h] BYREF
   ULONG SidAreaSize; // [rsp+E8h] [rbp+7Fh] BYREF
@@ -128,10 +128,10 @@ __int64 __fastcall CmpBuildAdminInformation(_QWORD *a1)
     if ( v14 )
       v15 = (unsigned int)(v15 - 12);
     PoolWithTag = (char *)ExAllocatePoolWithTag(PagedPool, v15, 0x20204D43u);
-    v17 = PoolWithTag;
+    v17 = (_SID_AND_ATTRIBUTES_HASH **)PoolWithTag;
     if ( PoolWithTag )
     {
-      v18 = PoolWithTag + 88;
+      v18 = (_SID_AND_ATTRIBUTES_HASH *)(PoolWithTag + 88);
       *((_QWORD *)PoolWithTag + 3) = v3[3];
       *((_DWORD *)PoolWithTag + 8) = *((_DWORD *)v3 + 8);
       *((_DWORD *)PoolWithTag + 9) = *((_DWORD *)v3 + 9);
@@ -149,34 +149,34 @@ __int64 __fastcall CmpBuildAdminInformation(_QWORD *a1)
         &RemainingSidArea,
         &SidAreaSize);
       if ( (_DWORD)EffectiveOnly != -1 )
-        *(_DWORD *)(*((_QWORD *)v18 + 1) + 16LL * (unsigned int)EffectiveOnly + 8) = 7;
+        v18->SidAttr[(unsigned int)EffectiveOnly].Attributes = 7;
       if ( v7 != -1 )
-        *(_DWORD *)(*((_QWORD *)v18 + 1) + 16LL * v7 + 8) = 96;
+        v18->SidAttr[v7].Attributes = 96;
       if ( v12 )
         RtlCopySidAndAttributesArray(
           v12,
           Src,
           SidAreaSize,
-          (PSID_AND_ATTRIBUTES)(*((_QWORD *)v18 + 1) + 16LL * **v3),
+          &v18->SidAttr[**v3],
           RemainingSidArea,
           &RemainingSidArea,
           &SidAreaSize);
-      RtlSidHashInitialize(*((__int64 **)v18 + 1), *(_DWORD *)v18, v18);
+      RtlSidHashInitialize(v18->SidAttr, v18->SidCount, v18);
       *v17 = v18;
-      v20 = *((_QWORD *)v18 + 1) + v13;
+      v20 = (char *)v18->SidAttr + v13;
       *(_DWORD *)v20 = 0;
-      *(_QWORD *)(v20 + 8) = 0LL;
-      v17[1] = v20;
-      v20 += 272LL;
+      *((_QWORD *)v20 + 1) = 0LL;
+      v17[1] = (_SID_AND_ATTRIBUTES_HASH *)v20;
+      v20 += 272;
       *(_DWORD *)v20 = 0;
-      *(_QWORD *)(v20 + 8) = 0LL;
-      v17[8] = v20;
-      v20 += 272LL;
+      *((_QWORD *)v20 + 1) = 0LL;
+      v17[8] = (_SID_AND_ATTRIBUTES_HASH *)v20;
+      v20 += 272;
       v17[7] = 0LL;
       v21 = *v3[2];
       *(_DWORD *)v20 = v21;
       RtlCopyLuidAndAttributesArray(v21, (PLUID_AND_ATTRIBUTES)(v3[2] + 1), (PLUID_AND_ATTRIBUTES)(v20 + 4));
-      v17[2] = v20;
+      v17[2] = (_SID_AND_ATTRIBUTES_HASH *)v20;
       *a1 = v17;
     }
     else

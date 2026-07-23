@@ -1,10 +1,10 @@
 /*
- * XREFs of PopAdjustHiberFile @ 0x140987CE4
+ * XREFs of PopAdjustHiberFile @ 0x140987EE4
  * Callers:
- *     PopUnlockAfterSleepWorker @ 0x140AA6950 (PopUnlockAfterSleepWorker.c)
+ *     PopUnlockAfterSleepWorker @ 0x140AA67C0 (PopUnlockAfterSleepWorker.c)
  * Callees:
- *     PopCalculateHiberFileSize @ 0x140800FFC (PopCalculateHiberFileSize.c)
- *     PopResizeHiberFile @ 0x140988EE0 (PopResizeHiberFile.c)
+ *     PopCalculateHiberFileSize @ 0x1408012CC (PopCalculateHiberFileSize.c)
+ *     PopResizeHiberFile @ 0x1409890E0 (PopResizeHiberFile.c)
  */
 
 __int64 __fastcall PopAdjustHiberFile(__int64 a1)
@@ -21,6 +21,6 @@ __int64 __fastcall PopAdjustHiberFile(__int64 a1)
   PopCalculateHiberFileSize(&v3, (unsigned __int8 *)&v2);
   result = PopResizeHiberFile(v3, &v4, 0LL);
   if ( (int)result >= 0 )
-    byte_140C3DA36 = v2;
+    byte_140C3DA16 = v2;
   return result;
 }

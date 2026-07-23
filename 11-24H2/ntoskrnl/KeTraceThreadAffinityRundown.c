@@ -1,11 +1,11 @@
 /*
- * XREFs of KeTraceThreadAffinityRundown @ 0x1405C22FC
+ * XREFs of KeTraceThreadAffinityRundown @ 0x1405BF8CC
  * Callers:
- *     EtwpKernelTraceRundown @ 0x140A15E44 (EtwpKernelTraceRundown.c)
+ *     EtwpKernelTraceRundown @ 0x140A0F024 (EtwpKernelTraceRundown.c)
  * Callees:
- *     EtwTraceThreadAffinity @ 0x1403B3E48 (EtwTraceThreadAffinity.c)
- *     PsGetNextProcess @ 0x1408EEB70 (PsGetNextProcess.c)
- *     PsGetNextProcessThread @ 0x14094A700 (PsGetNextProcessThread.c)
+ *     EtwTraceThreadAffinity @ 0x1403A2658 (EtwTraceThreadAffinity.c)
+ *     PsGetNextProcess @ 0x1408603A0 (PsGetNextProcess.c)
+ *     PsGetNextProcessThread @ 0x1408EEC70 (PsGetNextProcessThread.c)
  */
 
 void __fastcall KeTraceThreadAffinityRundown(char a1)

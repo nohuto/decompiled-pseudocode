@@ -22,13 +22,14 @@ void __fastcall CmpHiveCacheEntryCleanup(__int64 a1, int a2)
 {
   __int64 v2; // rsi
   __int64 v4; // rcx
-  __int64 v5; // rcx
-  __int64 v6; // rcx
-  __int64 v7; // rcx
+  void *v5; // rcx
+  void *v6; // rcx
+  void *v7; // rcx
   void *v8; // rcx
   _OWORD *v9; // rdi
   struct _PRIVILEGE_SET *v10; // rcx
   void *v11; // rcx
+  __int16 ObjectInformation; // [rsp+38h] [rbp+10h] BYREF
 
   v2 = 6LL;
   if ( a2 == 6 )
@@ -63,24 +64,27 @@ void __fastcall CmpHiveCacheEntryCleanup(__int64 a1, int a2)
       CmpDestroyHive(v4);
       *(_QWORD *)(a1 + 368) = 0LL;
     }
-    v5 = *(_QWORD *)(a1 + 176);
+    v5 = *(void **)(a1 + 176);
     if ( v5 )
     {
-      ZwSetInformationObject(v5, 4LL);
+      ObjectInformation = 0;
+      ZwSetInformationObject(v5, ObjectHandleFlagInformation, &ObjectInformation, 2u);
       ZwClose(*(HANDLE *)(a1 + 176));
       *(_QWORD *)(a1 + 176) = 0LL;
     }
-    v6 = *(_QWORD *)(a1 + 184);
+    v6 = *(void **)(a1 + 184);
     if ( v6 )
     {
-      ZwSetInformationObject(v6, 4LL);
+      ObjectInformation = 0;
+      ZwSetInformationObject(v6, ObjectHandleFlagInformation, &ObjectInformation, 2u);
       ZwClose(*(HANDLE *)(a1 + 184));
       *(_QWORD *)(a1 + 184) = 0LL;
     }
-    v7 = *(_QWORD *)(a1 + 192);
+    v7 = *(void **)(a1 + 192);
     if ( v7 )
     {
-      ZwSetInformationObject(v7, 4LL);
+      ObjectInformation = 0;
+      ZwSetInformationObject(v7, ObjectHandleFlagInformation, &ObjectInformation, 2u);
       ZwClose(*(HANDLE *)(a1 + 192));
       *(_QWORD *)(a1 + 192) = 0LL;
     }

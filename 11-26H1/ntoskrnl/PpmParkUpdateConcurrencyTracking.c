@@ -1,9 +1,9 @@
 /*
- * XREFs of PpmParkUpdateConcurrencyTracking @ 0x140A9D710
+ * XREFs of PpmParkUpdateConcurrencyTracking @ 0x140AEBE2C
  * Callers:
- *     PpmCheckReInit @ 0x140A9D410 (PpmCheckReInit.c)
+ *     PpmCheckReInit @ 0x140AEBB2C (PpmCheckReInit.c)
  * Callees:
- *     PopExecuteOnTargetProcessors @ 0x140428780 (PopExecuteOnTargetProcessors.c)
+ *     PopExecuteOnTargetProcessors @ 0x14021AA60 (PopExecuteOnTargetProcessors.c)
  */
 
 unsigned __int64 __fastcall PpmParkUpdateConcurrencyTracking(char a1)
@@ -18,9 +18,9 @@ unsigned __int64 __fastcall PpmParkUpdateConcurrencyTracking(char a1)
   _UNKNOWN *retaddr; // [rsp+28h] [rbp+0h] BYREF
 
   result = (unsigned __int64)&retaddr;
-  for ( i = 0; i < PopModernStandbyStateNotify.SystemCallNumber; result = i )
+  for ( i = 0; i < (unsigned int)PpmParkNumNodes; result = i )
   {
-    v4 = *(_QWORD *)((char *)&PopModernStandbyStateNotify.116 + 4) + 1264LL * i;
+    v4 = PpmParkNodes + 1264LL * i;
     v5 = *(_BYTE *)(v4 + 1152);
     if ( a1 )
     {

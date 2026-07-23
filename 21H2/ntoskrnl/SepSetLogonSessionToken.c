@@ -1,11 +1,11 @@
 /*
- * XREFs of SepSetLogonSessionToken @ 0x1405D9EE0
+ * XREFs of SepSetLogonSessionToken @ 0x140612290
  * Callers:
- *     SepFilterToken @ 0x1405DB0FC (SepFilterToken.c)
+ *     SepFilterToken @ 0x1406CA87C (SepFilterToken.c)
  * Callees:
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     SepStopReferencingLogonSession @ 0x1406774A0 (SepStopReferencingLogonSession.c)
- *     SepDuplicateToken @ 0x140703E00 (SepDuplicateToken.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     SepStopReferencingLogonSession @ 0x140612358 (SepStopReferencingLogonSession.c)
+ *     SepDuplicateToken @ 0x14071B1E0 (SepDuplicateToken.c)
  */
 
 void __fastcall SepSetLogonSessionToken(__int64 a1)

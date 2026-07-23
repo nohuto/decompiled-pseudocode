@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlpHpVsContextInitialize @ 0x1800A59FC
+ * XREFs of RtlpHpVsContextInitialize @ 0x180107A64
  * Callers:
- *     RtlpHpHeapCreate @ 0x1800A6374 (RtlpHpHeapCreate.c)
+ *     RtlpHpHeapCreate @ 0x180026120 (RtlpHpHeapCreate.c)
  * Callees:
- *     RtlpHpVsCalculateAffinitySlotCount @ 0x18011CE78 (RtlpHpVsCalculateAffinitySlotCount.c)
- *     memset$thunk$772440563353939046 @ 0x180172030 (memset$thunk$772440563353939046.c)
+ *     RtlpHpVsCalculateAffinitySlotCount @ 0x18011B0B0 (RtlpHpVsCalculateAffinitySlotCount.c)
+ *     memset$thunk$772440563353939046 @ 0x180171030 (memset$thunk$772440563353939046.c)
  */
 
 char __fastcall RtlpHpVsContextInitialize(

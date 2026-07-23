@@ -29,7 +29,7 @@ __int64 __fastcall MiHandleBootImage(__int64 a1, __int64 a2)
   _QWORD *v14; // rsi
   __int64 v15; // r8
   char BootImagePageProtection; // al
-  __int64 v18; // [rsp+68h] [rbp+10h] BYREF
+  PIMAGE_NT_HEADERS OutHeaders; // [rsp+68h] [rbp+10h] BYREF
   __int64 v19; // [rsp+70h] [rbp+18h] BYREF
 
   v2 = 0;
@@ -37,10 +37,10 @@ __int64 __fastcall MiHandleBootImage(__int64 a1, __int64 a2)
   v5 = (unsigned __int64)(unsigned int)(dword_140E37270 + dword_140E3726C) >> 12;
   v6 = *(_QWORD *)&KeNumberProcessorsGroup0[9];
   v19 = (unsigned int)dword_140E2D4F8;
-  if ( v4 == v6 || (v7 = 0, v4 == PsHalImageBase) )
+  if ( v4 == v6 || (v7 = 0, (PVOID)v4 == PsHalImageBase) )
     v7 = 1;
-  v18 = 0LL;
-  RtlImageNtHeaderEx(1, v4, 0LL, &v18);
+  OutHeaders = 0LL;
+  RtlImageNtHeaderEx(1u, (PVOID)v4, 0LL, &OutHeaders);
   v8 = ((unsigned __int64)*(unsigned int *)(a2 + 64) + 4095) >> 12;
   v9 = (_QWORD *)(((v4 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL);
   v10 = &v9[v8];
@@ -63,8 +63,8 @@ __int64 __fastcall MiHandleBootImage(__int64 a1, __int64 a2)
     result = MiFreeBootDriverPages(0LL, v4, &v10[result], v13);
   if ( !v7 )
   {
-    result = v18;
-    *(_QWORD *)(v18 + 48) = v4;
+    result = (__int64)OutHeaders;
+    OutHeaders->OptionalHeader.ImageBase = v4;
     if ( (*(_DWORD *)(a2 + 104) & 0x800000) == 0 )
     {
       v14 = &v9[v8];
@@ -74,7 +74,7 @@ __int64 __fastcall MiHandleBootImage(__int64 a1, __int64 a2)
         result = MiGetPfnSlabType(48 * ((*v9 >> 12) & 0xFFFFFFFFFFLL) - 0x220000000000LL);
         if ( (_DWORD)result == 9 )
         {
-          BootImagePageProtection = MiGetBootImagePageProtection(v2, v18, v15, &v19);
+          BootImagePageProtection = MiGetBootImagePageProtection(v2, (__int64)OutHeaders, v15, &v19);
           result = MiAllocateDriverPage((__int64)&MiSystemPartition, BootImagePageProtection, 1);
           if ( result != -1 )
             result = MiTradeBootImagePage(v9, result);

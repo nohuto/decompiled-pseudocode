@@ -1,13 +1,13 @@
 /*
- * XREFs of CmpReserveRollbackPacketSpace @ 0x140A1E610
+ * XREFs of CmpReserveRollbackPacketSpace @ 0x140A1E8C0
  * Callers:
  *     CmSnapshotRMTxArray @ 0x140699FE8 (CmSnapshotRMTxArray.c)
- *     CmpSnapshotTxOwnerArrayToRollbackPacket @ 0x140A1E7C8 (CmpSnapshotTxOwnerArrayToRollbackPacket.c)
+ *     CmpSnapshotTxOwnerArrayToRollbackPacket @ 0x140A1EA78 (CmpSnapshotTxOwnerArrayToRollbackPacket.c)
  * Callees:
  *     CmSiFreeMemory @ 0x140208C40 (CmSiFreeMemory.c)
- *     CmpAllocatePool @ 0x14022CEEC (CmpAllocatePool.c)
- *     memmove @ 0x140435700 (memmove.c)
- *     memset @ 0x140435A00 (memset.c)
+ *     CmpAllocatePool @ 0x14022CFFC (CmpAllocatePool.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     memset @ 0x140435E00 (memset.c)
  */
 
 __int64 __fastcall CmpReserveRollbackPacketSpace(unsigned int *a1, unsigned int a2)

@@ -1,20 +1,20 @@
 /*
- * XREFs of KeRequestTerminationThread @ 0x1400F1348
+ * XREFs of KeRequestTerminationThread @ 0x1400F13C8
  * Callers:
- *     PspInsertThread @ 0x140621450 (PspInsertThread.c)
- *     PspTerminateThreadByPointer @ 0x140676590 (PspTerminateThreadByPointer.c)
- *     KeRequestTerminationProcess @ 0x14084336C (KeRequestTerminationProcess.c)
+ *     PspInsertThread @ 0x140622450 (PspInsertThread.c)
+ *     PspTerminateThreadByPointer @ 0x140677750 (PspTerminateThreadByPointer.c)
+ *     KeRequestTerminationProcess @ 0x1408445CC (KeRequestTerminationProcess.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
- *     KiExitDispatcher @ 0x1400C2F70 (KiExitDispatcher.c)
- *     KeForceResumeThread @ 0x1400F1B9C (KeForceResumeThread.c)
- *     KiSignalThreadForApc @ 0x1400F1F84 (KiSignalThreadForApc.c)
- *     KiInsertQueueApc @ 0x1400F2120 (KiInsertQueueApc.c)
- *     KeAlertThread @ 0x1400F2230 (KeAlertThread.c)
- *     KiReleaseThreadLockSafe @ 0x14010C410 (KiReleaseThreadLockSafe.c)
- *     VslpEnterIumSecureMode @ 0x140129CB0 (VslpEnterIumSecureMode.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeYieldProcessorEx @ 0x14006C9E0 (KeYieldProcessorEx.c)
+ *     KiExitDispatcher @ 0x1400C2EB0 (KiExitDispatcher.c)
+ *     KeForceResumeThread @ 0x1400F1C1C (KeForceResumeThread.c)
+ *     KiSignalThreadForApc @ 0x1400F2004 (KiSignalThreadForApc.c)
+ *     KiInsertQueueApc @ 0x1400F21A0 (KiInsertQueueApc.c)
+ *     KeAlertThread @ 0x1400F22B0 (KeAlertThread.c)
+ *     KiReleaseThreadLockSafe @ 0x14010C490 (KiReleaseThreadLockSafe.c)
+ *     VslpEnterIumSecureMode @ 0x140129D80 (VslpEnterIumSecureMode.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall KeRequestTerminationThread(__int64 a1, __int64 a2, __int64 a3)

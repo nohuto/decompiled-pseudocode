@@ -1,19 +1,19 @@
 /*
- * XREFs of SepAdtAuditPrivilegeUseWithContext @ 0x1405BB990
+ * XREFs of SepAdtAuditPrivilegeUseWithContext @ 0x1405BC990
  * Callers:
- *     SeOpenObjectAuditAlarmWithTransaction @ 0x140596850 (SeOpenObjectAuditAlarmWithTransaction.c)
- *     SepAdtPrivilegedServiceAuditAlarm @ 0x1405BB82C (SepAdtPrivilegedServiceAuditAlarm.c)
- *     SepAdtPrivilegeObjectAuditAlarm @ 0x1405BB8D8 (SepAdtPrivilegeObjectAuditAlarm.c)
- *     SeOpenObjectForDeleteAuditAlarmWithTransaction @ 0x1408A0A80 (SeOpenObjectForDeleteAuditAlarmWithTransaction.c)
+ *     SeOpenObjectAuditAlarmWithTransaction @ 0x140597850 (SeOpenObjectAuditAlarmWithTransaction.c)
+ *     SepAdtPrivilegedServiceAuditAlarm @ 0x1405BC82C (SepAdtPrivilegedServiceAuditAlarm.c)
+ *     SepAdtPrivilegeObjectAuditAlarm @ 0x1405BC8D8 (SepAdtPrivilegeObjectAuditAlarm.c)
+ *     SeOpenObjectForDeleteAuditAlarmWithTransaction @ 0x1408A1CE0 (SeOpenObjectForDeleteAuditAlarmWithTransaction.c)
  * Callees:
  *     SepAuditingEnabledForSubcategory @ 0x1400131C0 (SepAuditingEnabledForSubcategory.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     SepAdtCheckPrivilegeForSensitivity @ 0x1402FFC30 (SepAdtCheckPrivilegeForSensitivity.c)
- *     SeReleaseSubjectContext @ 0x1405E1240 (SeReleaseSubjectContext.c)
- *     SeCaptureSubjectContext @ 0x140631A80 (SeCaptureSubjectContext.c)
- *     SepFilterPrivilegeAudits @ 0x1406AE540 (SepFilterPrivilegeAudits.c)
- *     SepAdtIncorporatePerUserPolicy @ 0x14089FCE0 (SepAdtIncorporatePerUserPolicy.c)
- *     SepAuditFailed @ 0x1408A4780 (SepAuditFailed.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     SepAdtCheckPrivilegeForSensitivity @ 0x1402FFE20 (SepAdtCheckPrivilegeForSensitivity.c)
+ *     SeReleaseSubjectContext @ 0x1405E2240 (SeReleaseSubjectContext.c)
+ *     SeCaptureSubjectContext @ 0x140632AA0 (SeCaptureSubjectContext.c)
+ *     SepFilterPrivilegeAudits @ 0x1406AF7E0 (SepFilterPrivilegeAudits.c)
+ *     SepAdtIncorporatePerUserPolicy @ 0x1408A0F40 (SepAdtIncorporatePerUserPolicy.c)
+ *     SepAuditFailed @ 0x1408A59E0 (SepAuditFailed.c)
  */
 
 char __fastcall SepAdtAuditPrivilegeUseWithContext(
@@ -39,7 +39,7 @@ char __fastcall SepAdtAuditPrivilegeUseWithContext(
   v18[0] = 0;
   v9 = SepAuditingEnabledForSubcategory(131, a2, a3);
   v16 = v9;
-  if ( dword_14040D97C )
+  if ( dword_14040E99C )
   {
     if ( a4 )
     {
@@ -66,7 +66,7 @@ char __fastcall SepAdtAuditPrivilegeUseWithContext(
   }
   v10 = SepAuditingEnabledForSubcategory(132, a2, a3);
   v16 = v10;
-  if ( dword_14040D980 )
+  if ( dword_14040E9A0 )
   {
     if ( a4 )
     {

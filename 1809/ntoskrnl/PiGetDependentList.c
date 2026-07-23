@@ -1,14 +1,14 @@
 /*
- * XREFs of PiGetDependentList @ 0x1406EB624
+ * XREFs of PiGetDependentList @ 0x1406EC8C4
  * Callers:
- *     PipAttemptDependentsStart @ 0x1406EB5F0 (PipAttemptDependentsStart.c)
- *     PipNotifyDeviceDependencyList @ 0x1406EB7A0 (PipNotifyDeviceDependencyList.c)
- *     PipVisitDeviceObjectListEntry @ 0x1406EC5B4 (PipVisitDeviceObjectListEntry.c)
- *     PnpProcessDependencyRelations @ 0x1406EC890 (PnpProcessDependencyRelations.c)
- *     PnpRequestDeviceRemovalWorker @ 0x1406ECD48 (PnpRequestDeviceRemovalWorker.c)
- *     PipAddDependentsToRebuildPowerRelationsQueue @ 0x140739DE8 (PipAddDependentsToRebuildPowerRelationsQueue.c)
- *     IoDuplicateDependency @ 0x1408238C0 (IoDuplicateDependency.c)
- *     PnpGetDeviceDependencyList @ 0x1408242F0 (PnpGetDeviceDependencyList.c)
+ *     PipAttemptDependentsStart @ 0x1406EC890 (PipAttemptDependentsStart.c)
+ *     PipNotifyDeviceDependencyList @ 0x1406ECA40 (PipNotifyDeviceDependencyList.c)
+ *     PipVisitDeviceObjectListEntry @ 0x1406ED854 (PipVisitDeviceObjectListEntry.c)
+ *     PnpProcessDependencyRelations @ 0x1406EDB30 (PnpProcessDependencyRelations.c)
+ *     PnpRequestDeviceRemovalWorker @ 0x1406EDFE8 (PnpRequestDeviceRemovalWorker.c)
+ *     PipAddDependentsToRebuildPowerRelationsQueue @ 0x14073AFD8 (PipAddDependentsToRebuildPowerRelationsQueue.c)
+ *     IoDuplicateDependency @ 0x140824AC0 (IoDuplicateDependency.c)
+ *     PnpGetDeviceDependencyList @ 0x1408254F0 (PnpGetDeviceDependencyList.c)
  * Callees:
  *     <none>
  */

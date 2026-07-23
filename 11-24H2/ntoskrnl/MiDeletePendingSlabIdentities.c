@@ -1,24 +1,24 @@
 /*
- * XREFs of MiDeletePendingSlabIdentities @ 0x14068716C
+ * XREFs of MiDeletePendingSlabIdentities @ 0x14068829C
  * Callers:
- *     MiCreateSlabIdentity @ 0x140686A04 (MiCreateSlabIdentity.c)
- *     MiDefragmentAllSlabAllocators @ 0x140686B6C (MiDefragmentAllSlabAllocators.c)
- *     MiDeletePartitionSlabState @ 0x1407FB560 (MiDeletePartitionSlabState.c)
+ *     MiCreateSlabIdentity @ 0x140687B34 (MiCreateSlabIdentity.c)
+ *     MiDefragmentAllSlabAllocators @ 0x140687C9C (MiDefragmentAllSlabAllocators.c)
+ *     MiDeletePartitionSlabState @ 0x1407FBCD0 (MiDeletePartitionSlabState.c)
  * Callees:
- *     ExfTryToWakePushLock @ 0x14025F9A0 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     KiCheckForKernelApcDelivery @ 0x1402BB4D0 (KiCheckForKernelApcDelivery.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     MiEnumerateSlabAllocatorsEx @ 0x14046A884 (MiEnumerateSlabAllocatorsEx.c)
+ *     ExfTryToWakePushLock @ 0x14028FFB0 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     KiCheckForKernelApcDelivery @ 0x140362C10 (KiCheckForKernelApcDelivery.c)
+ *     MiEnumerateSlabAllocatorsEx @ 0x14046321C (MiEnumerateSlabAllocatorsEx.c)
  */
 
 int __fastcall MiDeletePendingSlabIdentities(__int64 a1, int a2)
 {
   struct _KTHREAD *CurrentThread; // r14
   unsigned __int64 *v5; // rdi
-  _QWORD *v6; // rax
-  _QWORD *v7; // rsi
+  char *v6; // rax
+  char *v7; // rsi
   unsigned int v8; // r10d
   unsigned int v9; // edi
   unsigned int v10; // r11d
@@ -34,7 +34,7 @@ int __fastcall MiDeletePendingSlabIdentities(__int64 a1, int a2)
   __int64 v20; // rax
   unsigned int v21; // r11d
   _QWORD *v22; // r9
-  $81B80DCEA5A02D890AB7B2872B48AC01 *i; // rax
+  $727077A9B6E167EAE1398C74674DC5A5 *i; // rax
   unsigned int v24; // r10d
   unsigned int v25; // r11d
   _DWORD *v26; // r9
@@ -45,26 +45,25 @@ int __fastcall MiDeletePendingSlabIdentities(__int64 a1, int a2)
   unsigned int v31; // edx
   unsigned int v32; // r11d
   _BYTE *v33; // rdx
-  __int64 v34; // rdx
-  __int64 v37; // [rsp+30h] [rbp-20h] BYREF
-  unsigned int v38; // [rsp+38h] [rbp-18h]
+  __int64 v36; // [rsp+30h] [rbp-20h] BYREF
+  unsigned int v37; // [rsp+38h] [rbp-18h]
 
-  v37 = 0LL;
+  v36 = 0LL;
   CurrentThread = 0LL;
   if ( !a2 )
   {
     CurrentThread = KeGetCurrentThread();
     v5 = (unsigned __int64 *)(a1 + 18296);
     --CurrentThread->SpecialApcDisable;
-    v6 = KeAbPreAcquire(a1 + 18296, 0LL);
+    v6 = (char *)KeAbPreAcquire(a1 + 18296, 0LL);
     v7 = v6;
     if ( _interlockedbittestandset64((volatile signed __int32 *)v5, 0LL) )
-      ExfAcquirePushLockExclusiveEx(v5, (__int64)v6, (__int64)v5);
+      ExfAcquirePushLockExclusiveEx(v5, v6, (__int64)v5);
     if ( v7 )
-      *((_BYTE *)v7 + 10) = 1;
+      v7[10] = 1;
   }
   v8 = 0;
-  v38 = 64;
+  v37 = 64;
   while ( 1 )
   {
     v9 = *(_DWORD *)(a1 + 18264);
@@ -122,38 +121,38 @@ LABEL_23:
       do
       {
         if ( !*v22 )
-          *((_BYTE *)&v37 + ((unsigned __int64)(unsigned __int8)v17 >> 3)) |= 1 << (v17 & 7);
+          *((_BYTE *)&v36 + ((unsigned __int64)(unsigned __int8)v17 >> 3)) |= 1 << (v17 & 7);
         LOBYTE(v17) = v17 + 1;
         ++v22;
       }
       while ( (unsigned __int8)v17 < (unsigned __int8)v8 );
     }
   }
-  if ( v38 < 0x40 || (_DWORD)v37 )
+  if ( v37 < 0x40 || (_DWORD)v36 )
   {
 LABEL_36:
-    LODWORD(i) = MiEnumerateSlabAllocatorsEx(a1, (__int64)MiDeleteSlabEntriesForIdentity, 0LL, 0xFFFFFFFFLL, 8u);
+    LODWORD(i) = MiEnumerateSlabAllocatorsEx(a1, (__int64)MiDeleteSlabEntriesForIdentity, 0LL, 0xFFFFFFFF, 8u);
     v24 = 0;
     while ( v24 < 0x40 )
     {
       v25 = 0;
-      v26 = (_DWORD *)&v37 + ((unsigned __int64)v24 >> 5);
+      v26 = (_DWORD *)&v36 + ((unsigned __int64)v24 >> 5);
       v27 = (-1 << (v24 & 0x1F)) & *v26;
-      i = ($81B80DCEA5A02D890AB7B2872B48AC01 *)(v26 + 1);
+      i = ($727077A9B6E167EAE1398C74674DC5A5 *)(v26 + 1);
       while ( !v27 )
       {
-        if ( i > ($81B80DCEA5A02D890AB7B2872B48AC01 *)((char *)&v37 + 4) )
+        if ( i > ($727077A9B6E167EAE1398C74674DC5A5 *)((char *)&v36 + 4) )
         {
           v28 = 64;
           goto LABEL_54;
         }
         ++v26;
-        i = ($81B80DCEA5A02D890AB7B2872B48AC01 *)((char *)i + 4);
+        i = ($727077A9B6E167EAE1398C74674DC5A5 *)((char *)i + 4);
         v27 = *v26;
       }
       _BitScanForward64((unsigned __int64 *)&v29, v27);
-      i = ($81B80DCEA5A02D890AB7B2872B48AC01 *)&v37;
-      v28 = v29 + 32 * (((char *)v26 - (char *)&v37) >> 2);
+      i = ($727077A9B6E167EAE1398C74674DC5A5 *)&v36;
+      v28 = v29 + 32 * (((char *)v26 - (char *)&v36) >> 2);
       if ( v28 <= 0x40 )
       {
         v30 = ((1 << v29) - 1) | v27;
@@ -162,7 +161,7 @@ LABEL_36:
           v31 = ~v30;
           if ( v31 )
             break;
-          if ( v26 + 1 > (_DWORD *)&v37 + 1 )
+          if ( v26 + 1 > (_DWORD *)&v36 + 1 )
           {
             LODWORD(i) = 32;
             goto LABEL_51;
@@ -172,7 +171,7 @@ LABEL_36:
         }
         _BitScanForward64((unsigned __int64 *)&i, v31);
 LABEL_51:
-        v32 = (_DWORD)i + 32 * (((char *)v26 - (char *)&v37) >> 2);
+        v32 = (_DWORD)i + 32 * (((char *)v26 - (char *)&v36) >> 2);
         if ( v32 > 0x40 )
           v32 = 64;
         v25 = v32 - v28;
@@ -196,9 +195,9 @@ LABEL_54:
   }
   else
   {
-    for ( i = ($81B80DCEA5A02D890AB7B2872B48AC01 *)((char *)&v37 + 4);
-          i != ($81B80DCEA5A02D890AB7B2872B48AC01 *)((char *)&v37 + 4);
-          i = ($81B80DCEA5A02D890AB7B2872B48AC01 *)((char *)i + 4) )
+    for ( i = ($727077A9B6E167EAE1398C74674DC5A5 *)((char *)&v36 + 4);
+          i != ($727077A9B6E167EAE1398C74674DC5A5 *)((char *)&v36 + 4);
+          i = ($727077A9B6E167EAE1398C74674DC5A5 *)((char *)i + 4) )
     {
       if ( LODWORD(i->ApcState.ApcListHead[0].Flink) )
         goto LABEL_36;
@@ -212,8 +211,8 @@ LABEL_54:
     if ( CurrentThread->SpecialApcDisable++ == -1 )
     {
       i = &CurrentThread->152;
-      if ( ($81B80DCEA5A02D890AB7B2872B48AC01 *)i->ApcState.ApcListHead[0].Flink != i )
-        LODWORD(i) = KiCheckForKernelApcDelivery(1LL, v34);
+      if ( ($727077A9B6E167EAE1398C74674DC5A5 *)i->ApcState.ApcListHead[0].Flink != i )
+        LODWORD(i) = KiCheckForKernelApcDelivery();
     }
   }
   return (int)i;

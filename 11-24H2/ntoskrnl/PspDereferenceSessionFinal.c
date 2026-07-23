@@ -1,18 +1,18 @@
 /*
- * XREFs of PspDereferenceSessionFinal @ 0x14077BA80
+ * XREFs of PspDereferenceSessionFinal @ 0x14077B930
  * Callers:
- *     PsDereferenceSession @ 0x140A07200 (PsDereferenceSession.c)
+ *     PsDereferenceSession @ 0x140A03730 (PsDereferenceSession.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     KeSetEvent @ 0x1402725A0 (KeSetEvent.c)
- *     ObfDereferenceObjectWithTag @ 0x1403254A0 (ObfDereferenceObjectWithTag.c)
- *     PspUnlockProcessListExclusive @ 0x1403494CC (PspUnlockProcessListExclusive.c)
- *     PspLockProcessListExclusive @ 0x140349ACC (PspLockProcessListExclusive.c)
- *     KeWaitForGate @ 0x140415DEC (KeWaitForGate.c)
- *     KeInitializeGate @ 0x1404892A8 (KeInitializeGate.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     ObCloseHandle @ 0x1408A2B10 (ObCloseHandle.c)
- *     ExpWnfDeleteScopeById @ 0x1408A9F88 (ExpWnfDeleteScopeById.c)
+ *     KeSetEvent @ 0x140227B30 (KeSetEvent.c)
+ *     KeWaitForGate @ 0x140271C4C (KeWaitForGate.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CE030 (ObfDereferenceObjectWithTag.c)
+ *     PspUnlockProcessListExclusive @ 0x1403C2F0C (PspUnlockProcessListExclusive.c)
+ *     PspLockProcessListExclusive @ 0x1403C350C (PspLockProcessListExclusive.c)
+ *     KeInitializeGate @ 0x1404842C4 (KeInitializeGate.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     ObCloseHandle @ 0x1408AB1B0 (ObCloseHandle.c)
+ *     ExpWnfDeleteScopeById @ 0x1409001E8 (ExpWnfDeleteScopeById.c)
  */
 
 void PspDereferenceSessionFinal()
@@ -21,15 +21,13 @@ void PspDereferenceSessionFinal()
   _KPROCESS *Process; // rbp
   unsigned __int64 CycleTime; // rdi
   __int64 v3; // rdx
-  __int64 v4; // r8
-  __int64 v5; // r9
-  struct _KTHREAD *v6; // rax
+  struct _KTHREAD *v4; // rax
   _LIST_ENTRY *p_ReadyListHead; // rbx
-  struct _KTHREAD *v8; // rsi
+  struct _KTHREAD *v6; // rsi
   struct _LIST_ENTRY *Flink; // rdx
   struct _LIST_ENTRY *Blink; // rax
-  void *v11; // rcx
-  int v12; // [rsp+30h] [rbp+8h] BYREF
+  void *v9; // rcx
+  int v10; // [rsp+30h] [rbp+8h] BYREF
 
   CurrentThread = KeGetCurrentThread();
   Process = CurrentThread->ApcState.Process;
@@ -40,7 +38,7 @@ void PspDereferenceSessionFinal()
   {
     KeInitializeGate(CycleTime + 56, 0);
     PspUnlockProcessListExclusive((__int64)CurrentThread);
-    KeWaitForGate(CycleTime + 56, 18LL, 0);
+    KeWaitForGate(CycleTime + 56, 18LL);
   }
   else
   {
@@ -52,17 +50,17 @@ void PspDereferenceSessionFinal()
     ObCloseHandle(*(HANDLE *)(CycleTime + 40), 0);
   }
   if ( *(_QWORD *)(CycleTime + 120) > 1uLL )
-    guard_dispatch_icall_no_overrides(0LL, v3, v4, v5);
-  v12 = *(_DWORD *)(CycleTime + 8);
-  v6 = KeGetCurrentThread();
-  --v6->KernelApcDisable;
-  ExpWnfDeleteScopeById(1LL, &v12);
+    guard_dispatch_icall_no_overrides(0LL, v3);
+  v10 = *(_DWORD *)(CycleTime + 8);
+  v4 = KeGetCurrentThread();
+  --v4->KernelApcDisable;
+  ExpWnfDeleteScopeById(1LL, &v10);
   KeLeaveCriticalRegion();
   p_ReadyListHead = &Process[1].ReadyListHead;
   if ( Process[1].ReadyListHead.Flink )
   {
-    v8 = KeGetCurrentThread();
-    PspLockProcessListExclusive((__int64)v8);
+    v6 = KeGetCurrentThread();
+    PspLockProcessListExclusive((__int64)v6);
     Flink = p_ReadyListHead->Flink;
     if ( p_ReadyListHead->Flink->Blink != p_ReadyListHead
       || (Blink = Process[1].ReadyListHead.Blink, Blink->Flink != p_ReadyListHead) )
@@ -71,11 +69,11 @@ void PspDereferenceSessionFinal()
     }
     Blink->Flink = Flink;
     Flink->Blink = Blink;
-    PspUnlockProcessListExclusive((__int64)v8);
+    PspUnlockProcessListExclusive((__int64)v6);
     p_ReadyListHead->Flink = 0LL;
   }
-  v11 = *(void **)(CycleTime + 160);
-  if ( v11 )
-    ObfDereferenceObjectWithTag(v11, 0x73536D4Du);
+  v9 = *(void **)(CycleTime + 160);
+  if ( v9 )
+    ObfDereferenceObjectWithTag(v9, 0x73536D4Du);
   *(_QWORD *)(CycleTime + 160) = 0LL;
 }

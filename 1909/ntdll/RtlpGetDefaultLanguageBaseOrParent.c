@@ -14,7 +14,7 @@ __int64 __fastcall RtlpGetDefaultLanguageBaseOrParent(
         __int64 a1,
         __int64 a2,
         _QWORD *a3,
-        __int64 a4,
+        wchar_t *a4,
         unsigned int a5,
         _QWORD *a6,
         _QWORD *a7)
@@ -27,9 +27,7 @@ __int64 __fastcall RtlpGetDefaultLanguageBaseOrParent(
   __int64 v15; // rdx
   int v17; // [rsp+30h] [rbp-48h] BYREF
   char v18; // [rsp+34h] [rbp-44h] BYREF
-  _BYTE v19[2]; // [rsp+38h] [rbp-40h] BYREF
-  __int16 v20; // [rsp+3Ah] [rbp-3Eh] BYREF
-  __int64 v21; // [rsp+40h] [rbp-38h]
+  _UNICODE_STRING String; // [rsp+38h] [rbp-40h] BYREF
 
   v7 = 0;
   v11 = a1;
@@ -46,16 +44,16 @@ __int64 __fastcall RtlpGetDefaultLanguageBaseOrParent(
     {
       if ( (*(_BYTE *)a2 & 4) != 0 )
         goto LABEL_25;
-      v21 = a4;
-      if ( (int)RtlULongToUShort(2 * (unsigned int)(unsigned __int16)a5, &v20) < 0
-        || !RtlLCIDToCultureName((__int16)v14, (__int64)v19) )
+      String.Buffer = a4;
+      if ( (int)RtlULongToUShort(2 * (unsigned int)(unsigned __int16)a5, (__int16 *)&String.MaximumLength) < 0
+        || !RtlLCIDToCultureName((__int16)v14, &String) )
       {
         goto LABEL_25;
       }
     }
     else if ( ((*(_WORD *)(a2 + 8) >> (2 * v12)) & 3) == 2 )
     {
-      if ( (int)RtlpMuiRegGetInstalledLanguageInfoByIndex(v11, v14, (unsigned int)&v18, a4, a5, (__int64)&v17) < 0
+      if ( (int)RtlpMuiRegGetInstalledLanguageInfoByIndex(v11, v14, (unsigned int)&v18, (_DWORD)a4, a5, (__int64)&v17) < 0
         || (v17 & 0x1000) != 0 )
       {
         goto LABEL_25;
@@ -80,11 +78,11 @@ LABEL_25:
     v15 = -1LL;
     do
       ++v15;
-    while ( *(_WORD *)(a4 + 2 * v15) );
+    while ( a4[v15] );
     if ( (unsigned int)v15 < a5 )
     {
       if ( a6 )
-        *a6 = a4 + 2LL * (unsigned int)v15;
+        *a6 = &a4[(unsigned int)v15];
       if ( a7 )
         *a7 = a5 - (unsigned int)v15;
     }

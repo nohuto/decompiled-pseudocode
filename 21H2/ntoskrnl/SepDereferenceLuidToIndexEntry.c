@@ -1,8 +1,8 @@
 /*
- * XREFs of SepDereferenceLuidToIndexEntry @ 0x1402F5384
+ * XREFs of SepDereferenceLuidToIndexEntry @ 0x1403000D4
  * Callers:
- *     SepRefDerefLuidToIndexEntryIfNecessary @ 0x1406040FC (SepRefDerefLuidToIndexEntryIfNecessary.c)
- *     SepTokenDeleteMethod @ 0x1406E7CF0 (SepTokenDeleteMethod.c)
+ *     SepRefDerefLuidToIndexEntryIfNecessary @ 0x1406F382C (SepRefDerefLuidToIndexEntryIfNecessary.c)
+ *     SepTokenDeleteMethod @ 0x1406FF0D0 (SepTokenDeleteMethod.c)
  * Callees:
  *     <none>
  */

@@ -1,7 +1,7 @@
 /*
- * XREFs of ObpParseComponentName @ 0x140872158
+ * XREFs of ObpParseComponentName @ 0x140872398
  * Callers:
- *     ObpCreateSymbolicLinkName @ 0x1407B69F0 (ObpCreateSymbolicLinkName.c)
+ *     ObpCreateSymbolicLinkName @ 0x1407B6CD0 (ObpCreateSymbolicLinkName.c)
  * Callees:
  *     <none>
  */

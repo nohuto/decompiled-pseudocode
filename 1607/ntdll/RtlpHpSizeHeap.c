@@ -1,14 +1,14 @@
 /*
- * XREFs of RtlpHpSizeHeap @ 0x180046370
+ * XREFs of RtlpHpSizeHeap @ 0x180046360
  * Callers:
- *     RtlSizeHeap @ 0x180046180 (RtlSizeHeap.c)
- *     RtlpHpFreeHeap @ 0x180047A70 (RtlpHpFreeHeap.c)
- *     RtlpFreeHeapInternal @ 0x180048100 (RtlpFreeHeapInternal.c)
- *     RtlValidateHeap @ 0x180076860 (RtlValidateHeap.c)
+ *     RtlSizeHeap @ 0x180046170 (RtlSizeHeap.c)
+ *     RtlpHpFreeHeap @ 0x180047A60 (RtlpHpFreeHeap.c)
+ *     RtlpFreeHeapInternal @ 0x1800480F0 (RtlpFreeHeapInternal.c)
+ *     RtlValidateHeap @ 0x180076850 (RtlValidateHeap.c)
  * Callees:
- *     RtlpHpVsChunkSize @ 0x18004BDF8 (RtlpHpVsChunkSize.c)
- *     RtlpHpLargeAllocSize @ 0x18004F574 (RtlpHpLargeAllocSize.c)
- *     RtlSparseBitmapCtxCheckBitsInternal @ 0x18004FCB4 (RtlSparseBitmapCtxCheckBitsInternal.c)
+ *     RtlpHpVsChunkSize @ 0x18004BDE8 (RtlpHpVsChunkSize.c)
+ *     RtlpHpLargeAllocSize @ 0x18004F564 (RtlpHpLargeAllocSize.c)
+ *     RtlSparseBitmapCtxCheckBitsInternal @ 0x18004FCA4 (RtlSparseBitmapCtxCheckBitsInternal.c)
  *     RtlCompareMemory @ 0x1800AA6B0 (RtlCompareMemory.c)
  *     RtlpHpSegGetDescriptorValidateSafe @ 0x1800F9FB4 (RtlpHpSegGetDescriptorValidateSafe.c)
  */

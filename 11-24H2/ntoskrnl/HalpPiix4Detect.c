@@ -1,28 +1,28 @@
 /*
- * XREFs of HalpPiix4Detect @ 0x140B6AA1C
+ * XREFs of HalpPiix4Detect @ 0x140B6C308
  * Callers:
- *     HalpAcpiDetectPiix4Work @ 0x1406FF090 (HalpAcpiDetectPiix4Work.c)
- *     HaliInitPowerManagement @ 0x140702360 (HaliInitPowerManagement.c)
- *     HalpAcpiPostSleep @ 0x140B6A5BC (HalpAcpiPostSleep.c)
+ *     HalpAcpiDetectPiix4Work @ 0x1406FCCD0 (HalpAcpiDetectPiix4Work.c)
+ *     HaliInitPowerManagement @ 0x1406FFFA0 (HaliInitPowerManagement.c)
+ *     HalpAcpiPostSleep @ 0x140B6BE80 (HalpAcpiPostSleep.c)
  * Callees:
- *     KeSetEvent @ 0x1402725A0 (KeSetEvent.c)
- *     HalpInterruptModel @ 0x1403BAB3C (HalpInterruptModel.c)
- *     HalGetBusDataByOffset @ 0x140488FB0 (HalGetBusDataByOffset.c)
- *     HalpGetCpuInfo @ 0x14048CB70 (HalpGetCpuInfo.c)
- *     HalSetBusDataByOffset @ 0x14048F220 (HalSetBusDataByOffset.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     HalGetBusData @ 0x14053D660 (HalGetBusData.c)
- *     HalpInterruptSetLineSpecificOverride @ 0x1405429CC (HalpInterruptSetLineSpecificOverride.c)
- *     HalpInterruptSetMsiOverride @ 0x140542A88 (HalpInterruptSetMsiOverride.c)
- *     HalpWhackICHUsbSmi @ 0x1405622D0 (HalpWhackICHUsbSmi.c)
- *     HalpUsbLegacyStopUhciInterrupt @ 0x1405625A4 (HalpUsbLegacyStopUhciInterrupt.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     ZwOpenKey @ 0x1406A6650 (ZwOpenKey.c)
- *     ZwQueryValueKey @ 0x1406A66F0 (ZwQueryValueKey.c)
- *     ZwCreateKey @ 0x1406A67B0 (ZwCreateKey.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     HalpGetChipHacks @ 0x140C13AEC (HalpGetChipHacks.c)
+ *     KeSetEvent @ 0x140227B30 (KeSetEvent.c)
+ *     HalpInterruptModel @ 0x1403744A8 (HalpInterruptModel.c)
+ *     HalGetBusDataByOffset @ 0x1403A7A90 (HalGetBusDataByOffset.c)
+ *     HalpGetCpuInfo @ 0x140487890 (HalpGetCpuInfo.c)
+ *     HalSetBusDataByOffset @ 0x140489430 (HalSetBusDataByOffset.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     HalGetBusData @ 0x14053AF60 (HalGetBusData.c)
+ *     HalpInterruptSetLineSpecificOverride @ 0x14054031C (HalpInterruptSetLineSpecificOverride.c)
+ *     HalpInterruptSetMsiOverride @ 0x1405403D8 (HalpInterruptSetMsiOverride.c)
+ *     HalpWhackICHUsbSmi @ 0x14055FF00 (HalpWhackICHUsbSmi.c)
+ *     HalpUsbLegacyStopUhciInterrupt @ 0x1405601D4 (HalpUsbLegacyStopUhciInterrupt.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     ZwOpenKey @ 0x1406A75F0 (ZwOpenKey.c)
+ *     ZwQueryValueKey @ 0x1406A7690 (ZwQueryValueKey.c)
+ *     ZwCreateKey @ 0x1406A7750 (ZwCreateKey.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     HalpGetChipHacks @ 0x140C15AEC (HalpGetChipHacks.c)
  */
 
 char __fastcall HalpPiix4Detect(char a1)
@@ -198,8 +198,8 @@ LABEL_51:
         }
       }
       v4 = 1;
-      HalpInterruptSetLineSpecificOverride(23LL);
-      HalpInterruptSetLineSpecificOverride(22LL);
+      HalpInterruptSetLineSpecificOverride(0x17u);
+      HalpInterruptSetLineSpecificOverride(0x16u);
       break;
     }
 LABEL_57:
@@ -232,7 +232,7 @@ LABEL_56:
   LOBYTE(v16) = v32;
   HalpPiix4 = v32;
   if ( (HalpWAETDeviceFlags & 2) == 0 )
-    KeBugCheckEx(0x5Cu, 0x111uLL, (ULONG_PTR)"minkernel\\hals\\lib\\acpi\\xxacpi.c", 0x684uLL, 0LL);
+    KeBugCheckEx(0x5Cu, 0x111uLL, (ULONG_PTR)"minkernel\\hals\\lib\\acpi\\xxacpi.c", 0x67BuLL, 0LL);
   if ( (unsigned __int8)v32 <= 1u )
   {
     HalpPiix4BusNumber = v5;

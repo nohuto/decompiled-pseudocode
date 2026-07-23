@@ -42,7 +42,7 @@ __int64 __fastcall ExpSvmDereferenceDevice(_DWORD *P)
   struct _KTHREAD *v21; // rbx
   unsigned __int8 v22; // r14
   unsigned int v23; // edx
-  unsigned __int64 v24; // rsi
+  __int64 v24; // rsi
   __int64 v25; // rcx
   __int64 v26; // rdx
   __int64 v27; // rdx
@@ -145,7 +145,7 @@ LABEL_15:
     v15 = !_BitScanReverse((unsigned int *)&v25, v23);
     if ( v15 )
       goto LABEL_38;
-    v24 = (unsigned __int64)&v21->LockEntries[v25];
+    v24 = (__int64)&v21->LockEntries[v25];
     v23 &= ~(1 << v25);
     if ( (*(_BYTE *)(v24 + 26) & 1) != 0
       && (*(_DWORD *)(v24 + 32) & 1) == 0
@@ -166,12 +166,12 @@ LABEL_38:
   }
   *(_BYTE *)(v24 + 32) |= 2u;
   if ( *(__int64 *)(v24 + 32) < 0 )
-    KiAbEntryRemoveFromTree(v24);
+    KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)v24);
   v32 = *(_DWORD *)(v24 + 88) & 0x1FFFF;
   *(_DWORD *)(v24 + 88) &= 0xFFFE0000;
   *(_BYTE *)(v24 + 25) &= ~1u;
   *(_QWORD *)(v24 + 32) = 0LL;
-  v26 = (__int64)(v24 - (unsigned __int64)v21->LockEntries) / 96;
+  v26 = (signed __int64)(v24 - (unsigned __int64)v21->LockEntries) / 96;
   if ( v22 == 1 )
     v21->AbEntrySummary |= 1 << v26;
   else

@@ -1,9 +1,9 @@
 /*
- * XREFs of xHalUnmaskInterrupt @ 0x140371F70
+ * XREFs of xHalUnmaskInterrupt @ 0x140372110
  * Callers:
- *     MiAllocateVirtualMemoryPrepare @ 0x1406F6BB0 (MiAllocateVirtualMemoryPrepare.c)
- *     MmProtectVirtualMemory @ 0x1406F9770 (MmProtectVirtualMemory.c)
- *     HalpInterruptUnmap @ 0x1409333F8 (HalpInterruptUnmap.c)
+ *     MiAllocateVirtualMemoryPrepare @ 0x1406F6DC0 (MiAllocateVirtualMemoryPrepare.c)
+ *     MmProtectVirtualMemory @ 0x1406F9980 (MmProtectVirtualMemory.c)
+ *     HalpInterruptUnmap @ 0x1409335F8 (HalpInterruptUnmap.c)
  * Callees:
  *     <none>
  */

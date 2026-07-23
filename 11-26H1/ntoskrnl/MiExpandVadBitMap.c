@@ -1,14 +1,14 @@
 /*
- * XREFs of MiExpandVadBitMap @ 0x140963274
+ * XREFs of MiExpandVadBitMap @ 0x140A090FC
  * Callers:
- *     MiInitializeVadBitMap @ 0x140963088 (MiInitializeVadBitMap.c)
- *     MiInitializeVadCellBitMap @ 0x140963190 (MiInitializeVadCellBitMap.c)
- *     MiFindEmptyAddressRange @ 0x1409C537C (MiFindEmptyAddressRange.c)
+ *     MiFindEmptyAddressRange @ 0x14099635C (MiFindEmptyAddressRange.c)
+ *     MiInitializeVadBitMap @ 0x140A08F10 (MiInitializeVadBitMap.c)
+ *     MiInitializeVadCellBitMap @ 0x140A09018 (MiInitializeVadCellBitMap.c)
  * Callees:
- *     MiMakeHyperRangeAccessible @ 0x140316870 (MiMakeHyperRangeAccessible.c)
- *     MiLocateLowestConflictingVad @ 0x140467400 (MiLocateLowestConflictingVad.c)
- *     MiUpdateVadBits @ 0x1409634A8 (MiUpdateVadBits.c)
- *     MiExpandVadBitMapDown @ 0x140963530 (MiExpandVadBitMapDown.c)
+ *     MiMakeHyperRangeAccessible @ 0x1403188A0 (MiMakeHyperRangeAccessible.c)
+ *     MiLocateLowestConflictingVad @ 0x140460B50 (MiLocateLowestConflictingVad.c)
+ *     MiUpdateVadBits @ 0x140A09330 (MiUpdateVadBits.c)
+ *     MiExpandVadBitMapDown @ 0x140A093B8 (MiExpandVadBitMapDown.c)
  */
 
 __int64 __fastcall MiExpandVadBitMap(unsigned __int64 *a1, unsigned __int64 a2, __int64 a3, __int64 a4)
@@ -38,8 +38,8 @@ __int64 __fastcall MiExpandVadBitMap(unsigned __int64 *a1, unsigned __int64 a2, 
   Process = KeGetCurrentThread()->ApcState.Process;
   v23 = 0LL;
   ActiveProcessors = Process[2].ActiveProcessors;
-  v9 = (v4 + 8 * (v5 - qword_140E2DE48)) << 16;
-  v10 = v4 + ((-524288 * qword_140E2DE48 + (v5 << 19)) >> 16);
+  v9 = (v4 + 8 * (v5 - qword_140E2DFC8)) << 16;
+  v10 = v4 + ((-524288 * qword_140E2DFC8 + (v5 << 19)) >> 16);
   v24 = a1[5] - v10 + 1;
   v11 = v24;
   if ( a4 )
@@ -85,7 +85,7 @@ __int64 __fastcall MiExpandVadBitMap(unsigned __int64 *a1, unsigned __int64 a2, 
   v19 = a1[5];
   if ( v18 > v19 + 1 )
     *a1 = v17 + v19 - v18 + 1;
-  if ( v15 == qword_140E2DE48 )
+  if ( v15 == qword_140E2DFC8 )
   {
     *(_BYTE *)a1[1] |= 1u;
     if ( v4 )

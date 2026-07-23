@@ -3,7 +3,7 @@
  * Callers:
  *     Feature_Servicing_HibernateRelaxVBSPolicy__private_IsEnabledNoReporting @ 0x1403F831C (Feature_Servicing_HibernateRelaxVBSPolicy__private_IsEnabledNoReporting.c)
  * Callees:
- *     wil_details_IsEnabledFallback @ 0x1403F0AB0 (wil_details_IsEnabledFallback.c)
+ *     wil_details_IsEnabledFallback @ 0x1403F1CF4 (wil_details_IsEnabledFallback.c)
  */
 
 __int64 __fastcall Feature_Servicing_HibernateRelaxVBSPolicy__private_IsEnabledFallback(__int64 a1, int a2)

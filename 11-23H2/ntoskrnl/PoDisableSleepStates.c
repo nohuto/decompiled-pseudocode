@@ -1,12 +1,12 @@
 /*
- * XREFs of PoDisableSleepStates @ 0x140983FB0
+ * XREFs of PoDisableSleepStates @ 0x1409841B0
  * Callers:
- *     VslpIumPhase4Initialize @ 0x1403B0A3C (VslpIumPhase4Initialize.c)
- *     PopInitializeHibernateGlobals @ 0x1408014E4 (PopInitializeHibernateGlobals.c)
- *     HalpLoadMicrocode @ 0x140934B30 (HalpLoadMicrocode.c)
+ *     VslpIumPhase4Initialize @ 0x1403B0C1C (VslpIumPhase4Initialize.c)
+ *     PopInitializeHibernateGlobals @ 0x1408017B4 (PopInitializeHibernateGlobals.c)
+ *     HalpLoadMicrocode @ 0x140934D30 (HalpLoadMicrocode.c)
  * Callees:
- *     ExAcquireFastMutex @ 0x140230720 (ExAcquireFastMutex.c)
- *     ExReleaseFastMutex @ 0x140230860 (ExReleaseFastMutex.c)
+ *     ExAcquireFastMutex @ 0x140230810 (ExAcquireFastMutex.c)
+ *     ExReleaseFastMutex @ 0x140230950 (ExReleaseFastMutex.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
 

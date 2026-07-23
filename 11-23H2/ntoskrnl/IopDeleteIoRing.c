@@ -1,12 +1,12 @@
 /*
- * XREFs of IopDeleteIoRing @ 0x1409491B0
+ * XREFs of IopDeleteIoRing @ 0x1409493B0
  * Callers:
  *     <none>
  * Callees:
  *     MiRemoveFromSystemSpace @ 0x140213780 (MiRemoveFromSystemSpace.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     IopUnlockAndFreeMdl @ 0x14028CF2C (IopUnlockAndFreeMdl.c)
- *     IopIoRingCleanupRegBufferArray @ 0x140949224 (IopIoRingCleanupRegBufferArray.c)
+ *     ObfDereferenceObject @ 0x140231660 (ObfDereferenceObject.c)
+ *     IopUnlockAndFreeMdl @ 0x14028D1BC (IopUnlockAndFreeMdl.c)
+ *     IopIoRingCleanupRegBufferArray @ 0x140949424 (IopIoRingCleanupRegBufferArray.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

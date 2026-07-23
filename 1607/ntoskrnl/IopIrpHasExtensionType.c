@@ -1,19 +1,19 @@
 /*
- * XREFs of IopIrpHasExtensionType @ 0x1400D13D8
+ * XREFs of IopIrpHasExtensionType @ 0x1400CF278
  * Callers:
- *     IoMakeAssociatedIrpPriv @ 0x14008E078 (IoMakeAssociatedIrpPriv.c)
- *     IopFreeIrpExtension @ 0x1400B38E4 (IopFreeIrpExtension.c)
- *     IoPropagateActivityIdToThread @ 0x1400CFF74 (IoPropagateActivityIdToThread.c)
- *     IoReuseIrp @ 0x1400D11E0 (IoReuseIrp.c)
- *     IoGetFsTrackOffsetState @ 0x1400D13AC (IoGetFsTrackOffsetState.c)
- *     IoGetGenericIrpExtension @ 0x14010FF6C (IoGetGenericIrpExtension.c)
- *     IoSetGenericIrpExtension @ 0x140110290 (IoSetGenericIrpExtension.c)
- *     IoClearFsTrackOffsetState @ 0x1401CA458 (IoClearFsTrackOffsetState.c)
- *     IoGetFsZeroingOffset @ 0x1401CA488 (IoGetFsZeroingOffset.c)
- *     IoIrpHasFsTrackOffsetExtensionType @ 0x1401CA4BC (IoIrpHasFsTrackOffsetExtensionType.c)
- *     IoSetFsZeroingOffset @ 0x1401CA520 (IoSetFsZeroingOffset.c)
- *     IoSetFsZeroingOffsetRequired @ 0x1401CA558 (IoSetFsZeroingOffsetRequired.c)
- *     IopPerfCompleteRequest @ 0x1401CA7DC (IopPerfCompleteRequest.c)
+ *     IoMakeAssociatedIrpPriv @ 0x14008D7D8 (IoMakeAssociatedIrpPriv.c)
+ *     IopFreeIrpExtension @ 0x1400B1764 (IopFreeIrpExtension.c)
+ *     IoPropagateActivityIdToThread @ 0x1400CDE14 (IoPropagateActivityIdToThread.c)
+ *     IoReuseIrp @ 0x1400CF080 (IoReuseIrp.c)
+ *     IoGetFsTrackOffsetState @ 0x1400CF24C (IoGetFsTrackOffsetState.c)
+ *     IoGetGenericIrpExtension @ 0x1401104D0 (IoGetGenericIrpExtension.c)
+ *     IoSetGenericIrpExtension @ 0x1401107F4 (IoSetGenericIrpExtension.c)
+ *     IoClearFsTrackOffsetState @ 0x1401CA2F8 (IoClearFsTrackOffsetState.c)
+ *     IoGetFsZeroingOffset @ 0x1401CA328 (IoGetFsZeroingOffset.c)
+ *     IoIrpHasFsTrackOffsetExtensionType @ 0x1401CA35C (IoIrpHasFsTrackOffsetExtensionType.c)
+ *     IoSetFsZeroingOffset @ 0x1401CA3C0 (IoSetFsZeroingOffset.c)
+ *     IoSetFsZeroingOffsetRequired @ 0x1401CA3F8 (IoSetFsZeroingOffsetRequired.c)
+ *     IopPerfCompleteRequest @ 0x1401CA67C (IopPerfCompleteRequest.c)
  * Callees:
  *     <none>
  */

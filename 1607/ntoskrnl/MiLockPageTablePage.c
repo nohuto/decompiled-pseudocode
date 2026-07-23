@@ -1,16 +1,16 @@
 /*
- * XREFs of MiLockPageTablePage @ 0x140030530
+ * XREFs of MiLockPageTablePage @ 0x1400300B0
  * Callers:
- *     MiProbeLockFrame @ 0x14002F730 (MiProbeLockFrame.c)
- *     NtLockVirtualMemory @ 0x1400BAEC8 (NtLockVirtualMemory.c)
- *     MiBuildForkPte @ 0x1400BCCA0 (MiBuildForkPte.c)
- *     MiLockPageTableRange @ 0x14012350C (MiLockPageTableRange.c)
+ *     MiProbeLockFrame @ 0x14002F2B0 (MiProbeLockFrame.c)
+ *     NtLockVirtualMemory @ 0x1400B8D58 (NtLockVirtualMemory.c)
+ *     MiBuildForkPte @ 0x1400BAB30 (MiBuildForkPte.c)
+ *     MiLockPageTableRange @ 0x140123A7C (MiLockPageTableRange.c)
  * Callees:
- *     MiReleasePageFileInfo @ 0x14001A280 (MiReleasePageFileInfo.c)
- *     KeYieldProcessorEx @ 0x14002ECB0 (KeYieldProcessorEx.c)
- *     MiReturnResidentAvailable @ 0x14004F1E0 (MiReturnResidentAvailable.c)
- *     MiCapturePageFileInfoInline @ 0x140098320 (MiCapturePageFileInfoInline.c)
- *     MiChargePartitionResidentAvailable @ 0x1401034A4 (MiChargePartitionResidentAvailable.c)
+ *     MiReleasePageFileInfo @ 0x140019E00 (MiReleasePageFileInfo.c)
+ *     KeYieldProcessorEx @ 0x14002E830 (KeYieldProcessorEx.c)
+ *     MiReturnResidentAvailable @ 0x14004ED60 (MiReturnResidentAvailable.c)
+ *     MiCapturePageFileInfoInline @ 0x140097B20 (MiCapturePageFileInfoInline.c)
+ *     MiChargePartitionResidentAvailable @ 0x140101224 (MiChargePartitionResidentAvailable.c)
  */
 
 __int64 __fastcall MiLockPageTablePage(__int64 a1, int a2)
@@ -88,7 +88,7 @@ LABEL_4:
     v10 = v3;
     goto LABEL_21;
   }
-  v10 = *(int **)(qword_140326FF8 + 8LL * v9);
+  v10 = *(int **)(qword_140327038 + 8LL * v9);
   if ( v10 == v3 )
   {
 LABEL_21:

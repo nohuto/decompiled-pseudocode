@@ -1,11 +1,11 @@
 /*
- * XREFs of ExpAssignPasid @ 0x140A01750
+ * XREFs of ExpAssignPasid @ 0x140A019E0
  * Callers:
- *     ExpShareAddressSpaceWithDevice @ 0x14060DBA0 (ExpShareAddressSpaceWithDevice.c)
+ *     ExpShareAddressSpaceWithDevice @ 0x14060E0F0 (ExpShareAddressSpaceWithDevice.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     ObfReferenceObject @ 0x140233C40 (ObfReferenceObject.c)
- *     ExpFreeAsid @ 0x14060D830 (ExpFreeAsid.c)
+ *     ObfDereferenceObject @ 0x140231660 (ObfDereferenceObject.c)
+ *     ObfReferenceObject @ 0x140233D10 (ObfReferenceObject.c)
+ *     ExpFreeAsid @ 0x14060DD80 (ExpFreeAsid.c)
  */
 
 __int64 __fastcall ExpAssignPasid(volatile signed __int32 *Object, signed __int32 a2)

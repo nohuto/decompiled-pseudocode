@@ -1,7 +1,7 @@
 /*
- * XREFs of ViFaultsGetBaseImageName @ 0x140AD6780
+ * XREFs of ViFaultsGetBaseImageName @ 0x140AD6770
  * Callers:
- *     ViCreateProcessCallbackInternal @ 0x140AD6254 (ViCreateProcessCallbackInternal.c)
+ *     ViCreateProcessCallbackInternal @ 0x140AD6244 (ViCreateProcessCallbackInternal.c)
  * Callees:
  *     <none>
  */

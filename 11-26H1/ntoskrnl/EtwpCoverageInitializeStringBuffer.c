@@ -1,9 +1,9 @@
 /*
- * XREFs of EtwpCoverageInitializeStringBuffer @ 0x1406C689C
+ * XREFs of EtwpCoverageInitializeStringBuffer @ 0x1406CA59C
  * Callers:
- *     EtwpCoverageEnsureStringBuffer @ 0x140829BD8 (EtwpCoverageEnsureStringBuffer.c)
+ *     EtwpCoverageEnsureStringBuffer @ 0x14082FE18 (EtwpCoverageEnsureStringBuffer.c)
  * Callees:
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 _QWORD *__fastcall EtwpCoverageInitializeStringBuffer(_QWORD *a1, unsigned int a2)

@@ -1,16 +1,16 @@
 /*
- * XREFs of MiApplyImportOptimizationToRuntimeDriver @ 0x140582188
+ * XREFs of MiApplyImportOptimizationToRuntimeDriver @ 0x140583188
  * Callers:
- *     MmLoadSystemImageEx @ 0x140680FF8 (MmLoadSystemImageEx.c)
+ *     MmLoadSystemImageEx @ 0x1406821B8 (MmLoadSystemImageEx.c)
  * Callees:
  *     MiWalkEntireImage @ 0x14002F290 (MiWalkEntireImage.c)
  *     MiReleasePtes @ 0x1400340E0 (MiReleasePtes.c)
  *     MiReservePtes @ 0x14005C890 (MiReservePtes.c)
- *     MiIsImportOptimizationEnabled @ 0x1400DA510 (MiIsImportOptimizationEnabled.c)
- *     MiCaptureRetpolineImportInfo @ 0x1401B4F98 (MiCaptureRetpolineImportInfo.c)
- *     MiUpdateImportRelocationsOnDriverPrivatePages @ 0x1401B5454 (MiUpdateImportRelocationsOnDriverPrivatePages.c)
- *     MiDoesControlAreaRequireRetpolineFixups @ 0x1402B9008 (MiDoesControlAreaRequireRetpolineFixups.c)
- *     VfIsDriverSuspect @ 0x140920ED4 (VfIsDriverSuspect.c)
+ *     MiIsImportOptimizationEnabled @ 0x1400DA590 (MiIsImportOptimizationEnabled.c)
+ *     MiCaptureRetpolineImportInfo @ 0x1401B50D8 (MiCaptureRetpolineImportInfo.c)
+ *     MiUpdateImportRelocationsOnDriverPrivatePages @ 0x1401B5594 (MiUpdateImportRelocationsOnDriverPrivatePages.c)
+ *     MiDoesControlAreaRequireRetpolineFixups @ 0x1402B91F8 (MiDoesControlAreaRequireRetpolineFixups.c)
+ *     VfIsDriverSuspect @ 0x140921ED4 (VfIsDriverSuspect.c)
  */
 
 __int64 __fastcall MiApplyImportOptimizationToRuntimeDriver(__int64 a1, ULONG_PTR a2)
@@ -31,7 +31,7 @@ __int64 __fastcall MiApplyImportOptimizationToRuntimeDriver(__int64 a1, ULONG_PT
   }
   if ( (MiFlags & 0x10000) == 0 )
   {
-    v4 = MiReservePtes((__int64)&qword_14043AFA0, (unsigned __int64 *)1);
+    v4 = MiReservePtes((__int64)&qword_14043C060, (unsigned __int64 *)1);
     if ( !v4 )
       return (unsigned int)-1073741670;
     v5 = MiCaptureRetpolineImportInfo(a1, a2);
@@ -43,6 +43,6 @@ __int64 __fastcall MiApplyImportOptimizationToRuntimeDriver(__int64 a1, ULONG_PT
   v5 = 0;
 LABEL_13:
   if ( v4 )
-    MiReleasePtes((__int64)&qword_14043AFA0, v4, 1u);
+    MiReleasePtes((__int64)&qword_14043C060, v4, 1u);
   return (unsigned int)v5;
 }

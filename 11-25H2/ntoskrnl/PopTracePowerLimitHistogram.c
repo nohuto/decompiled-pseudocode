@@ -31,7 +31,7 @@ void __fastcall PopTracePowerLimitHistogram(__int64 a1)
   _DWORD *v11; // r8
   _QWORD *v12; // rcx
   __int64 v13; // r9
-  char IsZeroMemory; // al
+  BOOLEAN IsZeroMemory; // al
   __int64 v15; // rcx
   __int64 v16; // [rsp+38h] [rbp-99h] BYREF
   unsigned __int64 v17; // [rsp+40h] [rbp-91h] BYREF
@@ -47,7 +47,7 @@ void __fastcall PopTracePowerLimitHistogram(__int64 a1)
   __int64 v27; // [rsp+B0h] [rbp-21h]
   _OWORD *v28; // [rsp+B8h] [rbp-19h]
   __int64 v29; // [rsp+C0h] [rbp-11h]
-  _OWORD v30[3]; // [rsp+C8h] [rbp-9h] BYREF
+  _OWORD Buffer[3]; // [rsp+C8h] [rbp-9h] BYREF
 
   v17 = 0LL;
   v2 = 0LL;
@@ -73,8 +73,8 @@ void __fastcall PopTracePowerLimitHistogram(__int64 a1)
             v9 = 0;
             for ( i = (const WCHAR *)((char *)v2 + v2[2]); v9 < *(_DWORD *)(a1 + 32); ++v9 )
             {
-              memset(v30, 0, sizeof(v30));
-              v11 = v30;
+              memset(Buffer, 0, sizeof(Buffer));
+              v11 = Buffer;
               v12 = (_QWORD *)(*(_QWORD *)(a1 + 56) + 104LL * v9 + 8);
               v13 = 12LL;
               do
@@ -84,7 +84,7 @@ void __fastcall PopTracePowerLimitHistogram(__int64 a1)
                 --v13;
               }
               while ( v13 );
-              IsZeroMemory = RtlIsZeroMemory(v30, 0x30uLL);
+              IsZeroMemory = RtlIsZeroMemory(Buffer, 0x30uLL);
               v8 = 0LL;
               if ( !IsZeroMemory
                 && (unsigned int)dword_140E07680 > 5
@@ -102,7 +102,7 @@ void __fastcall PopTracePowerLimitHistogram(__int64 a1)
                 v25 = 1LL;
                 LODWORD(v17) = *(_DWORD *)(v15 + 16LL * v9 + 4);
                 v26 = &v17;
-                v28 = v30;
+                v28 = Buffer;
                 v27 = 4LL;
                 v29 = 48LL;
                 tlgWriteTransfer_EtwWriteTransfer(

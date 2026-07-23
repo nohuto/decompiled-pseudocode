@@ -1,10 +1,10 @@
 /*
- * XREFs of MiVerifyImageHeader @ 0x140523FE0
+ * XREFs of MiVerifyImageHeader @ 0x140507040
  * Callers:
- *     MiCreateImageFileMap @ 0x1405229BC (MiCreateImageFileMap.c)
+ *     MiCreateImageFileMap @ 0x140505A1C (MiCreateImageFileMap.c)
  * Callees:
- *     memcmp @ 0x14014DE90 (memcmp.c)
- *     MiCheckDosCalls @ 0x14065907C (MiCheckDosCalls.c)
+ *     memcmp @ 0x14014E450 (memcmp.c)
+ *     MiCheckDosCalls @ 0x140659160 (MiCheckDosCalls.c)
  */
 
 __int64 __fastcall MiVerifyImageHeader(__int64 a1, __int64 a2, __int64 a3, unsigned __int64 a4)

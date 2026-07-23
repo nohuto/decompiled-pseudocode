@@ -1,12 +1,12 @@
 /*
- * XREFs of PiDqPnPGetObjectPropertyLocales @ 0x1406321C4
+ * XREFs of PiDqPnPGetObjectPropertyLocales @ 0x140632278
  * Callers:
- *     PiDqActionDataGetAllPropertiesInAllLanguages @ 0x140630F98 (PiDqActionDataGetAllPropertiesInAllLanguages.c)
+ *     PiDqActionDataGetAllPropertiesInAllLanguages @ 0x14063104C (PiDqActionDataGetAllPropertiesInAllLanguages.c)
  * Callees:
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     _PnpGetObjectPropertyLocales @ 0x1406DB4C8 (_PnpGetObjectPropertyLocales.c)
- *     _PnpGetGenericStorePropertyLocales @ 0x1406DC50C (_PnpGetGenericStorePropertyLocales.c)
+ *     _PnpGetObjectPropertyLocales @ 0x1406DB600 (_PnpGetObjectPropertyLocales.c)
+ *     _PnpGetGenericStorePropertyLocales @ 0x1406DC644 (_PnpGetGenericStorePropertyLocales.c)
  */
 
 __int64 __fastcall PiDqPnPGetObjectPropertyLocales(int a1, int a2, __int64 a3, __int64 a4, PVOID *a5)

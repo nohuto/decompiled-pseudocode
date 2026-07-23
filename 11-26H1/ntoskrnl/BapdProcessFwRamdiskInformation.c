@@ -1,26 +1,26 @@
 /*
- * XREFs of BapdProcessFwRamdiskInformation @ 0x140CE23D4
+ * XREFs of BapdProcessFwRamdiskInformation @ 0x140CE8774
  * Callers:
- *     BootApplicationPersistentDataProcess @ 0x140C7FBB0 (BootApplicationPersistentDataProcess.c)
+ *     BootApplicationPersistentDataProcess @ 0x140C85BB0 (BootApplicationPersistentDataProcess.c)
  * Callees:
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
  */
 
-ULONG_PTR BapdProcessFwRamdiskInformation()
+_QWORD *BapdProcessFwRamdiskInformation()
 {
-  ULONG_PTR result; // rax
+  _QWORD *result; // rax
   __int64 v1; // rbx
 
-  result = KeLoaderBlock_0;
+  result = (_QWORD *)KeLoaderBlock_0;
   v1 = *(_QWORD *)(*(_QWORD *)(KeLoaderBlock_0 + 240) + 3696LL);
   if ( v1 )
   {
-    result = ExAllocatePool2(64LL, 0x18uLL, 0x64506142u);
-    *(_QWORD *)&ExpSysDbgLock.SchedulerApc.Type = result;
+    result = (_QWORD *)ExAllocatePool2(64LL, 0x18uLL, 0x64506142u);
+    ExpSysDbgLock.SchedulerApc.Reserved[1] = result;
     if ( result )
     {
       *(_OWORD *)result = *(_OWORD *)v1;
-      *(_QWORD *)(result + 16) = *(_QWORD *)(v1 + 16);
+      result[2] = *(_QWORD *)(v1 + 16);
     }
   }
   return result;

@@ -1,7 +1,7 @@
 /*
- * XREFs of CcIsCacheMapACursorInPrivateVCM @ 0x140389484
+ * XREFs of CcIsCacheMapACursorInPrivateVCM @ 0x14038B234
  * Callers:
- *     CcLazyWriteScanVolume @ 0x140388CAC (CcLazyWriteScanVolume.c)
+ *     CcLazyWriteScanVolume @ 0x14038AA5C (CcLazyWriteScanVolume.c)
  * Callees:
  *     <none>
  */

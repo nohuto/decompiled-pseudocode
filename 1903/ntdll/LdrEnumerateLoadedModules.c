@@ -10,43 +10,41 @@
  *     _guard_dispatch_icall_nop @ 0x1800A0100 (_guard_dispatch_icall_nop.c)
  */
 
-__int64 __fastcall LdrEnumerateLoadedModules(int a1, void (__fastcall *a2)(__int64 *, __int64, char *), __int64 a3)
+NTSTATUS __cdecl LdrEnumerateLoadedModules(BOOLEAN ReservedFlag, PLDR_ENUM_CALLBACK EnumProc, PVOID Context)
 {
-  __int64 v5; // rcx
-  char v6; // bl
-  __int64 v7; // rcx
+  char v5; // bl
+  __int64 v6; // rcx
   __int64 *i; // rdi
-  __int64 v9; // rdx
-  __int64 v10; // rcx
-  __int64 v11; // r8
-  __int64 v12; // r9
-  char v14; // [rsp+40h] [rbp+8h] BYREF
-  char v15; // [rsp+58h] [rbp+20h]
+  __int64 v8; // rdx
+  __int64 v9; // rcx
+  __int64 v10; // r8
+  __int64 v11; // r9
+  char v13; // [rsp+40h] [rbp+8h] BYREF
+  char v14; // [rsp+58h] [rbp+20h]
 
-  if ( a1 || !a2 )
-    return 3221225485LL;
-  v14 = 0;
-  v5 = 4096LL;
+  if ( ReservedFlag || !EnumProc )
+    return -1073741811;
+  v13 = 0;
   if ( (NtCurrentTeb()->SameTebFlags & 0x1000) != 0 )
   {
-    v6 = 1;
-    v15 = 1;
+    v5 = 1;
+    v14 = 1;
   }
   else
   {
-    v6 = 0;
-    v15 = 0;
+    v5 = 0;
+    v14 = 0;
     sub_18002E73C(0);
   }
-  sub_18002D7BC(v5);
+  sub_18002D7BC();
   for ( i = (__int64 *)qword_1801653D0; i != &qword_1801653D0; i = (__int64 *)*i )
   {
-    a2(i, a3, &v14);
-    if ( v14 )
+    ((void (__fastcall *)(__int64 *, PVOID, char *))EnumProc)(i, Context, &v13);
+    if ( v13 )
       break;
   }
-  sub_18002D75C(v7, 15, 0);
-  if ( !v6 )
-    sub_180073E1C(v10, v9, v11, v12);
-  return 0LL;
+  sub_18002D75C(v6, 15, 0);
+  if ( !v5 )
+    sub_180073E1C(v9, v8, v10, v11);
+  return 0;
 }

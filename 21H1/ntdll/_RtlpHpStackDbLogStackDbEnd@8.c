@@ -7,21 +7,24 @@
  *     @__security_check_cookie@4 @ 0x4B2F4B20 (@__security_check_cookie@4.c)
  */
 
-NTSTATUS __fastcall RtlpHpStackDbLogStackDbEnd(int a1, int a2)
+ULONG __fastcall RtlpHpStackDbLogStackDbEnd(int a1, int a2)
 {
   int v3; // [esp+0h] [ebp-2Ch] BYREF
   int v4; // [esp+4h] [ebp-28h] BYREF
-  _DWORD v5[8]; // [esp+8h] [ebp-24h] BYREF
+  _EVENT_DATA_DESCRIPTOR UserData; // [esp+8h] [ebp-24h] BYREF
+  int *v6; // [esp+18h] [ebp-14h]
+  int v7; // [esp+1Ch] [ebp-10h]
+  int v8; // [esp+20h] [ebp-Ch]
+  int v9; // [esp+24h] [ebp-8h]
 
   v4 = a1;
-  v5[0] = &v4;
-  v5[4] = &v3;
+  UserData.Ptr = (unsigned int)&v4;
+  v6 = &v3;
   v3 = a2;
-  v5[1] = 0;
-  v5[2] = 4;
-  v5[3] = 0;
-  v5[5] = 0;
-  v5[6] = 4;
-  v5[7] = 0;
-  return EtwEventWrite(RtlpHpStackTraceProviderHandle, dword_4B3A6824, HeapSnapshotEnd, 2, (int)v5);
+  UserData.Size = 4;
+  UserData.Reserved = 0;
+  v7 = 0;
+  v8 = 4;
+  v9 = 0;
+  return EtwEventWrite(RtlpHpStackTraceProviderHandle, &HeapSnapshotEnd, 2u, &UserData);
 }

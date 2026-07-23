@@ -1,10 +1,10 @@
 /*
- * XREFs of MiValidateSectionUpdate @ 0x140AFC634
+ * XREFs of MiValidateSectionUpdate @ 0x140AFE1A8
  * Callers:
- *     MiValidateSectionCreate @ 0x1409CB8F4 (MiValidateSectionCreate.c)
+ *     MiValidateSectionCreate @ 0x14099C8D4 (MiValidateSectionCreate.c)
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     SeReleaseImageValidationContext @ 0x140AFC790 (SeReleaseImageValidationContext.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     SeReleaseImageValidationContext @ 0x140AFE304 (SeReleaseImageValidationContext.c)
  */
 
 __int64 __fastcall MiValidateSectionUpdate(__int64 a1)
@@ -70,7 +70,7 @@ LABEL_9:
     }
     v4 = v9 & 0xFFFFFFFFFFFFFFF8uLL;
     i &= 0xFFFFFFFFFFFFFFF8uLL;
-    if ( SepRmCapTableLock.Spare35[0] )
+    if ( SepRmCapTableLock.IptSaveArea )
       v10 = guard_dispatch_icall_no_overrides(v4, i);
     else
       v10 = 0;
@@ -83,7 +83,7 @@ LABEL_8:
       v4 = i;
       goto LABEL_9;
     }
-    *(_DWORD *)&stru_140E2D150.WaitBlockFill10[8] = 130;
+    *(_DWORD *)&stru_140E2D2D0.WaitBlockFill10[8] = 130;
   }
   result = (unsigned int)v10;
   *(_QWORD *)(a1 + 80) = i;

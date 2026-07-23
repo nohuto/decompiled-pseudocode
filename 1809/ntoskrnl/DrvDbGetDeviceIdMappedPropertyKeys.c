@@ -1,12 +1,12 @@
 /*
- * XREFs of DrvDbGetDeviceIdMappedPropertyKeys @ 0x1409013C4
+ * XREFs of DrvDbGetDeviceIdMappedPropertyKeys @ 0x140902684
  * Callers:
- *     DrvDbDispatchDeviceId @ 0x1406F5020 (DrvDbDispatchDeviceId.c)
+ *     DrvDbDispatchDeviceId @ 0x1406F62C0 (DrvDbDispatchDeviceId.c)
  * Callees:
- *     ZwClose @ 0x1401B8370 (ZwClose.c)
- *     DrvDbOpenObjectRegKey @ 0x1406D2C78 (DrvDbOpenObjectRegKey.c)
- *     _PnpCtxRegQueryInfoKey @ 0x1406F5634 (_PnpCtxRegQueryInfoKey.c)
- *     DrvDbGetCompositeMappedPropertyKeys @ 0x140901340 (DrvDbGetCompositeMappedPropertyKeys.c)
+ *     ZwClose @ 0x1401B84D0 (ZwClose.c)
+ *     DrvDbOpenObjectRegKey @ 0x1406D3F18 (DrvDbOpenObjectRegKey.c)
+ *     _PnpCtxRegQueryInfoKey @ 0x1406F68D4 (_PnpCtxRegQueryInfoKey.c)
+ *     DrvDbGetCompositeMappedPropertyKeys @ 0x140902600 (DrvDbGetCompositeMappedPropertyKeys.c)
  */
 
 __int64 __fastcall DrvDbGetDeviceIdMappedPropertyKeys(
@@ -42,7 +42,7 @@ __int64 __fastcall DrvDbGetDeviceIdMappedPropertyKeys(
   }
   InfoKey = PnpCtxRegQueryInfoKey((__int64)&v15, v8, 0, 0, (__int64)&v15, 0LL, 0LL);
   if ( InfoKey >= 0 && v15 )
-    InfoKey = DrvDbGetCompositeMappedPropertyKeys(v10, (_OWORD **)off_140401E28, 2u, a4, a5, v6);
+    InfoKey = DrvDbGetCompositeMappedPropertyKeys(v10, (_OWORD **)off_140402E28, 2u, a4, a5, v6);
 LABEL_7:
   if ( Handle[0] )
     ZwClose(Handle[0]);

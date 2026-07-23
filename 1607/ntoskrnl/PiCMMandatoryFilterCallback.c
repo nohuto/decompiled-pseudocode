@@ -1,9 +1,9 @@
 /*
- * XREFs of PiCMMandatoryFilterCallback @ 0x1404F7868
+ * XREFs of PiCMMandatoryFilterCallback @ 0x1404DA7F4
  * Callers:
  *     <none>
  * Callees:
- *     PiPnpRtlApplyMandatoryFilters @ 0x1404F9F88 (PiPnpRtlApplyMandatoryFilters.c)
+ *     PiPnpRtlApplyMandatoryFilters @ 0x1404DCF14 (PiPnpRtlApplyMandatoryFilters.c)
  */
 
 char __fastcall PiCMMandatoryFilterCallback(int a1, int a2, int a3, __int64 IsServiceSession)

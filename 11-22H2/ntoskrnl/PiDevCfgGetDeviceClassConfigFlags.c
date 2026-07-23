@@ -33,7 +33,7 @@ __int64 __fastcall PiDevCfgGetDeviceClassConfigFlags(__int64 a1, __int64 a2, _DW
                        2LL,
                        a2,
                        0LL,
-                       (__int64)DEVPKEY_DeviceClass_ConfigNotifyWnfTriggers,
+                       (__int64)&DEVPKEY_DeviceClass_ConfigNotifyWnfTriggers,
                        (__int64)&v8,
                        0LL,
                        0,

@@ -1,15 +1,15 @@
 /*
- * XREFs of AslEnvGetSystem32DirPathBuf @ 0x1408EC0D0
+ * XREFs of AslEnvGetSystem32DirPathBuf @ 0x1408ED390
  * Callers:
- *     SdbpGetPathSystem @ 0x1408E8C80 (SdbpGetPathSystem.c)
- *     AslEnvGetSysNativeDirPathForGuestBuf @ 0x1408EBE74 (AslEnvGetSysNativeDirPathForGuestBuf.c)
+ *     SdbpGetPathSystem @ 0x1408E9F40 (SdbpGetPathSystem.c)
+ *     AslEnvGetSysNativeDirPathForGuestBuf @ 0x1408ED134 (AslEnvGetSysNativeDirPathForGuestBuf.c)
  * Callees:
- *     RtlStringCchCopyW @ 0x140092420 (RtlStringCchCopyW.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     AslLogCallPrintf @ 0x140680C60 (AslLogCallPrintf.c)
- *     AslPathCombine @ 0x1408EA214 (AslPathCombine.c)
- *     AslPathToSystemPathBuf @ 0x1408EA37C (AslPathToSystemPathBuf.c)
+ *     RtlStringCchCopyW @ 0x140092360 (RtlStringCchCopyW.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     AslLogCallPrintf @ 0x140681E20 (AslLogCallPrintf.c)
+ *     AslPathCombine @ 0x1408EB4D4 (AslPathCombine.c)
+ *     AslPathToSystemPathBuf @ 0x1408EB63C (AslPathToSystemPathBuf.c)
  */
 
 __int64 __fastcall AslEnvGetSystem32DirPathBuf(
@@ -32,12 +32,12 @@ __int64 __fastcall AslEnvGetSystem32DirPathBuf(
   else
     v9 = a4;
   v10 = 0LL;
-  for ( i = &unk_1404015D2; *(i - 1) != a4 || *i != v9; i += 8 )
+  for ( i = &unk_1404025D2; *(i - 1) != a4 || *i != v9; i += 8 )
   {
     if ( (unsigned __int64)++v10 >= 7 )
       return (unsigned int)-1073741637;
   }
-  v12 = AslPathToSystemPathBuf(pszSrc, 0x40uLL, (&off_1404015D8)[2 * v10]);
+  v12 = AslPathToSystemPathBuf(pszSrc, 0x40uLL, (&off_1404025D8)[2 * v10]);
   if ( v12 < 0 )
     goto LABEL_11;
   if ( a3 && *a3 )

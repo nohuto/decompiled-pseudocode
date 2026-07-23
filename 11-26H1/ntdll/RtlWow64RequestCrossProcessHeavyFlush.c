@@ -1,5 +1,5 @@
 /*
- * XREFs of RtlWow64RequestCrossProcessHeavyFlush @ 0x18014D160
+ * XREFs of RtlWow64RequestCrossProcessHeavyFlush @ 0x18014D010
  * Callers:
  *     <none>
  * Callees:

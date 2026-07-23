@@ -10,11 +10,11 @@
  *     sub_180108770 @ 0x180108770 (sub_180108770.c)
  */
 
-unsigned int *__fastcall sub_18002C5FC(_QWORD *a1, int a2)
+int __fastcall sub_18002C5FC(_QWORD *a1, int a2)
 {
   unsigned __int32 v3; // r8d
   unsigned __int32 v4; // ebx
-  unsigned int *result; // rax
+  struct _PEB *v5; // rax
   __int64 v6; // rcx
   bool v7; // zf
   signed __int32 v8; // eax
@@ -38,20 +38,17 @@ unsigned int *__fastcall sub_18002C5FC(_QWORD *a1, int a2)
   v4 = 0;
 LABEL_4:
   sub_180055584(a1 + 7, -v4);
-  result = RtlGetCurrentServiceSessionId();
-  if ( (_DWORD)result )
+  LODWORD(v5) = RtlGetCurrentServiceSessionId();
+  if ( (_DWORD)v5 )
   {
-    result = (unsigned int *)NtCurrentPeb();
-    v6 = *((_QWORD *)result + 18) + 556LL;
+    v5 = NtCurrentPeb();
+    v6 = (__int64)&v5->SharedData->UserModeGlobalLogger[3];
   }
   else
   {
     v6 = 2147353478LL;
   }
-  if ( *(_BYTE *)v6 )
-  {
-    if ( v4 )
-      return (unsigned int *)sub_180108770(a1[18], (int)a1 + 200, a1[10], a1[11], a1[13], v4);
-  }
-  return result;
+  if ( *(_BYTE *)v6 && v4 )
+    LODWORD(v5) = sub_180108770(a1[18], (int)a1 + 200, a1[10], a1[11], a1[13], v4);
+  return (int)v5;
 }

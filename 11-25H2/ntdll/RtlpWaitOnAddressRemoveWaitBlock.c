@@ -40,7 +40,7 @@ __int64 __fastcall RtlpWaitOnAddressRemoveWaitBlock(__int64 a1, __int64 a2)
 LABEL_11:
         result = (unsigned int)_InterlockedExchange((volatile __int32 *)(a2 + 40), 1);
         if ( (_DWORD)result != 2 )
-          return RtlpWaitOnAddressWithTimeout(a1, a2, 0, (_DWORD)RtlpWaitOnAddressSpinCycleCount, 0LL);
+          return RtlpWaitOnAddressWithTimeout(a1, a2, 0LL, (unsigned int)RtlpWaitOnAddressSpinCycleCount, 0LL);
         return result;
       }
       if ( (v4 & 2) == 0 )
@@ -102,7 +102,7 @@ LABEL_6:
     }
   }
   if ( !v8 && _InterlockedExchange((volatile __int32 *)(a2 + 40), 0) != 2 )
-    NtWaitForAlertByThreadId(*(_QWORD *)a2, 0LL);
+    NtWaitForAlertByThreadId(*(PVOID *)a2, 0LL);
   *(_QWORD *)(v10 + 32) = v9;
   do
   {

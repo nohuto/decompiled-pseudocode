@@ -1,21 +1,21 @@
 /*
- * XREFs of VslGetNestedPageProtectionFlags @ 0x140340320
+ * XREFs of VslGetNestedPageProtectionFlags @ 0x1403405B0
  * Callers:
- *     RtlpControlFlowGuardEnforced @ 0x1403402F8 (RtlpControlFlowGuardEnforced.c)
- *     HvlGetEnlightenmentInfo @ 0x140543FC0 (HvlGetEnlightenmentInfo.c)
- *     HvlpDetermineEnlightenments @ 0x140548F64 (HvlpDetermineEnlightenments.c)
- *     ExpQuerySystemInformation @ 0x140726850 (ExpQuerySystemInformation.c)
- *     PsLocateSystemDlls @ 0x14084D30C (PsLocateSystemDlls.c)
+ *     RtlpControlFlowGuardEnforced @ 0x140340588 (RtlpControlFlowGuardEnforced.c)
+ *     HvlGetEnlightenmentInfo @ 0x140544680 (HvlGetEnlightenmentInfo.c)
+ *     HvlpDetermineEnlightenments @ 0x140549624 (HvlpDetermineEnlightenments.c)
+ *     ExpQuerySystemInformation @ 0x140726A50 (ExpQuerySystemInformation.c)
+ *     PsLocateSystemDlls @ 0x14084D60C (PsLocateSystemDlls.c)
  *     MmInitSystem @ 0x140B443B4 (MmInitSystem.c)
  *     PspInitPhase0 @ 0x140B4A894 (PspInitPhase0.c)
  *     InitBootProcessor @ 0x140B52774 (InitBootProcessor.c)
  *     KiIsKernelCfgActive @ 0x140B75F18 (KiIsKernelCfgActive.c)
  *     KiAreCodePatchesAllowed @ 0x140B958F0 (KiAreCodePatchesAllowed.c)
  * Callees:
- *     VslpEnterIumSecureMode @ 0x14033FCF0 (VslpEnterIumSecureMode.c)
- *     HvlQueryVsmConnection @ 0x140340388 (HvlQueryVsmConnection.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memset @ 0x140435A00 (memset.c)
+ *     VslpEnterIumSecureMode @ 0x14033FF80 (VslpEnterIumSecureMode.c)
+ *     HvlQueryVsmConnection @ 0x140340618 (HvlQueryVsmConnection.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     memset @ 0x140435E00 (memset.c)
  */
 
 __int64 VslGetNestedPageProtectionFlags()

@@ -1,11 +1,11 @@
 /*
- * XREFs of MiLogAddPhysicalMemory @ 0x14061B90C
+ * XREFs of MiLogAddPhysicalMemory @ 0x14061BE5C
  * Callers:
- *     MiAddPhysicalMemory @ 0x140A2B6C8 (MiAddPhysicalMemory.c)
+ *     MiAddPhysicalMemory @ 0x140A2B978 (MiAddPhysicalMemory.c)
  * Callees:
  *     _tlgKeywordOn @ 0x140212E64 (_tlgKeywordOn.c)
- *     _tlgWriteEx_EtwWriteEx @ 0x140367F70 (_tlgWriteEx_EtwWriteEx.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     _tlgWriteEx_EtwWriteEx @ 0x140368110 (_tlgWriteEx_EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  */
 
 char __fastcall MiLogAddPhysicalMemory(unsigned __int16 *a1, __int64 *a2, __int64 *a3, __int64 a4, __int64 a5)
@@ -72,7 +72,7 @@ char __fastcall MiLogAddPhysicalMemory(unsigned __int16 *a1, __int64 *a2, __int6
           v41 = &v25;
           v33 = 8;
           v36 = 8;
-          v15 = (unsigned __int8 *)&word_140038442;
+          v15 = (unsigned __int8 *)&word_14003852A;
           v22 = 7;
           v23 = v16;
           v42 = 4;
@@ -97,7 +97,7 @@ char __fastcall MiLogAddPhysicalMemory(unsigned __int16 *a1, __int64 *a2, __int6
         v38 = &v24;
         v33 = v12 + 8;
         v36 = v12 + 8;
-        v15 = (unsigned __int8 *)word_1400383EA;
+        v15 = (unsigned __int8 *)word_1400384D2;
         v22 = 6;
         v24 = v10;
 LABEL_9:

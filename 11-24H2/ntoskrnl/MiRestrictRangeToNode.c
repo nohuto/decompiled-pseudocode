@@ -1,21 +1,21 @@
 /*
- * XREFs of MiRestrictRangeToNode @ 0x140401E10
+ * XREFs of MiRestrictRangeToNode @ 0x1403FC38C
  * Callers:
- *     MiInitializeDynamicPfns @ 0x14066D8BC (MiInitializeDynamicPfns.c)
- *     MiHotRemoveHugeRange @ 0x140670540 (MiHotRemoveHugeRange.c)
- *     MiUpdatePartitionChildPageCounts @ 0x14068B904 (MiUpdatePartitionChildPageCounts.c)
- *     MiAddPhysicalMemoryChunks @ 0x1407E8944 (MiAddPhysicalMemoryChunks.c)
- *     MiDescribePageRun @ 0x1407E93FC (MiDescribePageRun.c)
- *     MiZeroHotAddMemory @ 0x1407EA394 (MiZeroHotAddMemory.c)
- *     MiCreateDescriptorPfns @ 0x140C50FF4 (MiCreateDescriptorPfns.c)
- *     MiRemoveLargeFreeLoaderDescriptors @ 0x140C51ABC (MiRemoveLargeFreeLoaderDescriptors.c)
- *     MxComputeFreeNodeDescriptorRequirements @ 0x140C521F8 (MxComputeFreeNodeDescriptorRequirements.c)
- *     MxInitializeFreeNodeDescriptors @ 0x140C52C0C (MxInitializeFreeNodeDescriptors.c)
- *     MxInsertFreePages @ 0x140C52D50 (MxInsertFreePages.c)
- *     MxMapPfnRange @ 0x140C52F48 (MxMapPfnRange.c)
+ *     MiInitializeDynamicPfns @ 0x14066EA90 (MiInitializeDynamicPfns.c)
+ *     MiHotRemoveHugeRange @ 0x140671710 (MiHotRemoveHugeRange.c)
+ *     MiUpdatePartitionChildPageCounts @ 0x14068CA34 (MiUpdatePartitionChildPageCounts.c)
+ *     MiAddPhysicalMemoryChunks @ 0x1407E8F14 (MiAddPhysicalMemoryChunks.c)
+ *     MiDescribePageRun @ 0x1407E99CC (MiDescribePageRun.c)
+ *     MiZeroHotAddMemory @ 0x1407EA964 (MiZeroHotAddMemory.c)
+ *     MiCreateDescriptorPfns @ 0x140C53184 (MiCreateDescriptorPfns.c)
+ *     MiRemoveLargeFreeLoaderDescriptors @ 0x140C53C4C (MiRemoveLargeFreeLoaderDescriptors.c)
+ *     MxComputeFreeNodeDescriptorRequirements @ 0x140C54388 (MxComputeFreeNodeDescriptorRequirements.c)
+ *     MxInitializeFreeNodeDescriptors @ 0x140C54D9C (MxInitializeFreeNodeDescriptors.c)
+ *     MxInsertFreePages @ 0x140C54EE0 (MxInsertFreePages.c)
+ *     MxMapPfnRange @ 0x140C550D8 (MxMapPfnRange.c)
  * Callees:
- *     MiSearchChannelTable @ 0x14026F0D4 (MiSearchChannelTable.c)
- *     MiSearchNumaNodeTable @ 0x140401E90 (MiSearchNumaNodeTable.c)
+ *     MiSearchChannelTable @ 0x140224664 (MiSearchChannelTable.c)
+ *     MiSearchNumaNodeTable @ 0x1403FC410 (MiSearchNumaNodeTable.c)
  */
 
 ULONG_PTR __fastcall MiRestrictRangeToNode(ULONG_PTR BugCheckParameter2, ULONG_PTR a2)
@@ -29,7 +29,7 @@ ULONG_PTR __fastcall MiRestrictRangeToNode(ULONG_PTR BugCheckParameter2, ULONG_P
   if ( BugCheckParameter2 + a2 > v4 )
     a2 = v4 - BugCheckParameter2;
   v5 = a2;
-  if ( qword_140E2DB28 )
+  if ( qword_140E2DC68 )
   {
     v7 = MiSearchChannelTable(BugCheckParameter2)[2];
     v8 = BugCheckParameter2 + a2;

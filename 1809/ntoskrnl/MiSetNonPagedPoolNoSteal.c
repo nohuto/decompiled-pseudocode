@@ -1,7 +1,7 @@
 /*
- * XREFs of MiSetNonPagedPoolNoSteal @ 0x14015ECF4
+ * XREFs of MiSetNonPagedPoolNoSteal @ 0x14015EDF4
  * Callers:
- *     MiGetPhysicalAddress @ 0x1401210F8 (MiGetPhysicalAddress.c)
+ *     MiGetPhysicalAddress @ 0x1401211C8 (MiGetPhysicalAddress.c)
  * Callees:
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
  */

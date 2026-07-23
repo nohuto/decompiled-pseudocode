@@ -1,8 +1,8 @@
 /*
- * XREFs of ZwProtectVirtualMemory @ 0x14015A680
+ * XREFs of ZwProtectVirtualMemory @ 0x14015ABF0
  * Callers:
- *     KiOpPatchCode @ 0x1401DB360 (KiOpPatchCode.c)
- *     MiCheckForUserStackOverflow @ 0x1404CAE24 (MiCheckForUserStackOverflow.c)
+ *     KiOpPatchCode @ 0x1401DB18C (KiOpPatchCode.c)
+ *     MiCheckForUserStackOverflow @ 0x1404B0850 (MiCheckForUserStackOverflow.c)
  * Callees:
  *     <none>
  */
@@ -16,5 +16,5 @@ NTSTATUS __stdcall ZwProtectVirtualMemory(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(ProcessHandle, BaseAddress, NumberOfBytesToProtect);
+  return KiServiceInternal(ProcessHandle);
 }

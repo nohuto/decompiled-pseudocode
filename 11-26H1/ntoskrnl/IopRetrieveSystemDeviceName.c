@@ -1,12 +1,12 @@
 /*
- * XREFs of IopRetrieveSystemDeviceName @ 0x140AFA8A4
+ * XREFs of IopRetrieveSystemDeviceName @ 0x140AFCB0C
  * Callers:
- *     IoQuerySystemDeviceName @ 0x140AFA81C (IoQuerySystemDeviceName.c)
+ *     IoQuerySystemDeviceName @ 0x140AFCA84 (IoQuerySystemDeviceName.c)
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     RtlWriteULong64ToUser @ 0x14077F758 (RtlWriteULong64ToUser.c)
- *     RtlWriteULongToUser @ 0x14077F7A0 (RtlWriteULongToUser.c)
- *     ProbeForWrite @ 0x1408F5D00 (ProbeForWrite.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     RtlWriteULong64ToUser @ 0x140782258 (RtlWriteULong64ToUser.c)
+ *     RtlWriteULongToUser @ 0x1407822A0 (RtlWriteULongToUser.c)
+ *     ProbeForWrite @ 0x140925C90 (ProbeForWrite.c)
  */
 
 __int64 __fastcall IopRetrieveSystemDeviceName(__int64 a1, _QWORD *a2, unsigned int a3, int *a4)

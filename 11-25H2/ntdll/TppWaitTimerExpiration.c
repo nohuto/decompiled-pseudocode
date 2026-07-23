@@ -13,11 +13,11 @@
 
 char __fastcall TppWaitTimerExpiration(__int64 a1)
 {
-  unsigned int v2; // eax
+  unsigned __int32 v2; // eax
   __int64 v3; // rdx
   void (__fastcall *v4)(__int64); // rax
 
-  v2 = ZwCancelWaitCompletionPacket(*(_QWORD *)(a1 + 368), 0LL);
+  v2 = ZwCancelWaitCompletionPacket(*(HANDLE *)(a1 + 368), 0);
   if ( v2 )
   {
     if ( v2 != -1073741536 && v2 != 259 )
@@ -39,7 +39,7 @@ char __fastcall TppWaitTimerExpiration(__int64 a1)
       }
       else if ( (char *)v4 == (char *)TppWorkpFree )
       {
-        TppWorkpFree(a1);
+        TppWorkpFree((void *)a1);
       }
       else
       {

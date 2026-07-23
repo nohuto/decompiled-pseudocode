@@ -8,7 +8,7 @@
 
 __int64 __fastcall sub_1800A31A0(ULONG_PTR a1, __int64 a2)
 {
-  struct _EXCEPTION_RECORD *HistoryTable; // r10
+  _EXCEPTION_RECORD *HistoryTable; // r10
   EXCEPTION_RECORD ExceptionRecord; // [rsp+30h] [rbp-508h] BYREF
 
   if ( !a2 )

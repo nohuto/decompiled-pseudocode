@@ -1,10 +1,10 @@
 /*
- * XREFs of PpmParkAggregateTopologyMasks @ 0x14060F130
+ * XREFs of PpmParkAggregateTopologyMasks @ 0x140612394
  * Callers:
- *     PpmParkDetectComplexAndModulePresence @ 0x14060F3C4 (PpmParkDetectComplexAndModulePresence.c)
+ *     PpmParkDetectComplexAndModulePresence @ 0x140612628 (PpmParkDetectComplexAndModulePresence.c)
  * Callees:
- *     RtlOrAffinityEx @ 0x14025A978 (RtlOrAffinityEx.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     RtlOrAffinityEx @ 0x14025C158 (RtlOrAffinityEx.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 unsigned int __fastcall PpmParkAggregateTopologyMasks(

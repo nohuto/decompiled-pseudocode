@@ -1,11 +1,11 @@
 /*
- * XREFs of CcRegisterForContainerRestore @ 0x1405B0810
+ * XREFs of CcRegisterForContainerRestore @ 0x1405B3020
  * Callers:
  *     <none>
  * Callees:
- *     DbgPrintEx @ 0x140397530 (DbgPrintEx.c)
- *     CcCheckContainerWaitForRestore @ 0x1405B0544 (CcCheckContainerWaitForRestore.c)
- *     ExSubscribeWnfStateChange @ 0x140948A90 (ExSubscribeWnfStateChange.c)
+ *     DbgPrintEx @ 0x1403992B0 (DbgPrintEx.c)
+ *     CcCheckContainerWaitForRestore @ 0x1405B2D54 (CcCheckContainerWaitForRestore.c)
+ *     ExSubscribeWnfStateChange @ 0x1409C4400 (ExSubscribeWnfStateChange.c)
  */
 
 signed int CcRegisterForContainerRestore()

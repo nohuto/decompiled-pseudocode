@@ -8,7 +8,7 @@
  */
 
 int __cdecl splitpath_helper(
-        char *Source,
+        _BYTE *a1,
         char *Destination,
         unsigned int a3,
         char *a4,
@@ -18,23 +18,29 @@ int __cdecl splitpath_helper(
         char *a8,
         unsigned int a9)
 {
-  char *v9; // edi
+  _BYTE *v9; // edi
   int v10; // ebx
   char *v11; // edx
   char *v12; // eax
-  char *v13; // esi
+  _BYTE *v13; // esi
   int v14; // eax
   char v15; // al
-  char *v16; // ecx
-  const char *v17; // ebx
-  char *v18; // esi
-  rsize_t v19; // esi
-  rsize_t v20; // esi
-  char *v23; // [esp+Ch] [ebp-8h]
+  _BYTE *v16; // ecx
+  unsigned int v17; // ebx
+  _BYTE *v18; // esi
+  const char *v19; // esi
+  const char *v20; // esi
+  rsize_t v22; // [esp-Ch] [ebp-20h]
+  rsize_t v23; // [esp-Ch] [ebp-20h]
+  rsize_t v24; // [esp-Ch] [ebp-20h]
+  rsize_t v25; // [esp-Ch] [ebp-20h]
+  rsize_t v26; // [esp-Ch] [ebp-20h]
+  rsize_t v28; // [esp+0h] [ebp-14h]
+  _BYTE *v29; // [esp+Ch] [ebp-8h]
 
-  v9 = Source;
+  v9 = a1;
   v10 = 0;
-  if ( !Source )
+  if ( !a1 )
     goto LABEL_4;
   if ( Destination )
   {
@@ -79,7 +85,7 @@ LABEL_6:
   {
     goto LABEL_5;
   }
-  v13 = Source;
+  v13 = a1;
   v14 = 1;
   do
   {
@@ -95,7 +101,9 @@ LABEL_6:
     {
       if ( a3 < 3 )
         goto LABEL_6;
-      strncpy_s(Destination, 0xFFFFFFFF, Source, 2u);
+      HIDWORD(v22) = a1;
+      LODWORD(v22) = -1;
+      strncpy_s(Destination, v22, (const char *)2, v28);
       v11 = a6;
     }
     v9 = v13 + 1;
@@ -118,20 +126,22 @@ LABEL_6:
     }
     else if ( v15 == 46 )
     {
-      v17 = v18;
+      v17 = (unsigned int)v18;
     }
     v15 = *++v18;
   }
   while ( *v18 );
-  v23 = v16;
+  v29 = v16;
   if ( v16 )
   {
     if ( a4 )
     {
       if ( a5 <= v16 - v9 )
         goto LABEL_58;
-      strncpy_s(a4, 0xFFFFFFFF, v9, v16 - v9);
-      v16 = v23;
+      HIDWORD(v23) = v9;
+      LODWORD(v23) = -1;
+      strncpy_s(a4, v23, (const char *)(v16 - v9), v28);
+      v16 = v29;
     }
     v9 = v16;
   }
@@ -141,15 +151,17 @@ LABEL_42:
     if ( a4 )
       *a4 = 0;
   }
-  if ( !v17 || v17 < v9 )
+  if ( !v17 || v17 < (unsigned int)v9 )
   {
     v11 = a6;
     if ( a6 )
     {
-      v20 = v18 - v9;
-      if ( a7 <= v20 )
+      v20 = (const char *)(v18 - v9);
+      if ( a7 <= (unsigned int)v20 )
         goto LABEL_58;
-      strncpy_s(a6, 0xFFFFFFFF, v9, v20);
+      HIDWORD(v26) = v9;
+      LODWORD(v26) = -1;
+      strncpy_s(a6, v26, v20, v28);
     }
     if ( a8 )
       *a8 = 0;
@@ -158,9 +170,11 @@ LABEL_42:
   v11 = a6;
   if ( a6 )
   {
-    if ( a7 > v17 - v9 )
+    if ( a7 > v17 - (unsigned int)v9 )
     {
-      strncpy_s(a6, 0xFFFFFFFF, v9, v17 - v9);
+      HIDWORD(v24) = v9;
+      LODWORD(v24) = -1;
+      strncpy_s(a6, v24, (const char *)(v17 - (_DWORD)v9), v28);
       v11 = a6;
       goto LABEL_49;
     }
@@ -172,10 +186,12 @@ LABEL_49:
   v12 = a8;
   if ( !a8 )
     return 0;
-  v19 = v18 - v17;
-  if ( a9 > v19 )
+  v19 = &v18[-v17];
+  if ( a9 > (unsigned int)v19 )
   {
-    strncpy_s(a8, 0xFFFFFFFF, v17, v19);
+    HIDWORD(v25) = v17;
+    LODWORD(v25) = -1;
+    strncpy_s(a8, v25, v19, v28);
     return 0;
   }
 LABEL_59:

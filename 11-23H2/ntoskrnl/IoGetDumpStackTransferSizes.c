@@ -1,9 +1,9 @@
 /*
- * XREFs of IoGetDumpStackTransferSizes @ 0x1405506C0
+ * XREFs of IoGetDumpStackTransferSizes @ 0x140550D80
  * Callers:
- *     PopHiberInitializeResources @ 0x140988824 (PopHiberInitializeResources.c)
+ *     PopHiberInitializeResources @ 0x140988A24 (PopHiberInitializeResources.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
  */
 
 __int64 (*__fastcall IoGetDumpStackTransferSizes(_DWORD *a1, _DWORD *a2))(void)

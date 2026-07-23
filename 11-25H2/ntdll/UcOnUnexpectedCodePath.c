@@ -19,7 +19,7 @@
 __int64 __fastcall UcOnUnexpectedCodePath(unsigned int *a1)
 {
   unsigned int v2; // eax
-  int v3; // edi
+  NTSTATUS v3; // edi
   void *UniqueThread; // rbx
   __int64 v6; // rax
   __int64 v7; // rbx
@@ -39,19 +39,7 @@ __int64 __fastcall UcOnUnexpectedCodePath(unsigned int *a1)
   unsigned int v21; // [rsp+64h] [rbp-A4h]
   unsigned int v22; // [rsp+68h] [rbp-A0h]
   int v23; // [rsp+6Ch] [rbp-9Ch]
-  _DWORD v24[4]; // [rsp+78h] [rbp-90h] BYREF
-  void *v25; // [rsp+88h] [rbp-80h]
-  int v26; // [rsp+90h] [rbp-78h]
-  __int64 *v27; // [rsp+98h] [rbp-70h]
-  __int64 v28; // [rsp+A0h] [rbp-68h]
-  unsigned int *v29; // [rsp+A8h] [rbp-60h]
-  __int64 v30; // [rsp+B0h] [rbp-58h]
-  unsigned int *v31; // [rsp+B8h] [rbp-50h]
-  __int64 v32; // [rsp+C0h] [rbp-48h]
-  int *v33; // [rsp+C8h] [rbp-40h]
-  __int64 v34; // [rsp+D0h] [rbp-38h]
-  __int64 *v35; // [rsp+D8h] [rbp-30h]
-  __int64 v36; // [rsp+E0h] [rbp-28h]
+  EXCEPTION_RECORD ExceptionRecord; // [rsp+78h] [rbp-90h] BYREF
   struct _CONTEXT ContextRecord; // [rsp+118h] [rbp+10h] BYREF
   void *retaddr; // [rsp+610h] [rbp+508h]
 
@@ -61,17 +49,13 @@ __int64 __fastcall UcOnUnexpectedCodePath(unsigned int *a1)
   v2 = a1[2];
   v23 = 0;
   v22 = v2;
-  v3 = RtlRunOnceExecuteOnce(
-         &UcpInitOnUnexpectedCodePathOnce,
-         (unsigned int (__fastcall *)(volatile signed __int64 *, __int64, unsigned __int64 *))UcpInitOnUnexpectedCodePathOnceCallBack,
-         0LL,
-         0LL);
+  v3 = RtlRunOnceExecuteOnce(&UcpInitOnUnexpectedCodePathOnce, UcpInitOnUnexpectedCodePathOnceCallBack, 0LL, 0LL);
   if ( v3 >= 0 )
   {
     UniqueThread = NtCurrentTeb()->ClientId.UniqueThread;
     if ( UcpLockOwningThreadHandle && UniqueThread == (void *)UcpLockOwningThreadHandle )
       return 3221225485LL;
-    RtlAcquireSRWLockExclusive((volatile signed __int32 *)&UcpExclusiveLock);
+    RtlAcquireSRWLockExclusive(&UcpExclusiveLock);
     UcpLockOwningThreadHandle = (__int64)UniqueThread;
     LOWORD(v13) = 0;
     UcpRetrieveCurrentConfigSettings(a1, &v13, (char *)&v13 + 1);
@@ -93,36 +77,42 @@ __int64 __fastcall UcOnUnexpectedCodePath(unsigned int *a1)
           if ( (unsigned int)dword_1801CE6B8 > 4 && tlgKeywordOn((__int64)&dword_1801CE6B8, 0x400000000000LL) )
           {
             v18 = *a1;
-            v27 = &v18;
+            ExceptionRecord.ExceptionInformation[0] = (unsigned __int64)&v18;
             v14 = a1[1];
-            v29 = &v14;
+            ExceptionRecord.ExceptionInformation[2] = (unsigned __int64)&v14;
             v15 = a1[2];
-            v31 = &v15;
-            v33 = &v16;
-            v35 = &v17;
-            v28 = 8LL;
-            v30 = v12;
-            v32 = v12;
+            ExceptionRecord.ExceptionInformation[4] = (unsigned __int64)&v15;
+            ExceptionRecord.ExceptionInformation[6] = (unsigned __int64)&v16;
+            ExceptionRecord.ExceptionInformation[8] = (unsigned __int64)&v17;
+            ExceptionRecord.ExceptionInformation[1] = 8LL;
+            ExceptionRecord.ExceptionInformation[3] = v12;
+            ExceptionRecord.ExceptionInformation[5] = v12;
             v16 = v9;
-            v34 = v12;
+            ExceptionRecord.ExceptionInformation[7] = v12;
             LODWORD(v17) = 0;
-            v36 = v12;
-            tlgWriteTransfer_EtwEventWriteTransfer(v10, byte_1801A44F7, v11, v12, 7, (__int64)v24);
+            ExceptionRecord.ExceptionInformation[9] = v12;
+            tlgWriteTransfer_EtwEventWriteTransfer(
+              v10,
+              (unsigned __int8 *)dword_1801A44F7,
+              v11,
+              v12,
+              7u,
+              (_EVENT_DATA_DESCRIPTOR *)&ExceptionRecord);
           }
           *(_DWORD *)(v7 + 16) = 0;
         }
         if ( BYTE1(v13) == 1 )
         {
-          memset_thunk_772440563353939046(v24, 0, 0x98uLL);
-          v25 = retaddr;
-          v27 = (__int64 *)*a1;
-          v28 = a1[1];
-          v29 = (unsigned int *)a1[2];
-          v24[0] = 514;
-          v26 = 3;
+          memset_thunk_772440563353939046(&ExceptionRecord, 0, 0x98uLL);
+          ExceptionRecord.ExceptionAddress = retaddr;
+          ExceptionRecord.ExceptionInformation[0] = *a1;
+          ExceptionRecord.ExceptionInformation[1] = a1[1];
+          ExceptionRecord.ExceptionInformation[2] = a1[2];
+          ExceptionRecord.ExceptionCode = 514;
+          ExceptionRecord.NumberParameters = 3;
           memset_thunk_772440563353939046(&ContextRecord, 0, 0x4D0uLL);
           RtlCaptureContext(&ContextRecord);
-          return (unsigned int)RtlReportException(v24, &ContextRecord, 15LL);
+          return (unsigned int)RtlReportException(&ExceptionRecord, &ContextRecord, 0xFu);
         }
         return (unsigned int)v3;
       }

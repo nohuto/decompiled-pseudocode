@@ -21,8 +21,8 @@ __int64 __fastcall MiReplaceUltraBit(unsigned __int64 *a1, int a2)
   _QWORD *v6; // rdi
   unsigned __int64 v8; // r8
   unsigned __int64 v9; // r9
-  __int64 SetBitsAndClear; // rax
-  __int64 v11; // rsi
+  ULONG64 SetBitsAndClear; // rax
+  ULONG64 v11; // rsi
   unsigned __int64 *v12; // rdi
   __int64 v13; // r9
   unsigned __int64 v14; // rbx
@@ -44,9 +44,9 @@ __int64 __fastcall MiReplaceUltraBit(unsigned __int64 *a1, int a2)
   {
     while ( 1 )
     {
-      SetBitsAndClear = RtlFindSetBitsAndClearEx(v4, 1LL, *(_QWORD *)(v4 + 32));
+      SetBitsAndClear = RtlFindSetBitsAndClearEx((PRTL_BITMAP_EX)v4, 1uLL, *(_QWORD *)(v4 + 32));
       v11 = SetBitsAndClear;
-      if ( SetBitsAndClear != -1 )
+      if ( SetBitsAndClear != -1LL )
         break;
       KeFlushTb(0, 1u);
       v8 = 0LL;
@@ -65,8 +65,7 @@ __int64 __fastcall MiReplaceUltraBit(unsigned __int64 *a1, int a2)
     }
     *(_QWORD *)(v4 + 32) = SetBitsAndClear + 1;
     KeReleaseInStackQueuedSpinLock(&LockHandle);
-    v12 = (unsigned __int64 *)((((unsigned __int64)(*(_QWORD *)(v4 + 48) + (v11 << 30)) >> 27) & 0x1FFFF8)
-                             - 0x90482600000LL);
+    v12 = (unsigned __int64 *)((((*(_QWORD *)(v4 + 48) + (v11 << 30)) >> 27) & 0x1FFFF8) - 0x90482600000LL);
     v14 = MiMakeValidKernelPte(a1[2], 4, (unsigned __int64)v12, v13) & 0xFFFFFFFFFFFFFEBDuLL | 0x42;
     *v12 = v14;
     if ( (unsigned int)MiPteInShadowRange(v12) )

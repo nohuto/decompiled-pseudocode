@@ -1,16 +1,16 @@
 /*
- * XREFs of HashpHashMemory @ 0x1408ABB4C
+ * XREFs of HashpHashMemory @ 0x1408B1F90
  * Callers:
- *     MinCryptHashMemory @ 0x14071C940 (MinCryptHashMemory.c)
+ *     MinCryptHashMemory @ 0x1407215D0 (MinCryptHashMemory.c)
  * Callees:
- *     ExAllocateFromNPagedLookasideList @ 0x1402C1770 (ExAllocateFromNPagedLookasideList.c)
- *     ExFreeToNPagedLookasideList @ 0x1403B5A60 (ExFreeToNPagedLookasideList.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     HashpFinalizeHash @ 0x1408AC1B4 (HashpFinalizeHash.c)
- *     HashpHashBytes @ 0x1408AC220 (HashpHashBytes.c)
- *     HashpInitHash @ 0x1408AC298 (HashpInitHash.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ExAllocateFromNPagedLookasideList @ 0x14030C430 (ExAllocateFromNPagedLookasideList.c)
+ *     ExFreeToNPagedLookasideList @ 0x1403BF960 (ExFreeToNPagedLookasideList.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     HashpFinalizeHash @ 0x1408B25F8 (HashpFinalizeHash.c)
+ *     HashpHashBytes @ 0x1408B2664 (HashpHashBytes.c)
+ *     HashpInitHash @ 0x1408B26DC (HashpInitHash.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall HashpHashMemory(int a1, unsigned int a2, __int64 a3, void *a4, __int64 a5)
@@ -27,10 +27,10 @@ __int64 __fastcall HashpHashMemory(int a1, unsigned int a2, __int64 a3, void *a4
   int v17; // ebx
   __int64 v18; // rbx
 
-  v5 = byte_140EEFD78;
+  v5 = byte_140EF00E0;
   v7 = a2;
-  if ( byte_140EEFD78 )
-    Pool2 = ExAllocateFromNPagedLookasideList(&stru_140E658C0);
+  if ( byte_140EF00E0 )
+    Pool2 = ExAllocateFromNPagedLookasideList(&stru_140E65AC0);
   else
     Pool2 = (_DWORD *)ExAllocatePool2(0x102uLL);
   v11 = Pool2;
@@ -100,7 +100,7 @@ __int64 __fastcall HashpHashMemory(int a1, unsigned int a2, __int64 a3, void *a4
   {
 LABEL_24:
     if ( v5 )
-      ExFreeToNPagedLookasideList(&stru_140E658C0, v11);
+      ExFreeToNPagedLookasideList(&stru_140E65AC0, v11);
     else
       ExFreePoolWithTag(v11, 0x72634943u);
   }

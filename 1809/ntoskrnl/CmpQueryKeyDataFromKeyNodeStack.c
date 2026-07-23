@@ -1,20 +1,20 @@
 /*
- * XREFs of CmpQueryKeyDataFromKeyNodeStack @ 0x14026D474
+ * XREFs of CmpQueryKeyDataFromKeyNodeStack @ 0x14026D664
  * Callers:
- *     CmQueryLayeredKey @ 0x14026BF18 (CmQueryLayeredKey.c)
- *     CmpEnumerateLayeredKey @ 0x1407EFD80 (CmpEnumerateLayeredKey.c)
+ *     CmQueryLayeredKey @ 0x14026C108 (CmQueryLayeredKey.c)
+ *     CmpEnumerateLayeredKey @ 0x1407F0F80 (CmpEnumerateLayeredKey.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     CmpGetValueCountForKeyNodeStack @ 0x14026C968 (CmpGetValueCountForKeyNodeStack.c)
- *     CmpPopulateCachedInformation @ 0x14026D42C (CmpPopulateCachedInformation.c)
- *     CmpPopulateNodeInformation @ 0x1405AF14C (CmpPopulateNodeInformation.c)
- *     CmpPopulateBasicInformation @ 0x1405D37B0 (CmpPopulateBasicInformation.c)
- *     CmpPopulateFullInformation @ 0x1406BC51C (CmpPopulateFullInformation.c)
- *     HvpGetCellContextInitialize @ 0x1407F9688 (HvpGetCellContextInitialize.c)
- *     CmpGetEffectiveKeyNodeSemantics @ 0x1407F9EAC (CmpGetEffectiveKeyNodeSemantics.c)
- *     CmpKeyNodeStackGetEntryAtLayerHeight @ 0x1407FA018 (CmpKeyNodeStackGetEntryAtLayerHeight.c)
- *     CmpGetSubKeyCountForKeyNodeStack @ 0x1407FEDDC (CmpGetSubKeyCountForKeyNodeStack.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     CmpGetValueCountForKeyNodeStack @ 0x14026CB58 (CmpGetValueCountForKeyNodeStack.c)
+ *     CmpPopulateCachedInformation @ 0x14026D61C (CmpPopulateCachedInformation.c)
+ *     CmpPopulateNodeInformation @ 0x1405B014C (CmpPopulateNodeInformation.c)
+ *     CmpPopulateBasicInformation @ 0x1405D47B0 (CmpPopulateBasicInformation.c)
+ *     CmpPopulateFullInformation @ 0x1406BD7BC (CmpPopulateFullInformation.c)
+ *     HvpGetCellContextInitialize @ 0x1407FA888 (HvpGetCellContextInitialize.c)
+ *     CmpGetEffectiveKeyNodeSemantics @ 0x1407FB0AC (CmpGetEffectiveKeyNodeSemantics.c)
+ *     CmpKeyNodeStackGetEntryAtLayerHeight @ 0x1407FB218 (CmpKeyNodeStackGetEntryAtLayerHeight.c)
+ *     CmpGetSubKeyCountForKeyNodeStack @ 0x1407FFFDC (CmpGetSubKeyCountForKeyNodeStack.c)
  */
 
 __int64 __fastcall CmpQueryKeyDataFromKeyNodeStack(__int16 *a1, int a2, __int64 a3, unsigned int a4, _DWORD *a5)

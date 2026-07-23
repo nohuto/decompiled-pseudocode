@@ -1,30 +1,30 @@
 /*
- * XREFs of LdrResGetRCConfig @ 0x18003A820
+ * XREFs of LdrResGetRCConfig @ 0x18003A810
  * Callers:
- *     RtlpResUltimateFallbackInfo @ 0x18000E4CC (RtlpResUltimateFallbackInfo.c)
- *     LdrpResSearchResourceMappedFile @ 0x180037A78 (LdrpResSearchResourceMappedFile.c)
- *     LdrpVerifyAlternateResourceModule @ 0x18003BA94 (LdrpVerifyAlternateResourceModule.c)
- *     LdrpResReportResourceAccessInternal @ 0x180082740 (LdrpResReportResourceAccessInternal.c)
+ *     RtlpResUltimateFallbackInfo @ 0x18000E4BC (RtlpResUltimateFallbackInfo.c)
+ *     LdrpResSearchResourceMappedFile @ 0x180037A68 (LdrpResSearchResourceMappedFile.c)
+ *     LdrpVerifyAlternateResourceModule @ 0x18003BA84 (LdrpVerifyAlternateResourceModule.c)
+ *     LdrpResReportResourceAccessInternal @ 0x180082730 (LdrpResReportResourceAccessInternal.c)
  * Callees:
- *     LdrpResSearchResourceMappedFile @ 0x180037A78 (LdrpResSearchResourceMappedFile.c)
- *     LdrpResGetMappingSize @ 0x180039860 (LdrpResGetMappingSize.c)
- *     LdrpGetFromMUIMemCache @ 0x180040A40 (LdrpGetFromMUIMemCache.c)
- *     LdrpSetAlternateResourceModuleHandle @ 0x1800726C0 (LdrpSetAlternateResourceModuleHandle.c)
- *     CheckOneBitValidFlag @ 0x180082D20 (CheckOneBitValidFlag.c)
- *     __security_check_cookie @ 0x180096C40 (__security_check_cookie.c)
- *     LdrpTraceLoadMUIDll @ 0x1800DC874 (LdrpTraceLoadMUIDll.c)
+ *     LdrpResSearchResourceMappedFile @ 0x180037A68 (LdrpResSearchResourceMappedFile.c)
+ *     LdrpResGetMappingSize @ 0x180039850 (LdrpResGetMappingSize.c)
+ *     LdrpGetFromMUIMemCache @ 0x180040A30 (LdrpGetFromMUIMemCache.c)
+ *     LdrpSetAlternateResourceModuleHandle @ 0x1800726B0 (LdrpSetAlternateResourceModuleHandle.c)
+ *     CheckOneBitValidFlag @ 0x180082D10 (CheckOneBitValidFlag.c)
+ *     __security_check_cookie @ 0x180096C30 (__security_check_cookie.c)
+ *     LdrpTraceLoadMUIDll @ 0x1800DC934 (LdrpTraceLoadMUIDll.c)
  */
 
-__int64 __fastcall LdrResGetRCConfig(__int64 a1, unsigned __int64 a2, unsigned int **a3, int a4, char a5)
+__int64 __fastcall LdrResGetRCConfig(__int64 BaseOfImage, ULONG64 a2, __int64 *a3, int a4, char a5)
 {
   int v9; // edi
   char v10; // si
   int v11; // edi
-  unsigned int *v12; // rax
+  __int64 v12; // rax
   unsigned int v13; // edi
   __int64 result; // rax
   int v15; // ecx
-  unsigned int *v16; // r8
+  _DWORD *v16; // r8
   int v17; // r9d
   __int64 v18; // rdx
   unsigned int v19; // ecx
@@ -46,14 +46,14 @@ __int64 __fastcall LdrResGetRCConfig(__int64 a1, unsigned __int64 a2, unsigned i
   __int64 v35; // rcx
   __int64 v36; // r8
   __int64 v37; // rcx
-  unsigned int *v38; // [rsp+58h] [rbp-90h] BYREF
-  unsigned __int64 v39; // [rsp+60h] [rbp-88h] BYREF
+  __int64 v38; // [rsp+58h] [rbp-90h] BYREF
+  ULONG64 v39; // [rsp+60h] [rbp-88h] BYREF
   __int64 v40[3]; // [rsp+68h] [rbp-80h] BYREF
   int v41; // [rsp+80h] [rbp-68h] BYREF
   const wchar_t *v42; // [rsp+88h] [rbp-60h]
   _QWORD v43[3]; // [rsp+90h] [rbp-58h] BYREF
 
-  v40[2] = a1;
+  v40[2] = BaseOfImage;
   v43[0] = L"MUI";
   v43[1] = 1LL;
   v43[2] = 0LL;
@@ -76,7 +76,7 @@ __int64 __fastcall LdrResGetRCConfig(__int64 a1, unsigned __int64 a2, unsigned i
   v11 = v9 | 0x30;
   if ( (MEMORY[0x7FFE0385] & 1) != 0 )
     LdrpTraceLoadMUIDll(v40, MEMORY[0x7FFE0384]);
-  if ( !a1 )
+  if ( !BaseOfImage )
   {
     v13 = -1073741811;
     goto LABEL_9;
@@ -88,12 +88,21 @@ LABEL_13:
     {
       if ( v10 )
       {
-        result = LdrpResGetMappingSize(a1, &v39, a4, 0);
+        result = LdrpResGetMappingSize(BaseOfImage, &v39, a4, 0);
         if ( (int)result < 0 )
           return result;
       }
     }
-    v15 = LdrpResSearchResourceMappedFile(a1, v39, v11 | 0x200000u, (__int64)v43, 3u, &v38, v40, 0LL, 0LL);
+    v15 = LdrpResSearchResourceMappedFile(
+            (PVOID)BaseOfImage,
+            v39,
+            v11 | 0x200000,
+            (__int64)v43,
+            3,
+            (unsigned int **)&v38,
+            v40,
+            0LL,
+            0LL);
     if ( v15 < 0 )
     {
       if ( v15 != -1073741701 )
@@ -101,11 +110,11 @@ LABEL_13:
       v13 = v15;
       goto LABEL_18;
     }
-    v16 = v38;
+    v16 = (_DWORD *)v38;
     if ( v10 )
     {
-      v18 = v38[1];
-      if ( (unsigned __int64)v38 + v18 > v39 + (a1 & 0xFFFFFFFFFFFFFFFCuLL) )
+      v18 = *(unsigned int *)(v38 + 4);
+      if ( v18 + v38 > v39 + (BaseOfImage & 0xFFFFFFFFFFFFFFFCuLL) )
       {
         v13 = -1073741701;
 LABEL_18:
@@ -116,66 +125,66 @@ LABEL_19:
           v17 = -1;
           if ( v16 )
             v17 = (int)v16;
-          LdrpSetAlternateResourceModuleHandle(a1, 0, 0, v17, -1, 0, 2, v13, 0LL);
+          LdrpSetAlternateResourceModuleHandle(BaseOfImage, 0, 0, v17, -1, 0, 2, v13, 0LL);
         }
         goto LABEL_9;
       }
       v13 = -1073020925;
-      v19 = v38[17];
-      v20 = v19 + v38[18];
+      v19 = *(_DWORD *)(v38 + 68);
+      v20 = v19 + *(_DWORD *)(v38 + 72);
       if ( v20 > (unsigned int)v18 )
         goto LABEL_18;
       if ( v20 < v19 )
         goto LABEL_18;
-      v21 = v38[19];
-      v22 = v21 + v38[20];
+      v21 = *(_DWORD *)(v38 + 76);
+      v22 = v21 + *(_DWORD *)(v38 + 80);
       if ( v22 > (unsigned int)v18 )
         goto LABEL_18;
       if ( v22 < v21 )
         goto LABEL_18;
-      v23 = v38[21];
-      v24 = v23 + v38[22];
+      v23 = *(_DWORD *)(v38 + 84);
+      v24 = v23 + *(_DWORD *)(v38 + 88);
       if ( v24 > (unsigned int)v18 )
         goto LABEL_18;
       if ( v24 < v23 )
         goto LABEL_18;
-      v25 = v38[23];
-      v26 = v25 + v38[24];
+      v25 = *(_DWORD *)(v38 + 92);
+      v26 = v25 + *(_DWORD *)(v38 + 96);
       if ( v26 > (unsigned int)v18 )
         goto LABEL_18;
       if ( v26 < v25 )
         goto LABEL_18;
-      v27 = v38[25];
-      v28 = v27 + v38[26];
+      v27 = *(_DWORD *)(v38 + 100);
+      v28 = v27 + *(_DWORD *)(v38 + 104);
       if ( v28 > (unsigned int)v18 )
         goto LABEL_18;
       if ( v28 < v27 )
         goto LABEL_18;
-      v29 = v38[27];
-      v30 = v29 + v38[28];
+      v29 = *(_DWORD *)(v38 + 108);
+      v30 = v29 + *(_DWORD *)(v38 + 112);
       if ( v30 > (unsigned int)v18 )
         goto LABEL_18;
       if ( v30 < v29 )
         goto LABEL_18;
-      v31 = v38[29];
-      v32 = v31 + v38[30];
+      v31 = *(_DWORD *)(v38 + 116);
+      v32 = v31 + *(_DWORD *)(v38 + 120);
       if ( v32 > (unsigned int)v18 )
         goto LABEL_18;
       if ( v32 < v31 )
         goto LABEL_18;
-      v33 = v38[31];
-      v34 = v33 + v38[32];
+      v33 = *(_DWORD *)(v38 + 124);
+      v34 = v33 + *(_DWORD *)(v38 + 128);
       if ( v34 > (unsigned int)v18 )
         goto LABEL_18;
       if ( v34 < v33 )
         goto LABEL_18;
-      if ( *v38 != -20054323 )
+      if ( *(_DWORD *)v38 != -20054323 )
         goto LABEL_18;
       if ( v18 != v40[0] )
         goto LABEL_18;
-      if ( v38[2] != 0x10000 )
+      if ( *(_DWORD *)(v38 + 8) != 0x10000 )
         goto LABEL_18;
-      v35 = v38[3];
+      v35 = *(unsigned int *)(v38 + 12);
       if ( (_DWORD)v35 )
       {
         if ( !(unsigned __int8)CheckOneBitValidFlag(v35, 7LL, v38) )
@@ -187,9 +196,9 @@ LABEL_19:
         goto LABEL_18;
       if ( (v16[4] & 1) != 0 )
       {
-        if ( !(unsigned __int8)CheckOneBitValidFlag(v16[6], 3LL, v16) )
+        if ( !(unsigned __int8)CheckOneBitValidFlag((unsigned int)v16[6], 3LL, v16) )
           goto LABEL_18;
-        v37 = v16[5];
+        v37 = (unsigned int)v16[5];
         if ( (_DWORD)v37 )
         {
           if ( !(unsigned __int8)CheckOneBitValidFlag(v37, 256LL, v16) )
@@ -198,13 +207,13 @@ LABEL_19:
       }
     }
     if ( a3 )
-      *a3 = v16;
+      *a3 = (__int64)v16;
     v13 = 0;
     goto LABEL_19;
   }
-  v12 = (unsigned int *)LdrpGetFromMUIMemCache(a1, 0LL, 0LL, 8LL);
+  v12 = LdrpGetFromMUIMemCache((PVOID)BaseOfImage);
   v38 = v12;
-  if ( v12 != (unsigned int *)-1LL )
+  if ( v12 != -1 )
   {
     if ( v12 )
     {

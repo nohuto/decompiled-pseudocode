@@ -1,22 +1,22 @@
 /*
- * XREFs of KeSetTimer @ 0x1403AC590
+ * XREFs of KeSetTimer @ 0x1403B62A0
  * Callers:
  *     <none>
  * Callees:
- *     KiExitDispatcher @ 0x140246C20 (KiExitDispatcher.c)
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     HvlNotifyLongSpinWait @ 0x1402BBF00 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1402BC760 (KiCheckVpBackingLongSpinWaitHypercall.c)
- *     EtwTraceKernelEvent @ 0x1402DAC90 (EtwTraceKernelEvent.c)
- *     DifObjTrkIsKvEnabledForPlugin @ 0x1403ACC60 (DifObjTrkIsKvEnabledForPlugin.c)
- *     KiInsertTimerTable @ 0x1403ACC88 (KiInsertTimerTable.c)
- *     KiDecodeTolerableDelayValue @ 0x1403ACEEC (KiDecodeTolerableDelayValue.c)
- *     KiTimerWaitTest @ 0x1403ACF4C (KiTimerWaitTest.c)
- *     DifObjTrkRemoveItem @ 0x1403ADC70 (DifObjTrkRemoveItem.c)
- *     KiTraceSetTimer @ 0x1403E5D48 (KiTraceSetTimer.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     DifObjTrkInsertItem @ 0x14064AED0 (DifObjTrkInsertItem.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     KiExitDispatcher @ 0x140248580 (KiExitDispatcher.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     EtwTraceKernelEvent @ 0x1402BCA50 (EtwTraceKernelEvent.c)
+ *     HvlNotifyLongSpinWait @ 0x140306BC0 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140307420 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     DifObjTrkIsKvEnabledForPlugin @ 0x1403B6970 (DifObjTrkIsKvEnabledForPlugin.c)
+ *     KiInsertTimerTable @ 0x1403B6998 (KiInsertTimerTable.c)
+ *     KiDecodeTolerableDelayValue @ 0x1403B6BFC (KiDecodeTolerableDelayValue.c)
+ *     KiTimerWaitTest @ 0x1403B6C5C (KiTimerWaitTest.c)
+ *     DifObjTrkRemoveItem @ 0x1403B7980 (DifObjTrkRemoveItem.c)
+ *     KiTraceSetTimer @ 0x1403E8F38 (KiTraceSetTimer.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     DifObjTrkInsertItem @ 0x14064EAB0 (DifObjTrkInsertItem.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 BOOLEAN __stdcall KeSetTimer(PKTIMER Timer, LARGE_INTEGER DueTime, PKDPC Dpc)
@@ -74,7 +74,7 @@ BOOLEAN __stdcall KeSetTimer(PKTIMER Timer, LARGE_INTEGER DueTime, PKDPC Dpc)
     DifObjTrkInsertItem(49LL, Timer, 0LL, 0LL);
   }
   v7 = (_KDPC *)(KiWaitNever ^ __ROR8__(
-                                 (unsigned __int64)Timer ^ _byteswap_uint64((unsigned __int64)stru_140FC01F0.WaitBlock[2].WaitListEntry.Flink ^ (unsigned __int64)Dpc),
+                                 (unsigned __int64)Timer ^ _byteswap_uint64((unsigned __int64)stru_140FC11F0.WaitBlock[2].WaitListEntry.Blink ^ (unsigned __int64)Dpc),
                                  KiWaitNever));
   CurrentIrql = KeGetCurrentIrql();
   v45[0] = CurrentIrql;
@@ -214,7 +214,7 @@ LABEL_56:
 LABEL_57:
       if ( *(_DWORD *)(v21 + 28) == -1 && *(_DWORD *)(v23 + 28) == -1 )
       {
-        v35 = qword_140FC1698[2 * *(unsigned __int8 *)(v18 + 208)];
+        v35 = qword_140FC2698[2 * *(unsigned __int8 *)(v18 + 208)];
         if ( KiSerializeTimerExpiration )
         {
           _interlockedbittestandreset64((volatile signed __int32 *)(v35 + 8 * (v16 >> 6)), v16 & 0x3F);

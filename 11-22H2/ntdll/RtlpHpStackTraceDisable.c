@@ -8,7 +8,7 @@
  *     RtlStackDbContextCleanup @ 0x18012BCD4 (RtlStackDbContextCleanup.c)
  */
 
-signed __int64 RtlpHpStackTraceDisable()
+void RtlpHpStackTraceDisable()
 {
   RtlAcquireSRWLockExclusive(&RtlpHpStackTrackingContext);
   if ( (dword_180185108 & 1) != 0 )
@@ -17,5 +17,5 @@ signed __int64 RtlpHpStackTraceDisable()
     RtlpEnumProcessHeaps((__int64 (__fastcall *)(void *, __int64))RtlpHpStackTraceHeapDisable, 0LL, 2);
     RtlStackDbContextCleanup(&qword_180185110);
   }
-  return RtlReleaseSRWLockExclusive(&RtlpHpStackTrackingContext);
+  RtlReleaseSRWLockExclusive(&RtlpHpStackTrackingContext);
 }

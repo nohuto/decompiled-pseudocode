@@ -24,7 +24,7 @@ char __fastcall RtlpAssemblyStorageMapResolutionDefaultCallback(int a1, __int64 
   HANDLE v8; // r12
   int v9; // r15d
   int v10; // r14d
-  int v11; // eax
+  NTSTATUS v11; // eax
   const wchar_t *NtSystemRoot; // r15
   unsigned __int16 v13; // dx
   __int16 v14; // r14
@@ -35,36 +35,35 @@ char __fastcall RtlpAssemblyStorageMapResolutionDefaultCallback(int a1, __int64 
   char *v19; // rbx
   __int64 v20; // rdx
   const wchar_t *v21; // rcx
-  __int64 v23; // [rsp+20h] [rbp-E0h]
-  size_t v24; // [rsp+30h] [rbp-D0h] BYREF
+  __int64 Length; // [rsp+20h] [rbp-E0h]
+  ULONG ResultLength[2]; // [rsp+30h] [rbp-D0h] BYREF
   _WORD v25[2]; // [rsp+38h] [rbp-C8h] BYREF
   int v26; // [rsp+3Ch] [rbp-C4h]
   char *v27; // [rsp+40h] [rbp-C0h]
-  _QWORD v28[4]; // [rsp+48h] [rbp-B8h] BYREF
-  __int128 v29; // [rsp+68h] [rbp-98h]
-  _BYTE v30[12]; // [rsp+80h] [rbp-80h] BYREF
-  unsigned int v31; // [rsp+8Ch] [rbp-74h]
-  char v32; // [rsp+90h] [rbp-70h] BYREF
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+48h] [rbp-B8h] BYREF
+  _BYTE KeyInformation[12]; // [rsp+80h] [rbp-80h] BYREF
+  unsigned int v30; // [rsp+8Ch] [rbp-74h]
+  char v31; // [rsp+90h] [rbp-70h] BYREF
 
   v5 = a1 - 1;
   if ( !v5 )
   {
-    v28[0] = 48LL;
-    v28[3] = 64LL;
-    v24 = 0LL;
-    v28[1] = 0LL;
-    v28[2] = &unk_180175D00;
-    v29 = 0LL;
-    v11 = NtOpenKey(&v24, 8LL, v28);
+    *(_QWORD *)&ObjectAttributes.Length = 48LL;
+    *(_QWORD *)&ObjectAttributes.Attributes = 64LL;
+    *(_QWORD *)ResultLength = 0LL;
+    ObjectAttributes.RootDirectory = 0LL;
+    ObjectAttributes.ObjectName = (PUNICODE_STRING)&unk_180175D00;
+    *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+    v11 = NtOpenKey((PHANDLE)ResultLength, 8u, &ObjectAttributes);
     v10 = v11;
     if ( v11 >= 0 || v11 == -1073741772 || v11 == -1073741431 )
     {
-      v7 = v24;
+      v7 = *(_QWORD *)ResultLength;
       *(_QWORD *)(a2 + 48) = -1LL;
       *(_QWORD *)(a2 + 16) = v7;
       return v7;
     }
-    LOBYTE(v7) = DbgPrintEx(51, 0, "SXS: Unable to open registry key %wZ Status = 0x%08lx\n", &unk_180175D00, v11);
+    LOBYTE(v7) = DbgPrintEx(0x33u, 0, "SXS: Unable to open registry key %wZ Status = 0x%08lx\n", &unk_180175D00, v11);
     *(_BYTE *)(a2 + 56) = 1;
     goto LABEL_16;
   }
@@ -123,7 +122,7 @@ char __fastcall RtlpAssemblyStorageMapResolutionDefaultCallback(int a1, __int64 
   }
   if ( *(_QWORD *)(a2 + 8) == 1LL )
   {
-    NtSystemRoot = (const wchar_t *)RtlGetNtSystemRoot();
+    NtSystemRoot = RtlGetNtSystemRoot();
     v13 = 0;
     LOWORD(v7) = 0;
     v14 = 0;
@@ -156,10 +155,10 @@ char __fastcall RtlpAssemblyStorageMapResolutionDefaultCallback(int a1, __int64 
   }
   LOBYTE(v7) = -1;
   if ( *(_QWORD *)(a2 + 8) > 0xFFFFFFFFuLL
-    || (LOBYTE(v7) = (unsigned __int8)memset_thunk_772440563353939046(v30, 0, 0x220uLL),
+    || (LOBYTE(v7) = (unsigned __int8)memset_thunk_772440563353939046(KeyInformation, 0, 0x220uLL),
         v8 = *(HANDLE *)a2,
         v9 = *(_DWORD *)(a2 + 8),
-        LODWORD(v24) = 0,
+        ResultLength[0] = 0,
         v26 = 0,
         !v8) )
   {
@@ -167,14 +166,14 @@ LABEL_25:
     *(_BYTE *)(a2 + 17) = 1;
     return v7;
   }
-  LODWORD(v7) = NtEnumerateKey(v8, (unsigned int)(v9 - 2), 0LL, v30, 544, &v24);
+  LODWORD(v7) = NtEnumerateKey(v8, v9 - 2, KeyBasicInformation, KeyInformation, 0x220u, ResultLength);
   v10 = v7;
   if ( (v7 & 0x80000000) != 0LL )
   {
     if ( (_DWORD)v7 != -2147483622 )
     {
       LOBYTE(v7) = DbgPrintEx(
-                     51,
+                     0x33u,
                      0,
                      "SXS: Unable to enumerate assembly storage subkey #%lu Status = 0x%08lx\n",
                      v9 - 2,
@@ -188,23 +187,23 @@ LABEL_16:
     }
     goto LABEL_25;
   }
-  LOBYTE(v7) = v31;
-  if ( v31 <= 0xFFFE )
+  LOBYTE(v7) = v30;
+  if ( v30 <= 0xFFFE )
   {
-    v25[0] = v31;
-    v25[1] = v31;
-    v27 = &v32;
+    v25[0] = v30;
+    v25[1] = v30;
+    v27 = &v31;
     LODWORD(v7) = RtlpGetAssemblyStorageMapRootLocation(v8, v25, a2 + 24);
     v10 = v7;
     if ( (v7 & 0x80000000) == 0LL )
       return v7;
-    LODWORD(v23) = v7;
+    LODWORD(Length) = v7;
     LOBYTE(v7) = DbgPrintEx(
-                   51,
+                   0x33u,
                    0,
                    "SXS: Attempt to get storage location from subkey %wZ failed; Status = 0x%08lx\n",
                    v25,
-                   v23);
+                   Length);
     goto LABEL_11;
   }
   *(_BYTE *)(a2 + 16) = 1;

@@ -1,22 +1,22 @@
 /*
- * XREFs of HalpGetCpuInfo @ 0x1404C55D0
+ * XREFs of HalpGetCpuInfo @ 0x1404BEF80
  * Callers:
- *     HalpInterruptIsMsiSupported @ 0x140516034 (HalpInterruptIsMsiSupported.c)
- *     HalpDmaGetDefaultRemappingDomainPolicy @ 0x140578DC0 (HalpDmaGetDefaultRemappingDomainPolicy.c)
- *     HalpInterruptIsDeferredErrorSupported @ 0x14057D4EC (HalpInterruptIsDeferredErrorSupported.c)
- *     HalpTscReserveResources @ 0x140583DF0 (HalpTscReserveResources.c)
- *     HalpTimerConfigureQpcBypass @ 0x140584CD8 (HalpTimerConfigureQpcBypass.c)
- *     HalpProcGetFeatureBits @ 0x140587530 (HalpProcGetFeatureBits.c)
- *     HalpIommuDomainGetSupportedPageTableDepths @ 0x14058D818 (HalpIommuDomainGetSupportedPageTableDepths.c)
- *     HalpIommuGetPageTableType @ 0x14058DA18 (HalpIommuGetPageTableType.c)
- *     HalpIommuReportIommuFault @ 0x1405A02C0 (HalpIommuReportIommuFault.c)
- *     HalpSetSystemInformation @ 0x140B10D50 (HalpSetSystemInformation.c)
- *     HalpDpPostReplaceInitialization @ 0x140BEE0F0 (HalpDpPostReplaceInitialization.c)
- *     HalpLbrInitialize @ 0x140BEF224 (HalpLbrInitialize.c)
- *     HalpPiix4Detect @ 0x140C0A8DC (HalpPiix4Detect.c)
- *     HalpErrataApplyPerProcessor @ 0x140C0CBC0 (HalpErrataApplyPerProcessor.c)
- *     HalpProcIsSmtDisabled @ 0x140CAF4C8 (HalpProcIsSmtDisabled.c)
- *     HalpMiscGetParameters @ 0x140CAF604 (HalpMiscGetParameters.c)
+ *     HalpInterruptIsMsiSupported @ 0x14050FAA4 (HalpInterruptIsMsiSupported.c)
+ *     HalpDmaGetDefaultRemappingDomainPolicy @ 0x14057B2F0 (HalpDmaGetDefaultRemappingDomainPolicy.c)
+ *     HalpInterruptIsDeferredErrorSupported @ 0x14057FA0C (HalpInterruptIsDeferredErrorSupported.c)
+ *     HalpTscReserveResources @ 0x140586310 (HalpTscReserveResources.c)
+ *     HalpTimerConfigureQpcBypass @ 0x1405871F8 (HalpTimerConfigureQpcBypass.c)
+ *     HalpProcGetFeatureBits @ 0x140589A50 (HalpProcGetFeatureBits.c)
+ *     HalpIommuDomainGetSupportedPageTableDepths @ 0x14058FF98 (HalpIommuDomainGetSupportedPageTableDepths.c)
+ *     HalpIommuGetPageTableType @ 0x140590198 (HalpIommuGetPageTableType.c)
+ *     HalpIommuReportIommuFault @ 0x1405A2AB0 (HalpIommuReportIommuFault.c)
+ *     HalpSetSystemInformation @ 0x140B12AD0 (HalpSetSystemInformation.c)
+ *     HalpDpPostReplaceInitialization @ 0x140BF40F0 (HalpDpPostReplaceInitialization.c)
+ *     HalpLbrInitialize @ 0x140BF5224 (HalpLbrInitialize.c)
+ *     HalpPiix4Detect @ 0x140C10AEC (HalpPiix4Detect.c)
+ *     HalpErrataApplyPerProcessor @ 0x140C12DD0 (HalpErrataApplyPerProcessor.c)
+ *     HalpProcIsSmtDisabled @ 0x140CB5508 (HalpProcIsSmtDisabled.c)
+ *     HalpMiscGetParameters @ 0x140CB5644 (HalpMiscGetParameters.c)
  * Callees:
  *     <none>
  */

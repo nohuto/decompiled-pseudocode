@@ -1,11 +1,11 @@
 /*
- * XREFs of IopWaitForSynchronousIo @ 0x1402F86F4
+ * XREFs of IopWaitForSynchronousIo @ 0x1402F8984
  * Callers:
- *     NtSetInformationFile @ 0x1402A6BF0 (NtSetInformationFile.c)
- *     NtQueryInformationFile @ 0x140725070 (NtQueryInformationFile.c)
- *     IopQueryXxxInformation @ 0x14075D28C (IopQueryXxxInformation.c)
+ *     NtSetInformationFile @ 0x1402A6E80 (NtSetInformationFile.c)
+ *     NtQueryInformationFile @ 0x140725270 (NtQueryInformationFile.c)
+ *     IopQueryXxxInformation @ 0x14075D47C (IopQueryXxxInformation.c)
  * Callees:
- *     IopWaitForSynchronousIoEvent @ 0x14040FDE0 (IopWaitForSynchronousIoEvent.c)
+ *     IopWaitForSynchronousIoEvent @ 0x14040FFC0 (IopWaitForSynchronousIoEvent.c)
  */
 
 __int64 __fastcall IopWaitForSynchronousIo(IRP *a1, __int64 a2)

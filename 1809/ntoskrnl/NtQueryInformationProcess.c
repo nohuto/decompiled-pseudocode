@@ -1,5 +1,5 @@
 /*
- * XREFs of NtQueryInformationProcess @ 0x14066DB70
+ * XREFs of NtQueryInformationProcess @ 0x14066ED30
  * Callers:
  *     <none>
  * Callees:
@@ -11,77 +11,77 @@
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
  *     KeLeaveCriticalRegionThread @ 0x140051600 (KeLeaveCriticalRegionThread.c)
  *     ExGenRandom @ 0x1400627E0 (ExGenRandom.c)
- *     MmGetSessionId @ 0x1400897B0 (MmGetSessionId.c)
- *     KeQuerySystemTimePrecise @ 0x14008A4F0 (KeQuerySystemTimePrecise.c)
- *     KeEnterCriticalRegionThread @ 0x14008FB40 (KeEnterCriticalRegionThread.c)
- *     PsGetWin32KFilterSet @ 0x1400EF3E0 (PsGetWin32KFilterSet.c)
- *     KeUnstackDetachProcess @ 0x1400F1090 (KeUnstackDetachProcess.c)
- *     PsIsProtectedProcess @ 0x1400F10D0 (PsIsProtectedProcess.c)
- *     MmQueryWorkingSetInformation @ 0x1400F10E8 (MmQueryWorkingSetInformation.c)
- *     KeQueryGroupMaskProcess @ 0x1400F11BC (KeQueryGroupMaskProcess.c)
- *     KeQueryAffinityProcess @ 0x1400F11E0 (KeQueryAffinityProcess.c)
- *     PsGetCurrentProcess @ 0x1400F1330 (PsGetCurrentProcess.c)
- *     ExReleaseExtensionTable @ 0x14010DBEC (ExReleaseExtensionTable.c)
- *     ExGetExtensionTable @ 0x14010DC04 (ExGetExtensionTable.c)
- *     ExUnlockUserBuffer @ 0x14011A718 (ExUnlockUserBuffer.c)
- *     VslpEnterIumSecureMode @ 0x140129CB0 (VslpEnterIumSecureMode.c)
- *     PsQueryProcessCommandLine @ 0x14012A260 (PsQueryProcessCommandLine.c)
- *     MmQueryCommitReleaseState @ 0x140130954 (MmQueryCommitReleaseState.c)
- *     PsGetProcessProtection @ 0x1401342A0 (PsGetProcessProtection.c)
- *     ExQueryHandleExceptionsPermanency @ 0x140160774 (ExQueryHandleExceptionsPermanency.c)
- *     PspUnlockProcessShared @ 0x140160F04 (PspUnlockProcessShared.c)
- *     PspLockProcessShared @ 0x140160F7C (PspLockProcessShared.c)
- *     xKdEnumerateDebuggingDevices @ 0x140193FE0 (xKdEnumerateDebuggingDevices.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     ZwQueryInformationJobObject @ 0x1401BA9F0 (ZwQueryInformationJobObject.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     memmove @ 0x1401D1540 (memmove.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     KeQueryCpuSetsProcess @ 0x1402965C4 (KeQueryCpuSetsProcess.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     PspGetRedirectionTrustPolicy @ 0x1405827D4 (PspGetRedirectionTrustPolicy.c)
- *     PsQueryTotalCycleTimeProcess @ 0x140585280 (PsQueryTotalCycleTimeProcess.c)
- *     PsGetProcessDeepFreezeStats @ 0x1405B2334 (PsGetProcessDeepFreezeStats.c)
- *     ObGetProcessHandleCount @ 0x1405B3960 (ObGetProcessHandleCount.c)
- *     ObReferenceProcessHandleTable @ 0x1405D1160 (ObReferenceProcessHandleTable.c)
- *     ObReferenceObjectByHandle @ 0x1405E8350 (ObReferenceObjectByHandle.c)
- *     ObCloseHandle @ 0x1405F5700 (ObCloseHandle.c)
- *     PsQueryStatisticsProcess @ 0x1405FE700 (PsQueryStatisticsProcess.c)
- *     PsReferenceProcessFilePointer @ 0x14061CB90 (PsReferenceProcessFilePointer.c)
- *     PsQueryProcessAttributes @ 0x1406258FC (PsQueryProcessAttributes.c)
- *     PsQueryProcessEnergyValues @ 0x1406372A0 (PsQueryProcessEnergyValues.c)
- *     MmCopyVirtualMemory @ 0x140644790 (MmCopyVirtualMemory.c)
- *     ObOpenObjectByPointer @ 0x1406470C0 (ObOpenObjectByPointer.c)
- *     PspAllocateAndQueryProcessNotificationChannel @ 0x14065146C (PspAllocateAndQueryProcessNotificationChannel.c)
- *     IoQueryFileDosDeviceName @ 0x14065F5B0 (IoQueryFileDosDeviceName.c)
- *     PspQueryQuotaLimits @ 0x14066D5D8 (PspQueryQuotaLimits.c)
- *     PsQueryProcessQuotaCounters @ 0x14066D798 (PsQueryProcessQuotaCounters.c)
- *     PsQueryFullProcessImageName @ 0x14066D7C4 (PsQueryFullProcessImageName.c)
- *     MmGetSectionInformation @ 0x14066D850 (MmGetSectionInformation.c)
- *     PsQueryRuntimeProcess @ 0x14066DAA0 (PsQueryRuntimeProcess.c)
- *     ObReferenceObjectByHandleWithTag @ 0x140671500 (ObReferenceObjectByHandleWithTag.c)
- *     ObQueryDeviceMapInformation @ 0x140671540 (ObQueryDeviceMapInformation.c)
- *     ExEnumHandleTable @ 0x14068FAD0 (ExEnumHandleTable.c)
- *     ExLockUserBuffer @ 0x14069E918 (ExLockUserBuffer.c)
- *     EtwQueryProcessTelemetryInfo @ 0x1406A4C80 (EtwQueryProcessTelemetryInfo.c)
- *     ExIsRestrictedCaller @ 0x1406AD9EC (ExIsRestrictedCaller.c)
- *     KeGetExecuteOptions @ 0x1406C9E94 (KeGetExecuteOptions.c)
- *     PsQueryProcessSignatureMitigationPolicy @ 0x1406CB4A0 (PsQueryProcessSignatureMitigationPolicy.c)
- *     PspGetNoChildProcessRestrictedPolicy @ 0x1406CFC60 (PspGetNoChildProcessRestrictedPolicy.c)
- *     ExSystemExceptionFilter @ 0x1406E2770 (ExSystemExceptionFilter.c)
- *     ExQueryRaiseUMExceptionOnInvalidHandleClose @ 0x14070F780 (ExQueryRaiseUMExceptionOnInvalidHandleClose.c)
- *     DbgkOpenProcessDebugPort @ 0x14080E398 (DbgkOpenProcessDebugPort.c)
- *     VslGetSecurePebAddress @ 0x1408187F0 (VslGetSecurePebAddress.c)
- *     PoQueryProcessEnergyTrackingState @ 0x1408779F4 (PoQueryProcessEnergyTrackingState.c)
- *     PspQueryPooledQuotaLimits @ 0x140888B48 (PspQueryPooledQuotaLimits.c)
- *     PspQueryWorkingSetWatch @ 0x140888CD8 (PspQueryWorkingSetWatch.c)
- *     PsIumGetOnDemandDebugChallenge @ 0x14088CE40 (PsIumGetOnDemandDebugChallenge.c)
- *     EtwQueryProcessTelemetryCoverage @ 0x1408B6670 (EtwQueryProcessTelemetryCoverage.c)
- *     ExDereferenceHandleDebugInfo @ 0x1408CDC14 (ExDereferenceHandleDebugInfo.c)
- *     ExQueryHandleExceptions @ 0x1408CDE60 (ExQueryHandleExceptions.c)
- *     ExQueryProcessHandleInformation @ 0x1408CDE70 (ExQueryProcessHandleInformation.c)
- *     ExReferenceHandleDebugInfo @ 0x1408CE058 (ExReferenceHandleDebugInfo.c)
- *     ExRaiseDatatypeMisalignment @ 0x1408D65C0 (ExRaiseDatatypeMisalignment.c)
+ *     MmGetSessionId @ 0x1400897A0 (MmGetSessionId.c)
+ *     KeQuerySystemTimePrecise @ 0x14008A4E0 (KeQuerySystemTimePrecise.c)
+ *     KeEnterCriticalRegionThread @ 0x14008FA60 (KeEnterCriticalRegionThread.c)
+ *     PsGetWin32KFilterSet @ 0x1400EF460 (PsGetWin32KFilterSet.c)
+ *     KeUnstackDetachProcess @ 0x1400F1110 (KeUnstackDetachProcess.c)
+ *     PsIsProtectedProcess @ 0x1400F1150 (PsIsProtectedProcess.c)
+ *     MmQueryWorkingSetInformation @ 0x1400F1168 (MmQueryWorkingSetInformation.c)
+ *     KeQueryGroupMaskProcess @ 0x1400F123C (KeQueryGroupMaskProcess.c)
+ *     KeQueryAffinityProcess @ 0x1400F1260 (KeQueryAffinityProcess.c)
+ *     PsGetCurrentProcess @ 0x1400F13B0 (PsGetCurrentProcess.c)
+ *     ExReleaseExtensionTable @ 0x14010DC6C (ExReleaseExtensionTable.c)
+ *     ExGetExtensionTable @ 0x14010DC84 (ExGetExtensionTable.c)
+ *     ExUnlockUserBuffer @ 0x14011A788 (ExUnlockUserBuffer.c)
+ *     VslpEnterIumSecureMode @ 0x140129D80 (VslpEnterIumSecureMode.c)
+ *     PsQueryProcessCommandLine @ 0x14012A330 (PsQueryProcessCommandLine.c)
+ *     MmQueryCommitReleaseState @ 0x140130A24 (MmQueryCommitReleaseState.c)
+ *     PsGetProcessProtection @ 0x140134370 (PsGetProcessProtection.c)
+ *     ExQueryHandleExceptionsPermanency @ 0x140160874 (ExQueryHandleExceptionsPermanency.c)
+ *     PspUnlockProcessShared @ 0x140161004 (PspUnlockProcessShared.c)
+ *     PspLockProcessShared @ 0x14016107C (PspLockProcessShared.c)
+ *     xKdEnumerateDebuggingDevices @ 0x140194120 (xKdEnumerateDebuggingDevices.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     ZwQueryInformationJobObject @ 0x1401BAB50 (ZwQueryInformationJobObject.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     KeQueryCpuSetsProcess @ 0x1402967B4 (KeQueryCpuSetsProcess.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     PspGetRedirectionTrustPolicy @ 0x1405837D4 (PspGetRedirectionTrustPolicy.c)
+ *     PsQueryTotalCycleTimeProcess @ 0x140586280 (PsQueryTotalCycleTimeProcess.c)
+ *     PsGetProcessDeepFreezeStats @ 0x1405B3334 (PsGetProcessDeepFreezeStats.c)
+ *     ObGetProcessHandleCount @ 0x1405B4960 (ObGetProcessHandleCount.c)
+ *     ObReferenceProcessHandleTable @ 0x1405D2160 (ObReferenceProcessHandleTable.c)
+ *     ObReferenceObjectByHandle @ 0x1405E9350 (ObReferenceObjectByHandle.c)
+ *     ObCloseHandle @ 0x1405F6700 (ObCloseHandle.c)
+ *     PsQueryStatisticsProcess @ 0x1405FF700 (PsQueryStatisticsProcess.c)
+ *     PsReferenceProcessFilePointer @ 0x14061DB90 (PsReferenceProcessFilePointer.c)
+ *     PsQueryProcessAttributes @ 0x14062691C (PsQueryProcessAttributes.c)
+ *     PsQueryProcessEnergyValues @ 0x1406382C0 (PsQueryProcessEnergyValues.c)
+ *     MmCopyVirtualMemory @ 0x1406457B0 (MmCopyVirtualMemory.c)
+ *     ObOpenObjectByPointer @ 0x1406480E0 (ObOpenObjectByPointer.c)
+ *     PspAllocateAndQueryProcessNotificationChannel @ 0x14065262C (PspAllocateAndQueryProcessNotificationChannel.c)
+ *     IoQueryFileDosDeviceName @ 0x140660770 (IoQueryFileDosDeviceName.c)
+ *     PspQueryQuotaLimits @ 0x14066E798 (PspQueryQuotaLimits.c)
+ *     PsQueryProcessQuotaCounters @ 0x14066E958 (PsQueryProcessQuotaCounters.c)
+ *     PsQueryFullProcessImageName @ 0x14066E984 (PsQueryFullProcessImageName.c)
+ *     MmGetSectionInformation @ 0x14066EA10 (MmGetSectionInformation.c)
+ *     PsQueryRuntimeProcess @ 0x14066EC60 (PsQueryRuntimeProcess.c)
+ *     ObReferenceObjectByHandleWithTag @ 0x1406726C0 (ObReferenceObjectByHandleWithTag.c)
+ *     ObQueryDeviceMapInformation @ 0x140672700 (ObQueryDeviceMapInformation.c)
+ *     ExEnumHandleTable @ 0x140690C90 (ExEnumHandleTable.c)
+ *     ExLockUserBuffer @ 0x14069FBD8 (ExLockUserBuffer.c)
+ *     EtwQueryProcessTelemetryInfo @ 0x1406A5F20 (EtwQueryProcessTelemetryInfo.c)
+ *     ExIsRestrictedCaller @ 0x1406AEC8C (ExIsRestrictedCaller.c)
+ *     KeGetExecuteOptions @ 0x1406CB134 (KeGetExecuteOptions.c)
+ *     PsQueryProcessSignatureMitigationPolicy @ 0x1406CC740 (PsQueryProcessSignatureMitigationPolicy.c)
+ *     PspGetNoChildProcessRestrictedPolicy @ 0x1406D0F00 (PspGetNoChildProcessRestrictedPolicy.c)
+ *     ExSystemExceptionFilter @ 0x1406E3A10 (ExSystemExceptionFilter.c)
+ *     ExQueryRaiseUMExceptionOnInvalidHandleClose @ 0x140710A20 (ExQueryRaiseUMExceptionOnInvalidHandleClose.c)
+ *     DbgkOpenProcessDebugPort @ 0x14080F598 (DbgkOpenProcessDebugPort.c)
+ *     VslGetSecurePebAddress @ 0x1408199F0 (VslGetSecurePebAddress.c)
+ *     PoQueryProcessEnergyTrackingState @ 0x140878C54 (PoQueryProcessEnergyTrackingState.c)
+ *     PspQueryPooledQuotaLimits @ 0x140889DA8 (PspQueryPooledQuotaLimits.c)
+ *     PspQueryWorkingSetWatch @ 0x140889F38 (PspQueryWorkingSetWatch.c)
+ *     PsIumGetOnDemandDebugChallenge @ 0x14088E0A0 (PsIumGetOnDemandDebugChallenge.c)
+ *     EtwQueryProcessTelemetryCoverage @ 0x1408B7930 (EtwQueryProcessTelemetryCoverage.c)
+ *     ExDereferenceHandleDebugInfo @ 0x1408CEED4 (ExDereferenceHandleDebugInfo.c)
+ *     ExQueryHandleExceptions @ 0x1408CF120 (ExQueryHandleExceptions.c)
+ *     ExQueryProcessHandleInformation @ 0x1408CF130 (ExQueryProcessHandleInformation.c)
+ *     ExReferenceHandleDebugInfo @ 0x1408CF318 (ExReferenceHandleDebugInfo.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408D7880 (ExRaiseDatatypeMisalignment.c)
  */
 
 NTSTATUS __stdcall NtQueryInformationProcess(
@@ -268,7 +268,7 @@ NTSTATUS __stdcall NtQueryInformationProcess(
   __int128 v181; // [rsp+130h] [rbp-8D8h]
   __int64 v182; // [rsp+140h] [rbp-8C8h] BYREF
   __int64 v183; // [rsp+148h] [rbp-8C0h]
-  __int64 v184; // [rsp+150h] [rbp-8B8h] BYREF
+  LARGE_INTEGER v184; // [rsp+150h] [rbp-8B8h] BYREF
   PVOID v185; // [rsp+158h] [rbp-8B0h] BYREF
   __int64 v186; // [rsp+160h] [rbp-8A8h]
   __int64 v187; // [rsp+168h] [rbp-8A0h] BYREF
@@ -339,9 +339,9 @@ NTSTATUS __stdcall NtQueryInformationProcess(
   CurrentThread = KeGetCurrentThread();
   if ( v9 )
   {
-    if ( ProcessInformationClass != (ProcessAffinityUpdateMode|ProcessUserModeIOPL) )
+    if ( ProcessInformationClass != ProcessProtectionInformation )
     {
-      if ( ProcessInformationClass == 65 )
+      if ( ProcessInformationClass == ProcessCommitReleaseInformation )
       {
         v10 = 7LL;
         v11 = 0LL;
@@ -368,18 +368,18 @@ LABEL_14:
       if ( ((ProcessInformationClass - 70) & 0xFFFFFFFB) != 0 )
       {
         v11 = 0LL;
-        if ( ProcessInformationClass == (ProcessLUIDDeviceMapsEnabled|0x40) )
+        if ( ProcessInformationClass == ProcessSequenceNumber )
         {
           v10 = 7LL;
         }
-        else if ( ProcessInformationClass == (ProcessDebugObjectHandle|0x40) )
+        else if ( ProcessInformationClass == ProcessSecurityDomainInformation )
         {
           v10 = 7LL;
         }
         else
         {
           v10 = 3LL;
-          if ( ProcessInformationClass == (ProcessDeviceMap|0x40) )
+          if ( ProcessInformationClass == ProcessEnableReadWriteVmLogging )
             v10 = 0LL;
         }
         goto LABEL_14;
@@ -393,7 +393,7 @@ LABEL_14:
 LABEL_25:
   switch ( ProcessInformationClass )
   {
-    case 0:
+    case ProcessBasicInformation:
       if ( ProcessInformationLength == 64 )
       {
         v20 = ProcessInformation;
@@ -504,7 +504,7 @@ LABEL_76:
         *ReturnLength = v21;
       ObfDereferenceObjectWithTag(v23, 0x79517350u);
       return DeviceMapInformation;
-    case 1:
+    case ProcessQuotaLimits:
       return PspQueryQuotaLimits(
                (ULONG_PTR)ProcessHandle,
                1LL,
@@ -512,7 +512,7 @@ LABEL_76:
                ProcessInformationLength,
                ReturnLength,
                v9);
-    case 2:
+    case ProcessIoCounters:
       if ( ProcessInformationLength != 48 )
         return -1073741820;
       result = ObReferenceObjectByHandleWithTag(
@@ -539,7 +539,7 @@ LABEL_76:
         return DeviceMapInformation;
       }
       return result;
-    case 3:
+    case ProcessVmCounters:
       if ( ((ProcessInformationLength - 88) & 0xFFFFFFE7) != 0 || ProcessInformationLength == 104 )
         return -1073741820;
       result = ObReferenceObjectByHandleWithTag(
@@ -576,7 +576,7 @@ LABEL_76:
         }
       }
       return result;
-    case 4:
+    case ProcessTimes:
       if ( ProcessInformationLength != 32 )
         return -1073741820;
       result = ObReferenceObjectByHandleWithTag(
@@ -602,7 +602,7 @@ LABEL_76:
         goto LABEL_65;
       }
       return result;
-    case 7:
+    case ProcessDebugPort:
       if ( ProcessInformationLength != 8 )
         return -1073741820;
       result = ObReferenceObjectByHandleWithTag(
@@ -623,7 +623,7 @@ LABEL_76:
         return 0;
       }
       return result;
-    case 10:
+    case ProcessLdtInformation:
       result = ObReferenceObjectByHandleWithTag(
                  ProcessHandle,
                  0x410u,
@@ -638,7 +638,7 @@ LABEL_76:
         goto LABEL_152;
       }
       return result;
-    case 12:
+    case ProcessDefaultHardErrorMode:
       if ( ProcessInformationLength != 4 )
         return -1073741820;
       result = ObReferenceObjectByHandleWithTag(
@@ -659,17 +659,17 @@ LABEL_76:
         return 0;
       }
       return result;
-    case 14:
+    case ProcessPooledUsageAndLimits:
       return PspQueryPooledQuotaLimits(
                (_DWORD)ProcessHandle,
                (_DWORD)ProcessInformation,
                ProcessInformationLength,
                (_DWORD)ReturnLength,
                v9);
-    case 15:
-    case 42:
+    case ProcessWorkingSetWatch:
+    case ProcessWorkingSetWatchEx:
       return PspQueryWorkingSetWatch((ULONG_PTR)ProcessHandle, (__int64)ReturnLength, v9);
-    case 18:
+    case ProcessPriorityClass:
       if ( ProcessInformationLength != 2 )
         return -1073741820;
       result = ObReferenceObjectByHandleWithTag(
@@ -691,7 +691,7 @@ LABEL_76:
         return 0;
       }
       return result;
-    case 19:
+    case ProcessWx86Information:
       if ( ProcessInformationLength != 4 )
         return -1073741820;
       v40 = ObReferenceObjectByHandleWithTag(
@@ -711,7 +711,7 @@ LABEL_76:
           *ReturnLength = 4;
       }
       return v40;
-    case 20:
+    case ProcessHandleCount:
       if ( ((ProcessInformationLength - 4) & 0xFFFFFFFB) != 0 )
         return -1073741820;
       result = ObReferenceObjectByHandleWithTag(
@@ -732,7 +732,7 @@ LABEL_76:
       if ( ReturnLength )
         *ReturnLength = 4;
       return 0;
-    case 21:
+    case ProcessAffinityMask:
       if ( ((ProcessInformationLength - 8) & 0xFFFFFFF7) != 0 )
         return -1073741820;
       result = ObReferenceObjectByHandleWithTag(
@@ -764,7 +764,7 @@ LABEL_76:
           *ReturnLength = v5;
       }
       goto LABEL_153;
-    case 22:
+    case ProcessPriorityBoost:
       if ( ProcessInformationLength != 4 )
         return -1073741820;
       v40 = ObReferenceObjectByHandleWithTag(
@@ -784,7 +784,7 @@ LABEL_76:
           *ReturnLength = 4;
       }
       return v40;
-    case 23:
+    case ProcessDeviceMap:
       if ( ProcessInformationLength < 0x24 )
         return -1073741820;
       if ( ProcessInformationLength == 48 )
@@ -815,7 +815,7 @@ LABEL_76:
       if ( DeviceMapInformation >= 0 && ReturnLength )
         *ReturnLength = v5;
       return DeviceMapInformation;
-    case 24:
+    case ProcessSessionInformation:
       if ( ProcessInformationLength != 4 )
         return -1073741820;
       result = ObReferenceObjectByHandleWithTag(
@@ -834,7 +834,7 @@ LABEL_76:
       if ( ReturnLength )
         *ReturnLength = 4;
       return 0;
-    case 26:
+    case ProcessWow64Information:
       if ( ProcessInformationLength != 8 )
         return -1073741820;
       result = ObReferenceObjectByHandleWithTag(
@@ -855,7 +855,7 @@ LABEL_76:
       if ( ReturnLength )
         *ReturnLength = 8;
       return 0;
-    case 27:
+    case ProcessImageFileName:
       result = ObReferenceObjectByHandleWithTag(
                  ProcessHandle,
                  0x1000u,
@@ -885,14 +885,14 @@ LABEL_76:
       if ( ReturnLength && ((int)(DeviceMapInformation + 0x80000000) < 0 || DeviceMapInformation == -1073741820) )
         *ReturnLength = v155 + 16;
       return DeviceMapInformation;
-    case 28:
+    case ProcessLUIDDeviceMapsEnabled:
       if ( ProcessInformationLength != 4 )
         return -1073741820;
       *(_DWORD *)ProcessInformation = 1;
       if ( ReturnLength )
         *ReturnLength = 4;
       return 0;
-    case 29:
+    case ProcessBreakOnTermination:
       if ( ProcessInformationLength != 4 )
         return -1073741820;
       result = ObReferenceObjectByHandleWithTag(
@@ -911,7 +911,7 @@ LABEL_76:
       if ( ReturnLength )
         *ReturnLength = 4;
       return 0;
-    case 30:
+    case ProcessDebugObjectHandle:
       if ( ProcessInformationLength != 8 )
         return -1073741820;
       result = ObReferenceObjectByHandleWithTag(
@@ -934,7 +934,7 @@ LABEL_76:
       if ( ReturnLength )
         *ReturnLength = 8;
       return DeviceMapInformation;
-    case 31:
+    case ProcessDebugFlags:
       if ( ProcessInformationLength != 4 )
         return -1073741820;
       result = ObReferenceObjectByHandleWithTag(
@@ -953,7 +953,7 @@ LABEL_76:
       if ( ReturnLength )
         *ReturnLength = 4;
       goto LABEL_65;
-    case 32:
+    case ProcessHandleTracing:
       if ( ProcessInformationLength < 0x10 )
         return -1073741820;
       if ( (unsigned int)ExIsRestrictedCaller(v9) )
@@ -1045,7 +1045,7 @@ LABEL_76:
         ProcessNotificationChannel = -1073741811;
       }
       goto LABEL_220;
-    case 33:
+    case ProcessIoPriority:
       if ( ProcessInformationLength != 4 )
         return -1073741820;
       result = ObReferenceObjectByHandleWithTag(
@@ -1065,7 +1065,7 @@ LABEL_76:
       if ( ReturnLength )
         *ReturnLength = 4;
       goto LABEL_65;
-    case 34:
+    case ProcessExecuteFlags:
       if ( ProcessInformationLength != 4 )
         return -1073741820;
       if ( ProcessHandle == (HANDLE)-1LL )
@@ -1097,7 +1097,7 @@ LABEL_76:
           *ReturnLength = 4;
       }
       return DeviceMapInformation;
-    case 36:
+    case ProcessCookie:
       if ( ProcessInformationLength != 4 )
         return -1073741820;
       if ( ProcessHandle == (HANDLE)-1LL )
@@ -1126,7 +1126,7 @@ LABEL_76:
         v63 = __rdtsc();
         _InterlockedCompareExchange(
           (volatile signed __int32 *)Object + 242,
-          v184 ^ HIDWORD(v184) ^ LowPart ^ v63 ^ v62 ^ CurrentPrcb->MmPageFaultCount ^ CurrentPrcb->InterruptCount ^ CurrentPrcb->InterruptTime ^ CurrentPrcb->KeSystemCalls,
+          v184.LowPart ^ v184.HighPart ^ LowPart ^ v63 ^ v62 ^ CurrentPrcb->MmPageFaultCount ^ CurrentPrcb->InterruptCount ^ CurrentPrcb->InterruptTime ^ CurrentPrcb->KeSystemCalls,
           0);
         LODWORD(v11) = v152;
         v57 = Object;
@@ -1137,7 +1137,7 @@ LABEL_76:
       if ( ProcessHandle != (HANDLE)-1LL )
         ObfDereferenceObject(v57);
       return (int)v11;
-    case 37:
+    case ProcessImageInformation:
       if ( ProcessInformationLength != 64 )
         return -1073741820;
       result = ObReferenceObjectByHandleWithTag(
@@ -1196,7 +1196,7 @@ LABEL_76:
           *ReturnLength = 64;
       }
       return DeviceMapInformation;
-    case 38:
+    case ProcessCycleTime:
       if ( ProcessInformationLength != 16 )
         return -1073741820;
       result = ObReferenceObjectByHandleWithTag(
@@ -1215,7 +1215,7 @@ LABEL_76:
       if ( ReturnLength )
         *ReturnLength = 16;
       goto LABEL_153;
-    case 39:
+    case ProcessPagePriority:
       if ( ProcessInformationLength != 4 )
         return -1073741820;
       result = ObReferenceObjectByHandleWithTag(
@@ -1234,7 +1234,7 @@ LABEL_76:
       if ( ReturnLength )
         *ReturnLength = 4;
       goto LABEL_65;
-    case 43:
+    case ProcessImageFileNameWin32:
       result = ObReferenceObjectByHandleWithTag(
                  ProcessHandle,
                  0x1000u,
@@ -1297,7 +1297,7 @@ LABEL_76:
         ExFreePoolWithTag(v17, 0);
       }
       return v16;
-    case 44:
+    case ProcessImageFileMapping:
       if ( ProcessInformationLength != 8 )
         return -1073741820;
       v70 = *(void **)ProcessInformation;
@@ -1339,7 +1339,7 @@ LABEL_76:
       if ( v73 == v74 && ReturnLength )
         *ReturnLength = 0;
       return result;
-    case 45:
+    case ProcessAffinityUpdateMode:
       if ( ProcessInformationLength != 4 )
         return -1073741820;
       result = ObReferenceObjectByHandleWithTag(
@@ -1361,7 +1361,7 @@ LABEL_76:
       if ( ReturnLength )
         *ReturnLength = 4;
       return 0;
-    case 46:
+    case ProcessMemoryAllocationMode:
       if ( ProcessInformationLength != 4 )
         return -1073741820;
       result = ObReferenceObjectByHandleWithTag(
@@ -1381,7 +1381,7 @@ LABEL_76:
       if ( ReturnLength )
         *ReturnLength = 4;
       return 0;
-    case 47:
+    case ProcessGroupInformation:
       if ( !ReturnLength || (ProcessInformationLength & 1) != 0 )
         return -1073741811;
       result = ObReferenceObjectByHandleWithTag(
@@ -1418,7 +1418,7 @@ LABEL_76:
       ProcessNotificationChannel = (unsigned int)v5 < v80 ? 0xC0000023 : 0;
       v152 = ProcessNotificationChannel;
       goto LABEL_153;
-    case 49:
+    case ProcessConsoleHostProcess:
       if ( ProcessInformationLength != 8 )
         return -1073741820;
       result = ObReferenceObjectByHandleWithTag(
@@ -1437,7 +1437,7 @@ LABEL_76:
       if ( ReturnLength )
         *ReturnLength = 8;
       return 0;
-    case 50:
+    case ProcessWindowInformation:
       v162 = 0;
       v170 = 0uLL;
       if ( v9 != 1 )
@@ -1522,7 +1522,7 @@ LABEL_221:
         ProcessNotificationChannel = -1073741558;
       }
       goto LABEL_153;
-    case 51:
+    case ProcessHandleInformation:
       if ( ProcessInformationLength < 0x10 )
       {
         if ( ReturnLength )
@@ -1551,7 +1551,7 @@ LABEL_365:
         return ProcessHandleInformation;
       }
       return result;
-    case 52:
+    case ProcessMitigationPolicy:
       if ( ProcessInformationLength != 8 )
         return -1073741820;
       v90 = *(_DWORD *)ProcessInformation;
@@ -1574,7 +1574,7 @@ LABEL_365:
           return result;
       }
       break;
-    case 54:
+    case ProcessHandleCheckingMode:
       if ( ProcessInformationLength != 4 )
         return -1073741820;
       result = ObReferenceObjectByHandleWithTag(
@@ -1595,7 +1595,7 @@ LABEL_365:
       LOBYTE(v11) = (unsigned __int8)ExQueryHandleExceptions(v119) != 0;
       *(_DWORD *)v6 = (_DWORD)v11;
       goto LABEL_220;
-    case 55:
+    case ProcessKeepAliveCount:
       if ( ProcessInformationLength != 8 )
         return -1073741820;
       result = ObReferenceObjectByHandleWithTag(
@@ -1613,7 +1613,7 @@ LABEL_365:
       *(_DWORD *)v6 = *((_DWORD *)Object + 511) & 0x7FFFFFFF;
       *((_DWORD *)v6 + 1) = *((_DWORD *)v22 + 519) & 0x7FFFFFFF;
       goto LABEL_65;
-    case 58:
+    case ProcessHandleTable:
       if ( ProcessInformationLength < 4 )
         return -1073741820;
       result = ExLockUserBuffer(
@@ -1662,7 +1662,7 @@ LABEL_365:
         }
       }
       return result;
-    case 59:
+    case ProcessCheckStackExtentsMode:
       if ( ProcessInformationLength != 4 )
         return -1073741820;
       result = ObReferenceObjectByHandleWithTag(
@@ -1679,7 +1679,7 @@ LABEL_365:
       v22 = Object;
       *(_DWORD *)v6 = (*((_DWORD *)Object + 110) >> 5) & 1;
       goto LABEL_65;
-    case 60:
+    case ProcessCommandLineInformation:
       LODWORD(v11) = ObReferenceObjectByHandleWithTag(
                        ProcessHandle,
                        0x1000u,
@@ -1692,7 +1692,7 @@ LABEL_365:
         return (int)v11;
       ProcessCommandLine = PsQueryProcessCommandLine((ULONG_PTR)Object, (__int64)v6, v5, v9, ReturnLength);
       goto LABEL_506;
-    case 61:
+    case ProcessProtectionInformation:
       v16 = ObReferenceObjectByHandleWithTag(
               ProcessHandle,
               0x1000u,
@@ -1713,7 +1713,7 @@ LABEL_514:
       if ( ReturnLength )
         *ReturnLength = 1;
       goto LABEL_513;
-    case 64:
+    case ProcessTelemetryIdInformation:
       LODWORD(v11) = ObReferenceObjectByHandleWithTag(
                        ProcessHandle,
                        0x1000u,
@@ -1730,7 +1730,7 @@ LABEL_506:
       v123 = Object;
       v124 = Object == 0LL;
       goto LABEL_507;
-    case 65:
+    case ProcessCommitReleaseInformation:
       Object = 0LL;
       if ( ProcessInformationLength != 32 )
         goto LABEL_514;
@@ -1775,8 +1775,8 @@ LABEL_515:
         return v16;
       ObfDereferenceObjectWithTag(Object, 0x79517350u);
       return v16;
-    case 66:
-    case 67:
+    case ProcessDefaultCpuSetsInformation:
+    case ProcessAllowedCpuSetsInformation:
       if ( (ProcessInformationLength & 7) != 0 || ProcessInformationLength > 0xA0 )
         return -1073741820;
       v16 = ObReferenceObjectByHandleWithTag(
@@ -1789,7 +1789,7 @@ LABEL_515:
               0LL);
       if ( v16 >= 0 )
       {
-        LOBYTE(v11) = ProcessInformationClass == (ProcessVmCounters|0x40);
+        LOBYTE(v11) = ProcessInformationClass == ProcessAllowedCpuSetsInformation;
         v126 = 8 * KeQueryCpuSetsProcess((__int64)Object, v241, 0x14u, (int)v11);
         ObfDereferenceObjectWithTag(Object, 0x79517350u);
         if ( ReturnLength )
@@ -1799,7 +1799,7 @@ LABEL_515:
         memmove(v6, v241, (unsigned int)v5);
       }
       return v16;
-    case 69:
+    case ProcessJobMemoryInformation:
       if ( ProcessInformationLength != 40 )
         return -1073741820;
       result = ObReferenceObjectByHandleWithTag(
@@ -1847,7 +1847,7 @@ LABEL_515:
         }
       }
       return result;
-    case 70:
+    case ProcessInPrivate:
       if ( ProcessInformationLength != 1 )
         return -1073741820;
       result = ObReferenceObjectByHandleWithTag(
@@ -1864,7 +1864,7 @@ LABEL_515:
       v22 = Object;
       *v6 = *((int *)Object + 192) < 0;
       goto LABEL_65;
-    case 71:
+    case ProcessRaiseUMExceptionOnInvalidHandleClose:
       if ( ProcessInformationLength != 4 )
         return -1073741820;
       result = ObReferenceObjectByHandleWithTag(
@@ -1885,9 +1885,9 @@ LABEL_515:
       LOBYTE(v11) = (unsigned __int8)ExQueryRaiseUMExceptionOnInvalidHandleClose(v125) != 0;
       *(_DWORD *)v6 = (_DWORD)v11;
       goto LABEL_220;
-    case 72:
+    case ProcessIumChallengeResponse:
       return PsIumGetOnDemandDebugChallenge(ProcessHandle, ProcessInformation, ProcessInformationLength, ReturnLength);
-    case 73:
+    case ProcessChildProcessInformation:
       if ( ProcessInformationLength != 3 )
         return -1073741820;
       if ( ProcessHandle == (HANDLE)-1LL )
@@ -1932,7 +1932,7 @@ LABEL_556:
       if ( ProcessHandle != (HANDLE)-1LL )
         goto LABEL_560;
       return (int)v11;
-    case 74:
+    case ProcessHighGraphicsPriorityInformation:
       if ( ProcessInformationLength != 1 )
         return -1073741820;
       result = ObReferenceObjectByHandleWithTag(
@@ -1949,7 +1949,7 @@ LABEL_556:
       v22 = Object;
       *v6 = (*((_DWORD *)Object + 435) & 0x200) != 0;
       goto LABEL_65;
-    case 75:
+    case ProcessSubsystemInformation:
       if ( ProcessInformationLength != 4 )
         return -1073741820;
       result = ObReferenceObjectByHandleWithTag(
@@ -1965,12 +1965,12 @@ LABEL_556:
         return result;
       v22 = Object;
       if ( *((_QWORD *)Object + 226) )
-        LODWORD(v11) = qword_14040E310;
+        LODWORD(v11) = qword_14040F370;
       *(_DWORD *)v6 = (_DWORD)v11;
       if ( ReturnLength )
         *ReturnLength = 4;
       goto LABEL_65;
-    case 76:
+    case ProcessEnergyValues:
       result = ObReferenceObjectByHandleWithTag(
                  ProcessHandle,
                  0x1000u,
@@ -1989,7 +1989,7 @@ LABEL_556:
       if ( ReturnLength )
         *ReturnLength = 432;
       goto LABEL_153;
-    case 77:
+    case ProcessPowerThrottlingState:
       if ( ProcessInformationLength != 12 )
         return -1073741820;
       ExtensionTable = ExGetExtensionTable((struct _EX_RUNDOWN_REF *)PspBamExtensionHost);
@@ -2019,7 +2019,7 @@ LABEL_556:
       }
       ExReleaseExtensionTable((struct _EX_RUNDOWN_REF *)PspBamExtensionHost);
       return v132;
-    case 79:
+    case ProcessWin32kSyscallFilterInformation:
       if ( ProcessInformationLength != 8 )
         return -1073741820;
       if ( ProcessHandle == (HANDLE)-1LL )
@@ -2063,7 +2063,7 @@ LABEL_507:
         return (int)v11;
       }
       return (int)v11;
-    case 81:
+    case ProcessWakeInformation:
       if ( v9 )
         return -1073741790;
       if ( ProcessInformationLength != 48 )
@@ -2085,7 +2085,7 @@ LABEL_507:
       if ( ProcessNotificationChannel >= 0 && ReturnLength )
         *ReturnLength = 48;
       goto LABEL_153;
-    case 82:
+    case ProcessEnergyTrackingState:
       if ( ProcessInformationLength < 8 )
         return -1073741820;
       result = ObReferenceObjectByHandleWithTag(
@@ -2107,7 +2107,7 @@ LABEL_507:
         *ReturnLength = v135;
       v152 = 0;
       goto LABEL_560;
-    case 84:
+    case ProcessCaptureTrustletLiveDump:
       if ( ProcessInformationLength != 4 )
         return -1073741820;
       result = ObReferenceObjectByHandleWithTag(
@@ -2135,7 +2135,7 @@ LABEL_153:
         ObfDereferenceObjectWithTag(Object, 0x79517350u);
         return -1073741790;
       }
-    case 85:
+    case ProcessTelemetryCoverage:
       result = ObReferenceObjectByHandleWithTag(
                  ProcessHandle,
                  0x1000u,
@@ -2148,10 +2148,10 @@ LABEL_153:
         return result;
       ProcessTelemetryCoverage = EtwQueryProcessTelemetryCoverage(Object, v6, (unsigned int)v5, ReturnLength);
       goto LABEL_152;
-    case 87:
-    case 96:
-      if ( ProcessInformationClass == (ProcessDeviceMap|0x40) && !ProcessInformationLength
-        || ProcessInformationClass == 96 && ProcessInformationLength < 4 )
+    case ProcessEnableReadWriteVmLogging:
+    case ProcessEnableLogging:
+      if ( ProcessInformationClass == ProcessEnableReadWriteVmLogging && !ProcessInformationLength
+        || ProcessInformationClass == ProcessEnableLogging && ProcessInformationLength < 4 )
       {
         return -1073741820;
       }
@@ -2168,10 +2168,10 @@ LABEL_153:
         return result;
       v22 = Object;
       *v6 = HIBYTE(*((_DWORD *)Object + 192)) & 3;
-      if ( ProcessInformationClass == 96 )
+      if ( ProcessInformationClass == ProcessEnableLogging )
         *(_DWORD *)v6 |= (*((_DWORD *)v22 + 435) >> 17) & 0xC;
       goto LABEL_65;
-    case 88:
+    case ProcessUptimeInformation:
       result = ObReferenceObjectByHandleWithTag(
                  ProcessHandle,
                  0x1000u,
@@ -2232,7 +2232,7 @@ LABEL_153:
         return 0;
       }
       return result;
-    case 89:
+    case ProcessImageSection:
       if ( ProcessInformationLength != 8 )
         return -1073741820;
       if ( v9 )
@@ -2254,7 +2254,7 @@ LABEL_153:
           *ReturnLength = 8;
       }
       return result;
-    case 92:
+    case ProcessSequenceNumber:
       if ( ProcessInformationLength != 8 )
         return -1073741820;
       result = ObReferenceObjectByHandleWithTag(
@@ -2275,7 +2275,7 @@ LABEL_153:
 LABEL_65:
       ObfDereferenceObjectWithTag(v22, 0x79517350u);
       return DeviceMapInformation;
-    case 94:
+    case ProcessSecurityDomainInformation:
       if ( ProcessInformationLength != 8 )
         return -1073741820;
       result = ObReferenceObjectByHandleWithTag(
@@ -2305,7 +2305,7 @@ LABEL_560:
         ObfDereferenceObjectWithTag(Object, 0x79517350u);
         return -1073741700;
       }
-    case 97:
+    case ProcessLeapSecondInformation:
       if ( ProcessInformationLength == 8 )
       {
         if ( ProcessHandle == (HANDLE)-1LL )

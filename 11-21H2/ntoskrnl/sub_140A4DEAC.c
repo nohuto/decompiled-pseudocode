@@ -1,0 +1,118 @@
+/*
+ * XREFs of sub_140A4DEAC @ 0x140A4DEAC
+ * Callers:
+ *     sub_140A4B9E0 @ 0x140A4B9E0 (sub_140A4B9E0.c)
+ * Callees:
+ *     DbgPrint @ 0x140369BD0 (DbgPrint.c)
+ *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
+ *     sub_1404294D0 @ 0x1404294D0 (sub_1404294D0.c)
+ *     memmove @ 0x140435B40 (memmove.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     sub_140A4DC74 @ 0x140A4DC74 (sub_140A4DC74.c)
+ */
+
+__int64 __fastcall sub_140A4DEAC(__int64 a1, __int64 a2)
+{
+  __int64 v2; // r8
+  void *v4; // rbp
+  __int64 v6; // rax
+  unsigned int v7; // edx
+  unsigned int v8; // eax
+  int *v9; // rcx
+  _DWORD *v10; // r8
+  __int64 v11; // r9
+  int v12; // eax
+  int v13; // eax
+  size_t v14; // r8
+  size_t v15; // rbx
+  unsigned int v16; // eax
+  unsigned int v17; // eax
+  int v18; // edx
+  ULONG_PTR v19; // rbx
+  size_t v20; // r8
+  unsigned int v21; // eax
+  int v22; // edx
+  ULONG_PTR v23; // rbx
+  unsigned int v24; // eax
+  int v25; // edx
+  ULONG_PTR v26; // rbx
+
+  v2 = *(unsigned int *)(a1 + 152);
+  v4 = *(void **)(a1 + 144);
+  *(_DWORD *)(a1 + 184) = 0;
+  memset(v4, 0, v2 << 12);
+  v6 = *(_QWORD *)(a1 + 120);
+  if ( !v6 )
+    return 3221225495LL;
+  v7 = dword_140C23724;
+  v8 = *(_DWORD *)(v6 + 40) >> 12;
+  *(_DWORD *)(a2 + 72) = v8;
+  if ( v8 < v7 )
+    return 3221225495LL;
+  v9 = (int *)(*(_QWORD *)(a1 + 120) + 48LL);
+  if ( v7 )
+  {
+    v10 = v4;
+    v11 = v7;
+    do
+    {
+      v12 = *v9;
+      v9 += 2;
+      *v10++ = v12;
+      --v11;
+    }
+    while ( v11 );
+  }
+  sub_140A4DC74(
+    a1,
+    (__int64)v4,
+    (4 * (unsigned __int64)(unsigned int)dword_140C23724 + 4095) >> 12,
+    (unsigned int)(*(_DWORD *)(a1 + 248) + 2));
+  v13 = dword_140C23724;
+  *(_DWORD *)(a2 + 72) = dword_140C23724;
+  *(_DWORD *)(a2 + 76) = sub_1404294D0(0, (const char *)v4, (4 * v13 + 4095) & 0xFFFFF000);
+  *(_BYTE *)(a2 + 1086) = byte_140C23739;
+  if ( *(_QWORD *)(a1 + 240) )
+  {
+    v14 = (unsigned __int64)*(unsigned int *)(a1 + 152) << 12;
+    *(_DWORD *)(a1 + 184) = 1;
+    memset(v4, 0, v14);
+    v15 = (unsigned int)(*(_DWORD *)(a1 + 248) << 12);
+    memmove(v4, *(const void **)(a1 + 240), v15);
+    *(_DWORD *)(a2 + 964) = sub_1404294D0(0, (const char *)v4, v15);
+    v16 = *(_DWORD *)(a1 + 248);
+    *(_DWORD *)(a2 + 968) = v16;
+    sub_140A4DC74(a1, (__int64)v4, v16, 2LL);
+    v17 = sub_1404294D0(0, (const char *)v4, v15);
+    v18 = *(_DWORD *)(a2 + 964);
+    v19 = v17;
+    if ( v18 != v17 )
+    {
+      DbgPrint("Checksum for resume context page changed from %lx to %lx\n", v18, v17);
+      KeBugCheckEx(0xA0u, 3uLL, *(unsigned int *)(a2 + 964), v19, 0x1FD4uLL);
+    }
+  }
+  v20 = (unsigned __int64)*(unsigned int *)(a1 + 152) << 12;
+  *(_DWORD *)(a1 + 184) = 2;
+  memset(v4, 0, v20);
+  memmove(v4, *(const void **)(a1 + 176), 0x5C0uLL);
+  *(_DWORD *)(a2 + 80) = sub_1404294D0(0, (const char *)v4, 0x5C0u);
+  sub_140A4DC74(a1, (__int64)v4, 1uLL, 1LL);
+  v21 = sub_1404294D0(0, (const char *)v4, 0x5C0u);
+  v22 = *(_DWORD *)(a2 + 80);
+  v23 = v21;
+  if ( v22 != v21 )
+  {
+    DbgPrint("Checksum for context page changed from %lx to %lx\n", v22, v21);
+    KeBugCheckEx(0xA0u, 3uLL, *(unsigned int *)(a2 + 80), v23, 0x1FEAuLL);
+  }
+  v24 = sub_1404294D0(0, (const char *)v4, 0x1000u);
+  v25 = *(_DWORD *)(a2 + 80);
+  v26 = v24;
+  if ( v25 != v24 )
+  {
+    DbgPrint("Checksum for partial context page %lx doesn't match full %lx\n", v25, v24);
+    KeBugCheckEx(0xA0u, 4uLL, *(unsigned int *)(a2 + 80), v26, 0x1FF1uLL);
+  }
+  return 0LL;
+}

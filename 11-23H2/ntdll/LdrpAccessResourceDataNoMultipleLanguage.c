@@ -16,108 +16,108 @@
  */
 
 __int64 __fastcall LdrpAccessResourceDataNoMultipleLanguage(
-        unsigned __int64 a1,
-        unsigned int *a2,
-        unsigned __int64 *a3,
+        unsigned __int64 BaseOfImage,
+        ULONG *a2,
+        char **a3,
         _DWORD *a4)
 {
-  unsigned __int64 v5; // r14
+  char *v5; // r14
   bool v6; // bl
-  unsigned __int64 v7; // rdi
-  unsigned __int64 v8; // rsi
-  unsigned __int64 v9; // r15
-  int v10; // ecx
-  __int16 v11; // ax
-  int VirtualMemory; // ebx
-  __int64 FileSizeFromLoadAsDataTable; // rdi
-  __int64 v15; // r9
+  PVOID v7; // rdi
+  __int64 v8; // rsi
+  _IMAGE_NT_HEADERS64 *v9; // r15
+  NTSTATUS v10; // ecx
+  unsigned __int16 Magic; // ax
+  NTSTATUS VirtualMemory; // ebx
+  _IMAGE_NT_HEADERS64 *SizeOfImage; // rdi
+  __int64 VirtualAddress; // r9
   _DWORD *v16; // rdx
-  unsigned int v17; // r10d
+  unsigned int NumberOfSections; // r10d
   unsigned int v18; // r8d
   unsigned int v19; // ecx
   int v20; // eax
-  __int16 v21; // cx
-  unsigned int *v22; // rcx
+  unsigned __int16 v21; // cx
+  _IMAGE_NT_HEADERS64 *v22; // rcx
   BOOL v23; // eax
-  __int16 v24; // ax
+  unsigned __int16 v24; // ax
   unsigned int v25; // r9d
   _DWORD *v26; // rdx
   unsigned int v27; // r10d
   unsigned int i; // r8d
   unsigned int v29; // ecx
   __int64 v30; // rdi
-  __int64 v31; // rax
-  __int64 v32; // r11
-  __int64 v33; // rbx
-  __int64 v34; // rax
-  unsigned __int64 v35; // rax
-  unsigned __int64 v36; // rcx
-  unsigned __int64 v37; // rdx
-  unsigned __int64 v38; // [rsp+40h] [rbp-C8h] BYREF
-  unsigned __int64 v39; // [rsp+48h] [rbp-C0h] BYREF
-  unsigned __int64 v40; // [rsp+50h] [rbp-B8h] BYREF
-  __int64 v41; // [rsp+58h] [rbp-B0h]
-  __int64 v42; // [rsp+60h] [rbp-A8h] BYREF
+  PIMAGE_SECTION_HEADER v31; // rax
+  _IMAGE_NT_HEADERS64 *v32; // r11
+  PIMAGE_SECTION_HEADER v33; // rbx
+  PVOID v34; // rax
+  __int64 v35; // rax
+  char *v36; // rcx
+  _IMAGE_NT_HEADERS64 *v37; // rdx
+  __int64 v38; // [rsp+40h] [rbp-C8h] BYREF
+  PIMAGE_NT_HEADERS OutHeaders; // [rsp+48h] [rbp-C0h] BYREF
+  PIMAGE_NT_HEADERS v40; // [rsp+50h] [rbp-B8h] BYREF
+  _IMAGE_NT_HEADERS64 *v41; // [rsp+58h] [rbp-B0h]
+  PIMAGE_NT_HEADERS v42; // [rsp+60h] [rbp-A8h] BYREF
   int v43; // [rsp+68h] [rbp-A0h]
-  unsigned __int64 v44; // [rsp+70h] [rbp-98h] BYREF
+  PIMAGE_NT_HEADERS NtHeaders; // [rsp+70h] [rbp-98h]
   BOOL v45; // [rsp+78h] [rbp-90h]
   unsigned int v46; // [rsp+7Ch] [rbp-8Ch]
-  unsigned __int64 v47; // [rsp+80h] [rbp-88h]
+  __int64 v47; // [rsp+80h] [rbp-88h]
   unsigned __int64 v48; // [rsp+88h] [rbp-80h]
   _DWORD *v49; // [rsp+90h] [rbp-78h]
   _DWORD *v50; // [rsp+98h] [rbp-70h]
-  char v51[16]; // [rsp+A0h] [rbp-68h] BYREF
-  __int64 v52; // [rsp+B0h] [rbp-58h]
-  unsigned __int64 v53; // [rsp+110h] [rbp+8h]
+  char MemoryInformation[16]; // [rsp+A0h] [rbp-68h] BYREF
+  _IMAGE_NT_HEADERS64 *v52; // [rsp+B0h] [rbp-58h]
+  char *BaseOfImagea; // [rsp+110h] [rbp+8h]
 
-  v53 = a1;
-  v5 = a1;
+  BaseOfImagea = (char *)BaseOfImage;
+  v5 = (char *)BaseOfImage;
   v6 = 1;
-  v7 = a1;
-  v48 = a1;
-  v39 = 0LL;
+  v7 = (PVOID)BaseOfImage;
+  v48 = BaseOfImage;
+  OutHeaders = 0LL;
   v8 = 0LL;
   v38 = 0LL;
-  v40 = a1 & 3;
-  if ( (a1 & 3) != 0 )
+  v40 = (PIMAGE_NT_HEADERS)(BaseOfImage & 3);
+  if ( (BaseOfImage & 3) != 0 )
   {
-    v6 = (a1 & 1) == 0;
-    v7 = a1 & 0xFFFFFFFFFFFFFFFCuLL;
-    v48 = a1 & 0xFFFFFFFFFFFFFFFCuLL;
+    v6 = (BaseOfImage & 1) == 0;
+    v7 = (PVOID)(BaseOfImage & 0xFFFFFFFFFFFFFFFCuLL);
+    v48 = BaseOfImage & 0xFFFFFFFFFFFFFFFCuLL;
   }
-  v9 = a1 & 0xFFFFFFFFFFFFFFFCuLL;
-  v10 = RtlImageNtHeaderEx(1LL, v7, 0LL, &v39);
-  if ( v39 )
+  v9 = (_IMAGE_NT_HEADERS64 *)(BaseOfImage & 0xFFFFFFFFFFFFFFFCuLL);
+  v10 = RtlImageNtHeaderEx(1u, v7, 0LL, &OutHeaders);
+  if ( OutHeaders )
   {
-    v11 = *(_WORD *)(v39 + 24);
-    if ( v11 == 267 )
+    Magic = OutHeaders->OptionalHeader.Magic;
+    if ( Magic == 267 )
     {
-      if ( *(_DWORD *)(v39 + 116) > 2u )
+      if ( HIDWORD(OutHeaders->OptionalHeader.SizeOfHeapReserve) > 2 )
       {
-        v15 = *(unsigned int *)(v39 + 136);
-        if ( (_DWORD)v15 )
+        VirtualAddress = OutHeaders->OptionalHeader.DataDirectory[0].VirtualAddress;
+        if ( (_DWORD)VirtualAddress )
         {
-          LODWORD(v44) = *(_DWORD *)(v39 + 140);
-          if ( v6 || (unsigned int)v15 < *(_DWORD *)(v39 + 84) )
+          LODWORD(NtHeaders) = OutHeaders->OptionalHeader.DataDirectory[0].Size;
+          if ( v6 || (unsigned int)VirtualAddress < OutHeaders->OptionalHeader.SizeOfHeaders )
           {
-            v8 = v7 + v15;
-            v38 = v7 + v15;
+            v8 = (__int64)v7 + VirtualAddress;
+            v38 = (__int64)v7 + VirtualAddress;
             v10 = 0;
           }
           else
           {
-            v16 = (_DWORD *)(*(unsigned __int16 *)(v39 + 20) + v39 + 24);
+            v16 = (_DWORD *)((char *)&OutHeaders->OptionalHeader.Magic + OutHeaders->FileHeader.SizeOfOptionalHeader);
             v49 = v16;
-            v17 = *(unsigned __int16 *)(v39 + 6);
+            NumberOfSections = OutHeaders->FileHeader.NumberOfSections;
             v18 = 0;
             v43 = 0;
-            while ( v18 < v17 )
+            while ( v18 < NumberOfSections )
             {
               v19 = v16[3];
-              if ( (unsigned int)v15 >= v19 && (unsigned int)v15 < v16[4] + v19 )
+              if ( (unsigned int)VirtualAddress >= v19 && (unsigned int)VirtualAddress < v16[4] + v19 )
               {
                 if ( v16 )
-                  v8 = v15 + v7 + (unsigned int)v16[5] - (unsigned __int64)(unsigned int)v16[3];
+                  v8 = (__int64)v7 + (unsigned int)v16[5] - (unsigned __int64)(unsigned int)v16[3] + VirtualAddress;
                 break;
               }
               v16 += 10;
@@ -129,7 +129,7 @@ __int64 __fastcall LdrpAccessResourceDataNoMultipleLanguage(
             if ( !v8 )
               v20 = -1073741811;
             v10 = v20;
-            v5 = v53;
+            v5 = BaseOfImagea;
           }
         }
         else
@@ -142,9 +142,9 @@ __int64 __fastcall LdrpAccessResourceDataNoMultipleLanguage(
         v10 = -1073741811;
       }
     }
-    else if ( v11 == 523 )
+    else if ( Magic == 523 )
     {
-      v10 = RtlpImageDirectoryEntryToData64(v7, v6, 2, (unsigned int)&v44, v39, (__int64)&v38);
+      v10 = RtlpImageDirectoryEntryToData64(v7, OutHeaders, (__int64)&v38);
       v8 = v38;
     }
     else
@@ -159,25 +159,25 @@ __int64 __fastcall LdrpAccessResourceDataNoMultipleLanguage(
   if ( !v8 )
     return 3221225609LL;
   VirtualMemory = 0;
-  FileSizeFromLoadAsDataTable = 0LL;
+  SizeOfImage = 0LL;
   v41 = 0LL;
   v42 = 0LL;
-  RtlImageNtHeaderEx(1LL, v9, 0LL, &v42);
+  RtlImageNtHeaderEx(1u, v9, 0LL, &v42);
   if ( !v42 )
     goto LABEL_41;
-  if ( (v5 & 1) == 0 )
+  if ( ((unsigned __int8)v5 & 1) == 0 )
   {
-    v21 = *(_WORD *)(v42 + 24);
+    v21 = v42->OptionalHeader.Magic;
     if ( v21 == 267 )
     {
-      FileSizeFromLoadAsDataTable = *(unsigned int *)(v42 + 80);
-      v41 = FileSizeFromLoadAsDataTable;
+      SizeOfImage = (_IMAGE_NT_HEADERS64 *)v42->OptionalHeader.SizeOfImage;
+      v41 = SizeOfImage;
       goto LABEL_42;
     }
     if ( v21 == 523 )
     {
-      FileSizeFromLoadAsDataTable = *(unsigned int *)(v42 + 80);
-      v41 = FileSizeFromLoadAsDataTable;
+      SizeOfImage = (_IMAGE_NT_HEADERS64 *)v42->OptionalHeader.SizeOfImage;
+      v41 = SizeOfImage;
       goto LABEL_42;
     }
     v41 = 0LL;
@@ -185,30 +185,36 @@ LABEL_41:
     VirtualMemory = -1073741701;
     goto LABEL_42;
   }
-  FileSizeFromLoadAsDataTable = LdrpGetFileSizeFromLoadAsDataTable(v5);
-  v41 = FileSizeFromLoadAsDataTable;
-  if ( !FileSizeFromLoadAsDataTable )
+  SizeOfImage = (_IMAGE_NT_HEADERS64 *)LdrpGetFileSizeFromLoadAsDataTable(v5);
+  v41 = SizeOfImage;
+  if ( !SizeOfImage )
   {
-    VirtualMemory = ZwQueryVirtualMemory(-1LL, v9, 3LL, v51, 48LL, 0LL);
+    VirtualMemory = ZwQueryVirtualMemory(
+                      (HANDLE)0xFFFFFFFFFFFFFFFFLL,
+                      v9,
+                      MemoryRegionInformation,
+                      MemoryInformation,
+                      0x30uLL,
+                      0LL);
     if ( VirtualMemory < 0 )
     {
       VirtualMemory = -1073741793;
     }
     else
     {
-      FileSizeFromLoadAsDataTable = v52;
+      SizeOfImage = v52;
       v41 = v52;
     }
   }
 LABEL_42:
-  v42 = FileSizeFromLoadAsDataTable;
+  v42 = SizeOfImage;
   if ( VirtualMemory >= 0 )
   {
-    v39 = v9;
-    v22 = a2 + 4;
-    if ( (unsigned __int64)a2 < v9
-      || v22 < a2
-      || FileSizeFromLoadAsDataTable && (unsigned __int64)v22 > FileSizeFromLoadAsDataTable + v9 )
+    OutHeaders = v9;
+    v22 = (_IMAGE_NT_HEADERS64 *)(a2 + 4);
+    if ( a2 < (ULONG *)v9
+      || v22 < (_IMAGE_NT_HEADERS64 *)a2
+      || SizeOfImage && v22 > (_IMAGE_NT_HEADERS64 *)((char *)v9 + (_QWORD)SizeOfImage) )
     {
       return (unsigned int)-1073741701;
     }
@@ -216,10 +222,10 @@ LABEL_42:
     v45 = 0;
     if ( v40 )
     {
-      v23 = (v5 & 1) != 0;
+      v23 = ((unsigned __int8)v5 & 1) != 0;
       v45 = v23;
-      v5 = v9;
-      v53 = v9;
+      v5 = (char *)v9;
+      BaseOfImagea = (char *)v9;
     }
     if ( !v23 )
     {
@@ -227,27 +233,27 @@ LABEL_42:
       goto LABEL_71;
     }
     v40 = 0LL;
-    RtlImageNtHeaderEx(1LL, v5, 0LL, &v40);
-    v44 = v40;
+    RtlImageNtHeaderEx(1u, v5, 0LL, &v40);
+    NtHeaders = v40;
     if ( !v40 )
       return (unsigned int)-1073741687;
-    v24 = *(_WORD *)(v40 + 24);
+    v24 = v40->OptionalHeader.Magic;
     if ( v24 == 267 )
     {
-      v25 = *(_DWORD *)(v40 + 136);
+      v25 = v40->OptionalHeader.DataDirectory[0].VirtualAddress;
     }
     else
     {
       if ( v24 != 523 )
         return (unsigned int)-1073741687;
-      v25 = *(_DWORD *)(v40 + 152);
+      v25 = v40->OptionalHeader.DataDirectory[2].VirtualAddress;
     }
     if ( v25 )
     {
-      v38 = v5 + v25 - v8;
-      v26 = (_DWORD *)(*(unsigned __int16 *)(v40 + 20) + v40 + 24);
+      v38 = (__int64)&v5[v25 - v8];
+      v26 = (_DWORD *)((char *)&v40->OptionalHeader.Magic + v40->FileHeader.SizeOfOptionalHeader);
       v50 = v26;
-      v27 = *(unsigned __int16 *)(v40 + 6);
+      v27 = v40->FileHeader.NumberOfSections;
       for ( i = 0; ; ++i )
       {
         v46 = i;
@@ -263,31 +269,35 @@ LABEL_42:
         return (unsigned int)-1073741687;
       if ( *a2 <= v26[2] )
       {
-        v5 = v53;
-        FileSizeFromLoadAsDataTable = v42;
-        v9 = v39;
+        v5 = BaseOfImagea;
+        SizeOfImage = v42;
+        v9 = OutHeaders;
         v35 = v38;
       }
       else
       {
         v30 = (unsigned int)v26[3];
-        v31 = RtlSectionTableFromVirtualAddress(v44);
+        v31 = RtlSectionTableFromVirtualAddress(NtHeaders, v26, *a2);
         v33 = v31;
         if ( !v31 )
           return (unsigned int)-1073741687;
-        v5 = v53;
-        v34 = RtlAddressInSectionTable(v32, v53, *(unsigned int *)(v31 + 12));
-        v35 = v47 + *(unsigned int *)(v33 + 12) - v30 - v34 + v38;
-        FileSizeFromLoadAsDataTable = v42;
-        v9 = v39;
+        v5 = BaseOfImagea;
+        v34 = RtlAddressInSectionTable(v32, BaseOfImagea, v31->VirtualAddress);
+        v35 = v47 + v33->VirtualAddress - v30 - (_QWORD)v34 + v38;
+        SizeOfImage = v42;
+        v9 = OutHeaders;
       }
 LABEL_71:
       if ( a3 )
       {
-        v36 = v5 + *a2 - v35;
-        v37 = v36 + a2[1];
-        if ( v36 < v9 || v37 < v36 || FileSizeFromLoadAsDataTable && v37 > v9 + FileSizeFromLoadAsDataTable )
+        v36 = &v5[*a2 - v35];
+        v37 = (_IMAGE_NT_HEADERS64 *)&v36[a2[1]];
+        if ( v36 < (char *)v9
+          || v37 < (_IMAGE_NT_HEADERS64 *)v36
+          || SizeOfImage && v37 > (_IMAGE_NT_HEADERS64 *)((char *)SizeOfImage + (_QWORD)v9) )
+        {
           return (unsigned int)-1073741701;
+        }
         *a3 = v36;
       }
       if ( a4 )

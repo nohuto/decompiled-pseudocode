@@ -1,14 +1,14 @@
 /*
- * XREFs of SymCryptMlDsaSkEncode @ 0x140573DD0
+ * XREFs of SymCryptMlDsaSkEncode @ 0x140573034
  * Callers:
- *     SymCryptMlDsakeyGetValue @ 0x14055E29C (SymCryptMlDsakeyGetValue.c)
+ *     SymCryptMlDsakeyGetValue @ 0x1405607C0 (SymCryptMlDsakeyGetValue.c)
  * Callees:
- *     SymCryptWipe @ 0x140556458 (SymCryptWipe.c)
- *     SymCryptMlDsaTemporariesAllocateAndInitialize @ 0x140573FA0 (SymCryptMlDsaTemporariesAllocateAndInitialize.c)
- *     SymCryptMlDsaVectorEncode @ 0x140574380 (SymCryptMlDsaVectorEncode.c)
- *     SymCryptMlDsaVectorINTT @ 0x14057448C (SymCryptMlDsaVectorINTT.c)
- *     SymCryptCallbackFree @ 0x1407228C8 (SymCryptCallbackFree.c)
- *     memmove @ 0x14073D480 (memmove.c)
+ *     SymCryptWipe @ 0x1405588E8 (SymCryptWipe.c)
+ *     SymCryptMlDsaTemporariesAllocateAndInitialize @ 0x140573204 (SymCryptMlDsaTemporariesAllocateAndInitialize.c)
+ *     SymCryptMlDsaVectorEncode @ 0x1405735E4 (SymCryptMlDsaVectorEncode.c)
+ *     SymCryptMlDsaVectorINTT @ 0x1405736F0 (SymCryptMlDsaVectorINTT.c)
+ *     SymCryptCallbackFree @ 0x140727498 (SymCryptCallbackFree.c)
+ *     memmove @ 0x140742080 (memmove.c)
  */
 
 __int64 __fastcall SymCryptMlDsaSkEncode(__int64 a1, _OWORD *a2, __int64 a3)

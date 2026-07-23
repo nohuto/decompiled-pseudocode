@@ -24,7 +24,7 @@
 
 signed __int32 __fastcall SshpSessionManagerSendControlEvent(__int64 a1, unsigned int a2, __int64 a3)
 {
-  __int64 SystemTimePrecise; // r13
+  LARGE_INTEGER SystemTimePrecise; // r13
   int v7; // ebp
   __int64 v8; // rsi
   _DWORD *v9; // rcx
@@ -62,7 +62,7 @@ signed __int32 __fastcall SshpSessionManagerSendControlEvent(__int64 a1, unsigne
     v12 = (char *)&unk_140C38784 + (unsigned int)dword_140C38780;
     *(_DWORD *)v12 = v7;
     *(_QWORD *)(v12 + 4) = a1;
-    *(_QWORD *)(v12 + 12) = SystemTimePrecise;
+    *(LARGE_INTEGER *)(v12 + 12) = SystemTimePrecise;
     v13 = v12 + 20;
     if ( a2 )
     {

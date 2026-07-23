@@ -1,10 +1,10 @@
 /*
- * XREFs of PsEstablishWin32Callouts @ 0x140842D50
+ * XREFs of PsEstablishWin32Callouts @ 0x140843050
  * Callers:
  *     <none>
  * Callees:
- *     ExCompareExchangeCallBack @ 0x14039FE58 (ExCompareExchangeCallBack.c)
- *     ExAllocateCallBack @ 0x140843200 (ExAllocateCallBack.c)
+ *     ExCompareExchangeCallBack @ 0x1403A0038 (ExCompareExchangeCallBack.c)
+ *     ExAllocateCallBack @ 0x140843500 (ExAllocateCallBack.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

@@ -1,10 +1,10 @@
 /*
- * XREFs of PpmParkFreeAllParkNodes @ 0x14075E7D8
+ * XREFs of PpmParkFreeAllParkNodes @ 0x14075D778
  * Callers:
- *     PpmParkRegisterParking @ 0x1405D9FB4 (PpmParkRegisterParking.c)
- *     PpmParkRegisterParkingEx @ 0x1405E3C90 (PpmParkRegisterParkingEx.c)
+ *     PpmParkRegisterParking @ 0x1405D72D0 (PpmParkRegisterParking.c)
+ *     PpmParkRegisterParkingEx @ 0x1405E1218 (PpmParkRegisterParkingEx.c)
  * Callees:
- *     PpmParkFreeParkNodes @ 0x14075E8C8 (PpmParkFreeParkNodes.c)
+ *     PpmParkFreeParkNodes @ 0x14075D868 (PpmParkFreeParkNodes.c)
  */
 
 __int64 __fastcall PpmParkFreeAllParkNodes(char *P, unsigned int a2, _BYTE *a3, __int64 a4, char a5)
@@ -36,15 +36,15 @@ __int64 __fastcall PpmParkFreeAllParkNodes(char *P, unsigned int a2, _BYTE *a3, 
         v12 = 0LL;
         do
         {
-          v13 = v7[22];
-          if ( *(_QWORD *)(v12 + *(_QWORD *)((char *)v7 + v9 + 176) + 568) == *(_QWORD *)(v12 + v13 + 568) )
+          v13 = v7[23];
+          if ( *(_QWORD *)(v12 + *(_QWORD *)((char *)v7 + v9 + 184) + 568) == *(_QWORD *)(v12 + v13 + 568) )
             *(_QWORD *)(v12 + v13 + 568) = 0LL;
           ++v11;
           v12 += 640LL;
         }
         while ( v11 < v10 );
       }
-      v7 += 161;
+      v7 += 162;
       --v8;
     }
     while ( v8 );

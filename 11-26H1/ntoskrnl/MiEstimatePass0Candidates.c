@@ -1,7 +1,7 @@
 /*
- * XREFs of MiEstimatePass0Candidates @ 0x1404D1C44
+ * XREFs of MiEstimatePass0Candidates @ 0x1404CB7F0
  * Callers:
- *     MiComputeSystemTrimCriteria @ 0x1402A65A8 (MiComputeSystemTrimCriteria.c)
+ *     MiComputeSystemTrimCriteria @ 0x1402A59C4 (MiComputeSystemTrimCriteria.c)
  * Callees:
  *     <none>
  */

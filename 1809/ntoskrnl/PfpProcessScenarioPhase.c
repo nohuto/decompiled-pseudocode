@@ -1,17 +1,17 @@
 /*
- * XREFs of PfpProcessScenarioPhase @ 0x14071BBBC
+ * XREFs of PfpProcessScenarioPhase @ 0x14071CE5C
  * Callers:
- *     PfSetSuperfetchInformation @ 0x140665878 (PfSetSuperfetchInformation.c)
- *     PfSnSetPrefetcherInformation @ 0x140665E98 (PfSnSetPrefetcherInformation.c)
+ *     PfSetSuperfetchInformation @ 0x140666A38 (PfSetSuperfetchInformation.c)
+ *     PfSnSetPrefetcherInformation @ 0x140667058 (PfSnSetPrefetcherInformation.c)
  * Callees:
  *     PsGetCurrentProcessSessionId @ 0x140002AA0 (PsGetCurrentProcessSessionId.c)
  *     RtlGetActiveConsoleId @ 0x140010890 (RtlGetActiveConsoleId.c)
  *     MmGetNextSession @ 0x140012740 (MmGetNextSession.c)
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
- *     PfpScenCtxPrefetchWait @ 0x1405669E0 (PfpScenCtxPrefetchWait.c)
- *     PfPowerActionNotify @ 0x140567F10 (PfPowerActionNotify.c)
- *     PfpScenCtxScenarioSet @ 0x14056EA68 (PfpScenCtxScenarioSet.c)
- *     PfpLogScenarioEvent @ 0x14071BCB4 (PfpLogScenarioEvent.c)
+ *     PfpScenCtxPrefetchWait @ 0x1405679E0 (PfpScenCtxPrefetchWait.c)
+ *     PfPowerActionNotify @ 0x140568F10 (PfPowerActionNotify.c)
+ *     PfpScenCtxScenarioSet @ 0x14056FA68 (PfpScenCtxScenarioSet.c)
+ *     PfpLogScenarioEvent @ 0x14071CF54 (PfpLogScenarioEvent.c)
  */
 
 __int64 __fastcall PfpProcessScenarioPhase(__int64 a1, char a2)
@@ -21,12 +21,12 @@ __int64 __fastcall PfpProcessScenarioPhase(__int64 a1, char a2)
   unsigned int v5; // edi
   __int64 v6; // rdx
   int v8; // ecx
-  int ActiveConsoleId; // ebx
+  ULONG ActiveConsoleId; // ebx
   __int64 v10; // r9
   int v11; // r8d
   int v12; // ecx
   int v13; // edx
-  int v14; // ebx
+  ULONG v14; // ebx
   unsigned int v15; // ebx
   void *NextSession; // rax
 
@@ -51,9 +51,9 @@ __int64 __fastcall PfpProcessScenarioPhase(__int64 a1, char a2)
           ActiveConsoleId = RtlGetActiveConsoleId();
           if ( (unsigned int)PsGetCurrentProcessSessionId() == ActiveConsoleId )
           {
-            PfpScenCtxScenarioSet((ULONG_PTR)&qword_14043C0A0, 4, 0, 0LL);
-            if ( dword_14043BD58 < (unsigned int)dword_14043BD5C )
-              PfpLogScenarioEvent(5, 2, 3, dword_14043C0D4, 1);
+            PfpScenCtxScenarioSet((ULONG_PTR)&qword_14043D160, 4, 0, 0LL);
+            if ( dword_14043CE18 < (unsigned int)dword_14043CE1C )
+              PfpLogScenarioEvent(5, 2, 3, dword_14043D194, 1);
           }
         }
         return v5;
@@ -85,19 +85,19 @@ LABEL_4:
   v5 = 0;
   if ( v12 )
   {
-    if ( v12 != 1 || dword_14043C0D0 != 3 )
+    if ( v12 != 1 || dword_14043D190 != 3 )
       return v5;
-    PfpScenCtxPrefetchWait((ULONG_PTR)&qword_14043C0A0, 3, 0x1388u);
-    PfpLogScenarioEvent(3, 0, 0, dword_14043C0D4, 0);
+    PfpScenCtxPrefetchWait((ULONG_PTR)&qword_14043D160, 3, 0x1388u);
+    PfpLogScenarioEvent(3, 0, 0, dword_14043D194, 0);
     v10 = 0LL;
     v13 = 3;
     v11 = 0;
 LABEL_33:
-    PfpScenCtxScenarioSet((ULONG_PTR)&qword_14043C0A0, v13, v11, v10);
+    PfpScenCtxScenarioSet((ULONG_PTR)&qword_14043D160, v13, v11, v10);
     return v5;
   }
   v14 = RtlGetActiveConsoleId();
-  if ( (unsigned int)PsGetCurrentProcessSessionId() == v14 && dword_14043BD58 < (unsigned int)dword_14043BD5C )
+  if ( (unsigned int)PsGetCurrentProcessSessionId() == v14 && dword_14043CE18 < (unsigned int)dword_14043CE1C )
   {
     v15 = 0;
     NextSession = (void *)MmGetNextSession(0LL);

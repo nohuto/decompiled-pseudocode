@@ -1,16 +1,16 @@
 /*
- * XREFs of MiZeroPageCalibrateDpc @ 0x14038DCB0
+ * XREFs of MiZeroPageCalibrateDpc @ 0x14038DE90
  * Callers:
  *     <none>
  * Callees:
- *     KeShouldYieldProcessor @ 0x140333C70 (KeShouldYieldProcessor.c)
- *     MiZeroMemory @ 0x14038DE4C (MiZeroMemory.c)
- *     MiZeroPageCalibrateLastDpcProcessorDone @ 0x14038DE7C (MiZeroPageCalibrateLastDpcProcessorDone.c)
- *     MiStartDpcZeroingRound @ 0x14038DF48 (MiStartDpcZeroingRound.c)
- *     MiWakeOnlyParticipatingProcessorsFromAssignedNode @ 0x14038E2CC (MiWakeOnlyParticipatingProcessorsFromAssignedNode.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1403CD2C0 (KiCheckVpBackingLongSpinWaitHypercall.c)
- *     HvlNotifyLongSpinWait @ 0x1403CD2F0 (HvlNotifyLongSpinWait.c)
- *     RtlpInterlockedPushEntrySList @ 0x140428EF0 (RtlpInterlockedPushEntrySList.c)
+ *     KeShouldYieldProcessor @ 0x140333F00 (KeShouldYieldProcessor.c)
+ *     MiZeroMemory @ 0x14038E02C (MiZeroMemory.c)
+ *     MiZeroPageCalibrateLastDpcProcessorDone @ 0x14038E05C (MiZeroPageCalibrateLastDpcProcessorDone.c)
+ *     MiStartDpcZeroingRound @ 0x14038E128 (MiStartDpcZeroingRound.c)
+ *     MiWakeOnlyParticipatingProcessorsFromAssignedNode @ 0x14038E4AC (MiWakeOnlyParticipatingProcessorsFromAssignedNode.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1403CD4A0 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     HvlNotifyLongSpinWait @ 0x1403CD4D0 (HvlNotifyLongSpinWait.c)
+ *     RtlpInterlockedPushEntrySList @ 0x140429280 (RtlpInterlockedPushEntrySList.c)
  */
 
 __int64 __fastcall MiZeroPageCalibrateDpc(__int64 a1, __int64 a2, volatile signed __int32 *a3)

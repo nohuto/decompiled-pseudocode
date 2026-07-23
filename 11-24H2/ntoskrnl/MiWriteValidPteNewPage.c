@@ -1,71 +1,79 @@
 /*
- * XREFs of MiWriteValidPteNewPage @ 0x1403A28B8
+ * XREFs of MiWriteValidPteNewPage @ 0x140217188
  * Callers:
- *     MiRewritePteWithLockBit @ 0x14020CBCC (MiRewritePteWithLockBit.c)
- *     MiStealPage @ 0x1402263B0 (MiStealPage.c)
- *     MiCombineInitialInstance @ 0x14036C3E0 (MiCombineInitialInstance.c)
- *     MiTradeActivePage @ 0x1403A0758 (MiTradeActivePage.c)
- *     MiWritePteHighLevelIsr @ 0x1404B8330 (MiWritePteHighLevelIsr.c)
- *     MiWriteAweClusterPte @ 0x1404D6FE4 (MiWriteAweClusterPte.c)
+ *     MiTradeActivePage @ 0x1402172BC (MiTradeActivePage.c)
+ *     MiStealPage @ 0x140253D10 (MiStealPage.c)
+ *     MiCombineInitialInstance @ 0x140294F94 (MiCombineInitialInstance.c)
+ *     MiRewritePteWithLockBit @ 0x140335F2C (MiRewritePteWithLockBit.c)
+ *     MiWritePteHighLevelIsr @ 0x1404B2C80 (MiWritePteHighLevelIsr.c)
+ *     MiWriteAweClusterPte @ 0x1404D0434 (MiWriteAweClusterPte.c)
  * Callees:
- *     MI_READ_PTE_LOCK_FREE @ 0x14021A250 (MI_READ_PTE_LOCK_FREE.c)
- *     MiCheckLinearProtectedPteAccessedBit @ 0x140232A20 (MiCheckLinearProtectedPteAccessedBit.c)
- *     MiSanitizeShadowPxe @ 0x140233C54 (MiSanitizeShadowPxe.c)
- *     MiWritePteShadow @ 0x140233CD4 (MiWritePteShadow.c)
- *     MiPteInShadowRange @ 0x1402863E0 (MiPteInShadowRange.c)
+ *     MiPteInShadowRange @ 0x140202630 (MiPteInShadowRange.c)
+ *     MiCheckLinearProtectedPteAccessedBit @ 0x140203550 (MiCheckLinearProtectedPteAccessedBit.c)
+ *     MiSanitizeShadowPxe @ 0x140203820 (MiSanitizeShadowPxe.c)
+ *     MiWritePteShadow @ 0x1402038A0 (MiWritePteShadow.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140246FA0 (MI_READ_PTE_LOCK_FREE.c)
  */
 
-char __fastcall MiWriteValidPteNewPage(volatile signed __int64 *BugCheckParameter2, __int64 a2, int a3)
+char __fastcall MiWriteValidPteNewPage(
+        volatile signed __int64 *BugCheckParameter2,
+        unsigned __int64 a2,
+        __int64 a3,
+        __int64 a4)
 {
-  __int64 v4; // rdi
-  signed __int64 v6; // rbx
-  unsigned __int64 v7; // rsi
-  int v8; // edi
-  ULONG_PTR v9; // rsi
-  signed __int64 v10; // rax
-  unsigned __int64 v12; // [rsp+48h] [rbp+10h]
+  int v4; // ebp
+  unsigned __int64 v5; // rdi
+  signed __int64 v7; // rbx
+  unsigned __int64 v8; // rsi
+  int v9; // edi
+  __int64 v10; // rcx
+  unsigned __int64 v11; // rsi
+  signed __int64 v12; // rax
+  unsigned __int64 v14; // [rsp+48h] [rbp+10h] BYREF
 
-  v4 = a2;
-  if ( a3 )
+  v14 = a2;
+  v4 = a3;
+  v5 = a2;
+  if ( (_DWORD)a3 )
   {
-    v6 = *BugCheckParameter2;
-    v4 = a2;
+    v7 = *BugCheckParameter2;
+    v5 = v14;
   }
   else
   {
-    v6 = MI_READ_PTE_LOCK_FREE((unsigned __int64)BugCheckParameter2);
+    v7 = MI_READ_PTE_LOCK_FREE(BugCheckParameter2, a2, a3);
   }
-  v7 = v4 & 0x80FFFFFFFFFFFFFFuLL | v6 & 0x7F00000000000000LL;
-  v8 = 0;
-  v12 = v7;
-  if ( !a3 && MiPteInShadowRange((unsigned __int64)BugCheckParameter2) )
+  v8 = v5 & 0x80FFFFFFFFFFFFFFuLL | v7 & 0x7F00000000000000LL;
+  v9 = 0;
+  v14 = v8;
+  if ( !v4 && MiPteInShadowRange((unsigned __int64)BugCheckParameter2) )
   {
-    v8 = MiSanitizeShadowPxe();
+    v9 = MiSanitizeShadowPxe(v10, (__int64)&v14, a3);
     goto LABEL_15;
   }
   while ( 1 )
   {
-    if ( (v6 & 0x20) != 0 )
-      v9 = v7 | 0x20;
+    if ( (v7 & 0x20) != 0 )
+      v11 = v8 | 0x20;
     else
-      v9 = v7 & 0xFFFFFFFFFFFFFFDFuLL;
-    v12 = v9;
+      v11 = v8 & 0xFFFFFFFFFFFFFFDFuLL;
+    v14 = v11;
     if ( (MiFlags & 0x2000000) != 0 )
       _mm_lfence();
     if ( _bittest64(&MiFlags, 0x24u)
-      && (v9 & 0x21) == 1
+      && (v11 & 0x21) == 1
       && (unsigned __int64)BugCheckParameter2 >= 0xFFFFF6C000000000uLL )
     {
-      MiCheckLinearProtectedPteAccessedBit((ULONG_PTR)BugCheckParameter2, v9, 128);
+      MiCheckLinearProtectedPteAccessedBit((ULONG_PTR)BugCheckParameter2, v11, 128LL);
     }
-    v10 = _InterlockedCompareExchange64(BugCheckParameter2, v9, v6);
-    if ( v6 == v10 )
+    v12 = _InterlockedCompareExchange64(BugCheckParameter2, v11, v7);
+    if ( v7 == v12 )
       break;
-    v6 = v10;
-LABEL_15:
     v7 = v12;
+LABEL_15:
+    v8 = v14;
   }
-  if ( v8 )
-    LOBYTE(v10) = MiWritePteShadow();
-  return v10;
+  if ( v9 )
+    LOBYTE(v12) = MiWritePteShadow((__int64)BugCheckParameter2, v11, a3, a4);
+  return v12;
 }

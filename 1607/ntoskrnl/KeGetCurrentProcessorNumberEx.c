@@ -1,8 +1,8 @@
 /*
- * XREFs of KeGetCurrentProcessorNumberEx @ 0x14008C1E0
+ * XREFs of KeGetCurrentProcessorNumberEx @ 0x14008B940
  * Callers:
- *     KiInterruptDispatchCommon @ 0x1401D8668 (KiInterruptDispatchCommon.c)
- *     KiCopyCountersWorker @ 0x14064FE2C (KiCopyCountersWorker.c)
+ *     KiInterruptDispatchCommon @ 0x1401D8494 (KiInterruptDispatchCommon.c)
+ *     KiCopyCountersWorker @ 0x14064FF10 (KiCopyCountersWorker.c)
  * Callees:
  *     <none>
  */

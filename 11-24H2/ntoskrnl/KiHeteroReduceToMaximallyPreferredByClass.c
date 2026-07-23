@@ -1,10 +1,10 @@
 /*
- * XREFs of KiHeteroReduceToMaximallyPreferredByClass @ 0x140202324
+ * XREFs of KiHeteroReduceToMaximallyPreferredByClass @ 0x14032AA14
  * Callers:
- *     KiTallyHeteroSoftParkElectionVotes @ 0x1402018D0 (KiTallyHeteroSoftParkElectionVotes.c)
- *     KiGetNextClockOwner @ 0x1405BA1EC (KiGetNextClockOwner.c)
+ *     KiTallyHeteroSoftParkElectionVotes @ 0x140329FC0 (KiTallyHeteroSoftParkElectionVotes.c)
+ *     KiGetNextClockOwner @ 0x1405B781C (KiGetNextClockOwner.c)
  * Callees:
- *     KiReduceAffinityToRankListMaximums @ 0x140202640 (KiReduceAffinityToRankListMaximums.c)
+ *     KiReduceAffinityToRankListMaximums @ 0x14032AD30 (KiReduceAffinityToRankListMaximums.c)
  */
 
 __int64 __fastcall KiHeteroReduceToMaximallyPreferredByClass(__int64 a1, __int64 a2, int a3, unsigned __int8 a4)

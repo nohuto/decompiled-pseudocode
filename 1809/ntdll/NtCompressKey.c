@@ -1,16 +1,16 @@
 /*
- * XREFs of NtCompressKey @ 0x1800A1670
+ * XREFs of NtCompressKey @ 0x1800A1690
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 NtCompressKey()
+NTSTATUS __cdecl NtCompressKey(HANDLE KeyHandle)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 157LL;
+  result = 157;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

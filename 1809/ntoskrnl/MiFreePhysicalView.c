@@ -1,11 +1,11 @@
 /*
- * XREFs of MiFreePhysicalView @ 0x1400684E8
+ * XREFs of MiFreePhysicalView @ 0x1400684D8
  * Callers:
- *     MiRemoveVadCharges @ 0x1405EC820 (MiRemoveVadCharges.c)
+ *     MiRemoveVadCharges @ 0x1405ED820 (MiRemoveVadCharges.c)
  * Callees:
- *     MiUnlockWorkingSetExclusive @ 0x140063CE0 (MiUnlockWorkingSetExclusive.c)
- *     MiGetSharedVm @ 0x140064D30 (MiGetSharedVm.c)
- *     ExAcquireSpinLockExclusive @ 0x1400BC4E0 (ExAcquireSpinLockExclusive.c)
+ *     MiUnlockWorkingSetExclusive @ 0x140063CD0 (MiUnlockWorkingSetExclusive.c)
+ *     MiGetSharedVm @ 0x140064D20 (MiGetSharedVm.c)
+ *     ExAcquireSpinLockExclusive @ 0x1400BC420 (ExAcquireSpinLockExclusive.c)
  */
 
 void __fastcall MiFreePhysicalView(__int64 a1, __int64 a2)

@@ -1,31 +1,31 @@
 /*
- * XREFs of NtGetMUIRegistryInfo @ 0x1404CFDC8
+ * XREFs of NtGetMUIRegistryInfo @ 0x1404B3868
  * Callers:
  *     <none>
  * Callees:
- *     KeInitializeEvent @ 0x14002DEA0 (KeInitializeEvent.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x140055FA0 (KiLeaveCriticalRegionUnsafe.c)
- *     KeWaitForSingleObject @ 0x14005C880 (KeWaitForSingleObject.c)
- *     ExAcquireResourceExclusiveLite @ 0x140068160 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x140068940 (ExReleaseResourceLite.c)
- *     ZwClose @ 0x140159E60 (ZwClose.c)
- *     memmove @ 0x140171280 (memmove.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     MUIBugCheck @ 0x14022FB58 (MUIBugCheck.c)
- *     MigrateOOBELanguageToInstallationLanguage @ 0x14022FB78 (MigrateOOBELanguageToInstallationLanguage.c)
+ *     KeInitializeEvent @ 0x14002DA20 (KeInitializeEvent.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140055B20 (KiLeaveCriticalRegionUnsafe.c)
+ *     KeWaitForSingleObject @ 0x14005C400 (KeWaitForSingleObject.c)
+ *     ExAcquireResourceExclusiveLite @ 0x140067CE0 (ExAcquireResourceExclusiveLite.c)
+ *     ExReleaseResourceLite @ 0x1400684C0 (ExReleaseResourceLite.c)
+ *     ZwClose @ 0x14015A3D0 (ZwClose.c)
+ *     memmove @ 0x140171780 (memmove.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     MUIBugCheck @ 0x14022F984 (MUIBugCheck.c)
+ *     MigrateOOBELanguageToInstallationLanguage @ 0x14022F9A4 (MigrateOOBELanguageToInstallationLanguage.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
- *     PsCreateSystemThread @ 0x1403E4710 (PsCreateSystemThread.c)
- *     ProbeForWrite @ 0x14044DAC0 (ProbeForWrite.c)
- *     MUIInitializeResourceLock @ 0x1404D085C (MUIInitializeResourceLock.c)
+ *     PsCreateSystemThread @ 0x1403E5D3C (PsCreateSystemThread.c)
+ *     ProbeForWrite @ 0x14044C990 (ProbeForWrite.c)
+ *     MUIInitializeResourceLock @ 0x1404B42FC (MUIInitializeResourceLock.c)
  */
 
-__int64 __fastcall NtGetMUIRegistryInfo(int a1, _DWORD *a2, volatile void *a3)
+NTSTATUS __cdecl NtGetMUIRegistryInfo(ULONG Flags, PULONG DataSize, PVOID Data)
 {
-  int v5; // ebx
+  ULONG v5; // ebx
   __int64 v6; // rax
   struct _KTHREAD *CurrentThread; // rax
   char v8; // bl
-  NTSTATUS v9; // esi
+  int v9; // esi
   __int64 v10; // rcx
   __int64 v11; // rdx
   __int64 v12; // r8
@@ -45,33 +45,33 @@ __int64 __fastcall NtGetMUIRegistryInfo(int a1, _DWORD *a2, volatile void *a3)
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+98h] [rbp-60h] BYREF
   char v28; // [rsp+118h] [rbp+20h]
 
-  v5 = a1;
+  v5 = Flags;
   v28 = 0;
   if ( !KeGetCurrentThread()->PreviousMode || InitSafeBootMode )
     goto LABEL_47;
-  if ( a2 )
+  if ( DataSize )
   {
-    v6 = (__int64)a2;
-    if ( (unsigned __int64)a2 >= 0x7FFFFFFF0000LL )
+    v6 = (__int64)DataSize;
+    if ( (unsigned __int64)DataSize >= 0x7FFFFFFF0000LL )
       v6 = 0x7FFFFFFF0000LL;
     Length = *(_DWORD *)v6;
     if ( *(_DWORD *)v6 )
     {
-      if ( !a3 )
+      if ( !Data )
         goto LABEL_48;
       goto LABEL_11;
     }
   }
   else
   {
-    if ( (a1 & 0xA) == 0 )
+    if ( (Flags & 0xA) == 0 )
       goto LABEL_48;
     Length = 0;
   }
-  if ( a3 )
+  if ( Data )
     goto LABEL_48;
 LABEL_11:
-  if ( !a1 )
+  if ( !Flags )
     v5 = 1;
   if ( (v5 & 0xFFFFFFF4) != 0 )
     goto LABEL_48;
@@ -191,16 +191,16 @@ LABEL_18:
   }
   v9 = 0;
 LABEL_22:
-  v10 = (__int64)a2;
-  if ( (unsigned __int64)a2 >= 0x7FFFFFFF0000LL )
+  v10 = (__int64)DataSize;
+  if ( (unsigned __int64)DataSize >= 0x7FFFFFFF0000LL )
     v10 = 0x7FFFFFFF0000LL;
   *(_DWORD *)v10 = *(_DWORD *)v10;
-  *a2 = MUIRegistryInfoSize;
+  *DataSize = MUIRegistryInfoSize;
   if ( v8 )
   {
-    ProbeForWrite(a3, Length, 1u);
-    memset((void *)a3, 0, Length);
-    memmove((void *)a3, MUIRegistryInfo, (unsigned int)MUIRegistryInfoSize);
+    ProbeForWrite(Data, Length, 1u);
+    memset(Data, 0, Length);
+    memmove(Data, MUIRegistryInfo, (unsigned int)MUIRegistryInfoSize);
   }
 LABEL_26:
   if ( v28 )
@@ -208,5 +208,5 @@ LABEL_26:
     ExReleaseResourceLite(MUIRegistryLock);
     KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread(), v11, v12, v13);
   }
-  return (unsigned int)v9;
+  return v9;
 }

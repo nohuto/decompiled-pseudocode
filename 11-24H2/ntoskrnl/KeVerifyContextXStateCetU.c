@@ -1,11 +1,11 @@
 /*
- * XREFs of KeVerifyContextXStateCetU @ 0x1403E7E20
+ * XREFs of KeVerifyContextXStateCetU @ 0x1403D59C0
  * Callers:
- *     KyRaiseException @ 0x1403E65D0 (KyRaiseException.c)
- *     PspGetSetContextInternal @ 0x1409A4CA0 (PspGetSetContextInternal.c)
+ *     KyRaiseException @ 0x1403D4170 (KyRaiseException.c)
+ *     PspGetSetContextInternal @ 0x1409882C0 (PspGetSetContextInternal.c)
  * Callees:
- *     RtlLocateExtendedFeature @ 0x140281BD0 (RtlLocateExtendedFeature.c)
- *     KiVerifyContextXStateCetUEnabled @ 0x1403E7F14 (KiVerifyContextXStateCetUEnabled.c)
+ *     RtlLocateExtendedFeature @ 0x140237160 (RtlLocateExtendedFeature.c)
+ *     KiVerifyContextXStateCetUEnabled @ 0x1403D5AB4 (KiVerifyContextXStateCetUEnabled.c)
  */
 
 __int64 __fastcall KeVerifyContextXStateCetU(__int64 a1, __int64 a2, unsigned __int64 *a3)
@@ -18,7 +18,7 @@ __int64 __fastcall KeVerifyContextXStateCetU(__int64 a1, __int64 a2, unsigned __
 
   if ( (*(_DWORD *)(a2 + 48) & 0x100040) != 0x100040 )
     return 0LL;
-  ExtendedFeature = (_QWORD *)RtlLocateExtendedFeature(a2 + 1232, 11);
+  ExtendedFeature = RtlLocateExtendedFeature((PCONTEXT_EX)(a2 + 1232), 0xBu, 0LL);
   if ( !ExtendedFeature )
     return 0LL;
   v8 = *(int *)(a2 + 1248);

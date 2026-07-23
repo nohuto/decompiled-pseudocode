@@ -1,10 +1,10 @@
 /*
- * XREFs of PiEventAllocateVetoBuffer @ 0x140A0E248
+ * XREFs of PiEventAllocateVetoBuffer @ 0x1409BC64C
  * Callers:
- *     PnpProcessQueryRemoveAndEject @ 0x140A0DB78 (PnpProcessQueryRemoveAndEject.c)
+ *     PnpProcessQueryRemoveAndEject @ 0x1409BBF7C (PnpProcessQueryRemoveAndEject.c)
  * Callees:
- *     PnpAllocateCriticalMemory @ 0x140A0D890 (PnpAllocateCriticalMemory.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     PnpAllocateCriticalMemory @ 0x1409BBC94 (PnpAllocateCriticalMemory.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 char *__fastcall PiEventAllocateVetoBuffer(int a1)
@@ -12,10 +12,10 @@ char *__fastcall PiEventAllocateVetoBuffer(int a1)
   char *CriticalMemory; // rbx
   __int64 v4; // rax
 
-  CriticalMemory = (char *)PnpAllocateCriticalMemory(a1, 0x100uLL);
+  CriticalMemory = (char *)PnpAllocateCriticalMemory(a1, 0x100uLL, 0x18uLL, 0x4D706E50u);
   if ( CriticalMemory )
   {
-    v4 = PnpAllocateCriticalMemory(a1, 0x100uLL);
+    v4 = PnpAllocateCriticalMemory(a1, 0x100uLL, 0x400uLL, 0x4D706E50u);
     if ( v4 )
     {
       *(_DWORD *)CriticalMemory = 0;

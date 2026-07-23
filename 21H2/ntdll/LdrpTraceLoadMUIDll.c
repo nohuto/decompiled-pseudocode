@@ -1,5 +1,5 @@
 /*
- * XREFs of LdrpTraceLoadMUIDll @ 0x1800E1794
+ * XREFs of LdrpTraceLoadMUIDll @ 0x1800E1754
  * Callers:
  *     LdrpAccessResourceData @ 0x180021500 (LdrpAccessResourceData.c)
  *     LdrLoadAlternateResourceModuleEx @ 0x180034EA0 (LdrLoadAlternateResourceModuleEx.c)
@@ -15,27 +15,36 @@
  *     LdrFindResource_U @ 0x1800716C0 (LdrFindResource_U.c)
  *     LdrFindResourceEx_U @ 0x180081900 (LdrFindResourceEx_U.c)
  *     LdrResRelease @ 0x18008A500 (LdrResRelease.c)
- *     LdrpMUIEtwOutput @ 0x1800E14AC (LdrpMUIEtwOutput.c)
- *     LdrpResFileSize @ 0x1800E41D0 (LdrpResFileSize.c)
- *     LdrpResMapFile @ 0x1800E4344 (LdrpResMapFile.c)
- *     LdrpResSearchResourceHandle @ 0x1800E476C (LdrpResSearchResourceHandle.c)
- *     LdrpResValidateFilePath @ 0x1800E4EF8 (LdrpResValidateFilePath.c)
+ *     LdrpMUIEtwOutput @ 0x1800E146C (LdrpMUIEtwOutput.c)
+ *     LdrpResFileSize @ 0x1800E4190 (LdrpResFileSize.c)
+ *     LdrpResMapFile @ 0x1800E4304 (LdrpResMapFile.c)
+ *     LdrpResSearchResourceHandle @ 0x1800E472C (LdrpResSearchResourceHandle.c)
+ *     LdrpResValidateFilePath @ 0x1800E4EB8 (LdrpResValidateFilePath.c)
  * Callees:
  *     __security_check_cookie @ 0x18008C940 (__security_check_cookie.c)
- *     NtTraceEvent @ 0x18009E1F0 (NtTraceEvent.c)
- *     memmove @ 0x1800A44C0 (memmove.c)
+ *     NtTraceEvent @ 0x18009E1B0 (NtTraceEvent.c)
+ *     memmove @ 0x1800A4480 (memmove.c)
  */
 
-__int64 __fastcall LdrpTraceLoadMUIDll(unsigned __int16 *a1)
+NTSTATUS __fastcall LdrpTraceLoadMUIDll(unsigned __int16 *a1, unsigned int a2)
 {
-  unsigned int v1; // edi
-  _WORD v3[272]; // [rsp+50h] [rbp-238h] BYREF
+  unsigned __int64 v2; // rsi
+  unsigned __int16 v3; // ax
+  unsigned int v4; // edi
+  _OWORD Fields[3]; // [rsp+20h] [rbp-268h] BYREF
+  _WORD v7[272]; // [rsp+50h] [rbp-238h] BYREF
 
-  if ( (*a1 & 0xFFFEu) >= 0x212 )
-    v1 = 265;
+  v2 = a2;
+  v3 = *a1 & 0xFFFE;
+  memset(Fields, 0, sizeof(Fields));
+  if ( v3 >= 0x212u )
+    v4 = 265;
   else
-    v1 = *a1 >> 1;
-  memmove(v3, *((const void **)a1 + 1), 2LL * v1);
-  v3[v1] = 0;
-  return NtTraceEvent();
+    v4 = *a1 >> 1;
+  memmove(v7, *((const void **)a1 + 1), 2LL * v4);
+  v7[v4] = 0;
+  BYTE4(Fields[0]) = 0;
+  LOWORD(Fields[0]) = 2 * (v4 + 25);
+  *(GUID *)((char *)&Fields[1] + 8) = LoadMUIDllGuid;
+  return NtTraceEvent((HANDLE)v2, 0x100u, 0x30u, Fields);
 }

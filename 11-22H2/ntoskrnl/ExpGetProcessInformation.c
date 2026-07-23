@@ -36,7 +36,7 @@
 
 __int64 __fastcall ExpGetProcessInformation(__int64 a1, unsigned int a2, unsigned int *a3, _DWORD *a4, int a5)
 {
-  unsigned __int64 v6; // r13
+  ULONG_PTR v6; // r13
   int v7; // edx
   bool v8; // cf
   unsigned int v9; // ebx
@@ -91,8 +91,8 @@ __int64 __fastcall ExpGetProcessInformation(__int64 a1, unsigned int a2, unsigne
   unsigned int v58; // r14d
   int v59; // ecx
   __int64 v60; // rax
-  ULONG_PTR v61; // rsi
-  unsigned __int64 v62; // r12
+  void *v61; // rsi
+  ULONG_PTR v62; // r12
   size_t v63; // rdx
   unsigned int v64; // r15d
   int v65; // ecx
@@ -105,7 +105,7 @@ __int64 __fastcall ExpGetProcessInformation(__int64 a1, unsigned int a2, unsigne
   int v72; // [rsp+30h] [rbp-5D8h]
   int v73; // [rsp+34h] [rbp-5D4h]
   char v74; // [rsp+38h] [rbp-5D0h]
-  int PackageIdentity; // [rsp+3Ch] [rbp-5CCh]
+  int AllocatedFullProcessImageName; // [rsp+3Ch] [rbp-5CCh]
   int v76; // [rsp+40h] [rbp-5C8h]
   unsigned int v77; // [rsp+44h] [rbp-5C4h]
   _BYTE v78[8]; // [rsp+48h] [rbp-5C0h] BYREF
@@ -121,8 +121,8 @@ __int64 __fastcall ExpGetProcessInformation(__int64 a1, unsigned int a2, unsigne
   void *v88; // [rsp+98h] [rbp-570h]
   size_t Size; // [rsp+A0h] [rbp-568h] BYREF
   unsigned int *v90; // [rsp+A8h] [rbp-560h]
-  __int64 v91; // [rsp+B0h] [rbp-558h] BYREF
-  __int64 v92; // [rsp+B8h] [rbp-550h] BYREF
+  ULONG_PTR AppIdSize; // [rsp+B0h] [rbp-558h] BYREF
+  ULONG_PTR PackageSize; // [rsp+B8h] [rbp-550h] BYREF
   PVOID P; // [rsp+C0h] [rbp-548h]
   int v94; // [rsp+C8h] [rbp-540h]
   char *v95; // [rsp+D0h] [rbp-538h]
@@ -136,23 +136,23 @@ __int64 __fastcall ExpGetProcessInformation(__int64 a1, unsigned int a2, unsigne
   int v103; // [rsp+110h] [rbp-4F8h]
   __int64 CurrentServerSilo; // [rsp+138h] [rbp-4D0h]
   _OWORD v105[2]; // [rsp+190h] [rbp-478h] BYREF
-  ULONG_PTR v106; // [rsp+1B0h] [rbp-458h]
+  void *v106; // [rsp+1B0h] [rbp-458h]
   struct _KTHREAD *v107; // [rsp+1B8h] [rbp-450h]
   _QWORD v108[14]; // [rsp+1C0h] [rbp-448h] BYREF
   _BYTE Src[80]; // [rsp+230h] [rbp-3D8h] BYREF
   _OWORD v110[27]; // [rsp+280h] [rbp-388h] BYREF
-  _BYTE v111[144]; // [rsp+430h] [rbp-1D8h] BYREF
-  _BYTE v112[256]; // [rsp+4C0h] [rbp-148h] BYREF
+  WCHAR AppId[72]; // [rsp+430h] [rbp-1D8h] BYREF
+  WCHAR PackageFullName[128]; // [rsp+4C0h] [rbp-148h] BYREF
 
   v94 = a5;
   v100 = a1;
   v90 = a3;
-  v91 = 130LL;
+  AppIdSize = 130LL;
   memset(v110, 0, sizeof(v110));
   v6 = 0LL;
   v85 = 0;
   LODWORD(Size) = 0;
-  v92 = 254LL;
+  PackageSize = 254LL;
   v81 = 0LL;
   memset(v108, 0, 0x68uLL);
   v78[0] = 0;
@@ -184,7 +184,7 @@ __int64 __fastcall ExpGetProcessInformation(__int64 a1, unsigned int a2, unsigne
     if ( (unsigned int)ExIsRestrictedCaller(PreviousMode) )
       v74 = 1;
     v11 = 0;
-    PackageIdentity = 0;
+    AllocatedFullProcessImageName = 0;
     P = 0LL;
     KeFlushProcessWriteBuffers(1);
     CurrentServerSilo = PsGetCurrentServerSilo();
@@ -240,7 +240,7 @@ LABEL_135:
       v73 = v19;
       v11 = 0;
     }
-    PackageIdentity = v11;
+    AllocatedFullProcessImageName = v11;
     if ( v11 < 0 )
     {
       v72 = v11;
@@ -258,7 +258,7 @@ LABEL_135:
     {
       v20 = ExpCopyProcessInfo(v18, (__int64)NextProcess, v84, v108);
       v11 = v20;
-      PackageIdentity = v20;
+      AllocatedFullProcessImageName = v20;
       if ( v20 < 0 )
       {
         v72 = v20;
@@ -382,10 +382,10 @@ LABEL_135:
           {
             *((_DWORD *)v37 + 12) |= 0x20u;
           }
-          v11 = PackageIdentity;
-          if ( PackageIdentity < 0 )
+          v11 = AllocatedFullProcessImageName;
+          if ( AllocatedFullProcessImageName < 0 )
           {
-            v72 = PackageIdentity;
+            v72 = AllocatedFullProcessImageName;
             NextProcessThread = (__int64)Object;
           }
           else
@@ -402,24 +402,30 @@ LABEL_106:
               v49 = (char *)v88;
               goto LABEL_107;
             }
-            v61 = PsReferencePrimaryTokenWithTag((__int64)NextProcess, 0x746C6644u);
+            v61 = (void *)PsReferencePrimaryTokenWithTag((__int64)NextProcess, 0x746C6644u);
             v106 = v61;
-            SeQueryUserSidToken(v61, Src, 0x44u, (ULONG *)&Size);
-            v92 = 254LL;
-            v91 = 130LL;
-            PackageIdentity = RtlQueryPackageIdentity(v61, (int)v112, (int)&v92, (int)v111, (__int64)&v91, 0LL);
-            if ( PackageIdentity >= 0 )
+            SeQueryUserSidToken((__int64)v61, Src, 0x44u, (ULONG *)&Size);
+            PackageSize = 254LL;
+            AppIdSize = 130LL;
+            AllocatedFullProcessImageName = RtlQueryPackageIdentity(
+                                              v61,
+                                              PackageFullName,
+                                              &PackageSize,
+                                              AppId,
+                                              &AppIdSize,
+                                              0LL);
+            if ( AllocatedFullProcessImageName >= 0 )
             {
-              v6 = v91;
-              v62 = v92;
+              v6 = AppIdSize;
+              v62 = PackageSize;
             }
             else
             {
               v62 = 0LL;
-              v92 = 0LL;
-              v91 = 0LL;
+              PackageSize = 0LL;
+              AppIdSize = 0LL;
             }
-            ObFastDereferenceObject((signed __int64 *)v79 + 151, v61, 0x746C6644u);
+            ObFastDereferenceObject((signed __int64 *)v79 + 151, (unsigned __int64)v61, 0x746C6644u);
             v63 = (unsigned int)Size;
             v64 = (Size + 7) & 0xFFFFFFF8;
             v85 = v64;
@@ -436,7 +442,7 @@ LABEL_106:
               v73 = v65;
               v11 = 0;
             }
-            PackageIdentity = v11;
+            AllocatedFullProcessImageName = v11;
             if ( v11 < 0 )
             {
               v72 = v11;
@@ -481,7 +487,7 @@ LABEL_106:
                   v73 = v68;
                   v11 = 0;
                 }
-                PackageIdentity = v11;
+                AllocatedFullProcessImageName = v11;
                 if ( v11 < 0 )
                 {
                   v72 = v11;
@@ -498,7 +504,7 @@ LABEL_106:
                   else
                   {
                     v36[14] = (_DWORD)v66 - (_DWORD)v36;
-                    memmove(v66, v112, (unsigned int)v62);
+                    memmove(v66, PackageFullName, (unsigned int)v62);
                     v66 = (char *)v88 + (unsigned int)v62;
                     v88 = v66;
                     v86 = v66;
@@ -530,7 +536,7 @@ LABEL_152:
                       v73 = v69;
                       v11 = 0;
                     }
-                    PackageIdentity = v11;
+                    AllocatedFullProcessImageName = v11;
                     if ( v11 < 0 )
                     {
                       v72 = v11;
@@ -546,7 +552,7 @@ LABEL_152:
                         goto LABEL_152;
                       }
                       v36[84] = (_DWORD)v66 - (_DWORD)v36;
-                      memmove(v66, v111, (unsigned int)v6);
+                      memmove(v66, AppId, (unsigned int)v6);
                       NextProcess = (PEPROCESS)v79;
                       v49 = (char *)v88 + (unsigned int)v6;
                       v86 = v49;
@@ -577,8 +583,8 @@ LABEL_132:
                         }
                         else
                         {
-                          PackageIdentity = PsGetAllocatedFullProcessImageNameEx((__int64)NextProcess);
-                          if ( PackageIdentity < 0 )
+                          AllocatedFullProcessImageName = PsGetAllocatedFullProcessImageNameEx((__int64)NextProcess);
+                          if ( AllocatedFullProcessImageName < 0 )
                             v50 = (__int64 *)NextProcess[1].ActiveProcessors.StaticBitmap[2];
                           else
                             v50 = (__int64 *)P;
@@ -628,7 +634,7 @@ LABEL_132:
                           v73 = v59;
                           v11 = 0;
                         }
-                        PackageIdentity = v11;
+                        AllocatedFullProcessImageName = v11;
                         if ( v11 >= 0 )
                         {
                           v76 += v58;
@@ -697,7 +703,7 @@ LABEL_212:
           }
           v73 = v24;
           v14 = v24;
-          PackageIdentity = v11;
+          AllocatedFullProcessImageName = v11;
           if ( v11 < 0 )
           {
             v72 = v11;
@@ -727,9 +733,8 @@ LABEL_212:
               *((_DWORD *)v23 + 18) = BYTE9(v105[0]);
               *((_DWORD *)v23 + 14) = SBYTE10(v105[0]);
               *((_DWORD *)v23 + 15) = SBYTE11(v105[0]);
-              v26 = (unsigned int)KeMaximumIncrement;
-              *(_QWORD *)v23 = (unsigned int)KeMaximumIncrement
-                             * (unsigned __int64)*(unsigned int *)(NextProcessThread + 652);
+              v26 = KeMaximumIncrement;
+              *(_QWORD *)v23 = KeMaximumIncrement * (unsigned __int64)*(unsigned int *)(NextProcessThread + 652);
               *((_QWORD *)v23 + 1) = v26 * *(unsigned int *)(NextProcessThread + 732);
               *((_QWORD *)v23 + 2) = *(_QWORD *)(NextProcessThread + 1152);
               *((_DWORD *)v23 + 16) = *(_DWORD *)(NextProcessThread + 340);
@@ -749,7 +754,7 @@ LABEL_212:
                 }
                 NextProcess = v81;
                 v79 = v81;
-                v11 = PackageIdentity;
+                v11 = AllocatedFullProcessImageName;
                 NextProcessThread = (__int64)Object;
                 v14 = v73;
                 v21 = v87;
@@ -775,7 +780,7 @@ LABEL_212:
                   *((_QWORD *)v23 + 11) = *(_QWORD *)(NextProcessThread + 48);
                   NextProcess = v81;
                   v79 = v81;
-                  v11 = PackageIdentity;
+                  v11 = AllocatedFullProcessImageName;
                   NextProcessThread = (__int64)Object;
                   v14 = v73;
                   v21 = v87;
@@ -838,7 +843,7 @@ LABEL_212:
         }
         NextProcess = v81;
         v79 = v81;
-        v11 = PackageIdentity;
+        v11 = AllocatedFullProcessImageName;
         v14 = v73;
         v21 = v87;
         v83 = v87;

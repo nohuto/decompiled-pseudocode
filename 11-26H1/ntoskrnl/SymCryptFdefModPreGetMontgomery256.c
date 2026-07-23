@@ -1,9 +1,9 @@
 /*
- * XREFs of SymCryptFdefModPreGetMontgomery256 @ 0x140570060
+ * XREFs of SymCryptFdefModPreGetMontgomery256 @ 0x14056F240
  * Callers:
  *     <none>
  * Callees:
- *     SymCryptFdefMontgomeryReduce256Asm @ 0x140572360 (SymCryptFdefMontgomeryReduce256Asm.c)
+ *     SymCryptFdefMontgomeryReduce256Asm @ 0x140571540 (SymCryptFdefMontgomeryReduce256Asm.c)
  */
 
 _OWORD *__fastcall SymCryptFdefModPreGetMontgomery256(__int64 a1, _OWORD *a2, _OWORD *a3)

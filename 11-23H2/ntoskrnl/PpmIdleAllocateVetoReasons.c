@@ -1,13 +1,13 @@
 /*
- * XREFs of PpmIdleAllocateVetoReasons @ 0x140981B64
+ * XREFs of PpmIdleAllocateVetoReasons @ 0x140981D64
  * Callers:
- *     PopFxRequestCommon @ 0x14058B780 (PopFxRequestCommon.c)
+ *     PopFxRequestCommon @ 0x14058BC70 (PopFxRequestCommon.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1B0 (RtlInitUnicodeString.c)
- *     PopReleaseRwLock @ 0x14032C480 (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x14032C5E4 (PopAcquireRwLockExclusive.c)
- *     memmove @ 0x140435700 (memmove.c)
- *     PpmIdleInstallNewVetoList @ 0x140585078 (PpmIdleInstallNewVetoList.c)
+ *     RtlInitUnicodeString @ 0x14022E2C0 (RtlInitUnicodeString.c)
+ *     PopReleaseRwLock @ 0x14032C710 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x14032C874 (PopAcquireRwLockExclusive.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     PpmIdleInstallNewVetoList @ 0x140585568 (PpmIdleInstallNewVetoList.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

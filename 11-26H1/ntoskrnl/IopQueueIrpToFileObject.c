@@ -1,15 +1,15 @@
 /*
- * XREFs of IopQueueIrpToFileObject @ 0x1404151E0
+ * XREFs of IopQueueIrpToFileObject @ 0x140409810
  * Callers:
- *     IopSynchronousServiceTail @ 0x1409B2704 (IopSynchronousServiceTail.c)
- *     IopIsIosbInLockedRange @ 0x140A9BDE0 (IopIsIosbInLockedRange.c)
+ *     IopSynchronousServiceTail @ 0x1409837C4 (IopSynchronousServiceTail.c)
+ *     IopIsIosbInLockedRange @ 0x140A9E950 (IopIsIosbInLockedRange.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     ObfReferenceObjectWithTag @ 0x140278B30 (ObfReferenceObjectWithTag.c)
- *     KiReleaseSpinLockInstrumented @ 0x1402BDFEC (KiReleaseSpinLockInstrumented.c)
- *     KeReleaseSpinLock @ 0x1402BE860 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14032F300 (KeAcquireSpinLockRaiseToDpc.c)
- *     ObFastReferenceObject @ 0x140415390 (ObFastReferenceObject.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     ObfReferenceObjectWithTag @ 0x1402780A0 (ObfReferenceObjectWithTag.c)
+ *     KiReleaseSpinLockInstrumented @ 0x140308CAC (KiReleaseSpinLockInstrumented.c)
+ *     KeReleaseSpinLock @ 0x140309520 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140331330 (KeAcquireSpinLockRaiseToDpc.c)
+ *     ObFastReferenceObject @ 0x1404099C0 (ObFastReferenceObject.c)
  */
 
 char __fastcall IopQueueIrpToFileObject(__int64 a1, __int64 a2, char a3)
@@ -46,8 +46,7 @@ char __fastcall IopQueueIrpToFileObject(__int64 a1, __int64 a2, char a3)
   *v9 = v11;
   CurrentThread = KeGetCurrentThread();
   Process = CurrentThread->ApcState.Process;
-  if ( ((__int64)IopSessionNotificationLock.SuspendEvent.Header.WaitListHead.Blink & 1) == 0
-    || KeGetCurrentThread()->ApcStateIndex == 1 )
+  if ( (IopPerfIoTrackingLock.QuantumTarget & 1) == 0 || KeGetCurrentThread()->ApcStateIndex == 1 )
   {
     v15 = CurrentThread->ApcState.Process;
   }
@@ -74,7 +73,7 @@ LABEL_10:
             v16);
   }
   while ( v17 != v16 );
-  if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+  if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || PopHibernateInProgress )
     _InterlockedAnd64((volatile signed __int64 *)v3, 0LL);
   else
     KiReleaseSpinLockInstrumented((volatile signed __int64 *)v3, retaddr);

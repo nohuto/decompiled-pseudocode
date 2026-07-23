@@ -1,8 +1,8 @@
 /*
- * XREFs of CmpSwapValueInList @ 0x1400B4ADC
+ * XREFs of CmpSwapValueInList @ 0x1400B2914
  * Callers:
- *     CmSetValueKey @ 0x1404037B0 (CmSetValueKey.c)
- *     CmpLightWeightPrepareSetValueKeyUoW @ 0x14053B080 (CmpLightWeightPrepareSetValueKeyUoW.c)
+ *     CmSetValueKey @ 0x140402670 (CmSetValueKey.c)
+ *     CmpLightWeightPrepareSetValueKeyUoW @ 0x14053B5C0 (CmpLightWeightPrepareSetValueKeyUoW.c)
  * Callees:
  *     <none>
  */

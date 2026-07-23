@@ -1,17 +1,17 @@
 /*
- * XREFs of MiImagePageOk @ 0x14028DC10
+ * XREFs of MiImagePageOk @ 0x14020ADB0
  * Callers:
- *     MiWaitForCollidedFaultComplete @ 0x14028C1F0 (MiWaitForCollidedFaultComplete.c)
- *     MiSoftFaultMappedView @ 0x14028D5A0 (MiSoftFaultMappedView.c)
+ *     MiWaitForCollidedFaultComplete @ 0x140209390 (MiWaitForCollidedFaultComplete.c)
+ *     MiSoftFaultMappedView @ 0x14020A740 (MiSoftFaultMappedView.c)
  * Callees:
- *     MiLocateAddress @ 0x14025B810 (MiLocateAddress.c)
+ *     MiLocateAddress @ 0x14027CD80 (MiLocateAddress.c)
  *     MI_PFN_IS_PROTO @ 0x1403F48C8 (MI_PFN_IS_PROTO.c)
  */
 
 _BOOL8 __fastcall MiImagePageOk(unsigned __int64 a1, __int64 a2)
 {
   __int64 v3; // rdx
-  __int64 **Address; // r9
+  __int64 Address; // r9
   __int64 v5; // r8
   __int64 v6; // r11
   __int64 v7; // r11
@@ -24,8 +24,8 @@ _BOOL8 __fastcall MiImagePageOk(unsigned __int64 a1, __int64 a2)
   if ( (v5 & 0x400) == 0 || ((*(_QWORD *)(v3 + 40) >> 60) & 7) == 3 )
     return 1LL;
   v6 = *(_QWORD *)(v3 + 16);
-  if ( qword_140C4DF40 && (v5 & 0x10) == 0 )
-    v6 = ~qword_140C4DF40 & v5;
+  if ( qword_140C4DF80 && (v5 & 0x10) == 0 )
+    v6 = ~qword_140C4DF80 & v5;
   v7 = v6 >> 16;
   if ( (*(_DWORD *)(*(_QWORD *)v7 + 56LL) & 0x20) == 0 )
     return 1LL;
@@ -47,9 +47,9 @@ LABEL_17:
     goto LABEL_17;
   }
 LABEL_18:
-  v10 = *((_DWORD *)Address + 12);
+  v10 = *(_DWORD *)(Address + 48);
   return (v10 & 0x70) == 0x20
       && ((v10 & 0xF80) == 0x80
-       || ((_DWORD)Address[8] & 0x8000000) != 0 && (v8 & 4) == 0
+       || (*(_DWORD *)(Address + 64) & 0x8000000) != 0 && (v8 & 4) == 0
        || (MiFlags & 0x400) != 0 && (*(_BYTE *)(v7 + 34) & 2) != 0);
 }

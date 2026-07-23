@@ -9,7 +9,7 @@
  *     DifGetReturnAddressForWrappers @ 0x1405F8954 (DifGetReturnAddressForWrappers.c)
  */
 
-__int64 __fastcall DifZwReplaceKeyWrapper(__int64 a1, __int64 a2, __int64 a3)
+NTSTATUS __fastcall DifZwReplaceKeyWrapper(POBJECT_ATTRIBUTES NewFile, HANDLE TargetHandle, POBJECT_ATTRIBUTES OldFile)
 {
   __int64 *APIThunkContextById; // rax
   __int64 v7; // rdx
@@ -20,7 +20,7 @@ __int64 __fastcall DifZwReplaceKeyWrapper(__int64 a1, __int64 a2, __int64 a3)
   int v12; // eax
   __int64 ReturnAddressForWrappers; // rax
   __int64 *i; // rbx
-  __int64 result; // rax
+  NTSTATUS result; // eax
   _QWORD **v16; // rdi
   _QWORD *v17; // rbx
   __int128 v18; // [rsp+20h] [rbp-30h] BYREF
@@ -60,16 +60,16 @@ LABEL_8:
   }
   *(_QWORD *)&v18 = 0LL;
 LABEL_10:
-  *((_QWORD *)&v19 + 1) = a1;
-  *(_QWORD *)&v19 = a2;
-  *((_QWORD *)&v18 + 1) = a3;
+  *((_QWORD *)&v19 + 1) = NewFile;
+  *(_QWORD *)&v19 = TargetHandle;
+  *((_QWORD *)&v18 + 1) = OldFile;
   for ( i = (__int64 *)v11[4]; i != v11 + 4; i = (__int64 *)*i )
   {
     if ( i != (__int64 *)16 )
       ((void (__fastcall *)(__int128 *))*(i - 1))(&v18);
   }
 LABEL_17:
-  result = ZwReplaceKey(a1, a2);
+  result = ZwReplaceKey(NewFile, TargetHandle, OldFile);
   LODWORD(v20) = result;
   if ( v11 )
   {
@@ -84,7 +84,7 @@ LABEL_17:
         v17 = (_QWORD *)*v17;
       }
       while ( v17 != v16 );
-      return (unsigned int)v20;
+      return v20;
     }
   }
   return result;

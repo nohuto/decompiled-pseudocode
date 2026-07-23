@@ -1,14 +1,14 @@
 /*
  * XREFs of RtlSplay @ 0x14021ECC0
  * Callers:
- *     FsRtlCheckNoExclusiveConflict @ 0x14021DC48 (FsRtlCheckNoExclusiveConflict.c)
- *     FsRtlPrivateInsertSharedLock @ 0x14021E6C4 (FsRtlPrivateInsertSharedLock.c)
- *     FsRtlPrivateCheckForSharedLockAccess @ 0x14021E818 (FsRtlPrivateCheckForSharedLockAccess.c)
+ *     sub_14021DC48 @ 0x14021DC48 (sub_14021DC48.c)
+ *     sub_14021E6C4 @ 0x14021E6C4 (sub_14021E6C4.c)
+ *     sub_14021E818 @ 0x14021E818 (sub_14021E818.c)
  *     RtlInsertElementGenericTableFull @ 0x14021EAA0 (RtlInsertElementGenericTableFull.c)
  *     RtlDelete @ 0x14021EBA0 (RtlDelete.c)
  *     RtlLookupElementGenericTable @ 0x14021EC40 (RtlLookupElementGenericTable.c)
- *     FsRtlPrivateCheckForExclusiveLockAccess @ 0x14021F198 (FsRtlPrivateCheckForExclusiveLockAccess.c)
- *     FsRtlCheckNoSharedConflict @ 0x1403750E4 (FsRtlCheckNoSharedConflict.c)
+ *     sub_14021F198 @ 0x14021F198 (sub_14021F198.c)
+ *     sub_1403750E4 @ 0x1403750E4 (sub_1403750E4.c)
  *     RtlEnumerateGenericTable @ 0x1403B6980 (RtlEnumerateGenericTable.c)
  *     RtlLookupElementGenericTableFull @ 0x1405EB310 (RtlLookupElementGenericTableFull.c)
  *     RtlInsertUnicodePrefix @ 0x140694730 (RtlInsertUnicodePrefix.c)
@@ -22,7 +22,7 @@
 PRTL_SPLAY_LINKS __stdcall RtlSplay(PRTL_SPLAY_LINKS Links)
 {
   _RTL_SPLAY_LINKS *i; // rax
-  RTL_SPLAY_LINKS *LeftChild; // r8
+  _RTL_SPLAY_LINKS *LeftChild; // r8
   _RTL_SPLAY_LINKS *Parent; // rdx
   _RTL_SPLAY_LINKS *v5; // r8
   _RTL_SPLAY_LINKS *v6; // r8

@@ -1,19 +1,19 @@
 /*
- * XREFs of BgpTxtCreateRegion @ 0x140C51CF0
+ * XREFs of BgpTxtCreateRegion @ 0x140C57CF0
  * Callers:
- *     BgpDisplayCharacterGetContext @ 0x140C4FBB4 (BgpDisplayCharacterGetContext.c)
- *     ResFwConfigureDisplayStringResources @ 0x140C50C5C (ResFwConfigureDisplayStringResources.c)
- *     AnFwConfigureProgressResources @ 0x140C510AC (AnFwConfigureProgressResources.c)
+ *     BgpDisplayCharacterGetContext @ 0x140C55BB4 (BgpDisplayCharacterGetContext.c)
+ *     ResFwConfigureDisplayStringResources @ 0x140C56C5C (ResFwConfigureDisplayStringResources.c)
+ *     AnFwConfigureProgressResources @ 0x140C570AC (AnFwConfigureProgressResources.c)
  * Callees:
- *     BgpFwFreeMemory @ 0x140355E00 (BgpFwFreeMemory.c)
- *     BgpFwAllocateMemory @ 0x140355EBC (BgpFwAllocateMemory.c)
- *     BgpGxFillRectangle @ 0x1404AD7AC (BgpGxFillRectangle.c)
- *     BgpGetResolution @ 0x140514D98 (BgpGetResolution.c)
- *     BgpFoGetTextMetrics @ 0x14051954C (BgpFoGetTextMetrics.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     BgpGxRectangleDestroy @ 0x140C53414 (BgpGxRectangleDestroy.c)
- *     BgpGxRectangleCreate @ 0x140C53640 (BgpGxRectangleCreate.c)
- *     BgpFoGetFontHandle @ 0x140C54508 (BgpFoGetFontHandle.c)
+ *     BgpFwFreeMemory @ 0x140357BA8 (BgpFwFreeMemory.c)
+ *     BgpFwAllocateMemory @ 0x140357C64 (BgpFwAllocateMemory.c)
+ *     BgpGxFillRectangle @ 0x1404A6E34 (BgpGxFillRectangle.c)
+ *     BgpGetResolution @ 0x14050E808 (BgpGetResolution.c)
+ *     BgpFoGetTextMetrics @ 0x140512FBC (BgpFoGetTextMetrics.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     BgpGxRectangleDestroy @ 0x140C59414 (BgpGxRectangleDestroy.c)
+ *     BgpGxRectangleCreate @ 0x140C59640 (BgpGxRectangleCreate.c)
+ *     BgpFoGetFontHandle @ 0x140C5A508 (BgpFoGetFontHandle.c)
  */
 
 __int64 __fastcall BgpTxtCreateRegion(_DWORD *a1, _DWORD *a2, __int64 a3, _QWORD *a4, __int64 *a5, char a6)

@@ -29,7 +29,7 @@ NTSTATUS HalpInterruptInitializeIpis()
   unsigned __int16 Group; // ax
   __int64 v15; // rcx
   __int64 v16; // rax
-  struct _PROCESSOR_NUMBER ProcNumber; // [rsp+40h] [rbp+8h] BYREF
+  _PROCESSOR_NUMBER ProcNumber; // [rsp+40h] [rbp+8h] BYREF
 
   ProcNumber = 0;
   if ( HalpInterruptIpiLines )

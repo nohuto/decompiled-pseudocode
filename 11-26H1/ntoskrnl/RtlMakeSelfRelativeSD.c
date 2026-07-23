@@ -1,16 +1,19 @@
 /*
- * XREFs of RtlMakeSelfRelativeSD @ 0x140A623DC
+ * XREFs of RtlMakeSelfRelativeSD @ 0x140A6F3AC
  * Callers:
- *     RtlAbsoluteToSelfRelativeSD @ 0x140A61650 (RtlAbsoluteToSelfRelativeSD.c)
- *     LocalConvertStringSDToSD_Rev1 @ 0x140A61674 (LocalConvertStringSDToSD_Rev1.c)
- *     RtlpSysVolCheckOwnerAndSecurity @ 0x140A95EB0 (RtlpSysVolCheckOwnerAndSecurity.c)
- *     _CmGetRegKeySecurityDescriptor @ 0x140B09878 (_CmGetRegKeySecurityDescriptor.c)
+ *     RtlAbsoluteToSelfRelativeSD @ 0x140A6E620 (RtlAbsoluteToSelfRelativeSD.c)
+ *     LocalConvertStringSDToSD_Rev1 @ 0x140A6E644 (LocalConvertStringSDToSD_Rev1.c)
+ *     RtlpSysVolCheckOwnerAndSecurity @ 0x140A992E0 (RtlpSysVolCheckOwnerAndSecurity.c)
+ *     _CmGetRegKeySecurityDescriptor @ 0x140B0B638 (_CmGetRegKeySecurityDescriptor.c)
  * Callees:
- *     memmove @ 0x14073D480 (memmove.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
-__int64 __fastcall RtlMakeSelfRelativeSD(__int64 a1, char *a2, unsigned int *a3)
+NTSTATUS __cdecl RtlMakeSelfRelativeSD(
+        PSECURITY_DESCRIPTOR AbsoluteSecurityDescriptor,
+        PSECURITY_DESCRIPTOR SelfRelativeSecurityDescriptor,
+        PULONG BufferLength)
 {
   __int16 v3; // r9
   __int16 v6; // cx
@@ -18,11 +21,11 @@ __int64 __fastcall RtlMakeSelfRelativeSD(__int64 a1, char *a2, unsigned int *a3)
   unsigned int v8; // edx
   unsigned __int16 *v9; // r15
   unsigned int v10; // r13d
-  unsigned __int8 *v11; // rax
+  char *v11; // rax
   unsigned int v12; // eax
   unsigned __int16 *v13; // rbp
   unsigned int v14; // r14d
-  unsigned int v15; // ecx
+  ULONG v15; // ecx
   char *v16; // rdi
   int v17; // eax
   int v18; // eax
@@ -32,23 +35,23 @@ __int64 __fastcall RtlMakeSelfRelativeSD(__int64 a1, char *a2, unsigned int *a3)
   __int64 v23; // rcx
   unsigned int Size; // [rsp+60h] [rbp+8h]
   unsigned int v25; // [rsp+68h] [rbp+10h]
-  unsigned __int8 *Src; // [rsp+70h] [rbp+18h]
+  void *Src; // [rsp+70h] [rbp+18h]
 
-  v3 = *(_WORD *)(a1 + 2);
+  v3 = *((_WORD *)AbsoluteSecurityDescriptor + 1);
   v6 = v3 & 0x8000;
   if ( v3 < 0 )
   {
-    v21 = *(unsigned int *)(a1 + 4);
+    v21 = *((unsigned int *)AbsoluteSecurityDescriptor + 1);
     if ( !(_DWORD)v21 )
     {
       v7 = 0LL;
       goto LABEL_4;
     }
-    v7 = (unsigned __int8 *)(a1 + v21);
+    v7 = (unsigned __int8 *)AbsoluteSecurityDescriptor + v21;
   }
   else
   {
-    v7 = *(unsigned __int8 **)(a1 + 8);
+    v7 = (unsigned __int8 *)*((_QWORD *)AbsoluteSecurityDescriptor + 1);
   }
   if ( v7 )
   {
@@ -63,17 +66,17 @@ LABEL_5:
     goto LABEL_33;
   if ( !v6 )
   {
-    v9 = *(unsigned __int16 **)(a1 + 32);
+    v9 = (unsigned __int16 *)*((_QWORD *)AbsoluteSecurityDescriptor + 4);
     goto LABEL_8;
   }
-  v22 = *(unsigned int *)(a1 + 16);
+  v22 = *((unsigned int *)AbsoluteSecurityDescriptor + 4);
   if ( !(_DWORD)v22 )
   {
 LABEL_33:
     v9 = 0LL;
     goto LABEL_34;
   }
-  v9 = (unsigned __int16 *)(a1 + v22);
+  v9 = (unsigned __int16 *)((char *)AbsoluteSecurityDescriptor + v22);
 LABEL_8:
   if ( v9 )
   {
@@ -85,22 +88,22 @@ LABEL_34:
 LABEL_10:
   if ( v6 )
   {
-    v20 = *(unsigned int *)(a1 + 8);
+    v20 = *((unsigned int *)AbsoluteSecurityDescriptor + 2);
     if ( !(_DWORD)v20 )
     {
       Src = 0LL;
       goto LABEL_13;
     }
-    v11 = (unsigned __int8 *)(a1 + v20);
+    v11 = (char *)AbsoluteSecurityDescriptor + v20;
   }
   else
   {
-    v11 = *(unsigned __int8 **)(a1 + 16);
+    v11 = (char *)*((_QWORD *)AbsoluteSecurityDescriptor + 2);
   }
   Src = v11;
   if ( v11 )
   {
-    v12 = (4 * v11[1] + 11) & 0xFFFFFFFC;
+    v12 = (4 * (unsigned __int8)v11[1] + 11) & 0xFFFFFFFC;
     goto LABEL_14;
   }
 LABEL_13:
@@ -111,17 +114,17 @@ LABEL_14:
     goto LABEL_31;
   if ( !v6 )
   {
-    v13 = *(unsigned __int16 **)(a1 + 24);
+    v13 = (unsigned __int16 *)*((_QWORD *)AbsoluteSecurityDescriptor + 3);
     goto LABEL_17;
   }
-  v23 = *(unsigned int *)(a1 + 12);
+  v23 = *((unsigned int *)AbsoluteSecurityDescriptor + 3);
   if ( !(_DWORD)v23 )
   {
 LABEL_31:
     v13 = 0LL;
     goto LABEL_32;
   }
-  v13 = (unsigned __int16 *)(a1 + v23);
+  v13 = (unsigned __int16 *)((char *)AbsoluteSecurityDescriptor + v23);
 LABEL_17:
   if ( v13 )
   {
@@ -132,19 +135,19 @@ LABEL_32:
   v14 = 0;
 LABEL_19:
   v15 = v10 + v14 + v8 + v12 + 20;
-  if ( v15 > *a3 )
+  if ( v15 > *BufferLength )
   {
-    *a3 = v15;
-    return 3221225507LL;
+    *BufferLength = v15;
+    return -1073741789;
   }
-  else if ( a2 )
+  else if ( SelfRelativeSecurityDescriptor )
   {
-    memset_0(a2, 0, v15);
-    v16 = a2 + 20;
-    *(_DWORD *)a2 = *(_DWORD *)a1;
+    memset_0(SelfRelativeSecurityDescriptor, 0, v15);
+    v16 = (char *)SelfRelativeSecurityDescriptor + 20;
+    *(_DWORD *)SelfRelativeSecurityDescriptor = *(_DWORD *)AbsoluteSecurityDescriptor;
     if ( v14 )
     {
-      memmove(a2 + 20, v13, v14);
+      memmove((char *)SelfRelativeSecurityDescriptor + 20, v13, v14);
       v17 = 20;
       v16 += v14;
     }
@@ -152,34 +155,34 @@ LABEL_19:
     {
       v17 = 0;
     }
-    *((_DWORD *)a2 + 3) = v17;
+    *((_DWORD *)SelfRelativeSecurityDescriptor + 3) = v17;
     if ( v10 )
     {
       memmove(v16, v9, v10);
-      v18 = (_DWORD)v16 - (_DWORD)a2;
+      v18 = (_DWORD)v16 - (_DWORD)SelfRelativeSecurityDescriptor;
       v16 += v10;
     }
     else
     {
       v18 = 0;
     }
-    *((_DWORD *)a2 + 4) = v18;
+    *((_DWORD *)SelfRelativeSecurityDescriptor + 4) = v18;
     if ( Size )
     {
       memmove(v16, v7, Size);
-      *((_DWORD *)a2 + 1) = (_DWORD)v16 - (_DWORD)a2;
+      *((_DWORD *)SelfRelativeSecurityDescriptor + 1) = (_DWORD)v16 - (_DWORD)SelfRelativeSecurityDescriptor;
       v16 += Size;
     }
     if ( v25 )
     {
       memmove(v16, Src, v25);
-      *((_DWORD *)a2 + 2) = (_DWORD)v16 - (_DWORD)a2;
+      *((_DWORD *)SelfRelativeSecurityDescriptor + 2) = (_DWORD)v16 - (_DWORD)SelfRelativeSecurityDescriptor;
     }
-    *((_WORD *)a2 + 1) |= 0x8000u;
-    return 0LL;
+    *((_WORD *)SelfRelativeSecurityDescriptor + 1) |= 0x8000u;
+    return 0;
   }
   else
   {
-    return 3221225485LL;
+    return -1073741811;
   }
 }

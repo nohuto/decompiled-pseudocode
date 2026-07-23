@@ -2,12 +2,12 @@
  * XREFs of MiMarkPfnTradable @ 0x14021B51C
  * Callers:
  *     MiSetPfnKernelStack @ 0x14021B4D8 (MiSetPfnKernelStack.c)
- *     KiInSwapProcesses @ 0x14034D08C (KiInSwapProcesses.c)
- *     MiAllocateProcessShadow @ 0x1407060AC (MiAllocateProcessShadow.c)
+ *     KiInSwapProcesses @ 0x14034D22C (KiInSwapProcesses.c)
+ *     MiAllocateProcessShadow @ 0x1407062BC (MiAllocateProcessShadow.c)
  *     MmFreeLoaderBlock @ 0x140B5B894 (MmFreeLoaderBlock.c)
  * Callees:
- *     MiLockPageInline @ 0x1402EF680 (MiLockPageInline.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiLockPageInline @ 0x1402EF910 (MiLockPageInline.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 void __fastcall MiMarkPfnTradable(__int64 a1, int a2)
@@ -27,10 +27,10 @@ void __fastcall MiMarkPfnTradable(__int64 a1, int a2)
   if ( v3 != 17 )
   {
     _InterlockedAnd64((volatile signed __int64 *)(a1 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v3 <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v3 <= 0xFu && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;

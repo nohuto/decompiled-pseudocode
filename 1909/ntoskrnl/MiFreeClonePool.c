@@ -10,9 +10,9 @@
  *     ExFreePoolWithTag @ 0x14036E0A0 (ExFreePoolWithTag.c)
  */
 
-PSLIST_ENTRY __fastcall MiFreeClonePool(union _SLIST_HEADER *a1)
+PSLIST_ENTRY __fastcall MiFreeClonePool(_SLIST_HEADER *a1)
 {
-  union _SLIST_HEADER *v1; // rbp
+  _SLIST_HEADER *v1; // rbp
   __int64 v2; // rdi
   unsigned __int64 v3; // rsi
   PSLIST_ENTRY result; // rax

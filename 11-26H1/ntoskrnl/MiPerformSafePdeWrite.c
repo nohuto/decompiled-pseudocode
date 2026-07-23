@@ -1,15 +1,15 @@
 /*
- * XREFs of MiPerformSafePdeWrite @ 0x140441B30
+ * XREFs of MiPerformSafePdeWrite @ 0x14043A640
  * Callers:
- *     MiGetWsAndMakePageTablesNx @ 0x140441A60 (MiGetWsAndMakePageTablesNx.c)
- *     MiValidVirtualizationFault @ 0x140525860 (MiValidVirtualizationFault.c)
+ *     MiGetWsAndMakePageTablesNx @ 0x14043A570 (MiGetWsAndMakePageTablesNx.c)
+ *     MiValidVirtualizationFault @ 0x140527ED0 (MiValidVirtualizationFault.c)
  * Callees:
- *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x14021AAD4 (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
- *     ExpWaitForSpinLockExclusiveAndAcquire @ 0x1402474C0 (ExpWaitForSpinLockExclusiveAndAcquire.c)
- *     ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x140249B40 (ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented.c)
- *     HvlNotifyLongSpinWait @ 0x1402BBF00 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1402BC760 (KiCheckVpBackingLongSpinWaitHypercall.c)
- *     MiPteHasShadow @ 0x1403011E0 (MiPteHasShadow.c)
+ *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x14021C464 (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
+ *     ExpWaitForSpinLockExclusiveAndAcquire @ 0x140248E20 (ExpWaitForSpinLockExclusiveAndAcquire.c)
+ *     ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x14024B4A0 (ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented.c)
+ *     MiPteHasShadow @ 0x1402E3260 (MiPteHasShadow.c)
+ *     HvlNotifyLongSpinWait @ 0x140306BC0 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140307420 (KiCheckVpBackingLongSpinWaitHypercall.c)
  */
 
 signed __int64 __fastcall MiPerformSafePdeWrite(__int64 a1, unsigned __int64 a2, signed __int64 a3, char a4)
@@ -45,15 +45,15 @@ signed __int64 __fastcall MiPerformSafePdeWrite(__int64 a1, unsigned __int64 a2,
   if ( (*(_DWORD *)(a1 + 184) & 0xF) != 0 && a2 >= 0xFFFFF6FB7DBED000uLL && a2 <= 0xFFFFF6FB7DBEDFFFuLL )
   {
     v7 = 1;
-    if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+    if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || PopHibernateInProgress )
     {
       v9 = 0;
-      if ( _interlockedbittestandset(&dword_140E36080, 0x1Fu) )
-        v9 = ExpWaitForSpinLockExclusiveAndAcquire(&dword_140E36080, 0xFFu);
-      for ( i = dword_140E36080; (dword_140E36080 & 0xBFFFFFFF) != 0x80000000; i = dword_140E36080 )
+      if ( _interlockedbittestandset(&dword_140E36200, 0x1Fu) )
+        v9 = ExpWaitForSpinLockExclusiveAndAcquire(&dword_140E36200, 0xFFu);
+      for ( i = dword_140E36200; (dword_140E36200 & 0xBFFFFFFF) != 0x80000000; i = dword_140E36200 )
       {
         if ( (i & 0x40000000) == 0 )
-          _InterlockedOr(&dword_140E36080, 0x40000000u);
+          _InterlockedOr(&dword_140E36200, 0x40000000u);
         if ( (++v9 & HvlLongSpinCountMask) == 0
           && (HvlEnlightenments & 0x40) != 0
           && KiCheckVpBackingLongSpinWaitHypercall() )
@@ -68,7 +68,7 @@ signed __int64 __fastcall MiPerformSafePdeWrite(__int64 a1, unsigned __int64 a2,
     }
     else
     {
-      ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented(&dword_140E36080, 0xFFu);
+      ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented(&dword_140E36200, 0xFFu);
     }
   }
   if ( v8 < 0xFFFFF68000000000uLL || v8 > 0xFFFFF6FFFFFFFFFFuLL )
@@ -115,7 +115,7 @@ signed __int64 __fastcall MiPerformSafePdeWrite(__int64 a1, unsigned __int64 a2,
     if ( result )
     {
       v14 = 1;
-      if ( !BYTE5(stru_140E2D930.Header.WaitListHead.Blink) )
+      if ( !BYTE5(stru_140E2DAB0.Header.WaitListHead.Blink) )
       {
         result = v31;
         if ( (v31 & 1) != 0 )
@@ -178,13 +178,13 @@ LABEL_33:
   if ( v7 )
   {
     if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0
-      || (result = LODWORD(stru_140F11D08.WaitStatus), LODWORD(stru_140F11D08.WaitStatus)) )
+      || (result = (unsigned int)PopHibernateInProgress, PopHibernateInProgress) )
     {
-      dword_140E36080 = 0;
+      dword_140E36200 = 0;
     }
     else
     {
-      return ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented(&dword_140E36080, retaddr);
+      return ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented(&dword_140E36200, retaddr);
     }
   }
   return result;

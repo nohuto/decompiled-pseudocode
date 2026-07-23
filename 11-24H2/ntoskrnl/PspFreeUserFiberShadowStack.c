@@ -1,42 +1,44 @@
 /*
- * XREFs of PspFreeUserFiberShadowStack @ 0x1408DB370
+ * XREFs of PspFreeUserFiberShadowStack @ 0x1408D959C
  * Callers:
- *     NtSetInformationProcess @ 0x140947500 (NtSetInformationProcess.c)
+ *     NtSetInformationProcess @ 0x1408EBA70 (NtSetInformationProcess.c)
  * Callees:
- *     KiDispatchException @ 0x1403E8310 (KiDispatchException.c)
- *     PspGetBaseTrapFrame @ 0x140434EF0 (PspGetBaseTrapFrame.c)
- *     MmUpdateUserShadowStackValue @ 0x1404873D8 (MmUpdateUserShadowStackValue.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ZwQueryVirtualMemory @ 0x1406A6870 (ZwQueryVirtualMemory.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     ExRaiseDatatypeMisalignment @ 0x14089B1F0 (ExRaiseDatatypeMisalignment.c)
- *     MmFreeVirtualMemory @ 0x1408DB8A0 (MmFreeVirtualMemory.c)
+ *     KiDispatchException @ 0x1403D5EB0 (KiDispatchException.c)
+ *     PspGetBaseTrapFrame @ 0x140427E50 (PspGetBaseTrapFrame.c)
+ *     MmUpdateUserShadowStackValue @ 0x140482448 (MmUpdateUserShadowStackValue.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ZwQueryVirtualMemory @ 0x1406A7810 (ZwQueryVirtualMemory.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408A3890 (ExRaiseDatatypeMisalignment.c)
+ *     MmFreeVirtualMemory @ 0x1408D9AD0 (MmFreeVirtualMemory.c)
  */
 
 __int64 __fastcall PspFreeUserFiberShadowStack(PVOID BaseAddress)
 {
+  __int64 v2; // r8
+  __int64 v3; // r9
   int updated; // esi
   struct _KTHREAD *CurrentThread; // rdi
   __int64 BaseTrapFrame; // rbx
-  __int64 v6; // rax
+  __int64 v8; // rax
   _OWORD MemoryInformation[3]; // [rsp+38h] [rbp-F0h] BYREF
-  ULONG_PTR v8[3]; // [rsp+70h] [rbp-B8h] BYREF
-  int v9; // [rsp+88h] [rbp-A0h]
-  __int64 v10; // [rsp+90h] [rbp-98h]
+  EXCEPTION_RECORD ExceptionRecord; // [rsp+70h] [rbp-B8h] BYREF
 
-  memset_0(v8, 0, 0x98uLL);
+  memset_0(&ExceptionRecord, 0, sizeof(ExceptionRecord));
   memset(MemoryInformation, 0, sizeof(MemoryInformation));
   if ( ((unsigned __int8)BaseAddress & 7) != 0 )
     ExRaiseDatatypeMisalignment();
   updated = MmUpdateUserShadowStackValue(
               (unsigned __int64)BaseAddress,
-              ((unsigned __int64)BaseAddress + 8) & 0xFFFFFFFFFFFFFFFCuLL | 1);
+              ((unsigned __int64)BaseAddress + 8) & 0xFFFFFFFFFFFFFFFCuLL | 1,
+              v2,
+              v3);
   if ( updated >= 0 )
   {
     updated = ZwQueryVirtualMemory(
                 (HANDLE)0xFFFFFFFFFFFFFFFFLL,
                 BaseAddress,
-                (MEMORY_INFORMATION_CLASS)3,
+                MemoryRegionInformation,
                 MemoryInformation,
                 0x30uLL,
                 0LL);
@@ -46,14 +48,15 @@ __int64 __fastcall PspFreeUserFiberShadowStack(PVOID BaseAddress)
   if ( updated < 0 )
   {
     CurrentThread = KeGetCurrentThread();
-    v8[2] = 0LL;
-    v8[0] = 0x1C0000409LL;
-    v9 = 1;
-    v8[1] = 0LL;
-    v10 = updated;
+    ExceptionRecord.ExceptionFlags = 1;
+    ExceptionRecord.ExceptionAddress = 0LL;
+    ExceptionRecord.ExceptionCode = -1073740791;
+    ExceptionRecord.NumberParameters = 1;
+    ExceptionRecord.ExceptionRecord = 0LL;
+    ExceptionRecord.ExceptionInformation[0] = updated;
     BaseTrapFrame = PspGetBaseTrapFrame((__int64)CurrentThread, 0LL);
-    v6 = PspGetBaseTrapFrame((__int64)CurrentThread, 0LL);
-    KiDispatchException((unsigned int *)v8, v6 - 320, BaseTrapFrame, 1u, 0);
+    v8 = PspGetBaseTrapFrame((__int64)CurrentThread, 0LL);
+    KiDispatchException(&ExceptionRecord, v8 - 320, BaseTrapFrame, 1u, 0);
   }
   return (unsigned int)updated;
 }

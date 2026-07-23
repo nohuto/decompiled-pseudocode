@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpAcpiGetTableFromBios @ 0x140294A30
+ * XREFs of HalpAcpiGetTableFromBios @ 0x1402166F0
  * Callers:
- *     HalpAcpiGetTableWork @ 0x140294700 (HalpAcpiGetTableWork.c)
- *     HalpAcpiIsCachedTableCompromised @ 0x14029489C (HalpAcpiIsCachedTableCompromised.c)
+ *     HalpAcpiGetTableWork @ 0x1402163C0 (HalpAcpiGetTableWork.c)
+ *     HalpAcpiIsCachedTableCompromised @ 0x14021655C (HalpAcpiIsCachedTableCompromised.c)
  * Callees:
- *     HalpAcpiGetRsdt @ 0x140294540 (HalpAcpiGetRsdt.c)
- *     HalpAcpiGetTableWork @ 0x140294700 (HalpAcpiGetTableWork.c)
- *     HalpAcpiCheckAndMapTable @ 0x140294BD8 (HalpAcpiCheckAndMapTable.c)
+ *     HalpAcpiGetRsdt @ 0x140216204 (HalpAcpiGetRsdt.c)
+ *     HalpAcpiGetTableWork @ 0x1402163C0 (HalpAcpiGetTableWork.c)
+ *     HalpAcpiCheckAndMapTable @ 0x140216898 (HalpAcpiCheckAndMapTable.c)
  */
 
 _DWORD *__fastcall HalpAcpiGetTableFromBios(__int64 a1, int a2, char *Str1, char *a4, _DWORD *a5, _QWORD *a6)

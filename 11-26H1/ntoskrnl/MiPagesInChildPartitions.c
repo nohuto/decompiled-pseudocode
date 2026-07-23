@@ -1,8 +1,8 @@
 /*
- * XREFs of MiPagesInChildPartitions @ 0x1404CF078
+ * XREFs of MiPagesInChildPartitions @ 0x1404C8AA8
  * Callers:
- *     MiUpdatePartitionAgeTrimConfiguration @ 0x1404D3164 (MiUpdatePartitionAgeTrimConfiguration.c)
- *     MiAllocateCrcList @ 0x140B55EB8 (MiAllocateCrcList.c)
+ *     MiUpdatePartitionAgeTrimConfiguration @ 0x1404CC9D4 (MiUpdatePartitionAgeTrimConfiguration.c)
+ *     MiAllocateCrcList @ 0x140B58BB8 (MiAllocateCrcList.c)
  * Callees:
  *     <none>
  */
@@ -14,7 +14,7 @@ __int64 MiPagesInChildPartitions()
   unsigned int i; // ecx
 
   result = 0LL;
-  p_Object = &stru_140E36558.WaitBlock[0].Object;
+  p_Object = &stru_140E366D8.WaitBlock[0].Object;
   for ( i = 0; i < (unsigned __int16)KeNumberNodes; ++p_Object )
   {
     ++i;

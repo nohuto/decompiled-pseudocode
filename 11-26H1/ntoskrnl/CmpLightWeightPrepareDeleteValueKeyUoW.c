@@ -1,23 +1,23 @@
 /*
- * XREFs of CmpLightWeightPrepareDeleteValueKeyUoW @ 0x1408BEED0
+ * XREFs of CmpLightWeightPrepareDeleteValueKeyUoW @ 0x1408C54A0
  * Callers:
- *     CmpProcessLightWeightUOW @ 0x1408AEB00 (CmpProcessLightWeightUOW.c)
+ *     CmpProcessLightWeightUOW @ 0x1408B4F40 (CmpProcessLightWeightUOW.c)
  * Callees:
- *     CmpAllocatePool @ 0x140474870 (CmpAllocatePool.c)
- *     CmpFreeTransientPoolWithTag @ 0x140477290 (CmpFreeTransientPoolWithTag.c)
- *     HvpGetCellFlat @ 0x14085EB00 (HvpGetCellFlat.c)
- *     CmpRemoveValueFromList @ 0x1408BCABC (CmpRemoveValueFromList.c)
- *     CmpMarkValueDataDirty @ 0x1408BD5D4 (CmpMarkValueDataDirty.c)
- *     CmpInitializeValueNameString @ 0x1408BF5E4 (CmpInitializeValueNameString.c)
- *     HvpMarkCellDirty @ 0x1408D4AB0 (HvpMarkCellDirty.c)
- *     HvpReleaseCellFlat @ 0x1408D51E0 (HvpReleaseCellFlat.c)
- *     CmpFindNameInListWithStatus @ 0x1408D5200 (CmpFindNameInListWithStatus.c)
- *     HvpReleaseCellPaged @ 0x1408D73B0 (HvpReleaseCellPaged.c)
- *     HvpGetCellPaged @ 0x1408D7410 (HvpGetCellPaged.c)
- *     CmpLightWeightUpdateSharedSetValueData @ 0x140ADE100 (CmpLightWeightUpdateSharedSetValueData.c)
- *     CmpLightWeightCreateSetValueData @ 0x140AE8DA0 (CmpLightWeightCreateSetValueData.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     CmpAllocatePool @ 0x14046DFF0 (CmpAllocatePool.c)
+ *     CmpFreeTransientPoolWithTag @ 0x140470A10 (CmpFreeTransientPoolWithTag.c)
+ *     HvpGetCellFlat @ 0x140864DF0 (HvpGetCellFlat.c)
+ *     CmpRemoveValueFromList @ 0x1408C308C (CmpRemoveValueFromList.c)
+ *     CmpMarkValueDataDirty @ 0x1408C3BA4 (CmpMarkValueDataDirty.c)
+ *     CmpInitializeValueNameString @ 0x1408C5BB4 (CmpInitializeValueNameString.c)
+ *     HvpMarkCellDirty @ 0x1408DB070 (HvpMarkCellDirty.c)
+ *     HvpReleaseCellFlat @ 0x1408DB7A0 (HvpReleaseCellFlat.c)
+ *     CmpFindNameInListWithStatus @ 0x1408DB7C0 (CmpFindNameInListWithStatus.c)
+ *     HvpReleaseCellPaged @ 0x1408DD970 (HvpReleaseCellPaged.c)
+ *     HvpGetCellPaged @ 0x1408DD9D0 (HvpGetCellPaged.c)
+ *     CmpLightWeightUpdateSharedSetValueData @ 0x140ADAE70 (CmpLightWeightUpdateSharedSetValueData.c)
+ *     CmpLightWeightCreateSetValueData @ 0x140AEAFF0 (CmpLightWeightCreateSetValueData.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall CmpLightWeightPrepareDeleteValueKeyUoW(__int64 a1)

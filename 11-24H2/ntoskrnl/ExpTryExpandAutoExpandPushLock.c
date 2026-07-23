@@ -1,9 +1,9 @@
 /*
- * XREFs of ExpTryExpandAutoExpandPushLock @ 0x1404D5408
+ * XREFs of ExpTryExpandAutoExpandPushLock @ 0x1404CE6E0
  * Callers:
- *     ExReleaseAutoExpandPushLockShared @ 0x14025DFF0 (ExReleaseAutoExpandPushLockShared.c)
+ *     ExReleaseAutoExpandPushLockShared @ 0x14028E600 (ExReleaseAutoExpandPushLockShared.c)
  * Callees:
- *     ExpAllocateFannedOutPushLock @ 0x14047B80C (ExpAllocateFannedOutPushLock.c)
+ *     ExpAllocateFannedOutPushLock @ 0x14026FE3C (ExpAllocateFannedOutPushLock.c)
  */
 
 void __fastcall ExpTryExpandAutoExpandPushLock(__int64 a1)

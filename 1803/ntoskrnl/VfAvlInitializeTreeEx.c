@@ -20,7 +20,7 @@ __int64 __fastcall VfAvlInitializeTreeEx(
   unsigned int v9; // ecx
   PVOID PoolWithTag; // rax
   unsigned __int64 v11; // rbp
-  RTL_AVL_COMPARE_ROUTINE *v12; // rsi
+  RTL_GENERIC_COMPARE_RESULTS (__cdecl *v12)(_RTL_AVL_TABLE *, PVOID, PVOID); // rsi
   __int64 v13; // rdi
   unsigned int MaximumProcessorCount; // eax
 
@@ -70,9 +70,9 @@ __int64 __fastcall VfAvlInitializeTreeEx(
   v11 = 0LL;
   if ( *((_DWORD *)TableContext + 6) )
   {
-    v12 = (RTL_AVL_COMPARE_ROUTINE *)ViAvlCompareNodeUseSessionId;
+    v12 = (RTL_GENERIC_COMPARE_RESULTS (__cdecl *)(_RTL_AVL_TABLE *, PVOID, PVOID))ViAvlCompareNodeUseSessionId;
     if ( !a4 )
-      v12 = (RTL_AVL_COMPARE_ROUTINE *)ViAvlCompareNode;
+      v12 = (RTL_GENERIC_COMPARE_RESULTS (__cdecl *)(_RTL_AVL_TABLE *, PVOID, PVOID))ViAvlCompareNode;
     v13 = 0LL;
     do
     {

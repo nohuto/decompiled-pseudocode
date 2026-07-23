@@ -1,16 +1,16 @@
 /*
  * XREFs of ObSetSecurityDescriptorInfo @ 0x14069E860
  * Callers:
- *     WmipSecurityMethod @ 0x1407BDD80 (WmipSecurityMethod.c)
+ *     WmipSecurityMethod @ 0x1407BE050 (WmipSecurityMethod.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     ExReleasePushLockEx @ 0x140231190 (ExReleasePushLockEx.c)
+ *     KeLeaveCriticalRegionThread @ 0x14022F7F0 (KeLeaveCriticalRegionThread.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140231120 (ExAcquirePushLockExclusiveEx.c)
+ *     ExReleasePushLockEx @ 0x140231280 (ExReleasePushLockEx.c)
  *     SeSetSecurityDescriptorInfo @ 0x14069E810 (SeSetSecurityDescriptorInfo.c)
  *     ObAdjustSecurityQuota @ 0x14069E9B8 (ObAdjustSecurityQuota.c)
- *     ObDereferenceSecurityDescriptor @ 0x140728A50 (ObDereferenceSecurityDescriptor.c)
- *     SeComputeQuotaInformationSize @ 0x140728B80 (SeComputeQuotaInformationSize.c)
- *     ObLogSecurityDescriptor @ 0x140728CC0 (ObLogSecurityDescriptor.c)
+ *     ObDereferenceSecurityDescriptor @ 0x140728C50 (ObDereferenceSecurityDescriptor.c)
+ *     SeComputeQuotaInformationSize @ 0x140728D80 (SeComputeQuotaInformationSize.c)
+ *     ObLogSecurityDescriptor @ 0x140728EC0 (ObLogSecurityDescriptor.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

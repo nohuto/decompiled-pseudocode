@@ -1,98 +1,98 @@
 /*
- * XREFs of KiFlushCurrentRsb @ 0x14073D180
+ * XREFs of KiFlushCurrentRsb @ 0x140741D80
  * Callers:
- *     KiUpdateSpeculationControl @ 0x1402BB280 (KiUpdateSpeculationControl.c)
- *     KiUpdateStibpPairing @ 0x140402530 (KiUpdateStibpPairing.c)
- *     KePrepareToDispatchVirtualProcessor @ 0x14047A440 (KePrepareToDispatchVirtualProcessor.c)
- *     KiHandleMcheck @ 0x1405EBA00 (KiHandleMcheck.c)
- *     KiProcessNMI @ 0x1405EBA60 (KiProcessNMI.c)
- *     KeFlushRsb @ 0x1405F18C8 (KeFlushRsb.c)
- *     KiFlushRsbTarget @ 0x1405F2140 (KiFlushRsbTarget.c)
+ *     KiUpdateSpeculationControl @ 0x140305F40 (KiUpdateSpeculationControl.c)
+ *     KiUpdateStibpPairing @ 0x1403F42E0 (KiUpdateStibpPairing.c)
+ *     KePrepareToDispatchVirtualProcessor @ 0x140473DB0 (KePrepareToDispatchVirtualProcessor.c)
+ *     KiHandleMcheck @ 0x1405EE370 (KiHandleMcheck.c)
+ *     KiProcessNMI @ 0x1405EE3D0 (KiProcessNMI.c)
+ *     KeFlushRsb @ 0x1405F4288 (KeFlushRsb.c)
+ *     KiFlushRsbTarget @ 0x1405F4B00 (KiFlushRsbTarget.c)
  * Callees:
- *     KiFlushCurrentRsb @ 0x14073D180 (KiFlushCurrentRsb.c)
+ *     KiFlushCurrentRsb @ 0x140741D80 (KiFlushCurrentRsb.c)
  */
 
 /*
- * Hex-Rays decompilation failed for KiFlushCurrentRsb @ 0x14073D180
- * Reason: Hex-Rays returned no pseudocode for 0x14073D180
+ * Hex-Rays decompilation failed for KiFlushCurrentRsb @ 0x140741D80
+ * Reason: Hex-Rays returned no pseudocode for 0x140741D80
  * Fallback: raw IDA disassembly follows.
  *
- * 000000014073D180: sub     rsp, 8
- * 000000014073D184: pushfq
- * 000000014073D185: cli
- * 000000014073D186: call    loc_14073D299
- * 000000014073D18B: add     rsp, 8
- * 000000014073D18F: call    loc_14073D2A2
- * 000000014073D194: add     rsp, 8
- * 000000014073D198: call    loc_14073D18B
- * 000000014073D19D: add     rsp, 8
- * 000000014073D1A1: call    loc_14073D194
- * 000000014073D1A6: add     rsp, 8
- * 000000014073D1AA: call    loc_14073D19D
- * 000000014073D1AF: add     rsp, 8
- * 000000014073D1B3: call    loc_14073D1A6
- * 000000014073D1B8: add     rsp, 8
- * 000000014073D1BC: call    loc_14073D1AF
- * 000000014073D1C1: add     rsp, 8
- * 000000014073D1C5: call    loc_14073D1B8
- * 000000014073D1CA: add     rsp, 8
- * 000000014073D1CE: call    loc_14073D1C1
- * 000000014073D1D3: add     rsp, 8
- * 000000014073D1D7: call    loc_14073D1CA
- * 000000014073D1DC: add     rsp, 8
- * 000000014073D1E0: call    loc_14073D1D3
- * 000000014073D1E5: add     rsp, 8
- * 000000014073D1E9: call    loc_14073D1DC
- * 000000014073D1EE: add     rsp, 8
- * 000000014073D1F2: call    loc_14073D1E5
- * 000000014073D1F7: add     rsp, 8
- * 000000014073D1FB: call    loc_14073D1EE
- * 000000014073D200: add     rsp, 8
- * 000000014073D204: call    loc_14073D1F7
- * 000000014073D209: add     rsp, 8
- * 000000014073D20D: call    loc_14073D200
- * 000000014073D212: add     rsp, 8
- * 000000014073D216: call    loc_14073D209
- * 000000014073D21B: add     rsp, 8
- * 000000014073D21F: call    loc_14073D212
- * 000000014073D224: add     rsp, 8
- * 000000014073D228: call    loc_14073D21B
- * 000000014073D22D: add     rsp, 8
- * 000000014073D231: call    loc_14073D224
- * 000000014073D236: add     rsp, 8
- * 000000014073D23A: call    loc_14073D22D
- * 000000014073D23F: add     rsp, 8
- * 000000014073D243: call    loc_14073D236
- * 000000014073D248: add     rsp, 8
- * 000000014073D24C: call    loc_14073D23F
- * 000000014073D251: add     rsp, 8
- * 000000014073D255: call    loc_14073D248
- * 000000014073D25A: add     rsp, 8
- * 000000014073D25E: call    loc_14073D251
- * 000000014073D263: add     rsp, 8
- * 000000014073D267: call    loc_14073D25A
- * 000000014073D26C: add     rsp, 8
- * 000000014073D270: call    loc_14073D263
- * 000000014073D275: add     rsp, 8
- * 000000014073D279: call    loc_14073D26C
- * 000000014073D27E: add     rsp, 8
- * 000000014073D282: call    loc_14073D275
- * 000000014073D287: add     rsp, 8
- * 000000014073D28B: call    loc_14073D27E
- * 000000014073D290: add     rsp, 8
- * 000000014073D294: call    loc_14073D287
- * 000000014073D299: add     rsp, 8
- * 000000014073D29D: call    loc_14073D290
- * 000000014073D2A2: add     rsp, 8
- * 000000014073D2A6: mov     eax, 0DADAh
- * 000000014073D2AB: test    byte ptr gs:89Ch, 8
- * 000000014073D2B4: jz      short loc_14073D2BD
- * 000000014073D2B6: mov     al, 20h ; ' '
- * 000000014073D2B8: incsspq rax
- * 000000014073D2BD: lfence
- * 000000014073D2C0: bt      [rsp-0F0h+arg_E8], 9
- * 000000014073D2C6: jnb     short loc_14073D2C9
- * 000000014073D2C8: sti
- * 000000014073D2C9: add     rsp, 10h
- * 000000014073D2CD: retn
+ * 0000000140741D80: sub     rsp, 8
+ * 0000000140741D84: pushfq
+ * 0000000140741D85: cli
+ * 0000000140741D86: call    loc_140741E99
+ * 0000000140741D8B: add     rsp, 8
+ * 0000000140741D8F: call    loc_140741EA2
+ * 0000000140741D94: add     rsp, 8
+ * 0000000140741D98: call    loc_140741D8B
+ * 0000000140741D9D: add     rsp, 8
+ * 0000000140741DA1: call    loc_140741D94
+ * 0000000140741DA6: add     rsp, 8
+ * 0000000140741DAA: call    loc_140741D9D
+ * 0000000140741DAF: add     rsp, 8
+ * 0000000140741DB3: call    loc_140741DA6
+ * 0000000140741DB8: add     rsp, 8
+ * 0000000140741DBC: call    loc_140741DAF
+ * 0000000140741DC1: add     rsp, 8
+ * 0000000140741DC5: call    loc_140741DB8
+ * 0000000140741DCA: add     rsp, 8
+ * 0000000140741DCE: call    loc_140741DC1
+ * 0000000140741DD3: add     rsp, 8
+ * 0000000140741DD7: call    loc_140741DCA
+ * 0000000140741DDC: add     rsp, 8
+ * 0000000140741DE0: call    loc_140741DD3
+ * 0000000140741DE5: add     rsp, 8
+ * 0000000140741DE9: call    loc_140741DDC
+ * 0000000140741DEE: add     rsp, 8
+ * 0000000140741DF2: call    loc_140741DE5
+ * 0000000140741DF7: add     rsp, 8
+ * 0000000140741DFB: call    loc_140741DEE
+ * 0000000140741E00: add     rsp, 8
+ * 0000000140741E04: call    loc_140741DF7
+ * 0000000140741E09: add     rsp, 8
+ * 0000000140741E0D: call    loc_140741E00
+ * 0000000140741E12: add     rsp, 8
+ * 0000000140741E16: call    loc_140741E09
+ * 0000000140741E1B: add     rsp, 8
+ * 0000000140741E1F: call    loc_140741E12
+ * 0000000140741E24: add     rsp, 8
+ * 0000000140741E28: call    loc_140741E1B
+ * 0000000140741E2D: add     rsp, 8
+ * 0000000140741E31: call    loc_140741E24
+ * 0000000140741E36: add     rsp, 8
+ * 0000000140741E3A: call    loc_140741E2D
+ * 0000000140741E3F: add     rsp, 8
+ * 0000000140741E43: call    loc_140741E36
+ * 0000000140741E48: add     rsp, 8
+ * 0000000140741E4C: call    loc_140741E3F
+ * 0000000140741E51: add     rsp, 8
+ * 0000000140741E55: call    loc_140741E48
+ * 0000000140741E5A: add     rsp, 8
+ * 0000000140741E5E: call    loc_140741E51
+ * 0000000140741E63: add     rsp, 8
+ * 0000000140741E67: call    loc_140741E5A
+ * 0000000140741E6C: add     rsp, 8
+ * 0000000140741E70: call    loc_140741E63
+ * 0000000140741E75: add     rsp, 8
+ * 0000000140741E79: call    loc_140741E6C
+ * 0000000140741E7E: add     rsp, 8
+ * 0000000140741E82: call    loc_140741E75
+ * 0000000140741E87: add     rsp, 8
+ * 0000000140741E8B: call    loc_140741E7E
+ * 0000000140741E90: add     rsp, 8
+ * 0000000140741E94: call    loc_140741E87
+ * 0000000140741E99: add     rsp, 8
+ * 0000000140741E9D: call    loc_140741E90
+ * 0000000140741EA2: add     rsp, 8
+ * 0000000140741EA6: mov     eax, 0DADAh
+ * 0000000140741EAB: test    byte ptr gs:89Ch, 8
+ * 0000000140741EB4: jz      short loc_140741EBD
+ * 0000000140741EB6: mov     al, 20h ; ' '
+ * 0000000140741EB8: incsspq rax
+ * 0000000140741EBD: lfence
+ * 0000000140741EC0: bt      [rsp-0F0h+arg_E8], 9
+ * 0000000140741EC6: jnb     short loc_140741EC9
+ * 0000000140741EC8: sti
+ * 0000000140741EC9: add     rsp, 10h
+ * 0000000140741ECD: retn
  */

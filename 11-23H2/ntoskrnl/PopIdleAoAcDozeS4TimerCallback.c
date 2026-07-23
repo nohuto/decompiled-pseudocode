@@ -1,13 +1,13 @@
 /*
- * XREFs of PopIdleAoAcDozeS4TimerCallback @ 0x14059E0B0
+ * XREFs of PopIdleAoAcDozeS4TimerCallback @ 0x14059E5A0
  * Callers:
  *     <none>
  * Callees:
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250E80 (KeAcquireSpinLockRaiseToDpc.c)
- *     PopDeepSleepSetDisengageReason @ 0x14028E848 (PopDeepSleepSetDisengageReason.c)
- *     ExQueueWorkItem @ 0x1402B7C30 (ExQueueWorkItem.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140250F40 (KeAcquireSpinLockRaiseToDpc.c)
+ *     PopDeepSleepSetDisengageReason @ 0x14028EAD8 (PopDeepSleepSetDisengageReason.c)
+ *     ExQueueWorkItem @ 0x1402B7EC0 (ExQueueWorkItem.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 void PopIdleAoAcDozeS4TimerCallback()
@@ -20,12 +20,15 @@ void PopIdleAoAcDozeS4TimerCallback()
   bool v5; // zf
 
   v0 = KeAcquireSpinLockRaiseToDpc(&PopIdleAoAcDozeS4Lock);
-  byte_140C3CD44 = 0;
+  byte_140C3CCE4 = 0;
   KxReleaseSpinLock((volatile signed __int64 *)&PopIdleAoAcDozeS4Lock);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v0 <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
+      && (unsigned __int8)v0 <= 0xFu
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -37,8 +40,8 @@ void PopIdleAoAcDozeS4TimerCallback()
     }
   }
   __writecr8(v0);
-  _m_prefetchw(&dword_140C3CD4C);
-  if ( !_InterlockedOr(&dword_140C3CD4C, 1u) )
+  _m_prefetchw(&dword_140C3CCEC);
+  if ( !_InterlockedOr(&dword_140C3CCEC, 1u) )
   {
     PopDeepSleepSetDisengageReason(4u);
     ExQueueWorkItem(&PopIdleAoAcDozeS4WorkItem, DelayedWorkQueue);

@@ -1,7 +1,7 @@
 /*
  * XREFs of KdpReadControlSpace @ 0x1406F33A8
  * Callers:
- *     KdpSendWaitContinue @ 0x1406F2AAC (KdpSendWaitContinue.c)
+ *     KdpSendWaitContinue @ 0x1406F2744 (KdpSendWaitContinue.c)
  * Callees:
  *     KdpSysReadControlSpace @ 0x1406F343C (KdpSysReadControlSpace.c)
  */

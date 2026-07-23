@@ -1,10 +1,10 @@
 /*
- * XREFs of SeCaptureSecurityQos @ 0x14090F460
+ * XREFs of SeCaptureSecurityQos @ 0x1408E6BB0
  * Callers:
- *     NtDuplicateToken @ 0x14090F090 (NtDuplicateToken.c)
- *     NtCreateTokenEx @ 0x140936AB0 (NtCreateTokenEx.c)
+ *     NtDuplicateToken @ 0x1408E67E0 (NtDuplicateToken.c)
+ *     NtCreateTokenEx @ 0x140983E20 (NtCreateTokenEx.c)
  * Callees:
- *     ExRaiseDatatypeMisalignment @ 0x14089B1F0 (ExRaiseDatatypeMisalignment.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408A3890 (ExRaiseDatatypeMisalignment.c)
  */
 
 __int64 __fastcall SeCaptureSecurityQos(__int64 a1, char a2, _BYTE *a3, __int64 a4)

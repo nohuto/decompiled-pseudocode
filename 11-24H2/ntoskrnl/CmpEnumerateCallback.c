@@ -1,13 +1,13 @@
 /*
- * XREFs of CmpEnumerateCallback @ 0x1407D18F0
+ * XREFs of CmpEnumerateCallback @ 0x1407D1DE0
  * Callers:
  *     <none>
  * Callees:
- *     ExfUnblockPushLock @ 0x1402C7820 (ExfUnblockPushLock.c)
- *     CmpInitializeThreadInfo @ 0x1403FA250 (CmpInitializeThreadInfo.c)
- *     CmpCleanupThreadInfo @ 0x14041EE60 (CmpCleanupThreadInfo.c)
- *     CmpUnlockCallbackList @ 0x140989CB0 (CmpUnlockCallbackList.c)
- *     CmpLockCallbackListShared @ 0x14099D210 (CmpLockCallbackListShared.c)
+ *     ExfUnblockPushLock @ 0x1402BC1A0 (ExfUnblockPushLock.c)
+ *     CmpInitializeThreadInfo @ 0x1403F0160 (CmpInitializeThreadInfo.c)
+ *     CmpCleanupThreadInfo @ 0x140414BA0 (CmpCleanupThreadInfo.c)
+ *     CmpUnlockCallbackList @ 0x140973760 (CmpUnlockCallbackList.c)
+ *     CmpLockCallbackListShared @ 0x140987240 (CmpLockCallbackListShared.c)
  */
 
 __int64 __fastcall CmpEnumerateCallback(__int64 **a1)

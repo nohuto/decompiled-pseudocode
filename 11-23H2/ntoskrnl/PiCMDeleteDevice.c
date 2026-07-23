@@ -1,29 +1,29 @@
 /*
- * XREFs of PiCMDeleteDevice @ 0x140968E48
+ * XREFs of PiCMDeleteDevice @ 0x140969048
  * Callers:
- *     PiCMHandleIoctl @ 0x1406D0760 (PiCMHandleIoctl.c)
+ *     PiCMHandleIoctl @ 0x1406D0790 (PiCMHandleIoctl.c)
  * Callees:
- *     RtlInitUnicodeStringEx @ 0x14022B6C0 (RtlInitUnicodeStringEx.c)
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExAcquireResourceExclusiveLite @ 0x1402390E0 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x14023D410 (ExReleaseResourceLite.c)
- *     PnpSetDeviceInstancePropertyChangeEventFromDeviceInstance @ 0x1403B6EBC (PnpSetDeviceInstancePropertyChangeEventFromDeviceInstance.c)
- *     ZwPlugPlayControl @ 0x14041D4C0 (ZwPlugPlayControl.c)
- *     PpDevNodeUnlockTree @ 0x1406C98FC (PpDevNodeUnlockTree.c)
- *     PpDevNodeLockTree @ 0x1406C9990 (PpDevNodeLockTree.c)
- *     _CmIsRootEnumeratedDevice @ 0x1406CC080 (_CmIsRootEnumeratedDevice.c)
- *     _CmValidateDeviceName @ 0x1406CE7C0 (_CmValidateDeviceName.c)
- *     PiPnpRtlEndOperation @ 0x1407887CC (PiPnpRtlEndOperation.c)
- *     PiPnpRtlBeginOperation @ 0x1407889D0 (PiPnpRtlBeginOperation.c)
- *     PiCMReleaseObjectInputData @ 0x14079A0D8 (PiCMReleaseObjectInputData.c)
- *     PiCMReturnBasicResultData @ 0x14079A108 (PiCMReturnBasicResultData.c)
- *     PiCMCaptureObjectInputData @ 0x14079A184 (PiCMCaptureObjectInputData.c)
- *     _CmIsRootDevice @ 0x14079A498 (_CmIsRootDevice.c)
- *     _CmGetDeviceStatus @ 0x14079A568 (_CmGetDeviceStatus.c)
- *     PiAuDoesClientHaveAccess @ 0x14079A888 (PiAuDoesClientHaveAccess.c)
- *     PpDeviceRegistration @ 0x1407CF564 (PpDeviceRegistration.c)
- *     PiQueueDeviceRequest @ 0x14096DEE8 (PiQueueDeviceRequest.c)
- *     _CmDeleteDevice @ 0x140A614A0 (_CmDeleteDevice.c)
+ *     RtlInitUnicodeStringEx @ 0x14022B7D0 (RtlInitUnicodeStringEx.c)
+ *     KeLeaveCriticalRegionThread @ 0x14022F7F0 (KeLeaveCriticalRegionThread.c)
+ *     ExAcquireResourceExclusiveLite @ 0x1402391B0 (ExAcquireResourceExclusiveLite.c)
+ *     ExReleaseResourceLite @ 0x14023D4E0 (ExReleaseResourceLite.c)
+ *     PnpSetDeviceInstancePropertyChangeEventFromDeviceInstance @ 0x1403B709C (PnpSetDeviceInstancePropertyChangeEventFromDeviceInstance.c)
+ *     ZwPlugPlayControl @ 0x14041D850 (ZwPlugPlayControl.c)
+ *     PpDevNodeUnlockTree @ 0x1406C992C (PpDevNodeUnlockTree.c)
+ *     PpDevNodeLockTree @ 0x1406C99C0 (PpDevNodeLockTree.c)
+ *     _CmIsRootEnumeratedDevice @ 0x1406CC0B0 (_CmIsRootEnumeratedDevice.c)
+ *     _CmValidateDeviceName @ 0x1406CE7F0 (_CmValidateDeviceName.c)
+ *     PiPnpRtlEndOperation @ 0x1407889BC (PiPnpRtlEndOperation.c)
+ *     PiPnpRtlBeginOperation @ 0x140788BC0 (PiPnpRtlBeginOperation.c)
+ *     PiCMReleaseObjectInputData @ 0x14079A2C8 (PiCMReleaseObjectInputData.c)
+ *     PiCMReturnBasicResultData @ 0x14079A2F8 (PiCMReturnBasicResultData.c)
+ *     PiCMCaptureObjectInputData @ 0x14079A374 (PiCMCaptureObjectInputData.c)
+ *     _CmIsRootDevice @ 0x14079A688 (_CmIsRootDevice.c)
+ *     _CmGetDeviceStatus @ 0x14079A758 (_CmGetDeviceStatus.c)
+ *     PiAuDoesClientHaveAccess @ 0x14079AA78 (PiAuDoesClientHaveAccess.c)
+ *     PpDeviceRegistration @ 0x1407CF834 (PpDeviceRegistration.c)
+ *     PiQueueDeviceRequest @ 0x14096E0E8 (PiQueueDeviceRequest.c)
+ *     _CmDeleteDevice @ 0x140A61750 (_CmDeleteDevice.c)
  */
 
 __int64 __fastcall PiCMDeleteDevice(
@@ -51,7 +51,7 @@ __int64 __fastcall PiCMDeleteDevice(
   PCWSTR SourceString[2]; // [rsp+78h] [rbp-19h]
   __int64 v24; // [rsp+88h] [rbp-9h]
   UNICODE_STRING v25; // [rsp+90h] [rbp-1h] BYREF
-  UNICODE_STRING v26; // [rsp+A0h] [rbp+Fh] BYREF
+  UNICODE_STRING PnPControlData; // [rsp+A0h] [rbp+Fh] BYREF
   __int128 v27; // [rsp+B0h] [rbp+1Fh]
   __int64 v28; // [rsp+C0h] [rbp+2Fh]
 
@@ -66,7 +66,7 @@ __int64 __fastcall PiCMDeleteDevice(
   v22 = 0LL;
   v28 = 0LL;
   *(_OWORD *)SourceString = 0LL;
-  v26 = 0LL;
+  PnPControlData = 0LL;
   v27 = 0LL;
   v25 = 0LL;
   v9 = PiCMCaptureObjectInputData(a1, a2, a5, (__int64)&v22);
@@ -117,10 +117,10 @@ LABEL_27:
           if ( inited < 0 )
             goto LABEL_28;
           v14 = SourceString[0];
-          if ( RtlInitUnicodeStringEx(&v26, SourceString[0]) >= 0 )
+          if ( RtlInitUnicodeStringEx(&PnPControlData, SourceString[0]) >= 0 )
           {
             *(_QWORD *)&v27 = 0x4000000000001LL;
-            ZwPlugPlayControl(14LL, (__int64)&v26);
+            ZwPlugPlayControl(PlugPlayControlDeviceStatus, &PnPControlData, 0x28u);
           }
         }
         else

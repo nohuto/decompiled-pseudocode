@@ -1,19 +1,19 @@
 /*
- * XREFs of PopGetDope @ 0x140438170
+ * XREFs of PopGetDope @ 0x140427090
  * Callers:
- *     PoRegisterDeviceForIdleDetection @ 0x140437DF0 (PoRegisterDeviceForIdleDetection.c)
- *     PopAssociatePowerLimitRequest @ 0x1407CA800 (PopAssociatePowerLimitRequest.c)
- *     PopFreePowerLimitRequest @ 0x1407CADDC (PopFreePowerLimitRequest.c)
- *     PopOrphanPowerLimitExtension @ 0x1407CB020 (PopOrphanPowerLimitExtension.c)
- *     PopAssociateThermalRequest @ 0x1407CB7EC (PopAssociateThermalRequest.c)
- *     PopDeactiveThermalRequest @ 0x1407CBAF8 (PopDeactiveThermalRequest.c)
- *     PopOrphanCoolingExtension @ 0x1407CBDB4 (PopOrphanCoolingExtension.c)
- *     PoVolumeDevice @ 0x140B52CC8 (PoVolumeDevice.c)
+ *     PoRegisterDeviceForIdleDetection @ 0x140426D10 (PoRegisterDeviceForIdleDetection.c)
+ *     PopAssociatePowerLimitRequest @ 0x1407CD8A0 (PopAssociatePowerLimitRequest.c)
+ *     PopFreePowerLimitRequest @ 0x1407CDE7C (PopFreePowerLimitRequest.c)
+ *     PopOrphanPowerLimitExtension @ 0x1407CE0C0 (PopOrphanPowerLimitExtension.c)
+ *     PopAssociateThermalRequest @ 0x1407CE88C (PopAssociateThermalRequest.c)
+ *     PopDeactiveThermalRequest @ 0x1407CEB98 (PopDeactiveThermalRequest.c)
+ *     PopOrphanCoolingExtension @ 0x1407CEE54 (PopOrphanCoolingExtension.c)
+ *     PoVolumeDevice @ 0x140B55568 (PoVolumeDevice.c)
  * Callees:
- *     KeReleaseSpinLock @ 0x1402BE860 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14032F300 (KeAcquireSpinLockRaiseToDpc.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     KeReleaseSpinLock @ 0x140309520 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140331330 (KeAcquireSpinLockRaiseToDpc.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PopGetDope(__int64 a1)
@@ -34,13 +34,13 @@ __int64 __fastcall PopGetDope(__int64 a1)
       *(_QWORD *)((char *)Pool2 + 52) = 0LL;
       Pool2[5] = Pool2 + 4;
       Pool2[4] = Pool2 + 4;
-      v5 = KeAcquireSpinLockRaiseToDpc(&qword_140F10808);
+      v5 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)&PpmIdlePolicyLock.WaitBlockFill11[160]);
       if ( !*(_QWORD *)(v1 + 24) )
       {
         *(_QWORD *)(v1 + 24) = v4;
         v4 = 0LL;
       }
-      KeReleaseSpinLock(&qword_140F10808, v5);
+      KeReleaseSpinLock((PKSPIN_LOCK)&PpmIdlePolicyLock.WaitBlockFill11[160], v5);
       if ( v4 )
         ExFreePoolWithTag(v4, 0x45504F44u);
     }

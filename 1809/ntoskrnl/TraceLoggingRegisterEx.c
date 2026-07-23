@@ -1,24 +1,24 @@
 /*
- * XREFs of TraceLoggingRegisterEx @ 0x14071DC38
+ * XREFs of TraceLoggingRegisterEx @ 0x14071EED8
  * Callers:
- *     IopInitializeSystemVariableService @ 0x140192EEC (IopInitializeSystemVariableService.c)
- *     IoInitializeLiveDump @ 0x14019371C (IoInitializeLiveDump.c)
- *     BapdRecordFirmwareBootStats @ 0x14056F2A0 (BapdRecordFirmwareBootStats.c)
- *     EtwpInitializeCoverage @ 0x140742F7C (EtwpInitializeCoverage.c)
- *     TlgRegisterAggregateProviderEx @ 0x140742FD4 (TlgRegisterAggregateProviderEx.c)
- *     VRegSetup @ 0x14075AE00 (VRegSetup.c)
- *     TtmInit @ 0x1407623A0 (TtmInit.c)
- *     TraceLoggingRegister @ 0x14080796C (TraceLoggingRegister.c)
- *     RtlpCapChkTelemetryRunOnce @ 0x14089A340 (RtlpCapChkTelemetryRunOnce.c)
- *     MiInitSystem @ 0x1409BC5A8 (MiInitSystem.c)
- *     SeRmInitPhase1 @ 0x1409C61C4 (SeRmInitPhase1.c)
- *     EtwpInitialize @ 0x1409D0620 (EtwpInitialize.c)
- *     PopDiagInitialize @ 0x1409D0B90 (PopDiagInitialize.c)
- *     VslpIumInitializeTelemetry @ 0x1409DE60C (VslpIumInitializeTelemetry.c)
+ *     IopInitializeSystemVariableService @ 0x14019302C (IopInitializeSystemVariableService.c)
+ *     IoInitializeLiveDump @ 0x14019385C (IoInitializeLiveDump.c)
+ *     BapdRecordFirmwareBootStats @ 0x1405702A0 (BapdRecordFirmwareBootStats.c)
+ *     EtwpInitializeCoverage @ 0x14074416C (EtwpInitializeCoverage.c)
+ *     TlgRegisterAggregateProviderEx @ 0x1407441C4 (TlgRegisterAggregateProviderEx.c)
+ *     VRegSetup @ 0x14075BFF0 (VRegSetup.c)
+ *     TtmInit @ 0x140763590 (TtmInit.c)
+ *     TraceLoggingRegister @ 0x140808B6C (TraceLoggingRegister.c)
+ *     RtlpCapChkTelemetryRunOnce @ 0x14089B5A0 (RtlpCapChkTelemetryRunOnce.c)
+ *     MiInitSystem @ 0x1409BD5A8 (MiInitSystem.c)
+ *     SeRmInitPhase1 @ 0x1409C71C4 (SeRmInitPhase1.c)
+ *     EtwpInitialize @ 0x1409D1620 (EtwpInitialize.c)
+ *     PopDiagInitialize @ 0x1409D1B90 (PopDiagInitialize.c)
+ *     VslpIumInitializeTelemetry @ 0x1409DF60C (VslpIumInitializeTelemetry.c)
  * Callees:
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     EtwRegister @ 0x1406BE540 (EtwRegister.c)
- *     EtwSetInformation @ 0x14070BDB0 (EtwSetInformation.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     EtwRegister @ 0x1406BF7E0 (EtwRegister.c)
+ *     EtwSetInformation @ 0x14070D050 (EtwSetInformation.c)
  */
 
 TLG_STATUS __stdcall TraceLoggingRegisterEx(

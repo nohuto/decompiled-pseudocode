@@ -1,22 +1,22 @@
 /*
- * XREFs of MiCombineIdenticalPages @ 0x140B49E94
+ * XREFs of MiCombineIdenticalPages @ 0x140B4BC24
  * Callers:
- *     NtManagePartition @ 0x1407FD4C0 (NtManagePartition.c)
- *     NtSetSystemInformation @ 0x140833840 (NtSetSystemInformation.c)
+ *     NtManagePartition @ 0x140802EF0 (NtManagePartition.c)
+ *     NtSetSystemInformation @ 0x140839A80 (NtSetSystemInformation.c)
  * Callees:
- *     KiUnstackDetachProcess @ 0x1402307C0 (KiUnstackDetachProcess.c)
- *     KiStackAttachProcess @ 0x140247880 (KiStackAttachProcess.c)
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     MiDeleteUltraThreadContext @ 0x14028F5E0 (MiDeleteUltraThreadContext.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402BA1B0 (KiLeaveCriticalRegionUnsafe.c)
- *     MiCreateUltraThreadContext @ 0x1402F45F0 (MiCreateUltraThreadContext.c)
- *     MiInitializePageColorBase @ 0x14036FE20 (MiInitializePageColorBase.c)
- *     MiCombineWorkingSet @ 0x140704578 (MiCombineWorkingSet.c)
- *     MiCombiningInProgress @ 0x1407047F0 (MiCombiningInProgress.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     MiCombineAllPhysicalMemory @ 0x14087A848 (MiCombineAllPhysicalMemory.c)
- *     ObpReferenceObjectByHandleWithTag @ 0x1408FA680 (ObpReferenceObjectByHandleWithTag.c)
+ *     KiUnstackDetachProcess @ 0x140232120 (KiUnstackDetachProcess.c)
+ *     KiStackAttachProcess @ 0x1402491E0 (KiStackAttachProcess.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     MiDeleteUltraThreadContext @ 0x14028EB40 (MiDeleteUltraThreadContext.c)
+ *     MiCreateUltraThreadContext @ 0x1402D6670 (MiCreateUltraThreadContext.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140304E70 (KiLeaveCriticalRegionUnsafe.c)
+ *     MiInitializePageColorBase @ 0x140371BD0 (MiInitializePageColorBase.c)
+ *     MiCombineWorkingSet @ 0x140709248 (MiCombineWorkingSet.c)
+ *     MiCombiningInProgress @ 0x1407094C0 (MiCombiningInProgress.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     MiCombineAllPhysicalMemory @ 0x140880C48 (MiCombineAllPhysicalMemory.c)
+ *     ObpReferenceObjectByHandleWithTag @ 0x14092A610 (ObpReferenceObjectByHandleWithTag.c)
  */
 
 __int64 __fastcall MiCombineIdenticalPages(ULONG *a1, ULONG_PTR a2, int a3, ULONG_PTR a4, char a5, _QWORD *a6)
@@ -79,17 +79,17 @@ __int64 __fastcall MiCombineIdenticalPages(ULONG *a1, ULONG_PTR a2, int a3, ULON
   {
     return (unsigned int)-1073741811;
   }
-  if ( (dword_140FBE208 & 1) != 0 )
+  if ( (dword_140FBF208 & 1) != 0 )
     return (unsigned int)-1073741637;
   if ( !a2
-    || (v13 = ObpReferenceObjectByHandleWithTag(a2, 1LL, ExEventObjectType, a5, 0x62436D4Du, &v23, 0LL, 0LL),
+    || (v13 = ObpReferenceObjectByHandleWithTag(a2, 1, (__int64)ExEventObjectType, a5, 0x62436D4Du, &v23, 0LL, 0LL),
         v10 = v23,
         v11 = v13,
         v13 >= 0) )
   {
     if ( a4 )
     {
-      v14 = ObpReferenceObjectByHandleWithTag(a4, 24LL, PsProcessType, a5, 0x62436D4Du, &Object, 0LL, 0LL);
+      v14 = ObpReferenceObjectByHandleWithTag(a4, 24, (__int64)PsProcessType, a5, 0x62436D4Du, &Object, 0LL, 0LL);
       v9 = (char *)Object;
       v11 = v14;
       if ( v14 < 0 )
@@ -110,12 +110,12 @@ LABEL_30:
     {
       --CurrentThread->KernelApcDisable;
       MiCombiningInProgress((__int64 *)v16, v32, 1);
-      v28[0] = qword_140E36028;
-      v28[1] = qword_140E36060;
+      v28[0] = qword_140E361A8;
+      v28[1] = qword_140E361E0;
       v34 = v28;
       v35 = v25;
       v32[11] = &v40;
-      v17 = dword_140E2EA5C;
+      v17 = dword_140E2EBDC;
       v25[0] = 0;
       v25[1] = -1;
       v36 = 2;
@@ -129,7 +129,7 @@ LABEL_30:
         if ( (unsigned int)(v17 + 1) < 2 )
           v18 = 2;
         v39 = v18;
-        v17 = _InterlockedCompareExchange(&dword_140E2EA5C, v18, v17);
+        v17 = _InterlockedCompareExchange(&dword_140E2EBDC, v18, v17);
       }
       while ( v17 != v19 );
       MiInitializePageColorBase(

@@ -1,34 +1,34 @@
 /*
- * XREFs of MiLockTransitionLeafPage @ 0x140095744
+ * XREFs of MiLockTransitionLeafPage @ 0x140095684
  * Callers:
  *     MmProtectPool @ 0x14000E16C (MmProtectPool.c)
  *     MiOutSwapWorkingSetPte @ 0x14003DD60 (MiOutSwapWorkingSetPte.c)
  *     MiUserFault @ 0x140044870 (MiUserFault.c)
- *     MiDecommitPages @ 0x140068950 (MiDecommitPages.c)
- *     MiDeleteSystemPagableVm @ 0x140079F10 (MiDeleteSystemPagableVm.c)
- *     MiReservePageFileSpaceForPage @ 0x140081800 (MiReservePageFileSpaceForPage.c)
- *     MiSharePages @ 0x1400846E0 (MiSharePages.c)
- *     MiSetSystemCodeProtection @ 0x1400862E0 (MiSetSystemCodeProtection.c)
- *     MiAccessCheck @ 0x140092A0C (MiAccessCheck.c)
- *     MiSetProtectionOnTransitionPte @ 0x140093BB8 (MiSetProtectionOnTransitionPte.c)
- *     MiActOnPte @ 0x14009410C (MiActOnPte.c)
- *     MiTryDeleteTransitionPte @ 0x140094F2C (MiTryDeleteTransitionPte.c)
- *     MiGetWorkingSetInfoList @ 0x1400965F0 (MiGetWorkingSetInfoList.c)
- *     MiUpdatePrefetchPriority @ 0x1400B71C0 (MiUpdatePrefetchPriority.c)
- *     MiTranslatePageForCopy @ 0x1400E9C30 (MiTranslatePageForCopy.c)
- *     MiReplacePageTablePage @ 0x14011BE8C (MiReplacePageTablePage.c)
- *     MiCheckPteForWriteCluster @ 0x140150778 (MiCheckPteForWriteCluster.c)
- *     MiCheckCommitReleaseFromVad @ 0x1402A39CC (MiCheckCommitReleaseFromVad.c)
- *     MiWalkResetCommitPte @ 0x1402A5460 (MiWalkResetCommitPte.c)
- *     MiHandleForkTransitionPte @ 0x1402CA118 (MiHandleForkTransitionPte.c)
- *     MiMakeTransitionHeatBatch @ 0x1402CEC14 (MiMakeTransitionHeatBatch.c)
+ *     MiDecommitPages @ 0x140068940 (MiDecommitPages.c)
+ *     MiDeleteSystemPagableVm @ 0x140079F00 (MiDeleteSystemPagableVm.c)
+ *     MiReservePageFileSpaceForPage @ 0x1400817F0 (MiReservePageFileSpaceForPage.c)
+ *     MiSharePages @ 0x1400846D0 (MiSharePages.c)
+ *     MiSetSystemCodeProtection @ 0x1400862D0 (MiSetSystemCodeProtection.c)
+ *     MiAccessCheck @ 0x14009294C (MiAccessCheck.c)
+ *     MiSetProtectionOnTransitionPte @ 0x140093AF8 (MiSetProtectionOnTransitionPte.c)
+ *     MiActOnPte @ 0x14009404C (MiActOnPte.c)
+ *     MiTryDeleteTransitionPte @ 0x140094E6C (MiTryDeleteTransitionPte.c)
+ *     MiGetWorkingSetInfoList @ 0x140096530 (MiGetWorkingSetInfoList.c)
+ *     MiUpdatePrefetchPriority @ 0x1400B7100 (MiUpdatePrefetchPriority.c)
+ *     MiTranslatePageForCopy @ 0x1400E9CB0 (MiTranslatePageForCopy.c)
+ *     MiReplacePageTablePage @ 0x14011BEFC (MiReplacePageTablePage.c)
+ *     MiCheckPteForWriteCluster @ 0x140150878 (MiCheckPteForWriteCluster.c)
+ *     MiCheckCommitReleaseFromVad @ 0x1402A3BBC (MiCheckCommitReleaseFromVad.c)
+ *     MiWalkResetCommitPte @ 0x1402A5650 (MiWalkResetCommitPte.c)
+ *     MiHandleForkTransitionPte @ 0x1402CA308 (MiHandleForkTransitionPte.c)
+ *     MiMakeTransitionHeatBatch @ 0x1402CEE04 (MiMakeTransitionHeatBatch.c)
  * Callees:
  *     MiLockPageInline @ 0x14002CE40 (MiLockPageInline.c)
  *     MiInvalidPteConforms @ 0x140039720 (MiInvalidPteConforms.c)
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
- *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     KeYieldProcessorEx @ 0x14006C9E0 (KeYieldProcessorEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall MiLockTransitionLeafPage(ULONG_PTR BugCheckParameter2, unsigned __int8 *a2)
@@ -55,12 +55,12 @@ __int64 __fastcall MiLockTransitionLeafPage(ULONG_PTR BugCheckParameter2, unsign
       if ( MiInvalidPteConforms(v4) )
       {
         v7 = v5;
-        if ( qword_14043A0C0 )
+        if ( qword_14043B180 )
         {
           if ( (v5 & 0x10) != 0 )
             v7 = v5 & 0xFFFFFFFFFFFFFFEFuLL;
           else
-            v7 = v5 & ~qword_14043A0C0;
+            v7 = v5 & ~qword_14043B180;
         }
         v8 = 0x20000000000000LL;
         if ( (*(_QWORD *)(48 * ((v7 >> 12) & 0xFFFFFFFFFLL) - 0x57FFFFFFFD8LL) & 0x20000000000000LL) != 0 )

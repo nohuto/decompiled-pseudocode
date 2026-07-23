@@ -1,23 +1,23 @@
 /*
- * XREFs of KiGetSystemServiceTraceTable @ 0x14077A070
+ * XREFs of KiGetSystemServiceTraceTable @ 0x14077CFA0
  * Callers:
- *     KeSetSystemServiceCallback @ 0x140B6DD40 (KeSetSystemServiceCallback.c)
+ *     KeSetSystemServiceCallback @ 0x140B71110 (KeSetSystemServiceCallback.c)
  * Callees:
- *     RtlRbInsertNodeEx @ 0x1403774B0 (RtlRbInsertNodeEx.c)
- *     KiSystemServiceTraceTableCompareFunction @ 0x14077F1E4 (KiSystemServiceTraceTableCompareFunction.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     RtlRbInsertNodeEx @ 0x140379260 (RtlRbInsertNodeEx.c)
+ *     KiSystemServiceTraceTableCompareFunction @ 0x140781CE4 (KiSystemServiceTraceTableCompareFunction.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 KiGetSystemServiceTraceTable()
 {
   __int64 Pool2; // rax
-  _BOOL8 v1; // r8
-  unsigned __int64 v2; // rdi
-  __int64 (__usercall **v3)@<rax>(HANDLE@<rcx>, PULONG); // r14
+  __int64 v1; // r8
+  signed __int64 v2; // rdi
+  NTSTATUS (__stdcall **v3)(HANDLE, TRANSACTIONMANAGER_INFORMATION_CLASS, PVOID, ULONG, PULONG); // r14
   __int64 v4; // r12
   __int64 v5; // rsi
-  __int64 (__usercall *v6)@<rax>(HANDLE@<rcx>, PULONG); // r15
+  NTSTATUS (__stdcall *v6)(HANDLE, TRANSACTIONMANAGER_INFORMATION_CLASS, PVOID, ULONG, PULONG); // r15
   unsigned __int64 v7; // rbx
   int v8; // ebp
   unsigned __int64 v9; // rax
@@ -28,7 +28,7 @@ __int64 KiGetSystemServiceTraceTable()
     v2 = Pool2;
     if ( Pool2 )
     {
-      v3 = &off_140BDF6D8;
+      v3 = &off_140BE6588;
       v4 = 490LL;
       v5 = Pool2 + 40;
       do
@@ -81,7 +81,7 @@ LABEL_13:
             v7 = v9;
           }
         }
-        RtlRbInsertNodeEx(v2, v7, v1, v5 - 24);
+        RtlRbInsertNodeEx((PRTL_RB_TREE)v2, (PRTL_BALANCED_NODE)v7, v1, (PRTL_BALANCED_NODE)(v5 - 24));
         v5 += 64LL;
         v3 += 2;
         --v4;

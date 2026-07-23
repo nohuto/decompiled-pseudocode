@@ -100,16 +100,16 @@ __int64 __fastcall CmGetRegKeySecurityDescriptor(char a1, _QWORD *a2)
       Acl = RtlCreateAcl(Pool2, v7, 2u);
       if ( Acl >= 0 )
       {
-        Acl = RtlpAddKnownAce((__int64)v9, 2u, 2, 983103, (unsigned __int8 *)Sid, 0);
+        Acl = RtlpAddKnownAce(v9, 2u, 2, 983103, (unsigned __int8 *)Sid, 0);
         if ( Acl >= 0 )
         {
-          Acl = RtlpAddKnownAce((__int64)v9, 2u, 2, 131097, (unsigned __int8 *)&Src, 0);
+          Acl = RtlpAddKnownAce(v9, 2u, 2, 131097, (unsigned __int8 *)&Src, 0);
           if ( Acl >= 0 )
           {
-            Acl = RtlpAddKnownAce((__int64)v9, 2u, 2, 983103, (unsigned __int8 *)&Owner, 0);
+            Acl = RtlpAddKnownAce(v9, 2u, 2, 983103, (unsigned __int8 *)&Owner, 0);
             if ( Acl >= 0 )
             {
-              if ( !a1 || (Acl = RtlpAddKnownAce((__int64)v9, 2u, 2, 131097, (unsigned __int8 *)v4, 0), Acl >= 0) )
+              if ( !a1 || (Acl = RtlpAddKnownAce(v9, 2u, 2, 131097, (unsigned __int8 *)v4, 0), Acl >= 0) )
               {
                 Acl = RtlCreateSecurityDescriptor(SecurityDescriptor, 1u);
                 if ( Acl >= 0 )

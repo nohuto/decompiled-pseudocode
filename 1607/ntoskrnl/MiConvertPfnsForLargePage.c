@@ -1,10 +1,10 @@
 /*
- * XREFs of MiConvertPfnsForLargePage @ 0x1401F543C
+ * XREFs of MiConvertPfnsForLargePage @ 0x1401F5268
  * Callers:
- *     MiAllocateLargeZeroPages @ 0x1406620F0 (MiAllocateLargeZeroPages.c)
+ *     MiAllocateLargeZeroPages @ 0x1406621D4 (MiAllocateLargeZeroPages.c)
  * Callees:
- *     MiLockPageAtDpcInline @ 0x14002EB30 (MiLockPageAtDpcInline.c)
- *     KeShouldYieldProcessor @ 0x1400956C0 (KeShouldYieldProcessor.c)
+ *     MiLockPageAtDpcInline @ 0x14002E6B0 (MiLockPageAtDpcInline.c)
+ *     KeShouldYieldProcessor @ 0x140094EC0 (KeShouldYieldProcessor.c)
  */
 
 __int64 __fastcall MiConvertPfnsForLargePage(__int64 a1, unsigned int a2)

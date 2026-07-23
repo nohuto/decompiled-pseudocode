@@ -6,13 +6,14 @@
  *     _NtReadVirtualMemory@20 @ 0x4B2F2D70 (_NtReadVirtualMemory@20.c)
  */
 
-int __stdcall RtlpQueryReadVirtualMemory(int a1, int a2, int a3, int a4, _DWORD *a5)
+NTSTATUS __stdcall RtlpQueryReadVirtualMemory(HANDLE ProcessHandle, PVOID BaseAddress, PVOID Buffer, SIZE_T BufferSize)
 {
-  int result; // eax
+  NTSTATUS result; // eax
+  ULONG_PTR *v5; // [esp+0h] [ebp-4h]
 
-  result = NtReadVirtualMemory(a1, a2, a3, a4, (int)a5);
+  result = NtReadVirtualMemory(ProcessHandle, BaseAddress, Buffer, BufferSize, v5);
   if ( result >= 0 )
-    return a4 != *a5 ? 0x8000000D : 0;
-  *a5 = 0;
+    return (_DWORD)BufferSize != *(_DWORD *)HIDWORD(BufferSize) ? 0x8000000D : 0;
+  *(_DWORD *)HIDWORD(BufferSize) = 0;
   return result;
 }

@@ -1,11 +1,11 @@
 /*
- * XREFs of AslpEnvResolveVars @ 0x140A577C4
+ * XREFs of AslpEnvResolveVars @ 0x140A57A74
  * Callers:
- *     AslEnvExpandStrings2 @ 0x140A56EC4 (AslEnvExpandStrings2.c)
+ *     AslEnvExpandStrings2 @ 0x140A57174 (AslEnvExpandStrings2.c)
  * Callees:
- *     RtlStringCchCatW @ 0x14022BC94 (RtlStringCchCatW.c)
- *     RtlStringCchCopyW @ 0x14022C6B0 (RtlStringCchCopyW.c)
- *     _wcsnicmp @ 0x1403D9B90 (_wcsnicmp.c)
+ *     RtlStringCchCatW @ 0x14022BDA4 (RtlStringCchCatW.c)
+ *     RtlStringCchCopyW @ 0x14022C7C0 (RtlStringCchCopyW.c)
+ *     _wcsnicmp @ 0x1403D9D70 (_wcsnicmp.c)
  *     AslLogCallPrintf @ 0x1406956FC (AslLogCallPrintf.c)
  */
 
@@ -43,13 +43,13 @@ __int64 __fastcall AslpEnvResolveVars(
   v14 = pszSrc;
   while ( !v9 )
   {
-    v15 = dword_140C09530[6 * v12];
+    v15 = dword_140C095A0[6 * v12];
     if ( a2 > v15 )
     {
-      if ( !wcsnicmp(v14, off_140C09520[3 * v12], v15) )
+      if ( !wcsnicmp(v14, off_140C09590[3 * v12], v15) )
       {
         v16 = 3 * v12;
-        v11 = a2 + dword_140C09534[6 * v12] - dword_140C09530[6 * v12];
+        v11 = a2 + dword_140C095A4[6 * v12] - dword_140C095A0[6 * v12];
         if ( v11 > (unsigned int)v7 )
         {
           v24 = -1073741789;
@@ -60,7 +60,7 @@ __int64 __fastcall AslpEnvResolveVars(
           v17 = a5;
           for ( i = 0LL; i < 16; i += 2LL )
           {
-            if ( *(_WORD *)((char *)&unk_140C09580 + i * 8) == v17 && *(_WORD *)((char *)&unk_140C09582 + i * 8) == a6 )
+            if ( *(_WORD *)((char *)&unk_140C09510 + i * 8) == v17 && *(_WORD *)((char *)&unk_140C09512 + i * 8) == a6 )
             {
               if ( v7 - 1 > 0x7FFFFFFE )
               {
@@ -96,10 +96,10 @@ __int64 __fastcall AslpEnvResolveVars(
               v24 = v23;
               if ( v23 < 0 )
                 goto LABEL_38;
-              v24 = RtlStringCchCatW(a3, v7, (&off_140C09588)[i]);
+              v24 = RtlStringCchCatW(a3, v7, (&off_140C09518)[i]);
               if ( v24 < 0 )
                 goto LABEL_38;
-              v24 = RtlStringCchCatW(a3, v7, &pszSrc[dword_140C09530[0]]);
+              v24 = RtlStringCchCatW(a3, v7, &pszSrc[dword_140C095A0[0]]);
               if ( v24 < 0 )
                 goto LABEL_38;
               v17 = a5;
@@ -115,10 +115,10 @@ __int64 __fastcall AslpEnvResolveVars(
         if ( !v10 )
         {
 LABEL_27:
-          v24 = RtlStringCchCopyW(a3, v7, (&off_140C09528)[v16]);
+          v24 = RtlStringCchCopyW(a3, v7, (&off_140C09598)[v16]);
           if ( v24 < 0 )
             goto LABEL_38;
-          v24 = RtlStringCchCatW(a3, v7, &pszSrc[dword_140C09530[6 * v12]]);
+          v24 = RtlStringCchCatW(a3, v7, &pszSrc[dword_140C095A0[6 * v12]]);
           if ( v24 < 0 )
             goto LABEL_38;
         }

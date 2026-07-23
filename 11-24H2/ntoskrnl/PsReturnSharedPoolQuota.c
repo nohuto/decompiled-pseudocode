@@ -1,19 +1,19 @@
 /*
- * XREFs of PsReturnSharedPoolQuota @ 0x14085A690
+ * XREFs of PsReturnSharedPoolQuota @ 0x140856970
  * Callers:
- *     PspJobDelete @ 0x1404EE9D0 (PspJobDelete.c)
- *     ObpIncrementHandleCountEx @ 0x14084FB60 (ObpIncrementHandleCountEx.c)
- *     ObSetSecurityDescriptorInfo @ 0x1408588B0 (ObSetSecurityDescriptorInfo.c)
- *     RtlpFreeAtom @ 0x14085AC78 (RtlpFreeAtom.c)
- *     ObpChargeQuotaForObject @ 0x1409857D0 (ObpChargeQuotaForObject.c)
- *     PspFreeRateControl @ 0x14098CF0C (PspFreeRateControl.c)
- *     AlpcMessageDestroyProcedure @ 0x1409B08F0 (AlpcMessageDestroyProcedure.c)
- *     NtSetInformationJobObject @ 0x140ACE760 (NtSetInformationJobObject.c)
+ *     PspJobDelete @ 0x1404E6110 (PspJobDelete.c)
+ *     ObpIncrementHandleCountEx @ 0x14084BE20 (ObpIncrementHandleCountEx.c)
+ *     ObSetSecurityDescriptorInfo @ 0x140854B90 (ObSetSecurityDescriptorInfo.c)
+ *     RtlpFreeAtom @ 0x140856F58 (RtlpFreeAtom.c)
+ *     AlpcMessageDestroyProcedure @ 0x140897C10 (AlpcMessageDestroyProcedure.c)
+ *     ObpChargeQuotaForObject @ 0x14096DFE0 (ObpChargeQuotaForObject.c)
+ *     PspFreeRateControl @ 0x14097782C (PspFreeRateControl.c)
+ *     NtSetInformationJobObject @ 0x140ACC7F0 (NtSetInformationJobObject.c)
  * Callees:
- *     PspReturnResourceQuota @ 0x14024B468 (PspReturnResourceQuota.c)
- *     PspReturnQuota @ 0x14024C640 (PspReturnQuota.c)
- *     PspRemoveQuotaBlock @ 0x1409D5BC0 (PspRemoveQuotaBlock.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     PspReturnResourceQuota @ 0x14027BA78 (PspReturnResourceQuota.c)
+ *     PspReturnQuota @ 0x14027CC50 (PspReturnQuota.c)
+ *     PspRemoveQuotaBlock @ 0x1409C59F0 (PspRemoveQuotaBlock.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __fastcall PsReturnSharedPoolQuota(char *P, ULONG_PTR a2, __int64 a3, __int64 a4)
@@ -52,7 +52,7 @@ void __fastcall PsReturnSharedPoolQuota(char *P, ULONG_PTR a2, __int64 a3, __int
 LABEL_28:
           PspReturnResourceQuota(0, (__int64)P, a3, a4);
 LABEL_12:
-          if ( (byte_140FC6348 & 3) != 1 )
+          if ( (byte_140FC7398 & 3) != 1 )
             goto LABEL_16;
           a4 = *((_QWORD *)P + 26);
           a3 = *((_QWORD *)P + 24);
@@ -68,7 +68,7 @@ LABEL_12:
 LABEL_32:
               PspReturnResourceQuota(1u, (__int64)(P + 128), a3, a4 != 0);
 LABEL_16:
-              if ( (byte_140FC6350 & 3) != 1 )
+              if ( (byte_140FC73A0 & 3) != 1 )
                 goto LABEL_20;
               a4 = *((_QWORD *)P + 42);
               a3 = *((_QWORD *)P + 40);
@@ -85,7 +85,7 @@ LABEL_36:
                   PspReturnResourceQuota(2u, (__int64)(P + 256), a3, a4 != 0);
 LABEL_20:
                   v7 = P + 384;
-                  if ( (byte_140FC6358 & 3) != 1 )
+                  if ( (byte_140FC73A8 & 3) != 1 )
                   {
 LABEL_24:
                     PspRemoveQuotaBlock(P, v7, a3, a4);

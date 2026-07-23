@@ -1,10 +1,10 @@
 /*
- * XREFs of MiCheckPteRelease @ 0x1402C34B4
+ * XREFs of MiCheckPteRelease @ 0x1402C36A4
  * Callers:
  *     MiReleasePtes @ 0x1400340E0 (MiReleasePtes.c)
  * Callees:
  *     MiGetSystemRegionType @ 0x14004EC30 (MiGetSystemRegionType.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall MiCheckPteRelease(__int64 a1, ULONG_PTR a2)
@@ -31,13 +31,13 @@ __int64 __fastcall MiCheckPteRelease(__int64 a1, ULONG_PTR a2)
     KeBugCheckEx(0xDAu, 0x300uLL, a1 << 25 >> 16, 0LL, 0LL);
   if ( (unsigned int)MiGetSystemRegionType(a1 << 25 >> 16) != 9 )
     KeBugCheckEx(0xDAu, 0x301uLL, v4, 0LL, 0LL);
-  v5 = 2LL * (unsigned int)((v3 - qword_14043AFB0) >> 3);
-  if ( _bittest64((const signed __int64 *)qword_14043ABA0, v5) )
+  v5 = 2LL * (unsigned int)((v3 - qword_14043C070) >> 3);
+  if ( _bittest64((const signed __int64 *)qword_14043BC60, v5) )
     KeBugCheckEx(0xDAu, 0x303uLL, v4, a2, 0LL);
   LOBYTE(v6) = 2;
-  if ( v5 && *(_DWORD *)(qword_14043ABA0 + 4 * ((v5 - 2) >> 5)) >> ((v5 - 2) & 0x1F) == 2 )
+  if ( v5 && *(_DWORD *)(qword_14043BC60 + 4 * ((v5 - 2) >> 5)) >> ((v5 - 2) & 0x1F) == 2 )
     KeBugCheckEx(0xDAu, 0x304uLL, v4, a2, 0LL);
-  for ( i = v5 + 1; _bittest64((const signed __int64 *)qword_14043ABA0, i) == 1; i += 2LL )
+  for ( i = v5 + 1; _bittest64((const signed __int64 *)qword_14043BC60, i) == 1; i += 2LL )
     ;
   BugCheckParameter4 = ((i - v5) >> 1) + 1;
   if ( BugCheckParameter4 != a2 )
@@ -45,14 +45,14 @@ __int64 __fastcall MiCheckPteRelease(__int64 a1, ULONG_PTR a2)
   v9 = v5 + 2 * BugCheckParameter4;
   for ( j = v5; j < v9; j += 2LL )
   {
-    if ( _bittest64((const signed __int64 *)qword_14043ABA0, j) == 1 )
+    if ( _bittest64((const signed __int64 *)qword_14043BC60, j) == 1 )
       KeBugCheckEx(0xDAu, 0x306uLL, v4, v4 + (((j - v5) << 11) & 0xFFFFFFFFFFFFF000uLL), BugCheckParameter4);
   }
   v11 = v5 + 2 * (a2 - 1);
   while ( 1 )
   {
     v16 = v5 & 0x1F;
-    v14 = (volatile signed __int32 *)(qword_14043ABA0 + 4 * (v5 >> 5));
+    v14 = (volatile signed __int32 *)(qword_14043BC60 + 4 * (v5 >> 5));
     if ( v5 >= v11 )
       break;
     LOBYTE(v12) = 1;

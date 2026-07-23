@@ -1,12 +1,12 @@
 /*
- * XREFs of KeSetQuantumProcess @ 0x14007F0C0
+ * XREFs of KeSetQuantumProcess @ 0x14007F140
  * Callers:
- *     KeSetPriorityAndQuantumProcess @ 0x14007EA64 (KeSetPriorityAndQuantumProcess.c)
- *     PspApplyJobLimitsToProcess @ 0x14046A1D0 (PspApplyJobLimitsToProcess.c)
- *     PsChangeQuantumTable @ 0x140545094 (PsChangeQuantumTable.c)
+ *     KeSetPriorityAndQuantumProcess @ 0x14007EAE4 (KeSetPriorityAndQuantumProcess.c)
+ *     PspApplyJobLimitsToProcess @ 0x1404690A0 (PspApplyJobLimitsToProcess.c)
+ *     PsChangeQuantumTable @ 0x1405455D4 (PsChangeQuantumTable.c)
  * Callees:
- *     KiReleaseProcessLockExclusive @ 0x1400F2E8C (KiReleaseProcessLockExclusive.c)
- *     KiAcquireProcessLockExclusive @ 0x1400F2F50 (KiAcquireProcessLockExclusive.c)
+ *     KiReleaseProcessLockExclusive @ 0x1400F0CDC (KiReleaseProcessLockExclusive.c)
+ *     KiAcquireProcessLockExclusive @ 0x1400F0DA0 (KiAcquireProcessLockExclusive.c)
  */
 
 void __fastcall KeSetQuantumProcess(__int64 a1, char a2)

@@ -1,7 +1,7 @@
 /*
- * XREFs of EtwpCompleteBuffer @ 0x1405281CC
+ * XREFs of EtwpCompleteBuffer @ 0x14052870C
  * Callers:
- *     EtwpCompressPendingBuffers @ 0x14022A488 (EtwpCompressPendingBuffers.c)
+ *     EtwpCompressPendingBuffers @ 0x14022A2B4 (EtwpCompressPendingBuffers.c)
  * Callees:
  *     <none>
  */

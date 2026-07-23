@@ -1,7 +1,7 @@
 /*
- * XREFs of AlpcpGetMessageAttributeOffset @ 0x1404CC32C
+ * XREFs of AlpcpGetMessageAttributeOffset @ 0x1404B1D58
  * Callers:
- *     AlpcpCaptureAttributes @ 0x14044C7D0 (AlpcpCaptureAttributes.c)
+ *     AlpcpCaptureAttributes @ 0x14044B6A0 (AlpcpCaptureAttributes.c)
  * Callees:
  *     <none>
  */

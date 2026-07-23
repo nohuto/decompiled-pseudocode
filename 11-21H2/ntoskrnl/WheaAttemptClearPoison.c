@@ -1,12 +1,12 @@
 /*
  * XREFs of WheaAttemptClearPoison @ 0x140A08BE0
  * Callers:
- *     HalpMemoryErrorDeferredHandler @ 0x14051C22C (HalpMemoryErrorDeferredHandler.c)
+ *     sub_14051C22C @ 0x14051C22C (sub_14051C22C.c)
  * Callees:
  *     KeInitializeEvent @ 0x1402A7B90 (KeInitializeEvent.c)
  *     KeWaitForSingleObject @ 0x1402AF080 (KeWaitForSingleObject.c)
  *     ExQueueWorkItem @ 0x140345FC0 (ExQueueWorkItem.c)
- *     WheapAttemptPhysicalPageOffline @ 0x140A08FFC (WheapAttemptPhysicalPageOffline.c)
+ *     sub_140A08FFC @ 0x140A08FFC (sub_140A08FFC.c)
  */
 
 __int64 __fastcall WheaAttemptClearPoison(__int64 a1, char a2)
@@ -21,8 +21,8 @@ __int64 __fastcall WheaAttemptClearPoison(__int64 a1, char a2)
   int Event_20; // [rsp+7Ch] [rbp-4h]
 
   WorkItem.List.Blink = 0LL;
-  if ( KeGetCurrentThread()->PreviousMode != 1 )
-    return WheapAttemptPhysicalPageOffline(a1, a1 >> 12, a2, 1, 1, 0);
+  if ( *((_BYTE *)KeGetCurrentThread() + 562) != 1 )
+    return sub_140A08FFC(a1, a1 >> 12, a2, 1, 1, 0);
   Event_12 = 0LL;
   Event_20 = 0;
   v4[0] = a1;
@@ -33,7 +33,7 @@ __int64 __fastcall WheaAttemptClearPoison(__int64 a1, char a2)
   v7 = 0;
   KeInitializeEvent((PRKEVENT)((char *)&v8 + 4), NotificationEvent, 0);
   WorkItem.List.Flink = 0LL;
-  WorkItem.WorkerRoutine = (void (__fastcall *)(void *))WheapAttemptPhysicalPageOfflineWorker;
+  WorkItem.WorkerRoutine = (PWORKER_THREAD_ROUTINE)sub_140A091D0;
   WorkItem.Parameter = v4;
   ExQueueWorkItem(&WorkItem, DelayedWorkQueue);
   KeWaitForSingleObject((char *)&v8 + 4, Executive, 0, 0, 0LL);

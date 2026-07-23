@@ -1,11 +1,11 @@
 /*
- * XREFs of KeAllocateCalloutStackEx @ 0x1408715A0
+ * XREFs of KeAllocateCalloutStackEx @ 0x1408717E0
  * Callers:
- *     KeAllocateCalloutStack @ 0x140850460 (KeAllocateCalloutStack.c)
+ *     KeAllocateCalloutStack @ 0x140850760 (KeAllocateCalloutStack.c)
  * Callees:
- *     MmCreateKernelStack @ 0x1402716A0 (MmCreateKernelStack.c)
- *     KeInitializeMutex @ 0x14033ADB0 (KeInitializeMutex.c)
- *     MmDeleteKernelStack @ 0x1403D6640 (MmDeleteKernelStack.c)
+ *     MmCreateKernelStack @ 0x140271930 (MmCreateKernelStack.c)
+ *     KeInitializeMutex @ 0x14033B040 (KeInitializeMutex.c)
+ *     MmDeleteKernelStack @ 0x1403D6820 (MmDeleteKernelStack.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

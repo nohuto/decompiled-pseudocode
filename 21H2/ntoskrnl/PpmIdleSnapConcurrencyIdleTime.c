@@ -1,11 +1,11 @@
 /*
- * XREFs of PpmIdleSnapConcurrencyIdleTime @ 0x140566E00
+ * XREFs of PpmIdleSnapConcurrencyIdleTime @ 0x140567040
  * Callers:
- *     PpmParkSnapNodeIdleTime @ 0x14057DB78 (PpmParkSnapNodeIdleTime.c)
+ *     PpmParkSnapNodeIdleTime @ 0x14057DDB8 (PpmParkSnapNodeIdleTime.c)
  * Callees:
- *     KxAcquireSpinLock @ 0x1402295B0 (KxAcquireSpinLock.c)
- *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
- *     KeQueryPerformanceCounter @ 0x14022C340 (KeQueryPerformanceCounter.c)
+ *     KxReleaseSpinLock @ 0x140212140 (KxReleaseSpinLock.c)
+ *     KxAcquireSpinLock @ 0x1402CDEB0 (KxAcquireSpinLock.c)
+ *     KeQueryPerformanceCounter @ 0x1402D0BC0 (KeQueryPerformanceCounter.c)
  */
 
 void __fastcall PpmIdleSnapConcurrencyIdleTime(PKSPIN_LOCK SpinLock, _QWORD *a2, _QWORD *a3)

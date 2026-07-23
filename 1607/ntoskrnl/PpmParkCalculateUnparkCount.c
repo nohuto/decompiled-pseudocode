@@ -1,7 +1,7 @@
 /*
- * XREFs of PpmParkCalculateUnparkCount @ 0x1400D4C0C
+ * XREFs of PpmParkCalculateUnparkCount @ 0x1400D2AAC
  * Callers:
- *     PpmCheckComputeHeteroResponse @ 0x14020AC4C (PpmCheckComputeHeteroResponse.c)
+ *     PpmCheckComputeHeteroResponse @ 0x14020AA78 (PpmCheckComputeHeteroResponse.c)
  * Callees:
  *     <none>
  */
@@ -36,7 +36,7 @@ char PpmParkCalculateUnparkCount()
 
   if ( !PpmIsParkingEnabled )
     return 1;
-  v1 = 174LL * dword_140303E0C;
+  v1 = 174LL * dword_140303D4C;
   v2 = HIDWORD(PpmCurrentProfile[v1 + 15]);
   v3 = PpmCurrentProfile[v1 + 15];
   v23 = BYTE6(PpmCurrentProfile[v1 + 14]);

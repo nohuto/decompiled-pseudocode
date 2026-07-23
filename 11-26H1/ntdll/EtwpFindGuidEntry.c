@@ -1,78 +1,78 @@
 /*
- * XREFs of EtwpFindGuidEntry @ 0x180057C30
+ * XREFs of EtwpFindGuidEntry @ 0x1800421B0
  * Callers:
- *     EtwDeliverDataBlock @ 0x1800525B0 (EtwDeliverDataBlock.c)
- *     EtwpCheckForPrivatePreEnable @ 0x180057A60 (EtwpCheckForPrivatePreEnable.c)
- *     EtwpUpdateEnableInfoAndCallback @ 0x180058090 (EtwpUpdateEnableInfoAndCallback.c)
+ *     EtwDeliverDataBlock @ 0x18003CB30 (EtwDeliverDataBlock.c)
+ *     EtwpCheckForPrivatePreEnable @ 0x180041FE0 (EtwpCheckForPrivatePreEnable.c)
+ *     EtwpUpdateEnableInfoAndCallback @ 0x180042610 (EtwpUpdateEnableInfoAndCallback.c)
  * Callees:
- *     RtlAcquireSRWLockExclusive @ 0x18003F4D0 (RtlAcquireSRWLockExclusive.c)
- *     RtlReleaseSRWLockExclusive @ 0x18003FAA0 (RtlReleaseSRWLockExclusive.c)
- *     EtwpReferenceUmGuidEntry @ 0x18005863C (EtwpReferenceUmGuidEntry.c)
- *     memcmp @ 0x1801649D0 (memcmp.c)
+ *     RtlAcquireSRWLockExclusive @ 0x180029A40 (RtlAcquireSRWLockExclusive.c)
+ *     RtlReleaseSRWLockExclusive @ 0x18002A010 (RtlReleaseSRWLockExclusive.c)
+ *     EtwpReferenceUmGuidEntry @ 0x180042BBC (EtwpReferenceUmGuidEntry.c)
+ *     memcmp @ 0x1801648D0 (memcmp.c)
  */
 
-_QWORD *__fastcall EtwpFindGuidEntry(_QWORD *Buf1, __int64 a2)
+_QWORD *__fastcall EtwpFindGuidEntry(_QWORD *Buf1)
 {
   void *UniqueThread; // rbx
-  unsigned __int64 v4; // rbx
+  unsigned __int64 Root; // rbx
   _QWORD *j; // rbp
-  int v6; // edi
-  int v7; // eax
-  unsigned __int64 v8; // rax
-  _QWORD **v10; // rcx
-  _QWORD *v11; // rax
-  __int64 v12; // rax
+  int v5; // edi
+  int v6; // eax
+  unsigned __int64 v7; // rax
+  _QWORD **v9; // rcx
+  _QWORD *v10; // rax
+  __int64 v11; // rax
   _QWORD *i; // rcx
 
   UniqueThread = NtCurrentTeb()->ClientId.UniqueThread;
   if ( EtwpProvLockOwner == (_DWORD)UniqueThread )
     __fastfail(0x24u);
-  RtlAcquireSRWLockExclusive(&EtwpProvLock, a2);
+  RtlAcquireSRWLockExclusive(&EtwpProvLock);
   EtwpProvLockOwner = (int)UniqueThread;
-  v4 = EtwpGuidEntryTable;
-  if ( (qword_1801CB1F8 & 1) != 0 )
+  Root = (unsigned __int64)EtwpGuidEntryTable.Root;
+  if ( (*(_BYTE *)&EtwpGuidEntryTable.0 & 1) != 0 )
   {
-    if ( !EtwpGuidEntryTable )
+    if ( !EtwpGuidEntryTable.Root )
     {
 LABEL_11:
       EtwpProvLockOwner = 0;
       RtlReleaseSRWLockExclusive(&EtwpProvLock);
       return 0LL;
     }
-    v4 = (unsigned __int64)&EtwpGuidEntryTable ^ EtwpGuidEntryTable;
+    Root = (unsigned __int64)&EtwpGuidEntryTable ^ (unsigned __int64)EtwpGuidEntryTable.Root;
   }
   j = 0LL;
-  v6 = qword_1801CB1F8 & 1;
-  if ( v4 )
+  v5 = *(_BYTE *)&EtwpGuidEntryTable.0 & 1;
+  if ( Root )
   {
     while ( 1 )
     {
-      v7 = memcmp(Buf1, (const void *)(v4 + 24), 0x10uLL);
-      if ( v7 < 0 )
+      v6 = memcmp(Buf1, (const void *)(Root + 24), 0x10uLL);
+      if ( v6 < 0 )
         break;
-      if ( v7 > 0 )
+      if ( v6 > 0 )
       {
-        v8 = *(_QWORD *)(v4 + 8);
+        v7 = *(_QWORD *)(Root + 8);
 LABEL_7:
-        if ( v6 && v8 )
+        if ( v5 && v7 )
           goto LABEL_14;
         goto LABEL_8;
       }
-      v8 = *(_QWORD *)v4;
-      j = (_QWORD *)v4;
-      if ( v6 && v8 )
+      v7 = *(_QWORD *)Root;
+      j = (_QWORD *)Root;
+      if ( v5 && v7 )
       {
 LABEL_14:
-        v4 ^= v8;
+        Root ^= v7;
         goto LABEL_9;
       }
 LABEL_8:
-      v4 = v8;
+      Root = v7;
 LABEL_9:
-      if ( !v4 )
+      if ( !Root )
         goto LABEL_10;
     }
-    v8 = *(_QWORD *)v4;
+    v7 = *(_QWORD *)Root;
     goto LABEL_7;
   }
 LABEL_10:
@@ -80,29 +80,29 @@ LABEL_10:
     goto LABEL_11;
   while ( !(unsigned __int8)EtwpReferenceUmGuidEntry(j) )
   {
-    v10 = (_QWORD **)j[1];
-    v11 = j;
-    if ( v10 )
+    v9 = (_QWORD **)j[1];
+    v10 = j;
+    if ( v9 )
     {
       j = (_QWORD *)j[1];
-      for ( i = *v10; i; i = (_QWORD *)*i )
+      for ( i = *v9; i; i = (_QWORD *)*i )
         j = i;
     }
     else
     {
       for ( j = (_QWORD *)(j[2] & 0xFFFFFFFFFFFFFFFCuLL); j; j = (_QWORD *)(j[2] & 0xFFFFFFFFFFFFFFFCuLL) )
       {
-        if ( (_QWORD *)*j == v11 )
+        if ( (_QWORD *)*j == v10 )
           break;
-        v11 = j;
+        v10 = j;
       }
     }
     if ( j )
     {
-      v12 = *Buf1 - j[3];
+      v11 = *Buf1 - j[3];
       if ( *Buf1 == j[3] )
-        v12 = Buf1[1] - j[4];
-      if ( !v12 )
+        v11 = Buf1[1] - j[4];
+      if ( !v11 )
         continue;
     }
     goto LABEL_11;

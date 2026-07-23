@@ -1,14 +1,25 @@
 /*
- * XREFs of ZwAccessCheckByType @ 0x1403FB000
+ * XREFs of ZwAccessCheckByType @ 0x1403FB1E0
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwAccessCheckByType(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwAccessCheckByType(
+        PSECURITY_DESCRIPTOR SecurityDescriptor,
+        PSID PrincipalSelfSid,
+        HANDLE ClientToken,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_TYPE_LIST ObjectTypeList,
+        ULONG ObjectTypeListLength,
+        PGENERIC_MAPPING GenericMapping,
+        PPRIVILEGE_SET PrivilegeSet,
+        PULONG PrivilegeSetLength,
+        PACCESS_MASK GrantedAccess,
+        PNTSTATUS AccessStatus)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(SecurityDescriptor);
 }

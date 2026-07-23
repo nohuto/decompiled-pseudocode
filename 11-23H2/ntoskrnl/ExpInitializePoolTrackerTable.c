@@ -1,11 +1,11 @@
 /*
- * XREFs of ExpInitializePoolTrackerTable @ 0x140389B74
+ * XREFs of ExpInitializePoolTrackerTable @ 0x140389D54
  * Callers:
  *     ExInitializePoolTracker @ 0x140B54C88 (ExInitializePoolTracker.c)
  * Callees:
- *     ExAllocateHeapPages @ 0x1403B9BBC (ExAllocateHeapPages.c)
- *     memset @ 0x140435A00 (memset.c)
- *     MmGetNumberOfPhysicalPages @ 0x1407B98F0 (MmGetNumberOfPhysicalPages.c)
+ *     ExAllocateHeapPages @ 0x1403B9D9C (ExAllocateHeapPages.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     MmGetNumberOfPhysicalPages @ 0x1407B9BD0 (MmGetNumberOfPhysicalPages.c)
  */
 
 __int64 ExpInitializePoolTrackerTable()

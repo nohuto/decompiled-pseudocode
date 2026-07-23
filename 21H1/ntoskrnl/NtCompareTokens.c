@@ -16,13 +16,13 @@
  *     SepCompareSidAndAttributeArrays @ 0x1406C8584 (SepCompareSidAndAttributeArrays.c)
  */
 
-__int64 __fastcall NtCompareTokens(HANDLE Handle, HANDLE a2, unsigned __int64 a3)
+NTSTATUS __cdecl NtCompareTokens(HANDLE FirstTokenHandle, HANDLE SecondTokenHandle, PBOOLEAN Equal)
 {
-  _BYTE *v3; // r13
+  PBOOLEAN v3; // r13
   char v6; // r12
   KPROCESSOR_MODE PreviousMode; // bl
   __int64 v8; // rcx
-  NTSTATUS InformationToken; // r15d
+  int InformationToken; // r15d
   unsigned int *v10; // rsi
   unsigned int *v11; // rdi
   __int64 v12; // rbx
@@ -37,7 +37,7 @@ __int64 __fastcall NtCompareTokens(HANDLE Handle, HANDLE a2, unsigned __int64 a3
   PVOID Object; // [rsp+48h] [rbp-30h] BYREF
   char v24; // [rsp+98h] [rbp+20h]
 
-  v3 = (_BYTE *)a3;
+  v3 = Equal;
   v21 = 0LL;
   v6 = 0;
   v24 = 0;
@@ -46,12 +46,18 @@ __int64 __fastcall NtCompareTokens(HANDLE Handle, HANDLE a2, unsigned __int64 a3
   if ( PreviousMode )
   {
     v8 = 0x7FFFFFFF0000LL;
-    if ( a3 < 0x7FFFFFFF0000LL )
-      v8 = a3;
+    if ( (unsigned __int64)Equal < 0x7FFFFFFF0000LL )
+      v8 = (__int64)Equal;
     *(_BYTE *)v8 = *(_BYTE *)v8;
   }
   Token = 0LL;
-  InformationToken = ObReferenceObjectByHandle(Handle, 8u, (POBJECT_TYPE)SeTokenObjectType, PreviousMode, &Token, 0LL);
+  InformationToken = ObReferenceObjectByHandle(
+                       FirstTokenHandle,
+                       8u,
+                       (POBJECT_TYPE)SeTokenObjectType,
+                       PreviousMode,
+                       &Token,
+                       0LL);
   v10 = (unsigned int *)Token;
   if ( InformationToken < 0 )
   {
@@ -60,13 +66,19 @@ LABEL_36:
     v11 = v21;
     goto LABEL_27;
   }
-  if ( Handle == a2 )
+  if ( FirstTokenHandle == SecondTokenHandle )
   {
     v6 = 1;
     goto LABEL_36;
   }
   Object = 0LL;
-  InformationToken = ObReferenceObjectByHandle(a2, 8u, (POBJECT_TYPE)SeTokenObjectType, PreviousMode, &Object, 0LL);
+  InformationToken = ObReferenceObjectByHandle(
+                       SecondTokenHandle,
+                       8u,
+                       (POBJECT_TYPE)SeTokenObjectType,
+                       PreviousMode,
+                       &Object,
+                       0LL);
   v11 = (unsigned int *)Object;
   if ( InformationToken < 0 )
   {
@@ -137,7 +149,7 @@ LABEL_36:
         }
       }
     }
-    v3 = (_BYTE *)a3;
+    v3 = Equal;
   }
 LABEL_27:
   if ( v24 )
@@ -147,5 +159,5 @@ LABEL_27:
   if ( v11 )
     HalPutDmaAdapter((PADAPTER_OBJECT)v11);
   *v3 = v6;
-  return (unsigned int)InformationToken;
+  return InformationToken;
 }

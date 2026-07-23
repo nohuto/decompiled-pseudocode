@@ -1,5 +1,5 @@
 /*
- * XREFs of ObpDeferObjectDeletion @ 0x140125DD0
+ * XREFs of ObpDeferObjectDeletion @ 0x140125EA0
  * Callers:
  *     MiReferenceControlAreaFile @ 0x14001CBB0 (MiReferenceControlAreaFile.c)
  *     ObDereferenceObjectEx @ 0x14001CD54 (ObDereferenceObjectEx.c)
@@ -10,19 +10,19 @@
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
  *     NtWaitForWorkViaWorkerFactory @ 0x140059B50 (NtWaitForWorkViaWorkerFactory.c)
- *     CcDeleteSharedCacheMap @ 0x14007C270 (CcDeleteSharedCacheMap.c)
- *     MiEmptyPageAccessLog @ 0x140088580 (MiEmptyPageAccessLog.c)
- *     ExTimerRundown @ 0x14008AFD0 (ExTimerRundown.c)
- *     ObFastReplaceObject @ 0x140094924 (ObFastReplaceObject.c)
- *     ObDereferenceObjectDeferDeleteWithTag @ 0x1400BF9B0 (ObDereferenceObjectDeferDeleteWithTag.c)
- *     ObDereferenceObjectDeferDelete @ 0x1400C1060 (ObDereferenceObjectDeferDelete.c)
- *     IopDropIrp @ 0x1400E099C (IopDropIrp.c)
- *     NtSetInformationFile @ 0x140100E90 (NtSetInformationFile.c)
- *     NtSetInformationWorkerFactory @ 0x140106100 (NtSetInformationWorkerFactory.c)
+ *     CcDeleteSharedCacheMap @ 0x14007C260 (CcDeleteSharedCacheMap.c)
+ *     MiEmptyPageAccessLog @ 0x140088570 (MiEmptyPageAccessLog.c)
+ *     ExTimerRundown @ 0x14008AFC0 (ExTimerRundown.c)
+ *     ObFastReplaceObject @ 0x140094864 (ObFastReplaceObject.c)
+ *     ObDereferenceObjectDeferDeleteWithTag @ 0x1400BF8F0 (ObDereferenceObjectDeferDeleteWithTag.c)
+ *     ObDereferenceObjectDeferDelete @ 0x1400C0FA0 (ObDereferenceObjectDeferDelete.c)
+ *     IopDropIrp @ 0x1400E0A1C (IopDropIrp.c)
+ *     NtSetInformationFile @ 0x140100F10 (NtSetInformationFile.c)
+ *     NtSetInformationWorkerFactory @ 0x140106180 (NtSetInformationWorkerFactory.c)
  * Callees:
  *     KiInsertQueueDpc @ 0x1400621B0 (KiInsertQueueDpc.c)
- *     KeAreInterruptsEnabled @ 0x1400CAD04 (KeAreInterruptsEnabled.c)
- *     ExQueueWorkItem @ 0x1400D1A00 (ExQueueWorkItem.c)
+ *     KeAreInterruptsEnabled @ 0x1400CADE4 (KeAreInterruptsEnabled.c)
+ *     ExQueueWorkItem @ 0x1400D1A80 (ExQueueWorkItem.c)
  */
 
 void __fastcall ObpDeferObjectDeletion(signed __int64 a1)

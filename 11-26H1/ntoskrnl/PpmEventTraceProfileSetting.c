@@ -1,11 +1,11 @@
 /*
- * XREFs of PpmEventTraceProfileSetting @ 0x140AF6160
+ * XREFs of PpmEventTraceProfileSetting @ 0x140AF8800
  * Callers:
- *     PpmSetProfilePolicySetting @ 0x140A3FC14 (PpmSetProfilePolicySetting.c)
+ *     PpmSetProfilePolicySetting @ 0x1409FB634 (PpmSetProfilePolicySetting.c)
  * Callees:
- *     EtwEventEnabled @ 0x140212D90 (EtwEventEnabled.c)
- *     EtwWrite @ 0x140212EF0 (EtwWrite.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x140212E70 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x140212FD0 (EtwWrite.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 char __fastcall PpmEventTraceProfileSetting(
@@ -50,7 +50,7 @@ char __fastcall PpmEventTraceProfileSetting(
     v11 = &PPM_ETW_PROCESSOR_PROFILE_SETTING_CHANGE;
     if ( a8 )
       v11 = &PPM_ETW_PROCESSOR_PROFILE_SETTING_RUNDOWN;
-    LOBYTE(v8) = EtwEventEnabled((REGHANDLE)PopModernStandbyStateNotify.ApcState.ApcListHead[1].Blink, v11);
+    LOBYTE(v8) = EtwEventEnabled(PpmEtwHandle, v11);
     if ( (_BYTE)v8 )
     {
       *(_QWORD *)&UserData.Size = 1LL;
@@ -77,12 +77,7 @@ char __fastcall PpmEventTraceProfileSetting(
       v30 = 0;
       if ( !a8 )
         v13 = &PPM_ETW_PROCESSOR_PROFILE_SETTING_CHANGE;
-      LOBYTE(v8) = EtwWrite(
-                     (REGHANDLE)PopModernStandbyStateNotify.ApcState.ApcListHead[1].Blink,
-                     v13,
-                     0LL,
-                     7u,
-                     &UserData);
+      LOBYTE(v8) = EtwWrite(PpmEtwHandle, v13, 0LL, 7u, &UserData);
     }
   }
   return (char)v8;

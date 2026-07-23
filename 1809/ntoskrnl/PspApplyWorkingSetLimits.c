@@ -1,18 +1,18 @@
 /*
- * XREFs of PspApplyWorkingSetLimits @ 0x1408897E4
+ * XREFs of PspApplyWorkingSetLimits @ 0x14088AA44
  * Callers:
- *     NtSetInformationJobObject @ 0x140600B10 (NtSetInformationJobObject.c)
- *     PspSetJobLimitsJobPostCallback @ 0x1406CD190 (PspSetJobLimitsJobPostCallback.c)
+ *     NtSetInformationJobObject @ 0x140601B10 (NtSetInformationJobObject.c)
+ *     PspSetJobLimitsJobPostCallback @ 0x1406CE430 (PspSetJobLimitsJobPostCallback.c)
  * Callees:
  *     KiStackAttachProcess @ 0x140016DB0 (KiStackAttachProcess.c)
  *     KiUnstackDetachProcess @ 0x140017190 (KiUnstackDetachProcess.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
- *     MmEnforceWorkingSetLimit @ 0x14008FB50 (MmEnforceWorkingSetLimit.c)
- *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     MmAdjustWorkingSetSize @ 0x14018ED30 (MmAdjustWorkingSetSize.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
+ *     MmEnforceWorkingSetLimit @ 0x14008FA70 (MmEnforceWorkingSetLimit.c)
+ *     ExfTryToWakePushLock @ 0x140091500 (ExfTryToWakePushLock.c)
+ *     MmAdjustWorkingSetSize @ 0x14018EE70 (MmAdjustWorkingSetSize.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
  */
 
 PVOID *__fastcall PspApplyWorkingSetLimits(__int64 a1)
@@ -55,9 +55,9 @@ LABEL_14:
     KiUnstackDetachProcess((__int64)v10, 0LL);
   }
   _InterlockedAnd((volatile signed __int32 *)(a1 + 1304), 0xFFFFFEFF);
-  if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_140405830, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-    ExfTryToWakePushLock((volatile signed __int64 *)&qword_140405830);
-  KeAbPostRelease((ULONG_PTR)&qword_140405830);
+  if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_140406830, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+    ExfTryToWakePushLock((volatile signed __int64 *)&qword_140406830);
+  KeAbPostRelease((ULONG_PTR)&qword_140406830);
   while ( 1 )
   {
     v5 = (PVOID *)P;

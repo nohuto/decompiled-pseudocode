@@ -1,24 +1,24 @@
 /*
- * XREFs of IovpCompleteRequest2 @ 0x140C4589C
+ * XREFs of IovpCompleteRequest2 @ 0x140C4B8AC
  * Callers:
- *     IovpLocalCompletionRoutine @ 0x140C45570 (IovpLocalCompletionRoutine.c)
+ *     IovpLocalCompletionRoutine @ 0x140C4B580 (IovpLocalCompletionRoutine.c)
  * Callees:
- *     KeAcquireSpinLockRaiseToDpc @ 0x14032F300 (KeAcquireSpinLockRaiseToDpc.c)
- *     MdlInvariantPostProcessing1 @ 0x140642B44 (MdlInvariantPostProcessing1.c)
- *     ViErrorReport6 @ 0x140645858 (ViErrorReport6.c)
- *     ViIrpDatabaseAcquireLockExclusive @ 0x140647E5C (ViIrpDatabaseAcquireLockExclusive.c)
- *     ViIrpDatabaseReleaseLockExclusive @ 0x140647EA4 (ViIrpDatabaseReleaseLockExclusive.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     VfUtilAddressRangeRemoveCheckEmpty @ 0x140C216B8 (VfUtilAddressRangeRemoveCheckEmpty.c)
- *     IovpValidateStatusInformation @ 0x140C2BDFC (IovpValidateStatusInformation.c)
- *     VfMajorAdvanceIrpStatus @ 0x140C31268 (VfMajorAdvanceIrpStatus.c)
- *     VfMajorVerifyFinalIrpStack @ 0x140C315E0 (VfMajorVerifyFinalIrpStack.c)
- *     VfMajorVerifyIrpStackUpward @ 0x140C3172C (VfMajorVerifyIrpStackUpward.c)
- *     VfIrpDatabaseEntryReleaseLock @ 0x140C39D70 (VfIrpDatabaseEntryReleaseLock.c)
- *     ViWdIrpBeforeCompletionRoutine @ 0x140C3A23C (ViWdIrpBeforeCompletionRoutine.c)
- *     IovpSessionDataDereference @ 0x140C3A558 (IovpSessionDataDereference.c)
- *     IovpSessionDataReference @ 0x140C3A5C0 (IovpSessionDataReference.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140331330 (KeAcquireSpinLockRaiseToDpc.c)
+ *     MdlInvariantPostProcessing1 @ 0x140646724 (MdlInvariantPostProcessing1.c)
+ *     ViErrorReport6 @ 0x140649438 (ViErrorReport6.c)
+ *     ViIrpDatabaseAcquireLockExclusive @ 0x14064BA3C (ViIrpDatabaseAcquireLockExclusive.c)
+ *     ViIrpDatabaseReleaseLockExclusive @ 0x14064BA84 (ViIrpDatabaseReleaseLockExclusive.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     VfUtilAddressRangeRemoveCheckEmpty @ 0x140C276C8 (VfUtilAddressRangeRemoveCheckEmpty.c)
+ *     IovpValidateStatusInformation @ 0x140C31E0C (IovpValidateStatusInformation.c)
+ *     VfMajorAdvanceIrpStatus @ 0x140C37278 (VfMajorAdvanceIrpStatus.c)
+ *     VfMajorVerifyFinalIrpStack @ 0x140C375F0 (VfMajorVerifyFinalIrpStack.c)
+ *     VfMajorVerifyIrpStackUpward @ 0x140C3773C (VfMajorVerifyIrpStackUpward.c)
+ *     VfIrpDatabaseEntryReleaseLock @ 0x140C3FD80 (VfIrpDatabaseEntryReleaseLock.c)
+ *     ViWdIrpBeforeCompletionRoutine @ 0x140C4024C (ViWdIrpBeforeCompletionRoutine.c)
+ *     IovpSessionDataDereference @ 0x140C40568 (IovpSessionDataDereference.c)
+ *     IovpSessionDataReference @ 0x140C405D0 (IovpSessionDataReference.c)
  */
 
 void __fastcall IovpCompleteRequest2(ULONG_PTR a1, __int64 **a2)
@@ -121,7 +121,7 @@ void __fastcall IovpCompleteRequest2(ULONG_PTR a1, __int64 **a2)
       v17 = *v2;
       *(_DWORD *)(v17 + 56) &= ~1u;
       *(_QWORD *)(v17 + 240) = 0LL;
-      IovpSessionDataDereference((struct _SLIST_ENTRY *)v2);
+      IovpSessionDataDereference((_SLIST_ENTRY *)v2);
       v18 = (*(_DWORD *)(v5 + 24))-- == 1;
       LOBYTE(v24) = 0;
       if ( v18 )

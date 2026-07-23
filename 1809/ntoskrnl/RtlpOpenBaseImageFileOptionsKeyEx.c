@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpOpenBaseImageFileOptionsKeyEx @ 0x1407605A0
+ * XREFs of RtlpOpenBaseImageFileOptionsKeyEx @ 0x140761790
  * Callers:
- *     RtlpOpenBaseImageFileOptionsKey @ 0x1406B1A44 (RtlpOpenBaseImageFileOptionsKey.c)
+ *     RtlpOpenBaseImageFileOptionsKey @ 0x1406B2CE4 (RtlpOpenBaseImageFileOptionsKey.c)
  * Callees:
- *     ZwOpenKey @ 0x1401B83D0 (ZwOpenKey.c)
+ *     ZwOpenKey @ 0x1401B8530 (ZwOpenKey.c)
  */
 
 NTSTATUS __fastcall RtlpOpenBaseImageFileOptionsKeyEx(_QWORD *a1)
@@ -21,7 +21,7 @@ NTSTATUS __fastcall RtlpOpenBaseImageFileOptionsKeyEx(_QWORD *a1)
   if ( PreviousMode != 1 )
     v3 = 576;
   v5.Attributes = v3;
-  v5.ObjectName = (PUNICODE_STRING)&unk_1403536C0;
+  v5.ObjectName = (PUNICODE_STRING)&unk_1403546C0;
   *(_OWORD *)&v5.SecurityDescriptor = 0LL;
   result = ZwOpenKey(&v6, 9u, &v5);
   if ( result >= 0 )

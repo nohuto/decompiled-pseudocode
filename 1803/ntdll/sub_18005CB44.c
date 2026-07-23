@@ -47,7 +47,7 @@ void __fastcall sub_18005CB44(__int64 a1)
     }
     else
     {
-      sub_18005CC10(a1, i - 16);
+      sub_18005CC10(a1);
     }
   }
 }

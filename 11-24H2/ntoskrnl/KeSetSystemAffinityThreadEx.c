@@ -1,16 +1,16 @@
 /*
- * XREFs of KeSetSystemAffinityThreadEx @ 0x1403395F0
+ * XREFs of KeSetSystemAffinityThreadEx @ 0x140318AD0
  * Callers:
- *     KeSetSystemAffinityThread @ 0x1404C0490 (KeSetSystemAffinityThread.c)
+ *     KeSetSystemAffinityThread @ 0x1404BBBB0 (KeSetSystemAffinityThread.c)
  * Callees:
- *     KeSetSystemGroupAffinityThread @ 0x140339650 (KeSetSystemGroupAffinityThread.c)
+ *     KeSetSystemGroupAffinityThread @ 0x140318B30 (KeSetSystemGroupAffinityThread.c)
  */
 
 KAFFINITY __stdcall KeSetSystemAffinityThreadEx(KAFFINITY Affinity)
 {
   unsigned __int16 v1; // ax
-  struct _GROUP_AFFINITY Affinitya; // [rsp+20h] [rbp-28h] BYREF
-  struct _GROUP_AFFINITY PreviousAffinity; // [rsp+30h] [rbp-18h] BYREF
+  _GROUP_AFFINITY Affinitya; // [rsp+20h] [rbp-28h] BYREF
+  _GROUP_AFFINITY PreviousAffinity; // [rsp+30h] [rbp-18h] BYREF
 
   v1 = 0;
   *(_QWORD *)&Affinitya.Group = 0LL;

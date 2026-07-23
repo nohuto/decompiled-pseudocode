@@ -3,9 +3,9 @@
  * Callers:
  *     MiInitNucleus @ 0x140B41888 (MiInitNucleus.c)
  * Callees:
- *     MiSwizzleInvalidPte @ 0x1402857A0 (MiSwizzleInvalidPte.c)
- *     MiMakeValidPte @ 0x1402CF2B0 (MiMakeValidPte.c)
- *     MiFillPhysicalPages @ 0x140339290 (MiFillPhysicalPages.c)
+ *     MiSwizzleInvalidPte @ 0x140285A30 (MiSwizzleInvalidPte.c)
+ *     MiMakeValidPte @ 0x1402CF540 (MiMakeValidPte.c)
+ *     MiFillPhysicalPages @ 0x140339520 (MiFillPhysicalPages.c)
  *     MiAllocateDummyPage @ 0x140B44E78 (MiAllocateDummyPage.c)
  */
 

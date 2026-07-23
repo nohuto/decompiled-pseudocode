@@ -16,6 +16,6 @@ char __fastcall sub_18005B7E8(__int64 a1)
 {
   if ( !a1 || *(_DWORD *)a1 != 1836020801 )
     return 0;
-  RtlAcquireSRWLockExclusive((volatile signed __int64 *)(a1 + 8));
+  RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)(a1 + 8));
   return 1;
 }

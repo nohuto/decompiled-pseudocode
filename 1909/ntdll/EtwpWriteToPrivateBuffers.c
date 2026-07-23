@@ -76,7 +76,7 @@ __int64 __fastcall EtwpWriteToPrivateBuffers(
   size_t v58; // rbx
   char *v59; // r13
   void *v60; // rsp
-  int v61; // eax
+  ULONG v61; // eax
   _WORD *v62; // rbx
   unsigned __int16 v63; // di
   _DWORD *v64; // rdx
@@ -89,11 +89,11 @@ __int64 __fastcall EtwpWriteToPrivateBuffers(
   unsigned __int16 v71; // [rsp+81Ch] [rbp+Ch] BYREF
   unsigned __int16 v72; // [rsp+820h] [rbp+10h]
   int v73; // [rsp+824h] [rbp+14h]
-  size_t Size; // [rsp+828h] [rbp+18h] BYREF
+  ULONG ReturnLength; // [rsp+828h] [rbp+18h] BYREF
   __int64 v75; // [rsp+830h] [rbp+20h]
   int v76; // [rsp+838h] [rbp+28h]
   unsigned int v77; // [rsp+83Ch] [rbp+2Ch]
-  int v78; // [rsp+840h] [rbp+30h]
+  ULONG v78; // [rsp+840h] [rbp+30h]
   int v79; // [rsp+844h] [rbp+34h]
   unsigned __int16 *v80; // [rsp+848h] [rbp+38h] BYREF
   unsigned int v81; // [rsp+850h] [rbp+40h] BYREF
@@ -108,7 +108,7 @@ __int64 __fastcall EtwpWriteToPrivateBuffers(
   void *Src; // [rsp+8A0h] [rbp+90h]
   void *v91; // [rsp+8A8h] [rbp+98h]
   _OWORD *v92; // [rsp+8B0h] [rbp+A0h]
-  char v93[16]; // [rsp+8D0h] [rbp+C0h] BYREF
+  char TokenInformation[16]; // [rsp+8D0h] [rbp+C0h] BYREF
   char v94[80]; // [rsp+8E0h] [rbp+D0h] BYREF
 
   v11 = a2;
@@ -154,7 +154,7 @@ __int64 __fastcall EtwpWriteToPrivateBuffers(
     v69 = 0;
     v70 = 0;
     LOWORD(v78) = 0;
-    LODWORD(Size) = 0;
+    ReturnLength = 0;
     v67 = 0;
     v76 = 0;
     v91 = 0LL;
@@ -227,10 +227,10 @@ LABEL_59:
   v26 = v75;
   if ( (*(_BYTE *)(v75 + 8 * v19 + 144) & 1) != 0 )
   {
-    if ( (int)NtQueryInformationToken(-6LL, 1LL, v93, 88LL, &Size) >= 0 )
+    if ( NtQueryInformationToken((HANDLE)0xFFFFFFFFFFFFFFFALL, 1u, TokenInformation, 0x58u, &ReturnLength) >= 0 )
     {
-      v61 = Size - 16;
-      LODWORD(Size) = v61;
+      v61 = ReturnLength - 16;
+      ReturnLength = v61;
       LOWORD(v61) = (v61 + 15) & 0xFFF8;
       v78 = v61;
       v69 = 1;
@@ -294,12 +294,7 @@ LABEL_30:
   }
   *(_DWORD *)(v29 + 24) = v28;
   v34 = v83;
-  v35 = EtwpReserveTraceBuffer(
-          v83,
-          v28,
-          NtCurrentTeb()->CurrentIdealProcessor.Reserved,
-          (unsigned int)&v86,
-          (__int64)&v80);
+  v35 = EtwpReserveTraceBuffer(v83, v28, NtCurrentTeb()->CurrentIdealProcessor.Reserved, &v86, &v80);
   v36 = v35;
   if ( v35 )
   {
@@ -337,9 +332,9 @@ LABEL_30:
       v63 = v78;
       *v62 = v78;
       v62[1] = 2;
-      v62[3] = Size;
+      v62[3] = ReturnLength;
       v62[2] = 0;
-      memmove(v62 + 4, v94, (unsigned int)Size);
+      memmove(v62 + 4, v94, ReturnLength);
       *(_WORD *)(v36 + 4) |= 1u;
       v38 = v63 + v68;
       v68 = v38;

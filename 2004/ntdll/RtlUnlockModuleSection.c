@@ -13,35 +13,35 @@
  *     ZwUnlockVirtualMemory @ 0x1800A0760 (ZwUnlockVirtualMemory.c)
  */
 
-__int64 __fastcall RtlUnlockModuleSection(__int64 a1, unsigned __int64 a2, unsigned __int64 a3, unsigned __int64 a4)
+NTSTATUS __cdecl RtlUnlockModuleSection(PVOID Address)
 {
   __int64 ModuleSectionInLockedSectionList; // rax
-  unsigned int v6; // edi
-  __int64 v7; // rbx
-  __int64 v9; // rax
-  _QWORD *v10; // rcx
+  NTSTATUS v3; // edi
+  __int64 v4; // rbx
+  __int64 v6; // rax
+  _QWORD *v7; // rcx
 
-  RtlAcquireSRWLockExclusive((unsigned __int64)&RtlpLockedSectionListLock, a2, a3, a4);
-  ModuleSectionInLockedSectionList = RtlpLocateModuleSectionInLockedSectionList(a1);
-  v6 = 0;
-  v7 = ModuleSectionInLockedSectionList;
+  RtlAcquireSRWLockExclusive(&RtlpLockedSectionListLock);
+  ModuleSectionInLockedSectionList = RtlpLocateModuleSectionInLockedSectionList(Address);
+  v3 = 0;
+  v4 = ModuleSectionInLockedSectionList;
   if ( ModuleSectionInLockedSectionList )
   {
     if ( (*(_DWORD *)(ModuleSectionInLockedSectionList + 32))-- == 1 )
     {
-      v9 = *(_QWORD *)ModuleSectionInLockedSectionList;
-      if ( *(_QWORD *)(v9 + 8) != v7 || (v10 = *(_QWORD **)(v7 + 8), *v10 != v7) )
+      v6 = *(_QWORD *)ModuleSectionInLockedSectionList;
+      if ( *(_QWORD *)(v6 + 8) != v4 || (v7 = *(_QWORD **)(v4 + 8), *v7 != v4) )
         __fastfail(3u);
-      *v10 = v9;
-      *(_QWORD *)(v9 + 8) = v10;
-      v6 = ZwUnlockVirtualMemory(-1LL, v7 + 16, v7 + 24, 1LL);
-      RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v7);
+      *v7 = v6;
+      *(_QWORD *)(v6 + 8) = v7;
+      v3 = ZwUnlockVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, (PVOID *)(v4 + 16), (PSIZE_T)(v4 + 24), 1u);
+      RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, (PVOID)v4);
     }
   }
   else
   {
-    v6 = -1073741782;
+    v3 = -1073741782;
   }
   RtlReleaseSRWLockExclusive(&RtlpLockedSectionListLock);
-  return v6;
+  return v3;
 }

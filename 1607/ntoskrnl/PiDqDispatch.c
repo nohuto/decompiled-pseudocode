@@ -1,20 +1,20 @@
 /*
- * XREFs of PiDqDispatch @ 0x14048B160
+ * XREFs of PiDqDispatch @ 0x14048B6C4
  * Callers:
- *     PiDaDispatch @ 0x14048B098 (PiDaDispatch.c)
+ *     PiDaDispatch @ 0x14048B5FC (PiDaDispatch.c)
  * Callees:
- *     IofCompleteRequest @ 0x140053560 (IofCompleteRequest.c)
- *     IoIs32bitProcess @ 0x1400C3800 (IoIs32bitProcess.c)
- *     wcscmp @ 0x14014EF64 (wcscmp.c)
- *     PiDqIrpQueryGetResult @ 0x14048AB64 (PiDqIrpQueryGetResult.c)
- *     PiDqIrpQueryCreate @ 0x14048B3E8 (PiDqIrpQueryCreate.c)
- *     PiDqQueryUnlock @ 0x14048BC4C (PiDqQueryUnlock.c)
- *     PiDqQueryLock @ 0x14048BCA4 (PiDqQueryLock.c)
- *     PiDqQueryRelease @ 0x14048C588 (PiDqQueryRelease.c)
- *     PiDqQueryCreate @ 0x14048C5FC (PiDqQueryCreate.c)
- *     PiDqQueryGetObjectManager @ 0x14048C958 (PiDqQueryGetObjectManager.c)
- *     PiDqObjectManagerUnregisterQuery @ 0x14048CAD8 (PiDqObjectManagerUnregisterQuery.c)
- *     PiDqIrpPropertySet @ 0x1406318E0 (PiDqIrpPropertySet.c)
+ *     IofCompleteRequest @ 0x1400530E0 (IofCompleteRequest.c)
+ *     IoIs32bitProcess @ 0x1400C1690 (IoIs32bitProcess.c)
+ *     wcscmp @ 0x14014F524 (wcscmp.c)
+ *     PiDqIrpQueryGetResult @ 0x14048ADF8 (PiDqIrpQueryGetResult.c)
+ *     PiDqIrpQueryCreate @ 0x14048B94C (PiDqIrpQueryCreate.c)
+ *     PiDqQueryUnlock @ 0x14048C1B0 (PiDqQueryUnlock.c)
+ *     PiDqQueryLock @ 0x14048C208 (PiDqQueryLock.c)
+ *     PiDqQueryRelease @ 0x14048CAEC (PiDqQueryRelease.c)
+ *     PiDqQueryCreate @ 0x14048CC10 (PiDqQueryCreate.c)
+ *     PiDqQueryGetObjectManager @ 0x14048CF6C (PiDqQueryGetObjectManager.c)
+ *     PiDqObjectManagerUnregisterQuery @ 0x14048D0EC (PiDqObjectManagerUnregisterQuery.c)
+ *     PiDqIrpPropertySet @ 0x140631994 (PiDqIrpPropertySet.c)
  */
 
 __int64 __fastcall PiDqDispatch(__int64 a1, IRP *a2)

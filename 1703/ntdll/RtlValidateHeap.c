@@ -20,112 +20,115 @@
  *     sub_1800F22CC @ 0x1800F22CC (sub_1800F22CC.c)
  */
 
-bool __fastcall RtlValidateHeap(__int64 a1, __int16 a2, unsigned __int64 a3, __int64 a4)
+BOOLEAN __cdecl RtlValidateHeap(PVOID HeapHandle, ULONG Flags, PVOID BaseAddress)
 {
-  char v7; // r15
-  __int64 v8; // rdx
-  unsigned __int64 v9; // rdx
-  char v10; // al
-  __int64 v11; // rsi
-  __int64 v12; // rcx
-  bool v14; // di
-  int v15; // r15d
-  int v16; // ecx
-  unsigned int v17; // edx
-  __int64 v18; // r8
-  int v19; // ecx
+  __int16 v4; // r14
+  char v6; // r15
+  char *v7; // rdx
+  BOOLEAN v8; // al
+  __int64 v9; // rsi
+  __int64 UserModeGlobalLogger; // rcx
+  BOOLEAN v12; // di
+  ULONG v13; // r15d
+  int v14; // ecx
+  unsigned int v15; // edx
+  int v16; // r8d
+  int v17; // ecx
+  int v18; // edx
+  int v19; // eax
   int v20; // edx
-  int v21; // eax
-  __int64 v22; // rdx
-  char v24; // [rsp+20h] [rbp-68h]
-  int v25; // [rsp+24h] [rbp-64h]
-  _BYTE v26[6]; // [rsp+30h] [rbp-58h] BYREF
-  __int16 v27; // [rsp+36h] [rbp-52h]
-  __int64 v28; // [rsp+50h] [rbp-38h]
+  BOOLEAN v22; // [rsp+20h] [rbp-68h]
+  int v23; // [rsp+24h] [rbp-64h]
+  _BYTE Fields[6]; // [rsp+30h] [rbp-58h] BYREF
+  __int16 v25; // [rsp+36h] [rbp-52h]
+  PVOID v26; // [rsp+50h] [rbp-38h]
 
-  v7 = 0;
-  if ( *(_DWORD *)(a1 + 16) == -571548178 )
+  v4 = Flags;
+  v6 = 0;
+  if ( *((_DWORD *)HeapHandle + 4) == -571548178 )
   {
-    v14 = 1;
-    v15 = a2 & 1;
-    if ( !v15 )
-      RtlLockHeap(a1);
-    v16 = v15 | 2;
-    if ( (a2 & 8) == 0 )
-      v16 = a2 & 1;
-    v17 = v16 | 0x80000000;
-    if ( (a2 & 4) == 0 )
+    v12 = 1;
+    v13 = Flags & 1;
+    if ( !v13 )
+      RtlLockHeap(HeapHandle);
+    v14 = v13 | 2;
+    if ( (v4 & 8) == 0 )
+      v14 = v4 & 1;
+    v15 = v14 | 0x80000000;
+    if ( (v4 & 4) == 0 )
+      v15 = v14;
+    v16 = v15 | 0x100;
+    if ( (v4 & 0x100) == 0 )
+      v16 = v15;
+    v17 = v4 & 0xE00 | v16;
+    if ( (v4 & 0xE00) == 0 )
       v17 = v16;
-    v18 = v17 | 0x100;
-    if ( (a2 & 0x100) == 0 )
+    v18 = v17 | 0x2000000;
+    if ( (v4 & 0x10) == 0 )
       v18 = v17;
-    v19 = a2 & 0xE00 | v18;
-    if ( (a2 & 0xE00) == 0 )
+    v19 = v18 | 0x1000000;
+    if ( (v4 & 2) == 0 )
       v19 = v18;
-    v20 = v19 | 0x2000000;
-    if ( (a2 & 0x10) == 0 )
-      v20 = v19;
-    v21 = v20 | 0x1000000;
-    if ( (a2 & 2) == 0 )
-      v21 = v20;
-    v25 = v21;
-    v22 = *(unsigned int *)(a1 + 40);
-    if ( (_DWORD)v22 && (_DWORD)v22 == LODWORD(NtCurrentTeb()->ClientId.UniqueThread) )
-      v25 = v21 | 1;
-    if ( a3 )
+    v23 = v19;
+    v20 = *((_DWORD *)HeapHandle + 10);
+    if ( v20 && v20 == LODWORD(NtCurrentTeb()->ClientId.UniqueThread) )
+      v23 = v19 | 1;
+    if ( BaseAddress )
     {
-      if ( (dword_180158684 & 2) != 0 && !((_WORD)a3 ? 0 : sub_1800588D4((__int64)&qword_180159600, a3 >> 16, 1uLL)) )
-        a3 -= 16LL;
-      v14 = sub_180023990(a1, a3, v25) != -1;
+      if ( (dword_180158684 & 2) != 0
+        && !((_WORD)BaseAddress ? 0 : sub_1800588D4(&stru_180159600, (unsigned __int64)BaseAddress >> 16, 1uLL)) )
+      {
+        BaseAddress = (char *)BaseAddress - 16;
+      }
+      v12 = sub_180023990((__int64)HeapHandle, (unsigned __int64)BaseAddress, v23) != -1;
     }
-    if ( !v15 )
-      RtlUnlockHeap(a1, v22, v18, a4);
-    return v14;
+    if ( !v13 )
+      RtlUnlockHeap(HeapHandle);
+    return v12;
   }
   else
   {
-    v24 = 0;
-    if ( (*(_DWORD *)(a1 + 116) & 0x1000000) != 0 )
+    v22 = 0;
+    if ( (*((_DWORD *)HeapHandle + 29) & 0x1000000) != 0 )
     {
-      v24 = _guard_dispatch_icall_fptr();
+      v22 = _guard_dispatch_icall_fptr();
     }
-    else if ( sub_18001F9B0((_DWORD *)a1, "RtlValidateHeap") )
+    else if ( sub_18001F9B0(HeapHandle, "RtlValidateHeap") )
     {
-      if ( ((*(_BYTE *)(a1 + 116) | (unsigned __int8)a2) & 1) == 0 )
+      if ( ((*((_BYTE *)HeapHandle + 116) | (unsigned __int8)v4) & 1) == 0 )
       {
-        RtlEnterCriticalSection(*(_QWORD *)(a1 + 352));
-        v7 = 1;
+        RtlEnterCriticalSection(*((PRTL_CRITICAL_SECTION *)HeapHandle + 44));
+        v6 = 1;
       }
-      if ( a3 )
+      if ( BaseAddress )
       {
-        v9 = a3 - 16;
-        _m_prefetchw((const void *)(a3 - 16));
-        if ( *(_BYTE *)(a3 - 16 + 15) == 5 )
-          v9 -= 16LL * *(unsigned __int8 *)(v9 + 14);
-        v10 = sub_180078084(a1, v9, "RtlValidateHeap");
+        v7 = (char *)BaseAddress - 16;
+        _m_prefetchw((char *)BaseAddress - 16);
+        if ( *((char *)BaseAddress - 1) == 5 )
+          v7 -= 16 * (unsigned __int8)v7[14];
+        v8 = sub_180078084(HeapHandle, v7, "RtlValidateHeap");
       }
       else
       {
-        LOBYTE(v8) = 1;
-        v10 = sub_180090710(a1, v8);
+        v8 = sub_180090710(HeapHandle);
       }
-      v24 = v10;
+      v22 = v8;
     }
-    if ( v7 )
-      RtlLeaveCriticalSection(*(_QWORD *)(a1 + 352));
-    v11 = 2147353472LL;
-    if ( (unsigned int)RtlGetCurrentServiceSessionId() )
-      v12 = (__int64)NtCurrentPeb()->HotpatchInformation + 550;
+    if ( v6 )
+      RtlLeaveCriticalSection(*((PRTL_CRITICAL_SECTION *)HeapHandle + 44));
+    v9 = 2147353472LL;
+    if ( RtlGetCurrentServiceSessionId() )
+      UserModeGlobalLogger = (__int64)NtCurrentPeb()->SharedData->UserModeGlobalLogger;
     else
-      v12 = 2147353472LL;
-    if ( *(_BYTE *)v12 && (NtCurrentPeb()->TracingFlags & 1) != 0 )
+      UserModeGlobalLogger = 2147353472LL;
+    if ( *(_BYTE *)UserModeGlobalLogger && (NtCurrentPeb()->TracingFlags & 1) != 0 )
     {
-      v27 = 4141;
-      v28 = a1;
-      if ( (unsigned int)RtlGetCurrentServiceSessionId() )
-        v11 = (__int64)NtCurrentPeb()->HotpatchInformation + 550;
-      ZwTraceEvent(*(unsigned __int8 *)v11, 1026LL, 8LL, v26);
+      v25 = 4141;
+      v26 = HeapHandle;
+      if ( RtlGetCurrentServiceSessionId() )
+        v9 = (__int64)NtCurrentPeb()->SharedData->UserModeGlobalLogger;
+      ZwTraceEvent((HANDLE)*(unsigned __int8 *)v9, 0x402u, 8u, Fields);
     }
-    return v24;
+    return v22;
   }
 }

@@ -1,12 +1,31 @@
 /*
- * XREFs of NtNotifyChangeDirectoryFile @ 0x1407CBB30
+ * XREFs of NtNotifyChangeDirectoryFile @ 0x1407CBE00
  * Callers:
  *     <none>
  * Callees:
- *     NtNotifyChangeDirectoryFileEx @ 0x1407CBB90 (NtNotifyChangeDirectoryFileEx.c)
+ *     NtNotifyChangeDirectoryFileEx @ 0x1407CBE60 (NtNotifyChangeDirectoryFileEx.c)
  */
 
-__int64 __fastcall NtNotifyChangeDirectoryFile(__int64 a1, __int64 a2, __int64 a3, __int64 a4, __int64 a5, __int64 a6)
+NTSTATUS __cdecl NtNotifyChangeDirectoryFile(
+        HANDLE FileHandle,
+        HANDLE Event,
+        PIO_APC_ROUTINE ApcRoutine,
+        PVOID ApcContext,
+        PIO_STATUS_BLOCK IoStatusBlock,
+        PVOID Buffer,
+        ULONG Length,
+        ULONG CompletionFilter,
+        BOOLEAN WatchTree)
 {
-  return NtNotifyChangeDirectoryFileEx(a1, a2, a3, a4, a5, a6);
+  return NtNotifyChangeDirectoryFileEx(
+           FileHandle,
+           Event,
+           ApcRoutine,
+           ApcContext,
+           IoStatusBlock,
+           Buffer,
+           Length,
+           CompletionFilter,
+           WatchTree,
+           DirectoryNotifyInformation);
 }

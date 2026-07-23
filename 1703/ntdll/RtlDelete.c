@@ -9,51 +9,51 @@
  *     RtlSubtreePredecessor @ 0x1800661D0 (RtlSubtreePredecessor.c)
  */
 
-__int64 *__fastcall RtlDelete(__int64 *a1)
+PRTL_SPLAY_LINKS __cdecl RtlDelete(PRTL_SPLAY_LINKS Links)
 {
-  __int64 v2; // rax
-  __int64 *result; // rax
-  __int64 v4; // rcx
-  _QWORD *v5; // rax
-  __int64 v6; // rcx
-  __int64 **v7; // rdx
-  __int64 v8; // rcx
+  PRTL_SPLAY_LINKS v2; // rax
+  PRTL_SPLAY_LINKS result; // rax
+  _RTL_SPLAY_LINKS *Parent; // rcx
+  _RTL_SPLAY_LINKS **p_LeftChild; // rax
+  _RTL_SPLAY_LINKS *v6; // rcx
+  _RTL_SPLAY_LINKS **p_RightChild; // rdx
+  _RTL_SPLAY_LINKS *v8; // rcx
 
-  if ( a1[1] && a1[2] )
+  if ( Links->LeftChild && Links->RightChild )
   {
-    v2 = RtlSubtreePredecessor();
-    sub_1800660A8(v2, a1);
+    v2 = RtlSubtreePredecessor(Links);
+    sub_1800660A8(v2, Links);
   }
-  result = (__int64 *)a1[1];
+  result = Links->LeftChild;
   if ( !result )
   {
-    if ( !a1[2] )
+    if ( !Links->RightChild )
     {
-      v4 = *a1;
-      if ( (__int64 *)*a1 == a1 )
+      Parent = Links->Parent;
+      if ( Links->Parent == Links )
         return 0LL;
-      v5 = (_QWORD *)(v4 + 8);
-      if ( *(__int64 **)(v4 + 8) != a1 )
-        v5 = (_QWORD *)(v4 + 16);
-      *v5 = 0LL;
-      return (__int64 *)RtlSplay(v4);
+      p_LeftChild = &Parent->LeftChild;
+      if ( Parent->LeftChild != Links )
+        p_LeftChild = &Parent->RightChild;
+      *p_LeftChild = 0LL;
+      return RtlSplay(Parent);
     }
-    result = (__int64 *)a1[2];
+    result = Links->RightChild;
   }
-  v6 = *a1;
-  if ( (__int64 *)*a1 == a1 )
+  v6 = Links->Parent;
+  if ( Links->Parent == Links )
   {
-    *result = (__int64)result;
+    result->Parent = result;
   }
   else
   {
-    v7 = (__int64 **)(v6 + 8);
-    if ( *(__int64 **)(v6 + 8) != a1 )
-      v7 = (__int64 **)(v6 + 16);
-    *v7 = result;
-    v8 = *a1;
-    *result = *a1;
-    return (__int64 *)RtlSplay(v8);
+    p_RightChild = &v6->LeftChild;
+    if ( v6->LeftChild != Links )
+      p_RightChild = &v6->RightChild;
+    *p_RightChild = result;
+    v8 = Links->Parent;
+    result->Parent = Links->Parent;
+    return RtlSplay(v8);
   }
   return result;
 }

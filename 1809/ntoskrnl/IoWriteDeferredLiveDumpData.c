@@ -1,19 +1,19 @@
 /*
- * XREFs of IoWriteDeferredLiveDumpData @ 0x14081F568
+ * XREFs of IoWriteDeferredLiveDumpData @ 0x140820768
  * Callers:
- *     DbgkpWerDeferredWriteRoutine @ 0x140812BF0 (DbgkpWerDeferredWriteRoutine.c)
+ *     DbgkpWerDeferredWriteRoutine @ 0x140813DF0 (DbgkpWerDeferredWriteRoutine.c)
  * Callees:
  *     _TlgKeywordOn @ 0x140012A04 (_TlgKeywordOn.c)
  *     _TlgWrite @ 0x140012EE4 (_TlgWrite.c)
- *     EtwActivityIdControl @ 0x1400A3B50 (EtwActivityIdControl.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     IopLiveDumpTrace @ 0x140285BD0 (IopLiveDumpTrace.c)
- *     IopLiveDumpTraceDumpFileWriteEnd @ 0x140285DD4 (IopLiveDumpTraceDumpFileWriteEnd.c)
- *     IopLiveDumpTraceInterfaceEnd @ 0x140285EFC (IopLiveDumpTraceInterfaceEnd.c)
- *     IopLiveDumpTraceInterfaceStart @ 0x140285FA4 (IopLiveDumpTraceInterfaceStart.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     IopLiveDumpReleaseResources @ 0x140820390 (IopLiveDumpReleaseResources.c)
- *     IopLiveDumpWriteDumpFile @ 0x1408206CC (IopLiveDumpWriteDumpFile.c)
+ *     EtwActivityIdControl @ 0x1400A3A90 (EtwActivityIdControl.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     IopLiveDumpTrace @ 0x140285DC0 (IopLiveDumpTrace.c)
+ *     IopLiveDumpTraceDumpFileWriteEnd @ 0x140285FC4 (IopLiveDumpTraceDumpFileWriteEnd.c)
+ *     IopLiveDumpTraceInterfaceEnd @ 0x1402860EC (IopLiveDumpTraceInterfaceEnd.c)
+ *     IopLiveDumpTraceInterfaceStart @ 0x140286194 (IopLiveDumpTraceInterfaceStart.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     IopLiveDumpReleaseResources @ 0x140821590 (IopLiveDumpReleaseResources.c)
+ *     IopLiveDumpWriteDumpFile @ 0x1408218CC (IopLiveDumpWriteDumpFile.c)
  */
 
 __int64 __fastcall IoWriteDeferredLiveDumpData(__int64 P)
@@ -39,7 +39,7 @@ __int64 __fastcall IoWriteDeferredLiveDumpData(__int64 P)
   if ( v3 >= 0 && (*(_BYTE *)(P + 80) & 2) != 0 )
     v3 = 261;
   IopLiveDumpTraceInterfaceEnd(v4, 1LL, v3);
-  if ( stru_140400A78.LevelPlus1 > 5 && TlgKeywordOn(&stru_140400A78, 0x200000000000uLL) )
+  if ( stru_140401A78.LevelPlus1 > 5 && TlgKeywordOn(&stru_140401A78, 0x200000000000uLL) )
   {
     v6 = *(_QWORD *)(*(_QWORD *)(P + 384) + 4000LL);
     v11 = 0;
@@ -49,7 +49,7 @@ __int64 __fastcall IoWriteDeferredLiveDumpData(__int64 P)
     v10 = 8;
     v12 = &v7;
     v13 = 8;
-    TlgWrite(&stru_140400A78, &unk_14036CF14, (LPCGUID)(P + 624), (LPCGUID)(P + 608), 4u, &pData);
+    TlgWrite(&stru_140401A78, &unk_14036DEA4, (LPCGUID)(P + 624), (LPCGUID)(P + 608), 4u, &pData);
   }
   EtwActivityIdControl(2u, (LPGUID)(P + 608));
   IopLiveDumpReleaseResources(P);

@@ -1,25 +1,30 @@
 /*
- * XREFs of NtQueryMutant @ 0x140B1D3A0
+ * XREFs of NtQueryMutant @ 0x140B1F520
  * Callers:
- *     DifNtQueryMutantWrapper @ 0x1406847F0 (DifNtQueryMutantWrapper.c)
+ *     DifNtQueryMutantWrapper @ 0x1406883D0 (DifNtQueryMutantWrapper.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     KeQueryOwnerMutant @ 0x1404D1618 (KeQueryOwnerMutant.c)
- *     RtlCopyVolatileMemory @ 0x140733080 (RtlCopyVolatileMemory.c)
- *     RtlCopyToUser @ 0x14077F284 (RtlCopyToUser.c)
- *     RtlReadULongFromUser @ 0x14077F590 (RtlReadULongFromUser.c)
- *     RtlWriteUCharToUser @ 0x14077F710 (RtlWriteUCharToUser.c)
- *     RtlWriteULongToUser @ 0x14077F7A0 (RtlWriteULongToUser.c)
- *     ProbeForWrite @ 0x1408F5D00 (ProbeForWrite.c)
- *     ObReferenceObjectByHandle @ 0x1408F9550 (ObReferenceObjectByHandle.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     KeQueryOwnerMutant @ 0x1404CB048 (KeQueryOwnerMutant.c)
+ *     RtlCopyVolatileMemory @ 0x140737C50 (RtlCopyVolatileMemory.c)
+ *     RtlCopyToUser @ 0x140781D84 (RtlCopyToUser.c)
+ *     RtlReadULongFromUser @ 0x140782090 (RtlReadULongFromUser.c)
+ *     RtlWriteUCharToUser @ 0x140782210 (RtlWriteUCharToUser.c)
+ *     RtlWriteULongToUser @ 0x1407822A0 (RtlWriteULongToUser.c)
+ *     ProbeForWrite @ 0x140925C90 (ProbeForWrite.c)
+ *     ObReferenceObjectByHandle @ 0x1409294E0 (ObReferenceObjectByHandle.c)
  */
 
-__int64 __fastcall NtQueryMutant(HANDLE Handle, int a2, _BYTE *a3, unsigned int a4, unsigned int *a5)
+NTSTATUS __cdecl NtQueryMutant(
+        HANDLE MutantHandle,
+        MUTANT_INFORMATION_CLASS MutantInformationClass,
+        PVOID MutantInformation,
+        ULONG MutantInformationLength,
+        PULONG ReturnLength)
 {
   KPROCESSOR_MODE PreviousMode; // si
-  unsigned int *v9; // rbx
+  PULONG v9; // rbx
   int ULongFromUser; // eax
-  NTSTATUS v11; // r12d
+  int v11; // r12d
   bool v12; // zf
   PVOID v13; // rdi
   int v15; // eax
@@ -29,37 +34,37 @@ __int64 __fastcall NtQueryMutant(HANDLE Handle, int a2, _BYTE *a3, unsigned int 
   CLIENT_ID ClientId; // [rsp+48h] [rbp-40h] BYREF
 
   ClientId = 0LL;
-  if ( !a2 )
+  if ( MutantInformationClass == MutantBasicInformation )
   {
-    if ( a4 == 8 )
+    if ( MutantInformationLength == 8 )
       goto LABEL_3;
-    return 3221225476LL;
+    return -1073741820;
   }
-  if ( a2 != 1 )
-    return 3221225475LL;
-  if ( a4 != 16 )
-    return 3221225476LL;
+  if ( MutantInformationClass != MutantOwnerInformation )
+    return -1073741821;
+  if ( MutantInformationLength != 16 )
+    return -1073741820;
 LABEL_3:
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   if ( PreviousMode )
   {
-    ProbeForWrite(a3, a4, 4u);
-    v9 = a5;
-    if ( a5 )
+    ProbeForWrite(MutantInformation, MutantInformationLength, 4u);
+    v9 = ReturnLength;
+    if ( ReturnLength )
     {
-      ULongFromUser = RtlReadULongFromUser(a5);
-      RtlWriteULongToUser(a5, ULongFromUser);
+      ULongFromUser = RtlReadULongFromUser(ReturnLength);
+      RtlWriteULongToUser(ReturnLength, ULongFromUser);
     }
   }
   else
   {
-    v9 = a5;
+    v9 = ReturnLength;
   }
   Object = 0LL;
-  v11 = ObReferenceObjectByHandle(Handle, 1u, ExMutantObjectType, PreviousMode, &Object, 0LL);
+  v11 = ObReferenceObjectByHandle(MutantHandle, 1u, ExMutantObjectType, PreviousMode, &Object, 0LL);
   if ( v11 >= 0 )
   {
-    v12 = a2 == 0;
+    v12 = MutantInformationClass == MutantBasicInformation;
     v13 = Object;
     if ( v12 )
     {
@@ -67,17 +72,17 @@ LABEL_3:
       v16 = *((_BYTE *)Object + 48) & 1;
       v17 = *((_QWORD *)Object + 5) == (_QWORD)KeGetCurrentThread();
       if ( PreviousMode )
-        RtlWriteULongToUser(a3, v15);
+        RtlWriteULongToUser(MutantInformation, v15);
       else
-        *(_DWORD *)a3 = v15;
+        *(_DWORD *)MutantInformation = v15;
       if ( PreviousMode )
-        RtlWriteUCharToUser(a3 + 4, v17);
+        RtlWriteUCharToUser((_BYTE *)MutantInformation + 4, v17);
       else
-        a3[4] = v17;
+        *((_BYTE *)MutantInformation + 4) = v17;
       if ( PreviousMode )
-        RtlWriteUCharToUser(a3 + 5, v16);
+        RtlWriteUCharToUser((_BYTE *)MutantInformation + 5, v16);
       else
-        a3[5] = v16;
+        *((_BYTE *)MutantInformation + 5) = v16;
       if ( v9 )
       {
         if ( PreviousMode )
@@ -90,9 +95,9 @@ LABEL_3:
     {
       KeQueryOwnerMutant((PKMUTANT)Object, &ClientId);
       if ( PreviousMode )
-        RtlCopyToUser(a3, &ClientId, 0x10uLL);
+        RtlCopyToUser(MutantInformation, &ClientId, 0x10uLL);
       else
-        RtlCopyVolatileMemory(a3, &ClientId, 0x10uLL);
+        RtlCopyVolatileMemory(MutantInformation, &ClientId, 0x10uLL);
       if ( v9 )
       {
         if ( PreviousMode )
@@ -103,5 +108,5 @@ LABEL_3:
     }
     ObfDereferenceObject(v13);
   }
-  return (unsigned int)v11;
+  return v11;
 }

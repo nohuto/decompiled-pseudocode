@@ -1,21 +1,21 @@
 /*
- * XREFs of RtlpHpLfhContextLockUnlock @ 0x1800A4A18
+ * XREFs of RtlpHpLfhContextLockUnlock @ 0x1800D638C
  * Callers:
- *     RtlpHpUnlockHeapForProcessCloneOrTerminate @ 0x1800422B0 (RtlpHpUnlockHeapForProcessCloneOrTerminate.c)
- *     RtlpHpLockHeapForProcessCloneOrTerminate @ 0x1800944B4 (RtlpHpLockHeapForProcessCloneOrTerminate.c)
+ *     RtlpHpLockHeapForProcessCloneOrTerminate @ 0x18009EF68 (RtlpHpLockHeapForProcessCloneOrTerminate.c)
+ *     RtlpHpUnlockHeapForProcessCloneOrTerminate @ 0x1800D6080 (RtlpHpUnlockHeapForProcessCloneOrTerminate.c)
  * Callees:
- *     RtlpHpEnvTlsSetValue @ 0x18004EB3C (RtlpHpEnvTlsSetValue.c)
- *     RtlReleaseSRWLockExclusive @ 0x1800567B0 (RtlReleaseSRWLockExclusive.c)
- *     RtlpHpLfhOwnerLockUnlock @ 0x1800A4ADC (RtlpHpLfhOwnerLockUnlock.c)
- *     RtlpHpLfhContextLockExtension @ 0x1800A4E8C (RtlpHpLfhContextLockExtension.c)
+ *     RtlpHpEnvTlsSetValue @ 0x18006471C (RtlpHpEnvTlsSetValue.c)
+ *     RtlReleaseSRWLockExclusive @ 0x18006C390 (RtlReleaseSRWLockExclusive.c)
+ *     RtlpHpLfhOwnerLockUnlock @ 0x1800D6450 (RtlpHpLfhOwnerLockUnlock.c)
+ *     RtlpHpLfhContextLockExtension @ 0x1800D6800 (RtlpHpLfhContextLockExtension.c)
  */
 
-__int64 __fastcall RtlpHpLfhContextLockUnlock(__int64 a1, int a2)
+void __fastcall RtlpHpLfhContextLockUnlock(__int64 a1, int a2)
 {
   __int64 *v3; // rsi
   __int64 v5; // rbp
   __int64 v6; // rdx
-  volatile signed __int64 *v8; // rcx
+  _RTL_SRWLOCK *v7; // rcx
 
   v3 = (__int64 *)(a1 + 448);
   v5 = 128LL;
@@ -33,15 +33,19 @@ __int64 __fastcall RtlpHpLfhContextLockUnlock(__int64 a1, int a2)
   if ( a2 == 3 )
   {
     RtlpHpEnvTlsSetValue(*(_DWORD *)(a1 + 76), 196631LL);
-    v8 = (volatile signed __int64 *)(a1 + 128);
+    v7 = (_RTL_SRWLOCK *)(a1 + 128);
 LABEL_11:
-    *v8 = 1LL;
-    return RtlReleaseSRWLockExclusive(v8);
+    v7->Value = 1LL;
+    goto LABEL_12;
   }
   if ( !a2 )
-    return RtlpHpLfhContextLockExtension(a1);
-  v8 = (volatile signed __int64 *)(a1 + 128);
+  {
+    RtlpHpLfhContextLockExtension(a1);
+    return;
+  }
+  v7 = (_RTL_SRWLOCK *)(a1 + 128);
   if ( a2 >= 2 )
     goto LABEL_11;
-  return RtlReleaseSRWLockExclusive(v8);
+LABEL_12:
+  RtlReleaseSRWLockExclusive(v7);
 }

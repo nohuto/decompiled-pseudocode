@@ -129,7 +129,7 @@ LABEL_22:
       && (*(_QWORD *)(v15 + 16) & (-1LL << (v19 >> 12)) & (0xFFFFFFFFFFFFFFFFuLL >> (63
                                                                                    - (unsigned __int8)((unsigned __int64)(v18 - 1) >> 12)))) != 0 )
     {
-      RtlpHpVsFreeChunkRemove(a1, v2, v15, v5 - 8);
+      RtlpHpVsFreeChunkRemove(a1, (_RTL_RB_TREE *)v2, v15, v5 - 8);
       *(_BYTE *)(v8 + 6) = BYTE6(v8) ^ BYTE6(RtlpHpHeapGlobals) ^ 1;
       *(_DWORD *)v5 = (unsigned __int8)(RtlpHpHeapGlobals ^ v8 ^ ((unsigned int)(v8 - v15) >> 12));
       v20 = (__int64 *)RtlpHpVsChunkFree(a1, a2, v15, v5 - 8, 1, (__int64)&v40);

@@ -19,28 +19,28 @@
  *     WerpBreakIntoDebuggerIfPresent @ 0x1800E7C6C (WerpBreakIntoDebuggerIfPresent.c)
  */
 
-__int64 __fastcall RtlReportException(__int64 a1, __int64 a2, unsigned int a3)
+NTSTATUS __cdecl RtlReportException(PEXCEPTION_RECORD ExceptionRecord, PCONTEXT ContextRecord, ULONG Flags)
 {
   int v3; // ebx
-  unsigned int v8; // ebx
+  NTSTATUS v8; // ebx
   _BYTE ProcessInformation[32]; // [rsp+30h] [rbp-48h] BYREF
   int v10; // [rsp+50h] [rbp-28h]
   __int64 v11; // [rsp+98h] [rbp+20h] BYREF
 
   v3 = 0;
   v11 = 0LL;
-  if ( (a3 & 0xFFFFFFE0) != 0 )
-    return 3221225485LL;
-  ((void (*)(void))WerpBreakIntoDebuggerIfPresent)();
+  if ( (Flags & 0xFFFFFFE0) != 0 )
+    return -1073741811;
+  WerpBreakIntoDebuggerIfPresent(ExceptionRecord, ContextRecord);
   if ( LdrpIsSecureProcess )
-    return 0LL;
-  if ( NtQueryInformationProcess((HANDLE)0xFFFFFFFFFFFFFFFFLL, (PROCESSINFOCLASS)37, ProcessInformation, 0x40u, 0LL) >= 0
+    return 0;
+  if ( NtQueryInformationProcess((HANDLE)0xFFFFFFFFFFFFFFFFLL, ProcessImageInformation, ProcessInformation, 0x40u, 0LL) >= 0
     && v10 == 1 )
   {
     v11 = -300000000LL;
     v3 = 1;
   }
-  v8 = RtlReportExceptionHelper(a1, a2, a3, (unsigned __int64)&v11 & -(__int64)(v3 != 0));
-  WerpBreakIntoDebuggerIfPresent(a1, a2, a3);
+  v8 = RtlReportExceptionHelper(ExceptionRecord, ContextRecord, Flags, (unsigned __int64)&v11 & -(__int64)(v3 != 0));
+  WerpBreakIntoDebuggerIfPresent(ExceptionRecord, ContextRecord);
   return v8;
 }

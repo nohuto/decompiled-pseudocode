@@ -1,7 +1,7 @@
 /*
- * XREFs of SymCryptEcpointIsEqual @ 0x140402CF8
+ * XREFs of SymCryptEcpointIsEqual @ 0x140402ED8
  * Callers:
- *     SymCryptEckeySetValue @ 0x1403F8A98 (SymCryptEckeySetValue.c)
+ *     SymCryptEckeySetValue @ 0x1403F8C78 (SymCryptEckeySetValue.c)
  * Callees:
  *     <none>
  */

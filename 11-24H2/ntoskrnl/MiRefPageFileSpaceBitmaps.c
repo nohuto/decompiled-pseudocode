@@ -1,14 +1,14 @@
 /*
- * XREFs of MiRefPageFileSpaceBitmaps @ 0x140367484
+ * XREFs of MiRefPageFileSpaceBitmaps @ 0x1403C5EE8
  * Callers:
- *     MiStoreEvictPageFile @ 0x14020E830 (MiStoreEvictPageFile.c)
- *     MiStoreWriteModifiedPages @ 0x1402281F4 (MiStoreWriteModifiedPages.c)
- *     MiStoreContractVirtualPagefileApc @ 0x1403659B0 (MiStoreContractVirtualPagefileApc.c)
- *     MiFindPageFileWriteCluster @ 0x140367BDC (MiFindPageFileWriteCluster.c)
- *     MiBuildReservationCluster @ 0x140368F90 (MiBuildReservationCluster.c)
+ *     MiBuildReservationCluster @ 0x1402EAD30 (MiBuildReservationCluster.c)
+ *     MiStoreWriteModifiedPages @ 0x1402FB3F4 (MiStoreWriteModifiedPages.c)
+ *     MiStoreEvictPageFile @ 0x140337B90 (MiStoreEvictPageFile.c)
+ *     MiFindPageFileWriteCluster @ 0x1403C41E0 (MiFindPageFileWriteCluster.c)
+ *     MiStoreContractVirtualPagefileApc @ 0x140476BB0 (MiStoreContractVirtualPagefileApc.c)
  * Callees:
- *     MiReleaseSpinLockExclusive @ 0x14028EE30 (MiReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x14028F370 (ExAcquireSpinLockExclusive.c)
+ *     MiReleaseSpinLockExclusive @ 0x14029EA30 (MiReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14029EF70 (ExAcquireSpinLockExclusive.c)
  */
 
 __int64 __fastcall MiRefPageFileSpaceBitmaps(__int64 a1, __int64 a2)

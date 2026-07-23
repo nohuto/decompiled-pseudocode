@@ -1,10 +1,10 @@
 /*
- * XREFs of MmWriteTriageInformation @ 0x1406308CC
+ * XREFs of MmWriteTriageInformation @ 0x140630E1C
  * Callers:
- *     IoFillTriageDumpBuffer @ 0x14054FED0 (IoFillTriageDumpBuffer.c)
+ *     IoFillTriageDumpBuffer @ 0x140550590 (IoFillTriageDumpBuffer.c)
  * Callees:
- *     RtlGetNtProductType @ 0x1402F7F40 (RtlGetNtProductType.c)
- *     ExVerifySuite @ 0x1403A6920 (ExVerifySuite.c)
+ *     RtlGetNtProductType @ 0x1402F81D0 (RtlGetNtProductType.c)
+ *     ExVerifySuite @ 0x1403A6B00 (ExVerifySuite.c)
  */
 
 __int64 __fastcall MmWriteTriageInformation(_OWORD *a1)
@@ -16,15 +16,20 @@ __int64 __fastcall MmWriteTriageInformation(_OWORD *a1)
   __int128 v6; // [rsp+40h] [rbp-30h]
   __int128 v7; // [rsp+50h] [rbp-20h]
   __int128 v8; // [rsp+60h] [rbp-10h]
-  int v9; // [rsp+80h] [rbp+10h] BYREF
+  _NT_PRODUCT_TYPE NtProductType; // [rsp+80h] [rbp+10h] BYREF
 
-  v9 = 0;
+  NtProductType = 0;
   v2 = VerifierTriageActionTaken;
   *(_QWORD *)&v4 = 0x5000000001LL;
   DWORD2(v4) = MmSpecialPoolTag;
-  RtlGetNtProductType(&v9);
-  if ( v9 != 1 || ExVerifySuite(EmbeddedNT) || ExVerifySuite(EmbeddedRestricted) || ExVerifySuite(SecurityAppliance) )
+  RtlGetNtProductType(&NtProductType);
+  if ( NtProductType != NtProductWinNt
+    || ExVerifySuite(EmbeddedNT)
+    || ExVerifySuite(EmbeddedRestricted)
+    || ExVerifySuite(SecurityAppliance) )
+  {
     v2 |= 0x80000000;
+  }
   LODWORD(v5) = MmVerifierData;
   HIDWORD(v4) = v2;
   DWORD1(v5) = ((unsigned int)MiFlags >> 1) & 1;

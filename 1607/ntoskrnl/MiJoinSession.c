@@ -1,7 +1,7 @@
 /*
- * XREFs of MiJoinSession @ 0x140526748
+ * XREFs of MiJoinSession @ 0x1405097A8
  * Callers:
- *     MmCreateProcessAddressSpace @ 0x1405261BC (MmCreateProcessAddressSpace.c)
+ *     MmCreateProcessAddressSpace @ 0x14050921C (MmCreateProcessAddressSpace.c)
  * Callees:
  *     <none>
  */

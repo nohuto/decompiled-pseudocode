@@ -1,9 +1,9 @@
 /*
- * XREFs of KeReenterRetpolinedCode @ 0x140447000
+ * XREFs of KeReenterRetpolinedCode @ 0x14043F7D0
  * Callers:
  *     <none>
  * Callees:
- *     KxReenterRetpolinedCode @ 0x140447024 (KxReenterRetpolinedCode.c)
+ *     KxReenterRetpolinedCode @ 0x14043F7F4 (KxReenterRetpolinedCode.c)
  */
 
 _KPRCB_BPB_RETPOLINE_STATE KeReenterRetpolinedCode()

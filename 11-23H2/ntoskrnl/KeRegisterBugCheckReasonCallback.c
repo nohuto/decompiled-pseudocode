@@ -1,24 +1,24 @@
 /*
- * XREFs of KeRegisterBugCheckReasonCallback @ 0x140354A70
+ * XREFs of KeRegisterBugCheckReasonCallback @ 0x140354C10
  * Callers:
- *     HvlPhase1Initialize @ 0x1403880A4 (HvlPhase1Initialize.c)
- *     HvlpInitializeHvCrashdump @ 0x140547FF4 (HvlpInitializeHvCrashdump.c)
- *     SmPrepareForFatalHeapCorruption @ 0x1405CD70C (SmPrepareForFatalHeapCorruption.c)
- *     SmPrepareForFatalPageError @ 0x1405CD804 (SmPrepareForFatalPageError.c)
- *     CarpBugcheckInit @ 0x1405D58D4 (CarpBugcheckInit.c)
- *     IopInitializeTriageDumpData @ 0x14084E890 (IopInitializeTriageDumpData.c)
- *     IopInitializeBugCheckDriverData @ 0x140865CA0 (IopInitializeBugCheckDriverData.c)
+ *     HvlPhase1Initialize @ 0x140388284 (HvlPhase1Initialize.c)
+ *     HvlpInitializeHvCrashdump @ 0x1405486B4 (HvlpInitializeHvCrashdump.c)
+ *     SmPrepareForFatalHeapCorruption @ 0x1405CDC7C (SmPrepareForFatalHeapCorruption.c)
+ *     SmPrepareForFatalPageError @ 0x1405CDD74 (SmPrepareForFatalPageError.c)
+ *     CarpBugcheckInit @ 0x1405D5E44 (CarpBugcheckInit.c)
+ *     IopInitializeTriageDumpData @ 0x14084EB90 (IopInitializeTriageDumpData.c)
+ *     IopInitializeBugCheckDriverData @ 0x140865EE0 (IopInitializeBugCheckDriverData.c)
  *     EtwpInitialize @ 0x140B47A50 (EtwpInitialize.c)
  *     PspInitPhase0 @ 0x140B4A894 (PspInitPhase0.c)
  *     HalpMiscInitDiscard @ 0x140B6A188 (HalpMiscInitDiscard.c)
  *     PopRecorderInit @ 0x140B6BA48 (PopRecorderInit.c)
  *     HalpEfiInitialization @ 0x140B6BB00 (HalpEfiInitialization.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KxAcquireSpinLock @ 0x1402515B0 (KxAcquireSpinLock.c)
- *     KiInsertQueueDpc @ 0x140254790 (KiInsertQueueDpc.c)
- *     KiCheckForDuplicateBugCheckCallback @ 0x140354BC0 (KiCheckForDuplicateBugCheckCallback.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KxAcquireSpinLock @ 0x140251670 (KxAcquireSpinLock.c)
+ *     KiInsertQueueDpc @ 0x140254850 (KiInsertQueueDpc.c)
+ *     KiCheckForDuplicateBugCheckCallback @ 0x140354D60 (KiCheckForDuplicateBugCheckCallback.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 BOOLEAN __stdcall KeRegisterBugCheckReasonCallback(
@@ -45,7 +45,7 @@ BOOLEAN __stdcall KeRegisterBugCheckReasonCallback(
   v8 = 1;
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(0xFuLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     if ( CurrentIrql == 15 )
@@ -98,10 +98,10 @@ LABEL_25:
   v10->Flink = &CallbackRecord->Entry;
 LABEL_10:
   KxReleaseSpinLock((volatile signed __int64 *)&KeBugCheckCallbackLock);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v16 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v16 <= 0xFu && CurrentIrql <= 0xFu && v16 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v16 <= 0xFu && CurrentIrql <= 0xFu && v16 >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       v18 = CurrentPrcb->SchedulerAssist;

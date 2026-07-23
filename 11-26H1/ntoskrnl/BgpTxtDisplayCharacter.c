@@ -1,23 +1,23 @@
 /*
- * XREFs of BgpTxtDisplayCharacter @ 0x1404AD084
+ * XREFs of BgpTxtDisplayCharacter @ 0x1404A6714
  * Callers:
- *     BgpDisplayCharacterEx @ 0x140715C90 (BgpDisplayCharacterEx.c)
- *     AnFwDisplayProgressIndicator @ 0x140C51380 (AnFwDisplayProgressIndicator.c)
- *     AnFwpProgressAnimationManual @ 0x140C51650 (AnFwpProgressAnimationManual.c)
- *     AnFwpProgressIndicatorTimer @ 0x140C54340 (AnFwpProgressIndicatorTimer.c)
+ *     BgpDisplayCharacterEx @ 0x14071A980 (BgpDisplayCharacterEx.c)
+ *     AnFwDisplayProgressIndicator @ 0x140C57380 (AnFwDisplayProgressIndicator.c)
+ *     AnFwpProgressAnimationManual @ 0x140C57650 (AnFwpProgressAnimationManual.c)
+ *     AnFwpProgressIndicatorTimer @ 0x140C5A340 (AnFwpProgressIndicatorTimer.c)
  * Callees:
- *     DbgPrintEx @ 0x140397530 (DbgPrintEx.c)
- *     BgpGxConvertRectangleEx @ 0x140491870 (BgpGxConvertRectangleEx.c)
- *     BgpRasPrintGlyph @ 0x1404AD338 (BgpRasPrintGlyph.c)
- *     BgpGxFillRectangle @ 0x1404AD7AC (BgpGxFillRectangle.c)
- *     BgpGxDrawRectangle @ 0x1404BFC2C (BgpGxDrawRectangle.c)
- *     BgpGetBitsPerPixel @ 0x1404C009C (BgpGetBitsPerPixel.c)
- *     TxtpGetCacheEntry @ 0x1404DC2C4 (TxtpGetCacheEntry.c)
- *     BgpRasGetGlyphTextCellDimensions @ 0x1407189B8 (BgpRasGetGlyphTextCellDimensions.c)
- *     BgpGxBlendRectangle @ 0x140C517E0 (BgpGxBlendRectangle.c)
- *     TxtpJustifyRectangle @ 0x140C521D0 (TxtpJustifyRectangle.c)
- *     TxtpAddCacheEntry @ 0x140C527F0 (TxtpAddCacheEntry.c)
- *     BgpGxRectangleDestroy @ 0x140C53414 (BgpGxRectangleDestroy.c)
+ *     DbgPrintEx @ 0x1403992B0 (DbgPrintEx.c)
+ *     BgpGxConvertRectangleEx @ 0x14048B3C0 (BgpGxConvertRectangleEx.c)
+ *     BgpRasPrintGlyph @ 0x1404A69C8 (BgpRasPrintGlyph.c)
+ *     BgpGxFillRectangle @ 0x1404A6E34 (BgpGxFillRectangle.c)
+ *     BgpGxDrawRectangle @ 0x1404B947C (BgpGxDrawRectangle.c)
+ *     BgpGetBitsPerPixel @ 0x1404B98EC (BgpGetBitsPerPixel.c)
+ *     TxtpGetCacheEntry @ 0x1404D59A4 (TxtpGetCacheEntry.c)
+ *     BgpRasGetGlyphTextCellDimensions @ 0x14071D6A8 (BgpRasGetGlyphTextCellDimensions.c)
+ *     BgpGxBlendRectangle @ 0x140C577E0 (BgpGxBlendRectangle.c)
+ *     TxtpJustifyRectangle @ 0x140C581D0 (TxtpJustifyRectangle.c)
+ *     TxtpAddCacheEntry @ 0x140C587F0 (TxtpAddCacheEntry.c)
+ *     BgpGxRectangleDestroy @ 0x140C59414 (BgpGxRectangleDestroy.c)
  */
 
 __int64 __fastcall BgpTxtDisplayCharacter(__int64 a1, __int64 a2, char a3, _DWORD *a4, _DWORD *a5)

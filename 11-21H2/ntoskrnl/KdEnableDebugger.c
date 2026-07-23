@@ -1,13 +1,13 @@
 /*
  * XREFs of KdEnableDebugger @ 0x140565580
  * Callers:
- *     KdpStub @ 0x140299E04 (KdpStub.c)
- *     NtSystemDebugControl @ 0x1406DC120 (NtSystemDebugControl.c)
- *     KiVerifyXcpt15 @ 0x140AD6320 (KiVerifyXcpt15.c)
- *     KiFilterFiberContext @ 0x140AD6B90 (KiFilterFiberContext.c)
+ *     sub_140299E04 @ 0x140299E04 (sub_140299E04.c)
+ *     sub_1406DC120 @ 0x1406DC120 (sub_1406DC120.c)
+ *     sub_140AD6320 @ 0x140AD6320 (sub_140AD6320.c)
+ *     sub_140AD6B90 @ 0x140AD6B90 (sub_140AD6B90.c)
  * Callees:
- *     KdEnableDebuggerWithLock @ 0x1405655BC (KdEnableDebuggerWithLock.c)
- *     KeRelaxTimingConstraints @ 0x140568560 (KeRelaxTimingConstraints.c)
+ *     sub_1405655BC @ 0x1405655BC (sub_1405655BC.c)
+ *     sub_140568560 @ 0x140568560 (sub_140568560.c)
  */
 
 NTSTATUS KdEnableDebugger(void)
@@ -17,10 +17,10 @@ NTSTATUS KdEnableDebugger(void)
   unsigned int v2; // edi
   NTSTATUS v3; // ebx
 
-  v0 = KeRelaxTimingConstraints(1LL);
+  v0 = sub_140568560(1LL);
   LOBYTE(v1) = 1;
   v2 = v0;
-  v3 = KdEnableDebuggerWithLock(v1);
-  KeRelaxTimingConstraints(v2);
+  v3 = sub_1405655BC(v1);
+  sub_140568560(v2);
   return v3;
 }

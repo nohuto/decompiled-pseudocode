@@ -1,9 +1,9 @@
 /*
- * XREFs of FsRtlPostPagingFileStackOverflow @ 0x1405B7FD0
+ * XREFs of FsRtlPostPagingFileStackOverflow @ 0x1405BA840
  * Callers:
  *     <none>
  * Callees:
- *     FsRtlpPostStackOverflow @ 0x1405B8130 (FsRtlpPostStackOverflow.c)
+ *     FsRtlpPostStackOverflow @ 0x1405BA9A0 (FsRtlpPostStackOverflow.c)
  */
 
 void __stdcall FsRtlPostPagingFileStackOverflow(

@@ -6,7 +6,7 @@
  *     <none>
  */
 
-__int64 __fastcall RtlSetTimeZoneInformation(__int64 a1)
+NTSTATUS __cdecl RtlSetTimeZoneInformation(PRTL_TIME_ZONE_INFORMATION TimeZoneInformation)
 {
-  return RtlpSetTimeZoneInformationWorker(a1, 172LL);
+  return RtlpSetTimeZoneInformationWorker(TimeZoneInformation);
 }

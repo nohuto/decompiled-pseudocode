@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpAllocateKInterrupt @ 0x14037D358
+ * XREFs of HalpAllocateKInterrupt @ 0x14037D4F8
  * Callers:
- *     HalpCreateInterrupt @ 0x14037D2A8 (HalpCreateInterrupt.c)
+ *     HalpCreateInterrupt @ 0x14037D448 (HalpCreateInterrupt.c)
  * Callees:
- *     HalpInterruptSetProblemEx @ 0x14051AA08 (HalpInterruptSetProblemEx.c)
+ *     HalpInterruptSetProblemEx @ 0x14051AF58 (HalpInterruptSetProblemEx.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
 

@@ -3,12 +3,12 @@
  * Callers:
  *     HalpDmaInit @ 0x140B605F8 (HalpDmaInit.c)
  * Callees:
- *     RtlSetAllBits @ 0x1402E1AE0 (RtlSetAllBits.c)
- *     MmMapIoSpaceEx @ 0x1403359B0 (MmMapIoSpaceEx.c)
- *     MmUnmapIoSpace @ 0x140335CD0 (MmUnmapIoSpace.c)
- *     HalpMmAllocCtxAlloc @ 0x14039AE20 (HalpMmAllocCtxAlloc.c)
- *     HalpDmaCommitContiguousMapBuffers @ 0x14039C28C (HalpDmaCommitContiguousMapBuffers.c)
- *     HalpMmAllocCtxFree @ 0x1403A56C0 (HalpMmAllocCtxFree.c)
+ *     RtlSetAllBits @ 0x1402E1D70 (RtlSetAllBits.c)
+ *     MmMapIoSpaceEx @ 0x140335C40 (MmMapIoSpaceEx.c)
+ *     MmUnmapIoSpace @ 0x140335F60 (MmUnmapIoSpace.c)
+ *     HalpMmAllocCtxAlloc @ 0x14039B000 (HalpMmAllocCtxAlloc.c)
+ *     HalpDmaCommitContiguousMapBuffers @ 0x14039C46C (HalpDmaCommitContiguousMapBuffers.c)
+ *     HalpMmAllocCtxFree @ 0x1403A58A0 (HalpMmAllocCtxFree.c)
  *     HalpDmaAllocateTranslationBuffer @ 0x140B60870 (HalpDmaAllocateTranslationBuffer.c)
  *     HalpDmaFreeTranslationBuffer @ 0x140B910EC (HalpDmaFreeTranslationBuffer.c)
  */

@@ -1,11 +1,11 @@
 /*
- * XREFs of SepBuildDefaultCap @ 0x140795238
+ * XREFs of SepBuildDefaultCap @ 0x140795348
  * Callers:
- *     SepRmDbInitialization @ 0x140C3B028 (SepRmDbInitialization.c)
+ *     SepRmDbInitialization @ 0x140C3D180 (SepRmDbInitialization.c)
  * Callees:
- *     SepBuildDefaultCape @ 0x140609844 (SepBuildDefaultCape.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     SepBuildDefaultCape @ 0x140607DFC (SepBuildDefaultCape.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 SepBuildDefaultCap()
@@ -19,7 +19,7 @@ __int64 SepBuildDefaultCap()
   v0 = SepBuildDefaultCape((__int64 *)&P);
   if ( v0 >= 0 )
   {
-    Pool2 = ExAllocatePool2(0x100uLL);
+    Pool2 = ExAllocatePool2(0x100uLL, 0x48uLL, 0x70536553u);
     if ( Pool2 )
     {
       *(_QWORD *)Pool2 = 0LL;

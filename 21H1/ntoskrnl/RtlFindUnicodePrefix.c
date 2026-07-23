@@ -16,11 +16,11 @@ PUNICODE_PREFIX_TABLE_ENTRY __stdcall RtlFindUnicodePrefix(
   PUNICODE_PREFIX_TABLE_ENTRY NextPrefixTree; // rdi
   PUNICODE_PREFIX_TABLE v4; // rbp
   CSHORT v7; // ax
-  RTL_SPLAY_LINKS *i; // rsi
-  UNICODE_PREFIX_TABLE_ENTRY *v10; // r14
+  _RTL_SPLAY_LINKS *i; // rsi
+  _UNICODE_PREFIX_TABLE_ENTRY *v10; // r14
   int v11; // eax
-  struct _UNICODE_PREFIX_TABLE_ENTRY *v12; // rbx
-  UNICODE_PREFIX_TABLE_ENTRY *v13; // rbx
+  _UNICODE_PREFIX_TABLE_ENTRY *v12; // rbx
+  _UNICODE_PREFIX_TABLE_ENTRY *v13; // rbx
 
   NextPrefixTree = PrefixTable->NextPrefixTree;
   v4 = PrefixTable;
@@ -44,7 +44,7 @@ LABEL_16:
         NextPrefixTree = NextPrefixTree->NextPrefixTree;
         goto LABEL_4;
       }
-      v10 = (UNICODE_PREFIX_TABLE_ENTRY *)&i[-1];
+      v10 = (_UNICODE_PREFIX_TABLE_ENTRY *)&i[-1];
       v11 = CompareUnicodeStrings(i[1].Parent, FullName, 0LL);
       if ( v11 != 3 )
         break;
@@ -55,7 +55,7 @@ LABEL_16:
   }
   if ( CaseInsensitiveIndex )
   {
-    v13 = (UNICODE_PREFIX_TABLE_ENTRY *)&i[-1];
+    v13 = (_UNICODE_PREFIX_TABLE_ENTRY *)&i[-1];
     while ( (unsigned int)CompareUnicodeStrings(v13->Prefix, FullName, CaseInsensitiveIndex) - 1 > 1 )
     {
       v13 = v13->CaseMatch;
@@ -71,7 +71,7 @@ LABEL_16:
       v12 = NextPrefixTree->NextPrefixTree;
       NextPrefixTree->NextPrefixTree = 0LL;
       NextPrefixTree->NodeTypeCode = 2050;
-      v10 = (UNICODE_PREFIX_TABLE_ENTRY *)&RtlSplay(i)[-1];
+      v10 = (_UNICODE_PREFIX_TABLE_ENTRY *)&RtlSplay(i)[-1];
       v10->NodeTypeCode = 2049;
       v4->NextPrefixTree = v10;
       v10->NextPrefixTree = v12;

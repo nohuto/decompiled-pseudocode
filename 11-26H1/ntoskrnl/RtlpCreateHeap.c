@@ -1,30 +1,30 @@
 /*
- * XREFs of RtlpCreateHeap @ 0x1404E3978
+ * XREFs of RtlpCreateHeap @ 0x1404DCF18
  * Callers:
- *     RtlCreateHeap @ 0x140B3E7E0 (RtlCreateHeap.c)
+ *     RtlCreateHeap @ 0x140B40810 (RtlCreateHeap.c)
  * Callees:
- *     MmDeterminePoolType @ 0x1402609A0 (MmDeterminePoolType.c)
- *     ExpAddResourceToSystemResourceList @ 0x140260A5C (ExpAddResourceToSystemResourceList.c)
- *     RtlStdLogStackTrace @ 0x140260BE8 (RtlStdLogStackTrace.c)
- *     RtlpStdGetRecordedStackTraceIndex @ 0x140260C74 (RtlpStdGetRecordedStackTraceIndex.c)
- *     RtlStdReleaseStackTrace @ 0x140260D48 (RtlStdReleaseStackTrace.c)
- *     DbgPrint @ 0x140396F60 (DbgPrint.c)
- *     ExDeleteResourceLite @ 0x140474A20 (ExDeleteResourceLite.c)
- *     RtlpHpFixedHeapCreate @ 0x1404E3BF0 (RtlpHpFixedHeapCreate.c)
- *     PerfLogExecutiveResourceInitialize @ 0x1405263E4 (PerfLogExecutiveResourceInitialize.c)
- *     RtlpHeapHandleError @ 0x140526988 (RtlpHeapHandleError.c)
- *     ExpTraceLogBadResourceAddress @ 0x14052D790 (ExpTraceLogBadResourceAddress.c)
- *     RtlpCreateHeapEncoding @ 0x14061B39C (RtlpCreateHeapEncoding.c)
- *     RtlpInitializeHeapSegment @ 0x14061CCAC (RtlpInitializeHeapSegment.c)
- *     RtlpHeapExceptionFilter @ 0x140625734 (RtlpHeapExceptionFilter.c)
- *     RtlpPopulateListIndex @ 0x1406261D8 (RtlpPopulateListIndex.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     ZwAllocateVirtualMemory @ 0x1407236F0 (ZwAllocateVirtualMemory.c)
- *     ZwFreeVirtualMemory @ 0x1407237B0 (ZwFreeVirtualMemory.c)
- *     ZwQueryVirtualMemory @ 0x140723850 (ZwQueryVirtualMemory.c)
- *     ZwQuerySystemInformation @ 0x140723AB0 (ZwQuerySystemInformation.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     RtlGetNtGlobalFlags @ 0x140B536C0 (RtlGetNtGlobalFlags.c)
+ *     MmDeterminePoolType @ 0x14021A220 (MmDeterminePoolType.c)
+ *     ExpAddResourceToSystemResourceList @ 0x14021B4EC (ExpAddResourceToSystemResourceList.c)
+ *     RtlStdLogStackTrace @ 0x140260150 (RtlStdLogStackTrace.c)
+ *     RtlpStdGetRecordedStackTraceIndex @ 0x1402601DC (RtlpStdGetRecordedStackTraceIndex.c)
+ *     RtlStdReleaseStackTrace @ 0x1402602B0 (RtlStdReleaseStackTrace.c)
+ *     DbgPrint @ 0x140398CE0 (DbgPrint.c)
+ *     ExDeleteResourceLite @ 0x14046E1A0 (ExDeleteResourceLite.c)
+ *     RtlpHpFixedHeapCreate @ 0x1404DD190 (RtlpHpFixedHeapCreate.c)
+ *     PerfLogExecutiveResourceInitialize @ 0x140528A54 (PerfLogExecutiveResourceInitialize.c)
+ *     RtlpHeapHandleError @ 0x140528FF8 (RtlpHeapHandleError.c)
+ *     ExpTraceLogBadResourceAddress @ 0x14052FCB0 (ExpTraceLogBadResourceAddress.c)
+ *     RtlpCreateHeapEncoding @ 0x14061E3EC (RtlpCreateHeapEncoding.c)
+ *     RtlpInitializeHeapSegment @ 0x14061FCFC (RtlpInitializeHeapSegment.c)
+ *     RtlpHeapExceptionFilter @ 0x140628784 (RtlpHeapExceptionFilter.c)
+ *     RtlpPopulateListIndex @ 0x140629228 (RtlpPopulateListIndex.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     ZwAllocateVirtualMemory @ 0x1407282C0 (ZwAllocateVirtualMemory.c)
+ *     ZwFreeVirtualMemory @ 0x140728380 (ZwFreeVirtualMemory.c)
+ *     ZwQueryVirtualMemory @ 0x140728420 (ZwQueryVirtualMemory.c)
+ *     ZwQuerySystemInformation @ 0x140728680 (ZwQuerySystemInformation.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     RtlGetNtGlobalFlags @ 0x140B55F60 (RtlGetNtGlobalFlags.c)
  */
 
 PVOID __fastcall RtlpCreateHeap(int a1, char *a2, void *a3, __int64 a4, __int64 a5, __int128 *a6)
@@ -48,7 +48,7 @@ PVOID __fastcall RtlpCreateHeap(int a1, char *a2, void *a3, __int64 a4, __int64 
   __int64 v26; // rcx
   __int64 v27; // rcx
   __int64 v28; // rcx
-  void *InitialStack; // rax
+  _BYTE *SListFaultAddress; // rax
   __int64 v30; // rcx
   ULONG_PTR v31; // rdx
   ULONG_PTR v32; // rcx
@@ -63,21 +63,21 @@ PVOID __fastcall RtlpCreateHeap(int a1, char *a2, void *a3, __int64 a4, __int64 
   unsigned __int64 v41; // rtt
   struct _ERESOURCE *v42; // rdi
   bool v43; // cf
-  int v44; // eax
+  ULONG v44; // eax
   unsigned __int64 v45; // rdi
   int v46; // r9d
   _QWORD *v47; // rax
   _QWORD *v48; // rax
   _QWORD *v49; // rax
   _QWORD *v50; // rax
-  KSPIN_LOCK *p_Policy; // rsi
+  KSPIN_LOCK *v51; // rsi
   unsigned __int16 *v52; // rax
-  int RecordedStackTraceIndex; // eax
+  ULONG RecordedStackTraceIndex; // eax
   ULONG_PTR v54; // rcx
   _DWORD *v55; // rcx
   PVOID BaseAddress; // [rsp+40h] [rbp-1F8h] BYREF
   __int64 v57; // [rsp+48h] [rbp-1F0h]
-  int NtGlobalFlags; // [rsp+50h] [rbp-1E8h]
+  ULONG NtGlobalFlags; // [rsp+50h] [rbp-1E8h]
   ULONG_PTR RegionSize; // [rsp+58h] [rbp-1E0h] BYREF
   int v60; // [rsp+60h] [rbp-1D8h]
   ULONG_PTR v61; // [rsp+68h] [rbp-1D0h] BYREF
@@ -107,8 +107,8 @@ PVOID __fastcall RtlpCreateHeap(int a1, char *a2, void *a3, __int64 a4, __int64 
   __int128 v85; // [rsp+180h] [rbp-B8h] BYREF
   __int128 v86; // [rsp+190h] [rbp-A8h]
   __int128 v87; // [rsp+1A0h] [rbp-98h]
-  _BYTE v88[40]; // [rsp+1B0h] [rbp-88h] BYREF
-  void *v89; // [rsp+1D8h] [rbp-60h]
+  _BYTE SystemInformation[40]; // [rsp+1B0h] [rbp-88h] BYREF
+  _BYTE *v89; // [rsp+1D8h] [rbp-60h]
   void *retaddr; // [rsp+238h] [rbp+0h]
 
   v63 = a3;
@@ -125,7 +125,7 @@ PVOID __fastcall RtlpCreateHeap(int a1, char *a2, void *a3, __int64 a4, __int64 
   v87 = 0LL;
   v60 = 0;
   v61 = 0LL;
-  memset_0(v88, 0, 0x40uLL);
+  memset_0(SystemInformation, 0, 0x40uLL);
   BaseAddress = 0LL;
   v9 = 0LL;
   if ( (a1 & 0x100) == 0 )
@@ -167,32 +167,32 @@ PVOID __fastcall RtlpCreateHeap(int a1, char *a2, void *a3, __int64 a4, __int64 
       v24 = v23;
     v25 = *((_QWORD *)&v79 + 1);
     if ( !*((_QWORD *)&v79 + 1) )
-      v25 = qword_140FBE248;
+      v25 = qword_140FBF248;
     v71 = v25;
     v26 = v80;
     if ( !(_QWORD)v80 )
-      v26 = qword_140FBE240;
+      v26 = qword_140FBF240;
     v72 = v26;
     v27 = *((_QWORD *)&v80 + 1);
     if ( !*((_QWORD *)&v80 + 1) )
-      v27 = qword_140FBE230;
+      v27 = qword_140FBF230;
     v73 = v27;
     v28 = v81;
     if ( !(_QWORD)v81 )
-      v28 = qword_140FBE238;
+      v28 = qword_140FBF238;
     v74 = v28;
-    InitialStack = RtlpBootStatHandleLock.InitialStack;
-    if ( !RtlpBootStatHandleLock.InitialStack )
+    SListFaultAddress = RtlpBootStatHandleLock.SListFaultAddress;
+    if ( !RtlpBootStatHandleLock.SListFaultAddress )
     {
-      RtlpBootStatHandleLock.QuantumTarget = 0x10000LL;
-      if ( (int)ZwQuerySystemInformation(0LL, v88, 64LL, 0LL) < 0 )
+      RtlpBootStatHandleLock.InitialStack = (void *)0x10000;
+      if ( ZwQuerySystemInformation(SystemBasicInformation, SystemInformation, 0x40u, 0LL) < 0 )
         goto LABEL_26;
-      InitialStack = v89;
-      RtlpBootStatHandleLock.InitialStack = v89;
+      SListFaultAddress = v89;
+      RtlpBootStatHandleLock.SListFaultAddress = v89;
     }
     v67 = *((_QWORD *)&v81 + 1);
     if ( !*((_QWORD *)&v81 + 1) )
-      v67 = (unsigned __int64)InitialStack - RtlpBootStatHandleLock.QuantumTarget - 4096;
+      v67 = SListFaultAddress - (char *)RtlpBootStatHandleLock.InitialStack - 4096;
     v30 = v82;
     if ( (unsigned __int64)(v82 - 1) > 0xFEFFF )
       v30 = 1044480LL;
@@ -269,7 +269,7 @@ PVOID __fastcall RtlpCreateHeap(int a1, char *a2, void *a3, __int64 a4, __int64 
           if ( (v24 & 0x40000) != 0 && (BYTE4(v78) & 0x40) == 0 )
             goto LABEL_26;
           memset_0((void *)MemoryInformation, 0, 0x1000uLL);
-          if ( ZwQueryVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, a2, (MEMORY_INFORMATION_CLASS)3, &v85, 0x30uLL, 0LL) < 0 )
+          if ( ZwQueryVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, a2, MemoryRegionInformation, &v85, 0x30uLL, 0LL) < 0 )
             goto LABEL_26;
           RegionSize = v86;
           v61 = *((_QWORD *)&v77 + 1);
@@ -358,18 +358,18 @@ LABEL_114:
             v42->SpinLock = 0LL;
             if ( (NtGlobalFlag & 0x2000) != 0 )
             {
-              p_Policy = (KSPIN_LOCK *)&NormalizationListLock.SchedulingGroup->Policy;
-              if ( NormalizationListLock.SchedulingGroup
+              v51 = *(KSPIN_LOCK **)&NormalizationListLock.WaitRegister.Flags;
+              if ( *(_QWORD *)&NormalizationListLock.WaitRegister.Flags
                 && (v52 = (unsigned __int16 *)RtlStdLogStackTrace(
-                                                (PKSPIN_LOCK)&NormalizationListLock.SchedulingGroup->Policy,
+                                                *(PKSPIN_LOCK *)&NormalizationListLock.WaitRegister.Flags,
                                                 1),
                     (v70 = (__int64 *)v52) != 0LL) )
               {
-                RecordedStackTraceIndex = RtlpStdGetRecordedStackTraceIndex(p_Policy, v52);
+                RecordedStackTraceIndex = RtlpStdGetRecordedStackTraceIndex(v51, v52);
                 NtGlobalFlags = RecordedStackTraceIndex;
                 if ( !RecordedStackTraceIndex )
                 {
-                  RtlStdReleaseStackTrace((__int64)p_Policy, v70);
+                  RtlStdReleaseStackTrace((__int64)v51, v70);
                   LOWORD(RecordedStackTraceIndex) = 0;
                 }
               }
@@ -385,7 +385,7 @@ LABEL_114:
             }
             v42->CreatorBackTraceIndex = v54;
             HIDWORD(v42->Reserved2) = -1;
-            ExpAddResourceToSystemResourceList((struct _SINGLE_LIST_ENTRY *)v42);
+            ExpAddResourceToSystemResourceList((_KSWAPPABLE_PAGE *)v42);
             __incgsdword(0x9098u);
             if ( (DWORD1(PerfGlobalGroupMask) & 0x20000) != 0 )
               PerfLogExecutiveResourceInitialize(65544LL, v42, 0LL, 0LL);
@@ -417,7 +417,7 @@ LABEL_114:
             *((_QWORD *)BaseAddress + 23) = v74 >> 4;
             *((_QWORD *)BaseAddress + 25) = v67;
             *((_DWORD *)BaseAddress + 37) = (unsigned __int64)(v75[0] + 15) >> 4;
-            *((_QWORD *)BaseAddress + 45) = (__int64)RtlpBootStatHandleLock.SListFaultAddress ^ v68;
+            *((_QWORD *)BaseAddress + 45) = RtlpBootStatHandleLock.QuantumTarget ^ v68;
             *((_DWORD *)BaseAddress + 172) = 4;
             *((_QWORD *)BaseAddress + 87) = 2088960LL;
             *((_QWORD *)BaseAddress + 32) = 31LL;
@@ -467,19 +467,20 @@ LABEL_26:
         }
         if ( ZwAllocateVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &v63, 0LL, &v65, 0x2000u, 4u) < 0 )
           goto LABEL_26;
+        v35 = (char *)v63;
         v38 = (char *)v63;
         BaseAddress = v63;
         RegionSize = v65;
         if ( v64 )
         {
           ZwFreeVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &v63, &v64, 0x8000u);
+          v35 = (char *)v63 + v64;
           v38 = (char *)v63 + v64;
           BaseAddress = (char *)v63 + v64;
           RegionSize = v65 - v64;
         }
         v36 = v38;
         v62 = v38;
-        v35 = v38;
         goto LABEL_111;
       }
     }

@@ -11,7 +11,7 @@ __int64 __fastcall ResCSegmentPopulate(__int64 a1, __int64 a2, unsigned int a3)
   unsigned int v3; // ebx
   unsigned int v5; // ecx
   unsigned int v6; // eax
-  unsigned int v8; // ecx
+  LONG v8; // ecx
   int v9; // ecx
 
   v3 = 0;

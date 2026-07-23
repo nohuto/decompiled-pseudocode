@@ -1,12 +1,12 @@
 /*
- * XREFs of KiSetProcessorIdle @ 0x1404EA0F8
+ * XREFs of KiSetProcessorIdle @ 0x1404E10A8
  * Callers:
- *     ?KiCommitRescheduleContextEntry@@YAEPEAU_KI_RESCHEDULE_CONTEXT_ENTRY@@PEAU_KPRCB@@KPEAU_SINGLE_LIST_ENTRY@@@Z @ 0x140299510 (-KiCommitRescheduleContextEntry@@YAEPEAU_KI_RESCHEDULE_CONTEXT_ENTRY@@PEAU_KPRCB@@KPEAU_SINGLE_L.c)
- *     KiCompleteKernelInit @ 0x140B55C50 (KiCompleteKernelInit.c)
+ *     ?KiCommitRescheduleContextEntry@@YAEPEAU_KI_RESCHEDULE_CONTEXT_ENTRY@@PEAU_KPRCB@@KPEAU_SINGLE_LIST_ENTRY@@@Z @ 0x1402A8000 (-KiCommitRescheduleContextEntry@@YAEPEAU_KI_RESCHEDULE_CONTEXT_ENTRY@@PEAU_KPRCB@@KPEAU_SINGLE_L.c)
+ *     KiCompleteKernelInit @ 0x140B57CA0 (KiCompleteKernelInit.c)
  * Callees:
- *     KiInterlockedDecrementRankListMembersNoFence @ 0x14041CFF0 (KiInterlockedDecrementRankListMembersNoFence.c)
- *     KiInterlockedIncrementRankListMembersNoFence @ 0x14041EF00 (KiInterlockedIncrementRankListMembersNoFence.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     KiInterlockedDecrementRankListMembersNoFence @ 0x1404118E0 (KiInterlockedDecrementRankListMembersNoFence.c)
+ *     KiInterlockedIncrementRankListMembersNoFence @ 0x140414C40 (KiInterlockedIncrementRankListMembersNoFence.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 void __fastcall KiSetProcessorIdle(__int64 a1, int a2, char a3)

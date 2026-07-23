@@ -1,11 +1,11 @@
 /*
- * XREFs of NormBuffer__RecheckStartCombinations @ 0x1402F5058
+ * XREFs of NormBuffer__RecheckStartCombinations @ 0x1402F5248
  * Callers:
- *     Normalization__NormalizeCharacter @ 0x140898C3C (Normalization__NormalizeCharacter.c)
+ *     Normalization__NormalizeCharacter @ 0x140899E9C (Normalization__NormalizeCharacter.c)
  * Callees:
- *     NormBuffer__GetCurrentOutputChar @ 0x1402F4DB0 (NormBuffer__GetCurrentOutputChar.c)
- *     Normalization__CanCombinableCharactersCombine @ 0x140897E3C (Normalization__CanCombinableCharactersCombine.c)
- *     Normalization__GetCharacterInfo @ 0x140898074 (Normalization__GetCharacterInfo.c)
+ *     NormBuffer__GetCurrentOutputChar @ 0x1402F4FA0 (NormBuffer__GetCurrentOutputChar.c)
+ *     Normalization__CanCombinableCharactersCombine @ 0x14089909C (Normalization__CanCombinableCharactersCombine.c)
+ *     Normalization__GetCharacterInfo @ 0x1408992D4 (Normalization__GetCharacterInfo.c)
  */
 
 void __fastcall NormBuffer__RecheckStartCombinations(__int64 a1)

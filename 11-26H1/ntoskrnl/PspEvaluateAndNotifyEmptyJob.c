@@ -1,41 +1,41 @@
 /*
- * XREFs of PspEvaluateAndNotifyEmptyJob @ 0x140959B30
+ * XREFs of PspEvaluateAndNotifyEmptyJob @ 0x1409FF3F0
  * Callers:
- *     PspTerminateAllProcessesInJobHierarchy @ 0x140958CB0 (PspTerminateAllProcessesInJobHierarchy.c)
- *     PspNotifyEmptyJobsInJobChain @ 0x140959924 (PspNotifyEmptyJobsInJobChain.c)
+ *     PspNotifyEmptyJobsInJobChain @ 0x1409FF1E4 (PspNotifyEmptyJobsInJobChain.c)
+ *     PspTerminateAllProcessesInJobHierarchy @ 0x140A0717C (PspTerminateAllProcessesInJobHierarchy.c)
  * Callees:
- *     KeSetEvent @ 0x1402DE9C0 (KeSetEvent.c)
- *     PspHardDereferenceSiloWorker @ 0x1403DBCA0 (PspHardDereferenceSiloWorker.c)
- *     PspSendReliableJobNotification @ 0x140958424 (PspSendReliableJobNotification.c)
- *     PspUnlockJobExclusive @ 0x140959DD4 (PspUnlockJobExclusive.c)
- *     PspLockJobExclusive @ 0x14095A894 (PspLockJobExclusive.c)
+ *     KeSetEvent @ 0x1402C0780 (KeSetEvent.c)
+ *     PspHardDereferenceSiloWorker @ 0x1403DEE90 (PspHardDereferenceSiloWorker.c)
+ *     PspUnlockJobExclusive @ 0x1409FF694 (PspUnlockJobExclusive.c)
+ *     PspLockJobExclusive @ 0x140A00154 (PspLockJobExclusive.c)
+ *     PspSendReliableJobNotification @ 0x140AEB3B4 (PspSendReliableJobNotification.c)
  */
 
-__int64 __fastcall PspEvaluateAndNotifyEmptyJob(char *Object, char a2, char a3)
+__int64 __fastcall PspEvaluateAndNotifyEmptyJob(PRKEVENT Event, char a2, char a3)
 {
   struct _KTHREAD *CurrentThread; // rsi
-  _DWORD *v7; // rax
+  struct _LIST_ENTRY **p_Blink; // rax
 
   CurrentThread = KeGetCurrentThread();
-  PspLockJobExclusive(Object, CurrentThread);
-  v7 = Object + 1456;
+  PspLockJobExclusive(Event, CurrentThread);
+  p_Blink = &Event[60].Header.WaitListHead.Blink;
   if ( a2 )
-    --*v7;
-  if ( !*v7 )
+    --*(_DWORD *)p_Blink;
+  if ( !*(_DWORD *)p_Blink )
   {
-    if ( _interlockedbittestandreset((volatile signed __int32 *)Object + 388, 7u) )
-      KeSetEvent((PRKEVENT)Object, 0, 0);
-    if ( !_interlockedbittestandset((volatile signed __int32 *)Object + 388, 0x15u) )
+    if ( _interlockedbittestandreset((volatile signed __int32 *)&Event[64].Header.WaitListHead.Blink, 7u) )
+      KeSetEvent(Event, 0, 0);
+    if ( !_interlockedbittestandset((volatile signed __int32 *)&Event[64].Header.WaitListHead.Blink, 0x15u) )
     {
-      if ( a3 && *((_QWORD *)Object + 69) && (*((_DWORD *)Object + 276) & 0x10) != 0 )
-        PspSendReliableJobNotification(Object, 4u);
-      if ( (*((_DWORD *)Object + 64) & 0x400000) != 0
-        && !_interlockedbittestandset((volatile signed __int32 *)Object + 388, 0x1Du)
-        && (*((_DWORD *)Object + 388) & 0x40000000) != 0 )
+      if ( a3 && *(_QWORD *)&Event[23].Header.Lock && (Event[46].Header.LockNV & 0x10) != 0 )
+        PspSendReliableJobNotification(Event);
+      if ( ((__int64)Event[10].Header.WaitListHead.Blink & 0x400000) != 0
+        && !_interlockedbittestandset((volatile signed __int32 *)&Event[64].Header.WaitListHead.Blink, 0x1Du)
+        && ((__int64)Event[64].Header.WaitListHead.Blink & 0x40000000) != 0 )
       {
-        PspHardDereferenceSiloWorker((__int64)Object);
+        PspHardDereferenceSiloWorker((__int64)Event);
       }
     }
   }
-  return PspUnlockJobExclusive(Object, CurrentThread);
+  return PspUnlockJobExclusive(Event, CurrentThread);
 }

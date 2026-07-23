@@ -1,13 +1,13 @@
 /*
- * XREFs of IvtFreeDomain @ 0x14052C6E0
+ * XREFs of IvtFreeDomain @ 0x14052CC30
  * Callers:
  *     <none>
  * Callees:
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     HalpAcquireHighLevelLock @ 0x14037CB78 (HalpAcquireHighLevelLock.c)
- *     ExtEnvCriticalFailure @ 0x14051F4D8 (ExtEnvCriticalFailure.c)
- *     ExtEnvDestroySpinLock @ 0x14051F4F8 (ExtEnvDestroySpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     HalpAcquireHighLevelLock @ 0x14037CD18 (HalpAcquireHighLevelLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     ExtEnvCriticalFailure @ 0x14051FA28 (ExtEnvCriticalFailure.c)
+ *     ExtEnvDestroySpinLock @ 0x14051FA48 (ExtEnvDestroySpinLock.c)
  */
 
 __int64 __fastcall IvtFreeDomain(ULONG_PTR a1, ULONG_PTR a2)
@@ -29,10 +29,13 @@ __int64 __fastcall IvtFreeDomain(ULONG_PTR a1, ULONG_PTR a2)
     ExtEnvCriticalFailure(v6, 0LL, a1, a2, 0LL);
   v7 = *(unsigned __int8 *)(a2 + 96);
   KxReleaseSpinLock(v2);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v7 <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
+      && (unsigned __int8)v7 <= 0xFu
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -40,7 +43,7 @@ __int64 __fastcall IvtFreeDomain(ULONG_PTR a1, ULONG_PTR a2)
       v12 = (v11 & SchedulerAssist[5]) == 0;
       SchedulerAssist[5] &= v11;
       if ( v12 )
-        KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+        KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
     }
   }
   __writecr8(v7);

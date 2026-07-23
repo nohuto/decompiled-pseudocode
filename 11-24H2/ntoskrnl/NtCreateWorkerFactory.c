@@ -1,54 +1,55 @@
 /*
- * XREFs of NtCreateWorkerFactory @ 0x1409A6CF0
+ * XREFs of NtCreateWorkerFactory @ 0x1409901C0
  * Callers:
  *     <none>
  * Callees:
- *     KeRegisterObjectNotification @ 0x140205AB0 (KeRegisterObjectNotification.c)
- *     ObfDereferenceObjectWithTag @ 0x1403254A0 (ObfDereferenceObjectWithTag.c)
- *     ObfDereferenceObject @ 0x140325680 (ObfDereferenceObject.c)
- *     PsReferenceSiloContext @ 0x14033FA90 (PsReferenceSiloContext.c)
- *     KeInitializeTimer2 @ 0x1403BF2C0 (KeInitializeTimer2.c)
- *     KeSetTimer2 @ 0x1403C20A0 (KeSetTimer2.c)
- *     ExpInitializeThreadHistory @ 0x14048C68C (ExpInitializeThreadHistory.c)
- *     KeDisableQueueingPriorityIncrement @ 0x14048E83C (KeDisableQueueingPriorityIncrement.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     ObReferenceObjectByHandle @ 0x14084AF40 (ObReferenceObjectByHandle.c)
- *     ObpReferenceObjectByHandleWithTag @ 0x14084B7E0 (ObpReferenceObjectByHandleWithTag.c)
- *     ObOpenObjectByPointer @ 0x140854F10 (ObOpenObjectByPointer.c)
- *     ObInsertObjectEx @ 0x140857620 (ObInsertObjectEx.c)
- *     ObCreateObjectEx @ 0x14089C4F0 (ObCreateObjectEx.c)
- *     ObCloseHandle @ 0x1408A2B10 (ObCloseHandle.c)
- *     IoAllocateMiniCompletionPacket @ 0x1409A70C0 (IoAllocateMiniCompletionPacket.c)
- *     IopFreeMiniCompletionPacket @ 0x1409A71B0 (IopFreeMiniCompletionPacket.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CE030 (ObfDereferenceObjectWithTag.c)
+ *     ObfDereferenceObject @ 0x1402CE210 (ObfDereferenceObject.c)
+ *     PsReferenceSiloContext @ 0x14031EF70 (PsReferenceSiloContext.c)
+ *     KeRegisterObjectNotification @ 0x14032D090 (KeRegisterObjectNotification.c)
+ *     KeInitializeTimer2 @ 0x1403ADE80 (KeInitializeTimer2.c)
+ *     KeSetTimer2 @ 0x1403B0C60 (KeSetTimer2.c)
+ *     ExpInitializeThreadHistory @ 0x1404873AC (ExpInitializeThreadHistory.c)
+ *     KeDisableQueueingPriorityIncrement @ 0x140488C6C (KeDisableQueueingPriorityIncrement.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     ObReferenceObjectByHandle @ 0x140847200 (ObReferenceObjectByHandle.c)
+ *     ObpReferenceObjectByHandleWithTag @ 0x140847AA0 (ObpReferenceObjectByHandleWithTag.c)
+ *     ObOpenObjectByPointer @ 0x1408511D0 (ObOpenObjectByPointer.c)
+ *     ObInsertObjectEx @ 0x140853900 (ObInsertObjectEx.c)
+ *     ObCreateObjectEx @ 0x1408A4B90 (ObCreateObjectEx.c)
+ *     ObCloseHandle @ 0x1408AB1B0 (ObCloseHandle.c)
+ *     IoAllocateMiniCompletionPacket @ 0x140990590 (IoAllocateMiniCompletionPacket.c)
+ *     IopFreeMiniCompletionPacket @ 0x140990680 (IopFreeMiniCompletionPacket.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall NtCreateWorkerFactory(
-        __int64 *a1,
-        int a2,
-        int a3,
-        void *a4,
-        ULONG_PTR BugCheckParameter1,
-        void *a6,
-        void *a7,
-        int a8,
-        __int64 a9,
-        __int64 a10)
+NTSTATUS __cdecl NtCreateWorkerFactory(
+        PHANDLE WorkerFactoryHandleReturn,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        HANDLE CompletionPortHandle,
+        HANDLE WorkerProcessHandle,
+        PVOID StartRoutine,
+        PVOID StartParameter,
+        ULONG MaxThreadCount,
+        SIZE_T StackReserve,
+        SIZE_T StackCommit)
 {
+  int v11; // r12d
   char PreviousMode; // di
   __int64 v14; // rcx
   __int64 Pool2; // rax
   __int64 v16; // rsi
-  int v17; // ebx
+  NTSTATUS v17; // ebx
   volatile signed __int32 *v18; // rcx
   PVOID v19; // r14
   __int64 MiniCompletionPacket; // rax
-  struct _FILE_OBJECT *v21; // rdi
-  __int64 v22; // rax
-  __int64 v23; // rax
+  LARGE_INTEGER *v21; // rdi
+  SIZE_T v22; // rax
+  SIZE_T v23; // rax
   void *v24; // rcx
-  __int64 result; // rax
+  NTSTATUS result; // eax
   ULONG_PTR v26; // rcx
   PVOID *Object; // [rsp+20h] [rbp-98h]
   HANDLE Handle; // [rsp+58h] [rbp-60h] BYREF
@@ -58,6 +59,7 @@ __int64 __fastcall NtCreateWorkerFactory(
   __int64 v32; // [rsp+78h] [rbp-40h] BYREF
   _QWORD v33[3]; // [rsp+88h] [rbp-30h] BYREF
 
+  v11 = (int)ObjectAttributes;
   Handle = 0LL;
   v31 = 0LL;
   v32 = 0LL;
@@ -66,31 +68,31 @@ __int64 __fastcall NtCreateWorkerFactory(
   if ( PreviousMode )
   {
     v14 = 0x7FFFFFFF0000LL;
-    if ( (unsigned __int64)a1 < 0x7FFFFFFF0000LL )
-      v14 = (__int64)a1;
+    if ( (unsigned __int64)WorkerFactoryHandleReturn < 0x7FFFFFFF0000LL )
+      v14 = (__int64)WorkerFactoryHandleReturn;
     *(_QWORD *)v14 = *(_QWORD *)v14;
   }
-  Pool2 = ExAllocatePool2(0x41uLL);
+  Pool2 = ExAllocatePool2(0x41uLL, 0x28uLL, 0x63577054u);
   v16 = Pool2;
   if ( !Pool2 )
-    return (unsigned int)-1073741801;
+    return -1073741801;
   *(_QWORD *)Pool2 = 0LL;
   *(_QWORD *)(Pool2 + 24) = 0LL;
   *(_WORD *)(Pool2 + 32) = 0;
   *(_BYTE *)(Pool2 + 34) = 0;
   v29 = 0LL;
-  v17 = ObReferenceObjectByHandle(a4, 2u, IoCompletionObjectType, PreviousMode, &v29, 0LL);
+  v17 = ObReferenceObjectByHandle(CompletionPortHandle, 2u, IoCompletionObjectType, PreviousMode, &v29, 0LL);
   v18 = (volatile signed __int32 *)v29;
   *(_QWORD *)(v16 + 8) = v29;
   if ( v17 < 0 )
   {
 LABEL_23:
     ExFreePoolWithTag((PVOID)v16, 0);
-    return (unsigned int)v17;
+    return v17;
   }
   KeDisableQueueingPriorityIncrement(v18);
   v17 = ObpReferenceObjectByHandleWithTag(
-          BugCheckParameter1,
+          (ULONG_PTR)WorkerProcessHandle,
           42,
           (__int64)PsProcessType,
           PreviousMode,
@@ -127,7 +129,7 @@ LABEL_21:
   v17 = ObCreateObjectEx(
           PreviousMode,
           ExpWorkerFactoryObjectType,
-          a3,
+          v11,
           PreviousMode,
           (__int64)Object,
           672,
@@ -144,45 +146,42 @@ LABEL_20:
     ObCloseHandle(Handle, 0);
     goto LABEL_21;
   }
-  v21 = (struct _FILE_OBJECT *)v31;
+  v21 = (LARGE_INTEGER *)v31;
   *((_QWORD *)v31 + 2) = v16;
-  *(_QWORD *)&v21->Waiters = -10000000LL * ExpWorkerFactoryThreadIdleTimeoutInSeconds;
-  LODWORD(v21[1].Event.Header.WaitListHead.Flink) = 0;
-  HIDWORD(v21[1].Event.Header.WaitListHead.Flink) = a8;
-  HIDWORD(v21[1].CompletionContext) = 0;
-  v21[1].Event.Header.WaitListHead.Blink = 0LL;
+  v21[14].QuadPart = -10000000LL * ExpWorkerFactoryThreadIdleTimeoutInSeconds;
+  v21[47].LowPart = 0;
+  v21[47].HighPart = MaxThreadCount;
+  v21[49].HighPart = 0;
+  v21[48].QuadPart = 0LL;
   v22 = 0x10000LL;
-  if ( a9 )
-    v22 = a9;
-  *(_QWORD *)&v21->FinalStatus = v22;
-  memset_0(&v21->LastLock, 0, 0x100uLL);
-  v21[1].IrpList.Flink = 0LL;
+  if ( StackReserve )
+    v22 = StackReserve;
+  v21[7].QuadPart = v22;
+  memset_0(&v21[15], 0, 0x100uLL);
+  v21[51].QuadPart = 0LL;
   v23 = 4096LL;
-  if ( a10 )
-    v23 = a10;
-  v21->RelatedFileObject = (struct _FILE_OBJECT *)v23;
-  v21->FsContext = a6;
-  v21->FsContext2 = a7;
-  v21[1].IrpListLock = 0LL;
-  LODWORD(v21[1].IrpList.Blink) = 0;
-  v21->SectionObjectPointer = (PSECTION_OBJECT_POINTERS)Handle;
-  v21->PrivateCacheMap = v19;
-  LODWORD(v21[1].CompletionContext) = 0;
-  LODWORD(v21[3].Vpb) = 0;
-  LODWORD(v21[2].CompletionContext) = 1;
-  KeInitializeTimer2((__int64)&v21[1].FileObjectExtension, 0LL, 0LL, 8LL);
+  if ( StackCommit )
+    v23 = StackCommit;
+  v21[8].QuadPart = v23;
+  v21[3].QuadPart = (LONGLONG)StartRoutine;
+  v21[4].QuadPart = (LONGLONG)StartParameter;
+  v21[50].QuadPart = 0LL;
+  v21[52].LowPart = 0;
+  v21[5].QuadPart = (LONGLONG)Handle;
+  v21[6].QuadPart = (LONGLONG)v19;
+  v21[49].LowPart = 0;
+  v21[83].LowPart = 0;
+  v21[76].LowPart = 1;
+  KeInitializeTimer2((__int64)&v21[53]);
   ExpInitializeThreadHistory((__int64)v21);
-  v21->CurrentByteOffset.QuadPart = 0LL;
+  v21[13].QuadPart = 0LL;
   PsReferenceSiloContext(v24);
-  KeRegisterObjectNotification(
-    (__int64)&v21[1].FileObjectExtension,
-    (__int64)&ExpWorkerFactoryManagerQueue,
-    (__int64)&v21[2].Lock);
+  KeRegisterObjectNotification((__int64)&v21[53], (__int64)&ExpWorkerFactoryManagerQueue, (__int64)&v21[70]);
   v33[0] = 0LL;
   v33[1] = -1LL;
-  KeSetTimer2((__int64)&v21[1].FileObjectExtension, *(_QWORD *)&v21->Waiters, -*(_QWORD *)&v21->Waiters, (__int64)v33);
-  result = ObInsertObjectEx(v21, 0LL, a2, 0, 0, 0LL, (__int64)&v32);
-  if ( (int)result >= 0 )
-    *a1 = v32;
+  KeSetTimer2((__int64)&v21[53], v21[14], -v21[14].QuadPart, (__int64)v33);
+  result = ObInsertObjectEx((struct _FILE_OBJECT *)v21, 0LL, DesiredAccess, 0, 0, 0LL, (__int64)&v32);
+  if ( result >= 0 )
+    *WorkerFactoryHandleReturn = (HANDLE)v32;
   return result;
 }

@@ -1,14 +1,14 @@
 /*
- * XREFs of MiComputeMaximumFaultCluster @ 0x1402385F0
+ * XREFs of MiComputeMaximumFaultCluster @ 0x1402386C0
  * Callers:
- *     MiDispatchFault @ 0x140237F30 (MiDispatchFault.c)
+ *     MiDispatchFault @ 0x140238000 (MiDispatchFault.c)
  * Callees:
  *     MiGetAnyMultiplexedVm @ 0x1402146B4 (MiGetAnyMultiplexedVm.c)
  *     MiLocateAddress @ 0x140217240 (MiLocateAddress.c)
- *     MiUnlockVadTree @ 0x140287878 (MiUnlockVadTree.c)
- *     MiLockVadTree @ 0x14028A8C0 (MiLockVadTree.c)
- *     MiFaultListPagesRemaining @ 0x14034B48C (MiFaultListPagesRemaining.c)
- *     KiRspInIstStack @ 0x14035AB90 (KiRspInIstStack.c)
+ *     MiUnlockVadTree @ 0x140287B08 (MiUnlockVadTree.c)
+ *     MiLockVadTree @ 0x14028AB50 (MiLockVadTree.c)
+ *     MiFaultListPagesRemaining @ 0x14034B62C (MiFaultListPagesRemaining.c)
+ *     KiRspInIstStack @ 0x14035AD30 (KiRspInIstStack.c)
  */
 
 __int64 __fastcall MiComputeMaximumFaultCluster(__int64 a1, unsigned __int64 a2)
@@ -59,7 +59,7 @@ __int64 __fastcall MiComputeMaximumFaultCluster(__int64 a1, unsigned __int64 a2)
       {
         v9 = &ExpInterlockedPopEntrySListFault;
         v8 = KiDynamicTraceEnabled
-          && (v20 = *(_QWORD *)(v2 + 360), v20 >= qword_140D1F2A8)
+          && (v20 = *(_QWORD *)(v2 + 360), v20 >= ControlPc)
           && v20 < qword_140D1F2B0
           && KeGetCurrentIrql() == 15;
 LABEL_7:

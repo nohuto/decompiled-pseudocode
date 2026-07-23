@@ -10,11 +10,20 @@
  *     <none>
  */
 
-__int64 NtReadFile()
+NTSTATUS __cdecl NtReadFile(
+        HANDLE FileHandle,
+        HANDLE Event,
+        PIO_APC_ROUTINE ApcRoutine,
+        PVOID ApcContext,
+        PIO_STATUS_BLOCK IoStatusBlock,
+        PVOID Buffer,
+        ULONG Length,
+        PLARGE_INTEGER ByteOffset,
+        PULONG Key)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 6LL;
+  result = 6;
   __asm { syscall; Low latency system call }
   return result;
 }

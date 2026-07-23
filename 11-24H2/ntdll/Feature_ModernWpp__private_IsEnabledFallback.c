@@ -1,7 +1,7 @@
 /*
- * XREFs of Feature_ModernWpp__private_IsEnabledFallback @ 0x18015BFB0
+ * XREFs of Feature_ModernWpp__private_IsEnabledFallback @ 0x18015A370
  * Callers:
- *     Feature_ModernWpp__private_IsEnabledDeviceUsageNoInline @ 0x18015BF80 (Feature_ModernWpp__private_IsEnabledDeviceUsageNoInline.c)
+ *     Feature_ModernWpp__private_IsEnabledDeviceUsageNoInline @ 0x18015A340 (Feature_ModernWpp__private_IsEnabledDeviceUsageNoInline.c)
  * Callees:
  *     <none>
  */

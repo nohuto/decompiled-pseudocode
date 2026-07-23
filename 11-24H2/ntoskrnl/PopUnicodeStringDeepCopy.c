@@ -1,62 +1,66 @@
 /*
- * XREFs of PopUnicodeStringDeepCopy @ 0x140A50628
+ * XREFs of PopUnicodeStringDeepCopy @ 0x140A473D8
  * Callers:
- *     PoGetRequester @ 0x1404EA35C (PoGetRequester.c)
- *     PopPowerRequestStatsGetIdForRequest @ 0x140A24BE4 (PopPowerRequestStatsGetIdForRequest.c)
+ *     PoGetRequester @ 0x1404E12D0 (PoGetRequester.c)
+ *     PopPowerRequestStatsGetIdForRequest @ 0x140A18BD4 (PopPowerRequestStatsGetIdForRequest.c)
  * Callees:
- *     RtlUnicodeStringCopy @ 0x1403E4550 (RtlUnicodeStringCopy.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     RtlUnicodeStringCopy @ 0x1403D20F0 (RtlUnicodeStringCopy.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
-NTSTATUS __fastcall PopUnicodeStringDeepCopy(PUNICODE_STRING DestinationString, PCUNICODE_STRING SourceString)
+NTSTATUS __fastcall PopUnicodeStringDeepCopy(
+        PUNICODE_STRING DestinationString,
+        PCUNICODE_STRING SourceString,
+        __int64 a3,
+        ULONG a4)
 {
-  unsigned __int16 v3; // bp
-  unsigned int v4; // ecx
+  unsigned int v5; // ebp
+  unsigned int v6; // ecx
   PVOID *p_Buffer; // rbx
-  wchar_t **v7; // r15
+  wchar_t **v9; // r15
   __int64 Pool2; // r12
-  wchar_t **v9; // r14
+  wchar_t **v11; // r14
   NTSTATUS result; // eax
 
-  v3 = -1;
-  v4 = SourceString->Length + 2;
+  v5 = 0xFFFF;
+  v6 = SourceString->Length + 2;
   p_Buffer = (PVOID *)&DestinationString->Buffer;
-  if ( v4 > 0xFFFF )
+  if ( v6 > 0xFFFF )
   {
     if ( *p_Buffer )
     {
-      v9 = &DestinationString->Buffer;
+      v11 = &DestinationString->Buffer;
       goto LABEL_8;
     }
     goto LABEL_3;
   }
-  v3 = SourceString->Length + 2;
+  v5 = SourceString->Length + 2;
   if ( !*p_Buffer )
   {
 LABEL_3:
-    v7 = &DestinationString->Buffer;
+    v9 = &DestinationString->Buffer;
     goto LABEL_4;
   }
-  v9 = &DestinationString->Buffer;
-  if ( DestinationString->MaximumLength >= v4 )
+  v11 = &DestinationString->Buffer;
+  if ( DestinationString->MaximumLength >= v6 )
     goto LABEL_8;
-  v7 = &DestinationString->Buffer;
-LABEL_4:
-  Pool2 = ExAllocatePool2(0x100uLL);
   v9 = &DestinationString->Buffer;
+LABEL_4:
+  Pool2 = ExAllocatePool2(0x100uLL, v5, a4);
+  v11 = &DestinationString->Buffer;
   if ( Pool2 )
   {
     if ( *p_Buffer )
       ExFreePoolWithTag(*p_Buffer, 0);
     *p_Buffer = (PVOID)Pool2;
-    v9 = v7;
+    v11 = v9;
     DestinationString->Length = 0;
-    DestinationString->MaximumLength = v3;
+    DestinationString->MaximumLength = v5;
   }
 LABEL_8:
   result = RtlUnicodeStringCopy(DestinationString, SourceString);
   if ( result >= 0 )
-    (*v9)[(unsigned __int64)DestinationString->Length >> 1] = 0;
+    (*v11)[(unsigned __int64)DestinationString->Length >> 1] = 0;
   return result;
 }

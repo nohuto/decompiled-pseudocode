@@ -1,12 +1,12 @@
 /*
- * XREFs of MmCommitDecommitSecuredMemory @ 0x14086AD74
+ * XREFs of MmCommitDecommitSecuredMemory @ 0x140871154
  * Callers:
- *     VmpUpdateCommitStateMemoryRange @ 0x1406C1C10 (VmpUpdateCommitStateMemoryRange.c)
+ *     VmpUpdateCommitStateMemoryRange @ 0x1406C57F0 (VmpUpdateCommitStateMemoryRange.c)
  * Callees:
- *     MiObtainReferencedSecureVad @ 0x1404E4F18 (MiObtainReferencedSecureVad.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     MiFreeVirtualMemory @ 0x14095F790 (MiFreeVirtualMemory.c)
- *     MiAllocateVirtualMemory @ 0x1409F3464 (MiAllocateVirtualMemory.c)
+ *     MiObtainReferencedSecureVad @ 0x1404DE4B8 (MiObtainReferencedSecureVad.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     MiAllocateVirtualMemory @ 0x1409EFC34 (MiAllocateVirtualMemory.c)
+ *     MiFreeVirtualMemory @ 0x140A05050 (MiFreeVirtualMemory.c)
  */
 
 __int64 __fastcall MmCommitDecommitSecuredMemory(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
@@ -27,11 +27,11 @@ __int64 __fastcall MmCommitDecommitSecuredMemory(__int64 a1, __int64 a2, __int64
   __int64 v19; // [rsp+138h] [rbp+7Fh] BYREF
 
   v18 = a1;
-  v4 = qword_140E2D640 ^ a4;
+  v4 = qword_140E2D7C0 ^ a4;
   LODWORD(v19) = 0;
   v6 = a3;
   Process = KeGetCurrentThread()->ApcState.Process;
-  v8 = MiObtainReferencedSecureVad(qword_140E2D640 ^ a4, &v19, a3);
+  v8 = MiObtainReferencedSecureVad(qword_140E2D7C0 ^ a4, &v19, a3);
   if ( !v8 )
     return (unsigned int)v19;
   v9 = v18;

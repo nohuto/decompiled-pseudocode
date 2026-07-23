@@ -1,16 +1,16 @@
 /*
- * XREFs of MmAllocateNonChargedSecurePages @ 0x1402AA30C
+ * XREFs of MmAllocateNonChargedSecurePages @ 0x1402AA4FC
  * Callers:
- *     PspIumReplenishPartitionPages @ 0x1402EBAB4 (PspIumReplenishPartitionPages.c)
+ *     PspIumReplenishPartitionPages @ 0x1402EBCA4 (PspIumReplenishPartitionPages.c)
  * Callees:
  *     MiInitializeMdlPfn @ 0x1400113B8 (MiInitializeMdlPfn.c)
  *     MiPartitionObjectToPartition @ 0x140011CE4 (MiPartitionObjectToPartition.c)
  *     MiInitializePageColorBase @ 0x14002C4C0 (MiInitializePageColorBase.c)
  *     MiLockPageInline @ 0x14002CE40 (MiLockPageInline.c)
  *     MiGetPage @ 0x140049D50 (MiGetPage.c)
- *     PsDereferencePartition @ 0x140090CC0 (PsDereferencePartition.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     MiGetSlabPage @ 0x1402C29DC (MiGetSlabPage.c)
+ *     PsDereferencePartition @ 0x140090C00 (PsDereferencePartition.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiGetSlabPage @ 0x1402C2BCC (MiGetSlabPage.c)
  */
 
 void __fastcall MmAllocateNonChargedSecurePages(ULONG_PTR **a1, unsigned int *a2, __int64 *a3)

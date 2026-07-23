@@ -1,13 +1,13 @@
 /*
- * XREFs of EtwTraceDuplicateHandle @ 0x1408B7240
+ * XREFs of EtwTraceDuplicateHandle @ 0x1408B8500
  * Callers:
- *     ObDuplicateObject @ 0x1405D0B70 (ObDuplicateObject.c)
- *     ObCompleteObjectDuplication @ 0x140612FA0 (ObCompleteObjectDuplication.c)
- *     ObInheritObjectHandle @ 0x1406969A4 (ObInheritObjectHandle.c)
+ *     ObDuplicateObject @ 0x1405D1B70 (ObDuplicateObject.c)
+ *     ObCompleteObjectDuplication @ 0x140613FA0 (ObCompleteObjectDuplication.c)
+ *     ObInheritObjectHandle @ 0x140697B64 (ObInheritObjectHandle.c)
  * Callees:
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     ExCheckSingleFilter @ 0x1401B7408 (ExCheckSingleFilter.c)
- *     EtwpTraceKernelEventWithFilter @ 0x140311C58 (EtwpTraceKernelEventWithFilter.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     ExCheckSingleFilter @ 0x1401B7570 (ExCheckSingleFilter.c)
+ *     EtwpTraceKernelEventWithFilter @ 0x140311E48 (EtwpTraceKernelEventWithFilter.c)
  */
 
 void __fastcall EtwTraceDuplicateHandle(__int64 a1, __int64 a2, __int64 a3, int a4, int a5, __int64 a6)

@@ -7,15 +7,15 @@
  *     RtlFreeHeap @ 0x18002AB90 (RtlFreeHeap.c)
  */
 
-__int64 __fastcall EtwpFreeStreamIndexMap(__int64 a1)
+LOGICAL __fastcall EtwpFreeStreamIndexMap(__int64 a1)
 {
-  __int64 v1; // r8
-  __int64 result; // rax
+  void *v1; // r8
+  LOGICAL result; // eax
 
-  v1 = *(_QWORD *)(a1 + 512);
+  v1 = *(void **)(a1 + 512);
   if ( v1 )
   {
-    result = RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0LL, v1);
+    result = RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v1);
     *(_QWORD *)(a1 + 512) = 0LL;
   }
   return result;

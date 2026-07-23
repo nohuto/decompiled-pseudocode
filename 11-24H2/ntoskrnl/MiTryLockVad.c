@@ -1,11 +1,11 @@
 /*
- * XREFs of MiTryLockVad @ 0x1403FD34C
+ * XREFs of MiTryLockVad @ 0x1403DAC68
  * Callers:
- *     MiDeprioritizeVad @ 0x1403FD204 (MiDeprioritizeVad.c)
- *     MiStoreDiscardPoisonedPage @ 0x14068BF88 (MiStoreDiscardPoisonedPage.c)
+ *     MiDeprioritizeVad @ 0x1403DAB20 (MiDeprioritizeVad.c)
+ *     MiStoreDiscardPoisonedPage @ 0x14068D0B8 (MiStoreDiscardPoisonedPage.c)
  * Callees:
- *     KeAbPostReleaseEx @ 0x14025CCE0 (KeAbPostReleaseEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
+ *     KeAbPostReleaseEx @ 0x14028D2F0 (KeAbPostReleaseEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
  */
 
 __int64 __fastcall MiTryLockVad(__int64 a1, __int64 a2)

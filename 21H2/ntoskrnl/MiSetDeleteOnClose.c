@@ -1,15 +1,15 @@
 /*
- * XREFs of MiSetDeleteOnClose @ 0x14052AA14
+ * XREFs of MiSetDeleteOnClose @ 0x14052AC54
  * Callers:
- *     MiWriteComplete @ 0x140255170 (MiWriteComplete.c)
- *     MiRelocateImage @ 0x1406D54B0 (MiRelocateImage.c)
+ *     MiWriteComplete @ 0x1402766E0 (MiWriteComplete.c)
+ *     MiRelocateImage @ 0x1406AC790 (MiRelocateImage.c)
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x14021D060 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14033BD80 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     MiRemoveUnusedSegment @ 0x1403573A8 (MiRemoveUnusedSegment.c)
- *     MiInsertUnusedSegment @ 0x140357560 (MiInsertUnusedSegment.c)
+ *     ExAcquireSpinLockExclusive @ 0x1402C1960 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140346AD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiRemoveUnusedSegment @ 0x1403620F8 (MiRemoveUnusedSegment.c)
+ *     MiInsertUnusedSegment @ 0x1403622B0 (MiInsertUnusedSegment.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     MiReturnCrossPartitionSectionCharges @ 0x1405550EC (MiReturnCrossPartitionSectionCharges.c)
+ *     MiReturnCrossPartitionSectionCharges @ 0x14055532C (MiReturnCrossPartitionSectionCharges.c)
  */
 
 __int64 __fastcall MiSetDeleteOnClose(__int64 a1, int a2)
@@ -62,7 +62,7 @@ __int64 __fastcall MiSetDeleteOnClose(__int64 a1, int a2)
   __writecr8(v5);
   if ( inserted )
     return MiReturnCrossPartitionSectionCharges(
-             *(_QWORD *)(qword_140C4E648 + 8LL * (*(_WORD *)(a1 + 60) & 0x3FF)),
+             *(_QWORD *)(qword_140C4E688 + 8LL * (*(_WORD *)(a1 + 60) & 0x3FF)),
              1LL,
              inserted);
   return result;

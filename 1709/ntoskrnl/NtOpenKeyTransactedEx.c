@@ -11,12 +11,17 @@
  *     CmpTransDereferenceTransaction @ 0x140568FAC (CmpTransDereferenceTransaction.c)
  */
 
-__int64 __fastcall NtOpenKeyTransactedEx(HANDLE *a1, int a2, __int64 a3, int a4, HANDLE Handle)
+NTSTATUS __cdecl NtOpenKeyTransactedEx(
+        PHANDLE KeyHandle,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        ULONG OpenOptions,
+        HANDLE TransactionHandle)
 {
   struct _KTHREAD *CurrentThread; // rax
   NTSTATUS v10; // eax
   __int64 v11; // rbx
-  int v12; // edi
+  NTSTATUS v12; // edi
   NTSTATUS v13; // eax
   PVOID Object; // [rsp+30h] [rbp-28h] BYREF
   PVOID v16; // [rsp+38h] [rbp-20h] BYREF
@@ -26,10 +31,10 @@ __int64 __fastcall NtOpenKeyTransactedEx(HANDLE *a1, int a2, __int64 a3, int a4,
   if ( !ExAcquireRundownProtection_0((PEX_RUNDOWN_REF)&CmpShutdownRundown) )
   {
     KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
-    return (unsigned int)-1073741431;
+    return -1073741431;
   }
   v10 = ObReferenceObjectByHandle(
-          Handle,
+          TransactionHandle,
           4u,
           CmRegistryTransactionType,
           KeGetCurrentThread()->PreviousMode,
@@ -40,7 +45,7 @@ __int64 __fastcall NtOpenKeyTransactedEx(HANDLE *a1, int a2, __int64 a3, int a4,
   if ( v10 == -1073741788 )
   {
     v13 = ObReferenceObjectByHandle(
-            Handle,
+            TransactionHandle,
             4u,
             (POBJECT_TYPE)TmTransactionObjectType,
             KeGetCurrentThread()->PreviousMode,
@@ -55,11 +60,11 @@ __int64 __fastcall NtOpenKeyTransactedEx(HANDLE *a1, int a2, __int64 a3, int a4,
     v11 = (unsigned __int64)Object | 1;
 LABEL_4:
     if ( v12 >= 0 )
-      v12 = CmOpenKey(a1, a2, a3, a4, v11);
+      v12 = CmOpenKey(KeyHandle, DesiredAccess, (__int64)ObjectAttributes, OpenOptions, v11);
   }
   if ( v11 )
     CmpTransDereferenceTransaction(v11);
   ExReleaseRundownProtection_0((PEX_RUNDOWN_REF)&CmpShutdownRundown);
   KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
-  return (unsigned int)v12;
+  return v12;
 }

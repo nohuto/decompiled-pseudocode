@@ -1,8 +1,8 @@
 /*
- * XREFs of CmpDeleteKcbCache @ 0x14074E818
+ * XREFs of CmpDeleteKcbCache @ 0x14074EA08
  * Callers:
  *     CmpInitializeKcbCache @ 0x140690F1C (CmpInitializeKcbCache.c)
- *     CmpDeleteHive @ 0x14074E6D4 (CmpDeleteHive.c)
+ *     CmpDeleteHive @ 0x14074E8C4 (CmpDeleteHive.c)
  * Callees:
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */

@@ -12,42 +12,31 @@ __int64 HvlpInitializePowerStatistics()
 {
   unsigned int v0; // esi
   _QWORD *v2; // rbx
-  _QWORD *v3; // rax
-  __int64 v4; // r8
-  _QWORD *v5; // rdi
-  __int64 v6; // rdx
-  __int64 v7; // r9
-  __int128 v8; // [rsp+20h] [rbp-48h] BYREF
-  __int128 v9; // [rsp+30h] [rbp-38h]
-  __int128 v10; // [rsp+40h] [rbp-28h] BYREF
-  __int128 v11; // [rsp+50h] [rbp-18h]
+  _QWORD *v3; // rdi
+  PHYSICAL_ADDRESS v4[4]; // [rsp+20h] [rbp-48h] BYREF
+  PHYSICAL_ADDRESS v5[5]; // [rsp+40h] [rbp-28h] BYREF
 
   v0 = 0;
-  v10 = 0LL;
-  v11 = 0LL;
-  v8 = 0LL;
-  v9 = 0LL;
+  memset(v5, 0, 32);
+  memset(v4, 0, sizeof(v4));
   if ( (HvlEnlightenments & 0x408) == 0 )
     return 0LL;
-  v2 = HvlpAcquireHypercallPage((PHYSICAL_ADDRESS *)&v10, 1, 0LL, 8LL);
-  v3 = HvlpAcquireHypercallPage((PHYSICAL_ADDRESS *)&v8, 2, 0LL, 392LL);
-  v4 = *((_QWORD *)&v9 + 1);
-  v5 = v3;
-  v6 = *((_QWORD *)&v11 + 1);
+  v2 = HvlpAcquireHypercallPage(v5, 1, 0LL, 8LL);
+  v3 = HvlpAcquireHypercallPage(v4, 2, 0LL, 392LL);
   *v2 = 0LL;
   *(_DWORD *)v2 = 4;
-  if ( (unsigned __int16)HvcallInitiateHypercall(155, v6, v4, v7) )
+  if ( (unsigned __int16)HvcallInitiateHypercall(155) )
   {
     v0 = -1073741823;
   }
   else
   {
-    xmmword_140CED2E0 = *(_OWORD *)v5;
-    xmmword_140CED2F0 = *((_OWORD *)v5 + 1);
-    unk_140CED300 = *((_OWORD *)v5 + 2);
-    qword_140CED310 = v5[6];
+    xmmword_140CED2E0 = *(_OWORD *)v3;
+    xmmword_140CED2F0 = *((_OWORD *)v3 + 1);
+    unk_140CED300 = *((_OWORD *)v3 + 2);
+    qword_140CED310 = v3[6];
   }
-  HvlpReleaseHypercallPage((__int64)&v8);
-  HvlpReleaseHypercallPage((__int64)&v10);
+  HvlpReleaseHypercallPage((__int64)v4);
+  HvlpReleaseHypercallPage((__int64)v5);
   return v0;
 }

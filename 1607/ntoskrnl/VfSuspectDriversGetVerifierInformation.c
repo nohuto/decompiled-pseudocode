@@ -3,12 +3,12 @@
  * Callers:
  *     VfGetVerifierInformation @ 0x140720F40 (VfGetVerifierInformation.c)
  * Callees:
- *     KeReleaseMutex @ 0x140055FE0 (KeReleaseMutex.c)
- *     VfAvlCleanupLockContext @ 0x14008446C (VfAvlCleanupLockContext.c)
- *     VfAvlInitializeLockContext @ 0x1400845E8 (VfAvlInitializeLockContext.c)
- *     memmove @ 0x140171280 (memmove.c)
+ *     KeReleaseMutex @ 0x140055B60 (KeReleaseMutex.c)
+ *     VfAvlCleanupLockContext @ 0x1400825CC (VfAvlCleanupLockContext.c)
+ *     VfAvlInitializeLockContext @ 0x140082748 (VfAvlInitializeLockContext.c)
+ *     memmove @ 0x140171780 (memmove.c)
  *     VfDriverLock @ 0x1406FE42C (VfDriverLock.c)
- *     VfTargetDriversGetZeroCounters @ 0x14070FF64 (VfTargetDriversGetZeroCounters.c)
+ *     VfTargetDriversGetZeroCounters @ 0x14070FF94 (VfTargetDriversGetZeroCounters.c)
  *     VfAvlEnumerateNodes @ 0x1407168E0 (VfAvlEnumerateNodes.c)
  */
 
@@ -54,18 +54,18 @@ __int64 __fastcall VfSuspectDriversGetVerifierInformation(
         break;
       *(_DWORD *)v6 = v7;
       *(_DWORD *)(v6 + 4) = MmVerifierData;
-      *(_DWORD *)(v6 + 24) = dword_140307204;
-      *(_DWORD *)(v6 + 28) = dword_140307208;
-      *(_DWORD *)(v6 + 76) = dword_140307238;
-      *(_DWORD *)(v6 + 32) = dword_14030720C;
-      *(_DWORD *)(v6 + 36) = dword_140307210;
-      *(_DWORD *)(v6 + 40) = dword_140307214;
-      *(_DWORD *)(v6 + 44) = dword_140307218;
-      *(_DWORD *)(v6 + 48) = dword_14030721C;
-      *(_DWORD *)(v6 + 52) = dword_140307220;
-      *(_DWORD *)(v6 + 56) = dword_140307224;
-      *(_DWORD *)(v6 + 60) = dword_140307228;
-      *(_DWORD *)(v6 + 64) = dword_14030722C;
+      *(_DWORD *)(v6 + 24) = dword_140307244;
+      *(_DWORD *)(v6 + 28) = dword_140307248;
+      *(_DWORD *)(v6 + 76) = dword_140307278;
+      *(_DWORD *)(v6 + 32) = dword_14030724C;
+      *(_DWORD *)(v6 + 36) = dword_140307250;
+      *(_DWORD *)(v6 + 40) = dword_140307254;
+      *(_DWORD *)(v6 + 44) = dword_140307258;
+      *(_DWORD *)(v6 + 48) = dword_14030725C;
+      *(_DWORD *)(v6 + 52) = dword_140307260;
+      *(_DWORD *)(v6 + 56) = dword_140307264;
+      *(_DWORD *)(v6 + 60) = dword_140307268;
+      *(_DWORD *)(v6 + 64) = dword_14030726C;
       *(_DWORD *)(v6 + 68) = *((_DWORD *)v10 + 4);
       *(_DWORD *)(v6 + 72) = *((_DWORD *)v10 + 5);
       if ( *((_DWORD *)v10 + 4) <= *((_DWORD *)v10 + 5) )

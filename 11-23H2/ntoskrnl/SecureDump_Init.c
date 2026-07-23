@@ -1,12 +1,12 @@
 /*
- * XREFs of SecureDump_Init @ 0x1403B0CE8
+ * XREFs of SecureDump_Init @ 0x1403B0EC8
  * Callers:
  *     IopInitCrashDumpDuringSysInit @ 0x140B71660 (IopInitCrashDumpDuringSysInit.c)
  * Callees:
- *     BCryptCloseAlgorithmProvider @ 0x140374AF4 (BCryptCloseAlgorithmProvider.c)
- *     SecureDump_EncryptSymmetricKeyWithPublicKey @ 0x14055DBB4 (SecureDump_EncryptSymmetricKeyWithPublicKey.c)
- *     SecureDump_SymmetricEncryptionSetup @ 0x14055E694 (SecureDump_SymmetricEncryptionSetup.c)
- *     BCryptDestroyKey @ 0x1405B76CC (BCryptDestroyKey.c)
+ *     BCryptCloseAlgorithmProvider @ 0x140374C94 (BCryptCloseAlgorithmProvider.c)
+ *     SecureDump_EncryptSymmetricKeyWithPublicKey @ 0x14055E274 (SecureDump_EncryptSymmetricKeyWithPublicKey.c)
+ *     SecureDump_SymmetricEncryptionSetup @ 0x14055ED54 (SecureDump_SymmetricEncryptionSetup.c)
+ *     BCryptDestroyKey @ 0x1405B7C3C (BCryptDestroyKey.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

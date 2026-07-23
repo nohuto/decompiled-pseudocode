@@ -1,23 +1,23 @@
 /*
- * XREFs of MiUpdateLargePageBitMap @ 0x140022BE0
+ * XREFs of MiUpdateLargePageBitMap @ 0x140022760
  * Callers:
- *     MiFreeSmallPageFromMdl @ 0x140022AF0 (MiFreeSmallPageFromMdl.c)
- *     MiFreeLargePageMemory @ 0x140090970 (MiFreeLargePageMemory.c)
- *     MiExpandNonPagedPool @ 0x140101824 (MiExpandNonPagedPool.c)
- *     MiFindContiguousPages @ 0x1401044A0 (MiFindContiguousPages.c)
- *     MiDemoteLargePage @ 0x14013EC14 (MiDemoteLargePage.c)
- *     MiInitializeDynamicPfns @ 0x1401E1CF0 (MiInitializeDynamicPfns.c)
- *     MiFindLargeNodePage @ 0x1401E3320 (MiFindLargeNodePage.c)
- *     MiActOnPartitionNodePages @ 0x1401F07A4 (MiActOnPartitionNodePages.c)
- *     MiAddPhysicalMemory @ 0x1406575DC (MiAddPhysicalMemory.c)
- *     MiFreeLargeZeroPages @ 0x140662930 (MiFreeLargeZeroPages.c)
- *     MiGetFastLargePage @ 0x1406629F0 (MiGetFastLargePage.c)
+ *     MiFreeSmallPageFromMdl @ 0x140022670 (MiFreeSmallPageFromMdl.c)
+ *     MiFreeLargePageMemory @ 0x1400900D0 (MiFreeLargePageMemory.c)
+ *     MiExpandNonPagedPool @ 0x1400FF5A4 (MiExpandNonPagedPool.c)
+ *     MiFindContiguousPages @ 0x140102220 (MiFindContiguousPages.c)
+ *     MiDemoteLargePage @ 0x14013F184 (MiDemoteLargePage.c)
+ *     MiInitializeDynamicPfns @ 0x1401E1B1C (MiInitializeDynamicPfns.c)
+ *     MiFindLargeNodePage @ 0x1401E314C (MiFindLargeNodePage.c)
+ *     MiActOnPartitionNodePages @ 0x1401F05D0 (MiActOnPartitionNodePages.c)
+ *     MiAddPhysicalMemory @ 0x1406576C0 (MiAddPhysicalMemory.c)
+ *     MiFreeLargeZeroPages @ 0x140662A14 (MiFreeLargeZeroPages.c)
+ *     MiGetFastLargePage @ 0x140662AD4 (MiGetFastLargePage.c)
  *     MiMarkLargePageRanges @ 0x1407AF36C (MiMarkLargePageRanges.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLock @ 0x140012750 (KeReleaseInStackQueuedSpinLock.c)
- *     RtlClearBitsEx @ 0x140013C68 (RtlClearBitsEx.c)
- *     RtlSetBitsEx @ 0x1400179FC (RtlSetBitsEx.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14001BD40 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x1400122D0 (KeReleaseInStackQueuedSpinLock.c)
+ *     RtlClearBitsEx @ 0x1400137E8 (RtlClearBitsEx.c)
+ *     RtlSetBitsEx @ 0x14001757C (RtlSetBitsEx.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14001B8C0 (KeAcquireInStackQueuedSpinLock.c)
  */
 
 void __fastcall MiUpdateLargePageBitMap(__int64 a1, unsigned __int64 a2, unsigned __int64 a3, int a4, int a5)
@@ -179,7 +179,7 @@ LABEL_13:
     if ( !v7 )
     {
       v7 = 1;
-      KeAcquireInStackQueuedSpinLock(&qword_140326AC0, &LockHandle);
+      KeAcquireInStackQueuedSpinLock(&qword_140326B00, &LockHandle);
     }
     if ( a4 == 1 )
       RtlSetBitsEx(v12, v15, v16);

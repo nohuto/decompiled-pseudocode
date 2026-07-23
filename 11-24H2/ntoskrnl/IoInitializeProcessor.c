@@ -1,14 +1,14 @@
 /*
- * XREFs of IoInitializeProcessor @ 0x1407115FC
+ * XREFs of IoInitializeProcessor @ 0x14070F18C
  * Callers:
- *     KiStartDynamicProcessor @ 0x14073B478 (KiStartDynamicProcessor.c)
- *     IoInitSystemPreDrivers @ 0x140C1AA0C (IoInitSystemPreDrivers.c)
+ *     KiStartDynamicProcessor @ 0x1407393A8 (KiStartDynamicProcessor.c)
+ *     IoInitSystemPreDrivers @ 0x140C1CA4C (IoInitSystemPreDrivers.c)
  * Callees:
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     IopQueryProcessorInitValues @ 0x140711860 (IopQueryProcessorInitValues.c)
- *     ExInitializeSystemLookasideList @ 0x140B6E3BC (ExInitializeSystemLookasideList.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     IopQueryProcessorInitValues @ 0x14070F3F0 (IopQueryProcessorInitValues.c)
+ *     ExInitializeSystemLookasideList @ 0x140B6FF6C (ExInitializeSystemLookasideList.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall IoInitializeProcessor(__int64 a1, _OWORD *a2)
@@ -29,7 +29,7 @@ __int64 __fastcall IoInitializeProcessor(__int64 a1, _OWORD *a2)
     IopQueryProcessorInitValues(v11);
     v2 = v11;
   }
-  Pool2 = (char *)ExAllocatePool2(0x40uLL);
+  Pool2 = (char *)ExAllocatePool2(0x40uLL, 0x280uLL, 0x6F49u);
   v5 = Pool2;
   if ( IopIrpCreditsEnabled <= 0 )
     v6 = 0x7FFFFFFF;

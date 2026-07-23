@@ -7,7 +7,7 @@
  *     <none>
  */
 
-__int64 __fastcall RtlUnhandledExceptionFilter(const void **a1)
+LONG __cdecl RtlUnhandledExceptionFilter(PEXCEPTION_POINTERS ExceptionPointers)
 {
-  return RtlUnhandledExceptionFilter2(a1);
+  return RtlUnhandledExceptionFilter2(ExceptionPointers, (ULONG)&Flags);
 }

@@ -1,16 +1,16 @@
 /*
- * XREFs of ExpPoolHeapCreate @ 0x1408465EC
+ * XREFs of ExpPoolHeapCreate @ 0x14084C84C
  * Callers:
- *     ExpPoolCreate @ 0x14077DC90 (ExpPoolCreate.c)
+ *     ExpPoolCreate @ 0x140780790 (ExpPoolCreate.c)
  * Callees:
- *     RtlpHpMetadataAlloc @ 0x140352250 (RtlpHpMetadataAlloc.c)
- *     RtlpHpMetadataFree @ 0x1403524BC (RtlpHpMetadataFree.c)
- *     RtlHpEnvContextCreate @ 0x14042FB60 (RtlHpEnvContextCreate.c)
- *     KasanIsEnabled @ 0x140516570 (KasanIsEnabled.c)
- *     RtlpHpHeapCreate @ 0x140638298 (RtlpHpHeapCreate.c)
- *     RtlpHpHeapDestroy @ 0x1406386F4 (RtlpHpHeapDestroy.c)
- *     ExHeapLookasideSet @ 0x1406D2988 (ExHeapLookasideSet.c)
- *     RtlpDynamicLookasideInitialize @ 0x14071F444 (RtlpDynamicLookasideInitialize.c)
+ *     RtlpHpMetadataAlloc @ 0x1403542D4 (RtlpHpMetadataAlloc.c)
+ *     RtlpHpMetadataFree @ 0x140354540 (RtlpHpMetadataFree.c)
+ *     RtlHpEnvContextCreate @ 0x14041CB90 (RtlHpEnvContextCreate.c)
+ *     KasanIsEnabled @ 0x14050FFE0 (KasanIsEnabled.c)
+ *     RtlpHpHeapCreate @ 0x14063B29C (RtlpHpHeapCreate.c)
+ *     RtlpHpHeapDestroy @ 0x14063B6F8 (RtlpHpHeapDestroy.c)
+ *     ExHeapLookasideSet @ 0x1406D69B8 (ExHeapLookasideSet.c)
+ *     RtlpDynamicLookasideInitialize @ 0x140724064 (RtlpDynamicLookasideInitialize.c)
  */
 
 __int64 __fastcall ExpPoolHeapCreate(int a1, __int64 a2, char a3, __int64 *a4)

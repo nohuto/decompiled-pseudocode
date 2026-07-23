@@ -1,20 +1,20 @@
 /*
- * XREFs of IopLiveDumpWriteDumpFile @ 0x14094F484
+ * XREFs of IopLiveDumpWriteDumpFile @ 0x14094F684
  * Callers:
- *     IoCaptureLiveDump @ 0x14094B9E8 (IoCaptureLiveDump.c)
- *     IoWriteDeferredLiveDumpData @ 0x14094C2C4 (IoWriteDeferredLiveDumpData.c)
+ *     IoCaptureLiveDump @ 0x14094BBE8 (IoCaptureLiveDump.c)
+ *     IoWriteDeferredLiveDumpData @ 0x14094C4C4 (IoWriteDeferredLiveDumpData.c)
  * Callees:
- *     MmUnmapLockedPages @ 0x1402CB700 (MmUnmapLockedPages.c)
- *     MmFreePagesFromMdl @ 0x1402EBFB0 (MmFreePagesFromMdl.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     SecureDump_Get_SecureDumpHeader @ 0x14055DFE0 (SecureDump_Get_SecureDumpHeader.c)
- *     RtlNumberOfSetBitsEx @ 0x1405A8B70 (RtlNumberOfSetBitsEx.c)
- *     MmFreeIndependentPages @ 0x14087FBB0 (MmFreeIndependentPages.c)
- *     IopLiveDumpCheckTermination @ 0x14094DEE4 (IopLiveDumpCheckTermination.c)
- *     IopLiveDumpFreeDumpBuffers @ 0x14094E028 (IopLiveDumpFreeDumpBuffers.c)
- *     IopLiveDumpFreeIoSpaceRanges @ 0x14094E264 (IopLiveDumpFreeIoSpaceRanges.c)
- *     IopLiveDumpWriteBuffer @ 0x14094F3C0 (IopLiveDumpWriteBuffer.c)
- *     IopLiveDumpWriteSecondaryData @ 0x1409501B8 (IopLiveDumpWriteSecondaryData.c)
+ *     MmUnmapLockedPages @ 0x1402CB990 (MmUnmapLockedPages.c)
+ *     MmFreePagesFromMdl @ 0x1402EC240 (MmFreePagesFromMdl.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     SecureDump_Get_SecureDumpHeader @ 0x14055E6A0 (SecureDump_Get_SecureDumpHeader.c)
+ *     RtlNumberOfSetBitsEx @ 0x1405A90E0 (RtlNumberOfSetBitsEx.c)
+ *     MmFreeIndependentPages @ 0x14087FDF0 (MmFreeIndependentPages.c)
+ *     IopLiveDumpCheckTermination @ 0x14094E0E4 (IopLiveDumpCheckTermination.c)
+ *     IopLiveDumpFreeDumpBuffers @ 0x14094E228 (IopLiveDumpFreeDumpBuffers.c)
+ *     IopLiveDumpFreeIoSpaceRanges @ 0x14094E464 (IopLiveDumpFreeIoSpaceRanges.c)
+ *     IopLiveDumpWriteBuffer @ 0x14094F5C0 (IopLiveDumpWriteBuffer.c)
+ *     IopLiveDumpWriteSecondaryData @ 0x1409503B8 (IopLiveDumpWriteSecondaryData.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

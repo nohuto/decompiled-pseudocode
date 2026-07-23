@@ -14,9 +14,9 @@ NTSTATUS __stdcall WheaRegisterInUsePageOfflineNotification(PFN_IN_USE_PAGE_OFFL
 {
   _QWORD *PoolWithTag; // rax
   _QWORD *v6; // rbx
-  _BYTE *v7; // rax
+  PRTL_BALANCED_NODE v7; // rax
   signed __int8 v8; // cf
-  _BYTE *v9; // rdi
+  PRTL_BALANCED_NODE v9; // rdi
   _QWORD *v10; // rax
 
   if ( !WheapInUsePageOfflineNotifyInit )
@@ -27,13 +27,13 @@ NTSTATUS __stdcall WheaRegisterInUsePageOfflineNotification(PFN_IN_USE_PAGE_OFFL
     return -1073741801;
   PoolWithTag[2] = Callback;
   PoolWithTag[3] = Context;
-  v7 = (_BYTE *)KeAbPreAcquire((ULONG_PTR)&WheapInUsePageOfflineNotifyLock, 0LL, 0LL);
+  v7 = KeAbPreAcquire((ULONG_PTR)&WheapInUsePageOfflineNotifyLock, 0LL, 0);
   v8 = _interlockedbittestandset64((volatile signed __int32 *)&WheapInUsePageOfflineNotifyLock, 0LL);
   v9 = v7;
   if ( v8 )
     ExfAcquirePushLockExclusiveEx(&WheapInUsePageOfflineNotifyLock, v7, (ULONG_PTR)&WheapInUsePageOfflineNotifyLock);
   if ( v9 )
-    v9[26] |= 1u;
+    BYTE2(v9[1].Left) |= 1u;
   v10 = (_QWORD *)qword_1403877B8;
   if ( *(__int64 **)qword_1403877B8 != &WheapInUsePageOfflineNotifyList )
     __fastfail(3u);

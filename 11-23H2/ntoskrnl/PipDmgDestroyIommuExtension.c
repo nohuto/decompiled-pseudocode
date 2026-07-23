@@ -1,10 +1,10 @@
 /*
- * XREFs of PipDmgDestroyIommuExtension @ 0x1407FD41C
+ * XREFs of PipDmgDestroyIommuExtension @ 0x1407FD6EC
  * Callers:
- *     PiDmaGuardProcessNewDeviceNode @ 0x1407FCAB0 (PiDmaGuardProcessNewDeviceNode.c)
- *     PiDmaGuardProcessPostRemove @ 0x140869D84 (PiDmaGuardProcessPostRemove.c)
+ *     PiDmaGuardProcessNewDeviceNode @ 0x1407FCD80 (PiDmaGuardProcessNewDeviceNode.c)
+ *     PiDmaGuardProcessPostRemove @ 0x140869FC4 (PiDmaGuardProcessPostRemove.c)
  * Callees:
- *     PiIommuFreeExtension @ 0x14086554C (PiIommuFreeExtension.c)
+ *     PiIommuFreeExtension @ 0x14086578C (PiIommuFreeExtension.c)
  */
 
 __int64 __fastcall PipDmgDestroyIommuExtension(__int64 a1)

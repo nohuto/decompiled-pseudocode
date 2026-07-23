@@ -1,18 +1,18 @@
 /*
- * XREFs of MiAllocateImageVad @ 0x1409CD948
+ * XREFs of MiAllocateImageVad @ 0x14099E928
  * Callers:
- *     MiMapViewOfImageSection @ 0x1409CD37C (MiMapViewOfImageSection.c)
+ *     MiMapViewOfImageSection @ 0x14099E35C (MiMapViewOfImageSection.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     ExAllocatePoolMm @ 0x1403985B0 (ExAllocatePoolMm.c)
- *     MmGetCurrentProcessorColor @ 0x14044ADC0 (MmGetCurrentProcessorColor.c)
- *     MiWriteVadFlags2 @ 0x14045BBE0 (MiWriteVadFlags2.c)
- *     MiDereferenceControlArea @ 0x1404EF3F0 (MiDereferenceControlArea.c)
- *     MiInitializeQuotaTracker @ 0x1409C4B54 (MiInitializeQuotaTracker.c)
- *     MiReferenceFileObjectForMap @ 0x140A66F20 (MiReferenceFileObjectForMap.c)
- *     PsIsImageNotifyEnabled @ 0x140AB4D00 (PsIsImageNotifyEnabled.c)
- *     MiCreateLargePageEvent @ 0x140B3C9EC (MiCreateLargePageEvent.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     ExAllocatePoolMm @ 0x14039A310 (ExAllocatePoolMm.c)
+ *     MmGetCurrentProcessorColor @ 0x140442EF0 (MmGetCurrentProcessorColor.c)
+ *     MiWriteVadFlags2 @ 0x140455410 (MiWriteVadFlags2.c)
+ *     MiDereferenceControlArea @ 0x1404E89D0 (MiDereferenceControlArea.c)
+ *     MiInitializeQuotaTracker @ 0x140995B34 (MiInitializeQuotaTracker.c)
+ *     MiReferenceFileObjectForMap @ 0x140A73EF0 (MiReferenceFileObjectForMap.c)
+ *     PsIsImageNotifyEnabled @ 0x140AB60A0 (PsIsImageNotifyEnabled.c)
+ *     MiCreateLargePageEvent @ 0x140B3EC6C (MiCreateLargePageEvent.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall MiAllocateImageVad(__int64 a1)

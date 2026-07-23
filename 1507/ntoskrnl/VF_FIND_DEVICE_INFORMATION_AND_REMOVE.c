@@ -8,13 +8,13 @@
  *     KiReleaseSpinLockInstrumented @ 0x1402010EC (KiReleaseSpinLockInstrumented.c)
  */
 
-ULONG_PTR *__fastcall VF_FIND_DEVICE_INFORMATION_AND_REMOVE(__int64 a1)
+_LIST_ENTRY *__fastcall VF_FIND_DEVICE_INFORMATION_AND_REMOVE(struct _LIST_ENTRY *a1)
 {
-  ULONG_PTR *v2; // rbx
+  _LIST_ENTRY *v2; // rbx
   unsigned __int8 CurrentIrql; // si
-  ULONG_PTR *i; // rax
-  ULONG_PTR v5; // rdx
-  ULONG_PTR **v6; // rcx
+  _LIST_ENTRY *i; // rax
+  struct _LIST_ENTRY *Flink; // rdx
+  struct _LIST_ENTRY *Blink; // rcx
   __int64 retaddr; // [rsp+28h] [rbp+0h]
 
   v2 = 0LL;
@@ -28,17 +28,17 @@ ULONG_PTR *__fastcall VF_FIND_DEVICE_INFORMATION_AND_REMOVE(__int64 a1)
   {
     KxWaitForSpinLockAndAcquire((volatile signed __int32 *)&Lock);
   }
-  for ( i = (ULONG_PTR *)ViAdapterList; &ViAdapterList != i; i = (ULONG_PTR *)*i )
+  for ( i = ViAdapterList.Flink; &ViAdapterList != i; i = i->Flink )
   {
-    if ( i[3] == a1 )
+    if ( i[1].Blink == a1 )
     {
-      v5 = *i;
+      Flink = i->Flink;
       v2 = i;
-      v6 = (ULONG_PTR **)i[1];
-      if ( *(ULONG_PTR **)(*i + 8) != i || *v6 != i )
+      Blink = i->Blink;
+      if ( i->Flink->Blink != i || Blink->Flink != i )
         __fastfail(3u);
-      *v6 = (ULONG_PTR *)v5;
-      *(_QWORD *)(v5 + 8) = v6;
+      Blink->Flink = Flink;
+      Flink->Blink = Blink;
       break;
     }
   }

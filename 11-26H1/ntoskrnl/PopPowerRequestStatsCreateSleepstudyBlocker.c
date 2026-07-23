@@ -1,14 +1,14 @@
 /*
- * XREFs of PopPowerRequestStatsCreateSleepstudyBlocker @ 0x140A89424
+ * XREFs of PopPowerRequestStatsCreateSleepstudyBlocker @ 0x140A90314
  * Callers:
- *     PopPowerRequestStatsCreate @ 0x140A89148 (PopPowerRequestStatsCreate.c)
- *     PopPowerRequestStatsInitialize @ 0x140CD6B54 (PopPowerRequestStatsInitialize.c)
+ *     PopPowerRequestStatsCreate @ 0x140A90038 (PopPowerRequestStatsCreate.c)
+ *     PopPowerRequestStatsInitialize @ 0x140CDCEA8 (PopPowerRequestStatsInitialize.c)
  * Callees:
  *     RtlRandomEx @ 0x140200BE0 (RtlRandomEx.c)
- *     SleepstudyHelperCreateBlockerFromGuid @ 0x14043D400 (SleepstudyHelperCreateBlockerFromGuid.c)
- *     SleepstudyHelperBuildBlocker @ 0x140A89550 (SleepstudyHelperBuildBlocker.c)
- *     SleepstudyHelperDestroyBlockerBuilder @ 0x140A89960 (SleepstudyHelperDestroyBlockerBuilder.c)
- *     SleepstudyHelperSetBlockerVerboseDescription @ 0x140A89A94 (SleepstudyHelperSetBlockerVerboseDescription.c)
+ *     SleepstudyHelperCreateBlockerFromGuid @ 0x14042FCB0 (SleepstudyHelperCreateBlockerFromGuid.c)
+ *     SleepstudyHelperBuildBlocker @ 0x140A90440 (SleepstudyHelperBuildBlocker.c)
+ *     SleepstudyHelperDestroyBlockerBuilder @ 0x140A90850 (SleepstudyHelperDestroyBlockerBuilder.c)
+ *     SleepstudyHelperSetBlockerVerboseDescription @ 0x140A90984 (SleepstudyHelperSetBlockerVerboseDescription.c)
  */
 
 __int64 __fastcall PopPowerRequestStatsCreateSleepstudyBlocker(__int64 a1, unsigned int a2, __int64 a3)
@@ -22,7 +22,7 @@ __int64 __fastcall PopPowerRequestStatsCreateSleepstudyBlocker(__int64 a1, unsig
   ULONG Seed; // [rsp+98h] [rbp+38h] BYREF
 
   v10 = 0LL;
-  if ( PopDirectedDripsUmLock.SchedulerAssistLastYieldBoostTime )
+  if ( PopDirectedDripsDiagLock.SavedApcState.ApcListHead[1].Flink )
   {
     v12 = RtlRandomEx(&Seed);
     v11 = 0LL;
@@ -36,7 +36,7 @@ __int64 __fastcall PopPowerRequestStatsCreateSleepstudyBlocker(__int64 a1, unsig
       v11 = GUID_SPR_BLOCKER_GROUP_AUDIO_ACTIVITY;
     }
     v6 = SleepstudyHelperCreateBlockerFromGuid(
-           PopDirectedDripsUmLock.SchedulerAssistLastYieldBoostTime,
+           (__int64)PopDirectedDripsDiagLock.SavedApcState.ApcListHead[1].Flink,
            &v11,
            &v12,
            a1 + 8,

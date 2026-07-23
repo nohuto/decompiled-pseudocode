@@ -1,5 +1,5 @@
 /*
- * XREFs of PopRegisterEnergyEstimation @ 0x140365BC0
+ * XREFs of PopRegisterEnergyEstimation @ 0x140365D70
  * Callers:
  *     <none>
  * Callees:

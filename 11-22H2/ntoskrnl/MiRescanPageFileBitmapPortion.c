@@ -9,11 +9,11 @@
  *     RtlFindNextClearRunUlong @ 0x140293A8C (RtlFindNextClearRunUlong.c)
  */
 
-__int64 __fastcall MiRescanPageFileBitmapPortion(__int64 a1, __int64 a2, int a3, int a4, unsigned __int64 *a5)
+__int64 __fastcall MiRescanPageFileBitmapPortion(__int64 a1, __int64 a2, int a3, int a4, __int64 *a5)
 {
-  unsigned __int64 *v5; // r13
+  __int64 *v5; // r13
   int v7; // r15d
-  unsigned __int64 v8; // rbx
+  __int64 v8; // rbx
   int v9; // r12d
   __int64 result; // rax
   unsigned int v11; // edi
@@ -21,15 +21,15 @@ __int64 __fastcall MiRescanPageFileBitmapPortion(__int64 a1, __int64 a2, int a3,
   unsigned int v13; // r14d
   __int64 v14; // rcx
   _QWORD *v15; // rax
-  unsigned __int64 *v16; // rsi
+  __int64 v16; // rsi
   unsigned __int64 v17; // rdx
-  bool v18; // r8
+  BOOLEAN v18; // r8
   unsigned __int64 v19; // rax
-  unsigned __int64 v20; // rdx
-  bool v21; // r8
-  unsigned __int64 v22; // rax
+  __int64 v20; // rdx
+  BOOLEAN v21; // r8
+  __int64 v22; // rax
   unsigned int v23; // ecx
-  unsigned __int64 v24; // rax
+  __int64 v24; // rax
   _DWORD v25[2]; // [rsp+30h] [rbp-38h] BYREF
   unsigned __int64 v26; // [rsp+38h] [rbp-30h]
   int v27; // [rsp+80h] [rbp+18h] BYREF
@@ -61,9 +61,9 @@ __int64 __fastcall MiRescanPageFileBitmapPortion(__int64 a1, __int64 a2, int a3,
     {
       if ( v12 )
       {
-        v16 = (unsigned __int64 *)(a1 + 144);
-        RtlRbRemoveNode((unsigned __int64 *)(a1 + 144), v8);
-        RtlRbRemoveNode((unsigned __int64 *)(a1 + 160), v8 + 24);
+        v16 = a1 + 144;
+        RtlRbRemoveNode((PRTL_RB_TREE)(a1 + 144), (PRTL_BALANCED_NODE)v8);
+        RtlRbRemoveNode((PRTL_RB_TREE)(a1 + 160), (PRTL_BALANCED_NODE)(v8 + 24));
         v23 = *(_DWORD *)(a1 + 140);
         if ( v23 <= *(_DWORD *)(v8 + 52) )
           v23 = *(_DWORD *)(v8 + 52);
@@ -75,14 +75,14 @@ __int64 __fastcall MiRescanPageFileBitmapPortion(__int64 a1, __int64 a2, int a3,
         if ( *(_QWORD *)(*(_QWORD *)v8 + 8LL) != v8 || (v15 = *(_QWORD **)(v8 + 8), *v15 != v8) )
           __fastfail(3u);
         *v15 = v14;
-        v16 = (unsigned __int64 *)(a1 + 144);
+        v16 = a1 + 144;
         *(_QWORD *)(v14 + 8) = v15;
       }
       *(_DWORD *)(v8 + 52) = v11;
       *(_DWORD *)(v8 + 48) = v13;
-      v17 = *v16;
-      if ( (v16[1] & 1) != 0 && v17 )
-        v17 ^= (unsigned __int64)v16;
+      v17 = *(_QWORD *)v16;
+      if ( (*(_BYTE *)(v16 + 8) & 1) != 0 && v17 )
+        v17 ^= v16;
       v18 = 0;
       if ( v17 )
       {
@@ -91,7 +91,7 @@ __int64 __fastcall MiRescanPageFileBitmapPortion(__int64 a1, __int64 a2, int a3,
           if ( __PAIR64__(v11, v13) < *(_QWORD *)(v17 + 48) )
           {
             v19 = *(_QWORD *)v17;
-            if ( (v16[1] & 1) != 0 )
+            if ( (*(_BYTE *)(v16 + 8) & 1) != 0 )
             {
               if ( !v19 )
                 break;
@@ -103,7 +103,7 @@ __int64 __fastcall MiRescanPageFileBitmapPortion(__int64 a1, __int64 a2, int a3,
           else
           {
             v19 = *(_QWORD *)(v17 + 8);
-            if ( (v16[1] & 1) != 0 )
+            if ( (*(_BYTE *)(v16 + 8) & 1) != 0 )
             {
               if ( !v19 )
                 goto LABEL_21;
@@ -119,7 +119,7 @@ LABEL_21:
           v17 = v19;
         }
       }
-      RtlRbInsertNodeEx(v16, v17, v18, v8);
+      RtlRbInsertNodeEx((PRTL_RB_TREE)v16, (PRTL_BALANCED_NODE)v17, v18, (PRTL_BALANCED_NODE)v8);
       v20 = *(_QWORD *)(a1 + 160);
       if ( (*(_BYTE *)(a1 + 168) & 1) != 0 && v20 )
         v20 ^= a1 + 160;
@@ -163,22 +163,22 @@ LABEL_38:
           v20 = v22;
         }
       }
-      RtlRbInsertNodeEx((unsigned __int64 *)(a1 + 160), v20, v21, v8 + 24);
+      RtlRbInsertNodeEx((PRTL_RB_TREE)(a1 + 160), (PRTL_BALANCED_NODE)v20, v21, (PRTL_BALANCED_NODE)(v8 + 24));
       ++*(_DWORD *)(a1 + 128);
       v8 = *(_QWORD *)(a1 + 176);
       if ( v8 == a1 + 176 )
       {
-        v24 = v16[1];
+        v24 = *(_QWORD *)(v16 + 8);
         if ( (v24 & 1) != 0 )
         {
           if ( v24 == 1 )
             v8 = 0LL;
           else
-            v8 = v24 ^ ((unsigned __int64)v16 | 1);
+            v8 = v24 ^ (v16 | 1);
         }
         else
         {
-          v8 = v16[1];
+          v8 = *(_QWORD *)(v16 + 8);
         }
       }
     }

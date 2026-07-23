@@ -1,16 +1,16 @@
 /*
  * XREFs of RtlLengthRequiredSid @ 0x14066A560
  * Callers:
- *     SepCreateTokenEx @ 0x1402022FC (SepCreateTokenEx.c)
+ *     sub_1402022FC @ 0x1402022FC (sub_1402022FC.c)
  *     RtlNormalizeSecurityDescriptor @ 0x140202D70 (RtlNormalizeSecurityDescriptor.c)
- *     WdipAccessCheck @ 0x14062C598 (WdipAccessCheck.c)
- *     EtwpApplyPayloadFilterInternal @ 0x1406375D0 (EtwpApplyPayloadFilterInternal.c)
+ *     sub_14062C598 @ 0x14062C598 (sub_14062C598.c)
+ *     sub_1406375D0 @ 0x1406375D0 (sub_1406375D0.c)
  *     NtQueryQuotaInformationFile @ 0x140939960 (NtQueryQuotaInformationFile.c)
- *     PopNetInitialize @ 0x140B02560 (PopNetInitialize.c)
- *     SepVariableInitialization @ 0x140B1F3C0 (SepVariableInitialization.c)
- *     IopCreateUmdfDirectory @ 0x140B2940C (IopCreateUmdfDirectory.c)
- *     PopCreateTimebrokerServiceSid @ 0x140B2DB68 (PopCreateTimebrokerServiceSid.c)
- *     CmpInitializeTrustedInstallerSid @ 0x140B2DE24 (CmpInitializeTrustedInstallerSid.c)
+ *     sub_140B02560 @ 0x140B02560 (sub_140B02560.c)
+ *     sub_140B1F3C0 @ 0x140B1F3C0 (sub_140B1F3C0.c)
+ *     sub_140B2940C @ 0x140B2940C (sub_140B2940C.c)
+ *     sub_140B2DB68 @ 0x140B2DB68 (sub_140B2DB68.c)
+ *     sub_140B2DE24 @ 0x140B2DE24 (sub_140B2DE24.c)
  * Callees:
  *     <none>
  */

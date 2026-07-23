@@ -138,7 +138,10 @@ LABEL_17:
   if ( v17 && ($6EAC78A6FCFADE0A5FA44F358736B38F *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
     KiCheckForKernelApcDelivery(v16);
   if ( _interlockedbittestandset64((volatile signed __int32 *)&ExSaPageGroupDescriptorArrayLock, 0LL) )
-    ExfAcquirePushLockExclusiveEx(&ExSaPageGroupDescriptorArrayLock, v3, (ULONG_PTR)&ExSaPageGroupDescriptorArrayLock);
+    ExfAcquirePushLockExclusiveEx(
+      &ExSaPageGroupDescriptorArrayLock,
+      (_RTL_BALANCED_NODE *)v3,
+      (ULONG_PTR)&ExSaPageGroupDescriptorArrayLock);
   if ( v3 )
     *(_BYTE *)(v3 + 26) |= 1u;
   CurrentNodeNumber = KeGetCurrentNodeNumber();

@@ -1,20 +1,18 @@
 /*
- * XREFs of LdrInitializeThunk @ 0x1800786D0
+ * XREFs of LdrInitializeThunk @ 0x1800786E0
  * Callers:
  *     <none>
  * Callees:
- *     LdrpInitialize @ 0x1800786F8 (LdrpInitialize.c)
- *     RtlRaiseStatus @ 0x18009F6A0 (RtlRaiseStatus.c)
- *     ZwContinue @ 0x1800A0B40 (ZwContinue.c)
+ *     LdrpInitialize @ 0x180078708 (LdrpInitialize.c)
+ *     RtlRaiseStatus @ 0x18009F6C0 (RtlRaiseStatus.c)
+ *     ZwContinue @ 0x1800A0B60 (ZwContinue.c)
  */
 
-void __fastcall __noreturn LdrInitializeThunk(__int64 a1)
+void __cdecl __noreturn LdrInitializeThunk(PCONTEXT ContextRecord, PVOID Parameter)
 {
-  __int64 v2; // rdx
-  unsigned int v3; // eax
+  NTSTATUS v3; // eax
 
-  LdrpInitialize();
-  LOBYTE(v2) = 1;
-  v3 = ZwContinue(a1, v2);
+  LdrpInitialize(ContextRecord, Parameter);
+  v3 = ZwContinue(ContextRecord, 1u);
   RtlRaiseStatus(v3);
 }

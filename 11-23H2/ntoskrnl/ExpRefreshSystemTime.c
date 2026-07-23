@@ -1,22 +1,22 @@
 /*
- * XREFs of ExpRefreshSystemTime @ 0x14083EAF4
+ * XREFs of ExpRefreshSystemTime @ 0x14083EDF4
  * Callers:
- *     CmCompleteRegistryInitialization @ 0x14080A920 (CmCompleteRegistryInitialization.c)
- *     CmpFinishSystemHivesLoad @ 0x14080AF10 (CmpFinishSystemHivesLoad.c)
+ *     CmCompleteRegistryInitialization @ 0x14080ABF0 (CmCompleteRegistryInitialization.c)
+ *     CmpFinishSystemHivesLoad @ 0x14080B1E0 (CmpFinishSystemHivesLoad.c)
  * Callees:
- *     PsGetCurrentServerSiloGlobals @ 0x14022D370 (PsGetCurrentServerSiloGlobals.c)
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     ExReleaseResourceLite @ 0x14023D410 (ExReleaseResourceLite.c)
- *     HalQueryRealTimeClock @ 0x14033B130 (HalQueryRealTimeClock.c)
- *     ExLocalTimeToSystemTime @ 0x14033B2A0 (ExLocalTimeToSystemTime.c)
- *     ExSystemTimeToLocalTime @ 0x14033B2F0 (ExSystemTimeToLocalTime.c)
- *     RtlTimeFieldsToTime @ 0x14033B350 (RtlTimeFieldsToTime.c)
- *     RtlTimeToTimeFields @ 0x14033B6B0 (RtlTimeToTimeFields.c)
- *     KeSetSystemTime @ 0x1403B5DAC (KeSetSystemTime.c)
- *     PoNotifySystemTimeSet @ 0x1403B64C8 (PoNotifySystemTimeSet.c)
- *     HalSetRealTimeClock @ 0x1404FEC10 (HalSetRealTimeClock.c)
- *     ExAcquireTimeRefreshLock @ 0x14075F954 (ExAcquireTimeRefreshLock.c)
- *     ExpRefreshTimeZoneInformation @ 0x14083EB98 (ExpRefreshTimeZoneInformation.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x14022D480 (PsGetCurrentServerSiloGlobals.c)
+ *     KeLeaveCriticalRegion @ 0x140231550 (KeLeaveCriticalRegion.c)
+ *     ExReleaseResourceLite @ 0x14023D4E0 (ExReleaseResourceLite.c)
+ *     HalQueryRealTimeClock @ 0x14033B3C0 (HalQueryRealTimeClock.c)
+ *     ExLocalTimeToSystemTime @ 0x14033B530 (ExLocalTimeToSystemTime.c)
+ *     ExSystemTimeToLocalTime @ 0x14033B580 (ExSystemTimeToLocalTime.c)
+ *     RtlTimeFieldsToTime @ 0x14033B5E0 (RtlTimeFieldsToTime.c)
+ *     RtlTimeToTimeFields @ 0x14033B940 (RtlTimeToTimeFields.c)
+ *     KeSetSystemTime @ 0x1403B5F8C (KeSetSystemTime.c)
+ *     PoNotifySystemTimeSet @ 0x1403B66A8 (PoNotifySystemTimeSet.c)
+ *     HalSetRealTimeClock @ 0x1404FF160 (HalSetRealTimeClock.c)
+ *     ExAcquireTimeRefreshLock @ 0x14075FB44 (ExAcquireTimeRefreshLock.c)
+ *     ExpRefreshTimeZoneInformation @ 0x14083EE98 (ExpRefreshTimeZoneInformation.c)
  */
 
 void ExpRefreshSystemTime()
@@ -26,7 +26,7 @@ void ExpRefreshSystemTime()
   int v2; // esi
   LARGE_INTEGER v3; // rax
   int v4; // [rsp+28h] [rbp-28h]
-  TIME_FIELDS TimeFields; // [rsp+40h] [rbp-10h] BYREF
+  _TIME_FIELDS TimeFields; // [rsp+40h] [rbp-10h] BYREF
   LARGE_INTEGER Time; // [rsp+70h] [rbp+20h] BYREF
   LARGE_INTEGER SystemTime; // [rsp+78h] [rbp+28h] BYREF
   LARGE_INTEGER v8; // [rsp+80h] [rbp+30h] BYREF

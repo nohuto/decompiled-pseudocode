@@ -1,53 +1,53 @@
 /*
- * XREFs of EtwpEnableGuid @ 0x14077FD00
+ * XREFs of EtwpEnableGuid @ 0x14077FEF0
  * Callers:
- *     NtTraceControl @ 0x140725BD0 (NtTraceControl.c)
- *     EtwpEnableTrace @ 0x140809874 (EtwpEnableTrace.c)
+ *     NtTraceControl @ 0x140725DD0 (NtTraceControl.c)
+ *     EtwpEnableTrace @ 0x140809B44 (EtwpEnableTrace.c)
  * Callees:
- *     KiStackAttachProcess @ 0x14022D600 (KiStackAttachProcess.c)
- *     KiUnstackDetachProcess @ 0x14022D9C0 (KiUnstackDetachProcess.c)
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     ExReleasePushLockEx @ 0x140231190 (ExReleasePushLockEx.c)
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     EtwEventEnabled @ 0x140258420 (EtwEventEnabled.c)
- *     ExAcquireRundownProtection_0 @ 0x14028B360 (ExAcquireRundownProtection_0.c)
- *     ExReleaseRundownProtection_0 @ 0x14028B390 (ExReleaseRundownProtection_0.c)
- *     PsGetProcessServerSilo @ 0x14028C180 (PsGetProcessServerSilo.c)
- *     PsGetCurrentThreadProcessId @ 0x1402AF8A0 (PsGetCurrentThreadProcessId.c)
- *     MmGetSessionById @ 0x1402C1E30 (MmGetSessionById.c)
- *     PsGetProcessId @ 0x1402FA490 (PsGetProcessId.c)
- *     PsDetachSiloFromCurrentThread @ 0x14031CC90 (PsDetachSiloFromCurrentThread.c)
- *     PsAttachSiloToCurrentThread @ 0x14031CCB0 (PsAttachSiloToCurrentThread.c)
- *     EtwpEnableMetaProviderGuid @ 0x14031CFAC (EtwpEnableMetaProviderGuid.c)
- *     MmDetachSession @ 0x1403562B0 (MmDetachSession.c)
- *     MmAttachSession @ 0x140356350 (MmAttachSession.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memset @ 0x140435A00 (memset.c)
- *     EtwpReleaseLoggerContext @ 0x1406BE208 (EtwpReleaseLoggerContext.c)
- *     EtwpFindGuidEntryByGuid @ 0x1406BF820 (EtwpFindGuidEntryByGuid.c)
- *     EtwpUnreferenceGuidEntry @ 0x1406BF954 (EtwpUnreferenceGuidEntry.c)
- *     EtwpProviderArrivalCallback @ 0x14077DC5C (EtwpProviderArrivalCallback.c)
- *     EtwpCreateUmReplyObject @ 0x14077EACC (EtwpCreateUmReplyObject.c)
- *     EtwpValidateEnableNotification @ 0x140780628 (EtwpValidateEnableNotification.c)
- *     EtwpFreeFilterInfo @ 0x140780798 (EtwpFreeFilterInfo.c)
- *     EtwpUpdateGuidEnableInfo @ 0x140780878 (EtwpUpdateGuidEnableInfo.c)
- *     EtwpEnableDisableSpecialGuids @ 0x140780D7C (EtwpEnableDisableSpecialGuids.c)
- *     EtwpIsRegEntryAllowed @ 0x140780EA8 (EtwpIsRegEntryAllowed.c)
- *     EtwpSendDataBlock @ 0x140780FF0 (EtwpSendDataBlock.c)
- *     EtwpUpdateRegEntryEnableMask @ 0x1407813E4 (EtwpUpdateRegEntryEnableMask.c)
- *     EtwpCalculateUpdateNotification @ 0x1407814A0 (EtwpCalculateUpdateNotification.c)
- *     EtwpUnreferenceDataBlock @ 0x1407817E8 (EtwpUnreferenceDataBlock.c)
- *     EtwpAddGuidEntry @ 0x140781878 (EtwpAddGuidEntry.c)
- *     EtwpBuildNotificationPacket @ 0x140781BB4 (EtwpBuildNotificationPacket.c)
- *     EtwpAllocDataBlock @ 0x140781C38 (EtwpAllocDataBlock.c)
- *     EtwpAcquireTokenAccessInformation @ 0x140853460 (EtwpAcquireTokenAccessInformation.c)
- *     EtwpEventWriteTemplateSessAndProv @ 0x1408A6A6A (EtwpEventWriteTemplateSessAndProv.c)
- *     EtwpEventWriteCaptureState @ 0x1409E3384 (EtwpEventWriteCaptureState.c)
- *     EtwpEventWriteProviderEnabled @ 0x1409E3780 (EtwpEventWriteProviderEnabled.c)
- *     EtwpAllocateStackwalkApcPool @ 0x1409E8A34 (EtwpAllocateStackwalkApcPool.c)
- *     EtwpReferenceStackLookasideList @ 0x1409E8B5C (EtwpReferenceStackLookasideList.c)
- *     EtwpDemuxPrivateTraceHandle @ 0x1409EC4D0 (EtwpDemuxPrivateTraceHandle.c)
+ *     KiStackAttachProcess @ 0x14022D710 (KiStackAttachProcess.c)
+ *     KiUnstackDetachProcess @ 0x14022DAD0 (KiUnstackDetachProcess.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140231120 (ExAcquirePushLockExclusiveEx.c)
+ *     ExReleasePushLockEx @ 0x140231280 (ExReleasePushLockEx.c)
+ *     KeLeaveCriticalRegion @ 0x140231550 (KeLeaveCriticalRegion.c)
+ *     ObfDereferenceObject @ 0x140231660 (ObfDereferenceObject.c)
+ *     EtwEventEnabled @ 0x1402584E0 (EtwEventEnabled.c)
+ *     ExAcquireRundownProtection_0 @ 0x14028B5F0 (ExAcquireRundownProtection_0.c)
+ *     ExReleaseRundownProtection_0 @ 0x14028B620 (ExReleaseRundownProtection_0.c)
+ *     PsGetProcessServerSilo @ 0x14028C410 (PsGetProcessServerSilo.c)
+ *     PsGetCurrentThreadProcessId @ 0x1402AFB30 (PsGetCurrentThreadProcessId.c)
+ *     MmGetSessionById @ 0x1402C20C0 (MmGetSessionById.c)
+ *     PsGetProcessId @ 0x1402FA720 (PsGetProcessId.c)
+ *     PsDetachSiloFromCurrentThread @ 0x14031CF20 (PsDetachSiloFromCurrentThread.c)
+ *     PsAttachSiloToCurrentThread @ 0x14031CF40 (PsAttachSiloToCurrentThread.c)
+ *     EtwpEnableMetaProviderGuid @ 0x14031D23C (EtwpEnableMetaProviderGuid.c)
+ *     MmDetachSession @ 0x140356450 (MmDetachSession.c)
+ *     MmAttachSession @ 0x1403564F0 (MmAttachSession.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     EtwpReleaseLoggerContext @ 0x1406BE238 (EtwpReleaseLoggerContext.c)
+ *     EtwpFindGuidEntryByGuid @ 0x1406BF850 (EtwpFindGuidEntryByGuid.c)
+ *     EtwpUnreferenceGuidEntry @ 0x1406BF984 (EtwpUnreferenceGuidEntry.c)
+ *     EtwpProviderArrivalCallback @ 0x14077DE4C (EtwpProviderArrivalCallback.c)
+ *     EtwpCreateUmReplyObject @ 0x14077ECBC (EtwpCreateUmReplyObject.c)
+ *     EtwpValidateEnableNotification @ 0x140780818 (EtwpValidateEnableNotification.c)
+ *     EtwpFreeFilterInfo @ 0x140780988 (EtwpFreeFilterInfo.c)
+ *     EtwpUpdateGuidEnableInfo @ 0x140780A68 (EtwpUpdateGuidEnableInfo.c)
+ *     EtwpEnableDisableSpecialGuids @ 0x140780F6C (EtwpEnableDisableSpecialGuids.c)
+ *     EtwpIsRegEntryAllowed @ 0x140781098 (EtwpIsRegEntryAllowed.c)
+ *     EtwpSendDataBlock @ 0x1407811E0 (EtwpSendDataBlock.c)
+ *     EtwpUpdateRegEntryEnableMask @ 0x1407815D4 (EtwpUpdateRegEntryEnableMask.c)
+ *     EtwpCalculateUpdateNotification @ 0x140781690 (EtwpCalculateUpdateNotification.c)
+ *     EtwpUnreferenceDataBlock @ 0x1407819D8 (EtwpUnreferenceDataBlock.c)
+ *     EtwpAddGuidEntry @ 0x140781A68 (EtwpAddGuidEntry.c)
+ *     EtwpBuildNotificationPacket @ 0x140781DA4 (EtwpBuildNotificationPacket.c)
+ *     EtwpAllocDataBlock @ 0x140781E28 (EtwpAllocDataBlock.c)
+ *     EtwpAcquireTokenAccessInformation @ 0x140853760 (EtwpAcquireTokenAccessInformation.c)
+ *     EtwpEventWriteTemplateSessAndProv @ 0x1408A6CBA (EtwpEventWriteTemplateSessAndProv.c)
+ *     EtwpEventWriteCaptureState @ 0x1409E3614 (EtwpEventWriteCaptureState.c)
+ *     EtwpEventWriteProviderEnabled @ 0x1409E3A10 (EtwpEventWriteProviderEnabled.c)
+ *     EtwpAllocateStackwalkApcPool @ 0x1409E8CC4 (EtwpAllocateStackwalkApcPool.c)
+ *     EtwpReferenceStackLookasideList @ 0x1409E8DEC (EtwpReferenceStackLookasideList.c)
+ *     EtwpDemuxPrivateTraceHandle @ 0x1409EC760 (EtwpDemuxPrivateTraceHandle.c)
  */
 
 __int64 __fastcall EtwpEnableGuid(__int64 a1, __int64 a2, char a3)
@@ -66,7 +66,7 @@ __int64 __fastcall EtwpEnableGuid(__int64 a1, __int64 a2, char a3)
   unsigned int *v16; // rsi
   int CurrentThreadProcessId; // eax
   char v18; // di
-  __int128 *v19; // rdx
+  GUID *v19; // rdx
   unsigned int v20; // r15d
   bool v21; // zf
   __int64 v22; // rcx
@@ -262,14 +262,14 @@ LABEL_10:
   }
   CurrentThreadProcessId = PsGetCurrentThreadProcessId();
   v18 = BYTE2(v106);
-  v19 = &PrivateLoggerNotificationGuid;
+  v19 = (GUID *)&PrivateLoggerNotificationGuid;
   v20 = v86;
   v21 = BYTE2(v106) == 0;
   v22 = v92;
   v23 = v86;
   *(_DWORD *)(a2 + 36) = CurrentThreadProcessId;
   if ( v21 )
-    v19 = (__int128 *)(a2 + 40);
+    v19 = (GUID *)(a2 + 40);
   GuidEntryByGuid = EtwpFindGuidEntryByGuid(v22, v19, v23);
   if ( GuidEntryByGuid )
   {

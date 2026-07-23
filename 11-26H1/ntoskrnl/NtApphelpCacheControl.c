@@ -1,16 +1,16 @@
 /*
- * XREFs of NtApphelpCacheControl @ 0x140908630
+ * XREFs of NtApphelpCacheControl @ 0x140A30790
  * Callers:
- *     DifNtApphelpCacheControlWrapper @ 0x14066D9D0 (DifNtApphelpCacheControlWrapper.c)
+ *     DifNtApphelpCacheControlWrapper @ 0x1406715B0 (DifNtApphelpCacheControlWrapper.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     IofCallDriver @ 0x1402655A0 (IofCallDriver.c)
- *     IoBuildDeviceIoControlRequest @ 0x14026B150 (IoBuildDeviceIoControlRequest.c)
- *     RtlInitUnicodeStringEx @ 0x14045D040 (RtlInitUnicodeStringEx.c)
- *     KeInitializeEvent @ 0x140466F30 (KeInitializeEvent.c)
- *     ExGetPreviousMode @ 0x140470680 (ExGetPreviousMode.c)
- *     AhcCacheQueryHwId @ 0x140776338 (AhcCacheQueryHwId.c)
- *     IoGetDeviceObjectPointer @ 0x140908800 (IoGetDeviceObjectPointer.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     IofCallDriver @ 0x140264B10 (IofCallDriver.c)
+ *     IoBuildDeviceIoControlRequest @ 0x14026A6C0 (IoBuildDeviceIoControlRequest.c)
+ *     RtlInitUnicodeStringEx @ 0x140456BE0 (RtlInitUnicodeStringEx.c)
+ *     KeInitializeEvent @ 0x140460680 (KeInitializeEvent.c)
+ *     ExGetPreviousMode @ 0x140469E00 (ExGetPreviousMode.c)
+ *     AhcCacheQueryHwId @ 0x1407791E0 (AhcCacheQueryHwId.c)
+ *     IoGetDeviceObjectPointer @ 0x140A30960 (IoGetDeviceObjectPointer.c)
  */
 
 __int64 __fastcall NtApphelpCacheControl(int a1, char *a2)
@@ -86,13 +86,13 @@ LABEL_28:
 LABEL_27:
   v4 = 0;
 LABEL_7:
-  if ( WheapPfaLock.QueuedScb )
+  if ( WheapPfaLock.KernelShadowStack )
   {
 LABEL_8:
     KeInitializeEvent(&Event, SynchronizationEvent, 0);
     v5 = IoBuildDeviceIoControlRequest(
            v3,
-           (PDEVICE_OBJECT)WheapPfaLock.QueuedScb,
+           (PDEVICE_OBJECT)WheapPfaLock.KernelShadowStack,
            a2,
            0x188u,
            0LL,
@@ -103,13 +103,13 @@ LABEL_8:
     if ( !v5 )
       return (unsigned int)-1073741823;
     v5->RequestorMode = ExGetPreviousMode();
-    return (unsigned int)IofCallDriver((PDEVICE_OBJECT)WheapPfaLock.QueuedScb, v5);
+    return (unsigned int)IofCallDriver((PDEVICE_OBJECT)WheapPfaLock.KernelShadowStack, v5);
   }
   if ( RtlInitUnicodeStringEx(&DestinationString, L"\\Device\\ahcache") >= 0
     && IoGetDeviceObjectPointer(&DestinationString, 0xC0000000, &FileObject, &DeviceObject) >= 0 )
   {
     if ( _InterlockedCompareExchange64(
-           (volatile signed __int64 *)&WheapPfaLock.QueuedScb,
+           (volatile signed __int64 *)&WheapPfaLock.KernelShadowStack,
            (signed __int64)DeviceObject,
            0LL) )
     {

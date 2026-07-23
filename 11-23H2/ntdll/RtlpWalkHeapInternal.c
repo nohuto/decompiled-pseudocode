@@ -4,7 +4,7 @@
  *     RtlpHpTagDestroyHeap @ 0x180063A04 (RtlpHpTagDestroyHeap.c)
  *     RtlpQueryExtendedInformationHeap @ 0x18008B1F0 (RtlpQueryExtendedInformationHeap.c)
  *     RtlWalkHeap @ 0x1800B0850 (RtlWalkHeap.c)
- *     RtlpHpStackTraceHeapSerialize @ 0x1801178C0 (RtlpHpStackTraceHeapSerialize.c)
+ *     RtlpHpStackTraceHeapSerialize @ 0x180117890 (RtlpHpStackTraceHeapSerialize.c)
  * Callees:
  *     RtlpHpHeapWalk @ 0x180063ABC (RtlpHpHeapWalk.c)
  *     RtlpWalkHeap @ 0x180101638 (RtlpWalkHeap.c)

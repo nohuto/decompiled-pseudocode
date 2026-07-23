@@ -1,20 +1,20 @@
 /*
- * XREFs of MiReturnPageTablePageCommitment @ 0x1409DE1C0
+ * XREFs of MiReturnPageTablePageCommitment @ 0x1409D7D90
  * Callers:
- *     MiRemoveVad @ 0x1402601E8 (MiRemoveVad.c)
- *     MiDeleteEmptyPageTableCommit @ 0x140477174 (MiDeleteEmptyPageTableCommit.c)
+ *     MiRemoveVad @ 0x1402907F8 (MiRemoveVad.c)
+ *     MiDeleteEmptyPageTableCommit @ 0x140473714 (MiDeleteEmptyPageTableCommit.c)
  * Callees:
- *     MiVadPureReserve @ 0x140236380 (MiVadPureReserve.c)
- *     MiGetNextVad @ 0x1402614BC (MiGetNextVad.c)
- *     MiGetPreviousVad @ 0x140261500 (MiGetPreviousVad.c)
- *     RtlAreBitsClearEx @ 0x14041D1F0 (RtlAreBitsClearEx.c)
- *     MiVadPageTableChargeLevel @ 0x14041EF70 (MiVadPageTableChargeLevel.c)
- *     MiVadDeleted @ 0x140428540 (MiVadDeleted.c)
- *     MiBitmapRangeZeroEx @ 0x14044AFD4 (MiBitmapRangeZeroEx.c)
- *     MmGetMinWsPagePriority @ 0x1404790C0 (MmGetMinWsPagePriority.c)
- *     PdcCreateWatchdogAroundClientCall @ 0x140484160 (PdcCreateWatchdogAroundClientCall.c)
- *     MiUpdateChargedWsles @ 0x1404F6004 (MiUpdateChargedWsles.c)
- *     MiReturnFullProcessCommitment @ 0x1409DE7C8 (MiReturnFullProcessCommitment.c)
+ *     MiVadPureReserve @ 0x140210510 (MiVadPureReserve.c)
+ *     MiGetNextVad @ 0x140291ACC (MiGetNextVad.c)
+ *     MiGetPreviousVad @ 0x140291B10 (MiGetPreviousVad.c)
+ *     MmGetMinWsPagePriority @ 0x1403C11A0 (MmGetMinWsPagePriority.c)
+ *     RtlAreBitsClearEx @ 0x140411AE0 (RtlAreBitsClearEx.c)
+ *     MiVadPageTableChargeLevel @ 0x140414CB0 (MiVadPageTableChargeLevel.c)
+ *     MiVadDeleted @ 0x14041C6D0 (MiVadDeleted.c)
+ *     MiBitmapRangeZeroEx @ 0x140442114 (MiBitmapRangeZeroEx.c)
+ *     PdcCreateWatchdogAroundClientCall @ 0x14047F700 (PdcCreateWatchdogAroundClientCall.c)
+ *     MiUpdateChargedWsles @ 0x1404F3904 (MiUpdateChargedWsles.c)
+ *     MiReturnFullProcessCommitment @ 0x1409D8398 (MiReturnFullProcessCommitment.c)
  */
 
 unsigned __int8 __fastcall MiReturnPageTablePageCommitment(
@@ -297,6 +297,6 @@ LABEL_23:
     *(_QWORD *)(v17 + 240) -= v19;
 LABEL_31:
   if ( v19 + v45 )
-    return MiReturnFullProcessCommitment(v9, v19 + v45);
+    return MiReturnFullProcessCommitment(v9);
   return result;
 }

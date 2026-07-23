@@ -1,16 +1,16 @@
 /*
- * XREFs of PipFindDeviceOverrideEntry @ 0x1407C1484
+ * XREFs of PipFindDeviceOverrideEntry @ 0x1407C1754
  * Callers:
- *     PiQueryRemovableDeviceOverride @ 0x1407C1190 (PiQueryRemovableDeviceOverride.c)
+ *     PiQueryRemovableDeviceOverride @ 0x1407C1460 (PiQueryRemovableDeviceOverride.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1B0 (RtlInitUnicodeString.c)
- *     ZwClose @ 0x14041AF40 (ZwClose.c)
- *     ZwOpenKey @ 0x14041AFA0 (ZwOpenKey.c)
- *     memmove @ 0x140435700 (memmove.c)
- *     RtlHashUnicodeString @ 0x1406D9430 (RtlHashUnicodeString.c)
- *     RtlEqualUnicodeString @ 0x1406DA2F0 (RtlEqualUnicodeString.c)
- *     IopReplaceSeperatorWithPound @ 0x1407C162C (IopReplaceSeperatorWithPound.c)
- *     PipCallbackHasDeviceOverrides @ 0x140951AF8 (PipCallbackHasDeviceOverrides.c)
+ *     RtlInitUnicodeString @ 0x14022E2C0 (RtlInitUnicodeString.c)
+ *     ZwClose @ 0x14041B2D0 (ZwClose.c)
+ *     ZwOpenKey @ 0x14041B330 (ZwOpenKey.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     RtlHashUnicodeString @ 0x1406D9460 (RtlHashUnicodeString.c)
+ *     RtlEqualUnicodeString @ 0x1406DA320 (RtlEqualUnicodeString.c)
+ *     IopReplaceSeperatorWithPound @ 0x1407C18FC (IopReplaceSeperatorWithPound.c)
+ *     PipCallbackHasDeviceOverrides @ 0x140951CF8 (PipCallbackHasDeviceOverrides.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

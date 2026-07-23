@@ -1,9 +1,9 @@
 /*
- * XREFs of CcSetLoggedDataThreshold @ 0x140111F3C
+ * XREFs of CcSetLoggedDataThreshold @ 0x1401124A0
  * Callers:
  *     <none>
  * Callees:
- *     KeAcquireQueuedSpinLock @ 0x1400E8D30 (KeAcquireQueuedSpinLock.c)
+ *     KeAcquireQueuedSpinLock @ 0x1400E6BD0 (KeAcquireQueuedSpinLock.c)
  */
 
 void __fastcall CcSetLoggedDataThreshold(__int64 a1, int a2)

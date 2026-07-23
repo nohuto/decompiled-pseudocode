@@ -1,11 +1,11 @@
 /*
- * XREFs of ViLogAndLoadXdv @ 0x140A938F4
+ * XREFs of ViLogAndLoadXdv @ 0x140A948F4
  * Callers:
- *     VfInitBootDriversLoaded @ 0x140A4ED74 (VfInitBootDriversLoaded.c)
+ *     VfInitBootDriversLoaded @ 0x140A4FD74 (VfInitBootDriversLoaded.c)
  * Callees:
- *     RtlEqualUnicodeString @ 0x140601410 (RtlEqualUnicodeString.c)
- *     VfNotifyVerifierExtensions @ 0x1409C8A88 (VfNotifyVerifierExtensions.c)
- *     ViXdvDriverLoadImage @ 0x1409C8E2C (ViXdvDriverLoadImage.c)
+ *     RtlEqualUnicodeString @ 0x1406F0B70 (RtlEqualUnicodeString.c)
+ *     VfNotifyVerifierExtensions @ 0x1409C9A88 (VfNotifyVerifierExtensions.c)
+ *     ViXdvDriverLoadImage @ 0x1409C9E2C (ViXdvDriverLoadImage.c)
  */
 
 void __fastcall ViLogAndLoadXdv(__int64 a1)

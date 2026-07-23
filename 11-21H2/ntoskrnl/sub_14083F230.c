@@ -1,7 +1,7 @@
 /*
  * XREFs of sub_14083F230 @ 0x14083F230
  * Callers:
- *     SLUpdateLicenseDataInternal @ 0x1409FA6E0 (SLUpdateLicenseDataInternal.c)
+ *     sub_1409FA6E0 @ 0x1409FA6E0 (sub_1409FA6E0.c)
  * Callees:
  *     RtlCompareUnicodeStrings @ 0x1407CD7A0 (RtlCompareUnicodeStrings.c)
  */

@@ -1,22 +1,22 @@
 /*
- * XREFs of CmpPreserveSystemHiveData @ 0x140A224FC
+ * XREFs of CmpPreserveSystemHiveData @ 0x140A227AC
  * Callers:
- *     CmReplaceKey @ 0x140A156F4 (CmReplaceKey.c)
+ *     CmReplaceKey @ 0x140A159A4 (CmReplaceKey.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1B0 (RtlInitUnicodeString.c)
- *     _strnicmp @ 0x1403D9800 (_strnicmp.c)
- *     _wcsnicmp @ 0x1403D9B90 (_wcsnicmp.c)
- *     memmove @ 0x140435700 (memmove.c)
- *     CmpFindValueByName @ 0x1406D0078 (CmpFindValueByName.c)
- *     CmpFindSubKeyByNumber @ 0x1406DAF00 (CmpFindSubKeyByNumber.c)
- *     CmpGetValueData @ 0x1406DC820 (CmpGetValueData.c)
- *     HvpGetCellPaged @ 0x1406E0150 (HvpGetCellPaged.c)
- *     HvpReleaseCellPaged @ 0x1406E0260 (HvpReleaseCellPaged.c)
- *     CmpSetValueKeyExisting @ 0x14070B704 (CmpSetValueKeyExisting.c)
- *     HvpReleaseCellFlat @ 0x1407D9470 (HvpReleaseCellFlat.c)
- *     HvpGetCellFlat @ 0x1407FD9F0 (HvpGetCellFlat.c)
- *     CmpWalkPath @ 0x140825B68 (CmpWalkPath.c)
- *     CmpCopySyncTree @ 0x140A213F8 (CmpCopySyncTree.c)
+ *     RtlInitUnicodeString @ 0x14022E2C0 (RtlInitUnicodeString.c)
+ *     _strnicmp @ 0x1403D99E0 (_strnicmp.c)
+ *     _wcsnicmp @ 0x1403D9D70 (_wcsnicmp.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     CmpFindValueByName @ 0x1406D00A8 (CmpFindValueByName.c)
+ *     CmpFindSubKeyByNumber @ 0x1406DAF30 (CmpFindSubKeyByNumber.c)
+ *     CmpGetValueData @ 0x1406DC850 (CmpGetValueData.c)
+ *     HvpGetCellPaged @ 0x1406E0180 (HvpGetCellPaged.c)
+ *     HvpReleaseCellPaged @ 0x1406E0290 (HvpReleaseCellPaged.c)
+ *     CmpSetValueKeyExisting @ 0x14070B914 (CmpSetValueKeyExisting.c)
+ *     HvpReleaseCellFlat @ 0x1407D9740 (HvpReleaseCellFlat.c)
+ *     HvpGetCellFlat @ 0x1407FDCC0 (HvpGetCellFlat.c)
+ *     CmpWalkPath @ 0x140825E68 (CmpWalkPath.c)
+ *     CmpCopySyncTree @ 0x140A216A8 (CmpCopySyncTree.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

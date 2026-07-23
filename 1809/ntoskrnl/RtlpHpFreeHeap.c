@@ -2,21 +2,21 @@
  * XREFs of RtlpHpFreeHeap @ 0x140007BC0
  * Callers:
  *     RtlpHpMetadataFree @ 0x1400080A4 (RtlpHpMetadataFree.c)
- *     ExFreeLargePool @ 0x14009ADD0 (ExFreeLargePool.c)
- *     ExAllocateHeapPool @ 0x1400BA170 (ExAllocateHeapPool.c)
- *     ExAllocateContiguousHeapPool @ 0x1400E7418 (ExAllocateContiguousHeapPool.c)
- *     ExFreeHeapPages @ 0x14015B274 (ExFreeHeapPages.c)
- *     ExpHpCompactionRoutine @ 0x1401B7770 (ExpHpCompactionRoutine.c)
- *     ExpFreeHeapSpecialPool @ 0x14031EC64 (ExpFreeHeapSpecialPool.c)
+ *     ExFreeLargePool @ 0x14009AD10 (ExFreeLargePool.c)
+ *     ExAllocateHeapPool @ 0x1400BA0B0 (ExAllocateHeapPool.c)
+ *     ExAllocateContiguousHeapPool @ 0x1400E7498 (ExAllocateContiguousHeapPool.c)
+ *     ExFreeHeapPages @ 0x14015B374 (ExFreeHeapPages.c)
+ *     ExpHpCompactionRoutine @ 0x1401B78D0 (ExpHpCompactionRoutine.c)
+ *     ExpFreeHeapSpecialPool @ 0x14031EE54 (ExpFreeHeapSpecialPool.c)
  * Callees:
  *     RtlpHpSegFree @ 0x140007CDC (RtlpHpSegFree.c)
  *     RtlpHpLargeFree @ 0x140007D8C (RtlpHpLargeFree.c)
  *     RtlpHpEnvGetHeapManager @ 0x14000CE30 (RtlpHpEnvGetHeapManager.c)
  *     RtlCSparseBitmapBitmaskRead @ 0x14000DE34 (RtlCSparseBitmapBitmaskRead.c)
- *     RtlpHpSizeHeap @ 0x1400BEB10 (RtlpHpSizeHeap.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     RtlpLogHeapFailure @ 0x1402FB838 (RtlpLogHeapFailure.c)
- *     RtlpHpExtrasGet @ 0x1402FCA20 (RtlpHpExtrasGet.c)
+ *     RtlpHpSizeHeap @ 0x1400BEA50 (RtlpHpSizeHeap.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     RtlpLogHeapFailure @ 0x1402FBA28 (RtlpLogHeapFailure.c)
+ *     RtlpHpExtrasGet @ 0x1402FCC10 (RtlpHpExtrasGet.c)
  */
 
 __int64 __fastcall RtlpHpFreeHeap(__int128 *a1, __int64 a2, int a3)

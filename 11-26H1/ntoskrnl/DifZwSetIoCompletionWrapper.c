@@ -1,17 +1,22 @@
 /*
- * XREFs of DifZwSetIoCompletionWrapper @ 0x1406BB5E0
+ * XREFs of DifZwSetIoCompletionWrapper @ 0x1406BF1C0
  * Callers:
  *     <none>
  * Callees:
- *     DifGetReturnAddressForWrappers @ 0x140260EA4 (DifGetReturnAddressForWrappers.c)
- *     ExReleaseRundownProtection_0 @ 0x140266240 (ExReleaseRundownProtection_0.c)
- *     ExAcquireRundownProtection_0 @ 0x1402F0590 (ExAcquireRundownProtection_0.c)
- *     DifGetAPIThunkContextById @ 0x1404C17A4 (DifGetAPIThunkContextById.c)
- *     ZwSetIoCompletion @ 0x140726A70 (ZwSetIoCompletion.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     DifGetReturnAddressForWrappers @ 0x14026040C (DifGetReturnAddressForWrappers.c)
+ *     ExReleaseRundownProtection_0 @ 0x1402657B0 (ExReleaseRundownProtection_0.c)
+ *     ExAcquireRundownProtection_0 @ 0x1402D2610 (ExAcquireRundownProtection_0.c)
+ *     DifGetAPIThunkContextById @ 0x1404BAFF4 (DifGetAPIThunkContextById.c)
+ *     ZwSetIoCompletion @ 0x14072B640 (ZwSetIoCompletion.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
-__int64 __fastcall DifZwSetIoCompletionWrapper(__int64 a1, __int64 a2, __int64 a3, unsigned int a4, __int64 a5)
+__int64 __fastcall DifZwSetIoCompletionWrapper(
+        void *a1,
+        void *a2,
+        void *a3,
+        NTSTATUS a4,
+        ULONG_PTR IoStatusInformation)
 {
   __int128 *APIThunkContextById; // rax
   __int64 v9; // rdx
@@ -47,7 +52,7 @@ __int64 __fastcall DifZwSetIoCompletionWrapper(__int64 a1, __int64 a2, __int64 a
     }
     v12 = 0;
     *((_QWORD *)&v20 + 1) = a1;
-    *((_QWORD *)&v18 + 1) = a5;
+    *((_QWORD *)&v18 + 1) = IoStatusInformation;
     *(_QWORD *)&v20 = a2;
     *((_QWORD *)&v19 + 1) = a3;
     LODWORD(v19) = a4;
@@ -63,7 +68,7 @@ __int64 __fastcall DifZwSetIoCompletionWrapper(__int64 a1, __int64 a2, __int64 a
         ExReleaseRundownProtection_0(&DifRebootlessRundown);
     }
   }
-  LODWORD(v21) = ZwSetIoCompletion(a1, a2, a3, a4, a5);
+  LODWORD(v21) = ZwSetIoCompletion(a1, a2, a3, a4, IoStatusInformation);
   if ( v10 )
   {
     if ( (v15 = 0, !VfDifRunningWithoutReboot) && (VfOptionFlags & 0x800) == 0

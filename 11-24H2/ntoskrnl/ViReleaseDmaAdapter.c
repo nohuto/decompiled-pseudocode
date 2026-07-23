@@ -1,18 +1,18 @@
 /*
- * XREFs of ViReleaseDmaAdapter @ 0x140B89A1C
+ * XREFs of ViReleaseDmaAdapter @ 0x140B8BA1C
  * Callers:
- *     VfGetDmaAdapter @ 0x140B86940 (VfGetDmaAdapter.c)
- *     VfHalDeleteDevice @ 0x140B871A0 (VfHalDeleteDevice.c)
- *     VfPutDmaAdapter @ 0x140B87690 (VfPutDmaAdapter.c)
+ *     VfGetDmaAdapter @ 0x140B88940 (VfGetDmaAdapter.c)
+ *     VfHalDeleteDevice @ 0x140B891A0 (VfHalDeleteDevice.c)
+ *     VfPutDmaAdapter @ 0x140B89690 (VfPutDmaAdapter.c)
  * Callees:
- *     KeReleaseSpinLock @ 0x14024DD30 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140254B20 (KeAcquireSpinLockRaiseToDpc.c)
- *     ObfDereferenceObject @ 0x140325680 (ObfDereferenceObject.c)
- *     MmFreeContiguousMemory @ 0x1403A93D0 (MmFreeContiguousMemory.c)
- *     VfReportIssueWithOptions @ 0x140612434 (VfReportIssueWithOptions.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
- *     ViGetRealDmaAdapter @ 0x140B890EC (ViGetRealDmaAdapter.c)
- *     ViHalPreprocessOptions @ 0x140B8921C (ViHalPreprocessOptions.c)
+ *     KeReleaseSpinLock @ 0x14027E340 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140285130 (KeAcquireSpinLockRaiseToDpc.c)
+ *     ObfDereferenceObject @ 0x1402CE210 (ObfDereferenceObject.c)
+ *     MmFreeContiguousMemory @ 0x140398060 (MmFreeContiguousMemory.c)
+ *     VfReportIssueWithOptions @ 0x1406109F4 (VfReportIssueWithOptions.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
+ *     ViGetRealDmaAdapter @ 0x140B8B0EC (ViGetRealDmaAdapter.c)
+ *     ViHalPreprocessOptions @ 0x140B8B21C (ViHalPreprocessOptions.c)
  */
 
 void __fastcall ViReleaseDmaAdapter(ULONG_PTR a1)
@@ -49,13 +49,13 @@ void __fastcall ViReleaseDmaAdapter(ULONG_PTR a1)
   if ( *(int *)(a1 + 76) > 0 && v7 && (v7 != 1 || !*(_BYTE *)(a1 + 74)) )
   {
     ViHalPreprocessOptions(
-      byte_140E0E9A8,
+      byte_140E0EA54,
       "Too many outstanding reference counts (%x) for adapter %p",
       17LL,
       v7,
       (__int64)RealDmaAdapter,
       a1);
-    VfReportIssueWithOptions(0xE6u, 0x11uLL, v8, (ULONG_PTR)RealDmaAdapter, a1, byte_140E0E9A8);
+    VfReportIssueWithOptions(0xE6u, 0x11uLL, v8, (ULONG_PTR)RealDmaAdapter, a1, byte_140E0EA54);
   }
   ExFreePoolWithTag((PVOID)a1, 0);
 }

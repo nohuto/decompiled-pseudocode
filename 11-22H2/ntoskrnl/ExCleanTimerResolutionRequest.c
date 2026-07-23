@@ -25,12 +25,12 @@ __int64 __fastcall ExCleanTimerResolutionRequest(__int64 a1)
   _DWORD *SchedulerAssist; // r9
   int v10; // eax
   bool v11; // zf
-  int v12; // [rsp+30h] [rbp+8h] BYREF
+  ULONG ActualTime; // [rsp+30h] [rbp+8h] BYREF
 
-  v12 = 0;
+  ActualTime = 0;
   Process = KeGetCurrentThread()->ApcState.Process;
   if ( (Process[1].DirectoryTableBase & 0x100000000000LL) != 0 )
-    ZwSetTimerResolution((unsigned int)KeMaximumIncrement, 0LL, &v12);
+    ZwSetTimerResolution(KeMaximumIncrement, 0, &ActualTime);
   LOBYTE(a1) = 1;
   ExAcquireTimeRefreshLock(a1);
   v2 = KeAcquireSpinLockRaiseToDpc(&ExpKernelResolutionLock);
@@ -44,10 +44,13 @@ __int64 __fastcall ExCleanTimerResolutionRequest(__int64 a1)
   *UserWaitTime = (_KPROCESS *)KernelWaitTime;
   *(_QWORD *)(KernelWaitTime + 8) = UserWaitTime;
   KxReleaseSpinLock(&ExpKernelResolutionLock);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v2 <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
+      && (unsigned __int8)v2 <= 0xFu
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;

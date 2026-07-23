@@ -43,24 +43,23 @@ __int64 __fastcall LdrpGetProcApphelpCheckModule(_QWORD *a1)
   __int64 v25; // [rsp+40h] [rbp-C0h] BYREF
   unsigned __int16 v26; // [rsp+48h] [rbp-B8h]
   __int128 v27; // [rsp+58h] [rbp-A8h]
-  char v28[4]; // [rsp+70h] [rbp-90h] BYREF
-  int v29; // [rsp+74h] [rbp-8Ch]
+  _DWORD v28[2]; // [rsp+70h] [rbp-90h] BYREF
   void *Src; // [rsp+78h] [rbp-88h]
-  __int16 v31; // [rsp+80h] [rbp-80h] BYREF
-  char v32[254]; // [rsp+82h] [rbp-7Eh] BYREF
-  __int64 v33[3]; // [rsp+180h] [rbp+80h] BYREF
-  int v34; // [rsp+198h] [rbp+98h]
-  __int64 v35; // [rsp+1A0h] [rbp+A0h]
+  __int16 v30; // [rsp+80h] [rbp-80h] BYREF
+  char v31[254]; // [rsp+82h] [rbp-7Eh] BYREF
+  __int64 v32[3]; // [rsp+180h] [rbp+80h] BYREF
+  int v33; // [rsp+198h] [rbp+98h]
+  __int64 v34; // [rsp+1A0h] [rbp+A0h]
 
   v26 = 22;
-  memset_thunk_772440563353939046(v33, 0, 0x80uLL);
+  memset_thunk_772440563353939046(v32, 0, 0x80uLL);
   v2 = 0;
-  v29 = 0;
+  v28[1] = 0;
   v25 = 0LL;
-  memset_thunk_772440563353939046(v32, 0, 0xFEuLL);
-  *(_DWORD *)v28 = 0x1000000;
-  Src = &v31;
-  v31 = 0;
+  memset_thunk_772440563353939046(v31, 0, 0xFEuLL);
+  v28[0] = 0x1000000;
+  Src = &v30;
+  v30 = 0;
   if ( !g_pfnApphelpCheckModuleProc )
   {
     SharedData = NtCurrentPeb()->SharedData;
@@ -85,14 +84,14 @@ __int64 __fastcall LdrpGetProcApphelpCheckModule(_QWORD *a1)
     }
     if ( (_WORD)v5 )
     {
-      v8 = v6 + *(unsigned __int16 *)v28 + 2;
-      if ( v8 <= *(unsigned __int16 *)&v28[2] )
+      v8 = v6 + LOWORD(v28[0]) + 2;
+      if ( v8 <= HIWORD(v28[0]) )
       {
         Atom = (char *)Src;
 LABEL_11:
-        memmove(&Atom[*(unsigned __int16 *)v28], (const void *)v4, v7);
-        *(_WORD *)v28 += v7;
-        *((_WORD *)Src + ((unsigned __int64)*(unsigned __int16 *)v28 >> 1)) = 0;
+        memmove(&Atom[LOWORD(v28[0])], (const void *)v4, v7);
+        LOWORD(v28[0]) += v7;
+        *((_WORD *)Src + ((unsigned __int64)LOWORD(v28[0]) >> 1)) = 0;
         goto LABEL_12;
       }
       if ( v8 <= 0xFFFE )
@@ -100,13 +99,13 @@ LABEL_11:
         v21 = (v8 + 63) & 0xFFFFFFC0;
         if ( v21 > 0xFFFE )
           v21 = 65534;
-        if ( Src == &v31 )
+        if ( Src == &v30 )
         {
           Atom = (char *)RtlpAllocateAtom(v21);
           if ( Atom )
           {
             Src = Atom;
-            *(_WORD *)&v28[2] = v21;
+            HIWORD(v28[0]) = v21;
             goto LABEL_11;
           }
         }
@@ -117,39 +116,39 @@ LABEL_11:
           if ( v22 )
           {
             Src = v22;
-            *(_WORD *)&v28[2] = v21;
+            HIWORD(v28[0]) = v21;
             goto LABEL_11;
           }
         }
       }
     }
 LABEL_12:
-    v10 = *(unsigned __int16 *)v28 + 22;
-    if ( v10 <= *(unsigned __int16 *)&v28[2] )
+    v10 = LOWORD(v28[0]) + 22;
+    if ( v10 <= HIWORD(v28[0]) )
     {
       v11 = (char *)Src;
 LABEL_14:
-      v12 = *(unsigned __int16 *)v28;
-      *(_OWORD *)&v11[*(unsigned __int16 *)v28] = *(_OWORD *)L"\\SYSTEM32\\";
-      *(_DWORD *)&v11[v12 + 16] = *(_DWORD *)L"2\\";
-      *(_WORD *)v28 += 20;
-      *((_WORD *)Src + ((unsigned __int64)*(unsigned __int16 *)v28 >> 1)) = 0;
+      v12 = LOWORD(v28[0]);
+      *(_OWORD *)&v11[LOWORD(v28[0])] = *(_OWORD *)SlashSystem32SlashString.Buffer;
+      *(_DWORD *)&v11[v12 + 16] = *((_DWORD *)SlashSystem32SlashString.Buffer + 4);
+      LOWORD(v28[0]) += 20;
+      *((_WORD *)Src + ((unsigned __int64)LOWORD(v28[0]) >> 1)) = 0;
       goto LABEL_15;
     }
     if ( v10 <= 0xFFFE )
     {
-      v23 = (*(unsigned __int16 *)v28 + 85) & 0xFFFFFFC0;
+      v23 = (LOWORD(v28[0]) + 85) & 0xFFFFFFC0;
       if ( v23 > 0xFFFE )
         v23 = 65534;
-      if ( Src == &v31 )
+      if ( Src == &v30 )
       {
         v11 = (char *)RtlpAllocateAtom(v23);
         if ( v11 )
         {
-          if ( *(_WORD *)v28 )
-            memmove(v11, Src, *(unsigned __int16 *)v28);
+          if ( LOWORD(v28[0]) )
+            memmove(v11, Src, LOWORD(v28[0]));
           Src = v11;
-          *(_WORD *)&v28[2] = v23;
+          HIWORD(v28[0]) = v23;
           goto LABEL_14;
         }
       }
@@ -160,7 +159,7 @@ LABEL_14:
         if ( v24 )
         {
           Src = v24;
-          *(_WORD *)&v28[2] = v23;
+          HIWORD(v28[0]) = v23;
           goto LABEL_14;
         }
       }
@@ -168,43 +167,44 @@ LABEL_14:
 LABEL_15:
     if ( !v26 )
       goto LABEL_19;
-    v13 = v26 + *(unsigned __int16 *)v28 + 2;
-    if ( v13 <= *(unsigned __int16 *)&v28[2] )
+    v13 = v26 + LOWORD(v28[0]) + 2;
+    if ( v13 <= HIWORD(v28[0]) )
     {
       v14 = (char *)Src;
 LABEL_18:
-      memmove(&v14[*(unsigned __int16 *)v28], L"apphelp.dll", v26);
-      *(_WORD *)v28 += v26;
-      *((_WORD *)Src + ((unsigned __int64)*(unsigned __int16 *)v28 >> 1)) = 0;
+      memmove(&v14[LOWORD(v28[0])], L"apphelp.dll", v26);
+      LOWORD(v28[0]) += v26;
+      *((_WORD *)Src + ((unsigned __int64)LOWORD(v28[0]) >> 1)) = 0;
 LABEL_19:
-      memset_thunk_772440563353939046(v33, 0, 0x80uLL);
-      v34 = 0x4000;
-      v35 = 0LL;
-      v15 = LdrpLoadDll(v28, v33, 0LL, &v25);
-      LdrpReleaseDllPath(v33);
+      memset_thunk_772440563353939046(v32, 0, 0x80uLL);
+      v33 = 0x4000;
+      v34 = 0LL;
+      v15 = LdrpLoadDll(v28, v32, 0LL, &v25);
+      LdrpReleaseDllPath(v32);
       if ( v15 < 0 )
       {
         LdrpLogInternal(
-          (int)"minkernel\\ldr\\ldrinit.c",
-          3971,
-          (int)"LdrpGetProcApphelpCheckModule",
-          0,
+          "minkernel\\ldr\\ldrinit.c",
+          3971LL,
+          "LdrpGetProcApphelpCheckModule",
+          0LL,
           "Loading the shim engine DLL \"%wZ\" failed with status 0x%08lx\n",
-          (char)v28);
+          v28,
+          v15);
       }
       else
       {
         *(_DWORD *)(v25 + 104) |= 0x100u;
-        g_pShimEngineModule = *(_QWORD *)(v25 + 48);
+        g_pShimEngineModule = *(PVOID *)(v25 + 48);
         ShimEngineInterface = LdrpGetShimEngineInterface();
         v15 = ShimEngineInterface;
         if ( ShimEngineInterface < 0 )
         {
           LdrpLogInternal(
-            (int)"minkernel\\ldr\\ldrinit.c",
-            3982,
-            (int)"LdrpGetProcApphelpCheckModule",
-            0,
+            "minkernel\\ldr\\ldrinit.c",
+            3982LL,
+            "LdrpGetProcApphelpCheckModule",
+            0LL,
             "Getting the shim engine exports failed with status 0x%08lx\n",
             ShimEngineInterface);
         }
@@ -227,13 +227,13 @@ LABEL_19:
     v20 = (v13 + 63) & 0xFFFFFFC0;
     if ( v20 > 0xFFFE )
       v20 = 65534;
-    if ( Src == &v31 )
+    if ( Src == &v30 )
     {
       v14 = (char *)RtlpAllocateAtom(v20);
       if ( !v14 )
         goto LABEL_40;
-      if ( *(_WORD *)v28 )
-        memmove(v14, Src, *(unsigned __int16 *)v28);
+      if ( LOWORD(v28[0]) )
+        memmove(v14, Src, LOWORD(v28[0]));
     }
     else
     {
@@ -243,12 +243,12 @@ LABEL_19:
 LABEL_40:
         v15 = -1073741801;
 LABEL_25:
-        if ( &v31 != Src )
-          RtlpSysVolFree((__int64)Src);
+        if ( &v30 != Src )
+          RtlpSysVolFree(Src);
         return (unsigned int)v15;
       }
     }
-    *(_WORD *)&v28[2] = v20;
+    HIWORD(v28[0]) = v20;
     Src = v14;
     goto LABEL_18;
   }

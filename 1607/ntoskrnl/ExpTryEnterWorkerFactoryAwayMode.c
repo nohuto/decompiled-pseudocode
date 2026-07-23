@@ -1,11 +1,11 @@
 /*
- * XREFs of ExpTryEnterWorkerFactoryAwayMode @ 0x1400F8638
+ * XREFs of ExpTryEnterWorkerFactoryAwayMode @ 0x1400F6478
  * Callers:
- *     NtSetInformationWorkerFactory @ 0x1400F7C10 (NtSetInformationWorkerFactory.c)
- *     ExpWorkerFactoryManagerThread @ 0x14013D78C (ExpWorkerFactoryManagerThread.c)
+ *     NtSetInformationWorkerFactory @ 0x1400F5A50 (NtSetInformationWorkerFactory.c)
+ *     ExpWorkerFactoryManagerThread @ 0x14013DCFC (ExpWorkerFactoryManagerThread.c)
  * Callees:
- *     KeRegisterObjectNotification @ 0x1400EDDA0 (KeRegisterObjectNotification.c)
- *     ObfReferenceObjectWithTag @ 0x1400EE4F0 (ObfReferenceObjectWithTag.c)
+ *     KeRegisterObjectNotification @ 0x1400EBC20 (KeRegisterObjectNotification.c)
+ *     ObfReferenceObjectWithTag @ 0x1400EC370 (ObfReferenceObjectWithTag.c)
  */
 
 char __fastcall ExpTryEnterWorkerFactoryAwayMode(_QWORD *Object)

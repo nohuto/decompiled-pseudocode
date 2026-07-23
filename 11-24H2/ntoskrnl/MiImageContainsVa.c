@@ -1,12 +1,12 @@
 /*
- * XREFs of MiImageContainsVa @ 0x1402C9B38
+ * XREFs of MiImageContainsVa @ 0x1404A2444
  * Callers:
- *     MmFindDataTableEntryByAddress @ 0x1402C724C (MmFindDataTableEntryByAddress.c)
- *     MiIsDriverPage @ 0x1402C80A4 (MiIsDriverPage.c)
- *     MiShowBadMapper @ 0x1403D0830 (MiShowBadMapper.c)
- *     MiGetHighestPteConsumer @ 0x1404F5DB8 (MiGetHighestPteConsumer.c)
- *     MiCheckVerifierFunctionsCfgState @ 0x1407FB5E8 (MiCheckVerifierFunctionsCfgState.c)
- *     MiIsBootImageTargetFullyRetpolined @ 0x140C55A10 (MiIsBootImageTargetFullyRetpolined.c)
+ *     MiShowBadMapper @ 0x140275730 (MiShowBadMapper.c)
+ *     MiIsDriverPage @ 0x1402BA964 (MiIsDriverPage.c)
+ *     MmFindDataTableEntryByAddress @ 0x1402BBDCC (MmFindDataTableEntryByAddress.c)
+ *     MiGetHighestPteConsumer @ 0x1404F36B8 (MiGetHighestPteConsumer.c)
+ *     MiCheckVerifierFunctionsCfgState @ 0x1407FBD58 (MiCheckVerifierFunctionsCfgState.c)
+ *     MiIsBootImageTargetFullyRetpolined @ 0x140C57BA0 (MiIsBootImageTargetFullyRetpolined.c)
  * Callees:
  *     <none>
  */

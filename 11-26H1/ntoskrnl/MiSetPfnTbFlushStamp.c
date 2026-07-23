@@ -1,19 +1,19 @@
 /*
- * XREFs of MiSetPfnTbFlushStamp @ 0x14036BAE0
+ * XREFs of MiSetPfnTbFlushStamp @ 0x14036D880
  * Callers:
- *     MiTradeActivePage @ 0x140295898 (MiTradeActivePage.c)
- *     MiSwapNumaStandbyPage @ 0x1402C8D30 (MiSwapNumaStandbyPage.c)
- *     MiGetPageTablePages @ 0x140339E00 (MiGetPageTablePages.c)
- *     MiInitializeTransitionPfn @ 0x14036A9A4 (MiInitializeTransitionPfn.c)
- *     MiCopyOnWriteInitializeTargetPage @ 0x14036B648 (MiCopyOnWriteInitializeTargetPage.c)
- *     MiCopyDataPageToImagePage @ 0x14036C478 (MiCopyDataPageToImagePage.c)
- *     MiSwapStackPage @ 0x140415804 (MiSwapStackPage.c)
- *     MiMapPageFileHash @ 0x1404A0244 (MiMapPageFileHash.c)
- *     MiDeleteSubsectionLargePages @ 0x140510EFC (MiDeleteSubsectionLargePages.c)
- *     MiPerformFinalZeroing @ 0x140513B9C (MiPerformFinalZeroing.c)
- *     MiCreatePfnTemplate @ 0x1406E70E8 (MiCreatePfnTemplate.c)
- *     MiUpdateLargePageSectionPfns @ 0x1406F02F0 (MiUpdateLargePageSectionPfns.c)
- *     MiAllocateDummyPage @ 0x140CF267C (MiAllocateDummyPage.c)
+ *     MiTradeActivePage @ 0x140294DF8 (MiTradeActivePage.c)
+ *     MiSwapNumaStandbyPage @ 0x1402AAAF0 (MiSwapNumaStandbyPage.c)
+ *     MiGetPageTablePages @ 0x14033BE80 (MiGetPageTablePages.c)
+ *     MiInitializeTransitionPfn @ 0x14036C744 (MiInitializeTransitionPfn.c)
+ *     MiCopyOnWriteInitializeTargetPage @ 0x14036D3E8 (MiCopyOnWriteInitializeTargetPage.c)
+ *     MiCopyDataPageToImagePage @ 0x14036E218 (MiCopyDataPageToImagePage.c)
+ *     MiSwapStackPage @ 0x140409E34 (MiSwapStackPage.c)
+ *     MiMapPageFileHash @ 0x140499D94 (MiMapPageFileHash.c)
+ *     MiDeleteSubsectionLargePages @ 0x14050A96C (MiDeleteSubsectionLargePages.c)
+ *     MiPerformFinalZeroing @ 0x14050D60C (MiPerformFinalZeroing.c)
+ *     MiCreatePfnTemplate @ 0x1406EBD98 (MiCreatePfnTemplate.c)
+ *     MiUpdateLargePageSectionPfns @ 0x1406F4F60 (MiUpdateLargePageSectionPfns.c)
+ *     MiAllocateDummyPage @ 0x140CF89FC (MiAllocateDummyPage.c)
  * Callees:
  *     <none>
  */

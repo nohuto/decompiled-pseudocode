@@ -1,16 +1,16 @@
 /*
- * XREFs of MiFreeToSubAllocatedRegion @ 0x1406E9484
+ * XREFs of MiFreeToSubAllocatedRegion @ 0x140700864
  * Callers:
- *     MiAllocateFromSubAllocatedRegion @ 0x14064C180 (MiAllocateFromSubAllocatedRegion.c)
- *     MmDeleteTeb @ 0x1406E93D0 (MmDeleteTeb.c)
+ *     MiAllocateFromSubAllocatedRegion @ 0x140640FA0 (MiAllocateFromSubAllocatedRegion.c)
+ *     MmDeleteTeb @ 0x1407007B0 (MmDeleteTeb.c)
  * Callees:
- *     MiUnlockAndDereferenceVad @ 0x14021AF80 (MiUnlockAndDereferenceVad.c)
- *     MiDeleteVad @ 0x14021BFF0 (MiDeleteVad.c)
- *     RtlClearBitsEx @ 0x1402FE300 (RtlClearBitsEx.c)
- *     MiLocateVadEvent @ 0x1402FE3B4 (MiLocateVadEvent.c)
- *     UNLOCK_PAGE_TABLE_COMMITMENT @ 0x140316788 (UNLOCK_PAGE_TABLE_COMMITMENT.c)
- *     LOCK_PAGE_TABLE_COMMITMENT @ 0x14031698C (LOCK_PAGE_TABLE_COMMITMENT.c)
- *     MiDecommitRegion @ 0x1406EE5F0 (MiDecommitRegion.c)
+ *     MiUnlockAndDereferenceVad @ 0x1402BF880 (MiUnlockAndDereferenceVad.c)
+ *     MiDeleteVad @ 0x1402C08F0 (MiDeleteVad.c)
+ *     RtlClearBitsEx @ 0x140309050 (RtlClearBitsEx.c)
+ *     MiLocateVadEvent @ 0x140309104 (MiLocateVadEvent.c)
+ *     UNLOCK_PAGE_TABLE_COMMITMENT @ 0x1403214D8 (UNLOCK_PAGE_TABLE_COMMITMENT.c)
+ *     LOCK_PAGE_TABLE_COMMITMENT @ 0x1403216DC (LOCK_PAGE_TABLE_COMMITMENT.c)
+ *     MiDecommitRegion @ 0x1407059D0 (MiDecommitRegion.c)
  */
 
 void __fastcall MiFreeToSubAllocatedRegion(char *P, __int64 a2, unsigned __int64 a3, __int64 a4)
@@ -42,7 +42,7 @@ void __fastcall MiFreeToSubAllocatedRegion(char *P, __int64 a2, unsigned __int64
 
   CurrentThread = KeGetCurrentThread();
   Process = (__int64)CurrentThread->ApcState.Process;
-  VadEvent = MiLocateVadEvent((__int64)P, 64LL);
+  VadEvent = MiLocateVadEvent((__int64)P);
   if ( !VadEvent )
     goto LABEL_21;
   v12 = *(unsigned __int8 *)(v9 + 32);

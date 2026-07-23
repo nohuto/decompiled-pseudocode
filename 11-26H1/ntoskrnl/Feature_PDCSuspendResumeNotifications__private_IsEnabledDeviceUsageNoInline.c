@@ -1,11 +1,11 @@
 /*
- * XREFs of Feature_PDCSuspendResumeNotifications__private_IsEnabledDeviceUsageNoInline @ 0x140526A8C
+ * XREFs of Feature_PDCSuspendResumeNotifications__private_IsEnabledDeviceUsageNoInline @ 0x1405290FC
  * Callers:
- *     PdcPoCurrentPdcPhase @ 0x14060D4E0 (PdcPoCurrentPdcPhase.c)
- *     PopPowerAggregatorEngageModernStandby @ 0x1407D683C (PopPowerAggregatorEngageModernStandby.c)
- *     PopPowerAggregatorDisengageModernStandby @ 0x140A37138 (PopPowerAggregatorDisengageModernStandby.c)
+ *     PdcPoCurrentPdcPhase @ 0x1406105F0 (PdcPoCurrentPdcPhase.c)
+ *     PopPowerAggregatorEngageModernStandby @ 0x1407D99CC (PopPowerAggregatorEngageModernStandby.c)
+ *     PopPowerAggregatorDisengageModernStandby @ 0x1409F2CF8 (PopPowerAggregatorDisengageModernStandby.c)
  * Callees:
- *     Feature_PDCSuspendResumeNotifications__private_IsEnabledFallback @ 0x140526AC8 (Feature_PDCSuspendResumeNotifications__private_IsEnabledFallback.c)
+ *     Feature_PDCSuspendResumeNotifications__private_IsEnabledFallback @ 0x140529138 (Feature_PDCSuspendResumeNotifications__private_IsEnabledFallback.c)
  */
 
 __int64 Feature_PDCSuspendResumeNotifications__private_IsEnabledDeviceUsageNoInline()

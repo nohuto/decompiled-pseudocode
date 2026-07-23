@@ -77,5 +77,5 @@ void __cdecl RtlRestoreContext(PCONTEXT ContextRecord, struct _EXCEPTION_RECORD 
     _FFFFFFFFFFFFFF68[160] = ContextRecord->Rip;
     __asm { iretq }
   }
-  ZwContinue();
+  ZwContinue(ContextRecord, 0);
 }

@@ -1,7 +1,7 @@
 /*
- * XREFs of KscpSetUserMemory @ 0x140C5EC80
+ * XREFs of KscpSetUserMemory @ 0x140C64C80
  * Callers:
- *     KscpSetUserMemorySmap @ 0x140C5EDA0 (KscpSetUserMemorySmap.c)
+ *     KscpSetUserMemorySmap @ 0x140C64DA0 (KscpSetUserMemorySmap.c)
  * Callees:
  *     <none>
  */

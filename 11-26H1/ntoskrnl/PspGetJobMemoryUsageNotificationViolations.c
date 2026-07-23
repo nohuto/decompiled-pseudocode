@@ -1,8 +1,8 @@
 /*
- * XREFs of PspGetJobMemoryUsageNotificationViolations @ 0x140A7F6D8
+ * XREFs of PspGetJobMemoryUsageNotificationViolations @ 0x140A85548
  * Callers:
- *     NtSetInformationJobObject @ 0x1407F4C70 (NtSetInformationJobObject.c)
- *     PspEnforceLimitsJobPostCallback @ 0x1407F7D20 (PspEnforceLimitsJobPostCallback.c)
+ *     NtSetInformationJobObject @ 0x1407FA7D0 (NtSetInformationJobObject.c)
+ *     PspEnforceLimitsJobPostCallback @ 0x1407FD820 (PspEnforceLimitsJobPostCallback.c)
  * Callees:
  *     <none>
  */

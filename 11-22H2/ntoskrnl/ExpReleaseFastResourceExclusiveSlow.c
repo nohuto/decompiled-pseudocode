@@ -41,7 +41,7 @@ __int64 __fastcall ExpReleaseFastResourceExclusiveSlow(KSPIN_LOCK *BugCheckParam
   v3 = a2;
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     v6 = 4;
@@ -63,10 +63,10 @@ __int64 __fastcall ExpReleaseFastResourceExclusiveSlow(KSPIN_LOCK *BugCheckParam
     ExpUpdateLockWordForRelease(BugCheckParameter2, 0LL, v7);
     KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
   }
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v10 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v10 <= 0xFu && CurrentIrql <= 0xFu && v10 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v10 <= 0xFu && CurrentIrql <= 0xFu && v10 >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       v12 = CurrentPrcb->SchedulerAssist;

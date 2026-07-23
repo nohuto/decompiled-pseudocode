@@ -1,16 +1,16 @@
 /*
- * XREFs of KeResumeClockTimerSafe @ 0x140513D14
+ * XREFs of KeResumeClockTimerSafe @ 0x140513F54
  * Callers:
- *     IopLiveDumpProcessCorralStateChange @ 0x1409AD37C (IopLiveDumpProcessCorralStateChange.c)
- *     PnprQuiesceProcessorDpc @ 0x1409AE390 (PnprQuiesceProcessorDpc.c)
- *     PnprWakeProcessors @ 0x1409AEE1C (PnprWakeProcessors.c)
+ *     IopLiveDumpProcessCorralStateChange @ 0x1409AE2AC (IopLiveDumpProcessCorralStateChange.c)
+ *     PnprQuiesceProcessorDpc @ 0x1409AF2C0 (PnprQuiesceProcessorDpc.c)
+ *     PnprWakeProcessors @ 0x1409AFD4C (PnprWakeProcessors.c)
  * Callees:
- *     ObGetCurrentIrql @ 0x14025F590 (ObGetCurrentIrql.c)
- *     KiResumeClockTimer @ 0x140383480 (KiResumeClockTimer.c)
+ *     ObGetCurrentIrql @ 0x14023A8A0 (ObGetCurrentIrql.c)
+ *     KiResumeClockTimer @ 0x140383630 (KiResumeClockTimer.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
-__int64 KeResumeClockTimerSafe()
+LONGLONG KeResumeClockTimerSafe()
 {
   unsigned __int8 CurrentIrql; // bl
   _DWORD *SchedulerAssist; // r9
@@ -19,7 +19,7 @@ __int64 KeResumeClockTimerSafe()
   _DWORD *v4; // r8
   int v5; // eax
   bool v6; // zf
-  __int64 result; // rax
+  LONGLONG result; // rax
 
   if ( ObGetCurrentIrql() >= 0xDu )
     return KiResumeClockTimer();

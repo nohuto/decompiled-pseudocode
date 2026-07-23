@@ -1,13 +1,13 @@
 /*
- * XREFs of ExpSetHandleExtraInfo @ 0x14094CB78
+ * XREFs of ExpSetHandleExtraInfo @ 0x14094CD48
  * Callers:
- *     ExpDuplicateSingleHandle @ 0x140606580 (ExpDuplicateSingleHandle.c)
- *     ExCreateHandleEx @ 0x14062D820 (ExCreateHandleEx.c)
- *     ObpCreateHandle @ 0x1406F6550 (ObpCreateHandle.c)
+ *     ExCreateHandleEx @ 0x1405E38B0 (ExCreateHandleEx.c)
+ *     ExpDuplicateSingleHandle @ 0x140696010 (ExpDuplicateSingleHandle.c)
+ *     ObpCreateHandle @ 0x14070D930 (ObpCreateHandle.c)
  * Callees:
- *     ExpFreeTablePagedPool @ 0x1406044E0 (ExpFreeTablePagedPool.c)
- *     ExpAllocateTablePagedPool @ 0x14062B408 (ExpAllocateTablePagedPool.c)
- *     ExpLookupHandleTableEntry @ 0x1406F11F0 (ExpLookupHandleTableEntry.c)
+ *     ExpAllocateTablePagedPool @ 0x140616B40 (ExpAllocateTablePagedPool.c)
+ *     ExpFreeTablePagedPool @ 0x1406F3C10 (ExpFreeTablePagedPool.c)
+ *     ExpLookupHandleTableEntry @ 0x1407085D0 (ExpLookupHandleTableEntry.c)
  */
 
 __int64 __fastcall ExpSetHandleExtraInfo(__int64 a1, __int64 a2, _QWORD *a3)
@@ -16,7 +16,7 @@ __int64 __fastcall ExpSetHandleExtraInfo(__int64 a1, __int64 a2, _QWORD *a3)
   volatile signed __int64 *v6; // rax
   volatile signed __int64 *v7; // rdi
   volatile signed __int64 v9; // rdx
-  PVOID TablePagedPool; // rax
+  void *TablePagedPool; // rax
 
   v5 = (unsigned __int8)((unsigned int)a2 >> 2);
   v6 = (volatile signed __int64 *)ExpLookupHandleTableEntry((unsigned int *)a1, a2 & 0xFFFFFFFFFFFFFC03uLL);

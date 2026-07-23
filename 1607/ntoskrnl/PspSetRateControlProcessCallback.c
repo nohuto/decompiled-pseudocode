@@ -1,5 +1,5 @@
 /*
- * XREFs of PspSetRateControlProcessCallback @ 0x140680E98
+ * XREFs of PspSetRateControlProcessCallback @ 0x140680F7C
  * Callers:
  *     <none>
  * Callees:

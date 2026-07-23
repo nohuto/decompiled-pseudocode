@@ -15,8 +15,8 @@ char __fastcall RtlpPushPageDescriptor(__int64 a1, __int64 a2)
 {
   __int64 v3; // rbp
   const void *BlockInfo; // rax
-  __int64 Heap; // rax
-  __int64 v6; // rsi
+  _DWORD *Heap; // rax
+  _DWORD *v6; // rsi
   __int64 v7; // r14
   __int64 v8; // rdi
   __int64 v9; // rbx
@@ -32,7 +32,7 @@ char __fastcall RtlpPushPageDescriptor(__int64 a1, __int64 a2)
     DbgPrint("Conflicting descriptors %p\n", BlockInfo);
     return 0;
   }
-  Heap = RtlAllocateHeap((char *)RtlpLeakHeap, 0, 40LL * (RtlpLDNumBlocks - 1) + 64);
+  Heap = RtlAllocateHeap(RtlpLeakHeap, 0, 40LL * (RtlpLDNumBlocks - 1) + 64);
   v6 = Heap;
   if ( !Heap )
   {
@@ -40,13 +40,13 @@ char __fastcall RtlpPushPageDescriptor(__int64 a1, __int64 a2)
     return 0;
   }
   v7 = RtlpLDNumBlocks;
-  v8 = Heap + 24;
+  v8 = (__int64)(Heap + 6);
   v9 = RtlpCrtHeapAddress;
   v10 = RtlpTempBlocks;
-  *(_DWORD *)Heap = 2;
-  *(_DWORD *)(Heap + 16) = v7;
-  *(_QWORD *)(Heap + 8) = v9;
-  memmove((void *)(Heap + 24), v10, 40 * v7);
+  *Heap = 2;
+  Heap[4] = v7;
+  *((_QWORD *)Heap + 1) = v9;
+  memmove(Heap + 6, v10, 40 * v7);
   if ( v9 != RtlpLeakHeapAddress )
   {
     v11 = 0;

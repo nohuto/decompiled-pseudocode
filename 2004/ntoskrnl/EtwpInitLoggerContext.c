@@ -113,7 +113,7 @@ LABEL_12:
     v13 = *(_DWORD *)(v9 + 240);
 LABEL_17:
     *(_DWORD *)(v9 + 252) = v13 + 22;
-    KeQuerySystemTimePrecise((__int64 *)(v9 + 808));
+    KeQuerySystemTimePrecise((LARGE_INTEGER *)(v9 + 808));
     KeInitializeMutex((PRKMUTEX)(v9 + 648), 0);
     *(_QWORD *)(v9 + 704) = 0LL;
     *(_QWORD *)(v9 + 352) = v9 + 344;

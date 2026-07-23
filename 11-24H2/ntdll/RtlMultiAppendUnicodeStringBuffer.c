@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlMultiAppendUnicodeStringBuffer @ 0x18008AB50
+ * XREFs of RtlMultiAppendUnicodeStringBuffer @ 0x1800A6610
  * Callers:
- *     RtlAppendPathElement @ 0x18008BBE0 (RtlAppendPathElement.c)
+ *     RtlAppendPathElement @ 0x1800A76A0 (RtlAppendPathElement.c)
  * Callees:
- *     RtlpEnsureBufferSize @ 0x18008B0C0 (RtlpEnsureBufferSize.c)
- *     memmove @ 0x180167400 (memmove.c)
+ *     RtlpEnsureBufferSize @ 0x1800A6B80 (RtlpEnsureBufferSize.c)
+ *     memmove @ 0x1801657C0 (memmove.c)
  */
 
 __int64 __fastcall RtlMultiAppendUnicodeStringBuffer(unsigned __int16 *a1, int a2, __int64 a3)

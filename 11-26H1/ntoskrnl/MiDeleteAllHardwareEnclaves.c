@@ -1,26 +1,26 @@
 /*
- * XREFs of MiDeleteAllHardwareEnclaves @ 0x140C01874
+ * XREFs of MiDeleteAllHardwareEnclaves @ 0x140C07A84
  * Callers:
- *     ExRebootSystemForRecovery @ 0x1406CB54C (ExRebootSystemForRecovery.c)
- *     MiShutdownSystem @ 0x140C0025C (MiShutdownSystem.c)
+ *     ExRebootSystemForRecovery @ 0x1406CF57C (ExRebootSystemForRecovery.c)
+ *     MiShutdownSystem @ 0x140C0646C (MiShutdownSystem.c)
  * Callees:
- *     KiUnstackDetachProcess @ 0x1402307C0 (KiUnstackDetachProcess.c)
- *     KiStackAttachProcess @ 0x140247880 (KiStackAttachProcess.c)
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     ObfReferenceObjectWithTag @ 0x140278B30 (ObfReferenceObjectWithTag.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     KiCheckForKernelApcDelivery @ 0x14027DB80 (KiCheckForKernelApcDelivery.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     MiUnlockAndDereferenceVad @ 0x14027F600 (MiUnlockAndDereferenceVad.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     MiObtainReferencedVadEx @ 0x1402D0160 (MiObtainReferencedVadEx.c)
- *     ExfTryToWakePushLock @ 0x1403170A0 (ExfTryToWakePushLock.c)
- *     KeRemoveEnclavePage @ 0x140341200 (KeRemoveEnclavePage.c)
- *     ExWaitForRundownProtectionRelease @ 0x140463DA0 (ExWaitForRundownProtectionRelease.c)
- *     MiReadVadFlags @ 0x1404655D0 (MiReadVadFlags.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     MiDeleteEnclavePages @ 0x140C01AD8 (MiDeleteEnclavePages.c)
+ *     KiUnstackDetachProcess @ 0x140232120 (KiUnstackDetachProcess.c)
+ *     KiStackAttachProcess @ 0x1402491E0 (KiStackAttachProcess.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     ObfReferenceObjectWithTag @ 0x1402780A0 (ObfReferenceObjectWithTag.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     KiCheckForKernelApcDelivery @ 0x14027D0F0 (KiCheckForKernelApcDelivery.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     MiUnlockAndDereferenceVad @ 0x14027EB70 (MiUnlockAndDereferenceVad.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     MiObtainReferencedVadEx @ 0x1402B1F20 (MiObtainReferencedVadEx.c)
+ *     ExfTryToWakePushLock @ 0x1403190D0 (ExfTryToWakePushLock.c)
+ *     KeRemoveEnclavePage @ 0x140343280 (KeRemoveEnclavePage.c)
+ *     ExWaitForRundownProtectionRelease @ 0x14045CD60 (ExWaitForRundownProtectionRelease.c)
+ *     MiReadVadFlags @ 0x14045E590 (MiReadVadFlags.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     MiDeleteEnclavePages @ 0x140C07CE8 (MiDeleteEnclavePages.c)
  */
 
 void MiDeleteAllHardwareEnclaves()
@@ -51,16 +51,16 @@ void MiDeleteAllHardwareEnclaves()
 
   memset(v22, 0, sizeof(v22));
   CurrentThread = KeGetCurrentThread();
-  ExWaitForRundownProtectionRelease((PEX_RUNDOWN_REF)&stru_140E36558.SchedulingGroup);
+  ExWaitForRundownProtectionRelease((PEX_RUNDOWN_REF)&stru_140E366D8.SchedulingGroup);
   --CurrentThread->SpecialApcDisable;
-  v2 = (AutoBoost *)KeAbPreAcquire((__int64)&stru_140E36558.StateSaveArea, 0LL, 0LL, v1);
-  v4 = _interlockedbittestandset64((volatile signed __int32 *)&stru_140E36558.StateSaveArea, 0LL);
+  v2 = (AutoBoost *)KeAbPreAcquire((__int64)&stru_140E366D8.StateSaveArea, 0LL, 0LL, v1);
+  v4 = _interlockedbittestandset64((volatile signed __int32 *)&stru_140E366D8.StateSaveArea, 0LL);
   v5 = v2;
   if ( v4 )
     ExfAcquirePushLockExclusiveEx(
-      (unsigned __int64 *)&stru_140E36558.StateSaveArea,
+      (unsigned __int64 *)&stru_140E366D8.StateSaveArea,
       v2,
-      (__int64)&stru_140E36558.StateSaveArea);
+      (__int64)&stru_140E366D8.StateSaveArea);
   if ( v5 )
   {
     if ( (KiAbpGlobalState & 1) != 0 )
@@ -70,17 +70,17 @@ void MiDeleteAllHardwareEnclaves()
   }
   while ( 1 )
   {
-    v6 = *(_QWORD *)&stru_140E36558.CurrentRunTime;
-    if ( *(struct _KTHREAD **)&stru_140E36558.CurrentRunTime == (struct _KTHREAD *)&stru_140E36558.CurrentRunTime )
+    v6 = *(_QWORD *)&stru_140E366D8.CurrentRunTime;
+    if ( *(struct _KTHREAD **)&stru_140E366D8.CurrentRunTime == (struct _KTHREAD *)&stru_140E366D8.CurrentRunTime )
       break;
-    v7 = *(_KPROCESS **)(*(_QWORD *)&stru_140E36558.CurrentRunTime - 8LL);
+    v7 = *(_KPROCESS **)(*(_QWORD *)&stru_140E366D8.CurrentRunTime - 8LL);
     ObfReferenceObjectWithTag(v7, 0x6D566D4Du);
     v8 = (*(unsigned int *)(v6 - 112) | ((unsigned __int64)*(unsigned __int8 *)(v6 - 104) << 32)) << 12;
-    if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&stru_140E36558.StateSaveArea, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-      ExfTryToWakePushLock((volatile signed __int64 *)&stru_140E36558.StateSaveArea);
-    KeAbPostRelease((unsigned __int64)&stru_140E36558.StateSaveArea);
+    if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&stru_140E366D8.StateSaveArea, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+      ExfTryToWakePushLock((volatile signed __int64 *)&stru_140E366D8.StateSaveArea);
+    KeAbPostRelease((unsigned __int64)&stru_140E366D8.StateSaveArea);
     v11 = CurrentThread->SpecialApcDisable++ == -1;
-    if ( v11 && ($7A85BAF4F1FA08634C1C4A3E45B775B3 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
+    if ( v11 && ($241382875694CED3D471BC5892DE3337 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
       KiCheckForKernelApcDelivery(v10, v9);
     KiStackAttachProcess(v7, 0, (__int64)v22);
     v12 = MiObtainReferencedVadEx(v8, 0LL, &v21);
@@ -94,14 +94,14 @@ void MiDeleteAllHardwareEnclaves()
     KiUnstackDetachProcess((__int64)v22, 0);
     ObfDereferenceObjectWithTag(v7, 0x6D566D4Du);
     --CurrentThread->SpecialApcDisable;
-    v16 = (AutoBoost *)KeAbPreAcquire((__int64)&stru_140E36558.StateSaveArea, 0LL, 0LL, v15);
-    v4 = _interlockedbittestandset64((volatile signed __int32 *)&stru_140E36558.StateSaveArea, 0LL);
+    v16 = (AutoBoost *)KeAbPreAcquire((__int64)&stru_140E366D8.StateSaveArea, 0LL, 0LL, v15);
+    v4 = _interlockedbittestandset64((volatile signed __int32 *)&stru_140E366D8.StateSaveArea, 0LL);
     v18 = v16;
     if ( v4 )
       ExfAcquirePushLockExclusiveEx(
-        (unsigned __int64 *)&stru_140E36558.StateSaveArea,
+        (unsigned __int64 *)&stru_140E366D8.StateSaveArea,
         v16,
-        (__int64)&stru_140E36558.StateSaveArea);
+        (__int64)&stru_140E366D8.StateSaveArea);
     if ( v18 )
     {
       if ( (KiAbpGlobalState & 1) != 0 )
@@ -110,12 +110,12 @@ void MiDeleteAllHardwareEnclaves()
         *((_BYTE *)v18 + 10) = 1;
     }
   }
-  if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&stru_140E36558.StateSaveArea, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-    ExfTryToWakePushLock((volatile signed __int64 *)&stru_140E36558.StateSaveArea);
-  KeAbPostRelease((unsigned __int64)&stru_140E36558.StateSaveArea);
+  if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&stru_140E366D8.StateSaveArea, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+    ExfTryToWakePushLock((volatile signed __int64 *)&stru_140E366D8.StateSaveArea);
+  KeAbPostRelease((unsigned __int64)&stru_140E366D8.StateSaveArea);
   v11 = CurrentThread->SpecialApcDisable++ == -1;
-  if ( v11 && ($7A85BAF4F1FA08634C1C4A3E45B775B3 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
+  if ( v11 && ($241382875694CED3D471BC5892DE3337 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
     KiCheckForKernelApcDelivery(v20, v19);
-  if ( stru_140E36558.StackLimit )
-    KeRemoveEnclavePage((__int64)stru_140E36558.StackLimit);
+  if ( stru_140E366D8.StackLimit )
+    KeRemoveEnclavePage((__int64)stru_140E366D8.StackLimit);
 }

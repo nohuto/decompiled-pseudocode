@@ -1,14 +1,14 @@
 /*
- * XREFs of SddlAddMandatoryAce @ 0x1406CBE60
+ * XREFs of SddlAddMandatoryAce @ 0x1406CBF98
  * Callers:
- *     LocalGetAclForString @ 0x1404D6D44 (LocalGetAclForString.c)
+ *     LocalGetAclForString @ 0x1404BA348 (LocalGetAclForString.c)
  * Callees:
- *     RtlLengthSid @ 0x14000C2AC (RtlLengthSid.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     RtlCopySid @ 0x14041268C (RtlCopySid.c)
- *     RtlFirstFreeAce @ 0x140420A70 (RtlFirstFreeAce.c)
- *     RtlValidSid @ 0x1404217D0 (RtlValidSid.c)
- *     RtlValidAcl @ 0x140421940 (RtlValidAcl.c)
+ *     RtlLengthSid @ 0x14000BE2C (RtlLengthSid.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     RtlCopySid @ 0x14041154C (RtlCopySid.c)
+ *     RtlFirstFreeAce @ 0x14041F930 (RtlFirstFreeAce.c)
+ *     RtlValidSid @ 0x140420690 (RtlValidSid.c)
+ *     RtlValidAcl @ 0x140420800 (RtlValidAcl.c)
  */
 
 __int64 __fastcall SddlAddMandatoryAce(PACL Acl, __int64 a2, int a3, __int64 a4, int a5, ACCESS_MASK a6)

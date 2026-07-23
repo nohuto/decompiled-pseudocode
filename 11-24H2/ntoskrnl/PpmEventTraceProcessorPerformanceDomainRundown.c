@@ -1,15 +1,15 @@
 /*
- * XREFs of PpmEventTraceProcessorPerformanceDomainRundown @ 0x140A77924
+ * XREFs of PpmEventTraceProcessorPerformanceDomainRundown @ 0x140A71A44
  * Callers:
- *     PpmEventTraceControlCallback @ 0x140ACA960 (PpmEventTraceControlCallback.c)
+ *     PpmEventTraceControlCallback @ 0x140AC8550 (PpmEventTraceControlCallback.c)
  * Callees:
- *     KeAndGroupAffinityEx @ 0x140206990 (KeAndGroupAffinityEx.c)
- *     EtwEventEnabled @ 0x1402A1BD0 (EtwEventEnabled.c)
- *     EtwWrite @ 0x14041C1B0 (EtwWrite.c)
- *     KeQueryGroupAffinity @ 0x140467A20 (KeQueryGroupAffinity.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     EtwEventEnabled @ 0x1402D1300 (EtwEventEnabled.c)
+ *     KeAndGroupAffinityEx @ 0x14032DF70 (KeAndGroupAffinityEx.c)
+ *     EtwWrite @ 0x14040FFB0 (EtwWrite.c)
+ *     KeQueryGroupAffinity @ 0x14045F4C0 (KeQueryGroupAffinity.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __fastcall PpmEventTraceProcessorPerformanceDomainRundown(__int64 a1)
@@ -23,7 +23,7 @@ void __fastcall PpmEventTraceProcessorPerformanceDomainRundown(__int64 a1)
   unsigned int v8; // r9d
   unsigned __int16 v9; // r8
   __int64 v10; // rax
-  int v11; // edx
+  __int64 v11; // rdx
   unsigned int v12; // ebx
   __int64 v13; // r10
   _OWORD *v14; // rdx
@@ -82,7 +82,7 @@ void __fastcall PpmEventTraceProcessorPerformanceDomainRundown(__int64 a1)
     v8 = *(_DWORD *)(a1 + 296);
     v9 = 0;
     v10 = v7;
-    v11 = 0;
+    v11 = 0LL;
     v12 = v7 + 1;
     v27 = 0;
     UserData[v10].Ptr = (ULONGLONG)&v27;
@@ -93,13 +93,16 @@ void __fastcall PpmEventTraceProcessorPerformanceDomainRundown(__int64 a1)
       do
       {
         if ( *(_DWORD *)(1192LL * v9 + v13 + 16) == 1 )
-          v27 = ++v11;
+        {
+          v11 = (unsigned int)(v11 + 1);
+          v27 = v11;
+        }
         ++v9;
       }
       while ( v9 < v8 );
-      if ( v11 )
+      if ( (_DWORD)v11 )
       {
-        Pool2 = (_DWORD *)ExAllocatePool2(0x100uLL);
+        Pool2 = (_DWORD *)ExAllocatePool2(0x100uLL, 4 * v11, 0x654D5050u);
         if ( !Pool2 )
           return;
         v18 = 0;

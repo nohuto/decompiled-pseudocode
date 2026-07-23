@@ -25,7 +25,7 @@
  *     MiApplyDriverHotPatch @ 0x140A348E8 (MiApplyDriverHotPatch.c)
  */
 
-__int64 __fastcall MiApplyHotPatchToLoadedDriver(__int64 a1, unsigned __int16 *a2, __int64 a3)
+__int64 __fastcall MiApplyHotPatchToLoadedDriver(unsigned __int64 a1, unsigned __int16 *a2, __int64 a3)
 {
   unsigned __int64 v3; // rbx
   __int64 *v7; // r15
@@ -40,12 +40,12 @@ __int64 __fastcall MiApplyHotPatchToLoadedDriver(__int64 a1, unsigned __int16 *a
   ULONG_PTR v17; // r10
   __int64 v18; // r10
   unsigned __int64 v19; // rax
-  __int64 v20; // r10
+  unsigned __int64 v20; // r10
   int v21; // ecx
   ULONG_PTR v22; // [rsp+40h] [rbp-69h] BYREF
   __int128 v23; // [rsp+48h] [rbp-61h] BYREF
   __int64 v24; // [rsp+58h] [rbp-51h]
-  unsigned __int64 v25; // [rsp+60h] [rbp-49h] BYREF
+  PVOID v25; // [rsp+60h] [rbp-49h] BYREF
   UNICODE_STRING v26; // [rsp+68h] [rbp-41h] BYREF
   UNICODE_STRING v27; // [rsp+78h] [rbp-31h] BYREF
   UNICODE_STRING v28; // [rsp+88h] [rbp-21h] BYREF

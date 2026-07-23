@@ -1,12 +1,12 @@
 /*
- * XREFs of KasaniGetModuleFromAddress @ 0x1405A9FD0
+ * XREFs of KasaniGetModuleFromAddress @ 0x1405A6F40
  * Callers:
- *     KasaniBuildPc @ 0x1405A9F40 (KasaniBuildPc.c)
+ *     KasaniBuildPc @ 0x1405A6EB0 (KasaniBuildPc.c)
  * Callees:
- *     MiLockLoadedDataTableEntry @ 0x1402C6F3C (MiLockLoadedDataTableEntry.c)
- *     MiReleaseLoadLock @ 0x1402C7310 (MiReleaseLoadLock.c)
- *     MiUnlockLoaderEntry @ 0x1402C7468 (MiUnlockLoaderEntry.c)
- *     RtlUnicodeStringCopy @ 0x1403E4550 (RtlUnicodeStringCopy.c)
+ *     MiLockLoadedDataTableEntry @ 0x1402BBABC (MiLockLoadedDataTableEntry.c)
+ *     MiReleaseLoadLock @ 0x1402BBE90 (MiReleaseLoadLock.c)
+ *     MiUnlockLoaderEntry @ 0x1402BBFE8 (MiUnlockLoaderEntry.c)
+ *     RtlUnicodeStringCopy @ 0x1403D20F0 (RtlUnicodeStringCopy.c)
  */
 
 __int64 __fastcall KasaniGetModuleFromAddress(

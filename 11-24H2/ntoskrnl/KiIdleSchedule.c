@@ -1,15 +1,15 @@
 /*
- * XREFs of KiIdleSchedule @ 0x140296C40
+ * XREFs of KiIdleSchedule @ 0x1402A5920
  * Callers:
- *     KiIdleLoop @ 0x1406ABC30 (KiIdleLoop.c)
+ *     KiIdleLoop @ 0x1406ACBD0 (KiIdleLoop.c)
  * Callees:
- *     KiAcquirePrcbLocksForIsolationUnit @ 0x140293190 (KiAcquirePrcbLocksForIsolationUnit.c)
- *     KiUpdatePriorityMatrixForRunningTransition @ 0x140294FC0 (KiUpdatePriorityMatrixForRunningTransition.c)
- *     KiSearchForNewThread @ 0x140296D10 (KiSearchForNewThread.c)
- *     KiSendHeteroRescheduleIntRequest @ 0x140297180 (KiSendHeteroRescheduleIntRequest.c)
- *     KiResumeThreadCycleAccumulation @ 0x14030CC20 (KiResumeThreadCycleAccumulation.c)
- *     KiReleasePrcbLocksForIsolationUnit @ 0x140339330 (KiReleasePrcbLocksForIsolationUnit.c)
- *     KiCaptureTotalCyclesCurrentThread @ 0x14034DCD0 (KiCaptureTotalCyclesCurrentThread.c)
+ *     KiAcquirePrcbLocksForIsolationUnit @ 0x1402A2D90 (KiAcquirePrcbLocksForIsolationUnit.c)
+ *     KiUpdatePriorityMatrixForRunningTransition @ 0x1402A4BC0 (KiUpdatePriorityMatrixForRunningTransition.c)
+ *     KiSearchForNewThread @ 0x1402A59F0 (KiSearchForNewThread.c)
+ *     KiSendHeteroRescheduleIntRequest @ 0x1402A5E60 (KiSendHeteroRescheduleIntRequest.c)
+ *     KiResumeThreadCycleAccumulation @ 0x1402DBC80 (KiResumeThreadCycleAccumulation.c)
+ *     KiReleasePrcbLocksForIsolationUnit @ 0x140318810 (KiReleasePrcbLocksForIsolationUnit.c)
+ *     KiCaptureTotalCyclesCurrentThread @ 0x14036C1B0 (KiCaptureTotalCyclesCurrentThread.c)
  */
 
 __int64 __fastcall KiIdleSchedule(struct _KPRCB *a1)
@@ -20,7 +20,7 @@ __int64 __fastcall KiIdleSchedule(struct _KPRCB *a1)
   unsigned __int64 v6; // [rsp+30h] [rbp+8h] BYREF
 
   v6 = 0LL;
-  KiAcquirePrcbLocksForIsolationUnit((__int64)a1, 1, &v6);
+  KiAcquirePrcbLocksForIsolationUnit((__int64)a1, 1LL, &v6);
   a1->IdleSchedule = 0;
   if ( a1->NextThread == a1->IdleThread )
     a1->NextThread = 0LL;

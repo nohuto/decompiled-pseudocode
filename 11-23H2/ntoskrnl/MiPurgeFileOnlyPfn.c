@@ -1,17 +1,17 @@
 /*
- * XREFs of MiPurgeFileOnlyPfn @ 0x14063EEC8
+ * XREFs of MiPurgeFileOnlyPfn @ 0x14063F418
  * Callers:
- *     MiPurgeBadFileOnlyPages @ 0x14063EA70 (MiPurgeBadFileOnlyPages.c)
+ *     MiPurgeBadFileOnlyPages @ 0x14063EFC0 (MiPurgeBadFileOnlyPages.c)
  * Callees:
  *     MiLockLeafPage @ 0x140218410 (MiLockLeafPage.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1402712F0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiUnlockProtoPoolPage @ 0x1402DAEF0 (MiUnlockProtoPoolPage.c)
- *     MiCheckProtoPtePageState @ 0x1402DBE30 (MiCheckProtoPtePageState.c)
- *     MiDeleteTransitionPte @ 0x1402DCE80 (MiDeleteTransitionPte.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     MiChangingSubsectionProtos @ 0x14063BDF4 (MiChangingSubsectionProtos.c)
- *     MiPersistPage @ 0x14063E9FC (MiPersistPage.c)
- *     MiSubsectionProtosCreated @ 0x14063F71C (MiSubsectionProtosCreated.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140271580 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiUnlockProtoPoolPage @ 0x1402DB180 (MiUnlockProtoPoolPage.c)
+ *     MiCheckProtoPtePageState @ 0x1402DC0C0 (MiCheckProtoPtePageState.c)
+ *     MiDeleteTransitionPte @ 0x1402DD110 (MiDeleteTransitionPte.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
+ *     MiChangingSubsectionProtos @ 0x14063C344 (MiChangingSubsectionProtos.c)
+ *     MiPersistPage @ 0x14063EF4C (MiPersistPage.c)
+ *     MiSubsectionProtosCreated @ 0x14063FC6C (MiSubsectionProtosCreated.c)
  */
 
 __int64 __fastcall MiPurgeFileOnlyPfn(__int64 a1)

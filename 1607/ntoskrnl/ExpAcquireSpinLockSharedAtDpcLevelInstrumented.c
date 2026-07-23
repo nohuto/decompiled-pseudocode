@@ -1,19 +1,19 @@
 /*
- * XREFs of ExpAcquireSpinLockSharedAtDpcLevelInstrumented @ 0x14022DDDC
+ * XREFs of ExpAcquireSpinLockSharedAtDpcLevelInstrumented @ 0x14022DC08
  * Callers:
- *     ExFreeLargePool @ 0x140010BE0 (ExFreeLargePool.c)
- *     ExpAddTagForBigPages @ 0x1400124D0 (ExpAddTagForBigPages.c)
- *     ExAcquireSpinLockSharedAtDpcLevel @ 0x14001DD60 (ExAcquireSpinLockSharedAtDpcLevel.c)
- *     MiEndingOffsetWithLock @ 0x140023560 (MiEndingOffsetWithLock.c)
- *     MmProbeAndLockPages @ 0x14002F120 (MmProbeAndLockPages.c)
- *     MiOffsetToProtos @ 0x140033070 (MiOffsetToProtos.c)
- *     MiQueryAddressState @ 0x140043000 (MiQueryAddressState.c)
- *     RtlpWalkFrameChain @ 0x14004F520 (RtlpWalkFrameChain.c)
- *     ExAcquireSpinLockShared @ 0x1400EB1D0 (ExAcquireSpinLockShared.c)
- *     KiAbEntryGetLockedHeadEntry @ 0x1400ECA30 (KiAbEntryGetLockedHeadEntry.c)
+ *     ExFreeLargePool @ 0x140010760 (ExFreeLargePool.c)
+ *     ExpAddTagForBigPages @ 0x140012050 (ExpAddTagForBigPages.c)
+ *     ExAcquireSpinLockSharedAtDpcLevel @ 0x14001D8E0 (ExAcquireSpinLockSharedAtDpcLevel.c)
+ *     MiEndingOffsetWithLock @ 0x1400230E0 (MiEndingOffsetWithLock.c)
+ *     MmProbeAndLockPages @ 0x14002ECA0 (MmProbeAndLockPages.c)
+ *     MiOffsetToProtos @ 0x140032BF0 (MiOffsetToProtos.c)
+ *     MiQueryAddressState @ 0x140042B80 (MiQueryAddressState.c)
+ *     RtlpWalkFrameChain @ 0x14004F0A0 (RtlpWalkFrameChain.c)
+ *     ExAcquireSpinLockShared @ 0x1400E9040 (ExAcquireSpinLockShared.c)
+ *     KiAbEntryGetLockedHeadEntry @ 0x1400EA8A0 (KiAbEntryGetLockedHeadEntry.c)
  * Callees:
- *     ExpWaitForSpinLockSharedAndAcquire @ 0x140089C20 (ExpWaitForSpinLockSharedAndAcquire.c)
- *     PerfLogSpinLockAcquire @ 0x140228678 (PerfLogSpinLockAcquire.c)
+ *     ExpWaitForSpinLockSharedAndAcquire @ 0x140089320 (ExpWaitForSpinLockSharedAndAcquire.c)
+ *     PerfLogSpinLockAcquire @ 0x1402284A4 (PerfLogSpinLockAcquire.c)
  */
 
 char __fastcall ExpAcquireSpinLockSharedAtDpcLevelInstrumented(_DWORD *a1, unsigned __int8 a2)

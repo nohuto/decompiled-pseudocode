@@ -1,23 +1,23 @@
 /*
- * XREFs of SepAddLuidToIndexEntry @ 0x140A330CC
+ * XREFs of SepAddLuidToIndexEntry @ 0x140A270DC
  * Callers:
- *     SepSetProcessUniqueAttribute @ 0x140A32FD4 (SepSetProcessUniqueAttribute.c)
+ *     SepSetProcessUniqueAttribute @ 0x140A26FE4 (SepSetProcessUniqueAttribute.c)
  * Callees:
- *     RtlFindClearBitsAndSet @ 0x14024B8D0 (RtlFindClearBitsAndSet.c)
- *     RtlSetBits @ 0x14024BCC0 (RtlSetBits.c)
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     ExfTryToWakePushLock @ 0x14025F9A0 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     SepCleanupMarkedForDeletionEntries @ 0x140356E98 (SepCleanupMarkedForDeletionEntries.c)
- *     SepInitSingletonEntry @ 0x140357184 (SepInitSingletonEntry.c)
- *     RtlNumberOfSetBits @ 0x14042B480 (RtlNumberOfSetBits.c)
- *     RtlInsertEntryHashTable @ 0x140430180 (RtlInsertEntryHashTable.c)
- *     RtlClearAllBits @ 0x140448960 (RtlClearAllBits.c)
- *     SepExpandSingletonArrays @ 0x1404B520C (SepExpandSingletonArrays.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     SepInitSingletonEntry @ 0x14021C014 (SepInitSingletonEntry.c)
+ *     RtlFindClearBitsAndSet @ 0x14027BEE0 (RtlFindClearBitsAndSet.c)
+ *     RtlSetBits @ 0x14027C2D0 (RtlSetBits.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     ExfTryToWakePushLock @ 0x14028FFB0 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     RtlNumberOfSetBits @ 0x140377880 (RtlNumberOfSetBits.c)
+ *     SepCleanupMarkedForDeletionEntries @ 0x1403E2EE0 (SepCleanupMarkedForDeletionEntries.c)
+ *     RtlInsertEntryHashTable @ 0x140421C30 (RtlInsertEntryHashTable.c)
+ *     RtlClearAllBits @ 0x140441080 (RtlClearAllBits.c)
+ *     SepExpandSingletonArrays @ 0x1404AFA0C (SepExpandSingletonArrays.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall SepAddLuidToIndexEntry(__int64 *a1, _QWORD *a2, __int64 *a3)
@@ -25,10 +25,10 @@ __int64 __fastcall SepAddLuidToIndexEntry(__int64 *a1, _QWORD *a2, __int64 *a3)
   __int64 Pool2; // rbp
   struct _KTHREAD *CurrentThread; // rax
   unsigned __int64 *v6; // rdi
-  _QWORD *v7; // rax
-  _QWORD *v8; // rsi
+  char *v7; // rax
+  char *v8; // rsi
   ULONG_PTR v9; // r15
-  RTL_BITMAP *v10; // r12
+  _RTL_BITMAP *v10; // r12
   ULONG ClearBitsAndSet; // esi
   int v12; // edi
   __int64 v13; // rax
@@ -36,24 +36,24 @@ __int64 __fastcall SepAddLuidToIndexEntry(__int64 *a1, _QWORD *a2, __int64 *a3)
   ULONG v16; // r14d
   void *v17; // rsi
   _BYTE *v18; // r14
-  struct _RTL_DYNAMIC_HASH_TABLE *HashTable; // [rsp+70h] [rbp+18h]
+  _RTL_DYNAMIC_HASH_TABLE *HashTable; // [rsp+70h] [rbp+18h]
 
   *a3 = 0LL;
-  Pool2 = ExAllocatePool2(0x100uLL);
+  Pool2 = ExAllocatePool2(0x100uLL, 0x38uLL, 0x74446553u);
   if ( !Pool2 )
     return (unsigned int)-1073741801;
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
   v6 = (unsigned __int64 *)SeLuidToIndexMapping;
-  v7 = KeAbPreAcquire(SeLuidToIndexMapping, 0LL);
+  v7 = (char *)KeAbPreAcquire(SeLuidToIndexMapping, 0LL);
   v8 = v7;
   if ( _interlockedbittestandset64((volatile signed __int32 *)v6, 0LL) )
-    ExfAcquirePushLockExclusiveEx(v6, (__int64)v7, (__int64)v6);
+    ExfAcquirePushLockExclusiveEx(v6, v7, (__int64)v6);
   v9 = 1LL;
   if ( v8 )
-    *((_BYTE *)v8 + 10) = 1;
-  v10 = (RTL_BITMAP *)(SeLuidToIndexMapping + 16);
-  HashTable = *(struct _RTL_DYNAMIC_HASH_TABLE **)(SeLuidToIndexMapping + 8);
+    v8[10] = 1;
+  v10 = (_RTL_BITMAP *)(SeLuidToIndexMapping + 16);
+  HashTable = *(_RTL_DYNAMIC_HASH_TABLE **)(SeLuidToIndexMapping + 8);
   ClearBitsAndSet = RtlFindClearBitsAndSet((PRTL_BITMAP)(SeLuidToIndexMapping + 16), 1u, 0);
   if ( ClearBitsAndSet == -1 )
   {
@@ -62,7 +62,7 @@ __int64 __fastcall SepAddLuidToIndexEntry(__int64 *a1, _QWORD *a2, __int64 *a3)
     if ( ClearBitsAndSet == -1 )
     {
       v16 = RtlNumberOfSetBits(v10);
-      v17 = (void *)ExAllocatePool2(0x100uLL);
+      v17 = (void *)ExAllocatePool2(0x100uLL, (unsigned __int64)(v16 + 64) >> 3, 0x74446553u);
       if ( !v17 )
       {
 LABEL_20:

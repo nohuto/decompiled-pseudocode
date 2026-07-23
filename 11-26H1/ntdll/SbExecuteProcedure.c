@@ -1,15 +1,15 @@
 /*
- * XREFs of SbExecuteProcedure @ 0x1801595B0
+ * XREFs of SbExecuteProcedure @ 0x180159480
  * Callers:
  *     <none>
  * Callees:
- *     SbSelectProcedure @ 0x1800631F0 (SbSelectProcedure.c)
+ *     SbSelectProcedure @ 0x180083640 (SbSelectProcedure.c)
  */
 
 __int64 (__fastcall *__fastcall SbExecuteProcedure(
         __int64 a1,
         unsigned int a2,
-        signed __int64 a3,
+        ULONGLONG a3,
         unsigned int a4,
         __int64 a5))(__int64)
 {

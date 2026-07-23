@@ -12,21 +12,21 @@
  *     RtlAcquireSRWLockExclusive @ 0x180028EC0 (RtlAcquireSRWLockExclusive.c)
  */
 
-__int64 __fastcall sub_180013D14(_QWORD *a1)
+void __fastcall sub_180013D14(__int64 a1)
 {
-  __int64 v2; // rbx
-  _QWORD *v3; // rax
-  _QWORD *v4; // rdx
+  _RTL_SRWLOCK *v2; // rbx
+  _RTL_SRWLOCK *v3; // rax
+  _RTL_SRWLOCK **Ptr; // rdx
 
-  v2 = a1[2];
-  RtlAcquireSRWLockExclusive(v2 + 8);
-  v3 = a1 + 5;
-  v4 = *(_QWORD **)(v2 + 24);
-  if ( *v4 != v2 + 16 )
+  v2 = *(_RTL_SRWLOCK **)(a1 + 16);
+  RtlAcquireSRWLockExclusive(v2 + 1);
+  v3 = (_RTL_SRWLOCK *)(a1 + 40);
+  Ptr = (_RTL_SRWLOCK **)v2[3].Ptr;
+  if ( *Ptr != &v2[2] )
     __fastfail(3u);
-  *v3 = v2 + 16;
-  a1[6] = v4;
-  *v4 = v3;
-  *(_QWORD *)(v2 + 24) = v3;
-  return RtlReleaseSRWLockExclusive(v2 + 8);
+  v3->Ptr = &v2[2];
+  *(_QWORD *)(a1 + 48) = Ptr;
+  *Ptr = v3;
+  v2[3].Ptr = v3;
+  RtlReleaseSRWLockExclusive(v2 + 1);
 }

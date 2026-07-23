@@ -1,39 +1,39 @@
 /*
- * XREFs of NtWriteFileGather @ 0x140B01BE0
+ * XREFs of NtWriteFileGather @ 0x140B03910
  * Callers:
- *     DifNtWriteFileGatherWrapper @ 0x140691980 (DifNtWriteFileGatherWrapper.c)
+ *     DifNtWriteFileGatherWrapper @ 0x140695560 (DifNtWriteFileGatherWrapper.c)
  * Callees:
- *     IopReferenceFileObject @ 0x140264F80 (IopReferenceFileObject.c)
- *     IopWriteFileGather @ 0x140B01CE0 (IopWriteFileGather.c)
+ *     IopReferenceFileObject @ 0x1402644F0 (IopReferenceFileObject.c)
+ *     IopWriteFileGather @ 0x140B03A10 (IopWriteFileGather.c)
  */
 
-__int64 __fastcall NtWriteFileGather(
-        void *a1,
-        __int64 a2,
-        __int64 a3,
-        __int64 a4,
-        __int64 a5,
-        volatile void *Address,
+NTSTATUS __cdecl NtWriteFileGather(
+        HANDLE FileHandle,
+        HANDLE Event,
+        PIO_APC_ROUTINE ApcRoutine,
+        PVOID ApcContext,
+        PIO_STATUS_BLOCK IoStatusBlock,
+        PFILE_SEGMENT_ELEMENT SegmentArray,
         ULONG Length,
-        __int64 a8,
-        __int64 a9)
+        PLARGE_INTEGER ByteOffset,
+        PULONG Key)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
   struct _OBJECT_HANDLE_INFORMATION v10; // [rsp+70h] [rbp-18h] BYREF
   ULONG_PTR BugCheckParameter2; // [rsp+78h] [rbp-10h] BYREF
 
   BugCheckParameter2 = 0LL;
   v10 = 0LL;
-  result = IopReferenceFileObject(a1, 0, KeGetCurrentThread()->PreviousMode, &BugCheckParameter2, &v10);
-  if ( (int)result >= 0 )
+  result = IopReferenceFileObject(FileHandle, 0, KeGetCurrentThread()->PreviousMode, &BugCheckParameter2, &v10);
+  if ( result >= 0 )
     return IopWriteFileGather(
              BugCheckParameter2,
-             a5,
+             (__int64)IoStatusBlock,
              (Length >> 12) + ((Length & 0xFFF) != 0),
-             Address,
+             SegmentArray,
              Length,
-             a8,
-             a9,
+             (__int64)ByteOffset,
+             (__int64)Key,
              v10.GrantedAccess,
              0LL,
              0LL,

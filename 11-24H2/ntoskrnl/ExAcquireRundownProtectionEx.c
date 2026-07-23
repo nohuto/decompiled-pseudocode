@@ -1,11 +1,11 @@
 /*
- * XREFs of ExAcquireRundownProtectionEx @ 0x1402C9E60
+ * XREFs of ExAcquireRundownProtectionEx @ 0x14040EC70
  * Callers:
- *     ExReferenceCallBackBlock @ 0x140279300 (ExReferenceCallBackBlock.c)
- *     ExCompareExchangeCallBack @ 0x1402C9C50 (ExCompareExchangeCallBack.c)
- *     PfSnAddProcessTrace @ 0x1402C9DE4 (PfSnAddProcessTrace.c)
- *     SmHwAcceleratorParitionCtxCreate @ 0x14079C8D8 (SmHwAcceleratorParitionCtxCreate.c)
- *     PspRundownProcess @ 0x1409EB058 (PspRundownProcess.c)
+ *     ExReferenceCallBackBlock @ 0x14022E890 (ExReferenceCallBackBlock.c)
+ *     ExCompareExchangeCallBack @ 0x14040EA64 (ExCompareExchangeCallBack.c)
+ *     PfSnAddProcessTrace @ 0x14040EBF8 (PfSnAddProcessTrace.c)
+ *     SmHwAcceleratorParitionCtxCreate @ 0x14079C9E8 (SmHwAcceleratorParitionCtxCreate.c)
+ *     PspRundownProcess @ 0x1409E5948 (PspRundownProcess.c)
  * Callees:
  *     <none>
  */

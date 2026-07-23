@@ -1,14 +1,14 @@
 /*
- * XREFs of XmGroup45General @ 0x1404A7EB0
+ * XREFs of XmGroup45General @ 0x1404A1540
  * Callers:
  *     <none>
  * Callees:
- *     XmEvaluateAddressSpecifier @ 0x1404A8658 (XmEvaluateAddressSpecifier.c)
- *     XmSetDataType @ 0x1404A8920 (XmSetDataType.c)
- *     XmSetDestinationValue @ 0x1404A8950 (XmSetDestinationValue.c)
- *     XmSetSourceValue @ 0x1404A8BDC (XmSetSourceValue.c)
- *     longjmp @ 0x140533940 (longjmp.c)
- *     XmGetOffsetAddress @ 0x1405AE960 (XmGetOffsetAddress.c)
+ *     XmEvaluateAddressSpecifier @ 0x1404A1CE8 (XmEvaluateAddressSpecifier.c)
+ *     XmSetDataType @ 0x1404A1FB0 (XmSetDataType.c)
+ *     XmSetDestinationValue @ 0x1404A1FE0 (XmSetDestinationValue.c)
+ *     XmSetSourceValue @ 0x1404A226C (XmSetSourceValue.c)
+ *     longjmp @ 0x140535DC0 (longjmp.c)
+ *     XmGetOffsetAddress @ 0x1405B1170 (XmGetOffsetAddress.c)
  */
 
 __int64 __fastcall XmGroup45General(__int64 a1)

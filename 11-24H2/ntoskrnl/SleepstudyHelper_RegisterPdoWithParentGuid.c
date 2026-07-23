@@ -1,44 +1,46 @@
 /*
- * XREFs of SleepstudyHelper_RegisterPdoWithParentGuid @ 0x140767990
+ * XREFs of SleepstudyHelper_RegisterPdoWithParentGuid @ 0x140767BC0
  * Callers:
  *     <none>
  * Callees:
- *     SleepstudyHelperDestroyBlocker @ 0x14047C6C0 (SleepstudyHelperDestroyBlocker.c)
- *     Feature_SPR_HardenInClient__private_IsEnabledDeviceUsageNoInline @ 0x1405E45D8 (Feature_SPR_HardenInClient__private_IsEnabledDeviceUsageNoInline.c)
- *     SleepstudyHelperCreateBlockerFromDevice @ 0x140A24A50 (SleepstudyHelperCreateBlockerFromDevice.c)
- *     SleepstudyHelperBuildBlocker @ 0x140A24F30 (SleepstudyHelperBuildBlocker.c)
- *     SleepstudyHelperDestroyBlockerBuilder @ 0x140A252E0 (SleepstudyHelperDestroyBlockerBuilder.c)
+ *     SleepstudyHelperDestroyBlocker @ 0x1404778D0 (SleepstudyHelperDestroyBlocker.c)
+ *     SleepstudyHelperCreateBlockerFromDevice @ 0x140A18A40 (SleepstudyHelperCreateBlockerFromDevice.c)
+ *     SleepstudyHelperBuildBlocker @ 0x140A18F20 (SleepstudyHelperBuildBlocker.c)
+ *     SleepstudyHelperDestroyBlockerBuilder @ 0x140A192D0 (SleepstudyHelperDestroyBlockerBuilder.c)
  */
 
-__int64 __fastcall SleepstudyHelper_RegisterPdoWithParentGuid(__int64 a1, __int128 *a2, __int64 a3, KSPIN_LOCK **a4)
+__int64 __fastcall SleepstudyHelper_RegisterPdoWithParentGuid(__int64 a1, __int128 *a2, __int64 a3, _QWORD *a4)
 {
   KSPIN_LOCK *v4; // rsi
   __int64 v5; // rdi
   int v7; // eax
   int v8; // ebx
-  __int64 v10; // [rsp+20h] [rbp-28h] BYREF
-  __int128 v11; // [rsp+28h] [rbp-20h] BYREF
-  KSPIN_LOCK *v12; // [rsp+50h] [rbp+8h] BYREF
+  void *v9; // rax
+  __int64 v11; // [rsp+20h] [rbp-28h] BYREF
+  __int128 v12; // [rsp+28h] [rbp-20h] BYREF
+  void *v13; // [rsp+50h] [rbp+8h] BYREF
 
   v4 = 0LL;
   v5 = 0LL;
-  v12 = 0LL;
-  v10 = 0LL;
+  v13 = 0LL;
+  v11 = 0LL;
   if ( a1 && a3 && a4 )
   {
-    v11 = *a2;
-    v7 = SleepstudyHelperCreateBlockerFromDevice(a1, &v11, a3, &v10);
-    v5 = v10;
+    v12 = *a2;
+    v7 = SleepstudyHelperCreateBlockerFromDevice(a1, &v12, a3, &v11);
+    v5 = v11;
     v8 = v7;
     if ( v7 >= 0 )
     {
-      v8 = SleepstudyHelperBuildBlocker(v10, &v12);
+      v8 = SleepstudyHelperBuildBlocker(v11, &v13);
       if ( v8 >= 0 )
       {
-        *a4 = v12;
-        goto LABEL_13;
+        v9 = v13;
+LABEL_15:
+        *a4 = v9;
+        return (unsigned int)v8;
       }
-      v4 = v12;
+      v4 = (KSPIN_LOCK *)v13;
     }
   }
   else
@@ -49,11 +51,11 @@ __int64 __fastcall SleepstudyHelper_RegisterPdoWithParentGuid(__int64 a1, __int1
     SleepstudyHelperDestroyBlockerBuilder(v5);
   if ( v4 )
     SleepstudyHelperDestroyBlocker(v4);
-LABEL_13:
-  if ( (unsigned int)Feature_SPR_HardenInClient__private_IsEnabledDeviceUsageNoInline() && v8 == -1073741637 )
+  if ( v8 == -1073741637 )
   {
+    v9 = &SleepstudyHelperUnsupportedHandle;
     v8 = 0;
-    *a4 = (KSPIN_LOCK *)&SleepstudyHelperUnsupportedHandle;
+    goto LABEL_15;
   }
   return (unsigned int)v8;
 }

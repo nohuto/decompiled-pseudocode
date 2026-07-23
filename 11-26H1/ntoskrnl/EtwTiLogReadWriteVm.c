@@ -1,22 +1,22 @@
 /*
- * XREFs of EtwTiLogReadWriteVm @ 0x140A22020
+ * XREFs of EtwTiLogReadWriteVm @ 0x140A2B640
  * Callers:
- *     MiReadWriteVirtualMemory @ 0x140A21D00 (MiReadWriteVirtualMemory.c)
+ *     MiReadWriteVirtualMemory @ 0x140A2B320 (MiReadWriteVirtualMemory.c)
  * Callees:
- *     EtwEventEnabled @ 0x140212D90 (EtwEventEnabled.c)
- *     EtwWrite @ 0x140212EF0 (EtwWrite.c)
- *     KiUnstackDetachProcess @ 0x1402307C0 (KiUnstackDetachProcess.c)
- *     KiStackAttachProcess @ 0x140247880 (KiStackAttachProcess.c)
- *     EtwProviderEnabled @ 0x1402563E0 (EtwProviderEnabled.c)
- *     EtwpTiFillProcessIdentity @ 0x140257DB0 (EtwpTiFillProcessIdentity.c)
- *     EtwpTiFillZeroVad @ 0x140492140 (EtwpTiFillZeroVad.c)
- *     EtwpTiFillVad @ 0x1404921A8 (EtwpTiFillVad.c)
- *     EtwpTiFillThreadIdentity @ 0x1404A21B8 (EtwpTiFillThreadIdentity.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     ZwQueryVirtualMemory @ 0x140723850 (ZwQueryVirtualMemory.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     EtwEventEnabled @ 0x140212E70 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x140212FD0 (EtwWrite.c)
+ *     KiUnstackDetachProcess @ 0x140232120 (KiUnstackDetachProcess.c)
+ *     KiStackAttachProcess @ 0x1402491E0 (KiStackAttachProcess.c)
+ *     EtwProviderEnabled @ 0x140257D70 (EtwProviderEnabled.c)
+ *     EtwpTiFillProcessIdentity @ 0x140259590 (EtwpTiFillProcessIdentity.c)
+ *     EtwpTiFillZeroVad @ 0x14048BC90 (EtwpTiFillZeroVad.c)
+ *     EtwpTiFillVad @ 0x14048BCF8 (EtwpTiFillVad.c)
+ *     EtwpTiFillThreadIdentity @ 0x14049BCE8 (EtwpTiFillThreadIdentity.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     ZwQueryVirtualMemory @ 0x140728420 (ZwQueryVirtualMemory.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __fastcall EtwTiLogReadWriteVm(int a1, __int64 a2, _KPROCESS *a3, int a4, PVOID BaseAddress, char a6)
@@ -59,7 +59,7 @@ void __fastcall EtwTiLogReadWriteVm(int a1, __int64 a2, _KPROCESS *a3, int a4, P
     v10 = 196608LL;
     if ( a4 != 16 )
       v10 = 786432LL;
-    if ( EtwProviderEnabled(*(REGHANDLE *)&EtwpSecurityLock.AbWaitEntryCount, 0, v10) )
+    if ( EtwProviderEnabled(EtwThreatIntProvRegHandle, 0, v10) )
     {
       if ( (_KPROCESS *)a2 == a3 )
       {
@@ -72,13 +72,13 @@ void __fastcall EtwTiLogReadWriteVm(int a1, __int64 a2, _KPROCESS *a3, int a4, P
         v11 = 0x100000000LL;
         if ( a4 != 16 )
           v11 = 0x200000000LL;
-        v12 = EtwProviderEnabled(*(REGHANDLE *)&EtwpSecurityLock.AbWaitEntryCount, 0, v11);
+        v12 = EtwProviderEnabled(EtwThreatIntProvRegHandle, 0, v11);
         v13 = THREATINT_READVM_REMOTE;
         v14 = (__int64 *)&THREATINT_WRITEVM_REMOTE;
       }
       if ( a4 != 16 )
         v13 = v14;
-      if ( EtwEventEnabled(*(REGHANDLE *)&EtwpSecurityLock.AbWaitEntryCount, (PCEVENT_DESCRIPTOR)v13) )
+      if ( EtwEventEnabled(EtwThreatIntProvRegHandle, (PCEVENT_DESCRIPTOR)v13) )
       {
         if ( v12 )
         {
@@ -96,7 +96,7 @@ void __fastcall EtwTiLogReadWriteVm(int a1, __int64 a2, _KPROCESS *a3, int a4, P
           VirtualMemory = ZwQueryVirtualMemory(
                             (HANDLE)0xFFFFFFFFFFFFFFFFLL,
                             v15,
-                            (MEMORY_INFORMATION_CLASS)3,
+                            MemoryRegionInformation,
                             MemoryInformation,
                             0x30uLL,
                             0LL);
@@ -110,7 +110,7 @@ void __fastcall EtwTiLogReadWriteVm(int a1, __int64 a2, _KPROCESS *a3, int a4, P
               if ( ZwQueryVirtualMemory(
                      (HANDLE)0xFFFFFFFFFFFFFFFFLL,
                      v15,
-                     (MEMORY_INFORMATION_CLASS)2,
+                     MemoryMappedFilenameInformation,
                      Pool2,
                      0x200uLL,
                      0LL) < 0 )
@@ -141,7 +141,7 @@ void __fastcall EtwTiLogReadWriteVm(int a1, __int64 a2, _KPROCESS *a3, int a4, P
           v27 = EtwpTiFillVad((__int64)(&UserData + v26), (__int64)&VirtualMemory);
         else
           v27 = EtwpTiFillZeroVad(&UserData.Ptr + 2 * v26);
-        EtwWrite(*(REGHANDLE *)&EtwpSecurityLock.AbWaitEntryCount, (PCEVENT_DESCRIPTOR)v13, 0LL, v27 + v28, &UserData);
+        EtwWrite(EtwThreatIntProvRegHandle, (PCEVENT_DESCRIPTOR)v13, 0LL, v27 + v28, &UserData);
         if ( v9 )
         {
           if ( P )

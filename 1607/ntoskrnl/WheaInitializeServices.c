@@ -12,7 +12,7 @@ __int64 *WheaInitializeServices()
   __int64 v1; // rcx
   signed __int32 v3[10]; // [rsp+0h] [rbp-28h] BYREF
 
-  v0 = (__int64 (**)())&unk_1403415F8;
+  v0 = (__int64 (**)())&unk_140341638;
   v1 = 14LL;
   do
   {
@@ -26,7 +26,7 @@ __int64 *WheaInitializeServices()
   }
   while ( v1 );
   WheapDispatchPtr.DeviceLock.Header.WaitListHead.Flink = 0LL;
-  qword_140341898 = (__int64)&WheapPfaList;
+  qword_1403418D8 = (__int64)&WheapPfaList;
   WheapPfaList = &WheapPfaList;
   WheapPfaLock = 0LL;
   _InterlockedOr(v3, 0);

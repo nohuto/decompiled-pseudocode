@@ -1,9 +1,9 @@
 /*
- * XREFs of DmrpRmrrTreeAddRegionToDevice @ 0x140579B4C
+ * XREFs of DmrpRmrrTreeAddRegionToDevice @ 0x140576FDC
  * Callers:
- *     DmrEnumerateRmrrDomains @ 0x1405798D0 (DmrEnumerateRmrrDomains.c)
+ *     DmrEnumerateRmrrDomains @ 0x140576D60 (DmrEnumerateRmrrDomains.c)
  * Callees:
- *     ExtEnvAllocateMemory @ 0x14055FA30 (ExtEnvAllocateMemory.c)
+ *     ExtEnvAllocateMemory @ 0x14055D660 (ExtEnvAllocateMemory.c)
  */
 
 __int64 __fastcall DmrpRmrrTreeAddRegionToDevice(__int64 a1, __int64 a2, __int64 a3)

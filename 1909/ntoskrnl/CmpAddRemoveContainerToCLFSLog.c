@@ -33,8 +33,8 @@ __int64 __fastcall CmpAddRemoveContainerToCLFSLog(
   BOOLEAN v12; // bl
   UNICODE_STRING Destination; // [rsp+20h] [rbp-89h] BYREF
   UNICODE_STRING DestinationString; // [rsp+30h] [rbp-79h] BYREF
-  STRING SourceString; // [rsp+40h] [rbp-69h] BYREF
-  struct _SE_IMPERSONATION_STATE ImpersonationState; // [rsp+50h] [rbp-59h] BYREF
+  _STRING SourceString; // [rsp+40h] [rbp-69h] BYREF
+  _SE_IMPERSONATION_STATE ImpersonationState; // [rsp+50h] [rbp-59h] BYREF
   struct _KAPC_STATE ApcState; // [rsp+60h] [rbp-49h] BYREF
   char DstBuf[16]; // [rsp+90h] [rbp-19h] BYREF
 

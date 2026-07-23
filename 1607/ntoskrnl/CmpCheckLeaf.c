@@ -1,18 +1,18 @@
 /*
- * XREFs of CmpCheckLeaf @ 0x14043FDC0
+ * XREFs of CmpCheckLeaf @ 0x14043EC90
  * Callers:
- *     CmpCheckKey @ 0x14043D610 (CmpCheckKey.c)
+ *     CmpCheckKey @ 0x14043C4E0 (CmpCheckKey.c)
  * Callees:
- *     HvpReleaseHCell @ 0x14002D330 (HvpReleaseHCell.c)
- *     HvpGetCellContextReinitialize @ 0x14002D3E8 (HvpGetCellContextReinitialize.c)
- *     HvpMapEntryReleaseBinAddress @ 0x14002D400 (HvpMapEntryReleaseBinAddress.c)
- *     HvpMapEntryGetBinAddress @ 0x14002D660 (HvpMapEntryGetBinAddress.c)
- *     HvpMapEntryIsDiscardable @ 0x14002D6D0 (HvpMapEntryIsDiscardable.c)
- *     HvpGetBinContextInitialize @ 0x14002D780 (HvpGetBinContextInitialize.c)
- *     SetFailureLocation @ 0x1401B2AF8 (SetFailureLocation.c)
- *     CmpHashUnicodeComponent @ 0x1404B1340 (CmpHashUnicodeComponent.c)
- *     RtlUpcaseUnicodeChar @ 0x1405132D0 (RtlUpcaseUnicodeChar.c)
- *     HvpMarkCellDirty @ 0x1405136F0 (HvpMarkCellDirty.c)
+ *     HvpReleaseHCell @ 0x14002CEB0 (HvpReleaseHCell.c)
+ *     HvpGetCellContextReinitialize @ 0x14002CF68 (HvpGetCellContextReinitialize.c)
+ *     HvpMapEntryReleaseBinAddress @ 0x14002CF80 (HvpMapEntryReleaseBinAddress.c)
+ *     HvpMapEntryGetBinAddress @ 0x14002D1E0 (HvpMapEntryGetBinAddress.c)
+ *     HvpMapEntryIsDiscardable @ 0x14002D250 (HvpMapEntryIsDiscardable.c)
+ *     HvpGetBinContextInitialize @ 0x14002D300 (HvpGetBinContextInitialize.c)
+ *     SetFailureLocation @ 0x1401B29DC (SetFailureLocation.c)
+ *     CmpHashUnicodeComponent @ 0x14049B720 (CmpHashUnicodeComponent.c)
+ *     RtlUpcaseUnicodeChar @ 0x1404F66C0 (RtlUpcaseUnicodeChar.c)
+ *     HvpMarkCellDirty @ 0x1404F6AE0 (HvpMarkCellDirty.c)
  */
 
 __int64 __fastcall CmpCheckLeaf(ULONG_PTR BugCheckParameter2, int a2, _WORD *a3, int a4)

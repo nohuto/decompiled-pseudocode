@@ -1,9 +1,9 @@
 /*
- * XREFs of MiRecheckVpabAccessedVa @ 0x14046455C
+ * XREFs of MiRecheckVpabAccessedVa @ 0x14045D51C
  * Callers:
- *     MiProcessVpabAccessedInfo @ 0x1404644BC (MiProcessVpabAccessedInfo.c)
+ *     MiProcessVpabAccessedInfo @ 0x14045D47C (MiProcessVpabAccessedInfo.c)
  * Callees:
- *     MiPteHasShadow @ 0x1403011E0 (MiPteHasShadow.c)
+ *     MiPteHasShadow @ 0x1402E3260 (MiPteHasShadow.c)
  */
 
 unsigned __int64 __fastcall MiRecheckVpabAccessedVa(__int64 a1, unsigned __int64 a2)

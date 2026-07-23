@@ -16,53 +16,90 @@
  *     RtlpHeapTrkGenerateHashRandoms @ 0x4B36481D (RtlpHeapTrkGenerateHashRandoms.c)
  */
 
-int __stdcall RtlHeapTrkInitialize(void *a1)
+NTSTATUS __stdcall RtlHeapTrkInitialize(HANDLE SectionHandle)
 {
-  int result; // eax
-  int *Heap; // eax
-  int v3; // eax
+  NTSTATUS result; // eax
+  PVOID Heap; // eax
+  _DWORD *v3; // eax
   _DWORD *v4; // ecx
   int v5; // edx
   int v6; // esi
-  _DWORD (__stdcall *v7)(_DWORD, _DWORD, _DWORD, _DWORD); // [esp+Ch] [ebp-38h] BYREF
-  __int16 v8; // [esp+10h] [ebp-34h]
-  int v9; // [esp+12h] [ebp-32h]
-  int v10; // [esp+16h] [ebp-2Eh]
-  int v11; // [esp+1Ah] [ebp-2Ah]
-  int v12; // [esp+1Eh] [ebp-26h]
-  __int16 v13; // [esp+22h] [ebp-22h]
-  int (__stdcall *v14)(int, int, int, int, int, int); // [esp+24h] [ebp-20h]
-  _BYTE v15[8]; // [esp+28h] [ebp-1Ch] BYREF
-  _DWORD v16[2]; // [esp+30h] [ebp-14h] BYREF
-  int v17; // [esp+38h] [ebp-Ch] BYREF
-  int v18; // [esp+3Ch] [ebp-8h] BYREF
-  _DWORD *v19; // [esp+40h] [ebp-4h] BYREF
+  SIZE_T v7; // [esp-14h] [ebp-58h]
+  SIZE_T v8; // [esp-4h] [ebp-48h]
+  SIZE_T v9; // [esp-4h] [ebp-48h]
+  SIZE_T v10; // [esp-4h] [ebp-48h]
+  ULONG v11; // [esp+0h] [ebp-44h]
+  void *v12; // [esp+0h] [ebp-44h]
+  ULONG v13; // [esp+4h] [ebp-40h]
+  void *v14; // [esp+4h] [ebp-40h]
+  _DWORD (__stdcall *v15)(_DWORD, _DWORD, _DWORD, _DWORD); // [esp+Ch] [ebp-38h] BYREF
+  __int16 v16; // [esp+10h] [ebp-34h]
+  int v17; // [esp+12h] [ebp-32h]
+  int v18; // [esp+16h] [ebp-2Eh]
+  int v19; // [esp+1Ah] [ebp-2Ah]
+  int v20; // [esp+1Eh] [ebp-26h]
+  __int16 v21; // [esp+22h] [ebp-22h]
+  void *v22; // [esp+24h] [ebp-20h]
+  LARGE_INTEGER PerformanceCounter; // [esp+28h] [ebp-1Ch] BYREF
+  SIZE_T CommitSize; // [esp+30h] [ebp-14h] BYREF
+  int HeapInformation; // [esp+38h] [ebp-Ch] BYREF
+  int v26; // [esp+3Ch] [ebp-8h] BYREF
+  PVOID BaseAddress; // [esp+40h] [ebp-4h] BYREF
 
-  v18 = 0x10000;
-  v19 = 0;
-  v16[0] = 0;
-  v16[1] = 0;
-  if ( Handle )
+  v26 = 0x10000;
+  BaseAddress = 0;
+  CommitSize = 0LL;
+  if ( ::SectionHandle )
     return -1073741823;
-  if ( !a1 || ZwMapViewOfSection((int)a1, -1, (int)&v19, 0, 0, (int)v16, (int)&v18, 1, 0, 4) < 0 )
+  if ( !SectionHandle )
     return -1073741811;
-  if ( *v19 < 0x400u )
+  HIDWORD(v7) = &v26;
+  LODWORD(v7) = &CommitSize;
+  if ( ZwMapViewOfSection(
+         SectionHandle,
+         (HANDLE)0xFFFFFFFF,
+         &BaseAddress,
+         0LL,
+         v7,
+         (PLARGE_INTEGER)1,
+         0,
+         (SECTION_INHERIT)4,
+         v11,
+         v13) < 0 )
+    return -1073741811;
+  if ( *(_DWORD *)BaseAddress < 0x400u )
     return -1073741789;
-  if ( v19[7] > 0x40u || v19[8] > 2u || !v19[1] || v19[1] == -1 || !v19[2] || v19[2] == -1 || !v19[3] || v19[3] == -1 )
+  if ( *((_DWORD *)BaseAddress + 7) > 0x40u
+    || *((_DWORD *)BaseAddress + 8) > 2u
+    || !*((_DWORD *)BaseAddress + 1)
+    || *((_DWORD *)BaseAddress + 1) == -1
+    || !*((_DWORD *)BaseAddress + 2)
+    || *((_DWORD *)BaseAddress + 2) == -1
+    || !*((_DWORD *)BaseAddress + 3)
+    || *((_DWORD *)BaseAddress + 3) == -1 )
+  {
     return -1073741811;
-  result = NtQueryPerformanceCounter((int)v15, (int)&qword_4B3A6950);
+  }
+  result = NtQueryPerformanceCounter(&PerformanceCounter, &PerformanceFrequency);
   if ( result >= 0 )
   {
-    if ( qword_4B3A6950 )
+    if ( PerformanceFrequency.QuadPart )
     {
-      dword_4B3A6C60 = v19[8];
+      dword_4B3A6C60 = *((_DWORD *)BaseAddress + 8);
       RtlpHeapTrkGenerateHashRandoms();
-      Heap = RtlCreateHeap(v19[7] != 0 ? 0 : 2, 0, (_DWORD *)(v19[7] << 20), 0, 0, 0);
-      dword_4B3A6D94 = (int)Heap;
+      Heap = RtlCreateHeap(
+               *((_DWORD *)BaseAddress + 7) != 0 ? 0 : 2,
+               0,
+               (unsigned int)(*((_DWORD *)BaseAddress + 7) << 20),
+               0LL,
+               v12,
+               v14);
+      HeapHandle = Heap;
       if ( Heap )
       {
-        v17 = 2;
-        RtlSetHeapInformation(Heap, 0, (int)&v17, 4u);
+        LODWORD(v8) = 4;
+        HeapInformation = 2;
+        RtlSetHeapInformation(Heap, HeapCompatibilityInformation, &HeapInformation, v8);
         dword_4B3A6D8C = NtCurrentPeb()->NumberOfProcessors;
         if ( (unsigned __int8)RtlpHeapTrkAllocCacheAligned(32, dword_4B3A6D8C) )
         {
@@ -70,16 +107,18 @@ int __stdcall RtlHeapTrkInitialize(void *a1)
           {
             if ( (unsigned __int8)RtlpHeapTrkAllocCacheAligned(4, 16) )
             {
-              dword_4B3A6C54 = RtlAllocateHeap(dword_4B3A6D94, 0, 63352);
+              LODWORD(v9) = 63352;
+              dword_4B3A6C54 = (int)RtlAllocateHeap(HeapHandle, 0, v9);
               if ( dword_4B3A6C54 )
               {
-                v3 = RtlAllocateHeap(dword_4B3A6D94, 0, 63352);
-                v4 = (_DWORD *)v3;
-                dword_4B3A6C5C = v3;
+                LODWORD(v10) = 63352;
+                v3 = RtlAllocateHeap(HeapHandle, 0, v10);
+                v4 = v3;
+                dword_4B3A6C5C = (int)v3;
                 if ( v3 )
                 {
-                  Handle = a1;
-                  v5 = dword_4B3A6C54 - v3;
+                  ::SectionHandle = SectionHandle;
+                  v5 = dword_4B3A6C54 - (_DWORD)v3;
                   dword_4B3A6C58 = 0;
                   v6 = 7919;
                   do
@@ -92,17 +131,17 @@ int __stdcall RtlHeapTrkInitialize(void *a1)
                     --v6;
                   }
                   while ( v6 );
-                  v9 = 0;
-                  v10 = 0;
-                  v11 = 0;
-                  v12 = 0;
-                  v13 = 0;
-                  v7 = RtlpHeapTrkInterceptor;
-                  v8 = 0;
-                  v14 = RtlpHeapTrkLeakCallback;
-                  if ( RtlSetHeapDebuggingInformation(0, &v7) >= 0 )
+                  v17 = 0;
+                  v18 = 0;
+                  v19 = 0;
+                  v20 = 0;
+                  v21 = 0;
+                  v15 = RtlpHeapTrkInterceptor;
+                  v16 = 0;
+                  v22 = &RtlpHeapTrkLeakCallback;
+                  if ( RtlSetHeapDebuggingInformation(0, &v15) >= 0 )
                   {
-                    NtUnmapViewOfSection(-1, (int)v19);
+                    NtUnmapViewOfSection((HANDLE)0xFFFFFFFF, BaseAddress);
                     return 0;
                   }
                 }
@@ -110,8 +149,8 @@ int __stdcall RtlHeapTrkInitialize(void *a1)
             }
           }
         }
-        RtlDestroyHeap(dword_4B3A6D94);
-        dword_4B3A6D94 = 0;
+        RtlDestroyHeap(HeapHandle);
+        HeapHandle = 0;
         dword_4B3A6D9C = 0;
         dword_4B3A6C54 = 0;
         dword_4B3A6D84 = 0;
@@ -119,12 +158,12 @@ int __stdcall RtlHeapTrkInitialize(void *a1)
         dword_4B3A6C5C = 0;
         dword_4B3A6D90 = 0;
         dword_4B3A6D7C = 0;
-        if ( v19 )
-          NtUnmapViewOfSection(-1, (int)v19);
-        if ( Handle )
+        if ( BaseAddress )
+          NtUnmapViewOfSection((HANDLE)0xFFFFFFFF, BaseAddress);
+        if ( ::SectionHandle )
         {
-          NtClose(Handle);
-          Handle = 0;
+          NtClose(::SectionHandle);
+          ::SectionHandle = 0;
         }
       }
     }

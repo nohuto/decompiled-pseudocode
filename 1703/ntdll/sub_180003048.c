@@ -31,11 +31,11 @@ char *__fastcall sub_180003048(_WORD *Src)
     }
     if ( i >= 260 )
     {
-      RtlSetLastWin32Error(87LL);
+      RtlSetLastWin32Error(87);
     }
     else
     {
-      Heap = (char *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0LL, 2LL * (i + 1));
+      Heap = (char *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, 2LL * (i + 1));
       if ( Heap )
       {
         v5 = 2LL * i;

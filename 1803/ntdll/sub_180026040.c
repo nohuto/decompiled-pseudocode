@@ -16,7 +16,7 @@ __int64 __fastcall sub_180026040(__int64 a1)
   __int64 result; // rax
   int v3; // r8d
   int v4; // ett
-  _DWORD *HotpatchInformation; // rcx
+  PSILO_USER_SHARED_DATA SharedData; // rcx
   __int64 v6; // rcx
 
   sub_180055584(a1 + 56, 1LL);
@@ -35,10 +35,10 @@ __int64 __fastcall sub_180026040(__int64 a1)
   if ( v3 )
   {
     _InterlockedExchangeAdd((volatile signed __int32 *)a1, 2u);
-    *(_QWORD *)(a1 + 128) = NtCurrentTeb()->SystemReserved1[53];
-    HotpatchInformation = NtCurrentPeb()->HotpatchInformation;
-    if ( HotpatchInformation && *HotpatchInformation )
-      v6 = (__int64)NtCurrentPeb()->HotpatchInformation + 556;
+    *(_QWORD *)(a1 + 128) = *(_QWORD *)NtCurrentTeb()->WorkingOnBehalfTicket;
+    SharedData = NtCurrentPeb()->SharedData;
+    if ( SharedData && SharedData->ServiceSessionId )
+      v6 = (__int64)&NtCurrentPeb()->SharedData->UserModeGlobalLogger[3];
     else
       v6 = 2147353478LL;
     if ( *(_BYTE *)v6 )

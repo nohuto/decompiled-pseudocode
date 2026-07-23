@@ -1,19 +1,19 @@
 /*
- * XREFs of MmCreateShadowMapping @ 0x14065BC98
+ * XREFs of MmCreateShadowMapping @ 0x14065BD7C
  * Callers:
  *     KiShadowProcessorAllocation @ 0x1403DE0E8 (KiShadowProcessorAllocation.c)
  * Callees:
- *     MiGetPteAddress @ 0x14002BA64 (MiGetPteAddress.c)
- *     LOCK_ADDRESS_SPACE @ 0x14002C390 (LOCK_ADDRESS_SPACE.c)
- *     UNLOCK_ADDRESS_SPACE @ 0x14002CFD0 (UNLOCK_ADDRESS_SPACE.c)
- *     KeStackAttachProcess @ 0x1400CD110 (KeStackAttachProcess.c)
- *     KeUnstackDetachProcess @ 0x1400CD1BC (KeUnstackDetachProcess.c)
- *     MiPageTablesNeeded @ 0x140102518 (MiPageTablesNeeded.c)
- *     MiCleanupPageTablePages @ 0x140102760 (MiCleanupPageTablePages.c)
- *     MiGetPageTablePages @ 0x140102808 (MiGetPageTablePages.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     MiMakeShadowPageTableRange @ 0x14065BBBC (MiMakeShadowPageTableRange.c)
+ *     MiGetPteAddress @ 0x14002B5E4 (MiGetPteAddress.c)
+ *     LOCK_ADDRESS_SPACE @ 0x14002BF10 (LOCK_ADDRESS_SPACE.c)
+ *     UNLOCK_ADDRESS_SPACE @ 0x14002CB50 (UNLOCK_ADDRESS_SPACE.c)
+ *     KeStackAttachProcess @ 0x1400CAFB0 (KeStackAttachProcess.c)
+ *     KeUnstackDetachProcess @ 0x1400CB05C (KeUnstackDetachProcess.c)
+ *     MiPageTablesNeeded @ 0x140100298 (MiPageTablesNeeded.c)
+ *     MiCleanupPageTablePages @ 0x1401004E0 (MiCleanupPageTablePages.c)
+ *     MiGetPageTablePages @ 0x140100588 (MiGetPageTablePages.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     MiMakeShadowPageTableRange @ 0x14065BCA0 (MiMakeShadowPageTableRange.c)
  */
 
 __int64 __fastcall MmCreateShadowMapping(__int64 PteAddress, __int64 a2)

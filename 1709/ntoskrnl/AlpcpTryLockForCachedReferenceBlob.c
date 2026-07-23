@@ -11,7 +11,7 @@
 char __fastcall AlpcpTryLockForCachedReferenceBlob(ULONG_PTR BugCheckParameter2)
 {
   volatile signed __int32 *v1; // rdi
-  unsigned __int64 v3; // rax
+  PRTL_BALANCED_NODE v3; // rax
   signed __int64 BugCheckParameter4; // rax
 
   v1 = (volatile signed __int32 *)(BugCheckParameter2 - 16);
@@ -19,13 +19,13 @@ char __fastcall AlpcpTryLockForCachedReferenceBlob(ULONG_PTR BugCheckParameter2)
   if ( _interlockedbittestandset64(v1, 0LL) )
   {
     if ( v3 )
-      KeAbPostReleaseEx((ULONG_PTR)v1, v3);
+      KeAbPostReleaseEx((ULONG_PTR)v1, (unsigned __int64)v3);
     return 0;
   }
   else
   {
     if ( v3 )
-      *(_BYTE *)(v3 + 26) |= 1u;
+      BYTE2(v3[1].Left) |= 1u;
     *(_BYTE *)(BugCheckParameter2 - 32) |= 1u;
     BugCheckParameter4 = _InterlockedExchangeAdd64((volatile signed __int64 *)(BugCheckParameter2 - 24), 0x10000uLL)
                        + 0x10000;

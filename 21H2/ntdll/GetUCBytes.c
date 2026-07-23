@@ -1,10 +1,10 @@
 /*
- * XREFs of GetUCBytes @ 0x180107E14
+ * XREFs of GetUCBytes @ 0x180107DD4
  * Callers:
- *     RtlpLogHeapContractEvent @ 0x18010A038 (RtlpLogHeapContractEvent.c)
- *     RtlpLogHeapExtendEvent @ 0x18010A21C (RtlpLogHeapExtendEvent.c)
+ *     RtlpLogHeapContractEvent @ 0x180109FF8 (RtlpLogHeapContractEvent.c)
+ *     RtlpLogHeapExtendEvent @ 0x18010A1DC (RtlpLogHeapExtendEvent.c)
  * Callees:
- *     RtlpGetLowFragHeapMetadataSize @ 0x18010B9A0 (RtlpGetLowFragHeapMetadataSize.c)
+ *     RtlpGetLowFragHeapMetadataSize @ 0x18010B960 (RtlpGetLowFragHeapMetadataSize.c)
  */
 
 __int64 __fastcall GetUCBytes(__int64 a1, _QWORD *a2, _DWORD *a3)

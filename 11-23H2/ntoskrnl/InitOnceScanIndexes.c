@@ -1,19 +1,19 @@
 /*
- * XREFs of InitOnceScanIndexes @ 0x140756B00
+ * XREFs of InitOnceScanIndexes @ 0x140756CF0
  * Callers:
  *     <none>
  * Callees:
- *     memset @ 0x140435A00 (memset.c)
+ *     memset @ 0x140435E00 (memset.c)
  *     AslLogCallPrintf @ 0x1406956FC (AslLogCallPrintf.c)
- *     SdbReadDWORDTag @ 0x140755458 (SdbReadDWORDTag.c)
- *     SdbFindNextTag @ 0x140755BE8 (SdbFindNextTag.c)
- *     SdbReadWORDTag @ 0x140755C6C (SdbReadWORDTag.c)
- *     SdbGetFirstChild @ 0x140757944 (SdbGetFirstChild.c)
- *     SdbFindFirstTag @ 0x1407579A4 (SdbFindFirstTag.c)
- *     SdbGetTagFromTagID @ 0x140757C80 (SdbGetTagFromTagID.c)
+ *     SdbReadDWORDTag @ 0x140755648 (SdbReadDWORDTag.c)
+ *     SdbFindNextTag @ 0x140755DD8 (SdbFindNextTag.c)
+ *     SdbReadWORDTag @ 0x140755E5C (SdbReadWORDTag.c)
+ *     SdbGetFirstChild @ 0x140757B34 (SdbGetFirstChild.c)
+ *     SdbFindFirstTag @ 0x140757B94 (SdbFindFirstTag.c)
+ *     SdbGetTagFromTagID @ 0x140757E70 (SdbGetTagFromTagID.c)
  */
 
-__int64 __fastcall InitOnceScanIndexes(PRTL_RUN_ONCE RunOnce, _DWORD *Parameter, PVOID *Context)
+__int64 __fastcall InitOnceScanIndexes(PRTL_RUN_ONCE a1, _DWORD *a2, PVOID *a3)
 {
   unsigned int v3; // esi
   char *v6; // r12
@@ -28,41 +28,41 @@ __int64 __fastcall InitOnceScanIndexes(PRTL_RUN_ONCE RunOnce, _DWORD *Parameter,
   int v15; // eax
 
   v3 = 0;
-  if ( Parameter && Context )
+  if ( a2 && a3 )
   {
-    v6 = (char *)(Parameter + 12);
-    memset(Parameter + 12, 0, 0xA00uLL);
-    FirstChild = SdbGetFirstChild(Parameter, 0LL);
+    v6 = (char *)(a2 + 12);
+    memset(a2 + 12, 0, 0xA00uLL);
+    FirstChild = SdbGetFirstChild(a2, 0LL);
     v9 = FirstChild;
-    if ( FirstChild && (unsigned __int16)SdbGetTagFromTagID(Parameter, FirstChild, v8) == 30722 )
+    if ( FirstChild && (unsigned __int16)SdbGetTagFromTagID(a2, FirstChild, v8) == 30722 )
     {
-      Parameter[659] = 0;
-      for ( i = SdbFindFirstTag(Parameter, v9, 30723LL); ; i = SdbFindNextTag((__int64)Parameter, v9, v11) )
+      a2[659] = 0;
+      for ( i = SdbFindFirstTag(a2, v9, 30723LL); ; i = SdbFindNextTag((__int64)a2, v9, v11) )
       {
         v11 = i;
         if ( !i )
         {
-          *Context = v6;
+          *a3 = v6;
           return 1;
         }
-        if ( Parameter[659] == 64 )
+        if ( a2[659] == 64 )
           goto LABEL_20;
-        FirstTag = SdbFindFirstTag(Parameter, i, 14338LL);
+        FirstTag = SdbFindFirstTag(a2, i, 14338LL);
         if ( !FirstTag )
           goto LABEL_20;
-        LOWORD(Parameter[10 * Parameter[659] + 13]) = SdbReadWORDTag((__int64)Parameter, FirstTag, 0LL);
-        v13 = SdbFindFirstTag(Parameter, v11, 14339LL);
+        LOWORD(a2[10 * a2[659] + 13]) = SdbReadWORDTag((__int64)a2, FirstTag, 0LL);
+        v13 = SdbFindFirstTag(a2, v11, 14339LL);
         if ( !v13 )
           goto LABEL_20;
-        HIWORD(Parameter[10 * Parameter[659] + 13]) = SdbReadWORDTag((__int64)Parameter, v13, 0LL);
-        v14 = SdbFindFirstTag(Parameter, v11, 16406LL);
-        Parameter[10 * Parameter[659] + 20] = v14 ? SdbReadDWORDTag((__int64)Parameter, v14, 0LL) : 0;
-        v15 = SdbFindFirstTag(Parameter, v11, 38913LL);
+        HIWORD(a2[10 * a2[659] + 13]) = SdbReadWORDTag((__int64)a2, v13, 0LL);
+        v14 = SdbFindFirstTag(a2, v11, 16406LL);
+        a2[10 * a2[659] + 20] = v14 ? SdbReadDWORDTag((__int64)a2, v14, 0LL) : 0;
+        v15 = SdbFindFirstTag(a2, v11, 38913LL);
         if ( !v15 )
           break;
-        Parameter[10 * Parameter[659]++ + 12] = v15;
+        a2[10 * a2[659]++ + 12] = v15;
       }
-      LOWORD(Parameter[10 * Parameter[659] + 13]) = 0;
+      LOWORD(a2[10 * a2[659] + 13]) = 0;
     }
 LABEL_20:
     AslLogCallPrintf(1LL);

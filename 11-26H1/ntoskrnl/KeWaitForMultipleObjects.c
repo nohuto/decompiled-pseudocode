@@ -1,74 +1,74 @@
 /*
- * XREFs of KeWaitForMultipleObjects @ 0x140396440
+ * XREFs of KeWaitForMultipleObjects @ 0x1403981C0
  * Callers:
- *     ?SmStWorker@?$SMKM_STORE@USM_TRAITS@@@@SAXPEAX@Z @ 0x14020BDCC (-SmStWorker@-$SMKM_STORE@USM_TRAITS@@@@SAXPEAX@Z.c)
- *     ?SmCompressCtxWorkerThread@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAX@Z @ 0x14024BD00 (-SmCompressCtxWorkerThread@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAX@Z.c)
- *     MiAgingThread @ 0x1402A90D0 (MiAgingThread.c)
- *     MiThreadFaultClusterAgingThread @ 0x1402A96E0 (MiThreadFaultClusterAgingThread.c)
- *     CcQueueLazyWriteScanThreadForVolume @ 0x140387470 (CcQueueLazyWriteScanThreadForVolume.c)
- *     CcAsyncReadWorker @ 0x140388380 (CcAsyncReadWorker.c)
- *     ?SmStReadThread@?$SMKM_STORE@USM_TRAITS@@@@SAXPEAX@Z @ 0x140396030 (-SmStReadThread@-$SMKM_STORE@USM_TRAITS@@@@SAXPEAX@Z.c)
- *     PopFxProcessWorkPool @ 0x140396268 (PopFxProcessWorkPool.c)
- *     MmWaitMultipleForCacheManagerPrefetch @ 0x1403968FC (MmWaitMultipleForCacheManagerPrefetch.c)
- *     MiGetAsynchronousFlushEntry @ 0x1403C1A94 (MiGetAsynchronousFlushEntry.c)
- *     MiRebuildLargePagesThread @ 0x1403C7830 (MiRebuildLargePagesThread.c)
- *     MiWaitForFreePage @ 0x1403D1DB4 (MiWaitForFreePage.c)
- *     ?SmCompressCtxBalancerThread@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAX@Z @ 0x1403F51A0 (-SmCompressCtxBalancerThread@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAX@Z.c)
- *     MiModifiedWriterWaitForMdl @ 0x140406350 (MiModifiedWriterWaitForMdl.c)
- *     MiModifiedPageWriter @ 0x1404064D0 (MiModifiedPageWriter.c)
- *     MiMappedPageWriter @ 0x140496920 (MiMappedPageWriter.c)
- *     MiDereferenceSegmentThread @ 0x1404ACC30 (MiDereferenceSegmentThread.c)
- *     MiStoreEvictThread @ 0x1404B0390 (MiStoreEvictThread.c)
- *     MiIssueSegmentDereferenceWork @ 0x1404B07E0 (MiIssueSegmentDereferenceWork.c)
- *     PopSleepDeviceList @ 0x1404B98D0 (PopSleepDeviceList.c)
- *     CcAsyncLazywriteWorkerMulti @ 0x1404BB630 (CcAsyncLazywriteWorkerMulti.c)
- *     MiTrimmingThread @ 0x1404BDEE0 (MiTrimmingThread.c)
- *     DifKeWaitForMultipleObjectsWrapper @ 0x1404C11C0 (DifKeWaitForMultipleObjectsWrapper.c)
- *     MiWaitForAvailablePages @ 0x1404D6948 (MiWaitForAvailablePages.c)
- *     MiZeroThreadEnterWaitState @ 0x1404ECD84 (MiZeroThreadEnterWaitState.c)
- *     MiZeroNodeConductorWait @ 0x1404F82C8 (MiZeroNodeConductorWait.c)
- *     CcQueueLazyWriteScanThread @ 0x1405B0D70 (CcQueueLazyWriteScanThread.c)
- *     CmSiWaitForMultipleEvents @ 0x1406E30B4 (CmSiWaitForMultipleEvents.c)
- *     MiBalanceSetThread @ 0x1406F0500 (MiBalanceSetThread.c)
- *     MiZeroPageThread @ 0x14070F040 (MiZeroPageThread.c)
- *     PfGenerateTrace @ 0x1407794E8 (PfGenerateTrace.c)
- *     PsShutdownSystem @ 0x1407FA284 (PsShutdownSystem.c)
- *     EtwpCovSampCaptureWorkerThread @ 0x140830C70 (EtwpCovSampCaptureWorkerThread.c)
- *     PiUEventNotifyUserMode @ 0x1409DD808 (PiUEventNotifyUserMode.c)
- *     ExpWorkQueueManagerThread @ 0x140A039A0 (ExpWorkQueueManagerThread.c)
- *     PfTLoggingWorker @ 0x140A05840 (PfTLoggingWorker.c)
- *     EtwpLogger @ 0x140A13B90 (EtwpLogger.c)
- *     ObWaitForMultipleObjects @ 0x140A230B0 (ObWaitForMultipleObjects.c)
- *     PopThermalReadCounters @ 0x140A696F8 (PopThermalReadCounters.c)
- *     FsRtlCancellableWaitForMultipleObjects @ 0x140A6C380 (FsRtlCancellableWaitForMultipleObjects.c)
- *     CmpDoFileWrite @ 0x140AE6B08 (CmpDoFileWrite.c)
- *     CmpFinishSystemHivesLoad @ 0x140B4D840 (CmpFinishSystemHivesLoad.c)
- *     PnprQuiesceWorker @ 0x140BF2BF0 (PnprQuiesceWorker.c)
- *     MiZeroAllPageFiles @ 0x140C004A4 (MiZeroAllPageFiles.c)
- *     KiComputeDispatchInterruptCost @ 0x140CC90C0 (KiComputeDispatchInterruptCost.c)
+ *     ?SmStWorker@?$SMKM_STORE@USM_TRAITS@@@@SAXPEAX@Z @ 0x14020BEAC (-SmStWorker@-$SMKM_STORE@USM_TRAITS@@@@SAXPEAX@Z.c)
+ *     ?SmCompressCtxWorkerThread@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAX@Z @ 0x14024D660 (-SmCompressCtxWorkerThread@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAX@Z.c)
+ *     MiAgingThread @ 0x1402A84E0 (MiAgingThread.c)
+ *     MiThreadFaultClusterAgingThread @ 0x1402A8AF0 (MiThreadFaultClusterAgingThread.c)
+ *     CcQueueLazyWriteScanThreadForVolume @ 0x140389220 (CcQueueLazyWriteScanThreadForVolume.c)
+ *     CcAsyncReadWorker @ 0x14038A130 (CcAsyncReadWorker.c)
+ *     ?SmStReadThread@?$SMKM_STORE@USM_TRAITS@@@@SAXPEAX@Z @ 0x140397DB0 (-SmStReadThread@-$SMKM_STORE@USM_TRAITS@@@@SAXPEAX@Z.c)
+ *     PopFxProcessWorkPool @ 0x140397FE8 (PopFxProcessWorkPool.c)
+ *     MmWaitMultipleForCacheManagerPrefetch @ 0x14039867C (MmWaitMultipleForCacheManagerPrefetch.c)
+ *     MiGetAsynchronousFlushEntry @ 0x1403CB994 (MiGetAsynchronousFlushEntry.c)
+ *     MiRebuildLargePagesThread @ 0x1403D1720 (MiRebuildLargePagesThread.c)
+ *     MiWaitForFreePage @ 0x1403D4D84 (MiWaitForFreePage.c)
+ *     ?SmCompressCtxBalancerThread@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAX@Z @ 0x1403EEB50 (-SmCompressCtxBalancerThread@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAX@Z.c)
+ *     MiModifiedWriterWaitForMdl @ 0x1403FF444 (MiModifiedWriterWaitForMdl.c)
+ *     MiModifiedPageWriter @ 0x1403FF5C0 (MiModifiedPageWriter.c)
+ *     MiMappedPageWriter @ 0x140490470 (MiMappedPageWriter.c)
+ *     MiDereferenceSegmentThread @ 0x1404A62C0 (MiDereferenceSegmentThread.c)
+ *     MiStoreEvictThread @ 0x1404A9A20 (MiStoreEvictThread.c)
+ *     MiIssueSegmentDereferenceWork @ 0x1404A9E70 (MiIssueSegmentDereferenceWork.c)
+ *     PopSleepDeviceList @ 0x1404B3160 (PopSleepDeviceList.c)
+ *     CcAsyncLazywriteWorkerMulti @ 0x1404B4E10 (CcAsyncLazywriteWorkerMulti.c)
+ *     MiTrimmingThread @ 0x1404B7730 (MiTrimmingThread.c)
+ *     DifKeWaitForMultipleObjectsWrapper @ 0x1404BAA10 (DifKeWaitForMultipleObjectsWrapper.c)
+ *     MiWaitForAvailablePages @ 0x1404D0118 (MiWaitForAvailablePages.c)
+ *     MiZeroThreadEnterWaitState @ 0x1404E6364 (MiZeroThreadEnterWaitState.c)
+ *     MiZeroNodeConductorWait @ 0x1404F18D8 (MiZeroNodeConductorWait.c)
+ *     CcQueueLazyWriteScanThread @ 0x1405B3580 (CcQueueLazyWriteScanThread.c)
+ *     CmSiWaitForMultipleEvents @ 0x1406E7D60 (CmSiWaitForMultipleEvents.c)
+ *     MiBalanceSetThread @ 0x1406F5170 (MiBalanceSetThread.c)
+ *     MiZeroPageThread @ 0x140713D40 (MiZeroPageThread.c)
+ *     PfGenerateTrace @ 0x14077C418 (PfGenerateTrace.c)
+ *     PsShutdownSystem @ 0x1407FFCB4 (PsShutdownSystem.c)
+ *     EtwpCovSampCaptureWorkerThread @ 0x140836EB0 (EtwpCovSampCaptureWorkerThread.c)
+ *     PfTLoggingWorker @ 0x1409F1030 (PfTLoggingWorker.c)
+ *     EtwpLogger @ 0x140A12D80 (EtwpLogger.c)
+ *     PiUEventNotifyUserMode @ 0x140A1AAC0 (PiUEventNotifyUserMode.c)
+ *     ObWaitForMultipleObjects @ 0x140A2C6D0 (ObWaitForMultipleObjects.c)
+ *     PopThermalReadCounters @ 0x140A766C8 (PopThermalReadCounters.c)
+ *     ExpWorkQueueManagerThread @ 0x140A77D60 (ExpWorkQueueManagerThread.c)
+ *     FsRtlCancellableWaitForMultipleObjects @ 0x140A7D9B0 (FsRtlCancellableWaitForMultipleObjects.c)
+ *     CmpDoFileWrite @ 0x140AE48C8 (CmpDoFileWrite.c)
+ *     CmpFinishSystemHivesLoad @ 0x140B500D0 (CmpFinishSystemHivesLoad.c)
+ *     PnprQuiesceWorker @ 0x140BF8BF0 (PnprQuiesceWorker.c)
+ *     MiZeroAllPageFiles @ 0x140C066B4 (MiZeroAllPageFiles.c)
+ *     KiComputeDispatchInterruptCost @ 0x140CCF150 (KiComputeDispatchInterruptCost.c)
  * Callees:
- *     KiCheckWaitNext @ 0x1402200D0 (KiCheckWaitNext.c)
- *     KiCommitThreadWait @ 0x1402229B0 (KiCommitThreadWait.c)
- *     KiSatisfyThreadWait @ 0x140245F80 (KiSatisfyThreadWait.c)
- *     KeAbPostReleaseEx @ 0x140272670 (KeAbPostReleaseEx.c)
- *     KiAcquireKobjectLockSafe @ 0x140277760 (KiAcquireKobjectLockSafe.c)
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     KeWaitForSingleObject @ 0x140278560 (KeWaitForSingleObject.c)
- *     KeAbPreWait @ 0x140278AE0 (KeAbPreWait.c)
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     RtlRaiseStatus @ 0x1402E84A0 (RtlRaiseStatus.c)
- *     KiCheckDueTimeExpired @ 0x1403C0DD0 (KiCheckDueTimeExpired.c)
- *     KiWaitForAllObjects @ 0x1403C0E68 (KiWaitForAllObjects.c)
- *     KiBeginThreadWait @ 0x1403C2810 (KiBeginThreadWait.c)
- *     KiWaitSatisfyOther @ 0x1403DF924 (KiWaitSatisfyOther.c)
- *     KiWaitSatisfyMutant @ 0x1404419C0 (KiWaitSatisfyMutant.c)
- *     ?KiAbpSetEntryValue@AutoBoost@@YAXPECEEK@Z @ 0x140444460 (-KiAbpSetEntryValue@AutoBoost@@YAXPECEEK@Z.c)
- *     KeAbEncodeLockHandle @ 0x140456960 (KeAbEncodeLockHandle.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     __report_rangecheckfailure @ 0x140522044 (__report_rangecheckfailure.c)
- *     KeAbDecodeLockHandle @ 0x140530FB8 (KeAbDecodeLockHandle.c)
- *     KeBugCheck @ 0x140533990 (KeBugCheck.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     KiCheckWaitNext @ 0x140221A60 (KiCheckWaitNext.c)
+ *     KiCommitThreadWait @ 0x140224340 (KiCommitThreadWait.c)
+ *     KiSatisfyThreadWait @ 0x1402478E0 (KiSatisfyThreadWait.c)
+ *     KeAbEncodeLockHandle @ 0x14025FF70 (KeAbEncodeLockHandle.c)
+ *     KeAbPostReleaseEx @ 0x140271BE0 (KeAbPostReleaseEx.c)
+ *     KiAcquireKobjectLockSafe @ 0x140276CD0 (KiAcquireKobjectLockSafe.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     KeWaitForSingleObject @ 0x140277AD0 (KeWaitForSingleObject.c)
+ *     KeAbPreWait @ 0x140278050 (KeAbPreWait.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     RtlRaiseStatus @ 0x1402CA4E0 (RtlRaiseStatus.c)
+ *     KiCheckDueTimeExpired @ 0x1403CACD0 (KiCheckDueTimeExpired.c)
+ *     KiWaitForAllObjects @ 0x1403CAD68 (KiWaitForAllObjects.c)
+ *     KiBeginThreadWait @ 0x1403CC710 (KiBeginThreadWait.c)
+ *     KiWaitSatisfyOther @ 0x1403E2B14 (KiWaitSatisfyOther.c)
+ *     KiWaitSatisfyMutant @ 0x14043A4D0 (KiWaitSatisfyMutant.c)
+ *     ?KiAbpSetEntryValue@AutoBoost@@YAXPECEEK@Z @ 0x14043CF70 (-KiAbpSetEntryValue@AutoBoost@@YAXPECEEK@Z.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     __report_rangecheckfailure @ 0x1405246B0 (__report_rangecheckfailure.c)
+ *     KeAbDecodeLockHandle @ 0x1405334B8 (KeAbDecodeLockHandle.c)
+ *     KeBugCheck @ 0x140535E10 (KeBugCheck.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 NTSTATUS __stdcall KeWaitForMultipleObjects(
@@ -114,7 +114,7 @@ NTSTATUS __stdcall KeWaitForMultipleObjects(
   char v38; // r13
   AutoBoost *v39; // rax
   struct _KLOCK_ENTRY *v40; // rdx
-  AutoBoost *v41; // r15
+  __int64 v41; // r15
   __int64 v42; // r8
   unsigned __int64 v43; // rdi
   unsigned __int64 v44; // r15
@@ -123,7 +123,7 @@ NTSTATUS __stdcall KeWaitForMultipleObjects(
   KWAIT_REASON v47; // [rsp+40h] [rbp-59h] BYREF
   struct _KPRCB *CurrentPrcb; // [rsp+48h] [rbp-51h]
   unsigned int v49; // [rsp+50h] [rbp-49h] BYREF
-  $21A6EA393ADDDF0D13424531359FF08A *v50; // [rsp+58h] [rbp-41h]
+  $08E725EC6134F01F525383E5528526A8 *v50; // [rsp+58h] [rbp-41h]
   PVOID *__attribute__((__org_arrdim(0,0))) v51; // [rsp+60h] [rbp-39h]
   ULONG v52; // [rsp+68h] [rbp-31h]
   __int64 v53; // [rsp+70h] [rbp-29h] BYREF
@@ -136,7 +136,7 @@ NTSTATUS __stdcall KeWaitForMultipleObjects(
   v51 = Object;
   v47 = WaitReason;
   v52 = Count;
-  v50 = ($21A6EA393ADDDF0D13424531359FF08A *)WaitBlockArray;
+  v50 = ($08E725EC6134F01F525383E5528526A8 *)WaitBlockArray;
   v53 = 0LL;
   v49 = 0;
   if ( Count == 1 )
@@ -279,7 +279,7 @@ LABEL_25:
           v38 = v37;
           _bittestandreset64((__int64 *)&v9, (unsigned int)v37);
           v39 = (AutoBoost *)KeAbPreAcquire((__int64)v36[v37], 0LL, 0LL, v22);
-          v41 = v39;
+          v41 = (__int64)v39;
           if ( !v39 )
             break;
           v24 |= 1LL << v38;

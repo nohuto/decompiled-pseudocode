@@ -1,14 +1,14 @@
 /*
- * XREFs of ExCheckSingleFilter @ 0x140401588
+ * XREFs of ExCheckSingleFilter @ 0x1403FBEF8
  * Callers:
- *     ExAllocateHeapPool @ 0x1402ACDB0 (ExAllocateHeapPool.c)
- *     EtwTraceObjectOperation @ 0x140401410 (EtwTraceObjectOperation.c)
- *     EtwpCheckPoolTagFilters @ 0x14064C6D8 (EtwpCheckPoolTagFilters.c)
- *     EtwTraceObject @ 0x1407A98C4 (EtwTraceObject.c)
- *     EtwpObjectHandleEnumCallback @ 0x1407B0D30 (EtwpObjectHandleEnumCallback.c)
- *     EtwTraceDuplicateHandle @ 0x140A463D0 (EtwTraceDuplicateHandle.c)
- *     VfFaultsInjectPoolAllocationFailure @ 0x140B96490 (VfFaultsInjectPoolAllocationFailure.c)
- *     ViFaultsIsTagPresentInList @ 0x140B96DF4 (ViFaultsIsTagPresentInList.c)
+ *     ExAllocateHeapPool @ 0x140277790 (ExAllocateHeapPool.c)
+ *     EtwTraceObjectOperation @ 0x1403FBD80 (EtwTraceObjectOperation.c)
+ *     EtwpCheckPoolTagFilters @ 0x14064ACE8 (EtwpCheckPoolTagFilters.c)
+ *     EtwTraceObject @ 0x1407A9A04 (EtwTraceObject.c)
+ *     EtwpObjectHandleEnumCallback @ 0x1407B1180 (EtwpObjectHandleEnumCallback.c)
+ *     EtwTraceDuplicateHandle @ 0x140A3C190 (EtwTraceDuplicateHandle.c)
+ *     VfFaultsInjectPoolAllocationFailure @ 0x140B98490 (VfFaultsInjectPoolAllocationFailure.c)
+ *     ViFaultsIsTagPresentInList @ 0x140B98DF4 (ViFaultsIsTagPresentInList.c)
  * Callees:
  *     <none>
  */

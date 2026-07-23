@@ -1,20 +1,20 @@
 /*
- * XREFs of IopCancelAlertedRequest @ 0x140A7BD74
+ * XREFs of IopCancelAlertedRequest @ 0x140A76074
  * Callers:
- *     NtSetInformationFile @ 0x1403C34C0 (NtSetInformationFile.c)
- *     IopWaitForSynchronousIo @ 0x1403C48D0 (IopWaitForSynchronousIo.c)
- *     IopWaitForSynchronousIoEvent @ 0x140438000 (IopWaitForSynchronousIoEvent.c)
- *     IoSetInformation @ 0x140714820 (IoSetInformation.c)
- *     IopParseDevice @ 0x14089F880 (IopParseDevice.c)
- *     IopSynchronousServiceTail @ 0x1408C3300 (IopSynchronousServiceTail.c)
- *     IopSynchronousApiServiceTail @ 0x14096F574 (IopSynchronousApiServiceTail.c)
- *     NtQueryInformationFile @ 0x14096F610 (NtQueryInformationFile.c)
+ *     NtSetInformationFile @ 0x1403B2080 (NtSetInformationFile.c)
+ *     IopWaitForSynchronousIo @ 0x1403B3490 (IopWaitForSynchronousIo.c)
+ *     IopWaitForSynchronousIoEvent @ 0x14042ABC0 (IopWaitForSynchronousIoEvent.c)
+ *     IoSetInformation @ 0x1407123B0 (IoSetInformation.c)
+ *     IopParseDevice @ 0x1408A7F20 (IopParseDevice.c)
+ *     IopSynchronousServiceTail @ 0x1408C0CC0 (IopSynchronousServiceTail.c)
+ *     IopSynchronousApiServiceTail @ 0x140957634 (IopSynchronousApiServiceTail.c)
+ *     NtQueryInformationFile @ 0x140957E20 (NtQueryInformationFile.c)
  * Callees:
- *     KeDelayExecutionThread @ 0x14033BC60 (KeDelayExecutionThread.c)
- *     KeWaitForSingleObject @ 0x14033E960 (KeWaitForSingleObject.c)
- *     IoCancelIrp @ 0x140418FA0 (IoCancelIrp.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KeDelayExecutionThread @ 0x14031B140 (KeDelayExecutionThread.c)
+ *     KeWaitForSingleObject @ 0x14031DE40 (KeWaitForSingleObject.c)
+ *     IoCancelIrp @ 0x140408D50 (IoCancelIrp.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 char __fastcall IopCancelAlertedRequest(_DWORD *Object, PIRP Irp)

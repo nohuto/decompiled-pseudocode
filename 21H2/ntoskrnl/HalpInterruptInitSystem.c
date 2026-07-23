@@ -1,19 +1,19 @@
 /*
- * XREFs of HalpInterruptInitSystem @ 0x14099B890
+ * XREFs of HalpInterruptInitSystem @ 0x14099C890
  * Callers:
  *     <none>
  * Callees:
- *     HalSystemVectorDispatchEntry @ 0x140252E40 (HalSystemVectorDispatchEntry.c)
- *     HalpInterruptInitializeGlobals @ 0x1402D3F78 (HalpInterruptInitializeGlobals.c)
- *     HalpInterruptModel @ 0x14037B354 (HalpInterruptModel.c)
- *     HalpInterruptEnableNmi @ 0x1403A376C (HalpInterruptEnableNmi.c)
- *     HalpInterruptEnablePerformanceEvents @ 0x1403A39A0 (HalpInterruptEnablePerformanceEvents.c)
- *     HalpInitializeInterruptsPn @ 0x1403A91B8 (HalpInitializeInterruptsPn.c)
- *     HalpInterruptInitPowerManagement @ 0x1403BE5E4 (HalpInterruptInitPowerManagement.c)
- *     HalpInitializeInterruptsBspLate @ 0x1403CDB2C (HalpInitializeInterruptsBspLate.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
- *     HalpInterruptInitDiscard @ 0x140A72AD4 (HalpInterruptInitDiscard.c)
- *     HalpPreAllocateKInterrupts @ 0x140A739EC (HalpPreAllocateKInterrupts.c)
+ *     HalSystemVectorDispatchEntry @ 0x140251020 (HalSystemVectorDispatchEntry.c)
+ *     HalpInterruptInitializeGlobals @ 0x1402521E8 (HalpInterruptInitializeGlobals.c)
+ *     HalpInterruptModel @ 0x14037AEA4 (HalpInterruptModel.c)
+ *     HalpInterruptEnableNmi @ 0x1403A38BC (HalpInterruptEnableNmi.c)
+ *     HalpInterruptEnablePerformanceEvents @ 0x1403A3AF0 (HalpInterruptEnablePerformanceEvents.c)
+ *     HalpInitializeInterruptsPn @ 0x1403A9F48 (HalpInitializeInterruptsPn.c)
+ *     HalpInterruptInitPowerManagement @ 0x1403BDF40 (HalpInterruptInitPowerManagement.c)
+ *     HalpInitializeInterruptsBspLate @ 0x1403CDC9C (HalpInitializeInterruptsBspLate.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
+ *     HalpInterruptInitDiscard @ 0x140A73AD4 (HalpInterruptInitDiscard.c)
+ *     HalpPreAllocateKInterrupts @ 0x140A749EC (HalpPreAllocateKInterrupts.c)
  */
 
 __int64 __fastcall HalpInterruptInitSystem(__int64 a1, __int64 a2, __int64 a3, __int64 a4)

@@ -1,14 +1,14 @@
 /*
- * XREFs of LdrpAllocatePlaceHolder @ 0x1800D1A80
+ * XREFs of LdrpAllocatePlaceHolder @ 0x1800CF1F0
  * Callers:
- *     LdrpCreatePendingEnclaveModule @ 0x1800D1994 (LdrpCreatePendingEnclaveModule.c)
+ *     LdrpCreatePendingEnclaveModule @ 0x1800CF104 (LdrpCreatePendingEnclaveModule.c)
  * Callees:
- *     RtlGetCurrentServiceSessionId @ 0x180028160 (RtlGetCurrentServiceSessionId.c)
- *     RtlFreeHeap_0 @ 0x18003FD10 (RtlFreeHeap_0.c)
- *     RtlAllocateHeap_0 @ 0x1800439E0 (RtlAllocateHeap_0.c)
- *     LdrpLogEtwEvent @ 0x180084238 (LdrpLogEtwEvent.c)
- *     LdrpAllocateModuleEntry @ 0x1800D1C60 (LdrpAllocateModuleEntry.c)
- *     memmove @ 0x180164700 (memmove.c)
+ *     RtlGetCurrentServiceSessionId @ 0x180013230 (RtlGetCurrentServiceSessionId.c)
+ *     RtlFreeHeap_0 @ 0x18002A280 (RtlFreeHeap_0.c)
+ *     RtlAllocateHeap_0 @ 0x18002DF50 (RtlAllocateHeap_0.c)
+ *     LdrpLogEtwEvent @ 0x18007B5D8 (LdrpLogEtwEvent.c)
+ *     LdrpAllocateModuleEntry @ 0x1800CF3D0 (LdrpAllocateModuleEntry.c)
+ *     memmove @ 0x180164600 (memmove.c)
  */
 
 __int64 __fastcall LdrpAllocatePlaceHolder(
@@ -21,30 +21,32 @@ __int64 __fastcall LdrpAllocatePlaceHolder(
         __int64 a7)
 {
   unsigned int v10; // ebx
-  __int64 Heap_0; // rax
-  __int64 v13; // rsi
+  ULONG v11; // edx
+  unsigned __int16 *Heap_0; // rax
+  unsigned __int16 *v14; // rsi
   __int64 ModuleEntry; // rax
   _DWORD *SharedData; // rcx
-  __int64 v16; // rcx
-  char *v18; // rcx
+  __int64 v17; // rcx
+  char *v19; // rcx
 
   v10 = 0;
+  v11 = (NtdllBaseTag + 0x40000) | 8;
   *(_QWORD *)a6 = 0LL;
-  Heap_0 = RtlAllocateHeap_0();
-  v13 = Heap_0;
+  Heap_0 = (unsigned __int16 *)RtlAllocateHeap_0(LdrpHeap, v11, *(unsigned __int16 *)a1 + 210LL);
+  v14 = Heap_0;
   if ( Heap_0 )
   {
-    *(_QWORD *)(Heap_0 + 16) = a2;
-    *(_QWORD *)(Heap_0 + 184) = -1LL;
-    *(_DWORD *)(Heap_0 + 32) = a3 | 0x8000;
-    *(_QWORD *)(Heap_0 + 40) = a7;
-    *(_QWORD *)(Heap_0 + 48) = a5;
-    *(_QWORD *)(Heap_0 + 8) = Heap_0 + 208;
-    *(_WORD *)Heap_0 = *(_WORD *)a1;
-    *(_WORD *)(Heap_0 + 2) = *(_WORD *)a1 + 2;
-    memmove((void *)(Heap_0 + 208), a1[1], *(unsigned __int16 *)a1);
-    *(_WORD *)(*(_QWORD *)(v13 + 8) + 2 * ((unsigned __int64)*(unsigned __int16 *)a1 >> 1)) = 0;
-    ModuleEntry = LdrpAllocateModuleEntry(v13);
+    *((_QWORD *)Heap_0 + 2) = a2;
+    *((_QWORD *)Heap_0 + 23) = -1LL;
+    *((_DWORD *)Heap_0 + 8) = a3 | 0x8000;
+    *((_QWORD *)Heap_0 + 5) = a7;
+    *((_QWORD *)Heap_0 + 6) = a5;
+    *((_QWORD *)Heap_0 + 1) = Heap_0 + 104;
+    *Heap_0 = *(_WORD *)a1;
+    Heap_0[1] = *(_WORD *)a1 + 2;
+    memmove(Heap_0 + 104, a1[1], *(unsigned __int16 *)a1);
+    *(_WORD *)(*((_QWORD *)v14 + 1) + 2 * ((unsigned __int64)*(unsigned __int16 *)a1 >> 1)) = 0;
+    ModuleEntry = LdrpAllocateModuleEntry(v14);
     *(_QWORD *)a6 = ModuleEntry;
     if ( ModuleEntry )
     {
@@ -53,21 +55,19 @@ __int64 __fastcall LdrpAllocatePlaceHolder(
         *(_DWORD *)(*(_QWORD *)a6 + 304LL) = 1;
       SharedData = NtCurrentPeb()->SharedData;
       if ( SharedData && *SharedData )
-        v16 = (__int64)NtCurrentPeb()->SharedData + 554;
+        v17 = (__int64)NtCurrentPeb()->SharedData + 554;
       else
-        v16 = 2147353476LL;
-      if ( *(_BYTE *)v16 && (NtCurrentPeb()->TracingFlags & 4) != 0 )
+        v17 = 2147353476LL;
+      if ( *(_BYTE *)v17 && (NtCurrentPeb()->TracingFlags & 4) != 0 )
       {
-        v18 = (unsigned int)RtlGetCurrentServiceSessionId()
-            ? (char *)NtCurrentPeb()->SharedData + 555
-            : (char *)2147353477;
-        if ( (*v18 & 0x20) != 0 )
-          LdrpLogEtwEvent(5292, 0LL, 0, 0, (unsigned __int16 *)v13, 0LL);
+        v19 = RtlGetCurrentServiceSessionId() ? (char *)NtCurrentPeb()->SharedData + 555 : (char *)2147353477;
+        if ( (*v19 & 0x20) != 0 )
+          LdrpLogEtwEvent(5292, 0LL, 0, 0, v14, 0LL);
       }
     }
     else
     {
-      RtlFreeHeap_0();
+      RtlFreeHeap_0(LdrpHeap, 0, v14);
     }
   }
   if ( !*(_QWORD *)a6 )

@@ -1,12 +1,12 @@
 /*
- * XREFs of TtmiLogTerminalCreated @ 0x14076E86C
+ * XREFs of TtmiLogTerminalCreated @ 0x14076EA8C
  * Callers:
- *     TtmiCreateTerminal @ 0x14076F4E8 (TtmiCreateTerminal.c)
+ *     TtmiCreateTerminal @ 0x14076F708 (TtmiCreateTerminal.c)
  * Callees:
- *     PsGetSessionIdEx @ 0x1403025D0 (PsGetSessionIdEx.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140330CB0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgKeywordOn @ 0x140426AF0 (_tlgKeywordOn.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402B92F0 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     PsGetSessionIdEx @ 0x14030CBE0 (PsGetSessionIdEx.c)
+ *     _tlgKeywordOn @ 0x14041A970 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 void __fastcall TtmiLogTerminalCreated(__int64 a1, int a2)
@@ -26,7 +26,7 @@ void __fastcall TtmiLogTerminalCreated(__int64 a1, int a2)
   int v16; // [rsp+88h] [rbp+3Fh]
   int v17; // [rsp+8Ch] [rbp+43h]
 
-  if ( (unsigned int)dword_140FD78B8 > 5 && tlgKeywordOn((__int64)&dword_140FD78B8, 1LL) )
+  if ( (unsigned int)dword_140FD88C8 > 5 && tlgKeywordOn((__int64)&dword_140FD88C8, 1LL) )
   {
     SessionId = PsGetSessionIdEx((__int64)KeGetCurrentThread()->ApcState.Process);
     v11 = 0;
@@ -41,6 +41,6 @@ void __fastcall TtmiLogTerminalCreated(__int64 a1, int a2)
     v6 = a2;
     v7 = a1;
     v16 = 8;
-    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140FD78B8, (unsigned __int8 *)byte_1400501EB, 0LL, 0LL, 5u, &v8);
+    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140FD88C8, (unsigned __int8 *)word_140051972, 0LL, 0LL, 5u, &v8);
   }
 }

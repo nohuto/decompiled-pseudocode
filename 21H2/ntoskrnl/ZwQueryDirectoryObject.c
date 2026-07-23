@@ -1,20 +1,27 @@
 /*
- * XREFs of ZwQueryDirectoryObject @ 0x1403FCC20
+ * XREFs of ZwQueryDirectoryObject @ 0x1403FCE00
  * Callers:
- *     IopGetLegacyVetoListDrivers @ 0x140661930 (IopGetLegacyVetoListDrivers.c)
- *     SepCleanupLUIDDeviceMapDirectory @ 0x1406A5914 (SepCleanupLUIDDeviceMapDirectory.c)
- *     BiGetNtPartitionPath @ 0x140782748 (BiGetNtPartitionPath.c)
- *     PiDrvDbEnumDriverStoreNodes @ 0x1407A43FC (PiDrvDbEnumDriverStoreNodes.c)
- *     ExpFindArcName @ 0x14094FF14 (ExpFindArcName.c)
- *     SiGetEfiSystemDevice @ 0x140973BD0 (SiGetEfiSystemDevice.c)
- *     CmGetSystemDriverList @ 0x140A5F174 (CmGetSystemDriverList.c)
+ *     SepCleanupLUIDDeviceMapDirectory @ 0x140603544 (SepCleanupLUIDDeviceMapDirectory.c)
+ *     IopGetLegacyVetoListDrivers @ 0x140656750 (IopGetLegacyVetoListDrivers.c)
+ *     BiGetNtPartitionPath @ 0x140782908 (BiGetNtPartitionPath.c)
+ *     PiDrvDbEnumDriverStoreNodes @ 0x1407A45FC (PiDrvDbEnumDriverStoreNodes.c)
+ *     ExpFindArcName @ 0x1409500E4 (ExpFindArcName.c)
+ *     SiGetEfiSystemDevice @ 0x140973DB0 (SiGetEfiSystemDevice.c)
+ *     CmGetSystemDriverList @ 0x140A60174 (CmGetSystemDriverList.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwQueryDirectoryObject(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwQueryDirectoryObject(
+        HANDLE DirectoryHandle,
+        PVOID Buffer,
+        ULONG Length,
+        BOOLEAN ReturnSingleEntry,
+        BOOLEAN RestartScan,
+        PULONG Context,
+        PULONG ReturnLength)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(DirectoryHandle);
 }

@@ -1,10 +1,10 @@
 /*
- * XREFs of WmiMatchSMBiosSysInfo @ 0x1407A4050
+ * XREFs of WmiMatchSMBiosSysInfo @ 0x1407A4160
  * Callers:
  *     <none>
  * Callees:
- *     WmipReadSMBiosSysInfo @ 0x14064C35C (WmipReadSMBiosSysInfo.c)
- *     WmipCheckSMBiosSysInfoString @ 0x1407A40CC (WmipCheckSMBiosSysInfoString.c)
+ *     WmipReadSMBiosSysInfo @ 0x14064A91C (WmipReadSMBiosSysInfo.c)
+ *     WmipCheckSMBiosSysInfoString @ 0x1407A41DC (WmipCheckSMBiosSysInfoString.c)
  */
 
 __int64 __fastcall WmiMatchSMBiosSysInfo(__int64 a1, __int64 a2, PCSZ *a3, int a4)

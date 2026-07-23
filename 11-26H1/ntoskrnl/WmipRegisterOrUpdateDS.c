@@ -1,13 +1,13 @@
 /*
- * XREFs of WmipRegisterOrUpdateDS @ 0x140A0B774
+ * XREFs of WmipRegisterOrUpdateDS @ 0x140A0A9A4
  * Callers:
- *     WmipRegistrationWorker @ 0x140A0B650 (WmipRegistrationWorker.c)
- *     WmipRegisterDevice @ 0x140ACD8E8 (WmipRegisterDevice.c)
+ *     WmipRegistrationWorker @ 0x140A0A880 (WmipRegistrationWorker.c)
+ *     WmipRegisterDevice @ 0x140ACFB28 (WmipRegisterDevice.c)
  * Callees:
- *     WmipProcessWmiRegInfo @ 0x140A0B8AC (WmipProcessWmiRegInfo.c)
- *     WmipSendWmiIrp @ 0x140A0E708 (WmipSendWmiIrp.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     WmipProcessWmiRegInfo @ 0x140A0AADC (WmipProcessWmiRegInfo.c)
+ *     WmipSendWmiIrp @ 0x140A0D8E4 (WmipSendWmiIrp.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall WmipRegisterOrUpdateDS(__int64 a1, char a2)

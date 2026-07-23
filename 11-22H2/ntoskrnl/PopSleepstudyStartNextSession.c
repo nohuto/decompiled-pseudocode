@@ -30,15 +30,15 @@
 
 void __fastcall PopSleepstudyStartNextSession(int a1, unsigned int a2)
 {
-  char *v4; // r13
+  LARGE_INTEGER *v4; // r13
   __int64 v5; // rcx
   __int64 v6; // r12
-  __int64 InterruptTimePrecise; // rax
-  __int64 v8; // r14
+  LARGE_INTEGER InterruptTimePrecise; // rax
+  LARGE_INTEGER v8; // r14
   int v9; // eax
-  int v10; // esi
-  int v11; // edi
-  __int64 v12; // r8
+  LONG v10; // esi
+  LONG v11; // edi
+  LARGE_INTEGER v12; // r8
   char LowPart; // si
   __int64 *v14; // rdi
   int v15; // r15d
@@ -65,7 +65,7 @@ void __fastcall PopSleepstudyStartNextSession(int a1, unsigned int a2)
   __int64 v36; // rax
   __int64 v37; // r9
   __int64 v38; // r8
-  LARGE_INTEGER v39; // [rsp+38h] [rbp-D0h] BYREF
+  LARGE_INTEGER PerformanceCounter; // [rsp+38h] [rbp-D0h] BYREF
   __int64 v40; // [rsp+40h] [rbp-C8h]
   _OWORD v41[2]; // [rsp+48h] [rbp-C0h] BYREF
   __int64 v42; // [rsp+68h] [rbp-A0h] BYREF
@@ -78,44 +78,44 @@ void __fastcall PopSleepstudyStartNextSession(int a1, unsigned int a2)
   v43 = 0LL;
   v44 = 0LL;
   PopAcquireRwLockExclusive((ULONG_PTR)&PopSleepstudySessionLock);
-  v4 = (char *)&unk_140C3BD10 + 104 * (unsigned int)dword_140C3BD08;
+  v4 = (LARGE_INTEGER *)((char *)&unk_140C3BD10 + 104 * (unsigned int)dword_140C3BD08);
   v5 = ((_BYTE)dword_140C3BD08 + 1) & 7;
   dword_140C3BD08 = ((_BYTE)dword_140C3BD08 + 1) & 7;
   v6 = 13 * v5;
-  InterruptTimePrecise = RtlGetInterruptTimePrecise(&v39);
+  InterruptTimePrecise = RtlGetInterruptTimePrecise(&PerformanceCounter);
   v42 = -2500000LL;
   v8 = InterruptTimePrecise;
   v9 = PopCurrentPowerStatePrecise(v41, (__int64)&v42);
   v10 = DWORD2(v41[0]);
-  *((_QWORD *)v4 + 3) = v8;
+  v4[3] = v8;
   v11 = HIDWORD(v41[0]);
-  *((_DWORD *)v4 + 9) = a2;
-  *((_DWORD *)v4 + 11) = v11;
-  v39.LowPart = v9 != 258;
-  *((_DWORD *)v4 + 13) = v10;
+  v4[4].HighPart = a2;
+  v4[5].HighPart = v11;
+  PerformanceCounter.LowPart = v9 != 258;
+  v4[6].HighPart = v10;
   memset((char *)&PopSleepstudySessionContext[v6 + 26] + 4, 0, 0x64uLL);
   LODWORD(PopSleepstudySessionContext[v6 + 26]) = a1;
-  v12 = *((_QWORD *)v4 + 1);
-  PopSleepstudySessionContext[v6 + 28] = v8;
-  PopSleepstudySessionContext[v6 + 27] = v12 + 1;
+  v12 = v4[1];
+  PopSleepstudySessionContext[v6 + 28] = v8.QuadPart;
+  PopSleepstudySessionContext[v6 + 27] = v12.QuadPart + 1;
   LOBYTE(PopSleepstudySessionContext[v6 + 33]) = v41[0];
   LODWORD(PopSleepstudySessionContext[v6 + 30]) = a2;
   LODWORD(PopSleepstudySessionContext[v6 + 31]) = v11;
   LODWORD(PopSleepstudySessionContext[v6 + 32]) = v10;
-  if ( *(_DWORD *)v4 == 1 )
+  if ( v4->LowPart == 1 )
   {
-    LowPart = v39.LowPart;
+    LowPart = PerformanceCounter.LowPart;
   }
   else
   {
-    if ( *(_DWORD *)v4 != 2 )
+    if ( v4->LowPart != 2 )
     {
-      LowPart = v39.LowPart;
+      LowPart = PerformanceCounter.LowPart;
       goto LABEL_4;
     }
     PopSleepstudySendWnfNotification(&WNF_PO_SCENARIO_CHANGE, &NullGuid);
-    LowPart = v39.LowPart;
-    LOBYTE(v19) = v39.LowPart;
+    LowPart = PerformanceCounter.LowPart;
+    LOBYTE(v19) = PerformanceCounter.LowPart;
     PopSleepstudyCaptureResiliencyStatistics(v4, v41, v19, 0LL);
   }
   if ( PopPlatformAoAc )
@@ -132,7 +132,7 @@ void __fastcall PopSleepstudyStartNextSession(int a1, unsigned int a2)
   {
     goto LABEL_4;
   }
-  if ( *(_DWORD *)v4 == 1 )
+  if ( v4->LowPart == 1 )
     ++PopSleepstudySessionContext[v6 + 27];
   if ( ((a1 - 1) & 0xFFFFFFFD) != 0 || (byte_140CF7D94 = 1, a1 != 3) )
   {
@@ -173,7 +173,7 @@ void __fastcall PopSleepstudyStartNextSession(int a1, unsigned int a2)
     }
     while ( v21 );
     v31 = *v23;
-    v39.QuadPart = 0LL;
+    PerformanceCounter.QuadPart = 0LL;
     v32 = v23[1];
     v40 = -1LL;
     *v22 = v31;
@@ -184,7 +184,7 @@ void __fastcall PopSleepstudyStartNextSession(int a1, unsigned int a2)
     v35 = v23[4];
     v22[3] = v34;
     v22[4] = v35;
-    KeSetTimer2((__int64)&unk_140C3BC60, -50000000LL, 0LL, (__int64)&v39);
+    KeSetTimer2((__int64)&unk_140C3BC60, -50000000LL, 0LL, (__int64)&PerformanceCounter);
     v36 = PopSleepstudySessionContext[v6 + 27] - 2;
     byte_140C3BC58 = 1;
     qword_140C3BC50 = v36;
@@ -208,7 +208,7 @@ LABEL_4:
   }
   else
   {
-    if ( PopPlatformAoAc && (unsigned int)(*(_DWORD *)v4 - 1) > 1 )
+    if ( PopPlatformAoAc && v4->LowPart - 1 > 1 )
     {
       PopTransitionTelemetryOsState(3, 6);
       PopThermalCsEntry(a2 == 23);

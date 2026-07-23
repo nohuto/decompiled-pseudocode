@@ -48,7 +48,7 @@ LABEL_15:
           v6 = &ExpInterlockedPopEntrySListFault;
           result = KiDynamicTraceEnabled
                 && (v11 = *(_QWORD *)(a1 + 360), v11 < qword_140FC6450)
-                && v11 >= qword_140FC6448
+                && v11 >= ControlPc
                 && KeGetCurrentIrql() == 15;
           goto LABEL_5;
         }

@@ -1,14 +1,14 @@
 /*
- * XREFs of RtlStringCbCopyW @ 0x180040FD4
+ * XREFs of RtlStringCbCopyW @ 0x180040FC4
  * Callers:
- *     SwitchedRtlGetVersion @ 0x18002B7F0 (SwitchedRtlGetVersion.c)
- *     RtlGetVersion @ 0x18002EE50 (RtlGetVersion.c)
- *     RtlLCIDToCultureName @ 0x1800448B0 (RtlLCIDToCultureName.c)
- *     RtlpGetDynamicTimeZoneInfoHandle @ 0x1800576D8 (RtlpGetDynamicTimeZoneInfoHandle.c)
- *     RtlInstallFunctionTableCallback @ 0x18006F130 (RtlInstallFunctionTableCallback.c)
- *     RtlCreateTagHeap @ 0x180075D90 (RtlCreateTagHeap.c)
- *     RtlpGetNameFromLangInfoNode @ 0x180082920 (RtlpGetNameFromLangInfoNode.c)
- *     RtlQueryProcessHeapInformation @ 0x180095B50 (RtlQueryProcessHeapInformation.c)
+ *     SwitchedRtlGetVersion @ 0x18002B7E0 (SwitchedRtlGetVersion.c)
+ *     RtlGetVersion @ 0x18002EE40 (RtlGetVersion.c)
+ *     RtlLCIDToCultureName @ 0x1800448A0 (RtlLCIDToCultureName.c)
+ *     RtlpGetDynamicTimeZoneInfoHandle @ 0x1800576C8 (RtlpGetDynamicTimeZoneInfoHandle.c)
+ *     RtlInstallFunctionTableCallback @ 0x18006F120 (RtlInstallFunctionTableCallback.c)
+ *     RtlCreateTagHeap @ 0x180075D80 (RtlCreateTagHeap.c)
+ *     RtlpGetNameFromLangInfoNode @ 0x180082910 (RtlpGetNameFromLangInfoNode.c)
+ *     RtlQueryProcessHeapInformation @ 0x180095B40 (RtlQueryProcessHeapInformation.c)
  * Callees:
  *     <none>
  */

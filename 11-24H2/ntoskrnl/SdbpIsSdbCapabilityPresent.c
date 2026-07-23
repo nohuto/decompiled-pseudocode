@@ -1,8 +1,8 @@
 /*
- * XREFs of SdbpIsSdbCapabilityPresent @ 0x140805050
+ * XREFs of SdbpIsSdbCapabilityPresent @ 0x140805790
  * Callers:
- *     SdbpCheckSdbCapability @ 0x140804270 (SdbpCheckSdbCapability.c)
- *     SdbpMatchList @ 0x140AE807C (SdbpMatchList.c)
+ *     SdbpCheckSdbCapability @ 0x1408049B0 (SdbpCheckSdbCapability.c)
+ *     SdbpMatchList @ 0x140AEB320 (SdbpMatchList.c)
  * Callees:
  *     <none>
  */
@@ -22,7 +22,7 @@ wchar_t *__fastcall SdbpIsSdbCapabilityPresent(_DWORD *a1, __int64 a2, __int64 a
   int v16; // r9d
 
   *a1 = 0;
-  for ( i = off_14000BC98; ; ++i )
+  for ( i = off_14000BFA0; ; ++i )
   {
     result = *i;
     if ( !*i )

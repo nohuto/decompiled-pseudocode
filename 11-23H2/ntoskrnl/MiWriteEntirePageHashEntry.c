@@ -1,10 +1,10 @@
 /*
- * XREFs of MiWriteEntirePageHashEntry @ 0x140666DFC
+ * XREFs of MiWriteEntirePageHashEntry @ 0x14066734C
  * Callers:
- *     MiWritePageFileHash @ 0x14046F606 (MiWritePageFileHash.c)
- *     MiClearPageFileHash @ 0x140665B90 (MiClearPageFileHash.c)
- *     MiLateWritePageHash @ 0x1406660C8 (MiLateWritePageHash.c)
- *     MiUpdatePageFileBlockOwner @ 0x140666C9C (MiUpdatePageFileBlockOwner.c)
+ *     MiWritePageFileHash @ 0x14046FA06 (MiWritePageFileHash.c)
+ *     MiClearPageFileHash @ 0x1406660E0 (MiClearPageFileHash.c)
+ *     MiLateWritePageHash @ 0x140666618 (MiLateWritePageHash.c)
+ *     MiUpdatePageFileBlockOwner @ 0x1406671EC (MiUpdatePageFileBlockOwner.c)
  * Callees:
  *     <none>
  */

@@ -1,27 +1,27 @@
 /*
- * XREFs of MiInsertVadCharges @ 0x1408E2418
+ * XREFs of MiInsertVadCharges @ 0x140918FC8
  * Callers:
- *     MiAllocateEnclaveVad @ 0x1407F6D40 (MiAllocateEnclaveVad.c)
- *     MiReserveUserMemory @ 0x1408DFE98 (MiReserveUserMemory.c)
- *     MiMapViewOfDataSection @ 0x1408E0820 (MiMapViewOfDataSection.c)
- *     MiMapViewOfImageSection @ 0x1408E3418 (MiMapViewOfImageSection.c)
- *     MiInsertProcessVads @ 0x1408F8BD8 (MiInsertProcessVads.c)
- *     MiAllocateNewSubAllocatedRegion @ 0x1409C3660 (MiAllocateNewSubAllocatedRegion.c)
- *     MiMapLockedPagesInUserSpace @ 0x1409C3AE8 (MiMapLockedPagesInUserSpace.c)
- *     MiInsertChildVads @ 0x1409C407C (MiInsertChildVads.c)
- *     MiMapViewOfPhysicalSection @ 0x140A135A0 (MiMapViewOfPhysicalSection.c)
- *     MiAllocateSplitVads @ 0x140A245C0 (MiAllocateSplitVads.c)
+ *     MiAllocateEnclaveVad @ 0x1407F74B4 (MiAllocateEnclaveVad.c)
+ *     MiMapLockedPagesInUserSpace @ 0x1408DC1EC (MiMapLockedPagesInUserSpace.c)
+ *     MiAllocateNewSubAllocatedRegion @ 0x1408DD544 (MiAllocateNewSubAllocatedRegion.c)
+ *     MiReserveUserMemory @ 0x140916A48 (MiReserveUserMemory.c)
+ *     MiMapViewOfDataSection @ 0x1409173D0 (MiMapViewOfDataSection.c)
+ *     MiAllocateSplitVads @ 0x140919FC8 (MiAllocateSplitVads.c)
+ *     MiInsertProcessVads @ 0x14091A6A0 (MiInsertProcessVads.c)
+ *     MiInsertChildVads @ 0x14091A854 (MiInsertChildVads.c)
+ *     MiMapViewOfPhysicalSection @ 0x140A0BD00 (MiMapViewOfPhysicalSection.c)
+ *     MiMapViewOfImageSection @ 0x140AE8594 (MiMapViewOfImageSection.c)
  * Callees:
- *     MiComputeVadCharges @ 0x140236208 (MiComputeVadCharges.c)
- *     UNLOCK_PAGE_TABLE_COMMITMENT @ 0x1402BAD10 (UNLOCK_PAGE_TABLE_COMMITMENT.c)
- *     MiChargeResident @ 0x1402F5FA0 (MiChargeResident.c)
- *     PsChargeProcessNonPagedPoolQuota @ 0x1403CDFC0 (PsChargeProcessNonPagedPoolQuota.c)
- *     LOCK_PAGE_TABLE_COMMITMENT @ 0x1404065E0 (LOCK_PAGE_TABLE_COMMITMENT.c)
- *     MiGetProcessPartition @ 0x14043E2C0 (MiGetProcessPartition.c)
- *     PsChargeProcessPagedPoolQuota @ 0x140896630 (PsChargeProcessPagedPoolQuota.c)
- *     MiCommitPageTablesForVad @ 0x1408E26C0 (MiCommitPageTablesForVad.c)
- *     MiSetVadBits @ 0x1408E2A50 (MiSetVadBits.c)
- *     MiReturnVadCharges @ 0x1408E2F98 (MiReturnVadCharges.c)
+ *     MiComputeVadCharges @ 0x140210398 (MiComputeVadCharges.c)
+ *     PsChargeProcessNonPagedPoolQuota @ 0x1402676E0 (PsChargeProcessNonPagedPoolQuota.c)
+ *     MiChargeResident @ 0x14033DD30 (MiChargeResident.c)
+ *     UNLOCK_PAGE_TABLE_COMMITMENT @ 0x140362450 (UNLOCK_PAGE_TABLE_COMMITMENT.c)
+ *     LOCK_PAGE_TABLE_COMMITMENT @ 0x1403C8D90 (LOCK_PAGE_TABLE_COMMITMENT.c)
+ *     MiGetProcessPartition @ 0x1404329B0 (MiGetProcessPartition.c)
+ *     PsChargeProcessPagedPoolQuota @ 0x14089EAD0 (PsChargeProcessPagedPoolQuota.c)
+ *     MiCommitPageTablesForVad @ 0x140919270 (MiCommitPageTablesForVad.c)
+ *     MiSetVadBits @ 0x140919600 (MiSetVadBits.c)
+ *     MiReturnVadCharges @ 0x140919B48 (MiReturnVadCharges.c)
  */
 
 __int64 __fastcall MiInsertVadCharges(__int64 a1, __int64 a2)
@@ -33,7 +33,7 @@ __int64 __fastcall MiInsertVadCharges(__int64 a1, __int64 a2)
   int v8; // edi
   struct _KTHREAD *CurrentThread; // rbx
   ULONG *ProcessPartition; // rax
-  unsigned __int64 v12; // r9
+  struct _KPRCB *v12; // r9
   __int128 v13; // [rsp+20h] [rbp-20h] BYREF
   unsigned __int64 v14; // [rsp+30h] [rbp-10h]
 
@@ -63,7 +63,7 @@ LABEL_10:
   }
   if ( !(_QWORD)v13
     || (ProcessPartition = (ULONG *)MiGetProcessPartition(a2),
-        (unsigned int)MiChargeResident(ProcessPartition, v12, 128LL)) )
+        (unsigned int)MiChargeResident(ProcessPartition, (unsigned __int64)v12, 128LL, v12)) )
   {
     if ( (*(unsigned int *)(a1 + 52) | ((unsigned __int64)*(unsigned __int8 *)(a1 + 34) << 32)) >= 0x7FFFFFFFDLL
       && (*(unsigned int *)(a1 + 52) | ((unsigned __int64)*(unsigned __int8 *)(a1 + 34) << 32)) != 0x7FFFFFFFELL

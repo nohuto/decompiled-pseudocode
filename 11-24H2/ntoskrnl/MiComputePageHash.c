@@ -1,11 +1,11 @@
 /*
- * XREFs of MiComputePageHash @ 0x140434B10
+ * XREFs of MiComputePageHash @ 0x140426970
  * Callers:
- *     MiArePagefileContentsCorrupted @ 0x1402E5A94 (MiArePagefileContentsCorrupted.c)
- *     MiWritePageFileHash @ 0x14039E350 (MiWritePageFileHash.c)
+ *     MiArePagefileContentsCorrupted @ 0x140341C34 (MiArePagefileContentsCorrupted.c)
+ *     MiWritePageFileHash @ 0x140426540 (MiWritePageFileHash.c)
  * Callees:
- *     MiMapPageInHyperSpaceWorker @ 0x14021F1A0 (MiMapPageInHyperSpaceWorker.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
+ *     MiMapPageInHyperSpaceWorker @ 0x14024BEF0 (MiMapPageInHyperSpaceWorker.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
  */
 
 __int64 __fastcall MiComputePageHash(__int64 a1, __int64 a2, unsigned __int64 a3, int a4)
@@ -28,7 +28,7 @@ __int64 __fastcall MiComputePageHash(__int64 a1, __int64 a2, unsigned __int64 a3
   unsigned __int8 v23; // [rsp+88h] [rbp+20h] BYREF
 
   v23 = 0;
-  v8 = MiMapPageInHyperSpaceWorker(a2, &v23, 0LL);
+  v8 = MiMapPageInHyperSpaceWorker(a2, &v23, 0);
   v9 = (_QWORD *)v8;
   v10 = *(_QWORD *)v8;
   v11 = *(_QWORD *)(v8 + 8);

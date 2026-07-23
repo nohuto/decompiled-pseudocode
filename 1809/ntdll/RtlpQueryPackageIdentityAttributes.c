@@ -1,21 +1,26 @@
 /*
- * XREFs of RtlpQueryPackageIdentityAttributes @ 0x1800748A4
+ * XREFs of RtlpQueryPackageIdentityAttributes @ 0x1800748B4
  * Callers:
- *     RtlQueryPackageClaims @ 0x180074720 (RtlQueryPackageClaims.c)
+ *     RtlQueryPackageClaims @ 0x180074730 (RtlQueryPackageClaims.c)
  * Callees:
- *     ZwQuerySecurityAttributesToken @ 0x1800A2D30 (ZwQuerySecurityAttributesToken.c)
+ *     ZwQuerySecurityAttributesToken @ 0x1800A2D50 (ZwQuerySecurityAttributesToken.c)
  */
 
-__int64 __fastcall RtlpQueryPackageIdentityAttributes(__int64 a1, int a2, __int64 a3, _QWORD *a4, _QWORD *a5)
+NTSTATUS __fastcall RtlpQueryPackageIdentityAttributes(
+        HANDLE TokenHandle,
+        ULONG a2,
+        __int64 a3,
+        _QWORD *a4,
+        _QWORD *a5)
 {
   _QWORD *v5; // rbx
   unsigned __int8 v9; // si
-  unsigned int v10; // ebp
-  __int64 result; // rax
+  ULONG v10; // ebp
+  NTSTATUS result; // eax
   __int64 v12; // rax
-  int v13; // [rsp+58h] [rbp+10h] BYREF
+  ULONG ReturnLength; // [rsp+58h] [rbp+10h] BYREF
 
-  v13 = a2;
+  ReturnLength = a2;
   v5 = a5;
   if ( a5 )
     *a5 = 0LL;
@@ -23,20 +28,32 @@ __int64 __fastcall RtlpQueryPackageIdentityAttributes(__int64 a1, int a2, __int6
   v10 = 1;
   if ( a4 || v5 )
     v10 = 2;
-  result = ZwQuerySecurityAttributesToken(a1, &unk_180118768, v10, a3, 816, &v13);
-  if ( (int)result < 0 )
+  result = ZwQuerySecurityAttributesToken(
+             TokenHandle,
+             (PUNICODE_STRING)&Attributes,
+             v10,
+             (PVOID)a3,
+             0x330u,
+             &ReturnLength);
+  if ( result < 0 )
   {
     if ( v10 == 1 )
       return result;
-    if ( (_DWORD)result != -1073741275 )
+    if ( result != -1073741275 )
       return result;
-    result = ZwQuerySecurityAttributesToken(a1, &unk_180118768, 1LL, a3, 816, &v13);
-    if ( (int)result < 0 )
+    result = ZwQuerySecurityAttributesToken(
+               TokenHandle,
+               (PUNICODE_STRING)&Attributes,
+               1u,
+               (PVOID)a3,
+               0x330u,
+               &ReturnLength);
+    if ( result < 0 )
       return result;
     v9 = 0;
   }
   if ( !*(_DWORD *)(a3 + 4) )
-    return 3221226021LL;
+    return -1073741275;
   if ( a4 )
   {
     if ( v9 )
@@ -48,8 +65,8 @@ __int64 __fastcall RtlpQueryPackageIdentityAttributes(__int64 a1, int a2, __int6
   if ( v5 )
   {
     *v5 |= (2LL * v9) | 1;
-    if ( (unsigned int)ZwQuerySecurityAttributesToken(a1, &unk_180118788, 1LL, 0LL, 0, &v13) == -1073741789 )
+    if ( ZwQuerySecurityAttributesToken(TokenHandle, (PUNICODE_STRING)&stru_180118788, 1u, 0LL, 0, &ReturnLength) == -1073741789 )
       *v5 |= 4uLL;
   }
-  return 0LL;
+  return 0;
 }

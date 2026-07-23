@@ -1,12 +1,12 @@
 /*
- * XREFs of MiProtectFlushPayload @ 0x140311488
+ * XREFs of MiProtectFlushPayload @ 0x1403134BC
  * Callers:
- *     MiProtectGoodCitizen @ 0x140311404 (MiProtectGoodCitizen.c)
- *     MiProtectPrivateMemory @ 0x1403116B4 (MiProtectPrivateMemory.c)
- *     MiProtectValidPte @ 0x140311A38 (MiProtectValidPte.c)
+ *     MiProtectGoodCitizen @ 0x140313438 (MiProtectGoodCitizen.c)
+ *     MiProtectPrivateMemory @ 0x1403136E8 (MiProtectPrivateMemory.c)
+ *     MiProtectValidPte @ 0x140313A6C (MiProtectValidPte.c)
  * Callees:
- *     MiFlushTbList @ 0x140329040 (MiFlushTbList.c)
- *     MiReleaseProcessorFlushList @ 0x1403613C0 (MiReleaseProcessorFlushList.c)
+ *     MiFlushTbList @ 0x14032B070 (MiFlushTbList.c)
+ *     MiReleaseProcessorFlushList @ 0x140363160 (MiReleaseProcessorFlushList.c)
  */
 
 __int64 __fastcall MiProtectFlushPayload(_QWORD *a1)

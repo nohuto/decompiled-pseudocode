@@ -10,41 +10,40 @@
 
 void __fastcall PopFreeSessionState(int a1)
 {
-  __int64 v2; // r8
   unsigned int i; // esi
-  __int64 **v4; // rdi
-  __int64 *v5; // rbx
-  _QWORD *v6; // rcx
-  int v7; // eax
-  __int64 *v8; // rax
-  _QWORD *v9; // rdx
+  WNF_STATE_NAME **v3; // rdi
+  WNF_STATE_NAME *v4; // rbx
+  WNF_STATE_NAME *v5; // rcx
+  unsigned int v6; // eax
+  WNF_STATE_NAME v7; // rax
+  WNF_STATE_NAME **v8; // rdx
 
   ExAcquireFastMutex(&PopSettingLock);
   for ( i = 0; i < 2; ++i )
   {
-    v4 = (__int64 **)((char *)&PopSessionSpecificLists + 16 * i);
-    v5 = *v4;
-    while ( v5 != (__int64 *)v4 )
+    v3 = (WNF_STATE_NAME **)((char *)&PopSessionSpecificLists + 16 * i);
+    v4 = *v3;
+    while ( v4 != (WNF_STATE_NAME *)v3 )
     {
-      v6 = v5;
-      if ( *((_DWORD *)v5 + 12) != a1 )
+      v5 = v4;
+      if ( v4[6].Data[0] != a1 )
         goto LABEL_6;
-      v7 = *((_DWORD *)v5 + 13);
-      if ( (v7 & 2) != 0 )
+      v6 = v4[6].Data[1];
+      if ( (v6 & 2) != 0 )
       {
-        *((_DWORD *)v5 + 13) = v7 | 4;
+        v4[6].Data[1] = v6 | 4;
 LABEL_6:
-        v5 = (__int64 *)*v5;
+        v4 = (WNF_STATE_NAME *)*v4;
       }
       else
       {
-        v8 = (__int64 *)*v5;
-        v5 = (__int64 *)*v5;
-        if ( *(_QWORD **)(*v6 + 8LL) != v6 || (v9 = (_QWORD *)v6[1], (_QWORD *)*v9 != v6) )
+        v7 = *v4;
+        v4 = (WNF_STATE_NAME *)*v4;
+        if ( *(WNF_STATE_NAME **)(*(_QWORD *)v5 + 8LL) != v5 || (v8 = (WNF_STATE_NAME **)v5[1], *v8 != v5) )
           __fastfail(3u);
-        *v9 = v8;
-        v8[1] = (__int64)v9;
-        PopFreeRegistration(v6, (__int64)v9, v2);
+        *v8 = (WNF_STATE_NAME *)v7;
+        *(_QWORD *)(*(_QWORD *)&v7 + 8LL) = v8;
+        PopFreeRegistration(v5);
       }
     }
   }

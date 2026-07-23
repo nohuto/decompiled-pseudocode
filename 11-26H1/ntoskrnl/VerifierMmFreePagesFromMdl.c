@@ -1,10 +1,10 @@
 /*
- * XREFs of VerifierMmFreePagesFromMdl @ 0x140C3F6D0
+ * XREFs of VerifierMmFreePagesFromMdl @ 0x140C456E0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     ViTargetAddToCounter @ 0x140C29598 (ViTargetAddToCounter.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     ViTargetAddToCounter @ 0x140C2F5A8 (ViTargetAddToCounter.c)
  */
 
 __int64 __fastcall VerifierMmFreePagesFromMdl(__int64 a1, __int64 a2)

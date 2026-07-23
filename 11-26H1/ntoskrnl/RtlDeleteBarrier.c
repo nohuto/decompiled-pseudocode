@@ -1,19 +1,19 @@
 /*
- * XREFs of RtlDeleteBarrier @ 0x140622DC0
+ * XREFs of RtlDeleteBarrier @ 0x140625E10
  * Callers:
- *     MiWritePteHighLevel @ 0x1406F2B98 (MiWritePteHighLevel.c)
- *     MiReapplyImportOptimizationForDriverVerifier @ 0x1406FB178 (MiReapplyImportOptimizationForDriverVerifier.c)
+ *     MiWritePteHighLevel @ 0x1406F7808 (MiWritePteHighLevel.c)
+ *     MiReapplyImportOptimizationForDriverVerifier @ 0x1406FFE48 (MiReapplyImportOptimizationForDriverVerifier.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
  */
 
-int __fastcall RtlDeleteBarrier(_DWORD *a1)
+NTSTATUS __cdecl RtlDeleteBarrier(PRTL_BARRIER Barrier)
 {
-  int result; // eax
+  NTSTATUS result; // eax
   int i; // [rsp+30h] [rbp+8h] BYREF
 
-  result = *a1 & 0x7FFFFFFF;
-  for ( i = 0; a1[1] != result; result = *a1 & 0x7FFFFFFF )
+  result = Barrier->Reserved1 & 0x7FFFFFFF;
+  for ( i = 0; Barrier->Reserved2 != result; result = Barrier->Reserved1 & 0x7FFFFFFF )
     KeYieldProcessorEx(&i);
   return result;
 }

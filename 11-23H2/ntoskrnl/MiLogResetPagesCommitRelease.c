@@ -1,12 +1,12 @@
 /*
- * XREFs of MiLogResetPagesCommitRelease @ 0x14061847C
+ * XREFs of MiLogResetPagesCommitRelease @ 0x1406189CC
  * Callers:
- *     MiReleaseCommitForResetPages @ 0x1406190E8 (MiReleaseCommitForResetPages.c)
+ *     MiReleaseCommitForResetPages @ 0x140619638 (MiReleaseCommitForResetPages.c)
  * Callees:
  *     _tlgKeywordOn @ 0x140212E64 (_tlgKeywordOn.c)
- *     _tlgWriteEx_EtwWriteEx @ 0x140367F70 (_tlgWriteEx_EtwWriteEx.c)
- *     _tlgCreate1Sz_char @ 0x1403C431C (_tlgCreate1Sz_char.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     _tlgWriteEx_EtwWriteEx @ 0x140368110 (_tlgWriteEx_EtwWriteEx.c)
+ *     _tlgCreate1Sz_char @ 0x1403C44FC (_tlgCreate1Sz_char.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  */
 
 void MiLogResetPagesCommitRelease()
@@ -54,7 +54,7 @@ void MiLogResetPagesCommitRelease()
       v21 = 8;
       v15 = 4;
       v10 = v4;
-      tlgWriteEx_EtwWriteEx(v6, (unsigned __int8 *)&dword_14003828C, v5, 1u, v7, v8, 6u, &v12);
+      tlgWriteEx_EtwWriteEx(v6, (unsigned __int8 *)&dword_140038374, v5, 1u, v7, v8, 6u, &v12);
     }
   }
 }

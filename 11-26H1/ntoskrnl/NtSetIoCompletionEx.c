@@ -1,34 +1,46 @@
 /*
- * XREFs of NtSetIoCompletionEx @ 0x1408F8FC0
+ * XREFs of NtSetIoCompletionEx @ 0x140928F50
  * Callers:
- *     DifNtSetIoCompletionExWrapper @ 0x14068D110 (DifNtSetIoCompletionExWrapper.c)
+ *     DifNtSetIoCompletionExWrapper @ 0x140690CF0 (DifNtSetIoCompletionExWrapper.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     IoSetIoCompletionEx @ 0x1402678E0 (IoSetIoCompletionEx.c)
- *     ObReferenceObjectByHandle @ 0x1408F9550 (ObReferenceObjectByHandle.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     IoSetIoCompletionEx @ 0x140266E50 (IoSetIoCompletionEx.c)
+ *     ObReferenceObjectByHandle @ 0x1409294E0 (ObReferenceObjectByHandle.c)
  */
 
-NTSTATUS __fastcall NtSetIoCompletionEx(void *a1, void *a2, __int64 a3, __int64 a4, int a5, __int64 a6)
+NTSTATUS __cdecl NtSetIoCompletionEx(
+        HANDLE IoCompletionHandle,
+        HANDLE IoCompletionPacketHandle,
+        PVOID KeyContext,
+        PVOID ApcContext,
+        NTSTATUS IoStatus,
+        ULONG_PTR IoStatusInformation)
 {
   NTSTATUS result; // eax
   PVOID v10; // rbx
   KPROCESSOR_MODE PreviousMode; // r9
   NTSTATUS v12; // eax
   _DWORD *v13; // rsi
-  int v14; // edi
+  NTSTATUS v14; // edi
   PVOID Object[5]; // [rsp+40h] [rbp-28h] BYREF
 
   Object[0] = 0LL;
-  result = ObReferenceObjectByHandle(a1, 2u, IoCompletionObjectType, KeGetCurrentThread()->PreviousMode, Object, 0LL);
+  result = ObReferenceObjectByHandle(
+             IoCompletionHandle,
+             2u,
+             IoCompletionObjectType,
+             KeGetCurrentThread()->PreviousMode,
+             Object,
+             0LL);
   v10 = Object[0];
   if ( result < 0 )
     return result;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   Object[0] = 0LL;
   v12 = ObReferenceObjectByHandle(
-          a2,
+          IoCompletionPacketHandle,
           2u,
-          (POBJECT_TYPE)stru_140FC01F0.SchedulerApc.Reserved[1],
+          (POBJECT_TYPE)stru_140FC11F0.SchedulerApc.Reserved[0],
           PreviousMode,
           Object,
           0LL);
@@ -42,7 +54,14 @@ NTSTATUS __fastcall NtSetIoCompletionEx(void *a1, void *a2, __int64 a3, __int64 
     }
     else
     {
-      v14 = IoSetIoCompletionEx((__int64)v10, a3, a4, a5, a6, 0, (__int64)(v13 + 2));
+      v14 = IoSetIoCompletionEx(
+              (__int64)v10,
+              (__int64)KeyContext,
+              (__int64)ApcContext,
+              IoStatus,
+              IoStatusInformation,
+              0,
+              (__int64)(v13 + 2));
       if ( v14 >= 0 )
         goto LABEL_5;
       *v13 = 0;

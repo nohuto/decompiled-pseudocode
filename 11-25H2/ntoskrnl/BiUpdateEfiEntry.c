@@ -15,27 +15,22 @@
  *     ExFreePoolWithTag @ 0x140B62CD0 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall BiUpdateEfiEntry(__int64 a1, __int64 a2)
+__int64 __fastcall BiUpdateEfiEntry(void *a1, const GUID *a2)
 {
   PVOID v3; // r12
   _OWORD *v4; // r15
   void *v5; // r14
-  int v6; // ebx
+  NTSTATUS v6; // ebx
   int MergedBootEntry; // eax
   int updated; // eax
-  PVOID v10; // rsi
-  __int64 v11; // [rsp+30h] [rbp-30h] BYREF
+  _BOOT_ENTRY *v10; // rsi
+  HANDLE BcdObjectHandle; // [rsp+30h] [rbp-30h] BYREF
   _OWORD *v12; // [rsp+38h] [rbp-28h] BYREF
-  void *v13; // [rsp+40h] [rbp-20h] BYREF
-  PVOID P; // [rsp+48h] [rbp-18h] BYREF
+  void *v13; // [rsp+40h] [rbp-20h]
+  PVOID P; // [rsp+48h] [rbp-18h]
   PVOID v15[2]; // [rsp+50h] [rbp-10h] BYREF
-  PVOID v16; // [rsp+A8h] [rbp+48h] BYREF
-  int v17; // [rsp+B0h] [rbp+50h] BYREF
-  int v18; // [rsp+B8h] [rbp+58h] BYREF
+  PVOID v16; // [rsp+A8h] [rbp+48h]
 
-  LODWORD(v16) = 0;
-  v17 = 0;
-  v18 = 0;
   v3 = 0LL;
   P = 0LL;
   v4 = 0LL;
@@ -43,23 +38,23 @@ __int64 __fastcall BiUpdateEfiEntry(__int64 a1, __int64 a2)
   v5 = 0LL;
   v13 = 0LL;
   v15[0] = 0LL;
-  v11 = 0LL;
-  v6 = BcdOpenObject(a1, (unsigned int *)(a2 + 16), &v11);
+  BcdObjectHandle = 0LL;
+  v6 = BcdOpenObject(a1, a2 + 1, &BcdObjectHandle);
   if ( v6 < 0 )
     goto LABEL_20;
-  BiGetElement(v11, 301989892LL, &P, &v16);
-  if ( (*(_DWORD *)(a2 + 48) & 8) == 0 )
+  BiGetElement(BcdObjectHandle, 0x12000004u);
+  if ( (a2[3].Data1 & 8) == 0 )
   {
-    BiGetElement(v11, 285212673LL, &v12, &v17);
+    BiGetElement(BcdObjectHandle, 0x11000001u);
     updated = BiSpacesUpdatePhysicalDevicePath(&v12);
     if ( updated < 0 )
       BiLogMessage(3LL, L"BiSpacesUpdatePhysicalDevicePath failed %x", (unsigned int)updated);
-    BiGetElement(v11, 301989890LL, &v13, &v18);
+    BiGetElement(BcdObjectHandle, 0x12000002u);
     v4 = v12;
     v5 = v13;
   }
   v3 = P;
-  v16 = *(PVOID *)(a2 + 40);
+  v16 = *(PVOID *)a2[2].Data4;
   MergedBootEntry = BiCreateMergedBootEntry(v16, P, v4, v5, v15);
   v6 = MergedBootEntry;
   if ( MergedBootEntry == -1073741766 )
@@ -69,10 +64,10 @@ __int64 __fastcall BiUpdateEfiEntry(__int64 a1, __int64 a2)
   }
   if ( MergedBootEntry < 0 )
     goto LABEL_20;
-  v10 = v15[0];
+  v10 = (_BOOT_ENTRY *)v15[0];
   if ( !(unsigned __int8)BiAreBootEntriesEqual(v16, v15[0]) )
   {
-    v6 = BiModifyBootEntry((__int64)v10);
+    v6 = BiModifyBootEntry(v10);
     if ( v6 < 0 )
     {
       ExFreePoolWithTag(v10, 0x4B444342u);
@@ -82,7 +77,7 @@ LABEL_20:
     }
   }
   ExFreePoolWithTag(v16, 0x4B444342u);
-  *(_QWORD *)(a2 + 40) = v10;
+  *(_QWORD *)a2[2].Data4 = v10;
 LABEL_5:
   if ( v3 )
     ExFreePoolWithTag(v3, 0x4B444342u);
@@ -90,7 +85,7 @@ LABEL_5:
     ExFreePoolWithTag(v4, 0x4B444342u);
   if ( v5 )
     ExFreePoolWithTag(v5, 0x4B444342u);
-  if ( v11 )
-    BcdCloseObject(v11);
+  if ( BcdObjectHandle )
+    BcdCloseObject(BcdObjectHandle);
   return (unsigned int)v6;
 }

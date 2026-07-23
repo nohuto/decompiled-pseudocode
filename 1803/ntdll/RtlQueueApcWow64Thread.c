@@ -6,7 +6,17 @@
  *     <none>
  */
 
-__int64 RtlQueueApcWow64Thread()
+NTSTATUS __cdecl RtlQueueApcWow64Thread(
+        HANDLE ThreadHandle,
+        PPS_APC_ROUTINE ApcRoutine,
+        PVOID ApcArgument1,
+        PVOID ApcArgument2,
+        PVOID ApcArgument3)
 {
-  return ZwQueueApcThread();
+  return ZwQueueApcThread(
+           ThreadHandle,
+           (PPS_APC_ROUTINE)(-4LL * (_QWORD)ApcRoutine),
+           ApcArgument1,
+           ApcArgument2,
+           ApcArgument3);
 }

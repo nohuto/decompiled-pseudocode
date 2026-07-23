@@ -1,15 +1,15 @@
 /*
- * XREFs of MiMarkFileOnlyPfnBad @ 0x1402B6388
+ * XREFs of MiMarkFileOnlyPfnBad @ 0x1402B6578
  * Callers:
- *     MmMarkPhysicalMemoryAsBad @ 0x1402A7410 (MmMarkPhysicalMemoryAsBad.c)
+ *     MmMarkPhysicalMemoryAsBad @ 0x1402A7600 (MmMarkPhysicalMemoryAsBad.c)
  * Callees:
  *     MiLockPageInline @ 0x14002CE40 (MiLockPageInline.c)
  *     MiInsertPageInList @ 0x140039FD0 (MiInsertPageInList.c)
  *     MiUnlinkPageFromList @ 0x14003B930 (MiUnlinkPageFromList.c)
- *     MiIsPfnFileOnly @ 0x14009CA20 (MiIsPfnFileOnly.c)
- *     MiTrimSharedPage @ 0x1400E9770 (MiTrimSharedPage.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     MiPersistPage @ 0x1402B65D0 (MiPersistPage.c)
+ *     MiIsPfnFileOnly @ 0x14009C960 (MiIsPfnFileOnly.c)
+ *     MiTrimSharedPage @ 0x1400E97F0 (MiTrimSharedPage.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiPersistPage @ 0x1402B67C0 (MiPersistPage.c)
  */
 
 __int64 __fastcall MiMarkFileOnlyPfnBad(ULONG_PTR BugCheckParameter2, unsigned int a2)
@@ -28,7 +28,7 @@ __int64 __fastcall MiMarkFileOnlyPfnBad(ULONG_PTR BugCheckParameter2, unsigned i
     && MiIsPfnFileOnly(BugCheckParameter2)
     && (v5 & 0x200000000000000LL) != 0
     && (*(_DWORD *)(BugCheckParameter2 + 16) & 0x400LL) != 0
-    && *(ULONG_PTR **)(qword_14043A748 + 8 * ((v5 >> 40) & 0x3FF)) == &MiSystemPartition )
+    && *(ULONG_PTR **)(qword_14043B808 + 8 * ((v5 >> 40) & 0x3FF)) == &MiSystemPartition )
   {
     if ( (a2 & 0x10000000) != 0 )
     {

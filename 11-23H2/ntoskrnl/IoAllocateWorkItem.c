@@ -1,7 +1,7 @@
 /*
- * XREFs of IoAllocateWorkItem @ 0x140322A60
+ * XREFs of IoAllocateWorkItem @ 0x140322CF0
  * Callers:
- *     PnpDeviceCompletionRequestDestroy @ 0x140322A04 (PnpDeviceCompletionRequestDestroy.c)
+ *     PnpDeviceCompletionRequestDestroy @ 0x140322C94 (PnpDeviceCompletionRequestDestroy.c)
  * Callees:
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

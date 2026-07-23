@@ -1,9 +1,9 @@
 /*
- * XREFs of _pow_special @ 0x180131890
+ * XREFs of _pow_special @ 0x180131600
  * Callers:
- *     pow @ 0x18012B2F0 (pow.c)
+ *     pow @ 0x18012B060 (pow.c)
  * Callees:
- *     _handle_error @ 0x1801303D0 (_handle_error.c)
+ *     _handle_error @ 0x180130140 (_handle_error.c)
  */
 
 // local variable allocation has failed, the output may be wrong!

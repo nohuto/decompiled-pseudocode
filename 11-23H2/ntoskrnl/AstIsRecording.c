@@ -1,8 +1,8 @@
 /*
- * XREFs of AstIsRecording @ 0x14076BA14
+ * XREFs of AstIsRecording @ 0x14076BC04
  * Callers:
  *     AstLogDeviceSDDLUpdated @ 0x14069C6E8 (AstLogDeviceSDDLUpdated.c)
- *     AstLogDeviceCreated @ 0x14076B8D0 (AstLogDeviceCreated.c)
+ *     AstLogDeviceCreated @ 0x14076BAC0 (AstLogDeviceCreated.c)
  * Callees:
  *     <none>
  */

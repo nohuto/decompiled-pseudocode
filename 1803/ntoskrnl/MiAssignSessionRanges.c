@@ -26,7 +26,7 @@ __int64 MiAssignSessionRanges()
   int i; // esi
   ULONG ClearBitsAndSet; // eax
   __int64 result; // rax
-  struct _RTL_BITMAP BitMapHeader; // [rsp+28h] [rbp-89h] BYREF
+  _RTL_BITMAP BitMapHeader; // [rsp+28h] [rbp-89h] BYREF
   _QWORD v15[12]; // [rsp+38h] [rbp-79h] BYREF
   _BYTE v16[64]; // [rsp+98h] [rbp-19h] BYREF
 

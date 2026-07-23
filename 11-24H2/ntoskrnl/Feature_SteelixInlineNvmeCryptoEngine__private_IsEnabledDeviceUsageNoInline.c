@@ -1,9 +1,9 @@
 /*
- * XREFs of Feature_SteelixInlineNvmeCryptoEngine__private_IsEnabledDeviceUsageNoInline @ 0x1405973B4
+ * XREFs of Feature_SteelixInlineNvmeCryptoEngine__private_IsEnabledDeviceUsageNoInline @ 0x140594334
  * Callers:
- *     IoPropagateIrpExtensionEx @ 0x1403756E0 (IoPropagateIrpExtensionEx.c)
+ *     IoPropagateIrpExtensionEx @ 0x14025DFA0 (IoPropagateIrpExtensionEx.c)
  * Callees:
- *     Feature_SteelixInlineNvmeCryptoEngine__private_IsEnabledFallback @ 0x1405973EC (Feature_SteelixInlineNvmeCryptoEngine__private_IsEnabledFallback.c)
+ *     Feature_SteelixInlineNvmeCryptoEngine__private_IsEnabledFallback @ 0x14059436C (Feature_SteelixInlineNvmeCryptoEngine__private_IsEnabledFallback.c)
  */
 
 __int64 Feature_SteelixInlineNvmeCryptoEngine__private_IsEnabledDeviceUsageNoInline()

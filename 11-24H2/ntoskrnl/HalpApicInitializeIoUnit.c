@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpApicInitializeIoUnit @ 0x1405688F0
+ * XREFs of HalpApicInitializeIoUnit @ 0x1405663E0
  * Callers:
  *     <none>
  * Callees:
- *     HalpInterruptFindLines @ 0x1403B97B4 (HalpInterruptFindLines.c)
- *     HalMapIoSpace @ 0x14055FE80 (HalMapIoSpace.c)
- *     HalpApicConvertFromRte @ 0x140568238 (HalpApicConvertFromRte.c)
- *     HalpApicDescribeLines @ 0x140568498 (HalpApicDescribeLines.c)
+ *     HalpInterruptFindLines @ 0x140373298 (HalpInterruptFindLines.c)
+ *     HalMapIoSpace @ 0x14055DAB0 (HalMapIoSpace.c)
+ *     HalpApicConvertFromRte @ 0x140565D28 (HalpApicConvertFromRte.c)
+ *     HalpApicDescribeLines @ 0x140565F88 (HalpApicDescribeLines.c)
  */
 
 __int64 __fastcall HalpApicInitializeIoUnit(__int64 a1)
@@ -20,10 +20,10 @@ __int64 __fastcall HalpApicInitializeIoUnit(__int64 a1)
   int v8; // esi
   int v9; // ecx
   unsigned int v10; // edx
-  _QWORD *Lines; // rax
+  ULONG_PTR *Lines; // rax
   __int128 v12; // xmm0
   __int128 v13; // xmm1
-  __int64 v14; // rax
+  ULONG_PTR v14; // rax
   __int128 v15; // xmm0
   __int128 v16; // [rsp+20h] [rbp-40h] BYREF
   __int128 v17; // [rsp+30h] [rbp-30h]
@@ -86,7 +86,7 @@ __int64 __fastcall HalpApicInitializeIoUnit(__int64 a1)
       }
       else
       {
-        Lines = HalpInterruptFindLines((unsigned int *)&v20);
+        Lines = HalpInterruptFindLines((int *)&v20);
         if ( !Lines )
           return 3221226021LL;
         v12 = v16;

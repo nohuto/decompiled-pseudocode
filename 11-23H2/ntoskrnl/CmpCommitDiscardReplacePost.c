@@ -1,15 +1,15 @@
 /*
- * XREFs of CmpCommitDiscardReplacePost @ 0x140A1F900
+ * XREFs of CmpCommitDiscardReplacePost @ 0x140A1FBB0
  * Callers:
- *     CmpCommitDiscardAndReplaceKcbAndUnbackedHigherLayers @ 0x140A1F894 (CmpCommitDiscardAndReplaceKcbAndUnbackedHigherLayers.c)
+ *     CmpCommitDiscardAndReplaceKcbAndUnbackedHigherLayers @ 0x140A1FB44 (CmpCommitDiscardAndReplaceKcbAndUnbackedHigherLayers.c)
  * Callees:
- *     CmpReferenceKeyControlBlockUnsafe @ 0x1406D92C8 (CmpReferenceKeyControlBlockUnsafe.c)
- *     CmpMarkKeyUnbacked @ 0x1407107FC (CmpMarkKeyUnbacked.c)
- *     CmpDereferenceKeyControlBlockWithLock @ 0x14073E4A8 (CmpDereferenceKeyControlBlockWithLock.c)
- *     CmpDereferenceKeyControlBlockUnsafe @ 0x140768EF0 (CmpDereferenceKeyControlBlockUnsafe.c)
- *     CmpRebuildKcbCache @ 0x140769230 (CmpRebuildKcbCache.c)
- *     CmpDiscardKcb @ 0x14076AD08 (CmpDiscardKcb.c)
- *     CmpSearchKeyControlBlockTreeEx @ 0x140A17744 (CmpSearchKeyControlBlockTreeEx.c)
+ *     CmpReferenceKeyControlBlockUnsafe @ 0x1406D92F8 (CmpReferenceKeyControlBlockUnsafe.c)
+ *     CmpMarkKeyUnbacked @ 0x140710A0C (CmpMarkKeyUnbacked.c)
+ *     CmpDereferenceKeyControlBlockWithLock @ 0x14073E698 (CmpDereferenceKeyControlBlockWithLock.c)
+ *     CmpDereferenceKeyControlBlockUnsafe @ 0x1407690E0 (CmpDereferenceKeyControlBlockUnsafe.c)
+ *     CmpRebuildKcbCache @ 0x140769420 (CmpRebuildKcbCache.c)
+ *     CmpDiscardKcb @ 0x14076AEF8 (CmpDiscardKcb.c)
+ *     CmpSearchKeyControlBlockTreeEx @ 0x140A179F4 (CmpSearchKeyControlBlockTreeEx.c)
  */
 
 __int64 __fastcall CmpCommitDiscardReplacePost(ULONG_PTR BugCheckParameter4, __int64 a2, __int64 a3)

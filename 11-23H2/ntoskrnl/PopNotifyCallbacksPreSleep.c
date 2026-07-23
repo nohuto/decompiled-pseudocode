@@ -1,11 +1,11 @@
 /*
- * XREFs of PopNotifyCallbacksPreSleep @ 0x14098BA7C
+ * XREFs of PopNotifyCallbacksPreSleep @ 0x14098BC7C
  * Callers:
- *     PopTransitionSystemPowerStateEx @ 0x140AA90F0 (PopTransitionSystemPowerStateEx.c)
+ *     PopTransitionSystemPowerStateEx @ 0x140AA8F60 (PopTransitionSystemPowerStateEx.c)
  * Callees:
- *     ExNotifyCallback @ 0x14033BF40 (ExNotifyCallback.c)
- *     PopDiagTraceEventNoPayload @ 0x140367640 (PopDiagTraceEventNoPayload.c)
- *     PopCheckpointSystemSleep @ 0x140AAA4E8 (PopCheckpointSystemSleep.c)
+ *     ExNotifyCallback @ 0x14033C1D0 (ExNotifyCallback.c)
+ *     PopDiagTraceEventNoPayload @ 0x1403677E0 (PopDiagTraceEventNoPayload.c)
+ *     PopCheckpointSystemSleep @ 0x140AAA358 (PopCheckpointSystemSleep.c)
  */
 
 __int64 PopNotifyCallbacksPreSleep()

@@ -1,10 +1,10 @@
 /*
- * XREFs of VerifierIoDisconnectInterruptEx @ 0x140C40B40
+ * XREFs of VerifierIoDisconnectInterruptEx @ 0x140C46B50
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __fastcall VerifierIoDisconnectInterruptEx(__int64 a1)

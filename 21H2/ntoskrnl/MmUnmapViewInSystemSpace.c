@@ -1,29 +1,29 @@
 /*
- * XREFs of MmUnmapViewInSystemSpace @ 0x1406AC5B0
+ * XREFs of MmUnmapViewInSystemSpace @ 0x14060ACA0
  * Callers:
- *     LdrLoadAlternateResourceModuleEx @ 0x1402A94D4 (LdrLoadAlternateResourceModuleEx.c)
- *     LdrpSetAlternateResourceModuleHandle @ 0x14037F45C (LdrpSetAlternateResourceModuleHandle.c)
- *     LdrUnloadAlternateResourceModuleEx @ 0x14037FD70 (LdrUnloadAlternateResourceModuleEx.c)
- *     LdrpMapResourceFile @ 0x1403806CC (LdrpMapResourceFile.c)
- *     ExpDeleteSiloState @ 0x1405B2BEC (ExpDeleteSiloState.c)
- *     AlpcViewDestroyProcedure @ 0x14061DE30 (AlpcViewDestroyProcedure.c)
- *     MmUnmapViewInSessionSpace @ 0x1406AC590 (MmUnmapViewInSessionSpace.c)
- *     MiUpdateCfgSystemWideBitmapWorker @ 0x1406EA060 (MiUpdateCfgSystemWideBitmapWorker.c)
- *     KsepSdbMapToMemory @ 0x140755A54 (KsepSdbMapToMemory.c)
- *     KsepSdbUnmapFromMemory @ 0x14075643C (KsepSdbUnmapFromMemory.c)
- *     ExInitializeLeapSecondData @ 0x1407A8EAC (ExInitializeLeapSecondData.c)
- *     EtwpCoverageEnsureContext @ 0x1407CA03C (EtwpCoverageEnsureContext.c)
- *     CmFcpUnmapSection @ 0x1407D4AE8 (CmFcpUnmapSection.c)
- *     CmFcManagerUpdateFeatureUsageSubscriptions @ 0x14087E060 (CmFcManagerUpdateFeatureUsageSubscriptions.c)
- *     CmFcpManagerCreateSectionFromBuffer @ 0x14087E664 (CmFcpManagerCreateSectionFromBuffer.c)
- *     PspDeleteServerSiloGlobals @ 0x1409062AC (PspDeleteServerSiloGlobals.c)
- *     EtwpCoverageSamplerCleanup @ 0x140946194 (EtwpCoverageSamplerCleanup.c)
- *     EtwpCoverageSamplerSetBloomFilter @ 0x140946FE4 (EtwpCoverageSamplerSetBloomFilter.c)
- *     SLUpdateLicenseDataInternal @ 0x14094E290 (SLUpdateLicenseDataInternal.c)
- *     NtMapCMFModule @ 0x140959B20 (NtMapCMFModule.c)
+ *     LdrLoadAlternateResourceModuleEx @ 0x140227614 (LdrLoadAlternateResourceModuleEx.c)
+ *     LdrpSetAlternateResourceModuleHandle @ 0x14037EFAC (LdrpSetAlternateResourceModuleHandle.c)
+ *     LdrUnloadAlternateResourceModuleEx @ 0x14037F8C0 (LdrUnloadAlternateResourceModuleEx.c)
+ *     LdrpMapResourceFile @ 0x14038021C (LdrpMapResourceFile.c)
+ *     ExpDeleteSiloState @ 0x1405B2E1C (ExpDeleteSiloState.c)
+ *     MmUnmapViewInSessionSpace @ 0x14060AC80 (MmUnmapViewInSessionSpace.c)
+ *     AlpcViewDestroyProcedure @ 0x140687AA0 (AlpcViewDestroyProcedure.c)
+ *     MiUpdateCfgSystemWideBitmapWorker @ 0x140701440 (MiUpdateCfgSystemWideBitmapWorker.c)
+ *     KsepSdbMapToMemory @ 0x140755C14 (KsepSdbMapToMemory.c)
+ *     KsepSdbUnmapFromMemory @ 0x1407565FC (KsepSdbUnmapFromMemory.c)
+ *     ExInitializeLeapSecondData @ 0x1407A90AC (ExInitializeLeapSecondData.c)
+ *     EtwpCoverageEnsureContext @ 0x1407CA35C (EtwpCoverageEnsureContext.c)
+ *     CmFcpUnmapSection @ 0x1407D4C58 (CmFcpUnmapSection.c)
+ *     CmFcManagerUpdateFeatureUsageSubscriptions @ 0x14087E1C0 (CmFcManagerUpdateFeatureUsageSubscriptions.c)
+ *     CmFcpManagerCreateSectionFromBuffer @ 0x14087E7C4 (CmFcpManagerCreateSectionFromBuffer.c)
+ *     PspDeleteServerSiloGlobals @ 0x14090640C (PspDeleteServerSiloGlobals.c)
+ *     EtwpCoverageSamplerCleanup @ 0x140946364 (EtwpCoverageSamplerCleanup.c)
+ *     EtwpCoverageSamplerSetBloomFilter @ 0x1409471B4 (EtwpCoverageSamplerSetBloomFilter.c)
+ *     SLUpdateLicenseDataInternal @ 0x14094E460 (SLUpdateLicenseDataInternal.c)
+ *     NtMapCMFModule @ 0x140959CF0 (NtMapCMFModule.c)
  * Callees:
- *     MiRemoveFromSystemSpace @ 0x140304E4C (MiRemoveFromSystemSpace.c)
- *     MiGetSystemRegionType @ 0x14034A950 (MiGetSystemRegionType.c)
+ *     MiRemoveFromSystemSpace @ 0x14030FB9C (MiRemoveFromSystemSpace.c)
+ *     MiGetSystemRegionType @ 0x1403556A0 (MiGetSystemRegionType.c)
  */
 
 NTSTATUS __stdcall MmUnmapViewInSystemSpace(PVOID MappedBase)
@@ -33,7 +33,7 @@ NTSTATUS __stdcall MmUnmapViewInSystemSpace(PVOID MappedBase)
 
   if ( (unsigned int)MiGetSystemRegionType((unsigned __int64)MappedBase) != 1 )
   {
-    v2 = &unk_140C4CD68;
+    v2 = &unk_140C4CDA8;
 LABEL_3:
     MiRemoveFromSystemSpace(v2, (ULONG_PTR)MappedBase, 1);
     return 0;

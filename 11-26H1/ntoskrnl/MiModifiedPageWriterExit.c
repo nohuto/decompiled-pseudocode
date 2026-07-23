@@ -1,15 +1,15 @@
 /*
- * XREFs of MiModifiedPageWriterExit @ 0x140528408
+ * XREFs of MiModifiedPageWriterExit @ 0x14052AA78
  * Callers:
- *     MiModifiedPageWriter @ 0x1404064D0 (MiModifiedPageWriter.c)
+ *     MiModifiedPageWriter @ 0x1403FF5C0 (MiModifiedPageWriter.c)
  * Callees:
- *     IoBoostThreadIoPriority @ 0x140205ACC (IoBoostThreadIoPriority.c)
- *     KeSetActualBasePriorityThread @ 0x140239560 (KeSetActualBasePriorityThread.c)
- *     KeWaitForSingleObject @ 0x140278560 (KeWaitForSingleObject.c)
- *     KiCheckForKernelApcDelivery @ 0x14027DB80 (KiCheckForKernelApcDelivery.c)
- *     KeSetEvent @ 0x1402DE9C0 (KeSetEvent.c)
- *     KeCancelTimer @ 0x1403AD790 (KeCancelTimer.c)
- *     ExWaitForRundownProtectionRelease @ 0x140463DA0 (ExWaitForRundownProtectionRelease.c)
+ *     IoBoostThreadIoPriority @ 0x140205BAC (IoBoostThreadIoPriority.c)
+ *     KeSetActualBasePriorityThread @ 0x14023AEC0 (KeSetActualBasePriorityThread.c)
+ *     KeWaitForSingleObject @ 0x140277AD0 (KeWaitForSingleObject.c)
+ *     KiCheckForKernelApcDelivery @ 0x14027D0F0 (KiCheckForKernelApcDelivery.c)
+ *     KeSetEvent @ 0x1402C0780 (KeSetEvent.c)
+ *     KeCancelTimer @ 0x1403B74A0 (KeCancelTimer.c)
+ *     ExWaitForRundownProtectionRelease @ 0x14045CD60 (ExWaitForRundownProtectionRelease.c)
  */
 
 LONG __fastcall MiModifiedPageWriterExit(__int64 a1, unsigned int a2)
@@ -53,7 +53,7 @@ LONG __fastcall MiModifiedPageWriterExit(__int64 a1, unsigned int a2)
               *(_BYTE *)(a1 + 801) = 1;
               v13 = CurrentThread->SpecialApcDisable++ == -1;
               if ( v13
-                && ($7A85BAF4F1FA08634C1C4A3E45B775B3 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
+                && ($241382875694CED3D471BC5892DE3337 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
               {
                 KiCheckForKernelApcDelivery(v6, v5);
               }
@@ -65,7 +65,7 @@ LONG __fastcall MiModifiedPageWriterExit(__int64 a1, unsigned int a2)
         }
         v13 = CurrentThread->SpecialApcDisable++ == -1;
         if ( v13
-          && ($7A85BAF4F1FA08634C1C4A3E45B775B3 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
+          && ($241382875694CED3D471BC5892DE3337 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
         {
           KiCheckForKernelApcDelivery(v6, v5);
         }

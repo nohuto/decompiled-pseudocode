@@ -2,12 +2,12 @@
  * XREFs of DbgUnLoadImageSymbolsUnicode @ 0x14020B814
  * Callers:
  *     MiUnloadSystemImage @ 0x1406962FC (MiUnloadSystemImage.c)
- *     MiSegmentDelete @ 0x1406B0954 (MiSegmentDelete.c)
- *     MiSwitchBaseAddress @ 0x1407D3E1C (MiSwitchBaseAddress.c)
+ *     MiSegmentDelete @ 0x1406B0984 (MiSegmentDelete.c)
+ *     MiSwitchBaseAddress @ 0x1407D40EC (MiSwitchBaseAddress.c)
  *     MiHandleBootImage @ 0x140B46AA8 (MiHandleBootImage.c)
  * Callees:
  *     DbgUnicodeStringToAnsiString @ 0x14020A9F4 (DbgUnicodeStringToAnsiString.c)
- *     DebugService2 @ 0x140428E80 (DebugService2.c)
+ *     DebugService2 @ 0x140429210 (DebugService2.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

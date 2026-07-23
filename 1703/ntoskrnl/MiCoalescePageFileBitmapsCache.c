@@ -159,8 +159,8 @@ LABEL_11:
       {
         *(_DWORD *)(v22 + 52) = v23 + *(_DWORD *)(v17 + 52);
         *(_DWORD *)(v17 + 52) = 0;
-        RtlRbRemoveNode(a1 + 144, (unsigned __int64 *)(v10 - 24));
-        RtlRbRemoveNode(a1 + 160, (unsigned __int64 *)v10);
+        RtlRbRemoveNode((PRTL_RB_TREE)(a1 + 144), (PRTL_BALANCED_NODE)(v10 - 24));
+        RtlRbRemoveNode((PRTL_RB_TREE)(a1 + 160), (PRTL_BALANCED_NODE)v10);
         v43 = *(unsigned __int64 **)(a1 + 184);
         if ( *v43 != a1 + 176 )
           __fastfail(3u);

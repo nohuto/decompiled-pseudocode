@@ -1,13 +1,13 @@
 /*
- * XREFs of KeUpdateGroupSchedulingConstants @ 0x1405F9184
+ * XREFs of KeUpdateGroupSchedulingConstants @ 0x1405FBBA4
  * Callers:
- *     ?KiEnableGroupScheduling@@YAXXZ @ 0x1405F8E3C (-KiEnableGroupScheduling@@YAXXZ.c)
- *     PspReadDfssConfigurationValues @ 0x140614838 (PspReadDfssConfigurationValues.c)
+ *     ?KiEnableGroupScheduling@@YAXXZ @ 0x1405FB85C (-KiEnableGroupScheduling@@YAXXZ.c)
+ *     PspReadDfssConfigurationValues @ 0x140617678 (PspReadDfssConfigurationValues.c)
  * Callees:
- *     KeAcquireInStackQueuedSpinLock @ 0x1402B4730 (KeAcquireInStackQueuedSpinLock.c)
- *     KeReleaseInStackQueuedSpinLock @ 0x1402B98C0 (KeReleaseInStackQueuedSpinLock.c)
- *     ?KiAssignSchedulingGroupWeights@@YAXW4_KSCHEDULING_GROUP_TYPE@@EPEAU_KSCHEDULING_GROUP@@@Z @ 0x140445568 (-KiAssignSchedulingGroupWeights@@YAXW4_KSCHEDULING_GROUP_TYPE@@EPEAU_KSCHEDULING_GROUP@@@Z.c)
- *     ?KiUpdateCpuTargetByRate@@YAXPEAU_KSCHEDULING_GROUP@@E@Z @ 0x1404458E0 (-KiUpdateCpuTargetByRate@@YAXPEAU_KSCHEDULING_GROUP@@E@Z.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402FF400 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x140304580 (KeReleaseInStackQueuedSpinLock.c)
+ *     ?KiAssignSchedulingGroupWeights@@YAXW4_KSCHEDULING_GROUP_TYPE@@EPEAU_KSCHEDULING_GROUP@@@Z @ 0x14043E070 (-KiAssignSchedulingGroupWeights@@YAXW4_KSCHEDULING_GROUP_TYPE@@EPEAU_KSCHEDULING_GROUP@@@Z.c)
+ *     ?KiUpdateCpuTargetByRate@@YAXPEAU_KSCHEDULING_GROUP@@E@Z @ 0x14043E3E4 (-KiUpdateCpuTargetByRate@@YAXPEAU_KSCHEDULING_GROUP@@E@Z.c)
  */
 
 void __fastcall KeUpdateGroupSchedulingConstants(char a1)
@@ -25,9 +25,7 @@ void __fastcall KeUpdateGroupSchedulingConstants(char a1)
   KiCycleDivisorLongTerm = v3 * (unsigned int)PsDfssLongTermSharingMS;
   KiCyclesPerGeneration = v3 * (unsigned int)PsDfssGenerationLengthMS;
   KiGroupSchedulingNumerator = PsDfssLongTermFraction1024;
-  KiGenerationTicks = 10000
-                    * (unsigned __int64)(unsigned int)PsDfssGenerationLengthMS
-                    / (unsigned int)KeMaximumIncrement;
+  KiGenerationTicks = 10000 * (unsigned __int64)(unsigned int)PsDfssGenerationLengthMS / KeMaximumIncrement;
   if ( KiSchedulingGroupList.Flink )
   {
     while ( Flink != &KiSchedulingGroupList )

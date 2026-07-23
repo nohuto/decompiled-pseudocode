@@ -1,18 +1,18 @@
 /*
- * XREFs of PopCreatePowerRequestObject @ 0x140588F40
+ * XREFs of PopCreatePowerRequestObject @ 0x140589F40
  * Callers:
- *     PopCreateUserPowerRequest @ 0x140588C2C (PopCreateUserPowerRequest.c)
- *     PopCreateKernelPowerRequest @ 0x140701214 (PopCreateKernelPowerRequest.c)
+ *     PopCreateUserPowerRequest @ 0x140589C2C (PopCreateUserPowerRequest.c)
+ *     PopCreateKernelPowerRequest @ 0x1407024B4 (PopCreateKernelPowerRequest.c)
  * Callees:
  *     PsGetCurrentProcessSessionId @ 0x140002AA0 (PsGetCurrentProcessSessionId.c)
  *     PopReleaseRwLock @ 0x140005EC4 (PopReleaseRwLock.c)
  *     RtlDeleteElementGenericTableAvl @ 0x140006CA0 (RtlDeleteElementGenericTableAvl.c)
  *     RtlInsertElementGenericTableAvl @ 0x140006F00 (RtlInsertElementGenericTableAvl.c)
- *     PsGetProcessId @ 0x1400A5710 (PsGetProcessId.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     PopStatsCreatePowerRequest @ 0x140589234 (PopStatsCreatePowerRequest.c)
- *     PopAcquirePowerRequestPushLock @ 0x140589D50 (PopAcquirePowerRequestPushLock.c)
- *     ObCreateObjectEx @ 0x1405E05E0 (ObCreateObjectEx.c)
+ *     PsGetProcessId @ 0x1400A5650 (PsGetProcessId.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     PopStatsCreatePowerRequest @ 0x14058A234 (PopStatsCreatePowerRequest.c)
+ *     PopAcquirePowerRequestPushLock @ 0x14058AD50 (PopAcquirePowerRequestPushLock.c)
+ *     ObCreateObjectEx @ 0x1405E15E0 (ObCreateObjectEx.c)
  */
 
 __int64 __fastcall PopCreatePowerRequestObject(_QWORD *a1, _DWORD *a2)

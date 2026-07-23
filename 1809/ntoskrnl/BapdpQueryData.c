@@ -1,18 +1,18 @@
 /*
- * XREFs of BapdpQueryData @ 0x1409D160C
+ * XREFs of BapdpQueryData @ 0x1409D260C
  * Callers:
- *     BapdpProcessEtwEvents @ 0x1401861A0 (BapdpProcessEtwEvents.c)
- *     BapdpProcessEDrvHintInfo @ 0x1409D0D68 (BapdpProcessEDrvHintInfo.c)
- *     BapdpProcessFwUpdateResults @ 0x1409D0DF8 (BapdpProcessFwUpdateResults.c)
- *     BapdpProcessWmdResults @ 0x1409D0E88 (BapdpProcessWmdResults.c)
- *     BapdpProcessHSTIResults @ 0x1409D0F74 (BapdpProcessHSTIResults.c)
- *     BapdpProcessResumeInformation @ 0x1409D10F4 (BapdpProcessResumeInformation.c)
- *     BapdpProcessBitlockerStatus @ 0x1409D11C4 (BapdpProcessBitlockerStatus.c)
- *     BapdpProcessVsmKeyBlobs @ 0x1409D12A0 (BapdpProcessVsmKeyBlobs.c)
- *     BapdpRegisterWbclData @ 0x1409D14E8 (BapdpRegisterWbclData.c)
- *     BapdpProcessBootMetadata @ 0x1409D1DB0 (BapdpProcessBootMetadata.c)
+ *     BapdpProcessEtwEvents @ 0x1401862E0 (BapdpProcessEtwEvents.c)
+ *     BapdpProcessEDrvHintInfo @ 0x1409D1D68 (BapdpProcessEDrvHintInfo.c)
+ *     BapdpProcessFwUpdateResults @ 0x1409D1DF8 (BapdpProcessFwUpdateResults.c)
+ *     BapdpProcessWmdResults @ 0x1409D1E88 (BapdpProcessWmdResults.c)
+ *     BapdpProcessHSTIResults @ 0x1409D1F74 (BapdpProcessHSTIResults.c)
+ *     BapdpProcessResumeInformation @ 0x1409D20F4 (BapdpProcessResumeInformation.c)
+ *     BapdpProcessBitlockerStatus @ 0x1409D21C4 (BapdpProcessBitlockerStatus.c)
+ *     BapdpProcessVsmKeyBlobs @ 0x1409D22A0 (BapdpProcessVsmKeyBlobs.c)
+ *     BapdpRegisterWbclData @ 0x1409D24E8 (BapdpRegisterWbclData.c)
+ *     BapdpProcessBootMetadata @ 0x1409D2DB0 (BapdpProcessBootMetadata.c)
  * Callees:
- *     memmove @ 0x1401D1540 (memmove.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
  */
 
 __int64 __fastcall BapdpQueryData(__int64 a1, _QWORD *a2, int a3, void *a4, unsigned int *a5)
@@ -25,12 +25,12 @@ __int64 __fastcall BapdpQueryData(__int64 a1, _QWORD *a2, int a3, void *a4, unsi
 
   if ( !a5 || !a2 || *a5 && !a4 )
     return 3221225485LL;
-  v8 = (__int64 *)qword_1404DB4B8;
+  v8 = (__int64 *)qword_1404DC578;
   for ( i = 0; ; ++i )
   {
     while ( 1 )
     {
-      if ( v8 == &qword_1404DB4B8 )
+      if ( v8 == &qword_1404DC578 )
         return 3221226021LL;
       v10 = v8[2];
       v8 = (__int64 *)*v8;

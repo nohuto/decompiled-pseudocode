@@ -3,8 +3,8 @@
  * Callers:
  *     SleepstudyHelperCreateBlockerFromGuid @ 0x1402099A0 (SleepstudyHelperCreateBlockerFromGuid.c)
  *     SleepstudyHelperSetBlockerFriendlyName @ 0x140209A80 (SleepstudyHelperSetBlockerFriendlyName.c)
- *     SshpCopyDataEntry @ 0x1405A2C80 (SshpCopyDataEntry.c)
- *     SshpWriteBlocker @ 0x1405A2DC0 (SshpWriteBlocker.c)
+ *     SshpCopyDataEntry @ 0x1405A3170 (SshpCopyDataEntry.c)
+ *     SshpWriteBlocker @ 0x1405A32B0 (SshpWriteBlocker.c)
  * Callees:
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

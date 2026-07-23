@@ -1,7 +1,7 @@
 /*
- * XREFs of MiRoundUpToPowerOf2SizeT @ 0x1402CB1F4
+ * XREFs of MiRoundUpToPowerOf2SizeT @ 0x1402CB3E4
  * Callers:
- *     MiUseLargeDriverPage @ 0x140683260 (MiUseLargeDriverPage.c)
+ *     MiUseLargeDriverPage @ 0x140684420 (MiUseLargeDriverPage.c)
  * Callees:
  *     <none>
  */

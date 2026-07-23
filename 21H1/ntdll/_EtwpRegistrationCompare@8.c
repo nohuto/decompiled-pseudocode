@@ -12,8 +12,10 @@ int __stdcall EtwpRegistrationCompare(int a1, int a2)
   int result; // eax
   unsigned __int16 v3; // cx
   unsigned __int16 v4; // dx
+  size_t v5; // [esp-4h] [ebp-Ch]
 
-  result = memcmp(*(const void **)a1, (const void *)(a2 + 12), 0x10u);
+  LODWORD(v5) = 16;
+  result = memcmp(*(const void **)a1, (const void *)(a2 + 12), v5);
   if ( !result )
   {
     v3 = *(_WORD *)(a1 + 4);

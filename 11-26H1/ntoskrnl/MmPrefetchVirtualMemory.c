@@ -1,18 +1,18 @@
 /*
- * XREFs of MmPrefetchVirtualMemory @ 0x140A4EAA4
+ * XREFs of MmPrefetchVirtualMemory @ 0x140A57D94
  * Callers:
- *     MiProcessWsInSwapRanges @ 0x1404ACA44 (MiProcessWsInSwapRanges.c)
- *     MmPrefetchVirtualAddresses @ 0x140A4E9F0 (MmPrefetchVirtualAddresses.c)
- *     PfpPrefetchPrivatePages @ 0x140A4EC04 (PfpPrefetchPrivatePages.c)
- *     ExpDebuggerWorker @ 0x140C16D60 (ExpDebuggerWorker.c)
+ *     MiProcessWsInSwapRanges @ 0x1404A60D4 (MiProcessWsInSwapRanges.c)
+ *     MmPrefetchVirtualAddresses @ 0x140A57CE0 (MmPrefetchVirtualAddresses.c)
+ *     PfpPrefetchPrivatePages @ 0x140A57EF4 (PfpPrefetchPrivatePages.c)
+ *     ExpDebuggerWorker @ 0x140C1CD60 (ExpDebuggerWorker.c)
  * Callees:
- *     KiUnstackDetachProcess @ 0x1402307C0 (KiUnstackDetachProcess.c)
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     KeStackAttachProcess @ 0x1402C5270 (KeStackAttachProcess.c)
- *     MiPrefetchVirtualMemory @ 0x1403A0710 (MiPrefetchVirtualMemory.c)
- *     ObIsKernelHandle @ 0x1404D8C40 (ObIsKernelHandle.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     ObpReferenceObjectByHandleWithTag @ 0x1408FA680 (ObpReferenceObjectByHandleWithTag.c)
+ *     KiUnstackDetachProcess @ 0x140232120 (KiUnstackDetachProcess.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     KeStackAttachProcess @ 0x14030FF30 (KeStackAttachProcess.c)
+ *     MiPrefetchVirtualMemory @ 0x1403A2470 (MiPrefetchVirtualMemory.c)
+ *     ObIsKernelHandle @ 0x1404D2320 (ObIsKernelHandle.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     ObpReferenceObjectByHandleWithTag @ 0x14092A610 (ObpReferenceObjectByHandleWithTag.c)
  */
 
 __int64 __fastcall MmPrefetchVirtualMemory(ULONG_PTR BugCheckParameter1, unsigned __int64 a2, __int64 a3, int a4)
@@ -55,7 +55,15 @@ LABEL_8:
   }
   if ( !ObIsKernelHandle((HANDLE)BugCheckParameter1) )
     return 3221225711LL;
-  result = ObpReferenceObjectByHandleWithTag(BugCheckParameter1, 8LL, PsProcessType, 0, 0x66506D4Du, &PROCESS, 0LL, 0LL);
+  result = ObpReferenceObjectByHandleWithTag(
+             BugCheckParameter1,
+             8,
+             (__int64)PsProcessType,
+             0,
+             0x66506D4Du,
+             &PROCESS,
+             0LL,
+             0LL);
   if ( (int)result >= 0 )
   {
     v4 = PROCESS;

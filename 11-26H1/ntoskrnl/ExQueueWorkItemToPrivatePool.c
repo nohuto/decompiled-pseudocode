@@ -1,11 +1,11 @@
 /*
- * XREFs of ExQueueWorkItemToPrivatePool @ 0x140203E58
+ * XREFs of ExQueueWorkItemToPrivatePool @ 0x140203F38
  * Callers:
- *     ?SmAsyncReadQueueInsert@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@PEAU_SM_ASYNC_READ_QUEUE@1@PEAU_SM_ASYNC_DIRECT_READ_CTX@1@K@Z @ 0x140203CB8 (-SmAsyncReadQueueInsert@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@PEAU_SM_ASYNC_READ_QUEUE@1@PEAU_.c)
+ *     ?SmAsyncReadQueueInsert@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@PEAU_SM_ASYNC_READ_QUEUE@1@PEAU_SM_ASYNC_DIRECT_READ_CTX@1@K@Z @ 0x140203D98 (-SmAsyncReadQueueInsert@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@PEAU_SM_ASYNC_READ_QUEUE@1@PEAU_.c)
  * Callees:
- *     ExpValidateWorkItem @ 0x140203F4C (ExpValidateWorkItem.c)
- *     ExpQueueWorkItem @ 0x140381D74 (ExpQueueWorkItem.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
+ *     ExpValidateWorkItem @ 0x14020402C (ExpValidateWorkItem.c)
+ *     ExpQueueWorkItem @ 0x140383B24 (ExpQueueWorkItem.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall ExQueueWorkItemToPrivatePool(

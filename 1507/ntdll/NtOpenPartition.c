@@ -6,11 +6,14 @@
  *     <none>
  */
 
-__int64 NtOpenPartition()
+NTSTATUS __cdecl NtOpenPartition(
+        PHANDLE PartitionHandle,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 274LL;
+  result = 274;
   __asm { syscall; Low latency system call }
   return result;
 }

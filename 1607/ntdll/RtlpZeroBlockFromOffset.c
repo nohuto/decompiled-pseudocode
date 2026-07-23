@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlpZeroBlockFromOffset @ 0x18004CA94
+ * XREFs of RtlpZeroBlockFromOffset @ 0x18004CA84
  * Callers:
- *     RtlpGrowBlockInPlace @ 0x18004C470 (RtlpGrowBlockInPlace.c)
+ *     RtlpGrowBlockInPlace @ 0x18004C460 (RtlpGrowBlockInPlace.c)
  * Callees:
  *     memset @ 0x1800ACCC0 (memset.c)
  */

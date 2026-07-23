@@ -1,19 +1,19 @@
 /*
- * XREFs of EtwpGetAutoLoggerEventNameFilter @ 0x140A7B268
+ * XREFs of EtwpGetAutoLoggerEventNameFilter @ 0x140A75568
  * Callers:
- *     EtwpGetAutoLoggerProviderFilter @ 0x140A7A638 (EtwpGetAutoLoggerProviderFilter.c)
+ *     EtwpGetAutoLoggerProviderFilter @ 0x140A74938 (EtwpGetAutoLoggerProviderFilter.c)
  * Callees:
- *     RtlStringCbPrintfW @ 0x14040BC90 (RtlStringCbPrintfW.c)
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     ZwOpenKey @ 0x1406A6650 (ZwOpenKey.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     RtlUnicodeToUTF8N @ 0x1408AF980 (RtlUnicodeToUTF8N.c)
- *     RtlpQueryRegistryValues @ 0x1409CC350 (RtlpQueryRegistryValues.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePool @ 0x140B72CB0 (ExFreePool.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     RtlStringCbPrintfW @ 0x140404170 (RtlStringCbPrintfW.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     ZwOpenKey @ 0x1406A75F0 (ZwOpenKey.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     RtlUnicodeToUTF8N @ 0x140905BE0 (RtlUnicodeToUTF8N.c)
+ *     RtlpQueryRegistryValues @ 0x1409B4DD0 (RtlpQueryRegistryValues.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePool @ 0x140B74850 (ExFreePool.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __fastcall EtwpGetAutoLoggerEventNameFilter(__int64 a1, __int64 a2, __int64 a3, PVOID *a4, _DWORD *a5)
@@ -22,13 +22,13 @@ void __fastcall EtwpGetAutoLoggerEventNameFilter(__int64 a1, __int64 a2, __int64
   __int64 v7; // rax
   WCHAR *v10; // rdi
   __int64 v11; // rcx
-  unsigned int v12; // r13d
+  ULONG_PTR v12; // r13
   wchar_t *Pool2; // rax
   WCHAR *v14; // r14
   NTSTATUS v15; // eax
   __int64 v16; // r13
   __int64 v17; // rax
-  unsigned int v18; // ebx
+  ULONG_PTR v18; // rbx
   wchar_t *v19; // rax
   NTSTATUS v20; // eax
   bool v21; // sf
@@ -117,13 +117,13 @@ void __fastcall EtwpGetAutoLoggerEventNameFilter(__int64 a1, __int64 a2, __int64
   do
     ++v11;
   while ( *(_WORD *)(a1 + 2 * v11) );
-  v12 = 2 * (v11 + v7) + 4;
-  Pool2 = (wchar_t *)ExAllocatePool2(0x100uLL);
+  v12 = (unsigned int)(2 * (v11 + v7) + 4);
+  Pool2 = (wchar_t *)ExAllocatePool2(0x100uLL, v12, 0x50777445u);
   v14 = Pool2;
   if ( Pool2 )
   {
     UnicodeStringByteCount = a3;
-    v15 = RtlStringCbPrintfW(Pool2, v12, L"%ws\\%ws", *(_QWORD *)UTF8StringActualByteCount);
+    v15 = RtlStringCbPrintfW(Pool2, (unsigned int)v12, L"%ws\\%ws", *(_QWORD *)UTF8StringActualByteCount);
     if ( v15 )
       goto LABEL_31;
     RtlInitUnicodeString(&DestinationString, v14);
@@ -145,13 +145,13 @@ void __fastcall EtwpGetAutoLoggerEventNameFilter(__int64 a1, __int64 a2, __int64
       do
         ++v6;
       while ( *(_WORD *)(v41 + 2 * v6) );
-      v18 = 2 * (v6 + v17) + 4;
-      v19 = (wchar_t *)ExAllocatePool2(0x100uLL);
+      v18 = (unsigned int)(2 * (v6 + v17) + 4);
+      v19 = (wchar_t *)ExAllocatePool2(0x100uLL, v18, 0x50777445u);
       v10 = v19;
       if ( !v19 )
         goto LABEL_34;
       UnicodeStringByteCount = a3;
-      v20 = RtlStringCbPrintfW(v19, v18, L"%ws\\%ws", v16);
+      v20 = RtlStringCbPrintfW(v19, (unsigned int)v18, L"%ws\\%ws", v16);
       v21 = v20 < 0;
       if ( v20 )
         goto LABEL_32;
@@ -172,7 +172,7 @@ LABEL_31:
       goto LABEL_32;
     }
     *a5 = 4096;
-    v22 = ExAllocatePool2(0x100uLL);
+    v22 = ExAllocatePool2(0x100uLL, 0x1000uLL, 0x50777445u);
     *a4 = (PVOID)v22;
     v23 = v22;
     if ( v22 )

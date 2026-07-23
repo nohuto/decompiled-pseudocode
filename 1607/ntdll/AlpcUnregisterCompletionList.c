@@ -1,12 +1,12 @@
 /*
- * XREFs of AlpcUnregisterCompletionList @ 0x18008A2E0
+ * XREFs of AlpcUnregisterCompletionList @ 0x18008A2D0
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall AlpcUnregisterCompletionList(__int64 a1)
+NTSTATUS __cdecl AlpcUnregisterCompletionList(HANDLE PortHandle)
 {
-  return NtAlpcSetInformation(a1, 7LL, 0LL);
+  return NtAlpcSetInformation(PortHandle, AlpcUnregisterCompletionListInformation, 0LL, 0);
 }

@@ -8,30 +8,30 @@
  *     _ZwAlertThreadByThreadId@4 @ 0x4B2F3080 (_ZwAlertThreadByThreadId@4.c)
  */
 
-void __stdcall RtlWakeAllConditionVariable(volatile signed __int32 *a1)
+void __cdecl RtlWakeAllConditionVariable(PRTL_CONDITION_VARIABLE ConditionVariable)
 {
-  signed __int32 v1; // edx
+  signed __int32 Ptr; // edx
   signed __int32 v2; // eax
   unsigned int v3; // edx
   unsigned int v4; // esi
 
-  v1 = *a1;
-  if ( *a1 )
+  Ptr = (signed __int32)ConditionVariable->Ptr;
+  if ( ConditionVariable->Ptr )
   {
-    while ( (v1 & 7) != 7 )
+    while ( (Ptr & 7) != 7 )
     {
-      if ( (v1 & 8) != 0 )
+      if ( (Ptr & 8) != 0 )
       {
-        v2 = _InterlockedCompareExchange(a1, v1 | 7, v1);
-        if ( v2 == v1 )
+        v2 = _InterlockedCompareExchange((volatile signed __int32 *)ConditionVariable, Ptr | 7, Ptr);
+        if ( v2 == Ptr )
           return;
       }
       else
       {
-        v2 = _InterlockedCompareExchange(a1, 0, v1);
-        if ( v2 == v1 )
+        v2 = _InterlockedCompareExchange((volatile signed __int32 *)ConditionVariable, 0, Ptr);
+        if ( v2 == Ptr )
         {
-          v3 = v1 & 0xFFFFFFF0;
+          v3 = Ptr & 0xFFFFFFF0;
           if ( v3 )
           {
             do
@@ -39,7 +39,7 @@ void __stdcall RtlWakeAllConditionVariable(volatile signed __int32 *a1)
               v4 = *(_DWORD *)v3;
               _interlockedbittestandset((volatile signed __int32 *)(v3 + 20), 2u);
               if ( !_interlockedbittestandreset((volatile signed __int32 *)(v3 + 20), 1u) )
-                ZwAlertThreadByThreadId(*(_DWORD *)(v3 + 12));
+                ZwAlertThreadByThreadId(*(HANDLE *)(v3 + 12));
               v3 = v4;
             }
             while ( v4 );
@@ -47,7 +47,7 @@ void __stdcall RtlWakeAllConditionVariable(volatile signed __int32 *a1)
           return;
         }
       }
-      v1 = v2;
+      Ptr = v2;
       if ( !v2 )
         return;
     }

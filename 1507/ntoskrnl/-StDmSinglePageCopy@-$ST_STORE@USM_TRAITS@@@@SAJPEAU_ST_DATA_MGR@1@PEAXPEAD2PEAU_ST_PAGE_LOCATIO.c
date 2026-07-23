@@ -18,7 +18,7 @@
 
 __int64 __fastcall ST_STORE<SM_TRAITS>::StDmSinglePageCopy(
         __int64 a1,
-        __int64 a2,
+        void *a2,
         _DWORD *a3,
         unsigned __int64 a4,
         __int64 a5,
@@ -28,10 +28,10 @@ __int64 __fastcall ST_STORE<SM_TRAITS>::StDmSinglePageCopy(
   __int64 v9; // rdx
   unsigned __int64 v10; // rdi
   __int64 v11; // r8
-  __int64 pbOutput; // rsi
+  unsigned __int64 v13; // rsi
   int v14; // r12d
   char v15; // bl
-  _OWORD *v16; // r14
+  UCHAR *v16; // r14
   ULONG cbOutput; // r12d
   char v18; // al
   __int64 v19; // rcx
@@ -39,7 +39,7 @@ __int64 __fastcall ST_STORE<SM_TRAITS>::StDmSinglePageCopy(
   struct _KTHREAD *v21; // rcx
   unsigned int v22; // edi
   __int16 v23; // ax
-  unsigned int v24; // eax
+  ULONG v24; // eax
   __int64 v25; // r9
   struct _KTHREAD *v26; // rax
   __int64 v27; // r12
@@ -54,36 +54,36 @@ __int64 __fastcall ST_STORE<SM_TRAITS>::StDmSinglePageCopy(
   __int64 v37; // rcx
   _OWORD *v38; // rax
   __int128 v39; // xmm1
-  UCHAR *v40; // [rsp+20h] [rbp-B8h]
-  ULONG v41; // [rsp+28h] [rbp-B0h]
+  UCHAR *CompressedBufferSize; // [rsp+20h] [rbp-B8h]
+  ULONG FinalUncompressedSize; // [rsp+28h] [rbp-B0h]
   ULONG v42; // [rsp+48h] [rbp-90h]
-  int v43; // [rsp+50h] [rbp-88h] BYREF
+  ULONG v43; // [rsp+50h] [rbp-88h] BYREF
   __int64 v44; // [rsp+58h] [rbp-80h]
-  __int64 v45; // [rsp+68h] [rbp-70h]
+  PVOID WorkSpace; // [rsp+68h] [rbp-70h]
   ULONG pcbResult; // [rsp+70h] [rbp-68h] BYREF
   _DWORD v47[4]; // [rsp+78h] [rbp-60h] BYREF
 
   v7 = a6;
-  v45 = a2;
+  WorkSpace = a2;
   v9 = *(_QWORD *)(a1 + 456);
   v10 = (unsigned __int64)a3;
   v11 = *(unsigned int *)(a1 + 176);
-  pbOutput = (__int64)a3 + v11;
+  v13 = (unsigned __int64)a3 + v11;
   v14 = *(unsigned __int16 *)(a5 + 4) - 1;
   v44 = a6;
   v15 = 0;
-  v16 = (_OWORD *)a4;
+  v16 = (UCHAR *)a4;
   cbOutput = ~(*(_DWORD *)(v9 + 8) - 1) & (*(_DWORD *)(v9 + 8) + v14);
   if ( (a4 & 1) != 0 )
   {
-    v16 = *(_OWORD **)(a6 + 48);
+    v16 = *(UCHAR **)(a6 + 48);
     a4 &= ~1uLL;
   }
-  if ( (pbOutput & 3) != 0 )
+  if ( (v13 & 3) != 0 )
   {
     v10 &= 0xFFFFFFFFFFFFFFFCuLL;
-    v18 = pbOutput & 3;
-    pbOutput &= 0xFFFFFFFFFFFFFFFCuLL;
+    v18 = v13 & 3;
+    v13 &= 0xFFFFFFFFFFFFFFFCuLL;
     if ( (v18 & 2) != 0 )
     {
       memmove((void *)a4, (const void *)v10, cbOutput + (unsigned int)v11);
@@ -92,8 +92,8 @@ __int64 __fastcall ST_STORE<SM_TRAITS>::StDmSinglePageCopy(
     }
     if ( *(_DWORD *)(v9 + 24) )
     {
-      memmove(*(void **)(a1 + 1048), (const void *)pbOutput, cbOutput);
-      pbOutput = *(_QWORD *)(a1 + 1048);
+      memmove(*(void **)(a1 + 1048), (const void *)v13, cbOutput);
+      v13 = *(_QWORD *)(a1 + 1048);
     }
   }
   v19 = *(_QWORD *)(a1 + 456);
@@ -108,26 +108,26 @@ __int64 __fastcall ST_STORE<SM_TRAITS>::StDmSinglePageCopy(
     *(_DWORD *)(v19 + 104) = 16;
     if ( BCryptDecrypt(
            *(BCRYPT_KEY_HANDLE *)(v19 + 32),
-           (PUCHAR)pbOutput,
+           (PUCHAR)v13,
            cbOutput,
            (void *)(v19 + 56),
-           v40,
-           v41,
-           (PUCHAR)pbOutput,
+           CompressedBufferSize,
+           FinalUncompressedSize,
+           (PUCHAR)v13,
            cbOutput,
            &pcbResult,
            v42) < 0 )
     {
       v22 = -1073741173;
 LABEL_36:
-      ST_STORE<SM_TRAITS>::StDmPageError(a1, pbOutput, a4, a5, v22);
+      ST_STORE<SM_TRAITS>::StDmPageError(a1, v13, a4, a5, v22);
       goto LABEL_21;
     }
   }
   else if ( (unsigned __int8)*(_DWORD *)(a1 + 128) )
   {
     v32 = *(_DWORD *)v10;
-    if ( v32 != RtlComputeCrc32(0, (PUCHAR)pbOutput, *(unsigned __int16 *)(a5 + 4)) )
+    if ( v32 != RtlComputeCrc32(0, (PUCHAR)v13, *(unsigned __int16 *)(a5 + 4)) )
     {
       v22 = -1073741761;
       goto LABEL_36;
@@ -169,27 +169,27 @@ LABEL_36:
   v24 = *(unsigned __int16 *)(a5 + 4);
   if ( v24 >= 0x1000 )
   {
-    memmove((void *)a4, (const void *)pbOutput, *(unsigned __int16 *)(a5 + 4));
+    memmove((void *)a4, (const void *)v13, *(unsigned __int16 *)(a5 + 4));
   }
-  else if ( (int)RtlDecompressBufferEx(*(_WORD *)(a1 + 432), (__int64)v16, 0x1000u, pbOutput, v24, (__int64)&v43, v45) >= 0
+  else if ( RtlDecompressBufferEx(*(_WORD *)(a1 + 432), v16, 0x1000u, (PUCHAR)v13, v24, &v43, WorkSpace) >= 0
          && v43 == 4096 )
   {
-    if ( v16 != (_OWORD *)a4 )
+    if ( v16 != (UCHAR *)a4 )
     {
       v37 = 32LL;
       v38 = (_OWORD *)a4;
       do
       {
-        *v38 = *v16;
-        v38[1] = v16[1];
-        v38[2] = v16[2];
-        v38[3] = v16[3];
-        v38[4] = v16[4];
-        v38[5] = v16[5];
-        v38[6] = v16[6];
+        *v38 = *(_OWORD *)v16;
+        v38[1] = *((_OWORD *)v16 + 1);
+        v38[2] = *((_OWORD *)v16 + 2);
+        v38[3] = *((_OWORD *)v16 + 3);
+        v38[4] = *((_OWORD *)v16 + 4);
+        v38[5] = *((_OWORD *)v16 + 5);
+        v38[6] = *((_OWORD *)v16 + 6);
         v38 += 8;
-        v39 = v16[7];
-        v16 += 8;
+        v39 = *((_OWORD *)v16 + 7);
+        v16 += 128;
         *(v38 - 1) = v39;
         --v37;
       }
@@ -216,6 +216,6 @@ LABEL_21:
     *(_DWORD *)(v44 + 56) = 2;
   }
   if ( (v15 & 1) != 0 )
-    ST_STORE<SM_TRAITS>::StDmPageError(a1, pbOutput, a4, a5, v22);
+    ST_STORE<SM_TRAITS>::StDmPageError(a1, v13, a4, a5, v22);
   return v22;
 }

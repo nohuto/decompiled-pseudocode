@@ -1,11 +1,11 @@
 /*
- * XREFs of KeProfileInterruptWithSource @ 0x14051BB80
+ * XREFs of KeProfileInterruptWithSource @ 0x14051BDC0
  * Callers:
- *     DefaultOverflowHandler @ 0x1404BE740 (DefaultOverflowHandler.c)
- *     EmonOverflowHandler @ 0x1404D38A0 (EmonOverflowHandler.c)
- *     Amd64OverflowHandler @ 0x1404DDAB0 (Amd64OverflowHandler.c)
+ *     DefaultOverflowHandler @ 0x1404BE980 (DefaultOverflowHandler.c)
+ *     EmonOverflowHandler @ 0x1404D3AE0 (EmonOverflowHandler.c)
+ *     Amd64OverflowHandler @ 0x1404DDCF0 (Amd64OverflowHandler.c)
  * Callees:
- *     KiProcessProfileList @ 0x14051BFC0 (KiProcessProfileList.c)
+ *     KiProcessProfileList @ 0x14051C200 (KiProcessProfileList.c)
  */
 
 __int64 __fastcall KeProfileInterruptWithSource(__int64 a1, __int64 a2)

@@ -67,7 +67,7 @@ __int64 __fastcall MiUnlockDynamicMemoryExclusive(__int64 a1, __int64 a2, __int6
         {
           v14->CrossThreadReleasableAndBusyByte |= 2u;
           if ( (__int64)v14->LockState.LockState < 0 )
-            KiAbEntryRemoveFromTree(&CurrentThread->LockEntries[v13]);
+            KiAbEntryRemoveFromTree(&CurrentThread->LockEntries[v13].TreeNode);
           v17 = 0;
           v17 = v14->BoostBitmap.AllFields & 0x1FFFF;
           v14->BoostBitmap.AllFields &= 0xFFFE0000;

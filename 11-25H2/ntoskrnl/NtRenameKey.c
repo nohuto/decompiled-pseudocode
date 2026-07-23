@@ -29,7 +29,7 @@
  *     CmpDetachFromRegistryProcess @ 0x140BA9A10 (CmpDetachFromRegistryProcess.c)
  */
 
-__int64 __fastcall NtRenameKey(__int64 a1, _OWORD *a2)
+NTSTATUS __cdecl NtRenameKey(HANDLE KeyHandle, PUNICODE_STRING NewName)
 {
   char v3; // r13
   unsigned int PreviousMode; // r12d
@@ -39,7 +39,7 @@ __int64 __fastcall NtRenameKey(__int64 a1, _OWORD *a2)
   __int64 v8; // rcx
   __int64 v9; // r8
   __int64 v10; // r9
-  int v11; // ebx
+  NTSTATUS v11; // ebx
   char v12; // si
   __int64 v13; // rcx
   __int64 v14; // rdx
@@ -63,14 +63,14 @@ __int64 __fastcall NtRenameKey(__int64 a1, _OWORD *a2)
   PPRIVILEGE_SET Privileges; // [rsp+70h] [rbp-F8h]
   _QWORD v34[3]; // [rsp+78h] [rbp-F0h] BYREF
   __m128i v35; // [rsp+90h] [rbp-D8h] BYREF
-  __int64 v36; // [rsp+A0h] [rbp-C8h]
+  HANDLE v36; // [rsp+A0h] [rbp-C8h]
   __int128 v37; // [rsp+A8h] [rbp-C0h] BYREF
   struct _SECURITY_SUBJECT_CONTEXT SubjectContext; // [rsp+B8h] [rbp-B0h] BYREF
   _OWORD v39[2]; // [rsp+D8h] [rbp-90h] BYREF
   __int64 v40; // [rsp+F8h] [rbp-70h]
   struct _KAPC_STATE ApcState; // [rsp+100h] [rbp-68h] BYREF
 
-  v36 = a1;
+  v36 = KeyHandle;
   v37 = 0LL;
   *(_OWORD *)Src = 0LL;
   memset(&ApcState, 0, sizeof(ApcState));
@@ -98,8 +98,8 @@ __int64 __fastcall NtRenameKey(__int64 a1, _OWORD *a2)
   {
     v35 = 0LL;
     v13 = 0x7FFFFFFF0000LL;
-    if ( (unsigned __int64)a2 < 0x7FFFFFFF0000LL )
-      v13 = (__int64)a2;
+    if ( (unsigned __int64)NewName < 0x7FFFFFFF0000LL )
+      v13 = (__int64)NewName;
     v35.m128i_i32[0] = *(_DWORD *)v13;
     v14 = *(_QWORD *)(v13 + 8);
     v35.m128i_i64[1] = v14;
@@ -109,7 +109,7 @@ __int64 __fastcall NtRenameKey(__int64 a1, _OWORD *a2)
   }
   else
   {
-    *(_OWORD *)Src = *a2;
+    *(UNICODE_STRING *)Src = *NewName;
   }
   if ( (unsigned __int16)(LOWORD(Src[0]) - 1) > 0x1FFu
     || ((__int64)Src[0] & 1) != 0
@@ -148,8 +148,8 @@ LABEL_23:
     }
   }
   LOBYTE(v17) = PreviousMode;
-  v19 = v36;
-  v11 = CmObReferenceObjectByHandle(v36, 131078, v16, v17, (__int64)&Object, 0LL);
+  v19 = (int)v36;
+  v11 = CmObReferenceObjectByHandle((_DWORD)v36, 131078, v16, v17, (__int64)&Object, 0LL);
   if ( v11 == -1073741790 )
   {
     SeCaptureSubjectContext(&SubjectContext);
@@ -215,5 +215,5 @@ LABEL_42:
   if ( v28 )
     CmpReleaseShutdownRundown();
   CmCleanupThreadInfo((_KAFFINITY_EX **)&v37);
-  return (unsigned int)v11;
+  return v11;
 }

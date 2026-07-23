@@ -1,14 +1,14 @@
 /*
- * XREFs of PspMarkServerSiloAsTerminating @ 0x1409B4268
+ * XREFs of PspMarkServerSiloAsTerminating @ 0x1409B4468
  * Callers:
  *     PspTerminateProcessesJobCallback @ 0x1406A0B50 (PspTerminateProcessesJobCallback.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExAcquirePushLockSharedEx @ 0x140230D90 (ExAcquirePushLockSharedEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfReleasePushLockShared @ 0x1402BD860 (ExfReleasePushLockShared.c)
- *     PspGetServerSiloStatePointer @ 0x1405A3924 (PspGetServerSiloStatePointer.c)
- *     EtwTraceJobServerSiloStateChange @ 0x1409E55DC (EtwTraceJobServerSiloStateChange.c)
+ *     KeLeaveCriticalRegionThread @ 0x14022F7F0 (KeLeaveCriticalRegionThread.c)
+ *     ExAcquirePushLockSharedEx @ 0x140230E80 (ExAcquirePushLockSharedEx.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     ExfReleasePushLockShared @ 0x1402BDAF0 (ExfReleasePushLockShared.c)
+ *     PspGetServerSiloStatePointer @ 0x1405A3E14 (PspGetServerSiloStatePointer.c)
+ *     EtwTraceJobServerSiloStateChange @ 0x1409E586C (EtwTraceJobServerSiloStateChange.c)
  */
 
 char __fastcall PspMarkServerSiloAsTerminating(__int64 a1)

@@ -1,14 +1,14 @@
 /*
- * XREFs of MiFlowThroughInsertNode @ 0x1404ABC8C
+ * XREFs of MiFlowThroughInsertNode @ 0x1403F01B0
  * Callers:
- *     MiFinishMdlForMappedFileFault @ 0x14023A108 (MiFinishMdlForMappedFileFault.c)
- *     MiResolvePageFileFault @ 0x1402F783C (MiResolvePageFileFault.c)
- *     MiCopyFileOnlyGlobalSubsectionPage @ 0x14047FE9C (MiCopyFileOnlyGlobalSubsectionPage.c)
+ *     MiResolvePageFileFault @ 0x14033FD3C (MiResolvePageFileFault.c)
+ *     MiFinishMdlForMappedFileFault @ 0x1403F1ED8 (MiFinishMdlForMappedFileFault.c)
+ *     MiCopyFileOnlyGlobalSubsectionPage @ 0x14047AADC (MiCopyFileOnlyGlobalSubsectionPage.c)
  * Callees:
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14020FA40 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140210170 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     RtlAvlInsertNodeEx @ 0x14025FDD0 (RtlAvlInsertNodeEx.c)
- *     MiGetPagingFileOffset @ 0x1402E5A60 (MiGetPagingFileOffset.c)
+ *     RtlAvlInsertNodeEx @ 0x1402903E0 (RtlAvlInsertNodeEx.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140338DA0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1403394D0 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     MiGetPagingFileOffset @ 0x140341C00 (MiGetPagingFileOffset.c)
  */
 
 _QWORD *__fastcall MiFlowThroughInsertNode(__int64 a1, _QWORD *a2)
@@ -31,7 +31,7 @@ _QWORD *__fastcall MiFlowThroughInsertNode(__int64 a1, _QWORD *a2)
     goto LABEL_3;
   }
   PagingFileOffset = MiGetPagingFileOffset(a2[2]);
-  v10 = *(_QWORD *)(*((_QWORD *)qword_140E2FF88 + ((*(_QWORD *)(v8 + 40) >> 43) & 0x3FFLL)) + 8LL * (v9 >> 12) + 18528);
+  v10 = *(_QWORD *)(*((_QWORD *)qword_140E300C8 + ((*(_QWORD *)(v8 + 40) >> 43) & 0x3FFLL)) + 8LL * (v9 >> 12) + 18528);
   *(_QWORD *)(a1 + 336) = v10;
   *(_DWORD *)(a1 + 344) = PagingFileOffset;
   ExAcquireSpinLockExclusiveAtDpcLevel((PEX_SPIN_LOCK)(v10 + 200));

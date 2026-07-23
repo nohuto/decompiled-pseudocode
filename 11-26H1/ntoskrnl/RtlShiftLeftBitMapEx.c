@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlShiftLeftBitMapEx @ 0x140618DE0
+ * XREFs of RtlShiftLeftBitMapEx @ 0x14061BE30
  * Callers:
  *     <none>
  * Callees:
- *     RtlClearBitsEx @ 0x14024EFA0 (RtlClearBitsEx.c)
- *     RtlExtractBitMapEx @ 0x1404D76B0 (RtlExtractBitMapEx.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     RtlClearBitsEx @ 0x140250900 (RtlClearBitsEx.c)
+ *     RtlExtractBitMapEx @ 0x1404D0E80 (RtlExtractBitMapEx.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 void __fastcall RtlShiftLeftBitMapEx(__int64 a1, unsigned __int64 a2)

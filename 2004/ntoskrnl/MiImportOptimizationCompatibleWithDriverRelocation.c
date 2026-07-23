@@ -10,7 +10,7 @@
 _BOOL8 __fastcall MiImportOptimizationCompatibleWithDriverRelocation(__int64 a1)
 {
   return (KiSpeculationFeatures & 0x4000000) == 0
-      || (KiSpeculationFeatures & 0x2000000) != 0 && !(unsigned int)RtlIsImageFullyRetpolined(*(_QWORD *)(a1 + 48))
+      || (KiSpeculationFeatures & 0x2000000) != 0 && !(unsigned int)RtlIsImageFullyRetpolined(*(void **)(a1 + 48))
       || !(unsigned int)MiDoesDriverProvideImportsForDriver(a1, qword_140D56720)
       && !(unsigned int)MiDoesDriverProvideImportsForDriver(a1, MxHalDataTableEntry);
 }

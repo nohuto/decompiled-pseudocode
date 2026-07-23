@@ -11,14 +11,19 @@
  *     _RtlIsZeroMemory@8 @ 0x4B366980 (_RtlIsZeroMemory@8.c)
  */
 
-char __stdcall RtlNormalizeSecurityDescriptor(_DWORD **a1, int a2, _DWORD **a3, unsigned int *a4, char a5)
+BOOLEAN __cdecl RtlNormalizeSecurityDescriptor(
+        PSECURITY_DESCRIPTOR *SecurityDescriptor,
+        ULONG SecurityDescriptorLength,
+        PSECURITY_DESCRIPTOR *NewSecurityDescriptor,
+        PULONG NewSecurityDescriptorLength,
+        BOOLEAN CheckOnly)
 {
-  char v5; // cl
-  unsigned int v6; // eax
+  BOOLEAN v5; // cl
+  ULONG v6; // eax
   _DWORD *Heap; // ebx
   _DWORD *v8; // edi
   unsigned int v10; // edx
-  unsigned int v11; // esi
+  ULONG v11; // esi
   int v12; // edx
   _DWORD *v13; // ebx
   unsigned __int16 v14; // ax
@@ -26,7 +31,7 @@ char __stdcall RtlNormalizeSecurityDescriptor(_DWORD **a1, int a2, _DWORD **a3, 
   unsigned int v16; // eax
   _WORD *v17; // ecx
   unsigned __int16 v18; // di
-  SIZE_T v19; // eax
+  int v19; // eax
   unsigned __int16 v20; // dx
   bool v21; // zf
   _WORD *v22; // edx
@@ -34,91 +39,91 @@ char __stdcall RtlNormalizeSecurityDescriptor(_DWORD **a1, int a2, _DWORD **a3, 
   unsigned __int16 v24; // ax
   _WORD *v25; // ecx
   unsigned __int16 v26; // di
-  SIZE_T v27; // eax
+  int v27; // eax
   unsigned __int16 v28; // dx
   unsigned int v29; // ecx
-  char v30; // al
+  BOOLEAN v30; // al
   int v31; // eax
   char *v32; // edx
-  size_t v33; // eax
+  int v33; // eax
   int v34; // eax
   char *v35; // edx
-  size_t v36; // eax
-  _DWORD *v37; // eax
+  int v36; // eax
+  PSECURITY_DESCRIPTOR *v37; // eax
   SIZE_T v38; // [esp-4h] [ebp-48h]
-  SIZE_T v39; // [esp-4h] [ebp-48h]
-  char *v40; // [esp+Ch] [ebp-38h]
-  size_t v41; // [esp+Ch] [ebp-38h]
-  size_t v42; // [esp+Ch] [ebp-38h]
-  int v43; // [esp+10h] [ebp-34h]
-  unsigned int v44; // [esp+14h] [ebp-30h]
+  char *v39; // [esp+Ch] [ebp-38h]
+  int v40; // [esp+Ch] [ebp-38h]
+  int v41; // [esp+Ch] [ebp-38h]
+  int v42; // [esp+10h] [ebp-34h]
+  ULONG v43; // [esp+14h] [ebp-30h]
   _WORD *Source2; // [esp+18h] [ebp-2Ch]
   void *Source2a; // [esp+18h] [ebp-2Ch]
   _WORD *Source2b; // [esp+18h] [ebp-2Ch]
-  int v48; // [esp+1Ch] [ebp-28h]
+  int v47; // [esp+1Ch] [ebp-28h]
+  unsigned int v48; // [esp+20h] [ebp-24h]
   unsigned int v49; // [esp+20h] [ebp-24h]
-  unsigned int v50; // [esp+20h] [ebp-24h]
-  unsigned __int16 v51; // [esp+20h] [ebp-24h]
+  unsigned __int16 v50; // [esp+20h] [ebp-24h]
+  unsigned __int16 v51; // [esp+24h] [ebp-20h]
   unsigned __int16 v52; // [esp+24h] [ebp-20h]
-  unsigned __int16 v53; // [esp+24h] [ebp-20h]
-  unsigned int v54; // [esp+24h] [ebp-20h]
-  _DWORD *v55; // [esp+28h] [ebp-1Ch]
-  _WORD *v56; // [esp+2Ch] [ebp-18h]
-  unsigned int v57; // [esp+30h] [ebp-14h]
-  unsigned int v58; // [esp+34h] [ebp-10h]
-  _DWORD *v59; // [esp+38h] [ebp-Ch]
+  unsigned int v53; // [esp+24h] [ebp-20h]
+  _DWORD *v54; // [esp+28h] [ebp-1Ch]
+  _WORD *v55; // [esp+2Ch] [ebp-18h]
+  unsigned int v56; // [esp+30h] [ebp-14h]
+  unsigned int v57; // [esp+34h] [ebp-10h]
+  _DWORD *BaseAddress; // [esp+38h] [ebp-Ch]
   _WORD *Source1; // [esp+3Ch] [ebp-8h]
-  char v61; // [esp+42h] [ebp-2h]
-  char v62; // [esp+43h] [ebp-1h]
+  char v60; // [esp+42h] [ebp-2h]
+  BOOLEAN v61; // [esp+43h] [ebp-1h]
 
-  v5 = a5;
+  v5 = CheckOnly;
   v6 = 0;
-  v56 = 0;
-  v61 = 0;
-  v62 = 0;
-  Heap = 0;
   v55 = 0;
-  v8 = *a1;
-  v59 = *a1;
-  if ( !a5 )
+  v60 = 0;
+  v61 = 0;
+  Heap = 0;
+  v54 = 0;
+  v8 = *SecurityDescriptor;
+  BaseAddress = *SecurityDescriptor;
+  if ( !CheckOnly )
   {
-    if ( !a3 || (Heap = *a3, (v55 = *a3) == 0) )
+    if ( !NewSecurityDescriptor || (Heap = *NewSecurityDescriptor, (v54 = *NewSecurityDescriptor) == 0) )
     {
-      Heap = (_DWORD *)RtlAllocateHeap((int)NtCurrentPeb()->ProcessHeap, NtdllBaseTag + 1310720, a2);
-      v55 = Heap;
+      LODWORD(v38) = SecurityDescriptorLength;
+      Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, NtdllBaseTag + 1310720, v38);
+      v54 = Heap;
       if ( !Heap )
         return 0;
-      v61 = 1;
+      v60 = 1;
       v6 = 0;
     }
     qmemcpy(Heap, v8, 0x14u);
-    v8 = v59;
+    v8 = BaseAddress;
     v5 = 0;
   }
   v10 = 1;
   v11 = 20;
-  v48 = 1;
+  v47 = 1;
   while ( 1 )
   {
     v12 = v10 == 1 ? v8[3] : v8[4];
-    v43 = v12;
+    v42 = v12;
     if ( v12 )
     {
-      if ( v48 != 1 || *(_WORD *)((char *)v8 + v12 + 4) )
+      if ( v47 != 1 || *(_WORD *)((char *)v8 + v12 + 4) )
       {
         v6 = v11;
-        v44 = v11;
+        v43 = v11;
       }
       else
       {
-        v44 = 0;
+        v43 = 0;
       }
       if ( v6 != v12 )
       {
-        v62 = 1;
+        v61 = 1;
         if ( v5 )
           goto LABEL_91;
-        if ( v48 == 1 )
+        if ( v47 == 1 )
           Heap[3] = v6;
         else
           Heap[4] = v6;
@@ -127,28 +132,29 @@ char __stdcall RtlNormalizeSecurityDescriptor(_DWORD **a1, int a2, _DWORD **a3, 
         break;
     }
 LABEL_68:
-    v5 = a5;
-    v10 = v48 + 1;
-    v48 = v10;
+    v5 = CheckOnly;
+    v10 = v47 + 1;
+    v47 = v10;
     if ( v10 > 2 )
     {
       v31 = v8[1];
       if ( v11 != v31 )
       {
-        v62 = 1;
-        if ( a5 )
+        v61 = 1;
+        if ( CheckOnly )
           goto LABEL_91;
         Heap[1] = v11;
         v31 = v8[1];
       }
       v32 = (char *)v8 + v31;
       v33 = 4 * *((unsigned __int8 *)v8 + v31 + 1) + 8;
-      v41 = v33;
-      if ( !a5 )
+      v40 = v33;
+      if ( !CheckOnly )
       {
-        memcpy((char *)Heap + Heap[1], v32, v33);
+        LODWORD(v38) = v33;
+        memcpy((char *)Heap + Heap[1], v32, v38);
         v5 = 0;
-        v33 = v41;
+        v33 = v40;
       }
       v11 += v33;
       v34 = v8[2];
@@ -156,7 +162,7 @@ LABEL_68:
       {
         if ( v11 != v34 )
         {
-          v62 = 1;
+          v61 = 1;
           if ( v5 )
             goto LABEL_91;
           Heap[2] = v11;
@@ -164,49 +170,50 @@ LABEL_68:
         }
         v35 = (char *)v8 + v34;
         v36 = 4 * *((unsigned __int8 *)v8 + v34 + 1) + 8;
-        v42 = v36;
+        v41 = v36;
         if ( !v5 )
         {
-          memcpy((char *)Heap + Heap[2], v35, v36);
-          v36 = v42;
+          LODWORD(v38) = v36;
+          memcpy((char *)Heap + Heap[2], v35, v38);
+          v36 = v41;
         }
         v11 += v36;
       }
 LABEL_81:
-      if ( !v62 || a5 )
+      if ( !v61 || CheckOnly )
         goto LABEL_91;
-      v37 = a3;
-      if ( a3 )
+      v37 = NewSecurityDescriptor;
+      if ( NewSecurityDescriptor )
       {
-        if ( v61 )
+        if ( v60 )
 LABEL_88:
           *v37 = Heap;
-        if ( a4 )
-          *a4 = v11;
-        return v62;
+        if ( NewSecurityDescriptorLength )
+          *NewSecurityDescriptorLength = v11;
+        return v61;
       }
-      RtlFreeHeap((int)NtCurrentPeb()->ProcessHeap, 0, (int)v8);
-      v37 = a1;
+      RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v8);
+      v37 = SecurityDescriptor;
       goto LABEL_88;
     }
     v6 = 0;
   }
   if ( !v5 )
   {
-    v56 = (_WORD *)((char *)Heap + v6);
+    v55 = (_WORD *)((char *)Heap + v6);
     v13 = (_DWORD *)((char *)Heap + v6);
     *v13 = *(_DWORD *)((char *)v8 + v12);
     v13[1] = *(_DWORD *)((char *)v8 + v12 + 4);
-    Heap = v55;
+    Heap = v54;
   }
+  v56 = 0;
   v57 = 0;
-  v58 = 0;
-  v40 = (char *)v8 + v12 + 8;
+  v39 = (char *)v8 + v12 + 8;
   v11 += 8;
-  Source1 = v40;
+  Source1 = v39;
   v14 = *(_WORD *)((char *)v8 + v12 + 4);
-  v52 = v14;
-  v8 = v59;
+  v51 = v14;
+  v8 = BaseAddress;
   if ( !v14 )
     goto LABEL_43;
   do
@@ -217,30 +224,30 @@ LABEL_88:
     v16 = 0;
     if ( !v5 )
     {
-      v25 = v56 + 4;
-      v54 = 0;
-      Source2b = v56 + 4;
-      if ( !v57 )
+      v25 = v55 + 4;
+      v53 = 0;
+      Source2b = v55 + 4;
+      if ( !v56 )
         goto LABEL_40;
-      v51 = Source1[1];
+      v50 = Source1[1];
       while ( 1 )
       {
-        v8 = v59;
-        if ( v25[1] == v51 )
+        v8 = BaseAddress;
+        if ( v25[1] == v50 )
         {
           v26 = v15[1];
-          v39 = v51;
-          v51 = v26;
-          v27 = RtlCompareMemory(v15, v25, v39);
+          LODWORD(v38) = v50;
+          v50 = v26;
+          v27 = RtlCompareMemory(v15, v25, v38);
           v28 = v26;
-          v8 = v59;
+          v8 = BaseAddress;
           v21 = v27 == v28;
-          v16 = v54;
+          v16 = v53;
           if ( v21 )
           {
-            v62 = 1;
+            v61 = 1;
 LABEL_54:
-            if ( v16 >= v57 )
+            if ( v16 >= v56 )
               goto LABEL_38;
             v22 = Source1;
             v23 = Source1[1];
@@ -249,114 +256,121 @@ LABEL_54:
           v15 = Source1;
           v25 = Source2b;
         }
-        v54 = v16 + 1;
+        v53 = v16 + 1;
         v25 = (_WORD *)((char *)v25 + (unsigned __int16)v25[1]);
         ++v16;
         Source2b = v25;
-        if ( v16 >= v57 )
+        if ( v16 >= v56 )
           goto LABEL_54;
       }
     }
-    Source2 = v40;
-    Heap = v55;
-    v49 = 0;
-    if ( !v58 )
+    Source2 = v39;
+    Heap = v54;
+    v48 = 0;
+    if ( !v57 )
       goto LABEL_39;
-    v53 = Source1[1];
-    v17 = v40;
+    v52 = Source1[1];
+    v17 = v39;
     while ( 1 )
     {
-      v8 = v59;
-      if ( v17[1] == v53 )
+      v8 = BaseAddress;
+      if ( v17[1] == v52 )
         break;
 LABEL_34:
-      v49 = v16 + 1;
+      v48 = v16 + 1;
       v17 = (_WORD *)((char *)v17 + (unsigned __int16)v17[1]);
       ++v16;
       Source2 = v17;
-      if ( v16 >= v58 )
+      if ( v16 >= v57 )
         goto LABEL_37;
     }
     v18 = v15[1];
-    v38 = v53;
-    v53 = v18;
+    LODWORD(v38) = v52;
+    v52 = v18;
     v19 = RtlCompareMemory(v15, v17, v38);
     v20 = v18;
-    v8 = v59;
+    v8 = BaseAddress;
     v21 = v19 == v20;
-    v16 = v49;
+    v16 = v48;
     if ( !v21 )
     {
       v15 = Source1;
       v17 = Source2;
       goto LABEL_34;
     }
-    v62 = 1;
+    v61 = 1;
 LABEL_37:
-    if ( v16 < v58 )
+    if ( v16 < v57 )
       goto LABEL_81;
 LABEL_38:
     v15 = Source1;
-    v5 = a5;
+    v5 = CheckOnly;
 LABEL_39:
     if ( !v5 )
+    {
 LABEL_40:
-      memcpy((char *)Heap + v11, v15, (unsigned __int16)v15[1]);
+      LODWORD(v38) = (unsigned __int16)v15[1];
+      memcpy((char *)Heap + v11, v15, v38);
+    }
     v22 = Source1;
     v11 += (unsigned __int16)Source1[1];
     v23 = Source1[1];
-    ++v57;
+    ++v56;
 LABEL_42:
-    ++v58;
+    ++v57;
     Source1 = (_WORD *)((char *)v22 + v23);
-    v12 = v43;
-    v52 = *(_WORD *)((char *)v8 + v43 + 4);
-    v5 = a5;
+    v12 = v42;
+    v51 = *(_WORD *)((char *)v8 + v42 + 4);
+    v5 = CheckOnly;
   }
-  while ( v58 < v52 );
+  while ( v57 < v51 );
 LABEL_43:
-  v50 = (v11 + 3) & 0xFFFFFFFC;
-  Source2a = (void *)(v50 - v44);
-  if ( v50 - v44 == *(unsigned __int16 *)((char *)v8 + v12 + 2) )
+  v49 = (v11 + 3) & 0xFFFFFFFC;
+  Source2a = (void *)(v49 - v43);
+  if ( v49 - v43 == *(unsigned __int16 *)((char *)v8 + v12 + 2) )
   {
-    v24 = v52;
+    v24 = v51;
 LABEL_57:
-    if ( v57 != v24 )
-      v56[2] = v57;
+    if ( v56 != v24 )
+      v55[2] = v56;
     v29 = (v11 + 3) & 0xFFFFFFFC;
-    if ( v11 != v50 )
+    if ( v11 != v49 )
     {
-      if ( v44 == v12 && Source2a == (void *)*(unsigned __int16 *)((char *)v8 + v12 + 2) )
+      if ( v43 == v12 && Source2a == (void *)*(unsigned __int16 *)((char *)v8 + v12 + 2) )
       {
-        v21 = (unsigned __int8)RtlIsZeroMemory((char *)v8 + v11, v50 - v11) == 0;
-        v30 = a5;
+        LODWORD(v38) = v49 - v11;
+        v21 = RtlIsZeroMemory((char *)v8 + v11, v38) == 0;
+        v30 = CheckOnly;
         if ( v21 )
         {
-          v62 = 1;
-          if ( a5 )
+          v61 = 1;
+          if ( CheckOnly )
             goto LABEL_91;
         }
         v29 = (v11 + 3) & 0xFFFFFFFC;
       }
       else
       {
-        v30 = a5;
+        v30 = CheckOnly;
       }
       if ( !v30 )
-        memset((char *)Heap + v11, 0, v29 - v11);
+      {
+        LODWORD(v38) = v29 - v11;
+        memset((char *)Heap + v11, 0, v38);
+      }
       v11 = (v11 + 3) & 0xFFFFFFFC;
     }
     goto LABEL_68;
   }
-  v62 = 1;
+  v61 = 1;
   if ( !v5 )
   {
-    v56[1] = (_WORD)Source2a;
+    v55[1] = (_WORD)Source2a;
     v24 = *(_WORD *)((char *)v8 + v12 + 4);
     goto LABEL_57;
   }
 LABEL_91:
-  if ( v61 )
-    RtlFreeHeap((int)NtCurrentPeb()->ProcessHeap, 0, (int)Heap);
-  return v62;
+  if ( v60 )
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, Heap);
+  return v61;
 }

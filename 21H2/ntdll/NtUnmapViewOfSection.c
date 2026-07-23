@@ -1,5 +1,5 @@
 /*
- * XREFs of NtUnmapViewOfSection @ 0x18009DB80
+ * XREFs of NtUnmapViewOfSection @ 0x18009DB40
  * Callers:
  *     LdrpSetAlternateResourceModuleHandle @ 0x18000F4AC (LdrpSetAlternateResourceModuleHandle.c)
  *     LdrpMinimalMapModule @ 0x180014C38 (LdrpMinimalMapModule.c)
@@ -16,41 +16,41 @@
  *     LdrFlushAlternateResourceModules @ 0x180089A50 (LdrFlushAlternateResourceModules.c)
  *     LdrResRelease @ 0x18008A500 (LdrResRelease.c)
  *     LdrVerifyImageMatchesChecksumEx @ 0x18008B190 (LdrVerifyImageMatchesChecksumEx.c)
- *     RtlCreateProcessReflection @ 0x1800D5BB0 (RtlCreateProcessReflection.c)
- *     RtlCreateQueryDebugBuffer @ 0x1800D7430 (RtlCreateQueryDebugBuffer.c)
- *     RtlDestroyQueryDebugBuffer @ 0x1800D76E0 (RtlDestroyQueryDebugBuffer.c)
- *     RtlpChangeQueryDebugBufferTarget @ 0x1800D8740 (RtlpChangeQueryDebugBufferTarget.c)
- *     RtlpQueryProcessDebugInformationRemote @ 0x1800D8DB0 (RtlpQueryProcessDebugInformationRemote.c)
- *     RtlpSetProcessDebugInformationRemote @ 0x1800D9000 (RtlpSetProcessDebugInformationRemote.c)
- *     AvrfMiniLoadDll @ 0x1800DB6D0 (AvrfMiniLoadDll.c)
- *     RtlReportExceptionEx @ 0x1800DCB70 (RtlReportExceptionEx.c)
- *     RtlReportExceptionHelper @ 0x1800DD040 (RtlReportExceptionHelper.c)
- *     WerpCreateCrashDataSection @ 0x1800DDA84 (WerpCreateCrashDataSection.c)
- *     RtlComputeImportTableHash @ 0x1800E06F0 (RtlComputeImportTableHash.c)
- *     LdrpSpecialCacheTypeHandle @ 0x1800E1698 (LdrpSpecialCacheTypeHandle.c)
- *     RtlpExtendedHeapInformationWorkerCallback @ 0x1800F3BE0 (RtlpExtendedHeapInformationWorkerCallback.c)
- *     RtlpExtendedHeapInformationWorkerThread @ 0x1800F3D00 (RtlpExtendedHeapInformationWorkerThread.c)
- *     RtlpHpRemoteStackSerializeWriter @ 0x1800F48B0 (RtlpHpRemoteStackSerializeWriter.c)
- *     RtlpGetCustomCultureData @ 0x1800FD1C0 (RtlpGetCustomCultureData.c)
- *     RtlHeapTrkInitialize @ 0x1800FDB40 (RtlHeapTrkInitialize.c)
- *     RtlpHpStackTraceSerializeRemote @ 0x180109764 (RtlpHpStackTraceSerializeRemote.c)
- *     RtlpHpTagQueryHeapsRemote @ 0x18010B318 (RtlpHpTagQueryHeapsRemote.c)
- *     PssNtFreeWalkMarker @ 0x1801145E0 (PssNtFreeWalkMarker.c)
- *     PsspCaptureHandleTrace @ 0x180114B98 (PsspCaptureHandleTrace.c)
- *     PsspCaptureIptTrace @ 0x180114D90 (PsspCaptureIptTrace.c)
- *     PsspCaptureAuxiliaryPages @ 0x18011508C (PsspCaptureAuxiliaryPages.c)
- *     PsspCaptureVaSpaceInformation2 @ 0x18011550C (PsspCaptureVaSpaceInformation2.c)
- *     PsspCaptureHandleInformation @ 0x180115BB4 (PsspCaptureHandleInformation.c)
- *     PsspCaptureThreadInformation @ 0x18011661C (PsspCaptureThreadInformation.c)
+ *     RtlCreateProcessReflection @ 0x1800D5B70 (RtlCreateProcessReflection.c)
+ *     RtlCreateQueryDebugBuffer @ 0x1800D73F0 (RtlCreateQueryDebugBuffer.c)
+ *     RtlDestroyQueryDebugBuffer @ 0x1800D76A0 (RtlDestroyQueryDebugBuffer.c)
+ *     RtlpChangeQueryDebugBufferTarget @ 0x1800D8700 (RtlpChangeQueryDebugBufferTarget.c)
+ *     RtlpQueryProcessDebugInformationRemote @ 0x1800D8D70 (RtlpQueryProcessDebugInformationRemote.c)
+ *     RtlpSetProcessDebugInformationRemote @ 0x1800D8FC0 (RtlpSetProcessDebugInformationRemote.c)
+ *     AvrfMiniLoadDll @ 0x1800DB690 (AvrfMiniLoadDll.c)
+ *     RtlReportExceptionEx @ 0x1800DCB30 (RtlReportExceptionEx.c)
+ *     RtlReportExceptionHelper @ 0x1800DD000 (RtlReportExceptionHelper.c)
+ *     WerpCreateCrashDataSection @ 0x1800DDA44 (WerpCreateCrashDataSection.c)
+ *     RtlComputeImportTableHash @ 0x1800E06B0 (RtlComputeImportTableHash.c)
+ *     LdrpSpecialCacheTypeHandle @ 0x1800E1658 (LdrpSpecialCacheTypeHandle.c)
+ *     RtlpExtendedHeapInformationWorkerCallback @ 0x1800F3BA0 (RtlpExtendedHeapInformationWorkerCallback.c)
+ *     RtlpExtendedHeapInformationWorkerThread @ 0x1800F3CC0 (RtlpExtendedHeapInformationWorkerThread.c)
+ *     RtlpHpRemoteStackSerializeWriter @ 0x1800F4870 (RtlpHpRemoteStackSerializeWriter.c)
+ *     RtlpGetCustomCultureData @ 0x1800FD180 (RtlpGetCustomCultureData.c)
+ *     RtlHeapTrkInitialize @ 0x1800FDB00 (RtlHeapTrkInitialize.c)
+ *     RtlpHpStackTraceSerializeRemote @ 0x180109724 (RtlpHpStackTraceSerializeRemote.c)
+ *     RtlpHpTagQueryHeapsRemote @ 0x18010B2D8 (RtlpHpTagQueryHeapsRemote.c)
+ *     PssNtFreeWalkMarker @ 0x1801145A0 (PssNtFreeWalkMarker.c)
+ *     PsspCaptureHandleTrace @ 0x180114B58 (PsspCaptureHandleTrace.c)
+ *     PsspCaptureIptTrace @ 0x180114D50 (PsspCaptureIptTrace.c)
+ *     PsspCaptureAuxiliaryPages @ 0x18011504C (PsspCaptureAuxiliaryPages.c)
+ *     PsspCaptureVaSpaceInformation2 @ 0x1801154CC (PsspCaptureVaSpaceInformation2.c)
+ *     PsspCaptureHandleInformation @ 0x180115B74 (PsspCaptureHandleInformation.c)
+ *     PsspCaptureThreadInformation @ 0x1801165DC (PsspCaptureThreadInformation.c)
  * Callees:
  *     <none>
  */
 
-__int64 NtUnmapViewOfSection()
+NTSTATUS __cdecl NtUnmapViewOfSection(HANDLE ProcessHandle, PVOID BaseAddress)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 42LL;
+  result = 42;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

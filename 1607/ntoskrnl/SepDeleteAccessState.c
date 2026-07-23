@@ -1,15 +1,15 @@
 /*
- * XREFs of SepDeleteAccessState @ 0x14000F6E0
+ * XREFs of SepDeleteAccessState @ 0x14000F260
  * Callers:
- *     SeDeleteAccessState @ 0x140405E08 (SeDeleteAccessState.c)
- *     ObOpenObjectByNameEx @ 0x140419070 (ObOpenObjectByNameEx.c)
- *     ObInsertObjectEx @ 0x14041EF00 (ObInsertObjectEx.c)
- *     PsOpenProcess @ 0x14041F410 (PsOpenProcess.c)
- *     ObOpenObjectByPointer @ 0x1404203C0 (ObOpenObjectByPointer.c)
- *     SeSubProcessToken @ 0x14046EA48 (SeSubProcessToken.c)
+ *     SeDeleteAccessState @ 0x140404CC8 (SeDeleteAccessState.c)
+ *     ObOpenObjectByNameEx @ 0x140417F30 (ObOpenObjectByNameEx.c)
+ *     ObInsertObjectEx @ 0x14041DDC0 (ObInsertObjectEx.c)
+ *     PsOpenProcess @ 0x14041E2D0 (PsOpenProcess.c)
+ *     ObOpenObjectByPointer @ 0x14041F280 (ObOpenObjectByPointer.c)
+ *     SeSubProcessToken @ 0x14046D918 (SeSubProcessToken.c)
  * Callees:
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
- *     SeDeassignSecurity @ 0x1404D88A4 (SeDeassignSecurity.c)
+ *     SeDeassignSecurity @ 0x1404BBEA8 (SeDeassignSecurity.c)
  */
 
 void __fastcall SepDeleteAccessState(__int64 a1)

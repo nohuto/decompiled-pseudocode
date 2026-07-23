@@ -15,9 +15,9 @@ int __fastcall RtlpMuiRegGetLanguageSpec(int a1, const WCHAR *a2, char *a3, int 
   __int16 v5; // si
   char v6; // bl
   int result; // eax
-  UNICODE_STRING DestinationString; // [esp+Ch] [ebp-18h] BYREF
+  _UNICODE_STRING DestinationString; // [esp+Ch] [ebp-18h] BYREF
   int v9; // [esp+14h] [ebp-10h]
-  int v10; // [esp+18h] [ebp-Ch] BYREF
+  DWORD Lcid; // [esp+18h] [ebp-Ch] BYREF
   _WORD v11[4]; // [esp+1Ch] [ebp-8h] BYREF
 
   v9 = a1;
@@ -25,10 +25,10 @@ int __fastcall RtlpMuiRegGetLanguageSpec(int a1, const WCHAR *a2, char *a3, int 
   v11[0] = 0;
   v6 = 0;
   RtlInitUnicodeString(&DestinationString, a2);
-  if ( (unsigned __int8)RtlCultureNameToLCID(&DestinationString, &v10) )
+  if ( RtlCultureNameToLCID(&DestinationString, &Lcid) )
   {
-    v5 = v10;
-    if ( v10 != 4096 && v10 != 5120 )
+    v5 = Lcid;
+    if ( Lcid != 4096 && Lcid != 5120 )
     {
       v6 = 1;
 LABEL_5:

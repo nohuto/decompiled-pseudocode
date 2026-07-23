@@ -1,16 +1,16 @@
 /*
- * XREFs of PopInitializePowerSettings @ 0x1409DDBD4
+ * XREFs of PopInitializePowerSettings @ 0x1409DEBD4
  * Callers:
- *     PoInitSystem @ 0x1409B2C10 (PoInitSystem.c)
+ *     PoInitSystem @ 0x1409B3C10 (PoInitSystem.c)
  * Callees:
- *     memset @ 0x1401D1880 (memset.c)
+ *     memset @ 0x1401D1980 (memset.c)
  */
 
-void *PopInitializePowerSettings()
+const WNF_STATE_NAME *PopInitializePowerSettings()
 {
   _QWORD *v0; // rax
   __int64 v1; // rcx
-  void *result; // rax
+  const WNF_STATE_NAME *result; // rax
 
   v0 = &PopSessionSpecificLists;
   v1 = 2LL;
@@ -29,9 +29,9 @@ void *PopInitializePowerSettings()
   PopSettingLock.Event.Header.SignalState = 0;
   PopSettingLock.Event.Header.WaitListHead.Blink = &PopSettingLock.Event.Header.WaitListHead;
   PopSettingLock.Event.Header.WaitListHead.Flink = &PopSettingLock.Event.Header.WaitListHead;
-  qword_1404173C8 = (__int64)&PopRegisteredPowerSettingCallbacks;
+  qword_140418448 = (__int64)&PopRegisteredPowerSettingCallbacks;
   PopRegisteredPowerSettingCallbacks = (__int64)&PopRegisteredPowerSettingCallbacks;
-  qword_140417398 = (__int64)&PopPowerSettings;
+  qword_140418428 = (__int64)&PopPowerSettings;
   PopPowerSettings = &PopPowerSettings;
   LOWORD(PopSettingLock.Event.Header.Lock) = 1;
   PopSettingLock.Event.Header.Size = 6;

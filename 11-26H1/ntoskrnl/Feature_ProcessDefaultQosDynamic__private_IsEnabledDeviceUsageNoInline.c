@@ -1,12 +1,12 @@
 /*
- * XREFs of Feature_ProcessDefaultQosDynamic__private_IsEnabledDeviceUsageNoInline @ 0x1405F9394
+ * XREFs of Feature_ProcessDefaultQosDynamic__private_IsEnabledDeviceUsageNoInline @ 0x1405FBDB4
  * Callers:
- *     PspSetProcessPriorityByClass @ 0x14051C2E4 (PspSetProcessPriorityByClass.c)
- *     KeCalculateProcessDefaultQos @ 0x1405F93F0 (KeCalculateProcessDefaultQos.c)
- *     NtSetInformationProcess @ 0x140B72B10 (NtSetInformationProcess.c)
- *     PspSetProcessPriorityByClassIgnoreForegroundBoost @ 0x140B77F8C (PspSetProcessPriorityByClassIgnoreForegroundBoost.c)
+ *     PspSetProcessPriorityByClass @ 0x140518324 (PspSetProcessPriorityByClass.c)
+ *     KeCalculateProcessDefaultQos @ 0x1405FBE10 (KeCalculateProcessDefaultQos.c)
+ *     NtSetInformationProcess @ 0x140B781E0 (NtSetInformationProcess.c)
+ *     PspSetProcessPriorityByClassIgnoreForegroundBoost @ 0x140B7D69C (PspSetProcessPriorityByClassIgnoreForegroundBoost.c)
  * Callees:
- *     Feature_ProcessDefaultQosDynamic__private_IsEnabledFallback @ 0x1405F93D0 (Feature_ProcessDefaultQosDynamic__private_IsEnabledFallback.c)
+ *     Feature_ProcessDefaultQosDynamic__private_IsEnabledFallback @ 0x1405FBDF0 (Feature_ProcessDefaultQosDynamic__private_IsEnabledFallback.c)
  */
 
 __int64 Feature_ProcessDefaultQosDynamic__private_IsEnabledDeviceUsageNoInline()

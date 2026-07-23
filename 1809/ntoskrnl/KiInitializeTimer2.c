@@ -1,14 +1,14 @@
 /*
- * XREFs of KiInitializeTimer2 @ 0x1400FD4EC
+ * XREFs of KiInitializeTimer2 @ 0x1400FD56C
  * Callers:
- *     KeInitializeTimer2 @ 0x1400FD4D0 (KeInitializeTimer2.c)
- *     KeInitializeIRTimer @ 0x14013AF20 (KeInitializeIRTimer.c)
- *     ExAllocateTimerInternal2 @ 0x14016B950 (ExAllocateTimerInternal2.c)
- *     MiStoreEvictThread @ 0x14018A3C0 (MiStoreEvictThread.c)
- *     ?SmInitialize@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@PEAU_SMKM_STORE_MGR_PARAMS@@@Z @ 0x14018E1E8 (-SmInitialize@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@PEAU_SMKM_STORE_MGR_PARAMS@@@Z.c)
- *     ExInitializeTimeRefresh @ 0x1409C4288 (ExInitializeTimeRefresh.c)
- *     EtwpInitialize @ 0x1409D0620 (EtwpInitialize.c)
- *     PopInitializeDirectedDrips @ 0x1409DC6E0 (PopInitializeDirectedDrips.c)
+ *     KeInitializeTimer2 @ 0x1400FD550 (KeInitializeTimer2.c)
+ *     KeInitializeIRTimer @ 0x14013B020 (KeInitializeIRTimer.c)
+ *     ExAllocateTimerInternal2 @ 0x14016BA50 (ExAllocateTimerInternal2.c)
+ *     MiStoreEvictThread @ 0x14018A500 (MiStoreEvictThread.c)
+ *     ?SmInitialize@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@PEAU_SMKM_STORE_MGR_PARAMS@@@Z @ 0x14018E328 (-SmInitialize@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@PEAU_SMKM_STORE_MGR_PARAMS@@@Z.c)
+ *     ExInitializeTimeRefresh @ 0x1409C5288 (ExInitializeTimeRefresh.c)
+ *     EtwpInitialize @ 0x1409D1620 (EtwpInitialize.c)
+ *     PopInitializeDirectedDrips @ 0x1409DD6E0 (PopInitializeDirectedDrips.c)
  * Callees:
  *     <none>
  */

@@ -1,26 +1,26 @@
 /*
- * XREFs of CmpHiveCachePopulateHiveEntryThread @ 0x1407E5970
+ * XREFs of CmpHiveCachePopulateHiveEntryThread @ 0x1407E5F40
  * Callers:
  *     <none>
  * Callees:
- *     CmpInitializeThreadInfo @ 0x1403FA250 (CmpInitializeThreadInfo.c)
- *     CmpCleanupThreadInfo @ 0x14041EE60 (CmpCleanupThreadInfo.c)
- *     SetFailureLocation @ 0x1404649E0 (SetFailureLocation.c)
- *     CmSiFreeMemory @ 0x14046B8D0 (CmSiFreeMemory.c)
- *     CmSiAllocateMemory @ 0x140485138 (CmSiAllocateMemory.c)
- *     CmSiSetEvent @ 0x140668BAC (CmSiSetEvent.c)
- *     CmSiWaitForMultipleEvents @ 0x140668BCC (CmSiWaitForMultipleEvents.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     CmpHiveCacheSubscribePnpNotifications @ 0x1407D8E4C (CmpHiveCacheSubscribePnpNotifications.c)
- *     CmpHiveCacheAcknowledgeOplockBreak @ 0x1407E51FC (CmpHiveCacheAcknowledgeOplockBreak.c)
- *     CmpHiveCacheEntryCleanup @ 0x1407E54D8 (CmpHiveCacheEntryCleanup.c)
- *     CmpHiveCacheEntryLockAcquire @ 0x1407E5678 (CmpHiveCacheEntryLockAcquire.c)
- *     CmpHiveCacheEntryLockRelease @ 0x1407E56DC (CmpHiveCacheEntryLockRelease.c)
- *     CmpRequestOplockOnHiveFile @ 0x1407E5D88 (CmpRequestOplockOnHiveFile.c)
- *     CmpOpenHiveFiles @ 0x14092F1B0 (CmpOpenHiveFiles.c)
- *     CmpCreateHive @ 0x14092F538 (CmpCreateHive.c)
- *     CmpDestroyHive @ 0x14097C14C (CmpDestroyHive.c)
- *     PsTerminateSystemThread @ 0x1409D8000 (PsTerminateSystemThread.c)
+ *     CmpInitializeThreadInfo @ 0x1403F0160 (CmpInitializeThreadInfo.c)
+ *     CmpCleanupThreadInfo @ 0x140414BA0 (CmpCleanupThreadInfo.c)
+ *     SetFailureLocation @ 0x14045B110 (SetFailureLocation.c)
+ *     CmSiFreeMemory @ 0x140464550 (CmSiFreeMemory.c)
+ *     CmSiAllocateMemory @ 0x14048071C (CmSiAllocateMemory.c)
+ *     CmSiSetEvent @ 0x140669D84 (CmSiSetEvent.c)
+ *     CmSiWaitForMultipleEvents @ 0x140669DA4 (CmSiWaitForMultipleEvents.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     CmpHiveCacheSubscribePnpNotifications @ 0x1407D939C (CmpHiveCacheSubscribePnpNotifications.c)
+ *     CmpHiveCacheAcknowledgeOplockBreak @ 0x1407E57CC (CmpHiveCacheAcknowledgeOplockBreak.c)
+ *     CmpHiveCacheEntryCleanup @ 0x1407E5AA8 (CmpHiveCacheEntryCleanup.c)
+ *     CmpHiveCacheEntryLockAcquire @ 0x1407E5C48 (CmpHiveCacheEntryLockAcquire.c)
+ *     CmpHiveCacheEntryLockRelease @ 0x1407E5CAC (CmpHiveCacheEntryLockRelease.c)
+ *     CmpRequestOplockOnHiveFile @ 0x1407E6358 (CmpRequestOplockOnHiveFile.c)
+ *     CmpOpenHiveFiles @ 0x1409312F0 (CmpOpenHiveFiles.c)
+ *     CmpCreateHive @ 0x140931678 (CmpCreateHive.c)
+ *     CmpDestroyHive @ 0x14096495C (CmpDestroyHive.c)
+ *     PsTerminateSystemThread @ 0x1409D16F0 (PsTerminateSystemThread.c)
  */
 
 __int64 __fastcall CmpHiveCachePopulateHiveEntryThread(PPRIVILEGE_SET Privileges)
@@ -139,14 +139,14 @@ LABEL_5:
     goto LABEL_5;
   }
   *(_DWORD *)(v26 + 188) = HIDWORD(v31);
-  *(_QWORD *)(v26 + 1848) = CmSiAllocateMemory();
+  *(_QWORD *)(v26 + 1848) = CmSiAllocateMemory(*(unsigned __int16 *)Luid, 0x36394D43u);
   if ( *(_QWORD *)(v26 + 1848) )
   {
     *(_WORD *)(v26 + 1840) = *(_WORD *)Luid;
     *(_WORD *)(v26 + 1842) = *(_WORD *)Luid;
     memmove(*(void **)(v26 + 1848), Luid[1], *(unsigned __int16 *)Luid);
   }
-  Memory = (void *)CmSiAllocateMemory();
+  Memory = (void *)CmSiAllocateMemory(*(unsigned __int16 *)Luid, 0x37394D43u);
   *(_QWORD *)(v4 + 320) = Memory;
   if ( Memory )
   {

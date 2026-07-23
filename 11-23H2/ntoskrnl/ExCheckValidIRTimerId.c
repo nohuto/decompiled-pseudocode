@@ -1,8 +1,8 @@
 /*
- * XREFs of ExCheckValidIRTimerId @ 0x14036F64C
+ * XREFs of ExCheckValidIRTimerId @ 0x14036F7EC
  * Callers:
- *     KeInitializeIRTimer @ 0x14036F5F8 (KeInitializeIRTimer.c)
- *     ExpCheckIRTimerAccess @ 0x1407EBA64 (ExpCheckIRTimerAccess.c)
+ *     KeInitializeIRTimer @ 0x14036F798 (KeInitializeIRTimer.c)
+ *     ExpCheckIRTimerAccess @ 0x1407EBD34 (ExpCheckIRTimerAccess.c)
  * Callees:
  *     <none>
  */

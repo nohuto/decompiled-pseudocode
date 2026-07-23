@@ -1,15 +1,15 @@
 /*
- * XREFs of MiPageFileNoFreeSpace @ 0x1404D0994
+ * XREFs of MiPageFileNoFreeSpace @ 0x14046F624
  * Callers:
- *     MiGatherPagefilePages @ 0x14039C8C8 (MiGatherPagefilePages.c)
+ *     MiGatherPagefilePages @ 0x1402F9BC8 (MiGatherPagefilePages.c)
  * Callees:
- *     MiReleaseSpinLockExclusive @ 0x14028EE30 (MiReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x14028F370 (ExAcquireSpinLockExclusive.c)
- *     MiMakePagefileWriterEntryAvailable @ 0x1402D1954 (MiMakePagefileWriterEntryAvailable.c)
- *     MiIssuePageExtendRequest @ 0x14046B438 (MiIssuePageExtendRequest.c)
- *     MiCauseOverCommitPopup @ 0x140480358 (MiCauseOverCommitPopup.c)
- *     MiStoreExtendVirtualPagefile @ 0x1404F6510 (MiStoreExtendVirtualPagefile.c)
- *     MiFreeModifiedReservations @ 0x1404F8E8C (MiFreeModifiedReservations.c)
+ *     MiReleaseSpinLockExclusive @ 0x14029EA30 (MiReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14029EF70 (ExAcquireSpinLockExclusive.c)
+ *     MiIssuePageExtendRequest @ 0x140464038 (MiIssuePageExtendRequest.c)
+ *     MiMakePagefileWriterEntryAvailable @ 0x14046FFF8 (MiMakePagefileWriterEntryAvailable.c)
+ *     MiCauseOverCommitPopup @ 0x14047AF98 (MiCauseOverCommitPopup.c)
+ *     MiStoreExtendVirtualPagefile @ 0x1404F3E10 (MiStoreExtendVirtualPagefile.c)
+ *     MiFreeModifiedReservations @ 0x1404F676C (MiFreeModifiedReservations.c)
  */
 
 __int64 __fastcall MiPageFileNoFreeSpace(__int64 a1, _QWORD *a2)

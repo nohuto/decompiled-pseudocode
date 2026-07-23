@@ -13,17 +13,18 @@
  *     ZwSetInformationWorkerFactory @ 0x1800A8530 (ZwSetInformationWorkerFactory.c)
  */
 
-signed __int64 __fastcall sub_180105430(__int64 a1)
+void __fastcall sub_180105430(__int64 a1)
 {
-  int v1; // edi
+  unsigned int v1; // edi
   int v3; // eax
   __int16 v4; // r8
   signed __int64 v5; // rax
   signed __int64 v6; // rtt
+  int WorkerFactoryInformation; // [rsp+30h] [rbp+8h] BYREF
   signed __int64 v8; // [rsp+38h] [rbp+10h]
 
   v1 = MEMORY[0x7FFE03C0];
-  RtlAcquireSRWLockExclusive((volatile signed __int64 *)(a1 + 72));
+  RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)(a1 + 72));
   v3 = *(_DWORD *)(a1 + 424);
   if ( v1 != v3 )
   {
@@ -40,8 +41,12 @@ signed __int64 __fastcall sub_180105430(__int64 a1)
       v8 = v5;
     }
     while ( v6 != v5 );
-    ZwSetInformationWorkerFactory();
+    if ( v1 < 4 )
+      WorkerFactoryInformation = 4;
+    else
+      WorkerFactoryInformation = v1 + 1;
+    ZwSetInformationWorkerFactory(*(HANDLE *)(a1 + 56), WorkerFactoryAdjustThreadGoal, &WorkerFactoryInformation, 4u);
     sub_1800114C0(a1);
   }
-  return RtlReleaseSRWLockExclusive((volatile signed __int64 *)(a1 + 72));
+  RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(a1 + 72));
 }

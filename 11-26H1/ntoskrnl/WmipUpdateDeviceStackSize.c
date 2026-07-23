@@ -1,17 +1,17 @@
 /*
- * XREFs of WmipUpdateDeviceStackSize @ 0x140ACDA74
+ * XREFs of WmipUpdateDeviceStackSize @ 0x140ACFCB4
  * Callers:
- *     WmipForwardWmiIrp @ 0x140A0F03C (WmipForwardWmiIrp.c)
- *     WmipRegisterDevice @ 0x140ACD8E8 (WmipRegisterDevice.c)
+ *     WmipForwardWmiIrp @ 0x140A0E218 (WmipForwardWmiIrp.c)
+ *     WmipRegisterDevice @ 0x140ACFB28 (WmipRegisterDevice.c)
  * Callees:
- *     KeWaitForSingleObject @ 0x140278560 (KeWaitForSingleObject.c)
- *     KeReleaseMutex @ 0x1403DD0F0 (KeReleaseMutex.c)
+ *     KeWaitForSingleObject @ 0x140277AD0 (KeWaitForSingleObject.c)
+ *     KeReleaseMutex @ 0x1403E02E0 (KeReleaseMutex.c)
  */
 
-LONG __fastcall WmipUpdateDeviceStackSize(char a1)
+LONG __fastcall WmipUpdateDeviceStackSize(CCHAR a1)
 {
-  KeWaitForSingleObject(&EtwpSecurityLock.IoSelfBoostsEntry, Executive, 0, 0, 0LL);
-  if ( *(char *)(*(_QWORD *)&EtwpSecurityLock.ForegroundLossTime + 76LL) < a1 )
-    *(_BYTE *)(*(_QWORD *)&EtwpSecurityLock.ForegroundLossTime + 76LL) = a1;
-  return KeReleaseMutex((PRKMUTEX)&EtwpSecurityLock.IoSelfBoostsEntry, 0);
+  KeWaitForSingleObject(&WmipSMMutex, Executive, 0, 0, 0LL);
+  if ( WmipServiceDeviceObject->StackSize < a1 )
+    WmipServiceDeviceObject->StackSize = a1;
+  return KeReleaseMutex(&WmipSMMutex, 0);
 }

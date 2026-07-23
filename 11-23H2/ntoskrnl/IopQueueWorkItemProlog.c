@@ -1,16 +1,16 @@
 /*
- * XREFs of IopQueueWorkItemProlog @ 0x1402B9400
+ * XREFs of IopQueueWorkItemProlog @ 0x1402B9690
  * Callers:
- *     IoQueueWorkItemEx @ 0x1402B93D0 (IoQueueWorkItemEx.c)
- *     IoQueueWorkItem @ 0x1402B9520 (IoQueueWorkItem.c)
- *     PnpDeviceCompletionRequestDestroy @ 0x140322A04 (PnpDeviceCompletionRequestDestroy.c)
- *     IoTryQueueWorkItem @ 0x14036BDF0 (IoTryQueueWorkItem.c)
- *     IoQueueWorkItemToNode @ 0x140558290 (IoQueueWorkItemToNode.c)
+ *     IoQueueWorkItemEx @ 0x1402B9660 (IoQueueWorkItemEx.c)
+ *     IoQueueWorkItem @ 0x1402B97B0 (IoQueueWorkItem.c)
+ *     PnpDeviceCompletionRequestDestroy @ 0x140322C94 (PnpDeviceCompletionRequestDestroy.c)
+ *     IoTryQueueWorkItem @ 0x14036BF90 (IoTryQueueWorkItem.c)
+ *     IoQueueWorkItemToNode @ 0x140558950 (IoQueueWorkItemToNode.c)
  * Callees:
- *     ObfReferenceObjectWithTag @ 0x1402B68C0 (ObfReferenceObjectWithTag.c)
- *     PsGetWorkOnBehalfThread @ 0x1402B6914 (PsGetWorkOnBehalfThread.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     ObpPushStackInfo @ 0x140582BD8 (ObpPushStackInfo.c)
+ *     ObfReferenceObjectWithTag @ 0x1402B6B50 (ObfReferenceObjectWithTag.c)
+ *     PsGetWorkOnBehalfThread @ 0x1402B6BA4 (PsGetWorkOnBehalfThread.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
+ *     ObpPushStackInfo @ 0x1405830C8 (ObpPushStackInfo.c)
  */
 
 __int64 __fastcall IopQueueWorkItemProlog(__int64 a1, __int64 a2, __int64 a3)

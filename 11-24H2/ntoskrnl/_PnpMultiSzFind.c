@@ -1,9 +1,9 @@
 /*
- * XREFs of _PnpMultiSzFind @ 0x140820B1C
+ * XREFs of _PnpMultiSzFind @ 0x14082125C
  * Callers:
- *     _CmFindFilterListInflectionPoint @ 0x1409B396C (_CmFindFilterListInflectionPoint.c)
+ *     _CmFindFilterListInflectionPoint @ 0x1409AACFC (_CmFindFilterListInflectionPoint.c)
  * Callees:
- *     _wcsicmp @ 0x1404FE3B0 (_wcsicmp.c)
+ *     _wcsicmp @ 0x1404FBC70 (_wcsicmp.c)
  */
 
 wchar_t *__fastcall PnpMultiSzFind(wchar_t *Str1, wchar_t *Str2)

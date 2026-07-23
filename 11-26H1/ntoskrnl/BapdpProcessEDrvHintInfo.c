@@ -1,12 +1,12 @@
 /*
- * XREFs of BapdpProcessEDrvHintInfo @ 0x140CE26FC
+ * XREFs of BapdpProcessEDrvHintInfo @ 0x140CE8A9C
  * Callers:
- *     BootApplicationPersistentDataProcess @ 0x140C7FBB0 (BootApplicationPersistentDataProcess.c)
+ *     BootApplicationPersistentDataProcess @ 0x140C85BB0 (BootApplicationPersistentDataProcess.c)
  * Callees:
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
- *     BapdpQueryData @ 0x140CE2FFC (BapdpQueryData.c)
- *     BapdpRegisterEDrvHintInfo @ 0x140CE3338 (BapdpRegisterEDrvHintInfo.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
+ *     BapdpQueryData @ 0x140CE939C (BapdpQueryData.c)
+ *     BapdpRegisterEDrvHintInfo @ 0x140CE96D8 (BapdpRegisterEDrvHintInfo.c)
  */
 
 void __fastcall BapdpProcessEDrvHintInfo(__int64 a1)

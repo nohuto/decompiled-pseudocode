@@ -1,7 +1,7 @@
 /*
- * XREFs of MiInitializeFaultClusterProcessContext @ 0x140B3138C
+ * XREFs of MiInitializeFaultClusterProcessContext @ 0x140B3358C
  * Callers:
- *     MiInitializeBootProcess @ 0x140CF1DA4 (MiInitializeBootProcess.c)
+ *     MiInitializeBootProcess @ 0x140CF8124 (MiInitializeBootProcess.c)
  * Callees:
  *     <none>
  */

@@ -1,16 +1,16 @@
 /*
- * XREFs of MiVadDeleted @ 0x14002C370
+ * XREFs of MiVadDeleted @ 0x14002BEF0
  * Callers:
- *     MmEnumerateAddressSpaceAndReferenceImages @ 0x14042A620 (MmEnumerateAddressSpaceAndReferenceImages.c)
- *     MiPrepareVadDelete @ 0x14042E184 (MiPrepareVadDelete.c)
- *     MiAllocateVirtualMemory @ 0x140430E80 (MiAllocateVirtualMemory.c)
- *     MmQueryVirtualMemory @ 0x140432230 (MmQueryVirtualMemory.c)
- *     MmCleanProcessAddressSpace @ 0x14045EDFC (MmCleanProcessAddressSpace.c)
- *     MiLockVadRange @ 0x1404F38DC (MiLockVadRange.c)
- *     MiPopulateCfgBitMap @ 0x1404F4488 (MiPopulateCfgBitMap.c)
- *     NtAreMappedFilesTheSame @ 0x1405293B4 (NtAreMappedFilesTheSame.c)
- *     MmIsFileMapped @ 0x14065B6E4 (MmIsFileMapped.c)
- *     MiScrubProcesses @ 0x140664E40 (MiScrubProcesses.c)
+ *     MmEnumerateAddressSpaceAndReferenceImages @ 0x1404294F0 (MmEnumerateAddressSpaceAndReferenceImages.c)
+ *     MiPrepareVadDelete @ 0x14042D054 (MiPrepareVadDelete.c)
+ *     MiAllocateVirtualMemory @ 0x14042FD50 (MiAllocateVirtualMemory.c)
+ *     MmQueryVirtualMemory @ 0x140431100 (MmQueryVirtualMemory.c)
+ *     MmCleanProcessAddressSpace @ 0x14045DCCC (MmCleanProcessAddressSpace.c)
+ *     MiLockVadRange @ 0x1404D6868 (MiLockVadRange.c)
+ *     MiPopulateCfgBitMap @ 0x1404D7414 (MiPopulateCfgBitMap.c)
+ *     NtAreMappedFilesTheSame @ 0x1405298F4 (NtAreMappedFilesTheSame.c)
+ *     MmIsFileMapped @ 0x14065B7C8 (MmIsFileMapped.c)
+ *     MiScrubProcesses @ 0x140664F24 (MiScrubProcesses.c)
  * Callees:
  *     <none>
  */

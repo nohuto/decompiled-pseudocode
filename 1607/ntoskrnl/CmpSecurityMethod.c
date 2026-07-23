@@ -1,19 +1,19 @@
 /*
- * XREFs of CmpSecurityMethod @ 0x1404042B0
+ * XREFs of CmpSecurityMethod @ 0x140403170
  * Callers:
  *     <none>
  * Callees:
- *     CmpSetKeySecurity @ 0x14000A660 (CmpSetKeySecurity.c)
- *     CmpQueryKeySecurity @ 0x14000B338 (CmpQueryKeySecurity.c)
- *     ExIsResourceAcquiredSharedLite @ 0x14002D250 (ExIsResourceAcquiredSharedLite.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x140055FA0 (KiLeaveCriticalRegionUnsafe.c)
- *     EtwGetKernelTraceTimestamp @ 0x140059D50 (EtwGetKernelTraceTimestamp.c)
- *     CmpAssignKeySecurity @ 0x14014A9C8 (CmpAssignKeySecurity.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     CmPostCallbackNotification @ 0x140439490 (CmPostCallbackNotification.c)
- *     CmpCallCallBacks @ 0x140452A00 (CmpCallCallBacks.c)
+ *     CmpSetKeySecurity @ 0x14000A1E0 (CmpSetKeySecurity.c)
+ *     CmpQueryKeySecurity @ 0x14000AEB8 (CmpQueryKeySecurity.c)
+ *     ExIsResourceAcquiredSharedLite @ 0x14002CDD0 (ExIsResourceAcquiredSharedLite.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140055B20 (KiLeaveCriticalRegionUnsafe.c)
+ *     EtwGetKernelTraceTimestamp @ 0x1400598D0 (EtwGetKernelTraceTimestamp.c)
+ *     CmpAssignKeySecurity @ 0x14014AF38 (CmpAssignKeySecurity.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     CmPostCallbackNotification @ 0x140438360 (CmPostCallbackNotification.c)
+ *     CmpCallCallBacks @ 0x1404518D0 (CmpCallCallBacks.c)
  */
 
 __int64 __fastcall CmpSecurityMethod(

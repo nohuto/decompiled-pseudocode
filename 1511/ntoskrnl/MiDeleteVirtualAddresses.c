@@ -321,7 +321,8 @@ char __fastcall MiDeleteVirtualAddresses(
             if ( (LONG *)v37 == &dword_1402FFA80 )
             {
               if ( PsNtosImageBase
-                && (v45 >= PsNtosImageBase && v45 < PsNtosImageEnd || v45 >= PsHalImageBase && v45 < PsHalImageEnd) )
+                && (v45 >= (unsigned __int64)PsNtosImageBase && v45 < PsNtosImageEnd
+                 || v45 >= (unsigned __int64)PsHalImageBase && v45 < PsHalImageEnd) )
               {
                 LODWORD(xmmword_1402FE598) = xmmword_1402FE598 - 1;
               }

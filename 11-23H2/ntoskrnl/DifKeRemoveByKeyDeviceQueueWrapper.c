@@ -1,12 +1,12 @@
 /*
- * XREFs of DifKeRemoveByKeyDeviceQueueWrapper @ 0x1405E51F0
+ * XREFs of DifKeRemoveByKeyDeviceQueueWrapper @ 0x1405E5760
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     DifGetAPIThunkContextById @ 0x1404664BE (DifGetAPIThunkContextById.c)
- *     KeRemoveByKeyDeviceQueue @ 0x140573300 (KeRemoveByKeyDeviceQueue.c)
- *     DifGetReturnAddressForWrappers @ 0x1405F88C4 (DifGetReturnAddressForWrappers.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     DifGetAPIThunkContextById @ 0x1404668BE (DifGetAPIThunkContextById.c)
+ *     KeRemoveByKeyDeviceQueue @ 0x140573840 (KeRemoveByKeyDeviceQueue.c)
+ *     DifGetReturnAddressForWrappers @ 0x1405F8E34 (DifGetReturnAddressForWrappers.c)
  */
 
 PKDEVICE_QUEUE_ENTRY __fastcall DifKeRemoveByKeyDeviceQueueWrapper(PKDEVICE_QUEUE DeviceQueue, ULONG SortKey)

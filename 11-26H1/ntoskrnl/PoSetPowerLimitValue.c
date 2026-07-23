@@ -1,15 +1,15 @@
 /*
- * XREFs of PoSetPowerLimitValue @ 0x1407CA570
+ * XREFs of PoSetPowerLimitValue @ 0x1407CD610
  * Callers:
  *     <none>
  * Callees:
- *     PopReleaseRwLock @ 0x14043630C (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x140436378 (PopAcquireRwLockExclusive.c)
- *     PoCaptureReasonContext @ 0x140436EC8 (PoCaptureReasonContext.c)
- *     PoDestroyReasonContext @ 0x14050A3C0 (PoDestroyReasonContext.c)
- *     PopUpdatePowerLimitTimeTracking @ 0x140603A78 (PopUpdatePowerLimitTimeTracking.c)
- *     PopEvaluatePowerLimitChange @ 0x1407CAB64 (PopEvaluatePowerLimitChange.c)
- *     PopDiagTracePowerLimitRequestValueUpdate @ 0x1407D4648 (PopDiagTracePowerLimitRequestValueUpdate.c)
+ *     PopReleaseRwLock @ 0x14021B1A8 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x140425310 (PopAcquireRwLockExclusive.c)
+ *     PoCaptureReasonContext @ 0x140425E58 (PoCaptureReasonContext.c)
+ *     PoDestroyReasonContext @ 0x140503E30 (PoDestroyReasonContext.c)
+ *     PopUpdatePowerLimitTimeTracking @ 0x140606528 (PopUpdatePowerLimitTimeTracking.c)
+ *     PopEvaluatePowerLimitChange @ 0x1407CDC04 (PopEvaluatePowerLimitChange.c)
+ *     PopDiagTracePowerLimitRequestValueUpdate @ 0x1407D77C8 (PopDiagTracePowerLimitRequestValueUpdate.c)
  */
 
 __int64 __fastcall PoSetPowerLimitValue(__int64 a1, _OWORD *a2, __int64 a3, struct _KLOCK_ENTRIES *a4)

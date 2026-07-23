@@ -1,18 +1,18 @@
 /*
- * XREFs of BiOpenStoreWithHash @ 0x140773404
+ * XREFs of BiOpenStoreWithHash @ 0x140776404
  * Callers:
- *     BcdOpenStore @ 0x1407733EC (BcdOpenStore.c)
- *     PoInitHiberServices @ 0x1407C8370 (PoInitHiberServices.c)
- *     PopValidateWinresume @ 0x1407D0A04 (PopValidateWinresume.c)
- *     PopAdaptiveClearInitialSystemPowerState @ 0x1407DDA3C (PopAdaptiveClearInitialSystemPowerState.c)
- *     PopFreeHiberContext @ 0x140B1AB90 (PopFreeHiberContext.c)
- *     PopBcdOpen @ 0x140B52A6C (PopBcdOpen.c)
- *     PopAllocateHiberContext @ 0x140B71364 (PopAllocateHiberContext.c)
+ *     BcdOpenStore @ 0x1407763EC (BcdOpenStore.c)
+ *     PoInitHiberServices @ 0x1407CB3D0 (PoInitHiberServices.c)
+ *     PopValidateWinresume @ 0x1407D3AA4 (PopValidateWinresume.c)
+ *     PopAdaptiveClearInitialSystemPowerState @ 0x1407E206C (PopAdaptiveClearInitialSystemPowerState.c)
+ *     PopFreeHiberContext @ 0x140B1CE40 (PopFreeHiberContext.c)
+ *     PopBcdOpen @ 0x140B5530C (PopBcdOpen.c)
+ *     PopAllocateHiberContext @ 0x140B75B48 (PopAllocateHiberContext.c)
  * Callees:
- *     BiReleaseBcdSyncMutant @ 0x1409D3F58 (BiReleaseBcdSyncMutant.c)
- *     BiAcquireBcdSyncMutant @ 0x1409D415C (BiAcquireBcdSyncMutant.c)
- *     BiOpenSystemStore @ 0x1409D43D4 (BiOpenSystemStore.c)
- *     BiLogMessage @ 0x1409D490C (BiLogMessage.c)
+ *     BiReleaseBcdSyncMutant @ 0x1409A4F38 (BiReleaseBcdSyncMutant.c)
+ *     BiAcquireBcdSyncMutant @ 0x1409A513C (BiAcquireBcdSyncMutant.c)
+ *     BiOpenSystemStore @ 0x1409A53B4 (BiOpenSystemStore.c)
+ *     BiLogMessage @ 0x1409A58EC (BiLogMessage.c)
  */
 
 __int64 __fastcall BiOpenStoreWithHash(__int64 a1, unsigned int a2, __int64 a3, __int64 a4)

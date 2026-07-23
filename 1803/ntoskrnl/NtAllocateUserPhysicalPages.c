@@ -56,11 +56,11 @@ NTSTATUS __stdcall NtAllocateUserPhysicalPages(HANDLE ProcessHandle, PULONG_PTR 
   unsigned __int64 v27; // r8
   unsigned __int64 *v28; // rdx
   unsigned __int64 v29; // rax
-  char **v30; // r14
+  _RTL_BITMAP_EX *v30; // r14
   ULONG_PTR v31; // rax
   ULONG_PTR v32; // r11
   unsigned __int64 v33; // rdi
-  char *v34; // r9
+  unsigned __int64 *Buffer; // r9
   unsigned int *v35; // rax
   unsigned int *v36; // r10
   PVOID *v37; // r12
@@ -267,10 +267,10 @@ NTSTATUS __stdcall NtAllocateUserPhysicalPages(HANDLE ProcessHandle, PULONG_PTR 
                 goto LABEL_62;
               }
               --CurrentThread->SpecialApcDisable;
-              v30 = (char **)v49;
+              v30 = (_RTL_BITMAP_EX *)v49;
               v31 = ExAcquireAutoExpandPushLockShared((ULONG_PTR)v49 + 16, 0LL);
               v32 = v31;
-              if ( v48 < (unsigned __int64)*v30 )
+              if ( v48 < v30->SizeOfBitMap )
                 break;
               ExReleaseAutoExpandPushLockShared(v31, 0LL);
               KiLeaveGuardedRegionUnsafe((__int64)CurrentThread);
@@ -284,12 +284,12 @@ NTSTATUS __stdcall NtAllocateUserPhysicalPages(HANDLE ProcessHandle, PULONG_PTR 
                 goto LABEL_62;
               }
             }
-            v34 = v30[1];
+            Buffer = v30->Buffer;
             v35 = v55;
             v36 = &v55[2 * v56];
             do
             {
-              _InterlockedOr((volatile signed __int32 *)&v34[4 * (*(_QWORD *)v35 >> 5)], 1 << (*(_QWORD *)v35 & 0x1F));
+              _InterlockedOr((volatile signed __int32 *)Buffer + (*(_QWORD *)v35 >> 5), 1 << (*(_QWORD *)v35 & 0x1F));
               v35 = v51 + 2;
               v51 = v35;
             }

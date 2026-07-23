@@ -1,11 +1,11 @@
 /*
- * XREFs of PlugPlayGetDeviceStatus @ 0x1406B3D84
+ * XREFs of PlugPlayGetDeviceStatus @ 0x1406B5024
  * Callers:
- *     PiPnpRtlGetDeviceStatus @ 0x1406B3D50 (PiPnpRtlGetDeviceStatus.c)
- *     PiPnpRtlGatherDeviceDeleteInfo @ 0x140829040 (PiPnpRtlGatherDeviceDeleteInfo.c)
+ *     PiPnpRtlGetDeviceStatus @ 0x1406B4FF0 (PiPnpRtlGetDeviceStatus.c)
+ *     PiPnpRtlGatherDeviceDeleteInfo @ 0x14082A240 (PiPnpRtlGatherDeviceDeleteInfo.c)
  * Callees:
- *     ZwPlugPlayControl @ 0x1401BA710 (ZwPlugPlayControl.c)
- *     memset @ 0x1401D1880 (memset.c)
+ *     ZwPlugPlayControl @ 0x1401BA870 (ZwPlugPlayControl.c)
+ *     memset @ 0x1401D1980 (memset.c)
  */
 
 NTSTATUS __fastcall PlugPlayGetDeviceStatus(__int128 *a1, _DWORD *a2, _DWORD *a3, _DWORD *a4, int a5)

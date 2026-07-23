@@ -1,9 +1,9 @@
 /*
- * XREFs of ArbAddMmConfigRangeAsBootReserved @ 0x1407049C8
+ * XREFs of ArbAddMmConfigRangeAsBootReserved @ 0x140702588
  * Callers:
- *     IopMemInitialize @ 0x140725C18 (IopMemInitialize.c)
+ *     IopMemInitialize @ 0x1407237A8 (IopMemInitialize.c)
  * Callees:
- *     RtlAddRange @ 0x140A76A90 (RtlAddRange.c)
+ *     RtlAddRange @ 0x140A70BB0 (RtlAddRange.c)
  */
 
 __int64 __fastcall ArbAddMmConfigRangeAsBootReserved(__int64 a1, int a2)

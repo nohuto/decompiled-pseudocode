@@ -23,106 +23,106 @@ __int64 __fastcall EtwpSetProviderTraitsCommon(
         int a2,
         __int64 a3,
         __int64 a4,
-        unsigned __int64 a5,
+        PRTL_BALANCED_NODE Node,
         unsigned int a6,
         PFAST_MUTEX FastMutex,
-        __int64 a8)
+        PRTL_RB_TREE Tree)
 {
   __int16 v8; // bp
-  unsigned __int64 v10; // rdi
+  PRTL_BALANCED_NODE v10; // rdi
   __int64 v11; // rdx
-  _DWORD *v12; // r14
-  __int64 v13; // rax
-  unsigned __int64 v14; // rbx
-  bool v15; // r15
+  PRTL_BALANCED_NODE v12; // r14
+  unsigned __int64 v13; // rax
+  _RTL_BALANCED_NODE *Root; // rbx
+  BOOLEAN v15; // r15
   char v16; // r13
   int v17; // eax
-  unsigned __int64 v18; // rax
-  void *v19; // r14
+  _RTL_BALANCED_NODE *v18; // rax
+  PRTL_BALANCED_NODE v19; // r14
   unsigned int v20; // ebx
   __int128 *ProviderGroupFromTraits; // rax
-  PVOID P; // [rsp+30h] [rbp-78h]
+  PRTL_BALANCED_NODE P; // [rsp+30h] [rbp-78h]
   __int128 v28; // [rsp+58h] [rbp-50h] BYREF
 
   v8 = 0;
-  v10 = a5;
-  P = (PVOID)a5;
+  v10 = Node;
+  P = Node;
   if ( a6 < 3 )
     goto LABEL_40;
-  if ( *(unsigned __int16 *)(a5 + 28) != a6 )
+  if ( WORD2(Node[1].Left) != a6 )
   {
     v20 = -1073741566;
-    v19 = (void *)a5;
+    v19 = Node;
     goto LABEL_29;
   }
-  v11 = (unsigned int)strnlen((const char *)(a5 + 30), a6 - 2) + 3;
+  v11 = (unsigned int)strnlen((const char *)&Node[1].Left + 6, a6 - 2) + 3;
   if ( (unsigned int)v11 > a6 )
   {
     v20 = -1073741566;
-    v19 = (void *)a5;
+    v19 = Node;
     goto LABEL_29;
   }
   if ( (unsigned int)v11 < a6 )
   {
     while ( (int)v11 + 2 <= a6 )
     {
-      LODWORD(v11) = *(unsigned __int16 *)(v11 + a5 + 28) + (_DWORD)v11;
+      LODWORD(v11) = *(unsigned __int16 *)((char *)&Node[1].Left + v11 + 4) + (_DWORD)v11;
       if ( (unsigned int)v11 >= a6 )
         goto LABEL_7;
     }
 LABEL_40:
     v20 = -1073741566;
-    v19 = (void *)a5;
+    v19 = Node;
     goto LABEL_29;
   }
 LABEL_7:
   if ( (_DWORD)v11 != a6 )
   {
     v20 = -1073741566;
-    v19 = (void *)a5;
+    v19 = Node;
     goto LABEL_29;
   }
-  *(_QWORD *)a5 = 0LL;
-  v12 = (_DWORD *)(a5 + 24);
-  *(_QWORD *)(a5 + 8) = 0LL;
-  *(_QWORD *)(a5 + 16) = 0LL;
-  *(_DWORD *)(a5 + 24) = 1;
+  Node->Children[0] = 0LL;
+  v12 = Node + 1;
+  Node->Children[1] = 0LL;
+  Node->ParentValue = 0LL;
+  LODWORD(Node[1].Children[0]) = 1;
   ExAcquireFastMutex(FastMutex);
-  if ( (*(_BYTE *)(a8 + 8) & 1) != 0 )
+  if ( (*(_BYTE *)&Tree->0 & 1) != 0 )
   {
-    v14 = *(_QWORD *)a8;
-    if ( !*(_QWORD *)a8 )
+    Root = Tree->Root;
+    if ( !Tree->Root )
       goto LABEL_33;
-    v13 = a8 ^ v14;
+    v13 = (unsigned __int64)Tree ^ (unsigned __int64)Root;
   }
   else
   {
-    v13 = *(_QWORD *)a8;
-    v14 = *(_QWORD *)a8;
+    v13 = (unsigned __int64)Tree->Root;
+    Root = Tree->Root;
   }
   if ( !v13 )
   {
 LABEL_33:
     v15 = 0;
-    v14 = 0LL;
+    Root = 0LL;
     v16 = 0;
     goto LABEL_34;
   }
   v15 = 0;
   v16 = 0;
-  if ( !v14 )
+  if ( !Root )
   {
 LABEL_19:
     if ( !v16 )
       goto LABEL_34;
-    ++*(_DWORD *)(v14 + 24);
-    v12 = (_DWORD *)(v14 + 24);
-    v10 = v14;
+    ++LODWORD(Root[1].Children[0]);
+    v12 = Root + 1;
+    v10 = Root;
     goto LABEL_21;
   }
   while ( 1 )
   {
-    v17 = TraitsCompare(a5, v14);
+    v17 = TraitsCompare(Node, Root);
     if ( v17 > 0 )
       break;
     if ( v17 >= 0 )
@@ -130,34 +130,34 @@ LABEL_19:
       v16 = 1;
       goto LABEL_19;
     }
-    v18 = *(_QWORD *)v14;
-    if ( !*(_QWORD *)v14 )
+    v18 = Root->Children[0];
+    if ( !Root->Children[0] )
     {
       v15 = 0;
       goto LABEL_34;
     }
 LABEL_14:
-    v14 = v18;
+    Root = v18;
   }
-  v18 = *(_QWORD *)(v14 + 8);
+  v18 = Root->Children[1];
   if ( v18 )
     goto LABEL_14;
   v15 = 1;
 LABEL_34:
-  RtlRbInsertNodeEx((unsigned __int64 *)a8, v14, v15, a5);
+  RtlRbInsertNodeEx(Tree, Root, v15, Node);
   P = 0LL;
 LABEL_21:
-  if ( _InterlockedCompareExchange64((volatile signed __int64 *)(a4 + 104), v10, 0LL) )
+  if ( _InterlockedCompareExchange64((volatile signed __int64 *)(a4 + 104), (signed __int64)v10, 0LL) )
   {
     if ( v16 )
     {
-      --*v12;
+      --LODWORD(v12->Children[0]);
       v19 = P;
     }
     else
     {
-      RtlRbRemoveNode((unsigned __int64 *)a8, v10);
-      v19 = (void *)v10;
+      RtlRbRemoveNode(Tree, v10);
+      v19 = v10;
     }
     v20 = -1073741823;
   }
@@ -169,7 +169,7 @@ LABEL_21:
   KeReleaseGuardedMutex(FastMutex);
   if ( !v20 )
   {
-    if ( *(_WORD *)(v10 + 28) == 22 && *(_DWORD *)(v10 + 30) == 33559296 )
+    if ( WORD2(v10[1].Left) == 22 && *(_DWORD *)((char *)&v10[1].Left + 6) == 33559296 )
     {
       if ( (unsigned __int8)AddDecodeGuidToSessions(a4) )
         v8 = 1024;
@@ -181,7 +181,7 @@ LABEL_28:
       if ( *(_QWORD *)(a4 + 40) )
         goto LABEL_28;
       v28 = 0uLL;
-      ProviderGroupFromTraits = (__int128 *)EtwpGetProviderGroupFromTraits(v10 + 28);
+      ProviderGroupFromTraits = (__int128 *)EtwpGetProviderGroupFromTraits((char *)&v10[1].Left + 4);
       if ( !ProviderGroupFromTraits )
         goto LABEL_28;
       v28 = *ProviderGroupFromTraits;

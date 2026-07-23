@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlHpGlobalsInitialize @ 0x1406254D0
+ * XREFs of RtlHpGlobalsInitialize @ 0x140628520
  * Callers:
- *     RtlHpKInitializeHeapManager @ 0x1406D308C (RtlHpKInitializeHeapManager.c)
- *     ExpInitSystemPhase0 @ 0x140CE40C0 (ExpInitSystemPhase0.c)
+ *     RtlHpKInitializeHeapManager @ 0x1406D70BC (RtlHpKInitializeHeapManager.c)
+ *     ExpInitSystemPhase0 @ 0x140CEA460 (ExpInitSystemPhase0.c)
  * Callees:
  *     ExGenRandom @ 0x140200C10 (ExGenRandom.c)
- *     RtlpHpInitializeLock @ 0x14034B490 (RtlpHpInitializeLock.c)
- *     RtlIsProcessorFeaturePresent @ 0x1404BF850 (RtlIsProcessorFeaturePresent.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     RtlpHpInitializeLock @ 0x14034D510 (RtlpHpInitializeLock.c)
+ *     RtlIsProcessorFeaturePresent @ 0x1404B90A0 (RtlIsProcessorFeaturePresent.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 RtlHpGlobalsInitialize()
@@ -60,5 +60,5 @@ __int64 RtlHpGlobalsInitialize()
   if ( RtlIsProcessorFeaturePresent(0x3Cu) )
     *(_DWORD *)&PspTlsContext.WaitBlockFill11[32] |= 4u;
   *(_DWORD *)&PspTlsContext.WaitBlockFill11[32] |= 1u;
-  return RtlpHpInitializeLock(&stru_140E3E928.SchedulerAssist, 1);
+  return RtlpHpInitializeLock(&stru_140E62450, 1);
 }

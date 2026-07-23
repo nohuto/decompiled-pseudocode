@@ -13,9 +13,9 @@ int __fastcall EtwpIncrementUmLoggerFile(unsigned int a1, _DWORD *a2, _DWORD *a3
 {
   ULONG v5; // esi
   int result; // eax
-  _DWORD *v7; // edi
+  int v7; // edi
   NTSTATUS v8; // eax
-  _DWORD *v10; // [esp+14h] [ebp-4h] BYREF
+  int v10; // [esp+14h] [ebp-4h] BYREF
 
   v5 = 0;
   *a2 = 0;
@@ -27,7 +27,7 @@ int __fastcall EtwpIncrementUmLoggerFile(unsigned int a1, _DWORD *a2, _DWORD *a3
   if ( !result )
   {
     v7 = v10;
-    if ( (v10[53] & 8) != 0 )
+    if ( (*(_BYTE *)(v10 + 212) & 8) != 0 )
     {
       EtwpSynchronizeWithLogger(v10, 2);
       v8 = EtwpSynchronizeWithLogger(v7, 4);
@@ -38,7 +38,7 @@ int __fastcall EtwpIncrementUmLoggerFile(unsigned int a1, _DWORD *a2, _DWORD *a3
     {
       v5 = 87;
     }
-    _InterlockedDecrement((volatile signed __int32 *)(EtwpLoggerArray + 8 * v7[5] + 4));
+    _InterlockedDecrement((volatile signed __int32 *)(EtwpLoggerArray + 8 * *(_DWORD *)(v7 + 20) + 4));
     return v5;
   }
   return result;

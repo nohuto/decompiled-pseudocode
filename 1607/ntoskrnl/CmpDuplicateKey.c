@@ -1,11 +1,11 @@
 /*
- * XREFs of CmpDuplicateKey @ 0x1405FEC0C
+ * XREFs of CmpDuplicateKey @ 0x1405FECC0
  * Callers:
- *     CmMoveKey @ 0x1405FCFA8 (CmMoveKey.c)
+ *     CmMoveKey @ 0x1405FD05C (CmMoveKey.c)
  * Callees:
- *     CmpFreeKeyByCell @ 0x1404005C8 (CmpFreeKeyByCell.c)
- *     CmpCopyKeyPartial @ 0x1404EBDEC (CmpCopyKeyPartial.c)
- *     CmpDuplicateIndex @ 0x140609D70 (CmpDuplicateIndex.c)
+ *     CmpFreeKeyByCell @ 0x1403FF488 (CmpFreeKeyByCell.c)
+ *     CmpCopyKeyPartial @ 0x1404CDE74 (CmpCopyKeyPartial.c)
+ *     CmpDuplicateIndex @ 0x140609E24 (CmpDuplicateIndex.c)
  */
 
 __int64 __fastcall CmpDuplicateKey(ULONG_PTR BugCheckParameter2, __int64 a2, unsigned int *a3)

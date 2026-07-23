@@ -1,15 +1,15 @@
 /*
- * XREFs of HvlpSlowFlushListTb @ 0x140549D74
+ * XREFs of HvlpSlowFlushListTb @ 0x14054A434
  * Callers:
- *     HvlpFlushRangeListTb @ 0x1403CBDF4 (HvlpFlushRangeListTb.c)
+ *     HvlpFlushRangeListTb @ 0x1403CBFD4 (HvlpFlushRangeListTb.c)
  * Callees:
- *     HvlpCopyFlushVaList @ 0x1403CC3A8 (HvlpCopyFlushVaList.c)
- *     HvcallInitiateHypercall @ 0x1403CD360 (HvcallInitiateHypercall.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     HvlpAcquireHypercallPage @ 0x1405407B0 (HvlpAcquireHypercallPage.c)
- *     HvlpReleaseHypercallPage @ 0x140541400 (HvlpReleaseHypercallPage.c)
- *     VslFlushSecureAddressSpace @ 0x14054AFFC (VslFlushSecureAddressSpace.c)
- *     VslSlowFlushSecureRangeList @ 0x14054C9BC (VslSlowFlushSecureRangeList.c)
+ *     HvlpCopyFlushVaList @ 0x1403CC588 (HvlpCopyFlushVaList.c)
+ *     HvcallInitiateHypercall @ 0x1403CD540 (HvcallInitiateHypercall.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     HvlpAcquireHypercallPage @ 0x140540E70 (HvlpAcquireHypercallPage.c)
+ *     HvlpReleaseHypercallPage @ 0x140541AC0 (HvlpReleaseHypercallPage.c)
+ *     VslFlushSecureAddressSpace @ 0x14054B6BC (VslFlushSecureAddressSpace.c)
+ *     VslSlowFlushSecureRangeList @ 0x14054D07C (VslSlowFlushSecureRangeList.c)
  */
 
 char __fastcall HvlpSlowFlushListTb(__int64 a1, char a2, char a3, unsigned int a4, __int64 *a5, unsigned int a6)

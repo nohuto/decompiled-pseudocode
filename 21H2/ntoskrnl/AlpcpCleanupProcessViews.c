@@ -1,16 +1,16 @@
 /*
- * XREFs of AlpcpCleanupProcessViews @ 0x140613E6C
+ * XREFs of AlpcpCleanupProcessViews @ 0x14067DACC
  * Callers:
- *     LpcExitProcess @ 0x140613E28 (LpcExitProcess.c)
+ *     LpcExitProcess @ 0x14067DA88 (LpcExitProcess.c)
  * Callees:
- *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
- *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
- *     KeLeaveCriticalRegion @ 0x14034B3B0 (KeLeaveCriticalRegion.c)
- *     DbgPrintEx @ 0x14037F820 (DbgPrintEx.c)
- *     AlpcpDereferenceBlobEx @ 0x1405E9FC0 (AlpcpDereferenceBlobEx.c)
- *     AlpcpReferenceBlob @ 0x140660A14 (AlpcpReferenceBlob.c)
- *     AlpcpForceUnlinkSecureView @ 0x1408C3570 (AlpcpForceUnlinkSecureView.c)
+ *     ExfTryToWakePushLock @ 0x1402FC2C0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x1403539D0 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1403556E0 (ExAcquirePushLockExclusiveEx.c)
+ *     KeLeaveCriticalRegion @ 0x140356100 (KeLeaveCriticalRegion.c)
+ *     DbgPrintEx @ 0x14037F370 (DbgPrintEx.c)
+ *     AlpcpReferenceBlob @ 0x140655834 (AlpcpReferenceBlob.c)
+ *     AlpcpDereferenceBlobEx @ 0x1406D9720 (AlpcpDereferenceBlobEx.c)
+ *     AlpcpForceUnlinkSecureView @ 0x1408C36D0 (AlpcpForceUnlinkSecureView.c)
  */
 
 void __fastcall AlpcpCleanupProcessViews(__int64 a1)
@@ -85,7 +85,7 @@ void __fastcall AlpcpCleanupProcessViews(__int64 a1)
     if ( v11 )
     {
       AlpcpForceUnlinkSecureView(v11, v12, v13);
-      AlpcpDereferenceBlobEx(v11, 1);
+      AlpcpDereferenceBlobEx(v11);
     }
     ExAcquirePushLockExclusiveEx((ULONG_PTR)v3, 0LL);
     v4 = v15;

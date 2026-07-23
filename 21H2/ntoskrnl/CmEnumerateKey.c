@@ -1,209 +1,215 @@
 /*
- * XREFs of CmEnumerateKey @ 0x1405F4350
+ * XREFs of CmEnumerateKey @ 0x1406E3AB0
  * Callers:
- *     NtEnumerateKey @ 0x1405F3E50 (NtEnumerateKey.c)
+ *     NtEnumerateKey @ 0x1406E35B0 (NtEnumerateKey.c)
  * Callees:
- *     CmpInitializeDelayDerefContext @ 0x1403510E8 (CmpInitializeDelayDerefContext.c)
- *     CmpDrainDelayDerefContext @ 0x140351100 (CmpDrainDelayDerefContext.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     CmpInitializeDelayDerefContext @ 0x14035BE38 (CmpInitializeDelayDerefContext.c)
+ *     CmpDrainDelayDerefContext @ 0x14035BE50 (CmpDrainDelayDerefContext.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
  *     CmpEnumerateLayeredKey @ 0x1405D8520 (CmpEnumerateLayeredKey.c)
- *     CmpKeyNodeNeedsAccessBitUpdate @ 0x1405EE808 (CmpKeyNodeNeedsAccessBitUpdate.c)
- *     CmpFindSubKeyByNumberEx @ 0x1405F35A0 (CmpFindSubKeyByNumberEx.c)
- *     CmpLockTwoKcbsShared @ 0x1405F38C0 (CmpLockTwoKcbsShared.c)
- *     CmpUnlockTwoKcbs @ 0x1405F3950 (CmpUnlockTwoKcbs.c)
- *     CmpPerformKeyBodyDeletionCheck @ 0x1405F4700 (CmpPerformKeyBodyDeletionCheck.c)
- *     CmpDetachFromRegistryProcess @ 0x1405F613C (CmpDetachFromRegistryProcess.c)
- *     CmpAttachToRegistryProcess @ 0x1405F6390 (CmpAttachToRegistryProcess.c)
- *     HvUnlockHiveFlusherShared @ 0x14066628C (HvUnlockHiveFlusherShared.c)
- *     HvLockHiveFlusherShared @ 0x1406662C4 (HvLockHiveFlusherShared.c)
- *     CmpUpdateKeyNodeAccessBits @ 0x1406662E0 (CmpUpdateKeyNodeAccessBits.c)
- *     CmpQueryKeyDataFromNode @ 0x14066AB20 (CmpQueryKeyDataFromNode.c)
- *     CmpLockRegistryExclusive @ 0x14067278C (CmpLockRegistryExclusive.c)
- *     CmpTransSearchAddTransFromKeyBody @ 0x1406A3094 (CmpTransSearchAddTransFromKeyBody.c)
- *     CmpUnlockRegistry @ 0x1406F5ED0 (CmpUnlockRegistry.c)
- *     CmpLockRegistry @ 0x1406F5F10 (CmpLockRegistry.c)
- *     CmpDereferenceKeyControlBlock @ 0x1406FB610 (CmpDereferenceKeyControlBlock.c)
- *     CmpFindSubKeyByNumberFromMergedView @ 0x140870448 (CmpFindSubKeyByNumberFromMergedView.c)
+ *     CmpTransSearchAddTransFromKeyBody @ 0x1405DED94 (CmpTransSearchAddTransFromKeyBody.c)
+ *     HvUnlockHiveFlusherShared @ 0x14065B0AC (HvUnlockHiveFlusherShared.c)
+ *     HvLockHiveFlusherShared @ 0x14065B0E4 (HvLockHiveFlusherShared.c)
+ *     CmpUpdateKeyNodeAccessBits @ 0x14065B100 (CmpUpdateKeyNodeAccessBits.c)
+ *     CmpQueryKeyDataFromNode @ 0x14065F940 (CmpQueryKeyDataFromNode.c)
+ *     CmpLockRegistryExclusive @ 0x1406679BC (CmpLockRegistryExclusive.c)
+ *     CmpKeyNodeNeedsAccessBitUpdate @ 0x1406DDF68 (CmpKeyNodeNeedsAccessBitUpdate.c)
+ *     CmpFindSubKeyByNumberEx @ 0x1406E2D00 (CmpFindSubKeyByNumberEx.c)
+ *     CmpLockTwoKcbsShared @ 0x1406E3020 (CmpLockTwoKcbsShared.c)
+ *     CmpUnlockTwoKcbs @ 0x1406E30B0 (CmpUnlockTwoKcbs.c)
+ *     CmpPerformKeyBodyDeletionCheck @ 0x1406E3E60 (CmpPerformKeyBodyDeletionCheck.c)
+ *     CmpDetachFromRegistryProcess @ 0x1406E589C (CmpDetachFromRegistryProcess.c)
+ *     CmpAttachToRegistryProcess @ 0x1406E5AF0 (CmpAttachToRegistryProcess.c)
+ *     CmpUnlockRegistry @ 0x14070D2B0 (CmpUnlockRegistry.c)
+ *     CmpLockRegistry @ 0x14070D2F0 (CmpLockRegistry.c)
+ *     CmpDereferenceKeyControlBlock @ 0x1407129F0 (CmpDereferenceKeyControlBlock.c)
+ *     CmpFindSubKeyByNumberFromMergedView @ 0x1408705A8 (CmpFindSubKeyByNumberFromMergedView.c)
  */
 
-__int64 __fastcall CmEnumerateKey(_QWORD *a1, __int64 a2, ULONG a3, int a4, __int64 a5, unsigned int a6, __int64 a7)
+__int64 __fastcall CmEnumerateKey(
+        _QWORD *a1,
+        __int64 a2,
+        ULONG a3,
+        unsigned int a4,
+        __int64 a5,
+        unsigned int a6,
+        unsigned int *a7)
 {
   ULONG_PTR *v9; // rdi
   __int64 v11; // r12
-  __int64 v12; // rdx
-  __int64 v13; // rcx
-  ULONG_PTR v14; // r14
-  char v15; // r15
-  ULONG_PTR v16; // r13
+  __int64 v12; // rcx
+  unsigned __int64 v13; // r14
+  char v14; // r15
+  unsigned __int64 v15; // r13
   int SubKeyByNumber; // esi
-  __int64 v18; // rbx
-  __int64 v19; // rbx
-  __int64 v20; // rax
-  __int64 v21; // rcx
-  unsigned int v22; // edi
-  __int64 v23; // r15
-  __int64 v24; // rcx
-  __int64 v25; // rdx
-  __int64 v26; // rcx
-  char v28; // al
-  __int64 *v29; // rax
-  int v30; // edx
-  int v31; // ecx
-  __int64 v32; // [rsp+58h] [rbp-B0h] BYREF
-  _DWORD v33[2]; // [rsp+60h] [rbp-A8h] BYREF
-  ULONG v34; // [rsp+68h] [rbp-A0h]
-  int v35; // [rsp+6Ch] [rbp-9Ch]
-  ULONG_PTR *v36; // [rsp+70h] [rbp-98h] BYREF
-  __int64 v37; // [rsp+78h] [rbp-90h] BYREF
-  __int64 v38; // [rsp+80h] [rbp-88h] BYREF
-  __int64 v39; // [rsp+88h] [rbp-80h]
-  __int64 v40; // [rsp+90h] [rbp-78h]
-  __int128 v41; // [rsp+98h] [rbp-70h] BYREF
-  struct _PRIVILEGE_SET *v42; // [rsp+A8h] [rbp-60h] BYREF
-  __int64 v43; // [rsp+B0h] [rbp-58h]
-  _OWORD v44[3]; // [rsp+B8h] [rbp-50h] BYREF
+  __int64 v17; // rbx
+  ULONG_PTR v18; // rbx
+  __int64 v19; // rax
+  __int64 v20; // rcx
+  unsigned int v21; // edi
+  __int64 v22; // r15
+  __int64 v23; // rcx
+  __int64 v24; // rdx
+  __int64 v25; // rcx
+  char v27; // al
+  __int64 *v28; // rax
+  int v29; // edx
+  int v30; // ecx
+  __int64 v31; // [rsp+58h] [rbp-B0h] BYREF
+  _DWORD v32[2]; // [rsp+60h] [rbp-A8h] BYREF
+  ULONG v33; // [rsp+68h] [rbp-A0h]
+  unsigned int v34; // [rsp+6Ch] [rbp-9Ch]
+  ULONG_PTR *v35; // [rsp+70h] [rbp-98h] BYREF
+  __int64 v36; // [rsp+78h] [rbp-90h] BYREF
+  ULONG_PTR v37; // [rsp+80h] [rbp-88h] BYREF
+  unsigned int *v38; // [rsp+88h] [rbp-80h]
+  __int64 v39; // [rsp+90h] [rbp-78h]
+  __int128 v40; // [rsp+98h] [rbp-70h] BYREF
+  struct _PRIVILEGE_SET *v41; // [rsp+A8h] [rbp-60h] BYREF
+  __int64 v42; // [rsp+B0h] [rbp-58h]
+  _OWORD v43[3]; // [rsp+B8h] [rbp-50h] BYREF
 
   v9 = 0LL;
-  v40 = a5;
+  v39 = a5;
   v11 = 0LL;
-  v39 = a7;
-  v33[1] = 0;
-  v35 = a4;
-  v34 = a3;
-  v43 = a2;
-  HIDWORD(v32) = 0;
-  memset(v44, 0, sizeof(v44));
-  v38 = 0LL;
-  v33[0] = -1;
+  v38 = a7;
+  v32[1] = 0;
+  v34 = a4;
+  v33 = a3;
+  v42 = a2;
+  HIDWORD(v31) = 0;
+  memset(v43, 0, sizeof(v43));
   v37 = 0LL;
-  v41 = 0LL;
+  v32[0] = -1;
   v36 = 0LL;
-  v42 = 0LL;
-  CmpInitializeDelayDerefContext(&v41);
-  CmpAttachToRegistryProcess(v44);
+  v40 = 0LL;
+  v35 = 0LL;
+  v41 = 0LL;
+  CmpInitializeDelayDerefContext(&v40);
+  CmpAttachToRegistryProcess(v43);
   if ( *(_WORD *)(a1[1] + 66LL) )
   {
     do
     {
-      v28 = (unsigned int)v9 <= 0xA;
+      v27 = (unsigned int)v9 <= 0xA;
       LODWORD(v9) = (_DWORD)v9 + 1;
-      SubKeyByNumber = CmpEnumerateLayeredKey((__int64)a1, a3, v35, v40, a6, v39, &v42, v28);
+      SubKeyByNumber = CmpEnumerateLayeredKey((__int64)a1, a3, v34, v39, a6, (__int64)v38, &v41, v27);
     }
     while ( SubKeyByNumber == -1073741267 );
-    v15 = 0;
+    v14 = 0;
     goto LABEL_24;
   }
   if ( a1[7] || a1[8] )
-    CmpLockRegistryExclusive(v13, v12);
+    CmpLockRegistryExclusive();
   else
-    CmpLockRegistry();
-  v14 = a1[1];
-  v15 = 1;
+    CmpLockRegistry(v12);
+  v13 = a1[1];
+  v14 = 1;
   if ( a2 )
-    v16 = *(_QWORD *)(a2 + 8);
+    v15 = *(_QWORD *)(a2 + 8);
   else
-    v16 = 0LL;
-  CmpLockTwoKcbsShared(v16, v14);
+    v15 = 0LL;
+  CmpLockTwoKcbsShared(v15, v13);
   SubKeyByNumber = CmpPerformKeyBodyDeletionCheck(a1, 0LL);
   if ( SubKeyByNumber >= 0 )
   {
     if ( !a1[7] && !a1[8]
-      || (SubKeyByNumber = CmpTransSearchAddTransFromKeyBody(a1, &v37), SubKeyByNumber >= 0)
-      && (v11 = v37, SubKeyByNumber = CmpPerformKeyBodyDeletionCheck(a1, v37), SubKeyByNumber >= 0) )
+      || (SubKeyByNumber = CmpTransSearchAddTransFromKeyBody(a1, &v36), SubKeyByNumber >= 0)
+      && (v11 = v36, SubKeyByNumber = CmpPerformKeyBodyDeletionCheck(a1, v36), SubKeyByNumber >= 0) )
     {
-      v18 = v43;
-      if ( v43 )
+      v17 = v42;
+      if ( v42 )
       {
-        SubKeyByNumber = CmpPerformKeyBodyDeletionCheck(v43, v11);
+        SubKeyByNumber = CmpPerformKeyBodyDeletionCheck(v42, v11);
         if ( SubKeyByNumber < 0 )
           goto LABEL_22;
       }
-      else if ( !CmpVEEnabled || (*(_DWORD *)(v14 + 184) & 0x1000000) == 0 )
+      else if ( !CmpVEEnabled || (*(_DWORD *)(v13 + 184) & 0x1000000) == 0 )
       {
-        v19 = *(_QWORD *)(v14 + 32);
+        v18 = *(_QWORD *)(v13 + 32);
         if ( v11 )
         {
-          v9 = (ULONG_PTR *)&v36;
-          v20 = v16;
-          v21 = v14;
+          v9 = (ULONG_PTR *)&v35;
+          v19 = v15;
+          v20 = v13;
         }
         else
         {
+          v19 = 0LL;
           v20 = 0LL;
-          v21 = 0LL;
         }
         SubKeyByNumber = CmpFindSubKeyByNumberEx(
-                           v19,
-                           *(unsigned int *)(v14 + 40),
-                           v34,
-                           (_DWORD *)&v32 + 1,
-                           v21,
+                           v18,
+                           *(unsigned int *)(v13 + 40),
+                           v33,
+                           (_DWORD *)&v31 + 1,
                            v20,
+                           v19,
                            v11,
-                           (__int64)&v41,
+                           (__int64)&v40,
                            v9);
         if ( SubKeyByNumber >= 0 )
           goto LABEL_16;
         goto LABEL_28;
       }
-      v29 = (__int64 *)&v36;
+      v28 = (__int64 *)&v35;
       if ( !v11 )
-        v29 = 0LL;
-      v30 = v14;
-      v31 = v16;
-      if ( !v18 )
+        v28 = 0LL;
+      v29 = v13;
+      v30 = v15;
+      if ( !v17 )
       {
-        v30 = 0;
-        v31 = v14;
+        v29 = 0;
+        v30 = v13;
       }
       SubKeyByNumber = CmpFindSubKeyByNumberFromMergedView(
-                         v31,
                          v30,
-                         v34,
+                         v29,
+                         v33,
                          v11,
-                         (__int64)&v41,
-                         (__int64)&v38,
-                         (__int64)&v32 + 4,
-                         (__int64)v29,
-                         (__int64)&v37);
+                         (__int64)&v40,
+                         (__int64)&v37,
+                         (__int64)&v31 + 4,
+                         (__int64)v28,
+                         (__int64)&v36);
       if ( SubKeyByNumber >= 0 )
       {
-        v19 = v38;
+        v18 = v37;
 LABEL_16:
-        v22 = HIDWORD(v32);
-        if ( HIDWORD(v32) != -1 )
+        v21 = HIDWORD(v31);
+        if ( HIDWORD(v31) != -1 )
         {
-          v23 = (*(__int64 (__fastcall **)(__int64, _QWORD, _DWORD *))(v19 + 8))(v19, HIDWORD(v32), v33);
-          if ( CmpKeyNodeNeedsAccessBitUpdate(v19, v23) )
+          v22 = (*(__int64 (__fastcall **)(ULONG_PTR, _QWORD, _DWORD *))(v18 + 8))(v18, HIDWORD(v31), v32);
+          if ( CmpKeyNodeNeedsAccessBitUpdate(v18, v22) )
           {
-            (*(void (__fastcall **)(__int64, _DWORD *))(v19 + 16))(v24, v33);
-            HvLockHiveFlusherShared(v19);
-            v23 = (*(__int64 (__fastcall **)(__int64, _QWORD, _DWORD *))(v19 + 8))(v19, v22, v33);
-            CmpUpdateKeyNodeAccessBits(v19, v23, v22);
-            HvUnlockHiveFlusherShared(v19);
+            (*(void (__fastcall **)(__int64, _DWORD *))(v18 + 16))(v23, v32);
+            HvLockHiveFlusherShared(v18);
+            v22 = (*(__int64 (__fastcall **)(ULONG_PTR, _QWORD, _DWORD *))(v18 + 8))(v18, v21, v32);
+            CmpUpdateKeyNodeAccessBits(v18, v22, v21);
+            HvUnlockHiveFlusherShared(v18);
           }
-          v9 = v36;
-          SubKeyByNumber = CmpQueryKeyDataFromNode(v19, v23, v35, v40, a6, v39, (__int64)v36, v11);
-          if ( v23 )
-            (*(void (__fastcall **)(__int64, _DWORD *))(v19 + 16))(v19, v33);
-          v15 = 1;
+          v9 = v35;
+          SubKeyByNumber = CmpQueryKeyDataFromNode(v18, v22, v34, v39, a6, v38, (__int64)v35, v11);
+          if ( v22 )
+            (*(void (__fastcall **)(ULONG_PTR, _DWORD *))(v18 + 16))(v18, v32);
+          v14 = 1;
           goto LABEL_22;
         }
         SubKeyByNumber = -2147483622;
       }
 LABEL_28:
-      v9 = v36;
+      v9 = v35;
     }
   }
 LABEL_22:
-  CmpUnlockTwoKcbs(v16, v14);
+  CmpUnlockTwoKcbs(v15, v13);
   if ( v9 )
     CmpDereferenceKeyControlBlock((ULONG_PTR)v9);
 LABEL_24:
-  CmpDrainDelayDerefContext((_QWORD **)&v41);
-  if ( v15 )
-    CmpUnlockRegistry(v26, v25);
-  CmpDetachFromRegistryProcess(v44);
+  CmpDrainDelayDerefContext((_QWORD **)&v40);
+  if ( v14 )
+    CmpUnlockRegistry(v25, v24);
+  CmpDetachFromRegistryProcess(v43);
   return (unsigned int)SubKeyByNumber;
 }

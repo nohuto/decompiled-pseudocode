@@ -3,7 +3,7 @@
  * Callers:
  *     <none>
  * Callees:
- *     ViErrorReport1 @ 0x140223660 (ViErrorReport1.c)
+ *     ViErrorReport1 @ 0x14022348C (ViErrorReport1.c)
  */
 
 __int64 __fastcall VfPowerVerifyNewRequest(

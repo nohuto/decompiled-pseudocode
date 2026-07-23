@@ -1,12 +1,15 @@
 /*
- * XREFs of AlpcAdjustCompletionListConcurrencyCount @ 0x1800E0950
+ * XREFs of AlpcAdjustCompletionListConcurrencyCount @ 0x1800E0910
  * Callers:
  *     <none>
  * Callees:
- *     NtAlpcSetInformation @ 0x18009E7D0 (NtAlpcSetInformation.c)
+ *     NtAlpcSetInformation @ 0x18009E790 (NtAlpcSetInformation.c)
  */
 
-__int64 AlpcAdjustCompletionListConcurrencyCount()
+NTSTATUS __cdecl AlpcAdjustCompletionListConcurrencyCount(HANDLE PortHandle, ULONG ConcurrencyCount)
 {
-  return NtAlpcSetInformation();
+  ULONG PortInformation; // [rsp+38h] [rbp+10h] BYREF
+
+  PortInformation = ConcurrencyCount;
+  return NtAlpcSetInformation(PortHandle, AlpcAdjustCompletionListConcurrencyCountInformation, &PortInformation, 4u);
 }

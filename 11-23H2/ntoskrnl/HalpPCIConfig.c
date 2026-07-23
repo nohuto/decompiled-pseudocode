@@ -1,22 +1,22 @@
 /*
- * XREFs of HalpPCIConfig @ 0x14033F3A0
+ * XREFs of HalpPCIConfig @ 0x14033F630
  * Callers:
- *     HaliPciInterfaceWriteConfig @ 0x14033F2F0 (HaliPciInterfaceWriteConfig.c)
- *     HaliPciInterfaceReadConfig @ 0x14033F330 (HaliPciInterfaceReadConfig.c)
- *     HalpWritePCIConfig @ 0x140396A20 (HalpWritePCIConfig.c)
- *     HalpReadPCIConfig @ 0x140396C44 (HalpReadPCIConfig.c)
- *     HalpPciHandleSecureAccess @ 0x14045E790 (HalpPciHandleSecureAccess.c)
- *     HaliHandlePCIConfigSpaceAccess @ 0x140520860 (HaliHandlePCIConfigSpaceAccess.c)
- *     HalpKdWritePCIConfig @ 0x14052B1E0 (HalpKdWritePCIConfig.c)
+ *     HaliPciInterfaceWriteConfig @ 0x14033F580 (HaliPciInterfaceWriteConfig.c)
+ *     HaliPciInterfaceReadConfig @ 0x14033F5C0 (HaliPciInterfaceReadConfig.c)
+ *     HalpWritePCIConfig @ 0x140396C00 (HalpWritePCIConfig.c)
+ *     HalpReadPCIConfig @ 0x140396E24 (HalpReadPCIConfig.c)
+ *     HalpPciHandleSecureAccess @ 0x14045EB90 (HalpPciHandleSecureAccess.c)
+ *     HaliHandlePCIConfigSpaceAccess @ 0x140520DB0 (HaliHandlePCIConfigSpaceAccess.c)
+ *     HalpKdWritePCIConfig @ 0x14052B730 (HalpKdWritePCIConfig.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     HalpPCIAcquireConfigSpaceLock @ 0x14033F4E8 (HalpPCIAcquireConfigSpaceLock.c)
- *     HalpPciAccessMmConfigSpace @ 0x14033F534 (HalpPciAccessMmConfigSpace.c)
- *     HalpPciAccessIoConfigSpace @ 0x140394A7C (HalpPciAccessIoConfigSpace.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     memset @ 0x140435A00 (memset.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     HalpPCIAcquireConfigSpaceLock @ 0x14033F778 (HalpPCIAcquireConfigSpaceLock.c)
+ *     HalpPciAccessMmConfigSpace @ 0x14033F7C4 (HalpPciAccessMmConfigSpace.c)
+ *     HalpPciAccessIoConfigSpace @ 0x140394C5C (HalpPciAccessIoConfigSpace.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     memset @ 0x140435E00 (memset.c)
  */
 
 __int64 __fastcall HalpPCIConfig(
@@ -105,7 +105,9 @@ LABEL_6:
     if ( !HalpDoingCrashDump )
     {
       KxReleaseSpinLock((volatile signed __int64 *)&HalpPCIConfigLock);
-      if ( KiIrqlFlags && (CurrentIrql = KeGetCurrentIrql(), (KiIrqlFlags & 1) != 0) && CurrentIrql <= 0xFu )
+      if ( (_DWORD)KiIrqlFlags
+        && (CurrentIrql = KeGetCurrentIrql(), ((unsigned __int8)KiIrqlFlags & 1) != 0)
+        && CurrentIrql <= 0xFu )
       {
         v16 = v23[0];
         if ( v23[0] <= 0xFu && CurrentIrql >= 2u )

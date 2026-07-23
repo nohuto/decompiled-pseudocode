@@ -1,12 +1,12 @@
 /*
- * XREFs of IofCallDriverSpecifyReturn @ 0x14028D160
+ * XREFs of IofCallDriverSpecifyReturn @ 0x14028D3F0
  * Callers:
- *     PopRequestPowerIrp @ 0x14028F230 (PopRequestPowerIrp.c)
- *     VerifierPoCallDriver @ 0x140ACFC20 (VerifierPoCallDriver.c)
+ *     PopRequestPowerIrp @ 0x14028F4C0 (PopRequestPowerIrp.c)
+ *     VerifierPoCallDriver @ 0x140ACFC10 (VerifierPoCallDriver.c)
  * Callees:
- *     IopfCallDriver @ 0x14028CFC4 (IopfCallDriver.c)
- *     IopPerfCallDriver @ 0x14045F88A (IopPerfCallDriver.c)
- *     IovCallDriver @ 0x140AC11D0 (IovCallDriver.c)
+ *     IopfCallDriver @ 0x14028D254 (IopfCallDriver.c)
+ *     IopPerfCallDriver @ 0x14045FC8A (IopPerfCallDriver.c)
+ *     IovCallDriver @ 0x140AC11C0 (IovCallDriver.c)
  */
 
 __int64 __fastcall IofCallDriverSpecifyReturn(void *a1, ULONG_PTR a2)

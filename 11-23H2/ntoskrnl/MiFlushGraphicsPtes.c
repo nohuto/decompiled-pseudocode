@@ -1,13 +1,13 @@
 /*
- * XREFs of MiFlushGraphicsPtes @ 0x140626428
+ * XREFs of MiFlushGraphicsPtes @ 0x140626978
  * Callers:
- *     MiCommitExistingVad @ 0x140276A30 (MiCommitExistingVad.c)
- *     MiDeleteVaTail @ 0x140279120 (MiDeleteVaTail.c)
- *     MiDecommitPages @ 0x14027F7D0 (MiDecommitPages.c)
- *     MiProtectPrivateMemory @ 0x1402A2880 (MiProtectPrivateMemory.c)
- *     MiProtectAweRegion @ 0x14064B3A4 (MiProtectAweRegion.c)
- *     MiWriteAwePtes @ 0x14064C5BC (MiWriteAwePtes.c)
- *     MiMapUserLargePages @ 0x140668DC0 (MiMapUserLargePages.c)
+ *     MiCommitExistingVad @ 0x140276CC0 (MiCommitExistingVad.c)
+ *     MiDeleteVaTail @ 0x1402793B0 (MiDeleteVaTail.c)
+ *     MiDecommitPages @ 0x14027FA60 (MiDecommitPages.c)
+ *     MiProtectPrivateMemory @ 0x1402A2B10 (MiProtectPrivateMemory.c)
+ *     MiProtectAweRegion @ 0x14064B8F4 (MiProtectAweRegion.c)
+ *     MiWriteAwePtes @ 0x14064CB0C (MiWriteAwePtes.c)
+ *     MiMapUserLargePages @ 0x140669310 (MiMapUserLargePages.c)
  * Callees:
  *     KeInvalidateRangeAllCachesNoIpi @ 0x14021AE20 (KeInvalidateRangeAllCachesNoIpi.c)
  */

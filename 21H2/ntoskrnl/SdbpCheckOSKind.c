@@ -1,9 +1,9 @@
 /*
- * XREFs of SdbpCheckOSKind @ 0x140965590
+ * XREFs of SdbpCheckOSKind @ 0x140965770
  * Callers:
  *     <none>
  * Callees:
- *     SdbReadDWORDTag @ 0x140759D94 (SdbReadDWORDTag.c)
+ *     SdbReadDWORDTag @ 0x140759F54 (SdbReadDWORDTag.c)
  */
 
 __int64 __fastcall SdbpCheckOSKind(_DWORD *a1, __int64 a2, __int64 a3, __int64 a4, unsigned int a5)

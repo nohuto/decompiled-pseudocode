@@ -1,8 +1,8 @@
 /*
- * XREFs of HvpMapEntryGetBlockAddress @ 0x1406E0234
+ * XREFs of HvpMapEntryGetBlockAddress @ 0x1406E0264
  * Callers:
- *     HvpFindNextDirtyBlock @ 0x14070919C (HvpFindNextDirtyBlock.c)
- *     HvpCopyModifiedData @ 0x1407FE680 (HvpCopyModifiedData.c)
+ *     HvpFindNextDirtyBlock @ 0x1407093AC (HvpFindNextDirtyBlock.c)
+ *     HvpCopyModifiedData @ 0x1407FE950 (HvpCopyModifiedData.c)
  * Callees:
  *     HvpMapEntryGetBinAddress @ 0x140AF5210 (HvpMapEntryGetBinAddress.c)
  */

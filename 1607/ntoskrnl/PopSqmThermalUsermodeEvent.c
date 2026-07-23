@@ -1,11 +1,11 @@
 /*
- * XREFs of PopSqmThermalUsermodeEvent @ 0x140676A64
+ * XREFs of PopSqmThermalUsermodeEvent @ 0x140676B48
  * Callers:
- *     PopThermalProcessUsermodeEvent @ 0x1406703AC (PopThermalProcessUsermodeEvent.c)
+ *     PopThermalProcessUsermodeEvent @ 0x140670490 (PopThermalProcessUsermodeEvent.c)
  * Callees:
- *     _TlgWrite @ 0x14000A598 (_TlgWrite.c)
- *     _TlgKeywordOn @ 0x140088D98 (_TlgKeywordOn.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
+ *     _TlgWrite @ 0x14000A118 (_TlgWrite.c)
+ *     _TlgKeywordOn @ 0x14010CF88 (_TlgKeywordOn.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
  */
 
 void __fastcall PopSqmThermalUsermodeEvent(__int64 a1, __int64 a2, int a3)
@@ -32,9 +32,9 @@ void __fastcall PopSqmThermalUsermodeEvent(__int64 a1, __int64 a2, int a3)
   __int64 v24; // [rsp+A0h] [rbp+2Fh]
   _DWORD v25[2]; // [rsp+A8h] [rbp+37h] BYREF
 
-  if ( pCallbackContext.LevelPlus1 > 5 )
+  if ( hProvider.LevelPlus1 > 5 )
   {
-    if ( TlgKeywordOn(&pCallbackContext, 0x800000000000uLL) )
+    if ( TlgKeywordOn(&hProvider, 0x800000000000uLL) )
     {
       v14 = 0;
       v17 = 0;
@@ -54,7 +54,7 @@ void __fastcall PopSqmThermalUsermodeEvent(__int64 a1, __int64 a2, int a3)
       v19 = 4;
       v22 = 2;
       v24 = a2;
-      TlgWrite(&pCallbackContext, &unk_14027D4C5, 0LL, 0LL, 7u, &pData);
+      TlgWrite(&hProvider, &unk_14027D5C5, 0LL, 0LL, 7u, &pData);
     }
   }
 }

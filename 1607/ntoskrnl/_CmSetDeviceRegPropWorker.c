@@ -1,18 +1,18 @@
 /*
- * XREFs of _CmSetDeviceRegPropWorker @ 0x140571500
+ * XREFs of _CmSetDeviceRegPropWorker @ 0x140571A40
  * Callers:
- *     _CmSetDeviceRegProp @ 0x140489A34 (_CmSetDeviceRegProp.c)
+ *     _CmSetDeviceRegProp @ 0x1405121B4 (_CmSetDeviceRegProp.c)
  * Callees:
- *     _MapCmDevicePropertyToRegType @ 0x1400B2C48 (_MapCmDevicePropertyToRegType.c)
- *     _MapCmDevicePropertyToRegValue @ 0x1400C3B80 (_MapCmDevicePropertyToRegValue.c)
- *     ZwClose @ 0x140159E60 (ZwClose.c)
- *     RtlValidRelativeSecurityDescriptor @ 0x1403F7044 (RtlValidRelativeSecurityDescriptor.c)
- *     RtlLengthSecurityDescriptor @ 0x14041FFE0 (RtlLengthSecurityDescriptor.c)
- *     _PnpCtxRegSetValue @ 0x1404870E4 (_PnpCtxRegSetValue.c)
- *     _CmIsRootDevice @ 0x1404CFC28 (_CmIsRootDevice.c)
- *     _PnpCtxRegDeleteValue @ 0x1404F0DB4 (_PnpCtxRegDeleteValue.c)
- *     _CmOpenDeviceRegKey @ 0x1404FCD30 (_CmOpenDeviceRegKey.c)
- *     _CmRaisePropertyChangeEvent @ 0x140571678 (_CmRaisePropertyChangeEvent.c)
+ *     _MapCmDevicePropertyToRegType @ 0x1400B0B94 (_MapCmDevicePropertyToRegType.c)
+ *     _MapCmDevicePropertyToRegValue @ 0x1400C1A10 (_MapCmDevicePropertyToRegValue.c)
+ *     ZwClose @ 0x14015A3D0 (ZwClose.c)
+ *     RtlValidRelativeSecurityDescriptor @ 0x1403F5F04 (RtlValidRelativeSecurityDescriptor.c)
+ *     RtlLengthSecurityDescriptor @ 0x14041EEA0 (RtlLengthSecurityDescriptor.c)
+ *     _PnpCtxRegDeleteValue @ 0x1404D2EA8 (_PnpCtxRegDeleteValue.c)
+ *     _CmOpenDeviceRegKey @ 0x1404DFCC0 (_CmOpenDeviceRegKey.c)
+ *     _CmIsRootDevice @ 0x14050CCF4 (_CmIsRootDevice.c)
+ *     _PnpCtxRegSetValue @ 0x140512E00 (_PnpCtxRegSetValue.c)
+ *     _CmRaisePropertyChangeEvent @ 0x140571BB8 (_CmRaisePropertyChangeEvent.c)
  */
 
 __int64 __fastcall CmSetDeviceRegPropWorker(
@@ -20,7 +20,7 @@ __int64 __fastcall CmSetDeviceRegPropWorker(
         const WCHAR *a2,
         void *a3,
         int a4,
-        unsigned int a5,
+        ULONG a5,
         _DWORD *SecurityDescriptorInput,
         ULONG SecurityDescriptorLength,
         __int16 a8)
@@ -103,7 +103,7 @@ LABEL_12:
       {
         if ( a3 )
           v18 = a3;
-        v19 = PnpCtxRegSetValue(v17, v18, (__int64)v16, a5, (__int64)v13, SecurityDescriptorLength);
+        v19 = PnpCtxRegSetValue(v17, v18, v16, a5, v13, SecurityDescriptorLength);
         if ( v19 == -1073741444 )
         {
           v8 = -1073741810;

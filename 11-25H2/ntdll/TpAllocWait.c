@@ -18,137 +18,136 @@
  *     NtSetInformationWorkerFactory @ 0x180166830 (NtSetInformationWorkerFactory.c)
  */
 
-__int64 __fastcall TpAllocWait(_PEB_LDR_DATA *Ldr, __int64 a2, __int64 a3, __int64 a4)
+NTSTATUS __cdecl TpAllocWait(
+        PTP_WAIT *WaitReturn,
+        PTP_WAIT_CALLBACK Callback,
+        PVOID Context,
+        PTP_CALLBACK_ENVIRON CallbackEnviron)
 {
   int v5; // r12d
-  _QWORD *p_Length; // r14
-  __int64 Heap; // rbx
+  PTP_WAIT *v7; // r14
+  _TP_WAIT *Heap; // rbx
   int WaitCompletionPacket; // esi
-  int v10; // r9d
-  __int64 v11; // rcx
+  unsigned int Flags; // r9d
+  _TP_POOL *Pool; // rcx
   int v12; // eax
-  __int64 v13; // r15
-  _BYTE *v14; // r12
+  _TP_POOL *v13; // r15
+  unsigned __int8 *p_IdealProcessor; // r12
   unsigned __int8 Number; // cl
   int v16; // r13d
   unsigned __int16 Group; // r9
-  int v18; // eax
+  unsigned int SelectedCpuSetCount; // eax
   unsigned int i; // edx
   __int64 v20; // rax
   __int64 v21; // rax
-  void *v23; // rcx
-  __int64 v24; // rcx
+  void *WaitPkt; // rcx
+  void *WorkerFactory; // rcx
   unsigned __int16 v25; // [rsp+30h] [rbp-38h]
-  _UNKNOWN *retaddr; // [rsp+68h] [rbp+0h]
-  int v27; // [rsp+70h] [rbp+8h] BYREF
+  void *retaddr; // [rsp+68h] [rbp+0h]
+  int WorkerFactoryInformation; // [rsp+70h] [rbp+8h] BYREF
 
-  v5 = a3;
-  p_Length = &Ldr->Length;
-  if ( !Ldr
-    || !a2
-    || a4 && (*(_DWORD *)(a4 + 56) & 0xFFFFFFFC) != 0
-    || (Ldr = NtCurrentPeb()->Ldr, Ldr->ShutdownInProgress) )
+  v5 = (int)Context;
+  v7 = WaitReturn;
+  if ( !WaitReturn
+    || !Callback
+    || CallbackEnviron && (CallbackEnviron->u.Flags & 0xFFFFFFFC) != 0
+    || (WaitReturn = (PTP_WAIT *)NtCurrentPeb()->Ldr, *((_BYTE *)WaitReturn + 72)) )
   {
-    TppRaiseInvalidParameter(Ldr, a2, a3);
-    return 3221225485LL;
+    TppRaiseInvalidParameter(WaitReturn);
+    return -1073741811;
   }
   else
   {
-    Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap);
-    if ( Heap )
+    Heap = (_TP_WAIT *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, (TppHeapTag + 1835008) | 8, 0x1D8uLL);
+    if ( !Heap )
+      return -1073741801;
+    Heap->Timer.Work.CleanupGroupMember.AllocCaller.ReturnAddress = retaddr;
+    WaitCompletionPacket = NtCreateWaitCompletionPacket(&Heap->WaitPkt, 1u, 0LL);
+    if ( WaitCompletionPacket < 0
+      || (!CallbackEnviron ? (Flags = 0) : (Flags = CallbackEnviron->u.Flags),
+          WaitCompletionPacket = TppWorkInitialize(
+                                   (_DWORD)Heap,
+                                   v5,
+                                   (_DWORD)CallbackEnviron,
+                                   Flags,
+                                   (__int64)TppWaitpCleanupGroupMemberVFuncs,
+                                   (__int64)&TppWaitpTaskVFuncs),
+          WaitCompletionPacket < 0) )
     {
-      *(_QWORD *)(Heap + 176) = retaddr;
-      WaitCompletionPacket = NtCreateWaitCompletionPacket(Heap + 368, 1LL);
-      if ( WaitCompletionPacket < 0
-        || (!a4 ? (v10 = 0) : (v10 = *(_DWORD *)(a4 + 56)),
-            WaitCompletionPacket = TppWorkInitialize(
-                                     Heap,
-                                     v5,
-                                     a4,
-                                     v10,
-                                     (__int64)TppWaitpCleanupGroupMemberVFuncs,
-                                     (__int64)TppWaitpTaskVFuncs),
-            WaitCompletionPacket < 0) )
-      {
-        v23 = *(void **)(Heap + 368);
-        if ( v23 )
-          NtClose(v23);
-        RtlFreeHeap(NtCurrentPeb()->ProcessHeap, (unsigned int)(TppHeapTag + 1835008), Heap);
-      }
-      else
-      {
-        v11 = *(_QWORD *)(Heap + 144);
-        v12 = _InterlockedExchangeAdd((volatile signed __int32 *)(v11 + 432), 1u);
-        if ( v12 <= 0 && v12 + 1 > 0 )
-        {
-          v24 = *(_QWORD *)(v11 + 56);
-          v27 = 1;
-          NtSetInformationWorkerFactory(v24, 3LL, &v27);
-        }
-        *(_QWORD *)(Heap + 240) = 0LL;
-        *(_BYTE *)(Heap + 353) = 1;
-        if ( a4 )
-          *(_QWORD *)(Heap + 32) = *(_QWORD *)(a4 + 48);
-        if ( *(_QWORD *)(Heap + 16) )
-          TppCleanupGroupAddMember(Heap);
-        v13 = *(_QWORD *)(Heap + 144);
-        *(_QWORD *)(Heap + 448) = TppWaitCompletion;
-        WaitCompletionPacket = 0;
-        v14 = (_BYTE *)(Heap + 460);
-        if ( v13 )
-        {
-          Number = NtCurrentTeb()->CurrentIdealProcessor.Number;
-          v16 = TppNumberNodes;
-          LOBYTE(v27) = Number;
-          Group = NtCurrentTeb()->CurrentIdealProcessor.Group;
-          v18 = *(_DWORD *)(v13 + 440);
-          v25 = Group;
-          if ( !v18 )
-            v18 = MEMORY[0x7FFE03C0];
-          if ( *(_DWORD *)(v13 + 424) != v18 )
-          {
-            RtlAcquireSRWLockExclusive((volatile signed __int32 *)(v13 + 72));
-            TppAdjustRunningThreadGoalWithLock(v13);
-            RtlReleaseSRWLockExclusive((volatile signed __int64 *)(v13 + 72));
-            Number = v27;
-            Group = v25;
-          }
-          for ( i = 0; i < TppNumberNodes; ++i )
-          {
-            v20 = *(_QWORD *)(v13 + 48) + 16LL * (TppMaximumGroups * i + Group);
-            if ( *(_WORD *)(v20 + 8) == Group )
-            {
-              v21 = *(_QWORD *)v20;
-              if ( _bittest64(&v21, Number) )
-              {
-                v16 = i;
-                break;
-              }
-            }
-          }
-          *(_DWORD *)(Heap + 456) = v16;
-          if ( Heap != -460 )
-            *v14 = v27;
-        }
-        else
-        {
-          *(_DWORD *)(Heap + 456) = 0;
-          *v14 = 0;
-        }
-        *(_QWORD *)(Heap + 424) = 0LL;
-        *(_QWORD *)(Heap + 440) = Heap + 432;
-        *(_QWORD *)(Heap + 432) = Heap + 432;
-        *(_QWORD *)(Heap + 392) = TppDirectTaskVFuncs;
-        *(_DWORD *)(Heap + 400) = *(_DWORD *)(Heap + 456);
-        *(_BYTE *)(Heap + 404) = *(_BYTE *)(Heap + 460);
-        *(_QWORD *)(Heap + 80) = a2;
-        *p_Length = Heap;
-      }
+      WaitPkt = Heap->WaitPkt;
+      if ( WaitPkt )
+        NtClose(WaitPkt);
+      RtlFreeHeap(NtCurrentPeb()->ProcessHeap, TppHeapTag + 1835008, Heap);
     }
     else
     {
-      return (unsigned int)-1073741801;
+      Pool = Heap->Timer.Work.CleanupGroupMember.Pool;
+      v12 = _InterlockedExchangeAdd(&Pool->BindingCount, 1u);
+      if ( v12 <= 0 && v12 + 1 > 0 )
+      {
+        WorkerFactory = Pool->WorkerFactory;
+        WorkerFactoryInformation = 1;
+        NtSetInformationWorkerFactory(WorkerFactory, WorkerFactoryBindingCount, &WorkerFactoryInformation, 4u);
+      }
+      Heap->Timer.Lock.Value = 0LL;
+      Heap->Timer.WaitTimer = 1;
+      if ( CallbackEnviron )
+        Heap->Timer.Work.CleanupGroupMember.FinalizationCallback = CallbackEnviron->FinalizationCallback;
+      if ( Heap->Timer.Work.CleanupGroupMember.CleanupGroup )
+        TppCleanupGroupAddMember(Heap);
+      v13 = Heap->Timer.Work.CleanupGroupMember.Pool;
+      Heap->Direct.Callback = (void (__fastcall *)(_TP_CALLBACK_INSTANCE *, _TP_DIRECT *, void *, _IO_STATUS_BLOCK *))TppWaitCompletion;
+      WaitCompletionPacket = 0;
+      p_IdealProcessor = &Heap->Direct.IdealProcessor;
+      if ( v13 )
+      {
+        Number = NtCurrentTeb()->CurrentIdealProcessor.Number;
+        v16 = TppNumberNodes;
+        LOBYTE(WorkerFactoryInformation) = Number;
+        Group = NtCurrentTeb()->CurrentIdealProcessor.Group;
+        SelectedCpuSetCount = v13->SelectedCpuSetCount;
+        v25 = Group;
+        if ( !SelectedCpuSetCount )
+          SelectedCpuSetCount = MEMORY[0x7FFE03C0];
+        if ( v13->LastProcCount != SelectedCpuSetCount )
+        {
+          RtlAcquireSRWLockExclusive(&v13->Lock);
+          TppAdjustRunningThreadGoalWithLock(v13);
+          RtlReleaseSRWLockExclusive(&v13->Lock);
+          Number = WorkerFactoryInformation;
+          Group = v25;
+        }
+        for ( i = 0; i < TppNumberNodes; ++i )
+        {
+          v20 = (__int64)&v13->ProximityInfo[TppMaximumGroups * i + Group];
+          if ( *(_WORD *)(v20 + 8) == Group )
+          {
+            v21 = *(_QWORD *)v20;
+            if ( _bittest64(&v21, Number) )
+            {
+              v16 = i;
+              break;
+            }
+          }
+        }
+        Heap->Direct.NumaNode = v16;
+        if ( Heap != (_TP_WAIT *)-460LL )
+          *p_IdealProcessor = WorkerFactoryInformation;
+      }
+      else
+      {
+        Heap->Direct.NumaNode = 0;
+        *p_IdealProcessor = 0;
+      }
+      Heap->Direct.Lock = 0LL;
+      Heap->Direct.IoCompletionInformationList.Blink = &Heap->Direct.IoCompletionInformationList;
+      Heap->Direct.IoCompletionInformationList.Flink = &Heap->Direct.IoCompletionInformationList;
+      Heap->Direct.Task.Callbacks = (const _TP_TASK_CALLBACKS *)&TppDirectTaskVFuncs;
+      Heap->Direct.Task.NumaNode = Heap->Direct.NumaNode;
+      Heap->Direct.Task.IdealProcessor = Heap->Direct.IdealProcessor;
+      Heap->Timer.Work.CleanupGroupMember.Callback = Callback;
+      *v7 = Heap;
     }
-    return (unsigned int)WaitCompletionPacket;
+    return WaitCompletionPacket;
   }
 }

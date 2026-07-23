@@ -1,12 +1,12 @@
 /*
- * XREFs of IoReadPartitionTable @ 0x14061FF24
+ * XREFs of IoReadPartitionTable @ 0x14061FFD8
  * Callers:
  *     <none>
  * Callees:
- *     PcReadPartitionTable @ 0x1401474EC (PcReadPartitionTable.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     PcReadPartitionTable @ 0x140147A5C (PcReadPartitionTable.c)
+ *     memset @ 0x140171AC0 (memset.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
- *     ?AllocatePool@PC_ENVIRONMENT@@SAPEAXKEK@Z @ 0x140574E38 (-AllocatePool@PC_ENVIRONMENT@@SAPEAXKEK@Z.c)
+ *     ?AllocatePool@PC_ENVIRONMENT@@SAPEAXKEK@Z @ 0x140575378 (-AllocatePool@PC_ENVIRONMENT@@SAPEAXKEK@Z.c)
  */
 
 NTSTATUS __stdcall IoReadPartitionTable(

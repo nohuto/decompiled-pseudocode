@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpLaAddReservation @ 0x1403BC108
+ * XREFs of HalpLaAddReservation @ 0x1403BC278
  * Callers:
- *     HalpDmaInit @ 0x140A659C8 (HalpDmaInit.c)
+ *     HalpDmaInit @ 0x140A669C8 (HalpDmaInit.c)
  * Callees:
- *     HalpMmAllocCtxAlloc @ 0x14037CA48 (HalpMmAllocCtxAlloc.c)
+ *     HalpMmAllocCtxAlloc @ 0x14037C598 (HalpMmAllocCtxAlloc.c)
  */
 
 __int64 __fastcall HalpLaAddReservation(__int64 a1, __int64 a2)

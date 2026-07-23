@@ -31,7 +31,7 @@ void __stdcall FsRtlFreeExtraCreateParameterList(PECP_LIST EcpList)
     FsRtlFreeExtraCreateParameter(&Flink[4]);
   }
   if ( (EcpList->Flags & 4) != 0 )
-    ExFreeToNPagedLookasideList(&FsRtlEcpListLookaside, EcpList);
+    ExFreeToNPagedLookasideList((PNPAGED_LOOKASIDE_LIST)&FsRtlEcpListLookaside, EcpList);
   else
     ExFreePoolWithTag(EcpList, 0);
 }

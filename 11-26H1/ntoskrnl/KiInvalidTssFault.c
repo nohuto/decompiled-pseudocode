@@ -1,13 +1,13 @@
 /*
- * XREFs of KiInvalidTssFault @ 0x140736140
+ * XREFs of KiInvalidTssFault @ 0x14073AD40
  * Callers:
- *     KiInvalidTssFaultShadow @ 0x140C59640 (KiInvalidTssFaultShadow.c)
+ *     KiInvalidTssFaultShadow @ 0x140C5F640 (KiInvalidTssFaultShadow.c)
  * Callees:
- *     KiSynchronizeUserIsolationDomainExit @ 0x140446060 (KiSynchronizeUserIsolationDomainExit.c)
- *     KiSaveDebugRegisterState @ 0x140533CB0 (KiSaveDebugRegisterState.c)
- *     KiInvalidTssFault @ 0x140736140 (KiInvalidTssFault.c)
- *     KiBugCheckDispatch @ 0x14073C4C0 (KiBugCheckDispatch.c)
- *     KiFlushBhbDuringTrapEntryOrExit @ 0x14073CF80 (KiFlushBhbDuringTrapEntryOrExit.c)
+ *     KiSynchronizeUserIsolationDomainExit @ 0x14043EB60 (KiSynchronizeUserIsolationDomainExit.c)
+ *     KiSaveDebugRegisterState @ 0x140536130 (KiSaveDebugRegisterState.c)
+ *     KiInvalidTssFault @ 0x14073AD40 (KiInvalidTssFault.c)
+ *     KiBugCheckDispatch @ 0x1407410C0 (KiBugCheckDispatch.c)
+ *     KiFlushBhbDuringTrapEntryOrExit @ 0x140741B80 (KiFlushBhbDuringTrapEntryOrExit.c)
  */
 
 void __fastcall __noreturn KiInvalidTssFault(__int64 a1, __int64 _RDX)
@@ -62,7 +62,7 @@ void __fastcall __noreturn KiInvalidTssFault(__int64 a1, __int64 _RDX)
       LODWORD(_RDX) = (unsigned __int8)_RDX;
     }
     if ( (_RDX & 2) != 0 )
-      JUMPOUT(0x1407363A1LL);
+      JUMPOUT(0x14073AFA1LL);
     if ( (_RDX & 0x80) != 0 )
     {
       _mm_lfence();

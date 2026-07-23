@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlpDidUnicodeToOemWork @ 0x14096B810
+ * XREFs of RtlpDidUnicodeToOemWork @ 0x14097C150
  * Callers:
- *     RtlUnicodeStringToCountedOemString @ 0x14096A750 (RtlUnicodeStringToCountedOemString.c)
- *     RtlUpcaseUnicodeStringToCountedOemString @ 0x14096BED0 (RtlUpcaseUnicodeStringToCountedOemString.c)
- *     RtlUpcaseUnicodeStringToOemString @ 0x140B09690 (RtlUpcaseUnicodeStringToOemString.c)
+ *     RtlUnicodeStringToCountedOemString @ 0x14097B090 (RtlUnicodeStringToCountedOemString.c)
+ *     RtlUpcaseUnicodeStringToCountedOemString @ 0x14097C810 (RtlUpcaseUnicodeStringToCountedOemString.c)
+ *     RtlUpcaseUnicodeStringToOemString @ 0x14097E750 (RtlUpcaseUnicodeStringToOemString.c)
  * Callees:
- *     PsGetCurrentServerSiloGlobals @ 0x1402150C0 (PsGetCurrentServerSiloGlobals.c)
- *     RtlpIsUtf8Process @ 0x14096CC40 (RtlpIsUtf8Process.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x1402153F0 (PsGetCurrentServerSiloGlobals.c)
+ *     RtlpIsUtf8Process @ 0x14097D580 (RtlpIsUtf8Process.c)
  */
 
 char __fastcall RtlpDidUnicodeToOemWork(unsigned __int16 *a1, __int64 a2)

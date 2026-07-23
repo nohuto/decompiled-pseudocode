@@ -1,17 +1,17 @@
 /*
- * XREFs of IopCombineLegacyResources @ 0x140724F70
+ * XREFs of IopCombineLegacyResources @ 0x140722B00
  * Callers:
- *     IopLegacyResourceAllocation @ 0x140A0FC24 (IopLegacyResourceAllocation.c)
+ *     IopLegacyResourceAllocation @ 0x1409BE034 (IopLegacyResourceAllocation.c)
  * Callees:
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     PnpDetermineResourceListSize @ 0x14098E258 (PnpDetermineResourceListSize.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     PnpDetermineResourceListSize @ 0x140979290 (PnpDetermineResourceListSize.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 _DWORD *__fastcall IopCombineLegacyResources(__int64 a1)
 {
   _DWORD *v1; // rsi
-  int v2; // ebp
+  unsigned int v2; // ebp
   __int64 v3; // rdi
   __int64 v4; // rbx
   __int64 v5; // rcx
@@ -37,7 +37,7 @@ _DWORD *__fastcall IopCombineLegacyResources(__int64 a1)
     while ( v4 );
     if ( v2 )
     {
-      Pool2 = (_DWORD *)ExAllocatePool2(0x100uLL);
+      Pool2 = (_DWORD *)ExAllocatePool2(0x100uLL, v2, 0x20207050u);
       v1 = Pool2;
       if ( Pool2 )
       {

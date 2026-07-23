@@ -1,18 +1,18 @@
 /*
- * XREFs of RtlpTpWaitCallback @ 0x180020530
+ * XREFs of RtlpTpWaitCallback @ 0x18004CF30
  * Callers:
- *     TppExecuteWaitCallback @ 0x18001F480 (TppExecuteWaitCallback.c)
+ *     TppExecuteWaitCallback @ 0x18004BE80 (TppExecuteWaitCallback.c)
  * Callees:
- *     TppCompleteThreadData @ 0x18001F420 (TppCompleteThreadData.c)
- *     RtlpTpImpersonate @ 0x18006F310 (RtlpTpImpersonate.c)
- *     RtlpTpETWCallbackStop @ 0x18006F39C (RtlpTpETWCallbackStop.c)
- *     RtlpTpETWCallbackStart @ 0x18006F464 (RtlpTpETWCallbackStart.c)
- *     RtlpTpWaitCheckReset @ 0x1800EB900 (RtlpTpWaitCheckReset.c)
- *     NtSetInformationThread @ 0x180161E30 (NtSetInformationThread.c)
- *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x180172020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
+ *     TppCompleteThreadData @ 0x18004BE20 (TppCompleteThreadData.c)
+ *     RtlpTpImpersonate @ 0x18008BBF0 (RtlpTpImpersonate.c)
+ *     RtlpTpETWCallbackStop @ 0x18008BC7C (RtlpTpETWCallbackStop.c)
+ *     RtlpTpETWCallbackStart @ 0x18008BD44 (RtlpTpETWCallbackStart.c)
+ *     RtlpTpWaitCheckReset @ 0x1800E6C10 (RtlpTpWaitCheckReset.c)
+ *     NtSetInformationThread @ 0x1801601F0 (NtSetInformationThread.c)
+ *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x180171020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
  */
 
-void __fastcall RtlpTpWaitCallback(__int64 a1, __int64 a2, __int64 a3, unsigned int a4)
+void __fastcall RtlpTpWaitCallback(PTP_CALLBACK_INSTANCE a1, _BYTE *a2, PTP_WAIT a3, unsigned int a4)
 {
   struct _TEB *v6; // r13
   _DWORD *SharedData; // rcx
@@ -25,18 +25,19 @@ void __fastcall RtlpTpWaitCallback(__int64 a1, __int64 a2, __int64 a3, unsigned 
   __int64 v14; // rax
   __int64 v15; // r8
   _QWORD *v16; // r15
-  _DWORD *v17; // rcx
-  __int64 v18; // [rsp+68h] [rbp+10h] BYREF
-  unsigned int v19; // [rsp+78h] [rbp+20h]
+  __int64 v17; // r8
+  _DWORD *v18; // rcx
+  _BYTE *ThreadInformation; // [rsp+68h] [rbp+10h] BYREF
+  unsigned int v20; // [rsp+78h] [rbp+20h]
 
-  v19 = a4;
-  v18 = a2;
-  if ( (*(_BYTE *)(a2 + 8) & 4) == 0 )
-    RtlpTpWaitCheckReset(a2, a4);
+  v20 = a4;
+  ThreadInformation = a2;
+  if ( (a2[8] & 4) == 0 )
+    RtlpTpWaitCheckReset(a2, a4, a3);
   if ( *(_QWORD *)a2 )
-    RtlpTpImpersonate();
-  if ( (*(_BYTE *)(a2 + 8) & 4) != 0 )
-    *(_DWORD *)(a2 + 88) = NtCurrentTeb()->ClientId.UniqueThread;
+    RtlpTpImpersonate(*(_QWORD *)a2, a2, a3);
+  if ( (a2[8] & 4) != 0 )
+    *((_DWORD *)a2 + 22) = NtCurrentTeb()->ClientId.UniqueThread;
   v6 = NtCurrentTeb();
   SharedData = NtCurrentPeb()->SharedData;
   if ( SharedData && *SharedData )
@@ -50,15 +51,10 @@ void __fastcall RtlpTpWaitCallback(__int64 a1, __int64 a2, __int64 a3, unsigned 
     v9 = 2147353478LL;
   }
   if ( *(_BYTE *)v9 )
-    RtlpTpETWCallbackStart(
-      0,
-      *(_QWORD *)(a2 + 48),
-      *(_QWORD *)(a2 + 32),
-      *(_QWORD *)(a2 + 40),
-      (__int64)v6->SubProcessTag);
+    RtlpTpETWCallbackStart(0, *((_QWORD *)a2 + 6), *((_QWORD *)a2 + 4), *((_QWORD *)a2 + 5), (__int64)v6->SubProcessTag);
   SubProcessTag = v6->SubProcessTag;
-  v11 = *(_QWORD *)(a2 + 40);
-  v12 = *(_QWORD *)(a2 + 32);
+  v11 = *((_QWORD *)a2 + 5);
+  v12 = *((_QWORD *)a2 + 4);
   ThreadPoolData = NtCurrentTeb()->ThreadPoolData;
   if ( ThreadPoolData )
   {
@@ -79,25 +75,20 @@ void __fastcall RtlpTpWaitCallback(__int64 a1, __int64 a2, __int64 a3, unsigned 
     v16 = 0LL;
   }
   LOBYTE(SubProcessTag) = a4 == 258;
-  (*(void (__fastcall **)(_QWORD, void *))(a2 + 32))(*(_QWORD *)(a2 + 40), SubProcessTag);
-  if ( (*(_BYTE *)(a2 + 8) & 4) != 0 )
-    *(_DWORD *)(a2 + 88) = 0;
+  (*((void (__fastcall **)(_QWORD, void *))a2 + 4))(*((_QWORD *)a2 + 5), SubProcessTag);
+  if ( (a2[8] & 4) != 0 )
+    *((_DWORD *)a2 + 22) = 0;
   if ( NtCurrentTeb()->IsImpersonating )
   {
-    v18 = 0LL;
-    NtSetInformationThread(-2LL, 5LL, &v18);
+    ThreadInformation = 0LL;
+    NtSetInformationThread((HANDLE)0xFFFFFFFFFFFFFFFELL, ThreadImpersonationToken, &ThreadInformation, 8u);
   }
-  if ( (*(_BYTE *)(a2 + 8) & 4) != 0 )
-    RtlpTpWaitCheckReset(a2, a4);
-  v17 = NtCurrentPeb()->SharedData;
-  if ( v17 && *v17 )
+  if ( (a2[8] & 4) != 0 )
+    RtlpTpWaitCheckReset(a2, a4, v17);
+  v18 = NtCurrentPeb()->SharedData;
+  if ( v18 && *v18 )
     v8 = (__int64)NtCurrentPeb()->SharedData + 556;
   if ( *(_BYTE *)v8 )
-    RtlpTpETWCallbackStop(
-      0,
-      *(_QWORD *)(a2 + 48),
-      *(_QWORD *)(a2 + 32),
-      *(_QWORD *)(a2 + 40),
-      (__int64)v6->SubProcessTag);
+    RtlpTpETWCallbackStop(0, *((_QWORD *)a2 + 6), *((_QWORD *)a2 + 4), *((_QWORD *)a2 + 5), (__int64)v6->SubProcessTag);
   TppCompleteThreadData((__int64)v16);
 }

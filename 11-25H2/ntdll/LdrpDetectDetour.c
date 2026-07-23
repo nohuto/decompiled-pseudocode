@@ -16,10 +16,9 @@ void LdrpDetectDetour()
   unsigned int i; // ecx
   _QWORD *v2; // r8
   __int64 v3; // rax
-  char v4; // [rsp+28h] [rbp-10h]
-  int v5; // [rsp+40h] [rbp+8h] BYREF
+  int ThreadInformation; // [rsp+40h] [rbp+8h] BYREF
 
-  v5 = 0;
+  ThreadInformation = 0;
   if ( !LdrpDetourExist )
   {
     v0 = &LdrpThunkSignature;
@@ -32,18 +31,23 @@ void LdrpDetectDetour()
       if ( v3 )
       {
         LdrpLogInternal(
-          (int)"minkernel\\ldr\\ldrmap.c",
-          4213,
-          (int)"LdrpDetectDetour",
-          2,
-          "!!! Detour detected, disable parallel loading\n",
-          v4);
+          "minkernel\\ldr\\ldrmap.c",
+          4213LL,
+          "LdrpDetectDetour",
+          2LL,
+          "!!! Detour detected, disable parallel loading\n");
         LdrpDetourExist = 1;
         break;
       }
       v0 += 2;
     }
-    if ( (int)ZwQueryInformationThread(-2LL, 42LL, &v5) >= 0 && v5 == 1 )
+    if ( ZwQueryInformationThread(
+           (HANDLE)0xFFFFFFFFFFFFFFFELL,
+           ThreadDynamicCodePolicyInfo,
+           &ThreadInformation,
+           4u,
+           0LL) >= 0
+      && ThreadInformation == 1 )
     {
       LdrpDetourExist = 1;
     }
@@ -53,7 +57,7 @@ void LdrpDetectDetour()
     }
     if ( LdrpMapAndSnapWork )
     {
-      TpWaitForWork(LdrpMapAndSnapWork, 1LL);
+      TpWaitForWork(LdrpMapAndSnapWork, 1u);
       TpReleaseWork(LdrpMapAndSnapWork);
       LdrpMapAndSnapWork = 0LL;
     }

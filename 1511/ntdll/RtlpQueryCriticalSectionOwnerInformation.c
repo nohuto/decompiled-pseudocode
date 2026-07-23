@@ -6,17 +6,17 @@
  *     RtlQueryCriticalSectionOwner @ 0x1800CBC40 (RtlQueryCriticalSectionOwner.c)
  */
 
-__int64 __fastcall RtlpQueryCriticalSectionOwnerInformation(__int64 a1, __int16 a2)
+__int64 __fastcall RtlpQueryCriticalSectionOwnerInformation(__int64 a1)
 {
-  unsigned int v2; // ebx
-  __int64 v4; // rcx
+  unsigned int v1; // ebx
+  void *v3; // rcx
 
-  v2 = 0;
+  v1 = 0;
   *(_QWORD *)(a1 + 168) = 0LL;
-  v4 = *(_QWORD *)(a1 + 160);
-  if ( v4 )
-    *(_QWORD *)(a1 + 168) = RtlQueryCriticalSectionOwner(v4, (a2 & 0x800) != 0);
+  v3 = *(void **)(a1 + 160);
+  if ( v3 )
+    *(_QWORD *)(a1 + 168) = RtlQueryCriticalSectionOwner(v3);
   else
     return (unsigned int)-1073741811;
-  return v2;
+  return v1;
 }

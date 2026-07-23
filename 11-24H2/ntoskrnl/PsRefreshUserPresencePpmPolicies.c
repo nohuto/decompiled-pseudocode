@@ -1,9 +1,9 @@
 /*
- * XREFs of PsRefreshUserPresencePpmPolicies @ 0x1405E53C0
+ * XREFs of PsRefreshUserPresencePpmPolicies @ 0x1405E28F8
  * Callers:
- *     PpmPerfUpdateDomainPolicy @ 0x140AC66D0 (PpmPerfUpdateDomainPolicy.c)
+ *     PpmPerfUpdateDomainPolicy @ 0x140AC40C8 (PpmPerfUpdateDomainPolicy.c)
  * Callees:
- *     PsEnumProcesses @ 0x1408EE0F4 (PsEnumProcesses.c)
+ *     PsEnumProcesses @ 0x14085F924 (PsEnumProcesses.c)
  */
 
 char __fastcall PsRefreshUserPresencePpmPolicies(char a1, char a2)

@@ -1,12 +1,12 @@
 /*
- * XREFs of PopActiveLockScreenPowerRequest @ 0x140878C00
+ * XREFs of PopActiveLockScreenPowerRequest @ 0x140879E60
  * Callers:
  *     <none>
  * Callees:
- *     PopReleaseAdaptiveLock @ 0x1406DC630 (PopReleaseAdaptiveLock.c)
- *     PopAcquireAdaptiveLock @ 0x1406DC6C4 (PopAcquireAdaptiveLock.c)
- *     PopUpdateTimeouts @ 0x1406DC800 (PopUpdateTimeouts.c)
- *     PopGetLockConsoleTimeoutUnsafe @ 0x140878DDC (PopGetLockConsoleTimeoutUnsafe.c)
+ *     PopReleaseAdaptiveLock @ 0x1406DD8D0 (PopReleaseAdaptiveLock.c)
+ *     PopAcquireAdaptiveLock @ 0x1406DD964 (PopAcquireAdaptiveLock.c)
+ *     PopUpdateTimeouts @ 0x1406DDAA0 (PopUpdateTimeouts.c)
+ *     PopGetLockConsoleTimeoutUnsafe @ 0x14087A03C (PopGetLockConsoleTimeoutUnsafe.c)
  */
 
 __int64 __fastcall PopActiveLockScreenPowerRequest(__int64 a1, __int64 a2, char a3)
@@ -18,26 +18,26 @@ __int64 __fastcall PopActiveLockScreenPowerRequest(__int64 a1, __int64 a2, char 
   PopAcquireAdaptiveLock(0);
   if ( a3 )
   {
-    byte_14040FDB5 = 1;
-    if ( byte_14040FDB6 )
+    byte_140410E35 = 1;
+    if ( byte_140410E36 )
     {
       LockConsoleTimeoutUnsafe = PopDisplayTimeout;
       LODWORD(v6) = PopDisplayTimeout;
-      byte_14040FDB6 = 0;
+      byte_140410E36 = 0;
       goto LABEL_7;
     }
   }
   else
   {
-    byte_14040FDB5 = 0;
+    byte_140410E35 = 0;
     LockConsoleTimeoutUnsafe = PopGetLockConsoleTimeoutUnsafe();
     LODWORD(v6) = LockConsoleTimeoutUnsafe;
-    if ( LockConsoleTimeoutUnsafe && byte_14040FDB4 )
+    if ( LockConsoleTimeoutUnsafe && byte_140410E34 )
     {
-      byte_14040FDB6 = 1;
+      byte_140410E36 = 1;
 LABEL_7:
       HIDWORD(PopLazyContext) = LockConsoleTimeoutUnsafe;
-      BYTE1(qword_14040FD90) = 1;
+      BYTE1(qword_140410DF0) = 1;
       PopUpdateTimeouts(PopConsoleContext, (unsigned int *)&v6, 0LL);
     }
   }

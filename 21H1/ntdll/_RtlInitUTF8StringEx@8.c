@@ -6,7 +6,7 @@
  *     <none>
  */
 
-NTSTATUS __stdcall RtlInitUTF8StringEx(PANSI_STRING DestinationString, PCSZ SourceString)
+NTSTATUS __cdecl RtlInitUTF8StringEx(PUTF8_STRING DestinationString, PCSZ SourceString)
 {
   return RtlInitAnsiStringEx(DestinationString, SourceString);
 }

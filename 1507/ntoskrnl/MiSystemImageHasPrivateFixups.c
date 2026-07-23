@@ -26,7 +26,8 @@ __int64 __fastcall MiSystemImageHasPrivateFixups(unsigned __int64 a1, _QWORD *a2
   if ( v4
     || a1 + 0x80000000000LL > 0x7FFFFFFFFFLL
     && (!PsNtosImageBase
-     || (a1 >= PsNtosImageEnd || a1 < PsNtosImageBase) && (a1 >= PsHalImageEnd || a1 < PsHalImageBase))
+     || (a1 >= PsNtosImageEnd || a1 < (unsigned __int64)PsNtosImageBase)
+     && (a1 >= PsHalImageEnd || a1 < (unsigned __int64)PsHalImageBase))
     && a1 + 0x70000000000LL > 0x7FFFFFFFFFLL )
   {
     return 0LL;

@@ -6,7 +6,7 @@
  *     RtlpHpSegMgrVaCtxInsert @ 0x14000780C (RtlpHpSegMgrVaCtxInsert.c)
  *     RtlpHpSegMgrCommit @ 0x14000C244 (RtlpHpSegMgrCommit.c)
  *     RtlpHpSegMgrReserve @ 0x14000D98C (RtlpHpSegMgrReserve.c)
- *     RtlpHpSegMgrRelease @ 0x14015474C (RtlpHpSegMgrRelease.c)
+ *     RtlpHpSegMgrRelease @ 0x14015484C (RtlpHpSegMgrRelease.c)
  */
 
 __int64 __fastcall RtlpHpSegMgrAllocate(__int64 a1, int a2, int a3)

@@ -35,7 +35,7 @@ LONG __fastcall MiAttemptPageFileReductionApc(struct _KEVENT *a1)
   __int16 v13; // ax
   __int64 v14; // rax
   int v15; // esi
-  struct _RTL_BITMAP *v16; // r9
+  _RTL_BITMAP *v16; // r9
   const signed __int32 *v17; // r8
   unsigned int v18; // ecx
   const signed __int32 *v19; // rdx
@@ -59,7 +59,7 @@ LONG __fastcall MiAttemptPageFileReductionApc(struct _KEVENT *a1)
   struct _KPRCB *v37; // rcx
   unsigned __int64 v38; // rbx
   __int64 v39; // rax
-  struct _RTL_BITMAP *v40; // rbx
+  _RTL_BITMAP *v40; // rbx
   unsigned __int8 v41; // bl
   struct _KPRCB *v42; // rcx
   unsigned int v44; // [rsp+30h] [rbp-59h]
@@ -69,8 +69,8 @@ LONG __fastcall MiAttemptPageFileReductionApc(struct _KEVENT *a1)
   PRTL_BITMAP v48; // [rsp+60h] [rbp-29h]
   __int64 v49; // [rsp+68h] [rbp-21h]
   __int64 v50; // [rsp+70h] [rbp-19h]
-  struct _RTL_BITMAP BitMapHeader; // [rsp+78h] [rbp-11h] BYREF
-  struct _RTL_BITMAP v52; // [rsp+88h] [rbp-1h] BYREF
+  _RTL_BITMAP BitMapHeader; // [rsp+78h] [rbp-11h] BYREF
+  _RTL_BITMAP v52; // [rsp+88h] [rbp-1h] BYREF
   ULONG StartingRunIndex; // [rsp+98h] [rbp+Fh] BYREF
   ULONG v54; // [rsp+9Ch] [rbp+13h] BYREF
   PRTL_BITMAP v55; // [rsp+A0h] [rbp+17h]
@@ -128,7 +128,7 @@ LONG __fastcall MiAttemptPageFileReductionApc(struct _KEVENT *a1)
         KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)(v12 + 232), &LockHandle);
         v14 = *(_QWORD *)(v12 + 112);
         v15 = *(_DWORD *)v12;
-        v16 = (struct _RTL_BITMAP *)(v14 + 8);
+        v16 = (_RTL_BITMAP *)(v14 + 8);
         v17 = *(const signed __int32 **)(v14 + 16);
         v18 = *(_DWORD *)v12 - 1;
         v48 = (PRTL_BITMAP)(v14 + 8);
@@ -231,7 +231,7 @@ LABEL_45:
                 *(_QWORD *)(v12 + 48) += v26;
                 *(_QWORD *)v12 = v31 + v26;
                 v39 = *(_QWORD *)(v12 + 112);
-                v40 = (struct _RTL_BITMAP *)(v39 + 24);
+                v40 = (_RTL_BITMAP *)(v39 + 24);
                 RtlClearBits((PRTL_BITMAP)(v39 + 8), v31, v26);
                 RtlClearBits(v40, v31, v26);
                 if ( v31 < *(unsigned int *)(v12 + 120) )

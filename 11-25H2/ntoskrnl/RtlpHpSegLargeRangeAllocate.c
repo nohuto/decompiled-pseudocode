@@ -92,7 +92,7 @@ LABEL_22:
   {
     LOBYTE(j) = *(_BYTE *)(a1 + 8);
     v21 = RtlpHpSegPageRangeSplit(j, i, v14 >> j);
-    RtlpHpSegFreeRangeInsert((__int64 *)a1, i, 0);
+    RtlpHpSegFreeRangeInsert((_RTL_RB_TREE *)a1, i, 0);
     return v21;
   }
   return i;

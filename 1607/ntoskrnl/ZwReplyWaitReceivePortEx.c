@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwReplyWaitReceivePortEx @ 0x14015A1E0
+ * XREFs of ZwReplyWaitReceivePortEx @ 0x14015A750
  * Callers:
  *     <none>
  * Callees:
@@ -15,5 +15,5 @@ NTSTATUS __stdcall ZwReplyWaitReceivePortEx(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(PortHandle, PortContext, ReplyMessage);
+  return KiServiceInternal(PortHandle);
 }

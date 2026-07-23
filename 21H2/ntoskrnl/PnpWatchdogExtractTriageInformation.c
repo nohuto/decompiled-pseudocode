@@ -1,8 +1,8 @@
 /*
- * XREFs of PnpWatchdogExtractTriageInformation @ 0x14050EF40
+ * XREFs of PnpWatchdogExtractTriageInformation @ 0x14050F180
  * Callers:
- *     PnpWatchdogBugcheck @ 0x14050EB70 (PnpWatchdogBugcheck.c)
- *     PnpWatchdogEtwWrite @ 0x1408AB894 (PnpWatchdogEtwWrite.c)
+ *     PnpWatchdogBugcheck @ 0x14050EDB0 (PnpWatchdogBugcheck.c)
+ *     PnpWatchdogEtwWrite @ 0x1408AB9F4 (PnpWatchdogEtwWrite.c)
  * Callees:
  *     <none>
  */

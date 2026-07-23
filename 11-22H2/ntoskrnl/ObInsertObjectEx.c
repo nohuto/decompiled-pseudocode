@@ -147,7 +147,7 @@ __int64 __fastcall ObInsertObjectEx(
   PVOID Objecta; // [rsp+70h] [rbp-90h]
   int v61; // [rsp+78h] [rbp-88h]
   char *v62; // [rsp+80h] [rbp-80h]
-  __int64 v63; // [rsp+88h] [rbp-78h] BYREF
+  ULONG Index[2]; // [rsp+88h] [rbp-78h] BYREF
   PSECURITY_DESCRIPTOR SecurityDescriptor; // [rsp+90h] [rbp-70h] BYREF
   struct _KTHREAD *v65; // [rsp+98h] [rbp-68h]
   _KPROCESS *Process; // [rsp+A0h] [rbp-60h]
@@ -323,10 +323,11 @@ __int64 __fastcall ObInsertObjectEx(
   if ( !v62 && ((v15->TypeInfo.ObjectTypeFlags & 8) != 0 || *(_QWORD *)(v9 + 32)) )
   {
     v22 = AccessState->SecurityDescriptor;
+    Index[1] = 0;
     v58 = 0;
     SecurityDescriptor = 0LL;
-    v63 = 8LL;
-    v23 = SeComputeAutoInheritByObjectTypeEx((__int64)v15, (__int64)v22, 0LL, &v58, &v63);
+    Index[0] = 8;
+    v23 = SeComputeAutoInheritByObjectTypeEx((__int64)v15, (__int64)v22, 0LL, &v58, Index);
     if ( v23 < 0 )
     {
       v24 = Objecta;
@@ -341,7 +342,7 @@ __int64 __fastcall ObInsertObjectEx(
               0LL,
               v15 == ObpDirectoryObjectType,
               v58,
-              &v63,
+              Index,
               (__int64)&AccessState->SubjectSecurityContext,
               (__int64)&v15->TypeInfo.GenericMapping);
       if ( v23 < 0 )

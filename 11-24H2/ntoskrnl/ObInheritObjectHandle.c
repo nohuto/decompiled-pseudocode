@@ -1,14 +1,14 @@
 /*
- * XREFs of ObInheritObjectHandle @ 0x14093D784
+ * XREFs of ObInheritObjectHandle @ 0x140891E74
  * Callers:
- *     ExpDuplicateSingleHandle @ 0x14093D6A4 (ExpDuplicateSingleHandle.c)
+ *     ExpDuplicateSingleHandle @ 0x140891D94 (ExpDuplicateSingleHandle.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140325680 (ObfDereferenceObject.c)
- *     ExGetHandlePointer @ 0x1404275E0 (ExGetHandlePointer.c)
- *     ObpIncrPointerCount @ 0x140428440 (ObpIncrPointerCount.c)
- *     ObpIncrementHandleCountEx @ 0x14084FB60 (ObpIncrementHandleCountEx.c)
- *     ExUnlockHandleTableEntry @ 0x14093D890 (ExUnlockHandleTableEntry.c)
- *     EtwTraceDuplicateHandle @ 0x140A463D0 (EtwTraceDuplicateHandle.c)
+ *     ObfDereferenceObject @ 0x1402CE210 (ObfDereferenceObject.c)
+ *     ExGetHandlePointer @ 0x14041B770 (ExGetHandlePointer.c)
+ *     ObpIncrPointerCount @ 0x14041C5D0 (ObpIncrPointerCount.c)
+ *     ObpIncrementHandleCountEx @ 0x14084BE20 (ObpIncrementHandleCountEx.c)
+ *     ExUnlockHandleTableEntry @ 0x140891F80 (ExUnlockHandleTableEntry.c)
+ *     EtwTraceDuplicateHandle @ 0x140A3C190 (EtwTraceDuplicateHandle.c)
  */
 
 __int64 __fastcall ObInheritObjectHandle(__int64 a1, int a2, __int64 a3, __int64 a4)
@@ -28,7 +28,7 @@ __int64 __fastcall ObInheritObjectHandle(__int64 a1, int a2, __int64 a3, __int64
   {
     ObfDereferenceObject(v9);
   }
-  else if ( (xmmword_140FC5B10 & 0x40) != 0 )
+  else if ( (xmmword_140FC6B50 & 0x40) != 0 )
   {
     EtwTraceDuplicateHandle(
       a2,

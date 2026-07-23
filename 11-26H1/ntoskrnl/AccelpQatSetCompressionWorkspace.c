@@ -1,10 +1,10 @@
 /*
- * XREFs of AccelpQatSetCompressionWorkspace @ 0x1406E0F2C
+ * XREFs of AccelpQatSetCompressionWorkspace @ 0x1406E51AC
  * Callers:
- *     AccelpQatOperationHandler @ 0x1406DF9C4 (AccelpQatOperationHandler.c)
+ *     AccelpQatOperationHandler @ 0x1406E3C44 (AccelpQatOperationHandler.c)
  * Callees:
- *     AccelpCacheCompressionHeaderFooterInformation @ 0x1406DF6E4 (AccelpCacheCompressionHeaderFooterInformation.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     AccelpCacheCompressionHeaderFooterInformation @ 0x1406E3964 (AccelpCacheCompressionHeaderFooterInformation.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall AccelpQatSetCompressionWorkspace(

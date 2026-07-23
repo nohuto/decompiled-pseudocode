@@ -6,9 +6,9 @@
  *     <none>
  */
 
-__int64 __fastcall ZwAlpcDeleteResourceReserve(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwAlpcDeleteResourceReserve(HANDLE PortHandle, ULONG Flags, ALPC_HANDLE ResourceId)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(PortHandle);
 }

@@ -71,7 +71,7 @@ __int64 __fastcall IopCancelIrpsInFileObjectList(__int64 a1, int a2, int a3, int
   Interval.QuadPart = -10000LL;
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     if ( CurrentIrql == 2 )
@@ -109,10 +109,10 @@ LABEL_5:
         v12 = 1;
         Irp->Cancel = 1;
         KxReleaseSpinLock((volatile signed __int64 *)v13);
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
           v20 = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && v20 <= 0xFu && CurrentIrql <= 0xFu && v20 >= 2u )
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v20 <= 0xFu && CurrentIrql <= 0xFu && v20 >= 2u )
           {
             CurrentPrcb = KeGetCurrentPrcb();
             v22 = CurrentPrcb->SchedulerAssist;
@@ -158,10 +158,10 @@ LABEL_5:
       {
         v37 = *(_QWORD *)(*(_QWORD *)(*(_QWORD *)(a1 + 8) + 8LL) + 88LL);
         KxReleaseSpinLock((volatile signed __int64 *)v13);
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
           v25 = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && v25 <= 0xFu && CurrentIrql <= 0xFu && v25 >= 2u )
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v25 <= 0xFu && CurrentIrql <= 0xFu && v25 >= 2u )
           {
             v26 = KeGetCurrentPrcb();
             v27 = v26->SchedulerAssist;
@@ -191,10 +191,10 @@ LABEL_5:
     KiReleaseSpinLockInstrumented(v13, retaddr);
   else
     _InterlockedAnd64((volatile signed __int64 *)v13, 0LL);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v31 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v31 <= 0xFu && CurrentIrql <= 0xFu && v31 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v31 <= 0xFu && CurrentIrql <= 0xFu && v31 >= 2u )
     {
       v32 = KeGetCurrentPrcb();
       v33 = v32->SchedulerAssist;

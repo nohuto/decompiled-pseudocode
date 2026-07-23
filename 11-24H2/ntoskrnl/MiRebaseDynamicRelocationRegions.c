@@ -1,12 +1,12 @@
 /*
- * XREFs of MiRebaseDynamicRelocationRegions @ 0x140C54F90
+ * XREFs of MiRebaseDynamicRelocationRegions @ 0x140C57120
  * Callers:
- *     MiInitializeSystemVa @ 0x140C67230 (MiInitializeSystemVa.c)
+ *     MiInitializeSystemVa @ 0x140C693AC (MiInitializeSystemVa.c)
  * Callees:
- *     MiCheckLinearProtectedPteAccessedBit @ 0x140232A20 (MiCheckLinearProtectedPteAccessedBit.c)
- *     KeFlushEntireTb @ 0x1405BC840 (KeFlushEntireTb.c)
- *     MiPrepareScpFixupsForNtAndHal @ 0x140C55AD4 (MiPrepareScpFixupsForNtAndHal.c)
- *     MiApplyDynamicRelocations @ 0x140C58C4C (MiApplyDynamicRelocations.c)
+ *     MiCheckLinearProtectedPteAccessedBit @ 0x140203550 (MiCheckLinearProtectedPteAccessedBit.c)
+ *     KeFlushEntireTb @ 0x1405B9E70 (KeFlushEntireTb.c)
+ *     MiPrepareScpFixupsForNtAndHal @ 0x140C57C64 (MiPrepareScpFixupsForNtAndHal.c)
+ *     MiApplyDynamicRelocations @ 0x140C5ADDC (MiApplyDynamicRelocations.c)
  */
 
 __int64 __fastcall MiRebaseDynamicRelocationRegions(__int64 a1)
@@ -27,11 +27,11 @@ __int64 __fastcall MiRebaseDynamicRelocationRegions(__int64 a1)
   v1 = a1;
   v2 = *(_QWORD *)(a1 + 16);
   v3 = 0xFFFFF68000000000uLL;
-  v4 = qword_140E38B68;
-  v5 = qword_140E38AA8[0];
-  if ( (MiFlags & 0x4000) != 0 || qword_140E38B68 != 0xFFFFF68000000000uLL )
+  v4 = qword_140E38CA8;
+  v5 = qword_140E38BE8[0];
+  if ( (MiFlags & 0x4000) != 0 || qword_140E38CA8 != 0xFFFFF68000000000uLL )
   {
-    v6 = ((unsigned __int64)qword_140E38B68 >> 39) & 0x1FF;
+    v6 = ((unsigned __int64)qword_140E38CA8 >> 39) & 0x1FF;
     v7 = (_QWORD *)(8 * v6 - 0x90482413000LL);
     if ( 8 * v6 != 3944 )
     {
@@ -40,7 +40,7 @@ __int64 __fastcall MiRebaseDynamicRelocationRegions(__int64 a1)
         && (MEMORY[0xFFFFF6FB7DBEDF68] & 0x20) == 0
         && (unsigned __int64)v7 >= 0xFFFFF6C000000000uLL )
       {
-        MiCheckLinearProtectedPteAccessedBit((ULONG_PTR)v7, MEMORY[0xFFFFF6FB7DBEDF68], 128);
+        MiCheckLinearProtectedPteAccessedBit((ULONG_PTR)v7, MEMORY[0xFFFFF6FB7DBEDF68], 128LL);
       }
       *v7 = v8;
       if ( (MiFlags & 0x100000) == 0 )
@@ -51,13 +51,9 @@ __int64 __fastcall MiRebaseDynamicRelocationRegions(__int64 a1)
     v10 = v4;
     for ( i = 39LL; ; i -= 9LL )
     {
-      MiApplyDynamicRelocations(*(_QWORD *)(v2 + 48), *(unsigned int *)(v2 + 64), v3, v10);
+      MiApplyDynamicRelocations(*(PVOID *)(v2 + 48), *(unsigned int *)(v2 + 64));
       if ( i >= 0xC )
-        MiApplyDynamicRelocations(
-          *(_QWORD *)(v2 + 48),
-          *(unsigned int *)(v2 + 64),
-          v3 + (1LL << i) - 1,
-          v10 + (1LL << i) - 1);
+        MiApplyDynamicRelocations(*(PVOID *)(v2 + 48), *(unsigned int *)(v2 + 64));
       if ( (unsigned int)++v9 > 4 )
         break;
       v3 = ((v3 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
@@ -66,7 +62,7 @@ __int64 __fastcall MiRebaseDynamicRelocationRegions(__int64 a1)
     v1 = a1;
   }
   if ( (MiFlags & 0x4000) != 0 || v5 != 0xFFFFDE0000000000uLL )
-    MiApplyDynamicRelocations(*(_QWORD *)(v2 + 48), *(unsigned int *)(v2 + 64), 0xFFFFDE0000000000uLL, v5);
+    MiApplyDynamicRelocations(*(PVOID *)(v2 + 48), *(unsigned int *)(v2 + 64));
   result = MiPrepareScpFixupsForNtAndHal(v1);
   MmPteBase = v4;
   qword_140E013A0 = v4;

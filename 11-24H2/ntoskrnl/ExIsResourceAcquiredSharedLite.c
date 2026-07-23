@@ -1,20 +1,20 @@
 /*
- * XREFs of ExIsResourceAcquiredSharedLite @ 0x140274B00
+ * XREFs of ExIsResourceAcquiredSharedLite @ 0x14022A090
  * Callers:
- *     CmpIsRegistryLockAcquired @ 0x14041EE80 (CmpIsRegistryLockAcquired.c)
- *     DifExIsResourceAcquiredSharedLiteWrapper @ 0x14061F940 (DifExIsResourceAcquiredSharedLiteWrapper.c)
- *     CmpTestRegistryLock @ 0x1406680A4 (CmpTestRegistryLock.c)
- *     CmpDoReOpenTransKey @ 0x1407E6EF4 (CmpDoReOpenTransKey.c)
- *     FsRtlAcquireFileForCcFlushEx @ 0x1409D1DE0 (FsRtlAcquireFileForCcFlushEx.c)
- *     PpDevNodeLockTree @ 0x140A08C10 (PpDevNodeLockTree.c)
- *     PnpUnlinkDeviceRemovalRelations @ 0x140A0EDE0 (PnpUnlinkDeviceRemovalRelations.c)
+ *     CmpIsRegistryLockAcquired @ 0x140414BC0 (CmpIsRegistryLockAcquired.c)
+ *     DifExIsResourceAcquiredSharedLiteWrapper @ 0x14061DF00 (DifExIsResourceAcquiredSharedLiteWrapper.c)
+ *     CmpTestRegistryLock @ 0x140666994 (CmpTestRegistryLock.c)
+ *     CmpDoReOpenTransKey @ 0x1407E74C4 (CmpDoReOpenTransKey.c)
+ *     PnpUnlinkDeviceRemovalRelations @ 0x1409BD1E4 (PnpUnlinkDeviceRemovalRelations.c)
+ *     FsRtlAcquireFileForCcFlushEx @ 0x1409C1C10 (FsRtlAcquireFileForCcFlushEx.c)
+ *     PpDevNodeLockTree @ 0x140A05140 (PpDevNodeLockTree.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLock @ 0x140275CD0 (KeReleaseInStackQueuedSpinLock.c)
- *     KxWaitForLockOwnerShip @ 0x1402D6990 (KxWaitForLockOwnerShip.c)
- *     KiAcquireQueuedSpinLockInstrumented @ 0x1402D85F0 (KiAcquireQueuedSpinLockInstrumented.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     ExpFastResourceLegacyIsAcquiredShared @ 0x140656CE4 (ExpFastResourceLegacyIsAcquiredShared.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x14022B260 (KeReleaseInStackQueuedSpinLock.c)
+ *     KxWaitForLockOwnerShip @ 0x140357C10 (KxWaitForLockOwnerShip.c)
+ *     KiAcquireQueuedSpinLockInstrumented @ 0x140359870 (KiAcquireQueuedSpinLockInstrumented.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     ExpFastResourceLegacyIsAcquiredShared @ 0x1406553E4 (ExpFastResourceLegacyIsAcquiredShared.c)
  */
 
 ULONG __stdcall ExIsResourceAcquiredSharedLite(PERESOURCE Resource)
@@ -24,9 +24,10 @@ ULONG __stdcall ExIsResourceAcquiredSharedLite(PERESOURCE Resource)
   ULONG v4; // edi
   __int64 ResourceIndex; // r14
   unsigned __int8 v7; // r15
+  __int64 v8; // rdx
   POWNER_ENTRY OwnerTable; // rcx
   unsigned int TableSize; // edx
-  struct _OWNER_ENTRY::$818A6BB8E639852A52D20A2B257A1D60::$E71B718CD8428E7C8AA4A0868051E710 v10; // edi
+  struct _OWNER_ENTRY::$818A6BB8E639852A52D20A2B257A1D60::$E71B718CD8428E7C8AA4A0868051E710 v11; // edi
   unsigned int i; // eax
   unsigned __int8 CurrentIrql; // al
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+30h] [rbp-38h] BYREF
@@ -62,8 +63,9 @@ ULONG __stdcall ExIsResourceAcquiredSharedLite(PERESOURCE Resource)
         LockHandle.OldIrql = v7;
         if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || PopHibernateInProgress )
         {
-          if ( _InterlockedExchange64((volatile __int64 *)&Resource->SpinLock, (__int64)&LockHandle) )
-            KxWaitForLockOwnerShip(&LockHandle);
+          v8 = _InterlockedExchange64((volatile __int64 *)&Resource->SpinLock, (__int64)&LockHandle);
+          if ( v8 )
+            KxWaitForLockOwnerShip(&LockHandle, v8);
         }
         else
         {
@@ -76,9 +78,9 @@ ULONG __stdcall ExIsResourceAcquiredSharedLite(PERESOURCE Resource)
           if ( (unsigned int)ResourceIndex < TableSize
             && (struct _KTHREAD *)OwnerTable[ResourceIndex].OwnerThread == CurrentThread )
           {
-            v10 = (struct _OWNER_ENTRY::$818A6BB8E639852A52D20A2B257A1D60::$E71B718CD8428E7C8AA4A0868051E710)OwnerTable[ResourceIndex].TableSize;
+            v11 = (struct _OWNER_ENTRY::$818A6BB8E639852A52D20A2B257A1D60::$E71B718CD8428E7C8AA4A0868051E710)OwnerTable[ResourceIndex].TableSize;
 LABEL_17:
-            v4 = *(unsigned int *)&v10 >> 3;
+            v4 = *(unsigned int *)&v11 >> 3;
           }
           else
           {
@@ -87,7 +89,7 @@ LABEL_17:
               ++OwnerTable;
               if ( (struct _KTHREAD *)OwnerTable->OwnerThread == CurrentThread )
               {
-                v10 = (struct _OWNER_ENTRY::$818A6BB8E639852A52D20A2B257A1D60::$E71B718CD8428E7C8AA4A0868051E710)OwnerTable->TableSize;
+                v11 = (struct _OWNER_ENTRY::$818A6BB8E639852A52D20A2B257A1D60::$E71B718CD8428E7C8AA4A0868051E710)OwnerTable->TableSize;
                 goto LABEL_17;
               }
             }

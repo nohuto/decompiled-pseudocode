@@ -89,7 +89,7 @@ __int64 __fastcall PopFxEnableWorkOrderWatchdog(__int64 a1, unsigned int a2)
             {
               v14->CrossThreadReleasableAndBusyByte |= 2u;
               if ( (__int64)v14->LockState.LockState < 0 )
-                KiAbEntryRemoveFromTree((__int64)&CurrentThread->LockEntries[v13]);
+                KiAbEntryRemoveFromTree(&CurrentThread->LockEntries[v13].TreeNode);
               v15 = v14->BoostBitmap.AllFields & 0x1FFFF;
               v16 = v14->BoostBitmap.AllFields & 0xFFFE0000;
               v14->ThreadLocalFlags &= ~1u;

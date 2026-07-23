@@ -1,10 +1,10 @@
 /*
- * XREFs of KiInitializePriorityState @ 0x1405C2FE0
+ * XREFs of KiInitializePriorityState @ 0x1405C05B0
  * Callers:
- *     KiAssignSubNodeSharedReadyQueues @ 0x1405B6308 (KiAssignSubNodeSharedReadyQueues.c)
- *     KiStartIdleThread @ 0x1405C3210 (KiStartIdleThread.c)
+ *     KiAssignSubNodeSharedReadyQueues @ 0x1405B35D0 (KiAssignSubNodeSharedReadyQueues.c)
+ *     KiStartIdleThread @ 0x1405C07E0 (KiStartIdleThread.c)
  * Callees:
- *     KiQueryEffectivePriorityThread @ 0x14034BFE0 (KiQueryEffectivePriorityThread.c)
+ *     KiQueryEffectivePriorityThread @ 0x14036A4C0 (KiQueryEffectivePriorityThread.c)
  */
 
 char __fastcall KiInitializePriorityState(_BYTE *a1, struct _KPRCB *a2, __int64 a3)

@@ -1,10 +1,10 @@
 /*
- * XREFs of MI_LOCK_RELOCATIONS_SHARED @ 0x140481564
+ * XREFs of MI_LOCK_RELOCATIONS_SHARED @ 0x14047AED4
  * Callers:
- *     MiUpdateImagePfnImportRelocations @ 0x140480C40 (MiUpdateImagePfnImportRelocations.c)
+ *     MiUpdateImagePfnImportRelocations @ 0x14047A5B0 (MiUpdateImagePfnImportRelocations.c)
  * Callees:
- *     ExfAcquirePushLockSharedEx @ 0x140277CC0 (ExfAcquirePushLockSharedEx.c)
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
+ *     ExfAcquirePushLockSharedEx @ 0x140277230 (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
  */
 
 signed __int64 __fastcall MI_LOCK_RELOCATIONS_SHARED(__int64 a1, __int64 a2, __int64 a3, struct _KLOCK_ENTRIES *a4)

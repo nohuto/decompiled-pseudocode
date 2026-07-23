@@ -8,27 +8,23 @@
  *     memmove @ 0x1800A1380 (memmove.c)
  */
 
-__int64 __fastcall sub_180047530(__int64 a1)
+PVOID __fastcall sub_180047530(__int64 a1)
 {
   int v1; // eax
   __int64 v2; // r14
   __int64 v4; // rbx
   unsigned __int16 v5; // bp
   unsigned __int64 v6; // rsi
-  int v7; // eax
-  int v8; // r12d
-  __int64 v9; // r8
-  int v10; // r13d
-  int v11; // ett
-  __int64 v12; // r14
-  __int64 v13; // rbx
-  int v14; // ecx
-  __int64 result; // rax
-  unsigned int v16; // ecx
-  int v17; // [rsp+20h] [rbp-38h] BYREF
-  int v18; // [rsp+24h] [rbp-34h]
-  int v19; // [rsp+28h] [rbp-30h]
-  int v20; // [rsp+2Ch] [rbp-2Ch]
+  __int64 v7; // r8
+  int v8; // ett
+  __int64 v9; // r14
+  __int64 v10; // rbx
+  PVOID result; // rax
+  unsigned int v12; // ecx
+  int v13; // [rsp+20h] [rbp-38h]
+  int v14; // [rsp+24h] [rbp-34h]
+  int v15; // [rsp+28h] [rbp-30h]
+  int v16; // [rsp+2Ch] [rbp-2Ch]
 
   v1 = dword_18015CF90;
   v2 = dword_18015CF90 & 0xF;
@@ -44,43 +40,39 @@ __int64 __fastcall sub_180047530(__int64 a1)
   v6 = (unsigned __int64)v5 >> 1;
   if ( v5 < 0x40u )
     word_18015C3E0[52 * v2 + 14 + v6] = 0;
-  sub_18004773C(*(_QWORD *)(a1 + 48), *(unsigned int *)(a1 + 64), &v17);
-  v7 = v19;
-  v8 = v17;
-  v9 = qword_18015CF88;
-  *(_DWORD *)&word_18015C3E0[v4 + 10] = v17;
-  v10 = v18;
-  *(_DWORD *)&word_18015C3E0[v4 + 12] = v18;
-  *(_DWORD *)&word_18015C3E0[v4 + 46] = v7;
-  *(_DWORD *)&word_18015C3E0[v4 + 48] = v20;
-  if ( v9 )
+  sub_18004773C(*(PVOID *)(a1 + 48));
+  v7 = qword_18015CF88;
+  *(_DWORD *)&word_18015C3E0[v4 + 10] = v13;
+  *(_DWORD *)&word_18015C3E0[v4 + 12] = v14;
+  *(_DWORD *)&word_18015C3E0[v4 + 46] = v15;
+  *(_DWORD *)&word_18015C3E0[v4 + 48] = v16;
+  if ( v7 )
     goto LABEL_6;
-  v16 = dword_180159720;
+  v12 = dword_180159720;
   if ( (unsigned int)dword_180159720 > 0xFFFF )
-    v16 = 0xFFFF;
-  dword_180159720 = v16;
-  result = RtlAllocateHeap(qword_18015C288, (dword_18015C294 + 0x40000) | 8u, 104LL * v16);
-  qword_18015CF88 = result;
-  v9 = result;
+    v12 = 0xFFFF;
+  dword_180159720 = v12;
+  result = RtlAllocateHeap(HeapHandle, (Flags + 0x40000) | 8, 104LL * v12);
+  qword_18015CF88 = (__int64)result;
+  v7 = (__int64)result;
   if ( result )
   {
 LABEL_6:
-    v11 = dword_18015CF94;
-    v12 = (unsigned __int16)(dword_18015CF94 % (unsigned int)dword_180159720);
-    v13 = 104 * v12;
-    *(_DWORD *)(v13 + v9 + 16) = dword_18015CF94;
-    dword_18015CF94 = v11 + 1;
-    *(_QWORD *)(v13 + qword_18015CF88) = *(_QWORD *)(a1 + 48);
-    *(_QWORD *)(v13 + qword_18015CF88 + 8) = *(unsigned int *)(a1 + 64);
-    memmove((void *)(104 * v12 + qword_18015CF88 + 28), *(const void **)(a1 + 96), v5);
+    v8 = dword_18015CF94;
+    v9 = (unsigned __int16)(dword_18015CF94 % (unsigned int)dword_180159720);
+    v10 = 104 * v9;
+    *(_DWORD *)(v10 + v7 + 16) = dword_18015CF94;
+    dword_18015CF94 = v8 + 1;
+    *(_QWORD *)(v10 + qword_18015CF88) = *(_QWORD *)(a1 + 48);
+    *(_QWORD *)(v10 + qword_18015CF88 + 8) = *(unsigned int *)(a1 + 64);
+    memmove((void *)(104 * v9 + qword_18015CF88 + 28), *(const void **)(a1 + 96), v5);
     if ( v5 < 0x40u )
-      *(_WORD *)(qword_18015CF88 + 2 * (v6 + 52 * v12) + 28) = 0;
-    v14 = v19;
-    *(_DWORD *)(v13 + qword_18015CF88 + 20) = v8;
-    *(_DWORD *)(v13 + qword_18015CF88 + 24) = v10;
-    *(_DWORD *)(v13 + qword_18015CF88 + 92) = v14;
-    result = qword_18015CF88;
-    *(_DWORD *)(v13 + qword_18015CF88 + 96) = v20;
+      *(_WORD *)(qword_18015CF88 + 2 * (v6 + 52 * v9) + 28) = 0;
+    *(_DWORD *)(v10 + qword_18015CF88 + 20) = v13;
+    *(_DWORD *)(v10 + qword_18015CF88 + 24) = v14;
+    *(_DWORD *)(v10 + qword_18015CF88 + 92) = v15;
+    result = (PVOID)qword_18015CF88;
+    *(_DWORD *)(v10 + qword_18015CF88 + 96) = v16;
   }
   return result;
 }

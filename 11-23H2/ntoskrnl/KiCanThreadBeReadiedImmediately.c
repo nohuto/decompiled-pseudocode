@@ -1,7 +1,7 @@
 /*
- * XREFs of KiCanThreadBeReadiedImmediately @ 0x140357DFC
+ * XREFs of KiCanThreadBeReadiedImmediately @ 0x140357F9C
  * Callers:
- *     KiDirectSwitchThread @ 0x1402B18A0 (KiDirectSwitchThread.c)
+ *     KiDirectSwitchThread @ 0x1402B1B30 (KiDirectSwitchThread.c)
  * Callees:
  *     <none>
  */

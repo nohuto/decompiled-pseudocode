@@ -7,12 +7,11 @@
  *     RtlLCIDToCultureName @ 0x180016330 (RtlLCIDToCultureName.c)
  */
 
-__int64 __fastcall sub_18010058C(__int64 a1, _DWORD *a2, unsigned __int16 a3, wchar_t *a4)
+__int64 __fastcall sub_18010058C(__int64 a1, _DWORD *a2, unsigned __int16 a3, WCHAR *a4)
 {
   unsigned int v4; // ebx
   wchar_t *v5; // rdi
-  _WORD v7[4]; // [rsp+20h] [rbp-18h] BYREF
-  wchar_t *String2; // [rsp+28h] [rbp-10h]
+  _UNICODE_STRING v7; // [rsp+20h] [rbp-18h] BYREF
 
   v4 = -1073741823;
   if ( !a1 || !a4 || !a2 )
@@ -23,11 +22,11 @@ __int64 __fastcall sub_18010058C(__int64 a1, _DWORD *a2, unsigned __int16 a3, wc
     {
       if ( !a3 )
         return 0;
-      String2 = a4;
-      v7[1] = 170;
-      if ( RtlLCIDToCultureName(a3, (__int64)v7) )
+      v7.Buffer = a4;
+      v7.MaximumLength = 170;
+      if ( RtlLCIDToCultureName(a3, &v7) )
       {
-        if ( sub_1800129A4(v5, String2) )
+        if ( sub_1800129A4(v5, v7.Buffer) )
           return 0;
       }
     }

@@ -9,25 +9,28 @@
  *     _RtlDeleteHashTable@4 @ 0x4B35AE30 (_RtlDeleteHashTable@4.c)
  */
 
-char __fastcall RtlpCreateHashTable(int **a1, unsigned int a2, int a3, int a4)
+char __fastcall RtlpCreateHashTable(_RTL_DYNAMIC_HASH_TABLE **a1, unsigned int a2, unsigned int a3, int a4)
 {
   unsigned int v5; // ebx
-  int *Heap; // esi
+  _RTL_DYNAMIC_HASH_TABLE *Heap; // esi
   int v7; // eax
-  int v8; // eax
-  int v9; // edx
+  _DWORD *v8; // eax
+  unsigned int TableSize; // edx
   _DWORD *v10; // ecx
   unsigned int v11; // eax
-  _DWORD *v12; // eax
-  int v13; // ebx
+  PVOID v12; // eax
+  PVOID v13; // ebx
   unsigned int v14; // edi
   int v15; // ebx
   _DWORD *v16; // eax
   _DWORD *v17; // ecx
   char result; // al
-  _DWORD *v20; // [esp+10h] [ebp-Ch]
-  int v21; // [esp+14h] [ebp-8h]
-  unsigned int v22; // [esp+18h] [ebp-4h]
+  SIZE_T v19; // [esp-4h] [ebp-20h]
+  size_t v20; // [esp-4h] [ebp-20h]
+  SIZE_T v21; // [esp-4h] [ebp-20h]
+  _DWORD *v23; // [esp+10h] [ebp-Ch]
+  int v24; // [esp+14h] [ebp-8h]
+  unsigned int v25; // [esp+18h] [ebp-4h]
 
   v5 = a2 - 1;
   if ( ((a2 - 1) & a2) != 0 || a2 - 128 > 0x7FFF00 )
@@ -36,76 +39,81 @@ char __fastcall RtlpCreateHashTable(int **a1, unsigned int a2, int a3, int a4)
   v7 = 0;
   if ( !*a1 )
   {
-    Heap = (int *)RtlAllocateHeap((int)NtCurrentPeb()->ProcessHeap, 0, 36);
+    LODWORD(v19) = 36;
+    Heap = (_RTL_DYNAMIC_HASH_TABLE *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, v19);
     if ( !Heap )
       return 0;
     v7 = 1;
   }
-  Heap[5] = 0;
-  Heap[6] = 0;
-  Heap[7] = 0;
-  Heap[8] = 0;
-  *Heap = a4 | v7;
-  Heap[2] = a2;
-  Heap[4] = v5;
-  Heap[1] = a3;
-  Heap[3] = 0;
+  Heap->NumEntries = 0;
+  Heap->NonEmptyBuckets = 0;
+  Heap->NumEnumerators = 0;
+  Heap->Directory = 0;
+  Heap->Flags = a4 | v7;
+  Heap->TableSize = a2;
+  Heap->DivisorMask = v5;
+  Heap->Shift = a3;
+  Heap->Pivot = 0;
   if ( a2 > 0x80 )
   {
     _BitScanReverse(&v11, a2 + 127);
-    v22 = v11 - 7;
-    v21 = (a2 + 127) ^ (1 << v11);
-    v12 = (_DWORD *)RtlAllocateHeap((int)NtCurrentPeb()->ProcessHeap, 0, 64);
-    v13 = (int)v12;
-    v20 = v12;
+    LODWORD(v19) = 64;
+    v25 = v11 - 7;
+    v24 = (a2 + 127) ^ (1 << v11);
+    v12 = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, v19);
+    v13 = v12;
+    v23 = v12;
     if ( v12 )
     {
-      memset(v12, 0, 0x40u);
-      Heap[8] = v13;
+      LODWORD(v20) = 64;
+      memset(v12, 0, v20);
+      Heap->Directory = v13;
       v14 = 0;
       while ( 1 )
       {
         v15 = 1 << (v14 + 7);
-        v16 = (_DWORD *)RtlAllocateHeap((int)NtCurrentPeb()->ProcessHeap, 0, 8 * v15);
+        LODWORD(v21) = 8 * v15;
+        v16 = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, v21);
         v17 = v16;
         if ( !v16 )
           break;
-        if ( v14 >= v22 )
-          v15 = v21 + 1;
+        if ( v14 >= v25 )
+          v15 = v24 + 1;
         for ( ; v15; --v15 )
         {
           v16[1] = v16;
           *v16 = v16;
           v16 += 2;
         }
-        v20[v14++] = v17;
-        if ( v14 > v22 )
+        v23[v14++] = v17;
+        if ( v14 > v25 )
           goto LABEL_20;
       }
     }
     goto LABEL_21;
   }
-  v8 = RtlAllocateHeap((int)NtCurrentPeb()->ProcessHeap, 0, 1024);
+  LODWORD(v19) = 1024;
+  v8 = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, v19);
   if ( !v8 )
   {
 LABEL_21:
-    RtlDeleteHashTable((int)Heap);
+    RtlDeleteHashTable(Heap);
     return 0;
   }
-  v9 = Heap[2];
-  if ( v9 )
+  TableSize = Heap->TableSize;
+  if ( TableSize )
   {
-    v10 = (_DWORD *)v8;
+    v10 = v8;
     do
     {
       v10[1] = v10;
       *v10 = v10;
       v10 += 2;
-      --v9;
+      --TableSize;
     }
-    while ( v9 );
+    while ( TableSize );
   }
-  Heap[8] = v8;
+  Heap->Directory = v8;
 LABEL_20:
   result = 1;
   *a1 = Heap;

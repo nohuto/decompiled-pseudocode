@@ -7,54 +7,54 @@
  *     _RtlDuplicateUnicodeString@12 @ 0x4B2ECEB0 (_RtlDuplicateUnicodeString@12.c)
  */
 
-unsigned int __fastcall RtlpTpIoDllProcessUnloads(int *a1, unsigned int *a2)
+unsigned __int32 __fastcall RtlpTpIoDllProcessUnloads(int a1, int a2)
 {
-  unsigned int *i; // esi
-  unsigned int v5; // edx
-  unsigned int v6; // eax
-  unsigned int result; // eax
-  unsigned int v8; // ecx
+  int i; // esi
+  int v5; // edx
+  int v6; // eax
+  unsigned __int32 result; // eax
+  int v8; // ecx
   int v9; // ecx
   int v10; // [esp-4h] [ebp-10h]
 
-  for ( i = a2; ; i = (unsigned int *)(i[14] - 56) )
+  for ( i = a2; ; i = *(_DWORD *)(i + 56) - 56 )
   {
     while ( 1 )
     {
-      v5 = i[17];
+      v5 = *(_DWORD *)(i + 68);
       if ( (v5 & 2) != 0 )
         break;
-      v6 = i[15];
+      v6 = *(_DWORD *)(i + 60);
       v10 = 2;
 LABEL_6:
-      i[17] = v10 | v5;
+      *(_DWORD *)(i + 68) = v10 | v5;
       if ( v6 )
-        i = (unsigned int *)(v6 - 56);
+        i = v6 - 56;
     }
     if ( (v5 & 4) == 0 )
     {
-      v6 = i[16];
+      v6 = *(_DWORD *)(i + 64);
       v10 = 4;
       goto LABEL_6;
     }
-    result = *i;
-    v8 = i[17];
-    if ( a1[3] <= *i )
+    result = *(_DWORD *)i;
+    v8 = *(_DWORD *)(i + 68);
+    if ( *(_DWORD *)(a1 + 12) <= *(_DWORD *)i )
     {
-      result = a1[3] + a1[4];
-      if ( *i < result )
+      result = *(_DWORD *)(a1 + 12) + *(_DWORD *)(a1 + 16);
+      if ( *(_DWORD *)i < result )
       {
-        v9 = i[12];
-        i[17] = v5 | 1;
-        TpAdjustBindingCount(v9, -i[13]);
-        i[9] = 0;
-        i[20] = a1[3];
-        i[21] = a1[4];
-        result = RtlDuplicateUnicodeString(1, a1[1], (int)(i + 18));
-        v8 = i[17];
+        v9 = *(_DWORD *)(i + 48);
+        *(_DWORD *)(i + 68) = v5 | 1;
+        TpAdjustBindingCount(v9, -*(_DWORD *)(i + 52));
+        *(_DWORD *)(i + 36) = 0;
+        *(_DWORD *)(i + 80) = *(_DWORD *)(a1 + 12);
+        *(_DWORD *)(i + 84) = *(_DWORD *)(a1 + 16);
+        result = RtlDuplicateUnicodeString(1u, *(PUNICODE_STRING *)(a1 + 4), (PUNICODE_STRING)(i + 72));
+        v8 = *(_DWORD *)(i + 68);
       }
     }
-    i[17] = v8 & 0xFFFFFFF9;
+    *(_DWORD *)(i + 68) = v8 & 0xFFFFFFF9;
     if ( i == a2 )
       break;
   }

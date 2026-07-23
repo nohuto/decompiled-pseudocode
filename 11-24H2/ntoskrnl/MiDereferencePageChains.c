@@ -1,13 +1,13 @@
 /*
- * XREFs of MiDereferencePageChains @ 0x140491294
+ * XREFs of MiDereferencePageChains @ 0x140270AC0
  * Callers:
- *     MiRevertProcessorMove @ 0x14030AAFC (MiRevertProcessorMove.c)
- *     MiProcessPageGroupInfo @ 0x1403A2E30 (MiProcessPageGroupInfo.c)
- *     MiInitializeMdlOneNodeBatchPages @ 0x1404133A0 (MiInitializeMdlOneNodeBatchPages.c)
- *     MiGroupZeroHugeRange @ 0x140685AB4 (MiGroupZeroHugeRange.c)
- *     MiFindLargePageMemory @ 0x140A92A7C (MiFindLargePageMemory.c)
+ *     MiProcessPageGroupInfo @ 0x1402709E8 (MiProcessPageGroupInfo.c)
+ *     MiRevertProcessorMove @ 0x1403149DC (MiRevertProcessorMove.c)
+ *     MiInitializeMdlOneNodeBatchPages @ 0x140393A14 (MiInitializeMdlOneNodeBatchPages.c)
+ *     MiGroupZeroHugeRange @ 0x140686BE4 (MiGroupZeroHugeRange.c)
+ *     MiFindLargePageMemory @ 0x140A8F22C (MiFindLargePageMemory.c)
  * Callees:
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __fastcall MiDereferencePageChains(volatile signed __int32 *a1)

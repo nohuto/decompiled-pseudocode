@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlUnicodeToMultiByteSize @ 0x140758770
+ * XREFs of RtlUnicodeToMultiByteSize @ 0x140758960
  * Callers:
- *     wcstombs @ 0x1403DBC00 (wcstombs.c)
- *     RtlxUnicodeStringToOemSize @ 0x140755CE0 (RtlxUnicodeStringToOemSize.c)
+ *     wcstombs @ 0x1403DBDE0 (wcstombs.c)
+ *     RtlxUnicodeStringToOemSize @ 0x140755ED0 (RtlxUnicodeStringToOemSize.c)
  * Callees:
- *     PsGetCurrentServerSiloGlobals @ 0x14022D370 (PsGetCurrentServerSiloGlobals.c)
- *     RtlpIsUtf8Process @ 0x1406DA530 (RtlpIsUtf8Process.c)
- *     RtlUnicodeToUTF8N @ 0x140758800 (RtlUnicodeToUTF8N.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x14022D480 (PsGetCurrentServerSiloGlobals.c)
+ *     RtlpIsUtf8Process @ 0x1406DA560 (RtlpIsUtf8Process.c)
+ *     RtlUnicodeToUTF8N @ 0x1407589F0 (RtlUnicodeToUTF8N.c)
  */
 
 NTSTATUS __stdcall RtlUnicodeToMultiByteSize(

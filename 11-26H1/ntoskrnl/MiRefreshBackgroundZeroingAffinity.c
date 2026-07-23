@@ -1,14 +1,14 @@
 /*
- * XREFs of MiRefreshBackgroundZeroingAffinity @ 0x14070EA3C
+ * XREFs of MiRefreshBackgroundZeroingAffinity @ 0x14071373C
  * Callers:
- *     MiAvailableCpusChangeCallback @ 0x14070E260 (MiAvailableCpusChangeCallback.c)
- *     MiZeroPageThread @ 0x14070F040 (MiZeroPageThread.c)
+ *     MiAvailableCpusChangeCallback @ 0x140712F60 (MiAvailableCpusChangeCallback.c)
+ *     MiZeroPageThread @ 0x140713D40 (MiZeroPageThread.c)
  * Callees:
- *     ExReleaseSpinLockExclusive @ 0x14021AA80 (ExReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x140249CD0 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     PsQueryProcessAvailableCpus @ 0x140532BB0 (PsQueryProcessAvailableCpus.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     ExReleaseSpinLockExclusive @ 0x14021C410 (ExReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024B630 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     PsQueryProcessAvailableCpus @ 0x140535050 (PsQueryProcessAvailableCpus.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 void __fastcall MiRefreshBackgroundZeroingAffinity(__int64 a1)

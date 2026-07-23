@@ -1,27 +1,27 @@
 /*
- * XREFs of MiAllocateLargeZeroPages @ 0x14085C8E0
+ * XREFs of MiAllocateLargeZeroPages @ 0x14085DB40
  * Callers:
- *     MiCreatePagingFileMap @ 0x14061EB18 (MiCreatePagingFileMap.c)
- *     MiGetLargePagesForSystemMapping @ 0x140851F70 (MiGetLargePagesForSystemMapping.c)
- *     MiMapUserLargePages @ 0x14085D558 (MiMapUserLargePages.c)
+ *     MiCreatePagingFileMap @ 0x14061FB18 (MiCreatePagingFileMap.c)
+ *     MiGetLargePagesForSystemMapping @ 0x1408531D0 (MiGetLargePagesForSystemMapping.c)
+ *     MiMapUserLargePages @ 0x14085E7B8 (MiMapUserLargePages.c)
  * Callees:
  *     MiProtectionToCacheAttribute @ 0x14002BD80 (MiProtectionToCacheAttribute.c)
- *     RtlAvlInsertNodeEx @ 0x140064B40 (RtlAvlInsertNodeEx.c)
- *     MiFreeZeroPageSizeIndex @ 0x14009B4AC (MiFreeZeroPageSizeIndex.c)
- *     MiZeroAndConvertLargePage @ 0x140118CC8 (MiZeroAndConvertLargePage.c)
- *     MiZeroInParallel @ 0x14013C544 (MiZeroInParallel.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     MiInsertLargePageNeedsZero @ 0x1402C57A0 (MiInsertLargePageNeedsZero.c)
- *     MiAddColdPagesToHotRanges @ 0x1402CEA4C (MiAddColdPagesToHotRanges.c)
- *     MiNotifyPageHeat @ 0x1402CEF40 (MiNotifyPageHeat.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     MiAssembleLargePagePfnList @ 0x14085CBFC (MiAssembleLargePagePfnList.c)
- *     MiCreateColorAnchors @ 0x14085CF64 (MiCreateColorAnchors.c)
- *     MiDeleteColorAnchors @ 0x14085D154 (MiDeleteColorAnchors.c)
- *     MiFindLargePageMemory @ 0x14085D180 (MiFindLargePageMemory.c)
- *     MiGetFastLargePage @ 0x14085D42C (MiGetFastLargePage.c)
+ *     RtlAvlInsertNodeEx @ 0x140064B30 (RtlAvlInsertNodeEx.c)
+ *     MiFreeZeroPageSizeIndex @ 0x14009B3EC (MiFreeZeroPageSizeIndex.c)
+ *     MiZeroAndConvertLargePage @ 0x140118D38 (MiZeroAndConvertLargePage.c)
+ *     MiZeroInParallel @ 0x14013C644 (MiZeroInParallel.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     MiInsertLargePageNeedsZero @ 0x1402C5990 (MiInsertLargePageNeedsZero.c)
+ *     MiAddColdPagesToHotRanges @ 0x1402CEC3C (MiAddColdPagesToHotRanges.c)
+ *     MiNotifyPageHeat @ 0x1402CF130 (MiNotifyPageHeat.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     MiAssembleLargePagePfnList @ 0x14085DE5C (MiAssembleLargePagePfnList.c)
+ *     MiCreateColorAnchors @ 0x14085E1C4 (MiCreateColorAnchors.c)
+ *     MiDeleteColorAnchors @ 0x14085E3B4 (MiDeleteColorAnchors.c)
+ *     MiFindLargePageMemory @ 0x14085E3E0 (MiFindLargePageMemory.c)
+ *     MiGetFastLargePage @ 0x14085E68C (MiGetFastLargePage.c)
  */
 
 __int64 __fastcall MiAllocateLargeZeroPages(

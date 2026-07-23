@@ -1,14 +1,14 @@
 /*
- * XREFs of PopPowerRequestSpecialRequestSet @ 0x140AF1C64
+ * XREFs of PopPowerRequestSpecialRequestSet @ 0x140AF4534
  * Callers:
- *     PopPowerRequestActionInfo @ 0x140AF1B4C (PopPowerRequestActionInfo.c)
+ *     PopPowerRequestActionInfo @ 0x140AF441C (PopPowerRequestActionInfo.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     PopReleaseRwLock @ 0x14043630C (PopReleaseRwLock.c)
- *     ObpReferenceObjectByHandleWithTag @ 0x1408FA680 (ObpReferenceObjectByHandleWithTag.c)
- *     PsReleaseProcessWakeCounter @ 0x1409BE200 (PsReleaseProcessWakeCounter.c)
- *     PsChargeProcessWakeCounter @ 0x1409BE250 (PsChargeProcessWakeCounter.c)
- *     PopAcquirePowerRequestPushLock @ 0x140AECCA4 (PopAcquirePowerRequestPushLock.c)
+ *     PopReleaseRwLock @ 0x14021B1A8 (PopReleaseRwLock.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     ObpReferenceObjectByHandleWithTag @ 0x14092A610 (ObpReferenceObjectByHandleWithTag.c)
+ *     PsReleaseProcessWakeCounter @ 0x14098F1E0 (PsReleaseProcessWakeCounter.c)
+ *     PsChargeProcessWakeCounter @ 0x14098F230 (PsChargeProcessWakeCounter.c)
+ *     PopAcquirePowerRequestPushLock @ 0x140AEFCB4 (PopAcquirePowerRequestPushLock.c)
  */
 
 __int64 __fastcall PopPowerRequestSpecialRequestSet(__int64 a1, int a2, ULONG_PTR a3)
@@ -26,7 +26,7 @@ __int64 __fastcall PopPowerRequestSpecialRequestSet(__int64 a1, int a2, ULONG_PT
   Object = 0LL;
   if ( a2 == 3 && *(_BYTE *)(a1 + 152) )
   {
-    v5 = ObpReferenceObjectByHandleWithTag(a3, 0x2000LL, PsProcessType, 1, 0x72506F50u, &Object, 0LL, 0LL);
+    v5 = ObpReferenceObjectByHandleWithTag(a3, 0x2000, (__int64)PsProcessType, 1, 0x72506F50u, &Object, 0LL, 0LL);
     if ( v5 >= 0 )
     {
       v6 = Object;
@@ -43,7 +43,7 @@ __int64 __fastcall PopPowerRequestSpecialRequestSet(__int64 a1, int a2, ULONG_PT
         v5 = 0;
         *(_QWORD *)(a1 + 144) = v7;
       }
-      PopReleaseRwLock(&stru_140F12D20);
+      PopReleaseRwLock((struct _KTHREAD *)stru_140F12EA0.TracingPrivate);
       if ( v3 )
       {
         if ( v7 )

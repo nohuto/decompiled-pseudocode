@@ -1,13 +1,13 @@
 /*
- * XREFs of SepIsImageInMinTcbList @ 0x1406B4408
+ * XREFs of SepIsImageInMinTcbList @ 0x1406B56A8
  * Callers:
- *     SepIsMinTCB @ 0x14060D770 (SepIsMinTCB.c)
+ *     SepIsMinTCB @ 0x14060E770 (SepIsMinTCB.c)
  * Callees:
- *     ZwClose @ 0x1401B8370 (ZwClose.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     RtlEqualUnicodeString @ 0x140625D40 (RtlEqualUnicodeString.c)
- *     RtlpOpenImageFileOptionsKeyEx @ 0x1406B1924 (RtlpOpenImageFileOptionsKeyEx.c)
- *     RtlQueryImageFileKeyOption @ 0x1406BB3A0 (RtlQueryImageFileKeyOption.c)
+ *     ZwClose @ 0x1401B84D0 (ZwClose.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     RtlEqualUnicodeString @ 0x140626D60 (RtlEqualUnicodeString.c)
+ *     RtlpOpenImageFileOptionsKeyEx @ 0x1406B2BC4 (RtlpOpenImageFileOptionsKeyEx.c)
+ *     RtlQueryImageFileKeyOption @ 0x1406BC640 (RtlQueryImageFileKeyOption.c)
  */
 
 __int64 __fastcall SepIsImageInMinTcbList(
@@ -46,7 +46,7 @@ __int64 __fastcall SepIsImageInMinTcbList(
       v16 = v14;
       if ( RtlEqualUnicodeString(a3, (PCUNICODE_STRING)(a1 + 24LL * v14), 1u) )
       {
-        if ( !*i || *i == dword_140409D90 )
+        if ( !*i || *i == dword_14040ADF0 )
           break;
       }
       if ( ++v14 >= a2 )
@@ -75,9 +75,9 @@ LABEL_9:
       v23 = *(_BYTE *)(a1 + 24 * v16 + 17);
     }
     *a8 = v23;
-    if ( !qword_14040DDA0 || (LOBYTE(v20) = *v22, LOBYTE(v17) = a6, !(unsigned int)qword_14040DDA0(v20, v17)) )
+    if ( !qword_14040EE00 || (LOBYTE(v20) = *v22, LOBYTE(v17) = a6, !(unsigned int)qword_14040EE00(v20, v17)) )
       *v22 = a6;
-    if ( !qword_14040DDA0 || (LOBYTE(v20) = *a8, LOBYTE(v17) = a6, !(unsigned int)qword_14040DDA0(v20, v17)) )
+    if ( !qword_14040EE00 || (LOBYTE(v20) = *a8, LOBYTE(v17) = a6, !(unsigned int)qword_14040EE00(v20, v17)) )
       *a8 = a6;
     if ( (v21 & 7) != 1 && ((a4 & 1) != 0 || (v21 & 7) == 2) )
     {

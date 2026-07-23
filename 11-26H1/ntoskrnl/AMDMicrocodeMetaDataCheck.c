@@ -1,7 +1,7 @@
 /*
- * XREFs of AMDMicrocodeMetaDataCheck @ 0x1406DE668
+ * XREFs of AMDMicrocodeMetaDataCheck @ 0x1406E2908
  * Callers:
- *     MicrocodeGetRecord @ 0x1406DD618 (MicrocodeGetRecord.c)
+ *     MicrocodeGetRecord @ 0x1406E18B8 (MicrocodeGetRecord.c)
  * Callees:
  *     <none>
  */
@@ -27,8 +27,8 @@ __int64 __fastcall AMDMicrocodeMetaDataCheck(_DWORD *a1, unsigned int a2)
       {
 LABEL_13:
         v10 = 0;
-        if ( !CmpCallbackListLock.WaitBlockFill5[35] && *(_QWORD *)&CmpCallbackListLock.WaitBlockFill11[16] )
-          CmpCallbackListLock.WaitBlockFill5[35] = **(_QWORD **)&CmpCallbackListLock.WaitBlockFill11[16] == __PAIR64__(a2, v9);
+        if ( !CmpContextListLock.WaitBlockFill5[27] && *(_QWORD *)&CmpContextListLock.WaitBlockFill11[16] )
+          CmpContextListLock.WaitBlockFill5[27] = **(_QWORD **)&CmpContextListLock.WaitBlockFill11[16] == __PAIR64__(a2, v9);
         return v10;
       }
     }

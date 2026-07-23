@@ -11,26 +11,23 @@
  *     RtlImageDirectoryEntryToData @ 0x180022220 (RtlImageDirectoryEntryToData.c)
  */
 
-__int64 __fastcall RtlInsertInvertedFunctionTable(__int64 a1, __int64 a2)
+void __fastcall RtlInsertInvertedFunctionTable(void *a1, int a2)
 {
-  int v2; // esi
   int v3; // ebp
-  __int64 v4; // rax
+  PVOID v4; // rax
   int v5; // edi
-  int v6; // ebx
+  ULONG v6; // ebx
   int v7; // ecx
-  int v9; // [rsp+50h] [rbp+18h] BYREF
+  ULONG v8; // [rsp+50h] [rbp+18h] BYREF
 
-  v9 = 0;
-  v2 = a2;
-  LOBYTE(a2) = 1;
-  v3 = a1;
-  v4 = RtlImageDirectoryEntryToData(a1, a2, 3LL, &v9);
-  v5 = v4;
-  v6 = v4 != 0 ? v9 : 0;
-  RtlAcquireSRWLockExclusive((volatile signed __int32 *)&LdrpInvertedFunctionTableSRWLock);
+  v8 = 0;
+  v3 = (int)a1;
+  v4 = RtlImageDirectoryEntryToData(a1, 1u, 3u, &v8);
+  v5 = (int)v4;
+  v6 = v4 != 0LL ? v8 : 0;
+  RtlAcquireSRWLockExclusive(&LdrpInvertedFunctionTableSRWLock);
   LdrProtectMrdata(0);
-  RtlpInsertInvertedFunctionTableEntry(v7, v3, v5, v2, v6);
+  RtlpInsertInvertedFunctionTableEntry(v7, v3, v5, a2, v6);
   LdrProtectMrdata(1);
-  return RtlReleaseSRWLockExclusive(&LdrpInvertedFunctionTableSRWLock);
+  RtlReleaseSRWLockExclusive(&LdrpInvertedFunctionTableSRWLock);
 }

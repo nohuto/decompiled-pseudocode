@@ -1,9 +1,9 @@
 /*
- * XREFs of CmRegisterSystemHiveLimitCallback @ 0x140580E6C
+ * XREFs of CmRegisterSystemHiveLimitCallback @ 0x140581318
  * Callers:
  *     IopInitializePlugPlayServices @ 0x14079CCD4 (IopInitializePlugPlayServices.c)
  * Callees:
- *     CmpDoQueueSystemHiveHysteresis @ 0x1405FC398 (CmpDoQueueSystemHiveHysteresis.c)
+ *     CmpDoQueueSystemHiveHysteresis @ 0x1405FC44C (CmpDoQueueSystemHiveHysteresis.c)
  */
 
 __int64 __fastcall CmRegisterSystemHiveLimitCallback(__int64 a1, __int64 a2, __int64 a3)

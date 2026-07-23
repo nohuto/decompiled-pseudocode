@@ -1,63 +1,40 @@
 /*
- * XREFs of RaiseException @ 0x1403D63E0
+ * XREFs of RaiseException @ 0x1403D6550
  * Callers:
- *     _raise_exc_ex @ 0x1403D64D0 (_raise_exc_ex.c)
+ *     _raise_exc_ex @ 0x1403D6640 (_raise_exc_ex.c)
  * Callees:
- *     RtlRaiseException @ 0x140274220 (RtlRaiseException.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     memmove @ 0x140413F40 (memmove.c)
- *     memset @ 0x140414200 (memset.c)
+ *     RtlRaiseException @ 0x1402621C0 (RtlRaiseException.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     memset @ 0x140414300 (memset.c)
  */
 
-__int64 __fastcall RaiseException(int a1, char a2, unsigned int a3, const void *a4)
+void __cdecl RaiseException(
+        DWORD dwExceptionCode,
+        DWORD dwExceptionFlags,
+        DWORD nNumberOfArguments,
+        const ULONG_PTR *lpArguments)
 {
-  __int64 v8; // rdx
-  __int64 v9; // r8
-  __int64 v10; // r9
-  __int128 v12; // [rsp+20h] [rbp-C8h] BYREF
-  void *v13; // [rsp+30h] [rbp-B8h]
-  __int64 v14[17]; // [rsp+38h] [rbp-B0h] BYREF
+  char v4; // di
+  EXCEPTION_RECORD ExceptionRecord; // [rsp+20h] [rbp-C8h] BYREF
 
-  memset((char *)v14 + 4, 0, 0x7CuLL);
-  HIDWORD(v12) = 0;
-  v13 = &RaiseException;
-  LODWORD(v12) = a1;
-  *(_QWORD *)((char *)&v12 + 4) = a2 & 1;
-  if ( a4 )
+  v4 = dwExceptionFlags;
+  memset(&ExceptionRecord.NumberParameters + 1, 0, 0x7CuLL);
+  HIDWORD(ExceptionRecord.ExceptionRecord) = 0;
+  ExceptionRecord.ExceptionAddress = RaiseException;
+  ExceptionRecord.ExceptionCode = dwExceptionCode;
+  *(_QWORD *)&ExceptionRecord.ExceptionFlags = v4 & 1;
+  if ( lpArguments )
   {
-    if ( a3 > 0xF )
-      a3 = 15;
-    LODWORD(v14[0]) = a3;
-    if ( a3 )
-      memmove(&v14[1], a4, 8LL * a3);
+    if ( nNumberOfArguments > 0xF )
+      nNumberOfArguments = 15;
+    ExceptionRecord.NumberParameters = nNumberOfArguments;
+    if ( nNumberOfArguments )
+      memmove(ExceptionRecord.ExceptionInformation, lpArguments, 8LL * nNumberOfArguments);
   }
   else
   {
-    LODWORD(v14[0]) = 0;
+    ExceptionRecord.NumberParameters = 0;
   }
-  return RtlRaiseException(
-           (__int64)&v12,
-           v8,
-           v9,
-           v10,
-           v12,
-           *((__int64 *)&v12 + 1),
-           (__int64)v13,
-           v14[0],
-           v14[1],
-           v14[2],
-           v14[3],
-           v14[4],
-           v14[5],
-           v14[6],
-           v14[7],
-           v14[8],
-           v14[9],
-           v14[10],
-           v14[11],
-           v14[12],
-           v14[13],
-           v14[14],
-           v14[15],
-           v14[16]);
+  RtlRaiseException(&ExceptionRecord);
 }

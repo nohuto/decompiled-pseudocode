@@ -1,12 +1,12 @@
 /*
- * XREFs of KiAcquireSecondaryInterruptConnectLock @ 0x14029336C
+ * XREFs of KiAcquireSecondaryInterruptConnectLock @ 0x14029355C
  * Callers:
- *     KiDisconnectInterruptCommon @ 0x14016D694 (KiDisconnectInterruptCommon.c)
- *     KiConnectSecondaryInterrupt @ 0x140293454 (KiConnectSecondaryInterrupt.c)
- *     KiDisconnectSecondaryInterrupt @ 0x1402935E4 (KiDisconnectSecondaryInterrupt.c)
- *     KiMaskSecondaryInterruptInternal @ 0x140293880 (KiMaskSecondaryInterruptInternal.c)
- *     KiUnmaskSecondaryInterruptInternal @ 0x140293AF8 (KiUnmaskSecondaryInterruptInternal.c)
- *     KiInterruptDispatchCommon @ 0x140299864 (KiInterruptDispatchCommon.c)
+ *     KiDisconnectInterruptCommon @ 0x14016D794 (KiDisconnectInterruptCommon.c)
+ *     KiConnectSecondaryInterrupt @ 0x140293644 (KiConnectSecondaryInterrupt.c)
+ *     KiDisconnectSecondaryInterrupt @ 0x1402937D4 (KiDisconnectSecondaryInterrupt.c)
+ *     KiMaskSecondaryInterruptInternal @ 0x140293A70 (KiMaskSecondaryInterruptInternal.c)
+ *     KiUnmaskSecondaryInterruptInternal @ 0x140293CE8 (KiUnmaskSecondaryInterruptInternal.c)
+ *     KiInterruptDispatchCommon @ 0x140299A54 (KiInterruptDispatchCommon.c)
  * Callees:
  *     KxAcquireSpinLock @ 0x140062A90 (KxAcquireSpinLock.c)
  */

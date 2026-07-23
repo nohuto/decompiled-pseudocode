@@ -1,12 +1,12 @@
 /*
  * XREFs of RtlUnicodeStringToInt64 @ 0x1409BA570
  * Callers:
- *     GetFlags @ 0x1409D094C (GetFlags.c)
+ *     sub_1409D094C @ 0x1409D094C (sub_1409D094C.c)
  * Callees:
  *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     wcstoxq @ 0x1403E3A4C (wcstoxq.c)
+ *     sub_1403E3A4C @ 0x1403E3A4C (sub_1403E3A4C.c)
  *     memmove @ 0x140435B40 (memmove.c)
- *     __report_rangecheckfailure @ 0x140502A3C (__report_rangecheckfailure.c)
+ *     sub_140502A3C @ 0x140502A3C (sub_140502A3C.c)
  */
 
 NTSTATUS __stdcall RtlUnicodeStringToInt64(PCUNICODE_STRING String, ULONG Base, PLONG64 Number, PWSTR *EndPointer)
@@ -35,11 +35,11 @@ NTSTATUS __stdcall RtlUnicodeStringToInt64(PCUNICODE_STRING String, ULONG Base, 
     v13 = v12;
     memmove(v17, Buffer, 2 * v12);
     if ( v13 >= 65 )
-      _report_rangecheckfailure();
+      sub_140502A3C();
     v17[v13] = 0;
   }
   v15 = 0;
-  *Number = wcstoxq(0LL, v11, &v16, Base, 0, &v15);
+  *Number = sub_1403E3A4C(0LL, v11, &v16, Base, 0, &v15);
   if ( EndPointer )
     *EndPointer = &String->Buffer[v16 - v11];
   return v15 != 0 ? 0xC0000095 : 0;

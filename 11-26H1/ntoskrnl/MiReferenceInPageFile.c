@@ -1,10 +1,10 @@
 /*
- * XREFs of MiReferenceInPageFile @ 0x14038D284
+ * XREFs of MiReferenceInPageFile @ 0x14038F034
  * Callers:
- *     MiPfExecuteReadList @ 0x140A51868 (MiPfExecuteReadList.c)
+ *     MiPfExecuteReadList @ 0x140A5AB58 (MiPfExecuteReadList.c)
  * Callees:
- *     MiComputeImagePteIndex @ 0x14038CEF4 (MiComputeImagePteIndex.c)
- *     MiReferenceControlAreaFileWithTag @ 0x14038ED10 (MiReferenceControlAreaFileWithTag.c)
+ *     MiComputeImagePteIndex @ 0x14038ECA0 (MiComputeImagePteIndex.c)
+ *     MiReferenceControlAreaFileWithTag @ 0x140390AC0 (MiReferenceControlAreaFileWithTag.c)
  */
 
 __int64 __fastcall MiReferenceInPageFile(__int64 a1, __int64 a2, __int64 a3)

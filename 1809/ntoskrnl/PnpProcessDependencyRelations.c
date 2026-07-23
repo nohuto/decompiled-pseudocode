@@ -1,15 +1,15 @@
 /*
- * XREFs of PnpProcessDependencyRelations @ 0x1406EC890
+ * XREFs of PnpProcessDependencyRelations @ 0x1406EDB30
  * Callers:
- *     PnpProcessRelation @ 0x1406EC68C (PnpProcessRelation.c)
+ *     PnpProcessRelation @ 0x1406ED92C (PnpProcessRelation.c)
  * Callees:
  *     PipIsDevNodeDNStarted @ 0x140007294 (PipIsDevNodeDNStarted.c)
  *     ExReleaseResourceLite @ 0x14004F590 (ExReleaseResourceLite.c)
- *     PpDevNodeUnlockTree @ 0x14059BEB4 (PpDevNodeUnlockTree.c)
- *     PnpAcquireDependencyRelationsLock @ 0x14059D8F4 (PnpAcquireDependencyRelationsLock.c)
- *     PiGetDependentList @ 0x1406EB624 (PiGetDependentList.c)
- *     PnpProcessRelation @ 0x1406EC68C (PnpProcessRelation.c)
- *     PiEnumerateDependentListEntry @ 0x140823B18 (PiEnumerateDependentListEntry.c)
+ *     PpDevNodeUnlockTree @ 0x14059CEB4 (PpDevNodeUnlockTree.c)
+ *     PnpAcquireDependencyRelationsLock @ 0x14059E8F4 (PnpAcquireDependencyRelationsLock.c)
+ *     PiGetDependentList @ 0x1406EC8C4 (PiGetDependentList.c)
+ *     PnpProcessRelation @ 0x1406ED92C (PnpProcessRelation.c)
+ *     PiEnumerateDependentListEntry @ 0x140824D18 (PiEnumerateDependentListEntry.c)
  */
 
 __int64 __fastcall PnpProcessDependencyRelations(

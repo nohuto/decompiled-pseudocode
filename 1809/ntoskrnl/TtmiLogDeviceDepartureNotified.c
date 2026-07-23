@@ -1,12 +1,12 @@
 /*
- * XREFs of TtmiLogDeviceDepartureNotified @ 0x140883430
+ * XREFs of TtmiLogDeviceDepartureNotified @ 0x140884690
  * Callers:
- *     TtmNotifyDeviceDeparture @ 0x14087D2C0 (TtmNotifyDeviceDeparture.c)
+ *     TtmNotifyDeviceDeparture @ 0x14087E520 (TtmNotifyDeviceDeparture.c)
  * Callees:
  *     PsGetProcessSessionIdEx @ 0x140003190 (PsGetProcessSessionIdEx.c)
  *     _TlgKeywordOn @ 0x140012A04 (_TlgKeywordOn.c)
  *     _TlgWrite @ 0x140012EE4 (_TlgWrite.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
  */
 
 char __fastcall TtmiLogDeviceDepartureNotified(int a1, __int64 a2, char a3)
@@ -33,9 +33,9 @@ char __fastcall TtmiLogDeviceDepartureNotified(int a1, __int64 a2, char a3)
   _UNKNOWN *retaddr; // [rsp+D0h] [rbp+5Fh] BYREF
 
   v3 = &retaddr;
-  if ( stru_14096D820.LevelPlus1 > 5 )
+  if ( stru_14096E820.LevelPlus1 > 5 )
   {
-    LOBYTE(v3) = TlgKeywordOn(&stru_14096D820, 1uLL);
+    LOBYTE(v3) = TlgKeywordOn(&stru_14096E820, 1uLL);
     if ( (_BYTE)v3 )
     {
       ProcessSessionId = PsGetProcessSessionIdEx((__int64)KeGetCurrentThread()->ApcState.Process);
@@ -55,7 +55,7 @@ char __fastcall TtmiLogDeviceDepartureNotified(int a1, __int64 a2, char a3)
       v18 = 4;
       v21 = 8;
       v24 = 1;
-      LOBYTE(v3) = TlgWrite(&stru_14096D820, &unk_1403727C5, 0LL, 0LL, 6u, &pData);
+      LOBYTE(v3) = TlgWrite(&stru_14096E820, &unk_140373750, 0LL, 0LL, 6u, &pData);
     }
   }
   return (char)v3;

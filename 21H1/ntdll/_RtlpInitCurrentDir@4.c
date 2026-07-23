@@ -13,11 +13,11 @@ int __thiscall RtlpInitCurrentDir(void *this)
   int v2; // eax
   int v3; // eax
   int result; // eax
-  int v5; // ecx
+  _DWORD *v5; // ecx
   int v6; // eax
   int v7; // eax
   int v8; // eax
-  int v9; // [esp+8h] [ebp-4h] BYREF
+  _DWORD *v9; // [esp+8h] [ebp-4h] BYREF
 
   ProcessParameters = NtCurrentPeb()->ProcessParameters;
   v2 = RtlDetermineDosPathNameType_Ustr(this) - 1;
@@ -42,9 +42,9 @@ int __thiscall RtlpInitCurrentDir(void *this)
   {
     v5 = v9;
     RtlpCurDirRef = v9;
-    ProcessParameters->CurrentDirectory.Handle = *(void **)(v9 + 4);
-    ProcessParameters->CurrentDirectory.DosPath.Buffer = *(wchar_t **)(v5 + 16);
-    ProcessParameters->CurrentDirectory.DosPath.Length = *(_WORD *)(v5 + 12);
+    ProcessParameters->CurrentDirectory.Handle = (void *)v9[1];
+    ProcessParameters->CurrentDirectory.DosPath.Buffer = (wchar_t *)v5[4];
+    ProcessParameters->CurrentDirectory.DosPath.Length = *((_WORD *)v5 + 6);
     return 0;
   }
   return result;

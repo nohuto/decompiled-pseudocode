@@ -1,10 +1,10 @@
 /*
- * XREFs of KiComputeDispatchInterruptCostDpcRoutine @ 0x1405B6760
+ * XREFs of KiComputeDispatchInterruptCostDpcRoutine @ 0x1405B3A20
  * Callers:
  *     <none>
  * Callees:
- *     KeSetEvent @ 0x1402725A0 (KeSetEvent.c)
- *     KeQueryPerformanceCounter @ 0x14034FA10 (KeQueryPerformanceCounter.c)
+ *     KeSetEvent @ 0x140227B30 (KeSetEvent.c)
+ *     KeQueryPerformanceCounter @ 0x14036DEF0 (KeQueryPerformanceCounter.c)
  */
 
 LONG __fastcall KiComputeDispatchInterruptCostDpcRoutine(__int64 a1, __int64 a2)

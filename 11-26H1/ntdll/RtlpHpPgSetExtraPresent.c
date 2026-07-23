@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlpHpPgSetExtraPresent @ 0x1800E1F84
+ * XREFs of RtlpHpPgSetExtraPresent @ 0x1800DF824
  * Callers:
- *     RtlpHpExtrasAppend @ 0x18001A390 (RtlpHpExtrasAppend.c)
- *     RtlpHpExtrasSetPresent @ 0x18001A610 (RtlpHpExtrasSetPresent.c)
+ *     RtlpHpExtrasAppend @ 0x180005470 (RtlpHpExtrasAppend.c)
+ *     RtlpHpExtrasSetPresent @ 0x1800056F0 (RtlpHpExtrasSetPresent.c)
  * Callees:
- *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x180170020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
+ *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x18016F020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
  */
 
 __int64 __fastcall RtlpHpPgSetExtraPresent(unsigned __int64 a1, __int64 a2)

@@ -1,11 +1,11 @@
 /*
- * XREFs of MiMarkPxeAsShadowed @ 0x1403765A4
+ * XREFs of MiMarkPxeAsShadowed @ 0x140376744
  * Callers:
- *     MiInitializeShadowPageTable @ 0x14081DF00 (MiInitializeShadowPageTable.c)
+ *     MiInitializeShadowPageTable @ 0x14081E1D0 (MiInitializeShadowPageTable.c)
  * Callees:
- *     KxReleaseQueuedSpinLock @ 0x140260360 (KxReleaseQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140260E60 (KeAcquireInStackQueuedSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseQueuedSpinLock @ 0x1402605F0 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402610F0 (KeAcquireInStackQueuedSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiMarkPxeAsShadowed(unsigned int a1)
@@ -24,10 +24,10 @@ __int64 __fastcall MiMarkPxeAsShadowed(unsigned int a1)
   *((_BYTE *)qword_140C66F84 + ((unsigned __int64)v1 >> 3)) |= 1 << (v1 & 7);
   result = KxReleaseQueuedSpinLock((volatile signed __int64 **)&v7);
   OldIrql = v7.OldIrql;
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     result = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
       && (unsigned __int8)result <= 0xFu
       && v7.OldIrql <= 0xFu
       && (unsigned __int8)result >= 2u )

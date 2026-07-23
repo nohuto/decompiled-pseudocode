@@ -1,7 +1,7 @@
 /*
- * XREFs of CcHasGlobalTelemetryChanged @ 0x1403D10B4
+ * XREFs of CcHasGlobalTelemetryChanged @ 0x1403D1294
  * Callers:
- *     CcTelemetryPeriodicTimerCallback @ 0x140880BC0 (CcTelemetryPeriodicTimerCallback.c)
+ *     CcTelemetryPeriodicTimerCallback @ 0x140880E00 (CcTelemetryPeriodicTimerCallback.c)
  * Callees:
  *     <none>
  */

@@ -182,7 +182,7 @@ __int64 __fastcall PiDevCfgProcessDevice(__int64 a1, __int64 a2, char a3)
       {
         if ( v32[0] )
         {
-          inited = PiDevCfgConfigureDevice(a1, v46, v14, &v31, &v37);
+          inited = PiDevCfgConfigureDevice(a1, (unsigned int)v46, (__int64)&v37);
           if ( inited >= 0 )
           {
             v7 = v31;
@@ -293,7 +293,7 @@ LABEL_18:
     }
     if ( v8 )
     {
-      inited = PiDevCfgConfigureDevice(a1, v46, 0LL, &v31, &v37);
+      inited = PiDevCfgConfigureDevice(a1, (unsigned int)v46, (__int64)&v37);
       if ( inited >= 0 )
       {
         v7 = v31;

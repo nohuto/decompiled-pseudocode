@@ -1,14 +1,14 @@
 /*
- * XREFs of PpmParkApplyPolicy @ 0x140143E70
+ * XREFs of PpmParkApplyPolicy @ 0x1401443E0
  * Callers:
- *     PpmParkRegisterParking @ 0x140143818 (PpmParkRegisterParking.c)
- *     PpmParkSetLpiCap @ 0x14020E108 (PpmParkSetLpiCap.c)
- *     PpmRegisterPerfStates @ 0x140569588 (PpmRegisterPerfStates.c)
- *     PpmReapplyPerfPolicy @ 0x140569F90 (PpmReapplyPerfPolicy.c)
- *     PpmParkApplyForcedMask @ 0x14067662C (PpmParkApplyForcedMask.c)
- *     PpmParkClearForcedMask @ 0x1406766F4 (PpmParkClearForcedMask.c)
+ *     PpmParkRegisterParking @ 0x140143D88 (PpmParkRegisterParking.c)
+ *     PpmParkSetLpiCap @ 0x14020DF34 (PpmParkSetLpiCap.c)
+ *     PpmRegisterPerfStates @ 0x140569AC8 (PpmRegisterPerfStates.c)
+ *     PpmReapplyPerfPolicy @ 0x14056A4D0 (PpmReapplyPerfPolicy.c)
+ *     PpmParkApplyForcedMask @ 0x140676710 (PpmParkApplyForcedMask.c)
+ *     PpmParkClearForcedMask @ 0x1406767D8 (PpmParkClearForcedMask.c)
  * Callees:
- *     PpmEventParkNodeCapChange @ 0x14020C1E4 (PpmEventParkNodeCapChange.c)
+ *     PpmEventParkNodeCapChange @ 0x14020C010 (PpmEventParkNodeCapChange.c)
  */
 
 void __fastcall PpmParkApplyPolicy(__int64 a1, __int64 a2, __int64 a3, _BYTE *a4)
@@ -76,7 +76,7 @@ void __fastcall PpmParkApplyPolicy(__int64 a1, __int64 a2, __int64 a3, _BYTE *a4
   if ( PpmParkNodes )
   {
     v5 = 64;
-    v6 = 174LL * dword_140303E0C;
+    v6 = 174LL * dword_140303D4C;
     v60 = PpmCurrentProfile[v6 + 16];
     v59 = WORD1(PpmCurrentProfile[v6 + 16]);
     if ( (((unsigned __int64)qword_1402F87C8[(unsigned __int64)(unsigned int)KiProcessorIndexToNumberMappingTable[0] >> 6] >> (KiProcessorIndexToNumberMappingTable[0] & 0x3F)) & 1) == 0 )

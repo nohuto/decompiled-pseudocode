@@ -1,17 +1,17 @@
 /*
- * XREFs of PnprGetPluginDriverImagePath @ 0x140834BC4
+ * XREFs of PnprGetPluginDriverImagePath @ 0x140835E24
  * Callers:
- *     PnprLoadPluginDriver @ 0x1408352B8 (PnprLoadPluginDriver.c)
+ *     PnprLoadPluginDriver @ 0x140836518 (PnprLoadPluginDriver.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
- *     wcscpy_s @ 0x14019BCC0 (wcscpy_s.c)
- *     wcsncat_s @ 0x14019BD50 (wcsncat_s.c)
- *     ZwClose @ 0x1401B8370 (ZwClose.c)
- *     ZwOpenKey @ 0x1401B83D0 (ZwOpenKey.c)
- *     ZwQueryValueKey @ 0x1401B8470 (ZwQueryValueKey.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     _PnpCtxGetCachedContextBaseKey @ 0x1405C7C40 (_PnpCtxGetCachedContextBaseKey.c)
+ *     RtlInitUnicodeString @ 0x1400B99D0 (RtlInitUnicodeString.c)
+ *     wcscpy_s @ 0x14019BE00 (wcscpy_s.c)
+ *     wcsncat_s @ 0x14019BE90 (wcsncat_s.c)
+ *     ZwClose @ 0x1401B84D0 (ZwClose.c)
+ *     ZwOpenKey @ 0x1401B8530 (ZwOpenKey.c)
+ *     ZwQueryValueKey @ 0x1401B85D0 (ZwQueryValueKey.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     _PnpCtxGetCachedContextBaseKey @ 0x1405C8C40 (_PnpCtxGetCachedContextBaseKey.c)
  */
 
 __int64 __fastcall PnprGetPluginDriverImagePath(PUNICODE_STRING DestinationString)

@@ -1,10 +1,10 @@
 /*
- * XREFs of PopPepDeviceWaitWake @ 0x140574570
+ * XREFs of PopPepDeviceWaitWake @ 0x1405747B0
  * Callers:
- *     PopRequestPowerIrp @ 0x14036DD20 (PopRequestPowerIrp.c)
- *     PopRequestCompletion @ 0x14037A900 (PopRequestCompletion.c)
+ *     PopRequestPowerIrp @ 0x14036DED0 (PopRequestPowerIrp.c)
+ *     PopRequestCompletion @ 0x14037A450 (PopRequestCompletion.c)
  * Callees:
- *     PopPepUpdateConstraints @ 0x1403A056C (PopPepUpdateConstraints.c)
+ *     PopPepUpdateConstraints @ 0x1403A06BC (PopPepUpdateConstraints.c)
  */
 
 int __fastcall PopPepDeviceWaitWake(__int64 a1, char a2)

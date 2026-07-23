@@ -1,12 +1,12 @@
 /*
- * XREFs of VfPnpTestStartedPdoStack @ 0x140AE6E20
+ * XREFs of VfPnpTestStartedPdoStack @ 0x140AE6E10
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     memset @ 0x140435A00 (memset.c)
+ *     ObfDereferenceObject @ 0x140231660 (ObfDereferenceObject.c)
+ *     memset @ 0x140435E00 (memset.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
- *     VfIrpSendSynchronousIrp @ 0x140ACDAD8 (VfIrpSendSynchronousIrp.c)
+ *     VfIrpSendSynchronousIrp @ 0x140ACDAC8 (VfIrpSendSynchronousIrp.c)
  */
 
 __int64 __fastcall VfPnpTestStartedPdoStack(struct _DEVICE_OBJECT *a1)

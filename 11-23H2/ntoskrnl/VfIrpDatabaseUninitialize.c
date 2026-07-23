@@ -1,8 +1,8 @@
 /*
- * XREFs of VfIrpDatabaseUninitialize @ 0x140AE1AB4
+ * XREFs of VfIrpDatabaseUninitialize @ 0x140AE1AA4
  * Callers:
- *     ViIovPluginUnload @ 0x1405D1EE0 (ViIovPluginUnload.c)
- *     VfPacketFree @ 0x140ADD134 (VfPacketFree.c)
+ *     ViIovPluginUnload @ 0x1405D2450 (ViIovPluginUnload.c)
+ *     VfPacketFree @ 0x140ADD124 (VfPacketFree.c)
  * Callees:
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */

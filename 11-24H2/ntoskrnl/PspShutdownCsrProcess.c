@@ -1,32 +1,34 @@
 /*
- * XREFs of PspShutdownCsrProcess @ 0x140772FB4
+ * XREFs of PspShutdownCsrProcess @ 0x1407731D4
  * Callers:
- *     PspTerminateSiloSubsystemProcesses @ 0x1407736B8 (PspTerminateSiloSubsystemProcesses.c)
+ *     PspTerminateSiloSubsystemProcesses @ 0x1407738D8 (PspTerminateSiloSubsystemProcesses.c)
  * Callees:
- *     KeStackAttachProcess @ 0x1402473F0 (KeStackAttachProcess.c)
- *     KiUnstackDetachProcess @ 0x140321EC0 (KiUnstackDetachProcess.c)
- *     KeWaitForSingleObject @ 0x14033E960 (KeWaitForSingleObject.c)
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     PsAttachSiloToCurrentThread @ 0x14043CF50 (PsAttachSiloToCurrentThread.c)
- *     PsDetachSiloFromCurrentThread @ 0x140444750 (PsDetachSiloFromCurrentThread.c)
- *     RtlStringCchPrintfW @ 0x140476998 (RtlStringCchPrintfW.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ZwWaitForSingleObject @ 0x1406A6490 (ZwWaitForSingleObject.c)
- *     ZwSetEvent @ 0x1406A65D0 (ZwSetEvent.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     ZwOpenEvent @ 0x1406A6C10 (ZwOpenEvent.c)
- *     ZwCreateEvent @ 0x1406A6D10 (ZwCreateEvent.c)
- *     PsTerminateProcess @ 0x140938BD4 (PsTerminateProcess.c)
- *     PsInvokeWin32Callout @ 0x1409BADD0 (PsInvokeWin32Callout.c)
+ *     KiUnstackDetachProcess @ 0x1402CAA50 (KiUnstackDetachProcess.c)
+ *     KeStackAttachProcess @ 0x1402E1C90 (KeStackAttachProcess.c)
+ *     KeWaitForSingleObject @ 0x14031DE40 (KeWaitForSingleObject.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     PsAttachSiloToCurrentThread @ 0x14042FBB0 (PsAttachSiloToCurrentThread.c)
+ *     PsDetachSiloFromCurrentThread @ 0x14043A1F0 (PsDetachSiloFromCurrentThread.c)
+ *     RtlStringCchPrintfW @ 0x140472F38 (RtlStringCchPrintfW.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ZwWaitForSingleObject @ 0x1406A7430 (ZwWaitForSingleObject.c)
+ *     ZwSetEvent @ 0x1406A7570 (ZwSetEvent.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     ZwOpenEvent @ 0x1406A7BB0 (ZwOpenEvent.c)
+ *     ZwCreateEvent @ 0x1406A7CB0 (ZwCreateEvent.c)
+ *     PsTerminateProcess @ 0x1408F32A4 (PsTerminateProcess.c)
+ *     PsInvokeWin32Callout @ 0x1409A1420 (PsInvokeWin32Callout.c)
  */
 
 NTSTATUS __fastcall PspShutdownCsrProcess(struct _LIST_ENTRY *a1, unsigned int a2, struct _KPROCESS *a3)
 {
   struct _LIST_ENTRY *v4; // rdi
   int v5; // edi
-  HANDLE v6; // rcx
+  __int64 v6; // r8
+  __int64 v7; // r9
+  HANDLE v8; // rcx
   NTSTATUS result; // eax
-  unsigned int v8; // [rsp+30h] [rbp-D0h] BYREF
+  unsigned int v10; // [rsp+30h] [rbp-D0h] BYREF
   HANDLE Handle; // [rsp+38h] [rbp-C8h] BYREF
   HANDLE EventHandle; // [rsp+40h] [rbp-C0h] BYREF
   UNICODE_STRING DestinationString; // [rsp+48h] [rbp-B8h] BYREF
@@ -38,11 +40,11 @@ NTSTATUS __fastcall PspShutdownCsrProcess(struct _LIST_ENTRY *a1, unsigned int a
   *(&ObjectAttributes.Attributes + 1) = 0;
   EventHandle = 0LL;
   *(&ObjectAttributes.Length + 1) = 0;
-  v8 = a2;
+  v10 = a2;
   memset(&ApcState, 0, sizeof(ApcState));
   DestinationString = 0LL;
   v4 = PsAttachSiloToCurrentThread(a1);
-  RtlStringCchPrintfW(pszDest, 0x78uLL, L"\\Sessions\\%d\\BaseNamedObjects\\EventShutdownCSRSS", v8);
+  RtlStringCchPrintfW(pszDest, 0x78uLL, L"\\Sessions\\%d\\BaseNamedObjects\\EventShutdownCSRSS", v10);
   RtlInitUnicodeString(&DestinationString, pszDest);
   ObjectAttributes.RootDirectory = 0LL;
   ObjectAttributes.ObjectName = &DestinationString;
@@ -50,7 +52,7 @@ NTSTATUS __fastcall PspShutdownCsrProcess(struct _LIST_ENTRY *a1, unsigned int a
   ObjectAttributes.Attributes = 576;
   *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
   ZwOpenEvent(&EventHandle, 0x1F0003u, &ObjectAttributes);
-  RtlStringCchPrintfW(pszDest, 0x78uLL, L"\\Sessions\\%d\\BaseNamedObjects\\EventRitExited", v8);
+  RtlStringCchPrintfW(pszDest, 0x78uLL, L"\\Sessions\\%d\\BaseNamedObjects\\EventRitExited", v10);
   RtlInitUnicodeString(&DestinationString, pszDest);
   ObjectAttributes.RootDirectory = 0LL;
   ObjectAttributes.ObjectName = &DestinationString;
@@ -61,23 +63,23 @@ NTSTATUS __fastcall PspShutdownCsrProcess(struct _LIST_ENTRY *a1, unsigned int a
     Handle = 0LL;
   PsDetachSiloFromCurrentThread(v4);
   KeStackAttachProcess(a3, &ApcState);
-  v5 = PsInvokeWin32Callout(31LL, 0LL, 1LL, &v8);
-  KiUnstackDetachProcess((__int64)&ApcState, 0);
+  v5 = PsInvokeWin32Callout(31LL, 0LL, 1LL, &v10);
+  KiUnstackDetachProcess((__int64)&ApcState, 0, v6, v7);
   if ( EventHandle )
   {
     ZwSetEvent(EventHandle, 0LL);
     ZwClose(EventHandle);
     EventHandle = 0LL;
   }
-  v6 = Handle;
+  v8 = Handle;
   if ( Handle )
   {
     if ( v5 >= 0 )
     {
       ZwWaitForSingleObject(Handle, 0, 0LL);
-      v6 = Handle;
+      v8 = Handle;
     }
-    ZwClose(v6);
+    ZwClose(v8);
     Handle = 0LL;
   }
   result = PsTerminateProcess(a3, 3221226219LL);

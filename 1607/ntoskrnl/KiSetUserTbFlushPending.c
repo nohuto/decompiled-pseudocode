@@ -1,10 +1,10 @@
 /*
- * XREFs of KiSetUserTbFlushPending @ 0x14015E8F0
+ * XREFs of KiSetUserTbFlushPending @ 0x14015EE60
  * Callers:
- *     KiIpiProcessRequests @ 0x1400898A0 (KiIpiProcessRequests.c)
- *     KiFlushCurrentTbWorker @ 0x14009E608 (KiFlushCurrentTbWorker.c)
- *     PpmIdleExecuteTransition @ 0x1400DA540 (PpmIdleExecuteTransition.c)
- *     KeFlushCurrentTbOnly @ 0x1401D60C4 (KeFlushCurrentTbOnly.c)
+ *     KiIpiProcessRequests @ 0x140088FA0 (KiIpiProcessRequests.c)
+ *     KiFlushCurrentTbWorker @ 0x14009DFB4 (KiFlushCurrentTbWorker.c)
+ *     PpmIdleExecuteTransition @ 0x1400D83E0 (PpmIdleExecuteTransition.c)
+ *     KeFlushCurrentTbOnly @ 0x1401D5EF0 (KeFlushCurrentTbOnly.c)
  *     KiInitializeKernel @ 0x1403D3DE0 (KiInitializeKernel.c)
  *     KeWriteProtectPAT @ 0x1403DDC44 (KeWriteProtectPAT.c)
  * Callees:

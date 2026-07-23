@@ -8,7 +8,7 @@
  *     ExFreePoolWithTag @ 0x1402EA410 (ExFreePoolWithTag.c)
  */
 
-void __fastcall MiStoreFreeWriteSupport(PSLIST_ENTRY ListEntry, union _SLIST_HEADER *a2)
+void __fastcall MiStoreFreeWriteSupport(PSLIST_ENTRY ListEntry, _SLIST_HEADER *a2)
 {
   if ( LOWORD(a2[76].Alignment) >= 0x100u )
     ExFreePoolWithTag(ListEntry, 0);

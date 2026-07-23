@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlpHpMetadataFree @ 0x1402A5660
+ * XREFs of RtlpHpMetadataFree @ 0x140222AA0
  * Callers:
- *     RtlpHpLargeFree @ 0x1402A54E8 (RtlpHpLargeFree.c)
- *     RtlpHpLargeAlloc @ 0x1402A56A0 (RtlpHpLargeAlloc.c)
- *     RtlpHpHeapDestroy @ 0x1403898BC (RtlpHpHeapDestroy.c)
- *     RtlpHpLargeAllocationDestroy @ 0x1405955F0 (RtlpHpLargeAllocationDestroy.c)
+ *     RtlpHpLargeFree @ 0x140222928 (RtlpHpLargeFree.c)
+ *     RtlpHpLargeAlloc @ 0x140222AE0 (RtlpHpLargeAlloc.c)
+ *     RtlpHpHeapDestroy @ 0x140389A0C (RtlpHpHeapDestroy.c)
+ *     RtlpHpLargeAllocationDestroy @ 0x140595820 (RtlpHpLargeAllocationDestroy.c)
  * Callees:
- *     RtlpHpMetadataHeapCtxGet @ 0x1402A5E50 (RtlpHpMetadataHeapCtxGet.c)
- *     RtlpHpFreeHeap @ 0x140342100 (RtlpHpFreeHeap.c)
+ *     RtlpHpMetadataHeapCtxGet @ 0x140223290 (RtlpHpMetadataHeapCtxGet.c)
+ *     RtlpHpFreeHeap @ 0x14034CE50 (RtlpHpFreeHeap.c)
  */
 
 __int64 __fastcall RtlpHpMetadataFree(__int64 a1, __int128 *a2)

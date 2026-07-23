@@ -1,57 +1,57 @@
 /*
- * XREFs of NtInitializeRegistry @ 0x14084EE60
+ * XREFs of NtInitializeRegistry @ 0x140855170
  * Callers:
  *     <none>
  * Callees:
- *     CmpInitializeThreadInfo @ 0x14043CF00 (CmpInitializeThreadInfo.c)
- *     CmCleanupThreadInfo @ 0x14044C0A0 (CmCleanupThreadInfo.c)
- *     ZwInitializeRegistry @ 0x140725510 (ZwInitializeRegistry.c)
- *     CmCompleteRegistryInitialization @ 0x14084E49C (CmCompleteRegistryInitialization.c)
- *     CmpAcceptBoot @ 0x14084E81C (CmpAcceptBoot.c)
- *     CmpSyncNextBackupHive @ 0x14085A968 (CmpSyncNextBackupHive.c)
- *     SeSinglePrivilegeCheck @ 0x140932280 (SeSinglePrivilegeCheck.c)
- *     CmpHandlePageFileOpenNotification @ 0x140B57D54 (CmpHandlePageFileOpenNotification.c)
+ *     CmpInitializeThreadInfo @ 0x14042F7B0 (CmpInitializeThreadInfo.c)
+ *     CmCleanupThreadInfo @ 0x1404441C0 (CmCleanupThreadInfo.c)
+ *     ZwInitializeRegistry @ 0x14072A0E0 (ZwInitializeRegistry.c)
+ *     CmCompleteRegistryInitialization @ 0x1408547AC (CmCompleteRegistryInitialization.c)
+ *     CmpAcceptBoot @ 0x140854B2C (CmpAcceptBoot.c)
+ *     CmpSyncNextBackupHive @ 0x140860C5C (CmpSyncNextBackupHive.c)
+ *     SeSinglePrivilegeCheck @ 0x14090DE50 (SeSinglePrivilegeCheck.c)
+ *     CmpHandlePageFileOpenNotification @ 0x140B5F650 (CmpHandlePageFileOpenNotification.c)
  */
 
-__int64 NtInitializeRegistry()
+NTSTATUS __cdecl NtInitializeRegistry(USHORT BootCondition)
 {
-  unsigned __int16 v0; // r10
-  __int64 v1; // rdx
-  unsigned int v2; // r8d
-  __int128 v4; // [rsp+20h] [rbp-28h] BYREF
-  __int64 v5; // [rsp+30h] [rbp-18h]
+  unsigned __int16 v1; // r10
+  KPROCESSOR_MODE PreviousMode; // dl
+  NTSTATUS v3; // r8d
+  __int128 v5; // [rsp+20h] [rbp-28h] BYREF
+  __int64 v6; // [rsp+30h] [rbp-18h]
 
+  v6 = 0LL;
   v5 = 0LL;
-  v4 = 0LL;
-  CmpInitializeThreadInfo((_KAFFINITY_EX *)&v4);
-  LOBYTE(v1) = KeGetCurrentThread()->PreviousMode;
-  if ( (_BYTE)v1 )
+  CmpInitializeThreadInfo((_KAFFINITY_EX *)&v5);
+  PreviousMode = KeGetCurrentThread()->PreviousMode;
+  if ( PreviousMode )
   {
-    if ( v0 == 5096 )
+    if ( v1 == 5096 )
     {
-      if ( SeSinglePrivilegeCheck(SeBackupPrivilege, v1) )
+      if ( SeSinglePrivilegeCheck(SeBackupPrivilege, PreviousMode) )
         CmpSyncNextBackupHive();
     }
     else
     {
-      ZwInitializeRegistry(v0, v1);
+      ZwInitializeRegistry(v1);
     }
   }
-  else if ( (unsigned __int16)(v0 - 4096) > 0x3E7u )
+  else if ( (unsigned __int16)(v1 - 4096) > 0x3E7u )
   {
-    if ( v0 == 2 )
+    if ( v1 == 2 )
     {
       CmpHandlePageFileOpenNotification();
     }
-    else if ( v0 < 2u )
+    else if ( v1 < 2u )
     {
-      CmCompleteRegistryInitialization(v0);
+      CmCompleteRegistryInitialization(v1);
     }
   }
   else
   {
-    CmpAcceptBoot(v0);
+    CmpAcceptBoot(v1);
   }
-  CmCleanupThreadInfo((_KAFFINITY_EX **)&v4);
-  return v2;
+  CmCleanupThreadInfo((_KAFFINITY_EX **)&v5);
+  return v3;
 }

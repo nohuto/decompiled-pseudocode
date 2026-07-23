@@ -9,50 +9,55 @@
  *     memmove @ 0x1800AAB40 (memmove.c)
  */
 
-__int64 __fastcall RtlQueryRegistryValueWithFallback(
-        __int64 a1,
-        __int64 a2,
-        __int64 a3,
-        unsigned int a4,
-        _DWORD *a5,
-        void *a6,
-        _DWORD *a7)
+NTSTATUS __cdecl RtlQueryRegistryValueWithFallback(
+        HANDLE PrimaryHandle,
+        HANDLE FallbackHandle,
+        PUNICODE_STRING ValueName,
+        ULONG ValueLength,
+        PULONG ValueType,
+        PVOID ValueData,
+        PULONG ResultLength)
 {
-  _DWORD *Heap; // rdi
-  int ValueKey; // ebx
+  ULONG Length; // esi
+  ULONG *Heap; // rdi
+  int v14; // ebx
+  ULONG v15; // [rsp+60h] [rbp+8h] BYREF
 
-  if ( !a1 && !a2 )
-    return 3221225485LL;
-  if ( a4 >= 0xFFFFFFF0 )
-    return (unsigned int)-1073741675;
-  Heap = (_DWORD *)RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, a4 + 16);
+  if ( __PAIR128__((unsigned __int64)PrimaryHandle, (unsigned __int64)FallbackHandle) == 0 )
+    return -1073741811;
+  Length = ValueLength + 16;
+  if ( ValueLength >= 0xFFFFFFF0 )
+    return -1073741675;
+  Heap = (ULONG *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, Length);
   if ( Heap )
   {
-    ValueKey = -1073741772;
-    if ( !a1 || (ValueKey = NtQueryValueKey(), ValueKey == -1073741772) )
+    v14 = -1073741772;
+    if ( !PrimaryHandle
+      || (v14 = NtQueryValueKey(PrimaryHandle, ValueName, KeyValuePartialInformation, Heap, Length, &v15),
+          v14 == -1073741772) )
     {
-      if ( !a2 )
+      if ( !FallbackHandle )
       {
-LABEL_20:
-        RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, (__int64)Heap);
-        return (unsigned int)ValueKey;
+LABEL_19:
+        RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, Heap);
+        return v14;
       }
-      ValueKey = NtQueryValueKey();
+      v14 = NtQueryValueKey(FallbackHandle, ValueName, KeyValuePartialInformation, Heap, Length, &v15);
     }
-    if ( (int)(ValueKey + 0x80000000) < 0 || ValueKey == -2147483643 )
+    if ( (int)(v14 + 0x80000000) < 0 || v14 == -2147483643 )
     {
-      if ( a5 )
-        *a5 = Heap[1];
-      if ( ValueKey >= 0 )
+      if ( ValueType )
+        *ValueType = Heap[1];
+      if ( v14 >= 0 )
       {
-        if ( a4 < Heap[2] )
-          ValueKey = -2147483643;
+        if ( ValueLength < Heap[2] )
+          v14 = -2147483643;
         else
-          memmove(a6, Heap + 3, (unsigned int)Heap[2]);
+          memmove(ValueData, Heap + 3, Heap[2]);
       }
-      *a7 = Heap[2];
+      *ResultLength = Heap[2];
     }
-    goto LABEL_20;
+    goto LABEL_19;
   }
-  return (unsigned int)-1073741801;
+  return -1073741801;
 }

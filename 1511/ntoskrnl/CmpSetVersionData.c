@@ -29,7 +29,7 @@ void CmpSetVersionData()
   HANDLE KeyHandle; // [rsp+48h] [rbp-C0h] BYREF
   UNICODE_STRING v8; // [rsp+50h] [rbp-B8h] BYREF
   int Data; // [rsp+60h] [rbp-A8h] BYREF
-  STRING SourceString; // [rsp+68h] [rbp-A0h] BYREF
+  _STRING SourceString; // [rsp+68h] [rbp-A0h] BYREF
   HANDLE Handle; // [rsp+78h] [rbp-90h] BYREF
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+80h] [rbp-88h] BYREF
   UNICODE_STRING DestinationString; // [rsp+B0h] [rbp-58h] BYREF

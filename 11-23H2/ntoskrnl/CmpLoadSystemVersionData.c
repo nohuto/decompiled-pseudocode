@@ -1,15 +1,15 @@
 /*
- * XREFs of CmpLoadSystemVersionData @ 0x14080D0B0
+ * XREFs of CmpLoadSystemVersionData @ 0x14080D380
  * Callers:
- *     CmpFinishSystemHivesLoad @ 0x14080AF10 (CmpFinishSystemHivesLoad.c)
+ *     CmpFinishSystemHivesLoad @ 0x14080B1E0 (CmpFinishSystemHivesLoad.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     ZwClose @ 0x14041AF40 (ZwClose.c)
- *     ZwOpenKey @ 0x14041AFA0 (ZwOpenKey.c)
- *     memset @ 0x140435A00 (memset.c)
- *     RtlCompareUnicodeString @ 0x1406DA140 (RtlCompareUnicodeString.c)
- *     CmpLoadLayerVersions @ 0x14080D2D8 (CmpLoadLayerVersions.c)
- *     CmpMergeVersionDescriptors @ 0x14080E89C (CmpMergeVersionDescriptors.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     ZwClose @ 0x14041B2D0 (ZwClose.c)
+ *     ZwOpenKey @ 0x14041B330 (ZwOpenKey.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     RtlCompareUnicodeString @ 0x1406DA170 (RtlCompareUnicodeString.c)
+ *     CmpLoadLayerVersions @ 0x14080D5A8 (CmpLoadLayerVersions.c)
+ *     CmpMergeVersionDescriptors @ 0x14080EB6C (CmpMergeVersionDescriptors.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

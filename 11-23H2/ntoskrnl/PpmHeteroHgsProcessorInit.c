@@ -1,14 +1,14 @@
 /*
- * XREFs of PpmHeteroHgsProcessorInit @ 0x1403813B0
+ * XREFs of PpmHeteroHgsProcessorInit @ 0x140381550
  * Callers:
- *     PpmCheckProcessorInit @ 0x140381380 (PpmCheckProcessorInit.c)
- *     PpmHeteroHgsBackupProcessorInit @ 0x14059E800 (PpmHeteroHgsBackupProcessorInit.c)
+ *     PpmCheckProcessorInit @ 0x140381520 (PpmCheckProcessorInit.c)
+ *     PpmHeteroHgsBackupProcessorInit @ 0x14059ECF0 (PpmHeteroHgsBackupProcessorInit.c)
  *     PoInitializePrcb @ 0x140A8C9B0 (PoInitializePrcb.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     PpmHeteroHgsProcessorThreadFeedbackInit @ 0x14059E81C (PpmHeteroHgsProcessorThreadFeedbackInit.c)
- *     PpmHeteroInitializeFeedbackClass @ 0x14059E8B0 (PpmHeteroInitializeFeedbackClass.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
+ *     PpmHeteroHgsProcessorThreadFeedbackInit @ 0x14059ED0C (PpmHeteroHgsProcessorThreadFeedbackInit.c)
+ *     PpmHeteroInitializeFeedbackClass @ 0x14059EDA0 (PpmHeteroInitializeFeedbackClass.c)
  */
 
 void __fastcall PpmHeteroHgsProcessorInit(__int64 a1, char a2, __int64 a3)

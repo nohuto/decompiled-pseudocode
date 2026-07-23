@@ -158,7 +158,7 @@ LABEL_23:
                      ulAddend[1],
                      (_DWORD *)v26,
                      v17,
-                     (_QWORD *)v21,
+                     (PSID *)v21,
                      ulAddend[0],
                      &DmaAdapter);
         if ( inserted >= 0 )
@@ -169,7 +169,7 @@ LABEL_23:
             if ( (unsigned int)Feature_Servicing_HardenTokenPPLRestrictions__private_IsEnabled() )
               SepFinalizeTokenAcls(DmaAdapter);
             else
-              SepAppendAceToTokenObjectAcl((__int64)DmaAdapter, 8, SeAliasAdminsSid);
+              SepAppendAceToTokenObjectAcl((__int64)DmaAdapter, 8u, SeAliasAdminsSid);
             HalPutDmaAdapter(DmaAdapter);
           }
         }

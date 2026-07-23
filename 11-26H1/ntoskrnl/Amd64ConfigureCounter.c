@@ -1,9 +1,9 @@
 /*
- * XREFs of Amd64ConfigureCounter @ 0x1405A3640
+ * XREFs of Amd64ConfigureCounter @ 0x1405A5E50
  * Callers:
- *     Amd64DisableMonitoring @ 0x1405A39F0 (Amd64DisableMonitoring.c)
- *     Amd64EnableMonitoring @ 0x1405A3B40 (Amd64EnableMonitoring.c)
- *     Amd64RestartProfilingInternal @ 0x140BEFABC (Amd64RestartProfilingInternal.c)
+ *     Amd64DisableMonitoring @ 0x1405A6200 (Amd64DisableMonitoring.c)
+ *     Amd64EnableMonitoring @ 0x1405A6350 (Amd64EnableMonitoring.c)
+ *     Amd64RestartProfilingInternal @ 0x140BF5ABC (Amd64RestartProfilingInternal.c)
  * Callees:
  *     <none>
  */
@@ -81,7 +81,7 @@ unsigned __int64 __fastcall Amd64ConfigureCounter(unsigned int a1, int a2, char 
         v19 = 0xFFFFLL;
       else
         v19 = 0LL;
-      __writemsr(*((_DWORD *)&xmmword_140F875A0 + a1 + 1), v19);
+      __writemsr(*((_DWORD *)&xmmword_140F87980 + a1 + 1), v19);
       v20 = 0;
       if ( *(_DWORD *)v16 != 1 )
       {
@@ -90,7 +90,7 @@ unsigned __int64 __fastcall Amd64ConfigureCounter(unsigned int a1, int a2, char 
           if ( *(_DWORD *)v16 != 101 )
           {
 LABEL_30:
-            __writemsr(*((_DWORD *)&xmmword_140F87600 + v20 + a1 + 1), v18);
+            __writemsr(*((_DWORD *)&xmmword_140F879E0 + v20 + a1 + 1), v18);
             goto LABEL_38;
           }
           if ( *(_QWORD *)(KiProcessorBlock[(unsigned int)v7] + 88) == -48LL )
@@ -112,7 +112,7 @@ LABEL_30:
       v20 += v23;
       goto LABEL_30;
     }
-    __writemsr(*((_DWORD *)&xmmword_140F87600 + a1 + 1), 0LL);
+    __writemsr(*((_DWORD *)&xmmword_140F879E0 + a1 + 1), 0LL);
 LABEL_32:
     v24 = 0;
     if ( *(_DWORD *)v16 != 1 )
@@ -179,7 +179,7 @@ LABEL_38:
     v30 = 0;
   v27 += v30;
 LABEL_54:
-  __writemsr(*((_DWORD *)&xmmword_140F875A0 + v27 + a1), -v25);
+  __writemsr(*((_DWORD *)&xmmword_140F87980 + v27 + a1), -v25);
   v24 = 0;
   if ( *(_DWORD *)v16 != 1 )
   {
@@ -204,6 +204,6 @@ LABEL_54:
   v24 += v10;
 LABEL_77:
   result = v26;
-  __writemsr(*((_DWORD *)&xmmword_140F87600 + v24 + a1), v26);
+  __writemsr(*((_DWORD *)&xmmword_140F879E0 + v24 + a1), v26);
   return result;
 }

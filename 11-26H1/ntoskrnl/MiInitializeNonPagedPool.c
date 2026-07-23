@@ -1,17 +1,17 @@
 /*
- * XREFs of MiInitializeNonPagedPool @ 0x140CF9BA8
+ * XREFs of MiInitializeNonPagedPool @ 0x140CFFF28
  * Callers:
- *     MiInitNucleus @ 0x140CF2CBC (MiInitNucleus.c)
+ *     MiInitNucleus @ 0x140CF903C (MiInitNucleus.c)
  * Callees:
- *     MiConvertActiveLargePageToSmall @ 0x140206BB8 (MiConvertActiveLargePageToSmall.c)
- *     MI_IS_PHYSICAL_ADDRESS @ 0x14024C8D0 (MI_IS_PHYSICAL_ADDRESS.c)
- *     MiVaToPfnEx @ 0x14024DF10 (MiVaToPfnEx.c)
- *     MiGetAnyMultiplexedVm @ 0x140457870 (MiGetAnyMultiplexedVm.c)
- *     MiAddExpansionNonPagedPool @ 0x140520A60 (MiAddExpansionNonPagedPool.c)
- *     MiBuildDynamicRegion @ 0x1406F4FA0 (MiBuildDynamicRegion.c)
- *     MiInitializeNonPagedPoolThresholds @ 0x1406F5AF0 (MiInitializeNonPagedPoolThresholds.c)
- *     MiInitializeSystemWorkingSetList @ 0x1408676D4 (MiInitializeSystemWorkingSetList.c)
- *     MiInitializeDynamicRegion @ 0x140CF97C4 (MiInitializeDynamicRegion.c)
+ *     MiConvertActiveLargePageToSmall @ 0x140206C98 (MiConvertActiveLargePageToSmall.c)
+ *     MI_IS_PHYSICAL_ADDRESS @ 0x14024E230 (MI_IS_PHYSICAL_ADDRESS.c)
+ *     MiVaToPfnEx @ 0x14024F870 (MiVaToPfnEx.c)
+ *     MiGetAnyMultiplexedVm @ 0x14044F0E0 (MiGetAnyMultiplexedVm.c)
+ *     MiAddExpansionNonPagedPool @ 0x140523104 (MiAddExpansionNonPagedPool.c)
+ *     MiBuildDynamicRegion @ 0x1406F9C10 (MiBuildDynamicRegion.c)
+ *     MiInitializeNonPagedPoolThresholds @ 0x1406FA760 (MiInitializeNonPagedPoolThresholds.c)
+ *     MiInitializeSystemWorkingSetList @ 0x14086DAB4 (MiInitializeSystemWorkingSetList.c)
+ *     MiInitializeDynamicRegion @ 0x140CFFB44 (MiInitializeDynamicRegion.c)
  */
 
 __int64 MiInitializeNonPagedPool()
@@ -35,29 +35,29 @@ __int64 MiInitializeNonPagedPool()
   AnyMultiplexedVm = MiGetAnyMultiplexedVm(6);
   if ( (int)MiInitializeSystemWorkingSetList((__int64)&MiSystemPartition, (__int64)AnyMultiplexedVm, 7, 0LL) < 0 )
     return 0LL;
-  v1 = qword_140E37B98;
-  v2 = qword_140E37B90;
-  if ( (unsigned __int64)qword_140E37B98 > 0x100000000000LL )
+  v1 = qword_140E37D18;
+  v2 = qword_140E37D10;
+  if ( (unsigned __int64)qword_140E37D18 > 0x100000000000LL )
     v1 = 0x100000000000LL;
-  *(_QWORD *)&stru_140E36558.ApcStateFill[40] = v1 >> 12;
+  *(_QWORD *)&stru_140E366D8.ApcStateFill[40] = v1 >> 12;
   v3 = ((v1 >> 21) / (unsigned __int16)KeNumberNodes) << 21;
   for ( i = 0LL; ; i = (unsigned int)(i + 1) )
   {
     v5 = v2;
     if ( (unsigned int)i >= (unsigned __int16)KeNumberNodes )
       break;
-    v6 = qword_140E2D6B8;
+    v6 = qword_140E2D838;
     v7 = 384 * i;
-    *(_QWORD *)(v7 + qword_140E2D6B8 + 104) = v2;
+    *(_QWORD *)(v7 + qword_140E2D838 + 104) = v2;
     v2 += v3;
     *(_QWORD *)(v7 + v6 + 112) = v2;
-    if ( !(unsigned int)MiBuildDynamicRegion((struct _KTHREAD *)(384 * i + qword_140E2D6B8), v5, v3) )
+    if ( !(unsigned int)MiBuildDynamicRegion((struct _KTHREAD *)(384 * i + qword_140E2D838), v5, v3) )
       return 0LL;
   }
   if ( !(unsigned int)MiInitializeDynamicRegion(14) )
     return 0LL;
-  v8 = qword_140E2D710;
-  v9 = MI_IS_PHYSICAL_ADDRESS(qword_140E2D710 - 1);
+  v8 = qword_140E2D890;
+  v9 = MI_IS_PHYSICAL_ADDRESS(qword_140E2D890 - 1);
   if ( v9 )
   {
     LODWORD(v10) = 2;
@@ -77,10 +77,10 @@ __int64 MiInitializeNonPagedPool()
     }
   }
   MiInitializeNonPagedPoolThresholds(0);
-  stru_140E2C770.Parameter = 0LL;
-  qword_140E2C748 = (__int64)&unk_140EEFDA0;
+  stru_140E2C8F0.Parameter = 0LL;
+  qword_140E2C8C8 = (__int64)&unk_140EF0100;
   result = 1LL;
-  stru_140E2C770.List.Flink = 0LL;
-  stru_140E2C770.WorkerRoutine = (void (__fastcall *)(void *))MiLogNonStealNonPagedPoolWorker;
+  stru_140E2C8F0.List.Flink = 0LL;
+  stru_140E2C8F0.WorkerRoutine = (void (__fastcall *)(void *))MiLogNonStealNonPagedPoolWorker;
   return result;
 }

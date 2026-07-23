@@ -14,6 +14,7 @@ struct _PEB *__fastcall LdrpLogNewDllLoad(int a1, int a2)
   int v5; // esi
   struct _PEB *result; // eax
   char *v7; // eax
+  size_t v8; // [esp-8h] [ebp-18h]
 
   v3 = 2147353476;
   if ( RtlGetCurrentServiceSessionId() )
@@ -25,10 +26,7 @@ struct _PEB *__fastcall LdrpLogNewDllLoad(int a1, int a2)
   {
     v7 = RtlGetCurrentServiceSessionId() ? (char *)NtCurrentPeb()->SharedData + 555 : (char *)2147353477;
     if ( (*v7 & 0x10) != 0 )
-      return (struct _PEB *)LdrpLogNewDllLoadInternal(
-                              *(_DWORD *)(a2 + 148),
-                              *(unsigned __int16 *)(a2 + 36),
-                              *(void **)(a2 + 40));
+      goto LABEL_18;
   }
   result = (struct _PEB *)RtlGetCurrentServiceSessionId();
   if ( result )
@@ -48,10 +46,12 @@ struct _PEB *__fastcall LdrpLogNewDllLoad(int a1, int a2)
         v5 = (int)result->SharedData + 555;
       }
       if ( (*(_BYTE *)v5 & 0x20) != 0 )
-        return (struct _PEB *)LdrpLogNewDllLoadInternal(
-                                *(_DWORD *)(a2 + 148),
-                                *(unsigned __int16 *)(a2 + 36),
-                                *(void **)(a2 + 40));
+      {
+LABEL_18:
+        HIDWORD(v8) = *(_DWORD *)(a2 + 40);
+        LODWORD(v8) = *(unsigned __int16 *)(a2 + 36);
+        return (struct _PEB *)LdrpLogNewDllLoadInternal(*(_DWORD *)(a2 + 148), v8);
+      }
     }
   }
   return result;

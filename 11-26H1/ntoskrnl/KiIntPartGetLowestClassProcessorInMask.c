@@ -1,10 +1,10 @@
 /*
- * XREFs of KiIntPartGetLowestClassProcessorInMask @ 0x140255408
+ * XREFs of KiIntPartGetLowestClassProcessorInMask @ 0x140256D68
  * Callers:
- *     PpmParkSteerInterrupts @ 0x1402541D0 (PpmParkSteerInterrupts.c)
- *     KiIntSteerCalculateDistribution @ 0x140254FB0 (KiIntSteerCalculateDistribution.c)
- *     KiIntSteerChooseInitialTargetProcessors @ 0x14042508C (KiIntSteerChooseInitialTargetProcessors.c)
- *     KiIntSteerCalculateUniformDistribution @ 0x1404CABD8 (KiIntSteerCalculateUniformDistribution.c)
+ *     PpmParkSteerInterrupts @ 0x140255B30 (PpmParkSteerInterrupts.c)
+ *     KiIntSteerCalculateDistribution @ 0x140256910 (KiIntSteerCalculateDistribution.c)
+ *     KiIntSteerChooseInitialTargetProcessors @ 0x14043217C (KiIntSteerChooseInitialTargetProcessors.c)
+ *     KiIntSteerCalculateUniformDistribution @ 0x1404C4608 (KiIntSteerCalculateUniformDistribution.c)
  * Callees:
  *     <none>
  */
@@ -48,7 +48,7 @@ LABEL_10:
     _BitScanReverse64((unsigned __int64 *)&v5, v4);
   else
     _BitScanForward64((unsigned __int64 *)&v5, v4);
-  result = *((unsigned int *)&KiSupervisorXStateFeaturesLock.WaitBlock[2].Thread->Header.Lock
+  result = *((unsigned int *)&KiSupervisorXStateFeaturesLock.SchedulerApc.ApcListEntry.Flink->Flink
            + (unsigned int)(v5 + (v1 << 6)));
   if ( (_DWORD)result == -1 )
   {
@@ -56,7 +56,7 @@ LABEL_24:
     if ( *(_QWORD *)a1 )
     {
       _BitScanForward64((unsigned __int64 *)&a1, *(_QWORD *)a1);
-      return *((unsigned int *)&KiSupervisorXStateFeaturesLock.WaitBlock[2].Thread->Header.Lock
+      return *((unsigned int *)&KiSupervisorXStateFeaturesLock.SchedulerApc.ApcListEntry.Flink->Flink
              + (unsigned int)((v1 << 6) + a1));
     }
     else

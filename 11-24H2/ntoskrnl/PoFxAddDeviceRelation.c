@@ -1,17 +1,17 @@
 /*
- * XREFs of PoFxAddDeviceRelation @ 0x1405D0050
+ * XREFs of PoFxAddDeviceRelation @ 0x1405CD770
  * Callers:
  *     <none>
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x14028F370 (ExAcquireSpinLockExclusive.c)
- *     PopFxReferenceDevice @ 0x14029F788 (PopFxReferenceDevice.c)
- *     PopFxDereferenceDevice @ 0x140376880 (PopFxDereferenceDevice.c)
- *     ExReleaseSpinLockExclusive @ 0x140379ED0 (ExReleaseSpinLockExclusive.c)
- *     PopFxActivateComponent @ 0x1403B61EC (PopFxActivateComponent.c)
- *     PoFxIdleDevice @ 0x1403D76E4 (PoFxIdleDevice.c)
- *     PopFxActivateDevice @ 0x140496080 (PopFxActivateDevice.c)
- *     PopFxInsertDeviceRelation @ 0x1405D1540 (PopFxInsertDeviceRelation.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     ExAcquireSpinLockExclusive @ 0x14029EF70 (ExAcquireSpinLockExclusive.c)
+ *     PopFxActivateComponent @ 0x1402AE4EC (PopFxActivateComponent.c)
+ *     ExReleaseSpinLockExclusive @ 0x1402E6E40 (ExReleaseSpinLockExclusive.c)
+ *     PoFxIdleDevice @ 0x1402F11C4 (PoFxIdleDevice.c)
+ *     PopFxDereferenceDevice @ 0x1403A7F58 (PopFxDereferenceDevice.c)
+ *     PopFxReferenceDevice @ 0x1403AA248 (PopFxReferenceDevice.c)
+ *     PopFxActivateDevice @ 0x140490A10 (PopFxActivateDevice.c)
+ *     PopFxInsertDeviceRelation @ 0x1405CEC60 (PopFxInsertDeviceRelation.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall PoFxAddDeviceRelation(__int64 a1, __int64 a2, _QWORD *a3, unsigned int a4)
@@ -85,10 +85,10 @@ __int64 __fastcall PoFxAddDeviceRelation(__int64 a1, __int64 a2, _QWORD *a3, uns
       }
       else
       {
-        Pool2 = ExAllocatePool2(0x40uLL);
+        Pool2 = ExAllocatePool2(0x40uLL, 0x48uLL, 0x4D584650u);
         if ( Pool2 )
         {
-          PopFxActivateComponent(v11, (__int64)v16, 1);
+          PopFxActivateComponent(v11, (__int64)v16, 1LL, 0);
           PopFxActivateDevice(*(_QWORD *)(a1 + 96), 0, 0);
           PopFxInsertDeviceRelation(v16, a1, a4, Pool2);
           PoFxIdleDevice(*(_QWORD *)(a1 + 96));

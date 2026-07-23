@@ -1,11 +1,11 @@
 /*
- * XREFs of _PnpParseIndirectInfString @ 0x1406B109C
+ * XREFs of _PnpParseIndirectInfString @ 0x14061004C
  * Callers:
- *     _CmGetDeviceMappedPropertyFromRegProp @ 0x14063EDF8 (_CmGetDeviceMappedPropertyFromRegProp.c)
- *     _PnpRegQueryValueIndirect @ 0x140699930 (_PnpRegQueryValueIndirect.c)
- *     _CmGetInstallerClassMappedPropertyFromRegProp @ 0x14073F5AC (_CmGetInstallerClassMappedPropertyFromRegProp.c)
+ *     _PnpRegQueryValueIndirect @ 0x1405F8AF0 (_PnpRegQueryValueIndirect.c)
+ *     _CmGetDeviceMappedPropertyFromRegProp @ 0x140633C08 (_CmGetDeviceMappedPropertyFromRegProp.c)
+ *     _CmGetInstallerClassMappedPropertyFromRegProp @ 0x14073F76C (_CmGetInstallerClassMappedPropertyFromRegProp.c)
  * Callees:
- *     RtlUnalignedStringCchLengthW @ 0x1402659E4 (RtlUnalignedStringCchLengthW.c)
+ *     RtlUnalignedStringCchLengthW @ 0x140253984 (RtlUnalignedStringCchLengthW.c)
  */
 
 char __fastcall PnpParseIndirectInfString(const wchar_t *a1)

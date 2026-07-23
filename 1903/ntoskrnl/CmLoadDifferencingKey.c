@@ -97,7 +97,7 @@ __int64 __fastcall CmLoadDifferencingKey(
   PPRIVILEGE_SET Privileges; // [rsp+E8h] [rbp-290h]
   HANDLE Handle; // [rsp+F0h] [rbp-288h]
   _QWORD v53[2]; // [rsp+F8h] [rbp-280h] BYREF
-  struct _SLIST_ENTRY v54; // [rsp+108h] [rbp-270h] BYREF
+  _SLIST_ENTRY v54; // [rsp+108h] [rbp-270h] BYREF
   __int64 v55; // [rsp+118h] [rbp-260h]
   UNICODE_STRING v56; // [rsp+120h] [rbp-258h]
   HANDLE v57; // [rsp+130h] [rbp-248h]

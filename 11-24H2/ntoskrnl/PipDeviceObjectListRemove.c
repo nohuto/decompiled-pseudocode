@@ -1,12 +1,12 @@
 /*
- * XREFs of PipDeviceObjectListRemove @ 0x140AB25F8
+ * XREFs of PipDeviceObjectListRemove @ 0x140AAD568
  * Callers:
- *     IopRemoveCurrentRelationFromList @ 0x1407338DC (IopRemoveCurrentRelationFromList.c)
- *     IopRemoveRelationFromList @ 0x140733964 (IopRemoveRelationFromList.c)
- *     IopRemoveDeviceRelationsFromList @ 0x140A0E620 (IopRemoveDeviceRelationsFromList.c)
+ *     IopRemoveCurrentRelationFromList @ 0x140731810 (IopRemoveCurrentRelationFromList.c)
+ *     IopRemoveRelationFromList @ 0x140731898 (IopRemoveRelationFromList.c)
+ *     IopRemoveDeviceRelationsFromList @ 0x1409BCA24 (IopRemoveDeviceRelationsFromList.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x1403254A0 (ObfDereferenceObjectWithTag.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CE030 (ObfDereferenceObjectWithTag.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
  */
 
 __int64 __fastcall PipDeviceObjectListRemove(unsigned int *a1, unsigned int a2)

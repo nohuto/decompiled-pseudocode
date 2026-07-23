@@ -1,12 +1,12 @@
 /*
- * XREFs of PspBoostJobIoPriorityCallback @ 0x1406ABCA0
+ * XREFs of PspBoostJobIoPriorityCallback @ 0x14060A390
  * Callers:
  *     <none>
  * Callees:
- *     PsGetIoPriorityThread @ 0x140242810 (PsGetIoPriorityThread.c)
- *     IoBoostThreadIoPriority @ 0x140358630 (IoBoostThreadIoPriority.c)
- *     PspGetNextJobProcess @ 0x1406ABE00 (PspGetNextJobProcess.c)
- *     PsGetNextProcessThread @ 0x14070A2F0 (PsGetNextProcessThread.c)
+ *     PsGetIoPriorityThread @ 0x1402E7060 (PsGetIoPriorityThread.c)
+ *     IoBoostThreadIoPriority @ 0x140363380 (IoBoostThreadIoPriority.c)
+ *     PspGetNextJobProcess @ 0x14060A4F0 (PspGetNextJobProcess.c)
+ *     PsGetNextProcessThread @ 0x1407216D0 (PsGetNextProcessThread.c)
  */
 
 __int64 __fastcall PspBoostJobIoPriorityCallback(__int64 a1)

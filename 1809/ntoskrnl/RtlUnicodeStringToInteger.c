@@ -1,24 +1,24 @@
 /*
- * XREFs of RtlUnicodeStringToInteger @ 0x140695950
+ * XREFs of RtlUnicodeStringToInteger @ 0x140696B10
  * Callers:
- *     RtlpMuiRegAddAlternateCodePage @ 0x14018267C (RtlpMuiRegAddAlternateCodePage.c)
- *     RtlpMuiRegCreateKernelRegistryInfo @ 0x140182860 (RtlpMuiRegCreateKernelRegistryInfo.c)
- *     RtlGetIntegerAtom @ 0x1405F53D0 (RtlGetIntegerAtom.c)
- *     _PnpParseIndirectResourceString @ 0x1406957F4 (_PnpParseIndirectResourceString.c)
- *     PspReadIFEONodeOptions @ 0x1406BB030 (PspReadIFEONodeOptions.c)
- *     PspReadIFEOPerfOptions @ 0x1406BB1B0 (PspReadIFEOPerfOptions.c)
- *     RtlQueryImageFileKeyOption @ 0x1406BB3A0 (RtlQueryImageFileKeyOption.c)
- *     _PnpGetGenericStorePropertyKeys @ 0x1406FA548 (_PnpGetGenericStorePropertyKeys.c)
- *     ExpSetCurrentUserUILanguage @ 0x14071A8F4 (ExpSetCurrentUserUILanguage.c)
- *     ExpGetCurrentUserUILanguage @ 0x14071AEB0 (ExpGetCurrentUserUILanguage.c)
- *     ExpGetUILanguagePolicy @ 0x14071AFE0 (ExpGetUILanguagePolicy.c)
- *     CmpGetAcpiProfileInformation @ 0x140731594 (CmpGetAcpiProfileInformation.c)
- *     PspIsDfssEnabled @ 0x140733DE0 (PspIsDfssEnabled.c)
- *     PiDcInitUpdateProperties @ 0x14073AE84 (PiDcInitUpdateProperties.c)
- *     WdipSemLoadNextEndEvent @ 0x140743848 (WdipSemLoadNextEndEvent.c)
- *     WdipSemLoadNextScenario @ 0x1407441A0 (WdipSemLoadNextScenario.c)
- *     PopDetectSimulatedHeteroProcessors @ 0x14074FDE4 (PopDetectSimulatedHeteroProcessors.c)
- *     PiCMDeleteDeviceKey @ 0x14083758C (PiCMDeleteDeviceKey.c)
+ *     RtlpMuiRegAddAlternateCodePage @ 0x1401827BC (RtlpMuiRegAddAlternateCodePage.c)
+ *     RtlpMuiRegCreateKernelRegistryInfo @ 0x1401829A0 (RtlpMuiRegCreateKernelRegistryInfo.c)
+ *     RtlGetIntegerAtom @ 0x1405F63D0 (RtlGetIntegerAtom.c)
+ *     _PnpParseIndirectResourceString @ 0x1406969B4 (_PnpParseIndirectResourceString.c)
+ *     PspReadIFEONodeOptions @ 0x1406BC2D0 (PspReadIFEONodeOptions.c)
+ *     PspReadIFEOPerfOptions @ 0x1406BC450 (PspReadIFEOPerfOptions.c)
+ *     RtlQueryImageFileKeyOption @ 0x1406BC640 (RtlQueryImageFileKeyOption.c)
+ *     _PnpGetGenericStorePropertyKeys @ 0x1406FB7E8 (_PnpGetGenericStorePropertyKeys.c)
+ *     ExpSetCurrentUserUILanguage @ 0x14071BB94 (ExpSetCurrentUserUILanguage.c)
+ *     ExpGetCurrentUserUILanguage @ 0x14071C150 (ExpGetCurrentUserUILanguage.c)
+ *     ExpGetUILanguagePolicy @ 0x14071C280 (ExpGetUILanguagePolicy.c)
+ *     CmpGetAcpiProfileInformation @ 0x140732784 (CmpGetAcpiProfileInformation.c)
+ *     PspIsDfssEnabled @ 0x140734FD0 (PspIsDfssEnabled.c)
+ *     PiDcInitUpdateProperties @ 0x14073C074 (PiDcInitUpdateProperties.c)
+ *     WdipSemLoadNextEndEvent @ 0x140744A38 (WdipSemLoadNextEndEvent.c)
+ *     WdipSemLoadNextScenario @ 0x140745390 (WdipSemLoadNextScenario.c)
+ *     PopDetectSimulatedHeteroProcessors @ 0x140750FD4 (PopDetectSimulatedHeteroProcessors.c)
+ *     PiCMDeleteDeviceKey @ 0x1408387EC (PiCMDeleteDeviceKey.c)
  * Callees:
  *     <none>
  */

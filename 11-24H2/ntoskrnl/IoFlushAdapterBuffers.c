@@ -1,9 +1,9 @@
 /*
- * XREFs of IoFlushAdapterBuffers @ 0x14053D8B0
+ * XREFs of IoFlushAdapterBuffers @ 0x14053B1B0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
  */
 
 BOOLEAN __stdcall IoFlushAdapterBuffers(
@@ -14,5 +14,5 @@ BOOLEAN __stdcall IoFlushAdapterBuffers(
         ULONG Length,
         BOOLEAN WriteToDevice)
 {
-  return guard_dispatch_icall_no_overrides(DmaAdapter, Mdl, MapRegisterBase, CurrentVa);
+  return guard_dispatch_icall_no_overrides(DmaAdapter, Mdl);
 }

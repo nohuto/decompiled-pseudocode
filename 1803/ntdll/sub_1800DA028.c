@@ -8,149 +8,147 @@
  *     memmove @ 0x1800A1380 (memmove.c)
  */
 
-__int64 __fastcall sub_1800DA028(_DWORD *a1, _DWORD *a2, _DWORD *a3, size_t a4, size_t *a5)
+__int64 __fastcall sub_1800DA028(_DWORD *a1, unsigned int *a2, _DWORD *a3, size_t a4, size_t *a5)
 {
   size_t *v5; // rsi
   unsigned int v6; // ebx
-  __int64 v10; // r13
-  unsigned int v11; // r8d
-  unsigned int v12; // ecx
-  int v13; // r9d
-  __int64 v14; // rbp
-  unsigned int v15; // edx
-  _DWORD *v16; // rdi
-  __int64 v17; // r15
-  unsigned __int64 v18; // rcx
-  _WORD *v19; // rsi
-  _WORD *v20; // rsi
-  __int64 v21; // r15
-  unsigned int v22; // ebp
-  unsigned __int64 v23; // r12
-  __int64 v24; // rcx
-  __int64 v26; // [rsp+20h] [rbp-78h]
-  __int64 v27; // [rsp+28h] [rbp-70h]
-  __int64 v28; // [rsp+30h] [rbp-68h]
-  __int64 v29; // [rsp+38h] [rbp-60h]
-  int v30; // [rsp+A0h] [rbp+8h] BYREF
-  unsigned int v31; // [rsp+A8h] [rbp+10h] BYREF
-  __int64 v32; // [rsp+B0h] [rbp+18h] BYREF
+  unsigned int v10; // r8d
+  int v11; // edx
+  __int64 v12; // r13
+  unsigned int v13; // r8d
+  unsigned int v14; // ecx
+  int v15; // r9d
+  __int64 v16; // rbp
+  unsigned int v17; // edx
+  _DWORD *v18; // rdi
+  __int64 v19; // r15
+  unsigned __int64 v20; // rcx
+  _WORD *v21; // rsi
+  _WORD *v22; // rsi
+  __int64 v23; // r15
+  unsigned int v24; // ebp
+  unsigned __int64 v25; // r12
+  __int64 v26; // rcx
+  __int64 v28; // [rsp+38h] [rbp-60h]
+  int v29; // [rsp+A0h] [rbp+8h] BYREF
+  unsigned int v30; // [rsp+A8h] [rbp+10h] BYREF
+  __int64 v31; // [rsp+B0h] [rbp+18h] BYREF
 
   v5 = a5;
   v6 = 0;
-  v31 = -1073741595;
-  v32 = 0LL;
-  v30 = 0;
+  v30 = -1073741595;
+  v31 = 0LL;
+  v29 = 0;
   if ( a5 )
     *a5 = 0LL;
-  if ( *a2 >= (unsigned int)(*(_DWORD *)((char *)a1 + (unsigned int)a1[6] + 8) - 1) )
+  v10 = *a2;
+  v11 = *(_DWORD *)((char *)a1 + (unsigned int)a1[6] + 8);
+  if ( v10 >= v11 - 1 )
   {
     DbgPrintEx(
-      51,
+      0x33u,
       0,
-      (int)"SXS: %s() received invalid sub-instance index %lu out of %lu Assemblies in the Acitvation Context\n",
+      "SXS: %s() received invalid sub-instance index %lu out of %lu Assemblies in the Acitvation Context\n",
       "RtlpQueryFilesInAssemblyInformationActivationContextDetailedInformation",
-      *a2,
-      *(_DWORD *)((char *)a1 + (unsigned int)a1[6] + 8));
+      v10,
+      v11);
     return (unsigned int)-1073741811;
   }
-  sub_180079324(&v30, (int *)&v31, a3, a4, v5, 0x68uLL, a1, v29, 2u, &v32, &a5);
-  if ( v30 == 2 )
-    return v31;
-  v10 = v32;
-  v11 = a2[1];
-  v12 = *(_DWORD *)(v32 + 20);
-  if ( v11 >= v12 )
+  sub_180079324(&v29, (int *)&v30, a3, a4, v5, 0x68uLL, a1, v28, 2u, &v31, &a5);
+  if ( v29 == 2 )
+    return v30;
+  v12 = v31;
+  v13 = a2[1];
+  v14 = *(_DWORD *)(v31 + 20);
+  if ( v13 >= v14 )
   {
-    LODWORD(v28) = *a2;
-    LODWORD(v27) = *(_DWORD *)(v32 + 20);
-    LODWORD(v26) = a2[1];
     DbgPrintEx(
-      51,
+      0x33u,
       0,
-      (int)"SXS: %s() received invalid file index (%u, max is %u) in Assembly (%u)\n",
+      "SXS: %s() received invalid file index (%u, max is %u) in Assembly (%u)\n",
       "RtlpQueryFilesInAssemblyInformationActivationContextDetailedInformation",
-      v26,
-      v27,
-      v28);
+      v13,
+      v14,
+      *a2);
     return (unsigned int)-1073741811;
   }
-  if ( !*(_DWORD *)(v32 + 24) )
+  if ( !*(_DWORD *)(v31 + 24) )
     return (unsigned int)-1072365547;
-  v13 = 0;
-  v14 = v32 + *(unsigned int *)(v32 + 24);
   v15 = 0;
-  if ( !v12 )
+  v16 = v31 + *(unsigned int *)(v31 + 24);
+  v17 = 0;
+  if ( !v14 )
     return (unsigned int)-1072365547;
-  while ( *(_DWORD *)(v14 + 24LL * v15 + 20) != *a2 + 1 )
+  while ( *(_DWORD *)(v16 + 24LL * v17 + 20) != *a2 + 1 )
   {
 LABEL_15:
-    if ( ++v15 >= v12 )
+    if ( ++v17 >= v14 )
       return (unsigned int)-1072365547;
   }
-  if ( v13 != v11 || !*(_DWORD *)(v14 + 24LL * v15 + 12) )
+  if ( v15 != v13 || !*(_DWORD *)(v16 + 24LL * v17 + 12) )
   {
-    ++v13;
+    ++v15;
     goto LABEL_15;
   }
-  v16 = (_DWORD *)(v32 + *(unsigned int *)(v14 + 24LL * v15 + 12));
-  if ( !v16 )
+  v18 = (_DWORD *)(v31 + *(unsigned int *)(v16 + 24LL * v17 + 12));
+  if ( !v18 )
     return (unsigned int)-1072365547;
-  v17 = 3LL * v15;
-  v18 = 32LL;
-  if ( *(_DWORD *)(v14 + 24LL * v15 + 8) )
-    v18 = *(unsigned int *)(v14 + 24LL * v15 + 8) + 34LL;
-  if ( v16[2] )
-    v18 += (unsigned int)v16[2] + 2LL;
-  if ( v18 > a4 )
+  v19 = 3LL * v17;
+  v20 = 32LL;
+  if ( *(_DWORD *)(v16 + 24LL * v17 + 8) )
+    v20 = *(unsigned int *)(v16 + 24LL * v17 + 8) + 34LL;
+  if ( v18[2] )
+    v20 += (unsigned int)v18[2] + 2LL;
+  if ( v20 > a4 )
   {
     if ( v5 )
-      *v5 = v18;
+      *v5 = v20;
     return (unsigned int)-1073741789;
   }
-  v19 = a3 + 8;
-  *a3 = v16[1];
-  a3[1] = *(_DWORD *)(v14 + 24LL * v15 + 8);
-  a3[2] = v16[2];
+  v21 = a3 + 8;
+  *a3 = v18[1];
+  a3[1] = *(_DWORD *)(v16 + 24LL * v17 + 8);
+  a3[2] = v18[2];
   *((_QWORD *)a3 + 2) = 0LL;
   *((_QWORD *)a3 + 3) = 0LL;
-  if ( *(_DWORD *)(v14 + 24LL * v15 + 8) )
+  if ( *(_DWORD *)(v16 + 24LL * v17 + 8) )
   {
     memmove(
       a3 + 8,
-      (const void *)(v10 + *(unsigned int *)(v14 + 24LL * v15 + 4)),
-      *(unsigned int *)(v14 + 24LL * v15 + 8));
-    *((_QWORD *)a3 + 2) = v19;
-    v20 = (_WORD *)((char *)v19 + *(unsigned int *)(v14 + 8 * v17 + 8));
-    *v20 = 0;
-    v19 = v20 + 1;
+      (const void *)(v12 + *(unsigned int *)(v16 + 24LL * v17 + 4)),
+      *(unsigned int *)(v16 + 24LL * v17 + 8));
+    *((_QWORD *)a3 + 2) = v21;
+    v22 = (_WORD *)((char *)v21 + *(unsigned int *)(v16 + 8 * v19 + 8));
+    *v22 = 0;
+    v21 = v22 + 1;
   }
-  if ( v16[2] )
+  if ( v18[2] )
   {
-    if ( v16[4] )
+    if ( v18[4] )
     {
-      v21 = v10 + 44LL * (unsigned int)v16[4];
-      if ( v21 )
+      v23 = v12 + 44LL * (unsigned int)v18[4];
+      if ( v23 )
       {
-        *((_QWORD *)a3 + 3) = v19;
-        v22 = 0;
-        if ( !v16[3] )
+        *((_QWORD *)a3 + 3) = v21;
+        v24 = 0;
+        if ( !v18[3] )
         {
 LABEL_37:
-          *v19 = 0;
+          *v21 = 0;
           return v6;
         }
-        v23 = (unsigned __int64)a3 + a4;
+        v25 = (unsigned __int64)a3 + a4;
         while ( 1 )
         {
-          v24 = *(unsigned int *)(v21 + 8LL * v22 + 4);
-          if ( (unsigned __int64)v19 + v24 + 2 > v23 )
+          v26 = *(unsigned int *)(v23 + 8LL * v24 + 4);
+          if ( (unsigned __int64)v21 + v26 + 2 > v25 )
             return (unsigned int)-1072365547;
-          if ( (_DWORD)v24 )
+          if ( (_DWORD)v26 )
           {
-            memmove(v19, (const void *)(v24 + v10), *(unsigned int *)(v21 + 8LL * v22));
-            v19 = (_WORD *)((char *)v19 + *(unsigned int *)(v21 + 8LL * v22));
+            memmove(v21, (const void *)(v26 + v12), *(unsigned int *)(v23 + 8LL * v24));
+            v21 = (_WORD *)((char *)v21 + *(unsigned int *)(v23 + 8LL * v24));
           }
-          if ( ++v22 >= v16[3] )
+          if ( ++v24 >= v18[3] )
             goto LABEL_37;
         }
       }

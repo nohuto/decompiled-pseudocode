@@ -61,8 +61,8 @@ __int64 __fastcall sub_180012270(__int64 a1, int a2, char *a3, unsigned __int64 
   __int64 v49; // rbp
   bool v50; // zf
   unsigned __int64 v51; // rbx
-  _DWORD *HotpatchInformation; // rcx
-  __int64 v53; // rcx
+  PSILO_USER_SHARED_DATA SharedData; // rcx
+  __int64 UserModeGlobalLogger; // rcx
   char *v55; // rax
   __int64 v56; // rax
   __int64 v57; // r9
@@ -301,12 +301,12 @@ LABEL_39:
           *(_QWORD *)(v51 + v49 + 8) = 0xABABABABABABABABuLL;
         }
       }
-      HotpatchInformation = NtCurrentPeb()->HotpatchInformation;
-      if ( HotpatchInformation && *HotpatchInformation )
-        v53 = (__int64)NtCurrentPeb()->HotpatchInformation + 550;
+      SharedData = NtCurrentPeb()->SharedData;
+      if ( SharedData && SharedData->ServiceSessionId )
+        UserModeGlobalLogger = (__int64)NtCurrentPeb()->SharedData->UserModeGlobalLogger;
       else
-        v53 = 2147353472LL;
-      if ( *(_BYTE *)v53 && (NtCurrentPeb()->TracingFlags & 1) != 0 )
+        UserModeGlobalLogger = 2147353472LL;
+      if ( *(_BYTE *)UserModeGlobalLogger && (NtCurrentPeb()->TracingFlags & 1) != 0 )
       {
         if ( v49 )
           sub_1800FE4B0(v45, v49, (_DWORD)a3, v70[0], v70[3], 3);

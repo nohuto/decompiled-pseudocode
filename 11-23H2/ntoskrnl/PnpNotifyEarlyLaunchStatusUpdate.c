@@ -4,8 +4,8 @@
  *     PipInitializeCoreDriversAndElam @ 0x140B3C670 (PipInitializeCoreDriversAndElam.c)
  *     IopInitializeBootDrivers @ 0x140B3CEB4 (IopInitializeBootDrivers.c)
  * Callees:
- *     ExNotifyWithProcessing @ 0x14033BF60 (ExNotifyWithProcessing.c)
- *     PnpDiagnosticTraceElamStatus @ 0x140374D2C (PnpDiagnosticTraceElamStatus.c)
+ *     ExNotifyWithProcessing @ 0x14033C1F0 (ExNotifyWithProcessing.c)
+ *     PnpDiagnosticTraceElamStatus @ 0x140374ECC (PnpDiagnosticTraceElamStatus.c)
  */
 
 __int64 __fastcall PnpNotifyEarlyLaunchStatusUpdate(int a1)

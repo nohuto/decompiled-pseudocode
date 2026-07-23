@@ -16,7 +16,7 @@ int __fastcall ExpCovReadFriendlyName(__int64 a1, const UNICODE_STRING *a2, UNIC
 {
   __int64 v3; // rax
   int result; // eax
-  STRING DestinationString; // [rsp+30h] [rbp-18h] BYREF
+  _STRING DestinationString; // [rsp+30h] [rbp-18h] BYREF
 
   v3 = *(unsigned int *)(a1 + 36);
   *(_QWORD *)&DestinationString.Length = 0LL;

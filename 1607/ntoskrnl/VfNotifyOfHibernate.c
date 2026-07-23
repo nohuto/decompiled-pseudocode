@@ -1,16 +1,16 @@
 /*
- * XREFs of VfNotifyOfHibernate @ 0x140707FBC
+ * XREFs of VfNotifyOfHibernate @ 0x140707FEC
  * Callers:
  *     PopInvokeSystemStateHandler @ 0x1403CC110 (PopInvokeSystemStateHandler.c)
  * Callees:
- *     VfIsVerifierExtensionEnabled @ 0x140171964 (VfIsVerifierExtensionEnabled.c)
- *     VfDisableHalVerifier @ 0x140222B10 (VfDisableHalVerifier.c)
+ *     VfIsVerifierExtensionEnabled @ 0x140171E64 (VfIsVerifierExtensionEnabled.c)
+ *     VfDisableHalVerifier @ 0x14022293C (VfDisableHalVerifier.c)
  */
 
 void __fastcall VfNotifyOfHibernate(char a1)
 {
-  ULONG_PTR *v1; // rax
-  ULONG_PTR v2; // rcx
+  struct _LIST_ENTRY *Flink; // rax
+  struct _LIST_ENTRY *v2; // rcx
   int IsVerifierExtensionEnabled; // eax
   __int64 v4; // rcx
   char v5; // r9
@@ -28,15 +28,15 @@ void __fastcall VfNotifyOfHibernate(char a1)
   {
     if ( !ViEnableAfterHibernate )
       return;
-    v1 = (ULONG_PTR *)ViAdapterList;
+    Flink = ViAdapterList.Flink;
     ViVerifyDma = 1;
     ViEnableAfterHibernate = 0;
-    while ( &ViAdapterList != v1 )
+    while ( &ViAdapterList != Flink )
     {
-      v2 = v1[2];
+      v2 = Flink[1].Flink;
       if ( v2 )
-        *(_QWORD *)(v2 + 8) = &ViDmaOperations;
-      v1 = (ULONG_PTR *)*v1;
+        v2->Blink = (struct _LIST_ENTRY *)&ViDmaOperations;
+      Flink = Flink->Flink;
     }
   }
   IsVerifierExtensionEnabled = VfIsVerifierExtensionEnabled();

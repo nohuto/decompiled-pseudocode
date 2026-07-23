@@ -1,10 +1,10 @@
 /*
- * XREFs of HvlSkCrashdumpCallbackRoutine @ 0x140277B50
+ * XREFs of HvlSkCrashdumpCallbackRoutine @ 0x140277D40
  * Callers:
  *     <none>
  * Callees:
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
  */
 
 char HvlSkCrashdumpCallbackRoutine()
@@ -16,12 +16,12 @@ char HvlSkCrashdumpCallbackRoutine()
   ULONG v4; // ecx
   ULONG_PTR BugCheckParameter4; // [rsp+20h] [rbp-18h]
 
-  v0 = qword_140437508;
-  if ( qword_140437508 && (*((_DWORD *)qword_140437508 + 1) & 1) != 0 )
+  v0 = qword_1404385C8;
+  if ( qword_1404385C8 && (*((_DWORD *)qword_1404385C8 + 1) & 1) != 0 )
   {
     HvlEnlightenments &= 0x2000u;
-    off_1403FE4E0[0]();
-    ((void (__fastcall *)(__int64))off_1403FE3D8[0])(1LL);
+    off_1403FF4E0[0]();
+    ((void (__fastcall *)(__int64))off_1403FF3D8[0])(1LL);
     KiHypervisorInitiatedCrashDump = 1;
     v1 = *((_QWORD *)v0 + 4);
     v2 = *((_QWORD *)v0 + 3);

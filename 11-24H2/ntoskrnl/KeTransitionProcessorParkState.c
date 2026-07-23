@@ -1,24 +1,24 @@
 /*
- * XREFs of KeTransitionProcessorParkState @ 0x1403E9560
+ * XREFs of KeTransitionProcessorParkState @ 0x1403D720C
  * Callers:
- *     PpmParkReportUnparkedCore @ 0x140351950 (PpmParkReportUnparkedCore.c)
- *     PpmParkReportParkedCore @ 0x1403519DC (PpmParkReportParkedCore.c)
- *     PpmParkReportSoftParkChange @ 0x1403E9474 (PpmParkReportSoftParkChange.c)
- *     ?KiForceIdleParkUnparkProcessor@@YAXPEAU_KPRCB@@E@Z @ 0x1404B2F48 (-KiForceIdleParkUnparkProcessor@@YAXPEAU_KPRCB@@E@Z.c)
- *     PpmParkReportForceParkChange @ 0x1405DA8CC (PpmParkReportForceParkChange.c)
+ *     PpmParkReportUnparkedCore @ 0x1402B0778 (PpmParkReportUnparkedCore.c)
+ *     PpmParkReportParkedCore @ 0x1402B0804 (PpmParkReportParkedCore.c)
+ *     PpmParkReportSoftParkChange @ 0x1403D7120 (PpmParkReportSoftParkChange.c)
+ *     ?KiForceIdleParkUnparkProcessor@@YAXPEAU_KPRCB@@E@Z @ 0x1404AD758 (-KiForceIdleParkUnparkProcessor@@YAXPEAU_KPRCB@@E@Z.c)
+ *     PpmParkReportForceParkChange @ 0x1405D7BEC (PpmParkReportForceParkChange.c)
  * Callees:
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14020FA40 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140210170 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     KxAcquireSpinLock @ 0x140254AE0 (KxAcquireSpinLock.c)
- *     KxReleaseSpinLock @ 0x140279CC0 (KxReleaseSpinLock.c)
- *     KiAcquirePrcbLocksForIsolationUnit @ 0x140293190 (KiAcquirePrcbLocksForIsolationUnit.c)
- *     KiReleasePrcbLocksForIsolationUnit @ 0x140339330 (KiReleasePrcbLocksForIsolationUnit.c)
- *     KiParkCurrentProcessor @ 0x1403E9898 (KiParkCurrentProcessor.c)
- *     KiUnparkCurrentProcessor @ 0x1403E9EF8 (KiUnparkCurrentProcessor.c)
- *     KiDisarmForceParkDutyCyclingIfNecessary @ 0x1404F9554 (KiDisarmForceParkDutyCyclingIfNecessary.c)
- *     KiNotifyAvailableCpusChangeCpuPartition @ 0x1405B8688 (KiNotifyAvailableCpusChangeCpuPartition.c)
- *     KiUpdateSystemAvailableCpuState @ 0x1405B86B4 (KiUpdateSystemAvailableCpuState.c)
- *     EtwTraceParkTransition @ 0x14064DC44 (EtwTraceParkTransition.c)
+ *     KxReleaseSpinLock @ 0x14022F250 (KxReleaseSpinLock.c)
+ *     KxAcquireSpinLock @ 0x1402850F0 (KxAcquireSpinLock.c)
+ *     KiAcquirePrcbLocksForIsolationUnit @ 0x1402A2D90 (KiAcquirePrcbLocksForIsolationUnit.c)
+ *     KiReleasePrcbLocksForIsolationUnit @ 0x140318810 (KiReleasePrcbLocksForIsolationUnit.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140338DA0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1403394D0 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     KiParkCurrentProcessor @ 0x1403D7544 (KiParkCurrentProcessor.c)
+ *     KiUnparkCurrentProcessor @ 0x1403D7B98 (KiUnparkCurrentProcessor.c)
+ *     KiDisarmForceParkDutyCyclingIfNecessary @ 0x1404F6E34 (KiDisarmForceParkDutyCyclingIfNecessary.c)
+ *     KiNotifyAvailableCpusChangeCpuPartition @ 0x1405B5C68 (KiNotifyAvailableCpusChangeCpuPartition.c)
+ *     KiUpdateSystemAvailableCpuState @ 0x1405B5C94 (KiUpdateSystemAvailableCpuState.c)
+ *     EtwTraceParkTransition @ 0x14064C254 (EtwTraceParkTransition.c)
  */
 
 void __fastcall KeTransitionProcessorParkState(struct _KPRCB *a1, unsigned int a2)
@@ -64,7 +64,7 @@ void __fastcall KeTransitionProcessorParkState(struct _KPRCB *a1, unsigned int a
   }
   SpinLock = &SchedulerSubNode->ParkLock;
   ExAcquireSpinLockExclusiveAtDpcLevel(&SchedulerSubNode->ParkLock);
-  KiAcquirePrcbLocksForIsolationUnit((__int64)a1, 1, (unsigned __int64 *)&v18);
+  KiAcquirePrcbLocksForIsolationUnit((__int64)a1, 1LL, (unsigned __int64 *)&v18);
   if ( v6 != 3 )
   {
     if ( v6 )
@@ -177,6 +177,6 @@ LABEL_13:
     KiNotifyAvailableCpusChangeCpuPartition(a1->CpuPartition);
     KxReleaseSpinLock((volatile signed __int64 *)&KiCpuPartitionAssignmentLock);
   }
-  if ( !v12 && !v13 && (WORD2(xmmword_140FC5B10) & 0x2000) != 0 )
+  if ( !v12 && !v13 && (WORD2(xmmword_140FC6B50) & 0x2000) != 0 )
     EtwTraceParkTransition(a1, a2, v6);
 }

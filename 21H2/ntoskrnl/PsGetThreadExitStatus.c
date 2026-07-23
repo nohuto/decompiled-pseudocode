@@ -1,10 +1,10 @@
 /*
- * XREFs of PsGetThreadExitStatus @ 0x1406BCFB0
+ * XREFs of PsGetThreadExitStatus @ 0x14061C130
  * Callers:
- *     NtQueryInformationThread @ 0x1405FB940 (NtQueryInformationThread.c)
+ *     NtQueryInformationThread @ 0x1406EB0A0 (NtQueryInformationThread.c)
  * Callees:
- *     ExReleaseRundownProtection_0 @ 0x14027C4F0 (ExReleaseRundownProtection_0.c)
- *     ExAcquireRundownProtection_0 @ 0x14027C9B0 (ExAcquireRundownProtection_0.c)
+ *     ExReleaseRundownProtection @ 0x14026A490 (ExReleaseRundownProtection.c)
+ *     ExAcquireRundownProtection @ 0x14026A950 (ExAcquireRundownProtection.c)
  */
 
 NTSTATUS __stdcall PsGetThreadExitStatus(PETHREAD Thread)
@@ -12,8 +12,8 @@ NTSTATUS __stdcall PsGetThreadExitStatus(PETHREAD Thread)
   struct _EX_RUNDOWN_REF *p_WaitStatus; // rdi
 
   p_WaitStatus = (struct _EX_RUNDOWN_REF *)&Thread[1].WaitStatus;
-  if ( !ExAcquireRundownProtection_0((PEX_RUNDOWN_REF)&Thread[1].WaitStatus) )
+  if ( !ExAcquireRundownProtection((PEX_RUNDOWN_REF)&Thread[1].WaitStatus) )
     return Thread[1].Timer.DueTime.LowPart;
-  ExReleaseRundownProtection_0(p_WaitStatus);
+  ExReleaseRundownProtection(p_WaitStatus);
   return 259;
 }

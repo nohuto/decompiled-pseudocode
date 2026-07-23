@@ -7,11 +7,11 @@
  *     ViZwShouldCheck @ 0x14075882C (ViZwShouldCheck.c)
  */
 
-__int64 __fastcall VfZwAlpcCreateSectionView(__int64 a1, unsigned int a2, __int64 a3)
+NTSTATUS __fastcall VfZwAlpcCreateSectionView(HANDLE PortHandle, ULONG Flags, _ALPC_DATA_VIEW_ATTR *a3)
 {
   _UNKNOWN *retaddr; // [rsp+28h] [rbp+0h]
 
   if ( (unsigned int)ViZwShouldCheck() )
-    ViZwCheckVirtualAddress(a3, (int)retaddr);
-  return pXdvZwAlpcCreateSectionView(a1, a2, a3);
+    ViZwCheckVirtualAddress((int)a3, (int)retaddr);
+  return pXdvZwAlpcCreateSectionView(PortHandle, Flags, a3);
 }

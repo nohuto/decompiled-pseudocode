@@ -1,13 +1,13 @@
 /*
- * XREFs of PopBSDiagButtonWnfCallback @ 0x14060DA50
+ * XREFs of PopBSDiagButtonWnfCallback @ 0x140610B50
  * Callers:
  *     <none>
  * Callees:
- *     PopReleaseRwLock @ 0x14043630C (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x140436378 (PopAcquireRwLockExclusive.c)
- *     PopBSDiagCaptureLiveDump @ 0x14060DB1C (PopBSDiagCaptureLiveDump.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     ExQueryWnfStateData @ 0x1409489F0 (ExQueryWnfStateData.c)
+ *     PopReleaseRwLock @ 0x14021B1A8 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x140425310 (PopAcquireRwLockExclusive.c)
+ *     PopBSDiagCaptureLiveDump @ 0x140610C1C (PopBSDiagCaptureLiveDump.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     ExQueryWnfStateData @ 0x1409C4360 (ExQueryWnfStateData.c)
  */
 
 __int64 __fastcall PopBSDiagButtonWnfCallback(__int64 a1, _QWORD *a2, __int64 a3, __int64 a4, int a5, __int64 a6)

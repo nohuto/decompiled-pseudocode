@@ -31,11 +31,11 @@ __int64 __fastcall HalpAllocateCommonBufferThin(
         MEMORY_CACHING_TYPE *a6,
         unsigned int a7,
         __int64 *a8,
-        _QWORD *a9)
+        _RTL_BALANCED_NODE **a9)
 {
   struct _MDL *v9; // rsi
   SIZE_T v12; // r14
-  PVOID v14; // r15
+  _RTL_BALANCED_NODE *v14; // r15
   int v15; // edi
   __int64 v16; // rax
   MEMORY_CACHING_TYPE CacheType; // edi
@@ -50,15 +50,15 @@ __int64 __fastcall HalpAllocateCommonBufferThin(
   __int64 v26; // rdx
   __int64 v27; // r14
   unsigned int v28; // ecx
-  _QWORD *PoolWithTag; // rax
-  unsigned __int64 v30; // r13
+  _RTL_BALANCED_NODE *PoolWithTag; // rax
+  _RTL_BALANCED_NODE *v30; // r13
   __int64 v31; // r8
   KSPIN_LOCK *v33; // r12
   KIRQL v34; // al
   ULONG_PTR v35; // rbp
   unsigned __int64 v36; // rsi
-  unsigned __int64 v37; // rdx
-  bool v38; // r8
+  ULONG_PTR v37; // rdx
+  BOOLEAN v38; // r8
   unsigned __int64 v39; // rax
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
@@ -116,7 +116,8 @@ LABEL_27:
   else
     PagesForMdl = (struct _MDL *)MmAllocatePartitionNodePagesForMdlEx(0, v20.LowPart, v19, v12, CacheType, a7, 20, 0LL);
   v9 = PagesForMdl;
-  if ( !PagesForMdl || (v14 = MmMapLockedPagesSpecifyCache(PagesForMdl, 0, CacheType, 0LL, 0, 0x40000010u)) == 0LL )
+  if ( !PagesForMdl
+    || (v14 = (_RTL_BALANCED_NODE *)MmMapLockedPagesSpecifyCache(PagesForMdl, 0, CacheType, 0LL, 0, 0x40000010u)) == 0LL )
   {
     v15 = -1073741670;
     goto LABEL_27;
@@ -151,16 +152,16 @@ LABEL_25:
       HalpDomainLaDelete((__int64)BugCheckParameter3, v27);
     goto LABEL_27;
   }
-  PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, 0x28uLL, 0x206C6148u);
-  v30 = (unsigned __int64)PoolWithTag;
+  PoolWithTag = (_RTL_BALANCED_NODE *)ExAllocatePoolWithTag(NonPagedPoolNx, 0x28uLL, 0x206C6148u);
+  v30 = PoolWithTag;
   if ( !PoolWithTag )
   {
     v15 = -1073741670;
     goto LABEL_25;
   }
   v33 = BugCheckParameter3 + 12;
-  PoolWithTag[3] = v9;
-  PoolWithTag[4] = BugCheckParameter3;
+  PoolWithTag[1].Children[0] = (_RTL_BALANCED_NODE *)v9;
+  PoolWithTag[1].Children[1] = (_RTL_BALANCED_NODE *)BugCheckParameter3;
   v34 = KeAcquireSpinLockRaiseToDpc(BugCheckParameter3 + 12);
   v35 = (ULONG_PTR)(BugCheckParameter3 + 10);
   v36 = v34;
@@ -203,7 +204,7 @@ LABEL_47:
       v37 = v39;
     }
   }
-  RtlRbInsertNodeEx((unsigned __int64 *)v35, v37, v38, v30);
+  RtlRbInsertNodeEx((PRTL_RB_TREE)v35, (PRTL_BALANCED_NODE)v37, v38, v30);
   KxReleaseSpinLock(v33);
   if ( KiIrqlFlags )
   {

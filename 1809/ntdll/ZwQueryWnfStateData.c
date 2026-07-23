@@ -1,18 +1,24 @@
 /*
- * XREFs of ZwQueryWnfStateData @ 0x1800A2E50
+ * XREFs of ZwQueryWnfStateData @ 0x1800A2E70
  * Callers:
- *     RtlQueryWnfStateData @ 0x180078BE0 (RtlQueryWnfStateData.c)
- *     RtlQueryWnfStateDataWithExplicitScope @ 0x180086BC0 (RtlQueryWnfStateDataWithExplicitScope.c)
+ *     RtlQueryWnfStateData @ 0x180078BF0 (RtlQueryWnfStateData.c)
+ *     RtlQueryWnfStateDataWithExplicitScope @ 0x180086BD0 (RtlQueryWnfStateDataWithExplicitScope.c)
  *     RtlRaiseCustomSystemEventTrigger @ 0x1800FE520 (RtlRaiseCustomSystemEventTrigger.c)
  * Callees:
  *     <none>
  */
 
-__int64 ZwQueryWnfStateData()
+NTSTATUS __cdecl ZwQueryWnfStateData(
+        PCWNF_STATE_NAME StateName,
+        PCWNF_TYPE_ID TypeId,
+        const void *ExplicitScope,
+        PWNF_CHANGE_STAMP ChangeStamp,
+        PVOID Buffer,
+        PULONG BufferSize)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 348LL;
+  result = 348;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

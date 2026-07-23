@@ -1,8 +1,8 @@
 /*
- * XREFs of PpmResetProfileSettings @ 0x1404BDFB0
+ * XREFs of PpmResetProfileSettings @ 0x1404B9120
  * Callers:
- *     PpmRegisterProfiles @ 0x140763BDC (PpmRegisterProfiles.c)
- *     PpmDisableProfile @ 0x140ACB310 (PpmDisableProfile.c)
+ *     PpmRegisterProfiles @ 0x1407635A0 (PpmRegisterProfiles.c)
+ *     PpmDisableProfile @ 0x140AC8F20 (PpmDisableProfile.c)
  * Callees:
  *     <none>
  */
@@ -22,7 +22,7 @@ __int64 __fastcall PpmResetProfileSettings(__int64 a1)
 
   v1 = 3LL;
   v2 = (_OWORD *)(a1 + 40);
-  v3 = &unk_140F069A8;
+  v3 = &unk_140F06CC8;
   v4 = 3LL;
   do
   {
@@ -49,7 +49,7 @@ __int64 __fastcall PpmResetProfileSettings(__int64 a1)
   *((_QWORD *)v2 + 12) = *((_QWORD *)v3 + 12);
   v6 = (_OWORD *)(a1 + 528);
   v7 = (_OWORD *)(a1 + 528);
-  v8 = &unk_140F06B90;
+  v8 = &unk_140F06EB0;
   do
   {
     *v7 = *v8;

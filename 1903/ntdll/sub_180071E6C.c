@@ -25,46 +25,44 @@
  *     RtlRaiseStatus @ 0x1800FBD30 (RtlRaiseStatus.c)
  */
 
-__int64 __fastcall sub_180071E6C(__int64 a1, unsigned __int64 a2, unsigned __int64 a3, unsigned __int64 a4)
+NTSTATUS __fastcall sub_180071E6C(__int64 a1, __int64 a2, __int64 a3)
 {
-  struct _TEB *v5; // r15
-  __int64 result; // rax
-  struct _PEB *ProcessEnvironmentBlock; // r14
-  int v8; // edi
-  int v9; // ecx
-  char v10; // al
-  int v11; // eax
-  char v12; // cl
-  struct _PEB *v13; // rax
-  int v14; // [rsp+20h] [rbp-78h]
-  __int64 v15; // [rsp+40h] [rbp-58h] BYREF
-  struct _RTL_USER_PROCESS_PARAMETERS *ProcessParameters; // [rsp+48h] [rbp-50h]
-  int v18; // [rsp+B0h] [rbp+18h]
+  struct _TEB *v4; // r15
+  NTSTATUS result; // eax
+  PPEB ProcessEnvironmentBlock; // r14
+  NTSTATUS v7; // edi
+  NTSTATUS v8; // ecx
+  char v9; // al
+  NTSTATUS v10; // eax
+  char v11; // cl
+  struct _PEB *v12; // rax
+  LARGE_INTEGER DelayInterval; // [rsp+40h] [rbp-58h] BYREF
+  PRTL_USER_PROCESS_PARAMETERS ProcessParameters; // [rsp+48h] [rbp-50h]
+  int v16; // [rsp+B0h] [rbp+18h]
 
-  v5 = NtCurrentTeb();
+  v4 = NtCurrentTeb();
   while ( 1 )
   {
-    result = (unsigned int)_InterlockedCompareExchange(&dword_180165418, 1, 0);
-    if ( (_DWORD)result == 1 && (v5->SameTebFlags & 0x2000) == 0 )
+    result = _InterlockedCompareExchange(&dword_180165418, 1, 0);
+    if ( result == 1 && (v4->SameTebFlags & 0x2000) == 0 )
       goto LABEL_15;
 LABEL_3:
-    ProcessEnvironmentBlock = v5->ProcessEnvironmentBlock;
-    if ( !(_DWORD)result )
+    ProcessEnvironmentBlock = v4->ProcessEnvironmentBlock;
+    if ( !result )
     {
-      LOBYTE(v14) = 0;
-      ZwCreateEvent(&qword_180165378, 2031619LL, 0LL, 0LL, v14);
-      v5->SameTebFlags |= 0x20u;
-      ProcessEnvironmentBlock->LoaderLock = (struct _RTL_CRITICAL_SECTION *)&off_18015F4F8;
+      ZwCreateEvent(&qword_180165378, 0x1F0003u, 0LL, NotificationEvent, 0);
+      v4->SameTebFlags |= 0x20u;
+      ProcessEnvironmentBlock->LoaderLock = &stru_18015F4F8;
       dword_1801664E0 = 0;
       _interlockedbittestandset((volatile signed __int32 *)&ProcessEnvironmentBlock->CrossProcessFlags, 1u);
       qword_18017A2B8 = (__int64)&qword_18017A2B0;
       qword_18017A2B0 = (__int64)&qword_18017A2B0;
-      qword_180164350 = 0LL;
+      stru_180164350.Ptr = 0LL;
       qword_18017A2A8 = 0LL;
-      v8 = sub_1800D5D80();
-      if ( v8 < 0 )
+      v7 = sub_1800D5D80();
+      if ( v7 < 0 )
       {
-        result = (unsigned int)dword_18015FAB0;
+        result = dword_18015FAB0;
         if ( (dword_18015FAB0 & 3) != 0 )
         {
           sub_1800CE318(
@@ -73,8 +71,8 @@ LABEL_3:
             (unsigned int)"_LdrpInitialize",
             0,
             (__int64)"LDR:MRDATA: Process initialization failed with status 0x%08lx\n",
-            v8);
-          result = (unsigned int)dword_18015FAB0;
+            v7);
+          result = dword_18015FAB0;
         }
         if ( (result & 0x10) != 0 )
           __debugbreak();
@@ -86,11 +84,11 @@ LABEL_3:
         byte_180165430 = 1;
         byte_180165300 = 1;
       }
-      v8 = sub_1800D2538(a1, a2);
-      v18 = v8;
-      if ( v8 < 0 )
+      v7 = sub_1800D2538(a1, a2);
+      v16 = v7;
+      if ( v7 < 0 )
       {
-        result = (unsigned int)dword_18015FAB0;
+        result = dword_18015FAB0;
         if ( (dword_18015FAB0 & 3) != 0 )
         {
           sub_1800CE318(
@@ -99,8 +97,8 @@ LABEL_3:
             (unsigned int)"_LdrpInitialize",
             0,
             (__int64)"Process initialization failed with status 0x%08lx\n",
-            v8);
-          result = (unsigned int)dword_18015FAB0;
+            v7);
+          result = dword_18015FAB0;
         }
         if ( (result & 0x10) != 0 )
           __debugbreak();
@@ -108,23 +106,23 @@ LABEL_3:
       }
       sub_1800255A8(*(_QWORD *)(qword_180164FC8 + 48), qword_180164FC8 + 72, 0x14AEu);
       if ( ProcessEnvironmentBlock->MinimumStackCommit )
-        v18 = sub_180081240();
+        v16 = sub_180081240();
       dword_1801664E0 = 3;
       _interlockedbittestandreset((volatile signed __int32 *)&ProcessEnvironmentBlock->CrossProcessFlags, 1u);
-      result = sub_18007D678(qword_1801661B0);
-      v8 = v18;
-      if ( v18 >= 0 )
+      result = sub_18007D678(Pool);
+      v7 = v16;
+      if ( v16 >= 0 )
       {
         if ( !dword_180165428 || dword_180165418 == 1 )
           result = LdrProcessInitializationComplete();
         goto LABEL_10;
       }
 LABEL_59:
-      sub_180089150((unsigned int)v8);
-      ZwTerminateProcess(-1LL, (unsigned int)v8);
-      RtlRaiseStatus((unsigned int)v8);
+      sub_180089150((unsigned int)v7);
+      ZwTerminateProcess((HANDLE)0xFFFFFFFFFFFFFFFFLL, v7);
+      RtlRaiseStatus(v7);
     }
-    v8 = 0;
+    v7 = 0;
     if ( !ProcessEnvironmentBlock->InheritedAddressSpace )
       goto LABEL_5;
     qword_180165378 = 0LL;
@@ -133,13 +131,13 @@ LABEL_59:
 LABEL_15:
     if ( qword_180165378 )
     {
-      v9 = ZwWaitForSingleObject(qword_180165378, 0LL, 0LL);
-      if ( v9 >= 0 )
+      v8 = ZwWaitForSingleObject(qword_180165378, 0, 0LL);
+      if ( v8 >= 0 )
       {
-        result = (unsigned int)dword_180165418;
+        result = dword_180165418;
         goto LABEL_3;
       }
-      v10 = dword_18015FAB0;
+      v9 = dword_18015FAB0;
       if ( (dword_18015FAB0 & 3) != 0 )
       {
         sub_1800CE318(
@@ -148,19 +146,19 @@ LABEL_15:
           (unsigned int)"_LdrpInitialize",
           1,
           (__int64)"NtWaitForSingleObject failed with status 0x%08lx, fallback to delay loop\n",
-          v9);
-        v10 = dword_18015FAB0;
+          v8);
+        v9 = dword_18015FAB0;
       }
-      if ( (v10 & 0x40) != 0 )
+      if ( (v9 & 0x40) != 0 )
         __debugbreak();
     }
-    v15 = -300000LL;
+    DelayInterval.QuadPart = -300000LL;
     while ( dword_180165418 == 1 )
     {
-      v11 = ZwDelayExecution(0LL, &v15);
-      if ( v11 < 0 )
+      v10 = ZwDelayExecution(0, &DelayInterval);
+      if ( v10 < 0 )
       {
-        v12 = dword_18015FAB0;
+        v11 = dword_18015FAB0;
         if ( (dword_18015FAB0 & 3) != 0 )
         {
           sub_1800CE318(
@@ -169,47 +167,47 @@ LABEL_15:
             (unsigned int)"_LdrpInitialize",
             1,
             (__int64)"Delaying execution failed with status 0x%08lx\n",
-            v11);
-          v12 = dword_18015FAB0;
+            v10);
+          v11 = dword_18015FAB0;
         }
-        if ( (v12 & 0x40) != 0 )
+        if ( (v11 & 0x40) != 0 )
           __debugbreak();
       }
     }
   }
   if ( ProcessEnvironmentBlock->InheritedAddressSpace )
   {
-    v13 = NtCurrentPeb();
-    qword_1801662E8 = 0LL;
-    qword_1801662F0 = 0LL;
-    v13->InheritedAddressSpace = 0;
-    if ( v13->BeingDebugged )
+    v12 = NtCurrentPeb();
+    stru_1801662E8.Ptr = 0LL;
+    ConditionVariable.Ptr = 0LL;
+    v12->InheritedAddressSpace = 0;
+    if ( v12->BeingDebugged )
       sub_1800D0F9C();
     result = LdrProcessInitializationComplete();
   }
   else
   {
     result = LdrProcessInitializationComplete();
-    v8 = 0;
+    v7 = 0;
   }
 LABEL_5:
-  if ( (v5->SameTebFlags & 0x40) == 0 )
+  if ( (v4->SameTebFlags & 0x40) == 0 )
   {
     if ( byte_180164EF9 )
     {
-      RtlAcquireSRWLockShared(&qword_1801662E8, a2, a3, a4);
+      RtlAcquireSRWLockShared(&stru_1801662E8);
       while ( byte_180164EF9 )
-        RtlSleepConditionVariableSRW(&qword_1801662F0, &qword_1801662E8, 0LL, 1);
-      RtlReleaseSRWLockShared(&qword_1801662E8);
+        RtlSleepConditionVariableSRW(&ConditionVariable, &stru_1801662E8, 0LL, 1u);
+      RtlReleaseSRWLockShared(&stru_1801662E8);
     }
     if ( dword_180165428 )
       qword_18017A220(a1);
     result = sub_180022CE8(a1, a2, a3);
   }
 LABEL_10:
-  if ( v8 < 0 )
+  if ( v7 < 0 )
     goto LABEL_59;
-  if ( (v5->SameTebFlags & 0x2000) == 0 )
+  if ( (v4->SameTebFlags & 0x2000) == 0 )
     return ZwTestAlert();
   return result;
 }

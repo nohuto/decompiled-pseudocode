@@ -1,19 +1,19 @@
 /*
- * XREFs of KeUpdateSoftParkRankList @ 0x140354F60
+ * XREFs of KeUpdateSoftParkRankList @ 0x1402B2C90
  * Callers:
- *     PpmParkReportParkedCores @ 0x1403547C0 (PpmParkReportParkedCores.c)
- *     PpmParkApplyPolicy @ 0x1404ED2F4 (PpmParkApplyPolicy.c)
- *     PpmParkApplyPolicyEx @ 0x1405E1344 (PpmParkApplyPolicyEx.c)
+ *     PpmParkReportParkedCores @ 0x1402B24F0 (PpmParkReportParkedCores.c)
+ *     PpmParkApplyPolicy @ 0x1404E4B18 (PpmParkApplyPolicy.c)
+ *     PpmParkApplyPolicyEx @ 0x1405DE964 (PpmParkApplyPolicyEx.c)
  * Callees:
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14020FA40 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140210170 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     KiCompressSoftParkRankList @ 0x140355574 (KiCompressSoftParkRankList.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     RtlCopyVolatileMemory @ 0x1406B5CF0 (RtlCopyVolatileMemory.c)
- *     memcmp @ 0x1406BFF10 (memcmp.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140338DA0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1403394D0 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     KiCompressSoftParkRankList @ 0x140478C1C (KiCompressSoftParkRankList.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     RtlCopyVolatileMemory @ 0x1406B6C90 (RtlCopyVolatileMemory.c)
+ *     memcmp @ 0x1406C0E10 (memcmp.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 unsigned __int64 KeUpdateSoftParkRankList()
@@ -53,10 +53,10 @@ LABEL_6:
         {
           _BitScanForward64(&v8, v5);
           v5 &= ~(1LL << v8);
-          v14[*(unsigned __int8 *)(KiProcessorBlock[*((unsigned int *)qword_140F21E78
+          v14[*(unsigned __int8 *)(KiProcessorBlock[*((unsigned int *)qword_140F22998
                                                     + 64 * v4
                                                     + (unsigned int)(unsigned __int8)v8)]
-                                 + 209)] = v0[*((unsigned int *)qword_140F21E78
+                                 + 209)] = v0[*((unsigned int *)qword_140F22998
                                               + 64 * v4
                                               + (unsigned int)(unsigned __int8)v8)];
           goto LABEL_6;

@@ -9,10 +9,10 @@
  *     <none>
  */
 
-__int64 __fastcall sub_18004C724(unsigned __int64 a1)
+PVOID __fastcall sub_18004C724(SIZE_T a1)
 {
   if ( a1 > 0x7FFFFFFF )
     return 0LL;
   else
-    return RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, a1);
+    return RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, a1);
 }

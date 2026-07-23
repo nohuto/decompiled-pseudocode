@@ -1,7 +1,7 @@
 /*
- * XREFs of KiClockTimerOneShotReady @ 0x1403D06DC
+ * XREFs of KiClockTimerOneShotReady @ 0x1403D08BC
  * Callers:
- *     KePrepareClockTimerForIdle @ 0x140347334 (KePrepareClockTimerForIdle.c)
+ *     KePrepareClockTimerForIdle @ 0x1403475C4 (KePrepareClockTimerForIdle.c)
  * Callees:
  *     <none>
  */
@@ -19,7 +19,7 @@ char __fastcall KiClockTimerOneShotReady(__int64 a1)
         ++KiDynamicTickCancellations;
       KiClockTimerOneShotStartTime = 0LL;
     }
-    if ( a1 - KiClockTimerOneShotEndTime < (unsigned __int64)(unsigned int)KeMaximumIncrement )
+    if ( a1 - KiClockTimerOneShotEndTime < (unsigned __int64)KeMaximumIncrement )
     {
       if ( (unsigned int)KiDynamicTickCancellations > 3 )
         return 0;

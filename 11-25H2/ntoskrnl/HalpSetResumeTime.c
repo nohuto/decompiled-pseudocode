@@ -50,7 +50,7 @@ void __fastcall HalpSetResumeTime(_QWORD *a1, int a2)
         }
         else
         {
-          HalpSetVirtualRtc(&HalpResumeTime);
+          HalpSetVirtualRtc((LARGE_INTEGER *)&HalpResumeTime);
           HalpResumeTime = 0LL;
         }
       }

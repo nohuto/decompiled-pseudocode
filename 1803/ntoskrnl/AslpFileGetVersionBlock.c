@@ -51,7 +51,7 @@ __int64 __fastcall AslpFileGetVersionBlock(_QWORD *a1, _QWORD *a2, __int64 a3)
   __int64 v36; // [rsp+60h] [rbp-1B8h]
   _QWORD v37[3]; // [rsp+68h] [rbp-1B0h] BYREF
   _QWORD v38[8]; // [rsp+80h] [rbp-198h] BYREF
-  struct _OSVERSIONINFOEXW VersionInfo; // [rsp+C0h] [rbp-158h] BYREF
+  _OSVERSIONINFOEXW VersionInfo; // [rsp+C0h] [rbp-158h] BYREF
   void *Src; // [rsp+238h] [rbp+20h] BYREF
 
   Src = 0LL;

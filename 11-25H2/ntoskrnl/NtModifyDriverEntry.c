@@ -6,10 +6,10 @@
  *     ExpSetDriverEntry @ 0x1407AD5A4 (ExpSetDriverEntry.c)
  */
 
-__int64 __fastcall NtModifyDriverEntry(const void *a1)
+NTSTATUS __cdecl NtModifyDriverEntry(PEFI_DRIVER_ENTRY DriverEntry)
 {
   if ( dword_140EFE810 == 2 )
-    return ExpSetDriverEntry(0, a1, 0LL);
+    return ExpSetDriverEntry(0, DriverEntry, 0LL);
   else
-    return 3221225474LL;
+    return -1073741822;
 }

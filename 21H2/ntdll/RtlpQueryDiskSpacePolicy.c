@@ -1,28 +1,27 @@
 /*
- * XREFs of RtlpQueryDiskSpacePolicy @ 0x180118270
+ * XREFs of RtlpQueryDiskSpacePolicy @ 0x180118210
  * Callers:
  *     RtlQueryResourcePolicy @ 0x180044700 (RtlQueryResourcePolicy.c)
  * Callees:
  *     RtlStringLengthWorkerW @ 0x1800473F4 (RtlStringLengthWorkerW.c)
  *     StringCbPrintfW @ 0x18004C564 (StringCbPrintfW.c)
  *     __security_check_cookie @ 0x18008C940 (__security_check_cookie.c)
- *     NtClose @ 0x18009D820 (NtClose.c)
- *     ZwCreateFile @ 0x18009E0E0 (ZwCreateFile.c)
- *     RtlpQueryDiskSpacePolicyByHandle @ 0x1801183C4 (RtlpQueryDiskSpacePolicyByHandle.c)
+ *     NtClose @ 0x18009D7E0 (NtClose.c)
+ *     ZwCreateFile @ 0x18009E0A0 (ZwCreateFile.c)
+ *     RtlpQueryDiskSpacePolicyByHandle @ 0x180118364 (RtlpQueryDiskSpacePolicyByHandle.c)
  */
 
 __int64 __fastcall RtlpQueryDiskSpacePolicy(__int64 a1, _DWORD *a2)
 {
-  int File; // ebx
-  __int128 v5; // [rsp+68h] [rbp-98h] BYREF
-  __int64 v6; // [rsp+78h] [rbp-88h] BYREF
-  int v7; // [rsp+80h] [rbp-80h]
-  __int64 v8; // [rsp+88h] [rbp-78h]
-  __int128 *v9; // [rsp+90h] [rbp-70h]
-  int v10; // [rsp+98h] [rbp-68h]
-  __int128 v11; // [rsp+A0h] [rbp-60h]
+  NTSTATUS DiskSpacePolicyByHandle; // ebx
+  HANDLE FileHandle; // [rsp+60h] [rbp-A0h] BYREF
+  __int128 v6; // [rsp+68h] [rbp-98h] BYREF
+  __int64 v7; // [rsp+78h] [rbp-88h] BYREF
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+80h] [rbp-80h] BYREF
+  _IO_STATUS_BLOCK IoStatusBlock; // [rsp+B0h] [rbp-50h] BYREF
   wchar_t pszDest[264]; // [rsp+C0h] [rbp-40h] BYREF
 
+  FileHandle = 0LL;
   if ( BYTE2(RtlpUserPolicies) )
   {
     *a2 = BYTE2(RtlpUserPolicies);
@@ -31,25 +30,38 @@ __int64 __fastcall RtlpQueryDiskSpacePolicy(__int64 a1, _DWORD *a2)
   else
   {
     StringCbPrintfW(pszDest, 0x208uLL, L"\\??\\%s", a1);
-    v5 = 0LL;
-    if ( (int)RtlStringLengthWorkerW(pszDest, 0x7FFFLL, &v6) >= 0 )
+    v6 = 0LL;
+    if ( (int)RtlStringLengthWorkerW(pszDest, 0x7FFFLL, &v7) >= 0 )
     {
-      LOWORD(v5) = 2 * v6;
-      WORD1(v5) = 2 * v6 + 2;
-      *((_QWORD *)&v5 + 1) = pszDest;
+      LOWORD(v6) = 2 * v7;
+      WORD1(v6) = 2 * v7 + 2;
+      *((_QWORD *)&v6 + 1) = pszDest;
     }
-    v7 = 48;
-    v8 = 0LL;
-    v10 = 64;
-    v9 = &v5;
-    v11 = 0LL;
-    File = ZwCreateFile();
-    if ( File >= 0 )
+    ObjectAttributes.Length = 48;
+    ObjectAttributes.RootDirectory = 0LL;
+    ObjectAttributes.Attributes = 64;
+    ObjectAttributes.ObjectName = (PUNICODE_STRING)&v6;
+    *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+    DiskSpacePolicyByHandle = ZwCreateFile(
+                                &FileHandle,
+                                0x100080u,
+                                &ObjectAttributes,
+                                &IoStatusBlock,
+                                0LL,
+                                0,
+                                7u,
+                                1u,
+                                0x20u,
+                                0LL,
+                                0);
+    if ( DiskSpacePolicyByHandle >= 0 )
     {
-      File = RtlpQueryDiskSpacePolicyByHandle(0LL, a2);
-      if ( File >= 0 )
-        return 0;
+      DiskSpacePolicyByHandle = RtlpQueryDiskSpacePolicyByHandle(FileHandle, a2);
+      if ( DiskSpacePolicyByHandle >= 0 )
+        DiskSpacePolicyByHandle = 0;
     }
+    if ( FileHandle )
+      NtClose(FileHandle);
   }
-  return (unsigned int)File;
+  return (unsigned int)DiskSpacePolicyByHandle;
 }

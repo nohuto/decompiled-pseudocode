@@ -1,21 +1,21 @@
 /*
- * XREFs of ExpWnfWriteStateData @ 0x140610CD0
+ * XREFs of ExpWnfWriteStateData @ 0x140611CD0
  * Callers:
- *     NtUpdateWnfStateData @ 0x14060EBB0 (NtUpdateWnfStateData.c)
+ *     NtUpdateWnfStateData @ 0x14060FBB0 (NtUpdateWnfStateData.c)
  * Callees:
  *     ExfAcquirePushLockExclusiveEx @ 0x140005760 (ExfAcquirePushLockExclusiveEx.c)
  *     KiStackAttachProcess @ 0x140016DB0 (KiStackAttachProcess.c)
  *     KiUnstackDetachProcess @ 0x140017190 (KiUnstackDetachProcess.c)
  *     KeAbPreAcquire @ 0x14004E270 (KeAbPreAcquire.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     ExAllocatePoolWithQuotaTag @ 0x1400B7670 (ExAllocatePoolWithQuotaTag.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     ZwSetValueKey @ 0x1401B8D90 (ZwSetValueKey.c)
- *     memmove @ 0x1401D1540 (memmove.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     ExpWnfComposeValueName @ 0x1405AAC5C (ExpWnfComposeValueName.c)
+ *     ExfTryToWakePushLock @ 0x140091500 (ExfTryToWakePushLock.c)
+ *     ExAllocatePoolWithQuotaTag @ 0x1400B75B0 (ExAllocatePoolWithQuotaTag.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     ZwSetValueKey @ 0x1401B8EF0 (ZwSetValueKey.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     ExpWnfComposeValueName @ 0x1405ABC5C (ExpWnfComposeValueName.c)
  */
 
 __int64 __fastcall ExpWnfWriteStateData(__int64 a1, const void *a2, unsigned int a3, int a4, int a5)
@@ -23,8 +23,8 @@ __int64 __fastcall ExpWnfWriteStateData(__int64 a1, const void *a2, unsigned int
   size_t v6; // r13
   const void *v7; // r12
   volatile signed __int64 *v9; // rsi
-  __int64 v10; // rax
-  __int64 v11; // rbx
+  _RTL_BALANCED_NODE *v10; // rax
+  _RTL_BALANCED_NODE *v11; // rbx
   _DWORD *v12; // rcx
   _DWORD *v13; // r14
   __int32 i; // esi
@@ -32,8 +32,8 @@ __int64 __fastcall ExpWnfWriteStateData(__int64 a1, const void *a2, unsigned int
   _KPROCESS *v17; // rcx
   int v18; // r12d
   _QWORD *PoolWithTag; // r14
-  __int64 v20; // rax
-  __int64 v21; // r14
+  _RTL_BALANCED_NODE *v20; // rax
+  _RTL_BALANCED_NODE *v21; // r14
   _DWORD *v22; // [rsp+30h] [rbp-C8h]
   NTSTATUS v23; // [rsp+38h] [rbp-C0h]
   PVOID P; // [rsp+40h] [rbp-B8h]
@@ -58,7 +58,7 @@ __int64 __fastcall ExpWnfWriteStateData(__int64 a1, const void *a2, unsigned int
   if ( _interlockedbittestandset64((volatile signed __int32 *)(a1 + 80), 0LL) )
     ExfAcquirePushLockExclusiveEx((unsigned __int64 *)(a1 + 80), v10, a1 + 80);
   if ( v11 )
-    *(_BYTE *)(v11 + 26) |= 1u;
+    BYTE2(v11[1].Left) |= 1u;
   if ( a5 && *(_DWORD *)(a1 + 96) != a4 )
   {
     if ( (_InterlockedExchangeAdd64(v9, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
@@ -110,7 +110,7 @@ __int64 __fastcall ExpWnfWriteStateData(__int64 a1, const void *a2, unsigned int
     if ( _interlockedbittestandset64((volatile signed __int32 *)v9, 0LL) )
       ExfAcquirePushLockExclusiveEx((unsigned __int64 *)(a1 + 80), v20, a1 + 80);
     if ( v21 )
-      *(_BYTE *)(v21 + 26) |= 1u;
+      BYTE2(v21[1].Left) |= 1u;
     v13 = 0LL;
     if ( *(_QWORD *)(a1 + 88) != 1LL )
       v13 = *(_DWORD **)(a1 + 88);

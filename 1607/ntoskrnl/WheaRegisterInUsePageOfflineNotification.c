@@ -1,12 +1,12 @@
 /*
- * XREFs of WheaRegisterInUsePageOfflineNotification @ 0x1406BA5DC
+ * XREFs of WheaRegisterInUsePageOfflineNotification @ 0x1406BA714
  * Callers:
- *     HvlRegisterWheaErrorNotification @ 0x140620390 (HvlRegisterWheaErrorNotification.c)
+ *     HvlRegisterWheaErrorNotification @ 0x140620444 (HvlRegisterWheaErrorNotification.c)
  * Callees:
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1400C8070 (ExfAcquirePushLockExclusiveEx.c)
- *     ExfTryToWakePushLock @ 0x1400C8738 (ExfTryToWakePushLock.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1400C5F10 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfTryToWakePushLock @ 0x1400C65D8 (ExfTryToWakePushLock.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
  */
 
@@ -34,13 +34,13 @@ NTSTATUS __stdcall WheaRegisterInUsePageOfflineNotification(PFN_IN_USE_PAGE_OFFL
     ExfAcquirePushLockExclusiveEx(&WheapInUsePageOfflineNotifyLock, v7, (ULONG_PTR)&WheapInUsePageOfflineNotifyLock);
   if ( v9 )
     v9[26] |= 1u;
-  v10 = (_QWORD *)qword_1403415B8;
-  if ( *(__int64 **)qword_1403415B8 != &WheapInUsePageOfflineNotifyList )
+  v10 = (_QWORD *)qword_1403415F8;
+  if ( *(__int64 **)qword_1403415F8 != &WheapInUsePageOfflineNotifyList )
     __fastfail(3u);
-  v6[1] = qword_1403415B8;
+  v6[1] = qword_1403415F8;
   *v6 = &WheapInUsePageOfflineNotifyList;
   *v10 = v6;
-  qword_1403415B8 = (__int64)v6;
+  qword_1403415F8 = (__int64)v6;
   if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&WheapInUsePageOfflineNotifyLock, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
     ExfTryToWakePushLock((volatile signed __int64 *)&WheapInUsePageOfflineNotifyLock);
   KeAbPostRelease((ULONG_PTR)&WheapInUsePageOfflineNotifyLock);

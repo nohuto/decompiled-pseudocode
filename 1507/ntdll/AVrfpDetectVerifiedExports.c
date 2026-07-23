@@ -14,8 +14,8 @@ char __fastcall AVrfpDetectVerifiedExports(__int64 a1, __int64 a2)
   char v3; // si
   __int64 v4; // rbp
   _QWORD *v6; // rbx
-  STRING DestinationString; // [rsp+30h] [rbp-28h] BYREF
-  __int64 v9; // [rsp+60h] [rbp+8h] BYREF
+  _STRING DestinationString; // [rsp+30h] [rbp-28h] BYREF
+  PVOID ProcedureAddress; // [rsp+60h] [rbp+8h] BYREF
 
   v2 = *(_QWORD **)(a1 + 24);
   v3 = 0;
@@ -28,9 +28,9 @@ char __fastcall AVrfpDetectVerifiedExports(__int64 a1, __int64 a2)
       if ( !v6[1] )
       {
         RtlInitAnsiString(&DestinationString, (PCSZ)*v6);
-        if ( (int)LdrGetProcedureAddressEx(*(_QWORD *)(a2 + 48), (const void **)&DestinationString, 0, &v9, 1) >= 0 )
+        if ( LdrGetProcedureAddressEx(*(PVOID *)(a2 + 48), &DestinationString, 0, &ProcedureAddress, 1u) >= 0 )
         {
-          v6[1] = v9;
+          v6[1] = ProcedureAddress;
           if ( (AVrfpDebug & 2) != 0 )
             DbgPrint("AVRF: (%ws) %s export found. \n", *(_QWORD *)(a2 + 96), *v6);
           v3 = 1;

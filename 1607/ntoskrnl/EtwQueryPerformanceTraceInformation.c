@@ -1,31 +1,31 @@
 /*
- * XREFs of EtwQueryPerformanceTraceInformation @ 0x1406A3258
+ * XREFs of EtwQueryPerformanceTraceInformation @ 0x1406A3390
  * Callers:
- *     ExpQuerySystemInformation @ 0x140415620 (ExpQuerySystemInformation.c)
+ *     ExpQuerySystemInformation @ 0x1404144E0 (ExpQuerySystemInformation.c)
  * Callees:
- *     RtlFindSetBits @ 0x14000AFC0 (RtlFindSetBits.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x140055FA0 (KiLeaveCriticalRegionUnsafe.c)
- *     ObfDereferenceObjectWithTag @ 0x14006ACD0 (ObfDereferenceObjectWithTag.c)
- *     PsIsSystemProcess @ 0x140072328 (PsIsSystemProcess.c)
- *     RtlNumberOfSetBits @ 0x1400767D0 (RtlNumberOfSetBits.c)
- *     PsGetProcessId @ 0x140085488 (PsGetProcessId.c)
- *     ExUnlockUserBuffer @ 0x140086998 (ExUnlockUserBuffer.c)
- *     PsGetCurrentServerSiloGlobals @ 0x14008C610 (PsGetCurrentServerSiloGlobals.c)
- *     KeGetPrcb @ 0x1400D3FF8 (KeGetPrcb.c)
- *     memmove @ 0x140171280 (memmove.c)
- *     SeQuerySecurityDescriptorInfo @ 0x140404A00 (SeQuerySecurityDescriptorInfo.c)
- *     EtwpAcquireLoggerContextByLoggerId @ 0x1404900BC (EtwpAcquireLoggerContextByLoggerId.c)
- *     EtwpReleaseLoggerContext @ 0x140490180 (EtwpReleaseLoggerContext.c)
- *     EtwpCheckLoggerControlAccess @ 0x140490208 (EtwpCheckLoggerControlAccess.c)
- *     EtwpDereferenceLoggerSecurityDescriptor @ 0x140490254 (EtwpDereferenceLoggerSecurityDescriptor.c)
- *     EtwpReferenceLoggerSecurityDescriptor @ 0x14049028C (EtwpReferenceLoggerSecurityDescriptor.c)
- *     EtwpMapEnableFlags @ 0x1404963F8 (EtwpMapEnableFlags.c)
- *     ExLockUserBuffer @ 0x140499420 (ExLockUserBuffer.c)
- *     PsGetNextProcess @ 0x140508FFC (PsGetNextProcess.c)
- *     EtwpCheckSystemTraceAccess @ 0x140580C54 (EtwpCheckSystemTraceAccess.c)
- *     xHalSetSystemInformation @ 0x140581940 (xHalSetSystemInformation.c)
- *     EtwpUMGLEnabled @ 0x14069FDD8 (EtwpUMGLEnabled.c)
- *     EtwpGetSoftRestartInformation @ 0x1406A9C84 (EtwpGetSoftRestartInformation.c)
+ *     RtlFindSetBits @ 0x14000AB40 (RtlFindSetBits.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140055B20 (KiLeaveCriticalRegionUnsafe.c)
+ *     ObfDereferenceObjectWithTag @ 0x14006A850 (ObfDereferenceObjectWithTag.c)
+ *     PsIsSystemProcess @ 0x140071EA8 (PsIsSystemProcess.c)
+ *     RtlNumberOfSetBits @ 0x140076850 (RtlNumberOfSetBits.c)
+ *     PsGetProcessId @ 0x140086D74 (PsGetProcessId.c)
+ *     ExUnlockUserBuffer @ 0x140088288 (ExUnlockUserBuffer.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x14008BD70 (PsGetCurrentServerSiloGlobals.c)
+ *     KeGetPrcb @ 0x1400D1E98 (KeGetPrcb.c)
+ *     memmove @ 0x140171780 (memmove.c)
+ *     SeQuerySecurityDescriptorInfo @ 0x1404038C0 (SeQuerySecurityDescriptorInfo.c)
+ *     EtwpAcquireLoggerContextByLoggerId @ 0x140490B4C (EtwpAcquireLoggerContextByLoggerId.c)
+ *     EtwpReleaseLoggerContext @ 0x140490C10 (EtwpReleaseLoggerContext.c)
+ *     EtwpCheckLoggerControlAccess @ 0x140490C98 (EtwpCheckLoggerControlAccess.c)
+ *     EtwpDereferenceLoggerSecurityDescriptor @ 0x140490CE4 (EtwpDereferenceLoggerSecurityDescriptor.c)
+ *     EtwpReferenceLoggerSecurityDescriptor @ 0x140490D1C (EtwpReferenceLoggerSecurityDescriptor.c)
+ *     EtwpMapEnableFlags @ 0x140496E88 (EtwpMapEnableFlags.c)
+ *     ExLockUserBuffer @ 0x140499EB0 (ExLockUserBuffer.c)
+ *     PsGetNextProcess @ 0x1404EBF8C (PsGetNextProcess.c)
+ *     EtwpCheckSystemTraceAccess @ 0x140581100 (EtwpCheckSystemTraceAccess.c)
+ *     xHalSetSystemInformation @ 0x140581DF0 (xHalSetSystemInformation.c)
+ *     EtwpUMGLEnabled @ 0x14069FF10 (EtwpUMGLEnabled.c)
+ *     EtwpGetSoftRestartInformation @ 0x1406A9DBC (EtwpGetSoftRestartInformation.c)
  */
 
 __int64 __fastcall EtwQueryPerformanceTraceInformation(__int64 a1, __int64 a2, KPROCESSOR_MODE a3, unsigned int *a4)
@@ -202,7 +202,7 @@ LABEL_42:
       }
       v29 = 32LL * *(unsigned __int8 *)(v25 + 818);
       *(_OWORD *)(a1 + 16) = *(_OWORD *)((char *)&EtwpGroupMasks + v29);
-      *(_OWORD *)(a1 + 32) = *(_OWORD *)((char *)&unk_1402FD450 + v29);
+      *(_OWORD *)(a1 + 32) = *(_OWORD *)((char *)&unk_1402FD430 + v29);
       EtwpMapEnableFlags(a1 + 16, 0);
 LABEL_30:
       v20 = 1;
@@ -319,7 +319,7 @@ LABEL_30:
       if ( v45 > v5 )
         v8 = -1073741789;
       else
-        memmove((void *)(a1 + 16), (char *)&unk_1402FD204 + 4 * v44, 4LL * (unsigned __int16)EtwpPoolTagFilter[2 * v44]);
+        memmove((void *)(a1 + 16), (char *)&unk_1402FD1E4 + 4 * v44, 4LL * (unsigned __int16)EtwpPoolTagFilter[2 * v44]);
       goto LABEL_30;
     }
     v30 = (unsigned int *)v18;

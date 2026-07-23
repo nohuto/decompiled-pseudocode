@@ -1,7 +1,7 @@
 /*
- * XREFs of HalpAcpiValidateAcpiTable @ 0x14037DF4C
+ * XREFs of HalpAcpiValidateAcpiTable @ 0x14037E0EC
  * Callers:
- *     HalpAcpiCopyBiosTable @ 0x14037DE48 (HalpAcpiCopyBiosTable.c)
+ *     HalpAcpiCopyBiosTable @ 0x14037DFE8 (HalpAcpiCopyBiosTable.c)
  * Callees:
  *     <none>
  */

@@ -1,13 +1,13 @@
 /*
- * XREFs of _CmGetInterfaceClassMappedPropertyFromRegValue @ 0x1408BC098
+ * XREFs of _CmGetInterfaceClassMappedPropertyFromRegValue @ 0x1408B99E8
  * Callers:
- *     _CmGetInterfaceClassMappedPropertyKeys @ 0x14081F34C (_CmGetInterfaceClassMappedPropertyKeys.c)
- *     _PnpDispatchInterfaceClass @ 0x1408BBDB0 (_PnpDispatchInterfaceClass.c)
+ *     _CmGetInterfaceClassMappedPropertyKeys @ 0x14081FA8C (_CmGetInterfaceClassMappedPropertyKeys.c)
+ *     _PnpDispatchInterfaceClass @ 0x1408B9700 (_PnpDispatchInterfaceClass.c)
  * Callees:
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     _PnpCtxRegQueryValue @ 0x1408BC774 (_PnpCtxRegQueryValue.c)
- *     _RegRtlOpenKeyTransacted @ 0x1408C7B60 (_RegRtlOpenKeyTransacted.c)
- *     _CmOpenCommonClassRegKey @ 0x1408C82AC (_CmOpenCommonClassRegKey.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     _PnpCtxRegQueryValue @ 0x1408BA0C4 (_PnpCtxRegQueryValue.c)
+ *     _RegRtlOpenKeyTransacted @ 0x1408C5590 (_RegRtlOpenKeyTransacted.c)
+ *     _CmOpenCommonClassRegKey @ 0x1408C5CDC (_CmOpenCommonClassRegKey.c)
  */
 
 __int64 __fastcall CmGetInterfaceClassMappedPropertyFromRegValue(
@@ -64,7 +64,7 @@ __int64 __fastcall CmGetInterfaceClassMappedPropertyFromRegValue(
   if ( v14 < 2 )
     return (unsigned int)-1073741264;
   v15 = 0;
-  v16 = &off_140B3B0A0;
+  v16 = &off_140B3CE50;
   do
   {
     v17 = *v16;

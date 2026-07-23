@@ -9,27 +9,27 @@
  *     LdrpUpdateStatistics @ 0x180070EE4 (LdrpUpdateStatistics.c)
  */
 
-void LdrpWorkCallback()
+void __fastcall LdrpWorkCallback(PTP_CALLBACK_INSTANCE a1, PVOID a2, PTP_WORK a3)
 {
-  __int64 *v0; // rbx
-  __int64 v1; // rax
+  __int64 *v3; // rbx
+  __int64 v4; // rax
 
   if ( !LdrpDetourExist )
   {
-    RtlEnterCriticalSection((__int64)&LdrpWorkQueueLock);
-    v0 = (__int64 *)LdrpWorkQueue;
-    v1 = *(_QWORD *)LdrpWorkQueue;
-    if ( *(__int64 **)(LdrpWorkQueue + 8) != &LdrpWorkQueue || *(_QWORD *)(v1 + 8) != LdrpWorkQueue )
+    RtlEnterCriticalSection(&LdrpWorkQueueLock);
+    v3 = (__int64 *)LdrpWorkQueue;
+    v4 = *(_QWORD *)LdrpWorkQueue;
+    if ( *(__int64 **)(LdrpWorkQueue + 8) != &LdrpWorkQueue || *(_QWORD *)(v4 + 8) != LdrpWorkQueue )
       __fastfail(3u);
     LdrpWorkQueue = *(_QWORD *)LdrpWorkQueue;
-    *(_QWORD *)(v1 + 8) = &LdrpWorkQueue;
-    if ( &LdrpWorkQueue != v0 )
+    *(_QWORD *)(v4 + 8) = &LdrpWorkQueue;
+    if ( &LdrpWorkQueue != v3 )
     {
       ++LdrpWorkInProgress;
       LdrpUpdateStatistics();
     }
-    RtlLeaveCriticalSection((__int64)&LdrpWorkQueueLock);
-    if ( &LdrpWorkQueue != v0 )
-      LdrpProcessWork(v0 - 8, 0LL);
+    RtlLeaveCriticalSection(&LdrpWorkQueueLock);
+    if ( &LdrpWorkQueue != v3 )
+      LdrpProcessWork(v3 - 8, 0LL);
   }
 }

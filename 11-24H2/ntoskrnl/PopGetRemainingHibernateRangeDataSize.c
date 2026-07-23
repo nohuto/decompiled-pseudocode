@@ -1,11 +1,11 @@
 /*
- * XREFs of PopGetRemainingHibernateRangeDataSize @ 0x140B5D024
+ * XREFs of PopGetRemainingHibernateRangeDataSize @ 0x140B5F0A0
  * Callers:
- *     PopRequestWrite @ 0x140B5E080 (PopRequestWrite.c)
- *     PopWriteHiberPages @ 0x140B5EA28 (PopWriteHiberPages.c)
+ *     PopRequestWrite @ 0x140B60100 (PopRequestWrite.c)
+ *     PopWriteHiberPages @ 0x140B60AA8 (PopWriteHiberPages.c)
  * Callees:
- *     RtlFindNextForwardRunClear @ 0x1403E15B0 (RtlFindNextForwardRunClear.c)
- *     RtlNumberOfClearBits @ 0x14042B450 (RtlNumberOfClearBits.c)
+ *     RtlNumberOfClearBits @ 0x140377850 (RtlNumberOfClearBits.c)
+ *     RtlFindNextForwardRunClear @ 0x1403C3BB0 (RtlFindNextForwardRunClear.c)
  */
 
 __int64 __fastcall PopGetRemainingHibernateRangeDataSize(__int64 a1)

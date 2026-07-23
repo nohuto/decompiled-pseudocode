@@ -1,10 +1,10 @@
 /*
- * XREFs of MiCfgInitializeProcess @ 0x1407A4AB4
+ * XREFs of MiCfgInitializeProcess @ 0x1407A4CA4
  * Callers:
- *     MiMapProcessExecutable @ 0x1407A3090 (MiMapProcessExecutable.c)
+ *     MiMapProcessExecutable @ 0x1407A3280 (MiMapProcessExecutable.c)
  * Callees:
- *     MiMapSecurePureReserveView @ 0x1407A2FB0 (MiMapSecurePureReserveView.c)
- *     MiReferenceCfgVad @ 0x1407A4C0C (MiReferenceCfgVad.c)
+ *     MiMapSecurePureReserveView @ 0x1407A31A0 (MiMapSecurePureReserveView.c)
+ *     MiReferenceCfgVad @ 0x1407A4DFC (MiReferenceCfgVad.c)
  */
 
 __int64 __fastcall MiCfgInitializeProcess(__int64 a1)

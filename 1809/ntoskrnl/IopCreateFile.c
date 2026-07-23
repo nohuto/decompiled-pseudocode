@@ -1,30 +1,30 @@
 /*
- * XREFs of IopCreateFile @ 0x14060BAC0
+ * XREFs of IopCreateFile @ 0x14060CAC0
  * Callers:
- *     IoCreateFile @ 0x14060A8B0 (IoCreateFile.c)
- *     IoCreateFileEx @ 0x14060B870 (IoCreateFileEx.c)
- *     NtOpenFile @ 0x14060B9C0 (NtOpenFile.c)
- *     NtCreateFile @ 0x14060BA30 (NtCreateFile.c)
+ *     IoCreateFile @ 0x14060B8B0 (IoCreateFile.c)
+ *     IoCreateFileEx @ 0x14060C870 (IoCreateFileEx.c)
+ *     NtOpenFile @ 0x14060C9C0 (NtOpenFile.c)
+ *     NtCreateFile @ 0x14060CA30 (NtCreateFile.c)
  * Callees:
  *     PsGetCurrentSilo @ 0x14004D350 (PsGetCurrentSilo.c)
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
- *     ExFreeToNPagedLookasideList @ 0x1400922D8 (ExFreeToNPagedLookasideList.c)
- *     ExAllocatePoolWithQuotaTag @ 0x1400B7670 (ExAllocatePoolWithQuotaTag.c)
- *     PsGetCurrentProcess @ 0x1400F1330 (PsGetCurrentProcess.c)
- *     RtlRaiseStatus @ 0x140128E90 (RtlRaiseStatus.c)
- *     RtlpInterlockedPopEntrySList @ 0x1401C53D0 (RtlpInterlockedPopEntrySList.c)
- *     RtlpInterlockedPushEntrySList @ 0x1401C5410 (RtlpInterlockedPushEntrySList.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     memmove @ 0x1401D1540 (memmove.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     FeatureServicing_43969648_EnableKey @ 0x140581E8C (FeatureServicing_43969648_EnableKey.c)
- *     ObOpenObjectByNameEx @ 0x1405E2E30 (ObOpenObjectByNameEx.c)
- *     ObCloseHandle @ 0x1405F5700 (ObCloseHandle.c)
- *     FsRtlFreeExtraCreateParameter @ 0x14060CFB0 (FsRtlFreeExtraCreateParameter.c)
- *     IoCheckEaBufferValidity @ 0x14060D080 (IoCheckEaBufferValidity.c)
- *     IopCloseFile @ 0x140639B10 (IopCloseFile.c)
- *     ExRaiseDatatypeMisalignment @ 0x1408D65C0 (ExRaiseDatatypeMisalignment.c)
+ *     ExFreeToNPagedLookasideList @ 0x140092218 (ExFreeToNPagedLookasideList.c)
+ *     ExAllocatePoolWithQuotaTag @ 0x1400B75B0 (ExAllocatePoolWithQuotaTag.c)
+ *     PsGetCurrentProcess @ 0x1400F13B0 (PsGetCurrentProcess.c)
+ *     RtlRaiseStatus @ 0x140128F60 (RtlRaiseStatus.c)
+ *     RtlpInterlockedPopEntrySList @ 0x1401C5530 (RtlpInterlockedPopEntrySList.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1401C5570 (RtlpInterlockedPushEntrySList.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     FeatureServicing_43969648_EnableKey @ 0x140582E8C (FeatureServicing_43969648_EnableKey.c)
+ *     ObOpenObjectByNameEx @ 0x1405E3E30 (ObOpenObjectByNameEx.c)
+ *     ObCloseHandle @ 0x1405F6700 (ObCloseHandle.c)
+ *     FsRtlFreeExtraCreateParameter @ 0x14060DFB0 (FsRtlFreeExtraCreateParameter.c)
+ *     IoCheckEaBufferValidity @ 0x14060E080 (IoCheckEaBufferValidity.c)
+ *     IopCloseFile @ 0x14063AB30 (IopCloseFile.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408D7880 (ExRaiseDatatypeMisalignment.c)
  */
 
 __int64 __fastcall IopCreateFile(
@@ -678,15 +678,15 @@ LABEL_219:
               }
               if ( (*(_DWORD *)(v65 + 4) & 4) != 0 )
               {
-                ++dword_1404C661C;
-                if ( LOWORD(FsRtlEcpListLookaside.Alignment) < (unsigned __int16)word_1404C6610 )
+                ++dword_1404C76DC;
+                if ( LOWORD(FsRtlEcpListLookaside.Alignment) < (unsigned __int16)word_1404C76D0 )
                 {
                   RtlpInterlockedPushEntrySList(&FsRtlEcpListLookaside, (PSLIST_ENTRY)v65);
                 }
                 else
                 {
-                  ++dword_1404C6620;
-                  ((void (__fastcall *)(__int64))qword_1404C6638)(v65);
+                  ++dword_1404C76E0;
+                  ((void (__fastcall *)(__int64))qword_1404C76F8)(v65);
                 }
               }
               else

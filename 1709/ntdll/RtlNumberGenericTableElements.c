@@ -6,7 +6,7 @@
  *     <none>
  */
 
-__int64 __fastcall RtlNumberGenericTableElements(__int64 a1)
+ULONG __cdecl RtlNumberGenericTableElements(PRTL_GENERIC_TABLE Table)
 {
-  return *(unsigned int *)(a1 + 36);
+  return Table->NumberGenericTableElements;
 }

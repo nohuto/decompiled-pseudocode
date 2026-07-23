@@ -1,7 +1,7 @@
 /*
- * XREFs of _CmGetInstallerClassMappedPropertyLocales @ 0x14089BE20
+ * XREFs of _CmGetInstallerClassMappedPropertyLocales @ 0x1408A2220
  * Callers:
- *     _PnpDispatchInstallerClass @ 0x140918340 (_PnpDispatchInstallerClass.c)
+ *     _PnpDispatchInstallerClass @ 0x140972DA0 (_PnpDispatchInstallerClass.c)
  * Callees:
  *     <none>
  */
@@ -45,7 +45,7 @@ __int64 __fastcall CmGetInstallerClassMappedPropertyLocales(
   }
   for ( i = 0; i < 0xD; ++i )
   {
-    v12 = (__int64)*(&off_140BDB120 + 4 * i);
+    v12 = (__int64)*(&off_140BE1FD0 + 4 * i);
     if ( v12 && *(_DWORD *)(a4 + 16) == *(_DWORD *)(v12 + 16) )
     {
       v13 = *(_QWORD *)a4 - *(_QWORD *)v12;
@@ -57,7 +57,7 @@ __int64 __fastcall CmGetInstallerClassMappedPropertyLocales(
   }
   for ( j = 0; j < 4; ++j )
   {
-    v15 = (__int64)*(&off_140BD9820 + 2 * j);
+    v15 = (__int64)*(&off_140BE06D0 + 2 * j);
     if ( *(_DWORD *)(a4 + 16) == *(_DWORD *)(v15 + 16) )
     {
       v16 = *(_QWORD *)a4 - *(_QWORD *)v15;

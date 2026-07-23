@@ -1,14 +1,14 @@
 /*
- * XREFs of MinCrypK_ParseRevocationList @ 0x14069F218
+ * XREFs of MinCrypK_ParseRevocationList @ 0x1406A031C
  * Callers:
- *     PopValidateWinresume @ 0x140752EA8 (PopValidateWinresume.c)
+ *     PopValidateWinresume @ 0x1407511C8 (PopValidateWinresume.c)
  * Callees:
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     RtlCompareMemory @ 0x1406B3990 (RtlCompareMemory.c)
- *     MinCryptParseRevocationList @ 0x140825AC0 (MinCryptParseRevocationList.c)
- *     MinCrypK_VerifySignedDataKMode @ 0x140826824 (MinCrypK_VerifySignedDataKMode.c)
- *     MinAsn1ParseCTL @ 0x140826FF8 (MinAsn1ParseCTL.c)
- *     MinAsn1DecodeTime @ 0x140827FE4 (MinAsn1DecodeTime.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     RtlCompareMemory @ 0x1406B4930 (RtlCompareMemory.c)
+ *     MinCryptParseRevocationList @ 0x140826290 (MinCryptParseRevocationList.c)
+ *     MinCrypK_VerifySignedDataKMode @ 0x140826FF4 (MinCrypK_VerifySignedDataKMode.c)
+ *     MinAsn1ParseCTL @ 0x1408277C8 (MinAsn1ParseCTL.c)
+ *     MinAsn1DecodeTime @ 0x1408287B4 (MinAsn1DecodeTime.c)
  */
 
 __int64 __fastcall MinCrypK_ParseRevocationList(int a1, int a2, __int64 a3, __int64 a4, __int64 a5, __int64 a6)
@@ -28,7 +28,7 @@ __int64 __fastcall MinCrypK_ParseRevocationList(int a1, int a2, __int64 a3, __in
   if ( (int)result >= 0 )
   {
     if ( v9 == 9
-      && RtlCompareMemory(qword_140B3B890, Source2, 9uLL) == 9
+      && RtlCompareMemory(qword_140B3D648, Source2, 9uLL) == 9
       && (int)MinAsn1ParseCTL(v11, v12) >= 0
       && v13 == 14
       && *(_QWORD *)v14 == 0x401062B0A060C30LL

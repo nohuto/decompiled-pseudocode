@@ -12,16 +12,16 @@
 __int64 __fastcall sub_18001F7A8(__int64 a1, __int64 *a2, __int64 a3, int a4)
 {
   unsigned int v4; // edi
-  struct _SLIST_ENTRY *v5; // rbx
+  _SLIST_ENTRY *v5; // rbx
   unsigned int v6; // ebp
-  union _SLIST_HEADER *v7; // rbp
+  _SLIST_HEADER *v7; // rbp
   __int64 (__fastcall *v9)(__int64, __int64, char); // rax
   __int64 v10; // rcx
 
   v4 = 0;
-  v5 = (struct _SLIST_ENTRY *)a3;
+  v5 = (_SLIST_ENTRY *)a3;
   _BitScanForward(&v6, *(unsigned __int8 *)(a3 + 45) << *(_BYTE *)(a3 + 44));
-  v7 = (union _SLIST_HEADER *)(a1 + 16LL * (v6 - 12));
+  v7 = (_SLIST_HEADER *)(a1 + 16LL * (v6 - 12));
   if ( LOWORD(v7->Alignment) )
   {
     v9 = (__int64 (__fastcall *)(__int64, __int64, char))((unsigned __int64)a2 ^ qword_18015BFA8 ^ a2[2]);

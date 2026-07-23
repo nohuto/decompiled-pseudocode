@@ -1,19 +1,19 @@
 /*
- * XREFs of RtlpHpAllocateHeap @ 0x14024D420
+ * XREFs of RtlpHpAllocateHeap @ 0x14024D4F0
  * Callers:
- *     ExAllocateHeapPool @ 0x1402AD2E0 (ExAllocateHeapPool.c)
- *     RtlpHpMetadataAlloc @ 0x140324528 (RtlpHpMetadataAlloc.c)
- *     ExAllocateHeapPages @ 0x1403B9BBC (ExAllocateHeapPages.c)
+ *     ExAllocateHeapPool @ 0x1402AD570 (ExAllocateHeapPool.c)
+ *     RtlpHpMetadataAlloc @ 0x1403247B8 (RtlpHpMetadataAlloc.c)
+ *     ExAllocateHeapPages @ 0x1403B9D9C (ExAllocateHeapPages.c)
  * Callees:
- *     RtlpHpVsContextAllocateInternal @ 0x14024A0B0 (RtlpHpVsContextAllocateInternal.c)
- *     RtlpHpSegAlloc @ 0x14024DB40 (RtlpHpSegAlloc.c)
- *     RtlpHpReleaseQueuedLockExclusive @ 0x140289BE0 (RtlpHpReleaseQueuedLockExclusive.c)
- *     RtlpHpFreeHeap @ 0x1402AC4C0 (RtlpHpFreeHeap.c)
- *     RtlpHpLfhContextAllocate @ 0x140323A30 (RtlpHpLfhContextAllocate.c)
- *     RtlpHpLargeAlloc @ 0x14032409C (RtlpHpLargeAlloc.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     RtlpLogHeapFailure @ 0x1405B4ACC (RtlpLogHeapFailure.c)
- *     RtlpHpExtrasAppend @ 0x1405B6470 (RtlpHpExtrasAppend.c)
+ *     RtlpHpVsContextAllocateInternal @ 0x14024A180 (RtlpHpVsContextAllocateInternal.c)
+ *     RtlpHpSegAlloc @ 0x14024DC10 (RtlpHpSegAlloc.c)
+ *     RtlpHpReleaseQueuedLockExclusive @ 0x140289E70 (RtlpHpReleaseQueuedLockExclusive.c)
+ *     RtlpHpFreeHeap @ 0x1402AC750 (RtlpHpFreeHeap.c)
+ *     RtlpHpLfhContextAllocate @ 0x140323CC0 (RtlpHpLfhContextAllocate.c)
+ *     RtlpHpLargeAlloc @ 0x14032432C (RtlpHpLargeAlloc.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     RtlpLogHeapFailure @ 0x1405B503C (RtlpLogHeapFailure.c)
+ *     RtlpHpExtrasAppend @ 0x1405B69E0 (RtlpHpExtrasAppend.c)
  */
 
 char *__fastcall RtlpHpAllocateHeap(__int64 a1, unsigned __int64 a2, int a3, __int16 a4)

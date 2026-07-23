@@ -1,24 +1,24 @@
 /*
- * XREFs of BgkpResetDisplay @ 0x140590330
+ * XREFs of BgkpResetDisplay @ 0x14058D350
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
  */
 
-__int64 __fastcall BgkpResetDisplay(char a1, __int64 a2, _QWORD *a3, __int64 a4)
+__int64 __fastcall BgkpResetDisplay(char a1, __int64 a2, _QWORD *a3)
 {
   __int64 result; // rax
-  __int64 v6; // rcx
+  __int64 v5; // rcx
 
   *a3 = 0LL;
-  if ( !a1 || dword_140E3ED18 == 2 )
+  if ( !a1 || dword_140E3EE58 == 2 )
     return 3221225659LL;
-  if ( !qword_140E65DA0 )
+  if ( !qword_140E65EB8 )
     return 3221225473LL;
-  guard_dispatch_icall_no_overrides(80LL, 50LL, a3, a4);
-  LOBYTE(v6) = 1;
-  VidResetDisplay(v6);
+  guard_dispatch_icall_no_overrides(80LL, 50LL);
+  LOBYTE(v5) = 1;
+  VidResetDisplay(v5);
   *(_WORD *)(a2 + 1) = 0;
   *(_BYTE *)(a2 + 3) = 0;
   *(_QWORD *)(a2 + 20) = 0LL;

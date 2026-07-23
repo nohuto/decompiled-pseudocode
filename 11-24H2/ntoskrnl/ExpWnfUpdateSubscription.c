@@ -1,13 +1,13 @@
 /*
- * XREFs of ExpWnfUpdateSubscription @ 0x1409D3940
+ * XREFs of ExpWnfUpdateSubscription @ 0x1409C3770
  * Callers:
- *     ExpWnfSubscribeNameInstance @ 0x1409D34B4 (ExpWnfSubscribeNameInstance.c)
+ *     ExpWnfSubscribeNameInstance @ 0x1409C32E4 (ExpWnfSubscribeNameInstance.c)
  * Callees:
- *     ExfTryToWakePushLock @ 0x14025F9A0 (ExfTryToWakePushLock.c)
- *     ExAcquireRundownProtection @ 0x1402792A0 (ExAcquireRundownProtection.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
+ *     ExAcquireRundownProtection_0 @ 0x14022E830 (ExAcquireRundownProtection_0.c)
+ *     ExfTryToWakePushLock @ 0x14028FFB0 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
  */
 
 __int64 __fastcall ExpWnfUpdateSubscription(
@@ -24,8 +24,8 @@ __int64 __fastcall ExpWnfUpdateSubscription(
   _QWORD *i; // rax
   _QWORD *v13; // rbx
   unsigned __int64 *v15; // rsi
-  _QWORD *v16; // rax
-  _QWORD *v17; // rbp
+  char *v16; // rax
+  char *v17; // rbp
   int v18; // edx
   int v19; // ecx
   int v20; // r8d
@@ -44,12 +44,12 @@ __int64 __fastcall ExpWnfUpdateSubscription(
   v15 = (unsigned __int64 *)(a2 + 104);
   *a7 = 0;
   *a8 = 0;
-  v16 = KeAbPreAcquire(a2 + 104, 0LL);
+  v16 = (char *)KeAbPreAcquire(a2 + 104, 0LL);
   v17 = v16;
   if ( _interlockedbittestandset64((volatile signed __int32 *)v15, 0LL) )
-    ExfAcquirePushLockExclusiveEx(v15, (__int64)v16, (__int64)v15);
+    ExfAcquirePushLockExclusiveEx(v15, v16, (__int64)v15);
   if ( v17 )
-    *((_BYTE *)v17 + 10) = 1;
+    v17[10] = 1;
   v18 = *((_DWORD *)v13 + 25) & 1;
   if ( (a5 & 1) != 0 )
   {
@@ -90,7 +90,7 @@ LABEL_16:
   if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)v15, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
     ExfTryToWakePushLock((volatile signed __int64 *)v15);
   KeAbPostRelease((ULONG_PTR)v15);
-  ExAcquireRundownProtection((PEX_RUNDOWN_REF)v13 + 1);
+  ExAcquireRundownProtection_0((PEX_RUNDOWN_REF)v13 + 1);
   *a6 = v13;
   if ( a9 )
     *a9 = v13[2];

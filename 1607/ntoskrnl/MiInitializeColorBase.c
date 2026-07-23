@@ -1,7 +1,7 @@
 /*
- * XREFs of MiInitializeColorBase @ 0x1401029C4
+ * XREFs of MiInitializeColorBase @ 0x140100744
  * Callers:
- *     MiGetPageTablePages @ 0x140102808 (MiGetPageTablePages.c)
+ *     MiGetPageTablePages @ 0x140100588 (MiGetPageTablePages.c)
  * Callees:
  *     <none>
  */
@@ -10,10 +10,10 @@ unsigned int *__fastcall MiInitializeColorBase(unsigned __int64 a1, __int64 a2)
 {
   unsigned __int16 *v2; // rcx
 
-  if ( a1 >= qword_140326910 && a1 < qword_140326910 + 0x8000000000LL )
+  if ( a1 >= qword_140326950 && a1 < qword_140326950 + 0x8000000000LL )
     return (unsigned int *)MiInitializeColorBaseSession(a2);
   if ( a1 > 0x7FFFFFFEFFFFLL
-    && (a1 < qword_140327F90 || a1 > qword_140326CF8)
+    && (a1 < qword_140327FD0 || a1 > qword_140326D38)
     && (a1 < 0xFFFFF68000000000uLL || a1 > 0xFFFFF6FFFFFFFFFFuLL) )
   {
     v2 = 0LL;

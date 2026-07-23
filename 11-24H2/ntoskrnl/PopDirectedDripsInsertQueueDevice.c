@@ -1,10 +1,10 @@
 /*
- * XREFs of PopDirectedDripsInsertQueueDevice @ 0x140765008
+ * XREFs of PopDirectedDripsInsertQueueDevice @ 0x1407649D8
  * Callers:
- *     PopDirectedDripsBuildBroadcastTreeFull @ 0x140764B50 (PopDirectedDripsBuildBroadcastTreeFull.c)
- *     PopDirectedDripsBuildPs4BroadcastTree @ 0x140764E70 (PopDirectedDripsBuildPs4BroadcastTree.c)
- *     PopDirectedDripsVisitPs4Device @ 0x1407650C0 (PopDirectedDripsVisitPs4Device.c)
- *     PopDirectedDripsMarkDfxDevice @ 0x140A94C14 (PopDirectedDripsMarkDfxDevice.c)
+ *     PopDirectedDripsBuildBroadcastTreeFull @ 0x140764520 (PopDirectedDripsBuildBroadcastTreeFull.c)
+ *     PopDirectedDripsBuildPs4BroadcastTree @ 0x140764840 (PopDirectedDripsBuildPs4BroadcastTree.c)
+ *     PopDirectedDripsVisitPs4Device @ 0x140764A90 (PopDirectedDripsVisitPs4Device.c)
+ *     PopDirectedDripsMarkDfxDevice @ 0x140A913C4 (PopDirectedDripsMarkDfxDevice.c)
  * Callees:
  *     <none>
  */

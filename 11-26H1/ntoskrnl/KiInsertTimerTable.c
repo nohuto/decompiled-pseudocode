@@ -1,18 +1,18 @@
 /*
- * XREFs of KiInsertTimerTable @ 0x1403ACC88
+ * XREFs of KiInsertTimerTable @ 0x1403B6998
  * Callers:
- *     KiCommitThreadWait @ 0x1402229B0 (KiCommitThreadWait.c)
- *     KiResumeThread @ 0x1402C60D8 (KiResumeThread.c)
- *     KiSetTimerEx @ 0x1403ABF20 (KiSetTimerEx.c)
- *     KeSetTimerEx @ 0x1403AC190 (KeSetTimerEx.c)
- *     KeSetTimer @ 0x1403AC590 (KeSetTimer.c)
- *     KiTimerWaitTest @ 0x1403ACF4C (KiTimerWaitTest.c)
- *     KiAdjustTimerDueTimes @ 0x1403E52EC (KiAdjustTimerDueTimes.c)
+ *     KiCommitThreadWait @ 0x140224340 (KiCommitThreadWait.c)
+ *     KiResumeThread @ 0x140310D78 (KiResumeThread.c)
+ *     KiSetTimerEx @ 0x1403B5C30 (KiSetTimerEx.c)
+ *     KeSetTimerEx @ 0x1403B5EA0 (KeSetTimerEx.c)
+ *     KeSetTimer @ 0x1403B62A0 (KeSetTimer.c)
+ *     KiTimerWaitTest @ 0x1403B6C5C (KiTimerWaitTest.c)
+ *     KiAdjustTimerDueTimes @ 0x1403E84DC (KiAdjustTimerDueTimes.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     KiSendClockInterruptToTargetProcessor @ 0x1403793EC (KiSendClockInterruptToTargetProcessor.c)
- *     KiRemoveEntryTimer @ 0x1403E5540 (KiRemoveEntryTimer.c)
- *     KiSelectTimerTableForTimer @ 0x14044AE80 (KiSelectTimerTableForTimer.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     KiSendClockInterruptToTargetProcessor @ 0x14037B19C (KiSendClockInterruptToTargetProcessor.c)
+ *     KiRemoveEntryTimer @ 0x1403E8730 (KiRemoveEntryTimer.c)
+ *     KiSelectTimerTableForTimer @ 0x140442FB0 (KiSelectTimerTableForTimer.c)
  */
 
 bool __fastcall KiInsertTimerTable(__int64 a1, __int64 a2, __int64 a3, unsigned int a4, char *a5)
@@ -73,7 +73,7 @@ bool __fastcall KiInsertTimerTable(__int64 a1, __int64 a2, __int64 a3, unsigned 
     }
     else
     {
-      if ( v8 - v16 > (unsigned __int64)(unsigned int)KeMaximumIncrement >> 2 )
+      if ( v8 - v16 > (unsigned __int64)KeMaximumIncrement >> 2 )
       {
         v14 = *(_QWORD **)(v12 + 16);
         do
@@ -127,7 +127,7 @@ bool __fastcall KiInsertTimerTable(__int64 a1, __int64 a2, __int64 a3, unsigned 
         v21 = v10 << 6;
       }
       _interlockedbittestandset64(
-        (volatile signed __int32 *)(qword_140FC1698[2 * *(unsigned __int8 *)(v11 + 208)] + v21),
+        (volatile signed __int32 *)(qword_140FC2698[2 * *(unsigned __int8 *)(v11 + 208)] + v21),
         v20);
     }
     if ( v8 <= MEMORY[0xFFFFF78000000008] )

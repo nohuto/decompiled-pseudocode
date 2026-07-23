@@ -3,18 +3,18 @@
  * Callers:
  *     CmInitSystem1 @ 0x140B3626C (CmInitSystem1.c)
  * Callees:
- *     RtlUnicodeStringPrintf @ 0x1403C4AEC (RtlUnicodeStringPrintf.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     ZwClose @ 0x14041AF40 (ZwClose.c)
- *     ZwOpenKey @ 0x14041AFA0 (ZwOpenKey.c)
- *     ZwQueryValueKey @ 0x14041B040 (ZwQueryValueKey.c)
- *     ZwCreateKey @ 0x14041B100 (ZwCreateKey.c)
- *     ZwSetValueKey @ 0x14041B960 (ZwSetValueKey.c)
- *     RtlEqualUnicodeString @ 0x1406DA2F0 (RtlEqualUnicodeString.c)
- *     CmSetAcpiHwProfile @ 0x14084A314 (CmSetAcpiHwProfile.c)
- *     CmpOpenDevicesControlSet @ 0x14084A9B4 (CmpOpenDevicesControlSet.c)
- *     CmDeleteKeyRecursive @ 0x140A0FDB8 (CmDeleteKeyRecursive.c)
- *     CmpCloneHwProfile @ 0x140A101B4 (CmpCloneHwProfile.c)
+ *     RtlUnicodeStringPrintf @ 0x1403C4CCC (RtlUnicodeStringPrintf.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     ZwClose @ 0x14041B2D0 (ZwClose.c)
+ *     ZwOpenKey @ 0x14041B330 (ZwOpenKey.c)
+ *     ZwQueryValueKey @ 0x14041B3D0 (ZwQueryValueKey.c)
+ *     ZwCreateKey @ 0x14041B490 (ZwCreateKey.c)
+ *     ZwSetValueKey @ 0x14041BCF0 (ZwSetValueKey.c)
+ *     RtlEqualUnicodeString @ 0x1406DA320 (RtlEqualUnicodeString.c)
+ *     CmSetAcpiHwProfile @ 0x14084A614 (CmSetAcpiHwProfile.c)
+ *     CmpOpenDevicesControlSet @ 0x14084ACB4 (CmpOpenDevicesControlSet.c)
+ *     CmDeleteKeyRecursive @ 0x140A10068 (CmDeleteKeyRecursive.c)
+ *     CmpCloneHwProfile @ 0x140A10464 (CmpCloneHwProfile.c)
  *     CmpAddDockingInfo @ 0x140B66A9C (CmpAddDockingInfo.c)
  *     CmpAddAliasEntry @ 0x140B97E98 (CmpAddAliasEntry.c)
  */
@@ -189,7 +189,7 @@ LABEL_15:
     *(_OWORD *)&ObjectAttributes_8.SecurityDescriptor = 0LL;
     if ( ZwCreateKey(&DestinationString, 0x2001Fu, &ObjectAttributes_8, 0, 0LL, 1u, &Disposition) >= 0 )
     {
-      CmpAddDockingInfo((int)DestinationString);
+      CmpAddDockingInfo(DestinationString);
       ZwClose(DestinationString);
       DestinationString = 0LL;
     }

@@ -1,16 +1,16 @@
 /*
- * XREFs of PiDqIrpQueryGetResult @ 0x1407FB64C
+ * XREFs of PiDqIrpQueryGetResult @ 0x1407FB91C
  * Callers:
- *     PiDqDispatch @ 0x1407F8E60 (PiDqDispatch.c)
+ *     PiDqDispatch @ 0x1407F9130 (PiDqDispatch.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     ExReleasePushLockEx @ 0x140231190 (ExReleasePushLockEx.c)
- *     ProbeForWrite @ 0x140729380 (ProbeForWrite.c)
- *     PiDqQueryFreeActiveData @ 0x1407DFD48 (PiDqQueryFreeActiveData.c)
- *     PiDqQuerySerializeActionQueue @ 0x1407F94D0 (PiDqQuerySerializeActionQueue.c)
- *     PiDqIrpComplete @ 0x1407F9EB8 (PiDqIrpComplete.c)
- *     PiDqQueryGetNextIoctlInfo @ 0x1407FA39C (PiDqQueryGetNextIoctlInfo.c)
+ *     KeLeaveCriticalRegionThread @ 0x14022F7F0 (KeLeaveCriticalRegionThread.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140231120 (ExAcquirePushLockExclusiveEx.c)
+ *     ExReleasePushLockEx @ 0x140231280 (ExReleasePushLockEx.c)
+ *     ProbeForWrite @ 0x140729580 (ProbeForWrite.c)
+ *     PiDqQueryFreeActiveData @ 0x1407E0018 (PiDqQueryFreeActiveData.c)
+ *     PiDqQuerySerializeActionQueue @ 0x1407F97A0 (PiDqQuerySerializeActionQueue.c)
+ *     PiDqIrpComplete @ 0x1407FA188 (PiDqIrpComplete.c)
+ *     PiDqQueryGetNextIoctlInfo @ 0x1407FA66C (PiDqQueryGetNextIoctlInfo.c)
  */
 
 __int64 __fastcall PiDqIrpQueryGetResult(__int64 a1)

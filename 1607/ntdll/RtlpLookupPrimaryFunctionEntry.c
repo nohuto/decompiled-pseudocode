@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlpLookupPrimaryFunctionEntry @ 0x180078C4C
+ * XREFs of RtlpLookupPrimaryFunctionEntry @ 0x180078C3C
  * Callers:
- *     RtlpSameFunction @ 0x180078BE4 (RtlpSameFunction.c)
+ *     RtlpSameFunction @ 0x180078BD4 (RtlpSameFunction.c)
  * Callees:
  *     RtlRaiseStatus @ 0x1800A5DE0 (RtlRaiseStatus.c)
  */
@@ -24,7 +24,7 @@ _BYTE *__fastcall RtlpLookupPrimaryFunctionEntry(_BYTE *a1, __int64 a2)
     ++v2;
     a1 = &v3[2 * v4 + 4];
     if ( v2 > 0x20 )
-      RtlRaiseStatus(3221225727LL);
+      RtlRaiseStatus(-1073741569);
   }
   return a1;
 }

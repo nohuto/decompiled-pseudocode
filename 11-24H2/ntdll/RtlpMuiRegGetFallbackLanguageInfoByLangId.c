@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlpMuiRegGetFallbackLanguageInfoByLangId @ 0x180117D74
+ * XREFs of RtlpMuiRegGetFallbackLanguageInfoByLangId @ 0x1800CB614
  * Callers:
- *     RtlGetUILanguageInfo @ 0x18007B9D0 (RtlGetUILanguageInfo.c)
- *     RtlpMuiRegGetFallbackLanguageInfoByName @ 0x1801124E0 (RtlpMuiRegGetFallbackLanguageInfoByName.c)
+ *     RtlGetUILanguageInfo @ 0x1800CA620 (RtlGetUILanguageInfo.c)
+ *     RtlpMuiRegGetFallbackLanguageInfoByName @ 0x1800CB340 (RtlpMuiRegGetFallbackLanguageInfoByName.c)
  * Callees:
- *     RtlAllocateHeap @ 0x180011260 (RtlAllocateHeap.c)
- *     RtlFreeHeap @ 0x1800269F0 (RtlFreeHeap.c)
- *     RtlpInitAndCallLcidToCultureName @ 0x1800ED404 (RtlpInitAndCallLcidToCultureName.c)
- *     RtlpMuiRegGetFallbackLanguageInfoByName @ 0x1801124E0 (RtlpMuiRegGetFallbackLanguageInfoByName.c)
+ *     RtlAllocateHeap @ 0x18003DC60 (RtlAllocateHeap.c)
+ *     RtlFreeHeap @ 0x1800533F0 (RtlFreeHeap.c)
+ *     RtlpMuiRegGetFallbackLanguageInfoByName @ 0x1800CB340 (RtlpMuiRegGetFallbackLanguageInfoByName.c)
+ *     RtlpInitAndCallLcidToCultureName @ 0x1800E83D4 (RtlpInitAndCallLcidToCultureName.c)
  */
 
 __int64 __fastcall RtlpMuiRegGetFallbackLanguageInfoByLangId(
@@ -25,8 +25,8 @@ __int64 __fastcall RtlpMuiRegGetFallbackLanguageInfoByLangId(
   __int64 v13; // rcx
   __int64 v14; // rax
   __int64 result; // rax
-  __int64 Heap; // rax
-  unsigned __int64 v17; // rdi
+  PVOID Heap; // rax
+  void *v17; // rdi
   unsigned int FallbackLanguageInfoByName; // ebx
   __int128 v19; // [rsp+30h] [rbp-28h] BYREF
 
@@ -63,19 +63,19 @@ __int64 __fastcall RtlpMuiRegGetFallbackLanguageInfoByLangId(
     }
     ++v9;
   }
-  Heap = RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 8u, 0xAAuLL);
+  Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, 0xAAuLL);
   v17 = Heap;
   if ( !Heap )
     return 3221225495LL;
-  if ( a4 && *(__int16 *)(a2 + 6) > 0 && (unsigned __int8)RtlpInitAndCallLcidToCultureName((__int64)&v19, Heap, v5) )
+  if ( a4 && *(__int16 *)(a2 + 6) > 0 && (unsigned __int8)RtlpInitAndCallLcidToCultureName(&v19, Heap, v5) )
   {
-    FallbackLanguageInfoByName = RtlpMuiRegGetFallbackLanguageInfoByName(a1, a2, *((const WCHAR **)&v19 + 1), 0, a5);
-    RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v17);
+    FallbackLanguageInfoByName = RtlpMuiRegGetFallbackLanguageInfoByName(a1, a2, *((const wchar_t **)&v19 + 1), 0, a5);
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v17);
     return FallbackLanguageInfoByName;
   }
   else
   {
-    RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v17);
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v17);
     return 3221225524LL;
   }
 }

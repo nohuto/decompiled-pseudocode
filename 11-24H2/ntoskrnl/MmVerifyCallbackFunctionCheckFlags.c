@@ -1,13 +1,13 @@
 /*
- * XREFs of MmVerifyCallbackFunctionCheckFlags @ 0x1404F64C4
+ * XREFs of MmVerifyCallbackFunctionCheckFlags @ 0x1404F3DC4
  * Callers:
- *     PsSetCreateThreadNotifyRoutineEx @ 0x14077A2A0 (PsSetCreateThreadNotifyRoutineEx.c)
- *     ObRegisterCallbacks @ 0x1409D5C70 (ObRegisterCallbacks.c)
- *     PspSetCreateProcessNotifyRoutine @ 0x140A90080 (PspSetCreateProcessNotifyRoutine.c)
- *     MmVerifyCallbackFunction @ 0x140AA9564 (MmVerifyCallbackFunction.c)
+ *     PsSetCreateThreadNotifyRoutineEx @ 0x14077A3A0 (PsSetCreateThreadNotifyRoutineEx.c)
+ *     ObRegisterCallbacks @ 0x1409C5AA0 (ObRegisterCallbacks.c)
+ *     PspSetCreateProcessNotifyRoutine @ 0x140A8C77C (PspSetCreateProcessNotifyRoutine.c)
+ *     MmVerifyCallbackFunction @ 0x140AA4614 (MmVerifyCallbackFunction.c)
  * Callees:
- *     MiUnlockLoadedDataTableEntry @ 0x1402C6EA4 (MiUnlockLoadedDataTableEntry.c)
- *     MiLockLoadedDataTableEntry @ 0x1402C6F3C (MiLockLoadedDataTableEntry.c)
+ *     MiUnlockLoadedDataTableEntry @ 0x1402BBA24 (MiUnlockLoadedDataTableEntry.c)
+ *     MiLockLoadedDataTableEntry @ 0x1402BBABC (MiLockLoadedDataTableEntry.c)
  */
 
 __int64 __fastcall MmVerifyCallbackFunctionCheckFlags(__int64 a1, int a2)

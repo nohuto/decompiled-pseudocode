@@ -1,13 +1,13 @@
 /*
- * XREFs of AuthzBasepUnicodeStringFromOperandValue @ 0x1400A0238
+ * XREFs of AuthzBasepUnicodeStringFromOperandValue @ 0x14009EB60
  * Callers:
- *     AuthzBasepEvaluateAceCondition @ 0x14009FBFC (AuthzBasepEvaluateAceCondition.c)
- *     AuthzBasepCompareFQBNOperands @ 0x140234658 (AuthzBasepCompareFQBNOperands.c)
- *     AuthzBasepCompareUnicodeStringOperands @ 0x140234B30 (AuthzBasepCompareUnicodeStringOperands.c)
+ *     AuthzBasepEvaluateAceCondition @ 0x14009E524 (AuthzBasepEvaluateAceCondition.c)
+ *     AuthzBasepCompareFQBNOperands @ 0x140234484 (AuthzBasepCompareFQBNOperands.c)
+ *     AuthzBasepCompareUnicodeStringOperands @ 0x14023495C (AuthzBasepCompareUnicodeStringOperands.c)
  * Callees:
- *     AuthzBasepMemAlloc @ 0x14000F2A0 (AuthzBasepMemAlloc.c)
- *     memmove @ 0x140171280 (memmove.c)
- *     RtlUpcaseUnicodeChar @ 0x1405132D0 (RtlUpcaseUnicodeChar.c)
+ *     AuthzBasepMemAlloc @ 0x14000EE20 (AuthzBasepMemAlloc.c)
+ *     memmove @ 0x140171780 (memmove.c)
+ *     RtlUpcaseUnicodeChar @ 0x1404F66C0 (RtlUpcaseUnicodeChar.c)
  */
 
 __int64 __fastcall AuthzBasepUnicodeStringFromOperandValue(__int64 a1, __int64 a2, unsigned __int16 *a3, _BYTE *a4)

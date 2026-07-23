@@ -1,10 +1,10 @@
 /*
- * XREFs of MiCanBatchSystemCacheUnmapPages @ 0x1402F0AE0
+ * XREFs of MiCanBatchSystemCacheUnmapPages @ 0x140258E20
  * Callers:
- *     MiAddPageToInsertList @ 0x1402F2180 (MiAddPageToInsertList.c)
+ *     MiAddPageToInsertList @ 0x140257CC0 (MiAddPageToInsertList.c)
  * Callees:
- *     MiClearPageFileReservation @ 0x140213DEC (MiClearPageFileReservation.c)
- *     MiCanPfnOriginalPteBeLost @ 0x14039E1D0 (MiCanPfnOriginalPteBeLost.c)
+ *     MiCanPfnOriginalPteBeLost @ 0x1402EE318 (MiCanPfnOriginalPteBeLost.c)
+ *     MiClearPageFileReservation @ 0x14030714C (MiClearPageFileReservation.c)
  */
 
 __int64 __fastcall MiCanBatchSystemCacheUnmapPages(_BYTE *a1, __int64 a2)
@@ -55,7 +55,7 @@ __int64 __fastcall MiCanBatchSystemCacheUnmapPages(_BYTE *a1, __int64 a2)
       *(_DWORD *)(v2 + 32) = v14;
     }
   }
-  if ( _bittest64((const signed __int64 *)(v2 + 40), 0x35u) && (*(_BYTE *)(v2 + 34) & 0x10) != 0 && byte_140E2DB40 )
+  if ( _bittest64((const signed __int64 *)(v2 + 40), 0x35u) && (*(_BYTE *)(v2 + 34) & 0x10) != 0 && byte_140E2DC80 )
   {
     v15 = *(_DWORD *)(v2 + 32);
     if ( (v15 & 0x80000) != 0
@@ -78,9 +78,9 @@ __int64 __fastcall MiCanBatchSystemCacheUnmapPages(_BYTE *a1, __int64 a2)
     return 2LL;
   if ( (unsigned __int16)*(_DWORD *)(v2 + 32) != 1 )
     return 2LL;
-  if ( byte_140E3CAE6 )
+  if ( byte_140E3CC26 )
   {
-    v4 = *(_BYTE *)(qword_140E3D140 + 2 * ((0xAAAAAAAAAAAAAAABuLL * ((v2 + 0x220000000000LL) >> 4)) >> 9));
+    v4 = *(_BYTE *)(qword_140E3D280 + 2 * ((0xAAAAAAAAAAAAAAABuLL * ((v2 + 0x220000000000LL) >> 4)) >> 9));
     if ( v4 )
     {
       if ( v4 != 10 )

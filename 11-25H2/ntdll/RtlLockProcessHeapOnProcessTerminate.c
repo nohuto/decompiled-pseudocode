@@ -6,15 +6,15 @@
  *     RtlpAcquireDescriptorPseudoGlobalLockEx @ 0x1801434C8 (RtlpAcquireDescriptorPseudoGlobalLockEx.c)
  */
 
-char RtlLockProcessHeapOnProcessTerminate()
+BOOLEAN RtlLockProcessHeapOnProcessTerminate()
 {
   struct _PEB *v0; // rax
-  __int64 ProcessHeap; // rbx
+  _RTL_SRWLOCK *ProcessHeap; // rbx
 
   v0 = NtCurrentPeb();
-  ProcessHeap = (__int64)v0->ProcessHeap;
-  if ( *(_DWORD *)(ProcessHeap + 16) != -571548178 )
-    return RtlLockHeap((__int64)v0->ProcessHeap);
-  RtlpAcquireDescriptorPseudoGlobalLockEx(*(_QWORD *)(ProcessHeap + 56), 0LL);
+  ProcessHeap = (_RTL_SRWLOCK *)v0->ProcessHeap;
+  if ( ProcessHeap[2].0 != -571548178 )
+    return RtlLockHeap(v0->ProcessHeap);
+  RtlpAcquireDescriptorPseudoGlobalLockEx(ProcessHeap[7].Value, 0LL);
   return RtlpHpLockHeapForProcessCloneOrTerminate(ProcessHeap);
 }

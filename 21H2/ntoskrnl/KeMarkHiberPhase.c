@@ -1,9 +1,9 @@
 /*
- * XREFs of KeMarkHiberPhase @ 0x1409AEF88
+ * XREFs of KeMarkHiberPhase @ 0x1409AFEB8
  * Callers:
- *     PopMarkComponentsBootPhase @ 0x1409991F0 (PopMarkComponentsBootPhase.c)
+ *     PopMarkComponentsBootPhase @ 0x14099A1F0 (PopMarkComponentsBootPhase.c)
  * Callees:
- *     PoSetHiberRange @ 0x140388060 (PoSetHiberRange.c)
+ *     PoSetHiberRange @ 0x1403881B0 (PoSetHiberRange.c)
  */
 
 void __fastcall KeMarkHiberPhase(_QWORD *Address)

@@ -1,18 +1,18 @@
 /*
- * XREFs of PspCombineSecurityDomains @ 0x140A0021C
+ * XREFs of PspCombineSecurityDomains @ 0x14091CFB8
  * Callers:
- *     NtSetInformationProcess @ 0x140B72B10 (NtSetInformationProcess.c)
+ *     NtSetInformationProcess @ 0x140B781E0 (NtSetInformationProcess.c)
  * Callees:
- *     PsReferencePrimaryTokenWithTag @ 0x140279DC0 (PsReferencePrimaryTokenWithTag.c)
- *     SepCreateAccessStateFromSubjectContext @ 0x1404425E0 (SepCreateAccessStateFromSubjectContext.c)
- *     PspSynchronizeThreadIsolationDomains @ 0x1404C6128 (PspSynchronizeThreadIsolationDomains.c)
- *     KeSynchronizeSecurityDomain @ 0x1404DD448 (KeSynchronizeSecurityDomain.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     SeDeleteAccessState @ 0x1408F16E0 (SeDeleteAccessState.c)
- *     SeCaptureSubjectContextEx @ 0x140920670 (SeCaptureSubjectContextEx.c)
- *     ObOpenObjectByPointer @ 0x14092AFF0 (ObOpenObjectByPointer.c)
- *     ObCloseHandle @ 0x140A00740 (ObCloseHandle.c)
+ *     PsReferencePrimaryTokenWithTag @ 0x140279330 (PsReferencePrimaryTokenWithTag.c)
+ *     SepCreateAccessStateFromSubjectContext @ 0x14043B0F0 (SepCreateAccessStateFromSubjectContext.c)
+ *     PspSynchronizeThreadIsolationDomains @ 0x1404BFAD8 (PspSynchronizeThreadIsolationDomains.c)
+ *     KeSynchronizeSecurityDomain @ 0x1404D6B28 (KeSynchronizeSecurityDomain.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     SeDeleteAccessState @ 0x1408F7CA0 (SeDeleteAccessState.c)
+ *     SeCaptureSubjectContextEx @ 0x1408FBAB0 (SeCaptureSubjectContextEx.c)
+ *     ObOpenObjectByPointer @ 0x140906B20 (ObOpenObjectByPointer.c)
+ *     ObCloseHandle @ 0x14091D2C0 (ObCloseHandle.c)
  */
 
 __int64 __fastcall PspCombineSecurityDomains(PEPROCESS Process, __int64 Object)
@@ -23,7 +23,7 @@ __int64 __fastcall PspCombineSecurityDomains(PEPROCESS Process, __int64 Object)
   __int64 v7; // rax
   _DWORD *v8; // rbx
   HANDLE v9; // r14
-  _KTRAP_FRAME *v10; // rax
+  struct _LIST_ENTRY *v10; // rax
   int v11; // ebx
   NTSTATUS v12; // eax
   _DWORD *v14; // rbx
@@ -56,14 +56,14 @@ __int64 __fastcall PspCombineSecurityDomains(PEPROCESS Process, __int64 Object)
   v18 = 0LL;
   *(_QWORD *)&SubjectContext.ImpersonationLevel = 0LL;
   SubjectContext.ClientToken = 0LL;
-  v10 = (_KTRAP_FRAME *)PsReferencePrimaryTokenWithTag(Object, 0x75536553u, v4, v5);
+  v10 = (struct _LIST_ENTRY *)PsReferencePrimaryTokenWithTag(Object, 0x75536553u, v4, v5);
   SubjectContext.PrimaryToken = v10;
   if ( SeTokenLeakTracking )
   {
     if ( v10 )
     {
-      _InterlockedIncrement((volatile signed __int32 *)(v10[2].Rbp + 284));
-      if ( v10 == RtlpBootStatHandleLock.TrapFrame )
+      _InterlockedIncrement((volatile signed __int32 *)&v10[71].Blink[17].Blink + 1);
+      if ( v10 == RtlpBootStatHandleLock.ApcState.ApcListHead[1].Flink )
         __debugbreak();
     }
   }

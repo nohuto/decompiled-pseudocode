@@ -16,7 +16,11 @@
  *     sub_180052D34 @ 0x180052D34 (sub_180052D34.c)
  */
 
-__int64 __fastcall EtwEventWrite(int a1, int a2, int a3, __int64 a4)
+ULONG __cdecl EtwEventWrite(
+        REGHANDLE RegHandle,
+        PCEVENT_DESCRIPTOR EventDescriptor,
+        ULONG UserDataCount,
+        PEVENT_DATA_DESCRIPTOR UserData)
 {
-  return sub_180052D34(a1, a2, 0, 0, 0, 0LL, 0LL, a3, a4);
+  return sub_180052D34(RegHandle, (_DWORD)EventDescriptor, 0, 0, 0, 0LL, 0LL, UserDataCount, (__int64)UserData);
 }

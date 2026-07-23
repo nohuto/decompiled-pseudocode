@@ -1,16 +1,16 @@
 /*
- * XREFs of ViCreateProcessCallbackInternal @ 0x140C34B80
+ * XREFs of ViCreateProcessCallbackInternal @ 0x140C3AB90
  * Callers:
- *     VfCreateProcessCallback @ 0x140647050 (VfCreateProcessCallback.c)
+ *     VfCreateProcessCallback @ 0x14064AC30 (VfCreateProcessCallback.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     KeReleaseSpinLock @ 0x1402BE860 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14032F300 (KeAcquireSpinLockRaiseToDpc.c)
- *     PsLookupProcessByProcessId @ 0x1408EF4E0 (PsLookupProcessByProcessId.c)
- *     PsGetAllocatedFullProcessImageName @ 0x1409E9780 (PsGetAllocatedFullProcessImageName.c)
- *     RtlUpcaseUnicodeString @ 0x1409E9B60 (RtlUpcaseUnicodeString.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
- *     ViFaultsIsAppTarget @ 0x140C34F34 (ViFaultsIsAppTarget.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     KeReleaseSpinLock @ 0x140309520 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140331330 (KeAcquireSpinLockRaiseToDpc.c)
+ *     PsLookupProcessByProcessId @ 0x1408F5AA0 (PsLookupProcessByProcessId.c)
+ *     PsGetAllocatedFullProcessImageName @ 0x1409D2BA0 (PsGetAllocatedFullProcessImageName.c)
+ *     RtlUpcaseUnicodeString @ 0x1409D2F80 (RtlUpcaseUnicodeString.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
+ *     ViFaultsIsAppTarget @ 0x140C3AF44 (ViFaultsIsAppTarget.c)
  */
 
 void __fastcall ViCreateProcessCallbackInternal(void *a1, char a2)

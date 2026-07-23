@@ -1,18 +1,18 @@
 /*
- * XREFs of VfIoFreeIrp @ 0x140ACD814
+ * XREFs of VfIoFreeIrp @ 0x140ACD804
  * Callers:
- *     IovFreeIrpPrivate @ 0x140AC16D0 (IovFreeIrpPrivate.c)
+ *     IovFreeIrpPrivate @ 0x140AC16C0 (IovFreeIrpPrivate.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14022F5B0 (ObfDereferenceObjectWithTag.c)
- *     PsReturnProcessNonPagedPoolQuota @ 0x14028B330 (PsReturnProcessNonPagedPoolQuota.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     ViErrorReport1 @ 0x1405CFE24 (ViErrorReport1.c)
- *     ViIrpDatabaseAcquireLockExclusive @ 0x1405D2554 (ViIrpDatabaseAcquireLockExclusive.c)
- *     ViIrpDatabaseReleaseLockExclusive @ 0x1405D259C (ViIrpDatabaseReleaseLockExclusive.c)
+ *     ObfDereferenceObjectWithTag @ 0x14022F6C0 (ObfDereferenceObjectWithTag.c)
+ *     PsReturnProcessNonPagedPoolQuota @ 0x14028B5C0 (PsReturnProcessNonPagedPoolQuota.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     ViErrorReport1 @ 0x1405D0394 (ViErrorReport1.c)
+ *     ViIrpDatabaseAcquireLockExclusive @ 0x1405D2AC4 (ViIrpDatabaseAcquireLockExclusive.c)
+ *     ViIrpDatabaseReleaseLockExclusive @ 0x1405D2B0C (ViIrpDatabaseReleaseLockExclusive.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
- *     VfUtilAddressRangeRemoveCheckEmpty @ 0x140AC247C (VfUtilAddressRangeRemoveCheckEmpty.c)
- *     VfIrpDatabaseEntryFindAndLock @ 0x140AE1798 (VfIrpDatabaseEntryFindAndLock.c)
- *     VfIrpDatabaseEntryReleaseLock @ 0x140AE191C (VfIrpDatabaseEntryReleaseLock.c)
+ *     VfUtilAddressRangeRemoveCheckEmpty @ 0x140AC246C (VfUtilAddressRangeRemoveCheckEmpty.c)
+ *     VfIrpDatabaseEntryFindAndLock @ 0x140AE1788 (VfIrpDatabaseEntryFindAndLock.c)
+ *     VfIrpDatabaseEntryReleaseLock @ 0x140AE190C (VfIrpDatabaseEntryReleaseLock.c)
  */
 
 __int64 __fastcall VfIoFreeIrp(char *P, const void *a2)

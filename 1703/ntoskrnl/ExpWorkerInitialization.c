@@ -45,8 +45,8 @@ __int64 ExpWorkerInitialization()
   __int64 v20; // rcx
   struct _KTHREAD *CurrentThread; // rax
   unsigned __int64 *v22; // rdi
-  _BYTE *v23; // rax
-  _BYTE *v24; // rbx
+  PRTL_BALANCED_NODE v23; // rax
+  PRTL_BALANCED_NODE v24; // rbx
   unsigned int v25; // ecx
   int v26; // ebx
   __int64 v27; // rsi
@@ -203,12 +203,12 @@ __int64 ExpWorkerInitialization()
     CurrentThread = KeGetCurrentThread();
     --CurrentThread->SpecialApcDisable;
     v22 = (unsigned __int64 *)((char *)ObpTypeObjectType + 184);
-    v23 = (_BYTE *)KeAbPreAcquire((ULONG_PTR)ObpTypeObjectType + 184, 0LL, 0LL);
+    v23 = KeAbPreAcquire((ULONG_PTR)ObpTypeObjectType + 184, 0LL, 0);
     v24 = v23;
     if ( _interlockedbittestandset64((volatile signed __int32 *)v22, 0LL) )
       ExfAcquirePushLockExclusiveEx(v22, v23, (ULONG_PTR)v22);
     if ( v24 )
-      v24[26] |= 1u;
+      BYTE2(v24[1].Left) |= 1u;
     v25 = 0;
     v26 = 64;
     v27 = *((unsigned int *)ObpTypeObjectType + 11);

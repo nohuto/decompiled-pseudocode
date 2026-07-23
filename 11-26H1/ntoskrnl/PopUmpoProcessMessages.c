@@ -1,42 +1,55 @@
 /*
- * XREFs of PopUmpoProcessMessages @ 0x140AAA08C
+ * XREFs of PopUmpoProcessMessages @ 0x140AA766C
  * Callers:
- *     PopUmpoMessageCallback @ 0x1404CC760 (PopUmpoMessageCallback.c)
- *     PopUmpoInitializeChannel @ 0x140CD5374 (PopUmpoInitializeChannel.c)
+ *     PopUmpoMessageCallback @ 0x1404C5F00 (PopUmpoMessageCallback.c)
+ *     PopUmpoInitializeChannel @ 0x140CDB714 (PopUmpoInitializeChannel.c)
  * Callees:
- *     AlpcGetMessageAttribute @ 0x140438B60 (AlpcGetMessageAttribute.c)
- *     AlpcInitializeMessageAttribute @ 0x140438BA0 (AlpcInitializeMessageAttribute.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     ZwAlpcSendWaitReceivePort @ 0x1407245B0 (ZwAlpcSendWaitReceivePort.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     PopDiagTraceUmpoAlpcProcessingError @ 0x1407D5614 (PopDiagTraceUmpoAlpcProcessingError.c)
- *     PopUmpoProcessMessage @ 0x140AAA1C8 (PopUmpoProcessMessage.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     AlpcGetMessageAttribute @ 0x1404277C0 (AlpcGetMessageAttribute.c)
+ *     AlpcInitializeMessageAttribute @ 0x140427800 (AlpcInitializeMessageAttribute.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     ZwAlpcSendWaitReceivePort @ 0x140729180 (ZwAlpcSendWaitReceivePort.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     PopDiagTraceUmpoAlpcProcessingError @ 0x1407D87CC (PopDiagTraceUmpoAlpcProcessingError.c)
+ *     PopUmpoProcessMessage @ 0x140AA77A8 (PopUmpoProcessMessage.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void PopUmpoProcessMessages()
 {
-  void *Pool2; // rdi
-  char *MessageAttribute; // rax
-  int v2; // ebx
-  __int64 v3; // [rsp+58h] [rbp-B0h] BYREF
-  _DWORD v4[40]; // [rsp+68h] [rbp-A0h] BYREF
+  _PORT_MESSAGE *ReceiveMessage; // rdi
+  _ALPC_CONTEXT_ATTR *MessageAttribute; // rax
+  NTSTATUS v2; // ebx
+  ULONG_PTR BufferLength; // [rsp+48h] [rbp-C0h] BYREF
+  LARGE_INTEGER Timeout; // [rsp+50h] [rbp-B8h] BYREF
+  ULONG_PTR RequiredBufferSize[2]; // [rsp+58h] [rbp-B0h] BYREF
+  _ALPC_MESSAGE_ATTRIBUTES Buffer; // [rsp+68h] [rbp-A0h] BYREF
 
-  Pool2 = (void *)ExAllocatePool2(0x100uLL);
-  if ( !Pool2 )
+  BufferLength = 0LL;
+  Timeout.QuadPart = 0LL;
+  ReceiveMessage = (_PORT_MESSAGE *)ExAllocatePool2(0x100uLL);
+  if ( !ReceiveMessage )
     goto LABEL_6;
-  memset_0(v4, 0, sizeof(v4));
+  memset_0(&Buffer, 0, 0xA0uLL);
   while ( 1 )
   {
-    AlpcInitializeMessageAttribute(0x20000000LL, v4, 0xA0uLL, &v3);
-    v2 = ZwAlpcSendWaitReceivePort(*(__int64 *)&PopModernStandbyStateNotify.ThreadTimerDelay, 0LL);
+    AlpcInitializeMessageAttribute(0x20000000u, &Buffer, 0xA0uLL, RequiredBufferSize);
+    BufferLength = 4096LL;
+    v2 = ZwAlpcSendWaitReceivePort(
+           PopPdcDeviceListLock.TrapFrame,
+           0,
+           0LL,
+           0LL,
+           ReceiveMessage,
+           &BufferLength,
+           &Buffer,
+           &Timeout);
     if ( v2 )
       break;
-    MessageAttribute = AlpcGetMessageAttribute(v4, 0x20000000);
-    PopUmpoProcessMessage(Pool2, MessageAttribute, 0LL);
+    MessageAttribute = (_ALPC_CONTEXT_ATTR *)AlpcGetMessageAttribute(&Buffer, 0x20000000u);
+    PopUmpoProcessMessage(ReceiveMessage, MessageAttribute);
   }
-  ExFreePoolWithTag(Pool2, 0);
+  ExFreePoolWithTag(ReceiveMessage, 0);
   if ( v2 < 0 )
 LABEL_6:
     PopDiagTraceUmpoAlpcProcessingError();

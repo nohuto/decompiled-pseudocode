@@ -1,23 +1,23 @@
 /*
- * XREFs of MiInitializePartitionSpecialPurposeMemory @ 0x1407FE3D4
+ * XREFs of MiInitializePartitionSpecialPurposeMemory @ 0x1407FEB44
  * Callers:
- *     MiInitializePartitionSpecialPurposeMemoryCallout @ 0x14068E7C0 (MiInitializePartitionSpecialPurposeMemoryCallout.c)
- *     MiSpecialPurposeMemoryChangePrepare @ 0x1407FEBA0 (MiSpecialPurposeMemoryChangePrepare.c)
+ *     MiInitializePartitionSpecialPurposeMemoryCallout @ 0x14068F8F0 (MiInitializePartitionSpecialPurposeMemoryCallout.c)
+ *     MiSpecialPurposeMemoryChangePrepare @ 0x1407FF310 (MiSpecialPurposeMemoryChangePrepare.c)
  * Callees:
- *     ExfTryToWakePushLock @ 0x14025F9A0 (ExfTryToWakePushLock.c)
- *     PsDereferencePartition @ 0x140275E60 (PsDereferencePartition.c)
- *     KeExpandKernelStackAndCallout @ 0x14027BAB0 (KeExpandKernelStackAndCallout.c)
- *     MiAllocatePool @ 0x1402ACA70 (MiAllocatePool.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     ObfReferenceObjectWithTag @ 0x1403403E0 (ObfReferenceObjectWithTag.c)
- *     MiFindSpecialPurposeMemoryType @ 0x14068E758 (MiFindSpecialPurposeMemoryType.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     PsCreatePartition @ 0x14077AA80 (PsCreatePartition.c)
- *     ObDuplicateObject @ 0x14083FFB0 (ObDuplicateObject.c)
- *     PsReferencePartitionByHandle @ 0x140934434 (PsReferencePartitionByHandle.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     PsDereferencePartition @ 0x14022B3F0 (PsDereferencePartition.c)
+ *     KeExpandKernelStackAndCallout @ 0x140231040 (KeExpandKernelStackAndCallout.c)
+ *     MiAllocatePool @ 0x140277450 (MiAllocatePool.c)
+ *     ExfTryToWakePushLock @ 0x14028FFB0 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     ObfReferenceObjectWithTag @ 0x14031F8C0 (ObfReferenceObjectWithTag.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     MiFindSpecialPurposeMemoryType @ 0x14068F888 (MiFindSpecialPurposeMemoryType.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     PsCreatePartition @ 0x14077A930 (PsCreatePartition.c)
+ *     ObDuplicateObject @ 0x14083C270 (ObDuplicateObject.c)
+ *     PsReferencePartitionByHandle @ 0x1408F6F54 (PsReferencePartitionByHandle.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall MiInitializePartitionSpecialPurposeMemory(__int64 a1, _OWORD *a2)
@@ -27,8 +27,8 @@ __int64 __fastcall MiInitializePartitionSpecialPurposeMemory(__int64 a1, _OWORD 
   void *v7; // r14
   __int64 v8; // r14
   volatile signed __int64 *v9; // rbx
-  _QWORD *v10; // rax
-  _QWORD *v11; // rsi
+  char *v10; // rax
+  char *v11; // rsi
   int v12; // esi
   _QWORD *SpecialPurposeMemoryType; // rax
   __int64 v14; // rbx
@@ -67,12 +67,12 @@ __int64 __fastcall MiInitializePartitionSpecialPurposeMemory(__int64 a1, _OWORD 
     *(_QWORD *)&Parameter = v8;
     *((_QWORD *)&Parameter + 1) = a2;
     v9 = (volatile signed __int64 *)(v8 + 17672);
-    v10 = KeAbPreAcquire(v8 + 17672, 0LL);
+    v10 = (char *)KeAbPreAcquire(v8 + 17672, 0LL);
     v11 = v10;
     if ( _interlockedbittestandset64((volatile signed __int32 *)(v8 + 17672), 0LL) )
-      ExfAcquirePushLockExclusiveEx((unsigned __int64 *)(v8 + 17672), (__int64)v10, v8 + 17672);
+      ExfAcquirePushLockExclusiveEx((unsigned __int64 *)(v8 + 17672), v10, v8 + 17672);
     if ( v11 )
-      *((_BYTE *)v11 + 10) = 1;
+      v11[10] = 1;
     v12 = KeExpandKernelStackAndCallout(
             (PEXPAND_STACK_CALLOUT)MiInitializePartitionSpecialPurposeMemoryCallout,
             &Parameter,
@@ -128,7 +128,7 @@ LABEL_25:
     *(_QWORD *)(v14 + 17632) = v7;
     *(_OWORD *)(v14 + 17640) = *a2;
     *(_OWORD *)(v14 + 17656) = a2[1];
-    *((_QWORD *)Pool + 2) = _InterlockedIncrement64(&qword_140E2ED78);
+    *((_QWORD *)Pool + 2) = _InterlockedIncrement64(&qword_140E2EEB8);
     v16 = Handle;
     *(_OWORD *)(Pool + 24) = *a2;
     v17 = a2[1];

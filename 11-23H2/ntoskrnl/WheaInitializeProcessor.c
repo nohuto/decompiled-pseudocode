@@ -1,9 +1,9 @@
 /*
- * XREFs of WheaInitializeProcessor @ 0x140AAB804
+ * XREFs of WheaInitializeProcessor @ 0x140AAB674
  * Callers:
- *     KiStartDynamicProcessor @ 0x140973808 (KiStartDynamicProcessor.c)
+ *     KiStartDynamicProcessor @ 0x140973A08 (KiStartDynamicProcessor.c)
  * Callees:
- *     WheapCallErrorSourceInitialize @ 0x140380CA4 (WheapCallErrorSourceInitialize.c)
+ *     WheapCallErrorSourceInitialize @ 0x140380E44 (WheapCallErrorSourceInitialize.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
 

@@ -33,7 +33,7 @@ __int64 __fastcall HvlpAttachRootSvmDevice(unsigned int a1, int a2)
   v12 = a2;
   while ( 1 )
   {
-    v2 = HvcallFastExtended(65666LL, (__int64)&v7, 40LL, 0LL, 0);
+    v2 = HvcallFastExtended(65666LL, (__int64)&v7, 0x28u, 0, 0);
     if ( !(unsigned __int8)HvlpHvStatusIsInsufficientMemory((unsigned __int16)v2, v2) )
       break;
     if ( (int)HvlpHandleInsufficientMemory(v4, v3, v5) < 0 )

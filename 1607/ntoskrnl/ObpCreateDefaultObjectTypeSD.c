@@ -1,14 +1,14 @@
 /*
- * XREFs of ObpCreateDefaultObjectTypeSD @ 0x14055272C
+ * XREFs of ObpCreateDefaultObjectTypeSD @ 0x140552C6C
  * Callers:
- *     ObpInitObjectTypeSD @ 0x140552694 (ObpInitObjectTypeSD.c)
+ *     ObpInitObjectTypeSD @ 0x140552BD4 (ObpInitObjectTypeSD.c)
  * Callees:
- *     RtlLengthSid @ 0x14000C2AC (RtlLengthSid.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     RtlLengthSid @ 0x14000BE2C (RtlLengthSid.c)
+ *     memset @ 0x140171AC0 (memset.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     RtlCreateAcl @ 0x140420AB8 (RtlCreateAcl.c)
- *     RtlAddAccessAllowedAce @ 0x14048D14C (RtlAddAccessAllowedAce.c)
+ *     RtlCreateAcl @ 0x14041F978 (RtlCreateAcl.c)
+ *     RtlAddAccessAllowedAce @ 0x14048DBDC (RtlAddAccessAllowedAce.c)
  */
 
 __int64 __fastcall ObpCreateDefaultObjectTypeSD(_QWORD *a1)

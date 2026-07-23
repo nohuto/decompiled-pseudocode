@@ -1,16 +1,16 @@
 /*
- * XREFs of CcAllocateInitializeBcb @ 0x14006C9C4
+ * XREFs of CcAllocateInitializeBcb @ 0x14006C544
  * Callers:
- *     CcPinFileData @ 0x140031DE0 (CcPinFileData.c)
+ *     CcPinFileData @ 0x140031960 (CcPinFileData.c)
  * Callees:
- *     ExInitializeResourceLite @ 0x14000ECC0 (ExInitializeResourceLite.c)
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     CcAdjustVacbLevelLockCount @ 0x14006CB4C (CcAdjustVacbLevelLockCount.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1400C8070 (ExfAcquirePushLockExclusiveEx.c)
- *     ExfReleasePushLock @ 0x1400C8620 (ExfReleasePushLock.c)
- *     ExDisableResourceBoostLite @ 0x1401118F4 (ExDisableResourceBoostLite.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     ExInitializeResourceLite @ 0x14000E840 (ExInitializeResourceLite.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     CcAdjustVacbLevelLockCount @ 0x14006C6CC (CcAdjustVacbLevelLockCount.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1400C5F10 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfReleasePushLock @ 0x1400C64C0 (ExfReleasePushLock.c)
+ *     ExDisableResourceBoostLite @ 0x140111E58 (ExDisableResourceBoostLite.c)
+ *     memset @ 0x140171AC0 (memset.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
  */
 

@@ -1,13 +1,13 @@
 /*
- * XREFs of ObInheritObjectHandle @ 0x1406969A4
+ * XREFs of ObInheritObjectHandle @ 0x140697B64
  * Callers:
- *     ExDupHandleTable @ 0x140696580 (ExDupHandleTable.c)
+ *     ExDupHandleTable @ 0x140697740 (ExDupHandleTable.c)
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
  *     ObpIncrPointerCount @ 0x14005B360 (ObpIncrPointerCount.c)
- *     ExfUnblockPushLock @ 0x1401B7450 (ExfUnblockPushLock.c)
- *     ObpIncrementHandleCountEx @ 0x1405E35F0 (ObpIncrementHandleCountEx.c)
- *     EtwTraceDuplicateHandle @ 0x1408B7240 (EtwTraceDuplicateHandle.c)
+ *     ExfUnblockPushLock @ 0x1401B75B0 (ExfUnblockPushLock.c)
+ *     ObpIncrementHandleCountEx @ 0x1405E45F0 (ObpIncrementHandleCountEx.c)
+ *     EtwTraceDuplicateHandle @ 0x1408B8500 (EtwTraceDuplicateHandle.c)
  */
 
 __int64 __fastcall ObInheritObjectHandle(ULONG_PTR a1, int a2, __int64 a3, __int64 a4)
@@ -29,7 +29,7 @@ __int64 __fastcall ObInheritObjectHandle(ULONG_PTR a1, int a2, __int64 a3, __int
   {
     ObfDereferenceObject((PVOID)(v6 + 48));
   }
-  else if ( (xmmword_140541350 & 0x40) != 0 )
+  else if ( (xmmword_140542350 & 0x40) != 0 )
   {
     EtwTraceDuplicateHandle(
       a2,

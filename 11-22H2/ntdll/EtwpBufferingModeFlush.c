@@ -38,7 +38,7 @@ __int64 __fastcall EtwpBufferingModeFlush(__int64 a1)
   {
     v4 = 0;
   }
-  RtlEnterCriticalSection(a1 + 72);
+  RtlEnterCriticalSection((PRTL_CRITICAL_SECTION)(a1 + 72));
   for ( i = 0LL; (unsigned int)i < *(_DWORD *)(a1 + 188); i = (unsigned int)(i + 1) )
   {
     v6 = *(_QWORD *)(a1 + 8 * i + 560);
@@ -56,7 +56,7 @@ __int64 __fastcall EtwpBufferingModeFlush(__int64 a1)
       _InterlockedIncrement((volatile signed __int32 *)(a1 + 212));
     }
   }
-  RtlLeaveCriticalSection(a1 + 72);
+  RtlLeaveCriticalSection((PRTL_CRITICAL_SECTION)(a1 + 72));
   v8 = *(_QWORD *)(a1 + 400);
   for ( j = EtwpFindAndLockBufferForFlushing(a1, v8); j; j = EtwpFindAndLockBufferForFlushing(a1, --v8) )
   {

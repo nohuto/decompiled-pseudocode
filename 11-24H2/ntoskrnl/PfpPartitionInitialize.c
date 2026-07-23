@@ -1,10 +1,10 @@
 /*
- * XREFs of PfpPartitionInitialize @ 0x14074757C
+ * XREFs of PfpPartitionInitialize @ 0x14074586C
  * Callers:
- *     PfpPartitionCreate @ 0x1405CC80C (PfpPartitionCreate.c)
+ *     PfpPartitionCreate @ 0x1405C9F7C (PfpPartitionCreate.c)
  * Callees:
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     PfTInitialize @ 0x1407468B4 (PfTInitialize.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     PfTInitialize @ 0x140744BA4 (PfTInitialize.c)
  */
 
 __int64 __fastcall PfpPartitionInitialize(_QWORD *a1, __int64 a2, __int64 a3)

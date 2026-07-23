@@ -1,10 +1,10 @@
 /*
- * XREFs of IvtGetScalableModePasidTables @ 0x14052CCB4
+ * XREFs of IvtGetScalableModePasidTables @ 0x14052D204
  * Callers:
- *     IvtAllocateScalableModePasidTables @ 0x14052B480 (IvtAllocateScalableModePasidTables.c)
- *     IvtGetDomainId @ 0x14052CA0C (IvtGetDomainId.c)
- *     IvtUpdateScalableModeContextEntry @ 0x14052DC64 (IvtUpdateScalableModeContextEntry.c)
- *     IvtUpdateScalableModeTranslationStructures @ 0x14052DF0C (IvtUpdateScalableModeTranslationStructures.c)
+ *     IvtAllocateScalableModePasidTables @ 0x14052B9D0 (IvtAllocateScalableModePasidTables.c)
+ *     IvtGetDomainId @ 0x14052CF5C (IvtGetDomainId.c)
+ *     IvtUpdateScalableModeContextEntry @ 0x14052E1B4 (IvtUpdateScalableModeContextEntry.c)
+ *     IvtUpdateScalableModeTranslationStructures @ 0x14052E45C (IvtUpdateScalableModeTranslationStructures.c)
  * Callees:
  *     <none>
  */

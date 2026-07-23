@@ -20,7 +20,7 @@ NTSTATUS __stdcall FsRtlOplockBreakH(
            Flags,
            (__int64)Context,
            (__int64)CompletionRoutine,
-           (void (__fastcall *)(__int64, __int64))PostIrpRoutine,
+           (__int64)PostIrpRoutine,
            0LL,
            0LL);
 }

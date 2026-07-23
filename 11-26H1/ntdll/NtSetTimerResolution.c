@@ -1,16 +1,16 @@
 /*
- * XREFs of NtSetTimerResolution @ 0x180162790
+ * XREFs of NtSetTimerResolution @ 0x180162690
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 NtSetTimerResolution()
+NTSTATUS __cdecl NtSetTimerResolution(ULONG DesiredTime, BOOLEAN SetResolution, PULONG ActualTime)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 451LL;
+  result = 451;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

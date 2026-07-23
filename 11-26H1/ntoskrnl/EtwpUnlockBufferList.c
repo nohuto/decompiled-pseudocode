@@ -1,18 +1,18 @@
 /*
- * XREFs of EtwpUnlockBufferList @ 0x140219C44
+ * XREFs of EtwpUnlockBufferList @ 0x14021A2DC
  * Callers:
- *     EtwpReferenceCurrentBuffer @ 0x140218A90 (EtwpReferenceCurrentBuffer.c)
- *     EtwpDequeueFreeBuffer @ 0x1402193F4 (EtwpDequeueFreeBuffer.c)
- *     EtwpEnqueueOverflowBuffer @ 0x140219884 (EtwpEnqueueOverflowBuffer.c)
- *     EtwpAllocateFreeBuffers @ 0x1402199DC (EtwpAllocateFreeBuffers.c)
- *     EtwpAdjustSiloTraceBuffers @ 0x140488910 (EtwpAdjustSiloTraceBuffers.c)
- *     EtwpReenableCompression @ 0x140532448 (EtwpReenableCompression.c)
- *     EtwpDequeueBufferPendingCompression @ 0x1406C7FC4 (EtwpDequeueBufferPendingCompression.c)
+ *     EtwpReferenceCurrentBuffer @ 0x140218DC0 (EtwpReferenceCurrentBuffer.c)
+ *     EtwpDequeueFreeBuffer @ 0x140219554 (EtwpDequeueFreeBuffer.c)
+ *     EtwpEnqueueOverflowBuffer @ 0x1402199E4 (EtwpEnqueueOverflowBuffer.c)
+ *     EtwpAllocateFreeBuffers @ 0x140219B3C (EtwpAllocateFreeBuffers.c)
+ *     EtwpAdjustSiloTraceBuffers @ 0x140482450 (EtwpAdjustSiloTraceBuffers.c)
+ *     EtwpReenableCompression @ 0x1405348E8 (EtwpReenableCompression.c)
+ *     EtwpDequeueBufferPendingCompression @ 0x1406CBFA4 (EtwpDequeueBufferPendingCompression.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     KxReleaseSpinLock @ 0x1402BDEF0 (KxReleaseSpinLock.c)
- *     ExfReleasePushLock @ 0x1402E3120 (ExfReleasePushLock.c)
+ *     ExfReleasePushLock @ 0x14021B220 (ExfReleasePushLock.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     KxReleaseSpinLock @ 0x140308BB0 (KxReleaseSpinLock.c)
  */
 
 void __fastcall EtwpUnlockBufferList(__int64 a1, unsigned __int8 *a2)

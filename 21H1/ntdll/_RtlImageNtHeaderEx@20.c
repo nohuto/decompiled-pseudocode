@@ -41,55 +41,55 @@
  *     _RtlImageNtHeaderEx_ExceptionFilter@8 @ 0x4B365FF3 (_RtlImageNtHeaderEx_ExceptionFilter@8.c)
  */
 
-int __stdcall RtlImageNtHeaderEx(int a1, unsigned int a2, unsigned int a3, int a4, _DWORD *a5)
+NTSTATUS __cdecl RtlImageNtHeaderEx(ULONG Flags, PVOID BaseOfImage, ULONG64 Size, PIMAGE_NT_HEADERS *OutHeaders)
 {
-  _DWORD *v5; // ecx
-  char v6; // bl
-  unsigned int v7; // esi
-  unsigned int v8; // ecx
-  int result; // eax
+  _IMAGE_NT_HEADERS64 *v4; // ecx
+  char v5; // bl
+  unsigned int v6; // esi
+  unsigned int v7; // ecx
+  NTSTATUS result; // eax
 
-  v5 = 0;
-  if ( !a5 )
+  v4 = 0;
+  if ( !OutHeaders )
     return -1073741811;
-  *a5 = 0;
-  if ( (a1 & 0xFFFFFFFC) != 0 || !a2 || a2 == -1 )
+  *OutHeaders = 0;
+  if ( (Flags & 0xFFFFFFFC) != 0 || !BaseOfImage || BaseOfImage == (PVOID)-1 )
     return -1073741811;
-  if ( (a1 & 1) != 0 )
+  if ( (Flags & 1) != 0 )
   {
-    v6 = 0;
+    v5 = 0;
   }
   else
   {
-    v6 = 1;
-    if ( !a4 )
+    v5 = 1;
+    if ( !HIDWORD(Size) )
     {
-      v7 = a3;
-      if ( a3 < 0x40 )
+      v6 = Size;
+      if ( (unsigned int)Size < 0x40 )
         return -1073741701;
       goto LABEL_8;
     }
   }
-  v7 = a3;
+  v6 = Size;
 LABEL_8:
-  if ( *(_WORD *)a2 == 23117 )
+  if ( *(_WORD *)BaseOfImage == 23117 )
   {
-    v8 = *(_DWORD *)(a2 + 60);
-    if ( !v6 || (a4 || v8 < v7) && v8 < 0xFFFFFFE7 && (a4 || v8 + 24 < v7) )
+    v7 = *((_DWORD *)BaseOfImage + 15);
+    if ( !v5 || (HIDWORD(Size) || v7 < v6) && v7 < 0xFFFFFFE7 && (HIDWORD(Size) || v7 + 24 < v6) )
     {
-      if ( v8 >= 0x10000000 )
+      if ( v7 >= 0x10000000 )
       {
         result = -1073741701;
-        v5 = 0;
+        v4 = 0;
       }
       else
       {
-        v5 = (_DWORD *)(a2 + v8);
-        if ( (unsigned int)v5 < a2 )
+        v4 = (_IMAGE_NT_HEADERS64 *)((char *)BaseOfImage + v7);
+        if ( v4 < BaseOfImage )
         {
           result = -1073741701;
         }
-        else if ( *v5 == 17744 )
+        else if ( v4->Signature == 17744 )
         {
           result = 0;
         }
@@ -102,7 +102,7 @@ LABEL_8:
     else
     {
       result = -1073741701;
-      v5 = 0;
+      v4 = 0;
     }
   }
   else
@@ -110,6 +110,6 @@ LABEL_8:
     result = -1073741701;
   }
   if ( result >= 0 )
-    *a5 = v5;
+    *OutHeaders = v4;
   return result;
 }

@@ -1,11 +1,11 @@
 /*
- * XREFs of EtwExitProcess @ 0x140613F08
+ * XREFs of EtwExitProcess @ 0x14067DB68
  * Callers:
- *     PspProcessDelete @ 0x1406136C0 (PspProcessDelete.c)
+ *     PspProcessDelete @ 0x14067D320 (PspProcessDelete.c)
  * Callees:
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     EtwpCovSampProcessCleanup @ 0x140945700 (EtwpCovSampProcessCleanup.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     EtwpCovSampProcessCleanup @ 0x1409458D0 (EtwpCovSampProcessCleanup.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 void __fastcall EtwExitProcess(__int64 a1, __int64 a2)

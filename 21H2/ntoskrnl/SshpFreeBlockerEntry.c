@@ -1,13 +1,13 @@
 /*
- * XREFs of SshpFreeBlockerEntry @ 0x14057FC90
+ * XREFs of SshpFreeBlockerEntry @ 0x14057FED0
  * Callers:
- *     SshpDereferenceBlocker @ 0x1406B7B14 (SshpDereferenceBlocker.c)
+ *     SshpDereferenceBlocker @ 0x140617024 (SshpDereferenceBlocker.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
- *     SshpSetBlockerActive @ 0x1402BC9A0 (SshpSetBlockerActive.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KxReleaseSpinLock @ 0x140212140 (KxReleaseSpinLock.c)
+ *     SshpSetBlockerActive @ 0x14023AF30 (SshpSetBlockerActive.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140362F80 (KeAcquireSpinLockRaiseToDpc.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 void __fastcall SshpFreeBlockerEntry(_QWORD *P)

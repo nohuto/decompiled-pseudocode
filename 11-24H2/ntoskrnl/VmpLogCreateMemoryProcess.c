@@ -1,15 +1,15 @@
 /*
- * XREFs of VmpLogCreateMemoryProcess @ 0x14079FE98
+ * XREFs of VmpLogCreateMemoryProcess @ 0x14079FFA8
  * Callers:
- *     VmCreateMemoryProcess @ 0x14079E7D0 (VmCreateMemoryProcess.c)
+ *     VmCreateMemoryProcess @ 0x14079E8E0 (VmCreateMemoryProcess.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140325680 (ObfDereferenceObject.c)
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     _tlgKeywordOn @ 0x140426AF0 (_tlgKeywordOn.c)
- *     PsGetProcessId @ 0x140434960 (PsGetProcessId.c)
- *     _tlgWriteEx_EtwWriteEx @ 0x1404A083C (_tlgWriteEx_EtwWriteEx.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ObReferenceObjectByHandle @ 0x14084AF40 (ObReferenceObjectByHandle.c)
+ *     ObfDereferenceObject @ 0x1402CE210 (ObfDereferenceObject.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     _tlgKeywordOn @ 0x14041A970 (_tlgKeywordOn.c)
+ *     PsGetProcessId @ 0x140427BE0 (PsGetProcessId.c)
+ *     _tlgWriteEx_EtwWriteEx @ 0x14049AEBC (_tlgWriteEx_EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ObReferenceObjectByHandle @ 0x140847200 (ObReferenceObjectByHandle.c)
  */
 
 void __fastcall VmpLogCreateMemoryProcess(
@@ -113,6 +113,6 @@ void __fastcall VmpLogCreateMemoryProcess(
     v44 = 8LL;
     v46 = 8LL;
     v48 = 4LL;
-    tlgWriteEx_EtwWriteEx(v13, (unsigned __int8 *)&dword_140051C6C, v14, 0, Object, HandleInformation, 0xDu, &v26);
+    tlgWriteEx_EtwWriteEx(v13, (unsigned __int8 *)&unk_140052AC0, v14, 0, Object, HandleInformation, 0xDu, &v26);
   }
 }

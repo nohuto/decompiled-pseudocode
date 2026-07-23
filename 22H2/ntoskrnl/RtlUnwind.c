@@ -10,18 +10,18 @@
  *     _alloca_probe @ 0x140407B20 (_alloca_probe.c)
  */
 
-__int64 __fastcall RtlUnwind(int a1, int a2, int a3, int a4)
+void __cdecl RtlUnwind(PVOID TargetFrame, PVOID TargetIp, PEXCEPTION_RECORD ExceptionRecord, PVOID ReturnValue)
 {
   unsigned __int64 v8; // r10
   void *v9; // rsp
-  unsigned int v11; // [rsp+30h] [rbp+0h] BYREF
+  PCONTEXT_EX ContextLength; // [rsp+30h] [rbp+0h] BYREF
 
-  v11 = 0;
-  RtlGetExtendedContextLength2(1048587LL, &v11, 0LL);
-  v8 = v11 + 15LL;
-  if ( v8 <= v11 )
+  LODWORD(ContextLength) = 0;
+  RtlGetExtendedContextLength2(0x10000Bu, (PULONG)&ContextLength, 0LL);
+  v8 = (unsigned int)ContextLength + 15LL;
+  if ( v8 <= (unsigned int)ContextLength )
     v8 = 0xFFFFFFFFFFFFFF0LL;
   v9 = alloca(v8 & 0xFFFFFFFFFFFFFFF0uLL);
-  RtlInitializeExtendedContext2(&v11, 1048587LL, &v11, 0LL);
-  return RtlUnwindEx(a1, a2, a3, a4, (__int64)&v11, 0LL);
+  RtlInitializeExtendedContext2((PCONTEXT)&ContextLength, 0x10000Bu, &ContextLength, 0LL);
+  RtlUnwindEx(TargetFrame, TargetIp, ExceptionRecord, ReturnValue, (PCONTEXT)&ContextLength, 0LL);
 }

@@ -1,13 +1,13 @@
 /*
- * XREFs of CarEtwCrashEvent @ 0x1405D281C
+ * XREFs of CarEtwCrashEvent @ 0x1405D2D8C
  * Callers:
- *     CarReportUnusualShutdown @ 0x1405D45B0 (CarReportUnusualShutdown.c)
+ *     CarReportUnusualShutdown @ 0x1405D4B20 (CarReportUnusualShutdown.c)
  * Callees:
  *     _tlgKeywordOn @ 0x140212E64 (_tlgKeywordOn.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6B24 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgCreate1Sz_wchar_t @ 0x1402F6BE4 (_tlgCreate1Sz_wchar_t.c)
- *     _tlgCreate1Sz_char @ 0x1403C431C (_tlgCreate1Sz_char.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6DB4 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgCreate1Sz_wchar_t @ 0x1402F6E74 (_tlgCreate1Sz_wchar_t.c)
+ *     _tlgCreate1Sz_char @ 0x1403C44FC (_tlgCreate1Sz_char.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  */
 
 char CarEtwCrashEvent()
@@ -53,14 +53,14 @@ char CarEtwCrashEvent()
   result = CarLogInitialized;
   if ( CarLogInitialized )
   {
-    if ( dword_140C09328 )
+    if ( dword_140C09318 )
     {
-      result = tlgKeywordOn((__int64)&dword_140C09328, 0x800000000000LL);
+      result = tlgKeywordOn((__int64)&dword_140C09318, 0x800000000000LL);
       if ( result )
       {
         if ( v2 > 5 )
         {
-          result = tlgKeywordOn((__int64)&dword_140C09328, v1);
+          result = tlgKeywordOn((__int64)&dword_140C09318, v1);
           if ( result )
           {
             v8 = 0;
@@ -94,8 +94,8 @@ char CarEtwCrashEvent()
             v32 = 4;
             v35 = 8;
             return tlgWriteTransfer_EtwWriteTransfer(
-                     (__int64)&dword_140C09328,
-                     (unsigned __int8 *)&word_140034466,
+                     (__int64)&dword_140C09318,
+                     (unsigned __int8 *)word_14003458A,
                      0LL,
                      0LL,
                      0xBu,

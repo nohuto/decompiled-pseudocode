@@ -1,19 +1,19 @@
 /*
- * XREFs of MiFlushValidPteFromTb @ 0x1403942E4
+ * XREFs of MiFlushValidPteFromTb @ 0x14038D900
  * Callers:
- *     MiTransformValidPteUsingAccessedBit @ 0x1403940AC (MiTransformValidPteUsingAccessedBit.c)
+ *     MiTransformValidPteUsingAccessedBit @ 0x14038D6C8 (MiTransformValidPteUsingAccessedBit.c)
  * Callees:
- *     MiVaToFlushVm @ 0x1402293EC (MiVaToFlushVm.c)
- *     MiInitializeTbFlushList @ 0x140233BB0 (MiInitializeTbFlushList.c)
- *     MiInsertRecursiveTbFlushEntries @ 0x140234E68 (MiInsertRecursiveTbFlushEntries.c)
- *     MiReleaseProcessorFlushList @ 0x14023FFD0 (MiReleaseProcessorFlushList.c)
- *     MiGetProcessorFlushList @ 0x1402894BC (MiGetProcessorFlushList.c)
- *     MiFlushTbList @ 0x140291730 (MiFlushTbList.c)
- *     MiGetLeafVa @ 0x1402DEE20 (MiGetLeafVa.c)
- *     MiInsertLargeTbFlushEntry @ 0x1403A4A2C (MiInsertLargeTbFlushEntry.c)
+ *     MiReleaseProcessorFlushList @ 0x140208120 (MiReleaseProcessorFlushList.c)
+ *     MiInsertRecursiveTbFlushEntries @ 0x14020EDF8 (MiInsertRecursiveTbFlushEntries.c)
+ *     MiInitializeTbFlushList @ 0x140214780 (MiInitializeTbFlushList.c)
+ *     MiInsertLargeTbFlushEntry @ 0x14021C25C (MiInsertLargeTbFlushEntry.c)
+ *     MiGetLeafVa @ 0x140240700 (MiGetLeafVa.c)
+ *     MiGetProcessorFlushList @ 0x1402990BC (MiGetProcessorFlushList.c)
+ *     MiFlushTbList @ 0x1402A1330 (MiFlushTbList.c)
+ *     MiVaToFlushVm @ 0x1402FC5EC (MiVaToFlushVm.c)
  */
 
-__int64 *__fastcall MiFlushValidPteFromTb(unsigned __int64 a1, char a2, int a3, unsigned int a4)
+__int64 *__fastcall MiFlushValidPteFromTb(unsigned __int64 a1, char a2, int a3, int a4)
 {
   unsigned __int64 LeafVa; // rax
   void *v9; // rdi

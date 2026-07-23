@@ -1,9 +1,9 @@
 /*
- * XREFs of EtwpDereferenceLoggerSecurityDescriptor @ 0x140AAF534
+ * XREFs of EtwpDereferenceLoggerSecurityDescriptor @ 0x140AAD184
  * Callers:
- *     EtwQueryPerformanceTraceInformation @ 0x14093E008 (EtwQueryPerformanceTraceInformation.c)
+ *     EtwQueryPerformanceTraceInformation @ 0x140A31120 (EtwQueryPerformanceTraceInformation.c)
  * Callees:
- *     ObDereferenceSecurityDescriptor @ 0x140931DF0 (ObDereferenceSecurityDescriptor.c)
+ *     ObDereferenceSecurityDescriptor @ 0x14090D9C0 (ObDereferenceSecurityDescriptor.c)
  */
 
 void __fastcall EtwpDereferenceLoggerSecurityDescriptor(__int64 a1, __int64 a2)

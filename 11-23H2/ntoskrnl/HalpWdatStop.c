@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpWdatStop @ 0x14051F250
+ * XREFs of HalpWdatStop @ 0x14051F7A0
  * Callers:
  *     <none>
  * Callees:
- *     WdInstrExecuteAction @ 0x14052A4DC (WdInstrExecuteAction.c)
+ *     WdInstrExecuteAction @ 0x14052AA2C (WdInstrExecuteAction.c)
  */
 
 __int64 __fastcall HalpWdatStop(__int64 a1)

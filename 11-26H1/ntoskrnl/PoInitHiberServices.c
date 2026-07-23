@@ -1,24 +1,24 @@
 /*
- * XREFs of PoInitHiberServices @ 0x1407C8370
+ * XREFs of PoInitHiberServices @ 0x1407CB3D0
  * Callers:
- *     CmCompleteRegistryInitialization @ 0x14084E49C (CmCompleteRegistryInitialization.c)
+ *     CmCompleteRegistryInitialization @ 0x1408547AC (CmCompleteRegistryInitialization.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     ExIsSoftBoot @ 0x14052A6C0 (ExIsSoftBoot.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     BiOpenStoreWithHash @ 0x140773404 (BiOpenStoreWithHash.c)
- *     PopInitializeHibernateGlobals @ 0x1407D0394 (PopInitializeHibernateGlobals.c)
- *     PopSubscribeHibernatePolicyWnf @ 0x1407D0974 (PopSubscribeHibernatePolicyWnf.c)
- *     PopTraceHibernatePolicyUpdate @ 0x1407D59EC (PopTraceHibernatePolicyUpdate.c)
- *     PopAdaptiveClearInitialSystemPowerState @ 0x1407DDA3C (PopAdaptiveClearInitialSystemPowerState.c)
- *     PopHibernateEvaluation @ 0x140943464 (PopHibernateEvaluation.c)
- *     BcdCloseStore @ 0x1409D0088 (BcdCloseStore.c)
- *     PopBcdClearPendingResume @ 0x1409D08F8 (PopBcdClearPendingResume.c)
- *     PopAcquireTransitionLock @ 0x140B39914 (PopAcquireTransitionLock.c)
- *     PopReleaseTransitionLock @ 0x140B4C040 (PopReleaseTransitionLock.c)
- *     PopBcdEstablishResumeObject @ 0x140B68C20 (PopBcdEstablishResumeObject.c)
- *     PopAcquirePolicyLock @ 0x140C04BF0 (PopAcquirePolicyLock.c)
- *     PopReleasePolicyLock @ 0x140C04C40 (PopReleasePolicyLock.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     ExIsSoftBoot @ 0x14052CBE0 (ExIsSoftBoot.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     BiOpenStoreWithHash @ 0x140776404 (BiOpenStoreWithHash.c)
+ *     PopInitializeHibernateGlobals @ 0x1407D3434 (PopInitializeHibernateGlobals.c)
+ *     PopSubscribeHibernatePolicyWnf @ 0x1407D3A14 (PopSubscribeHibernatePolicyWnf.c)
+ *     PopTraceHibernatePolicyUpdate @ 0x1407D8B9C (PopTraceHibernatePolicyUpdate.c)
+ *     PopAdaptiveClearInitialSystemPowerState @ 0x1407E206C (PopAdaptiveClearInitialSystemPowerState.c)
+ *     BcdCloseStore @ 0x1409A1068 (BcdCloseStore.c)
+ *     PopBcdClearPendingResume @ 0x1409A18D8 (PopBcdClearPendingResume.c)
+ *     PopHibernateEvaluation @ 0x1409BEDDC (PopHibernateEvaluation.c)
+ *     PopAcquireTransitionLock @ 0x140B3BB24 (PopAcquireTransitionLock.c)
+ *     PopReleaseTransitionLock @ 0x140B4DDD0 (PopReleaseTransitionLock.c)
+ *     PopBcdEstablishResumeObject @ 0x140B6BBB0 (PopBcdEstablishResumeObject.c)
+ *     PopAcquirePolicyLock @ 0x140C0AE00 (PopAcquirePolicyLock.c)
+ *     PopReleasePolicyLock @ 0x140C0AE50 (PopReleasePolicyLock.c)
  */
 
 __int64 PoInitHiberServices()
@@ -32,16 +32,16 @@ __int64 PoInitHiberServices()
   __int64 v6; // rdx
   __int64 v7; // rcx
   __int64 v8; // r8
-  __int64 v9; // rbx
+  HANDLE v9; // rbx
   __int64 v10; // rdx
   __int64 v11; // rcx
   __int64 result; // rax
   char v13; // [rsp+30h] [rbp+8h] BYREF
-  __int64 v14; // [rsp+38h] [rbp+10h] BYREF
+  HANDLE BcdStoreHandle; // [rsp+38h] [rbp+10h] BYREF
 
-  v14 = 0LL;
+  BcdStoreHandle = 0LL;
   v13 = 0;
-  RtlInitUnicodeString(&unk_140F10DF0, L"\\OSDataRoot");
+  RtlInitUnicodeString(&PoHiberFileRoot, L"\\OSDataRoot");
   PopInitializeHibernateGlobals();
   v0 = PopHiberFileTypeReg;
   if ( PopHiberFileTypeReg != -1 || (v0 = PopHiberFileTypeDefaultReg, PopHiberFileTypeDefaultReg != -1) )
@@ -58,17 +58,17 @@ __int64 PoInitHiberServices()
   PopTraceHibernatePolicyUpdate(v3, v6);
   if ( !ExIsSoftBoot()
     && (v13 || !PopHiberBootOptimizationEnabledReg)
-    && (int)BiOpenStoreWithHash(v7, 2u, v8, (__int64)&v14) >= 0 )
+    && (int)BiOpenStoreWithHash(v7, 2u, v8, (__int64)&BcdStoreHandle) >= 0 )
   {
-    v9 = v14;
-    PopBcdEstablishResumeObject(v14, 0LL);
+    v9 = BcdStoreHandle;
+    PopBcdEstablishResumeObject(BcdStoreHandle);
     PopBcdClearPendingResume(v9);
     BcdCloseStore(v9);
   }
   PopSubscribeHibernatePolicyWnf();
   PopAdaptiveClearInitialSystemPowerState();
-  result = qword_140E67548;
-  if ( qword_140E67548 )
+  result = qword_140E677A8;
+  if ( qword_140E677A8 )
     return guard_dispatch_icall_no_overrides(v11, v10);
   return result;
 }

@@ -30,7 +30,7 @@ __int64 ComputeNameLength()
   {
     _InterlockedOr(v16, 0);
     v3 = qword_1801847F0;
-    v0 = word_18018476C != 0;
+    v0 = GlobalRtlNlsState.DBCSCodePage != 0;
   }
   v4 = *v1 - 1;
   v5 = !v0;

@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpIommuHsaDiscover @ 0x140A39D14
+ * XREFs of HalpIommuHsaDiscover @ 0x140A3AD14
  * Callers:
- *     HalpIommuRegisterBuiltinPlugins @ 0x1403A94B8 (HalpIommuRegisterBuiltinPlugins.c)
+ *     HalpIommuRegisterBuiltinPlugins @ 0x1403AA248 (HalpIommuRegisterBuiltinPlugins.c)
  * Callees:
- *     HalpAcpiGetTable @ 0x140294680 (HalpAcpiGetTable.c)
- *     HalpIommuProcessIvhdEntry @ 0x1404E1AE0 (HalpIommuProcessIvhdEntry.c)
+ *     HalpAcpiGetTable @ 0x140216340 (HalpAcpiGetTable.c)
+ *     HalpIommuProcessIvhdEntry @ 0x1404E1D20 (HalpIommuProcessIvhdEntry.c)
  */
 
 int __fastcall HalpIommuHsaDiscover(_QWORD *a1)
@@ -25,7 +25,7 @@ int __fastcall HalpIommuHsaDiscover(_QWORD *a1)
   char v15; // [rsp+40h] [rbp+8h] BYREF
 
   *a1 = 0LL;
-  qword_140C48978 = (__int64)&HsaIvhdList;
+  qword_140C489B8 = (__int64)&HsaIvhdList;
   HsaIvhdList = (__int64)&HsaIvhdList;
   v15 = 0;
   if ( HalpExtEnvLoaderBlock )

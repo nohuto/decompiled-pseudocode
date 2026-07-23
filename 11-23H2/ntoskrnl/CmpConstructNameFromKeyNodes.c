@@ -1,21 +1,21 @@
 /*
- * XREFs of CmpConstructNameFromKeyNodes @ 0x1406DD5C0
+ * XREFs of CmpConstructNameFromKeyNodes @ 0x1406DD5F0
  * Callers:
- *     CmpConstructNameWithStatus @ 0x1406D7BB0 (CmpConstructNameWithStatus.c)
+ *     CmpConstructNameWithStatus @ 0x1406D7BE0 (CmpConstructNameWithStatus.c)
  * Callees:
  *     CmSiFreeMemory @ 0x140208C40 (CmSiFreeMemory.c)
- *     CmpAllocatePool @ 0x14022CEEC (CmpAllocatePool.c)
- *     memmove @ 0x140435700 (memmove.c)
- *     CmpGetKcbAtLayerHeight @ 0x1406D57A0 (CmpGetKcbAtLayerHeight.c)
- *     CmpStartKcbStack @ 0x1406D7D20 (CmpStartKcbStack.c)
- *     CmpKeyFullNameLength @ 0x1406D9270 (CmpKeyFullNameLength.c)
- *     HvpGetCellPaged @ 0x1406E0150 (HvpGetCellPaged.c)
- *     HvpReleaseCellPaged @ 0x1406E0260 (HvpReleaseCellPaged.c)
- *     HvpGetCellContextReinitialize @ 0x1406E029C (HvpGetCellContextReinitialize.c)
- *     CmpCopyCompressedName @ 0x140708CB0 (CmpCopyCompressedName.c)
- *     CmpSetKcbAtLayerHeight @ 0x1407D4E2C (CmpSetKcbAtLayerHeight.c)
- *     HvpReleaseCellFlat @ 0x1407D9470 (HvpReleaseCellFlat.c)
- *     HvpGetCellFlat @ 0x1407FD9F0 (HvpGetCellFlat.c)
+ *     CmpAllocatePool @ 0x14022CFFC (CmpAllocatePool.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     CmpGetKcbAtLayerHeight @ 0x1406D57D0 (CmpGetKcbAtLayerHeight.c)
+ *     CmpStartKcbStack @ 0x1406D7D50 (CmpStartKcbStack.c)
+ *     CmpKeyFullNameLength @ 0x1406D92A0 (CmpKeyFullNameLength.c)
+ *     HvpGetCellPaged @ 0x1406E0180 (HvpGetCellPaged.c)
+ *     HvpReleaseCellPaged @ 0x1406E0290 (HvpReleaseCellPaged.c)
+ *     HvpGetCellContextReinitialize @ 0x1406E02CC (HvpGetCellContextReinitialize.c)
+ *     CmpCopyCompressedName @ 0x140708EC0 (CmpCopyCompressedName.c)
+ *     CmpSetKcbAtLayerHeight @ 0x1407D50FC (CmpSetKcbAtLayerHeight.c)
+ *     HvpReleaseCellFlat @ 0x1407D9740 (HvpReleaseCellFlat.c)
+ *     HvpGetCellFlat @ 0x1407FDCC0 (HvpGetCellFlat.c)
  */
 
 __int64 __fastcall CmpConstructNameFromKeyNodes(__int64 a1, __int64 *a2)

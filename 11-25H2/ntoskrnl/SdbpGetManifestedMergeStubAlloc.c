@@ -163,7 +163,7 @@ LABEL_26:
       v16 = 1225;
       goto LABEL_19;
     }
-    NtSystemRoot = (const wchar_t *)RtlGetNtSystemRoot();
+    NtSystemRoot = RtlGetNtSystemRoot();
     v22 = NtSystemRoot;
     v23 = -1LL;
     do

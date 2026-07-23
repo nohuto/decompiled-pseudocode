@@ -1,17 +1,17 @@
 /*
- * XREFs of MiGetUltraMdlContext @ 0x14049878C
+ * XREFs of MiGetUltraMdlContext @ 0x1404930EC
  * Callers:
- *     MmMapMdl @ 0x140676C90 (MmMapMdl.c)
+ *     MmMapMdl @ 0x140677E60 (MmMapMdl.c)
  * Callees:
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140210170 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     MiReleaseSpinLockExclusive @ 0x14028EE30 (MiReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x14028F370 (ExAcquireSpinLockExclusive.c)
- *     MiAllocatePool @ 0x1402ACA70 (MiAllocatePool.c)
- *     MiDeleteUltraMapContext @ 0x1402D1B78 (MiDeleteUltraMapContext.c)
- *     MiInitializePageColorBase @ 0x1402EF8B0 (MiInitializePageColorBase.c)
- *     MiCreateUltraThreadContextHelper @ 0x1403C6C4C (MiCreateUltraThreadContextHelper.c)
- *     RtlpInterlockedPopEntrySList @ 0x1406B3890 (RtlpInterlockedPopEntrySList.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     MiAllocatePool @ 0x140277450 (MiAllocatePool.c)
+ *     MiReleaseSpinLockExclusive @ 0x14029EA30 (MiReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14029EF70 (ExAcquireSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1403394D0 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     MiInitializePageColorBase @ 0x140342940 (MiInitializePageColorBase.c)
+ *     MiDeleteUltraMapContext @ 0x140352DF0 (MiDeleteUltraMapContext.c)
+ *     MiCreateUltraThreadContextHelper @ 0x140412880 (MiCreateUltraThreadContextHelper.c)
+ *     RtlpInterlockedPopEntrySList @ 0x1406B4830 (RtlpInterlockedPopEntrySList.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 PSLIST_ENTRY MiGetUltraMdlContext()
@@ -32,12 +32,12 @@ PSLIST_ENTRY MiGetUltraMdlContext()
   for ( i = 0; i < 8; ++i )
   {
     v1 &= 7u;
-    result = RtlpInterlockedPopEntrySList((PSLIST_HEADER)(qword_140E35F28 + ((v1 + 8 * v0) << 6)));
+    result = RtlpInterlockedPopEntrySList((PSLIST_HEADER)(qword_140E36068 + ((v1 + 8 * v0) << 6)));
     if ( result )
       return result;
     LOBYTE(v1) = v1 + 1;
   }
-  if ( (unsigned int)dword_140E35F20 >= 0x80 )
+  if ( (unsigned int)dword_140E36060 >= 0x80 )
     return 0LL;
   Pool = (void *)MiAllocatePool(0x40uLL, 0x28uLL, 1834314061);
   if ( !Pool )
@@ -53,17 +53,17 @@ PSLIST_ENTRY MiGetUltraMdlContext()
   if ( CurrentIrql == 2 )
   {
     v7 = 17;
-    ExAcquireSpinLockExclusiveAtDpcLevel(&dword_140E35EE0);
+    ExAcquireSpinLockExclusiveAtDpcLevel(&dword_140E36020);
   }
   else
   {
-    v7 = ExAcquireSpinLockExclusive(&dword_140E35EE0);
+    v7 = ExAcquireSpinLockExclusive(&dword_140E36020);
   }
-  if ( (unsigned int)dword_140E35F20 >= 0x80 )
+  if ( (unsigned int)dword_140E36060 >= 0x80 )
     v6 = 1;
   else
-    ++dword_140E35F20;
-  MiReleaseSpinLockExclusive(&dword_140E35EE0, v7);
+    ++dword_140E36060;
+  MiReleaseSpinLockExclusive(&dword_140E36020, v7);
   if ( v6 )
   {
     MiDeleteUltraMapContext((__int64)Pool + 8, 3uLL);

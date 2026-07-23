@@ -1,14 +1,14 @@
 /*
- * XREFs of PpmIdleSnapConcurrencyIdleTime @ 0x14042D820
+ * XREFs of PpmIdleSnapConcurrencyIdleTime @ 0x140421EF0
  * Callers:
- *     PopAccumulateNonDripsIdleCpuTime @ 0x14042D634 (PopAccumulateNonDripsIdleCpuTime.c)
- *     PopAccumulateNonActivatedCpuTime @ 0x14042D72C (PopAccumulateNonActivatedCpuTime.c)
+ *     PopAccumulateNonDripsIdleCpuTime @ 0x140421D04 (PopAccumulateNonDripsIdleCpuTime.c)
+ *     PopAccumulateNonActivatedCpuTime @ 0x140421DFC (PopAccumulateNonActivatedCpuTime.c)
  * Callees:
- *     KeQueryPerformanceCounter @ 0x14021C3F0 (KeQueryPerformanceCounter.c)
- *     KeDisableInterrupts @ 0x1402BA170 (KeDisableInterrupts.c)
- *     KxReleaseSpinLock @ 0x1402BDEF0 (KxReleaseSpinLock.c)
- *     KxAcquireSpinLock @ 0x14032F2C0 (KxAcquireSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14052FA20 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeQueryPerformanceCounter @ 0x14021DD80 (KeQueryPerformanceCounter.c)
+ *     KeDisableInterrupts @ 0x140304E30 (KeDisableInterrupts.c)
+ *     KxReleaseSpinLock @ 0x140308BB0 (KxReleaseSpinLock.c)
+ *     KxAcquireSpinLock @ 0x1403312F0 (KxAcquireSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x140531F20 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 void __fastcall PpmIdleSnapConcurrencyIdleTime(PKSPIN_LOCK SpinLock, _QWORD *a2, _QWORD *a3)

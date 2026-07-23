@@ -8,16 +8,15 @@
  *     RtlFreeHeap @ 0x180080DD0 (RtlFreeHeap.c)
  */
 
-__int64 __fastcall LdrpDereferenceEnclave(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+LOGICAL __fastcall LdrpDereferenceEnclave(__int64 a1)
 {
-  __int64 result; // rax
-  __int64 v6; // r9
+  LOGICAL result; // eax
 
-  result = (unsigned int)_InterlockedExchangeAdd((volatile signed __int32 *)(a1 + 60), 0xFFFFFFFF);
-  if ( (_DWORD)result == 1 )
+  result = _InterlockedExchangeAdd((volatile signed __int32 *)(a1 + 60), 0xFFFFFFFF);
+  if ( result == 1 )
   {
-    RtlFreeHeap(LdrpHeap, 0, *(_QWORD *)(a1 + 112), a4);
-    return RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, a1, v6);
+    RtlFreeHeap(LdrpHeap, 0, *(PVOID *)(a1 + 112));
+    return RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, (PVOID)a1);
   }
   return result;
 }

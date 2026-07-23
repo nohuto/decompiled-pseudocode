@@ -1,5 +1,5 @@
 /*
- * XREFs of HvlGetEncryptedData @ 0x1401C04A8
+ * XREFs of HvlGetEncryptedData @ 0x1401C038C
  * Callers:
  *     <none>
  * Callees:

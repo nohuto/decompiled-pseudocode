@@ -10,164 +10,163 @@
 
 int __fastcall RtlpQueryFilesInAssemblyInformationActivationContextDetailedInformation(
         int a1,
-        int *a2,
+        _DWORD *a2,
         char *a3,
         unsigned int a4,
         unsigned int *a5)
 {
   int v5; // esi
   int v7; // edx
-  _DWORD *v8; // eax
-  unsigned int v9; // ecx
-  int v10; // eax
+  unsigned int v8; // ecx
+  int v9; // eax
   _DWORD *i; // ebx
-  bool v12; // zf
-  _DWORD *v13; // ecx
-  unsigned int v14; // eax
+  bool v11; // zf
+  _DWORD *v12; // ecx
+  unsigned int v13; // eax
+  int v14; // ebx
   int v15; // ebx
-  int v16; // ebx
-  int v17; // edx
-  _WORD *v18; // edi
+  int v16; // edx
+  _WORD *v17; // edi
+  int v18; // eax
   int v19; // eax
-  int v20; // eax
-  int v21; // ecx
-  _WORD *v22; // edi
-  int v23; // eax
-  int v24; // edx
-  int v25; // ebx
-  _DWORD *v26; // ecx
-  size_t Size; // [esp+Ch] [ebp-18h] BYREF
-  _DWORD *v29; // [esp+10h] [ebp-14h] BYREF
-  int v30; // [esp+14h] [ebp-10h] BYREF
-  int v31; // [esp+18h] [ebp-Ch]
-  int v32; // [esp+1Ch] [ebp-8h]
-  int v33; // [esp+20h] [ebp-4h] BYREF
+  int v20; // ecx
+  _WORD *v21; // edi
+  int v22; // eax
+  int v23; // edx
+  int v24; // ebx
+  _DWORD *v25; // ecx
+  size_t v27; // [esp-18h] [ebp-3Ch]
+  size_t v28; // [esp-4h] [ebp-28h]
+  char *Size; // [esp+Ch] [ebp-18h] BYREF
+  _DWORD *Size_4; // [esp+10h] [ebp-14h] BYREF
+  int v31; // [esp+14h] [ebp-10h] BYREF
+  int v32; // [esp+18h] [ebp-Ch]
+  int v33; // [esp+1Ch] [ebp-8h]
+  int v34; // [esp+20h] [ebp-4h] BYREF
 
   v5 = 0;
-  v30 = -1073741595;
-  v33 = 0;
-  v29 = 0;
+  v31 = -1073741595;
+  v34 = 0;
+  Size_4 = 0;
   if ( a5 )
     *a5 = 0;
   v7 = *(_DWORD *)(*(_DWORD *)(a1 + 24) + a1 + 8);
-  v31 = *a2;
+  v32 = *a2;
   if ( *a2 >= (unsigned int)(v7 - 1) )
   {
     DbgPrintEx(
       51,
       0,
-      "SXS: %s() received invalid sub-instance index %lu out of %lu Assemblies in the Acitvation Context\n",
-      "RtlpQueryFilesInAssemblyInformationActivationContextDetailedInformation",
-      v31,
-      v7);
+      (int)"SXS: %s() received invalid sub-instance index %lu out of %lu Assemblies in the Acitvation Context\n",
+      (int)"RtlpQueryFilesInAssemblyInformationActivationContextDetailedInformation");
     return -1073741811;
   }
-  RtlpLocateActivationContextSectionForQuery(&v29, &v30, a3, a4, a5, 0x58u, a1, a1, 2, (int)&v33, (int)&Size);
-  if ( v29 == (_DWORD *)2 )
-    return v30;
-  v8 = (_DWORD *)a2[1];
-  v29 = v8;
-  v9 = *(_DWORD *)(v33 + 20);
-  if ( (unsigned int)v8 >= v9 )
+  HIDWORD(v27) = a1;
+  LODWORD(v27) = 88;
+  RtlpLocateActivationContextSectionForQuery(&Size_4, &v31, a3, a4, a5, v27, a1, 2, (int)&v34, (int)&Size);
+  if ( Size_4 == (_DWORD *)2 )
+    return v31;
+  Size_4 = (_DWORD *)a2[1];
+  v8 = *(_DWORD *)(v34 + 20);
+  if ( (unsigned int)Size_4 >= v8 )
   {
     DbgPrintEx(
       51,
       0,
-      "SXS: %s() received invalid file index (%u, max is %u) in Assembly (%u)\n",
-      "RtlpQueryFilesInAssemblyInformationActivationContextDetailedInformation",
-      v8,
-      v9,
-      *a2);
+      (int)"SXS: %s() received invalid file index (%u, max is %u) in Assembly (%u)\n",
+      (int)"RtlpQueryFilesInAssemblyInformationActivationContextDetailedInformation");
     return -1073741811;
   }
-  v10 = *(_DWORD *)(v33 + 24);
-  if ( !v10 )
-    return -1072365547;
-  v30 = 0;
-  v32 = v33 + v10;
-  v31 = 0;
+  v9 = *(_DWORD *)(v34 + 24);
   if ( !v9 )
     return -1072365547;
-  Size = *a2 + 1;
-  for ( i = (_DWORD *)(v32 + 12); i[2] != Size; i += 6 )
+  v31 = 0;
+  v33 = v34 + v9;
+  v32 = 0;
+  if ( !v8 )
+    return -1072365547;
+  Size = (char *)(*a2 + 1);
+  for ( i = (_DWORD *)(v33 + 12); (char *)i[2] != Size; i += 6 )
   {
 LABEL_16:
-    if ( ++v31 >= v9 )
+    if ( ++v32 >= v8 )
       return -1072365547;
   }
-  if ( (_DWORD *)v30 != v29 || !*i )
+  if ( (_DWORD *)v31 != Size_4 || !*i )
   {
-    ++v30;
+    ++v31;
     goto LABEL_16;
   }
-  v12 = v33 + *i == 0;
-  v13 = (_DWORD *)(v33 + *i);
-  v29 = v13;
-  if ( v12 )
+  v11 = v34 + *i == 0;
+  v12 = (_DWORD *)(v34 + *i);
+  Size_4 = v12;
+  if ( v11 )
     return -1072365547;
-  v14 = 20;
-  v30 = 24 * v31;
-  v15 = *(_DWORD *)(24 * v31 + v32 + 8);
+  v13 = 20;
+  v31 = 24 * v32;
+  v14 = *(_DWORD *)(24 * v32 + v33 + 8);
+  if ( v14 )
+    v13 = v14 + 22;
+  v15 = v12[2];
   if ( v15 )
-    v14 = v15 + 22;
-  v16 = v13[2];
-  if ( v16 )
-    v14 += v16 + 2;
-  if ( v14 > a4 )
+    v13 += v15 + 2;
+  if ( v13 > a4 )
   {
     if ( a5 )
-      *a5 = v14;
+      *a5 = v13;
     return -1073741789;
   }
-  v17 = v32;
-  *(_DWORD *)a3 = v13[1];
-  v18 = a3 + 20;
-  *((_DWORD *)a3 + 1) = *(_DWORD *)(v30 + v17 + 8);
-  *((_DWORD *)a3 + 2) = v13[2];
-  v19 = v30;
+  v16 = v33;
+  *(_DWORD *)a3 = v12[1];
+  v17 = a3 + 20;
+  *((_DWORD *)a3 + 1) = *(_DWORD *)(v31 + v16 + 8);
+  *((_DWORD *)a3 + 2) = v12[2];
+  v18 = v31;
   *((_DWORD *)a3 + 3) = 0;
   *((_DWORD *)a3 + 4) = 0;
-  Size = *(_DWORD *)(v19 + v17 + 8);
+  Size = *(char **)(v18 + v16 + 8);
   if ( Size )
   {
-    memcpy(a3 + 20, (const void *)(v33 + *(_DWORD *)(v19 + v32 + 4)), Size);
-    v20 = v30;
-    v21 = v32;
-    *((_DWORD *)a3 + 3) = v18;
-    v22 = (_WORD *)((char *)v18 + *(_DWORD *)(v20 + v21 + 8));
-    v13 = v29;
-    *v22 = 0;
-    v18 = v22 + 1;
+    LODWORD(v28) = Size;
+    memcpy(a3 + 20, (const void *)(v34 + *(_DWORD *)(v18 + v33 + 4)), v28);
+    v19 = v31;
+    v20 = v33;
+    *((_DWORD *)a3 + 3) = v17;
+    v21 = (_WORD *)((char *)v17 + *(_DWORD *)(v19 + v20 + 8));
+    v12 = Size_4;
+    *v21 = 0;
+    v17 = v21 + 1;
   }
-  if ( v13[2] )
+  if ( v12[2] )
   {
-    v23 = v13[4];
-    if ( v23 )
+    v22 = v12[4];
+    if ( v22 )
     {
-      v24 = v33 + 44 * v23;
-      v30 = v24;
-      if ( v24 )
+      v23 = v34 + 44 * v22;
+      v31 = v23;
+      if ( v23 )
       {
-        *((_DWORD *)a3 + 4) = v18;
-        v25 = 0;
-        if ( !v13[3] )
+        *((_DWORD *)a3 + 4) = v17;
+        v24 = 0;
+        if ( !v12[3] )
         {
 LABEL_38:
-          *v18 = 0;
+          *v17 = 0;
           return v5;
         }
-        v26 = v29;
-        Size = (size_t)&a3[a4];
-        while ( (unsigned int)v18 + *(_DWORD *)(v24 + 8 * v25 + 4) + 2 <= Size )
+        v25 = Size_4;
+        Size = &a3[a4];
+        while ( (char *)v17 + *(_DWORD *)(v23 + 8 * v24 + 4) + 2 <= Size )
         {
-          if ( *(_DWORD *)(v24 + 8 * v25 + 4) )
+          if ( *(_DWORD *)(v23 + 8 * v24 + 4) )
           {
-            memcpy(v18, (const void *)(*(_DWORD *)(v24 + 8 * v25 + 4) + v33), *(_DWORD *)(v24 + 8 * v25));
-            v24 = v30;
-            v26 = v29;
-            v18 = (_WORD *)((char *)v18 + *(_DWORD *)(v30 + 8 * v25));
+            LODWORD(v28) = *(_DWORD *)(v23 + 8 * v24);
+            memcpy(v17, (const void *)(*(_DWORD *)(v23 + 8 * v24 + 4) + v34), v28);
+            v23 = v31;
+            v25 = Size_4;
+            v17 = (_WORD *)((char *)v17 + *(_DWORD *)(v31 + 8 * v24));
           }
-          if ( (unsigned int)++v25 >= v26[3] )
+          if ( (unsigned int)++v24 >= v25[3] )
             goto LABEL_38;
         }
         return -1072365547;

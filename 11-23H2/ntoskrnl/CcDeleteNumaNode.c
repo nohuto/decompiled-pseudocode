@@ -1,8 +1,8 @@
 /*
- * XREFs of CcDeleteNumaNode @ 0x1403C23B4
+ * XREFs of CcDeleteNumaNode @ 0x1403C2594
  * Callers:
- *     CcDeletePrivateVolumeCacheMap @ 0x1403C2074 (CcDeletePrivateVolumeCacheMap.c)
- *     CcDeletePartition @ 0x140538C60 (CcDeletePartition.c)
+ *     CcDeletePrivateVolumeCacheMap @ 0x1403C2254 (CcDeletePrivateVolumeCacheMap.c)
+ *     CcDeletePartition @ 0x1405391B0 (CcDeletePartition.c)
  * Callees:
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */

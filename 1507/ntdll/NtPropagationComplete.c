@@ -6,11 +6,15 @@
  *     <none>
  */
 
-__int64 NtPropagationComplete()
+NTSTATUS __cdecl NtPropagationComplete(
+        HANDLE ResourceManagerHandle,
+        ULONG RequestCookie,
+        ULONG BufferLength,
+        PVOID Buffer)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 293LL;
+  result = 293;
   __asm { syscall; Low latency system call }
   return result;
 }

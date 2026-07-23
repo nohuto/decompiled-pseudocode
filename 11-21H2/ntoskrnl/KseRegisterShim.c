@@ -1,9 +1,9 @@
 /*
  * XREFs of KseRegisterShim @ 0x140825A50
  * Callers:
- *     KseInitialize @ 0x140AFFF64 (KseInitialize.c)
- *     KseVersionLieInitialize @ 0x140B003F8 (KseVersionLieInitialize.c)
- *     KseDriverScopeInitialize @ 0x140B01600 (KseDriverScopeInitialize.c)
+ *     sub_140AFFF64 @ 0x140AFFF64 (sub_140AFFF64.c)
+ *     sub_140B003F8 @ 0x140B003F8 (sub_140B003F8.c)
+ *     sub_140B01600 @ 0x140B01600 (sub_140B01600.c)
  * Callees:
  *     KseRegisterShimEx @ 0x140825A70 (KseRegisterShimEx.c)
  */

@@ -1,22 +1,22 @@
 /*
- * XREFs of EtwTimLogRedirectionTrustPolicy @ 0x14082B320
+ * XREFs of EtwTimLogRedirectionTrustPolicy @ 0x140831560
  * Callers:
- *     IoCheckRedirectionTrustLevel @ 0x1404AA440 (IoCheckRedirectionTrustLevel.c)
- *     IoCheckRedirectionTrustLevel2 @ 0x1404FC050 (IoCheckRedirectionTrustLevel2.c)
+ *     IoCheckRedirectionTrustLevel @ 0x1404A3AD0 (IoCheckRedirectionTrustLevel.c)
+ *     IoCheckRedirectionTrustLevel2 @ 0x1404F5590 (IoCheckRedirectionTrustLevel2.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212E30 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     EtwWrite @ 0x140212EF0 (EtwWrite.c)
- *     EtwpTiFillProcessIdentity @ 0x140257DB0 (EtwpTiFillProcessIdentity.c)
- *     RtlWalkFrameChain @ 0x140262D70 (RtlWalkFrameChain.c)
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     RtlStringCbCopyW @ 0x140430A90 (RtlStringCbCopyW.c)
- *     _tlgKeywordOn @ 0x14044F850 (_tlgKeywordOn.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     ZwQueryVirtualMemory @ 0x140723850 (ZwQueryVirtualMemory.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     EtwpQueryProcessCommandLine @ 0x14096DF60 (EtwpQueryProcessCommandLine.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212F10 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     EtwWrite @ 0x140212FD0 (EtwWrite.c)
+ *     EtwpTiFillProcessIdentity @ 0x140259590 (EtwpTiFillProcessIdentity.c)
+ *     RtlWalkFrameChain @ 0x1402622E0 (RtlWalkFrameChain.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     RtlStringCbCopyW @ 0x14041DAC0 (RtlStringCbCopyW.c)
+ *     _tlgKeywordOn @ 0x140447980 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     ZwQueryVirtualMemory @ 0x140728420 (ZwQueryVirtualMemory.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     EtwpQueryProcessCommandLine @ 0x1409D37CC (EtwpQueryProcessCommandLine.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __fastcall EtwTimLogRedirectionTrustPolicy(
@@ -259,7 +259,7 @@ LABEL_13:
             if ( ZwQueryVirtualMemory(
                    (HANDLE)0xFFFFFFFFFFFFFFFFLL,
                    *v21,
-                   (MEMORY_INFORMATION_CLASS)2,
+                   MemoryMappedFilenameInformation,
                    v20,
                    0x218uLL,
                    0LL) < 0
@@ -459,10 +459,10 @@ LABEL_33:
         v77 = v61 + 1;
       }
       while ( v41 < 0x10u );
-      EtwWrite(EtwSecurityMitigationsRegHandle, EventDescriptor, 0LL, v48, &UserData);
+      EtwWrite(*(REGHANDLE *)&stru_140F03830.SavedApcStateFill[40], EventDescriptor, 0LL, v48, &UserData);
       if ( v8 )
       {
-        if ( (unsigned int)dword_140E08F48 > 5 && tlgKeywordOn((__int64)&dword_140E08F48, 0x400000000000LL) )
+        if ( (unsigned int)dword_140E08F78 > 5 && tlgKeywordOn((__int64)&dword_140E08F78, 0x400000000000LL) )
         {
           v82 = 0x2000000LL;
           v94 = (UNICODE_STRING *)&v82;
@@ -539,15 +539,15 @@ LABEL_33:
           v138[1] = 0;
           v140 = 8LL;
           tlgWriteTransfer_EtwWriteTransfer(
-            (__int64)&dword_140E08F48,
-            (unsigned __int8 *)byte_1400547E5,
+            (__int64)&dword_140E08F78,
+            (unsigned __int8 *)&word_140055846,
             0LL,
             0LL,
             0x19u,
             v93);
         }
       }
-      else if ( (unsigned int)dword_140E08F48 > 5 && tlgKeywordOn((__int64)&dword_140E08F48, 0x400000000000LL) )
+      else if ( (unsigned int)dword_140E08F78 > 5 && tlgKeywordOn((__int64)&dword_140E08F78, 0x400000000000LL) )
       {
         *(_QWORD *)&v83.Length = 0x2000000LL;
         v94 = &v83;
@@ -569,8 +569,8 @@ LABEL_33:
         v107 = v49;
         v108 = 0;
         tlgWriteTransfer_EtwWriteTransfer(
-          (__int64)&dword_140E08F48,
-          (unsigned __int8 *)byte_1400548C1,
+          (__int64)&dword_140E08F78,
+          (unsigned __int8 *)byte_1400557D8,
           0LL,
           0LL,
           9u,

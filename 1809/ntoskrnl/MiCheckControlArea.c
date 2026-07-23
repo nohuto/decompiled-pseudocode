@@ -1,34 +1,34 @@
 /*
- * XREFs of MiCheckControlArea @ 0x1400764A0
+ * XREFs of MiCheckControlArea @ 0x140076490
  * Callers:
- *     MiDeleteVad @ 0x140065E10 (MiDeleteVad.c)
- *     MiDereferenceControlAreaBySection @ 0x14007645C (MiDereferenceControlAreaBySection.c)
- *     MiAddViewsForSection @ 0x140077170 (MiAddViewsForSection.c)
- *     MmUnmapViewInSystemCache @ 0x140078710 (MmUnmapViewInSystemCache.c)
- *     MiFlushRelease @ 0x1400792CC (MiFlushRelease.c)
- *     MiRemoveMappedPtes @ 0x1400855D0 (MiRemoveMappedPtes.c)
- *     MmPurgeSection @ 0x1400E7D00 (MmPurgeSection.c)
- *     MiReleaseFaultCharges @ 0x140131954 (MiReleaseFaultCharges.c)
- *     MiDereferenceControlArea @ 0x14013B57C (MiDereferenceControlArea.c)
- *     MiRemoveSystemCacheReferences @ 0x1402AC0DC (MiRemoveSystemCacheReferences.c)
+ *     MiDeleteVad @ 0x140065E00 (MiDeleteVad.c)
+ *     MiDereferenceControlAreaBySection @ 0x14007644C (MiDereferenceControlAreaBySection.c)
+ *     MiAddViewsForSection @ 0x140077160 (MiAddViewsForSection.c)
+ *     MmUnmapViewInSystemCache @ 0x140078700 (MmUnmapViewInSystemCache.c)
+ *     MiFlushRelease @ 0x1400792BC (MiFlushRelease.c)
+ *     MiRemoveMappedPtes @ 0x1400855C0 (MiRemoveMappedPtes.c)
+ *     MmPurgeSection @ 0x1400E7D80 (MmPurgeSection.c)
+ *     MiReleaseFaultCharges @ 0x140131A24 (MiReleaseFaultCharges.c)
+ *     MiDereferenceControlArea @ 0x14013B67C (MiDereferenceControlArea.c)
+ *     MiRemoveSystemCacheReferences @ 0x1402AC2CC (MiRemoveSystemCacheReferences.c)
  * Callees:
  *     MiBuildWakeList @ 0x14001E4A8 (MiBuildWakeList.c)
- *     MiInsertUnusedSegment @ 0x14007B5A0 (MiInsertUnusedSegment.c)
- *     ExAcquireSpinLockExclusive @ 0x1400BC4E0 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC660 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KeSetEvent @ 0x1400C2B00 (KeSetEvent.c)
- *     MiClearFilePointer @ 0x14011A03C (MiClearFilePointer.c)
- *     PsGetNextPartition @ 0x14011FFE8 (PsGetNextPartition.c)
- *     KeSignalGate @ 0x1401276B0 (KeSignalGate.c)
- *     MiImageUnused @ 0x140127820 (MiImageUnused.c)
- *     MiCleanSection @ 0x14016973C (MiCleanSection.c)
- *     MiPurgeImageSection @ 0x140176620 (MiPurgeImageSection.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     MiShouldTrimUnusedSegments @ 0x1402A3404 (MiShouldTrimUnusedSegments.c)
- *     MiReturnCrossPartitionSectionCharges @ 0x1402C4CB4 (MiReturnCrossPartitionSectionCharges.c)
- *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x14031C278 (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
- *     MiReturnImageBase @ 0x1405F0514 (MiReturnImageBase.c)
- *     MiSegmentDelete @ 0x14061E928 (MiSegmentDelete.c)
+ *     MiInsertUnusedSegment @ 0x14007B590 (MiInsertUnusedSegment.c)
+ *     ExAcquireSpinLockExclusive @ 0x1400BC420 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC5A0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KeSetEvent @ 0x1400C2A40 (KeSetEvent.c)
+ *     MiClearFilePointer @ 0x14011A0AC (MiClearFilePointer.c)
+ *     PsGetNextPartition @ 0x140120058 (PsGetNextPartition.c)
+ *     KeSignalGate @ 0x140127780 (KeSignalGate.c)
+ *     MiImageUnused @ 0x1401278F0 (MiImageUnused.c)
+ *     MiCleanSection @ 0x14016983C (MiCleanSection.c)
+ *     MiPurgeImageSection @ 0x140176720 (MiPurgeImageSection.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiShouldTrimUnusedSegments @ 0x1402A35F4 (MiShouldTrimUnusedSegments.c)
+ *     MiReturnCrossPartitionSectionCharges @ 0x1402C4EA4 (MiReturnCrossPartitionSectionCharges.c)
+ *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x14031C468 (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
+ *     MiReturnImageBase @ 0x1405F1514 (MiReturnImageBase.c)
+ *     MiSegmentDelete @ 0x14061F928 (MiSegmentDelete.c)
  */
 
 __int64 __fastcall MiCheckControlArea(__int64 a1, KIRQL a2)
@@ -59,7 +59,7 @@ __int64 __fastcall MiCheckControlArea(__int64 a1, KIRQL a2)
   v4 = 0;
   v7 = 0LL;
   v8 = v2 != 0;
-  v9 = *(_QWORD *)(qword_14043A748 + 8LL * (*(_WORD *)(a1 + 60) & 0x3FF));
+  v9 = *(_QWORD *)(qword_14043B808 + 8LL * (*(_WORD *)(a1 + 60) & 0x3FF));
   v23[0] = 0xFFFFFFFFLL;
   v23[1] = 0LL;
   if ( *(_QWORD *)(a1 + 40) || *(_QWORD *)(a1 + 24) )
@@ -199,9 +199,9 @@ LABEL_3:
       }
       while ( v17 );
     }
-    if ( qword_14043E728 >= 9 * (qword_14043E7A8 / 0xAuLL) )
+    if ( qword_14043F7E8 >= 9 * (qword_14043F868 / 0xAuLL) )
     {
-      if ( (unsigned int)MiShouldTrimUnusedSegments(qword_14043E7A8, qword_14043E7A8 / 0xAuLL) )
+      if ( (unsigned int)MiShouldTrimUnusedSegments(qword_14043F868, qword_14043F868 / 0xAuLL) )
       {
         for ( i = PsGetNextPartition(0LL); i; i = PsGetNextPartition(i) )
         {

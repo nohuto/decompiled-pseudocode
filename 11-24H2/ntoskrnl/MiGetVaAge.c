@@ -1,16 +1,17 @@
 /*
- * XREFs of MiGetVaAge @ 0x1402871E0
+ * XREFs of MiGetVaAge @ 0x140296DE0
  * Callers:
- *     MiEmptyWorkingSetHelper @ 0x140287320 (MiEmptyWorkingSetHelper.c)
- *     MiEmptyPte @ 0x140287AF0 (MiEmptyPte.c)
- *     MiActOnPte @ 0x14028B7E0 (MiActOnPte.c)
- *     MiCountWslesInPageTableRange @ 0x1402E3F20 (MiCountWslesInPageTableRange.c)
- *     MI_WSLE_LOG_ACCESS @ 0x1402EFF38 (MI_WSLE_LOG_ACCESS.c)
- *     MiSimpleAgePte @ 0x1403FA2E0 (MiSimpleAgePte.c)
- *     MiResetAccessBitPteWorker @ 0x1403FB050 (MiResetAccessBitPteWorker.c)
- *     MiProcessWsInSwapFault @ 0x14046DEB4 (MiProcessWsInSwapFault.c)
+ *     MiProcessWsInSwapFault @ 0x140215CA4 (MiProcessWsInSwapFault.c)
+ *     MI_WSLE_LOG_ACCESS @ 0x1402590F0 (MI_WSLE_LOG_ACCESS.c)
+ *     MiResetAccessBitPteWorker @ 0x1402941D8 (MiResetAccessBitPteWorker.c)
+ *     MiEmptyWorkingSetHelper @ 0x140296F20 (MiEmptyWorkingSetHelper.c)
+ *     MiEmptyPte @ 0x1402976F0 (MiEmptyPte.c)
+ *     MiActOnPte @ 0x14029B3E0 (MiActOnPte.c)
+ *     MiClearPteAccessed @ 0x140304BA0 (MiClearPteAccessed.c)
+ *     MiCountWslesInPageTableRange @ 0x140392E70 (MiCountWslesInPageTableRange.c)
+ *     MiSimpleAgePte @ 0x14049EAD0 (MiSimpleAgePte.c)
  * Callees:
- *     MI_READ_PTE_LOCK_FREE @ 0x14021A250 (MI_READ_PTE_LOCK_FREE.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140246FA0 (MI_READ_PTE_LOCK_FREE.c)
  */
 
 char __fastcall MiGetVaAge(__int64 a1, unsigned __int64 a2)

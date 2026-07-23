@@ -4,9 +4,9 @@
  *     IoQueryKsrPersistentMemorySize @ 0x140940A30 (IoQueryKsrPersistentMemorySize.c)
  * Callees:
  *     ExIsSoftBoot @ 0x1403B72A0 (ExIsSoftBoot.c)
- *     IoAddTriageDumpDataBlock @ 0x1403D99B4 (IoAddTriageDumpDataBlock.c)
+ *     sub_1403D99B4 @ 0x1403D99B4 (sub_1403D99B4.c)
  *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
- *     PipGetPersistentMemory @ 0x140941654 (PipGetPersistentMemory.c)
+ *     sub_140941654 @ 0x140941654 (sub_140941654.c)
  */
 
 __int64 __fastcall IoQueryKsrPersistentMemorySizeEx(
@@ -36,16 +36,16 @@ __int64 __fastcall IoQueryKsrPersistentMemorySizeEx(
     v10 = *(_QWORD *)(*(_QWORD *)(a2 + 312) + 40LL);
     if ( !v10 || (*(_DWORD *)(v10 + 396) & 0x20000) != 0 )
     {
-      IoAddTriageDumpDataBlock(a2, (PVOID)*(unsigned __int16 *)(a2 + 2));
+      sub_1403D99B4(a2, (PVOID)*(unsigned __int16 *)(a2 + 2));
       v11 = *(_QWORD *)(a2 + 8);
       if ( v11 )
       {
-        IoAddTriageDumpDataBlock(v11, (PVOID)(unsigned int)*(__int16 *)(v11 + 2));
+        sub_1403D99B4(v11, (PVOID)(unsigned int)*(__int16 *)(v11 + 2));
         v12 = (_WORD *)(*(_QWORD *)(a2 + 8) + 56LL);
         if ( *v12 )
         {
-          IoAddTriageDumpDataBlock((ULONG)v12, (PVOID)2);
-          IoAddTriageDumpDataBlock(
+          sub_1403D99B4((ULONG)v12, (PVOID)2);
+          sub_1403D99B4(
             *(_QWORD *)(*(_QWORD *)(a2 + 8) + 64LL),
             (PVOID)*(unsigned __int16 *)(*(_QWORD *)(a2 + 8) + 56LL));
         }
@@ -54,18 +54,18 @@ __int64 __fastcall IoQueryKsrPersistentMemorySizeEx(
       if ( v13 )
       {
         v14 = (unsigned __int16 *)(v13 + 40);
-        IoAddTriageDumpDataBlock(v13, (PVOID)0x310);
+        sub_1403D99B4(v13, (PVOID)0x310);
         if ( *v14 )
         {
-          IoAddTriageDumpDataBlock((ULONG)v14, (PVOID)2);
-          IoAddTriageDumpDataBlock(*((_QWORD *)v14 + 1), (PVOID)*v14);
+          sub_1403D99B4((ULONG)v14, (PVOID)2);
+          sub_1403D99B4(*((_QWORD *)v14 + 1), (PVOID)*v14);
         }
         v15 = *(_QWORD *)(a2 + 312);
         v16 = (_WORD *)(*(_QWORD *)(v15 + 40) + 56LL);
         if ( *v16 )
         {
-          IoAddTriageDumpDataBlock((ULONG)v16, (PVOID)2);
-          IoAddTriageDumpDataBlock(
+          sub_1403D99B4((ULONG)v16, (PVOID)2);
+          sub_1403D99B4(
             *(_QWORD *)(*(_QWORD *)(*(_QWORD *)(a2 + 312) + 40LL) + 64LL),
             (PVOID)*(unsigned __int16 *)(*(_QWORD *)(*(_QWORD *)(a2 + 312) + 40LL) + 56LL));
           v15 = *(_QWORD *)(a2 + 312);
@@ -76,9 +76,9 @@ __int64 __fastcall IoQueryKsrPersistentMemorySizeEx(
           v18 = (_WORD *)(v17 + 56);
           if ( *v18 )
           {
-            IoAddTriageDumpDataBlock((ULONG)v18, (PVOID)2);
+            sub_1403D99B4((ULONG)v18, (PVOID)2);
             v19 = *(_QWORD *)(*(_QWORD *)(*(_QWORD *)(a2 + 312) + 40LL) + 16LL);
-            IoAddTriageDumpDataBlock(*(_QWORD *)(v19 + 64), (PVOID)*(unsigned __int16 *)(v19 + 56));
+            sub_1403D99B4(*(_QWORD *)(v19 + 64), (PVOID)*(unsigned __int16 *)(v19 + 56));
           }
         }
       }
@@ -88,7 +88,7 @@ __int64 __fastcall IoQueryKsrPersistentMemorySizeEx(
   *a6 = 0LL;
   if ( !ExIsSoftBoot() )
     return 3221225659LL;
-  result = PipGetPersistentMemory(a1, a2, a3, a4, a5, a6, 0LL, 0);
+  result = sub_140941654(a1, a2, a3, a4, a5, a6, 0LL, 0);
   if ( (_DWORD)result == -1073741789 && *a6 )
     return 0LL;
   return result;

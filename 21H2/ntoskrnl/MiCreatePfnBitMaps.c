@@ -1,15 +1,15 @@
 /*
- * XREFs of MiCreatePfnBitMaps @ 0x1407B94E4
+ * XREFs of MiCreatePfnBitMaps @ 0x1407B9A04
  * Callers:
- *     MmCreatePartition @ 0x1403CA974 (MmCreatePartition.c)
- *     MiInitNucleus @ 0x140A42F34 (MiInitNucleus.c)
+ *     MmCreatePartition @ 0x1403CAB14 (MmCreatePartition.c)
+ *     MiInitNucleus @ 0x140A43F34 (MiInitNucleus.c)
  * Callees:
- *     MiReservePtes @ 0x1402265B0 (MiReservePtes.c)
- *     MiReleasePtes @ 0x140245800 (MiReleasePtes.c)
- *     MiInitializeDynamicBitmap @ 0x1407868DC (MiInitializeDynamicBitmap.c)
- *     MiSplitPfnBitMaps @ 0x1407B9774 (MiSplitPfnBitMaps.c)
- *     MiDeletePfnBitMaps @ 0x1408D864C (MiDeletePfnBitMaps.c)
- *     MiInitializeRebuildCandidateCounts @ 0x140A68014 (MiInitializeRebuildCandidateCounts.c)
+ *     MiReservePtes @ 0x1402CAEB0 (MiReservePtes.c)
+ *     MiReleasePtes @ 0x1402EA050 (MiReleasePtes.c)
+ *     MiInitializeDynamicBitmap @ 0x140786A9C (MiInitializeDynamicBitmap.c)
+ *     MiSplitPfnBitMaps @ 0x1407B9C94 (MiSplitPfnBitMaps.c)
+ *     MiDeletePfnBitMaps @ 0x1408D87AC (MiDeletePfnBitMaps.c)
+ *     MiInitializeRebuildCandidateCounts @ 0x140A69014 (MiInitializeRebuildCandidateCounts.c)
  */
 
 __int64 __fastcall MiCreatePfnBitMaps(__int64 a1, _DWORD *a2, __int64 a3, unsigned __int64 a4)
@@ -62,7 +62,7 @@ __int64 __fastcall MiCreatePfnBitMaps(__int64 a1, _DWORD *a2, __int64 a3, unsign
     }
     v30 = 0x1000000000LL / v9 + (0x1000000000LL % v9 != 0);
     v11 = (((unsigned __int64)(v30 + 7) >> 3) + 4095) >> 12;
-    v12 = MiReservePtes((__int64)&qword_140C4EF40, v11, a3, a4);
+    v12 = MiReservePtes((__int64)&qword_140C4EF80, v11, a3, a4);
     v31 = (_QWORD *)v12;
     if ( !v12 )
       goto LABEL_30;
@@ -71,7 +71,7 @@ __int64 __fastcall MiCreatePfnBitMaps(__int64 a1, _DWORD *a2, __int64 a3, unsign
       v28 = v31;
       v27 = v11;
 LABEL_29:
-      MiReleasePtes((__int64)&qword_140C4EF40, v28, v27);
+      MiReleasePtes((__int64)&qword_140C4EF80, v28, v27);
 LABEL_30:
       MiDeletePfnBitMaps(a1);
       return 0LL;
@@ -80,7 +80,7 @@ LABEL_30:
 LABEL_7:
     ++v5;
   }
-  v13 = MiReservePtes((__int64)&qword_140C4EF40, 0x8000u, a3, a4);
+  v13 = MiReservePtes((__int64)&qword_140C4EF80, 0x8000u, a3, a4);
   v14 = (_QWORD *)v13;
   if ( !v13 )
     goto LABEL_30;
@@ -92,7 +92,7 @@ LABEL_7:
     goto LABEL_29;
   }
   *(_QWORD *)(a1 + 5104) = v15;
-  v18 = MiReservePtes((__int64)&qword_140C4EF40, 8u, v16, v17);
+  v18 = MiReservePtes((__int64)&qword_140C4EF80, 8u, v16, v17);
   v19 = (_QWORD *)v18;
   if ( !v18 )
     goto LABEL_30;
@@ -103,7 +103,7 @@ LABEL_7:
     goto LABEL_29;
   }
   *(_QWORD *)(a1 + 5112) = 0LL;
-  v22 = MiReservePtes((__int64)&qword_140C4EF40, 0x80u, v20, v21);
+  v22 = MiReservePtes((__int64)&qword_140C4EF80, 0x80u, v20, v21);
   v23 = (_QWORD *)v22;
   if ( !v22 )
     goto LABEL_30;

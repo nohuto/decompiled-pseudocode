@@ -1,9 +1,9 @@
 /*
- * XREFs of PfFbBufferListShutdown @ 0x140564F2C
+ * XREFs of PfFbBufferListShutdown @ 0x14056516C
  * Callers:
- *     PfTCleanup @ 0x1408E03BC (PfTCleanup.c)
+ *     PfTCleanup @ 0x1408E051C (PfTCleanup.c)
  * Callees:
- *     ExWaitForRundownProtectionRelease @ 0x1402797E0 (ExWaitForRundownProtectionRelease.c)
+ *     ExWaitForRundownProtectionRelease @ 0x140267780 (ExWaitForRundownProtectionRelease.c)
  */
 
 void __fastcall PfFbBufferListShutdown(struct _EX_RUNDOWN_REF *a1)

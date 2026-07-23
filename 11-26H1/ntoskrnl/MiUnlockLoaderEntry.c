@@ -1,19 +1,19 @@
 /*
- * XREFs of MiUnlockLoaderEntry @ 0x1404A4C7C
+ * XREFs of MiUnlockLoaderEntry @ 0x14049E30C
  * Callers:
- *     MiUnlockLoadedDataTableEntry @ 0x1404A4B98 (MiUnlockLoadedDataTableEntry.c)
- *     MiEnumerateSystemImages @ 0x1404E5184 (MiEnumerateSystemImages.c)
- *     MiProtectDriverSectionPte @ 0x1406E5D50 (MiProtectDriverSectionPte.c)
- *     MiBackSystemImageWithPagefile @ 0x140864164 (MiBackSystemImageWithPagefile.c)
- *     MmFreeDriverInitialization @ 0x1408646A4 (MmFreeDriverInitialization.c)
- *     MiSplitDriverPage @ 0x140B47A14 (MiSplitDriverPage.c)
+ *     MiUnlockLoadedDataTableEntry @ 0x14049E228 (MiUnlockLoadedDataTableEntry.c)
+ *     MiEnumerateSystemImages @ 0x1404DE724 (MiEnumerateSystemImages.c)
+ *     MiProtectDriverSectionPte @ 0x1406EAA00 (MiProtectDriverSectionPte.c)
+ *     MiBackSystemImageWithPagefile @ 0x14086A544 (MiBackSystemImageWithPagefile.c)
+ *     MmFreeDriverInitialization @ 0x14086AA84 (MmFreeDriverInitialization.c)
+ *     MiSplitDriverPage @ 0x140B497A8 (MiSplitDriverPage.c)
  * Callees:
- *     ExfReleasePushLockShared @ 0x140278BD0 (ExfReleasePushLockShared.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     ExReleaseAutoExpandPushLockShared @ 0x14027A640 (ExReleaseAutoExpandPushLockShared.c)
- *     ExReleaseAutoExpandPushLockExclusive @ 0x14027CBB0 (ExReleaseAutoExpandPushLockExclusive.c)
- *     KiCheckForKernelApcDelivery @ 0x14027DB80 (KiCheckForKernelApcDelivery.c)
- *     ExfTryToWakePushLock @ 0x1403170A0 (ExfTryToWakePushLock.c)
+ *     ExfReleasePushLockShared @ 0x140278140 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     ExReleaseAutoExpandPushLockShared @ 0x140279BB0 (ExReleaseAutoExpandPushLockShared.c)
+ *     ExReleaseAutoExpandPushLockExclusive @ 0x14027C120 (ExReleaseAutoExpandPushLockExclusive.c)
+ *     KiCheckForKernelApcDelivery @ 0x14027D0F0 (KiCheckForKernelApcDelivery.c)
+ *     ExfTryToWakePushLock @ 0x1403190D0 (ExfTryToWakePushLock.c)
  */
 
 void __fastcall MiUnlockLoaderEntry(__int64 a1, int a2)
@@ -49,7 +49,7 @@ LABEL_9:
     ExReleaseAutoExpandPushLockExclusive(v6, 0LL);
 LABEL_13:
   if ( CurrentThread->SpecialApcDisable++ == -1
-    && ($7A85BAF4F1FA08634C1C4A3E45B775B3 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
+    && ($241382875694CED3D471BC5892DE3337 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
   {
     KiCheckForKernelApcDelivery(v5, v4);
   }

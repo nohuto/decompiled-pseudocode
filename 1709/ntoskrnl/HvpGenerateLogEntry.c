@@ -19,10 +19,10 @@
 __int64 __fastcall HvpGenerateLogEntry(ULONG_PTR BugCheckParameter2, _QWORD *a2, unsigned int *a3)
 {
   int v3; // r14d
-  struct _RTL_BITMAP *v4; // r12
+  _RTL_BITMAP *v4; // r12
   unsigned int v5; // ebp
   int v7; // r13d
-  struct _RTL_BITMAP *v8; // rcx
+  _RTL_BITMAP *v8; // rcx
   unsigned int v9; // edi
   ULONG v10; // eax
   unsigned int v11; // r13d
@@ -47,10 +47,10 @@ __int64 __fastcall HvpGenerateLogEntry(ULONG_PTR BugCheckParameter2, _QWORD *a2,
   v28 = a3;
   v27 = a2;
   v3 = *(_DWORD *)(BugCheckParameter2 + 160);
-  v4 = (struct _RTL_BITMAP *)(BugCheckParameter2 + 72);
+  v4 = (_RTL_BITMAP *)(BugCheckParameter2 + 72);
   v5 = 0;
   v7 = 0;
-  v8 = (struct _RTL_BITMAP *)(BugCheckParameter2 + 72);
+  v8 = (_RTL_BITMAP *)(BugCheckParameter2 + 72);
   if ( !v3 )
     v7 = 512;
   v9 = HvpCountSetRangesInVector(v8);

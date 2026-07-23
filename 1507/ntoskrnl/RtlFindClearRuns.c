@@ -32,19 +32,19 @@ ULONG __stdcall RtlFindClearRuns(
   unsigned __int8 v21; // r10
   signed int v22; // ecx
   __int64 v23; // rdx
-  struct _RTL_BITMAP_RUN *m; // r8
+  _RTL_BITMAP_RUN *m; // r8
   signed int v26; // r15d
   __int64 v27; // r14
-  struct _RTL_BITMAP_RUN *i; // rdx
+  _RTL_BITMAP_RUN *i; // rdx
   int v29; // r12d
   __int64 v30; // r14
   unsigned __int8 j; // r15
   ULONG v32; // ebp
   signed int v33; // ebp
   __int64 v34; // r8
-  struct _RTL_BITMAP_RUN *k; // rdx
+  _RTL_BITMAP_RUN *k; // rdx
   __int64 v36; // rcx
-  struct _RTL_BITMAP_RUN *v37; // rdx
+  _RTL_BITMAP_RUN *v37; // rdx
   unsigned int v38; // [rsp+0h] [rbp-58h]
   unsigned int v39; // [rsp+4h] [rbp-54h]
   ULONG v40; // [rsp+60h] [rbp+8h]

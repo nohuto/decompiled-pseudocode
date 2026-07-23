@@ -1,19 +1,19 @@
 /*
- * XREFs of PnpQueueQueryAndRemoveEvent @ 0x14096E050
+ * XREFs of PnpQueueQueryAndRemoveEvent @ 0x14096E250
  * Callers:
- *     PnpRequestDeviceEjectExWorker @ 0x140957190 (PnpRequestDeviceEjectExWorker.c)
- *     PiCMQueryRemove @ 0x14096A274 (PiCMQueryRemove.c)
+ *     PnpRequestDeviceEjectExWorker @ 0x140957390 (PnpRequestDeviceEjectExWorker.c)
+ *     PiCMQueryRemove @ 0x14096A474 (PiCMQueryRemove.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14022F5B0 (ObfDereferenceObjectWithTag.c)
- *     KeWaitForSingleObject @ 0x140243CE0 (KeWaitForSingleObject.c)
- *     KeInitializeEvent @ 0x1402AF870 (KeInitializeEvent.c)
- *     PnpDiagnosticTraceObject @ 0x140322B80 (PnpDiagnosticTraceObject.c)
- *     PnpDiagnosticTraceDeviceOperation @ 0x140362A74 (PnpDiagnosticTraceDeviceOperation.c)
- *     memmove @ 0x140435700 (memmove.c)
- *     memset @ 0x140435A00 (memset.c)
- *     PnpDeviceObjectFromDeviceInstanceWithTag @ 0x1406CBEA4 (PnpDeviceObjectFromDeviceInstanceWithTag.c)
- *     PnpSetTargetDeviceRemove @ 0x140867C50 (PnpSetTargetDeviceRemove.c)
- *     PnpRemoveEventFromQueue @ 0x1409645A8 (PnpRemoveEventFromQueue.c)
+ *     ObfDereferenceObjectWithTag @ 0x14022F6C0 (ObfDereferenceObjectWithTag.c)
+ *     KeWaitForSingleObject @ 0x140243DB0 (KeWaitForSingleObject.c)
+ *     KeInitializeEvent @ 0x1402AFB00 (KeInitializeEvent.c)
+ *     PnpDiagnosticTraceObject @ 0x140322E10 (PnpDiagnosticTraceObject.c)
+ *     PnpDiagnosticTraceDeviceOperation @ 0x140362C14 (PnpDiagnosticTraceDeviceOperation.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     PnpDeviceObjectFromDeviceInstanceWithTag @ 0x1406CBED4 (PnpDeviceObjectFromDeviceInstanceWithTag.c)
+ *     PnpSetTargetDeviceRemove @ 0x140867E90 (PnpSetTargetDeviceRemove.c)
+ *     PnpRemoveEventFromQueue @ 0x1409647A8 (PnpRemoveEventFromQueue.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

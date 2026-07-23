@@ -1,19 +1,19 @@
 /*
- * XREFs of MiReadWriteVirtualMemory @ 0x140A21D00
+ * XREFs of MiReadWriteVirtualMemory @ 0x140A2B320
  * Callers:
- *     NtReadVirtualMemoryEx @ 0x1404B2E30 (NtReadVirtualMemoryEx.c)
- *     DifNtReadVirtualMemoryExWrapper @ 0x140687E70 (DifNtReadVirtualMemoryExWrapper.c)
- *     NtWriteVirtualMemory @ 0x140A21C60 (NtWriteVirtualMemory.c)
- *     NtReadVirtualMemory @ 0x140A21CD0 (NtReadVirtualMemory.c)
+ *     NtReadVirtualMemoryEx @ 0x1404AC4B0 (NtReadVirtualMemoryEx.c)
+ *     DifNtReadVirtualMemoryExWrapper @ 0x14068BA50 (DifNtReadVirtualMemoryExWrapper.c)
+ *     NtWriteVirtualMemory @ 0x140A2B280 (NtWriteVirtualMemory.c)
+ *     NtReadVirtualMemory @ 0x140A2B2F0 (NtReadVirtualMemory.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     PsIsProcessLoggingEnabled @ 0x1404AA304 (PsIsProcessLoggingEnabled.c)
- *     MiModeCopyExceptionFilterEx @ 0x1404E5578 (MiModeCopyExceptionFilterEx.c)
- *     RtlReadULong64FromUser @ 0x14077F554 (RtlReadULong64FromUser.c)
- *     RtlWriteULong64ToUser @ 0x14077F758 (RtlWriteULong64ToUser.c)
- *     ObpReferenceObjectByHandleWithTag @ 0x1408FA680 (ObpReferenceObjectByHandleWithTag.c)
- *     EtwTiLogReadWriteVm @ 0x140A22020 (EtwTiLogReadWriteVm.c)
- *     MiCopyVirtualMemory @ 0x140A22370 (MiCopyVirtualMemory.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     PsIsProcessLoggingEnabled @ 0x1404A3994 (PsIsProcessLoggingEnabled.c)
+ *     MiModeCopyExceptionFilterEx @ 0x1404DEB18 (MiModeCopyExceptionFilterEx.c)
+ *     RtlReadULong64FromUser @ 0x140782054 (RtlReadULong64FromUser.c)
+ *     RtlWriteULong64ToUser @ 0x140782258 (RtlWriteULong64ToUser.c)
+ *     ObpReferenceObjectByHandleWithTag @ 0x14092A610 (ObpReferenceObjectByHandleWithTag.c)
+ *     EtwTiLogReadWriteVm @ 0x140A2B640 (EtwTiLogReadWriteVm.c)
+ *     MiCopyVirtualMemory @ 0x140A2B990 (MiCopyVirtualMemory.c)
  */
 
 __int64 __fastcall MiReadWriteVirtualMemory(
@@ -114,7 +114,15 @@ LABEL_6:
   v16 = 0;
   if ( a4 )
   {
-    v16 = ObpReferenceObjectByHandleWithTag(a1, v10, PsProcessType, PreviousMode, 0x6D566D4Du, &Object, 0LL, 0LL);
+    v16 = ObpReferenceObjectByHandleWithTag(
+            a1,
+            v10,
+            (__int64)PsProcessType,
+            PreviousMode,
+            0x6D566D4Du,
+            &Object,
+            0LL,
+            0LL);
     if ( v16 >= 0 )
     {
       Process = (struct _KTHREAD *)CurrentThread->ApcState.Process;

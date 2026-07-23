@@ -1,13 +1,13 @@
 /*
- * XREFs of HalpMcaExtendedLogGetL1DirectoryBase @ 0x1404BA354
+ * XREFs of HalpMcaExtendedLogGetL1DirectoryBase @ 0x1404BA594
  * Callers:
- *     HalpMcaExtendedLogInitialize @ 0x1404BA460 (HalpMcaExtendedLogInitialize.c)
+ *     HalpMcaExtendedLogInitialize @ 0x1404BA6A0 (HalpMcaExtendedLogInitialize.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     ZwClose @ 0x1403FA580 (ZwClose.c)
- *     ZwOpenKey @ 0x1403FA5E0 (ZwOpenKey.c)
- *     ZwQueryValueKey @ 0x1403FA680 (ZwQueryValueKey.c)
+ *     RtlInitUnicodeString @ 0x14026A4C0 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     ZwClose @ 0x1403FA760 (ZwClose.c)
+ *     ZwOpenKey @ 0x1403FA7C0 (ZwOpenKey.c)
+ *     ZwQueryValueKey @ 0x1403FA860 (ZwQueryValueKey.c)
  */
 
 NTSTATUS __fastcall HalpMcaExtendedLogGetL1DirectoryBase(_QWORD *a1)

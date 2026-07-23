@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlpHpSegSegmentAllocate @ 0x140312278
+ * XREFs of RtlpHpSegSegmentAllocate @ 0x140312508
  * Callers:
- *     RtlpHpSegPageRangeAllocate @ 0x14024DCF0 (RtlpHpSegPageRangeAllocate.c)
- *     RtlpHpSegContextReserve @ 0x1403893C8 (RtlpHpSegContextReserve.c)
+ *     RtlpHpSegPageRangeAllocate @ 0x14024DDC0 (RtlpHpSegPageRangeAllocate.c)
+ *     RtlpHpSegContextReserve @ 0x1403895A8 (RtlpHpSegContextReserve.c)
  * Callees:
- *     RtlCSparseBitmapBitmaskWrite @ 0x140312350 (RtlCSparseBitmapBitmaskWrite.c)
- *     RtlpHpSegMgrAllocate @ 0x140314AFC (RtlpHpSegMgrAllocate.c)
- *     RtlpHpSegSegmentFree @ 0x1403151F4 (RtlpHpSegSegmentFree.c)
+ *     RtlCSparseBitmapBitmaskWrite @ 0x1403125E0 (RtlCSparseBitmapBitmaskWrite.c)
+ *     RtlpHpSegMgrAllocate @ 0x140314D8C (RtlpHpSegMgrAllocate.c)
+ *     RtlpHpSegSegmentFree @ 0x140315484 (RtlpHpSegSegmentFree.c)
  */
 
 __int64 __fastcall RtlpHpSegSegmentAllocate(__int64 a1, int a2)

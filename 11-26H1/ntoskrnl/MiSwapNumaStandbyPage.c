@@ -1,38 +1,38 @@
 /*
- * XREFs of MiSwapNumaStandbyPage @ 0x1402C8D30
+ * XREFs of MiSwapNumaStandbyPage @ 0x1402AAAF0
  * Callers:
- *     MiGetPageChain @ 0x140285DD0 (MiGetPageChain.c)
- *     MiGetPage @ 0x1402866A0 (MiGetPage.c)
- *     MiPruneStandbyPages @ 0x1402C8780 (MiPruneStandbyPages.c)
+ *     MiGetPageChain @ 0x140285330 (MiGetPageChain.c)
+ *     MiGetPage @ 0x140285C00 (MiGetPage.c)
+ *     MiPruneStandbyPages @ 0x1402AA540 (MiPruneStandbyPages.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     MiMapPageInHyperSpaceWorker @ 0x140287EE0 (MiMapPageInHyperSpaceWorker.c)
- *     MiPageToNode @ 0x140289710 (MiPageToNode.c)
- *     MiMakeDemandZeroPte @ 0x14028B2D0 (MiMakeDemandZeroPte.c)
- *     MiCopyPage @ 0x140293FA4 (MiCopyPage.c)
- *     MiCopyPfnEntryEx @ 0x140294570 (MiCopyPfnEntryEx.c)
- *     MiPageToChannel @ 0x140295870 (MiPageToChannel.c)
- *     MiReleaseFreshPageAtDpc @ 0x140295CA0 (MiReleaseFreshPageAtDpc.c)
- *     MiReuseStandbyPage @ 0x1402AA32C (MiReuseStandbyPage.c)
- *     MiSetPfnBlink @ 0x1402C8380 (MiSetPfnBlink.c)
- *     MiLockLowestPrioritySecondaryStandbyPage @ 0x1402C9918 (MiLockLowestPrioritySecondaryStandbyPage.c)
- *     MiInsertSecondaryListStandbyPage @ 0x1402C9E90 (MiInsertSecondaryListStandbyPage.c)
- *     MiUnlinkSecondaryListStandbyPage @ 0x1402CAE00 (MiUnlinkSecondaryListStandbyPage.c)
- *     MiFinalizePageAttribute @ 0x1402D85E0 (MiFinalizePageAttribute.c)
- *     MiUpdateLargePageCandidateValue @ 0x1402DD890 (MiUpdateLargePageCandidateValue.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402DED10 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     MiIsDecayPfn @ 0x1402F9850 (MiIsDecayPfn.c)
- *     MiReplaceStandbyLookaside @ 0x1402FBC30 (MiReplaceStandbyLookaside.c)
- *     MiCanPageMove @ 0x1402FDC9C (MiCanPageMove.c)
- *     MiUpdateTransitionPteFrame @ 0x14030E180 (MiUpdateTransitionPteFrame.c)
- *     MiReadPteShadow @ 0x140314FF0 (MiReadPteShadow.c)
- *     MiClearPfnReuseFields @ 0x14031A250 (MiClearPfnReuseFields.c)
- *     MiWritePteShadow @ 0x14031C28C (MiWritePteShadow.c)
- *     MiSetPfnContainingFrame @ 0x14033BC10 (MiSetPfnContainingFrame.c)
- *     MiSanitizeShadowPxe @ 0x140342108 (MiSanitizeShadowPxe.c)
- *     MiSetPfnIdentity @ 0x140369440 (MiSetPfnIdentity.c)
- *     MiSetPfnTbFlushStamp @ 0x14036BAE0 (MiSetPfnTbFlushStamp.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     MiMapPageInHyperSpaceWorker @ 0x140287440 (MiMapPageInHyperSpaceWorker.c)
+ *     MiPageToNode @ 0x140288C70 (MiPageToNode.c)
+ *     MiMakeDemandZeroPte @ 0x14028A830 (MiMakeDemandZeroPte.c)
+ *     MiCopyPage @ 0x140293504 (MiCopyPage.c)
+ *     MiCopyPfnEntryEx @ 0x140293AD0 (MiCopyPfnEntryEx.c)
+ *     MiPageToChannel @ 0x140294DD0 (MiPageToChannel.c)
+ *     MiReleaseFreshPageAtDpc @ 0x140295200 (MiReleaseFreshPageAtDpc.c)
+ *     MiReuseStandbyPage @ 0x1402A973C (MiReuseStandbyPage.c)
+ *     MiSetPfnBlink @ 0x1402AA140 (MiSetPfnBlink.c)
+ *     MiLockLowestPrioritySecondaryStandbyPage @ 0x1402AB6D8 (MiLockLowestPrioritySecondaryStandbyPage.c)
+ *     MiInsertSecondaryListStandbyPage @ 0x1402ABC50 (MiInsertSecondaryListStandbyPage.c)
+ *     MiUnlinkSecondaryListStandbyPage @ 0x1402ACBC0 (MiUnlinkSecondaryListStandbyPage.c)
+ *     MiFinalizePageAttribute @ 0x1402BA3A0 (MiFinalizePageAttribute.c)
+ *     MiUpdateLargePageCandidateValue @ 0x1402BF650 (MiUpdateLargePageCandidateValue.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402C0B20 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     MiIsDecayPfn @ 0x1402DB8D0 (MiIsDecayPfn.c)
+ *     MiReplaceStandbyLookaside @ 0x1402DDCB0 (MiReplaceStandbyLookaside.c)
+ *     MiCanPageMove @ 0x1402DFD1C (MiCanPageMove.c)
+ *     MiUpdateTransitionPteFrame @ 0x1402F0200 (MiUpdateTransitionPteFrame.c)
+ *     MiReadPteShadow @ 0x140317020 (MiReadPteShadow.c)
+ *     MiClearPfnReuseFields @ 0x14031C280 (MiClearPfnReuseFields.c)
+ *     MiWritePteShadow @ 0x14031E2BC (MiWritePteShadow.c)
+ *     MiSetPfnContainingFrame @ 0x14033DC90 (MiSetPfnContainingFrame.c)
+ *     MiSanitizeShadowPxe @ 0x140344188 (MiSanitizeShadowPxe.c)
+ *     MiSetPfnIdentity @ 0x14036B1E0 (MiSetPfnIdentity.c)
+ *     MiSetPfnTbFlushStamp @ 0x14036D880 (MiSetPfnTbFlushStamp.c)
  */
 
 ULONG_PTR __fastcall MiSwapNumaStandbyPage(ULONG_PTR a1, unsigned int a2, unsigned __int8 a3, __int16 a4)
@@ -117,14 +117,14 @@ ULONG_PTR __fastcall MiSwapNumaStandbyPage(ULONG_PTR a1, unsigned int a2, unsign
   v10 = 0;
   v11 = (*(_QWORD *)(v7 + 40) >> 43) & 0x3FFLL;
   v74 = 0;
-  v69 = *(_QWORD *)(stru_140E2EB88.ThreadLock + 8 * v11);
+  v69 = *(_QWORD *)(stru_140E2ED08.ThreadLock + 8 * v11);
   v12 = *(_QWORD *)(v69 + 16) + 56320 * v4;
-  v13 = byte_140E2D718;
+  v13 = byte_140E2D898;
   v71 = v12;
-  LOBYTE(v73) = byte_140E2D718;
+  LOBYTE(v73) = byte_140E2D898;
   v14 = *(_DWORD *)(v12 + 14096) & 1;
   v67 = v14;
-  if ( (unsigned __int8)byte_140E2D718 > 1u )
+  if ( (unsigned __int8)byte_140E2D898 > 1u )
   {
     v9 = (unsigned __int8 *)(v12 + 14145);
     if ( v14 )
@@ -200,11 +200,11 @@ ULONG_PTR __fastcall MiSwapNumaStandbyPage(ULONG_PTR a1, unsigned int a2, unsign
       __writecr8(v74);
       return v17;
     }
-    if ( LODWORD(stru_140E2EB88.Timer.TimerListEntry.Flink) == 1 )
+    if ( LODWORD(stru_140E2ED08.Timer.TimerListEntry.Flink) == 1 )
     {
       v26 = v17 & 0x1F;
       LOBYTE(v27) = 1;
-      v28 = &stru_140E2EB88.WaitBlock[1].Thread->Header.Lock + (v17 >> 5);
+      v28 = &stru_140E2ED08.WaitBlock[1].Thread->Header.Lock + (v17 >> 5);
       if ( v26 + 1 > 0x20 )
       {
         if ( (v17 & 0x1F) != 0 )
@@ -236,11 +236,11 @@ ULONG_PTR __fastcall MiSwapNumaStandbyPage(ULONG_PTR a1, unsigned int a2, unsign
     }
     else
     {
-      if ( LODWORD(stru_140E2EB88.Timer.TimerListEntry.Flink) != 3 )
+      if ( LODWORD(stru_140E2ED08.Timer.TimerListEntry.Flink) != 3 )
         goto LABEL_21;
       v21 = v17 & 0x1F;
       LOBYTE(v22) = 1;
-      v23 = &stru_140E2EB88.WaitBlock[1].Thread->Header.Lock + (v17 >> 5);
+      v23 = &stru_140E2ED08.WaitBlock[1].Thread->Header.Lock + (v17 >> 5);
       if ( v21 + 1 <= 0x20 )
       {
         v25 = ~(1 << v21);

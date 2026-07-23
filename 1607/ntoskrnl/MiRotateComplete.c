@@ -1,10 +1,10 @@
 /*
- * XREFs of MiRotateComplete @ 0x14010E194
+ * XREFs of MiRotateComplete @ 0x14010E6F8
  * Callers:
- *     MmRotatePhysicalView @ 0x1405281DC (MmRotatePhysicalView.c)
+ *     MmRotatePhysicalView @ 0x14052871C (MmRotatePhysicalView.c)
  * Callees:
- *     MiGetSharedVm @ 0x14002EA30 (MiGetSharedVm.c)
- *     ExAcquireSpinLockExclusive @ 0x14002EB90 (ExAcquireSpinLockExclusive.c)
+ *     MiGetSharedVm @ 0x14002E5B0 (MiGetSharedVm.c)
+ *     ExAcquireSpinLockExclusive @ 0x14002E710 (ExAcquireSpinLockExclusive.c)
  */
 
 __int64 __fastcall MiRotateComplete(unsigned __int64 *a1)

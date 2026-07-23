@@ -12,10 +12,10 @@
  *     PopPowerButtonBugcheckConfigure @ 0x14075AF40 (PopPowerButtonBugcheckConfigure.c)
  */
 
-NTSTATUS __fastcall PopInitializePowerButtonHold(int a1)
+int __fastcall PopInitializePowerButtonHold(int a1)
 {
-  NTSTATUS result; // eax
-  __int64 v3; // [rsp+40h] [rbp-C0h] BYREF
+  int result; // eax
+  ULONG BufferLengthOut; // [rsp+40h] [rbp-C0h] BYREF
   HANDLE KeyHandle; // [rsp+48h] [rbp-B8h] BYREF
   UNICODE_STRING DestinationString; // [rsp+50h] [rbp-B0h] BYREF
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+60h] [rbp-A0h] BYREF
@@ -32,10 +32,10 @@ NTSTATUS __fastcall PopInitializePowerButtonHold(int a1)
                  L"PowerButtonBugcheckSettings",
                  0LL,
                  L"\\REGISTRY\\MACHINE\\SYSTEM\\CURRENTCONTROLSET\\CONTROL\\POWER",
-                 0,
+                 LocationTypeRegistry,
                  SourceString,
                  0x208u,
-                 (unsigned int *)&v3);
+                 &BufferLengthOut);
       if ( result >= 0 )
       {
         RtlInitUnicodeString(&DestinationString, SourceString);

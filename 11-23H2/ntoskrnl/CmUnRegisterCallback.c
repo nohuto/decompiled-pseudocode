@@ -1,21 +1,21 @@
 /*
- * XREFs of CmUnRegisterCallback @ 0x140A0F1C0
+ * XREFs of CmUnRegisterCallback @ 0x140A0F470
  * Callers:
- *     DifCmUnRegisterCallbackWrapper @ 0x1405D66D0 (DifCmUnRegisterCallbackWrapper.c)
- *     EtwpRegTraceEnableCallback @ 0x1409F44D0 (EtwpRegTraceEnableCallback.c)
- *     VrpDecrementSiloCount @ 0x140A71F64 (VrpDecrementSiloCount.c)
+ *     DifCmUnRegisterCallbackWrapper @ 0x1405D6C40 (DifCmUnRegisterCallbackWrapper.c)
+ *     EtwpRegTraceEnableCallback @ 0x1409F4760 (EtwpRegTraceEnableCallback.c)
+ *     VrpDecrementSiloCount @ 0x140A72214 (VrpDecrementSiloCount.c)
  * Callees:
- *     CmpInitializeThreadInfo @ 0x14022E640 (CmpInitializeThreadInfo.c)
- *     CmCleanupThreadInfo @ 0x14022E680 (CmCleanupThreadInfo.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     ObReferenceObjectSafe @ 0x140337710 (ObReferenceObjectSafe.c)
- *     ExBlockOnAddressPushLock @ 0x1403486A0 (ExBlockOnAddressPushLock.c)
- *     RtlpInterlockedFlushSList @ 0x140428F30 (RtlpInterlockedFlushSList.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
+ *     CmpInitializeThreadInfo @ 0x14022E750 (CmpInitializeThreadInfo.c)
+ *     CmCleanupThreadInfo @ 0x14022E790 (CmCleanupThreadInfo.c)
+ *     ObfDereferenceObject @ 0x140231660 (ObfDereferenceObject.c)
+ *     ObReferenceObjectSafe @ 0x1403379A0 (ObReferenceObjectSafe.c)
+ *     ExBlockOnAddressPushLock @ 0x140348930 (ExBlockOnAddressPushLock.c)
+ *     RtlpInterlockedFlushSList @ 0x1404292C0 (RtlpInterlockedFlushSList.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
  *     CmpLockContextListExclusive @ 0x14068F02C (CmpLockContextListExclusive.c)
  *     CmpUnlockContextList @ 0x14068F210 (CmpUnlockContextList.c)
  *     CmpUnlockCallbackList @ 0x14068F274 (CmpUnlockCallbackList.c)
- *     CmpLockCallbackListExclusive @ 0x140850EF8 (CmpLockCallbackListExclusive.c)
+ *     CmpLockCallbackListExclusive @ 0x1408511F8 (CmpLockCallbackListExclusive.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     CmListGetNextElement @ 0x140AF56A8 (CmListGetNextElement.c)
  */

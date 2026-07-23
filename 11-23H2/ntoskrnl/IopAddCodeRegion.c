@@ -1,12 +1,12 @@
 /*
- * XREFs of IopAddCodeRegion @ 0x140551D68
+ * XREFs of IopAddCodeRegion @ 0x140552428
  * Callers:
- *     KeCapturePersistentThreadState @ 0x1405542C0 (KeCapturePersistentThreadState.c)
+ *     KeCapturePersistentThreadState @ 0x140554980 (KeCapturePersistentThreadState.c)
  * Callees:
  *     RtlImageNtHeader @ 0x140214B30 (RtlImageNtHeader.c)
- *     RtlULongLongSub @ 0x140310CA8 (RtlULongLongSub.c)
- *     memmove @ 0x140435700 (memmove.c)
- *     IopValidateSectionSize @ 0x140553E64 (IopValidateSectionSize.c)
+ *     RtlULongLongSub @ 0x140310F38 (RtlULongLongSub.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     IopValidateSectionSize @ 0x140554524 (IopValidateSectionSize.c)
  */
 
 __int64 __fastcall IopAddCodeRegion(__int64 a1, unsigned int a2, _DWORD *a3)
@@ -21,7 +21,7 @@ __int64 __fastcall IopAddCodeRegion(__int64 a1, unsigned int a2, _DWORD *a3)
   PVOID *v11; // r14
   __int64 v12; // rbx
   char *v13; // rbp
-  __int64 v14; // rax
+  PIMAGE_NT_HEADERS v14; // rax
   unsigned int *v15; // rdx
   unsigned int *v16; // rax
   unsigned __int64 v17; // rdx
@@ -52,11 +52,11 @@ __int64 __fastcall IopAddCodeRegion(__int64 a1, unsigned int a2, _DWORD *a3)
         v13 = (char *)v11[6];
         if ( v10 >= (unsigned __int64)v13 && v10 < (unsigned __int64)&v13[*((unsigned int *)v11 + 38)] )
         {
-          v14 = RtlImageNtHeader((__int64)v11[6]);
+          v14 = RtlImageNtHeader(v11[6]);
           if ( !v14 )
             return v3;
-          v15 = (unsigned int *)(v14 + *(unsigned __int16 *)(v14 + 20) + 24LL);
-          v16 = &v15[10 * *(unsigned __int16 *)(v14 + 6)];
+          v15 = (unsigned int *)((char *)&v14->OptionalHeader.Magic + v14->FileHeader.SizeOfOptionalHeader);
+          v16 = &v15[10 * v14->FileHeader.NumberOfSections];
           while ( 1 )
           {
             if ( v15 >= v16 )

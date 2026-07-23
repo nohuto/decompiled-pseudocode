@@ -1,11 +1,11 @@
 /*
- * XREFs of IopDeleteDriver @ 0x14085EBD0
+ * XREFs of IopDeleteDriver @ 0x14085EE10
  * Callers:
  *     <none>
  * Callees:
- *     KeFlushQueuedDpcs @ 0x14028F9C0 (KeFlushQueuedDpcs.c)
- *     PnpRequestDeviceAction @ 0x140359044 (PnpRequestDeviceAction.c)
- *     IoUnregisterPriorityCallback @ 0x1405574E0 (IoUnregisterPriorityCallback.c)
+ *     KeFlushQueuedDpcs @ 0x14028FC50 (KeFlushQueuedDpcs.c)
+ *     PnpRequestDeviceAction @ 0x1403591E4 (PnpRequestDeviceAction.c)
+ *     IoUnregisterPriorityCallback @ 0x140557BA0 (IoUnregisterPriorityCallback.c)
  *     MmUnloadSystemImage @ 0x140696020 (MmUnloadSystemImage.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */

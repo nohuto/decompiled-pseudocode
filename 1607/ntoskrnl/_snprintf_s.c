@@ -1,9 +1,9 @@
 /*
- * XREFs of _snprintf_s @ 0x140152090
+ * XREFs of _snprintf_s @ 0x140152650
  * Callers:
  *     <none>
  * Callees:
- *     _vsnprintf_s @ 0x1401520B0 (_vsnprintf_s.c)
+ *     _vsnprintf_s @ 0x140152670 (_vsnprintf_s.c)
  */
 
 int snprintf_s(char *DstBuf, size_t SizeInBytes, size_t MaxCount, const char *Format, ...)

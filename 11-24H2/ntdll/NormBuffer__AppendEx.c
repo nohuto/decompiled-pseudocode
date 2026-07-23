@@ -1,10 +1,10 @@
 /*
- * XREFs of NormBuffer__AppendEx @ 0x1800BD9C8
+ * XREFs of NormBuffer__AppendEx @ 0x1800B5788
  * Callers:
- *     Normalization__NormalizeCharacter @ 0x1800BD13C (Normalization__NormalizeCharacter.c)
- *     NormBuffer__InsertAtBlockedLocation @ 0x1800BE2CC (NormBuffer__InsertAtBlockedLocation.c)
+ *     Normalization__NormalizeCharacter @ 0x1800B4EFC (Normalization__NormalizeCharacter.c)
+ *     NormBuffer__InsertAtBlockedLocation @ 0x1800B608C (NormBuffer__InsertAtBlockedLocation.c)
  * Callees:
- *     NormBuffer__Append @ 0x1800BDA20 (NormBuffer__Append.c)
+ *     NormBuffer__Append @ 0x1800B57E0 (NormBuffer__Append.c)
  */
 
 char __fastcall NormBuffer__AppendEx(__int64 a1, __int64 a2, char a3, char a4)

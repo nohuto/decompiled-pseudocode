@@ -7,7 +7,7 @@
  *     RtlRunOnceExecuteOnce @ 0x14061A280 (RtlRunOnceExecuteOnce.c)
  */
 
-NTSTATUS __fastcall RtlpHpMetadataHeapStart(union _RTL_RUN_ONCE *a1, void *a2)
+NTSTATUS __fastcall RtlpHpMetadataHeapStart(_RTL_RUN_ONCE *a1, void *a2)
 {
   if ( a1->Value )
     return 0;

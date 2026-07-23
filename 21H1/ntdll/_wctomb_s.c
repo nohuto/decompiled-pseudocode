@@ -8,5 +8,7 @@
 
 errno_t __cdecl wctomb_s(int *SizeConverted, char *MbCh, rsize_t SizeInBytes, wchar_t WCh)
 {
-  return _wctomb_s_l(SizeConverted, MbCh, SizeInBytes, WCh, 0);
+  __crt_locale_pointers *savedregs; // [esp+0h] [ebp+0h]
+
+  return _wctomb_s_l(SizeConverted, MbCh, SizeInBytes, 0, savedregs);
 }

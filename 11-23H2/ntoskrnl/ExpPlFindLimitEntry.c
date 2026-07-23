@@ -1,12 +1,12 @@
 /*
- * XREFs of ExpPlFindLimitEntry @ 0x14035CF38
+ * XREFs of ExpPlFindLimitEntry @ 0x14035D0D8
  * Callers:
- *     ExAllocateHeapPool @ 0x1402AD2E0 (ExAllocateHeapPool.c)
- *     ExpResizeBigPageTable @ 0x1403B985C (ExpResizeBigPageTable.c)
- *     ExAllocateContiguousHeapPool @ 0x1403BA114 (ExAllocateContiguousHeapPool.c)
- *     ExInsertPoolTag @ 0x1403BA4FC (ExInsertPoolTag.c)
- *     ExpInsertPoolTrackerExpansion @ 0x140607B38 (ExpInsertPoolTrackerExpansion.c)
- *     ExAllocateHeapSpecialPool @ 0x14060ED30 (ExAllocateHeapSpecialPool.c)
+ *     ExAllocateHeapPool @ 0x1402AD570 (ExAllocateHeapPool.c)
+ *     ExpResizeBigPageTable @ 0x1403B9A3C (ExpResizeBigPageTable.c)
+ *     ExAllocateContiguousHeapPool @ 0x1403BA2F4 (ExAllocateContiguousHeapPool.c)
+ *     ExInsertPoolTag @ 0x1403BA6DC (ExInsertPoolTag.c)
+ *     ExpInsertPoolTrackerExpansion @ 0x140608088 (ExpInsertPoolTrackerExpansion.c)
+ *     ExAllocateHeapSpecialPool @ 0x14060F280 (ExAllocateHeapSpecialPool.c)
  *     ExInitializePoolTracker @ 0x140B54C88 (ExInitializePoolTracker.c)
  * Callees:
  *     <none>

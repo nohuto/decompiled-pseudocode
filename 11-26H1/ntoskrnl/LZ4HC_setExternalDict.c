@@ -1,7 +1,7 @@
 /*
- * XREFs of LZ4HC_setExternalDict @ 0x140634F90
+ * XREFs of LZ4HC_setExternalDict @ 0x140637F98
  * Callers:
- *     LZ4HC_compress_generic_dictCtx @ 0x14062D3BC (LZ4HC_compress_generic_dictCtx.c)
+ *     LZ4HC_compress_generic_dictCtx @ 0x1406303C4 (LZ4HC_compress_generic_dictCtx.c)
  * Callees:
  *     <none>
  */

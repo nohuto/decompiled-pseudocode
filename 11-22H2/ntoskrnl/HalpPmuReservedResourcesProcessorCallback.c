@@ -39,7 +39,7 @@ __int64 __fastcall HalpPmuReservedResourcesProcessorCallback(
   _QWORD v25[2]; // [rsp+50h] [rbp-28h] BYREF
   __int64 v26; // [rsp+60h] [rbp-18h]
   ULONG ProcIndex; // [rsp+C0h] [rbp+48h] BYREF
-  struct _PROCESSOR_NUMBER ProcNumber; // [rsp+C8h] [rbp+50h] BYREF
+  _PROCESSOR_NUMBER ProcNumber; // [rsp+C8h] [rbp+50h] BYREF
   int v29; // [rsp+D0h] [rbp+58h] BYREF
   __int64 v30; // [rsp+D8h] [rbp+60h]
 
@@ -55,7 +55,7 @@ __int64 __fastcall HalpPmuReservedResourcesProcessorCallback(
   v25[1] = a3;
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     v10 = 4;
@@ -96,10 +96,10 @@ __int64 __fastcall HalpPmuReservedResourcesProcessorCallback(
   }
   while ( v29 != v5 )
     _mm_pause();
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v15 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v15 <= 0xFu && CurrentIrql <= 0xFu && v15 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v15 <= 0xFu && CurrentIrql <= 0xFu && v15 >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       v17 = CurrentPrcb->SchedulerAssist;

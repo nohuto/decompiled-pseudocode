@@ -1,13 +1,13 @@
 /*
- * XREFs of SmHpBufferUpdateFullness @ 0x14014A4FC
+ * XREFs of SmHpBufferUpdateFullness @ 0x14014A5FC
  * Callers:
- *     SmHpChunkFree @ 0x140147B70 (SmHpChunkFree.c)
- *     SmHpChunkAlloc @ 0x14014A46C (SmHpChunkAlloc.c)
- *     SmHpBufferAlloc @ 0x140155B30 (SmHpBufferAlloc.c)
- *     SmHpBufferCleanup @ 0x1403066D4 (SmHpBufferCleanup.c)
+ *     SmHpChunkFree @ 0x140147C70 (SmHpChunkFree.c)
+ *     SmHpChunkAlloc @ 0x14014A56C (SmHpChunkAlloc.c)
+ *     SmHpBufferAlloc @ 0x140155C30 (SmHpBufferAlloc.c)
+ *     SmHpBufferCleanup @ 0x1403068C4 (SmHpBufferCleanup.c)
  * Callees:
- *     SmHpBufferProtectEx @ 0x14014A270 (SmHpBufferProtectEx.c)
- *     SmHpUnprotectListNeighbors @ 0x14014B060 (SmHpUnprotectListNeighbors.c)
+ *     SmHpBufferProtectEx @ 0x14014A370 (SmHpBufferProtectEx.c)
+ *     SmHpUnprotectListNeighbors @ 0x14014B160 (SmHpUnprotectListNeighbors.c)
  */
 
 __int64 __fastcall SmHpBufferUpdateFullness(ULONG_PTR a1, __int64 a2, __int16 a3)

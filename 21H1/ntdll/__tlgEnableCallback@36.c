@@ -6,42 +6,44 @@
  *     _RtlpHpAppCompatDontChangePolicy@0 @ 0x4B2ED850 (_RtlpHpAppCompatDontChangePolicy@0.c)
  */
 
-int __stdcall _tlgEnableCallback(int a1, int a2, int a3, int a4, int a5, int a6, int a7, int a8, int *a9)
+void __stdcall _tlgEnableCallback(
+        LPCGUID a1,
+        ULONG a2,
+        int a3,
+        ULONGLONG a4,
+        ULONGLONG a5,
+        PEVENT_FILTER_DESCRIPTOR a6,
+        _QWORD *a7)
 {
-  int result; // eax
-  int v10; // ecx
-  int v11; // ecx
-  int (__thiscall *v12)(_DWORD, int, int, int, int, int, int, int, int, int); // esi
+  int v7; // ecx
+  int v8; // ecx
+  void (__thiscall *v9)(_DWORD, LPCGUID, ULONG, int, _DWORD, int, _DWORD, _DWORD, PEVENT_FILTER_DESCRIPTOR, _DWORD); // esi
 
-  result = (int)a9;
-  if ( a9 )
+  if ( a7 )
   {
     if ( a2 )
     {
       if ( a2 == 1 )
       {
         if ( (_BYTE)a3 )
-          v10 = (unsigned __int8)a3 + 1;
+          v7 = (unsigned __int8)a3 + 1;
         else
-          v10 = 256;
-        *a9 = v10;
-        a9[2] = a4;
-        v11 = a5;
-        a9[3] = a5;
-        a9[4] = a6;
-        a9[5] = a7;
+          v7 = 256;
+        *(_DWORD *)a7 = v7;
+        a7[1] = a4;
+        v8 = HIDWORD(a4);
+        a7[2] = a5;
         goto LABEL_7;
       }
     }
     else
     {
-      *a9 = 0;
+      *(_DWORD *)a7 = 0;
     }
-    v11 = a5;
+    v8 = HIDWORD(a4);
 LABEL_7:
-    v12 = (int (__thiscall *)(_DWORD, int, int, int, int, int, int, int, int, int))a9[8];
-    if ( v12 )
-      return v12(v12, a1, a2, a3, a4, v11, a6, a7, a8, a9[9]);
+    v9 = (void (__thiscall *)(_DWORD, LPCGUID, ULONG, int, _DWORD, int, _DWORD, _DWORD, PEVENT_FILTER_DESCRIPTOR, _DWORD))*((_DWORD *)a7 + 8);
+    if ( v9 )
+      v9(v9, a1, a2, a3, a4, v8, a5, HIDWORD(a5), a6, *((_DWORD *)a7 + 9));
   }
-  return result;
 }

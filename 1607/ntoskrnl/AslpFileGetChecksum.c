@@ -1,9 +1,9 @@
 /*
- * XREFs of AslpFileGetChecksum @ 0x1406C701C
+ * XREFs of AslpFileGetChecksum @ 0x1406C7154
  * Callers:
- *     AslpFileGetChecksumAttributes @ 0x1406C7100 (AslpFileGetChecksumAttributes.c)
+ *     AslpFileGetChecksumAttributes @ 0x1406C7238 (AslpFileGetChecksumAttributes.c)
  * Callees:
- *     AslLogCallPrintf @ 0x1406C5804 (AslLogCallPrintf.c)
+ *     AslLogCallPrintf @ 0x1406C593C (AslLogCallPrintf.c)
  */
 
 __int64 __fastcall AslpFileGetChecksum(unsigned int *a1, __int64 a2)

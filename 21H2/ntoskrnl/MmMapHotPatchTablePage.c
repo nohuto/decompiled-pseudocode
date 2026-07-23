@@ -1,15 +1,15 @@
 /*
- * XREFs of MmMapHotPatchTablePage @ 0x14053F4B0
+ * XREFs of MmMapHotPatchTablePage @ 0x14053F6F0
  * Callers:
- *     PsDispatchIumService @ 0x140582CF4 (PsDispatchIumService.c)
+ *     PsDispatchIumService @ 0x140582F24 (PsDispatchIumService.c)
  * Callees:
- *     MiGetContainingPageTable @ 0x14023E450 (MiGetContainingPageTable.c)
- *     MiLockNestedPageAtDpcInline @ 0x14026AF90 (MiLockNestedPageAtDpcInline.c)
- *     MiLockPageInline @ 0x1402FFE30 (MiLockPageInline.c)
- *     MiSwizzleInvalidPte @ 0x140329F90 (MiSwizzleInvalidPte.c)
- *     MiMakeValidPte @ 0x14032E730 (MiMakeValidPte.c)
- *     MiMakeTransitionPte @ 0x14032E9B0 (MiMakeTransitionPte.c)
- *     MiGetSystemRegionType @ 0x14034A950 (MiGetSystemRegionType.c)
+ *     MiLockNestedPageAtDpcInline @ 0x140258F30 (MiLockNestedPageAtDpcInline.c)
+ *     MiGetContainingPageTable @ 0x1402E2CA0 (MiGetContainingPageTable.c)
+ *     MiLockPageInline @ 0x14030AB80 (MiLockPageInline.c)
+ *     MiSwizzleInvalidPte @ 0x140334CE0 (MiSwizzleInvalidPte.c)
+ *     MiMakeValidPte @ 0x140339480 (MiMakeValidPte.c)
+ *     MiMakeTransitionPte @ 0x140339700 (MiMakeTransitionPte.c)
+ *     MiGetSystemRegionType @ 0x1403556A0 (MiGetSystemRegionType.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
@@ -25,17 +25,15 @@ unsigned __int64 __fastcall MmMapHotPatchTablePage(unsigned __int64 a1, __int64 
   unsigned __int64 v13; // rbp
   __int64 ContainingPageTable; // rax
   __int64 v15; // rbx
-  __int64 v16; // r8
+  unsigned __int64 v16; // r8
   __int64 v17; // r9
-  unsigned __int64 v18; // r8
-  __int64 v19; // r9
-  __int64 v20; // rdx
-  char v21; // al
+  __int64 v18; // rdx
+  char v19; // al
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
-  int v25; // eax
-  bool v26; // zf
+  int v23; // eax
+  bool v24; // zf
   unsigned __int64 result; // rax
 
   if ( (unsigned int)MiGetSystemRegionType(a1) == 1 )
@@ -62,24 +60,24 @@ unsigned __int64 __fastcall MmMapHotPatchTablePage(unsigned __int64 a1, __int64 
   ContainingPageTable = MiGetContainingPageTable((unsigned __int64)v9);
   *(_QWORD *)(v10 + 40) ^= (*(_QWORD *)(v10 + 40) ^ ContainingPageTable) & 0xFFFFFFFFFLL;
   v15 = 48 * ContainingPageTable - 0x58000000000LL;
-  MiLockNestedPageAtDpcInline(v15, 0xFFFFFFFFFLL, v16, v17);
+  MiLockNestedPageAtDpcInline(v15);
   *(_QWORD *)(v15 + 24) ^= ((*(_QWORD *)(v15 + 24) + 1LL) ^ *(_QWORD *)(v15 + 24)) & 0x3FFFFFFFFFFFFFFFLL;
   _InterlockedAnd64((volatile signed __int64 *)(v15 + 24), 0x7FFFFFFFFFFFFFFFuLL);
   *(_QWORD *)(v10 + 16) = MiSwizzleInvalidPte(32LL);
   *(_QWORD *)(v10 + 8) = v9;
   if ( v8 )
   {
-    v20 = *(_QWORD *)(v10 + 24);
+    v18 = *(_QWORD *)(v10 + 24);
     *(_QWORD *)(v10 + 40) |= 0x8000000000000000uLL;
-    v21 = *(_BYTE *)(v10 + 34) & 0xF8 | 3;
-    *(_QWORD *)(v10 + 24) = v20 ^ v19 & ((v20 - 1) ^ v20);
-    *(_BYTE *)(v10 + 34) = v21;
+    v19 = *(_BYTE *)(v10 + 34) & 0xF8 | 3;
+    *(_QWORD *)(v10 + 24) = v18 ^ v17 & ((v18 - 1) ^ v18);
+    *(_BYTE *)(v10 + 34) = v19;
   }
   else
   {
     ++*(_WORD *)(v10 + 32);
   }
-  _InterlockedAnd64((volatile signed __int64 *)(v10 + 24), v18);
+  _InterlockedAnd64((volatile signed __int64 *)(v10 + 24), v16);
   if ( KiIrqlFlags )
   {
     if ( (KiIrqlFlags & 1) != 0 )
@@ -89,10 +87,10 @@ unsigned __int64 __fastcall MmMapHotPatchTablePage(unsigned __int64 a1, __int64 
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;
-        v25 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v13 + 1));
-        v26 = (v25 & SchedulerAssist[5]) == 0;
-        SchedulerAssist[5] &= v25;
-        if ( v26 )
+        v23 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v13 + 1));
+        v24 = (v23 & SchedulerAssist[5]) == 0;
+        SchedulerAssist[5] &= v23;
+        if ( v24 )
           KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
       }
     }

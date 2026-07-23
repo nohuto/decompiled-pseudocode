@@ -1,16 +1,16 @@
 /*
- * XREFs of MiAddMappedPtes @ 0x1405DF500
+ * XREFs of MiAddMappedPtes @ 0x1405E0500
  * Callers:
  *     MiInsertInSystemSpace @ 0x1400273C0 (MiInsertInSystemSpace.c)
- *     MiMapSystemImage @ 0x1406820E4 (MiMapSystemImage.c)
+ *     MiMapSystemImage @ 0x1406832A4 (MiMapSystemImage.c)
  * Callees:
  *     MiGetSubsectionDriverProtos @ 0x14001B7BC (MiGetSubsectionDriverProtos.c)
  *     MiMakePrototypePteDirect @ 0x140027BA0 (MiMakePrototypePteDirect.c)
  *     MiPteInShadowRange @ 0x14003D740 (MiPteInShadowRange.c)
- *     MiOffsetToProtos @ 0x1400AF830 (MiOffsetToProtos.c)
- *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
- *     MiGetSharedProtos @ 0x140177174 (MiGetSharedProtos.c)
+ *     MiOffsetToProtos @ 0x1400AF770 (MiOffsetToProtos.c)
+ *     MiWritePteShadow @ 0x140120F40 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120FA0 (MiPteHasShadow.c)
+ *     MiGetSharedProtos @ 0x140177274 (MiGetSharedProtos.c)
  */
 
 __int64 __fastcall MiAddMappedPtes(__int64 *a1, __int64 a2, __int64 a3, unsigned __int64 *a4, unsigned int a5)
@@ -63,7 +63,7 @@ LABEL_16:
       {
         if ( (unsigned int)MiPteHasShadow() )
         {
-          if ( !HIBYTE(word_14043A1AC) && (PrototypePteDirect & 1) != 0 )
+          if ( !HIBYTE(word_14043B26C) && (PrototypePteDirect & 1) != 0 )
             PrototypePteDirect |= v18;
           *v7 = PrototypePteDirect;
           MiWritePteShadow((__int64)v7, PrototypePteDirect);
@@ -113,7 +113,7 @@ LABEL_5:
       {
         if ( (unsigned int)MiPteHasShadow() )
         {
-          if ( !HIBYTE(word_14043A1AC) && (v20 & 1) != 0 )
+          if ( !HIBYTE(word_14043B26C) && (v20 & 1) != 0 )
             v20 |= v22;
           *v7 = v20;
           MiWritePteShadow((__int64)v7, v20);

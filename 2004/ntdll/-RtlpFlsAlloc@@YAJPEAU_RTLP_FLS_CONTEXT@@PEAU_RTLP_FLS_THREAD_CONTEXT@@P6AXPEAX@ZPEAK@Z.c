@@ -12,10 +12,9 @@
 __int64 __fastcall RtlpFlsAlloc(
         struct _RTLP_FLS_CONTEXT *a1,
         struct _RTLP_FLS_THREAD_CONTEXT *a2,
-        void (*a3)(void *),
+        __int64 a3,
         unsigned int *a4)
 {
-  __int64 v5; // rbp
   int v6; // esi
   __int64 v7; // rbx
   unsigned int v8; // eax
@@ -30,13 +29,8 @@ __int64 __fastcall RtlpFlsAlloc(
   __int64 v18; // rcx
   __int64 v19; // rax
 
-  v5 = (__int64)a3;
   v6 = 1;
-  RtlAcquireSRWLockExclusive(
-    (unsigned __int64)&RtlpFlsContext,
-    (unsigned __int64)a2,
-    (unsigned __int64)a3,
-    (unsigned __int64)a4);
+  RtlAcquireSRWLockExclusive(&RtlpFlsContext);
   v7 = 8LL;
   while ( 1 )
   {
@@ -46,7 +40,7 @@ __int64 __fastcall RtlpFlsAlloc(
     {
       v14 = -1073741801;
 LABEL_22:
-      RtlReleaseSRWLockExclusive((volatile signed __int64 *)&RtlpFlsContext);
+      RtlReleaseSRWLockExclusive(&RtlpFlsContext);
       return v14;
     }
     v10 = v8 - 16;
@@ -71,14 +65,14 @@ LABEL_22:
     v12 = *((_QWORD *)&RtlpFlsContext + (unsigned int)(v11 - 4) + 1);
     if ( v12 )
       v7 = v12 + 16 * ((v8 ^ (unsigned __int64)(unsigned int)(1 << v11)) + 1);
-    if ( !v5 )
-      v5 = -1LL;
-    *(_QWORD *)v7 = v5;
+    if ( !a3 )
+      a3 = -1LL;
+    *(_QWORD *)v7 = a3;
     v13 = qword_18016B308;
     if ( v10 > (unsigned int)qword_18016B308 )
       v13 = v9 - 16;
     LODWORD(qword_18016B308) = v13;
-    RtlReleaseSRWLockExclusive((volatile signed __int64 *)&RtlpFlsContext);
+    RtlReleaseSRWLockExclusive(&RtlpFlsContext);
     v9 = -1;
     *a4 = v10;
     v6 = 0;

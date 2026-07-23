@@ -1,20 +1,20 @@
 /*
- * XREFs of PnpMergeFilteredResourceRequirementsList @ 0x1407336FC
+ * XREFs of PnpMergeFilteredResourceRequirementsList @ 0x140731630
  * Callers:
- *     IopQueryDeviceResources @ 0x14098DEA4 (IopQueryDeviceResources.c)
+ *     IopQueryDeviceResources @ 0x140978EDC (IopQueryDeviceResources.c)
  * Callees:
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
-__int64 __fastcall PnpMergeFilteredResourceRequirementsList(_DWORD *Src, _DWORD *a2, int **a3)
+__int64 __fastcall PnpMergeFilteredResourceRequirementsList(_DWORD *Src, _DWORD *a2, unsigned int **a3)
 {
   _DWORD *v5; // rbx
-  int v6; // ebp
-  int *Pool2; // rax
-  int *v8; // rsi
-  int *v10; // rax
-  int *v11; // rdi
+  unsigned int v6; // ebp
+  unsigned int *Pool2; // rax
+  unsigned int *v8; // rsi
+  unsigned int *v10; // rax
+  unsigned int *v11; // rdi
 
   *a3 = 0LL;
   v5 = Src;
@@ -28,12 +28,12 @@ LABEL_18:
     if ( a2 && a2[7] )
     {
       v6 = *Src - 32 + *a2;
-      Pool2 = (int *)ExAllocatePool2(0x100uLL);
+      Pool2 = (unsigned int *)ExAllocatePool2(0x100uLL, v6, 0x36706E50u);
       v8 = Pool2;
       if ( Pool2 )
       {
         memmove(Pool2, v5, (unsigned int)*v5);
-        memmove((char *)v8 + (unsigned int)*v5, a2 + 8, (unsigned int)(v6 - *v5));
+        memmove((char *)v8 + (unsigned int)*v5, a2 + 8, v6 - *v5);
         *v8 = v6;
         v8[7] += a2[7];
         *a3 = v8;
@@ -46,7 +46,7 @@ LABEL_18:
   {
     v5 = a2;
   }
-  v10 = (int *)ExAllocatePool2(0x100uLL);
+  v10 = (unsigned int *)ExAllocatePool2(0x100uLL, (unsigned int)*v5, 0x36706E50u);
   v11 = v10;
   if ( v10 )
   {

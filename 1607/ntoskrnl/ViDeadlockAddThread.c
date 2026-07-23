@@ -4,7 +4,7 @@
  *     VfDeadlockAcquireResource @ 0x140713510 (VfDeadlockAcquireResource.c)
  *     VfDeadlockBeforeCallDriver @ 0x140713C50 (VfDeadlockBeforeCallDriver.c)
  * Callees:
- *     VfUtilAddressRangeAdd @ 0x140702B58 (VfUtilAddressRangeAdd.c)
+ *     VfUtilAddressRangeAdd @ 0x140702B88 (VfUtilAddressRangeAdd.c)
  */
 
 __int64 __fastcall ViDeadlockAddThread(unsigned __int64 a1, __int64 a2)

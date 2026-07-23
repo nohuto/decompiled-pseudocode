@@ -1,10 +1,10 @@
 /*
- * XREFs of CmpIsHiveOnRemovableDisk @ 0x140604258
+ * XREFs of CmpIsHiveOnRemovableDisk @ 0x14060430C
  * Callers:
- *     HvpIsHiveEligibleForSystemCacheBacking @ 0x14047F16C (HvpIsHiveEligibleForSystemCacheBacking.c)
+ *     HvpIsHiveEligibleForSystemCacheBacking @ 0x14047DEC0 (HvpIsHiveEligibleForSystemCacheBacking.c)
  * Callees:
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
- *     ObReferenceObjectByHandle @ 0x140450D40 (ObReferenceObjectByHandle.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
+ *     ObReferenceObjectByHandle @ 0x14044FC10 (ObReferenceObjectByHandle.c)
  */
 
 bool __fastcall CmpIsHiveOnRemovableDisk(__int64 a1)

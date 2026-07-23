@@ -1,13 +1,13 @@
 /*
- * XREFs of MiInitializeEnclavePfn @ 0x140648104
+ * XREFs of MiInitializeEnclavePfn @ 0x140648654
  * Callers:
- *     MiAddPagesToEnclave @ 0x140646A10 (MiAddPagesToEnclave.c)
- *     MiCopyPagesIntoEnclave @ 0x140A3CFC4 (MiCopyPagesIntoEnclave.c)
- *     MiCreateHardwareEnclave @ 0x140A3D788 (MiCreateHardwareEnclave.c)
+ *     MiAddPagesToEnclave @ 0x140646F60 (MiAddPagesToEnclave.c)
+ *     MiCopyPagesIntoEnclave @ 0x140A3D274 (MiCopyPagesIntoEnclave.c)
+ *     MiCreateHardwareEnclave @ 0x140A3DA38 (MiCreateHardwareEnclave.c)
  * Callees:
- *     MiSwizzleInvalidPte @ 0x1402857A0 (MiSwizzleInvalidPte.c)
- *     MiLockPageInline @ 0x1402EF680 (MiLockPageInline.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiSwizzleInvalidPte @ 0x140285A30 (MiSwizzleInvalidPte.c)
+ *     MiLockPageInline @ 0x1402EF910 (MiLockPageInline.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiInitializeEnclavePfn(__int64 a1, __int64 a2, char a3)
@@ -37,7 +37,7 @@ __int64 __fastcall MiInitializeEnclavePfn(__int64 a1, __int64 a2, char a3)
   *(_QWORD *)(v6 + 16) = MiSwizzleInvalidPte(32LL * (a3 & 0x1F));
   result = 0x7FFFFFFFFFFFFFFFLL;
   _InterlockedAnd64((volatile signed __int64 *)(v6 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     result = KeGetCurrentIrql();
     if ( ((unsigned __int8)KiIrqlFlags & v10) != 0

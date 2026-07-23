@@ -1,9 +1,9 @@
 /*
- * XREFs of PoFxIdleComponent @ 0x1400FECF0
+ * XREFs of PoFxIdleComponent @ 0x1400FED70
  * Callers:
- *     PopFxIdleWorkerTail @ 0x1400FEA08 (PopFxIdleWorkerTail.c)
+ *     PopFxIdleWorkerTail @ 0x1400FEA88 (PopFxIdleWorkerTail.c)
  * Callees:
- *     PopFxIdleComponent @ 0x1400FED0C (PopFxIdleComponent.c)
+ *     PopFxIdleComponent @ 0x1400FED8C (PopFxIdleComponent.c)
  */
 
 __int64 __fastcall PoFxIdleComponent(ULONG_PTR a1, ULONG_PTR a2)

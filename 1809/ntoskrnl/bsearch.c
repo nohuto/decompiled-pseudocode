@@ -1,14 +1,14 @@
 /*
- * XREFs of bsearch @ 0x140195CD0
+ * XREFs of bsearch @ 0x140195E10
  * Callers:
- *     DownLevelLangIDToLanguageName @ 0x140161030 (DownLevelLangIDToLanguageName.c)
- *     DownLevelLanguageNameToLangID @ 0x140182F00 (DownLevelLanguageNameToLangID.c)
- *     DownLevelGetParentLanguageName @ 0x140321C90 (DownLevelGetParentLanguageName.c)
- *     sub_1405A07B0 @ 0x1405A07B0 (sub_1405A07B0.c)
- *     EtwpIsGuidAllowed @ 0x1405C560C (EtwpIsGuidAllowed.c)
+ *     DownLevelLangIDToLanguageName @ 0x140161130 (DownLevelLangIDToLanguageName.c)
+ *     DownLevelLanguageNameToLangID @ 0x140183040 (DownLevelLanguageNameToLangID.c)
+ *     DownLevelGetParentLanguageName @ 0x140321E80 (DownLevelGetParentLanguageName.c)
+ *     sub_1405A17B0 @ 0x1405A17B0 (sub_1405A17B0.c)
+ *     EtwpIsGuidAllowed @ 0x1405C660C (EtwpIsGuidAllowed.c)
  * Callees:
- *     xHalTimerWatchdogStop @ 0x140176800 (xHalTimerWatchdogStop.c)
- *     _guard_check_icall @ 0x1401C5E80 (_guard_check_icall.c)
+ *     xHalTimerWatchdogStop @ 0x140176900 (xHalTimerWatchdogStop.c)
+ *     _guard_check_icall @ 0x1401C5FE0 (_guard_check_icall.c)
  */
 
 void *__cdecl bsearch(

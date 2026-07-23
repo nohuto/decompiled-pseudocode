@@ -1,13 +1,13 @@
 /*
- * XREFs of WmipNotificationIrpCancel @ 0x1403FFCE0
+ * XREFs of WmipNotificationIrpCancel @ 0x1403FBA80
  * Callers:
  *     <none>
  * Callees:
- *     KxAcquireQueuedSpinLock @ 0x1402B47E0 (KxAcquireQueuedSpinLock.c)
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402B9F90 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     KeReleaseQueuedSpinLock @ 0x1402E2650 (KeReleaseQueuedSpinLock.c)
- *     IofCompleteRequest @ 0x1403FD9D0 (IofCompleteRequest.c)
- *     WmipClearIrpObjectList @ 0x1403FEABC (WmipClearIrpObjectList.c)
+ *     KeReleaseQueuedSpinLock @ 0x1402C4710 (KeReleaseQueuedSpinLock.c)
+ *     KxAcquireQueuedSpinLock @ 0x1402FF4B0 (KxAcquireQueuedSpinLock.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140304C50 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     IofCompleteRequest @ 0x1403FA1C0 (IofCompleteRequest.c)
+ *     WmipClearIrpObjectList @ 0x1403FB2AC (WmipClearIrpObjectList.c)
  */
 
 void __fastcall WmipNotificationIrpCancel(__int64 a1, IRP *a2, __int64 a3)

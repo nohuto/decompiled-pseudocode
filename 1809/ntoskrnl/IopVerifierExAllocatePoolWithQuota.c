@@ -1,17 +1,17 @@
 /*
- * XREFs of IopVerifierExAllocatePoolWithQuota @ 0x14008C8C0
+ * XREFs of IopVerifierExAllocatePoolWithQuota @ 0x14008C8B0
  * Callers:
- *     NtSetInformationFile @ 0x140100E90 (NtSetInformationFile.c)
- *     BuildQueryDirectoryIrp @ 0x1405FA710 (BuildQueryDirectoryIrp.c)
- *     NtQueryVolumeInformationFile @ 0x14065E460 (NtQueryVolumeInformationFile.c)
- *     NtQueryEaFile @ 0x1406A95B0 (NtQueryEaFile.c)
- *     NtNotifyChangeDirectoryFileEx @ 0x1406B9CE0 (NtNotifyChangeDirectoryFileEx.c)
- *     NtSetVolumeInformationFile @ 0x1406FF270 (NtSetVolumeInformationFile.c)
- *     NtSetEaFile @ 0x14081E1E0 (NtSetEaFile.c)
+ *     NtSetInformationFile @ 0x140100F10 (NtSetInformationFile.c)
+ *     BuildQueryDirectoryIrp @ 0x1405FB710 (BuildQueryDirectoryIrp.c)
+ *     NtQueryVolumeInformationFile @ 0x14065F620 (NtQueryVolumeInformationFile.c)
+ *     NtQueryEaFile @ 0x1406AA850 (NtQueryEaFile.c)
+ *     NtNotifyChangeDirectoryFileEx @ 0x1406BAF80 (NtNotifyChangeDirectoryFileEx.c)
+ *     NtSetVolumeInformationFile @ 0x140700510 (NtSetVolumeInformationFile.c)
+ *     NtSetEaFile @ 0x14081F3E0 (NtSetEaFile.c)
  * Callees:
- *     ExAllocatePoolWithQuotaTag @ 0x1400B7670 (ExAllocatePoolWithQuotaTag.c)
- *     ExAllocatePoolWithTagPriority @ 0x1400FD830 (ExAllocatePoolWithTagPriority.c)
- *     RtlRaiseStatus @ 0x140128E90 (RtlRaiseStatus.c)
+ *     ExAllocatePoolWithQuotaTag @ 0x1400B75B0 (ExAllocatePoolWithQuotaTag.c)
+ *     ExAllocatePoolWithTagPriority @ 0x1400FD8B0 (ExAllocatePoolWithTagPriority.c)
+ *     RtlRaiseStatus @ 0x140128F60 (RtlRaiseStatus.c)
  */
 
 PVOID __fastcall IopVerifierExAllocatePoolWithQuota(__int64 a1, SIZE_T a2)

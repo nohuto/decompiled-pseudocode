@@ -1,16 +1,22 @@
 /*
- * XREFs of DifZwRemoveIoCompletionExWrapper @ 0x1405F5EC0
+ * XREFs of DifZwRemoveIoCompletionExWrapper @ 0x1405F6430
  * Callers:
  *     <none>
  * Callees:
- *     ZwRemoveIoCompletionEx @ 0x14041DD00 (ZwRemoveIoCompletionEx.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     memset @ 0x140435A00 (memset.c)
- *     DifGetAPIThunkContextById @ 0x1404664BE (DifGetAPIThunkContextById.c)
- *     DifGetReturnAddressForWrappers @ 0x1405F88C4 (DifGetReturnAddressForWrappers.c)
+ *     ZwRemoveIoCompletionEx @ 0x14041E090 (ZwRemoveIoCompletionEx.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     DifGetAPIThunkContextById @ 0x1404668BE (DifGetAPIThunkContextById.c)
+ *     DifGetReturnAddressForWrappers @ 0x1405F8E34 (DifGetReturnAddressForWrappers.c)
  */
 
-__int64 __fastcall DifZwRemoveIoCompletionExWrapper(__int64 a1, __int64 a2, int a3, __int64 a4, __int64 a5, char a6)
+NTSTATUS __fastcall DifZwRemoveIoCompletionExWrapper(
+        HANDLE IoCompletionHandle,
+        PFILE_IO_COMPLETION_INFORMATION IoCompletionInformation,
+        ULONG Count,
+        PULONG NumEntriesRemoved,
+        PLARGE_INTEGER Timeout,
+        BOOLEAN Alertable)
 {
   __int64 v10; // rdx
   __int64 v11; // rcx
@@ -20,7 +26,7 @@ __int64 __fastcall DifZwRemoveIoCompletionExWrapper(__int64 a1, __int64 a2, int 
   int v15; // eax
   __int64 ReturnAddressForWrappers; // rax
   __int64 *i; // rbx
-  __int64 result; // rax
+  NTSTATUS result; // eax
   _QWORD **v19; // rdi
   _QWORD *v20; // rbx
   _QWORD v21[8]; // [rsp+30h] [rbp-40h] BYREF
@@ -54,19 +60,25 @@ LABEL_8:
   }
   v21[0] = 0LL;
 LABEL_10:
-  v21[2] = a5;
-  LOBYTE(v21[1]) = a6;
-  v21[6] = a1;
-  v21[5] = a2;
-  LODWORD(v21[4]) = a3;
-  v21[3] = a4;
+  v21[2] = Timeout;
+  LOBYTE(v21[1]) = Alertable;
+  v21[6] = IoCompletionHandle;
+  v21[5] = IoCompletionInformation;
+  LODWORD(v21[4]) = Count;
+  v21[3] = NumEntriesRemoved;
   for ( i = (__int64 *)APIThunkContextById[4]; i != APIThunkContextById + 4; i = (__int64 *)*i )
   {
     if ( i != (__int64 *)16 )
       ((void (__fastcall *)(_QWORD *))*(i - 1))(v21);
   }
 LABEL_17:
-  result = ZwRemoveIoCompletionEx(a1, a2);
+  result = ZwRemoveIoCompletionEx(
+             IoCompletionHandle,
+             IoCompletionInformation,
+             Count,
+             NumEntriesRemoved,
+             Timeout,
+             Alertable);
   LODWORD(v21[7]) = result;
   if ( APIThunkContextById )
   {
@@ -81,7 +93,7 @@ LABEL_17:
         v20 = (_QWORD *)*v20;
       }
       while ( v20 != v19 );
-      return LODWORD(v21[7]);
+      return v21[7];
     }
   }
   return result;

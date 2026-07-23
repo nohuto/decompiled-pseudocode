@@ -7,36 +7,40 @@
  *     ZwInitializeNlsFiles @ 0x18009E610 (ZwInitializeNlsFiles.c)
  */
 
-__int64 __fastcall RtlGetLocaleFileMappingAddress(signed __int64 *a1, int *a2, __int64 *a3)
+NTSTATUS __cdecl RtlGetLocaleFileMappingAddress(
+        PVOID *BaseAddress,
+        PLCID DefaultLocaleId,
+        PLARGE_INTEGER DefaultCasingTableSize,
+        PULONG CurrentNLSVersion)
 {
-  __int64 result; // rax
-  signed __int64 v7; // rcx
+  NTSTATUS result; // eax
+  PVOID v8; // rcx
 
-  if ( !a1 )
-    return 3221225711LL;
-  if ( !a2 )
-    return 3221225712LL;
-  if ( !a3 )
-    return 3221225713LL;
+  if ( !BaseAddress )
+    return -1073741585;
+  if ( !DefaultLocaleId )
+    return -1073741584;
+  if ( !DefaultCasingTableSize )
+    return -1073741583;
   if ( qword_180166370 )
   {
-    *a1 = qword_180166370;
-    *a2 = dword_18016605C;
-    *a3 = qword_180166060;
+    *BaseAddress = (PVOID)qword_180166370;
+    *DefaultLocaleId = dword_18016605C;
+    DefaultCasingTableSize->QuadPart = qword_180166060;
   }
   else
   {
-    result = ZwInitializeNlsFiles();
-    if ( (int)result < 0 )
+    result = ZwInitializeNlsFiles(BaseAddress, DefaultLocaleId, DefaultCasingTableSize, CurrentNLSVersion);
+    if ( result < 0 )
       return result;
-    v7 = *a1;
-    dword_18016605C = *a2;
-    qword_180166060 = *a3;
-    if ( _InterlockedCompareExchange64(&qword_180166370, v7, 0LL) )
+    v8 = *BaseAddress;
+    dword_18016605C = *DefaultLocaleId;
+    qword_180166060 = DefaultCasingTableSize->QuadPart;
+    if ( _InterlockedCompareExchange64(&qword_180166370, (signed __int64)v8, 0LL) )
     {
-      ZwUnmapViewOfSection(-1LL);
-      *a1 = qword_180166370;
+      ZwUnmapViewOfSection((HANDLE)0xFFFFFFFFFFFFFFFFLL, *BaseAddress);
+      *BaseAddress = (PVOID)qword_180166370;
     }
   }
-  return 0LL;
+  return 0;
 }

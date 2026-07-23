@@ -1,10 +1,10 @@
 /*
- * XREFs of EtwpCreateRegGuidsContext @ 0x1800EA2D0
+ * XREFs of EtwpCreateRegGuidsContext @ 0x1800E5A60
  * Callers:
- *     EtwRegisterTraceGuidsW @ 0x1800EA1B0 (EtwRegisterTraceGuidsW.c)
+ *     EtwRegisterTraceGuidsW @ 0x1800E5940 (EtwRegisterTraceGuidsW.c)
  * Callees:
- *     RtlAllocateHeap @ 0x180011260 (RtlAllocateHeap.c)
- *     memset$thunk$772440563353939046 @ 0x180172030 (memset$thunk$772440563353939046.c)
+ *     RtlAllocateHeap @ 0x18003DC60 (RtlAllocateHeap.c)
+ *     memset$thunk$772440563353939046 @ 0x180171030 (memset$thunk$772440563353939046.c)
  */
 
 char *__fastcall EtwpCreateRegGuidsContext(__int64 a1, __int64 a2, _OWORD *a3, unsigned int a4, __int64 a5)
@@ -26,7 +26,7 @@ char *__fastcall EtwpCreateRegGuidsContext(__int64 a1, __int64 a2, _OWORD *a3, u
   if ( (int)v10 + 40 < (unsigned int)(v10 + 24) )
     return 0LL;
   v12 = v10 + 40;
-  Heap = (char *)RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 8u, (unsigned int)(v10 + 40));
+  Heap = (char *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, (unsigned int)(v10 + 40));
   v14 = Heap;
   if ( !Heap )
     return 0LL;

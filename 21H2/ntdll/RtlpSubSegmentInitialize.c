@@ -4,10 +4,10 @@
  *     RtlpLowFragHeapAllocFromContext @ 0x18002B650 (RtlpLowFragHeapAllocFromContext.c)
  * Callees:
  *     RtlpHeapGenerateRandomValue32 @ 0x18000A448 (RtlpHeapGenerateRandomValue32.c)
- *     memset @ 0x1800A4780 (memset.c)
- *     RtlRaiseStatus @ 0x1801026C0 (RtlRaiseStatus.c)
- *     RtlpLogHeapSubSegmentInitialize @ 0x18010A860 (RtlpLogHeapSubSegmentInitialize.c)
- *     RtlpSubSegmentDebugInitialize @ 0x18010BB4C (RtlpSubSegmentDebugInitialize.c)
+ *     memset @ 0x1800A4740 (memset.c)
+ *     RtlRaiseStatus @ 0x180102680 (RtlRaiseStatus.c)
+ *     RtlpLogHeapSubSegmentInitialize @ 0x18010A820 (RtlpLogHeapSubSegmentInitialize.c)
+ *     RtlpSubSegmentDebugInitialize @ 0x18010BB0C (RtlpSubSegmentDebugInitialize.c)
  */
 
 struct _PEB *__fastcall RtlpSubSegmentInitialize(
@@ -105,7 +105,7 @@ struct _PEB *__fastcall RtlpSubSegmentInitialize(
   *(_WORD *)(a2 + 38) = 0;
   *(_QWORD *)(a2 + 8) = a3;
   if ( (((_BYTE)a2 + 16) & 0xF) != 0 )
-    RtlRaiseStatus(2147483650LL);
+    RtlRaiseStatus(-2147483646);
   *(_OWORD *)(a2 + 16) = 0LL;
   LOWORD(v50) = v48;
   HIWORD(v50) = 16 * v23;

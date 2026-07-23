@@ -3,16 +3,16 @@
  * Callers:
  *     CmpTryToRundownHive @ 0x1402092DC (CmpTryToRundownHive.c)
  *     CmpPerformUnloadKey @ 0x140699394 (CmpPerformUnloadKey.c)
- *     CmpSaveBootControlSet @ 0x140A0A518 (CmpSaveBootControlSet.c)
- *     CmRestoreKey @ 0x140A0AC44 (CmRestoreKey.c)
- *     CmRenameKey @ 0x140A143AC (CmRenameKey.c)
- *     CmSetKeyFlags @ 0x140A159B4 (CmSetKeyFlags.c)
- *     CmSetLastWriteTimeKey @ 0x140A15EE8 (CmSetLastWriteTimeKey.c)
- *     CmpLightWeightPrepareRenameKeyUoW @ 0x140A293A0 (CmpLightWeightPrepareRenameKeyUoW.c)
+ *     CmpSaveBootControlSet @ 0x140A0A7C8 (CmpSaveBootControlSet.c)
+ *     CmRestoreKey @ 0x140A0AEF4 (CmRestoreKey.c)
+ *     CmRenameKey @ 0x140A1465C (CmRenameKey.c)
+ *     CmSetKeyFlags @ 0x140A15C64 (CmSetKeyFlags.c)
+ *     CmSetLastWriteTimeKey @ 0x140A16198 (CmSetLastWriteTimeKey.c)
+ *     CmpLightWeightPrepareRenameKeyUoW @ 0x140A29650 (CmpLightWeightPrepareRenameKeyUoW.c)
  * Callees:
  *     CmSiFreeMemory @ 0x140208C40 (CmSiFreeMemory.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     CmpTransDereferenceTransaction @ 0x140768A28 (CmpTransDereferenceTransaction.c)
+ *     ObfDereferenceObject @ 0x140231660 (ObfDereferenceObject.c)
+ *     CmpTransDereferenceTransaction @ 0x140768C18 (CmpTransDereferenceTransaction.c)
  */
 
 void __fastcall CmpCleanupRollbackPacket(__int64 a1)

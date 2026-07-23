@@ -1,17 +1,17 @@
 /*
- * XREFs of MiZeroMoveToProcessor @ 0x14030AA98
+ * XREFs of MiZeroMoveToProcessor @ 0x140314978
  * Callers:
- *     MiZeroInParallelWorker @ 0x14030A090 (MiZeroInParallelWorker.c)
- *     MiZeroHugeRangeWorker @ 0x140686090 (MiZeroHugeRangeWorker.c)
+ *     MiZeroInParallelWorker @ 0x140313F70 (MiZeroInParallelWorker.c)
+ *     MiZeroHugeRangeWorker @ 0x1406871C0 (MiZeroHugeRangeWorker.c)
  * Callees:
- *     MiSetIdealProcessorThread @ 0x1403B4508 (MiSetIdealProcessorThread.c)
+ *     MiSetIdealProcessorThread @ 0x140370F20 (MiSetIdealProcessorThread.c)
  */
 
 __int64 __fastcall MiZeroMoveToProcessor(__int64 a1, __int64 a2)
 {
   struct _KTHREAD *CurrentThread; // rax
   __int64 result; // rax
-  struct _GROUP_AFFINITY Affinity; // [rsp+20h] [rbp-18h] BYREF
+  _GROUP_AFFINITY Affinity; // [rsp+20h] [rbp-18h] BYREF
 
   CurrentThread = KeGetCurrentThread();
   *(_QWORD *)(a2 + 16) = 0LL;
@@ -28,7 +28,7 @@ __int64 __fastcall MiZeroMoveToProcessor(__int64 a1, __int64 a2)
     }
     else
     {
-      Affinity = *(struct _GROUP_AFFINITY *)(a1 + 48);
+      Affinity = *(_GROUP_AFFINITY *)(a1 + 48);
       result = MiSetIdealProcessorThread(&Affinity);
       *(_DWORD *)(a2 + 8) = result;
     }

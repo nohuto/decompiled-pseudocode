@@ -1,11 +1,11 @@
 /*
- * XREFs of ProviderHandleInsert @ 0x18001D670
+ * XREFs of ProviderHandleInsert @ 0x18004A070
  * Callers:
- *     EtwNotificationRegister @ 0x18001D450 (EtwNotificationRegister.c)
+ *     EtwNotificationRegister @ 0x180049E50 (EtwNotificationRegister.c)
  * Callees:
- *     RtlAllocateHeap @ 0x180011260 (RtlAllocateHeap.c)
- *     RtlAcquireSRWLockExclusive @ 0x180055AE0 (RtlAcquireSRWLockExclusive.c)
- *     RtlReleaseSRWLockExclusive @ 0x1800567B0 (RtlReleaseSRWLockExclusive.c)
+ *     RtlAllocateHeap @ 0x18003DC60 (RtlAllocateHeap.c)
+ *     RtlAcquireSRWLockExclusive @ 0x18006B6C0 (RtlAcquireSRWLockExclusive.c)
+ *     RtlReleaseSRWLockExclusive @ 0x18006C390 (RtlReleaseSRWLockExclusive.c)
  */
 
 __int64 __fastcall ProviderHandleInsert(__int64 a1, __int64 a2, unsigned int *a3)
@@ -15,7 +15,7 @@ __int64 __fastcall ProviderHandleInsert(__int64 a1, __int64 a2, unsigned int *a3
   volatile __int64 *v7; // r8
   unsigned int v8; // esi
   unsigned int v10; // ebp
-  __int64 Heap; // r10
+  _QWORD *Heap; // r10
   unsigned int v12; // r9d
   __m128i v13; // xmm0
   __m128i si128; // xmm5
@@ -32,21 +32,21 @@ __int64 __fastcall ProviderHandleInsert(__int64 a1, __int64 a2, unsigned int *a3
   unsigned __int64 v25; // rdx
   __int64 v26; // rcx
 
-  RtlAcquireSRWLockExclusive(&unk_1801CE2E8);
-  v5 = dword_1801CE2E0;
+  RtlAcquireSRWLockExclusive(&stru_1801CD2E8);
+  v5 = dword_1801CD2E0;
   v6 = 0;
-  if ( !dword_1801CE2E0
-    || (unsigned int)dword_1801CE2E0 >> 4 >= dword_18019A6E0[((unsigned __int64)(unsigned int)dword_1801CE2E0 >> 1) & 7] )
+  if ( !dword_1801CD2E0
+    || (unsigned int)dword_1801CD2E0 >> 4 >= dword_1801997F0[((unsigned __int64)(unsigned int)dword_1801CD2E0 >> 1) & 7] )
   {
-    if ( (unsigned __int8)byte_1801CE2E4 >= 8u
-      || (v10 = dword_18019A6E0[(unsigned __int8)byte_1801CE2E4],
-          (Heap = RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 8u, 8LL * v10)) == 0) )
+    if ( (unsigned __int8)byte_1801CD2E4 >= 8u
+      || (v10 = dword_1801997F0[(unsigned __int8)byte_1801CD2E4],
+          (Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, 8LL * v10)) == 0LL) )
     {
       v8 = 14;
       goto LABEL_4;
     }
     v12 = 0;
-    v5 = (2 * (byte_1801CE2E4 & 7)) | 1;
+    v5 = (2 * (byte_1801CD2E4 & 7)) | 1;
     v13 = _mm_shuffle_epi32(_mm_cvtsi32_si128(v5), 0);
     if ( v10 )
     {
@@ -70,8 +70,8 @@ __int64 __fastcall ProviderHandleInsert(__int64 a1, __int64 a2, unsigned int *a3
                                      (__m128i)0LL),
                            v15),
                          v17);
-        *(_QWORD *)(Heap + 8 * v19) = v22.m128i_i64[0];
-        *(_QWORD *)(Heap + 8LL * (v16 - 1)) = _mm_srli_si128(v22, 8).m128i_u64[0];
+        Heap[v19] = v22.m128i_i64[0];
+        Heap[v16 - 1] = _mm_srli_si128(v22, 8).m128i_u64[0];
         v23 = (__m128i)_mm_or_ps(
                          _mm_and_ps(
                            (__m128)_mm_unpacklo_epi32(
@@ -83,10 +83,10 @@ __int64 __fastcall ProviderHandleInsert(__int64 a1, __int64 a2, unsigned int *a3
                                      (__m128i)0LL),
                            v15),
                          v17);
-        *(_QWORD *)(Heap + 8LL * v16) = v23.m128i_i64[0];
+        Heap[v16] = v23.m128i_i64[0];
         v24 = v16 + 1;
         v16 += 4;
-        *(_QWORD *)(Heap + 8 * v24) = _mm_srli_si128(v23, 8).m128i_u64[0];
+        Heap[v24] = _mm_srli_si128(v23, 8).m128i_u64[0];
       }
       while ( v12 != (v10 & 0xFFFFFFFC) );
       if ( v12 != v10 )
@@ -96,20 +96,20 @@ LABEL_17:
         {
           v25 = v5 | (unsigned __int64)(16 * (v12 + 1));
           v26 = v12++;
-          *(_QWORD *)(Heap + 8 * v26) = v25;
+          Heap[v26] = v25;
         }
         while ( v12 != v10 );
       }
     }
-    _InterlockedExchange64(&qword_1801CE2A0[(unsigned __int8)byte_1801CE2E4++], Heap);
+    _InterlockedExchange64(&qword_1801CD2A0[(unsigned __int8)byte_1801CD2E4++], (__int64)Heap);
   }
-  v7 = (volatile __int64 *)(qword_1801CE2A0[(v5 >> 1) & 7] + 8 * ((unsigned __int64)v5 >> 4));
-  dword_1801CE2E0 = *(_DWORD *)v7;
+  v7 = (volatile __int64 *)(qword_1801CD2A0[(v5 >> 1) & 7] + 8 * ((unsigned __int64)v5 >> 4));
+  dword_1801CD2E0 = *(_DWORD *)v7;
   _InterlockedExchange64(v7, a2);
   v8 = 0;
   v6 = v5;
 LABEL_4:
   *a3 = v6;
-  RtlReleaseSRWLockExclusive(&unk_1801CE2E8);
+  RtlReleaseSRWLockExclusive(&stru_1801CD2E8);
   return v8;
 }

@@ -1,12 +1,12 @@
 /*
- * XREFs of DbgkpLkmdFireCallbacks @ 0x14078B668
+ * XREFs of DbgkpLkmdFireCallbacks @ 0x14078E198
  * Callers:
- *     DbgkCaptureLiveDump @ 0x14078B088 (DbgkCaptureLiveDump.c)
+ *     DbgkCaptureLiveDump @ 0x14078DBB8 (DbgkCaptureLiveDump.c)
  * Callees:
- *     ExReferenceCallBackBlock @ 0x14029BA90 (ExReferenceCallBackBlock.c)
- *     PsGetSessionIdEx @ 0x14030B820 (PsGetSessionIdEx.c)
- *     ExDereferenceCallBackBlock @ 0x140435D80 (ExDereferenceCallBackBlock.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     ExReferenceCallBackBlock @ 0x14029AFF0 (ExReferenceCallBackBlock.c)
+ *     PsGetSessionIdEx @ 0x1402ED8A0 (PsGetSessionIdEx.c)
+ *     ExDereferenceCallBackBlock @ 0x140424890 (ExDereferenceCallBackBlock.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 void __fastcall DbgkpLkmdFireCallbacks(__int64 a1, signed __int64 a2, __int64 a3)
@@ -28,7 +28,7 @@ void __fastcall DbgkpLkmdFireCallbacks(__int64 a1, signed __int64 a2, __int64 a3
     if ( SessionId != (unsigned int)PsGetSessionIdEx(a3) || SessionId == -1 )
       v3 = 0;
   }
-  p_Process = &stru_140E3E928.SavedApcState.Process;
+  p_Process = &stru_140E3EAA8.SavedApcState.Process;
   v9 = 8LL;
   do
   {

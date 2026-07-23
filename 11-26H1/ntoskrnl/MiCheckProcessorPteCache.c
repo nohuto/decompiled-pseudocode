@@ -1,15 +1,15 @@
 /*
- * XREFs of MiCheckProcessorPteCache @ 0x14035EA80
+ * XREFs of MiCheckProcessorPteCache @ 0x140360820
  * Callers:
- *     MiReservePtes @ 0x14035DE50 (MiReservePtes.c)
+ *     MiReservePtes @ 0x14035FBF0 (MiReservePtes.c)
  * Callees:
- *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x14021AAD4 (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     ExAcquireSpinLockExclusive @ 0x140249CD0 (ExAcquireSpinLockExclusive.c)
- *     MiEmptyPteBins @ 0x14035F190 (MiEmptyPteBins.c)
- *     RtlFindClearBitsEx @ 0x14035F9A0 (RtlFindClearBitsEx.c)
- *     RtlSetBitsEx @ 0x14036F510 (RtlSetBitsEx.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x14021C464 (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024B630 (ExAcquireSpinLockExclusive.c)
+ *     MiEmptyPteBins @ 0x140360F30 (MiEmptyPteBins.c)
+ *     RtlFindClearBitsEx @ 0x140361740 (RtlFindClearBitsEx.c)
+ *     RtlSetBitsEx @ 0x1403712C0 (RtlSetBitsEx.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 __int64 __fastcall MiCheckProcessorPteCache(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
@@ -46,42 +46,42 @@ __int64 __fastcall MiCheckProcessorPteCache(__int64 a1, __int64 a2, __int64 a3, 
     if ( KiIrqlFlags )
       KiLowerIrqlProcessIrqlFlags(KeGetCurrentIrql(), CurrentIrql);
     __writecr8(CurrentIrql);
-    for ( i = stru_140E36558.Timer.Header.WaitListHead.Blink; ; i = (struct _LIST_ENTRY *)(v15 + 64) )
+    for ( i = stru_140E366D8.Timer.Header.WaitListHead.Blink; ; i = (struct _LIST_ENTRY *)(v15 + 64) )
     {
       while ( 1 )
       {
-        DueTime = stru_140E36558.Timer.DueTime;
-        p_WaitBlockList = &stru_140E36558.WaitBlockList;
-        if ( stru_140E36558.Timer.DueTime.QuadPart )
+        DueTime = stru_140E366D8.Timer.DueTime;
+        p_WaitBlockList = &stru_140E366D8.WaitBlockList;
+        if ( stru_140E366D8.Timer.DueTime.QuadPart )
         {
-          while ( stru_140E36558.WaitBlockList < (_KWAIT_BLOCK *)DueTime.QuadPart )
+          while ( stru_140E366D8.WaitBlockList < (_KWAIT_BLOCK *)DueTime.QuadPart )
           {
-            v11 = ExAcquireSpinLockExclusive(&stru_140E36558.Timer.Header.SignalState);
+            v11 = ExAcquireSpinLockExclusive(&stru_140E366D8.Timer.Header.SignalState);
             v12 = v11;
             if ( v11 == 17 )
             {
-              if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
-                stru_140E36558.Timer.Header.SignalState = 0;
+              if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || PopHibernateInProgress )
+                stru_140E366D8.Timer.Header.SignalState = 0;
               else
-                ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented(&stru_140E36558.Timer.Header.SignalState, retaddr);
+                ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented(&stru_140E366D8.Timer.Header.SignalState, retaddr);
             }
             else
             {
-              if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
-                stru_140E36558.Timer.Header.SignalState = 0;
+              if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || PopHibernateInProgress )
+                stru_140E366D8.Timer.Header.SignalState = 0;
               else
-                ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented(&stru_140E36558.Timer.Header.SignalState, retaddr);
+                ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented(&stru_140E366D8.Timer.Header.SignalState, retaddr);
               if ( KiIrqlFlags )
                 KiLowerIrqlProcessIrqlFlags(KeGetCurrentIrql(), v12);
               __writecr8(v12);
             }
-            DueTime = stru_140E36558.Timer.DueTime;
-            if ( !stru_140E36558.Timer.DueTime.QuadPart )
+            DueTime = stru_140E366D8.Timer.DueTime;
+            if ( !stru_140E366D8.Timer.DueTime.QuadPart )
               goto LABEL_27;
           }
           p_WaitBlockList = (_KWAIT_BLOCK **)v21;
-          *(_QWORD *)&v21[0] = (char *)stru_140E36558.WaitBlockList - DueTime.QuadPart;
-          *((_QWORD *)&v21[0] + 1) = (char *)stru_140E36558.WaitListEntry.Flink + 8 * (DueTime.QuadPart >> 6);
+          *(_QWORD *)&v21[0] = (char *)stru_140E366D8.WaitBlockList - DueTime.QuadPart;
+          *((_QWORD *)&v21[0] + 1) = (char *)stru_140E366D8.WaitListEntry.Flink + 8 * (DueTime.QuadPart >> 6);
           if ( i )
             i = (struct _LIST_ENTRY *)((char *)i - DueTime.QuadPart);
         }
@@ -89,14 +89,14 @@ LABEL_27:
         ClearBits = RtlFindClearBitsEx(p_WaitBlockList, 1LL, i, a4);
         if ( ClearBits != -1 )
           break;
-        result = MiEmptyPteBins(&stru_140E36558.WaitBlockList, 0LL, 2LL);
+        result = MiEmptyPteBins(&stru_140E366D8.WaitBlockList, 0LL, 2LL);
         if ( !result )
           return result;
         i = 0LL;
       }
       v15 = (ClearBits + DueTime.QuadPart) & 0xFFFFFFFFFFFFFFC0uLL;
-      v16 = *((_QWORD *)&stru_140E36558.WaitListEntry.Flink->Flink + (v15 >> 6));
-      v17 = (volatile signed __int64 *)stru_140E36558.WaitListEntry.Flink + (v15 >> 6);
+      v16 = *((_QWORD *)&stru_140E366D8.WaitListEntry.Flink->Flink + (v15 >> 6));
+      v17 = (volatile signed __int64 *)stru_140E366D8.WaitListEntry.Flink + (v15 >> 6);
       if ( v16 != -1LL )
         break;
 LABEL_33:
@@ -122,9 +122,9 @@ LABEL_33:
       CurrentPrcb->PteBitCache = v16;
       CurrentPrcb->PteBitOffset = v15;
       _InterlockedAdd64(
-        (volatile signed __int64 *)&stru_140E36558.Timer.TimerListEntry.Blink,
+        (volatile signed __int64 *)&stru_140E366D8.Timer.TimerListEntry.Blink,
         -(__int64)(unsigned int)__popcnt(~v16));
-      stru_140E36558.Timer.Header.WaitListHead.Blink = (struct _LIST_ENTRY *)(v15 + 64);
+      stru_140E366D8.Timer.Header.WaitListHead.Blink = (struct _LIST_ENTRY *)(v15 + 64);
     }
     else
     {
@@ -138,7 +138,7 @@ LABEL_33:
   if ( v19 != -1 )
   {
     RtlSetBitsEx(v21, v19, a1);
-    v7 = (char *)stru_140E36558.Teb + 8 * v20 + 8 * CurrentPrcb->PteBitOffset;
+    v7 = (char *)stru_140E366D8.Teb + 8 * v20 + 8 * CurrentPrcb->PteBitOffset;
   }
   if ( KiIrqlFlags )
     KiLowerIrqlProcessIrqlFlags(KeGetCurrentIrql(), CurrentIrql);

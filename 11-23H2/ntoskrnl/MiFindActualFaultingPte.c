@@ -1,18 +1,18 @@
 /*
- * XREFs of MiFindActualFaultingPte @ 0x1402EF4C0
+ * XREFs of MiFindActualFaultingPte @ 0x1402EF750
  * Callers:
- *     MiIsFaultPteIntact @ 0x1402EF3C8 (MiIsFaultPteIntact.c)
- *     MiFindActualFaultingPte @ 0x1402EF4C0 (MiFindActualFaultingPte.c)
+ *     MiIsFaultPteIntact @ 0x1402EF658 (MiIsFaultPteIntact.c)
+ *     MiFindActualFaultingPte @ 0x1402EF750 (MiFindActualFaultingPte.c)
  * Callees:
- *     MiCheckVirtualAddress @ 0x14025AB00 (MiCheckVirtualAddress.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1402712F0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiPteInShadowRange @ 0x140271360 (MiPteInShadowRange.c)
- *     MiIsPrototypePteVadLookup @ 0x14027CF00 (MiIsPrototypePteVadLookup.c)
- *     MiUnlockVadTree @ 0x140287878 (MiUnlockVadTree.c)
- *     MiFillPteHierarchy @ 0x14028AEF0 (MiFillPteHierarchy.c)
- *     MiFindActualFaultingPte @ 0x1402EF4C0 (MiFindActualFaultingPte.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memset @ 0x140435A00 (memset.c)
+ *     MiCheckVirtualAddress @ 0x14025AD90 (MiCheckVirtualAddress.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140271580 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiPteInShadowRange @ 0x1402715F0 (MiPteInShadowRange.c)
+ *     MiIsPrototypePteVadLookup @ 0x14027D190 (MiIsPrototypePteVadLookup.c)
+ *     MiUnlockVadTree @ 0x140287B08 (MiUnlockVadTree.c)
+ *     MiFillPteHierarchy @ 0x14028B180 (MiFillPteHierarchy.c)
+ *     MiFindActualFaultingPte @ 0x1402EF750 (MiFindActualFaultingPte.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     memset @ 0x140435E00 (memset.c)
  */
 
 __int64 __fastcall MiFindActualFaultingPte(__int64 a1, unsigned __int64 a2)

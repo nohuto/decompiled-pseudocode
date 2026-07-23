@@ -18,7 +18,7 @@ __int64 MiReserveFaultPte()
   _DWORD *SchedulerAssist; // r9
   int v5; // eax
   bool v6; // zf
-  RTL_BITMAP BitMapHeader; // [rsp+20h] [rbp-38h] BYREF
+  _RTL_BITMAP BitMapHeader; // [rsp+20h] [rbp-38h] BYREF
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+30h] [rbp-28h] BYREF
 
   *(&BitMapHeader.SizeOfBitMap + 1) = 0;

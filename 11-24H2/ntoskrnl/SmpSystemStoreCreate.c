@@ -1,36 +1,36 @@
 /*
- * XREFs of SmpSystemStoreCreate @ 0x140799854
+ * XREFs of SmpSystemStoreCreate @ 0x140799964
  * Callers:
- *     SmProcessConfigRequest @ 0x140797C64 (SmProcessConfigRequest.c)
- *     Phase1InitializationIoReady @ 0x140C5FB78 (Phase1InitializationIoReady.c)
- *     SmInitSystem @ 0x140C6694C (SmInitSystem.c)
+ *     SmProcessConfigRequest @ 0x140797D74 (SmProcessConfigRequest.c)
+ *     Phase1InitializationIoReady @ 0x140C61CC8 (Phase1InitializationIoReady.c)
+ *     SmInitSystem @ 0x140C68AC8 (SmInitSystem.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     ExfTryToWakePushLock @ 0x14025F9A0 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     MmGetNumberOfPhysicalPages @ 0x14045F260 (MmGetNumberOfPhysicalPages.c)
- *     SmpDirtyStoreCreate @ 0x140A42CBC (SmpDirtyStoreCreate.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     ExfTryToWakePushLock @ 0x14028FFB0 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     MmGetNumberOfPhysicalPages @ 0x140454120 (MmGetNumberOfPhysicalPages.c)
+ *     SmpDirtyStoreCreate @ 0x140A3854C (SmpDirtyStoreCreate.c)
  */
 
 __int64 __fastcall SmpSystemStoreCreate(__int64 a1)
 {
   unsigned __int64 *v1; // rdi
   struct _KTHREAD *CurrentThread; // rax
-  _QWORD *v4; // rax
-  _QWORD *v5; // rsi
+  char *v4; // rax
+  char *v5; // rsi
   int v6; // esi
 
   v1 = (unsigned __int64 *)(a1 + 2280);
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
-  v4 = KeAbPreAcquire(a1 + 2280, 0LL);
+  v4 = (char *)KeAbPreAcquire(a1 + 2280, 0LL);
   v5 = v4;
   if ( _interlockedbittestandset64((volatile signed __int32 *)v1, 0LL) )
-    ExfAcquirePushLockExclusiveEx(v1, (__int64)v4, (__int64)v1);
+    ExfAcquirePushLockExclusiveEx(v1, v4, (__int64)v1);
   if ( v5 )
-    *((_BYTE *)v5 + 10) = 1;
+    v5[10] = 1;
   if ( *(_DWORD *)(a1 + 2272) == -1 )
   {
     MmGetNumberOfPhysicalPages(0);

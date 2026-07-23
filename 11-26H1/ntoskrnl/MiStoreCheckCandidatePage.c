@@ -1,15 +1,15 @@
 /*
- * XREFs of MiStoreCheckCandidatePage @ 0x140404388
+ * XREFs of MiStoreCheckCandidatePage @ 0x1403FD488
  * Callers:
- *     MiStoreWriteModifiedPagePrepare @ 0x1404091C0 (MiStoreWriteModifiedPagePrepare.c)
+ *     MiStoreWriteModifiedPagePrepare @ 0x1404022B0 (MiStoreWriteModifiedPagePrepare.c)
  * Callees:
- *     MiGetSystemRegionType @ 0x140264F40 (MiGetSystemRegionType.c)
- *     MiPageToNode @ 0x140289710 (MiPageToNode.c)
- *     MiIsDecayPfn @ 0x1402F9850 (MiIsDecayPfn.c)
- *     MiGetPfnSlabType @ 0x1402FDC40 (MiGetPfnSlabType.c)
- *     MiGetTopLevelPfn @ 0x140404690 (MiGetTopLevelPfn.c)
- *     MiIsStoreProcess @ 0x140404810 (MiIsStoreProcess.c)
- *     MiGetPageTablePfnBuddyRaw @ 0x140404850 (MiGetPageTablePfnBuddyRaw.c)
+ *     MiGetSystemRegionType @ 0x1402644B0 (MiGetSystemRegionType.c)
+ *     MiPageToNode @ 0x140288C70 (MiPageToNode.c)
+ *     MiIsDecayPfn @ 0x1402DB8D0 (MiIsDecayPfn.c)
+ *     MiGetPfnSlabType @ 0x1402DFCC0 (MiGetPfnSlabType.c)
+ *     MiGetTopLevelPfn @ 0x1403FD790 (MiGetTopLevelPfn.c)
+ *     MiIsStoreProcess @ 0x1403FD910 (MiIsStoreProcess.c)
+ *     MiGetPageTablePfnBuddyRaw @ 0x1403FD950 (MiGetPageTablePfnBuddyRaw.c)
  */
 
 __int64 __fastcall MiStoreCheckCandidatePage(ULONG_PTR BugCheckParameter2, int a2, _DWORD *a3, _OWORD *a4, _QWORD *a5)
@@ -51,7 +51,7 @@ __int64 __fastcall MiStoreCheckCandidatePage(ULONG_PTR BugCheckParameter2, int a
       v11 = (__int64)(v10 << 25) >> 16;
       HIDWORD(v24) = HIDWORD(v11);
       if ( v11 < 0x7FFFFFFF0000LL
-        || v11 >= qword_140E2DE40 && v11 <= qword_140E2DE50
+        || v11 >= qword_140E2DFC0 && v11 <= qword_140E2DFD0
         || v11 >= 0xFFFFF68000000000uLL && v11 <= 0xFFFFF6FFFFFFFFFFuLL )
       {
         TopLevelPfn = MiGetTopLevelPfn(BugCheckParameter2);
@@ -78,7 +78,7 @@ __int64 __fastcall MiStoreCheckCandidatePage(ULONG_PTR BugCheckParameter2, int a
   if ( (*(_QWORD *)(BugCheckParameter2 + 40) & 0x20000000000000LL) != 0
     || (*(_DWORD *)(BugCheckParameter2 + 32) & 0x8000000) != 0
     && (BugCheckParameter2 < 0xFFFFDE0000000000uLL
-     || BugCheckParameter2 >= 48 * qword_140E2D7A0 - 0x21FFFFFFFFD0LL
+     || BugCheckParameter2 >= 48 * qword_140E2D920 - 0x21FFFFFFFFD0LL
      || MiIsDecayPfn((__int64)(BugCheckParameter2 + 0x220000000000LL) / 48)
      || (v18 & 0x70000) != 0x60000 && (unsigned int)MiGetPfnSlabType(BugCheckParameter2) == 9) )
   {

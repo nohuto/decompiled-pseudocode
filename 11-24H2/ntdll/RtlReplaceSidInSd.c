@@ -1,138 +1,142 @@
 /*
- * XREFs of RtlReplaceSidInSd @ 0x180139690
+ * XREFs of RtlReplaceSidInSd @ 0x1801378C0
  * Callers:
  *     <none>
  * Callees:
- *     RtlGetDaclSecurityDescriptor @ 0x1800E7120 (RtlGetDaclSecurityDescriptor.c)
- *     RtlGetSaclSecurityDescriptor @ 0x1800EAB40 (RtlGetSaclSecurityDescriptor.c)
- *     RtlGetOwnerSecurityDescriptor @ 0x1800ED7C0 (RtlGetOwnerSecurityDescriptor.c)
- *     RtlGetGroupSecurityDescriptor @ 0x1800EF590 (RtlGetGroupSecurityDescriptor.c)
- *     memmove @ 0x180167400 (memmove.c)
- *     memcmp @ 0x1801676D0 (memcmp.c)
+ *     RtlGetDaclSecurityDescriptor @ 0x1800E25D0 (RtlGetDaclSecurityDescriptor.c)
+ *     RtlGetSaclSecurityDescriptor @ 0x1800E6880 (RtlGetSaclSecurityDescriptor.c)
+ *     RtlGetOwnerSecurityDescriptor @ 0x1800E8AB0 (RtlGetOwnerSecurityDescriptor.c)
+ *     RtlGetGroupSecurityDescriptor @ 0x1800EA520 (RtlGetGroupSecurityDescriptor.c)
+ *     memmove @ 0x1801657C0 (memmove.c)
+ *     memcmp @ 0x180165A90 (memcmp.c)
  */
 
-__int64 __fastcall RtlReplaceSidInSd(__int64 a1, __int64 a2, __int64 a3, _DWORD *a4)
+NTSTATUS __cdecl RtlReplaceSidInSd(
+        PSECURITY_DESCRIPTOR SecurityDescriptor,
+        PSID OldSid,
+        PSID NewSid,
+        ULONG *NumChanges)
 {
   int v5; // r12d
   unsigned int v7; // r12d
-  __int64 v9; // r13
-  __int64 result; // rax
-  __int64 v11; // rdi
+  PSECURITY_DESCRIPTOR v9; // r13
+  NTSTATUS result; // eax
+  char *v11; // rdi
   int v12; // eax
   int v13; // ecx
-  __int64 v14; // rdi
+  char *v14; // rdi
   int v15; // eax
   int v16; // ecx
   __int64 v17; // r14
-  __int64 v18; // rdi
-  __int64 v19; // r13
-  __int64 v20; // rsi
+  unsigned __int8 *v18; // rdi
+  char *v19; // r13
+  char *v20; // rsi
   int v21; // eax
   int v22; // ecx
   __int64 v23; // r14
-  __int64 v24; // rdi
-  __int64 v25; // rsi
+  unsigned __int8 *v24; // rdi
+  char *v25; // rsi
   int v26; // eax
   int v27; // ecx
-  _QWORD v28[3]; // [rsp+20h] [rbp-18h] BYREF
-  char v30; // [rsp+88h] [rbp+50h] BYREF
-  __int64 v31; // [rsp+90h] [rbp+58h]
-  bool v32; // [rsp+98h] [rbp+60h] BYREF
+  PSID Owner[3]; // [rsp+20h] [rbp-18h] BYREF
+  BOOLEAN DaclPresent; // [rsp+88h] [rbp+50h] BYREF
+  char *v31; // [rsp+90h] [rbp+58h]
+  BOOLEAN OwnerDefaulted; // [rsp+98h] [rbp+60h] BYREF
 
-  v31 = a3;
-  *a4 = 0;
-  v5 = *(unsigned __int8 *)(a2 + 1);
-  v28[0] = 0LL;
+  v31 = (char *)NewSid;
+  *NumChanges = 0;
+  v5 = *((unsigned __int8 *)OldSid + 1);
+  Owner[0] = 0LL;
   v7 = 4 * v5;
-  v30 = 0;
-  v9 = a1;
-  result = RtlGetOwnerSecurityDescriptor(a1, v28, &v32);
-  if ( (int)result >= 0 )
+  DaclPresent = 0;
+  v9 = SecurityDescriptor;
+  result = RtlGetOwnerSecurityDescriptor(SecurityDescriptor, Owner, &OwnerDefaulted);
+  if ( result >= 0 )
   {
-    v11 = v28[0];
-    if ( v28[0] )
+    v11 = (char *)Owner[0];
+    if ( Owner[0] )
     {
-      if ( *(_BYTE *)v28[0] == *(_BYTE *)a2 )
+      if ( *(_BYTE *)Owner[0] == *(_BYTE *)OldSid )
       {
-        v12 = *(unsigned __int8 *)(a2 + 1);
-        if ( *(_BYTE *)(v28[0] + 1LL) == (_BYTE)v12 || *(unsigned __int8 *)(v28[0] + 1LL) == v12 + 1 )
+        v12 = *((unsigned __int8 *)OldSid + 1);
+        if ( *((_BYTE *)Owner[0] + 1) == (_BYTE)v12 || *((unsigned __int8 *)Owner[0] + 1) == v12 + 1 )
         {
-          v13 = *(_DWORD *)(v28[0] + 2LL) - *(_DWORD *)(a2 + 2);
+          v13 = *(_DWORD *)((char *)Owner[0] + 2) - *(_DWORD *)((char *)OldSid + 2);
           if ( !v13 )
-            v13 = *(unsigned __int16 *)(v28[0] + 6LL) - *(unsigned __int16 *)(a2 + 6);
-          if ( !v13 && !memcmp((const void *)(v28[0] + 8LL), (const void *)(a2 + 8), v7) )
+            v13 = *((unsigned __int16 *)Owner[0] + 3) - *((unsigned __int16 *)OldSid + 3);
+          if ( !v13 && !memcmp((char *)Owner[0] + 8, (char *)OldSid + 8, v7) )
           {
-            memmove((void *)(v11 + 8), (const void *)(a3 + 8), v7);
-            ++*a4;
+            memmove(v11 + 8, (char *)NewSid + 8, v7);
+            ++*NumChanges;
           }
         }
       }
     }
-    v28[0] = 0LL;
-    result = RtlGetGroupSecurityDescriptor(v9, v28, &v32);
-    if ( (int)result >= 0 )
+    Owner[0] = 0LL;
+    result = RtlGetGroupSecurityDescriptor(v9, Owner, &OwnerDefaulted);
+    if ( result >= 0 )
     {
-      v14 = v28[0];
-      if ( v28[0] )
+      v14 = (char *)Owner[0];
+      if ( Owner[0] )
       {
-        if ( *(_BYTE *)v28[0] == *(_BYTE *)a2 )
+        if ( *(_BYTE *)Owner[0] == *(_BYTE *)OldSid )
         {
-          v15 = *(unsigned __int8 *)(a2 + 1);
-          if ( *(_BYTE *)(v28[0] + 1LL) == (_BYTE)v15 || *(unsigned __int8 *)(v28[0] + 1LL) == v15 + 1 )
+          v15 = *((unsigned __int8 *)OldSid + 1);
+          if ( *((_BYTE *)Owner[0] + 1) == (_BYTE)v15 || *((unsigned __int8 *)Owner[0] + 1) == v15 + 1 )
           {
-            v16 = *(_DWORD *)(v28[0] + 2LL) - *(_DWORD *)(a2 + 2);
+            v16 = *(_DWORD *)((char *)Owner[0] + 2) - *(_DWORD *)((char *)OldSid + 2);
             if ( !v16 )
-              v16 = *(unsigned __int16 *)(v28[0] + 6LL) - *(unsigned __int16 *)(a2 + 6);
-            if ( !v16 && !memcmp((const void *)(v28[0] + 8LL), (const void *)(a2 + 8), v7) )
+              v16 = *((unsigned __int16 *)Owner[0] + 3) - *((unsigned __int16 *)OldSid + 3);
+            if ( !v16 && !memcmp((char *)Owner[0] + 8, (char *)OldSid + 8, v7) )
             {
-              memmove((void *)(v14 + 8), (const void *)(a3 + 8), v7);
-              ++*a4;
+              memmove(v14 + 8, (char *)NewSid + 8, v7);
+              ++*NumChanges;
             }
           }
         }
       }
-      v28[0] = 0LL;
-      result = RtlGetDaclSecurityDescriptor(v9, &v30, v28, &v32);
-      if ( (int)result >= 0 )
+      Owner[0] = 0LL;
+      result = RtlGetDaclSecurityDescriptor(v9, &DaclPresent, (PACL *)Owner, &OwnerDefaulted);
+      if ( result >= 0 )
       {
-        if ( v30 )
+        if ( DaclPresent )
         {
-          if ( v28[0] )
+          if ( Owner[0] )
           {
-            v17 = *(unsigned __int16 *)(v28[0] + 4LL);
-            v18 = v28[0] + 8LL;
-            if ( *(_WORD *)(v28[0] + 4LL) )
+            v17 = *((unsigned __int16 *)Owner[0] + 2);
+            v18 = (unsigned __int8 *)Owner[0] + 8;
+            if ( *((_WORD *)Owner[0] + 2) )
             {
               v19 = v31;
-              while ( *(_BYTE *)v18 > 3u )
+              while ( *v18 > 3u )
               {
-                if ( *(_BYTE *)v18 == 4 )
+                if ( *v18 == 4 )
                 {
-                  v20 = v18 + 4 * (*(unsigned __int8 *)(v18 + 13) + 5LL);
+                  v20 = (char *)&v18[4 * v18[13] + 20];
                   goto LABEL_30;
                 }
 LABEL_38:
-                v18 += *(unsigned __int16 *)(v18 + 2);
+                v18 += *((unsigned __int16 *)v18 + 1);
                 if ( !--v17 )
                 {
-                  v9 = a1;
+                  v9 = SecurityDescriptor;
                   goto LABEL_40;
                 }
               }
-              v20 = v18 + 8;
+              v20 = (char *)(v18 + 8);
 LABEL_30:
-              if ( *(_BYTE *)v20 == *(_BYTE *)a2 )
+              if ( *v20 == *(_BYTE *)OldSid )
               {
-                v21 = *(unsigned __int8 *)(a2 + 1);
-                if ( *(_BYTE *)(v20 + 1) == (_BYTE)v21 || *(unsigned __int8 *)(v20 + 1) == v21 + 1 )
+                v21 = *((unsigned __int8 *)OldSid + 1);
+                if ( v20[1] == (_BYTE)v21 || (unsigned __int8)v20[1] == v21 + 1 )
                 {
-                  v22 = *(_DWORD *)(v20 + 2) - *(_DWORD *)(a2 + 2);
+                  v22 = *(_DWORD *)(v20 + 2) - *(_DWORD *)((char *)OldSid + 2);
                   if ( !v22 )
-                    v22 = *(unsigned __int16 *)(v20 + 6) - *(unsigned __int16 *)(a2 + 6);
-                  if ( !v22 && !memcmp((const void *)(v20 + 8), (const void *)(a2 + 8), v7) )
+                    v22 = *((unsigned __int16 *)v20 + 3) - *((unsigned __int16 *)OldSid + 3);
+                  if ( !v22 && !memcmp(v20 + 8, (char *)OldSid + 8, v7) )
                   {
-                    memmove((void *)(v20 + 8), (const void *)(v19 + 8), v7);
-                    ++*a4;
+                    memmove(v20 + 8, v19 + 8, v7);
+                    ++*NumChanges;
                   }
                 }
               }
@@ -141,46 +145,46 @@ LABEL_30:
           }
         }
 LABEL_40:
-        v28[0] = 0LL;
-        result = RtlGetSaclSecurityDescriptor(v9, &v30, v28, &v32);
-        if ( (int)result >= 0 && v30 && v28[0] )
+        Owner[0] = 0LL;
+        result = RtlGetSaclSecurityDescriptor(v9, &DaclPresent, (PACL *)Owner, &OwnerDefaulted);
+        if ( result >= 0 && DaclPresent && Owner[0] )
         {
-          v23 = *(unsigned __int16 *)(v28[0] + 4LL);
-          v24 = v28[0] + 8LL;
-          if ( *(_WORD *)(v28[0] + 4LL) )
+          v23 = *((unsigned __int16 *)Owner[0] + 2);
+          v24 = (unsigned __int8 *)Owner[0] + 8;
+          if ( *((_WORD *)Owner[0] + 2) )
           {
-            while ( *(_BYTE *)v24 > 3u )
+            while ( *v24 > 3u )
             {
-              if ( *(_BYTE *)v24 == 4 )
+              if ( *v24 == 4 )
               {
-                v25 = v24 + 4 * (*(unsigned __int8 *)(v24 + 13) + 5LL);
+                v25 = (char *)&v24[4 * v24[13] + 20];
                 goto LABEL_48;
               }
 LABEL_56:
-              v24 += *(unsigned __int16 *)(v24 + 2);
+              v24 += *((unsigned __int16 *)v24 + 1);
               if ( !--v23 )
-                return 0LL;
+                return 0;
             }
-            v25 = v24 + 8;
+            v25 = (char *)(v24 + 8);
 LABEL_48:
-            if ( *(_BYTE *)v25 == *(_BYTE *)a2 )
+            if ( *v25 == *(_BYTE *)OldSid )
             {
-              v26 = *(unsigned __int8 *)(a2 + 1);
-              if ( *(_BYTE *)(v25 + 1) == (_BYTE)v26 || *(unsigned __int8 *)(v25 + 1) == v26 + 1 )
+              v26 = *((unsigned __int8 *)OldSid + 1);
+              if ( v25[1] == (_BYTE)v26 || (unsigned __int8)v25[1] == v26 + 1 )
               {
-                v27 = *(_DWORD *)(v25 + 2) - *(_DWORD *)(a2 + 2);
+                v27 = *(_DWORD *)(v25 + 2) - *(_DWORD *)((char *)OldSid + 2);
                 if ( !v27 )
-                  v27 = *(unsigned __int16 *)(v25 + 6) - *(unsigned __int16 *)(a2 + 6);
-                if ( !v27 && !memcmp((const void *)(v25 + 8), (const void *)(a2 + 8), v7) )
+                  v27 = *((unsigned __int16 *)v25 + 3) - *((unsigned __int16 *)OldSid + 3);
+                if ( !v27 && !memcmp(v25 + 8, (char *)OldSid + 8, v7) )
                 {
-                  memmove((void *)(v25 + 8), (const void *)(v31 + 8), v7);
-                  ++*a4;
+                  memmove(v25 + 8, v31 + 8, v7);
+                  ++*NumChanges;
                 }
               }
             }
             goto LABEL_56;
           }
-          return 0LL;
+          return 0;
         }
       }
     }

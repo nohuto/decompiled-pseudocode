@@ -1,22 +1,22 @@
 /*
- * XREFs of FsRtlKernelFsControlFile @ 0x14068A050
+ * XREFs of FsRtlKernelFsControlFile @ 0x1405E94E0
  * Callers:
- *     SPCallServerHandleFileIntegrityUpdate @ 0x140727A04 (SPCallServerHandleFileIntegrityUpdate.c)
- *     SPCallServerHandleFileIntegrityQuery @ 0x140728024 (SPCallServerHandleFileIntegrityQuery.c)
- *     SPCallServerHandleFileUsnQuery @ 0x14072854C (SPCallServerHandleFileUsnQuery.c)
+ *     SPCallServerHandleFileIntegrityUpdate @ 0x140727EB4 (SPCallServerHandleFileIntegrityUpdate.c)
+ *     SPCallServerHandleFileIntegrityQuery @ 0x1407284D4 (SPCallServerHandleFileIntegrityQuery.c)
+ *     SPCallServerHandleFileUsnQuery @ 0x1407289FC (SPCallServerHandleFileUsnQuery.c)
  * Callees:
- *     MmProbeAndLockPages @ 0x140209710 (MmProbeAndLockPages.c)
- *     IoAllocateIrpEx @ 0x1402A1700 (IoAllocateIrpEx.c)
- *     IoCancelIrp @ 0x1402BB2C0 (IoCancelIrp.c)
- *     IoAllocateMdl @ 0x1402E8BB0 (IoAllocateMdl.c)
- *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
- *     IoGetRelatedDeviceObject @ 0x140351920 (IoGetRelatedDeviceObject.c)
- *     IofCallDriver @ 0x1403519C0 (IofCallDriver.c)
- *     IoFreeIrp @ 0x140353540 (IoFreeIrp.c)
- *     KeInitializeEvent @ 0x1403538F0 (KeInitializeEvent.c)
- *     memmove @ 0x140413F40 (memmove.c)
- *     FsRtlCancellableWaitForMultipleObjects @ 0x1405FCB60 (FsRtlCancellableWaitForMultipleObjects.c)
- *     FsRtlpFreeMdlChain @ 0x14088C460 (FsRtlpFreeMdlChain.c)
+ *     IoAllocateIrpEx @ 0x14021EC80 (IoAllocateIrpEx.c)
+ *     IoCancelIrp @ 0x1402394D0 (IoCancelIrp.c)
+ *     IoAllocateMdl @ 0x140299F00 (IoAllocateMdl.c)
+ *     MmProbeAndLockPages @ 0x1402AE010 (MmProbeAndLockPages.c)
+ *     KeWaitForSingleObject @ 0x1403504C0 (KeWaitForSingleObject.c)
+ *     IoGetRelatedDeviceObject @ 0x14035C670 (IoGetRelatedDeviceObject.c)
+ *     IofCallDriver @ 0x14035C710 (IofCallDriver.c)
+ *     IoFreeIrp @ 0x14035E290 (IoFreeIrp.c)
+ *     KeInitializeEvent @ 0x14035E640 (KeInitializeEvent.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     FsRtlCancellableWaitForMultipleObjects @ 0x1406EC2C0 (FsRtlCancellableWaitForMultipleObjects.c)
+ *     FsRtlpFreeMdlChain @ 0x14088C5C0 (FsRtlpFreeMdlChain.c)
  */
 
 __int64 __fastcall FsRtlKernelFsControlFile(

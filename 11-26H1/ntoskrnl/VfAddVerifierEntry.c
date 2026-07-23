@@ -1,20 +1,20 @@
 /*
- * XREFs of VfAddVerifierEntry @ 0x140C46698
+ * XREFs of VfAddVerifierEntry @ 0x140C4C6A8
  * Callers:
- *     NtSetSystemInformation @ 0x140833840 (NtSetSystemInformation.c)
+ *     NtSetSystemInformation @ 0x140839A80 (NtSetSystemInformation.c)
  * Callees:
- *     KeReleaseMutex @ 0x1403DD0F0 (KeReleaseMutex.c)
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     MmReleaseLoadLock @ 0x1404A4B70 (MmReleaseLoadLock.c)
- *     MmAcquireLoadLock @ 0x1404AB9B0 (MmAcquireLoadLock.c)
- *     RtlEqualUnicodeString @ 0x14091F0E0 (RtlEqualUnicodeString.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
- *     VfDriverEnableVerifierForAll @ 0x140C20194 (VfDriverEnableVerifierForAll.c)
- *     VfSuspectDriversAllocateEntry @ 0x140C20494 (VfSuspectDriversAllocateEntry.c)
- *     VfInitSystemNoRebootNeeded @ 0x140C205D0 (VfInitSystemNoRebootNeeded.c)
- *     VfDriverLock @ 0x140C46804 (VfDriverLock.c)
- *     VfDriverEnableVerifier @ 0x140C46844 (VfDriverEnableVerifier.c)
+ *     KeReleaseMutex @ 0x1403E02E0 (KeReleaseMutex.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     MmReleaseLoadLock @ 0x14049E200 (MmReleaseLoadLock.c)
+ *     MmAcquireLoadLock @ 0x1404A5040 (MmAcquireLoadLock.c)
+ *     RtlEqualUnicodeString @ 0x140979B40 (RtlEqualUnicodeString.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
+ *     VfDriverEnableVerifierForAll @ 0x140C261A0 (VfDriverEnableVerifierForAll.c)
+ *     VfSuspectDriversAllocateEntry @ 0x140C264A0 (VfSuspectDriversAllocateEntry.c)
+ *     VfInitSystemNoRebootNeeded @ 0x140C265DC (VfInitSystemNoRebootNeeded.c)
+ *     VfDriverLock @ 0x140C4C814 (VfDriverLock.c)
+ *     VfDriverEnableVerifier @ 0x140C4C854 (VfDriverEnableVerifier.c)
  */
 
 __int64 __fastcall VfAddVerifierEntry(const void **String2)
@@ -30,7 +30,7 @@ __int64 __fastcall VfAddVerifierEntry(const void **String2)
   int v11; // [rsp+48h] [rbp+10h] BYREF
 
   DestinationString = 0LL;
-  if ( (_DWORD)InitSafeBootMode )
+  if ( InitSafeBootMode )
   {
     v7 = -1073738742;
   }

@@ -1,14 +1,14 @@
 /*
- * XREFs of KeThawMultiProcess @ 0x1402C5CF8
+ * XREFs of KeThawMultiProcess @ 0x140310998
  * Callers:
- *     PsThawMultiProcess @ 0x14051967C (PsThawMultiProcess.c)
+ *     PsThawMultiProcess @ 0x1405130EC (PsThawMultiProcess.c)
  * Callees:
- *     KiReleaseProcessLockExclusive @ 0x140203330 (KiReleaseProcessLockExclusive.c)
- *     KiExitDispatcher @ 0x140246C20 (KiExitDispatcher.c)
- *     KiThawSingleThread @ 0x1402C6004 (KiThawSingleThread.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402DED10 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KiReleaseProcessLockExclusive @ 0x140203410 (KiReleaseProcessLockExclusive.c)
+ *     KiExitDispatcher @ 0x140248580 (KiExitDispatcher.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402C0B20 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     KiThawSingleThread @ 0x140310CA4 (KiThawSingleThread.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 __int64 __fastcall KeThawMultiProcess(__int64 a1, char a2, unsigned int a3)

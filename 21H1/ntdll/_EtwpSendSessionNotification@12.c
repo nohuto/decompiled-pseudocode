@@ -10,31 +10,32 @@
  *     @__security_check_cookie@4 @ 0x4B2F4B20 (@__security_check_cookie@4.c)
  */
 
-int __fastcall EtwpSendSessionNotification(int a1, int a2, int a3)
+ULONG __fastcall EtwpSendSessionNotification(GUID *a1, int a2, int a3)
 {
   int v4; // [esp+10h] [ebp-70h]
-  _DWORD v5[25]; // [esp+18h] [ebp-68h] BYREF
+  _ETW_NOTIFICATION_HEADER Notification; // [esp+18h] [ebp-68h] BYREF
+  int v6; // [esp+60h] [ebp-20h]
+  int v7; // [esp+64h] [ebp-1Ch]
+  int v8; // [esp+68h] [ebp-18h]
+  int v9; // [esp+6Ch] [ebp-14h]
+  int v10; // [esp+70h] [ebp-10h]
+  int v11; // [esp+74h] [ebp-Ch]
 
   HIWORD(v4) = 256;
-  LOWORD(v4) = *(_WORD *)(a1 + 20);
-  memset(&v5[2], 0, 16);
-  v5[6] = -1;
-  v5[7] = 0;
-  v5[8] = 0;
-  v5[1] = 96;
-  v5[0] = 7;
-  v5[10] = SessionNotificationGuid[0];
-  v5[11] = SessionNotificationGuid[1];
-  v5[12] = SessionNotificationGuid[2];
-  v5[13] = SessionNotificationGuid[3];
-  v5[14] = *(_DWORD *)(a1 + 48);
-  v5[15] = *(_DWORD *)(a1 + 52);
-  v5[16] = *(_DWORD *)(a1 + 56);
-  v5[17] = *(_DWORD *)(a1 + 60);
-  v5[20] = v4;
-  v5[19] = a3;
-  memset(&v5[21], 0, 12);
-  v5[18] = a2;
-  v5[9] = NtCurrentTeb()->ClientId.UniqueProcess;
-  return EtwDeliverDataBlock((int)v5);
+  LOWORD(v4) = a1[1].Data2;
+  memset(&Notification.Offset, 0, 16);
+  Notification.Reserved2 = 0xFFFFFFFFLL;
+  Notification.TargetPID = 0;
+  v10 = 0;
+  v11 = 0;
+  Notification.NotificationSize = 96;
+  Notification.NotificationType = EtwNotificationTypeSession;
+  Notification.DestinationGuid = *(GUID *)SessionNotificationGuid;
+  Notification.SourceGuid = a1[3];
+  v8 = v4;
+  v7 = a3;
+  v9 = 0;
+  v6 = a2;
+  Notification.SourcePID = (ULONG)NtCurrentTeb()->ClientId.UniqueProcess;
+  return EtwDeliverDataBlock(&Notification);
 }

@@ -1,30 +1,30 @@
 /*
- * XREFs of MiAllocateAccessLog @ 0x140274CE0
+ * XREFs of MiAllocateAccessLog @ 0x140262C80
  * Callers:
- *     MiLogPageAccess @ 0x14033A650 (MiLogPageAccess.c)
+ *     MiLogPageAccess @ 0x1403453A0 (MiLogPageAccess.c)
  * Callees:
- *     MiEmptyPageAccessLog @ 0x14025BC70 (MiEmptyPageAccessLog.c)
- *     MiInitializePageAccessLogging @ 0x140274E20 (MiInitializePageAccessLogging.c)
- *     MiSufficientAvailablePages @ 0x140275470 (MiSufficientAvailablePages.c)
- *     ExAllocatePoolMm @ 0x14033B3B0 (ExAllocatePoolMm.c)
+ *     MiInitializePageAccessLogging @ 0x140262DC0 (MiInitializePageAccessLogging.c)
+ *     MiSufficientAvailablePages @ 0x140263410 (MiSufficientAvailablePages.c)
+ *     MiEmptyPageAccessLog @ 0x14027D1E0 (MiEmptyPageAccessLog.c)
+ *     ExAllocatePoolMm @ 0x140346100 (ExAllocatePoolMm.c)
  */
 
-PVOID **__fastcall MiAllocateAccessLog(__int64 a1)
+_QWORD *__fastcall MiAllocateAccessLog(__int64 a1)
 {
   __int64 v2; // rdi
   unsigned __int64 v3; // rbp
-  PVOID **v4; // rdi
-  PVOID *v5; // rsi
+  PVOID *v4; // rdi
+  _QWORD **v5; // rsi
   __int64 v6; // r9
   __int64 PoolMm; // rax
-  PVOID **v8; // rdx
-  PVOID **result; // rax
+  _QWORD *v8; // rdx
+  _QWORD *result; // rax
   _QWORD *v10; // rax
 
-  v2 = *(_QWORD *)(qword_140C4E648 + 8LL * *(unsigned __int16 *)(a1 + 174));
+  v2 = *(_QWORD *)(qword_140C4E688 + 8LL * *(unsigned __int16 *)(a1 + 174));
   if ( (unsigned int)MiSufficientAvailablePages(v2, 1056LL)
     && *(__int64 *)(v2 + 7168) >= 1056
-    && (unsigned __int64)(MiState[0] - qword_140C4C8C8) >= 0x800 )
+    && (unsigned __int64)(MiState - qword_140C4C908) >= 0x800 )
   {
     v3 = 4096LL;
   }
@@ -33,10 +33,10 @@ PVOID **__fastcall MiAllocateAccessLog(__int64 a1)
     v3 = 512LL;
   }
   if ( (*(_BYTE *)(a1 + 184) & 7) == 2 )
-    v4 = (PVOID **)&unk_140C4F7A8;
+    v4 = (PVOID *)&unk_140C4F7E8;
   else
-    v4 = (PVOID **)(a1 + 232);
-  v5 = *v4;
+    v4 = (PVOID *)(a1 + 232);
+  v5 = (_QWORD **)*v4;
   if ( *v4 )
   {
     v10 = *v5;
@@ -54,7 +54,7 @@ PVOID **__fastcall MiAllocateAccessLog(__int64 a1)
     PoolMm = ExAllocatePoolMm(64LL, v3, 1665232205LL, v6);
     if ( PoolMm )
     {
-      *v4 = (PVOID *)PoolMm;
+      *v4 = (PVOID)PoolMm;
       MiInitializePageAccessLogging(a1, PoolMm, v3);
       result = v8;
       *v8 = v5;

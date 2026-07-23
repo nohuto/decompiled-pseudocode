@@ -1,9 +1,9 @@
 /*
- * XREFs of VmSetVpHostProcess @ 0x14079EEE0
+ * XREFs of VmSetVpHostProcess @ 0x14079EFF0
  * Callers:
  *     <none>
  * Callees:
- *     PsSetVmProcessorHostProcess @ 0x14077669C (PsSetVmProcessorHostProcess.c)
+ *     PsSetVmProcessorHostProcess @ 0x1407768BC (PsSetVmProcessorHostProcess.c)
  */
 
 NTSTATUS __fastcall VmSetVpHostProcess(_QWORD *a1)

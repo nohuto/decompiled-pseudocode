@@ -1,10 +1,10 @@
 /*
- * XREFs of PlugPlayGetDeviceProperty @ 0x1404CF7C8
+ * XREFs of PlugPlayGetDeviceProperty @ 0x14050C894
  * Callers:
- *     PiPnpRtlGetDeviceNtPropertyRoutine @ 0x1404CF790 (PiPnpRtlGetDeviceNtPropertyRoutine.c)
+ *     PiPnpRtlGetDeviceNtPropertyRoutine @ 0x14050C85C (PiPnpRtlGetDeviceNtPropertyRoutine.c)
  * Callees:
- *     ZwPlugPlayControl @ 0x14015C0E0 (ZwPlugPlayControl.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     ZwPlugPlayControl @ 0x14015C650 (ZwPlugPlayControl.c)
+ *     memset @ 0x140171AC0 (memset.c)
  */
 
 __int64 __fastcall PlugPlayGetDeviceProperty(__int128 *a1, int a2, __int64 a3, unsigned int a4, _DWORD *a5, int a6)

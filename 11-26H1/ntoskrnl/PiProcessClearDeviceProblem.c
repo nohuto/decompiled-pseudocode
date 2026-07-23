@@ -1,14 +1,14 @@
 /*
- * XREFs of PiProcessClearDeviceProblem @ 0x140B419C4
+ * XREFs of PiProcessClearDeviceProblem @ 0x14096EEE0
  * Callers:
- *     PnpDeviceActionWorker @ 0x140482AA0 (PnpDeviceActionWorker.c)
+ *     PnpDeviceActionWorker @ 0x14047C410 (PnpDeviceActionWorker.c)
  * Callees:
- *     PipIsProblemReadonly @ 0x1407A53EC (PipIsProblemReadonly.c)
- *     PipClearDevNodeFlags @ 0x14090E080 (PipClearDevNodeFlags.c)
- *     PipClearDevNodeProblem @ 0x140914C5C (PipClearDevNodeProblem.c)
- *     PiPnpRtlBeginOperation @ 0x1409A7AC8 (PiPnpRtlBeginOperation.c)
- *     PiPnpRtlEndOperation @ 0x1409A7CB4 (PiPnpRtlEndOperation.c)
- *     PnpRestartDeviceNode @ 0x140B218FC (PnpRestartDeviceNode.c)
+ *     PipIsProblemReadonly @ 0x1407A7F2C (PipIsProblemReadonly.c)
+ *     PiPnpRtlBeginOperation @ 0x140968528 (PiPnpRtlBeginOperation.c)
+ *     PiPnpRtlEndOperation @ 0x140968708 (PiPnpRtlEndOperation.c)
+ *     PipClearDevNodeProblem @ 0x14096F6C8 (PipClearDevNodeProblem.c)
+ *     PipClearDevNodeFlags @ 0x1409B01B0 (PipClearDevNodeFlags.c)
+ *     PnpRestartDeviceNode @ 0x140B23CFC (PnpRestartDeviceNode.c)
  */
 
 __int64 __fastcall PiProcessClearDeviceProblem(__int64 a1)
@@ -20,8 +20,7 @@ __int64 __fastcall PiProcessClearDeviceProblem(__int64 a1)
   int v6; // ecx
   int v7; // eax
   bool v8; // zf
-  __int64 v9; // rdx
-  int v10; // eax
+  int v9; // eax
   PVOID P; // [rsp+30h] [rbp+8h] BYREF
 
   v1 = *(_QWORD *)(a1 + 16);
@@ -62,11 +61,11 @@ __int64 __fastcall PiProcessClearDeviceProblem(__int64 a1)
     return (unsigned int)-1073741808;
 LABEL_18:
   PiPnpRtlBeginOperation(&P);
-  PipClearDevNodeFlags((__int64)v4, 0x4000);
-  PipClearDevNodeProblem((__int64)v4, v9);
-  v10 = v4[75];
-  if ( v10 != 769 && v10 != 770 )
-    PnpRestartDeviceNode((__int64)v4);
+  PipClearDevNodeFlags(v4, 0x4000LL);
+  PipClearDevNodeProblem(v4);
+  v9 = v4[75];
+  if ( v9 != 769 && v9 != 770 )
+    PnpRestartDeviceNode(v4);
   if ( P )
     PiPnpRtlEndOperation((char *)P);
   return v2;

@@ -1,11 +1,11 @@
 /*
- * XREFs of KiComputeSharedReadyQueueAssignments @ 0x1405FB9A0
+ * XREFs of KiComputeSharedReadyQueueAssignments @ 0x1405FE3F0
  * Callers:
- *     KiAssignSubNodeSharedReadyQueues @ 0x1405EA5A0 (KiAssignSubNodeSharedReadyQueues.c)
+ *     KiAssignSubNodeSharedReadyQueues @ 0x1405ECF10 (KiAssignSubNodeSharedReadyQueues.c)
  * Callees:
- *     KiComputePartialSharedReadyQueueAssignments @ 0x1405FB8D4 (KiComputePartialSharedReadyQueueAssignments.c)
- *     KiMergeSmallSharedReadyQueueAssignments @ 0x1405FC1D8 (KiMergeSmallSharedReadyQueueAssignments.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     KiComputePartialSharedReadyQueueAssignments @ 0x1405FE324 (KiComputePartialSharedReadyQueueAssignments.c)
+ *     KiMergeSmallSharedReadyQueueAssignments @ 0x1405FEC28 (KiMergeSmallSharedReadyQueueAssignments.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall KiComputeSharedReadyQueueAssignments(__int64 a1, unsigned int a2, unsigned __int8 *a3, _OWORD *a4)

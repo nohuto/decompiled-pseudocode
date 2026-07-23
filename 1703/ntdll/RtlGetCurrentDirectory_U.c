@@ -10,94 +10,94 @@
  *     memmove @ 0x1800ABA80 (memmove.c)
  */
 
-__int64 __fastcall RtlGetCurrentDirectory_U(__int64 a1, char *a2)
+ULONG __cdecl RtlGetCurrentDirectory_U(ULONG BufferLength, PWSTR Buffer)
 {
   unsigned __int64 v2; // rbp
   __int64 v4; // rax
-  unsigned __int64 v5; // rbx
-  wchar_t *Buffer; // rdx
+  HANDLE *v5; // rbx
+  PWCH v6; // rdx
   unsigned int Length; // edi
   __int64 v8; // rdi
-  size_t v9; // rsi
-  struct _RTL_USER_PROCESS_PARAMETERS *ProcessParameters; // rcx
+  __int64 v9; // rsi
+  PRTL_USER_PROCESS_PARAMETERS ProcessParameters; // rcx
 
-  v2 = (unsigned int)a1;
-  LOBYTE(a1) = 1;
-  v4 = sub_18007B108(a1, a2);
-  v5 = v4;
+  v2 = BufferLength;
+  LOBYTE(BufferLength) = 1;
+  v4 = sub_18007B108(BufferLength, Buffer);
+  v5 = (HANDLE *)v4;
   if ( v4 )
   {
-    Buffer = *(wchar_t **)(v4 + 32);
+    v6 = *(PWCH *)(v4 + 32);
     Length = *(unsigned __int16 *)(v4 + 24);
   }
   else
   {
     ProcessParameters = NtCurrentPeb()->ProcessParameters;
-    Buffer = ProcessParameters->CurrentDirectory.DosPath.Buffer;
+    v6 = ProcessParameters->CurrentDirectory.DosPath.Buffer;
     Length = ProcessParameters->CurrentDirectory.DosPath.Length;
   }
   v8 = Length >> 1;
-  if ( (unsigned int)v8 < 2 || Buffer[(unsigned int)(v8 - 2)] == 58 )
+  if ( (unsigned int)v8 < 2 || v6[(unsigned int)(v8 - 2)] == 58 )
   {
-    v9 = 2 * v8;
+    v9 = v8;
     if ( v2 > 2 * v8 )
       goto LABEL_6;
     if ( v4 )
     {
       if ( _InterlockedExchangeAdd((volatile signed __int32 *)v4, 0xFFFFFFFF) == 1 )
       {
-        ZwClose(*(_QWORD *)(v4 + 8));
-        RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v5);
+        ZwClose(*(HANDLE *)(v4 + 8));
+        RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v5);
       }
     }
     else
     {
-      RtlLeaveCriticalSection((__int64)&unk_18015AE60);
+      RtlLeaveCriticalSection(&stru_18015AE60);
     }
-    return (unsigned int)(2 * v8 + 2);
+    return 2 * v8 + 2;
   }
   else
   {
-    v9 = 2 * v8;
+    v9 = v8;
     if ( v2 >= 2 * v8 )
     {
 LABEL_6:
-      memmove(a2, Buffer, v9);
+      memmove(Buffer, v6, v9 * 2);
       if ( v5 )
       {
         if ( _InterlockedExchangeAdd((volatile signed __int32 *)v5, 0xFFFFFFFF) == 1 )
         {
-          ZwClose(*(_QWORD *)(v5 + 8));
-          RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v5);
+          ZwClose(v5[1]);
+          RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v5);
         }
       }
       else
       {
-        RtlLeaveCriticalSection((__int64)&unk_18015AE60);
+        RtlLeaveCriticalSection(&stru_18015AE60);
       }
-      if ( (unsigned int)v8 > 1 && *(_WORD *)&a2[2 * (unsigned int)(v8 - 2)] == 58 )
+      if ( (unsigned int)v8 > 1 && Buffer[(unsigned int)(v8 - 2)] == 58 )
       {
-        *(_WORD *)&a2[v9] = 0;
+        Buffer[v9] = 0;
       }
       else
       {
         LODWORD(v8) = v8 - 1;
-        *(_WORD *)&a2[2 * (unsigned int)v8] = 0;
+        Buffer[(unsigned int)v8] = 0;
       }
-      return (unsigned int)(2 * v8);
+      return 2 * v8;
     }
     if ( v4 )
     {
       if ( _InterlockedExchangeAdd((volatile signed __int32 *)v4, 0xFFFFFFFF) == 1 )
       {
-        ZwClose(*(_QWORD *)(v4 + 8));
-        RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v5);
+        ZwClose(*(HANDLE *)(v4 + 8));
+        RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v5);
       }
     }
     else
     {
-      RtlLeaveCriticalSection((__int64)&unk_18015AE60);
+      RtlLeaveCriticalSection(&stru_18015AE60);
     }
-    return (unsigned int)v9;
+    return 2 * v8;
   }
 }

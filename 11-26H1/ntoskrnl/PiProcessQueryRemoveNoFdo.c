@@ -1,13 +1,13 @@
 /*
- * XREFs of PiProcessQueryRemoveNoFdo @ 0x1407B87D4
+ * XREFs of PiProcessQueryRemoveNoFdo @ 0x1407BB834
  * Callers:
- *     PnpProcessQueryRemoveAndEject @ 0x140911B30 (PnpProcessQueryRemoveAndEject.c)
+ *     PnpProcessQueryRemoveAndEject @ 0x1409B3C10 (PnpProcessQueryRemoveAndEject.c)
  * Callees:
- *     PipIsProblemReadonly @ 0x1407A53EC (PipIsProblemReadonly.c)
- *     PiGetTargetDeviceNode @ 0x14091250C (PiGetTargetDeviceNode.c)
- *     PipClearDevNodeProblem @ 0x140914C5C (PipClearDevNodeProblem.c)
- *     PipSetDevNodeProblem @ 0x140916A54 (PipSetDevNodeProblem.c)
- *     PnpRestartDeviceNode @ 0x140B218FC (PnpRestartDeviceNode.c)
+ *     PipIsProblemReadonly @ 0x1407A7F2C (PipIsProblemReadonly.c)
+ *     PipClearDevNodeProblem @ 0x14096F6C8 (PipClearDevNodeProblem.c)
+ *     PipSetDevNodeProblem @ 0x1409714C0 (PipSetDevNodeProblem.c)
+ *     PiGetTargetDeviceNode @ 0x1409B45EC (PiGetTargetDeviceNode.c)
+ *     PnpRestartDeviceNode @ 0x140B23CFC (PnpRestartDeviceNode.c)
  */
 
 __int64 __fastcall PiProcessQueryRemoveNoFdo(__int64 a1)

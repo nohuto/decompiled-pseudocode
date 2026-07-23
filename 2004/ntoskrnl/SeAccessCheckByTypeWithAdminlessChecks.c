@@ -78,7 +78,7 @@ __int64 __fastcall SeAccessCheckByTypeWithAdminlessChecks(
   __int64 v27; // rax
   __int64 v28; // rax
   __int64 v29; // rax
-  __int64 v30; // rax
+  void *v30; // rax
   char v31; // r13
   int v32; // eax
   int v33; // ecx
@@ -125,7 +125,7 @@ __int64 __fastcall SeAccessCheckByTypeWithAdminlessChecks(
   unsigned int v74; // ecx
   _DWORD *v75; // r9
   __int64 v76; // rcx
-  __int64 v77; // rax
+  ACL *v77; // rax
   void *ScopedPolicySid; // rax
   int Cap; // eax
   __int64 v80; // rdx
@@ -181,7 +181,7 @@ __int64 __fastcall SeAccessCheckByTypeWithAdminlessChecks(
   PVOID v130; // [rsp+130h] [rbp-188h] BYREF
   __int64 v131; // [rsp+138h] [rbp-180h]
   int v132; // [rsp+140h] [rbp-178h] BYREF
-  __int64 v133; // [rsp+148h] [rbp-170h]
+  ACL *v133; // [rsp+148h] [rbp-170h]
   PVOID P; // [rsp+150h] [rbp-168h]
   __int64 v135; // [rsp+158h] [rbp-160h]
   __int64 v136; // [rsp+160h] [rbp-158h] BYREF
@@ -391,9 +391,9 @@ LABEL_35:
   if ( !v29 )
     goto LABEL_173;
   if ( v113[0] )
-    v30 = v145;
+    v30 = (void *)v145;
   else
-    v30 = *(_QWORD *)&v25[69].Version;
+    v30 = *(void **)&v25[69].Version;
   v24 = SepTrustLevelCheck((__int64)&v132, v119, 0LL, (__int64)v25, v30, 1, &v132);
   v106 = v24;
   if ( v24 < 0 )
@@ -581,7 +581,7 @@ LABEL_172:
   {
     if ( *v138 >= 0 )
     {
-      v77 = *(_QWORD *)(v119 + 24);
+      v77 = *(ACL **)(v119 + 24);
     }
     else
     {
@@ -591,7 +591,7 @@ LABEL_172:
         v133 = 0LL;
         goto LABEL_55;
       }
-      v77 = v119 + v76;
+      v77 = (ACL *)(v119 + v76);
     }
     v133 = v77;
     if ( v77 )

@@ -1,10 +1,10 @@
 /*
- * XREFs of IoInitializeTimer @ 0x140796480
+ * XREFs of IoInitializeTimer @ 0x140798FB0
  * Callers:
- *     DifIoInitializeTimerWrapper @ 0x14065CE70 (DifIoInitializeTimerWrapper.c)
+ *     DifIoInitializeTimerWrapper @ 0x140660A50 (DifIoInitializeTimerWrapper.c)
  * Callees:
- *     ExInterlockedInsertTailList @ 0x1403DE450 (ExInterlockedInsertTailList.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
+ *     ExInterlockedInsertTailList @ 0x1403E1640 (ExInterlockedInsertTailList.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
  */
 
 NTSTATUS __stdcall IoInitializeTimer(PDEVICE_OBJECT DeviceObject, PIO_TIMER_ROUTINE TimerRoutine, PVOID Context)
@@ -23,6 +23,6 @@ NTSTATUS __stdcall IoInitializeTimer(PDEVICE_OBJECT DeviceObject, PIO_TIMER_ROUT
   }
   Timer->TimerRoutine = (void (__fastcall *)(_DEVICE_OBJECT *, void *))TimerRoutine;
   Timer->Context = Context;
-  ExInterlockedInsertTailList(&IopTimerQueueHead, &Timer->TimerList, &IopTimerLock);
+  ExInterlockedInsertTailList((PLIST_ENTRY)&IopPerfIoTrackingLock.WaitBlockFill11[64], &Timer->TimerList, &IopTimerLock);
   return 0;
 }

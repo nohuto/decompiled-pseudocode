@@ -1,13 +1,13 @@
 /*
- * XREFs of VfZwQueryDirectoryFile @ 0x140948A20
+ * XREFs of VfZwQueryDirectoryFile @ 0x140949A20
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     ViZwCheckApcRequirement @ 0x14094A634 (ViZwCheckApcRequirement.c)
- *     ViZwCheckUnicodeString @ 0x14094A6EC (ViZwCheckUnicodeString.c)
- *     ViZwCheckVirtualAddress @ 0x14094A784 (ViZwCheckVirtualAddress.c)
- *     ViZwShouldCheck @ 0x14094A7CC (ViZwShouldCheck.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     ViZwCheckApcRequirement @ 0x14094B634 (ViZwCheckApcRequirement.c)
+ *     ViZwCheckUnicodeString @ 0x14094B6EC (ViZwCheckUnicodeString.c)
+ *     ViZwCheckVirtualAddress @ 0x14094B784 (ViZwCheckVirtualAddress.c)
+ *     ViZwShouldCheck @ 0x14094B7CC (ViZwShouldCheck.c)
  */
 
 __int64 __fastcall VfZwQueryDirectoryFile(

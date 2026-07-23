@@ -1,11 +1,11 @@
 /*
- * XREFs of EmonMarkCountersReserved @ 0x14055BF80
+ * XREFs of EmonMarkCountersReserved @ 0x140559BB0
  * Callers:
  *     <none>
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
- *     HalpAllocateHalCounters @ 0x14053E368 (HalpAllocateHalCounters.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     HalpAllocateHalCounters @ 0x14053BC68 (HalpAllocateHalCounters.c)
  */
 
 __int64 __fastcall EmonMarkCountersReserved(__int64 a1)

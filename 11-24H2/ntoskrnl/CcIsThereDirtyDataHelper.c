@@ -1,10 +1,10 @@
 /*
- * XREFs of CcIsThereDirtyDataHelper @ 0x140480A40
+ * XREFs of CcIsThereDirtyDataHelper @ 0x14047B510
  * Callers:
- *     CcIsThereDirtyData @ 0x140480940 (CcIsThereDirtyData.c)
+ *     CcIsThereDirtyData @ 0x14047B410 (CcIsThereDirtyData.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLock @ 0x140275CD0 (KeReleaseInStackQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x1402D8540 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x14022B260 (KeReleaseInStackQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1403597C0 (KeAcquireInStackQueuedSpinLock.c)
  */
 
 char __fastcall CcIsThereDirtyDataHelper(__int64 a1, __int64 a2, __int64 a3)

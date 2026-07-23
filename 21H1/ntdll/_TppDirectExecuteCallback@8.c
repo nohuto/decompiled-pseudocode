@@ -10,50 +10,53 @@
  *     _RtlpHpAppCompatDontChangePolicy@0 @ 0x4B2ED850 (_RtlpHpAppCompatDontChangePolicy@0.c)
  */
 
-int __stdcall TppDirectExecuteCallback(int a1, int a2)
+void __stdcall TppDirectExecuteCallback(_RTL_SRWLOCK *a1, _RTL_SRWLOCK *a2)
 {
-  _DWORD *v2; // eax
-  _DWORD *v3; // esi
-  int v4; // ecx
+  unsigned int *v2; // eax
+  _RTL_SRWLOCK *Value; // esi
+  unsigned int v4; // ecx
   bool v5; // bl
-  int result; // eax
-  _DWORD *v7; // eax
-  int *v8; // esi
-  int v9; // ecx
-  int v10; // [esp+14h] [ebp-Ch]
-  _DWORD v11[2]; // [esp+18h] [ebp-8h] BYREF
+  unsigned int *v6; // eax
+  unsigned int *v7; // esi
+  unsigned int v8; // ecx
+  int v9; // [esp+14h] [ebp-Ch]
+  _DWORD v10[2]; // [esp+18h] [ebp-8h] BYREF
 
-  RtlAcquireSRWLockExclusive(a2 + 20);
-  v2 = (_DWORD *)(a2 + 24);
-  v3 = *(_DWORD **)(a2 + 24);
-  if ( v3 == (_DWORD *)(a2 + 24) )
+  RtlAcquireSRWLockExclusive(a2 + 5);
+  v2 = (unsigned int *)&a2[6];
+  Value = (_RTL_SRWLOCK *)a2[6].Value;
+  if ( Value == &a2[6] )
   {
-    v3 = 0;
+    Value = 0;
   }
   else
   {
-    if ( (_DWORD *)v3[1] != v2 || (v4 = *v3, *(_DWORD **)(*v3 + 4) != v3) )
+    if ( (unsigned int *)Value[1].Value != v2 || (v4 = Value->Value, *(_RTL_SRWLOCK **)(Value->Value + 4) != Value) )
       __fastfail(3u);
     *v2 = v4;
     *(_DWORD *)(v4 + 4) = v2;
   }
   v5 = *v2 != (_DWORD)v2;
-  result = RtlReleaseSRWLockExclusive(a2 + 20);
+  RtlReleaseSRWLockExclusive(a2 + 5);
   if ( v5 )
-    result = TpPostTask(1, 0);
-  if ( v3 )
+    TpPostTask(1, 0);
+  if ( Value )
   {
-    v7 = v3 - 4;
-    v8 = v3 - 3;
-    v10 = *v8++;
-    v11[0] = *v8;
-    v11[1] = v8[1];
-    v9 = v7[6];
-    if ( !_InterlockedExchangeAdd((volatile signed __int32 *)(v9 + 4), 0xFFFFFFFF) )
-      RtlFreeHeap(NtCurrentPeb()->ProcessHeap, TppHeapTag + 3145728, *(_DWORD *)v9);
-    *(_DWORD *)(a1 + 48) = *(_DWORD *)(a2 + 32);
-    *(_DWORD *)(a1 + 52) = a2;
-    return (*(int (__thiscall **)(_DWORD, int, int, int, _DWORD *))(a2 + 32))(*(_DWORD *)(a2 + 32), a1, a2, v10, v11);
+    v6 = (unsigned int *)&Value[-4];
+    v7 = (unsigned int *)&Value[-3];
+    v9 = *v7++;
+    v10[0] = *v7;
+    v10[1] = v7[1];
+    v8 = v6[6];
+    if ( !_InterlockedExchangeAdd((volatile signed __int32 *)(v8 + 4), 0xFFFFFFFF) )
+      RtlFreeHeap(NtCurrentPeb()->ProcessHeap, TppHeapTag + 3145728, *(PVOID *)v8);
+    a1[12].0 = a2[8].0;
+    a1[13].Value = (unsigned int)a2;
+    ((void (__thiscall *)(unsigned int, _RTL_SRWLOCK *, _RTL_SRWLOCK *, int, _DWORD *))a2[8].Value)(
+      a2[8].Value,
+      a1,
+      a2,
+      v9,
+      v10);
   }
-  return result;
 }

@@ -1,14 +1,14 @@
 /*
- * XREFs of ObpDeleteDirectoryName @ 0x1409E4BA0
+ * XREFs of ObpDeleteDirectoryName @ 0x1409DF600
  * Callers:
- *     ObpDecrementHandleCount @ 0x1408410A0 (ObpDecrementHandleCount.c)
- *     ObCloseHandleTableEntry @ 0x14084BFA0 (ObCloseHandleTableEntry.c)
- *     ObpDeleteNameCheck @ 0x14089B690 (ObpDeleteNameCheck.c)
- *     ObpInsertOrLocateNamedObject @ 0x1409E45C0 (ObpInsertOrLocateNamedObject.c)
+ *     ObpDecrementHandleCount @ 0x14083D360 (ObpDecrementHandleCount.c)
+ *     ObCloseHandleTableEntry @ 0x140848260 (ObCloseHandleTableEntry.c)
+ *     ObpDeleteNameCheck @ 0x1408A3D30 (ObpDeleteNameCheck.c)
+ *     ObpInsertOrLocateNamedObject @ 0x1409DF020 (ObpInsertOrLocateNamedObject.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x1403254A0 (ObfDereferenceObjectWithTag.c)
- *     ObpMarkDirectoryObjectsTemporary @ 0x1409E4C18 (ObpMarkDirectoryObjectsTemporary.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CE030 (ObfDereferenceObjectWithTag.c)
+ *     ObpMarkDirectoryObjectsTemporary @ 0x1409DF678 (ObpMarkDirectoryObjectsTemporary.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 POBJECT_TYPE __fastcall ObpDeleteDirectoryName(char *Object)

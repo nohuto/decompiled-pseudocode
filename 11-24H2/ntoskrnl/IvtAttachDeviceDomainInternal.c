@@ -1,21 +1,21 @@
 /*
- * XREFs of IvtAttachDeviceDomainInternal @ 0x14056DA10
+ * XREFs of IvtAttachDeviceDomainInternal @ 0x14056AEA0
  * Callers:
- *     IvtAttachDeviceDomain @ 0x14056D9C0 (IvtAttachDeviceDomain.c)
- *     IvtDetachDeviceDomain @ 0x14056E020 (IvtDetachDeviceDomain.c)
+ *     IvtAttachDeviceDomain @ 0x14056AE50 (IvtAttachDeviceDomain.c)
+ *     IvtDetachDeviceDomain @ 0x14056B4B0 (IvtDetachDeviceDomain.c)
  * Callees:
- *     KeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x1402D84E0 (KeAcquireInStackQueuedSpinLockAtDpcLevel.c)
- *     KxReleaseQueuedSpinLock @ 0x140321BB0 (KxReleaseQueuedSpinLock.c)
- *     HalpReleaseHighLevelLock @ 0x1403B9898 (HalpReleaseHighLevelLock.c)
- *     HalpAcquireHighLevelLock @ 0x1403B9FD0 (HalpAcquireHighLevelLock.c)
- *     IvtFlushTbInternal @ 0x1403BA188 (IvtFlushTbInternal.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
- *     IvtUpdateTranslationStructures @ 0x1404F810C (IvtUpdateTranslationStructures.c)
- *     IvtAllocateTranslationStructures @ 0x14056D8D8 (IvtAllocateTranslationStructures.c)
- *     IvtFreeScalableModePasidTables @ 0x14056E600 (IvtFreeScalableModePasidTables.c)
- *     IvtGetDomainId @ 0x14056E758 (IvtGetDomainId.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     KxReleaseQueuedSpinLock @ 0x1402CA740 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x140359760 (KeAcquireInStackQueuedSpinLockAtDpcLevel.c)
+ *     HalpReleaseHighLevelLock @ 0x140372268 (HalpReleaseHighLevelLock.c)
+ *     HalpAcquireHighLevelLock @ 0x1403729A0 (HalpAcquireHighLevelLock.c)
+ *     IvtFlushTbInternal @ 0x140372B58 (IvtFlushTbInternal.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     IvtUpdateTranslationStructures @ 0x1404F59EC (IvtUpdateTranslationStructures.c)
+ *     IvtAllocateTranslationStructures @ 0x14056AD68 (IvtAllocateTranslationStructures.c)
+ *     IvtFreeScalableModePasidTables @ 0x14056BA90 (IvtFreeScalableModePasidTables.c)
+ *     IvtGetDomainId @ 0x14056BBE8 (IvtGetDomainId.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 __int64 __fastcall IvtAttachDeviceDomainInternal(__int64 a1, _QWORD *a2, _BYTE *a3)

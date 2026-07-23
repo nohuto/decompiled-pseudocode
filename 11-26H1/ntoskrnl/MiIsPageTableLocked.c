@@ -1,10 +1,10 @@
 /*
- * XREFs of MiIsPageTableLocked @ 0x14048060C
+ * XREFs of MiIsPageTableLocked @ 0x140479F4C
  * Callers:
- *     MiResetAccessBitPte @ 0x14029C890 (MiResetAccessBitPte.c)
- *     MiFastTrimWorkingSet @ 0x14031F690 (MiFastTrimWorkingSet.c)
+ *     MiResetAccessBitPte @ 0x14029BDF0 (MiResetAccessBitPte.c)
+ *     MiFastTrimWorkingSet @ 0x1403216C0 (MiFastTrimWorkingSet.c)
  * Callees:
- *     MiPteHasShadow @ 0x1403011E0 (MiPteHasShadow.c)
+ *     MiPteHasShadow @ 0x1402E3260 (MiPteHasShadow.c)
  */
 
 __int64 __fastcall MiIsPageTableLocked(__int64 a1, unsigned __int64 a2)
@@ -29,13 +29,13 @@ __int64 __fastcall MiIsPageTableLocked(__int64 a1, unsigned __int64 a2)
     {
       if ( v11 == 7 )
       {
-        v12 = &unk_140E2E920;
+        v12 = &unk_140E2EAA0;
       }
       else
       {
-        v12 = &unk_140E2E918;
+        v12 = &unk_140E2EA98;
         if ( v11 != 5 )
-          v12 = &unk_140E2E930;
+          v12 = &unk_140E2EAB0;
       }
     }
     else
@@ -55,7 +55,7 @@ __int64 __fastcall MiIsPageTableLocked(__int64 a1, unsigned __int64 a2)
     }
   }
   if ( (*(_DWORD *)(a1 + 184) & 0xF) != 0 && a2 >= 0xFFFFF6FB7DBED000uLL && a2 <= 0xFFFFF6FB7DBEDFFFuLL )
-    return (*(_DWORD *)&stru_140E2D930.PriorityFloorCounts[4
+    return (*(_DWORD *)&stru_140E2DAB0.PriorityFloorCounts[4
                                                          * ((unsigned __int64)(2
                                                                              * (unsigned int)((__int64)(a2 + 0x90482413000LL) >> 3)) >> 5)
                                                          + 4] >> ((2 * ((__int64)(a2 + 0x90482413000LL) >> 3)) & 0x1F)) & 1;

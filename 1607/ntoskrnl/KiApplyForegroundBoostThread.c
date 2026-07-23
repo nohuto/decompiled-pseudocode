@@ -1,16 +1,16 @@
 /*
- * XREFs of KiApplyForegroundBoostThread @ 0x1400CAD5C
+ * XREFs of KiApplyForegroundBoostThread @ 0x1400C8BFC
  * Callers:
- *     KeSetPriorityAndQuantumProcess @ 0x14007EA64 (KeSetPriorityAndQuantumProcess.c)
- *     KiProcessPendingForegroundBoosts @ 0x1400CABB4 (KiProcessPendingForegroundBoosts.c)
+ *     KeSetPriorityAndQuantumProcess @ 0x14007EAE4 (KeSetPriorityAndQuantumProcess.c)
+ *     KiProcessPendingForegroundBoosts @ 0x1400C8A54 (KiProcessPendingForegroundBoosts.c)
  * Callees:
- *     KiSelectReadyThreadEx @ 0x14005DF30 (KiSelectReadyThreadEx.c)
- *     KiUpdateThreadState @ 0x140091CEC (KiUpdateThreadState.c)
- *     KiUpdateThreadPriority @ 0x140091DA8 (KiUpdateThreadPriority.c)
- *     KiPrepareReadyThreadForRescheduling @ 0x140091E58 (KiPrepareReadyThreadForRescheduling.c)
- *     KiRemoveThreadFromAnyReadyQueue @ 0x1400AA948 (KiRemoveThreadFromAnyReadyQueue.c)
- *     KiAcquireThreadStateLock @ 0x1400D3590 (KiAcquireThreadStateLock.c)
- *     KiUpdateSharedReadyQueueAffinityThread @ 0x1400F2E14 (KiUpdateSharedReadyQueueAffinityThread.c)
+ *     KiSelectReadyThreadEx @ 0x14005DAB0 (KiSelectReadyThreadEx.c)
+ *     KiUpdateThreadState @ 0x14009144C (KiUpdateThreadState.c)
+ *     KiUpdateThreadPriority @ 0x140091508 (KiUpdateThreadPriority.c)
+ *     KiPrepareReadyThreadForRescheduling @ 0x1400915B8 (KiPrepareReadyThreadForRescheduling.c)
+ *     KiRemoveThreadFromAnyReadyQueue @ 0x1400A8EC8 (KiRemoveThreadFromAnyReadyQueue.c)
+ *     KiAcquireThreadStateLock @ 0x1400D1430 (KiAcquireThreadStateLock.c)
+ *     KiUpdateSharedReadyQueueAffinityThread @ 0x1400F0C64 (KiUpdateSharedReadyQueueAffinityThread.c)
  */
 
 char __fastcall KiApplyForegroundBoostThread(__int64 a1, __int64 *a2)

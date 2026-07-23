@@ -1,15 +1,15 @@
 /*
- * XREFs of RtlpQueryExtendedInformationAllHeaps @ 0x180044B7C
+ * XREFs of RtlpQueryExtendedInformationAllHeaps @ 0x18002BA78
  * Callers:
- *     RtlpQueryExtendedHeapInformation @ 0x1800446C4 (RtlpQueryExtendedHeapInformation.c)
+ *     RtlpQueryExtendedHeapInformation @ 0x1801144DC (RtlpQueryExtendedHeapInformation.c)
  * Callees:
- *     RtlpEnumProcessHeaps @ 0x1800469B0 (RtlpEnumProcessHeaps.c)
- *     __security_check_cookie @ 0x1801659C0 (__security_check_cookie.c)
- *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x180172020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
- *     memset$thunk$772440563353939046 @ 0x180172030 (memset$thunk$772440563353939046.c)
+ *     RtlpEnumProcessHeaps @ 0x18002A930 (RtlpEnumProcessHeaps.c)
+ *     __security_check_cookie @ 0x180163D80 (__security_check_cookie.c)
+ *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x180171020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
+ *     memset$thunk$772440563353939046 @ 0x180171030 (memset$thunk$772440563353939046.c)
  */
 
-__int64 __fastcall RtlpQueryExtendedInformationAllHeaps(int *a1)
+__int64 __fastcall RtlpQueryExtendedInformationAllHeaps(__int64 a1)
 {
   int v2; // eax
   int v3; // ebx
@@ -25,29 +25,35 @@ __int64 __fastcall RtlpQueryExtendedInformationAllHeaps(int *a1)
   v7[1] = 0;
   memset_thunk_772440563353939046(v7, 0, 0xACuLL);
   v12 = 0LL;
-  v2 = *a1;
+  v2 = *(_DWORD *)a1;
   v11 = 0LL;
   if ( v2 == 0x80000000 || (unsigned int)(v2 - 1) <= 4 )
   {
-    RtlpEnumProcessHeaps(RtlpLockUlockAllHeapsCallback, 1LL, 1LL);
-    if ( *a1 == 0x80000000 )
+    RtlpEnumProcessHeaps((__int64 (__fastcall *)(__int64, __int64, __int64 *))RtlpLockUlockAllHeapsCallback, 1LL, 1);
+    if ( *(_DWORD *)a1 == 0x80000000 )
       goto LABEL_3;
-    v3 = RtlpEnumProcessHeaps(RtlpHeapQueryTotalReserveSize, &v11, 3LL);
+    v3 = RtlpEnumProcessHeaps(
+           (__int64 (__fastcall *)(__int64, __int64, __int64 *))RtlpHeapQueryTotalReserveSize,
+           (__int64)&v11,
+           3);
     if ( v3 >= 0 )
     {
       memset_thunk_772440563353939046(v7, 0, 0xB0uLL);
-      v5 = *((_QWORD *)a1 + 2);
+      v5 = *(_QWORD *)(a1 + 16);
       v10 = v12;
       v9 = v11;
-      v6 = (__int64 (__fastcall *)(_DWORD *, __int64))*((_QWORD *)a1 + 1);
+      v6 = *(__int64 (__fastcall **)(_DWORD *, __int64))(a1 + 8);
       v7[0] = 1;
       v8 = 48LL;
       v3 = v6(v7, v5);
-      if ( v3 >= 0 && (unsigned int)*a1 >= 2 )
+      if ( v3 >= 0 && *(_DWORD *)a1 >= 2u )
 LABEL_3:
-        v3 = RtlpEnumProcessHeaps(RtlpQueryExtendedInformationHeap, a1, 3LL);
+        v3 = RtlpEnumProcessHeaps(
+               (__int64 (__fastcall *)(__int64, __int64, __int64 *))RtlpQueryExtendedInformationHeap,
+               a1,
+               3);
     }
-    RtlpEnumProcessHeaps(RtlpLockUlockAllHeapsCallback, 0LL, 1LL);
+    RtlpEnumProcessHeaps((__int64 (__fastcall *)(__int64, __int64, __int64 *))RtlpLockUlockAllHeapsCallback, 0LL, 1);
   }
   else
   {

@@ -5,10 +5,10 @@
  *     EtwpGetPrivateLoggerContext @ 0x18005F3F4 (EtwpGetPrivateLoggerContext.c)
  * Callees:
  *     RtlEqualUnicodeString @ 0x180029C70 (RtlEqualUnicodeString.c)
- *     EtwpDemuxUmTraceHandle @ 0x180125590 (EtwpDemuxUmTraceHandle.c)
+ *     EtwpDemuxUmTraceHandle @ 0x180125560 (EtwpDemuxUmTraceHandle.c)
  */
 
-__int64 __fastcall EtwpGetPrivateLoggerContextByName(__int64 a1, _QWORD *a2)
+__int64 __fastcall EtwpGetPrivateLoggerContextByName(PUNICODE_STRING String2, _QWORD *a2)
 {
   unsigned int v4; // ebx
   unsigned int v5; // eax
@@ -17,7 +17,7 @@ __int64 __fastcall EtwpGetPrivateLoggerContextByName(__int64 a1, _QWORD *a2)
   unsigned int v9; // [rsp+30h] [rbp+8h] BYREF
 
   *a2 = 0LL;
-  if ( !a1 )
+  if ( !String2 )
     return 4201LL;
   v4 = 0;
   while ( 1 )
@@ -45,7 +45,7 @@ LABEL_9:
     _InterlockedDecrement((volatile signed __int32 *)(EtwpLoggerArray + 16 * v8 + 8));
     goto LABEL_4;
   }
-  if ( !RtlEqualUnicodeString((unsigned __int16 *)(v7 + 136), a1, 1) )
+  if ( !RtlEqualUnicodeString((PUNICODE_STRING)(v7 + 136), String2, 1u) )
   {
     v8 = v4;
     goto LABEL_9;

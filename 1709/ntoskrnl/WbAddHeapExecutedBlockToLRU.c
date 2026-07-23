@@ -15,8 +15,8 @@ __int64 __fastcall WbAddHeapExecutedBlockToLRU(__int64 a1, __int64 a2)
 {
   struct _KTHREAD *CurrentThread; // rax
   unsigned __int64 *v5; // rdi
-  unsigned __int64 v6; // rax
-  unsigned __int64 v7; // rsi
+  PRTL_BALANCED_NODE v6; // rax
+  PRTL_BALANCED_NODE v7; // rsi
   __int64 *v8; // rcx
   char v9; // bl
 
@@ -26,9 +26,9 @@ __int64 __fastcall WbAddHeapExecutedBlockToLRU(__int64 a1, __int64 a2)
   v6 = KeAbPreAcquire(a1 + 80, 0LL, 0);
   v7 = v6;
   if ( _interlockedbittestandset64((volatile signed __int32 *)v5, 0LL) )
-    ExfAcquirePushLockExclusiveEx(v5, v6, (__int16 *)v5);
+    ExfAcquirePushLockExclusiveEx(v5, (__int64)v6, (__int16 *)v5);
   if ( v7 )
-    *(_BYTE *)(v7 + 26) |= 1u;
+    BYTE2(v7[1].Left) |= 1u;
   v8 = *(__int64 **)(a1 + 72);
   if ( *v8 != a1 + 64 )
     __fastfail(3u);

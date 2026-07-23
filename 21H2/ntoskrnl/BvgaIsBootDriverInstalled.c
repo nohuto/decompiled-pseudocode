@@ -1,5 +1,5 @@
 /*
- * XREFs of BvgaIsBootDriverInstalled @ 0x1403655A0
+ * XREFs of BvgaIsBootDriverInstalled @ 0x140365750
  * Callers:
  *     <none>
  * Callees:

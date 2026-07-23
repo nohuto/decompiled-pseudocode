@@ -1,12 +1,12 @@
 /*
- * XREFs of NtTestAlert @ 0x1406AA730
+ * XREFs of NtTestAlert @ 0x140608E20
  * Callers:
  *     <none>
  * Callees:
- *     KeTestAlertThread @ 0x140277530 (KeTestAlertThread.c)
+ *     KeTestAlertThread @ 0x1402654D0 (KeTestAlertThread.c)
  */
 
-__int64 __fastcall NtTestAlert(__int64 a1, __int64 a2, __int64 a3, _DWORD *a4)
+NTSTATUS NtTestAlert(void)
 {
-  return KeTestAlertThread(KeGetCurrentThread()->PreviousMode, a2, a3, a4) != 0 ? 0x101 : 0;
+  return KeTestAlertThread(KeGetCurrentThread()->PreviousMode) != 0 ? 0x101 : 0;
 }

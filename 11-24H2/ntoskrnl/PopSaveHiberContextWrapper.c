@@ -1,14 +1,14 @@
 /*
- * XREFs of PopSaveHiberContextWrapper @ 0x1406B3680
+ * XREFs of PopSaveHiberContextWrapper @ 0x1406B4620
  * Callers:
  *     <none>
  * Callees:
- *     VslSwapHiberShadowStacks @ 0x14058E840 (VslSwapHiberShadowStacks.c)
- *     KasanHibernationGetStackLow @ 0x1405A9C30 (KasanHibernationGetStackLow.c)
- *     KasanHibernationResume @ 0x1405A9CE0 (KasanHibernationResume.c)
- *     KeSaveStateForHibernate @ 0x1406AAD70 (KeSaveStateForHibernate.c)
- *     PopHiberCheckResume @ 0x140B6E970 (PopHiberCheckResume.c)
- *     PopSaveHiberContext @ 0x140B6EC80 (PopSaveHiberContext.c)
+ *     VslSwapHiberShadowStacks @ 0x14058B870 (VslSwapHiberShadowStacks.c)
+ *     KasanHibernationGetStackLow @ 0x1405A6BA0 (KasanHibernationGetStackLow.c)
+ *     KasanHibernationResume @ 0x1405A6C50 (KasanHibernationResume.c)
+ *     KeSaveStateForHibernate @ 0x1406ABD10 (KeSaveStateForHibernate.c)
+ *     PopHiberCheckResume @ 0x140B709E0 (PopHiberCheckResume.c)
+ *     PopSaveHiberContext @ 0x140B70CF0 (PopSaveHiberContext.c)
  */
 
 __int64 __fastcall PopSaveHiberContextWrapper(ULONG_PTR BugCheckParameter3)

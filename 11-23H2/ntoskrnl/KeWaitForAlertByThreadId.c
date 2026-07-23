@@ -1,15 +1,15 @@
 /*
- * XREFs of KeWaitForAlertByThreadId @ 0x1402C17A4
+ * XREFs of KeWaitForAlertByThreadId @ 0x1402C1A34
  * Callers:
- *     PsDispatchIumService @ 0x1405A4E64 (PsDispatchIumService.c)
- *     NtWaitForAlertByThreadId @ 0x140742910 (NtWaitForAlertByThreadId.c)
- *     RtlpRunOnceWaitForInit @ 0x140885E68 (RtlpRunOnceWaitForInit.c)
+ *     PsDispatchIumService @ 0x1405A53D4 (PsDispatchIumService.c)
+ *     NtWaitForAlertByThreadId @ 0x140742B00 (NtWaitForAlertByThreadId.c)
+ *     RtlpRunOnceWaitForInit @ 0x1408860A8 (RtlpRunOnceWaitForInit.c)
  * Callees:
- *     KiCommitThreadWait @ 0x140241F20 (KiCommitThreadWait.c)
- *     KiFastExitThreadWait @ 0x1402BBC10 (KiFastExitThreadWait.c)
- *     KiBeginThreadWait @ 0x1402C1910 (KiBeginThreadWait.c)
- *     KiCheckDueTimeExpired @ 0x1402C1A90 (KiCheckDueTimeExpired.c)
- *     KiCheckWaitNext @ 0x1402C2720 (KiCheckWaitNext.c)
+ *     KiCommitThreadWait @ 0x140241FF0 (KiCommitThreadWait.c)
+ *     KiFastExitThreadWait @ 0x1402BBEA0 (KiFastExitThreadWait.c)
+ *     KiBeginThreadWait @ 0x1402C1BA0 (KiBeginThreadWait.c)
+ *     KiCheckDueTimeExpired @ 0x1402C1D20 (KiCheckDueTimeExpired.c)
+ *     KiCheckWaitNext @ 0x1402C29B0 (KiCheckWaitNext.c)
  */
 
 __int64 __fastcall KeWaitForAlertByThreadId(char a1, _QWORD *a2, void *a3)
@@ -60,7 +60,7 @@ __int64 __fastcall KeWaitForAlertByThreadId(char a1, _QWORD *a2, void *a3)
       v7 = 0;
       CurrentIrql = KeGetCurrentIrql();
       __writecr8(2uLL);
-      if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && (unsigned __int8)CurrentIrql <= 0xFu )
+      if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && (unsigned __int8)CurrentIrql <= 0xFu )
       {
         SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
         if ( (_BYTE)CurrentIrql == 2 )

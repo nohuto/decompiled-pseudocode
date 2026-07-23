@@ -1,11 +1,11 @@
 /*
- * XREFs of MiImageCfgEnumNextImageExtensionRva @ 0x1408FA810
+ * XREFs of MiImageCfgEnumNextImageExtensionRva @ 0x14091D0F0
  * Callers:
- *     MiUpdateCfgSystemWideBitmapWorker @ 0x1408F6F24 (MiUpdateCfgSystemWideBitmapWorker.c)
- *     MiImageCfgEnumRvaListFirst @ 0x1408F8478 (MiImageCfgEnumRvaListFirst.c)
- *     MiImageCfgEnumRvaListNext @ 0x1408FA6A0 (MiImageCfgEnumRvaListNext.c)
+ *     MiImageCfgEnumRvaListNext @ 0x14091CF80 (MiImageCfgEnumRvaListNext.c)
+ *     MiUpdateCfgSystemWideBitmapWorker @ 0x140974760 (MiUpdateCfgSystemWideBitmapWorker.c)
+ *     MiImageCfgEnumRvaListFirst @ 0x140975450 (MiImageCfgEnumRvaListFirst.c)
  * Callees:
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 __int64 __fastcall MiImageCfgEnumNextImageExtensionRva(_DWORD *a1)

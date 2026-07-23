@@ -21,61 +21,61 @@
  *     sub_180106D70 @ 0x180106D70 (sub_180106D70.c)
  */
 
-__int64 __fastcall RtlExitUserProcess(unsigned int a1)
+void __cdecl __noreturn RtlExitUserProcess(NTSTATUS ExitStatus)
 {
   HANDLE UniqueThread; // r8
-  __int64 v4; // r8
-  unsigned int v5; // ebx
-  __int64 v6; // rdi
-  unsigned int v7; // eax
-  __int64 v8; // rbp
-  __int64 v9; // rdx
+  __int64 v3; // r8
+  unsigned int v4; // ebx
+  __int64 v5; // rdi
+  unsigned int v6; // eax
+  __int64 v7; // rbp
+  __int64 v8; // rdx
+  __int64 v9; // rcx
   __int64 v10; // rcx
-  __int64 v11; // rcx
-  __int64 v12; // [rsp+20h] [rbp-D8h] BYREF
-  _QWORD v13[22]; // [rsp+30h] [rbp-C8h] BYREF
+  __int64 v11; // [rsp+20h] [rbp-D8h] BYREF
+  _QWORD v12[22]; // [rsp+30h] [rbp-C8h] BYREF
 
   if ( qword_18015A420 )
   {
-    memset(v13, 0, sizeof(v13));
-    LODWORD(v13[0]) = 176;
-    v5 = 0;
-    v6 = 0LL;
-    HIDWORD(v13[5]) = 0x20000;
+    memset(v12, 0, sizeof(v12));
+    LODWORD(v12[0]) = 176;
+    v4 = 0;
+    v5 = 0LL;
+    HIDWORD(v12[5]) = 0x20000;
     while ( 1 )
     {
-      v7 = v5 & 0xFFFF7FFF;
-      LODWORD(v12) = v5 & 0xFFFF7FFF;
+      v6 = v4 & 0xFFFF7FFF;
+      LODWORD(v11) = v4 & 0xFFFF7FFF;
       if ( qword_18015A420 )
       {
-        if ( v7 < 0x40 )
+        if ( v6 < 0x40 )
           goto LABEL_9;
-        if ( !(unsigned int)sub_180106D70(v5, &v12) )
+        if ( !(unsigned int)sub_180106D70(v4, &v11) )
           break;
       }
 LABEL_13:
+      ++v4;
       ++v5;
-      ++v6;
-      if ( v5 >= 0x40 )
+      if ( v4 >= 0x40 )
         goto LABEL_2;
     }
-    v7 = v12;
+    v6 = v11;
 LABEL_9:
-    _InterlockedIncrement((volatile signed __int32 *)(qword_18015A420 + 16LL * v7 + 8));
-    if ( (*(_BYTE *)(qword_18015A420 + 16LL * v7) & 1) != 0 )
+    _InterlockedIncrement((volatile signed __int32 *)(qword_18015A420 + 16LL * v6 + 8));
+    if ( (*(_BYTE *)(qword_18015A420 + 16LL * v6) & 1) != 0 )
     {
-      _InterlockedDecrement((volatile signed __int32 *)(qword_18015A420 + 16LL * v7 + 8));
+      _InterlockedDecrement((volatile signed __int32 *)(qword_18015A420 + 16LL * v6 + 8));
     }
     else
     {
-      v8 = *(_QWORD *)(qword_18015A420 + 16LL * v7);
-      v9 = *(unsigned int *)(v8 + 324);
-      v10 = 2LL * *(unsigned int *)(v8 + 20);
-      _InterlockedDecrement((volatile signed __int32 *)(qword_18015A420 + 16LL * *(unsigned int *)(v8 + 20) + 8));
-      if ( (v9 & 0x400) == 0 )
+      v7 = *(_QWORD *)(qword_18015A420 + 16LL * v6);
+      v8 = *(unsigned int *)(v7 + 324);
+      v9 = 2LL * *(unsigned int *)(v7 + 20);
+      _InterlockedDecrement((volatile signed __int32 *)(qword_18015A420 + 16LL * *(unsigned int *)(v7 + 20) + 8));
+      if ( (v8 & 0x400) == 0 )
       {
-        v13[1] = v6;
-        sub_18000469C(v10, v9, v4, (__int64)v13);
+        v12[1] = v5;
+        sub_18000469C(v9, v8, v3, (__int64)v12);
       }
     }
     goto LABEL_13;
@@ -83,26 +83,22 @@ LABEL_9:
 LABEL_2:
   sub_1800435B4((NtCurrentTeb()->SameTebFlags >> 12) & 1);
   sub_180046FBC();
-  RtlEnterCriticalSection((__int64)&unk_18015BE80);
-  RtlLockHeap((__int64)NtCurrentPeb()->ProcessHeap);
-  if ( (int)ZwTerminateProcess(0LL, a1) < 0 )
-  {
-    RtlUnlockHeap((__int64)NtCurrentPeb()->ProcessHeap);
-    RtlLeaveCriticalSection((__int64)&unk_18015BE80);
-    sub_180046F60(v11, 18, 0);
-    return ZwTerminateThread(-2LL, a1);
-  }
-  else
+  RtlEnterCriticalSection(&stru_18015BE80);
+  RtlLockHeap(NtCurrentPeb()->ProcessHeap);
+  if ( ZwTerminateProcess(0LL, ExitStatus) >= 0 )
   {
     sub_180048388();
     UniqueThread = NtCurrentTeb()->ClientId.UniqueThread;
-    qword_18015BE98 = 0LL;
-    qword_18015BE90 = (__int64)UniqueThread;
-    dword_18015BE88 = -2;
-    dword_18015BE8C = 1;
-    RtlLeaveCriticalSection((__int64)&unk_18015BE80);
-    RtlReportSilentProcessExit(-1LL, a1);
+    stru_18015BE80.LockSemaphore = 0LL;
+    stru_18015BE80.OwningThread = UniqueThread;
+    stru_18015BE80.LockCount = -2;
+    stru_18015BE80.RecursionCount = 1;
+    RtlLeaveCriticalSection(&stru_18015BE80);
+    RtlReportSilentProcessExit((HANDLE)0xFFFFFFFFFFFFFFFFLL, ExitStatus);
     LdrShutdownProcess();
-    return ZwTerminateProcess(-1LL, a1);
   }
+  RtlUnlockHeap(NtCurrentPeb()->ProcessHeap);
+  RtlLeaveCriticalSection(&stru_18015BE80);
+  sub_180046F60(v10, 18, 0);
+  ZwTerminateThread((HANDLE)0xFFFFFFFFFFFFFFFELL, ExitStatus);
 }

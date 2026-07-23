@@ -10,23 +10,23 @@
  *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
  */
 
-void __fastcall RtlReleasePrivilege(__int64 *P)
+void __cdecl RtlReleasePrivilege(PVOID StatePointer)
 {
   void *v2; // rcx
   char *v3; // rcx
 
-  if ( (P[4] & 3) != 1 )
-    ZwAdjustPrivilegesToken(*P, 0LL);
-  if ( (P[4] & 1) != 0 )
+  if ( (*((_DWORD *)StatePointer + 8) & 3) != 1 )
+    ZwAdjustPrivilegesToken(*(HANDLE *)StatePointer, 0, *((PTOKEN_PRIVILEGES *)StatePointer + 2), 0, 0LL, 0LL);
+  if ( (*((_DWORD *)StatePointer + 8) & 1) != 0 )
   {
-    ZwSetInformationThread((HANDLE)0xFFFFFFFFFFFFFFFELL, ThreadImpersonationToken, P + 1, 8u);
-    v2 = (void *)P[1];
+    ZwSetInformationThread((HANDLE)0xFFFFFFFFFFFFFFFELL, ThreadImpersonationToken, (char *)StatePointer + 8, 8u);
+    v2 = (void *)*((_QWORD *)StatePointer + 1);
     if ( v2 )
       ZwClose(v2);
   }
-  v3 = (char *)P[2];
-  if ( v3 != (char *)P + 36 )
+  v3 = (char *)*((_QWORD *)StatePointer + 2);
+  if ( v3 != (char *)StatePointer + 36 )
     ExFreePoolWithTag(v3, 0);
-  ZwClose((HANDLE)*P);
-  ExFreePoolWithTag(P, 0);
+  ZwClose(*(HANDLE *)StatePointer);
+  ExFreePoolWithTag(StatePointer, 0);
 }

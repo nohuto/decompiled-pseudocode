@@ -1,17 +1,17 @@
 /*
- * XREFs of VfSuspectApplyDifVolatileVerification @ 0x140ADA2B8
+ * XREFs of VfSuspectApplyDifVolatileVerification @ 0x140ADA2A8
  * Callers:
- *     VfDriverApplyDifVerification @ 0x140ACA308 (VfDriverApplyDifVerification.c)
- *     VfDriverEnableVerifier @ 0x140ACA4C8 (VfDriverEnableVerifier.c)
+ *     VfDriverApplyDifVerification @ 0x140ACA2F8 (VfDriverApplyDifVerification.c)
+ *     VfDriverEnableVerifier @ 0x140ACA4B8 (VfDriverEnableVerifier.c)
  * Callees:
- *     KeReleaseMutex @ 0x1402AFF70 (KeReleaseMutex.c)
- *     VfTargetReplaceIoCallbacks @ 0x1405CF258 (VfTargetReplaceIoCallbacks.c)
- *     VfDifCallbackReplacementRequested @ 0x1405D1BD4 (VfDifCallbackReplacementRequested.c)
- *     VfDriverLock @ 0x140ACA76C (VfDriverLock.c)
- *     VfTargetDriversDisableVerifier @ 0x140ACB440 (VfTargetDriversDisableVerifier.c)
- *     VfTargetDriversEnableVerifier @ 0x140ACB4B0 (VfTargetDriversEnableVerifier.c)
- *     VfThunkApplyPristineToAllSession @ 0x140ADB2FC (VfThunkApplyPristineToAllSession.c)
- *     VfThunkApplyWdmThunkToAllSession @ 0x140ADB47C (VfThunkApplyWdmThunkToAllSession.c)
+ *     KeReleaseMutex @ 0x1402B0200 (KeReleaseMutex.c)
+ *     VfTargetReplaceIoCallbacks @ 0x1405CF7C8 (VfTargetReplaceIoCallbacks.c)
+ *     VfDifCallbackReplacementRequested @ 0x1405D2144 (VfDifCallbackReplacementRequested.c)
+ *     VfDriverLock @ 0x140ACA75C (VfDriverLock.c)
+ *     VfTargetDriversDisableVerifier @ 0x140ACB430 (VfTargetDriversDisableVerifier.c)
+ *     VfTargetDriversEnableVerifier @ 0x140ACB4A0 (VfTargetDriversEnableVerifier.c)
+ *     VfThunkApplyPristineToAllSession @ 0x140ADB2EC (VfThunkApplyPristineToAllSession.c)
+ *     VfThunkApplyWdmThunkToAllSession @ 0x140ADB46C (VfThunkApplyWdmThunkToAllSession.c)
  */
 
 __int64 __fastcall VfSuspectApplyDifVolatileVerification(__int64 a1, __int64 a2)

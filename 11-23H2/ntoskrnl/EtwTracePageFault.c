@@ -1,13 +1,13 @@
 /*
- * XREFs of EtwTracePageFault @ 0x1404671D6
+ * XREFs of EtwTracePageFault @ 0x1404675D6
  * Callers:
- *     MmAccessFault @ 0x140235370 (MmAccessFault.c)
+ *     MmAccessFault @ 0x140235440 (MmAccessFault.c)
  * Callees:
  *     EtwTraceSiloKernelEvent @ 0x140214950 (EtwTraceSiloKernelEvent.c)
- *     PsGetThreadServerSilo @ 0x14028C190 (PsGetThreadServerSilo.c)
- *     KiCheckForKernelApcDelivery @ 0x14030F820 (KiCheckForKernelApcDelivery.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     EtwpCoverageSamplerPageFault @ 0x140603E14 (EtwpCoverageSamplerPageFault.c)
+ *     PsGetThreadServerSilo @ 0x14028C420 (PsGetThreadServerSilo.c)
+ *     KiCheckForKernelApcDelivery @ 0x14030FAB0 (KiCheckForKernelApcDelivery.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     EtwpCoverageSamplerPageFault @ 0x140604364 (EtwpCoverageSamplerPageFault.c)
  */
 
 void __fastcall EtwTracePageFault(int a1, __int64 a2, char a3, __int64 a4)

@@ -17,20 +17,23 @@
 ULONG __fastcall EtwpRegisterProvider(int a1, int a2, int a3)
 {
   _DWORD *v4; // ebx
-  int v5; // ecx
+  ULONG v5; // ecx
   NTSTATUS v6; // eax
   _DWORD *v7; // eax
   int v8; // eax
   NTSTATUS v9; // eax
   ULONG v10; // edi
   _DWORD *Heap; // eax
-  int v15; // [esp+18h] [ebp-B4h] BYREF
-  char v16; // [esp+1Fh] [ebp-ADh]
-  _BYTE v17[164]; // [esp+20h] [ebp-ACh] BYREF
+  size_t v13; // [esp-4h] [ebp-D0h]
+  SIZE_T v14; // [esp-4h] [ebp-D0h]
+  ULONG ReturnLength; // [esp+18h] [ebp-B4h] BYREF
+  char v18; // [esp+1Fh] [ebp-ADh]
+  _BYTE InputBuffer[164]; // [esp+20h] [ebp-ACh] BYREF
 
-  v16 = 0;
-  memset(v17, 0, 0xA0u);
-  v4 = v17;
+  LODWORD(v13) = 160;
+  v18 = 0;
+  memset(InputBuffer, 0, v13);
+  v4 = InputBuffer;
   v5 = 160;
   if ( !byte_4B3A5DA8 )
   {
@@ -51,14 +54,15 @@ ULONG __fastcall EtwpRegisterProvider(int a1, int a2, int a3)
     v4[9] = 0;
     v4[5] = v8;
     v4[8] = a2;
-    v9 = ZwTraceControl(15, v4, 160, v4, v5, &v15);
+    v9 = ZwTraceControl(EtwRegisterGuidsCode, v4, 0xA0u, v4, v5, &ReturnLength);
     if ( v9 != -1073741789 )
       break;
-    if ( v16 )
+    if ( v18 )
       RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v4);
-    v16 = 1;
-    Heap = (_DWORD *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8, v15);
-    v5 = v15;
+    LODWORD(v14) = ReturnLength;
+    v18 = 1;
+    Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, v14);
+    v5 = ReturnLength;
     v4 = Heap;
     v7 = (_DWORD *)(a1 + 12);
     if ( !v4 )
@@ -79,10 +83,11 @@ LABEL_8:
     *(_DWORD *)(a1 + 48) = v4[6];
     if ( a3 == 3 || a3 == 2 )
       EtwpUpdateEnableInfoAndCallback(a1, v4 + 10);
-    if ( !memcmp((const void *)(a1 + 12), &PrivateLoggerNotificationGuid, 0x10u) )
+    LODWORD(v14) = 16;
+    if ( !memcmp((const void *)(a1 + 12), &PrivateLoggerNotificationGuid, v14) )
       PrivateLoggerNotificationEntry = a1;
   }
-  if ( v16 )
+  if ( v18 )
   {
     if ( v4 )
       RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v4);

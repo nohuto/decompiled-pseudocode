@@ -1,14 +1,14 @@
 /*
- * XREFs of ZwOpenProcessToken @ 0x140725A70
+ * XREFs of ZwOpenProcessToken @ 0x14072A640
  * Callers:
- *     DifZwOpenProcessTokenWrapper @ 0x1406ACE60 (DifZwOpenProcessTokenWrapper.c)
+ *     DifZwOpenProcessTokenWrapper @ 0x1406B0A40 (DifZwOpenProcessTokenWrapper.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwOpenProcessToken(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwOpenProcessToken(HANDLE ProcessHandle, ACCESS_MASK DesiredAccess, PHANDLE TokenHandle)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(ProcessHandle);
 }

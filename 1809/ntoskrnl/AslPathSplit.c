@@ -1,13 +1,13 @@
 /*
- * XREFs of AslPathSplit @ 0x14067E5F8
+ * XREFs of AslPathSplit @ 0x14067F7B8
  * Callers:
- *     SdbpCreateSearchDBContext @ 0x14067C5A0 (SdbpCreateSearchDBContext.c)
+ *     SdbpCreateSearchDBContext @ 0x14067D760 (SdbpCreateSearchDBContext.c)
  * Callees:
- *     RtlStringCchCopyW @ 0x140092420 (RtlStringCchCopyW.c)
- *     RtlStringCchCopyNW @ 0x1400F5094 (RtlStringCchCopyNW.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     wcsrchr @ 0x1401978C0 (wcsrchr.c)
- *     AslLogCallPrintf @ 0x140680C60 (AslLogCallPrintf.c)
+ *     RtlStringCchCopyW @ 0x140092360 (RtlStringCchCopyW.c)
+ *     RtlStringCchCopyNW @ 0x1400F5114 (RtlStringCchCopyNW.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     wcsrchr @ 0x140197A00 (wcsrchr.c)
+ *     AslLogCallPrintf @ 0x140681E20 (AslLogCallPrintf.c)
  */
 
 __int64 __fastcall AslPathSplit(

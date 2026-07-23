@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlGetXSaveSupportedFeatures @ 0x1405F09EC
+ * XREFs of RtlGetXSaveSupportedFeatures @ 0x1405EDFCC
  * Callers:
- *     KiInitializeXSaveConfiguration @ 0x140B56AA0 (KiInitializeXSaveConfiguration.c)
+ *     KiInitializeXSaveConfiguration @ 0x140B58B20 (KiInitializeXSaveConfiguration.c)
  * Callees:
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 __int64 __fastcall RtlGetXSaveSupportedFeatures(__int64 a1)

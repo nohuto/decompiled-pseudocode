@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlpLocateActivationContextSectionForQuery @ 0x1800E6BB8
+ * XREFs of RtlpLocateActivationContextSectionForQuery @ 0x1800E5618
  * Callers:
- *     RtlpQueryFilesInAssemblyInformationActivationContextDetailedInformation @ 0x180113B3C (RtlpQueryFilesInAssemblyInformationActivationContextDetailedInformation.c)
+ *     RtlpQueryFilesInAssemblyInformationActivationContextDetailedInformation @ 0x1801133D4 (RtlpQueryFilesInAssemblyInformationActivationContextDetailedInformation.c)
  * Callees:
- *     RtlpLocateActivationContextSection @ 0x180041090 (RtlpLocateActivationContextSection.c)
- *     memset$thunk$772440563353939046 @ 0x180170030 (memset$thunk$772440563353939046.c)
+ *     RtlpLocateActivationContextSection @ 0x18002B600 (RtlpLocateActivationContextSection.c)
+ *     memset$thunk$772440563353939046 @ 0x18016F030 (memset$thunk$772440563353939046.c)
  */
 
 void __fastcall RtlpLocateActivationContextSectionForQuery(

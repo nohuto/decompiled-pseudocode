@@ -1,11 +1,11 @@
 /*
- * XREFs of PopPowerRequestStatsCreate @ 0x140A89148
+ * XREFs of PopPowerRequestStatsCreate @ 0x140A90038
  * Callers:
- *     PopPowerRequestCreateCommon @ 0x140436FDC (PopPowerRequestCreateCommon.c)
+ *     PopPowerRequestCreateCommon @ 0x140425F6C (PopPowerRequestCreateCommon.c)
  * Callees:
- *     PopPowerRequestStatsFreeId @ 0x140A891C0 (PopPowerRequestStatsFreeId.c)
- *     PopPowerRequestStatsGetIdForRequest @ 0x140A891F8 (PopPowerRequestStatsGetIdForRequest.c)
- *     PopPowerRequestStatsCreateSleepstudyBlocker @ 0x140A89424 (PopPowerRequestStatsCreateSleepstudyBlocker.c)
+ *     PopPowerRequestStatsFreeId @ 0x140A900B0 (PopPowerRequestStatsFreeId.c)
+ *     PopPowerRequestStatsGetIdForRequest @ 0x140A900E8 (PopPowerRequestStatsGetIdForRequest.c)
+ *     PopPowerRequestStatsCreateSleepstudyBlocker @ 0x140A90314 (PopPowerRequestStatsCreateSleepstudyBlocker.c)
  */
 
 void __fastcall PopPowerRequestStatsCreate(__int64 a1)
@@ -15,7 +15,7 @@ void __fastcall PopPowerRequestStatsCreate(__int64 a1)
 
   v3 = 0LL;
   P = 0LL;
-  if ( PopDirectedDripsUmLock.SchedulerAssistLastYieldBoostTime )
+  if ( PopDirectedDripsDiagLock.SavedApcState.ApcListHead[1].Flink )
   {
     if ( (int)PopPowerRequestStatsGetIdForRequest(a1, &P) >= 0
       && (int)PopPowerRequestStatsCreateSleepstudyBlocker(P, 7LL, &v3) >= 0 )

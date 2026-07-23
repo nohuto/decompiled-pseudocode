@@ -1,15 +1,15 @@
 /*
- * XREFs of DrvDbDispatchDeviceId @ 0x14091B3D0
+ * XREFs of DrvDbDispatchDeviceId @ 0x140975E30
  * Callers:
  *     <none>
  * Callees:
- *     DrvDbDeleteObjectRegKey @ 0x14089DBC4 (DrvDbDeleteObjectRegKey.c)
- *     DrvDbGetDeviceIdMappedPropertyKeys @ 0x14089DDB8 (DrvDbGetDeviceIdMappedPropertyKeys.c)
- *     DrvDbValidateDeviceIdName @ 0x14089F170 (DrvDbValidateDeviceIdName.c)
- *     DrvDbGetDeviceIdMappedProperty @ 0x14091B5B8 (DrvDbGetDeviceIdMappedProperty.c)
- *     DrvDbSetDeviceIdMappedProperty @ 0x140ACF33C (DrvDbSetDeviceIdMappedProperty.c)
- *     DrvDbGetObjectList @ 0x140AFB0D0 (DrvDbGetObjectList.c)
- *     DrvDbOpenDeviceIdRegKey @ 0x140B24C04 (DrvDbOpenDeviceIdRegKey.c)
+ *     DrvDbDeleteObjectRegKey @ 0x1408A3FC4 (DrvDbDeleteObjectRegKey.c)
+ *     DrvDbGetDeviceIdMappedPropertyKeys @ 0x1408A41B8 (DrvDbGetDeviceIdMappedPropertyKeys.c)
+ *     DrvDbValidateDeviceIdName @ 0x1408A5570 (DrvDbValidateDeviceIdName.c)
+ *     DrvDbGetDeviceIdMappedProperty @ 0x140976018 (DrvDbGetDeviceIdMappedProperty.c)
+ *     DrvDbSetDeviceIdMappedProperty @ 0x140ADFA38 (DrvDbSetDeviceIdMappedProperty.c)
+ *     DrvDbGetObjectList @ 0x140AFCFE0 (DrvDbGetObjectList.c)
+ *     DrvDbOpenDeviceIdRegKey @ 0x140B270A4 (DrvDbOpenDeviceIdRegKey.c)
  */
 
 __int64 __fastcall DrvDbDispatchDeviceId(__int64 a1, const wchar_t *a2, int a3, int a4, _QWORD *a5)

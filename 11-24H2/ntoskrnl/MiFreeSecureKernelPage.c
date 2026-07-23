@@ -1,21 +1,29 @@
 /*
- * XREFs of MiFreeSecureKernelPage @ 0x140410B08
+ * XREFs of MiFreeSecureKernelPage @ 0x140433D48
  * Callers:
- *     MmFreeSecureKernelPages @ 0x14040F5A8 (MmFreeSecureKernelPages.c)
- *     MmFreeNonChargedSecurePages @ 0x14041098C (MmFreeNonChargedSecurePages.c)
+ *     MmFreeSecureKernelPages @ 0x1404331CC (MmFreeSecureKernelPages.c)
+ *     MmFreeNonChargedSecurePages @ 0x140433BCC (MmFreeNonChargedSecurePages.c)
  * Callees:
- *     MiReleaseNonPagedResources @ 0x14020C57C (MiReleaseNonPagedResources.c)
- *     MiLockPageInline @ 0x140291550 (MiLockPageInline.c)
- *     MiUnlockPage @ 0x1402915F0 (MiUnlockPage.c)
- *     HvlNotifyLongSpinWait @ 0x140293260 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140293290 (KiCheckVpBackingLongSpinWaitHypercall.c)
- *     MiSetPfnIdentity @ 0x1403A00D0 (MiSetPfnIdentity.c)
- *     MiFreeSmallPageFromMdl @ 0x1403A2098 (MiFreeSmallPageFromMdl.c)
- *     MiFreePagesFromMdl @ 0x1403A2330 (MiFreePagesFromMdl.c)
+ *     MiSetPfnIdentity @ 0x140216B00 (MiSetPfnIdentity.c)
+ *     MiFreeSmallPageFromMdl @ 0x140218CC8 (MiFreeSmallPageFromMdl.c)
+ *     MiFreePagesFromMdl @ 0x140218F60 (MiFreePagesFromMdl.c)
+ *     MiLockPageInline @ 0x1402A1150 (MiLockPageInline.c)
+ *     MiUnlockPage @ 0x1402A11F0 (MiUnlockPage.c)
+ *     HvlNotifyLongSpinWait @ 0x1402A2E60 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1402A2E90 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     MiReleaseNonPagedResources @ 0x1403358DC (MiReleaseNonPagedResources.c)
  */
 
-void __fastcall MiFreeSecureKernelPage(__int64 a1, __int64 a2, int a3, ULONG_PTR a4, _DWORD *a5, __int64 a6, int a7)
+void __fastcall MiFreeSecureKernelPage(
+        __int64 a1,
+        __int64 a2,
+        __int64 a3,
+        ULONG_PTR a4,
+        _DWORD *a5,
+        __int64 a6,
+        int a7)
 {
+  int v7; // r12d
   __int64 v10; // rdi
   unsigned __int64 v11; // rbx
   unsigned __int64 v12; // rbx
@@ -25,10 +33,11 @@ void __fastcall MiFreeSecureKernelPage(__int64 a1, __int64 a2, int a3, ULONG_PTR
   unsigned __int8 v16; // si
   unsigned int v17; // ebp
 
+  v7 = a3;
   v10 = 48 * a1 - 0x220000000000LL;
   v11 = *(_QWORD *)(v10 + 16);
-  if ( qword_140E2DB80 && (v11 & 0x10) == 0 )
-    v11 &= ~qword_140E2DB80;
+  if ( qword_140E2DCC0 && (v11 & 0x10) == 0 )
+    v11 &= ~qword_140E2DCC0;
   v12 = HIDWORD(v11);
   if ( (v12 & 8) != 0 )
   {
@@ -56,10 +65,10 @@ void __fastcall MiFreeSecureKernelPage(__int64 a1, __int64 a2, int a3, ULONG_PTR
     }
     else
     {
-      v14 = MiLockPageInline(48 * a1 - 0x220000000000LL);
+      v14 = MiLockPageInline(48 * a1 - 0x220000000000LL, a2, a3, a4);
     }
     MiSetPfnIdentity(v10, 0);
-    MiFreeSmallPageFromMdl(a1, 0, 3, 0LL);
+    MiFreeSmallPageFromMdl(a1, 0LL, 3LL, 0LL);
     MiUnlockPage(v10, v14);
   }
   else if ( (v12 & 2) != 0 )
@@ -88,13 +97,13 @@ void __fastcall MiFreeSecureKernelPage(__int64 a1, __int64 a2, int a3, ULONG_PTR
     }
     else
     {
-      v16 = MiLockPageInline(48 * a1 - 0x220000000000LL);
+      v16 = MiLockPageInline(48 * a1 - 0x220000000000LL, 2LL, a3, a4);
     }
-    if ( !a3 )
+    if ( !v7 )
       MiSetPfnIdentity(v10, 0);
-    MiFreeSmallPageFromMdl(a1, 0, 3, 0LL);
+    MiFreeSmallPageFromMdl(a1, 0LL, 3LL, 0LL);
     MiUnlockPage(v10, v16);
-    _InterlockedDecrement64(&qword_140E2DBE8);
+    _InterlockedDecrement64(&qword_140E2DD28);
     if ( (v12 & 4) == 0 )
     {
       MiReleaseNonPagedResources(a2, 1uLL);

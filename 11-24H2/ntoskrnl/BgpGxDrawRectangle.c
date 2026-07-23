@@ -1,20 +1,20 @@
 /*
- * XREFs of BgpGxDrawRectangle @ 0x140481E44
+ * XREFs of BgpGxDrawRectangle @ 0x14047D084
  * Callers:
- *     BgpTxtDisplayCharacter @ 0x140472A28 (BgpTxtDisplayCharacter.c)
- *     BgpClearScreen @ 0x140697E28 (BgpClearScreen.c)
- *     BgpFwDisplayBugCheckScreen @ 0x14069A360 (BgpFwDisplayBugCheckScreen.c)
- *     BgpGxDrawBitmapImage @ 0x140BB26EC (BgpGxDrawBitmapImage.c)
- *     BgpTxtClearRegion @ 0x140BB28D8 (BgpTxtClearRegion.c)
- *     BgpTxtDisplayString @ 0x140BB2BB0 (BgpTxtDisplayString.c)
- *     AnFwpFadeAnimationTimer @ 0x140BB2F50 (AnFwpFadeAnimationTimer.c)
+ *     BgpTxtDisplayCharacter @ 0x14046ECF8 (BgpTxtDisplayCharacter.c)
+ *     BgpClearScreen @ 0x140698EA8 (BgpClearScreen.c)
+ *     BgpFwDisplayBugCheckScreen @ 0x14069B3E0 (BgpFwDisplayBugCheckScreen.c)
+ *     BgpGxDrawBitmapImage @ 0x140BB46EC (BgpGxDrawBitmapImage.c)
+ *     BgpTxtClearRegion @ 0x140BB48D8 (BgpTxtClearRegion.c)
+ *     BgpTxtDisplayString @ 0x140BB4BB0 (BgpTxtDisplayString.c)
+ *     AnFwpFadeAnimationTimer @ 0x140BB4F50 (AnFwpFadeAnimationTimer.c)
  * Callees:
- *     BgpGxConvertRectangleEx @ 0x1404604FC (BgpGxConvertRectangleEx.c)
- *     GxpWriteFrameBufferPixels @ 0x140481F1C (GxpWriteFrameBufferPixels.c)
- *     BgpGetBitsPerPixel @ 0x1404822C8 (BgpGetBitsPerPixel.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     BgpGxRectangleDestroy @ 0x140BB3F04 (BgpGxRectangleDestroy.c)
+ *     BgpGxConvertRectangleEx @ 0x1404553DC (BgpGxConvertRectangleEx.c)
+ *     GxpWriteFrameBufferPixels @ 0x14047D15C (GxpWriteFrameBufferPixels.c)
+ *     BgpGetBitsPerPixel @ 0x14047D508 (BgpGetBitsPerPixel.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     BgpGxRectangleDestroy @ 0x140BB5F04 (BgpGxRectangleDestroy.c)
  */
 
 __int64 __fastcall BgpGxDrawRectangle(int *a1, __int64 a2)
@@ -35,7 +35,7 @@ __int64 __fastcall BgpGxDrawRectangle(int *a1, __int64 a2)
   v6 = 0LL;
   if ( a1[2] != BitsPerPixel )
   {
-    if ( (dword_140EF0050 & 0xC00) != 0 )
+    if ( (dword_140EF0270 & 0xC00) != 0 )
     {
       v10 = (int *)v11;
       v7 = 1;

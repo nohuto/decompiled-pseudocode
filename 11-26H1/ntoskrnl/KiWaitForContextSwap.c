@@ -1,11 +1,11 @@
 /*
- * XREFs of KiWaitForContextSwap @ 0x1404109FC
+ * XREFs of KiWaitForContextSwap @ 0x14041011C
  * Callers:
- *     KiOutSwapKernelStacks @ 0x1404102F4 (KiOutSwapKernelStacks.c)
- *     KeDeleteThread @ 0x1404106F4 (KeDeleteThread.c)
+ *     KiOutSwapKernelStacks @ 0x14040FA14 (KiOutSwapKernelStacks.c)
+ *     KeDeleteThread @ 0x14040FE14 (KeDeleteThread.c)
  * Callees:
- *     HvlNotifyLongSpinWait @ 0x1402BBF00 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1402BC760 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     HvlNotifyLongSpinWait @ 0x140306BC0 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140307420 (KiCheckVpBackingLongSpinWaitHypercall.c)
  */
 
 __int64 __fastcall KiWaitForContextSwap(__int64 a1)

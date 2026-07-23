@@ -16,9 +16,9 @@ __int64 __fastcall LdrpRedirectDelayloadFailure(
         __int64 a2,
         __int64 a3,
         __int64 (__fastcall *a4)(__int64, _QWORD *),
-        __int64 (__fastcall *a5)(__int64, const char *),
+        PRTL_DYNAMIC_HASH_TABLE HashTable,
         __int64 a6,
-        unsigned int a7)
+        NTSTATUS Status)
 {
   __int64 v7; // r13
   __int64 v10; // rsi
@@ -51,12 +51,12 @@ __int64 __fastcall LdrpRedirectDelayloadFailure(
       330,
       (unsigned int)"LdrpRedirectDelayloadFailure",
       0,
-      "Failed to find export %s!%s (Ordinal:%d) in \"%wZ\"  0x%08lx\n",
+      (__int64)"Failed to find export %s!%s (Ordinal:%d) in \"%wZ\"  0x%08lx\n",
       v7,
       v18,
       v20,
       v11 + 88,
-      a7);
+      Status);
     v12 = LdrpDebugFlags;
   }
   if ( (v12 & 0x10) != 0 )
@@ -84,7 +84,7 @@ LABEL_7:
   LODWORD(v19[0]) = 72;
   v19[3] = v7;
   v19[6] = v15;
-  LODWORD(v19[8]) = RtlNtStatusToDosErrorNoTeb(a7);
+  LODWORD(v19[8]) = RtlNtStatusToDosErrorNoTeb(Status);
   if ( v14 )
   {
     LODWORD(v19[4]) = 1;
@@ -99,11 +99,11 @@ LABEL_7:
   if ( !v10 )
   {
 LABEL_8:
-    if ( a5 )
+    if ( HashTable )
     {
       if ( !v14 )
         v14 = v13;
-      return a5(v7, v14);
+      return ((__int64 (__fastcall *)(__int64, const char *))HashTable)(v7, v14);
     }
   }
   return v10;

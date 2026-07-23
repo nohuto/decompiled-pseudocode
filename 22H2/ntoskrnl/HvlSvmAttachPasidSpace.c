@@ -37,7 +37,7 @@ __int64 __fastcall HvlSvmAttachPasidSpace(unsigned int a1, int a2, int a3, unsig
   v15 = a3;
   while ( 1 )
   {
-    v9 = HvcallFastExtended(65698LL, (__int64)&v13, 16LL, 0LL, 0);
+    v9 = HvcallFastExtended(65698LL, (__int64)&v13, 0x10u, 0, 0);
     if ( (HvlpFlags & 2) == 0 || !(unsigned __int8)HvlpHvStatusIsInsufficientMemory((unsigned __int16)v9, v9) )
       break;
     if ( (int)HvlpHandleInsufficientMemory(v10, v9, v11) < 0 )

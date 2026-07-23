@@ -11,7 +11,7 @@
  *     __security_check_cookie @ 0x180090C90 (__security_check_cookie.c)
  */
 
-void __fastcall RtlDeactivateActivationContext(int a1, unsigned __int64 a2)
+void __cdecl RtlDeactivateActivationContext(ULONG Flags, ULONG_PTR Cookie)
 {
   struct _TEB *v3; // rax
   unsigned __int64 *ActivationContextStackPointer; // r14
@@ -23,27 +23,32 @@ void __fastcall RtlDeactivateActivationContext(int a1, unsigned __int64 a2)
   __int64 v10; // rcx
   EXCEPTION_RECORD ExceptionRecord; // [rsp+30h] [rbp-C8h] BYREF
 
-  if ( (a1 & 0xFFFFFFFE) != 0 )
+  if ( (Flags & 0xFFFFFFFE) != 0 )
   {
-    DbgPrintEx(51, 0, "SXS: %s() called with invalid flags 0x%08lx\n", "RtlDeactivateActivationContext", a1);
+    DbgPrintEx(0x33u, 0, "SXS: %s() called with invalid flags 0x%08lx\n", "RtlDeactivateActivationContext", Flags);
     RtlRaiseStatus(-1073741811);
   }
-  if ( a2 )
+  if ( Cookie )
   {
-    if ( a2 >> 60 != 1 )
+    if ( Cookie >> 60 != 1 )
     {
-      DbgPrintEx(51, 0, "SXS: %s() called with invalid cookie type 0x%08Ix\n", "RtlDeactivateActivationContext", a2);
+      DbgPrintEx(
+        0x33u,
+        0,
+        "SXS: %s() called with invalid cookie type 0x%08Ix\n",
+        "RtlDeactivateActivationContext",
+        Cookie);
       RtlRaiseStatus(-1073741811);
     }
     v3 = NtCurrentTeb();
-    if ( ((HIDWORD(a2) ^ v3->ActivationContextStackPointer->StackId) & 0xFFFFFFF) != 0 )
+    if ( ((HIDWORD(Cookie) ^ v3->ActivationContextStackPointer->StackId) & 0xFFFFFFF) != 0 )
     {
       DbgPrintEx(
-        51,
+        0x33u,
         0,
         "SXS: %s() called with invalid cookie tid 0x%08Ix - should be %08Ix\n",
         "RtlDeactivateActivationContext",
-        a2,
+        Cookie,
         v3->ActivationContextStackPointer->StackId & 0xFFFFFFF);
       RtlRaiseStatus(-1073741811);
     }
@@ -52,7 +57,7 @@ void __fastcall RtlDeactivateActivationContext(int a1, unsigned __int64 a2)
     if ( *ActivationContextStackPointer )
     {
       if ( (*(_DWORD *)(v5 + 16) & 8) != 0
-        && *(_QWORD *)((v5 & -(__int64)((*(_DWORD *)(v5 + 16) & 8) != 0)) + 0x18) == a2 )
+        && *(_QWORD *)((v5 & -(__int64)((*(_DWORD *)(v5 + 16) & 8) != 0)) + 0x18) == Cookie )
       {
         v6 = *ActivationContextStackPointer;
       }
@@ -68,7 +73,7 @@ void __fastcall RtlDeactivateActivationContext(int a1, unsigned __int64 a2)
           goto LABEL_32;
         do
         {
-          if ( v10 && *(_QWORD *)(v10 + 24) == a2 )
+          if ( v10 && *(_QWORD *)(v10 + 24) == Cookie )
             break;
           v6 = *(_QWORD *)v6;
           ++v9;
@@ -92,7 +97,7 @@ LABEL_32:
       {
         v8 = *(_QWORD *)v5;
         if ( (*(_BYTE *)(v5 + 16) & 1) != 0 )
-          RtlReleaseActivationContext(*(volatile signed __int32 **)(v5 + 8));
+          RtlReleaseActivationContext(*(PACTIVATION_CONTEXT *)(v5 + 8));
         if ( (*(_BYTE *)(v5 + 16) & 8) != 0 )
           RtlpFreeActivationContextStackFrame(ActivationContextStackPointer, v5);
         v5 = v8;

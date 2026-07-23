@@ -4,10 +4,10 @@
  *     <none>
  * Callees:
  *     ExReleaseResourceLite @ 0x1402B0E80 (ExReleaseResourceLite.c)
- *     PipProcessRebuildPowerRelationsQueue @ 0x14076BC20 (PipProcessRebuildPowerRelationsQueue.c)
- *     PpDevNodeUnlockTree @ 0x140775698 (PpDevNodeUnlockTree.c)
- *     PnpAcquireDependencyRelationsLock @ 0x1407756F4 (PnpAcquireDependencyRelationsLock.c)
- *     PipSetDependency @ 0x140942DE4 (PipSetDependency.c)
+ *     sub_14076BC20 @ 0x14076BC20 (sub_14076BC20.c)
+ *     sub_140775698 @ 0x140775698 (sub_140775698.c)
+ *     sub_1407756F4 @ 0x1407756F4 (sub_1407756F4.c)
+ *     sub_140942DE4 @ 0x140942DE4 (sub_140942DE4.c)
  */
 
 __int64 __fastcall IoSetDependency(__int64 a1, __int64 a2, int a3)
@@ -31,12 +31,12 @@ __int64 __fastcall IoSetDependency(__int64 a1, __int64 a2, int a3)
     v6 = a1;
     v9 = a2;
     v10 = a3;
-    PnpAcquireDependencyRelationsLock(1);
-    v4 = PipSetDependency(v5);
-    ExReleaseResourceLite(&PiDependencyRelationsLock);
-    PpDevNodeUnlockTree(0);
+    sub_1407756F4(1);
+    v4 = sub_140942DE4(v5);
+    ExReleaseResourceLite(&stru_140C46AC0);
+    sub_140775698(0);
     if ( v4 >= 0 )
-      PipProcessRebuildPowerRelationsQueue();
+      sub_14076BC20();
   }
   else
   {

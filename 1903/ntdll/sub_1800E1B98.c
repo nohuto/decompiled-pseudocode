@@ -14,18 +14,18 @@ __int64 __fastcall sub_1800E1B98(unsigned __int16 *a1)
   int v2; // ebx
   __int64 result; // rax
   char v4; // si
-  __int64 v5; // [rsp+38h] [rbp+10h] BYREF
+  HANDLE KeyHandle; // [rsp+38h] [rbp+10h] BYREF
 
   v2 = 0;
   while ( 1 )
   {
-    result = sub_180073150(a1, 65545LL, 0, &v5);
+    result = sub_180073150(a1, 65545LL, 0, &KeyHandle);
     if ( (int)result < 0 )
       break;
-    v4 = sub_1800E1C18(v5);
+    v4 = sub_1800E1C18(KeyHandle);
     if ( v4 )
-      ZwDeleteKey();
-    ZwClose();
+      ZwDeleteKey(KeyHandle);
+    ZwClose(KeyHandle);
     if ( v4 )
     {
       if ( (unsigned int)++v2 < 2 )

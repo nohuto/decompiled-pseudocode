@@ -1,34 +1,34 @@
 /*
- * XREFs of VfHandlePoolAlloc @ 0x140C44300
+ * XREFs of VfHandlePoolAlloc @ 0x140C4A310
  * Callers:
- *     ExAllocatePoolWithTagFromNode @ 0x140398280 (ExAllocatePoolWithTagFromNode.c)
- *     CcFlushCachePriv @ 0x140398300 (CcFlushCachePriv.c)
- *     ExAllocatePoolMm @ 0x1403985B0 (ExAllocatePoolMm.c)
- *     ExAllocatePool3 @ 0x140C10010 (ExAllocatePool3.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     IovAllocateMdl @ 0x140C20A60 (IovAllocateMdl.c)
- *     IovAllocateWorkItem @ 0x140C20BA0 (IovAllocateWorkItem.c)
- *     ViIrpAllocateLockedPacket @ 0x140C2C7B0 (ViIrpAllocateLockedPacket.c)
- *     ViSpIoSetCompletionRoutineEx_Exit @ 0x140C439D0 (ViSpIoSetCompletionRoutineEx_Exit.c)
- *     ViSpRtlReplaceStringBuffer @ 0x140C43E24 (ViSpRtlReplaceStringBuffer.c)
+ *     ExAllocatePoolWithTagFromNode @ 0x140399FE0 (ExAllocatePoolWithTagFromNode.c)
+ *     CcFlushCachePriv @ 0x14039A060 (CcFlushCachePriv.c)
+ *     ExAllocatePoolMm @ 0x14039A310 (ExAllocatePoolMm.c)
+ *     ExAllocatePool3 @ 0x140C16010 (ExAllocatePool3.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     IovAllocateMdl @ 0x140C26A70 (IovAllocateMdl.c)
+ *     IovAllocateWorkItem @ 0x140C26BB0 (IovAllocateWorkItem.c)
+ *     ViIrpAllocateLockedPacket @ 0x140C327C0 (ViIrpAllocateLockedPacket.c)
+ *     ViSpIoSetCompletionRoutineEx_Exit @ 0x140C499E0 (ViSpIoSetCompletionRoutineEx_Exit.c)
+ *     ViSpRtlReplaceStringBuffer @ 0x140C49E34 (ViSpRtlReplaceStringBuffer.c)
  * Callees:
- *     RtlRaiseStatus @ 0x1402E84A0 (RtlRaiseStatus.c)
- *     ExAllocatePoolWithTagPriority @ 0x140465B80 (ExAllocatePoolWithTagPriority.c)
- *     ExIsSpecialPoolAddress @ 0x140485074 (ExIsSpecialPoolAddress.c)
- *     ViGrowPoolAllocation @ 0x140645390 (ViGrowPoolAllocation.c)
- *     RtlpInterlockedPopEntrySList @ 0x140730C90 (RtlpInterlockedPopEntrySList.c)
- *     RtlpInterlockedPushEntrySList @ 0x140730CD0 (RtlpInterlockedPushEntrySList.c)
- *     ExAllocatePool3 @ 0x140C10010 (ExAllocatePool3.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExpPoolFlagsToPoolType @ 0x140C10F50 (ExpPoolFlagsToPoolType.c)
- *     ViTargetIncrementCounter @ 0x140C29768 (ViTargetIncrementCounter.c)
- *     VfFillAllocatedMemory @ 0x140C29A38 (VfFillAllocatedMemory.c)
- *     CarReportRuleViolationFromNt @ 0x140C2BF1C (CarReportRuleViolationFromNt.c)
- *     VfFaultsIsSystemSufficientlyBooted @ 0x140C34908 (VfFaultsIsSystemSufficientlyBooted.c)
- *     ExAllocatePoolSanityChecks @ 0x140C43294 (ExAllocatePoolSanityChecks.c)
- *     ViPostPoolAllocation @ 0x140C44780 (ViPostPoolAllocation.c)
- *     ViPtLogPoolTraceWrapper @ 0x140C4505C (ViPtLogPoolTraceWrapper.c)
- *     VfTargetDriversGetVerifierData @ 0x140C46B58 (VfTargetDriversGetVerifierData.c)
+ *     RtlRaiseStatus @ 0x1402CA4E0 (RtlRaiseStatus.c)
+ *     ExAllocatePoolWithTagPriority @ 0x14045ECF0 (ExAllocatePoolWithTagPriority.c)
+ *     ExIsSpecialPoolAddress @ 0x14047E9E4 (ExIsSpecialPoolAddress.c)
+ *     ViGrowPoolAllocation @ 0x140648F70 (ViGrowPoolAllocation.c)
+ *     RtlpInterlockedPopEntrySList @ 0x140735860 (RtlpInterlockedPopEntrySList.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1407358A0 (RtlpInterlockedPushEntrySList.c)
+ *     ExAllocatePool3 @ 0x140C16010 (ExAllocatePool3.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExpPoolFlagsToPoolType @ 0x140C16F50 (ExpPoolFlagsToPoolType.c)
+ *     ViTargetIncrementCounter @ 0x140C2F778 (ViTargetIncrementCounter.c)
+ *     VfFillAllocatedMemory @ 0x140C2FA48 (VfFillAllocatedMemory.c)
+ *     CarReportRuleViolationFromNt @ 0x140C31F2C (CarReportRuleViolationFromNt.c)
+ *     VfFaultsIsSystemSufficientlyBooted @ 0x140C3A918 (VfFaultsIsSystemSufficientlyBooted.c)
+ *     ExAllocatePoolSanityChecks @ 0x140C492A4 (ExAllocatePoolSanityChecks.c)
+ *     ViPostPoolAllocation @ 0x140C4A790 (ViPostPoolAllocation.c)
+ *     ViPtLogPoolTraceWrapper @ 0x140C4B06C (ViPtLogPoolTraceWrapper.c)
+ *     VfTargetDriversGetVerifierData @ 0x140C4CB68 (VfTargetDriversGetVerifierData.c)
  */
 
 PVOID __fastcall VfHandlePoolAlloc(
@@ -45,7 +45,7 @@ PVOID __fastcall VfHandlePoolAlloc(
   unsigned int v9; // esi
   __int64 v11; // rbx
   POOL_TYPE v12; // ebp
-  union _SLIST_HEADER *VerifierData; // r13
+  _SLIST_HEADER *VerifierData; // r13
   __int64 v14; // r12
   EX_POOL_PRIORITY v15; // r15d
   __int64 PoolWithTagPriority; // rax
@@ -98,7 +98,7 @@ LABEL_40:
   else
   {
     v26 = 1;
-    VerifierData = (union _SLIST_HEADER *)VfTargetDriversGetVerifierData(a8);
+    VerifierData = (_SLIST_HEADER *)VfTargetDriversGetVerifierData(a8);
     if ( !VerifierData )
     {
       if ( !v11 )
@@ -120,7 +120,7 @@ LABEL_3:
   }
   v29 = a3;
   v28 = a3;
-  _InterlockedIncrement(&dword_140F08690);
+  _InterlockedIncrement(&dword_140F08A30);
   if ( (v12 & 2) != 0 && (VfRuleClasses & 4) != 0 && (unsigned int)VfFaultsIsSystemSufficientlyBooted() )
     CarReportRuleViolationFromNt(194, 154LL, (int)v12 & 0xFFFFFFFFFFFFFF7FuLL, a3, v9, 2u, v14);
   v15 = Priority;
@@ -143,7 +143,7 @@ LABEL_3:
     && v9 != 1850304854 )
   {
     if ( !v26 )
-      VerifierData = (union _SLIST_HEADER *)VfTargetDriversGetVerifierData(v14);
+      VerifierData = (_SLIST_HEADER *)VfTargetDriversGetVerifierData(v14);
     if ( VerifierData && a3 + 8 >= a3 )
     {
       v8 = RtlpInterlockedPopEntrySList(VerifierData + 5);
@@ -158,7 +158,7 @@ LABEL_3:
     }
     else
     {
-      ++dword_140F086BC;
+      ++dword_140F08A5C;
     }
   }
   if ( !v11 )
@@ -175,7 +175,7 @@ LABEL_12:
   v17 = PoolWithTagPriority;
   if ( !PoolWithTagPriority )
   {
-    ++dword_140F086A8;
+    ++dword_140F08A48;
     if ( (MmVerifierData & 0x1000) != 0 )
       ViTargetIncrementCounter(a8, 176LL);
     if ( v8 )
@@ -189,11 +189,11 @@ LABEL_12:
   {
     v23 = 3LL * (((unsigned __int8)_InterlockedExchangeAdd(&ViBugcheckWorkaroundLogIndex, 1u) + 1) & 0xF);
     ViBugcheckWorkaroundLog[2 * v23] = 1;
-    qword_140FF21E8[v23] = v18;
-    qword_140FF21F0[v23] = PoolWithTagPriority;
+    qword_140FF31E8[v23] = v18;
+    qword_140FF31F0[v23] = PoolWithTagPriority;
   }
   v19 = 0;
-  _InterlockedIncrement(&dword_140F08694);
+  _InterlockedIncrement(&dword_140F08A34);
   if ( (unsigned int)ExIsSpecialPoolAddress(PoolWithTagPriority) == 1 )
   {
     v19 = 1;
@@ -202,7 +202,7 @@ LABEL_12:
   {
     goto LABEL_17;
   }
-  _InterlockedIncrement(&dword_140F08698);
+  _InterlockedIncrement(&dword_140F08A38);
 LABEL_17:
   if ( v8 )
   {

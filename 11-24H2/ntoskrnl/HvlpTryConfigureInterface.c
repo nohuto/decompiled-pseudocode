@@ -1,16 +1,16 @@
 /*
- * XREFs of HvlpTryConfigureInterface @ 0x14058B81C
+ * XREFs of HvlpTryConfigureInterface @ 0x140588B0C
  * Callers:
- *     HvlRestoreEnlightenment @ 0x14058308C (HvlRestoreEnlightenment.c)
- *     HvlPhase0Initialize @ 0x14070E848 (HvlPhase0Initialize.c)
- *     HvlEnableVsmCalls @ 0x140C5D014 (HvlEnableVsmCalls.c)
+ *     HvlRestoreEnlightenment @ 0x14058040C (HvlRestoreEnlightenment.c)
+ *     HvlPhase0Initialize @ 0x14070C3D8 (HvlPhase0Initialize.c)
+ *     HvlEnableVsmCalls @ 0x140C1B930 (HvlEnableVsmCalls.c)
  * Callees:
- *     MmGetPhysicalAddress @ 0x140263A60 (MmGetPhysicalAddress.c)
- *     HvlpAllocateEarlyPages @ 0x14058C13C (HvlpAllocateEarlyPages.c)
- *     HvlpMapEarlyPages @ 0x14058C264 (HvlpMapEarlyPages.c)
- *     HviGetHypervisorFeatures @ 0x140663AB0 (HviGetHypervisorFeatures.c)
- *     HviIsHypervisorMicrosoftCompatible @ 0x140663D48 (HviIsHypervisorMicrosoftCompatible.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     MmGetPhysicalAddress @ 0x1402932D0 (MmGetPhysicalAddress.c)
+ *     HvlpAllocateEarlyPages @ 0x14058942C (HvlpAllocateEarlyPages.c)
+ *     HvlpMapEarlyPages @ 0x140589554 (HvlpMapEarlyPages.c)
+ *     HviGetHypervisorFeatures @ 0x1406623A0 (HviGetHypervisorFeatures.c)
+ *     HviIsHypervisorMicrosoftCompatible @ 0x140662638 (HviIsHypervisorMicrosoftCompatible.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 __int64 __fastcall HvlpTryConfigureInterface(__int64 a1)

@@ -1,11 +1,11 @@
 /*
  * XREFs of strcmp @ 0x1403E2AE0
  * Callers:
- *     ExpSetBootEntry @ 0x1409FD4A0 (ExpSetBootEntry.c)
- *     NtEnumerateBootEntries @ 0x1409FF6B0 (NtEnumerateBootEntries.c)
- *     ViXdvDriverLoadImage @ 0x140A8A0C8 (ViXdvDriverLoadImage.c)
- *     HdlspDispatch @ 0x140AA8ED0 (HdlspDispatch.c)
- *     HalpAcpiFindRsdp @ 0x140AF9858 (HalpAcpiFindRsdp.c)
+ *     sub_1409FD4A0 @ 0x1409FD4A0 (sub_1409FD4A0.c)
+ *     sub_1409FF6B0 @ 0x1409FF6B0 (sub_1409FF6B0.c)
+ *     sub_140A8A0C8 @ 0x140A8A0C8 (sub_140A8A0C8.c)
+ *     sub_140AA8ED0 @ 0x140AA8ED0 (sub_140AA8ED0.c)
+ *     sub_140AF9858 @ 0x140AF9858 (sub_140AF9858.c)
  * Callees:
  *     <none>
  */

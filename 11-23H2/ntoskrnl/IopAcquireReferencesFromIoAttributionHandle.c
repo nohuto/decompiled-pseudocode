@@ -2,11 +2,11 @@
  * XREFs of IopAcquireReferencesFromIoAttributionHandle @ 0x14020C5B0
  * Callers:
  *     IoGetIoRateControl @ 0x14020C410 (IoGetIoRateControl.c)
- *     IoNotifyQuotaState @ 0x140368DF0 (IoNotifyQuotaState.c)
+ *     IoNotifyQuotaState @ 0x140368F90 (IoNotifyQuotaState.c)
  * Callees:
  *     IoDiskIoAttributionDereference @ 0x14020C878 (IoDiskIoAttributionDereference.c)
- *     ExAcquireRundownProtection_0 @ 0x14028B360 (ExAcquireRundownProtection_0.c)
- *     IopFindDiskIoAttribution @ 0x140316E48 (IopFindDiskIoAttribution.c)
+ *     ExAcquireRundownProtection_0 @ 0x14028B5F0 (ExAcquireRundownProtection_0.c)
+ *     IopFindDiskIoAttribution @ 0x1403170D8 (IopFindDiskIoAttribution.c)
  */
 
 __int64 __fastcall IopAcquireReferencesFromIoAttributionHandle(

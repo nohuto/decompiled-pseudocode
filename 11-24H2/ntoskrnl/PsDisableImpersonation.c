@@ -1,16 +1,16 @@
 /*
- * XREFs of PsDisableImpersonation @ 0x1409DE810
+ * XREFs of PsDisableImpersonation @ 0x1409D85C0
  * Callers:
- *     CmpAddRemoveContainerToCLFSLog @ 0x1407E639C (CmpAddRemoveContainerToCLFSLog.c)
- *     NtCreateUserProcess @ 0x140ACBA80 (NtCreateUserProcess.c)
- *     CmpStartCLFSLog @ 0x140AE5E28 (CmpStartCLFSLog.c)
+ *     CmpAddRemoveContainerToCLFSLog @ 0x1407E696C (CmpAddRemoveContainerToCLFSLog.c)
+ *     NtCreateUserProcess @ 0x140AC9930 (NtCreateUserProcess.c)
+ *     CmpStartCLFSLog @ 0x140AE7708 (CmpStartCLFSLog.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x1402595A0 (KeLeaveCriticalRegionThread.c)
- *     ExfTryToWakePushLock @ 0x14025F9A0 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     ObfDereferenceObject @ 0x140325680 (ObfDereferenceObject.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
+ *     KeLeaveCriticalRegionThread @ 0x140289BB0 (KeLeaveCriticalRegionThread.c)
+ *     ExfTryToWakePushLock @ 0x14028FFB0 (ExfTryToWakePushLock.c)
+ *     ObfDereferenceObject @ 0x1402CE210 (ObfDereferenceObject.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
  */
 
 BOOLEAN __stdcall PsDisableImpersonation(PETHREAD Thread, PSE_IMPERSONATION_STATE ImpersonationState)
@@ -19,8 +19,8 @@ BOOLEAN __stdcall PsDisableImpersonation(PETHREAD Thread, PSE_IMPERSONATION_STAT
   BOOLEAN result; // al
   unsigned __int64 *p_WaitBlockList; // rsi
   struct _KTHREAD *CurrentThread; // r15
-  _QWORD *v8; // rax
-  _QWORD *v9; // rbp
+  char *v8; // rax
+  char *v9; // rbp
   struct _KTHREAD *v10; // rax
   void *v11; // rcx
 
@@ -30,12 +30,12 @@ BOOLEAN __stdcall PsDisableImpersonation(PETHREAD Thread, PSE_IMPERSONATION_STAT
     p_WaitBlockList = (unsigned __int64 *)&Thread[1].WaitBlockList;
     CurrentThread = KeGetCurrentThread();
     --CurrentThread->KernelApcDisable;
-    v8 = KeAbPreAcquire((__int64)&Thread[1].WaitBlockList, 0LL);
+    v8 = (char *)KeAbPreAcquire((__int64)&Thread[1].WaitBlockList, 0LL);
     v9 = v8;
     if ( _interlockedbittestandset64((volatile signed __int32 *)p_WaitBlockList, 0LL) )
-      ExfAcquirePushLockExclusiveEx(p_WaitBlockList, (__int64)v8, (__int64)p_WaitBlockList);
+      ExfAcquirePushLockExclusiveEx(p_WaitBlockList, v8, (__int64)p_WaitBlockList);
     if ( v9 )
-      *((_BYTE *)v9 + 10) = 1;
+      v9[10] = 1;
     if ( _interlockedbittestandreset((volatile signed __int32 *)&Thread[1].SwapListEntry + 2, 3u) )
     {
       v2 = 1;

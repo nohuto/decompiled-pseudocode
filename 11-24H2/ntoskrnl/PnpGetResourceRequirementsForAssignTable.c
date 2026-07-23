@@ -1,19 +1,19 @@
 /*
- * XREFs of PnpGetResourceRequirementsForAssignTable @ 0x14098DBA0
+ * XREFs of PnpGetResourceRequirementsForAssignTable @ 0x140978BD8
  * Callers:
- *     PnpReallocateResources @ 0x1407346D4 (PnpReallocateResources.c)
- *     PnpQueryRebalanceWorker @ 0x14073509C (PnpQueryRebalanceWorker.c)
- *     PnpAllocateResources @ 0x14098DAA8 (PnpAllocateResources.c)
+ *     PnpReallocateResources @ 0x140732604 (PnpReallocateResources.c)
+ *     PnpQueryRebalanceWorker @ 0x140732FCC (PnpQueryRebalanceWorker.c)
+ *     PnpAllocateResources @ 0x140978AE0 (PnpAllocateResources.c)
  * Callees:
- *     KeReleaseGuardedMutex @ 0x14031E470 (KeReleaseGuardedMutex.c)
- *     ExAcquireFastMutex @ 0x14033E850 (ExAcquireFastMutex.c)
- *     PnpFreeResourceRequirementsForAssignTable @ 0x140734668 (PnpFreeResourceRequirementsForAssignTable.c)
- *     PipClearDevNodeFlags @ 0x1408BB57C (PipClearDevNodeFlags.c)
- *     PnpFilterResourceRequirementsList @ 0x14098D2D0 (PnpFilterResourceRequirementsList.c)
- *     IopQueryDeviceResources @ 0x14098DEA4 (IopQueryDeviceResources.c)
- *     IopResourceRequirementsListToReqList @ 0x140A6BCB4 (IopResourceRequirementsListToReqList.c)
- *     IopRearrangeReqList @ 0x140AA5658 (IopRearrangeReqList.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     KeReleaseGuardedMutex @ 0x1402C7000 (KeReleaseGuardedMutex.c)
+ *     ExAcquireFastMutex @ 0x14031DD30 (ExAcquireFastMutex.c)
+ *     PnpFreeResourceRequirementsForAssignTable @ 0x140732598 (PnpFreeResourceRequirementsForAssignTable.c)
+ *     PipClearDevNodeFlags @ 0x1408B8F2C (PipClearDevNodeFlags.c)
+ *     PnpFilterResourceRequirementsList @ 0x140978308 (PnpFilterResourceRequirementsList.c)
+ *     IopQueryDeviceResources @ 0x140978EDC (IopQueryDeviceResources.c)
+ *     IopResourceRequirementsListToReqList @ 0x140A65214 (IopResourceRequirementsListToReqList.c)
+ *     IopRearrangeReqList @ 0x140AA06C8 (IopRearrangeReqList.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PnpGetResourceRequirementsForAssignTable(unsigned __int64 a1, unsigned __int64 a2, _DWORD *a3)

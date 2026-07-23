@@ -1,14 +1,14 @@
 /*
- * XREFs of PiControlAllocateBufferForUserModeCaller @ 0x1402C27E0
+ * XREFs of PiControlAllocateBufferForUserModeCaller @ 0x140240C80
  * Callers:
- *     PiControlGetPropertyData @ 0x1406ADDA0 (PiControlGetPropertyData.c)
- *     PiControlGetRelatedDevice @ 0x1406AE010 (PiControlGetRelatedDevice.c)
- *     PiControlQueryAndRemoveDevice @ 0x1408B36F0 (PiControlQueryAndRemoveDevice.c)
- *     PiControlQueryConflictList @ 0x1408B3850 (PiControlQueryConflictList.c)
- *     PiControlQueryDeviceRelations @ 0x1408B3A70 (PiControlQueryDeviceRelations.c)
+ *     PiControlGetPropertyData @ 0x14060C640 (PiControlGetPropertyData.c)
+ *     PiControlGetRelatedDevice @ 0x14060C8B0 (PiControlGetRelatedDevice.c)
+ *     PiControlQueryAndRemoveDevice @ 0x1408B3850 (PiControlQueryAndRemoveDevice.c)
+ *     PiControlQueryConflictList @ 0x1408B39B0 (PiControlQueryConflictList.c)
+ *     PiControlQueryDeviceRelations @ 0x1408B3BD0 (PiControlQueryDeviceRelations.c)
  * Callees:
- *     ExAllocatePoolWithQuotaTag @ 0x140353020 (ExAllocatePoolWithQuotaTag.c)
- *     memset @ 0x140414200 (memset.c)
+ *     ExAllocatePoolWithQuotaTag @ 0x14035DD70 (ExAllocatePoolWithQuotaTag.c)
+ *     memset @ 0x140414300 (memset.c)
  */
 
 __int64 __fastcall PiControlAllocateBufferForUserModeCaller(_QWORD *a1, unsigned int a2, char a3, __int64 a4)

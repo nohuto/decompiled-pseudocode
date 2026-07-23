@@ -1,11 +1,11 @@
 /*
- * XREFs of EtwpApcPoolDpc @ 0x140257CF0
+ * XREFs of EtwpApcPoolDpc @ 0x1402594D0
  * Callers:
  *     <none>
  * Callees:
- *     EtwpQueueApc @ 0x14020AA10 (EtwpQueueApc.c)
- *     ExReleaseRundownProtectionCacheAwareEx @ 0x140257080 (ExReleaseRundownProtectionCacheAwareEx.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     EtwpQueueApc @ 0x14020AAF0 (EtwpQueueApc.c)
+ *     ExReleaseRundownProtectionCacheAwareEx @ 0x140258A10 (ExReleaseRundownProtectionCacheAwareEx.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 void __fastcall EtwpApcPoolDpc(__int64 a1, __int64 a2, __int64 a3)

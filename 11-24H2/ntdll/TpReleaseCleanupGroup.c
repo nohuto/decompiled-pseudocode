@@ -1,24 +1,24 @@
 /*
- * XREFs of TpReleaseCleanupGroup @ 0x180069D30
+ * XREFs of TpReleaseCleanupGroup @ 0x180086420
  * Callers:
  *     <none>
  * Callees:
- *     TppRaiseInvalidParameter @ 0x18006B7F4 (TppRaiseInvalidParameter.c)
+ *     TppRaiseInvalidParameter @ 0x1800880D4 (TppRaiseInvalidParameter.c)
  */
 
-__int64 __fastcall TpReleaseCleanupGroup(volatile signed __int32 *a1)
+void __cdecl TpReleaseCleanupGroup(PTP_CLEANUP_GROUP CleanupGroup)
 {
-  __int64 result; // rax
-
-  if ( !a1 )
-    return TppRaiseInvalidParameter(a1);
-  result = (__int64)NtCurrentPeb();
-  if ( *(_BYTE *)(*(_QWORD *)(result + 24) + 72LL) )
-    return result;
-  if ( _InterlockedExchange(a1 + 1, 1) )
-    return TppRaiseInvalidParameter(a1);
-  result = (unsigned int)_InterlockedExchangeAdd(a1, 0xFFFFFFFF);
-  if ( (_DWORD)result == 1 )
-    return RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, TppHeapTag, (unsigned __int64)a1);
-  return result;
+  if ( !CleanupGroup )
+    goto LABEL_6;
+  if ( NtCurrentPeb()->Ldr->ShutdownInProgress )
+    return;
+  if ( _InterlockedExchange(&CleanupGroup->Released, 1) )
+  {
+LABEL_6:
+    TppRaiseInvalidParameter(CleanupGroup);
+  }
+  else if ( _InterlockedExchangeAdd(&CleanupGroup->Refcount.Refcount, 0xFFFFFFFF) == 1 )
+  {
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, TppHeapTag, CleanupGroup);
+  }
 }

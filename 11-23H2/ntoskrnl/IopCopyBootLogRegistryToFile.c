@@ -1,26 +1,26 @@
 /*
- * XREFs of IopCopyBootLogRegistryToFile @ 0x1408655B8
+ * XREFs of IopCopyBootLogRegistryToFile @ 0x1408657F8
  * Callers:
- *     CmCompleteRegistryInitialization @ 0x14080A920 (CmCompleteRegistryInitialization.c)
+ *     CmCompleteRegistryInitialization @ 0x14080ABF0 (CmCompleteRegistryInitialization.c)
  * Callees:
- *     RtlStringCchPrintfW @ 0x14022A90C (RtlStringCchPrintfW.c)
- *     RtlInitUnicodeString @ 0x14022E1B0 (RtlInitUnicodeString.c)
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExAcquireResourceExclusiveLite @ 0x1402390E0 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x14023D410 (ExReleaseResourceLite.c)
- *     RtlInitAnsiString @ 0x1402F6C50 (RtlInitAnsiString.c)
- *     ExSystemTimeToLocalTime @ 0x14033B2F0 (ExSystemTimeToLocalTime.c)
- *     RtlTimeToTimeFields @ 0x14033B6B0 (RtlTimeToTimeFields.c)
- *     RtlStringCchPrintfA @ 0x140374A2C (RtlStringCchPrintfA.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     ZwClose @ 0x14041AF40 (ZwClose.c)
- *     ZwDeleteKey @ 0x14041C8A0 (ZwDeleteKey.c)
+ *     RtlStringCchPrintfW @ 0x14022AA1C (RtlStringCchPrintfW.c)
+ *     RtlInitUnicodeString @ 0x14022E2C0 (RtlInitUnicodeString.c)
+ *     KeLeaveCriticalRegionThread @ 0x14022F7F0 (KeLeaveCriticalRegionThread.c)
+ *     ExAcquireResourceExclusiveLite @ 0x1402391B0 (ExAcquireResourceExclusiveLite.c)
+ *     ExReleaseResourceLite @ 0x14023D4E0 (ExReleaseResourceLite.c)
+ *     RtlInitAnsiString @ 0x1402F6EE0 (RtlInitAnsiString.c)
+ *     ExSystemTimeToLocalTime @ 0x14033B580 (ExSystemTimeToLocalTime.c)
+ *     RtlTimeToTimeFields @ 0x14033B940 (RtlTimeToTimeFields.c)
+ *     RtlStringCchPrintfA @ 0x140374BCC (RtlStringCchPrintfA.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     ZwClose @ 0x14041B2D0 (ZwClose.c)
+ *     ZwDeleteKey @ 0x14041CC30 (ZwDeleteKey.c)
  *     IopGetRegistryValue @ 0x14068CE78 (IopGetRegistryValue.c)
- *     RtlFreeUnicodeString @ 0x14076F3D0 (RtlFreeUnicodeString.c)
- *     RtlAnsiStringToUnicodeString @ 0x140773C00 (RtlAnsiStringToUnicodeString.c)
- *     IopOpenRegistryKey @ 0x1407CEF1C (IopOpenRegistryKey.c)
- *     RtlCreateUnicodeString @ 0x1407FB060 (RtlCreateUnicodeString.c)
- *     IopBootLogToFile @ 0x1409441B4 (IopBootLogToFile.c)
+ *     RtlFreeUnicodeString @ 0x14076F5C0 (RtlFreeUnicodeString.c)
+ *     RtlAnsiStringToUnicodeString @ 0x140773DF0 (RtlAnsiStringToUnicodeString.c)
+ *     IopOpenRegistryKey @ 0x1407CF1EC (IopOpenRegistryKey.c)
+ *     RtlCreateUnicodeString @ 0x1407FB330 (RtlCreateUnicodeString.c)
+ *     IopBootLogToFile @ 0x1409443B4 (IopBootLogToFile.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 
@@ -35,7 +35,7 @@ _QWORD *IopCopyBootLogRegistryToFile()
   LARGE_INTEGER LocalTime; // [rsp+58h] [rbp-B0h] BYREF
   HANDLE KeyHandle; // [rsp+60h] [rbp-A8h] BYREF
   HANDLE TimeFields; // [rsp+68h] [rbp-A0h] BYREF
-  TIME_FIELDS TimeFields_8; // [rsp+70h] [rbp-98h] BYREF
+  _TIME_FIELDS TimeFields_8; // [rsp+70h] [rbp-98h] BYREF
   UNICODE_STRING UnicodeString_8; // [rsp+80h] [rbp-88h] BYREF
   STRING DestinationString; // [rsp+90h] [rbp-78h] BYREF
   UNICODE_STRING v12; // [rsp+A0h] [rbp-68h] BYREF
@@ -89,7 +89,7 @@ _QWORD *IopCopyBootLogRegistryToFile()
         if ( IopOpenRegistryKey(&KeyHandle, TimeFields, &v12, 0xF003Fu, 0) >= 0 )
         {
           LocalTime.QuadPart = 0LL;
-          RegistryValue = IopGetRegistryValue(KeyHandle, &word_140887DD0, 256, &LocalTime);
+          RegistryValue = IopGetRegistryValue(KeyHandle, &word_140888010, 256, &LocalTime);
           QuadPart = (void *)LocalTime.QuadPart;
           if ( RegistryValue >= 0 )
           {

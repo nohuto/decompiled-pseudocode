@@ -1,10 +1,10 @@
 /*
- * XREFs of CmpFindKcbInHashEntryByCompressedName @ 0x1401B4AF4
+ * XREFs of CmpFindKcbInHashEntryByCompressedName @ 0x1401B49D8
  * Callers:
- *     CmpPartialPromoteSubkeys @ 0x1401B3204 (CmpPartialPromoteSubkeys.c)
+ *     CmpPartialPromoteSubkeys @ 0x1401B30E8 (CmpPartialPromoteSubkeys.c)
  * Callees:
- *     CmpCompareCompressedName @ 0x140512960 (CmpCompareCompressedName.c)
- *     CmpCompareTwoCompressedNames @ 0x1406069B0 (CmpCompareTwoCompressedNames.c)
+ *     CmpCompareCompressedName @ 0x1404F5D50 (CmpCompareCompressedName.c)
+ *     CmpCompareTwoCompressedNames @ 0x140606A64 (CmpCompareTwoCompressedNames.c)
  */
 
 __int64 __fastcall CmpFindKcbInHashEntryByCompressedName(

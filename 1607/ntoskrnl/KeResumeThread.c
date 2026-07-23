@@ -1,13 +1,13 @@
 /*
- * XREFs of KeResumeThread @ 0x1400A2840
+ * XREFs of KeResumeThread @ 0x1400A1168
  * Callers:
- *     KeAlertResumeThread @ 0x1401D2C3C (KeAlertResumeThread.c)
- *     PsResumeProcess @ 0x1404CCCE0 (PsResumeProcess.c)
- *     PsResumeThread @ 0x1404CCE44 (PsResumeThread.c)
+ *     KeAlertResumeThread @ 0x1401D2A68 (KeAlertResumeThread.c)
+ *     PsResumeProcess @ 0x1404B270C (PsResumeProcess.c)
+ *     PsResumeThread @ 0x1404B2870 (PsResumeThread.c)
  * Callees:
- *     KiExitDispatcher @ 0x140056700 (KiExitDispatcher.c)
- *     KiResumeThread @ 0x1400CB420 (KiResumeThread.c)
- *     KiAcquireKobjectLockSafe @ 0x1400EE7C0 (KiAcquireKobjectLockSafe.c)
+ *     KiExitDispatcher @ 0x140056280 (KiExitDispatcher.c)
+ *     KiResumeThread @ 0x1400C92C0 (KiResumeThread.c)
+ *     KiAcquireKobjectLockSafe @ 0x1400EC640 (KiAcquireKobjectLockSafe.c)
  */
 
 __int64 __fastcall KeResumeThread(__int64 a1)

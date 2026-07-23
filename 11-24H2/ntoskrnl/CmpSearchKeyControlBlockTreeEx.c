@@ -1,20 +1,20 @@
 /*
- * XREFs of CmpSearchKeyControlBlockTreeEx @ 0x140A4F298
+ * XREFs of CmpSearchKeyControlBlockTreeEx @ 0x140A46048
  * Callers:
- *     CmpRefreshHive @ 0x1407CEAF0 (CmpRefreshHive.c)
- *     CmKeyBodyReplicateToVirtual @ 0x140978D18 (CmKeyBodyReplicateToVirtual.c)
+ *     CmpRefreshHive @ 0x1407CEFE0 (CmpRefreshHive.c)
+ *     CmKeyBodyReplicateToVirtual @ 0x140961528 (CmKeyBodyReplicateToVirtual.c)
  * Callees:
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     CmpLockHashEntryByIndexExclusive @ 0x1407E0F1C (CmpLockHashEntryByIndexExclusive.c)
- *     CmpLockKcbExclusive @ 0x140870470 (CmpLockKcbExclusive.c)
- *     CmpCleanUpKcbCacheWithLock @ 0x1408704E0 (CmpCleanUpKcbCacheWithLock.c)
- *     CmpRemoveFromDelayedClose @ 0x140870910 (CmpRemoveFromDelayedClose.c)
- *     CmpUnlockHashEntryByIndex @ 0x140870A20 (CmpUnlockHashEntryByIndex.c)
- *     CmpDecommisssionKcb @ 0x140870D10 (CmpDecommisssionKcb.c)
- *     CmpUnlockKcb @ 0x140BB92C0 (CmpUnlockKcb.c)
- *     CmpAttachToRegistryProcess @ 0x140BB98E0 (CmpAttachToRegistryProcess.c)
- *     CmpDetachFromRegistryProcess @ 0x140BB9920 (CmpDetachFromRegistryProcess.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     CmpLockHashEntryByIndexExclusive @ 0x1407E146C (CmpLockHashEntryByIndexExclusive.c)
+ *     CmpLockKcbExclusive @ 0x1408747A0 (CmpLockKcbExclusive.c)
+ *     CmpCleanUpKcbCacheWithLock @ 0x140874810 (CmpCleanUpKcbCacheWithLock.c)
+ *     CmpRemoveFromDelayedClose @ 0x140874C40 (CmpRemoveFromDelayedClose.c)
+ *     CmpUnlockHashEntryByIndex @ 0x140874D50 (CmpUnlockHashEntryByIndex.c)
+ *     CmpDecommisssionKcb @ 0x140875040 (CmpDecommisssionKcb.c)
+ *     CmpUnlockKcb @ 0x140BBB2C0 (CmpUnlockKcb.c)
+ *     CmpAttachToRegistryProcess @ 0x140BBB8E0 (CmpAttachToRegistryProcess.c)
+ *     CmpDetachFromRegistryProcess @ 0x140BBB920 (CmpDetachFromRegistryProcess.c)
  */
 
 char __fastcall CmpSearchKeyControlBlockTreeEx(__int64 a1, ULONG_PTR a2, __int64 a3, __int64 a4, char a5)
@@ -31,12 +31,12 @@ char __fastcall CmpSearchKeyControlBlockTreeEx(__int64 a1, ULONG_PTR a2, __int64
   ULONG_PTR v15; // rcx
   int v16; // eax
   unsigned int v18; // [rsp+30h] [rbp-A8h]
-  __int64 v21; // [rsp+50h] [rbp-88h]
+  __int64 v20; // [rsp+50h] [rbp-88h]
   struct _KAPC_STATE ApcState; // [rsp+58h] [rbp-80h] BYREF
 
   v5 = *(_QWORD *)(a2 + 1648);
   v6 = *(_DWORD *)(a2 + 1656);
-  v21 = v5;
+  v20 = v5;
   memset(&ApcState, 0, sizeof(ApcState));
   v18 = v6;
   CmpAttachToRegistryProcess(&ApcState);
@@ -67,7 +67,7 @@ LABEL_6:
         goto LABEL_6;
       }
       v11 = v13[3];
-      v16 = guard_dispatch_icall_no_overrides(v14, a2, a3, a4);
+      v16 = guard_dispatch_icall_no_overrides(v14, a2);
       switch ( v16 )
       {
         case 1:
@@ -97,7 +97,7 @@ LABEL_32:
     if ( a5 )
       CmpUnlockHashEntryByIndex(a2, i);
     v6 = v18;
-    v5 = v21;
+    v5 = v20;
   }
   CmpDetachFromRegistryProcess(&ApcState);
   return 1;

@@ -1,15 +1,15 @@
 /*
- * XREFs of RtlpHashStringToAtom @ 0x140717F70
+ * XREFs of RtlpHashStringToAtom @ 0x140718170
  * Callers:
  *     RtlpFreeAllAtom @ 0x14020BD88 (RtlpFreeAllAtom.c)
- *     RtlAddAtomToAtomTableEx @ 0x140297790 (RtlAddAtomToAtomTableEx.c)
- *     RtlLookupAtomInAtomTable @ 0x140717E10 (RtlLookupAtomInAtomTable.c)
+ *     RtlAddAtomToAtomTableEx @ 0x140297A20 (RtlAddAtomToAtomTableEx.c)
+ *     RtlLookupAtomInAtomTable @ 0x140718010 (RtlLookupAtomInAtomTable.c)
  * Callees:
- *     NLS_UPCASE @ 0x14022D310 (NLS_UPCASE.c)
- *     PsGetCurrentServerSiloGlobals @ 0x14022D370 (PsGetCurrentServerSiloGlobals.c)
- *     RtlpLookupOrCreateLowBox @ 0x140297998 (RtlpLookupOrCreateLowBox.c)
- *     _wcsicmp @ 0x1403D9A50 (_wcsicmp.c)
- *     RtlpAtomMapAtomToHandleEntry @ 0x14073F848 (RtlpAtomMapAtomToHandleEntry.c)
+ *     NLS_UPCASE @ 0x14022D420 (NLS_UPCASE.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x14022D480 (PsGetCurrentServerSiloGlobals.c)
+ *     RtlpLookupOrCreateLowBox @ 0x140297C28 (RtlpLookupOrCreateLowBox.c)
+ *     _wcsicmp @ 0x1403D9C30 (_wcsicmp.c)
+ *     RtlpAtomMapAtomToHandleEntry @ 0x14073FA38 (RtlpAtomMapAtomToHandleEntry.c)
  */
 
 __int64 __fastcall RtlpHashStringToAtom(

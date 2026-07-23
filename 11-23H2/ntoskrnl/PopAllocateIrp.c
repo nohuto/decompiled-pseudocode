@@ -1,27 +1,27 @@
 /*
- * XREFs of PopAllocateIrp @ 0x14028F434
+ * XREFs of PopAllocateIrp @ 0x14028F6C4
  * Callers:
- *     PopRequestPowerIrp @ 0x14028F230 (PopRequestPowerIrp.c)
- *     PopNotifyDevice @ 0x140AA72CC (PopNotifyDevice.c)
+ *     PopRequestPowerIrp @ 0x14028F4C0 (PopRequestPowerIrp.c)
+ *     PopNotifyDevice @ 0x140AA713C (PopNotifyDevice.c)
  * Callees:
- *     IoAllocateIrp @ 0x14022E610 (IoAllocateIrp.c)
- *     ObfDereferenceObjectWithTag @ 0x14022F5B0 (ObfDereferenceObjectWithTag.c)
- *     KeDelayExecutionThread @ 0x140246810 (KeDelayExecutionThread.c)
- *     KxReleaseQueuedSpinLock @ 0x140260360 (KxReleaseQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140260E60 (KeAcquireInStackQueuedSpinLock.c)
- *     PopFxLockDevice @ 0x14028D184 (PopFxLockDevice.c)
- *     PopFxAllocatePowerIrp @ 0x14028EE2C (PopFxAllocatePowerIrp.c)
- *     IoReuseIrp @ 0x1402903D0 (IoReuseIrp.c)
- *     ObfReferenceObjectWithTag @ 0x1402B68C0 (ObfReferenceObjectWithTag.c)
- *     ExAllocateFromNPagedLookasideList @ 0x1402B6B30 (ExAllocateFromNPagedLookasideList.c)
- *     ExFreeToNPagedLookasideList @ 0x1402B6B70 (ExFreeToNPagedLookasideList.c)
- *     IoGetDeviceAttachmentBaseRefWithTag @ 0x140302A88 (IoGetDeviceAttachmentBaseRefWithTag.c)
- *     IoGetAttachedDeviceReferenceWithTag @ 0x140302C00 (IoGetAttachedDeviceReferenceWithTag.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     memset @ 0x140435A00 (memset.c)
- *     PopFxReleaseDevice @ 0x140462D9C (PopFxReleaseDevice.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     VfIrpWatermark @ 0x140ACDC58 (VfIrpWatermark.c)
+ *     IoAllocateIrp @ 0x14022E720 (IoAllocateIrp.c)
+ *     ObfDereferenceObjectWithTag @ 0x14022F6C0 (ObfDereferenceObjectWithTag.c)
+ *     KeDelayExecutionThread @ 0x1402468E0 (KeDelayExecutionThread.c)
+ *     KxReleaseQueuedSpinLock @ 0x1402605F0 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402610F0 (KeAcquireInStackQueuedSpinLock.c)
+ *     PopFxLockDevice @ 0x14028D414 (PopFxLockDevice.c)
+ *     PopFxAllocatePowerIrp @ 0x14028F0BC (PopFxAllocatePowerIrp.c)
+ *     IoReuseIrp @ 0x140290660 (IoReuseIrp.c)
+ *     ObfReferenceObjectWithTag @ 0x1402B6B50 (ObfReferenceObjectWithTag.c)
+ *     ExAllocateFromNPagedLookasideList @ 0x1402B6DC0 (ExAllocateFromNPagedLookasideList.c)
+ *     ExFreeToNPagedLookasideList @ 0x1402B6E00 (ExFreeToNPagedLookasideList.c)
+ *     IoGetDeviceAttachmentBaseRefWithTag @ 0x140302D18 (IoGetDeviceAttachmentBaseRefWithTag.c)
+ *     IoGetAttachedDeviceReferenceWithTag @ 0x140302E90 (IoGetAttachedDeviceReferenceWithTag.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     PopFxReleaseDevice @ 0x14046319C (PopFxReleaseDevice.c)
+ *     VfIrpWatermark @ 0x140ACDC48 (VfIrpWatermark.c)
  */
 
 __int64 __fastcall PopAllocateIrp(
@@ -145,21 +145,24 @@ LABEL_12:
           v27[-1].DeviceObject = AttachedDeviceReferenceWithTag;
           KeAcquireInStackQueuedSpinLock(&PopIrpLock, &LockHandle);
           PopIrpLockThread = (__int64)KeGetCurrentThread();
-          v28 = (__int64 *)qword_140C3D5B8;
-          if ( *(__int64 **)qword_140C3D5B8 != &PopIrpList )
+          v28 = (__int64 *)qword_140C3D588;
+          if ( *(__int64 **)qword_140C3D588 != &PopIrpList )
             __fastfail(3u);
           v31 = *(_QWORD *)SpinLock;
           PopIrpLockThread = 0LL;
           **(_QWORD **)SpinLock = &PopIrpList;
           *(_QWORD *)(v31 + 8) = v28;
           *v28 = v31;
-          qword_140C3D5B8 = v31;
+          qword_140C3D588 = v31;
           KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
           OldIrql = LockHandle.OldIrql;
-          if ( KiIrqlFlags )
+          if ( (_DWORD)KiIrqlFlags )
           {
             CurrentIrql = KeGetCurrentIrql();
-            if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && LockHandle.OldIrql <= 0xFu && CurrentIrql >= 2u )
+            if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+              && CurrentIrql <= 0xFu
+              && LockHandle.OldIrql <= 0xFu
+              && CurrentIrql >= 2u )
             {
               CurrentPrcb = KeGetCurrentPrcb();
               SchedulerAssist = CurrentPrcb->SchedulerAssist;

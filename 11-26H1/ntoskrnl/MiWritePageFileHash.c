@@ -1,21 +1,21 @@
 /*
- * XREFs of MiWritePageFileHash @ 0x140470698
+ * XREFs of MiWritePageFileHash @ 0x140469E18
  * Callers:
- *     MiMapPageFileHash @ 0x1404A0244 (MiMapPageFileHash.c)
+ *     MiMapPageFileHash @ 0x140499D94 (MiMapPageFileHash.c)
  * Callees:
- *     ExReleaseSpinLockExclusive @ 0x14021AA80 (ExReleaseSpinLockExclusive.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     ExAcquireSpinLockExclusive @ 0x140249CD0 (ExAcquireSpinLockExclusive.c)
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     MiMapPageInHyperSpaceWorker @ 0x140287EE0 (MiMapPageInHyperSpaceWorker.c)
- *     MiMakePageFilePte @ 0x140298DD0 (MiMakePageFilePte.c)
- *     KeShouldYieldProcessor @ 0x1402D49D0 (KeShouldYieldProcessor.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402DED10 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     MiIsPfnOriginalPteLost @ 0x140408658 (MiIsPfnOriginalPteLost.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     MiPageHashBugCheck @ 0x14052F994 (MiPageHashBugCheck.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     ExReleaseSpinLockExclusive @ 0x14021C410 (ExReleaseSpinLockExclusive.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024B630 (ExAcquireSpinLockExclusive.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     MiMapPageInHyperSpaceWorker @ 0x140287440 (MiMapPageInHyperSpaceWorker.c)
+ *     MiMakePageFilePte @ 0x140298330 (MiMakePageFilePte.c)
+ *     KeShouldYieldProcessor @ 0x1402B6790 (KeShouldYieldProcessor.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402C0B20 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     MiIsPfnOriginalPteLost @ 0x140401748 (MiIsPfnOriginalPteLost.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     MiPageHashBugCheck @ 0x140531E94 (MiPageHashBugCheck.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall MiWritePageFileHash(__int64 a1, __int64 *a2, int a3, unsigned int a4)
@@ -85,7 +85,7 @@ __int64 __fastcall MiWritePageFileHash(__int64 a1, __int64 *a2, int a3, unsigned
 
   v53 = a3;
   v61 = a4;
-  v6 = dword_140E35F50 != 0;
+  v6 = dword_140E360D0 != 0;
   v58 = a1;
   LOBYTE(v4) = 17;
   v55 = v6;
@@ -113,7 +113,7 @@ __int64 __fastcall MiWritePageFileHash(__int64 a1, __int64 *a2, int a3, unsigned
       v66[4 * v10] = 0;
     }
     v14 = *a2;
-    if ( *a2 == qword_140E36038 )
+    if ( *a2 == qword_140E361B8 )
     {
       ++v10;
       goto LABEL_90;
@@ -185,20 +185,20 @@ LABEL_17:
           v26 = *(unsigned __int16 *)(v58 + 172);
           if ( v25 )
           {
-            if ( qword_140E2D740 )
+            if ( qword_140E2D8C0 )
             {
               if ( (v25 & 0x10) != 0 )
                 LODWORD(v25) = v25 & 0xFFFFFFEF;
               else
-                LODWORD(v25) = qword_140E2D748 & v25;
+                LODWORD(v25) = qword_140E2D8C8 & v25;
             }
             PageFilePte = (unsigned int)v25 | ((unsigned __int64)v20 << 32);
-            if ( qword_140E2D740 )
+            if ( qword_140E2D8C0 )
             {
-              if ( (qword_140E2D740 & PageFilePte) != 0 )
+              if ( (qword_140E2D8C0 & PageFilePte) != 0 )
                 PageFilePte |= 0x10uLL;
               else
-                PageFilePte |= qword_140E2D740;
+                PageFilePte |= qword_140E2D8C0;
             }
           }
           else
@@ -217,7 +217,7 @@ LABEL_17:
           v25 = v29 ^ (v29 ^ v25) & 0xFFFFFFFFFFFFFC1FuLL;
         }
         v30 = (v25 >> 5) & 0x1F;
-        if ( (dword_140FBE210 & 1) == 0 && (_DWORD)v30 != 31 )
+        if ( (dword_140FBF210 & 1) == 0 && (_DWORD)v30 != 31 )
         {
           if ( (unsigned int)v30 >> 3 == 3 )
           {
@@ -234,8 +234,8 @@ LABEL_17:
         {
           if ( (_DWORD)v31 )
           {
-            if ( qword_140E2D740 != v28 && (v25 & 0x10) == 0 )
-              v25 &= qword_140E2D748;
+            if ( qword_140E2D8C0 != v28 && (v25 & 0x10) == 0 )
+              v25 &= qword_140E2D8C8;
             v32 = HIDWORD(v25);
           }
           else
@@ -280,8 +280,8 @@ LABEL_17:
           *(_QWORD *)((char *)&v66[1] + v13) = v18 | 1;
           if ( (_DWORD)v31 )
           {
-            if ( qword_140E2D740 != v28 && (v25 & 0x10) == 0 )
-              v25 &= qword_140E2D748;
+            if ( qword_140E2D8C0 != v28 && (v25 & 0x10) == 0 )
+              v25 &= qword_140E2D8C8;
             v40 = HIDWORD(v25);
           }
           else
@@ -329,25 +329,25 @@ LABEL_93:
     }
     v44 = v58;
     v45 = 0;
-    v46 = *(_QWORD *)(v58 + 184) + (unsigned int)(dword_140E35F4C * v8);
+    v46 = *(_QWORD *)(v58 + 184) + (unsigned int)(dword_140E360CC * v8);
     if ( v10 )
     {
       v47 = v66;
       do
       {
         if ( (*(_DWORD *)v46 > 1u || v6 && (*(_BYTE *)(v46 + 8) & 1) != 0)
-          && !*(_DWORD *)&stru_140E2EB88.SavedApcStateFill[8] )
+          && !*(_DWORD *)&stru_140E2ED08.SavedApcStateFill[8] )
         {
           MiPageHashBugCheck(0x60uLL, v8 + v45, (int)&v65[4 * v45 + 10]);
         }
         *(_DWORD *)v46 = *(v47 - 1);
-        if ( dword_140E35F50 )
+        if ( dword_140E360D0 )
         {
           *(_QWORD *)(v46 + 8) = *(_QWORD *)(v47 + 1);
           *(_DWORD *)(v46 + 4) = *v47;
         }
         ++v45;
-        v46 += (unsigned int)dword_140E35F4C;
+        v46 += (unsigned int)dword_140E360CC;
         v47 += 4;
       }
       while ( v45 < v10 );
@@ -366,7 +366,7 @@ LABEL_93:
       {
         do
         {
-          if ( *v49 != qword_140E36038 )
+          if ( *v49 != qword_140E361B8 )
           {
             v50 = 48 * *v49 - 0x220000000000LL;
             _InterlockedAnd64((volatile signed __int64 *)(v50 + 24), 0x7FFFFFFFFFFFFFFFuLL);

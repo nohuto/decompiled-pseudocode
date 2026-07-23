@@ -1,11 +1,11 @@
 /*
- * XREFs of ExpObCloseCrossVmEvent @ 0x140846380
+ * XREFs of ExpObCloseCrossVmEvent @ 0x14084C5E0
  * Callers:
  *     <none>
  * Callees:
- *     ExReleaseExtensionTable @ 0x14048FC18 (ExReleaseExtensionTable.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     ExpGetExtensionHostForCrossVmObject @ 0x140B6A608 (ExpGetExtensionHostForCrossVmObject.c)
+ *     ExReleaseExtensionTable @ 0x1404896C4 (ExReleaseExtensionTable.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     ExpGetExtensionHostForCrossVmObject @ 0x140B6D818 (ExpGetExtensionHostForCrossVmObject.c)
  */
 
 void __fastcall ExpObCloseCrossVmEvent(__int64 a1, __int64 a2)

@@ -1,9 +1,9 @@
 /*
- * XREFs of Feature_PpmParkUseWholeNumaNode__private_IsEnabledDeviceUsageNoInline @ 0x14060F0B4
+ * XREFs of Feature_PpmParkUseWholeNumaNode__private_IsEnabledDeviceUsageNoInline @ 0x140612318
  * Callers:
- *     PpmParkRegisterParking @ 0x14060FE58 (PpmParkRegisterParking.c)
+ *     PpmParkRegisterParking @ 0x1406130BC (PpmParkRegisterParking.c)
  * Callees:
- *     Feature_PpmParkUseWholeNumaNode__private_IsEnabledFallback @ 0x14060F0F0 (Feature_PpmParkUseWholeNumaNode__private_IsEnabledFallback.c)
+ *     Feature_PpmParkUseWholeNumaNode__private_IsEnabledFallback @ 0x140612354 (Feature_PpmParkUseWholeNumaNode__private_IsEnabledFallback.c)
  */
 
 __int64 Feature_PpmParkUseWholeNumaNode__private_IsEnabledDeviceUsageNoInline()

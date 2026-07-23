@@ -1,20 +1,20 @@
 /*
- * XREFs of SmKmStoreDelete @ 0x1406C9490
+ * XREFs of SmKmStoreDelete @ 0x1406CA730
  * Callers:
- *     SmKmStoreDeleteWhenEmptyWorker @ 0x1401374C0 (SmKmStoreDeleteWhenEmptyWorker.c)
- *     SmProcessCreateRequest @ 0x14066ADF4 (SmProcessCreateRequest.c)
- *     SmProcessDeleteRequest @ 0x1408AAEC0 (SmProcessDeleteRequest.c)
+ *     SmKmStoreDeleteWhenEmptyWorker @ 0x1401375C0 (SmKmStoreDeleteWhenEmptyWorker.c)
+ *     SmProcessCreateRequest @ 0x14066BFB4 (SmProcessCreateRequest.c)
+ *     SmProcessDeleteRequest @ 0x1408AC120 (SmProcessDeleteRequest.c)
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     KeLeaveCriticalRegion @ 0x14004F410 (KeLeaveCriticalRegion.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
- *     ExWaitForRundownProtectionRelease @ 0x140089890 (ExWaitForRundownProtectionRelease.c)
- *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     SmKmStoreRefFromStoreIndex @ 0x1400E1228 (SmKmStoreRefFromStoreIndex.c)
- *     SmEtwEnabled @ 0x1400E3E28 (SmEtwEnabled.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     SmKmEtwLogStoreChange @ 0x1408AC714 (SmKmEtwLogStoreChange.c)
- *     SmKmEtwLogStoreStats @ 0x1408AC848 (SmKmEtwLogStoreStats.c)
+ *     ExWaitForRundownProtectionRelease @ 0x140089880 (ExWaitForRundownProtectionRelease.c)
+ *     ExfTryToWakePushLock @ 0x140091500 (ExfTryToWakePushLock.c)
+ *     SmKmStoreRefFromStoreIndex @ 0x1400E12A8 (SmKmStoreRefFromStoreIndex.c)
+ *     SmEtwEnabled @ 0x1400E3EA8 (SmEtwEnabled.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     SmKmEtwLogStoreChange @ 0x1408AD974 (SmKmEtwLogStoreChange.c)
+ *     SmKmEtwLogStoreStats @ 0x1408ADAA8 (SmKmEtwLogStoreStats.c)
  */
 
 __int64 __fastcall SmKmStoreDelete(__int64 a1, unsigned int a2, char a3)

@@ -1,16 +1,16 @@
 /*
- * XREFs of WheaRemoveErrorSource @ 0x140A078C0
+ * XREFs of WheaRemoveErrorSource @ 0x140A07B50
  * Callers:
- *     WheaUnregisterErrorSourceOverride @ 0x1406137C0 (WheaUnregisterErrorSourceOverride.c)
- *     WheaRemoveErrorSourceDeviceDriver @ 0x140A07AA0 (WheaRemoveErrorSourceDeviceDriver.c)
+ *     WheaUnregisterErrorSourceOverride @ 0x140613D10 (WheaUnregisterErrorSourceOverride.c)
+ *     WheaRemoveErrorSourceDeviceDriver @ 0x140A07D50 (WheaRemoveErrorSourceDeviceDriver.c)
  * Callees:
- *     KeDelayExecutionThread @ 0x140246810 (KeDelayExecutionThread.c)
- *     WheaLogInternalEvent @ 0x140380A50 (WheaLogInternalEvent.c)
- *     WheapIsNonHestErrorSource @ 0x140380B90 (WheapIsNonHestErrorSource.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memset @ 0x140435A00 (memset.c)
- *     WheapGetErrorSource @ 0x140610E98 (WheapGetErrorSource.c)
- *     WheapCallErrorSourceUninitialize @ 0x140612800 (WheapCallErrorSourceUninitialize.c)
+ *     KeDelayExecutionThread @ 0x1402468E0 (KeDelayExecutionThread.c)
+ *     WheaLogInternalEvent @ 0x140380BF0 (WheaLogInternalEvent.c)
+ *     WheapIsNonHestErrorSource @ 0x140380D30 (WheapIsNonHestErrorSource.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     WheapGetErrorSource @ 0x1406113E8 (WheapGetErrorSource.c)
+ *     WheapCallErrorSourceUninitialize @ 0x140612D50 (WheapCallErrorSourceUninitialize.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 
@@ -87,6 +87,11 @@ char __fastcall WheaRemoveErrorSource(unsigned int a1)
         Src[4] = 1280201291;
         Src[6] = 2;
         Src[7] = 977;
+        if ( *(_DWORD *)(v3 + 104) == 16 )
+        {
+          memset(&v14[72], 0, 32);
+          *(_QWORD *)&v14[144] = 0LL;
+        }
         v15 = v10;
         v16 = 1;
         LOBYTE(ErrorSource) = WheaLogInternalEvent(Src);

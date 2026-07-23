@@ -36,7 +36,7 @@ __int64 __fastcall ExpSaPageGroupAllocateMemory(__int64 a1, unsigned int a2)
   unsigned __int8 v19; // r14
   unsigned int v20; // edx
   __int64 v21; // rcx
-  unsigned __int64 v22; // rbx
+  __int64 v22; // rbx
   __int64 v23; // rdx
   __int64 v24; // rdx
   __int64 v25; // rcx
@@ -126,7 +126,7 @@ LABEL_9:
     v31 = v21;
     if ( v15 )
       break;
-    v22 = (unsigned __int64)&v18->LockEntries[v21];
+    v22 = (__int64)&v18->LockEntries[v21];
     v20 &= ~(1 << v21);
     if ( (*(_BYTE *)(v22 + 26) & 1) != 0
       && (*(_DWORD *)(v22 + 32) & 1) == 0
@@ -140,12 +140,12 @@ LABEL_9:
         {
           *(_BYTE *)(v22 + 32) |= 2u;
           if ( *(__int64 *)(v22 + 32) < 0 )
-            KiAbEntryRemoveFromTree(v22);
+            KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)v22);
           v30 = *(_DWORD *)(v22 + 88) & 0x1FFFF;
           *(_DWORD *)(v22 + 88) &= 0xFFFE0000;
           *(_BYTE *)(v22 + 25) &= ~1u;
           *(_QWORD *)(v22 + 32) = 0LL;
-          v23 = (__int64)(v22 - (unsigned __int64)v18->LockEntries) / 96;
+          v23 = (signed __int64)(v22 - (unsigned __int64)v18->LockEntries) / 96;
           if ( v19 == 1 )
             v18->AbEntrySummary |= 1 << v23;
           else

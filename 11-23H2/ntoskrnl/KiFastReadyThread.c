@@ -1,14 +1,14 @@
 /*
- * XREFs of KiFastReadyThread @ 0x1402BB984
+ * XREFs of KiFastReadyThread @ 0x1402BBC14
  * Callers:
  *     KiInSwapKernelStacks @ 0x1402227B4 (KiInSwapKernelStacks.c)
- *     KeReadyThread @ 0x1402BDDBC (KeReadyThread.c)
+ *     KeReadyThread @ 0x1402BE04C (KeReadyThread.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x140242E40 (KeYieldProcessorEx.c)
- *     KiEnterDeferredReadyState @ 0x1402B9190 (KiEnterDeferredReadyState.c)
- *     KiDeferredReadyThread @ 0x1402BBA60 (KiDeferredReadyThread.c)
- *     KiCheckForThreadDispatch @ 0x1402BCA78 (KiCheckForThreadDispatch.c)
- *     EtwTraceReadyThread @ 0x14046745A (EtwTraceReadyThread.c)
+ *     KeYieldProcessorEx @ 0x140242F10 (KeYieldProcessorEx.c)
+ *     KiEnterDeferredReadyState @ 0x1402B9420 (KiEnterDeferredReadyState.c)
+ *     KiDeferredReadyThread @ 0x1402BBCF0 (KiDeferredReadyThread.c)
+ *     KiCheckForThreadDispatch @ 0x1402BCD08 (KiCheckForThreadDispatch.c)
+ *     EtwTraceReadyThread @ 0x14046785A (EtwTraceReadyThread.c)
  */
 
 __int64 __fastcall KiFastReadyThread(__int64 a1, __int64 a2, __int64 a3)
@@ -23,7 +23,7 @@ __int64 __fastcall KiFastReadyThread(__int64 a1, __int64 a2, __int64 a3)
 
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     v10 = 4;

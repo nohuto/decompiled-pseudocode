@@ -1,11 +1,11 @@
 /*
- * XREFs of KiIsIsolationUnitIdleByHandle @ 0x140293BF0
+ * XREFs of KiIsIsolationUnitIdleByHandle @ 0x1402A37F0
  * Callers:
- *     KiPopulateTrivialProcessorSelectionResult @ 0x140293580 (KiPopulateTrivialProcessorSelectionResult.c)
- *     KiHeteroSelectProcessorToPreempt @ 0x1402949C0 (KiHeteroSelectProcessorToPreempt.c)
- *     KiAttemptToStealStandbyThread @ 0x140297D94 (KiAttemptToStealStandbyThread.c)
- *     KiSearchForNewThreadsOnTarget @ 0x1403DD970 (KiSearchForNewThreadsOnTarget.c)
- *     KiChooseTargetProcessor @ 0x1404E7710 (KiChooseTargetProcessor.c)
+ *     KiPopulateTrivialProcessorSelectionResult @ 0x1402A3180 (KiPopulateTrivialProcessorSelectionResult.c)
+ *     KiHeteroSelectProcessorToPreempt @ 0x1402A45C0 (KiHeteroSelectProcessorToPreempt.c)
+ *     KiAttemptToStealStandbyThread @ 0x1402A6884 (KiAttemptToStealStandbyThread.c)
+ *     KiSearchForNewThreadsOnTarget @ 0x1403BD660 (KiSearchForNewThreadsOnTarget.c)
+ *     KiChooseTargetProcessor @ 0x1404DE410 (KiChooseTargetProcessor.c)
  * Callees:
  *     <none>
  */

@@ -1,14 +1,14 @@
 /*
- * XREFs of ObpIsKernelHandle @ 0x1400CFD28
+ * XREFs of ObpIsKernelHandle @ 0x1400CDBC8
  * Callers:
- *     ObIsKernelHandle @ 0x140126C74 (ObIsKernelHandle.c)
- *     ObWaitForMultipleObjects @ 0x14044EDD0 (ObWaitForMultipleObjects.c)
- *     ObQueryObjectAuditingByHandle @ 0x14045E358 (ObQueryObjectAuditingByHandle.c)
- *     ObSetHandleAttributes @ 0x14045E6E8 (ObSetHandleAttributes.c)
- *     NtClose @ 0x14050B0E0 (NtClose.c)
- *     ObCloseHandle @ 0x14050C73C (ObCloseHandle.c)
- *     ObpCloseHandle @ 0x14050C774 (ObpCloseHandle.c)
- *     ObNormalizeHandleValue @ 0x14066609C (ObNormalizeHandleValue.c)
+ *     ObIsKernelHandle @ 0x1401271E4 (ObIsKernelHandle.c)
+ *     ObWaitForMultipleObjects @ 0x14044DCA0 (ObWaitForMultipleObjects.c)
+ *     ObQueryObjectAuditingByHandle @ 0x14045D228 (ObQueryObjectAuditingByHandle.c)
+ *     ObSetHandleAttributes @ 0x14045D5B8 (ObSetHandleAttributes.c)
+ *     NtClose @ 0x1404EE070 (NtClose.c)
+ *     ObCloseHandle @ 0x1404EF6CC (ObCloseHandle.c)
+ *     ObpCloseHandle @ 0x1404EF704 (ObpCloseHandle.c)
+ *     ObNormalizeHandleValue @ 0x140666180 (ObNormalizeHandleValue.c)
  * Callees:
  *     <none>
  */

@@ -1,8 +1,8 @@
 /*
- * XREFs of SymCryptFdefRawIsEqualUint32 @ 0x140570E60
+ * XREFs of SymCryptFdefRawIsEqualUint32 @ 0x140570040
  * Callers:
- *     SymCryptFdefModNegGeneric @ 0x14056FF40 (SymCryptFdefModNegGeneric.c)
- *     SymCryptFdefIntIsEqualUint32 @ 0x140570CB4 (SymCryptFdefIntIsEqualUint32.c)
+ *     SymCryptFdefModNegGeneric @ 0x14056F120 (SymCryptFdefModNegGeneric.c)
+ *     SymCryptFdefIntIsEqualUint32 @ 0x14056FE94 (SymCryptFdefIntIsEqualUint32.c)
  * Callees:
  *     <none>
  */

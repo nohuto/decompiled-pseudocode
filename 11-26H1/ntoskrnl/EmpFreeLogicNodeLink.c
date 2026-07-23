@@ -1,11 +1,11 @@
 /*
- * XREFs of EmpFreeLogicNodeLink @ 0x1405B4EB4
+ * XREFs of EmpFreeLogicNodeLink @ 0x1405B76C4
  * Callers:
- *     EmpFreeLogicNodeLink @ 0x1405B4EB4 (EmpFreeLogicNodeLink.c)
- *     EmpFreeRuleParserStack @ 0x140CB5D48 (EmpFreeRuleParserStack.c)
+ *     EmpFreeLogicNodeLink @ 0x1405B76C4 (EmpFreeLogicNodeLink.c)
+ *     EmpFreeRuleParserStack @ 0x140CBBD88 (EmpFreeRuleParserStack.c)
  * Callees:
- *     EmpFreeLogicNodeLink @ 0x1405B4EB4 (EmpFreeLogicNodeLink.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     EmpFreeLogicNodeLink @ 0x1405B76C4 (EmpFreeLogicNodeLink.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __fastcall EmpFreeLogicNodeLink(_QWORD *a1)

@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlpGenericStrideWorker @ 0x1403F6068
+ * XREFs of RtlpGenericStrideWorker @ 0x1403EC4A8
  * Callers:
- *     RtlScrubMemory @ 0x1403F5B00 (RtlScrubMemory.c)
+ *     RtlScrubMemory @ 0x1403EBF40 (RtlScrubMemory.c)
  * Callees:
  *     <none>
  */

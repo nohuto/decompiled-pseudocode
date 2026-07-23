@@ -1,10 +1,10 @@
 /*
- * XREFs of ExpDeleteCallback @ 0x14083A830
+ * XREFs of ExpDeleteCallback @ 0x140840A70
  * Callers:
  *     <none>
  * Callees:
- *     ExpUnlockCallbackListExclusive @ 0x1404DC800 (ExpUnlockCallbackListExclusive.c)
- *     ExpLockCallbackListExclusive @ 0x14050528C (ExpLockCallbackListExclusive.c)
+ *     ExpUnlockCallbackListExclusive @ 0x1404D5EE0 (ExpUnlockCallbackListExclusive.c)
+ *     ExpLockCallbackListExclusive @ 0x1404FEBCC (ExpLockCallbackListExclusive.c)
  */
 
 void __fastcall ExpDeleteCallback(__int64 a1, __int64 a2, __int64 a3, struct _KLOCK_ENTRIES *a4)

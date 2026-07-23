@@ -113,10 +113,13 @@ BOOLEAN __fastcall ExpDeleteTimer(PKTIMER a1)
   else
   {
     KxReleaseSpinLock((volatile signed __int64 *)&a1[1].Header.Lock);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v5 <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+        && CurrentIrql <= 0xFu
+        && (unsigned __int8)v5 <= 0xFu
+        && CurrentIrql >= 2u )
       {
         v25 = KeGetCurrentPrcb();
         v26 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v5 + 1));

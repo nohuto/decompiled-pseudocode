@@ -1,10 +1,10 @@
 /*
- * XREFs of KiVerifyXcpt10 @ 0x1409CFD00
+ * XREFs of KiVerifyXcpt10 @ 0x1409D0D00
  * Callers:
  *     <none>
  * Callees:
- *     _local_unwind @ 0x1401951C0 (_local_unwind.c)
- *     KiVerifyXcptFilter @ 0x1409CFF7C (KiVerifyXcptFilter.c)
+ *     _local_unwind @ 0x140195300 (_local_unwind.c)
+ *     KiVerifyXcptFilter @ 0x1409D0F7C (KiVerifyXcptFilter.c)
  */
 
 __int64 __fastcall KiVerifyXcpt10(__int64 a1)
@@ -41,9 +41,9 @@ __int64 __fastcall KiVerifyXcpt10(__int64 a1)
     {
       if ( v3 != 1 )
         goto LABEL_10;
-      local_unwind(v8, &loc_1409CFD39);
+      local_unwind(v8, &loc_1409D0D39);
     }
-    local_unwind(v8, &loc_1409CFD2C);
+    local_unwind(v8, &loc_1409D0D2C);
 LABEL_10:
     *(_DWORD *)(v2 + 12) = 0;
   }
@@ -52,7 +52,7 @@ LABEL_10:
   v4 = *(_DWORD *)(v9 + 12) + 11;
   *(_DWORD *)(v9 + 12) = v4;
   if ( v4 == 99 )
-    local_unwind(v8, &loc_1409CFD2C);
+    local_unwind(v8, &loc_1409D0D2C);
   ++**(_DWORD **)v2;
   *(_DWORD *)(v2 + 12) += 11;
   if ( *(_DWORD *)(v2 + 12) == 55 )
@@ -64,7 +64,7 @@ LABEL_10:
   if ( v5 == 99 )
     ++**(_DWORD **)v2;
   else
-    local_unwind(v8, &loc_1409CFD2C);
+    local_unwind(v8, &loc_1409D0D2C);
   v6 = *(_DWORD *)(v2 + 12) + 11;
   *(_DWORD *)(v2 + 12) = v6;
   if ( v6 == 99 )

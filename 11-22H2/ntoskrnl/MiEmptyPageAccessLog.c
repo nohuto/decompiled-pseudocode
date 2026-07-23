@@ -202,10 +202,13 @@ LABEL_47:
         if ( v25 )
           ObfReferenceObjectWithTag((PVOID)(*(_QWORD *)(v20 + 64) & 0xFFFFFFFFFFFFFFF0uLL), 0x63536D4Du);
         ExReleaseSpinLockSharedFromDpcLevel((PEX_SPIN_LOCK)(v20 + 72));
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
           CurrentIrql = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v34 <= 0xFu && CurrentIrql >= 2u )
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+            && CurrentIrql <= 0xFu
+            && (unsigned __int8)v34 <= 0xFu
+            && CurrentIrql >= 2u )
           {
             CurrentPrcb = KeGetCurrentPrcb();
             SchedulerAssist = CurrentPrcb->SchedulerAssist;

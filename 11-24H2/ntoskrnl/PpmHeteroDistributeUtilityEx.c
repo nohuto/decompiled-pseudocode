@@ -1,17 +1,17 @@
 /*
- * XREFs of PpmHeteroDistributeUtilityEx @ 0x1405E07D4
+ * XREFs of PpmHeteroDistributeUtilityEx @ 0x1405DDDF4
  * Callers:
- *     PpmHeteroDistributeUtility @ 0x1404EC800 (PpmHeteroDistributeUtility.c)
+ *     PpmHeteroDistributeUtility @ 0x1404E3F40 (PpmHeteroDistributeUtility.c)
  * Callees:
- *     KeAndAffinityEx2 @ 0x1402052E0 (KeAndAffinityEx2.c)
- *     KeGetPrcb @ 0x140352980 (KeGetPrcb.c)
- *     ?KiSubtractAffinityEx@@YAKPEAU_KAFFINITY_EX@@00G@Z @ 0x140354CF8 (-KiSubtractAffinityEx@@YAKPEAU_KAFFINITY_EX@@00G@Z.c)
- *     KeXorAffinityEx2 @ 0x140354F38 (KeXorAffinityEx2.c)
- *     KeEnumerateNextProcessor @ 0x14040D4F0 (KeEnumerateNextProcessor.c)
- *     PpmEventTraceHeteroDistributeUtility @ 0x1405D9CF8 (PpmEventTraceHeteroDistributeUtility.c)
- *     PpmParkDistributeUtilityEx @ 0x1405E337C (PpmParkDistributeUtilityEx.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     KeGetPrcb @ 0x1402B0A10 (KeGetPrcb.c)
+ *     ?KiSubtractAffinityEx@@YAKPEAU_KAFFINITY_EX@@00G@Z @ 0x1402B2A28 (-KiSubtractAffinityEx@@YAKPEAU_KAFFINITY_EX@@00G@Z.c)
+ *     KeXorAffinityEx2 @ 0x1402B2C68 (KeXorAffinityEx2.c)
+ *     KeAndAffinityEx2 @ 0x14032C8C0 (KeAndAffinityEx2.c)
+ *     KeEnumerateNextProcessor @ 0x140405740 (KeEnumerateNextProcessor.c)
+ *     PpmEventTraceHeteroDistributeUtility @ 0x1405D7014 (PpmEventTraceHeteroDistributeUtility.c)
+ *     PpmParkDistributeUtilityEx @ 0x1405E0904 (PpmParkDistributeUtilityEx.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 char PpmHeteroDistributeUtilityEx()
@@ -68,7 +68,7 @@ char PpmHeteroDistributeUtilityEx()
   v38 = 0LL;
   memset_0(&v44.8, 0, sizeof(v44.8));
   v40 = PpmCurrentProfile[0];
-  v41 = 488LL * dword_140F0BA4C;
+  v41 = 488LL * dword_140F0B38C;
   v0 = BYTE3(PpmCurrentProfile[0][v41 / 8 + 22]) == 0;
   v45 = 2097153LL;
   v1 = !v0;
@@ -82,7 +82,7 @@ char PpmHeteroDistributeUtilityEx()
   {
     while ( 1 )
     {
-      v4 = PpmParkNodes + 1288LL * v3;
+      v4 = PpmParkNodes + 1296LL * v3;
       v42 = v4;
       if ( PpmHeteroPolicy == 4 )
         break;
@@ -98,7 +98,7 @@ LABEL_53:
     if ( (_BYTE)v6 )
     {
       v2 = *(unsigned __int8 *)(v4 + 12);
-      v7 = (_WORD *)(*(_QWORD *)(v4 + 1280) + 10LL);
+      v7 = (_WORD *)(*(_QWORD *)(v4 + 1288) + 10LL);
       do
       {
         v0 = *v7 == 0;
@@ -118,7 +118,7 @@ LABEL_53:
           v9 = (struct _KAFFINITY_EX *)(v4 + 312);
           do
           {
-            v18 = *(_QWORD *)(v4 + 1280) + 640LL * v17;
+            v18 = *(_QWORD *)(v4 + 1288) + 640LL * v17;
             KeAndAffinityEx2((struct _KAFFINITY_EX *)(v4 + 312), (struct _KAFFINITY_EX *)(v18 + 40), (__int64)&v45);
             LOBYTE(v19) = v1;
             PpmParkDistributeUtilityEx(v18 + 40, (unsigned int)&v45, *(unsigned __int16 *)(v18 + 632), v19, 0, 0LL);
@@ -139,7 +139,7 @@ LABEL_53:
               v11 = 0;
               while ( 1 )
               {
-                v12 = *(_QWORD *)(v4 + 1280) + 640LL * v11;
+                v12 = *(_QWORD *)(v4 + 1288) + 640LL * v11;
                 KeAndAffinityEx2((struct _KAFFINITY_EX *)(v4 + 312), (struct _KAFFINITY_EX *)(v12 + 40), (__int64)&v45);
                 LOBYTE(v13) = v35;
                 PpmParkDistributeUtilityEx(
@@ -163,7 +163,7 @@ LABEL_53:
           for ( i = 0; ; v14 = i )
           {
             v6 = (unsigned int)(v6 - 1);
-            v15 = *(_QWORD *)(v4 + 1280) + 640 * v6;
+            v15 = *(_QWORD *)(v4 + 1288) + 640 * v6;
             KeAndAffinityEx2((struct _KAFFINITY_EX *)(v4 + 312), (struct _KAFFINITY_EX *)(v15 + 40), (__int64)&v45);
             LOBYTE(v16) = v35;
             PpmParkDistributeUtilityEx(
@@ -188,7 +188,7 @@ LABEL_25:
             do
             {
               v24 = 640LL * v20;
-              v25 = (struct _KAFFINITY_EX *)(v24 + *(_QWORD *)(v4 + 1280) + 40LL);
+              v25 = (struct _KAFFINITY_EX *)(v24 + *(_QWORD *)(v4 + 1288) + 40LL);
               v43 = v24;
               if ( (unsigned int)KiSubtractAffinityEx(v25, v9, &v44, v44.Size) )
               {
@@ -215,7 +215,7 @@ LABEL_25:
                   v4 = v42;
                   v24 = v43;
                 }
-                KeXorAffinityEx2(&v44, (struct _KAFFINITY_EX *)(v24 + 40 + *(_QWORD *)(v4 + 1280)), &v44);
+                KeXorAffinityEx2(&v44, (struct _KAFFINITY_EX *)(v24 + 40 + *(_QWORD *)(v4 + 1288)), &v44);
                 *((_QWORD *)&v38 + 1) = v44.Bitmap[0];
                 *(_QWORD *)&v38 = &v44;
                 LOWORD(v39) = 0;
@@ -235,7 +235,7 @@ LABEL_25:
               v29 = 0;
               if ( !PpmPerfQosEnabled )
               {
-                KiSubtractAffinityEx((struct _KAFFINITY_EX *)(*(_QWORD *)(v4 + 1280) + 40LL), v9, &v44, v44.Size);
+                KiSubtractAffinityEx((struct _KAFFINITY_EX *)(*(_QWORD *)(v4 + 1288) + 40LL), v9, &v44, v44.Size);
                 *((_QWORD *)&v38 + 1) = v44.Bitmap[0];
                 i = 0;
                 *(_QWORD *)&v38 = &v44;
@@ -257,7 +257,7 @@ LABEL_25:
                   v4 = v42;
                   v3 = v37;
                 }
-                KeXorAffinityEx2(&v44, (struct _KAFFINITY_EX *)(*(_QWORD *)(v4 + 1280) + 40LL), &v44);
+                KeXorAffinityEx2(&v44, (struct _KAFFINITY_EX *)(*(_QWORD *)(v4 + 1288) + 40LL), &v44);
                 *((_QWORD *)&v38 + 1) = v44.Bitmap[0];
                 *(_QWORD *)&v38 = &v44;
                 LOWORD(v39) = 0;

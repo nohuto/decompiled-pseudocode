@@ -1,31 +1,31 @@
 /*
- * XREFs of MiAddViewsForSection @ 0x1402E31A0
+ * XREFs of MiAddViewsForSection @ 0x1402C51E0
  * Callers:
- *     MmMapViewInSystemCache @ 0x1402E29A0 (MmMapViewInSystemCache.c)
- *     MiReferenceDataSubsections @ 0x14033F1DC (MiReferenceDataSubsections.c)
- *     MiPfReferenceDataSubsection @ 0x140396C90 (MiPfReferenceDataSubsection.c)
- *     MiPrepareDataViewSubsections @ 0x1409C4B70 (MiPrepareDataViewSubsections.c)
- *     MiCommitPagefileBackedSection @ 0x1409C9560 (MiCommitPagefileBackedSection.c)
- *     MiPfPrepareSequentialReadList @ 0x140A50EA0 (MiPfPrepareSequentialReadList.c)
+ *     MmMapViewInSystemCache @ 0x1402C4A60 (MmMapViewInSystemCache.c)
+ *     MiReferenceDataSubsections @ 0x14034125C (MiReferenceDataSubsections.c)
+ *     MiPfReferenceDataSubsection @ 0x140398A10 (MiPfReferenceDataSubsection.c)
+ *     MiPrepareDataViewSubsections @ 0x140995B50 (MiPrepareDataViewSubsections.c)
+ *     MiCommitPagefileBackedSection @ 0x14099A540 (MiCommitPagefileBackedSection.c)
+ *     MiPfPrepareSequentialReadList @ 0x140A5A190 (MiPfPrepareSequentialReadList.c)
  * Callees:
- *     ExReleaseSpinLockExclusive @ 0x14021AA80 (ExReleaseSpinLockExclusive.c)
- *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x14021AAD4 (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     ExAcquireSpinLockExclusive @ 0x140249CD0 (ExAcquireSpinLockExclusive.c)
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     KiLeaveGuardedRegionUnsafe @ 0x14027DB50 (KiLeaveGuardedRegionUnsafe.c)
- *     KiCheckForKernelApcDelivery @ 0x14027DB80 (KiCheckForKernelApcDelivery.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExfTryToWakePushLock @ 0x1403170A0 (ExfTryToWakePushLock.c)
- *     MiCheckControlArea @ 0x14036DCC0 (MiCheckControlArea.c)
- *     MiDecrementSubsections @ 0x14036E360 (MiDecrementSubsections.c)
- *     MiReferenceActiveSubsection @ 0x14045AE40 (MiReferenceActiveSubsection.c)
- *     MiCreatePrototypePtes @ 0x14049406C (MiCreatePrototypePtes.c)
- *     MiReturnCrossPartitionSectionCharges @ 0x1404D1140 (MiReturnCrossPartitionSectionCharges.c)
- *     MiAllocateFileExtents @ 0x140B5F8D8 (MiAllocateFileExtents.c)
+ *     ExReleaseSpinLockExclusive @ 0x14021C410 (ExReleaseSpinLockExclusive.c)
+ *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x14021C464 (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024B630 (ExAcquireSpinLockExclusive.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x14027D0C0 (KiLeaveGuardedRegionUnsafe.c)
+ *     KiCheckForKernelApcDelivery @ 0x14027D0F0 (KiCheckForKernelApcDelivery.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExfTryToWakePushLock @ 0x1403190D0 (ExfTryToWakePushLock.c)
+ *     MiCheckControlArea @ 0x14036FA60 (MiCheckControlArea.c)
+ *     MiDecrementSubsections @ 0x140370100 (MiDecrementSubsections.c)
+ *     MiReferenceActiveSubsection @ 0x140454670 (MiReferenceActiveSubsection.c)
+ *     MiCreatePrototypePtes @ 0x14048DBBC (MiCreatePrototypePtes.c)
+ *     MiReturnCrossPartitionSectionCharges @ 0x1404CAB70 (MiReturnCrossPartitionSectionCharges.c)
+ *     MiAllocateFileExtents @ 0x140B62A58 (MiAllocateFileExtents.c)
  */
 
 __int64 __fastcall MiAddViewsForSection(
@@ -132,14 +132,14 @@ LABEL_10:
     {
       if ( (_BYTE)v15 == 17 )
       {
-        if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+        if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || PopHibernateInProgress )
           *v14 = 0;
         else
           ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented(v14, retaddr);
       }
       else
       {
-        if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+        if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || PopHibernateInProgress )
           *v14 = 0;
         else
           ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented(v14, retaddr);
@@ -154,7 +154,7 @@ LABEL_10:
         KeAbPostRelease(v41 + 40);
         v18 = CurrentThread->SpecialApcDisable++ == -1;
         if ( v18
-          && ($7A85BAF4F1FA08634C1C4A3E45B775B3 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
+          && ($241382875694CED3D471BC5892DE3337 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
         {
           KiCheckForKernelApcDelivery(v17, v16);
         }
@@ -231,7 +231,7 @@ LABEL_10:
             else
               ExReleaseSpinLockExclusive(v14, v15);
             MiReturnCrossPartitionSectionCharges(
-              *(_QWORD *)(stru_140E2EB88.ThreadLock + 8LL * (v43[15] & 0x3FF)),
+              *(_QWORD *)(stru_140E2ED08.ThreadLock + 8LL * (v43[15] & 0x3FF)),
               v13,
               v28);
             ExAcquireSpinLockExclusive(v14);
@@ -257,7 +257,7 @@ LABEL_75:
             KeAbPostRelease(v41 + 40);
             v18 = CurrentThread->SpecialApcDisable++ == -1;
             if ( v18
-              && ($7A85BAF4F1FA08634C1C4A3E45B775B3 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
+              && ($241382875694CED3D471BC5892DE3337 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
             {
               KiCheckForKernelApcDelivery(v31, v30);
             }
@@ -305,7 +305,7 @@ LABEL_94:
       ExReleaseSpinLockExclusive(v14, v36);
     v38 = v43;
     if ( v37 )
-      MiReturnCrossPartitionSectionCharges(*(_QWORD *)(stru_140E2EB88.ThreadLock + 8LL * (v43[15] & 0x3FF)), v13, v37);
+      MiReturnCrossPartitionSectionCharges(*(_QWORD *)(stru_140E2ED08.ThreadLock + 8LL * (v43[15] & 0x3FF)), v13, v37);
   }
   else
   {

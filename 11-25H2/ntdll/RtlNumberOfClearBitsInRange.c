@@ -6,14 +6,14 @@
  *     RtlNumberOfSetBitsInRange @ 0x18013F150 (RtlNumberOfSetBitsInRange.c)
  */
 
-__int64 __fastcall RtlNumberOfClearBitsInRange(__int64 a1, __int64 a2, int a3)
+ULONG __cdecl RtlNumberOfClearBitsInRange(PRTL_BITMAP BitMapHeader, ULONG StartingIndex, ULONG Length)
 {
-  int v4; // eax
-  unsigned int v5; // ebx
+  ULONG v4; // eax
+  ULONG v5; // ebx
 
-  v4 = RtlNumberOfSetBitsInRange();
-  v5 = a3 - v4;
+  v4 = RtlNumberOfSetBitsInRange(BitMapHeader, StartingIndex, Length);
+  v5 = Length - v4;
   if ( v4 == -1 )
-    return (unsigned int)-1;
+    return -1;
   return v5;
 }

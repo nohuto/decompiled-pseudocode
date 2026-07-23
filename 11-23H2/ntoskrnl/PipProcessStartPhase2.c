@@ -1,16 +1,16 @@
 /*
- * XREFs of PipProcessStartPhase2 @ 0x140790E98
+ * XREFs of PipProcessStartPhase2 @ 0x140791088
  * Callers:
- *     PipProcessDevNodeTree @ 0x1406CB690 (PipProcessDevNodeTree.c)
+ *     PipProcessDevNodeTree @ 0x1406CB6C0 (PipProcessDevNodeTree.c)
  * Callees:
- *     PipSetDevNodeState @ 0x14022AE84 (PipSetDevNodeState.c)
- *     IoRequestDeviceEject @ 0x14055FDB0 (IoRequestDeviceEject.c)
- *     McTemplateK0dz_EtwWriteTransfer @ 0x1405644F8 (McTemplateK0dz_EtwWriteTransfer.c)
- *     IopDoDeferredSetInterfaceState @ 0x1407911D4 (IopDoDeferredSetInterfaceState.c)
- *     PnpRequestDeviceRemoval @ 0x1408673BC (PnpRequestDeviceRemoval.c)
- *     PnpUpdateRebootRequiredReason @ 0x140958DC0 (PnpUpdateRebootRequiredReason.c)
- *     PpProfileCancelHardwareProfileTransition @ 0x140963A90 (PpProfileCancelHardwareProfileTransition.c)
- *     PpProfileCommitTransitioningDock @ 0x140963BC4 (PpProfileCommitTransitioningDock.c)
+ *     PipSetDevNodeState @ 0x14022AF94 (PipSetDevNodeState.c)
+ *     IoRequestDeviceEject @ 0x140560470 (IoRequestDeviceEject.c)
+ *     McTemplateK0dz_EtwWriteTransfer @ 0x140564BB8 (McTemplateK0dz_EtwWriteTransfer.c)
+ *     IopDoDeferredSetInterfaceState @ 0x1407913C4 (IopDoDeferredSetInterfaceState.c)
+ *     PnpRequestDeviceRemoval @ 0x1408675FC (PnpRequestDeviceRemoval.c)
+ *     PnpUpdateRebootRequiredReason @ 0x140958FC0 (PnpUpdateRebootRequiredReason.c)
+ *     PpProfileCancelHardwareProfileTransition @ 0x140963C90 (PpProfileCancelHardwareProfileTransition.c)
+ *     PpProfileCommitTransitioningDock @ 0x140963DC4 (PpProfileCommitTransitioningDock.c)
  *     IopAllocateLegacyBootResources @ 0x140B3A148 (IopAllocateLegacyBootResources.c)
  */
 

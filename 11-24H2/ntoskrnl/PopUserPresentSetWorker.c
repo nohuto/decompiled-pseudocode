@@ -1,18 +1,18 @@
 /*
- * XREFs of PopUserPresentSetWorker @ 0x140492270
+ * XREFs of PopUserPresentSetWorker @ 0x14048D0E0
  * Callers:
  *     <none>
  * Callees:
- *     KeReleaseSpinLock @ 0x14024DD30 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140254B20 (KeAcquireSpinLockRaiseToDpc.c)
- *     KeSetEvent @ 0x1402725A0 (KeSetEvent.c)
- *     KiSetTimerEx @ 0x1403347A0 (KiSetTimerEx.c)
- *     PopSetNotificationWork @ 0x1403F2D58 (PopSetNotificationWork.c)
- *     PopUpdateSystemIdleContext @ 0x1409B99D4 (PopUpdateSystemIdleContext.c)
- *     PopNotifyConsoleUserPresent @ 0x1409BB660 (PopNotifyConsoleUserPresent.c)
- *     PopInvokeWin32Callout @ 0x1409BE358 (PopInvokeWin32Callout.c)
- *     PopAcquirePolicyLock @ 0x140B67CB0 (PopAcquirePolicyLock.c)
- *     PopReleasePolicyLock @ 0x140B67D00 (PopReleasePolicyLock.c)
+ *     KeSetEvent @ 0x140227B30 (KeSetEvent.c)
+ *     KeReleaseSpinLock @ 0x14027E340 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140285130 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiSetTimerEx @ 0x140316810 (KiSetTimerEx.c)
+ *     PopSetNotificationWork @ 0x1403E6A78 (PopSetNotificationWork.c)
+ *     PopUpdateSystemIdleContext @ 0x1409A0024 (PopUpdateSystemIdleContext.c)
+ *     PopNotifyConsoleUserPresent @ 0x1409A1CB0 (PopNotifyConsoleUserPresent.c)
+ *     PopInvokeWin32Callout @ 0x1409A49A8 (PopInvokeWin32Callout.c)
+ *     PopAcquirePolicyLock @ 0x140B69DF0 (PopAcquirePolicyLock.c)
+ *     PopReleasePolicyLock @ 0x140B69E40 (PopReleasePolicyLock.c)
  */
 
 void PopUserPresentSetWorker()
@@ -30,12 +30,12 @@ void PopUserPresentSetWorker()
     v2 = PopUserPresentMonitorOnReason;
     PopUserPresentSetStatus = 2;
     KeReleaseSpinLock(&PopUserPresentLock, i);
-    if ( byte_140F0BA51 && !_InterlockedExchange(&dword_140F0BA58, 1) )
+    if ( byte_140F0B391 && !_InterlockedExchange(&dword_140F0B398, 1) )
     {
       PopAwayModeUserPresenceDpcObject.TargetInfoAsUlong = 275;
       PopAwayModeUserPresenceDpcObject.DeferredRoutine = PopAwayModeUserPresenceDpc;
       PopAwayModeUserPresenceDpcObject.DpcData = 0LL;
-      PopAwayModeUserPresenceDpcObject.DeferredContext = &dword_140F0BA58;
+      PopAwayModeUserPresenceDpcObject.DeferredContext = &dword_140F0B398;
       PopAwayModeUserPresenceDpcObject.ProcessorHistory = 0LL;
       KiSetTimerEx(
         (__int64)&PopAwayModeUserPresenceTimer,
@@ -62,7 +62,7 @@ void PopUserPresentSetWorker()
       PopReleasePolicyLock();
     }
   }
-  if ( dword_140F0BA54 )
+  if ( dword_140F0B394 )
     KeSetEvent(&PopUserPresentCompletedEvent, 0, 0);
   PopUserPresentSetStatus = 0;
   PopUserPresentMonitorOnReason = 0;

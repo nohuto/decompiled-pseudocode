@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlNumberOfClearBitsEx @ 0x140213130
+ * XREFs of RtlNumberOfClearBitsEx @ 0x140212F5C
  * Callers:
  *     <none>
  * Callees:
- *     RtlNumberOfSetBitsEx @ 0x14013ACD8 (RtlNumberOfSetBitsEx.c)
+ *     RtlNumberOfSetBitsEx @ 0x14013B248 (RtlNumberOfSetBitsEx.c)
  */
 
 __int64 __fastcall RtlNumberOfClearBitsEx(_QWORD *a1)

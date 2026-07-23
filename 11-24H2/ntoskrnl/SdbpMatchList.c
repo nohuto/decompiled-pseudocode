@@ -1,17 +1,17 @@
 /*
- * XREFs of SdbpMatchList @ 0x140AE807C
+ * XREFs of SdbpMatchList @ 0x140AEB320
  * Callers:
- *     SdbpMatchOne @ 0x1408054F0 (SdbpMatchOne.c)
- *     SdbpCheckForMatch @ 0x140A08780 (SdbpCheckForMatch.c)
+ *     SdbpMatchOne @ 0x140805C30 (SdbpMatchOne.c)
+ *     SdbpCheckForMatch @ 0x140A04CB0 (SdbpCheckForMatch.c)
  * Callees:
- *     Feature_MissingMatcherBehaviorIgnoreAndDoNotCache__private_IsEnabledDeviceUsageNoInline @ 0x140695FD4 (Feature_MissingMatcherBehaviorIgnoreAndDoNotCache__private_IsEnabledDeviceUsageNoInline.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     SdbpIsSdbCapabilityPresent @ 0x140805050 (SdbpIsSdbCapabilityPresent.c)
- *     SdbGetStringTagPtr @ 0x14095FA98 (SdbGetStringTagPtr.c)
- *     SdbFindFirstTag @ 0x14096003C (SdbFindFirstTag.c)
- *     SdbGetNextChild @ 0x140960210 (SdbGetNextChild.c)
- *     SdbGetFirstChild @ 0x140960300 (SdbGetFirstChild.c)
- *     SdbpFindMatcher @ 0x140A99FEC (SdbpFindMatcher.c)
+ *     Feature_MissingMatcherBehaviorIgnoreAndDoNotCache__private_IsEnabledDeviceUsageNoInline @ 0x1406970A4 (Feature_MissingMatcherBehaviorIgnoreAndDoNotCache__private_IsEnabledDeviceUsageNoInline.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     SdbpIsSdbCapabilityPresent @ 0x140805790 (SdbpIsSdbCapabilityPresent.c)
+ *     SdbGetStringTagPtr @ 0x140947558 (SdbGetStringTagPtr.c)
+ *     SdbFindFirstTag @ 0x140947AFC (SdbFindFirstTag.c)
+ *     SdbGetNextChild @ 0x140947CD0 (SdbGetNextChild.c)
+ *     SdbGetFirstChild @ 0x140947DC0 (SdbGetFirstChild.c)
+ *     SdbpFindMatcher @ 0x140A95558 (SdbpFindMatcher.c)
  */
 
 __int64 __fastcall SdbpMatchList(
@@ -46,7 +46,7 @@ __int64 __fastcall SdbpMatchList(
   {
     if ( SdbpFindMatcher(&v23, &v21, a3, (__int64)a4, i) )
     {
-      v15 = guard_dispatch_icall_no_overrides(&a8, a3, a4, a5);
+      v15 = guard_dispatch_icall_no_overrides(&a8, a3);
       if ( !v15 )
         return v15;
     }

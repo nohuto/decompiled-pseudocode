@@ -1,10 +1,10 @@
 /*
- * XREFs of ExUnblockPushLockEx @ 0x1402C78F0
+ * XREFs of ExUnblockPushLockEx @ 0x1402BC270
  * Callers:
  *     <none>
  * Callees:
- *     ExpUnblockPushLock @ 0x1402C793C (ExpUnblockPushLock.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
+ *     ExpUnblockPushLock @ 0x1402BC2BC (ExpUnblockPushLock.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall ExUnblockPushLockEx(_QWORD *BugCheckParameter2, ULONG_PTR BugCheckParameter1)

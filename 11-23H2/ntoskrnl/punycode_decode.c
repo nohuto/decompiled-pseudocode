@@ -1,13 +1,13 @@
 /*
- * XREFs of punycode_decode @ 0x1409BF6A0
+ * XREFs of punycode_decode @ 0x1409BF8A0
  * Callers:
- *     RtlpIdnToUnicodeWorker @ 0x1405AFC50 (RtlpIdnToUnicodeWorker.c)
+ *     RtlpIdnToUnicodeWorker @ 0x1405B01C0 (RtlpIdnToUnicodeWorker.c)
  * Callees:
- *     _wcsnicmp @ 0x1403D9B90 (_wcsnicmp.c)
- *     FindLabelEnd @ 0x1405AFBB8 (FindLabelEnd.c)
- *     InsertChar @ 0x1405AFC28 (InsertChar.c)
- *     ValidateStd3Range @ 0x1405B0268 (ValidateStd3Range.c)
- *     adapt @ 0x1405B02A4 (adapt.c)
+ *     _wcsnicmp @ 0x1403D9D70 (_wcsnicmp.c)
+ *     FindLabelEnd @ 0x1405B0128 (FindLabelEnd.c)
+ *     InsertChar @ 0x1405B0198 (InsertChar.c)
+ *     ValidateStd3Range @ 0x1405B07D8 (ValidateStd3Range.c)
+ *     adapt @ 0x1405B0814 (adapt.c)
  */
 
 __int64 __fastcall punycode_decode(

@@ -1,9 +1,9 @@
 /*
- * XREFs of NtAllocateVirtualMemory @ 0x140430E30
+ * XREFs of NtAllocateVirtualMemory @ 0x14042FD00
  * Callers:
  *     <none>
  * Callees:
- *     MiAllocateVirtualMemory @ 0x140430E80 (MiAllocateVirtualMemory.c)
+ *     MiAllocateVirtualMemory @ 0x14042FD50 (MiAllocateVirtualMemory.c)
  */
 
 NTSTATUS __stdcall NtAllocateVirtualMemory(

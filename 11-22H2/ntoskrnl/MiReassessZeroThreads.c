@@ -62,8 +62,8 @@ void __fastcall MiReassessZeroThreads(__int64 a1, __int64 a2)
     if ( (unsigned __int64)*(int *)(a1 + 140) < 0x1000 )
     {
       ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(*(_QWORD *)(v3 + 200) + 23160LL));
-      v20 = KiIrqlFlags;
-      if ( KiIrqlFlags )
+      v20 = (char)KiIrqlFlags;
+      if ( (_DWORD)KiIrqlFlags )
         goto LABEL_42;
     }
     else
@@ -171,11 +171,16 @@ void __fastcall MiReassessZeroThreads(__int64 a1, __int64 a2)
         for ( i = *(volatile __int32 **)(v3 + 184); i != (volatile __int32 *)(v3 + 184); i = *(volatile __int32 **)i )
           _InterlockedExchange(i - 7, 0);
         ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(*(_QWORD *)(v3 + 200) + 23160LL));
-        if ( !KiIrqlFlags )
+        if ( !(_DWORD)KiIrqlFlags )
           goto LABEL_26;
         CurrentIrql = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) == 0 || CurrentIrql > 0xFu || (unsigned __int8)v7 > 0xFu || CurrentIrql < 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) == 0
+          || CurrentIrql > 0xFu
+          || (unsigned __int8)v7 > 0xFu
+          || CurrentIrql < 2u )
+        {
           goto LABEL_26;
+        }
 LABEL_52:
         CurrentPrcb = KeGetCurrentPrcb();
         v29 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v7 + 1));
@@ -187,8 +192,8 @@ LABEL_52:
         goto LABEL_26;
       }
       ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(*(_QWORD *)(v3 + 200) + 23160LL));
-      v20 = KiIrqlFlags;
-      if ( KiIrqlFlags )
+      v20 = (char)KiIrqlFlags;
+      if ( (_DWORD)KiIrqlFlags )
       {
 LABEL_42:
         v25 = KeGetCurrentIrql();

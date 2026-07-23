@@ -1,29 +1,29 @@
 /*
- * XREFs of ExpInitSystemPhase1 @ 0x1409B0434
+ * XREFs of ExpInitSystemPhase1 @ 0x1409B1434
  * Callers:
- *     ExInitSystem @ 0x1409D4FF0 (ExInitSystem.c)
+ *     ExInitSystem @ 0x1409D5FF0 (ExInitSystem.c)
  * Callees:
- *     KeQueryMaximumProcessorCountEx @ 0x1400A6A80 (KeQueryMaximumProcessorCountEx.c)
- *     ExInitializeProcessor @ 0x14017D54C (ExInitializeProcessor.c)
- *     RtlGetProductInfo @ 0x14018D620 (RtlGetProductInfo.c)
- *     ExpSaInitialize @ 0x14018FCA0 (ExpSaInitialize.c)
- *     ExpHeapGCInitialization @ 0x1401B75B0 (ExpHeapGCInitialization.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExRegisterHost @ 0x1407275BC (ExRegisterHost.c)
- *     ExpGetProductInfoSuiteTypeMap @ 0x140755164 (ExpGetProductInfoSuiteTypeMap.c)
- *     ExpTimerInitialization @ 0x1409B0324 (ExpTimerInitialization.c)
- *     ExpWin32Initialization @ 0x1409B0B98 (ExpWin32Initialization.c)
- *     ExpAeThresholdInitialization @ 0x1409D21FC (ExpAeThresholdInitialization.c)
- *     ExpWorkerInitialization @ 0x1409D4C50 (ExpWorkerInitialization.c)
- *     ExpInitializeCallbacks @ 0x1409D92E4 (ExpInitializeCallbacks.c)
- *     ExpKeyedEventInitialization @ 0x1409DA2F8 (ExpKeyedEventInitialization.c)
- *     ExpInitializeSvm @ 0x1409DD674 (ExpInitializeSvm.c)
- *     ExpWorkerFactoryInitialization @ 0x1409DD794 (ExpWorkerFactoryInitialization.c)
- *     ExpMutantInitialization @ 0x1409DDF6C (ExpMutantInitialization.c)
- *     ExpProfileInitialization @ 0x1409DE2E0 (ExpProfileInitialization.c)
- *     ExpSemaphoreInitialization @ 0x1409DE944 (ExpSemaphoreInitialization.c)
- *     ExpEventInitialization @ 0x1409DE9DC (ExpEventInitialization.c)
+ *     KeQueryMaximumProcessorCountEx @ 0x1400A69C0 (KeQueryMaximumProcessorCountEx.c)
+ *     ExInitializeProcessor @ 0x14017D68C (ExInitializeProcessor.c)
+ *     RtlGetProductInfo @ 0x14018D760 (RtlGetProductInfo.c)
+ *     ExpSaInitialize @ 0x14018FDE0 (ExpSaInitialize.c)
+ *     ExpHeapGCInitialization @ 0x1401B7710 (ExpHeapGCInitialization.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExRegisterHost @ 0x14072885C (ExRegisterHost.c)
+ *     ExpGetProductInfoSuiteTypeMap @ 0x140756354 (ExpGetProductInfoSuiteTypeMap.c)
+ *     ExpTimerInitialization @ 0x1409B1324 (ExpTimerInitialization.c)
+ *     ExpWin32Initialization @ 0x1409B1B98 (ExpWin32Initialization.c)
+ *     ExpAeThresholdInitialization @ 0x1409D31FC (ExpAeThresholdInitialization.c)
+ *     ExpWorkerInitialization @ 0x1409D5C50 (ExpWorkerInitialization.c)
+ *     ExpInitializeCallbacks @ 0x1409DA2E4 (ExpInitializeCallbacks.c)
+ *     ExpKeyedEventInitialization @ 0x1409DB2F8 (ExpKeyedEventInitialization.c)
+ *     ExpInitializeSvm @ 0x1409DE674 (ExpInitializeSvm.c)
+ *     ExpWorkerFactoryInitialization @ 0x1409DE794 (ExpWorkerFactoryInitialization.c)
+ *     ExpMutantInitialization @ 0x1409DEF6C (ExpMutantInitialization.c)
+ *     ExpProfileInitialization @ 0x1409DF2E0 (ExpProfileInitialization.c)
+ *     ExpSemaphoreInitialization @ 0x1409DF944 (ExpSemaphoreInitialization.c)
+ *     ExpEventInitialization @ 0x1409DF9DC (ExpEventInitialization.c)
  */
 
 char ExpInitSystemPhase1()
@@ -60,7 +60,7 @@ char ExpInitSystemPhase1()
   MaximumProcessorCount = KeQueryMaximumProcessorCountEx(0xFFFFu);
   ExpHostListLock = 0LL;
   ExpSpinCount = MaximumProcessorCount > 1 ? 0x400 : 0;
-  qword_14096D2E0 = (__int64)&ExpHostList;
+  qword_14096E2E0 = (__int64)&ExpHostList;
   ExpHostList = (__int64)&ExpHostList;
   ExpKeyManipLock = 0LL;
   ExpPlatformBinaryLock = 0LL;

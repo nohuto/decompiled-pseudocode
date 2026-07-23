@@ -6,11 +6,11 @@
  *     <none>
  */
 
-__int64 NtTerminateJobObject()
+NTSTATUS __cdecl NtTerminateJobObject(HANDLE JobHandle, NTSTATUS ExitStatus)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 418LL;
+  result = 418;
   __asm { syscall; Low latency system call }
   return result;
 }

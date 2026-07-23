@@ -1,55 +1,55 @@
 /*
- * XREFs of EtwpEnableGuid @ 0x140ADA008
+ * XREFs of EtwpEnableGuid @ 0x140AD6AB8
  * Callers:
- *     NtTraceControl @ 0x14093CB40 (NtTraceControl.c)
- *     EtwpEnableTrace @ 0x140AD9C34 (EtwpEnableTrace.c)
+ *     NtTraceControl @ 0x1409186E0 (NtTraceControl.c)
+ *     EtwpEnableTrace @ 0x140AD66E4 (EtwpEnableTrace.c)
  * Callees:
- *     EtwEventEnabled @ 0x140212D90 (EtwEventEnabled.c)
- *     KiUnstackDetachProcess @ 0x1402307C0 (KiUnstackDetachProcess.c)
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     ExReleaseRundownProtection_0 @ 0x140266240 (ExReleaseRundownProtection_0.c)
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     KeStackAttachProcess @ 0x1402C5270 (KeStackAttachProcess.c)
- *     ExfReleasePushLock @ 0x1402E3120 (ExfReleasePushLock.c)
- *     ExAcquireRundownProtection_0 @ 0x1402F0590 (ExAcquireRundownProtection_0.c)
- *     PsGetCurrentThreadProcessId @ 0x1404575B0 (PsGetCurrentThreadProcessId.c)
- *     EtwpEnableMetaProviderGuid @ 0x1404575EC (EtwpEnableMetaProviderGuid.c)
- *     PsGetProcessId @ 0x140466BE0 (PsGetProcessId.c)
- *     PsAttachSiloToCurrentThread @ 0x14046CE80 (PsAttachSiloToCurrentThread.c)
- *     PsDetachSiloFromCurrentThread @ 0x140476400 (PsDetachSiloFromCurrentThread.c)
- *     PsGetProcessServerSilo @ 0x140476BF0 (PsGetProcessServerSilo.c)
- *     Feature_ModernWpp__private_IsEnabledDeviceUsageNoInline @ 0x140520D7C (Feature_ModernWpp__private_IsEnabledDeviceUsageNoInline.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memcmp @ 0x14073D750 (memcmp.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     EtwpValidateEnableNotification @ 0x14091F4CC (EtwpValidateEnableNotification.c)
- *     EtwpAddGuidEntry @ 0x140920870 (EtwpAddGuidEntry.c)
- *     EtwpUnreferenceGuidEntry @ 0x140936B20 (EtwpUnreferenceGuidEntry.c)
- *     EtwpUpdateRegEntryEnableMask @ 0x140937294 (EtwpUpdateRegEntryEnableMask.c)
- *     EtwpUpdateGuidEnableInfo @ 0x140937CC0 (EtwpUpdateGuidEnableInfo.c)
- *     EtwpSendDataBlock @ 0x1409388D8 (EtwpSendDataBlock.c)
- *     EtwpFreeFilterInfo @ 0x140938D98 (EtwpFreeFilterInfo.c)
- *     EtwpUnreferenceDataBlock @ 0x140939064 (EtwpUnreferenceDataBlock.c)
- *     EtwpAllocDataBlock @ 0x140939088 (EtwpAllocDataBlock.c)
- *     EtwpFindGuidEntryByGuid @ 0x140939130 (EtwpFindGuidEntryByGuid.c)
- *     EtwpBuildNotificationPacket @ 0x140939E18 (EtwpBuildNotificationPacket.c)
- *     EtwpCalculateUpdateNotification @ 0x140939F90 (EtwpCalculateUpdateNotification.c)
- *     EtwpIsRegEntryAllowed @ 0x14093AFA4 (EtwpIsRegEntryAllowed.c)
- *     EtwpProviderArrivalCallback @ 0x14093C304 (EtwpProviderArrivalCallback.c)
- *     EtwpReleaseLoggerContext @ 0x14093D918 (EtwpReleaseLoggerContext.c)
- *     EtwpEnableDisableSpecialGuids @ 0x140A6D54C (EtwpEnableDisableSpecialGuids.c)
- *     EtwpEventWriteTemplateSessAndProv @ 0x140AB2240 (EtwpEventWriteTemplateSessAndProv.c)
- *     EtwpPreallocateApcPool @ 0x140AFAC58 (EtwpPreallocateApcPool.c)
- *     EtwpReferenceStackLookasideList @ 0x140AFACE4 (EtwpReferenceStackLookasideList.c)
- *     EtwpAcquireTokenAccessInformation @ 0x140AFD288 (EtwpAcquireTokenAccessInformation.c)
- *     EtwpEventWriteProviderEnabled @ 0x140B0D970 (EtwpEventWriteProviderEnabled.c)
- *     EtwpCreateUmReplyObject @ 0x140B12A84 (EtwpCreateUmReplyObject.c)
- *     EtwpEventWriteCaptureState @ 0x140B2FD4C (EtwpEventWriteCaptureState.c)
- *     EtwpDemuxPrivateTraceHandle @ 0x140B55CDC (EtwpDemuxPrivateTraceHandle.c)
+ *     EtwEventEnabled @ 0x140212E70 (EtwEventEnabled.c)
+ *     ExfReleasePushLock @ 0x14021B220 (ExfReleasePushLock.c)
+ *     KiUnstackDetachProcess @ 0x140232120 (KiUnstackDetachProcess.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     ExReleaseRundownProtection_0 @ 0x1402657B0 (ExReleaseRundownProtection_0.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     ExAcquireRundownProtection_0 @ 0x1402D2610 (ExAcquireRundownProtection_0.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     KeStackAttachProcess @ 0x14030FF30 (KeStackAttachProcess.c)
+ *     PsGetCurrentThreadProcessId @ 0x14044EE20 (PsGetCurrentThreadProcessId.c)
+ *     EtwpEnableMetaProviderGuid @ 0x14044EE5C (EtwpEnableMetaProviderGuid.c)
+ *     PsGetProcessId @ 0x140460330 (PsGetProcessId.c)
+ *     PsAttachSiloToCurrentThread @ 0x140466600 (PsAttachSiloToCurrentThread.c)
+ *     PsDetachSiloFromCurrentThread @ 0x14046FB80 (PsDetachSiloFromCurrentThread.c)
+ *     PsGetProcessServerSilo @ 0x140470370 (PsGetProcessServerSilo.c)
+ *     Feature_ModernWpp__private_IsEnabledDeviceUsageNoInline @ 0x140523420 (Feature_ModernWpp__private_IsEnabledDeviceUsageNoInline.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memcmp @ 0x140742350 (memcmp.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     EtwpAddGuidEntry @ 0x1408FC380 (EtwpAddGuidEntry.c)
+ *     EtwpUnreferenceGuidEntry @ 0x1409126C0 (EtwpUnreferenceGuidEntry.c)
+ *     EtwpUpdateRegEntryEnableMask @ 0x140912E34 (EtwpUpdateRegEntryEnableMask.c)
+ *     EtwpUpdateGuidEnableInfo @ 0x140913860 (EtwpUpdateGuidEnableInfo.c)
+ *     EtwpSendDataBlock @ 0x140914478 (EtwpSendDataBlock.c)
+ *     EtwpFreeFilterInfo @ 0x140914938 (EtwpFreeFilterInfo.c)
+ *     EtwpUnreferenceDataBlock @ 0x140914C04 (EtwpUnreferenceDataBlock.c)
+ *     EtwpAllocDataBlock @ 0x140914C28 (EtwpAllocDataBlock.c)
+ *     EtwpFindGuidEntryByGuid @ 0x140914CD0 (EtwpFindGuidEntryByGuid.c)
+ *     EtwpBuildNotificationPacket @ 0x1409159B8 (EtwpBuildNotificationPacket.c)
+ *     EtwpCalculateUpdateNotification @ 0x140915B30 (EtwpCalculateUpdateNotification.c)
+ *     EtwpIsRegEntryAllowed @ 0x140916B44 (EtwpIsRegEntryAllowed.c)
+ *     EtwpProviderArrivalCallback @ 0x140917EA4 (EtwpProviderArrivalCallback.c)
+ *     EtwpReleaseLoggerContext @ 0x1409194B8 (EtwpReleaseLoggerContext.c)
+ *     EtwpValidateEnableNotification @ 0x140979F2C (EtwpValidateEnableNotification.c)
+ *     EtwpEnableDisableSpecialGuids @ 0x140A99808 (EtwpEnableDisableSpecialGuids.c)
+ *     EtwpEventWriteTemplateSessAndProv @ 0x140AAFF14 (EtwpEventWriteTemplateSessAndProv.c)
+ *     EtwpPreallocateApcPool @ 0x140AB3AF8 (EtwpPreallocateApcPool.c)
+ *     EtwpReferenceStackLookasideList @ 0x140AB3B84 (EtwpReferenceStackLookasideList.c)
+ *     EtwpAcquireTokenAccessInformation @ 0x140AFEDF8 (EtwpAcquireTokenAccessInformation.c)
+ *     EtwpEventWriteProviderEnabled @ 0x140B0F0C0 (EtwpEventWriteProviderEnabled.c)
+ *     EtwpCreateUmReplyObject @ 0x140B14804 (EtwpCreateUmReplyObject.c)
+ *     EtwpEventWriteCaptureState @ 0x140B31B2C (EtwpEventWriteCaptureState.c)
+ *     EtwpDemuxPrivateTraceHandle @ 0x140B5857C (EtwpDemuxPrivateTraceHandle.c)
  */
 
 __int64 __fastcall EtwpEnableGuid(__int64 a1, _DWORD *a2, char a3)
@@ -76,7 +76,7 @@ __int64 __fastcall EtwpEnableGuid(__int64 a1, _DWORD *a2, char a3)
   __int16 v25; // ax
   int CurrentThreadProcessId; // eax
   _DWORD *v27; // rcx
-  __int128 *v28; // rdx
+  GUID *v28; // rdx
   char v29; // r15
   unsigned int v30; // edi
   bool v31; // zf
@@ -97,120 +97,119 @@ __int64 __fastcall EtwpEnableGuid(__int64 a1, _DWORD *a2, char a3)
   __int16 v47; // cx
   __int64 v48; // r8
   signed __int32 v49; // eax
-  __int64 v50; // rcx
-  signed __int32 v51; // ett
-  int v52; // eax
-  volatile signed __int32 *v53; // r12
-  int v54; // eax
-  int v55; // r13d
+  signed __int32 v50; // ett
+  int v51; // eax
+  volatile signed __int32 *v52; // r12
+  int v53; // eax
+  int v54; // r13d
   unsigned __int8 i; // cl
-  _QWORD *v57; // rcx
-  _QWORD *v58; // rax
-  unsigned int *v59; // rax
-  unsigned int *v60; // rcx
-  __int64 v61; // rsi
-  struct _KTHREAD *v62; // rax
-  unsigned __int64 *v63; // r12
-  AutoBoost *v64; // rax
-  void *v65; // rdx
-  AutoBoost *v66; // rbx
-  __int64 v67; // rax
-  unsigned __int16 *v68; // rbx
-  char v69; // r15
-  unsigned __int16 v70; // bx
+  _QWORD *v56; // rcx
+  _QWORD *v57; // rax
+  unsigned int *v58; // rax
+  unsigned int *v59; // rcx
+  __int64 v60; // rsi
+  struct _KTHREAD *v61; // rax
+  unsigned __int64 *v62; // r12
+  AutoBoost *v63; // rax
+  void *v64; // rdx
+  AutoBoost *v65; // rbx
+  __int64 v66; // rax
+  unsigned __int16 *v67; // rbx
+  char v68; // r15
+  unsigned __int16 v69; // bx
   bool updated; // al
-  __int16 v72; // ax
-  __int64 v73; // rcx
+  __int16 v71; // ax
+  __int64 v72; // rcx
   struct _LIST_ENTRY *ProcessServerSilo; // rax
-  struct _LIST_ENTRY *v75; // rbx
+  struct _LIST_ENTRY *v74; // rbx
   unsigned int ProcessId; // eax
-  __int16 v77; // bx
-  int v78; // eax
-  signed __int64 v79; // rax
-  signed __int64 v80; // rdx
-  __int64 v81; // rtt
-  _QWORD *v82; // rax
-  volatile signed __int64 *v83; // rbx
-  signed __int64 v84; // rax
-  signed __int64 v85; // rdx
-  _QWORD *v86; // r12
-  struct _KTHREAD *v87; // rax
-  volatile signed __int32 *v88; // rsi
-  AutoBoost *v89; // rax
-  AutoBoost *v90; // rbx
-  __int64 v91; // rax
-  _QWORD *v92; // r12
-  _QWORD *v93; // rax
-  __int64 *v94; // rbx
-  signed __int64 v95; // rax
-  signed __int64 v96; // rdx
-  __int64 v97; // rtt
-  _DWORD *v98; // rcx
-  unsigned int v99; // r12d
-  const EVENT_DESCRIPTOR *v100; // rsi
-  int v101; // ecx
-  unsigned int v102; // [rsp+28h] [rbp-D8h]
-  char v103; // [rsp+50h] [rbp-B0h] BYREF
-  unsigned __int8 v104; // [rsp+51h] [rbp-AFh]
-  char v105; // [rsp+52h] [rbp-AEh]
-  char v106; // [rsp+53h] [rbp-ADh]
-  unsigned int v107; // [rsp+54h] [rbp-ACh]
-  int v108; // [rsp+58h] [rbp-A8h]
+  __int16 v76; // bx
+  int v77; // eax
+  signed __int64 v78; // rax
+  signed __int64 v79; // rdx
+  __int64 v80; // rtt
+  _QWORD *v81; // rax
+  volatile signed __int64 *v82; // rbx
+  signed __int64 v83; // rax
+  signed __int64 v84; // rdx
+  _QWORD *v85; // r12
+  struct _KTHREAD *v86; // rax
+  volatile signed __int32 *v87; // rsi
+  AutoBoost *v88; // rax
+  AutoBoost *v89; // rbx
+  __int64 v90; // rax
+  _QWORD *v91; // r12
+  _QWORD *v92; // rax
+  __int64 *v93; // rbx
+  signed __int64 v94; // rax
+  signed __int64 v95; // rdx
+  __int64 v96; // rtt
+  _DWORD *v97; // rcx
+  unsigned int v98; // r12d
+  const EVENT_DESCRIPTOR *v99; // rsi
+  int v100; // ecx
+  unsigned int v101; // [rsp+28h] [rbp-D8h]
+  char v102; // [rsp+50h] [rbp-B0h] BYREF
+  unsigned __int8 v103; // [rsp+51h] [rbp-AFh]
+  char v104; // [rsp+52h] [rbp-AEh]
+  char v105; // [rsp+53h] [rbp-ADh]
+  unsigned int v106; // [rsp+54h] [rbp-ACh]
+  int v107; // [rsp+58h] [rbp-A8h]
   _DWORD Src[3]; // [rsp+5Ch] [rbp-A4h] BYREF
-  __int16 v110; // [rsp+68h] [rbp-98h] BYREF
-  volatile signed __int32 *v111; // [rsp+70h] [rbp-90h] BYREF
-  unsigned int *v112; // [rsp+78h] [rbp-88h] BYREF
-  int v113; // [rsp+80h] [rbp-80h]
-  int v114; // [rsp+84h] [rbp-7Ch]
-  volatile signed __int32 *v115; // [rsp+88h] [rbp-78h]
-  _DWORD *v116; // [rsp+90h] [rbp-70h]
+  __int16 v109; // [rsp+68h] [rbp-98h] BYREF
+  volatile signed __int32 *v110; // [rsp+70h] [rbp-90h] BYREF
+  unsigned int *v111; // [rsp+78h] [rbp-88h] BYREF
+  int v112; // [rsp+80h] [rbp-80h]
+  int v113; // [rsp+84h] [rbp-7Ch]
+  volatile signed __int32 *v114; // [rsp+88h] [rbp-78h]
+  _DWORD *v115; // [rsp+90h] [rbp-70h]
   void *Buf2; // [rsp+98h] [rbp-68h]
-  _QWORD *v118; // [rsp+A0h] [rbp-60h]
-  _QWORD *v119; // [rsp+A8h] [rbp-58h]
+  _QWORD *v117; // [rsp+A0h] [rbp-60h]
+  _QWORD *v118; // [rsp+A8h] [rbp-58h]
   PVOID Object; // [rsp+B0h] [rbp-50h]
-  unsigned int *v121; // [rsp+B8h] [rbp-48h]
-  __int64 v122; // [rsp+C0h] [rbp-40h]
-  __int128 v123; // [rsp+C8h] [rbp-38h] BYREF
-  int v124; // [rsp+D8h] [rbp-28h]
-  _QWORD v125[14]; // [rsp+E0h] [rbp-20h] BYREF
+  unsigned int *v120; // [rsp+B8h] [rbp-48h]
+  __int64 v121; // [rsp+C0h] [rbp-40h]
+  __int128 v122; // [rsp+C8h] [rbp-38h] BYREF
+  int v123; // [rsp+D8h] [rbp-28h]
+  _QWORD v124[14]; // [rsp+E0h] [rbp-20h] BYREF
   struct _KAPC_STATE ApcState; // [rsp+150h] [rbp+50h] BYREF
 
-  v116 = a2;
-  v122 = 0LL;
+  v115 = a2;
+  v121 = 0LL;
   Buf2 = a2 + 10;
   v3 = a2 + 18;
   Object = 0LL;
   *(_QWORD *)&Src[1] = 0LL;
-  v114 = 0;
-  v106 = 0;
+  v113 = 0;
   v105 = 0;
-  v124 = 0;
-  LOWORD(v113) = 0;
+  v104 = 0;
+  v123 = 0;
+  LOWORD(v112) = 0;
   LOWORD(Src[0]) = 0;
   v7 = 0LL;
-  v103 = 0;
-  v123 = 0LL;
-  v112 = 0LL;
-  v8 = 0LL;
+  v102 = 0;
+  v122 = 0LL;
   v111 = 0LL;
-  memset_0(v125, 0, 0x68uLL);
+  v8 = 0LL;
+  v110 = 0LL;
+  memset_0(v124, 0, 0x68uLL);
   v9 = v3[2] & 0x20;
-  v110 = 0;
-  v108 = v9;
-  v104 = v9 != 0 ? 2 : 0;
-  v10 = EtwpValidateEnableNotification(a1, (__int64)a2, a3, (__int64)&v123, &v112, (__int64)v125);
-  v14 = v112;
+  v109 = 0;
+  v107 = v9;
+  v103 = v9 != 0 ? 2 : 0;
+  v10 = EtwpValidateEnableNotification(a1, (__int64)a2, a3, (__int64)&v122, &v111, (__int64)v124);
+  v14 = v111;
   LODWORD(v15) = v10;
   if ( v10 < 0 )
     goto LABEL_57;
   v16 = *v3;
-  v107 = v16;
+  v106 = v16;
   if ( v16 == 2 )
   {
     v15 = (__int64 *)(a2 + 10);
-    if ( EtwEventEnabled(EtwpEventTracingProvRegHandle, &ETW_EVENT_CAPTURE_STATE) )
+    if ( EtwEventEnabled((REGHANDLE)stru_140F03830.SavedApcState.ApcListHead[0].Blink, &ETW_EVENT_CAPTURE_STATE) )
       EtwpEventWriteCaptureState(v17, v3, a2 + 10);
-    v16 = v107;
+    v16 = v106;
   }
   else
   {
@@ -219,11 +218,11 @@ __int64 __fastcall EtwpEnableGuid(__int64 a1, _DWORD *a2, char a3)
   v18 = a2[29];
   if ( v18 && v18 < 3 )
   {
-    v19 = v116;
+    v19 = v115;
     v20 = v18;
-    v13 = (struct _KLOCK_ENTRIES *)((char *)&ApcState.ApcListHead[0].Flink + 4 - (char *)(v116 + 30));
-    v11 = v116 + 32;
-    v12 = (char *)&ApcState - (char *)(v116 + 30);
+    v13 = (struct _KLOCK_ENTRIES *)((char *)&ApcState.ApcListHead[0].Flink + 4 - (char *)(v115 + 30));
+    v11 = v115 + 32;
+    v12 = (char *)&ApcState - (char *)(v115 + 30);
     do
     {
       v21 = (char *)v19 + *((_QWORD *)v11 - 1);
@@ -235,16 +234,16 @@ __int64 __fastcall EtwpEnableGuid(__int64 a1, _DWORD *a2, char a3)
       --v20;
     }
     while ( v20 );
-    v14 = v112;
+    v14 = v111;
   }
   else
   {
     v18 = 0;
     HIDWORD(ApcState.ApcListHead[0].Blink) = 0;
   }
-  if ( v108 )
+  if ( v107 )
   {
-    v24 = v107;
+    v24 = v106;
   }
   else
   {
@@ -258,19 +257,19 @@ __int64 __fastcall EtwpEnableGuid(__int64 a1, _DWORD *a2, char a3)
                      v3[4],
                      (__int64)&ApcState,
                      v18,
-                     &v103);
+                     &v102);
     KeLeaveCriticalRegion();
-    if ( v103 )
+    if ( v102 )
       goto LABEL_57;
-    v102 = v18;
-    v24 = v107;
+    v101 = v18;
+    v24 = v106;
     LODWORD(v15) = EtwpEnableMetaProviderGuid(
                      (__int64)v14,
                      (__int64)Buf2,
-                     v107,
+                     v106,
                      *((_QWORD *)v3 + 2),
                      (__int64)&ApcState,
-                     v102);
+                     v101);
     if ( (_DWORD)v15 != -1073741163 )
       goto LABEL_57;
   }
@@ -281,20 +280,20 @@ __int64 __fastcall EtwpEnableGuid(__int64 a1, _DWORD *a2, char a3)
     goto LABEL_191;
   }
   CurrentThreadProcessId = PsGetCurrentThreadProcessId();
-  v27 = v116;
-  v28 = &PrivateLoggerNotificationGuid;
-  v29 = BYTE2(v124);
-  v30 = v104;
-  v31 = BYTE2(v124) == 0;
-  v32 = v104;
-  v116[9] = CurrentThreadProcessId;
+  v27 = v115;
+  v28 = (GUID *)&PrivateLoggerNotificationGuid;
+  v29 = BYTE2(v123);
+  v30 = v103;
+  v31 = BYTE2(v123) == 0;
+  v32 = v103;
+  v115[9] = CurrentThreadProcessId;
   if ( v31 )
-    v28 = (__int128 *)(v27 + 10);
+    v28 = (GUID *)(v27 + 10);
   GuidEntryByGuid = EtwpFindGuidEntryByGuid(a1, v28, v32);
   if ( GuidEntryByGuid )
   {
-    v34 = v107;
-    if ( v107 == 1 || (v7 = GuidEntryByGuid, !v107) )
+    v34 = v106;
+    if ( v106 == 1 || (v7 = GuidEntryByGuid, !v106) )
     {
       v7 = GuidEntryByGuid;
       if ( v14 )
@@ -304,7 +303,7 @@ __int64 __fastcall EtwpEnableGuid(__int64 a1, _DWORD *a2, char a3)
           v35 = (const EVENT_DESCRIPTOR *)ETW_EVENT_TRACING_PROVIDER_ENABLE_CHANGING;
           if ( v34 != 1 )
             v35 = &ETW_EVENT_TRACING_PROVIDER_DISABLING;
-          if ( EtwEventEnabled(EtwpEventTracingProvRegHandle, v35) )
+          if ( EtwEventEnabled((REGHANDLE)stru_140F03830.SavedApcState.ApcListHead[0].Blink, v35) )
           {
             if ( v34 == 1 )
               EtwpEventWriteProviderEnabled(
@@ -344,7 +343,7 @@ __int64 __fastcall EtwpEnableGuid(__int64 a1, _DWORD *a2, char a3)
       LODWORD(v15) = -1073741801;
       goto LABEL_57;
     }
-    v34 = v107;
+    v34 = v106;
   }
   v37 = KeGetCurrentThread();
   --v37->KernelApcDisable;
@@ -360,12 +359,12 @@ __int64 __fastcall EtwpEnableGuid(__int64 a1, _DWORD *a2, char a3)
     else
       *((_BYTE *)v40 + 10) = 1;
   }
-  v41 = v108;
+  v41 = v107;
   v7[84] = KeGetCurrentThread();
-  v106 = 1;
+  v105 = 1;
   if ( v34 == 1 && (*((_BYTE *)v7 + 91) & 1) != 0 && !v41 && *((_WORD *)v3 + 3) != *((_WORD *)v7 + 44) )
   {
-    if ( !memcmp(qword_14001FEE0, v7 + 5, 0x10uLL) )
+    if ( !memcmp(qword_14001F6C8, v7 + 5, 0x10uLL) )
     {
       LODWORD(v15) = -1073741053;
 LABEL_51:
@@ -381,7 +380,7 @@ LABEL_51:
       KeLeaveCriticalRegion();
       goto LABEL_57;
     }
-    v41 = v108;
+    v41 = v107;
   }
   if ( v14 && (v14[204] & 0x40) != 0 )
   {
@@ -395,8 +394,8 @@ LABEL_51:
       goto LABEL_51;
     LODWORD(v15) = 0;
   }
-  v46 = v116;
-  v116[28] = v34;
+  v46 = v115;
+  v115[28] = v34;
   v47 = *((_WORD *)v3 + 3);
   *((_WORD *)v46 + 52) = v47;
   *((_BYTE *)v46 + 106) = *((_BYTE *)v3 + 4);
@@ -413,25 +412,24 @@ LABEL_51:
     *((_BYTE *)v3 + 4) = -1;
   if ( v34 != 2 && !v29 )
   {
-    LODWORD(v15) = EtwpUpdateGuidEnableInfo((ULONG_PTR)v7, (__int64)v46, v48, (__int64)v125, Src);
+    LODWORD(v15) = EtwpUpdateGuidEnableInfo((ULONG_PTR)v7, (__int64)v46, v48, (__int64)v124, Src);
     if ( (int)v15 < 0 )
       goto LABEL_51;
     *(_OWORD *)v3 = *((_OWORD *)v7 + 6);
     *((_OWORD *)v3 + 1) = *((_OWORD *)v7 + 7);
     if ( (v3[2] & 4) != 0 )
     {
-      EtwpPreallocateApcPool(v14 + 208);
+      EtwpPreallocateApcPool((__int64)(v14 + 208));
       _m_prefetchw(v14 + 204);
       v49 = v14[204];
       do
       {
-        v50 = v49 | 0x2000u;
-        v51 = v49;
-        v49 = _InterlockedCompareExchange((volatile signed __int32 *)v14 + 204, v50, v49);
+        v50 = v49;
+        v49 = _InterlockedCompareExchange((volatile signed __int32 *)v14 + 204, v49 | 0x2000, v49);
       }
-      while ( v51 != v49 );
+      while ( v50 != v49 );
       if ( (v49 & 0x2000) == 0 )
-        EtwpReferenceStackLookasideList(v50, 0x2000LL);
+        EtwpReferenceStackLookasideList();
     }
     LODWORD(v15) = 0;
   }
@@ -445,292 +443,292 @@ LABEL_51:
     LOBYTE(v15) = 0;
     *((_QWORD *)v46 + 3) = Object;
   }
-  v52 = EtwpBuildNotificationPacket((__int64)v7, v46, 0xFFu, (__int64 *)&Src[1]);
-  v53 = *(volatile signed __int32 **)&Src[1];
-  if ( v52 < 0 )
+  v51 = EtwpBuildNotificationPacket((__int64)v7, v46, 0xFFu, (__int64 *)&Src[1]);
+  v52 = *(volatile signed __int32 **)&Src[1];
+  if ( v51 < 0 )
   {
     LODWORD(v15) = -1073741801;
     goto LABEL_194;
   }
-  v54 = EtwpAllocDataBlock(*(unsigned int *)(*(_QWORD *)&Src[1] + 4LL), *(void **)&Src[1], &v111);
-  v8 = v111;
-  if ( v54 < 0 )
+  v53 = EtwpAllocDataBlock(*(unsigned int *)(*(_QWORD *)&Src[1] + 4LL), *(void **)&Src[1], &v110);
+  v8 = v110;
+  if ( v53 < 0 )
   {
     LODWORD(v15) = -1073741801;
     goto LABEL_191;
   }
-  v55 = v113;
+  v54 = v112;
   v11 = v7 + 16;
-  v115 = v111;
+  v114 = v110;
   for ( i = 0; i < 0x10u; ++i )
   {
     if ( *v11 )
-      v55 = (unsigned __int16)v55 | (1 << i);
+      v54 = (unsigned __int16)v54 | (1 << i);
     v11 += 8;
   }
-  v113 = v55;
-  v14 = v112;
-  v103 = 0;
-  v118 = 0LL;
+  v112 = v54;
+  v14 = v111;
+  v102 = 0;
+  v117 = 0LL;
   if ( !v7[82] )
   {
-    v57 = (_QWORD *)v7[2];
-    if ( v57 != v7 + 2 )
-      v118 = v57 - 2;
+    v56 = (_QWORD *)v7[2];
+    if ( v56 != v7 + 2 )
+      v117 = v56 - 2;
   }
-  v58 = v7;
-  v119 = v7;
+  v57 = v7;
+  v118 = v7;
   while ( 2 )
   {
-    v59 = (unsigned int *)(v58 + 7);
-    v121 = v59;
-    v60 = *(unsigned int **)v59;
-    v112 = *(unsigned int **)v59;
-    while ( v60 != v59 )
+    v58 = (unsigned int *)(v57 + 7);
+    v120 = v58;
+    v59 = *(unsigned int **)v58;
+    v111 = *(unsigned int **)v58;
+    while ( v59 != v58 )
     {
-      if ( v108 )
+      if ( v107 )
       {
-        v62 = KeGetCurrentThread();
-        v61 = (__int64)(v60 - 4);
-        --v62->KernelApcDisable;
-        v63 = (unsigned __int64 *)(*((_QWORD *)v60 + 2) + 664LL);
-        v64 = (AutoBoost *)KeAbPreAcquire((__int64)v63, 0LL, 0LL, v13);
-        v66 = v64;
-        if ( _interlockedbittestandset64((volatile signed __int32 *)v63, 0LL) )
-          ExfAcquirePushLockExclusiveEx(v63, v64, (__int64)v63);
-        if ( v66 )
+        v61 = KeGetCurrentThread();
+        v60 = (__int64)(v59 - 4);
+        --v61->KernelApcDisable;
+        v62 = (unsigned __int64 *)(*((_QWORD *)v59 + 2) + 664LL);
+        v63 = (AutoBoost *)KeAbPreAcquire((__int64)v62, 0LL, 0LL, v13);
+        v65 = v63;
+        if ( _interlockedbittestandset64((volatile signed __int32 *)v62, 0LL) )
+          ExfAcquirePushLockExclusiveEx(v62, v63, (__int64)v62);
+        if ( v65 )
         {
           if ( (KiAbpGlobalState & 1) != 0 )
-            AutoBoost::KiAbpPostAcquire(v66, v65);
+            AutoBoost::KiAbpPostAcquire(v65, v64);
           else
-            *((_BYTE *)v66 + 10) = 1;
+            *((_BYTE *)v65 + 10) = 1;
         }
-        v67 = *(_QWORD *)(v61 + 32);
-        v53 = *(volatile signed __int32 **)&Src[1];
-        LOBYTE(v15) = v103;
-        v105 = 1;
-        *(_QWORD *)(v67 + 672) = KeGetCurrentThread();
-        v60 = v112;
+        v66 = *(_QWORD *)(v60 + 32);
+        v52 = *(volatile signed __int32 **)&Src[1];
+        LOBYTE(v15) = v102;
+        v104 = 1;
+        *(_QWORD *)(v66 + 672) = KeGetCurrentThread();
+        v59 = v111;
       }
       else
       {
-        v61 = (__int64)v60;
+        v60 = (__int64)v59;
       }
-      v112 = *(unsigned int **)v60;
-      if ( !EtwpIsRegEntryAllowed(v61, (__int64)v14, &v123, (__int64)v116, (__int64)v125, (char)v15, v104) )
+      v111 = *(unsigned int **)v59;
+      if ( !EtwpIsRegEntryAllowed(v60, (__int64)v14, &v122, (__int64)v115, (__int64)v124, (char)v15, v103) )
       {
 LABEL_149:
         v12 = 2LL;
         goto LABEL_150;
       }
-      if ( BYTE2(v124) )
+      if ( BYTE2(v123) )
       {
-        ProcessId = (unsigned int)PsGetProcessId(*(PEPROCESS *)(v61 + 80));
-        if ( (unsigned int)EtwpDemuxPrivateTraceHandle(ProcessId, *((_WORD *)v3 + 3) & 0x7FFF, &v110) )
+        ProcessId = (unsigned int)PsGetProcessId(*(PEPROCESS *)(v60 + 80));
+        if ( (unsigned int)EtwpDemuxPrivateTraceHandle(ProcessId, *((_WORD *)v3 + 3) & 0x7FFF, &v109) )
           goto LABEL_149;
-        v77 = v110;
-        if ( v110 != *((_WORD *)v8 + 39) )
+        v76 = v109;
+        if ( v109 != *((_WORD *)v8 + 39) )
         {
-          v53 = *(volatile signed __int32 **)&Src[1];
-          if ( (int)EtwpAllocDataBlock(*(unsigned int *)(*(_QWORD *)&Src[1] + 4LL), *(void **)&Src[1], &v111) < 0 )
+          v52 = *(volatile signed __int32 **)&Src[1];
+          if ( (int)EtwpAllocDataBlock(*(unsigned int *)(*(_QWORD *)&Src[1] + 4LL), *(void **)&Src[1], &v110) < 0 )
           {
-            v8 = v115;
-            if ( v105 )
+            v8 = v114;
+            if ( v104 )
             {
-              *(_QWORD *)(*(_QWORD *)(v61 + 32) + 672LL) = 0LL;
-              v94 = (__int64 *)(*(_QWORD *)(v61 + 32) + 664LL);
-              _m_prefetchw(v94);
-              v95 = *v94;
-              v96 = *v94 - 16;
-              if ( (*v94 & 0xFFFFFFFFFFFFFFF0uLL) <= 0x10 )
-                v96 = 0LL;
-              if ( (v95 & 2) != 0 || (v97 = *v94, v97 != _InterlockedCompareExchange64(v94, v96, v95)) )
-                ExfReleasePushLock(v94);
-              KeAbPostRelease((unsigned __int64)v94);
+              *(_QWORD *)(*(_QWORD *)(v60 + 32) + 672LL) = 0LL;
+              v93 = (__int64 *)(*(_QWORD *)(v60 + 32) + 664LL);
+              _m_prefetchw(v93);
+              v94 = *v93;
+              v95 = *v93 - 16;
+              if ( (*v93 & 0xFFFFFFFFFFFFFFF0uLL) <= 0x10 )
+                v95 = 0LL;
+              if ( (v94 & 2) != 0 || (v96 = *v93, v96 != _InterlockedCompareExchange64(v93, v95, v94)) )
+                ExfReleasePushLock(v93);
+              KeAbPostRelease((unsigned __int64)v93);
               KeLeaveCriticalRegion();
             }
             LODWORD(v15) = -1073741801;
             goto LABEL_192;
           }
-          EtwpUnreferenceDataBlock(v115);
-          v8 = v111;
-          v115 = v111;
-          *((_WORD *)v111 + 39) = v77 | 0x8000;
-          *((_WORD *)v8 + 52) = v77;
+          EtwpUnreferenceDataBlock(v114);
+          v8 = v110;
+          v114 = v110;
+          *((_WORD *)v110 + 39) = v76 | 0x8000;
+          *((_WORD *)v8 + 52) = v76;
         }
-        v53 = v8;
+        v52 = v8;
       }
       else
       {
-        if ( v107 == 2 )
+        if ( v106 == 2 )
           goto LABEL_132;
         if ( (_BYTE)v15 )
         {
-          if ( v108 )
-            v68 = (unsigned __int16 *)(v61 + 106);
+          if ( v107 )
+            v67 = (unsigned __int16 *)(v60 + 106);
           else
-            v68 = (unsigned __int16 *)(v61 + 104);
+            v67 = (unsigned __int16 *)(v60 + 104);
         }
         else
         {
-          v68 = (unsigned __int16 *)(v61 + 100);
-          if ( v108 )
-            v68 = (unsigned __int16 *)(v61 + 102);
+          v67 = (unsigned __int16 *)(v60 + 100);
+          if ( v107 )
+            v67 = (unsigned __int16 *)(v60 + 102);
         }
-        v69 = v103;
-        v70 = *v68;
-        EtwpUpdateRegEntryEnableMask(v61, (__int64)v14, Src[0], v104, v103, v107);
-        updated = EtwpCalculateUpdateNotification(v61, Src[0], v70, v113, v104, v69, v107, (__int64 *)&v111);
-        v8 = v111;
+        v68 = v102;
+        v69 = *v67;
+        EtwpUpdateRegEntryEnableMask(v60, (__int64)v14, Src[0], v103, v102, v106);
+        updated = EtwpCalculateUpdateNotification(v60, Src[0], v69, v112, v103, v68, v106, (__int64 *)&v110);
+        v8 = v110;
         if ( !updated )
         {
-          LOBYTE(v15) = v103;
+          LOBYTE(v15) = v102;
           v12 = 2LL;
-          if ( !v111 )
+          if ( !v110 )
           {
-            v8 = v115;
-            v111 = v115;
+            v8 = v114;
+            v110 = v114;
           }
           goto LABEL_150;
         }
-        if ( v111 )
+        if ( v110 )
         {
-          v53 = v111;
-          if ( v111 != v115 )
+          v52 = v110;
+          if ( v110 != v114 )
           {
-            EtwpUnreferenceDataBlock(v115);
-            v115 = v8;
+            EtwpUnreferenceDataBlock(v114);
+            v114 = v8;
           }
         }
         else
         {
-          v8 = v115;
-          v111 = v115;
+          v8 = v114;
+          v110 = v114;
         }
-        if ( v107 == 1 )
+        if ( v106 == 1 )
         {
 LABEL_132:
-          v72 = *(_WORD *)(v61 + 98);
-          if ( (v72 & 8) != 0
-            || (v72 & 0x10) != 0
+          v71 = *(_WORD *)(v60 + 98);
+          if ( (v71 & 8) != 0
+            || (v71 & 0x10) != 0
             || (unsigned int)Feature_ModernWpp__private_IsEnabledDeviceUsageNoInline()
-            && _bittest16((const signed __int16 *)(v61 + 98), 0xAu)
+            && _bittest16((const signed __int16 *)(v60 + 98), 0xAu)
             || (v14[204] & 0x2000000) != 0 )
           {
-            if ( (*(_BYTE *)(v61 + 98) & 1) != 0 )
+            if ( (*(_BYTE *)(v60 + 98) & 1) != 0 )
             {
-              EtwpProviderArrivalCallback((__int64)v14, 0, v61);
+              EtwpProviderArrivalCallback((__int64)v14, 0, v60);
             }
-            else if ( ExAcquireRundownProtection_0((PEX_RUNDOWN_REF)(*(_QWORD *)(v61 + 80) + 488LL)) )
+            else if ( ExAcquireRundownProtection_0((PEX_RUNDOWN_REF)(*(_QWORD *)(v60 + 80) + 488LL)) )
             {
-              v73 = *(_QWORD *)(v61 + 80);
+              v72 = *(_QWORD *)(v60 + 80);
               memset(&ApcState, 0, sizeof(ApcState));
-              ProcessServerSilo = (struct _LIST_ENTRY *)PsGetProcessServerSilo(v73);
-              v75 = PsAttachSiloToCurrentThread(ProcessServerSilo);
-              KeStackAttachProcess(*(PRKPROCESS *)(v61 + 80), &ApcState);
-              EtwpProviderArrivalCallback((__int64)v14, 1, v61);
+              ProcessServerSilo = (struct _LIST_ENTRY *)PsGetProcessServerSilo(v72);
+              v74 = PsAttachSiloToCurrentThread(ProcessServerSilo);
+              KeStackAttachProcess(*(PRKPROCESS *)(v60 + 80), &ApcState);
+              EtwpProviderArrivalCallback((__int64)v14, 1, v60);
               KiUnstackDetachProcess((__int64)&ApcState, 0);
-              PsDetachSiloFromCurrentThread(v75);
-              ExReleaseRundownProtection_0((PEX_RUNDOWN_REF)(*(_QWORD *)(v61 + 80) + 488LL));
+              PsDetachSiloFromCurrentThread(v74);
+              ExReleaseRundownProtection_0((PEX_RUNDOWN_REF)(*(_QWORD *)(v60 + 80) + 488LL));
             }
           }
         }
       }
-      v78 = EtwpSendDataBlock(v61, (__int64)v53);
-      LOBYTE(v15) = v103;
+      v77 = EtwpSendDataBlock(v60, (__int64)v52);
+      LOBYTE(v15) = v102;
       v12 = 2LL;
-      if ( v78 >= 0 && (*(_BYTE *)(v61 + 98) & 2) != 0 )
-        ++v114;
+      if ( v77 >= 0 && (*(_BYTE *)(v60 + 98) & 2) != 0 )
+        ++v113;
 LABEL_150:
-      v60 = v112;
-      v59 = v121;
-      v53 = *(volatile signed __int32 **)&Src[1];
-      if ( v105 )
+      v59 = v111;
+      v58 = v120;
+      v52 = *(volatile signed __int32 **)&Src[1];
+      if ( v104 )
       {
-        *(_QWORD *)(*(_QWORD *)(v61 + 32) + 672LL) = 0LL;
-        v15 = (__int64 *)(*(_QWORD *)(v61 + 32) + 664LL);
+        *(_QWORD *)(*(_QWORD *)(v60 + 32) + 672LL) = 0LL;
+        v15 = (__int64 *)(*(_QWORD *)(v60 + 32) + 664LL);
         _m_prefetchw(v15);
-        v79 = *v15;
-        v80 = *v15 - 16;
+        v78 = *v15;
+        v79 = *v15 - 16;
         if ( (*v15 & 0xFFFFFFFFFFFFFFF0uLL) <= 0x10 )
-          v80 = 0LL;
-        if ( (v79 & 2) != 0 || (v81 = *v15, v81 != _InterlockedCompareExchange64(v15, v80, v79)) )
+          v79 = 0LL;
+        if ( (v78 & 2) != 0 || (v80 = *v15, v80 != _InterlockedCompareExchange64(v15, v79, v78)) )
           ExfReleasePushLock(v15);
         KeAbPostRelease((unsigned __int64)v15);
         KeLeaveCriticalRegion();
-        v60 = v112;
-        v59 = v121;
-        LOBYTE(v15) = v103;
-        v105 = 0;
-        v53 = *(volatile signed __int32 **)&Src[1];
+        v59 = v111;
+        v58 = v120;
+        LOBYTE(v15) = v102;
+        v104 = 0;
+        v52 = *(volatile signed __int32 **)&Src[1];
       }
     }
-    v82 = v119;
-    if ( v119 != v7 )
+    v81 = v118;
+    if ( v118 != v7 )
     {
-      v119[84] = 0LL;
-      v83 = v82 + 83;
-      _m_prefetchw(v82 + 83);
-      v84 = v82[83];
-      v85 = v84 - 16;
-      if ( (v84 & 0xFFFFFFFFFFFFFFF0uLL) <= 0x10 )
-        v85 = 0LL;
-      if ( (v84 & 2) != 0 || v84 != _InterlockedCompareExchange64(v83, v85, v84) )
-        ExfReleasePushLock(v83);
-      KeAbPostRelease((unsigned __int64)v83);
+      v118[84] = 0LL;
+      v82 = v81 + 83;
+      _m_prefetchw(v81 + 83);
+      v83 = v81[83];
+      v84 = v83 - 16;
+      if ( (v83 & 0xFFFFFFFFFFFFFFF0uLL) <= 0x10 )
+        v84 = 0LL;
+      if ( (v83 & 2) != 0 || v83 != _InterlockedCompareExchange64(v82, v84, v83) )
+        ExfReleasePushLock(v82);
+      KeAbPostRelease((unsigned __int64)v82);
       KeLeaveCriticalRegion();
     }
-    v86 = v118;
-    if ( v118 )
+    v85 = v117;
+    if ( v117 )
     {
-      v87 = KeGetCurrentThread();
-      v88 = (volatile signed __int32 *)(v118 + 83);
-      v103 = 1;
-      v119 = v118;
-      --v87->KernelApcDisable;
-      v89 = (AutoBoost *)KeAbPreAcquire((__int64)(v86 + 83), 0LL, 0LL, v13);
-      v90 = v89;
-      if ( _interlockedbittestandset64(v88, 0LL) )
-        ExfAcquirePushLockExclusiveEx(v86 + 83, v89, (__int64)(v86 + 83));
-      if ( v90 )
+      v86 = KeGetCurrentThread();
+      v87 = (volatile signed __int32 *)(v117 + 83);
+      v102 = 1;
+      v118 = v117;
+      --v86->KernelApcDisable;
+      v88 = (AutoBoost *)KeAbPreAcquire((__int64)(v85 + 83), 0LL, 0LL, v13);
+      v89 = v88;
+      if ( _interlockedbittestandset64(v87, 0LL) )
+        ExfAcquirePushLockExclusiveEx(v85 + 83, v88, (__int64)(v85 + 83));
+      if ( v89 )
       {
         if ( (KiAbpGlobalState & 1) != 0 )
-          AutoBoost::KiAbpPostAcquire(v90, v11);
+          AutoBoost::KiAbpPostAcquire(v89, v11);
         else
-          *((_BYTE *)v90 + 10) = 1;
+          *((_BYTE *)v89 + 10) = 1;
       }
-      LOBYTE(v15) = v103;
-      v86[84] = KeGetCurrentThread();
-      v91 = v86[2];
-      v92 = 0LL;
-      v93 = (_QWORD *)(v91 - 16);
-      if ( v93 != v7 )
-        v92 = v93;
-      v58 = v119;
-      v118 = v92;
-      v53 = *(volatile signed __int32 **)&Src[1];
+      LOBYTE(v15) = v102;
+      v85[84] = KeGetCurrentThread();
+      v90 = v85[2];
+      v91 = 0LL;
+      v92 = (_QWORD *)(v90 - 16);
+      if ( v92 != v7 )
+        v91 = v92;
+      v57 = v118;
+      v117 = v91;
+      v52 = *(volatile signed __int32 **)&Src[1];
       continue;
     }
     break;
   }
-  v98 = v116;
+  v97 = v115;
   LODWORD(v15) = 0;
-  v116[5] = v114;
-  *((_QWORD *)v98 + 3) = v122;
+  v115[5] = v113;
+  *((_QWORD *)v97 + 3) = v121;
   if ( v14 )
   {
-    v99 = v107;
-    if ( v107 <= 1 )
+    v98 = v106;
+    if ( v106 <= 1 )
     {
-      v100 = (const EVENT_DESCRIPTOR *)ETW_EVENT_PROVIDER_ENABLED;
-      if ( v107 != 1 )
-        v100 = &ETW_EVENT_PROVIDER_DISABLED;
-      if ( EtwEventEnabled(EtwpEventTracingProvRegHandle, v100) )
+      v99 = (const EVENT_DESCRIPTOR *)ETW_EVENT_PROVIDER_ENABLED;
+      if ( v106 != 1 )
+        v99 = &ETW_EVENT_PROVIDER_DISABLED;
+      if ( EtwEventEnabled((REGHANDLE)stru_140F03830.SavedApcState.ApcListHead[0].Blink, v99) )
       {
-        if ( v99 == 1 )
+        if ( v98 == 1 )
           EtwpEventWriteProviderEnabled(
-            v101,
-            (_DWORD)v100,
+            v100,
+            (_DWORD)v99,
             v12,
             (_DWORD)v14 + 136,
             (__int64)Buf2,
@@ -739,19 +737,19 @@ LABEL_150:
             v3[2],
             *((_BYTE *)v3 + 4));
         else
-          EtwpEventWriteTemplateSessAndProv((__int64)Buf2, v100, v12, 2, (unsigned __int16 *)v14 + 68, (ULONGLONG)Buf2);
+          EtwpEventWriteTemplateSessAndProv((__int64)Buf2, v99, v12, 2, (unsigned __int16 *)v14 + 68, (ULONGLONG)Buf2);
       }
     }
   }
 LABEL_191:
-  v53 = *(volatile signed __int32 **)&Src[1];
+  v52 = *(volatile signed __int32 **)&Src[1];
 LABEL_192:
   if ( v8 )
     EtwpUnreferenceDataBlock(v8);
 LABEL_194:
-  if ( v53 )
-    EtwpUnreferenceDataBlock(v53);
-  if ( v106 )
+  if ( v52 )
+    EtwpUnreferenceDataBlock(v52);
+  if ( v105 )
     goto LABEL_51;
 LABEL_57:
   if ( v14 )
@@ -760,6 +758,6 @@ LABEL_57:
     ObfDereferenceObject(Object);
   if ( v7 )
     EtwpUnreferenceGuidEntry(v7, (__int64)v11, v12, v13);
-  EtwpFreeFilterInfo(v125);
+  EtwpFreeFilterInfo(v124);
   return (unsigned int)v15;
 }

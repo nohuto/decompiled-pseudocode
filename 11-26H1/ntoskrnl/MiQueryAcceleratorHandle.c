@@ -1,10 +1,10 @@
 /*
- * XREFs of MiQueryAcceleratorHandle @ 0x14087FAB0
+ * XREFs of MiQueryAcceleratorHandle @ 0x140885EB0
  * Callers:
- *     MiAcceptNewAccelerators @ 0x14087F98C (MiAcceptNewAccelerators.c)
+ *     MiAcceptNewAccelerators @ 0x140885D8C (MiAcceptNewAccelerators.c)
  * Callees:
- *     AccelQueryDescriptorSize @ 0x1406DF100 (AccelQueryDescriptorSize.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     AccelQueryDescriptorSize @ 0x1406E33A0 (AccelQueryDescriptorSize.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall MiQueryAcceleratorHandle(__int64 a1, _DWORD *a2, _QWORD *a3)

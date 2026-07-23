@@ -1,10 +1,10 @@
 /*
- * XREFs of CmpLightWeightUpdateSharedSetValueData @ 0x1406A36A0
+ * XREFs of CmpLightWeightUpdateSharedSetValueData @ 0x1405DF3F4
  * Callers:
- *     CmpLightWeightPrepareSetValueKeyUoW @ 0x1406A4248 (CmpLightWeightPrepareSetValueKeyUoW.c)
- *     CmpLightWeightPrepareDeleteValueKeyUoW @ 0x1407319B8 (CmpLightWeightPrepareDeleteValueKeyUoW.c)
+ *     CmpLightWeightPrepareSetValueKeyUoW @ 0x1405E1D18 (CmpLightWeightPrepareSetValueKeyUoW.c)
+ *     CmpLightWeightPrepareDeleteValueKeyUoW @ 0x140731B78 (CmpLightWeightPrepareDeleteValueKeyUoW.c)
  * Callees:
- *     CmListGetNextElement @ 0x1406A3CF4 (CmListGetNextElement.c)
+ *     CmListGetNextElement @ 0x1405E17C4 (CmListGetNextElement.c)
  */
 
 __int64 __fastcall CmpLightWeightUpdateSharedSetValueData(__int64 a1, __int64 a2)

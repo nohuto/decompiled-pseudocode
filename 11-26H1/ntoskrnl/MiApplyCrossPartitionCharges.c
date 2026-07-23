@@ -1,11 +1,11 @@
 /*
- * XREFs of MiApplyCrossPartitionCharges @ 0x1405058F4
+ * XREFs of MiApplyCrossPartitionCharges @ 0x1404FF1A4
  * Callers:
- *     MiGetCrossPartitionCharges @ 0x1404B6A78 (MiGetCrossPartitionCharges.c)
- *     MiApplyCrossPartitionCharges @ 0x1405058F4 (MiApplyCrossPartitionCharges.c)
+ *     MiGetCrossPartitionCharges @ 0x1404AFEC8 (MiGetCrossPartitionCharges.c)
+ *     MiApplyCrossPartitionCharges @ 0x1404FF1A4 (MiApplyCrossPartitionCharges.c)
  * Callees:
- *     MiConvertCrossPartitionChargeTypeToAggregate @ 0x140503864 (MiConvertCrossPartitionChargeTypeToAggregate.c)
- *     MiApplyCrossPartitionCharges @ 0x1405058F4 (MiApplyCrossPartitionCharges.c)
+ *     MiConvertCrossPartitionChargeTypeToAggregate @ 0x1404FD134 (MiConvertCrossPartitionChargeTypeToAggregate.c)
+ *     MiApplyCrossPartitionCharges @ 0x1404FF1A4 (MiApplyCrossPartitionCharges.c)
  */
 
 __int64 __fastcall MiApplyCrossPartitionCharges(__int64 a1, int a2, __int64 a3)

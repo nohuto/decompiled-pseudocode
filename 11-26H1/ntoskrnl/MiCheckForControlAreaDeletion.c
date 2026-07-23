@@ -1,15 +1,15 @@
 /*
- * XREFs of MiCheckForControlAreaDeletion @ 0x14030BAE0
+ * XREFs of MiCheckForControlAreaDeletion @ 0x1402EDB60
  * Callers:
- *     MiRestoreTransitionPte @ 0x1402F8F60 (MiRestoreTransitionPte.c)
- *     MiDereferenceControlAreaPfnList @ 0x14030A130 (MiDereferenceControlAreaPfnList.c)
+ *     MiRestoreTransitionPte @ 0x1402DAFE0 (MiRestoreTransitionPte.c)
+ *     MiDereferenceControlAreaPfnList @ 0x1402EC1B0 (MiDereferenceControlAreaPfnList.c)
  * Callees:
- *     KeSetEvent @ 0x1402DE9C0 (KeSetEvent.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402DED10 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     MiClearFilePointer @ 0x14030BBF8 (MiClearFilePointer.c)
- *     MiUnlinkUnusedControlArea @ 0x14030BD54 (MiUnlinkUnusedControlArea.c)
- *     MiDecrementControlAreaCount @ 0x1404AFCD0 (MiDecrementControlAreaCount.c)
+ *     KeSetEvent @ 0x1402C0780 (KeSetEvent.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402C0B20 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     MiClearFilePointer @ 0x1402EDC78 (MiClearFilePointer.c)
+ *     MiUnlinkUnusedControlArea @ 0x1402EDDD4 (MiUnlinkUnusedControlArea.c)
+ *     MiDecrementControlAreaCount @ 0x1404A9360 (MiDecrementControlAreaCount.c)
  */
 
 void __fastcall MiCheckForControlAreaDeletion(__int64 a1)
@@ -20,7 +20,7 @@ void __fastcall MiCheckForControlAreaDeletion(__int64 a1)
 
   if ( !*(_QWORD *)(a1 + 32) && !*(_QWORD *)(a1 + 40) && !*(_QWORD *)(a1 + 24) && (*(_DWORD *)(a1 + 56) & 1) == 0 )
   {
-    v2 = *(_QWORD *)(stru_140E2EB88.ThreadLock + 8LL * (*(_DWORD *)(a1 + 60) & 0x3FF));
+    v2 = *(_QWORD *)(stru_140E2ED08.ThreadLock + 8LL * (*(_DWORD *)(a1 + 60) & 0x3FF));
     *(_DWORD *)(a1 + 56) |= 1u;
     MiClearFilePointer(a1);
     if ( _InterlockedIncrement64((volatile signed __int64 *)(v2 + 2120)) <= 1 )

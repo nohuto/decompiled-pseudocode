@@ -3,13 +3,13 @@
  * Callers:
  *     KsepEngineInitialize @ 0x1407B315C (KsepEngineInitialize.c)
  * Callees:
- *     KsepLogInfo @ 0x140084DC8 (KsepLogInfo.c)
- *     KsepDebugPrint @ 0x1401DCC3C (KsepDebugPrint.c)
- *     KsepLogError @ 0x1401DCEA4 (KsepLogError.c)
- *     RtlAssert @ 0x140213458 (RtlAssert.c)
- *     KsepRegistryCloseKey @ 0x140485714 (KsepRegistryCloseKey.c)
- *     KsepRegistryOpenKey @ 0x140485914 (KsepRegistryOpenKey.c)
- *     KsepRegistryQueryDWORD @ 0x1405717D4 (KsepRegistryQueryDWORD.c)
+ *     KsepLogInfo @ 0x14010B3D0 (KsepLogInfo.c)
+ *     KsepDebugPrint @ 0x1401DCA68 (KsepDebugPrint.c)
+ *     KsepLogError @ 0x1401DCCD0 (KsepLogError.c)
+ *     RtlAssert @ 0x140213284 (RtlAssert.c)
+ *     KsepRegistryCloseKey @ 0x140514A9C (KsepRegistryCloseKey.c)
+ *     KsepRegistryOpenKey @ 0x140514C9C (KsepRegistryOpenKey.c)
+ *     KsepRegistryQueryDWORD @ 0x140571D14 (KsepRegistryQueryDWORD.c)
  */
 
 __int64 __fastcall KsepEngineReadFlags(int *a1)
@@ -43,7 +43,7 @@ __int64 __fastcall KsepEngineReadFlags(int *a1)
   {
     v10 = ((unsigned __int8)_InterlockedExchangeAdd(&KsepHistoryErrorsIndex, 1u) + 1) & 0x3F;
     v11 = KsepDebugFlag;
-    dword_140307424[2 * v10] = -1073740768;
+    dword_140307464[2 * v10] = -1073740768;
     KsepHistoryErrors[2 * v10] = 262244;
     if ( (v11 & 4) != 0 )
       RtlAssert("Engine != NULL", "minkernel\\ntos\\kshim\\kseregistry.c", 0x64u, 0LL);
@@ -93,7 +93,7 @@ __int64 __fastcall KsepEngineReadFlags(int *a1)
   {
     v14 = ((unsigned __int8)_InterlockedExchangeAdd(&KsepHistoryErrorsIndex, 1u) + 1) & 0x3F;
     v15 = KsepDebugFlag;
-    dword_140307424[2 * v14] = v5;
+    dword_140307464[2 * v14] = v5;
     KsepHistoryErrors[2 * v14] = 262304;
     if ( (v15 & 2) != 0 )
       KsepDebugPrint(0LL, "KSE: Error reading compatibility key: status: %08x\n", v5);
@@ -129,7 +129,7 @@ LABEL_8:
     {
       v16 = ((unsigned __int8)_InterlockedExchangeAdd(&KsepHistoryErrorsIndex, 1u) + 1) & 0x3F;
       v17 = KsepDebugFlag;
-      dword_140307424[2 * v16] = v5;
+      dword_140307464[2 * v16] = v5;
       KsepHistoryErrors[2 * v16] = 262326;
       if ( (v17 & 2) != 0 )
         KsepDebugPrint(0LL, "KSE: Error reading compatibility value [%ws]: status: %08x\n", L"DisableFlags", v5);

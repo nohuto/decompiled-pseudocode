@@ -1,16 +1,16 @@
 /*
- * XREFs of MiDeleteDebuggerPatches @ 0x1404ADAF4
+ * XREFs of MiDeleteDebuggerPatches @ 0x1404A8408
  * Callers:
- *     MiCheckControlArea @ 0x14020EFD0 (MiCheckControlArea.c)
- *     MiDestroySection @ 0x140417200 (MiDestroySection.c)
+ *     MiDestroySection @ 0x140270330 (MiDestroySection.c)
+ *     MiCheckControlArea @ 0x140338330 (MiCheckControlArea.c)
  * Callees:
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14020FA40 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140210170 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
- *     MiCompactDebuggerPatchTable @ 0x14067DF60 (MiCompactDebuggerPatchTable.c)
- *     MiFindFirstDebuggerPatch @ 0x14067FA30 (MiFindFirstDebuggerPatch.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140338DA0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1403394D0 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     MiCompactDebuggerPatchTable @ 0x14067F160 (MiCompactDebuggerPatchTable.c)
+ *     MiFindFirstDebuggerPatch @ 0x140680C30 (MiFindFirstDebuggerPatch.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
  */
 
 _UNKNOWN **__fastcall MiDeleteDebuggerPatches(__int64 a1)
@@ -44,13 +44,13 @@ _UNKNOWN **__fastcall MiDeleteDebuggerPatches(__int64 a1)
       LOBYTE(a1) = CurrentIrql;
       KiRaiseIrqlProcessIrqlFlags(a1, 2LL);
     }
-    ExAcquireSpinLockExclusiveAtDpcLevel(&dword_140E35AF0);
+    ExAcquireSpinLockExclusiveAtDpcLevel(&dword_140E35C30);
     MiCompactDebuggerPatchTable(1LL);
     if ( (unsigned int)MiFindFirstDebuggerPatch(v2, 0LL, 0LL, &v16) )
     {
       v4 = v16;
       v5 = v16;
-      if ( v16 < dword_140E35AF8 )
+      if ( v16 < dword_140E35C38 )
       {
         v6 = v16;
         v7 = v16;
@@ -61,7 +61,7 @@ _UNKNOWN **__fastcall MiDeleteDebuggerPatches(__int64 a1)
           v6 = ++v7;
           v5 = v7;
         }
-        while ( v7 < dword_140E35AF8 );
+        while ( v7 < dword_140E35C38 );
       }
       v8 = v16;
       if ( v16 < v5 )
@@ -75,24 +75,24 @@ _UNKNOWN **__fastcall MiDeleteDebuggerPatches(__int64 a1)
           v11 = *((_QWORD *)&MiState + v10 + 4118);
           v12 = *(_DWORD *)(v11 + 8) | 1;
           *(_DWORD *)(v11 + 8) = v12;
-          *(_DWORD *)(v11 + 8) = (4 * dword_140E35AF4) | v12 & 3;
-          v13 = (__int64)((unsigned __int128)((v11 - (__int64)&unk_140E31AF0) * (__int128)0x2AAAAAAAAAAAAAABLL) >> 64) >> 2;
-          dword_140E35AF4 = (v13 >> 63) + v13;
+          *(_DWORD *)(v11 + 8) = (4 * dword_140E35C34) | v12 & 3;
+          v13 = (__int64)((unsigned __int128)((v11 - (__int64)&unk_140E31C30) * (__int128)0x2AAAAAAAAAAAAAABLL) >> 64) >> 2;
+          dword_140E35C34 = (v13 >> 63) + v13;
         }
         while ( v8 < v5 );
       }
-      if ( v8 == dword_140E35AF8 )
+      if ( v8 == dword_140E35C38 )
       {
-        dword_140E35AF8 = v4;
+        dword_140E35C38 = v4;
       }
       else
       {
-        memmove(&MiState + 2 * v4 + 8236, &MiState + 2 * v8 + 8236, 8LL * (dword_140E35AF8 - v8));
-        dword_140E35AF8 += v4 - v8;
+        memmove(&MiState + 2 * v4 + 8236, &MiState + 2 * v8 + 8236, 8LL * (dword_140E35C38 - v8));
+        dword_140E35C38 += v4 - v8;
       }
     }
     _InterlockedAnd((volatile signed __int32 *)(v2 + 96), 0xFFFFFFFE);
-    ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140E35AF0);
+    ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140E35C30);
     if ( KiIrqlFlags )
     {
       LOBYTE(v14) = CurrentIrql;

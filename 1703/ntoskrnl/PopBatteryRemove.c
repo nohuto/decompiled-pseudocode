@@ -19,7 +19,7 @@ void __fastcall PopBatteryRemove(__int64 a1)
   _QWORD *v2; // rbx
   __int64 v3; // rcx
   _QWORD *v4; // rax
-  int v5; // [rsp+50h] [rbp+8h] BYREF
+  int Buffer; // [rsp+50h] [rbp+8h] BYREF
 
   IoCancelIrp(*(PIRP *)(a1 + 56));
   KeWaitForSingleObject((PVOID)(a1 + 80), Executive, 0, 0, 0LL);
@@ -52,7 +52,7 @@ void __fastcall PopBatteryRemove(__int64 a1)
   }
   if ( !dword_14034B394 )
   {
-    v5 = 0;
-    ZwUpdateWnfStateData((__int64)&WNF_PO_BATTERY_DISCHARGING, (__int64)&v5, 4LL);
+    Buffer = 0;
+    ZwUpdateWnfStateData(&WNF_PO_BATTERY_DISCHARGING, &Buffer, 4u, 0LL, 0LL, 0, 0);
   }
 }

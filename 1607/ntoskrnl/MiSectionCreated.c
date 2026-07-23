@@ -1,20 +1,20 @@
 /*
- * XREFs of MiSectionCreated @ 0x1400FD2C8
+ * XREFs of MiSectionCreated @ 0x1400FB048
  * Callers:
- *     MiCreateNewSection @ 0x140522048 (MiCreateNewSection.c)
+ *     MiCreateNewSection @ 0x1405050A8 (MiCreateNewSection.c)
  * Callees:
- *     MiInitializeTransitionPfn @ 0x140023124 (MiInitializeTransitionPfn.c)
- *     MiReferenceControlAreaPfn @ 0x1400236E4 (MiReferenceControlAreaPfn.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140026F70 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     ExReleaseSpinLockExclusive @ 0x14002E9A0 (ExReleaseSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14002E9E0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     MiLockPageAtDpcInline @ 0x14002EB30 (MiLockPageAtDpcInline.c)
- *     ExAcquireSpinLockExclusive @ 0x14002EB90 (ExAcquireSpinLockExclusive.c)
- *     MmAccessFault @ 0x14003E7A0 (MmAccessFault.c)
- *     MiUnlockProtoPoolPage @ 0x14004C4E0 (MiUnlockProtoPoolPage.c)
- *     MiLockProtoPoolPage @ 0x14004ED80 (MiLockProtoPoolPage.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     MiSubsectionUsingExtents @ 0x1400E7F14 (MiSubsectionUsingExtents.c)
+ *     MiInitializeTransitionPfn @ 0x140022CA4 (MiInitializeTransitionPfn.c)
+ *     MiReferenceControlAreaPfn @ 0x140023264 (MiReferenceControlAreaPfn.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140026AF0 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     ExReleaseSpinLockExclusive @ 0x14002E520 (ExReleaseSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14002E560 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiLockPageAtDpcInline @ 0x14002E6B0 (MiLockPageAtDpcInline.c)
+ *     ExAcquireSpinLockExclusive @ 0x14002E710 (ExAcquireSpinLockExclusive.c)
+ *     MmAccessFault @ 0x14003E320 (MmAccessFault.c)
+ *     MiUnlockProtoPoolPage @ 0x14004C060 (MiUnlockProtoPoolPage.c)
+ *     MiLockProtoPoolPage @ 0x14004E900 (MiLockProtoPoolPage.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     MiSubsectionUsingExtents @ 0x1400E5DB4 (MiSubsectionUsingExtents.c)
  */
 
 __int64 __fastcall MiSectionCreated(__int64 a1, __int64 a2, __int64 a3)
@@ -52,11 +52,11 @@ __int64 __fastcall MiSectionCreated(__int64 a1, __int64 a2, __int64 a3)
     v11 = *(_QWORD *)(v9 + 80);
   }
   *(_QWORD *)(a2 + 64) = *(_QWORD *)(v9 + 64);
-  ExAcquireSpinLockExclusiveAtDpcLevel(&dword_140326540);
+  ExAcquireSpinLockExclusiveAtDpcLevel(&dword_140326580);
   if ( a3 )
   {
     *(_QWORD *)(*(_QWORD *)(a1 + 40) + 16LL) = a2;
-    ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140326540);
+    ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140326580);
     ExReleaseSpinLockExclusiveFromDpcLevel(v10);
     ExReleaseSpinLockExclusive(v3, v7);
     if ( !(unsigned int)MiSubsectionUsingExtents((unsigned __int8 *)(a2 + 128)) )
@@ -80,7 +80,7 @@ __int64 __fastcall MiSectionCreated(__int64 a1, __int64 a2, __int64 a3)
   {
     v12 = *(__int64 **)(a1 + 40);
     *v12 = a2;
-    ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140326540);
+    ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140326580);
     ExReleaseSpinLockExclusiveFromDpcLevel(v10);
     *(_DWORD *)(a2 + 56) &= ~2u;
     ExReleaseSpinLockExclusive(v3, v7);

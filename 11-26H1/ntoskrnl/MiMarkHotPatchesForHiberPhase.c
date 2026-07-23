@@ -1,13 +1,13 @@
 /*
- * XREFs of MiMarkHotPatchesForHiberPhase @ 0x140C017D4
+ * XREFs of MiMarkHotPatchesForHiberPhase @ 0x140C079E4
  * Callers:
- *     MmMarkImageForHiberPhase @ 0x140C014C8 (MmMarkImageForHiberPhase.c)
+ *     MmMarkImageForHiberPhase @ 0x140C076D8 (MmMarkImageForHiberPhase.c)
  * Callees:
- *     MmGetLoadedModuleImageAdditionalTablesAddress @ 0x1403F3B30 (MmGetLoadedModuleImageAdditionalTablesAddress.c)
- *     MiGetBaseLoaderPortion @ 0x1404F5130 (MiGetBaseLoaderPortion.c)
- *     MiMarkNonPagedHiberPhasePages @ 0x140C00CD0 (MiMarkNonPagedHiberPhasePages.c)
- *     MiEnumerateBasePatches @ 0x140C016F8 (MiEnumerateBasePatches.c)
- *     MiMarkHotPatchForHiberPhase @ 0x140C01770 (MiMarkHotPatchForHiberPhase.c)
+ *     MmGetLoadedModuleImageAdditionalTablesAddress @ 0x1403ED4E0 (MmGetLoadedModuleImageAdditionalTablesAddress.c)
+ *     MiGetBaseLoaderPortion @ 0x1404EE710 (MiGetBaseLoaderPortion.c)
+ *     MiMarkNonPagedHiberPhasePages @ 0x140C06EE0 (MiMarkNonPagedHiberPhasePages.c)
+ *     MiEnumerateBasePatches @ 0x140C07908 (MiEnumerateBasePatches.c)
+ *     MiMarkHotPatchForHiberPhase @ 0x140C07980 (MiMarkHotPatchForHiberPhase.c)
  */
 
 __int64 __fastcall MiMarkHotPatchesForHiberPhase(__int64 a1)
@@ -35,7 +35,7 @@ __int64 __fastcall MiMarkHotPatchesForHiberPhase(__int64 a1)
       0);
   }
   result = MiEnumerateBasePatches(v1, (__int64)MiMarkHotPatchForHiberPhase, 0LL);
-  if ( stru_140E36558.Header.WaitListHead.Blink == (struct _LIST_ENTRY *)v1 )
-    return MiMarkHotPatchForHiberPhase((__int64)stru_140E36558.Header.WaitListHead.Flink);
+  if ( stru_140E366D8.Header.WaitListHead.Blink == (struct _LIST_ENTRY *)v1 )
+    return MiMarkHotPatchForHiberPhase((__int64)stru_140E366D8.Header.WaitListHead.Flink);
   return result;
 }

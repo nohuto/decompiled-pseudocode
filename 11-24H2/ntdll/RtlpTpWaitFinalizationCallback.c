@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpTpWaitFinalizationCallback @ 0x180021D90
+ * XREFs of RtlpTpWaitFinalizationCallback @ 0x18004E790
  * Callers:
- *     TppCleanupGroupMemberDestroy @ 0x180021980 (TppCleanupGroupMemberDestroy.c)
+ *     TppCleanupGroupMemberDestroy @ 0x18004E380 (TppCleanupGroupMemberDestroy.c)
  * Callees:
- *     RtlpTpWaitRundown @ 0x18006E794 (RtlpTpWaitRundown.c)
+ *     RtlpTpWaitRundown @ 0x18008B074 (RtlpTpWaitRundown.c)
  */
 
 __int64 __fastcall RtlpTpWaitFinalizationCallback(__int64 a1, __int64 a2)

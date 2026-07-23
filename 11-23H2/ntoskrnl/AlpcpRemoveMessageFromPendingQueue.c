@@ -1,14 +1,14 @@
 /*
- * XREFs of AlpcpRemoveMessageFromPendingQueue @ 0x14071C05C
+ * XREFs of AlpcpRemoveMessageFromPendingQueue @ 0x14071C25C
  * Callers:
- *     AlpcpDispatchReplyToPort @ 0x14071B1EC (AlpcpDispatchReplyToPort.c)
- *     AlpcpReplyLegacySynchronousRequest @ 0x14071B5F8 (AlpcpReplyLegacySynchronousRequest.c)
- *     AlpcpCancelMessage @ 0x14077920C (AlpcpCancelMessage.c)
- *     AlpcpReturnMessageOnInsufficientBuffer @ 0x1407CDECC (AlpcpReturnMessageOnInsufficientBuffer.c)
+ *     AlpcpDispatchReplyToPort @ 0x14071B3EC (AlpcpDispatchReplyToPort.c)
+ *     AlpcpReplyLegacySynchronousRequest @ 0x14071B7F8 (AlpcpReplyLegacySynchronousRequest.c)
+ *     AlpcpCancelMessage @ 0x1407793FC (AlpcpCancelMessage.c)
+ *     AlpcpReturnMessageOnInsufficientBuffer @ 0x1407CE19C (AlpcpReturnMessageOnInsufficientBuffer.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1402BD960 (ExfTryToWakePushLock.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140231120 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     ExfTryToWakePushLock @ 0x1402BDBF0 (ExfTryToWakePushLock.c)
  */
 
 signed __int32 __fastcall AlpcpRemoveMessageFromPendingQueue(__int64 a1)

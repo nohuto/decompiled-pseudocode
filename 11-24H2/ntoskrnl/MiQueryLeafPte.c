@@ -1,11 +1,11 @@
 /*
- * XREFs of MiQueryLeafPte @ 0x1403E30B0
+ * XREFs of MiQueryLeafPte @ 0x1403C9790
  * Callers:
- *     MiWalkPageTablesRecursively @ 0x1402DC430 (MiWalkPageTablesRecursively.c)
+ *     MiWalkPageTablesRecursively @ 0x14023DD10 (MiWalkPageTablesRecursively.c)
  * Callees:
- *     MiIdentifyPfnWrapper @ 0x140307340 (MiIdentifyPfnWrapper.c)
- *     MiLocateCloneAddress @ 0x1403E3608 (MiLocateCloneAddress.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
+ *     MiIdentifyPfnWrapper @ 0x140311220 (MiIdentifyPfnWrapper.c)
+ *     MiLocateCloneAddress @ 0x1403C9CE8 (MiLocateCloneAddress.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall MiQueryLeafPte(__int64 a1, _QWORD *a2, int a3)
@@ -32,7 +32,7 @@ __int64 __fastcall MiQueryLeafPte(__int64 a1, _QWORD *a2, int a3)
   unsigned __int64 v23; // rax
   char v24; // dl
   unsigned __int64 v25; // rax
-  __int64 v26; // r8
+  unsigned int v26; // r8d
   _KPROCESS *v27; // rcx
   _KPROCESS *Process; // rdx
   unsigned __int64 KernelWaitTime; // r8
@@ -49,17 +49,17 @@ __int64 __fastcall MiQueryLeafPte(__int64 a1, _QWORD *a2, int a3)
 
   v3 = *(_QWORD *)(a1 + 184);
   v4 = (__int64)((_QWORD)a2 << 25) >> 16;
-  if ( v4 >= qword_140E2F288 )
+  if ( v4 >= qword_140E2F3C8 )
   {
-    v35 = qword_140E2F2A0;
-    if ( !qword_140E2F2A0 )
+    v35 = qword_140E2F3E0;
+    if ( !qword_140E2F3E0 )
     {
       v35 = 276840448LL;
-      qword_140E2F2B0 = 0x10000000LL;
-      qword_140E2F2A0 = 276840448LL;
-      qword_140E2F2A8[0] = 276824064LL;
+      qword_140E2F3F0 = 0x10000000LL;
+      qword_140E2F3E0 = 276840448LL;
+      qword_140E2F3E8[0] = 276824064LL;
     }
-    if ( v4 < v35 + qword_140E2F288 )
+    if ( v4 < v35 + qword_140E2F3C8 )
       return 0LL;
   }
   if ( a3 >= 1 || (*a2 & 1) == 0 )
@@ -74,11 +74,11 @@ __int64 __fastcall MiQueryLeafPte(__int64 a1, _QWORD *a2, int a3)
     {
       v8 = *(_QWORD *)(v3 + 8) + 8 * v7;
       *(_QWORD *)(v8 - 8) ^= (v4 ^ *(_QWORD *)(v8 - 8)) & 0xFFFFFFFFFFFFF000uLL;
-      v9 = dword_140E2DAC4;
+      v9 = dword_140E2DC04;
       v10 = 0xAAAAAAAAAAAAAAABuLL * (v5 >> 4);
-      if ( dword_140E2DAC0 > (unsigned int)dword_140E2DAC4
-        || (v11 = (char *)qword_140E2DB20 + 16 * dword_140E2DAC0, v10 < *(_QWORD *)v11)
-        || dword_140E2DAC0 != dword_140E2DAC4 && v10 >= *((_QWORD *)v11 + 2) )
+      if ( dword_140E2DC00 > (unsigned int)dword_140E2DC04
+        || (v11 = (char *)qword_140E2DC60 + 16 * dword_140E2DC00, v10 < *(_QWORD *)v11)
+        || dword_140E2DC00 != dword_140E2DC04 && v10 >= *((_QWORD *)v11 + 2) )
       {
         for ( i = 0; ; i = v13 + 1 )
         {
@@ -87,17 +87,17 @@ __int64 __fastcall MiQueryLeafPte(__int64 a1, _QWORD *a2, int a3)
             if ( v9 < i )
               KeBugCheckEx(0x1Au, 0x5180uLL, v10, 0LL, 0LL);
             v13 = (i + v9) >> 1;
-            v11 = (char *)qword_140E2DB20 + 16 * v13;
+            v11 = (char *)qword_140E2DC60 + 16 * v13;
             if ( v10 >= *(_QWORD *)v11 )
               break;
             if ( !v13 )
-              KeBugCheckEx(0x1Au, 0x5180uLL, v10, (ULONG_PTR)qword_140E2DB20, 0LL);
+              KeBugCheckEx(0x1Au, 0x5180uLL, v10, (ULONG_PTR)qword_140E2DC60, 0LL);
             v9 = v13 - 1;
           }
-          if ( v13 == dword_140E2DAC4 || v10 < *((_QWORD *)v11 + 2) )
+          if ( v13 == dword_140E2DC04 || v10 < *((_QWORD *)v11 + 2) )
             break;
         }
-        dword_140E2DAC0 = (i + v9) >> 1;
+        dword_140E2DC00 = (i + v9) >> 1;
       }
       v14 = 256LL;
       *(_QWORD *)(v8 - 8) = ((unsigned __int64)*((unsigned int *)v11 + 2) << 9) ^ (*(_QWORD *)(v8 - 8) ^ ((unsigned __int64)*((unsigned int *)v11 + 2) << 9)) & 0xFFFFFFFFFFFFF1FFuLL;
@@ -199,7 +199,7 @@ LABEL_40:
         v26 = (*((_DWORD *)v6 + 4) >> 5) & 0x1F;
         if ( (v6[5] & 0x10000000000LL) == 0 && v6[1] > 0 )
         {
-          v37 = (unsigned int)MmMakeProtectNotWriteCopy[(unsigned int)v26];
+          v37 = (unsigned int)MmMakeProtectNotWriteCopy[v26];
           v16 = (unsigned int)v37;
           v17 = *(_QWORD *)(v8 - 8) ^ v37;
           goto LABEL_19;
@@ -207,10 +207,10 @@ LABEL_40:
         v27 = KeGetCurrentThread()->ApcState.Process;
         if ( v27[1].IdealProcessorAssignmentBlock )
         {
-          if ( MiLocateCloneAddress(v27, v6[1] | 0x8000000000000000uLL, v26) )
-            LODWORD(v26) = MmMakeProtectNotWriteCopy[(unsigned int)v26];
+          if ( MiLocateCloneAddress(v27, v6[1] | 0x8000000000000000uLL) )
+            v26 = MmMakeProtectNotWriteCopy[v26];
         }
-        v25 = (unsigned int)v26;
+        v25 = v26;
       }
       goto LABEL_40;
     }

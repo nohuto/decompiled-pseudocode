@@ -1,19 +1,19 @@
 /*
- * XREFs of MmGetControlAreaPartition @ 0x140332B10
+ * XREFs of MmGetControlAreaPartition @ 0x14033D860
  * Callers:
- *     CcGetFlushedValidData @ 0x1402B9D30 (CcGetFlushedValidData.c)
- *     CcNotifyOfMappedWriteComplete @ 0x1402D0220 (CcNotifyOfMappedWriteComplete.c)
- *     CcPurgeCacheSection @ 0x1402F0920 (CcPurgeCacheSection.c)
- *     CcMapAndCopyInToCache @ 0x140331C70 (CcMapAndCopyInToCache.c)
- *     CcChargeDirtyPages @ 0x140336210 (CcChargeDirtyPages.c)
- *     CcSetDirtyInMask @ 0x140336470 (CcSetDirtyInMask.c)
- *     CcDeleteSectionsForPartition @ 0x1404EBE84 (CcDeleteSectionsForPartition.c)
+ *     CcGetFlushedValidData @ 0x140237F40 (CcGetFlushedValidData.c)
+ *     CcNotifyOfMappedWriteComplete @ 0x14024E5A0 (CcNotifyOfMappedWriteComplete.c)
+ *     CcPurgeCacheSection @ 0x1402FB670 (CcPurgeCacheSection.c)
+ *     CcMapAndCopyInToCache @ 0x14033C9C0 (CcMapAndCopyInToCache.c)
+ *     CcChargeDirtyPages @ 0x140340F60 (CcChargeDirtyPages.c)
+ *     CcSetDirtyInMask @ 0x1403411C0 (CcSetDirtyInMask.c)
+ *     CcDeleteSectionsForPartition @ 0x1404EC0C4 (CcDeleteSectionsForPartition.c)
  * Callees:
- *     ExpWaitForSpinLockExclusiveAndAcquire @ 0x1402315C0 (ExpWaitForSpinLockExclusiveAndAcquire.c)
- *     KeYieldProcessorEx @ 0x14024B280 (KeYieldProcessorEx.c)
+ *     ExpWaitForSpinLockExclusiveAndAcquire @ 0x1402D5E10 (ExpWaitForSpinLockExclusiveAndAcquire.c)
+ *     KeYieldProcessorEx @ 0x1402EFAD0 (KeYieldProcessorEx.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x1405B5BA8 (ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented.c)
- *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x1405B5D8C (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
+ *     ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x1405B5DD8 (ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented.c)
+ *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x1405B5FBC (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
  */
 
 ULONG_PTR __fastcall MmGetControlAreaPartition(__int64 a1, __int64 a2, __int64 a3, _DWORD *SchedulerAssist)
@@ -48,7 +48,7 @@ ULONG_PTR __fastcall MmGetControlAreaPartition(__int64 a1, __int64 a2, __int64 a
   }
   if ( (BYTE6(PerfGlobalGroupMask) & 0x21) != 0 )
   {
-    ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented(&dword_140C4C980, CurrentIrql);
+    ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented(&dword_140C4C9C0, CurrentIrql);
   }
   else
   {
@@ -65,7 +65,7 @@ ULONG_PTR __fastcall MmGetControlAreaPartition(__int64 a1, __int64 a2, __int64 a
           KiRemoveSystemWorkPriorityKick(CurrentPrcb);
       }
     }
-    if ( _interlockedbittestandset(&dword_140C4C980, 0x1Fu) )
+    if ( _interlockedbittestandset(&dword_140C4C9C0, 0x1Fu) )
     {
       v13 = CurrentPrcb->SchedulerAssist;
       if ( v13 )
@@ -78,35 +78,35 @@ ULONG_PTR __fastcall MmGetControlAreaPartition(__int64 a1, __int64 a2, __int64 a
             KiRemoveSystemWorkPriorityKick(CurrentPrcb);
         }
       }
-      v24 = ExpWaitForSpinLockExclusiveAndAcquire((unsigned __int64)&dword_140C4C980, CurrentIrql, a3, SchedulerAssist);
+      v24 = ExpWaitForSpinLockExclusiveAndAcquire((unsigned __int64)&dword_140C4C9C0, CurrentIrql, a3, SchedulerAssist);
     }
-    v8 = (unsigned int)dword_140C4C980;
-    if ( (dword_140C4C980 & 0xBFFFFFFF) != 0x80000000 )
+    v8 = (unsigned int)dword_140C4C9C0;
+    if ( (dword_140C4C9C0 & 0xBFFFFFFF) != 0x80000000 )
     {
       do
       {
         if ( (v8 & 0x40000000) == 0 )
         {
-          v17 = _InterlockedCompareExchange(&dword_140C4C980, v8 | 0x40000000, v8);
+          v17 = _InterlockedCompareExchange(&dword_140C4C9C0, v8 | 0x40000000, v8);
           v16 = (_DWORD)v8 == v17;
           v8 = v17;
           if ( !v16 )
             continue;
         }
         KeYieldProcessorEx(&v24, v8, a3, (__int64)SchedulerAssist);
-        v8 = (unsigned int)dword_140C4C980;
+        v8 = (unsigned int)dword_140C4C9C0;
       }
       while ( (v8 & 0xBFFFFFFF) != 0x80000000 );
     }
   }
   if ( *(_QWORD *)a1 )
-    v9 = *(ULONG_PTR **)(qword_140C4E648 + 8LL * (*(_WORD *)(*(_QWORD *)a1 + 60LL) & 0x3FF));
+    v9 = *(ULONG_PTR **)(qword_140C4E688 + 8LL * (*(_WORD *)(*(_QWORD *)a1 + 60LL) & 0x3FF));
   else
     v9 = &MiSystemPartition;
   if ( (BYTE6(PerfGlobalGroupMask) & 1) != 0 )
-    ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented(&dword_140C4C980, retaddr);
+    ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented(&dword_140C4C9C0, retaddr);
   else
-    dword_140C4C980 = 0;
+    dword_140C4C9C0 = 0;
   v10 = KeGetCurrentPrcb();
   v11 = v10->SchedulerAssist;
   if ( v11 )

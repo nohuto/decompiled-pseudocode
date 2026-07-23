@@ -1,11 +1,11 @@
 /*
- * XREFs of PpmEventMediaBufferingNotify @ 0x140395F78
+ * XREFs of PpmEventMediaBufferingNotify @ 0x140397CF8
  * Callers:
- *     PpmMediaBufferingWorker @ 0x140394ED0 (PpmMediaBufferingWorker.c)
+ *     PpmMediaBufferingWorker @ 0x140396C50 (PpmMediaBufferingWorker.c)
  * Callees:
- *     EtwEventEnabled @ 0x140212D90 (EtwEventEnabled.c)
- *     EtwWriteEx @ 0x140212F70 (EtwWriteEx.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x140212E70 (EtwEventEnabled.c)
+ *     EtwWriteEx @ 0x140213050 (EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 void __fastcall PpmEventMediaBufferingNotify(char a1)
@@ -15,22 +15,12 @@ void __fastcall PpmEventMediaBufferingNotify(char a1)
 
   if ( PpmEtwRegistered )
   {
-    if ( EtwEventEnabled(
-           (REGHANDLE)PopModernStandbyStateNotify.ApcState.ApcListHead[1].Blink,
-           &PPM_ETW_MEDIA_BUFFERING_NOTIFY) )
+    if ( EtwEventEnabled(PpmEtwHandle, &PPM_ETW_MEDIA_BUFFERING_NOTIFY) )
     {
       *(_QWORD *)&UserData.Size = 4LL;
       v2 = a1 != 0;
       UserData.Ptr = (ULONGLONG)&v2;
-      EtwWriteEx(
-        (REGHANDLE)PopModernStandbyStateNotify.ApcState.ApcListHead[1].Blink,
-        &PPM_ETW_MEDIA_BUFFERING_NOTIFY,
-        0LL,
-        0,
-        0LL,
-        0LL,
-        1u,
-        &UserData);
+      EtwWriteEx(PpmEtwHandle, &PPM_ETW_MEDIA_BUFFERING_NOTIFY, 0LL, 0, 0LL, 0LL, 1u, &UserData);
     }
   }
 }

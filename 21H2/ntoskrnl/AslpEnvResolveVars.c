@@ -1,12 +1,12 @@
 /*
- * XREFs of AslpEnvResolveVars @ 0x140753DC4
+ * XREFs of AslpEnvResolveVars @ 0x140753F84
  * Callers:
- *     AslEnvExpandStrings2 @ 0x140753C30 (AslEnvExpandStrings2.c)
+ *     AslEnvExpandStrings2 @ 0x140753DF0 (AslEnvExpandStrings2.c)
  * Callees:
- *     RtlStringCchCopyW @ 0x1403716A0 (RtlStringCchCopyW.c)
- *     RtlStringCchCatW @ 0x140371960 (RtlStringCchCatW.c)
- *     _wcsnicmp @ 0x1403D2210 (_wcsnicmp.c)
- *     AslLogCallPrintf @ 0x140755F64 (AslLogCallPrintf.c)
+ *     RtlStringCchCopyW @ 0x1403711F0 (RtlStringCchCopyW.c)
+ *     RtlStringCchCatW @ 0x1403714B0 (RtlStringCchCatW.c)
+ *     _wcsnicmp @ 0x1403D2380 (_wcsnicmp.c)
+ *     AslLogCallPrintf @ 0x140756124 (AslLogCallPrintf.c)
  */
 
 __int64 __fastcall AslpEnvResolveVars(

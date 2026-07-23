@@ -8,41 +8,39 @@
  *     RtlpSetInstallLanguage @ 0x1800FCEB0 (RtlpSetInstallLanguage.c)
  *     RtlpSetMachineUILanguagesImmediate @ 0x1800FD398 (RtlpSetMachineUILanguagesImmediate.c)
  *     RtlpSetPreferredUILanguages @ 0x1800FD570 (RtlpSetPreferredUILanguages.c)
- *     RtlpGetLocaleDataKey @ 0x18010AFF8 (RtlpGetLocaleDataKey.c)
- *     RtlpGetUserOrMachineUILanguage4NLS @ 0x180111E30 (RtlpGetUserOrMachineUILanguage4NLS.c)
+ *     RtlpGetLocaleDataKey @ 0x18010AFC8 (RtlpGetLocaleDataKey.c)
+ *     RtlpGetUserOrMachineUILanguage4NLS @ 0x180111E00 (RtlpGetUserOrMachineUILanguage4NLS.c)
  * Callees:
  *     RtlIsMultiSessionSku @ 0x180009B60 (RtlIsMultiSessionSku.c)
  *     RtlOpenCurrentUser @ 0x18000E890 (RtlOpenCurrentUser.c)
- *     OpenGlobalizationUserSettingsKey_ForMua @ 0x18012E928 (OpenGlobalizationUserSettingsKey_ForMua.c)
- *     OpenGlobalizationUserSettingsKey_ForSingleUserModel @ 0x18012EBC4 (OpenGlobalizationUserSettingsKey_ForSingleUserModel.c)
+ *     OpenGlobalizationUserSettingsKey_ForMua @ 0x18012E954 (OpenGlobalizationUserSettingsKey_ForMua.c)
+ *     OpenGlobalizationUserSettingsKey_ForSingleUserModel @ 0x18012EBF0 (OpenGlobalizationUserSettingsKey_ForSingleUserModel.c)
  */
 
-__int64 __fastcall OpenGlobalizationUserSettingsKey(unsigned int a1, __int64 a2, __int64 a3, __int64 a4)
+NTSTATUS __fastcall OpenGlobalizationUserSettingsKey(ACCESS_MASK DesiredAccess, __int64 a2, HANDLE *a3)
 {
+  unsigned int v5; // ecx
   unsigned int v6; // ecx
-  unsigned int v7; // ecx
-  unsigned int v9; // ecx
-  __int64 v10; // [rsp+38h] [rbp+10h] BYREF
+  unsigned int v8; // ecx
 
-  v10 = a2;
   if ( !a3 )
-    return 3221225485LL;
-  v6 = dword_180187DF4;
+    return -1073741811;
+  v5 = dword_180187DF4;
   if ( !dword_180187DF4 )
   {
-    if ( RtlIsMultiSessionSku(0LL, a2, a3, a4) )
-      v6 = 1;
+    if ( RtlIsMultiSessionSku() )
+      v5 = 1;
     else
-      v6 = (MEMORY[0x7FFE02F0] & 0x200 | 0x400u) >> 9;
-    dword_180187DF4 = v6;
+      v5 = (MEMORY[0x7FFE02F0] & 0x200 | 0x400u) >> 9;
+    dword_180187DF4 = v5;
   }
-  v7 = v6 - 1;
-  if ( !v7 )
-    return RtlOpenCurrentUser(a1, a3);
-  v9 = v7 - 1;
-  if ( !v9 )
-    return OpenGlobalizationUserSettingsKey_ForSingleUserModel(a1, a3);
-  if ( v9 == 1 )
-    return OpenGlobalizationUserSettingsKey_ForMua(a1, a2, a3, &v10);
-  return 3221225701LL;
+  v6 = v5 - 1;
+  if ( !v6 )
+    return RtlOpenCurrentUser(DesiredAccess, a3);
+  v8 = v6 - 1;
+  if ( !v8 )
+    return OpenGlobalizationUserSettingsKey_ForSingleUserModel(DesiredAccess, a3);
+  if ( v8 == 1 )
+    return OpenGlobalizationUserSettingsKey_ForMua(DesiredAccess);
+  return -1073741595;
 }

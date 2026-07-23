@@ -1,13 +1,13 @@
 /*
- * XREFs of IopMcGetBuffer @ 0x140951780
+ * XREFs of IopMcGetBuffer @ 0x140951980
  * Callers:
- *     IopIoRingGetBuffer @ 0x140949E0C (IopIoRingGetBuffer.c)
+ *     IopIoRingGetBuffer @ 0x14094A00C (IopIoRingGetBuffer.c)
  * Callees:
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     IopMcDereferenceMdl @ 0x14055EF10 (IopMcDereferenceMdl.c)
- *     IopMcReferenceBufferEntry @ 0x14055F138 (IopMcReferenceBufferEntry.c)
- *     IopMcCreateBufferEntryMdl @ 0x140951640 (IopMcCreateBufferEntryMdl.c)
- *     IopMcCreatePartialMdl @ 0x1409516CC (IopMcCreatePartialMdl.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
+ *     IopMcDereferenceMdl @ 0x14055F5D0 (IopMcDereferenceMdl.c)
+ *     IopMcReferenceBufferEntry @ 0x14055F7F8 (IopMcReferenceBufferEntry.c)
+ *     IopMcCreateBufferEntryMdl @ 0x140951840 (IopMcCreateBufferEntryMdl.c)
+ *     IopMcCreatePartialMdl @ 0x1409518CC (IopMcCreatePartialMdl.c)
  */
 
 __int64 __fastcall IopMcGetBuffer(

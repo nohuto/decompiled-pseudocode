@@ -1,9 +1,9 @@
 /*
- * XREFs of RaspRectangleDestroy @ 0x14017A984
+ * XREFs of RaspRectangleDestroy @ 0x14017AA84
  * Callers:
- *     RaspDestroyCachedBitmap @ 0x140951630 (RaspDestroyCachedBitmap.c)
+ *     RaspDestroyCachedBitmap @ 0x140952630 (RaspDestroyCachedBitmap.c)
  * Callees:
- *     RaspFreeMemory @ 0x14017AB5C (RaspFreeMemory.c)
+ *     RaspFreeMemory @ 0x14017AC5C (RaspFreeMemory.c)
  */
 
 __int64 __fastcall RaspRectangleDestroy(__int64 a1, __int64 a2)

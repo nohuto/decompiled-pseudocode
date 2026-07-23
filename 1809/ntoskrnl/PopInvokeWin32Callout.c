@@ -1,25 +1,25 @@
 /*
- * XREFs of PopInvokeWin32Callout @ 0x1405B0C84
+ * XREFs of PopInvokeWin32Callout @ 0x1405B1C84
  * Callers:
  *     PopGetConsoleDisplayRequestCount @ 0x1400108EC (PopGetConsoleDisplayRequestCount.c)
- *     PopEventCalloutDispatch @ 0x14017842C (PopEventCalloutDispatch.c)
- *     PoSessionBuiltinPanelState @ 0x1402E7050 (PoSessionBuiltinPanelState.c)
- *     PoSessionEngagementUpdate @ 0x1402E70D4 (PoSessionEngagementUpdate.c)
- *     PopNotifyConsoleUserPresent @ 0x1406DBBC4 (PopNotifyConsoleUserPresent.c)
- *     PopNotifySessionDisplayRequired @ 0x1406DBEA0 (PopNotifySessionDisplayRequired.c)
- *     PopDispatchStateCallout @ 0x1406DDC60 (PopDispatchStateCallout.c)
- *     PopControlMonitor @ 0x1406E2390 (PopControlMonitor.c)
- *     PopBroadcastSessionInfo @ 0x14072985C (PopBroadcastSessionInfo.c)
- *     PopNotifyCsStateExited @ 0x14086EF70 (PopNotifyCsStateExited.c)
- *     PoSessionPowerControl @ 0x140879278 (PoSessionPowerControl.c)
- *     PopSendSessionInfo @ 0x140879304 (PopSendSessionInfo.c)
+ *     PopEventCalloutDispatch @ 0x14017852C (PopEventCalloutDispatch.c)
+ *     PoSessionBuiltinPanelState @ 0x1402E7240 (PoSessionBuiltinPanelState.c)
+ *     PoSessionEngagementUpdate @ 0x1402E72C4 (PoSessionEngagementUpdate.c)
+ *     PopNotifyConsoleUserPresent @ 0x1406DCE64 (PopNotifyConsoleUserPresent.c)
+ *     PopNotifySessionDisplayRequired @ 0x1406DD140 (PopNotifySessionDisplayRequired.c)
+ *     PopDispatchStateCallout @ 0x1406DEF00 (PopDispatchStateCallout.c)
+ *     PopControlMonitor @ 0x1406E3630 (PopControlMonitor.c)
+ *     PopBroadcastSessionInfo @ 0x14072AA4C (PopBroadcastSessionInfo.c)
+ *     PopNotifyCsStateExited @ 0x1408701D0 (PopNotifyCsStateExited.c)
+ *     PoSessionPowerControl @ 0x14087A4D8 (PoSessionPowerControl.c)
+ *     PopSendSessionInfo @ 0x14087A564 (PopSendSessionInfo.c)
  * Callees:
  *     MmGetNextSession @ 0x140012740 (MmGetNextSession.c)
- *     MmGetSessionId @ 0x1400897B0 (MmGetSessionId.c)
- *     PsGetHostSilo @ 0x140091C70 (PsGetHostSilo.c)
- *     ZwPowerInformation @ 0x1401B8D70 (ZwPowerInformation.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     PsInvokeWin32Callout @ 0x1405F4E90 (PsInvokeWin32Callout.c)
+ *     MmGetSessionId @ 0x1400897A0 (MmGetSessionId.c)
+ *     PsGetHostSilo @ 0x140091BB0 (PsGetHostSilo.c)
+ *     ZwPowerInformation @ 0x1401B8ED0 (ZwPowerInformation.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     PsInvokeWin32Callout @ 0x1405F5E90 (PsInvokeWin32Callout.c)
  */
 
 __int64 __fastcall PopInvokeWin32Callout(unsigned int a1, __int64 a2, unsigned int a3, int *a4)
@@ -41,7 +41,7 @@ __int64 __fastcall PopInvokeWin32Callout(unsigned int a1, __int64 a2, unsigned i
   v7 = 0;
   memset(InputBuffer, 0, 0x60uLL);
   LODWORD(InputBuffer[0]) = 21;
-  if ( ZwPowerInformation(SystemPowerStateLogging|0x40, InputBuffer, 0x60u, &OutputBuffer, 8u) < 0 )
+  if ( ZwPowerInformation(PowerInformationInternal, InputBuffer, 0x60u, &OutputBuffer, 8u) < 0 )
     return v7;
   NextSession = (_QWORD *)MmGetNextSession(0LL);
   do
@@ -78,7 +78,7 @@ __int64 __fastcall PopInvokeWin32Callout(unsigned int a1, __int64 a2, unsigned i
         InputBuffer[4] = KeGetCurrentThread();
         InputBuffer[10] = InputBuffer;
         InputBuffer[9] = PopWin32CalloutWatchdogCallbackLiveDump;
-        ZwPowerInformation(SystemPowerStateLogging|0x40, InputBuffer, 0x60u, 0LL, 0);
+        ZwPowerInformation(PowerInformationInternal, InputBuffer, 0x60u, 0LL, 0);
       }
       v7 = PsInvokeWin32Callout(a1, a2, v9, p_SessionId);
       if ( OutputBuffer )
@@ -86,7 +86,7 @@ __int64 __fastcall PopInvokeWin32Callout(unsigned int a1, __int64 a2, unsigned i
         memset(InputBuffer, 0, 0x60uLL);
         LODWORD(InputBuffer[0]) = 21;
         InputBuffer[1] = OutputBuffer;
-        ZwPowerInformation(SystemPowerStateLogging|0x40, InputBuffer, 0x60u, 0LL, 0);
+        ZwPowerInformation(PowerInformationInternal, InputBuffer, 0x60u, 0LL, 0);
       }
     }
     else
@@ -111,7 +111,7 @@ __int64 __fastcall PopInvokeWin32Callout(unsigned int a1, __int64 a2, unsigned i
     LODWORD(InputBuffer[0]) = 21;
     InputBuffer[1] = OutputBuffer;
     LOBYTE(InputBuffer[11]) = 1;
-    ZwPowerInformation(SystemPowerStateLogging|0x40, InputBuffer, 0x60u, 0LL, 0);
+    ZwPowerInformation(PowerInformationInternal, InputBuffer, 0x60u, 0LL, 0);
   }
   return v7;
 }

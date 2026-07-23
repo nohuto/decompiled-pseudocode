@@ -1,33 +1,33 @@
 /*
- * XREFs of AlpcpReceiveMessage @ 0x140899160
+ * XREFs of AlpcpReceiveMessage @ 0x1408A1800
  * Callers:
- *     NtAlpcSendWaitReceivePort @ 0x14084A0C0 (NtAlpcSendWaitReceivePort.c)
+ *     NtAlpcSendWaitReceivePort @ 0x140846380 (NtAlpcSendWaitReceivePort.c)
  * Callees:
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     AlpcpGetDataFromUserVaSafe @ 0x14088AE18 (AlpcpGetDataFromUserVaSafe.c)
- *     AlpcpGetDataFromMessage @ 0x14088AE68 (AlpcpGetDataFromMessage.c)
- *     AlpcpCancelMessage @ 0x140894410 (AlpcpCancelMessage.c)
- *     AlpcpReceiveMessagePort @ 0x140895660 (AlpcpReceiveMessagePort.c)
- *     AlpcpExposeAttributes @ 0x1408980D0 (AlpcpExposeAttributes.c)
- *     AlpcpUnlockMessage @ 0x140898D70 (AlpcpUnlockMessage.c)
- *     ExRaiseDatatypeMisalignment @ 0x14089B1F0 (ExRaiseDatatypeMisalignment.c)
- *     ProbeForWrite @ 0x1408C0590 (ProbeForWrite.c)
- *     AlpcpReceiveDirectMessagePort @ 0x14093E0B8 (AlpcpReceiveDirectMessagePort.c)
- *     AlpcpReturnMessageOnInsufficientBuffer @ 0x140A2413C (AlpcpReturnMessageOnInsufficientBuffer.c)
- *     AlpcpExposeCapturedContextAttribute @ 0x140A3D29C (AlpcpExposeCapturedContextAttribute.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     AlpcpReceiveDirectMessagePort @ 0x1408926F8 (AlpcpReceiveDirectMessagePort.c)
+ *     AlpcpCancelMessage @ 0x14089C73C (AlpcpCancelMessage.c)
+ *     AlpcpReceiveMessagePort @ 0x14089DB00 (AlpcpReceiveMessagePort.c)
+ *     AlpcpExposeAttributes @ 0x1408A0770 (AlpcpExposeAttributes.c)
+ *     AlpcpUnlockMessage @ 0x1408A1410 (AlpcpUnlockMessage.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408A3890 (ExRaiseDatatypeMisalignment.c)
+ *     ProbeForWrite @ 0x1408BDF50 (ProbeForWrite.c)
+ *     AlpcpGetDataFromUserVaSafe @ 0x1409908B4 (AlpcpGetDataFromUserVaSafe.c)
+ *     AlpcpGetDataFromMessage @ 0x140990904 (AlpcpGetDataFromMessage.c)
+ *     AlpcpReturnMessageOnInsufficientBuffer @ 0x140A1850C (AlpcpReturnMessageOnInsufficientBuffer.c)
+ *     AlpcpExposeCapturedContextAttribute @ 0x140A32BAC (AlpcpExposeCapturedContextAttribute.c)
  */
 
 __int64 __fastcall AlpcpReceiveMessage(
         __int64 a1,
         unsigned __int64 a2,
         unsigned __int64 *a3,
-        LONG *a4,
+        int *a4,
         LARGE_INTEGER *a5)
 {
-  __int64 v8; // r10
+  __int64 *v8; // r10
   struct _KTHREAD *CurrentThread; // r8
   int v10; // r12d
-  unsigned __int8 PreviousMode; // r11
+  KPROCESSOR_MODE PreviousMode; // r11
   __int64 v12; // rbx
   __int64 v13; // rax
   unsigned int v14; // edx
@@ -45,7 +45,7 @@ __int64 __fastcall AlpcpReceiveMessage(
   ULONG v26; // r8d
   unsigned int v27; // eax
   __int64 v28; // rcx
-  LONG v29; // ecx
+  int v29; // ecx
   __int64 v30; // rax
   int v31; // eax
   int v32; // ecx
@@ -62,39 +62,37 @@ __int64 __fastcall AlpcpReceiveMessage(
   size_t v43; // r15
   size_t v44; // rsi
   const void *v45; // rdx
-  __int64 v46; // r8
-  __int64 v47; // r9
-  __int16 v48; // ax
-  __int16 v49; // dx
-  unsigned int v51; // [rsp+30h] [rbp-A8h]
-  unsigned __int8 v52; // [rsp+34h] [rbp-A4h]
-  int v53; // [rsp+38h] [rbp-A0h]
-  int v54; // [rsp+3Ch] [rbp-9Ch]
-  int v55; // [rsp+40h] [rbp-98h]
-  __int64 v56; // [rsp+50h] [rbp-88h]
-  unsigned __int64 v57; // [rsp+58h] [rbp-80h]
+  __int16 v46; // ax
+  __int16 v47; // dx
+  unsigned int v49; // [rsp+30h] [rbp-A8h]
+  KPROCESSOR_MODE v50; // [rsp+34h] [rbp-A4h]
+  int v51; // [rsp+38h] [rbp-A0h]
+  int v52; // [rsp+3Ch] [rbp-9Ch]
+  int v53; // [rsp+40h] [rbp-98h]
+  __int64 v54; // [rsp+50h] [rbp-88h]
+  unsigned __int64 v55; // [rsp+58h] [rbp-80h]
   ULONG_PTR BugCheckParameter2; // [rsp+60h] [rbp-78h] BYREF
-  unsigned int v59; // [rsp+68h] [rbp-70h]
-  __int64 v60; // [rsp+70h] [rbp-68h] BYREF
-  struct _KTHREAD *v61; // [rsp+78h] [rbp-60h]
-  __int64 v62; // [rsp+80h] [rbp-58h]
-  _OWORD v63[2]; // [rsp+88h] [rbp-50h] BYREF
-  unsigned __int64 v65; // [rsp+E0h] [rbp+8h]
-  unsigned __int64 v66; // [rsp+E0h] [rbp+8h]
+  unsigned int v57; // [rsp+68h] [rbp-70h]
+  __int64 v58; // [rsp+70h] [rbp-68h] BYREF
+  struct _KTHREAD *v59; // [rsp+78h] [rbp-60h]
+  __int64 v60; // [rsp+80h] [rbp-58h]
+  _OWORD v61[2]; // [rsp+88h] [rbp-50h] BYREF
+  unsigned __int64 v63; // [rsp+E0h] [rbp+8h]
+  unsigned __int64 v64; // [rsp+E0h] [rbp+8h]
 
-  v8 = a1;
+  v8 = (__int64 *)a1;
   BugCheckParameter2 = 0LL;
   CurrentThread = KeGetCurrentThread();
-  v61 = CurrentThread;
+  v59 = CurrentThread;
   v10 = *(_DWORD *)(a1 + 48);
-  v56 = *(_QWORD *)a1;
-  v62 = *(_QWORD *)a1;
+  v54 = *(_QWORD *)a1;
+  v60 = *(_QWORD *)a1;
   PreviousMode = CurrentThread->PreviousMode;
-  v52 = PreviousMode;
-  v60 = 0LL;
-  v57 = -1LL;
-  v55 = 0;
-  v54 = 0;
+  v50 = PreviousMode;
+  v58 = 0LL;
+  v55 = -1LL;
+  v53 = 0;
+  v52 = 0;
   if ( PreviousMode )
   {
     v12 = 0x7FFFFFFF0000LL;
@@ -103,8 +101,8 @@ __int64 __fastcall AlpcpReceiveMessage(
       v13 = 0x7FFFFFFF0000LL;
       if ( (unsigned __int64)a5 < 0x7FFFFFFF0000LL )
         v13 = (__int64)a5;
-      v60 = *(_QWORD *)v13;
-      a5 = (LARGE_INTEGER *)&v60;
+      v58 = *(_QWORD *)v13;
+      a5 = (LARGE_INTEGER *)&v58;
     }
     v14 = v10 & 0xC0000000;
     if ( (a2 & 3) != 0 )
@@ -130,15 +128,15 @@ LABEL_7:
     {
       if ( v10 >= 0 || (v10 & 0x40000000) != 0 )
       {
-        v55 = *(_DWORD *)(a2 + 24);
+        v53 = *(_DWORD *)(a2 + 24);
         v31 = *(_DWORD *)(a2 + 32);
       }
       else
       {
-        v55 = *(_DWORD *)(a2 + 16);
+        v53 = *(_DWORD *)(a2 + 16);
         v31 = *(_DWORD *)(a2 + 20);
       }
-      v54 = v31;
+      v52 = v31;
     }
     if ( a4 )
     {
@@ -146,7 +144,7 @@ LABEL_7:
       if ( (unsigned __int64)a4 < 0x7FFFFFFF0000LL )
         v17 = (__int64)a4;
       v18 = *(_DWORD *)v17;
-      v51 = *(_DWORD *)v17;
+      v49 = *(_DWORD *)v17;
       if ( v14 == 0x80000000 )
       {
         v32 = ((*(int *)v17 >> 31) & 0xC) + 8;
@@ -190,9 +188,9 @@ LABEL_7:
       if ( v27 >= 0x1000uLL )
       {
         ProbeForWrite(a4, v27, v26);
-        v18 = v51;
-        v8 = a1;
-        PreviousMode = v52;
+        v18 = v49;
+        v8 = (__int64 *)a1;
+        PreviousMode = v50;
       }
       else
       {
@@ -204,26 +202,26 @@ LABEL_7:
         *(_BYTE *)v28 = *(_BYTE *)v28;
         *(_BYTE *)(v28 + v27 - 1) = *(_BYTE *)(v28 + v27 - 1);
       }
-      v53 = v18;
-      v29 = v51;
+      v51 = v18;
+      v29 = v49;
     }
     else
     {
       v29 = 0;
+      v49 = 0;
       v51 = 0;
-      v53 = 0;
     }
     if ( a3 )
     {
       v30 = 0x7FFFFFFF0000LL;
       if ( (unsigned __int64)a3 < 0x7FFFFFFF0000LL )
         v30 = (__int64)a3;
-      v57 = *(_QWORD *)v30;
+      v55 = *(_QWORD *)v30;
       if ( (unsigned __int64)a3 < 0x7FFFFFFF0000LL )
         v12 = (__int64)a3;
       *(_QWORD *)v12 = *(_QWORD *)v12;
-      v29 = v53;
-      v51 = v53;
+      v29 = v51;
+      v49 = v51;
     }
   }
   else
@@ -231,23 +229,23 @@ LABEL_7:
     v16 = v10 & 0x1000000;
     if ( (v10 & 0x1000000) != 0 )
     {
-      v55 = *(_DWORD *)(a2 + 24);
-      v54 = *(_DWORD *)(a2 + 32);
+      v53 = *(_DWORD *)(a2 + 24);
+      v52 = *(_DWORD *)(a2 + 32);
     }
     if ( a4 )
       v29 = *a4;
     else
       v29 = 0;
-    v51 = v29;
+    v49 = v29;
     if ( a3 )
-      v57 = *a3;
+      v55 = *a3;
     if ( (CurrentThread->MiscFlags & 0x400) != 0 )
       PreviousMode = 1;
   }
   if ( v16 )
-    v35 = AlpcpReceiveDirectMessagePort(v8, v55, v54, (unsigned int)&BugCheckParameter2, v29);
+    v35 = AlpcpReceiveDirectMessagePort(v8, v53, v52, &BugCheckParameter2, v29);
   else
-    v35 = AlpcpReceiveMessagePort(v8, PreviousMode, a5, (__int64 *)&BugCheckParameter2, v29);
+    v35 = AlpcpReceiveMessagePort((__int64)v8, PreviousMode, a5, (__int64 *)&BugCheckParameter2, v29);
   v36 = v35;
   if ( !v35 )
   {
@@ -255,54 +253,54 @@ LABEL_7:
       v37 = 40;
     v38 = BugCheckParameter2;
     v39 = *(_WORD *)(BugCheckParameter2 + 240) + v37;
-    if ( a3 && (v65 = v39, v39 > v57) )
+    if ( a3 && (v63 = v39, v39 > v55) )
     {
-      memset(v63, 0, sizeof(v63));
-      v36 = AlpcpReturnMessageOnInsufficientBuffer(v56, BugCheckParameter2, v63);
-      v59 = v36;
+      memset(v61, 0, sizeof(v61));
+      v36 = AlpcpReturnMessageOnInsufficientBuffer(v54, BugCheckParameter2, v61);
+      v57 = v36;
       if ( v36 == -1073741789 )
       {
-        *a3 = v65;
-        AlpcpExposeCapturedContextAttribute((unsigned int)v10, v63, v51, a4);
+        *a3 = v63;
+        AlpcpExposeCapturedContextAttribute((unsigned int)v10, v61, v49, a4);
       }
     }
     else
     {
-      *(_QWORD *)(BugCheckParameter2 + 200) = v61;
+      *(_QWORD *)(BugCheckParameter2 + 200) = v59;
       if ( (v10 & 0xC0000000) == 0x80000000 )
       {
         *(_WORD *)a2 = *(_WORD *)(v38 + 240);
         *(_WORD *)(a2 + 2) = *(_WORD *)(v38 + 240) + 24;
-        v48 = *(_WORD *)(v38 + 246);
-        if ( v48 )
-          *(_WORD *)(a2 + 6) = v48 - 16;
+        v46 = *(_WORD *)(v38 + 246);
+        if ( v46 )
+          *(_WORD *)(a2 + 6) = v46 - 16;
         else
           *(_WORD *)(a2 + 6) = 0;
-        v49 = *(_WORD *)(v38 + 244) | 0x1000;
-        *(_WORD *)(a2 + 4) = v49;
+        v47 = *(_WORD *)(v38 + 244) | 0x1000;
+        *(_WORD *)(a2 + 4) = v47;
         *(_DWORD *)(a2 + 8) = *(_DWORD *)(v38 + 248);
         *(_DWORD *)(a2 + 12) = *(_DWORD *)(v38 + 256);
         *(_DWORD *)(a2 + 16) = *(_DWORD *)(v38 + 264);
         *(_DWORD *)(a2 + 20) = *(_DWORD *)(v38 + 272);
         *(_DWORD *)(a2 + 20) = *(_DWORD *)(v38 + 272);
-        v40 = v56;
-        if ( (*(_DWORD *)(v56 + 256) & 0x1000) != 0 )
-          *(_WORD *)(a2 + 4) = v49 & 0xC00F;
-        AlpcpGetDataFromMessage(v38, (char *)(a2 + 24));
+        v40 = v54;
+        if ( (*(_DWORD *)(v54 + 256) & 0x1000) != 0 )
+          *(_WORD *)(a2 + 4) = v47 & 0xC00F;
+        AlpcpGetDataFromMessage(v38, a2 + 24);
       }
       else
       {
         *(_OWORD *)a2 = *(_OWORD *)(v38 + 240);
         *(_OWORD *)(a2 + 16) = *(_OWORD *)(v38 + 256);
         *(_QWORD *)(a2 + 32) = *(_QWORD *)(v38 + 272);
-        v40 = v56;
-        if ( (*(_DWORD *)(v56 + 256) & 0x1000) != 0 )
+        v40 = v54;
+        if ( (*(_DWORD *)(v54 + 256) & 0x1000) != 0 )
           *(_WORD *)(a2 + 4) = *(_WORD *)(v38 + 244) & 0xC00F;
         v41 = (void *)(a2 + 40);
-        v66 = a2 + 40;
+        v64 = a2 + 40;
         if ( *(_QWORD *)(v38 + 176) )
         {
-          AlpcpGetDataFromUserVaSafe(v38, (void *)(a2 + 40));
+          AlpcpGetDataFromUserVaSafe(v38, a2 + 40);
         }
         else
         {
@@ -317,29 +315,29 @@ LABEL_7:
           {
             memmove(v41, v45, v43);
             v44 -= v43;
-            v41 = (void *)(v43 + v66);
+            v41 = (void *)(v43 + v64);
             v45 = *(const void **)(v38 + 224);
           }
           memmove(v41, v45, v44);
-          v40 = v56;
+          v40 = v54;
         }
       }
       if ( a4 )
-        AlpcpExposeAttributes(v40, v10, v38, v51, (__int64)a4);
+        AlpcpExposeAttributes(v40, v10, v38, v49, (__int64)a4);
     }
-    if ( v36 != -1073741789 && *(_QWORD *)(v38 + 64) == v56 )
+    if ( v36 != -1073741789 && *(_QWORD *)(v38 + 64) == v54 )
     {
       *(_QWORD *)(v38 + 64) = 0LL;
       *(_QWORD *)(v38 + 56) = 0LL;
     }
     if ( ((v36 + 0x80000000) & 0x80000000) != 0 || v36 == -1073741789 )
     {
-      AlpcpUnlockMessage(v38, 0x80000000LL, v46, v47);
+      AlpcpUnlockMessage(v38);
     }
     else
     {
       *(_QWORD *)(v38 + 200) = 0LL;
-      AlpcpCancelMessage(v56, v38, 0x10000);
+      AlpcpCancelMessage(v54, v38, 0x10000);
     }
   }
   return v36;

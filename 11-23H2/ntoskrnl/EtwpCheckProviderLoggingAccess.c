@@ -1,11 +1,11 @@
 /*
- * XREFs of EtwpCheckProviderLoggingAccess @ 0x140780F8C
+ * XREFs of EtwpCheckProviderLoggingAccess @ 0x14078117C
  * Callers:
- *     EtwpIsRegEntryAllowed @ 0x140780EA8 (EtwpIsRegEntryAllowed.c)
+ *     EtwpIsRegEntryAllowed @ 0x140781098 (EtwpIsRegEntryAllowed.c)
  * Callees:
- *     SeReleaseSubjectContext @ 0x140737BC0 (SeReleaseSubjectContext.c)
- *     SeCaptureSubjectContextEx @ 0x140737CA0 (SeCaptureSubjectContextEx.c)
- *     EtwpCheckGuidAccess @ 0x140781B64 (EtwpCheckGuidAccess.c)
+ *     SeReleaseSubjectContext @ 0x140737DB0 (SeReleaseSubjectContext.c)
+ *     SeCaptureSubjectContextEx @ 0x140737E90 (SeCaptureSubjectContextEx.c)
+ *     EtwpCheckGuidAccess @ 0x140781D54 (EtwpCheckGuidAccess.c)
  */
 
 __int64 __fastcall EtwpCheckProviderLoggingAccess(__int64 a1, __int64 a2, char a3)

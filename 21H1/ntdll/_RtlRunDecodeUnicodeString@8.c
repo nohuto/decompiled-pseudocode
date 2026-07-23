@@ -6,27 +6,23 @@
  *     <none>
  */
 
-unsigned int __stdcall RtlRunDecodeUnicodeString(char a1, unsigned __int16 *a2)
+void __cdecl RtlRunDecodeUnicodeString(UCHAR Seed, PUNICODE_STRING String)
 {
-  unsigned int result; // eax
+  unsigned __int16 Length; // ax
   unsigned int v3; // edx
 
-  result = *a2;
-  v3 = result;
-  if ( result > 1 )
+  Length = String->Length;
+  v3 = String->Length;
+  if ( v3 > 1 )
   {
     do
     {
-      *(_BYTE *)(v3 + *((_DWORD *)a2 + 1) - 1) ^= a1 ^ *(_BYTE *)(v3 + *((_DWORD *)a2 + 1) - 2);
+      *((_BYTE *)String->Buffer + v3 - 1) ^= Seed ^ *((_BYTE *)String->Buffer + v3 - 2);
       --v3;
     }
     while ( v3 > 1 );
-    result = *a2;
+    Length = String->Length;
   }
-  if ( (_WORD)result )
-  {
-    result = *((_DWORD *)a2 + 1);
-    *(_BYTE *)result ^= a1 | 0x43;
-  }
-  return result;
+  if ( Length )
+    *(_BYTE *)String->Buffer ^= Seed | 0x43;
 }

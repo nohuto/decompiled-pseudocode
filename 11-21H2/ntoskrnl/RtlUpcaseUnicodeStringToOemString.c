@@ -1,10 +1,10 @@
 /*
  * XREFs of RtlUpcaseUnicodeStringToOemString @ 0x1406E7B60
  * Callers:
- *     DifRtlUpcaseUnicodeStringToOemStringWrapper @ 0x14061C230 (DifRtlUpcaseUnicodeStringToOemStringWrapper.c)
+ *     sub_14061C230 @ 0x14061C230 (sub_14061C230.c)
  * Callees:
- *     AllocateOrValidateCharStringBuffer @ 0x1402D7DE0 (AllocateOrValidateCharStringBuffer.c)
- *     RtlpDidUnicodeToOemWork @ 0x140759798 (RtlpDidUnicodeToOemWork.c)
+ *     sub_1402D7DE0 @ 0x1402D7DE0 (sub_1402D7DE0.c)
+ *     sub_140759798 @ 0x140759798 (sub_140759798.c)
  *     RtlUpcaseUnicodeToOemN @ 0x1407598D0 (RtlUpcaseUnicodeToOemN.c)
  *     RtlxUnicodeStringToOemSize @ 0x140759A50 (RtlxUnicodeStringToOemSize.c)
  *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
@@ -30,7 +30,7 @@ NTSTATUS __stdcall RtlUpcaseUnicodeStringToOemString(
     return -1073741584;
   p_MaximumLength = &DestinationString->MaximumLength;
   p_Buffer = &DestinationString->Buffer;
-  result = AllocateOrValidateCharStringBuffer(
+  result = sub_1402D7DE0(
              AllocateDestinationString,
              v6,
              (__int64 *)&DestinationString->Buffer,
@@ -48,7 +48,7 @@ NTSTATUS __stdcall RtlUpcaseUnicodeStringToOemString(
       v12 = BytesInOemString;
       DestinationString->Length = BytesInOemString;
       (*p_Buffer)[v12] = 0;
-      if ( !(unsigned __int8)RtlpDidUnicodeToOemWork(DestinationString, SourceString) )
+      if ( !(unsigned __int8)sub_140759798(DestinationString, SourceString) )
         v11 = -1073741470;
     }
     if ( v11 < 0 )

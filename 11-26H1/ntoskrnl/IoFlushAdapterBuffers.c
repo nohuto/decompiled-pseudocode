@@ -1,9 +1,9 @@
 /*
- * XREFs of IoFlushAdapterBuffers @ 0x140579B90
+ * XREFs of IoFlushAdapterBuffers @ 0x14057C0C0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 BOOLEAN __stdcall IoFlushAdapterBuffers(

@@ -1,35 +1,35 @@
 /*
- * XREFs of PpmRegisterPerfStates @ 0x14074E4BC
+ * XREFs of PpmRegisterPerfStates @ 0x14074F6AC
  * Callers:
- *     PpmPerfRegisterNativePerfStates @ 0x14074E470 (PpmPerfRegisterNativePerfStates.c)
- *     PpmPerfRegisterHvPerfStateCounters @ 0x14087B530 (PpmPerfRegisterHvPerfStateCounters.c)
+ *     PpmPerfRegisterNativePerfStates @ 0x14074F660 (PpmPerfRegisterNativePerfStates.c)
+ *     PpmPerfRegisterHvPerfStateCounters @ 0x14087C790 (PpmPerfRegisterHvPerfStateCounters.c)
  * Callees:
  *     PpmAcquireLock @ 0x140006020 (PpmAcquireLock.c)
  *     KeFindFirstSetRightGroupAffinity @ 0x1400165E0 (KeFindFirstSetRightGroupAffinity.c)
  *     KeIsEmptyAffinityEx @ 0x140062160 (KeIsEmptyAffinityEx.c)
- *     KeAddProcessorAffinityEx @ 0x140063A40 (KeAddProcessorAffinityEx.c)
- *     PpmReleaseLock @ 0x14008BC30 (PpmReleaseLock.c)
- *     PopExecuteOnTargetProcessors @ 0x1400A5EC8 (PopExecuteOnTargetProcessors.c)
- *     KeGetPrcb @ 0x1400A62C4 (KeGetPrcb.c)
- *     PpmConvertTime @ 0x1400A7D14 (PpmConvertTime.c)
- *     KeOrAffinityEx @ 0x1400DC8F0 (KeOrAffinityEx.c)
- *     KeCopyAffinityEx @ 0x1400EDAB0 (KeCopyAffinityEx.c)
- *     KeSetTimer2 @ 0x1400FC170 (KeSetTimer2.c)
- *     KeFirstGroupAffinityEx @ 0x14012E230 (KeFirstGroupAffinityEx.c)
- *     PpmInstallFeedbackCounters @ 0x1401894E8 (PpmInstallFeedbackCounters.c)
- *     PpmParkApplyPolicy @ 0x140189E70 (PpmParkApplyPolicy.c)
- *     KeIsEqualAffinityEx @ 0x14018A2F0 (KeIsEqualAffinityEx.c)
- *     KeQueryActiveProcessorAffinity @ 0x14018A390 (KeQueryActiveProcessorAffinity.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     PopDiagTraceProcessorThrottlePerfTrack @ 0x1402E1BB8 (PopDiagTraceProcessorThrottlePerfTrack.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     PpmPerfUpdateDomainPolicy @ 0x140719B8C (PpmPerfUpdateDomainPolicy.c)
- *     PpmUpdateProcessorPolicy @ 0x14071CB38 (PpmUpdateProcessorPolicy.c)
- *     PpmReinitializeHeteroEngine @ 0x14074E488 (PpmReinitializeHeteroEngine.c)
- *     PpmAllocatePerfCheck @ 0x14074EFB4 (PpmAllocatePerfCheck.c)
- *     PpmCheckReInit @ 0x14074F114 (PpmCheckReInit.c)
+ *     KeAddProcessorAffinityEx @ 0x140063A30 (KeAddProcessorAffinityEx.c)
+ *     PpmReleaseLock @ 0x14008BC20 (PpmReleaseLock.c)
+ *     PopExecuteOnTargetProcessors @ 0x1400A5E08 (PopExecuteOnTargetProcessors.c)
+ *     KeGetPrcb @ 0x1400A6204 (KeGetPrcb.c)
+ *     PpmConvertTime @ 0x1400A7C54 (PpmConvertTime.c)
+ *     KeOrAffinityEx @ 0x1400DC970 (KeOrAffinityEx.c)
+ *     KeCopyAffinityEx @ 0x1400EDB30 (KeCopyAffinityEx.c)
+ *     KeSetTimer2 @ 0x1400FC1F0 (KeSetTimer2.c)
+ *     KeFirstGroupAffinityEx @ 0x14012E300 (KeFirstGroupAffinityEx.c)
+ *     PpmInstallFeedbackCounters @ 0x140189628 (PpmInstallFeedbackCounters.c)
+ *     PpmParkApplyPolicy @ 0x140189FB0 (PpmParkApplyPolicy.c)
+ *     KeIsEqualAffinityEx @ 0x14018A430 (KeIsEqualAffinityEx.c)
+ *     KeQueryActiveProcessorAffinity @ 0x14018A4D0 (KeQueryActiveProcessorAffinity.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     PopDiagTraceProcessorThrottlePerfTrack @ 0x1402E1DA8 (PopDiagTraceProcessorThrottlePerfTrack.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     PpmPerfUpdateDomainPolicy @ 0x14071AE2C (PpmPerfUpdateDomainPolicy.c)
+ *     PpmUpdateProcessorPolicy @ 0x14071DDD8 (PpmUpdateProcessorPolicy.c)
+ *     PpmReinitializeHeteroEngine @ 0x14074F678 (PpmReinitializeHeteroEngine.c)
+ *     PpmAllocatePerfCheck @ 0x1407501A4 (PpmAllocatePerfCheck.c)
+ *     PpmCheckReInit @ 0x140750304 (PpmCheckReInit.c)
  */
 
 __int64 __fastcall PpmRegisterPerfStates(_DWORD *a1, char a2)
@@ -317,16 +317,16 @@ LABEL_44:
       PpmPerfControlCompletePolicyUpdate = (__int64 (*)(void))*((_QWORD *)v5 + 39);
     if ( v54 )
       PpmCheckPollForFeedback = 1;
-    v55 = (_QWORD *)qword_1405413F8;
+    v55 = (_QWORD *)qword_1405423F8;
     ++PpmPerfDomainCount;
-    if ( *(__int64 **)qword_1405413F8 != &PpmPerfDomainHead )
+    if ( *(__int64 **)qword_1405423F8 != &PpmPerfDomainHead )
       __fastfail(3u);
     *(_QWORD *)v7 = &PpmPerfDomainHead;
     v8 = 1;
     *((_QWORD *)v7 + 1) = v55;
     *v55 = v7;
     v56 = PpmPerfDomainHead;
-    qword_1405413F8 = (__int64)v7;
+    qword_1405423F8 = (__int64)v7;
     while ( (__int64 *)v56 != &PpmPerfDomainHead )
     {
       v57 = *(_BYTE *)(v56 + 349);

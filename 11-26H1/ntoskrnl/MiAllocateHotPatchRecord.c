@@ -1,13 +1,13 @@
 /*
- * XREFs of MiAllocateHotPatchRecord @ 0x14086D9B0
+ * XREFs of MiAllocateHotPatchRecord @ 0x140873D80
  * Callers:
- *     MiLoadHotPatch @ 0x140870D5C (MiLoadHotPatch.c)
- *     MiLoadHotPatchForUserSid @ 0x1408712F4 (MiLoadHotPatchForUserSid.c)
- *     MmRegisterHotPatches @ 0x140CFBBA4 (MmRegisterHotPatches.c)
+ *     MiLoadHotPatch @ 0x1408770BC (MiLoadHotPatch.c)
+ *     MiLoadHotPatchForUserSid @ 0x140877654 (MiLoadHotPatchForUserSid.c)
+ *     MmRegisterHotPatches @ 0x140D01F24 (MmRegisterHotPatches.c)
  * Callees:
- *     ExAllocatePoolMm @ 0x1403985B0 (ExAllocatePoolMm.c)
- *     MmGetCurrentProcessorColor @ 0x14044ADC0 (MmGetCurrentProcessorColor.c)
- *     memmove @ 0x14073D480 (memmove.c)
+ *     ExAllocatePoolMm @ 0x14039A310 (ExAllocatePoolMm.c)
+ *     MmGetCurrentProcessorColor @ 0x140442EF0 (MmGetCurrentProcessorColor.c)
+ *     memmove @ 0x140742080 (memmove.c)
  */
 
 __int64 __fastcall MiAllocateHotPatchRecord(int a1, int a2, int a3, const void **a4, int a5)

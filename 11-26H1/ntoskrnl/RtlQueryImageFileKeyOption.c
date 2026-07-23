@@ -1,24 +1,24 @@
 /*
- * XREFs of RtlQueryImageFileKeyOption @ 0x1409665B0
+ * XREFs of RtlQueryImageFileKeyOption @ 0x140A786C0
  * Callers:
- *     KiInitializeNormalPriorityAntiStarvationPolicies @ 0x1405EB4A0 (KiInitializeNormalPriorityAntiStarvationPolicies.c)
- *     PspReadDfssConfigurationValues @ 0x140614838 (PspReadDfssConfigurationValues.c)
- *     PspIsDfssEnabled @ 0x1407EE2A4 (PspIsDfssEnabled.c)
- *     RtlQueryImageFileExecutionOptions @ 0x140800D60 (RtlQueryImageFileExecutionOptions.c)
- *     PspAllocateProcess @ 0x140964C24 (PspAllocateProcess.c)
- *     PspReadIFEONodeOptions @ 0x14096635C (PspReadIFEONodeOptions.c)
- *     PspReadOptionsMapFromIFEO @ 0x140966510 (PspReadOptionsMapFromIFEO.c)
- *     SepCheckAndSetAuditModeForProcess @ 0x140A88938 (SepCheckAndSetAuditModeForProcess.c)
- *     PspQueryComPlusRunUnderWoW @ 0x140B4CF04 (PspQueryComPlusRunUnderWoW.c)
- *     PspReadIFEOPerfOptions @ 0x140B66284 (PspReadIFEOPerfOptions.c)
+ *     KiInitializeNormalPriorityAntiStarvationPolicies @ 0x1405EDE10 (KiInitializeNormalPriorityAntiStarvationPolicies.c)
+ *     PspReadDfssConfigurationValues @ 0x140617678 (PspReadDfssConfigurationValues.c)
+ *     PspIsDfssEnabled @ 0x1407F3E04 (PspIsDfssEnabled.c)
+ *     RtlQueryImageFileExecutionOptions @ 0x140806800 (RtlQueryImageFileExecutionOptions.c)
+ *     PspReadIFEOPerfOptions @ 0x140A77A84 (PspReadIFEOPerfOptions.c)
+ *     PspReadIFEONodeOptions @ 0x140A78470 (PspReadIFEONodeOptions.c)
+ *     PspReadOptionsMapFromIFEO @ 0x140A78624 (PspReadOptionsMapFromIFEO.c)
+ *     PspQueryComPlusRunUnderWoW @ 0x140B4EC94 (PspQueryComPlusRunUnderWoW.c)
+ *     SepCheckAndSetAuditModeForProcess @ 0x140B5CD50 (SepCheckAndSetAuditModeForProcess.c)
+ *     PspAllocateProcess @ 0x140B7E8A8 (PspAllocateProcess.c)
  * Callees:
- *     RtlInitUnicodeStringEx @ 0x14045D040 (RtlInitUnicodeStringEx.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     ZwQueryValueKey @ 0x1407236D0 (ZwQueryValueKey.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     RtlUnicodeStringToInteger @ 0x14091AAE0 (RtlUnicodeStringToInteger.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     RtlInitUnicodeStringEx @ 0x140456BE0 (RtlInitUnicodeStringEx.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     ZwQueryValueKey @ 0x1407282A0 (ZwQueryValueKey.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     RtlUnicodeStringToInteger @ 0x140975540 (RtlUnicodeStringToInteger.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 NTSTATUS __fastcall RtlQueryImageFileKeyOption(

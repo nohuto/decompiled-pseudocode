@@ -1,14 +1,14 @@
 /*
- * XREFs of CmpCompareUnicodeString @ 0x1406B6598
+ * XREFs of CmpCompareUnicodeString @ 0x1406B7838
  * Callers:
- *     CmpFindKcbInHashEntryByName @ 0x1405D639C (CmpFindKcbInHashEntryByName.c)
- *     CmpGetSymbolicLinkTarget @ 0x1405D7CC0 (CmpGetSymbolicLinkTarget.c)
- *     CmpCheckValueList @ 0x1405D9450 (CmpCheckValueList.c)
- *     CmpPerformCompleteKcbCacheLookup @ 0x1405E5320 (CmpPerformCompleteKcbCacheLookup.c)
- *     CmpGetMappingHiveForString @ 0x1407F3374 (CmpGetMappingHiveForString.c)
- *     CmpCompareKeysByName @ 0x1407F96E4 (CmpCompareKeysByName.c)
+ *     CmpFindKcbInHashEntryByName @ 0x1405D739C (CmpFindKcbInHashEntryByName.c)
+ *     CmpGetSymbolicLinkTarget @ 0x1405D8CC0 (CmpGetSymbolicLinkTarget.c)
+ *     CmpCheckValueList @ 0x1405DA450 (CmpCheckValueList.c)
+ *     CmpPerformCompleteKcbCacheLookup @ 0x1405E6320 (CmpPerformCompleteKcbCacheLookup.c)
+ *     CmpGetMappingHiveForString @ 0x1407F4574 (CmpGetMappingHiveForString.c)
+ *     CmpCompareKeysByName @ 0x1407FA8E4 (CmpCompareKeysByName.c)
  * Callees:
- *     RtlUpcaseUnicodeChar @ 0x1405D5C10 (RtlUpcaseUnicodeChar.c)
+ *     RtlUpcaseUnicodeChar @ 0x1405D6C10 (RtlUpcaseUnicodeChar.c)
  */
 
 __int64 __fastcall CmpCompareUnicodeString(__int64 a1, __int64 a2, char a3)

@@ -1,16 +1,16 @@
 /*
  * XREFs of HalpInitSystemHelper @ 0x140A8BAF8
  * Callers:
- *     HalInitializeProcessor @ 0x140381030 (HalInitializeProcessor.c)
- *     HalpInitializeLateSystemActions @ 0x1403B6A68 (HalpInitializeLateSystemActions.c)
- *     HalpDispatchPnp @ 0x140828220 (HalpDispatchPnp.c)
+ *     HalInitializeProcessor @ 0x1403811D0 (HalInitializeProcessor.c)
+ *     HalpInitializeLateSystemActions @ 0x1403B6C48 (HalpInitializeLateSystemActions.c)
+ *     HalpDispatchPnp @ 0x140828520 (HalpDispatchPnp.c)
  *     HalpInitSystemPhase1 @ 0x140A8BABC (HalpInitSystemPhase1.c)
  *     HalReportResourceUsage @ 0x140B50B50 (HalReportResourceUsage.c)
  *     HalAllProcessorsStarted @ 0x140B75DC0 (HalAllProcessorsStarted.c)
  *     HalpInitSystemPhase0 @ 0x140B75E84 (HalpInitSystemPhase0.c)
  * Callees:
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall HalpInitSystemHelper(unsigned int a1, int a2, __int64 a3)

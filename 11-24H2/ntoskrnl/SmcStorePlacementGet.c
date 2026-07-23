@@ -1,11 +1,11 @@
 /*
- * XREFs of SmcStorePlacementGet @ 0x14079DC30
+ * XREFs of SmcStorePlacementGet @ 0x14079DD40
  * Callers:
- *     SmcStoreResize @ 0x14079DD30 (SmcStoreResize.c)
- *     SmcStoreSlotReserve @ 0x14079E1A8 (SmcStoreSlotReserve.c)
+ *     SmcStoreResize @ 0x14079DE40 (SmcStoreResize.c)
+ *     SmcStoreSlotReserve @ 0x14079E2B8 (SmcStoreSlotReserve.c)
  * Callees:
- *     RtlClearBits @ 0x14037CD40 (RtlClearBits.c)
- *     RtlFindSetBits @ 0x1403F3D00 (RtlFindSetBits.c)
+ *     RtlClearBits @ 0x1402EA360 (RtlClearBits.c)
+ *     RtlFindSetBits @ 0x1403E6CF0 (RtlFindSetBits.c)
  */
 
 __int64 __fastcall SmcStorePlacementGet(__int64 a1, ULONG a2, __int64 a3)
@@ -22,7 +22,7 @@ __int64 __fastcall SmcStorePlacementGet(__int64 a1, ULONG a2, __int64 a3)
   signed int v14; // ebx
   int v15; // esi
   signed int v16; // eax
-  RTL_BITMAP BitMapHeader; // [rsp+20h] [rbp-18h] BYREF
+  _RTL_BITMAP BitMapHeader; // [rsp+20h] [rbp-18h] BYREF
 
   v3 = 0;
   BitMapHeader.SizeOfBitMap = *(_DWORD *)(a1 + 8);

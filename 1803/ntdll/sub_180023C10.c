@@ -12,13 +12,13 @@
  *     sub_1801022B8 @ 0x1801022B8 (sub_1801022B8.c)
  */
 
-unsigned __int64 __fastcall sub_180023C10(__int64 a1, unsigned __int64 a2, char a3, int a4, _BYTE *a5)
+__int64 __fastcall sub_180023C10(__int64 a1, __int64 a2, char a3, int a4, _BYTE *a5)
 {
-  unsigned __int64 v9; // rdi
+  __int64 v9; // rdi
   __int64 v10; // rdx
   __int64 v11; // r14
-  unsigned __int64 v12; // rcx
-  unsigned __int64 v13; // rbp
+  __int64 v12; // rcx
+  __int64 v13; // rbp
   _QWORD *v14; // r8
   unsigned __int64 v15; // rdx
   unsigned __int64 v16; // rdi
@@ -35,7 +35,7 @@ unsigned __int64 __fastcall sub_180023C10(__int64 a1, unsigned __int64 a2, char 
   while ( 1 )
   {
     v9 = 0LL;
-    v10 = (__int64)(a2 - (a2 & *(_QWORD *)a1)) >> 5;
+    v10 = (a2 - (a2 & *(_QWORD *)a1)) >> 5;
     v11 = (unsigned __int16)~(*(_DWORD *)(a2 + 28) >> 8);
     if ( (unsigned int)v10 + (unsigned __int8)HIBYTE(*(_DWORD *)(a2 + 28)) < 0x100 )
     {
@@ -107,7 +107,7 @@ unsigned __int64 __fastcall sub_180023C10(__int64 a1, unsigned __int64 a2, char 
           goto LABEL_27;
         if ( !_InterlockedCompareExchange(&dword_18015D2B0, 1, 0) )
         {
-          TpSetTimerEx(qword_18015D008, &qword_18015AAA8, 0LL, 5000LL);
+          TpSetTimerEx(Timer, &DueTime, 0, 0x1388u);
           if ( (byte_18015D028 & 8) != 0 )
             sub_1801022B8();
         }
@@ -117,10 +117,10 @@ unsigned __int64 __fastcall sub_180023C10(__int64 a1, unsigned __int64 a2, char 
     }
 LABEL_27:
     if ( (a3 & 1) == 0 )
-      RtlReleaseSRWLockExclusive(a1 + 24);
+      RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(a1 + 24));
     sub_1800623C8(a1, a2, 0LL, *(unsigned __int8 *)(a2 + 31) << *(_BYTE *)(a1 + 9));
     if ( (a3 & 1) == 0 )
-      RtlAcquireSRWLockExclusive(a1 + 24);
+      RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)(a1 + 24));
     v21 = *(_BYTE *)(a2 + 24) & 0xEF;
     *a5 = -1;
     *(_BYTE *)(a2 + 24) = v21;

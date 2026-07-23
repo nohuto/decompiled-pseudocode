@@ -2,16 +2,16 @@
  * XREFs of HvpViewMapCreateView @ 0x140689F1C
  * Callers:
  *     HvpViewMapCreateViewsForRegion @ 0x140689C78 (HvpViewMapCreateViewsForRegion.c)
- *     HvpViewMapPromoteRangeToMapping @ 0x14074FA70 (HvpViewMapPromoteRangeToMapping.c)
+ *     HvpViewMapPromoteRangeToMapping @ 0x14074FC60 (HvpViewMapPromoteRangeToMapping.c)
  * Callees:
  *     CmSiMapViewOfSection @ 0x140207E98 (CmSiMapViewOfSection.c)
  *     CmSiAllocateMemory @ 0x1402089E0 (CmSiAllocateMemory.c)
  *     CmSiFreeMemory @ 0x140208C40 (CmSiFreeMemory.c)
  *     CmSiUnmapViewOfSection @ 0x140208C80 (CmSiUnmapViewOfSection.c)
- *     CmSiProtectViewOfSection @ 0x140296CA8 (CmSiProtectViewOfSection.c)
- *     CmSiReleaseProcessLockedPagesCharge @ 0x1402E9BBC (CmSiReleaseProcessLockedPagesCharge.c)
- *     HvcallpNoHypervisorPresent @ 0x14036E650 (HvcallpNoHypervisorPresent.c)
- *     memset @ 0x140435A00 (memset.c)
+ *     CmSiProtectViewOfSection @ 0x140296F38 (CmSiProtectViewOfSection.c)
+ *     CmSiReleaseProcessLockedPagesCharge @ 0x1402E9E4C (CmSiReleaseProcessLockedPagesCharge.c)
+ *     HvcallpNoHypervisorPresent @ 0x14036E7F0 (HvcallpNoHypervisorPresent.c)
+ *     memset @ 0x140435E00 (memset.c)
  */
 
 __int64 __fastcall HvpViewMapCreateView(__int64 a1, LARGE_INTEGER a2, __int64 a3, _QWORD *a4)
@@ -20,15 +20,15 @@ __int64 __fastcall HvpViewMapCreateView(__int64 a1, LARGE_INTEGER a2, __int64 a3
   void *Memory; // rax
   void *v10; // rbx
   ULONG_PTR v11; // rbp
-  __int64 v12; // rcx
-  int v13; // edi
+  ULONG_PTR v12; // rcx
+  NTSTATUS v13; // edi
   void *v15; // r8
   __int64 v16; // rax
   __int64 v17; // rcx
   int v18; // [rsp+28h] [rbp-40h]
-  int v19; // [rsp+78h] [rbp+10h] BYREF
+  __int64 v19; // [rsp+78h] [rbp+10h] BYREF
 
-  v19 = 0;
+  LODWORD(v19) = 0;
   v6 = (unsigned __int64)(unsigned int)(a3 - a2.LowPart) >> 12;
   Memory = (void *)CmSiAllocateMemory(v6 + 72, 0x35384D43u);
   v10 = Memory;
@@ -47,8 +47,7 @@ __int64 __fastcall HvpViewMapCreateView(__int64 a1, LARGE_INTEGER a2, __int64 a3
             v18,
             (PVOID *)v10 + 7);
     if ( v13 < 0
-      || (v13 = CmSiProtectViewOfSection(v12, *(__int64 **)(a1 + 24), *((_QWORD *)v10 + 7), v11, 1u, (__int64)&v19),
-          v13 < 0) )
+      || (v13 = CmSiProtectViewOfSection(v12, *(void ***)(a1 + 24), *((void **)v10 + 7), v11, 1u, (ULONG *)&v19), v13 < 0) )
     {
       v15 = (void *)*((_QWORD *)v10 + 7);
       if ( v15 )

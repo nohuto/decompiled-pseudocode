@@ -1,14 +1,14 @@
 /*
  * XREFs of IopAllocateIrpWithExtension @ 0x14000EB44
  * Callers:
- *     IoAllocateIrp @ 0x14008E4E0 (IoAllocateIrp.c)
- *     IoAllocateIrpEx @ 0x1400B9270 (IoAllocateIrpEx.c)
- *     IopAllocateIrpExReturn @ 0x1400B92E0 (IopAllocateIrpExReturn.c)
- *     IopMountVolume @ 0x1405A2E64 (IopMountVolume.c)
- *     IopInitializeReserveIrps @ 0x1409DA110 (IopInitializeReserveIrps.c)
+ *     IoAllocateIrp @ 0x14008E400 (IoAllocateIrp.c)
+ *     IoAllocateIrpEx @ 0x1400B91B0 (IoAllocateIrpEx.c)
+ *     IopAllocateIrpExReturn @ 0x1400B9220 (IopAllocateIrpExReturn.c)
+ *     IopMountVolume @ 0x1405A3E64 (IopMountVolume.c)
+ *     IopInitializeReserveIrps @ 0x1409DB110 (IopInitializeReserveIrps.c)
  * Callees:
- *     IopAllocateIrpPrivate @ 0x1400B9310 (IopAllocateIrpPrivate.c)
- *     IopInitActivityIdIrp @ 0x14027EFE4 (IopInitActivityIdIrp.c)
+ *     IopAllocateIrpPrivate @ 0x1400B9250 (IopAllocateIrpPrivate.c)
+ *     IopInitActivityIdIrp @ 0x14027F1D4 (IopInitActivityIdIrp.c)
  */
 
 __int64 __fastcall IopAllocateIrpWithExtension(__int64 a1, __int64 a2)

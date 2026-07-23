@@ -1,10 +1,10 @@
 /*
- * XREFs of KeUpdateTebSchedulingPropertiesCurrentThread @ 0x1402057C8
+ * XREFs of KeUpdateTebSchedulingPropertiesCurrentThread @ 0x14032CDA8
  * Callers:
- *     PspUserThreadStartup @ 0x1408FEA00 (PspUserThreadStartup.c)
+ *     PspUserThreadStartup @ 0x1409212E0 (PspUserThreadStartup.c)
  * Callees:
- *     KiUpdateTebSchedulingPropertiesCurrentThread @ 0x140205818 (KiUpdateTebSchedulingPropertiesCurrentThread.c)
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     KiUpdateTebSchedulingPropertiesCurrentThread @ 0x14032CDF8 (KiUpdateTebSchedulingPropertiesCurrentThread.c)
  */
 
 void KeUpdateTebSchedulingPropertiesCurrentThread()

@@ -1,10 +1,10 @@
 /*
- * XREFs of IoInitializeTimer @ 0x14057F6F0
+ * XREFs of IoInitializeTimer @ 0x14057FB9C
  * Callers:
  *     <none>
  * Callees:
- *     ExInterlockedInsertTailList @ 0x14008C0E0 (ExInterlockedInsertTailList.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     ExInterlockedInsertTailList @ 0x14008B840 (ExInterlockedInsertTailList.c)
+ *     memset @ 0x140171AC0 (memset.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
  */
 

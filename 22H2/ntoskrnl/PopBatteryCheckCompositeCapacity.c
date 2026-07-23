@@ -58,7 +58,7 @@ void __fastcall PopBatteryCheckCompositeCapacity(_DWORD *a1, int a2, _DWORD *a3)
   __int64 v49; // r9
   unsigned int v50; // eax
   unsigned __int64 v51; // rax
-  int v52; // [rsp+40h] [rbp-C0h] BYREF
+  int Buffer; // [rsp+40h] [rbp-C0h] BYREF
   int v53; // [rsp+44h] [rbp-BCh] BYREF
   int v54; // [rsp+48h] [rbp-B8h] BYREF
   unsigned int v55; // [rsp+4Ch] [rbp-B4h] BYREF
@@ -93,7 +93,7 @@ void __fastcall PopBatteryCheckCompositeCapacity(_DWORD *a1, int a2, _DWORD *a3)
   __int64 v84; // [rsp+168h] [rbp+68h]
   int *v85; // [rsp+170h] [rbp+70h]
   __int64 v86; // [rsp+178h] [rbp+78h]
-  int *v87; // [rsp+180h] [rbp+80h]
+  int *p_Buffer; // [rsp+180h] [rbp+80h]
   __int64 v88; // [rsp+188h] [rbp+88h]
   __int64 *v89; // [rsp+190h] [rbp+90h]
   __int64 v90; // [rsp+198h] [rbp+98h]
@@ -172,8 +172,8 @@ LABEL_5:
   if ( byte_140C23DBC != v6 )
   {
     byte_140C23DBC = v6;
-    v52 = v6;
-    ZwUpdateWnfStateData((__int64)&WNF_PO_WEAK_CHARGER, (__int64)&v52);
+    Buffer = v6;
+    ZwUpdateWnfStateData(&WNF_PO_WEAK_CHARGER, &Buffer, 4u, 0LL, 0LL, 0, 0);
     if ( (unsigned int)dword_140C02228 > 5 )
     {
       if ( tlgKeywordOn((__int64)&dword_140C02228, 0x400000000000LL) )
@@ -236,7 +236,7 @@ LABEL_5:
         v83 = &v59;
         v60 = a1[3];
         v85 = &v60;
-        v87 = &v61;
+        p_Buffer = &v61;
         v89 = &v62;
         v80 = 4LL;
         v82 = 4LL;
@@ -260,7 +260,7 @@ LABEL_5:
   {
     byte_140C23DA8 = v7;
     v61 = (unsigned __int8)v7;
-    ZwUpdateWnfStateData((__int64)&WNF_PO_BATTERY_DISCHARGING, (__int64)&v61);
+    ZwUpdateWnfStateData(&WNF_PO_BATTERY_DISCHARGING, &v61, 4u, 0LL, 0LL, 0, 0);
     if ( (unsigned int)dword_140C02228 > 5 )
     {
       if ( tlgKeywordOn((__int64)&dword_140C02228, 0x400000000000LL) )
@@ -318,12 +318,12 @@ LABEL_5:
         v83 = &v54;
         v53 = a1[3];
         v85 = &v53;
-        v87 = &v52;
+        p_Buffer = &Buffer;
         v80 = v48;
         v82 = v48;
         v84 = v48;
         v86 = v48;
-        v52 = v47;
+        Buffer = v47;
         v88 = v48;
         tlgWriteTransfer_EtwWriteTransfer(
           (__int64)&dword_140C02228,

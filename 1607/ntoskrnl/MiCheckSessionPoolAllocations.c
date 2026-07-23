@@ -1,9 +1,9 @@
 /*
- * XREFs of MiCheckSessionPoolAllocations @ 0x140531DC8
+ * XREFs of MiCheckSessionPoolAllocations @ 0x140532308
  * Callers:
- *     MiDereferenceSessionFinal @ 0x140531AD0 (MiDereferenceSessionFinal.c)
+ *     MiDereferenceSessionFinal @ 0x140532010 (MiDereferenceSessionFinal.c)
  * Callees:
- *     MiFreePoolPages @ 0x140018558 (MiFreePoolPages.c)
+ *     MiFreePoolPages @ 0x1400180D8 (MiFreePoolPages.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  */
 
@@ -22,7 +22,7 @@ __int64 MiCheckSessionPoolAllocations()
   unsigned __int64 *v12; // [rsp+30h] [rbp-18h]
   __int64 v13; // [rsp+38h] [rbp-10h]
 
-  v10 = qword_140326918 + 0x2000;
+  v10 = qword_140326958 + 0x2000;
   v0 = 204LL;
   if ( _BitScanReverse64((unsigned __int64 *)&v2, 0xCCuLL) )
     v0 = 1LL << v2;

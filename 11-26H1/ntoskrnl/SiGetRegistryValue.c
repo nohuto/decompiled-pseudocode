@@ -1,17 +1,17 @@
 /*
- * XREFs of SiGetRegistryValue @ 0x140AC0240
+ * XREFs of SiGetRegistryValue @ 0x140AC22E0
  * Callers:
- *     SiDisambiguateSystemDevice @ 0x140894E70 (SiDisambiguateSystemDevice.c)
- *     SiIsWinPEBoot @ 0x140AC0140 (SiIsWinPEBoot.c)
- *     SiGetBootDeviceNameFromRegistry @ 0x140AC01BC (SiGetBootDeviceNameFromRegistry.c)
+ *     SiDisambiguateSystemDevice @ 0x14089B270 (SiDisambiguateSystemDevice.c)
+ *     SiIsWinPEBoot @ 0x140AC21E0 (SiIsWinPEBoot.c)
+ *     SiGetBootDeviceNameFromRegistry @ 0x140AC225C (SiGetBootDeviceNameFromRegistry.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     ZwQueryValueKey @ 0x1407236D0 (ZwQueryValueKey.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     SiOpenRegistryKey @ 0x140AC03BC (SiOpenRegistryKey.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     ZwQueryValueKey @ 0x1407282A0 (ZwQueryValueKey.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     SiOpenRegistryKey @ 0x140AC245C (SiOpenRegistryKey.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall SiGetRegistryValue(__int64 a1, const WCHAR *a2, __int64 a3, __int64 a4, _QWORD *a5, ULONG *a6)

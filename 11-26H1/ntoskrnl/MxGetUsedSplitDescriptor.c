@@ -1,9 +1,9 @@
 /*
- * XREFs of MxGetUsedSplitDescriptor @ 0x140CF703C
+ * XREFs of MxGetUsedSplitDescriptor @ 0x140CFD3BC
  * Callers:
- *     MxInsertUsedRegionsInLoaderTree @ 0x140CF7908 (MxInsertUsedRegionsInLoaderTree.c)
+ *     MxInsertUsedRegionsInLoaderTree @ 0x140CFDC88 (MxInsertUsedRegionsInLoaderTree.c)
  * Callees:
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
  */
 
 _OWORD *__fastcall MxGetUsedSplitDescriptor(__int64 a1, _OWORD *a2)

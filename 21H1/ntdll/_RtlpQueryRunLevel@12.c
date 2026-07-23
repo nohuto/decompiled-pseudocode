@@ -17,20 +17,23 @@ int __fastcall RtlpQueryRunLevel(int a1, int a2, _DWORD *a3)
   bool v9; // zf
   _BYTE *v10; // eax
   int v11; // eax
-  int v13; // [esp+Ch] [ebp-44h] BYREF
-  int v14; // [esp+10h] [ebp-40h] BYREF
-  int v15; // [esp+14h] [ebp-3Ch] BYREF
-  int v16; // [esp+18h] [ebp-38h] BYREF
-  int v17; // [esp+1Ch] [ebp-34h] BYREF
-  _BYTE v18[48]; // [esp+20h] [ebp-30h] BYREF
+  size_t v13; // [esp-18h] [ebp-68h]
+  int v14; // [esp+Ch] [ebp-44h] BYREF
+  int v15; // [esp+10h] [ebp-40h] BYREF
+  int v16; // [esp+14h] [ebp-3Ch] BYREF
+  int v17; // [esp+18h] [ebp-38h] BYREF
+  int v18; // [esp+1Ch] [ebp-34h] BYREF
+  _BYTE v19[48]; // [esp+20h] [ebp-30h] BYREF
 
-  v13 = -1073741595;
+  v14 = -1073741595;
   v3 = 1;
+  HIDWORD(v13) = a2;
+  LODWORD(v13) = 48;
   v5 = 0;
-  v14 = 0;
-  RtlpLocateActivationContextSectionForQuery(&v14, &v13, v18, 0x30u, &v17, 0x30u, a2, a1, 1, (int)&v16, (int)&v15);
-  if ( v14 != 1 )
-    return v13;
+  v15 = 0;
+  RtlpLocateActivationContextSectionForQuery(&v15, &v14, v19, 0x30u, &v18, v13, a1, 1, (int)&v17, (int)&v16);
+  if ( v15 != 1 )
+    return v14;
   v6 = *(_DWORD *)(a2 + 24);
   v7 = *(_DWORD *)(v6 + a2 + 8);
   v8 = a2 + *(_DWORD *)(v6 + a2 + 12);
@@ -53,9 +56,8 @@ int __fastcall RtlpQueryRunLevel(int a1, int a2, _DWORD *a3)
     DbgPrintEx(
       51,
       0,
-      "SXS: %s() found activation context data at %p with assembly roster that has no root\n",
-      "RtlpQueryRunLevel",
-      a2);
+      (int)"SXS: %s() found activation context data at %p with assembly roster that has no root\n",
+      (int)"RtlpQueryRunLevel");
   }
   else
   {
@@ -67,7 +69,11 @@ int __fastcall RtlpQueryRunLevel(int a1, int a2, _DWORD *a3)
       a3[2] = *(_DWORD *)(v11 + a2 + 104);
       return v5;
     }
-    DbgPrintEx(51, 0, "SXS: %s() found activation context data at %p with wrong format\n", "RtlpQueryRunLevel", a2);
+    DbgPrintEx(
+      51,
+      0,
+      (int)"SXS: %s() found activation context data at %p with wrong format\n",
+      (int)"RtlpQueryRunLevel");
   }
   return -1072365565;
 }

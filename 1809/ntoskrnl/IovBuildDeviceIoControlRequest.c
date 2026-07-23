@@ -1,11 +1,11 @@
 /*
- * XREFs of IovBuildDeviceIoControlRequest @ 0x140923B80
+ * XREFs of IovBuildDeviceIoControlRequest @ 0x140924B80
  * Callers:
  *     <none>
  * Callees:
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     VfSetIoBuildRequest @ 0x1409306F0 (VfSetIoBuildRequest.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     VfSetIoBuildRequest @ 0x1409316F0 (VfSetIoBuildRequest.c)
  */
 
 __int64 __fastcall IovBuildDeviceIoControlRequest(unsigned int a1)

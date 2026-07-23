@@ -3,10 +3,10 @@
  * Callers:
  *     <none>
  * Callees:
- *     KxAcquireSpinLock @ 0x140211E00 (KxAcquireSpinLock.c)
- *     KxReleaseSpinLock @ 0x14021D070 (KxReleaseSpinLock.c)
- *     KiCheckForDuplicateBugCheckCallback @ 0x14024AFA0 (KiCheckForDuplicateBugCheckCallback.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     KeAcquireSpinLockAtDpcLevel @ 0x140211E00 (KeAcquireSpinLockAtDpcLevel.c)
+ *     KeReleaseSpinLockFromDpcLevel @ 0x14021D070 (KeReleaseSpinLockFromDpcLevel.c)
+ *     sub_14024AFA0 @ 0x14024AFA0 (sub_14024AFA0.c)
+ *     sub_140418E4C @ 0x140418E4C (sub_140418E4C.c)
  */
 
 BOOLEAN __stdcall KeRegisterBugCheckCallback(
@@ -21,24 +21,24 @@ BOOLEAN __stdcall KeRegisterBugCheckCallback(
   BOOLEAN v10; // si
   struct _LIST_ENTRY *v11; // r8
   __int64 v12; // rax
-  _DWORD *SchedulerAssist; // r9
+  __int64 v14; // r9
   unsigned __int8 v15; // al
   struct _KPRCB *CurrentPrcb; // r10
-  _DWORD *v17; // r9
+  __int64 v17; // r9
   int v18; // edx
   bool v19; // zf
 
   v5 = Length;
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(0xFuLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( dword_140D06B08 && (dword_140D06B08 & 1) != 0 && CurrentIrql <= 0xFu )
   {
-    SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
-    SchedulerAssist[5] |= (-1 << (CurrentIrql + 1)) & 0xFFFC;
+    v14 = *((_QWORD *)KeGetCurrentPrcb() + 4375);
+    *(_DWORD *)(v14 + 20) |= (-1 << (CurrentIrql + 1)) & 0xFFFC;
   }
-  KxAcquireSpinLock(&KeBugCheckCallbackLock);
+  KeAcquireSpinLockAtDpcLevel(&qword_140C2BD10);
   v10 = 0;
-  if ( !CallbackRecord->State && !KiCheckForDuplicateBugCheckCallback(&KeBugCheckCallbackListHead, CallbackRecord) )
+  if ( !CallbackRecord->State && !sub_14024AFA0(&qword_140C2BD20, CallbackRecord) )
   {
     CallbackRecord->CallbackRoutine = CallbackRoutine;
     CallbackRecord->Buffer = Buffer;
@@ -46,30 +46,30 @@ BOOLEAN __stdcall KeRegisterBugCheckCallback(
     CallbackRecord->Length = v5;
     CallbackRecord->Component = Component;
     CallbackRecord->State = 1;
-    v12 = KeBugCheckCallbackListHead;
-    if ( *(struct _LIST_ENTRY **)(KeBugCheckCallbackListHead + 8) != v11 )
+    v12 = qword_140C2BD20;
+    if ( *(struct _LIST_ENTRY **)(qword_140C2BD20 + 8) != v11 )
       __fastfail(3u);
-    CallbackRecord->Entry.Flink = (struct _LIST_ENTRY *)KeBugCheckCallbackListHead;
+    CallbackRecord->Entry.Flink = (struct _LIST_ENTRY *)qword_140C2BD20;
     v10 = 1;
     CallbackRecord->Entry.Blink = v11;
     *(_QWORD *)(v12 + 8) = CallbackRecord;
-    KeBugCheckCallbackListHead = (__int64)CallbackRecord;
+    qword_140C2BD20 = (__int64)CallbackRecord;
   }
-  KxReleaseSpinLock(&KeBugCheckCallbackLock);
-  if ( KiIrqlFlags )
+  KeReleaseSpinLockFromDpcLevel(&qword_140C2BD10);
+  if ( dword_140D06B08 )
   {
-    if ( (KiIrqlFlags & 1) != 0 )
+    if ( (dword_140D06B08 & 1) != 0 )
     {
       v15 = KeGetCurrentIrql();
       if ( v15 <= 0xFu && CurrentIrql <= 0xFu && v15 >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
-        v17 = CurrentPrcb->SchedulerAssist;
+        v17 = *((_QWORD *)CurrentPrcb + 4375);
         v18 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
-        v19 = (v18 & v17[5]) == 0;
-        v17[5] &= v18;
+        v19 = (v18 & *(_DWORD *)(v17 + 20)) == 0;
+        *(_DWORD *)(v17 + 20) &= v18;
         if ( v19 )
-          KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+          sub_140418E4C(CurrentPrcb);
       }
     }
   }

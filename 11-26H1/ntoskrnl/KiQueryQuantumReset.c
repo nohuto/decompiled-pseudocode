@@ -1,15 +1,15 @@
 /*
- * XREFs of KiQueryQuantumReset @ 0x140239A30
+ * XREFs of KiQueryQuantumReset @ 0x14023B390
  * Callers:
  *     KeSetPriorityAndQuantumProcess @ 0x140202264 (KeSetPriorityAndQuantumProcess.c)
- *     KeSetPriorityThread @ 0x140204540 (KeSetPriorityThread.c)
- *     KiQueueReadyThread @ 0x140223650 (KiQueueReadyThread.c)
- *     KeYieldExecution @ 0x1402387B0 (KeYieldExecution.c)
- *     KeSetActualBasePriorityThread @ 0x140239560 (KeSetActualBasePriorityThread.c)
- *     KiQuantumEnd @ 0x140331070 (KiQuantumEnd.c)
- *     KeRemovePriQueue @ 0x1403F5D50 (KeRemovePriQueue.c)
- *     KeSetBasePriorityThread @ 0x140528B30 (KeSetBasePriorityThread.c)
- *     KeBoostPriorityThread @ 0x14052C560 (KeBoostPriorityThread.c)
+ *     KeSetPriorityThread @ 0x140204620 (KeSetPriorityThread.c)
+ *     KiQueueReadyThread @ 0x140224FE0 (KiQueueReadyThread.c)
+ *     KeYieldExecution @ 0x14023A110 (KeYieldExecution.c)
+ *     KeSetActualBasePriorityThread @ 0x14023AEC0 (KeSetActualBasePriorityThread.c)
+ *     KiQuantumEnd @ 0x1403330A0 (KiQuantumEnd.c)
+ *     KeRemovePriQueue @ 0x1403EF700 (KeRemovePriQueue.c)
+ *     KeSetBasePriorityThread @ 0x14052B1A0 (KeSetBasePriorityThread.c)
+ *     KeBoostPriorityThread @ 0x14052EA80 (KeBoostPriorityThread.c)
  * Callees:
  *     <none>
  */

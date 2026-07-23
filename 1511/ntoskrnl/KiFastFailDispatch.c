@@ -61,7 +61,7 @@ __int64 __fastcall KiFastFailDispatch(int a1, unsigned int a2, void *a3, unsigne
   __int64 v49; // [rsp+118h] [rbp-C0h]
   __int64 v50; // [rsp+120h] [rbp-B8h]
   __int64 v51; // [rsp+128h] [rbp-B0h]
-  struct _EXCEPTION_RECORD ExceptionRecord; // [rsp+138h] [rbp-A0h] BYREF
+  EXCEPTION_RECORD ExceptionRecord; // [rsp+138h] [rbp-A0h] BYREF
 
   v30 = v14;
   v31 = v15;

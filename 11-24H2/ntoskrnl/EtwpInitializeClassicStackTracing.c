@@ -1,11 +1,11 @@
 /*
- * XREFs of EtwpInitializeClassicStackTracing @ 0x14083030C
+ * XREFs of EtwpInitializeClassicStackTracing @ 0x1409CF6F0
  * Callers:
- *     EtwpUpdateStackTracing @ 0x1408310EC (EtwpUpdateStackTracing.c)
+ *     EtwpUpdateStackTracing @ 0x1409D1388 (EtwpUpdateStackTracing.c)
  * Callees:
- *     EtwpPreallocateApcPool @ 0x1408303A0 (EtwpPreallocateApcPool.c)
- *     EtwpReferenceStackLookasideList @ 0x140A67A98 (EtwpReferenceStackLookasideList.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     EtwpPreallocateApcPool @ 0x1409CF784 (EtwpPreallocateApcPool.c)
+ *     EtwpReferenceStackLookasideList @ 0x140A60F90 (EtwpReferenceStackLookasideList.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall EtwpInitializeClassicStackTracing(__int64 a1)
@@ -15,7 +15,7 @@ __int64 __fastcall EtwpInitializeClassicStackTracing(__int64 a1)
 
   v2 = 0;
   EtwpPreallocateApcPool(a1 + 832);
-  Pool2 = ExAllocatePool2(0x40uLL);
+  Pool2 = ExAllocatePool2(0x40uLL, 0x400uLL, 0x6D777445u);
   if ( Pool2 )
   {
     *(_QWORD *)(a1 + 1048) = Pool2;

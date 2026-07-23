@@ -1,14 +1,14 @@
 /*
- * XREFs of EmpParseTargetRuleStringIndexList @ 0x140A46D1C
+ * XREFs of EmpParseTargetRuleStringIndexList @ 0x140A47D1C
  * Callers:
- *     EmpParseTargetRules @ 0x140A46ADC (EmpParseTargetRules.c)
+ *     EmpParseTargetRules @ 0x140A47ADC (EmpParseTargetRules.c)
  * Callees:
- *     RtlStringCbCopyNA @ 0x1403B4464 (RtlStringCbCopyNA.c)
- *     strchr @ 0x1403D36F0 (strchr.c)
- *     RtlCharToInteger @ 0x14079D2B0 (RtlCharToInteger.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
- *     EmpInfParseGetStringIndexFromName @ 0x140A46F60 (EmpInfParseGetStringIndexFromName.c)
+ *     RtlStringCbCopyNA @ 0x1403B45D4 (RtlStringCbCopyNA.c)
+ *     strchr @ 0x1403D3860 (strchr.c)
+ *     RtlCharToInteger @ 0x14079D4B0 (RtlCharToInteger.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
+ *     EmpInfParseGetStringIndexFromName @ 0x140A47F60 (EmpInfParseGetStringIndexFromName.c)
  */
 
 bool __fastcall EmpParseTargetRuleStringIndexList(

@@ -1,11 +1,11 @@
 /*
- * XREFs of PiDmaGuardQueueInsertEntry @ 0x140971FBC
+ * XREFs of PiDmaGuardQueueInsertEntry @ 0x1409721BC
  * Callers:
- *     PiDmaGuardProcessPostRemove @ 0x140869D84 (PiDmaGuardProcessPostRemove.c)
- *     PipDmgEnforceEnumerationPolicy @ 0x14096B274 (PipDmgEnforceEnumerationPolicy.c)
+ *     PiDmaGuardProcessPostRemove @ 0x140869FC4 (PiDmaGuardProcessPostRemove.c)
+ *     PipDmgEnforceEnumerationPolicy @ 0x14096B474 (PipDmgEnforceEnumerationPolicy.c)
  * Callees:
- *     ObfReferenceObjectWithTag @ 0x1402B68C0 (ObfReferenceObjectWithTag.c)
- *     PipDgqInsertEntry @ 0x140972070 (PipDgqInsertEntry.c)
+ *     ObfReferenceObjectWithTag @ 0x1402B6B50 (ObfReferenceObjectWithTag.c)
+ *     PipDgqInsertEntry @ 0x140972270 (PipDgqInsertEntry.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
 

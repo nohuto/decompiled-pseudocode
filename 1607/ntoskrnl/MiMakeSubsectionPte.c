@@ -1,12 +1,12 @@
 /*
- * XREFs of MiMakeSubsectionPte @ 0x1401F277C
+ * XREFs of MiMakeSubsectionPte @ 0x1401F25A8
  * Callers:
- *     MiPurgeImageSection @ 0x1401EA8A8 (MiPurgeImageSection.c)
- *     MiInitializeFileOnlyPfn @ 0x1401ED8E4 (MiInitializeFileOnlyPfn.c)
- *     MiInitializePrototypePtes @ 0x1404B8A74 (MiInitializePrototypePtes.c)
- *     MiBuildImageControlArea @ 0x140523584 (MiBuildImageControlArea.c)
- *     MiParseImageSectionHeaders @ 0x140523B00 (MiParseImageSectionHeaders.c)
- *     MiAllocatePerSessionProtos @ 0x140661818 (MiAllocatePerSessionProtos.c)
+ *     MiPurgeImageSection @ 0x1401EA6D4 (MiPurgeImageSection.c)
+ *     MiInitializeFileOnlyPfn @ 0x1401ED710 (MiInitializeFileOnlyPfn.c)
+ *     MiInitializePrototypePtes @ 0x1404A2E54 (MiInitializePrototypePtes.c)
+ *     MiBuildImageControlArea @ 0x1405065E4 (MiBuildImageControlArea.c)
+ *     MiParseImageSectionHeaders @ 0x140506B60 (MiParseImageSectionHeaders.c)
+ *     MiAllocatePerSessionProtos @ 0x1406618FC (MiAllocatePerSessionProtos.c)
  * Callees:
  *     <none>
  */

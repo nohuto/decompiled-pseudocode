@@ -1,9 +1,9 @@
 /*
- * XREFs of EtwpTraceFltTimedIo @ 0x1406C5AC0
+ * XREFs of EtwpTraceFltTimedIo @ 0x1406C9700
  * Callers:
  *     <none>
  * Callees:
- *     EtwTraceTimedEvent @ 0x14032B770 (EtwTraceTimedEvent.c)
+ *     EtwTraceTimedEvent @ 0x14032D7A0 (EtwTraceTimedEvent.c)
  */
 
 __int64 __fastcall EtwpTraceFltTimedIo(__int64 a1, int a2, unsigned int a3, __int16 a4, __int64 a5)

@@ -1,21 +1,21 @@
 /*
- * XREFs of IoRemoveIoCompletion @ 0x14006A0E0
+ * XREFs of IoRemoveIoCompletion @ 0x140069C60
  * Callers:
- *     NtWaitForWorkViaWorkerFactory @ 0x14005E910 (NtWaitForWorkViaWorkerFactory.c)
- *     NtRemoveIoCompletion @ 0x140450BA0 (NtRemoveIoCompletion.c)
- *     NtRemoveIoCompletionEx @ 0x1404D3D44 (NtRemoveIoCompletionEx.c)
+ *     NtWaitForWorkViaWorkerFactory @ 0x14005E490 (NtWaitForWorkViaWorkerFactory.c)
+ *     NtRemoveIoCompletion @ 0x14044FA70 (NtRemoveIoCompletion.c)
+ *     NtRemoveIoCompletionEx @ 0x1404B77E4 (NtRemoveIoCompletionEx.c)
  * Callees:
- *     IopCompleteRequest @ 0x140054840 (IopCompleteRequest.c)
- *     KeRemoveQueueEx @ 0x14006A3B0 (KeRemoveQueueEx.c)
- *     IopInterlockedAdd @ 0x1400AC22C (IopInterlockedAdd.c)
- *     KiStackAttachProcess @ 0x1400CD1F0 (KiStackAttachProcess.c)
- *     KiUnstackDetachProcess @ 0x1400CE820 (KiUnstackDetachProcess.c)
- *     ExAcquireRundownProtection @ 0x1400D3ED0 (ExAcquireRundownProtection.c)
- *     ExReleaseRundownProtection @ 0x1400D3F00 (ExReleaseRundownProtection.c)
- *     IopFreeWaitCompletionPacket @ 0x1400EE378 (IopFreeWaitCompletionPacket.c)
- *     IopDropIrp @ 0x1400F788C (IopDropIrp.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     IopFreeMiniCompletionPacket @ 0x14051BA70 (IopFreeMiniCompletionPacket.c)
+ *     IopCompleteRequest @ 0x1400543C0 (IopCompleteRequest.c)
+ *     KeRemoveQueueEx @ 0x140069F30 (KeRemoveQueueEx.c)
+ *     IopInterlockedAdd @ 0x1400AA794 (IopInterlockedAdd.c)
+ *     KiStackAttachProcess @ 0x1400CB090 (KiStackAttachProcess.c)
+ *     KiUnstackDetachProcess @ 0x1400CC6C0 (KiUnstackDetachProcess.c)
+ *     ExAcquireRundownProtection @ 0x1400D1D70 (ExAcquireRundownProtection.c)
+ *     ExReleaseRundownProtection @ 0x1400D1DA0 (ExReleaseRundownProtection.c)
+ *     IopFreeWaitCompletionPacket @ 0x1400EC1F8 (IopFreeWaitCompletionPacket.c)
+ *     IopDropIrp @ 0x1400F56CC (IopDropIrp.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     IopFreeMiniCompletionPacket @ 0x1404FEE60 (IopFreeMiniCompletionPacket.c)
  */
 
 __int64 __fastcall IoRemoveIoCompletion(

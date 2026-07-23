@@ -1,12 +1,12 @@
 /*
- * XREFs of WmipDetermineInstanceBaseIndex @ 0x140A0B588
+ * XREFs of WmipDetermineInstanceBaseIndex @ 0x140A0A7B4
  * Callers:
- *     WmipBuildInstanceSet @ 0x140A0BFA8 (WmipBuildInstanceSet.c)
+ *     WmipBuildInstanceSet @ 0x140A0AF78 (WmipBuildInstanceSet.c)
  * Callees:
- *     KeWaitForSingleObject @ 0x140278560 (KeWaitForSingleObject.c)
- *     KeReleaseMutex @ 0x1403DD0F0 (KeReleaseMutex.c)
- *     WmipFindGEByGuid @ 0x140A0E624 (WmipFindGEByGuid.c)
- *     WmipUnreferenceEntry @ 0x140A0EF48 (WmipUnreferenceEntry.c)
+ *     KeWaitForSingleObject @ 0x140277AD0 (KeWaitForSingleObject.c)
+ *     KeReleaseMutex @ 0x1403E02E0 (KeReleaseMutex.c)
+ *     WmipFindGEByGuid @ 0x140A0D800 (WmipFindGEByGuid.c)
+ *     WmipUnreferenceEntry @ 0x140A0E124 (WmipUnreferenceEntry.c)
  */
 
 __int64 __fastcall WmipDetermineInstanceBaseIndex(__int64 a1, char *a2)
@@ -22,7 +22,7 @@ __int64 __fastcall WmipDetermineInstanceBaseIndex(__int64 a1, char *a2)
   _DWORD *v12; // rbx
 
   v4 = 0;
-  KeWaitForSingleObject(&EtwpSecurityLock.IoSelfBoostsEntry, Executive, 0, 0, 0LL);
+  KeWaitForSingleObject(&WmipSMMutex, Executive, 0, 0, 0LL);
   GEByGuid = WmipFindGEByGuid(a1, 0LL);
   v6 = GEByGuid;
   if ( GEByGuid )
@@ -49,6 +49,6 @@ __int64 __fastcall WmipDetermineInstanceBaseIndex(__int64 a1, char *a2)
     }
     WmipUnreferenceEntry(&WmipGEChunkInfo, v6);
   }
-  KeReleaseMutex((PRKMUTEX)&EtwpSecurityLock.IoSelfBoostsEntry, 0);
+  KeReleaseMutex(&WmipSMMutex, 0);
   return v4;
 }

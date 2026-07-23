@@ -1,22 +1,22 @@
 /*
- * XREFs of PpDevCfgProcessDevices @ 0x14073A48C
+ * XREFs of PpDevCfgProcessDevices @ 0x14073B67C
  * Callers:
- *     PnpBootPhaseComplete @ 0x14073A3D0 (PnpBootPhaseComplete.c)
+ *     PnpBootPhaseComplete @ 0x14073B5C0 (PnpBootPhaseComplete.c)
  * Callees:
  *     ExReleaseResourceLite @ 0x14004F590 (ExReleaseResourceLite.c)
  *     ExAcquireResourceExclusiveLite @ 0x1400505F0 (ExAcquireResourceExclusiveLite.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
- *     PnpRequestDeviceAction @ 0x14015F004 (PnpRequestDeviceAction.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     PipForDeviceNodeSubtree @ 0x140585750 (PipForDeviceNodeSubtree.c)
- *     PiPnpRtlEndOperation @ 0x140595CA4 (PiPnpRtlEndOperation.c)
- *     PiPnpRtlBeginOperation @ 0x140596E08 (PiPnpRtlBeginOperation.c)
- *     PpDevNodeUnlockTree @ 0x14059BEB4 (PpDevNodeUnlockTree.c)
- *     PpDevNodeLockTree @ 0x14059BF10 (PpDevNodeLockTree.c)
- *     _CmGetDeviceStatus @ 0x14059E508 (_CmGetDeviceStatus.c)
- *     RtlFreeAnsiString @ 0x140623790 (RtlFreeAnsiString.c)
- *     PpDeviceRegistration @ 0x1406EE2C8 (PpDeviceRegistration.c)
- *     _CmDeleteDevice @ 0x1408F66A8 (_CmDeleteDevice.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B78F0 (KiLeaveCriticalRegionUnsafe.c)
+ *     PnpRequestDeviceAction @ 0x14015F104 (PnpRequestDeviceAction.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     PipForDeviceNodeSubtree @ 0x140586750 (PipForDeviceNodeSubtree.c)
+ *     PiPnpRtlEndOperation @ 0x140596CA4 (PiPnpRtlEndOperation.c)
+ *     PiPnpRtlBeginOperation @ 0x140597E08 (PiPnpRtlBeginOperation.c)
+ *     PpDevNodeUnlockTree @ 0x14059CEB4 (PpDevNodeUnlockTree.c)
+ *     PpDevNodeLockTree @ 0x14059CF10 (PpDevNodeLockTree.c)
+ *     _CmGetDeviceStatus @ 0x14059F508 (_CmGetDeviceStatus.c)
+ *     RtlFreeAnsiString @ 0x140624790 (RtlFreeAnsiString.c)
+ *     PpDeviceRegistration @ 0x1406EF568 (PpDeviceRegistration.c)
+ *     _CmDeleteDevice @ 0x1408F7968 (_CmDeleteDevice.c)
  */
 
 __int64 PpDevCfgProcessDevices()

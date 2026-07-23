@@ -11,13 +11,13 @@
  *     sub_1800F5B90 @ 0x1800F5B90 (sub_1800F5B90.c)
  */
 
-__int64 __fastcall sub_1800F5B30(unsigned __int64 a1)
+NTSTATUS __fastcall sub_1800F5B30(void *a1)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
   if ( byte_18016B282 && sub_1800F5B0C(a1) )
-    return sub_180001600(a1, 1u);
-  if ( !sub_180030138() || !sub_180001694(a1) || (result = sub_1800F5B90(a1), (int)result < 0) )
+    return sub_180001600((__int64)a1, 1u);
+  if ( !sub_180030138() || !sub_180001694(a1) || (result = sub_1800F5B90(a1), result < 0) )
     sub_1800A9FB0(0xAu);
   return result;
 }

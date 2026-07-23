@@ -1,9 +1,9 @@
 /*
- * XREFs of CmRmIsKcbStackVisible @ 0x14060DCCC
+ * XREFs of CmRmIsKcbStackVisible @ 0x14060DD80
  * Callers:
- *     CmpDoParseKey @ 0x140453D10 (CmpDoParseKey.c)
+ *     CmpDoParseKey @ 0x140452BE0 (CmpDoParseKey.c)
  * Callees:
- *     CmpGetKcbAtLayerHeight @ 0x1404400C0 (CmpGetKcbAtLayerHeight.c)
+ *     CmpGetKcbAtLayerHeight @ 0x14043EF90 (CmpGetKcbAtLayerHeight.c)
  */
 
 bool __fastcall CmRmIsKcbStackVisible(__int64 a1)

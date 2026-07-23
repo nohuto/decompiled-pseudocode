@@ -1,12 +1,12 @@
 /*
- * XREFs of ExpAcquireFannedOutPushLockShared @ 0x140390B40
+ * XREFs of ExpAcquireFannedOutPushLockShared @ 0x140390C90
  * Callers:
- *     ExAcquireAutoExpandPushLockShared @ 0x14028F230 (ExAcquireAutoExpandPushLockShared.c)
+ *     ExAcquireAutoExpandPushLockShared @ 0x14020C3D0 (ExAcquireAutoExpandPushLockShared.c)
  * Callees:
- *     ExfAcquirePushLockSharedEx @ 0x1402F2EC0 (ExfAcquirePushLockSharedEx.c)
+ *     ExfAcquirePushLockSharedEx @ 0x1402FDC10 (ExfAcquirePushLockSharedEx.c)
  */
 
-unsigned __int64 *__fastcall ExpAcquireFannedOutPushLockShared(unsigned int a1, __int64 a2, ULONG_PTR a3)
+unsigned __int64 *__fastcall ExpAcquireFannedOutPushLockShared(unsigned int a1, _RTL_BALANCED_NODE *a2, ULONG_PTR a3)
 {
   unsigned int v3; // eax
   unsigned __int64 v4; // r10

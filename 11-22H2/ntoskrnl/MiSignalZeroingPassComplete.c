@@ -32,19 +32,24 @@ void __fastcall MiSignalZeroingPassComplete(__int64 a1)
       if ( _InterlockedExchangeAdd((volatile signed __int32 *)(v2 + 88), 0xFFFFFFFF) == 1 )
         KeSetEvent((PRKEVENT)v2, 0, 0);
       ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(*(_QWORD *)(a1 + 200) + 23160LL));
-      if ( !KiIrqlFlags )
+      if ( !(_DWORD)KiIrqlFlags )
         goto LABEL_6;
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) == 0 || CurrentIrql > 0xFu || (unsigned __int8)v3 > 0xFu || CurrentIrql < 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) == 0
+        || CurrentIrql > 0xFu
+        || (unsigned __int8)v3 > 0xFu
+        || CurrentIrql < 2u )
+      {
         goto LABEL_6;
+      }
     }
     else
     {
       ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(*(_QWORD *)(a1 + 200) + 23160LL));
-      if ( !KiIrqlFlags )
+      if ( !(_DWORD)KiIrqlFlags )
         goto LABEL_6;
       v4 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) == 0 || v4 > 0xFu || (unsigned __int8)v3 > 0xFu || v4 < 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) == 0 || v4 > 0xFu || (unsigned __int8)v3 > 0xFu || v4 < 2u )
         goto LABEL_6;
     }
     CurrentPrcb = KeGetCurrentPrcb();

@@ -1,11 +1,11 @@
 /*
- * XREFs of _handle_qnan1 @ 0x180098858
+ * XREFs of _handle_qnan1 @ 0x180098868
  * Callers:
- *     fabs @ 0x180093570 (fabs.c)
+ *     fabs @ 0x180093580 (fabs.c)
  * Callees:
- *     _errno @ 0x180088260 (_errno.c)
- *     _umatherr @ 0x180098BA4 (_umatherr.c)
- *     _ctrlfp @ 0x180098E60 (_ctrlfp.c)
+ *     _errno @ 0x180088270 (_errno.c)
+ *     _umatherr @ 0x180098BB4 (_umatherr.c)
+ *     _ctrlfp @ 0x180098E70 (_ctrlfp.c)
  */
 
 // local variable allocation has failed, the output may be wrong!

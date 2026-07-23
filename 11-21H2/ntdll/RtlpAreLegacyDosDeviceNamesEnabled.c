@@ -15,26 +15,47 @@ bool RtlpAreLegacyDosDeviceNamesEnabled()
 {
   int v1; // eax
   int v2; // edx
-  int v3; // [rsp+20h] [rbp-29h]
-  int v4; // [rsp+84h] [rbp+3Bh]
-  int v5; // [rsp+88h] [rbp+3Fh]
-  unsigned int v6; // [rsp+8Ch] [rbp+43h]
+  int v3; // ecx
+  ULONG Length; // [rsp+20h] [rbp-29h]
+  HANDLE KeyHandle; // [rsp+40h] [rbp-9h] BYREF
+  ULONG ResultLength; // [rsp+48h] [rbp-1h] BYREF
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+50h] [rbp+7h] BYREF
+  _BYTE KeyValueInformation[4]; // [rsp+80h] [rbp+37h] BYREF
+  int v9; // [rsp+84h] [rbp+3Bh]
+  int v10; // [rsp+88h] [rbp+3Fh]
+  unsigned int v11; // [rsp+8Ch] [rbp+43h]
 
   if ( (NtCurrentPeb()->AppCompatFlags.QuadPart & 0x400000000LL) != 0 )
     return 1;
   v1 = dword_18017B0E8;
   if ( !dword_18017B0E8 )
   {
-    if ( (int)NtOpenKey() >= 0 )
+    ObjectAttributes.RootDirectory = 0LL;
+    KeyHandle = 0LL;
+    ObjectAttributes.ObjectName = (PUNICODE_STRING)L"|~";
+    ObjectAttributes.Length = 48;
+    ObjectAttributes.Attributes = 64;
+    *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+    if ( NtOpenKey(&KeyHandle, 0x20019u, &ObjectAttributes) >= 0
+      && NtQueryValueKey(
+           KeyHandle,
+           (PUNICODE_STRING)&stru_18012D558,
+           KeyValuePartialInformation,
+           KeyValueInformation,
+           0x14u,
+           &ResultLength) >= 0
+      && v9 == 4
+      && v10 == 4 )
     {
-      v3 = 20;
-      if ( (int)NtQueryValueKey() >= 0 && v4 == 4 && v5 == 4 )
-        RtlpInitializeLegacyDosDevicePathState(v6);
+      RtlpInitializeLegacyDosDevicePathState(v11);
     }
+    v3 = (int)KeyHandle;
+    if ( KeyHandle )
+      NtClose(KeyHandle);
     v1 = dword_18017B0E8;
     if ( !dword_18017B0E8 )
     {
-      wil_details_FeatureReporting_ReportUsageToService(0, v2, 0, 0, v3, 1);
+      wil_details_FeatureReporting_ReportUsageToService(v3, v2, 0, 0, Length, 1);
       v1 = 2;
       dword_18017B0E8 = 2;
     }

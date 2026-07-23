@@ -6,11 +6,11 @@
  *     <none>
  */
 
-__int64 ZwRevertContainerImpersonation()
+NTSTATUS ZwRevertContainerImpersonation(void)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 354LL;
+  result = 354;
   __asm { syscall; Low latency system call }
   return result;
 }

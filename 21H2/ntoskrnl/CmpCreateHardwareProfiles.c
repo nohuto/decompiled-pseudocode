@@ -1,22 +1,22 @@
 /*
- * XREFs of CmpCreateHardwareProfiles @ 0x140A58540
+ * XREFs of CmpCreateHardwareProfiles @ 0x140A59540
  * Callers:
- *     CmInitSystem1 @ 0x140A59F78 (CmInitSystem1.c)
+ *     CmInitSystem1 @ 0x140A5AF78 (CmInitSystem1.c)
  * Callees:
- *     RtlUnicodeStringPrintf @ 0x14036EF9C (RtlUnicodeStringPrintf.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     ZwClose @ 0x1403FA580 (ZwClose.c)
- *     ZwOpenKey @ 0x1403FA5E0 (ZwOpenKey.c)
- *     ZwQueryValueKey @ 0x1403FA680 (ZwQueryValueKey.c)
- *     ZwCreateKey @ 0x1403FA740 (ZwCreateKey.c)
- *     ZwSetValueKey @ 0x1403FAFA0 (ZwSetValueKey.c)
- *     RtlEqualUnicodeString @ 0x140601410 (RtlEqualUnicodeString.c)
- *     CmSetAcpiHwProfile @ 0x1407A5908 (CmSetAcpiHwProfile.c)
- *     CmpOpenDevicesControlSet @ 0x1407A6764 (CmpOpenDevicesControlSet.c)
- *     CmDeleteKeyRecursive @ 0x140876D90 (CmDeleteKeyRecursive.c)
- *     CmpCloneHwProfile @ 0x140877184 (CmpCloneHwProfile.c)
- *     CmpAddDockingInfo @ 0x140A589C8 (CmpAddDockingInfo.c)
- *     CmpAddAliasEntry @ 0x140A8E43C (CmpAddAliasEntry.c)
+ *     RtlUnicodeStringPrintf @ 0x14036F14C (RtlUnicodeStringPrintf.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     ZwClose @ 0x1403FA760 (ZwClose.c)
+ *     ZwOpenKey @ 0x1403FA7C0 (ZwOpenKey.c)
+ *     ZwQueryValueKey @ 0x1403FA860 (ZwQueryValueKey.c)
+ *     ZwCreateKey @ 0x1403FA920 (ZwCreateKey.c)
+ *     ZwSetValueKey @ 0x1403FB180 (ZwSetValueKey.c)
+ *     RtlEqualUnicodeString @ 0x1406F0B70 (RtlEqualUnicodeString.c)
+ *     CmSetAcpiHwProfile @ 0x1407A5B08 (CmSetAcpiHwProfile.c)
+ *     CmpOpenDevicesControlSet @ 0x1407A6964 (CmpOpenDevicesControlSet.c)
+ *     CmDeleteKeyRecursive @ 0x140876EF0 (CmDeleteKeyRecursive.c)
+ *     CmpCloneHwProfile @ 0x1408772E4 (CmpCloneHwProfile.c)
+ *     CmpAddDockingInfo @ 0x140A599C8 (CmpAddDockingInfo.c)
+ *     CmpAddAliasEntry @ 0x140A8F43C (CmpAddAliasEntry.c)
  */
 
 __int64 __fastcall CmpCreateHardwareProfiles(__int64 a1)
@@ -190,7 +190,7 @@ LABEL_15:
     *(_OWORD *)&KeyHandle_8.SecurityDescriptor = 0LL;
     if ( ZwCreateKey(&DestinationString, 0x2001Fu, &KeyHandle_8, 0, 0LL, 1u, &Disposition) >= 0 )
     {
-      CmpAddDockingInfo((int)DestinationString);
+      CmpAddDockingInfo(DestinationString);
       ZwClose(DestinationString);
       DestinationString = 0LL;
     }

@@ -1,11 +1,11 @@
 /*
- * XREFs of PpmEventTraceDripsAccountingSnapshot @ 0x140B3EAF8
+ * XREFs of PpmEventTraceDripsAccountingSnapshot @ 0x140B40B28
  * Callers:
- *     PpmSnapDripsAccountingSnapshot @ 0x140429390 (PpmSnapDripsAccountingSnapshot.c)
+ *     PpmSnapDripsAccountingSnapshot @ 0x14042391C (PpmSnapDripsAccountingSnapshot.c)
  * Callees:
- *     EtwEventEnabled @ 0x140212D90 (EtwEventEnabled.c)
- *     EtwWrite @ 0x140212EF0 (EtwWrite.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x140212E70 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x140212FD0 (EtwWrite.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 void __fastcall PpmEventTraceDripsAccountingSnapshot(__int64 a1, __int64 a2)
@@ -24,26 +24,19 @@ void __fastcall PpmEventTraceDripsAccountingSnapshot(__int64 a1, __int64 a2)
   v4 = 26;
   if ( PpmEtwRegistered )
   {
-    if ( EtwEventEnabled(
-           (REGHANDLE)PopModernStandbyStateNotify.ApcState.ApcListHead[1].Blink,
-           &PPM_ETW_DRIPS_ACCOUNTING_SNAPSHOT) )
+    if ( EtwEventEnabled(PpmEtwHandle, &PPM_ETW_DRIPS_ACCOUNTING_SNAPSHOT) )
     {
-      v3 = qword_140F0F5D0;
+      v3 = PopWnfCsEnterScenarioId;
       *(_QWORD *)&UserData.Size = 1LL;
       UserData.Ptr = (ULONGLONG)&v3;
       v6 = &v4;
       v9 = 8 * v4;
-      v11 = &qword_140F0F5D0;
+      v11 = &PopWnfCsEnterScenarioId;
       v7 = 4LL;
       v8 = a2;
       v10 = 0;
       v12 = 8LL;
-      EtwWrite(
-        (REGHANDLE)PopModernStandbyStateNotify.ApcState.ApcListHead[1].Blink,
-        &PPM_ETW_DRIPS_ACCOUNTING_SNAPSHOT,
-        0LL,
-        4u,
-        &UserData);
+      EtwWrite(PpmEtwHandle, &PPM_ETW_DRIPS_ACCOUNTING_SNAPSHOT, 0LL, 4u, &UserData);
     }
   }
 }

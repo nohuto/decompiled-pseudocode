@@ -28,7 +28,7 @@ __int64 __fastcall EtwTraceRaw(unsigned __int16 a1, void *a2, int a3, char a4)
   char *v11; // rcx
   void *v12; // rax
   __int64 v13; // r9
-  __int64 v15[3]; // [rsp+40h] [rbp-68h] BYREF
+  LARGE_INTEGER v15[3]; // [rsp+40h] [rbp-68h] BYREF
   __int128 v16; // [rsp+58h] [rbp-50h] BYREF
   __int64 v17; // [rsp+68h] [rbp-40h]
   char v18; // [rsp+B0h] [rbp+8h] BYREF
@@ -43,7 +43,7 @@ __int64 __fastcall EtwTraceRaw(unsigned __int16 a1, void *a2, int a3, char a4)
   v17 = 0LL;
   v18 = 0;
   ReserveTraceBufferStatus = 0;
-  v15[0] = 0LL;
+  v15[0].QuadPart = 0LL;
   v6 = a1;
   if ( a4 )
     v7 = *((_QWORD *)PsGetCurrentServerSiloGlobals() + 108);
@@ -53,10 +53,10 @@ __int64 __fastcall EtwTraceRaw(unsigned __int16 a1, void *a2, int a3, char a4)
     return (unsigned int)-1073741816;
   v8 = EtwpOpenLogger(v6, v7, a4, &v18);
   v9 = v8;
-  if ( (v15[1] = v8) == 0 )
+  if ( (v15[1].QuadPart = v8) == 0 )
     return (unsigned int)-1073741816;
   v10 = (_DWORD *)(v8 + 12);
-  v15[2] = v8 + 12;
+  v15[2].QuadPart = v8 + 12;
   if ( (*(_DWORD *)(v8 + 12) & 0x80u) != 0 )
   {
     ReserveTraceBufferStatus = -1073741790;

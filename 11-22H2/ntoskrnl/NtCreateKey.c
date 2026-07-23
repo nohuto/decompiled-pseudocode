@@ -8,17 +8,24 @@
  *     CmCreateKey @ 0x140692410 (CmCreateKey.c)
  */
 
-__int64 NtCreateKey()
+NTSTATUS __cdecl NtCreateKey(
+        PHANDLE KeyHandle,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        ULONG TitleIndex,
+        PUNICODE_STRING Class,
+        ULONG CreateOptions,
+        PULONG Disposition)
 {
-  unsigned int v0; // r9d
-  __int64 v1; // r8
-  __int64 v2; // r10
-  unsigned int v3; // r8d
-  __int64 v5[3]; // [rsp+40h] [rbp-18h] BYREF
+  unsigned int v7; // r9d
+  __int64 v8; // r8
+  __int64 v9; // r10
+  NTSTATUS v10; // r8d
+  __int64 v12[3]; // [rsp+40h] [rbp-18h] BYREF
 
-  *(_OWORD *)v5 = 0LL;
-  CmpInitializeThreadInfo((__int64)v5);
-  CmCreateKey(v2, v0, v1);
-  CmCleanupThreadInfo(v5);
-  return v3;
+  *(_OWORD *)v12 = 0LL;
+  CmpInitializeThreadInfo((__int64)v12);
+  CmCreateKey(v9, v7, v8);
+  CmCleanupThreadInfo(v12);
+  return v10;
 }

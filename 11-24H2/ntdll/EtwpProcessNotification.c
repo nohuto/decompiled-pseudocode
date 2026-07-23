@@ -1,21 +1,21 @@
 /*
- * XREFs of EtwpProcessNotification @ 0x180020790
+ * XREFs of EtwpProcessNotification @ 0x18004D190
  * Callers:
- *     EtwDeliverDataBlock @ 0x18001E150 (EtwDeliverDataBlock.c)
+ *     EtwDeliverDataBlock @ 0x18004AB50 (EtwDeliverDataBlock.c)
  * Callees:
- *     EtwpUpdateEnableInfoAndCallback @ 0x18001E990 (EtwpUpdateEnableInfoAndCallback.c)
- *     RtlSetThreadSubProcessTag @ 0x180022160 (RtlSetThreadSubProcessTag.c)
- *     EtwProcessPrivateLoggerRequest @ 0x18008C670 (EtwProcessPrivateLoggerRequest.c)
- *     EtwpProcessInternalNotification @ 0x1800FA424 (EtwpProcessInternalNotification.c)
- *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x180172020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
+ *     EtwpUpdateEnableInfoAndCallback @ 0x18004B390 (EtwpUpdateEnableInfoAndCallback.c)
+ *     RtlSetThreadSubProcessTag @ 0x18004EB60 (RtlSetThreadSubProcessTag.c)
+ *     EtwProcessPrivateLoggerRequest @ 0x1800A8130 (EtwProcessPrivateLoggerRequest.c)
+ *     EtwpProcessInternalNotification @ 0x1800F5184 (EtwpProcessInternalNotification.c)
+ *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x180171020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
  */
 
 __int64 __fastcall EtwpProcessNotification(__int64 a1, __int16 *a2, _QWORD *a3, _DWORD *a4, _BYTE *a5)
 {
   unsigned __int8 v9; // si
-  __int64 v10; // rax
+  PVOID v10; // rax
   __int64 v11; // rdx
-  __int64 v12; // rbp
+  void *v12; // rbp
   __int16 v13; // ax
   __int16 v14; // ax
   __int64 v15; // rax
@@ -23,7 +23,7 @@ __int64 __fastcall EtwpProcessNotification(__int64 a1, __int16 *a2, _QWORD *a3, 
   __int64 v18; // rdx
 
   v9 = 0;
-  v10 = RtlSetThreadSubProcessTag(*(unsigned int *)(a1 + 248));
+  v10 = RtlSetThreadSubProcessTag((PVOID)*(unsigned int *)(a1 + 248));
   v11 = *(unsigned int *)a2;
   v12 = v10;
   v13 = *(_WORD *)(a1 + 86);

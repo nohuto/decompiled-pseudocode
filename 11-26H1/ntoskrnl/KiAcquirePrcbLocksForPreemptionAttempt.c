@@ -1,11 +1,11 @@
 /*
- * XREFs of KiAcquirePrcbLocksForPreemptionAttempt @ 0x14022F050
+ * XREFs of KiAcquirePrcbLocksForPreemptionAttempt @ 0x1402309E0
  * Callers:
- *     KiEnterLongDpcProcessing @ 0x14022EA74 (KiEnterLongDpcProcessing.c)
- *     KiHeteroAttemptPreemptionSwapOnSubNode @ 0x1402351F0 (KiHeteroAttemptPreemptionSwapOnSubNode.c)
+ *     KiEnterLongDpcProcessing @ 0x140230404 (KiEnterLongDpcProcessing.c)
+ *     KiHeteroAttemptPreemptionSwapOnSubNode @ 0x140236B50 (KiHeteroAttemptPreemptionSwapOnSubNode.c)
  * Callees:
- *     KiAcquirePrcbLocksForPreemptionAttemptSlowPath @ 0x14022F5B4 (KiAcquirePrcbLocksForPreemptionAttemptSlowPath.c)
- *     HvlNotifyLongSpinWait @ 0x1402BBF00 (HvlNotifyLongSpinWait.c)
+ *     KiAcquirePrcbLocksForPreemptionAttemptSlowPath @ 0x140230F44 (KiAcquirePrcbLocksForPreemptionAttemptSlowPath.c)
+ *     HvlNotifyLongSpinWait @ 0x140306BC0 (HvlNotifyLongSpinWait.c)
  */
 
 _BYTE *__fastcall KiAcquirePrcbLocksForPreemptionAttempt(__int64 a1, int a2, unsigned __int64 *a3)

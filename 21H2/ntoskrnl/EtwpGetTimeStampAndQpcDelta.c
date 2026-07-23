@@ -1,9 +1,9 @@
 /*
- * XREFs of EtwpGetTimeStampAndQpcDelta @ 0x1405AB7A4
+ * XREFs of EtwpGetTimeStampAndQpcDelta @ 0x1405AB9D4
  * Callers:
- *     EtwpReserveTraceBuffer @ 0x1403506F0 (EtwpReserveTraceBuffer.c)
+ *     EtwpReserveTraceBuffer @ 0x14035B440 (EtwpReserveTraceBuffer.c)
  * Callees:
- *     RtlGetMultiTimePrecise @ 0x1402ECFA0 (RtlGetMultiTimePrecise.c)
+ *     RtlGetMultiTimePrecise @ 0x14029E2F0 (RtlGetMultiTimePrecise.c)
  */
 
 __int64 __fastcall EtwpGetTimeStampAndQpcDelta(__int64 a1, _QWORD *a2, _QWORD *a3)

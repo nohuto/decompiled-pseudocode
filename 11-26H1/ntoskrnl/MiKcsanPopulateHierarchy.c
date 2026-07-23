@@ -1,9 +1,9 @@
 /*
- * XREFs of MiKcsanPopulateHierarchy @ 0x1406F55B4
+ * XREFs of MiKcsanPopulateHierarchy @ 0x1406FA224
  * Callers:
- *     KcsanInitSystem @ 0x1405E3070 (KcsanInitSystem.c)
+ *     KcsanInitSystem @ 0x1405E59E0 (KcsanInitSystem.c)
  * Callees:
- *     MiFillPteHierarchy @ 0x14039FA50 (MiFillPteHierarchy.c)
+ *     MiFillPteHierarchy @ 0x1403A17B0 (MiFillPteHierarchy.c)
  */
 
 __int64 __fastcall MiKcsanPopulateHierarchy(_QWORD *a1, unsigned __int64 a2)

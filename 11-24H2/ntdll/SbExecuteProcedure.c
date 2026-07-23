@@ -1,9 +1,9 @@
 /*
- * XREFs of SbExecuteProcedure @ 0x18015CA40
+ * XREFs of SbExecuteProcedure @ 0x18015AE00
  * Callers:
  *     <none>
  * Callees:
- *     SbSelectProcedure @ 0x1800A9EF0 (SbSelectProcedure.c)
+ *     SbSelectProcedure @ 0x18000B080 (SbSelectProcedure.c)
  */
 
 __int64 (__fastcall *__fastcall SbExecuteProcedure(

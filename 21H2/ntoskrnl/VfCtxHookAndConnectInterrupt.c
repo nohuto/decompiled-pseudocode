@@ -1,11 +1,11 @@
 /*
- * XREFs of VfCtxHookAndConnectInterrupt @ 0x1409E3FAC
+ * XREFs of VfCtxHookAndConnectInterrupt @ 0x1409E4FAC
  * Callers:
- *     VerifierIoConnectInterrupt @ 0x1409C94C0 (VerifierIoConnectInterrupt.c)
+ *     VerifierIoConnectInterrupt @ 0x1409CA4C0 (VerifierIoConnectInterrupt.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ViCtxAllocateIsrContext @ 0x1409E4250 (ViCtxAllocateIsrContext.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ViCtxAllocateIsrContext @ 0x1409E5250 (ViCtxAllocateIsrContext.c)
  */
 
 __int64 __fastcall VfCtxHookAndConnectInterrupt(

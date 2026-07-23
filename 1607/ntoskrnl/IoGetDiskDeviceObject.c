@@ -1,11 +1,11 @@
 /*
- * XREFs of IoGetDiskDeviceObject @ 0x1401C8BAC
+ * XREFs of IoGetDiskDeviceObject @ 0x1401C8A4C
  * Callers:
- *     IopAttachDeviceToDeviceStackSafe @ 0x1400FAFC0 (IopAttachDeviceToDeviceStackSafe.c)
+ *     IopAttachDeviceToDeviceStackSafe @ 0x1400F8D4C (IopAttachDeviceToDeviceStackSafe.c)
  * Callees:
- *     IoAcquireVpbSpinLock @ 0x14000758C (IoAcquireVpbSpinLock.c)
- *     KeReleaseQueuedSpinLock @ 0x1400E8DA0 (KeReleaseQueuedSpinLock.c)
- *     ObfReferenceObjectWithTag @ 0x1400EE4F0 (ObfReferenceObjectWithTag.c)
+ *     IoAcquireVpbSpinLock @ 0x1400076FC (IoAcquireVpbSpinLock.c)
+ *     KeReleaseQueuedSpinLock @ 0x1400E6C40 (KeReleaseQueuedSpinLock.c)
+ *     ObfReferenceObjectWithTag @ 0x1400EC370 (ObfReferenceObjectWithTag.c)
  */
 
 NTSTATUS __stdcall IoGetDiskDeviceObject(PDEVICE_OBJECT FileSystemDeviceObject, PDEVICE_OBJECT *DiskDeviceObject)
@@ -13,7 +13,7 @@ NTSTATUS __stdcall IoGetDiskDeviceObject(PDEVICE_OBJECT FileSystemDeviceObject, 
   NTSTATUS v2; // ebx
   PVPB Vpb; // rcx
   struct _DEVICE_OBJECT *RealDevice; // rcx
-  KIRQL Irql; // [rsp+30h] [rbp+8h] BYREF
+  UCHAR Irql; // [rsp+30h] [rbp+8h] BYREF
 
   v2 = 0;
   if ( FileSystemDeviceObject->Vpb )

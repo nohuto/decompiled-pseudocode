@@ -1,12 +1,12 @@
 /*
- * XREFs of MiCreatePageFileSpaceBitmaps @ 0x14086B018
+ * XREFs of MiCreatePageFileSpaceBitmaps @ 0x1408713F8
  * Callers:
- *     MiPagefileMaximumChangePrepare @ 0x1406F8F04 (MiPagefileMaximumChangePrepare.c)
- *     MiCreatePagefile @ 0x14086B0C0 (MiCreatePagefile.c)
+ *     MiPagefileMaximumChangePrepare @ 0x1406FDBD4 (MiPagefileMaximumChangePrepare.c)
+ *     MiCreatePagefile @ 0x1408714A0 (MiCreatePagefile.c)
  * Callees:
- *     ExAllocatePoolMm @ 0x1403985B0 (ExAllocatePoolMm.c)
- *     MmGetCurrentProcessorColor @ 0x14044ADC0 (MmGetCurrentProcessorColor.c)
- *     KcsanMarkAddressIgnored @ 0x1404F7F60 (KcsanMarkAddressIgnored.c)
+ *     ExAllocatePoolMm @ 0x14039A310 (ExAllocatePoolMm.c)
+ *     MmGetCurrentProcessorColor @ 0x140442EF0 (MmGetCurrentProcessorColor.c)
+ *     KcsanMarkAddressIgnored @ 0x1404F1570 (KcsanMarkAddressIgnored.c)
  */
 
 __int64 __fastcall MiCreatePageFileSpaceBitmaps(unsigned int a1)

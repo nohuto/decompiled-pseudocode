@@ -1,10 +1,10 @@
 /*
- * XREFs of xtoa_s @ 0x1403DE62C
+ * XREFs of xtoa_s @ 0x1403DE80C
  * Callers:
- *     _itoa_s @ 0x1403DE480 (_itoa_s.c)
- *     _ultoa_s @ 0x1403DE4D0 (_ultoa_s.c)
+ *     _itoa_s @ 0x1403DE660 (_itoa_s.c)
+ *     _ultoa_s @ 0x1403DE6B0 (_ultoa_s.c)
  * Callees:
- *     xHalTimerWatchdogStop @ 0x14036E3C0 (xHalTimerWatchdogStop.c)
+ *     xHalTimerWatchdogStop @ 0x14036E560 (xHalTimerWatchdogStop.c)
  */
 
 __int64 __fastcall xtoa_s(unsigned int a1, char *a2, unsigned __int64 a3, unsigned int a4, int a5)

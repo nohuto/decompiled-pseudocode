@@ -1,17 +1,17 @@
 /*
- * XREFs of KiInitPrcb @ 0x140BF3C24
+ * XREFs of KiInitPrcb @ 0x140BF9C24
  * Callers:
- *     KiInitializeBootStructures @ 0x140BF5890 (KiInitializeBootStructures.c)
+ *     KiInitializeBootStructures @ 0x140BFB890 (KiInitializeBootStructures.c)
  * Callees:
- *     KeInitializeDpc @ 0x140481A50 (KeInitializeDpc.c)
- *     InitializeSListHead @ 0x140499200 (InitializeSListHead.c)
- *     KiInitializeSharedReadyQueue @ 0x1405EB6A0 (KiInitializeSharedReadyQueue.c)
- *     KiInitializeSoftwareInterruptBatch @ 0x1405F175C (KiInitializeSoftwareInterruptBatch.c)
- *     KeAbInitializeDpc @ 0x1405F7460 (KeAbInitializeDpc.c)
- *     KiIntSteerInitPrcb @ 0x1405F79C0 (KiIntSteerInitPrcb.c)
- *     KiInitializeBugcheckRecoveryProcessor @ 0x1405FA3AC (KiInitializeBugcheckRecoveryProcessor.c)
- *     KiInitializeDpcList @ 0x1405FAFF8 (KiInitializeDpcList.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     KeInitializeDpc @ 0x14047B3C0 (KeInitializeDpc.c)
+ *     InitializeSListHead @ 0x140492D50 (InitializeSListHead.c)
+ *     KiInitializeSharedReadyQueue @ 0x1405EE010 (KiInitializeSharedReadyQueue.c)
+ *     KiInitializeSoftwareInterruptBatch @ 0x1405F411C (KiInitializeSoftwareInterruptBatch.c)
+ *     KeAbInitializeDpc @ 0x1405F9E20 (KeAbInitializeDpc.c)
+ *     KiIntSteerInitPrcb @ 0x1405FA3E0 (KiIntSteerInitPrcb.c)
+ *     KiInitializeBugcheckRecoveryProcessor @ 0x1405FCDCC (KiInitializeBugcheckRecoveryProcessor.c)
+ *     KiInitializeDpcList @ 0x1405FDA18 (KiInitializeDpcList.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 void *__fastcall KiInitPrcb(__int64 a1, int a2)
@@ -113,8 +113,8 @@ void *__fastcall KiInitPrcb(__int64 a1, int a2)
     NonPagedPoolLock = 0LL;
     NtfsStructLock = 0LL;
     AfdWorkQueueSpinLock = 0LL;
-    KiDpcCorralLock.SListFaultAddress = (void *)2097184;
-    memset_0(&KiDpcCorralLock.QuantumTarget, 0, 0x100uLL);
+    KiDpcCorralLock.Header.WaitListHead.Blink = (struct _LIST_ENTRY *)2097184;
+    memset_0(&KiDpcCorralLock.SListFaultAddress, 0, 0x100uLL);
   }
   KiIntSteerInitPrcb(a1);
   KeAbInitializeDpc(v8, a2);

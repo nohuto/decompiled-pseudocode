@@ -1,23 +1,23 @@
 /*
- * XREFs of MiInitializeNewPfns @ 0x1406E6548
+ * XREFs of MiInitializeNewPfns @ 0x1406EB1F8
  * Callers:
- *     MiInitializeDynamicPfnsWorker @ 0x1406E9410 (MiInitializeDynamicPfnsWorker.c)
- *     MxCreateDescriptorPfns @ 0x140CF5814 (MxCreateDescriptorPfns.c)
+ *     MiInitializeDynamicPfnsWorker @ 0x1406EE0B0 (MiInitializeDynamicPfnsWorker.c)
+ *     MxCreateDescriptorPfns @ 0x140CFBB94 (MxCreateDescriptorPfns.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     MiGetContainingPageTable @ 0x1402D9BF0 (MiGetContainingPageTable.c)
- *     MiMakeValidPte @ 0x1402DA020 (MiMakeValidPte.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402DED10 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     MiPteHasShadow @ 0x1403011E0 (MiPteHasShadow.c)
- *     MiMakeTransitionPte @ 0x14030DC00 (MiMakeTransitionPte.c)
- *     MiSetPfnContainingFrame @ 0x14033BC10 (MiSetPfnContainingFrame.c)
- *     MiReferenceControlAreaPfn @ 0x14036CB90 (MiReferenceControlAreaPfn.c)
- *     MiCreateInitialLargeLeafPfns @ 0x14046AE30 (MiCreateInitialLargeLeafPfns.c)
- *     MiDetermineNewPfnHeatState @ 0x140497664 (MiDetermineNewPfnHeatState.c)
- *     MiMakeSubsectionPte @ 0x1404B5EF8 (MiMakeSubsectionPte.c)
- *     MiLookupFixupExtentByPte @ 0x1404CBA54 (MiLookupFixupExtentByPte.c)
- *     MiCreateInitialPfns @ 0x1406E70A0 (MiCreateInitialPfns.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     MiGetContainingPageTable @ 0x1402BB9B0 (MiGetContainingPageTable.c)
+ *     MiMakeValidPte @ 0x1402BBDE0 (MiMakeValidPte.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402C0B20 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     MiPteHasShadow @ 0x1402E3260 (MiPteHasShadow.c)
+ *     MiMakeTransitionPte @ 0x1402EFC80 (MiMakeTransitionPte.c)
+ *     MiSetPfnContainingFrame @ 0x14033DC90 (MiSetPfnContainingFrame.c)
+ *     MiReferenceControlAreaPfn @ 0x14036E930 (MiReferenceControlAreaPfn.c)
+ *     MiCreateInitialLargeLeafPfns @ 0x1404645B0 (MiCreateInitialLargeLeafPfns.c)
+ *     MiDetermineNewPfnHeatState @ 0x1404911B4 (MiDetermineNewPfnHeatState.c)
+ *     MiMakeSubsectionPte @ 0x1404AF348 (MiMakeSubsectionPte.c)
+ *     MiLookupFixupExtentByPte @ 0x1404C5484 (MiLookupFixupExtentByPte.c)
+ *     MiCreateInitialPfns @ 0x1406EBD50 (MiCreateInitialPfns.c)
  */
 
 unsigned __int64 __fastcall MiInitializeNewPfns(
@@ -81,11 +81,11 @@ unsigned __int64 __fastcall MiInitializeNewPfns(
     if ( (v10 & 0x80u) == 0 )
     {
       if ( (v10 & 0x800000) != 0 )
-        _InterlockedAdd64(&qword_140E2D7B0, v8);
+        _InterlockedAdd64(&qword_140E2D930, v8);
     }
     else
     {
-      _InterlockedAdd64(&qword_140E2D7A8, v8);
+      _InterlockedAdd64(&qword_140E2D928, v8);
     }
   }
   if ( (v10 & 2) == 0 )

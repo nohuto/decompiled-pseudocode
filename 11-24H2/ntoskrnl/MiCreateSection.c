@@ -1,19 +1,19 @@
 /*
- * XREFs of MiCreateSection @ 0x140941160
+ * XREFs of MiCreateSection @ 0x14098B3C0
  * Callers:
- *     MiCreateSystemSection @ 0x14044C348 (MiCreateSystemSection.c)
- *     MiCreateSectionCommon @ 0x14096B594 (MiCreateSectionCommon.c)
- *     MmCreateSpecialImageSection @ 0x140AE6B20 (MmCreateSpecialImageSection.c)
+ *     MiCreateSystemSection @ 0x140443248 (MiCreateSystemSection.c)
+ *     MiCreateSectionCommon @ 0x140954024 (MiCreateSectionCommon.c)
+ *     MmCreateSpecialImageSection @ 0x140AE8400 (MmCreateSpecialImageSection.c)
  * Callees:
- *     PsDereferencePartition @ 0x140275E60 (PsDereferencePartition.c)
- *     ObfDereferenceObjectWithTag @ 0x1403254A0 (ObfDereferenceObjectWithTag.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     MiLogSectionObjectEvent @ 0x1407EC298 (MiLogSectionObjectEvent.c)
- *     MiInitializeCreateSectionPacket @ 0x1409413D0 (MiInitializeCreateSectionPacket.c)
- *     MiFinishCreateSection @ 0x140941784 (MiFinishCreateSection.c)
- *     MiCreateImageOrDataSection @ 0x140941B00 (MiCreateImageOrDataSection.c)
- *     MiCreatePagingFileMap @ 0x140942908 (MiCreatePagingFileMap.c)
- *     MmExtendSection @ 0x140946018 (MmExtendSection.c)
+ *     PsDereferencePartition @ 0x14022B3F0 (PsDereferencePartition.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CE030 (ObfDereferenceObjectWithTag.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     MiLogSectionObjectEvent @ 0x1407EC868 (MiLogSectionObjectEvent.c)
+ *     MmExtendSection @ 0x14098A134 (MmExtendSection.c)
+ *     MiInitializeCreateSectionPacket @ 0x14098B630 (MiInitializeCreateSectionPacket.c)
+ *     MiFinishCreateSection @ 0x14098B9F0 (MiFinishCreateSection.c)
+ *     MiCreateImageOrDataSection @ 0x14098BD70 (MiCreateImageOrDataSection.c)
+ *     MiCreatePagingFileMap @ 0x14098CB78 (MiCreatePagingFileMap.c)
  */
 
 __int64 __fastcall MiCreateSection(
@@ -38,8 +38,8 @@ __int64 __fastcall MiCreateSection(
   _QWORD *v20; // rbx
   unsigned __int64 v21; // rax
   unsigned __int64 v22; // r9
-  __int64 v23; // rax
-  __int64 v25; // [rsp+70h] [rbp-108h] BYREF
+  LARGE_INTEGER v23; // rax
+  LARGE_INTEGER v25[2]; // [rsp+70h] [rbp-108h] BYREF
   _DWORD v26[10]; // [rsp+80h] [rbp-F8h] BYREF
   __int64 v27; // [rsp+A8h] [rbp-D0h]
   __int64 v28; // [rsp+B0h] [rbp-C8h]
@@ -81,10 +81,10 @@ LABEL_6:
           v21 = _InterlockedCompareExchange64((volatile signed __int64 *)(*(_QWORD *)v29 + 24LL), -1LL, -1LL);
           v22 = v21;
           if ( ((v26[0] & 9) == 0 && (*(_DWORD *)(v19 + 56) & 0x8000) != 0 || v20[6] > v21)
-            && (v23 = v20[6],
+            && (v23 = (LARGE_INTEGER)v20[6],
                 v20[6] = v22,
-                v25 = v23,
-                SectionPacket = MmExtendSection(v20, &v25, v26[0] & 1),
+                v25[0] = v23,
+                SectionPacket = MmExtendSection((__int64)v20, v25, v26[0] & 1),
                 SectionPacket < 0) )
           {
             ObfDereferenceObjectWithTag(v20, 0x43536D4Du);

@@ -1,41 +1,41 @@
 /*
- * XREFs of VfHandlePoolAlloc @ 0x140BA8AA0
+ * XREFs of VfHandlePoolAlloc @ 0x140BAAAA0
  * Callers:
- *     MiStoreGetWriteSupport @ 0x1402ABB24 (MiStoreGetWriteSupport.c)
- *     MiGetInPageAutoBoostLock @ 0x1402ABE68 (MiGetInPageAutoBoostLock.c)
- *     ExAllocatePoolWithTagFromNode @ 0x1402AC224 (ExAllocatePoolWithTagFromNode.c)
- *     CcFlushCachePriv @ 0x1402AC810 (CcFlushCachePriv.c)
- *     MiAllocatePool @ 0x1402ACA70 (MiAllocatePool.c)
- *     ExAllocatePoolMm @ 0x1402ACBC0 (ExAllocatePoolMm.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExAllocatePool3 @ 0x140B746D0 (ExAllocatePool3.c)
- *     IovAllocateMdl @ 0x140B82350 (IovAllocateMdl.c)
- *     IovAllocateWorkItem @ 0x140B82490 (IovAllocateWorkItem.c)
- *     ViIrpAllocateLockedPacket @ 0x140B8E0BC (ViIrpAllocateLockedPacket.c)
- *     ViSpIoSetCompletionRoutineEx_Exit @ 0x140BA4A10 (ViSpIoSetCompletionRoutineEx_Exit.c)
- *     ViSpRtlReplaceStringBuffer @ 0x140BA4E44 (ViSpRtlReplaceStringBuffer.c)
+ *     MiStoreGetWriteSupport @ 0x140276E44 (MiStoreGetWriteSupport.c)
+ *     MiGetInPageAutoBoostLock @ 0x1402770DC (MiGetInPageAutoBoostLock.c)
+ *     ExAllocatePoolWithTagFromNode @ 0x140277180 (ExAllocatePoolWithTagFromNode.c)
+ *     CcFlushCachePriv @ 0x1402771F0 (CcFlushCachePriv.c)
+ *     MiAllocatePool @ 0x140277450 (MiAllocatePool.c)
+ *     ExAllocatePoolMm @ 0x1402775A0 (ExAllocatePoolMm.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExAllocatePool3 @ 0x140B76270 (ExAllocatePool3.c)
+ *     IovAllocateMdl @ 0x140B84350 (IovAllocateMdl.c)
+ *     IovAllocateWorkItem @ 0x140B84490 (IovAllocateWorkItem.c)
+ *     ViIrpAllocateLockedPacket @ 0x140B900BC (ViIrpAllocateLockedPacket.c)
+ *     ViSpIoSetCompletionRoutineEx_Exit @ 0x140BA6A10 (ViSpIoSetCompletionRoutineEx_Exit.c)
+ *     ViSpRtlReplaceStringBuffer @ 0x140BA6E44 (ViSpRtlReplaceStringBuffer.c)
  * Callees:
- *     RtlRaiseStatus @ 0x140280B30 (RtlRaiseStatus.c)
- *     ExIsSpecialPoolAddress @ 0x1402B4928 (ExIsSpecialPoolAddress.c)
- *     VfAvlLookupTreeNode @ 0x1403F1074 (VfAvlLookupTreeNode.c)
- *     VfAvlCleanupLockContext @ 0x1403F142C (VfAvlCleanupLockContext.c)
- *     ExAllocatePoolWithTagPriority @ 0x140437960 (ExAllocatePoolWithTagPriority.c)
- *     VfAvlInitializeLockContext @ 0x14049C0D8 (VfAvlInitializeLockContext.c)
- *     ViGrowPoolAllocation @ 0x140612280 (ViGrowPoolAllocation.c)
- *     RtlpInterlockedPopEntrySList @ 0x1406B3890 (RtlpInterlockedPopEntrySList.c)
- *     RtlpInterlockedPushEntrySList @ 0x1406B38D0 (RtlpInterlockedPushEntrySList.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExpPoolFlagsToPoolType @ 0x140B744E0 (ExpPoolFlagsToPoolType.c)
- *     ExAllocatePool3 @ 0x140B746D0 (ExAllocatePool3.c)
- *     ViPtLogPoolTraceWrapper @ 0x140B82100 (ViPtLogPoolTraceWrapper.c)
- *     ViTargetUpdateTreeAllowed @ 0x140B8BC14 (ViTargetUpdateTreeAllowed.c)
- *     VfFillAllocatedMemory @ 0x140B8BD04 (VfFillAllocatedMemory.c)
- *     CarReportRuleViolationFromNt @ 0x140B8D914 (CarReportRuleViolationFromNt.c)
- *     ViPostPoolAllocation @ 0x140B918F0 (ViPostPoolAllocation.c)
- *     VfFaultsIsSystemSufficientlyBooted @ 0x140B9665C (VfFaultsIsSystemSufficientlyBooted.c)
- *     ExAllocatePoolSanityChecks @ 0x140BA42F4 (ExAllocatePoolSanityChecks.c)
- *     VfTargetDriversGetVerifierData @ 0x140BA7E7C (VfTargetDriversGetVerifierData.c)
- *     VfDriverIsKernelImageAddress @ 0x140BA7ECC (VfDriverIsKernelImageAddress.c)
+ *     RtlRaiseStatus @ 0x1402360C0 (RtlRaiseStatus.c)
+ *     VfAvlLookupTreeNode @ 0x1403E4D94 (VfAvlLookupTreeNode.c)
+ *     VfAvlCleanupLockContext @ 0x1403E514C (VfAvlCleanupLockContext.c)
+ *     ExAllocatePoolWithTagPriority @ 0x14042A3E0 (ExAllocatePoolWithTagPriority.c)
+ *     ExIsSpecialPoolAddress @ 0x14048BD64 (ExIsSpecialPoolAddress.c)
+ *     VfAvlInitializeLockContext @ 0x140496D08 (VfAvlInitializeLockContext.c)
+ *     ViGrowPoolAllocation @ 0x140610840 (ViGrowPoolAllocation.c)
+ *     RtlpInterlockedPopEntrySList @ 0x1406B4830 (RtlpInterlockedPopEntrySList.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1406B4870 (RtlpInterlockedPushEntrySList.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExpPoolFlagsToPoolType @ 0x140B76080 (ExpPoolFlagsToPoolType.c)
+ *     ExAllocatePool3 @ 0x140B76270 (ExAllocatePool3.c)
+ *     ViPtLogPoolTraceWrapper @ 0x140B84104 (ViPtLogPoolTraceWrapper.c)
+ *     ViTargetUpdateTreeAllowed @ 0x140B8DC14 (ViTargetUpdateTreeAllowed.c)
+ *     VfFillAllocatedMemory @ 0x140B8DD04 (VfFillAllocatedMemory.c)
+ *     CarReportRuleViolationFromNt @ 0x140B8F914 (CarReportRuleViolationFromNt.c)
+ *     ViPostPoolAllocation @ 0x140B938F0 (ViPostPoolAllocation.c)
+ *     VfFaultsIsSystemSufficientlyBooted @ 0x140B9865C (VfFaultsIsSystemSufficientlyBooted.c)
+ *     ExAllocatePoolSanityChecks @ 0x140BA62F4 (ExAllocatePoolSanityChecks.c)
+ *     VfTargetDriversGetVerifierData @ 0x140BA9E7C (VfTargetDriversGetVerifierData.c)
+ *     VfDriverIsKernelImageAddress @ 0x140BA9ECC (VfDriverIsKernelImageAddress.c)
  */
 
 PVOID __fastcall VfHandlePoolAlloc(
@@ -52,7 +52,7 @@ PVOID __fastcall VfHandlePoolAlloc(
   unsigned __int64 v9; // rdi
   ULONG_PTR v10; // rbx
   POOL_TYPE v11; // esi
-  union _SLIST_HEADER *VerifierData; // r13
+  _SLIST_HEADER *VerifierData; // r13
   ULONG_PTR v13; // rcx
   ULONG_PTR v14; // r8
   size_t v15; // rdx
@@ -60,7 +60,7 @@ PVOID __fastcall VfHandlePoolAlloc(
   __int64 v18; // r15
   EX_POOL_PRIORITY v19; // r14d
   PSLIST_ENTRY v20; // rsi
-  __int64 PoolWithTagPriority; // rax
+  ULONG_PTR PoolWithTagPriority; // rax
   __int64 v22; // rbx
   int v23; // eax
   _QWORD *v24; // rax
@@ -121,7 +121,7 @@ LABEL_4:
     else
     {
       LODWORD(NumberOfBytes) = 1;
-      VerifierData = (union _SLIST_HEADER *)VfTargetDriversGetVerifierData(a8, BugCheckParameter3, a3, Tag);
+      VerifierData = (_SLIST_HEADER *)VfTargetDriversGetVerifierData(a8, BugCheckParameter3, a3, Tag);
       if ( !VerifierData )
       {
         v14 = v8;
@@ -143,7 +143,7 @@ LABEL_4:
   }
   v39 = v9;
   v38 = v9;
-  _InterlockedIncrement(&dword_140F03E90);
+  _InterlockedIncrement(&dword_140F047F0);
   v18 = v42;
   if ( (v42 & 2) != 0 && (VfRuleClasses & 4) != 0 && (unsigned int)VfFaultsIsSystemSufficientlyBooted() )
     CarReportRuleViolationFromNt(194, 154LL, v18 & 0xFFFFFFFFFFFFFF7FuLL, v9, Taga, 2u, v17);
@@ -168,7 +168,7 @@ LABEL_4:
     && Taga != 1316118851 )
   {
     if ( !(_DWORD)NumberOfBytes )
-      VerifierData = (union _SLIST_HEADER *)VfTargetDriversGetVerifierData(v17, BugCheckParameter3, a3, Tag);
+      VerifierData = (_SLIST_HEADER *)VfTargetDriversGetVerifierData(v17, BugCheckParameter3, a3, Tag);
     if ( VerifierData && (NumberOfBytes = v9 + 8, v9 + 8 >= v9) )
     {
       v20 = RtlpInterlockedPopEntrySList(VerifierData + 5);
@@ -180,7 +180,7 @@ LABEL_4:
         if ( !v10 )
         {
 LABEL_47:
-          PoolWithTagPriority = (__int64)ExAllocatePoolWithTagPriority((POOL_TYPE)v18, v9, Taga, v19);
+          PoolWithTagPriority = (ULONG_PTR)ExAllocatePoolWithTagPriority((POOL_TYPE)v18, v9, Taga, v19);
           goto LABEL_51;
         }
         v10 |= 0x400uLL;
@@ -188,7 +188,7 @@ LABEL_47:
     }
     else
     {
-      ++dword_140F03EBC;
+      ++dword_140F0481C;
     }
   }
   if ( !v10 )
@@ -201,7 +201,7 @@ LABEL_51:
   v22 = PoolWithTagPriority;
   if ( !PoolWithTagPriority )
   {
-    ++dword_140F03EA8;
+    ++dword_140F04808;
     if ( (MmVerifierData & 0x1000) != 0 )
     {
       v41 = 0LL;
@@ -236,16 +236,16 @@ LABEL_51:
   {
     v27 = 3LL * (((unsigned __int8)_InterlockedExchangeAdd(&ViBugcheckWorkaroundLogIndex, 1u) + 1) & 0xF);
     ViBugcheckWorkaroundLog[2 * v27] = 1;
-    qword_140FFE818[v27] = v17;
-    qword_140FFE820[v27] = PoolWithTagPriority;
+    qword_140FFF818[v27] = v17;
+    qword_140FFF820[v27] = PoolWithTagPriority;
   }
   v28 = 0;
-  _InterlockedIncrement(&dword_140F03E94);
+  _InterlockedIncrement(&dword_140F047F4);
   if ( (unsigned int)ExIsSpecialPoolAddress(PoolWithTagPriority) == 1 )
   {
     v28 = 1;
 LABEL_70:
-    _InterlockedIncrement(&dword_140F03E98);
+    _InterlockedIncrement(&dword_140F047F8);
     goto LABEL_71;
   }
   if ( v9 > 0xFE0 )

@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpTimerSavePerformanceCounter @ 0x140386BF4
+ * XREFs of HalpTimerSavePerformanceCounter @ 0x140386D44
  * Callers:
- *     HalpAcpiPreSleep @ 0x140995EFC (HalpAcpiPreSleep.c)
+ *     HalpAcpiPreSleep @ 0x140996EFC (HalpAcpiPreSleep.c)
  * Callees:
- *     HalpTimerGetInternalData @ 0x14022AA30 (HalpTimerGetInternalData.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     HalpTimerGetInternalData @ 0x1402CF2E0 (HalpTimerGetInternalData.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
  */
 
 __int64 HalpTimerSavePerformanceCounter()

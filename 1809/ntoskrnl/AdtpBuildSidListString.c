@@ -1,15 +1,15 @@
 /*
- * XREFs of AdtpBuildSidListString @ 0x1408EF728
+ * XREFs of AdtpBuildSidListString @ 0x1408F09E8
  * Callers:
- *     AdtpPackageParameters @ 0x140188D9C (AdtpPackageParameters.c)
+ *     AdtpPackageParameters @ 0x140188EDC (AdtpPackageParameters.c)
  * Callees:
  *     RtlAppendUnicodeToString @ 0x140015E00 (RtlAppendUnicodeToString.c)
- *     RtlAppendUnicodeStringToString @ 0x1400F51D0 (RtlAppendUnicodeStringToString.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     RtlConvertSidToUnicodeString @ 0x14065A6B0 (RtlConvertSidToUnicodeString.c)
- *     RtlLengthSidAsUnicodeString @ 0x14065A9B4 (RtlLengthSidAsUnicodeString.c)
+ *     RtlAppendUnicodeStringToString @ 0x1400F5250 (RtlAppendUnicodeStringToString.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     RtlConvertSidToUnicodeString @ 0x14065B870 (RtlConvertSidToUnicodeString.c)
+ *     RtlLengthSidAsUnicodeString @ 0x14065BB74 (RtlLengthSidAsUnicodeString.c)
  */
 
 __int64 __fastcall AdtpBuildSidListString(unsigned int *a1, __int64 a2, __int64 a3, __int64 a4, __int64 a5, char *a6)
@@ -18,8 +18,8 @@ __int64 __fastcall AdtpBuildSidListString(unsigned int *a1, __int64 a2, __int64 
   wchar_t *PoolWithTag; // r15
   char v10; // r13
   unsigned int v11; // r14d
-  unsigned __int8 **v12; // rcx
-  unsigned __int8 *v13; // rcx
+  void **v12; // rcx
+  void *v13; // rcx
   unsigned int v14; // eax
   unsigned int v15; // ecx
   unsigned int v16; // edx
@@ -28,12 +28,12 @@ __int64 __fastcall AdtpBuildSidListString(unsigned int *a1, __int64 a2, __int64 
   unsigned __int16 Length; // ax
   unsigned int v20; // r14d
   PSID *v21; // rbx
-  unsigned int v23; // [rsp+20h] [rbp-E0h] BYREF
+  ULONG StringLength; // [rsp+20h] [rbp-E0h] BYREF
   unsigned int v24; // [rsp+24h] [rbp-DCh]
   UNICODE_STRING Destination; // [rsp+28h] [rbp-D8h] BYREF
   unsigned int v26; // [rsp+38h] [rbp-C8h]
   UNICODE_STRING UnicodeString; // [rsp+40h] [rbp-C0h] BYREF
-  unsigned __int8 **v28; // [rsp+50h] [rbp-B0h]
+  void **v28; // [rsp+50h] [rbp-B0h]
   char *v29; // [rsp+58h] [rbp-A8h]
   char v30; // [rsp+60h] [rbp-A0h] BYREF
 
@@ -46,19 +46,19 @@ __int64 __fastcall AdtpBuildSidListString(unsigned int *a1, __int64 a2, __int64 
   if ( a1 && (v26 = *a1) != 0 )
   {
     v11 = 1;
-    v12 = (unsigned __int8 **)(*((_QWORD *)a1 + 1) + 8LL);
+    v12 = (void **)(*((_QWORD *)a1 + 1) + 8LL);
     v24 = 0;
     v28 = v12;
     while ( 1 )
     {
       v13 = *v12;
-      v23 = 0;
-      RtlLengthSidAsUnicodeString(v13, &v23);
+      StringLength = 0;
+      RtlLengthSidAsUnicodeString(v13, &StringLength);
       v14 = -1;
       v15 = v11;
-      v16 = v11 + (v23 >> 1) + 7;
+      v16 = v11 + (StringLength >> 1) + 7;
       if ( v16 >= v11 )
-        v14 = v11 + (v23 >> 1) + 7;
+        v14 = v11 + (StringLength >> 1) + 7;
       v11 = v14;
       appended = v16 < v15 ? 0xC0000095 : 0;
       if ( v16 < v15 )

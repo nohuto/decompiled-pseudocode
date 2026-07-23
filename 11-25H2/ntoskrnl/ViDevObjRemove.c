@@ -13,7 +13,7 @@
 
 void __fastcall ViDevObjRemove(ULONG_PTR BugCheckParameter2)
 {
-  struct _SLIST_ENTRY *v2; // rdi
+  _SLIST_ENTRY *v2; // rdi
   __int64 v3; // rax
   __int64 v4; // rsi
   _DWORD *v5; // rax
@@ -36,7 +36,7 @@ void __fastcall ViDevObjRemove(ULONG_PTR BugCheckParameter2)
     {
       if ( (v5[4] & 1) != 0 )
         CarReportRuleViolationFromNt(196, 219LL, BugCheckParameter2, 0LL, 0LL, 4u, v4);
-      v2 = (struct _SLIST_ENTRY *)VfAvlDeleteTreeNode(ViDevObjAvl, (__int64)&v7, BugCheckParameter2, 0LL);
+      v2 = (_SLIST_ENTRY *)VfAvlDeleteTreeNode(ViDevObjAvl, (__int64)&v7, BugCheckParameter2, 0LL);
     }
     VfAvlCleanupLockContext((__int64)&v7, v6);
     if ( v2 )

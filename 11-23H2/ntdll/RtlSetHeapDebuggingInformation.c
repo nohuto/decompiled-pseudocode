@@ -2,7 +2,7 @@
  * XREFs of RtlSetHeapDebuggingInformation @ 0x1800FF15C
  * Callers:
  *     RtlSetHeapInformation @ 0x18007D200 (RtlSetHeapInformation.c)
- *     RtlHeapTrkInitialize @ 0x18010BE00 (RtlHeapTrkInitialize.c)
+ *     RtlHeapTrkInitialize @ 0x18010BDD0 (RtlHeapTrkInitialize.c)
  * Callees:
  *     RtlEnterCriticalSection @ 0x180021B30 (RtlEnterCriticalSection.c)
  *     RtlpWakeByAddress @ 0x18002A00C (RtlpWakeByAddress.c)
@@ -12,70 +12,73 @@
  *     ZwSetEvent @ 0x1800A1070 (ZwSetEvent.c)
  *     RtlpNotOwnerCriticalSection @ 0x1800F4D50 (RtlpNotOwnerCriticalSection.c)
  *     RtlpSetHeapDebuggingInformation @ 0x1801010A0 (RtlpSetHeapDebuggingInformation.c)
- *     RtlRaiseStatus @ 0x1801106D0 (RtlRaiseStatus.c)
+ *     RtlRaiseStatus @ 0x1801106A0 (RtlRaiseStatus.c)
  */
 
-__int64 __fastcall RtlSetHeapDebuggingInformation(__int64 a1, __int64 a2)
+__int64 __fastcall RtlSetHeapDebuggingInformation(_DWORD *HeapHandle, __int64 a2)
 {
-  __int64 v5; // rax
-  unsigned int v6; // ebx
-  signed __int32 v7; // edi
-  HANDLE DeferredCriticalSectionEvent; // r10
-  int v9; // eax
-  signed __int32 v10[10]; // [rsp+0h] [rbp-28h] BYREF
-  unsigned int v11; // [rsp+30h] [rbp+8h] BYREF
+  __int64 v4; // rax
+  unsigned int v5; // ebx
+  signed __int32 LockCount; // edi
+  void *LockSemaphore; // r10
+  int v8; // eax
+  signed __int32 v9[10]; // [rsp+0h] [rbp-28h] BYREF
+  unsigned int v10; // [rsp+30h] [rbp+8h] BYREF
 
-  if ( a1 )
+  if ( HeapHandle )
   {
-    if ( (*(_DWORD *)(a1 + 116) & 0x1000000) != 0 )
+    if ( (HeapHandle[29] & 0x1000000) != 0 )
     {
       return 3221225474LL;
     }
     else
     {
-      RtlEnterCriticalSection((__int64)&RtlpProcessHeapsListLock);
-      v5 = 28LL;
-      if ( *(_DWORD *)(a1 + 16) != -571548178 )
-        v5 = 208LL;
-      if ( *(_WORD *)(v5 + a1) == 0xFFFF )
-        v6 = -1073741811;
+      RtlEnterCriticalSection(&RtlpProcessHeapsListLock);
+      v4 = 7LL;
+      if ( HeapHandle[4] != -571548178 )
+        v4 = 52LL;
+      if ( LOWORD(HeapHandle[v4]) == 0xFFFF )
+        v5 = -1073741811;
       else
-        v6 = RtlpSetHeapDebuggingInformation(a1, a2);
-      if ( !--dword_18018606C )
+        v5 = RtlpSetHeapDebuggingInformation(HeapHandle);
+      if ( !--RtlpProcessHeapsListLock.RecursionCount )
       {
-        qword_180186070 = 0LL;
-        v7 = _InterlockedCompareExchange(&dword_180186068, -1, -2);
-        if ( v7 != -2 )
+        RtlpProcessHeapsListLock.OwningThread = 0LL;
+        LockCount = _InterlockedCompareExchange(&RtlpProcessHeapsListLock.LockCount, -1, -2);
+        if ( LockCount != -2 )
         {
-          if ( (dword_180186068 & 1) != 0 )
+          if ( (RtlpProcessHeapsListLock.LockCount & 1) != 0 )
             RtlpNotOwnerCriticalSection(&RtlpProcessHeapsListLock);
-          DeferredCriticalSectionEvent = (HANDLE)qword_180186078;
-          if ( !qword_180186078 )
-            DeferredCriticalSectionEvent = RtlpCreateDeferredCriticalSectionEvent((__int64)&RtlpProcessHeapsListLock);
-          v11 = 0;
-          while ( v7 != _InterlockedCompareExchange(&dword_180186068, (v7 & 2 | 1) + v7, v7) )
+          LockSemaphore = RtlpProcessHeapsListLock.LockSemaphore;
+          if ( !RtlpProcessHeapsListLock.LockSemaphore )
+            LockSemaphore = RtlpCreateDeferredCriticalSectionEvent((__int64)&RtlpProcessHeapsListLock);
+          v10 = 0;
+          while ( LockCount != _InterlockedCompareExchange(
+                                 &RtlpProcessHeapsListLock.LockCount,
+                                 (LockCount & 2 | 1) + LockCount,
+                                 LockCount) )
           {
-            RtlBackoff(&v11);
-            _m_prefetchw(&dword_180186068);
-            v7 = dword_180186068;
+            RtlBackoff(&v10);
+            _m_prefetchw(&RtlpProcessHeapsListLock.LockCount);
+            LockCount = RtlpProcessHeapsListLock.LockCount;
           }
-          if ( (v7 & 2) != 0 )
+          if ( (LockCount & 2) != 0 )
           {
-            if ( DeferredCriticalSectionEvent == (HANDLE)-1LL )
+            if ( LockSemaphore == (void *)-1LL )
             {
-              _InterlockedOr(v10, 0);
-              RtlpWakeByAddress((unsigned __int64)&dword_180186068, 0);
+              _InterlockedOr(v9, 0);
+              RtlpWakeByAddress((unsigned __int64)&RtlpProcessHeapsListLock.LockCount, 0);
             }
             else
             {
-              v9 = ZwSetEvent();
-              if ( v9 < 0 )
-                RtlRaiseStatus((unsigned int)v9);
+              v8 = ZwSetEvent(LockSemaphore, 0LL);
+              if ( v8 < 0 )
+                RtlRaiseStatus(v8);
             }
           }
         }
       }
-      return v6;
+      return v5;
     }
   }
   else

@@ -1,12 +1,12 @@
 /*
  * XREFs of CsrpLocalSetupForSecureProcess @ 0x1800CEC24
  * Callers:
- *     CsrClientConnectToServer @ 0x1800751B0 (CsrClientConnectToServer.c)
+ *     CsrClientConnectToServer @ 0x1800751A0 (CsrClientConnectToServer.c)
  * Callees:
- *     RtlAllocateHeap @ 0x180022DB0 (RtlAllocateHeap.c)
- *     RtlGetCurrentServiceSessionId @ 0x18002CD80 (RtlGetCurrentServiceSessionId.c)
- *     RtlFreeHeap @ 0x1800466F0 (RtlFreeHeap.c)
- *     __security_check_cookie @ 0x180096C40 (__security_check_cookie.c)
+ *     RtlAllocateHeap @ 0x180022DA0 (RtlAllocateHeap.c)
+ *     RtlGetCurrentServiceSessionId @ 0x18002CD70 (RtlGetCurrentServiceSessionId.c)
+ *     RtlFreeHeap @ 0x1800466E0 (RtlFreeHeap.c)
+ *     __security_check_cookie @ 0x180096C30 (__security_check_cookie.c)
  *     swprintf_s @ 0x1800A2340 (swprintf_s.c)
  *     wcscpy_s @ 0x1800A24E0 (wcscpy_s.c)
  *     NtQuerySystemInformation @ 0x1800A6AE0 (NtQuerySystemInformation.c)
@@ -22,11 +22,11 @@ __int64 CsrpLocalSetupForSecureProcess()
   size_t v4; // r15
   __int64 v5; // r14
   size_t v6; // r14
-  __int64 Heap; // rax
+  _QWORD *Heap; // rax
   unsigned __int64 v8; // rdi
   NTSTATUS SystemInformation; // ebx
   void **v10; // r13
-  __int64 v11; // rbx
+  char *v11; // rbx
   char *v12; // rbx
   char *v13; // rcx
   __int128 v14; // xmm0
@@ -41,7 +41,7 @@ __int64 CsrpLocalSetupForSecureProcess()
   SessionId = v0->SessionId;
   v3 = 2 * v1;
   v4 = v3 + 18;
-  if ( SessionId == (unsigned int)RtlGetCurrentServiceSessionId() )
+  if ( SessionId == RtlGetCurrentServiceSessionId() )
     wcscpy_s(Destination, 0x100uLL, L"\\BaseNamedObjects");
   else
     swprintf_s(Destination, 0x100uLL, L"%ws\\%ld\\BaseNamedObjects", L"\\Sessions", SessionId);
@@ -51,19 +51,19 @@ __int64 CsrpLocalSetupForSecureProcess()
   while ( Destination[v5] );
   v6 = 2 * v5;
   Heap = RtlAllocateHeap(CsrHeap, 8u, v3 + v6 + v3 + 2960);
-  v8 = Heap;
+  v8 = (unsigned __int64)Heap;
   if ( Heap )
   {
-    v10 = (void **)(Heap + 2920);
-    *(_QWORD *)(Heap + 2928) = Heap;
-    v11 = Heap + 2936;
-    *(_QWORD *)(Heap + 8) = Heap + 2936;
+    v10 = (void **)(Heap + 365);
+    Heap[366] = Heap;
+    v11 = (char *)(Heap + 367);
+    Heap[1] = Heap + 367;
     *(_WORD *)Heap = v3;
-    *(_WORD *)(Heap + 2) = v3 + 2;
-    memmove((void *)(Heap + 2936), (const void *)0x7FFE0030, v3);
+    *((_WORD *)Heap + 1) = v3 + 2;
+    memmove(Heap + 367, (const void *)0x7FFE0030, v3);
     *(_WORD *)(v8 + 16) = v4;
     *(_WORD *)(v8 + 18) = v3 + 20;
-    v12 = (char *)(v3 + v11 + 2);
+    v12 = &v11[v3 + 2];
     *(_QWORD *)(v8 + 24) = v12;
     memmove(v12, (const void *)0x7FFE0030, v3);
     v13 = &v12[v4 + 2];
@@ -80,7 +80,7 @@ __int64 CsrpLocalSetupForSecureProcess()
     SystemInformation = NtQuerySystemInformation(SystemTimeOfDayInformation, (PVOID)(v8 + 320), 0x30u, 0LL);
     if ( SystemInformation < 0 )
     {
-      RtlFreeHeap(CsrHeap, 0, v8);
+      RtlFreeHeap(CsrHeap, 0, (PVOID)v8);
     }
     else
     {

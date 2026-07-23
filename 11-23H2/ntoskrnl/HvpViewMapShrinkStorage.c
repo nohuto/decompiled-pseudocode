@@ -1,24 +1,24 @@
 /*
- * XREFs of HvpViewMapShrinkStorage @ 0x140A1D2F8
+ * XREFs of HvpViewMapShrinkStorage @ 0x140A1D5A8
  * Callers:
- *     HvFreeHivePartial @ 0x1407071A8 (HvFreeHivePartial.c)
- *     HvpAddBin @ 0x14074F174 (HvpAddBin.c)
+ *     HvFreeHivePartial @ 0x1407073B8 (HvFreeHivePartial.c)
+ *     HvpAddBin @ 0x14074F364 (HvpAddBin.c)
  * Callees:
  *     CmSiFreeMemory @ 0x140208C40 (CmSiFreeMemory.c)
  *     CmSiUnmapViewOfSection @ 0x140208C80 (CmSiUnmapViewOfSection.c)
- *     RtlRbRemoveNode @ 0x14024B930 (RtlRbRemoveNode.c)
- *     CmSiReleaseProcessLockedPagesCharge @ 0x1402E9BBC (CmSiReleaseProcessLockedPagesCharge.c)
- *     HvcallpNoHypervisorPresent @ 0x14036E650 (HvcallpNoHypervisorPresent.c)
- *     HvpViewMapMakeViewRangeInvalid @ 0x140885630 (HvpViewMapMakeViewRangeInvalid.c)
+ *     RtlRbRemoveNode @ 0x14024BA00 (RtlRbRemoveNode.c)
+ *     CmSiReleaseProcessLockedPagesCharge @ 0x1402E9E4C (CmSiReleaseProcessLockedPagesCharge.c)
+ *     HvcallpNoHypervisorPresent @ 0x14036E7F0 (HvcallpNoHypervisorPresent.c)
+ *     HvpViewMapMakeViewRangeInvalid @ 0x140885870 (HvpViewMapMakeViewRangeInvalid.c)
  */
 
-struct _PRIVILEGE_SET *__fastcall HvpViewMapShrinkStorage(__int64 a1, int a2)
+struct _PRIVILEGE_SET *__fastcall HvpViewMapShrinkStorage(ULONG_PTR a1, int a2)
 {
   __int64 v2; // r12
   __int64 v3; // r15
   struct _PRIVILEGE_SET *p_Privileges; // rbx
   __int64 v5; // r8
-  __int64 v7; // rdi
+  ULONG_PTR v7; // rdi
   unsigned __int64 v8; // rbx
   unsigned __int64 v9; // rax
   __int64 v10; // r14
@@ -65,7 +65,7 @@ struct _PRIVILEGE_SET *__fastcall HvpViewMapShrinkStorage(__int64 a1, int a2)
       HvpViewMapMakeViewRangeInvalid(a1, (_QWORD *)v8, v5, v10);
       if ( *(_QWORD *)(v8 + 40) == *(_QWORD *)(v8 + 48) )
       {
-        RtlRbRemoveNode((unsigned __int64 *)v7, v8);
+        RtlRbRemoveNode((PRTL_RB_TREE)v7, (PRTL_BALANCED_NODE)v8);
         Luid = (unsigned __int64 *)Privileges.Privilege[0].Luid;
         if ( **(struct _PRIVILEGE_SET ***)&Privileges.Privilege[0].Luid != &Privileges )
           goto LABEL_22;

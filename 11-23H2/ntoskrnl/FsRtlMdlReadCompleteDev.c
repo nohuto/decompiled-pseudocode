@@ -1,9 +1,9 @@
 /*
- * XREFs of FsRtlMdlReadCompleteDev @ 0x1403551A0
+ * XREFs of FsRtlMdlReadCompleteDev @ 0x140355340
  * Callers:
  *     <none>
  * Callees:
- *     CcMdlReadComplete2 @ 0x1407C386C (CcMdlReadComplete2.c)
+ *     CcMdlReadComplete2 @ 0x1407C3B3C (CcMdlReadComplete2.c)
  */
 
 BOOLEAN __stdcall FsRtlMdlReadCompleteDev(PFILE_OBJECT FileObject, PMDL MdlChain, PDEVICE_OBJECT DeviceObject)

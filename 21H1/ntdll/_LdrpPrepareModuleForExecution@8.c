@@ -26,7 +26,7 @@ int __fastcall LdrpPrepareModuleForExecution(int a1, int a2)
   char v11; // [esp+Fh] [ebp-1h] BYREF
 
   v4 = 0;
-  if ( RtlIsCriticalSectionLockedByThread((int)&LdrpDllNotificationLock) )
+  if ( RtlIsCriticalSectionLockedByThread(&LdrpDllNotificationLock) )
     return v4;
   v5 = *(_DWORD *)(a1 + 80);
   switch ( *(_DWORD *)(v5 + 32) )

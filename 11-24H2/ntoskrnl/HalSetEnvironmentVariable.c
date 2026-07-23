@@ -1,11 +1,11 @@
 /*
- * XREFs of HalSetEnvironmentVariable @ 0x140541550
+ * XREFs of HalSetEnvironmentVariable @ 0x14053EE50
  * Callers:
- *     NtSetSystemEnvironmentValue @ 0x1407BEC50 (NtSetSystemEnvironmentValue.c)
+ *     NtSetSystemEnvironmentValue @ 0x1407BF0A0 (NtSetSystemEnvironmentValue.c)
  * Callees:
- *     HalpReleaseCmosSpinLock @ 0x140425E04 (HalpReleaseCmosSpinLock.c)
- *     HalpAcquireCmosSpinLock @ 0x140425EE8 (HalpAcquireCmosSpinLock.c)
- *     _stricmp @ 0x1404FE0B0 (_stricmp.c)
+ *     HalpReleaseCmosSpinLock @ 0x140419CB4 (HalpReleaseCmosSpinLock.c)
+ *     HalpAcquireCmosSpinLock @ 0x140419D98 (HalpAcquireCmosSpinLock.c)
+ *     _stricmp @ 0x1404FB970 (_stricmp.c)
  */
 
 __int64 __fastcall HalSetEnvironmentVariable(const char *a1, const char *a2)

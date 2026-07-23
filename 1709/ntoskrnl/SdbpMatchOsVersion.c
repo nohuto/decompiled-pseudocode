@@ -23,7 +23,7 @@ _BOOL8 __fastcall SdbpMatchOsVersion(__int64 a1, unsigned int a2)
   __int64 QWORDTag; // rax
   __int64 v11; // rax
   __int64 v12; // rax
-  struct _OSVERSIONINFOW VersionInformation; // [rsp+20h] [rbp-148h] BYREF
+  _OSVERSIONINFOW VersionInformation; // [rsp+20h] [rbp-148h] BYREF
 
   v4 = 1;
   memset(&VersionInformation, 0, 0x11CuLL);

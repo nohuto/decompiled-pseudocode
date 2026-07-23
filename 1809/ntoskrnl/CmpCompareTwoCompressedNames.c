@@ -1,13 +1,13 @@
 /*
- * XREFs of CmpCompareTwoCompressedNames @ 0x1407F97AC
+ * XREFs of CmpCompareTwoCompressedNames @ 0x1407FA9AC
  * Callers:
- *     CmpFindNameInListCellWithStatus @ 0x1405D0720 (CmpFindNameInListCellWithStatus.c)
- *     CmpDoCompareKeyName @ 0x1405D5C70 (CmpDoCompareKeyName.c)
- *     CmpFindKcbInHashEntryByCompressedName @ 0x1407F1050 (CmpFindKcbInHashEntryByCompressedName.c)
- *     CmpCompareKeysByName @ 0x1407F96E4 (CmpCompareKeysByName.c)
- *     CmpSortedValueEnumStackValueCompareFunction @ 0x140800B00 (CmpSortedValueEnumStackValueCompareFunction.c)
+ *     CmpFindNameInListCellWithStatus @ 0x1405D1720 (CmpFindNameInListCellWithStatus.c)
+ *     CmpDoCompareKeyName @ 0x1405D6C70 (CmpDoCompareKeyName.c)
+ *     CmpFindKcbInHashEntryByCompressedName @ 0x1407F2250 (CmpFindKcbInHashEntryByCompressedName.c)
+ *     CmpCompareKeysByName @ 0x1407FA8E4 (CmpCompareKeysByName.c)
+ *     CmpSortedValueEnumStackValueCompareFunction @ 0x140801D00 (CmpSortedValueEnumStackValueCompareFunction.c)
  * Callees:
- *     RtlUpcaseUnicodeChar @ 0x1405D5C10 (RtlUpcaseUnicodeChar.c)
+ *     RtlUpcaseUnicodeChar @ 0x1405D6C10 (RtlUpcaseUnicodeChar.c)
  */
 
 __int64 __fastcall CmpCompareTwoCompressedNames(

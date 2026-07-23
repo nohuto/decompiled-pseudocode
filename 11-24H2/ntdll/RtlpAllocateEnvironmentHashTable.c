@@ -1,16 +1,16 @@
 /*
- * XREFs of RtlpAllocateEnvironmentHashTable @ 0x180086E48
+ * XREFs of RtlpAllocateEnvironmentHashTable @ 0x180008CF8
  * Callers:
- *     RtlpInsertEnvironmentHashTableEntry @ 0x180086630 (RtlpInsertEnvironmentHashTableEntry.c)
- *     RtlpSetupEnvironmentHashTable @ 0x18011B09C (RtlpSetupEnvironmentHashTable.c)
+ *     RtlpInsertEnvironmentHashTableEntry @ 0x1800084E0 (RtlpInsertEnvironmentHashTableEntry.c)
+ *     RtlpSetupEnvironmentHashTable @ 0x1801192CC (RtlpSetupEnvironmentHashTable.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall RtlpAllocateEnvironmentHashTable(unsigned __int64 a1)
+PVOID __fastcall RtlpAllocateEnvironmentHashTable(SIZE_T a1)
 {
   if ( NtCurrentPeb()->ProcessHeap )
-    return RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 8u, a1);
+    return RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, a1);
   else
     return 0LL;
 }

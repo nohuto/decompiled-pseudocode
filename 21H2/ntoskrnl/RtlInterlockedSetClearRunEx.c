@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlInterlockedSetClearRunEx @ 0x140228C90
+ * XREFs of RtlInterlockedSetClearRunEx @ 0x1402CD590
  * Callers:
- *     MiReservePtes @ 0x1402265B0 (MiReservePtes.c)
- *     MiAttemptCoalesce @ 0x140348EC0 (MiAttemptCoalesce.c)
- *     MiAllocateSlabEntry @ 0x140392868 (MiAllocateSlabEntry.c)
+ *     MiReservePtes @ 0x1402CAEB0 (MiReservePtes.c)
+ *     MiAttemptCoalesce @ 0x140353C10 (MiAttemptCoalesce.c)
+ *     MiAllocateSlabEntry @ 0x1403929B8 (MiAllocateSlabEntry.c)
  * Callees:
  *     <none>
  */

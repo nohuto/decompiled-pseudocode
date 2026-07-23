@@ -1,53 +1,45 @@
 /*
- * XREFs of RtlFindLastBackwardRunClear @ 0x1800E9430
+ * XREFs of RtlFindLastBackwardRunClear @ 0x1800E8640
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall RtlFindLastBackwardRunClear(__int64 a1, unsigned int a2, unsigned int *a3)
+ULONG __cdecl RtlFindLastBackwardRunClear(PRTL_BITMAP BitMapHeader, ULONG FromIndex, PULONG StartingRunIndex)
 {
-  const signed __int64 *v4; // r9
-  const signed __int64 *i; // r8
-  unsigned int v6; // ecx
-  const signed __int64 *j; // r8
+  unsigned int *Buffer; // r9
+  unsigned int *v5; // r8
+  ULONG v6; // ecx
+  unsigned int *i; // r8
 
-  if ( *(_DWORD *)a1 <= a2 )
+  if ( BitMapHeader->SizeOfBitMap <= FromIndex )
   {
-    *a3 = a2;
-    return 0LL;
+    *StartingRunIndex = FromIndex;
+    return 0;
   }
   else
   {
-    v4 = *(const signed __int64 **)(a1 + 8);
-    i = (const signed __int64 *)((char *)v4 + 4 * ((unsigned __int64)a2 >> 5));
-    if ( i != v4 && (*(_DWORD *)i | ~dword_18017E310[(a2 & 0x1F) + 1]) == 0xFFFFFFFF )
+    Buffer = BitMapHeader->Buffer;
+    v5 = &Buffer[(unsigned __int64)FromIndex >> 5];
+    if ( v5 != Buffer && (*v5 | ~dword_18017D250[(FromIndex & 0x1F) + 1]) == 0xFFFFFFFF )
     {
-      a2 = (a2 & 0xFFFFFFE0) - 1;
-      for ( i = (const signed __int64 *)((char *)i - 4);
-            i > v4 && *(_DWORD *)i == -1;
-            i = (const signed __int64 *)((char *)i - 4) )
-      {
-        a2 -= 32;
-      }
+      FromIndex = (FromIndex & 0xFFFFFFE0) - 1;
+      for ( --v5; v5 > Buffer && *v5 == -1; --v5 )
+        FromIndex -= 32;
     }
-    while ( a2 != -1 && _bittest64(v4, a2) == 1 )
-      --a2;
-    v6 = a2;
-    if ( (dword_18017E310[a2 & 0x1F] & *(_DWORD *)i) == 0 )
+    while ( FromIndex != -1 && _bittest64((const signed __int64 *)Buffer, FromIndex) == 1 )
+      --FromIndex;
+    v6 = FromIndex;
+    if ( (dword_18017D250[FromIndex & 0x1F] & *v5) == 0 )
     {
-      v6 = (a2 & 0xFFFFFFE0) - 1;
-      for ( j = (const signed __int64 *)((char *)i - 4);
-            j > v4 && !*(_DWORD *)j;
-            j = (const signed __int64 *)((char *)j - 4) )
-      {
+      v6 = (FromIndex & 0xFFFFFFE0) - 1;
+      for ( i = v5 - 1; i > Buffer && !*i; --i )
         v6 -= 32;
-      }
     }
-    while ( v6 != -1 && !_bittest64(v4, v6) )
+    while ( v6 != -1 && !_bittest64((const signed __int64 *)Buffer, v6) )
       --v6;
-    *a3 = v6 + 1;
-    return a2 - v6;
+    *StartingRunIndex = v6 + 1;
+    return FromIndex - v6;
   }
 }

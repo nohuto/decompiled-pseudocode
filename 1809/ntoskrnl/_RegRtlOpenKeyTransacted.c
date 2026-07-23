@@ -1,20 +1,20 @@
 /*
- * XREFs of _RegRtlOpenKeyTransacted @ 0x1405C7B4C
+ * XREFs of _RegRtlOpenKeyTransacted @ 0x1405C8B4C
  * Callers:
- *     _SysCtxRegOpenKey @ 0x1405C7AFC (_SysCtxRegOpenKey.c)
- *     _RegRtlDeleteTreeInternal @ 0x14070DC3C (_RegRtlDeleteTreeInternal.c)
- *     _SysCtxOpenMachine @ 0x14073BA68 (_SysCtxOpenMachine.c)
- *     _SysCtxOpenControlSet @ 0x14073BC98 (_SysCtxOpenControlSet.c)
- *     _RegRtlOpenPredefinedKey @ 0x14075D1FC (_RegRtlOpenPredefinedKey.c)
- *     _RegRtlDeleteKeyTransacted @ 0x140762140 (_RegRtlDeleteKeyTransacted.c)
- *     _RegRtlCopyTreeInternal @ 0x140900500 (_RegRtlCopyTreeInternal.c)
- *     _RegRtlDeletePathInternal @ 0x140900A28 (_RegRtlDeletePathInternal.c)
+ *     _SysCtxRegOpenKey @ 0x1405C8AFC (_SysCtxRegOpenKey.c)
+ *     _RegRtlDeleteTreeInternal @ 0x14070EEDC (_RegRtlDeleteTreeInternal.c)
+ *     _SysCtxOpenMachine @ 0x14073CC58 (_SysCtxOpenMachine.c)
+ *     _SysCtxOpenControlSet @ 0x14073CE88 (_SysCtxOpenControlSet.c)
+ *     _RegRtlOpenPredefinedKey @ 0x14075E3EC (_RegRtlOpenPredefinedKey.c)
+ *     _RegRtlDeleteKeyTransacted @ 0x140763330 (_RegRtlDeleteKeyTransacted.c)
+ *     _RegRtlCopyTreeInternal @ 0x1409017C0 (_RegRtlCopyTreeInternal.c)
+ *     _RegRtlDeletePathInternal @ 0x140901CE8 (_RegRtlDeletePathInternal.c)
  * Callees:
  *     RtlInitUnicodeStringEx @ 0x140015EB0 (RtlInitUnicodeStringEx.c)
- *     ZwClose @ 0x1401B8370 (ZwClose.c)
- *     ZwOpenKey @ 0x1401B83D0 (ZwOpenKey.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     _RegRtlOpenPredefinedKey @ 0x14075D1FC (_RegRtlOpenPredefinedKey.c)
+ *     ZwClose @ 0x1401B84D0 (ZwClose.c)
+ *     ZwOpenKey @ 0x1401B8530 (ZwOpenKey.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     _RegRtlOpenPredefinedKey @ 0x14075E3EC (_RegRtlOpenPredefinedKey.c)
  */
 
 __int64 __fastcall RegRtlOpenKeyTransacted(
@@ -62,15 +62,15 @@ LABEL_7:
     v6 = v17;
     goto LABEL_8;
   }
-  if ( byte_1404E15C8 )
+  if ( byte_1404E26C8 )
   {
-    v14 = (NTSTATUS (__stdcall *)(PHANDLE, ACCESS_MASK, POBJECT_ATTRIBUTES, HANDLE))qword_1404E15C0;
+    v14 = (NTSTATUS (__stdcall *)(PHANDLE, ACCESS_MASK, POBJECT_ATTRIBUTES, HANDLE))qword_1404E26B8;
   }
   else
   {
     v14 = ZwOpenKeyTransacted;
-    byte_1404E15C8 = 1;
-    qword_1404E15C0 = (__int64)ZwOpenKeyTransacted;
+    byte_1404E26C8 = 1;
+    qword_1404E26B8 = (__int64)ZwOpenKeyTransacted;
   }
   if ( v14 )
   {

@@ -1,9 +1,9 @@
 /*
- * XREFs of ViIrqlInit @ 0x140C3C5C4
+ * XREFs of ViIrqlInit @ 0x140C425D4
  * Callers:
- *     VfIrqlPluginEntry @ 0x140647F10 (VfIrqlPluginEntry.c)
+ *     VfIrqlPluginEntry @ 0x14064BAF0 (VfIrqlPluginEntry.c)
  * Callees:
- *     ExAllocatePool3 @ 0x140C10010 (ExAllocatePool3.c)
+ *     ExAllocatePool3 @ 0x140C16010 (ExAllocatePool3.c)
  */
 
 __int64 ViIrqlInit()

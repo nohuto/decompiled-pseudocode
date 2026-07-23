@@ -1,17 +1,17 @@
 /*
  * XREFs of MiGetSystemAddressForImage @ 0x140696090
  * Callers:
- *     MmLoadSystemImageEx @ 0x140703DC0 (MmLoadSystemImageEx.c)
+ *     MmLoadSystemImageEx @ 0x140703FD0 (MmLoadSystemImageEx.c)
  * Callees:
  *     MiSessionInsertImage @ 0x14020AE64 (MiSessionInsertImage.c)
  *     MiFreePrivateFixupEntryForSystemImage @ 0x14020B148 (MiFreePrivateFixupEntryForSystemImage.c)
  *     RtlImageNtHeader @ 0x140214B30 (RtlImageNtHeader.c)
- *     MiGetSystemRegionType @ 0x140284870 (MiGetSystemRegionType.c)
- *     MiSectionControlArea @ 0x14029F880 (MiSectionControlArea.c)
- *     MiGetPteAddress @ 0x1402DE00C (MiGetPteAddress.c)
- *     MiAddPrivateFixupEntryForSystemImage @ 0x1403ABEB4 (MiAddPrivateFixupEntryForSystemImage.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memset @ 0x140435A00 (memset.c)
+ *     MiGetSystemRegionType @ 0x140284B00 (MiGetSystemRegionType.c)
+ *     MiSectionControlArea @ 0x14029FB10 (MiSectionControlArea.c)
+ *     MiGetPteAddress @ 0x1402DE29C (MiGetPteAddress.c)
+ *     MiAddPrivateFixupEntryForSystemImage @ 0x1403AC094 (MiAddPrivateFixupEntryForSystemImage.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     memset @ 0x140435E00 (memset.c)
  *     MiImageSuitableForSystem @ 0x140696284 (MiImageSuitableForSystem.c)
  *     MiFindDataTableEntryBySection @ 0x1406962B4 (MiFindDataTableEntryBySection.c)
  *     MiBytesToMapSystemImage @ 0x140696AE4 (MiBytesToMapSystemImage.c)
@@ -37,12 +37,12 @@ unsigned __int64 __fastcall MiGetSystemAddressForImage(__int64 a1, int a2, _DWOR
   int v13; // r12d
   unsigned int v15; // esi
   unsigned __int64 v16; // rax
-  __int64 v17; // rcx
-  int v18; // edx
-  int v19; // eax
-  int v20; // edx
+  PIMAGE_NT_HEADERS v17; // rcx
+  unsigned int LoaderFlags; // edx
+  unsigned int Size; // eax
+  int SizeOfHeapReserve; // edx
   int v21; // [rsp+30h] [rbp-148h] BYREF
-  __int64 v22; // [rsp+38h] [rbp-140h]
+  _DWORD *v22; // [rsp+38h] [rbp-140h]
   int v23; // [rsp+40h] [rbp-138h]
   int v24; // [rsp+44h] [rbp-134h]
   __int64 PteAddress; // [rsp+48h] [rbp-130h]
@@ -50,14 +50,14 @@ unsigned __int64 __fastcall MiGetSystemAddressForImage(__int64 a1, int a2, _DWOR
   int v27; // [rsp+58h] [rbp-120h]
   int v28; // [rsp+60h] [rbp-118h]
   _BYTE *v29; // [rsp+68h] [rbp-110h]
-  __int64 v30[10]; // [rsp+70h] [rbp-108h] BYREF
+  PVOID BaseOfImage[10]; // [rsp+70h] [rbp-108h] BYREF
   _QWORD v31[14]; // [rsp+C0h] [rbp-B8h] BYREF
 
   v4 = a2;
   v27 = a2;
   v21 = 0;
   memset(v31, 0, sizeof(v31));
-  memset(v30, 0, sizeof(v30));
+  memset(BaseOfImage, 0, sizeof(BaseOfImage));
   *a3 = 1;
   v6 = (_BYTE *)MiSectionControlArea(a1);
   v29 = v6;
@@ -84,63 +84,63 @@ unsigned __int64 __fastcall MiGetSystemAddressForImage(__int64 a1, int a2, _DWOR
     LODWORD(PteAddress) = v15;
     if ( v21 )
       goto LABEL_17;
-    v24 = MiMapImageInSystemSpace(v6, 3LL, v30);
+    v24 = MiMapImageInSystemSpace(v6, 3LL, BaseOfImage);
     if ( v24 < 0 )
       return 0LL;
-    v22 = v30[0];
+    v22 = BaseOfImage[0];
     v23 = 0;
-    v17 = RtlImageNtHeader(v30[0]);
-    LODWORD(v22) = *(_DWORD *)(v22 + 60);
-    v23 = v22;
-    LOWORD(v31[6]) = *(_WORD *)(v17 + 24);
-    LODWORD(v31[1]) = *(_DWORD *)(v17 + 60);
-    HIDWORD(v31[1]) = *(_DWORD *)(v17 + 56);
-    LODWORD(v31[2]) = *(_DWORD *)(v17 + 80);
+    v17 = RtlImageNtHeader(BaseOfImage[0]);
+    LODWORD(v22) = v22[15];
+    v23 = (int)v22;
+    LOWORD(v31[6]) = v17->OptionalHeader.Magic;
+    LODWORD(v31[1]) = v17->OptionalHeader.FileAlignment;
+    HIDWORD(v31[1]) = v17->OptionalHeader.SectionAlignment;
+    LODWORD(v31[2]) = v17->OptionalHeader.SizeOfImage;
     if ( LOWORD(v31[6]) == 523 )
     {
-      v18 = *(_DWORD *)(v17 + 128);
-      HIDWORD(v31[2]) = v18;
-      v31[0] = *(_QWORD *)(v17 + 48);
-      LODWORD(v31[3]) = *(_DWORD *)(v17 + 84);
-      HIDWORD(v31[3]) = *(_DWORD *)(v17 + 40);
-      v31[4] = *(_QWORD *)(v17 + 96);
-      v31[5] = *(_QWORD *)(v17 + 104);
-      WORD1(v31[6]) = *(_WORD *)(v17 + 92);
-      HIDWORD(v31[6]) = *(_DWORD *)(v17 + 72);
-      LODWORD(v31[7]) = *(_DWORD *)(v17 + 64);
-      WORD2(v31[7]) = *(_WORD *)(v17 + 94);
-      LODWORD(v31[8]) = *(_DWORD *)(v17 + 88);
-      HIDWORD(v31[8]) = *(_DWORD *)(v17 + 28);
+      LoaderFlags = v17->OptionalHeader.LoaderFlags;
+      HIDWORD(v31[2]) = LoaderFlags;
+      v31[0] = v17->OptionalHeader.ImageBase;
+      LODWORD(v31[3]) = v17->OptionalHeader.SizeOfHeaders;
+      HIDWORD(v31[3]) = v17->OptionalHeader.AddressOfEntryPoint;
+      v31[4] = v17->OptionalHeader.SizeOfStackReserve;
+      v31[5] = v17->OptionalHeader.SizeOfStackCommit;
+      WORD1(v31[6]) = v17->OptionalHeader.Subsystem;
+      HIDWORD(v31[6]) = *(_DWORD *)&v17->OptionalHeader.MajorSubsystemVersion;
+      LODWORD(v31[7]) = *(_DWORD *)&v17->OptionalHeader.MajorOperatingSystemVersion;
+      WORD2(v31[7]) = v17->OptionalHeader.DllCharacteristics;
+      LODWORD(v31[8]) = v17->OptionalHeader.CheckSum;
+      HIDWORD(v31[8]) = v17->OptionalHeader.SizeOfCode;
       v31[13] = 0LL;
-      if ( *(_DWORD *)(v17 + 132) > 6u && *(_DWORD *)(v17 + 184) )
-        v31[13] = *(_QWORD *)(v17 + 184);
-      if ( *(_DWORD *)(v17 + 132) > 0xCu )
-        v31[9] = *(_QWORD *)(v17 + 232);
-      if ( *(_DWORD *)(v17 + 132) <= 0xEu )
+      if ( v17->OptionalHeader.NumberOfRvaAndSizes > 6 && v17->OptionalHeader.DataDirectory[6].VirtualAddress )
+        v31[13] = v17->OptionalHeader.DataDirectory[6];
+      if ( v17->OptionalHeader.NumberOfRvaAndSizes > 0xC )
+        v31[9] = v17->OptionalHeader.DataDirectory[12];
+      if ( v17->OptionalHeader.NumberOfRvaAndSizes <= 0xE )
       {
         v31[10] = 0LL;
       }
       else
       {
-        v31[10] = *(_QWORD *)(v17 + 248);
-        if ( *(_DWORD *)(v17 + 248) && *(_DWORD *)(v17 + 252) )
-          HIDWORD(v31[2]) = v18 | 1;
+        v31[10] = v17->OptionalHeader.DataDirectory[14];
+        if ( v17->OptionalHeader.DataDirectory[14].VirtualAddress && v17->OptionalHeader.DataDirectory[14].Size )
+          HIDWORD(v31[2]) = LoaderFlags | 1;
       }
-      if ( *(_DWORD *)(v17 + 132) <= 5u )
+      if ( v17->OptionalHeader.NumberOfRvaAndSizes <= 5 )
         v31[11] = 0LL;
       else
-        v31[11] = *(_QWORD *)(v17 + 176);
-      if ( *(_DWORD *)(v17 + 132) > 0xAu )
+        v31[11] = v17->OptionalHeader.DataDirectory[5];
+      if ( v17->OptionalHeader.NumberOfRvaAndSizes > 0xA )
       {
-        LODWORD(v31[12]) = *(_DWORD *)(v17 + 216);
-        v19 = *(_DWORD *)(v17 + 220);
+        LODWORD(v31[12]) = v17->OptionalHeader.DataDirectory[10].VirtualAddress;
+        Size = v17->OptionalHeader.DataDirectory[10].Size;
 LABEL_56:
-        HIDWORD(v31[12]) = v19;
+        HIDWORD(v31[12]) = Size;
 LABEL_58:
-        MiUnmapImageInSystemSpace(v30);
+        MiUnmapImageInSystemSpace(BaseOfImage);
         if ( v24 < 0 )
           return 0LL;
-        if ( (int)MiRelocateImage(*(_QWORD *)v6, (unsigned int)v31, v22, v15, -1LL, 1) < 0 )
+        if ( (int)MiRelocateImage(*(_QWORD *)v6, (unsigned int)v31, (_DWORD)v22, v15, -1LL, 1) < 0 )
           return 0LL;
         MiImageSuitableForSystem(v6, &v21);
         if ( !v21 && (v6[62] & 0xC) == 0 )
@@ -165,42 +165,42 @@ LABEL_66:
     }
     else
     {
-      v20 = *(_DWORD *)(v17 + 112);
-      HIDWORD(v31[2]) = v20;
-      v31[0] = *(unsigned int *)(v17 + 52);
-      LODWORD(v31[3]) = *(_DWORD *)(v17 + 84);
-      HIDWORD(v31[3]) = *(_DWORD *)(v17 + 40);
-      v31[4] = *(unsigned int *)(v17 + 96);
-      v31[5] = *(unsigned int *)(v17 + 100);
-      WORD1(v31[6]) = *(_WORD *)(v17 + 92);
-      HIDWORD(v31[6]) = *(_DWORD *)(v17 + 72);
-      LODWORD(v31[7]) = *(_DWORD *)(v17 + 64);
-      WORD2(v31[7]) = *(_WORD *)(v17 + 94);
-      LODWORD(v31[8]) = *(_DWORD *)(v17 + 88);
-      HIDWORD(v31[8]) = *(_DWORD *)(v17 + 28);
+      SizeOfHeapReserve = v17->OptionalHeader.SizeOfHeapReserve;
+      HIDWORD(v31[2]) = SizeOfHeapReserve;
+      v31[0] = HIDWORD(v17->OptionalHeader.ImageBase);
+      LODWORD(v31[3]) = v17->OptionalHeader.SizeOfHeaders;
+      HIDWORD(v31[3]) = v17->OptionalHeader.AddressOfEntryPoint;
+      v31[4] = LODWORD(v17->OptionalHeader.SizeOfStackReserve);
+      v31[5] = HIDWORD(v17->OptionalHeader.SizeOfStackReserve);
+      WORD1(v31[6]) = v17->OptionalHeader.Subsystem;
+      HIDWORD(v31[6]) = *(_DWORD *)&v17->OptionalHeader.MajorSubsystemVersion;
+      LODWORD(v31[7]) = *(_DWORD *)&v17->OptionalHeader.MajorOperatingSystemVersion;
+      WORD2(v31[7]) = v17->OptionalHeader.DllCharacteristics;
+      LODWORD(v31[8]) = v17->OptionalHeader.CheckSum;
+      HIDWORD(v31[8]) = v17->OptionalHeader.SizeOfCode;
       v31[13] = 0LL;
-      if ( *(_DWORD *)(v17 + 116) > 6u && *(_DWORD *)(v17 + 168) )
-        v31[13] = *(_QWORD *)(v17 + 168);
-      if ( *(_DWORD *)(v17 + 116) > 0xCu )
-        v31[9] = *(_QWORD *)(v17 + 216);
-      if ( *(_DWORD *)(v17 + 116) <= 0xEu )
+      if ( HIDWORD(v17->OptionalHeader.SizeOfHeapReserve) > 6 && v17->OptionalHeader.DataDirectory[4].VirtualAddress )
+        v31[13] = v17->OptionalHeader.DataDirectory[4];
+      if ( HIDWORD(v17->OptionalHeader.SizeOfHeapReserve) > 0xC )
+        v31[9] = v17->OptionalHeader.DataDirectory[10];
+      if ( HIDWORD(v17->OptionalHeader.SizeOfHeapReserve) <= 0xE )
       {
         v31[10] = 0LL;
       }
       else
       {
-        v31[10] = *(_QWORD *)(v17 + 232);
-        if ( *(_DWORD *)(v17 + 232) && *(_DWORD *)(v17 + 236) )
-          HIDWORD(v31[2]) = v20 | 1;
+        v31[10] = v17->OptionalHeader.DataDirectory[12];
+        if ( v17->OptionalHeader.DataDirectory[12].VirtualAddress && v17->OptionalHeader.DataDirectory[12].Size )
+          HIDWORD(v31[2]) = SizeOfHeapReserve | 1;
       }
-      if ( *(_DWORD *)(v17 + 116) <= 5u )
+      if ( HIDWORD(v17->OptionalHeader.SizeOfHeapReserve) <= 5 )
         v31[11] = 0LL;
       else
-        v31[11] = *(_QWORD *)(v17 + 160);
-      if ( *(_DWORD *)(v17 + 116) > 0xAu )
+        v31[11] = v17->OptionalHeader.DataDirectory[3];
+      if ( HIDWORD(v17->OptionalHeader.SizeOfHeapReserve) > 0xA )
       {
-        LODWORD(v31[12]) = *(_DWORD *)(v17 + 200);
-        v19 = *(_DWORD *)(v17 + 204);
+        LODWORD(v31[12]) = v17->OptionalHeader.DataDirectory[8].VirtualAddress;
+        Size = v17->OptionalHeader.DataDirectory[8].Size;
         goto LABEL_56;
       }
     }

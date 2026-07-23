@@ -1,10 +1,10 @@
 /*
- * XREFs of EtwpCovSampCaptureApcRelease @ 0x1405AE54C
+ * XREFs of EtwpCovSampCaptureApcRelease @ 0x1405AE77C
  * Callers:
- *     EtwpCovSampCaptureApcRundown @ 0x140942060 (EtwpCovSampCaptureApcRundown.c)
+ *     EtwpCovSampCaptureApcRundown @ 0x140942230 (EtwpCovSampCaptureApcRundown.c)
  * Callees:
- *     memset @ 0x140414200 (memset.c)
- *     EtwpCovSampCaptureReleaseToLookaside @ 0x1405AF160 (EtwpCovSampCaptureReleaseToLookaside.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     EtwpCovSampCaptureReleaseToLookaside @ 0x1405AF390 (EtwpCovSampCaptureReleaseToLookaside.c)
  */
 
 __int64 __fastcall EtwpCovSampCaptureApcRelease(__int64 a1)

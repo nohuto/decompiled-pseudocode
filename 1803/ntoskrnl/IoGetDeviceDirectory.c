@@ -71,7 +71,7 @@ LABEL_19:
         {
           FileDirectoryRoot = PiGetFileDirectoryRoot(
                                 L"DriverState",
-                                (__int64)L"\\SystemRoot\\System32\\DriverState",
+                                L"\\SystemRoot\\System32\\DriverState",
                                 &UnicodeString);
           if ( FileDirectoryRoot >= 0 )
           {

@@ -17,7 +17,7 @@
  *     __security_check_cookie @ 0x180090C90 (__security_check_cookie.c)
  */
 
-_DWORD *__fastcall LdrpGetRcConfig(__int64 a1, __int64 a2, char a3, char a4)
+_DWORD *__fastcall LdrpGetRcConfig(PVOID BaseOfImage, __int64 a2, char a3, char a4)
 {
   int v4; // esi
   _DWORD *result; // rax
@@ -25,14 +25,14 @@ _DWORD *__fastcall LdrpGetRcConfig(__int64 a1, __int64 a2, char a3, char a4)
   _DWORD *v9; // rbx
   _DWORD *v10; // [rsp+50h] [rbp-58h] BYREF
   int v11; // [rsp+58h] [rbp-50h] BYREF
-  unsigned int *v12; // [rsp+60h] [rbp-48h] BYREF
+  ULONG *v12; // [rsp+60h] [rbp-48h] BYREF
   _QWORD v13[3]; // [rsp+68h] [rbp-40h] BYREF
 
   v4 = -1;
   v10 = 0LL;
   if ( a4 )
   {
-    result = LdrpGetFromMUIMemCache(a1, 0, 0LL, 8);
+    result = LdrpGetFromMUIMemCache((unsigned __int64)BaseOfImage, 0, 0LL, 8);
     v10 = result;
     if ( result == (_DWORD *)-1LL )
       return 0LL;
@@ -42,10 +42,10 @@ _DWORD *__fastcall LdrpGetRcConfig(__int64 a1, __int64 a2, char a3, char a4)
   v13[1] = 1LL;
   v13[2] = 0LL;
   v13[0] = L"MUI";
-  v8 = LdrpSearchResourceSection_U(a1, (__int64)v13, 3LL, 0x30u, (__int64 *)&v12);
+  v8 = LdrpSearchResourceSection_U(BaseOfImage, (__int64)v13, 3LL, 0x30u, (__int64)&v12);
   if ( v8 < 0 )
     goto LABEL_14;
-  v8 = LdrpAccessResourceDataNoMultipleLanguage(a1, v12, (unsigned __int64 *)&v10, &v11);
+  v8 = LdrpAccessResourceDataNoMultipleLanguage((unsigned __int64)BaseOfImage, v12, &v10, &v11);
   if ( v8 < 0 )
     goto LABEL_14;
   v9 = v10;
@@ -59,7 +59,7 @@ LABEL_14:
   {
     if ( v9 )
       v4 = (int)v9;
-    LdrpSetAlternateResourceModuleHandle(a1, 0, 0, v4, -1, 0, 2, v8, 0LL);
+    LdrpSetAlternateResourceModuleHandle((_DWORD)BaseOfImage, 0, 0, v4, -1, 0, 2, v8, 0LL);
   }
   return v9;
 }

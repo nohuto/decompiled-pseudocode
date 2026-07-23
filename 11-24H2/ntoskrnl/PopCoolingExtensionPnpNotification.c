@@ -1,15 +1,15 @@
 /*
- * XREFs of PopCoolingExtensionPnpNotification @ 0x14074C210
+ * XREFs of PopCoolingExtensionPnpNotification @ 0x14074A540
  * Callers:
  *     <none>
  * Callees:
- *     PopReleaseRwLock @ 0x1403B5EC8 (PopReleaseRwLock.c)
- *     PopPropogateCoolingChange @ 0x14042796C (PopPropogateCoolingChange.c)
- *     PopAcquireRwLockExclusive @ 0x1404283D4 (PopAcquireRwLockExclusive.c)
- *     PopAcquireCoolingInterface @ 0x14074BFA0 (PopAcquireCoolingInterface.c)
- *     PopDisableCoolingExtension @ 0x14074C2E8 (PopDisableCoolingExtension.c)
- *     PopOrphanCoolingExtension @ 0x14074C3B8 (PopOrphanCoolingExtension.c)
- *     PopDiagTraceCoolingExtension @ 0x140A38BFC (PopDiagTraceCoolingExtension.c)
+ *     PopReleaseRwLock @ 0x1402AE8FC (PopReleaseRwLock.c)
+ *     PopPropogateCoolingChange @ 0x14041BAFC (PopPropogateCoolingChange.c)
+ *     PopAcquireRwLockExclusive @ 0x14041C564 (PopAcquireRwLockExclusive.c)
+ *     PopAcquireCoolingInterface @ 0x14074A2D0 (PopAcquireCoolingInterface.c)
+ *     PopDisableCoolingExtension @ 0x14074A618 (PopDisableCoolingExtension.c)
+ *     PopOrphanCoolingExtension @ 0x14074A6E8 (PopOrphanCoolingExtension.c)
+ *     PopDiagTraceCoolingExtension @ 0x140A2DCBC (PopDiagTraceCoolingExtension.c)
  */
 
 __int64 __fastcall PopCoolingExtensionPnpNotification(char *NotificationStructure, unsigned __int64 *Context)

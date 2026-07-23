@@ -1,40 +1,38 @@
 /*
- * XREFs of RtlInsertElementGenericTableAvl @ 0x1403F03D0
+ * XREFs of RtlInsertElementGenericTableAvl @ 0x1403E40F0
  * Callers:
- *     VfAvlInsertReservedTreeNode @ 0x1403F0328 (VfAvlInsertReservedTreeNode.c)
- *     PnpMapActivatingDeviceNodeToThreadV2 @ 0x1405A93E8 (PnpMapActivatingDeviceNodeToThreadV2.c)
- *     DifObjTrkInsertItem @ 0x140617CF0 (DifObjTrkInsertItem.c)
- *     CarAddUniqueViolation @ 0x14061907C (CarAddUniqueViolation.c)
- *     IopSetFileObjectIosbRange @ 0x140712DF8 (IopSetFileObjectIosbRange.c)
- *     PiDmObjectManagerPopulate @ 0x140727138 (PiDmObjectManagerPopulate.c)
- *     PiDcInitUpdateProperties @ 0x1407276DC (PiDcInitUpdateProperties.c)
- *     PnpMapActivatingDeviceNodeToThreadV1 @ 0x140733060 (PnpMapActivatingDeviceNodeToThreadV1.c)
- *     PopDirectedDripsUmDirectedFxAddTestDevice @ 0x1407647B4 (PopDirectedDripsUmDirectedFxAddTestDevice.c)
- *     EtwpEnumerateAutologgerPath @ 0x1407AEE98 (EtwpEnumerateAutologgerPath.c)
- *     EtwpInitializeAutoLoggers @ 0x1407AF194 (EtwpInitializeAutoLoggers.c)
- *     PiUpdateDriverDBCache @ 0x1409C5084 (PiUpdateDriverDBCache.c)
- *     PiSwIrpStartCreateWorker @ 0x1409F8A64 (PiSwIrpStartCreateWorker.c)
- *     PiSwBusRelationAdd @ 0x1409FA468 (PiSwBusRelationAdd.c)
- *     SleepstudyHelperBuildBlocker @ 0x140A24F30 (SleepstudyHelperBuildBlocker.c)
- *     PiDqQueryAddObjectToResultSet @ 0x140A44CF4 (PiDqQueryAddObjectToResultSet.c)
- *     PopPowerRequestTableInsertEntry @ 0x140A64C70 (PopPowerRequestTableInsertEntry.c)
- *     PnpMapDeviceObjectToDeviceInstance @ 0x140A85F24 (PnpMapDeviceObjectToDeviceInstance.c)
- *     EtwpEnumerateKeyProviders @ 0x140A99E54 (EtwpEnumerateKeyProviders.c)
- *     VfPtAddStackInfoIfNotExist @ 0x140B8BD84 (VfPtAddStackInfoIfNotExist.c)
- *     VfPtProcessAllocPoolInfo @ 0x140B8C55C (VfPtProcessAllocPoolInfo.c)
+ *     PnpMapActivatingDeviceNodeToThread @ 0x1403E3DB4 (PnpMapActivatingDeviceNodeToThread.c)
+ *     VfAvlInsertReservedTreeNode @ 0x1403E4050 (VfAvlInsertReservedTreeNode.c)
+ *     DifObjTrkInsertItem @ 0x1406162B0 (DifObjTrkInsertItem.c)
+ *     CarAddUniqueViolation @ 0x14061763C (CarAddUniqueViolation.c)
+ *     IopSetFileObjectIosbRange @ 0x140710988 (IopSetFileObjectIosbRange.c)
+ *     PiDmObjectManagerPopulate @ 0x140724CC8 (PiDmObjectManagerPopulate.c)
+ *     PiDcInitUpdateProperties @ 0x14072526C (PiDcInitUpdateProperties.c)
+ *     PopDirectedDripsUmDirectedFxAddTestDevice @ 0x140764184 (PopDirectedDripsUmDirectedFxAddTestDevice.c)
+ *     EtwpEnumerateAutologgerPath @ 0x1407AF2E8 (EtwpEnumerateAutologgerPath.c)
+ *     EtwpInitializeAutoLoggers @ 0x1407AF5E4 (EtwpInitializeAutoLoggers.c)
+ *     PiSwIrpStartCreateWorker @ 0x1409F13D4 (PiSwIrpStartCreateWorker.c)
+ *     PiSwBusRelationAdd @ 0x1409F2DD8 (PiSwBusRelationAdd.c)
+ *     SleepstudyHelperBuildBlocker @ 0x140A18F20 (SleepstudyHelperBuildBlocker.c)
+ *     PiDqQueryAddObjectToResultSet @ 0x140A3A584 (PiDqQueryAddObjectToResultSet.c)
+ *     PopPowerRequestTableInsertEntry @ 0x140A5D440 (PopPowerRequestTableInsertEntry.c)
+ *     PiUpdateDriverDBCache @ 0x140A6C434 (PiUpdateDriverDBCache.c)
+ *     PnpMapDeviceObjectToDeviceInstance @ 0x140A80A64 (PnpMapDeviceObjectToDeviceInstance.c)
+ *     EtwpEnumerateKeyProviders @ 0x140A953C0 (EtwpEnumerateKeyProviders.c)
+ *     VfPtAddStackInfoIfNotExist @ 0x140B8DD84 (VfPtAddStackInfoIfNotExist.c)
+ *     VfPtProcessAllocPoolInfo @ 0x140B8E55C (VfPtProcessAllocPoolInfo.c)
  * Callees:
- *     RebalanceNode @ 0x1403F0D50 (RebalanceNode.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     PiDmCompareObjects @ 0x14099F010 (PiDmCompareObjects.c)
- *     PnpCompareInstancePath @ 0x1409AB010 (PnpCompareInstancePath.c)
- *     PiPnpRtlObjectEventCompareObjects @ 0x1409FF8B0 (PiPnpRtlObjectEventCompareObjects.c)
- *     PiPnpRtlOperationAllocateGenericTableEntry @ 0x140A26850 (PiPnpRtlOperationAllocateGenericTableEntry.c)
- *     SshpCacheDatabaseAllocate @ 0x140A64230 (SshpCacheDatabaseAllocate.c)
- *     ExAllocatePoolWithTag @ 0x140B72010 (ExAllocatePoolWithTag.c)
+ *     RebalanceNode @ 0x1403E4A70 (RebalanceNode.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     PiDmCompareObjects @ 0x140987790 (PiDmCompareObjects.c)
+ *     PnpCompareInstancePath @ 0x140994780 (PnpCompareInstancePath.c)
+ *     PiPnpRtlObjectEventCompareObjects @ 0x1409F8800 (PiPnpRtlObjectEventCompareObjects.c)
+ *     PiPnpRtlOperationAllocateGenericTableEntry @ 0x140A1B2D0 (PiPnpRtlOperationAllocateGenericTableEntry.c)
+ *     SshpCacheDatabaseAllocate @ 0x140A5CB30 (SshpCacheDatabaseAllocate.c)
+ *     ExAllocatePoolWithTag @ 0x140B74010 (ExAllocatePoolWithTag.c)
  */
 
-// local variable allocation has failed, the output may be wrong!
 PVOID __stdcall RtlInsertElementGenericTableAvl(
         PRTL_AVL_TABLE Table,
         PVOID Buffer,
@@ -44,14 +42,14 @@ PVOID __stdcall RtlInsertElementGenericTableAvl(
   void *v4; // rdi
   size_t v5; // r13
   _RTL_BALANCED_LINKS *i; // r14
-  _RTL_GENERIC_COMPARE_RESULTS (__fastcall *CompareRoutine)(_RTL_AVL_TABLE *, void *, void *); // rax
+  RTL_GENERIC_COMPARE_RESULTS (__cdecl *CompareRoutine)(_RTL_AVL_TABLE *, PVOID, PVOID); // rax
   _RTL_BALANCED_LINKS *v11; // r8
   RTL_GENERIC_COMPARE_RESULTS v12; // eax
   _RTL_BALANCED_LINKS *RightChild; // rax
   int v14; // ebp
   _RTL_BALANCED_LINKS *v15; // rsi
   SIZE_T v17; // rdx
-  void *(__fastcall *AllocateRoutine)(_RTL_AVL_TABLE *, unsigned int); // rax
+  PVOID (__cdecl *AllocateRoutine)(_RTL_AVL_TABLE *, CLONG); // rax
   _RTL_BALANCED_LINKS *PoolWithTag; // rax
   _RTL_BALANCED_LINKS *v20; // rdx
   _RTL_BALANCED_LINKS *j; // rcx
@@ -66,9 +64,9 @@ PVOID __stdcall RtlInsertElementGenericTableAvl(
   {
     for ( i = Table->BalancedRoot.RightChild; ; i = RightChild )
     {
-      CompareRoutine = Table->CompareRoutine;
+      CompareRoutine = (RTL_GENERIC_COMPARE_RESULTS (__cdecl *)(_RTL_AVL_TABLE *, PVOID, PVOID))Table->CompareRoutine;
       v11 = i + 1;
-      if ( (char *)CompareRoutine == (char *)PiDmCompareObjects )
+      if ( CompareRoutine == PiDmCompareObjects )
       {
         v12 = PiDmCompareObjects(Table, Buffer, v11);
       }
@@ -76,13 +74,13 @@ PVOID __stdcall RtlInsertElementGenericTableAvl(
       {
         v12 = (unsigned int)PnpCompareInstancePath(Table, Buffer, v11);
       }
-      else if ( (char *)CompareRoutine == (char *)PiPnpRtlObjectEventCompareObjects )
+      else if ( CompareRoutine == PiPnpRtlObjectEventCompareObjects )
       {
         v12 = PiPnpRtlObjectEventCompareObjects(Table, Buffer, v11);
       }
       else
       {
-        v12 = (unsigned int)guard_dispatch_icall_no_overrides(Table, Buffer, v11, NewElement);
+        v12 = (unsigned int)guard_dispatch_icall_no_overrides(Table, Buffer);
       }
       if ( v12 )
       {
@@ -114,15 +112,11 @@ PVOID __stdcall RtlInsertElementGenericTableAvl(
 LABEL_23:
   v17 = (unsigned int)(v5 + 32);
   if ( (unsigned int)v17 >= (unsigned int)v5
-    && ((AllocateRoutine = Table->AllocateRoutine,
-         (char *)AllocateRoutine != (char *)PiPnpRtlOperationAllocateGenericTableEntry)
-      ? ((char *)AllocateRoutine != (char *)SshpCacheDatabaseAllocate
+    && ((AllocateRoutine = (PVOID (__cdecl *)(_RTL_AVL_TABLE *, CLONG))Table->AllocateRoutine,
+         AllocateRoutine != PiPnpRtlOperationAllocateGenericTableEntry)
+      ? (AllocateRoutine != SshpCacheDatabaseAllocate
        ? ((char *)AllocateRoutine != (char *)ExAllocatePoolWithTag
-        ? (PoolWithTag = (_RTL_BALANCED_LINKS *)guard_dispatch_icall_no_overrides(
-                                                  Table,
-                                                  v17,
-                                                  *(_QWORD *)&BufferSize,
-                                                  NewElement))
+        ? (PoolWithTag = (_RTL_BALANCED_LINKS *)guard_dispatch_icall_no_overrides(Table, v17))
         : (PoolWithTag = (_RTL_BALANCED_LINKS *)ExAllocatePoolWithTag((POOL_TYPE)Table, v17, BufferSize)))
        : (PoolWithTag = (_RTL_BALANCED_LINKS *)SshpCacheDatabaseAllocate(Table, v17)))
       : (PoolWithTag = (_RTL_BALANCED_LINKS *)PiPnpRtlOperationAllocateGenericTableEntry(Table, v17)),

@@ -1,16 +1,16 @@
 /*
- * XREFs of CcNotifyOfMappedWrite @ 0x14002078C
+ * XREFs of CcNotifyOfMappedWrite @ 0x14002030C
  * Callers:
- *     MiGatherMappedPages @ 0x1400201F0 (MiGatherMappedPages.c)
+ *     MiGatherMappedPages @ 0x14001FD70 (MiGatherMappedPages.c)
  * Callees:
- *     CcCanIWriteStream @ 0x140020AA0 (CcCanIWriteStream.c)
- *     CcScheduleLazyWriteScan @ 0x14007091C (CcScheduleLazyWriteScan.c)
- *     CcPostWorkQueue @ 0x1400714A8 (CcPostWorkQueue.c)
- *     CcAllocateWorkQueueEntry @ 0x140072080 (CcAllocateWorkQueueEntry.c)
- *     CcAcquireByteRangeForWrite @ 0x1400CBDC0 (CcAcquireByteRangeForWrite.c)
- *     KeAcquireQueuedSpinLock @ 0x1400E8D30 (KeAcquireQueuedSpinLock.c)
- *     KeReleaseQueuedSpinLock @ 0x1400E8DA0 (KeReleaseQueuedSpinLock.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
+ *     CcCanIWriteStream @ 0x140020620 (CcCanIWriteStream.c)
+ *     CcScheduleLazyWriteScan @ 0x14007049C (CcScheduleLazyWriteScan.c)
+ *     CcPostWorkQueue @ 0x140071028 (CcPostWorkQueue.c)
+ *     CcAllocateWorkQueueEntry @ 0x140071C00 (CcAllocateWorkQueueEntry.c)
+ *     CcAcquireByteRangeForWrite @ 0x1400C9C60 (CcAcquireByteRangeForWrite.c)
+ *     KeAcquireQueuedSpinLock @ 0x1400E6BD0 (KeAcquireQueuedSpinLock.c)
+ *     KeReleaseQueuedSpinLock @ 0x1400E6C40 (KeReleaseQueuedSpinLock.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall CcNotifyOfMappedWrite(__int64 a1, signed __int64 a2, unsigned int a3)
@@ -63,7 +63,7 @@ __int64 __fastcall CcNotifyOfMappedWrite(__int64 a1, signed __int64 a2, unsigned
       v13 = *(_DWORD *)(v6 + 112);
       CcPagesYetToWrite += v13;
       *(_DWORD *)(v6 + 192) = v13;
-      LODWORD(qword_140322F70) = v13 + qword_140322F70;
+      LODWORD(qword_140322F90) = v13 + qword_140322F90;
       *(_DWORD *)(v6 + 152) |= 0x20u;
       ++*(_DWORD *)(v6 + 112);
       KeReleaseQueuedSpinLock(5uLL, v7);

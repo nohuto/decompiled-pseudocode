@@ -1,14 +1,14 @@
 /*
- * XREFs of IopFindPassiveInterruptBlock @ 0x1403A3528
+ * XREFs of IopFindPassiveInterruptBlock @ 0x1403A3708
  * Callers:
- *     IoProcessPassiveInterrupts @ 0x1403A34A4 (IoProcessPassiveInterrupts.c)
- *     IopAllocatePassiveInterruptBlock @ 0x140848700 (IopAllocatePassiveInterruptBlock.c)
- *     IopDestroyPassiveInterruptBlock @ 0x14095821C (IopDestroyPassiveInterruptBlock.c)
+ *     IoProcessPassiveInterrupts @ 0x1403A3684 (IoProcessPassiveInterrupts.c)
+ *     IopAllocatePassiveInterruptBlock @ 0x140848A00 (IopAllocatePassiveInterruptBlock.c)
+ *     IopDestroyPassiveInterruptBlock @ 0x14095841C (IopDestroyPassiveInterruptBlock.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     IopFindPassiveInterruptBlockLocked @ 0x1403A3588 (IopFindPassiveInterruptBlockLocked.c)
- *     IopAcquireGlobalPassiveInterruptListLock @ 0x1403A35BC (IopAcquireGlobalPassiveInterruptListLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     IopFindPassiveInterruptBlockLocked @ 0x1403A3768 (IopFindPassiveInterruptBlockLocked.c)
+ *     IopAcquireGlobalPassiveInterruptListLock @ 0x1403A379C (IopAcquireGlobalPassiveInterruptListLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall IopFindPassiveInterruptBlock(unsigned int a1)
@@ -26,7 +26,9 @@ __int64 __fastcall IopFindPassiveInterruptBlock(unsigned int a1)
   IopAcquireGlobalPassiveInterruptListLock(&v10);
   PassiveInterruptBlockLocked = IopFindPassiveInterruptBlockLocked(a1);
   KxReleaseSpinLock((volatile signed __int64 *)&PassiveInterruptListLock);
-  if ( KiIrqlFlags && (CurrentIrql = KeGetCurrentIrql(), (KiIrqlFlags & 1) != 0) && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags
+    && (CurrentIrql = KeGetCurrentIrql(), ((unsigned __int8)KiIrqlFlags & 1) != 0)
+    && CurrentIrql <= 0xFu )
   {
     v3 = v10;
     if ( v10 <= 0xFu && CurrentIrql >= 2u )

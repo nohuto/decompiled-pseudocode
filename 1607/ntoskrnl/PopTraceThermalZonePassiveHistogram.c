@@ -1,17 +1,17 @@
 /*
- * XREFs of PopTraceThermalZonePassiveHistogram @ 0x140124B6C
+ * XREFs of PopTraceThermalZonePassiveHistogram @ 0x1401250DC
  * Callers:
- *     PopThermalSxEntry @ 0x140124ACC (PopThermalSxEntry.c)
- *     PopThermalTelemetryWorker @ 0x14020724C (PopThermalTelemetryWorker.c)
- *     PopThermalZoneRemove @ 0x140670550 (PopThermalZoneRemove.c)
+ *     PopThermalSxEntry @ 0x14012503C (PopThermalSxEntry.c)
+ *     PopThermalTelemetryWorker @ 0x140207078 (PopThermalTelemetryWorker.c)
+ *     PopThermalZoneRemove @ 0x140670634 (PopThermalZoneRemove.c)
  * Callees:
- *     _TlgWrite @ 0x14000A598 (_TlgWrite.c)
- *     ObfDereferenceObjectWithTag @ 0x14006ACD0 (ObfDereferenceObjectWithTag.c)
- *     _TlgKeywordOn @ 0x140088D98 (_TlgKeywordOn.c)
- *     IoGetDeviceAttachmentBaseRef @ 0x1400FB62C (IoGetDeviceAttachmentBaseRef.c)
- *     PopDiagSnapPassiveHistogram @ 0x140124C40 (PopDiagSnapPassiveHistogram.c)
- *     _TlgCreateWsz @ 0x140133CE4 (_TlgCreateWsz.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
+ *     _TlgWrite @ 0x14000A118 (_TlgWrite.c)
+ *     ObfDereferenceObjectWithTag @ 0x14006A850 (ObfDereferenceObjectWithTag.c)
+ *     IoGetDeviceAttachmentBaseRef @ 0x1400F93B8 (IoGetDeviceAttachmentBaseRef.c)
+ *     _TlgKeywordOn @ 0x14010CF88 (_TlgKeywordOn.c)
+ *     PopDiagSnapPassiveHistogram @ 0x1401251B0 (PopDiagSnapPassiveHistogram.c)
+ *     _TlgCreateWsz @ 0x140134254 (_TlgCreateWsz.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
  */
 
 char __fastcall PopTraceThermalZonePassiveHistogram(__int64 a1)
@@ -43,9 +43,9 @@ char __fastcall PopTraceThermalZonePassiveHistogram(__int64 a1)
   if ( DeviceNode )
   {
     LOBYTE(DeviceAttachmentBaseRef) = PopDiagSnapPassiveHistogram(a1 + 488, v19);
-    if ( pCallbackContext.LevelPlus1 > 5 )
+    if ( hProvider.LevelPlus1 > 5 )
     {
-      LOBYTE(DeviceAttachmentBaseRef) = TlgKeywordOn(&pCallbackContext, 0x400000000000uLL);
+      LOBYTE(DeviceAttachmentBaseRef) = TlgKeywordOn(&hProvider, 0x400000000000uLL);
       if ( (_BYTE)DeviceAttachmentBaseRef )
       {
         v11[1] = 0;
@@ -60,7 +60,7 @@ char __fastcall PopTraceThermalZonePassiveHistogram(__int64 a1)
         v13 = v19;
         v14 = 84;
         v17 = 21;
-        LOBYTE(DeviceAttachmentBaseRef) = TlgWrite(&pCallbackContext, &unk_14027CF02, 0LL, 0LL, 7u, &pData);
+        LOBYTE(DeviceAttachmentBaseRef) = TlgWrite(&hProvider, &unk_14027D002, 0LL, 0LL, 7u, &pData);
       }
     }
   }

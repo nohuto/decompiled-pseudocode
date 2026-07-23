@@ -1,10 +1,10 @@
 /*
- * XREFs of FsRtlAcquireFileExclusive @ 0x14042DE48
+ * XREFs of FsRtlAcquireFileExclusive @ 0x14042CD18
  * Callers:
- *     CcZeroEndOfLastPage @ 0x140024850 (CcZeroEndOfLastPage.c)
- *     CcWriteBehindInternal @ 0x1400E7F30 (CcWriteBehindInternal.c)
- *     CcClearPrivateWriteFile @ 0x1401B1FD8 (CcClearPrivateWriteFile.c)
- *     CcSetPrivateWriteFile @ 0x1401B240C (CcSetPrivateWriteFile.c)
+ *     CcZeroEndOfLastPage @ 0x1400243D0 (CcZeroEndOfLastPage.c)
+ *     CcWriteBehindInternal @ 0x1400E5DD0 (CcWriteBehindInternal.c)
+ *     CcClearPrivateWriteFile @ 0x1401B1EBC (CcClearPrivateWriteFile.c)
+ *     CcSetPrivateWriteFile @ 0x1401B22F0 (CcSetPrivateWriteFile.c)
  * Callees:
  *     <none>
  */

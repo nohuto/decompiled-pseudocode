@@ -1,12 +1,12 @@
 /*
- * XREFs of MiGetVirtualFaultPageInfo @ 0x140525BB8
+ * XREFs of MiGetVirtualFaultPageInfo @ 0x140528228
  * Callers:
- *     MiAllocateWsle @ 0x1402D7F18 (MiAllocateWsle.c)
- *     MiDispatchFault @ 0x1403A3E60 (MiDispatchFault.c)
- *     MiLargePageFault @ 0x1403A7860 (MiLargePageFault.c)
- *     MiIsVirtualizationFaultPrimaryPage @ 0x1404F650C (MiIsVirtualizationFaultPrimaryPage.c)
- *     MiMarkVirtualizationFaultPageInfoFailed @ 0x1404F9184 (MiMarkVirtualizationFaultPageInfoFailed.c)
- *     MiValidVirtualizationFault @ 0x140525860 (MiValidVirtualizationFault.c)
+ *     MiAllocateWsle @ 0x1402B9CD8 (MiAllocateWsle.c)
+ *     MiDispatchFault @ 0x1403A5BC0 (MiDispatchFault.c)
+ *     MiLargePageFault @ 0x1403A95C0 (MiLargePageFault.c)
+ *     MiIsVirtualizationFaultPrimaryPage @ 0x1404EFB1C (MiIsVirtualizationFaultPrimaryPage.c)
+ *     MiMarkVirtualizationFaultPageInfoFailed @ 0x1404F2794 (MiMarkVirtualizationFaultPageInfoFailed.c)
+ *     MiValidVirtualizationFault @ 0x140527ED0 (MiValidVirtualizationFault.c)
  * Callees:
  *     <none>
  */

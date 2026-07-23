@@ -1,19 +1,19 @@
 /*
- * XREFs of MiInsertUnusedSubsection @ 0x14007B7DC
+ * XREFs of MiInsertUnusedSubsection @ 0x14007B7CC
  * Callers:
  *     MiFlushSectionInternal @ 0x14004C270 (MiFlushSectionInternal.c)
- *     MiRemoveViewsFromSection @ 0x140079370 (MiRemoveViewsFromSection.c)
- *     MiDecrementSubsections @ 0x140079410 (MiDecrementSubsections.c)
- *     MiAppendSubsectionChain @ 0x140092AA4 (MiAppendSubsectionChain.c)
- *     MmPurgeSection @ 0x1400E7D00 (MmPurgeSection.c)
- *     MiDereferenceControlAreaPfnList @ 0x140119E2C (MiDereferenceControlAreaPfnList.c)
- *     MiDeleteCachedSubsection @ 0x1402A1A18 (MiDeleteCachedSubsection.c)
+ *     MiRemoveViewsFromSection @ 0x140079360 (MiRemoveViewsFromSection.c)
+ *     MiDecrementSubsections @ 0x140079400 (MiDecrementSubsections.c)
+ *     MiAppendSubsectionChain @ 0x1400929E4 (MiAppendSubsectionChain.c)
+ *     MmPurgeSection @ 0x1400E7D80 (MmPurgeSection.c)
+ *     MiDereferenceControlAreaPfnList @ 0x140119E9C (MiDereferenceControlAreaPfnList.c)
+ *     MiDeleteCachedSubsection @ 0x1402A1C08 (MiDeleteCachedSubsection.c)
  * Callees:
  *     MiControlAreaUsingExtents @ 0x1400321B0 (MiControlAreaUsingExtents.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x14007B720 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC660 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KeSetEvent @ 0x1400C2B00 (KeSetEvent.c)
- *     MiUpdateSubsectionCrossPartitionRefs @ 0x1402C4D20 (MiUpdateSubsectionCrossPartitionRefs.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x14007B710 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC5A0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KeSetEvent @ 0x1400C2A40 (KeSetEvent.c)
+ *     MiUpdateSubsectionCrossPartitionRefs @ 0x1402C4F10 (MiUpdateSubsectionCrossPartitionRefs.c)
  */
 
 __int64 __fastcall MiInsertUnusedSubsection(__int64 a1)
@@ -33,7 +33,7 @@ __int64 __fastcall MiInsertUnusedSubsection(__int64 a1)
   v1 = 0;
   v2 = *(unsigned int *)(a1 + 44);
   v4 = 8 * v2;
-  v5 = *(_QWORD *)(qword_14043A748 + 8LL * (*(_WORD *)(*(_QWORD *)a1 + 60LL) & 0x3FF));
+  v5 = *(_QWORD *)(qword_14043B808 + 8LL * (*(_WORD *)(*(_QWORD *)a1 + 60LL) & 0x3FF));
   if ( (unsigned __int64)(8 * v2) <= 0xFE0 )
   {
     v6 = v4 + 31;
@@ -51,7 +51,7 @@ LABEL_8:
   ExAcquireSpinLockExclusiveAtDpcLevel((PEX_SPIN_LOCK)(v5 + 1280));
   *(_WORD *)(a1 + 34) |= 8u;
   *(_QWORD *)(v5 + 1632) += v7;
-  _InterlockedExchangeAdd64(&qword_140438BD8, v7);
+  _InterlockedExchangeAdd64(&qword_140439C98, v7);
   v8 = 0LL;
   if ( !MiControlAreaUsingExtents(*(_QWORD *)a1) && (*(_DWORD *)(a1 + 48) & 0x3FFFFFFF) != 0 )
   {

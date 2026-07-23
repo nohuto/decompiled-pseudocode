@@ -16,7 +16,7 @@
 
 void __fastcall ViLookasideDelete(unsigned __int64 a1)
 {
-  struct _SLIST_ENTRY *v2; // rbx
+  _SLIST_ENTRY *v2; // rbx
   _BYTE v3[24]; // [rsp+30h] [rbp-18h] BYREF
 
   if ( ViLookasideInitialized )
@@ -25,7 +25,7 @@ void __fastcall ViLookasideDelete(unsigned __int64 a1)
     VfAvlInitializeLockContext((__int64)v3, 0);
     if ( VfAvlLookupTreeNode(ViLookasideAvl, (__int64)v3, a1, 0LL) )
     {
-      v2 = (struct _SLIST_ENTRY *)VfAvlDeleteTreeNode((__int64)ViLookasideAvl, (__int64)v3, a1, 0LL);
+      v2 = (_SLIST_ENTRY *)VfAvlDeleteTreeNode((__int64)ViLookasideAvl, (__int64)v3, a1, 0LL);
     }
     else if ( !ViLookasideAllocationFailures && !ViLookasideAlreadyLoadedDrivers )
     {

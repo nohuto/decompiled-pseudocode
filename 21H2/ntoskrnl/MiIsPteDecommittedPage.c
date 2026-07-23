@@ -1,9 +1,9 @@
 /*
- * XREFs of MiIsPteDecommittedPage @ 0x14030CF60
+ * XREFs of MiIsPteDecommittedPage @ 0x140317CB0
  * Callers:
- *     MiComputePageCommitment @ 0x14030CB60 (MiComputePageCommitment.c)
+ *     MiComputePageCommitment @ 0x1403178B0 (MiComputePageCommitment.c)
  * Callees:
- *     MiIsPrototypePteVadLookup @ 0x14028D4D0 (MiIsPrototypePteVadLookup.c)
+ *     MiIsPrototypePteVadLookup @ 0x14020A670 (MiIsPrototypePteVadLookup.c)
  */
 
 _BOOL8 __fastcall MiIsPteDecommittedPage(unsigned __int64 a1)

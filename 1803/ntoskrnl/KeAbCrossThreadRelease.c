@@ -10,7 +10,7 @@
 
 __int64 __fastcall KeAbCrossThreadRelease(__int64 a1, unsigned __int64 a2, ULONG_PTR a3)
 {
-  __int64 v4; // rbx
+  unsigned __int64 v4; // rbx
   int v6; // ecx
   __int64 result; // rax
   int v8; // [rsp+38h] [rbp+10h] BYREF
@@ -21,7 +21,7 @@ __int64 __fastcall KeAbCrossThreadRelease(__int64 a1, unsigned __int64 a2, ULONG
     a2 = 96LL * (unsigned __int8)(a2 >> 1);
     v4 = a2 + a3 + 800;
   }
-  KiAbEntryRemoveFromTree(v4, a2);
+  KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)v4, a2);
   v6 = *(_DWORD *)(v4 + 88);
   *(_BYTE *)(v4 + 26) &= ~1u;
   *(_DWORD *)(v4 + 88) = v6 & 0xFFFE0000;

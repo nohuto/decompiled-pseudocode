@@ -1,26 +1,26 @@
 /*
- * XREFs of MiCopyOnWriteCheckConditions @ 0x1402CB21C
+ * XREFs of MiCopyOnWriteCheckConditions @ 0x1402CB40C
  * Callers:
  *     MmProtectPool @ 0x14000E16C (MmProtectPool.c)
  *     MiProbeLeafPteAccess @ 0x1400420D0 (MiProbeLeafPteAccess.c)
  *     MmAccessFault @ 0x140043DA0 (MmAccessFault.c)
- *     MiProtectPrivateMemory @ 0x140070DC0 (MiProtectPrivateMemory.c)
- *     MiSetProtectionOnSection @ 0x140071E80 (MiSetProtectionOnSection.c)
- *     MiSplitPrivatePage @ 0x140083B70 (MiSplitPrivatePage.c)
- *     MiCopyToUserVa @ 0x140084410 (MiCopyToUserVa.c)
- *     MiWalkVaRange @ 0x140093C90 (MiWalkVaRange.c)
- *     MiLockCode @ 0x1400975A0 (MiLockCode.c)
- *     MiSystemFault @ 0x1400E8900 (MiSystemFault.c)
- *     MiLockPagedAddress @ 0x140140910 (MiLockPagedAddress.c)
- *     MiSplitReducedCommitClonePage @ 0x1402A8490 (MiSplitReducedCommitClonePage.c)
- *     MmReplaceImportEntry @ 0x1402AB1CC (MmReplaceImportEntry.c)
- *     MiLockAweVadsShared @ 0x1402B1314 (MiLockAweVadsShared.c)
- *     MiLockHotPatchPageRange @ 0x1402B96B4 (MiLockHotPatchPageRange.c)
- *     MiPrepareImagePagesForHotPatch @ 0x1402B9994 (MiPrepareImagePagesForHotPatch.c)
+ *     MiProtectPrivateMemory @ 0x140070DB0 (MiProtectPrivateMemory.c)
+ *     MiSetProtectionOnSection @ 0x140071E70 (MiSetProtectionOnSection.c)
+ *     MiSplitPrivatePage @ 0x140083B60 (MiSplitPrivatePage.c)
+ *     MiCopyToUserVa @ 0x140084400 (MiCopyToUserVa.c)
+ *     MiWalkVaRange @ 0x140093BD0 (MiWalkVaRange.c)
+ *     MiLockCode @ 0x1400974E0 (MiLockCode.c)
+ *     MiSystemFault @ 0x1400E8980 (MiSystemFault.c)
+ *     MiLockPagedAddress @ 0x140140A10 (MiLockPagedAddress.c)
+ *     MiSplitReducedCommitClonePage @ 0x1402A8680 (MiSplitReducedCommitClonePage.c)
+ *     MmReplaceImportEntry @ 0x1402AB3BC (MmReplaceImportEntry.c)
+ *     MiLockAweVadsShared @ 0x1402B1504 (MiLockAweVadsShared.c)
+ *     MiLockHotPatchPageRange @ 0x1402B98A4 (MiLockHotPatchPageRange.c)
+ *     MiPrepareImagePagesForHotPatch @ 0x1402B9B84 (MiPrepareImagePagesForHotPatch.c)
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
- *     UNLOCK_ADDRESS_SPACE @ 0x140078294 (UNLOCK_ADDRESS_SPACE.c)
- *     MiWaitForFreePage @ 0x1402CB4A4 (MiWaitForFreePage.c)
+ *     UNLOCK_ADDRESS_SPACE @ 0x140078284 (UNLOCK_ADDRESS_SPACE.c)
+ *     MiWaitForFreePage @ 0x1402CB694 (MiWaitForFreePage.c)
  */
 
 void __fastcall MiCopyOnWriteCheckConditions(__int64 a1, int a2)
@@ -52,6 +52,6 @@ void __fastcall MiCopyOnWriteCheckConditions(__int64 a1, int a2)
          && KeGetCurrentIrql() < 2u
          && (*((_DWORD *)&KeGetCurrentThread()[1].SwapListEntry + 3) & 0xC) == 0 )
   {
-    MiWaitForFreePage(*(_QWORD *)(qword_14043A748 + 8LL * *(unsigned __int16 *)(a1 + 174)));
+    MiWaitForFreePage(*(_QWORD *)(qword_14043B808 + 8LL * *(unsigned __int16 *)(a1 + 174)));
   }
 }

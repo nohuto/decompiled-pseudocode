@@ -3,26 +3,26 @@
  * Callers:
  *     PnpInitializeBootStartDriver @ 0x14079BA3C (PnpInitializeBootStartDriver.c)
  * Callees:
- *     RtlImageNtHeader @ 0x140014238 (RtlImageNtHeader.c)
- *     ObfDereferenceObjectWithTag @ 0x14006ACD0 (ObfDereferenceObjectWithTag.c)
- *     ExAllocatePoolWithTagPriority @ 0x14007E210 (ExAllocatePoolWithTagPriority.c)
- *     DbgPrintEx @ 0x140081B0C (DbgPrintEx.c)
- *     HeadlessKernelAddLogEntry @ 0x140087534 (HeadlessKernelAddLogEntry.c)
- *     RtlEqualString @ 0x140097620 (RtlEqualString.c)
- *     memmove @ 0x140171280 (memmove.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     RtlImageNtHeader @ 0x140013DB8 (RtlImageNtHeader.c)
+ *     ObfDereferenceObjectWithTag @ 0x14006A850 (ObfDereferenceObjectWithTag.c)
+ *     ExAllocatePoolWithTagPriority @ 0x14007E290 (ExAllocatePoolWithTagPriority.c)
+ *     DbgPrintEx @ 0x140084C90 (DbgPrintEx.c)
+ *     RtlEqualString @ 0x140096E20 (RtlEqualString.c)
+ *     HeadlessKernelAddLogEntry @ 0x14010B72C (HeadlessKernelAddLogEntry.c)
+ *     memmove @ 0x140171780 (memmove.c)
+ *     memset @ 0x140171AC0 (memset.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     ObReferenceObjectByHandle @ 0x140450D40 (ObReferenceObjectByHandle.c)
- *     ObInsertObject @ 0x140471424 (ObInsertObject.c)
- *     ObCreateObject @ 0x14047181C (ObCreateObject.c)
- *     KseDriverLoadImage @ 0x1404859F4 (KseDriverLoadImage.c)
- *     PnpPrepareDriverLoading @ 0x14049D6CC (PnpPrepareDriverLoading.c)
- *     KseShimDriverIoCallbacks @ 0x1404E5818 (KseShimDriverIoCallbacks.c)
- *     ObMakeTemporaryObject @ 0x1404EB310 (ObMakeTemporaryObject.c)
- *     IopReadyDeviceObjects @ 0x1404EEF68 (IopReadyDeviceObjects.c)
- *     NtClose @ 0x14050B0E0 (NtClose.c)
- *     IopOpenRegistryKeyEx @ 0x14055064C (IopOpenRegistryKeyEx.c)
- *     PnpDriverLoadingFailed @ 0x14057F858 (PnpDriverLoadingFailed.c)
+ *     ObReferenceObjectByHandle @ 0x14044FC10 (ObReferenceObjectByHandle.c)
+ *     ObInsertObject @ 0x1404702F4 (ObInsertObject.c)
+ *     ObCreateObject @ 0x1404706EC (ObCreateObject.c)
+ *     ObMakeTemporaryObject @ 0x1404CD494 (ObMakeTemporaryObject.c)
+ *     IopReadyDeviceObjects @ 0x1404D1030 (IopReadyDeviceObjects.c)
+ *     NtClose @ 0x1404EE070 (NtClose.c)
+ *     KseDriverLoadImage @ 0x140514D7C (KseDriverLoadImage.c)
+ *     KseShimDriverIoCallbacks @ 0x14051525C (KseShimDriverIoCallbacks.c)
+ *     PnpPrepareDriverLoading @ 0x140515AD8 (PnpPrepareDriverLoading.c)
+ *     IopOpenRegistryKeyEx @ 0x140550B8C (IopOpenRegistryKeyEx.c)
+ *     PnpDriverLoadingFailed @ 0x14057FD04 (PnpDriverLoadingFailed.c)
  *     VfXdvDriverCaptureIoCallbacks @ 0x1406FE128 (VfXdvDriverCaptureIoCallbacks.c)
  *     InbvIndicateProgress @ 0x14079BFCC (InbvIndicateProgress.c)
  */
@@ -172,7 +172,7 @@ LABEL_34:
       v29 = (const void **)(a4 + 72);
       if ( !a4 )
         v29 = 0LL;
-      KseShimDriverIoCallbacks(v12, v28, v29);
+      KseShimDriverIoCallbacks((__int64 *)&v12->Type, v28, v29);
     }
     goto LABEL_40;
   }

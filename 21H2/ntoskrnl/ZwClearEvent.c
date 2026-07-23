@@ -1,14 +1,14 @@
 /*
- * XREFs of ZwClearEvent @ 0x1403FAB60
+ * XREFs of ZwClearEvent @ 0x1403FAD40
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwClearEvent(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwClearEvent(HANDLE EventHandle)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(EventHandle);
 }

@@ -1,14 +1,14 @@
 /*
- * XREFs of MmGetPageFileForCrashDump @ 0x14086CB98
+ * XREFs of MmGetPageFileForCrashDump @ 0x140872F78
  * Callers:
- *     IoConfigureCrashDump @ 0x1405C63E0 (IoConfigureCrashDump.c)
+ *     IoConfigureCrashDump @ 0x1405C8CB0 (IoConfigureCrashDump.c)
  * Callees:
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     KiCheckForKernelApcDelivery @ 0x14027DB80 (KiCheckForKernelApcDelivery.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     ExfTryToWakePushLock @ 0x1403170A0 (ExfTryToWakePushLock.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     KiCheckForKernelApcDelivery @ 0x14027D0F0 (KiCheckForKernelApcDelivery.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     ExfTryToWakePushLock @ 0x1403190D0 (ExfTryToWakePushLock.c)
  */
 
 __int64 __fastcall MmGetPageFileForCrashDump(_OWORD *a1, __int64 a2, __int64 a3, struct _KLOCK_ENTRIES *a4)
@@ -24,21 +24,21 @@ __int64 __fastcall MmGetPageFileForCrashDump(_OWORD *a1, __int64 a2, __int64 a3,
   __int64 v13; // r9
   __int64 v14; // rdx
   __int64 v15; // rdx
-  $7A85BAF4F1FA08634C1C4A3E45B775B3 *v17; // rcx
+  $241382875694CED3D471BC5892DE3337 *v17; // rcx
 
   *a1 = 0LL;
   CurrentThread = KeGetCurrentThread();
   v6 = 0LL;
   v7 = 0LL;
   --CurrentThread->SpecialApcDisable;
-  v8 = (AutoBoost *)KeAbPreAcquire((__int64)&stru_140E37DC8.ReadTransferCount, 0LL, 0LL, a4);
-  v10 = _interlockedbittestandset64((volatile signed __int32 *)&stru_140E37DC8.ReadTransferCount, 0LL);
+  v8 = (AutoBoost *)KeAbPreAcquire((__int64)&stru_140E37F48.ReadTransferCount, 0LL, 0LL, a4);
+  v10 = _interlockedbittestandset64((volatile signed __int32 *)&stru_140E37F48.ReadTransferCount, 0LL);
   v11 = v8;
   if ( v10 )
     ExfAcquirePushLockExclusiveEx(
-      (unsigned __int64 *)&stru_140E37DC8.ReadTransferCount,
+      (unsigned __int64 *)&stru_140E37F48.ReadTransferCount,
       v8,
-      (__int64)&stru_140E37DC8.ReadTransferCount);
+      (__int64)&stru_140E37F48.ReadTransferCount);
   if ( v11 )
   {
     if ( (KiAbpGlobalState & 1) != 0 )
@@ -48,7 +48,7 @@ __int64 __fastcall MmGetPageFileForCrashDump(_OWORD *a1, __int64 a2, __int64 a3,
   }
   if ( Count )
   {
-    v12 = (char *)&unk_140E3D3E0;
+    v12 = (char *)&unk_140E3D560;
     v13 = Count;
     do
     {
@@ -65,13 +65,13 @@ __int64 __fastcall MmGetPageFileForCrashDump(_OWORD *a1, __int64 a2, __int64 a3,
     }
     while ( v13 );
   }
-  if ( (_InterlockedExchangeAdd64(&stru_140E37DC8.ReadTransferCount, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-    ExfTryToWakePushLock(&stru_140E37DC8.ReadTransferCount);
-  KeAbPostRelease((unsigned __int64)&stru_140E37DC8.ReadTransferCount);
+  if ( (_InterlockedExchangeAdd64(&stru_140E37F48.ReadTransferCount, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+    ExfTryToWakePushLock(&stru_140E37F48.ReadTransferCount);
+  KeAbPostRelease((unsigned __int64)&stru_140E37F48.ReadTransferCount);
   if ( CurrentThread->SpecialApcDisable++ == -1 )
   {
     v17 = &CurrentThread->152;
-    if ( ($7A85BAF4F1FA08634C1C4A3E45B775B3 *)v17->ApcState.ApcListHead[0].Flink != v17 )
+    if ( ($241382875694CED3D471BC5892DE3337 *)v17->ApcState.ApcListHead[0].Flink != v17 )
       KiCheckForKernelApcDelivery((__int64)v17, v15);
   }
   return v6;

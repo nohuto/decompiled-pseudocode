@@ -1,14 +1,14 @@
 /*
- * XREFs of MiMoveLargeFreePage @ 0x140556BC0
+ * XREFs of MiMoveLargeFreePage @ 0x140556E00
  * Callers:
- *     MiTransferPartitionPageRun @ 0x140562E10 (MiTransferPartitionPageRun.c)
+ *     MiTransferPartitionPageRun @ 0x140563050 (MiTransferPartitionPageRun.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x14024B280 (KeYieldProcessorEx.c)
- *     MiTryUnlinkNodeLargePage @ 0x14029195C (MiTryUnlinkNodeLargePage.c)
- *     MiInsertLargePageInNodeList @ 0x1402FEA50 (MiInsertLargePageInNodeList.c)
- *     MiLockPageInline @ 0x1402FFE30 (MiLockPageInline.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     MiMoveBadPageCrossPartition @ 0x14054EFEC (MiMoveBadPageCrossPartition.c)
+ *     MiTryUnlinkNodeLargePage @ 0x14020F8CC (MiTryUnlinkNodeLargePage.c)
+ *     KeYieldProcessorEx @ 0x1402EFAD0 (KeYieldProcessorEx.c)
+ *     MiInsertLargePageInNodeList @ 0x1403097A0 (MiInsertLargePageInNodeList.c)
+ *     MiLockPageInline @ 0x14030AB80 (MiLockPageInline.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     MiMoveBadPageCrossPartition @ 0x14054F22C (MiMoveBadPageCrossPartition.c)
  */
 
 __int64 __fastcall MiMoveLargeFreePage(__int64 a1, int a2, __int64 a3, ULONG_PTR *a4)
@@ -50,7 +50,7 @@ __int64 __fastcall MiMoveLargeFreePage(__int64 a1, int a2, __int64 a3, ULONG_PTR
     v25[1] = (v14 & 0x3E0) != 0;
     v19 = (*(_QWORD *)(v13 + 40) >> 39) & 0x3FFLL;
     v25[0] = v8;
-    if ( *(_QWORD *)(qword_140C4E648 + 8 * v19) == a3 )
+    if ( *(_QWORD *)(qword_140C4E688 + 8 * v19) == a3 )
     {
       _InterlockedAnd64((volatile signed __int64 *)(v13 + 24), 0x7FFFFFFFFFFFFFFFuLL);
       v20 = v13 + 48 * v7 - 48;

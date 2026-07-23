@@ -1,7 +1,7 @@
 /*
- * XREFs of ObGetExtendedUserInfo @ 0x1408DD37C
+ * XREFs of ObGetExtendedUserInfo @ 0x1408DD4DC
  * Callers:
- *     PsReplaceSiloContext @ 0x140905BA0 (PsReplaceSiloContext.c)
+ *     PsReplaceSiloContext @ 0x140905D00 (PsReplaceSiloContext.c)
  * Callees:
  *     <none>
  */

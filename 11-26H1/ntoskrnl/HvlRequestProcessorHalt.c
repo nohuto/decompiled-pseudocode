@@ -1,10 +1,10 @@
 /*
- * XREFs of HvlRequestProcessorHalt @ 0x1405BF600
+ * XREFs of HvlRequestProcessorHalt @ 0x1405C1E70
  * Callers:
  *     <none>
  * Callees:
- *     HvcallInitiateHypercall @ 0x14032BB00 (HvcallInitiateHypercall.c)
- *     HvlpHvToNtStatus @ 0x1403E7DC0 (HvlpHvToNtStatus.c)
+ *     HvlpHvToNtStatus @ 0x1402F4CA0 (HvlpHvToNtStatus.c)
+ *     HvcallInitiateHypercall @ 0x14032DB30 (HvcallInitiateHypercall.c)
  */
 
 __int64 __fastcall HvlRequestProcessorHalt(unsigned __int64 *a1)

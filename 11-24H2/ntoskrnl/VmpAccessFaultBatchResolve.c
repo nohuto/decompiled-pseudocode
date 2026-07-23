@@ -1,15 +1,15 @@
 /*
- * XREFs of VmpAccessFaultBatchResolve @ 0x1409F7BB4
+ * XREFs of VmpAccessFaultBatchResolve @ 0x1409F0524
  * Callers:
- *     VmpAccessFaultBatch @ 0x1403AB20C (VmpAccessFaultBatch.c)
+ *     VmpAccessFaultBatch @ 0x140399920 (VmpAccessFaultBatch.c)
  * Callees:
- *     MmGetNodeFastLargePageCounts @ 0x1404D1A7C (MmGetNodeFastLargePageCounts.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     MmVirtualAccessFault @ 0x1409F7E30 (MmVirtualAccessFault.c)
- *     VmpFillValidFaultInfo @ 0x1409F7F2C (VmpFillValidFaultInfo.c)
- *     MmBuildLargePages @ 0x1409F7FAC (MmBuildLargePages.c)
- *     VmpLogFaultResolveFailure @ 0x140AB3444 (VmpLogFaultResolveFailure.c)
+ *     MmGetNodeFastLargePageCounts @ 0x1404CAABC (MmGetNodeFastLargePageCounts.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     MmVirtualAccessFault @ 0x1409F07A0 (MmVirtualAccessFault.c)
+ *     VmpFillValidFaultInfo @ 0x1409F089C (VmpFillValidFaultInfo.c)
+ *     MmBuildLargePages @ 0x1409F091C (MmBuildLargePages.c)
+ *     VmpLogFaultResolveFailure @ 0x140AAE3B4 (VmpLogFaultResolveFailure.c)
  */
 
 __int64 __fastcall VmpAccessFaultBatchResolve(

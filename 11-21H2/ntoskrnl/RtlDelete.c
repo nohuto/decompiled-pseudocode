@@ -1,16 +1,16 @@
 /*
  * XREFs of RtlDelete @ 0x14021EBA0
  * Callers:
- *     FsRtlPrivateFastUnlockAll @ 0x14021D404 (FsRtlPrivateFastUnlockAll.c)
- *     FsRtlRemoveNodeFromTunnel @ 0x14021D754 (FsRtlRemoveNodeFromTunnel.c)
- *     FsRtlFastUnlockSingleExclusive @ 0x14021DEB4 (FsRtlFastUnlockSingleExclusive.c)
- *     FsRtlFastUnlockSingleShared @ 0x14021E048 (FsRtlFastUnlockSingleShared.c)
+ *     sub_14021D404 @ 0x14021D404 (sub_14021D404.c)
+ *     sub_14021D754 @ 0x14021D754 (sub_14021D754.c)
+ *     sub_14021DEB4 @ 0x14021DEB4 (sub_14021DEB4.c)
+ *     sub_14021E048 @ 0x14021E048 (sub_14021E048.c)
  *     RtlDeleteElementGenericTable @ 0x14021E9A0 (RtlDeleteElementGenericTable.c)
  *     RtlRemoveUnicodePrefix @ 0x140694580 (RtlRemoveUnicodePrefix.c)
  *     PfxRemovePrefix @ 0x1409B7B20 (PfxRemovePrefix.c)
  * Callees:
  *     RtlSplay @ 0x14021ECC0 (RtlSplay.c)
- *     SwapSplayLinks @ 0x14021EFFC (SwapSplayLinks.c)
+ *     sub_14021EFFC @ 0x14021EFFC (sub_14021EFFC.c)
  *     RtlSubtreePredecessor @ 0x14021F170 (RtlSubtreePredecessor.c)
  */
 
@@ -26,7 +26,7 @@ PRTL_SPLAY_LINKS __stdcall RtlDelete(PRTL_SPLAY_LINKS Links)
   result = Links->LeftChild;
   if ( result
     && (!Links->RightChild
-     || (v5 = RtlSubtreePredecessor(Links), SwapSplayLinks(v5, Links), (result = Links->LeftChild) != 0LL))
+     || (v5 = RtlSubtreePredecessor(Links), sub_14021EFFC(v5, Links), (result = Links->LeftChild) != 0LL))
     || (result = Links->RightChild) != 0LL )
   {
     Parent = Links->Parent;

@@ -1,22 +1,22 @@
 /*
- * XREFs of RtlIsValidHandle @ 0x1800AEF30
+ * XREFs of RtlIsValidHandle @ 0x18007B710
  * Callers:
- *     RtlpFreeHandleForAtom @ 0x1800AEEC8 (RtlpFreeHandleForAtom.c)
+ *     RtlpFreeHandleForAtom @ 0x18007B6A8 (RtlpFreeHandleForAtom.c)
  * Callees:
  *     <none>
  */
 
-char __fastcall RtlIsValidHandle(__int64 a1, _BYTE *a2)
+BOOLEAN __cdecl RtlIsValidHandle(PRTL_HANDLE_TABLE HandleTable, PRTL_HANDLE_TABLE_ENTRY Handle)
 {
-  if ( !a2
-    || (unsigned __int64)a2 < *(_QWORD *)(a1 + 24)
-    || (unsigned __int64)a2 >= *(_QWORD *)(a1 + 32)
-    || ((*(_DWORD *)(a1 + 4) - 1) & (unsigned int)a2) != 0 )
+  if ( !Handle
+    || Handle < HandleTable->CommittedHandles
+    || Handle >= HandleTable->UnCommittedHandles
+    || ((HandleTable->SizeOfHandleTableEntry - 1) & (unsigned int)Handle) != 0 )
   {
     return 0;
   }
   else
   {
-    return *a2 & 1;
+    return Handle->Flags & 1;
   }
 }

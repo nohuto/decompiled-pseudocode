@@ -1,5 +1,5 @@
 /*
- * XREFs of RtlCompactHeap @ 0x18008C090
+ * XREFs of RtlCompactHeap @ 0x18008C0A0
  * Callers:
  *     RtlDebugCompactHeap @ 0x180107568 (RtlDebugCompactHeap.c)
  * Callees:
@@ -7,55 +7,55 @@
  *     RtlEnterCriticalSection @ 0x180014370 (RtlEnterCriticalSection.c)
  *     RtlNtStatusToDosError @ 0x18004EDE0 (RtlNtStatusToDosError.c)
  *     RtlpHpHeapCompact @ 0x180068A30 (RtlpHpHeapCompact.c)
- *     RtlpCoalesceHeap @ 0x18008C1C4 (RtlpCoalesceHeap.c)
+ *     RtlpCoalesceHeap @ 0x18008C1D4 (RtlpCoalesceHeap.c)
  *     RtlDebugCompactHeap @ 0x180107568 (RtlDebugCompactHeap.c)
  *     RtlpHeapExceptionFilter @ 0x18010C5C8 (RtlpHeapExceptionFilter.c)
  */
 
-__int64 __fastcall RtlCompactHeap(__int64 a1, int a2)
+SIZE_T __cdecl RtlCompactHeap(PVOID HeapHandle, ULONG Flags)
 {
-  int v3; // edx
-  unsigned __int64 v4; // rbx
+  ULONG v3; // edx
+  SIZE_T v4; // rbx
   __int64 v5; // rax
   unsigned __int16 v6; // dx
   __int64 v7; // rax
   struct _TEB *v8; // rbx
   char v10; // [rsp+20h] [rbp-18h]
-  unsigned __int64 v11; // [rsp+28h] [rbp-10h]
+  SIZE_T v11; // [rsp+28h] [rbp-10h]
 
   v10 = 0;
-  if ( *(_DWORD *)(a1 + 16) == -571548178 )
+  if ( *((_DWORD *)HeapHandle + 4) == -571548178 )
   {
-    RtlpHpHeapCompact(a1, a2 & 1);
+    RtlpHpHeapCompact((__int64)HeapHandle, Flags & 1);
     return 16LL;
   }
   else
   {
-    v3 = *(_DWORD *)(a1 + 116) | a2;
+    v3 = *((_DWORD *)HeapHandle + 29) | Flags;
     if ( (v3 & 0x61000000) == 0 || (v3 & 0x10000000) != 0 )
     {
       v4 = 0LL;
       v11 = 0LL;
       if ( (v3 & 1) == 0 )
       {
-        RtlEnterCriticalSection(*(_QWORD *)(a1 + 352));
+        RtlEnterCriticalSection(*((PRTL_CRITICAL_SECTION *)HeapHandle + 44));
         v10 = 1;
       }
-      v5 = RtlpCoalesceHeap(a1);
+      v5 = RtlpCoalesceHeap(HeapHandle);
       if ( v5 )
       {
         v6 = *(_WORD *)(v5 + 8);
         v4 = 16LL * v6;
         v11 = v4;
-        if ( *(_DWORD *)(a1 + 124) )
+        if ( *((_DWORD *)HeapHandle + 31) )
         {
           *(_BYTE *)(v5 + 11) = HIBYTE(v6) ^ v6 ^ *(_BYTE *)(v5 + 10);
-          *(_DWORD *)(v5 + 8) ^= *(_DWORD *)(a1 + 136);
+          *(_DWORD *)(v5 + 8) ^= *((_DWORD *)HeapHandle + 34);
         }
       }
-      if ( *(_QWORD *)(a1 + 240) != a1 + 240 )
+      if ( *((PVOID *)HeapHandle + 30) != (char *)HeapHandle + 240 )
       {
-        v7 = *(_QWORD *)(a1 + 248);
+        v7 = *((_QWORD *)HeapHandle + 31);
         if ( *(_QWORD *)(v7 + 40) > v4 )
           v4 = *(_QWORD *)(v7 + 40);
         v11 = v4;
@@ -68,12 +68,12 @@ __int64 __fastcall RtlCompactHeap(__int64 a1, int a2)
         v4 = v11;
       }
       if ( v10 )
-        RtlLeaveCriticalSection(*(_QWORD *)(a1 + 352));
+        RtlLeaveCriticalSection(*((PRTL_CRITICAL_SECTION *)HeapHandle + 44));
       return v4;
     }
     else
     {
-      return RtlDebugCompactHeap((void *)a1);
+      return RtlDebugCompactHeap(HeapHandle);
     }
   }
 }

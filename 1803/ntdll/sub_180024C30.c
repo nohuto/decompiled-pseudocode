@@ -9,11 +9,11 @@
  *     ZwWaitForAlertByThreadId @ 0x18009E3B0 (ZwWaitForAlertByThreadId.c)
  */
 
-__int64 __fastcall sub_180024C30(__int64 a1, volatile signed __int32 *a2, __int64 a3, unsigned int a4)
+__int64 __fastcall sub_180024C30(__int64 a1, __int64 a2, LARGE_INTEGER *a3, unsigned int a4)
 {
   unsigned int v4; // edi
   int v7; // edx
-  unsigned int v8; // esi
+  unsigned __int32 v8; // esi
 
   v4 = 0;
   if ( MEMORY[0x7FFE036A] > 1u )
@@ -21,7 +21,7 @@ __int64 __fastcall sub_180024C30(__int64 a1, volatile signed __int32 *a2, __int6
     v7 = 0;
     if ( a4 )
     {
-      while ( (a2[10] & 1) != 0 )
+      while ( (*(_DWORD *)(a2 + 40) & 1) != 0 )
       {
         _mm_pause();
         if ( ++v7 >= a4 )
@@ -31,13 +31,13 @@ __int64 __fastcall sub_180024C30(__int64 a1, volatile signed __int32 *a2, __int6
     }
   }
 LABEL_3:
-  if ( !_interlockedbittestandreset(a2 + 10, 0) )
+  if ( !_interlockedbittestandreset((volatile signed __int32 *)(a2 + 40), 0) )
     return 0LL;
-  v8 = ZwWaitForAlertByThreadId(*(_QWORD *)a2, a3);
+  v8 = ZwWaitForAlertByThreadId(*(PVOID *)a2, a3);
   if ( v8 == 258 )
   {
-    if ( _InterlockedExchange(a2 + 10, 4) == 2 )
-      v8 = ZwWaitForAlertByThreadId(*(_QWORD *)a2, 0LL);
+    if ( _InterlockedExchange((volatile __int32 *)(a2 + 40), 4) == 2 )
+      v8 = ZwWaitForAlertByThreadId(*(PVOID *)a2, 0LL);
     else
       sub_18004ABB4(a1, a2);
   }

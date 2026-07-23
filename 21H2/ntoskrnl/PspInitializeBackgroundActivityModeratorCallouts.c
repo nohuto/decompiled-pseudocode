@@ -1,9 +1,9 @@
 /*
- * XREFs of PspInitializeBackgroundActivityModeratorCallouts @ 0x140A47BDC
+ * XREFs of PspInitializeBackgroundActivityModeratorCallouts @ 0x140A48BDC
  * Callers:
- *     PspInitPhase1 @ 0x140A4B338 (PspInitPhase1.c)
+ *     PspInitPhase1 @ 0x140A4C338 (PspInitPhase1.c)
  * Callees:
- *     ExRegisterHost @ 0x14079DA20 (ExRegisterHost.c)
+ *     ExRegisterHost @ 0x14079DC20 (ExRegisterHost.c)
  */
 
 __int64 __fastcall PspInitializeBackgroundActivityModeratorCallouts(__int64 a1, __int64 a2)

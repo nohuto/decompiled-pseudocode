@@ -1,18 +1,18 @@
 /*
- * XREFs of PnprQuiesceProcessors @ 0x140BF26B4
+ * XREFs of PnprQuiesceProcessors @ 0x140BF86B4
  * Callers:
- *     PnprQuiesce @ 0x1405DBDC8 (PnprQuiesce.c)
+ *     PnprQuiesce @ 0x1405DE678 (PnprQuiesce.c)
  * Callees:
- *     KeInsertQueueDpc @ 0x1402BDB30 (KeInsertQueueDpc.c)
- *     KeRemoveProcessorAffinityEx @ 0x1403EF310 (KeRemoveProcessorAffinityEx.c)
- *     KeEnumerateNextProcessor @ 0x14043BC70 (KeEnumerateNextProcessor.c)
- *     KeInitializeDpc @ 0x140481A50 (KeInitializeDpc.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     KeSuspendClockTimerSafe @ 0x1405EE154 (KeSuspendClockTimerSafe.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     PnprGetMillisecondCounter @ 0x140BF16E4 (PnprGetMillisecondCounter.c)
+ *     KeInsertQueueDpc @ 0x1403087F0 (KeInsertQueueDpc.c)
+ *     KeEnumerateNextProcessor @ 0x14042E520 (KeEnumerateNextProcessor.c)
+ *     KeRemoveProcessorAffinityEx @ 0x140453E40 (KeRemoveProcessorAffinityEx.c)
+ *     KeInitializeDpc @ 0x14047B3C0 (KeInitializeDpc.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KeSuspendClockTimerSafe @ 0x1405F0AC4 (KeSuspendClockTimerSafe.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     PnprGetMillisecondCounter @ 0x140BF76E4 (PnprGetMillisecondCounter.c)
  */
 
 __int64 PnprQuiesceProcessors()
@@ -112,9 +112,9 @@ __int64 PnprQuiesceProcessors()
     KiRaiseIrqlProcessIrqlFlags(CurrentIrql, v0);
   }
   KeInitializeDpc((PRKDPC)&Dpc.DpcListEntry, (PKDEFERRED_ROUTINE)PnprQuiesceProcessorDpc, &DeferredContext);
-  p_WaitRegister = &stru_140FC01F0.WaitRegister;
+  p_WaitRegister = &stru_140FC11F0.WaitRegister;
   BYTE1(Dpc.DpcListEntry.Next) = 2;
-  v5 = &stru_140FC01F0.WaitRegister;
+  v5 = &stru_140FC11F0.WaitRegister;
   v6 = &v77;
   v7 = 2LL;
   do
@@ -160,7 +160,7 @@ __int64 PnprQuiesceProcessors()
     v18 = PnprContext;
     v19 = *(_DWORD *)(PnprContext + 33288);
     if ( !v19 )
-      v19 = 2455;
+      v19 = 2267;
     *(_DWORD *)(PnprContext + 33288) = v19;
     v20 = *(_DWORD *)(v18 + 33292);
     if ( !v20 )
@@ -213,7 +213,7 @@ LABEL_22:
     *(_DWORD *)(v33 + 33304) = PnprGetMillisecondCounter(0);
   }
   v34 = &v77;
-  v35 = &stru_140FC01F0.WaitRegister;
+  v35 = &stru_140FC11F0.WaitRegister;
   v36 = 2LL;
   do
   {
@@ -245,7 +245,7 @@ LABEL_22:
     do
     {
       v46 = v44++;
-      *(_QWORD *)((char *)&stru_140FC01F0.116 + 8 * v46 + 4) &= ~*(_QWORD *)(*(_QWORD *)v45 + 8 * v46);
+      *(_QWORD *)((char *)&stru_140FC11F0.116 + 8 * v46 + 4) &= ~*(_QWORD *)(*(_QWORD *)v45 + 8 * v46);
     }
     while ( v44 < *(_DWORD *)(v45 + 8) );
   }
@@ -266,7 +266,7 @@ LABEL_22:
       v54 = PnprContext;
       v55 = *(_DWORD *)(PnprContext + 33288);
       if ( !v55 )
-        v55 = 2540;
+        v55 = 2352;
       *(_DWORD *)(PnprContext + 33288) = v55;
       v56 = *(_DWORD *)(v54 + 33292);
       if ( !v56 )

@@ -1,13 +1,13 @@
 /*
- * XREFs of EtwpTraceProcessRundown @ 0x140498CB0
+ * XREFs of EtwpTraceProcessRundown @ 0x140499740
  * Callers:
- *     EtwpProcessEnumCallback @ 0x1404989B4 (EtwpProcessEnumCallback.c)
+ *     EtwpProcessEnumCallback @ 0x140499444 (EtwpProcessEnumCallback.c)
  * Callees:
- *     EtwpLogKernelEvent @ 0x140059740 (EtwpLogKernelEvent.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
+ *     EtwpLogKernelEvent @ 0x1400592C0 (EtwpLogKernelEvent.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
- *     RtlFreeAnsiString @ 0x140458CF0 (RtlFreeAnsiString.c)
- *     EtwpBuildProcessEvent @ 0x14045D860 (EtwpBuildProcessEvent.c)
+ *     RtlFreeAnsiString @ 0x140457BC0 (RtlFreeAnsiString.c)
+ *     EtwpBuildProcessEvent @ 0x14045C730 (EtwpBuildProcessEvent.c)
  */
 
 __int64 __fastcall EtwpTraceProcessRundown(struct _KPROCESS *a1, unsigned int a2, __int16 a3, __int64 a4)
@@ -20,7 +20,7 @@ __int64 __fastcall EtwpTraceProcessRundown(struct _KPROCESS *a1, unsigned int a2
   __int64 v13; // [rsp+80h] [rbp-80h] BYREF
   UNICODE_STRING UnicodeString; // [rsp+88h] [rbp-78h] BYREF
   _BYTE v15[40]; // [rsp+98h] [rbp-68h] BYREF
-  __int64 v16[52]; // [rsp+C0h] [rbp-40h] BYREF
+  ULONG_PTR v16[52]; // [rsp+C0h] [rbp-40h] BYREF
   __int64 v17[18]; // [rsp+260h] [rbp+160h] BYREF
 
   v11 = *(PVOID *)(a4 + 16);
@@ -35,7 +35,7 @@ __int64 __fastcall EtwpTraceProcessRundown(struct _KPROCESS *a1, unsigned int a2
     &v13,
     (__int64)v17,
     (unsigned int *)&v9,
-    (int *)v16,
+    v16,
     (PANSI_STRING)&UnicodeString,
     (unsigned __int16 *)&v10,
     &P);

@@ -1,14 +1,14 @@
 /*
- * XREFs of MiNodeFreeZeroPages @ 0x14028EFD0
+ * XREFs of MiNodeFreeZeroPages @ 0x14028E530
  * Callers:
- *     MiReplenishPageSlist @ 0x14028A710 (MiReplenishPageSlist.c)
- *     MiRebuildLargePage @ 0x14028FF24 (MiRebuildLargePage.c)
- *     MiSignalLargePageRebuild @ 0x1402A8360 (MiSignalLargePageRebuild.c)
- *     MiRebuildLargePages @ 0x1402C8400 (MiRebuildLargePages.c)
- *     MiPruneStandbyPages @ 0x1402C8780 (MiPruneStandbyPages.c)
- *     MiFreeZeroPagesNeeded @ 0x1402C8C6C (MiFreeZeroPagesNeeded.c)
- *     MiCheckZeroFreeRebalance @ 0x1404A141C (MiCheckZeroFreeRebalance.c)
- *     MiNodeAvailablePages @ 0x1404BE5E8 (MiNodeAvailablePages.c)
+ *     MiReplenishPageSlist @ 0x140289C70 (MiReplenishPageSlist.c)
+ *     MiRebuildLargePage @ 0x14028F484 (MiRebuildLargePage.c)
+ *     MiSignalLargePageRebuild @ 0x1402A7770 (MiSignalLargePageRebuild.c)
+ *     MiRebuildLargePages @ 0x1402AA1C0 (MiRebuildLargePages.c)
+ *     MiPruneStandbyPages @ 0x1402AA540 (MiPruneStandbyPages.c)
+ *     MiFreeZeroPagesNeeded @ 0x1402AAA2C (MiFreeZeroPagesNeeded.c)
+ *     MiCheckZeroFreeRebalance @ 0x14049AF4C (MiCheckZeroFreeRebalance.c)
+ *     MiNodeAvailablePages @ 0x1404B7E38 (MiNodeAvailablePages.c)
  * Callees:
  *     <none>
  */
@@ -44,7 +44,7 @@ __int64 __fastcall MiNodeFreeZeroPages(__int64 a1, __int64 a2, int a3)
   a2 = (unsigned __int8)a2;
   do
   {
-    if ( (unsigned __int8)byte_140E2D718 > 1u )
+    if ( (unsigned __int8)byte_140E2D898 > 1u )
       v9 = *(_QWORD *)(v7 + 8 * (v5 + 2 * a2) + 14064);
     else
       v9 = *(_QWORD *)(v7 + 8 * v5 + 3080);

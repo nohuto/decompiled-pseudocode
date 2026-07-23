@@ -1,13 +1,13 @@
 /*
- * XREFs of MiWakeLargePageRebuild @ 0x1403D3D0C
+ * XREFs of MiWakeLargePageRebuild @ 0x140261C8C
  * Callers:
- *     MiUnlinkFreeOrZeroedPage @ 0x1402213E0 (MiUnlinkFreeOrZeroedPage.c)
- *     MiSignalLargePageRebuild @ 0x1402D34E0 (MiSignalLargePageRebuild.c)
+ *     MiUnlinkFreeOrZeroedPage @ 0x14024E130 (MiUnlinkFreeOrZeroedPage.c)
+ *     MiSignalLargePageRebuild @ 0x140354758 (MiSignalLargePageRebuild.c)
  * Callees:
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14020FA40 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140210170 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     ExQueueWorkItemToPartition @ 0x1402A7F70 (ExQueueWorkItemToPartition.c)
- *     PsReferencePartitionSafe @ 0x1403D4B60 (PsReferencePartitionSafe.c)
+ *     PsReferencePartitionSafe @ 0x140262AE0 (PsReferencePartitionSafe.c)
+ *     ExQueueWorkItemToPartition @ 0x140279D60 (ExQueueWorkItemToPartition.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140338DA0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1403394D0 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
  */
 
 __int64 __fastcall MiWakeLargePageRebuild(__int64 a1, unsigned int a2, char a3)
@@ -35,7 +35,7 @@ __int64 __fastcall MiWakeLargePageRebuild(__int64 a1, unsigned int a2, char a3)
       *(_QWORD *)v9 = 0LL;
       *(_QWORD *)(v9 + 16) = MiRebuildLargePages;
       *(_QWORD *)(v9 + 24) = v5;
-      ExQueueWorkItemToPartition(v9, 4, 0xFFFFFFFF, *(_QWORD *)(a1 + 184));
+      ExQueueWorkItemToPartition(v9);
     }
   }
   if ( !v6 )

@@ -1,18 +1,18 @@
 /*
- * XREFs of VF_FIND_INACTIVE_ADAPTER_AND_REMOVE @ 0x140AC4A0C
+ * XREFs of VF_FIND_INACTIVE_ADAPTER_AND_REMOVE @ 0x140AC49FC
  * Callers:
- *     VfGetDmaAdapter @ 0x140AC6590 (VfGetDmaAdapter.c)
+ *     VfGetDmaAdapter @ 0x140AC6580 (VfGetDmaAdapter.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250E80 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140250F40 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
-struct _LIST_ENTRY *__fastcall VF_FIND_INACTIVE_ADAPTER_AND_REMOVE(struct _LIST_ENTRY *a1)
+_LIST_ENTRY *__fastcall VF_FIND_INACTIVE_ADAPTER_AND_REMOVE(struct _LIST_ENTRY *a1)
 {
-  struct _LIST_ENTRY *v2; // rdi
+  _LIST_ENTRY *v2; // rdi
   unsigned __int64 v3; // rbx
-  struct _LIST_ENTRY *i; // rax
+  _LIST_ENTRY *i; // rax
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
@@ -22,7 +22,7 @@ struct _LIST_ENTRY *__fastcall VF_FIND_INACTIVE_ADAPTER_AND_REMOVE(struct _LIST_
   struct _LIST_ENTRY *Blink; // rcx
 
   v2 = 0LL;
-  v3 = KeAcquireSpinLockRaiseToDpc(&qword_140C369B0);
+  v3 = KeAcquireSpinLockRaiseToDpc(&qword_140C36950);
   for ( i = ViAdapterList.Flink; &ViAdapterList != i; i = i->Flink )
   {
     if ( i[4].Flink == a1 && (SHIDWORD(i[4].Blink) <= 0 || LOBYTE(i[4].Blink) == 1) )
@@ -37,11 +37,14 @@ struct _LIST_ENTRY *__fastcall VF_FIND_INACTIVE_ADAPTER_AND_REMOVE(struct _LIST_
       break;
     }
   }
-  KxReleaseSpinLock((volatile signed __int64 *)&qword_140C369B0);
-  if ( KiIrqlFlags )
+  KxReleaseSpinLock((volatile signed __int64 *)&qword_140C36950);
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v3 <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
+      && (unsigned __int8)v3 <= 0xFu
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;

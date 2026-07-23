@@ -459,7 +459,7 @@ __int64 __fastcall CmpDoParseKey(
   __int64 v333; // r8
   __int64 v334; // r9
   PACCESS_STATE v335; // rbx
-  struct _SLIST_ENTRY *v336; // rdx
+  _SLIST_ENTRY *v336; // rdx
   struct _KPRCB *v337; // r8
   _GENERAL_LOOKASIDE *P; // rcx
   signed __int64 v339; // rcx
@@ -3164,10 +3164,10 @@ LABEL_835:
           v379 = _InterlockedCompareExchange((volatile signed __int32 *)&CmpDelayedCloseTableLock, 1, 0);
           if ( v379 )
             ExpReleaseFastMutexContended((volatile signed __int32 *)&CmpDelayedCloseTableLock, v379);
-          if ( KiIrqlFlags )
+          if ( (_DWORD)KiIrqlFlags )
           {
             v380 = KeGetCurrentIrql();
-            if ( (KiIrqlFlags & 1) != 0 && v380 <= 0xFu && (unsigned __int8)v377 <= 0xFu && v380 >= 2u )
+            if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v380 <= 0xFu && (unsigned __int8)v377 <= 0xFu && v380 >= 2u )
             {
               CurrentPrcb = KeGetCurrentPrcb();
               SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -3230,7 +3230,7 @@ LABEL_738:
     CmpDetachFromRegistryProcess(v9 + 168);
   if ( Object )
     ObfDereferenceObject(Object);
-  v336 = *(struct _SLIST_ENTRY **)&v448[40];
+  v336 = *(_SLIST_ENTRY **)&v448[40];
   if ( *(_QWORD *)&v448[40] )
   {
     v337 = KeGetCurrentPrcb();
@@ -3244,7 +3244,7 @@ LABEL_738:
     else
     {
       ++P->FreeMisses;
-      ((void (__fastcall *)(struct _SLIST_ENTRY *))P->FreeEx)(v336);
+      ((void (__fastcall *)(_SLIST_ENTRY *))P->FreeEx)(v336);
     }
   }
   return (unsigned int)Child;

@@ -1,12 +1,12 @@
 /*
- * XREFs of MiUnmapViewSubsections @ 0x14029CC10
+ * XREFs of MiUnmapViewSubsections @ 0x14029CEA0
  * Callers:
- *     MiDeleteVad @ 0x1406FA420 (MiDeleteVad.c)
+ *     MiDeleteVad @ 0x1406FA630 (MiDeleteVad.c)
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x14024D360 (ExAcquireSpinLockExclusive.c)
- *     MiDecrementSubsections @ 0x14029FA30 (MiDecrementSubsections.c)
- *     MiCheckControlArea @ 0x14029FBC0 (MiCheckControlArea.c)
- *     MiReturnCrossPartitionSectionCharges @ 0x14066B3B4 (MiReturnCrossPartitionSectionCharges.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024D430 (ExAcquireSpinLockExclusive.c)
+ *     MiDecrementSubsections @ 0x14029FCC0 (MiDecrementSubsections.c)
+ *     MiCheckControlArea @ 0x14029FE50 (MiCheckControlArea.c)
+ *     MiReturnCrossPartitionSectionCharges @ 0x14066B904 (MiReturnCrossPartitionSectionCharges.c)
  */
 
 __int64 __fastcall MiUnmapViewSubsections(__int64 a1, ULONG_PTR a2)

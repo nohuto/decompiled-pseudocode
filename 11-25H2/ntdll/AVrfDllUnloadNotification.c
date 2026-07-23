@@ -11,16 +11,16 @@
  *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x180174020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
  */
 
-struct _PEB *__fastcall AVrfDllUnloadNotification(__int64 a1)
+int __fastcall AVrfDllUnloadNotification(__int64 a1)
 {
-  struct _PEB *result; // rax
+  struct _PEB *v1; // rax
   __int64 *v3; // rbx
   void (__fastcall *v4)(_QWORD, _QWORD, _QWORD, __int64); // rax
 
-  result = NtCurrentPeb();
-  if ( (result->NtGlobalFlag & 0x100) != 0 && AVrfpEnabled )
+  v1 = NtCurrentPeb();
+  if ( (v1->NtGlobalFlag & 0x100) != 0 && AVrfpEnabled )
   {
-    RtlEnterCriticalSection((__int64)&AVrfpVerifierLock);
+    RtlEnterCriticalSection(&AVrfpVerifierLock);
     if ( AVrfpIsVerifierProviderDll(*(_QWORD *)(a1 + 48)) )
     {
       DbgPrint("AVRF: AVrfDllUnloadNotification called for a provider (%p) \n", (const void *)a1);
@@ -37,7 +37,7 @@ struct _PEB *__fastcall AVrfDllUnloadNotification(__int64 a1)
           v4(*(_QWORD *)(a1 + 96), *(_QWORD *)(a1 + 48), *(unsigned int *)(a1 + 64), a1);
       }
     }
-    return (struct _PEB *)RtlLeaveCriticalSection((__int64)&AVrfpVerifierLock);
+    LODWORD(v1) = RtlLeaveCriticalSection(&AVrfpVerifierLock);
   }
-  return result;
+  return (int)v1;
 }

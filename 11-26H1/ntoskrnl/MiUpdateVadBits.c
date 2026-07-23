@@ -1,12 +1,12 @@
 /*
- * XREFs of MiUpdateVadBits @ 0x1409634A8
+ * XREFs of MiUpdateVadBits @ 0x140A09330
  * Callers:
- *     MiExpandVadBitMap @ 0x140963274 (MiExpandVadBitMap.c)
- *     MiExpandVadBitMapDown @ 0x140963530 (MiExpandVadBitMapDown.c)
+ *     MiExpandVadBitMap @ 0x140A090FC (MiExpandVadBitMap.c)
+ *     MiExpandVadBitMapDown @ 0x140A093B8 (MiExpandVadBitMapDown.c)
  * Callees:
- *     MiGetNextVad @ 0x140326018 (MiGetNextVad.c)
- *     MiLocateLowestConflictingVad @ 0x140467400 (MiLocateLowestConflictingVad.c)
- *     MiSetVadBits @ 0x1409C6230 (MiSetVadBits.c)
+ *     MiGetNextVad @ 0x140328048 (MiGetNextVad.c)
+ *     MiLocateLowestConflictingVad @ 0x140460B50 (MiLocateLowestConflictingVad.c)
+ *     MiSetVadBits @ 0x140997210 (MiSetVadBits.c)
  */
 
 unsigned __int64 __fastcall MiUpdateVadBits(unsigned __int64 a1, unsigned __int64 a2)

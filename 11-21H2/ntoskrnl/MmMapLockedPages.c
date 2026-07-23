@@ -1,7 +1,7 @@
 /*
  * XREFs of MmMapLockedPages @ 0x140585870
  * Callers:
- *     ViFlushDoubleBuffer @ 0x140A87EFC (ViFlushDoubleBuffer.c)
+ *     sub_140A87EFC @ 0x140A87EFC (sub_140A87EFC.c)
  * Callees:
  *     MmMapLockedPagesSpecifyCache @ 0x140308CD0 (MmMapLockedPagesSpecifyCache.c)
  */

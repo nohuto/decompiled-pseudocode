@@ -12,28 +12,25 @@
  *     _guard_dispatch_icall_nop @ 0x1800A08B0 (_guard_dispatch_icall_nop.c)
  */
 
-char __fastcall TpReleaseTimer(__int64 a1)
+void __cdecl TpReleaseTimer(PTP_TIMER Timer)
 {
   int v2; // edi
-  signed __int32 v3; // eax
+  int v3; // eax
   _UNKNOWN *retaddr; // [rsp+28h] [rbp+0h]
 
   v2 = 1;
-  v3 = TppTimerpValidateTimer(a1, 1LL, 0LL);
-  if ( v3 )
+  if ( (unsigned int)TppTimerpValidateTimer(Timer, 1LL, 0LL) )
   {
-    LOBYTE(v3) = TppCleanupGroupMemberRelease(a1, 1LL);
+    LOBYTE(v3) = TppCleanupGroupMemberRelease((__int64)Timer, 1LL);
     if ( v3 )
     {
-      *(_QWORD *)(a1 + 184) = retaddr;
-      RtlAcquireSRWLockExclusive(a1 + 240);
-      ++*(_BYTE *)(a1 + 355);
-      if ( (unsigned __int8)TppCancelTimer(a1, *(_QWORD *)(a1 + 144) + 112LL, 0LL) )
+      *((_QWORD *)Timer + 23) = retaddr;
+      RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)Timer + 30);
+      ++*((_BYTE *)Timer + 355);
+      if ( (unsigned __int8)TppCancelTimer(Timer, *((_QWORD *)Timer + 18) + 112LL, 0LL) )
         v2 = 2;
-      v3 = _InterlockedExchangeAdd((volatile signed __int32 *)a1, -v2);
-      if ( v3 == v2 )
-        LOBYTE(v3) = (**(__int64 (__fastcall ***)(__int64))(a1 + 8))(a1);
+      if ( _InterlockedExchangeAdd((volatile signed __int32 *)Timer, -v2) == v2 )
+        (**((void (__fastcall ***)(PTP_TIMER))Timer + 1))(Timer);
     }
   }
-  return v3;
 }

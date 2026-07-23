@@ -1,13 +1,13 @@
 /*
- * XREFs of MiUnlockFileExtentsExclusive @ 0x140A341A4
+ * XREFs of MiUnlockFileExtentsExclusive @ 0x140A34454
  * Callers:
- *     MiInsertCopyExtents @ 0x14063DE1C (MiInsertCopyExtents.c)
- *     MiMergeCopyExtents @ 0x14063E3CC (MiMergeCopyExtents.c)
- *     MiDeleteFileExtentList @ 0x140A33E10 (MiDeleteFileExtentList.c)
+ *     MiInsertCopyExtents @ 0x14063E36C (MiInsertCopyExtents.c)
+ *     MiMergeCopyExtents @ 0x14063E91C (MiMergeCopyExtents.c)
+ *     MiDeleteFileExtentList @ 0x140A340C0 (MiDeleteFileExtentList.c)
  * Callees:
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1402BD960 (ExfTryToWakePushLock.c)
- *     KiCheckForKernelApcDelivery @ 0x14030F820 (KiCheckForKernelApcDelivery.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     ExfTryToWakePushLock @ 0x1402BDBF0 (ExfTryToWakePushLock.c)
+ *     KiCheckForKernelApcDelivery @ 0x14030FAB0 (KiCheckForKernelApcDelivery.c)
  */
 
 char MiUnlockFileExtentsExclusive()

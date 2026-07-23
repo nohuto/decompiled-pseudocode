@@ -1,14 +1,14 @@
 /*
- * XREFs of PipGetDriverKsrGuid @ 0x14079D3F0
+ * XREFs of PipGetDriverKsrGuid @ 0x14079FF30
  * Callers:
- *     IoEnumerateKsrPersistentMemoryEx @ 0x1405D8A30 (IoEnumerateKsrPersistentMemoryEx.c)
- *     IoReserveKsrPersistentMemoryEx @ 0x14079CB90 (IoReserveKsrPersistentMemoryEx.c)
- *     PipGetPersistentMemory @ 0x14079D57C (PipGetPersistentMemory.c)
+ *     IoEnumerateKsrPersistentMemoryEx @ 0x1405DB230 (IoEnumerateKsrPersistentMemoryEx.c)
+ *     IoReserveKsrPersistentMemoryEx @ 0x14079F6D0 (IoReserveKsrPersistentMemoryEx.c)
+ *     PipGetPersistentMemory @ 0x1407A00BC (PipGetPersistentMemory.c)
  * Callees:
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     PipGetDriverKsrGuidRegistryValue @ 0x14079D4B0 (PipGetDriverKsrGuidRegistryValue.c)
- *     PipOpenServiceEnumKeys @ 0x140A12308 (PipOpenServiceEnumKeys.c)
- *     IopOpenRegistryKeyEx @ 0x140AA8B70 (IopOpenRegistryKeyEx.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     PipGetDriverKsrGuidRegistryValue @ 0x14079FFF0 (PipGetDriverKsrGuidRegistryValue.c)
+ *     IopOpenRegistryKeyEx @ 0x1409DC0A0 (IopOpenRegistryKeyEx.c)
+ *     PipOpenServiceEnumKeys @ 0x140A114F8 (PipOpenServiceEnumKeys.c)
  */
 
 __int64 __fastcall PipGetDriverKsrGuid(__int64 a1, __int64 a2)

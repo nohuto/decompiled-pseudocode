@@ -1,12 +1,12 @@
 /*
- * XREFs of ExAcquireRundownProtectionEx @ 0x1402F5CE0
+ * XREFs of ExAcquireRundownProtectionEx @ 0x1402F5F70
  * Callers:
  *     ExReferenceCallBackBlock @ 0x140214EF0 (ExReferenceCallBackBlock.c)
- *     MiCompleteProtoPteFault @ 0x140268BE0 (MiCompleteProtoPteFault.c)
- *     PfSnReferenceProcessTrace @ 0x1402E25B4 (PfSnReferenceProcessTrace.c)
- *     PfSnAddProcessTrace @ 0x1402F5E18 (PfSnAddProcessTrace.c)
- *     ExCompareExchangeCallBack @ 0x14039FE58 (ExCompareExchangeCallBack.c)
- *     PspRundownProcess @ 0x1409B3D8C (PspRundownProcess.c)
+ *     MiCompleteProtoPteFault @ 0x140268E70 (MiCompleteProtoPteFault.c)
+ *     PfSnReferenceProcessTrace @ 0x1402E2844 (PfSnReferenceProcessTrace.c)
+ *     PfSnAddProcessTrace @ 0x1402F60A8 (PfSnAddProcessTrace.c)
+ *     ExCompareExchangeCallBack @ 0x1403A0038 (ExCompareExchangeCallBack.c)
+ *     PspRundownProcess @ 0x1409B3F8C (PspRundownProcess.c)
  * Callees:
  *     <none>
  */

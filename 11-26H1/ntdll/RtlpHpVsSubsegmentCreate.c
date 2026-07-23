@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlpHpVsSubsegmentCreate @ 0x1800131A4
+ * XREFs of RtlpHpVsSubsegmentCreate @ 0x18005E8D4
  * Callers:
- *     RtlpHpVsSlotAllocate @ 0x180012E08 (RtlpHpVsSlotAllocate.c)
+ *     RtlpHpVsSlotAllocate @ 0x18005E538 (RtlpHpVsSlotAllocate.c)
  * Callees:
- *     RtlpHpVsSubsegmentComputeSize @ 0x180014578 (RtlpHpVsSubsegmentComputeSize.c)
- *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x180170020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
+ *     RtlpHpVsSubsegmentComputeSize @ 0x18005FCA8 (RtlpHpVsSubsegmentComputeSize.c)
+ *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x18016F020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
  */
 
 __int64 __fastcall RtlpHpVsSubsegmentCreate(__int64 a1, __int64 a2)

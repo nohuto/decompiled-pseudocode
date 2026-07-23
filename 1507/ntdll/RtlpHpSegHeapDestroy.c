@@ -15,7 +15,7 @@
  *     RtlpHpLargeAllocationDestroy @ 0x1800F0430 (RtlpHpLargeAllocationDestroy.c)
  */
 
-struct _PEB *__fastcall RtlpHpSegHeapDestroy(_QWORD *a1)
+int __fastcall RtlpHpSegHeapDestroy(_QWORD *a1)
 {
   _QWORD *v2; // rcx
   _QWORD *v3; // rsi
@@ -23,19 +23,19 @@ struct _PEB *__fastcall RtlpHpSegHeapDestroy(_QWORD *a1)
   _QWORD *v5; // rax
   _QWORD *v6; // rcx
   _QWORD *v7; // rdx
-  struct _PEB *result; // rax
+  struct _PEB *v8; // rax
   _QWORD *v9; // rax
   _QWORD *v10; // rax
   __int64 v11; // rdi
   unsigned __int64 v12; // rdi
-  _QWORD *v13; // [rsp+20h] [rbp-50h] BYREF
-  __int64 v14; // [rsp+28h] [rbp-48h] BYREF
-  _QWORD *v15; // [rsp+30h] [rbp-40h] BYREF
-  _BYTE v16[6]; // [rsp+38h] [rbp-38h] BYREF
-  __int16 v17; // [rsp+3Eh] [rbp-32h]
-  _QWORD *v18; // [rsp+58h] [rbp-18h]
+  PVOID v14; // [rsp+20h] [rbp-50h] BYREF
+  ULONG_PTR RegionSize; // [rsp+28h] [rbp-48h] BYREF
+  PVOID BaseAddress; // [rsp+30h] [rbp-40h] BYREF
+  _BYTE Fields[6]; // [rsp+38h] [rbp-38h] BYREF
+  __int16 v18; // [rsp+3Eh] [rbp-32h]
+  PVOID v19; // [rsp+58h] [rbp-18h]
 
-  v13 = a1;
+  v14 = a1;
   v2 = (_QWORD *)a1[7];
   if ( v2 )
   {
@@ -65,47 +65,47 @@ struct _PEB *__fastcall RtlpHpSegHeapDestroy(_QWORD *a1)
   }
   a1[7] = 0LL;
   a1[8] = 0LL;
-  v3 = v13 + 25;
+  v3 = (char *)v14 + 200;
   while ( (_QWORD *)*v3 != v3 )
   {
     v4 = *v3;
-    RtlpHpVsSubsegmentCleanup(v13 + 22, *v3);
-    ((void (__fastcall *)(_QWORD, __int64, __int64))((unsigned __int64)(v13 + 22) ^ RtlpHeapKey ^ v13[31]))(
-      v13[29],
+    RtlpHpVsSubsegmentCleanup((char *)v14 + 176, *v3);
+    ((void (__fastcall *)(_QWORD, __int64, __int64))(((unsigned __int64)v14 + 176) ^ RtlpHeapKey ^ *((_QWORD *)v14 + 31)))(
+      *((_QWORD *)v14 + 29),
       v4,
       1LL);
   }
-  RtlpHpLfhContextCleanup(v13 + 36);
+  RtlpHpLfhContextCleanup((char *)v14 + 288);
   while ( 1 )
   {
-    v5 = v13 + 12;
+    v5 = (char *)v14 + 96;
     if ( (_QWORD *)*v5 == v5 )
       break;
-    v6 = (_QWORD *)v13[13];
+    v6 = (_QWORD *)*((_QWORD *)v14 + 13);
     v7 = (_QWORD *)v6[1];
     if ( (_QWORD *)*v6 != v5 || (_QWORD *)*v7 != v6 )
       __fastfail(3u);
-    v13[13] = v7;
+    *((_QWORD *)v14 + 13) = v7;
     *v7 = v5;
-    v15 = v6;
-    v14 = 0x100000LL;
-    ZwFreeVirtualMemory(-1LL, &v15, &v14, 0x8000LL);
+    BaseAddress = v6;
+    RegionSize = 0x100000LL;
+    ZwFreeVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &BaseAddress, &RegionSize, 0x8000u);
     if ( MEMORY[0x7FFE0388] )
-      RtlpHeapLogRangeRelease(v13, v15, v14);
+      RtlpHeapLogRangeRelease(v14, BaseAddress, RegionSize);
   }
-  v14 = 0LL;
-  result = (struct _PEB *)ZwFreeVirtualMemory(-1LL, &v13, &v14, 0x8000LL);
+  RegionSize = 0LL;
+  LODWORD(v8) = ZwFreeVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &v14, &RegionSize, 0x8000u);
   if ( MEMORY[0x7FFE0388] )
-    result = (struct _PEB *)RtlpHeapLogRangeDestroy(v13);
+    LODWORD(v8) = RtlpHeapLogRangeDestroy(v14);
   if ( MEMORY[0x7FFE0380] )
   {
-    result = NtCurrentPeb();
-    if ( (result->TracingFlags & 1) != 0 )
+    v8 = NtCurrentPeb();
+    if ( (v8->TracingFlags & 1) != 0 )
     {
-      v18 = v13;
-      v17 = 4131;
-      return (struct _PEB *)NtTraceEvent(MEMORY[0x7FFE0380], 1026LL, 8LL, v16);
+      v19 = v14;
+      v18 = 4131;
+      LODWORD(v8) = NtTraceEvent((HANDLE)MEMORY[0x7FFE0380], 0x402u, 8u, Fields);
     }
   }
-  return result;
+  return (int)v8;
 }

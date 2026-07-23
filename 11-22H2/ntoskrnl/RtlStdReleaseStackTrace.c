@@ -11,7 +11,7 @@
  *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
  */
 
-__int64 __fastcall RtlStdReleaseStackTrace(__int64 a1, __int64 a2)
+void __fastcall RtlStdReleaseStackTrace(__int64 a1, __int64 a2)
 {
   __int64 v2; // r8
   int v5; // ebp
@@ -23,10 +23,11 @@ __int64 __fastcall RtlStdReleaseStackTrace(__int64 a1, __int64 a2)
   __int16 v11; // ax
   _QWORD *i; // rax
   unsigned __int64 v13; // rdi
-  __int64 result; // rax
+  unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
-  bool v17; // zf
+  int v17; // eax
+  bool v18; // zf
 
   v2 = *(unsigned __int16 *)(a2 + 14);
   v5 = 0;
@@ -69,31 +70,30 @@ LABEL_11:
     }
   }
   v13 = *((unsigned __int8 *)v9 + 8);
-  result = KxReleaseSpinLock(v9);
-  if ( KiIrqlFlags )
+  KxReleaseSpinLock(v9);
+  if ( (_DWORD)KiIrqlFlags )
   {
-    result = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0
-      && (unsigned __int8)result <= 0xFu
+    CurrentIrql = KeGetCurrentIrql();
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
       && (unsigned __int8)v13 <= 0xFu
-      && (unsigned __int8)result >= 2u )
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;
-      result = ~(unsigned __int16)(-1LL << ((unsigned __int8)v13 + 1));
-      v17 = ((unsigned int)result & SchedulerAssist[5]) == 0;
-      SchedulerAssist[5] &= result;
-      if ( v17 )
-        result = KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+      v17 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v13 + 1));
+      v18 = (v17 & SchedulerAssist[5]) == 0;
+      SchedulerAssist[5] &= v17;
+      if ( v18 )
+        KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
     }
   }
   __writecr8(v13);
   if ( v5 )
   {
-    result = (__int64)RtlpInterlockedPushEntrySList(
-                        (PSLIST_HEADER)(a1 + 16 * (((unsigned __int64)*(unsigned __int16 *)(a2 + 8) >> 11) + 13)),
-                        (PSLIST_ENTRY)(a2 + 16));
+    RtlpInterlockedPushEntrySList(
+      (PSLIST_HEADER)(a1 + 16 * (((unsigned __int64)*(unsigned __int16 *)(a2 + 8) >> 11) + 13)),
+      (PSLIST_ENTRY)(a2 + 16));
     _InterlockedAdd((volatile signed __int32 *)(a1 + 196), 1u);
   }
-  return result;
 }

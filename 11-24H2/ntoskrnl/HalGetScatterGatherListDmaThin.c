@@ -1,11 +1,11 @@
 /*
- * XREFs of HalGetScatterGatherListDmaThin @ 0x1404002C0
+ * XREFs of HalGetScatterGatherListDmaThin @ 0x1403FA7B0
  * Callers:
  *     <none>
  * Callees:
- *     HalpConstructScatterGatherListDmaThin @ 0x140400490 (HalpConstructScatterGatherListDmaThin.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     HalpConstructScatterGatherListDmaThin @ 0x1403FA980 (HalpConstructScatterGatherListDmaThin.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall HalGetScatterGatherListDmaThin(
@@ -87,7 +87,7 @@ __int64 __fastcall HalGetScatterGatherListDmaThin(
       }
       while ( v13 );
     }
-    Pool2 = (_DWORD *)ExAllocatePool2(0x42uLL);
+    Pool2 = (_DWORD *)ExAllocatePool2(0x42uLL, 24 * v12 + 120, 0x446C6148u);
     v22 = Pool2;
     if ( Pool2 )
     {

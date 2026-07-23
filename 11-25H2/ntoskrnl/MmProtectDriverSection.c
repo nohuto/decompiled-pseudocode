@@ -24,17 +24,17 @@ __int64 __fastcall MmProtectDriverSection(ULONG_PTR BugCheckParameter2, __int64 
 {
   __int64 v7; // rax
   __int64 v8; // rdi
-  unsigned __int64 v9; // rbx
-  __int64 v10; // rt1
+  PVOID v9; // rbx
+  PVOID v10; // rt1
   unsigned int v11; // ebx
   unsigned __int64 v12; // rsi
   unsigned __int64 v13; // r15
-  unsigned __int64 v14; // rax
+  PVOID v14; // rax
   volatile signed __int64 *v15; // [rsp+38h] [rbp-D0h] BYREF
   __int128 v16; // [rsp+40h] [rbp-C8h] BYREF
   __int64 v17; // [rsp+50h] [rbp-B8h]
   __int64 v18; // [rsp+58h] [rbp-B0h]
-  __int64 v19; // [rsp+60h] [rbp-A8h] BYREF
+  ULONG Size[2]; // [rsp+60h] [rbp-A8h] BYREF
   unsigned __int64 v20; // [rsp+68h] [rbp-A0h] BYREF
   int v21[2]; // [rsp+78h] [rbp-90h] BYREF
   unsigned __int8 v22; // [rsp+81h] [rbp-87h]
@@ -43,28 +43,29 @@ __int64 __fastcall MmProtectDriverSection(ULONG_PTR BugCheckParameter2, __int64 
   unsigned __int64 v25; // [rsp+A8h] [rbp-60h]
   __int64 (__fastcall *v26)(__int64 *, volatile signed __int64 *, int); // [rsp+120h] [rbp+18h]
   __int128 *v27; // [rsp+130h] [rbp+28h]
-  _BYTE v28[8]; // [rsp+138h] [rbp+30h] BYREF
-  unsigned __int64 v29; // [rsp+140h] [rbp+38h]
+  char v28[8]; // [rsp+138h] [rbp+30h] BYREF
+  PVOID v29; // [rsp+140h] [rbp+38h]
 
   v15 = 0LL;
   v20 = 0LL;
   memset_0(v21, 0, 0xC0uLL);
-  v19 = 0LL;
+  Size[0] = 0;
   v16 = 0LL;
   v17 = 0LL;
   LODWORD(v18) = 0;
+  Size[1] = 0;
   if ( (MiFlags & 0x4000) == 0 )
     return 3221225860LL;
   if ( (a3 & 0xFFFFFFFE) != 0 || a2 )
     return 3221225485LL;
-  v7 = MiLockLoadedDataTableEntryIfNecessary(BugCheckParameter2, (_DWORD *)&v19 + 1);
+  v7 = MiLockLoadedDataTableEntryIfNecessary(BugCheckParameter2, &Size[1]);
   v8 = v7;
   if ( !v7 )
     KeBugCheckEx(0x1Au, 0x900uLL, BugCheckParameter2, 0LL, 0LL);
-  v9 = *(_QWORD *)(v7 + 48);
-  if ( (unsigned int)MI_IS_PHYSICAL_ADDRESS(v9) )
+  v9 = *(PVOID *)(v7 + 48);
+  if ( (unsigned int)MI_IS_PHYSICAL_ADDRESS((unsigned __int64)v9) )
     goto LABEL_18;
-  v10 = *(_QWORD *)&KeNumberProcessorsGroup0[9];
+  v10 = *(PVOID *)&KeNumberProcessorsGroup0[9];
   if ( v9 == v10 || v9 == PsHalImageBase )
     goto LABEL_18;
   if ( (*(_DWORD *)(v8 + 104) & 0x80000) == 0 )
@@ -77,8 +78,8 @@ __int64 __fastcall MmProtectDriverSection(ULONG_PTR BugCheckParameter2, __int64 
     }
     v12 = ((__int64)(v20 << 25) >> 16) + 4095;
     v13 = (__int64)((_QWORD)v15 << 25) >> 16;
-    v14 = RtlImageDirectoryEntryToData(*(_QWORD *)(v8 + 48), 1, 0xCu, &v19);
-    if ( !v14 || !(_DWORD)v19 || v14 > v12 || v14 + (unsigned int)(v19 - 1) < v13 )
+    v14 = RtlImageDirectoryEntryToData(*(PVOID *)(v8 + 48), 1u, 0xCu, Size);
+    if ( !v14 || !Size[0] || (unsigned __int64)v14 > v12 || (unsigned __int64)v14 + Size[0] - 1 < v13 )
     {
       DWORD1(v16) = 0;
       v26 = MiProtectDriverSectionPte;
@@ -100,7 +101,7 @@ __int64 __fastcall MmProtectDriverSection(ULONG_PTR BugCheckParameter2, __int64 
           memset_0(v28, 0, 0x68uLL);
           v29 = v9;
           if ( (int)VslpEnterIumSecureMode(2u, 0x2Eu, 0, (__int64)v28) < 0 )
-            KeBugCheckEx(0x1Au, 0x901uLL, v9, 0LL, 0LL);
+            KeBugCheckEx(0x1Au, 0x901uLL, (ULONG_PTR)v9, 0LL, 0LL);
         }
         MiMakeDriverPagesPrivate(v8, v15, v20, 0);
         *(_QWORD *)&v16 = 1LL;
@@ -147,7 +148,7 @@ LABEL_18:
   }
   v11 = -1073741757;
 LABEL_19:
-  if ( HIDWORD(v19) )
+  if ( Size[1] )
     MiUnlockLoadedDataTableEntry(v8, 1);
   return v11;
 }

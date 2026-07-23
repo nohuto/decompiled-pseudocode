@@ -9,62 +9,62 @@
  *     __security_check_cookie @ 0x180090C90 (__security_check_cookie.c)
  */
 
-unsigned __int64 __fastcall RtlpComputeDllPathWithOptions(__int16 a1, char *a2, __int64 a3, __int64 a4)
+_WORD *__fastcall RtlpComputeDllPathWithOptions(__int16 a1, wchar_t *a2)
 {
-  int v6; // eax
-  __int64 v7; // r10
+  int v4; // eax
+  __int64 v5; // r10
+  __int64 v6; // rax
+  char v7; // r9
   __int64 v8; // rax
-  char v9; // r9
-  __int64 v10; // rax
-  unsigned __int64 v11; // rbx
-  __int64 v13; // rax
-  bool v14; // zf
-  _DWORD v15[10]; // [rsp+20h] [rbp-38h] BYREF
+  _WORD *v9; // rbx
+  __int64 v11; // rax
+  bool v12; // zf
+  _DWORD v13[10]; // [rsp+20h] [rbp-38h] BYREF
 
-  RtlAcquireSRWLockShared(&LdrpDllDirectoryLock, a2, a3, a4);
-  v6 = v15[0];
+  RtlAcquireSRWLockShared(&LdrpDllDirectoryLock);
+  v4 = v13[0];
   if ( (a1 & 0x100) != 0 )
-    v6 = 5;
-  v15[0] = v6;
-  LODWORD(v7) = (a1 & 0x100) != 0;
+    v4 = 5;
+  v13[0] = v4;
+  LODWORD(v5) = (a1 & 0x100) != 0;
   if ( (a1 & 0x200) != 0 )
   {
-    LODWORD(v7) = v7 + 1;
-    v15[(a1 & 0x100) != 0] = 1;
+    LODWORD(v5) = v5 + 1;
+    v13[(a1 & 0x100) != 0] = 1;
   }
   if ( (a1 & 0x400) != 0 )
   {
-    v13 = (unsigned int)v7;
-    v7 = (unsigned int)(v7 + 1);
-    v14 = (_WORD)LdrpDllDirectory == 0;
-    v15[v13] = 6;
-    if ( !v14 )
+    v11 = (unsigned int)v5;
+    v5 = (unsigned int)(v5 + 1);
+    v12 = LdrpDllDirectory.Length == 0;
+    v13[v11] = 6;
+    if ( !v12 )
     {
-      v15[v7] = 0;
-      LODWORD(v7) = v7 + 1;
+      v13[v5] = 0;
+      LODWORD(v5) = v5 + 1;
     }
   }
   if ( (a1 & 0x4800) != 0 )
   {
-    v8 = (unsigned int)v7;
-    LODWORD(v7) = v7 + 1;
-    v15[v8] = 7;
+    v6 = (unsigned int)v5;
+    LODWORD(v5) = v5 + 1;
+    v13[v6] = 7;
   }
-  if ( (NtCurrentPeb()->ProcessParameters->Flags & 0x20000000) == 0 || (v9 = 1, (a1 & 0x800) == 0) )
-    v9 = 0;
+  if ( (NtCurrentPeb()->ProcessParameters->Flags & 0x20000000) == 0 || (v7 = 1, (a1 & 0x800) == 0) )
+    v7 = 0;
   if ( LdrpAppPackagesPath.Length )
   {
-    v10 = (unsigned int)v7;
-    LODWORD(v7) = v7 + 1;
-    v15[v10] = 8;
+    v8 = (unsigned int)v5;
+    LODWORD(v5) = v5 + 1;
+    v13[v8] = 8;
   }
-  v11 = RtlpComputePath(v15, v7, (wchar_t *)a2, v9);
+  v9 = RtlpComputePath(v13, v5, a2, v7);
   RtlReleaseSRWLockShared(&LdrpDllDirectoryLock);
-  if ( v11 )
+  if ( v9 )
   {
-    *(_BYTE *)(v11 + 100) = 1;
+    *((_BYTE *)v9 + 100) = 1;
     if ( !LdrpAppPackagesPath.Length )
-      *(_QWORD *)(v11 + 88) = 0LL;
+      *((_QWORD *)v9 + 11) = 0LL;
   }
-  return v11;
+  return v9;
 }

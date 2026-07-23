@@ -1,10 +1,10 @@
 /*
- * XREFs of PopUmpoSendPowerRequestOverrideCleanup @ 0x14067C368
+ * XREFs of PopUmpoSendPowerRequestOverrideCleanup @ 0x14066FEAC
  * Callers:
- *     PopPowerRequestCleanUp @ 0x14028278C (PopPowerRequestCleanUp.c)
+ *     PopPowerRequestCleanUp @ 0x140270A38 (PopPowerRequestCleanUp.c)
  * Callees:
- *     PopUmpoSendPowerMessage @ 0x140282A48 (PopUmpoSendPowerMessage.c)
- *     memset @ 0x140414200 (memset.c)
+ *     PopUmpoSendPowerMessage @ 0x140270CF4 (PopUmpoSendPowerMessage.c)
+ *     memset @ 0x140414300 (memset.c)
  */
 
 __int64 __fastcall PopUmpoSendPowerRequestOverrideCleanup(__int64 a1)

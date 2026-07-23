@@ -1,5 +1,5 @@
 /*
- * XREFs of FsRtlResetLargeMcb @ 0x14026ECC0
+ * XREFs of FsRtlResetLargeMcb @ 0x14026EEB0
  * Callers:
  *     <none>
  * Callees:

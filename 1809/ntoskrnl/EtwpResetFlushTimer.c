@@ -1,7 +1,7 @@
 /*
  * XREFs of EtwpResetFlushTimer @ 0x140014A70
  * Callers:
- *     EtwpLogger @ 0x1405C1430 (EtwpLogger.c)
+ *     EtwpLogger @ 0x1405C2430 (EtwpLogger.c)
  * Callees:
  *     KeCancelTimer @ 0x14001CEB0 (KeCancelTimer.c)
  */

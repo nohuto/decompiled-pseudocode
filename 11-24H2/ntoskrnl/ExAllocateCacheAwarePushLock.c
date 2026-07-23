@@ -1,16 +1,16 @@
 /*
- * XREFs of ExAllocateCacheAwarePushLock @ 0x1404BB520
+ * XREFs of ExAllocateCacheAwarePushLock @ 0x1404B6390
  * Callers:
- *     CmInitSystem1 @ 0x140C44EC0 (CmInitSystem1.c)
+ *     CmInitSystem1 @ 0x140C47010 (CmInitSystem1.c)
  * Callees:
- *     KeSetSystemGroupAffinityThread @ 0x140339650 (KeSetSystemGroupAffinityThread.c)
- *     KeRevertToUserGroupAffinityThread @ 0x14033A250 (KeRevertToUserGroupAffinityThread.c)
- *     KeGetPrcb @ 0x140352980 (KeGetPrcb.c)
- *     KeQueryNodeActiveAffinity @ 0x1403A8640 (KeQueryNodeActiveAffinity.c)
- *     ExFreeCacheAwarePushLock @ 0x1404FB330 (ExFreeCacheAwarePushLock.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExAllocatePool3 @ 0x140B746D0 (ExAllocatePool3.c)
+ *     KeQueryNodeActiveAffinity @ 0x14026FD20 (KeQueryNodeActiveAffinity.c)
+ *     KeGetPrcb @ 0x1402B0A10 (KeGetPrcb.c)
+ *     KeSetSystemGroupAffinityThread @ 0x140318B30 (KeSetSystemGroupAffinityThread.c)
+ *     KeRevertToUserGroupAffinityThread @ 0x140319730 (KeRevertToUserGroupAffinityThread.c)
+ *     ExFreeCacheAwarePushLock @ 0x1404F8C10 (ExFreeCacheAwarePushLock.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExAllocatePool3 @ 0x140B76270 (ExAllocatePool3.c)
  */
 
 void *__fastcall ExAllocateCacheAwarePushLock(char a1)
@@ -26,19 +26,19 @@ void *__fastcall ExAllocateCacheAwarePushLock(char a1)
   __int64 i; // rbx
   struct _KPRCB *CurrentPrcb; // rax
   __int64 Pool3; // rax
-  struct _GROUP_AFFINITY Affinity; // [rsp+40h] [rbp-48h] BYREF
-  struct _GROUP_AFFINITY PreviousAffinity; // [rsp+50h] [rbp-38h] BYREF
+  _GROUP_AFFINITY Affinity; // [rsp+40h] [rbp-48h] BYREF
+  _GROUP_AFFINITY PreviousAffinity; // [rsp+50h] [rbp-38h] BYREF
 
   v1 = 0;
   Affinity = 0LL;
   v2 = (-(__int64)((a1 & 1) != 0) & 0xFFFFFFFFFFFFFF40uLL) + 256;
   PreviousAffinity = 0LL;
-  Pool2 = (void *)ExAllocatePool2(v2);
+  Pool2 = (void *)ExAllocatePool2(v2, 0x100uLL, 0x70636C50u);
   if ( !Pool2 )
     return 0LL;
   if ( KeNumberNodes == 1 )
   {
-    v5 = ExAllocatePool2(v2);
+    v5 = ExAllocatePool2(v2, 0x1000uLL, 0x6C636C50u);
     if ( !v5 )
     {
       v4 = 0LL;
@@ -86,7 +86,7 @@ LABEL_27:
           KeSetSystemGroupAffinityThread(&Affinity, &PreviousAffinity);
           v1 = 1;
         }
-        Pool3 = ExAllocatePool2(v2);
+        Pool3 = ExAllocatePool2(v2, 0x80uLL, 0x6C636C50u);
       }
       if ( !Pool3 )
       {

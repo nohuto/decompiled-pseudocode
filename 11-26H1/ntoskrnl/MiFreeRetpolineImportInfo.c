@@ -1,16 +1,16 @@
 /*
- * XREFs of MiFreeRetpolineImportInfo @ 0x140AC817C
+ * XREFs of MiFreeRetpolineImportInfo @ 0x140AC9D6C
  * Callers:
- *     MiUnloadSystemImage @ 0x140AC76E8 (MiUnloadSystemImage.c)
+ *     MiUnloadSystemImage @ 0x140AC92D8 (MiUnloadSystemImage.c)
  * Callees:
- *     MiSectionControlArea @ 0x14038A9B0 (MiSectionControlArea.c)
- *     MI_LOCK_RELOCATIONS_EXCLUSIVE @ 0x1404A7214 (MI_LOCK_RELOCATIONS_EXCLUSIVE.c)
- *     MI_UNLOCK_RELOCATIONS_EXCLUSIVE @ 0x1404AE6C4 (MI_UNLOCK_RELOCATIONS_EXCLUSIVE.c)
- *     VslFreeSecureImageIat @ 0x1404F4A88 (VslFreeSecureImageIat.c)
- *     MiGetBaseLoaderPortion @ 0x1404F5130 (MiGetBaseLoaderPortion.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     MiWalkEntireImage @ 0x140AC8434 (MiWalkEntireImage.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     MiSectionControlArea @ 0x14038C760 (MiSectionControlArea.c)
+ *     MI_LOCK_RELOCATIONS_EXCLUSIVE @ 0x1404A08A4 (MI_LOCK_RELOCATIONS_EXCLUSIVE.c)
+ *     MI_UNLOCK_RELOCATIONS_EXCLUSIVE @ 0x1404A7D54 (MI_UNLOCK_RELOCATIONS_EXCLUSIVE.c)
+ *     VslFreeSecureImageIat @ 0x1404EE068 (VslFreeSecureImageIat.c)
+ *     MiGetBaseLoaderPortion @ 0x1404EE710 (MiGetBaseLoaderPortion.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     MiWalkEntireImage @ 0x140ACA024 (MiWalkEntireImage.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __fastcall MiFreeRetpolineImportInfo(__int64 a1)
@@ -52,7 +52,7 @@ void __fastcall MiFreeRetpolineImportInfo(__int64 a1)
     }
     v13 = 128LL;
     v14 = MiWalkImageApplyImportOptimizationToPage;
-    v10[1] = stru_140E2D150.WaitBlock[2].WaitListEntry.Flink;
+    v10[1] = stru_140E2D2D0.WaitBlock[2].WaitListEntry.Flink;
     v10[0] = v3;
     v11 = 3;
     v12 = -1;

@@ -1,7 +1,7 @@
 /*
- * XREFs of PpProfileInit @ 0x1409C71CC
+ * XREFs of PpProfileInit @ 0x1409C81CC
  * Callers:
- *     IopInitializePlugPlayServices @ 0x1409C7608 (IopInitializePlugPlayServices.c)
+ *     IopInitializePlugPlayServices @ 0x1409C8608 (IopInitializePlugPlayServices.c)
  * Callees:
  *     <none>
  */
@@ -13,7 +13,7 @@ LIST_ENTRY *PpProfileInit()
   PiProfileDeviceListLock.Event.Header.Size = 6;
   PiProfileDeviceListLock.Count = 1;
   PiProfileDeviceListLock.Owner = 0LL;
-  qword_140433508 = (__int64)&PiProfileDeviceListHead;
+  qword_1404345F8 = (__int64)&PiProfileDeviceListHead;
   PiProfileDeviceListHead = (__int64)&PiProfileDeviceListHead;
   PiProfileDeviceListLock.Event.Header.WaitListHead.Blink = &PiProfileDeviceListLock.Event.Header.WaitListHead;
   PiProfileDeviceListLock.Event.Header.WaitListHead.Flink = &PiProfileDeviceListLock.Event.Header.WaitListHead;

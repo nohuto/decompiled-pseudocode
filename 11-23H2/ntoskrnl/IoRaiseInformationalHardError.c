@@ -1,20 +1,20 @@
 /*
- * XREFs of IoRaiseInformationalHardError @ 0x140556D60
+ * XREFs of IoRaiseInformationalHardError @ 0x140557420
  * Callers:
- *     DifIoRaiseInformationalHardErrorWrapper @ 0x1405E0790 (DifIoRaiseInformationalHardErrorWrapper.c)
- *     MiCauseOverCommitPopup @ 0x140656310 (MiCauseOverCommitPopup.c)
- *     FsRtlLogCcFlushError @ 0x14093D0E0 (FsRtlLogCcFlushError.c)
- *     PopTransitionSystemPowerStateEx @ 0x140AA90F0 (PopTransitionSystemPowerStateEx.c)
+ *     DifIoRaiseInformationalHardErrorWrapper @ 0x1405E0D00 (DifIoRaiseInformationalHardErrorWrapper.c)
+ *     MiCauseOverCommitPopup @ 0x140656860 (MiCauseOverCommitPopup.c)
+ *     FsRtlLogCcFlushError @ 0x14093D2E0 (FsRtlLogCcFlushError.c)
+ *     PopTransitionSystemPowerStateEx @ 0x140AA8F60 (PopTransitionSystemPowerStateEx.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250E80 (KeAcquireSpinLockRaiseToDpc.c)
- *     KeReleaseSemaphoreEx @ 0x1402B71A0 (KeReleaseSemaphoreEx.c)
- *     ExQueueWorkItem @ 0x1402B7C30 (ExQueueWorkItem.c)
- *     KeInitializeApc @ 0x1402BE6D0 (KeInitializeApc.c)
- *     KeInsertQueueApc @ 0x1402CC640 (KeInsertQueueApc.c)
- *     memcmp @ 0x1403DA350 (memcmp.c)
- *     memmove @ 0x140435700 (memmove.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140250F40 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KeReleaseSemaphoreEx @ 0x1402B7430 (KeReleaseSemaphoreEx.c)
+ *     ExQueueWorkItem @ 0x1402B7EC0 (ExQueueWorkItem.c)
+ *     KeInitializeApc @ 0x1402BE960 (KeInitializeApc.c)
+ *     KeInsertQueueApc @ 0x1402CC8D0 (KeInsertQueueApc.c)
+ *     memcmp @ 0x1403DA530 (memcmp.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     memmove @ 0x140435B00 (memmove.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
@@ -109,10 +109,13 @@ LABEL_35:
           ExQueueWorkItem(&IopHardError, DelayedWorkQueue);
         }
         KxReleaseSpinLock((volatile signed __int64 *)&qword_140C5DD30);
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
           CurrentIrql = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v11 <= 0xFu && CurrentIrql >= 2u )
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+            && CurrentIrql <= 0xFu
+            && (unsigned __int8)v11 <= 0xFu
+            && CurrentIrql >= 2u )
           {
             CurrentPrcb = KeGetCurrentPrcb();
             SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -120,7 +123,7 @@ LABEL_35:
             v21 = (v26 & SchedulerAssist[5]) == 0;
             SchedulerAssist[5] &= v26;
             if ( v21 )
-              KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+              KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
           }
         }
         __writecr8(v11);
@@ -146,10 +149,10 @@ LABEL_35:
       }
     }
     KxReleaseSpinLock((volatile signed __int64 *)&qword_140C5DD30);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v17 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v17 <= 0xFu && (unsigned __int8)v11 <= 0xFu && v17 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v17 <= 0xFu && (unsigned __int8)v11 <= 0xFu && v17 >= 2u )
       {
         v18 = KeGetCurrentPrcb();
         v19 = v18->SchedulerAssist;
@@ -157,7 +160,7 @@ LABEL_35:
         v21 = (v20 & v19[5]) == 0;
         v19[5] &= v20;
         if ( v21 )
-          KiRemoveSystemWorkPriorityKick(v18);
+          KiRemoveSystemWorkPriorityKick((__int64)v18);
       }
     }
     __writecr8(v11);

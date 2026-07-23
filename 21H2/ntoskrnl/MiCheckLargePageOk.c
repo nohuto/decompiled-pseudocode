@@ -1,13 +1,13 @@
 /*
- * XREFs of MiCheckLargePageOk @ 0x140A67C78
+ * XREFs of MiCheckLargePageOk @ 0x140A68C78
  * Callers:
- *     MiInitNucleus @ 0x140A42F34 (MiInitNucleus.c)
+ *     MiInitNucleus @ 0x140A43F34 (MiInitNucleus.c)
  * Callees:
- *     RtlImageNtHeader @ 0x14031C950 (RtlImageNtHeader.c)
- *     MI_IS_PHYSICAL_ADDRESS @ 0x14031CBD0 (MI_IS_PHYSICAL_ADDRESS.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
- *     MiCheckLargePageSystemImage @ 0x140A67DE0 (MiCheckLargePageSystemImage.c)
- *     MiVerifyLargeSectionLayout @ 0x140A67EDC (MiVerifyLargeSectionLayout.c)
+ *     RtlImageNtHeader @ 0x1403276A0 (RtlImageNtHeader.c)
+ *     MI_IS_PHYSICAL_ADDRESS @ 0x140327920 (MI_IS_PHYSICAL_ADDRESS.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
+ *     MiCheckLargePageSystemImage @ 0x140A68DE0 (MiCheckLargePageSystemImage.c)
+ *     MiVerifyLargeSectionLayout @ 0x140A68EDC (MiVerifyLargeSectionLayout.c)
  */
 
 __int64 __fastcall MiCheckLargePageOk(ULONG_PTR BugCheckParameter2)
@@ -15,12 +15,12 @@ __int64 __fastcall MiCheckLargePageOk(ULONG_PTR BugCheckParameter2)
   __int64 v1; // rdi
   ULONG_PTR v2; // rsi
   unsigned int i; // ebp
-  unsigned __int64 v5; // r14
+  void *v5; // r14
   int v6; // eax
   unsigned int v7; // ecx
   __int64 v8; // rax
-  ULONG_PTR v9; // r12
-  ULONG_PTR v10; // rcx
+  void *v9; // r12
+  ULONG_PTR SectionAlignment; // rcx
   _QWORD *v11; // rsi
   int v12; // ebp
   unsigned __int64 v13; // rdi
@@ -30,12 +30,12 @@ __int64 __fastcall MiCheckLargePageOk(ULONG_PTR BugCheckParameter2)
   LODWORD(v2) = 0;
   for ( i = 0; i < 2; ++i )
   {
-    v5 = *(_QWORD *)(v1 + 48);
-    v6 = MI_IS_PHYSICAL_ADDRESS(v5);
+    v5 = *(void **)(v1 + 48);
+    v6 = MI_IS_PHYSICAL_ADDRESS((unsigned __int64)v5);
     v7 = v2 + 1;
     if ( !v6 )
       v7 = v2;
-    v8 = v5 + *(unsigned int *)(v1 + 64);
+    v8 = (__int64)v5 + *(unsigned int *)(v1 + 64);
     v2 = v7;
     if ( i )
     {
@@ -51,12 +51,12 @@ __int64 __fastcall MiCheckLargePageOk(ULONG_PTR BugCheckParameter2)
     }
     v1 = *(_QWORD *)v1;
   }
-  v9 = *(_QWORD *)(*(_QWORD *)(BugCheckParameter2 + 16) + 48LL);
-  qword_140C4CD18 = *(_QWORD *)(BugCheckParameter2 + 16);
-  v10 = *(unsigned int *)(RtlImageNtHeader(v9) + 56);
-  if ( (_DWORD)v10 != 4096 )
-    KeBugCheckEx(0x1Au, 0x3030207uLL, BugCheckParameter2, v10, 0LL);
-  MiVerifyLargeSectionLayout(v9);
+  v9 = *(void **)(*(_QWORD *)(BugCheckParameter2 + 16) + 48LL);
+  qword_140C4CD58 = *(_QWORD *)(BugCheckParameter2 + 16);
+  SectionAlignment = RtlImageNtHeader(v9)->OptionalHeader.SectionAlignment;
+  if ( (_DWORD)SectionAlignment != 4096 )
+    KeBugCheckEx(0x1Au, 0x3030207uLL, BugCheckParameter2, SectionAlignment, 0LL);
+  MiVerifyLargeSectionLayout((ULONG_PTR)v9);
   if ( !(_DWORD)v2 )
     return 0LL;
   if ( (_DWORD)v2 != 1 )

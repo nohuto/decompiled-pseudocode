@@ -1,13 +1,13 @@
 /*
- * XREFs of PiDmListAddObjectWorker @ 0x1407353F0
+ * XREFs of PiDmListAddObjectWorker @ 0x1407355B0
  * Callers:
- *     PiDmListAddObject @ 0x1407354D4 (PiDmListAddObject.c)
- *     PiDmListAddList @ 0x14076E9E4 (PiDmListAddList.c)
+ *     PiDmListAddObject @ 0x140735694 (PiDmListAddObject.c)
+ *     PiDmListAddList @ 0x14076EBA4 (PiDmListAddList.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
- *     ExReleaseResourceLite @ 0x14034B3F0 (ExReleaseResourceLite.c)
- *     ExAcquireResourceExclusiveLite @ 0x14034BBA0 (ExAcquireResourceExclusiveLite.c)
- *     PiDmListUpdateAggregationCountWorker @ 0x1407355A0 (PiDmListUpdateAggregationCountWorker.c)
+ *     KeLeaveCriticalRegionThread @ 0x1402AB8C0 (KeLeaveCriticalRegionThread.c)
+ *     ExReleaseResourceLite @ 0x140356140 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceExclusiveLite @ 0x1403568F0 (ExAcquireResourceExclusiveLite.c)
+ *     PiDmListUpdateAggregationCountWorker @ 0x140735760 (PiDmListUpdateAggregationCountWorker.c)
  */
 
 char *__fastcall PiDmListAddObjectWorker(int a1, struct _ERESOURCE *a2, __int64 a3, __int64 a4, char *a5)
@@ -17,7 +17,10 @@ char *__fastcall PiDmListAddObjectWorker(int a1, struct _ERESOURCE *a2, __int64 
   __int64 v10; // rbx
   struct _KTHREAD *CurrentThread; // rax
   char v12; // si
-  _QWORD *v13; // rax
+  __int64 v13; // rdx
+  __int64 v14; // r8
+  __int64 v15; // r9
+  _QWORD *v16; // rax
   char *result; // rax
 
   v8 = 5LL * a1;
@@ -35,13 +38,13 @@ char *__fastcall PiDmListAddObjectWorker(int a1, struct _ERESOURCE *a2, __int64 
     ExAcquireResourceExclusiveLite(a2, 1u);
     ++*(_DWORD *)(a3 + 12);
     ExReleaseResourceLite(a2);
-    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
-    v13 = *(_QWORD **)(v10 + 8);
-    if ( *v13 != v10 )
+    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v13, v14, v15);
+    v16 = *(_QWORD **)(v10 + 8);
+    if ( *v16 != v10 )
       __fastfail(3u);
     *v9 = v10;
-    v9[1] = v13;
-    *v13 = v9;
+    v9[1] = v16;
+    *v16 = v9;
     *(_QWORD *)(v10 + 8) = v9;
     ++*(_DWORD *)(v10 + 16);
     PiDmListUpdateAggregationCountWorker(a3, a4, 1LL);

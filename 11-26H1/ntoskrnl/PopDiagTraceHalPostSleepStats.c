@@ -1,12 +1,12 @@
 /*
- * XREFs of PopDiagTraceHalPostSleepStats @ 0x1407D3654
+ * XREFs of PopDiagTraceHalPostSleepStats @ 0x1407D67D4
  * Callers:
- *     PopIssueActionRequest @ 0x140A37878 (PopIssueActionRequest.c)
+ *     PopIssueActionRequest @ 0x1409F3438 (PopIssueActionRequest.c)
  * Callees:
- *     EtwEventEnabled @ 0x140212D90 (EtwEventEnabled.c)
- *     EtwWrite @ 0x140212EF0 (EtwWrite.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     EtwEventEnabled @ 0x140212E70 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x140212FD0 (EtwWrite.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 BOOLEAN PopDiagTraceHalPostSleepStats()
@@ -18,11 +18,9 @@ BOOLEAN PopDiagTraceHalPostSleepStats()
   result = 0;
   v1 = 0LL;
   v2 = 0LL;
-  if ( byte_140E67628 )
+  if ( PopDiagHandleRegistered )
   {
-    result = EtwEventEnabled(
-               *(REGHANDLE *)&PopSleepstudySessionLock.PriorityFloorCounts[16],
-               &POP_ETW_EVENT_HAL_POST_SLEEP_STATS);
+    result = EtwEventEnabled(PopDiagHandle, &POP_ETW_EVENT_HAL_POST_SLEEP_STATS);
     if ( result )
       return guard_dispatch_icall_no_overrides(60LL, 24LL);
   }

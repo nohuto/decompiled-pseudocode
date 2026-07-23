@@ -1,12 +1,12 @@
 /*
- * XREFs of PopSetWin32kInputTimeout @ 0x140674C94
+ * XREFs of PopSetWin32kInputTimeout @ 0x140674D78
  * Callers:
- *     PopReleaseAdaptiveLock @ 0x1404EFF44 (PopReleaseAdaptiveLock.c)
+ *     PopReleaseAdaptiveLock @ 0x1404D2038 (PopReleaseAdaptiveLock.c)
  * Callees:
- *     SessionIsInteractive @ 0x1400FC060 (SessionIsInteractive.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     PopBroadcastSessionInfo @ 0x14057BCC8 (PopBroadcastSessionInfo.c)
- *     PopSendSessionInfo @ 0x140674E74 (PopSendSessionInfo.c)
+ *     SessionIsInteractive @ 0x1400F9DE0 (SessionIsInteractive.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     PopBroadcastSessionInfo @ 0x14057C174 (PopBroadcastSessionInfo.c)
+ *     PopSendSessionInfo @ 0x140674F58 (PopSendSessionInfo.c)
  */
 
 __int64 __fastcall PopSetWin32kInputTimeout(__int64 a1, int a2)

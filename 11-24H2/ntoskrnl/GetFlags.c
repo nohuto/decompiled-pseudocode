@@ -1,10 +1,10 @@
 /*
- * XREFs of GetFlags @ 0x140797054
+ * XREFs of GetFlags @ 0x140797164
  * Callers:
- *     LocalGetRelativeAttributeForString @ 0x140AAF494 (LocalGetRelativeAttributeForString.c)
+ *     LocalGetRelativeAttributeForString @ 0x140AAA374 (LocalGetRelativeAttributeForString.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     RtlUnicodeStringToInt64 @ 0x140781F60 (RtlUnicodeStringToInt64.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     RtlUnicodeStringToInt64 @ 0x140781E90 (RtlUnicodeStringToInt64.c)
  */
 
 __int64 __fastcall GetFlags(PCWSTR SourceString, PWSTR *EndPointer, _DWORD *a3)

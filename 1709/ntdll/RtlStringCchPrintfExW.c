@@ -14,13 +14,13 @@ __int64 RtlStringCchPrintfExW(
         _QWORD *a3,
         unsigned __int64 *a4,
         unsigned int a5,
-        _WORD *a6,
+        const WCHAR *a6,
         ...)
 {
   int v9; // ebx
   _WORD *v10; // r12
   unsigned __int64 v11; // rsi
-  _WORD *v12; // r9
+  const WCHAR *v12; // r9
   int v13; // eax
   __int64 v14; // rcx
   _WORD *v16; // [rsp+30h] [rbp-18h] BYREF
@@ -51,7 +51,7 @@ __int64 RtlStringCchPrintfExW(
     v11 = a2;
     if ( (a5 & 0x100) != 0 )
     {
-      v12 = &unk_18011E4A0;
+      v12 = &word_18011E4A0;
       if ( a6 )
         v12 = a6;
     }

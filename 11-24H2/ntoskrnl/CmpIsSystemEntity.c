@@ -1,23 +1,23 @@
 /*
- * XREFs of CmpIsSystemEntity @ 0x14090D660
+ * XREFs of CmpIsSystemEntity @ 0x1408E4D80
  * Callers:
- *     KCBNeedsVirtualImage @ 0x140426A4C (KCBNeedsVirtualImage.c)
- *     CmDoVirtualTest @ 0x1404A1900 (CmDoVirtualTest.c)
- *     KCBNeedsVirtualImage_0 @ 0x1404AE68C (KCBNeedsVirtualImage_0.c)
- *     CmpCheckOpenAccessOnKeyBody @ 0x140852140 (CmpCheckOpenAccessOnKeyBody.c)
- *     NtSetValueKey @ 0x14086A810 (NtSetValueKey.c)
- *     CmpDoParseKey @ 0x14086E7B0 (CmpDoParseKey.c)
- *     CmpVEExecuteOpenLogic @ 0x1408745A0 (CmpVEExecuteOpenLogic.c)
- *     CmQueryKey @ 0x140877890 (CmQueryKey.c)
- *     CmpCreateChild @ 0x14091788C (CmpCreateChild.c)
- *     NtSetInformationKey @ 0x1409785A0 (NtSetInformationKey.c)
- *     NtDeleteValueKey @ 0x140979A90 (NtDeleteValueKey.c)
+ *     KCBNeedsVirtualImage @ 0x14041A8FC (KCBNeedsVirtualImage.c)
+ *     CmDoVirtualTest @ 0x14049C88C (CmDoVirtualTest.c)
+ *     KCBNeedsVirtualImage_0 @ 0x1404A8F9C (KCBNeedsVirtualImage_0.c)
+ *     CmpCheckOpenAccessOnKeyBody @ 0x14084E400 (CmpCheckOpenAccessOnKeyBody.c)
+ *     NtSetValueKey @ 0x14086EB40 (NtSetValueKey.c)
+ *     CmpDoParseKey @ 0x140872AE0 (CmpDoParseKey.c)
+ *     CmpVEExecuteOpenLogic @ 0x1408788D0 (CmpVEExecuteOpenLogic.c)
+ *     CmQueryKey @ 0x14087BBC0 (CmQueryKey.c)
+ *     CmpCreateChild @ 0x14090B2FC (CmpCreateChild.c)
+ *     NtSetInformationKey @ 0x140960DB0 (NtSetInformationKey.c)
+ *     NtDeleteValueKey @ 0x1409622A0 (NtDeleteValueKey.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x1403254A0 (ObfDereferenceObjectWithTag.c)
- *     ObpPushStackInfo @ 0x1403407AC (ObpPushStackInfo.c)
- *     PsGetCurrentThreadProcess @ 0x1404709D0 (PsGetCurrentThreadProcess.c)
- *     SeCaptureSubjectContextEx @ 0x14083FC40 (SeCaptureSubjectContextEx.c)
- *     SeQueryInformationToken @ 0x14090D870 (SeQueryInformationToken.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CE030 (ObfDereferenceObjectWithTag.c)
+ *     ObpPushStackInfo @ 0x14031FC8C (ObpPushStackInfo.c)
+ *     PsGetCurrentThreadProcess @ 0x14046B080 (PsGetCurrentThreadProcess.c)
+ *     SeCaptureSubjectContextEx @ 0x14083BF00 (SeCaptureSubjectContextEx.c)
+ *     SeQueryInformationToken @ 0x1408E4F90 (SeQueryInformationToken.c)
  */
 
 bool __fastcall CmpIsSystemEntity(char a1, struct _SECURITY_SUBJECT_CONTEXT *p_Object, int *a3)

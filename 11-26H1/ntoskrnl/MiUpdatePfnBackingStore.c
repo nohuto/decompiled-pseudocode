@@ -1,10 +1,10 @@
 /*
- * XREFs of MiUpdatePfnBackingStore @ 0x140408494
+ * XREFs of MiUpdatePfnBackingStore @ 0x140401584
  * Callers:
- *     MiModwriterAssignPageFileAddresses @ 0x140407170 (MiModwriterAssignPageFileAddresses.c)
- *     MiStoreWriteModifiedPagePostIssue @ 0x140408014 (MiStoreWriteModifiedPagePostIssue.c)
+ *     MiModwriterAssignPageFileAddresses @ 0x140400260 (MiModwriterAssignPageFileAddresses.c)
+ *     MiStoreWriteModifiedPagePostIssue @ 0x140401104 (MiStoreWriteModifiedPagePostIssue.c)
  * Callees:
- *     MiMakePageFilePte @ 0x140298DD0 (MiMakePageFilePte.c)
+ *     MiMakePageFilePte @ 0x140298330 (MiMakePageFilePte.c)
  */
 
 unsigned __int64 __fastcall MiUpdatePfnBackingStore(__int64 a1, __int64 a2, unsigned int a3)
@@ -57,20 +57,20 @@ unsigned __int64 __fastcall MiUpdatePfnBackingStore(__int64 a1, __int64 a2, unsi
     v10 = *(unsigned __int16 *)(a2 + 172);
     if ( result )
     {
-      if ( qword_140E2D740 )
+      if ( qword_140E2D8C0 )
       {
         if ( (result & 0x10) != 0 )
           LODWORD(result) = result & 0xFFFFFFEF;
         else
-          LODWORD(result) = qword_140E2D748 & result;
+          LODWORD(result) = qword_140E2D8C8 & result;
       }
       PageFilePte = (unsigned int)result | (unsigned __int64)(v7 << 32);
-      if ( qword_140E2D740 )
+      if ( qword_140E2D8C0 )
       {
-        if ( (qword_140E2D740 & PageFilePte) != 0 )
+        if ( (qword_140E2D8C0 & PageFilePte) != 0 )
           PageFilePte |= 0x10uLL;
         else
-          PageFilePte |= qword_140E2D740;
+          PageFilePte |= qword_140E2D8C0;
       }
     }
     else

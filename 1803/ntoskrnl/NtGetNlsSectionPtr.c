@@ -17,16 +17,21 @@
  *     ExRaiseDatatypeMisalignment @ 0x1407C5940 (ExRaiseDatatypeMisalignment.c)
  */
 
-NTSTATUS __fastcall NtGetNlsSectionPtr(unsigned int a1, ULONG a2, unsigned __int64 a3, PVOID *a4, ULONG_PTR *a5)
+NTSTATUS __cdecl NtGetNlsSectionPtr(
+        ULONG SectionType,
+        ULONG SectionData,
+        PVOID ContextData,
+        PVOID *SectionPointer,
+        PULONG SectionSize)
 {
   char PreviousMode; // r14
   __int64 v9; // rcx
   __int64 v10; // rcx
   NTSTATUS result; // eax
-  NTSTATUS v12; // ebx
+  int v12; // ebx
   __int64 v13; // r9
   PVOID v14; // rdi
-  NTSTATUS v15; // eax
+  int v15; // eax
   HANDLE SectionHandle; // [rsp+58h] [rbp-200h] BYREF
   HANDLE FileHandle; // [rsp+60h] [rbp-1F8h] BYREF
   PVOID MappedBase; // [rsp+68h] [rbp-1F0h] BYREF
@@ -45,30 +50,30 @@ NTSTATUS __fastcall NtGetNlsSectionPtr(unsigned int a1, ULONG a2, unsigned __int
   SectionHandle = 0LL;
   MappedBase = 0LL;
   ViewSize = 0LL;
-  if ( !a4 )
+  if ( !SectionPointer )
     return -1073741582;
-  if ( !a5 )
+  if ( !SectionSize )
     return -1073741581;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   if ( PreviousMode )
   {
-    v9 = (__int64)a4;
-    if ( (unsigned __int64)a4 >= 0x7FFFFFFF0000LL )
+    v9 = (__int64)SectionPointer;
+    if ( (unsigned __int64)SectionPointer >= 0x7FFFFFFF0000LL )
       v9 = 0x7FFFFFFF0000LL;
     *(_QWORD *)v9 = *(_QWORD *)v9;
-    v10 = (__int64)a5;
-    if ( (unsigned __int64)a5 >= 0x7FFFFFFF0000LL )
+    v10 = (__int64)SectionSize;
+    if ( (unsigned __int64)SectionSize >= 0x7FFFFFFF0000LL )
       v10 = 0x7FFFFFFF0000LL;
     *(_QWORD *)v10 = *(_QWORD *)v10;
-    if ( a3 )
+    if ( ContextData )
     {
-      if ( (a3 & 3) != 0 )
+      if ( ((unsigned __int8)ContextData & 3) != 0 )
         ExRaiseDatatypeMisalignment();
-      if ( a3 + 4 > 0x7FFFFFFF0000LL || a3 + 4 < a3 )
+      if ( (unsigned __int64)ContextData + 4 > 0x7FFFFFFF0000LL || (char *)ContextData + 4 < ContextData )
         MEMORY[0x7FFFFFFF0000] = 0;
     }
   }
-  result = RtlpInitNlsSectionName(a1, a2, v27);
+  result = RtlpInitNlsSectionName(SectionType, SectionData, v27);
   if ( result >= 0 )
   {
     ObjectAttributes.Length = 48;
@@ -76,7 +81,7 @@ NTSTATUS __fastcall NtGetNlsSectionPtr(unsigned int a1, ULONG a2, unsigned __int
     ObjectAttributes.Attributes = 720;
     ObjectAttributes.ObjectName = (PUNICODE_STRING)&v23;
     *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
-    if ( a1 - 11 > 1 )
+    if ( SectionType - 11 > 1 )
     {
       v12 = -1073741823;
     }
@@ -85,7 +90,7 @@ NTSTATUS __fastcall NtGetNlsSectionPtr(unsigned int a1, ULONG a2, unsigned __int
       v12 = ZwOpenSection(&SectionHandle, 4u, &ObjectAttributes);
       if ( v12 < 0 )
       {
-        result = RtlpInitNlsFileName(a1, a2, v28, v13, &v24);
+        result = RtlpInitNlsFileName(SectionType, SectionData, v28, v13, &v24);
         if ( result < 0 )
           return result;
         v25.Length = 48;
@@ -127,8 +132,8 @@ NTSTATUS __fastcall NtGetNlsSectionPtr(unsigned int a1, ULONG a2, unsigned __int
         ObfDereferenceObject(v14);
         if ( v12 >= 0 )
         {
-          *a4 = MappedBase;
-          *a5 = ViewSize;
+          *SectionPointer = MappedBase;
+          *(_QWORD *)SectionSize = ViewSize;
         }
       }
     }

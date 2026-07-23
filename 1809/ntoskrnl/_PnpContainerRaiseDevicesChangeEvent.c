@@ -1,9 +1,9 @@
 /*
- * XREFs of _PnpContainerRaiseDevicesChangeEvent @ 0x1406EC20C
+ * XREFs of _PnpContainerRaiseDevicesChangeEvent @ 0x1406ED4AC
  * Callers:
- *     _PnpObjectRaiseDevicesChangeEvent @ 0x1406EC1C8 (_PnpObjectRaiseDevicesChangeEvent.c)
+ *     _PnpObjectRaiseDevicesChangeEvent @ 0x1406ED468 (_PnpObjectRaiseDevicesChangeEvent.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall PnpContainerRaiseDevicesChangeEvent(
@@ -16,7 +16,7 @@ __int64 __fastcall PnpContainerRaiseDevicesChangeEvent(
   __int64 result; // rax
 
   a3(a1, a2, 5LL);
-  v6 = off_140355130;
+  v6 = off_140356130;
   v7 = 3LL;
   do
   {

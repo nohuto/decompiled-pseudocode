@@ -19,19 +19,19 @@ _BOOL8 __fastcall sub_18005287C(
         int a2,
         __int64 a3,
         __int16 a4,
-        __int16 a5,
+        USHORT a5,
         char a6,
-        _BYTE *a7,
+        unsigned __int8 *Sid,
         unsigned __int16 a8,
         int a9,
         __int64 a10,
         __int64 a11)
 {
-  _BYTE *v13; // r12
+  unsigned __int8 *v13; // r12
   _BYTE *Heap; // rdi
-  char v15; // r15
+  UCHAR v15; // r15
   unsigned int v16; // ecx
-  unsigned __int64 v17; // rdx
+  ULONGLONG v17; // rdx
   __int64 v18; // rax
   int v19; // eax
   unsigned int v20; // r8d
@@ -44,52 +44,48 @@ _BOOL8 __fastcall sub_18005287C(
   unsigned int v27; // ecx
   __int64 v28; // rax
   __int64 v29; // rax
-  __int64 v30; // r8
+  ULONG v30; // r8d
   int v31; // edx
   __int64 v32; // rcx
-  unsigned int v33; // eax
+  LONG v33; // eax
   __int64 v35; // [rsp+0h] [rbp-2D8h] BYREF
   int v36; // [rsp+50h] [rbp-288h]
-  unsigned int v37; // [rsp+54h] [rbp-284h]
+  LONG Win32Error; // [rsp+54h] [rbp-284h]
   int v38; // [rsp+58h] [rbp-280h] BYREF
   int v39; // [rsp+5Ch] [rbp-27Ch] BYREF
-  int v40; // [rsp+60h] [rbp-278h] BYREF
-  char v41; // [rsp+64h] [rbp-274h]
-  char v42; // [rsp+65h] [rbp-273h]
-  __int16 v43; // [rsp+66h] [rbp-272h]
-  unsigned __int64 v44; // [rsp+68h] [rbp-270h]
-  unsigned int v45; // [rsp+70h] [rbp-268h]
-  int v46; // [rsp+74h] [rbp-264h]
-  _BYTE *v47; // [rsp+78h] [rbp-260h]
-  __int64 v48; // [rsp+80h] [rbp-258h] BYREF
-  __int64 v49; // [rsp+88h] [rbp-250h]
-  __int64 *v50; // [rsp+90h] [rbp-248h]
-  _BYTE v51[512]; // [rsp+A0h] [rbp-238h] BYREF
+  EVENT_DESCRIPTOR EventDescriptor; // [rsp+60h] [rbp-278h] BYREF
+  unsigned int v41; // [rsp+70h] [rbp-268h]
+  int v42; // [rsp+74h] [rbp-264h]
+  _BYTE *v43; // [rsp+78h] [rbp-260h]
+  __int64 v44; // [rsp+80h] [rbp-258h] BYREF
+  __int64 v45; // [rsp+88h] [rbp-250h]
+  __int64 *v46; // [rsp+90h] [rbp-248h]
+  _BYTE BaseAddress[512]; // [rsp+A0h] [rbp-238h] BYREF
 
-  v50 = &v35;
-  v46 = a2;
-  v49 = a1;
-  v13 = a7;
-  v37 = 0;
-  Heap = v51;
-  v47 = v51;
+  v46 = &v35;
+  v42 = a2;
+  v45 = a1;
+  v13 = Sid;
+  Win32Error = 0;
+  Heap = BaseAddress;
+  v43 = BaseAddress;
   v15 = 0;
   v38 = 0;
   if ( !a11 && a9 || !a10 && a8 || !a3 )
   {
-    v37 = 87;
+    Win32Error = 87;
     goto LABEL_32;
   }
-  v16 = a8 + (a7 != 0LL) + 7;
+  v16 = a8 + (Sid != 0LL) + 7;
   if ( a9 )
     ++v16;
   if ( v16 > 0x20 )
   {
-    Heap = (_BYTE *)RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 8u, 16LL * v16);
-    v47 = Heap;
+    Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, 16LL * v16);
+    v43 = Heap;
     if ( !Heap )
     {
-      v37 = 8;
+      Win32Error = 8;
       goto LABEL_32;
     }
   }
@@ -119,23 +115,23 @@ _BOOL8 __fastcall sub_18005287C(
   {
     v15 = 0;
   }
-  v40 = 0;
-  v41 = v15;
-  v43 = a5;
-  v42 = 0;
-  v44 = v17;
+  *(_DWORD *)&EventDescriptor.Id = 0;
+  EventDescriptor.Level = v15;
+  EventDescriptor.Task = a5;
+  EventDescriptor.Opcode = 0;
+  EventDescriptor.Keyword = v17;
   if ( v13 )
   {
     if ( !RtlValidSid(v13) )
     {
-      v37 = 87;
-      local_unwind(v50, &loc_180052BCC);
+      Win32Error = 87;
+      local_unwind(v46, &loc_180052BCC);
       goto LABEL_29;
     }
-    v38 = 4 * (unsigned __int8)v13[1] + 8;
+    v38 = 4 * v13[1] + 8;
   }
-  v48 = MEMORY[0x7FFE0014];
-  *(_QWORD *)Heap = &v48;
+  v44 = MEMORY[0x7FFE0014];
+  *(_QWORD *)Heap = &v44;
   *((_QWORD *)Heap + 1) = 8LL;
   *((_QWORD *)Heap + 2) = &a6;
   *((_QWORD *)Heap + 3) = 4LL;
@@ -170,7 +166,7 @@ _BOOL8 __fastcall sub_18005287C(
   v23 = v20 + 1;
   v36 = v23;
   v24 = 0;
-  v45 = 0;
+  v41 = 0;
   while ( v24 < a8 )
   {
     v25 = *(_QWORD *)(a10 + 8LL * v24);
@@ -183,7 +179,7 @@ _BOOL8 __fastcall sub_18005287C(
     *(_QWORD *)&Heap[8 * v28] = v25;
     *(_QWORD *)&Heap[8 * v28 + 8] = v27;
     v36 = ++v23;
-    v45 = ++v24;
+    v41 = ++v24;
   }
   v29 = 2LL * v23;
   *(_QWORD *)&Heap[8 * v29] = &a9;
@@ -193,25 +189,24 @@ _BOOL8 __fastcall sub_18005287C(
   v31 = a9;
   if ( a9 )
   {
-    v32 = 2LL * (unsigned int)v30;
+    v32 = 2LL * v30;
     *(_QWORD *)&Heap[8 * v32] = a11;
     *(_DWORD *)&Heap[8 * v32 + 8] = v31;
     *(_DWORD *)&Heap[8 * v32 + 12] = 0;
-    v30 = (unsigned int)(v30 + 1);
-    v36 = v30;
+    v36 = ++v30;
   }
-  if ( !v46 )
+  if ( !v42 )
   {
-    v33 = sub_180052D34(v49, (unsigned int)&v40, 0, 0, 4, 0LL, 0LL, v30, (__int64)Heap);
+    v33 = sub_180052D34(v45, (unsigned int)&EventDescriptor, 0, 0, 4, 0LL, 0LL, v30, (__int64)Heap);
     goto LABEL_30;
   }
 LABEL_29:
-  v33 = EtwWriteUMSecurityEvent(&v40, 4LL, v30, Heap);
+  v33 = EtwWriteUMSecurityEvent(&EventDescriptor, 4u, v30, (PEVENT_DATA_DESCRIPTOR)Heap);
 LABEL_30:
-  v37 = v33;
-  if ( Heap != v51 )
-    RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, (__int64)Heap);
+  Win32Error = v33;
+  if ( Heap != BaseAddress )
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, Heap);
 LABEL_32:
-  RtlSetLastWin32Error(v37);
-  return v37 == 0;
+  RtlSetLastWin32Error(Win32Error);
+  return Win32Error == 0;
 }

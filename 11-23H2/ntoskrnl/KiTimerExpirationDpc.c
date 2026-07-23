@@ -1,14 +1,14 @@
 /*
- * XREFs of KiTimerExpirationDpc @ 0x14057C9E0
+ * XREFs of KiTimerExpirationDpc @ 0x14057CED0
  * Callers:
  *     <none>
  * Callees:
  *     EtwTraceKernelEvent @ 0x140211EDC (EtwTraceKernelEvent.c)
- *     KiTimer2Expiration @ 0x1402515E0 (KiTimer2Expiration.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memset @ 0x140435A00 (memset.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     KiTimerExpiration @ 0x14057C7D4 (KiTimerExpiration.c)
+ *     KiTimer2Expiration @ 0x1402516A0 (KiTimer2Expiration.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     KiTimerExpiration @ 0x14057CCC4 (KiTimerExpiration.c)
  */
 
 void __fastcall KiTimerExpirationDpc(

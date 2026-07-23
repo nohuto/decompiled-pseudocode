@@ -1,16 +1,16 @@
 /*
- * XREFs of ViDeadlockAnalyze @ 0x140AD8770
+ * XREFs of ViDeadlockAnalyze @ 0x140AD8760
  * Callers:
- *     VfDeadlockAcquireResource @ 0x140AD6DDC (VfDeadlockAcquireResource.c)
- *     ViDeadlockAnalyze @ 0x140AD8770 (ViDeadlockAnalyze.c)
+ *     VfDeadlockAcquireResource @ 0x140AD6DCC (VfDeadlockAcquireResource.c)
+ *     ViDeadlockAnalyze @ 0x140AD8760 (ViDeadlockAnalyze.c)
  * Callees:
- *     KeQueryCurrentStackInformation @ 0x14034E9B0 (KeQueryCurrentStackInformation.c)
- *     KeGetCurrentStackPointer @ 0x14041F130 (KeGetCurrentStackPointer.c)
- *     VfReportIssueWithOptions @ 0x1405CFD00 (VfReportIssueWithOptions.c)
- *     ViDeadlockAddParticipant @ 0x140AD83D8 (ViDeadlockAddParticipant.c)
- *     ViDeadlockAnalyze @ 0x140AD8770 (ViDeadlockAnalyze.c)
- *     ViDeadlockCertify @ 0x140AD89DC (ViDeadlockCertify.c)
- *     ViDeadlockPreprocessOptions @ 0x140AD9860 (ViDeadlockPreprocessOptions.c)
+ *     KeQueryCurrentStackInformation @ 0x14034EB50 (KeQueryCurrentStackInformation.c)
+ *     KeGetCurrentStackPointer @ 0x14041F4C0 (KeGetCurrentStackPointer.c)
+ *     VfReportIssueWithOptions @ 0x1405D0270 (VfReportIssueWithOptions.c)
+ *     ViDeadlockAddParticipant @ 0x140AD83C8 (ViDeadlockAddParticipant.c)
+ *     ViDeadlockAnalyze @ 0x140AD8760 (ViDeadlockAnalyze.c)
+ *     ViDeadlockCertify @ 0x140AD89CC (ViDeadlockCertify.c)
+ *     ViDeadlockPreprocessOptions @ 0x140AD9850 (ViDeadlockPreprocessOptions.c)
  */
 
 __int64 __fastcall ViDeadlockAnalyze(ULONG_PTR a1, ULONG_PTR a2, int a3, unsigned int a4, __int64 a5)
@@ -99,13 +99,13 @@ LABEL_23:
         {
           *((_QWORD *)ViDeadlockGlobals + 4107) = a1;
           ViDeadlockPreprocessOptions(
-            byte_140C0DE74,
+            byte_140C0DE6C,
             "Type !deadlock in the debugger for more information.",
             4097LL,
             a1,
             a2,
             0LL);
-          VfReportIssueWithOptions(0xC4u, 0x1001uLL, a1, a2, 0LL, byte_140C0DE74);
+          VfReportIssueWithOptions(0xC4u, 0x1001uLL, a1, a2, 0LL, byte_140C0DE6C);
           return 0LL;
         }
         v8 = 0;

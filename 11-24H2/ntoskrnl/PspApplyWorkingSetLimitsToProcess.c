@@ -1,23 +1,23 @@
 /*
- * XREFs of PspApplyWorkingSetLimitsToProcess @ 0x1408E7AC0
+ * XREFs of PspApplyWorkingSetLimitsToProcess @ 0x1408D8304
  * Callers:
- *     PspImplicitAssignProcessToJob @ 0x1408E7184 (PspImplicitAssignProcessToJob.c)
- *     PspAssignProcessToJob @ 0x140A173D0 (PspAssignProcessToJob.c)
+ *     PspImplicitAssignProcessToJob @ 0x1408D79EC (PspImplicitAssignProcessToJob.c)
+ *     PspAssignProcessToJob @ 0x140A105B0 (PspAssignProcessToJob.c)
  * Callees:
- *     ExReleaseRundownProtection_0 @ 0x140245670 (ExReleaseRundownProtection_0.c)
- *     ExReleaseResourceLite @ 0x14025A450 (ExReleaseResourceLite.c)
- *     ExfTryToWakePushLock @ 0x14025F9A0 (ExfTryToWakePushLock.c)
- *     ExAcquireResourceExclusiveLite @ 0x1402769C0 (ExAcquireResourceExclusiveLite.c)
- *     ExAcquireRundownProtection @ 0x1402792A0 (ExAcquireRundownProtection.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     KiCheckForKernelApcDelivery @ 0x1402BB4D0 (KiCheckForKernelApcDelivery.c)
- *     KiStackAttachProcess @ 0x1403209E0 (KiStackAttachProcess.c)
- *     KiUnstackDetachProcess @ 0x140321EC0 (KiUnstackDetachProcess.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     MmAdjustWorkingSetSize @ 0x1403CD080 (MmAdjustWorkingSetSize.c)
- *     MmEnforceWorkingSetLimit @ 0x14047DC7C (MmEnforceWorkingSetLimit.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     ExReleaseRundownProtection_0 @ 0x14020DE50 (ExReleaseRundownProtection_0.c)
+ *     ExAcquireResourceExclusiveLite @ 0x14022BF50 (ExAcquireResourceExclusiveLite.c)
+ *     ExAcquireRundownProtection_0 @ 0x14022E830 (ExAcquireRundownProtection_0.c)
+ *     ExReleaseResourceLite @ 0x14028AA60 (ExReleaseResourceLite.c)
+ *     ExfTryToWakePushLock @ 0x14028FFB0 (ExfTryToWakePushLock.c)
+ *     KiStackAttachProcess @ 0x1402C9570 (KiStackAttachProcess.c)
+ *     KiUnstackDetachProcess @ 0x1402CAA50 (KiUnstackDetachProcess.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     KiCheckForKernelApcDelivery @ 0x140362C10 (KiCheckForKernelApcDelivery.c)
+ *     MmAdjustWorkingSetSize @ 0x14046C870 (MmAdjustWorkingSetSize.c)
+ *     MmEnforceWorkingSetLimit @ 0x140478F0C (MmEnforceWorkingSetLimit.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 __int64 __fastcall PspApplyWorkingSetLimitsToProcess(__int64 a1)
@@ -26,49 +26,47 @@ __int64 __fastcall PspApplyWorkingSetLimitsToProcess(__int64 a1)
   __int64 v3; // r14
   int v4; // edi
   int v5; // r12d
-  _QWORD *v6; // rax
-  _QWORD *v7; // r15
+  char *v6; // rax
+  char *v7; // r15
   int v8; // r9d
-  __int64 v9; // rdx
-  __int64 v10; // rcx
+  __int64 v9; // r8
+  __int64 v10; // r9
   bool v11; // zf
   __int64 v12; // r14
   __int64 v13; // rax
   __int64 *v14; // rcx
-  __int64 v16; // rdx
-  __int64 v17; // rcx
-  __int64 v18; // [rsp+20h] [rbp-78h]
-  __int64 v19; // [rsp+28h] [rbp-70h]
-  _OWORD v20[3]; // [rsp+30h] [rbp-68h] BYREF
+  __int64 v16; // [rsp+20h] [rbp-78h]
+  __int64 v17; // [rsp+28h] [rbp-70h]
+  _OWORD v18[3]; // [rsp+30h] [rbp-68h] BYREF
 
-  memset(v20, 0, sizeof(v20));
+  memset(v18, 0, sizeof(v18));
   CurrentThread = KeGetCurrentThread();
   v3 = *(_QWORD *)(a1 + 672);
   v4 = 0;
-  KiStackAttachProcess((_KPROCESS *)a1, 0, (__int64)v20);
+  KiStackAttachProcess((_KPROCESS *)a1, 0, (__int64)v18);
   --CurrentThread->SpecialApcDisable;
   ExAcquireResourceExclusiveLite((PERESOURCE)(v3 + 56), 1u);
-  v18 = *(_QWORD *)(v3 + 1000);
-  v19 = *(_QWORD *)(v3 + 1008);
+  v16 = *(_QWORD *)(v3 + 1000);
+  v17 = *(_QWORD *)(v3 + 1008);
   v5 = ((*(_DWORD *)(v3 + 1056) & 1) == 0) + 1;
-  v6 = KeAbPreAcquire((__int64)&qword_140FC60B0, 0LL);
+  v6 = (char *)KeAbPreAcquire((__int64)&qword_140FC70E8, 0LL);
   v7 = v6;
-  if ( _interlockedbittestandset64((volatile signed __int32 *)&qword_140FC60B0, 0LL) )
-    ExfAcquirePushLockExclusiveEx(&qword_140FC60B0, (__int64)v6, (__int64)&qword_140FC60B0);
+  if ( _interlockedbittestandset64((volatile signed __int32 *)&qword_140FC70E8, 0LL) )
+    ExfAcquirePushLockExclusiveEx(&qword_140FC70E8, v6, (__int64)&qword_140FC70E8);
   if ( v7 )
-    *((_BYTE *)v7 + 10) = 1;
+    v7[10] = 1;
   _InterlockedOr((volatile signed __int32 *)(v3 + 1552), 0x100u);
   ExReleaseResourceLite((PERESOURCE)(v3 + 56));
-  if ( v5 == 2 || (LOBYTE(v8) = 1, v4 = MmAdjustWorkingSetSize(v18, v19, 0, v8), v4 >= 0) )
+  if ( v5 == 2 || (LOBYTE(v8) = 1, v4 = MmAdjustWorkingSetSize(v16, v17, 0, v8), v4 >= 0) )
   {
     MmEnforceWorkingSetLimit((_KPROCESS *)a1, v5);
     _InterlockedAnd((volatile signed __int32 *)(v3 + 1552), 0xFFFFFEFF);
-    if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_140FC60B0, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-      ExfTryToWakePushLock((volatile signed __int64 *)&qword_140FC60B0);
-    KeAbPostRelease((ULONG_PTR)&qword_140FC60B0);
+    if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_140FC70E8, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+      ExfTryToWakePushLock((volatile signed __int64 *)&qword_140FC70E8);
+    KeAbPostRelease((ULONG_PTR)&qword_140FC70E8);
     v11 = CurrentThread->SpecialApcDisable++ == -1;
-    if ( v11 && ($81B80DCEA5A02D890AB7B2872B48AC01 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
-      KiCheckForKernelApcDelivery(v10, v9);
+    if ( v11 && ($727077A9B6E167EAE1398C74674DC5A5 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
+      KiCheckForKernelApcDelivery();
     v12 = *(_QWORD *)(a1 + 736);
     if ( v12 )
     {
@@ -76,7 +74,7 @@ __int64 __fastcall PspApplyWorkingSetLimitsToProcess(__int64 a1)
       {
         v4 = 0;
       }
-      else if ( ExAcquireRundownProtection((PEX_RUNDOWN_REF)(a1 + 488)) )
+      else if ( ExAcquireRundownProtection_0((PEX_RUNDOWN_REF)(a1 + 488)) )
       {
         v13 = 0LL;
         v14 = *(__int64 **)(a1 + 784);
@@ -96,13 +94,13 @@ __int64 __fastcall PspApplyWorkingSetLimitsToProcess(__int64 a1)
   else
   {
     _InterlockedAnd((volatile signed __int32 *)(v3 + 1552), 0xFFFFFEFF);
-    if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_140FC60B0, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-      ExfTryToWakePushLock((volatile signed __int64 *)&qword_140FC60B0);
-    KeAbPostRelease((ULONG_PTR)&qword_140FC60B0);
+    if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_140FC70E8, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+      ExfTryToWakePushLock((volatile signed __int64 *)&qword_140FC70E8);
+    KeAbPostRelease((ULONG_PTR)&qword_140FC70E8);
     v11 = CurrentThread->SpecialApcDisable++ == -1;
-    if ( v11 && ($81B80DCEA5A02D890AB7B2872B48AC01 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
-      KiCheckForKernelApcDelivery(v17, v16);
+    if ( v11 && ($727077A9B6E167EAE1398C74674DC5A5 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
+      KiCheckForKernelApcDelivery();
   }
-  KiUnstackDetachProcess((__int64)v20, 0);
+  KiUnstackDetachProcess((__int64)v18, 0, v9, v10);
   return (unsigned int)v4;
 }

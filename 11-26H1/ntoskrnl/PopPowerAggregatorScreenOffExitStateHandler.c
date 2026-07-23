@@ -1,13 +1,13 @@
 /*
- * XREFs of PopPowerAggregatorScreenOffExitStateHandler @ 0x140A38A70
+ * XREFs of PopPowerAggregatorScreenOffExitStateHandler @ 0x1409F4630
  * Callers:
  *     <none>
  * Callees:
- *     PopReleaseRwLock @ 0x14043630C (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x140436378 (PopAcquireRwLockExclusive.c)
- *     PopPowerAggregatorEnterScreenOff @ 0x140A38AE8 (PopPowerAggregatorEnterScreenOff.c)
- *     PopPowerAggregatorSetCurrentState @ 0x140A38D30 (PopPowerAggregatorSetCurrentState.c)
- *     PopPdcAreAllPhasesDisengaged @ 0x140A39804 (PopPdcAreAllPhasesDisengaged.c)
+ *     PopReleaseRwLock @ 0x14021B1A8 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x140425310 (PopAcquireRwLockExclusive.c)
+ *     PopPowerAggregatorEnterScreenOff @ 0x1409F46A8 (PopPowerAggregatorEnterScreenOff.c)
+ *     PopPowerAggregatorSetCurrentState @ 0x1409F48F0 (PopPowerAggregatorSetCurrentState.c)
+ *     PopPdcAreAllPhasesDisengaged @ 0x1409F540C (PopPdcAreAllPhasesDisengaged.c)
  */
 
 __int64 __fastcall PopPowerAggregatorScreenOffExitStateHandler(__int64 a1)
@@ -20,7 +20,7 @@ __int64 __fastcall PopPowerAggregatorScreenOffExitStateHandler(__int64 a1)
 
   if ( *(_QWORD *)(a1 + 64) == *(_QWORD *)(a1 + 32) )
   {
-    PopReleaseRwLock(&PopPowerAggregatorLock);
+    PopReleaseRwLock((struct _KTHREAD *)&PopPowerAggregatorLock);
     v3 = PopPdcAreAllPhasesDisengaged();
     PopAcquireRwLockExclusive((unsigned __int64 *)&PopPowerAggregatorLock, v4, v5, v6);
     if ( v3 )

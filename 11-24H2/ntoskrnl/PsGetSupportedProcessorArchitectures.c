@@ -1,11 +1,11 @@
 /*
- * XREFs of PsGetSupportedProcessorArchitectures @ 0x1408FAF40
+ * XREFs of PsGetSupportedProcessorArchitectures @ 0x14091D820
  * Callers:
- *     ExpQuerySystemInformation @ 0x140ADC240 (ExpQuerySystemInformation.c)
+ *     ExpQuerySystemInformation @ 0x140ADDAE0 (ExpQuerySystemInformation.c)
  * Callees:
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     PsWow64IsMachineSupported @ 0x1408FB050 (PsWow64IsMachineSupported.c)
- *     PsWow64GetProcessMachine @ 0x1408FB0E0 (PsWow64GetProcessMachine.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     PsWow64IsMachineSupported @ 0x14091D930 (PsWow64IsMachineSupported.c)
+ *     PsWow64GetProcessMachine @ 0x14091D9C0 (PsWow64GetProcessMachine.c)
  */
 
 __int64 __fastcall PsGetSupportedProcessorArchitectures(

@@ -1,63 +1,67 @@
 /*
- * XREFs of RtlCompareExchangePointerMapping @ 0x1405E9B80
+ * XREFs of RtlCompareExchangePointerMapping @ 0x1405E70D0
  * Callers:
  *     <none>
  * Callees:
- *     RtlRbInsertNodeEx @ 0x1402BDA80 (RtlRbInsertNodeEx.c)
- *     RtlpAcquirePropStoreLockExclusive @ 0x1405EA224 (RtlpAcquirePropStoreLockExclusive.c)
- *     RtlpReleasePropStoreLockExclusive @ 0x1405EA2DC (RtlpReleasePropStoreLockExclusive.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     RtlRbInsertNodeEx @ 0x1403651C0 (RtlRbInsertNodeEx.c)
+ *     RtlpAcquirePropStoreLockExclusive @ 0x1405E7774 (RtlpAcquirePropStoreLockExclusive.c)
+ *     RtlpReleasePropStoreLockExclusive @ 0x1405E782C (RtlpReleasePropStoreLockExclusive.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall RtlCompareExchangePointerMapping(__int64 a1, __int64 a2, __int64 *a3, _QWORD *a4)
+__int64 __fastcall RtlCompareExchangePointerMapping(
+        _RTL_BALANCED_NODE *a1,
+        _RTL_BALANCED_NODE *a2,
+        _RTL_BALANCED_NODE **a3,
+        _RTL_BALANCED_NODE **a4)
 {
-  _QWORD *Pool2; // rdi
+  _RTL_BALANCED_NODE *Pool2; // rdi
   char v9; // al
-  _BOOL8 v10; // r8
-  unsigned __int64 v11; // rdx
+  __int64 v10; // r8
+  unsigned __int64 Root; // rdx
   char v12; // r15
-  unsigned __int64 v13; // rax
+  _RTL_BALANCED_NODE *v13; // rax
   unsigned int v14; // ebx
-  __int64 v15; // rax
-  __int64 v16; // rax
+  unsigned __int64 v15; // rax
+  _RTL_BALANCED_NODE *v16; // rax
 
   if ( KeGetCurrentIrql() <= 2u )
-    Pool2 = (_QWORD *)ExAllocatePool2(0x40uLL);
+    Pool2 = (_RTL_BALANCED_NODE *)ExAllocatePool2(0x40uLL, 0x28uLL, 0x70725052u);
   else
     Pool2 = 0LL;
   v9 = RtlpAcquirePropStoreLockExclusive(&RtlpPtrTreeLock);
-  v11 = (unsigned __int64)RtlpPtrTree;
+  Root = (unsigned __int64)RtlpPtrTree.Root;
   v12 = v9;
-  if ( (qword_140E0C560 & 1) != 0 )
+  if ( (*(_BYTE *)&RtlpPtrTree.0 & 1) != 0 )
   {
-    if ( !RtlpPtrTree )
+    if ( !RtlpPtrTree.Root )
     {
       LOBYTE(v10) = 0;
       goto LABEL_11;
     }
-    v11 = (unsigned __int64)&RtlpPtrTree ^ (unsigned __int64)RtlpPtrTree;
+    Root = (unsigned __int64)&RtlpPtrTree ^ (unsigned __int64)RtlpPtrTree.Root;
   }
   LOBYTE(v10) = 0;
-  if ( v11 )
+  if ( Root )
   {
     while ( 1 )
     {
-      if ( a1 - *(_QWORD *)(v11 + 24) >= 0 )
+      if ( (__int64)a1 - *(_QWORD *)(Root + 24) >= 0 )
       {
-        if ( a1 - *(_QWORD *)(v11 + 24) <= 0 )
+        if ( (__int64)a1 - *(_QWORD *)(Root + 24) <= 0 )
         {
-          v16 = *(_QWORD *)(v11 + 32);
+          v16 = *(_RTL_BALANCED_NODE **)(Root + 32);
           if ( !a3 || v16 == *a3 )
-            *(_QWORD *)(v11 + 32) = a2;
+            *(_QWORD *)(Root + 32) = a2;
           v14 = 0x40000000;
 LABEL_27:
           if ( a4 )
             *a4 = v16;
           goto LABEL_29;
         }
-        v15 = *(_QWORD *)(v11 + 8);
-        if ( !v15 || (v13 = v11 ^ v15) == 0 )
+        v15 = *(_QWORD *)(Root + 8);
+        if ( !v15 || (v13 = (_RTL_BALANCED_NODE *)(Root ^ v15)) == 0LL )
         {
           LOBYTE(v10) = 1;
           break;
@@ -65,21 +69,21 @@ LABEL_27:
       }
       else
       {
-        if ( !*(_QWORD *)v11 )
+        if ( !*(_QWORD *)Root )
           break;
-        v13 = v11 ^ *(_QWORD *)v11;
+        v13 = (_RTL_BALANCED_NODE *)(Root ^ *(_QWORD *)Root);
         if ( !v13 )
           break;
       }
-      v11 = v13;
+      Root = (unsigned __int64)v13;
     }
   }
 LABEL_11:
   if ( Pool2 )
   {
-    Pool2[3] = a1;
-    Pool2[4] = a2;
-    RtlRbInsertNodeEx((__int64 *)&RtlpPtrTree, v11, v10, (unsigned __int64)Pool2);
+    Pool2[1].Children[0] = a1;
+    Pool2[1].Children[1] = a2;
+    RtlRbInsertNodeEx(&RtlpPtrTree, (PRTL_BALANCED_NODE)Root, v10, Pool2);
     if ( a3 )
       v16 = *a3;
     else
@@ -90,8 +94,8 @@ LABEL_11:
   }
   v14 = -1073741670;
 LABEL_29:
-  LOBYTE(v11) = v12;
-  RtlpReleasePropStoreLockExclusive(&RtlpPtrTreeLock, v11, v10);
+  LOBYTE(Root) = v12;
+  RtlpReleasePropStoreLockExclusive(&RtlpPtrTreeLock, Root, v10);
   if ( Pool2 )
     ExFreePoolWithTag(Pool2, 0);
   return v14;

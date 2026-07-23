@@ -1,9 +1,9 @@
 /*
- * XREFs of PpmPerfQueryPhysicalCoreId @ 0x1403B68B0
+ * XREFs of PpmPerfQueryPhysicalCoreId @ 0x1403B6A90
  * Callers:
  *     <none>
  * Callees:
- *     KeGetPrcb @ 0x140257330 (KeGetPrcb.c)
+ *     KeGetPrcb @ 0x1402573F0 (KeGetPrcb.c)
  */
 
 __int64 __fastcall PpmPerfQueryPhysicalCoreId(unsigned int a1)

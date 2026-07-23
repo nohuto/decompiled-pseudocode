@@ -1,17 +1,17 @@
 /*
- * XREFs of PiSwIrpInterfaceSetState @ 0x14081B698
+ * XREFs of PiSwIrpInterfaceSetState @ 0x14081B968
  * Callers:
- *     PiSwDispatch @ 0x14079C620 (PiSwDispatch.c)
+ *     PiSwDispatch @ 0x14079C810 (PiSwDispatch.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     ExAcquireResourceExclusiveLite @ 0x1402390E0 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x14023D410 (ExReleaseResourceLite.c)
- *     IofCompleteRequest @ 0x1402C9980 (IofCompleteRequest.c)
- *     McTemplateK0zz_EtwWriteTransfer @ 0x1405637D4 (McTemplateK0zz_EtwWriteTransfer.c)
- *     McTemplateK0zzd_EtwWriteTransfer @ 0x1405638A4 (McTemplateK0zzd_EtwWriteTransfer.c)
- *     PiSwDeviceOperationsAllowed @ 0x14079CB78 (PiSwDeviceOperationsAllowed.c)
- *     PiSwDeviceFindInterfaceEntry @ 0x14081B308 (PiSwDeviceFindInterfaceEntry.c)
- *     PiSwDeviceInterfaceSetState @ 0x14081B544 (PiSwDeviceInterfaceSetState.c)
+ *     KeLeaveCriticalRegion @ 0x140231550 (KeLeaveCriticalRegion.c)
+ *     ExAcquireResourceExclusiveLite @ 0x1402391B0 (ExAcquireResourceExclusiveLite.c)
+ *     ExReleaseResourceLite @ 0x14023D4E0 (ExReleaseResourceLite.c)
+ *     IofCompleteRequest @ 0x1402C9C10 (IofCompleteRequest.c)
+ *     McTemplateK0zz_EtwWriteTransfer @ 0x140563E94 (McTemplateK0zz_EtwWriteTransfer.c)
+ *     McTemplateK0zzd_EtwWriteTransfer @ 0x140563F64 (McTemplateK0zzd_EtwWriteTransfer.c)
+ *     PiSwDeviceOperationsAllowed @ 0x14079CD68 (PiSwDeviceOperationsAllowed.c)
+ *     PiSwDeviceFindInterfaceEntry @ 0x14081B5D8 (PiSwDeviceFindInterfaceEntry.c)
+ *     PiSwDeviceInterfaceSetState @ 0x14081B814 (PiSwDeviceInterfaceSetState.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 
@@ -48,7 +48,7 @@ __int64 __fastcall PiSwIrpInterfaceSetState(PIRP Irp, __int64 a2, __int64 a3)
   v7 = MesDecodeBufferHandleCreate(MasterIrp, CurrentStackLocation->Parameters.Create.Options, &v15);
   if ( v7 < 0 )
     goto LABEL_11;
-  NdrMesTypeDecode3(v15, "TP 3\a", &off_140A77E38, &off_140C02F50, 3, &P);
+  NdrMesTypeDecode3(v15, "TP 3\a", &off_140A780E8, &off_140C02F50, 3, &P);
   if ( P && *(_QWORD *)P )
   {
     CurrentThread = KeGetCurrentThread();

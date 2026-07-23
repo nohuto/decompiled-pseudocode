@@ -8,24 +8,26 @@
  *     ZwDelayExecution @ 0x18009B140 (ZwDelayExecution.c)
  */
 
-__int64 sub_1800CC6AC()
+signed __int32 sub_1800CC6AC()
 {
-  __int64 result; // rax
+  signed __int32 result; // eax
   __int64 v1; // rax
   signed __int32 v2[8]; // [rsp+0h] [rbp-38h] BYREF
+  LARGE_INTEGER DelayInterval; // [rsp+40h] [rbp+8h] BYREF
 
-  result = (unsigned int)_InterlockedIncrement(&dword_18015D490);
-  if ( (_DWORD)result == 1 )
+  result = _InterlockedIncrement(&dword_18015D490);
+  if ( result == 1 )
   {
     v1 = sub_18002B488();
-    result = sub_18002B1E8(0, 0, &_security_cookie, v1 ^ (unsigned int)dword_18016F368, 0LL);
+    result = sub_18002B1E8(0LL, 0LL, &_security_cookie, v1 ^ LdrSystemDllInitBlock.RngData, 0LL);
     _InterlockedOr(v2, 0);
     byte_18015D405 = 1;
   }
   else
   {
+    DelayInterval.QuadPart = -300000LL;
     while ( !byte_18015D405 )
-      result = ZwDelayExecution();
+      result = ZwDelayExecution(0, &DelayInterval);
   }
   return result;
 }

@@ -1,14 +1,14 @@
 /*
- * XREFs of CmFcpManagerCreateSectionFromBuffer @ 0x14080DD60
+ * XREFs of CmFcpManagerCreateSectionFromBuffer @ 0x14080E030
  * Callers:
- *     CmFcManagerOverwriteFeatureConfigurationSection @ 0x140A26E1C (CmFcManagerOverwriteFeatureConfigurationSection.c)
+ *     CmFcManagerOverwriteFeatureConfigurationSection @ 0x140A270CC (CmFcManagerOverwriteFeatureConfigurationSection.c)
  *     CmFcManagerStartRuntimePhase @ 0x140B37FF0 (CmFcManagerStartRuntimePhase.c)
  * Callees:
  *     MiRemoveFromSystemSpace @ 0x140213780 (MiRemoveFromSystemSpace.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     memmove @ 0x140435700 (memmove.c)
- *     CmFcpMapSection @ 0x14080DE3C (CmFcpMapSection.c)
- *     CmFcpManagerCreateSection @ 0x14080DF10 (CmFcpManagerCreateSection.c)
+ *     ObfDereferenceObject @ 0x140231660 (ObfDereferenceObject.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     CmFcpMapSection @ 0x14080E10C (CmFcpMapSection.c)
+ *     CmFcpManagerCreateSection @ 0x14080E1E0 (CmFcpManagerCreateSection.c)
  */
 
 __int64 __fastcall CmFcpManagerCreateSectionFromBuffer(void *Src, size_t Size, __int64 a3, __int64 a4, __int64 a5)

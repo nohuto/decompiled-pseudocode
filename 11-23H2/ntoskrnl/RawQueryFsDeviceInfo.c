@@ -1,10 +1,10 @@
 /*
- * XREFs of RawQueryFsDeviceInfo @ 0x1409B83A4
+ * XREFs of RawQueryFsDeviceInfo @ 0x1409B85A4
  * Callers:
- *     RawQueryVolumeInformation @ 0x140791EDC (RawQueryVolumeInformation.c)
+ *     RawQueryVolumeInformation @ 0x1407920CC (RawQueryVolumeInformation.c)
  * Callees:
- *     RawBeginOperation @ 0x140321DBC (RawBeginOperation.c)
- *     RawEndOperation @ 0x14032217C (RawEndOperation.c)
+ *     RawBeginOperation @ 0x14032204C (RawBeginOperation.c)
+ *     RawEndOperation @ 0x14032240C (RawEndOperation.c)
  */
 
 __int64 __fastcall RawQueryFsDeviceInfo(__int64 a1, __int64 a2, __int64 a3, _DWORD *a4)

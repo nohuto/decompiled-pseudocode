@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwAllocateVirtualMemory @ 0x1800A05E0
+ * XREFs of ZwAllocateVirtualMemory @ 0x1800A0600
  * Callers:
  *     EtwpInitializeCompression @ 0x180002870 (EtwpInitializeCompression.c)
  *     RtlpAllocateHeap @ 0x180011AF0 (RtlpAllocateHeap.c)
@@ -14,11 +14,11 @@
  *     RtlCreateHeap @ 0x18005F7E0 (RtlCreateHeap.c)
  *     RtlpCommitBlock @ 0x180060934 (RtlpCommitBlock.c)
  *     RtlpInitializeHeapSegment @ 0x1800617A8 (RtlpInitializeHeapSegment.c)
- *     RtlAllocateHandle @ 0x1800737C0 (RtlAllocateHandle.c)
- *     RtlCreateUserStack @ 0x180077CE0 (RtlCreateUserStack.c)
- *     RtlpCommitQueryDebugInfo @ 0x18007DD5C (RtlpCommitQueryDebugInfo.c)
- *     RtlCreateMemoryZone @ 0x18007EF80 (RtlCreateMemoryZone.c)
- *     RtlCreateQueryDebugBuffer @ 0x180085F30 (RtlCreateQueryDebugBuffer.c)
+ *     RtlAllocateHandle @ 0x1800737D0 (RtlAllocateHandle.c)
+ *     RtlCreateUserStack @ 0x180077CF0 (RtlCreateUserStack.c)
+ *     RtlpCommitQueryDebugInfo @ 0x18007DD6C (RtlpCommitQueryDebugInfo.c)
+ *     RtlCreateMemoryZone @ 0x18007EF90 (RtlCreateMemoryZone.c)
+ *     RtlCreateQueryDebugBuffer @ 0x180085F40 (RtlCreateQueryDebugBuffer.c)
  *     RtlCreateProcessReflection @ 0x1800D7C30 (RtlCreateProcessReflection.c)
  *     RtlpProcessReflectionStartup @ 0x1800D81D0 (RtlpProcessReflectionStartup.c)
  *     RtlpCopyRemoteDebugInformation @ 0x1800D9EB0 (RtlpCopyRemoteDebugInformation.c)
@@ -41,16 +41,22 @@
  *     PsspCaptureHandleInformation @ 0x18011302C (PsspCaptureHandleInformation.c)
  *     PsspCaptureThreadInformation @ 0x180113AA8 (PsspCaptureThreadInformation.c)
  *     PsspDuplicateSnapshotLocalToRemote @ 0x180114174 (PsspDuplicateSnapshotLocalToRemote.c)
- *     PsspDuplicateSnapshotRemoteToRemote @ 0x180114744 (PsspDuplicateSnapshotRemoteToRemote.c)
+ *     PsspDuplicateSnapshotRemoteToRemote @ 0x18011470C (PsspDuplicateSnapshotRemoteToRemote.c)
  * Callees:
  *     <none>
  */
 
-__int64 ZwAllocateVirtualMemory()
+NTSTATUS __cdecl ZwAllocateVirtualMemory(
+        HANDLE ProcessHandle,
+        PVOID *BaseAddress,
+        ULONG_PTR ZeroBits,
+        PSIZE_T RegionSize,
+        ULONG AllocationType,
+        ULONG Protect)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 24LL;
+  result = 24;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

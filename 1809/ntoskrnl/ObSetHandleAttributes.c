@@ -1,18 +1,18 @@
 /*
- * XREFs of ObSetHandleAttributes @ 0x14068D8D0
+ * XREFs of ObSetHandleAttributes @ 0x14068EA90
  * Callers:
- *     NtSetInformationObject @ 0x14068D6B0 (NtSetInformationObject.c)
+ *     NtSetInformationObject @ 0x14068E870 (NtSetInformationObject.c)
  * Callees:
  *     KiStackAttachProcess @ 0x140016DB0 (KiStackAttachProcess.c)
  *     KiUnstackDetachProcess @ 0x140017190 (KiUnstackDetachProcess.c)
  *     ExReleaseRundownProtection_0 @ 0x14004D2F0 (ExReleaseRundownProtection_0.c)
- *     ObpIsKernelHandle @ 0x140088ED8 (ObpIsKernelHandle.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
- *     ExSetHandleAttributes @ 0x140109EE4 (ExSetHandleAttributes.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     ExfUnblockPushLock @ 0x1401B7450 (ExfUnblockPushLock.c)
- *     ObReferenceProcessHandleTable @ 0x1405D1160 (ObReferenceProcessHandleTable.c)
- *     ExMapHandleToPointer @ 0x1405F56A0 (ExMapHandleToPointer.c)
+ *     ObpIsKernelHandle @ 0x140088EC8 (ObpIsKernelHandle.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B78F0 (KiLeaveCriticalRegionUnsafe.c)
+ *     ExSetHandleAttributes @ 0x140109F64 (ExSetHandleAttributes.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     ExfUnblockPushLock @ 0x1401B75B0 (ExfUnblockPushLock.c)
+ *     ObReferenceProcessHandleTable @ 0x1405D2160 (ObReferenceProcessHandleTable.c)
+ *     ExMapHandleToPointer @ 0x1405F66A0 (ExMapHandleToPointer.c)
  */
 
 __int64 __fastcall ObSetHandleAttributes(unsigned __int64 a1, _BYTE *a2, char a3)

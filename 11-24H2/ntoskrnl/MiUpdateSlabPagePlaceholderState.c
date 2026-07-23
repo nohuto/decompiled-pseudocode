@@ -1,17 +1,17 @@
 /*
- * XREFs of MiUpdateSlabPagePlaceholderState @ 0x140264F54
+ * XREFs of MiUpdateSlabPagePlaceholderState @ 0x1403A9C00
  * Callers:
- *     MiFreePageToSlabAllocator @ 0x1402241C8 (MiFreePageToSlabAllocator.c)
- *     MiFreeSlabEntry @ 0x1402D2150 (MiFreeSlabEntry.c)
- *     MiCreateSlabEntry @ 0x1403A112C (MiCreateSlabEntry.c)
- *     MiGetPageFromSlabAllocator @ 0x1403A2ED0 (MiGetPageFromSlabAllocator.c)
- *     MiDemoteSlabEntry @ 0x140442F50 (MiDemoteSlabEntry.c)
- *     MiDefragmentSlabWorker @ 0x140686E60 (MiDefragmentSlabWorker.c)
+ *     MiCreateSlabEntry @ 0x140217C8C (MiCreateSlabEntry.c)
+ *     MiGetPageFromSlabAllocator @ 0x14021D5AC (MiGetPageFromSlabAllocator.c)
+ *     MiFreePageToSlabAllocator @ 0x140250F18 (MiFreePageToSlabAllocator.c)
+ *     MiFreeSlabEntry @ 0x1403533C8 (MiFreeSlabEntry.c)
+ *     MiDemoteSlabEntry @ 0x14043BE9C (MiDemoteSlabEntry.c)
+ *     MiDefragmentSlabWorker @ 0x140687F90 (MiDefragmentSlabWorker.c)
  * Callees:
- *     VslSetPlaceholderPages @ 0x140265064 (VslSetPlaceholderPages.c)
- *     MiAbortCombineScan @ 0x140265104 (MiAbortCombineScan.c)
- *     MiSetPfnIdentity @ 0x1403A00D0 (MiSetPfnIdentity.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
+ *     MiSetPfnIdentity @ 0x140216B00 (MiSetPfnIdentity.c)
+ *     VslSetPlaceholderPages @ 0x1403A9D10 (VslSetPlaceholderPages.c)
+ *     MiAbortCombineScan @ 0x1403A9DB0 (MiAbortCombineScan.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
  */
 
 void __fastcall MiUpdateSlabPagePlaceholderState(int a1, ULONG_PTR a2, __int64 a3, int a4)
@@ -31,7 +31,7 @@ void __fastcall MiUpdateSlabPagePlaceholderState(int a1, ULONG_PTR a2, __int64 a
         if ( a3 == 1 )
         {
           v7 = 48 * a2 - 0x220000000000LL;
-          MiSetPfnIdentity(v7, 3LL);
+          MiSetPfnIdentity(v7, 3u);
           MiAbortCombineScan(v7);
         }
         v8 = 0;
@@ -40,7 +40,7 @@ void __fastcall MiUpdateSlabPagePlaceholderState(int a1, ULONG_PTR a2, __int64 a
       else
       {
         if ( a3 == 1 )
-          MiSetPfnIdentity(48 * a2 - 0x220000000000LL, 0LL);
+          MiSetPfnIdentity(48 * a2 - 0x220000000000LL, 0);
         v8 = *((_DWORD *)MiSlabTypeToMmSlabType + v4);
         v9 = 0;
       }

@@ -3,17 +3,17 @@
  * Callers:
  *     VfDriverLoadImage @ 0x1406FDD58 (VfDriverLoadImage.c)
  * Callees:
- *     KeReleaseMutex @ 0x140055FE0 (KeReleaseMutex.c)
- *     VfTargetDriversAdd @ 0x14008439C (VfTargetDriversAdd.c)
- *     VfTargetDriversRemove @ 0x14012EDE8 (VfTargetDriversRemove.c)
- *     RtlEqualUnicodeString @ 0x14040F720 (RtlEqualUnicodeString.c)
+ *     KeReleaseMutex @ 0x140055B60 (KeReleaseMutex.c)
+ *     VfTargetDriversAdd @ 0x1400824FC (VfTargetDriversAdd.c)
+ *     VfTargetDriversRemove @ 0x14012F358 (VfTargetDriversRemove.c)
+ *     RtlEqualUnicodeString @ 0x14040E5E0 (RtlEqualUnicodeString.c)
  *     VfDriverLock @ 0x1406FE42C (VfDriverLock.c)
- *     VfUtilPrintCheckinString @ 0x140702EC0 (VfUtilPrintCheckinString.c)
- *     VfCheckImageCompliance @ 0x140703D18 (VfCheckImageCompliance.c)
- *     VfNotifyVerifierExtensions @ 0x140704E00 (VfNotifyVerifierExtensions.c)
- *     VfThunkApplyMandatoryThunks @ 0x14070F47C (VfThunkApplyMandatoryThunks.c)
- *     VfThunkApplyThunks @ 0x14070F54C (VfThunkApplyThunks.c)
- *     VfTargetDriversEnableVerifier @ 0x14070FE80 (VfTargetDriversEnableVerifier.c)
+ *     VfUtilPrintCheckinString @ 0x140702EF0 (VfUtilPrintCheckinString.c)
+ *     VfCheckImageCompliance @ 0x140703D48 (VfCheckImageCompliance.c)
+ *     VfNotifyVerifierExtensions @ 0x140704E30 (VfNotifyVerifierExtensions.c)
+ *     VfThunkApplyMandatoryThunks @ 0x14070F4AC (VfThunkApplyMandatoryThunks.c)
+ *     VfThunkApplyThunks @ 0x14070F57C (VfThunkApplyThunks.c)
+ *     VfTargetDriversEnableVerifier @ 0x14070FEB0 (VfTargetDriversEnableVerifier.c)
  *     VfSuspectDriversAllocateEntry @ 0x140715E70 (VfSuspectDriversAllocateEntry.c)
  */
 
@@ -126,14 +126,14 @@ LABEL_38:
     Entry = (__int64)VfSuspectDriversAllocateEntry((const void **)(a1 + 88));
     if ( Entry )
     {
-      v14 = (__int64 *)qword_140300B48;
-      if ( *(__int64 **)qword_140300B48 != &VfSuspectDriversList )
+      v14 = (__int64 *)qword_140300B28;
+      if ( *(__int64 **)qword_140300B28 != &VfSuspectDriversList )
         __fastfail(3u);
       *(_QWORD *)Entry = &VfSuspectDriversList;
       v11 = 1;
       *(_QWORD *)(Entry + 8) = v14;
       *v14 = Entry;
-      qword_140300B48 = Entry;
+      qword_140300B28 = Entry;
     }
   }
 LABEL_45:
@@ -157,7 +157,7 @@ LABEL_45:
       {
         VfUtilPrintCheckinString((unsigned __int16 *)(a1 + 88));
         VfCheckImageCompliance(a1);
-        ++dword_140307230;
+        ++dword_140307270;
         ++*(_DWORD *)(Entry + 16);
         VfNotifyVerifierExtensions(1, a1);
       }

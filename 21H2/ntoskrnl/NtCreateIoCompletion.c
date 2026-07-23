@@ -1,46 +1,54 @@
 /*
- * XREFs of NtCreateIoCompletion @ 0x14069C2D0
+ * XREFs of NtCreateIoCompletion @ 0x1405FB490
  * Callers:
  *     <none>
  * Callees:
- *     KeInitializeQueue @ 0x1402B95A0 (KeInitializeQueue.c)
- *     ObCreateObjectEx @ 0x140704810 (ObCreateObjectEx.c)
- *     ObInsertObjectEx @ 0x140704A20 (ObInsertObjectEx.c)
+ *     KeInitializeQueue @ 0x1402377B0 (KeInitializeQueue.c)
+ *     ObCreateObjectEx @ 0x14071BBF0 (ObCreateObjectEx.c)
+ *     ObInsertObjectEx @ 0x14071BE00 (ObInsertObjectEx.c)
  */
 
-__int64 __fastcall NtCreateIoCompletion(__int64 a1, __int64 a2, int a3, ULONG a4)
+NTSTATUS __cdecl NtCreateIoCompletion(
+        PHANDLE IoCompletionHandle,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        ULONG Count)
 {
-  _QWORD *v5; // rdi
+  HANDLE *v5; // rdi
   char PreviousMode; // si
-  int Object; // ecx
+  NTSTATUS Object; // ecx
   ULONG v8; // edx
   PRKQUEUE v9; // rbx
   __int64 v11; // [rsp+58h] [rbp-30h] BYREF
   PRKQUEUE Queue; // [rsp+60h] [rbp-28h]
 
-  v5 = (_QWORD *)a1;
+  v5 = IoCompletionHandle;
   v11 = 0LL;
   Queue = 0LL;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   if ( PreviousMode )
   {
-    a1 = 0x7FFFFFFF0000LL;
+    IoCompletionHandle = (PHANDLE)0x7FFFFFFF0000LL;
     if ( (unsigned __int64)v5 < 0x7FFFFFFF0000LL )
-      a1 = (__int64)v5;
-    *(_QWORD *)a1 = *(_QWORD *)a1;
+      IoCompletionHandle = v5;
+    *IoCompletionHandle = *IoCompletionHandle;
   }
-  LOBYTE(a1) = PreviousMode;
-  Object = ObCreateObjectEx(a1, (_DWORD)IoCompletionObjectType, a3, PreviousMode);
+  LOBYTE(IoCompletionHandle) = PreviousMode;
+  Object = ObCreateObjectEx(
+             (_DWORD)IoCompletionHandle,
+             (_DWORD)IoCompletionObjectType,
+             (_DWORD)ObjectAttributes,
+             PreviousMode);
   if ( Object >= 0 )
   {
-    v8 = a4;
+    v8 = Count;
     v9 = Queue;
     KeInitializeQueue(Queue, v8);
     *(_QWORD *)&v9[1].Header.Lock = 0LL;
     LOBYTE(v9[1].Header.WaitListHead.Flink) = 0;
     Object = ObInsertObjectEx((PADAPTER_OBJECT)v9, 0LL, 0, 0LL, (__int64)&v11);
     if ( Object >= 0 )
-      *v5 = v11;
+      *v5 = (HANDLE)v11;
   }
-  return (unsigned int)Object;
+  return Object;
 }

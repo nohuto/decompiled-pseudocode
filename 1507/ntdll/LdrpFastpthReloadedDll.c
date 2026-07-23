@@ -12,34 +12,31 @@
  *     LdrpDecrementModuleLoadCount @ 0x1800384B0 (LdrpDecrementModuleLoadCount.c)
  */
 
-__int64 __fastcall LdrpFastpthReloadedDll(int a1, int a2, __int64 a3, __int64 *a4)
+__int64 __fastcall LdrpFastpthReloadedDll(_UNICODE_STRING *a1, __int16 a2, __int64 a3, __int64 *a4)
 {
   int LoadedDllByName; // ebx
-  int v7; // r8d
-  int v8; // edx
-  char v10; // si
-  int v11; // [rsp+48h] [rbp+10h] BYREF
+  _UNICODE_STRING *v7; // rdx
+  char v9; // si
+  __int64 v10; // [rsp+48h] [rbp+10h] BYREF
 
-  v11 = 0;
+  LODWORD(v10) = 0;
   LoadedDllByName = -1073741275;
   if ( (a2 & 0x20) != 0 )
   {
-    v7 = a2;
-    v8 = 0;
+    v7 = 0LL;
   }
   else
   {
     if ( (a2 & 0x200) == 0 )
       return (unsigned int)LoadedDllByName;
-    v7 = a2;
-    v8 = a1;
-    a1 = 0;
+    v7 = a1;
+    a1 = 0LL;
   }
-  LoadedDllByName = LdrpFindLoadedDllByName(a1, v8, v7, (_DWORD)a4, (__int64)&v11);
+  LoadedDllByName = LdrpFindLoadedDllByName(a1, v7, (__int64)&v10);
   if ( LoadedDllByName >= 0 )
   {
     LoadedDllByName = -1073741275;
-    if ( v11 != 9 )
+    if ( (_DWORD)v10 != 9 )
       goto LABEL_11;
     LoadedDllByName = LdrpIncrementModuleLoadCount(*a4);
     if ( LoadedDllByName < 0 )
@@ -49,21 +46,21 @@ __int64 __fastcall LdrpFastpthReloadedDll(int a1, int a2, __int64 a3, __int64 *a
     {
       if ( (NtCurrentTeb()->SameTebFlags & 0x1000) != 0 )
       {
-        v10 = 1;
+        v9 = 1;
       }
       else
       {
-        v10 = 0;
+        v9 = 0;
         LdrpDrainWorkQueue(0LL);
       }
       LdrpDecrementModuleLoadCount(*a4);
-      if ( !v10 )
+      if ( !v9 )
         LdrpDropLastInProgressCount();
     }
     if ( LoadedDllByName < 0 )
     {
 LABEL_11:
-      LdrpDereferenceModule(*a4);
+      LdrpDereferenceModule((char *)*a4);
       *a4 = 0LL;
     }
   }

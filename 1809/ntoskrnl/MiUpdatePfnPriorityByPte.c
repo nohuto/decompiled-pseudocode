@@ -1,16 +1,16 @@
 /*
  * XREFs of MiUpdatePfnPriorityByPte @ 0x14003DA70
  * Callers:
- *     MiSystemFault @ 0x1400E8900 (MiSystemFault.c)
- *     MiPfPrepareReadList @ 0x1405DFDE0 (MiPfPrepareReadList.c)
- *     MiPfPrepareSequentialReadList @ 0x1405EBA20 (MiPfPrepareSequentialReadList.c)
+ *     MiSystemFault @ 0x1400E8980 (MiSystemFault.c)
+ *     MiPfPrepareReadList @ 0x1405E0DE0 (MiPfPrepareReadList.c)
+ *     MiPfPrepareSequentialReadList @ 0x1405ECA20 (MiPfPrepareSequentialReadList.c)
  * Callees:
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
  *     MiGetSystemRegionType @ 0x14004EC30 (MiGetSystemRegionType.c)
- *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
- *     MiRelinkStandbyPage @ 0x1400F0A38 (MiRelinkStandbyPage.c)
- *     MiIsPteInStore @ 0x140141808 (MiIsPteInStore.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeYieldProcessorEx @ 0x14006C9E0 (KeYieldProcessorEx.c)
+ *     MiRelinkStandbyPage @ 0x1400F0AB8 (MiRelinkStandbyPage.c)
+ *     MiIsPteInStore @ 0x140141908 (MiIsPteInStore.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiUpdatePfnPriorityByPte(unsigned __int64 a1, unsigned int a2)
@@ -76,15 +76,15 @@ __int64 __fastcall MiUpdatePfnPriorityByPte(unsigned __int64 a1, unsigned int a2
         return result;
       if ( result )
       {
-        result = qword_14043A0C0;
-        if ( qword_14043A0C0 )
+        result = qword_14043B180;
+        if ( qword_14043B180 )
         {
-          if ( (v7 & qword_14043A0C0) == 0 )
+          if ( (v7 & qword_14043B180) == 0 )
             return result;
         }
       }
-      if ( qword_14043A0C0 && (v7 & 0x10) == 0 )
-        v7 &= ~qword_14043A0C0;
+      if ( qword_14043B180 && (v7 & 0x10) == 0 )
+        v7 &= ~qword_14043B180;
       v8 = 2;
     }
     v9 = (v7 >> 12) & 0xFFFFFFFFFLL;
@@ -162,7 +162,7 @@ LABEL_10:
             if ( v17
               || (*(_DWORD *)(v10 + 16) & 0x400LL) != 0
               || (IsPteInStore = MiIsPteInStore(
-                                   *(_QWORD *)(qword_14043A748 + 8 * ((*(_QWORD *)(v10 + 40) >> 40) & 0x3FFLL)),
+                                   *(_QWORD *)(qword_14043B808 + 8 * ((*(_QWORD *)(v10 + 40) >> 40) & 0x3FFLL)),
                                    *(_QWORD *)(v10 + 16))) == 0 )
             {
               MiRelinkStandbyPage(v10);

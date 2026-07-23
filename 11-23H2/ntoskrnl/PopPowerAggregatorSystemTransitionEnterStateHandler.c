@@ -1,16 +1,16 @@
 /*
- * XREFs of PopPowerAggregatorSystemTransitionEnterStateHandler @ 0x140993FE0
+ * XREFs of PopPowerAggregatorSystemTransitionEnterStateHandler @ 0x1409941E0
  * Callers:
- *     PopPowerAggregatorInvokeStateMachine @ 0x140874A08 (PopPowerAggregatorInvokeStateMachine.c)
+ *     PopPowerAggregatorInvokeStateMachine @ 0x140874C48 (PopPowerAggregatorInvokeStateMachine.c)
  * Callees:
- *     KeSetEvent @ 0x14023C5E0 (KeSetEvent.c)
- *     PopReleaseRwLock @ 0x14032C480 (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x14032C5E4 (PopAcquireRwLockExclusive.c)
- *     PopGetMonitorReasonFromPowerEventId @ 0x1403C799C (PopGetMonitorReasonFromPowerEventId.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     PopPowerAggregatorSetCurrentState @ 0x140877DE8 (PopPowerAggregatorSetCurrentState.c)
- *     PopSleepstudyStartNextSession @ 0x140878644 (PopSleepstudyStartNextSession.c)
- *     PopPowerRequestRevokeRequestsForSleep @ 0x1409818D0 (PopPowerRequestRevokeRequestsForSleep.c)
+ *     KeSetEvent @ 0x14023C6B0 (KeSetEvent.c)
+ *     PopReleaseRwLock @ 0x14032C710 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x14032C874 (PopAcquireRwLockExclusive.c)
+ *     PopGetMonitorReasonFromPowerEventId @ 0x1403C7B7C (PopGetMonitorReasonFromPowerEventId.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     PopPowerAggregatorSetCurrentState @ 0x140878028 (PopPowerAggregatorSetCurrentState.c)
+ *     PopSleepstudyStartNextSession @ 0x140878884 (PopSleepstudyStartNextSession.c)
+ *     PopPowerRequestRevokeRequestsForSleep @ 0x140981AD0 (PopPowerRequestRevokeRequestsForSleep.c)
  */
 
 __int64 __fastcall PopPowerAggregatorSystemTransitionEnterStateHandler(__int64 a1)
@@ -25,7 +25,7 @@ __int64 __fastcall PopPowerAggregatorSystemTransitionEnterStateHandler(__int64 a
     memset(v5, 0, sizeof(v5));
     v3 = MonitorReasonFromPowerEventId & 0xFFFFFF;
     LODWORD(v5[0]) = 5;
-    PopPowerAggregatorSetCurrentState(a1, (__int64)v5);
+    PopPowerAggregatorSetCurrentState((LARGE_INTEGER *)a1, (__int64)v5);
     PopReleaseRwLock(&PopPowerAggregatorLock);
     if ( qword_140C6AF40 )
       qword_140C6AF40(1LL);

@@ -1,11 +1,11 @@
 /*
- * XREFs of PpmContinueTimeAccumulation @ 0x14029F2E8
+ * XREFs of PpmContinueTimeAccumulation @ 0x1402AD8FC
  * Callers:
- *     PpmPerfApplyProcessorState @ 0x14029F124 (PpmPerfApplyProcessorState.c)
+ *     PpmPerfApplyProcessorState @ 0x1402ADC20 (PpmPerfApplyProcessorState.c)
  * Callees:
- *     PpmUpdatePerformanceFeedback @ 0x1403505D0 (PpmUpdatePerformanceFeedback.c)
- *     PpmGetIdleGenerationCounter @ 0x140351710 (PpmGetIdleGenerationCounter.c)
- *     PpmContinueActiveTimeAccumulation @ 0x140434024 (PpmContinueActiveTimeAccumulation.c)
+ *     PpmUpdatePerformanceFeedback @ 0x14036EAB0 (PpmUpdatePerformanceFeedback.c)
+ *     PpmGetIdleGenerationCounter @ 0x14036F500 (PpmGetIdleGenerationCounter.c)
+ *     PpmContinueActiveTimeAccumulation @ 0x14037009C (PpmContinueActiveTimeAccumulation.c)
  */
 
 char __fastcall PpmContinueTimeAccumulation(struct _KPRCB *a1)

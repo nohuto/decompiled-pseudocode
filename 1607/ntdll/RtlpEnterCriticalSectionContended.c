@@ -1,33 +1,40 @@
 /*
- * XREFs of RtlpEnterCriticalSectionContended @ 0x180019B98
+ * XREFs of RtlpEnterCriticalSectionContended @ 0x180019B88
  * Callers:
- *     RtlEnterCriticalSection @ 0x180019B50 (RtlEnterCriticalSection.c)
+ *     RtlEnterCriticalSection @ 0x180019B40 (RtlEnterCriticalSection.c)
  * Callees:
- *     RtlSetCriticalSectionSpinCount @ 0x180019D40 (RtlSetCriticalSectionSpinCount.c)
- *     RtlpWaitOnCriticalSection @ 0x18006674C (RtlpWaitOnCriticalSection.c)
- *     RtlpInitializeStaticCriticalSection @ 0x180087474 (RtlpInitializeStaticCriticalSection.c)
+ *     RtlSetCriticalSectionSpinCount @ 0x180019D30 (RtlSetCriticalSectionSpinCount.c)
+ *     RtlpWaitOnCriticalSection @ 0x18006673C (RtlpWaitOnCriticalSection.c)
+ *     RtlpInitializeStaticCriticalSection @ 0x180087464 (RtlpInitializeStaticCriticalSection.c)
  */
 
-__int64 __fastcall RtlpEnterCriticalSectionContended(__int64 a1, __int64 a2, unsigned __int64 j)
+__int64 __fastcall RtlpEnterCriticalSectionContended(
+        PRTL_CRITICAL_SECTION CriticalSection,
+        __int64 a2,
+        unsigned __int64 j)
 {
   unsigned __int64 v4; // rbx
   bool v5; // si
   char v6; // bp
   char i; // al
-  signed __int32 v8; // eax
+  signed __int32 LockCount; // eax
   __int64 v9; // rdx
   unsigned __int32 v10; // ecx
   signed __int32 v11; // ett
   __int64 result; // rax
 
-  if ( (*(_DWORD *)(a1 + 32) & 0x4000000) != 0 && *(_QWORD *)a1 != -1LL && !*(_QWORD *)(*(_QWORD *)a1 + 16LL) )
+  if ( (CriticalSection->SpinCount & 0x4000000) != 0
+    && CriticalSection->DebugInfo != (_RTL_CRITICAL_SECTION_DEBUG *)-1LL
+    && !CriticalSection->DebugInfo->ProcessLocksList.Flink )
+  {
     RtlpInitializeStaticCriticalSection();
+  }
   v4 = 0LL;
   v5 = 0;
   if ( MEMORY[0x7FFE036A] > 1u )
   {
-    v5 = (*(_QWORD *)(a1 + 32) & 0x2000000LL) != 0;
-    v4 = *(_QWORD *)(a1 + 32) & 0xFFFFFFLL;
+    v5 = (CriticalSection->SpinCount & 0x2000000) != 0;
+    v4 = CriticalSection->SpinCount & 0xFFFFFF;
   }
   v6 = 0;
   while ( 2 )
@@ -38,24 +45,27 @@ __int64 __fastcall RtlpEnterCriticalSectionContended(__int64 a1, __int64 a2, uns
       {
         for ( j = v4; j; --j )
         {
-          v8 = *(_DWORD *)(a1 + 8);
-          while ( (v8 & 1) != 0 )
+          LockCount = CriticalSection->LockCount;
+          while ( (LockCount & 1) != 0 )
           {
-            v11 = v8;
-            v8 = _InterlockedCompareExchange((volatile signed __int32 *)(a1 + 8), (v6 != 0 ? 3 : 1) ^ v8, v8);
-            if ( v11 == v8 )
+            v11 = LockCount;
+            LockCount = _InterlockedCompareExchange(
+                          &CriticalSection->LockCount,
+                          (v6 != 0 ? 3 : 1) ^ LockCount,
+                          LockCount);
+            if ( v11 == LockCount )
               goto LABEL_23;
           }
           _mm_pause();
         }
       }
-      v9 = *(unsigned int *)(a1 + 8);
+      v9 = (unsigned int)CriticalSection->LockCount;
       LOBYTE(j) = 0;
       if ( v6 )
       {
         if ( (v9 & 2) != 0 )
         {
-          v10 = *(_DWORD *)(a1 + 8);
+          v10 = CriticalSection->LockCount;
           goto LABEL_15;
         }
         if ( (v9 & 1) == 0 )
@@ -79,7 +89,7 @@ LABEL_36:
 LABEL_15:
       if ( v10 == (_DWORD)v9 )
         goto LABEL_19;
-      if ( _InterlockedCompareExchange((volatile signed __int32 *)(a1 + 8), v10, v9) == (_DWORD)v9 )
+      if ( _InterlockedCompareExchange(&CriticalSection->LockCount, v10, v9) == (_DWORD)v9 )
         break;
     }
     if ( !(_BYTE)j )
@@ -87,7 +97,7 @@ LABEL_15:
       v6 = 1;
       v9 = v10;
 LABEL_19:
-      RtlpWaitOnCriticalSection(a1, v9, j);
+      RtlpWaitOnCriticalSection(CriticalSection, v9, j);
       if ( v5 && v4 > 0x64 )
         --v4;
       continue;
@@ -99,10 +109,10 @@ LABEL_23:
   {
     if ( v4 < 0x7D0 )
       LODWORD(v4) = v4 + 1;
-    RtlSetCriticalSectionSpinCount(a1, (unsigned int)v4);
+    RtlSetCriticalSectionSpinCount(CriticalSection, v4);
   }
   result = 0LL;
-  *(_QWORD *)(a1 + 16) = NtCurrentTeb()->ClientId.UniqueThread;
-  *(_DWORD *)(a1 + 12) = 1;
+  CriticalSection->OwningThread = NtCurrentTeb()->ClientId.UniqueThread;
+  CriticalSection->RecursionCount = 1;
   return result;
 }

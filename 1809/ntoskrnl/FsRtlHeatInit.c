@@ -1,12 +1,12 @@
 /*
- * XREFs of FsRtlHeatInit @ 0x1408162B0
+ * XREFs of FsRtlHeatInit @ 0x1408174B0
  * Callers:
  *     <none>
  * Callees:
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     FsRtlpHeatRegisterVolume @ 0x140816538 (FsRtlpHeatRegisterVolume.c)
- *     FsRtlpQueryValueKey @ 0x140816774 (FsRtlpQueryValueKey.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     FsRtlpHeatRegisterVolume @ 0x140817738 (FsRtlpHeatRegisterVolume.c)
+ *     FsRtlpQueryValueKey @ 0x140817974 (FsRtlpQueryValueKey.c)
  */
 
 __int64 __fastcall FsRtlHeatInit(__int64 a1, __int64 a2, __int64 a3)

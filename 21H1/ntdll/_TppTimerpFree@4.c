@@ -8,9 +8,9 @@
  *     _RtlFreeHeap@12 @ 0x4B2C3B70 (_RtlFreeHeap@12.c)
  */
 
-int __stdcall TppTimerpFree(int a1)
+LOGICAL __stdcall TppTimerpFree(_DWORD *BaseAddress)
 {
-  TpAdjustBindingCount(*(_DWORD *)(a1 + 92), -1);
-  TppCleanupGroupMemberDestroy(a1);
-  return RtlFreeHeap(NtCurrentPeb()->ProcessHeap, TppHeapTag + 0x100000, a1);
+  TpAdjustBindingCount(BaseAddress[23], -1);
+  TppCleanupGroupMemberDestroy(BaseAddress);
+  return RtlFreeHeap(NtCurrentPeb()->ProcessHeap, TppHeapTag + 0x100000, BaseAddress);
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of KdReleaseDebuggerLock @ 0x1401D1824
+ * XREFs of KdReleaseDebuggerLock @ 0x1401D1650
  * Callers:
  *     <none>
  * Callees:
- *     KxReleaseSpinLock @ 0x140095BA0 (KxReleaseSpinLock.c)
+ *     KxReleaseSpinLock @ 0x1400953A0 (KxReleaseSpinLock.c)
  */
 
 void __fastcall KdReleaseDebuggerLock(unsigned __int8 a1)

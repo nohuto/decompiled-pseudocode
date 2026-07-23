@@ -1,14 +1,14 @@
 /*
- * XREFs of PnpEnableWatchdog @ 0x1409C74F8
+ * XREFs of PnpEnableWatchdog @ 0x1409B9804
  * Callers:
- *     PnpDeviceCompletionRequestCreate @ 0x1408BB1DC (PnpDeviceCompletionRequestCreate.c)
- *     PnpDelayedRemoveWorker @ 0x1409C6B60 (PnpDelayedRemoveWorker.c)
- *     PnpCallAddDevice @ 0x1409C71F8 (PnpCallAddDevice.c)
- *     PnpAllocateAndEnableEventWatchdog @ 0x1409C7328 (PnpAllocateAndEnableEventWatchdog.c)
- *     PnpCallDriverEntry @ 0x1409C7678 (PnpCallDriverEntry.c)
+ *     PnpDeviceCompletionRequestCreate @ 0x1408B8B8C (PnpDeviceCompletionRequestCreate.c)
+ *     PnpCallDriverEntry @ 0x1409B914C (PnpCallDriverEntry.c)
+ *     PnpCallAddDevice @ 0x1409B9504 (PnpCallAddDevice.c)
+ *     PnpAllocateAndEnableEventWatchdog @ 0x1409B9634 (PnpAllocateAndEnableEventWatchdog.c)
+ *     PnpDelayedRemoveWorker @ 0x1409BABD0 (PnpDelayedRemoveWorker.c)
  * Callees:
- *     PnpAllocateWatchdog @ 0x1403FFDAC (PnpAllocateWatchdog.c)
- *     PnpWatchdogTimerStart @ 0x1409C7554 (PnpWatchdogTimerStart.c)
+ *     PnpAllocateWatchdog @ 0x1403FA29C (PnpAllocateWatchdog.c)
+ *     PnpWatchdogTimerStart @ 0x1409B9860 (PnpWatchdogTimerStart.c)
  */
 
 __int64 __fastcall PnpEnableWatchdog(int a1, __int64 a2, const UNICODE_STRING *a3)

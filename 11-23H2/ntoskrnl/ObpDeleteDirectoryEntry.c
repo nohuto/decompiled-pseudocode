@@ -1,13 +1,13 @@
 /*
  * XREFs of ObpDeleteDirectoryEntry @ 0x140697854
  * Callers:
- *     ObpInsertOrLocateNamedObject @ 0x1406C0ABC (ObpInsertOrLocateNamedObject.c)
- *     ObpCloseHandle @ 0x1406E7680 (ObpCloseHandle.c)
- *     ObpDeleteNameCheck @ 0x140740140 (ObpDeleteNameCheck.c)
+ *     ObpInsertOrLocateNamedObject @ 0x1406C0AEC (ObpInsertOrLocateNamedObject.c)
+ *     ObpCloseHandle @ 0x1406E76B0 (ObpCloseHandle.c)
+ *     ObpDeleteNameCheck @ 0x140740330 (ObpDeleteNameCheck.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14022F5B0 (ObfDereferenceObjectWithTag.c)
+ *     ObfDereferenceObjectWithTag @ 0x14022F6C0 (ObfDereferenceObjectWithTag.c)
  *     ObpDeleteDirectoryName @ 0x1406978D4 (ObpDeleteDirectoryName.c)
- *     ObpUnlockDirectory @ 0x1406C3248 (ObpUnlockDirectory.c)
+ *     ObpUnlockDirectory @ 0x1406C3278 (ObpUnlockDirectory.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

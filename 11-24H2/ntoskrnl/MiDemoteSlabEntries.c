@@ -1,15 +1,15 @@
 /*
- * XREFs of MiDemoteSlabEntries @ 0x1402CF530
+ * XREFs of MiDemoteSlabEntries @ 0x1402619FC
  * Callers:
- *     MiWaitForFreePage @ 0x1402CF708 (MiWaitForFreePage.c)
- *     MiFreeUnusedSlabPages @ 0x1402D398C (MiFreeUnusedSlabPages.c)
+ *     MiWaitForFreePage @ 0x140260F64 (MiWaitForFreePage.c)
+ *     MiFreeUnusedSlabPages @ 0x140354C04 (MiFreeUnusedSlabPages.c)
  * Callees:
- *     ?KiClearSystemPriority@@YAXPEAU_KTHREAD@@PEAJ@Z @ 0x1403B6408 (-KiClearSystemPriority@@YAXPEAU_KTHREAD@@PEAJ@Z.c)
- *     ?KiSetSystemPriorityThread@@YAXPEAU_KTHREAD@@JK@Z @ 0x1403B6558 (-KiSetSystemPriorityThread@@YAXPEAU_KTHREAD@@JK@Z.c)
- *     KeGenericCallDpcEx @ 0x140414C8C (KeGenericCallDpcEx.c)
- *     MiLogSlabEntriesDemote @ 0x14068857C (MiLogSlabEntriesDemote.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     KeGenericCallDpcEx @ 0x140270AE8 (KeGenericCallDpcEx.c)
+ *     ?KiClearSystemPriority@@YAXPEAU_KTHREAD@@PEAJ@Z @ 0x1402AE6EC (-KiClearSystemPriority@@YAXPEAU_KTHREAD@@PEAJ@Z.c)
+ *     ?KiSetSystemPriorityThread@@YAXPEAU_KTHREAD@@JK@Z @ 0x1402AE83C (-KiSetSystemPriorityThread@@YAXPEAU_KTHREAD@@JK@Z.c)
+ *     MiLogSlabEntriesDemote @ 0x1406896AC (MiLogSlabEntriesDemote.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 void __fastcall MiDemoteSlabEntries(__int64 a1, unsigned int a2, unsigned int a3)

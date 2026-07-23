@@ -11,30 +11,29 @@
  *     RtlCopySid @ 0x180062220 (RtlCopySid.c)
  */
 
-__int64 RtlpAddKnownObjectAce(
-        __int64 a1,
+__int64 __fastcall RtlpAddKnownObjectAce(
+        PACL Acl,
         int a2,
         int a3,
         int a4,
         _OWORD *a5,
         _OWORD *a6,
-        unsigned __int8 *a7,
-        char a8,
-        ...)
+        unsigned __int8 *Sid,
+        char a8)
 {
   int v12; // esi
   unsigned int v13; // eax
   int v14; // eax
   unsigned __int16 v15; // dx
-  __int64 v16; // r8
+  char *v16; // r8
   _OWORD *v17; // rdx
   __int64 result; // rax
-  _QWORD v19[7]; // [rsp+20h] [rbp-38h] BYREF
+  PVOID FirstFree; // [rsp+20h] [rbp-38h] BYREF
 
   v12 = 0;
-  if ( !RtlValidSid(a7) )
+  if ( !RtlValidSid(Sid) )
     return 3221225592LL;
-  if ( *(_BYTE *)a1 > 4u || a2 != 4 )
+  if ( Acl->AclRevision > 4u || a2 != 4 )
     return 3221225561LL;
   v13 = a3 & 0xFFFFFFE0;
   if ( (a3 & 0xFFFFFFE0) != 0 )
@@ -44,9 +43,9 @@ __int64 RtlpAddKnownObjectAce(
     if ( v13 )
       return 3221225485LL;
   }
-  if ( !RtlValidAcl(a1) || !RtlFirstFreeAce(a1, v19) )
+  if ( !RtlValidAcl(Acl) || !RtlFirstFreeAce(Acl, &FirstFree) )
     return 3221225591LL;
-  v14 = a7[1];
+  v14 = Sid[1];
   v15 = 4 * v14 + 20;
   if ( a5 )
   {
@@ -58,25 +57,25 @@ __int64 RtlpAddKnownObjectAce(
     v12 |= 2u;
     v15 += 16;
   }
-  v16 = v19[0];
-  if ( !v19[0] || v19[0] + (unsigned __int64)v15 > a1 + (unsigned __int64)*(unsigned __int16 *)(a1 + 2) )
+  v16 = (char *)FirstFree;
+  if ( !FirstFree || (char *)FirstFree + v15 > (char *)Acl + Acl->AclSize )
     return 3221225625LL;
-  *(_WORD *)(v19[0] + 2LL) = v15;
-  v17 = (_OWORD *)(v16 + 12);
-  *(_BYTE *)(v16 + 1) = a3;
-  *(_BYTE *)v16 = a8;
-  *(_DWORD *)(v16 + 4) = a4;
-  *(_DWORD *)(v16 + 8) = v12;
+  *((_WORD *)FirstFree + 1) = v15;
+  v17 = v16 + 12;
+  v16[1] = a3;
+  *v16 = a8;
+  *((_DWORD *)v16 + 1) = a4;
+  *((_DWORD *)v16 + 2) = v12;
   if ( a5 )
   {
     *v17 = *a5;
-    v17 = (_OWORD *)(v16 + 28);
+    v17 = v16 + 28;
   }
   if ( a6 )
     *v17++ = *a6;
-  RtlCopySid(4 * v14 + 8, v17, a7);
-  ++*(_WORD *)(a1 + 4);
+  RtlCopySid(4 * v14 + 8, v17, Sid);
+  ++Acl->AceCount;
   result = 0LL;
-  *(_BYTE *)a1 = 4;
+  Acl->AclRevision = 4;
   return result;
 }

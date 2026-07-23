@@ -1,20 +1,20 @@
 /*
- * XREFs of ExCovReadjustUnloadedModuleEntry @ 0x14070F404
+ * XREFs of ExCovReadjustUnloadedModuleEntry @ 0x1407106A4
  * Callers:
- *     MiUnloadSystemImage @ 0x140651AA4 (MiUnloadSystemImage.c)
- *     MiConstructLoaderEntry @ 0x140682470 (MiConstructLoaderEntry.c)
+ *     MiUnloadSystemImage @ 0x140652C64 (MiUnloadSystemImage.c)
+ *     MiConstructLoaderEntry @ 0x140683630 (MiConstructLoaderEntry.c)
  * Callees:
  *     ExfAcquirePushLockExclusive @ 0x140005740 (ExfAcquirePushLockExclusive.c)
  *     KeLeaveCriticalRegion @ 0x14004F410 (KeLeaveCriticalRegion.c)
- *     ExfReleasePushLock @ 0x140091480 (ExfReleasePushLock.c)
- *     DbgPrintEx @ 0x140160460 (DbgPrintEx.c)
- *     RtlCompareMemory @ 0x1401C5BD0 (RtlCompareMemory.c)
- *     memmove @ 0x1401D1540 (memmove.c)
- *     RtlCompareUnicodeString @ 0x1405BFF20 (RtlCompareUnicodeString.c)
- *     RtlFreeAnsiString @ 0x140623790 (RtlFreeAnsiString.c)
- *     ExpCovCreateUnloadedModuleEntry @ 0x1408D7260 (ExpCovCreateUnloadedModuleEntry.c)
- *     ExpCovDeleteUnloadedModuleEntry @ 0x1408D74E4 (ExpCovDeleteUnloadedModuleEntry.c)
- *     ExpCovReadFriendlyName @ 0x1408D7FD8 (ExpCovReadFriendlyName.c)
+ *     ExfReleasePushLock @ 0x1400913C0 (ExfReleasePushLock.c)
+ *     DbgPrintEx @ 0x140160560 (DbgPrintEx.c)
+ *     RtlCompareMemory @ 0x1401C5D30 (RtlCompareMemory.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     RtlCompareUnicodeString @ 0x1405C0F20 (RtlCompareUnicodeString.c)
+ *     RtlFreeAnsiString @ 0x140624790 (RtlFreeAnsiString.c)
+ *     ExpCovCreateUnloadedModuleEntry @ 0x1408D8520 (ExpCovCreateUnloadedModuleEntry.c)
+ *     ExpCovDeleteUnloadedModuleEntry @ 0x1408D87A4 (ExpCovDeleteUnloadedModuleEntry.c)
+ *     ExpCovReadFriendlyName @ 0x1408D9298 (ExpCovReadFriendlyName.c)
  */
 
 void __fastcall ExCovReadjustUnloadedModuleEntry(__int64 a1, char a2)

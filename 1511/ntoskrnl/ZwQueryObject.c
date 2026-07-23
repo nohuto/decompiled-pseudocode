@@ -11,7 +11,6 @@
  *     <none>
  */
 
-// local variable allocation has failed, the output may be wrong!
 NTSTATUS __stdcall ZwQueryObject(
         HANDLE Handle,
         OBJECT_INFORMATION_CLASS ObjectInformationClass,
@@ -21,5 +20,5 @@ NTSTATUS __stdcall ZwQueryObject(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(Handle, *(_QWORD *)&ObjectInformationClass, ObjectInformation);
+  return KiServiceInternal(Handle);
 }

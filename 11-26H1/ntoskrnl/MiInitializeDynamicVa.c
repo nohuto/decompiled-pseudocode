@@ -1,10 +1,10 @@
 /*
- * XREFs of MiInitializeDynamicVa @ 0x140CF97E4
+ * XREFs of MiInitializeDynamicVa @ 0x140CFFB64
  * Callers:
- *     MiInitNucleus @ 0x140CF2CBC (MiInitNucleus.c)
+ *     MiInitNucleus @ 0x140CF903C (MiInitNucleus.c)
  * Callees:
- *     MiSystemVaTypeToVm @ 0x140285CBC (MiSystemVaTypeToVm.c)
- *     MiCountBootDriverRegions @ 0x140CF9584 (MiCountBootDriverRegions.c)
+ *     MiSystemVaTypeToVm @ 0x14028521C (MiSystemVaTypeToVm.c)
+ *     MiCountBootDriverRegions @ 0x140CFF904 (MiCountBootDriverRegions.c)
  */
 
 void *volatile *MiInitializeDynamicVa()
@@ -16,7 +16,7 @@ void *volatile *MiInitializeDynamicVa()
   Event.Header.SignalState = 0;
   Event.Header.WaitListHead.Blink = &Event.Header.WaitListHead;
   Event.Header.WaitListHead.Flink = &Event.Header.WaitListHead;
-  qword_140E37A20 = MiCountBootDriverRegions();
+  qword_140E37BA0 = MiCountBootDriverRegions();
   result = MiSystemVaTypeToVm(11);
   *((_BYTE *)result + 184) = (_DWORD)result[23] & 0xF0 | 3;
   return result;

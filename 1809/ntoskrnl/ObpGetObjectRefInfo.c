@@ -1,12 +1,12 @@
 /*
- * XREFs of ObpGetObjectRefInfo @ 0x140862EB0
+ * XREFs of ObpGetObjectRefInfo @ 0x140864110
  * Callers:
- *     ObpPushRefDerefInfo @ 0x1408633B4 (ObpPushRefDerefInfo.c)
- *     ObpRegisterObject @ 0x14086360C (ObpRegisterObject.c)
+ *     ObpPushRefDerefInfo @ 0x140864614 (ObpPushRefDerefInfo.c)
+ *     ObpRegisterObject @ 0x14086486C (ObpRegisterObject.c)
  * Callees:
- *     memmove @ 0x1401D1540 (memmove.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall ObpGetObjectRefInfo(__int64 a1, unsigned __int16 **a2)

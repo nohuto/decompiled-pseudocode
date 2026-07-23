@@ -1,8 +1,8 @@
 /*
- * XREFs of HalpAcquirePmuAccessRequest @ 0x14057FDF0
+ * XREFs of HalpAcquirePmuAccessRequest @ 0x140582310
  * Callers:
- *     HalpNotifyActorIfPmuAvailable @ 0x140B110C8 (HalpNotifyActorIfPmuAvailable.c)
- *     HalpRequestPmuAccess @ 0x140B5BF20 (HalpRequestPmuAccess.c)
+ *     HalpNotifyActorIfPmuAvailable @ 0x140B12E48 (HalpNotifyActorIfPmuAvailable.c)
+ *     HalpRequestPmuAccess @ 0x140B5F240 (HalpRequestPmuAccess.c)
  * Callees:
  *     <none>
  */

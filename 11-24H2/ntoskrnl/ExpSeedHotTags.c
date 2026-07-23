@@ -1,9 +1,9 @@
 /*
- * XREFs of ExpSeedHotTags @ 0x140C42588
+ * XREFs of ExpSeedHotTags @ 0x140C446D8
  * Callers:
- *     ExInitializePoolTracker @ 0x140C4246C (ExInitializePoolTracker.c)
+ *     ExInitializePoolTracker @ 0x140C445BC (ExInitializePoolTracker.c)
  * Callees:
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 __int64 ExpSeedHotTags()

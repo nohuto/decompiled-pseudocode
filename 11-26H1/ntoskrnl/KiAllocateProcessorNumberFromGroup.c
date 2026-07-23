@@ -1,9 +1,9 @@
 /*
- * XREFs of KiAllocateProcessorNumberFromGroup @ 0x1405EF2EC
+ * XREFs of KiAllocateProcessorNumberFromGroup @ 0x1405F1C5C
  * Callers:
- *     KiAllocateProcessorNumber @ 0x1405EF1A4 (KiAllocateProcessorNumber.c)
+ *     KiAllocateProcessorNumber @ 0x1405F1B14 (KiAllocateProcessorNumber.c)
  * Callees:
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall KiAllocateProcessorNumberFromGroup(unsigned __int16 a1, unsigned int *a2)

@@ -1,11 +1,11 @@
 /*
- * XREFs of KsepCacheLock @ 0x140749810
+ * XREFs of KsepCacheLock @ 0x1407499D0
  * Callers:
- *     PiPnpRtlCmActionCallback @ 0x140635920 (PiPnpRtlCmActionCallback.c)
- *     IopProcessSetInterfaceState @ 0x1407490DC (IopProcessSetInterfaceState.c)
- *     KseQueryDeviceDataList @ 0x1408BF3E0 (KseQueryDeviceDataList.c)
+ *     PiPnpRtlCmActionCallback @ 0x14062A730 (PiPnpRtlCmActionCallback.c)
+ *     IopProcessSetInterfaceState @ 0x14074929C (IopProcessSetInterfaceState.c)
+ *     KseQueryDeviceDataList @ 0x1408BF540 (KseQueryDeviceDataList.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1403556E0 (ExAcquirePushLockExclusiveEx.c)
  */
 
 void __fastcall KsepCacheLock(ULONG_PTR a1)

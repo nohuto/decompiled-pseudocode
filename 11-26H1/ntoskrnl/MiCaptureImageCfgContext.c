@@ -1,14 +1,14 @@
 /*
- * XREFs of MiCaptureImageCfgContext @ 0x1409CBDE0
+ * XREFs of MiCaptureImageCfgContext @ 0x14099CDC0
  * Callers:
- *     MiParseImageLoadConfig @ 0x1409CC9F0 (MiParseImageLoadConfig.c)
+ *     MiParseImageLoadConfig @ 0x14099D9D0 (MiParseImageLoadConfig.c)
  * Callees:
- *     ExAllocatePoolMm @ 0x1403985B0 (ExAllocatePoolMm.c)
- *     MmGetCurrentProcessorColor @ 0x14044ADC0 (MmGetCurrentProcessorColor.c)
- *     MiFreeImageCfgContext @ 0x1404CCCB8 (MiFreeImageCfgContext.c)
- *     MiModeCopyExceptionFilterEx @ 0x1404E5578 (MiModeCopyExceptionFilterEx.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     MiLogRelocationRva @ 0x1409CC718 (MiLogRelocationRva.c)
+ *     ExAllocatePoolMm @ 0x14039A310 (ExAllocatePoolMm.c)
+ *     MmGetCurrentProcessorColor @ 0x140442EF0 (MmGetCurrentProcessorColor.c)
+ *     MiFreeImageCfgContext @ 0x1404C6458 (MiFreeImageCfgContext.c)
+ *     MiModeCopyExceptionFilterEx @ 0x1404DEB18 (MiModeCopyExceptionFilterEx.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     MiLogRelocationRva @ 0x14099D6F8 (MiLogRelocationRva.c)
  */
 
 __int64 __fastcall MiCaptureImageCfgContext(
@@ -100,7 +100,7 @@ __int64 __fastcall MiCaptureImageCfgContext(
   if ( v17 < a4 || !v18 || v18 >= 0xFFFFFFFF / v21 )
   {
     v27 = -1073741819;
-    *(_DWORD *)&stru_140E2D150.WaitBlockFill11[56] = 4;
+    *(_DWORD *)&stru_140E2D2D0.WaitBlockFill11[56] = 4;
     goto LABEL_49;
   }
   v39 = v19 & 0x4000;
@@ -109,7 +109,7 @@ __int64 __fastcall MiCaptureImageCfgContext(
     if ( v15 < a4 || !v16 || v16 >= 0xFFFFFFFF / v21 )
     {
       v27 = -1073741819;
-      *(_DWORD *)&stru_140E2D150.WaitBlockFill11[56] = 10;
+      *(_DWORD *)&stru_140E2D2D0.WaitBlockFill11[56] = 10;
       goto LABEL_49;
     }
     v22 = v15 - a4;
@@ -119,7 +119,7 @@ __int64 __fastcall MiCaptureImageCfgContext(
     if ( v25 <= v22 || (v26 = a6, v25 > *(unsigned int *)(a6 + 16)) || v24 + 4 < v24 )
     {
       v27 = -1073741819;
-      *(_DWORD *)&stru_140E2D150.WaitBlockFill11[56] = 11;
+      *(_DWORD *)&stru_140E2D2D0.WaitBlockFill11[56] = 11;
       goto LABEL_49;
     }
   }
@@ -133,7 +133,7 @@ __int64 __fastcall MiCaptureImageCfgContext(
   if ( v29 + v28 <= v28 || v29 + v28 > *(unsigned int *)(v26 + 16) || (int)v29 + 4 < (unsigned int)v29 )
   {
     v27 = -1073741819;
-    *(_DWORD *)&stru_140E2D150.WaitBlockFill11[56] = 5;
+    *(_DWORD *)&stru_140E2D2D0.WaitBlockFill11[56] = 5;
     goto LABEL_49;
   }
   CurrentProcessorColor = MmGetCurrentProcessorColor();
@@ -143,7 +143,7 @@ __int64 __fastcall MiCaptureImageCfgContext(
   if ( !PoolMm )
   {
     v27 = -1073741670;
-    *(_DWORD *)&stru_140E2D150.WaitBlockFill11[56] = 6;
+    *(_DWORD *)&stru_140E2D2D0.WaitBlockFill11[56] = 6;
     goto LABEL_54;
   }
   memmove(PoolMm, (const void *)(v28 + a3), v30);
@@ -154,14 +154,14 @@ __int64 __fastcall MiCaptureImageCfgContext(
     v35 = *(unsigned int *)&v33[i];
     if ( v35 >= a5 )
     {
-      *(_DWORD *)&stru_140E2D150.WaitBlockFill11[56] = 8;
+      *(_DWORD *)&stru_140E2D2D0.WaitBlockFill11[56] = 8;
 LABEL_32:
       v27 = -1073741701;
       break;
     }
     if ( i && (unsigned int)v35 < v13 )
     {
-      *(_DWORD *)&stru_140E2D150.WaitBlockFill11[56] = 9;
+      *(_DWORD *)&stru_140E2D2D0.WaitBlockFill11[56] = 9;
       goto LABEL_32;
     }
     v13 = *(_DWORD *)&v33[i];
@@ -176,7 +176,7 @@ LABEL_32:
   if ( v40 < a4 || v40 >= a4 + a5 )
   {
     v27 = -1073741701;
-    *(_DWORD *)&stru_140E2D150.WaitBlockFill11[56] = 10;
+    *(_DWORD *)&stru_140E2D2D0.WaitBlockFill11[56] = 10;
 LABEL_54:
     v14 = a11;
     goto LABEL_49;

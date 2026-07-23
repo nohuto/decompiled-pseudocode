@@ -9,10 +9,10 @@
  *     RtlStackDbStackRemove @ 0x180127BBC (RtlStackDbStackRemove.c)
  */
 
-__int64 __fastcall RtlpHpPerHeapStackTraceCleanup(volatile signed __int64 *a1, int a2, int a3)
+int __fastcall RtlpHpPerHeapStackTraceCleanup(_RTL_RUN_ONCE *a1, int a2, int a3)
 {
-  __int64 result; // rax
-  unsigned __int64 v6; // rdi
+  __int64 v5; // rax
+  _QWORD *v6; // rdi
   _QWORD **v7; // rsi
   __int64 v8; // rbx
   __int64 *v9; // rcx
@@ -20,14 +20,14 @@ __int64 __fastcall RtlpHpPerHeapStackTraceCleanup(volatile signed __int64 *a1, i
   __int64 v11; // rcx
   __int64 v12; // rbp
   _QWORD *i; // rcx
-  __int128 v14[4]; // [rsp+20h] [rbp-48h] BYREF
-  unsigned __int64 v16; // [rsp+88h] [rbp+20h] BYREF
+  __int128 v15[4]; // [rsp+20h] [rbp-48h] BYREF
+  _QWORD *v17; // [rsp+88h] [rbp+20h] BYREF
 
-  result = RtlRunOnceBeginInitialize(a1, 1, &v16);
-  if ( (int)result >= 0 )
+  LODWORD(v5) = RtlRunOnceBeginInitialize(a1, 1u, (PVOID *)&v17);
+  if ( (int)v5 >= 0 )
   {
-    v6 = v16;
-    v7 = *(_QWORD ***)(v16 + 24);
+    v6 = v17;
+    v7 = (_QWORD **)v17[3];
     v8 = (__int64)v7;
     while ( 1 )
     {
@@ -40,7 +40,7 @@ __int64 __fastcall RtlpHpPerHeapStackTraceCleanup(volatile signed __int64 *a1, i
       if ( (v8 & 1) != 0 )
         break;
 LABEL_16:
-      result = v8;
+      LODWORD(v5) = v8;
       if ( !v8 )
         goto LABEL_11;
       v12 = v8;
@@ -49,7 +49,7 @@ LABEL_16:
         if ( *i == v8 )
         {
           *i = *(_QWORD *)v8;
-          --*(_DWORD *)(v6 + 16);
+          --*((_DWORD *)v6 + 4);
           *(_QWORD *)v8 |= 0x8000000000000002uLL;
           v8 = (__int64)i;
           goto LABEL_23;
@@ -58,12 +58,12 @@ LABEL_16:
       v12 = 0LL;
 LABEL_23:
       RtlStackDbStackRemove(&qword_18017AEA0, *(_QWORD *)(v12 + 16));
-      v14[0] = RtlpHpEnvHandle;
-      RtlpHpMetadataFree(v12, v14);
+      v15[0] = RtlpHpEnvHandle;
+      RtlpHpMetadataFree(v12, v15);
     }
     ++v7;
-    result = *(_QWORD *)(v6 + 24);
-    while ( (unsigned __int64)v7 < result + 8 * ((unsigned __int64)*(unsigned int *)(v6 + 20) >> 5) )
+    v5 = v6[3];
+    while ( (unsigned __int64)v7 < v5 + 8 * ((unsigned __int64)*((unsigned int *)v6 + 5) >> 5) )
     {
       v8 = (__int64)*v7;
       if ( ((unsigned __int8)*v7 & 1) == 0 )
@@ -71,25 +71,25 @@ LABEL_23:
       ++v7;
     }
 LABEL_11:
-    v10 = v16;
-    v11 = *(_QWORD *)(v16 + 24);
+    v10 = (__int64)v17;
+    v11 = v17[3];
     if ( v11 )
     {
-      v14[0] = RtlpHpEnvHandle;
-      result = RtlpHpMetadataFree(v11, v14);
+      v15[0] = RtlpHpEnvHandle;
+      LODWORD(v5) = RtlpHpMetadataFree(v11, v15);
     }
     if ( a2 )
     {
-      *(_QWORD *)(v6 + 16) = 0LL;
-      *(_QWORD *)(v6 + 24) = 0LL;
+      v6[2] = 0LL;
+      v6[3] = 0LL;
     }
     else
     {
-      v14[0] = RtlpHpEnvHandle;
-      result = RtlpHpMetadataFree(v10, v14);
+      v15[0] = RtlpHpEnvHandle;
+      LODWORD(v5) = RtlpHpMetadataFree(v10, v15);
       if ( a3 )
-        *a1 = 0LL;
+        a1->Value = 0LL;
     }
   }
-  return result;
+  return v5;
 }

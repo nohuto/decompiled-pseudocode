@@ -10,28 +10,18 @@
  *     CmFreezeRegistry @ 0x1408748A0 (CmFreezeRegistry.c)
  */
 
-__int64 __fastcall NtFreezeRegistry(unsigned int a1)
+NTSTATUS __cdecl NtFreezeRegistry(ULONG TimeOutInSeconds)
 {
-  unsigned int v2; // ebx
+  NTSTATUS v2; // ebx
   _OWORD v4[3]; // [rsp+20h] [rbp-48h] BYREF
 
   memset(v4, 0, sizeof(v4));
-  if ( a1 <= 0x384 )
-  {
-    if ( SeSinglePrivilegeCheck(SeBackupPrivilege, KeGetCurrentThread()->PreviousMode) )
-    {
-      CmpAttachToRegistryProcess((__int64)v4);
-      v2 = CmFreezeRegistry(a1);
-      CmpDetachFromRegistryProcess((__int64)v4);
-    }
-    else
-    {
-      return (unsigned int)-1073741727;
-    }
-  }
-  else
-  {
-    return (unsigned int)-1073741811;
-  }
+  if ( TimeOutInSeconds > 0x384 )
+    return -1073741811;
+  if ( !SeSinglePrivilegeCheck(SeBackupPrivilege, KeGetCurrentThread()->PreviousMode) )
+    return -1073741727;
+  CmpAttachToRegistryProcess((__int64)v4);
+  v2 = CmFreezeRegistry(TimeOutInSeconds);
+  CmpDetachFromRegistryProcess((__int64)v4);
   return v2;
 }

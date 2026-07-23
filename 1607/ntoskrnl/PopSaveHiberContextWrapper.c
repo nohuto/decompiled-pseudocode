@@ -1,9 +1,9 @@
 /*
- * XREFs of PopSaveHiberContextWrapper @ 0x140166C10
+ * XREFs of PopSaveHiberContextWrapper @ 0x140167180
  * Callers:
  *     <none>
  * Callees:
- *     KeSaveStateForHibernate @ 0x14015E3F0 (KeSaveStateForHibernate.c)
+ *     KeSaveStateForHibernate @ 0x14015E960 (KeSaveStateForHibernate.c)
  *     PopSaveHiberContext @ 0x1403CCB40 (PopSaveHiberContext.c)
  *     PopHiberCheckResume @ 0x1403D06EC (PopHiberCheckResume.c)
  */

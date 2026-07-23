@@ -1,21 +1,21 @@
 /*
- * XREFs of AlpcpReceiveDirectMessagePort @ 0x1407C08B0
+ * XREFs of AlpcpReceiveDirectMessagePort @ 0x1407C3910
  * Callers:
- *     AlpcpReceiveMessage @ 0x1408F806C (AlpcpReceiveMessage.c)
+ *     AlpcpReceiveMessage @ 0x140927FFC (AlpcpReceiveMessage.c)
  * Callees:
- *     ExfAcquirePushLockSharedEx @ 0x140277CC0 (ExfAcquirePushLockSharedEx.c)
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     ExfReleasePushLockShared @ 0x140278BD0 (ExfReleasePushLockShared.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     ExfTryToWakePushLock @ 0x1403170A0 (ExfTryToWakePushLock.c)
- *     AlpcpRemoveMessageFromDirectQueue @ 0x1407C0BAC (AlpcpRemoveMessageFromDirectQueue.c)
- *     AlpcpLookupMessage @ 0x1409BEA70 (AlpcpLookupMessage.c)
- *     AlpcpUnlockMessage @ 0x1409C07A0 (AlpcpUnlockMessage.c)
- *     AlpcpInsertMessagePendingQueue @ 0x140A4A040 (AlpcpInsertMessagePendingQueue.c)
- *     AlpcpRemoveMessageCanceledQueue @ 0x140A9F428 (AlpcpRemoveMessageCanceledQueue.c)
- *     AlpcpLogReceiveMessage @ 0x140B4854C (AlpcpLogReceiveMessage.c)
+ *     ExfAcquirePushLockSharedEx @ 0x140277230 (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     ExfReleasePushLockShared @ 0x140278140 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     ExfTryToWakePushLock @ 0x1403190D0 (ExfTryToWakePushLock.c)
+ *     AlpcpRemoveMessageFromDirectQueue @ 0x1407C3C0C (AlpcpRemoveMessageFromDirectQueue.c)
+ *     AlpcpLookupMessage @ 0x14098FA50 (AlpcpLookupMessage.c)
+ *     AlpcpUnlockMessage @ 0x140991780 (AlpcpUnlockMessage.c)
+ *     AlpcpInsertMessagePendingQueue @ 0x140A53330 (AlpcpInsertMessagePendingQueue.c)
+ *     AlpcpRemoveMessageCanceledQueue @ 0x140A9F750 (AlpcpRemoveMessageCanceledQueue.c)
+ *     AlpcpLogReceiveMessage @ 0x140B4A2DC (AlpcpLogReceiveMessage.c)
  */
 
 __int64 __fastcall AlpcpReceiveDirectMessagePort(__int64 *a1, int a2, int a3, ULONG_PTR *a4, int a5)
@@ -151,7 +151,7 @@ LABEL_53:
         if ( _InterlockedCompareExchange64(v14, 0LL, 17LL) != 17 )
           ExfReleasePushLockShared((signed __int64 *)(v7 + 352));
         KeAbPostRelease(v7 + 352);
-        if ( BYTE4(stru_140E66B30.StackBase) )
+        if ( LOBYTE(stru_140E66D40.CycleTime) )
           AlpcpLogReceiveMessage(v9);
         *a4 = v9;
         return 0LL;

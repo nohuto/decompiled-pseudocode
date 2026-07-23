@@ -1,15 +1,15 @@
 /*
- * XREFs of PpmEventProcessorVetoRundown @ 0x14057A3DC
+ * XREFs of PpmEventProcessorVetoRundown @ 0x14057A61C
  * Callers:
- *     PpmEventTraceControlCallback @ 0x1407D53F0 (PpmEventTraceControlCallback.c)
+ *     PpmEventTraceControlCallback @ 0x1407D5560 (PpmEventTraceControlCallback.c)
  * Callees:
- *     EtwEventEnabled @ 0x14021BF30 (EtwEventEnabled.c)
- *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
- *     EtwWriteEx @ 0x14025DD10 (EtwWriteEx.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     KxReleaseSpinLock @ 0x140212140 (KxReleaseSpinLock.c)
+ *     EtwWriteEx @ 0x14027F840 (EtwWriteEx.c)
+ *     EtwEventEnabled @ 0x1402C0830 (EtwEventEnabled.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140362F80 (KeAcquireSpinLockRaiseToDpc.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     PpmEventTracePreVetoAccounting @ 0x14057AB68 (PpmEventTracePreVetoAccounting.c)
+ *     PpmEventTracePreVetoAccounting @ 0x14057ADA8 (PpmEventTracePreVetoAccounting.c)
  */
 
 char __fastcall PpmEventProcessorVetoRundown(__int64 a1)

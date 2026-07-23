@@ -1,24 +1,24 @@
 /*
- * XREFs of CcChangeBackingFileObject @ 0x140450FA0
+ * XREFs of CcChangeBackingFileObject @ 0x140446404
  * Callers:
- *     FsRtlChangeBackingFileObject @ 0x140451190 (FsRtlChangeBackingFileObject.c)
+ *     FsRtlChangeBackingFileObject @ 0x1404465F0 (FsRtlChangeBackingFileObject.c)
  * Callees:
- *     ObDereferenceObjectDeferDeleteWithTag @ 0x14025E950 (ObDereferenceObjectDeferDeleteWithTag.c)
- *     ExfTryToWakePushLock @ 0x14025F9A0 (ExfTryToWakePushLock.c)
- *     KeReleaseInStackQueuedSpinLock @ 0x140275CD0 (KeReleaseInStackQueuedSpinLock.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x1402D8540 (KeAcquireInStackQueuedSpinLock.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     ObfReferenceObjectWithTag @ 0x1403403E0 (ObfReferenceObjectWithTag.c)
- *     ObFastReplaceObject @ 0x1404512EC (ObFastReplaceObject.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x14022B260 (KeReleaseInStackQueuedSpinLock.c)
+ *     ObDereferenceObjectDeferDeleteWithTag @ 0x14028EF60 (ObDereferenceObjectDeferDeleteWithTag.c)
+ *     ExfTryToWakePushLock @ 0x14028FFB0 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     ObfReferenceObjectWithTag @ 0x14031F8C0 (ObfReferenceObjectWithTag.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1403597C0 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     ObFastReplaceObject @ 0x14044674C (ObFastReplaceObject.c)
  */
 
 __int64 __fastcall CcChangeBackingFileObject(_QWORD *a1, _QWORD *a2)
 {
-  _QWORD *v4; // rax
+  char *v4; // rax
   signed __int8 v5; // cf
-  _QWORD *v6; // rdi
+  char *v6; // rdi
   unsigned int v7; // ebx
   __int64 v8; // rcx
   _QWORD *v10; // rcx
@@ -26,17 +26,14 @@ __int64 __fastcall CcChangeBackingFileObject(_QWORD *a1, _QWORD *a2)
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+20h] [rbp-28h] BYREF
 
   memset(&LockHandle, 0, sizeof(LockHandle));
-  v4 = KeAbPreAcquire((__int64)&CcChangeSharedCacheMapFileLock, 0LL);
+  v4 = (char *)KeAbPreAcquire((__int64)&CcChangeSharedCacheMapFileLock, 0LL);
   v5 = _interlockedbittestandset64((volatile signed __int32 *)&CcChangeSharedCacheMapFileLock, 0LL);
   v6 = v4;
   if ( v5 )
-    ExfAcquirePushLockExclusiveEx(
-      &CcChangeSharedCacheMapFileLock,
-      (__int64)v4,
-      (__int64)&CcChangeSharedCacheMapFileLock);
+    ExfAcquirePushLockExclusiveEx(&CcChangeSharedCacheMapFileLock, v4, (__int64)&CcChangeSharedCacheMapFileLock);
   v7 = 0;
   if ( v6 )
-    *((_BYTE *)v6 + 10) = 1;
+    v6[10] = 1;
   KeAcquireInStackQueuedSpinLock(&CcMasterLock, &LockHandle);
   if ( a1 && a1[5] != a2[5] )
   {

@@ -3,13 +3,13 @@
  * Callers:
  *     ViFaultsAddAllApps @ 0x140711110 (ViFaultsAddAllApps.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14002DC60 (RtlInitUnicodeString.c)
- *     KeReleaseSpinLock @ 0x1400E9A70 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x1400EFE30 (KeAcquireSpinLockRaiseToDpc.c)
- *     memmove @ 0x140171280 (memmove.c)
+ *     RtlInitUnicodeString @ 0x14002D7E0 (RtlInitUnicodeString.c)
+ *     KeReleaseSpinLock @ 0x1400EB600 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1400EDCB0 (KeAcquireSpinLockRaiseToDpc.c)
+ *     memmove @ 0x140171780 (memmove.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     RtlUpcaseUnicodeString @ 0x140514D50 (RtlUpcaseUnicodeString.c)
+ *     RtlUpcaseUnicodeString @ 0x1404F8140 (RtlUpcaseUnicodeString.c)
  *     ViFaultsIsAppTarget @ 0x140711544 (ViFaultsIsAppTarget.c)
  */
 
@@ -39,13 +39,13 @@ __int64 __fastcall ViFaultsAddAppNoDuplicates(void *Src, __int64 a2)
     }
     else
     {
-      v9 = (UNICODE_STRING **)qword_1403005C8;
-      if ( *(PVOID **)qword_1403005C8 != &ViFaultApplicationsList )
+      v9 = (UNICODE_STRING **)qword_1403005A8;
+      if ( *(PVOID **)qword_1403005A8 != &ViFaultApplicationsList )
         __fastfail(3u);
       *(_QWORD *)&v6->Length = &ViFaultApplicationsList;
       v6->Buffer = (wchar_t *)v9;
       *v9 = v6;
-      qword_1403005C8 = (__int64)v6;
+      qword_1403005A8 = (__int64)v6;
     }
     KeReleaseSpinLock(&ViFaultInjectionLock, v8);
   }

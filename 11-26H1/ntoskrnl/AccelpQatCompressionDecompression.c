@@ -1,9 +1,9 @@
 /*
- * XREFs of AccelpQatCompressionDecompression @ 0x1406DF784
+ * XREFs of AccelpQatCompressionDecompression @ 0x1406E3A04
  * Callers:
- *     AccelpQatOperationHandler @ 0x1406DF9C4 (AccelpQatOperationHandler.c)
+ *     AccelpQatOperationHandler @ 0x1406E3C44 (AccelpQatOperationHandler.c)
  * Callees:
- *     AccelpPrepareCompressionBufferForHeader @ 0x1406DF748 (AccelpPrepareCompressionBufferForHeader.c)
+ *     AccelpPrepareCompressionBufferForHeader @ 0x1406E39C8 (AccelpPrepareCompressionBufferForHeader.c)
  */
 
 __int64 __fastcall AccelpQatCompressionDecompression(__int64 a1, unsigned __int8 a2, int a3)

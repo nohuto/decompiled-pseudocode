@@ -1,10 +1,10 @@
 /*
- * XREFs of MiSetVadBits @ 0x1409C6230
+ * XREFs of MiSetVadBits @ 0x140997210
  * Callers:
- *     MiUpdateVadBits @ 0x1409634A8 (MiUpdateVadBits.c)
- *     MiInsertVadCharges @ 0x1409C5DC0 (MiInsertVadCharges.c)
+ *     MiInsertVadCharges @ 0x140996DA0 (MiInsertVadCharges.c)
+ *     MiUpdateVadBits @ 0x140A09330 (MiUpdateVadBits.c)
  * Callees:
- *     RtlSetBitsEx @ 0x14036F510 (RtlSetBitsEx.c)
+ *     RtlSetBitsEx @ 0x1403712C0 (RtlSetBitsEx.c)
  */
 
 unsigned __int64 __fastcall MiSetVadBits(__int64 a1)
@@ -36,13 +36,13 @@ unsigned __int64 __fastcall MiSetVadBits(__int64 a1)
     do
     {
       v9 = (_QWORD *)(v8 + 72 * result);
-      v10 = (unsigned __int64)(-524288 * qword_140E2DE48 + (v9[1] << 19)) >> 16;
+      v10 = (unsigned __int64)(-524288 * qword_140E2DFC8 + (v9[1] << 19)) >> 16;
       if ( v7 >= v10 )
       {
         v11 = v10 + *v9;
         if ( v3 < v11 )
         {
-          v12 = (unsigned __int64)(-524288 * qword_140E2DE48 + (v9[1] << 19)) >> 16;
+          v12 = (unsigned __int64)(-524288 * qword_140E2DFC8 + (v9[1] << 19)) >> 16;
           if ( v3 >= v10 )
             v12 = v3;
           if ( v7 < v11 )

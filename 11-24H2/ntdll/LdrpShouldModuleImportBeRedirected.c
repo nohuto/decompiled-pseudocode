@@ -1,7 +1,7 @@
 /*
- * XREFs of LdrpShouldModuleImportBeRedirected @ 0x1800DFED0
+ * XREFs of LdrpShouldModuleImportBeRedirected @ 0x1800DAFD0
  * Callers:
- *     LdrpMapAndSnapDependency @ 0x18000C8D0 (LdrpMapAndSnapDependency.c)
+ *     LdrpMapAndSnapDependency @ 0x1800392D0 (LdrpMapAndSnapDependency.c)
  * Callees:
  *     <none>
  */

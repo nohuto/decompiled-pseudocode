@@ -1,16 +1,16 @@
 /*
- * XREFs of MiRebuildStandbyLookasideList @ 0x1403F43F0
+ * XREFs of MiRebuildStandbyLookasideList @ 0x1403E73E0
  * Callers:
- *     MiInsertPageInList @ 0x14022CB10 (MiInsertPageInList.c)
- *     MiInsertPagesInList @ 0x140271500 (MiInsertPagesInList.c)
- *     MiLockStandbyOldestPage @ 0x1403F41B8 (MiLockStandbyOldestPage.c)
+ *     MiInsertPagesInList @ 0x140226A90 (MiInsertPagesInList.c)
+ *     MiInsertPageInList @ 0x140300420 (MiInsertPageInList.c)
+ *     MiLockStandbyOldestPage @ 0x1403E71A8 (MiLockStandbyOldestPage.c)
  * Callees:
- *     MiGetStandbyLookaside @ 0x14022E630 (MiGetStandbyLookaside.c)
- *     MiWriteStandbyLookasideEntry @ 0x14026E7E0 (MiWriteStandbyLookasideEntry.c)
- *     MiPfnToStandbyLookaside @ 0x14026ED90 (MiPfnToStandbyLookaside.c)
- *     MiSkipStandbyEntries @ 0x1403F46B0 (MiSkipStandbyEntries.c)
- *     MiGetStandbyPageType @ 0x1403F48C0 (MiGetStandbyPageType.c)
- *     MiClearEntireStandbyLookasideList @ 0x1403F4924 (MiClearEntireStandbyLookasideList.c)
+ *     MiWriteStandbyLookasideEntry @ 0x140223D70 (MiWriteStandbyLookasideEntry.c)
+ *     MiPfnToStandbyLookaside @ 0x140224320 (MiPfnToStandbyLookaside.c)
+ *     MiGetStandbyLookaside @ 0x140301F40 (MiGetStandbyLookaside.c)
+ *     MiSkipStandbyEntries @ 0x1403E76A0 (MiSkipStandbyEntries.c)
+ *     MiGetStandbyPageType @ 0x1403E78B0 (MiGetStandbyPageType.c)
+ *     MiClearEntireStandbyLookasideList @ 0x1403E7914 (MiClearEntireStandbyLookasideList.c)
  */
 
 __int64 __fastcall MiRebuildStandbyLookasideList(__int64 a1, unsigned int a2, char a3)

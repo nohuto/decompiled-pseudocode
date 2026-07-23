@@ -1,12 +1,12 @@
 /*
- * XREFs of KxFlushNonGlobalTb @ 0x1402B2094
+ * XREFs of KxFlushNonGlobalTb @ 0x140230244
  * Callers:
- *     KeFlushTb @ 0x140230120 (KeFlushTb.c)
+ *     KeFlushTb @ 0x1402D4970 (KeFlushTb.c)
  * Callees:
- *     KxSetTimeStampBusy @ 0x14024A678 (KxSetTimeStampBusy.c)
- *     KeCopyAffinityEx @ 0x14033B450 (KeCopyAffinityEx.c)
- *     KeRemoveProcessorAffinityEx @ 0x14033B4A0 (KeRemoveProcessorAffinityEx.c)
- *     KiIpiSendRequestEx @ 0x14033B9A0 (KiIpiSendRequestEx.c)
+ *     KxSetTimeStampBusy @ 0x1402EEEC8 (KxSetTimeStampBusy.c)
+ *     KeCopyAffinityEx @ 0x1403461A0 (KeCopyAffinityEx.c)
+ *     KeRemoveProcessorAffinityEx @ 0x1403461F0 (KeRemoveProcessorAffinityEx.c)
+ *     KiIpiSendRequestEx @ 0x1403466F0 (KiIpiSendRequestEx.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
@@ -50,7 +50,7 @@ LABEL_12:
     KiIpiSendRequestEx((_DWORD)CurrentPrcb, v4, v3, 0, 1LL, (__int64)KiFlushProcessTbWorker, 0LL);
     goto LABEL_6;
   }
-  if ( KxSetTimeStampBusy(&KiTbFlushTimeStamp) )
+  if ( (unsigned __int8)KxSetTimeStampBusy(&KiTbFlushTimeStamp, 1LL) )
   {
     KiIpiSendRequestEx((_DWORD)CurrentPrcb, 1, 0, 0, 1LL, (__int64)KiFlushProcessTbWorker, 0LL);
     _InterlockedAdd(&KiTbFlushTimeStamp, 1u);

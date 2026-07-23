@@ -81,7 +81,7 @@ __int64 __fastcall RtlpQueryTimeZoneInformationWorker(char *a1, size_t Size)
       LODWORD(v14[57]) = 288;
       LODWORD(v14[60]) = 0x4000000;
     }
-    RegistryValues = RtlpQueryRegistryValues(0x40000000, (WCHAR *)Handle, (__int64)v14, 0LL, 0LL, 1);
+    RegistryValues = RtlpQueryRegistryValues(0x40000000, (const WCHAR *)Handle, (__int64)v14, 0LL, 0LL, 1);
     if ( RegistryValues >= 0 && v2 >= 0x1B0 )
       a1[428] = v6 != 0;
     NtClose(Handle);

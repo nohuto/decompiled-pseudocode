@@ -114,17 +114,17 @@
  *     NtSetInformationThread @ 0x1801633C0 (NtSetInformationThread.c)
  */
 
-__int64 __fastcall RtlEnterCriticalSection(__int64 a1)
+NTSTATUS __cdecl RtlEnterCriticalSection(PRTL_CRITICAL_SECTION CriticalSection)
 {
   struct _TEB *v1; // r9
   char *v2; // rbx
   char *SchedulerSharedDataSlot; // r8
   __int64 i; // rcx
-  char *v6; // rdx
+  PRTL_CRITICAL_SECTION *v6; // rdx
   signed __int8 v7; // cf
   void *UniqueThread; // rax
-  __int64 result; // rax
-  _QWORD v10[3]; // [rsp+20h] [rbp-18h] BYREF
+  NTSTATUS result; // eax
+  _QWORD ThreadInformation[3]; // [rsp+20h] [rbp-18h] BYREF
 
   v1 = NtCurrentTeb();
   v2 = 0LL;
@@ -133,43 +133,43 @@ __int64 __fastcall RtlEnterCriticalSection(__int64 a1)
   {
     for ( i = 0LL; (unsigned int)i < 8; i = (unsigned int)(i + 1) )
     {
-      v6 = &SchedulerSharedDataSlot[8 * i];
-      if ( !*(_QWORD *)v6 )
+      v6 = (PRTL_CRITICAL_SECTION *)&SchedulerSharedDataSlot[8 * i];
+      if ( !*v6 )
       {
         v2 = &SchedulerSharedDataSlot[8 * i];
         if ( v6 )
-          *(_QWORD *)v6 = a1;
+          *v6 = CriticalSection;
         break;
       }
     }
   }
-  v7 = _interlockedbittestandreset((volatile signed __int32 *)(a1 + 8), 0);
+  v7 = _interlockedbittestandreset(&CriticalSection->LockCount, 0);
   UniqueThread = v1->ClientId.UniqueThread;
   if ( v7 )
   {
-    *(_QWORD *)(a1 + 16) = UniqueThread;
-    result = 0LL;
-    *(_DWORD *)(a1 + 12) = 1;
+    CriticalSection->OwningThread = UniqueThread;
+    result = 0;
+    CriticalSection->RecursionCount = 1;
   }
-  else if ( *(void **)(a1 + 16) == UniqueThread )
+  else if ( CriticalSection->OwningThread == UniqueThread )
   {
     if ( v2 )
     {
       *v2 |= 2u;
       if ( v2[7] < 0 )
       {
-        v10[1] = 0LL;
-        v10[0] = (v2 - (char *)NtCurrentTeb()->SchedulerSharedDataSlot) >> 3;
-        NtSetInformationThread(-2LL, 56LL, v10);
+        ThreadInformation[1] = 0LL;
+        ThreadInformation[0] = (v2 - (char *)NtCurrentTeb()->SchedulerSharedDataSlot) >> 3;
+        NtSetInformationThread((HANDLE)0xFFFFFFFFFFFFFFFELL, ThreadUpdateLockOwnership, ThreadInformation, 0x10u);
       }
       *(_QWORD *)v2 = 0LL;
     }
-    ++*(_DWORD *)(a1 + 12);
-    return 0LL;
+    ++CriticalSection->RecursionCount;
+    return 0;
   }
   else
   {
-    return RtlpEnterCriticalSectionContended(a1);
+    return RtlpEnterCriticalSectionContended(CriticalSection);
   }
   return result;
 }

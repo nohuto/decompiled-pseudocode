@@ -27,6 +27,7 @@ void __fastcall sub_1800426E8(__int64 a1, char a2)
   char v6; // al
   int v7; // eax
   char v8; // bl
+  int v9; // [rsp+20h] [rbp-48h]
 
   if ( **(int **)(a1 + 40) < 0 )
     goto LABEL_21;
@@ -70,14 +71,15 @@ void __fastcall sub_1800426E8(__int64 a1, char a2)
     {
       sub_180043B30(3221225781LL, 25LL, 0LL, a1);
       sub_180043AA8(a1);
+      LOBYTE(v9) = 0;
       sub_180043A08(
         a1,
-        (*(_DWORD *)(a1 + 48) + 72) & ((unsigned __int128)-(__int128)*(unsigned __int64 *)(a1 + 48) >> 64),
-        -1073741515,
-        (unsigned int)&unk_1801146E8,
-        0);
+        (*(_QWORD *)(a1 + 48) + 72LL) & ((unsigned __int128)-(__int128)*(unsigned __int64 *)(a1 + 48) >> 64),
+        3221225781LL,
+        &unk_1801146E8,
+        v9);
       if ( (*(_BYTE *)(*(_QWORD *)(a1 + 56) + 104LL) & 0x20) != 0 )
-        sub_180042450((UNICODE_STRING *)a1, 0LL, 0xC0000135);
+        sub_180042450((_UNICODE_STRING *)a1, 0LL, -1073741515);
     }
   }
   if ( v4 < 0 )
@@ -85,12 +87,12 @@ void __fastcall sub_1800426E8(__int64 a1, char a2)
 LABEL_21:
   if ( !a2 )
   {
-    RtlEnterCriticalSection((__int64)&unk_18015C240);
+    RtlEnterCriticalSection(&stru_18015C240);
     v7 = --dword_18015C268;
     if ( (__int64 *)qword_18015C270 != &qword_18015C270 || (v8 = 1, v7 != 1) )
       v8 = 0;
-    RtlLeaveCriticalSection((__int64)&unk_18015C240);
+    RtlLeaveCriticalSection(&stru_18015C240);
     if ( v8 )
-      ZwSetEvent(qword_18015C220, 0LL);
+      ZwSetEvent(EventHandle, 0LL);
   }
 }

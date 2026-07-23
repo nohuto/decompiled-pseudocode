@@ -1,26 +1,26 @@
 /*
- * XREFs of PspChargeProcessWakeCounter @ 0x1405E6B10
+ * XREFs of PspChargeProcessWakeCounter @ 0x1406D6270
  * Callers:
- *     PsReleaseProcessWakeCounter @ 0x1405DE9D0 (PsReleaseProcessWakeCounter.c)
- *     AlpcpSendMessage @ 0x1405E4800 (AlpcpSendMessage.c)
- *     PsChargeProcessWakeCounter @ 0x1406BF030 (PsChargeProcessWakeCounter.c)
- *     PspAdjustKeepAliveCountProcess @ 0x140907BD0 (PspAdjustKeepAliveCountProcess.c)
+ *     PsChargeProcessWakeCounter @ 0x1406BCA00 (PsChargeProcessWakeCounter.c)
+ *     PsReleaseProcessWakeCounter @ 0x1406CE130 (PsReleaseProcessWakeCounter.c)
+ *     AlpcpSendMessage @ 0x1406D3F60 (AlpcpSendMessage.c)
+ *     PspAdjustKeepAliveCountProcess @ 0x140907D30 (PspAdjustKeepAliveCountProcess.c)
  * Callees:
- *     ObfReferenceObjectWithTag @ 0x1402056A0 (ObfReferenceObjectWithTag.c)
- *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
- *     ExfReleasePushLockShared @ 0x1402F1470 (ExfReleasePushLockShared.c)
- *     ObDereferenceObjectDeferDeleteWithTag @ 0x140342370 (ObDereferenceObjectDeferDeleteWithTag.c)
- *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
- *     ExAcquirePushLockSharedEx @ 0x14034AB50 (ExAcquirePushLockSharedEx.c)
- *     ZwUpdateWnfStateData @ 0x1403FDDA0 (ZwUpdateWnfStateData.c)
- *     PspChargeJobWakeCounter @ 0x140617E18 (PspChargeJobWakeCounter.c)
- *     PspCheckConditionalWakeCharge @ 0x1406A0E84 (PspCheckConditionalWakeCharge.c)
- *     EtwTraceWakeCounter @ 0x1409368A8 (EtwTraceWakeCounter.c)
- *     EtwTraceWakeEvent @ 0x140936964 (EtwTraceWakeEvent.c)
+ *     ObfReferenceObjectWithTag @ 0x1402A9FE0 (ObfReferenceObjectWithTag.c)
+ *     KeLeaveCriticalRegionThread @ 0x1402AB8C0 (KeLeaveCriticalRegionThread.c)
+ *     ExfReleasePushLockShared @ 0x1402FC1C0 (ExfReleasePushLockShared.c)
+ *     ObDereferenceObjectDeferDeleteWithTag @ 0x14034D0C0 (ObDereferenceObjectDeferDeleteWithTag.c)
+ *     KeAbPostRelease @ 0x1403539D0 (KeAbPostRelease.c)
+ *     ExAcquirePushLockSharedEx @ 0x1403558A0 (ExAcquirePushLockSharedEx.c)
+ *     ZwUpdateWnfStateData @ 0x1403FDF80 (ZwUpdateWnfStateData.c)
+ *     PspCheckConditionalWakeCharge @ 0x1405FD214 (PspCheckConditionalWakeCharge.c)
+ *     PspChargeJobWakeCounter @ 0x140681A78 (PspChargeJobWakeCounter.c)
+ *     EtwTraceWakeCounter @ 0x140936A78 (EtwTraceWakeCounter.c)
+ *     EtwTraceWakeEvent @ 0x140936B34 (EtwTraceWakeEvent.c)
  */
 
-unsigned __int64 __fastcall PspChargeProcessWakeCounter(
-        __int64 Object,
+__int64 __fastcall PspChargeProcessWakeCounter(
+        __int64 a1,
         int a2,
         unsigned int a3,
         __int64 a4,
@@ -31,7 +31,7 @@ unsigned __int64 __fastcall PspChargeProcessWakeCounter(
   int v8; // r12d
   char v9; // r14
   int v10; // edi
-  _DWORD *v11; // r9
+  __int64 v11; // r9
   bool v12; // si
   char v13; // dl
   int v14; // ecx
@@ -45,29 +45,32 @@ unsigned __int64 __fastcall PspChargeProcessWakeCounter(
   int v22; // edx
   bool v23; // bp
   int v24; // r15d
-  unsigned int v25; // r14d
-  __int64 v26; // rbp
-  int v27; // edi
-  unsigned int v29; // [rsp+40h] [rbp-68h]
-  int v30; // [rsp+44h] [rbp-64h]
+  __int64 v25; // rdx
+  __int64 v26; // r8
+  __int64 v27; // r9
+  int v28; // r14d
+  __int64 v29; // rbp
+  int v30; // edi
+  unsigned int v32; // [rsp+40h] [rbp-68h]
+  int v33; // [rsp+44h] [rbp-64h]
   struct _KTHREAD *CurrentThread; // [rsp+48h] [rbp-60h]
-  PVOID Objecta; // [rsp+50h] [rbp-58h]
-  char v33; // [rsp+B0h] [rbp+8h]
+  char *Object; // [rsp+50h] [rbp-58h]
+  char v36; // [rsp+B0h] [rbp+8h]
 
-  v33 = 0;
+  v36 = 0;
   v8 = a2 & 2;
-  v29 = a3;
+  v32 = a3;
   CurrentThread = KeGetCurrentThread();
-  v30 = 1;
+  LOBYTE(v33) = 1;
   v9 = 0;
   v10 = 0;
   --CurrentThread->KernelApcDisable;
-  ExAcquirePushLockSharedEx(Object + 1080, 0LL);
-  v11 = *(_DWORD **)(Object + 1296);
+  ExAcquirePushLockSharedEx(a1 + 1080, 0LL);
+  v11 = *(_QWORD *)(a1 + 1296);
   v12 = v8 != 0;
   v13 = a6;
-  Objecta = v11;
-  if ( !v11 || (v14 = v11[330], (v14 & 0x1000) == 0) )
+  Object = (char *)v11;
+  if ( !v11 || (v14 = *(_DWORD *)(v11 + 1320), (v14 & 0x1000) == 0) )
   {
     v18 = 0;
     goto LABEL_16;
@@ -82,7 +85,7 @@ unsigned __int64 __fastcall PspChargeProcessWakeCounter(
     if ( (a2 & 1) == 0 )
       goto LABEL_11;
     v12 = v8 != 0;
-    if ( !(unsigned __int8)PspCheckConditionalWakeCharge(v15->ApcState.Process, v11, a3) )
+    if ( !PspCheckConditionalWakeCharge((__int64)v15->ApcState.Process, v11, a3) )
     {
 LABEL_33:
       v23 = 0;
@@ -97,27 +100,27 @@ LABEL_11:
   {
     v18 = 1;
     v12 = 0;
-    v33 = 1;
+    v36 = 1;
   }
   else
   {
-    v29 = 7;
+    v32 = 7;
     v12 = v8 != 0;
-    v30 = ((v17 >> 31) & 2) + 5;
+    v33 = ((v17 >> 31) & 2) + 5;
     v18 = 1;
-    v33 = 1;
+    v36 = 1;
   }
 LABEL_16:
-  if ( v13 && !v18 && !*(_QWORD *)(Object + 2464) )
+  if ( v13 && !v18 && !*(_QWORD *)(a1 + 2464) )
     goto LABEL_33;
   if ( v12 )
   {
-    v19 = (volatile signed __int32 *)(Object + 2508);
-    v29 = 7;
+    v19 = (volatile signed __int32 *)(a1 + 2508);
+    v32 = 7;
   }
   else
   {
-    v19 = (volatile signed __int32 *)(Object + 4 * ((int)a3 + 618LL));
+    v19 = (volatile signed __int32 *)(a1 + 4 * ((int)a3 + 618LL));
   }
   v20 = _InterlockedExchangeAdd(v19, a5) + a5;
   v21 = 1;
@@ -126,60 +129,60 @@ LABEL_16:
   if ( v20 >= 0 )
     v22 = v20;
   v10 = v22;
-  if ( !v12 && *(_QWORD *)(Object + 2464) )
+  if ( !v12 && *(_QWORD *)(a1 + 2464) )
   {
     v24 = 1 << a3;
     if ( a5 <= 0 )
     {
-      if ( (v24 & *(_DWORD *)(Object + 2504)) != 0 && !v22 )
+      if ( (v24 & *(_DWORD *)(a1 + 2504)) != 0 && !v22 )
         v9 = 1;
     }
-    else if ( (v24 & *(_DWORD *)(Object + 2500)) != 0 && v22 == 1 )
+    else if ( (v24 & *(_DWORD *)(a1 + 2500)) != 0 && v22 == 1 )
     {
       v9 = 1;
     }
   }
 LABEL_34:
-  if ( _InterlockedCompareExchange64((volatile signed __int64 *)(Object + 1080), 0LL, 17LL) != 17 )
-    ExfReleasePushLockShared((signed __int64 *)(Object + 1080));
-  KeAbPostRelease(Object + 1080);
-  KeLeaveCriticalRegionThread((__int64)CurrentThread);
+  if ( _InterlockedCompareExchange64((volatile signed __int64 *)(a1 + 1080), 0LL, 17LL) != 17 )
+    ExfReleasePushLockShared((signed __int64 *)(a1 + 1080));
+  KeAbPostRelease(a1 + 1080);
+  KeLeaveCriticalRegionThread((__int64)CurrentThread, v25, v26, v27);
   if ( v9 )
   {
-    ZwUpdateWnfStateData(Object + 2464, 0LL);
-    v25 = a3;
+    ZwUpdateWnfStateData((PCWNF_STATE_NAME)(a1 + 2464), 0LL, 0, 0LL, 0LL, 0, 0);
+    v28 = a3;
     if ( (xmmword_140CFC490 & 0x400) != 0 && v10 == 1 )
-      EtwTraceWakeEvent(Object, a3);
+      EtwTraceWakeEvent(a1, a3);
   }
   else
   {
-    v25 = a3;
+    v28 = a3;
   }
   if ( a7 )
     *a7 = v10;
-  if ( v23 || v33 )
+  if ( v23 || v36 )
   {
-    v26 = a4;
-    v27 = a5;
-    PspChargeJobWakeCounter(Objecta, v30, Object, a4);
+    v29 = a4;
+    v30 = a5;
+    PspChargeJobWakeCounter(Object, 0LL, v28, a5, v33, a1, a4);
   }
   else
   {
-    v26 = a4;
-    v27 = a5;
+    v29 = a4;
+    v30 = a5;
   }
   if ( v21 )
   {
     if ( (xmmword_140CFC490 & 0x2000) != 0 && !v12 )
-      EtwTraceWakeCounter(Object, v25, v27, Object, v26);
+      EtwTraceWakeCounter(a1, v28, v30, a1, v29);
     if ( a6 )
     {
       if ( a5 > 0 )
       {
-        ObfReferenceObjectWithTag((PVOID)Object, 0x6B577350u);
-        return Object | v29;
+        ObfReferenceObjectWithTag((PVOID)a1, 0x6B577350u);
+        return a1 | v32;
       }
-      ObDereferenceObjectDeferDeleteWithTag((PVOID)Object, 0x6B577350u);
+      ObDereferenceObjectDeferDeleteWithTag((PVOID)a1, 0x6B577350u);
     }
   }
   return 0LL;

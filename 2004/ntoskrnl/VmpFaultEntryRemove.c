@@ -9,9 +9,9 @@
  *     KiRemoveSystemWorkPriorityKick @ 0x1403EDAA4 (KiRemoveSystemWorkPriorityKick.c)
  */
 
-__int64 __fastcall VmpFaultEntryRemove(__int64 a1, unsigned __int64 a2, unsigned int a3)
+__int64 __fastcall VmpFaultEntryRemove(__int64 a1, _RTL_BALANCED_NODE *a2, unsigned int a3)
 {
-  unsigned __int64 v3; // rbx
+  _RTL_BALANCED_NODE *v3; // rbx
   unsigned __int64 v5; // rsi
   unsigned __int8 CurrentIrql; // di
   _DWORD *SchedulerAssist; // r9
@@ -23,7 +23,7 @@ __int64 __fastcall VmpFaultEntryRemove(__int64 a1, unsigned __int64 a2, unsigned
   __int64 result; // rax
 
   v3 = a2;
-  v5 = a2 + 48LL * a3;
+  v5 = (unsigned __int64)&a2[2 * a3];
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(0xFuLL);
   if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
@@ -32,10 +32,10 @@ __int64 __fastcall VmpFaultEntryRemove(__int64 a1, unsigned __int64 a2, unsigned
     SchedulerAssist[5] |= (-1 << (CurrentIrql + 1)) & 0xFFFC;
   }
   ExAcquireSpinLockExclusiveAtDpcLevel((PEX_SPIN_LOCK)(a1 + 64));
-  while ( v3 < v5 )
+  while ( (unsigned __int64)v3 < v5 )
   {
-    RtlRbRemoveNode((unsigned __int64 *)(a1 + 48), v3);
-    v3 += 48LL;
+    RtlRbRemoveNode((PRTL_RB_TREE)(a1 + 48), v3);
+    v3 += 2;
   }
   ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(a1 + 64));
   if ( KiIrqlFlags )

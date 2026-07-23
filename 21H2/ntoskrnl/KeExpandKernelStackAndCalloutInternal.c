@@ -1,17 +1,17 @@
 /*
- * XREFs of KeExpandKernelStackAndCalloutInternal @ 0x140329FF0
+ * XREFs of KeExpandKernelStackAndCalloutInternal @ 0x140334D40
  * Callers:
- *     MiSwapStackPage @ 0x1402C605C (MiSwapStackPage.c)
- *     KeExpandKernelStackAndCallout @ 0x1402D3350 (KeExpandKernelStackAndCallout.c)
- *     KeExpandKernelStackAndCalloutEx @ 0x140329FC0 (KeExpandKernelStackAndCalloutEx.c)
- *     MiDoStackCopy @ 0x140535F20 (MiDoStackCopy.c)
- *     KeInitSystem @ 0x140A4C33C (KeInitSystem.c)
+ *     MiSwapStackPage @ 0x14024483C (MiSwapStackPage.c)
+ *     KeExpandKernelStackAndCallout @ 0x140251680 (KeExpandKernelStackAndCallout.c)
+ *     KeExpandKernelStackAndCalloutEx @ 0x140334D10 (KeExpandKernelStackAndCalloutEx.c)
+ *     MiDoStackCopy @ 0x140536160 (MiDoStackCopy.c)
+ *     KeInitSystem @ 0x140A4D33C (KeInitSystem.c)
  * Callees:
- *     KiExpandKernelStackAndCalloutSwitchStack @ 0x14032A0D0 (KiExpandKernelStackAndCalloutSwitchStack.c)
- *     KeBugCheck @ 0x1403FDED0 (KeBugCheck.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     KiFatalFilter @ 0x140514B30 (KiFatalFilter.c)
+ *     KiExpandKernelStackAndCalloutSwitchStack @ 0x140334E20 (KiExpandKernelStackAndCalloutSwitchStack.c)
+ *     KeBugCheck @ 0x1403FE0B0 (KeBugCheck.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     KiFatalFilter @ 0x140514D70 (KiFatalFilter.c)
  */
 
 __int64 __fastcall KeExpandKernelStackAndCalloutInternal(

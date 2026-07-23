@@ -1,14 +1,14 @@
 /*
- * XREFs of PspDetachSession @ 0x1404B6D7C
+ * XREFs of PspDetachSession @ 0x1404B05B0
  * Callers:
- *     PsDetachSession @ 0x140616E10 (PsDetachSession.c)
- *     PspAllocateProcess @ 0x140964C24 (PspAllocateProcess.c)
+ *     PsDetachSession @ 0x140619E00 (PsDetachSession.c)
+ *     PspAllocateProcess @ 0x140B7E8A8 (PspAllocateProcess.c)
  * Callees:
- *     PspLockProcessListExclusive @ 0x140215EEC (PspLockProcessListExclusive.c)
- *     PspUnlockProcessListExclusive @ 0x140215F5C (PspUnlockProcessListExclusive.c)
- *     KiUnstackDetachProcess @ 0x1402307C0 (KiUnstackDetachProcess.c)
- *     KeSignalGate @ 0x1403C2AD0 (KeSignalGate.c)
- *     PsQuitNextSession @ 0x140A8F6B0 (PsQuitNextSession.c)
+ *     PspLockProcessListExclusive @ 0x14021621C (PspLockProcessListExclusive.c)
+ *     PspUnlockProcessListExclusive @ 0x14021628C (PspUnlockProcessListExclusive.c)
+ *     KiUnstackDetachProcess @ 0x140232120 (KiUnstackDetachProcess.c)
+ *     KeSignalGate @ 0x1403CC9D0 (KeSignalGate.c)
+ *     PsQuitNextSession @ 0x140A94380 (PsQuitNextSession.c)
  */
 
 __int64 __fastcall PspDetachSession(__int64 a1, __int64 a2)

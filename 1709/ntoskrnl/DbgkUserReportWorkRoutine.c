@@ -24,18 +24,14 @@ LONG_PTR __fastcall DbgkUserReportWorkRoutine(char *P)
 {
   __int64 v2; // rdi
   _KPROCESS *v3; // rax
-  int Thread; // edx
+  NTSTATUS v4; // edx
   _OWORD *v5; // rcx
   PVOID BaseAddress; // [rsp+60h] [rbp-A8h] BYREF
   HANDLE ThreadHandle; // [rsp+68h] [rbp-A0h] BYREF
   HANDLE Handle; // [rsp+70h] [rbp-98h] BYREF
   ULONG_PTR RegionSize[3]; // [rsp+78h] [rbp-90h] BYREF
-  int v11; // [rsp+90h] [rbp-78h] BYREF
-  __int64 v12; // [rsp+98h] [rbp-70h]
-  __int64 v13; // [rsp+A0h] [rbp-68h]
-  int v14; // [rsp+A8h] [rbp-60h]
-  __int128 v15; // [rsp+B0h] [rbp-58h]
-  $709EDFC2F9E0D4565D6AA3C4377BC643 v16; // [rsp+C0h] [rbp-48h] BYREF
+  OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+90h] [rbp-78h] BYREF
+  $709EDFC2F9E0D4565D6AA3C4377BC643 v12; // [rsp+C0h] [rbp-48h] BYREF
 
   RegionSize[2] = (ULONG_PTR)P;
   Handle = 0LL;
@@ -45,12 +41,12 @@ LONG_PTR __fastcall DbgkUserReportWorkRoutine(char *P)
   v2 = *(_QWORD *)P;
   RegionSize[1] = v2;
   v3 = IoThreadToProcess((PETHREAD)v2);
-  KiStackAttachProcess(v3, 0, (__int64)&v16);
-  Thread = ObOpenObjectByPointer((PVOID)v2, 0, 0LL, 0x72u, (POBJECT_TYPE)PsThreadType, 1, &Handle);
-  if ( Thread >= 0 )
+  KiStackAttachProcess(v3, 0, (__int64)&v12);
+  v4 = ObOpenObjectByPointer((PVOID)v2, 0, 0LL, 0x72u, (POBJECT_TYPE)PsThreadType, 1, &Handle);
+  if ( v4 >= 0 )
   {
-    Thread = ZwAllocateVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &BaseAddress, 0LL, RegionSize, 0x3000u, 4u);
-    if ( Thread >= 0 )
+    v4 = ZwAllocateVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &BaseAddress, 0LL, RegionSize, 0x3000u, 4u);
+    if ( v4 >= 0 )
     {
       *((_QWORD *)BaseAddress + 1) = *((_QWORD *)P + 1);
       *(_QWORD *)BaseAddress = Handle;
@@ -68,19 +64,30 @@ LONG_PTR __fastcall DbgkUserReportWorkRoutine(char *P)
         v5[9] = *(_OWORD *)(P + 152);
         *((_QWORD *)v5 + 20) = *((_QWORD *)P + 21);
       }
-      v11 = 48;
-      v12 = 0LL;
-      v14 = 512;
-      v13 = 0LL;
-      v15 = 0LL;
-      Thread = ZwCreateThreadEx((__int64)&ThreadHandle, 0x1FFFFFLL, (__int64)&v11);
+      ObjectAttributes.Length = 48;
+      ObjectAttributes.RootDirectory = 0LL;
+      ObjectAttributes.Attributes = 512;
+      ObjectAttributes.ObjectName = 0LL;
+      *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+      v4 = ZwCreateThreadEx(
+             &ThreadHandle,
+             0x1FFFFFu,
+             &ObjectAttributes,
+             (HANDLE)0xFFFFFFFFFFFFFFFFLL,
+             DbgkWerReportExceptionWorker,
+             BaseAddress,
+             0x27u,
+             0LL,
+             0LL,
+             0LL,
+             0LL);
     }
     else
     {
       BaseAddress = 0LL;
     }
   }
-  if ( Thread < 0 )
+  if ( v4 < 0 )
   {
     _InterlockedAnd((volatile signed __int32 *)(v2 + 1744), 0xFFDFFFFF);
     if ( Handle )
@@ -91,12 +98,12 @@ LONG_PTR __fastcall DbgkUserReportWorkRoutine(char *P)
   }
   else
   {
-    ZwSetInformationThread(ThreadHandle, ThreadPriorityBoost|0x20, &unk_1402D7040, 4u);
+    ZwSetInformationThread(ThreadHandle, ThreadDbgkWerReportActive, &unk_1402D7040, 4u);
     ZwResumeThread(ThreadHandle, 0LL);
     ZwClose(ThreadHandle);
     ThreadHandle = 0LL;
   }
-  KiUnstackDetachProcess(&v16, 0LL);
+  KiUnstackDetachProcess(&v12, 0LL);
   ExFreePoolWithTag(P, 0x4B474244u);
   return ObfDereferenceObject((PVOID)v2);
 }

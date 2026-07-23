@@ -1,9 +1,9 @@
 /*
- * XREFs of KeBuildLogicalProcessorSystemInformation @ 0x140A16BC4
+ * XREFs of KeBuildLogicalProcessorSystemInformation @ 0x140A0FDA4
  * Callers:
- *     ExpQuerySystemInformation @ 0x140ADC240 (ExpQuerySystemInformation.c)
+ *     ExpQuerySystemInformation @ 0x140ADDAE0 (ExpQuerySystemInformation.c)
  * Callees:
- *     KiGetSubNodeForGroup @ 0x14044C2CC (KiGetSubNodeForGroup.c)
+ *     KiGetSubNodeForGroup @ 0x1404431CC (KiGetSubNodeForGroup.c)
  */
 
 __int64 __fastcall KeBuildLogicalProcessorSystemInformation(
@@ -59,7 +59,7 @@ __int64 __fastcall KeBuildLogicalProcessorSystemInformation(
         if ( v12 )
         {
           _BitScanReverse64(&v14, v12);
-          v15 = *((_DWORD *)qword_140F21E78 + (unsigned int)((v13 << 6) + v14));
+          v15 = *((_DWORD *)qword_140F22998 + (unsigned int)((v13 << 6) + v14));
         }
         else
         {
@@ -87,7 +87,7 @@ __int64 __fastcall KeBuildLogicalProcessorSystemInformation(
         if ( v17 )
         {
           _BitScanReverse64(&v18, v17);
-          v19 = *((_DWORD *)qword_140F21E78 + (unsigned int)(v18 + (v13 << 6)));
+          v19 = *((_DWORD *)qword_140F22998 + (unsigned int)(v18 + (v13 << 6)));
         }
         else
         {
@@ -129,7 +129,7 @@ LABEL_16:
       if ( !v23 )
         goto LABEL_36;
       _BitScanReverse64(&v24, v23);
-      v25 = *((_DWORD *)qword_140F21E78 + (unsigned int)(((_DWORD)v4 << 6) + v24));
+      v25 = *((_DWORD *)qword_140F22998 + (unsigned int)(((_DWORD)v4 << 6) + v24));
 LABEL_14:
       if ( *(_DWORD *)(v10 + 36) == v25 )
       {

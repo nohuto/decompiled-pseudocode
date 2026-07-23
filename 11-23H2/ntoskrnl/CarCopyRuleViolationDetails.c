@@ -1,10 +1,10 @@
 /*
- * XREFs of CarCopyRuleViolationDetails @ 0x1405D3790
+ * XREFs of CarCopyRuleViolationDetails @ 0x1405D3D00
  * Callers:
- *     CarReportRuleViolationForTriage @ 0x1405D43C0 (CarReportRuleViolationForTriage.c)
+ *     CarReportRuleViolationForTriage @ 0x1405D4930 (CarReportRuleViolationForTriage.c)
  * Callees:
- *     RtlStringCchCopyW @ 0x14022C6B0 (RtlStringCchCopyW.c)
- *     RtlStringCchCopyA @ 0x1403C342C (RtlStringCchCopyA.c)
+ *     RtlStringCchCopyW @ 0x14022C7C0 (RtlStringCchCopyW.c)
+ *     RtlStringCchCopyA @ 0x1403C360C (RtlStringCchCopyA.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

@@ -1,13 +1,13 @@
 /*
- * XREFs of PfCheckDeprioritizeImage @ 0x1403E6698
+ * XREFs of PfCheckDeprioritizeImage @ 0x1403E7CC8
  * Callers:
- *     PfProcessCreateNotification @ 0x1403E6410 (PfProcessCreateNotification.c)
- *     CcUnmapVacb @ 0x14042B660 (CcUnmapVacb.c)
+ *     PfProcessCreateNotification @ 0x1403E7A40 (PfProcessCreateNotification.c)
+ *     CcUnmapVacb @ 0x14042A530 (CcUnmapVacb.c)
  * Callees:
- *     PfLockSharedAcquire @ 0x1400064A4 (PfLockSharedAcquire.c)
- *     KeLeaveCriticalRegion @ 0x140069D00 (KeLeaveCriticalRegion.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     ExfReleasePushLockShared @ 0x1400C8640 (ExfReleasePushLockShared.c)
+ *     PfLockSharedAcquire @ 0x140006614 (PfLockSharedAcquire.c)
+ *     KeLeaveCriticalRegion @ 0x140069880 (KeLeaveCriticalRegion.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     ExfReleasePushLockShared @ 0x1400C64E0 (ExfReleasePushLockShared.c)
  */
 
 __int64 __fastcall PfCheckDeprioritizeImage(unsigned int a1)
@@ -22,8 +22,8 @@ __int64 __fastcall PfCheckDeprioritizeImage(unsigned int a1)
   v2 = 0;
   if ( !a1 )
     return 0LL;
-  PfLockSharedAcquire((volatile signed __int64 *)&qword_140328650);
-  if ( dword_140328644 )
+  PfLockSharedAcquire((volatile signed __int64 *)&qword_140328690);
+  if ( dword_140328684 )
   {
     v3 = 0LL;
     for ( i = (37
@@ -33,9 +33,9 @@ __int64 __fastcall PfCheckDeprioritizeImage(unsigned int a1)
                + 37
                * (BYTE4(v1)
                 + 37 * (BYTE3(v1) + 37 * (BYTE2(v1) + 37 * (BYTE1(v1) + 37 * ((unsigned __int8)v1 + 11623883)))))))
-             + HIBYTE(v1)) & (unsigned int)(dword_140328644 - 1); ; i = (unsigned int)(dword_140328644 - 1) & (v3 + i) )
+             + HIBYTE(v1)) & (unsigned int)(dword_140328684 - 1); ; i = (unsigned int)(dword_140328684 - 1) & (v3 + i) )
     {
-      v5 = (_QWORD *)(qword_140328638 + (i << dword_140328640));
+      v5 = (_QWORD *)(qword_140328678 + (i << dword_140328680));
       if ( !*v5 || *v5 == (unsigned int)v1 )
         break;
       if ( !v3 )
@@ -48,9 +48,9 @@ __int64 __fastcall PfCheckDeprioritizeImage(unsigned int a1)
     if ( *v5 )
       v2 = 1;
   }
-  if ( _InterlockedCompareExchange64((volatile signed __int64 *)&qword_140328650, 0LL, 17LL) != 17 )
-    ExfReleasePushLockShared((signed __int64 *)&qword_140328650);
-  KeAbPostRelease((ULONG_PTR)&qword_140328650);
+  if ( _InterlockedCompareExchange64((volatile signed __int64 *)&qword_140328690, 0LL, 17LL) != 17 )
+    ExfReleasePushLockShared((signed __int64 *)&qword_140328690);
+  KeAbPostRelease((ULONG_PTR)&qword_140328690);
   KeLeaveCriticalRegion();
   return v2;
 }

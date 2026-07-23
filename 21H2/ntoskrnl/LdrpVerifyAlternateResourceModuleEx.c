@@ -1,14 +1,14 @@
 /*
- * XREFs of LdrpVerifyAlternateResourceModuleEx @ 0x140381B5C
+ * XREFs of LdrpVerifyAlternateResourceModuleEx @ 0x1403816AC
  * Callers:
- *     LdrLoadAlternateResourceModuleEx @ 0x1402A94D4 (LdrLoadAlternateResourceModuleEx.c)
+ *     LdrLoadAlternateResourceModuleEx @ 0x140227614 (LdrLoadAlternateResourceModuleEx.c)
  * Callees:
- *     LdrpGetRcConfig @ 0x1402A92B4 (LdrpGetRcConfig.c)
- *     _wcsicmp @ 0x1403D20D0 (_wcsicmp.c)
- *     LdrResGetRCConfig @ 0x14078BC7C (LdrResGetRCConfig.c)
+ *     LdrpGetRcConfig @ 0x1402273F4 (LdrpGetRcConfig.c)
+ *     _wcsicmp @ 0x1403D2240 (_wcsicmp.c)
+ *     LdrResGetRCConfig @ 0x14078BE3C (LdrResGetRCConfig.c)
  */
 
-bool __fastcall LdrpVerifyAlternateResourceModuleEx(__int64 a1, __int64 a2, __int64 a3, const wchar_t *a4, int a5)
+bool __fastcall LdrpVerifyAlternateResourceModuleEx(void *a1, void *a2, __int64 a3, const wchar_t *a4, int a5)
 {
   __int64 v7; // rdx
   _DWORD *v8; // rdi
@@ -22,10 +22,10 @@ bool __fastcall LdrpVerifyAlternateResourceModuleEx(__int64 a1, __int64 a2, __in
   v13 = 0LL;
   if ( (a5 & 0x1000) != 0 )
   {
-    RCConfig = LdrResGetRCConfig(a1, 0, (unsigned int)&v14, 4096, 1);
+    RCConfig = LdrResGetRCConfig((_DWORD)a1, 0, (unsigned int)&v14, 4096, 1);
     if ( RCConfig >= 0 )
     {
-      if ( (int)LdrResGetRCConfig(a2, 0, (unsigned int)&v13, 4096, 0) < 0 )
+      if ( (int)LdrResGetRCConfig((_DWORD)a2, 0, (unsigned int)&v13, 4096, 0) < 0 )
         return 0;
       v8 = v14;
       v9 = v13;
@@ -40,7 +40,7 @@ LABEL_4:
   }
   else
   {
-    v8 = LdrpGetRcConfig(a1, a2, 0, 1);
+    v8 = LdrpGetRcConfig(a1, (__int64)a2, 0, 1);
     if ( v8 )
     {
       v9 = LdrpGetRcConfig(a2, v7, 0, 0);

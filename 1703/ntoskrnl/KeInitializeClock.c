@@ -18,13 +18,13 @@
 
 BOOLEAN __fastcall KeInitializeClock(ULONG_PTR BugCheckParameter2, __int64 a2)
 {
-  bool v2; // bl
+  BOOLEAN v2; // bl
   BOOLEAN result; // al
   unsigned __int8 CurrentIrql; // di
   __int64 v5; // rcx
-  unsigned __int64 v6; // rdx
+  _RTL_BALANCED_NODE *Root; // rdx
   const char *v7; // rcx
-  unsigned __int64 v8; // rax
+  _RTL_BALANCED_NODE *v8; // rax
   int v9; // [rsp+30h] [rbp-48h] BYREF
   LARGE_INTEGER PerformanceFrequency; // [rsp+38h] [rbp-40h] BYREF
   __int64 v11; // [rsp+40h] [rbp-38h] BYREF
@@ -80,43 +80,43 @@ BOOLEAN __fastcall KeInitializeClock(ULONG_PTR BugCheckParameter2, __int64 a2)
   ((void (__fastcall *)(__int64))off_14033B588[0])(v5);
   ((void (__fastcall *)(_QWORD, _QWORD, __int64 *))off_14033B5A0[0])(0LL, KeMaximumIncrement, &v11);
   KiSetPendingTick(1);
-  v6 = KiClockIntervalRequests;
+  Root = KiClockIntervalRequests.Root;
   KeTimeIncrement = v11;
   KiLastRequestedTimeIncrement = KeMaximumIncrement;
   KeNonHrTimeIncrement = v11;
   dword_14035625C = KeMaximumIncrement;
-  if ( !KiClockIntervalRequests )
+  if ( !KiClockIntervalRequests.Root )
     goto LABEL_11;
   while ( 1 )
   {
-    if ( KeMaximumIncrement < *(_DWORD *)(v6 + 28) )
+    if ( KeMaximumIncrement < HIDWORD(Root[1].Left) )
     {
-      v8 = *(_QWORD *)v6;
-      if ( (qword_140384FB0 & 1) != 0 )
+      v8 = Root->Children[0];
+      if ( (*(_BYTE *)&KiClockIntervalRequests.0 & 1) != 0 )
       {
         if ( !v8 )
           goto LABEL_11;
-        v8 ^= v6;
+        v8 = (_RTL_BALANCED_NODE *)((unsigned __int64)Root ^ (unsigned __int64)v8);
       }
       if ( !v8 )
         goto LABEL_11;
       goto LABEL_40;
     }
-    v8 = *(_QWORD *)(v6 + 8);
-    if ( (qword_140384FB0 & 1) != 0 )
+    v8 = Root->Children[1];
+    if ( (*(_BYTE *)&KiClockIntervalRequests.0 & 1) != 0 )
     {
       if ( !v8 )
         break;
-      v8 ^= v6;
+      v8 = (_RTL_BALANCED_NODE *)((unsigned __int64)Root ^ (unsigned __int64)v8);
     }
     if ( !v8 )
       break;
 LABEL_40:
-    v6 = v8;
+    Root = v8;
   }
   v2 = 1;
 LABEL_11:
-  RtlRbInsertNodeEx((__int64)&KiClockIntervalRequests, v6, v2, (unsigned __int64)&KiDefaultClockIntervalRequest);
+  RtlRbInsertNodeEx(&KiClockIntervalRequests, Root, v2, &KiDefaultClockIntervalRequest);
   byte_140356258 = 1;
   __writecr8(CurrentIrql);
   dword_1403561F0 = KeTimeIncrement;

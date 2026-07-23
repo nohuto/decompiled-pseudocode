@@ -1,11 +1,11 @@
 /*
- * XREFs of ApiSetpSearchForApiSet @ 0x180047120
+ * XREFs of ApiSetpSearchForApiSet @ 0x180031690
  * Callers:
- *     LdrpApplyFileNameRedirection @ 0x180042DA0 (LdrpApplyFileNameRedirection.c)
- *     LdrpPreprocessDllName @ 0x180045C10 (LdrpPreprocessDllName.c)
- *     LdrpSnapKernelBaseExtensions @ 0x180082DF0 (LdrpSnapKernelBaseExtensions.c)
- *     ApiSetResolveToHost @ 0x1800E6E14 (ApiSetResolveToHost.c)
- *     ApiSetQuerySchemaInfo @ 0x18011F6DC (ApiSetQuerySchemaInfo.c)
+ *     LdrpApplyFileNameRedirection @ 0x18002D310 (LdrpApplyFileNameRedirection.c)
+ *     LdrpPreprocessDllName @ 0x180030180 (LdrpPreprocessDllName.c)
+ *     LdrpSnapKernelBaseExtensions @ 0x18007A190 (LdrpSnapKernelBaseExtensions.c)
+ *     ApiSetResolveToHost @ 0x1800E5874 (ApiSetResolveToHost.c)
+ *     ApiSetQuerySchemaInfo @ 0x18011F48C (ApiSetQuerySchemaInfo.c)
  * Callees:
  *     <none>
  */
@@ -95,14 +95,14 @@ __int64 __fastcall ApiSetpSearchForApiSet(_DWORD *a1, unsigned __int16 *a2, unsi
       {
         if ( (unsigned int)v24 > 0x7A )
         {
-          if ( qword_1801C6038 && (unsigned __int16)v24 >= 0xC0u )
-            LOWORD(v24) = *(_WORD *)(qword_1801C6038
+          if ( qword_1801C5038 && (unsigned __int16)v24 >= 0xC0u )
+            LOWORD(v24) = *(_WORD *)(qword_1801C5038
                                    + 2
                                    * ((v24 & 0xF)
-                                    + *(unsigned __int16 *)(qword_1801C6038
+                                    + *(unsigned __int16 *)(qword_1801C5038
                                                           + 2LL
                                                           * (((unsigned __int8)v24 >> 4)
-                                                           + (unsigned int)*(unsigned __int16 *)(qword_1801C6038
+                                                           + (unsigned int)*(unsigned __int16 *)(qword_1801C5038
                                                                                                + 2 * (v24 >> 8))))))
                         + v24;
         }
@@ -115,16 +115,16 @@ __int64 __fastcall ApiSetpSearchForApiSet(_DWORD *a1, unsigned __int16 *a2, unsi
       {
         if ( (unsigned int)v25 > 0x7A )
         {
-          if ( qword_1801C6038 )
+          if ( qword_1801C5038 )
           {
             if ( (unsigned __int16)v25 >= 0xC0u )
-              LOWORD(v25) = *(_WORD *)(qword_1801C6038
+              LOWORD(v25) = *(_WORD *)(qword_1801C5038
                                      + 2
                                      * ((v25 & 0xF)
-                                      + *(unsigned __int16 *)(qword_1801C6038
+                                      + *(unsigned __int16 *)(qword_1801C5038
                                                             + 2LL
                                                             * (((unsigned __int8)v25 >> 4)
-                                                             + (unsigned int)*(unsigned __int16 *)(qword_1801C6038
+                                                             + (unsigned int)*(unsigned __int16 *)(qword_1801C5038
                                                                                                  + 2 * (v25 >> 8))))))
                           + v25;
           }

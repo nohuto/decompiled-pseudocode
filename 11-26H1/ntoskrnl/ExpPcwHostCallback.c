@@ -1,12 +1,12 @@
 /*
- * XREFs of ExpPcwHostCallback @ 0x140841950
+ * XREFs of ExpPcwHostCallback @ 0x140847B90
  * Callers:
  *     <none>
  * Callees:
- *     PsIsDiskCountersEnabled @ 0x140614F10 (PsIsDiskCountersEnabled.c)
- *     ExpRegisterCounterSet @ 0x140841C2C (ExpRegisterCounterSet.c)
- *     EtwRegisterCounters @ 0x1408AB5A4 (EtwRegisterCounters.c)
- *     PcwUnregister @ 0x140B45EA0 (PcwUnregister.c)
+ *     PsIsDiskCountersEnabled @ 0x140617DB0 (PsIsDiskCountersEnabled.c)
+ *     ExpRegisterCounterSet @ 0x140847E6C (ExpRegisterCounterSet.c)
+ *     EtwRegisterCounters @ 0x1408B19E8 (EtwRegisterCounters.c)
+ *     PcwUnregister @ 0x140B47ED0 (PcwUnregister.c)
  */
 
 __int64 __fastcall ExpPcwHostCallback(int a1)

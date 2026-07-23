@@ -6,11 +6,11 @@
  *     <none>
  */
 
-__int64 NtAlpcCreateSecurityContext()
+NTSTATUS __cdecl NtAlpcCreateSecurityContext(HANDLE PortHandle, ULONG Flags, PALPC_SECURITY_ATTR SecurityAttribute)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 123LL;
+  result = 123;
   __asm { syscall; Low latency system call }
   return result;
 }

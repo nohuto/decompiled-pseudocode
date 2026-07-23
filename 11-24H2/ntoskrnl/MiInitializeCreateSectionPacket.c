@@ -1,15 +1,15 @@
 /*
- * XREFs of MiInitializeCreateSectionPacket @ 0x1409413D0
+ * XREFs of MiInitializeCreateSectionPacket @ 0x14098B630
  * Callers:
- *     MmCreateSectionEx @ 0x140940C6C (MmCreateSectionEx.c)
- *     MmCreateCacheManagerSection @ 0x140940F58 (MmCreateCacheManagerSection.c)
- *     MiCreateSection @ 0x140941160 (MiCreateSection.c)
+ *     MmCreateSectionEx @ 0x14098AECC (MmCreateSectionEx.c)
+ *     MmCreateCacheManagerSection @ 0x14098B1B8 (MmCreateCacheManagerSection.c)
+ *     MiCreateSection @ 0x14098B3C0 (MiCreateSection.c)
  * Callees:
- *     PsDereferencePartition @ 0x140275E60 (PsDereferencePartition.c)
- *     MiMakeProtectionMask @ 0x1402EAF70 (MiMakeProtectionMask.c)
- *     MiHugePagesSupported @ 0x140495838 (MiHugePagesSupported.c)
- *     Feature_TrustedLaunchHosts__private_IsEnabledDeviceUsageNoInline @ 0x1405E56E0 (Feature_TrustedLaunchHosts__private_IsEnabledDeviceUsageNoInline.c)
- *     PsReferencePartitionByHandle @ 0x140934434 (PsReferencePartitionByHandle.c)
+ *     PsDereferencePartition @ 0x14022B3F0 (PsDereferencePartition.c)
+ *     MiMakeProtectionMask @ 0x14034C5B0 (MiMakeProtectionMask.c)
+ *     MiHugePagesSupported @ 0x1404900F8 (MiHugePagesSupported.c)
+ *     Feature_TrustedLaunchHosts__private_IsEnabledDeviceUsageNoInline @ 0x1405E2D38 (Feature_TrustedLaunchHosts__private_IsEnabledDeviceUsageNoInline.c)
+ *     PsReferencePartitionByHandle @ 0x1408F6F54 (PsReferencePartitionByHandle.c)
  */
 
 __int64 __fastcall MiInitializeCreateSectionPacket(
@@ -85,6 +85,8 @@ __int64 __fastcall MiInitializeCreateSectionPacket(
       return 3221225485LL;
     *a1 |= 0x4000000u;
   }
+  if ( (a6 & 0x40) != 0 )
+    *a1 |= 0x10000000u;
   v17 = a1[35] ^ ((unsigned __int16)a4 ^ (unsigned __int16)a1[35]) & 0xFFF;
   *((_QWORD *)a1 + 6) = a10;
   a1[35] = v17;
@@ -111,7 +113,7 @@ __int64 __fastcall MiInitializeCreateSectionPacket(
     {
       v20 = 1;
     }
-    goto LABEL_30;
+    goto LABEL_32;
   }
   if ( (v12 & 0x2000000) != 0 )
   {
@@ -123,7 +125,7 @@ __int64 __fastcall MiInitializeCreateSectionPacket(
     if ( !v21 )
       v20 = 4;
     v18 = v12 & 0xFDFFFFFF;
-LABEL_30:
+LABEL_32:
     v12 = v18 | 0x1000000;
     *((_BYTE *)a1 + 24) = v20;
   }
@@ -180,12 +182,12 @@ LABEL_30:
     a1[7] |= 0x400u;
   }
   if ( (v12 & 0x20000) == 0 )
-    goto LABEL_64;
+    goto LABEL_66;
   if ( !(unsigned int)MiHugePagesSupported() )
     return 3221225659LL;
   if ( v24 && *v24 )
   {
-LABEL_64:
+LABEL_66:
     v25 = a1[7];
     a1[4] = v12;
     ProtectionMask = MiMakeProtectionMask(v25);

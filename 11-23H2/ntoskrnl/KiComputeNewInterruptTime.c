@@ -1,7 +1,7 @@
 /*
- * XREFs of KiComputeNewInterruptTime @ 0x1403CF914
+ * XREFs of KiComputeNewInterruptTime @ 0x1403CFAF4
  * Callers:
- *     KiUpdateTimeAssist @ 0x1403CF7B8 (KiUpdateTimeAssist.c)
+ *     KiUpdateTimeAssist @ 0x1403CF998 (KiUpdateTimeAssist.c)
  * Callees:
  *     <none>
  */

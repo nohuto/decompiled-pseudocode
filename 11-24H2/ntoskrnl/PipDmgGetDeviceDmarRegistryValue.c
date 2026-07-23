@@ -1,13 +1,13 @@
 /*
- * XREFs of PipDmgGetDeviceDmarRegistryValue @ 0x140727390
+ * XREFs of PipDmgGetDeviceDmarRegistryValue @ 0x140724F20
  * Callers:
- *     PipDmgGetDeviceDmarPolicy @ 0x140727300 (PipDmgGetDeviceDmarPolicy.c)
+ *     PipDmgGetDeviceDmarPolicy @ 0x140724E90 (PipDmgGetDeviceDmarPolicy.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     PnpGetRegistryDword @ 0x1404B53A4 (PnpGetRegistryDword.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     IoOpenDeviceRegistryKey @ 0x1409CAEC0 (IoOpenDeviceRegistryKey.c)
- *     IopOpenRegistryKeyEx @ 0x140A43B04 (IopOpenRegistryKeyEx.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     PnpGetRegistryDword @ 0x1404AFC44 (PnpGetRegistryDword.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     IoOpenDeviceRegistryKey @ 0x1409B6100 (IoOpenDeviceRegistryKey.c)
+ *     IopOpenRegistryKeyEx @ 0x140A39394 (IopOpenRegistryKeyEx.c)
  */
 
 __int64 __fastcall PipDmgGetDeviceDmarRegistryValue(__int64 a1, _DWORD *a2, _BYTE *a3)

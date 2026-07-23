@@ -1,13 +1,13 @@
 /*
- * XREFs of LdrInitSecurityCookie @ 0x140A658DC
+ * XREFs of LdrInitSecurityCookie @ 0x140A5E0AC
  * Callers:
- *     MiProcessLoadConfigForDriver @ 0x140A6587C (MiProcessLoadConfigForDriver.c)
+ *     MiProcessLoadConfigForDriver @ 0x140A5E04C (MiProcessLoadConfigForDriver.c)
  * Callees:
- *     RtlImageNtHeaderEx @ 0x14041E7E0 (RtlImageNtHeaderEx.c)
- *     LdrImageDirectoryEntryToLoadConfig @ 0x140A659D8 (LdrImageDirectoryEntryToLoadConfig.c)
+ *     RtlImageNtHeaderEx @ 0x140414520 (RtlImageNtHeaderEx.c)
+ *     LdrImageDirectoryEntryToLoadConfig @ 0x140A5E1A8 (LdrImageDirectoryEntryToLoadConfig.c)
  */
 
-__int64 __fastcall LdrInitSecurityCookie(unsigned __int64 a1, unsigned int a2, __int64 a3, unsigned __int64 a4)
+__int64 __fastcall LdrInitSecurityCookie(PVOID BaseOfImage, unsigned int a2, __int64 a3, unsigned __int64 a4)
 {
   __int64 v4; // rdi
   __int64 Config; // rax
@@ -15,18 +15,18 @@ __int64 __fastcall LdrInitSecurityCookie(unsigned __int64 a1, unsigned int a2, _
   unsigned __int64 v9; // r9
   unsigned __int64 v11; // rax
   unsigned __int64 v12; // rcx
-  __int64 v13; // [rsp+40h] [rbp+18h] BYREF
+  PIMAGE_NT_HEADERS OutHeaders; // [rsp+40h] [rbp+18h] BYREF
 
   v4 = a2;
-  RtlImageNtHeaderEx(1, a1, 0LL, &v13);
-  Config = LdrImageDirectoryEntryToLoadConfig(a1);
+  RtlImageNtHeaderEx(1u, BaseOfImage, 0LL, &OutHeaders);
+  Config = LdrImageDirectoryEntryToLoadConfig(BaseOfImage);
   v8 = (_DWORD *)Config;
   if ( !Config )
     goto LABEL_7;
   if ( *(_DWORD *)Config >= 0x70u )
   {
     v9 = *(_QWORD *)(Config + 88);
-    if ( v9 > a1 && v9 < a1 + v4 - 8 )
+    if ( v9 > (unsigned __int64)BaseOfImage && v9 < (unsigned __int64)BaseOfImage + v4 - 8 )
       goto LABEL_16;
     goto LABEL_5;
   }

@@ -1,17 +1,17 @@
 /*
- * XREFs of MiGetListOfPendingBadPages @ 0x140629FF8
+ * XREFs of MiGetListOfPendingBadPages @ 0x14062A548
  * Callers:
- *     MmQueryBadAddresses @ 0x140A2FDD8 (MmQueryBadAddresses.c)
+ *     MmQueryBadAddresses @ 0x140A30088 (MmQueryBadAddresses.c)
  * Callees:
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402A7C00 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     MiAllocatePool @ 0x1402DF1A0 (MiAllocatePool.c)
- *     ExAcquireSpinLockShared @ 0x140314620 (ExAcquireSpinLockShared.c)
- *     MiReferencePageRuns @ 0x1403576E0 (MiReferencePageRuns.c)
- *     MiDereferencePageRunsEx @ 0x140357BE4 (MiDereferencePageRunsEx.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     MiEnumerateBadHugeRangePages @ 0x14061FA70 (MiEnumerateBadHugeRangePages.c)
- *     MiCheckLostBadPageNode @ 0x1406298A4 (MiCheckLostBadPageNode.c)
- *     MiSortPageFramesRemoveDuplicates @ 0x14062ACA4 (MiSortPageFramesRemoveDuplicates.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402A7E90 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     MiAllocatePool @ 0x1402DF430 (MiAllocatePool.c)
+ *     ExAcquireSpinLockShared @ 0x1403148B0 (ExAcquireSpinLockShared.c)
+ *     MiReferencePageRuns @ 0x140357880 (MiReferencePageRuns.c)
+ *     MiDereferencePageRunsEx @ 0x140357D84 (MiDereferencePageRunsEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     MiEnumerateBadHugeRangePages @ 0x14061FFC0 (MiEnumerateBadHugeRangePages.c)
+ *     MiCheckLostBadPageNode @ 0x140629DF4 (MiCheckLostBadPageNode.c)
+ *     MiSortPageFramesRemoveDuplicates @ 0x14062B1F4 (MiSortPageFramesRemoveDuplicates.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 
@@ -109,10 +109,13 @@ __int64 __fastcall MiGetListOfPendingBadPages(__int64 a1)
           }
         }
         ExReleaseSpinLockSharedFromDpcLevel(&dword_140C67310);
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
           CurrentIrql = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v7 <= 0xFu && CurrentIrql >= 2u )
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+            && CurrentIrql <= 0xFu
+            && (unsigned __int8)v7 <= 0xFu
+            && CurrentIrql >= 2u )
           {
             CurrentPrcb = KeGetCurrentPrcb();
             v31 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v7 + 1));
@@ -144,10 +147,10 @@ LABEL_61:
         return 0LL;
       }
       ExReleaseSpinLockSharedFromDpcLevel(&dword_140C67310);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v8 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v8 <= 0xFu && (unsigned __int8)v7 <= 0xFu && v8 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v8 <= 0xFu && (unsigned __int8)v7 <= 0xFu && v8 >= 2u )
         {
           v9 = KeGetCurrentPrcb();
           v10 = v9->SchedulerAssist;
@@ -175,10 +178,10 @@ LABEL_38:
     v14 = ExAcquireSpinLockShared(&dword_140C67310);
     v15 = MiEnumerateBadHugeRangePages(v6, v2, 2);
     ExReleaseSpinLockSharedFromDpcLevel(&dword_140C67310);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v16 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v16 <= 0xFu && (unsigned __int8)v14 <= 0xFu && v16 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v16 <= 0xFu && (unsigned __int8)v14 <= 0xFu && v16 >= 2u )
       {
         v17 = KeGetCurrentPrcb();
         v18 = v17->SchedulerAssist;

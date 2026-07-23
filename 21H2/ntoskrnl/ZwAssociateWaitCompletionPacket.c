@@ -1,14 +1,22 @@
 /*
- * XREFs of ZwAssociateWaitCompletionPacket @ 0x1403FB5A0
+ * XREFs of ZwAssociateWaitCompletionPacket @ 0x1403FB780
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwAssociateWaitCompletionPacket(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwAssociateWaitCompletionPacket(
+        HANDLE WaitCompletionPacketHandle,
+        HANDLE IoCompletionHandle,
+        HANDLE TargetObjectHandle,
+        PVOID KeyContext,
+        PVOID ApcContext,
+        NTSTATUS IoStatus,
+        ULONG_PTR IoStatusInformation,
+        PBOOLEAN AlreadySignaled)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(WaitCompletionPacketHandle);
 }

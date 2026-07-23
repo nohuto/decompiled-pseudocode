@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlOrAffinityEx @ 0x18013FB00
+ * XREFs of RtlOrAffinityEx @ 0x18013FA00
  * Callers:
  *     <none>
  * Callees:
- *     ?RtlpOrAffinityEx@@YAKPEAU_KAFFINITY_EX@@00G@Z @ 0x18013F39C (-RtlpOrAffinityEx@@YAKPEAU_KAFFINITY_EX@@00G@Z.c)
+ *     ?RtlpOrAffinityEx@@YAKPEAU_KAFFINITY_EX@@00G@Z @ 0x18013F29C (-RtlpOrAffinityEx@@YAKPEAU_KAFFINITY_EX@@00G@Z.c)
  */
 
 __int64 __fastcall RtlOrAffinityEx(struct _KAFFINITY_EX *a1, struct _KAFFINITY_EX *a2, struct _KAFFINITY_EX *a3)

@@ -1,20 +1,20 @@
 /*
- * XREFs of SmcStoreDelete @ 0x14079DA44
+ * XREFs of SmcStoreDelete @ 0x14079DB54
  * Callers:
- *     SmcProcessStoreCreateRequest @ 0x140799644 (SmcProcessStoreCreateRequest.c)
- *     SmcProcessStoreDeleteRequest @ 0x1407997B0 (SmcProcessStoreDeleteRequest.c)
+ *     SmcProcessStoreCreateRequest @ 0x140799754 (SmcProcessStoreCreateRequest.c)
+ *     SmcProcessStoreDeleteRequest @ 0x1407998C0 (SmcProcessStoreDeleteRequest.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     ExfTryToWakePushLock @ 0x14025F9A0 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     ExWaitForRundownProtectionRelease @ 0x1402C6A90 (ExWaitForRundownProtectionRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     CmSiFreeMemory @ 0x14046B8D0 (CmSiFreeMemory.c)
- *     SmStoreDelete @ 0x140798AD0 (SmStoreDelete.c)
- *     SmcCacheDereference @ 0x14079D0D8 (SmcCacheDereference.c)
- *     SmcCacheReference @ 0x14079D328 (SmcCacheReference.c)
- *     SmcStoreEntryFind @ 0x14079DBF4 (SmcStoreEntryFind.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     ExfTryToWakePushLock @ 0x14028FFB0 (ExfTryToWakePushLock.c)
+ *     ExWaitForRundownProtectionRelease @ 0x1402BB610 (ExWaitForRundownProtectionRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     CmSiFreeMemory @ 0x140464550 (CmSiFreeMemory.c)
+ *     SmStoreDelete @ 0x140798BE0 (SmStoreDelete.c)
+ *     SmcCacheDereference @ 0x14079D1E8 (SmcCacheDereference.c)
+ *     SmcCacheReference @ 0x14079D438 (SmcCacheReference.c)
+ *     SmcStoreEntryFind @ 0x14079DD04 (SmcStoreEntryFind.c)
  */
 
 __int64 __fastcall SmcStoreDelete(__int64 a1, unsigned int a2, unsigned int a3, unsigned int a4)
@@ -26,13 +26,13 @@ __int64 __fastcall SmcStoreDelete(__int64 a1, unsigned int a2, unsigned int a3, 
   unsigned int v10; // edi
   unsigned __int64 *v11; // rsi
   struct _KTHREAD *CurrentThread; // rax
-  _QWORD *v13; // rax
-  _QWORD *v14; // rdi
+  char *v13; // rax
+  char *v14; // rdi
   _DWORD *v15; // rax
   _DWORD *v16; // r14
   struct _KTHREAD *v17; // rax
-  _QWORD *v18; // rax
-  _QWORD *v19; // rdi
+  char *v18; // rax
+  char *v19; // rdi
 
   v5 = a2;
   v7 = 0LL;
@@ -43,12 +43,12 @@ __int64 __fastcall SmcStoreDelete(__int64 a1, unsigned int a2, unsigned int a3, 
     v11 = (unsigned __int64 *)(v8 + 160);
     CurrentThread = KeGetCurrentThread();
     --CurrentThread->KernelApcDisable;
-    v13 = KeAbPreAcquire((__int64)v11, 0LL);
+    v13 = (char *)KeAbPreAcquire((__int64)v11, 0LL);
     v14 = v13;
     if ( _interlockedbittestandset64((volatile signed __int32 *)v11, 0LL) )
-      ExfAcquirePushLockExclusiveEx(v11, (__int64)v13, (__int64)v11);
+      ExfAcquirePushLockExclusiveEx(v11, v13, (__int64)v11);
     if ( v14 )
-      *((_BYTE *)v14 + 10) = 1;
+      v14[10] = 1;
     v15 = (_DWORD *)SmcStoreEntryFind(v9, a3, a4);
     v16 = v15;
     if ( v15 )
@@ -64,12 +64,12 @@ __int64 __fastcall SmcStoreDelete(__int64 a1, unsigned int a2, unsigned int a3, 
       SmStoreDelete(a1 - 2288, a4, a3);
       v17 = KeGetCurrentThread();
       --v17->KernelApcDisable;
-      v18 = KeAbPreAcquire((__int64)v11, 0LL);
+      v18 = (char *)KeAbPreAcquire((__int64)v11, 0LL);
       v19 = v18;
       if ( _interlockedbittestandset64((volatile signed __int32 *)v11, 0LL) )
-        ExfAcquirePushLockExclusiveEx(v11, (__int64)v18, (__int64)v11);
+        ExfAcquirePushLockExclusiveEx(v11, v18, (__int64)v11);
       if ( v19 )
-        *((_BYTE *)v19 + 10) = 1;
+        v19[10] = 1;
       v7 = (struct _PRIVILEGE_SET *)*((_QWORD *)v16 + 1);
       *((_QWORD *)v16 + 1) = 0LL;
       v16[1] &= ~4u;

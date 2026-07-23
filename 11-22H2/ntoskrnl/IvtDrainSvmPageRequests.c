@@ -33,7 +33,7 @@ __int64 __fastcall IvtDrainSvmPageRequests(__int64 a1, unsigned __int16 a2, char
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(0xFuLL);
   v7 = LockHandle.OldIrql + 1;
-  if ( KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & (unsigned __int8)v7) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & (unsigned __int8)v7) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     if ( CurrentIrql == 15 )
@@ -54,7 +54,7 @@ __int64 __fastcall IvtDrainSvmPageRequests(__int64 a1, unsigned __int16 a2, char
   IvtIommuSendCommand(a1, (unsigned __int64)&v17, v7);
   IvtIommuWaitCommand(a1, v7, v7);
   KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v10 = KeGetCurrentIrql();
     if ( ((unsigned __int8)KiIrqlFlags & (unsigned __int8)v7) != 0 && v10 <= 0xFu && CurrentIrql <= 0xFu && v10 >= 2u )

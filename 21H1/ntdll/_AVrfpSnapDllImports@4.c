@@ -26,32 +26,37 @@ int __thiscall AVrfpSnapDllImports(_DWORD *this)
   _DWORD *v13; // ebx
   _DWORD *v14; // ecx
   int v15; // eax
-  int v16[29]; // [esp+10h] [ebp-98h] BYREF
-  char v17[4]; // [esp+84h] [ebp-24h] BYREF
-  char v18[4]; // [esp+88h] [ebp-20h] BYREF
-  int *v19; // [esp+8Ch] [ebp-1Ch]
-  _DWORD *v20; // [esp+90h] [ebp-18h]
-  _DWORD *v21; // [esp+94h] [ebp-14h]
-  int *v22; // [esp+98h] [ebp-10h]
-  unsigned int v23; // [esp+9Ch] [ebp-Ch]
-  int v24; // [esp+A0h] [ebp-8h]
-  _DWORD *v25; // [esp+A4h] [ebp-4h]
+  size_t v16; // [esp-4h] [ebp-ACh]
+  PVOID v17[15]; // [esp+10h] [ebp-98h] BYREF
+  PVOID BaseAddress; // [esp+4Ch] [ebp-5Ch] BYREF
+  ULONG_PTR RegionSize[2]; // [esp+50h] [ebp-58h] BYREF
+  ULONG NewProtect; // [esp+60h] [ebp-48h]
+  ULONG OldProtect; // [esp+84h] [ebp-24h] BYREF
+  char v22[4]; // [esp+88h] [ebp-20h] BYREF
+  int *v23; // [esp+8Ch] [ebp-1Ch]
+  _DWORD *v24; // [esp+90h] [ebp-18h]
+  _DWORD *v25; // [esp+94h] [ebp-14h]
+  int *v26; // [esp+98h] [ebp-10h]
+  unsigned int v27; // [esp+9Ch] [ebp-Ch]
+  int v28; // [esp+A0h] [ebp-8h]
+  _DWORD *v29; // [esp+A4h] [ebp-4h]
 
-  v21 = this;
+  v25 = this;
   if ( !AVrfpEnabled )
     return -1073741790;
-  memset(v16, 0, 0x6Cu);
-  v16[8] = (int)this;
-  result = LdrpPrepareImportAddressTableForSnap(v16);
+  LODWORD(v16) = 108;
+  memset(v17, 0, v16);
+  v17[8] = this;
+  result = LdrpPrepareImportAddressTableForSnap(v17);
   if ( result >= 0 )
   {
-    v3 = (_DWORD *)v16[15];
-    if ( v16[15] )
+    v3 = BaseAddress;
+    if ( BaseAddress )
     {
-      v4 = (unsigned int)v16[16] >> 2;
-      for ( i = (unsigned int)v16[16] >> 2 == 0; ; i = v4 == 0 )
+      v4 = LODWORD(RegionSize[0]) >> 2;
+      for ( i = LODWORD(RegionSize[0]) >> 2 == 0; ; i = v4 == 0 )
       {
-        v23 = v4;
+        v27 = v4;
         if ( i )
           break;
         if ( *v3 )
@@ -64,11 +69,11 @@ int __thiscall AVrfpSnapDllImports(_DWORD *this)
               v7 = v6;
               v8 = 0;
               v6 = (int *)*v6;
-              v22 = v7;
-              v19 = v6;
+              v26 = v7;
+              v23 = v6;
               v9 = (_DWORD *)v7[5];
-              v20 = v9;
-              v24 = 0;
+              v24 = v9;
+              v28 = 0;
               if ( *v9 )
               {
                 v10 = v9;
@@ -76,7 +81,7 @@ int __thiscall AVrfpSnapDllImports(_DWORD *this)
                 {
                   v11 = (_DWORD *)v10[3];
                   v12 = 0;
-                  v25 = v11;
+                  v29 = v11;
                   if ( *v11 )
                   {
                     v13 = v11;
@@ -85,7 +90,7 @@ int __thiscall AVrfpSnapDllImports(_DWORD *this)
                     {
                       if ( *v3 == v13[1] )
                       {
-                        RtlGuardGrantSuppressedCallAccess(v18);
+                        RtlGuardGrantSuppressedCallAccess(v22);
                         v15 = v13[2];
                         if ( v15 )
                         {
@@ -97,31 +102,31 @@ int __thiscall AVrfpSnapDllImports(_DWORD *this)
                           __debugbreak();
                         }
                         if ( (AVrfpDebug & 1) != 0 )
-                          DbgPrint("AVRF: Snapped (%ws: %s) with (%ws: %p). \n", v21[12], *v13, v22[3], v13[2]);
-                        v14 = v25;
+                          DbgPrint("AVRF: Snapped (%ws: %s) with (%ws: %p). \n", v25[12], *v13, v26[3], v13[2]);
+                        v14 = v29;
                       }
                       ++v12;
                       v13 = &v14[3 * v12];
                     }
                     while ( *v13 );
-                    v9 = v20;
-                    v8 = v24;
+                    v9 = v24;
+                    v8 = v28;
                   }
-                  v24 = ++v8;
+                  v28 = ++v8;
                   v10 = &v9[4 * v8];
                 }
                 while ( *v10 );
-                v6 = v19;
+                v6 = v23;
               }
             }
             while ( v6 != &AVrfpVerifierProvidersList );
-            v4 = v23;
+            v4 = v27;
           }
         }
         ++v3;
         --v4;
       }
-      return ZwProtectVirtualMemory(-1, (int)&v16[15], (int)&v16[16], v16[20], (int)v17);
+      return ZwProtectVirtualMemory((HANDLE)0xFFFFFFFF, &BaseAddress, RegionSize, NewProtect, &OldProtect);
     }
     else
     {

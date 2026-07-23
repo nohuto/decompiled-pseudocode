@@ -1,15 +1,15 @@
 /*
- * XREFs of ExAcquireRundownProtectionCacheAware @ 0x1402F0540
+ * XREFs of ExAcquireRundownProtectionCacheAware @ 0x1402D25C0
  * Callers:
- *     PfFileInfoNotify @ 0x1402B8A80 (PfFileInfoNotify.c)
- *     MiProbeLockFrame @ 0x1402EE600 (MiProbeLockFrame.c)
- *     MiSwitchValidPteToTransition @ 0x14030ED40 (MiSwitchValidPteToTransition.c)
- *     PfpPartitionIterate @ 0x140382630 (PfpPartitionIterate.c)
- *     PfpPartitionGetNext @ 0x140382870 (PfpPartitionGetNext.c)
- *     PfpPartitionRundownProtectionAcquire @ 0x1404B2034 (PfpPartitionRundownProtectionAcquire.c)
- *     PfpPartitionCreate @ 0x14060006C (PfpPartitionCreate.c)
+ *     MiProbeLockFrame @ 0x1402D0680 (MiProbeLockFrame.c)
+ *     MiSwitchValidPteToTransition @ 0x1402F0DC0 (MiSwitchValidPteToTransition.c)
+ *     PfFileInfoNotify @ 0x140303740 (PfFileInfoNotify.c)
+ *     PfpPartitionIterate @ 0x1403843E0 (PfpPartitionIterate.c)
+ *     PfpPartitionGetNext @ 0x140384620 (PfpPartitionGetNext.c)
+ *     PfpPartitionRundownProtectionAcquire @ 0x1404AB540 (PfpPartitionRundownProtectionAcquire.c)
+ *     PfpPartitionCreate @ 0x140602B1C (PfpPartitionCreate.c)
  * Callees:
- *     ExfAcquireRundownProtection @ 0x1402F05D0 (ExfAcquireRundownProtection.c)
+ *     ExfAcquireRundownProtection @ 0x1402D2650 (ExfAcquireRundownProtection.c)
  */
 
 BOOLEAN __stdcall ExAcquireRundownProtectionCacheAware(PEX_RUNDOWN_REF_CACHE_AWARE RunRefCacheAware)

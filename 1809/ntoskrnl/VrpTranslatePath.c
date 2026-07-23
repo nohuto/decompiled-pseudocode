@@ -1,24 +1,24 @@
 /*
- * XREFs of VrpTranslatePath @ 0x14080CB70
+ * XREFs of VrpTranslatePath @ 0x14080DD70
  * Callers:
- *     VrpPreOpenOrCreate @ 0x14080C2E0 (VrpPreOpenOrCreate.c)
+ *     VrpPreOpenOrCreate @ 0x14080D4E0 (VrpPreOpenOrCreate.c)
  * Callees:
  *     ObfReferenceObject @ 0x14004E220 (ObfReferenceObject.c)
  *     ExAcquirePushLockSharedEx @ 0x14004EE20 (ExAcquirePushLockSharedEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
- *     ExfReleasePushLockShared @ 0x1400914B0 (ExfReleasePushLockShared.c)
- *     ObfReferenceObjectWithTag @ 0x1400ACDF0 (ObfReferenceObjectWithTag.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
- *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
- *     ZwClose @ 0x1401B8370 (ZwClose.c)
- *     ZwOpenKey @ 0x1401B83D0 (ZwOpenKey.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     ObReferenceObjectByHandle @ 0x1405E8350 (ObReferenceObjectByHandle.c)
- *     VrpFindNamespaceNode @ 0x14080A514 (VrpFindNamespaceNode.c)
- *     VrpBuildKeyPath @ 0x14080DFDC (VrpBuildKeyPath.c)
- *     VrpGetNextToken @ 0x14080E21C (VrpGetNextToken.c)
- *     VrpStripTrailingCharacters @ 0x14080E300 (VrpStripTrailingCharacters.c)
+ *     ExfReleasePushLockShared @ 0x1400913F0 (ExfReleasePushLockShared.c)
+ *     ObfReferenceObjectWithTag @ 0x1400ACD30 (ObfReferenceObjectWithTag.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B78F0 (KiLeaveCriticalRegionUnsafe.c)
+ *     RtlInitUnicodeString @ 0x1400B99D0 (RtlInitUnicodeString.c)
+ *     ZwClose @ 0x1401B84D0 (ZwClose.c)
+ *     ZwOpenKey @ 0x1401B8530 (ZwOpenKey.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     ObReferenceObjectByHandle @ 0x1405E9350 (ObReferenceObjectByHandle.c)
+ *     VrpFindNamespaceNode @ 0x14080B714 (VrpFindNamespaceNode.c)
+ *     VrpBuildKeyPath @ 0x14080F1DC (VrpBuildKeyPath.c)
+ *     VrpGetNextToken @ 0x14080F41C (VrpGetNextToken.c)
+ *     VrpStripTrailingCharacters @ 0x14080F500 (VrpStripTrailingCharacters.c)
  */
 
 __int64 __fastcall VrpTranslatePath(

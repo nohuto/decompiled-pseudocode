@@ -1,13 +1,13 @@
 /*
- * XREFs of KiGenericCallDpcInitiatorWorker @ 0x1403C23F0
+ * XREFs of KiGenericCallDpcInitiatorWorker @ 0x1403CC2F0
  * Callers:
  *     <none>
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiAcquireDpcCorralLock @ 0x1403C2470 (KiAcquireDpcCorralLock.c)
- *     KiInitiateGenericCallDpc @ 0x1403C24E8 (KiInitiateGenericCallDpc.c)
- *     KiReleaseDpcCorralLock @ 0x1403C25D0 (KiReleaseDpcCorralLock.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiAcquireDpcCorralLock @ 0x1403CC370 (KiAcquireDpcCorralLock.c)
+ *     KiInitiateGenericCallDpc @ 0x1403CC3E8 (KiInitiateGenericCallDpc.c)
+ *     KiReleaseDpcCorralLock @ 0x1403CC4D0 (KiReleaseDpcCorralLock.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 __int64 __fastcall KiGenericCallDpcInitiatorWorker(__int64 a1)

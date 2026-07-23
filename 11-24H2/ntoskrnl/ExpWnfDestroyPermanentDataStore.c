@@ -1,38 +1,35 @@
 /*
- * XREFs of ExpWnfDestroyPermanentDataStore @ 0x1407C642C
+ * XREFs of ExpWnfDestroyPermanentDataStore @ 0x1407C688C
  * Callers:
- *     ExpWnfFreeScopeInstance @ 0x140A604C4 (ExpWnfFreeScopeInstance.c)
- *     ExpWnfGetPermanentDataStore @ 0x140A8BAFC (ExpWnfGetPermanentDataStore.c)
+ *     ExpWnfFreeScopeInstance @ 0x140A58A14 (ExpWnfFreeScopeInstance.c)
+ *     ExpWnfGetPermanentDataStore @ 0x140A87FEC (ExpWnfGetPermanentDataStore.c)
  * Callees:
- *     ExfTryToWakePushLock @ 0x14025F9A0 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ExfTryToWakePushLock @ 0x14028FFB0 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __fastcall ExpWnfDestroyPermanentDataStore(_QWORD *P)
 {
-  _QWORD *v2; // rax
+  char *v2; // rax
   signed __int8 v3; // cf
-  _QWORD *v4; // rbx
+  char *v4; // rbx
   _QWORD **v5; // rdx
   PVOID *v6; // rcx
-  _QWORD *v7; // rax
-  _QWORD *v8; // rbp
+  char *v7; // rax
+  char *v8; // rbp
   void *v9; // rcx
 
-  v2 = KeAbPreAcquire((__int64)&ExpWnfPermenentDataStoresListLock, 0LL);
+  v2 = (char *)KeAbPreAcquire((__int64)&ExpWnfPermenentDataStoresListLock, 0LL);
   v3 = _interlockedbittestandset64((volatile signed __int32 *)&ExpWnfPermenentDataStoresListLock, 0LL);
   v4 = v2;
   if ( v3 )
-    ExfAcquirePushLockExclusiveEx(
-      &ExpWnfPermenentDataStoresListLock,
-      (__int64)v2,
-      (__int64)&ExpWnfPermenentDataStoresListLock);
+    ExfAcquirePushLockExclusiveEx(&ExpWnfPermenentDataStoresListLock, v2, (__int64)&ExpWnfPermenentDataStoresListLock);
   if ( v4 )
-    *((_BYTE *)v4 + 10) = 1;
+    v4[10] = 1;
   v5 = (_QWORD **)P[3];
   if ( v5[1] != P + 3 || (v6 = (PVOID *)P[4], *v6 != P + 3) )
     __fastfail(3u);
@@ -41,12 +38,12 @@ void __fastcall ExpWnfDestroyPermanentDataStore(_QWORD *P)
   if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&ExpWnfPermenentDataStoresListLock, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
     ExfTryToWakePushLock((volatile signed __int64 *)&ExpWnfPermenentDataStoresListLock);
   KeAbPostRelease((ULONG_PTR)&ExpWnfPermenentDataStoresListLock);
-  v7 = KeAbPreAcquire((__int64)(P + 1), 0LL);
+  v7 = (char *)KeAbPreAcquire((__int64)(P + 1), 0LL);
   v8 = v7;
   if ( _interlockedbittestandset64((volatile signed __int32 *)P + 2, 0LL) )
-    ExfAcquirePushLockExclusiveEx(P + 1, (__int64)v7, (__int64)(P + 1));
+    ExfAcquirePushLockExclusiveEx(P + 1, v7, (__int64)(P + 1));
   if ( v8 )
-    *((_BYTE *)v8 + 10) = 1;
+    v8[10] = 1;
   if ( (_InterlockedExchangeAdd64(P + 1, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
     ExfTryToWakePushLock(P + 1);
   KeAbPostRelease((ULONG_PTR)(P + 1));

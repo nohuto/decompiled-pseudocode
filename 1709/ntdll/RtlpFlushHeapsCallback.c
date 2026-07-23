@@ -11,5 +11,5 @@ __int64 __fastcall RtlpFlushHeapsCallback(__int64 a1)
   if ( *(_DWORD *)(a1 + 16) == -571548178 )
     return RtlpHpHeapCompact(a1, 0);
   else
-    return RtlpFlushHeap();
+    return RtlpFlushHeap(a1);
 }

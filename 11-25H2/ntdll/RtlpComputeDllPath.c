@@ -17,10 +17,10 @@ __int64 __fastcall RtlpComputeDllPath(__int64 a1)
   __int64 v5; // rbx
 
   EnvironmentVersion = NtCurrentPeb()->ProcessParameters->EnvironmentVersion;
-  if ( *((_QWORD *)&LdrpDllDirectory + 1) )
+  if ( LdrpDllDirectory.Buffer )
   {
     RtlAcquireSRWLockShared(&LdrpDllDirectoryLock);
-    if ( *((_QWORD *)&LdrpDllDirectory + 1) )
+    if ( LdrpDllDirectory.Buffer )
     {
       v4 = (char *)&unk_18017F3DC;
       goto LABEL_5;
@@ -29,7 +29,7 @@ __int64 __fastcall RtlpComputeDllPath(__int64 a1)
   }
   v3 = dword_1801D43F8;
   if ( !dword_1801D43F8 )
-    v3 = RtlpLookupCurDirSetting((__int64)L"\"$", 1u, &dword_1801D43F8);
+    v3 = RtlpLookupCurDirSetting((PUNICODE_STRING)&stru_1801758D0, 1u, &dword_1801D43F8);
   RtlAcquireSRWLockShared(&LdrpDllDirectoryLock);
   v4 = (char *)&unk_18017F3A0 + 20 * v3;
 LABEL_5:

@@ -31,7 +31,7 @@ void *DrvDbGetRegistrarSecurityDescriptor()
   if ( RtlCreateSecurityDescriptor(SecurityDescriptor, 1u) >= 0
     && RtlCreateAcl(&Acl, 8u, 2u) >= 0
     && RtlSetDaclSecurityDescriptor(SecurityDescriptor, 1u, &Acl, 0) >= 0
-    && (int)RtlSetControlSecurityDescriptor((__int64)SecurityDescriptor, 0x1000u, 0x1000u) >= 0 )
+    && RtlSetControlSecurityDescriptor(SecurityDescriptor, 0x1000u, 0x1000u) >= 0 )
   {
     BufferLength = RtlLengthSecurityDescriptor(SecurityDescriptor);
     if ( BufferLength >= 0x28 )

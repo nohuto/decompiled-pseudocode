@@ -1,17 +1,17 @@
 /*
- * XREFs of AnFwpBackgroundUpdateTimer @ 0x140AF21E0
+ * XREFs of AnFwpBackgroundUpdateTimer @ 0x140AF21F0
  * Callers:
  *     <none>
  * Callees:
- *     RtlULongLongMult @ 0x14022CE2C (RtlULongLongMult.c)
- *     DbgPrintEx @ 0x14032A740 (DbgPrintEx.c)
- *     BgpFwReleaseLock @ 0x140385660 (BgpFwReleaseLock.c)
- *     BgpFwAcquireLock @ 0x1403856B0 (BgpFwAcquireLock.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     BgpClearScreen @ 0x140671AF0 (BgpClearScreen.c)
+ *     RtlULongLongMult @ 0x14022CF3C (RtlULongLongMult.c)
+ *     DbgPrintEx @ 0x14032A9D0 (DbgPrintEx.c)
+ *     BgpFwReleaseLock @ 0x140385840 (BgpFwReleaseLock.c)
+ *     BgpFwAcquireLock @ 0x140385890 (BgpFwAcquireLock.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     BgpClearScreen @ 0x140672040 (BgpClearScreen.c)
  *     AnFwpDisableProgressTimer @ 0x140AEF610 (AnFwpDisableProgressTimer.c)
  *     AnFwDisableBackgroundUpdateTimer @ 0x140AEF6DC (AnFwDisableBackgroundUpdateTimer.c)
- *     BgpGxDrawBitmapImage @ 0x140AF2720 (BgpGxDrawBitmapImage.c)
+ *     BgpGxDrawBitmapImage @ 0x140AF2730 (BgpGxDrawBitmapImage.c)
  */
 
 void __fastcall AnFwpBackgroundUpdateTimer(

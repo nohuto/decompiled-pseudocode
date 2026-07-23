@@ -1,15 +1,15 @@
 /*
- * XREFs of RtlpQueryTimeZoneInformationWorker @ 0x1800FC670
+ * XREFs of RtlpQueryTimeZoneInformationWorker @ 0x1800FBDC0
  * Callers:
- *     EtwpGetTimeZoneInformation @ 0x180056B4C (EtwpGetTimeZoneInformation.c)
- *     RtlQueryTimeZoneInformation @ 0x1800FC660 (RtlQueryTimeZoneInformation.c)
- *     RtlQueryDynamicTimeZoneInformation @ 0x180141D10 (RtlQueryDynamicTimeZoneInformation.c)
+ *     EtwpGetTimeZoneInformation @ 0x1800410CC (EtwpGetTimeZoneInformation.c)
+ *     RtlQueryTimeZoneInformation @ 0x1800FBDB0 (RtlQueryTimeZoneInformation.c)
+ *     RtlQueryDynamicTimeZoneInformation @ 0x180141C10 (RtlQueryDynamicTimeZoneInformation.c)
  * Callees:
- *     RtlpQueryRegistryValues @ 0x180059B20 (RtlpQueryRegistryValues.c)
- *     RtlpGetTimeZoneInfoHandle @ 0x1800FC8F8 (RtlpGetTimeZoneInfoHandle.c)
- *     NtClose @ 0x18015F120 (NtClose.c)
- *     __security_check_cookie @ 0x180162C90 (__security_check_cookie.c)
- *     memset$thunk$772440563353939046 @ 0x180170030 (memset$thunk$772440563353939046.c)
+ *     RtlpQueryRegistryValues @ 0x1800440A0 (RtlpQueryRegistryValues.c)
+ *     RtlpGetTimeZoneInfoHandle @ 0x1800FC048 (RtlpGetTimeZoneInfoHandle.c)
+ *     NtClose @ 0x18015F020 (NtClose.c)
+ *     __security_check_cookie @ 0x180162B90 (__security_check_cookie.c)
+ *     memset$thunk$772440563353939046 @ 0x18016F030 (memset$thunk$772440563353939046.c)
  */
 
 __int64 __fastcall RtlpQueryTimeZoneInformationWorker(char *a1, size_t Size)
@@ -26,31 +26,31 @@ __int64 __fastcall RtlpQueryTimeZoneInformationWorker(char *a1, size_t Size)
   __int128 v12; // [rsp+60h] [rbp-A0h] BYREF
   char v13[8]; // [rsp+70h] [rbp-90h] BYREF
   int v14; // [rsp+78h] [rbp-88h]
-  const wchar_t *v15; // [rsp+80h] [rbp-80h]
+  const WCHAR *v15; // [rsp+80h] [rbp-80h]
   char *v16; // [rsp+88h] [rbp-78h]
   int v17; // [rsp+90h] [rbp-70h]
   int v18; // [rsp+B0h] [rbp-50h]
-  const wchar_t *v19; // [rsp+B8h] [rbp-48h]
+  const WCHAR *v19; // [rsp+B8h] [rbp-48h]
   _DWORD *v20; // [rsp+C0h] [rbp-40h]
   int v21; // [rsp+C8h] [rbp-38h]
   int v22; // [rsp+E8h] [rbp-18h]
-  const wchar_t *v23; // [rsp+F0h] [rbp-10h]
+  const WCHAR *v23; // [rsp+F0h] [rbp-10h]
   char *v24; // [rsp+F8h] [rbp-8h]
   int v25; // [rsp+100h] [rbp+0h]
   int v26; // [rsp+120h] [rbp+20h]
-  const wchar_t *v27; // [rsp+128h] [rbp+28h]
+  const WCHAR *v27; // [rsp+128h] [rbp+28h]
   char *v28; // [rsp+130h] [rbp+30h]
   int v29; // [rsp+138h] [rbp+38h]
   int v30; // [rsp+158h] [rbp+58h]
-  const wchar_t *v31; // [rsp+160h] [rbp+60h]
+  const WCHAR *v31; // [rsp+160h] [rbp+60h]
   _DWORD *v32; // [rsp+168h] [rbp+68h]
   int v33; // [rsp+170h] [rbp+70h]
   int v34; // [rsp+190h] [rbp+90h]
-  const wchar_t *v35; // [rsp+198h] [rbp+98h]
+  const WCHAR *v35; // [rsp+198h] [rbp+98h]
   char *v36; // [rsp+1A0h] [rbp+A0h]
   int v37; // [rsp+1A8h] [rbp+A8h]
   int v38; // [rsp+1C8h] [rbp+C8h]
-  const wchar_t *v39; // [rsp+1D0h] [rbp+D0h]
+  const WCHAR *v39; // [rsp+1D0h] [rbp+D0h]
   char *v40; // [rsp+1D8h] [rbp+D8h]
   int v41; // [rsp+1E0h] [rbp+E0h]
   void *v42; // [rsp+1F8h] [rbp+F8h]
@@ -58,7 +58,7 @@ __int64 __fastcall RtlpQueryTimeZoneInformationWorker(char *a1, size_t Size)
   __int128 *v44; // [rsp+210h] [rbp+110h]
   int v45; // [rsp+218h] [rbp+118h]
   int v46; // [rsp+238h] [rbp+138h]
-  const wchar_t *v47; // [rsp+240h] [rbp+140h]
+  const WCHAR *v47; // [rsp+240h] [rbp+140h]
   int *v48; // [rsp+248h] [rbp+148h]
   int v49; // [rsp+250h] [rbp+150h]
 

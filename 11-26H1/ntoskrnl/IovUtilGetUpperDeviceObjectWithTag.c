@@ -1,11 +1,11 @@
 /*
- * XREFs of IovUtilGetUpperDeviceObjectWithTag @ 0x140C30F88
+ * XREFs of IovUtilGetUpperDeviceObjectWithTag @ 0x140C36F98
  * Callers:
- *     IovpExamineDevObjForwarding @ 0x140C2BBB4 (IovpExamineDevObjForwarding.c)
+ *     IovpExamineDevObjForwarding @ 0x140C31BC4 (IovpExamineDevObjForwarding.c)
  * Callees:
- *     ObfReferenceObjectWithTag @ 0x140278B30 (ObfReferenceObjectWithTag.c)
- *     KeAcquireQueuedSpinLock @ 0x1402B4690 (KeAcquireQueuedSpinLock.c)
- *     KeReleaseQueuedSpinLock @ 0x1402E2650 (KeReleaseQueuedSpinLock.c)
+ *     ObfReferenceObjectWithTag @ 0x1402780A0 (ObfReferenceObjectWithTag.c)
+ *     KeReleaseQueuedSpinLock @ 0x1402C4710 (KeReleaseQueuedSpinLock.c)
+ *     KeAcquireQueuedSpinLock @ 0x1402FF360 (KeAcquireQueuedSpinLock.c)
  */
 
 void *__fastcall IovUtilGetUpperDeviceObjectWithTag(__int64 a1)

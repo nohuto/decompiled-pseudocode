@@ -1,13 +1,13 @@
 /*
- * XREFs of MiYieldPageTableWalk @ 0x1402E3540
+ * XREFs of MiYieldPageTableWalk @ 0x14020B840
  * Callers:
- *     MiWalkPageTablesRecursively @ 0x1402DC430 (MiWalkPageTablesRecursively.c)
+ *     MiWalkPageTablesRecursively @ 0x14023DD10 (MiWalkPageTablesRecursively.c)
  * Callees:
- *     MiAgeTrimListsTail @ 0x1402E36B0 (MiAgeTrimListsTail.c)
- *     MiReleaseWalkLocks @ 0x1402E37F0 (MiReleaseWalkLocks.c)
- *     MiDeleteVaTail @ 0x1402E3CF0 (MiDeleteVaTail.c)
- *     MiUnlockPageTableInternal @ 0x140321070 (MiUnlockPageTableInternal.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
+ *     MiAgeTrimListsTail @ 0x14020B9B0 (MiAgeTrimListsTail.c)
+ *     MiReleaseWalkLocks @ 0x14020BAF0 (MiReleaseWalkLocks.c)
+ *     MiUnlockPageTableInternal @ 0x1402C9C00 (MiUnlockPageTableInternal.c)
+ *     MiDeleteVaTail @ 0x140462720 (MiDeleteVaTail.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall MiYieldPageTableWalk(int *a1, __int64 a2, __int64 a3, __int64 a4)
@@ -64,6 +64,6 @@ LABEL_8:
     }
     return v9;
   }
-  MiReleaseWalkLocks(a1);
+  MiReleaseWalkLocks(a1, a2, v4, a4);
   return v9;
 }

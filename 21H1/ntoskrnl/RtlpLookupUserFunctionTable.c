@@ -27,12 +27,12 @@ __int64 __fastcall RtlpLookupUserFunctionTable(unsigned __int64 a1, __int64 a2)
   __int64 v14; // rsi
   unsigned int v15; // eax
   int v16; // r14d
-  unsigned __int64 v17; // r11
+  char *v17; // r11
   int v18; // eax
   unsigned int v19; // edx
   int v20; // r9d
   int v21; // r10d
-  unsigned __int64 v22; // rcx
+  char *v22; // rcx
   __int64 v23; // rdx
   __int64 v24; // r8
   __int64 v25; // r9
@@ -42,7 +42,7 @@ __int64 __fastcall RtlpLookupUserFunctionTable(unsigned __int64 a1, __int64 a2)
   unsigned __int64 v29; // [rsp+20h] [rbp-98h] BYREF
   __int128 v30; // [rsp+28h] [rbp-90h]
   unsigned __int64 v31; // [rsp+38h] [rbp-80h]
-  unsigned __int64 v32; // [rsp+40h] [rbp-78h]
+  char *v32; // [rsp+40h] [rbp-78h]
   __int64 v33; // [rsp+48h] [rbp-70h] BYREF
   __int64 v34[13]; // [rsp+50h] [rbp-68h] BYREF
   int v35; // [rsp+D8h] [rbp+20h] BYREF
@@ -87,9 +87,9 @@ __int64 __fastcall RtlpLookupUserFunctionTable(unsigned __int64 a1, __int64 a2)
               if ( v21 < v10 )
                 goto LABEL_6;
               v16 = (v10 + v21) >> 1;
-              v32 = *(_QWORD *)&v9[6 * v16 + 6];
-              v17 = v32 + (unsigned int)v9[6 * v16 + 8];
-              if ( a1 >= v32 )
+              v32 = *(char **)&v9[6 * v16 + 6];
+              v17 = &v32[v9[6 * v16 + 8]];
+              if ( a1 >= (unsigned __int64)v32 )
                 break;
               if ( !v16 )
                 goto LABEL_6;
@@ -97,25 +97,25 @@ __int64 __fastcall RtlpLookupUserFunctionTable(unsigned __int64 a1, __int64 a2)
             }
             if ( a1 > 0x7FFFFFFEFFFFLL
               && v20
-              && a1 >= v17 + v19
-              && a1 < v17 + v20 + v19
+              && a1 >= (unsigned __int64)&v17[v19]
+              && a1 < (unsigned __int64)&v17[v20 + v19]
               && v32 != PsNtosImageBase
               && v32 != PsHalImageBase )
             {
               break;
             }
-            if ( a1 < v17 )
+            if ( a1 < (unsigned __int64)v17 )
             {
               v30 = *(_OWORD *)&v9[6 * v16 + 4];
               v31 = *(_QWORD *)&v9[6 * v16 + 8];
               v20 = v31;
-              v22 = *((_QWORD *)&v30 + 1);
+              v22 = (char *)*((_QWORD *)&v30 + 1);
               goto LABEL_40;
             }
             v10 = v16 + 1;
           }
           *(_QWORD *)&v30 = &RtlRetpolineStubsFunctionTable;
-          v22 = v17 + v19;
+          v22 = &v17[v19];
           *((_QWORD *)&v30 + 1) = v22;
           v31 = __PAIR64__(RtlRetpolineStubsFunctionTableSize, v20);
 LABEL_40:

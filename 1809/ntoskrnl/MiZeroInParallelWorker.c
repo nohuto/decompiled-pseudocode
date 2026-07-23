@@ -1,7 +1,7 @@
 /*
- * XREFs of MiZeroInParallelWorker @ 0x14013C6C0
+ * XREFs of MiZeroInParallelWorker @ 0x14013C7C0
  * Callers:
- *     MiZeroInParallel @ 0x14013C544 (MiZeroInParallel.c)
+ *     MiZeroInParallel @ 0x14013C644 (MiZeroInParallel.c)
  * Callees:
  *     MiMakeProtectionPfnCompatible @ 0x14002DDB4 (MiMakeProtectionPfnCompatible.c)
  *     MiZeroPhysicalPage @ 0x140032010 (MiZeroPhysicalPage.c)
@@ -10,19 +10,19 @@
  *     MiPteInShadowRange @ 0x14003D740 (MiPteInShadowRange.c)
  *     MiMakeValidPte @ 0x14003D7F0 (MiMakeValidPte.c)
  *     MiReservePtes @ 0x14005C890 (MiReservePtes.c)
- *     MiFreeZeroPageSizeIndex @ 0x14009B4AC (MiFreeZeroPageSizeIndex.c)
- *     KeSetPriorityThread @ 0x1400CD870 (KeSetPriorityThread.c)
- *     MiDeleteUltraThreadContext @ 0x1400E180C (MiDeleteUltraThreadContext.c)
- *     MiZeroAndConvertLargePage @ 0x140118CC8 (MiZeroAndConvertLargePage.c)
- *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
- *     KeSignalGate @ 0x1401276B0 (KeSignalGate.c)
- *     MiInitializeZeroedPfns @ 0x14013C9BC (MiInitializeZeroedPfns.c)
- *     MiCreateUltraThreadContext @ 0x14013CAE4 (MiCreateUltraThreadContext.c)
- *     KeSetIdealProcessorThreadEx @ 0x14015CE4C (KeSetIdealProcessorThreadEx.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     KeZeroPages @ 0x1401C0930 (KeZeroPages.c)
- *     memset @ 0x1401D1880 (memset.c)
+ *     MiFreeZeroPageSizeIndex @ 0x14009B3EC (MiFreeZeroPageSizeIndex.c)
+ *     KeSetPriorityThread @ 0x1400CD8F0 (KeSetPriorityThread.c)
+ *     MiDeleteUltraThreadContext @ 0x1400E188C (MiDeleteUltraThreadContext.c)
+ *     MiZeroAndConvertLargePage @ 0x140118D38 (MiZeroAndConvertLargePage.c)
+ *     MiWritePteShadow @ 0x140120F40 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120FA0 (MiPteHasShadow.c)
+ *     KeSignalGate @ 0x140127780 (KeSignalGate.c)
+ *     MiInitializeZeroedPfns @ 0x14013CABC (MiInitializeZeroedPfns.c)
+ *     MiCreateUltraThreadContext @ 0x14013CBE4 (MiCreateUltraThreadContext.c)
+ *     KeSetIdealProcessorThreadEx @ 0x14015CF4C (KeSetIdealProcessorThreadEx.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     KeZeroPages @ 0x1401C0A90 (KeZeroPages.c)
+ *     memset @ 0x1401D1980 (memset.c)
  */
 
 void __fastcall MiZeroInParallelWorker(PVOID StartContext)
@@ -179,7 +179,7 @@ void __fastcall MiZeroInParallelWorker(PVOID StartContext)
             if ( (unsigned int)MiPteHasShadow() )
             {
               v26 = 1;
-              if ( HIBYTE(word_14043A1AC) )
+              if ( HIBYTE(word_14043B26C) )
                 goto LABEL_26;
               v34 = (v24 & 1) == 0;
             }
@@ -213,7 +213,7 @@ LABEL_29:
           if ( (unsigned int)MiPteHasShadow() )
           {
             v28 = 1;
-            if ( HIBYTE(word_14043A1AC) )
+            if ( HIBYTE(word_14043B26C) )
               goto LABEL_29;
             v35 = (v27 & 1) == 0;
           }
@@ -235,7 +235,7 @@ LABEL_29:
           v37 = v36;
         while ( 1 )
         {
-          v38 = MiReservePtes((__int64)&qword_14043AFA0, (unsigned __int64 *)(unsigned int)v37);
+          v38 = MiReservePtes((__int64)&qword_14043C060, (unsigned __int64 *)(unsigned int)v37);
           v60 = v38;
           v39 = v38;
           if ( v38 )
@@ -282,7 +282,7 @@ LABEL_29:
             if ( (unsigned int)MiPteHasShadow() )
             {
               v48 = 1;
-              if ( HIBYTE(word_14043A1AC) )
+              if ( HIBYTE(word_14043B26C) )
                 goto LABEL_82;
               v50 = (v49 & 1) == 0;
             }
@@ -314,7 +314,7 @@ LABEL_86:
 LABEL_88:
         *(v12 - 1) -= v37;
         KeZeroPages((__int64)(v39 << 25) >> 16, v37 << 12);
-        MiReleasePtes((__int64)&qword_14043AFA0, v39, v37);
+        MiReleasePtes((__int64)&qword_14043C060, v39, v37);
 LABEL_32:
         v6 = v53;
 LABEL_33:

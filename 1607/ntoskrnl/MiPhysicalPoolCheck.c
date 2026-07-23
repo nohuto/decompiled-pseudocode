@@ -1,10 +1,10 @@
 /*
- * XREFs of MiPhysicalPoolCheck @ 0x14009CA0C
+ * XREFs of MiPhysicalPoolCheck @ 0x14009C20C
  * Callers:
- *     MiFindContiguousMemoryInPool @ 0x14009B2EC (MiFindContiguousMemoryInPool.c)
- *     MiCheckPoolForContiguousPages @ 0x14009C8C8 (MiCheckPoolForContiguousPages.c)
+ *     MiFindContiguousMemoryInPool @ 0x14009AAEC (MiFindContiguousMemoryInPool.c)
+ *     MiCheckPoolForContiguousPages @ 0x14009C0C8 (MiCheckPoolForContiguousPages.c)
  * Callees:
- *     MI_READ_PTE_LOCK_FREE @ 0x1401F25D0 (MI_READ_PTE_LOCK_FREE.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1401F23FC (MI_READ_PTE_LOCK_FREE.c)
  */
 
 __int64 __fastcall MiPhysicalPoolCheck(
@@ -37,7 +37,7 @@ __int64 __fastcall MiPhysicalPoolCheck(
   v25 = a7 - 1;
   v13 = -1LL;
   v14 = ~(a7 - 1);
-  v15 = qword_1403269B0[26 * a8 + 20].Region + ((a1 + a2) << 12);
+  v15 = qword_1403269F0[26 * a8 + 20].Region + ((a1 + a2) << 12);
   if ( a3 )
   {
     while ( 1 )

@@ -1,7 +1,7 @@
 /*
- * XREFs of xHalGetInterruptTranslator @ 0x1407E34C0
+ * XREFs of xHalGetInterruptTranslator @ 0x1407E3790
  * Callers:
- *     PopPowerAggregatorInvokeStateMachine @ 0x140874A08 (PopPowerAggregatorInvokeStateMachine.c)
+ *     PopPowerAggregatorInvokeStateMachine @ 0x140874C48 (PopPowerAggregatorInvokeStateMachine.c)
  * Callees:
  *     <none>
  */

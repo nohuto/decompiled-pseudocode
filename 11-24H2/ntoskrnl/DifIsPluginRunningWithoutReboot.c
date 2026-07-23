@@ -1,8 +1,8 @@
 /*
- * XREFs of DifIsPluginRunningWithoutReboot @ 0x1406188DC
+ * XREFs of DifIsPluginRunningWithoutReboot @ 0x140616E9C
  * Callers:
- *     IopLoadUnloadDriver @ 0x1409C7700 (IopLoadUnloadDriver.c)
- *     VfMiscPluginEntry @ 0x140B9E670 (VfMiscPluginEntry.c)
+ *     IopLoadUnloadDriver @ 0x140A66EE0 (IopLoadUnloadDriver.c)
+ *     VfMiscPluginEntry @ 0x140BA0670 (VfMiscPluginEntry.c)
  * Callees:
  *     <none>
  */

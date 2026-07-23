@@ -3,16 +3,16 @@
  * Callers:
  *     KeStackAttachProcess @ 0x140016610 (KeStackAttachProcess.c)
  *     KiStackAttachProcess @ 0x140016DB0 (KiStackAttachProcess.c)
- *     MiTrimOrAgeWorkingSet @ 0x14006D580 (MiTrimOrAgeWorkingSet.c)
- *     KeAttachProcess @ 0x14012F560 (KeAttachProcess.c)
+ *     MiTrimOrAgeWorkingSet @ 0x14006D570 (MiTrimOrAgeWorkingSet.c)
+ *     KeAttachProcess @ 0x14012F630 (KeAttachProcess.c)
  * Callees:
  *     KiMoveApcState @ 0x140017480 (KiMoveApcState.c)
- *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
- *     KiSetAddressPolicy @ 0x1400BA140 (KiSetAddressPolicy.c)
- *     KiReleaseThreadLockSafe @ 0x14010C410 (KiReleaseThreadLockSafe.c)
- *     KiInSwapSingleProcess @ 0x14010C9C0 (KiInSwapSingleProcess.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     HvlSwitchVirtualAddressSpace @ 0x1402796C0 (HvlSwitchVirtualAddressSpace.c)
+ *     KeYieldProcessorEx @ 0x14006C9E0 (KeYieldProcessorEx.c)
+ *     KiSetAddressPolicy @ 0x1400BA080 (KiSetAddressPolicy.c)
+ *     KiReleaseThreadLockSafe @ 0x14010C490 (KiReleaseThreadLockSafe.c)
+ *     KiInSwapSingleProcess @ 0x14010CA40 (KiInSwapSingleProcess.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     HvlSwitchVirtualAddressSpace @ 0x1402798B0 (HvlSwitchVirtualAddressSpace.c)
  */
 
 unsigned __int64 __fastcall KiAttachProcess(__int64 a1, __int64 a2, unsigned __int8 a3, char a4, __int64 a5)

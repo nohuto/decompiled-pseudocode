@@ -1,24 +1,24 @@
 /*
- * XREFs of KiProcessThreadWaitList @ 0x14008DCC0
+ * XREFs of KiProcessThreadWaitList @ 0x14008D420
  * Callers:
- *     IopfCompleteRequest @ 0x140053570 (IopfCompleteRequest.c)
- *     KiRetireDpcList @ 0x140058280 (KiRetireDpcList.c)
- *     KiTimer2Expiration @ 0x14005A0A0 (KiTimer2Expiration.c)
- *     KiCommitThreadWait @ 0x14005ACD0 (KiCommitThreadWait.c)
- *     KiSwapThread @ 0x14005B200 (KiSwapThread.c)
- *     KeRemoveQueueEx @ 0x14006A3B0 (KeRemoveQueueEx.c)
- *     KiPriQueueThreadPriorityChanged @ 0x1400A7AB0 (KiPriQueueThreadPriorityChanged.c)
- *     KeRemovePriQueue @ 0x1400E79D0 (KeRemovePriQueue.c)
- *     KiExpireTimer2 @ 0x1400EC080 (KiExpireTimer2.c)
- *     KeTerminateThread @ 0x1400F2454 (KeTerminateThread.c)
- *     KiProcessExpiredTimerList @ 0x14010CEBC (KiProcessExpiredTimerList.c)
+ *     IopfCompleteRequest @ 0x1400530F0 (IopfCompleteRequest.c)
+ *     KiRetireDpcList @ 0x140057E00 (KiRetireDpcList.c)
+ *     KiTimer2Expiration @ 0x140059C20 (KiTimer2Expiration.c)
+ *     KiCommitThreadWait @ 0x14005A850 (KiCommitThreadWait.c)
+ *     KiSwapThread @ 0x14005AD80 (KiSwapThread.c)
+ *     KeRemoveQueueEx @ 0x140069F30 (KeRemoveQueueEx.c)
+ *     KiPriQueueThreadPriorityChanged @ 0x1400A6028 (KiPriQueueThreadPriorityChanged.c)
+ *     KeRemovePriQueue @ 0x1400E5870 (KeRemovePriQueue.c)
+ *     KiExpireTimer2 @ 0x1400E9EF0 (KiExpireTimer2.c)
+ *     KeTerminateThread @ 0x1400F02A4 (KeTerminateThread.c)
+ *     KiProcessExpiredTimerList @ 0x14010D420 (KiProcessExpiredTimerList.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x14002ECB0 (KeYieldProcessorEx.c)
- *     KeSetEvent @ 0x1400562D0 (KeSetEvent.c)
- *     KiDeferredReadyThread @ 0x140056AC0 (KiDeferredReadyThread.c)
- *     KiRequestProcessInSwap @ 0x1400CECA0 (KiRequestProcessInSwap.c)
- *     KiAcquireKobjectLockSafe @ 0x1400EE7C0 (KiAcquireKobjectLockSafe.c)
- *     EtwTraceReadyThread @ 0x1402260C8 (EtwTraceReadyThread.c)
+ *     KeYieldProcessorEx @ 0x14002E830 (KeYieldProcessorEx.c)
+ *     KeSetEvent @ 0x140055E50 (KeSetEvent.c)
+ *     KiDeferredReadyThread @ 0x140056640 (KiDeferredReadyThread.c)
+ *     KiRequestProcessInSwap @ 0x1400CCB40 (KiRequestProcessInSwap.c)
+ *     KiAcquireKobjectLockSafe @ 0x1400EC640 (KiAcquireKobjectLockSafe.c)
+ *     EtwTraceReadyThread @ 0x140225EF4 (EtwTraceReadyThread.c)
  */
 
 int __fastcall KiProcessThreadWaitList(__int64 a1, unsigned __int8 a2, _SINGLE_LIST_ENTRY *a3, __int64 a4)

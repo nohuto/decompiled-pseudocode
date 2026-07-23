@@ -1,31 +1,31 @@
 /*
- * XREFs of _RtlpRemovePendingDeleteLanguages @ 0x18014EF30
+ * XREFs of _RtlpRemovePendingDeleteLanguages @ 0x18014EDE0
  * Callers:
- *     _RtlpMuiRegValidateInstalled @ 0x18014E7F8 (_RtlpMuiRegValidateInstalled.c)
+ *     _RtlpMuiRegValidateInstalled @ 0x18014E6A8 (_RtlpMuiRegValidateInstalled.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x180001AA0 (RtlInitUnicodeString.c)
- *     RtlpMuiRegGetInstalledLanguageIndexByName @ 0x18000AC20 (RtlpMuiRegGetInstalledLanguageIndexByName.c)
- *     LdrpOpenKey @ 0x1800DC350 (LdrpOpenKey.c)
- *     NtClose @ 0x18015F120 (NtClose.c)
- *     NtEnumerateKey @ 0x18015F580 (NtEnumerateKey.c)
- *     __security_check_cookie @ 0x180162C90 (__security_check_cookie.c)
+ *     RtlInitUnicodeString @ 0x18004D1D0 (RtlInitUnicodeString.c)
+ *     RtlpMuiRegGetInstalledLanguageIndexByName @ 0x180056350 (RtlpMuiRegGetInstalledLanguageIndexByName.c)
+ *     LdrpOpenKey @ 0x1800D92C0 (LdrpOpenKey.c)
+ *     NtClose @ 0x18015F020 (NtClose.c)
+ *     NtEnumerateKey @ 0x18015F480 (NtEnumerateKey.c)
+ *     __security_check_cookie @ 0x180162B90 (__security_check_cookie.c)
  */
 
 __int64 __fastcall RtlpRemovePendingDeleteLanguages(__int64 a1, __int16 a2)
 {
-  unsigned int v5; // ebx
-  int v6; // esi
+  ULONG v5; // ebx
+  NTSTATUS v6; // esi
   __int64 v7; // rdx
   __int16 v8[2]; // [rsp+30h] [rbp-D0h] BYREF
-  int v9; // [rsp+34h] [rbp-CCh] BYREF
-  HANDLE Handle; // [rsp+38h] [rbp-C8h] BYREF
-  UNICODE_STRING DestinationString; // [rsp+40h] [rbp-C0h] BYREF
-  _BYTE v12[12]; // [rsp+50h] [rbp-B0h] BYREF
+  ULONG ResultLength; // [rsp+34h] [rbp-CCh] BYREF
+  HANDLE KeyHandle; // [rsp+38h] [rbp-C8h] BYREF
+  _UNICODE_STRING DestinationString; // [rsp+40h] [rbp-C0h] BYREF
+  _BYTE KeyInformation[12]; // [rsp+50h] [rbp-B0h] BYREF
   unsigned int v13; // [rsp+5Ch] [rbp-A4h]
   wchar_t v14[248]; // [rsp+60h] [rbp-A0h] BYREF
 
-  Handle = 0LL;
-  v9 = 0;
+  KeyHandle = 0LL;
+  ResultLength = 0;
   v8[0] = -1;
   DestinationString = 0LL;
   if ( !a1 )
@@ -33,14 +33,14 @@ __int64 __fastcall RtlpRemovePendingDeleteLanguages(__int64 a1, __int16 a2)
   RtlInitUnicodeString(
     &DestinationString,
     L"\\Registry\\Machine\\System\\CurrentControlSet\\Control\\MUI\\UILanguages\\PendingDelete");
-  if ( (int)LdrpOpenKey((__int64)&DestinationString, 0LL, 0x20019u, &Handle) >= 0 )
+  if ( LdrpOpenKey(&DestinationString, 0LL, 0x20019u, &KeyHandle) >= 0 )
   {
     v5 = 0;
     do
     {
       while ( 1 )
       {
-        v6 = NtEnumerateKey(Handle, v5, 0LL, v12, 512, &v9);
+        v6 = NtEnumerateKey(KeyHandle, v5, KeyBasicInformation, KeyInformation, 0x200u, &ResultLength);
         if ( v6 < 0 )
           break;
         if ( (unsigned __int64)v13 + 24 >= 0x1FE )
@@ -56,8 +56,8 @@ __int64 __fastcall RtlpRemovePendingDeleteLanguages(__int64 a1, __int16 a2)
       ++v5;
     }
     while ( v6 != -2147483622 );
-    if ( Handle )
-      NtClose(Handle);
+    if ( KeyHandle )
+      NtClose(KeyHandle);
   }
   return 0LL;
 }

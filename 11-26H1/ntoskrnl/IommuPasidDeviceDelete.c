@@ -1,9 +1,9 @@
 /*
- * XREFs of IommuPasidDeviceDelete @ 0x140787120
+ * XREFs of IommuPasidDeviceDelete @ 0x140789C50
  * Callers:
  *     <none>
  * Callees:
- *     IommupPasidDeviceDelete @ 0x140588584 (IommupPasidDeviceDelete.c)
+ *     IommupPasidDeviceDelete @ 0x14058AC50 (IommupPasidDeviceDelete.c)
  */
 
 __int64 __fastcall IommuPasidDeviceDelete(__int64 a1, __int64 a2, __int64 a3, struct _KLOCK_ENTRIES *a4)

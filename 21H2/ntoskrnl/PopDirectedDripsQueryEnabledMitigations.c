@@ -1,12 +1,12 @@
 /*
- * XREFs of PopDirectedDripsQueryEnabledMitigations @ 0x1407CBFE4
+ * XREFs of PopDirectedDripsQueryEnabledMitigations @ 0x1407CC154
  * Callers:
- *     PopDirectedDripsEngage @ 0x1405688B4 (PopDirectedDripsEngage.c)
- *     PopDirectedDripsInitializePhase3 @ 0x140A6DC48 (PopDirectedDripsInitializePhase3.c)
+ *     PopDirectedDripsEngage @ 0x140568AF4 (PopDirectedDripsEngage.c)
+ *     PopDirectedDripsInitializePhase3 @ 0x140A6EC48 (PopDirectedDripsInitializePhase3.c)
  * Callees:
  *     Feature_DirectedFx__private_ReportDeviceUsage @ 0x1403F8148 (Feature_DirectedFx__private_ReportDeviceUsage.c)
- *     PopDirectedDripsQueryPs4Support @ 0x1407CC07C (PopDirectedDripsQueryPs4Support.c)
- *     PopDirectedDripsQueryRegistryValues @ 0x1407CC134 (PopDirectedDripsQueryRegistryValues.c)
+ *     PopDirectedDripsQueryPs4Support @ 0x1407CC1EC (PopDirectedDripsQueryPs4Support.c)
+ *     PopDirectedDripsQueryRegistryValues @ 0x1407CC2A4 (PopDirectedDripsQueryRegistryValues.c)
  */
 
 void __fastcall PopDirectedDripsQueryEnabledMitigations(__int64 a1)

@@ -23,8 +23,8 @@ __int64 __fastcall MiFreeDriverInitialization(__int64 a1)
   if ( (*(_BYTE *)(8 * ((v1 >> 39) & 0x1FF) - 0x90482413000LL) & 1) == 0
     || (*(_BYTE *)(((v1 >> 27) & 0x1FFFF8) - 0x90482600000LL) & 1) == 0
     || (result = MiGetPdeAddress(v1), (*(_BYTE *)result & 0x81) != 0x81)
-    || v1 == PsNtosImageBase
-    || v1 == PsHalImageBase )
+    || (PVOID)v1 == PsNtosImageBase
+    || (PVOID)v1 == PsHalImageBase )
   {
     v4 = 0LL;
     v5 = 0;
@@ -41,7 +41,7 @@ __int64 __fastcall MiFreeDriverInitialization(__int64 a1)
     while ( v5 );
     if ( v4 )
     {
-      if ( v1 == PsNtosImageBase || v1 == PsHalImageBase )
+      if ( (PVOID)v1 == PsNtosImageBase || (PVOID)v1 == PsHalImageBase )
         qword_1402FF818 -= v4;
       else
         _InterlockedExchangeAdd(&dword_1402FF858, -(int)v4);

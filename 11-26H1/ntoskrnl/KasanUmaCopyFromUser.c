@@ -1,11 +1,11 @@
 /*
- * XREFs of KasanUmaCopyFromUser @ 0x14071EF20
+ * XREFs of KasanUmaCopyFromUser @ 0x140723B40
  * Callers:
  *     <none>
  * Callees:
- *     KasaniReport @ 0x1405DDA50 (KasaniReport.c)
- *     KcsanValidateAddress @ 0x1405E31F0 (KcsanValidateAddress.c)
- *     KscpCopyFromUser @ 0x140C5EBC0 (KscpCopyFromUser.c)
+ *     KasaniReport @ 0x1405E03C0 (KasaniReport.c)
+ *     KcsanValidateAddress @ 0x1405E5B60 (KcsanValidateAddress.c)
+ *     KscpCopyFromUser @ 0x140C64BC0 (KscpCopyFromUser.c)
  */
 
 __int64 __fastcall KasanUmaCopyFromUser(ULONG_PTR BugCheckParameter1, __int64 a2, ULONG_PTR a3)

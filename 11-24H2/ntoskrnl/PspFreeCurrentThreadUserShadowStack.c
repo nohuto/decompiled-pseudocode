@@ -1,10 +1,10 @@
 /*
- * XREFs of PspFreeCurrentThreadUserShadowStack @ 0x1408DB74C
+ * XREFs of PspFreeCurrentThreadUserShadowStack @ 0x1408D9978
  * Callers:
- *     PspExitThread @ 0x1408A7D90 (PspExitThread.c)
+ *     PspExitThread @ 0x1408FDFF0 (PspExitThread.c)
  * Callees:
- *     ZwQueryVirtualMemory @ 0x1406A6870 (ZwQueryVirtualMemory.c)
- *     MmFreeVirtualMemory @ 0x1408DB8A0 (MmFreeVirtualMemory.c)
+ *     ZwQueryVirtualMemory @ 0x1406A7810 (ZwQueryVirtualMemory.c)
+ *     MmFreeVirtualMemory @ 0x1408D9AD0 (MmFreeVirtualMemory.c)
  */
 
 NTSTATUS PspFreeCurrentThreadUserShadowStack()
@@ -16,7 +16,7 @@ NTSTATUS PspFreeCurrentThreadUserShadowStack()
   result = ZwQueryVirtualMemory(
              (HANDLE)0xFFFFFFFFFFFFFFFFLL,
              (PVOID)__readmsr(0x6A7u),
-             (MEMORY_INFORMATION_CLASS)3,
+             MemoryRegionInformation,
              MemoryInformation,
              0x30uLL,
              0LL);

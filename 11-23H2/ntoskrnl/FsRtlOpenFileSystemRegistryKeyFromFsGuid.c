@@ -3,12 +3,12 @@
  * Callers:
  *     <none>
  * Callees:
- *     RtlUnicodeStringPrintf @ 0x1403C4AEC (RtlUnicodeStringPrintf.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     ZwClose @ 0x14041AF40 (ZwClose.c)
- *     ZwOpenKey @ 0x14041AFA0 (ZwOpenKey.c)
- *     memset @ 0x140435A00 (memset.c)
- *     RtlQueryRegistryValuesEx @ 0x1406C7A60 (RtlQueryRegistryValuesEx.c)
+ *     RtlUnicodeStringPrintf @ 0x1403C4CCC (RtlUnicodeStringPrintf.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     ZwClose @ 0x14041B2D0 (ZwClose.c)
+ *     ZwOpenKey @ 0x14041B330 (ZwOpenKey.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     RtlQueryRegistryValuesEx @ 0x1406C7A90 (RtlQueryRegistryValuesEx.c)
  */
 
 __int64 __fastcall FsRtlOpenFileSystemRegistryKeyFromFsGuid(
@@ -21,7 +21,7 @@ __int64 __fastcall FsRtlOpenFileSystemRegistryKeyFromFsGuid(
   bool v7; // zf
   NTSTATUS RegistryValues; // ebx
   HANDLE v9; // rcx
-  int v11; // [rsp+20h] [rbp-E0h]
+  int Environment; // [rsp+20h] [rbp-E0h]
   int v12; // [rsp+28h] [rbp-D8h]
   int v13; // [rsp+30h] [rbp-D0h]
   int v14; // [rsp+38h] [rbp-C8h]
@@ -34,7 +34,7 @@ __int64 __fastcall FsRtlOpenFileSystemRegistryKeyFromFsGuid(
   ACCESS_MASK DesiredAccess; // [rsp+78h] [rbp-88h]
   UNICODE_STRING DestinationString; // [rsp+80h] [rbp-80h] BYREF
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+90h] [rbp-70h] BYREF
-  _QWORD v24[14]; // [rsp+C0h] [rbp-40h] BYREF
+  _RTL_QUERY_REGISTRY_TABLE QueryTable[2]; // [rsp+C0h] [rbp-40h] BYREF
   __int128 v25; // [rsp+130h] [rbp+30h] BYREF
   char v26; // [rsp+140h] [rbp+40h] BYREF
 
@@ -44,7 +44,7 @@ __int64 __fastcall FsRtlOpenFileSystemRegistryKeyFromFsGuid(
   *(&ObjectAttributes.Attributes + 1) = 0;
   *(_QWORD *)&DestinationString.Length = 14155776LL;
   DestinationString.Buffer = (wchar_t *)&v26;
-  memset(v24, 0, sizeof(v24));
+  memset(QueryTable, 0, sizeof(QueryTable));
   *a5 = 0LL;
   v7 = *(_QWORD *)a1 == *(_QWORD *)&NullGuid.Data1;
   v25 = 0LL;
@@ -58,13 +58,13 @@ __int64 __fastcall FsRtlOpenFileSystemRegistryKeyFromFsGuid(
   v14 = *((unsigned __int8 *)a1 + 10);
   v13 = *((unsigned __int8 *)a1 + 9);
   v12 = *((unsigned __int8 *)a1 + 8);
-  v11 = *((unsigned __int16 *)a1 + 3);
+  Environment = *((unsigned __int16 *)a1 + 3);
   RtlUnicodeStringPrintf(
     &DestinationString,
     L"\\Registry\\Machine\\System\\CurrentControlSet\\Control\\FileSystemVolumes\\{%08x-%04x-%04x-%02x%02x-%02x%02x%02x%02x%02x%02x}",
     *a1,
     *((unsigned __int16 *)a1 + 2),
-    v11,
+    Environment,
     v12,
     v13,
     v14,
@@ -81,12 +81,12 @@ __int64 __fastcall FsRtlOpenFileSystemRegistryKeyFromFsGuid(
   RegistryValues = ZwOpenKey(&KeyHandle, DesiredAccess, &ObjectAttributes);
   if ( RegistryValues >= 0 )
   {
-    v24[2] = L"FsGuid";
-    LODWORD(v24[1]) = 308;
-    v24[3] = &v25;
-    LODWORD(v24[4]) = 50331648;
+    QueryTable[0].Name = L"FsGuid";
+    QueryTable[0].Flags = 308;
+    QueryTable[0].EntryContext = &v25;
+    QueryTable[0].DefaultType = 50331648;
     LODWORD(v25) = -16;
-    RegistryValues = RtlQueryRegistryValuesEx(0x40000000LL, KeyHandle, v24, 0LL, 0LL);
+    RegistryValues = RtlQueryRegistryValuesEx(0x40000000u, (PCWSTR)KeyHandle, QueryTable, 0LL, 0LL);
     if ( RegistryValues >= 0 )
     {
       if ( *a2 == v25 )

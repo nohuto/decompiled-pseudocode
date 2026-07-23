@@ -14,18 +14,18 @@
  *     ProbeForWrite @ 0x14059C6A0 (ProbeForWrite.c)
  */
 
-__int64 __fastcall NtQuerySecurityAttributesToken(
-        void *a1,
-        __int64 a2,
-        unsigned int a3,
-        _QWORD *a4,
-        unsigned int Length,
-        _DWORD *Address)
+NTSTATUS __cdecl NtQuerySecurityAttributesToken(
+        HANDLE TokenHandle,
+        PUNICODE_STRING Attributes,
+        ULONG NumberOfAttributes,
+        PVOID Buffer,
+        ULONG Length,
+        PULONG ReturnLength)
 {
   char v9; // r15
   unsigned __int8 v10; // bl
-  _DWORD *v11; // r13
-  int SecurityAttributesToken; // esi
+  PULONG v11; // r13
+  NTSTATUS SecurityAttributesToken; // esi
   struct _KTHREAD *CurrentThread; // rax
   PERESOURCE *v14; // rdi
   __int64 v15; // rdx
@@ -41,7 +41,7 @@ __int64 __fastcall NtQuerySecurityAttributesToken(
   v10 = KeGetCurrentThread()->gap0[10];
   if ( Length )
   {
-    if ( a4 )
+    if ( Buffer )
       goto LABEL_3;
 LABEL_17:
     SecurityAttributesToken = -1073741811;
@@ -50,24 +50,24 @@ LABEL_18:
     v14 = (PERESOURCE *)Object;
     goto LABEL_8;
   }
-  if ( a4 )
+  if ( Buffer )
     goto LABEL_17;
 LABEL_3:
   if ( v10 )
   {
-    ProbeForWrite(a4, Length, 4u);
-    v11 = Address;
-    ProbeForWrite(Address, 4uLL, 4u);
+    ProbeForWrite(Buffer, Length, 4u);
+    v11 = ReturnLength;
+    ProbeForWrite(ReturnLength, 4uLL, 4u);
   }
   else
   {
-    v11 = Address;
+    v11 = ReturnLength;
   }
-  SecurityAttributesToken = SepCaptureUnicodeStringArray(a2, a3, v10, &P);
+  SecurityAttributesToken = SepCaptureUnicodeStringArray(Attributes, NumberOfAttributes, v10, &P);
   v18 = SecurityAttributesToken;
   if ( SecurityAttributesToken < 0 )
     goto LABEL_18;
-  SecurityAttributesToken = SepReferenceTokenByHandle(a1, 8u, v10, &Object, v17, &v21);
+  SecurityAttributesToken = SepReferenceTokenByHandle(TokenHandle, 8u, v10, &Object, v17, &v21);
   v18 = SecurityAttributesToken;
   if ( SecurityAttributesToken < 0 )
     goto LABEL_18;
@@ -80,9 +80,9 @@ LABEL_3:
                               (__int64)v14,
                               v15,
                               (__int64)P,
-                              a3,
+                              NumberOfAttributes,
                               0,
-                              a4,
+                              Buffer,
                               Length,
                               v11);
   v18 = SecurityAttributesToken;
@@ -98,5 +98,5 @@ LABEL_8:
   }
   if ( v14 )
     ObfDereferenceObject(v14);
-  return (unsigned int)SecurityAttributesToken;
+  return SecurityAttributesToken;
 }

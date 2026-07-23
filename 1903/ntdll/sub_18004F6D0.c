@@ -13,40 +13,44 @@
  *     sub_18010BBB0 @ 0x18010BBB0 (sub_18010BBB0.c)
  */
 
-signed __int64 __fastcall sub_18004F6D0(__int64 a1, _QWORD *a2, _QWORD *a3)
+void __fastcall sub_18004F6D0(__int64 a1, PVOID *a2, ULONG_PTR *a3)
 {
-  unsigned __int64 v6; // rdi
+  ULONG_PTR v6; // rdi
   char *v7; // rax
-  unsigned __int64 v8; // rbx
+  __int64 v8; // rbx
   char v9; // dl
   __int64 v10; // rsi
   char v11; // dl
   __int64 v12; // rax
-  unsigned __int64 v13; // rax
-  unsigned __int64 v14; // rdi
-  signed __int64 result; // rax
-  __int64 v16; // rbx
+  ULONG_PTR v13; // rax
+  __int64 v14; // rdi
+  __int64 v15; // rbx
 
   v6 = *a3 >> 20;
-  v7 = (char *)sub_18004F808(a1 + 16, (*a2 - *(_QWORD *)(a1 + 8)) >> 20);
-  v8 = (unsigned __int64)v7;
+  v7 = (char *)sub_18004F808(a1 + 16, ((unsigned __int64)*a2 - *(_QWORD *)(a1 + 8)) >> 20);
+  v8 = (__int64)v7;
   if ( !v7 )
   {
-    v16 = sub_18010BBB0(a1 + 16, (*a2 - *(_QWORD *)(a1 + 8)) / 0x100000LL, ~((*a2 - *(_QWORD *)(a1 + 8)) / 0x100000LL));
-    result = ZwFreeVirtualMemory(-1LL, a2, a3, 0x8000LL);
-    *(_QWORD *)(v16 + 24) -= *a3 >> 20;
-    return result;
+    v15 = sub_18010BBB0(
+            a1 + 16,
+            ((__int64)*a2 - *(_QWORD *)(a1 + 8)) / 0x100000,
+            ~(((__int64)*a2 - *(_QWORD *)(a1 + 8)) / 0x100000));
+    ZwFreeVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, a2, a3, 0x8000u);
+    *(_QWORD *)(v15 + 24) -= *a3 >> 20;
+    return;
   }
   v9 = *v7;
   v10 = a1 + 48 * ((unsigned __int8)v7[1] + 45LL);
   if ( (*v7 & 4) != 0 )
   {
     *v7 = v9 & 0xFE;
-    return sub_18004FAA8(v10, v8);
+LABEL_20:
+    sub_18004FAA8(v10, v8);
+    return;
   }
   if ( (*(_BYTE *)(v10 + 46) & 6u) < 4 )
   {
-    ZwFreeVirtualMemory(-1LL, a2, a3, 0x4000LL);
+    ZwFreeVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, a2, a3, 0x4000u);
     v9 = *(_BYTE *)v8;
   }
   if ( (v9 & 2) != 0 )
@@ -74,12 +78,11 @@ signed __int64 __fastcall sub_18004F6D0(__int64 a1, _QWORD *a2, _QWORD *a3)
     else
       v14 = 0LL;
   }
-  RtlAcquireSRWLockExclusive((volatile signed __int64 *)v10);
+  RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)v10);
   if ( v14 )
-    sub_18004E264(v10, v8, (__int64)(v14 - v8) >> 5);
+    sub_18004E264(v10, v8, (v14 - v8) >> 5);
   v8 = sub_18004E0E4(v10);
-  result = RtlReleaseSRWLockExclusive((volatile signed __int64 *)v10);
+  RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)v10);
   if ( v8 )
-    return sub_18004FAA8(v10, v8);
-  return result;
+    goto LABEL_20;
 }

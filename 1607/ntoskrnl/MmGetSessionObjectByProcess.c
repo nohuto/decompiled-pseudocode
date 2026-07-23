@@ -1,7 +1,7 @@
 /*
- * XREFs of MmGetSessionObjectByProcess @ 0x14013500C
+ * XREFs of MmGetSessionObjectByProcess @ 0x14013557C
  * Callers:
- *     PspEstablishDfssHierarchy @ 0x14054C034 (PspEstablishDfssHierarchy.c)
+ *     PspEstablishDfssHierarchy @ 0x14054C574 (PspEstablishDfssHierarchy.c)
  * Callees:
  *     <none>
  */

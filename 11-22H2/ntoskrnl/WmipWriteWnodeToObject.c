@@ -39,10 +39,10 @@ __int64 __fastcall WmipWriteWnodeToObject(PRKEVENT Event, unsigned int *Src)
   KxReleaseQueuedSpinLock((volatile signed __int64 **)v16);
   v6 = 1;
   OldIrql = v16[0].OldIrql;
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v16[0].OldIrql <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v16[0].OldIrql <= 0xFu && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;

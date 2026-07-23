@@ -1,15 +1,15 @@
 /*
- * XREFs of DifNtWriteFileWrapper @ 0x140635CC0
+ * XREFs of DifNtWriteFileWrapper @ 0x140634280
  * Callers:
  *     <none>
  * Callees:
- *     ExReleaseRundownProtection_0 @ 0x140245670 (ExReleaseRundownProtection_0.c)
- *     ExAcquireRundownProtection @ 0x1402792A0 (ExAcquireRundownProtection.c)
- *     DifGetAPIThunkContextById @ 0x140489B90 (DifGetAPIThunkContextById.c)
- *     DifGetReturnAddressForWrappers @ 0x1404C9B7C (DifGetReturnAddressForWrappers.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     NtWriteFile @ 0x1408C1170 (NtWriteFile.c)
+ *     ExReleaseRundownProtection_0 @ 0x14020DE50 (ExReleaseRundownProtection_0.c)
+ *     ExAcquireRundownProtection_0 @ 0x14022E830 (ExAcquireRundownProtection_0.c)
+ *     DifGetAPIThunkContextById @ 0x1404848A0 (DifGetAPIThunkContextById.c)
+ *     DifGetReturnAddressForWrappers @ 0x1404C302C (DifGetReturnAddressForWrappers.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     NtWriteFile @ 0x1408BEB30 (NtWriteFile.c)
  */
 
 __int64 __fastcall DifNtWriteFileWrapper(
@@ -25,85 +25,81 @@ __int64 __fastcall DifNtWriteFileWrapper(
 {
   __int64 *APIThunkContextById; // rax
   __int64 v13; // rdx
-  __int64 v14; // r8
-  __int64 v15; // r9
-  __int64 *v16; // rsi
-  int v17; // ecx
+  __int64 *v14; // rsi
+  int v15; // ecx
   PVOID ReturnAddressForWrappers; // rax
-  BOOLEAN v19; // r14
+  BOOLEAN v17; // r14
   __int64 *i; // rbx
-  __int64 v21; // rdx
-  __int64 v22; // r8
-  __int64 v23; // r9
-  BOOLEAN v24; // di
-  _QWORD **v25; // rsi
+  __int64 v19; // rdx
+  BOOLEAN v20; // di
+  _QWORD **v21; // rsi
   _QWORD *j; // rbx
-  _QWORD v28[3]; // [rsp+58h] [rbp-51h] BYREF
-  ULONG v29; // [rsp+70h] [rbp-39h]
-  PVOID v30; // [rsp+78h] [rbp-31h]
-  struct _IO_STATUS_BLOCK *v31; // [rsp+80h] [rbp-29h]
-  void *v32; // [rsp+88h] [rbp-21h]
-  void (__stdcall *v33)(PVOID, PIO_STATUS_BLOCK, ULONG); // [rsp+90h] [rbp-19h]
-  void *v34; // [rsp+98h] [rbp-11h]
-  void *v35; // [rsp+A0h] [rbp-9h]
-  unsigned int v36; // [rsp+A8h] [rbp-1h]
+  _QWORD v24[3]; // [rsp+58h] [rbp-51h] BYREF
+  ULONG v25; // [rsp+70h] [rbp-39h]
+  PVOID v26; // [rsp+78h] [rbp-31h]
+  struct _IO_STATUS_BLOCK *v27; // [rsp+80h] [rbp-29h]
+  void *v28; // [rsp+88h] [rbp-21h]
+  void (__stdcall *v29)(PVOID, PIO_STATUS_BLOCK, ULONG); // [rsp+90h] [rbp-19h]
+  void *v30; // [rsp+98h] [rbp-11h]
+  void *v31; // [rsp+A0h] [rbp-9h]
+  unsigned int v32; // [rsp+A8h] [rbp-1h]
   void *retaddr; // [rsp+E0h] [rbp+37h]
 
-  memset_0(v28, 0, 0x58uLL);
+  memset_0(v24, 0, 0x58uLL);
   APIThunkContextById = DifGetAPIThunkContextById(204);
-  v16 = APIThunkContextById;
+  v14 = APIThunkContextById;
   if ( !APIThunkContextById )
     goto LABEL_17;
-  v17 = *((_DWORD *)APIThunkContextById + 3);
-  if ( (v17 & 0x18) != 0 )
+  v15 = *((_DWORD *)APIThunkContextById + 3);
+  if ( (v15 & 0x18) != 0 )
   {
     ReturnAddressForWrappers = retaddr;
   }
   else
   {
-    if ( (v17 & 4) == 0 )
+    if ( (v15 & 4) == 0 )
       goto LABEL_7;
     ReturnAddressForWrappers = DifGetReturnAddressForWrappers();
   }
-  v28[0] = ReturnAddressForWrappers;
+  v24[0] = ReturnAddressForWrappers;
 LABEL_7:
-  v19 = 0;
-  v35 = a1;
-  v31 = IoStatusBlock;
-  v30 = Buffer;
-  v29 = Length;
-  v28[2] = ByteOffset;
-  v28[1] = Key;
-  v34 = a2;
-  v33 = a3;
-  v32 = a4;
+  v17 = 0;
+  v31 = a1;
+  v27 = IoStatusBlock;
+  v26 = Buffer;
+  v25 = Length;
+  v24[2] = ByteOffset;
+  v24[1] = Key;
+  v30 = a2;
+  v29 = a3;
+  v28 = a4;
   if ( !VfDifRunningWithoutReboot && (VfOptionFlags & 0x800) == 0
-    || (v19 = ExAcquireRundownProtection(&DifRebootlessRundown)) != 0 )
+    || (v17 = ExAcquireRundownProtection_0(&DifRebootlessRundown)) != 0 )
   {
-    for ( i = (__int64 *)v16[4]; i != v16 + 4; i = (__int64 *)*i )
+    for ( i = (__int64 *)v14[4]; i != v14 + 4; i = (__int64 *)*i )
     {
       if ( i != (__int64 *)16 )
-        guard_dispatch_icall_no_overrides(v28, v13, v14, v15);
+        guard_dispatch_icall_no_overrides(v24, v13);
     }
-    if ( v19 )
+    if ( v17 )
       ExReleaseRundownProtection_0(&DifRebootlessRundown);
   }
 LABEL_17:
-  v36 = NtWriteFile(a1, a2, a3, a4, IoStatusBlock, Buffer, Length, ByteOffset, Key);
-  if ( v16 )
+  v32 = NtWriteFile(a1, a2, a3, a4, IoStatusBlock, Buffer, Length, ByteOffset, Key);
+  if ( v14 )
   {
-    if ( (v24 = 0, !VfDifRunningWithoutReboot) && (VfOptionFlags & 0x800) == 0
-      || (v24 = ExAcquireRundownProtection(&DifRebootlessRundown)) != 0 )
+    if ( (v20 = 0, !VfDifRunningWithoutReboot) && (VfOptionFlags & 0x800) == 0
+      || (v20 = ExAcquireRundownProtection_0(&DifRebootlessRundown)) != 0 )
     {
-      v25 = (_QWORD **)(v16 + 6);
-      for ( j = *v25; j != v25; j = (_QWORD *)*j )
+      v21 = (_QWORD **)(v14 + 6);
+      for ( j = *v21; j != v21; j = (_QWORD *)*j )
       {
         if ( j != (_QWORD *)16 )
-          guard_dispatch_icall_no_overrides(v28, v21, v22, v23);
+          guard_dispatch_icall_no_overrides(v24, v19);
       }
-      if ( v24 )
+      if ( v20 )
         ExReleaseRundownProtection_0(&DifRebootlessRundown);
     }
   }
-  return v36;
+  return v32;
 }

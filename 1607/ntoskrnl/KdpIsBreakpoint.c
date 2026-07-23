@@ -1,5 +1,5 @@
 /*
- * XREFs of KdpIsBreakpoint @ 0x1401D1D08
+ * XREFs of KdpIsBreakpoint @ 0x1401D1B34
  * Callers:
  *     KdpLowRestoreBreakpoint @ 0x1406F620C (KdpLowRestoreBreakpoint.c)
  *     KdpLowWriteContent @ 0x1406F62A4 (KdpLowWriteContent.c)

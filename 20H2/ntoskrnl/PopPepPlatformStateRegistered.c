@@ -33,7 +33,7 @@ _QWORD *__fastcall PopPepPlatformStateRegistered(unsigned int a1)
   unsigned int v7; // r8d
   bool v8; // zf
   __int64 v9; // rcx
-  unsigned __int64 v10; // rsi
+  __int64 v10; // rsi
   int v11; // eax
   unsigned int v12; // ecx
   __int64 v13; // rdx
@@ -41,7 +41,7 @@ _QWORD *__fastcall PopPepPlatformStateRegistered(unsigned int a1)
   struct _KTHREAD *v15; // rbx
   unsigned __int8 v16; // r14
   unsigned int v17; // edx
-  unsigned __int64 v18; // rsi
+  __int64 v18; // rsi
   __int64 v19; // rcx
   int v20; // ecx
   unsigned int v21; // edx
@@ -53,7 +53,7 @@ _QWORD *__fastcall PopPepPlatformStateRegistered(unsigned int a1)
   unsigned __int8 v28; // r14
   unsigned int v29; // r8d
   __int64 v30; // rcx
-  unsigned __int64 v31; // rsi
+  __int64 v31; // rsi
   int v32; // eax
   unsigned int v33; // ecx
   unsigned __int8 v34; // al
@@ -71,7 +71,7 @@ _QWORD *__fastcall PopPepPlatformStateRegistered(unsigned int a1)
   struct _KTHREAD *v46; // rbx
   unsigned __int8 v47; // r14
   unsigned int v48; // edx
-  unsigned __int64 v49; // rsi
+  __int64 v49; // rsi
   __int64 v50; // rcx
   int v51; // eax
   unsigned int v52; // ecx
@@ -108,7 +108,7 @@ _QWORD *__fastcall PopPepPlatformStateRegistered(unsigned int a1)
       goto LABEL_14;
     while ( 1 )
     {
-      v10 = (unsigned __int64)&v3->LockEntries[v9];
+      v10 = (__int64)&v3->LockEntries[v9];
       v7 &= ~(1 << v9);
       if ( (*(_BYTE *)(v10 + 26) & 1) != 0
         && (*(_DWORD *)(v10 + 32) & 1) == 0
@@ -133,14 +133,14 @@ LABEL_14:
     {
       *(_BYTE *)(v10 + 32) |= 2u;
       if ( *(__int64 *)(v10 + 32) < 0 )
-        KiAbEntryRemoveFromTree(v10);
+        KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)v10);
       v11 = *(_DWORD *)(v10 + 88) & 0x1FFFF;
       v12 = *(_DWORD *)(v10 + 88) & 0xFFFE0000;
       *(_BYTE *)(v10 + 25) &= ~1u;
       v60 = v11;
       *(_DWORD *)(v10 + 88) = v12;
       *(_QWORD *)(v10 + 32) = 0LL;
-      v13 = (__int64)(v10 - (unsigned __int64)v3->LockEntries) / 96;
+      v13 = (signed __int64)(v10 - (unsigned __int64)v3->LockEntries) / 96;
       if ( v6 == 1 )
         v3->AbEntrySummary |= 1 << v13;
       else
@@ -166,7 +166,7 @@ LABEL_14:
       v61 = v19;
       if ( v8 )
         goto LABEL_36;
-      v18 = (unsigned __int64)&v15->LockEntries[v19];
+      v18 = (__int64)&v15->LockEntries[v19];
       v17 &= ~(1 << v19);
       if ( (*(_BYTE *)(v18 + 26) & 1) != 0
         && (*(_DWORD *)(v18 + 32) & 1) == 0
@@ -187,14 +187,14 @@ LABEL_36:
     }
     *(_BYTE *)(v18 + 32) |= 2u;
     if ( *(__int64 *)(v18 + 32) < 0 )
-      KiAbEntryRemoveFromTree(v18);
+      KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)v18);
     v20 = *(_DWORD *)(v18 + 88) & 0x1FFFF;
     v21 = *(_DWORD *)(v18 + 88) & 0xFFFE0000;
     *(_BYTE *)(v18 + 25) &= ~1u;
     v55 = v20;
     *(_DWORD *)(v18 + 88) = v21;
     *(_QWORD *)(v18 + 32) = 0LL;
-    v22 = (__int64)(v18 - (unsigned __int64)v15->LockEntries) / 96;
+    v22 = (signed __int64)(v18 - (unsigned __int64)v15->LockEntries) / 96;
     if ( v16 == 1 )
       v15->AbEntrySummary |= 1 << v22;
     else
@@ -228,7 +228,7 @@ LABEL_43:
       goto LABEL_60;
     while ( 1 )
     {
-      v31 = (unsigned __int64)&v25->LockEntries[v30];
+      v31 = (__int64)&v25->LockEntries[v30];
       v29 &= ~(1 << v30);
       if ( (*(_BYTE *)(v31 + 26) & 1) != 0
         && (*(_DWORD *)(v31 + 32) & 1) == 0
@@ -254,14 +254,14 @@ LABEL_60:
     {
       *(_BYTE *)(v31 + 32) |= 2u;
       if ( *(__int64 *)(v31 + 32) < 0 )
-        KiAbEntryRemoveFromTree(v31);
+        KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)v31);
       v32 = *(_DWORD *)(v31 + 88) & 0x1FFFF;
       v33 = *(_DWORD *)(v31 + 88) & 0xFFFE0000;
       *(_BYTE *)(v31 + 25) &= ~1u;
       v57[0] = v32;
       *(_DWORD *)(v31 + 88) = v33;
       *(_QWORD *)(v31 + 32) = 0LL;
-      v34 = 1 << ((__int64)(v31 - (unsigned __int64)v25->LockEntries) / 96);
+      v34 = 1 << ((signed __int64)(v31 - (unsigned __int64)v25->LockEntries) / 96);
       if ( v28 == 1 )
         v25->AbEntrySummary |= v34;
       else
@@ -338,7 +338,7 @@ LABEL_60:
       v57[1] = v50;
       if ( v8 )
         goto LABEL_99;
-      v49 = (unsigned __int64)&v46->LockEntries[v50];
+      v49 = (__int64)&v46->LockEntries[v50];
       v48 &= ~(1 << v50);
       if ( (*(_BYTE *)(v49 + 26) & 1) != 0
         && (*(_DWORD *)(v49 + 32) & 1) == 0
@@ -359,14 +359,14 @@ LABEL_99:
     }
     *(_BYTE *)(v49 + 32) |= 2u;
     if ( *(__int64 *)(v49 + 32) < 0 )
-      KiAbEntryRemoveFromTree(v49);
+      KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)v49);
     v51 = *(_DWORD *)(v49 + 88) & 0x1FFFF;
     v52 = *(_DWORD *)(v49 + 88) & 0xFFFE0000;
     *(_BYTE *)(v49 + 25) &= ~1u;
     v58[0] = v51;
     *(_DWORD *)(v49 + 88) = v52;
     *(_QWORD *)(v49 + 32) = 0LL;
-    v53 = (__int64)(v49 - (unsigned __int64)v46->LockEntries) / 96;
+    v53 = (signed __int64)(v49 - (unsigned __int64)v46->LockEntries) / 96;
     if ( v47 == 1 )
       v46->AbEntrySummary |= 1 << v53;
     else

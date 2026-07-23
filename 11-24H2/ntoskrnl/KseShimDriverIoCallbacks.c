@@ -1,18 +1,18 @@
 /*
- * XREFs of KseShimDriverIoCallbacks @ 0x14095A0F8
+ * XREFs of KseShimDriverIoCallbacks @ 0x140941BB8
  * Callers:
- *     IopLoadDriver @ 0x1409C90C0 (IopLoadDriver.c)
- *     IopInitializeBuiltinDriver @ 0x140C66284 (IopInitializeBuiltinDriver.c)
+ *     IopLoadDriver @ 0x1409B6EEC (IopLoadDriver.c)
+ *     IopInitializeBuiltinDriver @ 0x140C68400 (IopInitializeBuiltinDriver.c)
  * Callees:
- *     KsepDebugPrint @ 0x1402CA2D8 (KsepDebugPrint.c)
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     KsepLogInfo @ 0x14048E6C8 (KsepLogInfo.c)
- *     KsepPoolAllocateNonPaged @ 0x14049DF14 (KsepPoolAllocateNonPaged.c)
- *     KsepPoolFreeNonPaged @ 0x1404A0EC0 (KsepPoolFreeNonPaged.c)
- *     KsepPoolFreePaged @ 0x1404A6F94 (KsepPoolFreePaged.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     KsepStringDuplicateUnicode @ 0x14095A274 (KsepStringDuplicateUnicode.c)
- *     KsepGetShimCallbacksForDriver @ 0x14095A360 (KsepGetShimCallbacksForDriver.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     KsepLogInfo @ 0x140488AF8 (KsepLogInfo.c)
+ *     KsepPoolAllocateNonPaged @ 0x140498D14 (KsepPoolAllocateNonPaged.c)
+ *     KsepPoolFreeNonPaged @ 0x14049B540 (KsepPoolFreeNonPaged.c)
+ *     KsepPoolFreePaged @ 0x1404A18F4 (KsepPoolFreePaged.c)
+ *     KsepDebugPrint @ 0x1404CC7D8 (KsepDebugPrint.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     KsepStringDuplicateUnicode @ 0x140941D34 (KsepStringDuplicateUnicode.c)
+ *     KsepGetShimCallbacksForDriver @ 0x140941E20 (KsepGetShimCallbacksForDriver.c)
  */
 
 __int64 __fastcall KseShimDriverIoCallbacks(_QWORD *a1, __int64 a2, __int64 a3)
@@ -50,7 +50,7 @@ __int64 __fastcall KseShimDriverIoCallbacks(_QWORD *a1, __int64 a2, __int64 a3)
   ShimCallbacksForDriver = 0;
   if ( a3 )
   {
-    if ( dword_140E66AE4 != 2 || (KseEngine & 1) != 0 )
+    if ( dword_140E66C14 != 2 || (KseEngine & 1) != 0 )
     {
       Buffer = v26[0].Buffer;
     }

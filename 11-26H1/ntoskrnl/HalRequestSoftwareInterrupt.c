@@ -1,16 +1,16 @@
 /*
- * XREFs of HalRequestSoftwareInterrupt @ 0x14021E010
+ * XREFs of HalRequestSoftwareInterrupt @ 0x14021F9A0
  * Callers:
- *     KeUpdateTotalCyclesCurrentThread @ 0x14021B160 (KeUpdateTotalCyclesCurrentThread.c)
- *     KiEndInterruptCycleAccumulation @ 0x14021C910 (KiEndInterruptCycleAccumulation.c)
- *     KiCheckForTimerExpiration @ 0x14021EEA0 (KiCheckForTimerExpiration.c)
- *     KiUpdateTotalCyclesCurrentThread @ 0x140226F90 (KiUpdateTotalCyclesCurrentThread.c)
- *     KiStartThreadCycleAccumulation @ 0x140334EB0 (KiStartThreadCycleAccumulation.c)
- *     KiRequestTimer2Expiration @ 0x14044F494 (KiRequestTimer2Expiration.c)
- *     SwapContext @ 0x14072FFB0 (SwapContext.c)
+ *     KeUpdateTotalCyclesCurrentThread @ 0x14021CAF0 (KeUpdateTotalCyclesCurrentThread.c)
+ *     KiEndInterruptCycleAccumulation @ 0x14021E2A0 (KiEndInterruptCycleAccumulation.c)
+ *     KiCheckForTimerExpiration @ 0x140220830 (KiCheckForTimerExpiration.c)
+ *     KiUpdateTotalCyclesCurrentThread @ 0x140228920 (KiUpdateTotalCyclesCurrentThread.c)
+ *     KiStartThreadCycleAccumulation @ 0x140336EE0 (KiStartThreadCycleAccumulation.c)
+ *     KiRequestTimer2Expiration @ 0x1404475C4 (KiRequestTimer2Expiration.c)
+ *     SwapContext @ 0x140734B80 (SwapContext.c)
  * Callees:
- *     HalpInterruptSendIpi @ 0x140230DF0 (HalpInterruptSendIpi.c)
- *     HalpDisableInterrupts @ 0x1402C7D00 (HalpDisableInterrupts.c)
+ *     HalpInterruptSendIpi @ 0x140232750 (HalpInterruptSendIpi.c)
+ *     HalpDisableInterrupts @ 0x1403129A0 (HalpDisableInterrupts.c)
  */
 
 __int64 __fastcall HalRequestSoftwareInterrupt(__int64 a1, __int64 a2)

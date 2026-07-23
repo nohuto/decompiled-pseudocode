@@ -1,19 +1,19 @@
 /*
- * XREFs of CmpTransInitializeTransaction @ 0x140A04118
+ * XREFs of CmpTransInitializeTransaction @ 0x140A00648
  * Callers:
- *     CmpTransSearchAddTrans @ 0x14087A4F0 (CmpTransSearchAddTrans.c)
+ *     CmpTransSearchAddTrans @ 0x14087E39C (CmpTransSearchAddTrans.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     ExfUnblockPushLock @ 0x1402C7820 (ExfUnblockPushLock.c)
- *     ExReleaseFastMutexUnsafe @ 0x14031CF70 (ExReleaseFastMutexUnsafe.c)
- *     ObReferenceObjectByHandle @ 0x14084AF40 (ObReferenceObjectByHandle.c)
- *     CmpTransReferenceTransaction @ 0x140879088 (CmpTransReferenceTransaction.c)
- *     CmpTransDereferenceTransaction @ 0x14087925C (CmpTransDereferenceTransaction.c)
- *     CmpTransSearchAddTrans @ 0x14087A4F0 (CmpTransSearchAddTrans.c)
- *     LOCK_TRANSACTION_LIST @ 0x14087B17C (LOCK_TRANSACTION_LIST.c)
- *     CmTmCreateEnlistment @ 0x140A042A4 (CmTmCreateEnlistment.c)
- *     CmpStartRMLogs @ 0x140A04324 (CmpStartRMLogs.c)
- *     CmpAccountForLogReservation @ 0x140A05174 (CmpAccountForLogReservation.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     ExfUnblockPushLock @ 0x1402BC1A0 (ExfUnblockPushLock.c)
+ *     ExReleaseFastMutexUnsafe @ 0x1402C5B00 (ExReleaseFastMutexUnsafe.c)
+ *     ObReferenceObjectByHandle @ 0x140847200 (ObReferenceObjectByHandle.c)
+ *     CmpTransReferenceTransaction @ 0x14087D3B8 (CmpTransReferenceTransaction.c)
+ *     CmpTransDereferenceTransaction @ 0x14087D58C (CmpTransDereferenceTransaction.c)
+ *     CmpTransSearchAddTrans @ 0x14087E39C (CmpTransSearchAddTrans.c)
+ *     LOCK_TRANSACTION_LIST @ 0x14087F02C (LOCK_TRANSACTION_LIST.c)
+ *     CmTmCreateEnlistment @ 0x140A007D4 (CmTmCreateEnlistment.c)
+ *     CmpStartRMLogs @ 0x140A00854 (CmpStartRMLogs.c)
+ *     CmpAccountForLogReservation @ 0x140A016A4 (CmpAccountForLogReservation.c)
  */
 
 __int64 __fastcall CmpTransInitializeTransaction(__int64 a1)
@@ -91,7 +91,7 @@ LABEL_11:
   }
   if ( !CmRmSystem )
     return (unsigned int)-1072103419;
-  started = CmpTransSearchAddTrans(v4, 0LL, (__int64)CmRmSystem, (struct _EX_RUNDOWN_REF *)qword_140E09A70, 1, &v16);
+  started = CmpTransSearchAddTrans(v4, 0LL, (__int64)CmRmSystem, (struct _EX_RUNDOWN_REF *)qword_140E09AE0, 1, &v16);
   if ( started >= 0 )
   {
     v6 = (__int64 *)(a1 + 56);

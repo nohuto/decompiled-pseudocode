@@ -1,12 +1,12 @@
 /*
- * XREFs of KiFlushAddressSpaceTb @ 0x140293CFC
+ * XREFs of KiFlushAddressSpaceTb @ 0x140293EEC
  * Callers:
- *     KeFlushTb @ 0x1400755B0 (KeFlushTb.c)
- *     KeFlushEntireTb @ 0x140187820 (KeFlushEntireTb.c)
+ *     KeFlushTb @ 0x1400755A0 (KeFlushTb.c)
+ *     KeFlushEntireTb @ 0x140187960 (KeFlushEntireTb.c)
  * Callees:
- *     KxSetTimeStampBusy @ 0x140117C50 (KxSetTimeStampBusy.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     HvlFlushAddressSpaceTb @ 0x1402795DC (HvlFlushAddressSpaceTb.c)
+ *     KxSetTimeStampBusy @ 0x140117CC0 (KxSetTimeStampBusy.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     HvlFlushAddressSpaceTb @ 0x1402797CC (HvlFlushAddressSpaceTb.c)
  */
 
 __int64 __fastcall KiFlushAddressSpaceTb(__int64 a1, __int64 a2, __int64 a3, char a4)

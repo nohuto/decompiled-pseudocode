@@ -1,14 +1,14 @@
 /*
- * XREFs of IvtProcessDeviceExceptions @ 0x1409AA188
+ * XREFs of IvtProcessDeviceExceptions @ 0x1409AB0B8
  * Callers:
- *     IvtInitializeIommu @ 0x1409A9950 (IvtInitializeIommu.c)
+ *     IvtInitializeIommu @ 0x1409AA880 (IvtInitializeIommu.c)
  * Callees:
- *     memset @ 0x140414200 (memset.c)
- *     HalpIommuGetExceptionList @ 0x1404CBF6C (HalpIommuGetExceptionList.c)
- *     IvtAllocateContextTable @ 0x1404DF350 (IvtAllocateContextTable.c)
- *     IvtUpdateContextEntry @ 0x1404E0BBC (IvtUpdateContextEntry.c)
- *     IvtUpdateExtendedContextEntry @ 0x1404E0D70 (IvtUpdateExtendedContextEntry.c)
- *     HalpIvtpInitializeReservedDomain @ 0x1409AACA8 (HalpIvtpInitializeReservedDomain.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     HalpIommuGetExceptionList @ 0x1404CC1AC (HalpIommuGetExceptionList.c)
+ *     IvtAllocateContextTable @ 0x1404DF590 (IvtAllocateContextTable.c)
+ *     IvtUpdateContextEntry @ 0x1404E0DFC (IvtUpdateContextEntry.c)
+ *     IvtUpdateExtendedContextEntry @ 0x1404E0FB0 (IvtUpdateExtendedContextEntry.c)
+ *     HalpIvtpInitializeReservedDomain @ 0x1409ABBD8 (HalpIvtpInitializeReservedDomain.c)
  */
 
 __int64 __fastcall IvtProcessDeviceExceptions(__int64 a1)

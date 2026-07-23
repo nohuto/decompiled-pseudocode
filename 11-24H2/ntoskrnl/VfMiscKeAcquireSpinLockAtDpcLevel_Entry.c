@@ -1,9 +1,9 @@
 /*
- * XREFs of VfMiscKeAcquireSpinLockAtDpcLevel_Entry @ 0x140615010
+ * XREFs of VfMiscKeAcquireSpinLockAtDpcLevel_Entry @ 0x1406135D0
  * Callers:
  *     <none>
  * Callees:
- *     VfMiscCheckKernelAddress @ 0x1404B2134 (VfMiscCheckKernelAddress.c)
+ *     VfMiscCheckKernelAddress @ 0x1404AC9C4 (VfMiscCheckKernelAddress.c)
  */
 
 unsigned __int64 __fastcall VfMiscKeAcquireSpinLockAtDpcLevel_Entry(__int64 a1)

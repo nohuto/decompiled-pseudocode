@@ -1,11 +1,11 @@
 /*
- * XREFs of PiPnpRtlIsDeviceEnumerableForUser @ 0x14074071C
+ * XREFs of PiPnpRtlIsDeviceEnumerableForUser @ 0x14074090C
  * Callers:
- *     PiPnpRtlApplyMandatoryDeviceFilters @ 0x140740830 (PiPnpRtlApplyMandatoryDeviceFilters.c)
+ *     PiPnpRtlApplyMandatoryDeviceFilters @ 0x140740A20 (PiPnpRtlApplyMandatoryDeviceFilters.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     PnpGetObjectProperty @ 0x1406D00B0 (PnpGetObjectProperty.c)
- *     PiAuVerifyAccessToObject @ 0x14079A8CC (PiAuVerifyAccessToObject.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     PnpGetObjectProperty @ 0x1406D00E0 (PnpGetObjectProperty.c)
+ *     PiAuVerifyAccessToObject @ 0x14079AABC (PiAuVerifyAccessToObject.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

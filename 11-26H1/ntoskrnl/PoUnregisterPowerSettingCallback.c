@@ -1,15 +1,15 @@
 /*
- * XREFs of PoUnregisterPowerSettingCallback @ 0x140B19570
+ * XREFs of PoUnregisterPowerSettingCallback @ 0x140B1B9C0
  * Callers:
- *     SSHSupportUnregisterPowerSettingCallback @ 0x1407E453C (SSHSupportUnregisterPowerSettingCallback.c)
- *     TtmCleanupCurrentSession @ 0x140A39EB8 (TtmCleanupCurrentSession.c)
- *     PopModernStandbyNotificationInit @ 0x140CD6534 (PopModernStandbyNotificationInit.c)
+ *     SSHSupportUnregisterPowerSettingCallback @ 0x1407EA0AC (SSHSupportUnregisterPowerSettingCallback.c)
+ *     TtmCleanupCurrentSession @ 0x1409F5AB8 (TtmCleanupCurrentSession.c)
+ *     PopModernStandbyNotificationInit @ 0x140CDC888 (PopModernStandbyNotificationInit.c)
  * Callees:
- *     ExAcquireFastMutex @ 0x140278070 (ExAcquireFastMutex.c)
- *     KeWaitForSingleObject @ 0x140278560 (KeWaitForSingleObject.c)
- *     KeReleaseGuardedMutex @ 0x140278D40 (KeReleaseGuardedMutex.c)
- *     KeResetEvent @ 0x140395BB0 (KeResetEvent.c)
- *     PopUnregisterPowerSettingCallback @ 0x1404E8EBC (PopUnregisterPowerSettingCallback.c)
+ *     ExAcquireFastMutex @ 0x1402775E0 (ExAcquireFastMutex.c)
+ *     KeWaitForSingleObject @ 0x140277AD0 (KeWaitForSingleObject.c)
+ *     KeReleaseGuardedMutex @ 0x1402782B0 (KeReleaseGuardedMutex.c)
+ *     KeResetEvent @ 0x140397930 (KeResetEvent.c)
+ *     PopUnregisterPowerSettingCallback @ 0x1404E227C (PopUnregisterPowerSettingCallback.c)
  */
 
 NTSTATUS __stdcall PoUnregisterPowerSettingCallback(PVOID Handle)
@@ -19,7 +19,7 @@ NTSTATUS __stdcall PoUnregisterPowerSettingCallback(PVOID Handle)
   v1 = 0;
   if ( !Handle || *((_DWORD *)Handle + 4) != 1952797520 )
     return -1073741811;
-  ExAcquireFastMutex((PKGUARDED_MUTEX)&stru_140F11D08.LastXStateSaveDebugInfo);
+  ExAcquireFastMutex(&PopSettingLock);
   if ( *((_BYTE *)Handle + 33) || *((_BYTE *)Handle + 32) || *(PVOID *)Handle == Handle )
   {
     v1 = -1073741811;
@@ -36,16 +36,16 @@ NTSTATUS __stdcall PoUnregisterPowerSettingCallback(PVOID Handle)
       *((_BYTE *)Handle + 33) = 1;
       while ( *((_QWORD *)Handle + 3) )
       {
-        KeReleaseGuardedMutex((PKGUARDED_MUTEX)&stru_140F11D08.LastXStateSaveDebugInfo);
-        KeWaitForSingleObject(&stru_140F11D08.WaitBlockFill11[120], Executive, 0, 0, 0LL);
-        KeResetEvent((PRKEVENT)&stru_140F11D08.WaitBlockFill11[120]);
-        ExAcquireFastMutex((PKGUARDED_MUTEX)&stru_140F11D08.LastXStateSaveDebugInfo);
+        KeReleaseGuardedMutex(&PopSettingLock);
+        KeWaitForSingleObject(&PopPowerSettingCallbackReturned, Executive, 0, 0, 0LL);
+        KeResetEvent(&PopPowerSettingCallbackReturned);
+        ExAcquireFastMutex(&PopSettingLock);
       }
       *((_BYTE *)Handle + 33) = 0;
     }
     PopUnregisterPowerSettingCallback((__int64 *)Handle);
   }
 LABEL_9:
-  KeReleaseGuardedMutex((PKGUARDED_MUTEX)&stru_140F11D08.LastXStateSaveDebugInfo);
+  KeReleaseGuardedMutex(&PopSettingLock);
   return v1;
 }

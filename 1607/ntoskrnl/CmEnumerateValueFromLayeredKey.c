@@ -1,23 +1,23 @@
 /*
- * XREFs of CmEnumerateValueFromLayeredKey @ 0x1405FCCF0
+ * XREFs of CmEnumerateValueFromLayeredKey @ 0x1405FCDA4
  * Callers:
- *     CmEnumerateValueKey @ 0x140437F70 (CmEnumerateValueKey.c)
+ *     CmEnumerateValueKey @ 0x140436E40 (CmEnumerateValueKey.c)
  * Callees:
- *     HvpGetCellContextReinitialize @ 0x14002D3E8 (HvpGetCellContextReinitialize.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     CmpGetKeyNodeForKcb @ 0x140402930 (CmpGetKeyNodeForKcb.c)
- *     CmpUnlockKcbStack @ 0x140404820 (CmpUnlockKcbStack.c)
- *     CmpCleanupKcbStack @ 0x140404934 (CmpCleanupKcbStack.c)
- *     CmpStartKcbStackForTopLayerKcb @ 0x140404FE8 (CmpStartKcbStackForTopLayerKcb.c)
- *     CmpLockKcbStackShared @ 0x140432F60 (CmpLockKcbStackShared.c)
- *     CmpIsKeyDeletedForKeyBody @ 0x140439400 (CmpIsKeyDeletedForKeyBody.c)
- *     CmpGetKcbAtLayerHeight @ 0x1404400C0 (CmpGetKcbAtLayerHeight.c)
- *     CmpQueryKeyValueData @ 0x140440360 (CmpQueryKeyValueData.c)
- *     CmpValueEnumStackAdvance @ 0x14060B480 (CmpValueEnumStackAdvance.c)
- *     CmpValueEnumStackCleanup @ 0x14060B58C (CmpValueEnumStackCleanup.c)
- *     CmpValueEnumStackInitialize @ 0x14060B60C (CmpValueEnumStackInitialize.c)
- *     CmpValueEnumStackStartFromKcbStack @ 0x14060B718 (CmpValueEnumStackStartFromKcbStack.c)
+ *     HvpGetCellContextReinitialize @ 0x14002CF68 (HvpGetCellContextReinitialize.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     CmpGetKeyNodeForKcb @ 0x1404017F0 (CmpGetKeyNodeForKcb.c)
+ *     CmpUnlockKcbStack @ 0x1404036E0 (CmpUnlockKcbStack.c)
+ *     CmpCleanupKcbStack @ 0x1404037F4 (CmpCleanupKcbStack.c)
+ *     CmpStartKcbStackForTopLayerKcb @ 0x140403EA8 (CmpStartKcbStackForTopLayerKcb.c)
+ *     CmpLockKcbStackShared @ 0x140431E30 (CmpLockKcbStackShared.c)
+ *     CmpIsKeyDeletedForKeyBody @ 0x1404382D0 (CmpIsKeyDeletedForKeyBody.c)
+ *     CmpGetKcbAtLayerHeight @ 0x14043EF90 (CmpGetKcbAtLayerHeight.c)
+ *     CmpQueryKeyValueData @ 0x14043F230 (CmpQueryKeyValueData.c)
+ *     CmpValueEnumStackAdvance @ 0x14060B534 (CmpValueEnumStackAdvance.c)
+ *     CmpValueEnumStackCleanup @ 0x14060B640 (CmpValueEnumStackCleanup.c)
+ *     CmpValueEnumStackInitialize @ 0x14060B6C0 (CmpValueEnumStackInitialize.c)
+ *     CmpValueEnumStackStartFromKcbStack @ 0x14060B7CC (CmpValueEnumStackStartFromKcbStack.c)
  */
 
 __int64 __fastcall CmEnumerateValueFromLayeredKey(

@@ -1,9 +1,9 @@
 /*
- * XREFs of KeEstimateClockTickDuration @ 0x1402C220C
+ * XREFs of KeEstimateClockTickDuration @ 0x1402C249C
  * Callers:
- *     PpmEstimateIdleDuration @ 0x1402C206C (PpmEstimateIdleDuration.c)
+ *     PpmEstimateIdleDuration @ 0x1402C22FC (PpmEstimateIdleDuration.c)
  * Callees:
- *     KiGetNextTimerExpirationDueTime @ 0x14027DFF0 (KiGetNextTimerExpirationDueTime.c)
+ *     KiGetNextTimerExpirationDueTime @ 0x14027E280 (KiGetNextTimerExpirationDueTime.c)
  */
 
 int *__fastcall KeEstimateClockTickDuration(

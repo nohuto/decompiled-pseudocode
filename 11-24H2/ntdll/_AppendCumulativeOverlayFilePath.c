@@ -1,10 +1,10 @@
 /*
- * XREFs of _AppendCumulativeOverlayFilePath @ 0x1800B30BC
+ * XREFs of _AppendCumulativeOverlayFilePath @ 0x18007F95C
  * Callers:
- *     _BuildCumulativeOverlayFilePath @ 0x1800B2F38 (_BuildCumulativeOverlayFilePath.c)
+ *     _BuildCumulativeOverlayFilePath @ 0x18007F7D8 (_BuildCumulativeOverlayFilePath.c)
  * Callees:
- *     wcscat_s @ 0x18012DEC0 (wcscat_s.c)
- *     wcsncat_s @ 0x18012DFF0 (wcsncat_s.c)
+ *     wcscat_s @ 0x18012C0F0 (wcscat_s.c)
+ *     wcsncat_s @ 0x18012C220 (wcsncat_s.c)
  */
 
 __int64 __fastcall AppendCumulativeOverlayFilePath(

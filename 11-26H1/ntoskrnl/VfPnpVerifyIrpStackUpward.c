@@ -1,17 +1,17 @@
 /*
- * XREFs of VfPnpVerifyIrpStackUpward @ 0x140C3ABE0
+ * XREFs of VfPnpVerifyIrpStackUpward @ 0x140C40BF0
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     ViErrorReport1 @ 0x14064569C (ViErrorReport1.c)
- *     ViErrorReport10 @ 0x140645720 (ViErrorReport10.c)
- *     PpvUtilIsPdo @ 0x140C21154 (PpvUtilIsPdo.c)
- *     IovUtilGetBottomDeviceObjectWithTag @ 0x140C30EC8 (IovUtilGetBottomDeviceObjectWithTag.c)
- *     IovUtilGetLowerDeviceObjectWithTag @ 0x140C30F2C (IovUtilGetLowerDeviceObjectWithTag.c)
- *     IovUtilIsDeviceObjectMarked @ 0x140C30FDC (IovUtilIsDeviceObjectMarked.c)
- *     IovUtilIsWdmStack @ 0x140C31110 (IovUtilIsWdmStack.c)
- *     ViPnpVerifyMinorWasProcessedProperly @ 0x140C3AEC0 (ViPnpVerifyMinorWasProcessedProperly.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     ViErrorReport1 @ 0x14064927C (ViErrorReport1.c)
+ *     ViErrorReport10 @ 0x140649300 (ViErrorReport10.c)
+ *     PpvUtilIsPdo @ 0x140C27164 (PpvUtilIsPdo.c)
+ *     IovUtilGetBottomDeviceObjectWithTag @ 0x140C36ED8 (IovUtilGetBottomDeviceObjectWithTag.c)
+ *     IovUtilGetLowerDeviceObjectWithTag @ 0x140C36F3C (IovUtilGetLowerDeviceObjectWithTag.c)
+ *     IovUtilIsDeviceObjectMarked @ 0x140C36FEC (IovUtilIsDeviceObjectMarked.c)
+ *     IovUtilIsWdmStack @ 0x140C37120 (IovUtilIsWdmStack.c)
+ *     ViPnpVerifyMinorWasProcessedProperly @ 0x140C40ED0 (ViPnpVerifyMinorWasProcessedProperly.c)
  */
 
 __int64 __fastcall VfPnpVerifyIrpStackUpward(_QWORD *a1, __int64 a2, __int64 a3, __int64 a4, int a5)

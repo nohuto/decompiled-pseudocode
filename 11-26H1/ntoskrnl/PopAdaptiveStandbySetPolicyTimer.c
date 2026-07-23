@@ -1,9 +1,9 @@
 /*
- * XREFs of PopAdaptiveStandbySetPolicyTimer @ 0x1407E07A4
+ * XREFs of PopAdaptiveStandbySetPolicyTimer @ 0x1407E5600
  * Callers:
- *     PopAdaptiveStandbyCheckHibernateBudgetAction @ 0x1407DE80C (PopAdaptiveStandbyCheckHibernateBudgetAction.c)
+ *     PopAdaptiveStandbyCheckHibernateBudgetAction @ 0x1407E2E8C (PopAdaptiveStandbyCheckHibernateBudgetAction.c)
  * Callees:
- *     KeSetTimer2 @ 0x14037A500 (KeSetTimer2.c)
+ *     KeSetTimer2 @ 0x14037C2B0 (KeSetTimer2.c)
  */
 
 char __fastcall PopAdaptiveStandbySetPolicyTimer(__int64 a1, unsigned int a2, unsigned int a3)
@@ -14,13 +14,13 @@ char __fastcall PopAdaptiveStandbySetPolicyTimer(__int64 a1, unsigned int a2, un
   v3 = 0;
   if ( a2 < a3 )
   {
-    v4 = (unsigned int *)(a1 + 312);
-    if ( !*(_BYTE *)(a1 + 308) || *v4 != a3 )
+    v4 = (unsigned int *)(a1 + 328);
+    if ( !*(_BYTE *)(a1 + 324) || *v4 != a3 )
     {
       *v4 = a3;
       v3 = 1;
-      *(_BYTE *)(a1 + 308) = 1;
-      KeSetTimer2(a1 + 320, -10000000LL * (a3 - a2 + 1), 0LL, 0LL);
+      *(_BYTE *)(a1 + 324) = 1;
+      KeSetTimer2(a1 + 336, -10000000LL * (a3 - a2 + 1), 0LL, 0LL);
     }
   }
   return v3;

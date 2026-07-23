@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlpIcGetRegisterAddressByIndex @ 0x140C574A0
+ * XREFs of RtlpIcGetRegisterAddressByIndex @ 0x140C5D4A0
  * Callers:
- *     RtlpIcDecodeModRmOperand @ 0x140C5637C (RtlpIcDecodeModRmOperand.c)
- *     RtlpIcEmulateGroup0Instruction @ 0x140C564D4 (RtlpIcEmulateGroup0Instruction.c)
- *     RtlpIcEmulateInstruction @ 0x140C569F8 (RtlpIcEmulateInstruction.c)
- *     RtlpIcEmulateMovzx @ 0x140C571FC (RtlpIcEmulateMovzx.c)
- *     RtlpIcEmulateRegisterPushPop @ 0x140C57310 (RtlpIcEmulateRegisterPushPop.c)
- *     RtlpIcWriteRegisterValue @ 0x140C5793C (RtlpIcWriteRegisterValue.c)
+ *     RtlpIcDecodeModRmOperand @ 0x140C5C37C (RtlpIcDecodeModRmOperand.c)
+ *     RtlpIcEmulateGroup0Instruction @ 0x140C5C4D4 (RtlpIcEmulateGroup0Instruction.c)
+ *     RtlpIcEmulateInstruction @ 0x140C5C9F8 (RtlpIcEmulateInstruction.c)
+ *     RtlpIcEmulateMovzx @ 0x140C5D1FC (RtlpIcEmulateMovzx.c)
+ *     RtlpIcEmulateRegisterPushPop @ 0x140C5D310 (RtlpIcEmulateRegisterPushPop.c)
+ *     RtlpIcWriteRegisterValue @ 0x140C5D93C (RtlpIcWriteRegisterValue.c)
  * Callees:
  *     <none>
  */

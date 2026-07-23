@@ -1,10 +1,10 @@
 /*
- * XREFs of KiAllocateXStateStack @ 0x1403D0CB4
+ * XREFs of KiAllocateXStateStack @ 0x1403D3C80
  * Callers:
- *     KeInitThread @ 0x140C07424 (KeInitThread.c)
+ *     KeInitThread @ 0x140C0D634 (KeInitThread.c)
  * Callees:
- *     MmCreateKernelStack @ 0x1403D0D34 (MmCreateKernelStack.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     MmCreateKernelStack @ 0x1403D3D00 (MmCreateKernelStack.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall KiAllocateXStateStack(__int64 a1, int a2)

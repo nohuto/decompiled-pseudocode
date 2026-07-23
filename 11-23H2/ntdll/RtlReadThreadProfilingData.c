@@ -6,11 +6,14 @@
  *     <none>
  */
 
-__int64 __fastcall RtlReadThreadProfilingData(__int64 a1, int a2, __int64 a3)
+NTSTATUS __cdecl RtlReadThreadProfilingData(
+        HANDLE PerformanceDataHandle,
+        ULONG Flags,
+        PPERFORMANCE_DATA PerformanceData)
 {
-  int v3; // r14d
+  DWORD v3; // r14d
   __int64 v6; // r8
-  int v7; // r13d
+  DWORD v7; // r13d
   unsigned __int64 v8; // rax
   __int64 v9; // r15
   __int64 v10; // rsi
@@ -19,52 +22,53 @@ __int64 __fastcall RtlReadThreadProfilingData(__int64 a1, int a2, __int64 a3)
   unsigned __int64 v13; // rax
 
   v3 = 0;
-  if ( *(_WORD *)a3 != 288 )
-    return 3221225990LL;
-  if ( *(_BYTE *)(a3 + 2) != 1 )
-    return 3221225713LL;
-  if ( (a2 & 0xFFFFFFFC) != 0 )
-    return 3221225712LL;
-  *(_QWORD *)(a3 + 8) = 0LL;
+  if ( PerformanceData->Size != 288 )
+    return -1073741306;
+  if ( PerformanceData->Version != 1 )
+    return -1073741583;
+  if ( (Flags & 0xFFFFFFFC) != 0 )
+    return -1073741584;
+  PerformanceData->WaitReasonBitMap = 0LL;
   do
   {
-    v6 = *(_QWORD *)(a1 + 16);
+    v6 = *((_QWORD *)PerformanceDataHandle + 2);
     v7 = v3;
     v8 = __rdtsc();
-    *(_QWORD *)(a3 + 16) = *(_QWORD *)(a1 + 56)
-                         - *(_QWORD *)(a1 + 48)
-                         + (((unsigned __int64)HIDWORD(v8) << 32) | (unsigned int)v8);
-    if ( (a2 & 1) != 0 )
+    PerformanceData->CycleTime = *((_QWORD *)PerformanceDataHandle + 7)
+                               - *((_QWORD *)PerformanceDataHandle + 6)
+                               + (((unsigned __int64)HIDWORD(v8) << 32) | (unsigned int)v8);
+    if ( (Flags & 1) != 0 )
     {
-      *(_DWORD *)(a3 + 4) = *(_DWORD *)(a1 + 8);
-      if ( *(_QWORD *)(a1 + 24) )
-        *(_QWORD *)(a3 + 8) |= _InterlockedExchange64((volatile __int64 *)(a1 + 24), 0LL);
+      PerformanceData->ContextSwitchCount = *((_DWORD *)PerformanceDataHandle + 2);
+      if ( *((_QWORD *)PerformanceDataHandle + 3) )
+        PerformanceData->WaitReasonBitMap |= _InterlockedExchange64((volatile __int64 *)PerformanceDataHandle + 3, 0LL);
     }
-    if ( (a2 & 2) != 0 )
+    if ( (Flags & 2) != 0 )
     {
-      v9 = *(_QWORD *)(a1 + 32);
+      v9 = *((_QWORD *)PerformanceDataHandle + 4);
       if ( v9 )
       {
         v10 = 0LL;
-        for ( i = 1; (unsigned int)v10 < *(_DWORD *)(a1 + 12); v10 = (unsigned int)(v10 + 1) )
+        for ( i = 1; (unsigned int)v10 < *((_DWORD *)PerformanceDataHandle + 3); v10 = (unsigned int)(v10 + 1) )
         {
           if ( (i & (unsigned int)v9) != 0 )
           {
-            v12 = 2LL * (unsigned int)v10;
-            *(_DWORD *)(a3 + 8 * v12 + 36) = 0;
-            *(_DWORD *)(a3 + 16 * (v10 + 2)) = 0;
-            v13 = __readpmc(*(_DWORD *)(a1 + 24 * v10 + 68));
-            *(_QWORD *)(a3 + 8 * v12 + 40) = *(_QWORD *)(a1 + 24 * v10 + 80)
-                                           + (unsigned int)(v13 - *(_DWORD *)(a1 + 24 * v10 + 72));
+            v12 = (unsigned int)v10;
+            PerformanceData->HwCounters[v12].Reserved = 0;
+            PerformanceData->HwCounters[v10].Type = PMCCounter;
+            v13 = __readpmc(*((_DWORD *)PerformanceDataHandle + 6 * v10 + 17));
+            PerformanceData->HwCounters[v12].Value = *((_QWORD *)PerformanceDataHandle + 3 * v10 + 10)
+                                                   + (unsigned int)(v13
+                                                                  - *((_DWORD *)PerformanceDataHandle + 6 * v10 + 18));
           }
           i *= 2;
         }
       }
-      *(_BYTE *)(a3 + 3) = *(_BYTE *)(a1 + 12);
+      PerformanceData->HwCountersCount = *((_BYTE *)PerformanceDataHandle + 12);
     }
     ++v3;
   }
-  while ( v6 != *(_QWORD *)(a1 + 16) );
-  *(_DWORD *)(a3 + 24) = v7;
-  return 0LL;
+  while ( v6 != *((_QWORD *)PerformanceDataHandle + 2) );
+  PerformanceData->RetryCount = v7;
+  return 0;
 }

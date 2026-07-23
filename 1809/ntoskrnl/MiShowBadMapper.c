@@ -1,19 +1,19 @@
 /*
- * XREFs of MiShowBadMapper @ 0x1402A5A44
+ * XREFs of MiShowBadMapper @ 0x1402A5C34
  * Callers:
  *     MiFillSystemPtes @ 0x14005C300 (MiFillSystemPtes.c)
- *     MiDeleteVa @ 0x140069700 (MiDeleteVa.c)
- *     MiInsertPhysicalPteMapping @ 0x14010FE80 (MiInsertPhysicalPteMapping.c)
- *     MiMapMdlCommon @ 0x14018EAF4 (MiMapMdlCommon.c)
+ *     MiDeleteVa @ 0x1400696F0 (MiDeleteVa.c)
+ *     MiInsertPhysicalPteMapping @ 0x14010FF00 (MiInsertPhysicalPteMapping.c)
+ *     MiMapMdlCommon @ 0x14018EC34 (MiMapMdlCommon.c)
  * Callees:
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC660 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     RtlCaptureStackBackTrace @ 0x1400CCCB0 (RtlCaptureStackBackTrace.c)
- *     MiLookupDataTableEntry @ 0x1400DA590 (MiLookupDataTableEntry.c)
- *     MmLockLoadedModuleListExclusive @ 0x1400F5D80 (MmLockLoadedModuleListExclusive.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
- *     memset @ 0x1401D1880 (memset.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC5A0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     RtlCaptureStackBackTrace @ 0x1400CCD30 (RtlCaptureStackBackTrace.c)
+ *     MiLookupDataTableEntry @ 0x1400DA610 (MiLookupDataTableEntry.c)
+ *     MmLockLoadedModuleListExclusive @ 0x1400F5E00 (MmLockLoadedModuleListExclusive.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
+ *     memset @ 0x1401D1980 (memset.c)
  */
 
 void __fastcall MiShowBadMapper(ULONG_PTR BugCheckParameter2, char a2)
@@ -27,10 +27,10 @@ void __fastcall MiShowBadMapper(ULONG_PTR BugCheckParameter2, char a2)
   ULONG BackTraceHash[3]; // [rsp+34h] [rbp-64h] BYREF
   PVOID BackTrace[8]; // [rsp+40h] [rbp-58h] BYREF
 
-  v2 = byte_14043A89A;
-  if ( byte_14043A89A )
+  v2 = byte_14043B95A;
+  if ( byte_14043B95A )
     goto LABEL_20;
-  if ( (a2 & 1) != 0 && KdPitchDebugger == byte_14043A89A && (_BYTE)KdDebuggerNotPresent == byte_14043A89A )
+  if ( (a2 & 1) != 0 && KdPitchDebugger == byte_14043B95A && (_BYTE)KdDebuggerNotPresent == byte_14043B95A )
 LABEL_21:
     KeBugCheckEx(0x1Au, 0x1233uLL, BugCheckParameter2, 0LL, 0LL);
   if ( (a2 & 4) != 0 )

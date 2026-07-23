@@ -1,35 +1,35 @@
 /*
- * XREFs of BcdDeleteObject @ 0x140802D00
+ * XREFs of BcdDeleteObject @ 0x140802FD0
  * Callers:
- *     BiBindEfiBootManager @ 0x140802B0C (BiBindEfiBootManager.c)
- *     BiBindEfiEntries @ 0x1408037E8 (BiBindEfiEntries.c)
- *     PopBcdRegenerateResumeObject @ 0x14099CC04 (PopBcdRegenerateResumeObject.c)
+ *     BiBindEfiBootManager @ 0x140802DDC (BiBindEfiBootManager.c)
+ *     BiBindEfiEntries @ 0x140803AB8 (BiBindEfiEntries.c)
+ *     PopBcdRegenerateResumeObject @ 0x14099CE04 (PopBcdRegenerateResumeObject.c)
  * Callees:
- *     BiSetFirmwareModifiedFromObject @ 0x140373CC8 (BiSetFirmwareModifiedFromObject.c)
- *     BiIsOfflineHandle @ 0x140373DD0 (BiIsOfflineHandle.c)
- *     BiDeleteKey @ 0x1408038D8 (BiDeleteKey.c)
- *     BiIsLinkedToFirmwareVariable @ 0x140803FF0 (BiIsLinkedToFirmwareVariable.c)
- *     BiAcquireBcdSyncMutant @ 0x140805634 (BiAcquireBcdSyncMutant.c)
- *     BiReleaseBcdSyncMutant @ 0x1408056DC (BiReleaseBcdSyncMutant.c)
+ *     BiSetFirmwareModifiedFromObject @ 0x140373E68 (BiSetFirmwareModifiedFromObject.c)
+ *     BiIsOfflineHandle @ 0x140373F70 (BiIsOfflineHandle.c)
+ *     BiDeleteKey @ 0x140803BA8 (BiDeleteKey.c)
+ *     BiIsLinkedToFirmwareVariable @ 0x1408042C0 (BiIsLinkedToFirmwareVariable.c)
+ *     BiAcquireBcdSyncMutant @ 0x140805904 (BiAcquireBcdSyncMutant.c)
+ *     BiReleaseBcdSyncMutant @ 0x1408059AC (BiReleaseBcdSyncMutant.c)
  */
 
-__int64 __fastcall BcdDeleteObject(void *a1)
+NTSTATUS __cdecl BcdDeleteObject(HANDLE BcdObjectHandle)
 {
   __int64 v2; // rcx
   char v3; // di
-  __int64 result; // rax
-  unsigned int v5; // eax
+  NTSTATUS result; // eax
+  NTSTATUS v5; // eax
   __int64 v6; // rcx
-  unsigned int v7; // ebx
+  NTSTATUS v7; // ebx
 
-  LOBYTE(v2) = BiIsOfflineHandle((char)a1);
+  LOBYTE(v2) = BiIsOfflineHandle((char)BcdObjectHandle);
   v3 = v2;
   result = BiAcquireBcdSyncMutant(v2);
-  if ( (int)result >= 0 )
+  if ( result >= 0 )
   {
-    if ( (unsigned __int8)BiIsLinkedToFirmwareVariable(a1, 0LL) )
-      BiSetFirmwareModifiedFromObject(a1);
-    v5 = BiDeleteKey(a1);
+    if ( (unsigned __int8)BiIsLinkedToFirmwareVariable(BcdObjectHandle, 0LL) )
+      BiSetFirmwareModifiedFromObject(BcdObjectHandle);
+    v5 = BiDeleteKey(BcdObjectHandle);
     LOBYTE(v6) = v3;
     v7 = v5;
     BiReleaseBcdSyncMutant(v6);

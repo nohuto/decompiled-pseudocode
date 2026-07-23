@@ -1,10 +1,10 @@
 /*
- * XREFs of KiMaskInterruptDpc @ 0x140573660
+ * XREFs of KiMaskInterruptDpc @ 0x140573BA0
  * Callers:
  *     <none>
  * Callees:
- *     KiMaskInterruptInternal @ 0x1403B3E4C (KiMaskInterruptInternal.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiMaskInterruptInternal @ 0x1403B402C (KiMaskInterruptInternal.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall KiMaskInterruptDpc(__int64 a1, __int64 a2, unsigned int a3, unsigned int a4)
@@ -21,7 +21,7 @@ __int64 __fastcall KiMaskInterruptDpc(__int64 a1, __int64 a2, unsigned int a3, u
 
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(0xFuLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     if ( CurrentIrql == 15 )
@@ -31,10 +31,10 @@ __int64 __fastcall KiMaskInterruptDpc(__int64 a1, __int64 a2, unsigned int a3, u
     SchedulerAssist[5] |= v7;
   }
   KiMaskInterruptInternal(a3, a4);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v8 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v8 <= 0xFu && CurrentIrql <= 0xFu && v8 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v8 <= 0xFu && CurrentIrql <= 0xFu && v8 >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       v10 = CurrentPrcb->SchedulerAssist;

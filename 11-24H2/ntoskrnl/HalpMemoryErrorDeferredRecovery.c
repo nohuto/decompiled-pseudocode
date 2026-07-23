@@ -1,16 +1,16 @@
 /*
- * XREFs of HalpMemoryErrorDeferredRecovery @ 0x1405554D8
+ * XREFs of HalpMemoryErrorDeferredRecovery @ 0x140552E18
  * Callers:
- *     HalpHvMceConsumedMemoryErrorRecovery @ 0x14054ABE0 (HalpHvMceConsumedMemoryErrorRecovery.c)
- *     HalpMceRecovery @ 0x140554990 (HalpMceRecovery.c)
- *     HalpMceRecoveryNotRequiredIntel @ 0x140554E60 (HalpMceRecoveryNotRequiredIntel.c)
- *     HalpGenericErrorSourceRecovery @ 0x14055525C (HalpGenericErrorSourceRecovery.c)
+ *     HalpHvMceConsumedMemoryErrorRecovery @ 0x1405484A0 (HalpHvMceConsumedMemoryErrorRecovery.c)
+ *     HalpMceRecovery @ 0x1405522D0 (HalpMceRecovery.c)
+ *     HalpMceRecoveryNotRequiredIntel @ 0x1405527A0 (HalpMceRecoveryNotRequiredIntel.c)
+ *     HalpGenericErrorSourceRecovery @ 0x140552B9C (HalpGenericErrorSourceRecovery.c)
  * Callees:
- *     HalpHvSetMachineCheckRecoveryState @ 0x14054B808 (HalpHvSetMachineCheckRecoveryState.c)
- *     HalpAcquireDrsPool @ 0x1405550F8 (HalpAcquireDrsPool.c)
- *     HalpFreeDrsPool @ 0x14055522C (HalpFreeDrsPool.c)
- *     WheaRequestDeferredRecovery @ 0x14065DC00 (WheaRequestDeferredRecovery.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
+ *     HalpHvSetMachineCheckRecoveryState @ 0x1405490C8 (HalpHvSetMachineCheckRecoveryState.c)
+ *     HalpAcquireDrsPool @ 0x140552A38 (HalpAcquireDrsPool.c)
+ *     HalpFreeDrsPool @ 0x140552B6C (HalpFreeDrsPool.c)
+ *     WheaRequestDeferredRecovery @ 0x14065C320 (WheaRequestDeferredRecovery.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall HalpMemoryErrorDeferredRecovery(
@@ -25,10 +25,8 @@ __int64 __fastcall HalpMemoryErrorDeferredRecovery(
 {
   __int64 v12; // rdx
   __int64 v13; // rdi
-  __int64 v14; // r8
-  __int64 v15; // r9
-  int v16; // ebx
-  int v17; // eax
+  int v14; // ebx
+  int v15; // eax
 
   v13 = HalpAcquireDrsPool();
   if ( v13 )
@@ -55,23 +53,23 @@ LABEL_12:
     }
     if ( a3 )
     {
-      if ( !qword_140FC0F40 )
+      if ( !qword_140FC11A0 )
       {
-        v16 = -1073741823;
+        v14 = -1073741823;
         goto LABEL_10;
       }
-      v17 = guard_dispatch_icall_no_overrides(a3, v12, v14, v15);
+      v15 = guard_dispatch_icall_no_overrides(a3, v12);
     }
     else
     {
-      v17 = HalpHvSetMachineCheckRecoveryState(1, v12, v14, v15);
+      v15 = HalpHvSetMachineCheckRecoveryState(1);
     }
-    v16 = v17;
+    v14 = v15;
 LABEL_10:
-    if ( v16 < 0 )
+    if ( v14 < 0 )
     {
       HalpFreeDrsPool((_DWORD *)v13);
-      return (unsigned int)v16;
+      return (unsigned int)v14;
     }
     goto LABEL_12;
   }

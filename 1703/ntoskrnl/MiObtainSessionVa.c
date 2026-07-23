@@ -41,7 +41,7 @@ __int64 __fastcall MiObtainSessionVa(unsigned int a1)
   struct _KTHREAD *v20; // rbx
   __int64 v21; // rdx
   unsigned __int8 v22; // r13
-  __int64 v23; // r8
+  unsigned int v23; // r8d
   bool v24; // zf
   __int64 v25; // rcx
   __int64 v26; // rdi
@@ -73,7 +73,7 @@ __int64 __fastcall MiObtainSessionVa(unsigned int a1)
   struct _KTHREAD *v53; // rbx
   __int64 SessionId; // rdx
   unsigned __int8 v55; // r15
-  __int64 v56; // r8
+  unsigned int v56; // r8d
   __int64 v57; // rcx
   __int64 v58; // rdi
   __int64 v59; // rdx
@@ -330,14 +330,14 @@ LABEL_12:
       SessionId = 0xFFFFFFFFLL;
     --v53->SpecialApcDisable;
     v55 = ++v53->AbAllocationRegionCount;
-    LODWORD(v56) = ((char)v53->AbEntrySummary | (char)v53->AbOrphanedEntrySummary) ^ 0x3F;
+    v56 = ((char)v53->AbEntrySummary | (char)v53->AbOrphanedEntrySummary) ^ 0x3F;
     while ( 1 )
     {
       v24 = !_BitScanReverse((unsigned int *)&v57, v56);
       if ( v24 )
         goto LABEL_122;
       v58 = (__int64)&v53->LockEntries[v57];
-      v56 = ~(1 << v57) & (unsigned int)v56;
+      v56 &= ~(1 << v57);
       if ( (*(_BYTE *)(v58 + 26) & 1) != 0
         && (*(_DWORD *)(v58 + 32) & 1) == 0
         && (*(_QWORD *)(v58 + 32) & 0x7FFFFFFFFFFFFFFCLL) == (v52 & 0x7FFFFFFFFFFFFFFCLL)
@@ -357,7 +357,7 @@ LABEL_122:
     }
     *(_BYTE *)(v58 + 32) |= 2u;
     if ( *(__int64 *)(v58 + 32) < 0 )
-      KiAbEntryRemoveFromTree(v58, SessionId, v56);
+      KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)v58, SessionId);
     v65 = 0;
     v65 = *(_DWORD *)(v58 + 88) & 0x1FFFF;
     *(_DWORD *)(v58 + 88) &= 0xFFFE0000;
@@ -392,14 +392,14 @@ LABEL_134:
     v21 = 0xFFFFFFFFLL;
   --v20->SpecialApcDisable;
   v22 = ++v20->AbAllocationRegionCount;
-  LODWORD(v23) = ((char)v20->AbEntrySummary | (char)v20->AbOrphanedEntrySummary) ^ 0x3F;
+  v23 = ((char)v20->AbEntrySummary | (char)v20->AbOrphanedEntrySummary) ^ 0x3F;
   while ( 1 )
   {
     v24 = !_BitScanReverse((unsigned int *)&v25, v23);
     if ( v24 )
       break;
     v26 = (__int64)&v20->LockEntries[v25];
-    v23 = ~(1 << v25) & (unsigned int)v23;
+    v23 &= ~(1 << v25);
     if ( (*(_BYTE *)(v26 + 26) & 1) != 0
       && (*(_DWORD *)(v26 + 32) & 1) == 0
       && (*(_QWORD *)(v26 + 32) & 0x7FFFFFFFFFFFFFFCLL) == (v19 & 0x7FFFFFFFFFFFFFFCLL)
@@ -412,7 +412,7 @@ LABEL_134:
         {
           *(_BYTE *)(v26 + 32) |= 2u;
           if ( *(__int64 *)(v26 + 32) < 0 )
-            KiAbEntryRemoveFromTree(v26, v21, v23);
+            KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)v26, v21);
           v66 = 0;
           v66 = *(_DWORD *)(v26 + 88) & 0x1FFFF;
           *(_DWORD *)(v26 + 88) &= 0xFFFE0000;

@@ -12,7 +12,7 @@ __int64 __fastcall RtlpQueryRegistryDirect(unsigned int a1, unsigned int *a2, si
   unsigned __int16 v4; // bx
   unsigned __int64 v8; // rax
   void *v10; // rcx
-  void *Atom; // rax
+  PVOID Atom; // rax
   size_t v12; // rbp
 
   v4 = a3;
@@ -47,7 +47,7 @@ LABEL_10:
   }
   if ( (unsigned int)a3 > 0xFFFE )
     v4 = -2;
-  Atom = (void *)*((_QWORD *)a4 + 1);
+  Atom = (PVOID)*((_QWORD *)a4 + 1);
   if ( Atom )
   {
     if ( v4 > *((_WORD *)a4 + 1) )
@@ -56,7 +56,7 @@ LABEL_10:
     goto LABEL_20;
   }
   v12 = v4;
-  Atom = (void *)RtlpAllocateAtom();
+  Atom = RtlpAllocateAtom(v4);
   *((_QWORD *)a4 + 1) = Atom;
   if ( Atom )
   {

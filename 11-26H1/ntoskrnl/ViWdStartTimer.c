@@ -1,10 +1,10 @@
 /*
- * XREFs of ViWdStartTimer @ 0x140C3A414
+ * XREFs of ViWdStartTimer @ 0x140C40424
  * Callers:
- *     VfWdCheckForSettingsChange @ 0x140C39F50 (VfWdCheckForSettingsChange.c)
- *     ViWdIrpTimerDpcRoutine @ 0x140C3A2E0 (ViWdIrpTimerDpcRoutine.c)
+ *     VfWdCheckForSettingsChange @ 0x140C3FF60 (VfWdCheckForSettingsChange.c)
+ *     ViWdIrpTimerDpcRoutine @ 0x140C402F0 (ViWdIrpTimerDpcRoutine.c)
  * Callees:
- *     KiSetTimerEx @ 0x1403ABF20 (KiSetTimerEx.c)
+ *     KiSetTimerEx @ 0x1403B5C30 (KiSetTimerEx.c)
  */
 
 __int64 ViWdStartTimer()

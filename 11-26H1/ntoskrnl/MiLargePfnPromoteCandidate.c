@@ -1,10 +1,10 @@
 /*
- * XREFs of MiLargePfnPromoteCandidate @ 0x1403C95C0
+ * XREFs of MiLargePfnPromoteCandidate @ 0x1403D3470
  * Callers:
- *     MiChangePageAttributeLargeFreeZeroPage @ 0x1403C7A60 (MiChangePageAttributeLargeFreeZeroPage.c)
- *     MiCoalesceFreeLargePages @ 0x1403C9274 (MiCoalesceFreeLargePages.c)
+ *     MiChangePageAttributeLargeFreeZeroPage @ 0x1403D1950 (MiChangePageAttributeLargeFreeZeroPage.c)
+ *     MiCoalesceFreeLargePages @ 0x1403D3124 (MiCoalesceFreeLargePages.c)
  * Callees:
- *     MiGetPfnPageSizeIndex @ 0x14028B290 (MiGetPfnPageSizeIndex.c)
+ *     MiGetPfnPageSizeIndex @ 0x14028A7F0 (MiGetPfnPageSizeIndex.c)
  */
 
 _BOOL8 __fastcall MiLargePfnPromoteCandidate(_WORD *a1, __int64 a2, int a3)

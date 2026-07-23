@@ -14,10 +14,10 @@
  *     __security_check_cookie @ 0x180093840 (__security_check_cookie.c)
  */
 
-__int64 __fastcall LdrpLoadForwardedDll(STRING *a1, int a2, __int64 a3, __int64 a4, int a5, __int64 *a6)
+__int64 __fastcall LdrpLoadForwardedDll(const ANSI_STRING *a1, int a2, _DWORD *a3, __int64 a4, int a5, PVOID *a6)
 {
   int appended; // [rsp+50h] [rbp-2C8h] BYREF
-  unsigned int v11[3]; // [rsp+54h] [rbp-2C4h] BYREF
+  unsigned int v11; // [rsp+54h] [rbp-2C4h] BYREF
   __int64 v12; // [rsp+60h] [rbp-2B8h] BYREF
   int v13; // [rsp+68h] [rbp-2B0h]
   __int128 v14; // [rsp+70h] [rbp-2A8h]
@@ -47,18 +47,18 @@ __int64 __fastcall LdrpLoadForwardedDll(STRING *a1, int a2, __int64 a3, __int64 
     v16 = 0LL;
     v17 = 0LL;
     RtlActivateActivationContextUnsafeFast((__int64)&v12, *(_QWORD *)(a4 + 136));
-    v11[0] = 0;
-    appended = LdrpPreprocessDllName(&v18, &v21, a4, v11);
+    v11 = 0;
+    appended = LdrpPreprocessDllName(&v18, &v21, a4, &v11);
     if ( appended >= 0 )
-      LdrpLoadDllInternal((__int64)&v21, a2, v11[0], a5, a4, a3, a6, &appended, 0LL);
+      LdrpLoadDllInternal((__int64)&v21, a2, v11, a5, (_DWORD *)a4, a3, a6, &appended, 0LL);
     RtlDeactivateActivationContextUnsafeFast((__int64)&v12);
   }
   if ( v20 != v19 )
-    NtdllpFreeStringRoutine((__int64)v19);
+    NtdllpFreeStringRoutine(v19);
   v19 = v20;
   v18 = 0x1000000;
   v20[0] = 0;
   if ( v23 != v22 )
-    NtdllpFreeStringRoutine((__int64)v22);
+    NtdllpFreeStringRoutine(v22);
   return (unsigned int)appended;
 }

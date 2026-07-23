@@ -1,30 +1,30 @@
 /*
- * XREFs of KiCheckForThreadDispatch @ 0x14031D21C
+ * XREFs of KiCheckForThreadDispatch @ 0x1402C5DAC
  * Callers:
- *     ExpApplyPriorityBoost @ 0x140277A10 (ExpApplyPriorityBoost.c)
- *     KiAbProcessPreContextSwitch @ 0x140295A00 (KiAbProcessPreContextSwitch.c)
- *     KiProcessDeferredReadyList @ 0x14031D3D0 (KiProcessDeferredReadyList.c)
- *     KiReadyOutSwappedThreads @ 0x140336F68 (KiReadyOutSwappedThreads.c)
- *     KiFastReadyThread @ 0x1403385A4 (KiFastReadyThread.c)
- *     KeSetPriorityBoost @ 0x140338750 (KeSetPriorityBoost.c)
- *     KeGenericProcessorCallback @ 0x1403390A4 (KeGenericProcessorCallback.c)
- *     KeSetSystemGroupAffinityThread @ 0x140339650 (KeSetSystemGroupAffinityThread.c)
- *     KeRevertToUserGroupAffinityThread @ 0x14033A250 (KeRevertToUserGroupAffinityThread.c)
- *     HalpTimerStallExecutionProcessor @ 0x14033B670 (HalpTimerStallExecutionProcessor.c)
- *     KiAbThreadRemoveBoostsSlow @ 0x140340980 (KiAbThreadRemoveBoostsSlow.c)
- *     KeSetIdealProcessorThreadEx @ 0x1403B422C (KeSetIdealProcessorThreadEx.c)
+ *     ExpApplyPriorityBoost @ 0x14022CFA0 (ExpApplyPriorityBoost.c)
+ *     KiAbProcessPreContextSwitch @ 0x1402A5600 (KiAbProcessPreContextSwitch.c)
+ *     KiProcessDeferredReadyList @ 0x1402C5F60 (KiProcessDeferredReadyList.c)
+ *     KiFastReadyThread @ 0x1402DE4A8 (KiFastReadyThread.c)
+ *     KiReadyOutSwappedThreads @ 0x1402DF08C (KiReadyOutSwappedThreads.c)
+ *     KeSetPriorityBoost @ 0x1402DFC90 (KeSetPriorityBoost.c)
+ *     KeGenericProcessorCallback @ 0x140318580 (KeGenericProcessorCallback.c)
+ *     KeSetSystemGroupAffinityThread @ 0x140318B30 (KeSetSystemGroupAffinityThread.c)
+ *     KeRevertToUserGroupAffinityThread @ 0x140319730 (KeRevertToUserGroupAffinityThread.c)
+ *     HalpTimerStallExecutionProcessor @ 0x14031AB50 (HalpTimerStallExecutionProcessor.c)
+ *     KiAbThreadRemoveBoostsSlow @ 0x14031FE60 (KiAbThreadRemoveBoostsSlow.c)
+ *     KeSetIdealProcessorThreadEx @ 0x140370A64 (KeSetIdealProcessorThreadEx.c)
  * Callees:
- *     KiAbProcessPostContextSwitch @ 0x14020FA80 (KiAbProcessPostContextSwitch.c)
- *     KiAcquirePrcbLocksForIsolationUnit @ 0x140293190 (KiAcquirePrcbLocksForIsolationUnit.c)
- *     KiUpdatePriorityMatrixForRunningTransition @ 0x140294FC0 (KiUpdatePriorityMatrixForRunningTransition.c)
- *     KiQueueReadyThread @ 0x140295020 (KiQueueReadyThread.c)
- *     KiAbProcessPreContextSwitch @ 0x140295A00 (KiAbProcessPreContextSwitch.c)
- *     KiDeliverApc @ 0x14031D9B0 (KiDeliverApc.c)
- *     HalpInterruptSendIpi @ 0x14031FDE0 (HalpInterruptSendIpi.c)
- *     HalpDisableInterrupts @ 0x140320790 (HalpDisableInterrupts.c)
- *     KiCaptureTotalCyclesCurrentThread @ 0x14034DCD0 (KiCaptureTotalCyclesCurrentThread.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiSwapContext @ 0x1406B2A60 (KiSwapContext.c)
+ *     KiAcquirePrcbLocksForIsolationUnit @ 0x1402A2D90 (KiAcquirePrcbLocksForIsolationUnit.c)
+ *     KiUpdatePriorityMatrixForRunningTransition @ 0x1402A4BC0 (KiUpdatePriorityMatrixForRunningTransition.c)
+ *     KiQueueReadyThread @ 0x1402A4C20 (KiQueueReadyThread.c)
+ *     KiAbProcessPreContextSwitch @ 0x1402A5600 (KiAbProcessPreContextSwitch.c)
+ *     KiDeliverApc @ 0x1402C6540 (KiDeliverApc.c)
+ *     HalpInterruptSendIpi @ 0x1402C8970 (HalpInterruptSendIpi.c)
+ *     HalpDisableInterrupts @ 0x1402C9320 (HalpDisableInterrupts.c)
+ *     KiAbProcessPostContextSwitch @ 0x140338DE0 (KiAbProcessPostContextSwitch.c)
+ *     KiCaptureTotalCyclesCurrentThread @ 0x14036C1B0 (KiCaptureTotalCyclesCurrentThread.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiSwapContext @ 0x1406B3A00 (KiSwapContext.c)
  */
 
 char __fastcall KiCheckForThreadDispatch(struct _KPRCB *a1, __int64 a2)
@@ -83,7 +83,7 @@ char __fastcall KiCheckForThreadDispatch(struct _KPRCB *a1, __int64 a2)
     if ( NextThread )
     {
       KiAbProcessPreContextSwitch(&a1->CurrentThread->Header.Lock, 0);
-      KiAcquirePrcbLocksForIsolationUnit((__int64)a1, 0, &v16);
+      KiAcquirePrcbLocksForIsolationUnit((__int64)a1, 0LL, &v16);
       v7 = a1->NextThread;
       a1->NextThread = 0LL;
       KiCaptureTotalCyclesCurrentThread(a1, CurrentThread);
@@ -93,7 +93,7 @@ char __fastcall KiCheckForThreadDispatch(struct _KPRCB *a1, __int64 a2)
       KiQueueReadyThread(a1, (__int64)&v16, (ULONG_PTR)CurrentThread);
       LOBYTE(v8) = v4;
       LOBYTE(v7) = KiSwapContext(CurrentThread, v7, v8);
-      LOBYTE(NextThread) = KiAbProcessPostContextSwitch((__int64)CurrentThread);
+      LOBYTE(NextThread) = KiAbProcessPostContextSwitch(CurrentThread);
       v6 = (_BYTE)v7 == 0;
     }
     else

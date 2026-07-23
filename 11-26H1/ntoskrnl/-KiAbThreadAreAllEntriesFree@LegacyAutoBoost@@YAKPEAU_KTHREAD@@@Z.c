@@ -1,8 +1,8 @@
 /*
- * XREFs of ?KiAbThreadAreAllEntriesFree@LegacyAutoBoost@@YAKPEAU_KTHREAD@@@Z @ 0x140271A7C
+ * XREFs of ?KiAbThreadAreAllEntriesFree@LegacyAutoBoost@@YAKPEAU_KTHREAD@@@Z @ 0x140270FEC
  * Callers:
- *     KiAbProcessPreContextSwitch @ 0x14023DEB0 (KiAbProcessPreContextSwitch.c)
- *     KeAbThreadAreAllEntriesFree @ 0x140271A54 (KeAbThreadAreAllEntriesFree.c)
+ *     KiAbProcessPreContextSwitch @ 0x14023F810 (KiAbProcessPreContextSwitch.c)
+ *     KeAbThreadAreAllEntriesFree @ 0x140270FC4 (KeAbThreadAreAllEntriesFree.c)
  * Callees:
  *     <none>
  */

@@ -1,12 +1,12 @@
 /*
- * XREFs of MiUpdateLargePagePfns @ 0x1402C5CF8
+ * XREFs of MiUpdateLargePagePfns @ 0x1402C5EE8
  * Callers:
- *     MiFindLargePageMemory @ 0x14085D180 (MiFindLargePageMemory.c)
+ *     MiFindLargePageMemory @ 0x14085E3E0 (MiFindLargePageMemory.c)
  * Callees:
  *     MiSwizzleInvalidPte @ 0x14003D7C0 (MiSwizzleInvalidPte.c)
- *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
- *     KeShouldYieldProcessor @ 0x1400F9CE0 (KeShouldYieldProcessor.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeYieldProcessorEx @ 0x14006C9E0 (KeYieldProcessorEx.c)
+ *     KeShouldYieldProcessor @ 0x1400F9D60 (KeShouldYieldProcessor.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiUpdateLargePagePfns(__int64 a1, __int64 a2)
@@ -57,7 +57,7 @@ __int64 __fastcall MiUpdateLargePagePfns(__int64 a1, __int64 a2)
     if ( (*(_DWORD *)(v7 + 16) & 0x3E0LL) != 0 )
     {
       v9 = 1;
-      v13 = dword_14043A088 & (unsigned int)a2 | (((*(_QWORD *)(v7 + 40) >> 36) & 3) << byte_14043A04A) | ((unsigned int)(*(_QWORD *)(v7 + 40) >> 58) << byte_14043A049);
+      v13 = dword_14043B148 & (unsigned int)a2 | (((*(_QWORD *)(v7 + 40) >> 36) & 3) << byte_14043B10A) | ((unsigned int)(*(_QWORD *)(v7 + 40) >> 58) << byte_14043B109);
       v14 = 3 * v13;
       *(_QWORD *)v7 = *(_QWORD *)(a1 + 24 * v13 + 16);
       ++*(_QWORD *)(a1 + 8 * v14 + 8);

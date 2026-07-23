@@ -1,7 +1,7 @@
 /*
- * XREFs of MI_IS_PTE_SHADOW_STACK @ 0x1405479C0
+ * XREFs of MI_IS_PTE_SHADOW_STACK @ 0x140547C00
  * Callers:
- *     MiValidFault @ 0x140209750 (MiValidFault.c)
+ *     MiValidFault @ 0x1402AE050 (MiValidFault.c)
  * Callees:
  *     <none>
  */

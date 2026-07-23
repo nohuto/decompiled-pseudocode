@@ -1,5 +1,5 @@
 /*
- * XREFs of EtwpTraceLoggingProvEnableCallback @ 0x1405793E0
+ * XREFs of EtwpTraceLoggingProvEnableCallback @ 0x140579920
  * Callers:
  *     <none>
  * Callees:

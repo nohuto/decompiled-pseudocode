@@ -1,25 +1,25 @@
 /*
- * XREFs of BiOpenSystemStore @ 0x1408034C4
+ * XREFs of BiOpenSystemStore @ 0x140803794
  * Callers:
- *     BcdOpenStore @ 0x140803098 (BcdOpenStore.c)
- *     SepSecureBootCorrectBcd @ 0x1409D0964 (SepSecureBootCorrectBcd.c)
+ *     BcdOpenStore @ 0x140803368 (BcdOpenStore.c)
+ *     SepSecureBootCorrectBcd @ 0x1409D0B64 (SepSecureBootCorrectBcd.c)
  * Callees:
- *     BiWasFirmwareModified @ 0x140373C54 (BiWasFirmwareModified.c)
- *     BiSetFirmwareModified @ 0x140373D14 (BiSetFirmwareModified.c)
- *     _wcsnicmp @ 0x1403D9B90 (_wcsnicmp.c)
- *     wcstoul @ 0x1403DBEF0 (wcstoul.c)
- *     ZwClose @ 0x14041AF40 (ZwClose.c)
- *     BiLoadSystemStore @ 0x140802124 (BiLoadSystemStore.c)
- *     BiCloseStore @ 0x140802608 (BiCloseStore.c)
- *     BiBindEfiNamespaceObjects @ 0x1408027BC (BiBindEfiNamespaceObjects.c)
- *     BiIsSystemStore @ 0x140802F50 (BiIsSystemStore.c)
- *     BiEnumerateSubKeys @ 0x140803B0C (BiEnumerateSubKeys.c)
- *     BiGetFirmwareType @ 0x140804030 (BiGetFirmwareType.c)
- *     BiOpenKey @ 0x1408050D0 (BiOpenKey.c)
- *     BiCloseKey @ 0x14080525C (BiCloseKey.c)
- *     BiLogMessage @ 0x140805620 (BiLogMessage.c)
- *     BiOpenKeyNonBcd @ 0x140807B14 (BiOpenKeyNonBcd.c)
- *     BiCleanupLoadedStores @ 0x140807BE4 (BiCleanupLoadedStores.c)
+ *     BiWasFirmwareModified @ 0x140373DF4 (BiWasFirmwareModified.c)
+ *     BiSetFirmwareModified @ 0x140373EB4 (BiSetFirmwareModified.c)
+ *     _wcsnicmp @ 0x1403D9D70 (_wcsnicmp.c)
+ *     wcstoul @ 0x1403DC0D0 (wcstoul.c)
+ *     ZwClose @ 0x14041B2D0 (ZwClose.c)
+ *     BiLoadSystemStore @ 0x1408023F4 (BiLoadSystemStore.c)
+ *     BiCloseStore @ 0x1408028D8 (BiCloseStore.c)
+ *     BiBindEfiNamespaceObjects @ 0x140802A8C (BiBindEfiNamespaceObjects.c)
+ *     BiIsSystemStore @ 0x140803220 (BiIsSystemStore.c)
+ *     BiEnumerateSubKeys @ 0x140803DDC (BiEnumerateSubKeys.c)
+ *     BiGetFirmwareType @ 0x140804300 (BiGetFirmwareType.c)
+ *     BiOpenKey @ 0x1408053A0 (BiOpenKey.c)
+ *     BiCloseKey @ 0x14080552C (BiCloseKey.c)
+ *     BiLogMessage @ 0x1408058F0 (BiLogMessage.c)
+ *     BiOpenKeyNonBcd @ 0x140807DE4 (BiOpenKeyNonBcd.c)
+ *     BiCleanupLoadedStores @ 0x140807EB4 (BiCleanupLoadedStores.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 
@@ -111,7 +111,7 @@ LABEL_11:
       v13 = v12 - 1;
       if ( !v13 )
       {
-        v5 = BiBindEfiNamespaceObjects(v2);
+        v5 = BiBindEfiNamespaceObjects((HANDLE)v2);
         v14 = (unsigned int)v5;
         if ( v5 >= 0 )
           goto LABEL_15;

@@ -1,42 +1,39 @@
 /*
- * XREFs of IommupGetSystemContext @ 0x140564CE0
+ * XREFs of IommupGetSystemContext @ 0x140562910
  * Callers:
- *     IommuGetLibraryContext @ 0x140564360 (IommuGetLibraryContext.c)
- *     IommuGetConfiguration @ 0x140C148A0 (IommuGetConfiguration.c)
- *     IommuHvGetConfiguration @ 0x140C148F0 (IommuHvGetConfiguration.c)
+ *     IommuGetLibraryContext @ 0x140561F90 (IommuGetLibraryContext.c)
+ *     IommuGetConfiguration @ 0x140C168A0 (IommuGetConfiguration.c)
+ *     IommuHvGetConfiguration @ 0x140C168F0 (IommuHvGetConfiguration.c)
  * Callees:
- *     HalpMmAllocCtxAlloc @ 0x14024BD68 (HalpMmAllocCtxAlloc.c)
- *     ExfTryToWakePushLock @ 0x14025F9A0 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     HalpMmAllocCtxFree @ 0x14037CBAC (HalpMmAllocCtxFree.c)
- *     IommupHvCreateSvmPasidSpace @ 0x140565A0C (IommupHvCreateSvmPasidSpace.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     HalpMmAllocCtxAlloc @ 0x14027C378 (HalpMmAllocCtxAlloc.c)
+ *     ExfTryToWakePushLock @ 0x14028FFB0 (ExfTryToWakePushLock.c)
+ *     HalpMmAllocCtxFree @ 0x1402EA1C8 (HalpMmAllocCtxFree.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     IommupHvCreateSvmPasidSpace @ 0x1405636C4 (IommupHvCreateSvmPasidSpace.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 PVOID *__fastcall IommupGetSystemContext(unsigned int a1)
 {
-  _QWORD *v2; // rax
+  char *v2; // rax
   __int64 v3; // rcx
   signed __int8 v4; // cf
-  _QWORD *v5; // rbx
+  char *v5; // rbx
   PVOID *v6; // rax
   PVOID *v7; // rbx
   PVOID *v8; // rax
   __int64 v9; // rcx
   _QWORD *v11; // rax
 
-  v2 = KeAbPreAcquire((__int64)&IommupSystemContextListPushLock, 0LL);
+  v2 = (char *)KeAbPreAcquire((__int64)&IommupSystemContextListPushLock, 0LL);
   v4 = _interlockedbittestandset64((volatile signed __int32 *)&IommupSystemContextListPushLock, 0LL);
   v5 = v2;
   if ( v4 )
-    ExfAcquirePushLockExclusiveEx(
-      &IommupSystemContextListPushLock,
-      (__int64)v2,
-      (__int64)&IommupSystemContextListPushLock);
+    ExfAcquirePushLockExclusiveEx(&IommupSystemContextListPushLock, v2, (__int64)&IommupSystemContextListPushLock);
   if ( v5 )
-    *((_BYTE *)v5 + 10) = 1;
+    v5[10] = 1;
   v6 = (PVOID *)IommupSystemContextListHead;
   if ( IommupSystemContextListHead != &IommupSystemContextListHead )
   {

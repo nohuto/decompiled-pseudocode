@@ -1,9 +1,9 @@
 /*
- * XREFs of I_MinCryptIsCertificateHashRevokedV2 @ 0x140677410
+ * XREFs of I_MinCryptIsCertificateHashRevokedV2 @ 0x140677960
  * Callers:
- *     MinCryptVerifyCertificateWithPolicy2 @ 0x140A6F858 (MinCryptVerifyCertificateWithPolicy2.c)
+ *     MinCryptVerifyCertificateWithPolicy2 @ 0x140A6FB08 (MinCryptVerifyCertificateWithPolicy2.c)
  * Callees:
- *     bsearch_s @ 0x1403D9F10 (bsearch_s.c)
+ *     bsearch_s @ 0x1403DA0F0 (bsearch_s.c)
  */
 
 char __fastcall I_MinCryptIsCertificateHashRevokedV2(int a1, const void *a2, unsigned int a3, _QWORD *a4)

@@ -1,10 +1,10 @@
 /*
- * XREFs of MiCreateVsmEnclave @ 0x140A3DAC0
+ * XREFs of MiCreateVsmEnclave @ 0x140A3DD70
  * Callers:
- *     MiCreateEnclave @ 0x140A3D66C (MiCreateEnclave.c)
+ *     MiCreateEnclave @ 0x140A3D91C (MiCreateEnclave.c)
  * Callees:
- *     MiGetProcessPartition @ 0x140275694 (MiGetProcessPartition.c)
- *     PsCreateVsmEnclave @ 0x1409B6F88 (PsCreateVsmEnclave.c)
+ *     MiGetProcessPartition @ 0x140275924 (MiGetProcessPartition.c)
+ *     PsCreateVsmEnclave @ 0x1409B7188 (PsCreateVsmEnclave.c)
  */
 
 __int64 __fastcall MiCreateVsmEnclave(__int64 a1, __int64 a2, __int64 a3, __int64 a4, unsigned int a5)

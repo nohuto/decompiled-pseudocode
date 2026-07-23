@@ -1,13 +1,13 @@
 /*
- * XREFs of NormBuffer__AppendAndSortDecomposed @ 0x14058DA88
+ * XREFs of NormBuffer__AppendAndSortDecomposed @ 0x14058DCB8
  * Callers:
- *     NormBuffer__ReplaceLastStartBase @ 0x14058DF34 (NormBuffer__ReplaceLastStartBase.c)
- *     NormBuffer__ReplaceLastStartBasePair @ 0x14058DFB4 (NormBuffer__ReplaceLastStartBasePair.c)
+ *     NormBuffer__ReplaceLastStartBase @ 0x14058E164 (NormBuffer__ReplaceLastStartBase.c)
+ *     NormBuffer__ReplaceLastStartBasePair @ 0x14058E1E4 (NormBuffer__ReplaceLastStartBasePair.c)
  * Callees:
- *     NormBuffer__AppendEx @ 0x14058DAF8 (NormBuffer__AppendEx.c)
- *     NormBuffer__Insert @ 0x14058DC1C (NormBuffer__Insert.c)
- *     NormBuffer__SortBeforeSameClass @ 0x14058E074 (NormBuffer__SortBeforeSameClass.c)
- *     Normalization__GetCharacterInfo @ 0x1409179B4 (Normalization__GetCharacterInfo.c)
+ *     NormBuffer__AppendEx @ 0x14058DD28 (NormBuffer__AppendEx.c)
+ *     NormBuffer__Insert @ 0x14058DE4C (NormBuffer__Insert.c)
+ *     NormBuffer__SortBeforeSameClass @ 0x14058E2A4 (NormBuffer__SortBeforeSameClass.c)
+ *     Normalization__GetCharacterInfo @ 0x140917B14 (Normalization__GetCharacterInfo.c)
  */
 
 __int64 __fastcall NormBuffer__AppendAndSortDecomposed(_QWORD *a1, __int64 a2)

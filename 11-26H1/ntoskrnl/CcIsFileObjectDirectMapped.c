@@ -1,12 +1,12 @@
 /*
- * XREFs of CcIsFileObjectDirectMapped @ 0x1403845D4
+ * XREFs of CcIsFileObjectDirectMapped @ 0x140386384
  * Callers:
- *     CcCopyWriteWontFlush @ 0x14026B440 (CcCopyWriteWontFlush.c)
- *     CcCanIWrite @ 0x140383700 (CcCanIWrite.c)
- *     CcCanIWriteStreamEx @ 0x140383E50 (CcCanIWriteStreamEx.c)
+ *     CcCopyWriteWontFlush @ 0x14026A9B0 (CcCopyWriteWontFlush.c)
+ *     CcCanIWrite @ 0x1403854B0 (CcCanIWrite.c)
+ *     CcCanIWriteStreamEx @ 0x140385C00 (CcCanIWriteStreamEx.c)
  * Callees:
- *     KeRcuReadUnlock @ 0x1402206B0 (KeRcuReadUnlock.c)
- *     KeRcuReadLock @ 0x140384590 (KeRcuReadLock.c)
+ *     KeRcuReadUnlock @ 0x140222040 (KeRcuReadUnlock.c)
+ *     KeRcuReadLock @ 0x140386340 (KeRcuReadLock.c)
  */
 
 bool __fastcall CcIsFileObjectDirectMapped(__int64 a1)

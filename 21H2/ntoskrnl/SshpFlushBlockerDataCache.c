@@ -1,11 +1,11 @@
 /*
- * XREFs of SshpFlushBlockerDataCache @ 0x1408FAA00
+ * XREFs of SshpFlushBlockerDataCache @ 0x1408FAB60
  * Callers:
- *     SshpSendSessionData @ 0x1408FACA8 (SshpSendSessionData.c)
+ *     SshpSendSessionData @ 0x1408FAE08 (SshpSendSessionData.c)
  * Callees:
- *     CmpFreeTransientPoolWithTag @ 0x140206FA8 (CmpFreeTransientPoolWithTag.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     SSHSupportEtwWrite @ 0x140580CF0 (SSHSupportEtwWrite.c)
+ *     CmpFreeTransientPoolWithTag @ 0x1402483A4 (CmpFreeTransientPoolWithTag.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     SSHSupportEtwWrite @ 0x140580F30 (SSHSupportEtwWrite.c)
  */
 
 __int64 __fastcall SshpFlushBlockerDataCache(ULONG *a1)

@@ -6,7 +6,7 @@
  *     _EtwpGetCpuSpeedFromRegistry@4 @ 0x4B2F0DF4 (_EtwpGetCpuSpeedFromRegistry@4.c)
  */
 
-int __stdcall EtwpGetCpuSpeed(_DWORD *a1)
+NTSTATUS __stdcall EtwpGetCpuSpeed(_DWORD *a1)
 {
   return EtwpGetCpuSpeedFromRegistry(a1);
 }

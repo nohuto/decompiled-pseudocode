@@ -1,13 +1,13 @@
 /*
- * XREFs of MiCanFlushMakeProgress @ 0x1402D0318
+ * XREFs of MiCanFlushMakeProgress @ 0x140261320
  * Callers:
- *     MiFlushAllPagesWorker @ 0x1402CF240 (MiFlushAllPagesWorker.c)
- *     MiWaitForFreePage @ 0x1402CF708 (MiWaitForFreePage.c)
- *     MiFlushAllStoreSwapPages @ 0x1402D01D8 (MiFlushAllStoreSwapPages.c)
- *     MiUserFault @ 0x1402FD560 (MiUserFault.c)
- *     MiCheckSystemTrimEndCriteria @ 0x140378D38 (MiCheckSystemTrimEndCriteria.c)
+ *     MiWaitForFreePage @ 0x140260F64 (MiWaitForFreePage.c)
+ *     MiFlushAllStoreSwapPages @ 0x1402611E0 (MiFlushAllStoreSwapPages.c)
+ *     MiFlushAllPagesWorker @ 0x140263A34 (MiFlushAllPagesWorker.c)
+ *     MiCheckSystemTrimEndCriteria @ 0x1402F33B8 (MiCheckSystemTrimEndCriteria.c)
+ *     MiUserFault @ 0x140307CE0 (MiUserFault.c)
  * Callees:
- *     MiIsStoreVirtualPagefileFull @ 0x1404A2F68 (MiIsStoreVirtualPagefileFull.c)
+ *     MiIsStoreVirtualPagefileFull @ 0x14049DEC8 (MiIsStoreVirtualPagefileFull.c)
  */
 
 __int64 __fastcall MiCanFlushMakeProgress(__int64 a1, int a2, unsigned __int64 a3)

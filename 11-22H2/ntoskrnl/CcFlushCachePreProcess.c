@@ -54,9 +54,9 @@ char __fastcall CcFlushCachePreProcess(__int64 a1)
   struct _KPRCB *v30; // r9
   _DWORD *v31; // r8
   int v32; // eax
-  struct _SLIST_ENTRY *v33; // r14
+  _SLIST_ENTRY *v33; // r14
   _SLIST_ENTRY *Next; // rcx
-  struct _SLIST_ENTRY **v35; // rax
+  _SLIST_ENTRY **v35; // rax
   unsigned __int64 v36; // r14
   unsigned __int8 v37; // al
   struct _KPRCB *v38; // r9
@@ -128,7 +128,7 @@ LABEL_16:
   *(_QWORD *)&v49 = 0LL;
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     if ( CurrentIrql == 2 )
@@ -168,13 +168,13 @@ LABEL_30:
         KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
         KxReleaseQueuedSpinLock((volatile signed __int64 **)&v49);
         v16 = (unsigned __int8)v50;
-        if ( !KiIrqlFlags )
+        if ( !(_DWORD)KiIrqlFlags )
         {
 LABEL_38:
           __writecr8(v16);
           return 0;
         }
-        v17 = (KiIrqlFlags & 1) == 0;
+        v17 = ((unsigned __int8)KiIrqlFlags & 1) == 0;
 LABEL_32:
         v18 = KeGetCurrentIrql();
         if ( !v17 && v18 <= 0xFu && (unsigned __int8)v16 <= 0xFu && v18 >= 2u )
@@ -226,9 +226,9 @@ LABEL_32:
       KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
     KxReleaseQueuedSpinLock((volatile signed __int64 **)&v49);
     v16 = (unsigned __int8)v50;
-    if ( !KiIrqlFlags )
+    if ( !(_DWORD)KiIrqlFlags )
       goto LABEL_38;
-    v17 = (KiIrqlFlags & 1) == 0;
+    v17 = ((unsigned __int8)KiIrqlFlags & 1) == 0;
     goto LABEL_32;
   }
   if ( !v14 )
@@ -238,10 +238,10 @@ LABEL_76:
       KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
     KxReleaseQueuedSpinLock((volatile signed __int64 **)&v49);
     v36 = (unsigned __int8)v50;
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v37 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v37 <= 0xFu && (unsigned __int8)v50 <= 0xFu && v37 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v37 <= 0xFu && (unsigned __int8)v50 <= 0xFu && v37 >= 2u )
       {
         v38 = KeGetCurrentPrcb();
         v39 = v38->SchedulerAssist;
@@ -377,9 +377,9 @@ LABEL_75:
   v27 = *(_QWORD *)(v14 + 504);
   if ( v27 )
   {
-    v33 = (struct _SLIST_ENTRY *)(v27 & 0xFFFFFFFFFFFFFFFEuLL);
+    v33 = (_SLIST_ENTRY *)(v27 & 0xFFFFFFFFFFFFFFFEuLL);
     Next = v33->Next;
-    v35 = (struct _SLIST_ENTRY **)*((_QWORD *)&v33->Next + 1);
+    v35 = (_SLIST_ENTRY **)*((_QWORD *)&v33->Next + 1);
     if ( *(&v33->Next->Next + 1) != v33 || *v35 != v33 )
       __fastfail(3u);
     *v35 = Next;
@@ -398,10 +398,10 @@ LABEL_64:
   KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
   KxReleaseQueuedSpinLock((volatile signed __int64 **)&v49);
   v28 = (unsigned __int8)v50;
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v29 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v29 <= 0xFu && (unsigned __int8)v50 <= 0xFu && v29 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v29 <= 0xFu && (unsigned __int8)v50 <= 0xFu && v29 >= 2u )
     {
       v30 = KeGetCurrentPrcb();
       v31 = v30->SchedulerAssist;

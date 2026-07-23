@@ -1,14 +1,14 @@
 /*
- * XREFs of IopMarkPagesForProcessorData @ 0x1405D5CAC
+ * XREFs of IopMarkPagesForProcessorData @ 0x1405D849C
  * Callers:
- *     IopAddLiveDumpPagesToPartialKernelDump @ 0x1405D4BE0 (IopAddLiveDumpPagesToPartialKernelDump.c)
+ *     IopAddLiveDumpPagesToPartialKernelDump @ 0x1405D73D0 (IopAddLiveDumpPagesToPartialKernelDump.c)
  * Callees:
- *     MmIsAddressValidEx @ 0x14034DFD0 (MmIsAddressValidEx.c)
- *     KeGetNextKernelStackSegment @ 0x140433E20 (KeGetNextKernelStackSegment.c)
- *     IopAddStackSegmentKernelShadowStackToDump @ 0x1405D5320 (IopAddStackSegmentKernelShadowStackToDump.c)
- *     KeGetProcessorIdtSize @ 0x1405EB9D8 (KeGetProcessorIdtSize.c)
- *     MiAddRangeToCrashDump @ 0x1406F61BC (MiAddRangeToCrashDump.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     MmIsAddressValidEx @ 0x140350050 (MmIsAddressValidEx.c)
+ *     KeGetNextKernelStackSegment @ 0x140428EF0 (KeGetNextKernelStackSegment.c)
+ *     IopAddStackSegmentKernelShadowStackToDump @ 0x1405D7B10 (IopAddStackSegmentKernelShadowStackToDump.c)
+ *     KeGetProcessorIdtSize @ 0x1405EE348 (KeGetProcessorIdtSize.c)
+ *     MiAddRangeToCrashDump @ 0x1406FAE2C (MiAddRangeToCrashDump.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall IopMarkPagesForProcessorData(__int64 a1, int a2)

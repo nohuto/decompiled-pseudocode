@@ -1,9 +1,9 @@
 /*
- * XREFs of SepRmSetAuditEventWrkr @ 0x14084CAA0
+ * XREFs of SepRmSetAuditEventWrkr @ 0x14084CDA0
  * Callers:
- *     SepRmCommandServerThread @ 0x14082B780 (SepRmCommandServerThread.c)
+ *     SepRmCommandServerThread @ 0x14082BA80 (SepRmCommandServerThread.c)
  * Callees:
- *     PsIsCurrentThreadInServerSilo @ 0x140287470 (PsIsCurrentThreadInServerSilo.c)
+ *     PsIsCurrentThreadInServerSilo @ 0x140287700 (PsIsCurrentThreadInServerSilo.c)
  */
 
 char __fastcall SepRmSetAuditEventWrkr(__int64 a1, __int64 a2)

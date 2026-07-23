@@ -18,7 +18,7 @@
  *     PspLogAuditTerminateRemoteProcessEvent @ 0x1406E0DF8 (PspLogAuditTerminateRemoteProcessEvent.c)
  */
 
-NTSTATUS __fastcall NtTerminateProcess(void *a1, unsigned int a2)
+NTSTATUS __cdecl NtTerminateProcess(HANDLE ProcessHandle, NTSTATUS ExitStatus)
 {
   struct _KTHREAD *CurrentThread; // rdi
   ULONG_PTR Process; // rbx
@@ -36,10 +36,10 @@ NTSTATUS __fastcall NtTerminateProcess(void *a1, unsigned int a2)
   Object = 0LL;
   Process = (ULONG_PTR)CurrentThread->ApcState.Process;
   PreviousMode = CurrentThread->PreviousMode;
-  if ( a1 )
+  if ( ProcessHandle )
   {
     result = ObReferenceObjectByHandleWithTag(
-               a1,
+               ProcessHandle,
                1u,
                (POBJECT_TYPE)PsProcessType,
                PreviousMode,
@@ -71,12 +71,12 @@ NTSTATUS __fastcall NtTerminateProcess(void *a1, unsigned int a2)
       {
         PspUnlockProcessExclusive(Process, (__int64)CurrentThread);
         LOBYTE(v12) = 1;
-        PspTerminateThreadByPointer(CurrentThread, a2, v12);
+        PspTerminateThreadByPointer(CurrentThread, (unsigned int)ExitStatus, v12);
         return 0;
       }
       *((_DWORD *)&CurrentThread[1].SwapListEntry + 3) |= 0x40u;
       if ( *(_DWORD *)(Process + 2004) == 259 )
-        *(_DWORD *)(Process + 2004) = a2;
+        *(_DWORD *)(Process + 2004) = ExitStatus;
       PspUnlockProcessExclusiveUnsafe(Process);
       v9 = PspTerminateAllThreads(Process);
       goto LABEL_16;
@@ -94,7 +94,7 @@ NTSTATUS __fastcall NtTerminateProcess(void *a1, unsigned int a2)
       _InterlockedOr((volatile signed __int32 *)&CurrentThread[1].SwapListEntry + 2, 1u);
       KeForceResumeThread((__int64)CurrentThread);
       KeLeaveCriticalRegionThread((__int64)CurrentThread);
-      PspExitThread(a2);
+      PspExitThread(ExitStatus);
       __debugbreak();
     }
   }

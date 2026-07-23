@@ -1,79 +1,79 @@
 /*
- * XREFs of RtlValidateCorrelationVector @ 0x140B2E670
+ * XREFs of RtlValidateCorrelationVector @ 0x140B305C0
  * Callers:
- *     RtlIncrementCorrelationVector @ 0x140806480 (RtlIncrementCorrelationVector.c)
+ *     RtlIncrementCorrelationVector @ 0x14080BF20 (RtlIncrementCorrelationVector.c)
  * Callees:
- *     RtlpGetCorrelationVectorEndPosition @ 0x1404EA848 (RtlpGetCorrelationVectorEndPosition.c)
- *     strncmp @ 0x14073D360 (strncmp.c)
- *     RtlpGetLastContiguosBase64Position @ 0x140B2E6E0 (RtlpGetLastContiguosBase64Position.c)
- *     RtlpGetCorrelationVectorBufferLength @ 0x140B2E754 (RtlpGetCorrelationVectorBufferLength.c)
+ *     RtlpGetCorrelationVectorEndPosition @ 0x1404E3BF8 (RtlpGetCorrelationVectorEndPosition.c)
+ *     strncmp @ 0x140741F60 (strncmp.c)
+ *     RtlpGetLastContiguosBase64Position @ 0x140B30630 (RtlpGetLastContiguosBase64Position.c)
+ *     RtlpGetCorrelationVectorBufferLength @ 0x140B306A4 (RtlpGetCorrelationVectorBufferLength.c)
  */
 
-__int64 __fastcall RtlValidateCorrelationVector(_BYTE *a1, __int64 a2, __int64 a3)
+DWORD __cdecl RtlValidateCorrelationVector(PCORRELATION_VECTOR Vector)
 {
   int LastContiguosBase64Position; // esi
-  __int64 v5; // rdx
+  __int64 v3; // rdx
   int CorrelationVectorEndPosition; // eax
-  bool v8; // zf
-  int v9; // esi
-  __int64 v10; // rdi
-  __int64 v11; // rbp
-  int v12; // ecx
-  __int64 v13; // r8
-  _BYTE *v14; // rdx
+  bool v6; // zf
+  int v7; // esi
+  __int64 v8; // rdi
+  __int64 v9; // rbp
+  int v10; // ecx
+  __int64 v11; // r8
+  CHAR *v12; // rdx
 
-  if ( !a1 )
-    return 3221225485LL;
-  if ( (int)RtlpGetCorrelationVectorBufferLength(a1, a2, a3) < 0 )
-    return 3221225485LL;
-  LastContiguosBase64Position = RtlpGetLastContiguosBase64Position(a1);
-  CorrelationVectorEndPosition = RtlpGetCorrelationVectorEndPosition((__int64)a1, v5);
+  if ( !Vector )
+    return -1073741811;
+  if ( (int)RtlpGetCorrelationVectorBufferLength(Vector) < 0 )
+    return -1073741811;
+  LastContiguosBase64Position = RtlpGetLastContiguosBase64Position(Vector);
+  CorrelationVectorEndPosition = RtlpGetCorrelationVectorEndPosition((__int64)Vector, v3);
   if ( CorrelationVectorEndPosition < 0 )
-    return 3221225485LL;
-  if ( *a1 == 1 )
+    return -1073741811;
+  if ( Vector->Version == 1 )
   {
-    v8 = LastContiguosBase64Position == 15;
+    v6 = LastContiguosBase64Position == 15;
   }
   else
   {
-    if ( *a1 != 2 )
+    if ( Vector->Version != 2 )
       goto LABEL_10;
-    v8 = LastContiguosBase64Position == 21;
+    v6 = LastContiguosBase64Position == 21;
   }
-  if ( !v8 )
-    return 3221225485LL;
+  if ( !v6 )
+    return -1073741811;
 LABEL_10:
-  v9 = LastContiguosBase64Position + 1;
-  v10 = v9;
-  if ( a1[v9 + 1] != 46 )
-    return 3221225485LL;
-  v11 = CorrelationVectorEndPosition;
-  while ( v10 < v11 )
+  v7 = LastContiguosBase64Position + 1;
+  v8 = v7;
+  if ( Vector->Vector[v7] != 46 )
+    return -1073741811;
+  v9 = CorrelationVectorEndPosition;
+  while ( v8 < v9 )
   {
-    if ( a1[v10 + 1] == 46 )
+    if ( Vector->Vector[v8] == 46 )
     {
-      ++v9;
-      ++v10;
-      v12 = 0;
-      v13 = v9;
-      if ( v10 < v11 )
+      ++v7;
+      ++v8;
+      v10 = 0;
+      v11 = v7;
+      if ( v8 < v9 )
       {
-        v14 = &a1[v10 + 1];
+        v12 = &Vector->Vector[v8];
         do
         {
-          if ( (unsigned __int8)(*v14 - 48) > 9u )
+          if ( (unsigned __int8)(*v12 - 48) > 9u )
             break;
-          ++v9;
-          ++v10;
-          ++v14;
+          ++v7;
+          ++v8;
           ++v12;
+          ++v10;
         }
-        while ( v10 < v11 );
-        if ( v12 && v12 <= 10 && (v12 != 10 || strncmp(&a1[v13 + 1], "2147483647", 0xAuLL) <= 0) )
+        while ( v8 < v9 );
+        if ( v10 && v10 <= 10 && (v10 != 10 || strncmp(&Vector->Vector[v11], "2147483647", 0xAuLL) <= 0) )
           continue;
       }
     }
-    return 3221225485LL;
+    return -1073741811;
   }
-  return 0LL;
+  return 0;
 }

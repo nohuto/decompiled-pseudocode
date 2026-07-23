@@ -1,15 +1,15 @@
 /*
- * XREFs of MiAllowProtectionChange @ 0x1400B74B0
+ * XREFs of MiAllowProtectionChange @ 0x1400B5348
  * Callers:
- *     MiResetVirtualMemory @ 0x1400AFDEC (MiResetVirtualMemory.c)
- *     MiAllocateVirtualMemory @ 0x140430E80 (MiAllocateVirtualMemory.c)
- *     MiProtectVirtualMemory @ 0x140433470 (MiProtectVirtualMemory.c)
+ *     MiResetVirtualMemory @ 0x1400ADFA4 (MiResetVirtualMemory.c)
+ *     MiAllocateVirtualMemory @ 0x14042FD50 (MiAllocateVirtualMemory.c)
+ *     MiProtectVirtualMemory @ 0x140432340 (MiProtectVirtualMemory.c)
  * Callees:
- *     MiGetSharedVm @ 0x14002EA30 (MiGetSharedVm.c)
- *     MiQueryAddressState @ 0x140043000 (MiQueryAddressState.c)
- *     MiArbitraryCodeBlocked @ 0x1400B75F4 (MiArbitraryCodeBlocked.c)
- *     ExReleaseSpinLockShared @ 0x1400EA240 (ExReleaseSpinLockShared.c)
- *     ExAcquireSpinLockShared @ 0x1400EB1D0 (ExAcquireSpinLockShared.c)
+ *     MiGetSharedVm @ 0x14002E5B0 (MiGetSharedVm.c)
+ *     MiQueryAddressState @ 0x140042B80 (MiQueryAddressState.c)
+ *     MiArbitraryCodeBlocked @ 0x1400B548C (MiArbitraryCodeBlocked.c)
+ *     ExReleaseSpinLockShared @ 0x1400E80B0 (ExReleaseSpinLockShared.c)
+ *     ExAcquireSpinLockShared @ 0x1400E9040 (ExAcquireSpinLockShared.c)
  */
 
 __int64 __fastcall MiAllowProtectionChange(

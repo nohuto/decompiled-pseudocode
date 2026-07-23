@@ -76,9 +76,9 @@ __int64 __fastcall IopLiveDumpWriteDumpFileWithHvPages(__int64 a1)
   v40 = CurrentThread;
   *(_QWORD *)(a1 + 528) = 0LL;
   *(_QWORD *)(a1 + 536) = 0LL;
-  IopLiveDumpGetNtMergePages(a1, (__int64)v48, &v33, &v31, &v36);
+  IopLiveDumpGetNtMergePages((_RTL_BITMAP_EX *)a1, (__int64)v48, &v33, &v31, &v36);
   v5 = (__int64 *)v48;
-  RtlClearAllBitsEx(a1 + 440);
+  RtlClearAllBitsEx((PRTL_BITMAP_EX)(a1 + 440));
   HvMergePages = IopLiveDumpGetHvMergePages(a1, v49, &v34, &v30, &v37);
   v7 = v31;
   v8 = v49;
@@ -119,7 +119,7 @@ LABEL_13:
       v35 = v36;
       v13 = v7 << 12;
       v27 = 1;
-      IopLiveDumpGetNtMergePages(a1, (__int64)v48, &v33, &v31, &v36);
+      IopLiveDumpGetNtMergePages((_RTL_BITMAP_EX *)a1, (__int64)v48, &v33, &v31, &v36);
       v7 = v31;
       v5 = (__int64 *)v48;
       goto LABEL_14;
@@ -148,7 +148,7 @@ LABEL_13:
     {
       v27 = 1;
       v35 = v36;
-      IopLiveDumpGetNtMergePages(a1, (__int64)v48, &v33, &v31, &v36);
+      IopLiveDumpGetNtMergePages((_RTL_BITMAP_EX *)a1, (__int64)v48, &v33, &v31, &v36);
       v12 = v28;
       v5 = (__int64 *)v48;
       v7 = v31;

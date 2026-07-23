@@ -16,7 +16,7 @@ __int64 __fastcall EtwpTiQueryTokenIdentity(__int64 a1, void *a2)
   PVOID TokenInformation; // [rsp+30h] [rbp+8h] BYREF
 
   TokenInformation = 0LL;
-  v3 = SeQueryInformationToken(a2, TokenUserClaimAttributes|TokenAuditPolicy, &TokenInformation);
+  v3 = SeQueryInformationToken(a2, MaxTokenInfoClass, &TokenInformation);
   if ( v3 < 0
     || (v3 = EtwpTiSerializeTokenGroups(
                *((_QWORD *)TokenInformation + 9),

@@ -1,22 +1,22 @@
 /*
- * XREFs of PiUEventHandleRegistration @ 0x14085BCBC
+ * XREFs of PiUEventHandleRegistration @ 0x140857A2C
  * Callers:
- *     PiUEventHandleIoctl @ 0x14085B524 (PiUEventHandleIoctl.c)
+ *     PiUEventHandleIoctl @ 0x140857294 (PiUEventHandleIoctl.c)
  * Callees:
- *     KeReleaseGuardedMutex @ 0x14031E470 (KeReleaseGuardedMutex.c)
- *     ExAcquireFastMutex @ 0x14033E850 (ExAcquireFastMutex.c)
- *     PsGetCurrentThreadProcessId @ 0x1404296F0 (PsGetCurrentThreadProcessId.c)
- *     RtlStringCchLengthW @ 0x14042EE70 (RtlStringCchLengthW.c)
- *     PiUEventHashStringIntoBucket @ 0x14047B794 (PiUEventHashStringIntoBucket.c)
- *     PiUEventHashGuidIntoBucket @ 0x14048C5F0 (PiUEventHashGuidIntoBucket.c)
- *     SeCaptureSubjectContext @ 0x14084D8F0 (SeCaptureSubjectContext.c)
- *     PiUEventFreeClientRegistrationContext @ 0x14085C45C (PiUEventFreeClientRegistrationContext.c)
- *     PiUEventInitClientRegistrationContext @ 0x14085C5EC (PiUEventInitClientRegistrationContext.c)
- *     PiUEventGetDeviceInstanceIdFromUserHandle @ 0x14085CBD4 (PiUEventGetDeviceInstanceIdFromUserHandle.c)
- *     PiDmObjectManagerReleaseLock @ 0x1408B523C (PiDmObjectManagerReleaseLock.c)
- *     PiDmObjectManagerAcquireSharedLock @ 0x1408B52AC (PiDmObjectManagerAcquireSharedLock.c)
- *     PiDmLookupObject @ 0x1408B5470 (PiDmLookupObject.c)
- *     PiDmGetObject @ 0x1408CBB70 (PiDmGetObject.c)
+ *     KeReleaseGuardedMutex @ 0x1402C7000 (KeReleaseGuardedMutex.c)
+ *     ExAcquireFastMutex @ 0x14031DD30 (ExAcquireFastMutex.c)
+ *     PsGetCurrentThreadProcessId @ 0x14041D840 (PsGetCurrentThreadProcessId.c)
+ *     RtlStringCchLengthW @ 0x140420BA0 (RtlStringCchLengthW.c)
+ *     PiUEventHashStringIntoBucket @ 0x140477414 (PiUEventHashStringIntoBucket.c)
+ *     PiUEventHashGuidIntoBucket @ 0x140487310 (PiUEventHashGuidIntoBucket.c)
+ *     SeCaptureSubjectContext @ 0x140849BB0 (SeCaptureSubjectContext.c)
+ *     PiUEventFreeClientRegistrationContext @ 0x1408581CC (PiUEventFreeClientRegistrationContext.c)
+ *     PiUEventInitClientRegistrationContext @ 0x14085835C (PiUEventInitClientRegistrationContext.c)
+ *     PiUEventGetDeviceInstanceIdFromUserHandle @ 0x140858944 (PiUEventGetDeviceInstanceIdFromUserHandle.c)
+ *     PiDmObjectManagerReleaseLock @ 0x1408B2B2C (PiDmObjectManagerReleaseLock.c)
+ *     PiDmObjectManagerAcquireSharedLock @ 0x1408B2B9C (PiDmObjectManagerAcquireSharedLock.c)
+ *     PiDmLookupObject @ 0x1408B2D60 (PiDmLookupObject.c)
+ *     PiDmGetObject @ 0x1408C95A0 (PiDmGetObject.c)
  */
 
 __int64 __fastcall PiUEventHandleRegistration(__int64 a1, __int64 a2, int a3, int a4, __int64 a5)

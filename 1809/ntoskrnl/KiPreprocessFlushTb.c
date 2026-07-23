@@ -1,11 +1,11 @@
 /*
- * XREFs of KiPreprocessFlushTb @ 0x1400EDB30
+ * XREFs of KiPreprocessFlushTb @ 0x1400EDBB0
  * Callers:
- *     KeFlushSingleTb @ 0x1400ECDF4 (KeFlushSingleTb.c)
+ *     KeFlushSingleTb @ 0x1400ECE74 (KeFlushSingleTb.c)
  * Callees:
- *     KiAffinityContainsProcessorsOtherThanSelf @ 0x1400EDBC4 (KiAffinityContainsProcessorsOtherThanSelf.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     KiIsFlushEntire @ 0x140293E00 (KiIsFlushEntire.c)
+ *     KiAffinityContainsProcessorsOtherThanSelf @ 0x1400EDC44 (KiAffinityContainsProcessorsOtherThanSelf.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiIsFlushEntire @ 0x140293FF0 (KiIsFlushEntire.c)
  */
 
 char __fastcall KiPreprocessFlushTb(char a1, unsigned int a2, int a3, _BYTE *a4, unsigned __int8 *a5)

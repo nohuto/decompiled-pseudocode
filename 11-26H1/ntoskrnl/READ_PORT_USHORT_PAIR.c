@@ -1,9 +1,9 @@
 /*
- * XREFs of READ_PORT_USHORT_PAIR @ 0x1405A256C
+ * XREFs of READ_PORT_USHORT_PAIR @ 0x1405A4D7C
  * Callers:
- *     HalpPicSetLineState @ 0x1405A2440 (HalpPicSetLineState.c)
+ *     HalpPicSetLineState @ 0x1405A4C50 (HalpPicSetLineState.c)
  * Callees:
- *     HalpIoDelay @ 0x140722AB0 (HalpIoDelay.c)
+ *     HalpIoDelay @ 0x140727680 (HalpIoDelay.c)
  */
 
 __int16 __fastcall READ_PORT_USHORT_PAIR(unsigned __int16 a1, unsigned __int16 a2)

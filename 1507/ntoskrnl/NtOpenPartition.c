@@ -6,23 +6,33 @@
  *     ObOpenObjectByName @ 0x1404902E0 (ObOpenObjectByName.c)
  */
 
-__int64 __fastcall NtOpenPartition(_QWORD *a1, ACCESS_MASK a2, __int64 a3)
+NTSTATUS __cdecl NtOpenPartition(
+        PHANDLE PartitionHandle,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes)
 {
   char PreviousMode; // r8
   _QWORD *v7; // rdx
-  __int64 result; // rax
-  _QWORD v9[3]; // [rsp+50h] [rbp-18h] BYREF
+  NTSTATUS result; // eax
+  void *v9; // [rsp+50h] [rbp-18h] BYREF
 
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   if ( PreviousMode )
   {
-    v7 = a1;
-    if ( (unsigned __int64)a1 >= MmUserProbeAddress )
+    v7 = PartitionHandle;
+    if ( (unsigned __int64)PartitionHandle >= MmUserProbeAddress )
       v7 = (_QWORD *)MmUserProbeAddress;
     *v7 = *v7;
   }
-  result = ObOpenObjectByName(a3, (__int64)MmPartitionObjectType, PreviousMode, 0LL, a2, 0LL, v9);
-  if ( (int)result >= 0 )
-    *a1 = v9[0];
+  result = ObOpenObjectByName(
+             (__int64)ObjectAttributes,
+             (__int64)MmPartitionObjectType,
+             PreviousMode,
+             0LL,
+             DesiredAccess,
+             0LL,
+             &v9);
+  if ( result >= 0 )
+    *PartitionHandle = v9;
   return result;
 }

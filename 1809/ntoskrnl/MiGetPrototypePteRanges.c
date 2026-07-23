@@ -1,16 +1,16 @@
 /*
- * XREFs of MiGetPrototypePteRanges @ 0x140125214
+ * XREFs of MiGetPrototypePteRanges @ 0x1401252E4
  * Callers:
- *     MiReplacePageOfProtoPool @ 0x140124D9C (MiReplacePageOfProtoPool.c)
+ *     MiReplacePageOfProtoPool @ 0x140124E6C (MiReplacePageOfProtoPool.c)
  * Callees:
- *     RtlSetBits @ 0x140076D80 (RtlSetBits.c)
- *     MiObtainProtoBaseFromNode @ 0x1400961A4 (MiObtainProtoBaseFromNode.c)
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14009D110 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     ExAcquireSpinLockShared @ 0x14009D7C0 (ExAcquireSpinLockShared.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     RtlSetBits @ 0x140076D70 (RtlSetBits.c)
+ *     MiObtainProtoBaseFromNode @ 0x1400960E4 (MiObtainProtoBaseFromNode.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14009D050 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     ExAcquireSpinLockShared @ 0x14009D700 (ExAcquireSpinLockShared.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
  */
 
-__int64 __fastcall MiGetPrototypePteRanges(unsigned __int64 a1, struct _RTL_BITMAP *a2)
+__int64 __fastcall MiGetPrototypePteRanges(unsigned __int64 a1, _RTL_BITMAP *a2)
 {
   unsigned __int64 v3; // r12
   unsigned int v5; // r14d
@@ -41,10 +41,10 @@ __int64 __fastcall MiGetPrototypePteRanges(unsigned __int64 a1, struct _RTL_BITM
 
   v3 = a1 + 4096;
   v5 = 1;
-  v6 = ExAcquireSpinLockShared(&dword_140438D78);
-  v7 = (_QWORD *)qword_140438D70;
+  v6 = ExAcquireSpinLockShared(&dword_140439E38);
+  v7 = (_QWORD *)qword_140439E30;
   v8 = v6;
-  if ( qword_140438D70 )
+  if ( qword_140439E30 )
   {
     do
     {
@@ -183,7 +183,7 @@ __int64 __fastcall MiGetPrototypePteRanges(unsigned __int64 a1, struct _RTL_BITM
       }
     }
   }
-  ExReleaseSpinLockSharedFromDpcLevel(&dword_140438D78);
+  ExReleaseSpinLockSharedFromDpcLevel(&dword_140439E38);
   if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && KeGetCurrentIrql() >= 2u && v8 < 2u )
   {
     CurrentPrcb = KeGetCurrentPrcb();

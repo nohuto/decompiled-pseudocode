@@ -22,37 +22,36 @@ char __fastcall PiDrvDbLoadNodeWorkerCallback(__int64 a1)
   REGHANDLE v1; // rbx
   int v3; // ebx
   __int64 v4; // rax
-  __int64 v5; // r8
-  void *v6; // rdx
-  int v7; // eax
+  void *v5; // rdx
+  NTSTATUS v6; // eax
   char result; // al
-  REGHANDLE v9; // rsi
+  REGHANDLE v8; // rsi
+  unsigned __int16 v9; // ax
   unsigned __int16 v10; // ax
   unsigned __int16 v11; // ax
   unsigned __int16 v12; // ax
-  unsigned __int16 v13; // ax
-  _WORD v14[2]; // [rsp+60h] [rbp-29h] BYREF
-  unsigned int v15; // [rsp+64h] [rbp-25h] BYREF
-  int v16; // [rsp+68h] [rbp-21h] BYREF
-  int v17; // [rsp+70h] [rbp-19h] BYREF
-  int v18; // [rsp+74h] [rbp-15h] BYREF
+  _WORD v13[2]; // [rsp+60h] [rbp-29h] BYREF
+  unsigned int v14; // [rsp+64h] [rbp-25h] BYREF
+  int v15; // [rsp+68h] [rbp-21h] BYREF
+  int v16; // [rsp+70h] [rbp-19h] BYREF
+  int v17; // [rsp+74h] [rbp-15h] BYREF
   HANDLE Handle; // [rsp+78h] [rbp-11h] BYREF
   OBJECT_ATTRIBUTES TargetKey; // [rsp+80h] [rbp-9h] BYREF
 
   v1 = PnpEtwHandle;
   Handle = 0LL;
-  v18 = 1;
-  v17 = 0;
-  v15 = 0;
+  v17 = 1;
+  v16 = 0;
+  v14 = 0;
   if ( PnpEtwHandle )
   {
     if ( EtwEventEnabled(PnpEtwHandle, &KMPnPEvt_DriverDatabaseLoad_Start) )
     {
-      v10 = *(_WORD *)(a1 + 16);
-      TargetKey.Attributes = v10;
-      v14[0] = v10 >> 1;
+      v9 = *(_WORD *)(a1 + 16);
+      TargetKey.Attributes = v9;
+      v13[0] = v9 >> 1;
       TargetKey.RootDirectory = (HANDLE)2;
-      *(_QWORD *)&TargetKey.Length = v14;
+      *(_QWORD *)&TargetKey.Length = v13;
       TargetKey.ObjectName = *(PUNICODE_STRING *)(a1 + 24);
       *(&TargetKey.Attributes + 1) = 0;
       EtwWrite(v1, &KMPnPEvt_DriverDatabaseLoad_Start, 0LL, 2u, (PEVENT_DATA_DESCRIPTOR)&TargetKey);
@@ -60,11 +59,11 @@ char __fastcall PiDrvDbLoadNodeWorkerCallback(__int64 a1)
     }
     if ( v1 && EtwEventEnabled(v1, &KMPnPEvt_DriverDatabaseLoaded_Start) )
     {
-      v11 = *(_WORD *)(a1 + 16);
-      TargetKey.Attributes = v11;
-      v14[0] = v11 >> 1;
+      v10 = *(_WORD *)(a1 + 16);
+      TargetKey.Attributes = v10;
+      v13[0] = v10 >> 1;
       TargetKey.RootDirectory = (HANDLE)2;
-      *(_QWORD *)&TargetKey.Length = v14;
+      *(_QWORD *)&TargetKey.Length = v13;
       TargetKey.ObjectName = *(PUNICODE_STRING *)(a1 + 24);
       *(&TargetKey.Attributes + 1) = 0;
       EtwWrite(v1, &KMPnPEvt_DriverDatabaseLoaded_Start, 0LL, 2u, (PEVENT_DATA_DESCRIPTOR)&TargetKey);
@@ -86,43 +85,43 @@ char __fastcall PiDrvDbLoadNodeWorkerCallback(__int64 a1)
                   *(_QWORD *)(a1 + 72),
                   0LL,
                   (__int64)&DEVPKEY_DriverDatabase_UnloadTimeout,
-                  (__int64)&v18,
-                  (__int64)&v15,
-                  4,
                   (__int64)&v17,
+                  (__int64)&v14,
+                  4,
+                  (__int64)&v16,
                   0) >= 0
-        && v18 == 7
-        && v17 == 4 )
+        && v17 == 7
+        && v16 == 4 )
       {
-        v4 = v15;
+        v4 = v14;
       }
       else
       {
         v4 = 120000LL;
-        v15 = 120000;
+        v14 = 120000;
       }
       if ( (_DWORD)v4 != -1 )
         *(_QWORD *)(a1 + 480) = -10000 * v4;
     }
     ZwClose(Handle);
     ZwResetEvent(*(HANDLE *)(a1 + 472), 0LL);
-    v6 = *(void **)(a1 + 472);
+    v5 = *(void **)(a1 + 472);
     TargetKey.Length = 48;
     TargetKey.RootDirectory = 0LL;
     TargetKey.Attributes = 576;
     TargetKey.ObjectName = (PUNICODE_STRING)(a1 + 32);
     *(_OWORD *)&TargetKey.SecurityDescriptor = 0LL;
-    if ( v6 )
-      v7 = ZwUnloadKeyEx(&TargetKey, v6);
+    if ( v5 )
+      v6 = ZwUnloadKeyEx(&TargetKey, v5);
     else
-      v7 = ZwUnloadKey2((__int64)&TargetKey, 0LL, v5);
-    v3 = v7;
-    if ( v7 == 259 )
+      v6 = ZwUnloadKey2(&TargetKey, 0);
+    v3 = v6;
+    if ( v6 == 259 )
     {
       v3 = 0;
       goto LABEL_18;
     }
-    if ( v7 < 0 )
+    if ( v6 < 0 )
       v3 = 0;
     ZwSetEvent(*(HANDLE *)(a1 + 472), 0LL);
   }
@@ -131,44 +130,44 @@ char __fastcall PiDrvDbLoadNodeWorkerCallback(__int64 a1)
 LABEL_18:
   *(_DWORD *)(a1 + 256) = v3;
   result = KeSetEvent((PRKEVENT)(a1 + 200), 0, 0);
-  v9 = PnpEtwHandle;
-  v16 = v3;
+  v8 = PnpEtwHandle;
+  v15 = v3;
   if ( PnpEtwHandle )
   {
     result = EtwEventEnabled(PnpEtwHandle, &KMPnPEvt_DriverDatabaseLoad_Stop);
     if ( result )
     {
-      v12 = *(_WORD *)(a1 + 16);
-      TargetKey.Attributes = v12;
-      v14[0] = v12 >> 1;
+      v11 = *(_WORD *)(a1 + 16);
+      TargetKey.Attributes = v11;
+      v13[0] = v11 >> 1;
       TargetKey.RootDirectory = (HANDLE)2;
-      *(_QWORD *)&TargetKey.Length = v14;
+      *(_QWORD *)&TargetKey.Length = v13;
       TargetKey.ObjectName = *(PUNICODE_STRING *)(a1 + 24);
-      TargetKey.SecurityDescriptor = &v16;
+      TargetKey.SecurityDescriptor = &v15;
       *(&TargetKey.Attributes + 1) = 0;
       TargetKey.SecurityQualityOfService = (PVOID)4;
-      result = EtwWrite(v9, &KMPnPEvt_DriverDatabaseLoad_Stop, 0LL, 3u, (PEVENT_DATA_DESCRIPTOR)&TargetKey);
-      v9 = PnpEtwHandle;
+      result = EtwWrite(v8, &KMPnPEvt_DriverDatabaseLoad_Stop, 0LL, 3u, (PEVENT_DATA_DESCRIPTOR)&TargetKey);
+      v8 = PnpEtwHandle;
     }
   }
   if ( v3 < 0 )
   {
-    v16 = v3;
-    if ( v9 )
+    v15 = v3;
+    if ( v8 )
     {
-      result = EtwEventEnabled(v9, &KMPnPEvt_DriverDatabaseLoaded_Stop);
+      result = EtwEventEnabled(v8, &KMPnPEvt_DriverDatabaseLoaded_Stop);
       if ( result )
       {
-        v13 = *(_WORD *)(a1 + 16);
-        TargetKey.Attributes = v13;
-        v14[0] = v13 >> 1;
+        v12 = *(_WORD *)(a1 + 16);
+        TargetKey.Attributes = v12;
+        v13[0] = v12 >> 1;
         TargetKey.RootDirectory = (HANDLE)2;
-        *(_QWORD *)&TargetKey.Length = v14;
+        *(_QWORD *)&TargetKey.Length = v13;
         TargetKey.ObjectName = *(PUNICODE_STRING *)(a1 + 24);
-        TargetKey.SecurityDescriptor = &v16;
+        TargetKey.SecurityDescriptor = &v15;
         *(&TargetKey.Attributes + 1) = 0;
         TargetKey.SecurityQualityOfService = (PVOID)4;
-        return EtwWrite(v9, &KMPnPEvt_DriverDatabaseLoaded_Stop, 0LL, 3u, (PEVENT_DATA_DESCRIPTOR)&TargetKey);
+        return EtwWrite(v8, &KMPnPEvt_DriverDatabaseLoaded_Stop, 0LL, 3u, (PEVENT_DATA_DESCRIPTOR)&TargetKey);
       }
     }
   }

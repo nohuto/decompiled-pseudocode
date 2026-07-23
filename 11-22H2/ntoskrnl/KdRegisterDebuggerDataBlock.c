@@ -41,10 +41,13 @@ char __fastcall KdRegisterDebuggerDataBlock(__int64 a1, __int64 a2)
       *v5 = a2;
       qword_140C56F58 = a2;
       KxReleaseSpinLock((volatile signed __int64 *)&KdpDataSpinLock);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         CurrentIrql = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v3 <= 0xFu && CurrentIrql >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+          && CurrentIrql <= 0xFu
+          && (unsigned __int8)v3 <= 0xFu
+          && CurrentIrql >= 2u )
         {
           CurrentPrcb = KeGetCurrentPrcb();
           SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -63,10 +66,10 @@ char __fastcall KdRegisterDebuggerDataBlock(__int64 a1, __int64 a2)
   }
   while ( v7 != (__int64 *)a2 && *((_DWORD *)v7 + 4) != 1195525195 );
   KxReleaseSpinLock((volatile signed __int64 *)&KdpDataSpinLock);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v8 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v8 <= 0xFu && (unsigned __int8)v3 <= 0xFu && v8 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v8 <= 0xFu && (unsigned __int8)v3 <= 0xFu && v8 >= 2u )
     {
       v9 = KeGetCurrentPrcb();
       v10 = v9->SchedulerAssist;

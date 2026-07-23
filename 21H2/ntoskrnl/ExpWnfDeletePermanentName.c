@@ -1,17 +1,17 @@
 /*
- * XREFs of ExpWnfDeletePermanentName @ 0x1406C3388
+ * XREFs of ExpWnfDeletePermanentName @ 0x140621F90
  * Callers:
- *     NtDeleteWnfStateName @ 0x14060D3C0 (NtDeleteWnfStateName.c)
+ *     NtDeleteWnfStateName @ 0x14069CE70 (NtDeleteWnfStateName.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     ZwDeleteValueKey @ 0x1403FBE80 (ZwDeleteValueKey.c)
- *     ExpWnfGetNameStoreRegistryRoot @ 0x14062C388 (ExpWnfGetNameStoreRegistryRoot.c)
- *     ExpWnfComposeValueName @ 0x14062C4F0 (ExpWnfComposeValueName.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     ZwDeleteValueKey @ 0x1403FC060 (ZwDeleteValueKey.c)
+ *     ExpWnfGetNameStoreRegistryRoot @ 0x140663518 (ExpWnfGetNameStoreRegistryRoot.c)
+ *     ExpWnfComposeValueName @ 0x140663680 (ExpWnfComposeValueName.c)
  */
 
-int __fastcall ExpWnfDeletePermanentName(unsigned __int64 a1)
+NTSTATUS __fastcall ExpWnfDeletePermanentName(unsigned __int64 a1)
 {
-  int result; // eax
+  NTSTATUS result; // eax
   HANDLE KeyHandle; // [rsp+20h] [rbp-58h] BYREF
   UNICODE_STRING ValueName; // [rsp+28h] [rbp-50h] BYREF
   __int64 v5; // [rsp+38h] [rbp-40h] BYREF
@@ -20,7 +20,7 @@ int __fastcall ExpWnfDeletePermanentName(unsigned __int64 a1)
   *(_QWORD *)&ValueName.Length = 2228224LL;
   ValueName.Buffer = (wchar_t *)&v5;
   ExpWnfComposeValueName(a1, &ValueName);
-  result = ExpWnfGetNameStoreRegistryRoot((a1 >> 4) & 3, (volatile signed __int64 *)&KeyHandle);
+  result = ExpWnfGetNameStoreRegistryRoot((a1 >> 4) & 3, &KeyHandle);
   if ( result >= 0 )
     return ZwDeleteValueKey(KeyHandle, &ValueName);
   return result;

@@ -1,14 +1,14 @@
 /*
- * XREFs of MiLogSlabEntriesDemote @ 0x14068857C
+ * XREFs of MiLogSlabEntriesDemote @ 0x1406896AC
  * Callers:
- *     MiDemoteSlabEntries @ 0x1402CF530 (MiDemoteSlabEntries.c)
- *     MiFreeUnusedSlabPages @ 0x1402D398C (MiFreeUnusedSlabPages.c)
+ *     MiDemoteSlabEntries @ 0x1402619FC (MiDemoteSlabEntries.c)
+ *     MiFreeUnusedSlabPages @ 0x140354C04 (MiFreeUnusedSlabPages.c)
  * Callees:
- *     _tlgWriteAgg @ 0x1403D06F8 (_tlgWriteAgg.c)
- *     _tlgKeywordOn @ 0x140426AF0 (_tlgKeywordOn.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     _tlgWriteAgg @ 0x140273698 (_tlgWriteAgg.c)
+ *     _tlgKeywordOn @ 0x14041A970 (_tlgKeywordOn.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 unsigned __int64 __fastcall MiLogSlabEntriesDemote(unsigned __int16 **a1, unsigned int a2)
@@ -22,7 +22,7 @@ unsigned __int64 __fastcall MiLogSlabEntriesDemote(unsigned __int16 **a1, unsign
   __int64 v10; // r10
   __int64 v11; // r11
   unsigned int v12; // r9d
-  unsigned __int8 *v13; // rdx
+  char *v13; // rdx
   unsigned __int16 *v14; // rax
   unsigned int v15; // ecx
   __int64 v16; // rcx
@@ -60,7 +60,7 @@ unsigned __int64 __fastcall MiLogSlabEntriesDemote(unsigned __int16 **a1, unsign
   result = (unsigned __int64)&retaddr;
   v28 = a2;
   v4 = 0;
-  if ( !*(_QWORD *)&qword_140E37518 )
+  if ( !*(_QWORD *)&qword_140E37658 )
     return result;
   CurrentIrql = (unsigned __int16 *)KeGetCurrentIrql();
   v32 = CurrentIrql;
@@ -77,7 +77,7 @@ unsigned __int64 __fastcall MiLogSlabEntriesDemote(unsigned __int16 **a1, unsign
     v18 = a1 + 1;
     for ( i = 0; i < 9; ++i )
     {
-      if ( *v18 && **(_DWORD **)&qword_140E37518 > 5u && tlgKeywordOn(*(__int64 *)&qword_140E37518, 0x400000000400LL) )
+      if ( *v18 && **(_DWORD **)&qword_140E37658 > 5u && tlgKeywordOn(*(__int64 *)&qword_140E37658, 0x400000000400LL) )
       {
         v30 = v21;
         v34 = &v30;
@@ -96,15 +96,15 @@ unsigned __int64 __fastcall MiLogSlabEntriesDemote(unsigned __int16 **a1, unsign
         v41 = 4LL;
         v31 = 0x1000000LL;
         v43 = 8LL;
-        tlgWriteAgg(v20, (unsigned __int8 *)byte_140057BB5, v20, 7u, (__int64)v33);
+        tlgWriteAgg(v20, (unsigned __int8 *)&dword_140058944, v20, 7u, (__int64)v33);
       }
       ++v18;
     }
     LOBYTE(CurrentIrql) = (_BYTE)v32;
-    if ( **(_DWORD **)&qword_140E37518 <= 5u || !tlgKeywordOn(*(__int64 *)&qword_140E37518, 0x400000000400LL) )
+    if ( **(_DWORD **)&qword_140E37658 <= 5u || !tlgKeywordOn(*(__int64 *)&qword_140E37658, 0x400000000400LL) )
       goto LABEL_19;
     v12 = 6;
-    v13 = (unsigned __int8 *)&word_140057B46;
+    v13 = byte_1400586EB;
     v32 = a1[10];
     v34 = (__int64 *)&v32;
     v24 = *a1;
@@ -122,15 +122,15 @@ unsigned __int64 __fastcall MiLogSlabEntriesDemote(unsigned __int16 **a1, unsign
     goto LABEL_18;
   }
   if ( a1[*((unsigned int *)v7 + 32) + 1]
-    && **(_DWORD **)&qword_140E37518 > 5u
-    && tlgKeywordOn(*(__int64 *)&qword_140E37518, 0x400000000400LL) )
+    && **(_DWORD **)&qword_140E37658 > 5u
+    && tlgKeywordOn(*(__int64 *)&qword_140E37658, 0x400000000400LL) )
   {
     v28 = v9;
     v34 = &v31;
     v12 = 8;
     v31 = v11;
     v36 = &v28;
-    v13 = (unsigned __int8 *)&dword_140057CA4;
+    v13 = &byte_1400588AF;
     v35 = 8LL;
     v37 = 4LL;
     v29 = *(_DWORD *)(v8 + 132);
@@ -149,7 +149,7 @@ unsigned __int64 __fastcall MiLogSlabEntriesDemote(unsigned __int16 **a1, unsign
     v45 = 8LL;
 LABEL_18:
     v30 = 0x1000000LL;
-    tlgWriteAgg(v16, v13, v8, v12, (__int64)v33);
+    tlgWriteAgg(v16, (unsigned __int8 *)v13, v8, v12, (__int64)v33);
   }
 LABEL_19:
   if ( KiIrqlFlags )

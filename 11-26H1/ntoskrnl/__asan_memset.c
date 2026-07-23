@@ -1,11 +1,11 @@
 /*
- * XREFs of __asan_memset @ 0x1405DF9F0
+ * XREFs of __asan_memset @ 0x1405E2360
  * Callers:
  *     <none>
  * Callees:
- *     KasaniReport @ 0x1405DDA50 (KasaniReport.c)
- *     KcsanValidateAddress @ 0x1405E31F0 (KcsanValidateAddress.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     KasaniReport @ 0x1405E03C0 (KasaniReport.c)
+ *     KcsanValidateAddress @ 0x1405E5B60 (KcsanValidateAddress.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 void *__fastcall _asan_memset(ULONG_PTR BugCheckParameter1, int Val, ULONG_PTR BugCheckParameter2)

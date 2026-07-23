@@ -62,7 +62,7 @@ bool KeFreezeExecution()
   v3 = (v0 & 0x200) != 0;
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(0xFuLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     v18 = KeGetCurrentPrcb()->SchedulerAssist;
     if ( CurrentIrql == 15 )
@@ -144,7 +144,7 @@ LABEL_20:
       {
         v13 = KeQueryPerformanceCounter(&PerformanceFrequency);
         v14 = MmWriteableSharedUserData;
-        v15 = (unsigned int)KeMaximumIncrement;
+        v15 = KeMaximumIncrement;
         v16 = MEMORY[0xFFFFF78000000008]
             + 10000000 * (v13.QuadPart - MEMORY[0xFFFFF78000000350]) / (unsigned __int64)PerformanceFrequency.LowPart;
         *(_DWORD *)(MmWriteableSharedUserData + 16) = HIDWORD(v16);

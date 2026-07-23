@@ -1,16 +1,16 @@
 /*
- * XREFs of VrpWaitForDiffHiveEntryTransitionOwnerToLeave @ 0x140B50E94
+ * XREFs of VrpWaitForDiffHiveEntryTransitionOwnerToLeave @ 0x140B5372C
  * Callers:
- *     VrpLoadDifferencingHive @ 0x14097955C (VrpLoadDifferencingHive.c)
+ *     VrpLoadDifferencingHive @ 0x14093B56C (VrpLoadDifferencingHive.c)
  * Callees:
- *     KeAbPostReleaseEx @ 0x140272670 (KeAbPostReleaseEx.c)
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     KeWaitForSingleObject @ 0x140278560 (KeWaitForSingleObject.c)
- *     KeAbPreWait @ 0x140278AE0 (KeAbPreWait.c)
- *     RtlInsertHeadCircularList @ 0x140447AE0 (RtlInsertHeadCircularList.c)
- *     KeInitializeEvent @ 0x140466F30 (KeInitializeEvent.c)
- *     VrpLockDiffHiveEntry @ 0x1409798A8 (VrpLockDiffHiveEntry.c)
- *     VrpUnlockDiffHiveEntry @ 0x140979C74 (VrpUnlockDiffHiveEntry.c)
+ *     KeAbPostReleaseEx @ 0x140271BE0 (KeAbPostReleaseEx.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     KeWaitForSingleObject @ 0x140277AD0 (KeWaitForSingleObject.c)
+ *     KeAbPreWait @ 0x140278050 (KeAbPreWait.c)
+ *     RtlInsertHeadCircularList @ 0x1404405D0 (RtlInsertHeadCircularList.c)
+ *     KeInitializeEvent @ 0x140460680 (KeInitializeEvent.c)
+ *     VrpLockDiffHiveEntry @ 0x14093B8B8 (VrpLockDiffHiveEntry.c)
+ *     VrpUnlockDiffHiveEntry @ 0x14093BC84 (VrpUnlockDiffHiveEntry.c)
  */
 
 void __fastcall VrpWaitForDiffHiveEntryTransitionOwnerToLeave(__int64 a1)

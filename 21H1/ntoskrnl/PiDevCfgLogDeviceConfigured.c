@@ -126,7 +126,7 @@ void __fastcall PiDevCfgLogDeviceConfigured(__int64 a1, __int64 a2, __int64 a3, 
   size_t *pcchRemaininga; // [rsp+28h] [rbp-E8h]
   ULONG dwFlags[2]; // [rsp+30h] [rbp-E0h]
   BOOL v107; // [rsp+90h] [rbp-80h]
-  TIME_FIELDS TimeFields; // [rsp+A0h] [rbp-70h] BYREF
+  _TIME_FIELDS TimeFields; // [rsp+A0h] [rbp-70h] BYREF
   int v109; // [rsp+B0h] [rbp-60h]
   UNICODE_STRING UnicodeString; // [rsp+B8h] [rbp-58h] BYREF
   UNICODE_STRING v111; // [rsp+D0h] [rbp-40h] BYREF
@@ -137,7 +137,7 @@ void __fastcall PiDevCfgLogDeviceConfigured(__int64 a1, __int64 a2, __int64 a3, 
   int v116; // [rsp+118h] [rbp+8h]
   int v117; // [rsp+11Ch] [rbp+Ch]
   __int64 v118; // [rsp+120h] [rbp+10h]
-  UNICODE_STRING v119; // [rsp+128h] [rbp+18h] BYREF
+  UNICODE_STRING GuidString; // [rsp+128h] [rbp+18h] BYREF
   UNICODE_STRING v120; // [rsp+138h] [rbp+28h] BYREF
   wchar_t *v121; // [rsp+148h] [rbp+38h] BYREF
   size_t v122; // [rsp+150h] [rbp+40h] BYREF
@@ -147,7 +147,7 @@ void __fastcall PiDevCfgLogDeviceConfigured(__int64 a1, __int64 a2, __int64 a3, 
   __int64 v126; // [rsp+170h] [rbp+60h]
   UNICODE_STRING v127; // [rsp+178h] [rbp+68h] BYREF
   UNICODE_STRING v128; // [rsp+188h] [rbp+78h] BYREF
-  unsigned int v129[6]; // [rsp+198h] [rbp+88h] BYREF
+  GUID Guid; // [rsp+198h] [rbp+88h] BYREF
   _QWORD v130[20]; // [rsp+1B0h] [rbp+A0h] BYREF
   wchar_t pszDest[12]; // [rsp+250h] [rbp+140h] BYREF
   wchar_t v132[24]; // [rsp+268h] [rbp+158h] BYREF
@@ -170,14 +170,14 @@ void __fastcall PiDevCfgLogDeviceConfigured(__int64 a1, __int64 a2, __int64 a3, 
   v125 = 0LL;
   *(_QWORD *)&v113.Length = 0LL;
   v113.Buffer = 0LL;
-  *(_QWORD *)&v119.Length = 0LL;
-  v119.Buffer = 0LL;
+  *(_QWORD *)&GuidString.Length = 0LL;
+  GuidString.Buffer = 0LL;
   v117 = 0;
   *(_QWORD *)&v111.Length = 0LL;
   v111.Buffer = 0LL;
   TimeFields = 0LL;
   v127 = 0LL;
-  *(_OWORD *)v129 = 0LL;
+  Guid = 0LL;
   v112 = 0LL;
   v128 = 0LL;
   if ( (byte_140C1307A & 0x18) != 0x18 )
@@ -293,7 +293,7 @@ void __fastcall PiDevCfgLogDeviceConfigured(__int64 a1, __int64 a2, __int64 a3, 
       v41 = v113;
       *StringRoutine = 0;
       v42 = *v14;
-      TimeFields = (TIME_FIELDS)v41;
+      TimeFields = (_TIME_FIELDS)v41;
       if ( v42 != (__int64 *)v14 )
       {
         do
@@ -571,7 +571,7 @@ LABEL_30:
       memset(v89, 0, v88);
       v111.MaximumLength = v88 - 2;
       v90 = *v28;
-      TimeFields = (TIME_FIELDS)v111;
+      TimeFields = (_TIME_FIELDS)v111;
       if ( v90 != (__int64 *)v28 )
       {
         v91 = v109 & 1;
@@ -587,7 +587,7 @@ LABEL_30:
           LODWORD(v130[1]) = 18;
           v130[2] = &v127;
           v130[5] = DEVPKEY_DriverPackage_ExtensionId;
-          v130[7] = v129;
+          v130[7] = &Guid;
           LODWORD(v130[16]) = 18;
           v130[10] = DEVPKEY_DriverPackage_DriverFlightIds;
           HIDWORD(v130[3]) = 6;
@@ -604,8 +604,8 @@ LABEL_30:
           {
             if ( SLODWORD(v130[4]) < 0 && !RtlCreateUnicodeString(&v127, (PCWSTR)v90[6]) )
               RtlInitUnicodeString(&v127, 0LL);
-            if ( SLODWORD(v130[9]) < 0 || (int)RtlStringFromGUIDEx(v129, (__int64)&v119, 1) < 0 )
-              RtlInitUnicodeString(&v119, 0LL);
+            if ( SLODWORD(v130[9]) < 0 || RtlStringFromGUIDEx(&Guid, &GuidString, 1u) < 0 )
+              RtlInitUnicodeString(&GuidString, 0LL);
             if ( SLODWORD(v130[14]) < 0 )
               RtlInitUnicodeString(&v112, 0LL);
             if ( v112.Buffer && (v95 = v112.Length, v112.Length > 4u) )
@@ -651,10 +651,10 @@ LABEL_30:
                      L"%ws%wZ:%wZ:%wZ:%wZ",
                      v100,
                      &v127,
-                     &v119,
+                     &GuidString,
                      v99,
                      v98);
-            RtlFreeAnsiString(&v119);
+            RtlFreeAnsiString(&GuidString);
             RtlFreeAnsiString(&v112);
             RtlFreeAnsiString(&v127);
             RtlFreeAnsiString(&v128);

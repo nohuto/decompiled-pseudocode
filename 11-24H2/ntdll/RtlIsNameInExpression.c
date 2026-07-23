@@ -1,32 +1,38 @@
 /*
- * XREFs of RtlIsNameInExpression @ 0x1800AEF60
+ * XREFs of RtlIsNameInExpression @ 0x18007B800
  * Callers:
  *     <none>
  * Callees:
- *     RtlpSysVolFree @ 0x180001470 (RtlpSysVolFree.c)
- *     RtlRaiseStatus @ 0x180014DE0 (RtlRaiseStatus.c)
- *     RtlpIsNameInExpressionPrivate @ 0x1800AEFD8 (RtlpIsNameInExpressionPrivate.c)
- *     RtlpUpcaseUnicodeStringPrivate @ 0x1800AF614 (RtlpUpcaseUnicodeStringPrivate.c)
- *     RtlFreeAnsiString @ 0x1800B4B90 (RtlFreeAnsiString.c)
+ *     RtlpSysVolFree @ 0x180005870 (RtlpSysVolFree.c)
+ *     RtlRaiseStatus @ 0x1800417E0 (RtlRaiseStatus.c)
+ *     RtlpIsNameInExpressionPrivate @ 0x18007B878 (RtlpIsNameInExpressionPrivate.c)
+ *     RtlpUpcaseUnicodeStringPrivate @ 0x18007BEB4 (RtlpUpcaseUnicodeStringPrivate.c)
+ *     RtlFreeAnsiString @ 0x180081430 (RtlFreeAnsiString.c)
  */
 
-char __fastcall RtlIsNameInExpression(int a1, __int128 *a2, char a3, __int64 a4)
+BOOLEAN __cdecl RtlIsNameInExpression(
+        PUNICODE_STRING Expression,
+        PUNICODE_STRING Name,
+        BOOLEAN IgnoreCase,
+        PWCH UpcaseTable)
 {
-  int v6; // eax
-  char IsNameInExpressionPrivate; // bl
+  int v5; // edi
+  NTSTATUS v6; // eax
+  BOOLEAN IsNameInExpressionPrivate; // bl
   __int128 v9; // [rsp+30h] [rbp-18h] BYREF
 
+  v5 = (int)Expression;
   v9 = 0LL;
-  if ( a3 && !a4 )
+  if ( IgnoreCase && !UpcaseTable )
   {
-    v6 = RtlpUpcaseUnicodeStringPrivate(&v9);
+    v6 = RtlpUpcaseUnicodeStringPrivate(&v9, Name);
     if ( v6 < 0 )
       RtlRaiseStatus(v6);
-    a2 = &v9;
-    a3 = 0;
+    Name = (PUNICODE_STRING)&v9;
+    IgnoreCase = 0;
   }
-  IsNameInExpressionPrivate = RtlpIsNameInExpressionPrivate(a1, (_DWORD)a2, a3, 0, a4);
+  IsNameInExpressionPrivate = RtlpIsNameInExpressionPrivate(v5, (_DWORD)Name, IgnoreCase, 0, (__int64)UpcaseTable);
   if ( *((_QWORD *)&v9 + 1) )
-    RtlpSysVolFree(*((__int64 *)&v9 + 1));
+    RtlpSysVolFree(*((void **)&v9 + 1));
   return IsNameInExpressionPrivate;
 }

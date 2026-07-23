@@ -1,11 +1,11 @@
 /*
- * XREFs of MiRelinkTransitionSlabPages @ 0x14044334C
+ * XREFs of MiRelinkTransitionSlabPages @ 0x14043C4D4
  * Callers:
- *     MiDemoteSlabEntry @ 0x140442F50 (MiDemoteSlabEntry.c)
- *     MiDeleteSlabEntriesForIdentity @ 0x140687540 (MiDeleteSlabEntriesForIdentity.c)
+ *     MiDemoteSlabEntry @ 0x14043BE9C (MiDemoteSlabEntry.c)
+ *     MiDeleteSlabEntriesForIdentity @ 0x140688670 (MiDeleteSlabEntriesForIdentity.c)
  * Callees:
- *     MiInsertPageInList @ 0x14022CB10 (MiInsertPageInList.c)
- *     MiDiscardTransitionPteEx @ 0x1403A1C98 (MiDiscardTransitionPteEx.c)
+ *     MiDiscardTransitionPteEx @ 0x1402188CC (MiDiscardTransitionPteEx.c)
+ *     MiInsertPageInList @ 0x140300420 (MiInsertPageInList.c)
  */
 
 __int64 __fastcall MiRelinkTransitionSlabPages(__int64 a1)
@@ -25,7 +25,7 @@ __int64 __fastcall MiRelinkTransitionSlabPages(__int64 a1)
     if ( (*(_QWORD *)(v3 + 24) & 0x4000000000000000LL) != 0 )
     {
       *(_QWORD *)(v3 + 24) &= ~0x4000000000000000uLL;
-      MiDiscardTransitionPteEx(v3, 0);
+      MiDiscardTransitionPteEx(v3);
       ++v1;
     }
     else

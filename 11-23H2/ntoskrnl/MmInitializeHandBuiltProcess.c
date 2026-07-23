@@ -1,14 +1,14 @@
 /*
- * XREFs of MmInitializeHandBuiltProcess @ 0x14085D118
+ * XREFs of MmInitializeHandBuiltProcess @ 0x14085D358
  * Callers:
- *     PspAllocateProcess @ 0x1406B442C (PspAllocateProcess.c)
+ *     PspAllocateProcess @ 0x1406B45D8 (PspAllocateProcess.c)
  * Callees:
  *     MiAllowWorkingSetExpansion @ 0x1402232B8 (MiAllowWorkingSetExpansion.c)
- *     MiInsertNewProcess @ 0x14029278C (MiInsertNewProcess.c)
- *     MiAllocatePool @ 0x1402DF1A0 (MiAllocatePool.c)
- *     ExInitializeAutoExpandPushLock @ 0x140338350 (ExInitializeAutoExpandPushLock.c)
- *     MiCopyWorkingSetFields @ 0x1403AE7C4 (MiCopyWorkingSetFields.c)
- *     MiAllocateProcessShadow @ 0x1407060AC (MiAllocateProcessShadow.c)
+ *     MiInsertNewProcess @ 0x140292A1C (MiInsertNewProcess.c)
+ *     MiAllocatePool @ 0x1402DF430 (MiAllocatePool.c)
+ *     ExInitializeAutoExpandPushLock @ 0x1403385E0 (ExInitializeAutoExpandPushLock.c)
+ *     MiCopyWorkingSetFields @ 0x1403AE9A4 (MiCopyWorkingSetFields.c)
+ *     MiAllocateProcessShadow @ 0x1407062BC (MiAllocateProcessShadow.c)
  */
 
 __int64 __fastcall MmInitializeHandBuiltProcess(__int64 a1)

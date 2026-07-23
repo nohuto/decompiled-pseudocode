@@ -10,55 +10,53 @@
  *     __security_check_cookie @ 0x180166F50 (__security_check_cookie.c)
  */
 
-__int64 __fastcall RtlpFcNotifyFeatureUsageTarget(__int64 a1, _DWORD *a2)
+__int64 __fastcall RtlpFcNotifyFeatureUsageTarget(__int64 a1, WNF_STATE_NAME *a2)
 {
-  __int64 Heap; // rdi
-  int updated; // ebx
-  __int64 v5; // r9
-  __int64 v6; // r8
-  __int64 v7; // rdx
+  PVOID Buffer; // rdi
+  NTSTATUS updated; // ebx
+  ULONG v5; // r8d
+  __int64 v6; // rdx
   __int64 i; // rcx
-  unsigned int v10; // [rsp+40h] [rbp-20h] BYREF
-  int v11; // [rsp+44h] [rbp-1Ch] BYREF
-  _DWORD v12[2]; // [rsp+48h] [rbp-18h] BYREF
+  ULONG BufferSize; // [rsp+40h] [rbp-20h] BYREF
+  ULONG ChangeStamp; // [rsp+44h] [rbp-1Ch] BYREF
+  WNF_STATE_NAME StateName; // [rsp+48h] [rbp-18h] BYREF
 
-  v12[0] = *a2;
-  v12[1] = a2[1];
-  Heap = RtlAllocateHeap((char *)NtCurrentPeb()->ProcessHeap, 0, 0x1000uLL);
-  if ( Heap )
+  StateName = *a2;
+  Buffer = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, 0x1000uLL);
+  if ( Buffer )
   {
     do
     {
-      v11 = 0;
-      v10 = 4096;
-      updated = ZwQueryWnfStateData(v12, 0LL, 0LL, &v11, Heap, &v10);
+      ChangeStamp = 0;
+      BufferSize = 4096;
+      updated = ZwQueryWnfStateData(&StateName, 0LL, 0LL, &ChangeStamp, Buffer, &BufferSize);
       if ( updated >= 0 )
       {
-        v6 = v10;
-        if ( (v10 & 7) != 0 )
+        v5 = BufferSize;
+        if ( (BufferSize & 7) != 0 )
         {
-          v6 = 0LL;
-          v10 = 0;
+          v5 = 0;
+          BufferSize = 0;
         }
-        v7 = (unsigned int)v6 >> 3;
-        for ( i = 0LL; (unsigned int)i < (unsigned int)v7; i = (unsigned int)(i + 1) )
+        v6 = v5 >> 3;
+        for ( i = 0LL; (unsigned int)i < (unsigned int)v6; i = (unsigned int)(i + 1) )
         {
-          if ( *(_DWORD *)(Heap + 8 * i) == *(_DWORD *)a1 && *(_WORD *)(Heap + 8 * i + 4) == *(_WORD *)(a1 + 4) )
+          if ( *((_DWORD *)Buffer + 2 * i) == *(_DWORD *)a1 && *((_WORD *)Buffer + 4 * i + 2) == *(_WORD *)(a1 + 4) )
             goto LABEL_10;
         }
-        if ( (unsigned __int64)(unsigned int)v6 + 8 <= 0x1000 )
+        if ( (unsigned __int64)v5 + 8 <= 0x1000 )
         {
-          v6 = (unsigned int)(v6 + 8);
-          *(_DWORD *)(Heap + 8 * v7) = *(_DWORD *)a1;
-          *(_WORD *)(Heap + 8 * v7 + 4) = *(_WORD *)(a1 + 4);
-          v10 = v6;
+          v5 += 8;
+          *((_DWORD *)Buffer + 2 * v6) = *(_DWORD *)a1;
+          *((_WORD *)Buffer + 4 * v6 + 2) = *(_WORD *)(a1 + 4);
+          BufferSize = v5;
         }
 LABEL_10:
-        updated = ZwUpdateWnfStateData(v12, Heap, v6, 0LL, 0LL, v11, 1);
+        updated = ZwUpdateWnfStateData(&StateName, Buffer, v5, 0LL, 0LL, ChangeStamp, 1u);
       }
     }
     while ( updated == -1073741823 );
-    RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, Heap, v5);
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, Buffer);
   }
   else
   {

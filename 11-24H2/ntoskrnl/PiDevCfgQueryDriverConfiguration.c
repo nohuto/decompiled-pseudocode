@@ -1,24 +1,24 @@
 /*
- * XREFs of PiDevCfgQueryDriverConfiguration @ 0x140A7DF0C
+ * XREFs of PiDevCfgQueryDriverConfiguration @ 0x1409C7EF4
  * Callers:
- *     PiDevCfgCheckDeviceNeedsUpdate @ 0x14072897C (PiDevCfgCheckDeviceNeedsUpdate.c)
- *     PiDevCfgRequestDriverConfigurations @ 0x14072B438 (PiDevCfgRequestDriverConfigurations.c)
- *     PpDevCfgProcessDeviceExtensions @ 0x14072C8FC (PpDevCfgProcessDeviceExtensions.c)
- *     PiDevCfgConfigureDevice @ 0x140997CFC (PiDevCfgConfigureDevice.c)
- *     PiDevCfgQueryIncludedDriverConfigurations @ 0x140A7E6CC (PiDevCfgQueryIncludedDriverConfigurations.c)
+ *     PiDevCfgCheckDeviceNeedsUpdate @ 0x14072650C (PiDevCfgCheckDeviceNeedsUpdate.c)
+ *     PiDevCfgRequestDriverConfigurations @ 0x140729428 (PiDevCfgRequestDriverConfigurations.c)
+ *     PpDevCfgProcessDeviceExtensions @ 0x14072A910 (PpDevCfgProcessDeviceExtensions.c)
+ *     PiDevCfgQueryIncludedDriverConfigurations @ 0x1409C7B64 (PiDevCfgQueryIncludedDriverConfigurations.c)
+ *     PiDevCfgConfigureDevice @ 0x1409CA478 (PiDevCfgConfigureDevice.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     RtlFreeAnsiString @ 0x1408A4990 (RtlFreeAnsiString.c)
- *     _PnpGetObjectProperty @ 0x1408CDFD0 (_PnpGetObjectProperty.c)
- *     PiDevCfgQueryObjectProperties @ 0x1409978B4 (PiDevCfgQueryObjectProperties.c)
- *     RtlStringFromGUIDEx @ 0x1409BCE20 (RtlStringFromGUIDEx.c)
- *     RtlpQueryRegistryValues @ 0x1409CC350 (RtlpQueryRegistryValues.c)
- *     PiDevCfgVerifyService @ 0x140A7E540 (PiDevCfgVerifyService.c)
- *     PiDevCfgQueryIncludedDriverConfigurations @ 0x140A7E6CC (PiDevCfgQueryIncludedDriverConfigurations.c)
- *     PiDevCfgBuildDriverConfigurationId @ 0x140AA3FD0 (PiDevCfgBuildDriverConfigurationId.c)
- *     ExFreePool @ 0x140B72CB0 (ExFreePool.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     RtlFreeAnsiString @ 0x1408B69C0 (RtlFreeAnsiString.c)
+ *     _PnpGetObjectProperty @ 0x1408CB9C0 (_PnpGetObjectProperty.c)
+ *     RtlStringFromGUIDEx @ 0x1409A3470 (RtlStringFromGUIDEx.c)
+ *     RtlpQueryRegistryValues @ 0x1409B4DD0 (RtlpQueryRegistryValues.c)
+ *     PiDevCfgQueryIncludedDriverConfigurations @ 0x1409C7B64 (PiDevCfgQueryIncludedDriverConfigurations.c)
+ *     PiDevCfgVerifyService @ 0x1409C8528 (PiDevCfgVerifyService.c)
+ *     PiDevCfgQueryObjectProperties @ 0x1409CA030 (PiDevCfgQueryObjectProperties.c)
+ *     PiDevCfgBuildDriverConfigurationId @ 0x140A9F360 (PiDevCfgBuildDriverConfigurationId.c)
+ *     ExFreePool @ 0x140B74850 (ExFreePool.c)
  */
 
 __int64 __fastcall PiDevCfgQueryDriverConfiguration(__int64 a1)
@@ -30,8 +30,8 @@ __int64 __fastcall PiDevCfgQueryDriverConfiguration(__int64 a1)
   const WCHAR *v6; // rcx
   const WCHAR *v8; // rsi
   const WCHAR *v9; // rsi
-  void *v10; // r9
-  WCHAR *v11; // rdx
+  __int64 v10; // r9
+  __int64 v11; // rdx
   char v12; // al
   __int64 v13; // rax
   __int64 v14; // rax
@@ -237,8 +237,8 @@ LABEL_15:
   if ( (*(_DWORD *)(a1 + 184) & 0x20) != 0 )
     goto LABEL_35;
   memset_0(&v21, 0, 0xA0uLL);
-  v10 = *(void **)(a1 + 16);
-  v11 = *(WCHAR **)(a1 + 64);
+  v10 = *(_QWORD *)(a1 + 16);
+  v11 = *(_QWORD *)(a1 + 64);
   v21 = DEVPKEY_DriverPackage_ClassGuid;
   v22 = 13;
   v26 = &DEVPKEY_DriverPackage_ProviderName;
@@ -255,7 +255,7 @@ LABEL_15:
   v34 = 1;
   v37 = 8210;
   v39 = 6;
-  ObjectProperties = PiDevCfgQueryObjectProperties(6LL, v11, 8u, v10, (__int64)&v21, 4u);
+  ObjectProperties = PiDevCfgQueryObjectProperties(6, v11, 8, v10, (__int64)&v21, 4);
   if ( ObjectProperties < 0 )
     goto LABEL_16;
   if ( v25 < 0 )
@@ -263,7 +263,7 @@ LABEL_15:
     *(_OWORD *)(a1 + 240) = 0LL;
     goto LABEL_25;
   }
-  ObjectProperties = RtlStringFromGUIDEx((unsigned int *)(a1 + 240), a1 + 256, 1);
+  ObjectProperties = RtlStringFromGUIDEx((PGUID)(a1 + 240), (PUNICODE_STRING)(a1 + 256), 1u);
   if ( ObjectProperties >= 0 )
   {
 LABEL_25:

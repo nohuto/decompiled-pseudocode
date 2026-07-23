@@ -1,10 +1,10 @@
 /*
- * XREFs of MiDeleteSubsection @ 0x14036F8BC
+ * XREFs of MiDeleteSubsection @ 0x14043F528
  * Callers:
- *     MiDeleteControlArea @ 0x14036F6E8 (MiDeleteControlArea.c)
- *     MiExtendSection @ 0x1409463BC (MiExtendSection.c)
+ *     MiDeleteControlArea @ 0x14043F354 (MiDeleteControlArea.c)
+ *     MiExtendSection @ 0x14098A4D8 (MiExtendSection.c)
  * Callees:
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __fastcall MiDeleteSubsection(void *a1)

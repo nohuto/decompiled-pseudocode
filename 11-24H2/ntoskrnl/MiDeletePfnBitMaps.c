@@ -1,10 +1,10 @@
 /*
- * XREFs of MiDeletePfnBitMaps @ 0x1407FAC0C
+ * XREFs of MiDeletePfnBitMaps @ 0x1407FB37C
  * Callers:
- *     MiCreatePfnBitMaps @ 0x1407FA7CC (MiCreatePfnBitMaps.c)
- *     MiDeletePartitionResources @ 0x1407FBD44 (MiDeletePartitionResources.c)
+ *     MiCreatePfnBitMaps @ 0x1407FAF3C (MiCreatePfnBitMaps.c)
+ *     MiDeletePartitionResources @ 0x1407FC4B4 (MiDeletePartitionResources.c)
  * Callees:
- *     MiDeleteSparseRange @ 0x1407FADD4 (MiDeleteSparseRange.c)
+ *     MiDeleteSparseRange @ 0x1407FB544 (MiDeleteSparseRange.c)
  */
 
 ULONG *__fastcall MiDeletePfnBitMaps(__int64 a1)
@@ -21,7 +21,7 @@ ULONG *__fastcall MiDeletePfnBitMaps(__int64 a1)
   __int64 v11; // rcx
 
   v1 = MiPageSizes;
-  v2 = qword_140E2DBE0 + 1;
+  v2 = qword_140E2DD20 + 1;
   v3 = (_QWORD *)(a1 + 16336);
   v5 = 2LL;
   do

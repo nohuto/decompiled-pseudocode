@@ -1,26 +1,24 @@
 /*
- * XREFs of HalFreeHardwareCounters @ 0x1406FD800
+ * XREFs of HalFreeHardwareCounters @ 0x1406FB440
  * Callers:
  *     <none>
  * Callees:
- *     KeQueryActiveProcessorCountEx @ 0x1402105E0 (KeQueryActiveProcessorCountEx.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     HalpNotifyActorIfPmuAvailable @ 0x1406FDEA0 (HalpNotifyActorIfPmuAvailable.c)
+ *     KeQueryActiveProcessorCountEx @ 0x140339940 (KeQueryActiveProcessorCountEx.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     HalpNotifyActorIfPmuAvailable @ 0x1406FBAE0 (HalpNotifyActorIfPmuAvailable.c)
  */
 
 NTSTATUS __stdcall HalFreeHardwareCounters(HANDLE CounterSetHandle)
 {
-  __int64 v1; // r8
-  __int64 v2; // r9
   ULONG ActiveProcessorCount; // eax
-  __int64 v4; // rdx
-  __int64 *v5; // rcx
-  __int64 v6; // r8
-  __int64 v7; // rax
-  NTSTATUS v9; // ebx
-  unsigned int v10; // [rsp+30h] [rbp+8h] BYREF
+  __int64 v2; // rdx
+  __int64 *v3; // rcx
+  __int64 v4; // r8
+  __int64 v5; // rax
+  NTSTATUS v7; // ebx
+  unsigned int v8; // [rsp+30h] [rbp+8h] BYREF
 
-  v10 = 0;
+  v8 = 0;
   if ( CounterSetHandle == (HANDLE)HalpFullPmuHandle )
   {
     if ( (KeGetCurrentPrcb()->HalReserved[3] & 1) != 0 )
@@ -28,31 +26,31 @@ NTSTATUS __stdcall HalFreeHardwareCounters(HANDLE CounterSetHandle)
       ActiveProcessorCount = KeQueryActiveProcessorCountEx(0xFFFFu);
       if ( ActiveProcessorCount )
       {
-        v5 = KiProcessorBlock;
-        v6 = ActiveProcessorCount;
+        v3 = KiProcessorBlock;
+        v4 = ActiveProcessorCount;
         do
         {
-          v7 = *v5++;
-          _InterlockedDecrement((volatile signed __int32 *)(v7 + 96));
-          --v6;
+          v5 = *v3++;
+          _InterlockedDecrement((volatile signed __int32 *)(v5 + 96));
+          --v4;
         }
-        while ( v6 );
+        while ( v4 );
       }
-      v10 = 0x80000000;
-      _InterlockedAdd(&dword_140FC1D8C, 0x80000000);
-      LOBYTE(v4) = 1;
-      HalpNotifyActorIfPmuAvailable(0LL, v4);
+      v8 = 0x80000000;
+      _InterlockedAdd(&dword_140FC1FEC, 0x80000000);
+      LOBYTE(v2) = 1;
+      HalpNotifyActorIfPmuAvailable(0LL, v2);
       return 0;
     }
     return -1073741811;
   }
   if ( (char *)CounterSetHandle - 1 > (char *)0xFFFFFFFFFFFFFFFDLL || !HalpProfileInterface[15] )
     return -1073741811;
-  v9 = guard_dispatch_icall_no_overrides(CounterSetHandle, &v10, v1, v2);
-  if ( v9 >= 0 )
+  v7 = guard_dispatch_icall_no_overrides(CounterSetHandle, &v8);
+  if ( v7 >= 0 )
   {
-    _InterlockedAdd(&dword_140FC1D8C, -v10);
+    _InterlockedAdd(&dword_140FC1FEC, -v8);
     HalpNotifyActorIfPmuAvailable(0LL, 0LL);
   }
-  return v9;
+  return v7;
 }

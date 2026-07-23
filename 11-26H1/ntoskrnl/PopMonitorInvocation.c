@@ -1,15 +1,15 @@
 /*
- * XREFs of PopMonitorInvocation @ 0x14077C050
+ * XREFs of PopMonitorInvocation @ 0x14077EBD0
  * Callers:
- *     NtPowerInformation @ 0x1409DE3E0 (NtPowerInformation.c)
+ *     NtPowerInformation @ 0x140A1B510 (NtPowerInformation.c)
  * Callees:
- *     wil_details_FeatureReporting_ReportUsageToService @ 0x14052D25C (wil_details_FeatureReporting_ReportUsageToService.c)
- *     wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath @ 0x140532A10 (wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath.c)
- *     PopTraceMonitorOnRequestUserInput @ 0x1407D5C4C (PopTraceMonitorOnRequestUserInput.c)
- *     PopProcessSessionDisplayStateChange @ 0x140A3EE2C (PopProcessSessionDisplayStateChange.c)
- *     PopIsInputSuppressionEngaged @ 0x140AC3148 (PopIsInputSuppressionEngaged.c)
- *     PopAcquirePolicyLock @ 0x140C04BF0 (PopAcquirePolicyLock.c)
- *     PopReleasePolicyLock @ 0x140C04C40 (PopReleasePolicyLock.c)
+ *     wil_details_FeatureReporting_ReportUsageToService @ 0x14052F77C (wil_details_FeatureReporting_ReportUsageToService.c)
+ *     wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath @ 0x140534EB0 (wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath.c)
+ *     PopTraceMonitorOnRequestUserInput @ 0x1407D8DFC (PopTraceMonitorOnRequestUserInput.c)
+ *     PopProcessSessionDisplayStateChange @ 0x1409FA84C (PopProcessSessionDisplayStateChange.c)
+ *     PopIsInputSuppressionEngaged @ 0x140ADB528 (PopIsInputSuppressionEngaged.c)
+ *     PopAcquirePolicyLock @ 0x140C0AE00 (PopAcquirePolicyLock.c)
+ *     PopReleasePolicyLock @ 0x140C0AE50 (PopReleasePolicyLock.c)
  */
 
 __int64 __fastcall PopMonitorInvocation(__int64 a1, __int64 a2)

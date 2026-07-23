@@ -6,11 +6,16 @@
  *     <none>
  */
 
-__int64 NtQueueApcThread()
+NTSTATUS __cdecl NtQueueApcThread(
+        HANDLE ThreadHandle,
+        PPS_APC_ROUTINE ApcRoutine,
+        PVOID ApcArgument1,
+        PVOID ApcArgument2,
+        PVOID ApcArgument3)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 69LL;
+  result = 69;
   __asm { syscall; Low latency system call }
   return result;
 }

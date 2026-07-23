@@ -13,19 +13,19 @@
  *     BiIsLinkedToFirmwareVariable @ 0x1407848A8 (BiIsLinkedToFirmwareVariable.c)
  */
 
-int __fastcall BcdDeleteObject(void *a1)
+NTSTATUS __cdecl BcdDeleteObject(HANDLE BcdObjectHandle)
 {
   char IsOfflineHandle; // di
-  int result; // eax
-  int v4; // ebx
+  NTSTATUS result; // eax
+  NTSTATUS v4; // ebx
 
-  IsOfflineHandle = BiIsOfflineHandle((char)a1);
+  IsOfflineHandle = BiIsOfflineHandle((char)BcdObjectHandle);
   result = BiAcquireBcdSyncMutant(IsOfflineHandle);
   if ( result >= 0 )
   {
-    if ( BiIsLinkedToFirmwareVariable((__int64)a1, 0LL) )
-      BiSetFirmwareModifiedFromObject(a1);
-    v4 = BiDeleteKey((__int64)a1);
+    if ( BiIsLinkedToFirmwareVariable((__int64)BcdObjectHandle, 0LL) )
+      BiSetFirmwareModifiedFromObject(BcdObjectHandle);
+    v4 = BiDeleteKey((__int64)BcdObjectHandle);
     BiReleaseBcdSyncMutant(IsOfflineHandle);
     return v4;
   }

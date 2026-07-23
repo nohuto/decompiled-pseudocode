@@ -19,8 +19,8 @@ __int64 __fastcall SepBuildCapPolicyTable(__int64 a1, PRTL_DYNAMIC_HASH_TABLE *a
   int inserted; // ebx
   unsigned int v4; // edi
   PVOID v6; // rdi
-  struct _RTL_DYNAMIC_HASH_TABLE *PoolWithTag; // rax
-  struct _RTL_DYNAMIC_HASH_TABLE *v8; // rbx
+  _RTL_DYNAMIC_HASH_TABLE *PoolWithTag; // rax
+  _RTL_DYNAMIC_HASH_TABLE *v8; // rbx
   PVOID v9; // rax
   BOOLEAN v10; // al
   PRTL_DYNAMIC_HASH_TABLE v11; // rsi
@@ -58,7 +58,7 @@ __int64 __fastcall SepBuildCapPolicyTable(__int64 a1, PRTL_DYNAMIC_HASH_TABLE *a
   v4 = (unsigned int)HashTable;
   if ( !(_DWORD)HashTable )
     goto LABEL_6;
-  PoolWithTag = (struct _RTL_DYNAMIC_HASH_TABLE *)ExAllocatePoolWithTag(PagedPool, 0x40uLL, 0x70536553u);
+  PoolWithTag = (_RTL_DYNAMIC_HASH_TABLE *)ExAllocatePoolWithTag(PagedPool, 0x40uLL, 0x70536553u);
   HashTable = PoolWithTag;
   v8 = PoolWithTag;
   if ( !PoolWithTag )

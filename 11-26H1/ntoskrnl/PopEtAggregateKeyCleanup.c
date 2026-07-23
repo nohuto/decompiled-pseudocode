@@ -1,14 +1,14 @@
 /*
- * XREFs of PopEtAggregateKeyCleanup @ 0x140950F58
+ * XREFs of PopEtAggregateKeyCleanup @ 0x1409CC898
  * Callers:
- *     PopEtEnergyTrackerCleanup @ 0x1407DBD60 (PopEtEnergyTrackerCleanup.c)
- *     PopEtEnergyTrackerCleanupAggregates @ 0x140950E24 (PopEtEnergyTrackerCleanupAggregates.c)
- *     PopEtProcessSnapshotUpdate @ 0x140951054 (PopEtProcessSnapshotUpdate.c)
- *     PopEtAggregateGet @ 0x140951A38 (PopEtAggregateGet.c)
- *     PopEtProcessSnapshotCreate @ 0x140951EC8 (PopEtProcessSnapshotCreate.c)
+ *     PopEtEnergyTrackerCleanup @ 0x1407DFF80 (PopEtEnergyTrackerCleanup.c)
+ *     PopEtEnergyTrackerCleanupAggregates @ 0x1409CC764 (PopEtEnergyTrackerCleanupAggregates.c)
+ *     PopEtProcessSnapshotUpdate @ 0x1409CC994 (PopEtProcessSnapshotUpdate.c)
+ *     PopEtAggregateGet @ 0x1409CD378 (PopEtAggregateGet.c)
+ *     PopEtProcessSnapshotCreate @ 0x1409CD808 (PopEtProcessSnapshotCreate.c)
  * Callees:
- *     RtlInternEntryDereference @ 0x1409518B8 (RtlInternEntryDereference.c)
- *     PopEtAppIdDereference @ 0x140951E98 (PopEtAppIdDereference.c)
+ *     RtlInternEntryDereference @ 0x1409CD1F8 (RtlInternEntryDereference.c)
+ *     PopEtAppIdDereference @ 0x1409CD7D8 (PopEtAppIdDereference.c)
  */
 
 __int64 __fastcall PopEtAggregateKeyCleanup(__int64 *a1)

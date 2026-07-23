@@ -1,14 +1,14 @@
 /*
- * XREFs of _RtlpMuiRegAddBaseLanguage @ 0x180114AB4
+ * XREFs of _RtlpMuiRegAddBaseLanguage @ 0x180114A84
  * Callers:
- *     _RtlpMuiRegPopulateBaseLanguages @ 0x1801154B0 (_RtlpMuiRegPopulateBaseLanguages.c)
+ *     _RtlpMuiRegPopulateBaseLanguages @ 0x180115480 (_RtlpMuiRegPopulateBaseLanguages.c)
  * Callees:
  *     RtlpMuiRegGetLanguageSpec @ 0x18000A0A0 (RtlpMuiRegGetLanguageSpec.c)
  *     RtlpLangNameInMultiSzString @ 0x1800102C0 (RtlpLangNameInMultiSzString.c)
  *     RtlInitUnicodeString @ 0x1800187C0 (RtlInitUnicodeString.c)
  *     __security_check_cookie @ 0x18008EF90 (__security_check_cookie.c)
- *     RtlpMuiRegGetOrAddLangInfo @ 0x180113470 (RtlpMuiRegGetOrAddLangInfo.c)
- *     _RtlpMuiRegInitAnyLanguage @ 0x180114DE4 (_RtlpMuiRegInitAnyLanguage.c)
+ *     RtlpMuiRegGetOrAddLangInfo @ 0x180113440 (RtlpMuiRegGetOrAddLangInfo.c)
+ *     _RtlpMuiRegInitAnyLanguage @ 0x180114DB4 (_RtlpMuiRegInitAnyLanguage.c)
  */
 
 __int64 __fastcall RtlpMuiRegAddBaseLanguage(__int64 a1, _WORD *a2, unsigned int a3, __int64 a4, wchar_t *String2)
@@ -40,7 +40,7 @@ __int64 __fastcall RtlpMuiRegAddBaseLanguage(__int64 a1, _WORD *a2, unsigned int
   __int64 v31; // [rsp+40h] [rbp-41h]
   int inited; // [rsp+48h] [rbp-39h]
   signed int v33; // [rsp+4Ch] [rbp-35h]
-  UNICODE_STRING DestinationString; // [rsp+50h] [rbp-31h] BYREF
+  _UNICODE_STRING DestinationString; // [rsp+50h] [rbp-31h] BYREF
   _WORD *v35; // [rsp+60h] [rbp-21h]
   _WORD v36[2]; // [rsp+68h] [rbp-19h] BYREF
   __int16 v37; // [rsp+6Ch] [rbp-15h]

@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlInitString @ 0x1400A9798
+ * XREFs of RtlInitString @ 0x1400A7D18
  * Callers:
- *     PopEmModuleAddressMatchCallback @ 0x14020D360 (PopEmModuleAddressMatchCallback.c)
- *     SepInitializationPhase1 @ 0x140552FE0 (SepInitializationPhase1.c)
- *     NtQuerySystemEnvironmentValue @ 0x1406B4D28 (NtQuerySystemEnvironmentValue.c)
- *     AslStringAnsiToUnicode @ 0x1406C523C (AslStringAnsiToUnicode.c)
+ *     PopEmModuleAddressMatchCallback @ 0x14020D18C (PopEmModuleAddressMatchCallback.c)
+ *     SepInitializationPhase1 @ 0x140553520 (SepInitializationPhase1.c)
+ *     NtQuerySystemEnvironmentValue @ 0x1406B4E60 (NtQuerySystemEnvironmentValue.c)
+ *     AslStringAnsiToUnicode @ 0x1406C5374 (AslStringAnsiToUnicode.c)
  *     KdInitSystem @ 0x1406F3740 (KdInitSystem.c)
  *     InitBootProcessor @ 0x1407937C4 (InitBootProcessor.c)
  * Callees:

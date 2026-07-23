@@ -15,12 +15,12 @@ __int64 __fastcall LdrpMapDllFullPath(__int64 a1)
 {
   __int64 v1; // rax
   __int64 v3; // rsi
-  int v4; // r14d
+  __int64 v4; // r14
   int v5; // eax
   unsigned int v6; // ebx
   int v7; // eax
   _QWORD v9[2]; // [rsp+38h] [rbp-D0h] BYREF
-  UNICODE_STRING v10; // [rsp+48h] [rbp-C0h] BYREF
+  _UNICODE_STRING v10; // [rsp+48h] [rbp-C0h] BYREF
   _WORD v11[128]; // [rsp+58h] [rbp-B0h] BYREF
 
   *(_DWORD *)&v10.Length = 0x1000000;
@@ -30,7 +30,7 @@ __int64 __fastcall LdrpMapDllFullPath(__int64 a1)
   v11[0] = 0;
   v3 = v1 + 72;
   v4 = v1 + 88;
-  v5 = LdrpResolveDllName(a1, (unsigned int)&v10, (int)v1 + 88, (int)v1 + 72, (__int64)v9, *(_DWORD *)(a1 + 24));
+  v5 = LdrpResolveDllName(a1, &v10, v1 + 88, v1 + 72, v9, *(_DWORD *)(a1 + 24));
   v6 = v5;
   if ( v9[0] || (v7 = LdrpAppCompatRedirect(a1, v3, v4, (__int64)&v10, (__int64)v9, v5), v6 = v7, v9[0]) )
   {

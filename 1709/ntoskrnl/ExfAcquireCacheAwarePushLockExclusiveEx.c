@@ -7,10 +7,7 @@
  *     ExfAcquirePushLockExclusiveEx @ 0x14005D890 (ExfAcquirePushLockExclusiveEx.c)
  */
 
-unsigned __int64 *__fastcall ExfAcquireCacheAwarePushLockExclusiveEx(
-        unsigned __int64 **a1,
-        unsigned __int64 a2,
-        __int16 *a3)
+unsigned __int64 *__fastcall ExfAcquireCacheAwarePushLockExclusiveEx(unsigned __int64 **a1, __int64 a2, __int16 *a3)
 {
   unsigned __int64 *result; // rax
   volatile signed __int32 **v4; // rbx

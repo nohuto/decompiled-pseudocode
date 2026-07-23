@@ -1,9 +1,9 @@
 /*
- * XREFs of KiOnlyClockInterruptPending @ 0x1405EE630
+ * XREFs of KiOnlyClockInterruptPending @ 0x1405F0FA0
  * Callers:
- *     KeResumeClockTimerFromIdle @ 0x1405EDA84 (KeResumeClockTimerFromIdle.c)
+ *     KeResumeClockTimerFromIdle @ 0x1405F03F4 (KeResumeClockTimerFromIdle.c)
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 char __fastcall KiOnlyClockInterruptPending(__int64 a1, _BYTE *a2)

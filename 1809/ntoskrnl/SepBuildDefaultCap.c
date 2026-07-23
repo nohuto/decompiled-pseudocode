@@ -1,12 +1,12 @@
 /*
- * XREFs of SepBuildDefaultCap @ 0x14075C9AC
+ * XREFs of SepBuildDefaultCap @ 0x14075DB9C
  * Callers:
- *     SepRmDbInitialization @ 0x1409D8F90 (SepRmDbInitialization.c)
+ *     SepRmDbInitialization @ 0x1409D9F90 (SepRmDbInitialization.c)
  * Callees:
- *     SepBuildDefaultCape @ 0x14019086C (SepBuildDefaultCape.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
+ *     SepBuildDefaultCape @ 0x1401909AC (SepBuildDefaultCape.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
  */
 
 __int64 SepBuildDefaultCap()

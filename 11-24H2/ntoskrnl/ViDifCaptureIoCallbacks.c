@@ -1,9 +1,9 @@
 /*
- * XREFs of ViDifCaptureIoCallbacks @ 0x140B8A758
+ * XREFs of ViDifCaptureIoCallbacks @ 0x140B8C758
  * Callers:
- *     VfDifCaptureIoCallbacks @ 0x14049E358 (VfDifCaptureIoCallbacks.c)
+ *     VfDifCaptureIoCallbacks @ 0x140499158 (VfDifCaptureIoCallbacks.c)
  * Callees:
- *     ViDifFindIoCallbackContext @ 0x140B8A8C4 (ViDifFindIoCallbackContext.c)
+ *     ViDifFindIoCallbackContext @ 0x140B8C8C4 (ViDifFindIoCallbackContext.c)
  */
 
 void __fastcall ViDifCaptureIoCallbacks(__int64 a1)
@@ -75,7 +75,7 @@ void __fastcall ViDifCaptureIoCallbacks(__int64 a1)
     v15 = (__int64 *)(v10 + 112);
     v16 = v11 - v10;
     v17 = 28LL;
-    v18 = (__int64 **)&off_140FF3220;
+    v18 = (__int64 **)&off_140FF4220;
     do
     {
       v19 = *v15;

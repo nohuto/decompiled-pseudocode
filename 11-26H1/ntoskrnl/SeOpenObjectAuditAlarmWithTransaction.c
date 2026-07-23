@@ -1,34 +1,34 @@
 /*
- * XREFs of SeOpenObjectAuditAlarmWithTransaction @ 0x14092F570
+ * XREFs of SeOpenObjectAuditAlarmWithTransaction @ 0x14090B0A0
  * Callers:
- *     IopParseDevice @ 0x1409008C0 (IopParseDevice.c)
- *     ObCheckObjectAccess @ 0x140904A50 (ObCheckObjectAccess.c)
- *     ObpCreateHandle @ 0x14092CA60 (ObpCreateHandle.c)
- *     ObpGrantAccess @ 0x140930170 (ObpGrantAccess.c)
- *     CmpCheckKeyBodyAccess @ 0x140930990 (CmpCheckKeyBodyAccess.c)
- *     SeOpenObjectAuditAlarm @ 0x140930EB0 (SeOpenObjectAuditAlarm.c)
- *     CmpCheckOpenAccessOnKeyBody @ 0x140930F10 (CmpCheckOpenAccessOnKeyBody.c)
- *     CmpCheckCreateAccess @ 0x14098391C (CmpCheckCreateAccess.c)
+ *     ObpCreateHandle @ 0x140908590 (ObpCreateHandle.c)
+ *     ObpGrantAccess @ 0x14090BCA0 (ObpGrantAccess.c)
+ *     CmpCheckKeyBodyAccess @ 0x14090C4C0 (CmpCheckKeyBodyAccess.c)
+ *     SeOpenObjectAuditAlarm @ 0x14090C9E0 (SeOpenObjectAuditAlarm.c)
+ *     CmpCheckOpenAccessOnKeyBody @ 0x14090CA40 (CmpCheckOpenAccessOnKeyBody.c)
+ *     IopParseDevice @ 0x140930850 (IopParseDevice.c)
+ *     ObCheckObjectAccess @ 0x1409349E0 (ObCheckObjectAccess.c)
+ *     CmpCheckCreateAccess @ 0x14094592C (CmpCheckCreateAccess.c)
  * Callees:
- *     ExAcquireResourceSharedLite @ 0x1402B3C80 (ExAcquireResourceSharedLite.c)
- *     ExReleaseResourceLite @ 0x1402B4CF0 (ExReleaseResourceLite.c)
- *     KeLeaveCriticalRegionThread @ 0x1402B8A60 (KeLeaveCriticalRegionThread.c)
- *     RtlCopyUnicodeString @ 0x140419A90 (RtlCopyUnicodeString.c)
- *     SeMaximumAuditMask @ 0x1404A5E44 (SeMaximumAuditMask.c)
- *     SepAdtCheckPrivilegeForSensitivity @ 0x1404BBEA8 (SepAdtCheckPrivilegeForSensitivity.c)
- *     SepAuditFailed @ 0x14092FD10 (SepAuditFailed.c)
- *     SepAdtAuditObjectAccessWithContext @ 0x14092FDE0 (SepAdtAuditObjectAccessWithContext.c)
- *     SepAdtAuditThisEventWithContext @ 0x140932EA0 (SepAdtAuditThisEventWithContext.c)
- *     RtlCompareUnicodeStrings @ 0x140981100 (RtlCompareUnicodeStrings.c)
- *     SepFilterPrivilegeAudits @ 0x1409F7460 (SepFilterPrivilegeAudits.c)
- *     SeExamineSacl @ 0x1409F8430 (SeExamineSacl.c)
- *     SepQueryTypeString @ 0x1409F95CC (SepQueryTypeString.c)
- *     SepAdtOpenObjectAuditAlarm @ 0x1409FAF0C (SepAdtOpenObjectAuditAlarm.c)
- *     SepAdtStagingEvent @ 0x1409FB6F8 (SepAdtStagingEvent.c)
- *     SepQueryNameString @ 0x1409FBF48 (SepQueryNameString.c)
- *     SeMaximumAuditMaskFromGlobalSacl @ 0x140AB6258 (SeMaximumAuditMaskFromGlobalSacl.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ExAcquireResourceSharedLite @ 0x1402FE950 (ExAcquireResourceSharedLite.c)
+ *     ExReleaseResourceLite @ 0x1402FF9C0 (ExReleaseResourceLite.c)
+ *     KeLeaveCriticalRegionThread @ 0x140303720 (KeLeaveCriticalRegionThread.c)
+ *     RtlCopyUnicodeString @ 0x14040DFC0 (RtlCopyUnicodeString.c)
+ *     SeMaximumAuditMask @ 0x14049F4D4 (SeMaximumAuditMask.c)
+ *     SepAdtCheckPrivilegeForSensitivity @ 0x1404B60C8 (SepAdtCheckPrivilegeForSensitivity.c)
+ *     SepAuditFailed @ 0x14090B840 (SepAuditFailed.c)
+ *     SepAdtAuditObjectAccessWithContext @ 0x14090B910 (SepAdtAuditObjectAccessWithContext.c)
+ *     SepAdtAuditThisEventWithContext @ 0x14090EA50 (SepAdtAuditThisEventWithContext.c)
+ *     SepAdtOpenObjectAuditAlarm @ 0x14091FB0C (SepAdtOpenObjectAuditAlarm.c)
+ *     SepAdtStagingEvent @ 0x1409202F8 (SepAdtStagingEvent.c)
+ *     SepQueryNameString @ 0x140920B48 (SepQueryNameString.c)
+ *     RtlCompareUnicodeStrings @ 0x140943110 (RtlCompareUnicodeStrings.c)
+ *     SepFilterPrivilegeAudits @ 0x140A5FFB0 (SepFilterPrivilegeAudits.c)
+ *     SeExamineSacl @ 0x140A60F70 (SeExamineSacl.c)
+ *     SepQueryTypeString @ 0x140A61E9C (SepQueryTypeString.c)
+ *     SeMaximumAuditMaskFromGlobalSacl @ 0x140AB75F8 (SeMaximumAuditMaskFromGlobalSacl.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __stdcall SeOpenObjectAuditAlarmWithTransaction(
@@ -72,48 +72,46 @@ void __stdcall SeOpenObjectAuditAlarmWithTransaction(
   ACL *v36; // rbx
   struct _KTHREAD *CurrentThread; // rax
   __int64 v38; // rax
-  __int64 v39; // rdx
-  __int64 v40; // r8
+  __int64 v39; // rax
+  __int64 v40; // rcx
   __int64 v41; // rax
-  __int64 v42; // rcx
-  __int64 v43; // rax
-  char v44; // r13
-  char v45; // al
-  char v46; // r14
-  __int16 v47; // ax
-  __int16 v48; // ax
-  __int64 v49; // rax
-  __int64 v50; // rcx
-  const UNICODE_STRING *v51; // rax
-  int v52; // eax
-  GUID *v53; // rax
-  PCUNICODE_STRING v54; // rbx
-  int v55; // edx
-  ACL *v56; // rcx
+  char v42; // r13
+  char v43; // al
+  char v44; // r14
+  __int16 v45; // ax
+  __int16 v46; // ax
+  __int64 v47; // rax
+  __int64 v48; // rcx
+  const UNICODE_STRING *v49; // rax
+  int v50; // eax
+  GUID *v51; // rax
+  PCUNICODE_STRING v52; // rbx
+  int v53; // edx
+  ACL *v54; // rcx
   BOOLEAN GenerateAlarm; // [rsp+A8h] [rbp-59h] BYREF
-  char v58; // [rsp+A9h] [rbp-58h]
+  char v56; // [rsp+A9h] [rbp-58h]
   BOOLEAN GenerateAudit[2]; // [rsp+AAh] [rbp-57h] BYREF
-  unsigned __int16 v60; // [rsp+ACh] [rbp-55h] BYREF
-  ACCESS_MASK v61; // [rsp+B0h] [rbp-51h]
-  PVOID v62; // [rsp+B8h] [rbp-49h] BYREF
+  unsigned __int16 v58; // [rsp+ACh] [rbp-55h] BYREF
+  ACCESS_MASK v59; // [rsp+B0h] [rbp-51h]
+  PVOID v60; // [rsp+B8h] [rbp-49h] BYREF
   PCUNICODE_STRING SourceString; // [rsp+C0h] [rbp-41h]
-  __int64 *v64; // [rsp+C8h] [rbp-39h]
+  __int64 *v62; // [rsp+C8h] [rbp-39h]
   PVOID P; // [rsp+D0h] [rbp-31h] BYREF
-  const UNICODE_STRING *v66; // [rsp+D8h] [rbp-29h]
-  const UNICODE_STRING *v69; // [rsp+148h] [rbp+47h]
-  char *v70; // [rsp+150h] [rbp+4Fh]
+  const UNICODE_STRING *v64; // [rsp+D8h] [rbp-29h]
+  const UNICODE_STRING *v67; // [rsp+148h] [rbp+47h]
+  char *v68; // [rsp+150h] [rbp+4Fh]
 
-  v70 = (char *)SecurityDescriptor;
-  v69 = AbsoluteObjectName;
+  v68 = (char *)SecurityDescriptor;
+  v67 = AbsoluteObjectName;
   P = 0LL;
   v10 = 0;
-  v62 = 0LL;
+  v60 = 0LL;
   v11 = 0;
   SourceString = 0LL;
-  v66 = 0LL;
+  v64 = 0LL;
   GenerateAudit[0] = 0;
-  v60 = 999;
-  v58 = 0;
+  v58 = 999;
+  v56 = 0;
   GenerateAlarm = 0;
   if ( !AccessMode )
     return;
@@ -136,27 +134,27 @@ void __stdcall SeOpenObjectAuditAlarmWithTransaction(
                           (int)SecurityDescriptor,
                           &AccessState->SubjectSecurityContext,
                           1,
-                          (__int64)&v60) )
+                          (__int64)&v58) )
   {
     v28 = AccessState->RemainingDesiredAccess | AccessState->PreviouslyGrantedAccess;
-    v61 = v28;
-    v29 = *((_WORD *)v70 + 1);
-    v30 = (unsigned int *)(v70 + 12);
+    v59 = v28;
+    v29 = *((_WORD *)v68 + 1);
+    v30 = (unsigned int *)(v68 + 12);
     if ( (v29 & 0x10) != 0 )
     {
       if ( v29 >= 0 )
       {
-        v31 = (ACL *)*((_QWORD *)v70 + 3);
-        v32 = (ACL **)(v70 + 24);
+        v31 = (ACL *)*((_QWORD *)v68 + 3);
+        v32 = (ACL **)(v68 + 24);
       }
       else
       {
-        v42 = *v30;
-        if ( (_DWORD)v42 )
-          v31 = (ACL *)&v70[v42];
+        v40 = *v30;
+        if ( (_DWORD)v40 )
+          v31 = (ACL *)&v68[v40];
         else
           v31 = 0LL;
-        v32 = (ACL **)(v70 + 24);
+        v32 = (ACL **)(v68 + 24);
       }
       if ( v29 >= 0 )
       {
@@ -164,9 +162,9 @@ void __stdcall SeOpenObjectAuditAlarmWithTransaction(
       }
       else
       {
-        v43 = *v30;
-        if ( (_DWORD)v43 )
-          v33 = (ACL *)&v70[v43];
+        v41 = *v30;
+        if ( (_DWORD)v41 )
+          v33 = (ACL *)&v68[v41];
         else
           v33 = 0LL;
       }
@@ -174,12 +172,12 @@ void __stdcall SeOpenObjectAuditAlarmWithTransaction(
     else
     {
       v31 = 0LL;
-      v32 = (ACL **)(v70 + 24);
+      v32 = (ACL **)(v68 + 24);
       v33 = 0LL;
     }
     SeExamineSacl(v33, v31, ClientToken, v28, AccessGranted, GenerateAudit, &GenerateAlarm);
-    v34 = v70;
-    v35 = *((_WORD *)v70 + 1);
+    v34 = v68;
+    v35 = *((_WORD *)v68 + 1);
     if ( (v35 & 0x10) != 0 )
     {
       if ( v35 >= 0 )
@@ -188,9 +186,9 @@ void __stdcall SeOpenObjectAuditAlarmWithTransaction(
       }
       else
       {
-        v41 = *v30;
-        if ( (_DWORD)v41 )
-          v36 = (ACL *)&v70[v41];
+        v39 = *v30;
+        if ( (_DWORD)v39 )
+          v36 = (ACL *)&v68[v39];
         else
           v36 = 0LL;
       }
@@ -202,15 +200,15 @@ void __stdcall SeOpenObjectAuditAlarmWithTransaction(
     v10 = GenerateAudit[0];
     if ( GenerateAudit[0] )
     {
-      v58 = GenerateAlarm;
+      v56 = GenerateAlarm;
     }
     else
     {
       CurrentThread = KeGetCurrentThread();
       --CurrentThread->KernelApcDisable;
-      ExAcquireResourceSharedLite(&SepRmGlobalSaclLock, 1u);
+      ExAcquireResourceSharedLite((PERESOURCE)&RtlpBootStatHandleLock.KernelWaitTime, 1u);
       v38 = SepRmGlobalSaclHead;
-      v64 = (__int64 *)SepRmGlobalSaclHead;
+      v62 = (__int64 *)SepRmGlobalSaclHead;
       if ( SepRmGlobalSaclHead )
       {
         while ( v38 )
@@ -222,53 +220,53 @@ void __stdcall SeOpenObjectAuditAlarmWithTransaction(
                   (unsigned __int64)*(unsigned __int16 *)(v38 + 8) >> 1,
                   0) )
           {
-            v56 = (ACL *)v64[3];
-            if ( !v56 )
+            v54 = (ACL *)v62[3];
+            if ( !v54 )
               break;
             AccessMode = 0;
             GenerateAudit[0] = 0;
-            SeExamineSacl(v56, v36, ClientToken, v61, AccessGranted, (PBOOLEAN)&AccessMode, GenerateAudit);
+            SeExamineSacl(v54, v36, ClientToken, v59, AccessGranted, (PBOOLEAN)&AccessMode, GenerateAudit);
             v10 = AccessMode != 0;
-            v58 = GenerateAlarm || GenerateAudit[0];
+            v56 = GenerateAlarm || GenerateAudit[0];
             goto LABEL_57;
           }
-          v38 = *v64;
-          v64 = (__int64 *)*v64;
+          v38 = *v62;
+          v62 = (__int64 *)*v62;
         }
       }
-      v58 = GenerateAlarm;
+      v56 = GenerateAlarm;
 LABEL_57:
-      ExReleaseResourceLite(&SepRmGlobalSaclLock);
-      KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v39, v40);
+      ExReleaseResourceLite((PERESOURCE)&RtlpBootStatHandleLock.KernelWaitTime);
+      KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
       if ( !v10 )
         goto LABEL_6;
-      v34 = v70;
+      v34 = v68;
     }
     *GenerateOnClose = 1;
     if ( AccessGranted )
     {
-      v48 = *((_WORD *)v34 + 1);
-      if ( (v48 & 0x10) != 0 )
+      v46 = *((_WORD *)v34 + 1);
+      if ( (v46 & 0x10) != 0 )
       {
-        if ( v48 >= 0 )
+        if ( v46 >= 0 )
         {
-          v50 = *((_QWORD *)v34 + 3);
+          v48 = *((_QWORD *)v34 + 3);
         }
         else
         {
-          v49 = *((unsigned int *)v34 + 3);
-          if ( (_DWORD)v49 )
-            v50 = (__int64)&v34[v49];
+          v47 = *((unsigned int *)v34 + 3);
+          if ( (_DWORD)v47 )
+            v48 = (__int64)&v34[v47];
           else
-            v50 = 0LL;
+            v48 = 0LL;
         }
       }
       else
       {
-        v50 = 0LL;
+        v48 = 0LL;
       }
-      SeMaximumAuditMask(v50, v61, (__int64)ClientToken, (_DWORD *)AuxData + 7);
-      SeMaximumAuditMaskFromGlobalSacl(ObjectTypeName, v61, ClientToken, (PACCESS_MASK)AuxData + 7);
+      SeMaximumAuditMask(v48, v59, (__int64)ClientToken, (_DWORD *)AuxData + 7);
+      SeMaximumAuditMaskFromGlobalSacl(ObjectTypeName, v59, ClientToken, (PACCESS_MASK)AuxData + 7);
     }
   }
 LABEL_6:
@@ -305,14 +303,14 @@ LABEL_44:
     goto LABEL_47;
   AccessMode = 0;
   GenerateAlarm = 0;
-  v44 = SepAdtAuditThisEventWithContext(131LL, v15, 0LL, p_SubjectSecurityContext);
-  v45 = SepAdtAuditThisEventWithContext(132LL, v15, 0LL, &AccessState->SubjectSecurityContext);
-  v46 = v45;
-  if ( !v44 && !v45 )
+  v42 = SepAdtAuditThisEventWithContext(131LL, v15, 0LL, p_SubjectSecurityContext);
+  v43 = SepAdtAuditThisEventWithContext(132LL, v15, 0LL, &AccessState->SubjectSecurityContext);
+  v44 = v43;
+  if ( !v42 && !v43 )
     goto LABEL_47;
   if ( !(unsigned __int8)SepFilterPrivilegeAudits(0LL, v27) )
     goto LABEL_47;
-  if ( v44 && v46 )
+  if ( v42 && v44 )
   {
     if ( *v27 )
       goto LABEL_119;
@@ -321,23 +319,23 @@ LABEL_75:
     if ( !AccessMode )
       goto LABEL_76;
 LABEL_119:
-    v47 = 131;
+    v45 = 131;
     goto LABEL_120;
   }
   SepAdtCheckPrivilegeForSensitivity(v27, &AccessMode, &GenerateAlarm);
-  if ( v44 )
+  if ( v42 )
     goto LABEL_75;
 LABEL_76:
-  if ( v46 && GenerateAlarm )
+  if ( v44 && GenerateAlarm )
   {
-    v47 = 132;
+    v45 = 132;
 LABEL_120:
-    v60 = v47;
+    v58 = v45;
     AccessState->AuditPrivileges = 1;
     goto LABEL_16;
   }
 LABEL_47:
-  if ( v58 )
+  if ( v56 )
   {
 LABEL_16:
     AccessState->GenerateAudit = 1;
@@ -347,10 +345,10 @@ LABEL_16:
   if ( !AuxData[216] )
     return;
 LABEL_17:
-  if ( v69 && v69->Length )
+  if ( v67 && v67->Length )
   {
     v19 = Object;
-    SourceString = v69;
+    SourceString = v67;
   }
   else
   {
@@ -360,15 +358,15 @@ LABEL_17:
       v11 = SepQueryNameString(Object, &P, AbsoluteObjectName, SecurityDescriptor);
       if ( v11 < 0 )
       {
-        v21 = v62;
+        v21 = v60;
         goto LABEL_37;
       }
       if ( P )
       {
-        v51 = SourceString;
+        v49 = SourceString;
         if ( *((_WORD *)P + 1) != (_WORD)SourceString )
-          v51 = (const UNICODE_STRING *)P;
-        SourceString = v51;
+          v49 = (const UNICODE_STRING *)P;
+        SourceString = v49;
       }
     }
   }
@@ -376,7 +374,7 @@ LABEL_17:
   {
     v20 = ObjectTypeName;
 LABEL_23:
-    v21 = v62;
+    v21 = v60;
 LABEL_24:
     if ( v15 )
     {
@@ -418,17 +416,17 @@ LABEL_24:
     }
     else
     {
-      v53 = TransactionId;
+      v51 = TransactionId;
       if ( !TransactionId )
-        v53 = (GUID *)(AuxData + 32);
-      v54 = SourceString;
+        v51 = (GUID *)(AuxData + 32);
+      v52 = SourceString;
       SepAdtOpenObjectAuditAlarm(
-        v60,
+        v58,
         (int)&SeSubsystemName,
         0,
         (int)v20,
         (__int64)SourceString,
-        v70,
+        v68,
         (__int64)AccessState->SubjectSecurityContext.ClientToken,
         (__int64)AccessState->SubjectSecurityContext.PrimaryToken,
         AccessState->OriginalDesiredAccess,
@@ -440,14 +438,14 @@ LABEL_24:
         0LL,
         0,
         0LL,
-        (__int64)v53,
+        (__int64)v51,
         (__int64)AccessState);
       SepAdtStagingEvent(
-        v60,
-        v55,
+        v58,
+        v53,
         0,
         (_DWORD)v20,
-        (__int64)v54,
+        (__int64)v52,
         (__int64)AccessState->SubjectSecurityContext.ClientToken,
         (__int64)AccessState->SubjectSecurityContext.PrimaryToken,
         AccessState->OriginalDesiredAccess,
@@ -460,17 +458,17 @@ LABEL_24:
   }
   if ( !v19 )
   {
-    v20 = v66;
+    v20 = v64;
     goto LABEL_23;
   }
-  v52 = SepQueryTypeString(v19, &v62, AbsoluteObjectName, SecurityDescriptor);
-  v21 = v62;
-  v11 = v52;
-  if ( v52 >= 0 )
+  v50 = SepQueryTypeString(v19, &v60, AbsoluteObjectName, SecurityDescriptor);
+  v21 = v60;
+  v11 = v50;
+  if ( v50 >= 0 )
   {
-    v20 = v66;
-    if ( v62 )
-      v20 = (const UNICODE_STRING *)v62;
+    v20 = v64;
+    if ( v60 )
+      v20 = (const UNICODE_STRING *)v60;
     goto LABEL_24;
   }
 LABEL_37:

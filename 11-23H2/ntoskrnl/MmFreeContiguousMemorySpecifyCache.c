@@ -1,9 +1,9 @@
 /*
- * XREFs of MmFreeContiguousMemorySpecifyCache @ 0x1403B6C30
+ * XREFs of MmFreeContiguousMemorySpecifyCache @ 0x1403B6E10
  * Callers:
  *     <none>
  * Callees:
- *     MmFreeContiguousMemory @ 0x1403C3600 (MmFreeContiguousMemory.c)
+ *     MmFreeContiguousMemory @ 0x1403C37E0 (MmFreeContiguousMemory.c)
  */
 
 void __stdcall MmFreeContiguousMemorySpecifyCache(

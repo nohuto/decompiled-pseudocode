@@ -8,47 +8,41 @@
  *     RtlProtectHeap @ 0x1800606A0 (RtlProtectHeap.c)
  */
 
-signed __int64 __fastcall LdrProtectMrdataHeap(int a1, unsigned __int64 a2, unsigned __int64 *a3, __int64 a4)
+void __fastcall LdrProtectMrdataHeap(int a1)
 {
-  __int64 v5; // rdx
-  int v6; // ebx
-  int v7; // ebx
-  signed __int64 result; // rax
+  int v2; // ebx
+  int v3; // ebx
 
-  if ( qword_1801783A0 && (byte_18017838C & 1) == 0 )
+  if ( LdrSystemDllInitBlock.CfgBitMap && (LdrSystemDllInitBlock.Flags & 1) == 0 )
   {
-    RtlAcquireSRWLockExclusive((unsigned __int64)&LdrpMrdataLock, a2, a3, a4);
-    v6 = *(_DWORD *)LdrpMrdataHeapUnprotected;
+    RtlAcquireSRWLockExclusive(&LdrpMrdataLock);
+    v2 = *(_DWORD *)LdrpMrdataHeapUnprotected;
     if ( a1 )
     {
-      if ( !v6 )
+      if ( !v2 )
       {
         RtlReleaseSRWLockExclusive(&LdrpMrdataLock);
         __fastfail(0xEu);
       }
-      v7 = v6 - 1;
+      v3 = v2 - 1;
     }
     else
     {
-      if ( !v6 )
-        RtlProtectHeap(LdrpMrdataHeap, 0LL);
-      if ( v6 == -1 )
+      if ( !v2 )
+        RtlProtectHeap(LdrpMrdataHeap, 0);
+      if ( v2 == -1 )
       {
         RtlReleaseSRWLockExclusive(&LdrpMrdataLock);
         __fastfail(0xEu);
       }
-      v7 = v6 + 1;
+      v3 = v2 + 1;
     }
-    *(_DWORD *)LdrpMrdataHeapUnprotected = v7;
+    *(_DWORD *)LdrpMrdataHeapUnprotected = v3;
     if ( a1 )
     {
-      if ( !v7 )
-      {
-        LOBYTE(v5) = 1;
-        RtlProtectHeap(LdrpMrdataHeap, v5);
-      }
+      if ( !v3 )
+        RtlProtectHeap(LdrpMrdataHeap, 1u);
     }
-    return RtlReleaseSRWLockExclusive(&LdrpMrdataLock);
+    RtlReleaseSRWLockExclusive(&LdrpMrdataLock);
   }
-  return result;
 }

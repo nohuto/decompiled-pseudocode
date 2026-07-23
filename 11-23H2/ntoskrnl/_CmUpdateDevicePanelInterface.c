@@ -1,15 +1,15 @@
 /*
- * XREFs of _CmUpdateDevicePanelInterface @ 0x140885CB0
+ * XREFs of _CmUpdateDevicePanelInterface @ 0x140885EF0
  * Callers:
- *     PiPnpRtlSetObjectProperty @ 0x140796788 (PiPnpRtlSetObjectProperty.c)
+ *     PiPnpRtlSetObjectProperty @ 0x140796978 (PiPnpRtlSetObjectProperty.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     _PnpGetObjectProperty @ 0x1406D01F0 (_PnpGetObjectProperty.c)
- *     _PnpSetObjectProperty @ 0x140796B7C (_PnpSetObjectProperty.c)
- *     _CmQueryDevicePanelPldProperty @ 0x1407997F8 (_CmQueryDevicePanelPldProperty.c)
- *     _CmGetParentDeviceContainerId @ 0x1408607B4 (_CmGetParentDeviceContainerId.c)
- *     _CmBuildDevicePanelId @ 0x140862D28 (_CmBuildDevicePanelId.c)
- *     _CmGetDevicePanelGroup @ 0x140864544 (_CmGetDevicePanelGroup.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     _PnpGetObjectProperty @ 0x1406D0220 (_PnpGetObjectProperty.c)
+ *     _PnpSetObjectProperty @ 0x140796D6C (_PnpSetObjectProperty.c)
+ *     _CmQueryDevicePanelPldProperty @ 0x1407999E8 (_CmQueryDevicePanelPldProperty.c)
+ *     _CmGetParentDeviceContainerId @ 0x1408609F4 (_CmGetParentDeviceContainerId.c)
+ *     _CmBuildDevicePanelId @ 0x140862F68 (_CmBuildDevicePanelId.c)
+ *     _CmGetDevicePanelGroup @ 0x140864784 (_CmGetDevicePanelGroup.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
@@ -110,7 +110,7 @@ LABEL_3:
           DevicePanelGroup = CmGetDevicePanelGroup(v10);
           v13 = 0;
           if ( ((*(_DWORD *)(v10 + 8) >> 3) & 7) != 7 )
-            v13 = dword_140021220[(*(_DWORD *)(v10 + 8) >> 3) & 7];
+            v13 = dword_1400212A0[(*(_DWORD *)(v10 + 8) >> 3) & 7];
           v17 = v13;
           v14 = (wchar_t *)ExAllocatePool2(256LL, 114LL, 1380994640LL);
           v6 = v14;

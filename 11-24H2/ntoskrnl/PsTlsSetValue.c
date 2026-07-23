@@ -1,11 +1,11 @@
 /*
- * XREFs of PsTlsSetValue @ 0x140A197E0
+ * XREFs of PsTlsSetValue @ 0x140A12950
  * Callers:
  *     <none>
  * Callees:
- *     KeLeaveGuardedRegion @ 0x1402BB460 (KeLeaveGuardedRegion.c)
- *     RtlpFlsSetValueSlot @ 0x140A198A4 (RtlpFlsSetValueSlot.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     KeLeaveGuardedRegion @ 0x140362BA0 (KeLeaveGuardedRegion.c)
+ *     RtlpFlsSetValueSlot @ 0x140A12A14 (RtlpFlsSetValueSlot.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall PsTlsSetValue(__int64 a1, __int64 a2)
@@ -30,7 +30,7 @@ __int64 __fastcall PsTlsSetValue(__int64 a1, __int64 a2)
   v6 = a1 + 16;
   if ( !Pool2 )
   {
-    Pool2 = ExAllocatePool2(0x100uLL);
+    Pool2 = ExAllocatePool2(0x100uLL, 0x28uLL, 0x6B534C46u);
     if ( !Pool2 )
     {
       v7 = -1073741801;

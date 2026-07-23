@@ -1,8 +1,8 @@
 /*
- * XREFs of LdrpArmProcessRelocation @ 0x1800D8590
+ * XREFs of LdrpArmProcessRelocation @ 0x1800D5550
  * Callers:
- *     LdrProcessRelocationBlockLongLong @ 0x1800D8440 (LdrProcessRelocationBlockLongLong.c)
- *     LdrpThumbProcessRelocation @ 0x1800D865C (LdrpThumbProcessRelocation.c)
+ *     LdrProcessRelocationBlockLongLong @ 0x1800D5400 (LdrProcessRelocationBlockLongLong.c)
+ *     LdrpThumbProcessRelocation @ 0x1800D561C (LdrpThumbProcessRelocation.c)
  * Callees:
  *     <none>
  */

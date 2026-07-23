@@ -1,15 +1,15 @@
 /*
- * XREFs of CmpIsKeyStackDeleted @ 0x140405110
+ * XREFs of CmpIsKeyStackDeleted @ 0x140403FD0
  * Callers:
- *     CmpGetSymbolicLinkTarget @ 0x14000B4B0 (CmpGetSymbolicLinkTarget.c)
- *     CmpWalkOneLevel @ 0x14002D9B0 (CmpWalkOneLevel.c)
- *     CmpPromoteKey @ 0x1401B3424 (CmpPromoteKey.c)
- *     CmpCreateChild @ 0x1403FE088 (CmpCreateChild.c)
- *     CmpIsKeyDeleted @ 0x140405030 (CmpIsKeyDeleted.c)
- *     CmpDoParseKey @ 0x140453D10 (CmpDoParseKey.c)
+ *     CmpGetSymbolicLinkTarget @ 0x14000B030 (CmpGetSymbolicLinkTarget.c)
+ *     CmpWalkOneLevel @ 0x14002D530 (CmpWalkOneLevel.c)
+ *     CmpPromoteKey @ 0x1401B3308 (CmpPromoteKey.c)
+ *     CmpCreateChild @ 0x1403FCF48 (CmpCreateChild.c)
+ *     CmpIsKeyDeleted @ 0x140403EF0 (CmpIsKeyDeleted.c)
+ *     CmpDoParseKey @ 0x140452BE0 (CmpDoParseKey.c)
  * Callees:
- *     CmEqualTrans @ 0x1403FD9D0 (CmEqualTrans.c)
- *     CmListGetNextElement @ 0x140402E2C (CmListGetNextElement.c)
+ *     CmEqualTrans @ 0x1403FC890 (CmEqualTrans.c)
+ *     CmListGetNextElement @ 0x140401CEC (CmListGetNextElement.c)
  */
 
 char __fastcall CmpIsKeyStackDeleted(__int64 a1, __int64 a2)

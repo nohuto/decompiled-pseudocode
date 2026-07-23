@@ -1,17 +1,17 @@
 /*
- * XREFs of MiGetLargePageToZero @ 0x14008A680
+ * XREFs of MiGetLargePageToZero @ 0x140089D80
  * Callers:
- *     MiZeroPageThread @ 0x140139C40 (MiZeroPageThread.c)
- *     MiZeroLargePages @ 0x14013F2D0 (MiZeroLargePages.c)
+ *     MiZeroPageThread @ 0x14013A1B0 (MiZeroPageThread.c)
+ *     MiZeroLargePages @ 0x14013F840 (MiZeroLargePages.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLock @ 0x140012750 (KeReleaseInStackQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14001BD40 (KeAcquireInStackQueuedSpinLock.c)
- *     MiUnlinkNodeLargePage @ 0x14008A830 (MiUnlinkNodeLargePage.c)
- *     MiMapLargePagesToZero @ 0x14008AE60 (MiMapLargePagesToZero.c)
- *     MiGetSmallZeroPtes @ 0x14008B074 (MiGetSmallZeroPtes.c)
- *     MiInitializeNewUltraHugeContext @ 0x14013F65C (MiInitializeNewUltraHugeContext.c)
- *     MiGetUltraHugeAlreadyActive @ 0x140140D60 (MiGetUltraHugeAlreadyActive.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x1400122D0 (KeReleaseInStackQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14001B8C0 (KeAcquireInStackQueuedSpinLock.c)
+ *     MiUnlinkNodeLargePage @ 0x140089F30 (MiUnlinkNodeLargePage.c)
+ *     MiMapLargePagesToZero @ 0x14008A560 (MiMapLargePagesToZero.c)
+ *     MiGetSmallZeroPtes @ 0x14008A774 (MiGetSmallZeroPtes.c)
+ *     MiInitializeNewUltraHugeContext @ 0x14013FBCC (MiInitializeNewUltraHugeContext.c)
+ *     MiGetUltraHugeAlreadyActive @ 0x1401412D0 (MiGetUltraHugeAlreadyActive.c)
+ *     memset @ 0x140171AC0 (memset.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
  */
@@ -33,7 +33,7 @@ _BOOL8 __fastcall MiGetLargePageToZero(__int64 a1, __int64 a2, unsigned int a3, 
 
   v4 = a3;
   memset(&LockHandle, 0, sizeof(LockHandle));
-  v6 = a4 >> byte_1403269C9;
+  v6 = a4 >> byte_140326A09;
   while ( 1 )
   {
     v8 = *(_BYTE *)(a2 + 106) == 1;

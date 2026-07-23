@@ -1,12 +1,12 @@
 /*
- * XREFs of PopRecalculateCBTriggerLevels @ 0x14086DBD0
+ * XREFs of PopRecalculateCBTriggerLevels @ 0x14086EE30
  * Callers:
- *     PopBatteryApplyCompositeState @ 0x14071A148 (PopBatteryApplyCompositeState.c)
+ *     PopBatteryApplyCompositeState @ 0x14071B3E8 (PopBatteryApplyCompositeState.c)
  * Callees:
- *     PopReleasePolicyLock @ 0x140565370 (PopReleasePolicyLock.c)
- *     PopAcquirePolicyLock @ 0x140565690 (PopAcquirePolicyLock.c)
- *     PopDiagTraceBatteryTriggerFlags @ 0x14071A3E4 (PopDiagTraceBatteryTriggerFlags.c)
- *     PopBatteryCheckTrigger @ 0x14071A490 (PopBatteryCheckTrigger.c)
+ *     PopReleasePolicyLock @ 0x140566370 (PopReleasePolicyLock.c)
+ *     PopAcquirePolicyLock @ 0x140566690 (PopAcquirePolicyLock.c)
+ *     PopDiagTraceBatteryTriggerFlags @ 0x14071B684 (PopDiagTraceBatteryTriggerFlags.c)
+ *     PopBatteryCheckTrigger @ 0x14071B730 (PopBatteryCheckTrigger.c)
  */
 
 __int64 __fastcall PopRecalculateCBTriggerLevels(unsigned int a1)

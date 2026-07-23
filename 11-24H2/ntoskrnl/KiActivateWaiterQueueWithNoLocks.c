@@ -1,96 +1,95 @@
 /*
- * XREFs of KiActivateWaiterQueueWithNoLocks @ 0x1402A5864
+ * XREFs of KiActivateWaiterQueueWithNoLocks @ 0x1402D4F94
  * Callers:
- *     KeRemoveQueueEx @ 0x1402A49D0 (KeRemoveQueueEx.c)
- *     KeTerminateThread @ 0x1402A6488 (KeTerminateThread.c)
- *     KiPriQueueThreadPriorityChanged @ 0x1404337D0 (KiPriQueueThreadPriorityChanged.c)
- *     KiSwitchPriQueue @ 0x140493CB4 (KiSwitchPriQueue.c)
+ *     KeRemoveQueueEx @ 0x1402D4100 (KeRemoveQueueEx.c)
+ *     KeTerminateThread @ 0x1402D5BB8 (KeTerminateThread.c)
+ *     KiPriQueueThreadPriorityChanged @ 0x1402D8290 (KiPriQueueThreadPriorityChanged.c)
+ *     KiSwitchPriQueue @ 0x14048E740 (KiSwitchPriQueue.c)
  * Callees:
- *     ExpReleaseSpinLockSharedFromDpcLevelInstrumented @ 0x1402465FC (ExpReleaseSpinLockSharedFromDpcLevelInstrumented.c)
- *     HvlNotifyLongSpinWait @ 0x140293260 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140293290 (KiCheckVpBackingLongSpinWaitHypercall.c)
- *     KiActivateWaiterKQueue @ 0x1402A6120 (KiActivateWaiterKQueue.c)
- *     ExpWaitForSpinLockSharedAndAcquire @ 0x1402C4AD0 (ExpWaitForSpinLockSharedAndAcquire.c)
- *     ExpAcquireSpinLockSharedAtDpcLevelInstrumented @ 0x1402DFAA0 (ExpAcquireSpinLockSharedAtDpcLevelInstrumented.c)
- *     KiAcquireKobjectLockSafe @ 0x14031E740 (KiAcquireKobjectLockSafe.c)
- *     KiWakePriQueueWaiter @ 0x1403248F0 (KiWakePriQueueWaiter.c)
- *     KiAttemptFastRemovePriQueue @ 0x140433950 (KiAttemptFastRemovePriQueue.c)
+ *     ExpReleaseSpinLockSharedFromDpcLevelInstrumented @ 0x140219638 (ExpReleaseSpinLockSharedFromDpcLevelInstrumented.c)
+ *     ExpWaitForSpinLockSharedAndAcquire @ 0x140219B50 (ExpWaitForSpinLockSharedAndAcquire.c)
+ *     ExpAcquireSpinLockSharedAtDpcLevelInstrumented @ 0x140241380 (ExpAcquireSpinLockSharedAtDpcLevelInstrumented.c)
+ *     HvlNotifyLongSpinWait @ 0x1402A2E60 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1402A2E90 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     KiAcquireKobjectLockSafe @ 0x1402C72D0 (KiAcquireKobjectLockSafe.c)
+ *     KiWakePriQueueWaiter @ 0x1402CD480 (KiWakePriQueueWaiter.c)
+ *     KiActivateWaiterKQueue @ 0x1402D5850 (KiActivateWaiterKQueue.c)
+ *     KiAttemptFastRemovePriQueue @ 0x1402D6CB0 (KiAttemptFastRemovePriQueue.c)
  */
 
-__int64 __fastcall KiActivateWaiterQueueWithNoLocks(__int64 a1, unsigned __int64 a2, _QWORD *a3)
+__int64 __fastcall KiActivateWaiterQueueWithNoLocks(__int64 a1, unsigned __int64 a2, _QWORD *a3, __int64 a4)
 {
-  _DWORD *v5; // rdi
+  _DWORD *v6; // rdi
   __int64 result; // rax
-  int v7; // ett
-  ULONG_PTR v8; // rbx
-  __int64 v9; // rcx
-  _QWORD *v10; // rax
-  _QWORD *v11; // rdi
-  ULONG_PTR v12; // rcx
-  unsigned int v13; // edi
-  __int64 v14; // rcx
+  int v8; // ett
+  ULONG_PTR v9; // rbx
+  __int64 v10; // rcx
+  _QWORD *v11; // rax
+  _QWORD *v12; // rdi
+  ULONG_PTR v13; // rcx
+  unsigned int v14; // edi
+  __int64 v15; // rcx
   __int64 retaddr; // [rsp+28h] [rbp+0h]
 
-  v5 = (_DWORD *)((char *)&KiObjectRundownLocks + 64 * ((a2 >> 4) & 0x3F));
+  v6 = (_DWORD *)((char *)&KiObjectRundownLocks + 64 * ((a2 >> 4) & 0x3F));
   if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || PopHibernateInProgress )
   {
-    _m_prefetchw(v5);
-    LODWORD(result) = *v5 & 0x7FFFFFFF;
+    _m_prefetchw(v6);
+    LODWORD(result) = *v6 & 0x7FFFFFFF;
     while ( 1 )
     {
-      v7 = result;
-      result = (unsigned int)_InterlockedCompareExchange(v5, result + 1, result);
-      if ( v7 == (_DWORD)result )
+      v8 = result;
+      result = (unsigned int)_InterlockedCompareExchange(v6, result + 1, result);
+      if ( v8 == (_DWORD)result )
         break;
       if ( (int)result < 0 )
       {
         LOBYTE(a2) = -1;
-        result = ExpWaitForSpinLockSharedAndAcquire(v5, a2);
+        result = ExpWaitForSpinLockSharedAndAcquire(v6, a2, (__int64)a3, a4);
         break;
       }
     }
   }
   else
   {
-    LOBYTE(a2) = -1;
-    result = ExpAcquireSpinLockSharedAtDpcLevelInstrumented(v5, a2);
+    result = ExpAcquireSpinLockSharedAtDpcLevelInstrumented(v6, 0xFFu);
   }
-  v8 = *(_QWORD *)(a1 + 232);
-  if ( v8 )
+  v9 = *(_QWORD *)(a1 + 232);
+  if ( v9 )
   {
-    KiAcquireKobjectLockSafe(*(_QWORD *)(a1 + 232));
+    KiAcquireKobjectLockSafe(*(volatile signed __int32 **)(a1 + 232));
     result = *(_QWORD *)(a1 + 232);
     if ( !result )
     {
-      _InterlockedAnd((volatile signed __int32 *)v8, 0xFFFFFF7F);
-      v8 = 0LL;
+      _InterlockedAnd((volatile signed __int32 *)v9, 0xFFFFFF7F);
+      v9 = 0LL;
     }
   }
   if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || (result = (unsigned int)PopHibernateInProgress, PopHibernateInProgress) )
   {
-    _InterlockedAnd(v5, 0xBFFFFFFF);
-    _InterlockedDecrement(v5);
+    _InterlockedAnd(v6, 0xBFFFFFFF);
+    _InterlockedDecrement(v6);
   }
   else
   {
-    result = ExpReleaseSpinLockSharedFromDpcLevelInstrumented(v5, retaddr);
+    result = ExpReleaseSpinLockSharedFromDpcLevelInstrumented(v6, retaddr);
   }
-  if ( v8 )
+  if ( v9 )
   {
     if ( a3 )
     {
-      if ( (*(_BYTE *)v8 & 0x7F) == 0x15 )
+      if ( (*(_BYTE *)v9 & 0x7F) == 0x15 )
       {
-        v13 = 0;
+        v14 = 0;
         while ( _interlockedbittestandset64((volatile signed __int32 *)(a1 + 64), 0LL) )
         {
           do
           {
-            if ( (++v13 & HvlLongSpinCountMask) == 0
+            if ( (++v14 & HvlLongSpinCountMask) == 0
               && (HvlEnlightenments & 0x40) != 0
               && KiCheckVpBackingLongSpinWaitHypercall() )
             {
-              HvlNotifyLongSpinWait(v13);
+              HvlNotifyLongSpinWait(v14);
             }
             else
             {
@@ -99,48 +98,48 @@ __int64 __fastcall KiActivateWaiterQueueWithNoLocks(__int64 a1, unsigned __int64
           }
           while ( *(_QWORD *)(a1 + 64) );
         }
-        v14 = (unsigned __int8)*(_DWORD *)(a1 + 540);
+        v15 = (unsigned __int8)*(_DWORD *)(a1 + 540);
         *(_DWORD *)(a1 + 540) = (unsigned __int8)*(_DWORD *)(a1 + 540) | 0x100;
-        _InterlockedDecrement((volatile signed __int32 *)(v8 + 4 * v14 + 536));
+        _InterlockedDecrement((volatile signed __int32 *)(v9 + 4 * v15 + 536));
         *(_QWORD *)(a1 + 64) = 0LL;
       }
       else
       {
-        _InterlockedDecrement((volatile signed __int32 *)(v8 + 40));
+        _InterlockedDecrement((volatile signed __int32 *)(v9 + 40));
       }
-      v9 = *a3;
-      v10 = (_QWORD *)a3[1];
-      if ( *(_QWORD **)(*a3 + 8LL) != a3 || (_QWORD *)*v10 != a3 )
+      v10 = *a3;
+      v11 = (_QWORD *)a3[1];
+      if ( *(_QWORD **)(*a3 + 8LL) != a3 || (_QWORD *)*v11 != a3 )
         goto LABEL_23;
-      *v10 = v9;
-      *(_QWORD *)(v9 + 8) = v10;
+      *v11 = v10;
+      *(_QWORD *)(v10 + 8) = v11;
       *(_QWORD *)(a1 + 232) = 0LL;
     }
-    if ( (*(_BYTE *)v8 & 0x7F) != 0x15 )
-      return KiActivateWaiterKQueue(v8);
-    result = v8 + 8;
+    if ( (*(_BYTE *)v9 & 0x7F) != 0x15 )
+      return KiActivateWaiterKQueue(v9);
+    result = v9 + 8;
     if ( *(_QWORD *)result == result )
       goto LABEL_14;
-    if ( !*(_DWORD *)(v8 + 4) )
+    if ( !*(_DWORD *)(v9 + 4) )
       goto LABEL_14;
-    result = KiAttemptFastRemovePriQueue(v8);
-    v11 = (_QWORD *)result;
+    result = KiAttemptFastRemovePriQueue(v9);
+    v12 = (_QWORD *)result;
     if ( !result )
       goto LABEL_14;
-    result = KiWakePriQueueWaiter(KeGetCurrentPrcb(), v8, result, 0LL);
+    result = KiWakePriQueueWaiter((__int64)KeGetCurrentPrcb(), v9, result, 0);
     if ( (_BYTE)result )
       goto LABEL_14;
-    ++*(_DWORD *)(v8 + 4);
-    v12 = v8 + 24;
-    result = *(_QWORD *)(v8 + 24);
-    if ( *(_QWORD *)(*(_QWORD *)v12 + 8LL) == v12 )
+    ++*(_DWORD *)(v9 + 4);
+    v13 = v9 + 24;
+    result = *(_QWORD *)(v9 + 24);
+    if ( *(_QWORD *)(*(_QWORD *)v13 + 8LL) == v13 )
     {
-      *v11 = result;
-      v11[1] = v12;
-      *(_QWORD *)(result + 8) = v11;
-      *(_QWORD *)v12 = v11;
+      *v12 = result;
+      v12[1] = v13;
+      *(_QWORD *)(result + 8) = v12;
+      *(_QWORD *)v13 = v12;
 LABEL_14:
-      _InterlockedAnd((volatile signed __int32 *)v8, 0xFFFFFF7F);
+      _InterlockedAnd((volatile signed __int32 *)v9, 0xFFFFFF7F);
       return result;
     }
 LABEL_23:

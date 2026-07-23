@@ -1,29 +1,29 @@
 /*
- * XREFs of ExpCrossVmWnfPush @ 0x140A6E584
+ * XREFs of ExpCrossVmWnfPush @ 0x140A67A84
  * Callers:
- *     ExpNtDeleteWnfStateData @ 0x1407BF7A8 (ExpNtDeleteWnfStateData.c)
+ *     ExpNtDeleteWnfStateData @ 0x1407BFBF8 (ExpNtDeleteWnfStateData.c)
  * Callees:
- *     ExGetExtensionTable @ 0x1403AA530 (ExGetExtensionTable.c)
- *     ExReleaseExtensionTable @ 0x14044FE80 (ExReleaseExtensionTable.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
+ *     ExGetExtensionTable @ 0x140398F94 (ExGetExtensionTable.c)
+ *     ExReleaseExtensionTable @ 0x1404450F0 (ExReleaseExtensionTable.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
  */
 
-__int64 __fastcall ExpCrossVmWnfPush(__int64 a1, unsigned int a2, __int64 a3, unsigned int a4)
+__int64 __fastcall ExpCrossVmWnfPush(__int64 a1, unsigned int a2)
 {
-  struct _EX_RUNDOWN_REF *v4; // rdi
-  unsigned int v8; // ebx
+  struct _EX_RUNDOWN_REF *v2; // rdi
+  unsigned int v4; // ebx
 
-  v4 = (struct _EX_RUNDOWN_REF *)ExpCrossVmIntExtensionHostRoot;
+  v2 = (struct _EX_RUNDOWN_REF *)ExpCrossVmIntExtensionHostRoot;
   if ( a2 )
-    v4 = (struct _EX_RUNDOWN_REF *)ExpCrossVmIntExtensionHostGuest;
-  if ( ExGetExtensionTable(v4) )
+    v2 = (struct _EX_RUNDOWN_REF *)ExpCrossVmIntExtensionHostGuest;
+  if ( ExGetExtensionTable(v2) )
   {
-    v8 = guard_dispatch_icall_no_overrides(0LL, a2, a3, a4);
-    ExReleaseExtensionTable(v4);
+    v4 = guard_dispatch_icall_no_overrides(0LL, a2);
+    ExReleaseExtensionTable(v2);
   }
   else
   {
     return (unsigned int)-1073741822;
   }
-  return v8;
+  return v4;
 }

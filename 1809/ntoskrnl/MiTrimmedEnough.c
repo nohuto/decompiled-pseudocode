@@ -1,9 +1,9 @@
 /*
- * XREFs of MiTrimmedEnough @ 0x140087DD8
+ * XREFs of MiTrimmedEnough @ 0x140087DC8
  * Callers:
- *     MiTrimPte @ 0x140087BD0 (MiTrimPte.c)
- *     MiTrimWorkingSetTail @ 0x14011C6B0 (MiTrimWorkingSetTail.c)
- *     MiTrimWorkingSetEPTCallback @ 0x1402B3E10 (MiTrimWorkingSetEPTCallback.c)
+ *     MiTrimPte @ 0x140087BC0 (MiTrimPte.c)
+ *     MiTrimWorkingSetTail @ 0x14011C720 (MiTrimWorkingSetTail.c)
+ *     MiTrimWorkingSetEPTCallback @ 0x1402B4000 (MiTrimWorkingSetEPTCallback.c)
  * Callees:
  *     <none>
  */

@@ -1,20 +1,20 @@
 /*
- * XREFs of PpmHeteroInitializeHgsSupport @ 0x1403CDC44
+ * XREFs of PpmHeteroInitializeHgsSupport @ 0x1403CDDB4
  * Callers:
- *     PpmHeteroHgsBackupInit @ 0x1403CDC04 (PpmHeteroHgsBackupInit.c)
- *     PoInitSystem @ 0x140A3F948 (PoInitSystem.c)
+ *     PpmHeteroHgsBackupInit @ 0x1403CDD74 (PpmHeteroHgsBackupInit.c)
+ *     PoInitSystem @ 0x140A40948 (PoInitSystem.c)
  * Callees:
- *     MmMapLockedPagesSpecifyCache @ 0x140226CC0 (MmMapLockedPagesSpecifyCache.c)
- *     MmAllocatePagesForMdlEx @ 0x1402E3290 (MmAllocatePagesForMdlEx.c)
- *     MiFreePagesFromMdl @ 0x1402FF4EC (MiFreePagesFromMdl.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     MmAllocatePagesForMdlEx @ 0x1402945E0 (MmAllocatePagesForMdlEx.c)
+ *     MmMapLockedPagesSpecifyCache @ 0x1402CB5C0 (MmMapLockedPagesSpecifyCache.c)
+ *     MiFreePagesFromMdl @ 0x14030A23C (MiFreePagesFromMdl.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall PpmHeteroInitializeHgsSupport(__int64 a1, __int64 a2, __int64 a3)
+__int64 PpmHeteroInitializeHgsSupport()
 {
   _QWORD *p_Next; // rsi
-  unsigned int v14; // ebx
+  unsigned int v11; // ebx
   PMDL PagesForMdl; // rax
   PVOID MappedSystemVa; // rbx
 
@@ -51,7 +51,7 @@ __int64 __fastcall PpmHeteroInitializeHgsSupport(__int64 a1, __int64 a2, __int64
         __writemsr(0x17D1u, 1uLL);
         PpmHeteroHgsInterface = (__int64)MappedSystemVa;
         qword_140CFCE28 = (__int64)PpmHeteroHgsUpdateDpcRoutine;
-        v14 = 0;
+        v11 = 0;
         LODWORD(PpmHeteroHgsUpdateDpc) = 787;
         PpmHeteroHgsUpdateWorkItem.WorkerRoutine = (void (__fastcall *)(void *))PpmHeteroHgsUpdateWorker;
         qword_140CFCE30 = 0LL;
@@ -61,17 +61,17 @@ __int64 __fastcall PpmHeteroInitializeHgsSupport(__int64 a1, __int64 a2, __int64
         PpmHeteroHgsUpdateWorkItem.List.Flink = 0LL;
         PpmHeteroHgsTableMdl = (__int64)p_Next;
         PpmHeteroHgsEnabled = 1;
-        return v14;
+        return v11;
       }
-      v14 = -1073741670;
+      v11 = -1073741670;
     }
     else
     {
-      v14 = -1073741637;
+      v11 = -1073741637;
     }
     if ( p_Next )
     {
-      MiFreePagesFromMdl((ULONG_PTR)p_Next, 0, a3);
+      MiFreePagesFromMdl((ULONG_PTR)p_Next, 0);
       ExFreePoolWithTag(p_Next, 0);
     }
   }
@@ -79,5 +79,5 @@ __int64 __fastcall PpmHeteroInitializeHgsSupport(__int64 a1, __int64 a2, __int64
   {
     return (unsigned int)-1073741637;
   }
-  return v14;
+  return v11;
 }

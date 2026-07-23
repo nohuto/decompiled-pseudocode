@@ -5,8 +5,8 @@
  * Callees:
  *     RtlAllocateHeap @ 0x18000F2A0 (RtlAllocateHeap.c)
  *     RtlFreeHeap @ 0x180017E40 (RtlFreeHeap.c)
- *     __security_check_cookie @ 0x18008FEC0 (__security_check_cookie.c)
- *     NtQuerySystemInformation @ 0x1800A09A0 (NtQuerySystemInformation.c)
+ *     __security_check_cookie @ 0x18008FED0 (__security_check_cookie.c)
+ *     NtQuerySystemInformation @ 0x1800A09C0 (NtQuerySystemInformation.c)
  */
 
 __int64 __fastcall RtlQueryModuleInformation(unsigned int *a1, int a2, __int64 a3)
@@ -49,11 +49,7 @@ LABEL_8:
   for ( i = 304; ; i = ReturnLength[0] )
   {
     ReturnLength[0] = 0;
-    v10 = NtQuerySystemInformation(
-            SystemProcessorPerformanceInformation|SystemTimeOfDayInformation,
-            Heap,
-            i,
-            ReturnLength);
+    v10 = NtQuerySystemInformation(SystemModuleInformation, Heap, i, ReturnLength);
     v11 = v10;
     if ( ((v10 + 0x80000000) & 0x80000000) == 0 && v10 != -1073741820 )
       break;
@@ -118,15 +114,12 @@ LABEL_30:
       goto LABEL_30;
     }
     if ( Heap != (unsigned int *)SystemInformation )
-      RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, (unsigned __int64)Heap);
-    Heap = (unsigned int *)RtlAllocateHeap(
-                             (__int64)NtCurrentPeb()->ProcessHeap,
-                             NtdllBaseTag + 1572864,
-                             ReturnLength[0]);
+      RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, Heap);
+    Heap = (unsigned int *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, NtdllBaseTag + 1572864, ReturnLength[0]);
     if ( !Heap )
       return 3221225626LL;
   }
   if ( Heap != (unsigned int *)SystemInformation )
-    RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, (unsigned __int64)Heap);
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, Heap);
   return v11;
 }

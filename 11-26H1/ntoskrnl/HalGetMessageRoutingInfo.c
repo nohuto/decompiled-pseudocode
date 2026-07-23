@@ -1,10 +1,10 @@
 /*
- * XREFs of HalGetMessageRoutingInfo @ 0x1404254A0
+ * XREFs of HalGetMessageRoutingInfo @ 0x140432590
  * Callers:
- *     IopConnectMessageBasedInterrupt @ 0x140A990F0 (IopConnectMessageBasedInterrupt.c)
+ *     IopConnectMessageBasedInterrupt @ 0x140A9D270 (IopConnectMessageBasedInterrupt.c)
  * Callees:
- *     HalpInterruptAffinityIsSteerable @ 0x1404259F4 (HalpInterruptAffinityIsSteerable.c)
- *     HalpGetProcessorStateByNtIndex @ 0x140425B78 (HalpGetProcessorStateByNtIndex.c)
+ *     HalpInterruptAffinityIsSteerable @ 0x140432AF8 (HalpInterruptAffinityIsSteerable.c)
+ *     HalpGetProcessorStateByNtIndex @ 0x140432C88 (HalpGetProcessorStateByNtIndex.c)
  */
 
 __int64 __fastcall HalGetMessageRoutingInfo(__int64 a1, _DWORD *a2)
@@ -32,15 +32,17 @@ __int64 __fastcall HalGetMessageRoutingInfo(__int64 a1, _DWORD *a2)
   int v24; // r9d
   unsigned int v25; // eax
   __int64 result; // rax
-  int v27; // r10d
-  unsigned int v28; // ecx
-  unsigned __int64 v29; // rdx
+  __int64 v27; // rax
+  int v28; // r10d
+  unsigned int v29; // ecx
+  unsigned __int64 v30; // rdx
   int i; // eax
-  unsigned int v31; // ecx
-  char v32; // [rsp+80h] [rbp+40h] BYREF
+  unsigned int v32; // ecx
+  __int64 v33; // rax
+  char v34; // [rsp+80h] [rbp+40h] BYREF
 
   v2 = *(_DWORD *)a1;
-  v32 = 0;
+  v34 = 0;
   v5 = 0;
   if ( v2 > 1 )
   {
@@ -51,7 +53,7 @@ __int64 __fastcall HalGetMessageRoutingInfo(__int64 a1, _DWORD *a2)
   v7 = *v6;
   if ( !*v6 || (v8 = 1, ((v7 - 1) & v7) != 0) )
     v8 = 0;
-  IsSteerable = HalpInterruptAffinityIsSteerable(v6, &v32);
+  IsSteerable = HalpInterruptAffinityIsSteerable(v6, &v34);
   if ( IsSteerable < 0 )
   {
     HalpInterruptLastProblemController = 0LL;
@@ -66,7 +68,7 @@ __int64 __fastcall HalGetMessageRoutingInfo(__int64 a1, _DWORD *a2)
   v11 = *(unsigned __int16 *)(a1 + 24);
   if ( v10 == 1 )
   {
-    if ( !v8 && !v32 )
+    if ( !v8 && !v34 )
     {
       HalpInterruptLastProblem = 21;
       HalpInterruptLastProblemStatus = -1073741811;
@@ -76,21 +78,21 @@ __int64 __fastcall HalGetMessageRoutingInfo(__int64 a1, _DWORD *a2)
     v19 = v11 + 1;
     while ( !v7 )
     {
-      v11 = (unsigned __int16)(v11 + 1);
-      if ( (unsigned int)v11 >= v19 )
+      v27 = (unsigned __int16)(v11 + 1);
+      v11 = (unsigned __int16)v27;
+      if ( (unsigned int)v27 >= v19 )
       {
         v23 = -1073741275;
         goto LABEL_86;
       }
-      v7 = *(_QWORD *)(8 * v11 + 8);
+      v7 = *(_QWORD *)(8 * v27 + 8);
     }
     _BitScanForward64((unsigned __int64 *)&v20, v7);
     v21 = v7 & ~(1LL << v20);
-    v22 = *((unsigned int *)&KiSupervisorXStateFeaturesLock.WaitBlock[2].Thread->Header.Lock
-          + 64 * (unsigned __int16)v11
+    v22 = *((unsigned int *)&KiSupervisorXStateFeaturesLock.SchedulerApc.ApcListEntry.Flink[16 * (unsigned __int16)v11].Flink
           + (unsigned __int8)v20);
     v23 = 0;
-    if ( v32 )
+    if ( v34 )
     {
 LABEL_72:
       while ( v23 >= 0 )
@@ -107,16 +109,16 @@ LABEL_72:
           {
             _BitScanForward64((unsigned __int64 *)&v20, v21);
             v21 &= ~(1LL << v20);
-            v22 = *((unsigned int *)&KiSupervisorXStateFeaturesLock.WaitBlock[2].Thread->Header.Lock
-                  + 64 * (unsigned __int16)v11
+            v22 = *((unsigned int *)&KiSupervisorXStateFeaturesLock.SchedulerApc.ApcListEntry.Flink[16 * (unsigned __int16)v11].Flink
                   + (unsigned __int8)v20);
             v23 = 0;
             goto LABEL_72;
           }
-          v11 = (unsigned __int16)(v11 + 1);
-          if ( (unsigned int)v11 >= (unsigned int)v20 )
+          v33 = (unsigned __int16)(v11 + 1);
+          v11 = (unsigned __int16)v33;
+          if ( (unsigned int)v33 >= (unsigned int)v20 )
             break;
-          v21 = *(_QWORD *)(8 * v11 + 8);
+          v21 = *(_QWORD *)(8 * v33 + 8);
         }
         v23 = -1073741275;
       }
@@ -156,8 +158,7 @@ LABEL_61:
           {
             _BitScanForward64(&v14, v7);
             v7 &= ~(1LL << v14);
-            v5 = *((_DWORD *)&KiSupervisorXStateFeaturesLock.WaitBlock[2].Thread->Header.Lock
-                 + 64 * (unsigned __int16)v11
+            v5 = *((_DWORD *)&KiSupervisorXStateFeaturesLock.SchedulerApc.ApcListEntry.Flink[16 * (unsigned __int16)v11].Flink
                  + (unsigned __int8)v14);
             v15 = 0;
             goto LABEL_12;
@@ -190,7 +191,7 @@ LABEL_13:
             break;
           if ( v16 != *(_DWORD *)(HalpInterruptTargets + 24LL * v5 + 8) )
           {
-            if ( !v32 )
+            if ( !v34 )
             {
               HalpInterruptLastProblemLine = 1448;
               goto LABEL_39;
@@ -205,16 +206,16 @@ LABEL_18:
             {
               _BitScanForward64(&v18, v7);
               v7 &= ~(1LL << v18);
-              v5 = *((_DWORD *)&KiSupervisorXStateFeaturesLock.WaitBlock[2].Thread->Header.Lock
-                   + 64 * (unsigned __int16)v11
+              v5 = *((_DWORD *)&KiSupervisorXStateFeaturesLock.SchedulerApc.ApcListEntry.Flink[16
+                                                                                             * (unsigned __int16)v11].Flink
                    + (unsigned __int8)v18);
               v15 = 0;
               goto LABEL_13;
             }
-            v11 = (unsigned __int16)(v11 + 1);
-            if ( (unsigned int)v11 >= v17 )
+            LOWORD(v11) = v11 + 1;
+            if ( (unsigned __int16)v11 >= v17 )
               break;
-            v7 = *(_QWORD *)(8 * v11 + 8);
+            v7 = *(_QWORD *)(8LL * (unsigned __int16)v11 + 8);
           }
           v15 = -1073741275;
         }
@@ -243,16 +244,16 @@ LABEL_41:
     HalpInterruptLastProblemFile = (__int64)"minkernel\\hals\\lib\\interrupts\\common\\connect.c";
     return 3221225485LL;
   }
-  v27 = 0;
-  v28 = v11 + 1;
+  v28 = 0;
+  v29 = v11 + 1;
   while ( 1 )
   {
     if ( v7 )
       goto LABEL_53;
-    v11 = (unsigned __int16)(v11 + 1);
-    if ( (unsigned int)v11 >= v28 )
+    LOWORD(v11) = v11 + 1;
+    if ( (unsigned __int16)v11 >= v29 )
       break;
-    v7 = *(_QWORD *)(8 * v11 + 8);
+    v7 = *(_QWORD *)(8LL * (unsigned __int16)v11 + 8);
   }
 LABEL_88:
   for ( i = -1073741275; i >= 0; i = 0 )
@@ -269,23 +270,22 @@ LABEL_88:
       HalpInterruptLastProblemLine = 1350;
       goto LABEL_39;
     }
-    v27 |= *(_DWORD *)(HalpInterruptTargets + 24LL * v5 + 8);
-    v31 = (unsigned __int16)v11 + 1;
+    v28 |= *(_DWORD *)(HalpInterruptTargets + 24LL * v5 + 8);
+    v32 = (unsigned __int16)v11 + 1;
     while ( !v7 )
     {
-      v11 = (unsigned __int16)(v11 + 1);
-      if ( (unsigned int)v11 >= v31 )
+      LOWORD(v11) = v11 + 1;
+      if ( (unsigned __int16)v11 >= v32 )
         goto LABEL_88;
-      v7 = *(_QWORD *)(8 * v11 + 8);
+      v7 = *(_QWORD *)(8LL * (unsigned __int16)v11 + 8);
     }
 LABEL_53:
-    _BitScanForward64(&v29, v7);
-    v7 &= ~(1LL << v29);
-    v5 = *((_DWORD *)&KiSupervisorXStateFeaturesLock.WaitBlock[2].Thread->Header.Lock
-         + 64 * (unsigned __int16)v11
-         + (unsigned __int8)v29);
+    _BitScanForward64(&v30, v7);
+    v7 &= ~(1LL << v30);
+    v5 = *((_DWORD *)&KiSupervisorXStateFeaturesLock.SchedulerApc.ApcListEntry.Flink[16 * (unsigned __int16)v11].Flink
+         + (unsigned __int8)v30);
   }
-  if ( !v27 )
+  if ( !v28 )
     return 3221225485LL;
 LABEL_29:
   v25 = *(_DWORD *)a1;

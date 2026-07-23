@@ -1,18 +1,18 @@
 /*
- * XREFs of IopDequeueIrpFromThread @ 0x140353760
+ * XREFs of IopDequeueIrpFromThread @ 0x14035E4B0
  * Callers:
- *     IopfCompleteRequest @ 0x1402434C0 (IopfCompleteRequest.c)
- *     IopCompleteRequest @ 0x140342B20 (IopCompleteRequest.c)
- *     IopCopyCompleteReadRequest @ 0x1403F1A30 (IopCopyCompleteReadRequest.c)
- *     IopCloseFile @ 0x1406FCA20 (IopCloseFile.c)
- *     IopParseDevice @ 0x140700F60 (IopParseDevice.c)
- *     IopDeleteFile @ 0x140703760 (IopDeleteFile.c)
- *     IoCancelFileOpen @ 0x140893620 (IoCancelFileOpen.c)
+ *     IopfCompleteRequest @ 0x1402E7D10 (IopfCompleteRequest.c)
+ *     IopCompleteRequest @ 0x14034D870 (IopCompleteRequest.c)
+ *     IopCopyCompleteReadRequest @ 0x1403F1900 (IopCopyCompleteReadRequest.c)
+ *     IopCloseFile @ 0x140713E00 (IopCloseFile.c)
+ *     IopParseDevice @ 0x140718340 (IopParseDevice.c)
+ *     IopDeleteFile @ 0x14071AB40 (IopDeleteFile.c)
+ *     IoCancelFileOpen @ 0x140893780 (IoCancelFileOpen.c)
  * Callees:
- *     KxWaitForSpinLockAndAcquire @ 0x1403582C0 (KxWaitForSpinLockAndAcquire.c)
+ *     KxWaitForSpinLockAndAcquire @ 0x140363010 (KxWaitForSpinLockAndAcquire.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     KiAcquireSpinLockInstrumented @ 0x14051688C (KiAcquireSpinLockInstrumented.c)
- *     KiReleaseSpinLockInstrumented @ 0x140516998 (KiReleaseSpinLockInstrumented.c)
+ *     KiAcquireSpinLockInstrumented @ 0x140516ACC (KiAcquireSpinLockInstrumented.c)
+ *     KiReleaseSpinLockInstrumented @ 0x140516BD8 (KiReleaseSpinLockInstrumented.c)
  */
 
 _QWORD *__fastcall IopDequeueIrpFromThread(_QWORD *a1)

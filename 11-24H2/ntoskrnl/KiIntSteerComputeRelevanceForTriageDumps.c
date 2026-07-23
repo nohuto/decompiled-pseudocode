@@ -1,7 +1,7 @@
 /*
- * XREFs of KiIntSteerComputeRelevanceForTriageDumps @ 0x1405C4464
+ * XREFs of KiIntSteerComputeRelevanceForTriageDumps @ 0x1405C1A84
  * Callers:
- *     KiIntSteerCallbackRecordTriageCallbackInterruptObject @ 0x1405C43A0 (KiIntSteerCallbackRecordTriageCallbackInterruptObject.c)
+ *     KiIntSteerCallbackRecordTriageCallbackInterruptObject @ 0x1405C19C0 (KiIntSteerCallbackRecordTriageCallbackInterruptObject.c)
  * Callees:
  *     <none>
  */
@@ -13,7 +13,7 @@ __int64 __fastcall KiIntSteerComputeRelevanceForTriageDumps(__int64 a1)
   unsigned __int64 v3; // rdi
   unsigned __int64 v4; // rsi
   unsigned __int64 v5; // rbx
-  unsigned int v6; // edx
+  ULONG v6; // edx
   unsigned __int64 v7; // r11
   unsigned __int64 v8; // r9
   unsigned __int64 v9; // r10

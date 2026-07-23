@@ -1,12 +1,12 @@
 /*
- * XREFs of MiInitializeSelfmap @ 0x14040D5C8
+ * XREFs of MiInitializeSelfmap @ 0x14042A4F4
  * Callers:
- *     MiAllocateTopLevelPage @ 0x140ABD7B0 (MiAllocateTopLevelPage.c)
- *     MiAllocateProcessShadow @ 0x140ABD950 (MiAllocateProcessShadow.c)
+ *     MiAllocateTopLevelPage @ 0x140ABFDA0 (MiAllocateTopLevelPage.c)
+ *     MiAllocateProcessShadow @ 0x140ABFF40 (MiAllocateProcessShadow.c)
  * Callees:
- *     MiMapPageInHyperSpaceWorker @ 0x140287EE0 (MiMapPageInHyperSpaceWorker.c)
- *     MiMakeValidPte @ 0x1402DA020 (MiMakeValidPte.c)
- *     MiUnmapPageInHyperSpaceWorker @ 0x14040DF60 (MiUnmapPageInHyperSpaceWorker.c)
+ *     MiMapPageInHyperSpaceWorker @ 0x140287440 (MiMapPageInHyperSpaceWorker.c)
+ *     MiMakeValidPte @ 0x1402BBDE0 (MiMakeValidPte.c)
+ *     MiUnmapPageInHyperSpaceWorker @ 0x14042AE90 (MiUnmapPageInHyperSpaceWorker.c)
  */
 
 __int64 __fastcall MiInitializeSelfmap(__int64 a1)

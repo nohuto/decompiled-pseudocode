@@ -3,9 +3,9 @@
  * Callers:
  *     <none>
  * Callees:
- *     IoAddTriageDumpDataBlock @ 0x1403D99B4 (IoAddTriageDumpDataBlock.c)
+ *     sub_1403D99B4 @ 0x1403D99B4 (sub_1403D99B4.c)
  *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
- *     IopLegacyResourceAllocation @ 0x14081F570 (IopLegacyResourceAllocation.c)
+ *     sub_14081F570 @ 0x14081F570 (sub_14081F570.c)
  */
 
 NTSTATUS __stdcall IoAssignResources(
@@ -37,23 +37,23 @@ NTSTATUS __stdcall IoAssignResources(
       {
         if ( DriverObject )
         {
-          IoAddTriageDumpDataBlock((ULONG)DriverObject, (PVOID)(unsigned int)DriverObject->Size);
+          sub_1403D99B4((ULONG)DriverObject, (PVOID)(unsigned int)DriverObject->Size);
           if ( DriverObject->DriverName.Length )
           {
-            IoAddTriageDumpDataBlock((_DWORD)DriverObject + 56, (PVOID)2);
-            IoAddTriageDumpDataBlock((ULONG)DriverObject->DriverName.Buffer, (PVOID)DriverObject->DriverName.Length);
+            sub_1403D99B4((_DWORD)DriverObject + 56, (PVOID)2);
+            sub_1403D99B4((ULONG)DriverObject->DriverName.Buffer, (PVOID)DriverObject->DriverName.Length);
           }
         }
-        IoAddTriageDumpDataBlock((ULONG)DeviceObject, (PVOID)DeviceObject->Size);
+        sub_1403D99B4((ULONG)DeviceObject, (PVOID)DeviceObject->Size);
         v9 = DeviceObject->DriverObject;
         if ( v9 )
         {
-          IoAddTriageDumpDataBlock((ULONG)v9, (PVOID)(unsigned int)v9->Size);
+          sub_1403D99B4((ULONG)v9, (PVOID)(unsigned int)v9->Size);
           p_DriverName = &DeviceObject->DriverObject->DriverName;
           if ( p_DriverName->Length )
           {
-            IoAddTriageDumpDataBlock((ULONG)p_DriverName, (PVOID)2);
-            IoAddTriageDumpDataBlock(
+            sub_1403D99B4((ULONG)p_DriverName, (PVOID)2);
+            sub_1403D99B4(
               (ULONG)DeviceObject->DriverObject->DriverName.Buffer,
               (PVOID)DeviceObject->DriverObject->DriverName.Length);
           }
@@ -62,18 +62,18 @@ NTSTATUS __stdcall IoAssignResources(
         if ( v11 )
         {
           v12 = (unsigned __int16 *)(v11 + 40);
-          IoAddTriageDumpDataBlock((ULONG)v11, (PVOID)0x310);
+          sub_1403D99B4((ULONG)v11, (PVOID)0x310);
           if ( *v12 )
           {
-            IoAddTriageDumpDataBlock((ULONG)v12, (PVOID)2);
-            IoAddTriageDumpDataBlock(*((_QWORD *)v12 + 1), (PVOID)*v12);
+            sub_1403D99B4((ULONG)v12, (PVOID)2);
+            sub_1403D99B4(*((_QWORD *)v12 + 1), (PVOID)*v12);
           }
           DeviceObjectExtension = DeviceObject->DeviceObjectExtension;
           v14 = (char *)DeviceObjectExtension->DeviceNode + 56;
           if ( *v14 )
           {
-            IoAddTriageDumpDataBlock((ULONG)v14, (PVOID)2);
-            IoAddTriageDumpDataBlock(
+            sub_1403D99B4((ULONG)v14, (PVOID)2);
+            sub_1403D99B4(
               *((_QWORD *)DeviceObject->DeviceObjectExtension->DeviceNode + 8),
               (PVOID)*((unsigned __int16 *)DeviceObject->DeviceObjectExtension->DeviceNode + 28));
             DeviceObjectExtension = DeviceObject->DeviceObjectExtension;
@@ -84,9 +84,9 @@ NTSTATUS __stdcall IoAssignResources(
             v16 = (_WORD *)(v15 + 56);
             if ( *v16 )
             {
-              IoAddTriageDumpDataBlock((ULONG)v16, (PVOID)2);
+              sub_1403D99B4((ULONG)v16, (PVOID)2);
               v17 = *((_QWORD *)DeviceObject->DeviceObjectExtension->DeviceNode + 2);
-              IoAddTriageDumpDataBlock(*(_QWORD *)(v17 + 64), (PVOID)*(unsigned __int16 *)(v17 + 56));
+              sub_1403D99B4(*(_QWORD *)(v17 + 64), (PVOID)*(unsigned __int16 *)(v17 + 56));
             }
           }
         }
@@ -99,10 +99,5 @@ NTSTATUS __stdcall IoAssignResources(
     v18 = 0LL;
   if ( AllocatedResources )
     *AllocatedResources = 0LL;
-  return IopLegacyResourceAllocation(
-           2,
-           (__int64)DriverObject,
-           (__int64)DeviceObject,
-           (__int64)v18,
-           (const void **)AllocatedResources);
+  return sub_14081F570(2, (__int64)DriverObject, (__int64)DeviceObject, (__int64)v18, (const void **)AllocatedResources);
 }

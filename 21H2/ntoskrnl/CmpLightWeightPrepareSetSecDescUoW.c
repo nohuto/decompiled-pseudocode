@@ -1,13 +1,13 @@
 /*
- * XREFs of CmpLightWeightPrepareSetSecDescUoW @ 0x14087FAF0
+ * XREFs of CmpLightWeightPrepareSetSecDescUoW @ 0x14087FC50
  * Callers:
- *     CmpProcessLightWeightUOW @ 0x1406A3E64 (CmpProcessLightWeightUOW.c)
+ *     CmpProcessLightWeightUOW @ 0x1405E1934 (CmpProcessLightWeightUOW.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     CmpGetSecurityDescriptorNode @ 0x14066DB50 (CmpGetSecurityDescriptorNode.c)
- *     HvMarkCellDirty @ 0x14087BCE8 (HvMarkCellDirty.c)
- *     CmpLightWeightCleanupSetSecDescUoW @ 0x14087EB18 (CmpLightWeightCleanupSetSecDescUoW.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     CmpGetSecurityDescriptorNode @ 0x140662970 (CmpGetSecurityDescriptorNode.c)
+ *     HvMarkCellDirty @ 0x14087BE48 (HvMarkCellDirty.c)
+ *     CmpLightWeightCleanupSetSecDescUoW @ 0x14087EC78 (CmpLightWeightCleanupSetSecDescUoW.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall CmpLightWeightPrepareSetSecDescUoW(__int64 a1)

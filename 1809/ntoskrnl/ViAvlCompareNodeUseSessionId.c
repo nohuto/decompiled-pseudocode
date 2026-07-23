@@ -1,12 +1,12 @@
 /*
- * XREFs of ViAvlCompareNodeUseSessionId @ 0x140134C30
+ * XREFs of ViAvlCompareNodeUseSessionId @ 0x140134D00
  * Callers:
  *     <none>
  * Callees:
- *     ViAvlCompareNode @ 0x140134C80 (ViAvlCompareNode.c)
+ *     ViAvlCompareNode @ 0x140134D50 (ViAvlCompareNode.c)
  */
 
-RTL_GENERIC_COMPARE_RESULTS __fastcall ViAvlCompareNodeUseSessionId(struct _RTL_AVL_TABLE *a1, _DWORD *a2, _DWORD *a3)
+RTL_GENERIC_COMPARE_RESULTS __fastcall ViAvlCompareNodeUseSessionId(_RTL_AVL_TABLE *a1, _DWORD *a2, _DWORD *a3)
 {
   RTL_GENERIC_COMPARE_RESULTS result; // eax
   unsigned int v6; // ecx

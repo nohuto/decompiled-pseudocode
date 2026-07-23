@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlOemToUnicodeN @ 0x1406F7110
+ * XREFs of RtlOemToUnicodeN @ 0x1406F83B0
  * Callers:
- *     FsRtlNotifyUpdateBuffer @ 0x1406A1AB4 (FsRtlNotifyUpdateBuffer.c)
- *     RtlOemStringToUnicodeString @ 0x1406F7030 (RtlOemStringToUnicodeString.c)
- *     RtlOemStringToCountedUnicodeString @ 0x14088FFB0 (RtlOemStringToCountedUnicodeString.c)
+ *     FsRtlNotifyUpdateBuffer @ 0x1406A2D54 (FsRtlNotifyUpdateBuffer.c)
+ *     RtlOemStringToUnicodeString @ 0x1406F82D0 (RtlOemStringToUnicodeString.c)
+ *     RtlOemStringToCountedUnicodeString @ 0x140891210 (RtlOemStringToCountedUnicodeString.c)
  * Callees:
- *     RtlUTF8ToUnicodeN @ 0x1406BD870 (RtlUTF8ToUnicodeN.c)
+ *     RtlUTF8ToUnicodeN @ 0x1406BEB10 (RtlUTF8ToUnicodeN.c)
  */
 
 NTSTATUS __stdcall RtlOemToUnicodeN(

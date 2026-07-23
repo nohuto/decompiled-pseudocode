@@ -7,7 +7,7 @@
  *     RtlLockHeap @ 0x180019CB0 (RtlLockHeap.c)
  */
 
-__int64 __fastcall sub_18007F060(__int64 a1, __int64 a2)
+__int64 __fastcall sub_18007F060(void *a1, __int64 a2)
 {
   if ( a2 )
     RtlLockHeap(a1);

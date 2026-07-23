@@ -1,21 +1,21 @@
 /*
- * XREFs of MiCountSharedPages @ 0x14010AC70
+ * XREFs of MiCountSharedPages @ 0x14010ACF0
  * Callers:
  *     MiDeletePartialVad @ 0x140025850 (MiDeletePartialVad.c)
- *     MiSetProtectionOnSection @ 0x140071E80 (MiSetProtectionOnSection.c)
- *     MiPrepareImagePagesForHotPatch @ 0x1402B9994 (MiPrepareImagePagesForHotPatch.c)
+ *     MiSetProtectionOnSection @ 0x140071E70 (MiSetProtectionOnSection.c)
+ *     MiPrepareImagePagesForHotPatch @ 0x1402B9B84 (MiPrepareImagePagesForHotPatch.c)
  * Callees:
  *     MiGetAnyMultiplexedVm @ 0x140028884 (MiGetAnyMultiplexedVm.c)
  *     MiIsPrototypePteVadLookup @ 0x14002D250 (MiIsPrototypePteVadLookup.c)
  *     MiGetProtoPteAddress @ 0x140042770 (MiGetProtoPteAddress.c)
  *     MiFastLockLeafPageTable @ 0x140045BC0 (MiFastLockLeafPageTable.c)
  *     MiUnlockWorkingSetShared @ 0x140046970 (MiUnlockWorkingSetShared.c)
- *     MiWalkPageTables @ 0x14006E940 (MiWalkPageTables.c)
- *     ExAcquireSpinLockShared @ 0x14009D7C0 (ExAcquireSpinLockShared.c)
- *     MiUnlockPageTableInternal @ 0x140104A90 (MiUnlockPageTableInternal.c)
- *     MiPteNeedsCommitCharge @ 0x14010B0E4 (MiPteNeedsCommitCharge.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     memset @ 0x1401D1880 (memset.c)
+ *     MiWalkPageTables @ 0x14006E930 (MiWalkPageTables.c)
+ *     ExAcquireSpinLockShared @ 0x14009D700 (ExAcquireSpinLockShared.c)
+ *     MiUnlockPageTableInternal @ 0x140104B10 (MiUnlockPageTableInternal.c)
+ *     MiPteNeedsCommitCharge @ 0x14010B164 (MiPteNeedsCommitCharge.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     memset @ 0x1401D1980 (memset.c)
  */
 
 __int64 __fastcall MiCountSharedPages(__int64 a1, unsigned __int64 a2, unsigned __int64 a3)
@@ -78,7 +78,7 @@ __int64 __fastcall MiCountSharedPages(__int64 a1, unsigned __int64 a2, unsigned 
   else
   {
     if ( v8 == 2 )
-      v9 = &dword_14043B700;
+      v9 = &dword_14043C7C0;
     else
       v9 = (LONG *)(v7 + 192);
     v10 = ExAcquireSpinLockShared(v9);
@@ -115,7 +115,7 @@ LABEL_9:
     while ( v15 >= 0xFFFFF68000000000uLL );
     v7 = v38;
   }
-  if ( v15 < 0xFFFF800000000000uLL || v15 >= qword_14043BAC0 && v15 <= qword_14043A530 )
+  if ( v15 < 0xFFFF800000000000uLL || v15 >= qword_14043CB80 && v15 <= qword_14043B5F0 )
     AnyMultiplexedVm = (char *)&KeGetCurrentThread()->ApcState.Process[1].IdealNode[12];
   else
     AnyMultiplexedVm = MiGetAnyMultiplexedVm(1);
@@ -240,8 +240,8 @@ LABEL_9:
         {
           if ( !MiIsPrototypePteVadLookup(v26) )
           {
-            if ( qword_14043A0C0 && (v26 & 0x10) == 0 )
-              v26 &= ~qword_14043A0C0;
+            if ( qword_14043B180 && (v26 & 0x10) == 0 )
+              v26 &= ~qword_14043B180;
             if ( v26 >> 16 != MiGetProtoPteAddress(a1, v25 >> 12, 0, &v44)
               || (*(_DWORD *)(a1 + 48) & 7) == 2 && (unsigned int)MiPteNeedsCommitCharge(a1, a2, v18, v19) != 1 )
             {

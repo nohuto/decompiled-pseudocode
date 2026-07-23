@@ -1,21 +1,21 @@
 /*
- * XREFs of MiPrefetchControlArea @ 0x1407DC90C
+ * XREFs of MiPrefetchControlArea @ 0x1407DCBDC
  * Callers:
- *     MiWalkEntireImage @ 0x1402DAFE0 (MiWalkEntireImage.c)
- *     MiSetPagesModified @ 0x1406288FC (MiSetPagesModified.c)
+ *     MiWalkEntireImage @ 0x1402DB270 (MiWalkEntireImage.c)
+ *     MiSetPagesModified @ 0x140628E4C (MiSetPagesModified.c)
  *     MiValidateSectionCreate @ 0x1406ABE8C (MiValidateSectionCreate.c)
- *     MiLoadSectionIntoVsmEnclave @ 0x140A3E498 (MiLoadSectionIntoVsmEnclave.c)
+ *     MiLoadSectionIntoVsmEnclave @ 0x140A3E748 (MiLoadSectionIntoVsmEnclave.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     KeAbPreAcquire @ 0x140230EE0 (KeAbPreAcquire.c)
- *     MiPfCompletePrefetchIos @ 0x1402A3A40 (MiPfCompletePrefetchIos.c)
- *     MiDereferenceInPageAutoBoostLock @ 0x1402BD418 (MiDereferenceInPageAutoBoostLock.c)
- *     MiGetInPageAutoBoostLock @ 0x1402BD448 (MiGetInPageAutoBoostLock.c)
- *     KeAbPostReleaseEx @ 0x1402BD4F0 (KeAbPostReleaseEx.c)
- *     MiPfPutPagesInTransition @ 0x1402DE040 (MiPfPutPagesInTransition.c)
- *     MiReleaseReadListResources @ 0x140721350 (MiReleaseReadListResources.c)
- *     MiPfExecuteReadList @ 0x1407240F4 (MiPfExecuteReadList.c)
- *     MiPfPrepareSequentialReadList @ 0x1407446E0 (MiPfPrepareSequentialReadList.c)
+ *     KeLeaveCriticalRegionThread @ 0x14022F7F0 (KeLeaveCriticalRegionThread.c)
+ *     KeAbPreAcquire @ 0x140230FD0 (KeAbPreAcquire.c)
+ *     MiPfCompletePrefetchIos @ 0x1402A3CD0 (MiPfCompletePrefetchIos.c)
+ *     MiDereferenceInPageAutoBoostLock @ 0x1402BD6A8 (MiDereferenceInPageAutoBoostLock.c)
+ *     MiGetInPageAutoBoostLock @ 0x1402BD6D8 (MiGetInPageAutoBoostLock.c)
+ *     KeAbPostReleaseEx @ 0x1402BD780 (KeAbPostReleaseEx.c)
+ *     MiPfPutPagesInTransition @ 0x1402DE2D0 (MiPfPutPagesInTransition.c)
+ *     MiReleaseReadListResources @ 0x140721550 (MiReleaseReadListResources.c)
+ *     MiPfExecuteReadList @ 0x1407242F4 (MiPfExecuteReadList.c)
+ *     MiPfPrepareSequentialReadList @ 0x1407448D0 (MiPfPrepareSequentialReadList.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

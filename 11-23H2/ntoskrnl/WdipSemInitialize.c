@@ -1,13 +1,13 @@
 /*
- * XREFs of WdipSemInitialize @ 0x14082F9F8
+ * XREFs of WdipSemInitialize @ 0x14082FCF8
  * Callers:
  *     EtwpInitialize @ 0x140B47A50 (EtwpInitialize.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     ExReleasePushLockEx @ 0x140231190 (ExReleasePushLockEx.c)
- *     WdipSemCleanStart @ 0x14082FA50 (WdipSemCleanStart.c)
- *     WdipSemInitializeGlobalState @ 0x14083294C (WdipSemInitializeGlobalState.c)
+ *     KeLeaveCriticalRegionThread @ 0x14022F7F0 (KeLeaveCriticalRegionThread.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140231120 (ExAcquirePushLockExclusiveEx.c)
+ *     ExReleasePushLockEx @ 0x140231280 (ExReleasePushLockEx.c)
+ *     WdipSemCleanStart @ 0x14082FD50 (WdipSemCleanStart.c)
+ *     WdipSemInitializeGlobalState @ 0x140832C4C (WdipSemInitializeGlobalState.c)
  */
 
 _QWORD *WdipSemInitialize()

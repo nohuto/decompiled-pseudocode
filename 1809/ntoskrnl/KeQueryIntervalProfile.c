@@ -1,10 +1,10 @@
 /*
- * XREFs of KeQueryIntervalProfile @ 0x1406D6C14
+ * XREFs of KeQueryIntervalProfile @ 0x1406D7EB4
  * Callers:
- *     NtQueryIntervalProfile @ 0x1406D6BB0 (NtQueryIntervalProfile.c)
- *     KeSetIntervalProfile @ 0x1406D6CC0 (KeSetIntervalProfile.c)
+ *     NtQueryIntervalProfile @ 0x1406D7E50 (NtQueryIntervalProfile.c)
+ *     KeSetIntervalProfile @ 0x1406D7F60 (KeSetIntervalProfile.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall KeQueryIntervalProfile(int a1)
@@ -17,7 +17,7 @@ __int64 __fastcall KeQueryIntervalProfile(int a1)
   if ( a1 == 1 )
     return (unsigned int)KiProfileAlignmentFixupInterval;
   v2 = a1;
-  if ( ((int (__fastcall *)(__int64, __int64, int *, char *))off_140400458[0])(1LL, 24LL, &v2, &v5) >= 0 && v3 )
+  if ( ((int (__fastcall *)(__int64, __int64, int *, char *))off_140401458[0])(1LL, 24LL, &v2, &v5) >= 0 && v3 )
     return v4;
   else
     return 0LL;

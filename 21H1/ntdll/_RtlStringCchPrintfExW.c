@@ -9,82 +9,87 @@
  *     RtlStringExHandleFillBehindNullW @ 0x4B36260B (RtlStringExHandleFillBehindNullW.c)
  */
 
-int RtlStringCchPrintfExW(wchar_t *Buffer, int a2, wchar_t **a3, unsigned int *a4, int a5, wchar_t *Format, ...)
+int __cdecl RtlStringCchPrintfExW(
+        wchar_t *Buffer,
+        int a2,
+        wchar_t **a3,
+        unsigned int *a4,
+        int a5,
+        int *a6,
+        wchar_t Format)
 {
-  int v6; // ecx
-  int v7; // esi
-  wchar_t *v8; // edx
-  wchar_t *v9; // eax
-  unsigned int v10; // ecx
-  int v11; // eax
-  unsigned int v13; // [esp+Ch] [ebp-Ch]
-  int v14; // [esp+10h] [ebp-8h] BYREF
-  int v15; // [esp+14h] [ebp-4h] BYREF
-  va_list va; // [esp+38h] [ebp+20h] BYREF
+  int v7; // ecx
+  int v8; // esi
+  wchar_t *v9; // edx
+  int *v10; // eax
+  unsigned int v11; // ecx
+  int v12; // eax
+  unsigned int v14; // [esp+Ch] [ebp-Ch]
+  int v15; // [esp+10h] [ebp-8h] BYREF
+  int v16; // [esp+14h] [ebp-4h] BYREF
 
-  va_start(va, Format);
-  v7 = RtlStringExValidateDestW(v6, a5);
-  if ( v7 < 0 )
+  v8 = RtlStringExValidateDestW(v7, a5);
+  if ( v8 < 0 )
   {
     if ( a2 )
       *Buffer = 0;
   }
   else
   {
-    v8 = Buffer;
-    v9 = Format;
-    v10 = a2;
-    v15 = (int)Buffer;
-    v14 = a2;
-    if ( (a5 & 0x100) != 0 && !Format )
-      v9 = (wchar_t *)&dword_4B285DEC;
-    v7 = 0;
+    v9 = Buffer;
+    v10 = a6;
+    v11 = a2;
+    v16 = (int)Buffer;
+    v15 = a2;
+    if ( (a5 & 0x100) != 0 && !a6 )
+      v10 = &dword_4B285DEC;
+    v8 = 0;
     if ( (a5 & 0xFFFFE000) != 0 )
     {
-      v7 = -1073741811;
+      v8 = -1073741811;
       if ( a2 )
         *Buffer = 0;
     }
     else if ( a2 )
     {
-      v14 = 0;
-      v7 = RtlStringVPrintfWorkerW(Buffer, (int)&v14, v9, va);
-      v11 = v14;
-      v10 = a2 - v14;
-      v13 = a2 - v14;
-      v14 = a2 - v14;
-      v8 = &Buffer[v11];
-      v15 = (int)v8;
-      if ( v7 >= 0 )
+      v15 = 0;
+      v8 = RtlStringVPrintfWorkerW(Buffer, (int)&v15, (int)v10, &Format);
+      v12 = v15;
+      v11 = a2 - v15;
+      v14 = a2 - v15;
+      v15 = a2 - v15;
+      v9 = &Buffer[v12];
+      v16 = (int)v9;
+      if ( v8 >= 0 )
       {
-        if ( (a5 & 0x200) == 0 || v10 <= 1 )
+        if ( (a5 & 0x200) == 0 || v11 <= 1 )
           goto LABEL_7;
         RtlStringExHandleFillBehindNullW(a5);
-        v10 = v13;
+        v11 = v14;
         goto LABEL_21;
       }
     }
     else
     {
-      if ( !*v9 )
+      if ( !*(_WORD *)v10 )
         goto LABEL_7;
-      v7 = Buffer != 0 ? -2147483643 : -1073741811;
+      v8 = Buffer != 0 ? -2147483643 : -1073741811;
     }
     if ( (a5 & 0x1C00) != 0 && a2 )
     {
-      RtlStringExHandleOtherFlagsW(Buffer, 2 * a2, v10, (int)&v15, (int)&v14, a5);
-      v10 = v14;
+      RtlStringExHandleOtherFlagsW(Buffer, 2 * a2, v11, (int)&v16, (int)&v15, a5);
+      v11 = v15;
     }
-    if ( v7 >= 0 || v7 == -2147483643 )
+    if ( v8 >= 0 || v8 == -2147483643 )
     {
 LABEL_21:
-      v8 = (wchar_t *)v15;
+      v9 = (wchar_t *)v16;
 LABEL_7:
       if ( a3 )
-        *a3 = v8;
+        *a3 = v9;
       if ( a4 )
-        *a4 = v10;
+        *a4 = v11;
     }
   }
-  return v7;
+  return v8;
 }

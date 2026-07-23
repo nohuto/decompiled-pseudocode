@@ -1,10 +1,10 @@
 /*
- * XREFs of ExpWnfValidatePubSubPreconditions @ 0x14060FA20
+ * XREFs of ExpWnfValidatePubSubPreconditions @ 0x14069F4D0
  * Callers:
- *     ExpNtUpdateWnfStateData @ 0x14060E5DC (ExpNtUpdateWnfStateData.c)
- *     NtQueryWnfStateData @ 0x14060EE80 (NtQueryWnfStateData.c)
+ *     ExpNtUpdateWnfStateData @ 0x14069E08C (ExpNtUpdateWnfStateData.c)
+ *     NtQueryWnfStateData @ 0x14069E930 (NtQueryWnfStateData.c)
  * Callees:
- *     ExpWnfCheckCallerAccess @ 0x14060FAA0 (ExpWnfCheckCallerAccess.c)
+ *     ExpWnfCheckCallerAccess @ 0x14069F550 (ExpWnfCheckCallerAccess.c)
  */
 
 __int64 __fastcall ExpWnfValidatePubSubPreconditions(

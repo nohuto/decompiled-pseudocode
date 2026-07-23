@@ -13,14 +13,14 @@
  *     sub_18002DEA4 @ 0x18002DEA4 (sub_18002DEA4.c)
  */
 
-__int64 __fastcall sub_18002A46C(__int64 a1, int a2, int a3, int a4)
+NTSTATUS __fastcall sub_18002A46C(__int64 a1, int a2, int a3, int a4)
 {
   int v8; // edi
   int v9; // ebx
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
   if ( !a4 )
-    result = RtlEnterCriticalSection((__int64)&unk_18015AAC0);
+    result = RtlEnterCriticalSection(&stru_18015AAC0);
   if ( a2 )
   {
     v8 = a2 - 1;
@@ -48,6 +48,6 @@ __int64 __fastcall sub_18002A46C(__int64 a1, int a2, int a3, int a4)
     }
   }
   if ( !a4 )
-    return RtlLeaveCriticalSection((__int64)&unk_18015AAC0);
+    return RtlLeaveCriticalSection(&stru_18015AAC0);
   return result;
 }

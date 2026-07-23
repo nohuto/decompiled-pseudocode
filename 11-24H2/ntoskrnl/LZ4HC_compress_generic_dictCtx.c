@@ -1,14 +1,14 @@
 /*
- * XREFs of LZ4HC_compress_generic_dictCtx @ 0x1405F9AC4
+ * XREFs of LZ4HC_compress_generic_dictCtx @ 0x1405F7104
  * Callers:
- *     LZ4HC_compress_generic @ 0x1405F737C (LZ4HC_compress_generic.c)
+ *     LZ4HC_compress_generic @ 0x1405F49BC (LZ4HC_compress_generic.c)
  * Callees:
- *     LZ4HC_countPattern @ 0x1406016A4 (LZ4HC_countPattern.c)
- *     LZ4HC_reverseCountPattern @ 0x140601790 (LZ4HC_reverseCountPattern.c)
- *     LZ4HC_rotatePattern @ 0x1406017D8 (LZ4HC_rotatePattern.c)
- *     LZ4HC_setExternalDict @ 0x1406017F0 (LZ4HC_setExternalDict.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     LZ4HC_countPattern @ 0x1405FECE4 (LZ4HC_countPattern.c)
+ *     LZ4HC_reverseCountPattern @ 0x1405FEDD0 (LZ4HC_reverseCountPattern.c)
+ *     LZ4HC_rotatePattern @ 0x1405FEE18 (LZ4HC_rotatePattern.c)
+ *     LZ4HC_setExternalDict @ 0x1405FEE30 (LZ4HC_setExternalDict.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 __int64 __fastcall LZ4HC_compress_generic_dictCtx(__int64 a1, char *a2, _BYTE *a3, int *a4, int a5, __int64 a6, int a7)

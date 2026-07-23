@@ -1,11 +1,11 @@
 /*
- * XREFs of MiUnlinkSubsectionWaitBlock @ 0x1401EDD58
+ * XREFs of MiUnlinkSubsectionWaitBlock @ 0x1401EDB84
  * Callers:
- *     MiChangingSubsectionProtos @ 0x1401ED268 (MiChangingSubsectionProtos.c)
- *     MiAllocateFileExtents @ 0x14065A34C (MiAllocateFileExtents.c)
+ *     MiChangingSubsectionProtos @ 0x1401ED094 (MiChangingSubsectionProtos.c)
+ *     MiAllocateFileExtents @ 0x14065A430 (MiAllocateFileExtents.c)
  * Callees:
- *     ExReleaseSpinLockExclusive @ 0x14002E9A0 (ExReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x14002EB90 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusive @ 0x14002E520 (ExReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14002E710 (ExAcquireSpinLockExclusive.c)
  */
 
 void __fastcall MiUnlinkSubsectionWaitBlock(__int64 *a1, __int64 a2, int a3)

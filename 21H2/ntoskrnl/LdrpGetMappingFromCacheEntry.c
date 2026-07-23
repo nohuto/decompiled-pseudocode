@@ -1,19 +1,19 @@
 /*
- * XREFs of LdrpGetMappingFromCacheEntry @ 0x1402A8D28
+ * XREFs of LdrpGetMappingFromCacheEntry @ 0x140226E68
  * Callers:
- *     LdrpGetAlternateResourceModuleHandleEx @ 0x1402A8B94 (LdrpGetAlternateResourceModuleHandleEx.c)
+ *     LdrpGetAlternateResourceModuleHandleEx @ 0x140226CD4 (LdrpGetAlternateResourceModuleHandleEx.c)
  * Callees:
- *     RtlImageNtHeader @ 0x14031C950 (RtlImageNtHeader.c)
+ *     RtlImageNtHeader @ 0x1403276A0 (RtlImageNtHeader.c)
  */
 
 char __fastcall LdrpGetMappingFromCacheEntry(unsigned int a1, unsigned __int64 a2, _QWORD *a3, _QWORD *a4)
 {
   unsigned __int64 v7; // rcx
   __int64 v8; // rbx
-  __int64 v9; // rdx
+  __int64 SizeOfImage; // rdx
   char result; // al
-  __int64 v11; // rax
-  __int16 v12; // cx
+  PIMAGE_NT_HEADERS v11; // rax
+  unsigned __int16 Magic; // cx
 
   if ( !a2 )
     return 0;
@@ -24,26 +24,26 @@ char __fastcall LdrpGetMappingFromCacheEntry(unsigned int a1, unsigned __int64 a
   _mm_lfence();
   v7 = (unsigned __int64)a1 << 6;
   v8 = *(_QWORD *)((char *)AlternateResourceModules + v7 + 32);
-  v9 = *(_QWORD *)((char *)AlternateResourceModules + v7 + 48);
+  SizeOfImage = *(_QWORD *)((char *)AlternateResourceModules + v7 + 48);
   if ( (unsigned __int64)(v8 - 1) > 0xFFFFFFFFFFFFFFFDuLL )
     return 0;
-  if ( !v9 )
+  if ( !SizeOfImage )
   {
-    v11 = RtlImageNtHeader(v8 & 0xFFFFFFFFFFFFFFFCuLL);
+    v11 = RtlImageNtHeader((PVOID)(v8 & 0xFFFFFFFFFFFFFFFCuLL));
     if ( !v11 )
       return 0;
-    v12 = *(_WORD *)(v11 + 24);
-    if ( v12 == 267 || v12 == 523 )
-      v9 = *(unsigned int *)(v11 + 80);
+    Magic = v11->OptionalHeader.Magic;
+    if ( Magic == 267 || Magic == 523 )
+      SizeOfImage = v11->OptionalHeader.SizeOfImage;
     else
-      v9 = 0LL;
-    if ( !v9 )
+      SizeOfImage = 0LL;
+    if ( !SizeOfImage )
       return 0;
   }
-  if ( a2 < (v8 & 0xFFFFFFFFFFFFFFFCuLL) || a2 >= v9 + (v8 & 0xFFFFFFFFFFFFFFFCuLL) )
+  if ( a2 < (v8 & 0xFFFFFFFFFFFFFFFCuLL) || a2 >= SizeOfImage + (v8 & 0xFFFFFFFFFFFFFFFCuLL) )
     return 0;
   *a3 = v8;
   result = 1;
-  *a4 = v9;
+  *a4 = SizeOfImage;
   return result;
 }

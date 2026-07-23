@@ -1,9 +1,9 @@
 /*
- * XREFs of CmpWaitForShutdownRundownRelease @ 0x1407E0FF0
+ * XREFs of CmpWaitForShutdownRundownRelease @ 0x1407E1540
  * Callers:
- *     CmShutdownSystem2 @ 0x140667BF4 (CmShutdownSystem2.c)
+ *     CmShutdownSystem2 @ 0x1406664E4 (CmShutdownSystem2.c)
  * Callees:
- *     ExWaitForRundownProtectionRelease @ 0x1402C6A90 (ExWaitForRundownProtectionRelease.c)
+ *     ExWaitForRundownProtectionRelease @ 0x1402BB610 (ExWaitForRundownProtectionRelease.c)
  */
 
 __int64 CmpWaitForShutdownRundownRelease()

@@ -1,23 +1,23 @@
 /*
- * XREFs of BiTranslateFilePath @ 0x1408F4788
+ * XREFs of BiTranslateFilePath @ 0x1408F5A48
  * Callers:
- *     BiCreateBootEntry @ 0x1408F2A18 (BiCreateBootEntry.c)
- *     BiCreateMergedBootEntry @ 0x1408F2F78 (BiCreateMergedBootEntry.c)
- *     BiGetDeviceFromEfiPath @ 0x1408F3AFC (BiGetDeviceFromEfiPath.c)
+ *     BiCreateBootEntry @ 0x1408F3CD8 (BiCreateBootEntry.c)
+ *     BiCreateMergedBootEntry @ 0x1408F4238 (BiCreateMergedBootEntry.c)
+ *     BiGetDeviceFromEfiPath @ 0x1408F4DBC (BiGetDeviceFromEfiPath.c)
  * Callees:
- *     ZwTranslateFilePath @ 0x1401BB930 (ZwTranslateFilePath.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     BiReleasePrivilege @ 0x1407114A4 (BiReleasePrivilege.c)
- *     BiAcquirePrivilege @ 0x1407114F4 (BiAcquirePrivilege.c)
+ *     ZwTranslateFilePath @ 0x1401BBA90 (ZwTranslateFilePath.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     BiReleasePrivilege @ 0x140712744 (BiReleasePrivilege.c)
+ *     BiAcquirePrivilege @ 0x140712794 (BiAcquirePrivilege.c)
  */
 
-__int64 __fastcall BiTranslateFilePath(PFILE_PATH InputFilePath, ULONG OutputType, struct _FILE_PATH **a3)
+__int64 __fastcall BiTranslateFilePath(PFILE_PATH InputFilePath, ULONG OutputType, _FILE_PATH **a3)
 {
-  struct _FILE_PATH *v5; // rdi
-  int v7; // ebx
+  _FILE_PATH *v5; // rdi
+  NTSTATUS v7; // ebx
   NTSTATUS v8; // eax
-  struct _FILE_PATH *PoolWithTag; // rax
+  _FILE_PATH *PoolWithTag; // rax
   unsigned int v11[10]; // [rsp+20h] [rbp-28h] BYREF
   ULONG OutputFilePathLength; // [rsp+68h] [rbp+20h] BYREF
 
@@ -30,7 +30,7 @@ __int64 __fastcall BiTranslateFilePath(PFILE_PATH InputFilePath, ULONG OutputTyp
     v7 = v8;
     if ( v8 == -1073741789 )
     {
-      PoolWithTag = (struct _FILE_PATH *)ExAllocatePoolWithTag(PagedPool, OutputFilePathLength, 0x4B444342u);
+      PoolWithTag = (_FILE_PATH *)ExAllocatePoolWithTag(PagedPool, OutputFilePathLength, 0x4B444342u);
       v5 = PoolWithTag;
       if ( PoolWithTag )
         v7 = ZwTranslateFilePath(InputFilePath, OutputType, PoolWithTag, (ULONG)&OutputFilePathLength);

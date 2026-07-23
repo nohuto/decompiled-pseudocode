@@ -1,23 +1,23 @@
 /*
- * XREFs of IoConfigureCrashDump @ 0x1401884AC
+ * XREFs of IoConfigureCrashDump @ 0x1401885EC
  * Callers:
- *     PoBroadcastSystemState @ 0x1405681E0 (PoBroadcastSystemState.c)
- *     NtSetSystemInformation @ 0x140663DF0 (NtSetSystemInformation.c)
- *     PoShutdownBugCheck @ 0x14086BEC0 (PoShutdownBugCheck.c)
+ *     PoBroadcastSystemState @ 0x1405691E0 (PoBroadcastSystemState.c)
+ *     NtSetSystemInformation @ 0x140664FB0 (NtSetSystemInformation.c)
+ *     PoShutdownBugCheck @ 0x14086D120 (PoShutdownBugCheck.c)
  * Callees:
  *     ExReleaseResourceLite @ 0x14004F590 (ExReleaseResourceLite.c)
  *     ExAcquireResourceExclusiveLite @ 0x1400505F0 (ExAcquireResourceExclusiveLite.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
- *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
- *     IopRemoveDumpCapsuleSupport @ 0x140188588 (IopRemoveDumpCapsuleSupport.c)
- *     IopReadDumpRegistry @ 0x140188614 (IopReadDumpRegistry.c)
- *     IopDisableCrashDump @ 0x1401886E8 (IopDisableCrashDump.c)
- *     IopInitDumpCapsuleSupport @ 0x140192AF8 (IopInitDumpCapsuleSupport.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     IopInitializeCrashDump @ 0x14074D034 (IopInitializeCrashDump.c)
- *     RtlGetHostNtSystemRoot @ 0x1407641D8 (RtlGetHostNtSystemRoot.c)
- *     MmGetPageFileForCrashDump @ 0x140853640 (MmGetPageFileForCrashDump.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B78F0 (KiLeaveCriticalRegionUnsafe.c)
+ *     RtlInitUnicodeString @ 0x1400B99D0 (RtlInitUnicodeString.c)
+ *     IopRemoveDumpCapsuleSupport @ 0x1401886C8 (IopRemoveDumpCapsuleSupport.c)
+ *     IopReadDumpRegistry @ 0x140188754 (IopReadDumpRegistry.c)
+ *     IopDisableCrashDump @ 0x140188828 (IopDisableCrashDump.c)
+ *     IopInitDumpCapsuleSupport @ 0x140192C38 (IopInitDumpCapsuleSupport.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     IopInitializeCrashDump @ 0x14074E224 (IopInitializeCrashDump.c)
+ *     RtlGetHostNtSystemRoot @ 0x1407653C8 (RtlGetHostNtSystemRoot.c)
+ *     MmGetPageFileForCrashDump @ 0x1408548A0 (MmGetPageFileForCrashDump.c)
  */
 
 __int64 __fastcall IoConfigureCrashDump(int a1, char a2)

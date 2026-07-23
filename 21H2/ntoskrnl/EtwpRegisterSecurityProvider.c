@@ -1,9 +1,9 @@
 /*
- * XREFs of EtwpRegisterSecurityProvider @ 0x1407D5260
+ * XREFs of EtwpRegisterSecurityProvider @ 0x1407D53D0
  * Callers:
- *     NtTraceControl @ 0x1405EAF60 (NtTraceControl.c)
+ *     NtTraceControl @ 0x1406DA6C0 (NtTraceControl.c)
  * Callees:
- *     PsGetCurrentThreadProcessId @ 0x1402ED5E0 (PsGetCurrentThreadProcessId.c)
+ *     PsGetCurrentThreadProcessId @ 0x14029E930 (PsGetCurrentThreadProcessId.c)
  */
 
 __int64 __fastcall EtwpRegisterSecurityProvider(__int64 a1)

@@ -1,16 +1,16 @@
 /*
- * XREFs of IommuDisableDevicePasid @ 0x1404D7F90
+ * XREFs of IommuDisableDevicePasid @ 0x1404D81D0
  * Callers:
  *     <none>
  * Callees:
- *     KxAcquireSpinLock @ 0x1402295B0 (KxAcquireSpinLock.c)
- *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
- *     HalpMmAllocCtxFree @ 0x140379460 (HalpMmAllocCtxFree.c)
+ *     KxReleaseSpinLock @ 0x140212140 (KxReleaseSpinLock.c)
+ *     KxAcquireSpinLock @ 0x1402CDEB0 (KxAcquireSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140362F80 (KeAcquireSpinLockRaiseToDpc.c)
+ *     HalpMmAllocCtxFree @ 0x140378FB0 (HalpMmAllocCtxFree.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     IommuHvSetAddressSpace @ 0x1404D9E40 (IommuHvSetAddressSpace.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     IommuHvSetAddressSpace @ 0x1404DA080 (IommuHvSetAddressSpace.c)
  */
 
 __int64 __fastcall IommuDisableDevicePasid(__int64 a1, __int64 a2)
@@ -83,7 +83,7 @@ __int64 __fastcall IommuDisableDevicePasid(__int64 a1, __int64 a2)
   {
     v15 = *(_DWORD *)(v2 + 16);
     v16 = *(_QWORD *)(a2 + 40);
-    if ( (unsigned int)((__int64 (__fastcall *)(_QWORD, _QWORD))qword_140C4A298)((unsigned int)v16, v15) == 3473497 )
+    if ( (unsigned int)((__int64 (__fastcall *)(_QWORD, _QWORD))qword_140C4A2D8)((unsigned int)v16, v15) == 3473497 )
       KeBugCheckEx(0x159u, 0x3001uLL, (unsigned int)v16, v15, 0LL);
     v4 = v34;
   }

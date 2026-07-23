@@ -1,8 +1,8 @@
 /*
- * XREFs of KeIsTraceCallbackAllowed @ 0x1404A9454
+ * XREFs of KeIsTraceCallbackAllowed @ 0x1404A2AE4
  * Callers:
- *     EtwpInvokeEventCallback @ 0x1404A93C4 (EtwpInvokeEventCallback.c)
- *     KiTrackSystemCallEntry @ 0x1407BB8D0 (KiTrackSystemCallEntry.c)
+ *     EtwpInvokeEventCallback @ 0x1404A2A54 (EtwpInvokeEventCallback.c)
+ *     KiTrackSystemCallEntry @ 0x1407BE930 (KiTrackSystemCallEntry.c)
  * Callees:
  *     <none>
  */

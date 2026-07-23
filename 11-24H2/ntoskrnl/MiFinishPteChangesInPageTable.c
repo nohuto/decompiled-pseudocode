@@ -1,18 +1,18 @@
 /*
- * XREFs of MiFinishPteChangesInPageTable @ 0x1404738AC
+ * XREFs of MiFinishPteChangesInPageTable @ 0x14046D518
  * Callers:
- *     MiWriteAwePtes @ 0x1404BA130 (MiWriteAwePtes.c)
+ *     MiWriteAwePtes @ 0x1404B4FD0 (MiWriteAwePtes.c)
  * Callees:
- *     MI_READ_PTE_LOCK_FREE @ 0x14021A250 (MI_READ_PTE_LOCK_FREE.c)
- *     MiReleaseProcessorFlushList @ 0x14023FFD0 (MiReleaseProcessorFlushList.c)
- *     MiFlushTbList @ 0x140291730 (MiFlushTbList.c)
- *     MiGetLeafVa @ 0x1402DEE20 (MiGetLeafVa.c)
- *     MiUnlockWorkingSetShared @ 0x1402E0410 (MiUnlockWorkingSetShared.c)
- *     MiUnlockPageTableInternal @ 0x140321070 (MiUnlockPageTableInternal.c)
- *     MiUpdateAwePageTable @ 0x140474584 (MiUpdateAwePageTable.c)
- *     MiFlushGraphicsPtes @ 0x1404D6AE4 (MiFlushGraphicsPtes.c)
- *     MiApplyLazyStampToAwePtes @ 0x14068117C (MiApplyLazyStampToAwePtes.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     MiReleaseProcessorFlushList @ 0x140208120 (MiReleaseProcessorFlushList.c)
+ *     MiGetLeafVa @ 0x140240700 (MiGetLeafVa.c)
+ *     MiUnlockWorkingSetShared @ 0x140241CF0 (MiUnlockWorkingSetShared.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140246FA0 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiFlushTbList @ 0x1402A1330 (MiFlushTbList.c)
+ *     MiUnlockPageTableInternal @ 0x1402C9C00 (MiUnlockPageTableInternal.c)
+ *     MiUpdateAwePageTable @ 0x14046E1F0 (MiUpdateAwePageTable.c)
+ *     MiFlushGraphicsPtes @ 0x1404CFF34 (MiFlushGraphicsPtes.c)
+ *     MiApplyLazyStampToAwePtes @ 0x14068236C (MiApplyLazyStampToAwePtes.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 void *__fastcall MiFinishPteChangesInPageTable(__int64 a1)

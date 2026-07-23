@@ -1,7 +1,7 @@
 /*
- * XREFs of MiDereferenceVad @ 0x1401F76FC
+ * XREFs of MiDereferenceVad @ 0x1401F7528
  * Callers:
- *     NtAreMappedFilesTheSame @ 0x1405293B4 (NtAreMappedFilesTheSame.c)
+ *     NtAreMappedFilesTheSame @ 0x1405298F4 (NtAreMappedFilesTheSame.c)
  * Callees:
  *     <none>
  */

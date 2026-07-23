@@ -1,19 +1,19 @@
 /*
- * XREFs of MiTrimSharedPage @ 0x1400E9770
+ * XREFs of MiTrimSharedPage @ 0x1400E97F0
  * Callers:
  *     MiWalkEntireImage @ 0x14002F290 (MiWalkEntireImage.c)
- *     MiTradePage @ 0x14009C0F0 (MiTradePage.c)
- *     MiMarkFileOnlyPfnBad @ 0x1402B6388 (MiMarkFileOnlyPfnBad.c)
+ *     MiTradePage @ 0x14009C030 (MiTradePage.c)
+ *     MiMarkFileOnlyPfnBad @ 0x1402B6578 (MiMarkFileOnlyPfnBad.c)
  * Callees:
  *     MiReleaseControlAreaWaiters @ 0x14001E3A8 (MiReleaseControlAreaWaiters.c)
  *     MiDecrementModifiedWriteCount @ 0x140022DA0 (MiDecrementModifiedWriteCount.c)
  *     MiLockPageInline @ 0x14002CE40 (MiLockPageInline.c)
- *     MiDecrementSubsection @ 0x1400E7718 (MiDecrementSubsection.c)
- *     MiPreventControlAreaDeletion @ 0x1400E94F8 (MiPreventControlAreaDeletion.c)
- *     MiTrimSection @ 0x1400EABA4 (MiTrimSection.c)
- *     MiReferencePfBackedSection @ 0x140130420 (MiReferencePfBackedSection.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     MiClusterVadFull @ 0x1402C6128 (MiClusterVadFull.c)
+ *     MiDecrementSubsection @ 0x1400E7798 (MiDecrementSubsection.c)
+ *     MiPreventControlAreaDeletion @ 0x1400E9578 (MiPreventControlAreaDeletion.c)
+ *     MiTrimSection @ 0x1400EAC24 (MiTrimSection.c)
+ *     MiReferencePfBackedSection @ 0x1401304F0 (MiReferencePfBackedSection.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiClusterVadFull @ 0x1402C6318 (MiClusterVadFull.c)
  */
 
 __int64 __fastcall MiTrimSharedPage(__int64 a1, unsigned __int8 a2, unsigned int a3)
@@ -81,8 +81,8 @@ __int64 __fastcall MiTrimSharedPage(__int64 a1, unsigned __int8 a2, unsigned int
   if ( !v11 )
     return 0LL;
   v12 = *(_QWORD *)(a1 + 16);
-  if ( qword_14043A0C0 && (v12 & 0x10) == 0 )
-    v12 &= ~qword_14043A0C0;
+  if ( qword_14043B180 && (v12 & 0x10) == 0 )
+    v12 &= ~qword_14043B180;
   v13 = v12 >> 16;
   _InterlockedAnd64((volatile signed __int64 *)(a1 + 24), 0x7FFFFFFFFFFFFFFFuLL);
   if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && KeGetCurrentIrql() >= 2u && a2 < 2u )

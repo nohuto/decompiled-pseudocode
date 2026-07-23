@@ -3,8 +3,8 @@
  * Callers:
  *     SeCodeIntegrityInitializePolicy @ 0x1407B9BC4 (SeCodeIntegrityInitializePolicy.c)
  * Callees:
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     ZwQuerySystemInformation @ 0x14015A340 (ZwQuerySystemInformation.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     ZwQuerySystemInformation @ 0x14015A8B0 (ZwQuerySystemInformation.c)
  */
 
 void SepInitializeDebugOptions()
@@ -17,7 +17,7 @@ void SepInitializeDebugOptions()
     SeCiDebugOptions |= 2u;
   if ( SeILSigningPolicy )
   {
-    if ( (v0 = ZwQuerySystemInformation(SystemNonPagedPoolInformation|0x80, SystemInformation, 0x18u, 0LL), v0 >= 0)
+    if ( (v0 = ZwQuerySystemInformation(SystemSecureBootPolicyInformation, SystemInformation, 0x18u, 0LL), v0 >= 0)
       && (v2 & 0x10) != 0
       || v0 == -2143092730 )
     {

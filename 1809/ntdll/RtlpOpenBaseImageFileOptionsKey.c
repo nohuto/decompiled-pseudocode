@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlpOpenBaseImageFileOptionsKey @ 0x1800793C4
+ * XREFs of RtlpOpenBaseImageFileOptionsKey @ 0x1800793D4
  * Callers:
- *     RtlpOpenImageFileOptionsKeyEx @ 0x180079268 (RtlpOpenImageFileOptionsKeyEx.c)
- *     RtlQueryImageFileExecutionOptions @ 0x18007EC20 (RtlQueryImageFileExecutionOptions.c)
+ *     RtlpOpenImageFileOptionsKeyEx @ 0x180079278 (RtlpOpenImageFileOptionsKeyEx.c)
+ *     RtlQueryImageFileExecutionOptions @ 0x18007EC30 (RtlQueryImageFileExecutionOptions.c)
  * Callees:
- *     RtlpOpenBaseImageFileOptionsKeyEx @ 0x180079424 (RtlpOpenBaseImageFileOptionsKeyEx.c)
- *     NtClose @ 0x1800A04C0 (NtClose.c)
+ *     RtlpOpenBaseImageFileOptionsKeyEx @ 0x180079434 (RtlpOpenBaseImageFileOptionsKeyEx.c)
+ *     NtClose @ 0x1800A04E0 (NtClose.c)
  */
 
 __int64 __fastcall RtlpOpenBaseImageFileOptionsKey(_QWORD *a1)

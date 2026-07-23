@@ -1,15 +1,15 @@
 /*
- * XREFs of KeQueryCpuSetInformation @ 0x140B6A8B4
+ * XREFs of KeQueryCpuSetInformation @ 0x140B6DAC4
  * Callers:
- *     ExpQuerySystemInformation @ 0x140B145DC (ExpQuerySystemInformation.c)
+ *     ExpQuerySystemInformation @ 0x140B169CC (ExpQuerySystemInformation.c)
  * Callees:
- *     RtlBeginReadTickLock @ 0x140447880 (RtlBeginReadTickLock.c)
- *     RtlTryEndReadTickLock @ 0x14044C020 (RtlTryEndReadTickLock.c)
- *     KiGetCpuSetData @ 0x1404F1D9C (KiGetCpuSetData.c)
- *     RtlCopyVolatileMemory @ 0x140733080 (RtlCopyVolatileMemory.c)
- *     RtlSetVolatileMemory @ 0x1407330A0 (RtlSetVolatileMemory.c)
- *     RtlCopyToUser @ 0x14077F284 (RtlCopyToUser.c)
- *     RtlSetUserMemory @ 0x14077F608 (RtlSetUserMemory.c)
+ *     RtlBeginReadTickLock @ 0x140440370 (RtlBeginReadTickLock.c)
+ *     RtlTryEndReadTickLock @ 0x140444140 (RtlTryEndReadTickLock.c)
+ *     KiGetCpuSetData @ 0x1404EB37C (KiGetCpuSetData.c)
+ *     RtlCopyVolatileMemory @ 0x140737C50 (RtlCopyVolatileMemory.c)
+ *     RtlSetVolatileMemory @ 0x140737C70 (RtlSetVolatileMemory.c)
+ *     RtlCopyToUser @ 0x140781D84 (RtlCopyToUser.c)
+ *     RtlSetUserMemory @ 0x140782108 (RtlSetUserMemory.c)
  */
 
 __int64 __fastcall KeQueryCpuSetInformation(char *a1, __int64 a2, __int64 a3, __int64 a4)

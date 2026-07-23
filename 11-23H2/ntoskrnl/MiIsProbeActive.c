@@ -1,13 +1,13 @@
 /*
- * XREFs of MiIsProbeActive @ 0x14062E1F8
+ * XREFs of MiIsProbeActive @ 0x14062E748
  * Callers:
- *     MmIsIoSpaceActive @ 0x14062EAC0 (MmIsIoSpaceActive.c)
- *     MiReplaceRotateWithDemandZeroNoCopy @ 0x140632A38 (MiReplaceRotateWithDemandZeroNoCopy.c)
- *     MiSwitchToTransition @ 0x14063318C (MiSwitchToTransition.c)
+ *     MmIsIoSpaceActive @ 0x14062F010 (MmIsIoSpaceActive.c)
+ *     MiReplaceRotateWithDemandZeroNoCopy @ 0x140632F88 (MiReplaceRotateWithDemandZeroNoCopy.c)
+ *     MiSwitchToTransition @ 0x1406336DC (MiSwitchToTransition.c)
  * Callees:
- *     MI_READ_PTE_LOCK_FREE @ 0x1402712F0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiUnlockIoPfnTree @ 0x140336454 (MiUnlockIoPfnTree.c)
- *     MiLockIoPfnTree @ 0x140336C50 (MiLockIoPfnTree.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140271580 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiUnlockIoPfnTree @ 0x1403366E4 (MiUnlockIoPfnTree.c)
+ *     MiLockIoPfnTree @ 0x140336EE0 (MiLockIoPfnTree.c)
  */
 
 __int64 __fastcall MiIsProbeActive(unsigned __int64 a1, __int64 a2, char a3)

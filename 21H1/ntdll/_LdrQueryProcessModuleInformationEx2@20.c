@@ -84,7 +84,7 @@ int __fastcall LdrQueryProcessModuleInformationEx2(
       *v12 = v8;
     if ( (a2 & 2) != 0 )
     {
-      ((void (__thiscall *)(int (__stdcall *)()))LdrQueryModuleInfoLocalLoaderLock)(LdrQueryModuleInfoLocalLoaderLock);
+      ((void (__thiscall *)(NTSTATUS (__stdcall *)()))LdrQueryModuleInfoLocalLoaderLock)(LdrQueryModuleInfoLocalLoaderLock);
       v11 = v27;
     }
     ms_exc.registration.TryLevel = 0;

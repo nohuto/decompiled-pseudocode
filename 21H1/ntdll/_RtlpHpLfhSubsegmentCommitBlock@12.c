@@ -41,7 +41,7 @@ int __fastcall RtlpHpLfhSubsegmentCommitBlock(_DWORD *a1, unsigned int a2, int a
     if ( v10 < 0 )
     {
       RtlpHpLfhSubsegmentDecBlockCounts(a3, v6, v9);
-      RtlReleaseSRWLockExclusive((volatile signed __int32 *)(a2 + 12));
+      RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(a2 + 12));
       return v10;
     }
     RtlpHpLfhSubsegmentIncBlockCounts(v12, v13, &v14, 1, &v16);

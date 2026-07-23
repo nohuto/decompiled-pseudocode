@@ -1,13 +1,13 @@
 /*
- * XREFs of CmpClearKeyAccessBits @ 0x140603774
+ * XREFs of CmpClearKeyAccessBits @ 0x140603828
  * Callers:
- *     CmpReorganizeHive @ 0x14047FA2C (CmpReorganizeHive.c)
+ *     CmpReorganizeHive @ 0x14047E780 (CmpReorganizeHive.c)
  * Callees:
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     CmpFindSubKeyByNumber @ 0x1404386C0 (CmpFindSubKeyByNumber.c)
- *     HvpMarkCellDirty @ 0x1405136F0 (HvpMarkCellDirty.c)
- *     CmpLogClearAccessBitsEvent @ 0x1405FC3E8 (CmpLogClearAccessBitsEvent.c)
+ *     CmpFindSubKeyByNumber @ 0x140437590 (CmpFindSubKeyByNumber.c)
+ *     HvpMarkCellDirty @ 0x1404F6AE0 (HvpMarkCellDirty.c)
+ *     CmpLogClearAccessBitsEvent @ 0x1405FC49C (CmpLogClearAccessBitsEvent.c)
  */
 
 __int64 __fastcall CmpClearKeyAccessBits(ULONG_PTR BugCheckParameter2, unsigned __int16 *a2)

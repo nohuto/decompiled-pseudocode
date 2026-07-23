@@ -1,17 +1,17 @@
 /*
- * XREFs of MiCopyHeaderIfResident @ 0x140092E70
+ * XREFs of MiCopyHeaderIfResident @ 0x140092DB0
  * Callers:
- *     MiCreateImageFileMap @ 0x14061CEB8 (MiCreateImageFileMap.c)
+ *     MiCreateImageFileMap @ 0x14061DEB8 (MiCreateImageFileMap.c)
  * Callees:
  *     MiUnlockProtoPoolPage @ 0x14002F1F0 (MiUnlockProtoPoolPage.c)
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
- *     MiCopyPage @ 0x1400B1C50 (MiCopyPage.c)
- *     ExAcquireSpinLockExclusive @ 0x1400BC4E0 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC660 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExTryAcquireSpinLockExclusiveAtDpcLevel @ 0x140100200 (ExTryAcquireSpinLockExclusiveAtDpcLevel.c)
- *     MiTryLockLeafAndContainingPagesAtDpc @ 0x14011B824 (MiTryLockLeafAndContainingPagesAtDpc.c)
- *     MiUpdatePageAttributeStamp @ 0x140132C00 (MiUpdatePageAttributeStamp.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiCopyPage @ 0x1400B1B90 (MiCopyPage.c)
+ *     ExAcquireSpinLockExclusive @ 0x1400BC420 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC5A0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExTryAcquireSpinLockExclusiveAtDpcLevel @ 0x140100280 (ExTryAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     MiTryLockLeafAndContainingPagesAtDpc @ 0x14011B894 (MiTryLockLeafAndContainingPagesAtDpc.c)
+ *     MiUpdatePageAttributeStamp @ 0x140132CD0 (MiUpdatePageAttributeStamp.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiCopyHeaderIfResident(__int64 a1, __int64 a2)
@@ -37,12 +37,12 @@ __int64 __fastcall MiCopyHeaderIfResident(__int64 a1, __int64 a2)
 
   while ( 1 )
   {
-    v4 = ExAcquireSpinLockExclusive(&dword_140438BC0);
+    v4 = ExAcquireSpinLockExclusive(&dword_140439C80);
     v5 = *(__int64 **)(a1 + 40);
     v6 = v4;
     if ( !v5 || (v7 = *v5) == 0 )
     {
-      v8 = &dword_140438BC0;
+      v8 = &dword_140439C80;
 LABEL_4:
       ExReleaseSpinLockExclusiveFromDpcLevel(v8);
       if ( !KiIrqlFlags || (KiIrqlFlags & 1) == 0 || KeGetCurrentIrql() < 2u || v6 >= 2u )
@@ -50,7 +50,7 @@ LABEL_4:
       goto LABEL_58;
     }
     v10 = ExTryAcquireSpinLockExclusiveAtDpcLevel(v7 + 72);
-    ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140438BC0);
+    ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140439C80);
     if ( v10 )
       break;
     if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && KeGetCurrentIrql() >= 2u && v6 < 2u )
@@ -108,12 +108,12 @@ LABEL_5:
   }
   else
   {
-    if ( qword_14043A0C0 )
+    if ( qword_14043B180 )
     {
       if ( (v15 & 0x10) != 0 )
         v15 &= ~0x10uLL;
       else
-        v15 &= ~qword_14043A0C0;
+        v15 &= ~qword_14043B180;
     }
     v16 = 1;
   }

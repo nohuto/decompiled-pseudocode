@@ -1,18 +1,18 @@
 /*
- * XREFs of MiDecayPfnFullyInitialized @ 0x140096A10
+ * XREFs of MiDecayPfnFullyInitialized @ 0x140096210
  * Callers:
- *     MiCopyDataPageToImagePage @ 0x140023A40 (MiCopyDataPageToImagePage.c)
- *     MiDeleteVirtualAddresses @ 0x140045C00 (MiDeleteVirtualAddresses.c)
- *     MiWalkEntireImage @ 0x14004C570 (MiWalkEntireImage.c)
- *     MiFinishHardFault @ 0x14004D6A0 (MiFinishHardFault.c)
+ *     MiCopyDataPageToImagePage @ 0x1400235C0 (MiCopyDataPageToImagePage.c)
+ *     MiDeleteVirtualAddresses @ 0x140045780 (MiDeleteVirtualAddresses.c)
+ *     MiWalkEntireImage @ 0x14004C0F0 (MiWalkEntireImage.c)
+ *     MiFinishHardFault @ 0x14004D220 (MiFinishHardFault.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLock @ 0x140012750 (KeReleaseInStackQueuedSpinLock.c)
- *     KxWaitForLockOwnerShip @ 0x14001BDA0 (KxWaitForLockOwnerShip.c)
- *     MiUnlinkPageFromList @ 0x140065A40 (MiUnlinkPageFromList.c)
- *     MiRemoveDecayClusterTimer @ 0x140096BB8 (MiRemoveDecayClusterTimer.c)
- *     RtlpInterlockedPushEntrySList @ 0x140166E40 (RtlpInterlockedPushEntrySList.c)
- *     KiAcquireQueuedSpinLockInstrumented @ 0x1401D39E0 (KiAcquireQueuedSpinLockInstrumented.c)
- *     MI_GET_PAGE_FRAME_FROM_TRANSITION_PTE @ 0x1401F2570 (MI_GET_PAGE_FRAME_FROM_TRANSITION_PTE.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x1400122D0 (KeReleaseInStackQueuedSpinLock.c)
+ *     KxWaitForLockOwnerShip @ 0x14001B920 (KxWaitForLockOwnerShip.c)
+ *     MiUnlinkPageFromList @ 0x1400655C0 (MiUnlinkPageFromList.c)
+ *     MiRemoveDecayClusterTimer @ 0x1400963B8 (MiRemoveDecayClusterTimer.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1401673B0 (RtlpInterlockedPushEntrySList.c)
+ *     KiAcquireQueuedSpinLockInstrumented @ 0x1401D380C (KiAcquireQueuedSpinLockInstrumented.c)
+ *     MI_GET_PAGE_FRAME_FROM_TRANSITION_PTE @ 0x1401F239C (MI_GET_PAGE_FRAME_FROM_TRANSITION_PTE.c)
  */
 
 void __fastcall MiDecayPfnFullyInitialized(ULONG_PTR BugCheckParameter2)
@@ -32,7 +32,7 @@ void __fastcall MiDecayPfnFullyInitialized(ULONG_PTR BugCheckParameter2)
   if ( v4 == 1023 )
     v5 = MiSystemPartition;
   else
-    v5 = *(int **)(qword_140326FF8 + 8LL * v4);
+    v5 = *(int **)(qword_140327038 + 8LL * v4);
   v6 = (unsigned __int64 *)(v5 + 554);
   LockHandle.LockQueue.Next = 0LL;
   LockHandle.LockQueue.Lock = v6;
@@ -61,5 +61,5 @@ LABEL_12:
   *(_BYTE *)(BugCheckParameter2 + 35) &= ~8u;
   KeReleaseInStackQueuedSpinLock(&LockHandle);
   if ( v2 == 1 )
-    RtlpInterlockedPushEntrySList(&stru_140327370, (PSLIST_ENTRY)BugCheckParameter2);
+    RtlpInterlockedPushEntrySList(&stru_1403273B0, (PSLIST_ENTRY)BugCheckParameter2);
 }

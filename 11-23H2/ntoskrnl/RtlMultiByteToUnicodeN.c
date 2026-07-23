@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlMultiByteToUnicodeN @ 0x140773D90
+ * XREFs of RtlMultiByteToUnicodeN @ 0x140773F80
  * Callers:
- *     mbstowcs @ 0x1403DA1F0 (mbstowcs.c)
- *     RtlAnsiStringToUnicodeString @ 0x140773C00 (RtlAnsiStringToUnicodeString.c)
+ *     mbstowcs @ 0x1403DA3D0 (mbstowcs.c)
+ *     RtlAnsiStringToUnicodeString @ 0x140773DF0 (RtlAnsiStringToUnicodeString.c)
  * Callees:
- *     RtlpGetCodePageData @ 0x140773DF4 (RtlpGetCodePageData.c)
- *     RtlCustomCPToUnicodeN @ 0x140773E60 (RtlCustomCPToUnicodeN.c)
+ *     RtlpGetCodePageData @ 0x140773FE4 (RtlpGetCodePageData.c)
+ *     RtlCustomCPToUnicodeN @ 0x140774050 (RtlCustomCPToUnicodeN.c)
  */
 
 NTSTATUS __stdcall RtlMultiByteToUnicodeN(
@@ -15,9 +15,9 @@ NTSTATUS __stdcall RtlMultiByteToUnicodeN(
         const CHAR *MultiByteString,
         ULONG BytesInMultiByteString)
 {
-  struct _CPTABLEINFO *CodePageData; // rax
+  _CPTABLEINFO *CodePageData; // rax
 
-  CodePageData = (struct _CPTABLEINFO *)RtlpGetCodePageData(0LL);
+  CodePageData = (_CPTABLEINFO *)RtlpGetCodePageData(0LL);
   RtlCustomCPToUnicodeN(
     CodePageData,
     UnicodeString,

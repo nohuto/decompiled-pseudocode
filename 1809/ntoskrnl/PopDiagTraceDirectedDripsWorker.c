@@ -1,11 +1,11 @@
 /*
- * XREFs of PopDiagTraceDirectedDripsWorker @ 0x140872214
+ * XREFs of PopDiagTraceDirectedDripsWorker @ 0x140873474
  * Callers:
- *     PopDirectedDripsWorkerRoutine @ 0x1408687F0 (PopDirectedDripsWorkerRoutine.c)
+ *     PopDirectedDripsWorkerRoutine @ 0x140869A50 (PopDirectedDripsWorkerRoutine.c)
  * Callees:
  *     EtwEventEnabled @ 0x14005B2D0 (EtwEventEnabled.c)
- *     EtwWrite @ 0x1400CAD20 (EtwWrite.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     EtwWrite @ 0x1400CAE00 (EtwWrite.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
  */
 
 void __fastcall PopDiagTraceDirectedDripsWorker(__int64 a1)

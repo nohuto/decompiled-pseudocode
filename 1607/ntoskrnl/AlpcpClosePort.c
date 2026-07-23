@@ -1,10 +1,10 @@
 /*
- * XREFs of AlpcpClosePort @ 0x14040AE68
+ * XREFs of AlpcpClosePort @ 0x140409D28
  * Callers:
  *     <none>
  * Callees:
- *     AlpcpSendCloseMessage @ 0x140409ED0 (AlpcpSendCloseMessage.c)
- *     AlpcpDoPortCleanup @ 0x14040ABA4 (AlpcpDoPortCleanup.c)
+ *     AlpcpSendCloseMessage @ 0x140408D90 (AlpcpSendCloseMessage.c)
+ *     AlpcpDoPortCleanup @ 0x140409A64 (AlpcpDoPortCleanup.c)
  */
 
 void __fastcall AlpcpClosePort(__int64 a1, __int64 a2, __int64 a3)

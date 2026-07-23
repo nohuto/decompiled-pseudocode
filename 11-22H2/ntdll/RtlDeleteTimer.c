@@ -14,52 +14,52 @@
  *     RtlpTpTimerRundown @ 0x18004F9AC (RtlpTpTimerRundown.c)
  */
 
-__int64 __fastcall RtlDeleteTimer(__int64 a1, volatile signed __int32 *a2, __int64 a3)
+NTSTATUS __cdecl RtlDeleteTimer(HANDLE TimerQueueHandle, HANDLE TimerToCancel, HANDLE Event)
 {
-  int v5; // edi
-  __int64 *v6; // rcx
-  __int64 **v7; // rax
-  __int64 v9; // [rsp+28h] [rbp-10h] BYREF
+  NTSTATUS v5; // edi
+  _QWORD *v6; // rcx
+  HANDLE *v7; // rax
+  HANDLE v9; // [rsp+28h] [rbp-10h] BYREF
   int v10; // [rsp+58h] [rbp+20h]
 
   v9 = 0LL;
   if ( NtCurrentPeb()->Ldr->ShutdownInProgress )
-    return 0LL;
-  if ( !a1 )
-    return 3221225711LL;
-  if ( !a2 )
-    return 3221225712LL;
-  v5 = RtlpTpRevertCapture(&v9, 0LL);
+    return 0;
+  if ( !TimerQueueHandle )
+    return -1073741585;
+  if ( !TimerToCancel )
+    return -1073741584;
+  v5 = RtlpTpRevertCapture(&v9);
   if ( v5 >= 0 )
   {
-    RtlAcquireSRWLockExclusive((volatile signed __int64 *)(*((_QWORD *)a2 + 7) + 8LL));
-    v6 = *(__int64 **)a2;
-    v7 = (__int64 **)*((_QWORD *)a2 + 1);
-    if ( *(volatile signed __int32 **)(*(_QWORD *)a2 + 8LL) != a2 || *v7 != (__int64 *)a2 )
+    RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)(*((_QWORD *)TimerToCancel + 7) + 8LL));
+    v6 = *(_QWORD **)TimerToCancel;
+    v7 = (HANDLE *)*((_QWORD *)TimerToCancel + 1);
+    if ( *(HANDLE *)(*(_QWORD *)TimerToCancel + 8LL) != TimerToCancel || *v7 != TimerToCancel )
       __fastfail(3u);
     *v7 = v6;
-    v6[1] = (__int64)v7;
-    RtlReleaseSRWLockExclusive((volatile signed __int64 *)(*((_QWORD *)a2 + 7) + 8LL));
-    _InterlockedOr(a2 + 12, 1u);
-    TpSetTimerEx(*((_QWORD *)a2 + 8), 0LL, 0, 0);
-    if ( a3 == -1 )
+    v6[1] = v7;
+    RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(*((_QWORD *)TimerToCancel + 7) + 8LL));
+    _InterlockedOr((volatile signed __int32 *)TimerToCancel + 12, 1u);
+    TpSetTimerEx(*((PTP_TIMER *)TimerToCancel + 8), 0LL, 0, 0);
+    if ( Event == (HANDLE)-1LL )
     {
-      TpWaitForTimer(*((_QWORD *)a2 + 8), 1u);
+      TpWaitForTimer(*((PTP_TIMER *)TimerToCancel + 8), 1u);
     }
-    else if ( a3 )
+    else if ( Event )
     {
-      *((_QWORD *)a2 + 9) = a3;
+      *((_QWORD *)TimerToCancel + 9) = Event;
     }
-    v10 = TpTimerOutstandingCallbackCount(*((_QWORD *)a2 + 8));
-    TpReleaseTimer(*((_QWORD *)a2 + 8));
-    _m_prefetchw((const void *)(a2 + 12));
-    if ( (_InterlockedAnd(a2 + 12, 0xFFFFFFFE) & 2) != 0 )
+    v10 = TpTimerOutstandingCallbackCount(*((_QWORD *)TimerToCancel + 8));
+    TpReleaseTimer(*((PTP_TIMER *)TimerToCancel + 8));
+    _m_prefetchw((char *)TimerToCancel + 48);
+    if ( (_InterlockedAnd((volatile signed __int32 *)TimerToCancel + 12, 0xFFFFFFFE) & 2) != 0 )
     {
-      RtlpTpTimerRundown(a2);
+      RtlpTpTimerRundown(TimerToCancel);
       v10 = 0;
     }
     v5 = v10 != 0 ? 0x103 : 0;
   }
   RtlpTpResumeImpersonation(v9);
-  return (unsigned int)v5;
+  return v5;
 }

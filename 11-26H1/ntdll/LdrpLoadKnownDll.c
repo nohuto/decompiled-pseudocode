@@ -1,41 +1,42 @@
 /*
- * XREFs of LdrpLoadKnownDll @ 0x180082910
+ * XREFs of LdrpLoadKnownDll @ 0x180079CB0
  * Callers:
- *     LdrpFindOrPrepareLoadingModule @ 0x1800BBA10 (LdrpFindOrPrepareLoadingModule.c)
+ *     LdrpFindOrPrepareLoadingModule @ 0x1800B8F40 (LdrpFindOrPrepareLoadingModule.c)
  * Callees:
- *     RtlAcquireSRWLockExclusive @ 0x18003F4D0 (RtlAcquireSRWLockExclusive.c)
- *     RtlReleaseSRWLockExclusive @ 0x18003FAA0 (RtlReleaseSRWLockExclusive.c)
- *     LdrpFindLoadedDllByNameLockHeld @ 0x1800824B0 (LdrpFindLoadedDllByNameLockHeld.c)
- *     LdrpHashUnicodeString @ 0x1800825C0 (LdrpHashUnicodeString.c)
- *     LdrpCheckKnownDllFullPath @ 0x180082A50 (LdrpCheckKnownDllFullPath.c)
- *     LdrpFindKnownDll @ 0x180082BE0 (LdrpFindKnownDll.c)
- *     LdrpLogDllState @ 0x1800832E0 (LdrpLogDllState.c)
- *     LdrpMapDllWithSectionHandle @ 0x180084430 (LdrpMapDllWithSectionHandle.c)
- *     LdrpLoadContextReplaceModule @ 0x180085350 (LdrpLoadContextReplaceModule.c)
- *     NtClose @ 0x18015F120 (NtClose.c)
+ *     RtlAcquireSRWLockExclusive @ 0x180029A40 (RtlAcquireSRWLockExclusive.c)
+ *     RtlReleaseSRWLockExclusive @ 0x18002A010 (RtlReleaseSRWLockExclusive.c)
+ *     LdrpFindLoadedDllByNameLockHeld @ 0x180079850 (LdrpFindLoadedDllByNameLockHeld.c)
+ *     LdrpHashUnicodeString @ 0x180079960 (LdrpHashUnicodeString.c)
+ *     LdrpCheckKnownDllFullPath @ 0x180079DF0 (LdrpCheckKnownDllFullPath.c)
+ *     LdrpFindKnownDll @ 0x180079F80 (LdrpFindKnownDll.c)
+ *     LdrpLogDllState @ 0x18007A680 (LdrpLogDllState.c)
+ *     LdrpMapDllWithSectionHandle @ 0x18007B7D0 (LdrpMapDllWithSectionHandle.c)
+ *     LdrpLoadContextReplaceModule @ 0x18007C6F0 (LdrpLoadContextReplaceModule.c)
+ *     NtClose @ 0x18015F020 (NtClose.c)
  */
 
-__int64 __fastcall LdrpLoadKnownDll(char *a1)
+__int64 __fastcall LdrpLoadKnownDll(UNICODE_STRING *p_Source)
 {
   int v1; // eax
-  __int64 v2; // rdi
-  char *v3; // rbx
+  wchar_t *Buffer; // rdi
+  UNICODE_STRING *v3; // rbx
   char v4; // al
-  __int64 v5; // rsi
+  wchar_t *v5; // rsi
   __int64 result; // rax
-  __int64 v7; // rdx
   unsigned int LoadedDllByNameLockHeld; // edi
-  char ArgList[16]; // [rsp+30h] [rbp-28h] BYREF
-  volatile signed __int32 *v10; // [rsp+68h] [rbp+10h] BYREF
+  UNICODE_STRING Source; // [rsp+30h] [rbp-28h] BYREF
+  HANDLE Handle; // [rsp+60h] [rbp+8h] BYREF
+  __int64 v10; // [rsp+68h] [rbp+10h] BYREF
 
-  v1 = *((_DWORD *)a1 + 8);
-  v2 = *((_QWORD *)a1 + 7);
-  v3 = a1;
-  *(_OWORD *)ArgList = 0LL;
+  v1 = *(_DWORD *)&p_Source[2].Length;
+  Buffer = p_Source[3].Buffer;
+  Handle = 0LL;
+  v3 = p_Source;
+  Source = 0LL;
   if ( (v1 & 0x200) != 0 )
   {
-    v4 = LdrpCheckKnownDllFullPath(a1, ArgList);
-    a1 = ArgList;
+    v4 = LdrpCheckKnownDllFullPath(p_Source, &Source);
+    p_Source = &Source;
   }
   else
   {
@@ -43,20 +44,20 @@ __int64 __fastcall LdrpLoadKnownDll(char *a1)
   }
   if ( !v4 )
     return 3221225781LL;
-  v5 = v2 + 72;
-  result = LdrpFindKnownDll((char)a1);
+  v5 = Buffer + 36;
+  result = LdrpFindKnownDll(p_Source, (PUNICODE_STRING)(Buffer + 44), (PUNICODE_STRING)(Buffer + 36), &Handle);
   if ( (int)result >= 0 )
   {
-    LdrpLogDllState(*(_QWORD *)(v2 + 48), v2 + 72, 5285LL);
+    LdrpLogDllState(*((_QWORD *)Buffer + 6), Buffer + 36, 5285LL);
     v10 = 0LL;
-    *(_DWORD *)(v2 + 264) = LdrpHashUnicodeString((unsigned __int16 *)(v2 + 88));
-    RtlAcquireSRWLockExclusive(&LdrpModuleDatatableLock, v7);
+    *((_DWORD *)Buffer + 66) = LdrpHashUnicodeString(Buffer + 44);
+    RtlAcquireSRWLockExclusive(&LdrpModuleDatatableLock);
     LoadedDllByNameLockHeld = LdrpFindLoadedDllByNameLockHeld(
-                                v2 + 88,
-                                v2 + 72,
-                                *((unsigned int *)v3 + 8),
+                                (PUNICODE_STRING)(Buffer + 44),
+                                (PUNICODE_STRING)(Buffer + 36),
+                                *(_DWORD *)&v3[2].Length,
                                 &v10,
-                                *(_DWORD *)(v2 + 264));
+                                *((_DWORD *)Buffer + 66));
     RtlReleaseSRWLockExclusive(&LdrpModuleDatatableLock);
     if ( v10 )
     {
@@ -65,9 +66,9 @@ __int64 __fastcall LdrpLoadKnownDll(char *a1)
     else
     {
       LdrpLogDllState(0LL, v5, 5290LL);
-      LoadedDllByNameLockHeld = LdrpMapDllWithSectionHandle(v3, 0LL);
+      LoadedDllByNameLockHeld = LdrpMapDllWithSectionHandle(v3, Handle);
     }
-    NtClose(0LL);
+    NtClose(Handle);
     return LoadedDllByNameLockHeld;
   }
   return result;

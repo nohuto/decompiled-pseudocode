@@ -6,19 +6,19 @@
  *     <none>
  */
 
-int __stdcall RtlImageRvaToSection(int a1, int a2, unsigned int a3)
+PIMAGE_SECTION_HEADER __cdecl RtlImageRvaToSection(PIMAGE_NT_HEADERS NtHeaders, PVOID BaseOfImage, ULONG Rva)
 {
   int v3; // esi
-  int v4; // edx
+  _IMAGE_SECTION_HEADER *v4; // edx
 
   v3 = 0;
-  v4 = *(unsigned __int16 *)(a1 + 20) + a1 + 24;
-  if ( !*(_WORD *)(a1 + 6) )
+  v4 = (_IMAGE_SECTION_HEADER *)((char *)&NtHeaders->OptionalHeader + NtHeaders->FileHeader.SizeOfOptionalHeader);
+  if ( !NtHeaders->FileHeader.NumberOfSections )
     return 0;
-  while ( a3 < *(_DWORD *)(v4 + 12) || a3 >= *(_DWORD *)(v4 + 12) + *(_DWORD *)(v4 + 16) )
+  while ( Rva < v4->VirtualAddress || Rva >= v4->VirtualAddress + v4->SizeOfRawData )
   {
-    v4 += 40;
-    if ( ++v3 >= (unsigned int)*(unsigned __int16 *)(a1 + 6) )
+    ++v4;
+    if ( ++v3 >= (unsigned int)NtHeaders->FileHeader.NumberOfSections )
       return 0;
   }
   return v4;

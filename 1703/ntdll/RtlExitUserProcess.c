@@ -18,41 +18,30 @@
  *     ZwTerminateThread @ 0x1800A5D60 (ZwTerminateThread.c)
  */
 
-__int64 __fastcall RtlExitUserProcess(unsigned int a1)
+void __cdecl __noreturn RtlExitUserProcess(NTSTATUS ExitStatus)
 {
-  __int64 v2; // rdx
-  __int64 v3; // rcx
-  __int64 v4; // r8
-  __int64 v5; // r9
-  __int64 v6; // rdx
-  __int64 v7; // r8
-  __int64 v8; // r9
   HANDLE UniqueThread; // rdx
-  __int64 v11; // rcx
+  __int64 v3; // rcx
 
   sub_1800860E0();
   sub_18001AE14((NtCurrentTeb()->SameTebFlags & 0x1000) != 0);
-  sub_180019FC0(v3, v2, v4, v5);
-  RtlEnterCriticalSection((__int64)&unk_18015AE60);
-  RtlLockHeap((__int64)NtCurrentPeb()->ProcessHeap);
-  if ( (int)ZwTerminateProcess(0LL, a1) < 0 )
-  {
-    RtlUnlockHeap((__int64)NtCurrentPeb()->ProcessHeap, v6, v7, v8);
-    RtlLeaveCriticalSection((__int64)&unk_18015AE60);
-    sub_18001A028(v11, 18, 0);
-    return ZwTerminateThread(-2LL, a1);
-  }
-  else
+  sub_180019FC0();
+  RtlEnterCriticalSection(&stru_18015AE60);
+  RtlLockHeap(NtCurrentPeb()->ProcessHeap);
+  if ( ZwTerminateProcess(0LL, ExitStatus) >= 0 )
   {
     sub_180070388();
     UniqueThread = NtCurrentTeb()->ClientId.UniqueThread;
-    qword_18015AE78 = 0LL;
-    qword_18015AE70 = (__int64)UniqueThread;
-    dword_18015AE68 = -2;
-    dword_18015AE6C = 1;
-    RtlLeaveCriticalSection((__int64)&unk_18015AE60);
-    RtlReportSilentProcessExit(-1LL, a1);
+    stru_18015AE60.LockSemaphore = 0LL;
+    stru_18015AE60.OwningThread = UniqueThread;
+    stru_18015AE60.LockCount = -2;
+    stru_18015AE60.RecursionCount = 1;
+    RtlLeaveCriticalSection(&stru_18015AE60);
+    RtlReportSilentProcessExit((HANDLE)0xFFFFFFFFFFFFFFFFLL, ExitStatus);
     LdrShutdownProcess();
-    return ZwTerminateProcess(-1LL, a1);
   }
+  RtlUnlockHeap(NtCurrentPeb()->ProcessHeap);
+  RtlLeaveCriticalSection(&stru_18015AE60);
+  sub_18001A028(v3, 18, 0);
+  ZwTerminateThread((HANDLE)0xFFFFFFFFFFFFFFFELL, ExitStatus);
 }

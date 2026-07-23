@@ -1,19 +1,19 @@
 /*
- * XREFs of EtwpPreserveLogger @ 0x14082E4AC
+ * XREFs of EtwpPreserveLogger @ 0x1408346EC
  * Callers:
- *     EtwpSetSoftRestartInformation @ 0x140777D18 (EtwpSetSoftRestartInformation.c)
- *     EtwpKsrCallback @ 0x14082E370 (EtwpKsrCallback.c)
+ *     EtwpSetSoftRestartInformation @ 0x14077ABB8 (EtwpSetSoftRestartInformation.c)
+ *     EtwpKsrCallback @ 0x1408345B0 (EtwpKsrCallback.c)
  * Callees:
- *     EtwpResetBufferHeader @ 0x140219DA4 (EtwpResetBufferHeader.c)
- *     EtwpFreeTraceBuffer @ 0x140488B18 (EtwpFreeTraceBuffer.c)
- *     EtwpInitializeBufferHeader @ 0x1404B4F84 (EtwpInitializeBufferHeader.c)
- *     EtwpAllocateTraceBuffer @ 0x1404BCFC4 (EtwpAllocateTraceBuffer.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     EtwpBuildMdlForTraceBuffer @ 0x14082E080 (EtwpBuildMdlForTraceBuffer.c)
- *     EtwpPreserveMdlList @ 0x14082E6E4 (EtwpPreserveMdlList.c)
- *     EtwpAddLogHeader @ 0x140A12D58 (EtwpAddLogHeader.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     EtwpResetBufferHeader @ 0x14021919C (EtwpResetBufferHeader.c)
+ *     EtwpFreeTraceBuffer @ 0x140482658 (EtwpFreeTraceBuffer.c)
+ *     EtwpInitializeBufferHeader @ 0x1404AE3D4 (EtwpInitializeBufferHeader.c)
+ *     EtwpAllocateTraceBuffer @ 0x1404B67A4 (EtwpAllocateTraceBuffer.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     EtwpBuildMdlForTraceBuffer @ 0x1408342C0 (EtwpBuildMdlForTraceBuffer.c)
+ *     EtwpPreserveMdlList @ 0x140834924 (EtwpPreserveMdlList.c)
+ *     EtwpAddLogHeader @ 0x140A11F48 (EtwpAddLogHeader.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall EtwpPreserveLogger(ULONG_PTR BugCheckParameter2)

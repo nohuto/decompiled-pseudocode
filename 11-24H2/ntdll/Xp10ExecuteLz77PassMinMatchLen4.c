@@ -1,7 +1,7 @@
 /*
- * XREFs of Xp10ExecuteLz77PassMinMatchLen4 @ 0x18014FC2C
+ * XREFs of Xp10ExecuteLz77PassMinMatchLen4 @ 0x18014DFEC
  * Callers:
- *     Xp10CompressBuffer @ 0x18014E970 (Xp10CompressBuffer.c)
+ *     Xp10CompressBuffer @ 0x18014CD30 (Xp10CompressBuffer.c)
  * Callees:
  *     <none>
  */

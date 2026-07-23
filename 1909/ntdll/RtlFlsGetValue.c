@@ -6,29 +6,29 @@
  *     <none>
  */
 
-__int64 __fastcall RtlFlsGetValue(int a1, _QWORD *a2)
+NTSTATUS __cdecl RtlFlsGetValue(ULONG FlsIndex, PVOID *FlsData)
 {
-  _QWORD *FlsData; // r8
-  unsigned int v3; // r10d
+  _QWORD *v2; // r8
+  ULONG v3; // r10d
   __int64 v4; // r11
-  _QWORD *v5; // rax
-  __int64 result; // rax
+  PVOID *v5; // rax
+  NTSTATUS result; // eax
 
-  FlsData = NtCurrentTeb()->FlsData;
-  if ( (unsigned int)(a1 - 1) > 0xFEE || !FlsData )
-    return 3221225485LL;
-  v3 = a1 + 16;
-  _BitScanReverse((unsigned int *)&a1, a1 + 16);
-  v4 = FlsData[(unsigned int)(a1 - 4) + 2];
-  if ( v4 && (v5 = (_QWORD *)(v4 + 8 * (((unsigned int)(1 << a1) ^ (unsigned __int64)v3) + 1))) != 0LL )
+  v2 = NtCurrentTeb()->FlsData;
+  if ( FlsIndex - 1 > 0xFEE || !v2 )
+    return -1073741811;
+  v3 = FlsIndex + 16;
+  _BitScanReverse(&FlsIndex, FlsIndex + 16);
+  v4 = v2[FlsIndex - 2];
+  if ( v4 && (v5 = (PVOID *)(v4 + 8 * (((unsigned int)(1 << FlsIndex) ^ (unsigned __int64)v3) + 1))) != 0LL )
   {
-    *a2 = *v5;
-    return 0LL;
+    *FlsData = *v5;
+    return 0;
   }
   else
   {
-    result = 0LL;
-    *a2 = 0LL;
+    result = 0;
+    *FlsData = 0LL;
   }
   return result;
 }

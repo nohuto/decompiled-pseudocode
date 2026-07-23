@@ -1,14 +1,14 @@
 /*
- * XREFs of BgDisplayFade @ 0x140C52B58
+ * XREFs of BgDisplayFade @ 0x140C58B58
  * Callers:
- *     BgkNotifyDisplayOwnershipChange @ 0x1404633C0 (BgkNotifyDisplayOwnershipChange.c)
- *     BgkDisplayStringEx @ 0x1405C5504 (BgkDisplayStringEx.c)
- *     PoBroadcastSystemState @ 0x140C05D10 (PoBroadcastSystemState.c)
- *     BgkDisplayCharacter @ 0x140C4F5B0 (BgkDisplayCharacter.c)
+ *     BgkNotifyDisplayOwnershipChange @ 0x14045C380 (BgkNotifyDisplayOwnershipChange.c)
+ *     BgkDisplayStringEx @ 0x1405C7D74 (BgkDisplayStringEx.c)
+ *     PoBroadcastSystemState @ 0x140C0BF20 (PoBroadcastSystemState.c)
+ *     BgkDisplayCharacter @ 0x140C555B0 (BgkDisplayCharacter.c)
  * Callees:
- *     BgpFwAcquireLock @ 0x1404E7E04 (BgpFwAcquireLock.c)
- *     BgpFwReleaseLock @ 0x1404E81BC (BgpFwReleaseLock.c)
- *     AnFwDisplayFade @ 0x140C52BA0 (AnFwDisplayFade.c)
+ *     BgpFwAcquireLock @ 0x1404E11C4 (BgpFwAcquireLock.c)
+ *     BgpFwReleaseLock @ 0x1404E157C (BgpFwReleaseLock.c)
+ *     AnFwDisplayFade @ 0x140C58BA0 (AnFwDisplayFade.c)
  */
 
 __int64 BgDisplayFade()

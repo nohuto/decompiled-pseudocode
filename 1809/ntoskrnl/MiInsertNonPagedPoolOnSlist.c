@@ -1,18 +1,18 @@
 /*
- * XREFs of MiInsertNonPagedPoolOnSlist @ 0x140161260
+ * XREFs of MiInsertNonPagedPoolOnSlist @ 0x140161360
  * Callers:
- *     MiFreePoolPages @ 0x140161100 (MiFreePoolPages.c)
+ *     MiFreePoolPages @ 0x140161200 (MiFreePoolPages.c)
  * Callees:
  *     MiPteInShadowRange @ 0x14003D740 (MiPteInShadowRange.c)
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
- *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
- *     MiVaToPfn @ 0x140099010 (MiVaToPfn.c)
- *     MI_IS_PHYSICAL_ADDRESS @ 0x14009D910 (MI_IS_PHYSICAL_ADDRESS.c)
- *     MI_INTERLOCKED_EXCHANGE_PTE @ 0x140121EF0 (MI_INTERLOCKED_EXCHANGE_PTE.c)
- *     MiLockNonPagedPoolPte @ 0x140162470 (MiLockNonPagedPoolPte.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
- *     RtlpInterlockedPushEntrySList @ 0x1401C5410 (RtlpInterlockedPushEntrySList.c)
+ *     KeYieldProcessorEx @ 0x14006C9E0 (KeYieldProcessorEx.c)
+ *     MiVaToPfn @ 0x140098F50 (MiVaToPfn.c)
+ *     MI_IS_PHYSICAL_ADDRESS @ 0x14009D850 (MI_IS_PHYSICAL_ADDRESS.c)
+ *     MI_INTERLOCKED_EXCHANGE_PTE @ 0x140121FC0 (MI_INTERLOCKED_EXCHANGE_PTE.c)
+ *     MiLockNonPagedPoolPte @ 0x140162570 (MiLockNonPagedPoolPte.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1401C5570 (RtlpInterlockedPushEntrySList.c)
  */
 
 __int64 __fastcall MiInsertNonPagedPoolOnSlist(unsigned __int64 a1, unsigned __int64 a2)
@@ -34,7 +34,7 @@ __int64 __fastcall MiInsertNonPagedPoolOnSlist(unsigned __int64 a1, unsigned __i
   __int64 v18; // r15
   __int64 v19; // rcx
   __int64 v20; // rbx
-  union _SLIST_HEADER *v21; // rbx
+  _SLIST_HEADER *v21; // rbx
   __int64 v23; // r9
   char v24; // r10
   unsigned __int64 v25; // r11
@@ -140,8 +140,8 @@ LABEL_30:
     return v17;
   v19 = 25LL * (unsigned int)v18;
   v20 = v16 ? v19 + a2 + 3 : v19 + a2;
-  v21 = &qword_14043A058[v20];
-  if ( LOWORD(v21->Alignment) >= (unsigned int)dword_140438A48[a2 - 1] )
+  v21 = &qword_14043B118[v20];
+  if ( LOWORD(v21->Alignment) >= (unsigned int)dword_140439B08[a2 - 1] )
     return v17;
   v41 = 1;
   v38 = 1LL;
@@ -216,7 +216,7 @@ LABEL_30:
     if ( !v29 )
       return v17;
   }
-  *(_QWORD *)a1 = a1 ^ qword_14043AEC0;
+  *(_QWORD *)a1 = a1 ^ qword_14043BF80;
   RtlpInterlockedPushEntrySList(v21, (PSLIST_ENTRY)(a1 + 16));
   return 1LL;
 }

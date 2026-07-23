@@ -1,16 +1,16 @@
 /*
- * XREFs of MiCombineWorkingSet @ 0x140653418
+ * XREFs of MiCombineWorkingSet @ 0x140653968
  * Callers:
- *     MiCombineIdenticalPages @ 0x1407EB514 (MiCombineIdenticalPages.c)
+ *     MiCombineIdenticalPages @ 0x1407EB7E4 (MiCombineIdenticalPages.c)
  * Callees:
  *     MiProcessSuitableForCombining @ 0x140216D54 (MiProcessSuitableForCombining.c)
- *     MiUnlockWorkingSetShared @ 0x14023C500 (MiUnlockWorkingSetShared.c)
- *     MiWalkPageTables @ 0x14025BD00 (MiWalkPageTables.c)
- *     MiLockWorkingSetShared @ 0x140283C90 (MiLockWorkingSetShared.c)
- *     MiAllocatePool @ 0x1402DF1A0 (MiAllocatePool.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memset @ 0x140435A00 (memset.c)
- *     MiProcessCrcList @ 0x1406B02D0 (MiProcessCrcList.c)
+ *     MiUnlockWorkingSetShared @ 0x14023C5D0 (MiUnlockWorkingSetShared.c)
+ *     MiWalkPageTables @ 0x14025BF90 (MiWalkPageTables.c)
+ *     MiLockWorkingSetShared @ 0x140283F20 (MiLockWorkingSetShared.c)
+ *     MiAllocatePool @ 0x1402DF430 (MiAllocatePool.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     MiProcessCrcList @ 0x1406B0300 (MiProcessCrcList.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

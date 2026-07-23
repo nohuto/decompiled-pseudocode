@@ -1,11 +1,11 @@
 /*
- * XREFs of PdcPoRecordButton @ 0x14086EDC0
+ * XREFs of PdcPoRecordButton @ 0x140870020
  * Callers:
  *     <none>
  * Callees:
  *     PopAcquireRwLockExclusive @ 0x140003970 (PopAcquireRwLockExclusive.c)
  *     PopReleaseRwLock @ 0x140005EC4 (PopReleaseRwLock.c)
- *     PopWriteBsdPowerTransition @ 0x14071C468 (PopWriteBsdPowerTransition.c)
+ *     PopWriteBsdPowerTransition @ 0x14071D708 (PopWriteBsdPowerTransition.c)
  */
 
 void PdcPoRecordButton()

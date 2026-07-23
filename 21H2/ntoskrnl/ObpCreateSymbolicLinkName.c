@@ -1,19 +1,19 @@
 /*
- * XREFs of ObpCreateSymbolicLinkName @ 0x1406B8F14
+ * XREFs of ObpCreateSymbolicLinkName @ 0x140618538
  * Callers:
- *     ObpCreateHandle @ 0x1406F6550 (ObpCreateHandle.c)
+ *     ObpCreateHandle @ 0x14070D930 (ObpCreateHandle.c)
  * Callees:
- *     NLS_UPCASE @ 0x140206AF0 (NLS_UPCASE.c)
- *     PsGetCurrentSilo @ 0x14027C930 (PsGetCurrentSilo.c)
- *     ObpReleaseLookupContext @ 0x14027EAD0 (ObpReleaseLookupContext.c)
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
- *     KiLeaveGuardedRegionUnsafe @ 0x14034AD90 (KiLeaveGuardedRegionUnsafe.c)
- *     ExReleasePushLockEx @ 0x14034AE90 (ExReleasePushLockEx.c)
- *     ObfReferenceObject @ 0x14034B230 (ObfReferenceObject.c)
- *     OBP_GET_SILO_ROOT_DIRECTORY_FROM_SILO @ 0x1403604C8 (OBP_GET_SILO_ROOT_DIRECTORY_FROM_SILO.c)
- *     PsGetCurrentServerSiloGlobals @ 0x140362150 (PsGetCurrentServerSiloGlobals.c)
- *     ObpLookupDirectoryEntryEx @ 0x140601DF4 (ObpLookupDirectoryEntryEx.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     PsGetCurrentSilo @ 0x14026A8D0 (PsGetCurrentSilo.c)
+ *     ObpReleaseLookupContext @ 0x14026CA70 (ObpReleaseLookupContext.c)
+ *     OBP_GET_SILO_ROOT_DIRECTORY_FROM_SILO @ 0x1402A53F8 (OBP_GET_SILO_ROOT_DIRECTORY_FROM_SILO.c)
+ *     NLS_UPCASE @ 0x1402AB420 (NLS_UPCASE.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x1402F6FB0 (PsGetCurrentServerSiloGlobals.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1403556E0 (ExAcquirePushLockExclusiveEx.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x140355AE0 (KiLeaveGuardedRegionUnsafe.c)
+ *     ExReleasePushLockEx @ 0x140355BE0 (ExReleasePushLockEx.c)
+ *     ObfReferenceObject @ 0x140355F80 (ObfReferenceObject.c)
+ *     ObpLookupDirectoryEntryEx @ 0x1406F1554 (ObpLookupDirectoryEntryEx.c)
  */
 
 void __fastcall ObpCreateSymbolicLinkName(__int64 a1)
@@ -48,7 +48,7 @@ void __fastcall ObpCreateSymbolicLinkName(__int64 a1)
   int v29; // eax
   bool v30; // zf
   __m128i v31; // [rsp+38h] [rbp-49h]
-  __m128i v32; // [rsp+48h] [rbp-39h] BYREF
+  __int16 v32; // [rsp+48h] [rbp-39h]
   __int64 v33[2]; // [rsp+58h] [rbp-29h] BYREF
   __int64 v34; // [rsp+68h] [rbp-19h]
   int v35; // [rsp+70h] [rbp-11h]
@@ -117,10 +117,9 @@ LABEL_48:
     {
       v20 = v19 + 1;
       v18 -= 8;
-      v31.m128i_i64[1] = (__int64)(v19 + 1);
       v31.m128i_i16[0] = v18;
       v17 = **CurrentServerSiloGlobals;
-      v13 = v31;
+      v13.m128i_i16[0] = v18;
     }
     while ( 1 )
     {
@@ -129,11 +128,10 @@ LABEL_15:
       {
         ++v20;
         v18 -= 2;
-        v31.m128i_i64[1] = (__int64)v20;
         v31.m128i_i16[0] = v18;
-        v13 = v31;
+        v13.m128i_i16[0] = v18;
       }
-      v32 = v13;
+      v32 = v13.m128i_i16[0];
       if ( v18 )
       {
         do
@@ -146,11 +144,9 @@ LABEL_15:
           v31.m128i_i16[0] = v18;
         }
         while ( !v30 );
-        v31.m128i_i64[1] = (__int64)v20;
-        v13 = v31;
+        v13.m128i_i16[0] = v31.m128i_i16[0];
       }
-      v32.m128i_i16[0] -= v18;
-      if ( !v32.m128i_i16[0] )
+      if ( v32 == v18 )
         goto LABEL_42;
       if ( v17 == v42 )
       {
@@ -161,7 +157,7 @@ LABEL_15:
         v9 = 0;
         v10 = 0;
       }
-      v21 = ObpLookupDirectoryEntryEx(v17, (unsigned __int16 *)&v32, 0, 0LL, 0, (__int64)v33);
+      v21 = ObpLookupDirectoryEntryEx(v17, 0, (__int64)v33);
       v22 = v21;
       if ( v17 == v42 )
       {

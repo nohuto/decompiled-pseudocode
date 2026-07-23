@@ -1,14 +1,14 @@
 /*
- * XREFs of AslEnvExpandStrings @ 0x14088B0EC
+ * XREFs of AslEnvExpandStrings @ 0x1408914E8
  * Callers:
- *     AslEnvExpandStrings2 @ 0x14088B3B8 (AslEnvExpandStrings2.c)
+ *     AslEnvExpandStrings2 @ 0x1408917B4 (AslEnvExpandStrings2.c)
  * Callees:
- *     MmIsUserAddress @ 0x14044E7C0 (MmIsUserAddress.c)
- *     RtlCopyFromUser @ 0x140533E38 (RtlCopyFromUser.c)
- *     AslEnvVarQuery @ 0x14088B668 (AslEnvVarQuery.c)
- *     AslAlloc @ 0x1409E4C90 (AslAlloc.c)
- *     AslFree @ 0x1409E6BD8 (AslFree.c)
- *     AslLogCallPrintf @ 0x1409E8884 (AslLogCallPrintf.c)
+ *     MmIsUserAddress @ 0x1404468F0 (MmIsUserAddress.c)
+ *     RtlCopyFromUser @ 0x1405362B8 (RtlCopyFromUser.c)
+ *     AslEnvVarQuery @ 0x140891A64 (AslEnvVarQuery.c)
+ *     AslLogCallPrintf @ 0x1409D5294 (AslLogCallPrintf.c)
+ *     AslFree @ 0x1409D6144 (AslFree.c)
+ *     AslAlloc @ 0x1409D8260 (AslAlloc.c)
  */
 
 __int64 __fastcall AslEnvExpandStrings(
@@ -20,7 +20,7 @@ __int64 __fastcall AslEnvExpandStrings(
         _QWORD *a6)
 {
   _WORD *v7; // rbx
-  _WORD *v8; // r15
+  _WORD *v8; // r14
   _WORD *v9; // rcx
   _WORD *v10; // rax
   unsigned int v12; // r12d

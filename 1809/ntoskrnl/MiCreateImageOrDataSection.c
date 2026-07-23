@@ -1,7 +1,7 @@
 /*
- * XREFs of MiCreateImageOrDataSection @ 0x1405DE390
+ * XREFs of MiCreateImageOrDataSection @ 0x1405DF390
  * Callers:
- *     MiCreateSection @ 0x1405DDAC0 (MiCreateSection.c)
+ *     MiCreateSection @ 0x1405DEAC0 (MiCreateSection.c)
  * Callees:
  *     IoAllowExecution @ 0x140019D84 (IoAllowExecution.c)
  *     CcWaitForUninitializeCacheMap @ 0x14001B334 (CcWaitForUninitializeCacheMap.c)
@@ -15,19 +15,19 @@
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
  *     ObfReferenceObject @ 0x14004E220 (ObfReferenceObject.c)
  *     KeLeaveCriticalRegionThread @ 0x140051600 (KeLeaveCriticalRegionThread.c)
- *     MiDereferenceControlAreaBySection @ 0x14007645C (MiDereferenceControlAreaBySection.c)
- *     PsReferencePartitionSafe @ 0x140090CE8 (PsReferencePartitionSafe.c)
- *     MiGetControlAreaPartition @ 0x1400938A8 (MiGetControlAreaPartition.c)
- *     ObFastReplaceObject @ 0x140094924 (ObFastReplaceObject.c)
- *     ObReferenceObjectExWithTag @ 0x140111ED0 (ObReferenceObjectExWithTag.c)
- *     MiForceSectionClosed @ 0x1401220CC (MiForceSectionClosed.c)
- *     MiZeroSectionObjectPointer @ 0x14013AFE8 (MiZeroSectionObjectPointer.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     MiCallCreateSectionFilters @ 0x1405DE7D8 (MiCallCreateSectionFilters.c)
- *     MiShareExistingControlArea @ 0x1405DEC94 (MiShareExistingControlArea.c)
- *     ObReferenceObjectByHandle @ 0x1405E8350 (ObReferenceObjectByHandle.c)
- *     MiCreateNewSection @ 0x14061B7E0 (MiCreateNewSection.c)
- *     MiDereferenceFailedControlArea @ 0x1406D0324 (MiDereferenceFailedControlArea.c)
+ *     MiDereferenceControlAreaBySection @ 0x14007644C (MiDereferenceControlAreaBySection.c)
+ *     PsReferencePartitionSafe @ 0x140090C28 (PsReferencePartitionSafe.c)
+ *     MiGetControlAreaPartition @ 0x1400937E8 (MiGetControlAreaPartition.c)
+ *     ObFastReplaceObject @ 0x140094864 (ObFastReplaceObject.c)
+ *     ObReferenceObjectExWithTag @ 0x140111F40 (ObReferenceObjectExWithTag.c)
+ *     MiForceSectionClosed @ 0x14012219C (MiForceSectionClosed.c)
+ *     MiZeroSectionObjectPointer @ 0x14013B0E8 (MiZeroSectionObjectPointer.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     MiCallCreateSectionFilters @ 0x1405DF7D8 (MiCallCreateSectionFilters.c)
+ *     MiShareExistingControlArea @ 0x1405DFC94 (MiShareExistingControlArea.c)
+ *     ObReferenceObjectByHandle @ 0x1405E9350 (ObReferenceObjectByHandle.c)
+ *     MiCreateNewSection @ 0x14061C7E0 (MiCreateNewSection.c)
+ *     MiDereferenceFailedControlArea @ 0x1406D15C4 (MiDereferenceFailedControlArea.c)
  */
 
 __int64 __fastcall MiCreateImageOrDataSection(__int64 a1)
@@ -194,7 +194,7 @@ LABEL_81:
           CcWaitForUninitializeCacheMap((__int64)v6);
         if ( (unsigned int)MiForceSectionClosed(v6[5], v3) > 1 && (*(_DWORD *)a1 & 0x400000) != 0 )
         {
-          ++dword_14043A758;
+          ++dword_14043B818;
           v11 = -1073740277;
         }
 LABEL_30:

@@ -1,12 +1,12 @@
 /*
- * XREFs of PopEsEnterSleepShutdown @ 0x1407791DC
+ * XREFs of PopEsEnterSleepShutdown @ 0x14077939C
  * Callers:
- *     PopTransitionSystemPowerStateEx @ 0x1409910F4 (PopTransitionSystemPowerStateEx.c)
+ *     PopTransitionSystemPowerStateEx @ 0x1409920F4 (PopTransitionSystemPowerStateEx.c)
  * Callees:
- *     PopReleaseRwLock @ 0x14027C284 (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x140281AD4 (PopAcquireRwLockExclusive.c)
- *     PopCurrentPowerState @ 0x140678D9C (PopCurrentPowerState.c)
- *     PopEsSnapTelemetry @ 0x140779230 (PopEsSnapTelemetry.c)
+ *     PopReleaseRwLock @ 0x14026A224 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x14026FD14 (PopAcquireRwLockExclusive.c)
+ *     PopCurrentPowerState @ 0x14066C4DC (PopCurrentPowerState.c)
+ *     PopEsSnapTelemetry @ 0x1407793F0 (PopEsSnapTelemetry.c)
  */
 
 void PopEsEnterSleepShutdown()

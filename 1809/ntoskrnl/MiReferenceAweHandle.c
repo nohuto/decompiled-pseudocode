@@ -1,14 +1,14 @@
 /*
- * XREFs of MiReferenceAweHandle @ 0x1402B1B6C
+ * XREFs of MiReferenceAweHandle @ 0x1402B1D5C
  * Callers:
- *     MiCreateUserPhysicalView @ 0x14084FAEC (MiCreateUserPhysicalView.c)
- *     NtAllocateUserPhysicalPages @ 0x140850690 (NtAllocateUserPhysicalPages.c)
- *     NtFreeUserPhysicalPages @ 0x140850F10 (NtFreeUserPhysicalPages.c)
+ *     MiCreateUserPhysicalView @ 0x140850D4C (MiCreateUserPhysicalView.c)
+ *     NtAllocateUserPhysicalPages @ 0x1408518F0 (NtAllocateUserPhysicalPages.c)
+ *     NtFreeUserPhysicalPages @ 0x140852170 (NtFreeUserPhysicalPages.c)
  * Callees:
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
- *     MiSectionControlArea @ 0x140075E70 (MiSectionControlArea.c)
- *     MiAweControlArea @ 0x140077E6C (MiAweControlArea.c)
- *     ObReferenceObjectByHandleWithTag @ 0x140671500 (ObReferenceObjectByHandleWithTag.c)
+ *     MiSectionControlArea @ 0x140075E60 (MiSectionControlArea.c)
+ *     MiAweControlArea @ 0x140077E5C (MiAweControlArea.c)
+ *     ObReferenceObjectByHandleWithTag @ 0x1406726C0 (ObReferenceObjectByHandleWithTag.c)
  */
 
 NTSTATUS __fastcall MiReferenceAweHandle(HANDLE Handle, ACCESS_MASK a2, KPROCESSOR_MODE a3, _QWORD *a4, _QWORD *Object)

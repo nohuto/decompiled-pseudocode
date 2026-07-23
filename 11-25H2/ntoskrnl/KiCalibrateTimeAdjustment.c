@@ -74,7 +74,7 @@ ULONG_PTR __fastcall KiCalibrateTimeAdjustment(ULONG_PTR Argument)
       *(_QWORD *)(Argument + 16) += v16.QuadPart;
     }
     v18 = *(_QWORD *)(Argument + 8);
-    KiTickOffset = KeMaximumIncrement - v15 % (unsigned int)KeMaximumIncrement;
+    KiTickOffset = KeMaximumIncrement - v15 % KeMaximumIncrement;
     *(_QWORD *)(MmWriteableSharedUserData + 944) += v18;
     if ( MEMORY[0xFFFFF780000003B0] < 0 )
       __fastfail(5u);

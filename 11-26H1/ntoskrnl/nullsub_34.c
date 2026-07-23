@@ -1,5 +1,5 @@
 /*
- * XREFs of nullsub_34 @ 0x140BDFB80
+ * XREFs of nullsub_34 @ 0x140BE7170
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 void nullsub_34()
 {
-  ;
+  __asm { retnw }
 }

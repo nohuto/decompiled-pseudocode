@@ -1,14 +1,14 @@
 /*
- * XREFs of SepGetLogonSessionAccountInfo @ 0x1407B8DFC
+ * XREFs of SepGetLogonSessionAccountInfo @ 0x1407B931C
  * Callers:
- *     AdtpBuildLogonIdStrings @ 0x1407B8D48 (AdtpBuildLogonIdStrings.c)
+ *     AdtpBuildLogonIdStrings @ 0x1407B9268 (AdtpBuildLogonIdStrings.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
- *     ExReleaseResourceLite @ 0x14034B3F0 (ExReleaseResourceLite.c)
- *     ExAcquireResourceSharedLite @ 0x14034BF60 (ExAcquireResourceSharedLite.c)
- *     memmove @ 0x140413F40 (memmove.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     KeLeaveCriticalRegionThread @ 0x1402AB8C0 (KeLeaveCriticalRegionThread.c)
+ *     ExReleaseResourceLite @ 0x140356140 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceSharedLite @ 0x140356CB0 (ExAcquireResourceSharedLite.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall SepGetLogonSessionAccountInfo(_DWORD *a1, __int64 a2, __int64 a3, _QWORD *a4)
@@ -21,11 +21,14 @@ __int64 __fastcall SepGetLogonSessionAccountInfo(_DWORD *a1, __int64 a2, __int64
   __int64 *v13; // rbx
   void *v14; // rsi
   __int64 v15; // r14
-  PVOID v17; // rax
+  __int64 v16; // rdx
+  __int64 v17; // r8
+  __int64 v18; // r9
+  PVOID v20; // rax
   PVOID PoolWithTag; // rax
-  PVOID v19; // rax
-  void *v20; // rcx
-  void *v21; // rcx
+  PVOID v22; // rax
+  void *v23; // rcx
+  void *v24; // rcx
 
   CurrentThread = KeGetCurrentThread();
   v9 = 0;
@@ -49,8 +52,8 @@ __int64 __fastcall SepGetLogonSessionAccountInfo(_DWORD *a1, __int64 a2, __int64
     *(_QWORD *)(a2 + 8) = 0LL;
     *(_QWORD *)(a3 + 8) = 0LL;
     if ( !v13[8]
-      || (v17 = ExAllocatePoolWithTag(PagedPool, *((unsigned __int16 *)v13 + 29), 0x6B416553u),
-          (*(_QWORD *)(a2 + 8) = v17) != 0LL) )
+      || (v20 = ExAllocatePoolWithTag(PagedPool, *((unsigned __int16 *)v13 + 29), 0x6B416553u),
+          (*(_QWORD *)(a2 + 8) = v20) != 0LL) )
     {
       if ( v13[10] )
       {
@@ -71,24 +74,24 @@ __int64 __fastcall SepGetLogonSessionAccountInfo(_DWORD *a1, __int64 a2, __int64
     {
       if ( v15 )
       {
-        v19 = ExAllocatePoolWithTag(
+        v22 = ExAllocatePoolWithTag(
                 PagedPool,
                 4LL * *(unsigned __int8 *)(**(_QWORD **)(v15 + 152) + 1LL) + 8,
                 0x69536553u);
-        v14 = v19;
-        if ( !v19 )
+        v14 = v22;
+        if ( !v22 )
           v9 = -1073741670;
       }
     }
     if ( v9 < 0 )
     {
 LABEL_24:
-      v20 = *(void **)(a2 + 8);
-      if ( v20 )
-        ExFreePoolWithTag(v20, 0);
-      v21 = *(void **)(a3 + 8);
-      if ( v21 )
-        ExFreePoolWithTag(v21, 0);
+      v23 = *(void **)(a2 + 8);
+      if ( v23 )
+        ExFreePoolWithTag(v23, 0);
+      v24 = *(void **)(a3 + 8);
+      if ( v24 )
+        ExFreePoolWithTag(v24, 0);
       if ( v14 )
         ExFreePoolWithTag(v14, 0);
     }
@@ -109,6 +112,6 @@ LABEL_15:
     v9 = -1073741729;
   }
   ExReleaseResourceLite(v12);
-  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v16, v17, v18);
   return (unsigned int)v9;
 }

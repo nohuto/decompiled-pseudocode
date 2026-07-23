@@ -1,7 +1,7 @@
 /*
- * XREFs of crc32 @ 0x18011C8D8
+ * XREFs of crc32 @ 0x18011AB08
  * Callers:
- *     RtlComputeCrc32 @ 0x18010D3E0 (RtlComputeCrc32.c)
+ *     RtlComputeCrc32 @ 0x1801082C0 (RtlComputeCrc32.c)
  * Callees:
  *     <none>
  */

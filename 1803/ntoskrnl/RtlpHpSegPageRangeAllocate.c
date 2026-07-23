@@ -16,19 +16,19 @@
  *     RtlpHpSegSegmentInitialize @ 0x140299178 (RtlpHpSegSegmentInitialize.c)
  */
 
-unsigned __int64 __fastcall RtlpHpSegPageRangeAllocate(__int64 a1, int a2, int a3)
+__int64 __fastcall RtlpHpSegPageRangeAllocate(__int64 a1, int a2, int a3)
 {
   char v3; // bl
   unsigned int v6; // r13d
   __int64 v7; // r8
   KIRQL v8; // r14
   __int64 v9; // rax
-  unsigned __int64 v10; // rdi
+  __int64 v10; // rdi
   unsigned __int64 v11; // r9
   int v12; // ecx
   __int64 v13; // rdx
   unsigned int v14; // eax
-  unsigned __int64 v15; // rax
+  __int64 v15; // rax
   __int64 v16; // rcx
   __int64 v17; // rax
   unsigned __int64 v18; // rbp

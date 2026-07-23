@@ -1,11 +1,11 @@
 /*
- * XREFs of KdRefreshDebuggerNotPresent @ 0x1404AF9D0
+ * XREFs of KdRefreshDebuggerNotPresent @ 0x1404AA3C0
  * Callers:
- *     KiBugCheckShouldEnterPostBugCheckDebugger @ 0x1405B3050 (KiBugCheckShouldEnterPostBugCheckDebugger.c)
+ *     KiBugCheckShouldEnterPostBugCheckDebugger @ 0x1405AFFC0 (KiBugCheckShouldEnterPostBugCheckDebugger.c)
  * Callees:
- *     KdExitDebugger @ 0x140B75008 (KdExitDebugger.c)
- *     KdpPrintString @ 0x140B79CE8 (KdpPrintString.c)
- *     KdEnterDebugger @ 0x140B7A96C (KdEnterDebugger.c)
+ *     KdExitDebugger @ 0x140B77008 (KdExitDebugger.c)
+ *     KdpPrintString @ 0x140B7BCE8 (KdpPrintString.c)
+ *     KdEnterDebugger @ 0x140B7C96C (KdEnterDebugger.c)
  */
 
 BOOLEAN KdRefreshDebuggerNotPresent(void)

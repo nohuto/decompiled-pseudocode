@@ -1,15 +1,15 @@
 /*
- * XREFs of BiEnumerateDiskPartitions @ 0x1408920E0
+ * XREFs of BiEnumerateDiskPartitions @ 0x1408984DC
  * Callers:
- *     BiResolveLocate @ 0x140892F3C (BiResolveLocate.c)
- *     BiResolveLocateFileCallback @ 0x140893270 (BiResolveLocateFileCallback.c)
+ *     BiResolveLocate @ 0x14089933C (BiResolveLocate.c)
+ *     BiResolveLocateFileCallback @ 0x140899670 (BiResolveLocateFileCallback.c)
  * Callees:
- *     swprintf_s @ 0x14053B0E0 (swprintf_s.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     BiGetDriveLayoutBlock @ 0x1408922C0 (BiGetDriveLayoutBlock.c)
- *     BiResolveLocatePartitionCallback @ 0x140893368 (BiResolveLocatePartitionCallback.c)
- *     BiLogMessage @ 0x1409D490C (BiLogMessage.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     swprintf_s @ 0x14053D560 (swprintf_s.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     BiGetDriveLayoutBlock @ 0x1408986BC (BiGetDriveLayoutBlock.c)
+ *     BiResolveLocatePartitionCallback @ 0x140899768 (BiResolveLocatePartitionCallback.c)
+ *     BiLogMessage @ 0x1409A58EC (BiLogMessage.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall BiEnumerateDiskPartitions(unsigned int a1)

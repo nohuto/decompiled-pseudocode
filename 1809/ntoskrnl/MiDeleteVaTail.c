@@ -1,15 +1,15 @@
 /*
- * XREFs of MiDeleteVaTail @ 0x140075880
+ * XREFs of MiDeleteVaTail @ 0x140075870
  * Callers:
  *     <none>
  * Callees:
  *     MiDeletePteRun @ 0x140037620 (MiDeletePteRun.c)
- *     KeFlushTb @ 0x1400755B0 (KeFlushTb.c)
- *     KeFlushMultipleRangeTb @ 0x140075BB0 (KeFlushMultipleRangeTb.c)
- *     MiDecayPfnFullyInitialized @ 0x14011BD70 (MiDecayPfnFullyInitialized.c)
- *     KeFlushMultipleRangeCurrentTb @ 0x140173C9C (KeFlushMultipleRangeCurrentTb.c)
- *     KeFlushCurrentTbOnly @ 0x140173E00 (KeFlushCurrentTbOnly.c)
- *     MiReplicatePteChange @ 0x140174F14 (MiReplicatePteChange.c)
+ *     KeFlushTb @ 0x1400755A0 (KeFlushTb.c)
+ *     KeFlushMultipleRangeTb @ 0x140075BA0 (KeFlushMultipleRangeTb.c)
+ *     MiDecayPfnFullyInitialized @ 0x14011BDE0 (MiDecayPfnFullyInitialized.c)
+ *     KeFlushMultipleRangeCurrentTb @ 0x140173D9C (KeFlushMultipleRangeCurrentTb.c)
+ *     KeFlushCurrentTbOnly @ 0x140173F00 (KeFlushCurrentTbOnly.c)
+ *     MiReplicatePteChange @ 0x140175014 (MiReplicatePteChange.c)
  */
 
 __int64 __fastcall MiDeleteVaTail(_QWORD *a1)
@@ -34,7 +34,7 @@ __int64 __fastcall MiDeleteVaTail(_QWORD *a1)
   if ( !(_DWORD)v4 )
     goto LABEL_2;
   v10 = *(_BYTE *)(v2 + 4);
-  v11 = qword_14043A110;
+  v11 = qword_14043B1D0;
   if ( (v10 & 2) == 0 )
   {
     v12 = *(_DWORD *)v2;

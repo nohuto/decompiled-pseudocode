@@ -1,7 +1,7 @@
 /*
- * XREFs of MiNodeLargeFreeZeroPages2 @ 0x140556D60
+ * XREFs of MiNodeLargeFreeZeroPages2 @ 0x140556FA0
  * Callers:
- *     MiAddPhysicalMemoryChunks @ 0x1408C542C (MiAddPhysicalMemoryChunks.c)
+ *     MiAddPhysicalMemoryChunks @ 0x1408C558C (MiAddPhysicalMemoryChunks.c)
  * Callees:
  *     <none>
  */

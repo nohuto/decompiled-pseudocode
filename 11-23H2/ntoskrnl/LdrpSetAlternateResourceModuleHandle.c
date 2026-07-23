@@ -1,17 +1,17 @@
 /*
- * XREFs of LdrpSetAlternateResourceModuleHandle @ 0x1403A24F4
+ * XREFs of LdrpSetAlternateResourceModuleHandle @ 0x1403A26D4
  * Callers:
- *     LdrpGetRcConfig @ 0x1402F7548 (LdrpGetRcConfig.c)
- *     LdrLoadAlternateResourceModuleEx @ 0x1402F77DC (LdrLoadAlternateResourceModuleEx.c)
- *     LdrResGetRCConfig @ 0x1407E1914 (LdrResGetRCConfig.c)
+ *     LdrpGetRcConfig @ 0x1402F77D8 (LdrpGetRcConfig.c)
+ *     LdrLoadAlternateResourceModuleEx @ 0x1402F7A6C (LdrLoadAlternateResourceModuleEx.c)
+ *     LdrResGetRCConfig @ 0x1407E1BE4 (LdrResGetRCConfig.c)
  * Callees:
  *     RtlImageNtHeader @ 0x140214B30 (RtlImageNtHeader.c)
- *     KeWaitForSingleObject @ 0x140243CE0 (KeWaitForSingleObject.c)
- *     KeReleaseMutant @ 0x1402AFA30 (KeReleaseMutant.c)
- *     ZwClose @ 0x14041AF40 (ZwClose.c)
- *     memmove @ 0x140435700 (memmove.c)
- *     RtlRunOnceExecuteOnce @ 0x140757D90 (RtlRunOnceExecuteOnce.c)
- *     MmUnmapViewInSystemSpace @ 0x1407E0410 (MmUnmapViewInSystemSpace.c)
+ *     KeWaitForSingleObject @ 0x140243DB0 (KeWaitForSingleObject.c)
+ *     KeReleaseMutant @ 0x1402AFF20 (KeReleaseMutant.c)
+ *     ZwClose @ 0x14041B2D0 (ZwClose.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     RtlRunOnceExecuteOnce @ 0x140757F80 (RtlRunOnceExecuteOnce.c)
+ *     MmUnmapViewInSystemSpace @ 0x1407E06E0 (MmUnmapViewInSystemSpace.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
@@ -34,8 +34,8 @@ char __fastcall LdrpSetAlternateResourceModuleHandle(
   unsigned int j; // eax
   unsigned __int64 v17; // rcx
   __int16 v18; // dx
-  __int64 v19; // rax
-  int v20; // r9d
+  PIMAGE_NT_HEADERS v19; // rax
+  unsigned int CheckSum; // r9d
   int v21; // r8d
   unsigned __int64 v22; // rcx
   char *v23; // rdx
@@ -133,10 +133,10 @@ char __fastcall LdrpSetAlternateResourceModuleHandle(
       }
     }
   }
-  v19 = RtlImageNtHeader(a1 & 0xFFFFFFFFFFFFFFFCuLL);
+  v19 = RtlImageNtHeader((PVOID)(a1 & 0xFFFFFFFFFFFFFFFCuLL));
   if ( v19 )
   {
-    v20 = *(_DWORD *)(v19 + 88);
+    CheckSum = v19->OptionalHeader.CheckSum;
     v21 = AlternateResourceModuleCount;
     v22 = (unsigned __int64)(unsigned int)AlternateResourceModuleCount << 6;
     v23 = (char *)AlternateResourceModules;
@@ -161,7 +161,7 @@ char __fastcall LdrpSetAlternateResourceModuleHandle(
       *(_QWORD *)&v23[v22 + 48] = 0LL;
     }
     *(_WORD *)&v23[v22] = a5;
-    *(_DWORD *)&v23[v22 + 24] = v20;
+    *(_DWORD *)&v23[v22 + 24] = CheckSum;
     *(_DWORD *)&v23[v22 + 56] = a7;
     AlternateResourceModuleCount = v21 + 1;
   }

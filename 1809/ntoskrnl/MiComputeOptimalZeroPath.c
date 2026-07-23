@@ -1,14 +1,14 @@
 /*
- * XREFs of MiComputeOptimalZeroPath @ 0x1409BC284
+ * XREFs of MiComputeOptimalZeroPath @ 0x1409BD284
  * Callers:
- *     MiInitSystem @ 0x1409BC5A8 (MiInitSystem.c)
+ *     MiInitSystem @ 0x1409BD5A8 (MiInitSystem.c)
  * Callees:
  *     MiLockPageInline @ 0x14002CE40 (MiLockPageInline.c)
  *     MiZeroPhysicalPage @ 0x140032010 (MiZeroPhysicalPage.c)
  *     MiInsertPageInFreeOrZeroedList @ 0x1400387F0 (MiInsertPageInFreeOrZeroedList.c)
  *     MiGetPage @ 0x140049D50 (MiGetPage.c)
- *     MiChangePageAttribute @ 0x1400EF920 (MiChangePageAttribute.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiChangePageAttribute @ 0x1400EF9A0 (MiChangePageAttribute.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 MiComputeOptimalZeroPath()
@@ -80,7 +80,7 @@ __int64 MiComputeOptimalZeroPath()
     {
       v36 = 2LL;
       v6 = &v40;
-      v35 = (unsigned __int64 *)&unk_14043A168;
+      v35 = (unsigned __int64 *)&unk_14043B228;
       v7 = 0LL;
       v44 = &v40;
       v43 = 0LL;
@@ -126,7 +126,7 @@ __int64 MiComputeOptimalZeroPath()
         v22 = v17;
         v23 = v38;
         if ( v22 / 3 < 9 * (v38 / 0xA) )
-          dword_14043A11C[4 * v10] = 1;
+          dword_14043B1DC[4 * v10] = 1;
         v7 = v20 + 8;
         *(v15 - 1) = v23;
         v6 = v21 + 1;

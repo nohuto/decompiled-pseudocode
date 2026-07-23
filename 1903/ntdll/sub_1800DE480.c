@@ -10,7 +10,7 @@ __int64 *sub_1800DE480()
 {
   __int64 *result; // rax
 
-  memset(qword_180166120, 0, 0x60uLL);
+  memset(&stru_180166120, 0, 0x60uLL);
   memset(&unk_180166128, 0, 0x40uLL);
   result = &qword_180166168;
   qword_180166170 = (__int64)&qword_180166168;

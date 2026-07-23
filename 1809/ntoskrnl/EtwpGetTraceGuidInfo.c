@@ -1,15 +1,15 @@
 /*
- * XREFs of EtwpGetTraceGuidInfo @ 0x1408B5E78
+ * XREFs of EtwpGetTraceGuidInfo @ 0x1408B7138
  * Callers:
- *     NtTraceControl @ 0x1405C2F40 (NtTraceControl.c)
+ *     NtTraceControl @ 0x1405C3F40 (NtTraceControl.c)
  * Callees:
  *     RtlUIntAdd @ 0x140001568 (RtlUIntAdd.c)
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     ExReleasePushLockEx @ 0x14004F160 (ExReleasePushLockEx.c)
  *     KeLeaveCriticalRegion @ 0x14004F410 (KeLeaveCriticalRegion.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     EtwpUnreferenceGuidEntry @ 0x1405C4098 (EtwpUnreferenceGuidEntry.c)
- *     EtwpFindGuidEntryByGuid @ 0x1405C4190 (EtwpFindGuidEntryByGuid.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     EtwpUnreferenceGuidEntry @ 0x1405C5098 (EtwpUnreferenceGuidEntry.c)
+ *     EtwpFindGuidEntryByGuid @ 0x1405C5190 (EtwpFindGuidEntryByGuid.c)
  */
 
 __int64 __fastcall EtwpGetTraceGuidInfo(__int64 a1, __int64 a2, int *a3, unsigned int *a4)
@@ -20,7 +20,7 @@ __int64 __fastcall EtwpGetTraceGuidInfo(__int64 a1, __int64 a2, int *a3, unsigne
   __int64 v10; // rdi
   unsigned int i; // ecx
   __int64 v12; // r14
-  _QWORD *v13; // r8
+  GUID *v13; // r8
   _QWORD *GuidEntryByGuid; // r14
   __int64 v16; // rdx
   unsigned int v17; // ecx
@@ -74,11 +74,11 @@ __int64 __fastcall EtwpGetTraceGuidInfo(__int64 a1, __int64 a2, int *a3, unsigne
   for ( i = 0; i < 0xA; ++i )
   {
     v12 = 2LL * i;
-    v13 = *(&EtwpUmglProviders + 2 * i);
-    if ( *v13 == *(_QWORD *)a2 && v13[1] == *(_QWORD *)(a2 + 8) )
+    v13 = (&EtwpUmglProviders)[2 * i];
+    if ( *(_QWORD *)&v13->Data1 == *(_QWORD *)a2 && *(_QWORD *)v13->Data4 == *(_QWORD *)(a2 + 8) )
     {
       memset(a3, 0, v4);
-      v16 = *((unsigned __int8 *)&EtwpUmglProviders + 8 * v12 + 8);
+      v16 = *((unsigned __int8 *)&(&EtwpUmglProviders)[v12] + 8);
       v17 = 24;
       if ( *(_BYTE *)(v10 + 2 * v16) )
       {

@@ -1,21 +1,21 @@
 /*
- * XREFs of HvHiveCleanup @ 0x1408B9010
+ * XREFs of HvHiveCleanup @ 0x1408BF5E0
  * Callers:
- *     CmShutdownSystem2 @ 0x1406E24C0 (CmShutdownSystem2.c)
- *     CmpDestroyHive @ 0x1408B6DC4 (CmpDestroyHive.c)
- *     CmpCompleteUnloadKey @ 0x1408B9ACC (CmpCompleteUnloadKey.c)
+ *     CmShutdownSystem2 @ 0x1406E6740 (CmShutdownSystem2.c)
+ *     CmpDestroyHive @ 0x1408BD394 (CmpDestroyHive.c)
+ *     CmpCompleteUnloadKey @ 0x1408C009C (CmpCompleteUnloadKey.c)
  * Callees:
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     CmpFreeBootRegistry @ 0x1406E3154 (CmpFreeBootRegistry.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     HvpFreeBin @ 0x1408B78AC (HvpFreeBin.c)
- *     HvpFreeMap @ 0x1408B79C0 (HvpFreeMap.c)
- *     HvpFreeHiveFreeDisplay @ 0x1408B7C6C (HvpFreeHiveFreeDisplay.c)
- *     HvpViewMapCleanup @ 0x1408B7D00 (HvpViewMapCleanup.c)
- *     HvpMapEntryIsPoolBacked @ 0x1408B9254 (HvpMapEntryIsPoolBacked.c)
- *     CmpFree @ 0x1408B9620 (CmpFree.c)
- *     HvpMapEntryIsDiscardable @ 0x1408D9350 (HvpMapEntryIsDiscardable.c)
- *     HvpGetCellMap @ 0x140C58690 (HvpGetCellMap.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     CmpFreeBootRegistry @ 0x1406E7E00 (CmpFreeBootRegistry.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     HvpFreeBin @ 0x1408BDE7C (HvpFreeBin.c)
+ *     HvpFreeMap @ 0x1408BDF90 (HvpFreeMap.c)
+ *     HvpFreeHiveFreeDisplay @ 0x1408BE23C (HvpFreeHiveFreeDisplay.c)
+ *     HvpViewMapCleanup @ 0x1408BE2D0 (HvpViewMapCleanup.c)
+ *     HvpMapEntryIsPoolBacked @ 0x1408BF824 (HvpMapEntryIsPoolBacked.c)
+ *     CmpFree @ 0x1408BFBF0 (CmpFree.c)
+ *     HvpMapEntryIsDiscardable @ 0x1408DF910 (HvpMapEntryIsDiscardable.c)
+ *     HvpGetCellMap @ 0x140C5E690 (HvpGetCellMap.c)
  */
 
 _UNKNOWN **__fastcall HvHiveCleanup(__int64 a1)
@@ -28,7 +28,7 @@ _UNKNOWN **__fastcall HvHiveCleanup(__int64 a1)
   unsigned int i; // r15d
   __int64 CellMap; // rax
   __int64 v9; // rdi
-  struct _LIST_ENTRY *v10; // rax
+  _ULARGE_INTEGER v10; // rax
   _QWORD *v11; // rcx
   __int64 v12; // rdx
   _QWORD *v13; // rax
@@ -72,10 +72,10 @@ _UNKNOWN **__fastcall HvHiveCleanup(__int64 a1)
         }
         else
         {
-          v10 = (struct _LIST_ENTRY *)*(unsigned int *)(v9 + 16);
-          if ( v10 > PspSiloMonitorLock.Timer.Header.WaitListHead.Blink )
+          v10.QuadPart = *(unsigned int *)(v9 + 16);
+          if ( v10.QuadPart > PspSiloMonitorLock.Timer.DueTime.QuadPart )
             KeBugCheckEx(0x51u, 0xDuLL, 1uLL, 0LL, 0LL);
-          _InterlockedAdd((volatile signed __int32 *)&PspSiloMonitorLock.Timer.Header.WaitListHead.Blink, -(int)v10);
+          _InterlockedAdd((volatile signed __int32 *)&PspSiloMonitorLock.Timer.DueTime, -v10.LowPart);
         }
       }
       v14 = *(void **)(a1 + v5 + 288);
@@ -89,7 +89,7 @@ _UNKNOWN **__fastcall HvHiveCleanup(__int64 a1)
     v4 += 0x80000000;
   }
   while ( v3 < 2 );
-  if ( v2 && _InterlockedExchangeAdd((volatile signed __int32 *)&WheapPfaLock.StackLimit, 0xFFFFFFFF) == 1 )
+  if ( v2 && _InterlockedExchangeAdd((volatile signed __int32 *)&WheapPfaLock.CycleTime, 0xFFFFFFFF) == 1 )
     CmpFreeBootRegistry();
   v15 = *(_QWORD *)(a1 + 64);
   if ( v15 )

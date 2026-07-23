@@ -1,16 +1,16 @@
 /*
- * XREFs of HalEfiSetTime @ 0x140586BA8
+ * XREFs of HalEfiSetTime @ 0x1405890C8
  * Callers:
- *     HalSetRealTimeClock @ 0x140578300 (HalSetRealTimeClock.c)
+ *     HalSetRealTimeClock @ 0x14057A830 (HalSetRealTimeClock.c)
  * Callees:
- *     PsGetCurrentServerSiloGlobals @ 0x1402150C0 (PsGetCurrentServerSiloGlobals.c)
- *     RtlpTimeToTimeFields @ 0x140451D40 (RtlpTimeToTimeFields.c)
- *     HalpEfiStartRuntimeCode @ 0x140472300 (HalpEfiStartRuntimeCode.c)
- *     HalpConvertEfiToNtStatus @ 0x140472358 (HalpConvertEfiToNtStatus.c)
- *     HalpEfiIncrementEfiCall @ 0x14048F3D0 (HalpEfiIncrementEfiCall.c)
- *     HalpEfiDecrementEfiCall @ 0x1404AC694 (HalpEfiDecrementEfiCall.c)
- *     HalpCallEfiGetTime @ 0x140586E8C (HalpCallEfiGetTime.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x1402153F0 (PsGetCurrentServerSiloGlobals.c)
+ *     RtlpTimeToTimeFields @ 0x140449E70 (RtlpTimeToTimeFields.c)
+ *     HalpEfiStartRuntimeCode @ 0x14046BA80 (HalpEfiStartRuntimeCode.c)
+ *     HalpConvertEfiToNtStatus @ 0x14046BAD8 (HalpConvertEfiToNtStatus.c)
+ *     HalpEfiIncrementEfiCall @ 0x140488E18 (HalpEfiIncrementEfiCall.c)
+ *     HalpEfiDecrementEfiCall @ 0x1404A5D24 (HalpEfiDecrementEfiCall.c)
+ *     HalpCallEfiGetTime @ 0x1405893AC (HalpCallEfiGetTime.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall HalEfiSetTime(__int64 *a1)
@@ -28,11 +28,11 @@ __int64 __fastcall HalEfiSetTime(__int64 *a1)
     return 3221225474LL;
   if ( !a1 )
     return 3221225485LL;
-  HalpEfiIncrementEfiCall((volatile signed __int32 *)&HalpDeviceBlockUnblockPushLock.QueuedScb);
+  HalpEfiIncrementEfiCall((volatile signed __int32 *)&HalpDeviceBlockUnblockPushLock.ReadOperationCount + 1);
   HalpEfiStartRuntimeCode(1u);
   HalpCallEfiGetTime(&v7);
   _InterlockedAnd((volatile signed __int32 *)&KeGetPcr()->HalReserved[8], 0xFFFFFFFE);
-  HalpEfiDecrementEfiCall((volatile signed __int32 *)&HalpDeviceBlockUnblockPushLock.QueuedScb);
+  HalpEfiDecrementEfiCall((volatile signed __int32 *)&HalpDeviceBlockUnblockPushLock.ReadOperationCount + 1);
   result = HalpConvertEfiToNtStatus(v3);
   if ( (int)result >= 0 )
   {
@@ -75,13 +75,13 @@ LABEL_12:
     BYTE5(v7) = BYTE8(v5);
     BYTE6(v7) = BYTE10(v5);
     DWORD2(v7) = 1000000 * SWORD6(v5);
-    HalpEfiIncrementEfiCall((volatile signed __int32 *)&HalpDeviceBlockUnblockPushLock.QueuedScb);
-    HalpEfiIncrementEfiCall((volatile signed __int32 *)&HalpDeviceBlockUnblockPushLock.Spare26);
+    HalpEfiIncrementEfiCall((volatile signed __int32 *)&HalpDeviceBlockUnblockPushLock.ReadOperationCount + 1);
+    HalpEfiIncrementEfiCall((volatile signed __int32 *)&HalpDeviceBlockUnblockPushLock.ReadTransferCount + 1);
     HalpEfiStartRuntimeCode(2u);
     ((void (__fastcall *)(__int128 *))HalEfiRuntimeServicesTable[1])(&v7);
     _InterlockedAnd((volatile signed __int32 *)&KeGetPcr()->HalReserved[8], 0xFFFFFFFD);
-    HalpEfiDecrementEfiCall((volatile signed __int32 *)&HalpDeviceBlockUnblockPushLock.Spare26);
-    HalpEfiDecrementEfiCall((volatile signed __int32 *)&HalpDeviceBlockUnblockPushLock.QueuedScb);
+    HalpEfiDecrementEfiCall((volatile signed __int32 *)&HalpDeviceBlockUnblockPushLock.ReadTransferCount + 1);
+    HalpEfiDecrementEfiCall((volatile signed __int32 *)&HalpDeviceBlockUnblockPushLock.ReadOperationCount + 1);
     return HalpConvertEfiToNtStatus(v4);
   }
   return result;

@@ -1,23 +1,23 @@
 /*
- * XREFs of KiIpiSendRequest @ 0x14027AED0
+ * XREFs of KiIpiSendRequest @ 0x140268E70
  * Callers:
- *     KxFlushEntireTb @ 0x14022F980 (KxFlushEntireTb.c)
- *     KiIpiSendPacket @ 0x14027AE48 (KiIpiSendPacket.c)
- *     KeFlushMultipleRangeTb @ 0x14033B620 (KeFlushMultipleRangeTb.c)
- *     KiIpiSendRequestEx @ 0x14033B9A0 (KiIpiSendRequestEx.c)
+ *     KiIpiSendPacket @ 0x140268DE8 (KiIpiSendPacket.c)
+ *     KxFlushEntireTb @ 0x1402D41D0 (KxFlushEntireTb.c)
+ *     KeFlushMultipleRangeTb @ 0x140346370 (KeFlushMultipleRangeTb.c)
+ *     KiIpiSendRequestEx @ 0x1403466F0 (KiIpiSendRequestEx.c)
  * Callees:
- *     KeIsEmptyAffinityEx @ 0x140228560 (KeIsEmptyAffinityEx.c)
- *     KeSubtractAffinityEx @ 0x14022B670 (KeSubtractAffinityEx.c)
- *     HalRequestIpi @ 0x14027AEA0 (HalRequestIpi.c)
- *     KiIpiEnlightenedGuestPriorityKick @ 0x14027B394 (KiIpiEnlightenedGuestPriorityKick.c)
- *     HalRequestIpiSpecifyVector @ 0x14027B3E0 (HalRequestIpiSpecifyVector.c)
- *     EtwGetKernelTraceTimestamp @ 0x14029B060 (EtwGetKernelTraceTimestamp.c)
- *     KeCopyAffinityEx @ 0x14033B450 (KeCopyAffinityEx.c)
- *     KeRemoveProcessorAffinityEx @ 0x14033B4A0 (KeRemoveProcessorAffinityEx.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
- *     memset @ 0x140414200 (memset.c)
- *     PerfInfoLogIpiSend @ 0x1405AA1E0 (PerfInfoLogIpiSend.c)
+ *     EtwGetKernelTraceTimestamp @ 0x1402129F0 (EtwGetKernelTraceTimestamp.c)
+ *     HalRequestIpi @ 0x140268E40 (HalRequestIpi.c)
+ *     KiIpiEnlightenedGuestPriorityKick @ 0x140269334 (KiIpiEnlightenedGuestPriorityKick.c)
+ *     HalRequestIpiSpecifyVector @ 0x140269380 (HalRequestIpiSpecifyVector.c)
+ *     KeIsEmptyAffinityEx @ 0x1402CCE60 (KeIsEmptyAffinityEx.c)
+ *     KeSubtractAffinityEx @ 0x1402CFF20 (KeSubtractAffinityEx.c)
+ *     KeCopyAffinityEx @ 0x1403461A0 (KeCopyAffinityEx.c)
+ *     KeRemoveProcessorAffinityEx @ 0x1403461F0 (KeRemoveProcessorAffinityEx.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     PerfInfoLogIpiSend @ 0x1405AA410 (PerfInfoLogIpiSend.c)
  */
 
 __int64 __fastcall KiIpiSendRequest(__int64 a1, unsigned int a2, unsigned __int16 *a3, _OWORD *a4, __int64 a5)
@@ -70,7 +70,7 @@ __int64 __fastcall KiIpiSendRequest(__int64 a1, unsigned int a2, unsigned __int1
   if ( (DWORD2(PerfGlobalGroupMask) & 0x400000) != 0 )
   {
     v39 = 1;
-    EtwGetKernelTraceTimestamp(v50, 1077936128LL);
+    EtwGetKernelTraceTimestamp((LARGE_INTEGER *)v50, 0x40400000u);
   }
   else
   {
@@ -80,7 +80,7 @@ __int64 __fastcall KiIpiSendRequest(__int64 a1, unsigned int a2, unsigned __int1
   v10 = (_QWORD *)(v8 + 12208);
   if ( a2 )
   {
-    KeCopyAffinityEx(v8 + 12040, KeActiveProcessors);
+    KeCopyAffinityEx(v8 + 12040, &KeActiveProcessors);
     if ( a2 == 1 )
       KeRemoveProcessorAffinityEx(v8 + 12040, *(unsigned int *)(v8 + 36));
     v13 = a5;
@@ -90,10 +90,7 @@ __int64 __fastcall KiIpiSendRequest(__int64 a1, unsigned int a2, unsigned __int1
       if ( !(unsigned int)KeIsEmptyAffinityEx(&KeSleepingProcessors) )
       {
         a2 = 0;
-        KeSubtractAffinityEx(
-          (unsigned __int16 *)(v8 + 12040),
-          (unsigned __int16 *)&KeSleepingProcessors,
-          (_BYTE *)(v8 + 12040));
+        KeSubtractAffinityEx(v8 + 12040, &KeSleepingProcessors, v8 + 12040);
       }
     }
   }

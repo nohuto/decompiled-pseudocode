@@ -8,16 +8,18 @@
  *     sub_180018928 @ 0x180018928 (sub_180018928.c)
  */
 
-struct _PEB *__fastcall sub_180086D90(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+void __fastcall sub_180086D90(PVOID a1)
 {
-  struct _PEB *result; // rax
-  struct _PEB_LDR_DATA *Ldr; // rcx
+  PPEB_LDR_DATA Ldr; // rcx
 
-  if ( a1 == qword_18015C378 && !NtCurrentPeb()->Ldr->ShutdownInProgress )
-    return (struct _PEB *)sub_180018928((const void **)&qword_18015C378, (__int64)&qword_18015C380);
-  result = NtCurrentPeb();
-  Ldr = result->Ldr;
-  if ( !Ldr->ShutdownInProgress )
-    return (struct _PEB *)sub_1801058B8(Ldr, a2, a3, a4);
-  return result;
+  if ( a1 != qword_18015C378 || NtCurrentPeb()->Ldr->ShutdownInProgress )
+  {
+    Ldr = NtCurrentPeb()->Ldr;
+    if ( !Ldr->ShutdownInProgress )
+      sub_1801058B8(Ldr);
+  }
+  else
+  {
+    sub_180018928((const void **)&qword_18015C378, &stru_18015C380);
+  }
 }

@@ -13,7 +13,7 @@
 
 char __fastcall KiWaitSatisfyAny(ULONG_PTR BugCheckParameter2, __int64 a2, __int64 a3)
 {
-  __int64 v6; // rax
+  PRTL_BALANCED_NODE v6; // rax
   __int64 v7; // rcx
   struct _KPRCB *CurrentPrcb; // rbx
   _DWORD *SchedulerAssist; // rcx
@@ -66,9 +66,9 @@ char __fastcall KiWaitSatisfyAny(ULONG_PTR BugCheckParameter2, __int64 a2, __int
       {
         v6 = KeAbPreAcquire(BugCheckParameter2, 0LL, 1);
         if ( v6 )
-          *(_BYTE *)(v6 + 26) |= 1u;
+          BYTE2(v6[1].Left) |= 1u;
       }
     }
   }
-  return v6;
+  return (char)v6;
 }

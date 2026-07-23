@@ -1,23 +1,23 @@
 /*
- * XREFs of AlpcRegisterCompletionListWorkerThread @ 0x1800E2400
+ * XREFs of AlpcRegisterCompletionListWorkerThread @ 0x1800DD9D0
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall AlpcRegisterCompletionListWorkerThread(__int64 a1)
+BOOLEAN __cdecl AlpcRegisterCompletionListWorkerThread(PVOID CompletionList)
 {
   signed __int64 v1; // rtt
 
-  while ( HIWORD(*(_QWORD *)(a1 + 64)) != 0xFFFFLL )
+  while ( HIWORD(*((_QWORD *)CompletionList + 8)) != 0xFFFFLL )
   {
-    v1 = *(_QWORD *)(a1 + 64);
+    v1 = *((_QWORD *)CompletionList + 8);
     if ( v1 == _InterlockedCompareExchange64(
-                 (volatile signed __int64 *)(a1 + 64),
+                 (volatile signed __int64 *)CompletionList + 8,
                  v1 & 0xFFFFFFFFFFFFLL | ((v1 & 0xFFFF000000000000uLL) + 0x1000000000000LL),
                  v1) )
-      return 1LL;
+      return 1;
   }
-  return 0LL;
+  return 0;
 }

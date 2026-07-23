@@ -1,17 +1,17 @@
 /*
- * XREFs of MiUnlinkNodeLargePages @ 0x1402D76D0
+ * XREFs of MiUnlinkNodeLargePages @ 0x1402D7960
  * Callers:
- *     MiZeroLocalPages @ 0x1402CF540 (MiZeroLocalPages.c)
- *     MiDemoteLocalLargePage @ 0x1402E81B0 (MiDemoteLocalLargePage.c)
- *     MiGetLargePagesDemoteAsNeeded @ 0x1402E8E18 (MiGetLargePagesDemoteAsNeeded.c)
- *     MiGetHugePageToZero @ 0x140351160 (MiGetHugePageToZero.c)
+ *     MiZeroLocalPages @ 0x1402CF7D0 (MiZeroLocalPages.c)
+ *     MiDemoteLocalLargePage @ 0x1402E8440 (MiDemoteLocalLargePage.c)
+ *     MiGetLargePagesDemoteAsNeeded @ 0x1402E90A8 (MiGetLargePagesDemoteAsNeeded.c)
+ *     MiGetHugePageToZero @ 0x140351300 (MiGetHugePageToZero.c)
  * Callees:
- *     MiInitializeLargePageAllocationPacket @ 0x1402D7E30 (MiInitializeLargePageAllocationPacket.c)
- *     MiLockFreeLargePageLists @ 0x1402D7FF0 (MiLockFreeLargePageLists.c)
- *     MiReleaseLargePageAllocationLocks @ 0x1402D8200 (MiReleaseLargePageAllocationLocks.c)
- *     MiGetFreeLargePagesSearchTypes @ 0x1402D8410 (MiGetFreeLargePagesSearchTypes.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memset @ 0x140435A00 (memset.c)
+ *     MiInitializeLargePageAllocationPacket @ 0x1402D80C0 (MiInitializeLargePageAllocationPacket.c)
+ *     MiLockFreeLargePageLists @ 0x1402D8280 (MiLockFreeLargePageLists.c)
+ *     MiReleaseLargePageAllocationLocks @ 0x1402D8490 (MiReleaseLargePageAllocationLocks.c)
+ *     MiGetFreeLargePagesSearchTypes @ 0x1402D86A0 (MiGetFreeLargePagesSearchTypes.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     memset @ 0x140435E00 (memset.c)
  */
 
 __int64 __fastcall MiUnlinkNodeLargePages(

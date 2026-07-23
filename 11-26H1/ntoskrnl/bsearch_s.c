@@ -1,14 +1,14 @@
 /*
- * XREFs of bsearch_s @ 0x140536A50
+ * XREFs of bsearch_s @ 0x140538ED0
  * Callers:
- *     RtlGuardCheckExceptionHandler @ 0x1404570C0 (RtlGuardCheckExceptionHandler.c)
- *     RtlGuardCheckLongJumpTarget @ 0x140530D10 (RtlGuardCheckLongJumpTarget.c)
- *     I_MinCryptIsCertificateHashRevokedV2 @ 0x14071C960 (I_MinCryptIsCertificateHashRevokedV2.c)
- *     SeQuerySecureBootPlatformManifest @ 0x140815E40 (SeQuerySecureBootPlatformManifest.c)
- *     RtlVerifyUserUnwindTarget @ 0x140A902C8 (RtlVerifyUserUnwindTarget.c)
+ *     RtlGuardCheckExceptionHandler @ 0x14044E930 (RtlGuardCheckExceptionHandler.c)
+ *     RtlGuardCheckLongJumpTarget @ 0x140533210 (RtlGuardCheckLongJumpTarget.c)
+ *     I_MinCryptIsCertificateHashRevokedV2 @ 0x1407215F0 (I_MinCryptIsCertificateHashRevokedV2.c)
+ *     SeQuerySecureBootPlatformManifest @ 0x14081C050 (SeQuerySecureBootPlatformManifest.c)
+ *     RtlVerifyUserUnwindTarget @ 0x140A94E18 (RtlVerifyUserUnwindTarget.c)
  * Callees:
- *     xHalTimerWatchdogStop @ 0x1404D1DF0 (xHalTimerWatchdogStop.c)
- *     _guard_check_icall_no_overrides @ 0x140731180 (_guard_check_icall_no_overrides.c)
+ *     xHalTimerWatchdogStop @ 0x1404CB9A0 (xHalTimerWatchdogStop.c)
+ *     _guard_check_icall_no_overrides @ 0x140735D50 (_guard_check_icall_no_overrides.c)
  */
 
 void *__cdecl bsearch_s(

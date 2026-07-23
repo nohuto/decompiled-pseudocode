@@ -1,22 +1,22 @@
 /*
- * XREFs of MiInitializePartialVad @ 0x14076D6EC
+ * XREFs of MiInitializePartialVad @ 0x14076D8DC
  * Callers:
- *     MiAllocateSplitVads @ 0x14076D5F4 (MiAllocateSplitVads.c)
+ *     MiAllocateSplitVads @ 0x14076D7E4 (MiAllocateSplitVads.c)
  * Callees:
- *     KeAbPreAcquire @ 0x140230EE0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     MiGetProcessPartition @ 0x140275694 (MiGetProcessPartition.c)
- *     ExfTryToWakePushLock @ 0x1402BD960 (ExfTryToWakePushLock.c)
- *     MiChargeResident @ 0x1402E43A8 (MiChargeResident.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1402FCE10 (ExfAcquirePushLockExclusiveEx.c)
- *     MiLocateVadEvent @ 0x14030B40C (MiLocateVadEvent.c)
- *     MiAdvanceVadView @ 0x14030BBEC (MiAdvanceVadView.c)
- *     memmove @ 0x140435700 (memmove.c)
+ *     KeAbPreAcquire @ 0x140230FD0 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     MiGetProcessPartition @ 0x140275924 (MiGetProcessPartition.c)
+ *     ExfTryToWakePushLock @ 0x1402BDBF0 (ExfTryToWakePushLock.c)
+ *     MiChargeResident @ 0x1402E4638 (MiChargeResident.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402FD0A0 (ExfAcquirePushLockExclusiveEx.c)
+ *     MiLocateVadEvent @ 0x14030B69C (MiLocateVadEvent.c)
+ *     MiAdvanceVadView @ 0x14030BE7C (MiAdvanceVadView.c)
+ *     memmove @ 0x140435B00 (memmove.c)
  *     MiFreePlaceholderStorage @ 0x1406834D8 (MiFreePlaceholderStorage.c)
- *     MiResidentPagesForSpan @ 0x1407D4928 (MiResidentPagesForSpan.c)
- *     MiCreateRotateView @ 0x140A31210 (MiCreateRotateView.c)
- *     MiFreeRotateView @ 0x140A312F8 (MiFreeRotateView.c)
- *     MiCreatePlaceholderStorage @ 0x140A47C30 (MiCreatePlaceholderStorage.c)
+ *     MiResidentPagesForSpan @ 0x1407D4BF8 (MiResidentPagesForSpan.c)
+ *     MiCreateRotateView @ 0x140A314C0 (MiCreateRotateView.c)
+ *     MiFreeRotateView @ 0x140A315A8 (MiFreeRotateView.c)
+ *     MiCreatePlaceholderStorage @ 0x140A47EE0 (MiCreatePlaceholderStorage.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

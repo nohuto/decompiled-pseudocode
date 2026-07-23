@@ -72,9 +72,8 @@
  *     LdrpEtwLogLoaderSnaps @ 0x1800DACB8 (LdrpEtwLogLoaderSnaps.c)
  */
 
-__int64 LdrpLogInternal(_DWORD a1, __int64 a2, __int64 a3, __int64 a4, const char *a5, ...)
+__int64 LdrpLogInternal(_DWORD a1, int a2, __int64 a3, unsigned int a4, const char *a5, ...)
 {
-  unsigned int v6; // esi
   _DWORD *v7; // rbx
   _DWORD *SharedData; // rcx
   __int64 v9; // rcx
@@ -84,7 +83,6 @@ __int64 LdrpLogInternal(_DWORD a1, __int64 a2, __int64 a3, __int64 a4, const cha
   va_list va; // [rsp+98h] [rbp+30h] BYREF
 
   va_start(va, a5);
-  v6 = a4;
   v7 = (_DWORD *)((char *)&LdrpLogLevelStateTable + 16 * (int)a4);
   SharedData = NtCurrentPeb()->SharedData;
   if ( SharedData && *SharedData )
@@ -93,17 +91,15 @@ __int64 LdrpLogInternal(_DWORD a1, __int64 a2, __int64 a3, __int64 a4, const cha
     v9 = 2147353476LL;
   if ( *(_BYTE *)v9 && (NtCurrentPeb()->TracingFlags & 4) != 0 )
   {
-    v12 = (unsigned int)RtlGetCurrentServiceSessionId(v9, a2, a3, a4)
-        ? (char *)NtCurrentPeb()->SharedData + 555
-        : (char *)2147353477;
+    v12 = RtlGetCurrentServiceSessionId() ? (char *)NtCurrentPeb()->SharedData + 555 : (char *)2147353477;
     if ( *v12 < 0 )
-      LdrpEtwLogLoaderSnaps(a3, v6, a5, (__int64 *)va);
+      LdrpEtwLogLoaderSnaps(a3, a4, a5, (__int64 *)va);
   }
   v10 = LdrpDebugFlags;
   result = *v7 | 1u;
   if ( ((unsigned int)result & LdrpDebugFlags) != 0 )
   {
-    result = LdrpLogDbgPrint(LdrpDebugFlags, a2, a3, v6, (__int64)a5, (__int64)va);
+    result = LdrpLogDbgPrint(LdrpDebugFlags, a2, a3, a4, (__int64)a5, (__int64)va);
     v10 = LdrpDebugFlags;
   }
   if ( (v10 & v7[1]) != 0 )

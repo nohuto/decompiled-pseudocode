@@ -1,18 +1,18 @@
 /*
- * XREFs of PopDisengageDirectedDrips @ 0x140868874
+ * XREFs of PopDisengageDirectedDrips @ 0x140869AD4
  * Callers:
- *     PopDirectedDripsNotify @ 0x14071E748 (PopDirectedDripsNotify.c)
- *     PopDirectedDripsProcessWork @ 0x140868438 (PopDirectedDripsProcessWork.c)
- *     PopPowerAggregatorDisengageDirectedDrips @ 0x140875B04 (PopPowerAggregatorDisengageDirectedDrips.c)
+ *     PopDirectedDripsNotify @ 0x14071F9E8 (PopDirectedDripsNotify.c)
+ *     PopDirectedDripsProcessWork @ 0x140869698 (PopDirectedDripsProcessWork.c)
+ *     PopPowerAggregatorDisengageDirectedDrips @ 0x140876D64 (PopPowerAggregatorDisengageDirectedDrips.c)
  * Callees:
  *     PopDeepSleepClearDisengageReason @ 0x140004E80 (PopDeepSleepClearDisengageReason.c)
- *     KeCancelTimer2 @ 0x1400FAF70 (KeCancelTimer2.c)
- *     PnpUnlockDeviceActionQueue @ 0x140135390 (PnpUnlockDeviceActionQueue.c)
- *     PnpLockDeviceActionQueue @ 0x140135434 (PnpLockDeviceActionQueue.c)
- *     PopFxClearDirectedDripsCandidateDeviceList @ 0x1402D78F4 (PopFxClearDirectedDripsCandidateDeviceList.c)
- *     PipClearDeviceTreeStateFlags @ 0x1405796E0 (PipClearDeviceTreeStateFlags.c)
- *     PopDiagTraceDirectedDripsEngagedStatus @ 0x140871ECC (PopDiagTraceDirectedDripsEngagedStatus.c)
- *     PdcTaskClientRequest @ 0x14089A6E8 (PdcTaskClientRequest.c)
+ *     KeCancelTimer2 @ 0x1400FAFF0 (KeCancelTimer2.c)
+ *     PnpUnlockDeviceActionQueue @ 0x140135460 (PnpUnlockDeviceActionQueue.c)
+ *     PnpLockDeviceActionQueue @ 0x140135504 (PnpLockDeviceActionQueue.c)
+ *     PopFxClearDirectedDripsCandidateDeviceList @ 0x1402D7AE4 (PopFxClearDirectedDripsCandidateDeviceList.c)
+ *     PipClearDeviceTreeStateFlags @ 0x14057A6E0 (PipClearDeviceTreeStateFlags.c)
+ *     PopDiagTraceDirectedDripsEngagedStatus @ 0x14087312C (PopDiagTraceDirectedDripsEngagedStatus.c)
+ *     PdcTaskClientRequest @ 0x14089B948 (PdcTaskClientRequest.c)
  */
 
 __int64 __fastcall PopDisengageDirectedDrips(__int64 a1, __int64 a2)

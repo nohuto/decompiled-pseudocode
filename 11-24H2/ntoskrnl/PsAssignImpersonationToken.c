@@ -1,11 +1,11 @@
 /*
- * XREFs of PsAssignImpersonationToken @ 0x140910170
+ * XREFs of PsAssignImpersonationToken @ 0x1408E78C0
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObject @ 0x140325680 (ObfDereferenceObject.c)
- *     ObReferenceObjectByHandle @ 0x14084AF40 (ObReferenceObjectByHandle.c)
- *     PsImpersonateClient @ 0x1409102D0 (PsImpersonateClient.c)
+ *     ObfDereferenceObject @ 0x1402CE210 (ObfDereferenceObject.c)
+ *     ObReferenceObjectByHandle @ 0x140847200 (ObReferenceObjectByHandle.c)
+ *     PsImpersonateClient @ 0x1408E7A20 (PsImpersonateClient.c)
  */
 
 NTSTATUS __stdcall PsAssignImpersonationToken(PETHREAD Thread, HANDLE Token)

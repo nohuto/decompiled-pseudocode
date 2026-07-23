@@ -1,9 +1,9 @@
 /*
- * XREFs of ViSpMmProbeAndLockPages_Entry @ 0x140C43CF0
+ * XREFs of ViSpMmProbeAndLockPages_Entry @ 0x140C49D00
  * Callers:
  *     <none>
  * Callees:
- *     CarReportRuleViolationFromNt @ 0x140C2BF1C (CarReportRuleViolationFromNt.c)
+ *     CarReportRuleViolationFromNt @ 0x140C31F2C (CarReportRuleViolationFromNt.c)
  */
 
 __int64 __fastcall ViSpMmProbeAndLockPages_Entry(__int64 a1)

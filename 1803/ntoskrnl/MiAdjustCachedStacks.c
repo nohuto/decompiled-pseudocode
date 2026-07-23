@@ -16,7 +16,7 @@ __int64 MiAdjustCachedStacks()
   unsigned __int16 v3; // si
   __int64 v4; // rbp
   __int64 v5; // r14
-  union _SLIST_HEADER *v6; // rdi
+  _SLIST_HEADER *v6; // rdi
   __int64 result; // rax
   int Alignment; // ecx
   unsigned int v9; // eax

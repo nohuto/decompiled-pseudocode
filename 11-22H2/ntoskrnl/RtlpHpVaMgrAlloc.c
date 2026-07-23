@@ -31,7 +31,7 @@ __int64 __fastcall RtlpHpVaMgrAlloc(ULONG_PTR BugCheckParameter2, unsigned __int
   unsigned __int64 v12; // r12
   unsigned __int64 v13; // rbx
   unsigned __int64 v14; // r13
-  unsigned __int64 v15; // rax
+  _RTL_BALANCED_NODE *v15; // rax
   __int64 v16; // r15
   unsigned __int64 v17; // rsi
   struct _KTHREAD *v18; // rcx
@@ -67,11 +67,15 @@ __int64 __fastcall RtlpHpVaMgrAlloc(ULONG_PTR BugCheckParameter2, unsigned __int
     v12 = v3 >> 20;
     v13 = a3 >> 20;
     v14 = (unsigned __int8)RtlpHpAcquireLockExclusive(BugCheckParameter2, v7 & 1);
-    v15 = RtlpHpVaMgrRangeFind(BugCheckParameter2, (unsigned __int16)v12, (unsigned __int16)v13, &v31);
-    v16 = v15;
+    v15 = (_RTL_BALANCED_NODE *)RtlpHpVaMgrRangeFind(
+                                  BugCheckParameter2,
+                                  (unsigned __int16)v12,
+                                  (unsigned __int16)v13,
+                                  &v31);
+    v16 = (__int64)v15;
     if ( v15 )
     {
-      RtlRbRemoveNode((unsigned __int64 *)(BugCheckParameter2 + 8), v15);
+      RtlRbRemoveNode((PRTL_RB_TREE)(BugCheckParameter2 + 8), v15);
       v17 = v31;
       if ( v31 != v16 )
       {
@@ -89,10 +93,13 @@ __int64 __fastcall RtlpHpVaMgrAlloc(ULONG_PTR BugCheckParameter2, unsigned __int
       if ( (*(_BYTE *)(BugCheckParameter2 + 46) & 1) != 0 )
       {
         ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)BugCheckParameter2);
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
           CurrentIrql = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v14 <= 0xFu && CurrentIrql >= 2u )
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+            && CurrentIrql <= 0xFu
+            && (unsigned __int8)v14 <= 0xFu
+            && CurrentIrql >= 2u )
           {
             CurrentPrcb = KeGetCurrentPrcb();
             SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -138,10 +145,10 @@ __int64 __fastcall RtlpHpVaMgrAlloc(ULONG_PTR BugCheckParameter2, unsigned __int
     if ( (*(_BYTE *)(BugCheckParameter2 + 46) & 1) != 0 )
     {
       ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)BugCheckParameter2);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v21 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v21 <= 0xFu && (unsigned __int8)v14 <= 0xFu && v21 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v21 <= 0xFu && (unsigned __int8)v14 <= 0xFu && v21 >= 2u )
         {
           v22 = KeGetCurrentPrcb();
           v23 = v22->SchedulerAssist;

@@ -7,7 +7,7 @@
  */
 
 // attributes: thunk
-int __stdcall RtlWnfDllUnloadCallback(int a1)
+NTSTATUS __cdecl RtlWnfDllUnloadCallback(PVOID DllBase)
 {
-  return LdrUnloadDll(a1);
+  return LdrUnloadDll(DllBase);
 }

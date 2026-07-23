@@ -92,7 +92,7 @@ __int64 __fastcall RtlpHpSegPageRangeCoalesce(__int64 a1, __int64 a2, char a3, i
           goto LABEL_30;
         if ( !_InterlockedCompareExchange(&RtlpHpGCTimerScheduled, 1, 0) )
         {
-          TpSetTimerEx(RtlpHpGCTimer, &RtlpHpGCInterval, 0, 5000);
+          TpSetTimerEx(RtlpHpGCTimer, &RtlpHpGCInterval, 0, 0x1388u);
           if ( (RtlpHpHeapFeatures & 8) != 0 )
             RtlpHpTlLogGCScheduled();
         }
@@ -102,10 +102,10 @@ __int64 __fastcall RtlpHpSegPageRangeCoalesce(__int64 a1, __int64 a2, char a3, i
     }
 LABEL_30:
     if ( (a3 & 1) == 0 )
-      RtlReleaseSRWLockExclusive((volatile signed __int64 *)(a1 + 64));
-    RtlpHpSegPageRangeCommit(a1, a2, 0, -((unsigned __int8)*v14 << *(_BYTE *)(a1 + 9)), 0, (__int64)&v24);
+      RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(a1 + 64));
+    RtlpHpSegPageRangeCommit(a1, 0, (__int64)&v24);
     if ( (a3 & 1) == 0 )
-      RtlAcquireSRWLockExclusive(a1 + 64);
+      RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)(a1 + 64));
     v23 = *(_BYTE *)(a2 + 24) & 0xEF;
     *v5 = -1;
     *(_BYTE *)(a2 + 24) = v23;

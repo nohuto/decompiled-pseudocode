@@ -1,18 +1,18 @@
 /*
- * XREFs of EtwpCaptureString @ 0x140832F00
+ * XREFs of EtwpCaptureString @ 0x1409D28F8
  * Callers:
- *     EtwpStartLogger @ 0x140831694 (EtwpStartLogger.c)
- *     EtwpUpdateTrace @ 0x14083311C (EtwpUpdateTrace.c)
- *     EtwpFlushTrace @ 0x140833B94 (EtwpFlushTrace.c)
- *     EtwpAcquireLoggerContext @ 0x140926CDC (EtwpAcquireLoggerContext.c)
- *     EtwpSetSoftRestartInformation @ 0x140A44534 (EtwpSetSoftRestartInformation.c)
+ *     EtwpAcquireLoggerContext @ 0x140928E1C (EtwpAcquireLoggerContext.c)
+ *     EtwpStartLogger @ 0x1409D017C (EtwpStartLogger.c)
+ *     EtwpFlushTrace @ 0x1409D2420 (EtwpFlushTrace.c)
+ *     EtwpSetSoftRestartInformation @ 0x140A39DC4 (EtwpSetSoftRestartInformation.c)
+ *     EtwpUpdateTrace @ 0x140ADA038 (EtwpUpdateTrace.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     RtlCreateUnicodeString @ 0x140833010 (RtlCreateUnicodeString.c)
- *     ExRaiseDatatypeMisalignment @ 0x14089B1F0 (ExRaiseDatatypeMisalignment.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408A3890 (ExRaiseDatatypeMisalignment.c)
+ *     RtlCreateUnicodeString @ 0x1409D2A00 (RtlCreateUnicodeString.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall EtwpCaptureString(unsigned __int16 *a1, UNICODE_STRING *a2)
@@ -27,7 +27,7 @@ __int64 __fastcall EtwpCaptureString(unsigned __int16 *a1, UNICODE_STRING *a2)
   RtlInitUnicodeString(a2, 0LL);
   if ( PreviousMode && *a1 && (*((_QWORD *)a1 + 1) & 1) != 0 )
     ExRaiseDatatypeMisalignment();
-  Pool2 = (WCHAR *)ExAllocatePool2(0x100uLL);
+  Pool2 = (WCHAR *)ExAllocatePool2(0x100uLL, *a1 + 2LL, 0x50777445u);
   v7 = Pool2;
   if ( !Pool2
     || (memmove(Pool2, *((const void **)a1 + 1), *a1),

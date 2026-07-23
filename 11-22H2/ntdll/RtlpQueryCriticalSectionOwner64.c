@@ -7,18 +7,24 @@
  *     ZwReadVirtualMemory @ 0x18009F5D0 (ZwReadVirtualMemory.c)
  */
 
-__int64 __fastcall RtlpQueryCriticalSectionOwner64(__int64 a1, __int64 a2)
+PVOID __fastcall RtlpQueryCriticalSectionOwner64(HANDLE ProcessHandle, __int64 a2)
 {
   __int64 v2; // rbx
   __int64 v3; // rdi
-  __int64 v5; // [rsp+30h] [rbp-68h]
-  __int64 v6; // [rsp+40h] [rbp-58h]
-  __int64 v7; // [rsp+60h] [rbp-38h]
-  __int16 v8; // [rsp+86h] [rbp-12h]
+  PVOID BaseAddress[5]; // [rsp+30h] [rbp-68h] BYREF
+  _BYTE Buffer[8]; // [rsp+58h] [rbp-40h] BYREF
+  __int64 v8; // [rsp+60h] [rbp-38h]
+  __int16 v9; // [rsp+86h] [rbp-12h]
 
   v2 = 0LL;
   v3 = a2 - 8;
-  if ( (int)ZwReadVirtualMemory() >= 0 && v5 && (int)ZwReadVirtualMemory() >= 0 && v7 == v3 && v8 == 17235 )
-    return v6;
-  return v2;
+  if ( ZwReadVirtualMemory(ProcessHandle, (PVOID)(a2 - 8), BaseAddress, 0x28uLL, 0LL) >= 0
+    && BaseAddress[0]
+    && ZwReadVirtualMemory(ProcessHandle, BaseAddress[0], Buffer, 0x30uLL, 0LL) >= 0
+    && v8 == v3
+    && v9 == 17235 )
+  {
+    return BaseAddress[2];
+  }
+  return (PVOID)v2;
 }

@@ -1,15 +1,15 @@
 /*
- * XREFs of PpmParkChooseCoresToUnpark @ 0x1402E7790
+ * XREFs of PpmParkChooseCoresToUnpark @ 0x1402E7980
  * Callers:
- *     PpmParkCalculateCoreParkingMask @ 0x1401222B0 (PpmParkCalculateCoreParkingMask.c)
+ *     PpmParkCalculateCoreParkingMask @ 0x140122380 (PpmParkCalculateCoreParkingMask.c)
  * Callees:
- *     KeEnumerateNextProcessor @ 0x140063BE0 (KeEnumerateNextProcessor.c)
- *     KeGetPrcb @ 0x1400A62C4 (KeGetPrcb.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     PpmHeteroRestrictToFavoredClass @ 0x1402E434C (PpmHeteroRestrictToFavoredClass.c)
- *     PpmEventParkNodePreference @ 0x1402E5C14 (PpmEventParkNodePreference.c)
+ *     KeEnumerateNextProcessor @ 0x140063BD0 (KeEnumerateNextProcessor.c)
+ *     KeGetPrcb @ 0x1400A6204 (KeGetPrcb.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     PpmHeteroRestrictToFavoredClass @ 0x1402E453C (PpmHeteroRestrictToFavoredClass.c)
+ *     PpmEventParkNodePreference @ 0x1402E5E04 (PpmEventParkNodePreference.c)
  */
 
 char __fastcall PpmParkChooseCoresToUnpark(

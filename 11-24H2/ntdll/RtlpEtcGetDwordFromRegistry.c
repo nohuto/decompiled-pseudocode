@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlpEtcGetDwordFromRegistry @ 0x180146ED0
+ * XREFs of RtlpEtcGetDwordFromRegistry @ 0x180145280
  * Callers:
- *     RtlIsFeatureEnabledForEnterprise @ 0x180146C40 (RtlIsFeatureEnabledForEnterprise.c)
- *     RtlpEtcGetDwordFromPersistedState @ 0x180146DE8 (RtlpEtcGetDwordFromPersistedState.c)
- *     RtlpEtcIsValidFeatureId @ 0x180146F50 (RtlpEtcIsValidFeatureId.c)
+ *     RtlIsFeatureEnabledForEnterprise @ 0x180144FF0 (RtlIsFeatureEnabledForEnterprise.c)
+ *     RtlpEtcGetDwordFromPersistedState @ 0x180145198 (RtlpEtcGetDwordFromPersistedState.c)
+ *     RtlpEtcIsValidFeatureId @ 0x180145300 (RtlpEtcIsValidFeatureId.c)
  * Callees:
- *     RtlpQueryRegistryValues @ 0x1800B6140 (RtlpQueryRegistryValues.c)
- *     memset$thunk$772440563353939046 @ 0x180172030 (memset$thunk$772440563353939046.c)
+ *     RtlpQueryRegistryValues @ 0x1800829E0 (RtlpQueryRegistryValues.c)
+ *     memset$thunk$772440563353939046 @ 0x180171030 (memset$thunk$772440563353939046.c)
  */
 
 __int64 __fastcall RtlpEtcGetDwordFromRegistry(const wchar_t *a1, __int64 a2, __int64 a3)

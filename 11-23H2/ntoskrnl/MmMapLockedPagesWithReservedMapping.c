@@ -1,23 +1,23 @@
 /*
- * XREFs of MmMapLockedPagesWithReservedMapping @ 0x1403A73B0
+ * XREFs of MmMapLockedPagesWithReservedMapping @ 0x1403A7590
  * Callers:
- *     sub_1403F1A70 @ 0x1403F1A70 (sub_1403F1A70.c)
- *     HalpDmaAcquireBufferMappings @ 0x14045BD64 (HalpDmaAcquireBufferMappings.c)
- *     SmFpAllocate @ 0x140465F8E (SmFpAllocate.c)
- *     HalpDmaFlushBufferWithEmergencyResources @ 0x140510E48 (HalpDmaFlushBufferWithEmergencyResources.c)
- *     HalpDmaSyncMapBuffersWithEmergencyResources @ 0x140511524 (HalpDmaSyncMapBuffersWithEmergencyResources.c)
- *     PnprCopyReservedMapping @ 0x140562BAC (PnprCopyReservedMapping.c)
- *     PspIumFreePhysicalPages @ 0x1405A6050 (PspIumFreePhysicalPages.c)
- *     EtwpSavePersistedLogger @ 0x1409EDA44 (EtwpSavePersistedLogger.c)
- *     PnprMapPhysicalPages @ 0x140A9CCE8 (PnprMapPhysicalPages.c)
+ *     sub_1403F1C50 @ 0x1403F1C50 (sub_1403F1C50.c)
+ *     HalpDmaAcquireBufferMappings @ 0x14045C164 (HalpDmaAcquireBufferMappings.c)
+ *     SmFpAllocate @ 0x14046638E (SmFpAllocate.c)
+ *     HalpDmaFlushBufferWithEmergencyResources @ 0x140511398 (HalpDmaFlushBufferWithEmergencyResources.c)
+ *     HalpDmaSyncMapBuffersWithEmergencyResources @ 0x140511A74 (HalpDmaSyncMapBuffersWithEmergencyResources.c)
+ *     PnprCopyReservedMapping @ 0x14056326C (PnprCopyReservedMapping.c)
+ *     PspIumFreePhysicalPages @ 0x1405A65C0 (PspIumFreePhysicalPages.c)
+ *     EtwpSavePersistedLogger @ 0x1409EDCD4 (EtwpSavePersistedLogger.c)
+ *     PnprMapPhysicalPages @ 0x140A9CB58 (PnprMapPhysicalPages.c)
  * Callees:
- *     MI_READ_PTE_LOCK_FREE @ 0x1402712F0 (MI_READ_PTE_LOCK_FREE.c)
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402A7C00 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     MiLegitimatePageForDriversToMap @ 0x1402F14DC (MiLegitimatePageForDriversToMap.c)
- *     ExAcquireSpinLockShared @ 0x140314620 (ExAcquireSpinLockShared.c)
- *     MiMapMdlCommon @ 0x1403A7570 (MiMapMdlCommon.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140271580 (MI_READ_PTE_LOCK_FREE.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402A7E90 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     MiLegitimatePageForDriversToMap @ 0x1402F176C (MiLegitimatePageForDriversToMap.c)
+ *     ExAcquireSpinLockShared @ 0x1403148B0 (ExAcquireSpinLockShared.c)
+ *     MiMapMdlCommon @ 0x1403A7750 (MiMapMdlCommon.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
  */
 
 PVOID __stdcall MmMapLockedPagesWithReservedMapping(
@@ -70,10 +70,13 @@ PVOID __stdcall MmMapLockedPagesWithReservedMapping(
   if ( !v10 )
     KeBugCheckEx(0xDAu, 0x106uLL, (ULONG_PTR)MappingAddress, v5, 1uLL);
   ExReleaseSpinLockSharedFromDpcLevel(&dword_140C684C0);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v12 <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
+      && (unsigned __int8)v12 <= 0xFu
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;

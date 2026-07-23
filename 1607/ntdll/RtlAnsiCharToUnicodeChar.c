@@ -1,29 +1,29 @@
 /*
- * XREFs of RtlAnsiCharToUnicodeChar @ 0x1800183D0
+ * XREFs of RtlAnsiCharToUnicodeChar @ 0x1800183C0
  * Callers:
- *     toupper @ 0x18009C3D0 (toupper.c)
- *     _mbstrlen @ 0x18009FB78 (_mbstrlen.c)
- *     mbtowc @ 0x1800A0A58 (mbtowc.c)
+ *     toupper @ 0x18009C3C0 (toupper.c)
+ *     _mbstrlen @ 0x18009FB68 (_mbstrlen.c)
+ *     mbtowc @ 0x1800A0A48 (mbtowc.c)
  *     _safecrt_mbtowc @ 0x1800A30E8 (_safecrt_mbtowc.c)
  * Callees:
- *     RtlMultiByteToUnicodeN @ 0x180018450 (RtlMultiByteToUnicodeN.c)
+ *     RtlMultiByteToUnicodeN @ 0x180018440 (RtlMultiByteToUnicodeN.c)
  */
 
-__int64 __fastcall RtlAnsiCharToUnicodeChar(unsigned __int8 **a1)
+WCHAR __cdecl RtlAnsiCharToUnicodeChar(PUCHAR *SourceCharacter)
 {
-  unsigned __int8 *v1; // r9
-  unsigned __int16 v3; // bx
-  unsigned int v4; // esi
-  __int16 v6; // [rsp+40h] [rbp+8h] BYREF
+  const CHAR *v1; // r9
+  WCHAR v3; // bx
+  ULONG BytesInMultiByteString; // esi
+  WCHAR UnicodeString; // [rsp+40h] [rbp+8h] BYREF
 
-  v1 = *a1;
+  v1 = (const CHAR *)*SourceCharacter;
   v3 = 32;
-  v4 = 1;
-  v6 = 32;
-  if ( NlsLeadByteInfoTable[*v1] )
-    v4 = 2;
-  if ( (int)RtlMultiByteToUnicodeN((unsigned int)&v6, 2, 0, (_DWORD)v1, v4) >= 0 )
-    v3 = v6;
-  *a1 += v4;
+  BytesInMultiByteString = 1;
+  UnicodeString = 32;
+  if ( NlsLeadByteInfoTable[*(unsigned __int8 *)v1] )
+    BytesInMultiByteString = 2;
+  if ( RtlMultiByteToUnicodeN(&UnicodeString, 2u, 0LL, v1, BytesInMultiByteString) >= 0 )
+    v3 = UnicodeString;
+  *SourceCharacter += BytesInMultiByteString;
   return v3;
 }

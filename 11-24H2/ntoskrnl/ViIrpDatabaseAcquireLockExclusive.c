@@ -1,14 +1,14 @@
 /*
- * XREFs of ViIrpDatabaseAcquireLockExclusive @ 0x1406156C8
+ * XREFs of ViIrpDatabaseAcquireLockExclusive @ 0x140613C88
  * Callers:
- *     ViPendingCompleteAfterWait @ 0x140B91D28 (ViPendingCompleteAfterWait.c)
- *     VfIrpDatabaseEntryInsertAndLock @ 0x140BA3F10 (VfIrpDatabaseEntryInsertAndLock.c)
- *     VfIrpDatabaseEntryReleaseLock @ 0x140BA3FE4 (VfIrpDatabaseEntryReleaseLock.c)
- *     IovpCompleteRequest2 @ 0x140BA6DE4 (IovpCompleteRequest2.c)
- *     IovFreeIrpPrivate @ 0x140BA6F30 (IovFreeIrpPrivate.c)
- *     VfPendingMoreProcessingRequired @ 0x140BA7000 (VfPendingMoreProcessingRequired.c)
+ *     ViPendingCompleteAfterWait @ 0x140B93D28 (ViPendingCompleteAfterWait.c)
+ *     VfIrpDatabaseEntryInsertAndLock @ 0x140BA5F10 (VfIrpDatabaseEntryInsertAndLock.c)
+ *     VfIrpDatabaseEntryReleaseLock @ 0x140BA5FE4 (VfIrpDatabaseEntryReleaseLock.c)
+ *     IovpCompleteRequest2 @ 0x140BA8DE4 (IovpCompleteRequest2.c)
+ *     IovFreeIrpPrivate @ 0x140BA8F30 (IovFreeIrpPrivate.c)
+ *     VfPendingMoreProcessingRequired @ 0x140BA9000 (VfPendingMoreProcessingRequired.c)
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x14028F370 (ExAcquireSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14029EF70 (ExAcquireSpinLockExclusive.c)
  */
 
 KIRQL __fastcall ViIrpDatabaseAcquireLockExclusive(KIRQL *a1)

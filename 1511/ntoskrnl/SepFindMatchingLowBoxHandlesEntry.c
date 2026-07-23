@@ -17,7 +17,7 @@ __int64 __fastcall SepFindMatchingLowBoxHandlesEntry(
   ULONG_PTR v6; // rax
   PRTL_DYNAMIC_HASH_TABLE_ENTRY i; // rax
   PRTL_DYNAMIC_HASH_TABLE_ENTRY v8; // rbx
-  struct _RTL_DYNAMIC_HASH_TABLE_CONTEXT Context; // [rsp+20h] [rbp-28h] BYREF
+  _RTL_DYNAMIC_HASH_TABLE_CONTEXT Context; // [rsp+20h] [rbp-28h] BYREF
 
   memset(&Context, 0, sizeof(Context));
   v6 = SepComputeSidSignature(Sid1);

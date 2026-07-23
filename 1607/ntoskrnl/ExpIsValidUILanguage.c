@@ -1,14 +1,14 @@
 /*
- * XREFs of ExpIsValidUILanguage @ 0x1406AB644
+ * XREFs of ExpIsValidUILanguage @ 0x1406AB77C
  * Callers:
- *     ExpGetCurrentUserUILanguage @ 0x140549424 (ExpGetCurrentUserUILanguage.c)
- *     ExpGetUILanguagePolicy @ 0x14054954C (ExpGetUILanguagePolicy.c)
+ *     ExpGetCurrentUserUILanguage @ 0x140549964 (ExpGetCurrentUserUILanguage.c)
+ *     ExpGetUILanguagePolicy @ 0x140549A8C (ExpGetUILanguagePolicy.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14002DC60 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     ZwClose @ 0x140159E60 (ZwClose.c)
- *     ZwOpenKey @ 0x140159EC0 (ZwOpenKey.c)
- *     ZwQueryValueKey @ 0x140159F60 (ZwQueryValueKey.c)
+ *     RtlInitUnicodeString @ 0x14002D7E0 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     ZwClose @ 0x14015A3D0 (ZwClose.c)
+ *     ZwOpenKey @ 0x14015A430 (ZwOpenKey.c)
+ *     ZwQueryValueKey @ 0x14015A4D0 (ZwQueryValueKey.c)
  */
 
 bool __fastcall ExpIsValidUILanguage(PCWSTR SourceString)

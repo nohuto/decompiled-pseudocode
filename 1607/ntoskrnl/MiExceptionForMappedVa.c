@@ -1,12 +1,12 @@
 /*
- * XREFs of MiExceptionForMappedVa @ 0x1401E13A4
+ * XREFs of MiExceptionForMappedVa @ 0x1401E11D0
  * Callers:
- *     MiWaitForInPageComplete @ 0x1400251B0 (MiWaitForInPageComplete.c)
+ *     MiWaitForInPageComplete @ 0x140024D30 (MiWaitForInPageComplete.c)
  * Callees:
- *     MiGetAnyMultiplexedVm @ 0x14001D05C (MiGetAnyMultiplexedVm.c)
- *     MiGetSharedVm @ 0x14002EA30 (MiGetSharedVm.c)
- *     ExReleaseSpinLockShared @ 0x1400EA240 (ExReleaseSpinLockShared.c)
- *     ExAcquireSpinLockShared @ 0x1400EB1D0 (ExAcquireSpinLockShared.c)
+ *     MiGetAnyMultiplexedVm @ 0x14001CBDC (MiGetAnyMultiplexedVm.c)
+ *     MiGetSharedVm @ 0x14002E5B0 (MiGetSharedVm.c)
+ *     ExReleaseSpinLockShared @ 0x1400E80B0 (ExReleaseSpinLockShared.c)
+ *     ExAcquireSpinLockShared @ 0x1400E9040 (ExAcquireSpinLockShared.c)
  */
 
 __int64 __fastcall MiExceptionForMappedVa(unsigned __int64 a1)
@@ -25,7 +25,7 @@ __int64 __fastcall MiExceptionForMappedVa(unsigned __int64 a1)
   KIRQL v13; // r9
 
   v1 = 0;
-  v3 = &unk_140326880;
+  v3 = &unk_1403268C0;
   Process = KeGetCurrentThread()->ApcState.Process;
   AnyMultiplexedVm = MiGetAnyMultiplexedVm(1);
   while ( 2 )
@@ -57,7 +57,7 @@ __int64 __fastcall MiExceptionForMappedVa(unsigned __int64 a1)
     }
     v9 = MiGetSharedVm((__int64)AnyMultiplexedVm);
     ExReleaseSpinLockShared(v9, v10);
-    if ( v3 == (_QWORD *)&unk_140326880 )
+    if ( v3 == (_QWORD *)&unk_1403268C0 )
     {
       v11 = Process[1].ActiveProcessors.Bitmap[2];
       if ( v11 )

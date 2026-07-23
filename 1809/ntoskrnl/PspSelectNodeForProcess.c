@@ -1,7 +1,7 @@
 /*
- * XREFs of PspSelectNodeForProcess @ 0x1406BDAE8
+ * XREFs of PspSelectNodeForProcess @ 0x1406BED88
  * Callers:
- *     PspAllocateProcess @ 0x14064BCB8 (PspAllocateProcess.c)
+ *     PspAllocateProcess @ 0x14064CE78 (PspAllocateProcess.c)
  * Callees:
  *     <none>
  */

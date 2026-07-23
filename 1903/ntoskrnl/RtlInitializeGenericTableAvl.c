@@ -26,7 +26,7 @@ void __stdcall RtlInitializeGenericTableAvl(
         PRTL_AVL_FREE_ROUTINE FreeRoutine,
         PVOID TableContext)
 {
-  memset(Table, 0, sizeof(struct _RTL_AVL_TABLE));
+  memset(Table, 0, sizeof(_RTL_AVL_TABLE));
   Table->CompareRoutine = (_RTL_GENERIC_COMPARE_RESULTS (__fastcall *)(_RTL_AVL_TABLE *, void *, void *))CompareRoutine;
   Table->FreeRoutine = (void (__fastcall *)(_RTL_AVL_TABLE *, void *))FreeRoutine;
   Table->TableContext = TableContext;

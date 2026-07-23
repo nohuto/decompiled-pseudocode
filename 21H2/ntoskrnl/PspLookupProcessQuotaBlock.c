@@ -1,15 +1,15 @@
 /*
- * XREFs of PspLookupProcessQuotaBlock @ 0x1406ADA9C
+ * XREFs of PspLookupProcessQuotaBlock @ 0x14060C18C
  * Callers:
- *     PspAssignProcessQuotaBlock @ 0x1406AD8B4 (PspAssignProcessQuotaBlock.c)
+ *     PspAssignProcessQuotaBlock @ 0x14060BFA4 (PspAssignProcessQuotaBlock.c)
  * Callees:
- *     RtlEqualSid @ 0x14027C9E0 (RtlEqualSid.c)
- *     PspUnlockQuotaListShared @ 0x1402C2798 (PspUnlockQuotaListShared.c)
- *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
- *     ExAcquirePushLockSharedEx @ 0x14034AB50 (ExAcquirePushLockSharedEx.c)
- *     PspUnlockQuotaListExclusive @ 0x1403CFCDC (PspUnlockQuotaListExclusive.c)
- *     PspHashKeyValue @ 0x1406ADB98 (PspHashKeyValue.c)
- *     PspSafeReferenceQuotaBlock @ 0x1406ADD64 (PspSafeReferenceQuotaBlock.c)
+ *     PspUnlockQuotaListShared @ 0x140240C38 (PspUnlockQuotaListShared.c)
+ *     RtlEqualSid @ 0x14026A980 (RtlEqualSid.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1403556E0 (ExAcquirePushLockExclusiveEx.c)
+ *     ExAcquirePushLockSharedEx @ 0x1403558A0 (ExAcquirePushLockSharedEx.c)
+ *     PspUnlockQuotaListExclusive @ 0x1403CFE4C (PspUnlockQuotaListExclusive.c)
+ *     PspHashKeyValue @ 0x14060C288 (PspHashKeyValue.c)
+ *     PspSafeReferenceQuotaBlock @ 0x14060C454 (PspSafeReferenceQuotaBlock.c)
  */
 
 __int64 __fastcall PspLookupProcessQuotaBlock(void *a1, __int64 a2, int a3, __int64 a4)

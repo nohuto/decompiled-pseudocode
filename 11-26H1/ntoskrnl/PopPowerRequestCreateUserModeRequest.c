@@ -1,16 +1,16 @@
 /*
- * XREFs of PopPowerRequestCreateUserModeRequest @ 0x140436B4C
+ * XREFs of PopPowerRequestCreateUserModeRequest @ 0x140425ADC
  * Callers:
- *     NtPowerInformation @ 0x1409DE3E0 (NtPowerInformation.c)
+ *     NtPowerInformation @ 0x140A1B510 (NtPowerInformation.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     ObfReferenceObjectWithTag @ 0x140278B30 (ObfReferenceObjectWithTag.c)
- *     PoCaptureReasonContext @ 0x140436EC8 (PoCaptureReasonContext.c)
- *     PopPowerRequestCreateCommon @ 0x140436FDC (PopPowerRequestCreateCommon.c)
- *     PoDestroyReasonContext @ 0x14050A3C0 (PoDestroyReasonContext.c)
- *     TtmNotifySessionPowerRequestCreated @ 0x1407E6400 (TtmNotifySessionPowerRequestCreated.c)
- *     ObInsertObject @ 0x14092AFB0 (ObInsertObject.c)
- *     TtmIsEnabled @ 0x140A3EE84 (TtmIsEnabled.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     ObfReferenceObjectWithTag @ 0x1402780A0 (ObfReferenceObjectWithTag.c)
+ *     PoCaptureReasonContext @ 0x140425E58 (PoCaptureReasonContext.c)
+ *     PopPowerRequestCreateCommon @ 0x140425F6C (PopPowerRequestCreateCommon.c)
+ *     PoDestroyReasonContext @ 0x140503E30 (PoDestroyReasonContext.c)
+ *     TtmNotifySessionPowerRequestCreated @ 0x1407EBF60 (TtmNotifySessionPowerRequestCreated.c)
+ *     ObInsertObject @ 0x140906AE0 (ObInsertObject.c)
+ *     TtmIsEnabled @ 0x1409FA8A4 (TtmIsEnabled.c)
  */
 
 __int64 __fastcall PopPowerRequestCreateUserModeRequest(void *a1, char a2, HANDLE *a3)

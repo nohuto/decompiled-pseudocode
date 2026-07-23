@@ -1,42 +1,42 @@
 /*
- * XREFs of CmKeyBodyNeedsVirtualImage @ 0x140AB2878
+ * XREFs of CmKeyBodyNeedsVirtualImage @ 0x140AB0548
  * Callers:
- *     NtRenameKey @ 0x14084F890 (NtRenameKey.c)
- *     NtSetInformationKey @ 0x1408B0310 (NtSetInformationKey.c)
- *     NtDeleteValueKey @ 0x14097CD00 (NtDeleteValueKey.c)
- *     NtSetValueKey @ 0x14097DE30 (NtSetValueKey.c)
- *     NtDeleteKey @ 0x140AB2390 (NtDeleteKey.c)
+ *     NtRenameKey @ 0x140855BA0 (NtRenameKey.c)
+ *     NtSetInformationKey @ 0x1408B6800 (NtSetInformationKey.c)
+ *     NtDeleteValueKey @ 0x14093ED10 (NtDeleteValueKey.c)
+ *     NtSetValueKey @ 0x14093FE40 (NtSetValueKey.c)
+ *     NtDeleteKey @ 0x140AB0060 (NtDeleteKey.c)
  * Callees:
- *     CmpUnlockKcb @ 0x140C582B0 (CmpUnlockKcb.c)
- *     CmpLockKcbShared @ 0x140C583F0 (CmpLockKcbShared.c)
- *     CmpIsKeyDeletedForKeyBody @ 0x140C58750 (CmpIsKeyDeletedForKeyBody.c)
- *     CmpLockRegistry @ 0x140C58850 (CmpLockRegistry.c)
- *     CmpUnlockRegistry @ 0x140C58970 (CmpUnlockRegistry.c)
+ *     CmpUnlockKcb @ 0x140C5E2B0 (CmpUnlockKcb.c)
+ *     CmpLockKcbShared @ 0x140C5E3F0 (CmpLockKcbShared.c)
+ *     CmpIsKeyDeletedForKeyBody @ 0x140C5E750 (CmpIsKeyDeletedForKeyBody.c)
+ *     CmpLockRegistry @ 0x140C5E850 (CmpLockRegistry.c)
+ *     CmpUnlockRegistry @ 0x140C5E970 (CmpUnlockRegistry.c)
  */
 
-bool __fastcall CmKeyBodyNeedsVirtualImage(__int64 a1)
+bool __fastcall CmKeyBodyNeedsVirtualImage(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
-  bool v1; // di
-  bool v3; // bl
-  __int64 v4; // rbp
-  ULONG_PTR v5; // rcx
-  bool v6; // r8
-  __int64 v7; // rcx
+  bool v4; // di
+  bool v6; // bl
+  __int64 v7; // rbp
+  ULONG_PTR v8; // rcx
+  bool v9; // r8
+  __int64 v10; // rcx
 
-  v1 = 0;
-  v3 = 0;
-  v4 = *(_QWORD *)(*(_QWORD *)(a1 + 8) + 32LL);
-  CmpLockRegistry(a1);
+  v4 = 0;
+  v6 = 0;
+  v7 = *(_QWORD *)(*(_QWORD *)(a1 + 8) + 32LL);
+  CmpLockRegistry(a1, a2, a3, a4);
   CmpLockKcbShared(*(_QWORD *)(a1 + 8));
   if ( !(unsigned __int8)CmpIsKeyDeletedForKeyBody(a1, 0LL) )
-    v3 = (*(_BYTE *)(v4 + 4120) & 0x10) != 0;
-  v5 = *(_QWORD *)(a1 + 8);
-  v6 = 0;
-  if ( !*(_WORD *)(v5 + 66) )
-    v6 = v3;
+    v6 = (*(_BYTE *)(v7 + 4120) & 0x10) != 0;
+  v8 = *(_QWORD *)(a1 + 8);
+  v9 = 0;
+  if ( !*(_WORD *)(v8 + 66) )
+    v9 = v6;
   if ( (*(_BYTE *)(a1 + 48) & 0x10) == 0 )
-    v1 = v6;
-  CmpUnlockKcb(v5);
-  CmpUnlockRegistry(v7);
-  return v1;
+    v4 = v9;
+  CmpUnlockKcb(v8);
+  CmpUnlockRegistry(v10);
+  return v4;
 }

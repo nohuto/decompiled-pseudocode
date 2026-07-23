@@ -73,7 +73,7 @@ __int64 __fastcall MiGetProtoPteAddress(__int64 a1, __int64 a2, unsigned int a3,
   ULONG_PTR v29; // r12
   __int64 v30; // rcx
   struct _KTHREAD *v31; // rbx
-  __int64 SessionId; // rdx
+  unsigned int SessionId; // edx
   unsigned int v33; // r9d
   bool v34; // zf
   __int64 v35; // rcx
@@ -181,9 +181,9 @@ __int64 __fastcall MiGetProtoPteAddress(__int64 a1, __int64 a2, unsigned int a3,
             v30 = a1 + 40;
             v31 = KeGetCurrentThread();
             if ( (unsigned int)MiGetSystemRegionType(v30) == 1 )
-              SessionId = (unsigned int)MmGetSessionIdEx(v31->ApcState.Process);
+              SessionId = MmGetSessionIdEx(v31->ApcState.Process);
             else
-              SessionId = 0xFFFFFFFFLL;
+              SessionId = -1;
             --v31->SpecialApcDisable;
             ++v31->AbAllocationRegionCount;
             v33 = ((char)v31->AbEntrySummary | (char)v31->AbOrphanedEntrySummary) ^ 0x3F;
@@ -192,9 +192,9 @@ __int64 __fastcall MiGetProtoPteAddress(__int64 a1, __int64 a2, unsigned int a3,
             v42 = v35;
             if ( v34 )
             {
-LABEL_62:
+LABEL_63:
               if ( (*((_DWORD *)&v31->0 + 1) & 0x10000) == 0 )
-                KeBugCheckEx(0x162u, (ULONG_PTR)v31, v29, (unsigned int)SessionId, 0LL);
+                KeBugCheckEx(0x162u, (ULONG_PTR)v31, v29, SessionId, 0LL);
             }
             else
             {
@@ -207,7 +207,7 @@ LABEL_62:
                 if ( (CurrentIrql->AcquiredByte & 1) != 0
                   && (*(_DWORD *)&CurrentIrql->LockState.0 & 1) == 0
                   && (*(_QWORD *)&CurrentIrql->LockState.0 & 0x7FFFFFFFFFFFFFFCLL) == (v29 & 0x7FFFFFFFFFFFFFFCLL)
-                  && CurrentIrql->LockState.SessionId == (_DWORD)SessionId )
+                  && CurrentIrql->LockState.SessionId == SessionId )
                 {
                   CurrentIrql->AcquiredByte &= ~1u;
                   if ( CurrentIrql->LockState.0 )
@@ -216,17 +216,17 @@ LABEL_62:
                 v34 = !_BitScanReverse((unsigned int *)&v35, v33);
                 v42 = v35;
                 if ( v34 )
-                  goto LABEL_61;
+                  goto LABEL_62;
               }
               if ( !CurrentIrql )
               {
-LABEL_61:
+LABEL_62:
                 LOBYTE(CurrentIrql) = (_BYTE)v43;
-                goto LABEL_62;
+                goto LABEL_63;
               }
               CurrentIrql->CrossThreadReleasableAndBusyByte |= 2u;
               if ( (__int64)CurrentIrql->LockState.LockState < 0 )
-                KiAbEntryRemoveFromTree(&v31->LockEntries[v37], SessionId, 1LL);
+                KiAbEntryRemoveFromTree(&v31->LockEntries[v37].TreeNode);
               v41 = 0;
               v41 = CurrentIrql->BoostBitmap.AllFields & 0x1FFFF;
               CurrentIrql->BoostBitmap.AllFields &= 0xFFFE0000;

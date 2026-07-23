@@ -1,25 +1,25 @@
 /*
- * XREFs of PpmPerfUpdateMultimediaPowerModel @ 0x1404AF8FC
+ * XREFs of PpmPerfUpdateMultimediaPowerModel @ 0x1404AA2EC
  * Callers:
- *     PpmEnableProfile @ 0x140763B2C (PpmEnableProfile.c)
- *     PpmPerfUpdateDomainPolicy @ 0x140AC66D0 (PpmPerfUpdateDomainPolicy.c)
- *     PpmDisableProfile @ 0x140ACB310 (PpmDisableProfile.c)
+ *     PpmEnableProfile @ 0x1407634F0 (PpmEnableProfile.c)
+ *     PpmPerfUpdateDomainPolicy @ 0x140AC40C8 (PpmPerfUpdateDomainPolicy.c)
+ *     PpmDisableProfile @ 0x140AC8F20 (PpmDisableProfile.c)
  * Callees:
- *     ZwUpdateWnfStateData @ 0x1406AA030 (ZwUpdateWnfStateData.c)
+ *     ZwUpdateWnfStateData @ 0x1406AAFD0 (ZwUpdateWnfStateData.c)
  */
 
-__int64 PpmPerfUpdateMultimediaPowerModel()
+NTSTATUS PpmPerfUpdateMultimediaPowerModel()
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
   if ( PpmPerfMultimediaQosSupported )
-    result = 2LL;
+    result = 2;
   else
     result = PpmLowPowerProfile != 0;
-  if ( (_DWORD)result != PpmPerfMultimediaPowerModel )
+  if ( result != PpmPerfMultimediaPowerModel )
   {
     PpmPerfMultimediaPowerModel = result;
-    return ZwUpdateWnfStateData(&WNF_PO_MULTIMEDIA_POWER_MODEL, &PpmPerfMultimediaPowerModel, 4LL);
+    return ZwUpdateWnfStateData(&WNF_PO_MULTIMEDIA_POWER_MODEL, &PpmPerfMultimediaPowerModel, 4u, 0LL, 0LL, 0, 0);
   }
   return result;
 }

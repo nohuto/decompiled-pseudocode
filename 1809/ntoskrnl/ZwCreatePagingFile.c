@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwCreatePagingFile @ 0x1401B9790
+ * XREFs of ZwCreatePagingFile @ 0x1401B98F0
  * Callers:
  *     <none>
  * Callees:
@@ -14,5 +14,5 @@ NTSTATUS __stdcall ZwCreatePagingFile(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(FileName, InitialSize, MaxiumSize);
+  return KiServiceInternal(FileName);
 }

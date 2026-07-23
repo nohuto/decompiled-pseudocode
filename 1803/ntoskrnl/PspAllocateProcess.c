@@ -1258,7 +1258,7 @@ LABEL_166:
             {
               if ( KeQuerySystemTimeUnsafe() )
               {
-                KeQuerySystemTimePrecise((__int64 *)v22 + 97);
+                KeQuerySystemTimePrecise((LARGE_INTEGER *)v22 + 97);
               }
               else
               {

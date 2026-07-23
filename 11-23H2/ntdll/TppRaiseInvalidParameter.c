@@ -1,5 +1,5 @@
 /*
- * XREFs of TppRaiseInvalidParameter @ 0x180127278
+ * XREFs of TppRaiseInvalidParameter @ 0x180127248
  * Callers:
  *     TpAllocTimer @ 0x18002E6A0 (TpAllocTimer.c)
  *     TppCancelWait @ 0x180030648 (TppCancelWait.c)
@@ -42,23 +42,23 @@
  *     TpReleaseCleanupGroup @ 0x180085F50 (TpReleaseCleanupGroup.c)
  *     TpCallbackSetEventOnCompletion @ 0x180088CA0 (TpCallbackSetEventOnCompletion.c)
  *     TpCallbackLeaveCriticalSectionOnCompletion @ 0x18008CE60 (TpCallbackLeaveCriticalSectionOnCompletion.c)
- *     TpCallbackDetectedUnrecoverableError @ 0x180126FB0 (TpCallbackDetectedUnrecoverableError.c)
- *     TpCallbackReleaseMutexOnCompletion @ 0x180126FE0 (TpCallbackReleaseMutexOnCompletion.c)
- *     TpCallbackReleaseSemaphoreOnCompletion @ 0x180127020 (TpCallbackReleaseSemaphoreOnCompletion.c)
+ *     TpCallbackDetectedUnrecoverableError @ 0x180126F80 (TpCallbackDetectedUnrecoverableError.c)
+ *     TpCallbackReleaseMutexOnCompletion @ 0x180126FB0 (TpCallbackReleaseMutexOnCompletion.c)
+ *     TpCallbackReleaseSemaphoreOnCompletion @ 0x180126FF0 (TpCallbackReleaseSemaphoreOnCompletion.c)
  * Callees:
  *     RtlSetLastWin32Error @ 0x180053850 (RtlSetLastWin32Error.c)
  *     RtlRaiseException @ 0x180054840 (RtlRaiseException.c)
  *     __security_check_cookie @ 0x18008EF90 (__security_check_cookie.c)
- *     TppReportExceptionFilter @ 0x1801272F8 (TppReportExceptionFilter.c)
+ *     TppReportExceptionFilter @ 0x1801272C8 (TppReportExceptionFilter.c)
  *     memset$thunk$772440563353939046 @ 0x180132010 (memset$thunk$772440563353939046.c)
  */
 
-void TppRaiseInvalidParameter()
+void __fastcall TppRaiseInvalidParameter()
 {
   EXCEPTION_RECORD ExceptionRecord; // [rsp+20h] [rbp-B8h] BYREF
 
   memset_thunk_772440563353939046(&ExceptionRecord.ExceptionFlags, 0, 0x94uLL);
   ExceptionRecord.ExceptionCode = -1073741811;
-  RtlSetLastWin32Error(0x57u);
+  RtlSetLastWin32Error(87);
   RtlRaiseException(&ExceptionRecord);
 }

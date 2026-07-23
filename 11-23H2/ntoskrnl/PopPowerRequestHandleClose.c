@@ -1,15 +1,15 @@
 /*
- * XREFs of PopPowerRequestHandleClose @ 0x14032B784
+ * XREFs of PopPowerRequestHandleClose @ 0x14032BA14
  * Callers:
- *     PspExitThread @ 0x14076DA2C (PspExitThread.c)
- *     PopPowerRequestClose @ 0x1407EAE30 (PopPowerRequestClose.c)
- *     PoDeletePowerRequest @ 0x140875650 (PoDeletePowerRequest.c)
+ *     PspExitThread @ 0x14076DC1C (PspExitThread.c)
+ *     PopPowerRequestClose @ 0x1407EB100 (PopPowerRequestClose.c)
+ *     PoDeletePowerRequest @ 0x140875890 (PoDeletePowerRequest.c)
  * Callees:
- *     KxReleaseQueuedSpinLock @ 0x140260360 (KxReleaseQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140260E60 (KeAcquireInStackQueuedSpinLock.c)
- *     PopPowerRequestCallbackWorker @ 0x14032BBB0 (PopPowerRequestCallbackWorker.c)
- *     PopPowerRequestEvaluatePendingRequestStatus @ 0x14032CD14 (PopPowerRequestEvaluatePendingRequestStatus.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseQueuedSpinLock @ 0x1402605F0 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402610F0 (KeAcquireInStackQueuedSpinLock.c)
+ *     PopPowerRequestCallbackWorker @ 0x14032BE40 (PopPowerRequestCallbackWorker.c)
+ *     PopPowerRequestEvaluatePendingRequestStatus @ 0x14032CFA4 (PopPowerRequestEvaluatePendingRequestStatus.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall PopPowerRequestHandleClose(_BYTE *Object)
@@ -32,10 +32,10 @@ __int64 __fastcall PopPowerRequestHandleClose(_BYTE *Object)
   v2 = v8[0] != (_QWORD)v8;
   result = KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
   OldIrql = LockHandle.OldIrql;
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     result = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
       && (unsigned __int8)result <= 0xFu
       && LockHandle.OldIrql <= 0xFu
       && (unsigned __int8)result >= 2u )

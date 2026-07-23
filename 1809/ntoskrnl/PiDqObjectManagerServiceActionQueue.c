@@ -1,5 +1,5 @@
 /*
- * XREFs of PiDqObjectManagerServiceActionQueue @ 0x1406F74E0
+ * XREFs of PiDqObjectManagerServiceActionQueue @ 0x1406F8780
  * Callers:
  *     <none>
  * Callees:
@@ -11,17 +11,17 @@
  *     ExReleasePushLockEx @ 0x14004F160 (ExReleasePushLockEx.c)
  *     ExReleaseResourceLite @ 0x14004F590 (ExReleaseResourceLite.c)
  *     ExAcquireResourceExclusiveLite @ 0x1400505F0 (ExAcquireResourceExclusiveLite.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     McTemplateK0p @ 0x140288C30 (McTemplateK0p.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     PiDqQueryRelease @ 0x1405900AC (PiDqQueryRelease.c)
- *     PiDqQueryFreeActiveData @ 0x140590124 (PiDqQueryFreeActiveData.c)
- *     PnpIsNullGuid @ 0x1405901B0 (PnpIsNullGuid.c)
- *     PiPnpRtlObjectEventRelease @ 0x140595DE0 (PiPnpRtlObjectEventRelease.c)
- *     PiDqQueryCompletePendedIrp @ 0x1406DB990 (PiDqQueryCompletePendedIrp.c)
- *     PiDqQueryApplyObjectEvent @ 0x1406F7878 (PiDqQueryApplyObjectEvent.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B78F0 (KiLeaveCriticalRegionUnsafe.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     McTemplateK0p @ 0x140288E20 (McTemplateK0p.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     PiDqQueryRelease @ 0x1405910AC (PiDqQueryRelease.c)
+ *     PiDqQueryFreeActiveData @ 0x140591124 (PiDqQueryFreeActiveData.c)
+ *     PnpIsNullGuid @ 0x1405911B0 (PnpIsNullGuid.c)
+ *     PiPnpRtlObjectEventRelease @ 0x140596DE0 (PiPnpRtlObjectEventRelease.c)
+ *     PiDqQueryCompletePendedIrp @ 0x1406DCC30 (PiDqQueryCompletePendedIrp.c)
+ *     PiDqQueryApplyObjectEvent @ 0x1406F8B18 (PiDqQueryApplyObjectEvent.c)
  */
 
 _QWORD *__fastcall PiDqObjectManagerServiceActionQueue(PERESOURCE Resource)
@@ -171,7 +171,7 @@ LABEL_13:
               v16 = IoSetActivityIdThread(&v37);
               v30 = 1;
             }
-            if ( byte_140405846 < 0 )
+            if ( byte_140406846 < 0 )
               McTemplateK0p(v18, &KMPnPEvt_DevQuery_ProcessingStart, *(const GUID **)(v17 + 24), v17);
             v19 = KeGetCurrentThread();
             --v19->KernelApcDisable;
@@ -190,7 +190,7 @@ LABEL_13:
               ExReleasePushLockEx(v17 + 64, 0LL);
               KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
             }
-            if ( byte_140405846 < 0 )
+            if ( byte_140406846 < 0 )
               McTemplateK0p(v21, &KMPnPEvt_DevQuery_ProcessingStop, *(const GUID **)(v17 + 24), v17);
             if ( v30 )
               IoClearActivityIdThread(v16);

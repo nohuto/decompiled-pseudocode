@@ -1,10 +1,10 @@
 /*
- * XREFs of MiTransientCombineAddress @ 0x14055D224
+ * XREFs of MiTransientCombineAddress @ 0x14055D464
  * Callers:
- *     MiRaisedIrqlFault @ 0x1402A2AFC (MiRaisedIrqlFault.c)
+ *     MiRaisedIrqlFault @ 0x14021FF3C (MiRaisedIrqlFault.c)
  * Callees:
- *     ExAcquireSpinLockShared @ 0x14021CD80 (ExAcquireSpinLockShared.c)
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14031C800 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     ExAcquireSpinLockShared @ 0x1402C1680 (ExAcquireSpinLockShared.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x140327550 (ExReleaseSpinLockSharedFromDpcLevel.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
@@ -19,10 +19,10 @@ _BOOL8 __fastcall MiTransientCombineAddress(unsigned __int64 a1, unsigned __int6
   int v10; // edx
   bool v11; // zf
 
-  if ( !dword_140C4E544 )
+  if ( !dword_140C4E584 )
     return 0LL;
-  v4 = ExAcquireSpinLockShared(&dword_140C4E540);
-  v5 = (_QWORD *)qword_140C4E548;
+  v4 = ExAcquireSpinLockShared(&dword_140C4E580);
+  v5 = (_QWORD *)qword_140C4E588;
   v6 = v4;
   while ( v5 )
   {
@@ -39,7 +39,7 @@ _BOOL8 __fastcall MiTransientCombineAddress(unsigned __int64 a1, unsigned __int6
   }
   if ( v5 && v5[5] != ((a2 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL )
     v5 = 0LL;
-  ExReleaseSpinLockSharedFromDpcLevel(&dword_140C4E540);
+  ExReleaseSpinLockSharedFromDpcLevel(&dword_140C4E580);
   if ( KiIrqlFlags )
   {
     if ( (KiIrqlFlags & 1) != 0 )

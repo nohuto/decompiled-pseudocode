@@ -1,21 +1,21 @@
 /*
- * XREFs of RtlpHpVaMgrRangeCommit @ 0x18011D148
+ * XREFs of RtlpHpVaMgrRangeCommit @ 0x18011B378
  * Callers:
- *     RtlpHpVaMgrCtxCommit @ 0x18011D0CC (RtlpHpVaMgrCtxCommit.c)
+ *     RtlpHpVaMgrCtxCommit @ 0x18011B2FC (RtlpHpVaMgrCtxCommit.c)
  * Callees:
- *     RtlpHpEnvAllocVA @ 0x180092390 (RtlpHpEnvAllocVA.c)
- *     RtlpHpVaMgrRangeCommitProcess @ 0x180093620 (RtlpHpVaMgrRangeCommitProcess.c)
+ *     RtlpHpEnvAllocVA @ 0x18009CF20 (RtlpHpEnvAllocVA.c)
+ *     RtlpHpVaMgrRangeCommitProcess @ 0x18009E1B0 (RtlpHpVaMgrRangeCommitProcess.c)
  */
 
-__int64 __fastcall RtlpHpVaMgrRangeCommit(__int64 a1, _BYTE *a2, __m128i *a3, int a4)
+NTSTATUS __fastcall RtlpHpVaMgrRangeCommit(__int64 a1, _BYTE *a2, __m128i *a3, ULONG a4)
 {
   _BYTE *i; // rbx
   __int64 v8; // rcx
   __int64 v9; // rdx
   unsigned __int64 v10; // xmm0_8
   __int64 v11; // r8
-  __int64 result; // rax
-  __int64 v13; // [rsp+28h] [rbp-50h]
+  NTSTATUS result; // eax
+  int v13; // [rsp+28h] [rbp-50h]
   __m128i v14; // [rsp+50h] [rbp-28h] BYREF
 
   for ( i = a2; (*i & 2) != 0; i -= 32 )
@@ -33,15 +33,15 @@ __int64 __fastcall RtlpHpVaMgrRangeCommit(__int64 a1, _BYTE *a2, __m128i *a3, in
     if ( (*i & 4) != 0 || (v14 = *a3, (unsigned int)RtlpHpVaMgrRangeCommitProcess(a1, &v14, 0) == 1) )
     {
       result = RtlpHpEnvAllocVA(
-                 (__int64)a3,
-                 (__int64)&a3->m128i_i64[1],
+                 (PVOID *)a3,
+                 &a3->m128i_u64[1],
                  0LL,
-                 `RtlpHpMemoryTypeAllocFlags'::`2'::AllocFlags[((unsigned __int64)*(unsigned __int8 *)(a1 + 46) >> 1) & 7] | 0x1000u,
+                 `RtlpHpMemoryTypeAllocFlags'::`2'::AllocFlags[((unsigned __int64)*(unsigned __int8 *)(a1 + 46) >> 1) & 7] | 0x1000,
                  a4,
                  v13,
                  (*(unsigned __int8 *)(a1 + 46) >> 1) & 7,
                  *(_QWORD *)(a1 + 32));
-      if ( (int)result < 0 )
+      if ( result < 0 )
         return result;
       if ( (*i & 4) == 0 )
       {
@@ -50,5 +50,5 @@ __int64 __fastcall RtlpHpVaMgrRangeCommit(__int64 a1, _BYTE *a2, __m128i *a3, in
       }
     }
   }
-  return 0LL;
+  return 0;
 }

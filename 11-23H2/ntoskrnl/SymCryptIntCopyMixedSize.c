@@ -1,10 +1,10 @@
 /*
- * XREFs of SymCryptIntCopyMixedSize @ 0x1403F9330
+ * XREFs of SymCryptIntCopyMixedSize @ 0x1403F9510
  * Callers:
- *     SymCryptRsakeyCalculatePrivateFields @ 0x1403F75C8 (SymCryptRsakeyCalculatePrivateFields.c)
- *     SymCryptIntExtendedGcd @ 0x1403FDD64 (SymCryptIntExtendedGcd.c)
+ *     SymCryptRsakeyCalculatePrivateFields @ 0x1403F77A8 (SymCryptRsakeyCalculatePrivateFields.c)
+ *     SymCryptIntExtendedGcd @ 0x1403FDF44 (SymCryptIntExtendedGcd.c)
  * Callees:
- *     SymCryptFdefIntCopyMixedSize @ 0x1404057D0 (SymCryptFdefIntCopyMixedSize.c)
+ *     SymCryptFdefIntCopyMixedSize @ 0x1404059B0 (SymCryptFdefIntCopyMixedSize.c)
  */
 
 __int64 SymCryptIntCopyMixedSize()

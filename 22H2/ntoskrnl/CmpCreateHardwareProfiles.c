@@ -190,7 +190,7 @@ LABEL_15:
     *(_OWORD *)&KeyHandle_8.SecurityDescriptor = 0LL;
     if ( ZwCreateKey(&DestinationString, 0x2001Fu, &KeyHandle_8, 0, 0LL, 1u, &Disposition) >= 0 )
     {
-      CmpAddDockingInfo((int)DestinationString);
+      CmpAddDockingInfo(DestinationString);
       ZwClose(DestinationString);
       DestinationString = 0LL;
     }

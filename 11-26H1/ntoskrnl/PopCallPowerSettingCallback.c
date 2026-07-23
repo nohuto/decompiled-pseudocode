@@ -1,15 +1,15 @@
 /*
- * XREFs of PopCallPowerSettingCallback @ 0x140A4031C
+ * XREFs of PopCallPowerSettingCallback @ 0x1409FBD3C
  * Callers:
- *     PopDispatchPowerSettingCallbacks @ 0x140A401E0 (PopDispatchPowerSettingCallbacks.c)
+ *     PopDispatchPowerSettingCallbacks @ 0x1409FBC00 (PopDispatchPowerSettingCallbacks.c)
  * Callees:
- *     ExAcquireFastMutex @ 0x140278070 (ExAcquireFastMutex.c)
- *     KeReleaseGuardedMutex @ 0x140278D40 (KeReleaseGuardedMutex.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     PopUnreferencePowerSetting @ 0x140A4045C (PopUnreferencePowerSetting.c)
- *     PopDiagTracePowerSettingStop @ 0x140A4047C (PopDiagTracePowerSettingStop.c)
- *     PopDiagTracePowerSettingStart @ 0x140A4051C (PopDiagTracePowerSettingStart.c)
+ *     ExAcquireFastMutex @ 0x1402775E0 (ExAcquireFastMutex.c)
+ *     KeReleaseGuardedMutex @ 0x1402782B0 (KeReleaseGuardedMutex.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     PopUnreferencePowerSetting @ 0x1409FBE7C (PopUnreferencePowerSetting.c)
+ *     PopDiagTracePowerSettingStop @ 0x1409FBE9C (PopDiagTracePowerSettingStop.c)
+ *     PopDiagTracePowerSettingStart @ 0x1409FBF3C (PopDiagTracePowerSettingStart.c)
  */
 
 void __fastcall PopCallPowerSettingCallback(_QWORD *a1, __int64 a2)
@@ -36,7 +36,7 @@ void __fastcall PopCallPowerSettingCallback(_QWORD *a1, __int64 a2)
         {
           v4 = (_DWORD *)a1[9];
           ++*v4;
-          KeReleaseGuardedMutex((PKGUARDED_MUTEX)&stru_140F11D08.LastXStateSaveDebugInfo);
+          KeReleaseGuardedMutex(&PopSettingLock);
           PopDiagTracePowerSettingStart(a1[10], (char *)a1 + 36, (unsigned int)v4[1], v4 + 3);
           CurrentIrql = KeGetCurrentIrql();
           guard_dispatch_icall_no_overrides((__int64)a1 + 52, (__int64)(v4 + 3));
@@ -46,7 +46,7 @@ void __fastcall PopCallPowerSettingCallback(_QWORD *a1, __int64 a2)
           PopDiagTracePowerSettingStop(a1[10], (char *)a1 + 36);
           if ( KeGetCurrentThread()->WaitBlock[3].SpareLong )
             __fastfail(0x20u);
-          ExAcquireFastMutex((PKGUARDED_MUTEX)&stru_140F11D08.LastXStateSaveDebugInfo);
+          ExAcquireFastMutex(&PopSettingLock);
           v10 = (_DWORD *)a1[9];
           v3 = v10 && v4 != v10;
           PopUnreferencePowerSetting(v4, v7, v8, v9);

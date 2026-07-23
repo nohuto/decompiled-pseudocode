@@ -1,12 +1,12 @@
 /*
- * XREFs of ObUnRegisterCallbacks @ 0x140744570
+ * XREFs of ObUnRegisterCallbacks @ 0x140742860
  * Callers:
  *     <none>
  * Callees:
- *     ExWaitForRundownProtectionRelease @ 0x1402C6A90 (ExWaitForRundownProtectionRelease.c)
- *     ObpUnlockObjectType @ 0x1409D66BC (ObpUnlockObjectType.c)
- *     ObpLockObjectTypeExclusive @ 0x1409D6734 (ObpLockObjectTypeExclusive.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ExWaitForRundownProtectionRelease @ 0x1402BB610 (ExWaitForRundownProtectionRelease.c)
+ *     ObpUnlockObjectType @ 0x1409C64EC (ObpUnlockObjectType.c)
+ *     ObpLockObjectTypeExclusive @ 0x1409C6564 (ObpLockObjectTypeExclusive.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __stdcall ObUnRegisterCallbacks(PVOID RegistrationHandle)

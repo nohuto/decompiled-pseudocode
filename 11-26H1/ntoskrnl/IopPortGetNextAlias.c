@@ -1,8 +1,8 @@
 /*
- * XREFs of IopPortGetNextAlias @ 0x1407A6D80
+ * XREFs of IopPortGetNextAlias @ 0x1407A9930
  * Callers:
- *     IopPortAddAllocation @ 0x1407A6B30 (IopPortAddAllocation.c)
- *     IopPortBacktrackAllocation @ 0x1407A6C10 (IopPortBacktrackAllocation.c)
+ *     IopPortAddAllocation @ 0x1407A96E0 (IopPortAddAllocation.c)
+ *     IopPortBacktrackAllocation @ 0x1407A97C0 (IopPortBacktrackAllocation.c)
  * Callees:
  *     <none>
  */

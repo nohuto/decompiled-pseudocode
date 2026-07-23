@@ -9,39 +9,43 @@
  *     _memset @ 0x4B2F8F30 (_memset.c)
  */
 
-void __stdcall RtlSetBits(int a1, unsigned int a2, unsigned int a3)
+void __cdecl RtlSetBits(PRTL_BITMAP BitMapHeader, ULONG StartingIndex, ULONG NumberToSet)
 {
-  unsigned int v3; // ebx
-  int v4; // ecx
-  _BYTE *v5; // edi
-  char v6; // al
+  int v3; // esi
+  ULONG v4; // ebx
+  ULONG v5; // ecx
+  _BYTE *v6; // edi
+  char v7; // al
+  size_t v8; // [esp-Ch] [ebp-10h]
 
-  v3 = a3;
-  if ( a3 )
+  v4 = NumberToSet;
+  if ( NumberToSet )
   {
-    v4 = a2 & 7;
-    v5 = (_BYTE *)(*(_DWORD *)(a1 + 4) + (a2 >> 3));
-    if ( v4 + a3 <= 8 )
+    v5 = StartingIndex & 7;
+    v6 = (char *)BitMapHeader->Buffer + (StartingIndex >> 3);
+    if ( v5 + NumberToSet <= 8 )
     {
-      v6 = byte_4B288988[a3] << v4;
+      v7 = byte_4B288988[NumberToSet] << v5;
 LABEL_4:
-      *v5 |= v6;
+      *v6 |= v7;
       return;
     }
-    if ( (a2 & 7) != 0 )
+    if ( (StartingIndex & 7) != 0 )
     {
-      v3 = v4 + a3 - 8;
-      *v5++ |= byte_4B288994[v4];
+      v4 = v5 + NumberToSet - 8;
+      *v6++ |= byte_4B288994[v5];
     }
-    if ( v3 > 8 )
+    if ( v4 > 8 )
     {
-      memset(v5, 255, v3 >> 3);
-      v5 += v3 >> 3;
-      v3 &= 7u;
+      HIDWORD(v8) = v3;
+      LODWORD(v8) = v4 >> 3;
+      memset(v6, 255, v8);
+      v6 += v4 >> 3;
+      v4 &= 7u;
     }
-    if ( v3 )
+    if ( v4 )
     {
-      v6 = byte_4B288988[v3];
+      v7 = byte_4B288988[v4];
       goto LABEL_4;
     }
   }

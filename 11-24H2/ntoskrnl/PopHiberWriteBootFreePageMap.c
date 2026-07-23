@@ -1,12 +1,12 @@
 /*
- * XREFs of PopHiberWriteBootFreePageMap @ 0x140B5D55C
+ * XREFs of PopHiberWriteBootFreePageMap @ 0x140B5F5DC
  * Callers:
- *     PopSaveHiberContext @ 0x140B6EC80 (PopSaveHiberContext.c)
+ *     PopSaveHiberContext @ 0x140B70CF0 (PopSaveHiberContext.c)
  * Callees:
- *     RtlIntersectBitMaps @ 0x1405E8070 (RtlIntersectBitMaps.c)
- *     tcpxsum @ 0x1406B3530 (tcpxsum.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     PopWriteHiberPages @ 0x140B5EA28 (PopWriteHiberPages.c)
+ *     RtlIntersectBitMaps @ 0x1405E5660 (RtlIntersectBitMaps.c)
+ *     tcpxsum @ 0x1406B44D0 (tcpxsum.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     PopWriteHiberPages @ 0x140B60AA8 (PopWriteHiberPages.c)
  */
 
 __int64 __fastcall PopHiberWriteBootFreePageMap(__int64 a1, __int64 a2)

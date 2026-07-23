@@ -1,14 +1,14 @@
 /*
- * XREFs of EtwpIsGuidAllowed @ 0x1406C040C
+ * XREFs of EtwpIsGuidAllowed @ 0x1406C043C
  * Callers:
- *     EtwpAddRegEntryToGroup @ 0x1406BE810 (EtwpAddRegEntryToGroup.c)
- *     EtwpIsRegEntryAllowed @ 0x140780EA8 (EtwpIsRegEntryAllowed.c)
- *     EtwpNotifyDisallowedGuidChange @ 0x1409E74D0 (EtwpNotifyDisallowedGuidChange.c)
+ *     EtwpAddRegEntryToGroup @ 0x1406BE840 (EtwpAddRegEntryToGroup.c)
+ *     EtwpIsRegEntryAllowed @ 0x140781098 (EtwpIsRegEntryAllowed.c)
+ *     EtwpNotifyDisallowedGuidChange @ 0x1409E7760 (EtwpNotifyDisallowedGuidChange.c)
  * Callees:
- *     ExAcquirePushLockSharedEx @ 0x140230D90 (ExAcquirePushLockSharedEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfReleasePushLockShared @ 0x1402BD860 (ExfReleasePushLockShared.c)
- *     bsearch @ 0x1403D9E00 (bsearch.c)
+ *     ExAcquirePushLockSharedEx @ 0x140230E80 (ExAcquirePushLockSharedEx.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     ExfReleasePushLockShared @ 0x1402BDAF0 (ExfReleasePushLockShared.c)
+ *     bsearch @ 0x1403D9FE0 (bsearch.c)
  */
 
 bool __fastcall EtwpIsGuidAllowed(__int64 a1, const void *a2)

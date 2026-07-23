@@ -1,28 +1,28 @@
 /*
- * XREFs of CmpLockRegistryFreezeAware @ 0x1407537E8
+ * XREFs of CmpLockRegistryFreezeAware @ 0x1407539D8
  * Callers:
  *     CmpTryToRundownHive @ 0x1402092DC (CmpTryToRundownHive.c)
- *     CmpLoadKeyCommon @ 0x1402F659C (CmpLoadKeyCommon.c)
+ *     CmpLoadKeyCommon @ 0x1402F682C (CmpLoadKeyCommon.c)
  *     CmpLateUnloadHiveWorker @ 0x140693350 (CmpLateUnloadHiveWorker.c)
  *     CmpStartRMLogs @ 0x14069870C (CmpStartRMLogs.c)
  *     CmpPerformUnloadKey @ 0x140699394 (CmpPerformUnloadKey.c)
- *     CmpDoFlushNextHive @ 0x140751F20 (CmpDoFlushNextHive.c)
- *     CmpFlushHive @ 0x140752E88 (CmpFlushHive.c)
- *     CmLoadAppKey @ 0x140769640 (CmLoadAppKey.c)
- *     ExpWatchProductTypeWork @ 0x1407AC030 (ExpWatchProductTypeWork.c)
- *     NtFlushKey @ 0x1407AC4C0 (NtFlushKey.c)
- *     CmpBecomeActiveFlusherAndReconciler @ 0x1408271A4 (CmpBecomeActiveFlusherAndReconciler.c)
- *     CmRestoreKey @ 0x140A0AC44 (CmRestoreKey.c)
- *     CmpResolveHiveLoadConflict @ 0x140A16A18 (CmpResolveHiveLoadConflict.c)
+ *     CmpDoFlushNextHive @ 0x140752110 (CmpDoFlushNextHive.c)
+ *     CmpFlushHive @ 0x140753078 (CmpFlushHive.c)
+ *     CmLoadAppKey @ 0x140769830 (CmLoadAppKey.c)
+ *     ExpWatchProductTypeWork @ 0x1407AC220 (ExpWatchProductTypeWork.c)
+ *     NtFlushKey @ 0x1407AC6B0 (NtFlushKey.c)
+ *     CmpBecomeActiveFlusherAndReconciler @ 0x1408274A4 (CmpBecomeActiveFlusherAndReconciler.c)
+ *     CmRestoreKey @ 0x140A0AEF4 (CmRestoreKey.c)
+ *     CmpResolveHiveLoadConflict @ 0x140A16CC8 (CmpResolveHiveLoadConflict.c)
  * Callees:
- *     KeAbPreAcquire @ 0x140230EE0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     KeWaitForSingleObject @ 0x140243CE0 (KeWaitForSingleObject.c)
- *     KeInitializeEvent @ 0x1402AF870 (KeInitializeEvent.c)
- *     KeResetEvent @ 0x1402AF940 (KeResetEvent.c)
- *     ExfReleasePushLock @ 0x1402BD830 (ExfReleasePushLock.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1402FCE10 (ExfAcquirePushLockExclusiveEx.c)
- *     CmpLockRegistryExclusive @ 0x1407691EC (CmpLockRegistryExclusive.c)
+ *     KeAbPreAcquire @ 0x140230FD0 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     KeWaitForSingleObject @ 0x140243DB0 (KeWaitForSingleObject.c)
+ *     KeInitializeEvent @ 0x1402AFB00 (KeInitializeEvent.c)
+ *     KeResetEvent @ 0x1402AFE30 (KeResetEvent.c)
+ *     ExfReleasePushLock @ 0x1402BDAC0 (ExfReleasePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402FD0A0 (ExfAcquirePushLockExclusiveEx.c)
+ *     CmpLockRegistryExclusive @ 0x1407693DC (CmpLockRegistryExclusive.c)
  *     CmpLockRegistry @ 0x140AF54A0 (CmpLockRegistry.c)
  *     CmpUnlockRegistry @ 0x140AF54F0 (CmpUnlockRegistry.c)
  */
@@ -66,12 +66,12 @@ __int64 __fastcall CmpLockRegistryFreezeAware(char a1)
       ExfAcquirePushLockExclusiveEx(&CmpFreezeListLock, v7, (__int64)&CmpFreezeListLock);
     if ( v9 )
       *(_BYTE *)(v9 + 18) = 1;
-    if ( *(__int64 **)qword_140C13E58 != &CmpFreezeThawWaitListHead )
+    if ( *(__int64 **)qword_140C13E28 != &CmpFreezeThawWaitListHead )
       __fastfail(3u);
-    *((_QWORD *)&v20 + 1) = qword_140C13E58;
+    *((_QWORD *)&v20 + 1) = qword_140C13E28;
     *(_QWORD *)&v20 = &CmpFreezeThawWaitListHead;
-    *(_QWORD *)qword_140C13E58 = &v20;
-    qword_140C13E58 = (__int64)&v20;
+    *(_QWORD *)qword_140C13E28 = &v20;
+    qword_140C13E28 = (__int64)&v20;
     _m_prefetchw(&CmpFreezeListLock);
     v10 = CmpFreezeListLock - 16;
     if ( (CmpFreezeListLock & 0xFFFFFFFFFFFFFFF0uLL) <= 0x10 )

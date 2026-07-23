@@ -1,12 +1,12 @@
 /*
- * XREFs of PiCreateDriverSwDevices @ 0x1404ED268
+ * XREFs of PiCreateDriverSwDevices @ 0x14050FA08
  * Callers:
- *     PipProcessStartPhase3 @ 0x1403EEA60 (PipProcessStartPhase3.c)
+ *     PipProcessStartPhase3 @ 0x140488964 (PipProcessStartPhase3.c)
  * Callees:
- *     ZwClose @ 0x140159E60 (ZwClose.c)
- *     PnpDeviceObjectToDeviceInstance @ 0x140489B8C (PnpDeviceObjectToDeviceInstance.c)
- *     _SysCtxRegOpenKey @ 0x1404FDB8C (_SysCtxRegOpenKey.c)
- *     _PnpCtxRegEnumKeyWithCallback @ 0x140562F74 (_PnpCtxRegEnumKeyWithCallback.c)
+ *     ZwClose @ 0x14015A3D0 (ZwClose.c)
+ *     _SysCtxRegOpenKey @ 0x1404E0B1C (_SysCtxRegOpenKey.c)
+ *     PnpDeviceObjectToDeviceInstance @ 0x14051230C (PnpDeviceObjectToDeviceInstance.c)
+ *     _PnpCtxRegEnumKeyWithCallback @ 0x1405634B4 (_PnpCtxRegEnumKeyWithCallback.c)
  */
 
 __int64 __fastcall PiCreateDriverSwDevices(__int64 a1)
@@ -21,14 +21,14 @@ __int64 __fastcall PiCreateDriverSwDevices(__int64 a1)
 
   Handle = 0LL;
   v8 = 0LL;
-  v2 = PnpDeviceObjectToDeviceInstance(*(_QWORD *)(a1 + 32), (__int64)&Handle, 131097);
+  v2 = PnpDeviceObjectToDeviceInstance(*(_QWORD *)(a1 + 32), &Handle, 131097LL);
   if ( v2 >= 0 )
   {
     if ( *(_QWORD *)&PiPnpRtlCtx )
       v3 = **(_QWORD **)&PiPnpRtlCtx;
     else
-      LODWORD(v3) = 0;
-    v4 = SysCtxRegOpenKey(v3, (_DWORD)Handle, (unsigned int)L"Devices", 0, 131097, (__int64)&v8);
+      v3 = 0LL;
+    v4 = SysCtxRegOpenKey(v3, (__int64)Handle, (__int64)L"Devices", 0, 0x20019u, (__int64)&v8);
     v2 = v4;
     if ( v4 >= 0 )
     {

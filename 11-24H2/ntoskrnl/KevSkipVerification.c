@@ -1,7 +1,7 @@
 /*
- * XREFs of KevSkipVerification @ 0x1406A1B0C
+ * XREFs of KevSkipVerification @ 0x1406A2B5C
  * Callers:
- *     ExFreePoolSanityChecks @ 0x140BA44B0 (ExFreePoolSanityChecks.c)
+ *     ExFreePoolSanityChecks @ 0x140BA64B0 (ExFreePoolSanityChecks.c)
  * Callees:
  *     <none>
  */

@@ -1,19 +1,19 @@
 /*
- * XREFs of MiRemoveLockedPageCharge @ 0x14004D1E0
+ * XREFs of MiRemoveLockedPageCharge @ 0x14004CD60
  * Callers:
- *     MiCopyDataPageToImagePage @ 0x140023A40 (MiCopyDataPageToImagePage.c)
- *     MmCheckCachedPageStates @ 0x140033AB0 (MmCheckCachedPageStates.c)
- *     MiMigratePfn @ 0x140036E10 (MiMigratePfn.c)
- *     MiDispatchFault @ 0x1400403C0 (MiDispatchFault.c)
- *     MiResolveProtoPteFault @ 0x140041360 (MiResolveProtoPteFault.c)
- *     MiUnlockProtoPoolPage @ 0x14004C4E0 (MiUnlockProtoPoolPage.c)
- *     MiWalkEntireImage @ 0x14004C570 (MiWalkEntireImage.c)
- *     MiDeleteDirectMapFixupPfn @ 0x1401F48FC (MiDeleteDirectMapFixupPfn.c)
- *     MiIdealClusterPage @ 0x1401F6748 (MiIdealClusterPage.c)
- *     MiSwapHardFaultPage @ 0x1401FE040 (MiSwapHardFaultPage.c)
+ *     MiCopyDataPageToImagePage @ 0x1400235C0 (MiCopyDataPageToImagePage.c)
+ *     MmCheckCachedPageStates @ 0x140033630 (MmCheckCachedPageStates.c)
+ *     MiMigratePfn @ 0x140036990 (MiMigratePfn.c)
+ *     MiDispatchFault @ 0x14003FF40 (MiDispatchFault.c)
+ *     MiResolveProtoPteFault @ 0x140040EE0 (MiResolveProtoPteFault.c)
+ *     MiUnlockProtoPoolPage @ 0x14004C060 (MiUnlockProtoPoolPage.c)
+ *     MiWalkEntireImage @ 0x14004C0F0 (MiWalkEntireImage.c)
+ *     MiDeleteDirectMapFixupPfn @ 0x1401F4728 (MiDeleteDirectMapFixupPfn.c)
+ *     MiIdealClusterPage @ 0x1401F6574 (MiIdealClusterPage.c)
+ *     MiSwapHardFaultPage @ 0x1401FDE6C (MiSwapHardFaultPage.c)
  * Callees:
- *     MiReturnCommit @ 0x14004E500 (MiReturnCommit.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
+ *     MiReturnCommit @ 0x14004E080 (MiReturnCommit.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall MiRemoveLockedPageCharge(__int64 a1)
@@ -88,7 +88,7 @@ LABEL_17:
       if ( v11 == 1023 )
         v12 = MiSystemPartition;
       else
-        v12 = *(int **)(qword_140326FF8 + 8LL * v11);
+        v12 = *(int **)(qword_140327038 + 8LL * v11);
       if ( v7 == 1 )
         MiReturnCommit(v12, 1LL);
       if ( v12 == MiSystemPartition )
@@ -121,7 +121,7 @@ LABEL_17:
             v5 = (int)CachedResidentAvailable - 192 + 1LL;
           }
         }
-        _InterlockedExchangeAdd64(&qword_140324EC0, v5);
+        _InterlockedExchangeAdd64(&qword_140324F00, v5);
         return v9;
       }
       _InterlockedExchangeAdd64((volatile signed __int64 *)v12 + 816, 1uLL);

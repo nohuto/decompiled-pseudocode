@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlpValidRelativeAttribute @ 0x1800EAF48
+ * XREFs of RtlpValidRelativeAttribute @ 0x1800EAF08
  * Callers:
- *     RtlpValidAttributeAce @ 0x1800EAD3C (RtlpValidAttributeAce.c)
+ *     RtlpValidAttributeAce @ 0x1800EACFC (RtlpValidAttributeAce.c)
  * Callees:
  *     RtlStringCbLengthW @ 0x180044608 (RtlStringCbLengthW.c)
  */

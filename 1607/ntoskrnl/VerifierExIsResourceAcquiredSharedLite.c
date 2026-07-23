@@ -1,5 +1,5 @@
 /*
- * XREFs of VerifierExIsResourceAcquiredSharedLite @ 0x14070C440
+ * XREFs of VerifierExIsResourceAcquiredSharedLite @ 0x14070C470
  * Callers:
  *     <none>
  * Callees:

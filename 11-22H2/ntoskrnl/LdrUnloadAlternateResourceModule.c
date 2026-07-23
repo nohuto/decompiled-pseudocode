@@ -6,7 +6,9 @@
  *     LdrUnloadAlternateResourceModuleEx @ 0x14020B660 (LdrUnloadAlternateResourceModuleEx.c)
  */
 
-__int64 LdrUnloadAlternateResourceModule()
+BOOLEAN __cdecl LdrUnloadAlternateResourceModule(PVOID DllHandle)
 {
-  return LdrUnloadAlternateResourceModuleEx();
+  ULONG v1; // edx
+
+  return LdrUnloadAlternateResourceModuleEx(DllHandle, v1);
 }

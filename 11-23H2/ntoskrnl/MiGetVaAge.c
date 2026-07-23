@@ -1,17 +1,17 @@
 /*
- * XREFs of MiGetVaAge @ 0x1402E3A30
+ * XREFs of MiGetVaAge @ 0x1402E3CC0
  * Callers:
  *     MiProcessWsInSwapFault @ 0x140200008 (MiProcessWsInSwapFault.c)
- *     MiActOnPte @ 0x1402940D4 (MiActOnPte.c)
- *     MiUpdateWsleAge @ 0x1402945B4 (MiUpdateWsleAge.c)
- *     MiTrimThisWsle @ 0x1402E27D8 (MiTrimThisWsle.c)
- *     MiTrimPte @ 0x1402E3630 (MiTrimPte.c)
- *     MI_WSLE_LOG_ACCESS @ 0x1402E39BC (MI_WSLE_LOG_ACCESS.c)
- *     MiResetAccessBitPteWorker @ 0x14046C10C (MiResetAccessBitPteWorker.c)
- *     MiUpdateOldPte @ 0x14046C280 (MiUpdateOldPte.c)
- *     MiSimpleAgePte @ 0x140635090 (MiSimpleAgePte.c)
+ *     MiActOnPte @ 0x140294364 (MiActOnPte.c)
+ *     MiUpdateWsleAge @ 0x140294844 (MiUpdateWsleAge.c)
+ *     MiTrimThisWsle @ 0x1402E2A68 (MiTrimThisWsle.c)
+ *     MiTrimPte @ 0x1402E38C0 (MiTrimPte.c)
+ *     MI_WSLE_LOG_ACCESS @ 0x1402E3C4C (MI_WSLE_LOG_ACCESS.c)
+ *     MiResetAccessBitPteWorker @ 0x14046C50C (MiResetAccessBitPteWorker.c)
+ *     MiUpdateOldPte @ 0x14046C680 (MiUpdateOldPte.c)
+ *     MiSimpleAgePte @ 0x1406355E0 (MiSimpleAgePte.c)
  * Callees:
- *     MI_READ_PTE_LOCK_FREE @ 0x1402712F0 (MI_READ_PTE_LOCK_FREE.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140271580 (MI_READ_PTE_LOCK_FREE.c)
  */
 
 char __fastcall MiGetVaAge(__int64 a1, unsigned __int64 a2)

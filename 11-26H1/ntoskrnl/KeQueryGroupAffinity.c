@@ -1,21 +1,21 @@
 /*
- * XREFs of KeQueryGroupAffinity @ 0x14049AF50
+ * XREFs of KeQueryGroupAffinity @ 0x140494AA0
  * Callers:
- *     PpmEnableWmiInterface @ 0x1407D9F28 (PpmEnableWmiInterface.c)
- *     EtwpProcessorRundown @ 0x14082FBE8 (EtwpProcessorRundown.c)
- *     NtCreateProfile @ 0x1408425B0 (NtCreateProfile.c)
- *     PopProcessorInformation @ 0x140A843AC (PopProcessorInformation.c)
- *     MiCaptureImageHeaderFieldsForPeb @ 0x140ACAAB8 (MiCaptureImageHeaderFieldsForPeb.c)
- *     ExpQuerySystemInformation @ 0x140B145DC (ExpQuerySystemInformation.c)
- *     PpmEventTraceProcessorPerformanceDomainRundown @ 0x140B21C4C (PpmEventTraceProcessorPerformanceDomainRundown.c)
+ *     PpmEnableWmiInterface @ 0x1407DDEC8 (PpmEnableWmiInterface.c)
+ *     EtwpProcessorRundown @ 0x140835E28 (EtwpProcessorRundown.c)
+ *     NtCreateProfile @ 0x14084B650 (NtCreateProfile.c)
+ *     PopProcessorInformation @ 0x140A89700 (PopProcessorInformation.c)
+ *     MiCaptureImageHeaderFieldsForPeb @ 0x140ACCBC8 (MiCaptureImageHeaderFieldsForPeb.c)
+ *     ExpQuerySystemInformation @ 0x140B169CC (ExpQuerySystemInformation.c)
+ *     PpmEventTraceProcessorPerformanceDomainRundown @ 0x140B2404C (PpmEventTraceProcessorPerformanceDomainRundown.c)
  * Callees:
  *     <none>
  */
 
 KAFFINITY __stdcall KeQueryGroupAffinity(USHORT GroupNumber)
 {
-  if ( GroupNumber >= *(_WORD *)&stru_140FC01F0.WaitRegister.Flags )
+  if ( GroupNumber >= *(_WORD *)&stru_140FC11F0.WaitRegister.Flags )
     return 0LL;
   else
-    return *(KAFFINITY *)((char *)&stru_140FC01F0.116 + 8 * GroupNumber + 4);
+    return *(KAFFINITY *)((char *)&stru_140FC11F0.116 + 8 * GroupNumber + 4);
 }

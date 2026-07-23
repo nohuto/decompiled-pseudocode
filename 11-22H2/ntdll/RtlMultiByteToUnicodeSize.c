@@ -8,52 +8,55 @@
  *     RtlUTF8ToUnicodeN @ 0x180055990 (RtlUTF8ToUnicodeN.c)
  */
 
-__int64 RtlMultiByteToUnicodeSize()
+NTSTATUS __cdecl RtlMultiByteToUnicodeSize(
+        PULONG BytesInUnicodeString,
+        PCSTR MultiByteString,
+        ULONG BytesInMultiByteString)
 {
-  unsigned __int8 *v0; // rdx
-  _DWORD *v1; // rcx
-  int v2; // r8d
-  int *v3; // r10
-  int v4; // ecx
-  __int64 v6; // rax
-  signed __int32 v7[8]; // [rsp+0h] [rbp-38h] BYREF
+  const CHAR *v3; // rdx
+  _DWORD *v4; // rcx
+  ULONG UTF8StringByteCount; // r8d
+  ULONG *v6; // r10
+  int v7; // ecx
+  __int64 v9; // rax
+  signed __int32 v10[8]; // [rsp+0h] [rbp-38h] BYREF
 
-  if ( (unsigned __int8)RtlpIsUtf8Process() )
+  if ( (unsigned __int8)RtlpIsUtf8Process(BytesInUnicodeString, MultiByteString, BytesInMultiByteString) )
   {
-    if ( v2 )
-      RtlUTF8ToUnicodeN(0, 0, (_DWORD)v3, (_DWORD)v0, v2);
+    if ( UTF8StringByteCount )
+      RtlUTF8ToUnicodeN(0LL, 0, v6, v3, UTF8StringByteCount);
     else
-      *v1 = 0;
+      *v4 = 0;
   }
   else
   {
-    _InterlockedOr(v7, 0);
-    v4 = 0;
-    if ( word_18018171C )
+    _InterlockedOr(v10, 0);
+    v7 = 0;
+    if ( GlobalRtlNlsState.DBCSCodePage )
     {
-      while ( v2 )
+      while ( UTF8StringByteCount )
       {
-        v6 = *v0;
-        --v2;
-        ++v0;
-        if ( *(_WORD *)(qword_1801817A0 + 2 * v6) )
+        v9 = *(unsigned __int8 *)v3;
+        --UTF8StringByteCount;
+        ++v3;
+        if ( *(_WORD *)(qword_1801817A0 + 2 * v9) )
         {
-          if ( !v2 )
+          if ( !UTF8StringByteCount )
           {
-            v4 += 2;
+            v7 += 2;
             break;
           }
-          --v2;
-          ++v0;
+          --UTF8StringByteCount;
+          ++v3;
         }
-        v4 += 2;
+        v7 += 2;
       }
     }
     else
     {
-      v4 = 2 * v2;
+      v7 = 2 * UTF8StringByteCount;
     }
-    *v3 = v4;
+    *v6 = v7;
   }
-  return 0LL;
+  return 0;
 }

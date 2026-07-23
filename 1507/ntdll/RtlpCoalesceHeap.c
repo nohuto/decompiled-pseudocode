@@ -13,120 +13,109 @@
  *     RtlpAnalyzeHeapFailure @ 0x1800EEA14 (RtlpAnalyzeHeapFailure.c)
  */
 
-unsigned __int64 __fastcall RtlpCoalesceHeap(unsigned __int64 a1, __int64 a2, __int64 a3, __int64 a4)
+__int64 __fastcall RtlpCoalesceHeap(_QWORD *BaseAddress)
 {
-  _QWORD *v4; // rbp
-  unsigned __int64 v5; // rsi
-  _QWORD *v6; // r14
-  __int64 v8; // rdi
-  bool v9; // zf
-  unsigned __int64 v10; // r15
-  unsigned __int64 v11; // rax
-  unsigned __int64 v12; // r8
-  unsigned __int64 v13; // rdx
-  __int64 *v15; // r12
-  __int64 v16; // r8
-  __int64 v17; // r14
-  __int64 v18; // rax
-  __int64 v19; // r9
-  __int64 v20; // rdx
+  char *v1; // rbp
+  __int64 v2; // rsi
+  char *v3; // r14
+  unsigned __int64 v5; // rdi
+  __int64 v6; // r15
+  __int64 v7; // rax
+  __int64 *v9; // r12
+  unsigned __int64 v10; // r8
+  __int64 v11; // r14
+  __int64 v12; // rax
+  __int64 v13; // r9
+  __int64 v14; // rdx
   unsigned __int64 i; // rax
-  __int64 v22; // rax
-  unsigned int v23; // ecx
-  unsigned __int64 v24; // [rsp+60h] [rbp+8h] BYREF
+  __int64 v16; // rax
+  unsigned int v17; // ecx
 
-  v4 = (_QWORD *)(a1 + 336);
-  v5 = 0LL;
-  v6 = *(_QWORD **)(a1 + 344);
-  if ( (_QWORD *)(a1 + 336) == v6 )
-    return v5;
-  do
+  v1 = (char *)(BaseAddress + 42);
+  v2 = 0LL;
+  v3 = (char *)BaseAddress[43];
+  if ( BaseAddress + 42 != (_QWORD *)v3 )
   {
-    v8 = (__int64)(v6 - 2);
-    if ( *(_DWORD *)(a1 + 124) )
+    do
     {
-      *(_DWORD *)(v8 + 8) ^= *(_DWORD *)(a1 + 136);
-      if ( *(_BYTE *)(v8 + 11) != (*(_BYTE *)(v8 + 8) ^ (unsigned __int8)(*(_BYTE *)(v8 + 9) ^ *(_BYTE *)(v8 + 10))) )
-        RtlpAnalyzeHeapFailure(a1, v6 - 2);
-    }
-    v9 = (*(_BYTE *)(v8 + 10) & 8) == 0;
-    v10 = *(unsigned __int16 *)(v8 + 8);
-    v6 = (_QWORD *)*v6;
-    v24 = v10;
-    if ( !v9 )
-    {
-      v15 = *(__int64 **)(v8 + 24);
-      v16 = v8 + 16;
-      v17 = *(_QWORD *)(v8 + 16);
-      v18 = *v15;
-      v19 = *(_QWORD *)(v17 + 8);
-      if ( *v15 != v19 || v18 != v16 )
+      v5 = (unsigned __int64)(v3 - 16);
+      if ( *((_DWORD *)BaseAddress + 31) )
       {
-        RtlpLogHeapFailure(12, a1, v16, v19, v18, 0LL);
-        goto LABEL_31;
+        *(_DWORD *)(v5 + 8) ^= *((_DWORD *)BaseAddress + 34);
+        if ( *(_BYTE *)(v5 + 11) != (*(_BYTE *)(v5 + 8) ^ (unsigned __int8)(*(_BYTE *)(v5 + 9) ^ *(_BYTE *)(v5 + 10))) )
+          RtlpAnalyzeHeapFailure(BaseAddress, v3 - 16);
       }
-      *(_QWORD *)(a1 + 192) -= v10;
-      v20 = *(_QWORD *)(a1 + 312);
-      if ( v20 )
+      v6 = *(unsigned __int16 *)(v5 + 8);
+      v3 = *(char **)v3;
+      if ( (*(_BYTE *)(v5 + 10) & 8) != 0 )
       {
-        for ( i = *(unsigned int *)(v20 + 8); ; i = *(unsigned int *)(v22 + 8) )
+        v9 = *(__int64 **)(v5 + 24);
+        v10 = v5 + 16;
+        v11 = *(_QWORD *)(v5 + 16);
+        v12 = *v9;
+        v13 = *(_QWORD *)(v11 + 8);
+        if ( *v9 == v13 && v12 == v10 )
         {
-          if ( *(unsigned __int16 *)(v8 + 8) < i )
+          BaseAddress[24] -= v6;
+          v14 = BaseAddress[39];
+          if ( v14 )
           {
-            v23 = *(unsigned __int16 *)(v8 + 8);
-            goto LABEL_26;
+            for ( i = *(unsigned int *)(v14 + 8); ; i = *(unsigned int *)(v16 + 8) )
+            {
+              if ( *(unsigned __int16 *)(v5 + 8) < i )
+              {
+                v17 = *(unsigned __int16 *)(v5 + 8);
+                goto LABEL_25;
+              }
+              v16 = *(_QWORD *)v14;
+              if ( !*(_QWORD *)v14 )
+                break;
+              v14 = *(_QWORD *)v14;
+            }
+            v17 = *(_DWORD *)(v14 + 8) - 1;
+LABEL_25:
+            RtlpHeapRemoveListEntry(
+              (__int64)BaseAddress,
+              v14,
+              1,
+              (__int64 *)(v5 + 16),
+              v17,
+              *(unsigned __int16 *)(v5 + 8));
           }
-          v22 = *(_QWORD *)v20;
-          if ( !*(_QWORD *)v20 )
-            break;
-          v20 = *(_QWORD *)v20;
+          *v9 = v11;
+          *(_QWORD *)(v11 + 8) = v9;
+          if ( (*(_BYTE *)(v5 + 10) & 8) != 0 )
+            RtlpCommitBlock(BaseAddress, v5);
+          RtlpDeCommitFreeBlock(BaseAddress, v5, *(unsigned __int16 *)(v5 + 8), 1);
         }
-        v23 = *(_DWORD *)(v20 + 8) - 1;
-LABEL_26:
-        RtlpHeapRemoveListEntry(a1, v20, 1, (__int64 *)(v8 + 16), v23, *(unsigned __int16 *)(v8 + 8));
+        else
+        {
+          RtlpLogHeapFailure(12, (_DWORD)BaseAddress, v10, v13, v12, 0LL);
+        }
+        v3 = (char *)*((_QWORD *)v1 + 1);
       }
-      *v15 = v17;
-      *(_QWORD *)(v17 + 8) = v15;
-      if ( (*(_BYTE *)(v8 + 10) & 8) != 0 )
-        RtlpCommitBlock(a1, v8);
-      v12 = *(unsigned __int16 *)(v8 + 8);
-      v13 = v8;
-LABEL_30:
-      RtlpDeCommitFreeBlock(a1, v13, v12, 1);
-LABEL_31:
-      v6 = (_QWORD *)v4[1];
-      continue;
-    }
-    LOBYTE(a4) = 1;
-    v11 = RtlpCoalesceFreeBlocks(a1, v8, &v24, a4);
-    v12 = v24;
-    v13 = v11;
-    if ( v24 != v10 )
-    {
-      if ( v11 != v8 && (*(_WORD *)(v11 + 8) < 0x100u || *(_WORD *)(v11 + 12) != *(_WORD *)(a1 + 140)) )
+      else
       {
-        RtlpInsertFreeBlock(a1, v11, v24);
-        goto LABEL_31;
+        v7 = RtlpCoalesceFreeBlocks(BaseAddress);
+        if ( !v2 || *(_WORD *)(v2 + 8) < *(_WORD *)(v7 + 8) )
+          v2 = v7;
+        if ( *((_DWORD *)BaseAddress + 31) )
+        {
+          *(_BYTE *)(v7 + 11) = *(_BYTE *)(v7 + 8) ^ *(_BYTE *)(v7 + 9) ^ *(_BYTE *)(v7 + 10);
+          *(_DWORD *)(v7 + 8) ^= *((_DWORD *)BaseAddress + 34);
+        }
       }
-      goto LABEL_30;
     }
-    if ( !v5 || *(_WORD *)(v5 + 8) < *(_WORD *)(v11 + 8) )
-      v5 = v11;
-    if ( *(_DWORD *)(a1 + 124) )
+    while ( v1 != v3 );
+    if ( v2 )
     {
-      *(_BYTE *)(v11 + 11) = *(_BYTE *)(v11 + 8) ^ *(_BYTE *)(v11 + 9) ^ *(_BYTE *)(v11 + 10);
-      *(_DWORD *)(v11 + 8) ^= *(_DWORD *)(a1 + 136);
+      if ( *((_DWORD *)BaseAddress + 31) )
+      {
+        *(_DWORD *)(v2 + 8) ^= *((_DWORD *)BaseAddress + 34);
+        if ( *(_BYTE *)(v2 + 11) != (*(_BYTE *)(v2 + 8) ^ (unsigned __int8)(*(_BYTE *)(v2 + 9) ^ *(_BYTE *)(v2 + 10))) )
+          RtlpAnalyzeHeapFailure(BaseAddress, v2);
+      }
     }
   }
-  while ( v4 != v6 );
-  if ( v5 )
-  {
-    if ( *(_DWORD *)(a1 + 124) )
-    {
-      *(_DWORD *)(v5 + 8) ^= *(_DWORD *)(a1 + 136);
-      if ( *(_BYTE *)(v5 + 11) != (*(_BYTE *)(v5 + 8) ^ (unsigned __int8)(*(_BYTE *)(v5 + 9) ^ *(_BYTE *)(v5 + 10))) )
-        RtlpAnalyzeHeapFailure(a1, v5);
-    }
-  }
-  return v5;
+  return v2;
 }

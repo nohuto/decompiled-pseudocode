@@ -21,82 +21,82 @@ NTSTATUS __stdcall RtlAnsiStringToUnicodeString(
         PCANSI_STRING SourceString,
         BOOLEAN AllocateDestinationString)
 {
-  int Length; // r9d
+  ULONG UTF8StringByteCount; // r9d
   char *Buffer; // r10
   int v8; // ecx
   __int64 v9; // rax
   unsigned int v10; // ebx
   NTSTATUS result; // eax
   wchar_t *StringRoutine; // rax
-  unsigned int v13; // r9d
+  ULONG Length; // r9d
   char *v14; // r11
-  wchar_t *v15; // r10
-  __int16 *v16; // rsi
+  WCHAR *v15; // r10
+  _CPTABLEINFO *v16; // rsi
   unsigned int v17; // edx
-  unsigned int v18; // ebx
-  __int64 v19; // rsi
-  unsigned int v20; // r8d
+  ULONG v18; // ebx
+  wchar_t *MultiByteTable; // rsi
+  ULONG v20; // r8d
   int v21; // r14d
-  __int64 v22; // rbx
+  wchar_t *DBCSOffsets; // rbx
   __int64 v23; // rcx
   __int64 v24; // rax
   char *v25; // r11
   signed __int32 v26[8]; // [rsp+0h] [rbp-98h] BYREF
   NTSTATUS v27; // [rsp+30h] [rbp-68h]
-  unsigned int v28; // [rsp+38h] [rbp-60h]
-  unsigned int v29; // [rsp+40h] [rbp-58h]
+  ULONG v28; // [rsp+38h] [rbp-60h]
+  ULONG v29; // [rsp+40h] [rbp-58h]
   unsigned int v30; // [rsp+44h] [rbp-54h]
-  wchar_t *v31; // [rsp+48h] [rbp-50h]
+  WCHAR *v31; // [rsp+48h] [rbp-50h]
   char *v32; // [rsp+50h] [rbp-48h]
-  int v33; // [rsp+A8h] [rbp+10h] BYREF
+  ULONG v33; // [rsp+A8h] [rbp+10h] BYREF
   BOOLEAN v34; // [rsp+B0h] [rbp+18h]
-  int v35; // [rsp+B8h] [rbp+20h] BYREF
+  ULONG UnicodeStringActualByteCount; // [rsp+B8h] [rbp+20h] BYREF
 
   v34 = AllocateDestinationString;
-  Length = SourceString->Length;
+  UTF8StringByteCount = SourceString->Length;
   Buffer = SourceString->Buffer;
   _InterlockedOr(v26, 0);
-  if ( GlobalRtlNlsState == -535 || word_180177690 == -535 )
+  if ( GlobalRtlNlsState.CodePage == 0xFDE9 || CodePageTable.CodePage == 0xFDE9 )
   {
-    if ( Length )
+    if ( UTF8StringByteCount )
     {
-      RtlUTF8ToUnicodeN(0, 0, (unsigned int)&v35, (_DWORD)Buffer, Length);
-      v8 = v35;
+      RtlUTF8ToUnicodeN(0LL, 0, &UnicodeStringActualByteCount, Buffer, UTF8StringByteCount);
+      v8 = UnicodeStringActualByteCount;
     }
     else
     {
       v8 = 0;
-      v35 = 0;
+      UnicodeStringActualByteCount = 0;
     }
   }
   else
   {
     _InterlockedOr(v26, 0);
     v8 = 0;
-    if ( word_18017765C )
+    if ( GlobalRtlNlsState.DBCSCodePage )
     {
-      while ( Length )
+      while ( UTF8StringByteCount )
       {
-        --Length;
+        --UTF8StringByteCount;
         v9 = (unsigned __int8)*Buffer++;
         if ( *(_WORD *)(qword_1801776E0 + 2 * v9) )
         {
-          if ( !Length )
+          if ( !UTF8StringByteCount )
           {
             v8 += 2;
             break;
           }
-          --Length;
+          --UTF8StringByteCount;
           ++Buffer;
         }
         v8 += 2;
       }
-      v35 = v8;
+      UnicodeStringActualByteCount = v8;
     }
     else
     {
-      v8 = 2 * Length;
-      v35 = 2 * Length;
+      v8 = 2 * UTF8StringByteCount;
+      UnicodeStringActualByteCount = 2 * UTF8StringByteCount;
     }
   }
   v10 = v8 + 2;
@@ -128,25 +128,25 @@ NTSTATUS __stdcall RtlAnsiStringToUnicodeString(
   v27 = result;
   if ( result >= 0 )
   {
-    v13 = SourceString->Length;
+    Length = SourceString->Length;
     v14 = SourceString->Buffer;
     v15 = DestinationString->Buffer;
     _InterlockedOr(v26, 0);
-    if ( GlobalRtlNlsState == -535 || word_180177690 == -535 )
+    if ( GlobalRtlNlsState.CodePage == 0xFDE9 || CodePageTable.CodePage == 0xFDE9 )
     {
-      v16 = (__int16 *)&Utf8TableInfo;
+      v16 = &Utf8TableInfo;
     }
     else
     {
       _InterlockedOr(v26, 0);
       v16 = &GlobalRtlNlsState;
     }
-    v28 = v13;
+    v28 = Length;
     v32 = v14;
     v31 = v15;
-    if ( *v16 == -535 )
+    if ( v16->CodePage == 0xFDE9 )
     {
-      if ( !v13 )
+      if ( !Length )
       {
         v18 = 0;
         v33 = 0;
@@ -156,40 +156,40 @@ LABEL_51:
         DestinationString->Buffer[(unsigned __int64)v18 >> 1] = 0;
         return 0;
       }
-      RtlUTF8ToUnicodeN((_DWORD)v15, (unsigned __int16)v10, (unsigned int)&v33, (_DWORD)v14, v13);
+      RtlUTF8ToUnicodeN(v15, (unsigned __int16)v10, &v33, v14, Length);
     }
     else
     {
       v17 = (unsigned __int16)v10 >> 1;
       v30 = v17;
-      if ( !v16[6] )
+      if ( !v16->DBCSCodePage )
       {
-        if ( v17 < v13 )
-          v13 = (unsigned __int16)v10 >> 1;
-        v18 = 2 * v13;
-        v33 = 2 * v13;
-        v19 = *((_QWORD *)v16 + 4);
+        if ( v17 < Length )
+          Length = (unsigned __int16)v10 >> 1;
+        v18 = 2 * Length;
+        v33 = 2 * Length;
+        MultiByteTable = v16->MultiByteTable;
         v20 = 0;
         v29 = 0;
-        while ( v20 < v13 )
+        while ( v20 < Length )
         {
-          v15[v20] = *(_WORD *)(v19 + 2LL * (unsigned __int8)v14[v20]);
+          v15[v20] = MultiByteTable[(unsigned __int8)v14[v20]];
           v29 = ++v20;
         }
         goto LABEL_51;
       }
       v21 = (int)v15;
-      v22 = *((_QWORD *)v16 + 7);
-      while ( v17 && v13 )
+      DBCSOffsets = v16->DBCSOffsets;
+      while ( v17 && Length )
       {
         v30 = --v17;
-        v28 = --v13;
-        v23 = 2LL * (unsigned __int8)*v14;
-        v24 = *(unsigned __int16 *)(v23 + v22);
+        v28 = --Length;
+        v23 = (unsigned __int8)*v14;
+        v24 = DBCSOffsets[v23];
         v31 = v15 + 1;
         if ( (_WORD)v24 )
         {
-          if ( !v13 )
+          if ( !Length )
           {
             *v15 = 0;
             LODWORD(v15) = (_DWORD)v15 + 2;
@@ -197,13 +197,13 @@ LABEL_51:
           }
           v25 = v14 + 1;
           v32 = v25;
-          *v15 = *(_WORD *)(v22 + 2 * ((unsigned __int8)*v25 + v24));
+          *v15 = DBCSOffsets[(unsigned __int8)*v25 + v24];
           v14 = v25 + 1;
-          v28 = --v13;
+          v28 = --Length;
         }
         else
         {
-          *v15 = *(_WORD *)(v23 + *((_QWORD *)v16 + 4));
+          *v15 = v16->MultiByteTable[v23];
           ++v14;
         }
         v32 = v14;

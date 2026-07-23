@@ -10,7 +10,7 @@
  *     LdrpIsSubstringFound @ 0x1800D60D4 (LdrpIsSubstringFound.c)
  */
 
-__int64 __fastcall LdrpIsVerifierActivationFilterMatched(__int64 a1, __int64 a2, __int64 a3)
+__int64 __fastcall LdrpIsVerifierActivationFilterMatched(__int64 a1, void *a2, void *a3)
 {
   unsigned int v4; // edi
   WCHAR *v5; // rbx
@@ -18,8 +18,8 @@ __int64 __fastcall LdrpIsVerifierActivationFilterMatched(__int64 a1, __int64 a2,
   WCHAR *v7; // rsi
   const WCHAR *v8; // rdx
   const char *v9; // rax
-  int v11; // [rsp+30h] [rbp-258h]
-  UNICODE_STRING DestinationString; // [rsp+40h] [rbp-248h] BYREF
+  __int64 v11; // [rsp+30h] [rbp-258h]
+  _UNICODE_STRING DestinationString; // [rsp+40h] [rbp-248h] BYREF
   WCHAR SourceString[256]; // [rsp+50h] [rbp-238h] BYREF
 
   SourceString[0] = 0;
@@ -27,7 +27,7 @@ __int64 __fastcall LdrpIsVerifierActivationFilterMatched(__int64 a1, __int64 a2,
               a2,
               a3,
               (__int64)L"VerifierActivationFilter",
-              1u,
+              1LL,
               (__int64)SourceString,
               512,
               v11,
@@ -90,7 +90,7 @@ __int64 __fastcall LdrpIsVerifierActivationFilterMatched(__int64 a1, __int64 a2,
     }
     if ( (LdrpDebugFlags & 5) != 0 )
     {
-      v9 = (const char *)&unk_180118A7A;
+      v9 = (const char *)&Flags;
       if ( !v4 )
         v9 = "not ";
       LdrpLogDbgPrint(

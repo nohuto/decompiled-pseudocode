@@ -1,41 +1,41 @@
 /*
- * XREFs of LdrpCompleteProcessCloning @ 0x180160B48
+ * XREFs of LdrpCompleteProcessCloning @ 0x18015EF08
  * Callers:
- *     RtlCloneUserProcess @ 0x18015F270 (RtlCloneUserProcess.c)
- *     RtlCompleteProcessCloning @ 0x18015F580 (RtlCompleteProcessCloning.c)
- *     RtlPrepareForProcessCloning @ 0x18015F730 (RtlPrepareForProcessCloning.c)
+ *     RtlCloneUserProcess @ 0x18015D630 (RtlCloneUserProcess.c)
+ *     RtlCompleteProcessCloning @ 0x18015D940 (RtlCompleteProcessCloning.c)
+ *     RtlPrepareForProcessCloning @ 0x18015DAF0 (RtlPrepareForProcessCloning.c)
  * Callees:
- *     LdrpReleaseLoaderLock @ 0x180004E10 (LdrpReleaseLoaderLock.c)
- *     RtlLeaveCriticalSection @ 0x1800149F0 (RtlLeaveCriticalSection.c)
- *     LdrpCreateLoaderEvents @ 0x1801072EC (LdrpCreateLoaderEvents.c)
- *     ZwTerminateProcess @ 0x180162210 (ZwTerminateProcess.c)
+ *     LdrpReleaseLoaderLock @ 0x180031810 (LdrpReleaseLoaderLock.c)
+ *     RtlLeaveCriticalSection @ 0x1800413F0 (RtlLeaveCriticalSection.c)
+ *     LdrpCreateLoaderEvents @ 0x18010221C (LdrpCreateLoaderEvents.c)
+ *     ZwTerminateProcess @ 0x1801605D0 (ZwTerminateProcess.c)
  */
 
-__int64 __fastcall LdrpCompleteProcessCloning(int a1)
+NTSTATUS __fastcall LdrpCompleteProcessCloning(int a1)
 {
   void *UniqueThread; // rcx
   void *v2; // rcx
-  int LoaderEvents; // eax
+  NTSTATUS LoaderEvents; // eax
   __int64 v4; // rcx
 
   if ( a1 )
   {
     UniqueThread = NtCurrentTeb()->ClientId.UniqueThread;
-    qword_1801D26B8 = 0LL;
-    qword_1801D26B0 = (__int64)UniqueThread;
-    dword_1801D26AC = 1;
-    dword_1801D26A8 = -2;
+    LdrpWorkQueueLock.LockSemaphore = 0LL;
+    LdrpWorkQueueLock.OwningThread = UniqueThread;
+    LdrpWorkQueueLock.RecursionCount = 1;
+    LdrpWorkQueueLock.LockCount = -2;
     v2 = NtCurrentTeb()->ClientId.UniqueThread;
-    qword_1801CC8B0 = 0LL;
-    qword_1801CC8A8 = (__int64)v2;
-    dword_1801CC8A0 = -2;
-    dword_1801CC8A4 = 1;
+    LdrpLoaderLock.LockSemaphore = 0LL;
+    LdrpLoaderLock.OwningThread = v2;
+    LdrpLoaderLock.LockCount = -2;
+    LdrpLoaderLock.RecursionCount = 1;
     LoaderEvents = LdrpCreateLoaderEvents();
     if ( LoaderEvents < 0 )
-      ZwTerminateProcess(-1LL, (unsigned int)LoaderEvents);
+      ZwTerminateProcess((HANDLE)0xFFFFFFFFFFFFFFFFLL, LoaderEvents);
     LdrpMapAndSnapWork = 0LL;
   }
-  RtlLeaveCriticalSection((__int64)&LdrpWorkQueueLock);
-  LdrpReleaseLoaderLock(v4, 0xDu, 0);
+  RtlLeaveCriticalSection(&LdrpWorkQueueLock);
+  LdrpReleaseLoaderLock(v4, 13, 0);
   return LdrpDropLastInProgressCount();
 }

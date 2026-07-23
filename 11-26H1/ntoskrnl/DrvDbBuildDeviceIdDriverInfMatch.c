@@ -1,10 +1,10 @@
 /*
- * XREFs of DrvDbBuildDeviceIdDriverInfMatch @ 0x14091B1B0
+ * XREFs of DrvDbBuildDeviceIdDriverInfMatch @ 0x140975C14
  * Callers:
- *     DrvDbGetDeviceIdDriverInfMatches @ 0x14091AD40 (DrvDbGetDeviceIdDriverInfMatches.c)
+ *     DrvDbGetDeviceIdDriverInfMatches @ 0x1409757A0 (DrvDbGetDeviceIdDriverInfMatches.c)
  * Callees:
- *     RtlStringCchPrintfExW @ 0x14044E030 (RtlStringCchPrintfExW.c)
- *     RtlStringCchCopyExW @ 0x14045AB50 (RtlStringCchCopyExW.c)
+ *     RtlStringCchPrintfExW @ 0x140446160 (RtlStringCchPrintfExW.c)
+ *     RtlStringCchCopyExW @ 0x140454380 (RtlStringCchCopyExW.c)
  */
 
 int __fastcall DrvDbBuildDeviceIdDriverInfMatch(size_t a1, unsigned __int8 *a2, wchar_t *a3, unsigned int a4)
@@ -23,14 +23,14 @@ int __fastcall DrvDbBuildDeviceIdDriverInfMatch(size_t a1, unsigned __int8 *a2, 
   switch ( v5 )
   {
     case 0:
-      return RtlStringCchCopyExW(a3, a4, &word_140B814F0, 0LL, 0LL, 0x800u);
+      return RtlStringCchCopyExW(a3, a4, &word_140B8A320, 0LL, 0LL, 0x800u);
     case 1:
     case 2:
       if ( (_BYTE)v5 == 1 )
         v6 = 0;
       else
         v6 = *((unsigned __int16 *)a2 + 1) + 1;
-      result = RtlStringCchPrintfExW(a3, a4, &ppszDestEnd, &pcchRemaining, 0x800u, L"%ws\\%X", &word_140B814F0, v6);
+      result = RtlStringCchPrintfExW(a3, a4, &ppszDestEnd, &pcchRemaining, 0x800u, L"%ws\\%X", &word_140B8A320, v6);
       if ( result >= 0 && a2[1] != 0xFF )
       {
         LODWORD(v8) = a2[1];
@@ -45,7 +45,7 @@ int __fastcall DrvDbBuildDeviceIdDriverInfMatch(size_t a1, unsigned __int8 *a2, 
                &pcchRemaining,
                0x800u,
                L"%ws\\*%X",
-               &word_140B814F0,
+               &word_140B8A320,
                *((unsigned __int16 *)a2 + 1));
     default:
       return -1073741811;

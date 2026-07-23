@@ -1,114 +1,129 @@
 /*
- * XREFs of RtlQueryHeapInformation @ 0x180046B40
+ * XREFs of RtlQueryHeapInformation @ 0x18002AB10
  * Callers:
- *     RtlQueryProcessHeapInformation @ 0x1800463B0 (RtlQueryProcessHeapInformation.c)
- *     RtlpGetHeapTag @ 0x180046AF8 (RtlpGetHeapTag.c)
- *     RtlpReadProcessHeaps @ 0x18010A86C (RtlpReadProcessHeaps.c)
- *     RtlpExtendedHeapInformationWorkerThread @ 0x180142450 (RtlpExtendedHeapInformationWorkerThread.c)
- *     RtlpHpStackTraceEtwCallback @ 0x18014BDA0 (RtlpHpStackTraceEtwCallback.c)
+ *     RtlQueryProcessHeapInformation @ 0x18002A340 (RtlQueryProcessHeapInformation.c)
+ *     RtlpGetHeapTag @ 0x18002AAC8 (RtlpGetHeapTag.c)
+ *     RtlpReadProcessHeaps @ 0x180112AC0 (RtlpReadProcessHeaps.c)
+ *     RtlpExtendedHeapInformationWorkerThread @ 0x180140600 (RtlpExtendedHeapInformationWorkerThread.c)
+ *     RtlpHpStackTraceEtwCallback @ 0x18014A150 (RtlpHpStackTraceEtwCallback.c)
  * Callees:
- *     RtlpQueryExtendedHeapInformation @ 0x1800446C4 (RtlpQueryExtendedHeapInformation.c)
- *     RtlpHpTagQueryTags @ 0x1800B7714 (RtlpHpTagQueryTags.c)
- *     RtlpHpStackTraceSerialize @ 0x18011F158 (RtlpHpStackTraceSerialize.c)
+ *     RtlpHpTagQueryTags @ 0x1800A1A5C (RtlpHpTagQueryTags.c)
+ *     RtlpQueryExtendedHeapInformation @ 0x1801144DC (RtlpQueryExtendedHeapInformation.c)
+ *     RtlpHpStackTraceSerialize @ 0x18011D388 (RtlpHpStackTraceSerialize.c)
+ *     RtlpQueryMemoryUsageInformation @ 0x180140C8C (RtlpQueryMemoryUsageInformation.c)
  */
 
-__int64 __fastcall RtlQueryHeapInformation(__int64 a1, int a2, _QWORD *a3, unsigned __int64 a4, _QWORD *a5)
+NTSTATUS __cdecl RtlQueryHeapInformation(
+        PVOID HeapHandle,
+        HEAP_INFORMATION_CLASS HeapInformationClass,
+        PVOID HeapInformation,
+        SIZE_T HeapInformationLength,
+        PSIZE_T ReturnLength)
 {
+  NTSTATUS result; // eax
   int v6; // eax
 
-  if ( a2 )
+  if ( HeapInformationClass > HeapCompatibilityInformation )
   {
-    if ( a2 > 4 )
+    switch ( HeapInformationClass )
     {
-      if ( a2 != 7 )
+      case 1:
+        if ( ReturnLength )
+          *ReturnLength = 4LL;
+        if ( HeapInformationLength >= 4 )
+        {
+          *(_DWORD *)HeapInformation = RtlpDisableBreakOnFailureCookie == 0;
+          result = 0;
+        }
+        else
+        {
+          result = -1073741789;
+        }
+        break;
+      case 2:
+        if ( HeapInformationLength >= 0x58 )
+          result = RtlpQueryExtendedHeapInformation(HeapInformation, HeapInformationLength, ReturnLength);
+        else
+          result = -1073741811;
+        break;
+      case 4:
+        result = RtlpHpTagQueryTags(HeapInformation);
+        break;
+      case 5:
+        result = RtlpHpStackTraceSerialize(HeapInformation, HeapInformationLength, ReturnLength);
+        break;
+      case 7:
+        if ( !HeapHandle || !HeapInformation || *((_DWORD *)HeapHandle + 4) != -571548178 )
+          goto LABEL_42;
+        if ( ReturnLength )
+          *ReturnLength = 8LL;
+        if ( HeapInformationLength == 8 )
+        {
+          *(_QWORD *)HeapInformation = *((_QWORD *)HeapHandle + 13);
+          result = 0;
+        }
+        else
+        {
+LABEL_42:
+          result = -1073741811;
+        }
+        break;
+      case 8:
+        result = RtlpQueryMemoryUsageInformation(HeapHandle, HeapInformation, HeapInformationLength, ReturnLength);
+        break;
+      default:
+        return -1073741811;
+    }
+  }
+  else if ( HeapInformationClass )
+  {
+    if ( HeapInformationClass == -2147483647 )
+    {
+      if ( HeapInformationLength >= 8 )
       {
-        if ( a2 == 5 )
-          return RtlpHpStackTraceSerialize(a3, a4, a5);
-        return 3221225485LL;
-      }
-      if ( !a1 || !a3 || *(_DWORD *)(a1 + 16) != -571548178 )
-        return 3221225485LL;
-      if ( a5 )
-        *a5 = 8LL;
-      if ( a4 == 8 )
-      {
-        *a3 = *(_QWORD *)(a1 + 104);
-        return 0LL;
+        *(_QWORD *)HeapInformation = &RtlpHeapFailureInfo;
+        if ( ReturnLength )
+          *ReturnLength = 8LL;
+        return 0;
       }
       else
       {
-        return 3221225485LL;
+        if ( ReturnLength )
+          *ReturnLength = 8LL;
+        return -1073741789;
       }
     }
     else
     {
-      if ( a2 == 4 )
-        return RtlpHpTagQueryTags(a3);
-      if ( a2 != 1 )
-      {
-        if ( a2 == -2147483647 )
-        {
-          if ( a4 >= 8 )
-          {
-            *a3 = &RtlpHeapFailureInfo;
-            if ( a5 )
-              *a5 = 8LL;
-            return 0LL;
-          }
-          else
-          {
-            if ( a5 )
-              *a5 = 8LL;
-            return 3221225507LL;
-          }
-        }
-        if ( a2 == 2 )
-        {
-          if ( a4 >= 0x58 )
-            return RtlpQueryExtendedHeapInformation((__int64)a3, a4, a5);
-          else
-            return 3221225485LL;
-        }
-        return 3221225485LL;
-      }
-      if ( a5 )
-        *a5 = 4LL;
-      if ( a4 >= 4 )
-      {
-        *(_DWORD *)a3 = RtlpDisableBreakOnFailureCookie == 0;
-        return 0LL;
-      }
-      else
-      {
-        return 3221225507LL;
-      }
+      return -1073741811;
     }
   }
   else
   {
-    v6 = *(_DWORD *)(a1 + 16);
-    if ( v6 == -571548178 || (*(_DWORD *)(a1 + 116) & 0x1000000) == 0 )
+    v6 = *((_DWORD *)HeapHandle + 4);
+    if ( v6 == -571548178 || (*((_DWORD *)HeapHandle + 29) & 0x1000000) == 0 )
     {
-      if ( a4 < 4 )
+      if ( HeapInformationLength >= 4 )
       {
-        if ( a5 )
-          *a5 = 4LL;
-        return 3221225507LL;
+        if ( v6 == -571548178 )
+          *(_DWORD *)HeapInformation = 2;
+        else
+          *(_DWORD *)HeapInformation = *((unsigned __int8 *)HeapHandle + 419);
+        if ( ReturnLength )
+          *ReturnLength = 4LL;
+        return 0;
       }
       else
       {
-        if ( v6 == -571548178 )
-          *(_DWORD *)a3 = 2;
-        else
-          *(_DWORD *)a3 = *(unsigned __int8 *)(a1 + 419);
-        if ( a5 )
-          *a5 = 4LL;
-        return 0LL;
+        if ( ReturnLength )
+          *ReturnLength = 4LL;
+        return -1073741789;
       }
     }
     else
     {
-      return 3221225474LL;
+      return -1073741822;
     }
   }
+  return result;
 }

@@ -1,12 +1,12 @@
 /*
- * XREFs of AlpcpQueryTokenModifiedIdMessage @ 0x1407417E0
+ * XREFs of AlpcpQueryTokenModifiedIdMessage @ 0x14073F710
  * Callers:
- *     NtAlpcQueryInformationMessage @ 0x14093DDC0 (NtAlpcQueryInformationMessage.c)
+ *     NtAlpcQueryInformationMessage @ 0x140892400 (NtAlpcQueryInformationMessage.c)
  * Callees:
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     SeDeleteClientSecurity @ 0x14088D080 (SeDeleteClientSecurity.c)
- *     AlpcpGetEffectiveTokenMessage @ 0x140897750 (AlpcpGetEffectiveTokenMessage.c)
- *     SeGetTokenControlInformation @ 0x1409D7510 (SeGetTokenControlInformation.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     SeDeleteClientSecurity @ 0x140890300 (SeDeleteClientSecurity.c)
+ *     AlpcpGetEffectiveTokenMessage @ 0x14089FDF0 (AlpcpGetEffectiveTokenMessage.c)
+ *     SeGetTokenControlInformation @ 0x1409CF560 (SeGetTokenControlInformation.c)
  */
 
 __int64 __fastcall AlpcpQueryTokenModifiedIdMessage(__int64 a1, __int64 a2, _QWORD *a3, unsigned int a4, _DWORD *a5)

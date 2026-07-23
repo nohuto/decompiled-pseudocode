@@ -1,10 +1,10 @@
 /*
- * XREFs of PspCriticalProcessDeathBugcheckCallback @ 0x140615F00
+ * XREFs of PspCriticalProcessDeathBugcheckCallback @ 0x140618EF0
  * Callers:
  *     <none>
  * Callees:
- *     RtlULongLongSub @ 0x1404AF854 (RtlULongLongSub.c)
- *     KeAddTriageDumpDataBlock @ 0x1405E5DF0 (KeAddTriageDumpDataBlock.c)
+ *     RtlULongLongSub @ 0x1404A8EE4 (RtlULongLongSub.c)
+ *     KeAddTriageDumpDataBlock @ 0x1405E8760 (KeAddTriageDumpDataBlock.c)
  */
 
 void __fastcall PspCriticalProcessDeathBugcheckCallback(

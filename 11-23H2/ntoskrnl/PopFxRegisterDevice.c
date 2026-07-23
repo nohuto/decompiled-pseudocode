@@ -1,20 +1,20 @@
 /*
- * XREFs of PopFxRegisterDevice @ 0x14083651C
+ * XREFs of PopFxRegisterDevice @ 0x14083681C
  * Callers:
- *     PoFxRegisterPrimaryDevice @ 0x140835EE0 (PoFxRegisterPrimaryDevice.c)
- *     PoFxRegisterDevice @ 0x1408362D0 (PoFxRegisterDevice.c)
- *     PoFxEnableDStateReporting @ 0x140984710 (PoFxEnableDStateReporting.c)
+ *     PoFxRegisterPrimaryDevice @ 0x1408361E0 (PoFxRegisterPrimaryDevice.c)
+ *     PoFxRegisterDevice @ 0x1408365D0 (PoFxRegisterDevice.c)
+ *     PoFxEnableDStateReporting @ 0x140984910 (PoFxEnableDStateReporting.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14022F5B0 (ObfDereferenceObjectWithTag.c)
- *     ObfReferenceObjectWithTag @ 0x1402B68C0 (ObfReferenceObjectWithTag.c)
- *     IoGetDeviceAttachmentBaseRefWithTag @ 0x140302A88 (IoGetDeviceAttachmentBaseRefWithTag.c)
- *     IoGetAttachedDeviceReferenceWithTag @ 0x140302C00 (IoGetAttachedDeviceReferenceWithTag.c)
- *     PopFxInsertDevice @ 0x14039788C (PopFxInsertDevice.c)
- *     PopFxAssignDeviceToDevNode @ 0x140397924 (PopFxAssignDeviceToDevNode.c)
- *     PopFxBugCheck @ 0x140588BE0 (PopFxBugCheck.c)
- *     PopFxRegisterDeviceWorker @ 0x1408366AC (PopFxRegisterDeviceWorker.c)
- *     PopFxTraceDeviceRegistration @ 0x140837188 (PopFxTraceDeviceRegistration.c)
- *     PopGenerateDeviceFriendlyName @ 0x140849204 (PopGenerateDeviceFriendlyName.c)
+ *     ObfDereferenceObjectWithTag @ 0x14022F6C0 (ObfDereferenceObjectWithTag.c)
+ *     ObfReferenceObjectWithTag @ 0x1402B6B50 (ObfReferenceObjectWithTag.c)
+ *     IoGetDeviceAttachmentBaseRefWithTag @ 0x140302D18 (IoGetDeviceAttachmentBaseRefWithTag.c)
+ *     IoGetAttachedDeviceReferenceWithTag @ 0x140302E90 (IoGetAttachedDeviceReferenceWithTag.c)
+ *     PopFxInsertDevice @ 0x140397A6C (PopFxInsertDevice.c)
+ *     PopFxAssignDeviceToDevNode @ 0x140397B04 (PopFxAssignDeviceToDevNode.c)
+ *     PopFxBugCheck @ 0x1405890D0 (PopFxBugCheck.c)
+ *     PopFxRegisterDeviceWorker @ 0x1408369AC (PopFxRegisterDeviceWorker.c)
+ *     PopFxTraceDeviceRegistration @ 0x140837488 (PopFxTraceDeviceRegistration.c)
+ *     PopGenerateDeviceFriendlyName @ 0x140849504 (PopGenerateDeviceFriendlyName.c)
  */
 
 __int64 __fastcall PopFxRegisterDevice(_QWORD *Object, int a2, int a3, int a4, __int64 a5, __int64 a6, _QWORD *a7)

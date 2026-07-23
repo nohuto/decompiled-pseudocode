@@ -1,16 +1,16 @@
 /*
- * XREFs of CmpPrepareLightWeightTransaction @ 0x1406A3574
+ * XREFs of CmpPrepareLightWeightTransaction @ 0x1405DF2C8
  * Callers:
- *     CmpCommitLightWeightTransaction @ 0x1406A2C98 (CmpCommitLightWeightTransaction.c)
+ *     CmpCommitLightWeightTransaction @ 0x1405DE998 (CmpCommitLightWeightTransaction.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14025FAE0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgKeywordOn @ 0x1402605BC (_tlgKeywordOn.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     CmpCleanupLightWeightPrepare @ 0x1406A3650 (CmpCleanupLightWeightPrepare.c)
- *     CmListGetNextElement @ 0x1406A3CF4 (CmListGetNextElement.c)
- *     CmpProcessLightWeightUOW @ 0x1406A3E64 (CmpProcessLightWeightUOW.c)
- *     UNLOCK_TRANSACTION_LIST @ 0x14071D8F4 (UNLOCK_TRANSACTION_LIST.c)
- *     LOCK_TRANSACTION_LIST @ 0x14071D920 (LOCK_TRANSACTION_LIST.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14027E1A4 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x1402864F4 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     CmpCleanupLightWeightPrepare @ 0x1405DF3A4 (CmpCleanupLightWeightPrepare.c)
+ *     CmListGetNextElement @ 0x1405E17C4 (CmListGetNextElement.c)
+ *     CmpProcessLightWeightUOW @ 0x1405E1934 (CmpProcessLightWeightUOW.c)
+ *     UNLOCK_TRANSACTION_LIST @ 0x140664390 (UNLOCK_TRANSACTION_LIST.c)
+ *     LOCK_TRANSACTION_LIST @ 0x1406643BC (LOCK_TRANSACTION_LIST.c)
  */
 
 __int64 __fastcall CmpPrepareLightWeightTransaction(__int64 a1, __int64 a2)
@@ -23,7 +23,7 @@ __int64 __fastcall CmpPrepareLightWeightTransaction(__int64 a1, __int64 a2)
   struct _EVENT_DATA_DESCRIPTOR v10[2]; // [rsp+38h] [rbp-40h] BYREF
 
   if ( (unsigned int)dword_140C02130 > 5 && tlgKeywordOn((__int64)&dword_140C02130, 1LL) )
-    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140C02130, (unsigned __int8 *)&dword_1400232AC, 0LL, 0LL, 2u, v10);
+    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140C02130, (unsigned __int8 *)byte_14002339D, 0LL, 0LL, 2u, v10);
   if ( a1 )
   {
     LOCK_TRANSACTION_LIST();
@@ -46,6 +46,6 @@ __int64 __fastcall CmpPrepareLightWeightTransaction(__int64 a1, __int64 a2)
   v7 = 0;
 LABEL_8:
   if ( (unsigned int)dword_140C02130 > 5 && tlgKeywordOn((__int64)&dword_140C02130, 1LL) )
-    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140C02130, (unsigned __int8 *)byte_1400232DD, 0LL, 0LL, 2u, v10);
+    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140C02130, (unsigned __int8 *)&dword_14002336C, 0LL, 0LL, 2u, v10);
   return (unsigned int)v7;
 }

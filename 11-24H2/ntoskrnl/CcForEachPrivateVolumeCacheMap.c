@@ -1,17 +1,17 @@
 /*
- * XREFs of CcForEachPrivateVolumeCacheMap @ 0x1402CE9E0
+ * XREFs of CcForEachPrivateVolumeCacheMap @ 0x140263914
  * Callers:
- *     CcNotifyWriteBehindInternal @ 0x1402CF16C (CcNotifyWriteBehindInternal.c)
- *     CcCoalescingCallBack @ 0x14043C700 (CcCoalescingCallBack.c)
- *     CcForEachPartition @ 0x140470EE8 (CcForEachPartition.c)
- *     CcExitPartition @ 0x14057CB90 (CcExitPartition.c)
- *     CcPartitionTelemetryCallback @ 0x140A7D920 (CcPartitionTelemetryCallback.c)
+ *     CcForEachPartition @ 0x14021AA70 (CcForEachPartition.c)
+ *     CcNotifyWriteBehindInternal @ 0x1402638AC (CcNotifyWriteBehindInternal.c)
+ *     CcCoalescingCallBack @ 0x140263B80 (CcCoalescingCallBack.c)
+ *     CcExitPartition @ 0x14057A020 (CcExitPartition.c)
+ *     CcPartitionTelemetryCallback @ 0x140A77C20 (CcPartitionTelemetryCallback.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLock @ 0x140275CD0 (KeReleaseInStackQueuedSpinLock.c)
- *     CcDecrementPrivateVolumeUseCount @ 0x1402CEAC4 (CcDecrementPrivateVolumeUseCount.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x1402D8540 (KeAcquireInStackQueuedSpinLock.c)
- *     CcPostPVCMForDeleteToPartition @ 0x1404B8134 (CcPostPVCMForDeleteToPartition.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x14022B260 (KeReleaseInStackQueuedSpinLock.c)
+ *     CcDecrementPrivateVolumeUseCount @ 0x1402639F8 (CcDecrementPrivateVolumeUseCount.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1403597C0 (KeAcquireInStackQueuedSpinLock.c)
+ *     CcPostPVCMForDeleteToPartition @ 0x1404B2A84 (CcPostPVCMForDeleteToPartition.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
  */
 
 char __fastcall CcForEachPrivateVolumeCacheMap(__int64 a1, __int64 a2, __int64 a3)

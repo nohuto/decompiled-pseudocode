@@ -1,12 +1,12 @@
 /*
- * XREFs of ObRevokeHandles @ 0x1406E1D34
+ * XREFs of ObRevokeHandles @ 0x1406E2FD4
  * Callers:
- *     SepDeleteLogonSessionTrack @ 0x1406F71D8 (SepDeleteLogonSessionTrack.c)
+ *     SepDeleteLogonSessionTrack @ 0x1406F8478 (SepDeleteLogonSessionTrack.c)
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     ExReleasePushLockEx @ 0x14004F160 (ExReleasePushLockEx.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
- *     ObpHandleRevocationBlockRemoveInsertedObject @ 0x140861260 (ObpHandleRevocationBlockRemoveInsertedObject.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B78F0 (KiLeaveCriticalRegionUnsafe.c)
+ *     ObpHandleRevocationBlockRemoveInsertedObject @ 0x1408624C0 (ObpHandleRevocationBlockRemoveInsertedObject.c)
  */
 
 _QWORD *__fastcall ObRevokeHandles(_QWORD **a1)

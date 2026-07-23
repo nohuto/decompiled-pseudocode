@@ -8,11 +8,16 @@
  *     <none>
  */
 
-__int64 ZwQueryLicenseValue()
+NTSTATUS __cdecl ZwQueryLicenseValue(
+        PUNICODE_STRING ValueName,
+        PULONG Type,
+        PVOID Data,
+        ULONG DataSize,
+        PULONG ResultDataSize)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 314LL;
+  result = 314;
   __asm { syscall; Low latency system call }
   return result;
 }

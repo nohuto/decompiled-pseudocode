@@ -1,11 +1,11 @@
 /*
- * XREFs of KeSetSystemTime @ 0x140126824
+ * XREFs of KeSetSystemTime @ 0x140126D94
  * Callers:
  *     ExpSetSystemTime @ 0x1403D230C (ExpSetSystemTime.c)
- *     ExpRefreshSystemTime @ 0x14055E2B0 (ExpRefreshSystemTime.c)
- *     NtSetSystemTime @ 0x1406AD104 (NtSetSystemTime.c)
+ *     ExpRefreshSystemTime @ 0x14055E7F0 (ExpRefreshSystemTime.c)
+ *     NtSetSystemTime @ 0x1406AD23C (NtSetSystemTime.c)
  * Callees:
- *     KeGenericCallDpc @ 0x1400A04BC (KeGenericCallDpc.c)
+ *     KeGenericCallDpc @ 0x14009EDE4 (KeGenericCallDpc.c)
  */
 
 __int64 __fastcall KeSetSystemTime(__int64 a1, __int64 a2, int a3)

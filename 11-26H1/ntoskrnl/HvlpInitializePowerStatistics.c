@@ -1,11 +1,11 @@
 /*
- * XREFs of HvlpInitializePowerStatistics @ 0x1405BF6FC
+ * XREFs of HvlpInitializePowerStatistics @ 0x1405C1F6C
  * Callers:
- *     HvlPhase1Initialize @ 0x1405B89CC (HvlPhase1Initialize.c)
+ *     HvlPhase1Initialize @ 0x1405BB23C (HvlPhase1Initialize.c)
  * Callees:
- *     HvlpReleaseHypercallPage @ 0x14032B890 (HvlpReleaseHypercallPage.c)
- *     HvlpAcquireHypercallPage @ 0x14032B970 (HvlpAcquireHypercallPage.c)
- *     HvcallInitiateHypercall @ 0x14032BB00 (HvcallInitiateHypercall.c)
+ *     HvlpReleaseHypercallPage @ 0x14032D8C0 (HvlpReleaseHypercallPage.c)
+ *     HvlpAcquireHypercallPage @ 0x14032D9A0 (HvlpAcquireHypercallPage.c)
+ *     HvcallInitiateHypercall @ 0x14032DB30 (HvcallInitiateHypercall.c)
  */
 
 __int64 HvlpInitializePowerStatistics()
@@ -46,10 +46,10 @@ __int64 HvlpInitializePowerStatistics()
     v4 = HvcallInitiateHypercall(155LL, v3);
     if ( !v4 )
     {
-      *(_OWORD *)&stru_140E3E928.AbCompletedIoQoSBoostCount = *(_OWORD *)v2;
-      stru_140E3E928.880 = ($AF4FFA19C999383C55C3CE54C127FE57)*((_OWORD *)v2 + 1);
-      *(_OWORD *)&stru_140E3E928.ReadOperationCount = *((_OWORD *)v2 + 2);
-      stru_140E3E928.OtherOperationCount = v2[6];
+      *(_OWORD *)&stru_140E3EAA8.AbCompletedIoQoSBoostCount = *(_OWORD *)v2;
+      stru_140E3EAA8.880 = ($7CFE901BD4F68CA229DBA1D003ACF329)*((_OWORD *)v2 + 1);
+      *(_OWORD *)&stru_140E3EAA8.ReadOperationCount = *((_OWORD *)v2 + 2);
+      stru_140E3EAA8.OtherOperationCount = v2[6];
     }
     v8 = v4 != 0 ? 0xC0000001 : 0;
     HvlpReleaseHypercallPage((unsigned int *)&v12, v5, v6, v7);

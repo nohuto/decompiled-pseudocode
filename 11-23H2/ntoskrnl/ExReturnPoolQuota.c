@@ -1,19 +1,19 @@
 /*
- * XREFs of ExReturnPoolQuota @ 0x1402ACCE0
+ * XREFs of ExReturnPoolQuota @ 0x1402ACF70
  * Callers:
- *     IopCompleteRequest @ 0x1402AB480 (IopCompleteRequest.c)
- *     IopFreeIrp @ 0x1402AF240 (IopFreeIrp.c)
- *     ExFreeHeapPool @ 0x1403230B0 (ExFreeHeapPool.c)
- *     IopFreeMiniCompletionPacket @ 0x140728C00 (IopFreeMiniCompletionPacket.c)
+ *     IopCompleteRequest @ 0x1402AB710 (IopCompleteRequest.c)
+ *     IopFreeIrp @ 0x1402AF4D0 (IopFreeIrp.c)
+ *     ExFreeHeapPool @ 0x140323340 (ExFreeHeapPool.c)
+ *     IopFreeMiniCompletionPacket @ 0x140728E00 (IopFreeMiniCompletionPacket.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  * Callees:
  *     PspReturnResourceQuota @ 0x140208380 (PspReturnResourceQuota.c)
  *     ObpDeferObjectDeletion @ 0x14020B930 (ObpDeferObjectDeletion.c)
- *     ExGetHeapFromVA @ 0x1402AC3F0 (ExGetHeapFromVA.c)
- *     ExpStampBigPoolEntry @ 0x140313608 (ExpStampBigPoolEntry.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     ExpHpIsSpecialPoolHeap @ 0x14046B7DA (ExpHpIsSpecialPoolHeap.c)
- *     ObpPushStackInfo @ 0x140582BD8 (ObpPushStackInfo.c)
+ *     ExGetHeapFromVA @ 0x1402AC680 (ExGetHeapFromVA.c)
+ *     ExpStampBigPoolEntry @ 0x140313898 (ExpStampBigPoolEntry.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
+ *     ExpHpIsSpecialPoolHeap @ 0x14046BBDA (ExpHpIsSpecialPoolHeap.c)
+ *     ObpPushStackInfo @ 0x1405830C8 (ObpPushStackInfo.c)
  */
 
 void __fastcall ExReturnPoolQuota(ULONG_PTR BugCheckParameter2)
@@ -87,13 +87,13 @@ LABEL_10:
           v23 = 7 * v9;
           if ( v14 > v13 )
           {
-            v24 = qword_140C38248[v23];
+            v24 = qword_140C381E8[v23];
             if ( v14 - v13 > v24 )
             {
               if ( v24 > BugCheckParameter3 )
                 v24 = BugCheckParameter3;
               if ( v14 == _InterlockedCompareExchange64(v12 + 8, v14 - v24, v14)
-                && _InterlockedExchangeAdd64(v12 + 9, v24) + v24 > *(_QWORD *)(v23 * 8 + 12812872 + 0x140000000LL) )
+                && _InterlockedExchangeAdd64(v12 + 9, v24) + v24 > *(_QWORD *)(v23 * 8 + 12812776 + 0x140000000LL) )
               {
                 v25 = _InterlockedExchange64(v12 + 9, 0LL);
                 if ( v25 )

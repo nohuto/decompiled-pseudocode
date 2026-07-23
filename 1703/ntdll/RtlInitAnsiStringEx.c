@@ -11,7 +11,7 @@ NTSTATUS __stdcall RtlInitAnsiStringEx(PANSI_STRING DestinationString, PCSZ Sour
 {
   unsigned __int64 v2; // rax
 
-  DestinationString->Buffer = (char *)SourceString;
+  DestinationString->Buffer = (PCHAR)SourceString;
   *(_DWORD *)&DestinationString->Length = 0;
   if ( !SourceString )
     return 0;

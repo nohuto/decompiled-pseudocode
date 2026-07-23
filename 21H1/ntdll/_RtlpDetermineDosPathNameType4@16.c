@@ -8,7 +8,7 @@
  *     _RtlDetermineDosPathNameType_Ustr@4 @ 0x4B2E42FE (_RtlDetermineDosPathNameType_Ustr@4.c)
  */
 
-int __fastcall RtlpDetermineDosPathNameType4(int a1, int a2, int *a3, int *a4)
+int __fastcall RtlpDetermineDosPathNameType4(int a1, _UNICODE_STRING *a2, int *a3, int *a4)
 {
   char v4; // bl
   int v6; // eax
@@ -32,31 +32,31 @@ int __fastcall RtlpDetermineDosPathNameType4(int a1, int a2, int *a3, int *a4)
   if ( !a2 || !a3 || !a4 )
     return -1073741811;
   v6 = RtlDetermineDosPathNameType_Ustr(a2);
-  v7 = *(_WORD *)a2 == 4;
+  v7 = a2->Length == 4;
   *a3 = v6;
   if ( v7 )
     goto LABEL_15;
   v4 = 1;
-  if ( RtlEqualUnicodeString((unsigned __int16 *)&RtlpWin32NtRoot, (unsigned __int16 *)a2, 1)
-    || RtlEqualUnicodeString((unsigned __int16 *)&RtlpWin32NtRootSlash, (unsigned __int16 *)a2, 1) )
+  if ( RtlEqualUnicodeString((PUNICODE_STRING)&RtlpWin32NtRoot, a2, 1u)
+    || RtlEqualUnicodeString((PUNICODE_STRING)&RtlpWin32NtRootSlash, a2, 1u) )
   {
     v15 = 1;
   }
-  else if ( !(unsigned __int8)RtlPrefixUnicodeString(&RtlpWin32NtRootSlash, a2, 1) )
+  else if ( !RtlPrefixUnicodeString((PUNICODE_STRING)&RtlpWin32NtRootSlash, a2, 1u) )
   {
     return 0;
   }
-  if ( RtlEqualUnicodeString((unsigned __int16 *)&RtlpWin32NtUncRoot, (unsigned __int16 *)a2, 1)
-    || RtlEqualUnicodeString((unsigned __int16 *)&RtlpWin32NtUncRootSlash, (unsigned __int16 *)a2, 1) )
+  if ( RtlEqualUnicodeString((PUNICODE_STRING)&RtlpWin32NtUncRoot, a2, 1u)
+    || RtlEqualUnicodeString((PUNICODE_STRING)&RtlpWin32NtUncRootSlash, a2, 1u) )
   {
     v15 = 1;
   }
-  else if ( !(unsigned __int8)RtlPrefixUnicodeString(&RtlpWin32NtUncRootSlash, a2, 1) )
+  else if ( !RtlPrefixUnicodeString((PUNICODE_STRING)&RtlpWin32NtUncRootSlash, a2, 1u) )
   {
     if ( !v15 )
     {
-      v12[0] = *(_DWORD *)a2;
-      v12[1] = *(_DWORD *)(a2 + 4) + 8;
+      v12[0] = *(_DWORD *)&a2->Length;
+      v12[1] = a2->Buffer + 4;
       LOWORD(v12[0]) -= 8;
       HIWORD(v12[0]) -= 8;
       v10 = RtlDetermineDosPathNameType_Ustr(v12);

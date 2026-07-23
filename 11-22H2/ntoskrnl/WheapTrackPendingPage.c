@@ -12,7 +12,7 @@
 int __fastcall WheapTrackPendingPage(struct _SINGLE_LIST_ENTRY *a1)
 {
   unsigned int v2; // eax
-  struct _SINGLE_LIST_ENTRY *Pool2; // rax
+  _SINGLE_LIST_ENTRY *Pool2; // rax
   _DWORD Src[8]; // [rsp+20h] [rbp-38h] BYREF
 
   v2 = WheapPolicyPendingPageListSz << 12;
@@ -32,7 +32,7 @@ int __fastcall WheapTrackPendingPage(struct _SINGLE_LIST_ENTRY *a1)
   }
   else
   {
-    Pool2 = (struct _SINGLE_LIST_ENTRY *)ExAllocatePool2(64LL, 16LL, 1634035799LL);
+    Pool2 = (_SINGLE_LIST_ENTRY *)ExAllocatePool2(64LL, 16LL, 1634035799LL);
     if ( Pool2 )
     {
       _InterlockedIncrement(&dword_140C2A940);

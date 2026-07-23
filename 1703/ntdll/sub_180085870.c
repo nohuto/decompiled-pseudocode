@@ -10,84 +10,79 @@
 
 __int64 __fastcall sub_180085870(_BYTE *a1)
 {
-  unsigned int v1; // edi
-  __int64 v3; // rcx
-  __int64 v4; // rdx
-  _QWORD *v5; // rcx
-  __int64 v7; // rax
-  const char *v8; // r9
-  __int64 v9; // r8
-  wchar_t **v10; // rsi
-  _WORD *v11; // rax
-  UNICODE_STRING UnicodeString; // [rsp+20h] [rbp-18h] BYREF
+  __int64 v2; // rcx
+  __int64 v3; // rdx
+  _QWORD *v4; // rcx
+  __int64 v6; // rax
+  CHAR *v7; // r9
+  ULONG v8; // r8d
+  PWCH *v9; // rsi
+  _WORD *v10; // rax
+  _UNICODE_STRING UnicodeString; // [rsp+20h] [rbp-18h] BYREF
 
-  v1 = 0;
   if ( !a1 )
-  {
-    RtlAssert("Internal error check failed", "minkernel\\ntdll\\sxsisol.cpp", 524LL, "This != NULL");
-    return (unsigned int)-1073741595;
-  }
+    RtlAssert("Internal error check failed", "minkernel\\ntdll\\sxsisol.cpp", 0x20Cu, (PSTR)"This != NULL");
   if ( !a1[80] )
     goto LABEL_8;
-  v3 = *((_QWORD *)a1 + 8);
-  if ( v3 && *(_QWORD *)(v3 + 8) )
+  v2 = *((_QWORD *)a1 + 8);
+  if ( v2 && *(_QWORD *)(v2 + 8) )
   {
-    v8 = "(This->PrivateDynamicallyAllocatedString == NULL) || (This->PrivateDynamicallyAllocatedString->Buffer == NULL)";
-    v9 = 532LL;
-    goto LABEL_19;
+    v7 = "(This->PrivateDynamicallyAllocatedString == NULL) || (This->PrivateDynamicallyAllocatedString->Buffer == NULL)";
+    v8 = 532;
+    goto LABEL_18;
   }
-  v4 = *((_QWORD *)a1 + 7);
-  if ( v4 && *(_QWORD *)(v4 + 8) == *((_QWORD *)a1 + 1) )
+  v3 = *((_QWORD *)a1 + 7);
+  if ( v3 && *(_QWORD *)(v3 + 8) == *((_QWORD *)a1 + 1) )
   {
-    if ( *(_WORD *)a1 <= *(_WORD *)(v4 + 2) )
+    if ( *(_WORD *)a1 <= *(_WORD *)(v3 + 2) )
     {
-      *(_WORD *)v4 = *(_WORD *)a1;
-      v5 = (_QWORD *)*((_QWORD *)a1 + 9);
-      if ( v5 )
+      *(_WORD *)v3 = *(_WORD *)a1;
+      v4 = (_QWORD *)*((_QWORD *)a1 + 9);
+      if ( v4 )
       {
-        v7 = *((_QWORD *)a1 + 7);
-LABEL_14:
-        *v5 = v7;
+        v6 = *((_QWORD *)a1 + 7);
+LABEL_13:
+        *v4 = v6;
         goto LABEL_8;
       }
       goto LABEL_8;
     }
-    v8 = "rUS.Length <= This->PrivatePreallocatedString->MaximumLength";
-    v9 = 537LL;
-LABEL_19:
-    RtlAssert("Internal error check failed", "minkernel\\ntdll\\sxsisol.cpp", v9, v8);
-    v1 = -1073741595;
-    goto LABEL_8;
+    v7 = (CHAR *)"rUS.Length <= This->PrivatePreallocatedString->MaximumLength";
+    v8 = 537;
+LABEL_18:
+    RtlAssert("Internal error check failed", "minkernel\\ntdll\\sxsisol.cpp", v8, v7);
   }
-  if ( !v3 )
+  if ( v2 )
   {
-    v10 = (wchar_t **)(a1 + 16);
-    if ( a1 != (_BYTE *)-16LL && *v10 )
+    *(_OWORD *)v2 = *(_OWORD *)a1;
+    v4 = (_QWORD *)*((_QWORD *)a1 + 9);
+    if ( v4 )
     {
-      if ( *v10 != *((wchar_t **)a1 + 3) )
+      v6 = *((_QWORD *)a1 + 8);
+      goto LABEL_13;
+    }
+  }
+  else
+  {
+    v9 = (PWCH *)(a1 + 16);
+    if ( a1 != (_BYTE *)-16LL && *v9 )
+    {
+      if ( *v9 != *((PWCH *)a1 + 3) )
       {
-        UnicodeString.Buffer = *v10;
+        UnicodeString.Buffer = *v9;
         RtlFreeUnicodeString(&UnicodeString);
       }
-      *v10 = (wchar_t *)*((_QWORD *)a1 + 3);
+      *v9 = (PWCH)*((_QWORD *)a1 + 3);
       *((_QWORD *)a1 + 4) = *((_QWORD *)a1 + 5);
     }
-    v11 = (_WORD *)*((_QWORD *)a1 + 3);
-    *((_QWORD *)a1 + 1) = v11;
-    if ( v11 )
-      *v11 = 0;
+    v10 = (_WORD *)*((_QWORD *)a1 + 3);
+    *((_QWORD *)a1 + 1) = v10;
+    if ( v10 )
+      *v10 = 0;
     *((_WORD *)a1 + 1) = *((_WORD *)a1 + 20);
     *(_WORD *)a1 = 0;
-    goto LABEL_8;
-  }
-  *(_OWORD *)v3 = *(_OWORD *)a1;
-  v5 = (_QWORD *)*((_QWORD *)a1 + 9);
-  if ( v5 )
-  {
-    v7 = *((_QWORD *)a1 + 8);
-    goto LABEL_14;
   }
 LABEL_8:
   memset(a1, 0, 0x58uLL);
-  return v1;
+  return 0LL;
 }

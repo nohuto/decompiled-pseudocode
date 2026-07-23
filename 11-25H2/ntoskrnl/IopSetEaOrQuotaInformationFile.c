@@ -50,8 +50,8 @@ __int64 __fastcall IopSetEaOrQuotaInformationFile(void *a1, unsigned __int64 a2,
   struct _KEVENT *v27; // rcx
   __int64 v28; // rax
   ULONG Flags; // ecx
-  struct _FILE_QUOTA_INFORMATION *v30; // rdi
-  NTSTATUS v31; // eax
+  _FILE_QUOTA_INFORMATION *v30; // rdi
+  int v31; // eax
   struct _MDL *Mdl; // rcx
   char v33; // bl
   __int64 v34; // r9
@@ -170,7 +170,7 @@ LABEL_20:
           ErrorOffset = 0;
           if ( (_DWORD)v5 )
           {
-            v30 = (struct _FILE_QUOTA_INFORMATION *)ExAllocatePool2(0x63uLL);
+            v30 = (_FILE_QUOTA_INFORMATION *)ExAllocatePool2(0x63uLL);
             v24->AssociatedIrp.MasterIrp = (struct _IRP *)v30;
             memmove(v30, a3, v5);
             LODWORD(v5) = a4;

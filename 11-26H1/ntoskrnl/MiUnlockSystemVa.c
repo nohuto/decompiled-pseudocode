@@ -1,18 +1,18 @@
 /*
- * XREFs of MiUnlockSystemVa @ 0x1402E5200
+ * XREFs of MiUnlockSystemVa @ 0x1402C7240
  * Callers:
- *     MiUnlockStealVm @ 0x140294D10 (MiUnlockStealVm.c)
- *     MiSynchronizeSystemVa @ 0x1402E3870 (MiSynchronizeSystemVa.c)
- *     MiTranslatePageForCopy @ 0x140338D4C (MiTranslatePageForCopy.c)
- *     MmCopyMemory @ 0x140339450 (MmCopyMemory.c)
- *     MiReleaseTrimViewResources @ 0x140360084 (MiReleaseTrimViewResources.c)
- *     MiSystemFault @ 0x1403A4508 (MiSystemFault.c)
+ *     MiUnlockStealVm @ 0x140294270 (MiUnlockStealVm.c)
+ *     MiSynchronizeSystemVa @ 0x1402C58B0 (MiSynchronizeSystemVa.c)
+ *     MiTranslatePageForCopy @ 0x14033ADCC (MiTranslatePageForCopy.c)
+ *     MmCopyMemory @ 0x14033B4D0 (MmCopyMemory.c)
+ *     MiReleaseTrimViewResources @ 0x140361E24 (MiReleaseTrimViewResources.c)
+ *     MiSystemFault @ 0x1403A6268 (MiSystemFault.c)
  * Callees:
- *     MiUnlockWorkingSetExclusive @ 0x14027E758 (MiUnlockWorkingSetExclusive.c)
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402B9F90 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     ExReleaseSpinLockRegardlessFromDpcLevel @ 0x1402E5E00 (ExReleaseSpinLockRegardlessFromDpcLevel.c)
- *     MiUnlockWorkingSetShared @ 0x1402EB6C0 (MiUnlockWorkingSetShared.c)
- *     MiAddWorkingSetEntries @ 0x1402EBAC0 (MiAddWorkingSetEntries.c)
+ *     MiUnlockWorkingSetExclusive @ 0x14027DCC8 (MiUnlockWorkingSetExclusive.c)
+ *     ExReleaseSpinLockRegardlessFromDpcLevel @ 0x1402C7E40 (ExReleaseSpinLockRegardlessFromDpcLevel.c)
+ *     MiUnlockWorkingSetShared @ 0x1402CD700 (MiUnlockWorkingSetShared.c)
+ *     MiAddWorkingSetEntries @ 0x1402CDB00 (MiAddWorkingSetEntries.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140304C50 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
  */
 
 void __fastcall MiUnlockSystemVa(__int64 a1)
@@ -62,7 +62,7 @@ void __fastcall MiUnlockSystemVa(__int64 a1)
         {
           v12 = 2 * (unsigned int)((__int64)(v6 + 0x90482413000LL) >> 3);
           _InterlockedAnd(
-            (volatile signed __int32 *)&stru_140E2D930.PriorityFloorCounts[4 * (v12 >> 5) + 4],
+            (volatile signed __int32 *)&stru_140E2DAB0.PriorityFloorCounts[4 * (v12 >> 5) + 4],
             ~(2 << (v12 & 0x1F)) & ~(1 << (v12 & 0x1F)));
         }
         else

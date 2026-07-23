@@ -6,11 +6,21 @@
  *     <none>
  */
 
-__int64 __fastcall sub_18000B478(const WCHAR *a1, __int64 a2, __int64 a3, __int64 a4, void *a5, int a6, __int64 a7)
+NTSTATUS __fastcall sub_18000B478(
+        const WCHAR *a1,
+        const WCHAR *a2,
+        const WCHAR *a3,
+        STATE_LOCATION_TYPE a4,
+        WCHAR *a5,
+        ULONG a6,
+        ULONG *a7)
 {
-  char v7; // of
+  char v7; // cf
+  char v8; // of
+  _BYTE *v9; // rsi
 
-  if ( !v7 )
+  if ( !v8 )
     JUMPOUT(0x18000B4DDLL);
-  return RtlGetPersistedStateLocation(a1, a5, a6, a7);
+  LOBYTE(a2) = *v9 + v7 + (_BYTE)a2;
+  return RtlGetPersistedStateLocation(a1, a2, a3, a4, a5, a6, a7);
 }

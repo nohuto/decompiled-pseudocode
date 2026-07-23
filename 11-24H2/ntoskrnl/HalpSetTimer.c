@@ -1,27 +1,26 @@
 /*
- * XREFs of HalpSetTimer @ 0x1403BC5B0
+ * XREFs of HalpSetTimer @ 0x140375A30
  * Callers:
- *     HalpTimerWatchdogTriggerSystemReset @ 0x14033A0D0 (HalpTimerWatchdogTriggerSystemReset.c)
- *     HalpTimerWatchdogResetCountdown @ 0x14033A1F0 (HalpTimerWatchdogResetCountdown.c)
- *     HalpSetTimerAnyMode @ 0x1403BB348 (HalpSetTimerAnyMode.c)
- *     HalpTimerInitializeClock @ 0x140546CF4 (HalpTimerInitializeClock.c)
- *     HalpTimerRestartProfileInterrupt @ 0x140549F74 (HalpTimerRestartProfileInterrupt.c)
- *     HalpTimerSetTimerBackedProfileInterval @ 0x14054A044 (HalpTimerSetTimerBackedProfileInterval.c)
- *     HalpTimerStartProfileInterrupt @ 0x14054A0DC (HalpTimerStartProfileInterrupt.c)
- *     HalpTimerTestHypervisorTimer @ 0x14054A490 (HalpTimerTestHypervisorTimer.c)
- *     HalpTimerWatchdogStart @ 0x14054AFE0 (HalpTimerWatchdogStart.c)
- *     HalpWatchdogDelayExpiration @ 0x14054B1B0 (HalpWatchdogDelayExpiration.c)
+ *     HalpTimerWatchdogTriggerSystemReset @ 0x1403195B0 (HalpTimerWatchdogTriggerSystemReset.c)
+ *     HalpTimerWatchdogResetCountdown @ 0x1403196D0 (HalpTimerWatchdogResetCountdown.c)
+ *     HalpSetTimerAnyMode @ 0x140374A84 (HalpSetTimerAnyMode.c)
+ *     HalpTimerInitializeClock @ 0x1405445B4 (HalpTimerInitializeClock.c)
+ *     HalpTimerRestartProfileInterrupt @ 0x140547834 (HalpTimerRestartProfileInterrupt.c)
+ *     HalpTimerSetTimerBackedProfileInterval @ 0x140547904 (HalpTimerSetTimerBackedProfileInterval.c)
+ *     HalpTimerStartProfileInterrupt @ 0x14054799C (HalpTimerStartProfileInterrupt.c)
+ *     HalpTimerTestHypervisorTimer @ 0x140547D50 (HalpTimerTestHypervisorTimer.c)
+ *     HalpTimerWatchdogStart @ 0x1405488A0 (HalpTimerWatchdogStart.c)
+ *     HalpWatchdogDelayExpiration @ 0x140548A70 (HalpWatchdogDelayExpiration.c)
  * Callees:
- *     HalpTimerScaleCounter @ 0x14030AA50 (HalpTimerScaleCounter.c)
- *     HalpHvWatchdogArm @ 0x1403BC810 (HalpHvWatchdogArm.c)
- *     HalpTimerSetProblemEx @ 0x1404F98E4 (HalpTimerSetProblemEx.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
+ *     HalpTimerScaleCounter @ 0x140314930 (HalpTimerScaleCounter.c)
+ *     HalpHvWatchdogArm @ 0x140375C90 (HalpHvWatchdogArm.c)
+ *     HalpTimerSetProblemEx @ 0x1404F71C4 (HalpTimerSetProblemEx.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
  */
 
-__int64 __fastcall HalpSetTimer(__int64 a1, unsigned int a2, unsigned __int64 a3, __int64 a4, unsigned __int64 *a5)
+__int64 __fastcall HalpSetTimer(__int64 a1, unsigned int a2, unsigned __int64 a3, char a4, unsigned __int64 *a5)
 {
   unsigned int v5; // r11d
-  char v6; // r14
   unsigned int v7; // esi
   unsigned __int64 v9; // rbx
   unsigned __int64 v10; // rcx
@@ -36,7 +35,6 @@ __int64 __fastcall HalpSetTimer(__int64 a1, unsigned int a2, unsigned __int64 a3
   int v20; // [rsp+20h] [rbp-38h]
 
   v5 = 0;
-  v6 = a4;
   v7 = a2;
   v9 = 0LL;
   if ( a2 == 3 )
@@ -103,14 +101,14 @@ LABEL_5:
   v9 = v14 / 0x3E8;
   if ( v7 == 2 && (*(_BYTE *)(a1 + 224) & 0x40) == 0 )
     v7 = 1;
-  if ( v6 )
+  if ( a4 )
   {
     v15 = (*(_DWORD *)(a1 + 224) & 0x10000) != 0
         ? *(_QWORD *)(a1 + 72) + *(_DWORD *)(a1 + 80) * KeGetPcr()->Prcb.Number
         : *(_QWORD *)(a1 + 72);
     v16 = *(__int64 (__fastcall **)(_QWORD, _QWORD, _QWORD))(a1 + 128) == HalpHvWatchdogArm
         ? HalpHvWatchdogArm(v15, v7, v13)
-        : guard_dispatch_icall_no_overrides(v15, v7, v13, a4);
+        : guard_dispatch_icall_no_overrides(v15, v7);
     v5 = v16;
     if ( v16 < 0 )
     {

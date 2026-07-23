@@ -1,33 +1,37 @@
 /*
- * XREFs of NtSetInformationKey @ 0x1408B0310
+ * XREFs of NtSetInformationKey @ 0x1408B6800
  * Callers:
- *     DifNtSetInformationKeyWrapper @ 0x14068BF90 (DifNtSetInformationKeyWrapper.c)
+ *     DifNtSetInformationKeyWrapper @ 0x14068FB70 (DifNtSetInformationKeyWrapper.c)
  * Callees:
- *     CmpIsRegistryLockAcquired @ 0x140262890 (CmpIsRegistryLockAcquired.c)
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     KeLeaveCriticalRegionThread @ 0x1402B8A60 (KeLeaveCriticalRegionThread.c)
- *     EtwGetKernelTraceTimestamp @ 0x14032D2B0 (EtwGetKernelTraceTimestamp.c)
- *     CmpInitializeThreadInfo @ 0x14043CF00 (CmpInitializeThreadInfo.c)
- *     CmCleanupThreadInfo @ 0x14044C0A0 (CmCleanupThreadInfo.c)
- *     CmDoVirtualTest @ 0x1404D4AF4 (CmDoVirtualTest.c)
- *     RtlCopyFromUser @ 0x140533E38 (RtlCopyFromUser.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     RtlCopyVolatileMemory @ 0x140733080 (RtlCopyVolatileMemory.c)
- *     CmSetKeyFlags @ 0x1408B09D8 (CmSetKeyFlags.c)
- *     CmpCallCallBacksEx @ 0x1408C9E40 (CmpCallCallBacksEx.c)
- *     SeReleaseSubjectContext @ 0x1408CB2E0 (SeReleaseSubjectContext.c)
- *     ObReferenceObjectByHandle @ 0x1408F9550 (ObReferenceObjectByHandle.c)
- *     CmpIsKcbImmutable @ 0x140931B20 (CmpIsKcbImmutable.c)
- *     SeCaptureSubjectContext @ 0x140933620 (SeCaptureSubjectContext.c)
- *     CmKeyBodyNeedsVirtualImage @ 0x140AB2878 (CmKeyBodyNeedsVirtualImage.c)
- *     CmKeyBodyReplicateToVirtual @ 0x140B3181C (CmKeyBodyReplicateToVirtual.c)
- *     CmSetLastWriteTimeKey @ 0x140B53BB0 (CmSetLastWriteTimeKey.c)
- *     CmpReleaseShutdownRundown @ 0x140C58900 (CmpReleaseShutdownRundown.c)
- *     CmpAcquireShutdownRundown @ 0x140C58AB0 (CmpAcquireShutdownRundown.c)
+ *     CmpIsRegistryLockAcquired @ 0x140261E00 (CmpIsRegistryLockAcquired.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     KeLeaveCriticalRegionThread @ 0x140303720 (KeLeaveCriticalRegionThread.c)
+ *     EtwGetKernelTraceTimestamp @ 0x14032F2E0 (EtwGetKernelTraceTimestamp.c)
+ *     CmpInitializeThreadInfo @ 0x14042F7B0 (CmpInitializeThreadInfo.c)
+ *     CmCleanupThreadInfo @ 0x1404441C0 (CmCleanupThreadInfo.c)
+ *     CmDoVirtualTest @ 0x1404CE364 (CmDoVirtualTest.c)
+ *     RtlCopyFromUser @ 0x1405362B8 (RtlCopyFromUser.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     RtlCopyVolatileMemory @ 0x140737C50 (RtlCopyVolatileMemory.c)
+ *     CmSetKeyFlags @ 0x1408B6EC8 (CmSetKeyFlags.c)
+ *     CmpCallCallBacksEx @ 0x1408D03F0 (CmpCallCallBacksEx.c)
+ *     SeReleaseSubjectContext @ 0x1408D1890 (SeReleaseSubjectContext.c)
+ *     CmpIsKcbImmutable @ 0x14090D6F0 (CmpIsKcbImmutable.c)
+ *     SeCaptureSubjectContext @ 0x14090F1D0 (SeCaptureSubjectContext.c)
+ *     ObReferenceObjectByHandle @ 0x1409294E0 (ObReferenceObjectByHandle.c)
+ *     CmKeyBodyNeedsVirtualImage @ 0x140AB0548 (CmKeyBodyNeedsVirtualImage.c)
+ *     CmKeyBodyReplicateToVirtual @ 0x140B33A1C (CmKeyBodyReplicateToVirtual.c)
+ *     CmSetLastWriteTimeKey @ 0x140B56450 (CmSetLastWriteTimeKey.c)
+ *     CmpReleaseShutdownRundown @ 0x140C5E900 (CmpReleaseShutdownRundown.c)
+ *     CmpAcquireShutdownRundown @ 0x140C5EAB0 (CmpAcquireShutdownRundown.c)
  */
 
-__int64 __fastcall NtSetInformationKey(void *a1, unsigned int a2, void *a3, int a4)
+NTSTATUS __cdecl NtSetInformationKey(
+        HANDLE KeyHandle,
+        KEY_SET_INFORMATION_CLASS KeySetInformationClass,
+        PVOID KeySetInformation,
+        ULONG KeySetInformationLength)
 {
   char v5; // r14
   char v6; // r12
@@ -35,378 +39,377 @@ __int64 __fastcall NtSetInformationKey(void *a1, unsigned int a2, void *a3, int 
   char v8; // r15
   __int64 v9; // rdx
   __int64 v10; // rcx
-  __int64 v11; // rdx
-  __int64 v12; // rcx
-  __int64 v13; // r8
-  char v14; // r13
+  __int64 v11; // rcx
+  char v12; // r13
   unsigned __int8 PreviousMode; // r12
-  unsigned int v16; // eax
-  ACCESS_MASK v17; // edx
-  NTSTATUS v18; // ebx
-  void *v19; // rax
-  unsigned int v20; // r15d
+  unsigned int v14; // eax
+  ACCESS_MASK v15; // edx
+  __int64 v16; // rdx
+  int v17; // ebx
+  void *v18; // rax
+  KEY_SET_INFORMATION_CLASS v19; // r15d
   struct _KTHREAD *CurrentThread; // rax
-  int v22; // r9d
-  char v23; // r12
-  bool v24; // zf
-  char v25; // al
-  __int64 v27; // rcx
-  __int64 v28; // r8
-  __int64 v29; // rdx
-  NTSTATUS v30; // eax
-  NTSTATUS v31; // eax
+  int v21; // r9d
+  char v22; // r12
+  bool v23; // zf
+  char v24; // al
+  __int64 v26; // rcx
+  __int64 v27; // r8
+  __int64 v28; // rdx
+  int v29; // eax
+  int v30; // eax
+  HANDLE v31; // rax
   HANDLE v32; // rax
-  HANDLE v33; // rax
-  char v34; // [rsp+40h] [rbp-158h]
-  char v35; // [rsp+41h] [rbp-157h]
-  char v36; // [rsp+42h] [rbp-156h]
-  unsigned __int8 v37; // [rsp+43h] [rbp-155h]
+  char v33; // [rsp+40h] [rbp-158h]
+  char v34; // [rsp+41h] [rbp-157h]
+  char v35; // [rsp+42h] [rbp-156h]
+  char v36; // [rsp+43h] [rbp-155h]
   HANDLE Handle; // [rsp+50h] [rbp-148h] BYREF
-  __int64 v39; // [rsp+58h] [rbp-140h] BYREF
+  __int64 v38; // [rsp+58h] [rbp-140h] BYREF
   void *Src; // [rsp+60h] [rbp-138h] BYREF
-  unsigned int v41; // [rsp+68h] [rbp-130h]
-  PVOID v42; // [rsp+70h] [rbp-128h] BYREF
-  int v43; // [rsp+78h] [rbp-120h]
-  int v44; // [rsp+7Ch] [rbp-11Ch] BYREF
-  __int64 v45; // [rsp+80h] [rbp-118h]
-  _QWORD v46[2]; // [rsp+90h] [rbp-108h] BYREF
+  KEY_SET_INFORMATION_CLASS v40; // [rsp+68h] [rbp-130h]
+  PVOID v41; // [rsp+70h] [rbp-128h] BYREF
+  ULONG v42; // [rsp+78h] [rbp-120h]
+  int v43; // [rsp+7Ch] [rbp-11Ch] BYREF
+  __int64 v44; // [rsp+80h] [rbp-118h]
+  _QWORD v45[2]; // [rsp+90h] [rbp-108h] BYREF
   _BYTE SubjectContext[44]; // [rsp+A0h] [rbp-F8h] BYREF
-  __int64 v48; // [rsp+CCh] [rbp-CCh]
-  int v49; // [rsp+D4h] [rbp-C4h]
-  __int128 v50; // [rsp+E0h] [rbp-B8h] BYREF
-  __int128 v51; // [rsp+F0h] [rbp-A8h]
-  __int128 v52; // [rsp+100h] [rbp-98h]
-  __int64 v53; // [rsp+110h] [rbp-88h]
-  __int128 v54; // [rsp+118h] [rbp-80h] BYREF
-  __int64 v55; // [rsp+128h] [rbp-70h]
-  _BYTE v56[32]; // [rsp+130h] [rbp-68h] BYREF
+  __int64 v47; // [rsp+CCh] [rbp-CCh]
+  int v48; // [rsp+D4h] [rbp-C4h]
+  __int128 v49; // [rsp+E0h] [rbp-B8h] BYREF
+  __int128 v50; // [rsp+F0h] [rbp-A8h]
+  __int128 v51; // [rsp+100h] [rbp-98h]
+  __int64 v52; // [rsp+110h] [rbp-88h]
+  __int128 v53; // [rsp+118h] [rbp-80h] BYREF
+  __int64 v54; // [rsp+128h] [rbp-70h]
+  _BYTE v55[32]; // [rsp+130h] [rbp-68h] BYREF
 
-  v43 = a4;
-  Src = a3;
-  v41 = a2;
-  Handle = a1;
+  v42 = KeySetInformationLength;
+  Src = KeySetInformation;
+  v40 = KeySetInformationClass;
+  Handle = KeyHandle;
+  v53 = 0LL;
   v54 = 0LL;
-  v55 = 0LL;
-  v39 = 0LL;
-  memset(v56, 0, sizeof(v56));
-  v45 = 0LL;
+  v38 = 0LL;
+  memset(v55, 0, sizeof(v55));
+  v44 = 0LL;
   v5 = 0;
   if ( CmpTraceRoutine )
   {
-    EtwGetKernelTraceTimestamp((unsigned __int64)v56, 0x20000uLL, (__int64)a3);
+    EtwGetKernelTraceTimestamp((unsigned __int64)v55, 0x20000uLL, (__int64)KeySetInformation);
     v5 = 1;
   }
   v6 = 0;
-  v35 = 0;
   v34 = 0;
+  v33 = 0;
   v7 = 0LL;
-  v42 = 0LL;
-  v37 = 0;
+  v41 = 0LL;
+  v36 = 0;
+  v49 = 0LL;
   v50 = 0LL;
   v51 = 0LL;
   v52 = 0LL;
-  v53 = 0LL;
-  v46[1] = v46;
-  v46[0] = v46;
-  CmpInitializeThreadInfo((_KAFFINITY_EX *)&v54);
-  v44 = 0;
+  v45[1] = v45;
+  v45[0] = v45;
+  CmpInitializeThreadInfo((_KAFFINITY_EX *)&v53);
+  v43 = 0;
   v8 = 0;
   memset(SubjectContext, 0, 32);
-  v14 = CmpAcquireShutdownRundown(v10, v9);
-  if ( !v14 )
+  v12 = CmpAcquireShutdownRundown(v10, v9);
+  if ( !v12 )
   {
-    v18 = -1073741431;
-    v25 = 0;
+    v17 = -1073741431;
+    v24 = 0;
     goto LABEL_29;
   }
   PreviousMode = KeGetCurrentThread()->PreviousMode;
-  if ( a2 == 1 )
+  if ( KeySetInformationClass == KeyWow64FlagsInformation )
     goto LABEL_5;
-  v12 = a2;
-  if ( a2 )
+  v11 = (unsigned int)KeySetInformationClass;
+  if ( KeySetInformationClass )
   {
-    v12 = a2 - 2;
-    if ( a2 != 2 )
+    v11 = (unsigned int)(KeySetInformationClass - 2);
+    if ( KeySetInformationClass != KeyControlFlagsInformation )
     {
-      v12 = a2 - 3;
-      if ( a2 != 3 )
+      v11 = (unsigned int)(KeySetInformationClass - 3);
+      if ( KeySetInformationClass != KeySetVirtualizationInformation )
       {
-        v12 = a2 - 4;
-        if ( a2 == 4 )
+        v11 = (unsigned int)(KeySetInformationClass - 4);
+        if ( KeySetInformationClass == KeySetDebugInformation )
         {
 LABEL_5:
-          v36 = 1;
+          v35 = 1;
 LABEL_6:
-          v16 = 4;
+          v14 = 4;
           goto LABEL_7;
         }
-        if ( a2 != 5 )
+        if ( KeySetInformationClass != KeySetHandleTagsInformation )
         {
           if ( CmpTraceRoutine )
           {
-            v32 = Handle;
+            v31 = Handle;
             if ( Handle )
             {
               Handle = 0LL;
               if ( ObReferenceObjectByHandle(
-                     v32,
+                     v31,
                      0,
                      (POBJECT_TYPE)CmKeyObjectType,
                      KeGetCurrentThread()->PreviousMode,
                      &Handle,
                      0LL) >= 0 )
               {
-                v45 = *((_QWORD *)Handle + 1);
+                v44 = *((_QWORD *)Handle + 1);
                 ObfDereferenceObject(Handle);
               }
             }
           }
-          v18 = -1073741821;
+          v17 = -1073741821;
           goto LABEL_52;
         }
       }
     }
-    v36 = 0;
+    v35 = 0;
     goto LABEL_6;
   }
-  v16 = 8;
-  v36 = 1;
+  v14 = 8;
+  v35 = 1;
 LABEL_7:
-  if ( v43 != v16 )
+  if ( v42 != v14 )
   {
     if ( CmpTraceRoutine )
     {
-      v33 = Handle;
+      v32 = Handle;
       if ( Handle )
       {
         Handle = 0LL;
         if ( ObReferenceObjectByHandle(
-               v33,
+               v32,
                0,
                (POBJECT_TYPE)CmKeyObjectType,
                KeGetCurrentThread()->PreviousMode,
                &Handle,
                0LL) >= 0 )
         {
-          v45 = *((_QWORD *)Handle + 1);
+          v44 = *((_QWORD *)Handle + 1);
           ObfDereferenceObject(Handle);
         }
       }
     }
-    v18 = -1073741820;
+    v17 = -1073741820;
     v6 = 0;
-    v25 = 0;
+    v24 = 0;
     goto LABEL_29;
   }
   if ( PreviousMode )
-    RtlCopyFromUser(&v39, Src, v16);
+    RtlCopyFromUser(&v38, Src, v14);
   else
-    RtlCopyVolatileMemory(&v39, Src, v16);
+    RtlCopyVolatileMemory(&v38, Src, v14);
   Src = 0LL;
-  v17 = 0;
-  if ( a2 != 5 )
-    v17 = 2;
-  v18 = ObReferenceObjectByHandle(Handle, v17, (POBJECT_TYPE)CmKeyObjectType, PreviousMode, &Src, 0LL);
+  v15 = 0;
+  if ( KeySetInformationClass != KeySetHandleTagsInformation )
+    v15 = 2;
+  v17 = ObReferenceObjectByHandle(Handle, v15, (POBJECT_TYPE)CmKeyObjectType, PreviousMode, &Src, 0LL);
   v7 = (__int64 *)Src;
-  v42 = Src;
-  v19 = Src;
-  if ( v18 == -1073741790 )
+  v41 = Src;
+  v18 = Src;
+  if ( v17 == -1073741790 )
   {
-    if ( !v36 )
+    if ( !v35 )
     {
-      v18 = -1073741790;
+      v17 = -1073741790;
       v6 = 0;
-      v25 = 0;
+      v24 = 0;
       goto LABEL_29;
     }
     SeCaptureSubjectContext((PSECURITY_SUBJECT_CONTEXT)SubjectContext);
     v8 = 1;
-    v25 = CmDoVirtualTest();
-    if ( !v25 )
+    v24 = CmDoVirtualTest();
+    if ( !v24 )
     {
-      v18 = -1073741790;
+      v17 = -1073741790;
       v6 = 0;
       goto LABEL_29;
     }
     Src = 0LL;
-    v18 = ObReferenceObjectByHandle(Handle, 0x20019u, (POBJECT_TYPE)CmKeyObjectType, PreviousMode, &Src, 0LL);
+    v17 = ObReferenceObjectByHandle(Handle, 0x20019u, (POBJECT_TYPE)CmKeyObjectType, PreviousMode, &Src, 0LL);
     v7 = (__int64 *)Src;
-    v42 = Src;
-    if ( v18 < 0 )
+    v41 = Src;
+    if ( v17 < 0 )
     {
 LABEL_52:
       v6 = 0;
-      v25 = 0;
+      v24 = 0;
       goto LABEL_29;
     }
-    v25 = CmKeyBodyNeedsVirtualImage(Src);
-    if ( !v25 )
+    v24 = CmKeyBodyNeedsVirtualImage(Src);
+    if ( !v24 )
     {
-      v18 = -1073741790;
+      v17 = -1073741790;
       v6 = 0;
       goto LABEL_29;
     }
-    v18 = 0;
-    v11 = 1LL;
-    v37 = 1;
-    v19 = v7;
+    v17 = 0;
+    v16 = 1LL;
+    v36 = 1;
+    v18 = v7;
   }
   else
   {
-    LOBYTE(v11) = 0;
+    LOBYTE(v16) = 0;
   }
-  v8 = v11;
-  if ( v18 < 0 )
+  v8 = v16;
+  if ( v17 < 0 )
     goto LABEL_52;
-  if ( CmpTraceRoutine && v19 )
-    v45 = v7[1];
-  v20 = v41;
-  if ( v41 == 5 )
+  if ( CmpTraceRoutine && v18 )
+    v44 = v7[1];
+  v19 = v40;
+  if ( v40 == KeySetHandleTagsInformation )
   {
 LABEL_18:
     CurrentThread = KeGetCurrentThread();
     --CurrentThread->KernelApcDisable;
-    v34 = 1;
-    if ( WheapPfaLock.ExpectedRunTime )
+    v33 = 1;
+    if ( HIDWORD(WheapPfaLock.StateSaveArea) )
     {
       if ( !(unsigned int)CmpIsRegistryLockAcquired() )
       {
-        *(_QWORD *)&v50 = v7;
-        DWORD2(v50) = v20;
-        *(_QWORD *)&v51 = &v39;
-        DWORD2(v51) = v43;
-        LOBYTE(v22) = 1;
-        v18 = CmpCallCallBacksEx(3, (unsigned int)&v50, 0, v22, 18, (__int64)v7, (__int64)v46);
-        if ( v18 < 0 )
+        *(_QWORD *)&v49 = v7;
+        DWORD2(v49) = v19;
+        *(_QWORD *)&v50 = &v38;
+        DWORD2(v50) = v42;
+        LOBYTE(v21) = 1;
+        v17 = CmpCallCallBacksEx(3, (unsigned int)&v49, 0, v21, 18, (__int64)v7, (__int64)v45);
+        if ( v17 < 0 )
         {
-          v8 = v37;
-          v31 = 0;
-          if ( v18 != -1073740541 )
-            v31 = v18;
-          v18 = v31;
+          v8 = v36;
+          v30 = 0;
+          if ( v17 != -1073740541 )
+            v30 = v17;
+          v17 = v30;
           v6 = 0;
           goto LABEL_28;
         }
-        v35 = 1;
+        v34 = 1;
       }
-      v11 = v37;
+      LOBYTE(v16) = v36;
     }
-    if ( (_BYTE)v11 )
+    if ( (_BYTE)v16 )
     {
-      v18 = CmKeyBodyReplicateToVirtual(&v42, PreviousMode, 2LL, SubjectContext, &v44);
-      v23 = v37;
-      v8 = v37;
-      v7 = (__int64 *)v42;
-      if ( v18 < 0 )
+      v17 = CmKeyBodyReplicateToVirtual(&v41, PreviousMode, 2LL, SubjectContext, &v43);
+      v22 = v36;
+      v8 = v36;
+      v7 = (__int64 *)v41;
+      if ( v17 < 0 )
         goto LABEL_27;
-      v20 = v41;
+      v19 = v40;
     }
     else
     {
-      v23 = v37;
+      v22 = v36;
     }
-    v24 = v20 == 5;
-    v8 = v23;
-    if ( v24 )
+    v23 = v19 == KeySetHandleTagsInformation;
+    v8 = v22;
+    if ( v23 )
     {
-      *((_WORD *)v7 + 25) = v39;
-      v18 = 0;
+      *((_WORD *)v7 + 25) = v38;
+      v17 = 0;
     }
     else
     {
-      if ( v41 )
+      if ( v40 )
       {
-        if ( v41 == 1 )
+        if ( v40 == KeyWow64FlagsInformation )
         {
-          v28 = (unsigned int)v39;
-          v29 = 1LL;
+          v27 = (unsigned int)v38;
+          v28 = 1LL;
         }
-        else if ( v41 == 2 )
+        else if ( v40 == KeyControlFlagsInformation )
         {
-          v28 = (unsigned int)v39;
-          v29 = 2LL;
+          v27 = (unsigned int)v38;
+          v28 = 2LL;
         }
         else
         {
-          v12 = v41 - 3;
-          if ( v41 == 3 )
+          v11 = (unsigned int)(v40 - 3);
+          if ( v40 == KeySetVirtualizationInformation )
           {
-            v28 = (unsigned int)v39;
-            v29 = 3LL;
+            v27 = (unsigned int)v38;
+            v28 = 3LL;
           }
           else
           {
-            if ( v41 != 4 )
+            if ( v40 != KeySetDebugInformation )
               goto LABEL_27;
-            v28 = (unsigned int)v39;
-            v29 = 4LL;
+            v27 = (unsigned int)v38;
+            v28 = 4LL;
           }
         }
-        v30 = CmSetKeyFlags(v7, v29, v28);
+        v29 = CmSetKeyFlags(v7, v28, v27);
       }
       else
       {
-        v30 = CmSetLastWriteTimeKey(v7, &v39);
+        v29 = CmSetLastWriteTimeKey(v7, &v38);
       }
-      v18 = v30;
+      v17 = v29;
     }
 LABEL_27:
-    v6 = v35;
+    v6 = v34;
 LABEL_28:
-    v25 = 1;
+    v24 = 1;
     goto LABEL_29;
   }
-  v12 = v7[1];
-  if ( (*(_DWORD *)(v12 + 8) & 0x80u) != 0 )
+  v11 = v7[1];
+  if ( (*(_DWORD *)(v11 + 8) & 0x80u) != 0 )
   {
-    v18 = -1073741790;
-    v8 = v11;
+    v17 = -1073741790;
+    v8 = v16;
     v6 = 0;
-    v25 = 0;
+    v24 = 0;
   }
   else
   {
-    if ( !(unsigned __int8)CmpIsKcbImmutable(v12, v11) )
+    if ( !(unsigned __int8)CmpIsKcbImmutable(v11, v16) )
       goto LABEL_18;
-    v18 = -1073741790;
-    v8 = v11;
+    v17 = -1073741790;
+    v8 = v16;
     v6 = 0;
-    v25 = 0;
+    v24 = 0;
   }
 LABEL_29:
   if ( v8 )
   {
     SeReleaseSubjectContext((PSECURITY_SUBJECT_CONTEXT)SubjectContext);
-    v25 = v34;
+    v24 = v33;
   }
   if ( v6 )
   {
-    if ( WheapPfaLock.ExpectedRunTime && !(unsigned int)CmpIsRegistryLockAcquired() && (_QWORD *)v46[0] != v46 )
+    if ( HIDWORD(WheapPfaLock.StateSaveArea) && !(unsigned int)CmpIsRegistryLockAcquired() && (_QWORD *)v45[0] != v45 )
     {
       *(_OWORD *)&SubjectContext[28] = 0LL;
-      v48 = 0LL;
-      v49 = 0;
+      v47 = 0LL;
+      v48 = 0;
       *(_QWORD *)SubjectContext = v7;
-      *(_QWORD *)&SubjectContext[8] = (unsigned int)v18;
-      *(_DWORD *)&SubjectContext[24] = v18;
-      *(_QWORD *)&SubjectContext[16] = &v50;
-      CmpCallCallBacksEx(18, (unsigned int)SubjectContext, 0, 0, 18, (__int64)v7, (__int64)v46);
-      v18 = *(_DWORD *)&SubjectContext[24];
+      *(_QWORD *)&SubjectContext[8] = (unsigned int)v17;
+      *(_DWORD *)&SubjectContext[24] = v17;
+      *(_QWORD *)&SubjectContext[16] = &v49;
+      CmpCallCallBacksEx(18, (unsigned int)SubjectContext, 0, 0, 18, (__int64)v7, (__int64)v45);
+      v17 = *(_DWORD *)&SubjectContext[24];
     }
-    v25 = v34;
+    v24 = v33;
   }
-  if ( v25 )
-    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v11, v13);
+  if ( v24 )
+    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
   if ( v7 )
     ObfDereferenceObject(v7);
   if ( v5 && CmpTraceRoutine )
   {
-    v27 = v45;
-    LOBYTE(v27) = 20;
-    guard_dispatch_icall_no_overrides(v27, (__int64)v56);
+    v26 = v44;
+    LOBYTE(v26) = 20;
+    guard_dispatch_icall_no_overrides(v26, (__int64)v55);
   }
-  if ( v14 )
-    CmpReleaseShutdownRundown(v12);
-  CmCleanupThreadInfo((_KAFFINITY_EX **)&v54);
-  return (unsigned int)v18;
+  if ( v12 )
+    CmpReleaseShutdownRundown(v11);
+  CmCleanupThreadInfo((_KAFFINITY_EX **)&v53);
+  return v17;
 }

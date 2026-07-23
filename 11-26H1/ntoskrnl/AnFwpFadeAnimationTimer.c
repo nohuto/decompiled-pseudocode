@@ -1,15 +1,15 @@
 /*
- * XREFs of AnFwpFadeAnimationTimer @ 0x140C52350
+ * XREFs of AnFwpFadeAnimationTimer @ 0x140C58350
  * Callers:
  *     <none>
  * Callees:
- *     KeSetEvent @ 0x1402DE9C0 (KeSetEvent.c)
- *     KeCancelTimer @ 0x1403AD790 (KeCancelTimer.c)
- *     BgpGxDrawRectangle @ 0x1404BFC2C (BgpGxDrawRectangle.c)
- *     BgpGetBitsPerPixel @ 0x1404C009C (BgpGetBitsPerPixel.c)
- *     BgpFwAcquireLock @ 0x1404E7E04 (BgpFwAcquireLock.c)
- *     BgpFwReleaseLock @ 0x1404E81BC (BgpFwReleaseLock.c)
- *     BgpFwQueryPerformanceCounter @ 0x1404F84EC (BgpFwQueryPerformanceCounter.c)
+ *     KeSetEvent @ 0x1402C0780 (KeSetEvent.c)
+ *     KeCancelTimer @ 0x1403B74A0 (KeCancelTimer.c)
+ *     BgpGxDrawRectangle @ 0x1404B947C (BgpGxDrawRectangle.c)
+ *     BgpGetBitsPerPixel @ 0x1404B98EC (BgpGetBitsPerPixel.c)
+ *     BgpFwAcquireLock @ 0x1404E11C4 (BgpFwAcquireLock.c)
+ *     BgpFwReleaseLock @ 0x1404E157C (BgpFwReleaseLock.c)
+ *     BgpFwQueryPerformanceCounter @ 0x1404F1AFC (BgpFwQueryPerformanceCounter.c)
  */
 
 void __fastcall AnFwpFadeAnimationTimer(
@@ -91,36 +91,36 @@ void __fastcall AnFwpFadeAnimationTimer(
   v4 = 0;
   v71 = 0LL;
   BgpFwAcquireLock();
-  if ( WheapPfaLock.SchedulerApc.Size )
+  if ( LOBYTE(WheapPfaLock.SuspendEvent.Header.WaitListHead.Flink) )
   {
-    WheapPfaLock.ThreadListEntry.Blink = (struct _LIST_ENTRY *)BgpFwQueryPerformanceCounter(0LL).QuadPart;
-    qword_140E64FC0 = (__int64)WheapPfaLock.ThreadListEntry.Blink;
+    *(LARGE_INTEGER *)&WheapPfaLock.PriorityFloorSummary = BgpFwQueryPerformanceCounter(0LL);
+    qword_140E651C0 = *(_QWORD *)&WheapPfaLock.PriorityFloorSummary;
     PerformanceCounter = BgpFwQueryPerformanceCounter(0LL);
-    v6 = qword_140E0EFC8;
-    v7 = byte_140E0EF80;
-    v8 = byte_140E0EF81;
-    v9 = byte_140E0EF82;
-    v10 = qword_140E0EFF8;
-    WheapPfaLock.ThreadListEntry.Blink = (struct _LIST_ENTRY *)PerformanceCounter.QuadPart;
-    qword_140E64FB0 = PerformanceCounter.QuadPart;
-    v71 = qword_140E0EF78;
-    v68 = HIDWORD(qword_140E0EF70);
-    v69 = qword_140E0EFB8;
-    v72[0].QuadPart = qword_140E0EFC8;
-    v70 = qword_140E0F000;
+    v6 = qword_140E0F058;
+    v7 = byte_140E0F010;
+    v8 = byte_140E0F011;
+    v9 = byte_140E0F012;
+    v10 = qword_140E0F088;
+    *(LARGE_INTEGER *)&WheapPfaLock.PriorityFloorSummary = PerformanceCounter;
+    qword_140E651B0 = PerformanceCounter.QuadPart;
+    v71 = qword_140E0F008;
+    v68 = HIDWORD(qword_140E0F000);
+    v69 = qword_140E0F048;
+    v72[0].QuadPart = qword_140E0F058;
+    v70 = qword_140E0F090;
     v11 = 10
-        * (qword_140E0EF70
-         - (unsigned int)qword_140E0EF70
-         / (*(_DWORD *)&gLoadedDiffHivesLock.WaitBlockFill11[84] - HIDWORD(qword_140E0EF70)));
+        * (qword_140E0F000
+         - (unsigned int)qword_140E0F000
+         / (*(_DWORD *)&gLoadedDiffHivesLock.WaitBlockFill11[84] - HIDWORD(qword_140E0F000)));
     if ( (unsigned int)BgpGetBitsPerPixel() == 24 )
     {
       v15 = 0;
       if ( !v9 )
       {
-        v52 = qword_140E0EFC0;
+        v52 = qword_140E0F050;
         v53 = 0;
         v54 = *(_QWORD *)(v6 + 24);
-        for ( i = *(_QWORD *)(qword_140E0EFC0 + 24); v53 < *(_DWORD *)(v52 + 12); ++v53 )
+        for ( i = *(_QWORD *)(qword_140E0F050 + 24); v53 < *(_DWORD *)(v52 + 12); ++v53 )
         {
           v56 = *(unsigned __int8 *)(v53 + i);
           if ( (_BYTE)v56 )
@@ -173,10 +173,10 @@ void __fastcall AnFwpFadeAnimationTimer(
       v15 = 0;
       if ( !v9 )
       {
-        v31 = qword_140E0EFC0;
+        v31 = qword_140E0F050;
         v32 = 0LL;
         v33 = *(_QWORD *)(v6 + 24);
-        for ( m = *(_QWORD *)(qword_140E0EFC0 + 24);
+        for ( m = *(_QWORD *)(qword_140E0F050 + 24);
               (unsigned int)v32 < *(_DWORD *)(v31 + 12);
               v32 = (unsigned int)(v32 + 4) )
         {
@@ -265,12 +265,12 @@ void __fastcall AnFwpFadeAnimationTimer(
         }
       }
     }
-    WheapPfaLock.ThreadListEntry.Blink = (struct _LIST_ENTRY *)BgpFwQueryPerformanceCounter(0LL).QuadPart;
-    v28 = *(_QWORD *)&BgpFwQueryPerformanceCounter(0LL) - qword_140E64FB0;
-    *(_QWORD *)&WheapPfaLock.PriorityFloorSummary += v28;
-    *(_QWORD *)&WheapPfaLock.PriorityFloorCounts[24] = v28;
-    WheapPfaLock.ThreadListEntry.Blink = (struct _LIST_ENTRY *)BgpFwQueryPerformanceCounter(0LL).QuadPart;
-    qword_140E64FA8 = (__int64)WheapPfaLock.ThreadListEntry.Blink;
+    *(LARGE_INTEGER *)&WheapPfaLock.PriorityFloorSummary = BgpFwQueryPerformanceCounter(0LL);
+    v28 = *(_QWORD *)&BgpFwQueryPerformanceCounter(0LL) - qword_140E651B0;
+    WheapPfaLock.WriteTransferCount += v28;
+    WheapPfaLock.OtherTransferCount = v28;
+    *(LARGE_INTEGER *)&WheapPfaLock.PriorityFloorSummary = BgpFwQueryPerformanceCounter(0LL);
+    qword_140E651A8 = *(_QWORD *)&WheapPfaLock.PriorityFloorSummary;
     if ( !v9 )
     {
       BgpGxDrawRectangle(v72[0].QuadPart, (__int64)&v71);
@@ -278,42 +278,41 @@ void __fastcall AnFwpFadeAnimationTimer(
     }
     if ( !v7 )
     {
-      if ( !v68 && !v16 || (BgpGxDrawRectangle(v69, (__int64)&xmmword_140E0EF90), !v16) )
+      if ( !v68 && !v16 || (BgpGxDrawRectangle(v69, (__int64)&xmmword_140E0F020), !v16) )
         v7 = 1;
     }
     if ( !v8 )
     {
-      if ( !v68 && !v4 || (BgpGxDrawRectangle(v70, (__int64)&xmmword_140E0EFD0), !v4) )
+      if ( !v68 && !v4 || (BgpGxDrawRectangle(v70, (__int64)&xmmword_140E0F060), !v4) )
         v8 = 1;
     }
-    WheapPfaLock.ThreadListEntry.Blink = (struct _LIST_ENTRY *)BgpFwQueryPerformanceCounter(0LL).QuadPart;
-    v29 = *(_QWORD *)&BgpFwQueryPerformanceCounter(0LL) - qword_140E64FA8;
-    *(_QWORD *)&WheapPfaLock.PriorityFloorCounts[16] += v29;
-    *(_QWORD *)&WheapPfaLock.PriorityFloorCounts[24] = v29;
-    WheapPfaLock.ThreadListEntry.Blink = (struct _LIST_ENTRY *)BgpFwQueryPerformanceCounter(v72).QuadPart;
-    v30.QuadPart = *(_QWORD *)&BgpFwQueryPerformanceCounter(0LL) - qword_140E64FC0;
-    *(LARGE_INTEGER *)&WheapPfaLock.PriorityFloorCounts[24] = v30;
-    if ( v30.QuadPart < qword_140E0F1D8 )
-      qword_140E0F1D8 = v30.QuadPart;
-    if ( v30.QuadPart > *(__int64 *)&WheapPfaLock.SchedulerApcFill5[80] )
-      *(LARGE_INTEGER *)&WheapPfaLock.SchedulerApcFill5[80] = v30;
-    WheapPfaLock.SuspendEvent.Header.WaitListHead.Blink = (struct _LIST_ENTRY *)((char *)WheapPfaLock.SuspendEvent.Header.WaitListHead.Blink
-                                                                               + v30.QuadPart);
-    WheapPfaLock.MutantListHead.Flink = (struct _LIST_ENTRY *)((char *)WheapPfaLock.MutantListHead.Flink + v30.QuadPart);
-    ++WheapPfaLock.SuspendEvent.Header.LockNV;
+    *(LARGE_INTEGER *)&WheapPfaLock.PriorityFloorSummary = BgpFwQueryPerformanceCounter(0LL);
+    v29 = *(_QWORD *)&BgpFwQueryPerformanceCounter(0LL) - qword_140E651A8;
+    WheapPfaLock.ReadTransferCount += v29;
+    WheapPfaLock.OtherTransferCount = v29;
+    *(LARGE_INTEGER *)&WheapPfaLock.PriorityFloorSummary = BgpFwQueryPerformanceCounter(v72);
+    v30.QuadPart = *(_QWORD *)&BgpFwQueryPerformanceCounter(0LL) - qword_140E651C0;
+    WheapPfaLock.OtherTransferCount = v30.QuadPart;
+    if ( v30.QuadPart < qword_140E0F258 )
+      qword_140E0F258 = v30.QuadPart;
+    if ( v30.QuadPart > (__int64)WheapPfaLock.PropagateBoostsEntry.Next )
+      WheapPfaLock.PropagateBoostsEntry.Next = (struct _SINGLE_LIST_ENTRY *)v30.QuadPart;
+    *(_QWORD *)&WheapPfaLock.PriorityFloorCounts[16] += v30.QuadPart;
+    *(_QWORD *)&WheapPfaLock.AbCompletedIoQoSBoostCount += v30.QuadPart;
+    ++LODWORD(WheapPfaLock.IoSelfBoostsEntry.Next);
     if ( v15 || v4 || v16 )
     {
-      byte_140E0EF80 = v7;
-      byte_140E0EF81 = v8;
-      LODWORD(qword_140E0EF70) = v11 / 0xA;
-      HIDWORD(qword_140E0EF70) = v68 + 1;
-      byte_140E0EF82 = v9;
+      byte_140E0F010 = v7;
+      byte_140E0F011 = v8;
+      LODWORD(qword_140E0F000) = v11 / 0xA;
+      HIDWORD(qword_140E0F000) = v68 + 1;
+      byte_140E0F012 = v9;
     }
     else
     {
-      WheapPfaLock.SchedulerApc.Size = 0;
-      KeCancelTimer(&stru_140E64EF0);
-      KeSetEvent(&stru_140E64F70, 0, 0);
+      LOBYTE(WheapPfaLock.SuspendEvent.Header.WaitListHead.Flink) = 0;
+      KeCancelTimer(&stru_140E650F0);
+      KeSetEvent(&stru_140E65170, 0, 0);
     }
   }
   BgpFwReleaseLock();

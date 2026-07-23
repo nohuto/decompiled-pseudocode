@@ -17,56 +17,57 @@
  *     __SEH_prolog4 @ 0x4B307AC4 (__SEH_prolog4.c)
  */
 
-char __stdcall LdrUnloadAlternateResourceModuleEx(int a1, __int16 a2)
+BOOLEAN __cdecl LdrUnloadAlternateResourceModuleEx(PVOID DllHandle, ULONG Flags)
 {
-  char v2; // bl
+  BOOLEAN v2; // bl
   unsigned int v3; // esi
   int v4; // edi
-  int Heap; // eax
+  PVOID *Heap; // eax
   int v7; // ebx
   int v8; // eax
-  int v9; // ebx
-  unsigned int v10; // [esp-4h] [ebp-44h]
-  int v11; // [esp+1Ch] [ebp-24h]
-  int v12; // [esp+20h] [ebp-20h]
+  PVOID *v9; // ebx
+  SIZE_T v10; // [esp-4h] [ebp-44h]
+  void *v11; // [esp-4h] [ebp-44h]
+  int v12; // [esp+1Ch] [ebp-24h]
+  PVOID *v13; // [esp+20h] [ebp-20h]
 
   v2 = 0;
-  if ( !a1 )
+  if ( !DllHandle )
     return 0;
   RtlAcquireSRWLockExclusive(&MuiCacheSWRLock);
   v3 = AlternateResourceModuleCount;
   if ( AlternateResourceModuleCount )
   {
     v4 = AlternateResourceModuleCount;
-    v11 = AlternateResourceModuleCount;
-    Heap = AlternateResourceModules;
-    v12 = AlternateResourceModules;
+    v12 = AlternateResourceModuleCount;
+    Heap = (PVOID *)AlternateResourceModules;
+    v13 = (PVOID *)AlternateResourceModules;
     while ( 1 )
     {
       if ( v4 <= 0 )
         goto LABEL_7;
-      if ( *(_DWORD *)(32 * v4 + Heap - 28) == a1 )
+      if ( Heap[8 * v4 - 7] == DllHandle )
         break;
 LABEL_6:
-      v11 = --v4;
+      v12 = --v4;
     }
-    v7 = 32 * v4 + Heap - 32;
+    v7 = (int)&Heap[8 * v4 - 8];
     v8 = *(_DWORD *)(v7 + 16);
-    if ( !v8 || a2 && a2 != *(_WORD *)v7 || v8 == -1 )
+    if ( !v8 || (_WORD)Flags && (_WORD)Flags != *(_WORD *)v7 || v8 == -1 )
     {
-      v9 = v12;
+      v9 = v13;
     }
     else
     {
-      v10 = v8 & 0xFFFFFFFC;
+      v11 = (void *)(v8 & 0xFFFFFFFC);
       if ( *(_DWORD *)(v7 + 28) == -1073741799 )
       {
-        RtlFreeHeap((int)NtCurrentPeb()->ProcessHeap, 0, v10);
-        v4 = v11;
+        RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v11);
+        v4 = v12;
       }
       else
       {
-        NtUnmapViewOfSection(-1, v10);
+        NtUnmapViewOfSection((HANDLE)0xFFFFFFFF, v11);
       }
       if ( *(_DWORD *)(v7 + 20) )
       {
@@ -75,8 +76,8 @@ LABEL_6:
       }
       *(_DWORD *)(v7 + 16) = 0;
       v3 = AlternateResourceModuleCount;
-      v9 = AlternateResourceModules;
-      v12 = AlternateResourceModules;
+      v9 = (PVOID *)AlternateResourceModules;
+      v13 = (PVOID *)AlternateResourceModules;
     }
     if ( v4 != v3 )
       LdrpRemoveAlternateModuleCacheItem(v4 - 1);
@@ -85,13 +86,14 @@ LABEL_6:
     {
       if ( v3 >= AltResMemBlockCount - 32 )
       {
-        Heap = v12;
+        Heap = v13;
 LABEL_21:
         v2 = 1;
         goto LABEL_6;
       }
-      Heap = RtlReAllocateHeap((int)NtCurrentPeb()->ProcessHeap, 0, v9, 32 * (AltResMemBlockCount - 32));
-      v12 = Heap;
+      LODWORD(v10) = 32 * (AltResMemBlockCount - 32);
+      Heap = (PVOID *)RtlReAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, v9, v10);
+      v13 = Heap;
       if ( !Heap )
       {
         v2 = 0;
@@ -102,13 +104,13 @@ LABEL_21:
     }
     else
     {
-      RtlFreeHeap((int)NtCurrentPeb()->ProcessHeap, 0, v9);
+      RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v9);
       Heap = 0;
-      v12 = 0;
+      v13 = 0;
       AlternateResourceModules = 0;
       AltResMemBlockCount = 0;
     }
-    v4 = v11;
+    v4 = v12;
     v3 = AlternateResourceModuleCount;
     goto LABEL_21;
   }

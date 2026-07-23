@@ -1,12 +1,12 @@
 /*
- * XREFs of MiDeleteDirectMapFixupPfn @ 0x1402C3CC0
+ * XREFs of MiDeleteDirectMapFixupPfn @ 0x1402C3EB0
  * Callers:
- *     MiFreeRelocations @ 0x1406FD200 (MiFreeRelocations.c)
+ *     MiFreeRelocations @ 0x1406FE4A0 (MiFreeRelocations.c)
  * Callees:
  *     MiLockPageInline @ 0x14002CE40 (MiLockPageInline.c)
  *     MiRemoveLockedPageCharge @ 0x1400304A0 (MiRemoveLockedPageCharge.c)
  *     MiInsertPageInFreeOrZeroedList @ 0x1400387F0 (MiInsertPageInFreeOrZeroedList.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiDeleteDirectMapFixupPfn(__int64 a1)

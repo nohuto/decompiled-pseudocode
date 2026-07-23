@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlStringCbCopyNA @ 0x1403B4464
+ * XREFs of RtlStringCbCopyNA @ 0x1403B45D4
  * Callers:
- *     EmpParseTargetRuleStringIndexList @ 0x140A46D1C (EmpParseTargetRuleStringIndexList.c)
+ *     EmpParseTargetRuleStringIndexList @ 0x140A47D1C (EmpParseTargetRuleStringIndexList.c)
  * Callees:
  *     <none>
  */

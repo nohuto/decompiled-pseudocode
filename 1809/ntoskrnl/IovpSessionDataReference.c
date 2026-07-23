@@ -1,8 +1,8 @@
 /*
- * XREFs of IovpSessionDataReference @ 0x14093F3D8
+ * XREFs of IovpSessionDataReference @ 0x1409403D8
  * Callers:
- *     IovpCallDriver1 @ 0x14092EC8C (IovpCallDriver1.c)
- *     IovpCompleteRequest2 @ 0x14092F620 (IovpCompleteRequest2.c)
+ *     IovpCallDriver1 @ 0x14092FC8C (IovpCallDriver1.c)
+ *     IovpCompleteRequest2 @ 0x140930620 (IovpCompleteRequest2.c)
  * Callees:
  *     <none>
  */

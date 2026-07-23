@@ -1,5 +1,5 @@
 /*
- * XREFs of VerifierExGetExclusiveWaiterCount @ 0x14070C3E8
+ * XREFs of VerifierExGetExclusiveWaiterCount @ 0x14070C418
  * Callers:
  *     <none>
  * Callees:

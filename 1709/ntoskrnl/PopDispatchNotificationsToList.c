@@ -11,44 +11,38 @@
  *     PopFreeRegistration @ 0x1406FA310 (PopFreeRegistration.c)
  */
 
-struct _KTHREAD *__fastcall PopDispatchNotificationsToList(_QWORD *a1)
+struct _KTHREAD *__fastcall PopDispatchNotificationsToList(WNF_STATE_NAME **a1)
 {
-  _QWORD *v2; // rdi
-  _QWORD *v3; // r14
+  WNF_STATE_NAME *v2; // rdi
+  WNF_STATE_NAME *v3; // r14
   unsigned int *v4; // rsi
   struct _KTHREAD *result; // rax
   int v6; // ebx
-  __int64 v7; // r8
-  int updated; // ebx
-  __int64 v9; // rax
-  _QWORD *v10; // rcx
-  __int64 v11; // [rsp+20h] [rbp-78h]
-  int v12; // [rsp+28h] [rbp-70h]
-  int v13; // [rsp+30h] [rbp-68h]
-  unsigned int v14; // [rsp+40h] [rbp-58h] BYREF
-  __int64 v15; // [rsp+48h] [rbp-50h] BYREF
-  _BYTE v16[40]; // [rsp+50h] [rbp-48h] BYREF
+  ULONG v7; // r8d
+  NTSTATUS updated; // ebx
+  WNF_STATE_NAME v9; // rax
+  WNF_STATE_NAME **v10; // rcx
+  ULONG v11; // [rsp+40h] [rbp-58h] BYREF
+  WNF_STATE_NAME StateName; // [rsp+48h] [rbp-50h] BYREF
+  _BYTE Buffer[40]; // [rsp+50h] [rbp-48h] BYREF
 
   ExAcquireFastMutex(&PopSettingLock);
-  v2 = (_QWORD *)*a1;
-  while ( v2 != a1 )
+  v2 = *a1;
+  while ( v2 != (WNF_STATE_NAME *)a1 )
   {
     v3 = v2;
-    v4 = (unsigned int *)v2 + 13;
+    v4 = (unsigned int *)&v2[6] + 1;
     while ( (*v4 & 1) != 0 && (*v4 & 2) == 0 )
     {
-      v15 = v2[7];
+      StateName = v2[7];
       *v4 = *v4 & 0xFFFFFFFC | 2;
-      v6 = PopMarshalSettingValues(v2, v16, 36LL, &v14, v11, v12, v13);
+      v6 = PopMarshalSettingValues(v2, Buffer, 36LL, &v11);
       KeReleaseGuardedMutex(&PopSettingLock);
-      v7 = v14;
-      v13 = 0;
-      v12 = 0;
-      v11 = 0LL;
+      v7 = v11;
       if ( v6 < 0 )
-        v7 = 0LL;
-      v14 = v7;
-      updated = ZwUpdateWnfStateData((__int64)&v15, (__int64)v16, v7);
+        v7 = 0;
+      v11 = v7;
+      updated = ZwUpdateWnfStateData(&StateName, Buffer, v7, 0LL, 0LL, 0, 0);
       if ( KeGetCurrentThread()->WaitBlock[3].SpareLong )
         __fastfail(0x20u);
       ExAcquireFastMutex(&PopSettingLock);
@@ -59,14 +53,14 @@ struct _KTHREAD *__fastcall PopDispatchNotificationsToList(_QWORD *a1)
         break;
       }
     }
-    v2 = (_QWORD *)*v2;
+    v2 = (WNF_STATE_NAME *)*v2;
     if ( (*v4 & 2) == 0 && (*v4 & 4) != 0 )
     {
       v9 = *v3;
-      if ( *(_QWORD **)(*v3 + 8LL) != v3 || (v10 = (_QWORD *)v3[1], (_QWORD *)*v10 != v3) )
+      if ( *(WNF_STATE_NAME **)(*(_QWORD *)v3 + 8LL) != v3 || (v10 = (WNF_STATE_NAME **)v3[1], *v10 != v3) )
         __fastfail(3u);
-      *v10 = v9;
-      *(_QWORD *)(v9 + 8) = v10;
+      *v10 = (WNF_STATE_NAME *)v9;
+      *(_QWORD *)(*(_QWORD *)&v9 + 8LL) = v10;
       PopFreeRegistration(v3);
     }
   }

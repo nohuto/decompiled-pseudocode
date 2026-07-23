@@ -1,10 +1,10 @@
 /*
- * XREFs of IopWriteBugCheckSelEntries @ 0x140504B9C
+ * XREFs of IopWriteBugCheckSelEntries @ 0x140504B1C
  * Callers:
- *     IoSaveBugCheckRecoveryStatus @ 0x140502860 (IoSaveBugCheckRecoveryStatus.c)
+ *     IoSaveBugCheckRecoveryStatus @ 0x1405027E0 (IoSaveBugCheckRecoveryStatus.c)
  * Callees:
- *     WheaLogInternalEvent @ 0x1403BAD50 (WheaLogInternalEvent.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     WheaLogInternalEvent @ 0x1403BAEC0 (WheaLogInternalEvent.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  */
 
 LONG IopWriteBugCheckSelEntries()

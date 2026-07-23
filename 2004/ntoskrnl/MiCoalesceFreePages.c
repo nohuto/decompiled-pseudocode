@@ -166,7 +166,7 @@ LABEL_101:
   BugCheckParameter2 = (volatile signed __int64 *)(v4 + 192);
   v17 = v2;
   v65 = 0LL;
-  v18 = KeAbPreAcquire(v4 + 192, 0LL, 1LL);
+  v18 = KeAbPreAcquire(v4 + 192, 0LL, 1);
   if ( _InterlockedCompareExchange64(BugCheckParameter2, 17LL, 0LL)
     && !(unsigned __int8)ExfTryAcquirePushLockShared(BugCheckParameter2) )
   {

@@ -1,24 +1,24 @@
 /*
- * XREFs of CmpTransSearchAddTransFromKeyBody @ 0x1407687FC
+ * XREFs of CmpTransSearchAddTransFromKeyBody @ 0x1407689EC
  * Callers:
- *     CmQueryMultipleValueKey @ 0x1406CFB38 (CmQueryMultipleValueKey.c)
- *     CmSetValueKey @ 0x1406D3240 (CmSetValueKey.c)
- *     CmpQueryKeySecurity @ 0x1406D5BA0 (CmpQueryKeySecurity.c)
- *     CmQueryKey @ 0x1406D71D0 (CmQueryKey.c)
- *     CmEnumerateKey @ 0x1406DC440 (CmEnumerateKey.c)
- *     CmQueryValueKey @ 0x1406E02C0 (CmQueryValueKey.c)
- *     CmpSetKeySecurity @ 0x14070C3BC (CmpSetKeySecurity.c)
- *     CmEnumerateValueKey @ 0x14070E840 (CmEnumerateValueKey.c)
- *     CmDeleteValueKey @ 0x14070EF24 (CmDeleteValueKey.c)
- *     NtDeleteKey @ 0x14070FCB0 (NtDeleteKey.c)
- *     CmDeleteKey @ 0x14070FFEC (CmDeleteKey.c)
- *     CmRenameKey @ 0x140A143AC (CmRenameKey.c)
- *     CmSetKeyFlags @ 0x140A159B4 (CmSetKeyFlags.c)
- *     CmSetLastWriteTimeKey @ 0x140A15EE8 (CmSetLastWriteTimeKey.c)
- *     CmEnumerateValueKeyFromMergedView @ 0x140A179D4 (CmEnumerateValueKeyFromMergedView.c)
+ *     CmQueryMultipleValueKey @ 0x1406CFB68 (CmQueryMultipleValueKey.c)
+ *     CmSetValueKey @ 0x1406D3270 (CmSetValueKey.c)
+ *     CmpQueryKeySecurity @ 0x1406D5BD0 (CmpQueryKeySecurity.c)
+ *     CmQueryKey @ 0x1406D7200 (CmQueryKey.c)
+ *     CmEnumerateKey @ 0x1406DC470 (CmEnumerateKey.c)
+ *     CmQueryValueKey @ 0x1406E02F0 (CmQueryValueKey.c)
+ *     CmpSetKeySecurity @ 0x14070C5CC (CmpSetKeySecurity.c)
+ *     CmEnumerateValueKey @ 0x14070EA50 (CmEnumerateValueKey.c)
+ *     CmDeleteValueKey @ 0x14070F134 (CmDeleteValueKey.c)
+ *     NtDeleteKey @ 0x14070FEC0 (NtDeleteKey.c)
+ *     CmDeleteKey @ 0x1407101FC (CmDeleteKey.c)
+ *     CmRenameKey @ 0x140A1465C (CmRenameKey.c)
+ *     CmSetKeyFlags @ 0x140A15C64 (CmSetKeyFlags.c)
+ *     CmSetLastWriteTimeKey @ 0x140A16198 (CmSetLastWriteTimeKey.c)
+ *     CmEnumerateValueKeyFromMergedView @ 0x140A17C84 (CmEnumerateValueKeyFromMergedView.c)
  * Callees:
- *     CmpTransSearchAddTrans @ 0x14076853C (CmpTransSearchAddTrans.c)
- *     CmpTransSearchAddLightWeightTrans @ 0x14076889C (CmpTransSearchAddLightWeightTrans.c)
+ *     CmpTransSearchAddTrans @ 0x14076872C (CmpTransSearchAddTrans.c)
+ *     CmpTransSearchAddLightWeightTrans @ 0x140768A8C (CmpTransSearchAddLightWeightTrans.c)
  */
 
 __int64 __fastcall CmpTransSearchAddTransFromKeyBody(_QWORD *a1, _QWORD *a2)

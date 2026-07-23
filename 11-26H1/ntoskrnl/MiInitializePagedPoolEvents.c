@@ -1,17 +1,17 @@
 /*
- * XREFs of MiInitializePagedPoolEvents @ 0x140CF9D74
+ * XREFs of MiInitializePagedPoolEvents @ 0x140D000F4
  * Callers:
- *     MiInitializeMemoryEvents @ 0x14087F860 (MiInitializeMemoryEvents.c)
+ *     MiInitializeMemoryEvents @ 0x140885C60 (MiInitializeMemoryEvents.c)
  * Callees:
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     KiCheckForKernelApcDelivery @ 0x14027DB80 (KiCheckForKernelApcDelivery.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     KeSetEvent @ 0x1402DE9C0 (KeSetEvent.c)
- *     ExfTryToWakePushLock @ 0x1403170A0 (ExfTryToWakePushLock.c)
- *     KeResetEvent @ 0x140395BB0 (KeResetEvent.c)
- *     ?KiAbpSetEntryValue@AutoBoost@@YAXPECEEK@Z @ 0x140444460 (-KiAbpSetEntryValue@AutoBoost@@YAXPECEEK@Z.c)
- *     MiFreePoolPagesLeft @ 0x14047E2B4 (MiFreePoolPagesLeft.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     KiCheckForKernelApcDelivery @ 0x14027D0F0 (KiCheckForKernelApcDelivery.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeSetEvent @ 0x1402C0780 (KeSetEvent.c)
+ *     ExfTryToWakePushLock @ 0x1403190D0 (ExfTryToWakePushLock.c)
+ *     KeResetEvent @ 0x140397930 (KeResetEvent.c)
+ *     ?KiAbpSetEntryValue@AutoBoost@@YAXPECEEK@Z @ 0x14043CF70 (-KiAbpSetEntryValue@AutoBoost@@YAXPECEEK@Z.c)
+ *     MiFreePoolPagesLeft @ 0x140477C24 (MiFreePoolPagesLeft.c)
  */
 
 void __fastcall MiInitializePagedPoolEvents(__int64 a1, __int64 a2, __int64 a3, struct _KLOCK_ENTRIES *a4)
@@ -27,14 +27,14 @@ void __fastcall MiInitializePagedPoolEvents(__int64 a1, __int64 a2, __int64 a3, 
 
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->SpecialApcDisable;
-  v5 = (AutoBoost *)KeAbPreAcquire((__int64)&stru_140E36558.ApcState.ApcListHead[1], 0LL, 0LL, a4);
-  v7 = _interlockedbittestandset64((volatile signed __int32 *)&stru_140E36558.ApcStateFill[16], 0LL);
+  v5 = (AutoBoost *)KeAbPreAcquire((__int64)&stru_140E366D8.ApcState.ApcListHead[1], 0LL, 0LL, a4);
+  v7 = _interlockedbittestandset64((volatile signed __int32 *)&stru_140E366D8.ApcStateFill[16], 0LL);
   v8 = v5;
   if ( v7 )
     ExfAcquirePushLockExclusiveEx(
-      (unsigned __int64 *)&stru_140E36558.ApcState.ApcListHead[1],
+      (unsigned __int64 *)&stru_140E366D8.ApcState.ApcListHead[1],
       v5,
-      (__int64)&stru_140E36558.ApcState.ApcListHead[1]);
+      (__int64)&stru_140E366D8.ApcState.ApcListHead[1]);
   if ( v8 )
   {
     if ( (KiAbpGlobalState & 1) != 0 )
@@ -48,21 +48,21 @@ void __fastcall MiInitializePagedPoolEvents(__int64 a1, __int64 a2, __int64 a3, 
     }
   }
   v9 = MiFreePoolPagesLeft(5);
-  if ( v9 < qword_140E2C5A8 )
-    KeResetEvent((PRKEVENT)stru_140E37DC8.ThreadLock);
+  if ( v9 < qword_140E2C728 )
+    KeResetEvent((PRKEVENT)stru_140E37F48.ThreadLock);
   else
-    KeSetEvent((PRKEVENT)stru_140E37DC8.ThreadLock, 0, 0);
-  if ( v9 > qword_140E2C5A0 )
-    KeResetEvent((PRKEVENT)stru_140E37DC8.StackBase);
+    KeSetEvent((PRKEVENT)stru_140E37F48.ThreadLock, 0, 0);
+  if ( v9 > qword_140E2C720 )
+    KeResetEvent((PRKEVENT)stru_140E37F48.StackBase);
   else
-    KeSetEvent((PRKEVENT)stru_140E37DC8.StackBase, 0, 0);
+    KeSetEvent((PRKEVENT)stru_140E37F48.StackBase, 0, 0);
   if ( (_InterlockedExchangeAdd64(
-          (volatile signed __int64 *)&stru_140E36558.ApcState.ApcListHead[1].Flink,
+          (volatile signed __int64 *)&stru_140E366D8.ApcState.ApcListHead[1].Flink,
           0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-    ExfTryToWakePushLock((volatile signed __int64 *)&stru_140E36558.ApcState.ApcListHead[1]);
-  KeAbPostRelease((unsigned __int64)&stru_140E36558.ApcState.ApcListHead[1]);
+    ExfTryToWakePushLock((volatile signed __int64 *)&stru_140E366D8.ApcState.ApcListHead[1]);
+  KeAbPostRelease((unsigned __int64)&stru_140E366D8.ApcState.ApcListHead[1]);
   if ( CurrentThread->SpecialApcDisable++ == -1
-    && ($7A85BAF4F1FA08634C1C4A3E45B775B3 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
+    && ($241382875694CED3D471BC5892DE3337 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
   {
     KiCheckForKernelApcDelivery(v11, v10);
   }

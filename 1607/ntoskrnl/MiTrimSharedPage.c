@@ -1,24 +1,24 @@
 /*
- * XREFs of MiTrimSharedPage @ 0x14008E6E4
+ * XREFs of MiTrimSharedPage @ 0x14008DE44
  * Callers:
- *     MiClaimPhysicalRun @ 0x1401063DC (MiClaimPhysicalRun.c)
+ *     MiClaimPhysicalRun @ 0x14010415C (MiClaimPhysicalRun.c)
  * Callees:
- *     MiReferenceSubsection @ 0x140021B6C (MiReferenceSubsection.c)
- *     MiDecrementSubsections @ 0x140022774 (MiDecrementSubsections.c)
- *     MiLockPageInline @ 0x140022E70 (MiLockPageInline.c)
- *     MiReleaseControlAreaWaiters @ 0x140026CE8 (MiReleaseControlAreaWaiters.c)
- *     MiRemoveUnusedSegment @ 0x140026D14 (MiRemoveUnusedSegment.c)
- *     MiBuildWakeList @ 0x140026D70 (MiBuildWakeList.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140026F70 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     ExReleaseSpinLockExclusive @ 0x14002E9A0 (ExReleaseSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14002E9E0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusive @ 0x14002EB90 (ExAcquireSpinLockExclusive.c)
- *     MiDecrementModifiedWriteCount @ 0x14008F084 (MiDecrementModifiedWriteCount.c)
- *     MiTrimSection @ 0x14008F514 (MiTrimSection.c)
- *     MiReferencePfBackedSection @ 0x14008FB80 (MiReferencePfBackedSection.c)
- *     MiGetPrototypePteDirect @ 0x1401F26B0 (MiGetPrototypePteDirect.c)
- *     MiReturnSubsectionCharges @ 0x1401F5310 (MiReturnSubsectionCharges.c)
- *     MiClusterVadFull @ 0x1401F6234 (MiClusterVadFull.c)
+ *     MiReferenceSubsection @ 0x1400216EC (MiReferenceSubsection.c)
+ *     MiDecrementSubsections @ 0x1400222F4 (MiDecrementSubsections.c)
+ *     MiLockPageInline @ 0x1400229F0 (MiLockPageInline.c)
+ *     MiReleaseControlAreaWaiters @ 0x140026868 (MiReleaseControlAreaWaiters.c)
+ *     MiRemoveUnusedSegment @ 0x140026894 (MiRemoveUnusedSegment.c)
+ *     MiBuildWakeList @ 0x1400268F0 (MiBuildWakeList.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140026AF0 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     ExReleaseSpinLockExclusive @ 0x14002E520 (ExReleaseSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14002E560 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusive @ 0x14002E710 (ExAcquireSpinLockExclusive.c)
+ *     MiDecrementModifiedWriteCount @ 0x14008E7E4 (MiDecrementModifiedWriteCount.c)
+ *     MiTrimSection @ 0x14008EC74 (MiTrimSection.c)
+ *     MiReferencePfBackedSection @ 0x14008F2E0 (MiReferencePfBackedSection.c)
+ *     MiGetPrototypePteDirect @ 0x1401F24DC (MiGetPrototypePteDirect.c)
+ *     MiReturnSubsectionCharges @ 0x1401F513C (MiReturnSubsectionCharges.c)
+ *     MiClusterVadFull @ 0x1401F6060 (MiClusterVadFull.c)
  */
 
 __int64 __fastcall MiTrimSharedPage(__int64 a1, unsigned __int8 a2, unsigned int a3)

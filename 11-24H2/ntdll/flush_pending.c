@@ -1,15 +1,15 @@
 /*
- * XREFs of flush_pending @ 0x180154658
+ * XREFs of flush_pending @ 0x180152A18
  * Callers:
- *     deflate @ 0x1801529BC (deflate.c)
- *     deflate_fast @ 0x180152E80 (deflate_fast.c)
- *     deflate_huff @ 0x1801533DC (deflate_huff.c)
- *     deflate_rle @ 0x18015354C (deflate_rle.c)
- *     deflate_slow @ 0x180153830 (deflate_slow.c)
- *     deflate_stored @ 0x180153E80 (deflate_stored.c)
+ *     deflate @ 0x180150D7C (deflate.c)
+ *     deflate_fast @ 0x180151240 (deflate_fast.c)
+ *     deflate_huff @ 0x18015179C (deflate_huff.c)
+ *     deflate_rle @ 0x18015190C (deflate_rle.c)
+ *     deflate_slow @ 0x180151BF0 (deflate_slow.c)
+ *     deflate_stored @ 0x180152240 (deflate_stored.c)
  * Callees:
- *     bi_flush @ 0x180155E98 (bi_flush.c)
- *     memmove @ 0x180167400 (memmove.c)
+ *     bi_flush @ 0x180154258 (bi_flush.c)
+ *     memmove @ 0x1801657C0 (memmove.c)
  */
 
 void *__fastcall flush_pending(__int64 a1)

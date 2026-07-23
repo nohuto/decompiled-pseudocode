@@ -13,7 +13,7 @@
 
 __int64 __fastcall ResCOpenMapping(__int64 a1, __int64 a2)
 {
-  __int64 v2; // rdi
+  void *v2; // rdi
   __int64 v3; // rbx
   __int64 v4; // rax
   int v5; // r8d
@@ -24,7 +24,7 @@ __int64 __fastcall ResCOpenMapping(__int64 a1, __int64 a2)
   v3 = 0LL;
   if ( !a1 || !ResCSegmentCreateAndPopulate )
   {
-    RtlSetLastWin32Error(0x57u);
+    RtlSetLastWin32Error(87);
 LABEL_8:
     if ( (unsigned __int64)(v3 - 1) <= 0xFFFFFFFFFFFFFFFDuLL )
       ResCloseHandle(v3);
@@ -34,7 +34,7 @@ LABEL_8:
   v3 = v4;
   if ( !v4 )
     return 0LL;
-  v2 = ResMapViewOfFile(v4, 4, v5, v6, 0LL);
+  v2 = (void *)ResMapViewOfFile(v4, 4, v5, v6, 0LL);
   if ( !v2 )
     goto LABEL_8;
   ResCloseHandle(v3);

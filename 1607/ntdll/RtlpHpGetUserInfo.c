@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpHpGetUserInfo @ 0x18007AE90
+ * XREFs of RtlpHpGetUserInfo @ 0x18007AE80
  * Callers:
- *     RtlGetUserInfoHeap @ 0x18007AB50 (RtlGetUserInfoHeap.c)
+ *     RtlGetUserInfoHeap @ 0x18007AB40 (RtlGetUserInfoHeap.c)
  * Callees:
- *     RtlpHpExtrasGet @ 0x18002926C (RtlpHpExtrasGet.c)
+ *     RtlpHpExtrasGet @ 0x18002925C (RtlpHpExtrasGet.c)
  */
 
 __int64 __fastcall RtlpHpGetUserInfo(__int64 a1, unsigned __int64 a2, unsigned int a3, _QWORD *a4, _DWORD *a5)

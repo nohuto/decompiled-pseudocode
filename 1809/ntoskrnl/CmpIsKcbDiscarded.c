@@ -1,11 +1,11 @@
 /*
- * XREFs of CmpIsKcbDiscarded @ 0x1405810B4
+ * XREFs of CmpIsKcbDiscarded @ 0x1405820B4
  * Callers:
- *     CmpConstructNameWithStatus @ 0x1405D73A0 (CmpConstructNameWithStatus.c)
- *     CmpCreateKeyBody @ 0x1405E0970 (CmpCreateKeyBody.c)
- *     CmpVEExecuteParseLogic @ 0x140640F60 (CmpVEExecuteParseLogic.c)
- *     CmpDoParseKey @ 0x140641CA0 (CmpDoParseKey.c)
- *     CmpIsKeyDeleted @ 0x140698120 (CmpIsKeyDeleted.c)
+ *     CmpConstructNameWithStatus @ 0x1405D83A0 (CmpConstructNameWithStatus.c)
+ *     CmpCreateKeyBody @ 0x1405E1970 (CmpCreateKeyBody.c)
+ *     CmpVEExecuteParseLogic @ 0x140641F80 (CmpVEExecuteParseLogic.c)
+ *     CmpDoParseKey @ 0x140642CC0 (CmpDoParseKey.c)
+ *     CmpIsKeyDeleted @ 0x1406992E0 (CmpIsKeyDeleted.c)
  * Callees:
  *     <none>
  */

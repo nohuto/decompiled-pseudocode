@@ -1,17 +1,17 @@
 /*
- * XREFs of MiPerformFixups @ 0x14079D900
+ * XREFs of MiPerformFixups @ 0x14079DAF0
  * Callers:
- *     MiRevertRelocatedImagePfn @ 0x1406B1250 (MiRevertRelocatedImagePfn.c)
- *     MiRelocateImagePfn @ 0x1407442C0 (MiRelocateImagePfn.c)
- *     MiRevertRelocations @ 0x14079D834 (MiRevertRelocations.c)
+ *     MiRevertRelocatedImagePfn @ 0x1406B1280 (MiRevertRelocatedImagePfn.c)
+ *     MiRelocateImagePfn @ 0x1407444B0 (MiRelocateImagePfn.c)
+ *     MiRevertRelocations @ 0x14079DA24 (MiRevertRelocations.c)
  * Callees:
- *     MiGetSystemRegionType @ 0x140284870 (MiGetSystemRegionType.c)
- *     MiApplyRetpolineFixups @ 0x140325600 (MiApplyRetpolineFixups.c)
- *     MiApplyStraddleFixups @ 0x140325A84 (MiApplyStraddleFixups.c)
- *     RtlApplyFunctionOverrideFixups @ 0x14067BB50 (RtlApplyFunctionOverrideFixups.c)
- *     RtlDoesRequireFunctionOverrideFixups @ 0x14067BD68 (RtlDoesRequireFunctionOverrideFixups.c)
- *     MiApplyCompressedFixups @ 0x14079DBC0 (MiApplyCompressedFixups.c)
- *     MiApplyRawFixups @ 0x140A47EE0 (MiApplyRawFixups.c)
+ *     MiGetSystemRegionType @ 0x140284B00 (MiGetSystemRegionType.c)
+ *     MiApplyRetpolineFixups @ 0x140325890 (MiApplyRetpolineFixups.c)
+ *     MiApplyStraddleFixups @ 0x140325D14 (MiApplyStraddleFixups.c)
+ *     RtlApplyFunctionOverrideFixups @ 0x14067C0A0 (RtlApplyFunctionOverrideFixups.c)
+ *     RtlDoesRequireFunctionOverrideFixups @ 0x14067C2B8 (RtlDoesRequireFunctionOverrideFixups.c)
+ *     MiApplyCompressedFixups @ 0x14079DDB0 (MiApplyCompressedFixups.c)
+ *     MiApplyRawFixups @ 0x140A48190 (MiApplyRawFixups.c)
  */
 
 void __fastcall MiPerformFixups(

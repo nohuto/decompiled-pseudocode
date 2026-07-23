@@ -1,9 +1,9 @@
 /*
- * XREFs of NtLoadKey @ 0x1405811C8
+ * XREFs of NtLoadKey @ 0x140581674
  * Callers:
  *     <none>
  * Callees:
- *     NtLoadKeyEx @ 0x14049B5F4 (NtLoadKeyEx.c)
+ *     NtLoadKeyEx @ 0x1404A378C (NtLoadKeyEx.c)
  */
 
 NTSTATUS __stdcall NtLoadKey(POBJECT_ATTRIBUTES KeyObjectAttributes, POBJECT_ATTRIBUTES FileObjectAttributes)

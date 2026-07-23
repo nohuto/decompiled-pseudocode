@@ -1,11 +1,11 @@
 /*
- * XREFs of EmonAllocateCounters @ 0x14055ACAC
+ * XREFs of EmonAllocateCounters @ 0x1405588DC
  * Callers:
- *     EmonInitializeProfilingBSP @ 0x14055BA58 (EmonInitializeProfilingBSP.c)
+ *     EmonInitializeProfilingBSP @ 0x140559688 (EmonInitializeProfilingBSP.c)
  * Callees:
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     HalpMmAllocateMemoryInternal @ 0x140542CD0 (HalpMmAllocateMemoryInternal.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     HalpMmAllocateMemoryInternal @ 0x140540620 (HalpMmAllocateMemoryInternal.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 void __fastcall EmonAllocateCounters(__int64 a1, int a2, unsigned int a3)

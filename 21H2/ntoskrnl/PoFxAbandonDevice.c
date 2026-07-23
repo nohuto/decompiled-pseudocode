@@ -1,16 +1,16 @@
 /*
- * XREFs of PoFxAbandonDevice @ 0x140738B04
+ * XREFs of PoFxAbandonDevice @ 0x140738CC4
  * Callers:
- *     IopRemoveDevice @ 0x1407388F4 (IopRemoveDevice.c)
- *     PnpDriverLoadingFailed @ 0x1407D2C50 (PnpDriverLoadingFailed.c)
+ *     IopRemoveDevice @ 0x140738AB4 (IopRemoveDevice.c)
+ *     PnpDriverLoadingFailed @ 0x1407D2DC0 (PnpDriverLoadingFailed.c)
  * Callees:
- *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
- *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
- *     PopPluginAbandonDevice @ 0x14056D908 (PopPluginAbandonDevice.c)
- *     PopFxUnregisterDeviceOrWait @ 0x140736750 (PopFxUnregisterDeviceOrWait.c)
- *     PopDiagTraceFxDevicePreparation @ 0x1407367C4 (PopDiagTraceFxDevicePreparation.c)
- *     PopFxFreeUniqueId @ 0x140736844 (PopFxFreeUniqueId.c)
+ *     ExfTryToWakePushLock @ 0x1402FC2C0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x1403539D0 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1403556E0 (ExAcquirePushLockExclusiveEx.c)
+ *     PopPluginAbandonDevice @ 0x14056DB48 (PopPluginAbandonDevice.c)
+ *     PopFxUnregisterDeviceOrWait @ 0x140736910 (PopFxUnregisterDeviceOrWait.c)
+ *     PopDiagTraceFxDevicePreparation @ 0x140736984 (PopDiagTraceFxDevicePreparation.c)
+ *     PopFxFreeUniqueId @ 0x140736A04 (PopFxFreeUniqueId.c)
  */
 
 void __fastcall PoFxAbandonDevice(__int64 a1)

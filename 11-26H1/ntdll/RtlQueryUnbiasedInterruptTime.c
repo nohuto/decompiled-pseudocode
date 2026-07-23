@@ -1,25 +1,25 @@
 /*
- * XREFs of RtlQueryUnbiasedInterruptTime @ 0x1800BEB60
+ * XREFs of RtlQueryUnbiasedInterruptTime @ 0x1800BC5C0
  * Callers:
  *     <none>
  * Callees:
- *     RtlNtStatusToDosErrorNoTeb @ 0x180019AA0 (RtlNtStatusToDosErrorNoTeb.c)
- *     RtlpLogSetLastWin32ErrorEvent @ 0x180120AF8 (RtlpLogSetLastWin32ErrorEvent.c)
+ *     RtlNtStatusToDosErrorNoTeb @ 0x180004B80 (RtlNtStatusToDosErrorNoTeb.c)
+ *     RtlpLogSetLastWin32ErrorEvent @ 0x1801208A8 (RtlpLogSetLastWin32ErrorEvent.c)
  */
 
-__int64 __fastcall RtlQueryUnbiasedInterruptTime(_QWORD *a1)
+BOOLEAN __cdecl RtlQueryUnbiasedInterruptTime(PLARGE_INTEGER InterruptTime)
 {
-  unsigned int v2; // eax
+  ULONG v2; // eax
   struct _TEB *v3; // rcx
 
-  if ( a1 )
+  if ( InterruptTime )
   {
-    *a1 = MEMORY[0x7FFE0008] - RtlpFreezeTimeBias - MEMORY[0x7FFE03B0];
-    return 1LL;
+    InterruptTime->QuadPart = MEMORY[0x7FFE0008] - RtlpFreezeTimeBias - MEMORY[0x7FFE03B0];
+    return 1;
   }
   else
   {
-    v2 = RtlNtStatusToDosErrorNoTeb(0xC000000D);
+    v2 = RtlNtStatusToDosErrorNoTeb(-1073741811);
     v3 = NtCurrentTeb();
     if ( g_dwLastErrorToBreakOn && v2 == g_dwLastErrorToBreakOn )
       __debugbreak();
@@ -35,6 +35,6 @@ __int64 __fastcall RtlQueryUnbiasedInterruptTime(_QWORD *a1)
         }
       }
     }
-    return 0LL;
+    return 0;
   }
 }

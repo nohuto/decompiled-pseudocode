@@ -1,64 +1,65 @@
 /*
- * XREFs of RtlSidDominatesForTrust @ 0x1402ACB80
+ * XREFs of RtlSidDominatesForTrust @ 0x1403AF7B0
  * Callers:
- *     SepCommonAccessCheckEx @ 0x1402AD130 (SepCommonAccessCheckEx.c)
- *     SeCreateClientSecurityFromSubjectContextEx @ 0x14063B770 (SeCreateClientSecurityFromSubjectContextEx.c)
- *     SeTokenCanImpersonate @ 0x140929184 (SeTokenCanImpersonate.c)
- *     SepAdjustAccessStateForConstraints @ 0x1409847D0 (SepAdjustAccessStateForConstraints.c)
- *     SeAdjustAccessStateForAccessConstraints @ 0x140A48B90 (SeAdjustAccessStateForAccessConstraints.c)
- *     SeShouldCheckForAccessRightsFromParent @ 0x140A54920 (SeShouldCheckForAccessRightsFromParent.c)
- *     SeIsTokenAssignableToProcess @ 0x140AB7984 (SeIsTokenAssignableToProcess.c)
- *     SeCreateClientSecurityFromSubjectContext @ 0x140AC87D0 (SeCreateClientSecurityFromSubjectContext.c)
+ *     SepCommonAccessCheckEx @ 0x1403AD570 (SepCommonAccessCheckEx.c)
+ *     RtlpValidTrustSubjectContext @ 0x1403AF76C (RtlpValidTrustSubjectContext.c)
+ *     SeCreateClientSecurityFromSubjectContextEx @ 0x14063E8E0 (SeCreateClientSecurityFromSubjectContextEx.c)
+ *     SeTokenCanImpersonate @ 0x140904C94 (SeTokenCanImpersonate.c)
+ *     SepAdjustAccessStateForConstraints @ 0x1409467E0 (SepAdjustAccessStateForConstraints.c)
+ *     SeAdjustAccessStateForAccessConstraints @ 0x140A51E80 (SeAdjustAccessStateForAccessConstraints.c)
+ *     SeShouldCheckForAccessRightsFromParent @ 0x140A5DC10 (SeShouldCheckForAccessRightsFromParent.c)
+ *     SeIsTokenAssignableToProcess @ 0x140AB8FC4 (SeIsTokenAssignableToProcess.c)
+ *     SeCreateClientSecurityFromSubjectContext @ 0x140ACA3C0 (SeCreateClientSecurityFromSubjectContext.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall RtlSidDominatesForTrust(__int64 a1, __int64 a2, bool *a3)
+NTSTATUS __cdecl RtlSidDominatesForTrust(PSID Sid1, PSID Sid2, PBOOLEAN DominatesTrust)
 {
   int v4; // r9d
   unsigned int v5; // eax
   int v6; // r9d
 
-  *a3 = 0;
-  if ( a1 )
+  *DominatesTrust = 0;
+  if ( Sid1 )
   {
-    if ( *(_BYTE *)(a1 + 1) != 2 || *(_BYTE *)a1 != 1 )
-      return 3221225485LL;
-    v6 = *(_DWORD *)(a1 + 2);
+    if ( *((_BYTE *)Sid1 + 1) != 2 || *(_BYTE *)Sid1 != 1 )
+      return -1073741811;
+    v6 = *(_DWORD *)((char *)Sid1 + 2);
     if ( !v6 )
-      v6 = *(unsigned __int16 *)(a1 + 6) - 4864;
-    if ( v6 || !*(_DWORD *)(a1 + 8) && *(_DWORD *)(a1 + 12) )
-      return 3221225485LL;
+      v6 = *((unsigned __int16 *)Sid1 + 3) - 4864;
+    if ( v6 || !*((_DWORD *)Sid1 + 2) && *((_DWORD *)Sid1 + 3) )
+      return -1073741811;
   }
-  if ( !a2 )
+  if ( !Sid2 )
   {
 LABEL_3:
-    *a3 = 1;
-    return 0LL;
+    *DominatesTrust = 1;
+    return 0;
   }
-  if ( *(_BYTE *)(a2 + 1) != 2 || *(_BYTE *)a2 != 1 )
-    return 3221225485LL;
-  v4 = *(_DWORD *)(a2 + 2);
+  if ( *((_BYTE *)Sid2 + 1) != 2 || *(_BYTE *)Sid2 != 1 )
+    return -1073741811;
+  v4 = *(_DWORD *)((char *)Sid2 + 2);
   if ( !v4 )
-    v4 = *(unsigned __int16 *)(a2 + 6) - 4864;
+    v4 = *((unsigned __int16 *)Sid2 + 3) - 4864;
   if ( v4 )
-    return 3221225485LL;
-  v5 = *(_DWORD *)(a2 + 8);
+    return -1073741811;
+  v5 = *((_DWORD *)Sid2 + 2);
   if ( !v5 )
   {
-    if ( *(_DWORD *)(a2 + 12) )
-      return 3221225485LL;
+    if ( *((_DWORD *)Sid2 + 3) )
+      return -1073741811;
   }
-  if ( a1 )
+  if ( Sid1 )
   {
-    if ( *(_DWORD *)(a1 + 8) >= v5 && *(_DWORD *)(a1 + 12) >= *(_DWORD *)(a2 + 12) )
+    if ( *((_DWORD *)Sid1 + 2) >= v5 && *((_DWORD *)Sid1 + 3) >= *((_DWORD *)Sid2 + 3) )
       goto LABEL_3;
-    *a3 = 0;
-    return 0LL;
+    *DominatesTrust = 0;
+    return 0;
   }
   else
   {
-    *a3 = v5 == 0;
-    return 0LL;
+    *DominatesTrust = v5 == 0;
+    return 0;
   }
 }

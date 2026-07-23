@@ -27,7 +27,7 @@ char __fastcall CmpInitializeSystemHive(ULONG_PTR BugCheckParameter3)
   int v8; // ebx
   __int64 v10; // [rsp+68h] [rbp-A0h] BYREF
   ULONG_PTR v11; // [rsp+70h] [rbp-98h] BYREF
-  STRING DestinationString; // [rsp+78h] [rbp-90h] BYREF
+  _STRING DestinationString; // [rsp+78h] [rbp-90h] BYREF
   ULONG_PTR BugCheckParameter3a[44]; // [rsp+88h] [rbp-80h] BYREF
 
   LOBYTE(v10) = 0;

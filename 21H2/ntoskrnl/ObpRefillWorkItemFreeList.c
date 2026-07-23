@@ -1,21 +1,21 @@
 /*
- * XREFs of ObpRefillWorkItemFreeList @ 0x1408DED84
+ * XREFs of ObpRefillWorkItemFreeList @ 0x1408DEEE4
  * Callers:
- *     ObpPushRefDerefInfo @ 0x1408DEB70 (ObpPushRefDerefInfo.c)
+ *     ObpPushRefDerefInfo @ 0x1408DECD0 (ObpPushRefDerefInfo.c)
  * Callees:
- *     RtlpInterlockedPushEntrySList @ 0x140407970 (RtlpInterlockedPushEntrySList.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     RtlpInterlockedPushEntrySList @ 0x140407B50 (RtlpInterlockedPushEntrySList.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
-struct _SLIST_ENTRY *ObpRefillWorkItemFreeList()
+_SLIST_ENTRY *ObpRefillWorkItemFreeList()
 {
   __int64 v0; // rbx
-  struct _SLIST_ENTRY *result; // rax
+  _SLIST_ENTRY *result; // rax
 
   v0 = 100LL;
   do
   {
-    result = (struct _SLIST_ENTRY *)ExAllocatePoolWithTag(NonPagedPoolNx, 0xB0uLL, 0x7452624Fu);
+    result = (_SLIST_ENTRY *)ExAllocatePoolWithTag(NonPagedPoolNx, 0xB0uLL, 0x7452624Fu);
     if ( result )
       result = RtlpInterlockedPushEntrySList(&ObpWorkItemFreeList, result);
     --v0;

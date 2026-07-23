@@ -1,15 +1,15 @@
 /*
- * XREFs of PsGetCurrentProcessSessionId @ 0x140437260
+ * XREFs of PsGetCurrentProcessSessionId @ 0x1404261F0
  * Callers:
- *     EtwpEventWriteFull @ 0x14021336C (EtwpEventWriteFull.c)
- *     PsIsSessionInCurrentServerSilo @ 0x140435678 (PsIsSessionInCurrentServerSilo.c)
- *     PopPowerRequestCreateCommon @ 0x140436FDC (PopPowerRequestCreateCommon.c)
- *     IoGetContainerInformation @ 0x1407971E0 (IoGetContainerInformation.c)
- *     ObpLookupObjectName @ 0x1408FE2F0 (ObpLookupObjectName.c)
- *     IopParseDevice @ 0x1409008C0 (IopParseDevice.c)
- *     NtSetInformationObject @ 0x140970880 (NtSetInformationObject.c)
- *     PfpProcessScenarioPhase @ 0x140B1CEB8 (PfpProcessScenarioPhase.c)
- *     EtwpWriteUserEvent @ 0x140B7D098 (EtwpWriteUserEvent.c)
+ *     EtwpEventWriteFull @ 0x14021344C (EtwpEventWriteFull.c)
+ *     PsIsSessionInCurrentServerSilo @ 0x140424C54 (PsIsSessionInCurrentServerSilo.c)
+ *     PopPowerRequestCreateCommon @ 0x140425F6C (PopPowerRequestCreateCommon.c)
+ *     IoGetContainerInformation @ 0x140799D10 (IoGetContainerInformation.c)
+ *     ObpLookupObjectName @ 0x14092E280 (ObpLookupObjectName.c)
+ *     IopParseDevice @ 0x140930850 (IopParseDevice.c)
+ *     NtSetInformationObject @ 0x1409BA9F0 (NtSetInformationObject.c)
+ *     PfpProcessScenarioPhase @ 0x140B1F0C8 (PfpProcessScenarioPhase.c)
+ *     EtwpWriteUserEvent @ 0x140B85DAC (EtwpWriteUserEvent.c)
  * Callees:
  *     <none>
  */

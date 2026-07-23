@@ -1,14 +1,14 @@
 /*
- * XREFs of IopMcAddMdlPagesToTable @ 0x14030D198
+ * XREFs of IopMcAddMdlPagesToTable @ 0x1402EF218
  * Callers:
- *     IopMcCreateBufferEntryMdl @ 0x14079B5CC (IopMcCreateBufferEntryMdl.c)
+ *     IopMcCreateBufferEntryMdl @ 0x14079E10C (IopMcCreateBufferEntryMdl.c)
  * Callees:
- *     ExReleaseSpinLockExclusive @ 0x14021AA80 (ExReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x140249CD0 (ExAcquireSpinLockExclusive.c)
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     RtlAvlInsertNodeEx @ 0x14030CA60 (RtlAvlInsertNodeEx.c)
- *     IopMcShouldYield @ 0x14030D338 (IopMcShouldYield.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
+ *     ExReleaseSpinLockExclusive @ 0x14021C410 (ExReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024B630 (ExAcquireSpinLockExclusive.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     RtlAvlInsertNodeEx @ 0x1402EEAE0 (RtlAvlInsertNodeEx.c)
+ *     IopMcShouldYield @ 0x1402EF3B8 (IopMcShouldYield.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
  */
 
 void __fastcall IopMcAddMdlPagesToTable(ULONG_PTR BugCheckParameter2, __int64 a2)
@@ -47,7 +47,7 @@ void __fastcall IopMcAddMdlPagesToTable(ULONG_PTR BugCheckParameter2, __int64 a2
   }
   v18 = 0;
   v6 = 0;
-  v8 = ExAcquireSpinLockExclusive(&dword_140F84D44);
+  v8 = ExAcquireSpinLockExclusive(&dword_140F850E4);
   if ( !(_DWORD)v3 )
     goto LABEL_19;
   v9 = BugCheckParameter2 + 96;
@@ -56,13 +56,13 @@ void __fastcall IopMcAddMdlPagesToTable(ULONG_PTR BugCheckParameter2, __int64 a2
     LOBYTE(v7) = v8;
     if ( (unsigned __int8)IopMcShouldYield(v6, v7) )
     {
-      ExReleaseSpinLockExclusive(&dword_140F84D44, v8);
+      ExReleaseSpinLockExclusive(&dword_140F850E4, v8);
       KeYieldProcessorEx(&v18);
-      v8 = ExAcquireSpinLockExclusive(&dword_140F84D44);
+      v8 = ExAcquireSpinLockExclusive(&dword_140F850E4);
     }
-    v10 = qword_140F84D48;
+    v10 = qword_140F850E8;
     v11 = 0;
-    if ( !qword_140F84D48 )
+    if ( !qword_140F850E8 )
       goto LABEL_17;
     v12 = *(unsigned int *)(v9 + 24);
     v13 = v9 - (unsigned int)(32 * (v12 + 3));
@@ -96,12 +96,12 @@ LABEL_13:
       goto LABEL_14;
     v11 = 1;
 LABEL_17:
-    RtlAvlInsertNodeEx((unsigned __int64 *)&qword_140F84D48, v10, v11, (_QWORD *)v9);
+    RtlAvlInsertNodeEx((unsigned __int64 *)&qword_140F850E8, v10, v11, (_QWORD *)v9);
 LABEL_18:
     ++v6;
     v9 += 32LL;
   }
   while ( v6 < (unsigned int)v3 );
 LABEL_19:
-  ExReleaseSpinLockExclusive(&dword_140F84D44, v8);
+  ExReleaseSpinLockExclusive(&dword_140F850E4, v8);
 }

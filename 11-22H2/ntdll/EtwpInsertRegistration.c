@@ -9,65 +9,63 @@
  *     EtwpRegistrationCompare @ 0x18006DE80 (EtwpRegistrationCompare.c)
  */
 
-__int64 __fastcall EtwpInsertRegistration(__int64 a1)
+void __fastcall EtwpInsertRegistration(PRTL_BALANCED_NODE Node)
 {
-  __int64 v2; // r8
-  unsigned __int64 v3; // rdi
-  char v4; // bl
-  int v5; // esi
-  unsigned __int64 v6; // rax
-  __int64 v8; // [rsp+20h] [rbp-18h] BYREF
-  __int16 v9; // [rsp+28h] [rbp-10h]
+  unsigned __int64 Root; // rdi
+  BOOLEAN v3; // bl
+  int v4; // esi
+  unsigned __int64 v5; // rax
+  _RTL_BALANCED_NODE **v6; // [rsp+20h] [rbp-18h] BYREF
+  __int16 v7; // [rsp+28h] [rbp-10h]
 
-  v8 = a1 + 32;
-  v9 = *(_WORD *)(a1 + 84);
+  v6 = &Node[1].Children[1];
+  v7 = WORD2(Node[3].Right);
   RtlAcquireSRWLockExclusive(&EtwpProvLock);
-  v3 = EtwpRegistrationTable;
-  v4 = 0;
-  if ( (qword_1801851A8 & 1) != 0 )
+  Root = (unsigned __int64)EtwpRegistrationTable.Root;
+  v3 = 0;
+  if ( (*(_BYTE *)&EtwpRegistrationTable.0 & 1) != 0 )
   {
-    if ( EtwpRegistrationTable )
-      v3 = (unsigned __int64)&EtwpRegistrationTable ^ EtwpRegistrationTable;
+    if ( EtwpRegistrationTable.Root )
+      Root = (unsigned __int64)&EtwpRegistrationTable ^ (unsigned __int64)EtwpRegistrationTable.Root;
     else
-      v3 = 0LL;
+      Root = 0LL;
   }
-  v5 = qword_1801851A8 & 1;
-  if ( v3 )
+  v4 = *(_BYTE *)&EtwpRegistrationTable.0 & 1;
+  if ( Root )
   {
     while ( 1 )
     {
-      if ( (int)EtwpRegistrationCompare(&v8, v3) < 0 )
+      if ( (int)EtwpRegistrationCompare(&v6, Root) < 0 )
       {
-        v6 = *(_QWORD *)v3;
-        if ( v5 )
+        v5 = *(_QWORD *)Root;
+        if ( v4 )
         {
-          if ( !v6 )
+          if ( !v5 )
             break;
-          v6 ^= v3;
+          v5 ^= Root;
         }
-        if ( !v6 )
+        if ( !v5 )
           break;
       }
       else
       {
-        v6 = *(_QWORD *)(v3 + 8);
-        if ( v5 )
+        v5 = *(_QWORD *)(Root + 8);
+        if ( v4 )
         {
-          if ( !v6 )
+          if ( !v5 )
             goto LABEL_17;
-          v6 ^= v3;
+          v5 ^= Root;
         }
-        if ( !v6 )
+        if ( !v5 )
         {
 LABEL_17:
-          v4 = 1;
+          v3 = 1;
           break;
         }
       }
-      v3 = v6;
+      Root = v5;
     }
   }
-  LOBYTE(v2) = v4;
-  RtlRbInsertNodeEx(&EtwpRegistrationTable, v3, v2, a1);
-  return RtlReleaseSRWLockExclusive(&EtwpProvLock);
+  RtlRbInsertNodeEx(&EtwpRegistrationTable, (PRTL_BALANCED_NODE)Root, v3, Node);
+  RtlReleaseSRWLockExclusive(&EtwpProvLock);
 }

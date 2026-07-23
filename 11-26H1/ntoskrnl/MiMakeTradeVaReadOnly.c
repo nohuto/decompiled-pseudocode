@@ -1,10 +1,10 @@
 /*
- * XREFs of MiMakeTradeVaReadOnly @ 0x140293834
+ * XREFs of MiMakeTradeVaReadOnly @ 0x140292D94
  * Callers:
- *     MiTradePageMarkedActive @ 0x1402931C0 (MiTradePageMarkedActive.c)
+ *     MiTradePageMarkedActive @ 0x140292720 (MiTradePageMarkedActive.c)
  * Callees:
- *     MiFlushSingleTbEntry @ 0x140285050 (MiFlushSingleTbEntry.c)
- *     MiWriteValidPteNewProtection @ 0x140300450 (MiWriteValidPteNewProtection.c)
+ *     MiFlushSingleTbEntry @ 0x1402845B0 (MiFlushSingleTbEntry.c)
+ *     MiWriteValidPteNewProtection @ 0x1402E24D0 (MiWriteValidPteNewProtection.c)
  */
 
 void __fastcall MiMakeTradeVaReadOnly(__int64 a1)

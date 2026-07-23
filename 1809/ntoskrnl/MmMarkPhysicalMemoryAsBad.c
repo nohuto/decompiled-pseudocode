@@ -1,20 +1,20 @@
 /*
- * XREFs of MmMarkPhysicalMemoryAsBad @ 0x1402A7410
+ * XREFs of MmMarkPhysicalMemoryAsBad @ 0x1402A7600
  * Callers:
- *     MiScrubNodeLargePageList @ 0x1402CCB90 (MiScrubNodeLargePageList.c)
- *     WheapAttemptPhysicalPageOffline @ 0x1408DBD4C (WheapAttemptPhysicalPageOffline.c)
+ *     MiScrubNodeLargePageList @ 0x1402CCD80 (MiScrubNodeLargePageList.c)
+ *     WheapAttemptPhysicalPageOffline @ 0x1408DD00C (WheapAttemptPhysicalPageOffline.c)
  * Callees:
  *     MiLockPageInline @ 0x14002CE40 (MiLockPageInline.c)
  *     MiInsertPageInList @ 0x140039FD0 (MiInsertPageInList.c)
- *     PsDereferencePartition @ 0x140090CC0 (PsDereferencePartition.c)
- *     MiFindContiguousPages @ 0x14009A110 (MiFindContiguousPages.c)
- *     MiReleaseNonPagedResources @ 0x1400E18E8 (MiReleaseNonPagedResources.c)
- *     MiFreeContiguousPages @ 0x1401230F4 (MiFreeContiguousPages.c)
- *     MiAcquireNonPagedResources @ 0x14013DA2C (MiAcquireNonPagedResources.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     ZwUpdateWnfStateData @ 0x1401BBA70 (ZwUpdateWnfStateData.c)
- *     MiReferencePagePartition @ 0x1402B4654 (MiReferencePagePartition.c)
- *     MiMarkFileOnlyPfnBad @ 0x1402B6388 (MiMarkFileOnlyPfnBad.c)
+ *     PsDereferencePartition @ 0x140090C00 (PsDereferencePartition.c)
+ *     MiFindContiguousPages @ 0x14009A050 (MiFindContiguousPages.c)
+ *     MiReleaseNonPagedResources @ 0x1400E1968 (MiReleaseNonPagedResources.c)
+ *     MiFreeContiguousPages @ 0x1401231C4 (MiFreeContiguousPages.c)
+ *     MiAcquireNonPagedResources @ 0x14013DB2C (MiAcquireNonPagedResources.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     ZwUpdateWnfStateData @ 0x1401BBBD0 (ZwUpdateWnfStateData.c)
+ *     MiReferencePagePartition @ 0x1402B4844 (MiReferencePagePartition.c)
+ *     MiMarkFileOnlyPfnBad @ 0x1402B6578 (MiMarkFileOnlyPfnBad.c)
  */
 
 __int64 __fastcall MmMarkPhysicalMemoryAsBad(_DWORD *a1, _DWORD *a2)
@@ -134,7 +134,7 @@ LABEL_81:
   if ( (unsigned int)MiAcquireNonPagedResources((ULONG_PTR *)v12, 2uLL) )
   {
     v15 = MiLockPageInline(v6);
-    if ( *(_QWORD *)(qword_14043A748 + 8 * ((*(_QWORD *)(v6 + 40) >> 40) & 0x3FFLL)) != v12 )
+    if ( *(_QWORD *)(qword_14043B808 + 8 * ((*(_QWORD *)(v6 + 40) >> 40) & 0x3FFLL)) != v12 )
     {
       _InterlockedAnd64(v7, 0x7FFFFFFFFFFFFFFFuLL);
       if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && KeGetCurrentIrql() >= 2u && v15 < 2u )
@@ -189,13 +189,13 @@ LABEL_81:
     v23 = *(_QWORD *)(v6 + 40);
     if ( ContiguousPages < 0 )
     {
-      if ( v12 == *(_QWORD *)(qword_14043A748 + 8 * ((*(_QWORD *)(v6 + 40) >> 40) & 0x3FFLL)) )
+      if ( v12 == *(_QWORD *)(qword_14043B808 + 8 * ((*(_QWORD *)(v6 + 40) >> 40) & 0x3FFLL)) )
       {
         if ( (*(_BYTE *)(v6 + 35) & 0x40) == 0 )
           goto LABEL_71;
         if ( (*(_QWORD *)(v6 + 8) | 0x8000000000000000uLL) != 0xFFFFFFFFFFFFFFFCuLL || (*(_BYTE *)(v6 + 34) & 7) != 5 )
         {
-          byte_14043A898 = 1;
+          byte_14043B958 = 1;
           v4 = 259;
           v30 = 1;
         }
@@ -249,7 +249,7 @@ LABEL_89:
   v8 = v32;
 LABEL_83:
   if ( v30 == 1 )
-    ZwUpdateWnfStateData((__int64)&WNF_MM_BAD_MEMORY_PENDING_REMOVAL, 0LL, 0LL);
+    ZwUpdateWnfStateData(&WNF_MM_BAD_MEMORY_PENDING_REMOVAL, 0LL, 0, 0LL, 0LL, 0, 0);
   *(_QWORD *)a2 = (v3 + v28 - v8) << 12;
   if ( v28 == 1 )
     return v4;

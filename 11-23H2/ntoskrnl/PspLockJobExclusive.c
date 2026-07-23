@@ -10,13 +10,13 @@
  *     NtQueryInformationJobObject @ 0x1406A1130 (NtQueryInformationJobObject.c)
  *     PspEnforceLimitsJobPostCallback @ 0x1406A3680 (PspEnforceLimitsJobPostCallback.c)
  *     PspCallJobHierarchyCallbacks @ 0x1406A3CD4 (PspCallJobHierarchyCallbacks.c)
- *     PspJobClose @ 0x1407DD250 (PspJobClose.c)
- *     PspCreateSilo @ 0x1407E6408 (PspCreateSilo.c)
- *     PspNotificationPacketCallback @ 0x1407E6BA0 (PspNotificationPacketCallback.c)
- *     PspConvertSiloToServerSilo @ 0x1409ACBE4 (PspConvertSiloToServerSilo.c)
- *     PspQuitNextJobProcess @ 0x1409B27DC (PspQuitNextJobProcess.c)
+ *     PspJobClose @ 0x1407DD520 (PspJobClose.c)
+ *     PspCreateSilo @ 0x1407E66D8 (PspCreateSilo.c)
+ *     PspNotificationPacketCallback @ 0x1407E6E70 (PspNotificationPacketCallback.c)
+ *     PspConvertSiloToServerSilo @ 0x1409ACDE4 (PspConvertSiloToServerSilo.c)
+ *     PspQuitNextJobProcess @ 0x1409B29DC (PspQuitNextJobProcess.c)
  * Callees:
- *     ExAcquireResourceExclusiveLite @ 0x1402390E0 (ExAcquireResourceExclusiveLite.c)
+ *     ExAcquireResourceExclusiveLite @ 0x1402391B0 (ExAcquireResourceExclusiveLite.c)
  */
 
 BOOLEAN __fastcall PspLockJobExclusive(__int64 a1, __int64 a2)

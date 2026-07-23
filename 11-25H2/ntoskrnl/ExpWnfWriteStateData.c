@@ -49,32 +49,33 @@ __int64 __fastcall ExpWnfWriteStateData(__int64 a1, void *a2, unsigned int a3, i
   PVOID P; // [rsp+40h] [rbp-138h]
   void *Src; // [rsp+48h] [rbp-130h] BYREF
   UNICODE_STRING DestinationString; // [rsp+50h] [rbp-128h] BYREF
-  STRING SourceString; // [rsp+60h] [rbp-118h] BYREF
-  _QWORD v36[3]; // [rsp+70h] [rbp-108h] BYREF
-  _OWORD v37[3]; // [rsp+88h] [rbp-F0h] BYREF
-  _BYTE v38[80]; // [rsp+C0h] [rbp-B8h] BYREF
-  char v39; // [rsp+110h] [rbp-68h] BYREF
+  ANSI_STRING SourceString; // [rsp+60h] [rbp-118h] BYREF
+  LARGE_INTEGER Value; // [rsp+70h] [rbp-108h] BYREF
+  __int64 v37; // [rsp+78h] [rbp-100h]
+  _OWORD v38[3]; // [rsp+88h] [rbp-F0h] BYREF
+  CHAR String[80]; // [rsp+C0h] [rbp-B8h] BYREF
+  char v40; // [rsp+110h] [rbp-68h] BYREF
 
   v6 = a3;
   Src = a2;
-  v36[1] = a1;
-  memset(v37, 0, sizeof(v37));
+  v37 = a1;
+  memset(v38, 0, sizeof(v38));
   v30 = 0;
   *(_QWORD *)&DestinationString.Length = 2228224LL;
-  DestinationString.Buffer = (wchar_t *)&v39;
+  DestinationString.Buffer = (wchar_t *)&v40;
   if ( *(_QWORD *)(a1 + 104) )
   {
     v8 = *(_QWORD *)(a1 + 40) ^ 0x41C64E6DA3BC0074LL;
     SourceString = 0LL;
-    v36[0] = v8;
-    if ( (int)RtlLargeIntegerToChar(v36, 16LL, 65LL, v38) >= 0 )
+    Value.QuadPart = v8;
+    if ( RtlLargeIntegerToChar(&Value, 0x10u, 65, String) >= 0 )
     {
-      SourceString.Buffer = v38;
+      SourceString.Buffer = String;
       SourceString.MaximumLength = 65;
       v9 = -1LL;
       do
         ++v9;
-      while ( v38[v9] );
+      while ( String[v9] );
       SourceString.Length = v9;
       RtlAnsiStringToUnicodeString(&DestinationString, &SourceString, 0);
     }
@@ -149,12 +150,12 @@ __int64 __fastcall ExpWnfWriteStateData(__int64 a1, void *a2, unsigned int a3, i
       else
       {
         v25 = 1;
-        KiStackAttachProcess(v23, 0, (__int64)v37);
+        KiStackAttachProcess(v23, 0, (__int64)v38);
       }
       Pool2 = ExAllocatePool2(0x101uLL);
       v31 = (_DWORD *)Pool2;
       if ( v25 )
-        KiUnstackDetachProcess((__int64)v37, 0LL);
+        KiUnstackDetachProcess((__int64)v38, 0LL);
     }
     if ( !Pool2 )
       return 3221225626LL;

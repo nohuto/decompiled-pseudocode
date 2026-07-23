@@ -1,22 +1,22 @@
 /*
- * XREFs of KeSetEventBoostPriorityEx @ 0x140421E18
+ * XREFs of KeSetEventBoostPriorityEx @ 0x140419658
  * Callers:
- *     FsRtlReleaseEofLock @ 0x140421AD0 (FsRtlReleaseEofLock.c)
- *     KeSetEventBoostPriority @ 0x140528EA0 (KeSetEventBoostPriority.c)
- *     IopWaitAndAcquireFileObjectLock @ 0x1409B6E40 (IopWaitAndAcquireFileObjectLock.c)
- *     NtSetEventEx @ 0x140A52C20 (NtSetEventEx.c)
+ *     FsRtlReleaseEofLock @ 0x140419310 (FsRtlReleaseEofLock.c)
+ *     KeSetEventBoostPriority @ 0x14052B490 (KeSetEventBoostPriority.c)
+ *     IopWaitAndAcquireFileObjectLock @ 0x140987E24 (IopWaitAndAcquireFileObjectLock.c)
+ *     NtSetEventEx @ 0x140A5BF10 (NtSetEventEx.c)
  * Callees:
- *     KiExitDispatcher @ 0x140246C20 (KiExitDispatcher.c)
- *     KeAbPreWakeupThread @ 0x14026A2B4 (KeAbPreWakeupThread.c)
- *     KiTryUnwaitThread @ 0x1402735B4 (KiTryUnwaitThread.c)
- *     KiRemoveBoostThread @ 0x1402742E0 (KiRemoveBoostThread.c)
- *     KiInsertQueueInternal @ 0x140274E80 (KiInsertQueueInternal.c)
- *     KiAcquireKobjectLockSafe @ 0x140277760 (KiAcquireKobjectLockSafe.c)
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     KiSignalThread @ 0x14027C940 (KiSignalThread.c)
- *     KiInsertQueueDpc @ 0x1402BD330 (KiInsertQueueDpc.c)
- *     KiWaitSatisfyMutant @ 0x1404419C0 (KiWaitSatisfyMutant.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KiExitDispatcher @ 0x140248580 (KiExitDispatcher.c)
+ *     KeAbPreWakeupThread @ 0x140269824 (KeAbPreWakeupThread.c)
+ *     KiTryUnwaitThread @ 0x140272B24 (KiTryUnwaitThread.c)
+ *     KiRemoveBoostThread @ 0x140273850 (KiRemoveBoostThread.c)
+ *     KiInsertQueueInternal @ 0x1402743F0 (KiInsertQueueInternal.c)
+ *     KiAcquireKobjectLockSafe @ 0x140276CD0 (KiAcquireKobjectLockSafe.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     KiSignalThread @ 0x14027BEB0 (KiSignalThread.c)
+ *     KiInsertQueueDpc @ 0x140307FF0 (KiInsertQueueDpc.c)
+ *     KiWaitSatisfyMutant @ 0x14043A4D0 (KiWaitSatisfyMutant.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 __int64 __fastcall KeSetEventBoostPriorityEx(

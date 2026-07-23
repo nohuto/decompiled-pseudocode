@@ -1,12 +1,12 @@
 /*
- * XREFs of ExSaFree @ 0x14035C8DC
+ * XREFs of ExSaFree @ 0x14035CA7C
  * Callers:
- *     ExCleanupAutoExpandPushLock @ 0x1402FD3A0 (ExCleanupAutoExpandPushLock.c)
- *     ExpCleanupAutoExpandPushLock @ 0x1403CFB28 (ExpCleanupAutoExpandPushLock.c)
- *     PspProcessDelete @ 0x1407610B0 (PspProcessDelete.c)
+ *     ExCleanupAutoExpandPushLock @ 0x1402FD630 (ExCleanupAutoExpandPushLock.c)
+ *     ExpCleanupAutoExpandPushLock @ 0x1403CFD08 (ExpCleanupAutoExpandPushLock.c)
+ *     PspProcessDelete @ 0x1407612A0 (PspProcessDelete.c)
  * Callees:
- *     KiCheckForKernelApcDelivery @ 0x14030F820 (KiCheckForKernelApcDelivery.c)
- *     ExpSaAllocatorFree @ 0x14035C974 (ExpSaAllocatorFree.c)
+ *     KiCheckForKernelApcDelivery @ 0x14030FAB0 (KiCheckForKernelApcDelivery.c)
+ *     ExpSaAllocatorFree @ 0x14035CB14 (ExpSaAllocatorFree.c)
  */
 
 char __fastcall ExSaFree(unsigned int a1)

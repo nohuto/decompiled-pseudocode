@@ -102,7 +102,7 @@ void __fastcall KiProcessExpiredTimerList(__int64 a1, int *a2, __int64 a3, __int
         if ( *(_QWORD *)(a1 + 11528) )
           KiProcessThreadWaitList(a1, 1u, 0, 2u);
         if ( v7 )
-          EtwGetKernelTraceTimestamp(v41, (char *)0x20000080);
+          EtwGetKernelTraceTimestamp(v41, 0x20000080u);
         v22 = *a2 & 0xF;
         v23 = *a2 + 1;
         BugCheckParameter2 = *(_QWORD *)(v12 + 24);

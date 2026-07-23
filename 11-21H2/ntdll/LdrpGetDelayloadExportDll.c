@@ -16,14 +16,11 @@
 __int64 __fastcall LdrpGetDelayloadExportDll(__int64 a1, __int64 a2, __int64 *a3, unsigned int a4, __int64 a5)
 {
   _QWORD *v7; // r14
-  const char *v9; // rsi
-  unsigned __int64 v10; // rdx
-  int ForwardedDll; // esi
-  unsigned __int64 v12; // r8
-  unsigned __int64 v13; // r9
-  STRING DestinationString; // [rsp+30h] [rbp-D8h] BYREF
-  __int64 v16[15]; // [rsp+40h] [rbp-C8h] BYREF
-  char v17; // [rsp+BCh] [rbp-4Ch]
+  const CHAR *v9; // rsi
+  int v10; // esi
+  _STRING DestinationString; // [rsp+30h] [rbp-D8h] BYREF
+  PWSTR Path[15]; // [rsp+40h] [rbp-C8h] BYREF
+  char v14; // [rsp+BCh] [rbp-4Ch]
 
   *a3 = 0LL;
   v7 = (_QWORD *)(*(_QWORD *)(a1 + 48) + *(unsigned int *)(a2 + 8));
@@ -33,20 +30,20 @@ __int64 __fastcall LdrpGetDelayloadExportDll(__int64 a1, __int64 a2, __int64 *a3
   }
   else
   {
-    v9 = (const char *)(*(_QWORD *)(a1 + 48) + *(unsigned int *)(a2 + 4));
+    v9 = (const CHAR *)(*(_QWORD *)(a1 + 48) + *(unsigned int *)(a2 + 4));
     if ( !a4 )
       a4 = *(_DWORD *)(a1 + 272);
-    LdrpInitializeDllPath(*(_QWORD *)(a1 + 80), a4 | 1LL, v16);
+    LdrpInitializeDllPath(*(_QWORD *)(a1 + 80), a4 | 1LL, Path);
     RtlInitAnsiString(&DestinationString, v9);
-    ForwardedDll = LdrpLoadForwardedDll((unsigned int)&DestinationString, (unsigned int)v16, a1, a1, 3, (__int64)a3);
-    if ( ForwardedDll >= 0 )
+    v10 = LdrpLoadForwardedDll(&DestinationString, Path, a1, a1, 3, a3);
+    if ( v10 >= 0 )
     {
       if ( (*(_DWORD *)(a1 + 104) & 0x8000) == 0 )
         *v7 = *(_QWORD *)(*a3 + 48);
       LdrpLogDelayLoadTrigger(a1, a2, *a3, a5);
     }
-    if ( v17 )
-      RtlReleasePath(v16[0], v10, v12, v13);
+    if ( v14 )
+      RtlReleasePath(Path[0]);
   }
-  return (unsigned int)ForwardedDll;
+  return (unsigned int)v10;
 }

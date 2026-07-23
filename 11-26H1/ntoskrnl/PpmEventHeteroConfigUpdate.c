@@ -1,12 +1,12 @@
 /*
- * XREFs of PpmEventHeteroConfigUpdate @ 0x140A9DE9C
+ * XREFs of PpmEventHeteroConfigUpdate @ 0x140AED8B0
  * Callers:
- *     PopInitializeHeteroProcessors @ 0x140A9DA10 (PopInitializeHeteroProcessors.c)
+ *     PopInitializeHeteroProcessors @ 0x140B76758 (PopInitializeHeteroProcessors.c)
  * Callees:
- *     EtwEventEnabled @ 0x140212D90 (EtwEventEnabled.c)
- *     EtwWrite @ 0x140212EF0 (EtwWrite.c)
- *     KeGetPrcb @ 0x1402916D0 (KeGetPrcb.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x140212E70 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x140212FD0 (EtwWrite.c)
+ *     KeGetPrcb @ 0x140290C30 (KeGetPrcb.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 char PpmEventHeteroConfigUpdate()
@@ -39,12 +39,10 @@ char PpmEventHeteroConfigUpdate()
   v8 = 0;
   if ( PpmEtwRegistered )
   {
-    LOBYTE(v0) = EtwEventEnabled(
-                   (REGHANDLE)PopModernStandbyStateNotify.ApcState.ApcListHead[1].Blink,
-                   &PPM_ETW_PROCESSOR_CLASS_UPDATE);
+    LOBYTE(v0) = EtwEventEnabled(PpmEtwHandle, &PPM_ETW_PROCESSOR_CLASS_UPDATE);
     if ( (_BYTE)v0 )
     {
-      v1 = qword_140E0B638[0];
+      v1 = PpmCheckRegistered.Bitmap[0];
       LOWORD(v2) = 0;
       while ( 1 )
       {
@@ -52,8 +50,7 @@ char PpmEventHeteroConfigUpdate()
         {
           _BitScanForward64(&v3, v1);
           v1 &= ~(1LL << v3);
-          Prcb = (unsigned __int8 *)KeGetPrcb(*((_DWORD *)&KiSupervisorXStateFeaturesLock.WaitBlock[2].Thread->Header.Lock
-                                              + 64 * (unsigned __int16)v2
+          Prcb = (unsigned __int8 *)KeGetPrcb(*((_DWORD *)&KiSupervisorXStateFeaturesLock.SchedulerApc.ApcListEntry.Flink[16 * (unsigned __int16)v2].Flink
                                               + (unsigned int)(unsigned __int8)v3));
           v7 = Prcb[35352];
           v5 = Prcb[208];
@@ -70,17 +67,12 @@ char PpmEventHeteroConfigUpdate()
           v9 = Prcb[35354];
           v18 = &v9;
           v19 = 1LL;
-          LOBYTE(v0) = EtwWrite(
-                         (REGHANDLE)PopModernStandbyStateNotify.ApcState.ApcListHead[1].Blink,
-                         &PPM_ETW_PROCESSOR_CLASS_UPDATE,
-                         0LL,
-                         5u,
-                         &UserData);
+          LOBYTE(v0) = EtwWrite(PpmEtwHandle, &PPM_ETW_PROCESSOR_CLASS_UPDATE, 0LL, 5u, &UserData);
         }
         v2 = (unsigned __int16)(v2 + 1);
-        if ( (unsigned int)v2 >= LOWORD(PpmCheckRegistered[0]) )
+        if ( (unsigned int)v2 >= PpmCheckRegistered.Count )
           break;
-        v1 = qword_140E0B638[v2];
+        v1 = PpmCheckRegistered.Bitmap[v2];
       }
     }
   }

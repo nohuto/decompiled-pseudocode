@@ -1,10 +1,10 @@
 /*
- * XREFs of MiPickClusterForMappedFileFault @ 0x140239E84
+ * XREFs of MiPickClusterForMappedFileFault @ 0x140215358
  * Callers:
- *     MiResolveMappedFileFault @ 0x140239490 (MiResolveMappedFileFault.c)
+ *     MiResolveMappedFileFault @ 0x140214824 (MiResolveMappedFileFault.c)
  * Callees:
- *     MiSufficientAvailablePages @ 0x1402AA420 (MiSufficientAvailablePages.c)
- *     MiObtainFaultCharges @ 0x1402F6A70 (MiObtainFaultCharges.c)
+ *     MiObtainFaultCharges @ 0x14033EB80 (MiObtainFaultCharges.c)
+ *     MiSufficientAvailablePages @ 0x1403526D0 (MiSufficientAvailablePages.c)
  */
 
 __int64 __fastcall MiPickClusterForMappedFileFault(
@@ -50,9 +50,9 @@ __int64 __fastcall MiPickClusterForMappedFileFault(
   {
     goto LABEL_5;
   }
-  if ( dword_140E37298 )
+  if ( dword_140E373D8 )
   {
-    --dword_140E37298;
+    --dword_140E373D8;
 LABEL_5:
     v16 = v12;
 LABEL_6:

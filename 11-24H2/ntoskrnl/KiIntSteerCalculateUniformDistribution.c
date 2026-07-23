@@ -1,9 +1,9 @@
 /*
- * XREFs of KiIntSteerCalculateUniformDistribution @ 0x14035531C
+ * XREFs of KiIntSteerCalculateUniformDistribution @ 0x1402B304C
  * Callers:
- *     KiIntSteerCalculateDistribution @ 0x140353BC0 (KiIntSteerCalculateDistribution.c)
+ *     KiIntSteerCalculateDistribution @ 0x1402B1990 (KiIntSteerCalculateDistribution.c)
  * Callees:
- *     KiIntPartGetLowestClassProcessorInMask @ 0x140354604 (KiIntPartGetLowestClassProcessorInMask.c)
+ *     KiIntPartGetLowestClassProcessorInMask @ 0x1402B2334 (KiIntPartGetLowestClassProcessorInMask.c)
  */
 
 unsigned __int64 __fastcall KiIntSteerCalculateUniformDistribution(_QWORD **a1, __int64 *a2)

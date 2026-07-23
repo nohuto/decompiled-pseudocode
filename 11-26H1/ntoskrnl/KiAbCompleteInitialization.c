@@ -1,9 +1,9 @@
 /*
- * XREFs of KiAbCompleteInitialization @ 0x1405F74CC
+ * XREFs of KiAbCompleteInitialization @ 0x1405F9E8C
  * Callers:
- *     KiCompleteKernelInit @ 0x140BF36A8 (KiCompleteKernelInit.c)
+ *     KiCompleteKernelInit @ 0x140BF96A8 (KiCompleteKernelInit.c)
  * Callees:
- *     ExInitializeLookasideListExInternal @ 0x140498FD0 (ExInitializeLookasideListExInternal.c)
+ *     ExInitializeLookasideListExInternal @ 0x140492B20 (ExInitializeLookasideListExInternal.c)
  */
 
 __int64 KiAbCompleteInitialization()

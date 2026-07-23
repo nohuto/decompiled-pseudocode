@@ -1,10 +1,10 @@
 /*
- * XREFs of PpmUpdateTimeAccumulation @ 0x1403ED358
+ * XREFs of PpmUpdateTimeAccumulation @ 0x1402F8238
  * Callers:
- *     PpmSnapPerformanceAccumulation @ 0x140253D2C (PpmSnapPerformanceAccumulation.c)
- *     PpmEndActiveTimeAccumulation @ 0x1403EC8C0 (PpmEndActiveTimeAccumulation.c)
- *     PpmBeginActiveTimeAccumulation @ 0x1403ECAA4 (PpmBeginActiveTimeAccumulation.c)
- *     PpmContinueActiveTimeAccumulation @ 0x1403ECDB0 (PpmContinueActiveTimeAccumulation.c)
+ *     PpmSnapPerformanceAccumulation @ 0x14025568C (PpmSnapPerformanceAccumulation.c)
+ *     PpmContinueActiveTimeAccumulation @ 0x1402F7C90 (PpmContinueActiveTimeAccumulation.c)
+ *     PpmEndActiveTimeAccumulation @ 0x1402F9900 (PpmEndActiveTimeAccumulation.c)
+ *     PpmBeginActiveTimeAccumulation @ 0x1402F9AE4 (PpmBeginActiveTimeAccumulation.c)
  * Callees:
  *     <none>
  */

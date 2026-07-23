@@ -1,15 +1,15 @@
 /*
- * XREFs of ExpAllocateAsid @ 0x14031DB78
+ * XREFs of ExpAllocateAsid @ 0x14031DD68
  * Callers:
- *     ExShareAddressSpaceWithDevice @ 0x14031D360 (ExShareAddressSpaceWithDevice.c)
+ *     ExShareAddressSpaceWithDevice @ 0x14031D550 (ExShareAddressSpaceWithDevice.c)
  * Callees:
- *     KeAcquireInStackQueuedSpinLock @ 0x14007DE90 (KeAcquireInStackQueuedSpinLock.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     memmove @ 0x1401D1540 (memmove.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14007DE80 (KeAcquireInStackQueuedSpinLock.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC6A0 (KxReleaseQueuedSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
  */
 
 __int64 ExpAllocateAsid()
@@ -32,13 +32,13 @@ __int64 ExpAllocateAsid()
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+20h] [rbp-38h] BYREF
 
   Process = KeGetCurrentThread()->ApcState.Process;
-  KeAcquireInStackQueuedSpinLock(&qword_140406E58, &LockHandle);
+  KeAcquireInStackQueuedSpinLock(&qword_140407F38, &LockHandle);
   while ( 1 )
   {
-    v8 = dword_140406E44;
-    if ( (_DWORD)dword_140406E44 != dword_140406E48 )
+    v8 = dword_140407F24;
+    if ( (_DWORD)dword_140407F24 != dword_140407F28 )
       break;
-    if ( (_DWORD)dword_140406E44 == ExpSvmAgents )
+    if ( (_DWORD)dword_140407F24 == ExpSvmAgents )
     {
       KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
       OldIrql = LockHandle.OldIrql;
@@ -73,16 +73,16 @@ __int64 ExpAllocateAsid()
     PoolWithTag = (char *)ExAllocatePoolWithTag(NonPagedPoolNx, 16LL * v3, 0x73417845u);
     if ( !PoolWithTag )
       return 0LL;
-    KeAcquireInStackQueuedSpinLock(&qword_140406E58, &LockHandle);
+    KeAcquireInStackQueuedSpinLock(&qword_140407F38, &LockHandle);
     v5 = PoolWithTag;
-    if ( v8 == (_DWORD)dword_140406E44 )
+    if ( v8 == (_DWORD)dword_140407F24 )
     {
-      v5 = qword_140406E50;
-      if ( qword_140406E50 )
-        memmove(PoolWithTag, qword_140406E50, 16LL * v8);
+      v5 = qword_140407F30;
+      if ( qword_140407F30 )
+        memmove(PoolWithTag, qword_140407F30, 16LL * v8);
       memset(&PoolWithTag[16 * v8], 0, 16LL * (v3 - v8));
-      qword_140406E50 = PoolWithTag;
-      LODWORD(dword_140406E44) = v3;
+      qword_140407F30 = PoolWithTag;
+      LODWORD(dword_140407F24) = v3;
     }
     if ( v5 )
     {
@@ -96,24 +96,24 @@ __int64 ExpAllocateAsid()
       }
       __writecr8(v6);
       ExFreePoolWithTag(v5, 0);
-      KeAcquireInStackQueuedSpinLock(&qword_140406E58, &LockHandle);
+      KeAcquireInStackQueuedSpinLock(&qword_140407F38, &LockHandle);
     }
   }
-  v9 = (_KPROCESS **)qword_140406E50;
+  v9 = (_KPROCESS **)qword_140407F30;
   v10 = 0;
-  if ( (_DWORD)dword_140406E44 )
+  if ( (_DWORD)dword_140407F24 )
   {
     while ( *v9 )
     {
       v9 += 2;
-      if ( ++v10 >= (unsigned int)dword_140406E44 )
+      if ( ++v10 >= (unsigned int)dword_140407F24 )
         goto LABEL_37;
     }
     v9[1] = (_KPROCESS *)1;
     *v9 = Process;
   }
 LABEL_37:
-  ++dword_140406E48;
+  ++dword_140407F28;
   KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
   v14 = LockHandle.OldIrql;
   if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && KeGetCurrentIrql() >= 2u && LockHandle.OldIrql < 2u )

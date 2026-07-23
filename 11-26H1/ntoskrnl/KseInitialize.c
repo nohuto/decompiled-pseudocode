@@ -1,20 +1,20 @@
 /*
- * XREFs of KseInitialize @ 0x140CCCEE0
+ * XREFs of KseInitialize @ 0x140CD3040
  * Callers:
- *     IoInitSystemPreDrivers @ 0x140CBACA0 (IoInitSystemPreDrivers.c)
+ *     IoInitSystemPreDrivers @ 0x140CC0D18 (IoInitSystemPreDrivers.c)
  * Callees:
- *     KsepLogInfo @ 0x1404CCB84 (KsepLogInfo.c)
- *     KsepLogError @ 0x1404CCBBC (KsepLogError.c)
- *     KsepDebugPrint @ 0x14050EC24 (KsepDebugPrint.c)
- *     KseRegisterShim @ 0x1407BCFC0 (KseRegisterShim.c)
- *     KsepCacheUninitialize @ 0x1407BECA0 (KsepCacheUninitialize.c)
- *     EtwRegister @ 0x14093BDE0 (EtwRegister.c)
- *     KseShimDatabaseOpen @ 0x1409E63D0 (KseShimDatabaseOpen.c)
- *     KseShimDatabaseClose @ 0x1409E6D54 (KseShimDatabaseClose.c)
- *     KsepEngineInitialize @ 0x140CCCDD4 (KsepEngineInitialize.c)
- *     KsepMatchInitMachineInfo @ 0x140CCD8F8 (KsepMatchInitMachineInfo.c)
- *     KseShimDatabaseBootInitialize @ 0x140CCDA60 (KseShimDatabaseBootInitialize.c)
- *     KseVersionLieInitialize @ 0x140CCDC54 (KseVersionLieInitialize.c)
+ *     KsepLogInfo @ 0x1404C6324 (KsepLogInfo.c)
+ *     KsepLogError @ 0x1404C635C (KsepLogError.c)
+ *     KsepDebugPrint @ 0x140508694 (KsepDebugPrint.c)
+ *     KseRegisterShim @ 0x1407C0020 (KseRegisterShim.c)
+ *     KsepCacheUninitialize @ 0x1407C1D00 (KsepCacheUninitialize.c)
+ *     EtwRegister @ 0x140917980 (EtwRegister.c)
+ *     KseShimDatabaseClose @ 0x1409D5D2C (KseShimDatabaseClose.c)
+ *     KseShimDatabaseOpen @ 0x1409D6414 (KseShimDatabaseOpen.c)
+ *     KsepEngineInitialize @ 0x140CD2F34 (KsepEngineInitialize.c)
+ *     KsepMatchInitMachineInfo @ 0x140CD3A58 (KsepMatchInitMachineInfo.c)
+ *     KseShimDatabaseBootInitialize @ 0x140CD3BC0 (KseShimDatabaseBootInitialize.c)
+ *     KseVersionLieInitialize @ 0x140CD3DB4 (KseVersionLieInitialize.c)
  */
 
 __int64 __fastcall KseInitialize(__int64 a1, unsigned int a2)
@@ -52,7 +52,7 @@ __int64 __fastcall KseInitialize(__int64 a1, unsigned int a2)
   int v35; // eax
   __int64 v36; // rdx
   char v37; // al
-  _KTRAP_FRAME *v38; // [rsp+50h] [rbp+18h] BYREF
+  LIST_ENTRY *v38; // [rsp+50h] [rbp+18h] BYREF
 
   matched = 0;
   if ( a2 )
@@ -60,22 +60,22 @@ __int64 __fastcall KseInitialize(__int64 a1, unsigned int a2)
     if ( a2 == 1 )
     {
       v38 = 0LL;
-      EtwRegister(&KernelShimEngineProvider, 0LL, 0LL, (PREGHANDLE)&stru_140E66B30.StackLimit);
+      EtwRegister(&KernelShimEngineProvider, 0LL, 0LL, (PREGHANDLE)&stru_140E66D40.StackLimit);
       matched = KseShimDatabaseOpen(&v38, v11, v12, v13);
       if ( matched >= 0 && v38 )
       {
-        KseShimDatabaseClose(v38, v14, v15, v16);
+        KseShimDatabaseClose((__int64)v38, v14, v15, v16);
         KseVersionLieInitialize();
         v17 = KseRegisterShim((__int64)&KseSkipDriverUnloadShim, 0LL, 0LL);
         if ( v17 < 0 )
         {
           v18 = ((unsigned __int8)_InterlockedExchangeAdd(
-                                    (volatile signed __int32 *)&AlpcpMessageLogLock.PriorityFloorCounts[8],
+                                    (volatile signed __int32 *)&AlpcpMessageLogLock.AbWaitEntryCount,
                                     1u)
                + 1) & 0x3F;
-          *(_DWORD *)&AlpcpMessageLogLock.WaitBlockFill6[8 * v18 + 4] = v17;
-          StackBase = (char)stru_140E66B30.StackBase;
-          *((_DWORD *)&AlpcpMessageLogLock.WaitBlock[0].WaitListEntry.Flink + 2 * v18) = 852115;
+          *(&AlpcpMessageLogLock.Timer.DueTime.HighPart + 2 * v18) = v17;
+          StackBase = (char)stru_140E66D40.StackBase;
+          *(&AlpcpMessageLogLock.Timer.DueTime.LowPart + 2 * v18) = 852114;
           if ( (StackBase & 2) != 0 )
             KsepDebugPrint(12LL, (int)"Built-in SkipDriverUnload shims: failed to register.\n");
           KsepLogError(12LL, (__int64)"Built-in SkipDriverUnload shims: failed to register.\n");
@@ -84,12 +84,12 @@ __int64 __fastcall KseInitialize(__int64 a1, unsigned int a2)
         if ( v20 < 0 )
         {
           v21 = ((unsigned __int8)_InterlockedExchangeAdd(
-                                    (volatile signed __int32 *)&AlpcpMessageLogLock.PriorityFloorCounts[8],
+                                    (volatile signed __int32 *)&AlpcpMessageLogLock.AbWaitEntryCount,
                                     1u)
                + 1) & 0x3F;
-          *(_DWORD *)&AlpcpMessageLogLock.WaitBlockFill6[8 * v21 + 4] = v20;
-          v22 = (char)stru_140E66B30.StackBase;
-          *((_DWORD *)&AlpcpMessageLogLock.WaitBlock[0].WaitListEntry.Flink + 2 * v21) = 1048692;
+          *(&AlpcpMessageLogLock.Timer.DueTime.HighPart + 2 * v21) = v20;
+          v22 = (char)stru_140E66D40.StackBase;
+          *(&AlpcpMessageLogLock.Timer.DueTime.LowPart + 2 * v21) = 1048691;
           if ( (v22 & 2) != 0 )
             KsepDebugPrint(12LL, (int)"ZeroPool shim: failed to register.\n");
           KsepLogError(12LL, (__int64)"ZeroPool shim: failed to register.\n");
@@ -98,12 +98,12 @@ __int64 __fastcall KseInitialize(__int64 a1, unsigned int a2)
         if ( v23 < 0 )
         {
           v24 = ((unsigned __int8)_InterlockedExchangeAdd(
-                                    (volatile signed __int32 *)&AlpcpMessageLogLock.PriorityFloorCounts[8],
+                                    (volatile signed __int32 *)&AlpcpMessageLogLock.AbWaitEntryCount,
                                     1u)
                + 1) & 0x3F;
-          *(_DWORD *)&AlpcpMessageLogLock.WaitBlockFill6[8 * v24 + 4] = v23;
-          v25 = (char)stru_140E66B30.StackBase;
-          *((_DWORD *)&AlpcpMessageLogLock.WaitBlock[0].WaitListEntry.Flink + 2 * v24) = 917629;
+          *(&AlpcpMessageLogLock.Timer.DueTime.HighPart + 2 * v24) = v23;
+          v25 = (char)stru_140E66D40.StackBase;
+          *(&AlpcpMessageLogLock.Timer.DueTime.LowPart + 2 * v24) = 917628;
           if ( (v25 & 2) != 0 )
             KsepDebugPrint(12LL, (int)"ClearPCIDBits shim: failed to register.\n");
           KsepLogError(12LL, (__int64)"ClearPCIDBits shim: failed to register.\n");
@@ -112,12 +112,12 @@ __int64 __fastcall KseInitialize(__int64 a1, unsigned int a2)
         if ( v26 < 0 )
         {
           v27 = ((unsigned __int8)_InterlockedExchangeAdd(
-                                    (volatile signed __int32 *)&AlpcpMessageLogLock.PriorityFloorCounts[8],
+                                    (volatile signed __int32 *)&AlpcpMessageLogLock.AbWaitEntryCount,
                                     1u)
                + 1) & 0x3F;
-          *(_DWORD *)&AlpcpMessageLogLock.WaitBlockFill6[8 * v27 + 4] = v26;
-          v28 = (char)stru_140E66B30.StackBase;
-          *((_DWORD *)&AlpcpMessageLogLock.WaitBlock[0].WaitListEntry.Flink + 2 * v27) = 983165;
+          *(&AlpcpMessageLogLock.Timer.DueTime.HighPart + 2 * v27) = v26;
+          v28 = (char)stru_140E66D40.StackBase;
+          *(&AlpcpMessageLogLock.Timer.DueTime.LowPart + 2 * v27) = 983164;
           if ( (v28 & 2) != 0 )
             KsepDebugPrint(12LL, (int)"Kaspersky shim: failed to register.\n");
           KsepLogError(12LL, (__int64)"Kaspersky shim: failed to register.\n");
@@ -126,12 +126,12 @@ __int64 __fastcall KseInitialize(__int64 a1, unsigned int a2)
         if ( v29 < 0 )
         {
           v30 = ((unsigned __int8)_InterlockedExchangeAdd(
-                                    (volatile signed __int32 *)&AlpcpMessageLogLock.PriorityFloorCounts[8],
+                                    (volatile signed __int32 *)&AlpcpMessageLogLock.AbWaitEntryCount,
                                     1u)
                + 1) & 0x3F;
-          *(_DWORD *)&AlpcpMessageLogLock.WaitBlockFill6[8 * v30 + 4] = v29;
-          v31 = (char)stru_140E66B30.StackBase;
-          *((_DWORD *)&AlpcpMessageLogLock.WaitBlock[0].WaitListEntry.Flink + 2 * v30) = 1114208;
+          *(&AlpcpMessageLogLock.Timer.DueTime.HighPart + 2 * v30) = v29;
+          v31 = (char)stru_140E66D40.StackBase;
+          *(&AlpcpMessageLogLock.Timer.DueTime.LowPart + 2 * v30) = 1114208;
           if ( (v31 & 2) != 0 )
             KsepDebugPrint(12LL, (int)"Memcpy shim: failed to register.\n");
           KsepLogError(12LL, (__int64)"Memcpy shim: failed to register.\n");
@@ -140,12 +140,12 @@ __int64 __fastcall KseInitialize(__int64 a1, unsigned int a2)
         if ( v32 < 0 )
         {
           v33 = ((unsigned __int8)_InterlockedExchangeAdd(
-                                    (volatile signed __int32 *)&AlpcpMessageLogLock.PriorityFloorCounts[8],
+                                    (volatile signed __int32 *)&AlpcpMessageLogLock.AbWaitEntryCount,
                                     1u)
                + 1) & 0x3F;
-          *(_DWORD *)&AlpcpMessageLogLock.WaitBlockFill6[8 * v33 + 4] = v32;
-          v34 = (char)stru_140E66B30.StackBase;
-          *((_DWORD *)&AlpcpMessageLogLock.WaitBlock[0].WaitListEntry.Flink + 2 * v33) = 1179753;
+          *(&AlpcpMessageLogLock.Timer.DueTime.HighPart + 2 * v33) = v32;
+          v34 = (char)stru_140E66D40.StackBase;
+          *(&AlpcpMessageLogLock.Timer.DueTime.LowPart + 2 * v33) = 1179752;
           if ( (v34 & 2) != 0 )
             KsepDebugPrint(12LL, (int)"KernelPadSectionsOverride shim: failed to register.\n");
           KsepLogError(12LL, (__int64)"KernelPadSectionsOverride shim: failed to register.\n");
@@ -154,12 +154,12 @@ __int64 __fastcall KseInitialize(__int64 a1, unsigned int a2)
         if ( v35 < 0 )
         {
           v36 = ((unsigned __int8)_InterlockedExchangeAdd(
-                                    (volatile signed __int32 *)&AlpcpMessageLogLock.PriorityFloorCounts[8],
+                                    (volatile signed __int32 *)&AlpcpMessageLogLock.AbWaitEntryCount,
                                     1u)
                + 1) & 0x3F;
-          *(_DWORD *)&AlpcpMessageLogLock.WaitBlockFill6[8 * v36 + 4] = v35;
-          v37 = (char)stru_140E66B30.StackBase;
-          *((_DWORD *)&AlpcpMessageLogLock.WaitBlock[0].WaitListEntry.Flink + 2 * v36) = 1245275;
+          *(&AlpcpMessageLogLock.Timer.DueTime.HighPart + 2 * v36) = v35;
+          v37 = (char)stru_140E66D40.StackBase;
+          *(&AlpcpMessageLogLock.Timer.DueTime.LowPart + 2 * v36) = 1245275;
           if ( (v37 & 2) != 0 )
             KsepDebugPrint(12LL, (int)"UserCetBasicModeAllowRetTargetNotCetCompat shim: failed to register.\n");
           KsepLogError(12LL, (__int64)"UserCetBasicModeAllowRetTargetNotCetCompat shim: failed to register.\n");
@@ -167,17 +167,17 @@ __int64 __fastcall KseInitialize(__int64 a1, unsigned int a2)
       }
       else
       {
-        dword_140E66B08 |= 0x80u;
+        dword_140E66D18 |= 0x80u;
         matched = -1073741637;
       }
     }
 LABEL_60:
-    *((_QWORD *)&AlpcpMessageLogLock.AbCompletedIoQoSBoostCount
-    + (((unsigned __int8)_InterlockedExchangeAdd(
-                           (volatile signed __int32 *)&AlpcpMessageLogLock.PriorityFloorCounts[12],
-                           1u)
-      + 1) & 0x3F)) = 327934LL;
-    if ( ((__int64)stru_140E66B30.StackBase & 1) != 0 )
+    *(_QWORD *)&AlpcpMessageLogLock.PriorityFloorCounts[8
+                                                      * (((unsigned __int8)_InterlockedExchangeAdd(
+                                                                             &KsepHistoryMessagesIndex,
+                                                                             1u)
+                                                        + 1) & 0x3F)] = 327933LL;
+    if ( ((__int64)stru_140E66D40.StackBase & 1) != 0 )
       KsepDebugPrint(1LL, (int)"KSE: Initialized phase 0x%x\n", a2);
     KsepLogInfo(1LL, (__int64)"KSE: Initialized phase 0x%x\n", a2);
     if ( InitIsWinPEMode )
@@ -186,7 +186,7 @@ LABEL_60:
       return (unsigned int)matched;
     goto LABEL_22;
   }
-  v5 = _InterlockedCompareExchange(&dword_140E66B04, 1, 0);
+  v5 = _InterlockedCompareExchange(&dword_140E66D14, 1, 0);
   if ( v5 == 2 )
     return 0LL;
   if ( v5 == 1 )
@@ -206,15 +206,15 @@ LABEL_60:
       matched = KsepMatchInitMachineInfo(a1);
       if ( matched >= 0 )
       {
-        dword_140E66B04 = 2;
+        dword_140E66D14 = 2;
         if ( (int)KseRegisterShim((__int64)&KseDsShim, 0LL, 0LL) >= 0 )
         {
-          *((_QWORD *)&AlpcpMessageLogLock.AbCompletedIoQoSBoostCount
-          + (((unsigned __int8)_InterlockedExchangeAdd(
-                                 (volatile signed __int32 *)&AlpcpMessageLogLock.PriorityFloorCounts[12],
-                                 1u)
-            + 1) & 0x3F)) = 721040LL;
-          if ( ((__int64)stru_140E66B30.StackBase & 1) != 0 )
+          *(_QWORD *)&AlpcpMessageLogLock.PriorityFloorCounts[8
+                                                            * (((unsigned __int8)_InterlockedExchangeAdd(
+                                                                                   &KsepHistoryMessagesIndex,
+                                                                                   1u)
+                                                              + 1) & 0x3F)] = 721039LL;
+          if ( ((__int64)stru_140E66D40.StackBase & 1) != 0 )
             KsepDebugPrint(11LL, (int)"KSE-DS: driver scope shim registered.\n");
           KsepLogInfo(11LL, (__int64)"KSE-DS: driver scope shim registered.\n");
         }
@@ -225,31 +225,29 @@ LABEL_60:
   else
   {
     if ( ViVerifierEnabled )
-      dword_140E66B08 |= 0x40u;
+      dword_140E66D18 |= 0x40u;
     v9 = *(_QWORD *)(a1 + 240);
     if ( !*(_QWORD *)(v9 + 64) || !*(_DWORD *)(v9 + 72) )
-      dword_140E66B08 |= 0x80u;
+      dword_140E66D18 |= 0x80u;
     matched = -1073741637;
   }
 LABEL_22:
-  dword_140E66B04 = 0;
-  if ( stru_140E66B30.SListFaultAddress )
+  dword_140E66D14 = 0;
+  if ( stru_140E66D40.SListFaultAddress )
   {
-    KsepCacheUninitialize((__int64)stru_140E66B30.SListFaultAddress, v7);
-    stru_140E66B30.SListFaultAddress = 0LL;
+    KsepCacheUninitialize((__int64)stru_140E66D40.SListFaultAddress, v7);
+    stru_140E66D40.SListFaultAddress = 0LL;
   }
   KseEngine |= 3u;
-  dword_140E66B08 |= 0x400u;
-  v10 = ((unsigned __int8)_InterlockedExchangeAdd(
-                            (volatile signed __int32 *)&AlpcpMessageLogLock.PriorityFloorCounts[8],
-                            1u)
+  dword_140E66D18 |= 0x400u;
+  v10 = ((unsigned __int8)_InterlockedExchangeAdd((volatile signed __int32 *)&AlpcpMessageLogLock.AbWaitEntryCount, 1u)
        + 1) & 0x3F;
-  *(_WORD *)&AlpcpMessageLogLock.WaitBlockFill4[8 * v10 + 2] = 5;
+  *((_WORD *)&AlpcpMessageLogLock.Timer.DueTime.u.LowPart + 4 * v10 + 1) = 5;
   if ( matched == -1073741637 )
   {
-    *(_DWORD *)&AlpcpMessageLogLock.WaitBlockFill6[8 * v10 + 4] = -1073741637;
-    *((_WORD *)&AlpcpMessageLogLock.WaitBlock[0].WaitListEntry.Flink + 4 * v10) = 282;
-    if ( ((__int64)stru_140E66B30.StackBase & 2) != 0 )
+    *(&AlpcpMessageLogLock.Timer.DueTime.HighPart + 2 * v10) = -1073741637;
+    *((_WORD *)&AlpcpMessageLogLock.Timer.DueTime.LowPart + 4 * v10) = 281;
+    if ( ((__int64)stru_140E66D40.StackBase & 2) != 0 )
       KsepDebugPrint(
         1LL,
         (int)"KSE: Engine not initialized (disabled explicitly, safe boot on, verifier on, WinPE mode or loader issue)\n");
@@ -259,9 +257,9 @@ LABEL_22:
   }
   else
   {
-    *(_DWORD *)&AlpcpMessageLogLock.WaitBlockFill6[8 * v10 + 4] = matched;
-    *((_WORD *)&AlpcpMessageLogLock.WaitBlock[0].WaitListEntry.Flink + 4 * v10) = 286;
-    if ( ((__int64)stru_140E66B30.StackBase & 2) != 0 )
+    *(&AlpcpMessageLogLock.Timer.DueTime.HighPart + 2 * v10) = matched;
+    *((_WORD *)&AlpcpMessageLogLock.Timer.DueTime.LowPart + 4 * v10) = 285;
+    if ( ((__int64)stru_140E66D40.StackBase & 2) != 0 )
       KsepDebugPrint(1LL, (int)"KSE: Initialization failed: 0x%x\n", (unsigned int)matched);
     KsepLogError(1LL, (__int64)"KSE: Initialization failed: 0x%x\n", matched);
   }

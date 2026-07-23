@@ -29,10 +29,10 @@ void SshSessionManagerFlushBuffers()
   v1 = _interlockedbittestandset64((volatile signed __int32 *)&stru_140F05788, 0LL);
   v2 = v0;
   if ( v1 )
-    ExfAcquirePushLockExclusiveEx(&stru_140F05788, v0, (__int64)&stru_140F05788);
+    ExfAcquirePushLockExclusiveEx((unsigned __int64 *)&stru_140F05788, v0, (__int64)&stru_140F05788);
   if ( v2 )
     *((_BYTE *)v2 + 10) = 1;
-  v3 = qword_140F05790 != 0LL;
+  v3 = PortHandle != 0LL;
   SSHSupportReleasePushLockExclusive((volatile signed __int64 *)&stru_140F05788);
   if ( v3 )
   {
@@ -40,7 +40,7 @@ void SshSessionManagerFlushBuffers()
     v1 = _interlockedbittestandset64((volatile signed __int32 *)&SshpSessionManagerLock, 0LL);
     v5 = v4;
     if ( v1 )
-      ExfAcquirePushLockExclusiveEx(&SshpSessionManagerLock, v4, (__int64)&SshpSessionManagerLock);
+      ExfAcquirePushLockExclusiveEx((unsigned __int64 *)&SshpSessionManagerLock, v4, (__int64)&SshpSessionManagerLock);
     if ( v5 )
       *((_BYTE *)v5 + 10) = 1;
     do
@@ -69,7 +69,7 @@ void SshSessionManagerFlushBuffers()
       v1 = _interlockedbittestandset64((volatile signed __int32 *)&SshpSessionManagerLock, 0LL);
       v8 = v7;
       if ( v1 )
-        ExfAcquirePushLockExclusiveEx(&SshpSessionManagerLock, v7, (__int64)&SshpSessionManagerLock);
+        ExfAcquirePushLockExclusiveEx((unsigned __int64 *)&SshpSessionManagerLock, v7, (__int64)&SshpSessionManagerLock);
       if ( v8 )
         *((_BYTE *)v8 + 10) = 1;
     }

@@ -1,22 +1,22 @@
 /*
- * XREFs of AlpcpExposeViewAttributeInSenderContext @ 0x14071A858
+ * XREFs of AlpcpExposeViewAttributeInSenderContext @ 0x14071AA58
  * Callers:
- *     AlpcpDispatchReplyToWaitingThread @ 0x140737FD0 (AlpcpDispatchReplyToWaitingThread.c)
- *     AlpcpCompleteDispatchMessage @ 0x140739E80 (AlpcpCompleteDispatchMessage.c)
+ *     AlpcpDispatchReplyToWaitingThread @ 0x1407381C0 (AlpcpDispatchReplyToWaitingThread.c)
+ *     AlpcpCompleteDispatchMessage @ 0x14073A070 (AlpcpCompleteDispatchMessage.c)
  * Callees:
- *     KiStackAttachProcess @ 0x14022D600 (KiStackAttachProcess.c)
- *     KiUnstackDetachProcess @ 0x14022D9C0 (KiUnstackDetachProcess.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     MmUnsecureVirtualMemory @ 0x1406B0260 (MmUnsecureVirtualMemory.c)
- *     MmSecureVirtualMemoryAgainstWrites @ 0x14071A4A8 (MmSecureVirtualMemoryAgainstWrites.c)
- *     AlpcpLocateView @ 0x14071A9E0 (AlpcpLocateView.c)
- *     AlpcpDeleteView @ 0x14071C0E8 (AlpcpDeleteView.c)
- *     AlpcpCreateView @ 0x14071C324 (AlpcpCreateView.c)
- *     AlpcpDereferenceBlobEx @ 0x14071E93C (AlpcpDereferenceBlobEx.c)
- *     AlpcpReferenceBlob @ 0x140738B20 (AlpcpReferenceBlob.c)
- *     AlpcpLockForCachedReferenceBlob @ 0x140739E34 (AlpcpLockForCachedReferenceBlob.c)
- *     AlpcpUnlockBlob @ 0x14073BC40 (AlpcpUnlockBlob.c)
- *     AlpcpRestoreWriteAccess @ 0x1407C2F10 (AlpcpRestoreWriteAccess.c)
+ *     KiStackAttachProcess @ 0x14022D710 (KiStackAttachProcess.c)
+ *     KiUnstackDetachProcess @ 0x14022DAD0 (KiUnstackDetachProcess.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     MmUnsecureVirtualMemory @ 0x1406B0290 (MmUnsecureVirtualMemory.c)
+ *     MmSecureVirtualMemoryAgainstWrites @ 0x14071A6A8 (MmSecureVirtualMemoryAgainstWrites.c)
+ *     AlpcpLocateView @ 0x14071ABE0 (AlpcpLocateView.c)
+ *     AlpcpDeleteView @ 0x14071C2E8 (AlpcpDeleteView.c)
+ *     AlpcpCreateView @ 0x14071C524 (AlpcpCreateView.c)
+ *     AlpcpDereferenceBlobEx @ 0x14071EB3C (AlpcpDereferenceBlobEx.c)
+ *     AlpcpReferenceBlob @ 0x140738D10 (AlpcpReferenceBlob.c)
+ *     AlpcpLockForCachedReferenceBlob @ 0x14073A024 (AlpcpLockForCachedReferenceBlob.c)
+ *     AlpcpUnlockBlob @ 0x14073BE30 (AlpcpUnlockBlob.c)
+ *     AlpcpRestoreWriteAccess @ 0x1407C31E0 (AlpcpRestoreWriteAccess.c)
  */
 
 __int64 __fastcall AlpcpExposeViewAttributeInSenderContext(PVOID Object, __int64 a2)

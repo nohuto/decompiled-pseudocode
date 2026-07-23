@@ -1,10 +1,10 @@
 /*
- * XREFs of VmInitSystem @ 0x1409ADD1C
+ * XREFs of VmInitSystem @ 0x1409AED1C
  * Callers:
- *     Phase1InitializationDiscard @ 0x1409B3E10 (Phase1InitializationDiscard.c)
+ *     Phase1InitializationDiscard @ 0x1409B4E10 (Phase1InitializationDiscard.c)
  * Callees:
- *     memset @ 0x1401D1880 (memset.c)
- *     ExRegisterHost @ 0x1407275BC (ExRegisterHost.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     ExRegisterHost @ 0x14072885C (ExRegisterHost.c)
  */
 
 __int64 VmInitSystem()

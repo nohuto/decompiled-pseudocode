@@ -152,7 +152,7 @@ void __fastcall EtwTimLogControlProtectionUserModeReturnMismatch(int a1, __int64
   Pool2 = (unsigned __int16 *)ExAllocatePool2(256LL, 512LL, 1853049172LL);
   v19 = Pool2;
   if ( Pool2
-    && (ZwQueryVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, a3, (MEMORY_INFORMATION_CLASS)2, Pool2, 0x200uLL, 0LL) >= 0
+    && (ZwQueryVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, a3, MemoryMappedFilenameInformation, Pool2, 0x200uLL, 0LL) >= 0
       ? (v20 = *v19)
       : (*v19 = 0, v20 = 0),
         v20) )
@@ -181,7 +181,13 @@ void __fastcall EtwTimLogControlProtectionUserModeReturnMismatch(int a1, __int64
   v27 = (unsigned __int16 *)ExAllocatePool2(256LL, 512LL, 1853049172LL);
   v28 = v27;
   if ( v27
-    && (ZwQueryVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, BaseAddress, (MEMORY_INFORMATION_CLASS)2, v27, 0x200uLL, 0LL) >= 0
+    && (ZwQueryVirtualMemory(
+          (HANDLE)0xFFFFFFFFFFFFFFFFLL,
+          BaseAddress,
+          MemoryMappedFilenameInformation,
+          v27,
+          0x200uLL,
+          0LL) >= 0
       ? (v29 = *v28)
       : (*v28 = 0, v29 = 0),
         v29) )

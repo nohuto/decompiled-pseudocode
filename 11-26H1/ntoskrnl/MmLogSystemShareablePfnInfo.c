@@ -1,16 +1,16 @@
 /*
- * XREFs of MmLogSystemShareablePfnInfo @ 0x140877454
+ * XREFs of MmLogSystemShareablePfnInfo @ 0x14087D834
  * Callers:
- *     EtwpKernelTraceRundown @ 0x140A70518 (EtwpKernelTraceRundown.c)
+ *     EtwpKernelTraceRundown @ 0x140A99DCC (EtwpKernelTraceRundown.c)
  * Callees:
- *     ExAllocatePoolMm @ 0x1403985B0 (ExAllocatePoolMm.c)
- *     MiGetWorkingSetInfoEx @ 0x14040F3EC (MiGetWorkingSetInfoEx.c)
- *     MmGetCurrentProcessorColor @ 0x14044ADC0 (MmGetCurrentProcessorColor.c)
- *     MiGetAnyMultiplexedVm @ 0x140457870 (MiGetAnyMultiplexedVm.c)
- *     MiGetAggregateWorkingSetSize @ 0x14070DE78 (MiGetAggregateWorkingSetSize.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     EtwLogPfnInfoRundown @ 0x14082F35C (EtwLogPfnInfoRundown.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolMm @ 0x14039A310 (ExAllocatePoolMm.c)
+ *     MiGetWorkingSetInfoEx @ 0x14040EB0C (MiGetWorkingSetInfoEx.c)
+ *     MmGetCurrentProcessorColor @ 0x140442EF0 (MmGetCurrentProcessorColor.c)
+ *     MiGetAnyMultiplexedVm @ 0x14044F0E0 (MiGetAnyMultiplexedVm.c)
+ *     MiGetAggregateWorkingSetSize @ 0x140712B28 (MiGetAggregateWorkingSetSize.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     EtwLogPfnInfoRundown @ 0x14083559C (EtwLogPfnInfoRundown.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __fastcall MmLogSystemShareablePfnInfo(__int64 a1, unsigned int a2)

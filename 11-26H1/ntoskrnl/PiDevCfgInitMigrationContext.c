@@ -1,25 +1,25 @@
 /*
- * XREFs of PiDevCfgInitMigrationContext @ 0x14098B654
+ * XREFs of PiDevCfgInitMigrationContext @ 0x140A45D74
  * Callers:
- *     PiDevCfgMigrateDevice @ 0x14098B138 (PiDevCfgMigrateDevice.c)
+ *     PiDevCfgMigrateDevice @ 0x140A45858 (PiDevCfgMigrateDevice.c)
  * Callees:
- *     ZwOpenKey @ 0x140723630 (ZwOpenKey.c)
- *     PiDevCfgFreeMigrationContext @ 0x14098B880 (PiDevCfgFreeMigrationContext.c)
- *     _PnpCtxGetCachedNodeBaseKey @ 0x140997720 (_PnpCtxGetCachedNodeBaseKey.c)
- *     IopOpenRegistryKeyEx @ 0x140AA8B70 (IopOpenRegistryKeyEx.c)
+ *     ZwOpenKey @ 0x140728200 (ZwOpenKey.c)
+ *     _PnpCtxGetCachedNodeBaseKey @ 0x140958180 (_PnpCtxGetCachedNodeBaseKey.c)
+ *     IopOpenRegistryKeyEx @ 0x1409DC0A0 (IopOpenRegistryKeyEx.c)
+ *     PiDevCfgFreeMigrationContext @ 0x140A45FA0 (PiDevCfgFreeMigrationContext.c)
  */
 
-__int64 __fastcall PiDevCfgInitMigrationContext(__int64 a1, __int64 a2, __int64 a3)
+__int64 __fastcall PiDevCfgInitMigrationContext(UNICODE_STRING *a1, __int64 a2, __int64 a3)
 {
   __int64 v5; // rcx
-  __int64 v6; // rdx
-  __int64 v7; // rdx
+  _QWORD *v6; // rdx
+  void *v7; // rdx
   int CachedNodeBaseKey; // ebx
   __int64 v9; // r8
   __int64 v10; // r9
   NTSTATUS v11; // eax
   NTSTATUS v12; // eax
-  __int64 *v14; // rsi
+  void **v14; // rsi
   NTSTATUS v15; // eax
   __int128 v16; // [rsp+20h] [rbp-40h] BYREF
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+30h] [rbp-30h] BYREF
@@ -33,13 +33,13 @@ __int64 __fastcall PiDevCfgInitMigrationContext(__int64 a1, __int64 a2, __int64 
   *(_QWORD *)(a3 + 48) = a2;
   v5 = *(_QWORD *)&PiPnpRtlCtx;
   v16 = 0LL;
-  v6 = *(_QWORD *)(*(_QWORD *)&PiPnpRtlCtx + 128LL);
+  v6 = *(_QWORD **)(*(_QWORD *)&PiPnpRtlCtx + 128LL);
   if ( !v6 )
   {
-    v6 = *(_QWORD *)(*(_QWORD *)&PiPnpRtlCtx + 88LL);
+    v6 = *(_QWORD **)(*(_QWORD *)&PiPnpRtlCtx + 88LL);
     *(_QWORD *)(*(_QWORD *)&PiPnpRtlCtx + 128LL) = v6;
   }
-  CachedNodeBaseKey = PnpCtxGetCachedNodeBaseKey(v5, v6, 4LL, &v18);
+  CachedNodeBaseKey = PnpCtxGetCachedNodeBaseKey(v5, v6, 4, &v18);
   if ( CachedNodeBaseKey < 0 )
     goto LABEL_8;
   LODWORD(v16) = 3145774;
@@ -78,7 +78,7 @@ LABEL_8:
   }
   LODWORD(v16) = 1048590;
   *((_QWORD *)&v16 + 1) = L"Classes";
-  v14 = (__int64 *)(a3 + 16);
+  v14 = (void **)(a3 + 16);
   ObjectAttributes.RootDirectory = *(HANDLE *)a3;
   *(_QWORD *)&ObjectAttributes.Length = 48LL;
   ObjectAttributes.ObjectName = (PUNICODE_STRING)&v16;
@@ -101,7 +101,7 @@ LABEL_8:
   {
     if ( a1 )
     {
-      CachedNodeBaseKey = IopOpenRegistryKeyEx(a3 + 24, v7, a1, 131097LL);
+      CachedNodeBaseKey = IopOpenRegistryKeyEx((HANDLE *)(a3 + 24), v7, a1, 0x20019u);
       if ( CachedNodeBaseKey == -1073741772 )
       {
         CachedNodeBaseKey = 0;

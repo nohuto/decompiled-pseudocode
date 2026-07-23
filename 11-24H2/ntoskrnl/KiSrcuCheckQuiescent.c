@@ -1,12 +1,12 @@
 /*
- * XREFs of KiSrcuCheckQuiescent @ 0x140437860
+ * XREFs of KiSrcuCheckQuiescent @ 0x14042A2E0
  * Callers:
- *     KiSrcuNotifyGracePeriodStartedOnCpu @ 0x1405C1378 (KiSrcuNotifyGracePeriodStartedOnCpu.c)
+ *     KiSrcuNotifyGracePeriodStartedOnCpu @ 0x1405BE948 (KiSrcuNotifyGracePeriodStartedOnCpu.c)
  * Callees:
- *     KiRemoveSystemWorkPriorityKick @ 0x14025E408 (KiRemoveSystemWorkPriorityKick.c)
- *     KeDisableInterrupts @ 0x140321E80 (KeDisableInterrupts.c)
- *     KiSrcuFlushCompleted @ 0x1405C0EA4 (KiSrcuFlushCompleted.c)
- *     KiSrcuReportQuiescent @ 0x1405C17F8 (KiSrcuReportQuiescent.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14028EA18 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeDisableInterrupts @ 0x1402CAA10 (KeDisableInterrupts.c)
+ *     KiSrcuFlushCompleted @ 0x1405BE474 (KiSrcuFlushCompleted.c)
+ *     KiSrcuReportQuiescent @ 0x1405BEDC8 (KiSrcuReportQuiescent.c)
  */
 
 void __fastcall KiSrcuCheckQuiescent(__int64 a1)

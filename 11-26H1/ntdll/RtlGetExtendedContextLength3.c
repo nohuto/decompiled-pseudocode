@@ -1,15 +1,15 @@
 /*
- * XREFs of RtlGetExtendedContextLength3 @ 0x1800B42A0
+ * XREFs of RtlGetExtendedContextLength3 @ 0x1800B17C0
  * Callers:
- *     RtlRaiseException @ 0x180040C10 (RtlRaiseException.c)
- *     RtlUnwindEx @ 0x180049930 (RtlUnwindEx.c)
- *     RtlGetExtendedContextLength @ 0x1800B4000 (RtlGetExtendedContextLength.c)
- *     RtlGetExtendedContextLength2 @ 0x1800B4150 (RtlGetExtendedContextLength2.c)
- *     RtlWow64GetCurrentCpuArea @ 0x1800B4170 (RtlWow64GetCurrentCpuArea.c)
+ *     RtlRaiseException @ 0x18002B180 (RtlRaiseException.c)
+ *     RtlUnwindEx @ 0x180033EB0 (RtlUnwindEx.c)
+ *     RtlGetExtendedContextLength @ 0x1800B1520 (RtlGetExtendedContextLength.c)
+ *     RtlGetExtendedContextLength2 @ 0x1800B1670 (RtlGetExtendedContextLength2.c)
+ *     RtlWow64GetCurrentCpuArea @ 0x1800B1690 (RtlWow64GetCurrentCpuArea.c)
  * Callees:
- *     RtlpValidateContextFlags2 @ 0x1800B4AD0 (RtlpValidateContextFlags2.c)
- *     RtlpGetEntireXStateAreaLength2 @ 0x1800B4BA4 (RtlpGetEntireXStateAreaLength2.c)
- *     RtlpRemoveArchDisallowedXStateFeatures @ 0x1800B4C00 (RtlpRemoveArchDisallowedXStateFeatures.c)
+ *     RtlpValidateContextFlags2 @ 0x1800B1FF0 (RtlpValidateContextFlags2.c)
+ *     RtlpGetEntireXStateAreaLength2 @ 0x1800B20C4 (RtlpGetEntireXStateAreaLength2.c)
+ *     RtlpRemoveArchDisallowedXStateFeatures @ 0x1800B2120 (RtlpRemoveArchDisallowedXStateFeatures.c)
  */
 
 __int64 __fastcall RtlGetExtendedContextLength3(__int64 a1, _DWORD *a2, unsigned __int64 a3, __int64 a4)

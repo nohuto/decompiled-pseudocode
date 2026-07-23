@@ -6,17 +6,19 @@
  *     sub_18010EFC8 @ 0x18010EFC8 (sub_18010EFC8.c)
  */
 
-__int64 __fastcall TpAllocPool(__int64 a1, struct _PEB_LDR_DATA *Ldr, __int64 a3, __int64 a4)
+NTSTATUS __cdecl TpAllocPool(PTP_POOL *PoolReturn, PVOID Reserved)
 {
-  if ( a1 )
+  __int64 v2; // r8
+
+  if ( PoolReturn )
   {
-    if ( !Ldr )
+    if ( !Reserved )
     {
-      Ldr = NtCurrentPeb()->Ldr;
-      if ( !Ldr->ShutdownInProgress )
-        return sub_180062F34(a1, 0LL);
+      Reserved = NtCurrentPeb()->Ldr;
+      if ( !*((_BYTE *)Reserved + 72) )
+        return sub_180062F34(PoolReturn, 0LL);
     }
   }
-  sub_18010EFC8(a1, Ldr, a3, a4);
-  return 3221225485LL;
+  sub_18010EFC8(PoolReturn, Reserved, v2);
+  return -1073741811;
 }

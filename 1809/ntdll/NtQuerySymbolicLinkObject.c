@@ -1,5 +1,5 @@
 /*
- * XREFs of NtQuerySymbolicLinkObject @ 0x1800A2DB0
+ * XREFs of NtQuerySymbolicLinkObject @ 0x1800A2DD0
  * Callers:
  *     LdrpInitializeProcess @ 0x1800D3FB4 (LdrpInitializeProcess.c)
  *     AvrfMiniLoadDll @ 0x1800DCAA8 (AvrfMiniLoadDll.c)
@@ -7,11 +7,11 @@
  *     <none>
  */
 
-__int64 NtQuerySymbolicLinkObject()
+NTSTATUS __cdecl NtQuerySymbolicLinkObject(HANDLE LinkHandle, PUNICODE_STRING LinkTarget, PULONG ReturnedLength)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 343LL;
+  result = 343;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

@@ -1,12 +1,16 @@
 /*
- * XREFs of NtReplyWaitReceivePort @ 0x14071BA10
+ * XREFs of NtReplyWaitReceivePort @ 0x14071BC10
  * Callers:
  *     <none>
  * Callees:
- *     NtReplyWaitReceivePortEx @ 0x14071BA30 (NtReplyWaitReceivePortEx.c)
+ *     NtReplyWaitReceivePortEx @ 0x14071BC30 (NtReplyWaitReceivePortEx.c)
  */
 
-__int64 __fastcall NtReplyWaitReceivePort(void *a1)
+NTSTATUS __cdecl NtReplyWaitReceivePort(
+        HANDLE PortHandle,
+        PVOID *PortContext,
+        PPORT_MESSAGE ReplyMessage,
+        PPORT_MESSAGE ReceiveMessage)
 {
-  return NtReplyWaitReceivePortEx(a1, 0LL);
+  return NtReplyWaitReceivePortEx(PortHandle, PortContext, ReplyMessage, ReceiveMessage, 0LL);
 }

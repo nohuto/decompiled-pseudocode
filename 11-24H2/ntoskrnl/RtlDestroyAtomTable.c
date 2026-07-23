@@ -1,15 +1,15 @@
 /*
- * XREFs of RtlDestroyAtomTable @ 0x1409E4ED0
+ * XREFs of RtlDestroyAtomTable @ 0x1409DF930
  * Callers:
- *     RtlDereferenceAtomTable @ 0x1405E8D24 (RtlDereferenceAtomTable.c)
+ *     RtlDereferenceAtomTable @ 0x1405E6270 (RtlDereferenceAtomTable.c)
  * Callees:
- *     RtlpFreeAtom @ 0x14085AC78 (RtlpFreeAtom.c)
- *     RtlpLockAtomTable @ 0x140935D80 (RtlpLockAtomTable.c)
- *     RtlpUnlockAtomTable @ 0x140935DFC (RtlpUnlockAtomTable.c)
- *     ExDestroyHandleTable @ 0x1409E5220 (ExDestroyHandleTable.c)
+ *     RtlpFreeAtom @ 0x140856F58 (RtlpFreeAtom.c)
+ *     RtlpLockAtomTable @ 0x1408F4C90 (RtlpLockAtomTable.c)
+ *     RtlpUnlockAtomTable @ 0x1408F4D0C (RtlpUnlockAtomTable.c)
+ *     ExDestroyHandleTable @ 0x1409DFC80 (ExDestroyHandleTable.c)
  */
 
-__int64 __fastcall RtlDestroyAtomTable(__int64 a1)
+NTSTATUS __cdecl RtlDestroyAtomTable(PVOID AtomTableHandle)
 {
   __int64 v3; // rdx
   __int64 v4; // r8
@@ -25,12 +25,12 @@ __int64 __fastcall RtlDestroyAtomTable(__int64 a1)
   _QWORD *v14; // rcx
   _QWORD *v15; // rax
 
-  if ( _InterlockedExchangeAdd((volatile signed __int32 *)(a1 + 4), 0xFFFFFFFF) != 1 )
-    return 0LL;
-  if ( RtlpLockAtomTable((_DWORD *)a1) )
+  if ( _InterlockedExchangeAdd((volatile signed __int32 *)AtomTableHandle + 1, 0xFFFFFFFF) != 1 )
+    return 0;
+  if ( RtlpLockAtomTable(AtomTableHandle) )
   {
     v6 = 0;
-    for ( i = (_QWORD **)(a1 + 32); v6 < *(_DWORD *)(a1 + 28); ++v6 )
+    for ( i = (_QWORD **)((char *)AtomTableHandle + 32); v6 < *((_DWORD *)AtomTableHandle + 7); ++v6 )
     {
       v8 = *i;
       *i++ = 0LL;
@@ -56,14 +56,14 @@ __int64 __fastcall RtlDestroyAtomTable(__int64 a1)
         RtlpFreeAtom((__int64)v9, v3, v4, v5);
       }
     }
-    *(_DWORD *)a1 = 0;
-    RtlpUnlockAtomTable(a1);
-    ExDestroyHandleTable(*(PVOID *)(a1 + 16));
-    *(_OWORD *)a1 = 0LL;
-    *(_OWORD *)(a1 + 16) = 0LL;
-    *(_QWORD *)(a1 + 32) = 0LL;
-    RtlpFreeAtom(a1, v10, v11, v12);
-    return 0LL;
+    *(_DWORD *)AtomTableHandle = 0;
+    RtlpUnlockAtomTable((__int64)AtomTableHandle);
+    ExDestroyHandleTable(*((PVOID *)AtomTableHandle + 2));
+    *(_OWORD *)AtomTableHandle = 0LL;
+    *((_OWORD *)AtomTableHandle + 1) = 0LL;
+    *((_QWORD *)AtomTableHandle + 4) = 0LL;
+    RtlpFreeAtom((__int64)AtomTableHandle, v10, v11, v12);
+    return 0;
   }
-  return 3221225485LL;
+  return -1073741811;
 }

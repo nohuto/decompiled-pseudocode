@@ -9,39 +9,41 @@
  *     __security_check_cookie @ 0x180166F50 (__security_check_cookie.c)
  */
 
-NTSTATUS RtlpHpApplySegmentHeapConfigurations()
+int RtlpHpApplySegmentHeapConfigurations()
 {
-  NTSTATUS result; // eax
-  int v1; // [rsp+30h] [rbp-9h] BYREF
-  HANDLE Handle; // [rsp+38h] [rbp-1h] BYREF
-  _QWORD v3[3]; // [rsp+40h] [rbp+7h] BYREF
-  int v4; // [rsp+58h] [rbp+1Fh]
-  int v5; // [rsp+5Ch] [rbp+23h]
-  __int128 v6; // [rsp+60h] [rbp+27h]
-  __int128 v7; // [rsp+70h] [rbp+37h] BYREF
-  int v8; // [rsp+80h] [rbp+47h]
+  int result; // eax
+  ULONG ResultLength; // [rsp+30h] [rbp-9h] BYREF
+  HANDLE KeyHandle; // [rsp+38h] [rbp-1h] BYREF
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+40h] [rbp+7h] BYREF
+  __int128 KeyValueInformation; // [rsp+70h] [rbp+37h] BYREF
+  int v5; // [rsp+80h] [rbp+47h]
 
+  memset(&ObjectAttributes.Attributes + 1, 0, 20);
+  ResultLength = 0;
+  *(_QWORD *)&ObjectAttributes.Length = 48LL;
+  KeyHandle = 0LL;
+  ObjectAttributes.RootDirectory = 0LL;
   v5 = 0;
-  v1 = 0;
-  v3[0] = 48LL;
-  Handle = 0LL;
-  v3[1] = 0LL;
-  v8 = 0;
-  v3[2] = &unk_180175FC8;
-  v7 = 0LL;
-  v4 = 64;
-  v6 = 0LL;
-  result = NtOpenKey(&Handle, 1LL, v3);
+  ObjectAttributes.ObjectName = (PUNICODE_STRING)&unk_180175FC8;
+  KeyValueInformation = 0LL;
+  ObjectAttributes.Attributes = 64;
+  result = NtOpenKey(&KeyHandle, 1u, &ObjectAttributes);
   if ( result >= 0 )
   {
-    result = NtQueryValueKey(Handle, &unk_180176BA0, 2LL, &v7, 20, &v1);
-    if ( result >= 0 && DWORD2(v7) == 4 )
+    result = NtQueryValueKey(
+               KeyHandle,
+               (PUNICODE_STRING)&stru_180176BA0,
+               KeyValuePartialInformation,
+               &KeyValueInformation,
+               0x14u,
+               &ResultLength);
+    if ( result >= 0 && DWORD2(KeyValueInformation) == 4 )
     {
-      if ( HIDWORD(v7) )
+      if ( HIDWORD(KeyValueInformation) )
       {
         result = RtlpLowFragHeapGlobalFlags | 0x10;
         RtlpLowFragHeapGlobalFlags |= 0x10u;
-        if ( (BYTE12(v7) & 2) != 0 )
+        if ( (BYTE12(KeyValueInformation) & 2) != 0 )
         {
           result |= 0x20u;
           RtlpLowFragHeapGlobalFlags = result;
@@ -53,7 +55,7 @@ NTSTATUS RtlpHpApplySegmentHeapConfigurations()
       }
     }
   }
-  if ( Handle )
-    return NtClose(Handle);
+  if ( KeyHandle )
+    return NtClose(KeyHandle);
   return result;
 }

@@ -1,21 +1,21 @@
 /*
- * XREFs of PiDqQueryApplyObjectEvent @ 0x1406F7878
+ * XREFs of PiDqQueryApplyObjectEvent @ 0x1406F8B18
  * Callers:
- *     PiDqObjectManagerServiceActionQueue @ 0x1406F74E0 (PiDqObjectManagerServiceActionQueue.c)
+ *     PiDqObjectManagerServiceActionQueue @ 0x1406F8780 (PiDqObjectManagerServiceActionQueue.c)
  * Callees:
  *     RtlLookupElementGenericTableAvl @ 0x140006BF0 (RtlLookupElementGenericTableAvl.c)
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     ExReleasePushLockEx @ 0x14004F160 (ExReleasePushLockEx.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
- *     _wcsicmp @ 0x140195930 (_wcsicmp.c)
- *     PiDqQueryFreeActiveData @ 0x140590124 (PiDqQueryFreeActiveData.c)
- *     PiDqQueryActionQueueEntryCreate @ 0x14059172C (PiDqQueryActionQueueEntryCreate.c)
- *     PiDqQueryAppendActionEntry @ 0x1405917B8 (PiDqQueryAppendActionEntry.c)
- *     PiDqQueryEvaluateFilter @ 0x14059552C (PiDqQueryEvaluateFilter.c)
- *     PiPnpRtlApplyMandatoryFilters @ 0x140595FCC (PiPnpRtlApplyMandatoryFilters.c)
- *     PiDqQueryAddObjectToResultSet @ 0x1406C991C (PiDqQueryAddObjectToResultSet.c)
- *     PiDqQueryDeleteObjectFromResultSet @ 0x1406CC0B0 (PiDqQueryDeleteObjectFromResultSet.c)
- *     PiDqSameUserHive @ 0x14082B22C (PiDqSameUserHive.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B78F0 (KiLeaveCriticalRegionUnsafe.c)
+ *     _wcsicmp @ 0x140195A70 (_wcsicmp.c)
+ *     PiDqQueryFreeActiveData @ 0x140591124 (PiDqQueryFreeActiveData.c)
+ *     PiDqQueryActionQueueEntryCreate @ 0x14059272C (PiDqQueryActionQueueEntryCreate.c)
+ *     PiDqQueryAppendActionEntry @ 0x1405927B8 (PiDqQueryAppendActionEntry.c)
+ *     PiDqQueryEvaluateFilter @ 0x14059652C (PiDqQueryEvaluateFilter.c)
+ *     PiPnpRtlApplyMandatoryFilters @ 0x140596FCC (PiPnpRtlApplyMandatoryFilters.c)
+ *     PiDqQueryAddObjectToResultSet @ 0x1406CABBC (PiDqQueryAddObjectToResultSet.c)
+ *     PiDqQueryDeleteObjectFromResultSet @ 0x1406CD350 (PiDqQueryDeleteObjectFromResultSet.c)
+ *     PiDqSameUserHive @ 0x14082C42C (PiDqSameUserHive.c)
  */
 
 char __fastcall PiDqQueryApplyObjectEvent(__int64 a1, __int64 a2, __int64 a3, __int64 a4)

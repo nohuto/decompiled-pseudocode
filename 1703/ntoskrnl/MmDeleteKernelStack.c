@@ -48,7 +48,7 @@ __int64 __fastcall MmDeleteKernelStack(unsigned __int64 a1, int a2)
   __int64 v24; // r9
   __int64 v25; // rcx
   __int64 v26; // rax
-  union _SLIST_HEADER *v27; // r13
+  _SLIST_HEADER *v27; // r13
   __int64 v28; // rbp
   int v29; // esi
   __int64 v30; // rdi
@@ -65,7 +65,7 @@ __int64 __fastcall MmDeleteKernelStack(unsigned __int64 a1, int a2)
   __int64 result; // rax
   unsigned __int8 CurrentIrql; // [rsp+20h] [rbp-78h]
   __int64 v43; // [rsp+28h] [rbp-70h] BYREF
-  union _SLIST_HEADER *v44; // [rsp+30h] [rbp-68h]
+  _SLIST_HEADER *v44; // [rsp+30h] [rbp-68h]
   __int64 v45; // [rsp+38h] [rbp-60h]
   __int64 v46; // [rsp+40h] [rbp-58h]
   int v47; // [rsp+A0h] [rbp+8h] BYREF
@@ -126,7 +126,7 @@ __int64 __fastcall MmDeleteKernelStack(unsigned __int64 a1, int a2)
     v46 = 400 * v11;
     while ( 1 )
     {
-      v27 = (union _SLIST_HEADER *)((char *)&qword_14036C1C8[2 * v12 + 7] + v26);
+      v27 = (_SLIST_HEADER *)((char *)&qword_14036C1C8[2 * v12 + 7] + v26);
       v44 = v27;
       if ( LOWORD(v27->Alignment) < SLODWORD(v27[1].Alignment) )
       {

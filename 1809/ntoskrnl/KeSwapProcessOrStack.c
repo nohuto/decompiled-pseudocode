@@ -1,16 +1,16 @@
 /*
- * XREFs of KeSwapProcessOrStack @ 0x14017FDA0
+ * XREFs of KeSwapProcessOrStack @ 0x14017FEE0
  * Callers:
  *     <none>
  * Callees:
  *     KeWaitForSingleObject @ 0x140054880 (KeWaitForSingleObject.c)
- *     KiFastReadyThread @ 0x1400A2C58 (KiFastReadyThread.c)
- *     KeSetPriorityThread @ 0x1400CD870 (KeSetPriorityThread.c)
- *     KiInSwapProcesses @ 0x14010B340 (KiInSwapProcesses.c)
- *     KiOutSwapProcesses @ 0x14010B450 (KiOutSwapProcesses.c)
- *     KiOutSwapKernelStacks @ 0x14013CFB8 (KiOutSwapKernelStacks.c)
- *     KeGetNextKernelStackSegment @ 0x14013D378 (KeGetNextKernelStackSegment.c)
- *     MiInPageSingleKernelStack @ 0x14013D4A0 (MiInPageSingleKernelStack.c)
+ *     KiFastReadyThread @ 0x1400A2B98 (KiFastReadyThread.c)
+ *     KeSetPriorityThread @ 0x1400CD8F0 (KeSetPriorityThread.c)
+ *     KiInSwapProcesses @ 0x14010B3C0 (KiInSwapProcesses.c)
+ *     KiOutSwapProcesses @ 0x14010B4D0 (KiOutSwapProcesses.c)
+ *     KiOutSwapKernelStacks @ 0x14013D0B8 (KiOutSwapKernelStacks.c)
+ *     KeGetNextKernelStackSegment @ 0x14013D478 (KeGetNextKernelStackSegment.c)
+ *     MiInPageSingleKernelStack @ 0x14013D5A0 (MiInPageSingleKernelStack.c)
  */
 
 void __noreturn KeSwapProcessOrStack()

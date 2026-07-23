@@ -1,12 +1,12 @@
 /*
- * XREFs of MiInitializeEngineWorkAffinity @ 0x1403E94E4
+ * XREFs of MiInitializeEngineWorkAffinity @ 0x1402F63C4
  * Callers:
- *     MiFindBestZeroingProcessor @ 0x1403E9158 (MiFindBestZeroingProcessor.c)
+ *     MiFindBestZeroingProcessor @ 0x1402F6038 (MiFindBestZeroingProcessor.c)
  * Callees:
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402DC6D0 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     ExAcquireSpinLockSharedAtDpcLevel @ 0x1402EDFB0 (ExAcquireSpinLockSharedAtDpcLevel.c)
- *     MiUpdateZeroingAvailableAffinity @ 0x1403E9620 (MiUpdateZeroingAvailableAffinity.c)
- *     memmove @ 0x14073D480 (memmove.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402BE490 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     ExAcquireSpinLockSharedAtDpcLevel @ 0x1402D0030 (ExAcquireSpinLockSharedAtDpcLevel.c)
+ *     MiUpdateZeroingAvailableAffinity @ 0x1402F6500 (MiUpdateZeroingAvailableAffinity.c)
+ *     memmove @ 0x140742080 (memmove.c)
  */
 
 __int64 __fastcall MiInitializeEngineWorkAffinity(__int64 a1, unsigned int a2, int a3)

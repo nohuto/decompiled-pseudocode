@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpMcaInitializeErrorSection @ 0x140503258
+ * XREFs of HalpMcaInitializeErrorSection @ 0x1405037A8
  * Callers:
- *     HalpMcaPopulateErrorData @ 0x14050332C (HalpMcaPopulateErrorData.c)
+ *     HalpMcaPopulateErrorData @ 0x14050387C (HalpMcaPopulateErrorData.c)
  * Callees:
- *     HalpGetCpuVendor @ 0x1403805F4 (HalpGetCpuVendor.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     memset @ 0x140435A00 (memset.c)
+ *     HalpGetCpuVendor @ 0x140380794 (HalpGetCpuVendor.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     memset @ 0x140435E00 (memset.c)
  */
 
 __int64 __fastcall HalpMcaInitializeErrorSection(__int64 a1, __int64 a2)

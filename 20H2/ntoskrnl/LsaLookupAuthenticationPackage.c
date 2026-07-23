@@ -8,16 +8,22 @@
  *     _guard_dispatch_icall @ 0x140405F40 (_guard_dispatch_icall.c)
  */
 
-__int64 __fastcall LsaLookupAuthenticationPackage(__int64 a1, __int64 a2, __int64 a3)
+NTSTATUS __cdecl LsaLookupAuthenticationPackage(
+        HANDLE LsaHandle,
+        PLSA_STRING PackageName,
+        PULONG AuthenticationPackage)
 {
-  unsigned int v6; // ebx
+  NTSTATUS v6; // ebx
   unsigned __int64 ExtensionTable; // rax
 
   v6 = -1073741822;
   ExtensionTable = ExGetExtensionTable((struct _EX_RUNDOWN_REF *)SepAuthExtensionHost);
   if ( ExtensionTable )
   {
-    v6 = (*(__int64 (__fastcall **)(__int64, __int64, __int64))(ExtensionTable + 32))(a1, a2, a3);
+    v6 = (*(__int64 (__fastcall **)(HANDLE, PLSA_STRING, PULONG))(ExtensionTable + 32))(
+           LsaHandle,
+           PackageName,
+           AuthenticationPackage);
     ExReleaseExtensionTable((struct _EX_RUNDOWN_REF *)SepAuthExtensionHost);
   }
   return v6;

@@ -1,11 +1,11 @@
 /*
- * XREFs of ExReinitializeFastResource2 @ 0x140413CB8
+ * XREFs of ExReinitializeFastResource2 @ 0x14041404C
  * Callers:
- *     ExReinitializeFastResource @ 0x1403D61F0 (ExReinitializeFastResource.c)
+ *     ExReinitializeFastResource @ 0x1403D63D0 (ExReinitializeFastResource.c)
  * Callees:
- *     ExpIsFastResourceOwned @ 0x140415A5C (ExpIsFastResourceOwned.c)
- *     Feature_Servicing_FastResourceReinitializationFlags__private_IsEnabledDeviceUsage @ 0x14041697C (Feature_Servicing_FastResourceReinitializationFlags__private_IsEnabledDeviceUsage.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
+ *     ExpIsFastResourceOwned @ 0x140415DF0 (ExpIsFastResourceOwned.c)
+ *     Feature_Servicing_FastResourceReinitializationFlags__private_IsEnabledDeviceUsage @ 0x140416D10 (Feature_Servicing_FastResourceReinitializationFlags__private_IsEnabledDeviceUsage.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
  */
 
 __int16 __fastcall ExReinitializeFastResource2(ULONG_PTR BugCheckParameter2, __int64 a2)

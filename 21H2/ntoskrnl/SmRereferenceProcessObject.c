@@ -1,9 +1,9 @@
 /*
- * XREFs of SmRereferenceProcessObject @ 0x1402D0590
+ * XREFs of SmRereferenceProcessObject @ 0x14024E910
  * Callers:
- *     SmProcessStoreMemoryPriorityRequest @ 0x1406BE5D4 (SmProcessStoreMemoryPriorityRequest.c)
+ *     SmProcessStoreMemoryPriorityRequest @ 0x14061D834 (SmProcessStoreMemoryPriorityRequest.c)
  * Callees:
- *     ObReferenceObjectByHandle @ 0x1406F0BC0 (ObReferenceObjectByHandle.c)
+ *     ObReferenceObjectByHandle @ 0x140707FA0 (ObReferenceObjectByHandle.c)
  */
 
 NTSTATUS __fastcall SmRereferenceProcessObject(void *a1, __int64 a2, KPROCESSOR_MODE a3, _QWORD *a4)

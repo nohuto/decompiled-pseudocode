@@ -1,21 +1,21 @@
 /*
- * XREFs of HalpInterruptStartProcessor @ 0x140BEA190
+ * XREFs of HalpInterruptStartProcessor @ 0x140BF0190
  * Callers:
- *     HalStartDynamicProcessor @ 0x14057C560 (HalStartDynamicProcessor.c)
- *     HalStartNextProcessor @ 0x1405809B0 (HalStartNextProcessor.c)
- *     HalpDpStartProcessor @ 0x140BEE634 (HalpDpStartProcessor.c)
- *     HalpBlkStartBlockedProcessor @ 0x140BEF0B8 (HalpBlkStartBlockedProcessor.c)
+ *     HalStartDynamicProcessor @ 0x14057EA90 (HalStartDynamicProcessor.c)
+ *     HalStartNextProcessor @ 0x140582ED0 (HalStartNextProcessor.c)
+ *     HalpDpStartProcessor @ 0x140BF4634 (HalpDpStartProcessor.c)
+ *     HalpBlkStartBlockedProcessor @ 0x140BF50B8 (HalpBlkStartBlockedProcessor.c)
  * Callees:
- *     HalpDisableInterrupts @ 0x1402C7D00 (HalpDisableInterrupts.c)
- *     HalpInterruptSetProblemEx @ 0x14042A15C (HalpInterruptSetProblemEx.c)
- *     HalpInterruptClearProcessorStartContext @ 0x14057C750 (HalpInterruptClearProcessorStartContext.c)
- *     HalpInterruptGetNextProcessorLocalId @ 0x14057C778 (HalpInterruptGetNextProcessorLocalId.c)
- *     HalpInterruptSetProcessorStartContext @ 0x14057CD40 (HalpInterruptSetProcessorStartContext.c)
- *     HalpInterruptWaitForProcessorStartUp @ 0x14057CDE0 (HalpInterruptWaitForProcessorStartUp.c)
- *     HalpHvVpStartEnabled @ 0x140585F74 (HalpHvVpStartEnabled.c)
- *     HalpSetProcessorStateByNtIndex @ 0x14059132C (HalpSetProcessorStateByNtIndex.c)
- *     HalpHvStartProcessor @ 0x140592C34 (HalpHvStartProcessor.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     HalpDisableInterrupts @ 0x1403129A0 (HalpDisableInterrupts.c)
+ *     HalpInterruptSetProblemEx @ 0x140436244 (HalpInterruptSetProblemEx.c)
+ *     HalpInterruptClearProcessorStartContext @ 0x14057EC80 (HalpInterruptClearProcessorStartContext.c)
+ *     HalpInterruptGetNextProcessorLocalId @ 0x14057ECA8 (HalpInterruptGetNextProcessorLocalId.c)
+ *     HalpInterruptSetProcessorStartContext @ 0x14057F260 (HalpInterruptSetProcessorStartContext.c)
+ *     HalpInterruptWaitForProcessorStartUp @ 0x14057F300 (HalpInterruptWaitForProcessorStartUp.c)
+ *     HalpHvVpStartEnabled @ 0x140588494 (HalpHvVpStartEnabled.c)
+ *     HalpSetProcessorStateByNtIndex @ 0x140593AAC (HalpSetProcessorStateByNtIndex.c)
+ *     HalpHvStartProcessor @ 0x1405953B4 (HalpHvStartProcessor.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall HalpInterruptStartProcessor(unsigned int a1, unsigned int a2, char a3, const void *a4)

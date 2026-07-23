@@ -1,22 +1,22 @@
 /*
- * XREFs of SdbpGetStringTableItemFromStringRef @ 0x1407217DC
+ * XREFs of SdbpGetStringTableItemFromStringRef @ 0x140722A7C
  * Callers:
- *     SdbpGetMappedStringFromTable @ 0x14072178C (SdbpGetMappedStringFromTable.c)
+ *     SdbpGetMappedStringFromTable @ 0x140722A2C (SdbpGetMappedStringFromTable.c)
  * Callees:
- *     SdbGetTagFromTagID @ 0x1405C82BC (SdbGetTagFromTagID.c)
- *     RtlRunOnceExecuteOnce @ 0x14060D910 (RtlRunOnceExecuteOnce.c)
- *     AslLogCallPrintf @ 0x140680C60 (AslLogCallPrintf.c)
+ *     SdbGetTagFromTagID @ 0x1405C92BC (SdbGetTagFromTagID.c)
+ *     RtlRunOnceExecuteOnce @ 0x14060E910 (RtlRunOnceExecuteOnce.c)
+ *     AslLogCallPrintf @ 0x140681E20 (AslLogCallPrintf.c)
  */
 
 __int64 __fastcall SdbpGetStringTableItemFromStringRef(
-        union _RTL_RUN_ONCE *Parameter,
+        _RTL_RUN_ONCE *Parameter,
         int a2,
         _DWORD *a3,
-        union _RTL_RUN_ONCE **a4)
+        _RTL_RUN_ONCE **a4)
 {
-  union _RTL_RUN_ONCE *v4; // rbx
+  _RTL_RUN_ONCE *v4; // rbx
   int v9; // ebp
-  union _RTL_RUN_ONCE *Ptr; // r14
+  _RTL_RUN_ONCE *Ptr; // r14
   NTSTATUS v11; // edi
   int v12; // eax
   bool v13; // sf
@@ -37,7 +37,7 @@ __int64 __fastcall SdbpGetStringTableItemFromStringRef(
       v11 = -1073741275;
       goto LABEL_8;
     }
-    Ptr = (union _RTL_RUN_ONCE *)Parameter[170].Ptr;
+    Ptr = (_RTL_RUN_ONCE *)Parameter[170].Ptr;
     v12 = 6;
   }
   else

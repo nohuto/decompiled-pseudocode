@@ -1,12 +1,12 @@
 /*
- * XREFs of PspUnlockSyscallProviderExclusive @ 0x1406147FC
+ * XREFs of PspUnlockSyscallProviderExclusive @ 0x14061763C
  * Callers:
- *     PspAttachProcessToSyscallProvider @ 0x1407ED5EC (PspAttachProcessToSyscallProvider.c)
- *     PspProcessDelete @ 0x1407FB2E0 (PspProcessDelete.c)
+ *     PspAttachProcessToSyscallProvider @ 0x1407F314C (PspAttachProcessToSyscallProvider.c)
+ *     PspProcessDelete @ 0x140800D10 (PspProcessDelete.c)
  * Callees:
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     ExfTryToWakePushLock @ 0x1403170A0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     ExfTryToWakePushLock @ 0x1403190D0 (ExfTryToWakePushLock.c)
  */
 
 void __fastcall PspUnlockSyscallProviderExclusive(__int64 a1)

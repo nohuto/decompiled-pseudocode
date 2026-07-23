@@ -1,28 +1,28 @@
 /*
- * XREFs of MiZeroAndReleasePages @ 0x1403C3C14
+ * XREFs of MiZeroAndReleasePages @ 0x1403CDB20
  * Callers:
- *     MiFreePagesFromMdl @ 0x1403454C0 (MiFreePagesFromMdl.c)
+ *     MiFreePagesFromMdl @ 0x140347540 (MiFreePagesFromMdl.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     MiPageToNode @ 0x140289710 (MiPageToNode.c)
- *     MiMakeDemandZeroPte @ 0x14028B2D0 (MiMakeDemandZeroPte.c)
- *     MiSimpleUnlinkPageEx @ 0x14028E170 (MiSimpleUnlinkPageEx.c)
- *     MiPfnBestZeroAttribute @ 0x1402A18AC (MiPfnBestZeroAttribute.c)
- *     MiZeroLargePage @ 0x1402A1A04 (MiZeroLargePage.c)
- *     MiChangePageAttribute @ 0x1402D8660 (MiChangePageAttribute.c)
- *     MiZeroPhysicalPage @ 0x1402D8B20 (MiZeroPhysicalPage.c)
- *     MiClearPfnReuseFields @ 0x14031A250 (MiClearPfnReuseFields.c)
- *     MiCreatePageChains @ 0x1403C35B8 (MiCreatePageChains.c)
- *     MiProcessPageGroupInfo @ 0x1403C3B34 (MiProcessPageGroupInfo.c)
- *     MiSetPfnShareCount @ 0x1403C40E4 (MiSetPfnShareCount.c)
- *     MiFreeSmallPageFromMdl @ 0x1403C43F8 (MiFreeSmallPageFromMdl.c)
- *     MiInsertMdlPageNeedsZero @ 0x1403C472C (MiInsertMdlPageNeedsZero.c)
- *     MiSimpleInsertPage @ 0x1403C5100 (MiSimpleInsertPage.c)
- *     MiFreeLargePageMemory @ 0x1403C52E8 (MiFreeLargePageMemory.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     MiPageToNode @ 0x140288C70 (MiPageToNode.c)
+ *     MiMakeDemandZeroPte @ 0x14028A830 (MiMakeDemandZeroPte.c)
+ *     MiSimpleUnlinkPageEx @ 0x14028D6D0 (MiSimpleUnlinkPageEx.c)
+ *     MiPfnBestZeroAttribute @ 0x1402A0DFC (MiPfnBestZeroAttribute.c)
+ *     MiZeroLargePage @ 0x1402A0F54 (MiZeroLargePage.c)
+ *     MiChangePageAttribute @ 0x1402BA420 (MiChangePageAttribute.c)
+ *     MiZeroPhysicalPage @ 0x1402BA8E0 (MiZeroPhysicalPage.c)
+ *     MiClearPfnReuseFields @ 0x14031C280 (MiClearPfnReuseFields.c)
+ *     MiCreatePageChains @ 0x1403CD4B8 (MiCreatePageChains.c)
+ *     MiProcessPageGroupInfo @ 0x1403CDA40 (MiProcessPageGroupInfo.c)
+ *     MiSetPfnShareCount @ 0x1403CDFF0 (MiSetPfnShareCount.c)
+ *     MiFreeSmallPageFromMdl @ 0x1403CE304 (MiFreeSmallPageFromMdl.c)
+ *     MiInsertMdlPageNeedsZero @ 0x1403CE638 (MiInsertMdlPageNeedsZero.c)
+ *     MiSimpleInsertPage @ 0x1403CF00C (MiSimpleInsertPage.c)
+ *     MiFreeLargePageMemory @ 0x1403CF1F4 (MiFreeLargePageMemory.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall MiZeroAndReleasePages(ULONG_PTR *a1, int a2, char a3)
@@ -108,7 +108,7 @@ __int64 __fastcall MiZeroAndReleasePages(ULONG_PTR *a1, int a2, char a3)
       {
         if ( !v5 )
           goto LABEL_41;
-        v28 = *(_QWORD *)(stru_140E2EB88.ThreadLock + 8 * ((*(_QWORD *)(v12 + 40) >> 43) & 0x3FFLL));
+        v28 = *(_QWORD *)(stru_140E2ED08.ThreadLock + 8 * ((*(_QWORD *)(v12 + 40) >> 43) & 0x3FFLL));
         v29 = MiPageToNode(j);
         PageChains = MiCreatePageChains(v28, v29, 3, 0LL, 1);
         v13 = 0;
@@ -215,23 +215,23 @@ LABEL_28:
   while ( v17 < 4 );
   if ( v16 && (v36 & 1) == 0 )
   {
-    _InterlockedAdd64(&qword_140E3BFB0, v16);
+    _InterlockedAdd64(&qword_140E3C130, v16);
     if ( v16 > 0x40 )
     {
       if ( v16 > 0x80 )
       {
-        result = (__int64)&unk_140E3BFC0;
+        result = (__int64)&unk_140E3C140;
         if ( v16 > 0x200 )
-          result = (__int64)&unk_140E3BFC4;
+          result = (__int64)&unk_140E3C144;
       }
       else
       {
-        result = (__int64)&unk_140E3BFBC;
+        result = (__int64)&unk_140E3C13C;
       }
     }
     else
     {
-      result = (__int64)&unk_140E3BFB8;
+      result = (__int64)&unk_140E3C138;
     }
     _InterlockedIncrement((volatile signed __int32 *)result);
   }

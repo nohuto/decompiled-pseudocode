@@ -1,10 +1,10 @@
 /*
- * XREFs of MmInvalidateDumpAddresses @ 0x140C01550
+ * XREFs of MmInvalidateDumpAddresses @ 0x140C07760
  * Callers:
- *     PopInvokeSystemStateHandler @ 0x140C04104 (PopInvokeSystemStateHandler.c)
+ *     PopInvokeSystemStateHandler @ 0x140C0A314 (PopInvokeSystemStateHandler.c)
  * Callees:
- *     MiFlushSingleTbEntry @ 0x140285050 (MiFlushSingleTbEntry.c)
- *     MiGetPteAddress @ 0x1404468C0 (MiGetPteAddress.c)
+ *     MiFlushSingleTbEntry @ 0x1402845B0 (MiFlushSingleTbEntry.c)
+ *     MiGetPteAddress @ 0x14043F3C0 (MiGetPteAddress.c)
  */
 
 __int64 __fastcall MmInvalidateDumpAddresses(unsigned __int64 a1, unsigned __int64 a2)
@@ -37,7 +37,7 @@ __int64 __fastcall MmInvalidateDumpAddresses(unsigned __int64 a1, unsigned __int
     }
     while ( a2 );
   }
-  Thread = stru_140E2EB88.WaitBlock[2].Thread;
+  Thread = stru_140E2ED08.WaitBlock[2].Thread;
   v8 = 257LL;
   result = *(_QWORD *)&CLFS_LSN_NULL_EXT;
   do

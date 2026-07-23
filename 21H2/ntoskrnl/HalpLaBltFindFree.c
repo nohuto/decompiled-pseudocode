@@ -1,7 +1,7 @@
 /*
- * XREFs of HalpLaBltFindFree @ 0x1404DB034
+ * XREFs of HalpLaBltFindFree @ 0x1404DB274
  * Callers:
- *     HalpLaAllocateBlt @ 0x1404DAE04 (HalpLaAllocateBlt.c)
+ *     HalpLaAllocateBlt @ 0x1404DB044 (HalpLaAllocateBlt.c)
  * Callees:
  *     <none>
  */

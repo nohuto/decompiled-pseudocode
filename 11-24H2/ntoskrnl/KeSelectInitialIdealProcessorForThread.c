@@ -1,10 +1,10 @@
 /*
- * XREFs of KeSelectInitialIdealProcessorForThread @ 0x1403B3DF4
+ * XREFs of KeSelectInitialIdealProcessorForThread @ 0x1403A2604
  * Callers:
- *     KeStartThread @ 0x1403B3660 (KeStartThread.c)
- *     PspAllocateThread @ 0x1408A49BC (PspAllocateThread.c)
+ *     KeStartThread @ 0x1403A1E70 (KeStartThread.c)
+ *     PspAllocateThread @ 0x1408FAFD4 (PspAllocateThread.c)
  * Callees:
- *     KeSelectIdealProcessor @ 0x1403B289C (KeSelectIdealProcessor.c)
+ *     KeSelectIdealProcessor @ 0x1403A10AC (KeSelectIdealProcessor.c)
  */
 
 __int64 __fastcall KeSelectInitialIdealProcessorForThread(__int64 a1, __int64 a2)

@@ -1,13 +1,13 @@
 /*
- * XREFs of LdrpKrnGetDataTableEntry @ 0x1402A8F80
+ * XREFs of LdrpKrnGetDataTableEntry @ 0x1402270C0
  * Callers:
- *     LdrpGetImageSize @ 0x1402A8E30 (LdrpGetImageSize.c)
- *     LdrLoadAlternateResourceModuleEx @ 0x1402A94D4 (LdrLoadAlternateResourceModuleEx.c)
- *     LdrpResGetMappingSize @ 0x14068C510 (LdrpResGetMappingSize.c)
+ *     LdrpGetImageSize @ 0x140226F70 (LdrpGetImageSize.c)
+ *     LdrLoadAlternateResourceModuleEx @ 0x140227614 (LdrLoadAlternateResourceModuleEx.c)
+ *     LdrpResGetMappingSize @ 0x1405EC380 (LdrpResGetMappingSize.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
- *     ExReleaseResourceLite @ 0x14034B3F0 (ExReleaseResourceLite.c)
- *     ExAcquireResourceSharedLite @ 0x14034BF60 (ExAcquireResourceSharedLite.c)
+ *     KeLeaveCriticalRegionThread @ 0x1402AB8C0 (KeLeaveCriticalRegionThread.c)
+ *     ExReleaseResourceLite @ 0x140356140 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceSharedLite @ 0x140356CB0 (ExAcquireResourceSharedLite.c)
  */
 
 PVOID *__fastcall LdrpKrnGetDataTableEntry(unsigned __int64 a1)
@@ -38,6 +38,6 @@ PVOID *__fastcall LdrpKrnGetDataTableEntry(unsigned __int64 a1)
   v2 = v4;
 LABEL_6:
   ExReleaseResourceLite(&PsLoadedModuleResource);
-  KeLeaveCriticalRegionThread((__int64)CurrentThread);
+  KeLeaveCriticalRegionThread(CurrentThread);
   return v2;
 }

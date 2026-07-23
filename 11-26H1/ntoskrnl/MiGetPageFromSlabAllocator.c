@@ -1,21 +1,21 @@
 /*
- * XREFs of MiGetPageFromSlabAllocator @ 0x14033A4BC
+ * XREFs of MiGetPageFromSlabAllocator @ 0x14033C53C
  * Callers:
- *     MiGetSlabPage @ 0x14033A284 (MiGetSlabPage.c)
+ *     MiGetSlabPage @ 0x14033C304 (MiGetSlabPage.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     ExReleaseSpinLockShared @ 0x14026CEE0 (ExReleaseSpinLockShared.c)
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     MiAsyncSlabReplenish @ 0x1402A5984 (MiAsyncSlabReplenish.c)
- *     MiRepurposeStandbySlabPage @ 0x1402C9588 (MiRepurposeStandbySlabPage.c)
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402DC6D0 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     ExAcquireSpinLockShared @ 0x1402EDF10 (ExAcquireSpinLockShared.c)
- *     ExAcquireSpinLockSharedAtDpcLevel @ 0x1402EDFB0 (ExAcquireSpinLockSharedAtDpcLevel.c)
- *     MiGetPageFromSlabEntry @ 0x140357C1C (MiGetPageFromSlabEntry.c)
- *     MiUpdateSlabPagePlaceholderState @ 0x140369290 (MiUpdateSlabPagePlaceholderState.c)
- *     MiGetRepurposedSlabStandbyPage @ 0x140369680 (MiGetRepurposedSlabStandbyPage.c)
- *     MiGetPageFromSlabAllocatorByIdentity @ 0x1405036BC (MiGetPageFromSlabAllocatorByIdentity.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     ExReleaseSpinLockShared @ 0x14026C450 (ExReleaseSpinLockShared.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     MiAsyncSlabReplenish @ 0x1402A4ED4 (MiAsyncSlabReplenish.c)
+ *     MiRepurposeStandbySlabPage @ 0x1402AB348 (MiRepurposeStandbySlabPage.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402BE490 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     ExAcquireSpinLockShared @ 0x1402CFF90 (ExAcquireSpinLockShared.c)
+ *     ExAcquireSpinLockSharedAtDpcLevel @ 0x1402D0030 (ExAcquireSpinLockSharedAtDpcLevel.c)
+ *     MiGetPageFromSlabEntry @ 0x1403599BC (MiGetPageFromSlabEntry.c)
+ *     MiUpdateSlabPagePlaceholderState @ 0x14036B030 (MiUpdateSlabPagePlaceholderState.c)
+ *     MiGetRepurposedSlabStandbyPage @ 0x14036B420 (MiGetRepurposedSlabStandbyPage.c)
+ *     MiGetPageFromSlabAllocatorByIdentity @ 0x1404FCF8C (MiGetPageFromSlabAllocatorByIdentity.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 __int64 __fastcall MiGetPageFromSlabAllocator(__int64 a1, int a2)

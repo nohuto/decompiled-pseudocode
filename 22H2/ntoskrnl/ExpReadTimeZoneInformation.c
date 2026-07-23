@@ -8,18 +8,18 @@
  *     RtlQueryRegistryValuesEx @ 0x14069EF80 (RtlQueryRegistryValuesEx.c)
  */
 
-__int64 __fastcall ExpReadTimeZoneInformation(__int64 a1, int a2, __int64 a3)
+NTSTATUS __fastcall ExpReadTimeZoneInformation(wchar_t *a1, int a2, void *a3)
 {
-  _QWORD v6[15]; // [rsp+30h] [rbp-78h] BYREF
+  _RTL_QUERY_REGISTRY_TABLE QueryTable[2]; // [rsp+30h] [rbp-78h] BYREF
   int v7; // [rsp+B8h] [rbp+10h] BYREF
 
   v7 = a2;
-  memset(v6, 0, 0x70uLL);
-  LODWORD(v6[1]) = 288;
-  v6[2] = a1;
-  v6[3] = a3;
-  LODWORD(v6[4]) = 67108868;
-  v6[5] = &v7;
-  LODWORD(v6[6]) = 4;
-  return RtlQueryRegistryValuesEx(2LL, L"TimeZoneInformation", v6, 0LL, 0LL);
+  memset(QueryTable, 0, sizeof(QueryTable));
+  QueryTable[0].Flags = 288;
+  QueryTable[0].Name = a1;
+  QueryTable[0].EntryContext = a3;
+  QueryTable[0].DefaultType = 67108868;
+  QueryTable[0].DefaultData = &v7;
+  QueryTable[0].DefaultLength = 4;
+  return RtlQueryRegistryValuesEx(2u, L"TimeZoneInformation", QueryTable, 0LL, 0LL);
 }

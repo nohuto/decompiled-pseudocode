@@ -1,19 +1,19 @@
 /*
- * XREFs of IopAllocateUnicodeString @ 0x14090DDE8
+ * XREFs of IopAllocateUnicodeString @ 0x1409AFF18
  * Callers:
- *     PiBuildAndOpenDeviceDirectoryPath @ 0x1407A0964 (PiBuildAndOpenDeviceDirectoryPath.c)
- *     PiCreateServiceKeyUnderPath @ 0x1407A102C (PiCreateServiceKeyUnderPath.c)
- *     PiGetDriverMutableStateDirectory @ 0x1407A1284 (PiGetDriverMutableStateDirectory.c)
- *     PipProcessDevNodeTree @ 0x14090C86C (PipProcessDevNodeTree.c)
- *     PnpConcatenateUnicodeStrings @ 0x14090FC6C (PnpConcatenateUnicodeStrings.c)
- *     PiDeviceRegistration @ 0x140912D28 (PiDeviceRegistration.c)
- *     IopBuildGlobalSymbolicLinkString @ 0x1409D9558 (IopBuildGlobalSymbolicLinkString.c)
- *     PiOpenDriverRedirectedStateKey @ 0x140A2DDCC (PiOpenDriverRedirectedStateKey.c)
- *     PiDeferSetInterfaceState @ 0x140B1E180 (PiDeferSetInterfaceState.c)
- *     PnpLogVetoInformation @ 0x140B45874 (PnpLogVetoInformation.c)
+ *     PiBuildAndOpenDeviceDirectoryPath @ 0x1407A34A4 (PiBuildAndOpenDeviceDirectoryPath.c)
+ *     PiCreateServiceKeyUnderPath @ 0x1407A3B6C (PiCreateServiceKeyUnderPath.c)
+ *     PiGetDriverMutableStateDirectory @ 0x1407A3DC4 (PiGetDriverMutableStateDirectory.c)
+ *     IopBuildGlobalSymbolicLinkString @ 0x1409AA448 (IopBuildGlobalSymbolicLinkString.c)
+ *     PipProcessDevNodeTree @ 0x1409AE99C (PipProcessDevNodeTree.c)
+ *     PnpConcatenateUnicodeStrings @ 0x1409B1D9C (PnpConcatenateUnicodeStrings.c)
+ *     PiDeviceRegistration @ 0x1409B4E08 (PiDeviceRegistration.c)
+ *     PiOpenDriverRedirectedStateKey @ 0x140A3FA1C (PiOpenDriverRedirectedStateKey.c)
+ *     PiDeferSetInterfaceState @ 0x140B20204 (PiDeferSetInterfaceState.c)
+ *     PnpLogVetoInformation @ 0x140B478A4 (PnpLogVetoInformation.c)
  * Callees:
- *     RtlUShortAdd @ 0x140481650 (RtlUShortAdd.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
+ *     RtlUShortAdd @ 0x14047AFC0 (RtlUShortAdd.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall IopAllocateUnicodeString(__int64 a1, USHORT a2)

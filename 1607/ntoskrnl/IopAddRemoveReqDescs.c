@@ -1,10 +1,10 @@
 /*
- * XREFs of IopAddRemoveReqDescs @ 0x140557860
+ * XREFs of IopAddRemoveReqDescs @ 0x140557DA0
  * Callers:
- *     IopSelectNextConfiguration @ 0x14055557C (IopSelectNextConfiguration.c)
- *     PnpFindBestConfigurationWorker @ 0x140555E0C (PnpFindBestConfigurationWorker.c)
- *     PnpSelectFirstConfiguration @ 0x140556054 (PnpSelectFirstConfiguration.c)
- *     IopBootAllocation @ 0x140557794 (IopBootAllocation.c)
+ *     IopSelectNextConfiguration @ 0x140555ABC (IopSelectNextConfiguration.c)
+ *     PnpFindBestConfigurationWorker @ 0x14055634C (PnpFindBestConfigurationWorker.c)
+ *     PnpSelectFirstConfiguration @ 0x140556594 (PnpSelectFirstConfiguration.c)
+ *     IopBootAllocation @ 0x140557CD4 (IopBootAllocation.c)
  * Callees:
  *     <none>
  */

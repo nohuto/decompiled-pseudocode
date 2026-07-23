@@ -1,22 +1,22 @@
 /*
- * XREFs of PoGetIdleTimes @ 0x140351EF0
+ * XREFs of PoGetIdleTimes @ 0x14036F560
  * Callers:
- *     ExpQueryProcessorInformationCounters @ 0x1409DDD20 (ExpQueryProcessorInformationCounters.c)
- *     ExpQuerySystemInformation @ 0x140ADC240 (ExpQuerySystemInformation.c)
+ *     ExpQueryProcessorInformationCounters @ 0x1409D78F0 (ExpQueryProcessorInformationCounters.c)
+ *     ExpQuerySystemInformation @ 0x140ADDAE0 (ExpQuerySystemInformation.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x1402595A0 (KeLeaveCriticalRegionThread.c)
- *     ExfReleasePushLock @ 0x14025E260 (ExfReleasePushLock.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     KeWaitForSingleObject @ 0x14033E960 (KeWaitForSingleObject.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     ExfAcquirePushLockSharedEx @ 0x14034050C (ExfAcquirePushLockSharedEx.c)
- *     PopGetIdleTimesCallback @ 0x140352240 (PopGetIdleTimesCallback.c)
- *     PopQueueTargetDpc @ 0x140352A60 (PopQueueTargetDpc.c)
- *     KeGetProcessorIndexFromNumber @ 0x140352BB0 (KeGetProcessorIndexFromNumber.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     KeLeaveCriticalRegionThread @ 0x140289BB0 (KeLeaveCriticalRegionThread.c)
+ *     ExfReleasePushLock @ 0x14028E870 (ExfReleasePushLock.c)
+ *     KeWaitForSingleObject @ 0x14031DE40 (KeWaitForSingleObject.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     ExfAcquirePushLockSharedEx @ 0x14031F9EC (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     PopGetIdleTimesCallback @ 0x14036F8B0 (PopGetIdleTimesCallback.c)
+ *     PopQueueTargetDpc @ 0x1403702F0 (PopQueueTargetDpc.c)
+ *     KeGetProcessorIndexFromNumber @ 0x140370440 (KeGetProcessorIndexFromNumber.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 __int64 __fastcall PoGetIdleTimes(PPROCESSOR_NUMBER ProcNumber, __int64 a2, __int64 a3)
@@ -27,7 +27,7 @@ __int64 __fastcall PoGetIdleTimes(PPROCESSOR_NUMBER ProcNumber, __int64 a2, __in
   unsigned int v9; // eax
   __int64 v10; // rsi
   struct _KTHREAD *CurrentThread; // rax
-  _QWORD *v12; // rdi
+  char *v12; // rdi
   unsigned __int8 CurrentIrql; // di
   int IdleTimesCallback; // esi
   signed __int64 v15; // rdx
@@ -70,7 +70,7 @@ LABEL_27:
     v9 = -1;
     goto LABEL_9;
   }
-  v8 = *((_DWORD *)qword_140F21E78 + 64 * Group + Number);
+  v8 = *((_DWORD *)qword_140F22998 + 64 * Group + Number);
   if ( !v8 )
     v8 = -1;
   v9 = v8;
@@ -81,11 +81,11 @@ LABEL_9:
     v10 = KiProcessorBlock[v9];
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
-  v12 = KeAbPreAcquire((__int64)&PpmIdlePolicyLock, 0LL);
+  v12 = (char *)KeAbPreAcquire((__int64)&PpmIdlePolicyLock, 0LL);
   if ( _InterlockedCompareExchange64((volatile signed __int64 *)&PpmIdlePolicyLock, 17LL, 0LL) )
     ExfAcquirePushLockSharedEx((signed __int64 *)&PpmIdlePolicyLock, 0, v12, (__int64)&PpmIdlePolicyLock);
   if ( v12 )
-    *((_BYTE *)v12 + 10) = 1;
+    v12[10] = 1;
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
   if ( KiIrqlFlags )
@@ -131,8 +131,8 @@ LABEL_30:
     PopQueueTargetDpc(&Dpc);
     KeWaitForSingleObject(&Object, Executive, 0, 0, 0LL);
   }
-  if ( qword_140F0B6C8 )
-    qword_140F0B6C8 = 0LL;
+  if ( qword_140F0B268 )
+    qword_140F0B268 = 0LL;
   _m_prefetchw(&PpmIdlePolicyLock);
   v15 = PpmIdlePolicyLock - 16;
   if ( (PpmIdlePolicyLock & 0xFFFFFFFFFFFFFFF0uLL) <= 0x10 )

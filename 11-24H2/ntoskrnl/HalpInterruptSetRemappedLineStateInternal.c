@@ -1,20 +1,20 @@
 /*
- * XREFs of HalpInterruptSetRemappedLineStateInternal @ 0x140541328
+ * XREFs of HalpInterruptSetRemappedLineStateInternal @ 0x14053EC28
  * Callers:
- *     HalpInterruptEnableNmi @ 0x1404A356C (HalpInterruptEnableNmi.c)
- *     HalpInterruptRemap @ 0x140540EC4 (HalpInterruptRemap.c)
- *     HalpTimerInitializeHypervisorTimer @ 0x14054A1C4 (HalpTimerInitializeHypervisorTimer.c)
+ *     HalpInterruptEnableNmi @ 0x14049E4CC (HalpInterruptEnableNmi.c)
+ *     HalpInterruptRemap @ 0x14053E7C4 (HalpInterruptRemap.c)
+ *     HalpTimerInitializeHypervisorTimer @ 0x140547A84 (HalpTimerInitializeHypervisorTimer.c)
  * Callees:
- *     HalpInterruptFindLines @ 0x1403B97B4 (HalpInterruptFindLines.c)
- *     HalpInterruptGetPriority @ 0x1403BA8C8 (HalpInterruptGetPriority.c)
- *     HalpInterruptSetProblemEx @ 0x1403BC82C (HalpInterruptSetProblemEx.c)
+ *     HalpInterruptFindLines @ 0x140373298 (HalpInterruptFindLines.c)
+ *     HalpInterruptGetPriority @ 0x140373B58 (HalpInterruptGetPriority.c)
+ *     HalpInterruptSetProblemEx @ 0x14037537C (HalpInterruptSetProblemEx.c)
  */
 
-__int64 __fastcall HalpInterruptSetRemappedLineStateInternal(__int64 a1, unsigned int *a2, __int64 a3)
+__int64 __fastcall HalpInterruptSetRemappedLineStateInternal(__int64 a1, int *a2, __int64 a3)
 {
   unsigned int v4; // ebx
-  _QWORD *Lines; // rax
-  __int64 v7; // rcx
+  ULONG_PTR *Lines; // rax
+  ULONG_PTR v7; // rcx
   int Priority; // eax
   __int64 v9; // r11
   __int64 v10; // r9

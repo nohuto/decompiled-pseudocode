@@ -1,22 +1,22 @@
 /*
- * XREFs of VfTrackResource @ 0x140BA19B0
+ * XREFs of VfTrackResource @ 0x140BA39B0
  * Callers:
- *     VfMiscExInitializeResourceLite_Exit @ 0x140B9D9E0 (VfMiscExInitializeResourceLite_Exit.c)
+ *     VfMiscExInitializeResourceLite_Exit @ 0x140B9F9E0 (VfMiscExInitializeResourceLite_Exit.c)
  * Callees:
- *     VfAvlDeleteTreeNode @ 0x1403F0144 (VfAvlDeleteTreeNode.c)
- *     VfAvlInsertReservedTreeNode @ 0x1403F0328 (VfAvlInsertReservedTreeNode.c)
- *     VfAvlLookupTreeNode @ 0x1403F1074 (VfAvlLookupTreeNode.c)
- *     VfAvlCleanupLockContext @ 0x1403F142C (VfAvlCleanupLockContext.c)
- *     VfAvlReserveNode @ 0x1403F1620 (VfAvlReserveNode.c)
- *     VfAvlInitializeLockContext @ 0x14049C0D8 (VfAvlInitializeLockContext.c)
- *     VfAvlFreeNodeNoLock @ 0x1406106C8 (VfAvlFreeNodeNoLock.c)
- *     CarReportRuleViolationFromNt @ 0x140B8D914 (CarReportRuleViolationFromNt.c)
+ *     VfAvlDeleteTreeNode @ 0x1403E3E20 (VfAvlDeleteTreeNode.c)
+ *     VfAvlInsertReservedTreeNode @ 0x1403E4050 (VfAvlInsertReservedTreeNode.c)
+ *     VfAvlLookupTreeNode @ 0x1403E4D94 (VfAvlLookupTreeNode.c)
+ *     VfAvlCleanupLockContext @ 0x1403E514C (VfAvlCleanupLockContext.c)
+ *     VfAvlReserveNode @ 0x1403E5340 (VfAvlReserveNode.c)
+ *     VfAvlInitializeLockContext @ 0x140496D08 (VfAvlInitializeLockContext.c)
+ *     VfAvlFreeNodeNoLock @ 0x14060EC88 (VfAvlFreeNodeNoLock.c)
+ *     CarReportRuleViolationFromNt @ 0x140B8F914 (CarReportRuleViolationFromNt.c)
  */
 
 char __fastcall VfTrackResource(ULONG_PTR BugCheckParameter2, __int64 a2)
 {
   _QWORD *v5; // rbp
-  struct _SLIST_ENTRY *v6; // rsi
+  _SLIST_ENTRY *v6; // rsi
   __int64 v7; // rdx
   __int128 v8; // [rsp+40h] [rbp-38h] BYREF
   __int64 v9; // [rsp+50h] [rbp-28h]
@@ -38,7 +38,7 @@ char __fastcall VfTrackResource(ULONG_PTR BugCheckParameter2, __int64 a2)
     if ( !ViResourcesAlreadyLoadedDrivers )
       CarReportRuleViolationFromNt(196, 208LL, BugCheckParameter2, 0LL, 0LL, 0xBu, a2);
     _InterlockedAdd(&ViResourceStaleNodes, 1u);
-    v6 = (struct _SLIST_ENTRY *)VfAvlDeleteTreeNode(&ViResourceAvl, (__int64)&v8, BugCheckParameter2, 0LL);
+    v6 = (_SLIST_ENTRY *)VfAvlDeleteTreeNode(&ViResourceAvl, (__int64)&v8, BugCheckParameter2, 0LL);
   }
   VfAvlInsertReservedTreeNode((__int64)&ViResourceAvl, (__int64)&v8, v5);
   VfAvlCleanupLockContext((__int64)&v8, v7);

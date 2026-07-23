@@ -16,7 +16,7 @@ NTSTATUS LdrInitializeMrdata()
   __int64 v3; // [rsp+48h] [rbp-30h]
 
   memset_thunk_772440563353939046(SystemInformation, 0, 0x40uLL);
-  LdrpMrdataLock = 0LL;
+  LdrpMrdataLock.0 = 0LL;
   result = NtQuerySystemInformation(SystemBasicInformation, SystemInformation, 0x40u, 0LL);
   if ( result >= 0 )
   {

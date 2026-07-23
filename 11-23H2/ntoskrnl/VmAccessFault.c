@@ -1,16 +1,16 @@
 /*
- * XREFs of VmAccessFault @ 0x1409DBFF0
+ * XREFs of VmAccessFault @ 0x1409DC1F0
  * Callers:
- *     VmpPinMemoryRange @ 0x1405FA330 (VmpPinMemoryRange.c)
+ *     VmpPinMemoryRange @ 0x1405FA8A0 (VmpPinMemoryRange.c)
  * Callees:
  *     ExFreeToLookasideListEx @ 0x14020B9E0 (ExFreeToLookasideListEx.c)
  *     _tlgKeywordOn @ 0x140212E64 (_tlgKeywordOn.c)
- *     ExAllocateFromLookasideListEx @ 0x14022D080 (ExAllocateFromLookasideListEx.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     VmpAccessFaultBatch @ 0x140466546 (VmpAccessFaultBatch.c)
- *     VmpLogAccessFault @ 0x1405F9938 (VmpLogAccessFault.c)
- *     VmpLogAccessFaultRange @ 0x1405F9A7C (VmpLogAccessFaultRange.c)
- *     VmpPrefetchForVirtualFault @ 0x1409DD59C (VmpPrefetchForVirtualFault.c)
+ *     ExAllocateFromLookasideListEx @ 0x14022D190 (ExAllocateFromLookasideListEx.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     VmpAccessFaultBatch @ 0x140466946 (VmpAccessFaultBatch.c)
+ *     VmpLogAccessFault @ 0x1405F9EA8 (VmpLogAccessFault.c)
+ *     VmpLogAccessFaultRange @ 0x1405F9FEC (VmpLogAccessFaultRange.c)
+ *     VmpPrefetchForVirtualFault @ 0x1409DD79C (VmpPrefetchForVirtualFault.c)
  */
 
 __int64 __fastcall VmAccessFault(
@@ -65,7 +65,7 @@ __int64 __fastcall VmAccessFault(
   v31 = 16;
   if ( a3 > 0x10 || v10[1] > 0x10 )
   {
-    v13 = (char *)ExAllocateFromLookasideListEx(&VmpLargeFaultBatchLookasideList);
+    v13 = (char *)ExAllocateFromLookasideListEx((PLOOKASIDE_LIST_EX)&VmpLargeFaultBatchLookasideList);
     v7 = v13;
     if ( v13 )
     {
@@ -153,6 +153,6 @@ LABEL_38:
   }
 LABEL_39:
   if ( v7 )
-    ExFreeToLookasideListEx(&VmpLargeFaultBatchLookasideList, v7);
+    ExFreeToLookasideListEx((PLOOKASIDE_LIST_EX)&VmpLargeFaultBatchLookasideList, v7);
   return (unsigned int)v29;
 }

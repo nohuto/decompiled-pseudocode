@@ -1,25 +1,25 @@
 /*
- * XREFs of _CmGetRegKeySecurityDescriptor @ 0x14077ED1C
+ * XREFs of _CmGetRegKeySecurityDescriptor @ 0x14077EEDC
  * Callers:
- *     _CmGetDeviceRegKeySecurityDescriptor @ 0x14076EB70 (_CmGetDeviceRegKeySecurityDescriptor.c)
- *     _CmGetDeviceInterfaceRegKeySecurityDescriptor @ 0x140770860 (_CmGetDeviceInterfaceRegKeySecurityDescriptor.c)
+ *     _CmGetDeviceRegKeySecurityDescriptor @ 0x14076ED30 (_CmGetDeviceRegKeySecurityDescriptor.c)
+ *     _CmGetDeviceInterfaceRegKeySecurityDescriptor @ 0x140770A20 (_CmGetDeviceInterfaceRegKeySecurityDescriptor.c)
  * Callees:
- *     RtlLengthSid @ 0x14027EA70 (RtlLengthSid.c)
- *     RtlSubAuthoritySid @ 0x14027F290 (RtlSubAuthoritySid.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     RtlCreateSecurityDescriptor @ 0x140603560 (RtlCreateSecurityDescriptor.c)
- *     RtlpAddKnownAce @ 0x14065C460 (RtlpAddKnownAce.c)
- *     RtlValidSid @ 0x14065C720 (RtlValidSid.c)
- *     RtlValidSecurityDescriptor @ 0x14065EF00 (RtlValidSecurityDescriptor.c)
- *     RtlLengthSecurityDescriptor @ 0x1406600D0 (RtlLengthSecurityDescriptor.c)
- *     RtlSetDaclSecurityDescriptor @ 0x140660500 (RtlSetDaclSecurityDescriptor.c)
- *     RtlCreateAcl @ 0x140660570 (RtlCreateAcl.c)
- *     RtlSetGroupSecurityDescriptor @ 0x140676C10 (RtlSetGroupSecurityDescriptor.c)
- *     RtlSetOwnerSecurityDescriptor @ 0x140676C70 (RtlSetOwnerSecurityDescriptor.c)
- *     RtlInitializeSid @ 0x1406E52A0 (RtlInitializeSid.c)
- *     RtlAbsoluteToSelfRelativeSD @ 0x140768430 (RtlAbsoluteToSelfRelativeSD.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     RtlLengthSid @ 0x14026CA10 (RtlLengthSid.c)
+ *     RtlSubAuthoritySid @ 0x14026D6C0 (RtlSubAuthoritySid.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     RtlpAddKnownAce @ 0x140651280 (RtlpAddKnownAce.c)
+ *     RtlValidSid @ 0x140651540 (RtlValidSid.c)
+ *     RtlValidSecurityDescriptor @ 0x140653D20 (RtlValidSecurityDescriptor.c)
+ *     RtlLengthSecurityDescriptor @ 0x140654EF0 (RtlLengthSecurityDescriptor.c)
+ *     RtlSetDaclSecurityDescriptor @ 0x140655320 (RtlSetDaclSecurityDescriptor.c)
+ *     RtlCreateAcl @ 0x140655390 (RtlCreateAcl.c)
+ *     RtlSetGroupSecurityDescriptor @ 0x14066A2E0 (RtlSetGroupSecurityDescriptor.c)
+ *     RtlSetOwnerSecurityDescriptor @ 0x14066A340 (RtlSetOwnerSecurityDescriptor.c)
+ *     RtlInitializeSid @ 0x1406BC580 (RtlInitializeSid.c)
+ *     RtlCreateSecurityDescriptor @ 0x1406F2C90 (RtlCreateSecurityDescriptor.c)
+ *     RtlAbsoluteToSelfRelativeSD @ 0x1407685F0 (RtlAbsoluteToSelfRelativeSD.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall CmGetRegKeySecurityDescriptor(char a1, _QWORD *a2)
@@ -34,9 +34,9 @@ __int64 __fastcall CmGetRegKeySecurityDescriptor(char a1, _QWORD *a2)
   ULONG v11; // eax
   PVOID v12; // rax
   void *v13; // rdi
-  struct _SID_IDENTIFIER_AUTHORITY IdentifierAuthority; // [rsp+38h] [rbp-49h] BYREF
-  struct _SID_IDENTIFIER_AUTHORITY v16; // [rsp+40h] [rbp-41h] BYREF
-  struct _SID_IDENTIFIER_AUTHORITY v17; // [rsp+48h] [rbp-39h] BYREF
+  _SID_IDENTIFIER_AUTHORITY IdentifierAuthority; // [rsp+38h] [rbp-49h] BYREF
+  _SID_IDENTIFIER_AUTHORITY v16; // [rsp+40h] [rbp-41h] BYREF
+  _SID_IDENTIFIER_AUTHORITY v17; // [rsp+48h] [rbp-39h] BYREF
   _OWORD SecurityDescriptor[2]; // [rsp+50h] [rbp-31h] BYREF
   __int64 v19; // [rsp+70h] [rbp-11h]
   unsigned __int8 Owner[16]; // [rsp+78h] [rbp-9h] BYREF
@@ -96,16 +96,16 @@ __int64 __fastcall CmGetRegKeySecurityDescriptor(char a1, _QWORD *a2)
       Acl = RtlCreateAcl(PoolWithTag, v8, 2u);
       if ( Acl >= 0 )
       {
-        Acl = RtlpAddKnownAce((__int64)v10, 2u, 2, 983103, Sid, 0);
+        Acl = RtlpAddKnownAce(v10, 2u, 2, 983103, Sid, 0);
         if ( Acl >= 0 )
         {
-          Acl = RtlpAddKnownAce((__int64)v10, 2u, 2, 131097, Src, 0);
+          Acl = RtlpAddKnownAce(v10, 2u, 2, 131097, Src, 0);
           if ( Acl >= 0 )
           {
-            Acl = RtlpAddKnownAce((__int64)v10, 2u, 2, 983103, Owner, 0);
+            Acl = RtlpAddKnownAce(v10, 2u, 2, 983103, Owner, 0);
             if ( Acl >= 0 )
             {
-              if ( !a1 || (Acl = RtlpAddKnownAce((__int64)v10, 2u, 2, 131097, v4, 0), Acl >= 0) )
+              if ( !a1 || (Acl = RtlpAddKnownAce(v10, 2u, 2, 131097, v4, 0), Acl >= 0) )
               {
                 Acl = RtlCreateSecurityDescriptor(SecurityDescriptor, 1u);
                 if ( Acl >= 0 )

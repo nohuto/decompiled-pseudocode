@@ -14,11 +14,11 @@
  *     memset$thunk$772440563353939046 @ 0x180174030 (memset$thunk$772440563353939046.c)
  */
 
-__int64 __fastcall EtwpCheckForPrivatePreEnable(__int64 a1)
+void __fastcall EtwpCheckForPrivatePreEnable(__int64 a1)
 {
   char v2; // si
-  __int64 result; // rax
-  __int64 v4; // rdi
+  _RTL_SRWLOCK *GuidEntry; // rax
+  _RTL_SRWLOCK *v4; // rdi
   unsigned __int8 *v5; // rbp
   __int64 v6; // r14
   __int16 v7; // cx
@@ -26,24 +26,24 @@ __int64 __fastcall EtwpCheckForPrivatePreEnable(__int64 a1)
   __int64 v9; // r8
   _BYTE v10[40]; // [rsp+20h] [rbp-A8h] BYREF
   __int128 v11; // [rsp+48h] [rbp-80h]
-  __int64 v12; // [rsp+88h] [rbp-40h]
+  unsigned __int64 Value; // [rsp+88h] [rbp-40h]
   int v13; // [rsp+90h] [rbp-38h]
 
   v2 = 0;
-  result = EtwpFindGuidEntry((void *)(a1 + 32));
-  v4 = result;
-  if ( result )
+  GuidEntry = (_RTL_SRWLOCK *)EtwpFindGuidEntry((void *)(a1 + 32));
+  v4 = GuidEntry;
+  if ( GuidEntry )
   {
-    RtlAcquireSRWLockShared(result + 40);
+    RtlAcquireSRWLockShared(GuidEntry + 5);
     *(_QWORD *)(a1 + 240) = v4;
-    *(_OWORD *)(a1 + 120) = *(_OWORD *)(v4 + 56);
-    *(_QWORD *)(a1 + 136) = *(_QWORD *)(v4 + 72);
-    *(_OWORD *)(a1 + 144) = *(_OWORD *)(v4 + 80);
-    *(_QWORD *)(a1 + 160) = *(_QWORD *)(v4 + 96);
-    *(_OWORD *)(a1 + 168) = *(_OWORD *)(v4 + 104);
-    *(_QWORD *)(a1 + 184) = *(_QWORD *)(v4 + 120);
-    *(_OWORD *)(a1 + 192) = *(_OWORD *)(v4 + 128);
-    *(_QWORD *)(a1 + 208) = *(_QWORD *)(v4 + 144);
+    *(_OWORD *)(a1 + 120) = *(_OWORD *)&v4[7].0;
+    *(_RTL_SRWLOCK *)(a1 + 136) = v4[9];
+    *(_OWORD *)(a1 + 144) = *(_OWORD *)&v4[10].0;
+    *(_RTL_SRWLOCK *)(a1 + 160) = v4[12];
+    *(_OWORD *)(a1 + 168) = *(_OWORD *)&v4[13].0;
+    *(_RTL_SRWLOCK *)(a1 + 184) = v4[15];
+    *(_OWORD *)(a1 + 192) = *(_OWORD *)&v4[16].0;
+    *(_RTL_SRWLOCK *)(a1 + 208) = v4[18];
     EtwpUpdatePrivateEnableInfo(a1);
     v5 = (unsigned __int8 *)(a1 + 142);
     v6 = 4LL;
@@ -65,24 +65,23 @@ __int64 __fastcall EtwpCheckForPrivatePreEnable(__int64 a1)
       if ( (*(_WORD *)(a1 + 86) & 0x3FFF) == 2 )
       {
         memset_thunk_772440563353939046(v10, 0, 0x78uLL);
-        v8 = *(_OWORD *)(v4 + 24);
-        v12 = *(_QWORD *)(v4 + 152);
-        v13 = *(_DWORD *)(v4 + 160);
+        v8 = *(_OWORD *)&v4[3].0;
+        Value = v4[19].Value;
+        v13 = (int)v4[20].0;
         v11 = v8;
-        RtlReleaseSRWLockShared(v4 + 40);
+        RtlReleaseSRWLockShared(v4 + 5);
         LOBYTE(v9) = 1;
-        return EtwpRegisterGuidsApiCallback(v10, a1, v9);
+        EtwpRegisterGuidsApiCallback(v10, a1, v9);
       }
       else
       {
-        RtlReleaseSRWLockShared(v4 + 40);
-        return EtwpPreEnableEventApiCallback(a1);
+        RtlReleaseSRWLockShared(v4 + 5);
+        EtwpPreEnableEventApiCallback(a1);
       }
     }
     else
     {
-      return RtlReleaseSRWLockShared(v4 + 40);
+      RtlReleaseSRWLockShared(v4 + 5);
     }
   }
-  return result;
 }

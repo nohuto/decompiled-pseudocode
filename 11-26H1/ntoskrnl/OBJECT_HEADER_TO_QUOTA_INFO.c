@@ -1,8 +1,8 @@
 /*
- * XREFs of OBJECT_HEADER_TO_QUOTA_INFO @ 0x14042DA20
+ * XREFs of OBJECT_HEADER_TO_QUOTA_INFO @ 0x14041A930
  * Callers:
- *     ObGetObjectInformation @ 0x1407C37B0 (ObGetObjectInformation.c)
- *     NtQueryObject @ 0x1409FC830 (NtQueryObject.c)
+ *     ObGetObjectInformation @ 0x1407C6810 (ObGetObjectInformation.c)
+ *     NtQueryObject @ 0x140921430 (NtQueryObject.c)
  * Callees:
  *     <none>
  */

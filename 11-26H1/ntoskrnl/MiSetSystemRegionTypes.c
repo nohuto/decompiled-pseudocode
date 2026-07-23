@@ -1,10 +1,10 @@
 /*
- * XREFs of MiSetSystemRegionTypes @ 0x140CF9A04
+ * XREFs of MiSetSystemRegionTypes @ 0x140CFFD84
  * Callers:
- *     MiInitializeSystemVa @ 0x140D0AC28 (MiInitializeSystemVa.c)
+ *     MiInitializeSystemVa @ 0x140D10EF8 (MiInitializeSystemVa.c)
  * Callees:
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     MiConvertAssignedRegionToVaType @ 0x140CF9454 (MiConvertAssignedRegionToVaType.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     MiConvertAssignedRegionToVaType @ 0x140CFF7D4 (MiConvertAssignedRegionToVaType.c)
  */
 
 unsigned __int64 MiSetSystemRegionTypes()
@@ -19,7 +19,7 @@ unsigned __int64 MiSetSystemRegionTypes()
   unsigned __int64 result; // rax
 
   v0 = 0;
-  v1 = qword_140E37B78;
+  v1 = qword_140E37CF8;
   do
   {
     if ( *(v1 - 1) )
@@ -29,9 +29,9 @@ unsigned __int64 MiSetSystemRegionTypes()
       if ( v4 )
       {
         v5 = v3;
-        v6 = byte_140E37A70;
+        v6 = byte_140E37BF0;
         LOBYTE(v6) = v2;
-        memset_0(&byte_140E37A70[v5], (int)v6, v4);
+        memset_0(&byte_140E37BF0[v5], (int)v6, v4);
       }
     }
     ++v0;
@@ -40,6 +40,6 @@ unsigned __int64 MiSetSystemRegionTypes()
   while ( v0 < 0x12 );
   result = (((unsigned __int64)&MiState >> 39) & 0x1FF) - 256;
   *((_BYTE *)&MiState + (unsigned int)result + 46320) = 11;
-  byte_140E37B6F = 9;
+  byte_140E37CEF = 9;
   return result;
 }

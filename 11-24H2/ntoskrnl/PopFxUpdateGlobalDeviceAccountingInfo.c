@@ -1,8 +1,8 @@
 /*
- * XREFs of PopFxUpdateGlobalDeviceAccountingInfo @ 0x1404AF84C
+ * XREFs of PopFxUpdateGlobalDeviceAccountingInfo @ 0x1404AA23C
  * Callers:
- *     PopFxSetDripsBlockedByDeviceActivity @ 0x1403CAC3C (PopFxSetDripsBlockedByDeviceActivity.c)
- *     PopFxSetGlobalDeviceAccountingEnabled @ 0x1404BE2A8 (PopFxSetGlobalDeviceAccountingEnabled.c)
+ *     PopFxSetDripsBlockedByDeviceActivity @ 0x1403A57D0 (PopFxSetDripsBlockedByDeviceActivity.c)
+ *     PopFxSetGlobalDeviceAccountingEnabled @ 0x1404B9468 (PopFxSetGlobalDeviceAccountingEnabled.c)
  * Callees:
  *     <none>
  */
@@ -14,11 +14,11 @@ __int64 __fastcall PopFxUpdateGlobalDeviceAccountingInfo(unsigned __int64 a1, un
   __int64 v4; // rdx
   __int64 v5; // r8
 
-  result = qword_140F0D7C8;
-  if ( qword_140F0D7C8 < a1 )
+  result = qword_140F0D948;
+  if ( qword_140F0D948 < a1 )
   {
-    v3 = a1 - qword_140F0D7C8;
-    qword_140F0D7D0 += v3;
+    v3 = a1 - qword_140F0D948;
+    qword_140F0D950 += v3;
     if ( v3 >= a2 )
     {
       LODWORD(v4) = 0;
@@ -28,15 +28,15 @@ __int64 __fastcall PopFxUpdateGlobalDeviceAccountingInfo(unsigned __int64 a1, un
         v4 = (unsigned int)(v4 + 1);
         if ( v3 >= PopFxAccountingBucketLimits[v5] && v3 < PopFxAccountingBucketLimits[v4] )
         {
-          ++*((_QWORD *)&xmmword_140F0D7E0 + v5);
-          *((_QWORD *)&xmmword_140F0D808 + v5) += v3;
+          ++*((_QWORD *)&xmmword_140F0D960 + v5);
+          *((_QWORD *)&xmmword_140F0D988 + v5) += v3;
           return result;
         }
       }
     }
     else
     {
-      qword_140F0D7D8 += v3;
+      qword_140F0D958 += v3;
     }
   }
   return result;

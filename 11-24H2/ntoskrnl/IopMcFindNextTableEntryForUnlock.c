@@ -1,12 +1,12 @@
 /*
- * XREFs of IopMcFindNextTableEntryForUnlock @ 0x14043D340
+ * XREFs of IopMcFindNextTableEntryForUnlock @ 0x1404315E0
  * Callers:
- *     IoTryReleasePages @ 0x14043D260 (IoTryReleasePages.c)
+ *     IoTryReleasePages @ 0x140431500 (IoTryReleasePages.c)
  * Callees:
- *     ExpReleaseSpinLockSharedFromDpcLevelInstrumented @ 0x1402465FC (ExpReleaseSpinLockSharedFromDpcLevelInstrumented.c)
- *     ExAcquireSpinLockShared @ 0x14031A1A0 (ExAcquireSpinLockShared.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     IopMcReferenceBufferEntry @ 0x1405A2CAC (IopMcReferenceBufferEntry.c)
+ *     ExpReleaseSpinLockSharedFromDpcLevelInstrumented @ 0x140219638 (ExpReleaseSpinLockSharedFromDpcLevelInstrumented.c)
+ *     ExAcquireSpinLockShared @ 0x1402C2D30 (ExAcquireSpinLockShared.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     IopMcReferenceBufferEntry @ 0x14059FBEC (IopMcReferenceBufferEntry.c)
  */
 
 ULONG_PTR __fastcall IopMcFindNextTableEntryForUnlock(__int64 *a1, _QWORD *a2)
@@ -29,11 +29,11 @@ ULONG_PTR __fastcall IopMcFindNextTableEntryForUnlock(__int64 *a1, _QWORD *a2)
   *a2 = 0LL;
   if ( *((_BYTE *)a1 + 16) )
     return 0LL;
-  v6 = ExAcquireSpinLockShared(&dword_140F8C264);
-  v7 = qword_140F8C268;
+  v6 = ExAcquireSpinLockShared(&dword_140F8C4E4);
+  v7 = qword_140F8C4E8;
   v8 = 0LL;
   v9 = v6;
-  if ( qword_140F8C268 )
+  if ( qword_140F8C4E8 )
   {
     v10 = *a1;
     do
@@ -98,12 +98,12 @@ ULONG_PTR __fastcall IopMcFindNextTableEntryForUnlock(__int64 *a1, _QWORD *a2)
   }
   if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || PopHibernateInProgress )
   {
-    _InterlockedAnd(&dword_140F8C264, 0xBFFFFFFF);
-    _InterlockedDecrement(&dword_140F8C264);
+    _InterlockedAnd(&dword_140F8C4E4, 0xBFFFFFFF);
+    _InterlockedDecrement(&dword_140F8C4E4);
   }
   else
   {
-    ExpReleaseSpinLockSharedFromDpcLevelInstrumented(&dword_140F8C264, retaddr);
+    ExpReleaseSpinLockSharedFromDpcLevelInstrumented(&dword_140F8C4E4, retaddr);
   }
   if ( KiIrqlFlags )
     KiLowerIrqlProcessIrqlFlags(KeGetCurrentIrql(), (unsigned __int8)v9);

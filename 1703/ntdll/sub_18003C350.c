@@ -14,22 +14,21 @@
  *     sub_180095EB0 @ 0x180095EB0 (sub_180095EB0.c)
  */
 
-__int64 __fastcall sub_18003C350(__int64 a1, int a2, int a3, char a4, __int64 *a5)
+__int64 __fastcall sub_18003C350(__int64 a1, int a2, int a3, char a4, PVOID *a5)
 {
   int v9; // edx
   int v10; // r8d
   int v11; // ecx
   int v12; // eax
-  unsigned int v13; // r8d
-  unsigned int v15; // [rsp+40h] [rbp-C0h] BYREF
-  unsigned int v16[3]; // [rsp+44h] [rbp-BCh] BYREF
-  int v17; // [rsp+50h] [rbp-B0h] BYREF
-  __int16 *v18; // [rsp+58h] [rbp-A8h]
-  __int16 v19; // [rsp+60h] [rbp-A0h] BYREF
+  int v13; // r8d
+  int v15; // [rsp+40h] [rbp-C0h] BYREF
+  __int64 v16; // [rsp+44h] [rbp-BCh] BYREF
+  _UNICODE_STRING v17; // [rsp+50h] [rbp-B0h] BYREF
+  __int16 v18; // [rsp+60h] [rbp-A0h] BYREF
 
   sub_18003CA5C(0LL, a1, 5288LL);
-  v17 = 0x1000000;
-  v19 = 0;
+  *(_DWORD *)&v17.Length = 0x1000000;
+  v18 = 0;
   v9 = (2 * (a3 & 4)) | 0x40;
   if ( (a3 & 2) == 0 )
     v9 = 2 * (a3 & 4);
@@ -43,15 +42,15 @@ __int64 __fastcall sub_18003C350(__int64 a1, int a2, int a3, char a4, __int64 *a
   if ( a3 >= 0 )
     v12 = v11;
   v15 = v12;
-  v18 = &v19;
-  v16[0] = sub_18003C6F4(a1, &v17, 0LL, &v15);
-  if ( (v16[0] & 0x80000000) == 0 )
+  v17.Buffer = (PWCH)&v18;
+  LODWORD(v16) = sub_18003C6F4(a1, &v17, 0LL, &v15);
+  if ( (int)v16 >= 0 )
   {
     v13 = v15;
     if ( !a4 )
       v13 = v15 | 1;
-    sub_18001DF1C((__int64)&v17, a2, v13, 4, 0LL, 0LL, a5, (int *)v16);
+    sub_18001DF1C(&v17, a2, v13, 4, 0LL, 0LL, a5, (int *)&v16);
   }
   sub_18003CA5C(0LL, a1, 5289LL);
-  return v16[0];
+  return (unsigned int)v16;
 }

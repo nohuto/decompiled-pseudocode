@@ -1,16 +1,16 @@
 /*
- * XREFs of CmpKeyEnumStackStartFromKeyNodeStack @ 0x14060A760
+ * XREFs of CmpKeyEnumStackStartFromKeyNodeStack @ 0x14060A814
  * Callers:
- *     CmpGetSubKeyCountForKeyNodeStack @ 0x14060A060 (CmpGetSubKeyCountForKeyNodeStack.c)
- *     CmpKeyEnumStackStartFromKcbStack @ 0x14060A6C8 (CmpKeyEnumStackStartFromKcbStack.c)
+ *     CmpGetSubKeyCountForKeyNodeStack @ 0x14060A114 (CmpGetSubKeyCountForKeyNodeStack.c)
+ *     CmpKeyEnumStackStartFromKcbStack @ 0x14060A77C (CmpKeyEnumStackStartFromKcbStack.c)
  * Callees:
- *     CmpAllocateTransientPoolWithTag @ 0x140087418 (CmpAllocateTransientPoolWithTag.c)
- *     CmpKeyEnumStackEntryInitialize @ 0x14060A4EC (CmpKeyEnumStackEntryInitialize.c)
- *     CmpKeyEnumStackEntryStart @ 0x14060A544 (CmpKeyEnumStackEntryStart.c)
- *     CmpKeyEnumStackGetEntryAtLayerHeight @ 0x14060A64C (CmpKeyEnumStackGetEntryAtLayerHeight.c)
- *     CmpGetEffectiveKeyNodeSemantics @ 0x14060BC6C (CmpGetEffectiveKeyNodeSemantics.c)
- *     CmpKeyNodeStackGetEntryAtLayerHeight @ 0x14060BCE4 (CmpKeyNodeStackGetEntryAtLayerHeight.c)
- *     CmpStartKeyNodeStack @ 0x14060BF6C (CmpStartKeyNodeStack.c)
+ *     CmpAllocateTransientPoolWithTag @ 0x1400B0B88 (CmpAllocateTransientPoolWithTag.c)
+ *     CmpKeyEnumStackEntryInitialize @ 0x14060A5A0 (CmpKeyEnumStackEntryInitialize.c)
+ *     CmpKeyEnumStackEntryStart @ 0x14060A5F8 (CmpKeyEnumStackEntryStart.c)
+ *     CmpKeyEnumStackGetEntryAtLayerHeight @ 0x14060A700 (CmpKeyEnumStackGetEntryAtLayerHeight.c)
+ *     CmpGetEffectiveKeyNodeSemantics @ 0x14060BD20 (CmpGetEffectiveKeyNodeSemantics.c)
+ *     CmpKeyNodeStackGetEntryAtLayerHeight @ 0x14060BD98 (CmpKeyNodeStackGetEntryAtLayerHeight.c)
+ *     CmpStartKeyNodeStack @ 0x14060C020 (CmpStartKeyNodeStack.c)
  */
 
 __int64 __fastcall CmpKeyEnumStackStartFromKeyNodeStack(__int64 a1, __int16 *a2)

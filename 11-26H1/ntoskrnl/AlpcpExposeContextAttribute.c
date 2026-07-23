@@ -1,10 +1,10 @@
 /*
- * XREFs of AlpcpExposeContextAttribute @ 0x140A7A4A0
+ * XREFs of AlpcpExposeContextAttribute @ 0x140A823E0
  * Callers:
- *     AlpcpReturnMessageOnInsufficientBuffer @ 0x140A7A138 (AlpcpReturnMessageOnInsufficientBuffer.c)
+ *     AlpcpReturnMessageOnInsufficientBuffer @ 0x140A82078 (AlpcpReturnMessageOnInsufficientBuffer.c)
  * Callees:
- *     RtlCopyVolatileMemory @ 0x140733080 (RtlCopyVolatileMemory.c)
- *     RtlCopyToUser @ 0x14077F284 (RtlCopyToUser.c)
+ *     RtlCopyVolatileMemory @ 0x140737C50 (RtlCopyVolatileMemory.c)
+ *     RtlCopyToUser @ 0x140781D84 (RtlCopyToUser.c)
  */
 
 void *__fastcall AlpcpExposeContextAttribute(__int64 a1, __int64 a2, void *a3, _DWORD *a4, char a5)

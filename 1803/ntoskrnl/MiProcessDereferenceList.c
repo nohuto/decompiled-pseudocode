@@ -195,7 +195,7 @@ LABEL_34:
   if ( *(_DWORD *)(a1 + 1740) )
   {
     KeResetEvent((PRKEVENT)(a1 + 1736));
-    return MiFreeClonePool((union _SLIST_HEADER *)a1);
+    return MiFreeClonePool((_SLIST_HEADER *)a1);
   }
   return result;
 }

@@ -1,5 +1,5 @@
 /*
- * XREFs of RtlSetThreadIsCritical @ 0x18008D100
+ * XREFs of RtlSetThreadIsCritical @ 0x18008D0F0
  * Callers:
  *     <none>
  * Callees:
@@ -7,19 +7,19 @@
  *     ZwQueryInformationThread @ 0x1800A68C0 (ZwQueryInformationThread.c)
  */
 
-__int64 __fastcall RtlSetThreadIsCritical(unsigned __int8 a1, _BYTE *a2, char a3)
+NTSTATUS __cdecl RtlSetThreadIsCritical(BOOLEAN NewValue, PBOOLEAN OldValue, BOOLEAN CheckFlag)
 {
-  int v6; // [rsp+50h] [rbp+18h] BYREF
+  int ThreadInformation; // [rsp+50h] [rbp+18h] BYREF
 
-  if ( a2 )
-    *a2 = 0;
-  if ( a3 && (NtCurrentTeb()->ProcessEnvironmentBlock->NtGlobalFlag & 0x100000) == 0 )
-    return 3221225473LL;
-  if ( a2 )
+  if ( OldValue )
+    *OldValue = 0;
+  if ( CheckFlag && (NtCurrentTeb()->ProcessEnvironmentBlock->NtGlobalFlag & 0x100000) == 0 )
+    return -1073741823;
+  if ( OldValue )
   {
-    ZwQueryInformationThread(-2LL, 18LL, &v6, 4LL, 0LL);
-    *a2 = v6;
+    ZwQueryInformationThread((HANDLE)0xFFFFFFFFFFFFFFFELL, ThreadBreakOnTermination, &ThreadInformation, 4u, 0LL);
+    *OldValue = ThreadInformation;
   }
-  v6 = a1;
-  return NtSetInformationThread(-2LL, 18LL, &v6);
+  ThreadInformation = NewValue;
+  return NtSetInformationThread((HANDLE)0xFFFFFFFFFFFFFFFELL, ThreadBreakOnTermination, &ThreadInformation, 4u);
 }

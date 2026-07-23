@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpIvtAllocateReservedDomainList @ 0x1404E7C48
+ * XREFs of HalpIvtAllocateReservedDomainList @ 0x1404E7E88
  * Callers:
- *     HalpIvtProcessDrhdEntry @ 0x1404E740C (HalpIvtProcessDrhdEntry.c)
+ *     HalpIvtProcessDrhdEntry @ 0x1404E764C (HalpIvtProcessDrhdEntry.c)
  * Callees:
- *     memset @ 0x140414200 (memset.c)
- *     ExtEnvAllocateMemory @ 0x1404D50F0 (ExtEnvAllocateMemory.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     ExtEnvAllocateMemory @ 0x1404D5330 (ExtEnvAllocateMemory.c)
  */
 
 __int64 __fastcall HalpIvtAllocateReservedDomainList(__int64 a1, int a2, unsigned int a3)

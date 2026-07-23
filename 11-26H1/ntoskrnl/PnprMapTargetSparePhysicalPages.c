@@ -1,9 +1,9 @@
 /*
- * XREFs of PnprMapTargetSparePhysicalPages @ 0x140BF1CA0
+ * XREFs of PnprMapTargetSparePhysicalPages @ 0x140BF7CA0
  * Callers:
  *     <none>
  * Callees:
- *     PnprMapPhysicalPages @ 0x140BF1AD0 (PnprMapPhysicalPages.c)
+ *     PnprMapPhysicalPages @ 0x140BF7AD0 (PnprMapPhysicalPages.c)
  */
 
 __int64 __fastcall PnprMapTargetSparePhysicalPages(
@@ -37,7 +37,7 @@ __int64 __fastcall PnprMapTargetSparePhysicalPages(
         v13 = PnprContext;
         v14 = *(_DWORD *)(PnprContext + 33288);
         if ( !v14 )
-          v14 = 4241;
+          v14 = 3856;
         *(_DWORD *)(PnprContext + 33288) = v14;
         v15 = *(_DWORD *)(v13 + 33292);
         if ( !v15 )
@@ -51,7 +51,7 @@ __int64 __fastcall PnprMapTargetSparePhysicalPages(
     v10 = PnprContext;
     v11 = *(_DWORD *)(PnprContext + 33288);
     if ( !v11 )
-      v11 = 4229;
+      v11 = 3844;
     v12 = *(_DWORD *)(PnprContext + 33292);
     *(_DWORD *)(PnprContext + 33288) = v11;
     if ( !v12 )

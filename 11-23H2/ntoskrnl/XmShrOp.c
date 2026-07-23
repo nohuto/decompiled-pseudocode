@@ -1,9 +1,9 @@
 /*
- * XREFs of XmShrOp @ 0x1403B6DB0
+ * XREFs of XmShrOp @ 0x1403B6F90
  * Callers:
- *     XmEmulateStream @ 0x1403BE4E0 (XmEmulateStream.c)
+ *     XmEmulateStream @ 0x1403BE6C0 (XmEmulateStream.c)
  * Callees:
- *     XmStoreResult @ 0x1403B9608 (XmStoreResult.c)
+ *     XmStoreResult @ 0x1403B97E8 (XmStoreResult.c)
  */
 
 __int64 __fastcall XmShrOp(_DWORD *a1)

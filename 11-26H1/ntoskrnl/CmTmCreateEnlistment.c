@@ -1,9 +1,9 @@
 /*
- * XREFs of CmTmCreateEnlistment @ 0x1408ACAB8
+ * XREFs of CmTmCreateEnlistment @ 0x1408B2EFC
  * Callers:
- *     CmpTransInitializeTransaction @ 0x1408AC920 (CmpTransInitializeTransaction.c)
+ *     CmpTransInitializeTransaction @ 0x1408B2D64 (CmpTransInitializeTransaction.c)
  * Callees:
- *     TmCreateEnlistment @ 0x1405344D0 (TmCreateEnlistment.c)
+ *     TmCreateEnlistment @ 0x140536950 (TmCreateEnlistment.c)
  */
 
 NTSTATUS __fastcall CmTmCreateEnlistment(HANDLE *a1, struct _KRESOURCEMANAGER *a2, struct _KTRANSACTION *a3, void *a4)
@@ -12,7 +12,7 @@ NTSTATUS __fastcall CmTmCreateEnlistment(HANDLE *a1, struct _KRESOURCEMANAGER *a
 
   *(&v5.Length + 1) = 0;
   *(&v5.Attributes + 1) = 0;
-  if ( BYTE4(WheapPfaLock.SwapListEntry.Next) == 1 )
+  if ( LOBYTE(WheapPfaLock.Timer.DueTime.LowPart) == 1 )
     return -1073741431;
   v5.Length = 48;
   v5.RootDirectory = 0LL;

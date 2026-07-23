@@ -17,7 +17,7 @@
  *     LdrQueryImageFileKeyOption @ 0x180079A80 (LdrQueryImageFileKeyOption.c)
  *     sub_18007A3BC @ 0x18007A3BC (sub_18007A3BC.c)
  *     RtlpNtQueryValueKey @ 0x18007AD10 (RtlpNtQueryValueKey.c)
- *     sub_18007C370 @ 0x18007C370 (sub_18007C370.c)
+ *     InitFn @ 0x18007C370 (InitFn.c)
  *     sub_180087EB8 @ 0x180087EB8 (sub_180087EB8.c)
  *     RtlInitializeRXact @ 0x18008A420 (RtlInitializeRXact.c)
  *     LdrAppxHandleIntegrityFailure @ 0x1800CBF80 (LdrAppxHandleIntegrityFailure.c)
@@ -46,11 +46,17 @@
  *     <none>
  */
 
-__int64 ZwQueryValueKey()
+NTSTATUS __cdecl ZwQueryValueKey(
+        HANDLE KeyHandle,
+        PUNICODE_STRING ValueName,
+        KEY_VALUE_INFORMATION_CLASS KeyValueInformationClass,
+        PVOID KeyValueInformation,
+        ULONG Length,
+        PULONG ResultLength)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 23LL;
+  result = 23;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

@@ -11,18 +11,17 @@
  *     _TppETWPoolThreadMax@8 @ 0x4B384C53 (_TppETWPoolThreadMax@8.c)
  */
 
-int __stdcall TpSetPoolMaxThreads(int a1, int a2)
+void __cdecl TpSetPoolMaxThreads(PTP_POOL Pool, ULONG MaxThreads)
 {
-  int result; // eax
+  int v2; // eax
 
-  if ( !a1 || a2 < 0 || NtCurrentPeb()->Ldr->ShutdownInProgress )
+  if ( !Pool || (MaxThreads & 0x80000000) != 0 || NtCurrentPeb()->Ldr->ShutdownInProgress )
     TppRaiseInvalidParameter();
-  ZwSetInformationWorkerFactory(*(_DWORD *)(a1 + 36), 5, &a2, 4);
+  ZwSetInformationWorkerFactory(*((HANDLE *)Pool + 9), WorkerFactoryThreadMaximum, &MaxThreads, 4u);
   if ( RtlGetCurrentServiceSessionId() )
-    result = (int)NtCurrentPeb()->SharedData + 556;
+    v2 = (int)NtCurrentPeb()->SharedData + 556;
   else
-    result = 2147353478;
-  if ( *(_BYTE *)result )
-    return TppETWPoolThreadMax(a1, a2);
-  return result;
+    v2 = 2147353478;
+  if ( *(_BYTE *)v2 )
+    TppETWPoolThreadMax(Pool, MaxThreads);
 }

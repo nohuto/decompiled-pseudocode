@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpDmaInsertDeviceObjectByToken @ 0x14053E28C
+ * XREFs of HalpDmaInsertDeviceObjectByToken @ 0x14053BB8C
  * Callers:
- *     HalpDmaCheckAdapterToken @ 0x14053E020 (HalpDmaCheckAdapterToken.c)
- *     HalpDmaLinkDeviceObjectByToken @ 0x1406FD590 (HalpDmaLinkDeviceObjectByToken.c)
+ *     HalpDmaCheckAdapterToken @ 0x14053B920 (HalpDmaCheckAdapterToken.c)
+ *     HalpDmaLinkDeviceObjectByToken @ 0x1406FB1D0 (HalpDmaLinkDeviceObjectByToken.c)
  * Callees:
- *     KeReleaseSpinLock @ 0x14024DD30 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140254B20 (KeAcquireSpinLockRaiseToDpc.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     KeReleaseSpinLock @ 0x14027E340 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140285130 (KeAcquireSpinLockRaiseToDpc.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall HalpDmaInsertDeviceObjectByToken(__int64 a1, __int64 a2, char a3)
@@ -28,19 +28,19 @@ __int64 __fastcall HalpDmaInsertDeviceObjectByToken(__int64 a1, __int64 a2, char
       goto LABEL_12;
     }
   }
-  Pool2 = ExAllocatePool2(0x42uLL);
+  Pool2 = ExAllocatePool2(0x42uLL, 0x28uLL, 0x446C6148u);
   if ( Pool2 )
   {
     *(_QWORD *)(Pool2 + 16) = a1;
     *(_QWORD *)(Pool2 + 24) = a2;
     *(_BYTE *)(Pool2 + 32) = a3;
-    v10 = (__int64 *)qword_140FC30B8;
-    if ( *(__int64 **)qword_140FC30B8 != &HalpDmaPdoList )
+    v10 = (__int64 *)qword_140FC3318;
+    if ( *(__int64 **)qword_140FC3318 != &HalpDmaPdoList )
       __fastfail(3u);
     *(_QWORD *)Pool2 = &HalpDmaPdoList;
     *(_QWORD *)(Pool2 + 8) = v10;
     *v10 = Pool2;
-    qword_140FC30B8 = Pool2;
+    qword_140FC3318 = Pool2;
   }
   else
   {

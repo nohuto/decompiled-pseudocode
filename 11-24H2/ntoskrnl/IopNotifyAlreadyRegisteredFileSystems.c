@@ -1,27 +1,25 @@
 /*
- * XREFs of IopNotifyAlreadyRegisteredFileSystems @ 0x140714FE0
+ * XREFs of IopNotifyAlreadyRegisteredFileSystems @ 0x140712B70
  * Callers:
- *     IoRegisterFsRegistrationChangeMountAware @ 0x1407144C0 (IoRegisterFsRegistrationChangeMountAware.c)
+ *     IoRegisterFsRegistrationChangeMountAware @ 0x140712050 (IoRegisterFsRegistrationChangeMountAware.c)
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
  */
 
-__int64 __fastcall IopNotifyAlreadyRegisteredFileSystems(__int64 **a1, __int64 a2, __int64 a3, __int64 a4)
+__int64 __fastcall IopNotifyAlreadyRegisteredFileSystems(__int64 **a1, __int64 a2, char a3)
 {
-  __int64 *v4; // rdi
-  char i; // si
+  __int64 *i; // rdi
   __int64 result; // rax
-  __int64 *v8; // rcx
+  __int64 *v7; // rcx
 
-  v4 = *a1;
-  for ( i = a3; v4 != (__int64 *)a1; result = guard_dispatch_icall_no_overrides(v8, a2, a3, a4) )
+  for ( i = *a1; i != (__int64 *)a1; result = guard_dispatch_icall_no_overrides(v7, a2) )
   {
-    result = *v4;
-    if ( (__int64 **)*v4 == a1 && i )
+    result = *i;
+    if ( (__int64 **)*i == a1 && a3 )
       break;
-    v8 = v4 - 10;
+    v7 = i - 10;
     LOBYTE(a2) = 1;
-    v4 = (__int64 *)*v4;
+    i = (__int64 *)*i;
   }
   return result;
 }

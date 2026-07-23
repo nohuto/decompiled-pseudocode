@@ -1,14 +1,14 @@
 /*
- * XREFs of MmFreeBootRegistry @ 0x1407366D8
+ * XREFs of MmFreeBootRegistry @ 0x1407378C8
  * Callers:
- *     CmpFreeBootRegistry @ 0x14026D7D4 (CmpFreeBootRegistry.c)
- *     HvpDropPagedBins @ 0x140736594 (HvpDropPagedBins.c)
- *     MmFreeLoaderBlock @ 0x1409C5164 (MmFreeLoaderBlock.c)
+ *     CmpFreeBootRegistry @ 0x14026D9C4 (CmpFreeBootRegistry.c)
+ *     HvpDropPagedBins @ 0x140737784 (HvpDropPagedBins.c)
+ *     MmFreeLoaderBlock @ 0x1409C6164 (MmFreeLoaderBlock.c)
  * Callees:
- *     MiGetPteAddress @ 0x140065DE8 (MiGetPteAddress.c)
- *     MiDeleteBootRange @ 0x140181100 (MiDeleteBootRange.c)
- *     qsort @ 0x1401962E0 (qsort.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
+ *     MiGetPteAddress @ 0x140065DD8 (MiGetPteAddress.c)
+ *     MiDeleteBootRange @ 0x140181240 (MiDeleteBootRange.c)
+ *     qsort @ 0x140196420 (qsort.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
  */
 
 void MmFreeBootRegistry()
@@ -24,7 +24,7 @@ void MmFreeBootRegistry()
   unsigned __int64 v8; // r8
   unsigned __int64 v9; // rcx
 
-  v0 = (size_t *)_InterlockedCompareExchange64(&qword_14043AEC8, 1LL, 0LL);
+  v0 = (size_t *)_InterlockedCompareExchange64(&qword_14043BF88, 1LL, 0LL);
   v1 = v0;
   if ( v0 )
   {
@@ -52,6 +52,6 @@ void MmFreeBootRegistry()
       ++v3;
     }
     ExFreePoolWithTag(v1, 0);
-    qword_14043AEC8 = 0LL;
+    qword_14043BF88 = 0LL;
   }
 }

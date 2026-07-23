@@ -9,67 +9,70 @@
  *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x180174020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
  */
 
-_QWORD *__fastcall RtlInsertElementGenericTableFull(
-        __int64 a1,
-        const void *a2,
-        unsigned __int64 a3,
-        bool *a4,
-        _QWORD *a5,
-        int a6)
+// local variable allocation has failed, the output may be wrong!
+PVOID __cdecl RtlInsertElementGenericTableFull(
+        PRTL_GENERIC_TABLE Table,
+        PVOID Buffer,
+        CLONG BufferSize,
+        PBOOLEAN NewElement,
+        PVOID NodeOrParent,
+        TABLE_SEARCH_RESULT SearchResult)
 {
   size_t v7; // rbp
-  __int64 (__fastcall *v10)(char *, unsigned int, unsigned __int64); // rax
+  PVOID (__cdecl *AllocateRoutine)(PVOID, ULONG, SIZE_T); // rax
   _QWORD *v11; // rax
-  _QWORD *v12; // rbx
-  _QWORD *v13; // rax
-  _QWORD *v14; // rdx
+  _RTL_SPLAY_LINKS *v12; // rbx
+  _LIST_ENTRY *v13; // rax
+  _LIST_ENTRY *Blink; // rdx
 
-  v7 = (unsigned int)a3;
-  if ( a6 == 1 )
+  v7 = BufferSize;
+  if ( SearchResult == TableFoundNode )
   {
-    v12 = a5;
+    v12 = (_RTL_SPLAY_LINKS *)NodeOrParent;
 LABEL_16:
-    *(_QWORD *)a1 = RtlSplay(v12);
-    if ( a4 )
-      *a4 = a6 != 1;
-    return v12 + 5;
+    Table->TableRoot = RtlSplay(v12);
+    if ( NewElement )
+      *NewElement = SearchResult != TableFoundNode;
+    return &v12[1].RightChild;
   }
-  if ( (int)a3 + 40 >= (unsigned int)a3 )
+  if ( BufferSize + 40 >= BufferSize )
   {
-    v10 = *(__int64 (__fastcall **)(char *, unsigned int, unsigned __int64))(a1 + 48);
-    v11 = (_QWORD *)(v10 == RtlAllocateHeap ? RtlAllocateHeap((char *)a1, (int)a3 + 40, a3) : ((__int64 (*)(void))v10)());
-    v12 = v11;
+    AllocateRoutine = (PVOID (__cdecl *)(PVOID, ULONG, SIZE_T))Table->AllocateRoutine;
+    v11 = AllocateRoutine == RtlAllocateHeap
+        ? RtlAllocateHeap(Table, BufferSize + 40, *(SIZE_T *)&BufferSize)
+        : (_QWORD *)((__int64 (*)(void))AllocateRoutine)();
+    v12 = (_RTL_SPLAY_LINKS *)v11;
     if ( v11 )
     {
       *v11 = v11;
       v11[1] = 0LL;
       v11[2] = 0LL;
-      v13 = v11 + 3;
-      v14 = *(_QWORD **)(a1 + 16);
-      if ( *v14 != a1 + 8 )
+      v13 = (_LIST_ENTRY *)(v11 + 3);
+      Blink = Table->InsertOrderList.Blink;
+      if ( Blink->Flink != &Table->InsertOrderList )
         __fastfail(3u);
-      *v13 = a1 + 8;
-      v12[4] = v14;
-      *v14 = v13;
-      *(_QWORD *)(a1 + 16) = v13;
-      ++*(_DWORD *)(a1 + 36);
-      if ( a6 )
+      v13->Flink = &Table->InsertOrderList;
+      v12[1].LeftChild = (_RTL_SPLAY_LINKS *)Blink;
+      Blink->Flink = v13;
+      Table->InsertOrderList.Blink = v13;
+      ++Table->NumberGenericTableElements;
+      if ( SearchResult )
       {
-        if ( a6 == 2 )
-          a5[1] = v12;
+        if ( SearchResult == TableInsertAsLeft )
+          *((_QWORD *)NodeOrParent + 1) = v12;
         else
-          a5[2] = v12;
-        *v12 = a5;
+          *((_QWORD *)NodeOrParent + 2) = v12;
+        v12->Parent = (_RTL_SPLAY_LINKS *)NodeOrParent;
       }
       else
       {
-        *(_QWORD *)a1 = v12;
+        Table->TableRoot = v12;
       }
-      memmove(v12 + 5, a2, v7);
+      memmove(&v12[1].RightChild, Buffer, v7);
       goto LABEL_16;
     }
   }
-  if ( a4 )
-    *a4 = 0;
+  if ( NewElement )
+    *NewElement = 0;
   return 0LL;
 }

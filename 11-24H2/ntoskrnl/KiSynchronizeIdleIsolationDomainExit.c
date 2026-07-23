@@ -1,10 +1,10 @@
 /*
- * XREFs of KiSynchronizeIdleIsolationDomainExit @ 0x1405BF078
+ * XREFs of KiSynchronizeIdleIsolationDomainExit @ 0x1405BC6A8
  * Callers:
- *     KiExecuteSmtIsolationThread @ 0x1405C2BD0 (KiExecuteSmtIsolationThread.c)
+ *     KiExecuteSmtIsolationThread @ 0x1405C01A0 (KiExecuteSmtIsolationThread.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x1403F9C60 (KeYieldProcessorEx.c)
- *     KiSendSoftwareInterrupt @ 0x14041B640 (KiSendSoftwareInterrupt.c)
+ *     KeYieldProcessorEx @ 0x1403EFB70 (KeYieldProcessorEx.c)
+ *     KiSendSoftwareInterrupt @ 0x14040F180 (KiSendSoftwareInterrupt.c)
  */
 
 _KCORE_CONTROL_BLOCK *KiSynchronizeIdleIsolationDomainExit()

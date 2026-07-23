@@ -22,15 +22,15 @@
 
 __int64 __fastcall PopFxIdleComponent(ULONG_PTR BugCheckParameter2, ULONG_PTR BugCheckParameter3, char a3)
 {
-  __int64 v3; // r11
+  LARGE_INTEGER v3; // r11
   unsigned int v4; // esi
   ULONG_PTR v7; // rbx
   __int64 result; // rax
-  __int64 InterruptTimePrecise; // rax
-  LARGE_INTEGER v10[2]; // [rsp+20h] [rbp-38h] BYREF
+  LARGE_INTEGER InterruptTimePrecise; // rax
+  LARGE_INTEGER PerformanceCounter; // [rsp+20h] [rbp-38h] BYREF
   __int64 v11; // [rsp+60h] [rbp+8h] BYREF
 
-  v3 = 0LL;
+  v3.QuadPart = 0LL;
   v4 = BugCheckParameter3;
   v11 = 0LL;
   if ( (a3 & 3) == 3 )
@@ -41,8 +41,11 @@ __int64 __fastcall PopFxIdleComponent(ULONG_PTR BugCheckParameter2, ULONG_PTR Bu
   v7 = *(_QWORD *)(*(_QWORD *)(BugCheckParameter2 + 832) + 8LL * (unsigned int)BugCheckParameter3);
   if ( PopFxActiveIdleLevel == 2 )
   {
-    InterruptTimePrecise = RtlGetInterruptTimePrecise(v10);
-    PpmInterlockedUpdateTimeNoFence(v7 + 144, InterruptTimePrecise, &v11);
+    InterruptTimePrecise = RtlGetInterruptTimePrecise(&PerformanceCounter);
+    ((void (__fastcall *)(_QWORD, _QWORD, _QWORD))PpmInterlockedUpdateTimeNoFence)(
+      v7 + 144,
+      (LARGE_INTEGER)InterruptTimePrecise.QuadPart,
+      &v11);
   }
   else
   {
@@ -53,11 +56,11 @@ __int64 __fastcall PopFxIdleComponent(ULONG_PTR BugCheckParameter2, ULONG_PTR Bu
   result = (unsigned int)_InterlockedDecrement((volatile signed __int32 *)(v7 + 88));
   if ( (_DWORD)result == 0x80000000 )
   {
-    if ( !v3 )
-      v3 = RtlGetInterruptTimePrecise(v10);
+    if ( !v3.QuadPart )
+      v3 = RtlGetInterruptTimePrecise(&PerformanceCounter);
     if ( (*(_DWORD *)(v7 + 92) & 2) == 0
       && !PopFxLowPowerEpoch
-      && v3 - v11 < (unsigned __int64)(unsigned int)PopFxActiveIdleThreshold )
+      && v3.QuadPart - v11 < (unsigned __int64)(unsigned int)PopFxActiveIdleThreshold )
     {
       result = (unsigned int)_InterlockedCompareExchange((volatile signed __int32 *)(v7 + 88), -2147483647, 0x80000000);
       if ( (_DWORD)result != 0x80000000 )
@@ -73,7 +76,10 @@ __int64 __fastcall PopFxIdleComponent(ULONG_PTR BugCheckParameter2, ULONG_PTR Bu
       _InterlockedDecrement((volatile signed __int32 *)(v7 + 88));
     }
     if ( PopFxActiveIdleLevel == 1 )
-      PpmInterlockedUpdateTimeNoFence(v7 + 144, v3, 0LL);
+      ((void (__fastcall *)(_QWORD, _QWORD, _QWORD))PpmInterlockedUpdateTimeNoFence)(
+        v7 + 144,
+        (LARGE_INTEGER)v3.QuadPart,
+        0LL);
     if ( (a3 & 2) != 0 )
       return PopFxQueueWorkOrder(v7 + 24, BugCheckParameter2);
     else

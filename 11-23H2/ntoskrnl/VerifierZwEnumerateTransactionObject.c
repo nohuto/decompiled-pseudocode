@@ -1,9 +1,9 @@
 /*
- * XREFs of VerifierZwEnumerateTransactionObject @ 0x140AD0470
+ * XREFs of VerifierZwEnumerateTransactionObject @ 0x140AD0460
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall VerifierZwEnumerateTransactionObject(__int64 a1)

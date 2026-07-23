@@ -1,10 +1,10 @@
 /*
- * XREFs of DbgkpWerInvokeCallbacks @ 0x14061C420
+ * XREFs of DbgkpWerInvokeCallbacks @ 0x14061C4D4
  * Callers:
- *     DbgkpWerCaptureLiveFullDump @ 0x14061BD38 (DbgkpWerCaptureLiveFullDump.c)
- *     DbgkpWerCaptureLiveTriageDump @ 0x14061BEB4 (DbgkpWerCaptureLiveTriageDump.c)
+ *     DbgkpWerCaptureLiveFullDump @ 0x14061BDEC (DbgkpWerCaptureLiveFullDump.c)
+ *     DbgkpWerCaptureLiveTriageDump @ 0x14061BF68 (DbgkpWerCaptureLiveTriageDump.c)
  * Callees:
- *     DbgPrintEx @ 0x140081B0C (DbgPrintEx.c)
+ *     DbgPrintEx @ 0x140084C90 (DbgPrintEx.c)
  */
 
 __int64 __fastcall DbgkpWerInvokeCallbacks(__int64 a1)

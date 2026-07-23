@@ -1,19 +1,19 @@
 /*
- * XREFs of BgpFwDisplayBugCheckScreen @ 0x140328B0C
+ * XREFs of BgpFwDisplayBugCheckScreen @ 0x140328CFC
  * Callers:
- *     KiDisplayBlueScreen @ 0x140292574 (KiDisplayBlueScreen.c)
+ *     KiDisplayBlueScreen @ 0x140292764 (KiDisplayBlueScreen.c)
  * Callees:
- *     BgpGxDrawRectangle @ 0x14016EE30 (BgpGxDrawRectangle.c)
- *     BgpGetBitsPerPixel @ 0x14016F1E0 (BgpGetBitsPerPixel.c)
- *     IoSaveBugCheckProgress @ 0x140280220 (IoSaveBugCheckProgress.c)
- *     BgpClearScreen @ 0x140327714 (BgpClearScreen.c)
- *     BcpDisplayCriticalCharacter @ 0x140327C8C (BcpDisplayCriticalCharacter.c)
- *     BcpDisplayCriticalString @ 0x140327D54 (BcpDisplayCriticalString.c)
- *     BcpDisplayErrorInformation @ 0x1403280B0 (BcpDisplayErrorInformation.c)
- *     BcpDisplayProgress @ 0x140328330 (BcpDisplayProgress.c)
- *     BcpGetComponentOffsets @ 0x14032852C (BcpGetComponentOffsets.c)
- *     BcpGetDisplayType @ 0x1403286B8 (BcpGetDisplayType.c)
- *     BcpDisplayEarlyBugCheckScreen @ 0x1409FBECC (BcpDisplayEarlyBugCheckScreen.c)
+ *     BgpGxDrawRectangle @ 0x14016EF30 (BgpGxDrawRectangle.c)
+ *     BgpGetBitsPerPixel @ 0x14016F2E0 (BgpGetBitsPerPixel.c)
+ *     IoSaveBugCheckProgress @ 0x140280410 (IoSaveBugCheckProgress.c)
+ *     BgpClearScreen @ 0x140327904 (BgpClearScreen.c)
+ *     BcpDisplayCriticalCharacter @ 0x140327E7C (BcpDisplayCriticalCharacter.c)
+ *     BcpDisplayCriticalString @ 0x140327F44 (BcpDisplayCriticalString.c)
+ *     BcpDisplayErrorInformation @ 0x1403282A0 (BcpDisplayErrorInformation.c)
+ *     BcpDisplayProgress @ 0x140328520 (BcpDisplayProgress.c)
+ *     BcpGetComponentOffsets @ 0x14032871C (BcpGetComponentOffsets.c)
+ *     BcpGetDisplayType @ 0x1403288A8 (BcpGetDisplayType.c)
+ *     BcpDisplayEarlyBugCheckScreen @ 0x1409FCECC (BcpDisplayEarlyBugCheckScreen.c)
  */
 
 __int64 __fastcall BgpFwDisplayBugCheckScreen(unsigned int a1, unsigned __int64 *a2, __int64 a3, _QWORD *a4, char a5)
@@ -47,9 +47,9 @@ __int64 __fastcall BgpFwDisplayBugCheckScreen(unsigned int a1, unsigned __int64 
   unsigned __int64 v34; // [rsp+40h] [rbp-10h] BYREF
   int v35; // [rsp+48h] [rbp-8h]
 
-  if ( (dword_140405AD0 & 4) != 0 )
+  if ( (dword_140406AD0 & 4) != 0 )
   {
-    if ( (dword_140405AD0 & 0x400000) == 0 )
+    if ( (dword_140406AD0 & 0x400000) == 0 )
     {
       v7 = BcpDisplayEarlyBugCheckScreen(a1, a2, a4);
       IoSaveBugCheckProgress(0x83u);
@@ -57,7 +57,7 @@ __int64 __fastcall BgpFwDisplayBugCheckScreen(unsigned int a1, unsigned __int64 
     }
     goto LABEL_43;
   }
-  if ( (dword_140405AD0 & 0x400000) != 0 || (dword_140405AD0 & 0x10) == 0 )
+  if ( (dword_140406AD0 & 0x400000) != 0 || (dword_140406AD0 & 0x10) == 0 )
   {
 LABEL_43:
     BgpClearScreen(0xFF000000);
@@ -67,7 +67,7 @@ LABEL_43:
   v34 = __PAIR64__(DWORD1(BgInternal), DWORD2(BgInternal));
   v35 = HIDWORD(BgInternal);
   DisplayType = (int)BcpGetDisplayType(&v34);
-  v10 = *(_QWORD *)(qword_14043FB70 + 24);
+  v10 = *(_QWORD *)(qword_140440C30 + 24);
   if ( a1 == 456 )
   {
     v11 = -16777216;
@@ -79,43 +79,43 @@ LABEL_43:
   }
   BgpClearScreen(v11);
   IoSaveBugCheckProgress(0x85u);
-  LODWORD(BcpCursor) = dword_140403A70[18 * DisplayType + 4];
-  v13 = &dword_140403A70[18 * DisplayType + 5];
+  LODWORD(BcpCursor) = dword_140404A70[18 * DisplayType + 4];
+  v13 = &dword_140404A70[18 * DisplayType + 5];
   v14 = *v13;
   HIDWORD(BcpCursor) = *v13;
   if ( v13 )
-    dword_140438740 = v14;
-  if ( (dword_140405AD0 & 0x20000) == 0 )
+    dword_140439800 = v14;
+  if ( (dword_140406AD0 & 0x20000) == 0 )
   {
-    v15 = (__int16 *)&unk_140353480;
+    v15 = (__int16 *)&unk_140354480;
     if ( a1 == 456 )
-      v15 = (__int16 *)&unk_140356368;
-    BcpDisplayCriticalString(v15, dword_140403A70[18 * DisplayType + 3], v12, DisplayType);
+      v15 = (__int16 *)&unk_140357368;
+    BcpDisplayCriticalString(v15, dword_140404A70[18 * DisplayType + 3], v12, DisplayType);
   }
-  v16 = dword_140403A70[18 * DisplayType + 8];
-  v17 = dword_140403A70[18 * DisplayType + 4];
-  v18 = dword_140403A70[18 * DisplayType + 9];
-  v19 = dword_140403A70[18 * DisplayType + 2];
+  v16 = dword_140404A70[18 * DisplayType + 8];
+  v17 = dword_140404A70[18 * DisplayType + 4];
+  v18 = dword_140404A70[18 * DisplayType + 9];
+  v19 = dword_140404A70[18 * DisplayType + 2];
   if ( a1 == 456 )
   {
     LODWORD(BcpCursor) = v17 + v16;
-    HIDWORD(BcpCursor) = v18 + dword_140438740;
-    v20 = &stru_14043FB40;
+    HIDWORD(BcpCursor) = v18 + dword_140439800;
+    v20 = &stru_140440C00;
   }
   else
   {
     LODWORD(BcpCursor) = v16 + v17;
-    HIDWORD(BcpCursor) = v18 + dword_140438740;
-    v20 = &stru_14043FB30;
-    if ( (dword_140405AD0 & 0x10000000) == 0 )
-      v20 = &stru_14043FA50;
+    HIDWORD(BcpCursor) = v18 + dword_140439800;
+    v20 = &stru_140440BF0;
+    if ( (dword_140406AD0 & 0x10000000) == 0 )
+      v20 = &stru_140440B10;
   }
   BcpDisplayCriticalString((__int16 *)v20, v19, v18, DisplayType);
-  BcpDisplayCriticalCharacter(v21, dword_140403A70[18 * DisplayType + 2]);
+  BcpDisplayCriticalCharacter(v21, dword_140404A70[18 * DisplayType + 2]);
   v23 = 1;
   if ( a1 == 456 )
   {
-    v24 = &stru_14043FB50;
+    v24 = &stru_140440C10;
   }
   else
   {
@@ -123,22 +123,22 @@ LABEL_43:
       goto LABEL_28;
     if ( (a5 & 2) != 0 )
     {
-      v25 = &stru_14043FA80;
-      v24 = &stru_14043FAA0;
+      v25 = &stru_140440B40;
+      v24 = &stru_140440B60;
     }
     else
     {
-      v24 = &stru_14043FA90;
-      v25 = &stru_14043FA70;
+      v24 = &stru_140440B50;
+      v25 = &stru_140440B30;
     }
     if ( (a5 & 4) == 0 )
       v24 = v25;
   }
-  BcpDisplayCriticalString((__int16 *)v24, dword_140403A70[18 * DisplayType + 2], v22, DisplayType);
+  BcpDisplayCriticalString((__int16 *)v24, dword_140404A70[18 * DisplayType + 2], v22, DisplayType);
 LABEL_28:
   v26 = 0;
-  if ( !qword_140405B58
-    || (BitsPerPixel = BgpGetBitsPerPixel(), *(_DWORD *)(v28 + 8) < BitsPerPixel) && (dword_140405AD0 & 0xC00) != 0 )
+  if ( !qword_140406B58
+    || (BitsPerPixel = BgpGetBitsPerPixel(), *(_DWORD *)(v28 + 8) < BitsPerPixel) && (dword_140406AD0 & 0xC00) != 0 )
   {
     v23 = 0;
   }
@@ -156,12 +156,12 @@ LABEL_28:
   if ( ComponentOffsets >= 0 )
   {
     BcpCursor = BcpErrorMessageOffset;
-    dword_140438740 = dword_140405A18;
+    dword_140439800 = dword_140406A38;
     if ( a1 != 456 )
     {
       BcpDisplayErrorInformation(DisplayType, a1, a2, a3, (__int64)a4, a5);
       if ( v23 )
-        BgpGxDrawRectangle(qword_140405B58, (__int64)&v33);
+        BgpGxDrawRectangle(qword_140406B58, (__int64)&v33);
     }
     IoSaveBugCheckProgress(0x86u);
     if ( (a5 & 4) != 0 )
@@ -175,15 +175,15 @@ LABEL_28:
     else
     {
       BcpCursor = BcpProgressOffset;
-      dword_140438740 = dword_1404059F8;
+      dword_140439800 = dword_1404069F8;
       BcpDisplayProgress(0, DisplayType, v30);
       PerformanceCounter = KeQueryPerformanceCounter(0LL);
       BcpLastProgressDisplayed = 0;
       BcpStartTicks = PerformanceCounter.QuadPart;
       BcpLastProgressUpdateTicks = PerformanceCounter.QuadPart;
     }
-    *a4 = &stru_14043FA50;
-    a4[1] = &stru_14043FA60;
+    *a4 = &stru_140440B10;
+    a4[1] = &stru_140440B20;
   }
   return (unsigned int)ComponentOffsets;
 }

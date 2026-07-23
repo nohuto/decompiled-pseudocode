@@ -1,16 +1,16 @@
 /*
- * XREFs of SeQuerySecurityAttributesTokenAccessInformation @ 0x14035F0F0
+ * XREFs of SeQuerySecurityAttributesTokenAccessInformation @ 0x14035F290
  * Callers:
  *     <none>
  * Callees:
- *     SepTokenFromAccessInformation @ 0x14022822C (SepTokenFromAccessInformation.c)
- *     SepInternalQuerySecurityAttributesTokenEx @ 0x14022C928 (SepInternalQuerySecurityAttributesTokenEx.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memset @ 0x140435A00 (memset.c)
+ *     SepTokenFromAccessInformation @ 0x14022833C (SepTokenFromAccessInformation.c)
+ *     SepInternalQuerySecurityAttributesTokenEx @ 0x14022CA38 (SepInternalQuerySecurityAttributesTokenEx.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     memset @ 0x140435E00 (memset.c)
  */
 
 __int64 __fastcall SeQuerySecurityAttributesTokenAccessInformation(
-        unsigned int **a1,
+        __int64 a1,
         __int64 a2,
         unsigned int a3,
         __int64 a4,

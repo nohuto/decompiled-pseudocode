@@ -1,10 +1,10 @@
 /*
- * XREFs of strncpy_s @ 0x18012DB60
+ * XREFs of strncpy_s @ 0x18012BD90
  * Callers:
- *     _splitpath_helper @ 0x1801222E0 (_splitpath_helper.c)
- *     _splitpath_s @ 0x18012CF80 (_splitpath_s.c)
+ *     _splitpath_helper @ 0x180120510 (_splitpath_helper.c)
+ *     _splitpath_s @ 0x18012B1B0 (_splitpath_s.c)
  * Callees:
- *     _invalid_parameter @ 0x180120778 (_invalid_parameter.c)
+ *     _invalid_parameter @ 0x18011E9A8 (_invalid_parameter.c)
  */
 
 errno_t __cdecl strncpy_s(char *Destination, rsize_t SizeInBytes, const char *Source, rsize_t MaxCount)

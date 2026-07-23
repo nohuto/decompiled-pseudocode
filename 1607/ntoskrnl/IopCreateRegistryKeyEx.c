@@ -1,13 +1,13 @@
 /*
- * XREFs of IopCreateRegistryKeyEx @ 0x1405391F8
+ * XREFs of IopCreateRegistryKeyEx @ 0x140539738
  * Callers:
- *     PipOpenServiceEnumKeys @ 0x140538DE4 (PipOpenServiceEnumKeys.c)
- *     PnpBuildCmResourceList @ 0x1405563CC (PnpBuildCmResourceList.c)
- *     IopWriteResourceList @ 0x1405576D0 (IopWriteResourceList.c)
- *     IoSetSystemPartition @ 0x140623A08 (IoSetSystemPartition.c)
- *     PipHardwareConfigTriggerRespecialize @ 0x14062996C (PipHardwareConfigTriggerRespecialize.c)
- *     PiDevCfgConfigureSoftwareDevices @ 0x140635E44 (PiDevCfgConfigureSoftwareDevices.c)
- *     NtDisableLastKnownGood @ 0x1406E562C (NtDisableLastKnownGood.c)
+ *     PipOpenServiceEnumKeys @ 0x140539324 (PipOpenServiceEnumKeys.c)
+ *     PnpBuildCmResourceList @ 0x14055690C (PnpBuildCmResourceList.c)
+ *     IopWriteResourceList @ 0x140557C10 (IopWriteResourceList.c)
+ *     IoSetSystemPartition @ 0x140623ABC (IoSetSystemPartition.c)
+ *     PipHardwareConfigTriggerRespecialize @ 0x140629A20 (PipHardwareConfigTriggerRespecialize.c)
+ *     PiDevCfgConfigureSoftwareDevices @ 0x140635EF8 (PiDevCfgConfigureSoftwareDevices.c)
+ *     NtDisableLastKnownGood @ 0x1406E5764 (NtDisableLastKnownGood.c)
  *     IopStoreSystemPartitionInformation @ 0x140798C34 (IopStoreSystemPartitionInformation.c)
  *     PipHardwareConfigInit @ 0x14079930C (PipHardwareConfigInit.c)
  *     PipInitComputerIds @ 0x140799740 (PipInitComputerIds.c)
@@ -16,8 +16,8 @@
  *     IopInitializeResourceMap @ 0x1407AB6F0 (IopInitializeResourceMap.c)
  *     PiInitFirmwareResources @ 0x1407BD10C (PiInitFirmwareResources.c)
  * Callees:
- *     ZwClose @ 0x140159E60 (ZwClose.c)
- *     ZwCreateKey @ 0x14015A020 (ZwCreateKey.c)
+ *     ZwClose @ 0x14015A3D0 (ZwClose.c)
+ *     ZwCreateKey @ 0x14015A590 (ZwCreateKey.c)
  */
 
 __int64 __fastcall IopCreateRegistryKeyEx(

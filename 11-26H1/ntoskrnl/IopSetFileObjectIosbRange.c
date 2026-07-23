@@ -1,25 +1,25 @@
 /*
- * XREFs of IopSetFileObjectIosbRange @ 0x140795690
+ * XREFs of IopSetFileObjectIosbRange @ 0x1407981C0
  * Callers:
- *     NtSetInformationFile @ 0x14026A2F0 (NtSetInformationFile.c)
+ *     NtSetInformationFile @ 0x140269860 (NtSetInformationFile.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     ExAcquireFastMutex @ 0x140278070 (ExAcquireFastMutex.c)
- *     ObfReferenceObjectWithTag @ 0x140278B30 (ObfReferenceObjectWithTag.c)
- *     KeReleaseGuardedMutex @ 0x140278D40 (KeReleaseGuardedMutex.c)
- *     MmUnmapLockedPages @ 0x140281690 (MmUnmapLockedPages.c)
- *     MmMapLockedPagesSpecifyCache @ 0x14035D330 (MmMapLockedPagesSpecifyCache.c)
- *     IoFreeMdl @ 0x14039F190 (IoFreeMdl.c)
- *     MmProbeAndLockPagesEx @ 0x14039FAC0 (MmProbeAndLockPagesEx.c)
- *     RtlInsertElementGenericTableAvl @ 0x1403B88C0 (RtlInsertElementGenericTableAvl.c)
- *     RtlDeleteElementGenericTableAvl @ 0x1403B8A60 (RtlDeleteElementGenericTableAvl.c)
- *     IoAllocateMdl @ 0x14040BA40 (IoAllocateMdl.c)
- *     MmUnlockPages @ 0x140410C10 (MmUnlockPages.c)
- *     IopAllocateFileObjectExtension @ 0x140449920 (IopAllocateFileObjectExtension.c)
- *     IopSetTypeSpecificFoExtension @ 0x14047FA30 (IopSetTypeSpecificFoExtension.c)
- *     ProbeForRead @ 0x1408EF880 (ProbeForRead.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     IopAllocateFileObjectExtension @ 0x14021B6F0 (IopAllocateFileObjectExtension.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     ExAcquireFastMutex @ 0x1402775E0 (ExAcquireFastMutex.c)
+ *     ObfReferenceObjectWithTag @ 0x1402780A0 (ObfReferenceObjectWithTag.c)
+ *     KeReleaseGuardedMutex @ 0x1402782B0 (KeReleaseGuardedMutex.c)
+ *     MmUnmapLockedPages @ 0x140280C00 (MmUnmapLockedPages.c)
+ *     MmMapLockedPagesSpecifyCache @ 0x14035F0D0 (MmMapLockedPagesSpecifyCache.c)
+ *     IoFreeMdl @ 0x1403A0EF0 (IoFreeMdl.c)
+ *     MmProbeAndLockPagesEx @ 0x1403A1820 (MmProbeAndLockPagesEx.c)
+ *     RtlInsertElementGenericTableAvl @ 0x1403C27C0 (RtlInsertElementGenericTableAvl.c)
+ *     RtlDeleteElementGenericTableAvl @ 0x1403C2960 (RtlDeleteElementGenericTableAvl.c)
+ *     IoAllocateMdl @ 0x1404046D0 (IoAllocateMdl.c)
+ *     MmUnlockPages @ 0x140410330 (MmUnlockPages.c)
+ *     IopSetTypeSpecificFoExtension @ 0x1404793A0 (IopSetTypeSpecificFoExtension.c)
+ *     ProbeForRead @ 0x1408F5E40 (ProbeForRead.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall IopSetFileObjectIosbRange(__int64 a1, __int64 a2)
@@ -76,9 +76,13 @@ __int64 __fastcall IopSetFileObjectIosbRange(__int64 a1, __int64 a2)
     return 3221225485LL;
   v8 = *v5;
   v31 = v8;
-  ExAcquireFastMutex(&IoStatusBlockRangeTableLock);
+  ExAcquireFastMutex((PKGUARDED_MUTEX)&IopPerfIoTrackingLock.Spare35[1]);
   Buffer[0] = Object;
-  inserted = (_KPROCESS **)RtlInsertElementGenericTableAvl(&IoStatusBlockRangeTable, Buffer, 0x10u, &NewElement);
+  inserted = (_KPROCESS **)RtlInsertElementGenericTableAvl(
+                             (PRTL_AVL_TABLE)IopPerfIoTrackingLock.TracingPrivate,
+                             Buffer,
+                             0x10u,
+                             &NewElement);
   v33 = inserted;
   v29 = inserted;
   if ( !inserted )
@@ -100,7 +104,7 @@ LABEL_56:
       ExFreePoolWithTag(v3, 0);
     }
     if ( v11 == 1 )
-      RtlDeleteElementGenericTableAvl(&IoStatusBlockRangeTable, Buffer);
+      RtlDeleteElementGenericTableAvl((PRTL_AVL_TABLE)IopPerfIoTrackingLock.TracingPrivate, Buffer);
     if ( v24 == 1 )
       ExFreePoolWithTag(i, 0);
     goto LABEL_66;
@@ -243,6 +247,6 @@ LABEL_54:
   if ( v10 < 0 )
     goto LABEL_55;
 LABEL_66:
-  KeReleaseGuardedMutex(&IoStatusBlockRangeTableLock);
+  KeReleaseGuardedMutex((PKGUARDED_MUTEX)&IopPerfIoTrackingLock.Spare35[1]);
   return (unsigned int)v10;
 }

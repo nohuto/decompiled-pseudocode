@@ -1,12 +1,12 @@
 /*
- * XREFs of PfSnActiveTraceGetNext @ 0x1400ED130
+ * XREFs of PfSnActiveTraceGetNext @ 0x1400EAFA0
  * Callers:
- *     PfSnNameRemoveAll @ 0x1405117D4 (PfSnNameRemoveAll.c)
+ *     PfSnNameRemoveAll @ 0x1404F4BC4 (PfSnNameRemoveAll.c)
  * Callees:
- *     KxAcquireSpinLock @ 0x140092A60 (KxAcquireSpinLock.c)
- *     KxReleaseSpinLock @ 0x140095BA0 (KxReleaseSpinLock.c)
- *     ExAcquireRundownProtection @ 0x1400D3ED0 (ExAcquireRundownProtection.c)
- *     ExReleaseRundownProtection @ 0x1400D3F00 (ExReleaseRundownProtection.c)
+ *     KxAcquireSpinLock @ 0x140092260 (KxAcquireSpinLock.c)
+ *     KxReleaseSpinLock @ 0x1400953A0 (KxReleaseSpinLock.c)
+ *     ExAcquireRundownProtection @ 0x1400D1D70 (ExAcquireRundownProtection.c)
+ *     ExReleaseRundownProtection @ 0x1400D1DA0 (ExReleaseRundownProtection.c)
  */
 
 __int64 *__fastcall PfSnActiveTraceGetNext(struct _EX_RUNDOWN_REF *a1)
@@ -17,7 +17,7 @@ __int64 *__fastcall PfSnActiveTraceGetNext(struct _EX_RUNDOWN_REF *a1)
 
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
-  KxAcquireSpinLock(&qword_1403286D0);
+  KxAcquireSpinLock(&qword_140328710);
   v3 = (__int64 *)&a1[1];
   if ( !a1 )
     v3 = &PfSnGlobals;
@@ -32,7 +32,7 @@ __int64 *__fastcall PfSnActiveTraceGetNext(struct _EX_RUNDOWN_REF *a1)
   }
   v4 = 0LL;
 LABEL_5:
-  KxReleaseSpinLock(&qword_1403286D0);
+  KxReleaseSpinLock(&qword_140328710);
   __writecr8(CurrentIrql);
   if ( a1 )
     ExReleaseRundownProtection(a1 + 45);

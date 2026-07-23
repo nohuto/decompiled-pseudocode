@@ -1,22 +1,21 @@
 /*
- * XREFs of ?KiAcquireSharedReadyQueueLocksForRescheduleContext@@YAXPEAU_KI_RESCHEDULE_CONTEXT@@@Z @ 0x140418740
+ * XREFs of ?KiAcquireSharedReadyQueueLocksForRescheduleContext@@YAXPEAU_KI_RESCHEDULE_CONTEXT@@@Z @ 0x1402FBA60
  * Callers:
- *     KiSearchForNewThreadsForRescheduleContext @ 0x14022CBE0 (KiSearchForNewThreadsForRescheduleContext.c)
+ *     KiSearchForNewThreadsForRescheduleContext @ 0x14022E570 (KiSearchForNewThreadsForRescheduleContext.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     KxWaitForLockOwnerShip @ 0x1402B29C0 (KxWaitForLockOwnerShip.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     KxWaitForLockOwnerShip @ 0x1402FD690 (KxWaitForLockOwnerShip.c)
  */
 
 void __fastcall KiAcquireSharedReadyQueueLocksForRescheduleContext(struct _KI_RESCHEDULE_CONTEXT *a1)
 {
-  unsigned __int64 v1; // r8
+  volatile __int64 *v1; // r8
   int v3; // esi
   __int64 ProcessorCount; // rdx
   volatile __int64 *v5; // rbx
   _KSHARED_READY_QUEUE **p_SharedReadyQueue; // rax
   _KI_SHARED_READY_QUEUE_LOCK_HANDLE *v7; // rcx
-  __int64 v8; // rdx
-  int v9; // [rsp+30h] [rbp+8h] BYREF
+  int v8; // [rsp+30h] [rbp+8h] BYREF
 
   v1 = 0LL;
   v3 = 0;
@@ -29,7 +28,7 @@ void __fastcall KiAcquireSharedReadyQueueLocksForRescheduleContext(struct _KI_RE
     p_SharedReadyQueue = &a1->ProcessorEntries[0].SharedReadyQueue;
     do
     {
-      if ( (unsigned __int64)*p_SharedReadyQueue > v1 && (!v5 || *p_SharedReadyQueue < (_KSHARED_READY_QUEUE *)v5) )
+      if ( *p_SharedReadyQueue > (_KSHARED_READY_QUEUE *)v1 && (!v5 || *p_SharedReadyQueue < (_KSHARED_READY_QUEUE *)v5) )
         v5 = (volatile __int64 *)*p_SharedReadyQueue;
       p_SharedReadyQueue += 5;
       --ProcessorCount;
@@ -42,25 +41,24 @@ void __fastcall KiAcquireSharedReadyQueueLocksForRescheduleContext(struct _KI_RE
     {
       v7->Queue.Lock = (unsigned __int64 *volatile)v5;
       v7->Queue.Next = 0LL;
-      v8 = _InterlockedExchange64(v5, (__int64)v7);
-      if ( !v8 )
+      if ( !_InterlockedExchange64(v5, (__int64)v7) )
         goto LABEL_13;
-      KxWaitForLockOwnerShip((volatile signed __int64)v7, v8, v1);
+      KxWaitForLockOwnerShip(v7);
       ++v3;
-      v1 = (unsigned __int64)v5;
+      v1 = v5;
     }
     else
     {
-      v9 = 0;
+      v8 = 0;
       while ( _interlockedbittestandset64((volatile signed __int32 *)v5, 0LL) )
       {
         do
-          KeYieldProcessorEx(&v9);
+          KeYieldProcessorEx(&v8);
         while ( *v5 );
       }
 LABEL_13:
       ++v3;
-      v1 = (unsigned __int64)v5;
+      v1 = v5;
     }
   }
 }

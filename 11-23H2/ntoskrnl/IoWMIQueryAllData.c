@@ -1,11 +1,11 @@
 /*
- * XREFs of IoWMIQueryAllData @ 0x14085D720
+ * XREFs of IoWMIQueryAllData @ 0x14085D960
  * Callers:
  *     <none>
  * Callees:
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memset @ 0x140435A00 (memset.c)
- *     WmipQueryAllData @ 0x1406C7A7C (WmipQueryAllData.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     WmipQueryAllData @ 0x1406C7AAC (WmipQueryAllData.c)
  */
 
 NTSTATUS __stdcall IoWMIQueryAllData(PVOID DataBlockObject, PULONG InOutBufferSize, PVOID OutBuffer)

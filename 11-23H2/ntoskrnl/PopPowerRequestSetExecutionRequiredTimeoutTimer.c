@@ -1,10 +1,10 @@
 /*
- * XREFs of PopPowerRequestSetExecutionRequiredTimeoutTimer @ 0x14085537C
+ * XREFs of PopPowerRequestSetExecutionRequiredTimeoutTimer @ 0x14085567C
  * Callers:
- *     PopUpdatePdcSystemIdleState @ 0x1407A6FFC (PopUpdatePdcSystemIdleState.c)
- *     PopPowerRequestExecutionRequiredSettingCallback @ 0x1408552E0 (PopPowerRequestExecutionRequiredSettingCallback.c)
+ *     PopUpdatePdcSystemIdleState @ 0x1407A71EC (PopUpdatePdcSystemIdleState.c)
+ *     PopPowerRequestExecutionRequiredSettingCallback @ 0x1408555E0 (PopPowerRequestExecutionRequiredSettingCallback.c)
  * Callees:
- *     KeSetTimer2 @ 0x140250150 (KeSetTimer2.c)
+ *     KeSetTimer2 @ 0x140250220 (KeSetTimer2.c)
  */
 
 _BOOL8 PopPowerRequestSetExecutionRequiredTimeoutTimer()
@@ -14,11 +14,11 @@ _BOOL8 PopPowerRequestSetExecutionRequiredTimeoutTimer()
   _BOOL8 result; // rax
   _QWORD v3[3]; // [rsp+20h] [rbp-18h] BYREF
 
-  if ( byte_140C3F4E3 && PopExecutionRequiredTimeout )
+  if ( byte_140C3F363 && PopExecutionRequiredTimeout )
   {
     v0 = 10000000LL * (unsigned int)PopExecutionRequiredTimeout;
-    if ( MEMORY[0xFFFFF78000000008] - qword_140C3F4E8 < v0 )
-      v1 = MEMORY[0xFFFFF78000000008] - qword_140C3F4E8 - v0;
+    if ( MEMORY[0xFFFFF78000000008] - qword_140C3F368 < v0 )
+      v1 = MEMORY[0xFFFFF78000000008] - qword_140C3F368 - v0;
     else
       v1 = -10000000LL;
     v3[1] = -1LL;

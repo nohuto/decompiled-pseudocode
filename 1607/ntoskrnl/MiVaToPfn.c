@@ -1,23 +1,23 @@
 /*
- * XREFs of MiVaToPfn @ 0x140083A00
+ * XREFs of MiVaToPfn @ 0x140081B60
  * Callers:
  *     MiDuplicateCloneLeaf @ 0x14000155C (MiDuplicateCloneLeaf.c)
- *     MiRestoreTransitionPte @ 0x14001D1F0 (MiRestoreTransitionPte.c)
- *     MiGetPhysicalAddress @ 0x140025030 (MiGetPhysicalAddress.c)
- *     MiProbeLeafFrame @ 0x14002FDC0 (MiProbeLeafFrame.c)
- *     MmInSwapProcess @ 0x140091564 (MmInSwapProcess.c)
- *     MiGetWorkingSetInfoList @ 0x1400B79E0 (MiGetWorkingSetInfoList.c)
- *     MiTranslatePageForCopy @ 0x1401E4C54 (MiTranslatePageForCopy.c)
- *     MiLargePageFault @ 0x1401EF82C (MiLargePageFault.c)
- *     MiSwapNumaStandbyPage @ 0x1401F3ACC (MiSwapNumaStandbyPage.c)
- *     MiFreeInitializationCode @ 0x14047D5E8 (MiFreeInitializationCode.c)
- *     MiScrubNonPagedPool @ 0x140659E60 (MiScrubNonPagedPool.c)
- *     MiInitializeShadowPageTable @ 0x14065B988 (MiInitializeShadowPageTable.c)
+ *     MiRestoreTransitionPte @ 0x14001CD70 (MiRestoreTransitionPte.c)
+ *     MiGetPhysicalAddress @ 0x140024BB0 (MiGetPhysicalAddress.c)
+ *     MiProbeLeafFrame @ 0x14002F940 (MiProbeLeafFrame.c)
+ *     MmInSwapProcess @ 0x140090CC4 (MmInSwapProcess.c)
+ *     MiGetWorkingSetInfoList @ 0x1400B5870 (MiGetWorkingSetInfoList.c)
+ *     MiTranslatePageForCopy @ 0x1401E4A80 (MiTranslatePageForCopy.c)
+ *     MiLargePageFault @ 0x1401EF658 (MiLargePageFault.c)
+ *     MiSwapNumaStandbyPage @ 0x1401F38F8 (MiSwapNumaStandbyPage.c)
+ *     MiFreeInitializationCode @ 0x14047C33C (MiFreeInitializationCode.c)
+ *     MiScrubNonPagedPool @ 0x140659F44 (MiScrubNonPagedPool.c)
+ *     MiInitializeShadowPageTable @ 0x14065BA6C (MiInitializeShadowPageTable.c)
  *     MiCheckLargePageOk @ 0x1407B5CD4 (MiCheckLargePageOk.c)
  *     MxConsumeLargePageSlush @ 0x1407D0D5C (MxConsumeLargePageSlush.c)
  * Callees:
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1401F25D0 (MI_READ_PTE_LOCK_FREE.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1401F23FC (MI_READ_PTE_LOCK_FREE.c)
  */
 
 unsigned __int64 __fastcall MiVaToPfn(unsigned __int64 a1)

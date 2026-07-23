@@ -1,10 +1,10 @@
 /*
  * XREFs of RtlUnicodeStringCopyString @ 0x1800CFF08
  * Callers:
- *     RtlGetFullPathName_Ustr @ 0x18001D830 (RtlGetFullPathName_Ustr.c)
+ *     RtlGetFullPathName_Ustr @ 0x18001D820 (RtlGetFullPathName_Ustr.c)
  * Callees:
- *     RtlWideCharArrayCopyStringWorker @ 0x18006C8C8 (RtlWideCharArrayCopyStringWorker.c)
- *     RtlUnicodeStringValidateDestWorker @ 0x18006CAE4 (RtlUnicodeStringValidateDestWorker.c)
+ *     RtlWideCharArrayCopyStringWorker @ 0x18006C8B8 (RtlWideCharArrayCopyStringWorker.c)
+ *     RtlUnicodeStringValidateDestWorker @ 0x18006CAD4 (RtlUnicodeStringValidateDestWorker.c)
  */
 
 __int64 __fastcall RtlUnicodeStringCopyString(_WORD *a1, _WORD *a2)

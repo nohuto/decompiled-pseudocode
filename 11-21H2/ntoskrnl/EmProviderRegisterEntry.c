@@ -4,10 +4,10 @@
  *     <none>
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x1402AC910 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x1402AFC00 (KeAbPostRelease.c)
+ *     sub_1402AFC00 @ 0x1402AFC00 (sub_1402AFC00.c)
  *     ExfTryToWakePushLock @ 0x140359F40 (ExfTryToWakePushLock.c)
- *     EmpQueueRuleUpdateState @ 0x1403C45F0 (EmpQueueRuleUpdateState.c)
- *     EmpSearchEntryDatabase @ 0x1403C4824 (EmpSearchEntryDatabase.c)
+ *     sub_1403C45F0 @ 0x1403C45F0 (sub_1403C45F0.c)
+ *     sub_1403C4824 @ 0x1403C4824 (sub_1403C4824.c)
  *     memmove @ 0x140435B40 (memmove.c)
  *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
@@ -34,10 +34,10 @@ __int64 __fastcall EmProviderRegisterEntry(__int64 a1, _QWORD *a2, __int64 a3, _
 
   v8 = 0LL;
   v9 = 0;
-  ExAcquirePushLockExclusiveEx((ULONG_PTR)&EmpDatabaseLock, 0LL);
+  ExAcquirePushLockExclusiveEx((ULONG_PTR)&qword_140C48C70, 0LL);
   if ( !a2 || !a1 || !a3 || !a4 || !*(_QWORD *)a3 || !*(_DWORD *)(a3 + 8) )
     goto LABEL_14;
-  v10 = EmpSearchEntryDatabase(a2);
+  v10 = sub_1403C4824(a2);
   if ( !v10 )
   {
     v9 = -1073741275;
@@ -90,7 +90,7 @@ __int64 __fastcall EmProviderRegisterEntry(__int64 a1, _QWORD *a2, __int64 a3, _
       v10[4] = v23;
       while ( v24 )
       {
-        EmpQueueRuleUpdateState(*(v24 - 1), (__int64)v10);
+        sub_1403C45F0(*(v24 - 1), (__int64)v10);
         v24 = (_QWORD *)*v24;
       }
       *a4 = v8;
@@ -106,9 +106,9 @@ LABEL_14:
     v9 = -1073741811;
   }
 LABEL_15:
-  if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&EmpDatabaseLock, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-    ExfTryToWakePushLock(&EmpDatabaseLock);
-  KeAbPostRelease((ULONG_PTR)&EmpDatabaseLock);
+  if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_140C48C70, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+    ExfTryToWakePushLock(&qword_140C48C70);
+  sub_1402AFC00((ULONG_PTR)&qword_140C48C70);
   if ( v9 < 0 && v8 )
   {
     v15 = (void *)v8[1];

@@ -1,8 +1,8 @@
 /*
- * XREFs of HdlspUTF8Encode @ 0x140319B60
+ * XREFs of HdlspUTF8Encode @ 0x140319D50
  * Callers:
- *     HdlspPutString @ 0x14094CF98 (HdlspPutString.c)
- *     HdlspPutWideString @ 0x14094D0C0 (HdlspPutWideString.c)
+ *     HdlspPutString @ 0x14094DF98 (HdlspPutString.c)
+ *     HdlspPutWideString @ 0x14094E0C0 (HdlspPutWideString.c)
  * Callees:
  *     <none>
  */

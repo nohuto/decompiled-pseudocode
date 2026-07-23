@@ -1,13 +1,13 @@
 /*
- * XREFs of ?KiAbPreWakeupThread@LegacyAutoBoost@@YAXPEAU_KTHREAD@@PEAXJK@Z @ 0x140457E30
+ * XREFs of ?KiAbPreWakeupThread@LegacyAutoBoost@@YAXPEAU_KTHREAD@@PEAXJK@Z @ 0x14044F6A0
  * Callers:
- *     KeAbPreWakeupThread @ 0x14026A2B4 (KeAbPreWakeupThread.c)
- *     KiAlertSingleThreadByThreadId @ 0x140381040 (KiAlertSingleThreadByThreadId.c)
- *     KeAlertThreadByThreadIdEx @ 0x140381260 (KeAlertThreadByThreadIdEx.c)
+ *     KeAbPreWakeupThread @ 0x140269824 (KeAbPreWakeupThread.c)
+ *     KiAlertSingleThreadByThreadId @ 0x140382DF0 (KiAlertSingleThreadByThreadId.c)
+ *     KeAlertThreadByThreadIdEx @ 0x140383010 (KeAlertThreadByThreadIdEx.c)
  * Callees:
- *     ?KiAbConvertWaiterToOwnerEntry@LegacyAutoBoost@@YAXPEAU_KTHREAD@@PEAU_KLOCK_ENTRY@@K@Z @ 0x140272FF0 (-KiAbConvertWaiterToOwnerEntry@LegacyAutoBoost@@YAXPEAU_KTHREAD@@PEAU_KLOCK_ENTRY@@K@Z.c)
- *     ?KiAbLockEntriesFindLock@LegacyAutoBoost@@YAPEAU_KLOCK_ENTRY@@PEAXPEAU_KLOCK_ENTRIES@@@Z @ 0x140457E90 (-KiAbLockEntriesFindLock@LegacyAutoBoost@@YAPEAU_KLOCK_ENTRY@@PEAXPEAU_KLOCK_ENTRIES@@@Z.c)
- *     KeAbIsValidUserModeLockAddress @ 0x140457F30 (KeAbIsValidUserModeLockAddress.c)
+ *     ?KiAbConvertWaiterToOwnerEntry@LegacyAutoBoost@@YAXPEAU_KTHREAD@@PEAU_KLOCK_ENTRY@@K@Z @ 0x140272560 (-KiAbConvertWaiterToOwnerEntry@LegacyAutoBoost@@YAXPEAU_KTHREAD@@PEAU_KLOCK_ENTRY@@K@Z.c)
+ *     ?KiAbLockEntriesFindLock@LegacyAutoBoost@@YAPEAU_KLOCK_ENTRY@@PEAXPEAU_KLOCK_ENTRIES@@@Z @ 0x14044F700 (-KiAbLockEntriesFindLock@LegacyAutoBoost@@YAPEAU_KLOCK_ENTRY@@PEAXPEAU_KLOCK_ENTRIES@@@Z.c)
+ *     KeAbIsValidUserModeLockAddress @ 0x14044F7A0 (KeAbIsValidUserModeLockAddress.c)
  */
 
 void __fastcall LegacyAutoBoost::KiAbPreWakeupThread(

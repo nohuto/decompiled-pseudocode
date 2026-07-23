@@ -1,8 +1,8 @@
 /*
- * XREFs of PipUpdatePostStartCharacteristics @ 0x140160398
+ * XREFs of PipUpdatePostStartCharacteristics @ 0x140160498
  * Callers:
- *     PnpDeviceCompletionProcessCompletedRequest @ 0x1406E7E24 (PnpDeviceCompletionProcessCompletedRequest.c)
- *     PnpStartDeviceNode @ 0x1406EBA5C (PnpStartDeviceNode.c)
+ *     PnpDeviceCompletionProcessCompletedRequest @ 0x1406E90C4 (PnpDeviceCompletionProcessCompletedRequest.c)
+ *     PnpStartDeviceNode @ 0x1406ECCFC (PnpStartDeviceNode.c)
  * Callees:
  *     <none>
  */

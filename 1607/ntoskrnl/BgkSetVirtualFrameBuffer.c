@@ -1,10 +1,10 @@
 /*
- * XREFs of BgkSetVirtualFrameBuffer @ 0x14014BA34
+ * XREFs of BgkSetVirtualFrameBuffer @ 0x14014BFA4
  * Callers:
  *     <none>
  * Callees:
- *     memmove @ 0x140171280 (memmove.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     memmove @ 0x140171780 (memmove.c)
+ *     memset @ 0x140171AC0 (memset.c)
  *     BgGetDisplayContext @ 0x140725000 (BgGetDisplayContext.c)
  *     BgSetFrameBufferAccessCounter @ 0x140725008 (BgSetFrameBufferAccessCounter.c)
  *     BgReleaseSpinLock @ 0x140728BAC (BgReleaseSpinLock.c)
@@ -30,9 +30,9 @@ __int64 __fastcall BgkSetVirtualFrameBuffer(__int64 a1, __int64 (__fastcall *a2)
 
   if ( a2 )
   {
-    qword_140328DD8 = a2;
+    qword_140328E18 = a2;
   }
-  else if ( !qword_140328DD8 )
+  else if ( !qword_140328E18 )
   {
     return 3221225712LL;
   }
@@ -103,7 +103,7 @@ LABEL_26:
   *(_QWORD *)(DisplayContext + 32) = *(_QWORD *)a1;
   *(_OWORD *)(DisplayContext + 4) = *(_OWORD *)(a1 + 24);
   BgSetFrameBufferAccessCounter(*(_QWORD *)(a1 + 16));
-  byte_140328CD1 = 1;
+  byte_140328D11 = 1;
   BgReleaseSpinLock();
   return 0LL;
 }

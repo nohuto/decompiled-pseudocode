@@ -1,12 +1,12 @@
 /*
- * XREFs of IoWMIDeviceObjectToProviderId @ 0x140496270
+ * XREFs of IoWMIDeviceObjectToProviderId @ 0x14048FDC0
  * Callers:
- *     PpmAllocWmiEvent @ 0x14060C82C (PpmAllocWmiEvent.c)
- *     WmipSetTraceNotify @ 0x140B49CFC (WmipSetTraceNotify.c)
+ *     PpmAllocWmiEvent @ 0x14060F98C (PpmAllocWmiEvent.c)
+ *     WmipSetTraceNotify @ 0x140B4BA8C (WmipSetTraceNotify.c)
  * Callees:
- *     KeReleaseSpinLock @ 0x1402BE860 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14032F300 (KeAcquireSpinLockRaiseToDpc.c)
- *     WmipDoFindRegEntryByDevice @ 0x1404962B8 (WmipDoFindRegEntryByDevice.c)
+ *     KeReleaseSpinLock @ 0x140309520 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140331330 (KeAcquireSpinLockRaiseToDpc.c)
+ *     WmipDoFindRegEntryByDevice @ 0x14048FE08 (WmipDoFindRegEntryByDevice.c)
  */
 
 ULONG __stdcall IoWMIDeviceObjectToProviderId(PDEVICE_OBJECT DeviceObject)

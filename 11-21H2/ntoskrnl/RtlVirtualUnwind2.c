@@ -1,10 +1,10 @@
 /*
  * XREFs of RtlVirtualUnwind2 @ 0x140296070
  * Callers:
- *     RtlDispatchException @ 0x140295210 (RtlDispatchException.c)
- *     PspGetSetContextInternal @ 0x1407035C0 (PspGetSetContextInternal.c)
+ *     sub_140295210 @ 0x140295210 (sub_140295210.c)
+ *     sub_1407035C0 @ 0x1407035C0 (sub_1407035C0.c)
  * Callees:
- *     RtlpxVirtualUnwind @ 0x140296FC0 (RtlpxVirtualUnwind.c)
+ *     sub_140296FC0 @ 0x140296FC0 (sub_140296FC0.c)
  */
 
 __int64 __fastcall RtlVirtualUnwind2(
@@ -29,5 +29,5 @@ __int64 __fastcall RtlVirtualUnwind2(
   v14[2] = a9;
   v14[0] = a10;
   v14[1] = a11;
-  return RtlpxVirtualUnwind(a1, a2, a3, a4, a5, a6, a7, a8, a12, (__int64)v14);
+  return sub_140296FC0(a1, a2, a3, a4, a5, a6, a7, a8, a12, (__int64)v14);
 }

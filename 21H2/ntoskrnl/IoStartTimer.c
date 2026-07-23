@@ -1,9 +1,9 @@
 /*
- * XREFs of IoStartTimer @ 0x1405065E0
+ * XREFs of IoStartTimer @ 0x140506560
  * Callers:
  *     <none>
  * Callees:
- *     IopEnableTimer @ 0x140500950 (IopEnableTimer.c)
+ *     IopEnableTimer @ 0x1405008D0 (IopEnableTimer.c)
  */
 
 void __stdcall IoStartTimer(PDEVICE_OBJECT DeviceObject)

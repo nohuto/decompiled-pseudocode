@@ -1,10 +1,10 @@
 /*
- * XREFs of CcRescheduleLazyWriteScan @ 0x14006E8D8
+ * XREFs of CcRescheduleLazyWriteScan @ 0x14006E458
  * Callers:
- *     CcLazyWriteScan @ 0x140070CA0 (CcLazyWriteScan.c)
- *     CcCoalescingCallBack @ 0x1401B1598 (CcCoalescingCallBack.c)
+ *     CcLazyWriteScan @ 0x140070820 (CcLazyWriteScan.c)
+ *     CcCoalescingCallBack @ 0x1401B147C (CcCoalescingCallBack.c)
  * Callees:
- *     KeSetCoalescableTimer @ 0x1400EFC00 (KeSetCoalescableTimer.c)
+ *     KeSetCoalescableTimer @ 0x1400EDA80 (KeSetCoalescableTimer.c)
  */
 
 BOOLEAN __fastcall CcRescheduleLazyWriteScan(__int64 *a1)
@@ -16,7 +16,7 @@ BOOLEAN __fastcall CcRescheduleLazyWriteScan(__int64 *a1)
 
   if ( !CcCoalescingState )
   {
-    if ( byte_1403231C0 )
+    if ( byte_1403231E0 )
     {
       if ( a1 && (v1 = *a1, v1 != 0x7FFFFFFFFFFFFFFFLL) && v1 )
       {

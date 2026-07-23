@@ -1,19 +1,19 @@
 /*
- * XREFs of ExInitializeLeapSecondData @ 0x1408356F4
+ * XREFs of ExInitializeLeapSecondData @ 0x14083B934
  * Callers:
- *     Phase1InitializationDiscard @ 0x140CABD00 (Phase1InitializationDiscard.c)
+ *     Phase1InitializationDiscard @ 0x140CB1D40 (Phase1InitializationDiscard.c)
  * Callees:
- *     MmMapLockedPagesSpecifyCache @ 0x14035D330 (MmMapLockedPagesSpecifyCache.c)
- *     MmProbeAndLockPagesEx @ 0x14039FAC0 (MmProbeAndLockPagesEx.c)
- *     MmSizeOfMdl @ 0x140488370 (MmSizeOfMdl.c)
- *     MiRemoveFromSystemSpace @ 0x14048FFF8 (MiRemoveFromSystemSpace.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     ZwCreateSection @ 0x140723D30 (ZwCreateSection.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     ExpReadLeapSecondData @ 0x140835F5C (ExpReadLeapSecondData.c)
- *     ObReferenceObjectByHandle @ 0x1408F9550 (ObReferenceObjectByHandle.c)
- *     MmMapViewInSessionSpace @ 0x1409B7230 (MmMapViewInSessionSpace.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
+ *     MmMapLockedPagesSpecifyCache @ 0x14035F0D0 (MmMapLockedPagesSpecifyCache.c)
+ *     MmProbeAndLockPagesEx @ 0x1403A1820 (MmProbeAndLockPagesEx.c)
+ *     MmSizeOfMdl @ 0x140481EB0 (MmSizeOfMdl.c)
+ *     MiRemoveFromSystemSpace @ 0x140489AA8 (MiRemoveFromSystemSpace.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     ZwCreateSection @ 0x140728900 (ZwCreateSection.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     ExpReadLeapSecondData @ 0x14083C19C (ExpReadLeapSecondData.c)
+ *     ObReferenceObjectByHandle @ 0x1409294E0 (ObReferenceObjectByHandle.c)
+ *     MmMapViewInSessionSpace @ 0x140988210 (MmMapViewInSessionSpace.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
  */
 
 __int64 ExInitializeLeapSecondData()
@@ -25,7 +25,7 @@ __int64 ExInitializeLeapSecondData()
   struct _MDL *v4; // rdi
   __int16 v5; // dx
   __int16 v6; // cx
-  _KPROCESS *v7; // rdi
+  _KWAIT_BLOCK *v7; // rdi
   LARGE_INTEGER MaximumSize; // [rsp+40h] [rbp-10h] BYREF
   PVOID MappedBase; // [rsp+90h] [rbp+40h] BYREF
   HANDLE SectionHandle; // [rsp+98h] [rbp+48h] BYREF
@@ -68,16 +68,16 @@ LABEL_5:
         v0 = MmProbeAndLockPagesEx(Pool2, 2uLL);
         if ( v0 >= 0 )
         {
-          v7 = (_KPROCESS *)MmMapLockedPagesSpecifyCache(v4, 0, MmCached, 0LL, 0, 0x40000010u);
+          v7 = (_KWAIT_BLOCK *)MmMapLockedPagesSpecifyCache(v4, 0, MmCached, 0LL, 0, 0x40000010u);
           if ( !v7 )
             goto LABEL_5;
           MiRemoveFromSystemSpace((ULONG_PTR)MappedBase);
-          PspSiloMonitorLock.AbWaitObject = 0LL;
+          *(_QWORD *)&PspSiloMonitorLock.ReservedPreviousReadyTimeValue = 0LL;
           PspSiloMonitorLock.SchedulerAssistLastYieldBoostTime = (__int64)v1;
           v0 = 0;
           memset_0(v7, 0, v2);
           ExpReadLeapSecondData(v7, 0LL);
-          ExpSysDbgLock.ApcState.Process = v7;
+          ExpSysDbgLock.WaitBlockList = v7;
         }
       }
     }

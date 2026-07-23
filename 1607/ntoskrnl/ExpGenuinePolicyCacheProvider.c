@@ -1,20 +1,20 @@
 /*
- * XREFs of ExpGenuinePolicyCacheProvider @ 0x140497450
+ * XREFs of ExpGenuinePolicyCacheProvider @ 0x140497EE0
  * Callers:
  *     <none>
  * Callees:
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     ExpLicUpdateChecksum @ 0x14008606C (ExpLicUpdateChecksum.c)
- *     KeQueryTimeIncrement @ 0x140086090 (KeQueryTimeIncrement.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1400C8070 (ExfAcquirePushLockExclusiveEx.c)
- *     ExfAcquirePushLockSharedEx @ 0x1400C8280 (ExfAcquirePushLockSharedEx.c)
- *     ExfReleasePushLockShared @ 0x1400C8640 (ExfReleasePushLockShared.c)
- *     ExfTryToWakePushLock @ 0x1400C8738 (ExfTryToWakePushLock.c)
- *     KiQueryUnbiasedInterruptTime @ 0x1400F02D4 (KiQueryUnbiasedInterruptTime.c)
- *     ExpSetKernelDataProtection @ 0x140497230 (ExpSetKernelDataProtection.c)
- *     ExpGetKernelDataProtection @ 0x14049779C (ExpGetKernelDataProtection.c)
- *     sub_1406AEC14 @ 0x1406AEC14 (sub_1406AEC14.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     ExpLicUpdateChecksum @ 0x14008795C (ExpLicUpdateChecksum.c)
+ *     KeQueryTimeIncrement @ 0x140087980 (KeQueryTimeIncrement.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1400C5F10 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfAcquirePushLockSharedEx @ 0x1400C6120 (ExfAcquirePushLockSharedEx.c)
+ *     ExfReleasePushLockShared @ 0x1400C64E0 (ExfReleasePushLockShared.c)
+ *     ExfTryToWakePushLock @ 0x1400C65D8 (ExfTryToWakePushLock.c)
+ *     KiQueryUnbiasedInterruptTime @ 0x1400EE154 (KiQueryUnbiasedInterruptTime.c)
+ *     ExpSetKernelDataProtection @ 0x140497CC0 (ExpSetKernelDataProtection.c)
+ *     ExpGetKernelDataProtection @ 0x14049822C (ExpGetKernelDataProtection.c)
+ *     sub_1406AED4C @ 0x1406AED4C (sub_1406AED4C.c)
  */
 
 __int64 __fastcall ExpGenuinePolicyCacheProvider(int a1, int a2, int a3, int a4, _BYTE *a5)
@@ -209,7 +209,7 @@ LABEL_20:
   if ( v8 )
   {
     *a5 = 1;
-    return (unsigned int)sub_1406AEC14(a1, a2, a3, a4, 0);
+    return (unsigned int)sub_1406AED4C(a1, a2, a3, a4, 0);
   }
   else
   {

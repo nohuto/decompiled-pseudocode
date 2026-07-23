@@ -1,13 +1,13 @@
 /*
- * XREFs of MiPurgePartitionStandby @ 0x14012093C
+ * XREFs of MiPurgePartitionStandby @ 0x140120EAC
  * Callers:
- *     MiFinishResume @ 0x140120570 (MiFinishResume.c)
- *     MiTrimAllSystemPagableMemory @ 0x1401EA19C (MiTrimAllSystemPagableMemory.c)
- *     MiPurgeTransitionList @ 0x1401F3960 (MiPurgeTransitionList.c)
+ *     MiFinishResume @ 0x140120AE0 (MiFinishResume.c)
+ *     MiTrimAllSystemPagableMemory @ 0x1401E9FC8 (MiTrimAllSystemPagableMemory.c)
+ *     MiPurgeTransitionList @ 0x1401F378C (MiPurgeTransitionList.c)
  * Callees:
- *     MiLockPageAtDpcInline @ 0x14002EB30 (MiLockPageAtDpcInline.c)
- *     MiInsertPageInFreeOrZeroedList @ 0x1400671C0 (MiInsertPageInFreeOrZeroedList.c)
- *     MiRemoveLowestPriorityStandbyPage @ 0x1401209F0 (MiRemoveLowestPriorityStandbyPage.c)
+ *     MiLockPageAtDpcInline @ 0x14002E6B0 (MiLockPageAtDpcInline.c)
+ *     MiInsertPageInFreeOrZeroedList @ 0x140066D40 (MiInsertPageInFreeOrZeroedList.c)
+ *     MiRemoveLowestPriorityStandbyPage @ 0x140120F60 (MiRemoveLowestPriorityStandbyPage.c)
  */
 
 __int64 __fastcall MiPurgePartitionStandby(__int64 a1, unsigned int a2)

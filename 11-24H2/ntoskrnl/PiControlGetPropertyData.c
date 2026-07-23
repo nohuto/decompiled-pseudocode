@@ -1,28 +1,28 @@
 /*
- * XREFs of PiControlGetPropertyData @ 0x1408BD4B0
+ * XREFs of PiControlGetPropertyData @ 0x1408BAE00
  * Callers:
  *     <none>
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     ExReleaseResourceLite @ 0x14025A450 (ExReleaseResourceLite.c)
- *     ObfDereferenceObjectWithTag @ 0x1403254A0 (ObfDereferenceObjectWithTag.c)
- *     ExAcquireResourceSharedLite @ 0x140341E80 (ExAcquireResourceSharedLite.c)
- *     PiControlFreeUserModeCallersBuffer @ 0x140441F70 (PiControlFreeUserModeCallersBuffer.c)
- *     PpHotSwapGetDevnodeRemovalPolicy @ 0x1408BBA94 (PpHotSwapGetDevnodeRemovalPolicy.c)
- *     IoGetDeviceProperty @ 0x1408BCAC0 (IoGetDeviceProperty.c)
- *     PnpDeviceObjectFromDeviceInstanceWithTag @ 0x1408BDDF0 (PnpDeviceObjectFromDeviceInstanceWithTag.c)
- *     _CmGetDeviceRegProp @ 0x1408C5BB0 (_CmGetDeviceRegProp.c)
- *     PiControlCopyUserModeCallersBuffer @ 0x1408D0240 (PiControlCopyUserModeCallersBuffer.c)
- *     PnpGetDeviceDependencyList @ 0x140A0DA98 (PnpGetDeviceDependencyList.c)
- *     PiControlGetDeviceStack @ 0x140A58ACC (PiControlGetDeviceStack.c)
- *     PiControlGetDevicePowerData @ 0x140A62D88 (PiControlGetDevicePowerData.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     ExReleaseResourceLite @ 0x14028AA60 (ExReleaseResourceLite.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CE030 (ObfDereferenceObjectWithTag.c)
+ *     ExAcquireResourceSharedLite @ 0x140321360 (ExAcquireResourceSharedLite.c)
+ *     PiControlFreeUserModeCallersBuffer @ 0x140438B40 (PiControlFreeUserModeCallersBuffer.c)
+ *     PpHotSwapGetDevnodeRemovalPolicy @ 0x1408B93F0 (PpHotSwapGetDevnodeRemovalPolicy.c)
+ *     IoGetDeviceProperty @ 0x1408BA410 (IoGetDeviceProperty.c)
+ *     PnpDeviceObjectFromDeviceInstanceWithTag @ 0x1408BB740 (PnpDeviceObjectFromDeviceInstanceWithTag.c)
+ *     _CmGetDeviceRegProp @ 0x1408C35E0 (_CmGetDeviceRegProp.c)
+ *     PiControlCopyUserModeCallersBuffer @ 0x1408CDC30 (PiControlCopyUserModeCallersBuffer.c)
+ *     PnpGetDeviceDependencyList @ 0x1409BBE9C (PnpGetDeviceDependencyList.c)
+ *     PiControlGetDeviceStack @ 0x140A5027C (PiControlGetDeviceStack.c)
+ *     PiControlGetDevicePowerData @ 0x140A5B688 (PiControlGetDevicePowerData.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall PiControlGetPropertyData(__int64 a1, __int16 *a2, __int64 a3, char a4)
+__int64 __fastcall PiControlGetPropertyData(__int64 a1, unsigned __int16 *a2, __int64 a3, char a4)
 {
-  __int16 v4; // cx
+  unsigned int v4; // ecx
   unsigned int *Pool2; // rdi
   struct _KTHREAD *CurrentThread; // rax
   struct _DEVICE_OBJECT *v9; // r13
@@ -88,7 +88,7 @@ LABEL_5:
       {
         if ( a4 )
         {
-          Pool2 = (unsigned int *)ExAllocatePool2(0x101uLL);
+          Pool2 = (unsigned int *)ExAllocatePool2(0x101uLL, *((unsigned int *)a2 + 8), 0x20207050u);
           if ( !Pool2 )
           {
             DeviceDependencyList = -1073741670;
@@ -284,7 +284,7 @@ LABEL_20:
       PiControlFreeUserModeCallersBuffer(a4, Pool2);
       return (unsigned int)DeviceDependencyList;
     }
-    v20 = (void *)ExAllocatePool2(0x101uLL);
+    v20 = (void *)ExAllocatePool2(0x101uLL, v4, 0x20207050u);
     P[1] = v20;
     if ( v20 )
     {

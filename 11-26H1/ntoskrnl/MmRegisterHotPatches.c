@@ -1,25 +1,25 @@
 /*
- * XREFs of MmRegisterHotPatches @ 0x140CFBBA4
+ * XREFs of MmRegisterHotPatches @ 0x140D01F24
  * Callers:
- *     IoInitSystemPreDrivers @ 0x140CBACA0 (IoInitSystemPreDrivers.c)
+ *     IoInitSystemPreDrivers @ 0x140CC0D18 (IoInitSystemPreDrivers.c)
  * Callees:
- *     _tlgKeywordOn @ 0x14044F850 (_tlgKeywordOn.c)
- *     MmReleaseLoadLock @ 0x1404A4B70 (MmReleaseLoadLock.c)
- *     MmAcquireLoadLock @ 0x1404AB9B0 (MmAcquireLoadLock.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     VslDetermineHotPatchType @ 0x140792150 (VslDetermineHotPatchType.c)
- *     MiAllocateHotPatchRecord @ 0x14086D9B0 (MiAllocateHotPatchRecord.c)
- *     MiAllocateSecureImageActivePatch @ 0x14086DA5C (MiAllocateSecureImageActivePatch.c)
- *     MiCompareHotPatchNodes @ 0x14086F6BC (MiCompareHotPatchNodes.c)
- *     MiInsertHotPatchRecord @ 0x1408708FC (MiInsertHotPatchRecord.c)
- *     MiInsertSecureImageActivePatch @ 0x140870BC8 (MiInsertSecureImageActivePatch.c)
- *     MiLoadHotPatch @ 0x140870D5C (MiLoadHotPatch.c)
- *     MiLogHotPatchOperationStatus @ 0x140871F28 (MiLogHotPatchOperationStatus.c)
- *     MiFindHotPatchRecord @ 0x140ABFFE4 (MiFindHotPatchRecord.c)
- *     MiUnloadSystemImage @ 0x140AC76E8 (MiUnloadSystemImage.c)
- *     MiHandleDriverNonPagedSections @ 0x140AC8ED0 (MiHandleDriverNonPagedSections.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     _tlgKeywordOn @ 0x140447980 (_tlgKeywordOn.c)
+ *     MmReleaseLoadLock @ 0x14049E200 (MmReleaseLoadLock.c)
+ *     MmAcquireLoadLock @ 0x1404A5040 (MmAcquireLoadLock.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     VslDetermineHotPatchType @ 0x140794C80 (VslDetermineHotPatchType.c)
+ *     MiAllocateHotPatchRecord @ 0x140873D80 (MiAllocateHotPatchRecord.c)
+ *     MiAllocateSecureImageActivePatch @ 0x140873E2C (MiAllocateSecureImageActivePatch.c)
+ *     MiCompareHotPatchNodes @ 0x140875A8C (MiCompareHotPatchNodes.c)
+ *     MiInsertHotPatchRecord @ 0x140876C5C (MiInsertHotPatchRecord.c)
+ *     MiInsertSecureImageActivePatch @ 0x140876F28 (MiInsertSecureImageActivePatch.c)
+ *     MiLoadHotPatch @ 0x1408770BC (MiLoadHotPatch.c)
+ *     MiLogHotPatchOperationStatus @ 0x140878288 (MiLogHotPatchOperationStatus.c)
+ *     MiFindHotPatchRecord @ 0x140AC2084 (MiFindHotPatchRecord.c)
+ *     MiUnloadSystemImage @ 0x140AC92D8 (MiUnloadSystemImage.c)
+ *     MiHandleDriverNonPagedSections @ 0x140ACAFE8 (MiHandleDriverNonPagedSections.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall MmRegisterHotPatches(__int64 a1)
@@ -87,12 +87,12 @@ __int64 __fastcall MmRegisterHotPatches(__int64 a1)
       v10 = (void *)HotPatchRecord;
       if ( !HotPatchRecord )
         goto LABEL_24;
-      if ( (unsigned int)MiInsertHotPatchRecord((unsigned __int64 *)&xmmword_140E36540, HotPatchRecord, 0LL, v9) == 255 )
+      if ( (unsigned int)MiInsertHotPatchRecord((unsigned __int64 *)&xmmword_140E366C0, HotPatchRecord, 0LL, v9) == 255 )
         ExFreePoolWithTag(v10, 0);
       v11 = 0x400000000020LL;
-      if ( stru_140E36558.FirstArgument
-        && *(_DWORD *)stru_140E36558.FirstArgument
-        && tlgKeywordOn((__int64)stru_140E36558.FirstArgument, 0x400000000020LL) )
+      if ( stru_140E366D8.FirstArgument
+        && *(_DWORD *)stru_140E366D8.FirstArgument
+        && tlgKeywordOn((__int64)stru_140E366D8.FirstArgument, 0x400000000020LL) )
       {
         MiLogHotPatchOperationStatus(v11, *((_DWORD *)i + 8), *((_DWORD *)i + 9), (UNICODE_STRING *)i + 1, 0, 4);
         v11 = 0x400000000020LL;
@@ -113,16 +113,16 @@ LABEL_25:
         *(_DWORD *)(&SecureImageActivePatch[2].MaximumLength + 1) = *((_DWORD *)i + 19);
         LODWORD(SecureImageActivePatch[2].Buffer) = *((_DWORD *)i + 17);
         MiInsertSecureImageActivePatch(SecureImageActivePatch);
-        if ( stru_140E36558.FirstArgument
-          && *(_DWORD *)stru_140E36558.FirstArgument
-          && tlgKeywordOn((__int64)stru_140E36558.FirstArgument, 0x400000000020LL) )
+        if ( stru_140E366D8.FirstArgument
+          && *(_DWORD *)stru_140E366D8.FirstArgument
+          && tlgKeywordOn((__int64)stru_140E366D8.FirstArgument, 0x400000000020LL) )
         {
           MiLogHotPatchOperationStatus(v13, *((_DWORD *)i + 8), *((_DWORD *)i + 9), (UNICODE_STRING *)i + 1, 0, 5);
         }
       }
-      else if ( stru_140E36558.FirstArgument
-             && *(_DWORD *)stru_140E36558.FirstArgument
-             && tlgKeywordOn((__int64)stru_140E36558.FirstArgument, v11) )
+      else if ( stru_140E366D8.FirstArgument
+             && *(_DWORD *)stru_140E366D8.FirstArgument
+             && tlgKeywordOn((__int64)stru_140E366D8.FirstArgument, v11) )
       {
         MiLogHotPatchOperationStatus(v14, *((_DWORD *)i + 8), *((_DWORD *)i + 9), (UNICODE_STRING *)i + 1, 0, 6);
       }
@@ -130,7 +130,7 @@ LABEL_25:
   }
   v4 = 2LL;
   memset_0(v32, 0, 0x40uLL);
-  v16 = (_QWORD *)xmmword_140E36540;
+  v16 = (_QWORD *)xmmword_140E366C0;
   BugCheckParameter4 = 0LL;
   while ( v16 )
   {
@@ -139,12 +139,12 @@ LABEL_25:
   }
   while ( BugCheckParameter4 )
   {
-    v17 = (_QWORD *)qword_140E36550;
+    v17 = (_QWORD *)qword_140E366D0;
     v18 = *(_DWORD *)(BugCheckParameter4 + 24);
     v19 = *(_DWORD *)(BugCheckParameter4 + 28);
     v33 = v18;
     v34 = v19;
-    if ( !qword_140E36550 )
+    if ( !qword_140E366D0 )
       goto LABEL_72;
     do
     {
@@ -197,7 +197,7 @@ LABEL_72:
   }
   v4 = 3LL;
   BugCheckParameter4 = *(_QWORD *)(a1 + 240) + 3784LL;
-  if ( (stru_140E36558.QuantumTarget & 0x100000000LL) == 0 )
+  if ( (stru_140E366D8.QuantumTarget & 0x100000000LL) == 0 )
     goto LABEL_50;
   while ( 1 )
   {
@@ -208,7 +208,7 @@ LABEL_50:
     if ( (*(_DWORD *)(BugCheckParameter4 + 40) & 3) == 0 )
     {
       v24 = MiFindHotPatchRecord(
-              (__int64 *)&xmmword_140E36540,
+              (__int64 *)&xmmword_140E366C0,
               0,
               *(_DWORD *)(BugCheckParameter4 + 32),
               (struct _KLOCK_ENTRIES *)*(unsigned int *)(BugCheckParameter4 + 36),
@@ -222,9 +222,9 @@ LABEL_50:
       if ( (int)(v15 + 0x80000000) >= 0 && v15 != -1073740748 )
         goto LABEL_25;
       if ( (v25 & 1) != 0
-        && stru_140E36558.FirstArgument
-        && *(_DWORD *)stru_140E36558.FirstArgument
-        && tlgKeywordOn((__int64)stru_140E36558.FirstArgument, 0x400000000020LL) )
+        && stru_140E366D8.FirstArgument
+        && *(_DWORD *)stru_140E366D8.FirstArgument
+        && tlgKeywordOn((__int64)stru_140E366D8.FirstArgument, 0x400000000020LL) )
       {
         MiLogHotPatchOperationStatus(
           v27,
@@ -256,6 +256,6 @@ LABEL_50:
   }
   MmReleaseLoadLock(Lock);
   result = 0LL;
-  LOBYTE(stru_140E36558.SListFaultAddress) = 1;
+  LOBYTE(stru_140E366D8.SListFaultAddress) = 1;
   return result;
 }

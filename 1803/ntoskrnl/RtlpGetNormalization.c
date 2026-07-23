@@ -24,16 +24,15 @@ __int64 __fastcall RtlpGetNormalization(unsigned int a1, char **a2)
   __int64 v9; // r9
   char *v10; // rax
   __int64 v11; // rdx
-  __int64 v12; // rdx
-  __int64 v13; // rcx
-  int NlsSectionPtr; // ebx
-  __int64 v15; // r8
-  __int64 v16; // r9
-  char *v17; // rax
-  _DWORD *v18; // rbx
+  __int64 v12; // rcx
+  NTSTATUS NlsSectionPtr; // ebx
+  __int64 v14; // r8
+  __int64 v15; // r9
+  char *v16; // rax
+  _DWORD *v17; // rbx
   int Tables; // ebp
-  unsigned __int64 v20; // [rsp+58h] [rbp+10h]
-  unsigned __int16 *v21; // [rsp+60h] [rbp+18h]
+  unsigned __int64 SectionSize; // [rsp+58h] [rbp+10h] BYREF
+  PVOID SectionPointer; // [rsp+60h] [rbp+18h] BYREF
 
   if ( !a2 )
     return 3221225712LL;
@@ -44,36 +43,34 @@ __int64 __fastcall RtlpGetNormalization(unsigned int a1, char **a2)
     v10 = NormalizationList__Lookup((unsigned int)v6 ^ 0x100);
     if ( v10 )
     {
-      v21 = (unsigned __int16 *)*((_QWORD *)v10 + 1);
-      v20 = *((_QWORD *)v10 + 2);
+      SectionPointer = (PVOID)*((_QWORD *)v10 + 1);
+      SectionSize = *((_QWORD *)v10 + 2);
     }
     else
     {
-      v11 = a1;
-      LODWORD(v11) = a1 & 0xFFFFFEFF;
-      NlsSectionPtr = ZwGetNlsSectionPtr(12LL, v11, 0LL);
+      NlsSectionPtr = ZwGetNlsSectionPtr(0xCu, a1 & 0xFFFFFEFF, 0LL, &SectionPointer, (PULONG)&SectionSize);
       if ( NlsSectionPtr < 0 )
         goto LABEL_12;
     }
-    v17 = (char *)NormalizationListEntry_Alloc();
-    v18 = v17;
-    if ( !v17 )
+    v16 = (char *)NormalizationListEntry_Alloc();
+    v17 = v16;
+    if ( !v16 )
     {
       NlsSectionPtr = -1073741801;
 LABEL_12:
-      NormalizationList__Unlock(v13, v12, v15, v16);
+      NormalizationList__Unlock(v12, v11, v14, v15);
       return (unsigned int)NlsSectionPtr;
     }
-    v7 = v17 + 24;
-    Tables = Normalization__LoadTables(a1, v21, v20, (_DWORD *)v17 + 6);
+    v7 = v16 + 24;
+    Tables = Normalization__LoadTables(a1, (unsigned __int16 *)SectionPointer, SectionSize, (_DWORD *)v16 + 6);
     if ( Tables < 0 )
     {
-      ExFreePoolWithTag(v18, 0);
+      ExFreePoolWithTag(v17, 0);
       NlsSectionPtr = Tables;
       goto LABEL_12;
     }
-    v18[4] = a1;
-    NormalizationList__InsertTail((__int64)v18);
+    v17[4] = a1;
+    NormalizationList__InsertTail((__int64)v17);
   }
   NormalizationList__Unlock(v6, v5, v8, v9);
   result = 0LL;

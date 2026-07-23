@@ -1,12 +1,12 @@
 /*
- * XREFs of EtwTraceThreadWorkOnBehalfUpdate @ 0x1402A1AC0
+ * XREFs of EtwTraceThreadWorkOnBehalfUpdate @ 0x1402D11F0
  * Callers:
- *     PspUpdateContainerImpersonation @ 0x1402A11C4 (PspUpdateContainerImpersonation.c)
- *     IopProcessWorkItem @ 0x1402A2410 (IopProcessWorkItem.c)
+ *     IopProcessWorkItem @ 0x1402D1B40 (IopProcessWorkItem.c)
+ *     PspUpdateContainerImpersonation @ 0x1403B4C5C (PspUpdateContainerImpersonation.c)
  * Callees:
- *     EtwWriteEx @ 0x140259680 (EtwWriteEx.c)
- *     EtwpLevelKeywordEnabled @ 0x1402A2030 (EtwpLevelKeywordEnabled.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     EtwWriteEx @ 0x140289C90 (EtwWriteEx.c)
+ *     EtwpLevelKeywordEnabled @ 0x1402D1760 (EtwpLevelKeywordEnabled.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 void __fastcall EtwTraceThreadWorkOnBehalfUpdate(__int64 a1, __int64 a2)

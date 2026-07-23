@@ -1,88 +1,88 @@
 /*
- * XREFs of WheapWmiExecutePluginCtlMethod @ 0x140614194
+ * XREFs of WheapWmiExecutePluginCtlMethod @ 0x1406146E4
  * Callers:
- *     WheapWmiExecuteMethod @ 0x140613F60 (WheapWmiExecuteMethod.c)
+ *     WheapWmiExecuteMethod @ 0x1406144B0 (WheapWmiExecuteMethod.c)
  * Callees:
- *     memmove @ 0x140435700 (memmove.c)
+ *     memmove @ 0x140435B00 (memmove.c)
  */
 
 /*
- * Hex-Rays decompilation failed for WheapWmiExecutePluginCtlMethod @ 0x140614194
- * Reason: Hex-Rays returned no pseudocode for 0x140614194
+ * Hex-Rays decompilation failed for WheapWmiExecutePluginCtlMethod @ 0x1406146E4
+ * Reason: Hex-Rays returned no pseudocode for 0x1406146E4
  * Fallback: raw IDA disassembly follows.
  *
- * 0000000140614194: mov     rax, rsp
- * 0000000140614197: mov     [rax+8], rbx
- * 000000014061419B: mov     [rax+10h], rbp
- * 000000014061419F: mov     [rax+18h], rsi
- * 00000001406141A3: mov     [rax+20h], rdi
- * 00000001406141A7: push    r12
- * 00000001406141A9: push    r14
- * 00000001406141AB: push    r15
- * 00000001406141AD: sub     rsp, 20h
- * 00000001406141B1: mov     r15, [rsp+38h+arg_20]
- * 00000001406141B6: xor     edi, edi
- * 00000001406141B8: mov     rsi, r8
- * 00000001406141BB: mov     r14d, edx
- * 00000001406141BE: and     [r15], edi
- * 00000001406141C1: cmp     ecx, 1
- * 00000001406141C4: jz      short loc_1406141D0
- * 00000001406141C6: mov     ecx, 0C0000297h
- * 00000001406141CB: jmp     loc_14061426E
- * 00000001406141D0: cmp     r14d, 4
- * 00000001406141D4: jb      loc_140614269
- * 00000001406141DA: test    rsi, rsi
- * 00000001406141DD: jz      loc_140614269
- * 00000001406141E3: mov     ebp, [r8]
- * 00000001406141E6: cmp     ebp, 4
- * 00000001406141E9: jb      short loc_140614269
- * 00000001406141EB: mov     edi, 8
- * 00000001406141F0: cmp     r14d, edi
- * 00000001406141F3: jnb     short loc_1406141FC
- * 00000001406141F5: mov     ecx, 0C0000023h
- * 00000001406141FA: jmp     short loc_14061426E
- * 00000001406141FC: mov     ecx, ebp; Size
- * 00000001406141FE: call    cs:__imp_PshedAllocateMemory
- * 0000000140614205: nop     dword ptr [rax+rax+00h]
- * 000000014061420A: mov     r12, rax
- * 000000014061420D: test    rax, rax
- * 0000000140614210: jnz     short loc_140614219
- * 0000000140614212: mov     ecx, 0C000009Ah
- * 0000000140614217: jmp     short loc_14061426E
- * 0000000140614219: lea     rbx, [rsi+4]
- * 000000014061421D: mov     r8, rbp; Size
- * 0000000140614220: mov     rdx, rbx; Src
- * 0000000140614223: mov     rcx, r12; void *
- * 0000000140614226: call    memmove
- * 000000014061422B: lea     eax, [r14-8]
- * 000000014061422F: mov     r8, rbx
- * 0000000140614232: lea     r9, [rbx+4]
- * 0000000140614236: mov     [rbx], eax
- * 0000000140614238: mov     rdx, r12
- * 000000014061423B: mov     ecx, ebp
- * 000000014061423D: call    cs:__imp_PshedDoPluginCtl
- * 0000000140614244: nop     dword ptr [rax+rax+00h]
- * 0000000140614249: mov     rcx, r12; Address
- * 000000014061424C: mov     [rsi], eax
- * 000000014061424E: call    cs:__imp_PshedFreeMemory
- * 0000000140614255: nop     dword ptr [rax+rax+00h]
- * 000000014061425A: mov     eax, [rbx]
- * 000000014061425C: mov     ecx, [rsi]
- * 000000014061425E: add     eax, edi
- * 0000000140614260: mov     edi, eax
- * 0000000140614262: cmp     r14d, eax
- * 0000000140614265: jnb     short loc_14061426E
- * 0000000140614267: jmp     short loc_1406141F5
- * 0000000140614269: mov     ecx, 0C000000Dh
- * 000000014061426E: mov     rbx, [rsp+38h+arg_0]
- * 0000000140614273: mov     eax, ecx
- * 0000000140614275: mov     rbp, [rsp+38h+arg_8]
- * 000000014061427A: mov     rsi, [rsp+38h+arg_10]
- * 000000014061427F: mov     [r15], edi
- * 0000000140614282: mov     rdi, [rsp+38h+arg_18]
- * 0000000140614287: add     rsp, 20h
- * 000000014061428B: pop     r15
- * 000000014061428D: pop     r14
- * 000000014061428F: pop     r12
- * 0000000140614291: retn
+ * 00000001406146E4: mov     rax, rsp
+ * 00000001406146E7: mov     [rax+8], rbx
+ * 00000001406146EB: mov     [rax+10h], rbp
+ * 00000001406146EF: mov     [rax+18h], rsi
+ * 00000001406146F3: mov     [rax+20h], rdi
+ * 00000001406146F7: push    r12
+ * 00000001406146F9: push    r14
+ * 00000001406146FB: push    r15
+ * 00000001406146FD: sub     rsp, 20h
+ * 0000000140614701: mov     r15, [rsp+38h+arg_20]
+ * 0000000140614706: xor     edi, edi
+ * 0000000140614708: mov     rsi, r8
+ * 000000014061470B: mov     r14d, edx
+ * 000000014061470E: and     [r15], edi
+ * 0000000140614711: cmp     ecx, 1
+ * 0000000140614714: jz      short loc_140614720
+ * 0000000140614716: mov     ecx, 0C0000297h
+ * 000000014061471B: jmp     loc_1406147BE
+ * 0000000140614720: cmp     r14d, 4
+ * 0000000140614724: jb      loc_1406147B9
+ * 000000014061472A: test    rsi, rsi
+ * 000000014061472D: jz      loc_1406147B9
+ * 0000000140614733: mov     ebp, [r8]
+ * 0000000140614736: cmp     ebp, 4
+ * 0000000140614739: jb      short loc_1406147B9
+ * 000000014061473B: mov     edi, 8
+ * 0000000140614740: cmp     r14d, edi
+ * 0000000140614743: jnb     short loc_14061474C
+ * 0000000140614745: mov     ecx, 0C0000023h
+ * 000000014061474A: jmp     short loc_1406147BE
+ * 000000014061474C: mov     ecx, ebp; Size
+ * 000000014061474E: call    cs:__imp_PshedAllocateMemory
+ * 0000000140614755: nop     dword ptr [rax+rax+00h]
+ * 000000014061475A: mov     r12, rax
+ * 000000014061475D: test    rax, rax
+ * 0000000140614760: jnz     short loc_140614769
+ * 0000000140614762: mov     ecx, 0C000009Ah
+ * 0000000140614767: jmp     short loc_1406147BE
+ * 0000000140614769: lea     rbx, [rsi+4]
+ * 000000014061476D: mov     r8, rbp; Size
+ * 0000000140614770: mov     rdx, rbx; Src
+ * 0000000140614773: mov     rcx, r12; void *
+ * 0000000140614776: call    memmove
+ * 000000014061477B: lea     eax, [r14-8]
+ * 000000014061477F: mov     r8, rbx
+ * 0000000140614782: lea     r9, [rbx+4]
+ * 0000000140614786: mov     [rbx], eax
+ * 0000000140614788: mov     rdx, r12
+ * 000000014061478B: mov     ecx, ebp
+ * 000000014061478D: call    cs:__imp_PshedDoPluginCtl
+ * 0000000140614794: nop     dword ptr [rax+rax+00h]
+ * 0000000140614799: mov     rcx, r12; Address
+ * 000000014061479C: mov     [rsi], eax
+ * 000000014061479E: call    cs:__imp_PshedFreeMemory
+ * 00000001406147A5: nop     dword ptr [rax+rax+00h]
+ * 00000001406147AA: mov     eax, [rbx]
+ * 00000001406147AC: mov     ecx, [rsi]
+ * 00000001406147AE: add     eax, edi
+ * 00000001406147B0: mov     edi, eax
+ * 00000001406147B2: cmp     r14d, eax
+ * 00000001406147B5: jnb     short loc_1406147BE
+ * 00000001406147B7: jmp     short loc_140614745
+ * 00000001406147B9: mov     ecx, 0C000000Dh
+ * 00000001406147BE: mov     rbx, [rsp+38h+arg_0]
+ * 00000001406147C3: mov     eax, ecx
+ * 00000001406147C5: mov     rbp, [rsp+38h+arg_8]
+ * 00000001406147CA: mov     rsi, [rsp+38h+arg_10]
+ * 00000001406147CF: mov     [r15], edi
+ * 00000001406147D2: mov     rdi, [rsp+38h+arg_18]
+ * 00000001406147D7: add     rsp, 20h
+ * 00000001406147DB: pop     r15
+ * 00000001406147DD: pop     r14
+ * 00000001406147DF: pop     r12
+ * 00000001406147E1: retn
  */

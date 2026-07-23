@@ -9,16 +9,16 @@
  *     PopControlMonitor @ 0x14072ADE0 (PopControlMonitor.c)
  */
 
-__int64 __fastcall PopScreenOff(int a1)
+ULONG __fastcall PopScreenOff(int a1)
 {
-  unsigned int v3; // [rsp+30h] [rbp+8h] BYREF
+  ULONG v3; // [rsp+30h] [rbp+8h] BYREF
   __int64 v4; // [rsp+38h] [rbp+10h] BYREF
 
   v4 = 0LL;
   v3 = -1;
-  PopBlockSessionSwitch(1, (int *)&v3);
+  PopBlockSessionSwitch(1, &v3);
   LODWORD(v4) = 0;
   HIDWORD(v4) = a1;
   PopControlMonitor((unsigned int *)&v4, v3);
-  return PopBlockSessionSwitch(0, (int *)&v3);
+  return PopBlockSessionSwitch(0, &v3);
 }

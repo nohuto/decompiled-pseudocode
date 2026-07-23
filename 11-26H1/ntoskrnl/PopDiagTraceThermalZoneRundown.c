@@ -1,13 +1,13 @@
 /*
- * XREFs of PopDiagTraceThermalZoneRundown @ 0x140434FBC
+ * XREFs of PopDiagTraceThermalZoneRundown @ 0x140423E94
  * Callers:
- *     PopThermalTraceRundownEvents @ 0x14043572C (PopThermalTraceRundownEvents.c)
+ *     PopThermalTraceRundownEvents @ 0x1404246B4 (PopThermalTraceRundownEvents.c)
  * Callees:
- *     EtwEventEnabled @ 0x140212D90 (EtwEventEnabled.c)
- *     EtwWriteEx @ 0x140212F70 (EtwWriteEx.c)
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     IoGetDeviceAttachmentBaseRefWithTag @ 0x14026F2B4 (IoGetDeviceAttachmentBaseRefWithTag.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x140212E70 (EtwEventEnabled.c)
+ *     EtwWriteEx @ 0x140213050 (EtwWriteEx.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     IoGetDeviceAttachmentBaseRefWithTag @ 0x14026E824 (IoGetDeviceAttachmentBaseRefWithTag.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 char __fastcall PopDiagTraceThermalZoneRundown(
@@ -59,11 +59,9 @@ char __fastcall PopDiagTraceThermalZoneRundown(
   v20 = 0;
   v17 = 0;
   v19 = 0;
-  if ( byte_140E67628 )
+  if ( PopDiagHandleRegistered )
   {
-    LOBYTE(DeviceAttachmentBaseRefWithTag) = EtwEventEnabled(
-                                               *(REGHANDLE *)&PopSleepstudySessionLock.PriorityFloorCounts[16],
-                                               &POP_ETW_EVENT_THERMAL_ZONE_RUNDOWN);
+    LOBYTE(DeviceAttachmentBaseRefWithTag) = EtwEventEnabled(PopDiagHandle, &POP_ETW_EVENT_THERMAL_ZONE_RUNDOWN);
     if ( (_BYTE)DeviceAttachmentBaseRefWithTag )
     {
       DeviceAttachmentBaseRefWithTag = (_UNKNOWN **)IoGetDeviceAttachmentBaseRefWithTag(a1, 0x67446F50u);
@@ -101,15 +99,7 @@ char __fastcall PopDiagTraceThermalZoneRundown(
           v36 = 4LL;
           v38 = 2LL;
           v41 = 0;
-          EtwWriteEx(
-            *(REGHANDLE *)&PopSleepstudySessionLock.PriorityFloorCounts[16],
-            &POP_ETW_EVENT_THERMAL_ZONE_RUNDOWN,
-            0LL,
-            0,
-            0LL,
-            0LL,
-            0xAu,
-            &UserData);
+          EtwWriteEx(PopDiagHandle, &POP_ETW_EVENT_THERMAL_ZONE_RUNDOWN, 0LL, 0, 0LL, 0LL, 0xAu, &UserData);
         }
         LOBYTE(DeviceAttachmentBaseRefWithTag) = ObfDereferenceObjectWithTag(v12, 0x67446F50u);
       }

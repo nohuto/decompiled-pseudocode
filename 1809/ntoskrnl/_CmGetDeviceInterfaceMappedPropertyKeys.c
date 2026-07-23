@@ -1,11 +1,11 @@
 /*
- * XREFs of _CmGetDeviceInterfaceMappedPropertyKeys @ 0x1408FD790
+ * XREFs of _CmGetDeviceInterfaceMappedPropertyKeys @ 0x1408FEA50
  * Callers:
- *     _PnpDispatchDeviceInterface @ 0x14059AE70 (_PnpDispatchDeviceInterface.c)
- *     _CmDeleteDeviceInterfaceWorker @ 0x1408F6D30 (_CmDeleteDeviceInterfaceWorker.c)
+ *     _PnpDispatchDeviceInterface @ 0x14059BE70 (_PnpDispatchDeviceInterface.c)
+ *     _CmDeleteDeviceInterfaceWorker @ 0x1408F7FF0 (_CmDeleteDeviceInterfaceWorker.c)
  * Callees:
- *     _CmGetDeviceInterfaceMappedPropertyFromComposite @ 0x14059BAB4 (_CmGetDeviceInterfaceMappedPropertyFromComposite.c)
- *     _CmGetDeviceInterfaceMappedPropertyFromRegValue @ 0x14059EE90 (_CmGetDeviceInterfaceMappedPropertyFromRegValue.c)
+ *     _CmGetDeviceInterfaceMappedPropertyFromComposite @ 0x14059CAB4 (_CmGetDeviceInterfaceMappedPropertyFromComposite.c)
+ *     _CmGetDeviceInterfaceMappedPropertyFromRegValue @ 0x14059FE90 (_CmGetDeviceInterfaceMappedPropertyFromRegValue.c)
  */
 
 __int64 __fastcall CmGetDeviceInterfaceMappedPropertyKeys(
@@ -47,7 +47,7 @@ __int64 __fastcall CmGetDeviceInterfaceMappedPropertyKeys(
   v34 = a2;
   v33 = a1;
   v7 = a7;
-  v8 = (__int64 *)&off_140908EF8;
+  v8 = (__int64 *)&off_14090A1B8;
   v9 = 0;
   v11 = a3;
   *a7 = 0;
@@ -120,7 +120,7 @@ LABEL_9:
   if ( v9 >= 0 )
   {
     v16 = 0;
-    v17 = (__int64 *)&off_140909420;
+    v17 = (__int64 *)&off_14090A6E0;
     while ( 1 )
     {
       v18 = *v17;

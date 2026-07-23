@@ -1,17 +1,17 @@
 /*
- * XREFs of PfTTraceListAdd @ 0x1409506E0
+ * XREFs of PfTTraceListAdd @ 0x140972A00
  * Callers:
- *     PfTGenerateTrace @ 0x14094EC00 (PfTGenerateTrace.c)
- *     PfpSectInfoHandleFullBuffer @ 0x140950620 (PfpSectInfoHandleFullBuffer.c)
+ *     PfTGenerateTrace @ 0x140971110 (PfTGenerateTrace.c)
+ *     PfpSectInfoHandleFullBuffer @ 0x140972940 (PfpSectInfoHandleFullBuffer.c)
  * Callees:
- *     KeSetEvent @ 0x1402725A0 (KeSetEvent.c)
- *     PfpPartitionDereferenceParent @ 0x140274CCC (PfpPartitionDereferenceParent.c)
- *     PfpPartitionReferenceParentSafe @ 0x14027674C (PfpPartitionReferenceParentSafe.c)
- *     KeReleaseGuardedMutex @ 0x14031E470 (KeReleaseGuardedMutex.c)
- *     ExAcquireFastMutex @ 0x14033E850 (ExAcquireFastMutex.c)
- *     PfTTraceListTrim @ 0x140746F14 (PfTTraceListTrim.c)
- *     PfTTraceListFree @ 0x140950884 (PfTTraceListFree.c)
- *     PfTAccessTracingCleanup @ 0x140B5B46C (PfTAccessTracingCleanup.c)
+ *     KeSetEvent @ 0x140227B30 (KeSetEvent.c)
+ *     PfpPartitionDereferenceParent @ 0x14022A25C (PfpPartitionDereferenceParent.c)
+ *     PfpPartitionReferenceParentSafe @ 0x14022BCDC (PfpPartitionReferenceParentSafe.c)
+ *     KeReleaseGuardedMutex @ 0x1402C7000 (KeReleaseGuardedMutex.c)
+ *     ExAcquireFastMutex @ 0x14031DD30 (ExAcquireFastMutex.c)
+ *     PfTTraceListTrim @ 0x140745204 (PfTTraceListTrim.c)
+ *     PfTTraceListFree @ 0x140972BA4 (PfTTraceListFree.c)
+ *     PfTAccessTracingCleanup @ 0x140B5D4DC (PfTAccessTracingCleanup.c)
  */
 
 __int64 __fastcall PfTTraceListAdd(__int64 a1, __int64 a2)

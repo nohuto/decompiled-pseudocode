@@ -26,7 +26,7 @@ void __fastcall sub_18002A63C(__int64 a1)
     v2 = *(_DWORD *)(a1 + 264);
     if ( !v2 )
     {
-      v2 = sub_18002952C((unsigned __int16 *)(a1 + 88));
+      v2 = sub_18002952C((_UNICODE_STRING *)(a1 + 88));
       *(_DWORD *)(a1 + 264) = v2;
     }
     v3 = (char *)(a1 + 112);

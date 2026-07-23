@@ -1,20 +1,20 @@
 /*
- * XREFs of CmpAddValueToListEx @ 0x1408DD8C8
+ * XREFs of CmpAddValueToListEx @ 0x1408E3E88
  * Callers:
- *     CmpLightWeightPrepareSetValueKeyUoW @ 0x1408BF13C (CmpLightWeightPrepareSetValueKeyUoW.c)
- *     CmSetValueKey @ 0x1408CEE30 (CmSetValueKey.c)
- *     CmpSetValueKeyNew @ 0x1408DDA24 (CmpSetValueKeyNew.c)
- *     CmpCopyKeyPartial @ 0x1408DDBFC (CmpCopyKeyPartial.c)
- *     CmpFullPromoteSingleKeyFromKeyNodeStacks @ 0x1409812B8 (CmpFullPromoteSingleKeyFromKeyNodeStacks.c)
- *     CmpMergeKeyValues @ 0x140B2BDE4 (CmpMergeKeyValues.c)
- *     CmpSetValueKeyTombstone @ 0x140B4F768 (CmpSetValueKeyTombstone.c)
- *     CmpSyncKeyValues @ 0x140B62A58 (CmpSyncKeyValues.c)
+ *     CmpLightWeightPrepareSetValueKeyUoW @ 0x1408C570C (CmpLightWeightPrepareSetValueKeyUoW.c)
+ *     CmSetValueKey @ 0x1408D53E0 (CmSetValueKey.c)
+ *     CmpSetValueKeyNew @ 0x1408E3FE4 (CmpSetValueKeyNew.c)
+ *     CmpCopyKeyPartial @ 0x1408E41BC (CmpCopyKeyPartial.c)
+ *     CmpFullPromoteSingleKeyFromKeyNodeStacks @ 0x1409432C8 (CmpFullPromoteSingleKeyFromKeyNodeStacks.c)
+ *     CmpMergeKeyValues @ 0x140B2DE64 (CmpMergeKeyValues.c)
+ *     CmpSetValueKeyTombstone @ 0x140B51FF8 (CmpSetValueKeyTombstone.c)
+ *     CmpSyncKeyValues @ 0x140B65AF8 (CmpSyncKeyValues.c)
  * Callees:
- *     HvpReleaseCellFlat @ 0x1408D51E0 (HvpReleaseCellFlat.c)
- *     HvpReleaseCellPaged @ 0x1408D73B0 (HvpReleaseCellPaged.c)
- *     HvpGetCellContextInitialize @ 0x1408D9320 (HvpGetCellContextInitialize.c)
- *     HvAllocateCell @ 0x1408DB7FC (HvAllocateCell.c)
- *     HvReallocateCell @ 0x1408DCC94 (HvReallocateCell.c)
+ *     HvpReleaseCellFlat @ 0x1408DB7A0 (HvpReleaseCellFlat.c)
+ *     HvpReleaseCellPaged @ 0x1408DD970 (HvpReleaseCellPaged.c)
+ *     HvpGetCellContextInitialize @ 0x1408DF8E0 (HvpGetCellContextInitialize.c)
+ *     HvAllocateCell @ 0x1408E1DBC (HvAllocateCell.c)
+ *     HvReallocateCell @ 0x1408E3254 (HvReallocateCell.c)
  */
 
 __int64 __fastcall CmpAddValueToListEx(

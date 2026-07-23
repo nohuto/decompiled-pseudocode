@@ -1,18 +1,18 @@
 /*
- * XREFs of MiChargePartitionResidentAvailable @ 0x1401034A4
+ * XREFs of MiChargePartitionResidentAvailable @ 0x140101224
  * Callers:
- *     MiFlushSectionInternal @ 0x140029DB0 (MiFlushSectionInternal.c)
- *     MiObtainFaultCharges @ 0x14002B530 (MiObtainFaultCharges.c)
- *     MiProbeLockFrame @ 0x14002F730 (MiProbeLockFrame.c)
- *     MiLockPageTablePage @ 0x140030530 (MiLockPageTablePage.c)
- *     MmCopyToCachedPage @ 0x140037900 (MmCopyToCachedPage.c)
- *     MiDispatchFault @ 0x1400403C0 (MiDispatchFault.c)
- *     MiWalkEntireImage @ 0x14004C570 (MiWalkEntireImage.c)
- *     MiCheckProtoPtePageState @ 0x14004E9B0 (MiCheckProtoPtePageState.c)
- *     MiLockProtoPoolPage @ 0x14004ED80 (MiLockProtoPoolPage.c)
- *     MiChargeResident @ 0x140103450 (MiChargeResident.c)
+ *     MiFlushSectionInternal @ 0x140029930 (MiFlushSectionInternal.c)
+ *     MiObtainFaultCharges @ 0x14002B0B0 (MiObtainFaultCharges.c)
+ *     MiProbeLockFrame @ 0x14002F2B0 (MiProbeLockFrame.c)
+ *     MiLockPageTablePage @ 0x1400300B0 (MiLockPageTablePage.c)
+ *     MmCopyToCachedPage @ 0x140037480 (MmCopyToCachedPage.c)
+ *     MiDispatchFault @ 0x14003FF40 (MiDispatchFault.c)
+ *     MiWalkEntireImage @ 0x14004C0F0 (MiWalkEntireImage.c)
+ *     MiCheckProtoPtePageState @ 0x14004E530 (MiCheckProtoPtePageState.c)
+ *     MiLockProtoPoolPage @ 0x14004E900 (MiLockProtoPoolPage.c)
+ *     MiChargeResident @ 0x1401011D0 (MiChargeResident.c)
  * Callees:
- *     MiReturnResidentAvailable @ 0x14004F1E0 (MiReturnResidentAvailable.c)
+ *     MiReturnResidentAvailable @ 0x14004ED60 (MiReturnResidentAvailable.c)
  */
 
 __int64 __fastcall MiChargePartitionResidentAvailable(__int64 a1, unsigned __int64 a2, __int64 a3)
@@ -68,7 +68,7 @@ LABEL_34:
       if ( a3 != 0xFFFFFFFFLL )
       {
 LABEL_35:
-        ++dword_140327140;
+        ++dword_140327180;
         if ( v6 )
           _InterlockedExchangeAdd64((volatile signed __int64 *)(a1 + 6528), v6);
         return 0LL;
@@ -115,6 +115,6 @@ LABEL_9:
     }
     return v9;
   }
-  ++dword_14032713C;
+  ++dword_14032717C;
   return 0LL;
 }

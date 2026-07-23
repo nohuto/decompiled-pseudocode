@@ -1,9 +1,9 @@
 /*
- * XREFs of KiWaitSatisfyOther @ 0x140205BC0
+ * XREFs of KiWaitSatisfyOther @ 0x14032D1A0
  * Callers:
- *     KeRegisterObjectNotification @ 0x140205AB0 (KeRegisterObjectNotification.c)
- *     KeWaitForMultipleObjects @ 0x14033D720 (KeWaitForMultipleObjects.c)
- *     KeRegisterObjectDpc @ 0x1405B14F4 (KeRegisterObjectDpc.c)
+ *     KeWaitForMultipleObjects @ 0x14031CC00 (KeWaitForMultipleObjects.c)
+ *     KeRegisterObjectNotification @ 0x14032D090 (KeRegisterObjectNotification.c)
+ *     KeRegisterObjectDpc @ 0x1405AE464 (KeRegisterObjectDpc.c)
  * Callees:
  *     <none>
  */

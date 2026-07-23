@@ -1,12 +1,12 @@
 /*
- * XREFs of MiLogHotPatchManagement @ 0x140A386B8
+ * XREFs of MiLogHotPatchManagement @ 0x140A38968
  * Callers:
- *     NtManageHotPatch @ 0x1407D3EF0 (NtManageHotPatch.c)
+ *     NtManageHotPatch @ 0x1407D41C0 (NtManageHotPatch.c)
  * Callees:
  *     _tlgKeywordOn @ 0x140212E64 (_tlgKeywordOn.c)
- *     PsGetProcessId @ 0x1402FA490 (PsGetProcessId.c)
- *     _tlgWriteEx_EtwWriteEx @ 0x140367F70 (_tlgWriteEx_EtwWriteEx.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     PsGetProcessId @ 0x1402FA720 (PsGetProcessId.c)
+ *     _tlgWriteEx_EtwWriteEx @ 0x140368110 (_tlgWriteEx_EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  */
 
 char __fastcall MiLogHotPatchManagement(int a1, __int64 a2, unsigned __int16 *a3, int a4)
@@ -61,7 +61,7 @@ char __fastcall MiLogHotPatchManagement(int a1, __int64 a2, unsigned __int16 *a3
           if ( !(_BYTE)v4 )
             return (char)v4;
           ProcessId = (unsigned int)PsGetProcessId(KeGetCurrentThread()->ApcState.Process);
-          v13 = (unsigned __int8 *)byte_1400394BD;
+          v13 = (unsigned __int8 *)&word_140038C0E;
           v25 = 4LL;
           p_ProcessId = &ProcessId;
           v26 = &v19;
@@ -84,7 +84,7 @@ char __fastcall MiLogHotPatchManagement(int a1, __int64 a2, unsigned __int16 *a3
             if ( !(_BYTE)v4 )
               return (char)v4;
             ProcessId = (unsigned int)PsGetProcessId(KeGetCurrentThread()->ApcState.Process);
-            v13 = (unsigned __int8 *)qword_140038A60;
+            v13 = (unsigned __int8 *)&unk_140038C60;
             v31 = 4LL;
             p_ProcessId = &ProcessId;
             v26 = &v19;
@@ -105,7 +105,7 @@ char __fastcall MiLogHotPatchManagement(int a1, __int64 a2, unsigned __int16 *a3
             if ( !(_BYTE)v4 )
               return (char)v4;
             ProcessId = (unsigned int)PsGetProcessId(KeGetCurrentThread()->ApcState.Process);
-            v13 = (unsigned __int8 *)&word_140038AC2;
+            v13 = (unsigned __int8 *)&word_140038CC2;
             v31 = 8LL;
             p_ProcessId = &ProcessId;
             v26 = &v19;
@@ -152,7 +152,7 @@ char __fastcall MiLogHotPatchManagement(int a1, __int64 a2, unsigned __int16 *a3
           v38 = 4 * v10 + 8;
           v36 = 0;
           v39 = 0;
-          LOBYTE(v4) = tlgWriteEx_EtwWriteEx(v5, (unsigned __int8 *)word_140039452, v11, 1u, v15, v16, 9u, v23);
+          LOBYTE(v4) = tlgWriteEx_EtwWriteEx(v5, (unsigned __int8 *)byte_140038BA3, v11, 1u, v15, v16, 9u, v23);
         }
       }
     }
@@ -178,7 +178,7 @@ char __fastcall MiLogHotPatchManagement(int a1, __int64 a2, unsigned __int16 *a3
         v31 = 4LL;
         v33 = 2LL;
         v36 = 0;
-        LOBYTE(v4) = tlgWriteEx_EtwWriteEx(v5, (unsigned __int8 *)byte_1400393F7, v9, 1u, v15, v16, 8u, v23);
+        LOBYTE(v4) = tlgWriteEx_EtwWriteEx(v5, (unsigned __int8 *)qword_140038B48, v9, 1u, v15, v16, 8u, v23);
       }
     }
   }

@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlpFcSizeOfFeatureUsageDataBuffer @ 0x1405F2A84
+ * XREFs of RtlpFcSizeOfFeatureUsageDataBuffer @ 0x1405F00C4
  * Callers:
- *     CmFcpManagerPublishFeatureUsageData @ 0x140A90804 (CmFcpManagerPublishFeatureUsageData.c)
+ *     CmFcpManagerPublishFeatureUsageData @ 0x140A8CF00 (CmFcpManagerPublishFeatureUsageData.c)
  * Callees:
  *     <none>
  */

@@ -8,7 +8,12 @@
  *     ObReferenceObjectByHandle @ 0x14063E2E0 (ObReferenceObjectByHandle.c)
  */
 
-NTSTATUS __fastcall NtRemoveIoCompletion(HANDLE Handle, _QWORD *a2, _QWORD *a3, _OWORD *a4, unsigned __int64 a5)
+NTSTATUS __cdecl NtRemoveIoCompletion(
+        HANDLE IoCompletionHandle,
+        PVOID *KeyContext,
+        PVOID *ApcContext,
+        PIO_STATUS_BLOCK IoStatusBlock,
+        PLARGE_INTEGER Timeout)
 {
   KPROCESSOR_MODE PreviousMode; // si
   __int64 v10; // rcx
@@ -17,7 +22,7 @@ NTSTATUS __fastcall NtRemoveIoCompletion(HANDLE Handle, _QWORD *a2, _QWORD *a3, 
   __int64 v13; // rax
   LARGE_INTEGER *v14; // rbx
   NTSTATUS result; // eax
-  int v16; // edi
+  NTSTATUS v16; // edi
   ULONG v17; // [rsp+44h] [rbp-64h] BYREF
   LARGE_INTEGER *v18; // [rsp+48h] [rbp-60h]
   __int64 v19; // [rsp+50h] [rbp-58h] BYREF
@@ -35,23 +40,23 @@ NTSTATUS __fastcall NtRemoveIoCompletion(HANDLE Handle, _QWORD *a2, _QWORD *a3, 
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   if ( PreviousMode )
   {
-    v10 = (__int64)a3;
-    if ( (unsigned __int64)a3 >= 0x7FFFFFFF0000LL )
+    v10 = (__int64)ApcContext;
+    if ( (unsigned __int64)ApcContext >= 0x7FFFFFFF0000LL )
       v10 = 0x7FFFFFFF0000LL;
     *(_QWORD *)v10 = *(_QWORD *)v10;
-    v11 = (__int64)a2;
-    if ( (unsigned __int64)a2 >= 0x7FFFFFFF0000LL )
+    v11 = (__int64)KeyContext;
+    if ( (unsigned __int64)KeyContext >= 0x7FFFFFFF0000LL )
       v11 = 0x7FFFFFFF0000LL;
     *(_QWORD *)v11 = *(_QWORD *)v11;
-    v12 = (__int64)a4;
-    if ( (unsigned __int64)a4 >= 0x7FFFFFFF0000LL )
+    v12 = (__int64)IoStatusBlock;
+    if ( (unsigned __int64)IoStatusBlock >= 0x7FFFFFFF0000LL )
       v12 = 0x7FFFFFFF0000LL;
     *(_DWORD *)v12 = *(_DWORD *)v12;
-    v13 = a5;
-    if ( a5 )
+    v13 = (__int64)Timeout;
+    if ( Timeout )
     {
       v18 = (LARGE_INTEGER *)&v19;
-      if ( a5 >= 0x7FFFFFFF0000LL )
+      if ( (unsigned __int64)Timeout >= 0x7FFFFFFF0000LL )
         v13 = 0x7FFFFFFF0000LL;
       v19 = *(_QWORD *)v13;
     }
@@ -60,20 +65,20 @@ NTSTATUS __fastcall NtRemoveIoCompletion(HANDLE Handle, _QWORD *a2, _QWORD *a3, 
   else
   {
     v14 = v18;
-    if ( a5 )
-      v14 = (LARGE_INTEGER *)a5;
+    if ( Timeout )
+      v14 = Timeout;
   }
   Object = 0LL;
-  result = ObReferenceObjectByHandle(Handle, 2u, IoCompletionObjectType, PreviousMode, &Object, 0LL);
+  result = ObReferenceObjectByHandle(IoCompletionHandle, 2u, IoCompletionObjectType, PreviousMode, &Object, 0LL);
   if ( result >= 0 )
   {
     v16 = IoRemoveIoCompletion((struct _KQUEUE *)Object, (__int64)&v21, &v23, 1u, &v17, PreviousMode, v14, 0);
     HalPutDmaAdapter((PADAPTER_OBJECT)Object);
     if ( !v16 )
     {
-      *a2 = v21;
-      *a3 = *((_QWORD *)&v21 + 1);
-      *a4 = v22;
+      *KeyContext = (PVOID)v21;
+      *ApcContext = (PVOID)*((_QWORD *)&v21 + 1);
+      *(_OWORD *)&IoStatusBlock->Status = v22;
     }
     return v16;
   }

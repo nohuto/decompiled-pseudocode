@@ -12,11 +12,13 @@
  *     ZwClose @ 0x1800A54E0 (ZwClose.c)
  */
 
-__int64 __fastcall sub_180011B80(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+LOGICAL __fastcall sub_180011B80(__int64 a1, __int64 a2)
 {
-  __int64 v6; // rcx
-  int v7; // eax
-  __int64 v8; // rcx
+  __int64 v4; // rcx
+  int v5; // eax
+  void *v6; // rcx
+  _ACTIVATION_CONTEXT *v7; // rcx
+  void *v8; // rcx
   int v10; // [rsp+30h] [rbp-58h] BYREF
   __int64 v11; // [rsp+38h] [rbp-50h]
   __int64 v12; // [rsp+40h] [rbp-48h]
@@ -27,12 +29,12 @@ __int64 __fastcall sub_180011B80(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
   int v17; // [rsp+6Ch] [rbp-1Ch]
   int v18; // [rsp+70h] [rbp-18h]
 
-  if ( (unsigned int)RtlGetCurrentServiceSessionId(a1, a2, a3, a4) )
-    v6 = (__int64)NtCurrentPeb()->HotpatchInformation + 556;
+  if ( RtlGetCurrentServiceSessionId() )
+    v4 = (__int64)&NtCurrentPeb()->SharedData->UserModeGlobalLogger[3];
   else
-    v6 = 2147353478LL;
-  if ( *(_BYTE *)v6 )
-    sub_18000441C(v6, a1, *(_QWORD *)(a1 + 56), *(_QWORD *)(a1 + 64), *(_QWORD *)(a1 + 96));
+    v4 = 2147353478LL;
+  if ( *(_BYTE *)v4 )
+    sub_18000441C(v4, a1, *(_QWORD *)(a1 + 56), *(_QWORD *)(a1 + 64), *(_QWORD *)(a1 + 96));
   v11 = 0LL;
   v12 = 0LL;
   v13 = 0LL;
@@ -44,18 +46,20 @@ __int64 __fastcall sub_180011B80(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
   v18 = 72;
   if ( !a2 )
   {
-    v7 = 0;
+    v5 = 0;
     if ( (*(_BYTE *)(a1 + 48) & 0xC0) != 0 )
-      v7 = 2;
-    v16 = v7;
+      v5 = 2;
+    v16 = v5;
   }
   sub_180011C88(*(_QWORD *)(a1 + 32), &v10);
-  v8 = *(_QWORD *)(a1 + 40);
+  v6 = *(void **)(a1 + 40);
+  if ( v6 )
+    ZwClose(v6);
+  v7 = *(_ACTIVATION_CONTEXT **)(a1 + 72);
+  if ( v7 != (_ACTIVATION_CONTEXT *)-1LL )
+    RtlReleaseActivationContext(v7);
+  v8 = *(void **)(a1 + 80);
   if ( v8 )
-    ZwClose(v8);
-  if ( *(_QWORD *)(a1 + 72) != -1LL )
-    RtlReleaseActivationContext();
-  if ( *(_QWORD *)(a1 + 80) )
-    LdrUnloadDll();
-  return RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0LL);
+    LdrUnloadDll(v8);
+  return RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, (PVOID)a1);
 }

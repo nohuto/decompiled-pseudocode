@@ -25,7 +25,7 @@ char __fastcall RtlpMuiRegConfigMatchesInstalled(
   __int64 v7; // r15
   int v8; // r13d
   __int64 v9; // r14
-  __int64 v11; // r12
+  wchar_t *v11; // r12
   bool v12; // zf
   char v13; // bl
   unsigned __int16 *v14; // rdi
@@ -40,8 +40,8 @@ char __fastcall RtlpMuiRegConfigMatchesInstalled(
   __int64 v23; // r8
   const wchar_t *v24; // rdx
   __int64 v25; // r8
-  UNICODE_STRING DestinationString; // [rsp+30h] [rbp-10h] BYREF
-  int v28; // [rsp+78h] [rbp+38h] BYREF
+  _UNICODE_STRING DestinationString; // [rsp+30h] [rbp-10h] BYREF
+  DWORD Lcid; // [rsp+78h] [rbp+38h] BYREF
 
   v7 = 0LL;
   v8 = a2;
@@ -93,9 +93,9 @@ LABEL_3:
             if ( v21 )
             {
               RtlInitUnicodeString(&DestinationString, v21);
-              if ( RtlCultureNameToLCID(&DestinationString.Length, &v28) )
+              if ( RtlCultureNameToLCID(&DestinationString, &Lcid) )
               {
-                v12 = (_WORD)v9 == (unsigned __int16)v28;
+                v12 = (_WORD)v9 == (unsigned __int16)Lcid;
                 goto LABEL_3;
               }
             }
@@ -106,12 +106,12 @@ LABEL_3:
     else if ( a2 == 3 && a4 == 1 )
     {
       v22 = (wchar_t *)MuiRegAllocArray(a1, 0x55u);
-      v11 = (__int64)v22;
+      v11 = v22;
       if ( v22 )
       {
         DestinationString.Buffer = v22;
         *(_DWORD *)&DestinationString.Length = 11141120;
-        if ( RtlLCIDToCultureName((__int16)a5, (__int64)&DestinationString) )
+        if ( RtlLCIDToCultureName((__int16)a5, &DestinationString) )
         {
           v23 = *(_QWORD *)(a1 + 32);
           if ( !v23
@@ -136,7 +136,7 @@ LABEL_46:
       goto LABEL_22;
     }
 LABEL_45:
-    RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v11);
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v11);
     goto LABEL_46;
   }
   if ( !a1 )
@@ -149,7 +149,7 @@ LABEL_45:
     goto LABEL_44;
   v18 = (unsigned __int16)a3;
   LOBYTE(a3) = v8;
-  v11 = *(_QWORD *)(v17 + 16) + 28LL * (__int16)a5;
+  v11 = (wchar_t *)(*(_QWORD *)(v17 + 16) + 28LL * (__int16)a5);
   v13 = RtlpMuiRegLangInfoMatchesSpec(a1, v11, a3, v18);
   if ( v13 && v11 && v14 )
     *v14 = v16;
@@ -162,7 +162,7 @@ LABEL_22:
     {
       if ( v11 )
       {
-        *a6 = v11;
+        *a6 = (__int64)v11;
       }
       else if ( v7 )
       {
@@ -171,11 +171,11 @@ LABEL_22:
       else
       {
         *a6 = 0LL;
-        if ( (int)RtlpMuiRegGetInstalledLanguageIndex(a1, v8, v9, &v28) >= 0 && (v28 & 0x8000u) == 0 )
+        if ( (int)RtlpMuiRegGetInstalledLanguageIndex(a1, v8, v9, &Lcid) >= 0 && (Lcid & 0x8000u) == 0 )
         {
           v25 = *(_QWORD *)(a1 + 24);
-          if ( (__int16)v28 < (int)*(unsigned __int16 *)(v25 + 6) )
-            *v19 = *(_QWORD *)(v25 + 16) + 28LL * (__int16)v28;
+          if ( (__int16)Lcid < (int)*(unsigned __int16 *)(v25 + 6) )
+            *v19 = *(_QWORD *)(v25 + 16) + 28LL * (__int16)Lcid;
         }
       }
     }

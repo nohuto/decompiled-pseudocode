@@ -1,5 +1,5 @@
 /*
- * XREFs of VerifierKeWaitForSingleObject @ 0x1407129A4
+ * XREFs of VerifierKeWaitForSingleObject @ 0x14071295C
  * Callers:
  *     <none>
  * Callees:

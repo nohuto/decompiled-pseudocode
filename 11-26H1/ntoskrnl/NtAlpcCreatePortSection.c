@@ -1,25 +1,31 @@
 /*
- * XREFs of NtAlpcCreatePortSection @ 0x140AB69F0
+ * XREFs of NtAlpcCreatePortSection @ 0x140AB7DB0
  * Callers:
- *     DifNtAlpcCreatePortSectionWrapper @ 0x14066C360 (DifNtAlpcCreatePortSectionWrapper.c)
+ *     DifNtAlpcCreatePortSectionWrapper @ 0x14066FF40 (DifNtAlpcCreatePortSectionWrapper.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     RtlReadULong64FromUser @ 0x14077F554 (RtlReadULong64FromUser.c)
- *     RtlWriteULong64ToUser @ 0x14077F758 (RtlWriteULong64ToUser.c)
- *     ObReferenceObjectByHandle @ 0x1408F9550 (ObReferenceObjectByHandle.c)
- *     AlpcpCreateSection @ 0x1409BB8D8 (AlpcpCreateSection.c)
- *     AlpcpDereferenceBlobEx @ 0x1409C0380 (AlpcpDereferenceBlobEx.c)
- *     AlpcpDeleteBlob @ 0x1409C1AB4 (AlpcpDeleteBlob.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     RtlReadULong64FromUser @ 0x140782054 (RtlReadULong64FromUser.c)
+ *     RtlWriteULong64ToUser @ 0x140782258 (RtlWriteULong64ToUser.c)
+ *     ObReferenceObjectByHandle @ 0x1409294E0 (ObReferenceObjectByHandle.c)
+ *     AlpcpCreateSection @ 0x14098C8B8 (AlpcpCreateSection.c)
+ *     AlpcpDereferenceBlobEx @ 0x140991360 (AlpcpDereferenceBlobEx.c)
+ *     AlpcpDeleteBlob @ 0x140992A94 (AlpcpDeleteBlob.c)
  */
 
-__int64 __fastcall NtAlpcCreatePortSection(HANDLE Handle, int a2, void *a3, void *a4, _QWORD *a5, _QWORD *a6)
+NTSTATUS __cdecl NtAlpcCreatePortSection(
+        HANDLE PortHandle,
+        ULONG Flags,
+        HANDLE SectionHandle,
+        SIZE_T SectionSize,
+        PALPC_HANDLE AlpcSectionHandle,
+        PSIZE_T ActualSectionSize)
 {
   struct _KTHREAD *CurrentThread; // rax
   KPROCESSOR_MODE PreviousMode; // si
   char v11; // di
-  int v12; // ebx
-  void *v13; // r9
+  NTSTATUS v12; // ebx
+  HANDLE v13; // r9
   PVOID v14; // r14
   ULONG_PTR v15; // rdi
   __int64 ULong64FromUser; // rax
@@ -31,14 +37,14 @@ __int64 __fastcall NtAlpcCreatePortSection(HANDLE Handle, int a2, void *a3, void
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
-  if ( (a2 & 0xFFFBFFFF) != 0 )
+  if ( (Flags & 0xFFFBFFFF) != 0 )
     goto LABEL_19;
-  if ( (a2 & 0x40000) == 0 )
+  if ( (Flags & 0x40000) == 0 )
   {
     v11 = 0;
     goto LABEL_5;
   }
-  if ( a3 )
+  if ( SectionHandle )
   {
 LABEL_19:
     v12 = -1073741811;
@@ -48,34 +54,34 @@ LABEL_19:
 LABEL_5:
   if ( PreviousMode )
   {
-    ULong64FromUser = RtlReadULong64FromUser(a5);
-    RtlWriteULong64ToUser(a5, ULong64FromUser);
-    v18 = RtlReadULong64FromUser(a6);
-    RtlWriteULong64ToUser(a6, v18);
+    ULong64FromUser = RtlReadULong64FromUser(AlpcSectionHandle);
+    RtlWriteULong64ToUser(AlpcSectionHandle, ULong64FromUser);
+    v18 = RtlReadULong64FromUser(ActualSectionSize);
+    RtlWriteULong64ToUser(ActualSectionSize, v18);
   }
   Object = 0LL;
-  v12 = ObReferenceObjectByHandle(Handle, 1u, AlpcPortObjectType, PreviousMode, &Object, 0LL);
+  v12 = ObReferenceObjectByHandle(PortHandle, 1u, AlpcPortObjectType, PreviousMode, &Object, 0LL);
   if ( v12 >= 0 )
   {
-    v13 = a3;
+    v13 = SectionHandle;
     v14 = Object;
-    v12 = AlpcpCreateSection((__int64)Object, v11, 1, v13, a4, &BugCheckParameter2);
+    v12 = AlpcpCreateSection((__int64)Object, v11, 1, v13, (PVOID)SectionSize, &BugCheckParameter2);
     if ( v12 >= 0 )
     {
       v15 = BugCheckParameter2;
       if ( PreviousMode )
-        RtlWriteULong64ToUser(a5, *(_QWORD *)(BugCheckParameter2 + 24));
+        RtlWriteULong64ToUser(AlpcSectionHandle, *(_QWORD *)(BugCheckParameter2 + 24));
       else
-        *a5 = *(_QWORD *)(BugCheckParameter2 + 24);
+        *AlpcSectionHandle = *(HANDLE *)(BugCheckParameter2 + 24);
       if ( PreviousMode )
-        RtlWriteULong64ToUser(a6, *(_QWORD *)(v15 + 8));
+        RtlWriteULong64ToUser(ActualSectionSize, *(_QWORD *)(v15 + 8));
       else
-        *a6 = *(_QWORD *)(v15 + 8);
+        *ActualSectionSize = *(_QWORD *)(v15 + 8);
       AlpcpDereferenceBlobEx(v15, 1);
     }
     ObfDereferenceObject(v14);
   }
 LABEL_17:
   KeLeaveCriticalRegion();
-  return (unsigned int)v12;
+  return v12;
 }

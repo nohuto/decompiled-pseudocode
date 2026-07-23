@@ -1,19 +1,19 @@
 /*
- * XREFs of RtlpHpSegHeapCreate @ 0x18007F470
+ * XREFs of RtlpHpSegHeapCreate @ 0x18007F460
  * Callers:
- *     RtlCreateHeap @ 0x18002BA20 (RtlCreateHeap.c)
- *     RtlpHpMetadataHeapInit @ 0x18007F420 (RtlpHpMetadataHeapInit.c)
+ *     RtlCreateHeap @ 0x18002BA10 (RtlCreateHeap.c)
+ *     RtlpHpMetadataHeapInit @ 0x18007F410 (RtlpHpMetadataHeapInit.c)
  * Callees:
- *     RtlRbInsertNodeEx @ 0x18001BC20 (RtlRbInsertNodeEx.c)
- *     RtlpHpSegHeapDestroy @ 0x180052528 (RtlpHpSegHeapDestroy.c)
- *     RtlpHpLfhContextInitialize @ 0x18007F714 (RtlpHpLfhContextInitialize.c)
- *     RtlpHpVsContextInitialize @ 0x18007F868 (RtlpHpVsContextInitialize.c)
- *     RtlpHpSegHeapAllocate @ 0x18007F928 (RtlpHpSegHeapAllocate.c)
- *     RtlpHpSegHeapAddSegment @ 0x18007FAEC (RtlpHpSegHeapAddSegment.c)
- *     RtlpHpSegSegmentInitialize @ 0x18007FB38 (RtlpHpSegSegmentInitialize.c)
- *     RtlpHpSegSegmentAllocate @ 0x18007FB90 (RtlpHpSegSegmentAllocate.c)
- *     RtlpGetHeapInterceptorIndex @ 0x18008F240 (RtlpGetHeapInterceptorIndex.c)
- *     __security_check_cookie @ 0x180096C40 (__security_check_cookie.c)
+ *     RtlRbInsertNodeEx @ 0x18001BC10 (RtlRbInsertNodeEx.c)
+ *     RtlpHpSegHeapDestroy @ 0x180052518 (RtlpHpSegHeapDestroy.c)
+ *     RtlpHpLfhContextInitialize @ 0x18007F704 (RtlpHpLfhContextInitialize.c)
+ *     RtlpHpVsContextInitialize @ 0x18007F858 (RtlpHpVsContextInitialize.c)
+ *     RtlpHpSegHeapAllocate @ 0x18007F918 (RtlpHpSegHeapAllocate.c)
+ *     RtlpHpSegHeapAddSegment @ 0x18007FADC (RtlpHpSegHeapAddSegment.c)
+ *     RtlpHpSegSegmentInitialize @ 0x18007FB28 (RtlpHpSegSegmentInitialize.c)
+ *     RtlpHpSegSegmentAllocate @ 0x18007FB80 (RtlpHpSegSegmentAllocate.c)
+ *     RtlpGetHeapInterceptorIndex @ 0x18008F230 (RtlpGetHeapInterceptorIndex.c)
+ *     __security_check_cookie @ 0x180096C30 (__security_check_cookie.c)
  *     NtQuerySystemInformation @ 0x1800A6AE0 (NtQuerySystemInformation.c)
  *     memset @ 0x1800ACCC0 (memset.c)
  *     RtlpHeapLogRangeCreate @ 0x1800F7DA0 (RtlpHeapLogRangeCreate.c)
@@ -26,25 +26,25 @@ __int64 __fastcall RtlpHpSegHeapCreate(unsigned int a1, unsigned __int64 a2, __i
   char v7; // cl
   __int64 v8; // rax
   __int64 v9; // rdi
-  unsigned __int64 *v10; // r12
+  _RTL_BALANCED_NODE **v10; // r12
   _QWORD *v11; // rax
   unsigned __int64 v12; // rsi
   __int64 v13; // rsi
   unsigned __int8 v15; // al
   __int64 v16; // rax
   __int64 v17; // r15
-  unsigned __int64 v18; // rdx
-  bool v19; // r8
+  _RTL_BALANCED_NODE *v18; // rdx
+  BOOLEAN v19; // r8
   __int64 v20; // rcx
   unsigned __int16 v21; // cx
-  unsigned __int64 v22; // rax
+  _RTL_BALANCED_NODE *v22; // rax
   unsigned int v23; // [rsp+30h] [rbp-59h]
   __int64 v24; // [rsp+38h] [rbp-51h]
   void *v25; // [rsp+40h] [rbp-49h] BYREF
   __int64 (__fastcall *v26)(__int64, __int64, char); // [rsp+48h] [rbp-41h]
-  __int64 (__fastcall *v27)(__int64, __int64, unsigned int); // [rsp+50h] [rbp-39h]
+  __int64 (__fastcall *v27)(PVOID, __int64); // [rsp+50h] [rbp-39h]
   __int64 (__fastcall *v28)(__int64, __int64, unsigned int); // [rsp+58h] [rbp-31h]
-  signed __int64 (__fastcall *v29)(__int64, __int64); // [rsp+60h] [rbp-29h]
+  __int64 (__fastcall *v29)(_RTL_SRWLOCK *, __int64); // [rsp+60h] [rbp-29h]
   char SystemInformation[56]; // [rsp+70h] [rbp-19h] BYREF
   char v31; // [rsp+A8h] [rbp+1Fh]
 
@@ -60,7 +60,7 @@ __int64 __fastcall RtlpHpSegHeapCreate(unsigned int a1, unsigned __int64 a2, __i
   if ( !v8 )
     return 0LL;
   *(_DWORD *)(v8 + 16) = -571548178;
-  v10 = (unsigned __int64 *)(v8 + 120);
+  v10 = (_RTL_BALANCED_NODE **)(v8 + 120);
   v11 = (_QWORD *)(v8 + 96);
   v11[1] = v11;
   *v11 = v11;
@@ -102,7 +102,7 @@ LABEL_12:
       v12 = 0LL;
     }
     v23 = v15;
-    v16 = RtlpHpSegSegmentAllocate(v9, v15);
+    v16 = RtlpHpSegSegmentAllocate((PVOID)v9);
     v17 = v16;
     if ( v16 )
     {
@@ -116,14 +116,14 @@ LABEL_12:
         goto LABEL_16;
       while ( 1 )
       {
-        if ( v21 < *(_WORD *)(v18 + 26) )
+        if ( v21 < WORD1(v18[1].Left) )
         {
-          v22 = *(_QWORD *)v18;
-          if ( !*(_QWORD *)v18 )
+          v22 = v18->Children[0];
+          if ( !v18->Children[0] )
           {
             v19 = 0;
 LABEL_16:
-            RtlRbInsertNodeEx((unsigned __int64 *)(v9 + 120), v18, v19, v17 + 64);
+            RtlRbInsertNodeEx((PRTL_RB_TREE)(v9 + 120), v18, v19, (PRTL_BALANCED_NODE)(v17 + 64));
             *(_QWORD *)(v9 + 24) += (unsigned __int8)~*(_BYTE *)(v17 + 90);
             RtlpHpSegHeapAddSegment(v9, v17);
             if ( !v24 )
@@ -133,7 +133,7 @@ LABEL_16:
         }
         else
         {
-          v22 = *(_QWORD *)(v18 + 8);
+          v22 = v18->Children[1];
           if ( !v22 )
           {
             v19 = 1;

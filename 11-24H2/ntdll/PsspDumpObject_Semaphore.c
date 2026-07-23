@@ -1,16 +1,16 @@
 /*
- * XREFs of PsspDumpObject_Semaphore @ 0x18010D6F0
+ * XREFs of PsspDumpObject_Semaphore @ 0x1801085D0
  * Callers:
  *     <none>
  * Callees:
- *     ZwQuerySemaphore @ 0x1801649C0 (ZwQuerySemaphore.c)
+ *     ZwQuerySemaphore @ 0x180162D80 (ZwQuerySemaphore.c)
  */
 
-__int64 __fastcall PsspDumpObject_Semaphore(__int64 a1, __int64 a2, unsigned int a3, _DWORD *a4)
+NTSTATUS __fastcall PsspDumpObject_Semaphore(void *a1, void *a2, unsigned int a3, ULONG *ReturnLength)
 {
-  *a4 = 0;
+  *ReturnLength = 0;
   if ( a3 < 8 )
-    return 3221225507LL;
+    return -1073741789;
   else
-    return ZwQuerySemaphore(a1, 0LL, a2, 8LL, a4);
+    return ZwQuerySemaphore(a1, SemaphoreBasicInformation, a2, 8u, ReturnLength);
 }

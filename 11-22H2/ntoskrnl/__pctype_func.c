@@ -8,7 +8,7 @@
  *     <none>
  */
 
-wchar_t *__fastcall _pctype_func()
+const unsigned __int16 *_pctype_func(void)
 {
   return pctype;
 }

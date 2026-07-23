@@ -1,8 +1,8 @@
 /*
- * XREFs of PopGetBlockedPhaseGuid @ 0x14087ADF4
+ * XREFs of PopGetBlockedPhaseGuid @ 0x14087C054
  * Callers:
- *     PopPublishAndPurgePowerRequestStats @ 0x14087AE1C (PopPublishAndPurgePowerRequestStats.c)
- *     PopPublishAndResetPowerRequestsCollectionStats @ 0x14087B05C (PopPublishAndResetPowerRequestsCollectionStats.c)
+ *     PopPublishAndPurgePowerRequestStats @ 0x14087C07C (PopPublishAndPurgePowerRequestStats.c)
+ *     PopPublishAndResetPowerRequestsCollectionStats @ 0x14087C2BC (PopPublishAndResetPowerRequestsCollectionStats.c)
  * Callees:
  *     <none>
  */

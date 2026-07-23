@@ -1,12 +1,12 @@
 /*
  * XREFs of SepFindMatchingLowBoxNumberEntries @ 0x1403E1E40
  * Callers:
- *     SepIsParentOfChildAppContainer @ 0x1404E71CC (SepIsParentOfChildAppContainer.c)
+ *     SepIsParentOfChildAppContainer @ 0x1404C9740 (SepIsParentOfChildAppContainer.c)
  * Callees:
- *     RtlInitEnumerationHashTable @ 0x14007CF48 (RtlInitEnumerationHashTable.c)
- *     RtlEnumerateEntryHashTable @ 0x140092020 (RtlEnumerateEntryHashTable.c)
- *     RtlEndEnumerationHashTable @ 0x140092170 (RtlEndEnumerationHashTable.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     RtlInitEnumerationHashTable @ 0x14007CFC8 (RtlInitEnumerationHashTable.c)
+ *     RtlEnumerateEntryHashTable @ 0x140091780 (RtlEnumerateEntryHashTable.c)
+ *     RtlEndEnumerationHashTable @ 0x1400918D0 (RtlEndEnumerationHashTable.c)
+ *     memset @ 0x140171AC0 (memset.c)
  */
 
 __int64 __fastcall SepFindMatchingLowBoxNumberEntries(
@@ -21,7 +21,7 @@ __int64 __fastcall SepFindMatchingLowBoxNumberEntries(
   int Signature; // ecx
   PRTL_DYNAMIC_HASH_TABLE_ENTRY v13; // rax
   bool v14; // zf
-  struct _RTL_DYNAMIC_HASH_TABLE_ENUMERATOR Enumerator; // [rsp+20h] [rbp-48h] BYREF
+  _RTL_DYNAMIC_HASH_TABLE_ENUMERATOR Enumerator; // [rsp+20h] [rbp-48h] BYREF
 
   v9 = 0;
   v10 = 0;

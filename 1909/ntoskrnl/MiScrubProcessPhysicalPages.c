@@ -20,10 +20,10 @@ __int64 __fastcall MiScrubProcessPhysicalPages(__int64 a1, __int64 a2)
   _KPROCESS *Process; // rbx
   __int64 v5; // rax
   __int64 v6; // rbx
-  unsigned __int64 v7; // rsi
+  ULONG64 v7; // rsi
   unsigned __int64 v8; // r12
   __int64 v9; // rcx
-  unsigned __int64 SetBits; // rax
+  ULONG64 SetBits; // rax
   unsigned __int64 v11; // rbp
   __int64 v12; // r14
   ULONG_PTR v13; // rsi
@@ -44,7 +44,7 @@ __int64 __fastcall MiScrubProcessPhysicalPages(__int64 a1, __int64 a2)
     {
       if ( *(_DWORD *)(v3 + 4) )
         break;
-      SetBits = RtlFindSetBitsEx((unsigned __int64 *)(v6 + 16), 1uLL, v7);
+      SetBits = RtlFindSetBitsEx((PRTL_BITMAP_EX)(v6 + 16), 1uLL, v7);
       v11 = SetBits;
       if ( SetBits < v7 || SetBits == -1LL )
         break;

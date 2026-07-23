@@ -1,9 +1,9 @@
 /*
- * XREFs of MiAddNonSecuredPagesToDump @ 0x1401E7470
+ * XREFs of MiAddNonSecuredPagesToDump @ 0x1401E729C
  * Callers:
- *     MmGetDumpRange @ 0x1401E7BA8 (MmGetDumpRange.c)
+ *     MmGetDumpRange @ 0x1401E79D4 (MmGetDumpRange.c)
  * Callees:
- *     MiIsPageSecured @ 0x1401E4BEC (MiIsPageSecured.c)
+ *     MiIsPageSecured @ 0x1401E4A18 (MiIsPageSecured.c)
  */
 
 __int64 __fastcall MiAddNonSecuredPagesToDump(

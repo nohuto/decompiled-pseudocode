@@ -1,11 +1,11 @@
 /*
- * XREFs of PpmEventProcessorVetoRequest @ 0x1405D9AFC
+ * XREFs of PpmEventProcessorVetoRequest @ 0x1405D6E18
  * Callers:
- *     PpmUpdateProcessorIdleVeto @ 0x1405CF5D0 (PpmUpdateProcessorIdleVeto.c)
+ *     PpmUpdateProcessorIdleVeto @ 0x1405CCCF0 (PpmUpdateProcessorIdleVeto.c)
  * Callees:
- *     EtwWriteEx @ 0x140259680 (EtwWriteEx.c)
- *     EtwEventEnabled @ 0x1402A1BD0 (EtwEventEnabled.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     EtwWriteEx @ 0x140289C90 (EtwWriteEx.c)
+ *     EtwEventEnabled @ 0x1402D1300 (EtwEventEnabled.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 char __fastcall PpmEventProcessorVetoRequest(__int64 a1, int a2, int a3, char a4)

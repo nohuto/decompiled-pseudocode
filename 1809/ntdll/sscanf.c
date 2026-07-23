@@ -1,9 +1,9 @@
 /*
- * XREFs of sscanf @ 0x1800946A0
+ * XREFs of sscanf @ 0x1800946B0
  * Callers:
  *     <none>
  * Callees:
- *     vscan_fn @ 0x1800946DC (vscan_fn.c)
+ *     vscan_fn @ 0x1800946EC (vscan_fn.c)
  */
 
 int sscanf(const char *const Buffer, const char *const Format, ...)

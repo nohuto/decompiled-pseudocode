@@ -1,29 +1,29 @@
 /*
- * XREFs of RtlpInterlockedPopEntrySList @ 0x180162CD0
+ * XREFs of RtlpInterlockedPopEntrySList @ 0x180162BD0
  * Callers:
- *     RtlpFreeUserBlock @ 0x1800181A0 (RtlpFreeUserBlock.c)
- *     RtlpLocalInfoAllocFromCache @ 0x18001B870 (RtlpLocalInfoAllocFromCache.c)
- *     RtlpLowFragHeapAllocFromContext @ 0x18001CED0 (RtlpLowFragHeapAllocFromContext.c)
- *     EtwNotificationRegister @ 0x1800571C0 (EtwNotificationRegister.c)
- *     RtlInitializeResource @ 0x180079E50 (RtlInitializeResource.c)
- *     RtlpAddDebugInfoToCriticalSection @ 0x18007AED0 (RtlpAddDebugInfoToCriticalSection.c)
- *     RtlpStdGetSpaceForTrace @ 0x18007C79C (RtlpStdGetSpaceForTrace.c)
- *     RtlAllocateMemoryBlockLookaside @ 0x18016E010 (RtlAllocateMemoryBlockLookaside.c)
+ *     RtlpFreeUserBlock @ 0x180003280 (RtlpFreeUserBlock.c)
+ *     RtlpLocalInfoAllocFromCache @ 0x180006940 (RtlpLocalInfoAllocFromCache.c)
+ *     RtlpLowFragHeapAllocFromContext @ 0x180007FA0 (RtlpLowFragHeapAllocFromContext.c)
+ *     EtwNotificationRegister @ 0x180041740 (EtwNotificationRegister.c)
+ *     RtlInitializeResource @ 0x180068670 (RtlInitializeResource.c)
+ *     RtlpAddDebugInfoToCriticalSection @ 0x1800696F0 (RtlpAddDebugInfoToCriticalSection.c)
+ *     RtlpStdGetSpaceForTrace @ 0x18006AFBC (RtlpStdGetSpaceForTrace.c)
+ *     RtlAllocateMemoryBlockLookaside @ 0x18016D010 (RtlAllocateMemoryBlockLookaside.c)
  * Callees:
  *     <none>
  */
 
 PSLIST_ENTRY __stdcall RtlpInterlockedPopEntrySList(PSLIST_HEADER ListHead)
 {
-  struct _SLIST_ENTRY *v1; // r8
+  _SLIST_ENTRY *v1; // r8
   unsigned __int64 Alignment; // rbx
-  union _SLIST_HEADER v3; // rt0
+  _SLIST_HEADER v3; // rt0
   signed __int32 v6; // [rsp+10h] [rbp+8h] BYREF
 
   _m_prefetchw(ListHead);
   while ( 1 )
   {
-    v1 = (struct _SLIST_ENTRY *)(ListHead->Region & 0xFFFFFFFFFFFFFFF0uLL);
+    v1 = (_SLIST_ENTRY *)(ListHead->Region & 0xFFFFFFFFFFFFFFF0uLL);
     if ( !v1 )
       break;
     Alignment = ListHead->Alignment;

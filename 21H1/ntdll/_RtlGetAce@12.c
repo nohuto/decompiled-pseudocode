@@ -6,31 +6,31 @@
  *     <none>
  */
 
-int __stdcall RtlGetAce(int a1, unsigned int a2, _DWORD *a3)
+NTSTATUS __cdecl RtlGetAce(PACL Acl, ULONG AceIndex, PVOID *Ace)
 {
-  unsigned int v3; // edx
-  unsigned int v4; // ebx
+  PACL v3; // edx
+  ULONG v4; // ebx
 
-  if ( (unsigned __int8)(*(_BYTE *)a1 - 2) <= 2u && a2 < *(unsigned __int16 *)(a1 + 4) )
+  if ( (unsigned __int8)(Acl->AclRevision - 2) <= 2u && AceIndex < Acl->AceCount )
   {
-    v3 = a1 + 8;
+    v3 = Acl + 1;
     v4 = 0;
-    *a3 = a1 + 8;
-    if ( a2 )
+    *Ace = &Acl[1];
+    if ( AceIndex )
     {
-      while ( v3 < a1 + (unsigned int)*(unsigned __int16 *)(a1 + 2) )
+      while ( v3 < (PACL)((char *)Acl + Acl->AclSize) )
       {
-        v3 += *(unsigned __int16 *)(v3 + 2);
+        v3 = (PACL)((char *)v3 + v3->AclSize);
         ++v4;
-        *a3 = v3;
-        if ( v4 >= a2 )
+        *Ace = v3;
+        if ( v4 >= AceIndex )
           goto LABEL_6;
       }
     }
     else
     {
 LABEL_6:
-      if ( v3 < a1 + (unsigned int)*(unsigned __int16 *)(a1 + 2) )
+      if ( v3 < (PACL)((char *)Acl + Acl->AclSize) )
         return 0;
     }
   }

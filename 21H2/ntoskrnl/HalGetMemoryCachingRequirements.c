@@ -1,8 +1,8 @@
 /*
- * XREFs of HalGetMemoryCachingRequirements @ 0x1403A47D0
+ * XREFs of HalGetMemoryCachingRequirements @ 0x1403A4920
  * Callers:
- *     PopGetHwConfigurationSignature @ 0x140996EE4 (PopGetHwConfigurationSignature.c)
- *     HalpPowerInitFwPerformanceTableMappings @ 0x140A6967C (HalpPowerInitFwPerformanceTableMappings.c)
+ *     PopGetHwConfigurationSignature @ 0x140997EE4 (PopGetHwConfigurationSignature.c)
+ *     HalpPowerInitFwPerformanceTableMappings @ 0x140A6A67C (HalpPowerInitFwPerformanceTableMappings.c)
  * Callees:
  *     <none>
  */

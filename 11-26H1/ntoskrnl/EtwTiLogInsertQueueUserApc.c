@@ -1,15 +1,15 @@
 /*
- * XREFs of EtwTiLogInsertQueueUserApc @ 0x1402579A8
+ * XREFs of EtwTiLogInsertQueueUserApc @ 0x140259188
  * Callers:
- *     KeInsertQueueApc @ 0x14020AD90 (KeInsertQueueApc.c)
+ *     KeInsertQueueApc @ 0x14020AE70 (KeInsertQueueApc.c)
  * Callees:
- *     EtwEventEnabled @ 0x140212D90 (EtwEventEnabled.c)
- *     EtwProviderEnabled @ 0x1402563E0 (EtwProviderEnabled.c)
- *     EtwpTiFillProcessIdentity @ 0x140257DB0 (EtwpTiFillProcessIdentity.c)
- *     EtwpTiVadQueryEventWrite @ 0x140258ACC (EtwpTiVadQueryEventWrite.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     EtwEventEnabled @ 0x140212E70 (EtwEventEnabled.c)
+ *     EtwProviderEnabled @ 0x140257D70 (EtwProviderEnabled.c)
+ *     EtwpTiFillProcessIdentity @ 0x140259590 (EtwpTiFillProcessIdentity.c)
+ *     EtwpTiVadQueryEventWrite @ 0x14025A2AC (EtwpTiVadQueryEventWrite.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void EtwTiLogInsertQueueUserApc(char a1, __int64 a2, __int64 a3, ...)
@@ -67,7 +67,7 @@ void EtwTiLogInsertQueueUserApc(char a1, __int64 a2, __int64 a3, ...)
   v44 = va_arg(va3, _QWORD);
   v46 = va_arg(va3, _QWORD);
   v36 = 0LL;
-  if ( EtwProviderEnabled(*(REGHANDLE *)&EtwpSecurityLock.AbWaitEntryCount, 0, 0x3000uLL) )
+  if ( EtwProviderEnabled(EtwThreatIntProvRegHandle, 0, 0x3000uLL) )
   {
     v6 = *(_KPROCESS **)(a2 + 544);
     Process = KeGetCurrentThread()->ApcState.Process;
@@ -77,9 +77,9 @@ void EtwTiLogInsertQueueUserApc(char a1, __int64 a2, __int64 a3, ...)
       EventDescriptor = (const EVENT_DESCRIPTOR *)THREATINT_QUEUEUSERAPC_REMOTE_KERNEL_CALLER;
       if ( a1 )
         EventDescriptor = &THREATINT_QUEUEUSERAPC_REMOTE;
-      if ( EtwEventEnabled(*(REGHANDLE *)&EtwpSecurityLock.AbWaitEntryCount, EventDescriptor)
+      if ( EtwEventEnabled(EtwThreatIntProvRegHandle, EventDescriptor)
         && ((KeGetPcr()->Prcb.DpcRequestSummary & 0x10001) == 0
-         || EtwProviderEnabled(*(REGHANDLE *)&EtwpSecurityLock.AbWaitEntryCount, 0, 0x20000000000uLL)) )
+         || EtwProviderEnabled(EtwThreatIntProvRegHandle, 0, 0x20000000000uLL)) )
       {
         Pool2 = ExAllocatePool2(0x40uLL);
         v12 = (struct _EVENT_DATA_DESCRIPTOR *)Pool2;
@@ -127,7 +127,7 @@ void EtwTiLogInsertQueueUserApc(char a1, __int64 a2, __int64 a3, ...)
           v31 = (unsigned int)v22 + v29;
           v12[v31].Ptr = (ULONGLONG)va2;
           *(_QWORD *)&v12[v31].Size = 8LL;
-          v32 = EtwProviderEnabled(*(REGHANDLE *)&EtwpSecurityLock.AbWaitEntryCount, 0, 0x8000000uLL);
+          v32 = EtwProviderEnabled(EtwThreatIntProvRegHandle, 0, 0x8000000uLL);
           if ( v32 )
             v36 = v40;
           EtwpTiVadQueryEventWrite(v12, (__int64)&v35, 2, EventDescriptor, v32);

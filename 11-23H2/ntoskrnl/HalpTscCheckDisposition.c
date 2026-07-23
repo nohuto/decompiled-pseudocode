@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpTscCheckDisposition @ 0x14050A504
+ * XREFs of HalpTscCheckDisposition @ 0x14050AA54
  * Callers:
- *     HalpPowerStateCallback @ 0x1403B06D0 (HalpPowerStateCallback.c)
+ *     HalpPowerStateCallback @ 0x1403B08B0 (HalpPowerStateCallback.c)
  * Callees:
  *     KeQueryActiveProcessorCountEx @ 0x140222050 (KeQueryActiveProcessorCountEx.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
  */
 
 void HalpTscCheckDisposition()

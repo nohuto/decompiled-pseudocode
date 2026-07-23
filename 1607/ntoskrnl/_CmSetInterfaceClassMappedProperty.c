@@ -1,18 +1,18 @@
 /*
- * XREFs of _CmSetInterfaceClassMappedProperty @ 0x1406DF618
+ * XREFs of _CmSetInterfaceClassMappedProperty @ 0x1406DF750
  * Callers:
- *     _PnpDispatchInterfaceClass @ 0x1404F6648 (_PnpDispatchInterfaceClass.c)
- *     _CmDeleteInterfaceClassWorker @ 0x1406D9330 (_CmDeleteInterfaceClassWorker.c)
+ *     _PnpDispatchInterfaceClass @ 0x1404D95D4 (_PnpDispatchInterfaceClass.c)
+ *     _CmDeleteInterfaceClassWorker @ 0x1406D9468 (_CmDeleteInterfaceClassWorker.c)
  * Callees:
- *     _PnpObjectRaisePropertyChangeEvent @ 0x1405067F4 (_PnpObjectRaisePropertyChangeEvent.c)
- *     _CmDeleteInterfaceClassMappedPropertyFromRegValue @ 0x1406DCDB4 (_CmDeleteInterfaceClassMappedPropertyFromRegValue.c)
- *     _CmSetInterfaceClassMappedPropertyFromRegValue @ 0x1406DF754 (_CmSetInterfaceClassMappedPropertyFromRegValue.c)
+ *     _PnpObjectRaisePropertyChangeEvent @ 0x1404E9784 (_PnpObjectRaisePropertyChangeEvent.c)
+ *     _CmDeleteInterfaceClassMappedPropertyFromRegValue @ 0x1406DCEEC (_CmDeleteInterfaceClassMappedPropertyFromRegValue.c)
+ *     _CmSetInterfaceClassMappedPropertyFromRegValue @ 0x1406DF88C (_CmSetInterfaceClassMappedPropertyFromRegValue.c)
  */
 
 __int64 __fastcall CmSetInterfaceClassMappedProperty(
         __int64 *a1,
         __int64 a2,
-        void *a3,
+        __int64 a3,
         __int64 a4,
         __int64 a5,
         unsigned int a6,
@@ -33,7 +33,7 @@ __int64 __fastcall CmSetInterfaceClassMappedProperty(
   v11 = -1073741802;
   if ( !a4 )
   {
-    v12 = &off_1406E9778;
+    v12 = &off_1406E98A8;
     v13 = 0;
     while ( 1 )
     {
@@ -54,14 +54,14 @@ __int64 __fastcall CmSetInterfaceClassMappedProperty(
     if ( a6 < 2 )
       v16 = CmDeleteInterfaceClassMappedPropertyFromRegValue(a1, a2, a3, a5);
     else
-      v16 = CmSetInterfaceClassMappedPropertyFromRegValue((_DWORD)a1, a2, (_DWORD)a3, a5, a6, a7, a8);
+      v16 = CmSetInterfaceClassMappedPropertyFromRegValue((_DWORD)a1, a2, a3, a5, a6, a7, a8);
     v11 = v16;
     if ( v16 >= 0 )
-      PnpObjectRaisePropertyChangeEvent((__int64)a1, a2, 4LL, (__int64)a3, 0LL, a5);
+      PnpObjectRaisePropertyChangeEvent((__int64)a1, a2, 4LL, a3, 0LL, a5);
     if ( v11 != -1073741802 )
       return v11;
 LABEL_16:
-    v17 = &off_1406E9848;
+    v17 = &off_1406E9978;
     v18 = 0;
     while ( 1 )
     {

@@ -1,25 +1,25 @@
 /*
- * XREFs of VmpPinMemoryRanges @ 0x1406C1F74
+ * XREFs of VmpPinMemoryRanges @ 0x1406C5B54
  * Callers:
- *     VmPinMemoryRanges @ 0x14081D290 (VmPinMemoryRanges.c)
+ *     VmPinMemoryRanges @ 0x1408234A0 (VmPinMemoryRanges.c)
  * Callees:
- *     ExReleaseSpinLockExclusive @ 0x14021AA80 (ExReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x140249CD0 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockShared @ 0x14026CEE0 (ExReleaseSpinLockShared.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockShared @ 0x1402EDF10 (ExAcquireSpinLockShared.c)
- *     VmpCheckPinAndReference @ 0x1406C0C08 (VmpCheckPinAndReference.c)
- *     VmpDereferencePinInProgress @ 0x1406C0E04 (VmpDereferencePinInProgress.c)
- *     VmpNewPinnedRangesNeeded @ 0x1406C1648 (VmpNewPinnedRangesNeeded.c)
- *     VmpUpdatePinRangesForFirstPin @ 0x1406C1DFC (VmpUpdatePinRangesForFirstPin.c)
- *     MmLockPhysicalPagesByVa @ 0x1406EA82C (MmLockPhysicalPagesByVa.c)
- *     MmUnlockPhysicalPagesByVa @ 0x1406EA99C (MmUnlockPhysicalPagesByVa.c)
- *     VmpAccessFault @ 0x14081C2B4 (VmpAccessFault.c)
- *     VmpCheckPinTooLate @ 0x14081D828 (VmpCheckPinTooLate.c)
- *     VmpSecureMemoryForPin @ 0x14081DB10 (VmpSecureMemoryForPin.c)
- *     VmpUnpinRangeSinglePages @ 0x14081DD5C (VmpUnpinRangeSinglePages.c)
- *     VmpUnsecureMemoryForPin @ 0x14081DEE4 (VmpUnsecureMemoryForPin.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ExReleaseSpinLockExclusive @ 0x14021C410 (ExReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024B630 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockShared @ 0x14026C450 (ExReleaseSpinLockShared.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockShared @ 0x1402CFF90 (ExAcquireSpinLockShared.c)
+ *     VmpCheckPinAndReference @ 0x1406C47E8 (VmpCheckPinAndReference.c)
+ *     VmpDereferencePinInProgress @ 0x1406C49E4 (VmpDereferencePinInProgress.c)
+ *     VmpNewPinnedRangesNeeded @ 0x1406C5228 (VmpNewPinnedRangesNeeded.c)
+ *     VmpUpdatePinRangesForFirstPin @ 0x1406C59DC (VmpUpdatePinRangesForFirstPin.c)
+ *     MmLockPhysicalPagesByVa @ 0x1406EF4CC (MmLockPhysicalPagesByVa.c)
+ *     MmUnlockPhysicalPagesByVa @ 0x1406EF63C (MmUnlockPhysicalPagesByVa.c)
+ *     VmpAccessFault @ 0x1408224C4 (VmpAccessFault.c)
+ *     VmpCheckPinTooLate @ 0x140823A38 (VmpCheckPinTooLate.c)
+ *     VmpSecureMemoryForPin @ 0x140823D20 (VmpSecureMemoryForPin.c)
+ *     VmpUnpinRangeSinglePages @ 0x140823F6C (VmpUnpinRangeSinglePages.c)
+ *     VmpUnsecureMemoryForPin @ 0x1408240F4 (VmpUnsecureMemoryForPin.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall VmpPinMemoryRanges(PEX_SPIN_LOCK SpinLock, __int64 a2, _DWORD *a3)
@@ -52,7 +52,7 @@ __int64 __fastcall VmpPinMemoryRanges(PEX_SPIN_LOCK SpinLock, __int64 a2, _DWORD
   unsigned __int64 *v29; // r14
   __int64 v30; // rcx
   __int64 v31; // rax
-  unsigned __int64 v32; // rcx
+  unsigned __int64 Root; // rcx
   unsigned __int64 m; // rsi
   __int64 v34; // rsi
   __int64 v35; // rdx
@@ -82,7 +82,7 @@ __int64 __fastcall VmpPinMemoryRanges(PEX_SPIN_LOCK SpinLock, __int64 a2, _DWORD
   unsigned __int64 *v60; // [rsp+50h] [rbp-30h]
   __int64 v61; // [rsp+58h] [rbp-28h]
   unsigned __int64 v62; // [rsp+60h] [rbp-20h]
-  __int128 v63; // [rsp+68h] [rbp-18h] BYREF
+  _RTL_RB_TREE v63; // [rsp+68h] [rbp-18h] BYREF
   __int64 v66; // [rsp+D0h] [rbp+50h]
   KIRQL v67; // [rsp+D8h] [rbp+58h]
   __int64 v68; // [rsp+D8h] [rbp+58h]
@@ -147,7 +147,12 @@ LABEL_20:
   {
     if ( (_DWORD)v17 )
     {
-      updated = VmpUpdatePinRangesForFirstPin((__int64)SpinLock, *(i - 2), *(i - 2) + *(i - 1) - 1, (__int64)&v63, 1);
+      updated = VmpUpdatePinRangesForFirstPin(
+                  (__int64)SpinLock,
+                  (_RTL_BALANCED_NODE *)*(i - 2),
+                  (_RTL_BALANCED_NODE *)(*(i - 2) + *(i - 1) - 1),
+                  &v63,
+                  1);
       if ( updated < 0 )
       {
 LABEL_47:
@@ -298,14 +303,14 @@ LABEL_75:
   }
   if ( v17 )
   {
-    v32 = v63;
-    if ( (BYTE8(v63) & 1) == 0 )
+    Root = (unsigned __int64)v63.Root;
+    if ( (*(_BYTE *)&v63.0 & 1) == 0 )
       goto LABEL_80;
-    if ( !(_QWORD)v63 )
+    if ( !v63.Root )
       goto LABEL_81;
-    v32 = (unsigned __int64)&v63 ^ v63;
+    Root = (unsigned __int64)&v63 ^ (unsigned __int64)v63.Root;
 LABEL_80:
-    if ( !v32 )
+    if ( !Root )
     {
 LABEL_81:
       for ( m = (unsigned __int64)v6; m < v8; m += 48LL )
@@ -336,7 +341,12 @@ LABEL_88:
     v37 = *v36;
     if ( (*v36 & 0x40000000000000LL) == 0 )
     {
-      VmpUpdatePinRangesForFirstPin((__int64)SpinLock, *(v36 - 2), *(v36 - 2) + *(v36 - 1) - 1, (__int64)&v63, 0);
+      VmpUpdatePinRangesForFirstPin(
+        (__int64)SpinLock,
+        (_RTL_BALANCED_NODE *)*(v36 - 2),
+        (_RTL_BALANCED_NODE *)(*(v36 - 2) + *(v36 - 1) - 1),
+        &v63,
+        0);
       v35 = v66;
       *(_DWORD *)(v36[1] + 64) |= 1u;
       v37 = *v36 & 0xFFAFFFFFFFFFFFFFuLL | 0x40000000000000LL;
@@ -482,15 +492,15 @@ LABEL_98:
     }
     while ( v45 );
   }
-  v50 = v63;
-  if ( (BYTE8(v63) & 1) != 0 )
+  v50 = (unsigned __int64)v63.Root;
+  if ( (*(_BYTE *)&v63.0 & 1) != 0 )
   {
-    if ( (_QWORD)v63 )
-      v50 = (unsigned __int64)&v63 ^ v63;
+    if ( v63.Root )
+      v50 = (unsigned __int64)&v63 ^ (unsigned __int64)v63.Root;
     else
       v50 = 0LL;
   }
-  v51 = BYTE8(v63) & 1;
+  v51 = *(_BYTE *)&v63.0 & 1;
   if ( v50 )
   {
     while ( 1 )

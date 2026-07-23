@@ -1,7 +1,7 @@
 /*
- * XREFs of PiDmFreeMem @ 0x14062F8CC
+ * XREFs of PiDmFreeMem @ 0x14062F980
  * Callers:
- *     PiDmObjectUpdateCachedObjectProperty @ 0x1404FFCDC (PiDmObjectUpdateCachedObjectProperty.c)
+ *     PiDmObjectUpdateCachedObjectProperty @ 0x1404E2C6C (PiDmObjectUpdateCachedObjectProperty.c)
  * Callees:
  *     <none>
  */

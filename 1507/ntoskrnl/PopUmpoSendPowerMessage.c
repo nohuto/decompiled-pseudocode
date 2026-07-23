@@ -19,7 +19,7 @@ __int64 __fastcall PopUmpoSendPowerMessage(void *Src, size_t Size)
 {
   HANDLE v4; // rdi
   unsigned int v5; // ebx
-  _WORD v7[256]; // [rsp+40h] [rbp-218h] BYREF
+  _BYTE SendMessageA[512]; // [rsp+40h] [rbp-218h] BYREF
 
   PopAcquireUmpoPushLock(0LL);
   v4 = PopAlpcClientPort;
@@ -31,11 +31,11 @@ __int64 __fastcall PopUmpoSendPowerMessage(void *Src, size_t Size)
     }
     else
     {
-      memset(v7, 0, sizeof(v7));
-      v7[0] = Size;
-      v7[1] = Size + 40;
-      memmove(&v7[20], Src, Size);
-      v5 = ZwAlpcSendWaitReceivePort(v4, 0x10000LL, v7, 0LL, 0LL, 0LL, 0LL, 0LL);
+      memset(SendMessageA, 0, sizeof(SendMessageA));
+      *(_WORD *)SendMessageA = Size;
+      *(_WORD *)&SendMessageA[2] = Size + 40;
+      memmove(&SendMessageA[40], Src, Size);
+      v5 = ZwAlpcSendWaitReceivePort(v4, 0x10000u, (PPORT_MESSAGE)SendMessageA, 0LL, 0LL, 0LL, 0LL, 0LL);
     }
   }
   else

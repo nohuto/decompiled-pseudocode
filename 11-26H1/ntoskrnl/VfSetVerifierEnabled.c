@@ -1,7 +1,7 @@
 /*
- * XREFs of VfSetVerifierEnabled @ 0x140C215E0
+ * XREFs of VfSetVerifierEnabled @ 0x140C275F0
  * Callers:
- *     VfVolatileClearDifRuleClass @ 0x140647964 (VfVolatileClearDifRuleClass.c)
+ *     VfVolatileClearDifRuleClass @ 0x14064B544 (VfVolatileClearDifRuleClass.c)
  * Callees:
  *     <none>
  */

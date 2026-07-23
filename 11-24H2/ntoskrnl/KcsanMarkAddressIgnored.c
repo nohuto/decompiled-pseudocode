@@ -1,12 +1,12 @@
 /*
- * XREFs of KcsanMarkAddressIgnored @ 0x1404A4410
+ * XREFs of KcsanMarkAddressIgnored @ 0x14049F1A0
  * Callers:
- *     MiAllocateSlabEntry @ 0x1404A4378 (MiAllocateSlabEntry.c)
- *     MiInitializeDecayPfns @ 0x140C5C2D8 (MiInitializeDecayPfns.c)
+ *     MiAllocateSlabEntry @ 0x14049F108 (MiAllocateSlabEntry.c)
+ *     MiInitializeDecayPfns @ 0x140C5E468 (MiInitializeDecayPfns.c)
  * Callees:
- *     KasanTrackAddress @ 0x140459A10 (KasanTrackAddress.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     KasanTrackAddress @ 0x14044E740 (KasanTrackAddress.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 void __fastcall KcsanMarkAddressIgnored(ULONG_PTR BugCheckParameter3, ULONG_PTR BugCheckParameter4)
@@ -20,7 +20,7 @@ void __fastcall KcsanMarkAddressIgnored(ULONG_PTR BugCheckParameter3, ULONG_PTR 
     v4 = KasanTrackAddress(BugCheckParameter3, BugCheckParameter4, 0LL);
     if ( v4 < 0 )
       KeBugCheckEx(0x1F1u, 4uLL, 5uLL, v4, 2uLL);
-    if ( byte_140FCDC28 )
+    if ( byte_140FCECA8 )
     {
       if ( BugCheckParameter3 < 0xFFFF800000000000uLL )
         KeBugCheckEx(0x1F1u, 2uLL, 1uLL, BugCheckParameter3, 0LL);

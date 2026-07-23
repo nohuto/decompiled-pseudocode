@@ -1,12 +1,12 @@
 /*
- * XREFs of PfProcessCreateNotification @ 0x140666B5C
+ * XREFs of PfProcessCreateNotification @ 0x140667D1C
  * Callers:
- *     PspUserThreadStartup @ 0x1405F6E40 (PspUserThreadStartup.c)
+ *     PspUserThreadStartup @ 0x1405F7E40 (PspUserThreadStartup.c)
  * Callees:
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     PfSnBeginAppLaunch @ 0x140666BF4 (PfSnBeginAppLaunch.c)
- *     PfCheckDeprioritizeImage @ 0x140666E54 (PfCheckDeprioritizeImage.c)
- *     PfCalculateProcessHash @ 0x140666FA0 (PfCalculateProcessHash.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     PfSnBeginAppLaunch @ 0x140667DB4 (PfSnBeginAppLaunch.c)
+ *     PfCheckDeprioritizeImage @ 0x140668014 (PfCheckDeprioritizeImage.c)
+ *     PfCalculateProcessHash @ 0x140668160 (PfCalculateProcessHash.c)
  */
 
 __int64 __fastcall PfProcessCreateNotification(__int64 a1, __int64 a2)
@@ -17,10 +17,10 @@ __int64 __fastcall PfProcessCreateNotification(__int64 a1, __int64 a2)
   if ( !a2 )
     return 3221225659LL;
   P = 0LL;
-  if ( (dword_14043BB48 & 1) != 0 || (dword_14043C1B0 & 1) != 0 )
+  if ( (dword_14043CC08 & 1) != 0 || (dword_14043D270 & 1) != 0 )
   {
     PfCalculateProcessHash(a1, (char *)&P + 1);
-    if ( (dword_14043C1B0 & 1) != 0 )
+    if ( (dword_14043D270 & 1) != 0 )
     {
       v3 = *(unsigned int *)(a1 + 1180);
       if ( (_DWORD)v3 )

@@ -1,56 +1,64 @@
 /*
- * XREFs of RtlUpcaseUnicodeStringToOemString @ 0x18007C7C0
+ * XREFs of RtlUpcaseUnicodeStringToOemString @ 0x18007C7B0
  * Callers:
  *     <none>
  * Callees:
- *     NtdllpFreeStringRoutine @ 0x1800094E0 (NtdllpFreeStringRoutine.c)
- *     NtdllpAllocateStringRoutine @ 0x180018BE8 (NtdllpAllocateStringRoutine.c)
- *     RtlpDidUnicodeToOemWork @ 0x18007C8B8 (RtlpDidUnicodeToOemWork.c)
- *     RtlUpcaseUnicodeToOemN @ 0x18007C950 (RtlUpcaseUnicodeToOemN.c)
- *     RtlxUnicodeStringToOemSize @ 0x18007E8A0 (RtlxUnicodeStringToOemSize.c)
+ *     NtdllpFreeStringRoutine @ 0x1800094D0 (NtdllpFreeStringRoutine.c)
+ *     NtdllpAllocateStringRoutine @ 0x180018BD8 (NtdllpAllocateStringRoutine.c)
+ *     RtlpDidUnicodeToOemWork @ 0x18007C8A8 (RtlpDidUnicodeToOemWork.c)
+ *     RtlUpcaseUnicodeToOemN @ 0x18007C940 (RtlUpcaseUnicodeToOemN.c)
+ *     RtlxUnicodeStringToOemSize @ 0x18007E890 (RtlxUnicodeStringToOemSize.c)
  */
 
-__int64 __fastcall RtlUpcaseUnicodeStringToOemString(unsigned __int16 *a1, unsigned __int16 *a2, char a3)
+NTSTATUS __cdecl RtlUpcaseUnicodeStringToOemString(
+        POEM_STRING DestinationString,
+        PUNICODE_STRING SourceString,
+        BOOLEAN AllocateDestinationString)
 {
   unsigned __int64 v6; // rax
   int v7; // edi
-  __int64 StringRoutine; // rax
-  unsigned int v10; // [rsp+78h] [rbp+20h] BYREF
+  char *StringRoutine; // rax
+  ULONG BytesInOemString; // [rsp+78h] [rbp+20h] BYREF
 
   if ( NlsMbOemCodePageTag )
-    LODWORD(v6) = RtlxUnicodeStringToOemSize(a2);
+    LODWORD(v6) = RtlxUnicodeStringToOemSize(SourceString);
   else
-    v6 = ((unsigned __int64)*a2 + 2) >> 1;
+    v6 = ((unsigned __int64)SourceString->Length + 2) >> 1;
   if ( (unsigned int)v6 > 0xFFFF )
-    return 3221225712LL;
-  *a1 = v6 - 1;
-  if ( a3 )
+    return -1073741584;
+  DestinationString->Length = v6 - 1;
+  if ( AllocateDestinationString )
   {
-    a1[1] = v6;
-    StringRoutine = NtdllpAllocateStringRoutine((unsigned int)v6);
-    *((_QWORD *)a1 + 1) = StringRoutine;
+    DestinationString->MaximumLength = v6;
+    StringRoutine = (char *)NtdllpAllocateStringRoutine((unsigned int)v6);
+    DestinationString->Buffer = StringRoutine;
     if ( !StringRoutine )
-      return 3221225495LL;
+      return -1073741801;
   }
-  else if ( (unsigned __int16)(v6 - 1) >= a1[1] )
+  else if ( (unsigned __int16)(v6 - 1) >= DestinationString->MaximumLength )
   {
-    return 2147483653LL;
+    return -2147483643;
   }
-  v7 = RtlUpcaseUnicodeToOemN(*((_QWORD *)a1 + 1), *a1, (unsigned int)&v10, *((_QWORD *)a2 + 1), *a2);
-  if ( v7 >= 0 && !(unsigned __int8)RtlpDidUnicodeToOemWork(a1, a2) )
+  v7 = RtlUpcaseUnicodeToOemN(
+         DestinationString->Buffer,
+         DestinationString->Length,
+         &BytesInOemString,
+         SourceString->Buffer,
+         SourceString->Length);
+  if ( v7 >= 0 && !(unsigned __int8)RtlpDidUnicodeToOemWork(DestinationString, SourceString) )
     v7 = -1073741470;
   if ( v7 >= 0 )
   {
-    *(_BYTE *)(v10 + *((_QWORD *)a1 + 1)) = 0;
+    DestinationString->Buffer[BytesInOemString] = 0;
     v7 = 0;
   }
   if ( v7 < 0 )
   {
-    if ( a3 )
+    if ( AllocateDestinationString )
     {
-      NtdllpFreeStringRoutine(*((_QWORD *)a1 + 1));
-      *((_QWORD *)a1 + 1) = 0LL;
+      NtdllpFreeStringRoutine(DestinationString->Buffer);
+      DestinationString->Buffer = 0LL;
     }
   }
-  return (unsigned int)v7;
+  return v7;
 }

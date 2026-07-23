@@ -1,10 +1,10 @@
 /*
- * XREFs of BiConvertNtFilePathToBootEnvironment @ 0x140A5CD84
+ * XREFs of BiConvertNtFilePathToBootEnvironment @ 0x140A5D034
  * Callers:
- *     BiConvertNtDeviceToBootEnvironment @ 0x140806608 (BiConvertNtDeviceToBootEnvironment.c)
+ *     BiConvertNtDeviceToBootEnvironment @ 0x1408068D8 (BiConvertNtDeviceToBootEnvironment.c)
  * Callees:
- *     memmove @ 0x140435700 (memmove.c)
- *     BiConvertNtDeviceToBootEnvironment @ 0x140806608 (BiConvertNtDeviceToBootEnvironment.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     BiConvertNtDeviceToBootEnvironment @ 0x1408068D8 (BiConvertNtDeviceToBootEnvironment.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

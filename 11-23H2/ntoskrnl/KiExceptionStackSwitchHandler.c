@@ -1,9 +1,9 @@
 /*
- * XREFs of KiExceptionStackSwitchHandler @ 0x14035EBD8
+ * XREFs of KiExceptionStackSwitchHandler @ 0x14035ED78
  * Callers:
  *     <none>
  * Callees:
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall KiExceptionStackSwitchHandler(int *a1)

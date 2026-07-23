@@ -1,18 +1,18 @@
 /*
- * XREFs of PopPowerRequestCallbackWorker @ 0x1404A68A0
+ * XREFs of PopPowerRequestCallbackWorker @ 0x14049FF30
  * Callers:
- *     PopPowerRequestReferenceAcquire @ 0x1404A6310 (PopPowerRequestReferenceAcquire.c)
- *     PopPowerRequestReferenceRelease @ 0x1404A64A0 (PopPowerRequestReferenceRelease.c)
- *     PopPowerRequestHandleClose @ 0x1404A6668 (PopPowerRequestHandleClose.c)
+ *     PopPowerRequestReferenceAcquire @ 0x14049F9A0 (PopPowerRequestReferenceAcquire.c)
+ *     PopPowerRequestReferenceRelease @ 0x14049FB30 (PopPowerRequestReferenceRelease.c)
+ *     PopPowerRequestHandleClose @ 0x14049FCF8 (PopPowerRequestHandleClose.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x1402B4730 (KeAcquireInStackQueuedSpinLock.c)
- *     KeReleaseInStackQueuedSpinLock @ 0x1402B98C0 (KeReleaseInStackQueuedSpinLock.c)
- *     KeSetEvent @ 0x1402DE9C0 (KeSetEvent.c)
- *     PopPowerRequestHandleRequestUpdate @ 0x140AE70C8 (PopPowerRequestHandleRequestUpdate.c)
- *     PopAcquirePowerRequestPushLock @ 0x140AECCA4 (PopAcquirePowerRequestPushLock.c)
- *     PopReleasePowerRequestPushLock @ 0x140AF7934 (PopReleasePowerRequestPushLock.c)
- *     PopPowerRequestStatsSetActive @ 0x140B02374 (PopPowerRequestStatsSetActive.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     KeSetEvent @ 0x1402C0780 (KeSetEvent.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402FF400 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x140304580 (KeReleaseInStackQueuedSpinLock.c)
+ *     PopPowerRequestHandleRequestUpdate @ 0x140AE4F44 (PopPowerRequestHandleRequestUpdate.c)
+ *     PopAcquirePowerRequestPushLock @ 0x140AEFCB4 (PopAcquirePowerRequestPushLock.c)
+ *     PopReleasePowerRequestPushLock @ 0x140AF9FD4 (PopReleasePowerRequestPushLock.c)
+ *     PopPowerRequestStatsSetActive @ 0x140B040A4 (PopPowerRequestStatsSetActive.c)
  */
 
 void __fastcall PopPowerRequestCallbackWorker(struct _KTHREAD *a1)
@@ -39,7 +39,7 @@ void __fastcall PopPowerRequestCallbackWorker(struct _KTHREAD *a1)
 
   v1 = a1;
   memset(&LockHandle, 0, sizeof(LockHandle));
-  KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)&stru_140F12D20.Header.WaitListHead.Blink, &LockHandle);
+  KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)&stru_140F12EA0.QueuedScb, &LockHandle);
   while ( 1 )
   {
     v2 = *(struct _KTHREAD ***)&v1->Header.Lock;
@@ -78,7 +78,7 @@ LABEL_18:
       while ( v8 );
       v1 = a1;
     }
-    KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)&stru_140F12D20.Header.WaitListHead.Blink, &LockHandle);
+    KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)&stru_140F12EA0.QueuedScb, &LockHandle);
     while ( v7 )
     {
       _BitScanForward((unsigned int *)&v16, v7);
@@ -104,7 +104,7 @@ LABEL_18:
       *((_DWORD *)v4 + 22) = 1;
     }
   }
-  if ( v1 == (struct _KTHREAD *)&stru_140F12D20.ThreadLock )
-    _InterlockedExchange((volatile __int32 *)&stru_140F12D20.ApcStateFill[8], 0);
+  if ( v1 == (struct _KTHREAD *)&stru_140F12EA0.KernelShadowStackInitial )
+    _InterlockedExchange(&stru_140F12EA0.SchedulerAssistPriorityFloor, 0);
   KeReleaseInStackQueuedSpinLock(&LockHandle);
 }

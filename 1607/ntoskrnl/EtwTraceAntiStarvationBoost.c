@@ -1,10 +1,10 @@
 /*
- * XREFs of EtwTraceAntiStarvationBoost @ 0x1401595CC
+ * XREFs of EtwTraceAntiStarvationBoost @ 0x140159B3C
  * Callers:
- *     KiQuantumEnd @ 0x1400D1780 (KiQuantumEnd.c)
+ *     KiQuantumEnd @ 0x1400CF620 (KiQuantumEnd.c)
  * Callees:
- *     EtwTraceKernelEvent @ 0x140014190 (EtwTraceKernelEvent.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
+ *     EtwTraceKernelEvent @ 0x140013D10 (EtwTraceKernelEvent.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall EtwTraceAntiStarvationBoost(__int64 a1, char a2)

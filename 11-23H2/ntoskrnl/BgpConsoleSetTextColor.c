@@ -1,10 +1,10 @@
 /*
- * XREFs of BgpConsoleSetTextColor @ 0x140AF1D80
+ * XREFs of BgpConsoleSetTextColor @ 0x140AF1D90
  * Callers:
  *     <none>
  * Callees:
- *     BgpFwReleaseLock @ 0x140385660 (BgpFwReleaseLock.c)
- *     BgpFwAcquireLock @ 0x1403856B0 (BgpFwAcquireLock.c)
+ *     BgpFwReleaseLock @ 0x140385840 (BgpFwReleaseLock.c)
+ *     BgpFwAcquireLock @ 0x140385890 (BgpFwAcquireLock.c)
  */
 
 __int64 __fastcall BgpConsoleSetTextColor(_DWORD *a1, _DWORD *a2)
@@ -13,12 +13,12 @@ __int64 __fastcall BgpConsoleSetTextColor(_DWORD *a1, _DWORD *a2)
   unsigned int v5; // ebx
 
   BgpFwAcquireLock();
-  v4 = qword_140CF7AE8;
+  v4 = qword_140CF7AE0;
   v5 = 0;
-  if ( qword_140CF7AE8 )
+  if ( qword_140CF7AE0 )
   {
     if ( a1 )
-      *(_DWORD *)(qword_140CF7AE8 + 12) = *a1;
+      *(_DWORD *)(qword_140CF7AE0 + 12) = *a1;
     if ( a2 )
       *(_DWORD *)(v4 + 16) = *a2;
   }

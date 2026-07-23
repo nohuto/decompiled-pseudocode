@@ -1,24 +1,24 @@
 /*
- * XREFs of MiFreeVadRange @ 0x1403BC958
+ * XREFs of MiFreeVadRange @ 0x1403C67C8
  * Callers:
- *     MiFreeVirtualMemory @ 0x14095F790 (MiFreeVirtualMemory.c)
- *     MmStoreAllocateVirtualMemory @ 0x1409F1A98 (MmStoreAllocateVirtualMemory.c)
- *     MmStoreFreeVirtualMemory @ 0x140AB8860 (MmStoreFreeVirtualMemory.c)
+ *     MmStoreAllocateVirtualMemory @ 0x1409EE268 (MmStoreAllocateVirtualMemory.c)
+ *     MiFreeVirtualMemory @ 0x140A05050 (MiFreeVirtualMemory.c)
+ *     MmStoreFreeVirtualMemory @ 0x140AB9EA0 (MmStoreFreeVirtualMemory.c)
  * Callees:
- *     MiLocateLockedVadEvent @ 0x1403BCC30 (MiLocateLockedVadEvent.c)
- *     MiDeletePartialVad @ 0x1403BCC54 (MiDeletePartialVad.c)
- *     MiConfirmQuotaAmount @ 0x1403BCDC0 (MiConfirmQuotaAmount.c)
- *     MiConfirmQuotaProcess @ 0x1403BCE04 (MiConfirmQuotaProcess.c)
- *     PsChargeProcessNonPagedPoolQuota @ 0x1403BCE40 (PsChargeProcessNonPagedPoolQuota.c)
- *     PsReturnProcessNonPagedPoolQuota @ 0x1403BD130 (PsReturnProcessNonPagedPoolQuota.c)
- *     MiCanDeleteEnclave @ 0x1406FFDA4 (MiCanDeleteEnclave.c)
- *     MiDeleteVad @ 0x14095BF10 (MiDeleteVad.c)
- *     MiAllocateVad @ 0x14095D5C0 (MiAllocateVad.c)
- *     PerfInfoLogVirtualFree @ 0x140961510 (PerfInfoLogVirtualFree.c)
- *     MiPrepareVadDelete @ 0x140A8F52C (MiPrepareVadDelete.c)
- *     MiLockNestedVad @ 0x140A99C90 (MiLockNestedVad.c)
- *     MiUnlockNestedVad @ 0x140A9F610 (MiUnlockNestedVad.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     MiLocateLockedVadEvent @ 0x1403C6AA0 (MiLocateLockedVadEvent.c)
+ *     MiDeletePartialVad @ 0x1403C6AC4 (MiDeletePartialVad.c)
+ *     MiConfirmQuotaAmount @ 0x1403C6C30 (MiConfirmQuotaAmount.c)
+ *     MiConfirmQuotaProcess @ 0x1403C6C74 (MiConfirmQuotaProcess.c)
+ *     PsChargeProcessNonPagedPoolQuota @ 0x1403C6CB0 (PsChargeProcessNonPagedPoolQuota.c)
+ *     PsReturnProcessNonPagedPoolQuota @ 0x1403C6FA0 (PsReturnProcessNonPagedPoolQuota.c)
+ *     MiCanDeleteEnclave @ 0x140704A74 (MiCanDeleteEnclave.c)
+ *     MiDeleteVad @ 0x140A017D0 (MiDeleteVad.c)
+ *     MiAllocateVad @ 0x140A02E80 (MiAllocateVad.c)
+ *     PerfInfoLogVirtualFree @ 0x140A06DC0 (PerfInfoLogVirtualFree.c)
+ *     MiPrepareVadDelete @ 0x140A941FC (MiPrepareVadDelete.c)
+ *     MiLockNestedVad @ 0x140A9DE10 (MiLockNestedVad.c)
+ *     MiUnlockNestedVad @ 0x140A9F940 (MiUnlockNestedVad.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall MiFreeVadRange(

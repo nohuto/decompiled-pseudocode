@@ -1,15 +1,15 @@
 /*
- * XREFs of MiAllowWorkingSetExpansion @ 0x1400F3314
+ * XREFs of MiAllowWorkingSetExpansion @ 0x1400F3394
  * Callers:
- *     MmInitializeProcessAddressSpace @ 0x1406798B8 (MmInitializeProcessAddressSpace.c)
- *     MiInitializeSystemWorkingSetList @ 0x140715B48 (MiInitializeSystemWorkingSetList.c)
- *     MmInitializeHandBuiltProcess @ 0x14075E86C (MmInitializeHandBuiltProcess.c)
+ *     MmInitializeProcessAddressSpace @ 0x14067AA78 (MmInitializeProcessAddressSpace.c)
+ *     MiInitializeSystemWorkingSetList @ 0x140716DE8 (MiInitializeSystemWorkingSetList.c)
+ *     MmInitializeHandBuiltProcess @ 0x14075FA5C (MmInitializeHandBuiltProcess.c)
  * Callees:
- *     KeAcquireInStackQueuedSpinLock @ 0x14007DE90 (KeAcquireInStackQueuedSpinLock.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
- *     MiReturnWsToExpansionList @ 0x1400F3384 (MiReturnWsToExpansionList.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     MiInsertSessionWorkingSet @ 0x1401B4F04 (MiInsertSessionWorkingSet.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14007DE80 (KeAcquireInStackQueuedSpinLock.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC6A0 (KxReleaseQueuedSpinLock.c)
+ *     MiReturnWsToExpansionList @ 0x1400F3404 (MiReturnWsToExpansionList.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiInsertSessionWorkingSet @ 0x1401B5044 (MiInsertSessionWorkingSet.c)
  */
 
 __int64 __fastcall MiAllowWorkingSetExpansion(__int64 a1)
@@ -19,7 +19,7 @@ __int64 __fastcall MiAllowWorkingSetExpansion(__int64 a1)
   struct _KPRCB *CurrentPrcb; // rcx
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+20h] [rbp-28h] BYREF
 
-  KeAcquireInStackQueuedSpinLock(&qword_14043AE80, &LockHandle);
+  KeAcquireInStackQueuedSpinLock(&qword_14043BF40, &LockHandle);
   if ( (*(_BYTE *)(a1 + 184) & 7) == 1 )
     MiInsertSessionWorkingSet(a1 - 3008);
   MiReturnWsToExpansionList(a1, 0LL);

@@ -1,9 +1,9 @@
 /*
- * XREFs of VerifierKeDeregisterNmiCallback @ 0x1409323D0
+ * XREFs of VerifierKeDeregisterNmiCallback @ 0x1409333D0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
  */
 
 __int64 VerifierKeDeregisterNmiCallback()

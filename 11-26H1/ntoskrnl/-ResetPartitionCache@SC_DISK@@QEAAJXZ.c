@@ -1,13 +1,13 @@
 /*
- * XREFs of ?ResetPartitionCache@SC_DISK@@QEAAJXZ @ 0x14071B570
+ * XREFs of ?ResetPartitionCache@SC_DISK@@QEAAJXZ @ 0x140720200
  * Callers:
- *     ?InitializePartitionCache@SC_DISK@@QEAAJXZ @ 0x14071B340 (-InitializePartitionCache@SC_DISK@@QEAAJXZ.c)
- *     ?ReadPartitionTable@SC_DISK@@QEAAJPEAPEAVSC_DISK_LAYOUT@@@Z @ 0x14071B498 (-ReadPartitionTable@SC_DISK@@QEAAJPEAPEAVSC_DISK_LAYOUT@@@Z.c)
- *     ?SetPartition@SC_DISK@@QEAAJKPEAU_SET_PARTITION_INFORMATION_EX@@@Z @ 0x14071B6DC (-SetPartition@SC_DISK@@QEAAJKPEAU_SET_PARTITION_INFORMATION_EX@@@Z.c)
- *     ?WritePartitionTable@SC_DISK@@QEAAJPEAVSC_DISK_LAYOUT@@@Z @ 0x14071B84C (-WritePartitionTable@SC_DISK@@QEAAJPEAVSC_DISK_LAYOUT@@@Z.c)
+ *     ?InitializePartitionCache@SC_DISK@@QEAAJXZ @ 0x14071FFD0 (-InitializePartitionCache@SC_DISK@@QEAAJXZ.c)
+ *     ?ReadPartitionTable@SC_DISK@@QEAAJPEAPEAVSC_DISK_LAYOUT@@@Z @ 0x140720128 (-ReadPartitionTable@SC_DISK@@QEAAJPEAPEAVSC_DISK_LAYOUT@@@Z.c)
+ *     ?SetPartition@SC_DISK@@QEAAJKPEAU_SET_PARTITION_INFORMATION_EX@@@Z @ 0x14072036C (-SetPartition@SC_DISK@@QEAAJKPEAU_SET_PARTITION_INFORMATION_EX@@@Z.c)
+ *     ?WritePartitionTable@SC_DISK@@QEAAJPEAVSC_DISK_LAYOUT@@@Z @ 0x1407204DC (-WritePartitionTable@SC_DISK@@QEAAJPEAVSC_DISK_LAYOUT@@@Z.c)
  * Callees:
- *     ?IsVbr@SC_DISK@@QEAAEXZ @ 0x14071B3DC (-IsVbr@SC_DISK@@QEAAEXZ.c)
- *     ?ReadSectors@SC_DISK@@QEAAJK_KPEAX@Z @ 0x14071B52C (-ReadSectors@SC_DISK@@QEAAJK_KPEAX@Z.c)
+ *     ?IsVbr@SC_DISK@@QEAAEXZ @ 0x14072006C (-IsVbr@SC_DISK@@QEAAEXZ.c)
+ *     ?ReadSectors@SC_DISK@@QEAAJK_KPEAX@Z @ 0x1407201BC (-ReadSectors@SC_DISK@@QEAAJK_KPEAX@Z.c)
  */
 
 __int64 __fastcall SC_DISK::ResetPartitionCache(SC_DISK *this)

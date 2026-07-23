@@ -1,23 +1,23 @@
 /*
- * XREFs of PiPagePathSetState @ 0x1407C9E40
+ * XREFs of PiPagePathSetState @ 0x1407CA160
  * Callers:
- *     CmpVolumeContextCleanup @ 0x140872DD0 (CmpVolumeContextCleanup.c)
- *     PpPagePathAssign @ 0x1408A0FA0 (PpPagePathAssign.c)
- *     PpPagePathRelease @ 0x1408A0FB8 (PpPagePathRelease.c)
- *     MiDeletePagefile @ 0x1408D048C (MiDeletePagefile.c)
+ *     CmpVolumeContextCleanup @ 0x140872F30 (CmpVolumeContextCleanup.c)
+ *     PpPagePathAssign @ 0x1408A1100 (PpPagePathAssign.c)
+ *     PpPagePathRelease @ 0x1408A1118 (PpPagePathRelease.c)
+ *     MiDeletePagefile @ 0x1408D05EC (MiDeletePagefile.c)
  * Callees:
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
- *     ObfReferenceObject @ 0x14034B230 (ObfReferenceObject.c)
- *     IoGetRelatedDeviceObject @ 0x140351920 (IoGetRelatedDeviceObject.c)
- *     IofCallDriver @ 0x1403519C0 (IofCallDriver.c)
- *     IoQueueThreadIrp @ 0x140381910 (IoQueueThreadIrp.c)
- *     memset @ 0x140414200 (memset.c)
- *     PpDevNodeUnlockTree @ 0x140639BC0 (PpDevNodeUnlockTree.c)
- *     PpDevNodeLockTree @ 0x140639C54 (PpDevNodeLockTree.c)
- *     IoGetRelatedTargetDevice @ 0x14071C4DC (IoGetRelatedTargetDevice.c)
- *     PoDirectedDripsNotifyPagingDeviceUsage @ 0x1407C9F28 (PoDirectedDripsNotifyPagingDeviceUsage.c)
- *     PpIrpAllocateDeviceUsageNotification @ 0x1407C9F8C (PpIrpAllocateDeviceUsageNotification.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     KeWaitForSingleObject @ 0x1403504C0 (KeWaitForSingleObject.c)
+ *     ObfReferenceObject @ 0x140355F80 (ObfReferenceObject.c)
+ *     IoGetRelatedDeviceObject @ 0x14035C670 (IoGetRelatedDeviceObject.c)
+ *     IofCallDriver @ 0x14035C710 (IofCallDriver.c)
+ *     IoQueueThreadIrp @ 0x140381460 (IoQueueThreadIrp.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     PpDevNodeUnlockTree @ 0x14062E9D0 (PpDevNodeUnlockTree.c)
+ *     PpDevNodeLockTree @ 0x14062EA64 (PpDevNodeLockTree.c)
+ *     IoGetRelatedTargetDevice @ 0x1406FCB4C (IoGetRelatedTargetDevice.c)
+ *     PoDirectedDripsNotifyPagingDeviceUsage @ 0x1407CA248 (PoDirectedDripsNotifyPagingDeviceUsage.c)
+ *     PpIrpAllocateDeviceUsageNotification @ 0x1407CA2AC (PpIrpAllocateDeviceUsageNotification.c)
  */
 
 __int64 __fastcall PiPagePathSetState(struct _FILE_OBJECT *DmaAdapter, char a2)

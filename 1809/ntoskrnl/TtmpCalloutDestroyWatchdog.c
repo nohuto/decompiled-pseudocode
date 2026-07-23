@@ -1,10 +1,10 @@
 /*
- * XREFs of TtmpCalloutDestroyWatchdog @ 0x14087DCE8
+ * XREFs of TtmpCalloutDestroyWatchdog @ 0x14087EF48
  * Callers:
- *     TtmpStopCallout @ 0x14087E6CC (TtmpStopCallout.c)
+ *     TtmpStopCallout @ 0x14087F92C (TtmpStopCallout.c)
  * Callees:
- *     memset @ 0x1401D1880 (memset.c)
- *     NtPowerInformation @ 0x14058C170 (NtPowerInformation.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     NtPowerInformation @ 0x14058D170 (NtPowerInformation.c)
  */
 
 NTSTATUS __fastcall TtmpCalloutDestroyWatchdog(__int64 a1)
@@ -23,7 +23,7 @@ NTSTATUS __fastcall TtmpCalloutDestroyWatchdog(__int64 a1)
       LODWORD(InputBuffer[0]) = 21;
       LOBYTE(InputBuffer[11]) = 1;
       InputBuffer[1] = v1;
-      return NtPowerInformation(SystemPowerStateLogging|0x40, InputBuffer, 0x60u, 0LL, 0);
+      return NtPowerInformation(PowerInformationInternal, InputBuffer, 0x60u, 0LL, 0);
     }
   }
   return result;

@@ -1,20 +1,20 @@
 /*
- * XREFs of CmpFreeKeyControlBlock @ 0x1404375A0
+ * XREFs of CmpFreeKeyControlBlock @ 0x140436470
  * Callers:
- *     CmpCloneToUnbackedKcb @ 0x1401B484C (CmpCloneToUnbackedKcb.c)
- *     CmpUnlockKcbStack @ 0x140404820 (CmpUnlockKcbStack.c)
- *     CmpCreateKeyControlBlock @ 0x140434610 (CmpCreateKeyControlBlock.c)
- *     CmpUnlockKcb @ 0x140438610 (CmpUnlockKcb.c)
- *     CmpUnlockTwoKcbs @ 0x140438FD0 (CmpUnlockTwoKcbs.c)
- *     CmQueryKey @ 0x14043A810 (CmQueryKey.c)
- *     CmQueryValueKey @ 0x14043F420 (CmQueryValueKey.c)
- *     CmpDoParseKey @ 0x140453D10 (CmpDoParseKey.c)
- *     CmpDecommisssionKcb @ 0x14053F1A8 (CmpDecommisssionKcb.c)
+ *     CmpCloneToUnbackedKcb @ 0x1401B4730 (CmpCloneToUnbackedKcb.c)
+ *     CmpUnlockKcbStack @ 0x1404036E0 (CmpUnlockKcbStack.c)
+ *     CmpCreateKeyControlBlock @ 0x1404334E0 (CmpCreateKeyControlBlock.c)
+ *     CmpUnlockKcb @ 0x1404374E0 (CmpUnlockKcb.c)
+ *     CmpUnlockTwoKcbs @ 0x140437EA0 (CmpUnlockTwoKcbs.c)
+ *     CmQueryKey @ 0x1404396E0 (CmQueryKey.c)
+ *     CmQueryValueKey @ 0x14043E2F0 (CmQueryValueKey.c)
+ *     CmpDoParseKey @ 0x140452BE0 (CmpDoParseKey.c)
+ *     CmpDecommisssionKcb @ 0x14053F6E8 (CmpDecommisssionKcb.c)
  * Callees:
- *     ExpReleaseFastMutexContended @ 0x14000CA8C (ExpReleaseFastMutexContended.c)
- *     ExAcquireFastMutex @ 0x14002D0A0 (ExAcquireFastMutex.c)
- *     CmpFreeTransientPoolWithTag @ 0x14002D218 (CmpFreeTransientPoolWithTag.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
+ *     ExpReleaseFastMutexContended @ 0x14000C60C (ExpReleaseFastMutexContended.c)
+ *     ExAcquireFastMutex @ 0x14002CC20 (ExAcquireFastMutex.c)
+ *     CmpFreeTransientPoolWithTag @ 0x14002CD98 (CmpFreeTransientPoolWithTag.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  */
 
@@ -48,14 +48,14 @@ void __fastcall CmpFreeKeyControlBlock(unsigned __int64 P)
     ExAcquireFastMutex((PFAST_MUTEX)&CmpAllocBucketLock);
     *(_QWORD *)(P + 24) = 0LL;
     v4 = (_QWORD *)(P + 112);
-    v5 = (_QWORD *)qword_140322C88;
-    if ( *(__int64 **)qword_140322C88 != &CmpFreeKCBListHead )
+    v5 = (_QWORD *)qword_140322CA8;
+    if ( *(__int64 **)qword_140322CA8 != &CmpFreeKCBListHead )
       __fastfail(3u);
     *v4 = &CmpFreeKCBListHead;
     v6 = (_DWORD *)(P & 0xFFFFFFFFFFFFF000uLL);
     v4[1] = v5;
     *v5 = v4;
-    qword_140322C88 = (__int64)v4;
+    qword_140322CA8 = (__int64)v4;
     if ( ++*v6 == 13 )
     {
       for ( i = 0; i < 0xDu; ++i )

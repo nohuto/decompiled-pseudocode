@@ -1,5 +1,5 @@
 /*
- * XREFs of ShipAssertGetBufferInfo @ 0x1800D9030
+ * XREFs of ShipAssertGetBufferInfo @ 0x1800D90F0
  * Callers:
  *     <none>
  * Callees:

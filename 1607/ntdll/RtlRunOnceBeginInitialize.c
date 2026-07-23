@@ -1,52 +1,52 @@
 /*
- * XREFs of RtlRunOnceBeginInitialize @ 0x180042430
+ * XREFs of RtlRunOnceBeginInitialize @ 0x180042420
  * Callers:
- *     RtlpHeapGenerateRandomValue32 @ 0x180042348 (RtlpHeapGenerateRandomValue32.c)
- *     RtlpHpPerHeapStackTraceCleanup @ 0x1800522F4 (RtlpHpPerHeapStackTraceCleanup.c)
+ *     RtlpHeapGenerateRandomValue32 @ 0x180042338 (RtlpHeapGenerateRandomValue32.c)
+ *     RtlpHpPerHeapStackTraceCleanup @ 0x1800522E4 (RtlpHpPerHeapStackTraceCleanup.c)
  *     RtlpHpStackTraceHeapSerialize @ 0x1800F8670 (RtlpHpStackTraceHeapSerialize.c)
  * Callees:
- *     RtlpRunOnceWaitForInit @ 0x180088258 (RtlpRunOnceWaitForInit.c)
+ *     RtlpRunOnceWaitForInit @ 0x180088248 (RtlpRunOnceWaitForInit.c)
  */
 
-__int64 __fastcall RtlRunOnceBeginInitialize(volatile signed __int64 *a1, int a2, unsigned __int64 *a3)
+NTSTATUS __cdecl RtlRunOnceBeginInitialize(PRTL_RUN_ONCE RunOnce, ULONG Flags, PVOID *Context)
 {
-  signed __int64 v5; // rax
-  unsigned int v6; // ebx
+  unsigned __int64 Value; // rax
+  NTSTATUS v6; // ebx
   int v8; // edi
-  signed __int64 v9; // rtt
+  unsigned __int64 v9; // rtt
 
-  if ( ((a2 - 1) & a2) != 0 || (a2 & 0xFFFFFFFC) != 0 )
-    return 3221225712LL;
-  v5 = *a1;
+  if ( ((Flags - 1) & Flags) != 0 || (Flags & 0xFFFFFFFC) != 0 )
+    return -1073741584;
+  Value = RunOnce->Value;
   v6 = 0;
-  if ( (*a1 & 3) == 2 )
+  if ( (RunOnce->Value & 3) == 2 )
   {
 LABEL_3:
-    if ( a3 )
-      *a3 = v5 & 0xFFFFFFFFFFFFFFFCuLL;
+    if ( Context )
+      *Context = (PVOID)(Value & 0xFFFFFFFFFFFFFFFCuLL);
     return v6;
   }
-  if ( (a2 & 1) == 0 )
+  if ( (Flags & 1) == 0 )
   {
-    v8 = ((unsigned __int8)~(_BYTE)a2 >> 1) & 1;
+    v8 = ((unsigned __int8)~(_BYTE)Flags >> 1) & 1;
     while ( 1 )
     {
-      while ( (v5 & 3) == 0 )
+      while ( (Value & 3) == 0 )
       {
-        v9 = v5;
-        v5 = _InterlockedCompareExchange64(a1, (v8 != 0 ? 1 : 3) & 3, v5);
-        if ( v9 == v5 )
+        v9 = Value;
+        Value = _InterlockedCompareExchange64((volatile signed __int64 *)RunOnce, (v8 != 0 ? 1 : 3) & 3, Value);
+        if ( v9 == Value )
           return 259;
       }
-      if ( (v5 & 3) != 1 )
+      if ( (Value & 3) != 1 )
         break;
       if ( !v8 )
-        return (unsigned int)-1073741584;
-      v5 = RtlpRunOnceWaitForInit(v5, a1);
+        return -1073741584;
+      Value = RtlpRunOnceWaitForInit(Value, RunOnce);
     }
-    if ( (v5 & 3) != 3 )
+    if ( (Value & 3) != 3 )
       goto LABEL_3;
     return v8 != 0 ? -1073741584 : 259;
   }
-  return 3221225473LL;
+  return -1073741823;
 }

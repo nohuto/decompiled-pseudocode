@@ -1,9 +1,9 @@
 /*
- * XREFs of CmpRemoveKeyHashFromDeletedKcbTable @ 0x14076AF6C
+ * XREFs of CmpRemoveKeyHashFromDeletedKcbTable @ 0x14076B15C
  * Callers:
- *     CmpCleanUpKcbCacheWithLock @ 0x1406D8510 (CmpCleanUpKcbCacheWithLock.c)
+ *     CmpCleanUpKcbCacheWithLock @ 0x1406D8540 (CmpCleanUpKcbCacheWithLock.c)
  * Callees:
- *     CmpRemoveKeyHashFromTableEntry @ 0x1406D92F8 (CmpRemoveKeyHashFromTableEntry.c)
+ *     CmpRemoveKeyHashFromTableEntry @ 0x1406D9328 (CmpRemoveKeyHashFromTableEntry.c)
  */
 
 void __fastcall CmpRemoveKeyHashFromDeletedKcbTable(__int64 a1, _DWORD *a2)

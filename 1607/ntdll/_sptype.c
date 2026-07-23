@@ -1,5 +1,5 @@
 /*
- * XREFs of _sptype @ 0x18009FA10
+ * XREFs of _sptype @ 0x18009FA00
  * Callers:
  *     fabs @ 0x180099F50 (fabs.c)
  * Callees:

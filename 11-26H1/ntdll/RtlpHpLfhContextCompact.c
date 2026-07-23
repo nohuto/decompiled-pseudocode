@@ -1,14 +1,14 @@
 /*
- * XREFs of RtlpHpLfhContextCompact @ 0x1800163FC
+ * XREFs of RtlpHpLfhContextCompact @ 0x180061B2C
  * Callers:
- *     RtlpHpHeapCompact @ 0x180016180 (RtlpHpHeapCompact.c)
+ *     RtlpHpHeapCompact @ 0x1800618B0 (RtlpHpHeapCompact.c)
  * Callees:
- *     RtlpHpLfhHeatMapQuery @ 0x180016630 (RtlpHpLfhHeatMapQuery.c)
- *     RtlpHpLfhOwnerCompact @ 0x180016790 (RtlpHpLfhOwnerCompact.c)
- *     RtlpHpLfhPrivateSlotsCompact @ 0x180016AC0 (RtlpHpLfhPrivateSlotsCompact.c)
- *     TpSetTimerEx @ 0x180069020 (TpSetTimerEx.c)
- *     _tlgWriteTransfer_EtwEventWriteTransfer @ 0x18006A8B0 (_tlgWriteTransfer_EtwEventWriteTransfer.c)
- *     __security_check_cookie @ 0x180162C90 (__security_check_cookie.c)
+ *     RtlpHpLfhHeatMapQuery @ 0x180061D60 (RtlpHpLfhHeatMapQuery.c)
+ *     RtlpHpLfhOwnerCompact @ 0x180061EC0 (RtlpHpLfhOwnerCompact.c)
+ *     RtlpHpLfhPrivateSlotsCompact @ 0x1800621F0 (RtlpHpLfhPrivateSlotsCompact.c)
+ *     TpSetTimerEx @ 0x180089470 (TpSetTimerEx.c)
+ *     _tlgWriteTransfer_EtwEventWriteTransfer @ 0x18008AD00 (_tlgWriteTransfer_EtwEventWriteTransfer.c)
+ *     __security_check_cookie @ 0x180162B90 (__security_check_cookie.c)
  */
 
 void __fastcall RtlpHpLfhContextCompact(__int64 a1, int a2)
@@ -21,7 +21,7 @@ void __fastcall RtlpHpLfhContextCompact(__int64 a1, int a2)
   int v8; // eax
   int v9; // r8d
   int v10; // r9d
-  _BYTE v11[32]; // [rsp+30h] [rbp-58h] BYREF
+  __int64 v11[4]; // [rsp+30h] [rbp-58h] BYREF
 
   if ( *(_DWORD *)(a1 + 84) )
   {
@@ -55,22 +55,22 @@ void __fastcall RtlpHpLfhContextCompact(__int64 a1, int a2)
     while ( v5 );
     if ( v3 )
     {
-      v8 = qword_1801C7278;
-      if ( !(_DWORD)qword_1801C7278 )
+      v8 = qword_1801C6278;
+      if ( !(_DWORD)qword_1801C6278 )
       {
-        if ( qword_1801C7268 )
+        if ( Timer )
         {
-          if ( byte_1801CB8C8 == (_BYTE)qword_1801C7278
-            && v8 == _InterlockedCompareExchange((volatile signed __int32 *)&qword_1801C7278, 1, qword_1801C7278) )
+          if ( byte_1801CA908 == (_BYTE)qword_1801C6278
+            && v8 == _InterlockedCompareExchange((volatile signed __int32 *)&qword_1801C6278, 1, qword_1801C6278) )
           {
-            TpSetTimerEx(qword_1801C7268, &qword_1801C7270, 0LL, 1000LL);
-            if ( (RtlpHpHeapFeatures & 0x10) != 0 && (unsigned int)dword_1801C5680 > 5 )
+            TpSetTimerEx(Timer, &DueTime, 0, 0x3E8u);
+            if ( (RtlpHpHeapFeatures & 0x10) != 0 && (unsigned int)dword_1801C4680 > 5 )
               tlgWriteTransfer_EtwEventWriteTransfer(
-                (unsigned int)&dword_1801C5680,
-                (unsigned int)&unk_18019BEE3,
+                (int)&dword_1801C4680,
+                (int)&unk_18019AE8B,
                 v9,
                 v10,
-                2,
+                2u,
                 (__int64)v11);
           }
         }

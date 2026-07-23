@@ -1,10 +1,10 @@
 /*
- * XREFs of MiDeleteEmptySubsectionProtoPool @ 0x1403F8174
+ * XREFs of MiDeleteEmptySubsectionProtoPool @ 0x140473E98
  * Callers:
- *     MiDeleteEmptySubsections @ 0x1403F7FC0 (MiDeleteEmptySubsections.c)
+ *     MiDeleteEmptySubsections @ 0x140292788 (MiDeleteEmptySubsections.c)
  * Callees:
- *     KeDelayExecutionThread @ 0x14033BC60 (KeDelayExecutionThread.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     KeDelayExecutionThread @ 0x14031B140 (KeDelayExecutionThread.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __fastcall MiDeleteEmptySubsectionProtoPool(_DWORD *a1)

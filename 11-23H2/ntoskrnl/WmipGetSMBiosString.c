@@ -1,21 +1,21 @@
 /*
- * XREFs of WmipGetSMBiosString @ 0x1409DFB3C
+ * XREFs of WmipGetSMBiosString @ 0x1409DFD3C
  * Callers:
- *     WmipReadSMBiosSysInfo @ 0x1405FBA70 (WmipReadSMBiosSysInfo.c)
+ *     WmipReadSMBiosSysInfo @ 0x1405FBFE0 (WmipReadSMBiosSysInfo.c)
  * Callees:
- *     RtlInitAnsiString @ 0x1402F6C50 (RtlInitAnsiString.c)
- *     RtlAnsiStringToUnicodeString @ 0x140773C00 (RtlAnsiStringToUnicodeString.c)
+ *     RtlInitAnsiString @ 0x1402F6EE0 (RtlInitAnsiString.c)
+ *     RtlAnsiStringToUnicodeString @ 0x140773DF0 (RtlAnsiStringToUnicodeString.c)
  */
 
-NTSTATUS __fastcall WmipGetSMBiosString(__int64 a1, unsigned int a2, const char *a3, UNICODE_STRING *a4)
+NTSTATUS __fastcall WmipGetSMBiosString(__int64 a1, unsigned int a2, const CHAR *a3, UNICODE_STRING *a4)
 {
-  const char *v5; // r10
+  const CHAR *v5; // r10
   int v6; // ecx
-  char v7; // al
-  const char *v8; // rdx
+  CHAR v7; // al
+  const CHAR *v8; // rdx
   STRING DestinationString; // [rsp+20h] [rbp-18h] BYREF
 
-  v5 = (const char *)(a1 + *(unsigned __int8 *)(a1 + 1));
+  v5 = (const CHAR *)(a1 + *(unsigned __int8 *)(a1 + 1));
   v6 = 1;
   DestinationString = 0LL;
   if ( a2 <= 1 )

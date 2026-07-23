@@ -1,9 +1,9 @@
 /*
- * XREFs of NtFsControlFile @ 0x1408F5DC0
+ * XREFs of NtFsControlFile @ 0x140925D50
  * Callers:
- *     DifNtFsControlFileWrapper @ 0x1406787A0 (DifNtFsControlFileWrapper.c)
+ *     DifNtFsControlFileWrapper @ 0x14067C380 (DifNtFsControlFileWrapper.c)
  * Callees:
- *     IopXxxControlFile @ 0x1408F5EA0 (IopXxxControlFile.c)
+ *     IopXxxControlFile @ 0x140925E30 (IopXxxControlFile.c)
  */
 
 NTSTATUS __stdcall NtFsControlFile(

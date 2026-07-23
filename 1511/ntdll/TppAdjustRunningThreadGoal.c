@@ -13,35 +13,40 @@
  *     NtSetInformationWorkerFactory @ 0x1800A8170 (NtSetInformationWorkerFactory.c)
  */
 
-signed __int64 __fastcall TppAdjustRunningThreadGoal(__int64 a1, char *a2, __int64 a3, __int64 a4)
+void __fastcall TppAdjustRunningThreadGoal(__int64 a1)
 {
-  int v4; // edi
-  int v6; // eax
-  __int16 v7; // r8
-  signed __int64 v8; // rax
-  signed __int64 v9; // rtt
-  signed __int64 v11; // [rsp+38h] [rbp+10h]
+  unsigned int v1; // edi
+  int v3; // eax
+  __int16 v4; // r8
+  signed __int64 v5; // rax
+  signed __int64 v6; // rtt
+  int WorkerFactoryInformation; // [rsp+30h] [rbp+8h] BYREF
+  signed __int64 v8; // [rsp+38h] [rbp+10h]
 
-  v4 = MEMORY[0x7FFE03C0];
-  RtlAcquireSRWLockExclusive(a1 + 72, a2, a3, a4);
-  v6 = *(_DWORD *)(a1 + 424);
-  if ( v4 != v6 )
+  v1 = MEMORY[0x7FFE03C0];
+  RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)(a1 + 72));
+  v3 = *(_DWORD *)(a1 + 424);
+  if ( v1 != v3 )
   {
-    *(_DWORD *)(a1 + 424) = v4;
-    v7 = v4 - v6;
+    *(_DWORD *)(a1 + 424) = v1;
+    v4 = v1 - v3;
     _m_prefetchw((const void *)(a1 + 8));
-    v8 = *(_QWORD *)(a1 + 8);
-    v11 = v8;
+    v5 = *(_QWORD *)(a1 + 8);
+    v8 = v5;
     do
     {
-      LODWORD(v11) = (unsigned __int16)(v11 ^ (v11 + v7)) ^ (unsigned int)v11;
-      v9 = v8;
-      v8 = _InterlockedCompareExchange64((volatile signed __int64 *)(a1 + 8), v11, v8);
-      v11 = v8;
+      LODWORD(v8) = (unsigned __int16)(v8 ^ (v8 + v4)) ^ (unsigned int)v8;
+      v6 = v5;
+      v5 = _InterlockedCompareExchange64((volatile signed __int64 *)(a1 + 8), v8, v5);
+      v8 = v5;
     }
-    while ( v9 != v8 );
-    NtSetInformationWorkerFactory();
+    while ( v6 != v5 );
+    if ( v1 < 4 )
+      WorkerFactoryInformation = 4;
+    else
+      WorkerFactoryInformation = v1 + 1;
+    NtSetInformationWorkerFactory(*(HANDLE *)(a1 + 56), WorkerFactoryAdjustThreadGoal, &WorkerFactoryInformation, 4u);
     TppPoolUpdateNodeRelation(a1);
   }
-  return RtlReleaseSRWLockExclusive((volatile signed __int64 *)(a1 + 72));
+  RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(a1 + 72));
 }

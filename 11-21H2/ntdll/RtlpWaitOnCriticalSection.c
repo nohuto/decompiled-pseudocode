@@ -19,306 +19,301 @@
  *     RtlpPossibleDeadlock @ 0x1800F3D74 (RtlpPossibleDeadlock.c)
  */
 
-int __fastcall RtlpWaitOnCriticalSection(__int64 a1, int a2, __int64 a3, __int64 a4)
+int __fastcall RtlpWaitOnCriticalSection(__int64 a1, int a2)
 {
-  struct _TEB *v4; // rbx
-  __int64 v6; // rdx
-  unsigned int v8; // ebp
-  LARGE_INTEGER *v9; // r14
+  struct _TEB *v2; // rbx
+  unsigned int v5; // ebp
+  LARGE_INTEGER *v6; // r14
+  __int64 v7; // rcx
+  int v8; // edi
+  void *v9; // r13
   __int64 v10; // rcx
-  int v11; // edi
-  void *v12; // r13
-  __int64 v13; // rcx
-  unsigned __int64 v14; // rdi
-  struct _TEB *v15; // rcx
+  unsigned __int64 v11; // rdi
+  struct _TEB *v12; // rcx
   __int64 WaitOnAddressHashTable; // rbx
-  __int64 v17; // rax
-  signed __int64 v18; // rcx
-  volatile signed __int64 *v19; // r9
-  _QWORD *v20; // rax
-  unsigned __int64 v21; // rdx
-  signed __int64 v22; // rax
-  struct _PEB *v23; // rax
-  int v24; // r9d
-  signed __int64 v25; // r8
-  unsigned __int64 v26; // rcx
-  _QWORD *v27; // rdx
-  _QWORD *v28; // rax
-  char v29; // dl
-  bool v30; // zf
-  signed __int64 v31; // rax
-  unsigned __int64 v32; // r8
-  unsigned __int64 v33; // rbp
-  _DWORD *v34; // rcx
-  __int64 v35; // rcx
-  struct _TEB *v36; // rcx
+  __int64 v14; // rax
+  signed __int64 v15; // rcx
+  volatile signed __int64 *v16; // r9
+  _QWORD *v17; // rax
+  unsigned __int64 v18; // rdx
+  signed __int64 v19; // rax
+  struct _PEB *v20; // rax
+  int v21; // r9d
+  signed __int64 v22; // r8
+  unsigned __int64 v23; // rcx
+  _QWORD *v24; // rdx
+  _QWORD *v25; // rax
+  char v26; // dl
+  bool v27; // zf
+  signed __int64 v28; // rax
+  unsigned __int64 v29; // r8
+  unsigned __int64 v30; // rbp
+  _DWORD *v31; // rcx
+  __int64 v32; // rcx
+  struct _TEB *v33; // rcx
   __int64 WowTebOffset; // rax
-  __int64 v38; // rcx
+  __int64 v35; // rcx
   _DWORD *SharedData; // rcx
-  __int64 v40; // rcx
-  struct _TEB *v41; // rbx
-  unsigned __int64 v42; // rdx
-  int v43; // eax
-  int v44; // ebx
-  _DWORD *v45; // rcx
-  __int64 v46; // rcx
-  char v48; // [rsp+40h] [rbp-B8h]
-  unsigned int v49; // [rsp+44h] [rbp-B4h]
-  int v50; // [rsp+48h] [rbp-B0h]
-  struct _TEB *v51; // [rsp+50h] [rbp-A8h]
-  _QWORD v52[2]; // [rsp+58h] [rbp-A0h] BYREF
-  unsigned __int64 v53; // [rsp+68h] [rbp-90h]
-  __int64 v54; // [rsp+70h] [rbp-88h]
-  _QWORD *v55; // [rsp+78h] [rbp-80h]
-  int v56; // [rsp+80h] [rbp-78h]
-  _BYTE v57[6]; // [rsp+88h] [rbp-70h] BYREF
-  __int16 v58; // [rsp+8Eh] [rbp-6Ah]
-  int v59; // [rsp+A8h] [rbp-50h]
-  int v60; // [rsp+ACh] [rbp-4Ch]
-  __int64 v61; // [rsp+B0h] [rbp-48h]
-  __int64 v62; // [rsp+B8h] [rbp-40h]
+  __int64 v37; // rcx
+  struct _TEB *v38; // rbx
+  unsigned __int64 v39; // rdx
+  int v40; // eax
+  int v41; // ebx
+  _DWORD *v42; // rcx
+  __int64 v43; // rcx
+  char v45; // [rsp+40h] [rbp-B8h]
+  unsigned int v46; // [rsp+44h] [rbp-B4h]
+  int v47; // [rsp+48h] [rbp-B0h]
+  struct _TEB *v48; // [rsp+50h] [rbp-A8h]
+  _QWORD v49[2]; // [rsp+58h] [rbp-A0h] BYREF
+  unsigned __int64 v50; // [rsp+68h] [rbp-90h]
+  __int64 v51; // [rsp+70h] [rbp-88h]
+  _QWORD *v52; // [rsp+78h] [rbp-80h]
+  int v53; // [rsp+80h] [rbp-78h]
+  _BYTE Fields[6]; // [rsp+88h] [rbp-70h] BYREF
+  __int16 v55; // [rsp+8Eh] [rbp-6Ah]
+  int v56; // [rsp+A8h] [rbp-50h]
+  int v57; // [rsp+ACh] [rbp-4Ch]
+  __int64 v58; // [rsp+B0h] [rbp-48h]
+  __int64 v59; // [rsp+B8h] [rbp-40h]
 
-  v4 = NtCurrentTeb();
-  v48 = 0;
-  v6 = 0LL;
-  v51 = v4;
-  v49 = 0;
-  v8 = 0;
-  if ( (_UNKNOWN **)a1 == &LdrpLoaderLock )
+  v2 = NtCurrentTeb();
+  v45 = 0;
+  v48 = v2;
+  v46 = 0;
+  v5 = 0;
+  if ( (_RTL_CRITICAL_SECTION *)a1 == &LdrpLoaderLock )
   {
-    v48 = 1;
-    v4->WaitingOnLoaderLock = 1;
+    v45 = 1;
+    v2->WaitingOnLoaderLock = 1;
   }
   if ( byte_18017A188 )
     goto LABEL_56;
   if ( UseWOW64 )
   {
-    v36 = NtCurrentTeb();
-    WowTebOffset = v36->WowTebOffset;
+    v33 = NtCurrentTeb();
+    WowTebOffset = v33->WowTebOffset;
     if ( (_DWORD)WowTebOffset )
     {
       if ( (int)WowTebOffset >= 0 )
-        v36 = (struct _TEB *)((char *)v36 + WowTebOffset);
+        v33 = (struct _TEB *)((char *)v33 + WowTebOffset);
     }
     else
     {
-      v36 = 0LL;
+      v33 = 0LL;
     }
-    v38 = *(unsigned int *)(LODWORD(v36->NtTib.Self) + 0xCLL);
-    if ( v38 )
+    v35 = *(unsigned int *)(LODWORD(v33->NtTib.Self) + 0xCLL);
+    if ( v35 )
     {
-      if ( *(_BYTE *)(v38 + 40) )
+      if ( *(_BYTE *)(v35 + 40) )
 LABEL_56:
-        ZwTerminateProcess(-1LL, 3221225547LL);
+        ZwTerminateProcess((HANDLE)0xFFFFFFFFFFFFFFFFLL, -1073741749);
     }
   }
-  v9 = (LARGE_INTEGER *)&RtlpTimeout;
+  v6 = (LARGE_INTEGER *)&RtlpTimeout;
   if ( RtlpTimeoutDisable )
-    v9 = 0LL;
+    v6 = 0LL;
   if ( !*(_QWORD *)(a1 + 24) )
     RtlpCreateDeferredCriticalSectionEvent(a1);
-  v10 = *(_QWORD *)a1;
+  v7 = *(_QWORD *)a1;
   if ( *(_QWORD *)a1 == -1LL )
   {
-    v10 = -1LL;
+    v7 = -1LL;
     if ( (*(_DWORD *)(a1 + 32) & 0x1000000) == 0 )
     {
       RtlpAddDebugInfoToCriticalSection(a1);
-      v10 = *(_QWORD *)a1;
+      v7 = *(_QWORD *)a1;
     }
   }
-  v50 = 0;
-  v11 = 0;
-  if ( v10 != -1 )
-    ++*(_DWORD *)(v10 + 36);
-  v12 = *(void **)(a1 + 24);
+  v47 = 0;
+  v8 = 0;
+  if ( v7 != -1 )
+    ++*(_DWORD *)(v7 + 36);
+  v9 = *(void **)(a1 + 24);
   while ( 1 )
   {
-    if ( (unsigned int)RtlGetCurrentServiceSessionId(v10, v6, a3, a4) )
-      v13 = (__int64)NtCurrentPeb()->SharedData + 552;
+    if ( RtlGetCurrentServiceSessionId() )
+      v10 = (__int64)NtCurrentPeb()->SharedData + 552;
     else
-      v13 = 2147353474LL;
-    if ( *(_BYTE *)v13 && (NtCurrentPeb()->TracingFlags & 2) != 0 )
+      v10 = 2147353474LL;
+    if ( *(_BYTE *)v10 && (NtCurrentPeb()->TracingFlags & 2) != 0 )
     {
-      v62 = a1;
-      v58 = 5922;
-      v60 = *(_DWORD *)(a1 + 32) & 0xFFFFFF;
-      v59 = *(_DWORD *)(a1 + 8);
-      v61 = *(_QWORD *)(a1 + 16);
+      v59 = a1;
+      v55 = 5922;
+      v57 = *(_DWORD *)(a1 + 32) & 0xFFFFFF;
+      v56 = *(_DWORD *)(a1 + 8);
+      v58 = *(_QWORD *)(a1 + 16);
       SharedData = NtCurrentPeb()->SharedData;
       if ( SharedData && *SharedData )
-        v40 = (__int64)NtCurrentPeb()->SharedData + 552;
+        v37 = (__int64)NtCurrentPeb()->SharedData + 552;
       else
-        v40 = 2147353474LL;
-      NtTraceEvent(*(unsigned __int8 *)v40, 132098LL, 24LL, v57);
+        v37 = 2147353474LL;
+      NtTraceEvent((HANDLE)*(unsigned __int8 *)v37, 0x20402u, 0x18u, Fields);
     }
-    if ( v12 == (void *)-1LL )
+    if ( v9 == (void *)-1LL )
     {
-      v14 = a1 + 8;
+      v11 = a1 + 8;
       while ( 1 )
       {
-        v54 = 0LL;
-        v53 = 0LL;
-        v55 = 0LL;
-        v52[0] = a1 + 8;
-        v56 = 1;
-        v15 = NtCurrentTeb();
-        v52[1] = v15->ClientId.UniqueThread;
-        WaitOnAddressHashTable = (__int64)v15->ProcessEnvironmentBlock->WaitOnAddressHashTable;
-        v17 = (v14 >> 5) & 0x7F;
-        v18 = *(_QWORD *)(WaitOnAddressHashTable + 8 * v17);
-        v19 = (volatile signed __int64 *)(WaitOnAddressHashTable + 8 * v17);
+        v51 = 0LL;
+        v50 = 0LL;
+        v52 = 0LL;
+        v49[0] = a1 + 8;
+        v53 = 1;
+        v12 = NtCurrentTeb();
+        v49[1] = v12->ClientId.UniqueThread;
+        WaitOnAddressHashTable = (__int64)v12->ProcessEnvironmentBlock->WaitOnAddressHashTable;
+        v14 = (v11 >> 5) & 0x7F;
+        v15 = *(_QWORD *)(WaitOnAddressHashTable + 8 * v14);
+        v16 = (volatile signed __int64 *)(WaitOnAddressHashTable + 8 * v14);
         while ( 1 )
         {
-          v20 = v52;
-          v21 = (unsigned __int64)v52 | v18 & 3;
-          v53 = v18 & 0xFFFFFFFFFFFFFFFCuLL;
-          if ( (v18 & 0xFFFFFFFFFFFFFFFCuLL) != 0 )
-            v20 = 0LL;
-          v55 = v20;
-          if ( (v18 & 0xFFFFFFFFFFFFFFFCuLL) != 0 )
-            v21 |= 2uLL;
-          v22 = _InterlockedCompareExchange64(v19, v21, v18);
-          if ( v18 == v22 )
+          v17 = v49;
+          v18 = (unsigned __int64)v49 | v15 & 3;
+          v50 = v15 & 0xFFFFFFFFFFFFFFFCuLL;
+          if ( (v15 & 0xFFFFFFFFFFFFFFFCuLL) != 0 )
+            v17 = 0LL;
+          v52 = v17;
+          if ( (v15 & 0xFFFFFFFFFFFFFFFCuLL) != 0 )
+            v18 |= 2uLL;
+          v19 = _InterlockedCompareExchange64(v16, v18, v15);
+          if ( v15 == v19 )
             break;
-          v18 = v22;
+          v15 = v19;
         }
-        if ( (((unsigned __int8)v18 ^ (unsigned __int8)v21) & 2) != 0 )
+        if ( (((unsigned __int8)v15 ^ (unsigned __int8)v18) & 2) != 0 )
         {
-          v25 = *v19;
+          v22 = *v16;
           do
           {
-            v26 = v25 & 0xFFFFFFFFFFFFFFFCuLL;
-            v27 = (_QWORD *)(v25 & 0xFFFFFFFFFFFFFFFCuLL);
-            if ( !*(_QWORD *)((v25 & 0xFFFFFFFFFFFFFFFCuLL) + 32) )
+            v23 = v22 & 0xFFFFFFFFFFFFFFFCuLL;
+            v24 = (_QWORD *)(v22 & 0xFFFFFFFFFFFFFFFCuLL);
+            if ( !*(_QWORD *)((v22 & 0xFFFFFFFFFFFFFFFCuLL) + 32) )
             {
               do
               {
-                v28 = v27;
-                v27 = (_QWORD *)v27[2];
-                v27[3] = v28;
+                v25 = v24;
+                v24 = (_QWORD *)v24[2];
+                v24[3] = v25;
               }
-              while ( !v27[4] );
+              while ( !v24[4] );
             }
-            *(_QWORD *)(v26 + 32) = v27[4];
-            v29 = v25 & 1;
-            if ( (v25 & 1) != 0 )
-              v26 = 0LL;
-            v31 = _InterlockedCompareExchange64(v19, v26, v25);
-            v30 = v25 == v31;
-            v25 = v31;
+            *(_QWORD *)(v23 + 32) = v24[4];
+            v26 = v22 & 1;
+            if ( (v22 & 1) != 0 )
+              v23 = 0LL;
+            v28 = _InterlockedCompareExchange64(v16, v23, v22);
+            v27 = v22 == v28;
+            v22 = v28;
           }
-          while ( !v30 );
-          if ( v29 )
+          while ( !v27 );
+          if ( v26 )
           {
-            v32 = v31 & 0xFFFFFFFFFFFFFFFCuLL;
-            if ( (v31 & 0xFFFFFFFFFFFFFFFCuLL) != 0 )
+            v29 = v28 & 0xFFFFFFFFFFFFFFFCuLL;
+            if ( (v28 & 0xFFFFFFFFFFFFFFFCuLL) != 0 )
             {
               do
               {
-                v33 = *(_QWORD *)(v32 + 16);
-                if ( !_InterlockedExchange((volatile __int32 *)(v32 + 40), 2) )
-                  ZwAlertThreadByThreadId(*(_QWORD *)(v32 + 8));
-                v32 = v33;
+                v30 = *(_QWORD *)(v29 + 16);
+                if ( !_InterlockedExchange((volatile __int32 *)(v29 + 40), 2) )
+                  ZwAlertThreadByThreadId(*(HANDLE *)(v29 + 8));
+                v29 = v30;
               }
-              while ( v33 );
+              while ( v30 );
             }
           }
         }
-        if ( *(_DWORD *)v14 == a2 )
+        if ( *(_DWORD *)v11 == a2 )
         {
-          LODWORD(v23) = RtlpWaitOnAddressWithTimeout(WaitOnAddressHashTable, v52, v9, 0LL);
-          if ( (_DWORD)v23 == 258 )
+          LODWORD(v20) = RtlpWaitOnAddressWithTimeout(WaitOnAddressHashTable, v49, v6, 0LL);
+          if ( (_DWORD)v20 == 258 )
           {
-            v11 = v50;
-            v8 = v49;
+            v8 = v47;
+            v5 = v46;
             goto LABEL_68;
           }
         }
         else
         {
-          RtlpWaitOnAddressRemoveWaitBlock(WaitOnAddressHashTable, v52);
-          LODWORD(v23) = 0;
+          RtlpWaitOnAddressRemoveWaitBlock(WaitOnAddressHashTable, v49);
+          LODWORD(v20) = 0;
         }
-        a2 = *(_DWORD *)v14;
-        if ( (*(_DWORD *)v14 & 2) == 0 )
+        a2 = *(_DWORD *)v11;
+        if ( (*(_DWORD *)v11 & 2) == 0 )
           goto LABEL_28;
       }
     }
-    LODWORD(v23) = NtWaitForSingleObject(v12, 0, v9);
-    if ( (_DWORD)v23 != 258 )
+    LODWORD(v20) = NtWaitForSingleObject(v9, 0, v6);
+    if ( (_DWORD)v20 != 258 )
       break;
 LABEL_68:
-    v41 = NtCurrentTeb();
-    v42 = (__int64)(((unsigned __int128)(v9->QuadPart * (__int128)0x29406B2A1A85BD43LL) >> 64) - v9->QuadPart) >> 23;
-    DbgPrintEx(101, 1, "RTL: Enter CriticalSection Timeout (%I64u secs) %d\n", v42 + (v42 >> 63), v8);
+    v38 = NtCurrentTeb();
+    v39 = (__int64)(((unsigned __int128)(v6->QuadPart * (__int128)0x29406B2A1A85BD43LL) >> 64) - v6->QuadPart) >> 23;
+    DbgPrintEx(0x65u, 1u, "RTL: Enter CriticalSection Timeout (%I64u secs) %d\n", v39 + (v39 >> 63), v5);
     if ( *(_QWORD *)a1 == -1LL )
-      v43 = 0;
+      v40 = 0;
     else
-      v43 = *(_DWORD *)(*(_QWORD *)a1 + 36LL);
+      v40 = *(_DWORD *)(*(_QWORD *)a1 + 36LL);
     DbgPrintEx(
-      101,
+      0x65u,
       0,
       "RTL: Pid.Tid %p.%p, owner tid %p Critical Section %p - ContentionCount == %u\n",
-      v41->ClientId.UniqueProcess,
-      v41->ClientId.UniqueThread,
+      v38->ClientId.UniqueProcess,
+      v38->ClientId.UniqueThread,
       *(const void **)(a1 + 16),
       (const void *)a1,
-      v43);
-    v49 = ++v8;
+      v40);
+    v46 = ++v5;
     if ( *(_QWORD *)a1 == -1LL )
-      v44 = 0;
+      v41 = 0;
     else
-      v44 = *(_DWORD *)(*(_QWORD *)a1 + 36LL);
-    if ( v8 > 2 && (_UNKNOWN **)a1 != &LdrpLoaderLock && v44 == v11 )
+      v41 = *(_DWORD *)(*(_QWORD *)a1 + 36LL);
+    if ( v5 > 2 && (_RTL_CRITICAL_SECTION *)a1 != &LdrpLoaderLock && v41 == v8 )
       RtlpPossibleDeadlock(a1);
-    v50 = v44;
-    v11 = v44;
-    DbgPrintEx(101, 0, "RTL: Re-Waiting\n");
+    v47 = v41;
+    v8 = v41;
+    DbgPrintEx(0x65u, 0, "RTL: Re-Waiting\n");
   }
 LABEL_28:
-  if ( (int)v23 < 0 )
+  if ( (int)v20 < 0 )
+    RtlRaiseStatus((NTSTATUS)v20);
+  if ( v45 )
   {
-    RtlRaiseStatus((unsigned int)v23);
-    JUMPOUT(0x1800B9602LL);
-  }
-  if ( v48 )
-  {
-    v51->WaitingOnLoaderLock = 0;
-    v23 = NtCurrentPeb();
-    v34 = v23->SharedData;
-    if ( v34 && *v34 )
+    v48->WaitingOnLoaderLock = 0;
+    v20 = NtCurrentPeb();
+    v31 = v20->SharedData;
+    if ( v31 && *v31 )
     {
-      v23 = NtCurrentPeb();
-      v35 = (__int64)v23->SharedData + 554;
+      v20 = NtCurrentPeb();
+      v32 = (__int64)v20->SharedData + 554;
     }
     else
     {
-      v35 = 2147353476LL;
+      v32 = 2147353476LL;
     }
-    if ( *(_BYTE *)v35 )
+    if ( *(_BYTE *)v32 )
     {
-      v23 = NtCurrentPeb();
-      if ( (v23->TracingFlags & 4) != 0 )
+      v20 = NtCurrentPeb();
+      if ( (v20->TracingFlags & 4) != 0 )
       {
-        v23 = NtCurrentPeb();
-        v45 = v23->SharedData;
-        if ( v45 && *v45 )
+        v20 = NtCurrentPeb();
+        v42 = v20->SharedData;
+        if ( v42 && *v42 )
         {
-          v23 = NtCurrentPeb();
-          v46 = (__int64)v23->SharedData + 555;
+          v20 = NtCurrentPeb();
+          v43 = (__int64)v20->SharedData + 555;
         }
         else
         {
-          v46 = 2147353477LL;
+          v43 = 2147353477LL;
         }
-        if ( (*(_BYTE *)v46 & 0x20) != 0 )
+        if ( (*(_BYTE *)v43 & 0x20) != 0 )
         {
-          LOBYTE(v24) = -1;
-          LODWORD(v23) = LdrpLogEtwEvent(5251, -1, 255, v24, 0LL, 0LL);
+          LOBYTE(v21) = -1;
+          LODWORD(v20) = LdrpLogEtwEvent(5251, -1, 255, v21, 0LL, 0LL);
         }
       }
     }
   }
-  return (int)v23;
+  return (int)v20;
 }

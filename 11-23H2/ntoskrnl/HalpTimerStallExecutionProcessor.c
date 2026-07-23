@@ -1,14 +1,14 @@
 /*
- * XREFs of HalpTimerStallExecutionProcessor @ 0x1402C43B0
+ * XREFs of HalpTimerStallExecutionProcessor @ 0x1402C4640
  * Callers:
- *     KeStallExecutionProcessor @ 0x1402C3030 (KeStallExecutionProcessor.c)
- *     HalpTimerMeasureFrequencies @ 0x140379ED8 (HalpTimerMeasureFrequencies.c)
+ *     KeStallExecutionProcessor @ 0x1402C32C0 (KeStallExecutionProcessor.c)
+ *     HalpTimerMeasureFrequencies @ 0x14037A078 (HalpTimerMeasureFrequencies.c)
  * Callees:
- *     HalpTimerGetInternalData @ 0x1402C4570 (HalpTimerGetInternalData.c)
- *     KeRevertToUserGroupAffinityThread @ 0x140305E00 (KeRevertToUserGroupAffinityThread.c)
- *     KeSetSystemGroupAffinityThread @ 0x140306C50 (KeSetSystemGroupAffinityThread.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
+ *     HalpTimerGetInternalData @ 0x1402C4800 (HalpTimerGetInternalData.c)
+ *     KeRevertToUserGroupAffinityThread @ 0x140306090 (KeRevertToUserGroupAffinityThread.c)
+ *     KeSetSystemGroupAffinityThread @ 0x140306EE0 (KeSetSystemGroupAffinityThread.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
  */
 
 void __fastcall HalpTimerStallExecutionProcessor(__int64 a1, __int64 a2, char a3)
@@ -30,9 +30,9 @@ void __fastcall HalpTimerStallExecutionProcessor(__int64 a1, __int64 a2, char a3
   int v20; // eax
   unsigned int v21; // edx
   char v22; // [rsp+20h] [rbp-78h]
-  struct _GROUP_AFFINITY Affinity; // [rsp+28h] [rbp-70h] BYREF
+  _GROUP_AFFINITY Affinity; // [rsp+28h] [rbp-70h] BYREF
   __int64 v24; // [rsp+38h] [rbp-60h]
-  struct _GROUP_AFFINITY PreviousAffinity; // [rsp+40h] [rbp-58h] BYREF
+  _GROUP_AFFINITY PreviousAffinity; // [rsp+40h] [rbp-58h] BYREF
   int v26; // [rsp+90h] [rbp-8h]
 
   v3 = *(_DWORD *)(a1 + 224);

@@ -1,8 +1,8 @@
 /*
- * XREFs of IopReadyDeviceObjects @ 0x14077155C
+ * XREFs of IopReadyDeviceObjects @ 0x14077171C
  * Callers:
- *     IopLoadDriver @ 0x140740868 (IopLoadDriver.c)
- *     IopInitializeBuiltinDriver @ 0x140A5E618 (IopInitializeBuiltinDriver.c)
+ *     IopLoadDriver @ 0x140740A28 (IopLoadDriver.c)
+ *     IopInitializeBuiltinDriver @ 0x140A5F618 (IopInitializeBuiltinDriver.c)
  * Callees:
  *     <none>
  */

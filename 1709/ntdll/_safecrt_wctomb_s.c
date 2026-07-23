@@ -8,12 +8,12 @@
  *     memset @ 0x1800A6C80 (memset.c)
  */
 
-__int64 __fastcall safecrt_wctomb_s(int *a1, _BYTE *a2, size_t a3, unsigned __int16 a4)
+__int64 __fastcall safecrt_wctomb_s(_DWORD *a1, CHAR *a2, size_t a3, WCHAR a4)
 {
-  int v8; // [rsp+48h] [rbp+10h] BYREF
-  unsigned __int16 v9; // [rsp+58h] [rbp+20h] BYREF
+  ULONG BytesInMultiByteString; // [rsp+48h] [rbp+10h] BYREF
+  WCHAR UnicodeString; // [rsp+58h] [rbp+20h] BYREF
 
-  v9 = a4;
+  UnicodeString = a4;
   if ( !a2 && a3 )
   {
     if ( a1 )
@@ -33,10 +33,10 @@ __int64 __fastcall safecrt_wctomb_s(int *a1, _BYTE *a2, size_t a3, unsigned __in
       *a1 = _mb_cur_max;
     return 0LL;
   }
-  if ( (int)RtlUnicodeToMultiByteN(a2, a3, (unsigned int *)&v8, &v9, 2u) >= 0 )
+  if ( RtlUnicodeToMultiByteN(a2, a3, &BytesInMultiByteString, &UnicodeString, 2u) >= 0 )
   {
     if ( a1 )
-      *a1 = v8;
+      *a1 = BytesInMultiByteString;
     return 0LL;
   }
   if ( a3 )

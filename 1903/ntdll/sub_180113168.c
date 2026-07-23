@@ -7,48 +7,52 @@
  *     memset @ 0x1800A3600 (memset.c)
  */
 
-__int64 __fastcall sub_180113168(__int64 a1, __int64 *a2, _OWORD *a3)
+NTSTATUS __fastcall sub_180113168(__int64 a1, PVOID *a2, _OWORD *a3)
 {
-  __int64 result; // rax
-  unsigned __int64 v7; // rdi
-  __int64 v8; // rbp
-  unsigned int v9; // ecx
+  void *v5; // rcx
+  NTSTATUS result; // eax
+  unsigned __int64 v8; // rdi
+  char *v9; // rbp
+  unsigned int v10; // ecx
+  ULONG_PTR ViewSize; // [rsp+70h] [rbp+8h] BYREF
 
-  if ( !*(_QWORD *)(a1 + 1008) )
-    return 3221226021LL;
+  v5 = *(void **)(a1 + 1008);
+  if ( !v5 )
+    return -1073741275;
   if ( !a2 )
-    return 3221225485LL;
+    return -1073741811;
   if ( !*a2 )
   {
-    result = ZwMapViewOfSection();
-    if ( (int)result < 0 )
+    ViewSize = 0LL;
+    result = ZwMapViewOfSection(v5, (HANDLE)0xFFFFFFFFFFFFFFFFLL, a2, 0LL, 0LL, 0LL, &ViewSize, ViewShare, 0, 2u);
+    if ( result < 0 )
       return result;
     a2[1] = 0LL;
   }
-  v7 = a2[1];
-  if ( v7 >= *(_QWORD *)(a1 + 1000) )
-    return 2147483674LL;
+  v8 = (unsigned __int64)a2[1];
+  if ( v8 >= *(_QWORD *)(a1 + 1000) )
+    return -2147483622;
   if ( !a3 )
-    return 261LL;
-  v8 = *a2;
+    return 261;
+  v9 = (char *)*a2;
   memset(a3, 0, 0x88uLL);
-  v9 = 128;
-  *a3 = *(_OWORD *)(v7 + v8);
-  a3[1] = *(_OWORD *)(v7 + v8 + 16);
-  a3[2] = *(_OWORD *)(v7 + v8 + 32);
-  a3[3] = *(_OWORD *)(v7 + v8 + 48);
-  *((_QWORD *)a3 + 8) = *(_QWORD *)(v7 + v8 + 64);
-  *(_OWORD *)((char *)a3 + 72) = *(_OWORD *)(v7 + v8 + 72);
-  *(_OWORD *)((char *)a3 + 88) = *(_OWORD *)(v7 + v8 + 88);
-  *((_QWORD *)a3 + 13) = *(_QWORD *)(v7 + v8 + 104);
-  *((_QWORD *)a3 + 14) = *(_QWORD *)(v7 + v8 + 112);
-  *((_WORD *)a3 + 60) = *(_WORD *)(v7 + v8 + 120);
-  *((_WORD *)a3 + 61) = *(_WORD *)(v7 + v8 + 122);
-  if ( *(_WORD *)(v7 + v8 + 122) >= 2u )
+  v10 = 128;
+  *a3 = *(_OWORD *)&v9[v8];
+  a3[1] = *(_OWORD *)&v9[v8 + 16];
+  a3[2] = *(_OWORD *)&v9[v8 + 32];
+  a3[3] = *(_OWORD *)&v9[v8 + 48];
+  *((_QWORD *)a3 + 8) = *(_QWORD *)&v9[v8 + 64];
+  *(_OWORD *)((char *)a3 + 72) = *(_OWORD *)&v9[v8 + 72];
+  *(_OWORD *)((char *)a3 + 88) = *(_OWORD *)&v9[v8 + 88];
+  *((_QWORD *)a3 + 13) = *(_QWORD *)&v9[v8 + 104];
+  *((_QWORD *)a3 + 14) = *(_QWORD *)&v9[v8 + 112];
+  *((_WORD *)a3 + 60) = *(_WORD *)&v9[v8 + 120];
+  *((_WORD *)a3 + 61) = *(_WORD *)&v9[v8 + 122];
+  if ( *(_WORD *)&v9[v8 + 122] >= 2u )
   {
-    *((_QWORD *)a3 + 16) = v7 + v8 + 128;
-    v9 = (((*(unsigned __int16 *)(v7 + v8 + 122) >> 1) + 15) & 0xFFFFFFF0) + 128;
+    *((_QWORD *)a3 + 16) = &v9[v8 + 128];
+    v10 = (((*(unsigned __int16 *)&v9[v8 + 122] >> 1) + 15) & 0xFFFFFFF0) + 128;
   }
-  a2[1] = v7 + v9;
-  return 0LL;
+  a2[1] = (PVOID)(v8 + v10);
+  return 0;
 }

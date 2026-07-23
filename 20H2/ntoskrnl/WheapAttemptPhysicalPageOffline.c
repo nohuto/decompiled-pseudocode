@@ -14,7 +14,7 @@
  *     WheapClearPoison @ 0x1409600D4 (WheapClearPoison.c)
  */
 
-__int64 __fastcall WheapAttemptPhysicalPageOffline(LARGE_INTEGER a1, __int64 a2, char a3, char a4, char a5)
+__int64 __fastcall WheapAttemptPhysicalPageOffline(LARGE_INTEGER a1, UNICODE_STRING *a2, char a3, char a4, char a5)
 {
   __int64 v5; // r12
   char v6; // r13
@@ -34,10 +34,10 @@ __int64 __fastcall WheapAttemptPhysicalPageOffline(LARGE_INTEGER a1, __int64 a2,
   _QWORD v24[2]; // [rsp+70h] [rbp-11h] BYREF
 
   StartAddress = a1;
-  v5 = a2 << 12;
+  v5 = (_QWORD)a2 << 12;
   v6 = 0;
   memset(v24, 0, 9);
-  v19 = a2 << 12;
+  v19 = (_QWORD)a2 << 12;
   v20 = 4096LL;
   Src = 0LL;
   v23 = 0LL;
@@ -73,7 +73,7 @@ __int64 __fastcall WheapAttemptPhysicalPageOffline(LARGE_INTEGER a1, __int64 a2,
       *((_QWORD *)&v23 + 1) = 0x900000002LL;
       LODWORD(v24[0]) = v8;
       BYTE4(v24[0]) = v10;
-      *(_DWORD *)((char *)v24 + 5) = a2;
+      *(_DWORD *)((char *)v24 + 5) = (_DWORD)a2;
       WheaLogInternalEvent(&Src);
     }
   }

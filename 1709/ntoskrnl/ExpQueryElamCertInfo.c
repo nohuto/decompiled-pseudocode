@@ -93,7 +93,7 @@ __int64 __fastcall ExpQueryElamCertInfo(void *a1)
                   v2 = SeValidateFileAsImageType();
                   if ( v2 >= 0 )
                   {
-                    v2 = SeRegisterElamCertResources((ULONGLONG)v1, v7, 1);
+                    v2 = SeRegisterElamCertResources((unsigned __int64)v1, v7, 1);
                     if ( v2 >= 0 )
                       v2 = 0;
                   }

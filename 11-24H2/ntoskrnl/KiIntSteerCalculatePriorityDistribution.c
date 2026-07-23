@@ -1,12 +1,12 @@
 /*
- * XREFs of KiIntSteerCalculatePriorityDistribution @ 0x140354390
+ * XREFs of KiIntSteerCalculatePriorityDistribution @ 0x1402B20C0
  * Callers:
- *     KiIntSteerCalculateDistribution @ 0x140353BC0 (KiIntSteerCalculateDistribution.c)
+ *     KiIntSteerCalculateDistribution @ 0x1402B1990 (KiIntSteerCalculateDistribution.c)
  * Callees:
- *     KeQueryActiveProcessorCountEx @ 0x1402105E0 (KeQueryActiveProcessorCountEx.c)
- *     KiIntPartGetLowestClassProcessorInMask @ 0x140354604 (KiIntPartGetLowestClassProcessorInMask.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     KiIntPartGetLowestClassProcessorInMask @ 0x1402B2334 (KiIntPartGetLowestClassProcessorInMask.c)
+ *     KeQueryActiveProcessorCountEx @ 0x140339940 (KeQueryActiveProcessorCountEx.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 int __fastcall KiIntSteerCalculatePriorityDistribution(char *a1, _QWORD **a2, __int64 *a3, __int64 *a4, __int64 *a5)

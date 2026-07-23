@@ -1,13 +1,13 @@
 /*
- * XREFs of PopSetSleepMarker @ 0x1409814A0
+ * XREFs of PopSetSleepMarker @ 0x1409816A0
  * Callers:
- *     PopIssueActionRequest @ 0x140989CA4 (PopIssueActionRequest.c)
- *     PopTransitionSystemPowerStateEx @ 0x140AA90F0 (PopTransitionSystemPowerStateEx.c)
+ *     PopIssueActionRequest @ 0x140989EA4 (PopIssueActionRequest.c)
+ *     PopTransitionSystemPowerStateEx @ 0x140AA8F60 (PopTransitionSystemPowerStateEx.c)
  * Callees:
- *     PopReleaseRwLock @ 0x14032C480 (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x14032C5E4 (PopAcquireRwLockExclusive.c)
- *     PopBsdHandleRequest @ 0x14032D388 (PopBsdHandleRequest.c)
- *     PopGetTransitionsToOnCount @ 0x1405951AC (PopGetTransitionsToOnCount.c)
+ *     PopReleaseRwLock @ 0x14032C710 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x14032C874 (PopAcquireRwLockExclusive.c)
+ *     PopBsdHandleRequest @ 0x14032D618 (PopBsdHandleRequest.c)
+ *     PopGetTransitionsToOnCount @ 0x14059569C (PopGetTransitionsToOnCount.c)
  */
 
 void __fastcall PopSetSleepMarker(char a1)

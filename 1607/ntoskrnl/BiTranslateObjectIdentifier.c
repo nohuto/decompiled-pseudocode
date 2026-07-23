@@ -1,9 +1,9 @@
 /*
- * XREFs of BiTranslateObjectIdentifier @ 0x1406D59CC
+ * XREFs of BiTranslateObjectIdentifier @ 0x1406D5B04
  * Callers:
- *     BiExportEfiBootManager @ 0x1406D4A80 (BiExportEfiBootManager.c)
- *     BiHandleFirmwareDefaultEntry @ 0x1406D5398 (BiHandleFirmwareDefaultEntry.c)
- *     BiTranslateDisplayOrder @ 0x1406D588C (BiTranslateDisplayOrder.c)
+ *     BiExportEfiBootManager @ 0x1406D4BB8 (BiExportEfiBootManager.c)
+ *     BiHandleFirmwareDefaultEntry @ 0x1406D54D0 (BiHandleFirmwareDefaultEntry.c)
+ *     BiTranslateDisplayOrder @ 0x1406D59C4 (BiTranslateDisplayOrder.c)
  * Callees:
  *     <none>
  */

@@ -43,7 +43,7 @@ __int64 __fastcall ExpSaPageGroupDescriptorFree(ULONG_PTR BugCheckParameter2)
   struct _KTHREAD *v24; // rbx
   unsigned __int8 v25; // r14
   unsigned int v26; // edx
-  unsigned __int64 v27; // rsi
+  __int64 v27; // rsi
   __int64 v28; // rcx
   __int64 v29; // rdx
   __int64 v30; // rdx
@@ -148,7 +148,7 @@ LABEL_15:
     v15 = !_BitScanReverse((unsigned int *)&v28, v26);
     if ( v15 )
       goto LABEL_37;
-    v27 = (unsigned __int64)&v24->LockEntries[v28];
+    v27 = (__int64)&v24->LockEntries[v28];
     v26 &= ~(1 << v28);
     if ( (*(_BYTE *)(v27 + 26) & 1) != 0
       && (*(_DWORD *)(v27 + 32) & 1) == 0
@@ -169,12 +169,12 @@ LABEL_37:
   }
   *(_BYTE *)(v27 + 32) |= 2u;
   if ( *(__int64 *)(v27 + 32) < 0 )
-    KiAbEntryRemoveFromTree(v27);
+    KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)v27);
   v36 = *(_DWORD *)(v27 + 88) & 0x1FFFF;
   *(_DWORD *)(v27 + 88) &= 0xFFFE0000;
   *(_BYTE *)(v27 + 25) &= ~1u;
   *(_QWORD *)(v27 + 32) = 0LL;
-  v29 = (__int64)(v27 - (unsigned __int64)v24->LockEntries) / 96;
+  v29 = (signed __int64)(v27 - (unsigned __int64)v24->LockEntries) / 96;
   if ( v25 == 1 )
     v24->AbEntrySummary |= 1 << v29;
   else

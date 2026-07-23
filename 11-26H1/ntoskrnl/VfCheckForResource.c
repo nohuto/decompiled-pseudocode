@@ -1,15 +1,15 @@
 /*
- * XREFs of VfCheckForResource @ 0x140C461BC
+ * XREFs of VfCheckForResource @ 0x140C4C1CC
  * Callers:
- *     ExpCheckForResource @ 0x140344B48 (ExpCheckForResource.c)
+ *     ExpCheckForResource @ 0x140346BC8 (ExpCheckForResource.c)
  * Callees:
- *     VfAvlFreeNodeNoLock @ 0x1403B7710 (VfAvlFreeNodeNoLock.c)
- *     VfAvlDeleteTreeNode @ 0x1403B7A64 (VfAvlDeleteTreeNode.c)
- *     VfAvlLookupTreeNode @ 0x1403B7E8C (VfAvlLookupTreeNode.c)
- *     VfAvlCleanupLockContext @ 0x1403B84FC (VfAvlCleanupLockContext.c)
- *     VfPoolIsInternalFree @ 0x1404CFC34 (VfPoolIsInternalFree.c)
- *     VfAvlInitializeLockContext @ 0x1404DCB40 (VfAvlInitializeLockContext.c)
- *     CarReportRuleViolationFromNt @ 0x140C2BF1C (CarReportRuleViolationFromNt.c)
+ *     VfAvlFreeNodeNoLock @ 0x1403C1610 (VfAvlFreeNodeNoLock.c)
+ *     VfAvlDeleteTreeNode @ 0x1403C1964 (VfAvlDeleteTreeNode.c)
+ *     VfAvlLookupTreeNode @ 0x1403C1D8C (VfAvlLookupTreeNode.c)
+ *     VfAvlCleanupLockContext @ 0x1403C23FC (VfAvlCleanupLockContext.c)
+ *     VfPoolIsInternalFree @ 0x1404C9664 (VfPoolIsInternalFree.c)
+ *     VfAvlInitializeLockContext @ 0x1404D6220 (VfAvlInitializeLockContext.c)
+ *     CarReportRuleViolationFromNt @ 0x140C31F2C (CarReportRuleViolationFromNt.c)
  */
 
 __int64 __fastcall VfCheckForResource(ULONG_PTR BugCheckParameter3, __int64 a2)
@@ -25,7 +25,7 @@ __int64 __fastcall VfCheckForResource(ULONG_PTR BugCheckParameter3, __int64 a2)
   v8 = 0LL;
   if ( ViResourceInitialized )
   {
-    if ( (unsigned int)VfPoolIsInternalFree() || !qword_140FF0058 )
+    if ( (unsigned int)VfPoolIsInternalFree() || !qword_140FF1058 )
       return 1LL;
     v10 = 0LL;
     VfAvlInitializeLockContext((__int64)&v8, 1);

@@ -1,12 +1,12 @@
 /*
- * XREFs of PsGetEffectiveContainerId @ 0x14026E950
+ * XREFs of PsGetEffectiveContainerId @ 0x14026DEC0
  * Callers:
- *     NtQueryInformationThread @ 0x140A1F330 (NtQueryInformationThread.c)
+ *     NtQueryInformationThread @ 0x140A28950 (NtQueryInformationThread.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     ExReleaseSpinLockShared @ 0x14026CEE0 (ExReleaseSpinLockShared.c)
- *     ObfReferenceObjectWithTag @ 0x140278B30 (ObfReferenceObjectWithTag.c)
- *     ExAcquireSpinLockShared @ 0x1402EDF10 (ExAcquireSpinLockShared.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     ExReleaseSpinLockShared @ 0x14026C450 (ExReleaseSpinLockShared.c)
+ *     ObfReferenceObjectWithTag @ 0x1402780A0 (ObfReferenceObjectWithTag.c)
+ *     ExAcquireSpinLockShared @ 0x1402CFF90 (ExAcquireSpinLockShared.c)
  */
 
 __int64 __fastcall PsGetEffectiveContainerId(int a1, struct _KTHREAD *a2, __int64 a3)
@@ -35,7 +35,7 @@ __int64 __fastcall PsGetEffectiveContainerId(int a1, struct _KTHREAD *a2, __int6
       goto LABEL_6;
     if ( a2 == KeGetCurrentThread() )
       goto LABEL_13;
-    v13 = ExAcquireSpinLockShared((PEX_SPIN_LOCK)&PsAltSystemCallRegistrationLock.CurrentRunTime);
+    v13 = ExAcquireSpinLockShared((PEX_SPIN_LOCK)&PsAltSystemCallRegistrationLock.FirstArgument);
     Object = a2[1].WaitBlock[1].Object;
     v14 = v13;
     if ( Object )
@@ -43,7 +43,7 @@ __int64 __fastcall PsGetEffectiveContainerId(int a1, struct _KTHREAD *a2, __int6
       ObfReferenceObjectWithTag(a2[1].WaitBlock[1].Object, 0x746C6644u);
       v7 = 1;
     }
-    ExReleaseSpinLockShared((PEX_SPIN_LOCK)&PsAltSystemCallRegistrationLock.CurrentRunTime, v14);
+    ExReleaseSpinLockShared((PEX_SPIN_LOCK)&PsAltSystemCallRegistrationLock.FirstArgument, v14);
     if ( Object )
     {
 LABEL_13:

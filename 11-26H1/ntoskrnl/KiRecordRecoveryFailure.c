@@ -1,17 +1,17 @@
 /*
- * XREFs of KiRecordRecoveryFailure @ 0x1405FA508
+ * XREFs of KiRecordRecoveryFailure @ 0x1405FCF28
  * Callers:
- *     KiAttemptBugcheckRecovery @ 0x1405F9734 (KiAttemptBugcheckRecovery.c)
- *     KiDeferredBugcheckRecoveryWorker @ 0x1405F9FE0 (KiDeferredBugcheckRecoveryWorker.c)
- *     KiHandleMultipleBugchecksDuringRecovery @ 0x1405FA29C (KiHandleMultipleBugchecksDuringRecovery.c)
- *     KiScheduleBugcheckRecovery @ 0x1405FA570 (KiScheduleBugcheckRecovery.c)
+ *     KiAttemptBugcheckRecovery @ 0x1405FC154 (KiAttemptBugcheckRecovery.c)
+ *     KiDeferredBugcheckRecoveryWorker @ 0x1405FCA00 (KiDeferredBugcheckRecoveryWorker.c)
+ *     KiHandleMultipleBugchecksDuringRecovery @ 0x1405FCCBC (KiHandleMultipleBugchecksDuringRecovery.c)
+ *     KiScheduleBugcheckRecovery @ 0x1405FCF90 (KiScheduleBugcheckRecovery.c)
  * Callees:
- *     IoAddTriageDumpDataBlock @ 0x14044AB54 (IoAddTriageDumpDataBlock.c)
+ *     IoAddTriageDumpDataBlock @ 0x140442C84 (IoAddTriageDumpDataBlock.c)
  */
 
 char __fastcall KiRecordRecoveryFailure(int a1)
 {
-  *(_DWORD *)&KsepShimDbLock.WaitBlockFill11[144] = a1;
-  IoAddTriageDumpDataBlock((ULONG)&KsepShimDbLock.WaitBlockFill11[144], (PVOID)4);
-  return IoAddTriageDumpDataBlock((ULONG)&KsepShimDbLock.WaitBlockFill11[152], (PVOID)0x4C);
+  *(_DWORD *)&KsepShimDbLock.SavedApcStateFill[16] = a1;
+  IoAddTriageDumpDataBlock((ULONG)&KsepShimDbLock.SavedApcStateFill[16], (PVOID)4);
+  return IoAddTriageDumpDataBlock((ULONG)&KsepShimDbLock.648, (PVOID)0x4C);
 }

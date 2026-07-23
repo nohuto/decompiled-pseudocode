@@ -24,10 +24,10 @@
  *     sub_18006E3A0 @ 0x18006E3A0 (sub_18006E3A0.c)
  */
 
-__int64 __fastcall RtlpCreateProcessRegistryInfo(__int64 *a1)
+__int64 __fastcall RtlpCreateProcessRegistryInfo(_QWORD *a1)
 {
-  __int64 v1; // rax
-  __int64 v2; // rbx
+  PVOID v1; // rax
+  PVOID v2; // rbx
   int v4; // edi
 
   v1 = qword_18015BF90;
@@ -36,9 +36,9 @@ __int64 __fastcall RtlpCreateProcessRegistryInfo(__int64 *a1)
   if ( !qword_18015BF90 )
   {
     sub_18006E3A0();
-    RtlEnterCriticalSection((__int64)&unk_180159BA0);
+    RtlEnterCriticalSection(&stru_180159BA0);
     v4 = RtlpInitializeLangRegistryInfo(&qword_18015BF90);
-    RtlLeaveCriticalSection((__int64)&unk_180159BA0);
+    RtlLeaveCriticalSection(&stru_180159BA0);
     v1 = qword_18015BF90;
   }
   if ( a1 )

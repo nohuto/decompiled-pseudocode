@@ -1,15 +1,15 @@
 /*
- * XREFs of PfSnPrefetchScenario @ 0x1403E5094
+ * XREFs of PfSnPrefetchScenario @ 0x1403E66C0
  * Callers:
- *     PfSnBeginScenario @ 0x1403E6ED0 (PfSnBeginScenario.c)
+ *     PfSnBeginScenario @ 0x1403E8500 (PfSnBeginScenario.c)
  * Callees:
- *     ExQueueWorkItem @ 0x14005FE5C (ExQueueWorkItem.c)
- *     ExWaitForRundownProtectionRelease @ 0x140074D34 (ExWaitForRundownProtectionRelease.c)
- *     KeQueryPriorityThread @ 0x1400C73C0 (KeQueryPriorityThread.c)
- *     ExAcquireRundownProtection @ 0x1400D3ED0 (ExAcquireRundownProtection.c)
+ *     ExQueueWorkItem @ 0x14005F9DC (ExQueueWorkItem.c)
+ *     ExWaitForRundownProtectionRelease @ 0x140074DB4 (ExWaitForRundownProtectionRelease.c)
+ *     KeQueryPriorityThread @ 0x1400C5260 (KeQueryPriorityThread.c)
+ *     ExAcquireRundownProtection @ 0x1400D1D70 (ExAcquireRundownProtection.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     PfSnAsyncContextInitialize @ 0x1403E5134 (PfSnAsyncContextInitialize.c)
+ *     PfSnAsyncContextInitialize @ 0x1403E6760 (PfSnAsyncContextInitialize.c)
  */
 
 __int64 __fastcall PfSnPrefetchScenario(void *a1, unsigned __int8 a2)

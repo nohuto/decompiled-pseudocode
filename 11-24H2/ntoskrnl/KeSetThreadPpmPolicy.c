@@ -1,15 +1,15 @@
 /*
- * XREFs of KeSetThreadPpmPolicy @ 0x14048BA94
+ * XREFs of KeSetThreadPpmPolicy @ 0x140486864
  * Callers:
- *     PspSetThreadPpmPolicy @ 0x140913AC0 (PspSetThreadPpmPolicy.c)
+ *     PspSetThreadPpmPolicy @ 0x1408EB1D0 (PspSetThreadPpmPolicy.c)
  * Callees:
- *     KiReleaseThreadLockLowerIrql @ 0x1402067B0 (KiReleaseThreadLockLowerIrql.c)
- *     KiComputeThreadQos @ 0x14029A450 (KiComputeThreadQos.c)
- *     KiAcquireThreadLockRaiseToDpc @ 0x1402A1A20 (KiAcquireThreadLockRaiseToDpc.c)
- *     KiAcquireThreadStateLockForWrite @ 0x1403B1E60 (KiAcquireThreadStateLockForWrite.c)
- *     KiReleaseThreadStateLock @ 0x1403B27B0 (KiReleaseThreadStateLock.c)
- *     KiPrcbArrayForIsolationWidth @ 0x1403F52C0 (KiPrcbArrayForIsolationWidth.c)
- *     KiUpdateThreadQosGroupingSummaries @ 0x1404E9670 (KiUpdateThreadQosGroupingSummaries.c)
+ *     KiComputeThreadQos @ 0x1402A8F40 (KiComputeThreadQos.c)
+ *     KiAcquireThreadLockRaiseToDpc @ 0x1402D1150 (KiAcquireThreadLockRaiseToDpc.c)
+ *     KiReleaseThreadLockLowerIrql @ 0x14032DD90 (KiReleaseThreadLockLowerIrql.c)
+ *     KiAcquireThreadStateLockForWrite @ 0x1403A0670 (KiAcquireThreadStateLockForWrite.c)
+ *     KiReleaseThreadStateLock @ 0x1403A0FC0 (KiReleaseThreadStateLock.c)
+ *     KiPrcbArrayForIsolationWidth @ 0x1403EB700 (KiPrcbArrayForIsolationWidth.c)
+ *     KiUpdateThreadQosGroupingSummaries @ 0x1404E0370 (KiUpdateThreadQosGroupingSummaries.c)
  */
 
 __int64 __fastcall KeSetThreadPpmPolicy(__int64 a1, char a2)

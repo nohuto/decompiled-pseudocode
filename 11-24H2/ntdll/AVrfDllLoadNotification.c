@@ -1,14 +1,14 @@
 /*
- * XREFs of AVrfDllLoadNotification @ 0x1800EC804
+ * XREFs of AVrfDllLoadNotification @ 0x1800E7434
  * Callers:
- *     LdrpSendPostSnapNotifications @ 0x1800707A0 (LdrpSendPostSnapNotifications.c)
- *     LdrpCorProcessImports @ 0x1800746A0 (LdrpCorProcessImports.c)
+ *     LdrpSendPostSnapNotifications @ 0x18008D080 (LdrpSendPostSnapNotifications.c)
+ *     LdrpCorProcessImports @ 0x180090F80 (LdrpCorProcessImports.c)
  * Callees:
- *     RtlEnterCriticalSection @ 0x1800148F0 (RtlEnterCriticalSection.c)
- *     RtlLeaveCriticalSection @ 0x1800149F0 (RtlLeaveCriticalSection.c)
- *     AVrfpIsVerifierProviderDll @ 0x1800EC8BC (AVrfpIsVerifierProviderDll.c)
- *     AVrfpDllLoadNotificationInternal @ 0x1800EC8F0 (AVrfpDllLoadNotificationInternal.c)
- *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x180172020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
+ *     RtlEnterCriticalSection @ 0x1800412F0 (RtlEnterCriticalSection.c)
+ *     RtlLeaveCriticalSection @ 0x1800413F0 (RtlLeaveCriticalSection.c)
+ *     AVrfpIsVerifierProviderDll @ 0x1800E74EC (AVrfpIsVerifierProviderDll.c)
+ *     AVrfpDllLoadNotificationInternal @ 0x1800E7520 (AVrfpDllLoadNotificationInternal.c)
+ *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x180171020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
  */
 
 __int64 __fastcall AVrfDllLoadNotification(__int64 a1)
@@ -20,7 +20,7 @@ __int64 __fastcall AVrfDllLoadNotification(__int64 a1)
   if ( (NtCurrentPeb()->NtGlobalFlag & 0x100) == 0 )
     return 0LL;
   NotificationInternal = 0;
-  RtlEnterCriticalSection((__int64)&AVrfpVerifierLock);
+  RtlEnterCriticalSection(&AVrfpVerifierLock);
   if ( !(unsigned __int8)AVrfpIsVerifierProviderDll(*(_QWORD *)(a1 + 48)) )
   {
     NotificationInternal = AVrfpDllLoadNotificationInternal(a1);
@@ -36,6 +36,6 @@ __int64 __fastcall AVrfDllLoadNotification(__int64 a1)
       }
     }
   }
-  RtlLeaveCriticalSection((__int64)&AVrfpVerifierLock);
+  RtlLeaveCriticalSection(&AVrfpVerifierLock);
   return (unsigned int)NotificationInternal;
 }

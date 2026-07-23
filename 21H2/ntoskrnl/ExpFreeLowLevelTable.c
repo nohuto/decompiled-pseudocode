@@ -1,9 +1,9 @@
 /*
- * XREFs of ExpFreeLowLevelTable @ 0x1406044A0
+ * XREFs of ExpFreeLowLevelTable @ 0x1406F3BD0
  * Callers:
- *     ExpFreeHandleTable @ 0x140604378 (ExpFreeHandleTable.c)
+ *     ExpFreeHandleTable @ 0x1406F3AA8 (ExpFreeHandleTable.c)
  * Callees:
- *     ExpFreeTablePagedPool @ 0x1406044E0 (ExpFreeTablePagedPool.c)
+ *     ExpFreeTablePagedPool @ 0x1406F3C10 (ExpFreeTablePagedPool.c)
  */
 
 __int64 __fastcall ExpFreeLowLevelTable(__int64 a1, __int64 *a2)

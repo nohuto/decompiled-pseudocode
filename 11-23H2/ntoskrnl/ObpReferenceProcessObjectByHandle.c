@@ -1,15 +1,15 @@
 /*
- * XREFs of ObpReferenceProcessObjectByHandle @ 0x1407BD364
+ * XREFs of ObpReferenceProcessObjectByHandle @ 0x1407BD634
  * Callers:
- *     ObCaptureObjectStateForDuplication @ 0x1407BD1BC (ObCaptureObjectStateForDuplication.c)
+ *     ObCaptureObjectStateForDuplication @ 0x1407BD48C (ObCaptureObjectStateForDuplication.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExGetHandlePointer @ 0x14022F740 (ExGetHandlePointer.c)
- *     ObpIncrPointerCount @ 0x14025A244 (ObpIncrPointerCount.c)
- *     ExfUnblockPushLock @ 0x140412160 (ExfUnblockPushLock.c)
- *     ObpPushStackInfo @ 0x140582BD8 (ObpPushStackInfo.c)
- *     ExMapHandleToPointer @ 0x14073FC10 (ExMapHandleToPointer.c)
- *     ExpGetHandleExtraInfo @ 0x1408AB4CA (ExpGetHandleExtraInfo.c)
+ *     KeLeaveCriticalRegionThread @ 0x14022F7F0 (KeLeaveCriticalRegionThread.c)
+ *     ExGetHandlePointer @ 0x14022F830 (ExGetHandlePointer.c)
+ *     ObpIncrPointerCount @ 0x14025A4D4 (ObpIncrPointerCount.c)
+ *     ExfUnblockPushLock @ 0x1404124A0 (ExfUnblockPushLock.c)
+ *     ObpPushStackInfo @ 0x1405830C8 (ObpPushStackInfo.c)
+ *     ExMapHandleToPointer @ 0x14073FE00 (ExMapHandleToPointer.c)
+ *     ExpGetHandleExtraInfo @ 0x1408AB71A (ExpGetHandleExtraInfo.c)
  */
 
 __int64 __fastcall ObpReferenceProcessObjectByHandle(

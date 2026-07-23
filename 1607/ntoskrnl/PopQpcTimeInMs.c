@@ -1,10 +1,10 @@
 /*
  * XREFs of PopQpcTimeInMs @ 0x1403D055C
  * Callers:
- *     PopPowerTransitionTimesInMs @ 0x140114634 (PopPowerTransitionTimesInMs.c)
+ *     PopPowerTransitionTimesInMs @ 0x140114BA4 (PopPowerTransitionTimesInMs.c)
  *     NtSetSystemPowerState @ 0x1403CF658 (NtSetSystemPowerState.c)
- *     PopDiagTracePerfTrackData @ 0x140530E98 (PopDiagTracePerfTrackData.c)
- *     PopDiagTraceHiberStats @ 0x140530FB4 (PopDiagTraceHiberStats.c)
+ *     PopDiagTracePerfTrackData @ 0x1405313D8 (PopDiagTracePerfTrackData.c)
+ *     PopDiagTraceHiberStats @ 0x1405314F4 (PopDiagTraceHiberStats.c)
  * Callees:
  *     <none>
  */

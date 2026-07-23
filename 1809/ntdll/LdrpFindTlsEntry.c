@@ -2,7 +2,7 @@
  * XREFs of LdrpFindTlsEntry @ 0x180025ECC
  * Callers:
  *     LdrpCallTlsInitializers @ 0x180025DE4 (LdrpCallTlsInitializers.c)
- *     LdrpReleaseTlsEntry @ 0x1800818BC (LdrpReleaseTlsEntry.c)
+ *     LdrpReleaseTlsEntry @ 0x1800818CC (LdrpReleaseTlsEntry.c)
  * Callees:
  *     <none>
  */

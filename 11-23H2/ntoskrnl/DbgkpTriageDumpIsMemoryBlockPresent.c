@@ -1,9 +1,9 @@
 /*
- * XREFs of DbgkpTriageDumpIsMemoryBlockPresent @ 0x14093C240
+ * XREFs of DbgkpTriageDumpIsMemoryBlockPresent @ 0x14093C440
  * Callers:
  *     <none>
  * Callees:
- *     DbgkpTriageDumpCheckPresentHashTable @ 0x14053C4DC (DbgkpTriageDumpCheckPresentHashTable.c)
+ *     DbgkpTriageDumpCheckPresentHashTable @ 0x14053CA2C (DbgkpTriageDumpCheckPresentHashTable.c)
  */
 
 char __fastcall DbgkpTriageDumpIsMemoryBlockPresent(__int64 a1, unsigned __int64 a2, int a3)

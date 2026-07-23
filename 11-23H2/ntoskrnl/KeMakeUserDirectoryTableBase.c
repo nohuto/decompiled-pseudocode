@@ -1,9 +1,9 @@
 /*
- * XREFs of KeMakeUserDirectoryTableBase @ 0x140291A38
+ * XREFs of KeMakeUserDirectoryTableBase @ 0x140291CC8
  * Callers:
- *     MiDeleteProcessShadow @ 0x14029172C (MiDeleteProcessShadow.c)
- *     MmStealTopLevelPage @ 0x1403D740C (MmStealTopLevelPage.c)
- *     MiAllocateProcessShadow @ 0x1407060AC (MiAllocateProcessShadow.c)
+ *     MiDeleteProcessShadow @ 0x1402919BC (MiDeleteProcessShadow.c)
+ *     MmStealTopLevelPage @ 0x1403D75EC (MmStealTopLevelPage.c)
+ *     MiAllocateProcessShadow @ 0x1407062BC (MiAllocateProcessShadow.c)
  * Callees:
  *     <none>
  */

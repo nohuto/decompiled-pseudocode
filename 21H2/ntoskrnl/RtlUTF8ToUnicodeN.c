@@ -1,15 +1,15 @@
 /*
- * XREFs of RtlUTF8ToUnicodeN @ 0x1406B6350
+ * XREFs of RtlUTF8ToUnicodeN @ 0x140615810
  * Callers:
- *     RtlAnsiCharToUnicodeChar @ 0x1405EE4B0 (RtlAnsiCharToUnicodeChar.c)
- *     RtlMultiByteToUnicodeN @ 0x14062C730 (RtlMultiByteToUnicodeN.c)
- *     RtlMultiByteToUnicodeSize @ 0x14062C800 (RtlMultiByteToUnicodeSize.c)
- *     RtlOemToUnicodeN @ 0x140760E40 (RtlOemToUnicodeN.c)
- *     RtlCustomCPToUnicodeN @ 0x140910A60 (RtlCustomCPToUnicodeN.c)
- *     RtlUTF8StringToUnicodeString @ 0x140919780 (RtlUTF8StringToUnicodeString.c)
- *     EtwpApplyContainerFilter @ 0x140940674 (EtwpApplyContainerFilter.c)
+ *     RtlMultiByteToUnicodeN @ 0x1406638C0 (RtlMultiByteToUnicodeN.c)
+ *     RtlMultiByteToUnicodeSize @ 0x140663990 (RtlMultiByteToUnicodeSize.c)
+ *     RtlAnsiCharToUnicodeChar @ 0x1406DDC10 (RtlAnsiCharToUnicodeChar.c)
+ *     RtlOemToUnicodeN @ 0x140761000 (RtlOemToUnicodeN.c)
+ *     RtlCustomCPToUnicodeN @ 0x140910BC0 (RtlCustomCPToUnicodeN.c)
+ *     RtlUTF8StringToUnicodeString @ 0x1409198E0 (RtlUTF8StringToUnicodeString.c)
+ *     EtwpApplyContainerFilter @ 0x140940844 (EtwpApplyContainerFilter.c)
  * Callees:
- *     CountUTF8ToUnicode @ 0x14058EFA8 (CountUTF8ToUnicode.c)
+ *     CountUTF8ToUnicode @ 0x14058F1D8 (CountUTF8ToUnicode.c)
  */
 
 NTSTATUS __stdcall RtlUTF8ToUnicodeN(

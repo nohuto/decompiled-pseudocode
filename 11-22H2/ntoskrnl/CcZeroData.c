@@ -31,7 +31,7 @@ BOOLEAN __stdcall CcZeroData(
   unsigned int SectorSize; // r12d
   unsigned int v14; // edi
   LONGLONG v15; // rax
-  int v16; // ebx
+  NTSTATUS v16; // ebx
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
@@ -40,9 +40,9 @@ BOOLEAN __stdcall CcZeroData(
   unsigned int v22; // r15d
   unsigned __int64 v24; // [rsp+48h] [rbp-80h] BYREF
   __int64 PartitionFromFileObject; // [rsp+50h] [rbp-78h]
-  int v26; // [rsp+58h] [rbp-70h]
+  NTSTATUS v26; // [rsp+58h] [rbp-70h]
   int v27; // [rsp+5Ch] [rbp-6Ch]
-  __int128 v28; // [rsp+60h] [rbp-68h] BYREF
+  NTSTATUS Status[4]; // [rsp+60h] [rbp-68h] BYREF
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+70h] [rbp-58h] BYREF
   BOOLEAN v30; // [rsp+D0h] [rbp+8h]
   LONGLONG v31; // [rsp+D8h] [rbp+10h] BYREF
@@ -66,10 +66,13 @@ BOOLEAN __stdcall CcZeroData(
     __fastfail(0xEu);
   KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
   OldIrql = LockHandle.OldIrql;
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && LockHandle.OldIrql <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
+      && LockHandle.OldIrql <= 0xFu
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -96,16 +99,16 @@ BOOLEAN __stdcall CcZeroData(
     {
       if ( (v14 & (unsigned int)v31) != 0 )
       {
-        v28 = 0LL;
+        *(_OWORD *)Status = 0LL;
         v31 += v14;
         LODWORD(v31) = v31 & ~v14;
         v22 = v31 - StartOffset->LowPart;
         LOBYTE(v12) = v33;
         if ( !(unsigned __int8)CcZeroDataInCache(FileObject, StartOffset, v22, v12) )
           goto LABEL_44;
-        CcFlushCachePriv(FileObject->SectionObjectPointer, (__int64)StartOffset, v22, 0LL, 0, &v28, 0LL);
-        if ( (int)v28 < 0 )
-          RtlRaiseStatus((unsigned int)v28);
+        CcFlushCachePriv(FileObject->SectionObjectPointer, (__int64)StartOffset, v22, 0LL, 0, (__int128 *)Status, 0LL);
+        if ( Status[0] < 0 )
+          RtlRaiseStatus(Status[0]);
       }
 LABEL_16:
       if ( v31 < v32->QuadPart )
@@ -144,9 +147,9 @@ LABEL_13:
     }
     if ( v9 <= 0x200000 )
       goto LABEL_13;
-    DWORD1(v28) = (v31 + 0x200000 + (unsigned __int64)v14) >> 32;
+    Status[1] = (v31 + 0x200000 + (unsigned __int64)v14) >> 32;
     v16 = (v31 + 0x200000 + v14) & ~v14;
-    LODWORD(v28) = v16;
+    Status[0] = v16;
     goto LABEL_24;
   }
 LABEL_44:

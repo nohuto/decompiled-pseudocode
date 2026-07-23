@@ -1,20 +1,20 @@
 /*
- * XREFs of MiPruneStandbyPages @ 0x14046CFB0
+ * XREFs of MiPruneStandbyPages @ 0x14046D3B0
  * Callers:
- *     MiRebalanceZeroFreeLists @ 0x140651730 (MiRebalanceZeroFreeLists.c)
+ *     MiRebalanceZeroFreeLists @ 0x140651C80 (MiRebalanceZeroFreeLists.c)
  * Callees:
- *     MiGetPage @ 0x14026D360 (MiGetPage.c)
- *     MiSearchNumaNodeTable @ 0x14026EAD0 (MiSearchNumaNodeTable.c)
- *     MiGetPfnChannel @ 0x1402871D0 (MiGetPfnChannel.c)
- *     MiInsertPageInFreeOrZeroedList @ 0x1402D3670 (MiInsertPageInFreeOrZeroedList.c)
- *     MiInitializePageColorBase @ 0x1402E1690 (MiInitializePageColorBase.c)
- *     MiNodeFreeZeroPages @ 0x1402E8524 (MiNodeFreeZeroPages.c)
- *     MiIsFreeZeroPfnCold @ 0x1402E85D0 (MiIsFreeZeroPfnCold.c)
- *     MiLockPageInline @ 0x1402EF680 (MiLockPageInline.c)
- *     MiFreeZeroPagesNeeded @ 0x14046CDB8 (MiFreeZeroPagesNeeded.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     MiRemoveLowestPriorityStandbyPage @ 0x140651854 (MiRemoveLowestPriorityStandbyPage.c)
- *     MiSwapNumaStandbyPage @ 0x140651DD0 (MiSwapNumaStandbyPage.c)
+ *     MiGetPage @ 0x14026D5F0 (MiGetPage.c)
+ *     MiSearchNumaNodeTable @ 0x14026ED60 (MiSearchNumaNodeTable.c)
+ *     MiGetPfnChannel @ 0x140287460 (MiGetPfnChannel.c)
+ *     MiInsertPageInFreeOrZeroedList @ 0x1402D3900 (MiInsertPageInFreeOrZeroedList.c)
+ *     MiInitializePageColorBase @ 0x1402E1920 (MiInitializePageColorBase.c)
+ *     MiNodeFreeZeroPages @ 0x1402E87B4 (MiNodeFreeZeroPages.c)
+ *     MiIsFreeZeroPfnCold @ 0x1402E8860 (MiIsFreeZeroPfnCold.c)
+ *     MiLockPageInline @ 0x1402EF910 (MiLockPageInline.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     MiFreeZeroPagesNeeded @ 0x14046D1B8 (MiFreeZeroPagesNeeded.c)
+ *     MiRemoveLowestPriorityStandbyPage @ 0x140651DA4 (MiRemoveLowestPriorityStandbyPage.c)
+ *     MiSwapNumaStandbyPage @ 0x140652320 (MiSwapNumaStandbyPage.c)
  */
 
 __int64 __fastcall MiPruneStandbyPages(__int64 a1, unsigned int a2, unsigned int a3, __int64 a4)
@@ -91,10 +91,13 @@ __int64 __fastcall MiPruneStandbyPages(__int64 a1, unsigned int a2, unsigned int
               v19 = (unsigned __int8)MiLockPageInline(48 * v37 - 0x220000000000LL);
               MiInsertPageInFreeOrZeroedList(v37, 2);
               _InterlockedAnd64((volatile signed __int64 *)(48 * v37 - 0x220000000000LL + 24), 0x7FFFFFFFFFFFFFFFuLL);
-              if ( KiIrqlFlags )
+              if ( (_DWORD)KiIrqlFlags )
               {
                 CurrentIrql = KeGetCurrentIrql();
-                if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v19 <= 0xFu && CurrentIrql >= 2u )
+                if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+                  && CurrentIrql <= 0xFu
+                  && (unsigned __int8)v19 <= 0xFu
+                  && CurrentIrql >= 2u )
                 {
                   CurrentPrcb = KeGetCurrentPrcb();
                   SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -102,7 +105,7 @@ __int64 __fastcall MiPruneStandbyPages(__int64 a1, unsigned int a2, unsigned int
                   v24 = (v23 & SchedulerAssist[5]) == 0;
                   SchedulerAssist[5] &= v23;
                   if ( v24 )
-                    KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+                    KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
                 }
               }
               __writecr8(v19);
@@ -170,10 +173,10 @@ LABEL_44:
     MiInsertPageInFreeOrZeroedList(v33, v11);
     result = 0x7FFFFFFFFFFFFFFFLL;
     _InterlockedAnd64((volatile signed __int64 *)(v26 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       result = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
         && (unsigned __int8)result <= 0xFu
         && (unsigned __int8)v34 <= 0xFu
         && (unsigned __int8)result >= 2u )
@@ -184,7 +187,7 @@ LABEL_44:
         v24 = ((unsigned int)result & v36[5]) == 0;
         v36[5] &= result;
         if ( v24 )
-          result = KiRemoveSystemWorkPriorityKick(v35);
+          result = KiRemoveSystemWorkPriorityKick((__int64)v35);
       }
     }
     __writecr8(v34);

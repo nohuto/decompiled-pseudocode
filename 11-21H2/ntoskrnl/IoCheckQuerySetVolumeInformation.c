@@ -16,9 +16,9 @@ NTSTATUS __stdcall IoCheckQuerySetVolumeInformation(
 
   if ( (unsigned int)FsInformationClass >= FileFsMaximumInformation )
     return -1073741821;
-  v3 = IopSetFsOperationLength;
+  v3 = qword_140A38000;
   if ( !SetOperation )
-    v3 = IopQueryFsOperationLength;
+    v3 = qword_140A38010;
   v4 = *((char *)v3 + (int)FsInformationClass);
   if ( (_BYTE)v4 )
     return Length < v4 ? 0xC0000004 : 0;

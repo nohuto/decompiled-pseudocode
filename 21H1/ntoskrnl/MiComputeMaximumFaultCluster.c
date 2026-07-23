@@ -32,7 +32,7 @@ __int64 __fastcall MiComputeMaximumFaultCluster(_QWORD *a1, unsigned __int64 a2)
        || !(unsigned int)KiRspInIstStack(3LL, *(_QWORD *)(v2 + 384)) && !(unsigned int)KiRspInIstStack(2LL, v12)) )
     {
       v6 = *(_QWORD *)(v2 + 360);
-      if ( KiDynamicTraceEnabled && v6 >= qword_140CFCBA8 && v6 < qword_140CFCBB0 )
+      if ( KiDynamicTraceEnabled && v6 >= ControlPc && v6 < qword_140CFCBB0 )
         KeGetCurrentIrql();
     }
     return 1LL;

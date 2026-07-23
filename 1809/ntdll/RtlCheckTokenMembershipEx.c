@@ -12,112 +12,114 @@
  *     RtlSetOwnerSecurityDescriptor @ 0x180044FD0 (RtlSetOwnerSecurityDescriptor.c)
  *     RtlCreateSecurityDescriptor @ 0x180045030 (RtlCreateSecurityDescriptor.c)
  *     RtlInitializeSidEx @ 0x180048600 (RtlInitializeSidEx.c)
- *     __security_check_cookie @ 0x18008FEC0 (__security_check_cookie.c)
- *     ZwAccessCheck @ 0x1800A02E0 (ZwAccessCheck.c)
- *     NtClose @ 0x1800A04C0 (NtClose.c)
- *     NtOpenThreadTokenEx @ 0x1800A08C0 (NtOpenThreadTokenEx.c)
- *     NtOpenProcessTokenEx @ 0x1800A08E0 (NtOpenProcessTokenEx.c)
- *     NtDuplicateToken @ 0x1800A0B20 (NtDuplicateToken.c)
+ *     __security_check_cookie @ 0x18008FED0 (__security_check_cookie.c)
+ *     ZwAccessCheck @ 0x1800A0300 (ZwAccessCheck.c)
+ *     NtClose @ 0x1800A04E0 (NtClose.c)
+ *     NtOpenThreadTokenEx @ 0x1800A08E0 (NtOpenThreadTokenEx.c)
+ *     NtOpenProcessTokenEx @ 0x1800A0900 (NtOpenProcessTokenEx.c)
+ *     NtDuplicateToken @ 0x1800A0B40 (NtDuplicateToken.c)
  */
 
-__int64 __fastcall RtlCheckTokenMembershipEx(void *a1, __int64 a2, int a3, _BYTE *a4)
+NTSTATUS __cdecl RtlCheckTokenMembershipEx(HANDLE TokenHandle, PSID SidToCheck, ULONG Flags, PBOOLEAN IsMember)
 {
   char v5; // si
-  __int64 v8; // rdx
-  int v9; // ebx
-  HANDLE v11; // [rsp+40h] [rbp-C0h] BYREF
-  int v12; // [rsp+48h] [rbp-B8h] BYREF
-  int v13; // [rsp+4Ch] [rbp-B4h] BYREF
-  int v14; // [rsp+50h] [rbp-B0h] BYREF
-  HANDLE Handle; // [rsp+58h] [rbp-A8h] BYREF
-  int v16; // [rsp+60h] [rbp-A0h] BYREF
-  __int64 v17; // [rsp+68h] [rbp-98h]
-  __int64 v18; // [rsp+70h] [rbp-90h]
-  int v19; // [rsp+78h] [rbp-88h]
-  __int64 v20; // [rsp+80h] [rbp-80h]
-  _DWORD *v21; // [rsp+88h] [rbp-78h]
-  _BYTE v22[40]; // [rsp+90h] [rbp-70h] BYREF
-  _DWORD v23[2]; // [rsp+B8h] [rbp-48h] BYREF
-  __int16 v24; // [rsp+C0h] [rbp-40h]
-  _BYTE v25[80]; // [rsp+D0h] [rbp-30h] BYREF
-  char v26[240]; // [rsp+120h] [rbp+20h] BYREF
-  _BYTE v27[56]; // [rsp+210h] [rbp+110h] BYREF
+  int v8; // ebx
+  PPRIVILEGE_SET PrivilegeSet; // [rsp+20h] [rbp-E0h]
+  HANDLE ClientToken; // [rsp+40h] [rbp-C0h] BYREF
+  ULONG PrivilegeSetLength; // [rsp+48h] [rbp-B8h] BYREF
+  NTSTATUS AccessStatus; // [rsp+4Ch] [rbp-B4h] BYREF
+  ACCESS_MASK GrantedAccess; // [rsp+50h] [rbp-B0h] BYREF
+  HANDLE TokenHandlea; // [rsp+58h] [rbp-A8h] BYREF
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+60h] [rbp-A0h] BYREF
+  _BYTE SecurityDescriptor[40]; // [rsp+90h] [rbp-70h] BYREF
+  _DWORD v18[2]; // [rsp+B8h] [rbp-48h] BYREF
+  __int16 v19; // [rsp+C0h] [rbp-40h]
+  unsigned __int8 Sid[80]; // [rsp+D0h] [rbp-30h] BYREF
+  ACL Acl; // [rsp+120h] [rbp+20h] BYREF
+  _PRIVILEGE_SET v22; // [rsp+210h] [rbp+110h] BYREF
 
-  v11 = 0LL;
-  *a4 = 0;
-  v5 = a3;
-  if ( (a3 & 0xFFFFFFFC) == 0 )
+  ClientToken = 0LL;
+  *IsMember = 0;
+  v5 = Flags;
+  if ( (Flags & 0xFFFFFFFC) == 0 )
   {
-    if ( a1 )
+    if ( TokenHandle )
     {
-      v11 = a1;
+      ClientToken = TokenHandle;
     }
     else
     {
-      v9 = NtOpenThreadTokenEx(-2LL, 8LL, 0LL);
-      if ( v9 == -1073741700 )
+      v8 = NtOpenThreadTokenEx((HANDLE)0xFFFFFFFFFFFFFFFELL, 8u, 0, 0, &ClientToken);
+      if ( v8 == -1073741700 )
       {
-        v9 = NtOpenProcessTokenEx(-1LL, 10LL, 0LL, &Handle);
-        if ( v9 < 0 )
+        v8 = NtOpenProcessTokenEx((HANDLE)0xFFFFFFFFFFFFFFFFLL, 0xAu, 0, &TokenHandlea);
+        if ( v8 < 0 )
           goto LABEL_19;
-        v17 = 0LL;
-        v19 = 0;
-        v18 = 0LL;
-        v20 = 0LL;
-        v21 = v23;
-        v16 = 48;
-        v23[0] = 12;
-        v23[1] = 2;
-        v24 = 1;
-        v9 = NtDuplicateToken(Handle, 12LL, &v16, 0LL, 2, &v11);
-        NtClose(Handle);
+        memset(&ObjectAttributes.RootDirectory, 0, 20);
+        ObjectAttributes.SecurityDescriptor = 0LL;
+        ObjectAttributes.SecurityQualityOfService = v18;
+        ObjectAttributes.Length = 48;
+        v18[0] = 12;
+        v18[1] = 2;
+        v19 = 1;
+        v8 = NtDuplicateToken(TokenHandlea, 0xCu, &ObjectAttributes, 0, TokenImpersonation, &ClientToken);
+        NtClose(TokenHandlea);
       }
-      if ( v9 < 0 )
+      if ( v8 < 0 )
       {
 LABEL_19:
-        if ( v11 )
-          NtClose(v11);
-        return (unsigned int)v9;
+        if ( ClientToken )
+          NtClose(ClientToken);
+        return v8;
       }
     }
-    RtlCreateSecurityDescriptor(v22, 1LL);
-    RtlSetOwnerSecurityDescriptor(v22, a2, 0LL);
-    RtlSetGroupSecurityDescriptor(v22, a2, 0LL);
-    RtlCreateAcl(v26, 236LL, 2LL);
-    RtlpAddKnownAce(v26, 2u, 0, 1, a2, 0);
+    RtlCreateSecurityDescriptor(SecurityDescriptor, 1u);
+    RtlSetOwnerSecurityDescriptor(SecurityDescriptor, SidToCheck, 0);
+    RtlSetGroupSecurityDescriptor(SecurityDescriptor, SidToCheck, 0);
+    RtlCreateAcl(&Acl, 0xECu, 2u);
+    RtlpAddKnownAce(&Acl, 2u, 0, 1, (unsigned __int8 *)SidToCheck, 0);
     if ( (v5 & 3) != 0 )
     {
-      RtlInitializeSidEx(v25, &RtlpAppPackageAuthority, 2LL, 2LL, 1);
-      RtlpAddKnownAce(v26, 2u, 0, 1, (__int64)v25, 0);
+      LODWORD(PrivilegeSet) = 1;
+      RtlInitializeSidEx(Sid, (PSID_IDENTIFIER_AUTHORITY)&RtlpAppPackageAuthority, 2u, 2LL, PrivilegeSet);
+      RtlpAddKnownAce(&Acl, 2u, 0, 1, Sid, 0);
     }
     if ( (v5 & 2) != 0 )
     {
-      RtlInitializeSidEx(v25, &RtlpAppPackageAuthority, 2LL, 2LL, 2);
-      RtlpAddKnownAce(v26, 2u, 0, 1, (__int64)v25, 0);
+      LODWORD(PrivilegeSet) = 2;
+      RtlInitializeSidEx(Sid, (PSID_IDENTIFIER_AUTHORITY)&RtlpAppPackageAuthority, 2u, 2LL, PrivilegeSet);
+      RtlpAddKnownAce(&Acl, 2u, 0, 1, Sid, 0);
     }
-    LOBYTE(v8) = 1;
-    RtlSetDaclSecurityDescriptor(v22, v8, v26, 0LL);
-    v12 = 56;
-    v9 = ZwAccessCheck(v22, v11, 1LL, &RtlpCheckTokenMembershipGenericMapping, v27, &v12, &v14, &v13);
-    if ( v9 >= 0 )
+    RtlSetDaclSecurityDescriptor(SecurityDescriptor, 1u, &Acl, 0);
+    PrivilegeSetLength = 56;
+    v8 = ZwAccessCheck(
+           SecurityDescriptor,
+           ClientToken,
+           1u,
+           (PGENERIC_MAPPING)&RtlpCheckTokenMembershipGenericMapping,
+           &v22,
+           &PrivilegeSetLength,
+           &GrantedAccess,
+           &AccessStatus);
+    if ( v8 >= 0 )
     {
-      v9 = 0;
-      if ( v13 )
+      v8 = 0;
+      if ( AccessStatus )
       {
-        if ( v13 == -1073741790 )
+        if ( AccessStatus == -1073741790 )
           goto LABEL_11;
       }
-      else if ( v14 == 1 )
+      else if ( GrantedAccess == 1 )
       {
-        *a4 = 1;
+        *IsMember = 1;
         goto LABEL_11;
       }
-      v9 = v13;
+      v8 = AccessStatus;
     }
 LABEL_11:
-    if ( a1 )
-      return (unsigned int)v9;
+    if ( TokenHandle )
+      return v8;
     goto LABEL_19;
   }
-  return 3221225485LL;
+  return -1073741811;
 }

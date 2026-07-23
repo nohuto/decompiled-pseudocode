@@ -1,7 +1,7 @@
 /*
- * XREFs of CmShutdownSystem @ 0x1407EC8B4
+ * XREFs of CmShutdownSystem @ 0x1407EDAB4
  * Callers:
- *     PopGracefulShutdown @ 0x14057C9C0 (PopGracefulShutdown.c)
+ *     PopGracefulShutdown @ 0x14057D9C0 (PopGracefulShutdown.c)
  * Callees:
  *     KiUnstackDetachProcess @ 0x140017190 (KiUnstackDetachProcess.c)
  *     KeCancelTimer @ 0x14001CEB0 (KeCancelTimer.c)
@@ -9,39 +9,39 @@
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     ExReleasePushLockEx @ 0x14004F160 (ExReleasePushLockEx.c)
  *     EtwEventEnabled @ 0x14005B2D0 (EtwEventEnabled.c)
- *     ExWaitForRundownProtectionRelease @ 0x140089890 (ExWaitForRundownProtectionRelease.c)
- *     ExRundownCompleted @ 0x14008F8D0 (ExRundownCompleted.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
- *     EtwWrite @ 0x1400CAD20 (EtwWrite.c)
- *     ExBlockOnAddressPushLock @ 0x140111A10 (ExBlockOnAddressPushLock.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     CmCleanupThreadInfo @ 0x1401B2F3C (CmCleanupThreadInfo.c)
- *     CmpInitializeThreadInfo @ 0x1401B2F7C (CmpInitializeThreadInfo.c)
- *     CmpUnJoinClassOfTrust @ 0x1401B322C (CmpUnJoinClassOfTrust.c)
- *     ZwClose @ 0x1401B8370 (ZwClose.c)
- *     TlgAggregateFlush @ 0x14032BA04 (TlgAggregateFlush.c)
- *     CmpVERemoveHiveFromSIDMappingTable @ 0x140580888 (CmpVERemoveHiveFromSIDMappingTable.c)
- *     CmpCmdHiveClose @ 0x1405AFA08 (CmpCmdHiveClose.c)
- *     CmpVolumeContextDecrementRefCount @ 0x1405AFC04 (CmpVolumeContextDecrementRefCount.c)
- *     CmpGetNextActiveHive @ 0x1405B1474 (CmpGetNextActiveHive.c)
- *     UNLOCK_HIVE_LOAD @ 0x1405B1514 (UNLOCK_HIVE_LOAD.c)
- *     LOCK_HIVE_LOAD @ 0x1405B1690 (LOCK_HIVE_LOAD.c)
- *     CmpLockRegistryExclusive @ 0x1405B16C8 (CmpLockRegistryExclusive.c)
- *     CmpFlushHive @ 0x1405B2F54 (CmpFlushHive.c)
- *     CmpAttachToRegistryProcess @ 0x1405D4048 (CmpAttachToRegistryProcess.c)
- *     HvHiveCleanup @ 0x1405FB440 (HvHiveCleanup.c)
- *     CmpUnlockRegistry @ 0x140645150 (CmpUnlockRegistry.c)
- *     CmpRunDownCmRM @ 0x140692FB4 (CmpRunDownCmRM.c)
- *     CmpStopRMLog @ 0x1406931BC (CmpStopRMLog.c)
- *     CmCloseTmHandle @ 0x140693280 (CmCloseTmHandle.c)
- *     CmCloseRmHandle @ 0x1406932A4 (CmCloseRmHandle.c)
- *     CmpDoFileSetSizeEx @ 0x1406B8940 (CmpDoFileSetSizeEx.c)
- *     CmpFlushUnsupportedOperationTelemetry @ 0x1406C770C (CmpFlushUnsupportedOperationTelemetry.c)
- *     HvMarkBaseBlockDirty @ 0x1406CAF34 (HvMarkBaseBlockDirty.c)
- *     CmpTraceShutdownRundownComplete @ 0x1407EC424 (CmpTraceShutdownRundownComplete.c)
- *     CmpTraceShutdownStart @ 0x1407EC490 (CmpTraceShutdownStart.c)
- *     CmpFreeAllMemory @ 0x1407ECDC0 (CmpFreeAllMemory.c)
- *     CmpRecordShutdownStopTime @ 0x1407ED098 (CmpRecordShutdownStopTime.c)
+ *     ExWaitForRundownProtectionRelease @ 0x140089880 (ExWaitForRundownProtectionRelease.c)
+ *     ExRundownCompleted @ 0x14008F7F0 (ExRundownCompleted.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B78F0 (KiLeaveCriticalRegionUnsafe.c)
+ *     EtwWrite @ 0x1400CAE00 (EtwWrite.c)
+ *     ExBlockOnAddressPushLock @ 0x140111A80 (ExBlockOnAddressPushLock.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     CmCleanupThreadInfo @ 0x1401B307C (CmCleanupThreadInfo.c)
+ *     CmpInitializeThreadInfo @ 0x1401B30BC (CmpInitializeThreadInfo.c)
+ *     CmpUnJoinClassOfTrust @ 0x1401B336C (CmpUnJoinClassOfTrust.c)
+ *     ZwClose @ 0x1401B84D0 (ZwClose.c)
+ *     TlgAggregateFlush @ 0x14032BBF4 (TlgAggregateFlush.c)
+ *     CmpVERemoveHiveFromSIDMappingTable @ 0x140581888 (CmpVERemoveHiveFromSIDMappingTable.c)
+ *     CmpCmdHiveClose @ 0x1405B0A08 (CmpCmdHiveClose.c)
+ *     CmpVolumeContextDecrementRefCount @ 0x1405B0C04 (CmpVolumeContextDecrementRefCount.c)
+ *     CmpGetNextActiveHive @ 0x1405B2474 (CmpGetNextActiveHive.c)
+ *     UNLOCK_HIVE_LOAD @ 0x1405B2514 (UNLOCK_HIVE_LOAD.c)
+ *     LOCK_HIVE_LOAD @ 0x1405B2690 (LOCK_HIVE_LOAD.c)
+ *     CmpLockRegistryExclusive @ 0x1405B26C8 (CmpLockRegistryExclusive.c)
+ *     CmpFlushHive @ 0x1405B3F54 (CmpFlushHive.c)
+ *     CmpAttachToRegistryProcess @ 0x1405D5048 (CmpAttachToRegistryProcess.c)
+ *     HvHiveCleanup @ 0x1405FC440 (HvHiveCleanup.c)
+ *     CmpUnlockRegistry @ 0x140646170 (CmpUnlockRegistry.c)
+ *     CmpRunDownCmRM @ 0x140694174 (CmpRunDownCmRM.c)
+ *     CmpStopRMLog @ 0x14069437C (CmpStopRMLog.c)
+ *     CmCloseTmHandle @ 0x140694440 (CmCloseTmHandle.c)
+ *     CmCloseRmHandle @ 0x140694464 (CmCloseRmHandle.c)
+ *     CmpDoFileSetSizeEx @ 0x1406B9BE0 (CmpDoFileSetSizeEx.c)
+ *     CmpFlushUnsupportedOperationTelemetry @ 0x1406C89AC (CmpFlushUnsupportedOperationTelemetry.c)
+ *     HvMarkBaseBlockDirty @ 0x1406CC1D4 (HvMarkBaseBlockDirty.c)
+ *     CmpTraceShutdownRundownComplete @ 0x1407ED624 (CmpTraceShutdownRundownComplete.c)
+ *     CmpTraceShutdownStart @ 0x1407ED690 (CmpTraceShutdownStart.c)
+ *     CmpFreeAllMemory @ 0x1407EDFC0 (CmpFreeAllMemory.c)
+ *     CmpRecordShutdownStopTime @ 0x1407EE298 (CmpRecordShutdownStopTime.c)
  */
 
 PVOID CmShutdownSystem()
@@ -173,10 +173,10 @@ PVOID CmShutdownSystem()
         HvMarkBaseBlockDirty((__int64)v17);
       }
     }
-    v18 = qword_1403FEFF0;
+    v18 = qword_1403FFFF0;
     if ( CmRmSystem )
     {
-      v19 = *(_QWORD *)(qword_1403FEFF0 + 64);
+      v19 = *(_QWORD *)(qword_1403FFFF0 + 64);
       v20 = *(_DWORD *)(v19 + 144);
       if ( *((PVOID *)CmRmSystem + 2) == (char *)CmRmSystem + 16 )
         v21 = v20 & 0xFFFFFFFE;

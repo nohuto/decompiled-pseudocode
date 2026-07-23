@@ -1,10 +1,10 @@
 /*
- * XREFs of PopDeepSleepEnabled @ 0x140493A20
+ * XREFs of PopDeepSleepEnabled @ 0x14048E410
  * Callers:
- *     PopDripsWatchdogDiagnosticWorker @ 0x14075FF20 (PopDripsWatchdogDiagnosticWorker.c)
- *     PopDripsWatchdogUpdateMetrics @ 0x140760150 (PopDripsWatchdogUpdateMetrics.c)
- *     PopCheckResiliencyScenarios @ 0x140A27318 (PopCheckResiliencyScenarios.c)
- *     PopEnforceDeepSleep @ 0x140AAC13C (PopEnforceDeepSleep.c)
+ *     PopDripsWatchdogDiagnosticWorker @ 0x14075EF20 (PopDripsWatchdogDiagnosticWorker.c)
+ *     PopDripsWatchdogUpdateMetrics @ 0x14075F150 (PopDripsWatchdogUpdateMetrics.c)
+ *     PopCheckResiliencyScenarios @ 0x140A1BD98 (PopCheckResiliencyScenarios.c)
+ *     PopEnforceDeepSleep @ 0x140AA710C (PopEnforceDeepSleep.c)
  * Callees:
  *     <none>
  */

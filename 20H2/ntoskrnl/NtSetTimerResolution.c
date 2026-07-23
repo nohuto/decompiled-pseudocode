@@ -13,14 +13,14 @@
  *     ExFreePoolWithTag @ 0x1409B70B0 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall NtSetTimerResolution(__int64 a1, char a2, int *a3)
+NTSTATUS __cdecl NtSetTimerResolution(ULONG DesiredTime, BOOLEAN SetResolution, PULONG ActualTime)
 {
-  unsigned int v5; // r14d
+  ULONG v5; // r14d
   __int64 v6; // r8
   _KPROCESS *Process; // rbx
-  unsigned int v8; // esi
+  NTSTATUS v8; // esi
   bool v9; // r15
-  int updated; // edi
+  ULONG updated; // edi
   signed __int32 DirectoryTableBase_high; // eax
   signed __int32 v12; // ett
   __int16 v13; // di
@@ -30,23 +30,23 @@ __int64 __fastcall NtSetTimerResolution(__int64 a1, char a2, int *a3)
   PVOID *v18; // rdi
   void *v19; // rcx
 
-  v5 = a1;
+  v5 = DesiredTime;
   if ( KeGetCurrentThread()->PreviousMode )
   {
     v6 = 0x7FFFFFFF0000LL;
-    if ( (unsigned __int64)a3 < 0x7FFFFFFF0000LL )
-      v6 = (__int64)a3;
+    if ( (unsigned __int64)ActualTime < 0x7FFFFFFF0000LL )
+      v6 = (__int64)ActualTime;
     *(_DWORD *)v6 = *(_DWORD *)v6;
   }
   Process = KeGetCurrentThread()->ApcState.Process;
   v8 = 0;
   v9 = 1;
-  LOBYTE(a1) = 1;
-  ExAcquireTimeRefreshLock(a1);
+  LOBYTE(DesiredTime) = 1;
+  ExAcquireTimeRefreshLock(DesiredTime);
   updated = KeTimeIncrement;
   _m_prefetchw((char *)&Process[1].DirectoryTableBase + 4);
   DirectoryTableBase_high = HIDWORD(Process[1].DirectoryTableBase);
-  if ( a2 )
+  if ( SetResolution )
   {
     do
     {
@@ -112,6 +112,6 @@ __int64 __fastcall NtSetTimerResolution(__int64 a1, char a2, int *a3)
 LABEL_16:
   ExReleaseResourceLite(&ExpTimeRefreshLock);
   KeLeaveCriticalRegion();
-  *a3 = updated;
+  *ActualTime = updated;
   return v8;
 }

@@ -20,26 +20,21 @@
  *     ZwCreateKey @ 0x180093AD0 (ZwCreateKey.c)
  */
 
-__int64 __fastcall RtlpGetRegistryHandle(int a1, __int64 a2, char a3, _QWORD *a4)
+__int64 __fastcall RtlpGetRegistryHandle(int a1, const WCHAR *a2, char a3, HANDLE *a4)
 {
   unsigned int v7; // ebx
   __int64 v9; // rdx
-  int appended; // ebx
+  NTSTATUS appended; // ebx
   __int64 v11; // r8
-  int v12; // eax
-  int v13; // [rsp+48h] [rbp-9h] BYREF
-  __int64 StringRoutine; // [rsp+50h] [rbp-1h]
-  UNICODE_STRING UnicodeString; // [rsp+58h] [rbp+7h] BYREF
-  int v16; // [rsp+68h] [rbp+17h] BYREF
-  __int64 v17; // [rsp+70h] [rbp+1Fh]
-  int *v18; // [rsp+78h] [rbp+27h]
-  int v19; // [rsp+80h] [rbp+2Fh]
-  __int128 v20; // [rsp+88h] [rbp+37h]
+  NTSTATUS v12; // eax
+  _UNICODE_STRING Destination; // [rsp+48h] [rbp-9h] BYREF
+  _UNICODE_STRING CurrentUserKeyPath; // [rsp+58h] [rbp+7h] BYREF
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+68h] [rbp+17h] BYREF
 
   v7 = a1;
   if ( (a1 & 0x40000000) != 0 )
   {
-    *a4 = a2;
+    *a4 = (HANDLE)a2;
     return 0LL;
   }
   else
@@ -52,44 +47,44 @@ __int64 __fastcall RtlpGetRegistryHandle(int a1, __int64 a2, char a3, _QWORD *a4
     }
     else
     {
-      StringRoutine = NtdllpAllocateStringRoutine(524LL, a2);
-      if ( StringRoutine )
+      Destination.Buffer = (unsigned __int16 *)NtdllpAllocateStringRoutine(524LL, a2);
+      if ( Destination.Buffer )
       {
-        v13 = 34340864;
+        *(_DWORD *)&Destination.Length = 34340864;
         if ( !v7 )
           goto LABEL_12;
-        if ( v7 == 5 && (int)RtlFormatCurrentUserKeyPath(&UnicodeString) >= 0 )
+        if ( v7 == 5 && RtlFormatCurrentUserKeyPath(&CurrentUserKeyPath) >= 0 )
         {
-          appended = RtlAppendUnicodeStringToString(&v13, &UnicodeString);
-          RtlFreeAnsiString(&UnicodeString);
+          appended = RtlAppendUnicodeStringToString(&Destination, &CurrentUserKeyPath);
+          RtlFreeAnsiString(&CurrentUserKeyPath);
         }
         else
         {
-          appended = RtlAppendUnicodeToString(&v13, RtlpRegistryPaths[v7]);
+          appended = RtlAppendUnicodeToString(&Destination, RtlpRegistryPaths[v7]);
         }
         if ( appended >= 0 )
         {
-          appended = RtlAppendUnicodeToString(&v13, L"\\");
+          appended = RtlAppendUnicodeToString(&Destination, L"\\");
           if ( appended >= 0 )
           {
 LABEL_12:
-            appended = RtlAppendUnicodeToString(&v13, a2);
+            appended = RtlAppendUnicodeToString(&Destination, a2);
             if ( appended >= 0 )
             {
-              v16 = 48;
-              v18 = &v13;
-              v17 = 0LL;
-              v19 = 576;
-              v20 = 0LL;
+              ObjectAttributes.Length = 48;
+              ObjectAttributes.ObjectName = &Destination;
+              ObjectAttributes.RootDirectory = 0LL;
+              ObjectAttributes.Attributes = 576;
+              *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
               if ( a3 )
-                v12 = ZwCreateKey(a4, 0x40000000LL, &v16, 0LL, 0LL, 0, 0LL);
+                v12 = ZwCreateKey(a4, 0x40000000u, &ObjectAttributes, 0, 0LL, 0, 0LL);
               else
-                v12 = NtOpenKey(a4, 2181038080LL, &v16);
+                v12 = NtOpenKey(a4, 0x82000000, &ObjectAttributes);
               appended = v12;
             }
           }
         }
-        NtdllpFreeStringRoutine(StringRoutine, v9, v11);
+        NtdllpFreeStringRoutine(Destination.Buffer, v9, v11);
         return (unsigned int)appended;
       }
       else

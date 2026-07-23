@@ -1,11 +1,11 @@
 /*
- * XREFs of AccelInitializeCompressionWorkspace @ 0x1406DEE34
+ * XREFs of AccelInitializeCompressionWorkspace @ 0x1406E30D4
  * Callers:
- *     SmHwAcceleratorCreate @ 0x14081A864 (SmHwAcceleratorCreate.c)
- *     SmHwInitializeAccelDescriptor @ 0x14081BA80 (SmHwInitializeAccelDescriptor.c)
+ *     SmHwAcceleratorCreate @ 0x140820A74 (SmHwAcceleratorCreate.c)
+ *     SmHwInitializeAccelDescriptor @ 0x140821C90 (SmHwInitializeAccelDescriptor.c)
  * Callees:
- *     AccelpInternalOperationHandler @ 0x140531E58 (AccelpInternalOperationHandler.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     AccelpInternalOperationHandler @ 0x1405342F8 (AccelpInternalOperationHandler.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall AccelInitializeCompressionWorkspace(__int64 a1)

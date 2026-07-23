@@ -1,10 +1,10 @@
 /*
- * XREFs of MxAddSmallFreeDescriptorsToFreeList @ 0x140CF4EC0
+ * XREFs of MxAddSmallFreeDescriptorsToFreeList @ 0x140CFB240
  * Callers:
- *     MxCreateSparsePfnDatabase @ 0x140CF64E4 (MxCreateSparsePfnDatabase.c)
+ *     MxCreateSparsePfnDatabase @ 0x140CFC864 (MxCreateSparsePfnDatabase.c)
  * Callees:
- *     KeQueryPerformanceCounter @ 0x14021C3F0 (KeQueryPerformanceCounter.c)
- *     MxCreateFreePages @ 0x140CF5CA8 (MxCreateFreePages.c)
+ *     KeQueryPerformanceCounter @ 0x14021DD80 (KeQueryPerformanceCounter.c)
+ *     MxCreateFreePages @ 0x140CFC028 (MxCreateFreePages.c)
  */
 
 __int64 __fastcall MxAddSmallFreeDescriptorsToFreeList(unsigned int a1)

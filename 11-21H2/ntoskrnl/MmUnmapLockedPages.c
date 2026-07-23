@@ -1,77 +1,77 @@
 /*
  * XREFs of MmUnmapLockedPages @ 0x1402BB4E0
  * Callers:
- *     MiFreePagesFromMdl @ 0x140221A30 (MiFreePagesFromMdl.c)
- *     HalPutScatterGatherListV2 @ 0x140230618 (HalPutScatterGatherListV2.c)
- *     MiInitializeNewImageSectionProtos @ 0x140243208 (MiInitializeNewImageSectionProtos.c)
- *     MiZeroPageWrite @ 0x1402459E8 (MiZeroPageWrite.c)
- *     MiWaitForInPageComplete @ 0x14027AA30 (MiWaitForInPageComplete.c)
- *     MiWriteComplete @ 0x14028C230 (MiWriteComplete.c)
- *     IopfCompleteRequest @ 0x1402B59D0 (IopfCompleteRequest.c)
+ *     sub_140221A30 @ 0x140221A30 (sub_140221A30.c)
+ *     sub_140230618 @ 0x140230618 (sub_140230618.c)
+ *     sub_140243208 @ 0x140243208 (sub_140243208.c)
+ *     sub_1402459E8 @ 0x1402459E8 (sub_1402459E8.c)
+ *     sub_14027AA30 @ 0x14027AA30 (sub_14027AA30.c)
+ *     sub_14028C230 @ 0x14028C230 (sub_14028C230.c)
+ *     sub_1402B59D0 @ 0x1402B59D0 (sub_1402B59D0.c)
  *     MmUnlockPages @ 0x1402B8AD0 (MmUnlockPages.c)
- *     MiFlushSectionInternal @ 0x140329730 (MiFlushSectionInternal.c)
- *     MiValidateInPage @ 0x140338080 (MiValidateInPage.c)
+ *     sub_140329730 @ 0x140329730 (sub_140329730.c)
+ *     sub_140338080 @ 0x140338080 (sub_140338080.c)
  *     IoFreeMdl @ 0x140349550 (IoFreeMdl.c)
- *     SmKmUnlockMdl @ 0x140379C24 (SmKmUnlockMdl.c)
- *     SmFpFree @ 0x14037AE58 (SmFpFree.c)
- *     ?SmPageWrite@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@PEAT_SM_PAGE_KEY@@T_SM_PAGE_ADD_PARAM@@PEAU_MDL@@PEAXPEAU_IO_STATUS_BLOCK@@K@Z @ 0x14037BD80 (-SmPageWrite@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@PEAT_SM_PAGE_KEY@@T_SM_PAGE_ADD_PARAM@@PEAU.c)
- *     ?SmCompressCtxProcessReadyQueue@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU_SM_COMPRESS_CONTEXT@1@PEAU1@EK@Z @ 0x14037C6BC (-SmCompressCtxProcessReadyQueue@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU_SM_COMPRESS_CONTEXT@1@PEA.c)
- *     MiMapPageFileHash @ 0x14037E338 (MiMapPageFileHash.c)
- *     BgpFwFreeMemory @ 0x1403A8CB4 (BgpFwFreeMemory.c)
- *     HalpAllocateCommonBufferDmaThin @ 0x1403B2614 (HalpAllocateCommonBufferDmaThin.c)
+ *     sub_140379C24 @ 0x140379C24 (sub_140379C24.c)
+ *     sub_14037AE58 @ 0x14037AE58 (sub_14037AE58.c)
+ *     sub_14037BD80 @ 0x14037BD80 (sub_14037BD80.c)
+ *     sub_14037C6BC @ 0x14037C6BC (sub_14037C6BC.c)
+ *     sub_14037E338 @ 0x14037E338 (sub_14037E338.c)
+ *     sub_1403A8CB4 @ 0x1403A8CB4 (sub_1403A8CB4.c)
+ *     sub_1403B2614 @ 0x1403B2614 (sub_1403B2614.c)
  *     HalInitializeBios @ 0x1403D0150 (HalInitializeBios.c)
- *     HalpDmaAllocateMapRegisters @ 0x140456F16 (HalpDmaAllocateMapRegisters.c)
- *     HalpDmaReleaseBufferMappings @ 0x140457742 (HalpDmaReleaseBufferMappings.c)
- *     HalFreeCommonBufferVector @ 0x140511760 (HalFreeCommonBufferVector.c)
- *     HalPutScatterGatherListV3 @ 0x140511A58 (HalPutScatterGatherListV3.c)
- *     HalpAllocateCommonBufferVectorInternal @ 0x140511BD0 (HalpAllocateCommonBufferVectorInternal.c)
- *     HalpDmaFreeChildAdapter @ 0x140513870 (HalpDmaFreeChildAdapter.c)
- *     HalFreeCommonBufferV3 @ 0x140514920 (HalFreeCommonBufferV3.c)
- *     HalpAllocateDomainCommonBufferInternal @ 0x140514A70 (HalpAllocateDomainCommonBufferInternal.c)
- *     HalFreeCommonBufferDmaThin @ 0x140515B80 (HalFreeCommonBufferDmaThin.c)
- *     HalFreeCommonBufferDmarThin @ 0x140516290 (HalFreeCommonBufferDmarThin.c)
- *     HalpAllocateCommonBufferDmarThin @ 0x1405164D0 (HalpAllocateCommonBufferDmarThin.c)
- *     HalFlushAdapterBuffersEx @ 0x140516D80 (HalFlushAdapterBuffersEx.c)
- *     IopUnlockAndFreeMdl @ 0x1405570D0 (IopUnlockAndFreeMdl.c)
- *     MiMakeOutswappedPageResident @ 0x1405803C8 (MiMakeOutswappedPageResident.c)
- *     MiZeroPageFile @ 0x140581A70 (MiZeroPageFile.c)
- *     MiPfCompleteCoalescedIo @ 0x140594698 (MiPfCompleteCoalescedIo.c)
- *     MiFlushComplete @ 0x140597ED0 (MiFlushComplete.c)
- *     MiPersistMdl @ 0x14059FECC (MiPersistMdl.c)
- *     MiUnlockAndFreeDvPatchImage @ 0x1405A29F8 (MiUnlockAndFreeDvPatchImage.c)
- *     PsDispatchIumService @ 0x1405E1764 (PsDispatchIumService.c)
- *     PspIumAllocatePhysicalPages @ 0x1405E22E8 (PspIumAllocatePhysicalPages.c)
- *     PspIumAllocateSecurePool @ 0x1405E2410 (PspIumAllocateSecurePool.c)
- *     PspIumFreePhysicalPages @ 0x1405E281C (PspIumFreePhysicalPages.c)
- *     SmPrepareForFatalPageError @ 0x1405FD594 (SmPrepareForFatalPageError.c)
- *     DifMmUnmapLockedPagesWrapper @ 0x1406179F0 (DifMmUnmapLockedPagesWrapper.c)
- *     EtwpAllocatePartitionMemory @ 0x1406333A8 (EtwpAllocatePartitionMemory.c)
- *     EtwpFreePartitionMemory @ 0x140633468 (EtwpFreePartitionMemory.c)
- *     MiDeleteImageCreationMdls @ 0x140705E1C (MiDeleteImageCreationMdls.c)
- *     PopFreeHiberContext @ 0x140800338 (PopFreeHiberContext.c)
- *     MiZeroPageFileFirstPage @ 0x14084BA88 (MiZeroPageFileFirstPage.c)
- *     HalpDmaAllocateLocalContiguousPool @ 0x140908F2C (HalpDmaAllocateLocalContiguousPool.c)
- *     HalpDmaAllocateLocalScatterPool @ 0x140909214 (HalpDmaAllocateLocalScatterPool.c)
- *     HalpDmaGrowContiguousMapBuffers @ 0x1409094F8 (HalpDmaGrowContiguousMapBuffers.c)
- *     HalpDmaGrowScatterMapBuffers @ 0x1409095FC (HalpDmaGrowScatterMapBuffers.c)
- *     IopCleanupFileObjectIosbRange @ 0x140933FE8 (IopCleanupFileObjectIosbRange.c)
- *     IopSetFileObjectIosbRange @ 0x140935790 (IopSetFileObjectIosbRange.c)
- *     IopLiveDumpAllocateFromIOSpace @ 0x14093B898 (IopLiveDumpAllocateFromIOSpace.c)
- *     IopLiveDumpFreeDumpBuffers @ 0x14093C2FC (IopLiveDumpFreeDumpBuffers.c)
- *     IopLiveDumpWriteDumpFile @ 0x14093D590 (IopLiveDumpWriteDumpFile.c)
+ *     sub_140456F16 @ 0x140456F16 (sub_140456F16.c)
+ *     sub_140457742 @ 0x140457742 (sub_140457742.c)
+ *     sub_140511760 @ 0x140511760 (sub_140511760.c)
+ *     sub_140511A58 @ 0x140511A58 (sub_140511A58.c)
+ *     sub_140511BD0 @ 0x140511BD0 (sub_140511BD0.c)
+ *     sub_140513870 @ 0x140513870 (sub_140513870.c)
+ *     sub_140514920 @ 0x140514920 (sub_140514920.c)
+ *     sub_140514A70 @ 0x140514A70 (sub_140514A70.c)
+ *     sub_140515B80 @ 0x140515B80 (sub_140515B80.c)
+ *     sub_140516290 @ 0x140516290 (sub_140516290.c)
+ *     sub_1405164D0 @ 0x1405164D0 (sub_1405164D0.c)
+ *     sub_140516D80 @ 0x140516D80 (sub_140516D80.c)
+ *     sub_1405570D0 @ 0x1405570D0 (sub_1405570D0.c)
+ *     sub_1405803C8 @ 0x1405803C8 (sub_1405803C8.c)
+ *     sub_140581A70 @ 0x140581A70 (sub_140581A70.c)
+ *     sub_140594698 @ 0x140594698 (sub_140594698.c)
+ *     sub_140597ED0 @ 0x140597ED0 (sub_140597ED0.c)
+ *     sub_14059FECC @ 0x14059FECC (sub_14059FECC.c)
+ *     sub_1405A29F8 @ 0x1405A29F8 (sub_1405A29F8.c)
+ *     sub_1405E1764 @ 0x1405E1764 (sub_1405E1764.c)
+ *     sub_1405E22E8 @ 0x1405E22E8 (sub_1405E22E8.c)
+ *     sub_1405E2410 @ 0x1405E2410 (sub_1405E2410.c)
+ *     sub_1405E281C @ 0x1405E281C (sub_1405E281C.c)
+ *     sub_1405FD594 @ 0x1405FD594 (sub_1405FD594.c)
+ *     sub_1406179F0 @ 0x1406179F0 (sub_1406179F0.c)
+ *     sub_1406333A8 @ 0x1406333A8 (sub_1406333A8.c)
+ *     sub_140633468 @ 0x140633468 (sub_140633468.c)
+ *     sub_140705E1C @ 0x140705E1C (sub_140705E1C.c)
+ *     sub_140800338 @ 0x140800338 (sub_140800338.c)
+ *     sub_14084BA88 @ 0x14084BA88 (sub_14084BA88.c)
+ *     sub_140908F2C @ 0x140908F2C (sub_140908F2C.c)
+ *     sub_140909214 @ 0x140909214 (sub_140909214.c)
+ *     sub_1409094F8 @ 0x1409094F8 (sub_1409094F8.c)
+ *     sub_1409095FC @ 0x1409095FC (sub_1409095FC.c)
+ *     sub_140933FE8 @ 0x140933FE8 (sub_140933FE8.c)
+ *     sub_140935790 @ 0x140935790 (sub_140935790.c)
+ *     sub_14093B898 @ 0x14093B898 (sub_14093B898.c)
+ *     sub_14093C2FC @ 0x14093C2FC (sub_14093C2FC.c)
+ *     sub_14093D590 @ 0x14093D590 (sub_14093D590.c)
  *     IoFreeKsrPersistentMemory @ 0x1409409A0 (IoFreeKsrPersistentMemory.c)
- *     PipGetPersistentMemory @ 0x140941654 (PipGetPersistentMemory.c)
- *     MiApplyImageHotPatch @ 0x140971B68 (MiApplyImageHotPatch.c)
- *     ExpProfileDelete @ 0x140A06830 (ExpProfileDelete.c)
- *     NtStopProfile @ 0x140A06DF0 (NtStopProfile.c)
- *     ViFreeMapRegisterFile @ 0x140A880B0 (ViFreeMapRegisterFile.c)
- *     VfFillAllocatePagesForMdl @ 0x140AA0838 (VfFillAllocatePagesForMdl.c)
+ *     sub_140941654 @ 0x140941654 (sub_140941654.c)
+ *     sub_140971B68 @ 0x140971B68 (sub_140971B68.c)
+ *     sub_140A06830 @ 0x140A06830 (sub_140A06830.c)
+ *     sub_140A06DF0 @ 0x140A06DF0 (sub_140A06DF0.c)
+ *     sub_140A880B0 @ 0x140A880B0 (sub_140A880B0.c)
+ *     sub_140AA0838 @ 0x140AA0838 (sub_140AA0838.c)
  * Callees:
- *     MiZeroAndFlushPtes @ 0x1402157EC (MiZeroAndFlushPtes.c)
- *     MiReleasePtes @ 0x1402BB6D0 (MiReleasePtes.c)
- *     MiRetardMdl @ 0x140584530 (MiRetardMdl.c)
- *     MiRemovePteTracker @ 0x1405B6E94 (MiRemovePteTracker.c)
- *     MiUnmapLockedPagesInUserSpace @ 0x1406E2C14 (MiUnmapLockedPagesInUserSpace.c)
+ *     sub_1402157EC @ 0x1402157EC (sub_1402157EC.c)
+ *     sub_1402BB6D0 @ 0x1402BB6D0 (sub_1402BB6D0.c)
+ *     sub_140584530 @ 0x140584530 (sub_140584530.c)
+ *     sub_1405B6E94 @ 0x1405B6E94 (sub_1405B6E94.c)
+ *     sub_1406E2C14 @ 0x1406E2C14 (sub_1406E2C14.c)
  */
 
 void __stdcall MmUnmapLockedPages(PVOID BaseAddress, PMDL MemoryDescriptorList)
@@ -86,10 +86,10 @@ void __stdcall MmUnmapLockedPages(PVOID BaseAddress, PMDL MemoryDescriptorList)
   unsigned __int64 v11; // r9
   __int64 v12; // rcx
   __int64 v13; // rcx
-  struct _LIST_ENTRY *Flink; // rax
+  __int64 v14; // rax
   __int64 v15; // rax
   char v16; // r9
-  struct _LIST_ENTRY *v17; // rax
+  __int64 v17; // rax
   __int64 v18; // r8
   __int64 v19; // rax
   __int64 v20; // [rsp+18h] [rbp-50h]
@@ -100,14 +100,14 @@ void __stdcall MmUnmapLockedPages(PVOID BaseAddress, PMDL MemoryDescriptorList)
 
   v2 = 0;
   if ( _bittest16(&MemoryDescriptorList->MdlFlags, 9u) )
-    v2 = MiRetardMdl(MemoryDescriptorList);
+    v2 = sub_140584530(MemoryDescriptorList);
   ByteOffset = MemoryDescriptorList->ByteOffset;
   v6 = ((((_WORD)ByteOffset + (unsigned __int16)LODWORD(MemoryDescriptorList->StartVa)) & 0xFFF)
       + (unsigned __int64)MemoryDescriptorList->ByteCount
       + 4095) >> 12;
   if ( (unsigned __int64)BaseAddress <= 0x7FFFFFFEFFFFLL )
   {
-    MiUnmapLockedPagesInUserSpace((ULONG_PTR)BaseAddress);
+    sub_1406E2C14((ULONG_PTR)BaseAddress);
   }
   else
   {
@@ -129,15 +129,15 @@ void __stdcall MmUnmapLockedPages(PVOID BaseAddress, PMDL MemoryDescriptorList)
       v12 = *(_QWORD *)v11;
       if ( v11 >= 0xFFFFF6FB7DBED000uLL
         && v11 <= 0xFFFFF6FB7DBED7F8uLL
-        && (MiFlags & 0xC00000) != 0
-        && KeGetCurrentThread()->ApcState.Process->AddressPolicy != 1
+        && (dword_140D06880 & 0xC00000) != 0
+        && *(_BYTE *)(*((_QWORD *)KeGetCurrentThread() + 23) + 912LL) != 1
         && (v12 & 1) != 0
         && ((v12 & 0x20) == 0 || (v12 & 0x42) == 0) )
       {
-        Flink = KeGetCurrentThread()->ApcState.Process[1].ProcessListEntry.Flink;
-        if ( Flink )
+        v14 = *(_QWORD *)(*((_QWORD *)KeGetCurrentThread() + 23) + 1928LL);
+        if ( v14 )
         {
-          v15 = *((_QWORD *)&Flink->Flink + ((v11 >> 3) & 0x1FF));
+          v15 = *(_QWORD *)(v14 + 8 * ((v11 >> 3) & 0x1FF));
           v16 = v12 | 0x20;
           if ( (v15 & 0x20) == 0 )
             v16 = v12;
@@ -159,16 +159,16 @@ void __stdcall MmUnmapLockedPages(PVOID BaseAddress, PMDL MemoryDescriptorList)
     v13 = *(_QWORD *)v8;
     if ( v8 >= 0xFFFFF6FB7DBED000uLL
       && v8 <= 0xFFFFF6FB7DBED7F8uLL
-      && (MiFlags & 0xC00000) != 0
-      && KeGetCurrentThread()->ApcState.Process->AddressPolicy != 1
+      && (dword_140D06880 & 0xC00000) != 0
+      && *(_BYTE *)(*((_QWORD *)KeGetCurrentThread() + 23) + 912LL) != 1
       && (v13 & 1) != 0
       && ((v13 & 0x20) == 0 || (v13 & 0x42) == 0) )
     {
-      v17 = KeGetCurrentThread()->ApcState.Process[1].ProcessListEntry.Flink;
+      v17 = *(_QWORD *)(*((_QWORD *)KeGetCurrentThread() + 23) + 1928LL);
       if ( v17 )
       {
         LOWORD(v18) = v13 | 0x20;
-        v19 = *((_QWORD *)&v17->Flink + ((v8 >> 3) & 0x1FF));
+        v19 = *(_QWORD *)(v17 + 8 * ((v8 >> 3) & 0x1FF));
         if ( (v19 & 0x20) == 0 )
           v18 = *(_QWORD *)v8;
         LOWORD(v13) = v18;
@@ -177,11 +177,11 @@ void __stdcall MmUnmapLockedPages(PVOID BaseAddress, PMDL MemoryDescriptorList)
       }
     }
     if ( (v13 & 0x200) != 0 )
-      MiZeroAndFlushPtes(v7, v6, 0);
-    if ( MmProtectFreedNonPagedPool )
+      sub_1402157EC(v7, v6, 0);
+    if ( dword_140D069EC )
       LODWORD(v6) = v6 + 1;
     if ( (dword_140D051BC & 1) != 0 )
-      MiRemovePteTracker((ULONG_PTR)MemoryDescriptorList);
-    MiReleasePtes(&qword_140C534C0, ((v7 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL, (unsigned int)v6);
+      sub_1405B6E94((ULONG_PTR)MemoryDescriptorList);
+    sub_1402BB6D0(&qword_140C534C0, ((v7 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL, (unsigned int)v6);
   }
 }

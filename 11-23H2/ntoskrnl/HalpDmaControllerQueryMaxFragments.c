@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpDmaControllerQueryMaxFragments @ 0x140516AC0
+ * XREFs of HalpDmaControllerQueryMaxFragments @ 0x140517010
  * Callers:
- *     HalMapTransferEx @ 0x140514670 (HalMapTransferEx.c)
+ *     HalMapTransferEx @ 0x140514BC0 (HalMapTransferEx.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KxAcquireSpinLock @ 0x1402515B0 (KxAcquireSpinLock.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KxAcquireSpinLock @ 0x140251670 (KxAcquireSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall HalpDmaControllerQueryMaxFragments(__int64 a1, __int64 a2, unsigned int a3)
@@ -35,7 +35,10 @@ __int64 __fastcall HalpDmaControllerQueryMaxFragments(__int64 a1, __int64 a2, un
     v8 = *(unsigned __int8 *)(a1 + 176);
     CurrentIrql = KeGetCurrentIrql();
     __writecr8(v8);
-    if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)(v8 - 2) <= 0xDu )
+    if ( (_DWORD)KiIrqlFlags
+      && ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
+      && (unsigned __int8)(v8 - 2) <= 0xDu )
     {
       SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
       if ( CurrentIrql == (_BYTE)v8 )
@@ -55,10 +58,10 @@ __int64 __fastcall HalpDmaControllerQueryMaxFragments(__int64 a1, __int64 a2, un
   if ( v6 )
   {
     KxReleaseSpinLock(v11);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v13 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v13 <= 0xFu && CurrentIrql <= 0xFu && v13 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v13 <= 0xFu && CurrentIrql <= 0xFu && v13 >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         v15 = CurrentPrcb->SchedulerAssist;
@@ -66,7 +69,7 @@ __int64 __fastcall HalpDmaControllerQueryMaxFragments(__int64 a1, __int64 a2, un
         v17 = (v16 & v15[5]) == 0;
         v15[5] &= v16;
         if ( v17 )
-          KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+          KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
       }
     }
     __writecr8(CurrentIrql);

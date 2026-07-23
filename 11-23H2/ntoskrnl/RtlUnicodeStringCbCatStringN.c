@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlUnicodeStringCbCatStringN @ 0x14066E4CC
+ * XREFs of RtlUnicodeStringCbCatStringN @ 0x14066EA1C
  * Callers:
- *     AslpPathWildcardAllocMatchNode @ 0x140A565E8 (AslpPathWildcardAllocMatchNode.c)
+ *     AslpPathWildcardAllocMatchNode @ 0x140A56898 (AslpPathWildcardAllocMatchNode.c)
  * Callees:
- *     RtlWideCharArrayCopyStringWorker @ 0x1405A2100 (RtlWideCharArrayCopyStringWorker.c)
+ *     RtlWideCharArrayCopyStringWorker @ 0x1405A25F0 (RtlWideCharArrayCopyStringWorker.c)
  */
 
 NTSTATUS __stdcall RtlUnicodeStringCbCatStringN(

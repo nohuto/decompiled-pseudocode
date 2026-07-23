@@ -1,9 +1,9 @@
 /*
- * XREFs of PopPluginRequestPowerControl @ 0x1403B71D8
+ * XREFs of PopPluginRequestPowerControl @ 0x1403C10D8
  * Callers:
- *     PoFxPowerControl @ 0x1403B7120 (PoFxPowerControl.c)
+ *     PoFxPowerControl @ 0x1403C1020 (PoFxPowerControl.c)
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall PopPluginRequestPowerControl(

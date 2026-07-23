@@ -1,17 +1,17 @@
 /*
- * XREFs of KiCallInterruptServiceRoutine @ 0x14000C2E0
+ * XREFs of KiCallInterruptServiceRoutine @ 0x14000BE60
  * Callers:
- *     KiScanInterruptObjectList @ 0x14015ED60 (KiScanInterruptObjectList.c)
- *     KiInterruptSubDispatch @ 0x14015EF30 (KiInterruptSubDispatch.c)
- *     KiInterruptSubDispatchNoLock @ 0x14015F060 (KiInterruptSubDispatchNoLock.c)
- *     KiInterruptSubDispatchNoLockNoEtw @ 0x14015F190 (KiInterruptSubDispatchNoLockNoEtw.c)
- *     KiInvokeInterruptServiceRoutine @ 0x1401D8994 (KiInvokeInterruptServiceRoutine.c)
+ *     KiScanInterruptObjectList @ 0x14015F2D0 (KiScanInterruptObjectList.c)
+ *     KiInterruptSubDispatch @ 0x14015F4A0 (KiInterruptSubDispatch.c)
+ *     KiInterruptSubDispatchNoLock @ 0x14015F5D0 (KiInterruptSubDispatchNoLock.c)
+ *     KiInterruptSubDispatchNoLockNoEtw @ 0x14015F700 (KiInterruptSubDispatchNoLockNoEtw.c)
+ *     KiInvokeInterruptServiceRoutine @ 0x1401D87C0 (KiInvokeInterruptServiceRoutine.c)
  * Callees:
- *     KeFindFirstSetRightGroupAffinity @ 0x14000C2B8 (KeFindFirstSetRightGroupAffinity.c)
- *     KiIntRedirectQueueRequestOnProcessor @ 0x14000C48C (KiIntRedirectQueueRequestOnProcessor.c)
- *     KxWaitForSpinLockAndAcquire @ 0x1400D8260 (KxWaitForSpinLockAndAcquire.c)
- *     KiAcquireSpinLockInstrumented @ 0x1401D3CDC (KiAcquireSpinLockInstrumented.c)
- *     KiReleaseSpinLockInstrumented @ 0x1401D3D8C (KiReleaseSpinLockInstrumented.c)
+ *     KeFindFirstSetRightGroupAffinity @ 0x14000BE38 (KeFindFirstSetRightGroupAffinity.c)
+ *     KiIntRedirectQueueRequestOnProcessor @ 0x14000C00C (KiIntRedirectQueueRequestOnProcessor.c)
+ *     KxWaitForSpinLockAndAcquire @ 0x1400D6100 (KxWaitForSpinLockAndAcquire.c)
+ *     KiAcquireSpinLockInstrumented @ 0x1401D3B08 (KiAcquireSpinLockInstrumented.c)
+ *     KiReleaseSpinLockInstrumented @ 0x1401D3BB8 (KiReleaseSpinLockInstrumented.c)
  */
 
 char __fastcall KiCallInterruptServiceRoutine(__int64 a1, char a2)

@@ -1,12 +1,12 @@
 /*
- * XREFs of PiSwValidateCreateData @ 0x1404C7488
+ * XREFs of PiSwValidateCreateData @ 0x1404878E8
  * Callers:
- *     PiSwIrpStartCreateWorker @ 0x1404C6CB4 (PiSwIrpStartCreateWorker.c)
+ *     PiSwIrpStartCreateWorker @ 0x1404880D0 (PiSwIrpStartCreateWorker.c)
  * Callees:
- *     PiSwValidatePropertyArray @ 0x1404892A8 (PiSwValidatePropertyArray.c)
- *     PnpValidateMultiSz @ 0x1404A2F14 (PnpValidateMultiSz.c)
- *     PiSwIsValidPnpId @ 0x1404C770C (PiSwIsValidPnpId.c)
- *     SeValidSecurityDescriptor @ 0x1404C7814 (SeValidSecurityDescriptor.c)
+ *     SeValidSecurityDescriptor @ 0x140486C5C (SeValidSecurityDescriptor.c)
+ *     PiSwIsValidPnpId @ 0x140487B6C (PiSwIsValidPnpId.c)
+ *     PiSwValidatePropertyArray @ 0x140511A1C (PiSwValidatePropertyArray.c)
+ *     PnpValidateMultiSz @ 0x14051B314 (PnpValidateMultiSz.c)
  */
 
 __int64 __fastcall PiSwValidateCreateData(__int64 a1)
@@ -23,13 +23,13 @@ __int64 __fastcall PiSwValidateCreateData(__int64 a1)
   __int64 v11; // rcx
   __int64 v12; // rax
   unsigned int v13; // eax
-  size_t v14; // rcx
+  __int64 v14; // rcx
   __int64 v15; // rdx
   _WORD *i; // r8
   __int64 v17; // rax
   __int64 v18; // r8
   unsigned int v19; // eax
-  size_t v20; // rcx
+  __int64 v20; // rcx
   __int64 v21; // rdx
   _WORD *j; // r8
   __int64 v23; // rax
@@ -39,8 +39,7 @@ __int64 __fastcall PiSwValidateCreateData(__int64 a1)
   void *v27; // rdx
   ULONG v28; // ecx
   __int64 v29; // rcx
-  unsigned int v30; // edx
-  unsigned __int64 v32; // rax
+  unsigned __int64 v31; // rax
 
   v2 = -1073741811;
   if ( a1 )
@@ -86,7 +85,7 @@ __int64 __fastcall PiSwValidateCreateData(__int64 a1)
                           v14 = *(_QWORD *)(a1 + 32);
                           if ( v14 )
                           {
-                            if ( PnpValidateMultiSz(v14, *(unsigned int *)(a1 + 24)) < 0 )
+                            if ( (int)PnpValidateMultiSz(v14, *(unsigned int *)(a1 + 24)) < 0 )
                               return v2;
                             for ( i = *(_WORD **)(a1 + 32); *i; i = (_WORD *)(v18 + 2 * v17 + 2) )
                             {
@@ -109,7 +108,7 @@ __int64 __fastcall PiSwValidateCreateData(__int64 a1)
                             v20 = *(_QWORD *)(a1 + 48);
                             if ( v20 )
                             {
-                              if ( PnpValidateMultiSz(v20, *(unsigned int *)(a1 + 40)) < 0 )
+                              if ( (int)PnpValidateMultiSz(v20, *(unsigned int *)(a1 + 40)) < 0 )
                                 return v2;
                               for ( j = *(_WORD **)(a1 + 48); *j; j = (_WORD *)(v24 + 2 * v23 + 2) )
                               {
@@ -129,11 +128,11 @@ __int64 __fastcall PiSwValidateCreateData(__int64 a1)
                             v25 = *(_QWORD *)(a1 + 72);
                             if ( !v25 )
                               goto LABEL_44;
-                            v32 = -1LL;
+                            v31 = -1LL;
                             do
-                              ++v32;
-                            while ( *(_WORD *)(v25 + 2 * v32) );
-                            if ( v32 <= 0x7FFE )
+                              ++v31;
+                            while ( *(_WORD *)(v25 + 2 * v31) );
+                            if ( v31 <= 0x7FFE )
                             {
 LABEL_44:
                               v26 = *(_QWORD *)(a1 + 80);
@@ -154,12 +153,8 @@ LABEL_45:
                                     && ((*(_DWORD *)(a1 + 64) & 8) == 0 || *(_QWORD *)(a1 + 32) || *(_QWORD *)(a1 + 48)) )
                                   {
                                     v29 = *(_QWORD *)(a1 + 112);
-                                    if ( v29 || !*(_DWORD *)(a1 + 104) )
-                                    {
-                                      v30 = *(_DWORD *)(a1 + 104);
-                                      if ( v30 || !v29 )
-                                        return (unsigned int)PiSwValidatePropertyArray(v29, v30);
-                                    }
+                                    if ( (v29 || !*(_DWORD *)(a1 + 104)) && (*(_DWORD *)(a1 + 104) || !v29) )
+                                      return (unsigned int)PiSwValidatePropertyArray(v29);
                                   }
                                 }
                               }

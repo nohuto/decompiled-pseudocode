@@ -1,13 +1,13 @@
 /*
- * XREFs of PfSnAsyncContextInitialize @ 0x140962E58
+ * XREFs of PfSnAsyncContextInitialize @ 0x14094A918
  * Callers:
- *     PfSnPrefetchScenario @ 0x140962D70 (PfSnPrefetchScenario.c)
+ *     PfSnPrefetchScenario @ 0x14094A830 (PfSnPrefetchScenario.c)
  * Callees:
- *     PsGetPagePriorityThread @ 0x140208FD0 (PsGetPagePriorityThread.c)
- *     PfSnReferenceProcessTrace @ 0x1402ED090 (PfSnReferenceProcessTrace.c)
- *     PsReferenceSiloContext @ 0x14033FA90 (PsReferenceSiloContext.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     PfSnPowerBoostInitialize @ 0x140963038 (PfSnPowerBoostInitialize.c)
+ *     PsReferenceSiloContext @ 0x14031EF70 (PsReferenceSiloContext.c)
+ *     PsGetPagePriorityThread @ 0x1403305B0 (PsGetPagePriorityThread.c)
+ *     PfSnReferenceProcessTrace @ 0x14034E6D0 (PfSnReferenceProcessTrace.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     PfSnPowerBoostInitialize @ 0x14094AAF8 (PfSnPowerBoostInitialize.c)
  */
 
 __int64 __fastcall PfSnAsyncContextInitialize(_QWORD *a1, __int64 a2, __int64 a3, int a4)

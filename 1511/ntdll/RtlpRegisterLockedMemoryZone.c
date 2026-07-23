@@ -11,10 +11,10 @@
 
 __int64 RtlpRegisterLockedMemoryZone()
 {
-  int v0; // esi
+  NTSTATUS v0; // esi
   int v1; // eax
   int v3; // ebx
-  __int64 (__fastcall **v4)(); // rdi
+  PVOID *v4; // rdi
 
   v0 = 0;
   RtlAcquireSRWLockExclusive(&RtlpMemoryZoneLock);
@@ -27,7 +27,7 @@ LABEL_2:
   else
   {
     v3 = 0;
-    v4 = &RtlpMemoryZoneCriticalRoutines;
+    v4 = (PVOID *)&RtlpMemoryZoneCriticalRoutines;
     while ( 1 )
     {
       v0 = RtlLockModuleSection(*v4);

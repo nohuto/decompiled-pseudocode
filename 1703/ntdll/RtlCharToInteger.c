@@ -10,31 +10,31 @@
 NTSTATUS __stdcall RtlCharToInteger(PCSZ String, ULONG Base, PULONG Value)
 {
   PCSZ v5; // r9
-  char i; // r11
-  char *v7; // r9
-  char v8; // dl
-  char *v9; // r8
+  CHAR i; // r11
+  CHAR *v7; // r9
+  CHAR v8; // dl
+  CHAR *v9; // r8
   int v10; // ecx
   int v11; // r8d
   ULONG v12; // eax
   ULONG v13; // eax
   PCSZ v15; // rax
-  char v16; // al
-  char *v17; // r9
+  CHAR v16; // al
+  CHAR *v17; // r9
 
   v5 = String;
   for ( i = *String; ; i = *v5 )
   {
     if ( i > 32 )
     {
-      v7 = (char *)(v5 + 1);
+      v7 = (CHAR *)(v5 + 1);
       goto LABEL_4;
     }
     v15 = v5++;
     if ( !*v5 )
       break;
   }
-  v7 = (char *)v15;
+  v7 = (CHAR *)v15;
 LABEL_4:
   v8 = i;
   if ( ((i - 43) & 0xFD) == 0 )

@@ -6,11 +6,14 @@
  *     <none>
  */
 
-__int64 ZwOpenEventPair()
+NTSTATUS __cdecl ZwOpenEventPair(
+        PHANDLE EventPairHandle,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 265LL;
+  result = 265;
   __asm { syscall; Low latency system call }
   return result;
 }

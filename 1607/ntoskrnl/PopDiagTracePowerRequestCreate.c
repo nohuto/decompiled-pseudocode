@@ -1,16 +1,16 @@
 /*
- * XREFs of PopDiagTracePowerRequestCreate @ 0x14052000C
+ * XREFs of PopDiagTracePowerRequestCreate @ 0x140503074
  * Callers:
- *     PopCreateKernelPowerRequest @ 0x14051E314 (PopCreateKernelPowerRequest.c)
- *     PopCreateUserPowerRequest @ 0x14051E750 (PopCreateUserPowerRequest.c)
- *     PopDiagTraceControlCallback @ 0x14052B2D0 (PopDiagTraceControlCallback.c)
+ *     PopCreateKernelPowerRequest @ 0x14050137C (PopCreateKernelPowerRequest.c)
+ *     PopCreateUserPowerRequest @ 0x1405017B8 (PopCreateUserPowerRequest.c)
+ *     PopDiagTraceControlCallback @ 0x14052BF20 (PopDiagTraceControlCallback.c)
  * Callees:
- *     RtlStringCbPrintfW @ 0x14000C1D4 (RtlStringCbPrintfW.c)
- *     EtwWrite @ 0x140013320 (EtwWrite.c)
- *     RtlInitUnicodeString @ 0x14002DC60 (RtlInitUnicodeString.c)
- *     EtwEventEnabled @ 0x1400D54D0 (EtwEventEnabled.c)
- *     PoStoreRequester @ 0x1400FB3C0 (PoStoreRequester.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
+ *     RtlStringCbPrintfW @ 0x14000BD54 (RtlStringCbPrintfW.c)
+ *     EtwWrite @ 0x140012EA0 (EtwWrite.c)
+ *     RtlInitUnicodeString @ 0x14002D7E0 (RtlInitUnicodeString.c)
+ *     EtwEventEnabled @ 0x1400D3370 (EtwEventEnabled.c)
+ *     PoStoreRequester @ 0x1400F914C (PoStoreRequester.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
  */

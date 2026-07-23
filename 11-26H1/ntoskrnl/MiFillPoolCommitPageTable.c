@@ -1,18 +1,18 @@
 /*
- * XREFs of MiFillPoolCommitPageTable @ 0x1403652A0
+ * XREFs of MiFillPoolCommitPageTable @ 0x140367040
  * Callers:
- *     MiCommitPoolMemory @ 0x140364AE0 (MiCommitPoolMemory.c)
+ *     MiCommitPoolMemory @ 0x140366880 (MiCommitPoolMemory.c)
  * Callees:
- *     MiMakeDemandZeroPte @ 0x14028B2D0 (MiMakeDemandZeroPte.c)
- *     MiUnlockPageTableInternal @ 0x1402D13E0 (MiUnlockPageTableInternal.c)
- *     KeShouldYieldProcessor @ 0x1402D49D0 (KeShouldYieldProcessor.c)
- *     MiWorkingSetIsContended @ 0x1403182D0 (MiWorkingSetIsContended.c)
- *     MiDecreaseUsedPtes @ 0x14033F020 (MiDecreaseUsedPtes.c)
- *     MiLockPoolCommitWs @ 0x1403642F8 (MiLockPoolCommitWs.c)
- *     MiUnlockPoolCommitWs @ 0x140365110 (MiUnlockPoolCommitWs.c)
- *     MiAssignNonPagedPoolPte @ 0x140365C30 (MiAssignNonPagedPoolPte.c)
- *     MiLockPoolCommitPageTable @ 0x140465970 (MiLockPoolCommitPageTable.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
+ *     MiMakeDemandZeroPte @ 0x14028A830 (MiMakeDemandZeroPte.c)
+ *     MiUnlockPageTableInternal @ 0x1402B31A0 (MiUnlockPageTableInternal.c)
+ *     KeShouldYieldProcessor @ 0x1402B6790 (KeShouldYieldProcessor.c)
+ *     MiWorkingSetIsContended @ 0x14031A300 (MiWorkingSetIsContended.c)
+ *     MiDecreaseUsedPtes @ 0x1403410A0 (MiDecreaseUsedPtes.c)
+ *     MiLockPoolCommitWs @ 0x140366098 (MiLockPoolCommitWs.c)
+ *     MiUnlockPoolCommitWs @ 0x140366EB0 (MiUnlockPoolCommitWs.c)
+ *     MiAssignNonPagedPoolPte @ 0x1403679D0 (MiAssignNonPagedPoolPte.c)
+ *     MiLockPoolCommitPageTable @ 0x14045E930 (MiLockPoolCommitPageTable.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
  */
 
 int __fastcall MiFillPoolCommitPageTable(__int64 a1)
@@ -61,12 +61,12 @@ LABEL_6:
       v9 = *(_QWORD *)v6;
       if ( !*(_QWORD *)v6 )
         goto LABEL_11;
-      if ( qword_140E2D740 )
+      if ( qword_140E2D8C0 )
       {
         if ( (v9 & 0x10) != 0 )
           v9 &= ~0x10uLL;
         else
-          v9 &= qword_140E2D748;
+          v9 &= qword_140E2D8C8;
       }
       v9 = (v9 >> 24) & 0x7FFFFFFFFFLL;
       if ( v9 == 0x7FFFFFFFFFLL )

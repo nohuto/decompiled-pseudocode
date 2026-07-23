@@ -37,11 +37,11 @@ __int64 __fastcall LdrpCreatePendingEnclaveModule(
     a1[12] = v11;
     if ( a7 )
       *a7 = v11;
-    if ( RtlEqualUnicodeString((unsigned __int16 *)a2, word_180114180, 1) )
+    if ( RtlEqualUnicodeString((PUNICODE_STRING)a2, (PUNICODE_STRING)&stru_180114180, 1u) )
     {
       a1[14] = v11;
     }
-    else if ( RtlEqualUnicodeString((unsigned __int16 *)a2, L"(*", 1) )
+    else if ( RtlEqualUnicodeString((PUNICODE_STRING)a2, (PUNICODE_STRING)&stru_180114170, 1u) )
     {
       a1[15] = v11;
     }

@@ -1,19 +1,19 @@
 /*
- * XREFs of PopUpdateWakeSourceWorker @ 0x1402DBE60
+ * XREFs of PopUpdateWakeSourceWorker @ 0x1402DC050
  * Callers:
  *     <none>
  * Callees:
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14007DE90 (KeAcquireInStackQueuedSpinLock.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
- *     KeSetEvent @ 0x1400C2B00 (KeSetEvent.c)
- *     PnpUnlockDeviceActionQueue @ 0x140135390 (PnpUnlockDeviceActionQueue.c)
- *     PnpLockDeviceActionQueue @ 0x140135434 (PnpLockDeviceActionQueue.c)
- *     PopWakeInfoDereference @ 0x1401585E0 (PopWakeInfoDereference.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     PopFreeWakeSource @ 0x14086B778 (PopFreeWakeSource.c)
- *     PopProcessWakeSourceWork @ 0x14086B844 (PopProcessWakeSourceWork.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14007DE80 (KeAcquireInStackQueuedSpinLock.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC6A0 (KxReleaseQueuedSpinLock.c)
+ *     KeSetEvent @ 0x1400C2A40 (KeSetEvent.c)
+ *     PnpUnlockDeviceActionQueue @ 0x140135460 (PnpUnlockDeviceActionQueue.c)
+ *     PnpLockDeviceActionQueue @ 0x140135504 (PnpLockDeviceActionQueue.c)
+ *     PopWakeInfoDereference @ 0x1401586E0 (PopWakeInfoDereference.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     PopFreeWakeSource @ 0x14086C9D8 (PopFreeWakeSource.c)
+ *     PopProcessWakeSourceWork @ 0x14086CAA4 (PopProcessWakeSourceWork.c)
  */
 
 PVOID *PopUpdateWakeSourceWorker()

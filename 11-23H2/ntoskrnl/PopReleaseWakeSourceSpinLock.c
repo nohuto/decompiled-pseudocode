@@ -1,12 +1,12 @@
 /*
- * XREFs of PopReleaseWakeSourceSpinLock @ 0x14058E6A0
+ * XREFs of PopReleaseWakeSourceSpinLock @ 0x14058EB90
  * Callers:
- *     PopHandleWakeSources @ 0x140AA0E5C (PopHandleWakeSources.c)
- *     PopNewWakeInfo @ 0x140AA10A8 (PopNewWakeInfo.c)
- *     PopProcessDeviceWakeSource @ 0x140AA1184 (PopProcessDeviceWakeSource.c)
+ *     PopHandleWakeSources @ 0x140AA0CCC (PopHandleWakeSources.c)
+ *     PopNewWakeInfo @ 0x140AA0F18 (PopNewWakeInfo.c)
+ *     PopProcessDeviceWakeSource @ 0x140AA0FF4 (PopProcessDeviceWakeSource.c)
  * Callees:
- *     KxReleaseQueuedSpinLock @ 0x140260360 (KxReleaseQueuedSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseQueuedSpinLock @ 0x1402605F0 (KxReleaseQueuedSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall PopReleaseWakeSourceSpinLock(__int64 a1)
@@ -19,10 +19,10 @@ __int64 __fastcall PopReleaseWakeSourceSpinLock(__int64 a1)
 
   result = KxReleaseQueuedSpinLock((volatile signed __int64 **)a1);
   v3 = *(unsigned __int8 *)(a1 + 16);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     result = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
       && (unsigned __int8)result <= 0xFu
       && (unsigned __int8)v3 <= 0xFu
       && (unsigned __int8)result >= 2u )

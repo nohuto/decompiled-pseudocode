@@ -1,24 +1,24 @@
 /*
- * XREFs of PsGetProcessServerSilo @ 0x1400136A0
+ * XREFs of PsGetProcessServerSilo @ 0x140013220
  * Callers:
- *     ObpDecrementHandleCount @ 0x140406420 (ObpDecrementHandleCount.c)
- *     ObpCreateHandle @ 0x140419C20 (ObpCreateHandle.c)
- *     ObpReferenceDeviceMap @ 0x140421DE0 (ObpReferenceDeviceMap.c)
- *     ObQueryDeviceMapInformation @ 0x140422220 (ObQueryDeviceMapInformation.c)
- *     ObpIncrementHandleCountEx @ 0x14044DC50 (ObpIncrementHandleCountEx.c)
- *     ObCloseHandleTableEntry @ 0x14044E380 (ObCloseHandleTableEntry.c)
- *     ObpLookupObjectName @ 0x14044F450 (ObpLookupObjectName.c)
- *     ObDereferenceDeviceMap @ 0x140460DF0 (ObDereferenceDeviceMap.c)
- *     EtwpEnableGuid @ 0x14048E3D4 (EtwpEnableGuid.c)
- *     PspTerminateAllThreads @ 0x1405096F0 (PspTerminateAllThreads.c)
- *     PspTerminateThreadByPointer @ 0x140509A30 (PspTerminateThreadByPointer.c)
- *     PspExitThread @ 0x14051611C (PspExitThread.c)
- *     PspSetupUserProcessAddressSpace @ 0x14051A604 (PspSetupUserProcessAddressSpace.c)
- *     EtwpWriteAppStateChangeSummary @ 0x14054A9D8 (EtwpWriteAppStateChangeSummary.c)
- *     SepRmLsaConnectRequest @ 0x14056B9C0 (SepRmLsaConnectRequest.c)
- *     ObSetProcessDeviceMap @ 0x140668B14 (ObSetProcessDeviceMap.c)
+ *     ObpDecrementHandleCount @ 0x1404052E0 (ObpDecrementHandleCount.c)
+ *     ObpCreateHandle @ 0x140418AE0 (ObpCreateHandle.c)
+ *     ObpReferenceDeviceMap @ 0x140420CA0 (ObpReferenceDeviceMap.c)
+ *     ObQueryDeviceMapInformation @ 0x1404210E0 (ObQueryDeviceMapInformation.c)
+ *     ObpIncrementHandleCountEx @ 0x14044CB20 (ObpIncrementHandleCountEx.c)
+ *     ObCloseHandleTableEntry @ 0x14044D250 (ObCloseHandleTableEntry.c)
+ *     ObpLookupObjectName @ 0x14044E320 (ObpLookupObjectName.c)
+ *     ObDereferenceDeviceMap @ 0x14045FCC0 (ObDereferenceDeviceMap.c)
+ *     EtwpEnableGuid @ 0x14048EE64 (EtwpEnableGuid.c)
+ *     PspTerminateAllThreads @ 0x1404EC680 (PspTerminateAllThreads.c)
+ *     PspTerminateThreadByPointer @ 0x1404EC9C0 (PspTerminateThreadByPointer.c)
+ *     PspExitThread @ 0x1404F950C (PspExitThread.c)
+ *     PspSetupUserProcessAddressSpace @ 0x1404FD9F4 (PspSetupUserProcessAddressSpace.c)
+ *     EtwpWriteAppStateChangeSummary @ 0x14054AF18 (EtwpWriteAppStateChangeSummary.c)
+ *     SepRmLsaConnectRequest @ 0x14056BF00 (SepRmLsaConnectRequest.c)
+ *     ObSetProcessDeviceMap @ 0x140668BF8 (ObSetProcessDeviceMap.c)
  * Callees:
- *     PspIsServerSilo @ 0x1400B2DF8 (PspIsServerSilo.c)
+ *     PspIsServerSilo @ 0x1400B0D44 (PspIsServerSilo.c)
  */
 
 __int64 __fastcall PsGetProcessServerSilo(__int64 a1)

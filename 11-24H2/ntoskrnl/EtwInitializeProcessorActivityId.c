@@ -1,9 +1,9 @@
 /*
- * XREFs of EtwInitializeProcessorActivityId @ 0x1407A67AC
+ * XREFs of EtwInitializeProcessorActivityId @ 0x1407A68EC
  * Callers:
- *     EtwpInitialize @ 0x140C3D0FC (EtwpInitialize.c)
+ *     EtwpInitialize @ 0x140C3F24C (EtwpInitialize.c)
  * Callees:
- *     EtwpInitializeActivityIdSeed @ 0x1407A80C4 (EtwpInitializeActivityIdSeed.c)
+ *     EtwpInitializeActivityIdSeed @ 0x1407A8204 (EtwpInitializeActivityIdSeed.c)
  */
 
 __int64 __fastcall EtwInitializeProcessorActivityId(__int64 a1)

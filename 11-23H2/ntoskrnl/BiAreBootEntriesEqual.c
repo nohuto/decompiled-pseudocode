@@ -1,10 +1,10 @@
 /*
- * XREFs of BiAreBootEntriesEqual @ 0x140A5DA00
+ * XREFs of BiAreBootEntriesEqual @ 0x140A5DCB0
  * Callers:
- *     BiUpdateBcdObject @ 0x140804304 (BiUpdateBcdObject.c)
- *     BiUpdateEfiEntry @ 0x140A5EEEC (BiUpdateEfiEntry.c)
+ *     BiUpdateBcdObject @ 0x1408045D4 (BiUpdateBcdObject.c)
+ *     BiUpdateEfiEntry @ 0x140A5F19C (BiUpdateEfiEntry.c)
  * Callees:
- *     memcmp @ 0x1403DA350 (memcmp.c)
+ *     memcmp @ 0x1403DA530 (memcmp.c)
  */
 
 bool __fastcall BiAreBootEntriesEqual(_DWORD *a1, _DWORD *a2)

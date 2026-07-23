@@ -1,14 +1,14 @@
 /*
- * XREFs of RtlpHpReallocComputeSizes @ 0x1800B1670
+ * XREFs of RtlpHpReallocComputeSizes @ 0x1800811E0
  * Callers:
- *     RtlpHpReAllocateHeapSlow @ 0x1800B0E90 (RtlpHpReAllocateHeapSlow.c)
- *     RtlpHpReAllocateHeap @ 0x1800B11E4 (RtlpHpReAllocateHeap.c)
+ *     RtlpHpReAllocateHeapSlow @ 0x180080A04 (RtlpHpReAllocateHeapSlow.c)
+ *     RtlpHpReAllocateHeap @ 0x180080D58 (RtlpHpReAllocateHeap.c)
  * Callees:
- *     RtlpHpVsChunkSize @ 0x1800190EC (RtlpHpVsChunkSize.c)
- *     RtlpHpLfhSubsegmentSizeBlock @ 0x1800191C0 (RtlpHpLfhSubsegmentSizeBlock.c)
- *     RtlCSparseBitmapBitmaskRead @ 0x18001A070 (RtlCSparseBitmapBitmaskRead.c)
- *     RtlpHpLargeAllocSize @ 0x1800B1940 (RtlpHpLargeAllocSize.c)
- *     RtlpHpPgGetUserSize @ 0x1800B1C98 (RtlpHpPgGetUserSize.c)
+ *     RtlpHpVsChunkSize @ 0x1800041CC (RtlpHpVsChunkSize.c)
+ *     RtlpHpLfhSubsegmentSizeBlock @ 0x1800042A0 (RtlpHpLfhSubsegmentSizeBlock.c)
+ *     RtlCSparseBitmapBitmaskRead @ 0x180005150 (RtlCSparseBitmapBitmaskRead.c)
+ *     RtlpHpLargeAllocSize @ 0x1800814B0 (RtlpHpLargeAllocSize.c)
+ *     RtlpHpPgGetUserSize @ 0x180081808 (RtlpHpPgGetUserSize.c)
  */
 
 __int64 __fastcall RtlpHpReallocComputeSizes(__int64 a1, unsigned __int64 a2, __int64 a3, int a4, __int64 *a5)
@@ -53,7 +53,7 @@ __int64 __fastcall RtlpHpReallocComputeSizes(__int64 a1, unsigned __int64 a2, __
   }
   else
   {
-    v34 = RtlCSparseBitmapBitmaskRead((__int64)&unk_1801C78C0, 2 * ((a2 - qword_1801C78B8) >> 20));
+    v34 = RtlCSparseBitmapBitmaskRead((__int64)&BaseAddress, 2 * ((a2 - qword_1801C6908) >> 20));
     if ( !v34 || (v9 = v34 - 1, v9 == 2) )
     {
       v33 = RtlpHpLargeAllocSize(a1, a2, a5 + 2);

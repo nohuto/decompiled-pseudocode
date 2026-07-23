@@ -52,7 +52,7 @@ __int64 __fastcall CmpFindControlSet(ULONG_PTR BugCheckParameter3, ULONG_PTR Bug
   UNICODE_STRING DestinationString; // [rsp+50h] [rbp-B0h] BYREF
   __int64 v39; // [rsp+60h] [rbp-A0h] BYREF
   __int64 v40; // [rsp+68h] [rbp-98h] BYREF
-  STRING SourceString; // [rsp+70h] [rbp-90h] BYREF
+  ANSI_STRING SourceString; // [rsp+70h] [rbp-90h] BYREF
   char DstBuf[128]; // [rsp+80h] [rbp-80h] BYREF
   char v43; // [rsp+100h] [rbp+0h] BYREF
 

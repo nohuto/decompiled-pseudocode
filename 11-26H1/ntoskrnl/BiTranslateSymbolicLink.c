@@ -1,17 +1,17 @@
 /*
- * XREFs of BiTranslateSymbolicLink @ 0x140B220E4
+ * XREFs of BiTranslateSymbolicLink @ 0x140B244E4
  * Callers:
- *     BiGetNtPartitionPath @ 0x1408923BC (BiGetNtPartitionPath.c)
- *     BiTranslateSymbolicLinkFile @ 0x140892BAC (BiTranslateSymbolicLinkFile.c)
- *     BiResolveLocate @ 0x140892F3C (BiResolveLocate.c)
- *     BiResolveLocatePartitionCallback @ 0x140893368 (BiResolveLocatePartitionCallback.c)
+ *     BiGetNtPartitionPath @ 0x1408987B8 (BiGetNtPartitionPath.c)
+ *     BiTranslateSymbolicLinkFile @ 0x140898FAC (BiTranslateSymbolicLinkFile.c)
+ *     BiResolveLocate @ 0x14089933C (BiResolveLocate.c)
+ *     BiResolveLocatePartitionCallback @ 0x140899768 (BiResolveLocatePartitionCallback.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     ZwOpenSymbolicLinkObject @ 0x140725B10 (ZwOpenSymbolicLinkObject.c)
- *     ZwQuerySymbolicLinkObject @ 0x140726170 (ZwQuerySymbolicLinkObject.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     ZwOpenSymbolicLinkObject @ 0x14072A6E0 (ZwOpenSymbolicLinkObject.c)
+ *     ZwQuerySymbolicLinkObject @ 0x14072AD40 (ZwQuerySymbolicLinkObject.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 NTSTATUS __fastcall BiTranslateSymbolicLink(PCWSTR SourceString, wchar_t **a2)

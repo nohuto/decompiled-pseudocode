@@ -1,9 +1,9 @@
 /*
- * XREFs of MiInitializePartitionThreads @ 0x140869C60
+ * XREFs of MiInitializePartitionThreads @ 0x140870040
  * Callers:
- *     MmCreatePartition @ 0x140869D7C (MmCreatePartition.c)
+ *     MmCreatePartition @ 0x14087015C (MmCreatePartition.c)
  * Callees:
- *     PsCreateSystemThreadEx @ 0x140A03170 (PsCreateSystemThreadEx.c)
+ *     PsCreateSystemThreadEx @ 0x140A78DE0 (PsCreateSystemThreadEx.c)
  */
 
 __int64 __fastcall MiInitializePartitionThreads(__int64 a1)

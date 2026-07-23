@@ -15,7 +15,7 @@
  *     RtlpHpSegSegmentFree @ 0x1402990F4 (RtlpHpSegSegmentFree.c)
  */
 
-void __fastcall RtlpHpSegPageRangeShrink(__int64 a1, unsigned __int64 a2, int a3, char a4)
+void __fastcall RtlpHpSegPageRangeShrink(__int64 a1, __int64 a2, int a3, char a4)
 {
   int v4; // ebp
   _BYTE *v8; // rcx
@@ -24,7 +24,7 @@ void __fastcall RtlpHpSegPageRangeShrink(__int64 a1, unsigned __int64 a2, int a3
   _QWORD *v11; // r9
   unsigned int v12; // edx
   int v13; // edx
-  unsigned __int64 v14; // rax
+  __int64 v14; // rax
   _QWORD *v15; // rax
   __int64 v16; // rdx
   __int64 v17; // r8

@@ -1,11 +1,11 @@
 /*
- * XREFs of MiGetSlabStandbyListWorker @ 0x140656D60
+ * XREFs of MiGetSlabStandbyListWorker @ 0x1406572B0
  * Callers:
  *     <none>
  * Callees:
- *     ExAcquireSpinLockSharedAtDpcLevel @ 0x14025AD10 (ExAcquireSpinLockSharedAtDpcLevel.c)
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402A7C00 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     MI_SET_SLAB_STANDBY_PAGE_SLAB_ENTRY @ 0x140656708 (MI_SET_SLAB_STANDBY_PAGE_SLAB_ENTRY.c)
+ *     ExAcquireSpinLockSharedAtDpcLevel @ 0x14025AFA0 (ExAcquireSpinLockSharedAtDpcLevel.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402A7E90 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     MI_SET_SLAB_STANDBY_PAGE_SLAB_ENTRY @ 0x140656C58 (MI_SET_SLAB_STANDBY_PAGE_SLAB_ENTRY.c)
  */
 
 __int64 __fastcall MiGetSlabStandbyListWorker(__int64 a1, __int64 a2, __int64 *a3)

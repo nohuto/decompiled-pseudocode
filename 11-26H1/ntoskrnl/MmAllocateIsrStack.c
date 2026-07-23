@@ -1,16 +1,16 @@
 /*
- * XREFs of MmAllocateIsrStack @ 0x140875DEC
+ * XREFs of MmAllocateIsrStack @ 0x14087C1D0
  * Callers:
- *     KiAllocateProcessorStacks @ 0x1405EA004 (KiAllocateProcessorStacks.c)
- *     KiCompleteBootProcessorContextInitialization @ 0x1405EA85C (KiCompleteBootProcessorContextInitialization.c)
+ *     KiAllocateProcessorStacks @ 0x1405EC974 (KiAllocateProcessorStacks.c)
+ *     KiCompleteBootProcessorContextInitialization @ 0x1405ED1CC (KiCompleteBootProcessorContextInitialization.c)
  * Callees:
- *     MI_IS_PHYSICAL_ADDRESS @ 0x14024C8D0 (MI_IS_PHYSICAL_ADDRESS.c)
- *     MmFreeIndependentPages @ 0x140308D40 (MmFreeIndependentPages.c)
- *     MiGetPteAddress @ 0x1404468C0 (MiGetPteAddress.c)
- *     MiSetPageProtection @ 0x1404EB458 (MiSetPageProtection.c)
- *     KasanTrackAddressNoInline @ 0x140532270 (KasanTrackAddressNoInline.c)
- *     MiMarkBootGuardPage @ 0x1406FF204 (MiMarkBootGuardPage.c)
- *     MmAllocateIndependentPagesEx @ 0x140B3D7BC (MmAllocateIndependentPagesEx.c)
+ *     MI_IS_PHYSICAL_ADDRESS @ 0x14024E230 (MI_IS_PHYSICAL_ADDRESS.c)
+ *     MmFreeIndependentPages @ 0x1402EADC0 (MmFreeIndependentPages.c)
+ *     MiGetPteAddress @ 0x14043F3C0 (MiGetPteAddress.c)
+ *     MiSetPageProtection @ 0x1404E4A38 (MiSetPageProtection.c)
+ *     KasanTrackAddressNoInline @ 0x140534710 (KasanTrackAddressNoInline.c)
+ *     MiMarkBootGuardPage @ 0x140703ED4 (MiMarkBootGuardPage.c)
+ *     MmAllocateIndependentPagesEx @ 0x140B3F88C (MmAllocateIndependentPagesEx.c)
  */
 
 char __fastcall MmAllocateIsrStack(_QWORD *a1, __int64 a2)
@@ -43,7 +43,7 @@ char __fastcall MmAllocateIsrStack(_QWORD *a1, __int64 a2)
   v2 = 1;
   *a1 = v3 + v7;
 LABEL_6:
-  if ( byte_140FC7BE8 && (int)KasanTrackAddressNoInline(v7 + 4096, (unsigned int)KeIsrStackSize, v4 + 1) < 0 )
+  if ( byte_140FC8BD8 && (int)KasanTrackAddressNoInline(v7 + 4096, (unsigned int)KeIsrStackSize, v4 + 1) < 0 )
   {
     if ( v2 )
       MmFreeIndependentPages(v7, v3);

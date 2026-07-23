@@ -1,12 +1,12 @@
 /*
- * XREFs of MiLogReserveVaFailed @ 0x1408C6C54
+ * XREFs of MiLogReserveVaFailed @ 0x1408C6DB4
  * Callers:
- *     MiReserveUserMemory @ 0x1406EA4D0 (MiReserveUserMemory.c)
+ *     MiReserveUserMemory @ 0x1407018B0 (MiReserveUserMemory.c)
  * Callees:
- *     PsGetProcessSessionId @ 0x140252EB0 (PsGetProcessSessionId.c)
- *     _tlgKeywordOn @ 0x1402605BC (_tlgKeywordOn.c)
- *     _tlgWriteEx_EtwWriteEx @ 0x1402D2F3C (_tlgWriteEx_EtwWriteEx.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     _tlgWriteEx_EtwWriteEx @ 0x1402514DC (_tlgWriteEx_EtwWriteEx.c)
+ *     PsGetProcessSessionId @ 0x140285D20 (PsGetProcessSessionId.c)
+ *     _tlgKeywordOn @ 0x1402864F4 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  */
 
 char __fastcall MiLogReserveVaFailed(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
@@ -54,7 +54,7 @@ char __fastcall MiLogReserveVaFailed(__int64 a1, __int64 a2, __int64 a3, __int64
   _UNKNOWN *retaddr; // [rsp+160h] [rbp+58h] BYREF
 
   v4 = (struct _LIST_ENTRY *)&retaddr;
-  if ( *(_QWORD *)&qword_140C4EEE0 )
+  if ( *(_QWORD *)&qword_140C4EF20 )
   {
     Process = KeGetCurrentThread()->ApcState.Process;
     _m_prefetchw((char *)&Process[2].Header.WaitListHead.Flink + 4);
@@ -75,9 +75,9 @@ char __fastcall MiLogReserveVaFailed(__int64 a1, __int64 a2, __int64 a3, __int64
       v22 = MEMORY[0xFFFFF780000002C4];
       v4 = Process[1].ThreadListHead.Flink;
       v23 = v4;
-      if ( **(_DWORD **)&qword_140C4EEE0 > 5u )
+      if ( **(_DWORD **)&qword_140C4EF20 > 5u )
       {
-        LOBYTE(v4) = tlgKeywordOn(*(__int64 *)&qword_140C4EEE0, 0x400000000000LL);
+        LOBYTE(v4) = tlgKeywordOn(*(__int64 *)&qword_140C4EF20, 0x400000000000LL);
         if ( (_BYTE)v4 )
         {
           v27 = 0;
@@ -111,7 +111,7 @@ char __fastcall MiLogReserveVaFailed(__int64 a1, __int64 a2, __int64 a3, __int64
           v17 = a2;
           v18 = a3;
           v19 = a4;
-          LOBYTE(v4) = tlgWriteEx_EtwWriteEx(v11, (unsigned __int8 *)&word_140025B8A, 0LL, 1u, 0, 0, 0xAu, &v24);
+          LOBYTE(v4) = tlgWriteEx_EtwWriteEx(v11, (unsigned __int8 *)&word_140025C4A, 0LL, 1u, 0, 0, 0xAu, &v24);
         }
       }
     }

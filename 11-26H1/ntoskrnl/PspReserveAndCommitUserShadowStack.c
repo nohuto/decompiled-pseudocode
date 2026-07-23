@@ -1,45 +1,44 @@
 /*
- * XREFs of PspReserveAndCommitUserShadowStack @ 0x1409F1E60
+ * XREFs of PspReserveAndCommitUserShadowStack @ 0x1409EE630
  * Callers:
- *     PspSetupUserShadowStack @ 0x1409F1C84 (PspSetupUserShadowStack.c)
- *     PspSetupUserFiberShadowStack @ 0x140B31688 (PspSetupUserFiberShadowStack.c)
+ *     PspSetupUserShadowStack @ 0x1409EE454 (PspSetupUserShadowStack.c)
+ *     PspSetupUserFiberShadowStack @ 0x140B33888 (PspSetupUserFiberShadowStack.c)
  * Callees:
- *     ZwAllocateVirtualMemory @ 0x1407236F0 (ZwAllocateVirtualMemory.c)
- *     MmFreeVirtualMemory @ 0x14095F3F0 (MmFreeVirtualMemory.c)
- *     MmAllocateUserStack @ 0x1409F2008 (MmAllocateUserStack.c)
+ *     ZwAllocateVirtualMemory @ 0x1407282C0 (ZwAllocateVirtualMemory.c)
+ *     MmAllocateUserStack @ 0x1409EE7D8 (MmAllocateUserStack.c)
+ *     MmFreeVirtualMemory @ 0x140A04CB0 (MmFreeVirtualMemory.c)
  */
 
 __int64 __fastcall PspReserveAndCommitUserShadowStack(
         unsigned __int64 a1,
         ULONG_PTR a2,
         unsigned int a3,
-        unsigned __int64 *a4,
+        _QWORD *a4,
         _QWORD *a5)
 {
   int UserStack; // eax
-  unsigned __int64 v8; // rbx
+  __int64 v8; // rbx
   NTSTATUS v9; // esi
   unsigned __int64 v10; // r14
   PVOID BaseAddress; // [rsp+30h] [rbp-20h] BYREF
   ULONG_PTR RegionSize; // [rsp+38h] [rbp-18h] BYREF
-  unsigned __int64 v14; // [rsp+40h] [rbp-10h] BYREF
-  unsigned __int64 v15; // [rsp+48h] [rbp-8h] BYREF
-  unsigned __int64 v16; // [rsp+80h] [rbp+30h] BYREF
+  _QWORD v14[2]; // [rsp+40h] [rbp-10h] BYREF
+  unsigned __int64 v15; // [rsp+80h] [rbp+30h] BYREF
 
-  v16 = a1;
+  v15 = a1;
   RegionSize = 0LL;
   BaseAddress = 0LL;
   if ( a1 < 0x3000 || a3 > 0x40 || (a1 & 0xFFF) != 0 || a2 < 0x1000 || (a2 & 0xFFF) != 0 || a2 > a1 - 0x2000 )
     return 3221225485LL;
-  v14 = 0LL;
-  UserStack = MmAllocateUserStack((unsigned int)&v14, 0, (unsigned int)&v16, a3, 1);
-  v8 = v14;
+  v14[0] = 0LL;
+  UserStack = MmAllocateUserStack((unsigned int)v14, 0, (unsigned int)&v15, a3, 1);
+  v8 = v14[0];
   v9 = UserStack;
   if ( UserStack >= 0 )
   {
-    v10 = v16;
+    v10 = v15;
     RegionSize = a2;
-    BaseAddress = (PVOID)(v16 + v14 - a2 - 4096);
+    BaseAddress = (PVOID)(v15 + v14[0] - a2 - 4096);
     v9 = ZwAllocateVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &BaseAddress, 0LL, &RegionSize, 0x1000u, 2u);
     if ( v9 >= 0 )
     {
@@ -57,9 +56,9 @@ __int64 __fastcall PspReserveAndCommitUserShadowStack(
   }
   if ( v8 )
   {
-    v15 = v8;
-    v14 = 0LL;
-    MmFreeVirtualMemory(0xFFFFFFFFFFFFFFFFuLL, &v15, &v14, 0x8000u, 0, 0x40000000);
+    v14[1] = v8;
+    v14[0] = 0LL;
+    MmFreeVirtualMemory(0xFFFFFFFFFFFFFFFFuLL, 0, 0x40000000);
   }
   return (unsigned int)v9;
 }

@@ -1,22 +1,22 @@
 /*
- * XREFs of MiLinkPoolCommitChain @ 0x1402862A0
+ * XREFs of MiLinkPoolCommitChain @ 0x140286530
  * Callers:
- *     MiCommitPoolMemory @ 0x140285E30 (MiCommitPoolMemory.c)
+ *     MiCommitPoolMemory @ 0x1402860C0 (MiCommitPoolMemory.c)
  * Callees:
  *     MiWriteTopLevelPxe @ 0x140201D04 (MiWriteTopLevelPxe.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1402712F0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiPteInShadowRange @ 0x140271360 (MiPteInShadowRange.c)
- *     MiFlushTbAsNeeded @ 0x140279F50 (MiFlushTbAsNeeded.c)
- *     MiSwizzleInvalidPte @ 0x1402857A0 (MiSwizzleInvalidPte.c)
- *     MiMakeValidPte @ 0x1402CF2B0 (MiMakeValidPte.c)
- *     MiGetContainingPageTable @ 0x1402E1270 (MiGetContainingPageTable.c)
- *     MiLockAndIncrementShareCount @ 0x1402E3DA8 (MiLockAndIncrementShareCount.c)
- *     MiIsPoolPteInUse @ 0x1402E6248 (MiIsPoolPteInUse.c)
- *     MiUpdateLargePageBitMap @ 0x1402E890C (MiUpdateLargePageBitMap.c)
- *     MiInitializeLargeNonPagedPoolLeafFrames @ 0x140352EE8 (MiInitializeLargeNonPagedPoolLeafFrames.c)
- *     MiWritePteShadow @ 0x14035734C (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x1403573AC (MiPteHasShadow.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140271580 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiPteInShadowRange @ 0x1402715F0 (MiPteInShadowRange.c)
+ *     MiFlushTbAsNeeded @ 0x14027A1E0 (MiFlushTbAsNeeded.c)
+ *     MiSwizzleInvalidPte @ 0x140285A30 (MiSwizzleInvalidPte.c)
+ *     MiMakeValidPte @ 0x1402CF540 (MiMakeValidPte.c)
+ *     MiGetContainingPageTable @ 0x1402E1500 (MiGetContainingPageTable.c)
+ *     MiLockAndIncrementShareCount @ 0x1402E4038 (MiLockAndIncrementShareCount.c)
+ *     MiIsPoolPteInUse @ 0x1402E64D8 (MiIsPoolPteInUse.c)
+ *     MiUpdateLargePageBitMap @ 0x1402E8B9C (MiUpdateLargePageBitMap.c)
+ *     MiInitializeLargeNonPagedPoolLeafFrames @ 0x140353088 (MiInitializeLargeNonPagedPoolLeafFrames.c)
+ *     MiWritePteShadow @ 0x1403574EC (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x14035754C (MiPteHasShadow.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
  */
 
 char __fastcall MiLinkPoolCommitChain(__int64 a1, ULONG_PTR a2)

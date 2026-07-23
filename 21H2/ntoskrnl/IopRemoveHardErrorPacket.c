@@ -1,10 +1,10 @@
 /*
- * XREFs of IopRemoveHardErrorPacket @ 0x140501060
+ * XREFs of IopRemoveHardErrorPacket @ 0x140500FE0
  * Callers:
- *     IopHardErrorThread @ 0x140891660 (IopHardErrorThread.c)
+ *     IopHardErrorThread @ 0x1408917C0 (IopHardErrorThread.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KxReleaseSpinLock @ 0x140212140 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140362F80 (KeAcquireSpinLockRaiseToDpc.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
@@ -20,16 +20,16 @@ __int64 IopRemoveHardErrorPacket()
   int v7; // edx
   bool v8; // zf
 
-  v0 = KeAcquireSpinLockRaiseToDpc(&qword_140C45D70);
-  v1 = qword_140C45D60;
+  v0 = KeAcquireSpinLockRaiseToDpc(&qword_140C45B70);
+  v1 = qword_140C45B60;
   v2 = v0;
-  v3 = *(_QWORD *)qword_140C45D60;
-  if ( *(__int64 **)(qword_140C45D60 + 8) != &qword_140C45D60 || *(_QWORD *)(v3 + 8) != qword_140C45D60 )
+  v3 = *(_QWORD *)qword_140C45B60;
+  if ( *(__int64 **)(qword_140C45B60 + 8) != &qword_140C45B60 || *(_QWORD *)(v3 + 8) != qword_140C45B60 )
     __fastfail(3u);
-  qword_140C45D60 = *(_QWORD *)qword_140C45D60;
-  *(_QWORD *)(v3 + 8) = &qword_140C45D60;
+  qword_140C45B60 = *(_QWORD *)qword_140C45B60;
+  *(_QWORD *)(v3 + 8) = &qword_140C45B60;
   IopCurrentHardError = v1;
-  KxReleaseSpinLock(&qword_140C45D70);
+  KxReleaseSpinLock(&qword_140C45B70);
   if ( KiIrqlFlags )
   {
     if ( (KiIrqlFlags & 1) != 0 )

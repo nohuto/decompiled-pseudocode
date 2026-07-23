@@ -91,7 +91,7 @@ __int64 __fastcall PiDevCfgConfigureDevice(__int64 a1, __int64 a2, __int64 a3, i
   int v54; // ecx
   __int64 v55; // rax
   __int64 v56; // rax
-  __int64 v57; // [rsp+20h] [rbp-E0h]
+  PGUID Guid; // [rsp+20h] [rbp-E0h]
   int v58; // [rsp+28h] [rbp-D8h]
   int v59; // [rsp+28h] [rbp-D8h]
   int v60; // [rsp+28h] [rbp-D8h]
@@ -596,7 +596,12 @@ LABEL_44:
       v52 = a3 + 224;
       if ( !a3 )
         v52 = 0;
-      PiDevCfgResetDeviceDriverSettings(v21, a2, v52, (_DWORD)Handle, (unsigned __int64)&Source2 & -(__int64)(v72 != 0));
+      PiDevCfgResetDeviceDriverSettings(
+        v21,
+        a2,
+        v52,
+        (int)Handle,
+        (PGUID)((unsigned __int64)&Source2 & -(__int64)(v72 != 0)));
       PnpCtxRegDeleteTree(*(_QWORD *)&PiPnpRtlCtx, v10, L"Devices");
     }
     if ( !a3 || PnpIsNullGuid((void *)(a3 + 224)) )
@@ -811,10 +816,10 @@ LABEL_73:
                   goto LABEL_132;
                 v28 = *(unsigned __int16 *)(a3 + 124);
                 v59 = *(unsigned __int16 *)(a3 + 120);
-                LODWORD(v57) = *(unsigned __int16 *)(a3 + 122);
+                LODWORD(Guid) = *(unsigned __int16 *)(a3 + 122);
                 v29 = (unsigned __int16)HIWORD(*(_DWORD *)(a3 + 124));
                 v99.Length = (unsigned __int16)v23;
-                DriverConfiguration = RtlUnicodeStringPrintf(&v99, L"%u.%u.%u.%u", v29, v28, v57);
+                DriverConfiguration = RtlUnicodeStringPrintf(&v99, L"%u.%u.%u.%u", v29, v28, Guid);
                 if ( DriverConfiguration < 0 )
                   goto LABEL_132;
                 DriverConfiguration = PiDevCfgSetObjectProperty(

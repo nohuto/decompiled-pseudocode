@@ -1,10 +1,10 @@
 /*
- * XREFs of CmpInitializeDelayedCloseTable @ 0x1407D32F4
+ * XREFs of CmpInitializeDelayedCloseTable @ 0x1407D3464
  * Callers:
- *     CmInitSystem1 @ 0x140A59F78 (CmInitSystem1.c)
+ *     CmInitSystem1 @ 0x140A5AF78 (CmInitSystem1.c)
  * Callees:
- *     KiQueryUnbiasedInterruptTime @ 0x1402546F4 (KiQueryUnbiasedInterruptTime.c)
- *     KeInitializeGuardedMutex @ 0x1402EE570 (KeInitializeGuardedMutex.c)
+ *     KiQueryUnbiasedInterruptTime @ 0x140275C64 (KiQueryUnbiasedInterruptTime.c)
+ *     KeInitializeGuardedMutex @ 0x1402F92C0 (KeInitializeGuardedMutex.c)
  */
 
 __int64 *CmpInitializeDelayedCloseTable()
@@ -35,19 +35,19 @@ __int64 *CmpInitializeDelayedCloseTable()
   CmpDelayCloseWorkItem.WorkerRoutine = (void (__fastcall *)(void *))CmpDelayCloseWorker;
   KeInitializeGuardedMutex((PKGUARDED_MUTEX)&CmpDelayedCloseTableLock);
   result = &CmpDelayedLRUListHead;
-  qword_140C47F68 = (__int64)&CmpDelayedLRUListHead;
+  qword_140C47FC8 = (__int64)&CmpDelayedLRUListHead;
   CmpDelayedLRUListHead = (__int64)&CmpDelayedLRUListHead;
   _mm_lfence();
-  if ( !qword_140C4C720 )
+  if ( !qword_140C4C760 )
   {
     v1 = __rdtsc();
     v2 = (41929663 * (unsigned int)((((unsigned __int64)HIDWORD(v1) << 32) | (unsigned int)v1) >> 4)) ^ 0x5A4LL;
     if ( !v2 )
       v2 = 1LL;
-    qword_140C4C720 = v2;
+    qword_140C4C760 = v2;
     v3 = &KeServiceDescriptorTable;
     v4 = (41929663 * (unsigned int)(__rdtsc() >> 4)) ^ 0x5A4LL;
-    qword_140C4C728 = v4;
+    qword_140C4C768 = v4;
     _mm_prefetch((const char *)&KeServiceDescriptorTable, 0);
     v5 = 64;
     v6 = v2;
@@ -70,7 +70,7 @@ __int64 *CmpInitializeDelayedCloseTable()
     v9 = (const char *)KeServiceDescriptorTable;
     v10 = 4 * xmmword_140E018D0;
     v11 = KeServiceDescriptorTable + (unsigned int)(4 * xmmword_140E018D0);
-    qword_140C4C738 = v6;
+    qword_140C4C778 = v6;
     if ( (unsigned __int64)KeServiceDescriptorTable < v11 )
     {
       do
@@ -98,7 +98,7 @@ __int64 *CmpInitializeDelayedCloseTable()
       v8 = (_QWORD *)((char *)v8 + 1);
       v12 = __ROR8__(v12 - v18, v4);
     }
-    qword_140C4C740 = v12;
+    qword_140C4C780 = v12;
     v14 = &KeServiceDescriptorTableShadow;
     _mm_prefetch((const char *)&KeServiceDescriptorTableShadow, 0);
     v15 = 4LL;
@@ -117,9 +117,9 @@ __int64 *CmpInitializeDelayedCloseTable()
       v14 = (__int128 *)((char *)v14 + 1);
       v2 = __ROR8__(v2 - v19, v4);
     }
-    qword_140C4C748 = v2;
+    qword_140C4C788 = v2;
     result = (__int64 *)(KiQueryUnbiasedInterruptTime() + 41929663 * (__rdtsc() >> 4) % 0x12A05F2000LL + 288000000000LL);
-    qword_140C4C730 = (__int64)result;
+    qword_140C4C770 = (__int64)result;
   }
   return result;
 }

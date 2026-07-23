@@ -1,9 +1,9 @@
 /*
- * XREFs of WdipSemEnableAllProviders @ 0x140831BAC
+ * XREFs of WdipSemEnableAllProviders @ 0x140831EAC
  * Callers:
- *     WdipSemLoadScenarioTable @ 0x140830D04 (WdipSemLoadScenarioTable.c)
+ *     WdipSemLoadScenarioTable @ 0x140831004 (WdipSemLoadScenarioTable.c)
  * Callees:
- *     WdipSemEnableDisableTrace @ 0x140831CA0 (WdipSemEnableDisableTrace.c)
+ *     WdipSemEnableDisableTrace @ 0x140831FA0 (WdipSemEnableDisableTrace.c)
  */
 
 void WdipSemEnableAllProviders()
@@ -17,7 +17,7 @@ void WdipSemEnableAllProviders()
   v0 = 0LL;
   v1 = _InterlockedExchange(&WdipDiagLoggerId, WdipDiagLoggerId);
   for ( i = _InterlockedExchange(&WdipContextLoggerId, WdipContextLoggerId);
-        (unsigned int)v0 < dword_140C34AA0;
+        (unsigned int)v0 < dword_140C34E60;
         v0 = (unsigned int)(v0 + 1) )
   {
     v3 = WdipSemProviderTable[v0];

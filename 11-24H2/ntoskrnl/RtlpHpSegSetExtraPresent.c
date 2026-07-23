@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlpHpSegSetExtraPresent @ 0x140606158
+ * XREFs of RtlpHpSegSetExtraPresent @ 0x140603798
  * Callers:
- *     RtlpHpExtrasSetPresent @ 0x140604A24 (RtlpHpExtrasSetPresent.c)
+ *     RtlpHpExtrasSetPresent @ 0x140602064 (RtlpHpExtrasSetPresent.c)
  * Callees:
  *     <none>
  */

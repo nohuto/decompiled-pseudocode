@@ -1,14 +1,14 @@
 /*
- * XREFs of RtlpOpenImageFileOptionsKeyEx @ 0x1407CE0B0
+ * XREFs of RtlpOpenImageFileOptionsKeyEx @ 0x1407CE380
  * Callers:
- *     SepIsImageInMinTcbList @ 0x1406B9D88 (SepIsImageInMinTcbList.c)
- *     RtlOpenImageFileOptionsKey @ 0x1407E2ED0 (RtlOpenImageFileOptionsKey.c)
- *     RtlpOpenImageFileOptionsKey @ 0x1409B8DD0 (RtlpOpenImageFileOptionsKey.c)
+ *     SepIsImageInMinTcbList @ 0x1406B9DB8 (SepIsImageInMinTcbList.c)
+ *     RtlOpenImageFileOptionsKey @ 0x1407E31A0 (RtlOpenImageFileOptionsKey.c)
+ *     RtlpOpenImageFileOptionsKey @ 0x1409B8FD0 (RtlpOpenImageFileOptionsKey.c)
  * Callees:
- *     ZwClose @ 0x14041AF40 (ZwClose.c)
- *     ZwOpenKey @ 0x14041AFA0 (ZwOpenKey.c)
- *     RtlpOpenBaseImageFileOptionsKey @ 0x1407CE1DC (RtlpOpenBaseImageFileOptionsKey.c)
- *     RtlpProcessIFEOKeyFilter @ 0x1407CE250 (RtlpProcessIFEOKeyFilter.c)
+ *     ZwClose @ 0x14041B2D0 (ZwClose.c)
+ *     ZwOpenKey @ 0x14041B330 (ZwOpenKey.c)
+ *     RtlpOpenBaseImageFileOptionsKey @ 0x1407CE4AC (RtlpOpenBaseImageFileOptionsKey.c)
+ *     RtlpProcessIFEOKeyFilter @ 0x1407CE520 (RtlpProcessIFEOKeyFilter.c)
  */
 
 __int64 __fastcall RtlpOpenImageFileOptionsKeyEx(unsigned __int16 *a1, __int64 a2, __int64 a3, HANDLE *a4)

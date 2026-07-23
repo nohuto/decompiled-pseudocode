@@ -1,14 +1,14 @@
 /*
- * XREFs of SiGetBiosSystemPartition @ 0x140816DA0
+ * XREFs of SiGetBiosSystemPartition @ 0x1408174E0
  * Callers:
- *     SiGetFirmwareSystemPartition @ 0x140A2D870 (SiGetFirmwareSystemPartition.c)
+ *     SiGetFirmwareSystemPartition @ 0x140A222B0 (SiGetFirmwareSystemPartition.c)
  * Callees:
- *     wcsstr @ 0x1405002B0 (wcsstr.c)
- *     swprintf_s @ 0x140502E50 (swprintf_s.c)
- *     SiGetDriveLayoutInformation @ 0x140816014 (SiGetDriveLayoutInformation.c)
- *     SiGetBiosSystemDisk @ 0x140816C70 (SiGetBiosSystemDisk.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     wcsstr @ 0x1404FDB70 (wcsstr.c)
+ *     swprintf_s @ 0x140500710 (swprintf_s.c)
+ *     SiGetDriveLayoutInformation @ 0x140816754 (SiGetDriveLayoutInformation.c)
+ *     SiGetBiosSystemDisk @ 0x1408173B0 (SiGetBiosSystemDisk.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall SiGetBiosSystemPartition(wchar_t **a1)
@@ -21,7 +21,7 @@ __int64 __fastcall SiGetBiosSystemPartition(wchar_t **a1)
   _DWORD *v7; // rsi
   wchar_t *v8; // rax
   __int64 v9; // rax
-  unsigned __int64 v10; // rbx
+  ULONG_PTR v10; // rbx
   _DWORD *v11; // rax
   unsigned int i; // ecx
   wchar_t *Str; // [rsp+68h] [rbp+10h] BYREF
@@ -50,7 +50,7 @@ __int64 __fastcall SiGetBiosSystemPartition(wchar_t **a1)
         ++v9;
       while ( v4[v9] );
       v10 = (unsigned int)(2 * v9 + 42);
-      Pool2 = (wchar_t *)ExAllocatePool2(0x100uLL);
+      Pool2 = (wchar_t *)ExAllocatePool2(0x100uLL, v10, 0x4B505953u);
       if ( !Pool2 )
       {
         v5 = -1073741670;

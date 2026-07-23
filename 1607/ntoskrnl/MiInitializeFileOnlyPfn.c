@@ -1,15 +1,15 @@
 /*
- * XREFs of MiInitializeFileOnlyPfn @ 0x1401ED8E4
+ * XREFs of MiInitializeFileOnlyPfn @ 0x1401ED710
  * Callers:
- *     MiBuildFileOnlyProtos @ 0x1401ED1AC (MiBuildFileOnlyProtos.c)
+ *     MiBuildFileOnlyProtos @ 0x1401ECFD8 (MiBuildFileOnlyProtos.c)
  * Callees:
- *     MiReferenceControlAreaPfn @ 0x1400236E4 (MiReferenceControlAreaPfn.c)
- *     MiLockPageAtDpcInline @ 0x14002EB30 (MiLockPageAtDpcInline.c)
- *     MiPteInShadowRange @ 0x1401EF3B8 (MiPteInShadowRange.c)
- *     MiWritePteShadow @ 0x1401EF658 (MiWritePteShadow.c)
- *     MiGetContainingPageTable @ 0x1401F25F0 (MiGetContainingPageTable.c)
- *     MiMakeSubsectionPte @ 0x1401F277C (MiMakeSubsectionPte.c)
- *     MiMakeTransitionPte @ 0x1401F279C (MiMakeTransitionPte.c)
+ *     MiReferenceControlAreaPfn @ 0x140023264 (MiReferenceControlAreaPfn.c)
+ *     MiLockPageAtDpcInline @ 0x14002E6B0 (MiLockPageAtDpcInline.c)
+ *     MiPteInShadowRange @ 0x1401EF1E4 (MiPteInShadowRange.c)
+ *     MiWritePteShadow @ 0x1401EF484 (MiWritePteShadow.c)
+ *     MiGetContainingPageTable @ 0x1401F241C (MiGetContainingPageTable.c)
+ *     MiMakeSubsectionPte @ 0x1401F25A8 (MiMakeSubsectionPte.c)
+ *     MiMakeTransitionPte @ 0x1401F25C8 (MiMakeTransitionPte.c)
  */
 
 __int64 __fastcall MiInitializeFileOnlyPfn(__int64 a1, __int64 *a2, __int64 a3)

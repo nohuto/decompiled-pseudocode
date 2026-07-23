@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlpVerCompare @ 0x140384494
+ * XREFs of RtlpVerCompare @ 0x140384674
  * Callers:
- *     RtlVerifyVersionInfo @ 0x1403841D0 (RtlVerifyVersionInfo.c)
+ *     RtlVerifyVersionInfo @ 0x1403843B0 (RtlVerifyVersionInfo.c)
  * Callees:
- *     RtlStringCbPrintfA @ 0x140384568 (RtlStringCbPrintfA.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     RtlStringCbPrintfA @ 0x140384748 (RtlStringCbPrintfA.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  */
 
 bool __fastcall RtlpVerCompare(int a1, int a2, int a3, bool *a4, char a5)

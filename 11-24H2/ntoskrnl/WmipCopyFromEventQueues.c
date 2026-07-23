@@ -1,11 +1,11 @@
 /*
- * XREFs of WmipCopyFromEventQueues @ 0x140A54ED0
+ * XREFs of WmipCopyFromEventQueues @ 0x140A4CE20
  * Callers:
- *     WmipReceiveNotifications @ 0x14047A844 (WmipReceiveNotifications.c)
+ *     WmipReceiveNotifications @ 0x140475EC4 (WmipReceiveNotifications.c)
  * Callees:
- *     KeResetEvent @ 0x14028EEC0 (KeResetEvent.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     KeResetEvent @ 0x14029EAC0 (KeResetEvent.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 LONG __fastcall WmipCopyFromEventQueues(

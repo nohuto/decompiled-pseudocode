@@ -1,11 +1,11 @@
 /*
- * XREFs of PopFanReportBootStartDevices @ 0x1409D85B0
+ * XREFs of PopFanReportBootStartDevices @ 0x1409D95B0
  * Callers:
- *     PoInitSystem @ 0x1409B2C10 (PoInitSystem.c)
+ *     PoInitSystem @ 0x1409B3C10 (PoInitSystem.c)
  * Callees:
  *     PopReleaseRwLock @ 0x140005EC4 (PopReleaseRwLock.c)
  *     ExAcquirePushLockSharedEx @ 0x14004EE20 (ExAcquirePushLockSharedEx.c)
- *     PopSqmFanEnumeration @ 0x14075AAEC (PopSqmFanEnumeration.c)
+ *     PopSqmFanEnumeration @ 0x14075BCDC (PopSqmFanEnumeration.c)
  */
 
 void PopFanReportBootStartDevices()

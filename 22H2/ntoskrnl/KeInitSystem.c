@@ -62,21 +62,22 @@ char __fastcall KeInitSystem(int a1)
   unsigned int v21; // eax
   _QWORD *PoolWithTag; // rax
   __int64 v23; // r8
-  __int64 v24; // rcx
+  __int64 v24; // r9
+  __int64 v25; // rcx
   unsigned __int8 CurrentIrql; // di
   _DWORD *SchedulerAssist; // r9
-  unsigned __int8 v27; // al
-  struct _KPRCB *v28; // r9
-  _DWORD *v29; // r8
-  int v30; // eax
-  bool v31; // zf
-  _DWORD v32[2]; // [rsp+30h] [rbp-30h] BYREF
-  __int64 v33; // [rsp+38h] [rbp-28h]
-  __int64 (__fastcall **v34)(); // [rsp+40h] [rbp-20h]
-  __int64 v35; // [rsp+48h] [rbp-18h]
-  __int64 v36; // [rsp+50h] [rbp-10h]
-  int v37; // [rsp+90h] [rbp+30h] BYREF
-  __int64 v38; // [rsp+98h] [rbp+38h] BYREF
+  unsigned __int8 v28; // al
+  struct _KPRCB *v29; // r9
+  _DWORD *v30; // r8
+  int v31; // eax
+  bool v32; // zf
+  _DWORD v33[2]; // [rsp+30h] [rbp-30h] BYREF
+  __int64 v34; // [rsp+38h] [rbp-28h]
+  __int64 (__fastcall **v35)(); // [rsp+40h] [rbp-20h]
+  __int64 v36; // [rsp+48h] [rbp-18h]
+  __int64 v37; // [rsp+50h] [rbp-10h]
+  int v38; // [rsp+90h] [rbp+30h] BYREF
+  __int64 v39; // [rsp+98h] [rbp+38h] BYREF
 
   if ( !a1 )
   {
@@ -93,7 +94,7 @@ char __fastcall KeInitSystem(int a1)
     v18 = KeInitializeTimerTable(v17);
     if ( v18 < 0 )
       KeBugCheckEx(0x31u, v18, 1uLL, 0LL, 0LL);
-    if ( KiHrIncrement < (unsigned int)KeMinimumIncrement || KiHrIncrement > (unsigned int)KeMaximumIncrement )
+    if ( KiHrIncrement < (unsigned int)KeMinimumIncrement || KiHrIncrement > KeMaximumIncrement )
       KiHrIncrement = KeMinimumIncrement;
     return 1;
   }
@@ -117,15 +118,15 @@ char __fastcall KeInitSystem(int a1)
       KiRegisterForDisableFgBoostDecayRegistryNotification();
       if ( !HviIsAnyHypervisorPresent() )
         KeEnableWatchdogTimeout = 1;
-      v38 = 0LL;
-      v37 = 0;
+      v39 = 0LL;
+      v38 = 0;
       if ( (HvlpFlags & 0x100000) != 0 )
       {
         PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, 0x4A0uLL, 0x4850654Bu);
         KiEpfHashTable = (__int64)PoolWithTag;
         if ( PoolWithTag )
         {
-          v24 = 37LL;
+          v25 = 37LL;
           do
           {
             PoolWithTag[1] = PoolWithTag;
@@ -133,18 +134,18 @@ char __fastcall KeInitSystem(int a1)
             PoolWithTag[2] = 0LL;
             *((_DWORD *)PoolWithTag + 6) = 0;
             PoolWithTag += 4;
-            --v24;
+            --v25;
           }
-          while ( v24 );
+          while ( v25 );
           LODWORD(KiEpfCompletionDpc) = 275;
           qword_140C2B0F8 = (__int64)KiEpfCompletionDpcRoutine;
           qword_140C2B100 = 0LL;
           qword_140C2B118 = 0LL;
           qword_140C2B0F0 = 0LL;
-          if ( (int)HvlSetupPhysicalFaultNotificationQueue(&v38, &v37, v23) >= 0 )
+          if ( (int)HvlSetupPhysicalFaultNotificationQueue(&v39, &v38, v23, v24) >= 0 )
           {
-            KiEpfCompletionQueueSize = (unsigned int)(v37 - 16) >> 3;
-            KiEpfCompletionQueue = v38;
+            KiEpfCompletionQueueSize = (unsigned int)(v38 - 16) >> 3;
+            KiEpfCompletionQueue = v39;
             CurrentIrql = KeGetCurrentIrql();
             __writecr8(2uLL);
             if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
@@ -157,16 +158,16 @@ char __fastcall KeInitSystem(int a1)
             {
               if ( (KiIrqlFlags & 1) != 0 )
               {
-                v27 = KeGetCurrentIrql();
-                if ( v27 <= 0xFu && CurrentIrql <= 0xFu && v27 >= 2u )
+                v28 = KeGetCurrentIrql();
+                if ( v28 <= 0xFu && CurrentIrql <= 0xFu && v28 >= 2u )
                 {
-                  v28 = KeGetCurrentPrcb();
-                  v29 = v28->SchedulerAssist;
-                  v30 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
-                  v31 = (v30 & v29[5]) == 0;
-                  v29[5] &= v30;
-                  if ( v31 )
-                    KiRemoveSystemWorkPriorityKick((__int64)v28);
+                  v29 = KeGetCurrentPrcb();
+                  v30 = v29->SchedulerAssist;
+                  v31 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
+                  v32 = (v31 & v30[5]) == 0;
+                  v30[5] &= v31;
+                  if ( v32 )
+                    KiRemoveSystemWorkPriorityKick((__int64)v29);
                 }
               }
             }
@@ -182,7 +183,7 @@ char __fastcall KeInitSystem(int a1)
   _InterlockedOr(dword_140D2527C, 0x400000u);
   KiInitDynamicTraceSupport();
   ActiveProcessorCount = KeQueryActiveProcessorCountEx(0xFFFFu);
-  KiClockKeepAliveCycle = (ActiveProcessorCount + (KeMaximumIncrement + 29999999) / (unsigned int)KeMaximumIncrement - 1)
+  KiClockKeepAliveCycle = (ActiveProcessorCount + (KeMaximumIncrement + 29999999) / KeMaximumIncrement - 1)
                         / ActiveProcessorCount;
   if ( HviIsAnyHypervisorPresent() )
   {
@@ -312,19 +313,19 @@ LABEL_40:
       KiIntSteerInit();
       if ( (KeFeatureBits & 0x800000) != 0 && MEMORY[0xFFFFF780000005F0] || (_DWORD)KiIptMsrMask )
       {
-        v32[1] = 6;
-        v34 = off_140009108;
-        v33 = 512LL;
-        v32[0] = 65548;
-        v35 = 0LL;
+        v33[1] = 6;
+        v35 = off_140009108;
+        v34 = 512LL;
+        v33[0] = 65548;
         v36 = 0LL;
-        if ( (int)ExRegisterHost(&KiSupervisorStateExtensionHost, v10, (unsigned __int16 *)v32) < 0 )
+        v37 = 0LL;
+        if ( (int)ExRegisterHost(&KiSupervisorStateExtensionHost, v10, (unsigned __int16 *)v33) < 0 )
           KiSupervisorStateExtensionHost = 0LL;
       }
       if ( KiInitMachineDependent() )
       {
         v11 = *(unsigned int *)(KiProcessorBlock[0] + 68);
-        v12 = v11 * (unsigned __int64)(unsigned int)KeMaximumIncrement / 0xA;
+        v12 = v11 * (unsigned __int64)KeMaximumIncrement / 0xA;
         KiShortExecutionCycles = v12 / 0xF0;
         KiCyclesPerClockQuantum = v12 / 3;
         KiDirectQuantumTarget = v12 / 3;

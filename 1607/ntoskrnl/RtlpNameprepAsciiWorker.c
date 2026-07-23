@@ -1,17 +1,17 @@
 /*
- * XREFs of RtlpNameprepAsciiWorker @ 0x14068960C
+ * XREFs of RtlpNameprepAsciiWorker @ 0x1406896F0
  * Callers:
- *     RtlIdnToAscii @ 0x1406892B4 (RtlIdnToAscii.c)
- *     RtlIdnToNameprepUnicode @ 0x1406892D4 (RtlIdnToNameprepUnicode.c)
+ *     RtlIdnToAscii @ 0x140689398 (RtlIdnToAscii.c)
+ *     RtlIdnToNameprepUnicode @ 0x1406893B8 (RtlIdnToNameprepUnicode.c)
  * Callees:
- *     RtlStringCchLengthW @ 0x1400C4760 (RtlStringCchLengthW.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     memmove @ 0x140171280 (memmove.c)
- *     __report_rangecheckfailure @ 0x1401B1250 (__report_rangecheckfailure.c)
- *     FindEmailAt @ 0x140214F1C (FindEmailAt.c)
- *     RtlpValidateAsciiStd3AndLength @ 0x1406899E0 (RtlpValidateAsciiStd3AndLength.c)
- *     punycode_encode @ 0x14068A21C (punycode_encode.c)
- *     RtlNormalizeString @ 0x14068BF2C (RtlNormalizeString.c)
+ *     RtlStringCchLengthW @ 0x1400C2600 (RtlStringCchLengthW.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     memmove @ 0x140171780 (memmove.c)
+ *     __report_rangecheckfailure @ 0x1401B1134 (__report_rangecheckfailure.c)
+ *     FindEmailAt @ 0x140214D48 (FindEmailAt.c)
+ *     RtlpValidateAsciiStd3AndLength @ 0x140689AC4 (RtlpValidateAsciiStd3AndLength.c)
+ *     punycode_encode @ 0x14068A300 (punycode_encode.c)
+ *     RtlNormalizeString @ 0x14068C010 (RtlNormalizeString.c)
  */
 
 __int64 __fastcall RtlpNameprepAsciiWorker(int a1, const WCHAR *a2, __int64 a3, void *a4, int *a5, char a6)

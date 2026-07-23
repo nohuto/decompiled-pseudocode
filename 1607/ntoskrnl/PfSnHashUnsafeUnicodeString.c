@@ -1,9 +1,9 @@
 /*
- * XREFs of PfSnHashUnsafeUnicodeString @ 0x1403E49F8
+ * XREFs of PfSnHashUnsafeUnicodeString @ 0x1403E6024
  * Callers:
- *     PfSnScanCommandLine @ 0x1403E7638 (PfSnScanCommandLine.c)
+ *     PfSnScanCommandLine @ 0x1403E8C68 (PfSnScanCommandLine.c)
  * Callees:
- *     ExRaiseDatatypeMisalignment @ 0x1406B6058 (ExRaiseDatatypeMisalignment.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1406B6190 (ExRaiseDatatypeMisalignment.c)
  */
 
 __int64 __fastcall PfSnHashUnsafeUnicodeString(__int64 a1, __int64 *a2)

@@ -1,13 +1,13 @@
 /*
- * XREFs of IopAllocateRelationList @ 0x14086850C
+ * XREFs of IopAllocateRelationList @ 0x14086874C
  * Callers:
- *     PnpBuildRemovalRelationList @ 0x140867BB4 (PnpBuildRemovalRelationList.c)
- *     PnpInvalidateRelationsInList @ 0x1408814C8 (PnpInvalidateRelationsInList.c)
- *     PnpQueuePendingSurpriseRemoval @ 0x140883070 (PnpQueuePendingSurpriseRemoval.c)
+ *     PnpBuildRemovalRelationList @ 0x140867DF4 (PnpBuildRemovalRelationList.c)
+ *     PnpInvalidateRelationsInList @ 0x140881708 (PnpInvalidateRelationsInList.c)
+ *     PnpQueuePendingSurpriseRemoval @ 0x1408832B0 (PnpQueuePendingSurpriseRemoval.c)
  * Callees:
- *     IopFreeRelationList @ 0x1408684BC (IopFreeRelationList.c)
- *     PiAllocateDeviceObjectList @ 0x140868568 (PiAllocateDeviceObjectList.c)
- *     PnpAllocateCriticalMemory @ 0x140868654 (PnpAllocateCriticalMemory.c)
+ *     IopFreeRelationList @ 0x1408686FC (IopFreeRelationList.c)
+ *     PiAllocateDeviceObjectList @ 0x1408687A8 (PiAllocateDeviceObjectList.c)
+ *     PnpAllocateCriticalMemory @ 0x140868894 (PnpAllocateCriticalMemory.c)
  */
 
 __int64 __fastcall IopAllocateRelationList(__int64 a1)

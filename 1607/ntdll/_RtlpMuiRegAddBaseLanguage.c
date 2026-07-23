@@ -3,10 +3,10 @@
  * Callers:
  *     _RtlpMuiRegPopulateBaseLanguages @ 0x1800F64AC (_RtlpMuiRegPopulateBaseLanguages.c)
  * Callees:
- *     RtlpLangNameInMultiSzString @ 0x180011690 (RtlpLangNameInMultiSzString.c)
- *     RtlInitUnicodeString @ 0x180044150 (RtlInitUnicodeString.c)
- *     RtlpMuiRegGetLanguageSpec @ 0x180071E88 (RtlpMuiRegGetLanguageSpec.c)
- *     __security_check_cookie @ 0x180096C40 (__security_check_cookie.c)
+ *     RtlpLangNameInMultiSzString @ 0x180011680 (RtlpLangNameInMultiSzString.c)
+ *     RtlInitUnicodeString @ 0x180044140 (RtlInitUnicodeString.c)
+ *     RtlpMuiRegGetLanguageSpec @ 0x180071E78 (RtlpMuiRegGetLanguageSpec.c)
+ *     __security_check_cookie @ 0x180096C30 (__security_check_cookie.c)
  *     RtlpMuiRegGetOrAddLangInfo @ 0x1800F4DF4 (RtlpMuiRegGetOrAddLangInfo.c)
  *     _RtlpMuiRegInitAnyLanguage @ 0x1800F5E08 (_RtlpMuiRegInitAnyLanguage.c)
  */
@@ -43,7 +43,7 @@ __int64 __fastcall RtlpMuiRegAddBaseLanguage(__int64 a1, _WORD *a2, unsigned int
   signed int v35; // [rsp+54h] [rbp-3Dh]
   __int64 v36; // [rsp+58h] [rbp-39h]
   _WORD *v37; // [rsp+60h] [rbp-31h]
-  UNICODE_STRING DestinationString; // [rsp+68h] [rbp-29h] BYREF
+  _UNICODE_STRING DestinationString; // [rsp+68h] [rbp-29h] BYREF
   _WORD v39[2]; // [rsp+78h] [rbp-19h] BYREF
   __int16 v40; // [rsp+7Ch] [rbp-15h]
   __int16 v41; // [rsp+7Eh] [rbp-13h]

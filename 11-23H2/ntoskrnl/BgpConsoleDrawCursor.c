@@ -1,9 +1,9 @@
 /*
- * XREFs of BgpConsoleDrawCursor @ 0x140AF1928
+ * XREFs of BgpConsoleDrawCursor @ 0x140AF1938
  * Callers:
- *     BgpConsoleSetCursor @ 0x140AF1CD0 (BgpConsoleSetCursor.c)
+ *     BgpConsoleSetCursor @ 0x140AF1CE0 (BgpConsoleSetCursor.c)
  * Callees:
- *     BgpDisplayCharacterEx @ 0x140671C34 (BgpDisplayCharacterEx.c)
+ *     BgpDisplayCharacterEx @ 0x140672184 (BgpDisplayCharacterEx.c)
  */
 
 __int64 BgpConsoleDrawCursor()
@@ -19,11 +19,11 @@ __int64 BgpConsoleDrawCursor()
   int v9; // [rsp+60h] [rbp+8h] BYREF
   int v10; // [rsp+68h] [rbp+10h] BYREF
 
-  v0 = *(_DWORD *)(qword_140CF7AE8 + 76);
+  v0 = *(_DWORD *)(qword_140CF7AE0 + 76);
   if ( v0 )
   {
-    v6 = *(_DWORD *)(qword_140CF7AE8 + 16);
-    v5 = *(_DWORD *)(qword_140CF7AE8 + 12);
+    v6 = *(_DWORD *)(qword_140CF7AE0 + 16);
+    v5 = *(_DWORD *)(qword_140CF7AE0 + 12);
     if ( v0 >= 0x22 )
     {
       v3 = 9604;
@@ -37,18 +37,18 @@ __int64 BgpConsoleDrawCursor()
   }
   else
   {
-    v1 = 25LL * *(unsigned int *)(qword_140CF7AE8 + 68);
-    v2 = *(unsigned int *)(qword_140CF7AE8 + 72);
-    v3 = *(_WORD *)(qword_140CF7AE8 + 12 * (v2 + v1) + 88);
+    v1 = 25LL * *(unsigned int *)(qword_140CF7AE0 + 68);
+    v2 = *(unsigned int *)(qword_140CF7AE0 + 72);
+    v3 = *(_WORD *)(qword_140CF7AE0 + 12 * (v2 + v1) + 88);
     v4 = 3 * (v2 + v1);
-    v5 = *(_DWORD *)(qword_140CF7AE8 + 4 * v4 + 80);
-    v6 = *(_DWORD *)(qword_140CF7AE8 + 4 * v4 + 84);
+    v5 = *(_DWORD *)(qword_140CF7AE0 + 4 * v4 + 80);
+    v6 = *(_DWORD *)(qword_140CF7AE0 + 4 * v4 + 84);
   }
   return BgpDisplayCharacterEx(
            v3,
-           *(__int64 **)(qword_140CF7AE8 + 40),
-           *(_DWORD *)(qword_140CF7AE8 + 60) + *(_DWORD *)(qword_140CF7AE8 + 68) * *(_DWORD *)(qword_140CF7AE8 + 48),
-           *(_DWORD *)(qword_140CF7AE8 + 64) + *(_DWORD *)(qword_140CF7AE8 + 72) * *(_DWORD *)(qword_140CF7AE8 + 52),
+           *(__int64 **)(qword_140CF7AE0 + 40),
+           *(_DWORD *)(qword_140CF7AE0 + 60) + *(_DWORD *)(qword_140CF7AE0 + 68) * *(_DWORD *)(qword_140CF7AE0 + 48),
+           *(_DWORD *)(qword_140CF7AE0 + 64) + *(_DWORD *)(qword_140CF7AE0 + 72) * *(_DWORD *)(qword_140CF7AE0 + 52),
            v6,
            v5,
            &v10,

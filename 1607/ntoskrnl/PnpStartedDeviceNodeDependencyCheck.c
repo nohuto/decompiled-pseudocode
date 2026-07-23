@@ -1,12 +1,12 @@
 /*
- * XREFs of PnpStartedDeviceNodeDependencyCheck @ 0x1404C4CE4
+ * XREFs of PnpStartedDeviceNodeDependencyCheck @ 0x1404888E8
  * Callers:
- *     PipProcessStartPhase3 @ 0x1403EEA60 (PipProcessStartPhase3.c)
- *     PnpDeleteLockedDeviceNode @ 0x1404C58C8 (PnpDeleteLockedDeviceNode.c)
- *     PipProcessRestartPhase2 @ 0x14064DF9C (PipProcessRestartPhase2.c)
+ *     PnpDeleteLockedDeviceNode @ 0x140485CFC (PnpDeleteLockedDeviceNode.c)
+ *     PipProcessStartPhase3 @ 0x140488964 (PipProcessStartPhase3.c)
+ *     PipProcessRestartPhase2 @ 0x14064E080 (PipProcessRestartPhase2.c)
  * Callees:
- *     PnpAcquireDependencyRelationsLock @ 0x1403F4194 (PnpAcquireDependencyRelationsLock.c)
- *     PipAttemptDependentsStart @ 0x1404C4D08 (PipAttemptDependentsStart.c)
+ *     PnpAcquireDependencyRelationsLock @ 0x1403F3058 (PnpAcquireDependencyRelationsLock.c)
+ *     PipAttemptDependentsStart @ 0x14048890C (PipAttemptDependentsStart.c)
  */
 
 __int64 __fastcall PnpStartedDeviceNodeDependencyCheck(__int64 a1)

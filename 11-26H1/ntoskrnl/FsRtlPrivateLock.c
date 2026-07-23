@@ -1,29 +1,29 @@
 /*
- * XREFs of FsRtlPrivateLock @ 0x1402C0190
+ * XREFs of FsRtlPrivateLock @ 0x14030AE50
  * Callers:
- *     FsRtlProcessFileLock @ 0x1403FD6C0 (FsRtlProcessFileLock.c)
+ *     FsRtlProcessFileLock @ 0x1403F9EB0 (FsRtlProcessFileLock.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     ObfReferenceObjectWithTag @ 0x140278B30 (ObfReferenceObjectWithTag.c)
- *     KiReleaseSpinLockInstrumented @ 0x1402BDFEC (KiReleaseSpinLockInstrumented.c)
- *     KeReleaseSpinLock @ 0x1402BE860 (KeReleaseSpinLock.c)
- *     FsRtlPrivateCheckForExclusiveLockAccess @ 0x1402BFFA4 (FsRtlPrivateCheckForExclusiveLockAccess.c)
- *     FsRtlPrivateInsertSharedLock @ 0x1402C0A10 (FsRtlPrivateInsertSharedLock.c)
- *     RtlSplay @ 0x1402C0DB0 (RtlSplay.c)
- *     FsRtlPrivateInsertExclusiveLock @ 0x1402C1630 (FsRtlPrivateInsertExclusiveLock.c)
- *     ExAllocateFromNPagedLookasideList @ 0x1402C1770 (ExAllocateFromNPagedLookasideList.c)
- *     RtlRealSuccessor @ 0x1402C1830 (RtlRealSuccessor.c)
- *     FsRtlPrivateInitializeFileLock @ 0x1402C1BB8 (FsRtlPrivateInitializeFileLock.c)
- *     RtlRaiseStatus @ 0x1402E84A0 (RtlRaiseStatus.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14032F300 (KeAcquireSpinLockRaiseToDpc.c)
- *     FsRtlCompleteLockIrpReal @ 0x1403FD938 (FsRtlCompleteLockIrpReal.c)
- *     IofCompleteRequest @ 0x1403FD9D0 (IofCompleteRequest.c)
- *     FsRtlPrivateCancelFileLockIrp @ 0x140505750 (FsRtlPrivateCancelFileLockIrp.c)
- *     FsRtlPrivateRemoveLock @ 0x1405174BC (FsRtlPrivateRemoveLock.c)
- *     RtlpInterlockedPopEntrySList @ 0x140730C90 (RtlpInterlockedPopEntrySList.c)
- *     RtlpInterlockedPushEntrySList @ 0x140730CD0 (RtlpInterlockedPushEntrySList.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     ObfReferenceObjectWithTag @ 0x1402780A0 (ObfReferenceObjectWithTag.c)
+ *     RtlRaiseStatus @ 0x1402CA4E0 (RtlRaiseStatus.c)
+ *     KiReleaseSpinLockInstrumented @ 0x140308CAC (KiReleaseSpinLockInstrumented.c)
+ *     KeReleaseSpinLock @ 0x140309520 (KeReleaseSpinLock.c)
+ *     FsRtlPrivateCheckForExclusiveLockAccess @ 0x14030AC68 (FsRtlPrivateCheckForExclusiveLockAccess.c)
+ *     FsRtlPrivateInsertSharedLock @ 0x14030B6D0 (FsRtlPrivateInsertSharedLock.c)
+ *     RtlSplay @ 0x14030BA70 (RtlSplay.c)
+ *     FsRtlPrivateInsertExclusiveLock @ 0x14030C2F0 (FsRtlPrivateInsertExclusiveLock.c)
+ *     ExAllocateFromNPagedLookasideList @ 0x14030C430 (ExAllocateFromNPagedLookasideList.c)
+ *     RtlRealSuccessor @ 0x14030C4F0 (RtlRealSuccessor.c)
+ *     FsRtlPrivateInitializeFileLock @ 0x14030C878 (FsRtlPrivateInitializeFileLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140331330 (KeAcquireSpinLockRaiseToDpc.c)
+ *     FsRtlCompleteLockIrpReal @ 0x1403FA128 (FsRtlCompleteLockIrpReal.c)
+ *     IofCompleteRequest @ 0x1403FA1C0 (IofCompleteRequest.c)
+ *     FsRtlPrivateCancelFileLockIrp @ 0x1404FF000 (FsRtlPrivateCancelFileLockIrp.c)
+ *     FsRtlPrivateRemoveLock @ 0x140510F2C (FsRtlPrivateRemoveLock.c)
+ *     RtlpInterlockedPopEntrySList @ 0x140735860 (RtlpInterlockedPopEntrySList.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1407358A0 (RtlpInterlockedPushEntrySList.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 BOOLEAN __stdcall FsRtlPrivateLock(
@@ -48,7 +48,7 @@ BOOLEAN __stdcall FsRtlPrivateLock(
   char *LockInformation; // r12
   BOOLEAN v20; // bl
   char v21; // r13
-  RTL_SPLAY_LINKS *v22; // rcx
+  _RTL_SPLAY_LINKS *v22; // rcx
   BOOLEAN Next; // al
   PSLIST_ENTRY v24; // rdi
   __int64 v25; // rdx
@@ -56,7 +56,7 @@ BOOLEAN __stdcall FsRtlPrivateLock(
   char *v27; // rax
   char *v28; // rdi
   PRTL_SPLAY_LINKS v29; // rdx
-  RTL_SPLAY_LINKS *v30; // r8
+  _RTL_SPLAY_LINKS *v30; // r8
   _RTL_SPLAY_LINKS *v31; // rax
   bool v32; // zf
   _RTL_SPLAY_LINKS *RightChild; // r11
@@ -67,10 +67,10 @@ BOOLEAN __stdcall FsRtlPrivateLock(
   __int64 v39; // r8
   int Status; // r14d
   __int64 v41; // r8
-  RTL_SPLAY_LINKS *Links; // [rsp+70h] [rbp-80h]
-  struct _SLIST_ENTRY v43; // [rsp+88h] [rbp-68h] BYREF
-  struct _SLIST_ENTRY v44; // [rsp+98h] [rbp-58h]
-  struct _SLIST_ENTRY v45; // [rsp+A8h] [rbp-48h]
+  _RTL_SPLAY_LINKS *Links; // [rsp+70h] [rbp-80h]
+  _SLIST_ENTRY v43; // [rsp+88h] [rbp-68h] BYREF
+  _SLIST_ENTRY v44; // [rsp+98h] [rbp-58h]
+  _SLIST_ENTRY v45; // [rsp+A8h] [rbp-48h]
   PRTL_SPLAY_LINKS v46; // [rsp+B8h] [rbp-38h]
   char *v47; // [rsp+C0h] [rbp-30h]
   __int64 retaddr; // [rsp+F0h] [rbp+0h]
@@ -129,7 +129,7 @@ LABEL_3:
   else
   {
     v21 = 1;
-    v22 = (RTL_SPLAY_LINKS *)*((_QWORD *)LockInformation + 5);
+    v22 = (_RTL_SPLAY_LINKS *)*((_QWORD *)LockInformation + 5);
     if ( v22 )
     {
       v29 = 0LL;
@@ -205,9 +205,9 @@ LABEL_59:
       if ( v27 )
       {
         v28 = v27 + 24;
-        *(struct _SLIST_ENTRY *)(v27 + 24) = v43;
-        *(struct _SLIST_ENTRY *)(v27 + 40) = v44;
-        *(struct _SLIST_ENTRY *)(v27 + 56) = v45;
+        *(_SLIST_ENTRY *)(v27 + 24) = v43;
+        *(_SLIST_ENTRY *)(v27 + 40) = v44;
+        *(_SLIST_ENTRY *)(v27 + 56) = v45;
         FsRtlPrivateInsertExclusiveLock(LockInformation + 24, v27);
         Object->LastLock = v28;
         goto LABEL_13;
@@ -215,15 +215,15 @@ LABEL_59:
     }
     else
     {
-      ++dword_140E11514;
+      ++dword_140E115D4;
       v24 = RtlpInterlockedPopEntrySList(&FsRtlSharedLockLookasideList);
       if ( !v24 )
       {
-        ++dword_140E11518;
+        ++dword_140E115D8;
         v24 = (PSLIST_ENTRY)guard_dispatch_icall_no_overrides(
-                              (unsigned int)dword_140E11524,
-                              (unsigned int)dword_140E1152C,
-                              (unsigned int)dword_140E11528);
+                              (unsigned int)dword_140E115E4,
+                              (unsigned int)dword_140E115EC,
+                              (unsigned int)dword_140E115E8);
       }
       if ( v24 )
       {
@@ -241,14 +241,14 @@ LABEL_13:
           v18 = Irp;
           goto LABEL_74;
         }
-        ++dword_140E1151C;
-        if ( LOWORD(FsRtlSharedLockLookasideList.Alignment) < (unsigned __int16)word_140E11510 )
+        ++dword_140E115DC;
+        if ( LOWORD(FsRtlSharedLockLookasideList.Alignment) < (unsigned __int16)word_140E115D0 )
         {
           RtlpInterlockedPushEntrySList(&FsRtlSharedLockLookasideList, v24);
         }
         else
         {
-          ++dword_140E11520;
+          ++dword_140E115E0;
           guard_dispatch_icall_no_overrides(v24, v25, v26);
         }
       }
@@ -257,7 +257,7 @@ LABEL_13:
     if ( Irp )
     {
       KeReleaseSpinLock((PKSPIN_LOCK)LockInformation + 3, v17);
-      RtlRaiseStatus(3221225626LL);
+      RtlRaiseStatus(-1073741670);
     }
     goto LABEL_3;
   }
@@ -275,7 +275,7 @@ LABEL_13:
     if ( !v37 )
     {
       KeReleaseSpinLock((PKSPIN_LOCK)LockInformation + 3, v17);
-      RtlRaiseStatus(3221225626LL);
+      RtlRaiseStatus(-1073741670);
     }
     v37[3] = Irp;
     v37[2] = Context;
@@ -301,7 +301,7 @@ LABEL_13:
 LABEL_74:
   if ( v15 )
   {
-    if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+    if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || PopHibernateInProgress )
       _InterlockedAnd64(v16, 0LL);
     else
       KiReleaseSpinLockInstrumented(v16, retaddr);

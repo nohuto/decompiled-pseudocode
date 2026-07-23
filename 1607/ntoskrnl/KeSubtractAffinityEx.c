@@ -1,14 +1,14 @@
 /*
- * XREFs of KeSubtractAffinityEx @ 0x14014428C
+ * XREFs of KeSubtractAffinityEx @ 0x1401447FC
  * Callers:
- *     PpmParkReportUnparkedCores @ 0x1400D5294 (PpmParkReportUnparkedCores.c)
- *     PpmIdleSelectStates @ 0x14013B680 (PpmIdleSelectStates.c)
- *     KiStartProfileTarget @ 0x1401D7154 (KiStartProfileTarget.c)
- *     KiStopProfileTarget @ 0x1401D7350 (KiStopProfileTarget.c)
- *     PpmCheckInitProcessors @ 0x140569DD0 (PpmCheckInitProcessors.c)
- *     PpmPostProcessMediaBuffering @ 0x140675C18 (PpmPostProcessMediaBuffering.c)
+ *     PpmParkReportUnparkedCores @ 0x1400D3134 (PpmParkReportUnparkedCores.c)
+ *     PpmIdleSelectStates @ 0x14013BBF0 (PpmIdleSelectStates.c)
+ *     KiStartProfileTarget @ 0x1401D6F80 (KiStartProfileTarget.c)
+ *     KiStopProfileTarget @ 0x1401D717C (KiStopProfileTarget.c)
+ *     PpmCheckInitProcessors @ 0x14056A310 (PpmCheckInitProcessors.c)
+ *     PpmPostProcessMediaBuffering @ 0x140675CFC (PpmPostProcessMediaBuffering.c)
  * Callees:
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall KeSubtractAffinityEx(unsigned __int16 *a1, char *a2, _BYTE *a3)

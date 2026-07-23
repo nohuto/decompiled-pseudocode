@@ -6,21 +6,22 @@
  *     ZwQueryInformationFile @ 0x18009ACE0 (ZwQueryInformationFile.c)
  */
 
-__int64 __fastcall RtlIsPartialPlaceholderFileHandle(__int64 a1, bool *a2)
+NTSTATUS __cdecl RtlIsPartialPlaceholderFileHandle(HANDLE FileHandle, PBOOLEAN IsPartialPlaceholder)
 {
-  __int64 result; // rax
-  _BYTE v4[3]; // [rsp+60h] [rbp+18h]
+  NTSTATUS result; // eax
+  _IO_STATUS_BLOCK IoStatusBlock; // [rsp+30h] [rbp-18h] BYREF
+  int FileInformation; // [rsp+60h] [rbp+18h] BYREF
 
-  result = ZwQueryInformationFile();
-  if ( (int)result >= 0 )
+  result = ZwQueryInformationFile(FileHandle, &IoStatusBlock, &FileInformation, 8u, FileAttributeTagInformation);
+  if ( result >= 0 )
   {
-    *a2 = (*(_DWORD *)v4 & 0x440000) != 0;
+    *IsPartialPlaceholder = (FileInformation & 0x440000) != 0;
   }
   else
   {
-    if ( (_DWORD)result != -1073741811 )
+    if ( result != -1073741811 )
       return result;
-    *a2 = 0;
+    *IsPartialPlaceholder = 0;
   }
-  return 0LL;
+  return 0;
 }

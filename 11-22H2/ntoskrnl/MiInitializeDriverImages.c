@@ -72,8 +72,8 @@ __int64 __fastcall MiInitializeDriverImages(__int64 a1)
   PVOID *j; // rbx
   int KernelCfgBitmapPageTables; // eax
   PVOID *v35; // rbx
-  __int64 v36; // rcx
-  __int64 v37; // rax
+  PVOID v36; // rcx
+  PIMAGE_NT_HEADERS v37; // rax
   int Config; // eax
   _QWORD *k; // rbx
   char v40; // [rsp+30h] [rbp-68h] BYREF
@@ -226,11 +226,11 @@ LABEL_9:
                   {
                     if ( ((_DWORD)v35[13] & 0x2000) == 0 )
                     {
-                      v36 = (__int64)v35[6];
+                      v36 = v35[6];
                       if ( v36 == PsNtosImageBase )
                       {
                         v37 = RtlImageNtHeader(v36);
-                        Config = MiMarkKernelImageCfgBits((__int64)v35, v37);
+                        Config = MiMarkKernelImageCfgBits((__int64)v35, (__int64)v37);
                         *((_DWORD *)v35 + 26) |= 0x2000u;
                       }
                       else

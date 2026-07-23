@@ -1,34 +1,34 @@
 /*
- * XREFs of CmpDeleteKeyObject @ 0x14043C400
+ * XREFs of CmpDeleteKeyObject @ 0x14043B2D0
  * Callers:
  *     <none>
  * Callees:
- *     ExpReleaseFastMutexContended @ 0x14000CA8C (ExpReleaseFastMutexContended.c)
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     ExIsResourceAcquiredSharedLite @ 0x14002D250 (ExIsResourceAcquiredSharedLite.c)
- *     PsBoostThreadIo @ 0x14002D430 (PsBoostThreadIo.c)
- *     KeSetEvent @ 0x1400562D0 (KeSetEvent.c)
- *     ExQueueWorkItem @ 0x14005FE5C (ExQueueWorkItem.c)
- *     ExAcquireResourceSharedLite @ 0x1400685B0 (ExAcquireResourceSharedLite.c)
- *     ExReleaseResourceLite @ 0x140068940 (ExReleaseResourceLite.c)
- *     KeLeaveCriticalRegion @ 0x140069D00 (KeLeaveCriticalRegion.c)
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     CmpWaitForLateUnloadWorker @ 0x140087264 (CmpWaitForLateUnloadWorker.c)
- *     KiCheckForKernelApcDelivery @ 0x1400C7DE0 (KiCheckForKernelApcDelivery.c)
- *     ExpAcquireFastMutexContended @ 0x1400C7E28 (ExpAcquireFastMutexContended.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     CmpTransDereferenceTransaction @ 0x1403FF128 (CmpTransDereferenceTransaction.c)
- *     CmpLockKcbExclusive @ 0x140422050 (CmpLockKcbExclusive.c)
- *     CmpDereferenceKeyControlBlock @ 0x140437DB0 (CmpDereferenceKeyControlBlock.c)
- *     CmpUnlockKcb @ 0x140438610 (CmpUnlockKcb.c)
- *     CmpCallCallBacks @ 0x140452A00 (CmpCallCallBacks.c)
- *     CmpFlushNotify @ 0x14049A0FC (CmpFlushNotify.c)
- *     CmpFreePostBlock @ 0x14049A988 (CmpFreePostBlock.c)
- *     CmpArmDelayDerefKCBWorker @ 0x1404DC994 (CmpArmDelayDerefKCBWorker.c)
- *     CmpDoQueueLateUnloadWorker @ 0x140514594 (CmpDoQueueLateUnloadWorker.c)
- *     CmpFireCleanupNotifications @ 0x1405FB4A4 (CmpFireCleanupNotifications.c)
- *     CmpFreeCallbackObjectContexts @ 0x1405FB518 (CmpFreeCallbackObjectContexts.c)
+ *     ExpReleaseFastMutexContended @ 0x14000C60C (ExpReleaseFastMutexContended.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     ExIsResourceAcquiredSharedLite @ 0x14002CDD0 (ExIsResourceAcquiredSharedLite.c)
+ *     PsBoostThreadIo @ 0x14002CFB0 (PsBoostThreadIo.c)
+ *     KeSetEvent @ 0x140055E50 (KeSetEvent.c)
+ *     ExQueueWorkItem @ 0x14005F9DC (ExQueueWorkItem.c)
+ *     ExAcquireResourceSharedLite @ 0x140068130 (ExAcquireResourceSharedLite.c)
+ *     ExReleaseResourceLite @ 0x1400684C0 (ExReleaseResourceLite.c)
+ *     KeLeaveCriticalRegion @ 0x140069880 (KeLeaveCriticalRegion.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     CmpWaitForLateUnloadWorker @ 0x14009DBF4 (CmpWaitForLateUnloadWorker.c)
+ *     KiCheckForKernelApcDelivery @ 0x1400C5C80 (KiCheckForKernelApcDelivery.c)
+ *     ExpAcquireFastMutexContended @ 0x1400C5CC8 (ExpAcquireFastMutexContended.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     CmpFreePostBlock @ 0x1403E38A8 (CmpFreePostBlock.c)
+ *     CmpFlushNotify @ 0x1403E435C (CmpFlushNotify.c)
+ *     CmpTransDereferenceTransaction @ 0x1403FDFE8 (CmpTransDereferenceTransaction.c)
+ *     CmpLockKcbExclusive @ 0x140420F10 (CmpLockKcbExclusive.c)
+ *     CmpDereferenceKeyControlBlock @ 0x140436C80 (CmpDereferenceKeyControlBlock.c)
+ *     CmpUnlockKcb @ 0x1404374E0 (CmpUnlockKcb.c)
+ *     CmpCallCallBacks @ 0x1404518D0 (CmpCallCallBacks.c)
+ *     CmpArmDelayDerefKCBWorker @ 0x1404BFF98 (CmpArmDelayDerefKCBWorker.c)
+ *     CmpDoQueueLateUnloadWorker @ 0x1404F7984 (CmpDoQueueLateUnloadWorker.c)
+ *     CmpFireCleanupNotifications @ 0x1405FB558 (CmpFireCleanupNotifications.c)
+ *     CmpFreeCallbackObjectContexts @ 0x1405FB5CC (CmpFreeCallbackObjectContexts.c)
  */
 
 __int64 __fastcall CmpDeleteKeyObject(__int64 a1)
@@ -60,7 +60,7 @@ __int64 __fastcall CmpDeleteKeyObject(__int64 a1)
   unsigned __int8 v26; // di
   signed __int32 v27; // eax
   __int64 v28; // rcx
-  _QWORD *v29; // rdi
+  __int64 v29; // rdi
   __int64 v30; // rax
   struct _WORK_QUEUE_ITEM *v31; // rcx
   struct _KEVENT *v32; // rcx
@@ -174,14 +174,14 @@ LABEL_49:
           *((_DWORD *)&CmpDelayDerefKCBLock + 12) = CurrentIrql;
           *(_BYTE *)(v8 + 56) |= 1u;
           v23 = (_QWORD *)(v8 + 216);
-          v24 = (_QWORD *)qword_140322B38;
-          if ( *(__int64 **)qword_140322B38 != &CmpDelayDerefKCBListHead )
+          v24 = (_QWORD *)qword_140322B58;
+          if ( *(__int64 **)qword_140322B58 != &CmpDelayDerefKCBListHead )
             __fastfail(3u);
           v25 = CmpDelayDerefKCBWorkItemActive == 0;
           *v23 = &CmpDelayDerefKCBListHead;
           v23[1] = v24;
           *v24 = v23;
-          qword_140322B38 = (__int64)v23;
+          qword_140322B58 = (__int64)v23;
           if ( v25 )
           {
             CmpDelayDerefKCBWorkItemActive = 1;
@@ -248,21 +248,21 @@ LABEL_40:
     if ( (_QWORD *)v6[1] != v33 || *(_QWORD **)(v28 + 8) != v6 )
       __fastfail(3u);
     v33[0] = *v6;
-    v29 = v6 - 2;
+    v29 = (__int64)(v6 - 2);
     *(_QWORD *)(v28 + 8) = v33;
     if ( (unsigned __int16)*((_DWORD *)v6 + 10) != 3 )
     {
-      v32 = *(struct _KEVENT **)v29[8];
+      v32 = **(struct _KEVENT ***)(v29 + 64);
 LABEL_83:
       KeSetEvent(v32, 0, 0);
-      ObfDereferenceObject(*(PVOID *)v29[8]);
+      ObfDereferenceObject(**(PVOID **)(v29 + 64));
       goto LABEL_84;
     }
-    v30 = v29[8];
+    v30 = *(_QWORD *)(v29 + 64);
     v31 = *(struct _WORK_QUEUE_ITEM **)(v30 + 8);
     if ( v31 )
       ExQueueWorkItem(v31, *(WORK_QUEUE_TYPE *)(v30 + 16));
-    v32 = *(struct _KEVENT **)v29[8];
+    v32 = **(struct _KEVENT ***)(v29 + 64);
     if ( v32 )
       goto LABEL_83;
 LABEL_84:

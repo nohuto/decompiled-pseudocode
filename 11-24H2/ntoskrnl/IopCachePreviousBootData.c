@@ -1,11 +1,11 @@
 /*
- * XREFs of IopCachePreviousBootData @ 0x140C1A560
+ * XREFs of IopCachePreviousBootData @ 0x140C1C5A0
  * Callers:
- *     IopInitializeOfflineCrashDump @ 0x140594AD0 (IopInitializeOfflineCrashDump.c)
+ *     IopInitializeOfflineCrashDump @ 0x140591AF4 (IopInitializeOfflineCrashDump.c)
  * Callees:
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ZwSetValueKey @ 0x1406A7010 (ZwSetValueKey.c)
- *     IoGetEnvironmentVariableEx @ 0x140966F70 (IoGetEnvironmentVariableEx.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ZwSetValueKey @ 0x1406A7FB0 (ZwSetValueKey.c)
+ *     IoGetEnvironmentVariableEx @ 0x14094FA00 (IoGetEnvironmentVariableEx.c)
  */
 
 NTSTATUS __fastcall IopCachePreviousBootData(HANDLE *a1)

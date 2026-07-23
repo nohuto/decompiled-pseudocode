@@ -3,13 +3,13 @@
  * Callers:
  *     PipInitComputerIds @ 0x140B3A22C (PipInitComputerIds.c)
  * Callees:
- *     RtlStringCbPrintfExW @ 0x140226350 (RtlStringCbPrintfExW.c)
- *     RtlInitUnicodeString @ 0x14022E1B0 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     ZwSetValueKey @ 0x14041B960 (ZwSetValueKey.c)
- *     memmove @ 0x140435700 (memmove.c)
- *     _PnpStringFromGuid @ 0x140787E54 (_PnpStringFromGuid.c)
- *     RtlGenerateClass5Guid @ 0x1408107E0 (RtlGenerateClass5Guid.c)
+ *     RtlStringCbPrintfExW @ 0x140226460 (RtlStringCbPrintfExW.c)
+ *     RtlInitUnicodeString @ 0x14022E2C0 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     ZwSetValueKey @ 0x14041BCF0 (ZwSetValueKey.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     _PnpStringFromGuid @ 0x140788044 (_PnpStringFromGuid.c)
+ *     RtlGenerateClass5Guid @ 0x140810AB0 (RtlGenerateClass5Guid.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

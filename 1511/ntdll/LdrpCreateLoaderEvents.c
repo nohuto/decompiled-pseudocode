@@ -7,12 +7,12 @@
  *     ZwCreateEvent @ 0x1800A59C0 (ZwCreateEvent.c)
  */
 
-__int64 LdrpCreateLoaderEvents()
+int LdrpCreateLoaderEvents()
 {
-  __int64 result; // rax
+  int result; // eax
 
-  result = ZwCreateEvent();
-  if ( (int)result >= 0 )
-    return ZwCreateEvent();
+  result = ZwCreateEvent(&LdrpLoadCompleteEvent, 0x1F0003u, 0LL, SynchronizationEvent, 0);
+  if ( result >= 0 )
+    return ZwCreateEvent(&LdrpWorkCompleteEvent, 0x1F0003u, 0LL, SynchronizationEvent, 0);
   return result;
 }

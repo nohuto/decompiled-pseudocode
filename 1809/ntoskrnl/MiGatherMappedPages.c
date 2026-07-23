@@ -1,7 +1,7 @@
 /*
- * XREFs of MiGatherMappedPages @ 0x14007E6B0
+ * XREFs of MiGatherMappedPages @ 0x14007E6A0
  * Callers:
- *     MiMappedPageWriter @ 0x1401807A0 (MiMappedPageWriter.c)
+ *     MiMappedPageWriter @ 0x1401808E0 (MiMappedPageWriter.c)
  * Callees:
  *     MiMarkPfnVerified @ 0x14000F960 (MiMarkPfnVerified.c)
  *     FsRtlReleaseFileForModWrite @ 0x14001AF98 (FsRtlReleaseFileForModWrite.c)
@@ -18,20 +18,20 @@
  *     MiSwizzleInvalidPte @ 0x14003D7C0 (MiSwizzleInvalidPte.c)
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
  *     KeDelayExecutionThread @ 0x14004DA20 (KeDelayExecutionThread.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x14007B720 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     CcNotifyOfMappedWrite @ 0x14007D960 (CcNotifyOfMappedWrite.c)
- *     MiBuildMappedCluster @ 0x14007FF80 (MiBuildMappedCluster.c)
- *     MiClearPfnImageVerified @ 0x140082954 (MiClearPfnImageVerified.c)
- *     ExAcquireSpinLockExclusive @ 0x1400BC4E0 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC660 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     IoDiskIoAttributionDereference @ 0x140105854 (IoDiskIoAttributionDereference.c)
- *     MiDereferenceControlAreaPfnList @ 0x140119E2C (MiDereferenceControlAreaPfnList.c)
- *     MiReferencePageForModifiedWrite @ 0x14011BB94 (MiReferencePageForModifiedWrite.c)
- *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
- *     IoAsynchronousPageWrite @ 0x140135014 (IoAsynchronousPageWrite.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     MiFlushFileOnlyMdl @ 0x1402B5E6C (MiFlushFileOnlyMdl.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x14007B710 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     CcNotifyOfMappedWrite @ 0x14007D950 (CcNotifyOfMappedWrite.c)
+ *     MiBuildMappedCluster @ 0x14007FF70 (MiBuildMappedCluster.c)
+ *     MiClearPfnImageVerified @ 0x140082944 (MiClearPfnImageVerified.c)
+ *     ExAcquireSpinLockExclusive @ 0x1400BC420 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC5A0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     IoDiskIoAttributionDereference @ 0x1401058D4 (IoDiskIoAttributionDereference.c)
+ *     MiDereferenceControlAreaPfnList @ 0x140119E9C (MiDereferenceControlAreaPfnList.c)
+ *     MiReferencePageForModifiedWrite @ 0x14011BC04 (MiReferencePageForModifiedWrite.c)
+ *     MiWritePteShadow @ 0x140120F40 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120FA0 (MiPteHasShadow.c)
+ *     IoAsynchronousPageWrite @ 0x1401350E4 (IoAsynchronousPageWrite.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiFlushFileOnlyMdl @ 0x1402B605C (MiFlushFileOnlyMdl.c)
  */
 
 __int64 __fastcall MiGatherMappedPages(__int64 a1, unsigned int a2, __int64 a3)
@@ -169,8 +169,8 @@ LABEL_39:
       return 0LL;
   }
   v12 = *(_QWORD *)(v10 + 16);
-  if ( qword_14043A0C0 && (v12 & 0x10) == 0 )
-    v12 &= ~qword_14043A0C0;
+  if ( qword_14043B180 && (v12 & 0x10) == 0 )
+    v12 &= ~qword_14043B180;
   v13 = v12 >> 16;
   v14 = *(_QWORD *)v13;
   v15 = *(_DWORD *)(*(_QWORD *)v13 + 56LL);
@@ -190,7 +190,7 @@ LABEL_39:
     {
       if ( (unsigned int)MiPteHasShadow(v45, v44) )
       {
-        if ( !HIBYTE(word_14043A1AC) && (v47 & 1) != 0 )
+        if ( !HIBYTE(word_14043B26C) && (v47 & 1) != 0 )
           v44 |= 0x8000000000000000uLL;
         *(_QWORD *)(v10 + 16) = v44;
         MiWritePteShadow(v10 + 16);

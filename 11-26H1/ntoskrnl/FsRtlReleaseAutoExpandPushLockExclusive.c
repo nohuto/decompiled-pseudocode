@@ -1,18 +1,18 @@
 /*
- * XREFs of FsRtlReleaseAutoExpandPushLockExclusive @ 0x1404497DC
+ * XREFs of FsRtlReleaseAutoExpandPushLockExclusive @ 0x14021B11C
  * Callers:
- *     FsRtlRemovePerStreamContext @ 0x140449180 (FsRtlRemovePerStreamContext.c)
- *     FsRtlInsertPerStreamContext @ 0x1404492B0 (FsRtlInsertPerStreamContext.c)
- *     FsRtlRemovePerFileObjectContext @ 0x140449380 (FsRtlRemovePerFileObjectContext.c)
- *     FsRtlInsertPerFileContextWithReserve @ 0x14048F0A0 (FsRtlInsertPerFileContextWithReserve.c)
- *     FsRtlRemovePerFileContext @ 0x1405B58B0 (FsRtlRemovePerFileContext.c)
- *     FsRtlTeardownPerStreamContexts @ 0x140A36AA0 (FsRtlTeardownPerStreamContexts.c)
- *     FsRtlTeardownPerFileContexts @ 0x140A81F10 (FsRtlTeardownPerFileContexts.c)
+ *     FsRtlRemovePerFileObjectContext @ 0x14021ACC0 (FsRtlRemovePerFileObjectContext.c)
+ *     FsRtlInsertPerStreamContext @ 0x14021B420 (FsRtlInsertPerStreamContext.c)
+ *     FsRtlRemovePerStreamContext @ 0x14021B5C0 (FsRtlRemovePerStreamContext.c)
+ *     FsRtlInsertPerFileContextWithReserve @ 0x140488BE0 (FsRtlInsertPerFileContextWithReserve.c)
+ *     FsRtlRemovePerFileContext @ 0x1405B80C0 (FsRtlRemovePerFileContext.c)
+ *     FsRtlTeardownPerStreamContexts @ 0x140919AA0 (FsRtlTeardownPerStreamContexts.c)
+ *     FsRtlTeardownPerFileContexts @ 0x140A87D80 (FsRtlTeardownPerFileContexts.c)
  * Callees:
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     KeLeaveCriticalRegionThread @ 0x1402B8A60 (KeLeaveCriticalRegionThread.c)
- *     ExfReleasePushLock @ 0x1402E3120 (ExfReleasePushLock.c)
- *     ExpReleaseFannedOutPushLockExclusive @ 0x140449868 (ExpReleaseFannedOutPushLockExclusive.c)
+ *     ExfReleasePushLock @ 0x14021B220 (ExfReleasePushLock.c)
+ *     ExpReleaseFannedOutPushLockExclusive @ 0x14021B298 (ExpReleaseFannedOutPushLockExclusive.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     KeLeaveCriticalRegionThread @ 0x140303720 (KeLeaveCriticalRegionThread.c)
  */
 
 __int64 __fastcall FsRtlReleaseAutoExpandPushLockExclusive(struct _KTHREAD *a1)
@@ -22,8 +22,6 @@ __int64 __fastcall FsRtlReleaseAutoExpandPushLockExclusive(struct _KTHREAD *a1)
   signed __int64 v4; // rax
   signed __int64 v5; // rdx
   __int64 v6; // rtt
-  __int64 v7; // rdx
-  __int64 v8; // r8
 
   Flink = (int)a1->Header.WaitListHead.Flink;
   if ( (Flink & 1) != 0 )
@@ -45,8 +43,8 @@ __int64 __fastcall FsRtlReleaseAutoExpandPushLockExclusive(struct _KTHREAD *a1)
     || (v6 = *(_QWORD *)&a1->Header.Lock,
         v6 != _InterlockedCompareExchange64((volatile signed __int64 *)&a1->Header.Lock, v5, v4)) )
   {
-    ExfReleasePushLock(a1);
+    ExfReleasePushLock(a1, v5);
   }
-  KeAbPostRelease((unsigned __int64)a1);
-  return KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v7, v8);
+  KeAbPostRelease(a1);
+  return KeLeaveCriticalRegionThread(KeGetCurrentThread());
 }

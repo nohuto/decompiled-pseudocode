@@ -326,7 +326,8 @@ LABEL_152:
             }
           }
           if ( PsNtosImageBase
-            && (v48 >= PsNtosImageBase && v48 < PsNtosImageEnd || v48 >= PsHalImageBase && v48 < PsHalImageEnd) )
+            && (v48 >= (unsigned __int64)PsNtosImageBase && v48 < PsNtosImageEnd
+             || v48 >= (unsigned __int64)PsHalImageBase && v48 < PsHalImageEnd) )
           {
 LABEL_93:
             v22 = *a2 & 0xFFFFFFFFFFFFFFF0uLL | 6;

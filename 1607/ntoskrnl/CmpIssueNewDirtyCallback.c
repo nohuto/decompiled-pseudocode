@@ -1,8 +1,8 @@
 /*
- * XREFs of CmpIssueNewDirtyCallback @ 0x1404EC660
+ * XREFs of CmpIssueNewDirtyCallback @ 0x1404CE6E8
  * Callers:
- *     HvpMarkDirty @ 0x1405137E0 (HvpMarkDirty.c)
- *     HvMarkBaseBlockDirty @ 0x140564650 (HvMarkBaseBlockDirty.c)
+ *     HvpMarkDirty @ 0x1404F6BD0 (HvpMarkDirty.c)
+ *     HvMarkBaseBlockDirty @ 0x140564B90 (HvMarkBaseBlockDirty.c)
  * Callees:
  *     <none>
  */

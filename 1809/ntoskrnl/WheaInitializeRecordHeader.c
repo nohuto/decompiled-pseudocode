@@ -1,10 +1,10 @@
 /*
- * XREFs of WheaInitializeRecordHeader @ 0x140320750
+ * XREFs of WheaInitializeRecordHeader @ 0x140320940
  * Callers:
- *     WheapCreateRecordFromGenericErrorData @ 0x140320A54 (WheapCreateRecordFromGenericErrorData.c)
+ *     WheapCreateRecordFromGenericErrorData @ 0x140320C44 (WheapCreateRecordFromGenericErrorData.c)
  * Callees:
- *     RtlpTimeToTimeFields @ 0x14015DA34 (RtlpTimeToTimeFields.c)
- *     memset @ 0x1401D1880 (memset.c)
+ *     RtlpTimeToTimeFields @ 0x14015DB34 (RtlpTimeToTimeFields.c)
+ *     memset @ 0x1401D1980 (memset.c)
  */
 
 __int64 __fastcall WheaInitializeRecordHeader(_DWORD *a1)

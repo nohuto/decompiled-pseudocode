@@ -1,20 +1,20 @@
 /*
- * XREFs of CmpFindControlSet @ 0x140825D40
+ * XREFs of CmpFindControlSet @ 0x140826040
  * Callers:
  *     CmpAcquireSystemDriverHiveContext @ 0x140B3F9E4 (CmpAcquireSystemDriverHiveContext.c)
  *     CmpGetSystemControlValues @ 0x140B59984 (CmpGetSystemControlValues.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1B0 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     sprintf_s @ 0x1403DF720 (sprintf_s.c)
- *     CmpFindValueByName @ 0x1406D0078 (CmpFindValueByName.c)
- *     HvpGetCellPaged @ 0x1406E0150 (HvpGetCellPaged.c)
- *     HvpReleaseCellPaged @ 0x1406E0260 (HvpReleaseCellPaged.c)
- *     RtlAnsiStringToUnicodeString @ 0x140773C00 (RtlAnsiStringToUnicodeString.c)
- *     HvpReleaseCellFlat @ 0x1407D9470 (HvpReleaseCellFlat.c)
- *     HvpGetCellFlat @ 0x1407FD9F0 (HvpGetCellFlat.c)
- *     CmpFindSubKeyByNameWithStatus @ 0x140825970 (CmpFindSubKeyByNameWithStatus.c)
- *     CmpValueToData @ 0x140826228 (CmpValueToData.c)
+ *     RtlInitUnicodeString @ 0x14022E2C0 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     sprintf_s @ 0x1403DF900 (sprintf_s.c)
+ *     CmpFindValueByName @ 0x1406D00A8 (CmpFindValueByName.c)
+ *     HvpGetCellPaged @ 0x1406E0180 (HvpGetCellPaged.c)
+ *     HvpReleaseCellPaged @ 0x1406E0290 (HvpReleaseCellPaged.c)
+ *     RtlAnsiStringToUnicodeString @ 0x140773DF0 (RtlAnsiStringToUnicodeString.c)
+ *     HvpReleaseCellFlat @ 0x1407D9740 (HvpReleaseCellFlat.c)
+ *     HvpGetCellFlat @ 0x1407FDCC0 (HvpGetCellFlat.c)
+ *     CmpFindSubKeyByNameWithStatus @ 0x140825C70 (CmpFindSubKeyByNameWithStatus.c)
+ *     CmpValueToData @ 0x140826528 (CmpValueToData.c)
  */
 
 __int64 __fastcall CmpFindControlSet(ULONG_PTR BugCheckParameter3, ULONG_PTR BugCheckParameter4, int a3, _BYTE *a4)
@@ -52,7 +52,7 @@ __int64 __fastcall CmpFindControlSet(ULONG_PTR BugCheckParameter3, ULONG_PTR Bug
   UNICODE_STRING DestinationString; // [rsp+50h] [rbp-B0h] BYREF
   __int64 v39; // [rsp+60h] [rbp-A0h] BYREF
   __int64 v40; // [rsp+68h] [rbp-98h] BYREF
-  STRING SourceString; // [rsp+70h] [rbp-90h] BYREF
+  ANSI_STRING SourceString; // [rsp+70h] [rbp-90h] BYREF
   char DstBuf[128]; // [rsp+80h] [rbp-80h] BYREF
   char v43; // [rsp+100h] [rbp+0h] BYREF
 

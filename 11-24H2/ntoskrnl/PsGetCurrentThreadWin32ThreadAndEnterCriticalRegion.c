@@ -1,5 +1,5 @@
 /*
- * XREFs of PsGetCurrentThreadWin32ThreadAndEnterCriticalRegion @ 0x14041B380
+ * XREFs of PsGetCurrentThreadWin32ThreadAndEnterCriticalRegion @ 0x14040EEC0
  * Callers:
  *     <none>
  * Callees:

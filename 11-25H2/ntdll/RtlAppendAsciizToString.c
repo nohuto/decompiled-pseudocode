@@ -7,23 +7,23 @@
  *     strlen @ 0x180169260 (strlen.c)
  */
 
-__int64 __fastcall RtlAppendAsciizToString(unsigned __int16 *a1, const char *a2)
+NTSTATUS __cdecl RtlAppendAsciizToString(PSTRING Destination, PCSTR Source)
 {
   size_t v4; // rdi
-  __int64 v5; // rax
+  __int64 Length; // rax
 
-  if ( !a2 )
-    return 0LL;
-  v4 = strlen(a2);
+  if ( !Source )
+    return 0;
+  v4 = strlen(Source);
   if ( v4 <= 0xFFFF )
   {
-    v5 = *a1;
-    if ( v5 + v4 <= a1[1] )
+    Length = Destination->Length;
+    if ( Length + v4 <= Destination->MaximumLength )
     {
-      memmove((void *)(v5 + *((_QWORD *)a1 + 1)), a2, v4);
-      *a1 += v4;
-      return 0LL;
+      memmove(&Destination->Buffer[Length], Source, v4);
+      Destination->Length += v4;
+      return 0;
     }
   }
-  return 3221225507LL;
+  return -1073741789;
 }

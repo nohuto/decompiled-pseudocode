@@ -12,42 +12,42 @@
  *     DbgPrint @ 0x180053910 (DbgPrint.c)
  *     ZwAllocateVirtualMemory @ 0x1800A11B0 (ZwAllocateVirtualMemory.c)
  *     _guard_xfg_dispatch_icall_nop @ 0x1800A4B90 (_guard_xfg_dispatch_icall_nop.c)
- *     RtlpAnalyzeHeapFailure @ 0x1801163D4 (RtlpAnalyzeHeapFailure.c)
- *     RtlpHeapHandleError @ 0x180116748 (RtlpHeapHandleError.c)
- *     RtlpLogHeapCommit @ 0x180118470 (RtlpLogHeapCommit.c)
- *     RtlpLogHeapExtendEvent @ 0x180118704 (RtlpLogHeapExtendEvent.c)
- *     RtlpLogHeapFailure @ 0x1801229F0 (RtlpLogHeapFailure.c)
+ *     RtlpAnalyzeHeapFailure @ 0x1801163A4 (RtlpAnalyzeHeapFailure.c)
+ *     RtlpHeapHandleError @ 0x180116718 (RtlpHeapHandleError.c)
+ *     RtlpLogHeapCommit @ 0x180118440 (RtlpLogHeapCommit.c)
+ *     RtlpLogHeapExtendEvent @ 0x1801186D4 (RtlpLogHeapExtendEvent.c)
+ *     RtlpLogHeapFailure @ 0x1801229C0 (RtlpLogHeapFailure.c)
  */
 
-__int64 __fastcall RtlpFindAndCommitPages(unsigned __int64 a1, unsigned __int64 *a2)
+__int64 __fastcall RtlpFindAndCommitPages(unsigned __int64 a1, PSIZE_T RegionSize)
 {
   __int64 UCREntry; // rax
   __int64 v5; // rbp
   __int64 v6; // rdi
   __int64 v7; // rax
   unsigned __int64 v8; // rsi
-  unsigned __int64 v9; // rdx
-  int HeapProtection; // r15d
-  int v11; // eax
+  __int64 v9; // rdx
+  ULONG Protect; // r15d
+  NTSTATUS v11; // eax
   __int64 v12; // r8
   __int64 v13; // r9
   __int64 v14; // r15
   __int64 v15; // rcx
   unsigned __int64 v16; // rax
-  unsigned __int64 v17; // r9
-  unsigned __int64 v18; // rdx
+  ULONG_PTR v17; // r9
+  ULONG_PTR v18; // rdx
   __int64 v19; // rdx
   unsigned __int64 v20; // rbp
   __int64 v21; // rcx
   __int64 v22; // rsi
   __int64 v23; // rcx
-  __int64 v25; // [rsp+50h] [rbp+8h] BYREF
+  PVOID BaseAddress; // [rsp+50h] [rbp+8h] BYREF
 
-  UCREntry = RtlpFindUCREntry(a1, *a2);
+  UCREntry = RtlpFindUCREntry(a1, *RegionSize);
   v5 = UCREntry;
   if ( UCREntry == a1 + 240 )
     return 0LL;
-  if ( RtlpHeapErrorHandlerThreshold >= 1 && *(_QWORD *)(UCREntry + 40) < *a2 )
+  if ( RtlpHeapErrorHandlerThreshold >= 1 && *(_QWORD *)(UCREntry + 40) < *RegionSize )
   {
     if ( NtCurrentPeb()->Ldr )
       DbgPrint("HEAP[%wZ]: ", &NtCurrentPeb()->Ldr->InLoadOrderModuleList.Flink[5].Blink);
@@ -62,26 +62,30 @@ __int64 __fastcall RtlpFindAndCommitPages(unsigned __int64 a1, unsigned __int64 
     v8 = (v6 & 0xFFFFFFFFFFFF0000uLL) - (v7 << 16) + 0x10000;
   else
     v8 = a1;
-  v25 = *(_QWORD *)(v5 + 32);
+  BaseAddress = *(PVOID *)(v5 + 32);
   if ( RtlpHeapKey != *(_QWORD *)(a1 + 360) )
   {
-    v11 = ((__int64 (__fastcall *)(unsigned __int64, __int64 *, unsigned __int64 *))(RtlpHeapKey ^ *(_QWORD *)(a1 + 360)))(
+    v11 = ((__int64 (__fastcall *)(unsigned __int64, PVOID *, PSIZE_T))(RtlpHeapKey ^ *(_QWORD *)(a1 + 360)))(
             a1,
-            &v25,
-            a2);
+            &BaseAddress,
+            RegionSize);
   }
   else
   {
-    v9 = *a2;
-    if ( *(_QWORD *)(v5 + 40) - *a2 <= 16LL * *(_QWORD *)(a1 + 176)
+    v9 = *RegionSize;
+    if ( *(_QWORD *)(v5 + 40) - *RegionSize <= 16LL * *(_QWORD *)(a1 + 176)
       && *(_QWORD *)(v5 + 40) < 16 * (unsigned __int64)*(unsigned int *)(a1 + 148) )
     {
       v9 = *(_QWORD *)(v5 + 40);
     }
-    *a2 = (v9 + 4095) & 0xFFFFFFFFFFFFF000uLL;
-    HeapProtection = RtlpGetHeapProtection(a1, 1LL);
-    if ( (unsigned int)RtlpHpHeapCheckCommitLimit(*a2, *(_QWORD *)(a1 + 576) - *(_QWORD *)(a1 + 664), a1, a1 + 376) )
-      v11 = ZwAllocateVirtualMemory(-1LL, &v25, 0LL, a2, 4096, HeapProtection);
+    *RegionSize = (v9 + 4095) & 0xFFFFFFFFFFFFF000uLL;
+    Protect = RtlpGetHeapProtection(a1, 1LL);
+    if ( (unsigned int)RtlpHpHeapCheckCommitLimit(
+                         *RegionSize,
+                         *(_QWORD *)(a1 + 576) - *(_QWORD *)(a1 + 664),
+                         a1,
+                         a1 + 376) )
+      v11 = ZwAllocateVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &BaseAddress, 0LL, RegionSize, 0x1000u, Protect);
     else
       v11 = -1073741523;
     ++*(_DWORD *)(a1 + 624);
@@ -92,12 +96,12 @@ __int64 __fastcall RtlpFindAndCommitPages(unsigned __int64 a1, unsigned __int64 
     return 0LL;
   }
   v14 = 2147353472LL;
-  if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+  if ( RtlGetCurrentServiceSessionId() )
     v15 = (__int64)NtCurrentPeb()->SharedData + 550;
   else
     v15 = 2147353472LL;
   if ( *(_BYTE *)v15 && (NtCurrentPeb()->TracingFlags & 1) != 0 )
-    RtlpLogHeapCommit(a1, v25, *a2, 2LL);
+    RtlpLogHeapCommit(a1, BaseAddress, *RegionSize, 2LL);
   if ( *(_DWORD *)(a1 + 124) )
   {
     *(_DWORD *)(v6 + 8) ^= *(_DWORD *)(a1 + 136);
@@ -116,15 +120,15 @@ __int64 __fastcall RtlpFindAndCommitPages(unsigned __int64 a1, unsigned __int64 
   if ( v16 >= 0xFF000 )
     *(_QWORD *)(a1 + 584) -= v16;
   v17 = *(_QWORD *)(v5 + 40);
-  v18 = *a2;
-  if ( v17 > *a2 || v17 + *(_QWORD *)(v5 + 32) == *(_QWORD *)(v8 + 72) )
+  v18 = *RegionSize;
+  if ( v17 > *RegionSize || v17 + *(_QWORD *)(v5 + 32) == *(_QWORD *)(v8 + 72) )
   {
-    RtlpCreateUCREntry(a1, v8, v18 - 48 + *(_QWORD *)(v5 + 32), v17 - v18, v5 - 16, (__int64)a2);
-    *a2 *= 16LL;
+    RtlpCreateUCREntry(a1, v8, v18 - 48 + *(_QWORD *)(v5 + 32), v17 - v18, v5 - 16, (__int64)RegionSize);
+    *RegionSize *= 16LL;
   }
   else
   {
-    *a2 = v18 + 16LL * *(unsigned __int16 *)(v6 + 8);
+    *RegionSize = v18 + 16LL * *(unsigned __int16 *)(v6 + 8);
   }
   *(_BYTE *)(v6 + 11) = 0;
   v19 = *(_QWORD *)(v8 + 40);
@@ -139,26 +143,26 @@ __int64 __fastcall RtlpFindAndCommitPages(unsigned __int64 a1, unsigned __int64 
       RtlpLogHeapFailure(3, v19, v6, v8, 0LL, 0LL);
   }
   *(_BYTE *)(v6 + 14) = v20;
-  if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+  if ( RtlGetCurrentServiceSessionId() )
     v21 = (__int64)NtCurrentPeb()->SharedData + 550;
   else
     v21 = 2147353472LL;
   if ( *(_BYTE *)v21 && (NtCurrentPeb()->TracingFlags & 1) != 0 )
   {
-    if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+    if ( RtlGetCurrentServiceSessionId() )
       v14 = (__int64)NtCurrentPeb()->SharedData + 550;
-    RtlpLogHeapExtendEvent(a1, v6, *a2, 16 * *(_QWORD *)(a1 + 192), *(unsigned __int8 *)v14);
+    RtlpLogHeapExtendEvent(a1, v6, *RegionSize, 16 * *(_QWORD *)(a1 + 192), (HANDLE)*(unsigned __int8 *)v14);
   }
   v22 = 2147353482LL;
-  if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+  if ( RtlGetCurrentServiceSessionId() )
     v23 = (__int64)NtCurrentPeb()->SharedData + 560;
   else
     v23 = 2147353482LL;
   if ( *(_BYTE *)v23 )
   {
-    if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+    if ( RtlGetCurrentServiceSessionId() )
       v22 = (__int64)NtCurrentPeb()->SharedData + 560;
-    RtlpLogHeapExtendEvent(a1, v6, *a2, 16 * *(_QWORD *)(a1 + 192), *(unsigned __int8 *)v22);
+    RtlpLogHeapExtendEvent(a1, v6, *RegionSize, 16 * *(_QWORD *)(a1 + 192), (HANDLE)*(unsigned __int8 *)v22);
   }
   return v6;
 }

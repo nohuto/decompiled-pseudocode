@@ -6,50 +6,46 @@
  * Callees:
  *     NtdllpFreeStringRoutine @ 0x1800178B0 (NtdllpFreeStringRoutine.c)
  *     RtlDosPathNameToRelativeNtPathName @ 0x18002A538 (RtlDosPathNameToRelativeNtPathName.c)
- *     __security_check_cookie @ 0x18008FEC0 (__security_check_cookie.c)
- *     ZwQueryAttributesFile @ 0x1800A0A80 (ZwQueryAttributesFile.c)
+ *     __security_check_cookie @ 0x18008FED0 (__security_check_cookie.c)
+ *     ZwQueryAttributesFile @ 0x1800A0AA0 (ZwQueryAttributesFile.c)
  */
 
-__int64 __fastcall LdrpGetNtPathFromDosPath(int a1, __int64 a2)
+NTSTATUS __fastcall LdrpGetNtPathFromDosPath(int a1, _UNICODE_STRING *a2)
 {
   int v2; // r8d
-  __int64 result; // rax
-  int v5; // eax
-  __int64 v6; // rcx
-  __int128 v7; // xmm0
-  __int128 *v8; // [rsp+40h] [rbp-39h] BYREF
-  __int128 v9; // [rsp+48h] [rbp-31h] BYREF
-  int v10; // [rsp+58h] [rbp-21h] BYREF
-  __int64 v11; // [rsp+60h] [rbp-19h]
-  __int64 v12; // [rsp+68h] [rbp-11h]
-  int v13; // [rsp+70h] [rbp-9h]
-  __int128 v14; // [rsp+78h] [rbp-1h]
-  _BYTE v15[40]; // [rsp+88h] [rbp+Fh] BYREF
+  NTSTATUS result; // eax
+  ULONG v5; // eax
+  _UNICODE_STRING *Buffer; // rcx
+  _UNICODE_STRING v7; // xmm0
+  _UNICODE_STRING *v8; // [rsp+40h] [rbp-39h] BYREF
+  _UNICODE_STRING v9; // [rsp+48h] [rbp-31h] BYREF
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+58h] [rbp-21h] BYREF
+  _FILE_BASIC_INFORMATION FileInformation; // [rsp+88h] [rbp+Fh] BYREF
 
   v2 = a1;
   LOBYTE(a1) = 1;
-  result = RtlDosPathNameToRelativeNtPathName(a1, a2, v2, a2, (__int64)&v9, (__int64)&v8);
-  if ( (int)result >= 0 )
+  result = RtlDosPathNameToRelativeNtPathName(a1, (_DWORD)a2, v2, (_DWORD)a2, (__int64)&v9, (__int64)&v8);
+  if ( result >= 0 )
   {
     if ( v8 == &v9 )
     {
-      v6 = *(_QWORD *)(a2 + 8);
-      if ( a2 + 16 != v6 )
-        NtdllpFreeStringRoutine(v6);
+      Buffer = (_UNICODE_STRING *)a2->Buffer;
+      if ( &a2[1] != Buffer )
+        NtdllpFreeStringRoutine(Buffer);
       v7 = v9;
-      *(_DWORD *)a2 = 0x1000000;
-      *(_WORD *)(a2 + 16) = 0;
-      *(_OWORD *)a2 = v7;
+      *(_DWORD *)&a2->Length = 0x1000000;
+      a2[1].Length = 0;
+      *a2 = v7;
     }
     v5 = 64;
-    v10 = 48;
-    v11 = 0LL;
+    ObjectAttributes.Length = 48;
+    ObjectAttributes.RootDirectory = 0LL;
     if ( !LdrpUseImpersonatedDeviceMap )
       v5 = 2112;
-    v12 = a2;
-    v13 = v5;
-    v14 = 0LL;
-    return ZwQueryAttributesFile(&v10, v15);
+    ObjectAttributes.ObjectName = a2;
+    ObjectAttributes.Attributes = v5;
+    *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+    return ZwQueryAttributesFile(&ObjectAttributes, &FileInformation);
   }
   return result;
 }

@@ -1,12 +1,11 @@
 /*
- * XREFs of ZwQueryInformationPort @ 0x1401BAA10
+ * XREFs of ZwQueryInformationPort @ 0x1401BAB70
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-// local variable allocation has failed, the output may be wrong!
 NTSTATUS __stdcall ZwQueryInformationPort(
         HANDLE PortHandle,
         PORT_INFORMATION_CLASS PortInformationClass,
@@ -16,5 +15,5 @@ NTSTATUS __stdcall ZwQueryInformationPort(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(PortHandle, *(_QWORD *)&PortInformationClass, PortInformation);
+  return KiServiceInternal(PortHandle);
 }

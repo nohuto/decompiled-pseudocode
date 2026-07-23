@@ -1,22 +1,22 @@
 /*
- * XREFs of HalpAllocateDomainCommonBufferInternal @ 0x1405123D0
+ * XREFs of HalpAllocateDomainCommonBufferInternal @ 0x140512920
  * Callers:
- *     HalAllocateCommonBufferExV3 @ 0x14050E8C0 (HalAllocateCommonBufferExV3.c)
- *     HalAllocateCommonBufferWithBounds @ 0x14050EA60 (HalAllocateCommonBufferWithBounds.c)
- *     HalAllocateDomainCommonBuffer @ 0x140511E30 (HalAllocateDomainCommonBuffer.c)
+ *     HalAllocateCommonBufferExV3 @ 0x14050EE10 (HalAllocateCommonBufferExV3.c)
+ *     HalAllocateCommonBufferWithBounds @ 0x14050EFB0 (HalAllocateCommonBufferWithBounds.c)
+ *     HalAllocateDomainCommonBuffer @ 0x140512380 (HalAllocateDomainCommonBuffer.c)
  * Callees:
- *     MmMapLockedPagesSpecifyCache @ 0x14027CF60 (MmMapLockedPagesSpecifyCache.c)
- *     MmGetPhysicalAddress @ 0x14028BEE0 (MmGetPhysicalAddress.c)
- *     MmUnmapLockedPages @ 0x1402CB700 (MmUnmapLockedPages.c)
- *     MiFreePagesFromMdl @ 0x1402EBB80 (MiFreePagesFromMdl.c)
- *     MmAllocatePagesForMdlEx @ 0x1402F8740 (MmAllocatePagesForMdlEx.c)
- *     MmAllocatePartitionNodePagesForMdlEx @ 0x1402F87A0 (MmAllocatePartitionNodePagesForMdlEx.c)
- *     HalpDmaReferenceDomainObject @ 0x14039106C (HalpDmaReferenceDomainObject.c)
- *     HalpAllocateCommonBufferEntry @ 0x1403910F4 (HalpAllocateCommonBufferEntry.c)
- *     MmAllocateContiguousMemoryEx @ 0x140391220 (MmAllocateContiguousMemoryEx.c)
- *     MmFreeContiguousMemory @ 0x1403C3600 (MmFreeContiguousMemory.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     HalpDmaDereferenceDomainObject @ 0x1405127A8 (HalpDmaDereferenceDomainObject.c)
+ *     MmMapLockedPagesSpecifyCache @ 0x14027D1F0 (MmMapLockedPagesSpecifyCache.c)
+ *     MmGetPhysicalAddress @ 0x14028C170 (MmGetPhysicalAddress.c)
+ *     MmUnmapLockedPages @ 0x1402CB990 (MmUnmapLockedPages.c)
+ *     MiFreePagesFromMdl @ 0x1402EBE10 (MiFreePagesFromMdl.c)
+ *     MmAllocatePagesForMdlEx @ 0x1402F89D0 (MmAllocatePagesForMdlEx.c)
+ *     MmAllocatePartitionNodePagesForMdlEx @ 0x1402F8A30 (MmAllocatePartitionNodePagesForMdlEx.c)
+ *     HalpDmaReferenceDomainObject @ 0x14039124C (HalpDmaReferenceDomainObject.c)
+ *     HalpAllocateCommonBufferEntry @ 0x1403912D4 (HalpAllocateCommonBufferEntry.c)
+ *     MmAllocateContiguousMemoryEx @ 0x140391400 (MmAllocateContiguousMemoryEx.c)
+ *     MmFreeContiguousMemory @ 0x1403C37E0 (MmFreeContiguousMemory.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     HalpDmaDereferenceDomainObject @ 0x140512CF8 (HalpDmaDereferenceDomainObject.c)
  */
 
 __int64 __fastcall HalpAllocateDomainCommonBufferInternal(
@@ -28,10 +28,10 @@ __int64 __fastcall HalpAllocateDomainCommonBufferInternal(
         MEMORY_CACHING_TYPE *a6,
         int a7,
         _QWORD *a8,
-        _QWORD *a9)
+        _RTL_BALANCED_NODE **a9)
 {
   SIZE_T v9; // r13
-  PVOID v10; // r12
+  _RTL_BALANCED_NODE *v10; // r12
   struct _MDL *v12; // r14
   int CommonBufferEntry; // edi
   __int64 v14; // rax
@@ -158,7 +158,7 @@ __int64 __fastcall HalpAllocateDomainCommonBufferInternal(
   {
     if ( *(_QWORD *)v35 == v9 )
     {
-      v10 = BaseAddress;
+      v10 = (_RTL_BALANCED_NODE *)BaseAddress;
       goto LABEL_36;
     }
     MmFreeContiguousMemory(BaseAddress);
@@ -190,7 +190,7 @@ LABEL_30:
   v12 = PagesForMdl;
   if ( !PagesForMdl )
     goto LABEL_52;
-  v10 = MmMapLockedPagesSpecifyCache(PagesForMdl, 0, v31, 0LL, 0, 0x40000010u);
+  v10 = (_RTL_BALANCED_NODE *)MmMapLockedPagesSpecifyCache(PagesForMdl, 0, v31, 0LL, 0, 0x40000010u);
 LABEL_36:
   if ( !v10 )
     goto LABEL_52;
@@ -218,12 +218,7 @@ LABEL_36:
     {
       v30 = 1;
 LABEL_46:
-      CommonBufferEntry = HalpAllocateCommonBufferEntry(
-                            (__int64)v12,
-                            (unsigned __int64)v10,
-                            *(__int64 *)&v34[4],
-                            BugCheckParameter3,
-                            1);
+      CommonBufferEntry = HalpAllocateCommonBufferEntry((__int64)v12, v10, *(__int64 *)&v34[4], BugCheckParameter3, 1);
       if ( CommonBufferEntry >= 0 )
       {
         *a8 = *(_QWORD *)&v34[4];

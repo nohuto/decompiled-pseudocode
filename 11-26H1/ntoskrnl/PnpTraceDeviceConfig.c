@@ -1,11 +1,11 @@
 /*
- * XREFs of PnpTraceDeviceConfig @ 0x140AD3BF4
+ * XREFs of PnpTraceDeviceConfig @ 0x140B31F6C
  * Callers:
- *     PiDevCfgLogDeviceConfigured @ 0x140AD1378 (PiDevCfgLogDeviceConfigured.c)
+ *     PiDevCfgLogDeviceConfigured @ 0x140AE8544 (PiDevCfgLogDeviceConfigured.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212E30 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgCreate1Sz_wchar_t @ 0x140437A60 (_tlgCreate1Sz_wchar_t.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212F10 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgCreate1Sz_wchar_t @ 0x1404269F0 (_tlgCreate1Sz_wchar_t.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall PnpTraceDeviceConfig(
@@ -123,14 +123,14 @@ NTSTATUS __fastcall PnpTraceDeviceConfig(
     result = *a28;
     LODWORD(v38) = *a28;
   }
-  if ( (unsigned int)dword_140E06E70 > 5 )
+  if ( (unsigned int)dword_140E06EB8 > 5 )
   {
     result = 0;
     v37 = 0x800000000000LL;
-    if ( (qword_140E06E80 & 0x800000000000LL) != 0 )
+    if ( (qword_140E06EC8 & 0x800000000000LL) != 0 )
     {
-      result = v37 & qword_140E06E88;
-      if ( (v37 & qword_140E06E88) == qword_140E06E88 )
+      result = v37 & qword_140E06ED0;
+      if ( (v37 & qword_140E06ED0) == qword_140E06ED0 )
       {
         v40 = 2048LL;
         v36 = 0;
@@ -194,8 +194,8 @@ NTSTATUS __fastcall PnpTraceDeviceConfig(
         v94 = 4LL;
         v96 = 8LL;
         return tlgWriteTransfer_EtwWriteTransfer(
-                 (__int64)&dword_140E06E70,
-                 (unsigned __int8 *)&byte_14004843F,
+                 (__int64)&dword_140E06EB8,
+                 (unsigned __int8 *)byte_140048B35,
                  0LL,
                  0LL,
                  0x23u,

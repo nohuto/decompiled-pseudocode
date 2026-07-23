@@ -1,12 +1,12 @@
 /*
- * XREFs of KiRemoveAndFreeCpuPartitionAssignmentProcess @ 0x14035C82C
+ * XREFs of KiRemoveAndFreeCpuPartitionAssignmentProcess @ 0x14035C9CC
  * Callers:
- *     PspProcessDelete @ 0x1407610B0 (PspProcessDelete.c)
+ *     PspProcessDelete @ 0x1407612A0 (PspProcessDelete.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250E80 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiRemoveCpuPartitionAssignmentProcess @ 0x14035C8B4 (KiRemoveCpuPartitionAssignmentProcess.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140250F40 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveCpuPartitionAssignmentProcess @ 0x14035CA54 (KiRemoveCpuPartitionAssignmentProcess.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 
@@ -30,10 +30,13 @@ void __fastcall KiRemoveAndFreeCpuPartitionAssignmentProcess(__int64 a1)
   v2 = KeAcquireSpinLockRaiseToDpc(&KiCpuPartitionAssignmentLock);
   KiRemoveCpuPartitionAssignmentProcess(a1, v13);
   KxReleaseSpinLock((volatile signed __int64 *)&KiCpuPartitionAssignmentLock);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v2 <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
+      && (unsigned __int8)v2 <= 0xFu
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;

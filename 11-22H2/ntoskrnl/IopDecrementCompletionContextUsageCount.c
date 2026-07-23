@@ -29,10 +29,10 @@ __int64 __fastcall IopDecrementCompletionContextUsageCount(ULONG_PTR BugCheckPar
   BugCheckParameter4 = *(_QWORD *)(v4 + 16);
   *(_QWORD *)(v4 + 16) = BugCheckParameter4 - 1;
   result = KxReleaseSpinLock(v1);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     result = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
       && (unsigned __int8)result <= 0xFu
       && (unsigned __int8)v5 <= 0xFu
       && (unsigned __int8)result >= 2u )

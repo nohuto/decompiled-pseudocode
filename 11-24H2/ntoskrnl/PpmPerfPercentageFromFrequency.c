@@ -1,7 +1,7 @@
 /*
- * XREFs of PpmPerfPercentageFromFrequency @ 0x14074FB54
+ * XREFs of PpmPerfPercentageFromFrequency @ 0x14074DE84
  * Callers:
- *     PpmPerfGetVmCppcConfig @ 0x1405D2AE4 (PpmPerfGetVmCppcConfig.c)
+ *     PpmPerfGetVmCppcConfig @ 0x1405D0204 (PpmPerfGetVmCppcConfig.c)
  * Callees:
  *     <none>
  */

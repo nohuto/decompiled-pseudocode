@@ -1,12 +1,12 @@
 /*
- * XREFs of PipUpdateAsyncOptionsCallback @ 0x14071A2C0
+ * XREFs of PipUpdateAsyncOptionsCallback @ 0x140717E50
  * Callers:
- *     IopInitializePlugPlayServices @ 0x140C1F07C (IopInitializePlugPlayServices.c)
+ *     IopInitializePlugPlayServices @ 0x140C210BC (IopInitializePlugPlayServices.c)
  * Callees:
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     ZwNotifyChangeKey @ 0x1406A8870 (ZwNotifyChangeKey.c)
- *     IopGetRegistryValue @ 0x1409CAD5C (IopGetRegistryValue.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     ZwNotifyChangeKey @ 0x1406A9810 (ZwNotifyChangeKey.c)
+ *     IopGetRegistryValue @ 0x1409B5F9C (IopGetRegistryValue.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 int __fastcall PipUpdateAsyncOptionsCallback(HANDLE Handle)

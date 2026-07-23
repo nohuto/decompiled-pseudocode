@@ -1,12 +1,12 @@
 /*
- * XREFs of PopCoalescingPowerSettingCallback @ 0x14058095C
+ * XREFs of PopCoalescingPowerSettingCallback @ 0x140580E08
  * Callers:
  *     <none>
  * Callees:
  *     PopAcquirePolicyLock @ 0x1403C87E0 (PopAcquirePolicyLock.c)
  *     PopReleasePolicyLock @ 0x1403C8828 (PopReleasePolicyLock.c)
- *     PopCheckResiliencyScenarios @ 0x1403F5C64 (PopCheckResiliencyScenarios.c)
- *     PopUpdateDiskIdleTimeoutSetting @ 0x14056F36C (PopUpdateDiskIdleTimeoutSetting.c)
+ *     PopCheckResiliencyScenarios @ 0x1403F4B28 (PopCheckResiliencyScenarios.c)
+ *     PopUpdateDiskIdleTimeoutSetting @ 0x14056F8AC (PopUpdateDiskIdleTimeoutSetting.c)
  */
 
 __int64 __fastcall PopCoalescingPowerSettingCallback(_QWORD *a1, int *a2, int a3)

@@ -9,10 +9,10 @@
  *     @__security_check_cookie@4 @ 0x4B2F4B20 (@__security_check_cookie@4.c)
  */
 
-int __fastcall TppETWTimerSetNtTimer(int a1, int a2, int a3, int a4)
+NTSTATUS __fastcall TppETWTimerSetNtTimer(int a1, int a2, int a3, int a4)
 {
   int v4; // eax
-  _BYTE v6[6]; // [esp+4h] [ebp-34h] BYREF
+  _BYTE Fields[6]; // [esp+4h] [ebp-34h] BYREF
   __int16 v7; // [esp+Ah] [ebp-2Eh]
   int v8; // [esp+24h] [ebp-14h]
   int v9; // [esp+28h] [ebp-10h]
@@ -28,5 +28,5 @@ int __fastcall TppETWTimerSetNtTimer(int a1, int a2, int a3, int a4)
     v4 = (int)NtCurrentPeb()->SharedData + 556;
   else
     v4 = 2147353478;
-  return NtTraceEvent(*(unsigned __int8 *)v4, 1026, 16, (int)v6);
+  return NtTraceEvent((HANDLE)*(unsigned __int8 *)v4, 0x402u, 0x10u, Fields);
 }

@@ -1,11 +1,11 @@
 /*
- * XREFs of ExTryAcquireSpinLockSharedAtDpcLevel @ 0x14040C690
+ * XREFs of ExTryAcquireSpinLockSharedAtDpcLevel @ 0x140404D20
  * Callers:
- *     MiFreezeIoPfnNode @ 0x140675EAC (MiFreezeIoPfnNode.c)
- *     MmReadProcessPageTables @ 0x140680158 (MmReadProcessPageTables.c)
+ *     MiFreezeIoPfnNode @ 0x14067707C (MiFreezeIoPfnNode.c)
+ *     MmReadProcessPageTables @ 0x140681358 (MmReadProcessPageTables.c)
  * Callees:
- *     ExpTryAcquireSpinLockSharedAtDpcLevelInstrumented @ 0x14040C5FC (ExpTryAcquireSpinLockSharedAtDpcLevelInstrumented.c)
- *     ExpTryAcquireSpinLockShared @ 0x14040C6D0 (ExpTryAcquireSpinLockShared.c)
+ *     ExpTryAcquireSpinLockSharedAtDpcLevelInstrumented @ 0x140404C8C (ExpTryAcquireSpinLockSharedAtDpcLevelInstrumented.c)
+ *     ExpTryAcquireSpinLockShared @ 0x140404D60 (ExpTryAcquireSpinLockShared.c)
  */
 
 __int64 __fastcall ExTryAcquireSpinLockSharedAtDpcLevel(__int64 a1, unsigned __int64 a2, __int64 a3, __int64 a4)

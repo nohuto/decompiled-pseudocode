@@ -1,29 +1,29 @@
 /*
- * XREFs of RtlNumberOfSetBits @ 0x140293570
+ * XREFs of RtlNumberOfSetBits @ 0x140293800
  * Callers:
- *     RtlNumberOfClearBits @ 0x140293540 (RtlNumberOfClearBits.c)
- *     HvpGenerateLogEntryDirtyData @ 0x140295060 (HvpGenerateLogEntryDirtyData.c)
- *     ?StStart@?$ST_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_ST_CREATE_PARAMS@@@Z @ 0x140343AE0 (-StStart@-$ST_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_ST_CREATE_PARAMS@@@Z.c)
- *     ?StDmCleanup@?$ST_STORE@USM_TRAITS@@@@SAXPEAU_ST_DATA_MGR@1@K@Z @ 0x14034561C (-StDmCleanup@-$ST_STORE@USM_TRAITS@@@@SAXPEAU_ST_DATA_MGR@1@K@Z.c)
- *     ?StGetStatsWorker@?$ST_STORE@USM_TRAITS@@@@SAJPEAU1@W4_ST_STATS_LEVEL@@PEAU_ST_STATS@@PEAK@Z @ 0x14039BC10 (-StGetStatsWorker@-$ST_STORE@USM_TRAITS@@@@SAJPEAU1@W4_ST_STATS_LEVEL@@PEAU_ST_STATS@@PEAK@Z.c)
- *     HalpDmaAllocateScatterPagesFromContiguousPoolV3 @ 0x1404FF2A4 (HalpDmaAllocateScatterPagesFromContiguousPoolV3.c)
- *     HalpDmaAllocateScatterPagesFromContiguousPoolV2 @ 0x140515CCC (HalpDmaAllocateScatterPagesFromContiguousPoolV2.c)
+ *     RtlNumberOfClearBits @ 0x1402937D0 (RtlNumberOfClearBits.c)
+ *     HvpGenerateLogEntryDirtyData @ 0x1402952F0 (HvpGenerateLogEntryDirtyData.c)
+ *     ?StStart@?$ST_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_ST_CREATE_PARAMS@@@Z @ 0x140343D70 (-StStart@-$ST_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_ST_CREATE_PARAMS@@@Z.c)
+ *     ?StDmCleanup@?$ST_STORE@USM_TRAITS@@@@SAXPEAU_ST_DATA_MGR@1@K@Z @ 0x1403458AC (-StDmCleanup@-$ST_STORE@USM_TRAITS@@@@SAXPEAU_ST_DATA_MGR@1@K@Z.c)
+ *     ?StGetStatsWorker@?$ST_STORE@USM_TRAITS@@@@SAJPEAU1@W4_ST_STATS_LEVEL@@PEAU_ST_STATS@@PEAK@Z @ 0x14039BDF0 (-StGetStatsWorker@-$ST_STORE@USM_TRAITS@@@@SAJPEAU1@W4_ST_STATS_LEVEL@@PEAU_ST_STATS@@PEAK@Z.c)
+ *     HalpDmaAllocateScatterPagesFromContiguousPoolV3 @ 0x1404FF7F4 (HalpDmaAllocateScatterPagesFromContiguousPoolV3.c)
+ *     HalpDmaAllocateScatterPagesFromContiguousPoolV2 @ 0x14051621C (HalpDmaAllocateScatterPagesFromContiguousPoolV2.c)
  *     MiReleaseDriverPtes @ 0x140697280 (MiReleaseDriverPtes.c)
- *     SepAddLuidToIndexEntry @ 0x1406B781C (SepAddLuidToIndexEntry.c)
- *     HvpGenerateLogEntry @ 0x140705758 (HvpGenerateLogEntry.c)
- *     PspQueryRateControlHistory @ 0x140706E4C (PspQueryRateControlHistory.c)
- *     HvFreeHivePartial @ 0x1407071A8 (HvFreeHivePartial.c)
- *     HvpAddBin @ 0x14074F174 (HvpAddBin.c)
- *     CmpFlushHive @ 0x140752E88 (CmpFlushHive.c)
- *     PopEvaluateGlobalUserStatus @ 0x1407A5F54 (PopEvaluateGlobalUserStatus.c)
- *     HvWriteHivePrimaryFile @ 0x1407D9500 (HvWriteHivePrimaryFile.c)
- *     SepGetLowBoxNumberEntry @ 0x1407F48A8 (SepGetLowBoxNumberEntry.c)
- *     HvpPerformLogFileRecovery @ 0x14080028C (HvpPerformLogFileRecovery.c)
- *     CmpLoadHiveThread @ 0x140826880 (CmpLoadHiveThread.c)
- *     EtwQueryPerformanceTraceInformation @ 0x14085FEF4 (EtwQueryPerformanceTraceInformation.c)
- *     CmpMountPreloadedHives @ 0x1408630AC (CmpMountPreloadedHives.c)
- *     HvFoldBackUnreconciledData @ 0x140A20AEC (HvFoldBackUnreconciledData.c)
- *     HvpApplyLegacyLogFile @ 0x140A2A20C (HvpApplyLegacyLogFile.c)
+ *     SepAddLuidToIndexEntry @ 0x1406B7850 (SepAddLuidToIndexEntry.c)
+ *     HvpGenerateLogEntry @ 0x140705968 (HvpGenerateLogEntry.c)
+ *     PspQueryRateControlHistory @ 0x14070705C (PspQueryRateControlHistory.c)
+ *     HvFreeHivePartial @ 0x1407073B8 (HvFreeHivePartial.c)
+ *     HvpAddBin @ 0x14074F364 (HvpAddBin.c)
+ *     CmpFlushHive @ 0x140753078 (CmpFlushHive.c)
+ *     PopEvaluateGlobalUserStatus @ 0x1407A6144 (PopEvaluateGlobalUserStatus.c)
+ *     HvWriteHivePrimaryFile @ 0x1407D97D0 (HvWriteHivePrimaryFile.c)
+ *     SepGetLowBoxNumberEntry @ 0x1407F4B78 (SepGetLowBoxNumberEntry.c)
+ *     HvpPerformLogFileRecovery @ 0x14080055C (HvpPerformLogFileRecovery.c)
+ *     CmpLoadHiveThread @ 0x140826B80 (CmpLoadHiveThread.c)
+ *     EtwQueryPerformanceTraceInformation @ 0x140860134 (EtwQueryPerformanceTraceInformation.c)
+ *     CmpMountPreloadedHives @ 0x1408632EC (CmpMountPreloadedHives.c)
+ *     HvFoldBackUnreconciledData @ 0x140A20D9C (HvFoldBackUnreconciledData.c)
+ *     HvpApplyLegacyLogFile @ 0x140A2A4BC (HvpApplyLegacyLogFile.c)
  * Callees:
  *     <none>
  */
@@ -77,7 +77,7 @@ ULONG __stdcall RtlNumberOfSetBits(PRTL_BITMAP BitMapHeader)
     v14 = *(_BYTE *)Buffer;
     Buffer = (unsigned int *)((char *)Buffer + 1);
     if ( i == v12 && v5 )
-      v14 &= byte_140018F88[SizeOfBitMap & 7];
+      v14 &= byte_140018F80[SizeOfBitMap & 7];
     ++i;
     v1 += *((unsigned __int8 *)RtlpBitsClearTotal + (unsigned __int8)~v14);
   }
@@ -104,7 +104,7 @@ ULONG __stdcall RtlNumberOfSetBits(PRTL_BITMAP BitMapHeader)
     v19 = *(_BYTE *)Buffer;
     Buffer = (unsigned int *)((char *)Buffer + 1);
     if ( i == v12 && v5 )
-      v19 &= byte_140018F88[SizeOfBitMap & 7];
+      v19 &= byte_140018F80[SizeOfBitMap & 7];
     ++i;
     v1 += *((unsigned __int8 *)RtlpBitsClearTotal + (unsigned __int8)~v19);
   }

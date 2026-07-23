@@ -1,17 +1,17 @@
 /*
- * XREFs of GetPrintableOperandValue @ 0x1409D3F6C
+ * XREFs of GetPrintableOperandValue @ 0x1409D416C
  * Callers:
- *     GetPrintableOperandValue @ 0x1409D3F6C (GetPrintableOperandValue.c)
- *     LocalpGetStringForCondition @ 0x1409D6474 (LocalpGetStringForCondition.c)
+ *     GetPrintableOperandValue @ 0x1409D416C (GetPrintableOperandValue.c)
+ *     LocalpGetStringForCondition @ 0x1409D6674 (LocalpGetStringForCondition.c)
  * Callees:
- *     RtlStringCchPrintfW @ 0x14022A90C (RtlStringCchPrintfW.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memmove @ 0x140435700 (memmove.c)
+ *     RtlStringCchPrintfW @ 0x14022AA1C (RtlStringCchPrintfW.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     memmove @ 0x140435B00 (memmove.c)
  *     LocalGetStringForSid @ 0x14069D410 (LocalGetStringForSid.c)
  *     SddlpAlloc @ 0x14069DF28 (SddlpAlloc.c)
- *     SddlpReAlloc @ 0x1409D29E0 (SddlpReAlloc.c)
- *     GetPrintableOperandValue @ 0x1409D3F6C (GetPrintableOperandValue.c)
- *     ULongAddStringSize @ 0x1409D6A90 (ULongAddStringSize.c)
+ *     SddlpReAlloc @ 0x1409D2BE0 (SddlpReAlloc.c)
+ *     GetPrintableOperandValue @ 0x1409D416C (GetPrintableOperandValue.c)
+ *     ULongAddStringSize @ 0x1409D6C90 (ULongAddStringSize.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

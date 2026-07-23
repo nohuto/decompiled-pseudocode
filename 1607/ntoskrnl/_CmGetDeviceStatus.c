@@ -1,19 +1,19 @@
 /*
- * XREFs of _CmGetDeviceStatus @ 0x1404F78AC
+ * XREFs of _CmGetDeviceStatus @ 0x1404DA838
  * Callers:
- *     _CmGetDeviceMappedPropertyFromComposite @ 0x1404CE780 (_CmGetDeviceMappedPropertyFromComposite.c)
- *     _CmIsDeviceSafeRemovalRequired @ 0x1404CF88C (_CmIsDeviceSafeRemovalRequired.c)
- *     PiCMValidateDeviceInstance @ 0x1404F6E90 (PiCMValidateDeviceInstance.c)
- *     PiCMGetDeviceStatus @ 0x1404F7394 (PiCMGetDeviceStatus.c)
- *     PiCMDeleteDevice @ 0x140646B3C (PiCMDeleteDevice.c)
- *     PiCMDeviceAction @ 0x140647364 (PiCMDeviceAction.c)
- *     PiCMGenerateDeviceInstance @ 0x1406477EC (PiCMGenerateDeviceInstance.c)
- *     PiCMQueryRemove @ 0x140648028 (PiCMQueryRemove.c)
- *     PiCMSetProblem @ 0x14064879C (PiCMSetProblem.c)
+ *     PiCMValidateDeviceInstance @ 0x1404D9E1C (PiCMValidateDeviceInstance.c)
+ *     PiCMGetDeviceStatus @ 0x1404DA320 (PiCMGetDeviceStatus.c)
+ *     _CmGetDeviceMappedPropertyFromComposite @ 0x14050B84C (_CmGetDeviceMappedPropertyFromComposite.c)
+ *     _CmIsDeviceSafeRemovalRequired @ 0x14050C958 (_CmIsDeviceSafeRemovalRequired.c)
+ *     PiCMDeleteDevice @ 0x140646C20 (PiCMDeleteDevice.c)
+ *     PiCMDeviceAction @ 0x140647448 (PiCMDeviceAction.c)
+ *     PiCMGenerateDeviceInstance @ 0x1406478D0 (PiCMGenerateDeviceInstance.c)
+ *     PiCMQueryRemove @ 0x14064810C (PiCMQueryRemove.c)
+ *     PiCMSetProblem @ 0x140648880 (PiCMSetProblem.c)
  * Callees:
- *     RtlInitUnicodeStringEx @ 0x1400C39C0 (RtlInitUnicodeStringEx.c)
- *     _NtPlugPlayGetDeviceStatus @ 0x1404F8854 (_NtPlugPlayGetDeviceStatus.c)
- *     _CmGetDeviceRegProp @ 0x1404FCE4C (_CmGetDeviceRegProp.c)
+ *     RtlInitUnicodeStringEx @ 0x1400C1850 (RtlInitUnicodeStringEx.c)
+ *     _NtPlugPlayGetDeviceStatus @ 0x1404DB7E0 (_NtPlugPlayGetDeviceStatus.c)
+ *     _CmGetDeviceRegProp @ 0x1404DFDDC (_CmGetDeviceRegProp.c)
  */
 
 __int64 __fastcall CmGetDeviceStatus(

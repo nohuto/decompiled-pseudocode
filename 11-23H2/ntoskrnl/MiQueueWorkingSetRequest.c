@@ -1,17 +1,17 @@
 /*
- * XREFs of MiQueueWorkingSetRequest @ 0x14035EEC8
+ * XREFs of MiQueueWorkingSetRequest @ 0x14035F068
  * Callers:
- *     MiCaptureAllWorkingSetAccessBits @ 0x14035EEA8 (MiCaptureAllWorkingSetAccessBits.c)
- *     MiEmptyAllWorkingSets @ 0x1406346D8 (MiEmptyAllWorkingSets.c)
- *     MiTrimNoStealPagesFromWorkingSets @ 0x140635460 (MiTrimNoStealPagesFromWorkingSets.c)
- *     MmTrimFilePagesFromWorkingSets @ 0x14063569C (MmTrimFilePagesFromWorkingSets.c)
+ *     MiCaptureAllWorkingSetAccessBits @ 0x14035F048 (MiCaptureAllWorkingSetAccessBits.c)
+ *     MiEmptyAllWorkingSets @ 0x140634C28 (MiEmptyAllWorkingSets.c)
+ *     MiTrimNoStealPagesFromWorkingSets @ 0x1406359B0 (MiTrimNoStealPagesFromWorkingSets.c)
+ *     MmTrimFilePagesFromWorkingSets @ 0x140635BEC (MmTrimFilePagesFromWorkingSets.c)
  * Callees:
- *     KeSetEvent @ 0x14023C5E0 (KeSetEvent.c)
- *     KeWaitForSingleObject @ 0x140243CE0 (KeWaitForSingleObject.c)
- *     KxReleaseQueuedSpinLock @ 0x140260360 (KxReleaseQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140260E60 (KeAcquireInStackQueuedSpinLock.c)
- *     KeResetEvent @ 0x1402AF940 (KeResetEvent.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeSetEvent @ 0x14023C6B0 (KeSetEvent.c)
+ *     KeWaitForSingleObject @ 0x140243DB0 (KeWaitForSingleObject.c)
+ *     KxReleaseQueuedSpinLock @ 0x1402605F0 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402610F0 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeResetEvent @ 0x1402AFE30 (KeResetEvent.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiQueueWorkingSetRequest(__int64 a1, int a2)
@@ -46,10 +46,10 @@ __int64 __fastcall MiQueueWorkingSetRequest(__int64 a1, int a2)
   }
   KxReleaseQueuedSpinLock((volatile signed __int64 **)&v12);
   OldIrql = v12.OldIrql;
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v12.OldIrql <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v12.OldIrql <= 0xFu && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;

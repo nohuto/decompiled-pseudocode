@@ -1,20 +1,24 @@
 /*
- * XREFs of PopInitVideoWnfState @ 0x1409DE784
+ * XREFs of PopInitVideoWnfState @ 0x1409DF784
  * Callers:
- *     PoInitSystem @ 0x1409B2C10 (PoInitSystem.c)
+ *     PoInitSystem @ 0x1409B3C10 (PoInitSystem.c)
  * Callees:
- *     ZwUpdateWnfStateData @ 0x1401BBA70 (ZwUpdateWnfStateData.c)
+ *     ZwUpdateWnfStateData @ 0x1401BBBD0 (ZwUpdateWnfStateData.c)
  */
 
-__int64 PopInitVideoWnfState()
+NTSTATUS PopInitVideoWnfState()
 {
-  int v1; // [rsp+50h] [rbp+8h] BYREF
+  int Buffer; // [rsp+50h] [rbp+8h] BYREF
 
-  ZwUpdateWnfStateData((__int64)&WNF_PO_VIDEO_INITIALIALIZED, (__int64)&PopVideoInitialized, 1LL);
+  ZwUpdateWnfStateData(&WNF_PO_VIDEO_INITIALIALIZED, &PopVideoInitialized, 1u, 0LL, 0LL, 0, 0);
   ZwUpdateWnfStateData(
-    (__int64)&WNF_PO_BASIC_BRIGHTNESS_ENGINE_DISABLED,
-    (__int64)&PopVideoHighPrecisionBrightnessEnabled,
-    1LL);
-  v1 = 100;
-  return ZwUpdateWnfStateData((__int64)&WNF_PO_BRIGHTNESS_ALS_OFFSET, (__int64)&v1, 4LL);
+    &WNF_PO_BASIC_BRIGHTNESS_ENGINE_DISABLED,
+    &PopVideoHighPrecisionBrightnessEnabled,
+    1u,
+    0LL,
+    0LL,
+    0,
+    0);
+  Buffer = 100;
+  return ZwUpdateWnfStateData(&WNF_PO_BRIGHTNESS_ALS_OFFSET, &Buffer, 4u, 0LL, 0LL, 0, 0);
 }

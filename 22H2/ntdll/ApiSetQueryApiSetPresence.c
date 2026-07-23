@@ -15,7 +15,7 @@ __int64 __fastcall ApiSetQueryApiSetPresence(unsigned __int16 *a1, char *a2)
   _WORD v8[12]; // [rsp+30h] [rbp-18h] BYREF
 
   ApiSetMap = NtCurrentPeb()->ApiSetMap;
-  LdrpLogDllState(0LL, (__int64)a1, 0x14D0u);
+  LdrpLogDllState(0, (__int64)a1, 0x14D0u);
   v5 = ApiSetResolveToHost((__int64)ApiSetMap, a1, 0LL, a2, (__int64)v8);
   if ( v5 >= 0 && *a2 )
   {
@@ -28,7 +28,7 @@ __int64 __fastcall ApiSetQueryApiSetPresence(unsigned __int16 *a1, char *a2)
   {
     v6 = 5331;
   }
-  LdrpLogDllState(0LL, (__int64)a1, v6);
+  LdrpLogDllState(0, (__int64)a1, v6);
   if ( v5 < 0 )
     return (unsigned int)v5;
   if ( !v8[0] )

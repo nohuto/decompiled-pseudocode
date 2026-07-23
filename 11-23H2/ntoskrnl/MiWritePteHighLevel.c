@@ -1,16 +1,16 @@
 /*
- * XREFs of MiWritePteHighLevel @ 0x14064E2BC
+ * XREFs of MiWritePteHighLevel @ 0x14064E80C
  * Callers:
- *     MiTransformValidPteInPlace @ 0x1403C317C (MiTransformValidPteInPlace.c)
+ *     MiTransformValidPteInPlace @ 0x1403C335C (MiTransformValidPteInPlace.c)
  * Callees:
  *     MiInsertLargeTbFlushEntry @ 0x140211C2C (MiInsertLargeTbFlushEntry.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1402712F0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiGetContainingPageTable @ 0x1402E1270 (MiGetContainingPageTable.c)
- *     MiInsertRecursiveTbFlushEntries @ 0x140368198 (MiInsertRecursiveTbFlushEntries.c)
- *     KeIpiGenericCall @ 0x14039AC30 (KeIpiGenericCall.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memset @ 0x140435A00 (memset.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140271580 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiGetContainingPageTable @ 0x1402E1500 (MiGetContainingPageTable.c)
+ *     MiInsertRecursiveTbFlushEntries @ 0x140368338 (MiInsertRecursiveTbFlushEntries.c)
+ *     KeIpiGenericCall @ 0x14039AE10 (KeIpiGenericCall.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     memset @ 0x140435E00 (memset.c)
  */
 
 __int64 __fastcall MiWritePteHighLevel(unsigned __int64 a1, unsigned __int64 a2, ULONG_PTR a3)
@@ -54,7 +54,7 @@ __int64 __fastcall MiWritePteHighLevel(unsigned __int64 a1, unsigned __int64 a2,
     MiInsertLargeTbFlushEntry((__int64)&Context[5], v7, a2);
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(0xCuLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     if ( CurrentIrql == 12 )
@@ -67,10 +67,10 @@ __int64 __fastcall MiWritePteHighLevel(unsigned __int64 a1, unsigned __int64 a2,
   HIDWORD(Context[4]) = KeNumberProcessors_0;
   LODWORD(Context[4]) = KeNumberProcessors_0;
   KeIpiGenericCall(MiWritePteHighLevelIsr, (ULONG_PTR)Context);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v12 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v12 <= 0xFu && CurrentIrql <= 0xFu && v12 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v12 <= 0xFu && CurrentIrql <= 0xFu && v12 >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       v14 = CurrentPrcb->SchedulerAssist;

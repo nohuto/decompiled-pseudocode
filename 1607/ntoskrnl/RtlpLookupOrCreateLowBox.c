@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlpLookupOrCreateLowBox @ 0x14001403C
+ * XREFs of RtlpLookupOrCreateLowBox @ 0x140013BBC
  * Callers:
- *     RtlpHashStringToAtom @ 0x140429580 (RtlpHashStringToAtom.c)
+ *     RtlpHashStringToAtom @ 0x140428450 (RtlpHashStringToAtom.c)
  * Callees:
- *     RtlpQueryLowBoxId @ 0x14000F2C8 (RtlpQueryLowBoxId.c)
- *     RtlpAllocateAtom @ 0x1404A4B10 (RtlpAllocateAtom.c)
+ *     RtlpQueryLowBoxId @ 0x14000EE48 (RtlpQueryLowBoxId.c)
+ *     RtlpAllocateAtom @ 0x14051CF10 (RtlpAllocateAtom.c)
  */
 
 __int64 __fastcall RtlpLookupOrCreateLowBox(__int64 a1, __int64 a2, char a3)

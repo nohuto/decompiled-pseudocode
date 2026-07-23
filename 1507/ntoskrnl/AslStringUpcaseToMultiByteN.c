@@ -21,7 +21,7 @@ __int64 __fastcall AslStringUpcaseToMultiByteN(char *a1, __int64 a2, const WCHAR
   const char *v9; // r9
   int v10; // r8d
   UNICODE_STRING SourceString; // [rsp+30h] [rbp-30h] BYREF
-  STRING v12; // [rsp+40h] [rbp-20h] BYREF
+  _STRING v12; // [rsp+40h] [rbp-20h] BYREF
   UNICODE_STRING DestinationString; // [rsp+50h] [rbp-10h] BYREF
 
   *(_QWORD *)&v12.Length = 0LL;

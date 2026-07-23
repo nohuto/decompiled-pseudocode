@@ -1,31 +1,31 @@
 /*
- * XREFs of PopFxActivateDevicesForSx @ 0x140495F64
+ * XREFs of PopFxActivateDevicesForSx @ 0x1404908F4
  * Callers:
- *     PopFxPrepareDevicesForShutdown @ 0x1404F501C (PopFxPrepareDevicesForShutdown.c)
- *     PoBroadcastSystemState @ 0x140B64C6C (PoBroadcastSystemState.c)
+ *     PopFxPrepareDevicesForShutdown @ 0x1404F291C (PopFxPrepareDevicesForShutdown.c)
+ *     PoBroadcastSystemState @ 0x140B66DA4 (PoBroadcastSystemState.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     ExfReleasePushLockShared @ 0x14025DE00 (ExfReleasePushLockShared.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     ExfAcquirePushLockSharedEx @ 0x14034050C (ExfAcquirePushLockSharedEx.c)
- *     PopFxActivateDevice @ 0x140496080 (PopFxActivateDevice.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     ExfReleasePushLockShared @ 0x14028E410 (ExfReleasePushLockShared.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     ExfAcquirePushLockSharedEx @ 0x14031F9EC (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     PopFxActivateDevice @ 0x140490A10 (PopFxActivateDevice.c)
  */
 
 void __fastcall PopFxActivateDevicesForSx(unsigned int a1)
 {
   struct _KTHREAD *CurrentThread; // rax
-  _QWORD *v3; // rbx
+  char *v3; // rbx
   ULONG_PTR i; // rbx
   __int64 v5; // rdi
 
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
-  v3 = KeAbPreAcquire((__int64)&PopFxDeviceListLock, 0LL);
+  v3 = (char *)KeAbPreAcquire((__int64)&PopFxDeviceListLock, 0LL);
   if ( _InterlockedCompareExchange64((volatile signed __int64 *)&PopFxDeviceListLock, 17LL, 0LL) )
     ExfAcquirePushLockSharedEx((signed __int64 *)&PopFxDeviceListLock, 0, v3, (__int64)&PopFxDeviceListLock);
   if ( v3 )
-    *((_BYTE *)v3 + 10) = 1;
+    v3[10] = 1;
   for ( i = PopFxDeviceList; (ULONG_PTR *)i != &PopFxDeviceList; i = *(_QWORD *)i )
   {
     v5 = *(_QWORD *)(i + 48);

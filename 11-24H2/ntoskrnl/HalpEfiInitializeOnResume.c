@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpEfiInitializeOnResume @ 0x14054CBF4
+ * XREFs of HalpEfiInitializeOnResume @ 0x14054A4B4
  * Callers:
- *     HalInitializeOnResume @ 0x1404F71E0 (HalInitializeOnResume.c)
+ *     HalInitializeOnResume @ 0x1404F4AC0 (HalInitializeOnResume.c)
  * Callees:
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     HalpSetResumeTime @ 0x14055A588 (HalpSetResumeTime.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     HalpSetResumeTime @ 0x1405581B8 (HalpSetResumeTime.c)
  */
 
 __int64 __fastcall HalpEfiInitializeOnResume(__int64 a1, __int64 a2)

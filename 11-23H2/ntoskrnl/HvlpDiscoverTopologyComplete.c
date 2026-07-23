@@ -1,9 +1,9 @@
 /*
  * XREFs of HvlpDiscoverTopologyComplete @ 0x140B930B4
  * Callers:
- *     HvlPhase2Initialize @ 0x1403B4CA0 (HvlPhase2Initialize.c)
+ *     HvlPhase2Initialize @ 0x1403B4E80 (HvlPhase2Initialize.c)
  * Callees:
- *     HvlpDiscoverTopologyWorker @ 0x1409413A8 (HvlpDiscoverTopologyWorker.c)
+ *     HvlpDiscoverTopologyWorker @ 0x1409415A8 (HvlpDiscoverTopologyWorker.c)
  */
 
 int *HvlpDiscoverTopologyComplete()

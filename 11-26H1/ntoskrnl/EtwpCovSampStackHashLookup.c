@@ -1,8 +1,8 @@
 /*
- * XREFs of EtwpCovSampStackHashLookup @ 0x14077BAE0
+ * XREFs of EtwpCovSampStackHashLookup @ 0x14077E720
  * Callers:
- *     EtwpCovSampStackHashCheck @ 0x14093ECA8 (EtwpCovSampStackHashCheck.c)
- *     EtwpCovSampCaptureBufferMapAddressesAndQueue @ 0x140A23970 (EtwpCovSampCaptureBufferMapAddressesAndQueue.c)
+ *     EtwpCovSampStackHashCheck @ 0x140A31DB8 (EtwpCovSampStackHashCheck.c)
+ *     EtwpCovSampCaptureBufferMapAddressesAndQueue @ 0x140A36480 (EtwpCovSampCaptureBufferMapAddressesAndQueue.c)
  * Callees:
  *     <none>
  */

@@ -1,7 +1,7 @@
 /*
- * XREFs of ObCheckActiveHandles @ 0x1406C43E8
+ * XREFs of ObCheckActiveHandles @ 0x1406C5688
  * Callers:
- *     MiFinishCreateSection @ 0x1405DE0B0 (MiFinishCreateSection.c)
+ *     MiFinishCreateSection @ 0x1405DF0B0 (MiFinishCreateSection.c)
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     ExReleasePushLockEx @ 0x14004F160 (ExReleasePushLockEx.c)

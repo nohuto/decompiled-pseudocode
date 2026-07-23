@@ -9,7 +9,7 @@
  *     AslLogCallPrintf @ 0x1407405C4 (AslLogCallPrintf.c)
  */
 
-__int64 __fastcall SdbGetIndex(union _RTL_RUN_ONCE *Parameter, __int16 a2, __int16 a3, _DWORD *a4)
+__int64 __fastcall SdbGetIndex(_RTL_RUN_ONCE *Parameter, __int16 a2, __int16 a3, _DWORD *a4)
 {
   unsigned int v7; // edi
   int v8; // ecx

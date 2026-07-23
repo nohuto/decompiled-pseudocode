@@ -1,9 +1,9 @@
 /*
- * XREFs of KiRcuStartGracePeriodEnumCallback @ 0x1404FA128
+ * XREFs of KiRcuStartGracePeriodEnumCallback @ 0x1404F3738
  * Callers:
- *     KiRcuForEachParticipatingCpu @ 0x1404F0A74 (KiRcuForEachParticipatingCpu.c)
+ *     KiRcuForEachParticipatingCpu @ 0x1404EA054 (KiRcuForEachParticipatingCpu.c)
  * Callees:
- *     KiRcuCheckQuiescentForIdle @ 0x1405F0068 (KiRcuCheckQuiescentForIdle.c)
+ *     KiRcuCheckQuiescentForIdle @ 0x1405F29D8 (KiRcuCheckQuiescentForIdle.c)
  */
 
 __int64 __fastcall KiRcuStartGracePeriodEnumCallback(__int64 a1, _DWORD *a2)

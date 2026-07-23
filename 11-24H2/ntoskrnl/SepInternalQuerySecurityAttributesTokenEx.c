@@ -1,32 +1,32 @@
 /*
- * XREFs of SepInternalQuerySecurityAttributesTokenEx @ 0x140358240
+ * XREFs of SepInternalQuerySecurityAttributesTokenEx @ 0x1403B7650
  * Callers:
- *     SeQuerySecurityAttributesTokenAccessInformation @ 0x140359350 (SeQuerySecurityAttributesTokenAccessInformation.c)
- *     NtQuerySecurityAttributesToken @ 0x140888DC0 (NtQuerySecurityAttributesToken.c)
- *     SeQuerySecurityAttributesToken @ 0x1409ECEB0 (SeQuerySecurityAttributesToken.c)
- *     NtQueryInformationToken @ 0x140AD3370 (NtQueryInformationToken.c)
+ *     SeQuerySecurityAttributesTokenAccessInformation @ 0x1403B5CD0 (SeQuerySecurityAttributesTokenAccessInformation.c)
+ *     NtQuerySecurityAttributesToken @ 0x14088CC70 (NtQuerySecurityAttributesToken.c)
+ *     SeQuerySecurityAttributesToken @ 0x1409E61E0 (SeQuerySecurityAttributesToken.c)
+ *     NtQueryInformationToken @ 0x140AD09E0 (NtQueryInformationToken.c)
  * Callees:
- *     ExReleaseSpinLockShared @ 0x140246D40 (ExReleaseSpinLockShared.c)
- *     KeLeaveCriticalRegionThread @ 0x1402595A0 (KeLeaveCriticalRegionThread.c)
- *     ExReleaseResourceLite @ 0x14025A450 (ExReleaseResourceLite.c)
- *     ExAcquireSpinLockShared @ 0x14031A1A0 (ExAcquireSpinLockShared.c)
- *     ExAcquireResourceSharedLite @ 0x140341E80 (ExAcquireResourceSharedLite.c)
- *     AuthzBasepAllocateSecurityAttributesList @ 0x140356CD0 (AuthzBasepAllocateSecurityAttributesList.c)
- *     SepGetSingletonEntryFromIndexNumber @ 0x140357308 (SepGetSingletonEntryFromIndexNumber.c)
- *     SepInternalFillNoAttribs @ 0x140357C14 (SepInternalFillNoAttribs.c)
- *     AuthzBasepEqualUnicodeString @ 0x140357D50 (AuthzBasepEqualUnicodeString.c)
- *     AuthzBasepSecurityAttributePresent @ 0x140357D80 (AuthzBasepSecurityAttributePresent.c)
- *     AuthzBasepEqualUnicodeStringCaseSensitive @ 0x140357F14 (AuthzBasepEqualUnicodeStringCaseSensitive.c)
- *     AuthzBasepQuerySecurityAttributesToken @ 0x140358820 (AuthzBasepQuerySecurityAttributesToken.c)
- *     AuthzBasepCopyoutSecurityAttributes @ 0x140358BA0 (AuthzBasepCopyoutSecurityAttributes.c)
- *     AuthzBasepGetSecurityAttributeValueCopyoutBufferSize @ 0x140358ED0 (AuthzBasepGetSecurityAttributeValueCopyoutBufferSize.c)
- *     SepPotentialGlobalTableAttribute @ 0x1403592C8 (SepPotentialGlobalTableAttribute.c)
- *     AuthzBasepFreeSecurityAttributesList @ 0x14035C750 (AuthzBasepFreeSecurityAttributesList.c)
- *     AuthzBasepDuplicateSecurityAttributes @ 0x14035F940 (AuthzBasepDuplicateSecurityAttributes.c)
- *     SepGetProcUniqueLuidAndIndexFromAttributeInfo @ 0x140477830 (SepGetProcUniqueLuidAndIndexFromAttributeInfo.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     RtlEqualUnicodeString @ 0x140927050 (RtlEqualUnicodeString.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ExReleaseSpinLockShared @ 0x1402195E0 (ExReleaseSpinLockShared.c)
+ *     SepGetSingletonEntryFromIndexNumber @ 0x14021AA04 (SepGetSingletonEntryFromIndexNumber.c)
+ *     KeLeaveCriticalRegionThread @ 0x140289BB0 (KeLeaveCriticalRegionThread.c)
+ *     ExReleaseResourceLite @ 0x14028AA60 (ExReleaseResourceLite.c)
+ *     ExAcquireSpinLockShared @ 0x1402C2D30 (ExAcquireSpinLockShared.c)
+ *     ExAcquireResourceSharedLite @ 0x140321360 (ExAcquireResourceSharedLite.c)
+ *     AuthzBasepQuerySecurityAttributesToken @ 0x1403B7C30 (AuthzBasepQuerySecurityAttributesToken.c)
+ *     AuthzBasepCopyoutSecurityAttributes @ 0x1403B7FB0 (AuthzBasepCopyoutSecurityAttributes.c)
+ *     AuthzBasepGetSecurityAttributeValueCopyoutBufferSize @ 0x1403B82E0 (AuthzBasepGetSecurityAttributeValueCopyoutBufferSize.c)
+ *     SepPotentialGlobalTableAttribute @ 0x1403B86D8 (SepPotentialGlobalTableAttribute.c)
+ *     AuthzBasepSecurityAttributePresent @ 0x1403B8760 (AuthzBasepSecurityAttributePresent.c)
+ *     AuthzBasepEqualUnicodeStringCaseSensitive @ 0x1403B88F4 (AuthzBasepEqualUnicodeStringCaseSensitive.c)
+ *     AuthzBasepEqualUnicodeString @ 0x1403B8930 (AuthzBasepEqualUnicodeString.c)
+ *     SepInternalFillNoAttribs @ 0x1403B8A6C (SepInternalFillNoAttribs.c)
+ *     AuthzBasepFreeSecurityAttributesList @ 0x1403B95E0 (AuthzBasepFreeSecurityAttributesList.c)
+ *     AuthzBasepAllocateSecurityAttributesList @ 0x1403B972C (AuthzBasepAllocateSecurityAttributesList.c)
+ *     AuthzBasepDuplicateSecurityAttributes @ 0x1403BA310 (AuthzBasepDuplicateSecurityAttributes.c)
+ *     SepGetProcUniqueLuidAndIndexFromAttributeInfo @ 0x140473DD0 (SepGetProcUniqueLuidAndIndexFromAttributeInfo.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     RtlEqualUnicodeString @ 0x140929190 (RtlEqualUnicodeString.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall SepInternalQuerySecurityAttributesTokenEx(
@@ -56,9 +56,9 @@ __int64 __fastcall SepInternalQuerySecurityAttributesTokenEx(
   __int64 result; // rax
   unsigned __int16 v25; // r8
   unsigned __int16 v26; // dx
-  const void **v27; // rcx
+  const UNICODE_STRING *v27; // rcx
   const UNICODE_STRING *v28; // rdx
-  char v29; // al
+  BOOLEAN v29; // al
   unsigned __int64 v30; // rax
   unsigned int *v31; // rsi
   unsigned __int64 v32; // rcx
@@ -105,7 +105,7 @@ __int64 __fastcall SepInternalQuerySecurityAttributesTokenEx(
       for ( i = 0; i < (unsigned int)v8; ++i )
       {
         if ( !(unsigned __int8)SepPotentialGlobalTableAttribute((PCUNICODE_STRING)(a3 + 16LL * i))
-          || AuthzBasepSecurityAttributePresent(*(_QWORD *)(a1 + 776), (const UNICODE_STRING *)(a3 + 16LL * i)) )
+          || (unsigned __int8)AuthzBasepSecurityAttributePresent(*(_QWORD *)(a1 + 776), a3 + 16LL * i) )
         {
           goto LABEL_5;
         }
@@ -148,13 +148,13 @@ LABEL_52:
     SingletonEntryFromIndexNumber = (volatile LONG *)SepGetSingletonEntryFromIndexNumber(v58);
     v46 = SingletonEntryFromIndexNumber;
     if ( !SingletonEntryFromIndexNumber )
-      return SepInternalFillNoAttribs(a6, Size, a8);
+      return SepInternalFillNoAttribs(a6, (unsigned int)Size, a8);
     v47 = ExAcquireSpinLockShared(SingletonEntryFromIndexNumber);
     v48 = v47;
     if ( !*((_QWORD *)v46 + 2) )
     {
       ExReleaseSpinLockShared(v46, v47);
-      return SepInternalFillNoAttribs(a6, Size, a8);
+      return SepInternalFillNoAttribs(a6, (unsigned int)Size, a8);
     }
     SecurityAttributesList = AuthzBasepAllocateSecurityAttributesList();
     v50 = (void *)SecurityAttributesList;
@@ -164,7 +164,7 @@ LABEL_52:
       SecurityAttributesToken = -1073741801;
     ExReleaseSpinLockShared(v46, v48);
     if ( SecurityAttributesToken == -1073741275 )
-      return SepInternalFillNoAttribs(a6, Size, a8);
+      return SepInternalFillNoAttribs(a6, (unsigned int)Size, a8);
     if ( SecurityAttributesToken < 0 )
     {
       if ( v50 )
@@ -227,12 +227,12 @@ LABEL_5:
           while ( v19 != v20 )
           {
             v57 = v19;
-            v27 = (const void **)(v19 + 8);
+            v27 = (const UNICODE_STRING *)(v19 + 8);
             v28 = (const UNICODE_STRING *)(a3 + 16LL * k);
             if ( KeGetCurrentIrql() >= 2u )
-              v29 = AuthzBasepEqualUnicodeStringCaseSensitive(v27, (__int64)v28);
+              v29 = AuthzBasepEqualUnicodeStringCaseSensitive(v27, v28);
             else
-              v29 = RtlEqualUnicodeString((PCUNICODE_STRING)v27, v28, 1u);
+              v29 = RtlEqualUnicodeString(v27, v28, 1u);
             if ( v29 )
             {
 LABEL_43:
@@ -246,11 +246,8 @@ LABEL_43:
           {
             v55 = m[10];
             v57 = m - 4;
-            if ( (v55 & 1) == 0
-              && AuthzBasepEqualUnicodeString((const UNICODE_STRING *)m + 1, (const UNICODE_STRING *)(a3 + 16LL * k)) )
-            {
+            if ( (v55 & 1) == 0 && (unsigned __int8)AuthzBasepEqualUnicodeString(m + 4, a3 + 16LL * k) )
               goto LABEL_43;
-            }
           }
           v22 = 0;
 LABEL_18:

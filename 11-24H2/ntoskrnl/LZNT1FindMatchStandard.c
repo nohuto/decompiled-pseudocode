@@ -1,7 +1,7 @@
 /*
- * XREFs of LZNT1FindMatchStandard @ 0x140B64500
+ * XREFs of LZNT1FindMatchStandard @ 0x140B66610
  * Callers:
- *     LZNT1CompressChunk @ 0x140B64200 (LZNT1CompressChunk.c)
+ *     LZNT1CompressChunk @ 0x140B66310 (LZNT1CompressChunk.c)
  * Callees:
  *     <none>
  */

@@ -1,9 +1,9 @@
 /*
- * XREFs of ViPostPoolAllocation @ 0x140B918F0
+ * XREFs of ViPostPoolAllocation @ 0x140B938F0
  * Callers:
- *     VfHandlePoolAlloc @ 0x140BA8AA0 (VfHandlePoolAlloc.c)
+ *     VfHandlePoolAlloc @ 0x140BAAAA0 (VfHandlePoolAlloc.c)
  * Callees:
- *     ExpSizeHeapPool @ 0x14065A448 (ExpSizeHeapPool.c)
+ *     ExpSizeHeapPool @ 0x140658B18 (ExpSizeHeapPool.c)
  */
 
 unsigned __int64 __fastcall ViPostPoolAllocation(unsigned __int64 *a1, char a2)
@@ -51,12 +51,12 @@ unsigned __int64 __fastcall ViPostPoolAllocation(unsigned __int64 *a1, char a2)
     v10 = _InterlockedIncrement((volatile signed __int32 *)(v5 + 112));
     if ( v10 > *(_DWORD *)(v5 + 120) )
       *(_DWORD *)(v5 + 120) = v10;
-    v11 = v6 + _InterlockedExchangeAdd64(&qword_140F03ED8, v6);
-    if ( v11 > qword_140F03EE8 )
-      qword_140F03EE8 = v11;
-    v12 = _InterlockedIncrement(&dword_140F03EC4);
-    if ( v12 > dword_140F03ECC )
-      dword_140F03ECC = v12;
+    v11 = v6 + _InterlockedExchangeAdd64(&qword_140F04838, v6);
+    if ( v11 > qword_140F04848 )
+      qword_140F04848 = v11;
+    v12 = _InterlockedIncrement(&dword_140F04824);
+    if ( v12 > dword_140F0482C )
+      dword_140F0482C = v12;
   }
   else
   {
@@ -66,12 +66,12 @@ unsigned __int64 __fastcall ViPostPoolAllocation(unsigned __int64 *a1, char a2)
     v14 = _InterlockedIncrement((volatile signed __int32 *)(v5 + 116));
     if ( v14 > *(_DWORD *)(v5 + 124) )
       *(_DWORD *)(v5 + 124) = v14;
-    v15 = v6 + _InterlockedExchangeAdd64(&qword_140F03EE0, v6);
-    if ( v15 > qword_140F03EF0 )
-      qword_140F03EF0 = v15;
-    v16 = _InterlockedIncrement(&dword_140F03EC8);
-    if ( v16 > dword_140F03ED0 )
-      dword_140F03ED0 = v16;
+    v15 = v6 + _InterlockedExchangeAdd64(&qword_140F04840, v6);
+    if ( v15 > qword_140F04850 )
+      qword_140F04850 = v15;
+    v16 = _InterlockedIncrement(&dword_140F04828);
+    if ( v16 > dword_140F04830 )
+      dword_140F04830 = v16;
   }
   result = v2;
   *v7 = a1;

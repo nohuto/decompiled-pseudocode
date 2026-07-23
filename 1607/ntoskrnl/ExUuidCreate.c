@@ -1,22 +1,22 @@
 /*
- * XREFs of ExUuidCreate @ 0x1404A2404
+ * XREFs of ExUuidCreate @ 0x14051A810
  * Callers:
- *     EtwpStartLogger @ 0x14048EE94 (EtwpStartLogger.c)
- *     CmpUuidCreate @ 0x14049F598 (CmpUuidCreate.c)
- *     NtCreateJobObject @ 0x1404A20AC (NtCreateJobObject.c)
- *     PipGenerateContainerID @ 0x1404EB3C4 (PipGenerateContainerID.c)
- *     CmpCloneHwProfile @ 0x1406071B0 (CmpCloneHwProfile.c)
- *     ?CreateGuid@PC_ENVIRONMENT@@SAJPEAU_GUID@@@Z @ 0x14061FE90 (-CreateGuid@PC_ENVIRONMENT@@SAJPEAU_GUID@@@Z.c)
- *     PiDevCfgResolveVariableGenerateGuid @ 0x140640250 (PiDevCfgResolveVariableGenerateGuid.c)
- *     BiCreateObject @ 0x1406D2334 (BiCreateObject.c)
+ *     EtwpStartLogger @ 0x14048F924 (EtwpStartLogger.c)
+ *     PipGenerateContainerID @ 0x1404CD548 (PipGenerateContainerID.c)
+ *     CmpUuidCreate @ 0x1405179A4 (CmpUuidCreate.c)
+ *     NtCreateJobObject @ 0x14051A4B8 (NtCreateJobObject.c)
+ *     CmpCloneHwProfile @ 0x140607264 (CmpCloneHwProfile.c)
+ *     ?CreateGuid@PC_ENVIRONMENT@@SAJPEAU_GUID@@@Z @ 0x14061FF44 (-CreateGuid@PC_ENVIRONMENT@@SAJPEAU_GUID@@@Z.c)
+ *     PiDevCfgResolveVariableGenerateGuid @ 0x140640334 (PiDevCfgResolveVariableGenerateGuid.c)
+ *     BiCreateObject @ 0x1406D246C (BiCreateObject.c)
  * Callees:
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x140055FA0 (KiLeaveCriticalRegionUnsafe.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1400C8070 (ExfAcquirePushLockExclusiveEx.c)
- *     ExfTryToWakePushLock @ 0x1400C8738 (ExfTryToWakePushLock.c)
- *     ExpUuidSaveSequenceNumberIf @ 0x1404E5644 (ExpUuidSaveSequenceNumberIf.c)
- *     ExpUuidGetValues @ 0x140580AC0 (ExpUuidGetValues.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140055B20 (KiLeaveCriticalRegionUnsafe.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1400C5F10 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfTryToWakePushLock @ 0x1400C65D8 (ExfTryToWakePushLock.c)
+ *     ExpUuidSaveSequenceNumberIf @ 0x1404C8260 (ExpUuidSaveSequenceNumberIf.c)
+ *     ExpUuidGetValues @ 0x140580F6C (ExpUuidGetValues.c)
  */
 
 NTSTATUS __stdcall ExUuidCreate(UUID *Uuid)
@@ -46,7 +46,7 @@ NTSTATUS __stdcall ExUuidCreate(UUID *Uuid)
       v4 = ExpUuidCachedValues;
       v5 = ExpUuidCacheValid;
       *(_DWORD *)Uuid->Data4 = dword_140747294;
-      *(_DWORD *)&Uuid->Data4[4] = dword_140747298;
+      *(_DWORD *)&Uuid->Data4[4] = unk_140747298;
       v6 = _InterlockedDecrement(&dword_140747290);
     }
     while ( v4 != ExpUuidCachedValues );

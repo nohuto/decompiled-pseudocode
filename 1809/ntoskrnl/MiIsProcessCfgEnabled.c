@@ -1,15 +1,15 @@
 /*
- * XREFs of MiIsProcessCfgEnabled @ 0x1400884BC
+ * XREFs of MiIsProcessCfgEnabled @ 0x1400884AC
  * Callers:
- *     MiAllocateVirtualMemory @ 0x1405ED650 (MiAllocateVirtualMemory.c)
- *     MmProtectVirtualMemory @ 0x1405EDFD0 (MmProtectVirtualMemory.c)
- *     MiMapViewOfDataSection @ 0x1405F0BB0 (MiMapViewOfDataSection.c)
- *     MiReserveUserMemory @ 0x1405F1600 (MiReserveUserMemory.c)
- *     MiMapViewOfImageSection @ 0x1405F3660 (MiMapViewOfImageSection.c)
- *     MiCommitVadCfgBits @ 0x1405F45BC (MiCommitVadCfgBits.c)
- *     MiCfgMarkValidEntries @ 0x1405F631C (MiCfgMarkValidEntries.c)
- *     MiMapViewOfPhysicalSection @ 0x1407544A0 (MiMapViewOfPhysicalSection.c)
- *     MmValidateUserCallTarget @ 0x14085C288 (MmValidateUserCallTarget.c)
+ *     MiAllocateVirtualMemory @ 0x1405EE650 (MiAllocateVirtualMemory.c)
+ *     MmProtectVirtualMemory @ 0x1405EEFD0 (MmProtectVirtualMemory.c)
+ *     MiMapViewOfDataSection @ 0x1405F1BB0 (MiMapViewOfDataSection.c)
+ *     MiReserveUserMemory @ 0x1405F2600 (MiReserveUserMemory.c)
+ *     MiMapViewOfImageSection @ 0x1405F4660 (MiMapViewOfImageSection.c)
+ *     MiCommitVadCfgBits @ 0x1405F55BC (MiCommitVadCfgBits.c)
+ *     MiCfgMarkValidEntries @ 0x1405F731C (MiCfgMarkValidEntries.c)
+ *     MiMapViewOfPhysicalSection @ 0x140755690 (MiMapViewOfPhysicalSection.c)
+ *     MmValidateUserCallTarget @ 0x14085D4E8 (MmValidateUserCallTarget.c)
  * Callees:
  *     <none>
  */

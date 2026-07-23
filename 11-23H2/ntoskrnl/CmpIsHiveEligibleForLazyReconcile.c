@@ -1,10 +1,10 @@
 /*
- * XREFs of CmpIsHiveEligibleForLazyReconcile @ 0x140750990
+ * XREFs of CmpIsHiveEligibleForLazyReconcile @ 0x140750B80
  * Callers:
- *     CmpDoReconcileNextHive @ 0x140750A40 (CmpDoReconcileNextHive.c)
+ *     CmpDoReconcileNextHive @ 0x140750C30 (CmpDoReconcileNextHive.c)
  * Callees:
- *     KiQueryUnbiasedInterruptTime @ 0x1402E7464 (KiQueryUnbiasedInterruptTime.c)
- *     HvGetEffectiveLogSizeCapForHive @ 0x1407511B8 (HvGetEffectiveLogSizeCapForHive.c)
+ *     KiQueryUnbiasedInterruptTime @ 0x1402E76F4 (KiQueryUnbiasedInterruptTime.c)
+ *     HvGetEffectiveLogSizeCapForHive @ 0x1407513A8 (HvGetEffectiveLogSizeCapForHive.c)
  */
 
 bool __fastcall CmpIsHiveEligibleForLazyReconcile(__int64 a1)

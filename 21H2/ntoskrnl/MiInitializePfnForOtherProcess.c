@@ -1,25 +1,24 @@
 /*
- * XREFs of MiInitializePfnForOtherProcess @ 0x1402E5808
+ * XREFs of MiInitializePfnForOtherProcess @ 0x140296B58
  * Callers:
- *     MiMapPageFileHash @ 0x1402CDE38 (MiMapPageFileHash.c)
- *     MiInitializeSystemPageTable @ 0x1402E5484 (MiInitializeSystemPageTable.c)
- *     MiDemoteValidLargePageOneLevel @ 0x1403BA228 (MiDemoteValidLargePageOneLevel.c)
- *     MiMakeOutswappedPageResident @ 0x14052BAC0 (MiMakeOutswappedPageResident.c)
- *     MiDuplicateCloneLeaf @ 0x14055A234 (MiDuplicateCloneLeaf.c)
- *     MiAllocateTopLevelPage @ 0x1406D0824 (MiAllocateTopLevelPage.c)
- *     MiMapNewSession @ 0x14078708C (MiMapNewSession.c)
- *     MiInitializeShadowPageTable @ 0x1407A0368 (MiInitializeShadowPageTable.c)
+ *     MiMapPageFileHash @ 0x14024C338 (MiMapPageFileHash.c)
+ *     MiInitializeSystemPageTable @ 0x1402967D4 (MiInitializeSystemPageTable.c)
+ *     MiDemoteValidLargePageOneLevel @ 0x1403BA398 (MiDemoteValidLargePageOneLevel.c)
+ *     MiMakeOutswappedPageResident @ 0x14052BD00 (MiMakeOutswappedPageResident.c)
+ *     MiDuplicateCloneLeaf @ 0x14055A474 (MiDuplicateCloneLeaf.c)
+ *     MiAllocateTopLevelPage @ 0x1406A7B04 (MiAllocateTopLevelPage.c)
+ *     MiMapNewSession @ 0x14078724C (MiMapNewSession.c)
+ *     MiInitializeShadowPageTable @ 0x1407A0568 (MiInitializeShadowPageTable.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x14024B280 (KeYieldProcessorEx.c)
- *     MiLockAndIncrementShareCount @ 0x1402E5920 (MiLockAndIncrementShareCount.c)
- *     MiLockPageInline @ 0x1402FFE30 (MiLockPageInline.c)
- *     MiSwizzleInvalidPte @ 0x140329F90 (MiSwizzleInvalidPte.c)
+ *     MiLockAndIncrementShareCount @ 0x140296C70 (MiLockAndIncrementShareCount.c)
+ *     KeYieldProcessorEx @ 0x1402EFAD0 (KeYieldProcessorEx.c)
+ *     MiLockPageInline @ 0x14030AB80 (MiLockPageInline.c)
+ *     MiSwizzleInvalidPte @ 0x140334CE0 (MiSwizzleInvalidPte.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
-__int64 __fastcall MiInitializePfnForOtherProcess(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+__int64 __fastcall MiInitializePfnForOtherProcess(__int64 a1, __int64 a2, __int64 a3, __int16 a4)
 {
-  __int16 v4; // si
   __int64 v7; // rbx
   unsigned __int8 v8; // di
   unsigned __int64 v9; // rdx
@@ -34,7 +33,6 @@ __int64 __fastcall MiInitializePfnForOtherProcess(__int64 a1, __int64 a2, __int6
   bool v18; // zf
   int v19; // [rsp+58h] [rbp+20h] BYREF
 
-  v4 = a4;
   v7 = 48 * a1 - 0x58000000000LL;
   if ( (a4 & 0x10) != 0 )
   {
@@ -43,27 +41,27 @@ __int64 __fastcall MiInitializePfnForOtherProcess(__int64 a1, __int64 a2, __int6
     while ( _interlockedbittestandset64((volatile signed __int32 *)(v7 + 24), 0x3FuLL) )
     {
       do
-        KeYieldProcessorEx(&v19, a2, a3, a4);
+        KeYieldProcessorEx(&v19);
       while ( *(__int64 *)(v7 + 24) < 0 );
     }
   }
   else
   {
-    v8 = MiLockPageInline(48 * a1 - 0x58000000000LL, a2, a3);
+    v8 = MiLockPageInline(48 * a1 - 0x58000000000LL);
   }
   v9 = *(_QWORD *)(v7 + 24) & 0xF0FFFFFFFFFFFFFFuLL;
   *(_QWORD *)(v7 + 8) = a2;
   *(_QWORD *)(v7 + 24) = v9;
   *(_QWORD *)(v7 + 16) = MiSwizzleInvalidPte(128LL);
   *(_WORD *)(v7 + 32) = 1;
-  if ( (v4 & 0x80u) != 0 )
+  if ( (a4 & 0x80u) != 0 )
     v11 = v10 ^ ((v10 + 1) ^ v10) & 0x3FFFFFFFFFFFFFFFLL;
   else
     v11 = v10 & 0xC000000000000000uLL | 1;
   *(_QWORD *)(v7 + 24) = v11;
   v12 = *(_BYTE *)(v7 + 34) | 0x10;
   *(_BYTE *)(v7 + 34) = v12;
-  if ( (v4 & 0x200) != 0 )
+  if ( (a4 & 0x200) != 0 )
     *(_BYTE *)(v7 + 34) = v12 & 0xF8 | 6;
   *(_QWORD *)(v7 + 40) ^= (a3 ^ *(_QWORD *)(v7 + 40)) & 0xFFFFFFFFFLL;
   result = 0x7FFFFFFFFFFFFFFFLL;
@@ -90,7 +88,7 @@ __int64 __fastcall MiInitializePfnForOtherProcess(__int64 a1, __int64 a2, __int6
     result = v8;
     __writecr8(v8);
   }
-  if ( (v4 & 0x800) == 0 )
+  if ( (a4 & 0x800) == 0 )
     return MiLockAndIncrementShareCount(a3);
   return result;
 }

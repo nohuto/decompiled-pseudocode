@@ -1,14 +1,14 @@
 /*
- * XREFs of ZwGetDevicePowerState @ 0x1407253B0
+ * XREFs of ZwGetDevicePowerState @ 0x140729F80
  * Callers:
- *     DifZwGetDevicePowerStateWrapper @ 0x1406A77E0 (DifZwGetDevicePowerStateWrapper.c)
+ *     DifZwGetDevicePowerStateWrapper @ 0x1406AB3C0 (DifZwGetDevicePowerStateWrapper.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwGetDevicePowerState(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwGetDevicePowerState(HANDLE Device, PDEVICE_POWER_STATE State)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(Device);
 }

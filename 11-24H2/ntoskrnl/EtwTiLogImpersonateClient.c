@@ -1,21 +1,21 @@
 /*
- * XREFs of EtwTiLogImpersonateClient @ 0x140910DC8
+ * XREFs of EtwTiLogImpersonateClient @ 0x1408E8518
  * Callers:
- *     PsImpersonateClient @ 0x1409102D0 (PsImpersonateClient.c)
+ *     PsImpersonateClient @ 0x1408E7A20 (PsImpersonateClient.c)
  * Callees:
- *     EtwEventEnabled @ 0x1402A1BD0 (EtwEventEnabled.c)
- *     PsReferencePrimaryTokenWithTag @ 0x14033FFF0 (PsReferencePrimaryTokenWithTag.c)
- *     ObFastDereferenceObject @ 0x140356880 (ObFastDereferenceObject.c)
- *     EtwProviderEnabled @ 0x1403D47F0 (EtwProviderEnabled.c)
- *     EtwpTiFillProcessIdentity @ 0x1403D4B94 (EtwpTiFillProcessIdentity.c)
- *     EtwWrite @ 0x14041C1B0 (EtwWrite.c)
- *     EtwpTiFillThreadIdentity @ 0x140467AC0 (EtwpTiFillThreadIdentity.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     SeQueryInformationToken @ 0x14090D870 (SeQueryInformationToken.c)
- *     SeCompareTokens @ 0x140A235A8 (SeCompareTokens.c)
- *     EtwpTiQueryTokenIdentity @ 0x140A70AB4 (EtwpTiQueryTokenIdentity.c)
- *     EtwpTiFillTokenIdentity @ 0x140A80558 (EtwpTiFillTokenIdentity.c)
- *     EtwpTiFreeTokenIdentity @ 0x140A967E0 (EtwpTiFreeTokenIdentity.c)
+ *     EtwProviderEnabled @ 0x140262770 (EtwProviderEnabled.c)
+ *     EtwpTiFillProcessIdentity @ 0x1402633C0 (EtwpTiFillProcessIdentity.c)
+ *     EtwEventEnabled @ 0x1402D1300 (EtwEventEnabled.c)
+ *     PsReferencePrimaryTokenWithTag @ 0x14031F4D0 (PsReferencePrimaryTokenWithTag.c)
+ *     ObFastDereferenceObject @ 0x140324D60 (ObFastDereferenceObject.c)
+ *     EtwWrite @ 0x14040FFB0 (EtwWrite.c)
+ *     EtwpTiFillThreadIdentity @ 0x14045F510 (EtwpTiFillThreadIdentity.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     SeQueryInformationToken @ 0x1408E4F90 (SeQueryInformationToken.c)
+ *     SeCompareTokens @ 0x140A179B8 (SeCompareTokens.c)
+ *     EtwpTiQueryTokenIdentity @ 0x140A69F44 (EtwpTiQueryTokenIdentity.c)
+ *     EtwpTiFillTokenIdentity @ 0x140A7AFB8 (EtwpTiFillTokenIdentity.c)
+ *     EtwpTiFreeTokenIdentity @ 0x140A93010 (EtwpTiFreeTokenIdentity.c)
  */
 
 char __fastcall EtwTiLogImpersonateClient(__int64 a1, __int64 a2, void *a3, void *a4)

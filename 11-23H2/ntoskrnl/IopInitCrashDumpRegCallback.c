@@ -3,12 +3,12 @@
  * Callers:
  *     <none>
  * Callees:
- *     RtlInitUnicodeStringEx @ 0x14022B6C0 (RtlInitUnicodeStringEx.c)
- *     ExAcquireResourceExclusiveLite @ 0x1402390E0 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x14023D410 (ExReleaseResourceLite.c)
- *     NtClose @ 0x1406E44C0 (NtClose.c)
- *     IoCreateFile @ 0x1407D0680 (IoCreateFile.c)
- *     IopInitializeCrashDump @ 0x140832C88 (IopInitializeCrashDump.c)
+ *     RtlInitUnicodeStringEx @ 0x14022B7D0 (RtlInitUnicodeStringEx.c)
+ *     ExAcquireResourceExclusiveLite @ 0x1402391B0 (ExAcquireResourceExclusiveLite.c)
+ *     ExReleaseResourceLite @ 0x14023D4E0 (ExReleaseResourceLite.c)
+ *     NtClose @ 0x1406E44F0 (NtClose.c)
+ *     IoCreateFile @ 0x1407D0950 (IoCreateFile.c)
+ *     IopInitializeCrashDump @ 0x140832F88 (IopInitializeCrashDump.c)
  */
 
 __int64 __fastcall IopInitCrashDumpRegCallback(__int64 a1, __int64 a2, const WCHAR *a3, int a4, __int64 a5, _BYTE *a6)

@@ -1,24 +1,22 @@
 /*
- * XREFs of RtlEraseUnicodeString @ 0x180111E30
+ * XREFs of RtlEraseUnicodeString @ 0x1801118E0
  * Callers:
  *     <none>
  * Callees:
- *     memset$thunk$772440563353939046 @ 0x180170030 (memset$thunk$772440563353939046.c)
+ *     memset$thunk$772440563353939046 @ 0x18016F030 (memset$thunk$772440563353939046.c)
  */
 
-void *__fastcall RtlEraseUnicodeString(__int64 a1)
+void __cdecl RtlEraseUnicodeString(PUNICODE_STRING String)
 {
-  void *v2; // rcx
-  void *result; // rax
+  wchar_t *Buffer; // rcx
 
-  v2 = *(void **)(a1 + 8);
-  if ( v2 )
+  Buffer = String->Buffer;
+  if ( Buffer )
   {
-    if ( *(_WORD *)(a1 + 2) )
+    if ( String->MaximumLength )
     {
-      result = memset_thunk_772440563353939046(v2, 0, *(unsigned __int16 *)(a1 + 2));
-      *(_WORD *)a1 = 0;
+      memset_thunk_772440563353939046(Buffer, 0, String->MaximumLength);
+      String->Length = 0;
     }
   }
-  return result;
 }

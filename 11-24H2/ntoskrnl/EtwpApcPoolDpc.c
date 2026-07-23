@@ -1,11 +1,11 @@
 /*
- * XREFs of EtwpApcPoolDpc @ 0x1403ED0C0
+ * XREFs of EtwpApcPoolDpc @ 0x1403DD090
  * Callers:
  *     <none>
  * Callees:
- *     ExReleaseRundownProtectionCacheAwareEx @ 0x140259600 (ExReleaseRundownProtectionCacheAwareEx.c)
- *     EtwpQueueApc @ 0x1403EE2B0 (EtwpQueueApc.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
+ *     ExReleaseRundownProtectionCacheAwareEx @ 0x140289C10 (ExReleaseRundownProtectionCacheAwareEx.c)
+ *     EtwpQueueApc @ 0x1403DE1A0 (EtwpQueueApc.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
  */
 
 void __fastcall EtwpApcPoolDpc(__int64 a1, __int64 a2, unsigned int **a3)
@@ -31,7 +31,7 @@ void __fastcall EtwpApcPoolDpc(__int64 a1, __int64 a2, unsigned int **a3)
   v8 = (__int64)a3[10];
   LOBYTE(a3) = 2;
   if ( (int)EtwpQueueApc(v6, (_DWORD)v7, (_DWORD)a3, (_DWORD)v5, v8, v9, v10, v11) < 0 )
-    guard_dispatch_icall_no_overrides(v4, *((_QWORD *)v4 + 11), v4 + 12, v4 + 14);
+    guard_dispatch_icall_no_overrides(v4, *((_QWORD *)v4 + 11));
   ExReleaseRundownProtectionCacheAwareEx(
     *(PEX_RUNDOWN_REF_CACHE_AWARE *)(*(_QWORD *)(*((_QWORD *)v3 + 170) + 704LL) + 8LL * *v3),
     1u);

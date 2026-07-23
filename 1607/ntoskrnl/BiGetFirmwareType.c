@@ -1,12 +1,12 @@
 /*
- * XREFs of BiGetFirmwareType @ 0x14053C0EC
+ * XREFs of BiGetFirmwareType @ 0x14053C62C
  * Callers:
- *     BiExportStoreAlterationsToFirmware @ 0x140533DB0 (BiExportStoreAlterationsToFirmware.c)
- *     BiGetSystemStorePath @ 0x14053B764 (BiGetSystemStorePath.c)
- *     BiOpenSystemStore @ 0x14053BF5C (BiOpenSystemStore.c)
+ *     BiExportStoreAlterationsToFirmware @ 0x1405342F0 (BiExportStoreAlterationsToFirmware.c)
+ *     BiGetSystemStorePath @ 0x14053BCA4 (BiGetSystemStorePath.c)
+ *     BiOpenSystemStore @ 0x14053C49C (BiOpenSystemStore.c)
  * Callees:
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     ZwQuerySystemInformation @ 0x14015A340 (ZwQuerySystemInformation.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     ZwQuerySystemInformation @ 0x14015A8B0 (ZwQuerySystemInformation.c)
  */
 
 __int64 BiGetFirmwareType()
@@ -16,7 +16,7 @@ __int64 BiGetFirmwareType()
   _BYTE SystemInformation[16]; // [rsp+20h] [rbp-38h] BYREF
   int v3; // [rsp+30h] [rbp-28h]
 
-  if ( byte_140328BFC )
+  if ( byte_140328C3C )
     return (unsigned int)dword_1402F4E5C;
   v1 = 1;
   if ( ZwQuerySystemInformation(SystemBootEnvironmentInformation, SystemInformation, 0x20u, 0LL) >= 0 )
@@ -27,6 +27,6 @@ __int64 BiGetFirmwareType()
   }
   dword_1402F4E5C = v1;
   result = v1;
-  byte_140328BFC = 1;
+  byte_140328C3C = 1;
   return result;
 }

@@ -1,12 +1,12 @@
 /*
- * XREFs of IommupProcessPhysicalAddress @ 0x140526C08
+ * XREFs of IommupProcessPhysicalAddress @ 0x140527158
  * Callers:
- *     IommuMapIdentityRangeEx @ 0x140525F50 (IommuMapIdentityRangeEx.c)
- *     IommuMapLogicalRangeEx @ 0x140526170 (IommuMapLogicalRangeEx.c)
- *     IommuMapReservedLogicalRange @ 0x140526290 (IommuMapReservedLogicalRange.c)
- *     IommuUnmapIdentityRangeEx @ 0x140526840 (IommuUnmapIdentityRangeEx.c)
+ *     IommuMapIdentityRangeEx @ 0x1405264A0 (IommuMapIdentityRangeEx.c)
+ *     IommuMapLogicalRangeEx @ 0x1405266C0 (IommuMapLogicalRangeEx.c)
+ *     IommuMapReservedLogicalRange @ 0x1405267E0 (IommuMapReservedLogicalRange.c)
+ *     IommuUnmapIdentityRangeEx @ 0x140526D90 (IommuUnmapIdentityRangeEx.c)
  * Callees:
- *     IommupValidateMdl @ 0x140526CA8 (IommupValidateMdl.c)
+ *     IommupValidateMdl @ 0x1405271F8 (IommupValidateMdl.c)
  */
 
 __int64 __fastcall IommupProcessPhysicalAddress(__int64 a1, _QWORD *a2, _BYTE *a3, _QWORD *a4, _QWORD *a5)

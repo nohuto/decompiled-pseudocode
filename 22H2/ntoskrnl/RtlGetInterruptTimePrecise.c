@@ -38,32 +38,39 @@
  *     KeQueryPerformanceCounter @ 0x14022BCB0 (KeQueryPerformanceCounter.c)
  */
 
-__int64 __fastcall RtlGetInterruptTimePrecise(LARGE_INTEGER *a1)
+LARGE_INTEGER __cdecl RtlGetInterruptTimePrecise(PLARGE_INTEGER PerformanceCounter)
 {
   __int64 v2; // rbx
-  LARGE_INTEGER v3; // rdi
-  __int64 v4; // rbp
-  LARGE_INTEGER PerformanceCounter; // rdx
+  unsigned __int64 v3; // rdi
+  LARGE_INTEGER v4; // rbp
+  LARGE_INTEGER v5; // rdx
   LONGLONG v6; // rdx
+  LARGE_INTEGER result; // rax
 
   while ( 1 )
   {
     v2 = MEMORY[0xFFFFF78000000340];
     if ( (MEMORY[0xFFFFF78000000340] & 1) == 0 )
     {
-      v3.QuadPart = MEMORY[0xFFFFF78000000350];
-      v4 = MEMORY[0xFFFFF78000000008];
-      PerformanceCounter = KeQueryPerformanceCounter(0LL);
+      v3 = MEMORY[0xFFFFF78000000350];
+      v4.QuadPart = MEMORY[0xFFFFF78000000008];
+      v5 = KeQueryPerformanceCounter(0LL);
       if ( MEMORY[0xFFFFF78000000340] == v2 )
         break;
     }
     _mm_pause();
   }
-  *a1 = PerformanceCounter;
-  if ( PerformanceCounter.QuadPart <= (unsigned __int64)v3.QuadPart )
+  *PerformanceCounter = v5;
+  if ( v5.QuadPart <= v3 )
+  {
     return v4;
-  v6 = PerformanceCounter.QuadPart - v3.QuadPart - 1;
-  if ( MEMORY[0xFFFFF78000000369] )
-    v6 <<= MEMORY[0xFFFFF78000000369];
-  return (((unsigned __int64)v6 * (unsigned __int128)MEMORY[0xFFFFF78000000360]) >> 64) + v4;
+  }
+  else
+  {
+    v6 = v5.QuadPart - v3 - 1;
+    if ( MEMORY[0xFFFFF78000000369] )
+      v6 <<= MEMORY[0xFFFFF78000000369];
+    result.QuadPart = (((unsigned __int64)v6 * (unsigned __int128)MEMORY[0xFFFFF78000000360]) >> 64) + v4.QuadPart;
+  }
+  return result;
 }

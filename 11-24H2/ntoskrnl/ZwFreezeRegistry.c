@@ -1,14 +1,15 @@
 /*
- * XREFs of ZwFreezeRegistry @ 0x1406A82F0
+ * XREFs of ZwFreezeRegistry @ 0x1406A9290
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwFreezeRegistry(__int64 a1, __int64 a2)
+// local variable allocation has failed, the output may be wrong!
+NTSTATUS __cdecl ZwFreezeRegistry(ULONG TimeOutInSeconds)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(*(_QWORD *)&TimeOutInSeconds);
 }

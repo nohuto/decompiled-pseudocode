@@ -1,14 +1,14 @@
 /*
- * XREFs of HalpInterruptRegisterLine @ 0x140562F80
+ * XREFs of HalpInterruptRegisterLine @ 0x140560BB0
  * Callers:
- *     HalpApicDescribeLines @ 0x140568498 (HalpApicDescribeLines.c)
- *     HalpApicDescribeLocalLines @ 0x140568524 (HalpApicDescribeLocalLines.c)
- *     HalpPicDiscover @ 0x1405693A4 (HalpPicDiscover.c)
+ *     HalpApicDescribeLines @ 0x140565F88 (HalpApicDescribeLines.c)
+ *     HalpApicDescribeLocalLines @ 0x140566014 (HalpApicDescribeLocalLines.c)
+ *     HalpPicDiscover @ 0x140566E94 (HalpPicDiscover.c)
  * Callees:
- *     HalpInterruptFindLinesForGsiRange @ 0x1403B9C8C (HalpInterruptFindLinesForGsiRange.c)
- *     HalpInterruptLookupController @ 0x1403B9D14 (HalpInterruptLookupController.c)
- *     HalpMmAllocateMemoryInternal @ 0x140542CD0 (HalpMmAllocateMemoryInternal.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     HalpInterruptFindLinesForGsiRange @ 0x14037265C (HalpInterruptFindLinesForGsiRange.c)
+ *     HalpInterruptLookupController @ 0x1403726E4 (HalpInterruptLookupController.c)
+ *     HalpMmAllocateMemoryInternal @ 0x140540620 (HalpMmAllocateMemoryInternal.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 __int64 __fastcall HalpInterruptRegisterLine(__int64 a1)

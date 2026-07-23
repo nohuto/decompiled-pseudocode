@@ -12,18 +12,18 @@
  *     ExRaiseAccessViolation @ 0x140936B90 (ExRaiseAccessViolation.c)
  */
 
-__int64 __fastcall NtGetCompleteWnfStateSubscription(
-        unsigned __int64 Src,
-        unsigned __int64 a2,
-        int a3,
-        int a4,
-        unsigned __int64 a5,
-        unsigned int a6)
+NTSTATUS __cdecl NtGetCompleteWnfStateSubscription(
+        PWNF_STATE_NAME OldDescriptorStateName,
+        ULONG64 *OldSubscriptionId,
+        ULONG OldDescriptorEventMask,
+        ULONG OldDescriptorStatus,
+        PWNF_DELIVERY_DESCRIPTOR NewDeliveryDescriptor,
+        ULONG DescriptorSize)
 {
   struct _KTHREAD *CurrentThread; // rax
-  int v8; // ebx
+  NTSTATUS v8; // ebx
   __int64 v9; // r12
-  unsigned __int64 v10; // rax
+  PWNF_DELIVERY_DESCRIPTOR v10; // rax
   unsigned __int64 v11; // rdx
   unsigned __int64 v12; // rdx
   __int64 v14; // rdx
@@ -39,49 +39,49 @@ __int64 __fastcall NtGetCompleteWnfStateSubscription(
   v9 = *(_QWORD *)&KeGetCurrentThread()->ApcState.Process[3].BasePriority;
   if ( v9 )
   {
-    if ( !Src || !a2 )
+    if ( !OldDescriptorStateName || !OldSubscriptionId )
       goto LABEL_3;
-    if ( a3 && (!a4 || a4 == -1073741267) )
+    if ( OldDescriptorEventMask && (!OldDescriptorStatus || OldDescriptorStatus == -1073741267) )
     {
       v14 = 0x7FFFFFFF0000LL;
-      if ( Src < 0x7FFFFFFF0000LL )
-        v14 = Src;
+      if ( (unsigned __int64)OldDescriptorStateName < 0x7FFFFFFF0000LL )
+        v14 = (__int64)OldDescriptorStateName;
       RtlCopyVolatileMemory(&v17, (const void *)v14, 8uLL);
       v15 = 0x7FFFFFFF0000LL;
-      if ( a2 < 0x7FFFFFFF0000LL )
-        v15 = a2;
+      if ( (unsigned __int64)OldSubscriptionId < 0x7FFFFFFF0000LL )
+        v15 = (__int64)OldSubscriptionId;
       RtlCopyVolatileMemory(v16, (const void *)v15, 8uLL);
       v8 = ExpWnfCompleteThreadSubscriptions(v9, &v17, v16[0]);
       if ( v8 >= 0 )
       {
 LABEL_3:
-        if ( a6 )
+        if ( DescriptorSize )
         {
-          if ( a6 < 0x1030 )
+          if ( DescriptorSize < 0x1030 )
           {
             v8 = -1073741789;
           }
           else
           {
-            v10 = a5;
-            if ( (a5 & 7) != 0 )
+            v10 = NewDeliveryDescriptor;
+            if ( ((unsigned __int8)NewDeliveryDescriptor & 7) != 0 )
               ExRaiseDatatypeMisalignment();
-            v11 = a6 + a5 - 1;
-            if ( v11 >= 0x7FFFFFFF0000LL || a5 > v11 )
+            v11 = (unsigned __int64)&NewDeliveryDescriptor[-1].StateDataOffset + DescriptorSize + 3;
+            if ( v11 >= 0x7FFFFFFF0000LL || (unsigned __int64)NewDeliveryDescriptor > v11 )
               ExRaiseAccessViolation();
             v12 = (v11 & 0xFFFFFFFFFFFFF000uLL) + 4096;
             do
             {
-              *(_BYTE *)v10 = *(_BYTE *)v10;
-              v10 = (v10 & 0xFFFFFFFFFFFFF000uLL) + 4096;
+              LOBYTE(v10->SubscriptionId) = v10->SubscriptionId;
+              v10 = (PWNF_DELIVERY_DESCRIPTOR)(((unsigned __int64)v10 & 0xFFFFFFFFFFFFF000uLL) + 4096);
             }
-            while ( v10 != v12 );
-            v8 = ExpWnfDeliverThreadNotifications(v9, a5);
+            while ( v10 != (PWNF_DELIVERY_DESCRIPTOR)v12 );
+            v8 = ExpWnfDeliverThreadNotifications(v9, NewDeliveryDescriptor);
           }
         }
       }
     }
   }
   KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
-  return (unsigned int)v8;
+  return v8;
 }

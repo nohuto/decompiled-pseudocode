@@ -47,7 +47,7 @@ NTSTATUS __stdcall NtSetUuidSeed(PUCHAR UuidSeed)
   char v21; // r14
   NTSTATUS v22; // ebx
   NTSTATUS AccessStatus; // [rsp+54h] [rbp-A4h] BYREF
-  struct _SID_IDENTIFIER_AUTHORITY IdentifierAuthority; // [rsp+58h] [rbp-A0h] BYREF
+  _SID_IDENTIFIER_AUTHORITY IdentifierAuthority; // [rsp+58h] [rbp-A0h] BYREF
   int v27; // [rsp+64h] [rbp-94h]
   __int16 v28; // [rsp+68h] [rbp-90h]
   int v29; // [rsp+6Ch] [rbp-8Ch]

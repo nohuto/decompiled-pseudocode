@@ -1,17 +1,17 @@
 /*
- * XREFs of ExpFreeTablePagedPool @ 0x14084D4E4
+ * XREFs of ExpFreeTablePagedPool @ 0x1408497A4
  * Callers:
- *     ObDuplicateObject @ 0x14083FFB0 (ObDuplicateObject.c)
- *     ExCreateHandleEx @ 0x14084CE30 (ExCreateHandleEx.c)
- *     ObpCreateHandle @ 0x14084DAA0 (ObpCreateHandle.c)
- *     ExpSetHandleExtraInfo @ 0x14093B924 (ExpSetHandleExtraInfo.c)
- *     ExpAllocateMidLevelTable @ 0x14093BC7C (ExpAllocateMidLevelTable.c)
- *     ExpAllocateHandleTableEntrySlow @ 0x14093CBE8 (ExpAllocateHandleTableEntrySlow.c)
- *     ExpFreeHandleTable @ 0x1409E5244 (ExpFreeHandleTable.c)
- *     ExpFreeLowLevelTable @ 0x1409E5458 (ExpFreeLowLevelTable.c)
+ *     ObDuplicateObject @ 0x14083C270 (ObDuplicateObject.c)
+ *     ExCreateHandleEx @ 0x1408490F0 (ExCreateHandleEx.c)
+ *     ObpCreateHandle @ 0x140849D60 (ObpCreateHandle.c)
+ *     ExpSetHandleExtraInfo @ 0x14094CF14 (ExpSetHandleExtraInfo.c)
+ *     ExpAllocateHandleTableEntrySlow @ 0x14094D498 (ExpAllocateHandleTableEntrySlow.c)
+ *     ExpAllocateMidLevelTable @ 0x14094D750 (ExpAllocateMidLevelTable.c)
+ *     ExpFreeHandleTable @ 0x1409DFCA4 (ExpFreeHandleTable.c)
+ *     ExpFreeLowLevelTable @ 0x1409DFEB8 (ExpFreeLowLevelTable.c)
  * Callees:
- *     PsReturnProcessPagedPoolQuota @ 0x1404066F0 (PsReturnProcessPagedPoolQuota.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     PsReturnProcessPagedPoolQuota @ 0x1403C8EA0 (PsReturnProcessPagedPoolQuota.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __fastcall ExpFreeTablePagedPool(ULONG_PTR BugCheckParameter1, PVOID P, ULONG_PTR BugCheckParameter3)

@@ -1,13 +1,13 @@
 /*
- * XREFs of KasaniSendReport @ 0x1405AA2E0
+ * XREFs of KasaniSendReport @ 0x1405A7250
  * Callers:
- *     KasaniReportTelemetry @ 0x1405AA1D0 (KasaniReportTelemetry.c)
+ *     KasaniReportTelemetry @ 0x1405A7140 (KasaniReportTelemetry.c)
  * Callees:
- *     EtwWriteEx @ 0x140259680 (EtwWriteEx.c)
- *     _tlgCreate1Sz_wchar_t @ 0x140330A30 (_tlgCreate1Sz_wchar_t.c)
- *     KasaniBuildPc @ 0x1405A9F40 (KasaniBuildPc.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     EtwWriteEx @ 0x140289C90 (EtwWriteEx.c)
+ *     _tlgCreate1Sz_wchar_t @ 0x1402B92A8 (_tlgCreate1Sz_wchar_t.c)
+ *     KasaniBuildPc @ 0x1405A6EB0 (KasaniBuildPc.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 char __fastcall KasaniSendReport(__int64 a1)
@@ -89,7 +89,7 @@ char __fastcall KasaniSendReport(__int64 a1)
   int v76; // [rsp+254h] [rbp+154h]
   int v77; // [rsp+258h] [rbp+158h]
   struct _EVENT_DATA_DESCRIPTOR UserData; // [rsp+260h] [rbp+160h] BYREF
-  __int16 *v79; // [rsp+270h] [rbp+170h]
+  int *v79; // [rsp+270h] [rbp+170h]
   int v80; // [rsp+278h] [rbp+178h]
   int v81; // [rsp+27Ch] [rbp+17Ch]
   __int64 *v82; // [rsp+280h] [rbp+180h]
@@ -523,7 +523,7 @@ char __fastcall KasaniSendReport(__int64 a1)
       *(_DWORD *)&EventDescriptor.Id = 184549376;
       EventDescriptor.Keyword = v9;
       UserData.Size = *(unsigned __int16 *)off_140E07008;
-      v79 = word_140046DCA;
+      v79 = &dword_14004719C;
       UserData.Reserved = 2;
       v80 = 844;
       v81 = 1;

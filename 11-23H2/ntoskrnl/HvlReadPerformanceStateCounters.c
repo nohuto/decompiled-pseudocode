@@ -1,9 +1,9 @@
 /*
- * XREFs of HvlReadPerformanceStateCounters @ 0x1403CE9C0
+ * XREFs of HvlReadPerformanceStateCounters @ 0x1403CEBA0
  * Callers:
  *     <none>
  * Callees:
- *     HvlpGetLpcbByLpIndex @ 0x1403CEA18 (HvlpGetLpcbByLpIndex.c)
+ *     HvlpGetLpcbByLpIndex @ 0x1403CEBF8 (HvlpGetLpcbByLpIndex.c)
  */
 
 void __fastcall HvlReadPerformanceStateCounters(__int64 a1, unsigned int a2, _QWORD *a3, _QWORD *a4)

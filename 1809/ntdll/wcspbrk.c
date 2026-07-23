@@ -1,5 +1,5 @@
 /*
- * XREFs of wcspbrk @ 0x180095C30
+ * XREFs of wcspbrk @ 0x180095C40
  * Callers:
  *     RtlpMuiRegLoadLicInformation @ 0x1801010C4 (RtlpMuiRegLoadLicInformation.c)
  * Callees:

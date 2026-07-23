@@ -26,14 +26,11 @@ __int64 __fastcall PopVideoPowerSettingCallback(_QWORD *a1, _DWORD *a2, int a3, 
   __int128 v19; // xmm1
   __int128 v20; // xmm0
   __int64 v21; // rax
-  __int64 v22; // rdx
-  __int64 v23; // rcx
-  __int64 v24; // r8
-  _OWORD v26[8]; // [rsp+20h] [rbp-F8h] BYREF
-  _OWORD v27[4]; // [rsp+A0h] [rbp-78h] BYREF
-  __int128 v28; // [rsp+E0h] [rbp-38h]
-  __int128 v29; // [rsp+F0h] [rbp-28h]
-  __int64 v30; // [rsp+100h] [rbp-18h]
+  _OWORD v23[8]; // [rsp+20h] [rbp-F8h] BYREF
+  _OWORD v24[4]; // [rsp+A0h] [rbp-78h] BYREF
+  __int128 v25; // [rsp+E0h] [rbp-38h]
+  __int128 v26; // [rsp+F0h] [rbp-28h]
+  __int64 v27; // [rsp+100h] [rbp-18h]
 
   v7 = -1073741811;
   v8 = *(_QWORD *)&GUID_VIDEO_POWERDOWN_TIMEOUT.Data1 - *a1;
@@ -43,37 +40,37 @@ __int64 __fastcall PopVideoPowerSettingCallback(_QWORD *a1, _DWORD *a2, int a3, 
   {
     PopAcquirePolicyLock(a1);
     v9 = *((_OWORD *)PopPolicy + 1);
-    v26[0] = *(_OWORD *)PopPolicy;
+    v23[0] = *(_OWORD *)PopPolicy;
     v10 = *((_OWORD *)PopPolicy + 2);
-    v26[1] = v9;
+    v23[1] = v9;
     v11 = *((_OWORD *)PopPolicy + 3);
-    v26[2] = v10;
+    v23[2] = v10;
     v12 = *((_OWORD *)PopPolicy + 4);
-    v26[3] = v11;
+    v23[3] = v11;
     v13 = *((_OWORD *)PopPolicy + 5);
-    v26[4] = v12;
+    v23[4] = v12;
     v14 = *((_OWORD *)PopPolicy + 6);
-    v26[5] = v13;
-    v26[6] = v14;
-    v15 = v27;
-    v26[7] = *((_OWORD *)PopPolicy + 7);
+    v23[5] = v13;
+    v23[6] = v14;
+    v15 = v24;
+    v23[7] = *((_OWORD *)PopPolicy + 7);
     v16 = *((_OWORD *)PopPolicy + 9);
-    v27[0] = *((_OWORD *)PopPolicy + 8);
+    v24[0] = *((_OWORD *)PopPolicy + 8);
     v17 = *((_OWORD *)PopPolicy + 10);
-    v27[1] = v16;
+    v24[1] = v16;
     v18 = *((_OWORD *)PopPolicy + 11);
-    v27[2] = v17;
+    v24[2] = v17;
     v19 = *((_OWORD *)PopPolicy + 12);
-    v27[3] = v18;
+    v24[3] = v18;
     v20 = *((_OWORD *)PopPolicy + 13);
     v21 = *((_QWORD *)PopPolicy + 28);
-    v28 = v19;
-    v29 = v20;
-    v30 = v21;
+    v25 = v19;
+    v26 = v20;
+    v27 = v21;
     LOBYTE(v15) = 1;
-    LODWORD(v28) = *a2;
-    v7 = ((__int64 (__fastcall *)(_OWORD *, _QWORD, _OWORD *, __int64))PopApplyPolicy)(v15, 0LL, v26, 232LL);
-    PopReleasePolicyLock(v23, v22, v24);
+    LODWORD(v25) = *a2;
+    v7 = ((__int64 (__fastcall *)(_OWORD *, _QWORD, _OWORD *, __int64))PopApplyPolicy)(v15, 0LL, v23, 232LL);
+    PopReleasePolicyLock();
     PopAdaptivePowerSettingCallback(a1, a2, 4LL, a4);
   }
   return v7;

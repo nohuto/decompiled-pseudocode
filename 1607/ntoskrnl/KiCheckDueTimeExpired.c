@@ -1,10 +1,10 @@
 /*
- * XREFs of KiCheckDueTimeExpired @ 0x1400D0AE8
+ * XREFs of KiCheckDueTimeExpired @ 0x1400CE988
  * Callers:
- *     MiWaitForInPageComplete @ 0x1400251B0 (MiWaitForInPageComplete.c)
- *     KiWaitForAllObjects @ 0x140097D9C (KiWaitForAllObjects.c)
- *     KeWaitForAlertByThreadId @ 0x1400D0448 (KeWaitForAlertByThreadId.c)
- *     KeDelayExecutionThread @ 0x1400D0580 (KeDelayExecutionThread.c)
+ *     MiWaitForInPageComplete @ 0x140024D30 (MiWaitForInPageComplete.c)
+ *     KiWaitForAllObjects @ 0x14009759C (KiWaitForAllObjects.c)
+ *     KeWaitForAlertByThreadId @ 0x1400CE2E8 (KeWaitForAlertByThreadId.c)
+ *     KeDelayExecutionThread @ 0x1400CE420 (KeDelayExecutionThread.c)
  * Callees:
  *     <none>
  */

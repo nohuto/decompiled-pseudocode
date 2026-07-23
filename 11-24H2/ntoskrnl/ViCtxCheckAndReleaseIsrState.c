@@ -1,14 +1,14 @@
 /*
- * XREFs of ViCtxCheckAndReleaseIsrState @ 0x140BA1F50
+ * XREFs of ViCtxCheckAndReleaseIsrState @ 0x140BA3F50
  * Callers:
- *     ViCtxIsr @ 0x140BA2190 (ViCtxIsr.c)
- *     ViCtxIsrMessageBased @ 0x140BA21F0 (ViCtxIsrMessageBased.c)
+ *     ViCtxIsr @ 0x140BA4190 (ViCtxIsr.c)
+ *     ViCtxIsrMessageBased @ 0x140BA41F0 (ViCtxIsrMessageBased.c)
  * Callees:
- *     RtlXSave @ 0x1403E6250 (RtlXSave.c)
- *     VfUtilDbgPrint @ 0x14061029C (VfUtilDbgPrint.c)
- *     CarReportRuleViolationFromNt @ 0x140B8D914 (CarReportRuleViolationFromNt.c)
- *     VfErrorStoreTriageInformation @ 0x140B935E0 (VfErrorStoreTriageInformation.c)
- *     ViCtxEqualExtendedState @ 0x140BA207C (ViCtxEqualExtendedState.c)
+ *     RtlXSave @ 0x1403D3DF0 (RtlXSave.c)
+ *     VfUtilDbgPrint @ 0x14060E85C (VfUtilDbgPrint.c)
+ *     CarReportRuleViolationFromNt @ 0x140B8F914 (CarReportRuleViolationFromNt.c)
+ *     VfErrorStoreTriageInformation @ 0x140B955E0 (VfErrorStoreTriageInformation.c)
+ *     ViCtxEqualExtendedState @ 0x140BA407C (ViCtxEqualExtendedState.c)
  */
 
 __int64 __fastcall ViCtxCheckAndReleaseIsrState(__int64 a1, const void *a2)
@@ -63,10 +63,10 @@ __int64 __fastcall ViCtxCheckAndReleaseIsrState(__int64 a1, const void *a2)
     {
       CarReportRuleViolationFromNt(
         v12,
-        qword_140FFDFB8,
-        qword_140FFDFC0,
-        qword_140FFDFC8,
-        qword_140FFDFD0,
+        qword_140FFEFB8,
+        qword_140FFEFC0,
+        qword_140FFEFC8,
+        qword_140FFEFD0,
         7u,
         (__int64)a2);
       result = (unsigned int)_InterlockedExchange(&VfErrorBugcheckDataReady, 0);

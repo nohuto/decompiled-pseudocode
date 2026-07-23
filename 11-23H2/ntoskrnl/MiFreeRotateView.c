@@ -1,11 +1,11 @@
 /*
- * XREFs of MiFreeRotateView @ 0x140A312F8
+ * XREFs of MiFreeRotateView @ 0x140A315A8
  * Callers:
- *     MiInitializePartialVad @ 0x14076D6EC (MiInitializePartialVad.c)
- *     MiDeleteNewlyCreatedPartialVads @ 0x140A47A98 (MiDeleteNewlyCreatedPartialVads.c)
+ *     MiInitializePartialVad @ 0x14076D8DC (MiInitializePartialVad.c)
+ *     MiDeleteNewlyCreatedPartialVads @ 0x140A47D48 (MiDeleteNewlyCreatedPartialVads.c)
  * Callees:
- *     MiGetVadWakeList @ 0x14028A170 (MiGetVadWakeList.c)
- *     MiFreeRotateVadEvent @ 0x140A312C0 (MiFreeRotateVadEvent.c)
+ *     MiGetVadWakeList @ 0x14028A400 (MiGetVadWakeList.c)
+ *     MiFreeRotateVadEvent @ 0x140A31570 (MiFreeRotateVadEvent.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

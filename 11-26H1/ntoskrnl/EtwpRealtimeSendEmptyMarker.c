@@ -1,13 +1,13 @@
 /*
- * XREFs of EtwpRealtimeSendEmptyMarker @ 0x140A13AEC
+ * XREFs of EtwpRealtimeSendEmptyMarker @ 0x140A12CDC
  * Callers:
- *     EtwpFlushActiveBuffers @ 0x140A141E8 (EtwpFlushActiveBuffers.c)
+ *     EtwpFlushActiveBuffers @ 0x140A133D8 (EtwpFlushActiveBuffers.c)
  * Callees:
- *     EtwpResetBufferHeader @ 0x140219DA4 (EtwpResetBufferHeader.c)
- *     EtwpInitializeBufferHeader @ 0x1404B4F84 (EtwpInitializeBufferHeader.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     EtwpRealtimeDeliverBuffer @ 0x140A14E40 (EtwpRealtimeDeliverBuffer.c)
- *     EtwpRealtimeSaveBuffer @ 0x140A15B24 (EtwpRealtimeSaveBuffer.c)
+ *     EtwpResetBufferHeader @ 0x14021919C (EtwpResetBufferHeader.c)
+ *     EtwpInitializeBufferHeader @ 0x1404AE3D4 (EtwpInitializeBufferHeader.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     EtwpRealtimeDeliverBuffer @ 0x140A14034 (EtwpRealtimeDeliverBuffer.c)
+ *     EtwpRealtimeSaveBuffer @ 0x140A14D18 (EtwpRealtimeSaveBuffer.c)
  */
 
 __int64 __fastcall EtwpRealtimeSendEmptyMarker(__int64 a1)

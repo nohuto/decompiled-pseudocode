@@ -1,7 +1,7 @@
 /*
- * XREFs of MiIncrementPageTableLockCheckWrap @ 0x14031ADD0
+ * XREFs of MiIncrementPageTableLockCheckWrap @ 0x14031CE00
  * Callers:
- *     MiLockPageTablePage @ 0x14031A8E0 (MiLockPageTablePage.c)
+ *     MiLockPageTablePage @ 0x14031C910 (MiLockPageTablePage.c)
  * Callees:
  *     <none>
  */

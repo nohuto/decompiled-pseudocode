@@ -1,9 +1,9 @@
 /*
- * XREFs of Feature_Servicing_HibernateRelaxVBSPolicy__private_IsEnabledFallback @ 0x1406070D8
+ * XREFs of Feature_Servicing_HibernateRelaxVBSPolicy__private_IsEnabledFallback @ 0x140609C34
  * Callers:
- *     Feature_Servicing_HibernateRelaxVBSPolicy__private_IsEnabledNoReportingNoInline @ 0x1406070F8 (Feature_Servicing_HibernateRelaxVBSPolicy__private_IsEnabledNoReportingNoInline.c)
+ *     Feature_Servicing_HibernateRelaxVBSPolicy__private_IsEnabledNoReportingNoInline @ 0x140609C54 (Feature_Servicing_HibernateRelaxVBSPolicy__private_IsEnabledNoReportingNoInline.c)
  * Callees:
- *     wil_details_IsEnabledFallback @ 0x1405016DC (wil_details_IsEnabledFallback.c)
+ *     wil_details_IsEnabledFallback @ 0x1404FAECC (wil_details_IsEnabledFallback.c)
  */
 
 __int64 __fastcall Feature_Servicing_HibernateRelaxVBSPolicy__private_IsEnabledFallback(__int64 a1, unsigned int a2)

@@ -1,66 +1,51 @@
 /*
- * XREFs of PopBcdCopyLoaderObjectSettings @ 0x1407632B4
+ * XREFs of PopBcdCopyLoaderObjectSettings @ 0x140762C84
  * Callers:
- *     PopBcdEstablishResumeObject @ 0x1407633AC (PopBcdEstablishResumeObject.c)
+ *     PopBcdEstablishResumeObject @ 0x140762D7C (PopBcdEstablishResumeObject.c)
  * Callees:
- *     BcdSetElementDataWithFlags @ 0x1409BEB2C (BcdSetElementDataWithFlags.c)
- *     BiDeleteElement @ 0x1409BF8D0 (BiDeleteElement.c)
- *     PopBcdReadElement @ 0x140A72168 (PopBcdReadElement.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     BcdSetElementDataWithFlags @ 0x1409A517C (BcdSetElementDataWithFlags.c)
+ *     BiDeleteElement @ 0x1409A5F20 (BiDeleteElement.c)
+ *     PopBcdReadElement @ 0x140A6B548 (PopBcdReadElement.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall PopBcdCopyLoaderObjectSettings(__int64 a1, __int64 a2)
+__int64 __fastcall PopBcdCopyLoaderObjectSettings(HANDLE BcdObjectHandle, HANDLE a2)
 {
-  unsigned int *v2; // rsi
+  ULONG *v2; // rsi
   unsigned int v4; // edi
-  unsigned int v6; // r14d
-  int v7; // eax
-  __int64 v8; // r8
-  int v9; // ebx
-  PVOID v10; // rcx
-  _DWORD v12[4]; // [rsp+30h] [rbp-10h] BYREF
-  int v13; // [rsp+80h] [rbp+40h] BYREF
-  PVOID P; // [rsp+88h] [rbp+48h] BYREF
+  ULONG v6; // r14d
+  int Element; // eax
+  BCD_FLAGS v8; // r8d
+  unsigned int v9; // ebx
+  _DWORD v11[4]; // [rsp+30h] [rbp-10h] BYREF
 
-  v13 = 0;
-  v2 = v12;
-  P = 0LL;
+  v2 = v11;
   v4 = 0;
-  v12[0] = 369098768;
-  v12[1] = 369098825;
-  while ( 1 )
+  v11[0] = 369098768;
+  v11[1] = 369098825;
+  do
   {
     v6 = *v2;
-    v7 = PopBcdReadElement(a1, *v2, &P, &v13);
-    v9 = v7;
-    if ( v7 >= 0 )
+    Element = PopBcdReadElement(BcdObjectHandle, *v2);
+    v9 = Element;
+    if ( Element < 0 )
     {
-      v9 = BcdSetElementDataWithFlags(a2, v6, v8, P, v13);
-      ExFreePoolWithTag(P, 0);
-      v10 = 0LL;
-      P = 0LL;
-      if ( v9 < 0 )
-        return (unsigned int)v9;
-      goto LABEL_9;
+      if ( Element != -1073741275 )
+        return v9;
+      v9 = BiDeleteElement(a2, v6);
+      if ( (int)(v9 + 0x80000000) >= 0 && v9 != -1073741275 )
+        return v9;
     }
-    if ( v7 != -1073741275 )
-      break;
-    v9 = BiDeleteElement(a2, v6);
-    if ( (int)(v9 + 0x80000000) >= 0 && v9 != -1073741275 )
-      break;
-    v10 = P;
-LABEL_9:
+    else
+    {
+      v9 = BcdSetElementDataWithFlags(a2, v6, v8, 0LL, 0);
+      ExFreePoolWithTag(0LL, 0);
+      if ( (v9 & 0x80000000) != 0 )
+        return v9;
+    }
     ++v4;
     ++v2;
-    if ( v4 >= 2 )
-    {
-      v9 = 0;
-      goto LABEL_12;
-    }
   }
-  v10 = P;
-LABEL_12:
-  if ( v10 )
-    ExFreePoolWithTag(v10, 0);
-  return (unsigned int)v9;
+  while ( v4 < 2 );
+  return 0;
 }

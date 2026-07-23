@@ -1,12 +1,12 @@
 /*
- * XREFs of MiIdentifyResidentPage @ 0x1402F17A0
+ * XREFs of MiIdentifyResidentPage @ 0x1402D3820
  * Callers:
- *     MiIdentifyPfn @ 0x1402F0EF0 (MiIdentifyPfn.c)
+ *     MiIdentifyPfn @ 0x1402D2F70 (MiIdentifyPfn.c)
  * Callees:
- *     MiGetSystemRegionType @ 0x140264F40 (MiGetSystemRegionType.c)
- *     MiGetBaseResidentPage @ 0x1402F1BA0 (MiGetBaseResidentPage.c)
- *     MiGetLeafVa @ 0x140326060 (MiGetLeafVa.c)
- *     MiGetLeafPfnBuddy @ 0x140416870 (MiGetLeafPfnBuddy.c)
+ *     MiGetSystemRegionType @ 0x1402644B0 (MiGetSystemRegionType.c)
+ *     MiGetBaseResidentPage @ 0x1402D3C20 (MiGetBaseResidentPage.c)
+ *     MiGetLeafVa @ 0x140328090 (MiGetLeafVa.c)
+ *     MiGetLeafPfnBuddy @ 0x14040AE80 (MiGetLeafPfnBuddy.c)
  */
 
 __int64 __fastcall MiIdentifyResidentPage(__int64 a1, __int64 a2, unsigned __int64 *a3)
@@ -83,7 +83,7 @@ __int64 __fastcall MiIdentifyResidentPage(__int64 a1, __int64 a2, unsigned __int
         else
         {
           LeafPfnBuddy = MiGetLeafPfnBuddy(v7, 1LL);
-          if ( (LeafPfnBuddy < 0xFFFFDE0000000000uLL || LeafPfnBuddy >= 48 * qword_140E2D7A0 - 0x21FFFFFFFFD0LL)
+          if ( (LeafPfnBuddy < 0xFFFFDE0000000000uLL || LeafPfnBuddy >= 48 * qword_140E2D920 - 0x21FFFFFFFFD0LL)
             && LeafPfnBuddy )
           {
             if ( *(_QWORD *)LeafPfnBuddy != 399680LL )

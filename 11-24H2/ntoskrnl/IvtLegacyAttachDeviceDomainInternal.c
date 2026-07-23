@@ -1,20 +1,20 @@
 /*
- * XREFs of IvtLegacyAttachDeviceDomainInternal @ 0x14056FB5C
+ * XREFs of IvtLegacyAttachDeviceDomainInternal @ 0x14056CFEC
  * Callers:
- *     IvtAttachDeviceDomain @ 0x14056D9C0 (IvtAttachDeviceDomain.c)
- *     IvtDetachDeviceDomain @ 0x14056E020 (IvtDetachDeviceDomain.c)
+ *     IvtAttachDeviceDomain @ 0x14056AE50 (IvtAttachDeviceDomain.c)
+ *     IvtDetachDeviceDomain @ 0x14056B4B0 (IvtDetachDeviceDomain.c)
  * Callees:
- *     KeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x1402D84E0 (KeAcquireInStackQueuedSpinLockAtDpcLevel.c)
- *     KxReleaseQueuedSpinLock @ 0x140321BB0 (KxReleaseQueuedSpinLock.c)
- *     HalpReleaseHighLevelLock @ 0x1403B9898 (HalpReleaseHighLevelLock.c)
- *     HalpAcquireHighLevelLock @ 0x1403B9FD0 (HalpAcquireHighLevelLock.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
- *     IvtLegacyAllocateTranslationStructures @ 0x14056FAA8 (IvtLegacyAllocateTranslationStructures.c)
- *     IvtLegacyFlushTbInternal @ 0x140570168 (IvtLegacyFlushTbInternal.c)
- *     IvtLegacyGetDomainId @ 0x140570894 (IvtLegacyGetDomainId.c)
- *     IvtLegacyUpdateTranslationStructures @ 0x1405710FC (IvtLegacyUpdateTranslationStructures.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     KxReleaseQueuedSpinLock @ 0x1402CA740 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x140359760 (KeAcquireInStackQueuedSpinLockAtDpcLevel.c)
+ *     HalpReleaseHighLevelLock @ 0x140372268 (HalpReleaseHighLevelLock.c)
+ *     HalpAcquireHighLevelLock @ 0x1403729A0 (HalpAcquireHighLevelLock.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     IvtLegacyAllocateTranslationStructures @ 0x14056CF38 (IvtLegacyAllocateTranslationStructures.c)
+ *     IvtLegacyFlushTbInternal @ 0x14056D5F8 (IvtLegacyFlushTbInternal.c)
+ *     IvtLegacyGetDomainId @ 0x14056DD24 (IvtLegacyGetDomainId.c)
+ *     IvtLegacyUpdateTranslationStructures @ 0x14056E58C (IvtLegacyUpdateTranslationStructures.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 __int64 __fastcall IvtLegacyAttachDeviceDomainInternal(__int64 a1, __int64 a2, __int64 a3, __int64 a4)

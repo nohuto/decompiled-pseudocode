@@ -1,13 +1,13 @@
 /*
- * XREFs of write_char_0 @ 0x140150DD8
+ * XREFs of write_char_0 @ 0x140151390
  * Callers:
- *     _output_l @ 0x140150590 (_output_l.c)
- *     write_string_0 @ 0x140150E20 (write_string_0.c)
- *     _output_s @ 0x140153324 (_output_s.c)
- *     write_multi_char_0 @ 0x140153D8C (write_multi_char_0.c)
- *     write_string_1 @ 0x140153DE0 (write_string_1.c)
+ *     _output_l @ 0x140150B48 (_output_l.c)
+ *     write_string_0 @ 0x1401513D8 (write_string_0.c)
+ *     _output_s @ 0x1401538E4 (_output_s.c)
+ *     write_multi_char_0 @ 0x1401542FC (write_multi_char_0.c)
+ *     write_string_1 @ 0x140154350 (write_string_1.c)
  * Callees:
- *     _flsbuf @ 0x14014FB84 (_flsbuf.c)
+ *     _flsbuf @ 0x1401569B8 (_flsbuf.c)
  */
 
 int __fastcall write_char_0(char a1, FILE *a2, _DWORD *a3)

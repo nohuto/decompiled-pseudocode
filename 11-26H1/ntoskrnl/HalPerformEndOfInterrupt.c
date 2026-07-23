@@ -1,25 +1,25 @@
 /*
- * XREFs of HalPerformEndOfInterrupt @ 0x14032DA80
+ * XREFs of HalPerformEndOfInterrupt @ 0x14032FAB0
  * Callers:
- *     KiChainedDispatch @ 0x140729970 (KiChainedDispatch.c)
- *     KiInterruptDispatch @ 0x14072A050 (KiInterruptDispatch.c)
- *     KiInterruptDispatchNoLock @ 0x14072A440 (KiInterruptDispatchNoLock.c)
- *     KiInterruptDispatchNoLockNoEtw @ 0x14072A830 (KiInterruptDispatchNoLockNoEtw.c)
- *     KxIsrLinkage @ 0x14072BC20 (KxIsrLinkage.c)
- *     KiApcInterrupt @ 0x14072C480 (KiApcInterrupt.c)
- *     KiHvInterruptDispatch @ 0x14072DEA0 (KiHvInterruptDispatch.c)
- *     KiSwInterrupt @ 0x14072E7F0 (KiSwInterrupt.c)
- *     KiDpcInterrupt @ 0x14072EF70 (KiDpcInterrupt.c)
- *     KiIpiInterrupt @ 0x14072F700 (KiIpiInterrupt.c)
+ *     KiChainedDispatch @ 0x14072E540 (KiChainedDispatch.c)
+ *     KiInterruptDispatch @ 0x14072EC20 (KiInterruptDispatch.c)
+ *     KiInterruptDispatchNoLock @ 0x14072F010 (KiInterruptDispatchNoLock.c)
+ *     KiInterruptDispatchNoLockNoEtw @ 0x14072F400 (KiInterruptDispatchNoLockNoEtw.c)
+ *     KxIsrLinkage @ 0x1407307F0 (KxIsrLinkage.c)
+ *     KiApcInterrupt @ 0x140731050 (KiApcInterrupt.c)
+ *     KiHvInterruptDispatch @ 0x140732A70 (KiHvInterruptDispatch.c)
+ *     KiSwInterrupt @ 0x1407333C0 (KiSwInterrupt.c)
+ *     KiDpcInterrupt @ 0x140733B40 (KiDpcInterrupt.c)
+ *     KiIpiInterrupt @ 0x1407342D0 (KiIpiInterrupt.c)
  * Callees:
- *     HalpReleaseHighLevelLock @ 0x1402C4DEC (HalpReleaseHighLevelLock.c)
- *     HalpInterruptSetLineStateInternal @ 0x14032DC5C (HalpInterruptSetLineStateInternal.c)
- *     KxAcquireSpinLock @ 0x14032F2C0 (KxAcquireSpinLock.c)
- *     HalpInterruptFindLinesForGsiRange @ 0x140426C08 (HalpInterruptFindLinesForGsiRange.c)
- *     HalpInterruptLookupController @ 0x140426C98 (HalpInterruptLookupController.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     HalpReleaseHighLevelLock @ 0x14030FAAC (HalpReleaseHighLevelLock.c)
+ *     HalpInterruptSetLineStateInternal @ 0x14032FC8C (HalpInterruptSetLineStateInternal.c)
+ *     KxAcquireSpinLock @ 0x1403312F0 (KxAcquireSpinLock.c)
+ *     HalpInterruptFindLinesForGsiRange @ 0x140433D18 (HalpInterruptFindLinesForGsiRange.c)
+ *     HalpInterruptLookupController @ 0x140433DA8 (HalpInterruptLookupController.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall HalPerformEndOfInterrupt(__int64 a1, __int64 a2, __int64 a3)
@@ -97,7 +97,7 @@ LABEL_18:
       LOBYTE(v12) = 15;
       KiRaiseIrqlProcessIrqlFlags(CurrentIrql, v12);
     }
-    KxAcquireSpinLock(&HalpDeviceBlockUnblockPushLock.Timer.DueTime.QuadPart);
+    KxAcquireSpinLock((PKSPIN_LOCK)&HalpDeviceBlockUnblockPushLock.Timer.Header.WaitListHead.Blink);
     if ( *v17 == 1 )
     {
       *v17 = 2;
@@ -108,7 +108,7 @@ LABEL_18:
     }
     if ( (int)HalpInterruptSetLineStateInternal(v18, &v21, v17) < 0 )
       KeBugCheckEx(0x5Cu, 0x205uLL, *(int *)(v18 + 240), v18, SHIDWORD(v21));
-    HalpReleaseHighLevelLock(&HalpDeviceBlockUnblockPushLock.Timer.DueTime.QuadPart, CurrentIrql);
+    HalpReleaseHighLevelLock((KSPIN_LOCK *)&HalpDeviceBlockUnblockPushLock.Timer.Header.WaitListHead.Blink, CurrentIrql);
   }
   result = guard_dispatch_icall_no_overrides(a1, a2, a3);
   if ( HalpInterruptDirectedEoiModeEnabled )

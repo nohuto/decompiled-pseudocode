@@ -10,7 +10,7 @@
 
 char __fastcall RtlpWalkLFHBlock(int a1, int a2, int a3)
 {
-  int v5; // eax
+  PRTL_SRWLOCK v5; // eax
   unsigned int v6; // edi
   int v7; // eax
   unsigned int v8; // ecx
@@ -36,7 +36,7 @@ char __fastcall RtlpWalkLFHBlock(int a1, int a2, int a3)
   unsigned int v29; // edx
   int v30; // eax
   int v31; // eax
-  int v32; // ecx
+  unsigned int Value; // ecx
   int v33; // eax
   unsigned int *v34; // eax
   char v35; // al
@@ -57,26 +57,26 @@ char __fastcall RtlpWalkLFHBlock(int a1, int a2, int a3)
   unsigned int v50; // ecx
   int v51; // eax
   int v52; // eax
-  int v53; // eax
+  unsigned int v53; // eax
   unsigned int v54; // ecx
   char v55; // dl
-  int v56; // ecx
+  unsigned int v56; // ecx
   int v57; // eax
   int ReservedBlockSize; // [esp+14h] [ebp-10h]
   unsigned __int8 v59; // [esp+14h] [ebp-10h]
-  int v60; // [esp+18h] [ebp-Ch]
-  int v61; // [esp+18h] [ebp-Ch]
+  PRTL_SRWLOCK SRWLock; // [esp+18h] [ebp-Ch]
+  PRTL_SRWLOCK SRWLocka; // [esp+18h] [ebp-Ch]
   unsigned int v63; // [esp+1Ch] [ebp-8h]
 
   if ( *(_BYTE *)(a1 + 234) == 2 )
   {
-    v5 = *(_DWORD *)(a1 + 228);
-    v60 = v5;
+    v5 = *(PRTL_SRWLOCK *)(a1 + 228);
+    SRWLock = v5;
   }
   else
   {
     v5 = 0;
-    v60 = 0;
+    SRWLock = 0;
   }
   if ( !v5 )
     return 0;
@@ -93,7 +93,7 @@ char __fastcall RtlpWalkLFHBlock(int a1, int a2, int a3)
     v7 = *(unsigned __int8 *)(a2 + 8);
   }
   v6 -= v7;
-  v5 = v60;
+  v5 = SRWLock;
 LABEL_10:
   if ( *(char *)(v6 + 7) < 0 )
   {
@@ -101,16 +101,16 @@ LABEL_10:
     if ( (_WORD)v8 )
       return 0;
     v9 = *(_DWORD *)(v6 - (v8 >> 13));
-    v61 = v9;
+    SRWLocka = (PRTL_SRWLOCK)v9;
     if ( !v9 )
       return 0;
     ReservedBlockSize = (unsigned __int16)RtlpGetReservedBlockSize(v9);
     v10 = 8 * ReservedBlockSize + v6;
     RtlpGetFirstBlockAddress(v11, *((_DWORD *)v11 + 1));
-    v12 = RtlpGetReservedBlockSize(v61);
-    if ( (v13 >> 3) / v12 >= *(unsigned __int16 *)(v61 + 24) )
+    v12 = RtlpGetReservedBlockSize((int)SRWLocka);
+    if ( (v13 >> 3) / v12 >= LOWORD(SRWLocka[6].Value) )
     {
-      *(_DWORD *)a2 = *(_DWORD *)(v61 + 4);
+      *(_RTL_SRWLOCK *)a2 = SRWLocka[1];
       *(_WORD *)(a2 + 10) = 8193;
       return 0;
     }
@@ -121,7 +121,7 @@ LABEL_10:
       *(_DWORD *)a2 = v10 + 8;
       *(_WORD *)(a2 + 10) = 0;
       *(_DWORD *)(a2 + 20) = 8;
-      v31 = 8 * *(unsigned __int16 *)(v61 + 20) - 8;
+      v31 = 8 * LOWORD(SRWLocka[5].Value) - 8;
 LABEL_62:
       *(_DWORD *)(a2 + 4) = v31;
       *(_BYTE *)(a2 + 9) = *(_BYTE *)(v10 + 6);
@@ -239,7 +239,7 @@ LABEL_42:
         {
           v28 = v27 & 0x3F;
         }
-        v31 = 8 * *(unsigned __int16 *)(v61 + 20) - v28;
+        v31 = 8 * LOWORD(SRWLocka[5].Value) - v28;
         goto LABEL_62;
       }
       v16 = *(unsigned __int8 *)(v10 + 6);
@@ -247,14 +247,14 @@ LABEL_42:
     v17 = 8 * (ReservedBlockSize + v16);
     goto LABEL_23;
   }
-  v32 = *(_DWORD *)(v5 + 12);
-  if ( ((*(_BYTE *)(v6 + 2) ^ (unsigned __int8)(*(_BYTE *)(v32 + 82) & (*(_DWORD *)(v32 + 76) >> 20))) & 1) == 0 )
+  Value = v5[3].Value;
+  if ( ((*(_BYTE *)(v6 + 2) ^ (unsigned __int8)(*(_BYTE *)(Value + 82) & (*(_DWORD *)(Value + 76) >> 20))) & 1) == 0 )
     goto LABEL_126;
-  if ( *(_DWORD *)(v32 + 76) )
+  if ( *(_DWORD *)(Value + 76) )
   {
     v33 = *(_DWORD *)v6;
-    if ( (*(_DWORD *)v6 & *(_DWORD *)(v32 + 76)) != 0 )
-      v33 ^= *(_DWORD *)(v32 + 80);
+    if ( (*(_DWORD *)v6 & *(_DWORD *)(Value + 76)) != 0 )
+      v33 ^= *(_DWORD *)(Value + 80);
   }
   else
   {
@@ -266,7 +266,7 @@ LABEL_42:
   if ( *(_DWORD *)(*(_DWORD *)a2 + 12) != -253701952 )
     goto LABEL_126;
   v63 = *v34;
-  if ( !RtlpIsLFHZoneAllocation(v60, *v34) )
+  if ( !RtlpIsLFHZoneAllocation(SRWLock, *v34) )
     goto LABEL_126;
   v35 = *(_BYTE *)(v6 + 7);
   if ( (v35 & 0x40) != 0 )
@@ -408,9 +408,9 @@ LABEL_105:
     goto LABEL_125;
   }
 LABEL_126:
-  if ( !RtlpIsLFHZoneAllocation(v60, v6) && v60 != *(_DWORD *)a2 )
+  if ( !RtlpIsLFHZoneAllocation(SRWLock, v6) && SRWLock != *(PRTL_SRWLOCK *)a2 )
   {
-    v53 = *(_DWORD *)(v60 + 12);
+    v53 = SRWLock[3].Value;
     v54 = *(_DWORD *)(v53 + 76);
     v55 = *(_BYTE *)(v53 + 82);
     v59 = *(_BYTE *)(v6 + 2);
@@ -423,7 +423,7 @@ LABEL_126:
   *(_BYTE *)(a2 + 8) = 8;
   *(_WORD *)(a2 + 10) = 8193;
   *(_DWORD *)(a2 + 20) = 8;
-  v56 = *(_DWORD *)(v60 + 12);
+  v56 = SRWLock[3].Value;
   if ( *(_DWORD *)(v56 + 76) )
   {
     v57 = *(_DWORD *)v6;

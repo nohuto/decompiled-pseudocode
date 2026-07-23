@@ -1,9 +1,9 @@
 /*
- * XREFs of SeAuditingPlugAndPlayEvents @ 0x140920964
+ * XREFs of SeAuditingPlugAndPlayEvents @ 0x140920AC4
  * Callers:
- *     PipProcessStartPhase3 @ 0x14074AB70 (PipProcessStartPhase3.c)
+ *     PipProcessStartPhase3 @ 0x14074AD30 (PipProcessStartPhase3.c)
  * Callees:
- *     SeAuditingWithTokenForSubcategory @ 0x140608730 (SeAuditingWithTokenForSubcategory.c)
+ *     SeAuditingWithTokenForSubcategory @ 0x1406981E0 (SeAuditingWithTokenForSubcategory.c)
  */
 
 char SeAuditingPlugAndPlayEvents()

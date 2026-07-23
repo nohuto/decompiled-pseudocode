@@ -1,16 +1,16 @@
 /*
- * XREFs of PiDqDeleteUserObjectFromLoadedHives @ 0x140A2D2D4
+ * XREFs of PiDqDeleteUserObjectFromLoadedHives @ 0x140A3F7D8
  * Callers:
- *     PiDqObjectManagerHandleObjectEvent @ 0x1409A86E8 (PiDqObjectManagerHandleObjectEvent.c)
+ *     PiDqObjectManagerHandleObjectEvent @ 0x1409690F8 (PiDqObjectManagerHandleObjectEvent.c)
  * Callees:
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     _RegRtlEnumKey @ 0x14091A1C0 (_RegRtlEnumKey.c)
- *     _RegRtlOpenKeyTransacted @ 0x140997950 (_RegRtlOpenKeyTransacted.c)
- *     PiDqDeleteUserObject @ 0x140A2D7E4 (PiDqDeleteUserObject.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     _RegRtlOpenKeyTransacted @ 0x1409583B0 (_RegRtlOpenKeyTransacted.c)
+ *     _RegRtlEnumKey @ 0x140974C20 (_RegRtlEnumKey.c)
+ *     PiDqDeleteUserObject @ 0x140A3F1F0 (PiDqDeleteUserObject.c)
  */
 
-NTSTATUS __fastcall PiDqDeleteUserObjectFromLoadedHives(__int64 a1, unsigned int a2)
+NTSTATUS __fastcall PiDqDeleteUserObjectFromLoadedHives(__int64 a1, int a2)
 {
   __int64 v4; // rax
   __int64 v5; // rcx
@@ -46,7 +46,7 @@ NTSTATUS __fastcall PiDqDeleteUserObjectFromLoadedHives(__int64 a1, unsigned int
         v10 = 0LL;
       if ( (int)RegRtlOpenKeyTransacted((char *)KeyHandle, v14, 0, 1u, &Handle, v10) >= 0 )
       {
-        PiDqDeleteUserObject(Handle, a1, a2);
+        PiDqDeleteUserObject((__int64)Handle, a1, a2);
         ZwClose(Handle);
       }
       ++v7;

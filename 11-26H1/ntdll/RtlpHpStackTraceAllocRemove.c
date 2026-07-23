@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlpHpStackTraceAllocRemove @ 0x18014F848
+ * XREFs of RtlpHpStackTraceAllocRemove @ 0x18014F6F8
  * Callers:
- *     RtlpHpStackTraceRemoveStack @ 0x18002BA50 (RtlpHpStackTraceRemoveStack.c)
+ *     RtlpHpStackTraceRemoveStack @ 0x180016B50 (RtlpHpStackTraceRemoveStack.c)
  * Callees:
- *     RtlAcquireSRWLockExclusive @ 0x18003F4D0 (RtlAcquireSRWLockExclusive.c)
- *     RtlReleaseSRWLockExclusive @ 0x18003FAA0 (RtlReleaseSRWLockExclusive.c)
- *     RtlpHpMetadataFree @ 0x180087EE8 (RtlpHpMetadataFree.c)
- *     RtlpHpStackTraceAllocFindMapping @ 0x18014F790 (RtlpHpStackTraceAllocFindMapping.c)
+ *     RtlAcquireSRWLockExclusive @ 0x180029A40 (RtlAcquireSRWLockExclusive.c)
+ *     RtlReleaseSRWLockExclusive @ 0x18002A010 (RtlReleaseSRWLockExclusive.c)
+ *     RtlpHpMetadataFree @ 0x18007F268 (RtlpHpMetadataFree.c)
+ *     RtlpHpStackTraceAllocFindMapping @ 0x18014F640 (RtlpHpStackTraceAllocFindMapping.c)
  */
 
 __int64 __fastcall RtlpHpStackTraceAllocRemove(__int64 a1, __int64 a2)
@@ -18,7 +18,7 @@ __int64 __fastcall RtlpHpStackTraceAllocRemove(__int64 a1, __int64 a2)
   __int128 v9; // [rsp+20h] [rbp-28h] BYREF
   __int64 v10; // [rsp+50h] [rbp+8h]
 
-  RtlAcquireSRWLockExclusive((volatile signed __int64 *)(a1 + 8), a2);
+  RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)(a1 + 8));
   *(_DWORD *)a1 = NtCurrentTeb()->ClientId.UniqueThread;
   Mapping = RtlpHpStackTraceAllocFindMapping(a1, a2);
   v5 = (__int64)Mapping;
@@ -60,7 +60,7 @@ __int64 __fastcall RtlpHpStackTraceAllocRemove(__int64 a1, __int64 a2)
     v6 = 0LL;
   }
   *(_DWORD *)a1 = 0;
-  RtlReleaseSRWLockExclusive((volatile signed __int64 *)(a1 + 8));
+  RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(a1 + 8));
   if ( v5 )
   {
     v9 = RtlpHpEnvHandle;

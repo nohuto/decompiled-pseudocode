@@ -1,20 +1,20 @@
 /*
- * XREFs of EtwpUpdateGlobalGroupMasks @ 0x140797FD0
+ * XREFs of EtwpUpdateGlobalGroupMasks @ 0x1407981D0
  * Callers:
- *     EtwpUpdateKernelGroupsWork @ 0x140797030 (EtwpUpdateKernelGroupsWork.c)
- *     EtwpUpdateGroupMasks @ 0x1407970F0 (EtwpUpdateGroupMasks.c)
- *     EtwDereferenceSpinLockCounters @ 0x14093CE54 (EtwDereferenceSpinLockCounters.c)
- *     EtwReferenceSpinLockCounters @ 0x14093CEB0 (EtwReferenceSpinLockCounters.c)
- *     EtwpCoverageSamplerStart @ 0x14094718C (EtwpCoverageSamplerStart.c)
- *     EtwpCoverageSamplerStop @ 0x140947458 (EtwpCoverageSamplerStop.c)
+ *     EtwpUpdateKernelGroupsWork @ 0x140797230 (EtwpUpdateKernelGroupsWork.c)
+ *     EtwpUpdateGroupMasks @ 0x1407972F0 (EtwpUpdateGroupMasks.c)
+ *     EtwDereferenceSpinLockCounters @ 0x14093D024 (EtwDereferenceSpinLockCounters.c)
+ *     EtwReferenceSpinLockCounters @ 0x14093D080 (EtwReferenceSpinLockCounters.c)
+ *     EtwpCoverageSamplerStart @ 0x14094735C (EtwpCoverageSamplerStart.c)
+ *     EtwpCoverageSamplerStop @ 0x140947628 (EtwpCoverageSamplerStop.c)
  * Callees:
- *     PsGetServerSiloGlobals @ 0x140252E18 (PsGetServerSiloGlobals.c)
- *     KeReleaseMutex @ 0x1402EE5A0 (KeReleaseMutex.c)
- *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     PspGetNextSilo @ 0x140617AF0 (PspGetNextSilo.c)
- *     EtwpEnableKernelTrace @ 0x1407981D8 (EtwpEnableKernelTrace.c)
- *     EtwpDisableKernelTrace @ 0x14079846C (EtwpDisableKernelTrace.c)
+ *     PsGetServerSiloGlobals @ 0x140285C94 (PsGetServerSiloGlobals.c)
+ *     KeReleaseMutex @ 0x1402F92F0 (KeReleaseMutex.c)
+ *     KeWaitForSingleObject @ 0x1403504C0 (KeWaitForSingleObject.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     PspGetNextSilo @ 0x140681750 (PspGetNextSilo.c)
+ *     EtwpEnableKernelTrace @ 0x1407983D8 (EtwpEnableKernelTrace.c)
+ *     EtwpDisableKernelTrace @ 0x14079866C (EtwpDisableKernelTrace.c)
  */
 
 __int64 __fastcall EtwpUpdateGlobalGroupMasks(__int64 a1, unsigned int a2, unsigned int a3)

@@ -1,19 +1,18 @@
 /*
- * XREFs of ExIsSpecialPoolAddress @ 0x1402B4928
+ * XREFs of ExIsSpecialPoolAddress @ 0x14048BD64
  * Callers:
- *     ExAllocateHeapPool @ 0x1402ACDB0 (ExAllocateHeapPool.c)
- *     ExFreeHeapPool @ 0x1402B0E50 (ExFreeHeapPool.c)
- *     ExReturnPoolQuota @ 0x1402B4980 (ExReturnPoolQuota.c)
- *     IoFreeIrp @ 0x14031A520 (IoFreeIrp.c)
- *     IopFreeIrp @ 0x14031AC50 (IopFreeIrp.c)
- *     ExQueryPoolBlockSize @ 0x140654750 (ExQueryPoolBlockSize.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
- *     DifpLwSPProcessPostPoolAlloc @ 0x140BA423C (DifpLwSPProcessPostPoolAlloc.c)
- *     ExFreePoolSanityChecks @ 0x140BA44B0 (ExFreePoolSanityChecks.c)
- *     VfHandlePoolAlloc @ 0x140BA8AA0 (VfHandlePoolAlloc.c)
+ *     ExReturnPoolQuota @ 0x14021ACC0 (ExReturnPoolQuota.c)
+ *     IoFreeIrp @ 0x1402C30B0 (IoFreeIrp.c)
+ *     IopFreeIrp @ 0x1402C37E0 (IopFreeIrp.c)
+ *     ExFreeHeapPool @ 0x140359950 (ExFreeHeapPool.c)
+ *     ExQueryPoolBlockSize @ 0x140652E50 (ExQueryPoolBlockSize.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
+ *     DifpLwSPProcessPostPoolAlloc @ 0x140BA623C (DifpLwSPProcessPostPoolAlloc.c)
+ *     ExFreePoolSanityChecks @ 0x140BA64B0 (ExFreePoolSanityChecks.c)
+ *     VfHandlePoolAlloc @ 0x140BAAAA0 (VfHandlePoolAlloc.c)
  * Callees:
- *     ExGetHeapFromVA @ 0x1402B3750 (ExGetHeapFromVA.c)
- *     ExpHpIsSpecialPoolHeap @ 0x1402B4948 (ExpHpIsSpecialPoolHeap.c)
+ *     ExGetHeapFromVA @ 0x14035C310 (ExGetHeapFromVA.c)
+ *     ExpHpIsSpecialPoolHeap @ 0x14048BD84 (ExpHpIsSpecialPoolHeap.c)
  */
 
 __int64 __fastcall ExIsSpecialPoolAddress(ULONG_PTR a1)

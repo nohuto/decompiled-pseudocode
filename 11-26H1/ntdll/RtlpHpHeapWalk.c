@@ -1,16 +1,16 @@
 /*
- * XREFs of RtlpHpHeapWalk @ 0x1800744FC
+ * XREFs of RtlpHpHeapWalk @ 0x180094AEC
  * Callers:
- *     RtlpHpTagDestroyHeap @ 0x180072524 (RtlpHpTagDestroyHeap.c)
- *     RtlWalkHeap @ 0x1800725D0 (RtlWalkHeap.c)
- *     RtlpWalkHeapInternal @ 0x180072620 (RtlpWalkHeapInternal.c)
- *     RtlpQueryExtendedInformationHeap @ 0x180072680 (RtlpQueryExtendedInformationHeap.c)
+ *     RtlpHpTagDestroyHeap @ 0x180092B10 (RtlpHpTagDestroyHeap.c)
+ *     RtlWalkHeap @ 0x180092BC0 (RtlWalkHeap.c)
+ *     RtlpWalkHeapInternal @ 0x180092C10 (RtlpWalkHeapInternal.c)
+ *     RtlpQueryExtendedInformationHeap @ 0x180092C70 (RtlpQueryExtendedInformationHeap.c)
  * Callees:
- *     RtlCSparseBitmapBitmaskRead @ 0x18001A070 (RtlCSparseBitmapBitmaskRead.c)
- *     RtlEnterCriticalSection @ 0x180048D70 (RtlEnterCriticalSection.c)
- *     RtlLeaveCriticalSection @ 0x18004A3E0 (RtlLeaveCriticalSection.c)
- *     RtlpHpSegWalk @ 0x180074638 (RtlpHpSegWalk.c)
- *     RtlpHpLargeWalkHeap @ 0x180074C98 (RtlpHpLargeWalkHeap.c)
+ *     RtlCSparseBitmapBitmaskRead @ 0x180005150 (RtlCSparseBitmapBitmaskRead.c)
+ *     RtlpReleaseHeapListLock @ 0x1800762B0 (RtlpReleaseHeapListLock.c)
+ *     RtlpAcquireHeapListLock @ 0x1800762FC (RtlpAcquireHeapListLock.c)
+ *     RtlpHpSegWalk @ 0x180094C1C (RtlpHpSegWalk.c)
+ *     RtlpHpLargeWalkHeap @ 0x180095248 (RtlpHpLargeWalkHeap.c)
  */
 
 __int64 __fastcall RtlpHpHeapWalk(__int64 a1, __int64 *a2, __int64 a3)
@@ -29,7 +29,7 @@ __int64 __fastcall RtlpHpHeapWalk(__int64 a1, __int64 *a2, __int64 a3)
     if ( *(_DWORD *)(a1 + 224) != (unsigned int)NtCurrentTeb()->ClientId.UniqueThread )
     {
       v3 = 1;
-      RtlEnterCriticalSection((__int64)&RtlpProcessHeapsLock);
+      RtlpAcquireHeapListLock();
     }
     v7 = *a2;
     if ( *a2 == a1 )
@@ -43,7 +43,7 @@ LABEL_6:
       v8 = 0;
       goto LABEL_7;
     }
-    v11 = RtlCSparseBitmapBitmaskRead((__int64)&unk_1801C78C0, 2 * ((unsigned __int64)(v7 - qword_1801C78B8) >> 20));
+    v11 = RtlCSparseBitmapBitmaskRead((__int64)&BaseAddress, 2 * ((unsigned __int64)(v7 - qword_1801C6908) >> 20));
     v8 = 2;
     if ( v11 )
       v8 = v11 - 1;
@@ -60,7 +60,7 @@ LABEL_7:
     v9 = RtlpHpLargeWalkHeap(a1, a2);
 LABEL_9:
     if ( v3 )
-      RtlLeaveCriticalSection((__int64)&RtlpProcessHeapsLock);
+      RtlpReleaseHeapListLock(0);
   }
   else
   {

@@ -1,9 +1,9 @@
 /*
- * XREFs of SepGetTokenElevationType @ 0x1404AB5E8
+ * XREFs of SepGetTokenElevationType @ 0x1404A4C78
  * Callers:
- *     SeQueryInformationToken @ 0x1408F4300 (SeQueryInformationToken.c)
- *     SepCopyTokenLoggingInformation @ 0x140A33D54 (SepCopyTokenLoggingInformation.c)
- *     NtQueryInformationToken @ 0x140B79CE0 (NtQueryInformationToken.c)
+ *     SeQueryInformationToken @ 0x1408FA8C0 (SeQueryInformationToken.c)
+ *     SepCopyTokenLoggingInformation @ 0x140A4ECB4 (SepCopyTokenLoggingInformation.c)
+ *     NtQueryInformationToken @ 0x140B81F50 (NtQueryInformationToken.c)
  * Callees:
  *     <none>
  */

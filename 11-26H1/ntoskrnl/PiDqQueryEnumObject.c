@@ -1,14 +1,14 @@
 /*
- * XREFs of PiDqQueryEnumObject @ 0x1409A83F4
+ * XREFs of PiDqQueryEnumObject @ 0x140968E04
  * Callers:
- *     PiDqObjectManagerEnumerateAndRegisterQuery @ 0x14098EA84 (PiDqObjectManagerEnumerateAndRegisterQuery.c)
- *     PiDqEnumQueryObjectsCallback @ 0x1409A83D0 (PiDqEnumQueryObjectsCallback.c)
+ *     PiDqObjectManagerEnumerateAndRegisterQuery @ 0x14094F4E4 (PiDqObjectManagerEnumerateAndRegisterQuery.c)
+ *     PiDqEnumQueryObjectsCallback @ 0x140968DE0 (PiDqEnumQueryObjectsCallback.c)
  * Callees:
- *     PiDqQueryAddObjectToResultSet @ 0x14098DF2C (PiDqQueryAddObjectToResultSet.c)
- *     PiPnpRtlApplyMandatoryFilters @ 0x14099B1B0 (PiPnpRtlApplyMandatoryFilters.c)
- *     PiDqQueryEvaluateFilter @ 0x1409A7950 (PiDqQueryEvaluateFilter.c)
- *     PiDqQueryAppendActionEntry @ 0x1409A8588 (PiDqQueryAppendActionEntry.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
+ *     PiDqQueryAddObjectToResultSet @ 0x14094E98C (PiDqQueryAddObjectToResultSet.c)
+ *     PiPnpRtlApplyMandatoryFilters @ 0x14095BC10 (PiPnpRtlApplyMandatoryFilters.c)
+ *     PiDqQueryEvaluateFilter @ 0x1409683B0 (PiDqQueryEvaluateFilter.c)
+ *     PiDqQueryAppendActionEntry @ 0x140968F98 (PiDqQueryAppendActionEntry.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall PiDqQueryEnumObject(struct _SECURITY_SUBJECT_CONTEXT *a1, __int64 a2)

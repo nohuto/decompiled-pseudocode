@@ -71,7 +71,7 @@ __int64 __fastcall IommuDisableDevicePasid(__int64 a1, __int64 a2)
   CurrentIrql = KeGetCurrentIrql();
   v41 = CurrentIrql;
   __writecr8(0xFuLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     if ( CurrentIrql == 15 )
@@ -182,10 +182,10 @@ LABEL_39:
   while ( v28 );
   KxReleaseSpinLock((volatile signed __int64 *)v26);
   v29 = (unsigned int)KiIrqlFlags;
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v30 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v30 <= 0xFu && CurrentIrql <= 0xFu && v30 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v30 <= 0xFu && CurrentIrql <= 0xFu && v30 >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       v29 = (unsigned int)CurrentIrql + 1;
@@ -201,7 +201,7 @@ LABEL_39:
   HalpMmAllocCtxFree(v29, (__int64)v12);
   KxReleaseSpinLock((volatile signed __int64 *)&IommupPasidTableLock);
   v34 = (unsigned int)KiIrqlFlags;
-  if ( KiIrqlFlags && (v35 = KeGetCurrentIrql(), (KiIrqlFlags & 1) != 0) && v35 <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && (v35 = KeGetCurrentIrql(), ((unsigned __int8)KiIrqlFlags & 1) != 0) && v35 <= 0xFu )
   {
     v36 = v44;
     if ( v44 <= 0xFu && v35 >= 2u )

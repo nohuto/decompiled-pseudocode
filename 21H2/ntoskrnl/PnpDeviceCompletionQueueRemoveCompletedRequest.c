@@ -1,12 +1,12 @@
 /*
- * XREFs of PnpDeviceCompletionQueueRemoveCompletedRequest @ 0x14036FC28
+ * XREFs of PnpDeviceCompletionQueueRemoveCompletedRequest @ 0x14036FDD8
  * Callers:
- *     PnpStartDeviceNode @ 0x14073DF04 (PnpStartDeviceNode.c)
- *     PipEnumerateDevice @ 0x140746E28 (PipEnumerateDevice.c)
+ *     PnpStartDeviceNode @ 0x14073E0C4 (PnpStartDeviceNode.c)
+ *     PipEnumerateDevice @ 0x140746FE8 (PipEnumerateDevice.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
- *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KxReleaseSpinLock @ 0x140212140 (KxReleaseSpinLock.c)
+ *     KeWaitForSingleObject @ 0x1403504C0 (KeWaitForSingleObject.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140362F80 (KeAcquireSpinLockRaiseToDpc.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
@@ -22,8 +22,8 @@ _QWORD *__fastcall PnpDeviceCompletionQueueRemoveCompletedRequest(__int64 a1, _Q
   int v11; // eax
   bool v12; // zf
 
-  KeWaitForSingleObject(&byte_140C44B88, Executive, 0, 0, 0LL);
-  v3 = KeAcquireSpinLockRaiseToDpc(&qword_140C44BA8);
+  KeWaitForSingleObject(&byte_140C44B48, Executive, 0, 0, 0LL);
+  v3 = KeAcquireSpinLockRaiseToDpc(&qword_140C44B68);
   v4 = *a2;
   v5 = v3;
   v6 = (_QWORD *)a2[1];
@@ -31,7 +31,7 @@ _QWORD *__fastcall PnpDeviceCompletionQueueRemoveCompletedRequest(__int64 a1, _Q
     __fastfail(3u);
   *v6 = v4;
   *(_QWORD *)(v4 + 8) = v6;
-  KxReleaseSpinLock(&qword_140C44BA8);
+  KxReleaseSpinLock(&qword_140C44B68);
   if ( KiIrqlFlags )
   {
     if ( (KiIrqlFlags & 1) != 0 )

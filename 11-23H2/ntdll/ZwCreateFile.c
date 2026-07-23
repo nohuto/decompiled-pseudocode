@@ -7,18 +7,29 @@
  *     RtlCreateSystemVolumeInformationFolder @ 0x18006C380 (RtlCreateSystemVolumeInformationFolder.c)
  *     LdrpResMapFile @ 0x1800F04FC (LdrpResMapFile.c)
  *     RtlCreateBootStatusDataFile @ 0x1800FA810 (RtlCreateBootStatusDataFile.c)
- *     GetProcessIptTrace @ 0x18012CBD0 (GetProcessIptTrace.c)
- *     GetProcessIptTraceSize @ 0x18012CD2C (GetProcessIptTraceSize.c)
- *     RtlpQueryDiskSpacePolicy @ 0x18012CEB4 (RtlpQueryDiskSpacePolicy.c)
+ *     GetProcessIptTrace @ 0x18012CBFC (GetProcessIptTrace.c)
+ *     GetProcessIptTraceSize @ 0x18012CD58 (GetProcessIptTraceSize.c)
+ *     RtlpQueryDiskSpacePolicy @ 0x18012CEE0 (RtlpQueryDiskSpacePolicy.c)
  * Callees:
  *     <none>
  */
 
-__int64 ZwCreateFile()
+NTSTATUS __cdecl ZwCreateFile(
+        PHANDLE FileHandle,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        PIO_STATUS_BLOCK IoStatusBlock,
+        PLARGE_INTEGER AllocationSize,
+        ULONG FileAttributes,
+        ULONG ShareAccess,
+        ULONG CreateDisposition,
+        ULONG CreateOptions,
+        PVOID EaBuffer,
+        ULONG EaLength)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 85LL;
+  result = 85;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

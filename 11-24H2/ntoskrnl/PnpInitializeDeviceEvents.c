@@ -1,16 +1,16 @@
 /*
- * XREFs of PnpInitializeDeviceEvents @ 0x140C2535C
+ * XREFs of PnpInitializeDeviceEvents @ 0x140C273AC
  * Callers:
- *     IopInitializePlugPlayServices @ 0x140C1F07C (IopInitializePlugPlayServices.c)
+ *     IopInitializePlugPlayServices @ 0x140C210BC (IopInitializePlugPlayServices.c)
  * Callees:
- *     ?KiInitializeMutant@@YAXPEAU_KMUTANT@@EEK@Z @ 0x14044FEB0 (-KiInitializeMutant@@YAXPEAU_KMUTANT@@EEK@Z.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     ?KiInitializeMutant@@YAXPEAU_KMUTANT@@EEK@Z @ 0x140445120 (-KiInitializeMutant@@YAXPEAU_KMUTANT@@EEK@Z.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 __int64 PnpInitializeDeviceEvents()
 {
   unsigned int v0; // ebx
-  ULONG_PTR Pool2; // rax
+  __int64 Pool2; // rax
   __int64 v2; // rcx
 
   v0 = 0;

@@ -1,20 +1,20 @@
 /*
- * XREFs of MiMapPagesToZero @ 0x140234070
+ * XREFs of MiMapPagesToZero @ 0x1402D88C0
  * Callers:
- *     MiZeroLargePages @ 0x140232520 (MiZeroLargePages.c)
- *     MiGetPagesToZero @ 0x14054FD4C (MiGetPagesToZero.c)
+ *     MiZeroLargePages @ 0x1402D6D70 (MiZeroLargePages.c)
+ *     MiGetPagesToZero @ 0x14054FF8C (MiGetPagesToZero.c)
  * Callees:
- *     MiGetUltraMapping @ 0x140234700 (MiGetUltraMapping.c)
- *     MiFinalizePageAttribute @ 0x14026E434 (MiFinalizePageAttribute.c)
- *     MiUserPdeOrAbove @ 0x1402ABED4 (MiUserPdeOrAbove.c)
- *     MiWritePteShadow @ 0x1402B69BC (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x1402B6A1C (MiPteHasShadow.c)
- *     MiRemoveFaultNode @ 0x1402C71BC (MiRemoveFaultNode.c)
- *     MiChangePageAttribute @ 0x1403041E4 (MiChangePageAttribute.c)
- *     MiGetLeafVa @ 0x14032CE60 (MiGetLeafVa.c)
- *     MiPteInShadowRange @ 0x140348AF0 (MiPteInShadowRange.c)
- *     HvlNotifyLongSpinWait @ 0x140390140 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140390F20 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     MiUserPdeOrAbove @ 0x14022A014 (MiUserPdeOrAbove.c)
+ *     MiWritePteShadow @ 0x140234B9C (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140234BFC (MiPteHasShadow.c)
+ *     MiRemoveFaultNode @ 0x1402458FC (MiRemoveFaultNode.c)
+ *     MiFinalizePageAttribute @ 0x14025C3D4 (MiFinalizePageAttribute.c)
+ *     MiGetUltraMapping @ 0x1402D8F50 (MiGetUltraMapping.c)
+ *     MiChangePageAttribute @ 0x14030EF34 (MiChangePageAttribute.c)
+ *     MiGetLeafVa @ 0x140337BB0 (MiGetLeafVa.c)
+ *     MiPteInShadowRange @ 0x140353840 (MiPteInShadowRange.c)
+ *     HvlNotifyLongSpinWait @ 0x140390290 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140391070 (KiCheckVpBackingLongSpinWaitHypercall.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
@@ -40,28 +40,24 @@ __int64 __fastcall MiMapPagesToZero(__int64 a1, __int64 a2, unsigned int a3)
   int v23; // eax
   char v24; // cl
   unsigned int v25; // r14d
-  unsigned __int64 v26; // r8
-  unsigned __int64 v27; // rbx
-  unsigned __int64 v28; // rcx
+  unsigned __int64 v26; // rbx
+  unsigned __int64 v27; // r9
   unsigned __int64 LeafVa; // rbp
-  int v30; // eax
+  int v29; // eax
+  unsigned __int64 v30; // rcx
   int v31; // eax
   unsigned int v32; // ebp
   __int64 v33; // rax
   __int64 v34; // rbx
   unsigned __int64 v35; // rbx
-  __int64 v36; // rdx
-  __int64 v37; // rcx
-  __int64 v38; // r8
-  __int64 v39; // r9
-  unsigned __int64 v40; // r11
-  unsigned __int64 v41; // rdx
-  unsigned __int8 v42; // al
-  struct _KPRCB *v43; // r10
-  _DWORD *v44; // r9
-  int v45; // edx
+  unsigned __int64 v36; // r11
+  __int64 v37; // rdx
+  unsigned __int8 v38; // al
+  struct _KPRCB *v39; // r10
+  _DWORD *v40; // r9
+  int v41; // edx
   unsigned __int64 UltraMapping; // [rsp+20h] [rbp-58h]
-  __int64 v48; // [rsp+88h] [rbp+10h]
+  __int64 v44; // [rsp+88h] [rbp+10h]
 
   v4 = a1;
   if ( a3 >= 3 )
@@ -73,7 +69,7 @@ __int64 __fastcall MiMapPagesToZero(__int64 a1, __int64 a2, unsigned int a3)
     _mm_lfence();
     v6 = MiLargePageSizes[a3];
   }
-  v48 = v6;
+  v44 = v6;
   UltraMapping = MiGetUltraMapping(32LL * a3 + a1 + 88, a3, v6, 0LL);
   SchedulerAssist = (_DWORD *)0xFFFFF68000000000LL;
   v8 = ((UltraMapping >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
@@ -120,7 +116,7 @@ __int64 __fastcall MiMapPagesToZero(__int64 a1, __int64 a2, unsigned int a3)
   }
   if ( *(_BYTE *)(v4 + 69) == 1 )
   {
-    MiRemoveFaultNode(v4, v12, v9);
+    MiRemoveFaultNode(v4);
     _InterlockedAnd64((volatile signed __int64 *)(a2 + 24), 0x7FFFFFFFFFFFFFFFuLL);
     if ( KiIrqlFlags )
     {
@@ -140,20 +136,20 @@ __int64 __fastcall MiMapPagesToZero(__int64 a1, __int64 a2, unsigned int a3)
       }
     }
     __writecr8(CurrentIrql);
-    ++dword_140C2A290;
+    ++dword_140C2A2D0;
     return 0LL;
   }
   v21 = *(unsigned __int8 *)(a2 + 34) >> 6;
-  if ( v48 != 1 )
+  if ( v44 != 1 )
     goto LABEL_35;
   if ( (_DWORD)v21 && (_DWORD)v21 != 2 )
   {
     if ( (*(_BYTE *)(a2 + 34) & 0xC0) == 0xC0 )
-      MiFinalizePageAttribute(a2, 1LL, 1LL);
+      MiFinalizePageAttribute(a2, 1LL, 1u);
     goto LABEL_35;
   }
   v22 = 0x140000000uLL;
-  if ( dword_140C4DF9C[4 * v21] == 1 )
+  if ( dword_140C4DFDC[4 * v21] == 1 )
   {
     MiChangePageAttribute(a2, 1LL, 1LL);
 LABEL_35:
@@ -163,7 +159,6 @@ LABEL_35:
   v24 = *(_BYTE *)(a2 + 34) >> 6;
   if ( v24 )
   {
-    v12 = 28LL;
     if ( v24 == 2 )
       v23 = 28;
   }
@@ -174,12 +169,10 @@ LABEL_35:
   v25 = v23 | 0xA0000000;
   if ( a3 <= 1 )
     v25 = v23 | 0xA4000000;
-  v26 = 0xFFFFF68000000000uLL;
-  v27 = ((((a2 + 0x58000000000LL) / 48) & 0xFFFFFFFFFLL) << 12) | MmProtectToPteMask[v25 & 0x1F] & 0xFFFF000000000E7FuLL | 0x21;
-  v28 = 0x8000000000000000uLL;
+  v26 = ((((a2 + 0x58000000000LL) / 48) & 0xFFFFFFFFFLL) << 12) | MmProtectToPteMask[v25 & 0x1F] & 0xFFFF000000000E7FuLL | 0x21;
   if ( v8 < 0xFFFFF68000000000uLL )
     goto LABEL_65;
-  SchedulerAssist = (_DWORD *)0xFFFFF6FFFFFFFFFFLL;
+  v27 = 0xFFFFF6FFFFFFFFFFuLL;
   if ( v8 > 0xFFFFF6FFFFFFFFFFuLL )
     goto LABEL_65;
   LeafVa = (__int64)(v8 << 25) >> 16;
@@ -187,60 +180,55 @@ LABEL_35:
   {
     if ( v8 == 0xFFFFF6FB7DBEDF68uLL )
     {
-      v27 = ((((a2 + 0x58000000000LL) / 48) & 0xFFFFFFFFFLL) << 12) | MmProtectToPteMask[v25 & 0x1F] & 0xFFFF000000000E7FuLL | 0x8000000000000021uLL;
+      v26 = ((((a2 + 0x58000000000LL) / 48) & 0xFFFFFFFFFLL) << 12) | MmProtectToPteMask[v25 & 0x1F] & 0xFFFF000000000E7FuLL | 0x8000000000000021uLL;
     }
     else if ( (v25 & 0x4000000) == 0 )
     {
-      v27 = ((((a2 + 0x58000000000LL) / 48) & 0xFFFFFFFFFLL) << 12) & 0x7FFFFFFFFFFFFFFFLL | MmProtectToPteMask[v25 & 0x1F] & 0x7FFF000000000E7FLL | 0x21;
+      v26 = ((((a2 + 0x58000000000LL) / 48) & 0xFFFFFFFFFLL) << 12) & 0x7FFFFFFFFFFFFFFFLL | MmProtectToPteMask[v25 & 0x1F] & 0x7FFF000000000E7FLL | 0x21;
     }
-    v30 = MiUserPdeOrAbove(v8, v12, 0xFFFFF68000000000uLL, 0xFFFFF6FFFFFFFFFFuLL);
-    SchedulerAssist = (_DWORD *)0xFFFFF6FFFFFFFFFFLL;
+    v29 = MiUserPdeOrAbove(v8);
+    v27 = 0xFFFFF6FFFFFFFFFFuLL;
     v22 = 0x140000000uLL;
-    v26 = 0xFFFFF68000000000uLL;
-    if ( v30 )
-      v27 |= 4uLL;
+    if ( v29 )
+      v26 |= 4uLL;
   }
-  v28 = v27;
-  v27 |= 4uLL;
-  v12 = 0x3FFFFFFF78LL;
+  v30 = v26;
+  v26 |= 4uLL;
   if ( v8 > 0xFFFFF6BFFFFFFF78uLL )
-    v27 = v28;
+    v26 = v30;
   if ( (v25 & 0x4000000) != 0 )
-  {
-    LeafVa = MiGetLeafVa(LeafVa, 0x3FFFFFFF78LL, 0xFFFFF68000000000uLL, 0xFFFFF6FFFFFFFFFFuLL);
-    v26 = 0xFFFFF68000000000uLL;
-  }
+    LeafVa = MiGetLeafVa(LeafVa);
   if ( LeafVa >= 0xFFFF800000000000uLL )
   {
-    if ( *(_BYTE *)(((LeafVa >> 39) & 0x1FF) - 256 + v22 + 12909000) == 1
-      || LeafVa >= 0xFFFFF68000000000uLL && LeafVa <= (unsigned __int64)SchedulerAssist )
+    if ( *(_BYTE *)(((LeafVa >> 39) & 0x1FF) - 256 + v22 + 12909064) == 1
+      || LeafVa >= 0xFFFFF68000000000uLL && LeafVa <= v27 )
     {
       goto LABEL_66;
     }
-    if ( LeafVa < qword_140C4FB38 || (v31 = HIBYTE(word_140C4E008), LeafVa > qword_140C4E368) )
-      v31 = (unsigned __int8)word_140C4E008;
+    if ( LeafVa < qword_140C4FB78 || (v31 = HIBYTE(word_140C4E048), LeafVa > qword_140C4E3A8) )
+      v31 = (unsigned __int8)word_140C4E048;
   }
   else
   {
-    v31 = HIBYTE(word_140C4E008);
+    v31 = HIBYTE(word_140C4E048);
   }
   if ( v31 )
 LABEL_65:
-    v27 |= 0x100uLL;
+    v26 |= 0x100uLL;
 LABEL_66:
   v32 = a3;
-  v33 = v27 ^ ((unsigned __int16)v27 ^ (unsigned __int16)((unsigned __int8)word_140C4E008 << 8)) & 0x100 | 0x42;
-  v34 = v27 ^ ((unsigned __int16)v27 ^ (unsigned __int16)((unsigned __int8)word_140C4E008 << 8)) & 0x100 | 0xC2;
+  v33 = v26 ^ ((unsigned __int16)v26 ^ (unsigned __int16)((unsigned __int8)word_140C4E048 << 8)) & 0x100 | 0x42;
+  v34 = v26 ^ ((unsigned __int16)v26 ^ (unsigned __int16)((unsigned __int8)word_140C4E048 << 8)) & 0x100 | 0xC2;
   if ( (v25 & 0x4000000) == 0 )
     v34 = v33;
   v35 = v34 & 0xF0FFFFFFFFFFFFFFuLL | 0xA00000000000000LL;
   if ( a3 <= 1 )
   {
-    if ( (unsigned int)MiPteInShadowRange(v8, v12) )
+    if ( (unsigned int)MiPteInShadowRange(v8) )
     {
-      if ( (unsigned int)MiPteHasShadow(v37, v36, v38, v39) )
+      if ( (unsigned int)MiPteHasShadow() )
       {
-        if ( !HIBYTE(word_140C4E008) )
+        if ( !HIBYTE(word_140C4E048) )
           v35 |= 0x8000000000000000uLL;
         *(_QWORD *)v8 = v35;
         MiWritePteShadow(v8, v35);
@@ -252,43 +240,42 @@ LABEL_66:
     *(_QWORD *)v8 = v35;
     goto LABEL_92;
   }
-  v40 = 8 * v48 + v8;
-  if ( v8 >= v40 )
+  v36 = 8 * v44 + v8;
+  if ( v8 >= v36 )
     goto LABEL_91;
   do
   {
-    v41 = v35;
+    v37 = v35;
     if ( v8 < 0xFFFFF6FB7DBED000uLL || v8 > 0xFFFFF6FB7DBED7F8uLL )
       goto LABEL_88;
-    if ( !(unsigned int)MiPteHasShadow(v28, v35, v26, SchedulerAssist) )
+    if ( !(unsigned int)MiPteHasShadow() )
     {
       if ( (HIDWORD(KeGetCurrentThread()->ApcState.Process[2].Header.WaitListHead.Flink) & 0x1000) != 0
         && (v35 & 1) != 0 )
       {
-        v41 |= 0x8000000000000000uLL;
+        v37 |= 0x8000000000000000uLL;
       }
 LABEL_88:
-      *(_QWORD *)v8 = v41;
+      *(_QWORD *)v8 = v37;
       goto LABEL_89;
     }
-    if ( !HIBYTE(word_140C4E008) && (v35 & 1) != 0 )
-      v41 |= 0x8000000000000000uLL;
-    *(_QWORD *)v8 = v41;
-    MiWritePteShadow(v8, v41);
+    if ( !HIBYTE(word_140C4E048) && (v35 & 1) != 0 )
+      v37 |= 0x8000000000000000uLL;
+    *(_QWORD *)v8 = v37;
+    MiWritePteShadow(v8, v37);
 LABEL_89:
-    v28 = 0xFFFFFFFFF000LL;
     v8 += 8LL;
     v35 ^= (v35 ^ (v35 + 4096)) & 0xFFFFFFFFF000LL;
   }
-  while ( v8 < v40 );
+  while ( v8 < v36 );
   v4 = a1;
   v32 = a3;
 LABEL_91:
-  v8 -= 8 * v48;
+  v8 -= 8 * v44;
 LABEL_92:
   *(_QWORD *)(v4 + 32) = v8;
   *(_QWORD *)(v4 + 40) = UltraMapping;
-  *(_QWORD *)(v4 + 48) = UltraMapping + (v48 << 12) - 1;
+  *(_QWORD *)(v4 + 48) = UltraMapping + (v44 << 12) - 1;
   *(_DWORD *)(v4 + 64) = v32;
   *(_QWORD *)(v4 + 72) = a2;
   _InterlockedAnd64((volatile signed __int64 *)(a2 + 24), 0x7FFFFFFFFFFFFFFFuLL);
@@ -296,16 +283,16 @@ LABEL_92:
   {
     if ( (KiIrqlFlags & 1) != 0 )
     {
-      v42 = KeGetCurrentIrql();
-      if ( v42 <= 0xFu && CurrentIrql <= 0xFu && v42 >= 2u )
+      v38 = KeGetCurrentIrql();
+      if ( v38 <= 0xFu && CurrentIrql <= 0xFu && v38 >= 2u )
       {
-        v43 = KeGetCurrentPrcb();
-        v44 = v43->SchedulerAssist;
-        v45 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
-        v19 = (v45 & v44[5]) == 0;
-        v44[5] &= v45;
+        v39 = KeGetCurrentPrcb();
+        v40 = v39->SchedulerAssist;
+        v41 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
+        v19 = (v41 & v40[5]) == 0;
+        v40[5] &= v41;
         if ( v19 )
-          KiRemoveSystemWorkPriorityKick(v43);
+          KiRemoveSystemWorkPriorityKick(v39);
       }
     }
   }

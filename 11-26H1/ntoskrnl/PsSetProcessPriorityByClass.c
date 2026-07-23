@@ -1,13 +1,13 @@
 /*
- * XREFs of PsSetProcessPriorityByClass @ 0x140ABAD60
+ * XREFs of PsSetProcessPriorityByClass @ 0x140ABC220
  * Callers:
- *     NtSetInformationProcess @ 0x140B72B10 (NtSetInformationProcess.c)
+ *     NtSetInformationProcess @ 0x140B781E0 (NtSetInformationProcess.c)
  * Callees:
- *     PspSetProcessPriorityByClass @ 0x14051C2E4 (PspSetProcessPriorityByClass.c)
- *     PspSetProcessForegroundBackgroundRequest @ 0x140ABAD8C (PspSetProcessForegroundBackgroundRequest.c)
+ *     PspSetProcessPriorityByClass @ 0x140518324 (PspSetProcessPriorityByClass.c)
+ *     PspSetProcessForegroundBackgroundRequest @ 0x140ABC24C (PspSetProcessForegroundBackgroundRequest.c)
  */
 
-void __fastcall PsSetProcessPriorityByClass(__int64 a1, __int64 a2)
+void __fastcall PsSetProcessPriorityByClass(void *a1, __int64 a2)
 {
   if ( (_DWORD)a2 == 2 )
   {

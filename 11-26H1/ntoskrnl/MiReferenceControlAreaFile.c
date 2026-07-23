@@ -1,42 +1,42 @@
 /*
- * XREFs of MiReferenceControlAreaFile @ 0x140448EB0
+ * XREFs of MiReferenceControlAreaFile @ 0x1404419A0
  * Callers:
- *     MiInitializeQueryVadInfo @ 0x14091FE40 (MiInitializeQueryVadInfo.c)
- *     NtAreMappedFilesTheSame @ 0x140961230 (NtAreMappedFilesTheSame.c)
- *     MmIsFileMapped @ 0x1409706E8 (MmIsFileMapped.c)
- *     MiCreateSectionCommon @ 0x1409B9D9C (MiCreateSectionCommon.c)
- *     NtUnmapViewOfSectionEx @ 0x1409C38B0 (NtUnmapViewOfSectionEx.c)
- *     MiUnmapVad @ 0x1409C3B30 (MiUnmapVad.c)
- *     MiUnmapViewOfSection @ 0x1409C3C30 (MiUnmapViewOfSection.c)
- *     NtUnmapViewOfSection @ 0x1409C3E60 (NtUnmapViewOfSection.c)
- *     MiUnmapViewOfSectionPrepare @ 0x1409C40F0 (MiUnmapViewOfSectionPrepare.c)
- *     MiFillMapFileInfo @ 0x1409C6BC8 (MiFillMapFileInfo.c)
- *     MiParseComAndCetHeaders @ 0x1409CC26C (MiParseComAndCetHeaders.c)
- *     MiLogRelocationFaults @ 0x1409CC690 (MiLogRelocationFaults.c)
- *     MiMapImageInSystemSpace @ 0x1409CC82C (MiMapImageInSystemSpace.c)
- *     MiParseImageLoadConfig @ 0x1409CC9F0 (MiParseImageLoadConfig.c)
- *     MiHandleInsertedImageVad @ 0x1409CDFA4 (MiHandleInsertedImageVad.c)
- *     MmGetFileNameForAddress @ 0x1409FBE08 (MmGetFileNameForAddress.c)
- *     MmExtendSection @ 0x140A58080 (MmExtendSection.c)
- *     MiCachedPageNotifyPf @ 0x140A5CB60 (MiCachedPageNotifyPf.c)
- *     MmFlushVirtualMemory @ 0x140A5CF70 (MmFlushVirtualMemory.c)
- *     MmSectionToSectionObjectPointers @ 0x140A67440 (MmSectionToSectionObjectPointers.c)
- *     MiCallImageNotify @ 0x140A790C8 (MiCallImageNotify.c)
- *     MmEnumerateAddressSpaceAndReferenceImages @ 0x140A7CF90 (MmEnumerateAddressSpaceAndReferenceImages.c)
- *     MiConstructLoaderEntry @ 0x140AA8F54 (MiConstructLoaderEntry.c)
- *     MiAllowImageMap @ 0x140B1FE0C (MiAllowImageMap.c)
- *     MmGetFileNameForSection @ 0x140B261A4 (MmGetFileNameForSection.c)
- *     MiLoadUserSymbols @ 0x140B5385C (MiLoadUserSymbols.c)
- *     MiMapImageForEnclaveUse @ 0x140B5ED58 (MiMapImageForEnclaveUse.c)
- *     MiAllocateFileExtents @ 0x140B5F8D8 (MiAllocateFileExtents.c)
- *     MmCreateSpecialImageSection @ 0x140B7F20C (MmCreateSpecialImageSection.c)
+ *     MmGetFileNameForAddress @ 0x140920A08 (MmGetFileNameForAddress.c)
+ *     MiInitializeQueryVadInfo @ 0x1409249B0 (MiInitializeQueryVadInfo.c)
+ *     MiCreateSectionCommon @ 0x14098AD7C (MiCreateSectionCommon.c)
+ *     NtUnmapViewOfSectionEx @ 0x140994890 (NtUnmapViewOfSectionEx.c)
+ *     MiUnmapVad @ 0x140994B10 (MiUnmapVad.c)
+ *     MiUnmapViewOfSection @ 0x140994C10 (MiUnmapViewOfSection.c)
+ *     NtUnmapViewOfSection @ 0x140994E40 (NtUnmapViewOfSection.c)
+ *     MiUnmapViewOfSectionPrepare @ 0x1409950D0 (MiUnmapViewOfSectionPrepare.c)
+ *     MiFillMapFileInfo @ 0x140997BA8 (MiFillMapFileInfo.c)
+ *     MiParseComAndCetHeaders @ 0x14099D24C (MiParseComAndCetHeaders.c)
+ *     MiLogRelocationFaults @ 0x14099D670 (MiLogRelocationFaults.c)
+ *     MiMapImageInSystemSpace @ 0x14099D80C (MiMapImageInSystemSpace.c)
+ *     MiParseImageLoadConfig @ 0x14099D9D0 (MiParseImageLoadConfig.c)
+ *     MiHandleInsertedImageVad @ 0x14099EF84 (MiHandleInsertedImageVad.c)
+ *     MmIsFileMapped @ 0x1409BCA98 (MmIsFileMapped.c)
+ *     MiCallImageNotify @ 0x1409E50E8 (MiCallImageNotify.c)
+ *     NtAreMappedFilesTheSame @ 0x140A06AE0 (NtAreMappedFilesTheSame.c)
+ *     MmExtendSection @ 0x140A65600 (MmExtendSection.c)
+ *     MiCachedPageNotifyPf @ 0x140A69B20 (MiCachedPageNotifyPf.c)
+ *     MmFlushVirtualMemory @ 0x140A69F30 (MmFlushVirtualMemory.c)
+ *     MmSectionToSectionObjectPointers @ 0x140A74410 (MmSectionToSectionObjectPointers.c)
+ *     MmEnumerateAddressSpaceAndReferenceImages @ 0x140A82E00 (MmEnumerateAddressSpaceAndReferenceImages.c)
+ *     MiConstructLoaderEntry @ 0x140AA535C (MiConstructLoaderEntry.c)
+ *     MiAllowImageMap @ 0x140B2222C (MiAllowImageMap.c)
+ *     MmGetFileNameForSection @ 0x140B28404 (MmGetFileNameForSection.c)
+ *     MiLoadUserSymbols @ 0x140B560FC (MiLoadUserSymbols.c)
+ *     MiMapImageForEnclaveUse @ 0x140B61ED8 (MiMapImageForEnclaveUse.c)
+ *     MiAllocateFileExtents @ 0x140B62A58 (MiAllocateFileExtents.c)
+ *     MmCreateSpecialImageSection @ 0x140B880EC (MmCreateSpecialImageSection.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     ObfReferenceObjectWithTag @ 0x140278B30 (ObfReferenceObjectWithTag.c)
- *     ObpTraceObjectReferenceIfActive @ 0x140278BB0 (ObpTraceObjectReferenceIfActive.c)
- *     ExAcquireSpinLockShared @ 0x1402EDF10 (ExAcquireSpinLockShared.c)
- *     ExpReleaseSpinLockSharedFromDpcLevelInstrumented @ 0x14036A848 (ExpReleaseSpinLockSharedFromDpcLevelInstrumented.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     ObfReferenceObjectWithTag @ 0x1402780A0 (ObfReferenceObjectWithTag.c)
+ *     ObpTraceObjectReferenceIfActive @ 0x140278120 (ObpTraceObjectReferenceIfActive.c)
+ *     ExAcquireSpinLockShared @ 0x1402CFF90 (ExAcquireSpinLockShared.c)
+ *     ExpReleaseSpinLockSharedFromDpcLevelInstrumented @ 0x14036C5E8 (ExpReleaseSpinLockSharedFromDpcLevelInstrumented.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
  */
 
 ULONG_PTR __fastcall MiReferenceControlAreaFile(__int64 a1)
@@ -98,7 +98,7 @@ LABEL_12:
     ObfReferenceObjectWithTag((PVOID)(*(_QWORD *)(a1 + 64) & 0xFFFFFFFFFFFFFFF0uLL), 0x63536D4Du);
   if ( (_BYTE)v10 == 17 )
   {
-    if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+    if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || PopHibernateInProgress )
     {
       _InterlockedAnd((volatile signed __int32 *)(a1 + 72), 0xBFFFFFFF);
       _InterlockedDecrement((volatile signed __int32 *)(a1 + 72));
@@ -110,7 +110,7 @@ LABEL_12:
   }
   else
   {
-    if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+    if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || PopHibernateInProgress )
     {
       _InterlockedAnd((volatile signed __int32 *)(a1 + 72), 0xBFFFFFFF);
       _InterlockedDecrement((volatile signed __int32 *)(a1 + 72));

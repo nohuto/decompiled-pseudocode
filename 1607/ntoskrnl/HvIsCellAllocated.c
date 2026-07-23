@@ -1,24 +1,24 @@
 /*
- * XREFs of HvIsCellAllocated @ 0x1404399C0
+ * XREFs of HvIsCellAllocated @ 0x140438890
  * Callers:
- *     CmpValidateHiveSecurityDescriptors @ 0x1403F8C28 (CmpValidateHiveSecurityDescriptors.c)
- *     CmpCheckValueList @ 0x14043C940 (CmpCheckValueList.c)
- *     CmpCheckKey @ 0x14043D610 (CmpCheckKey.c)
+ *     CmpValidateHiveSecurityDescriptors @ 0x1403F7AE8 (CmpValidateHiveSecurityDescriptors.c)
+ *     CmpCheckValueList @ 0x14043B810 (CmpCheckValueList.c)
+ *     CmpCheckKey @ 0x14043C4E0 (CmpCheckKey.c)
  * Callees:
- *     HvpReleaseHCell @ 0x14002D330 (HvpReleaseHCell.c)
- *     HvpGetCellContextReinitialize @ 0x14002D3E8 (HvpGetCellContextReinitialize.c)
- *     HvpMapEntryReleaseBinAddress @ 0x14002D400 (HvpMapEntryReleaseBinAddress.c)
- *     HvpMapEntryGetBinAddress @ 0x14002D660 (HvpMapEntryGetBinAddress.c)
- *     HvpMapEntryIsDiscardable @ 0x14002D6D0 (HvpMapEntryIsDiscardable.c)
- *     RtlClearBits @ 0x14002D6E0 (RtlClearBits.c)
- *     HvpGetBinContextInitialize @ 0x14002D780 (HvpGetBinContextInitialize.c)
+ *     HvpReleaseHCell @ 0x14002CEB0 (HvpReleaseHCell.c)
+ *     HvpGetCellContextReinitialize @ 0x14002CF68 (HvpGetCellContextReinitialize.c)
+ *     HvpMapEntryReleaseBinAddress @ 0x14002CF80 (HvpMapEntryReleaseBinAddress.c)
+ *     HvpMapEntryGetBinAddress @ 0x14002D1E0 (HvpMapEntryGetBinAddress.c)
+ *     HvpMapEntryIsDiscardable @ 0x14002D250 (HvpMapEntryIsDiscardable.c)
+ *     RtlClearBits @ 0x14002D260 (RtlClearBits.c)
+ *     HvpGetBinContextInitialize @ 0x14002D300 (HvpGetBinContextInitialize.c)
  */
 
 char __fastcall HvIsCellAllocated(__int64 a1, unsigned int a2)
 {
   unsigned __int64 v3; // rdi
   __int64 v4; // r8
-  struct _RTL_BITMAP *v5; // r10
+  _RTL_BITMAP *v5; // r10
   unsigned int v6; // ebx
   __int64 v7; // rax
   __int64 v8; // rax

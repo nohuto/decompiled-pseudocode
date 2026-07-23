@@ -1,22 +1,22 @@
 /*
- * XREFs of ?KiAbpApplyTargetPriority@AutoBoost@@YAKPEAU_KTHREAD@@PEAU_AB_THREAD_ENTRY@1@U_AB_PRIORITY@1@PEAU_AB_BOOST_CONTEXT@1@PEAT_AB_IO_BOOST@1@@Z @ 0x1403754D0
+ * XREFs of ?KiAbpApplyTargetPriority@AutoBoost@@YAKPEAU_KTHREAD@@PEAU_AB_THREAD_ENTRY@1@U_AB_PRIORITY@1@PEAU_AB_BOOST_CONTEXT@1@PEAT_AB_IO_BOOST@1@@Z @ 0x140377280
  * Callers:
- *     ?KiAbpPerformIoBoostsForOwners@AutoBoost@@YAXPEAU_AB_HEAD_ENTRY@1@T_AB_IO_BOOST@1@PEAU_AB_BOOST_CONTEXT@1@@Z @ 0x140374D50 (-KiAbpPerformIoBoostsForOwners@AutoBoost@@YAXPEAU_AB_HEAD_ENTRY@1@T_AB_IO_BOOST@1@PEAU_AB_BOOST_.c)
- *     ?KiAbpPerformCpuPriorityBoostsForOwners@AutoBoost@@YAXPEAU_AB_HEAD_ENTRY@1@CPEAU_AB_BOOST_CONTEXT@1@@Z @ 0x140374E28 (-KiAbpPerformCpuPriorityBoostsForOwners@AutoBoost@@YAXPEAU_AB_HEAD_ENTRY@1@CPEAU_AB_BOOST_CONTEX.c)
- *     ?KiAbpProcessThreadState@AutoBoost@@YAXPEAU_KTHREAD@@PEAU_AB_THREAD_STATE@1@PEAU_AB_BOOST_CONTEXT@1@@Z @ 0x140375A20 (-KiAbpProcessThreadState@AutoBoost@@YAXPEAU_KTHREAD@@PEAU_AB_THREAD_STATE@1@PEAU_AB_BOOST_CONTEX.c)
- *     ?KiAbpProcessEntry@AutoBoost@@YAXPEAU_KTHREAD@@PEAU_AB_THREAD_ENTRY@1@PEAU_AB_BOOST_CONTEXT@1@@Z @ 0x140376BF0 (-KiAbpProcessEntry@AutoBoost@@YAXPEAU_KTHREAD@@PEAU_AB_THREAD_ENTRY@1@PEAU_AB_BOOST_CONTEXT@1@@Z.c)
+ *     ?KiAbpPerformIoBoostsForOwners@AutoBoost@@YAXPEAU_AB_HEAD_ENTRY@1@T_AB_IO_BOOST@1@PEAU_AB_BOOST_CONTEXT@1@@Z @ 0x140376B00 (-KiAbpPerformIoBoostsForOwners@AutoBoost@@YAXPEAU_AB_HEAD_ENTRY@1@T_AB_IO_BOOST@1@PEAU_AB_BOOST_.c)
+ *     ?KiAbpPerformCpuPriorityBoostsForOwners@AutoBoost@@YAXPEAU_AB_HEAD_ENTRY@1@CPEAU_AB_BOOST_CONTEXT@1@@Z @ 0x140376BD8 (-KiAbpPerformCpuPriorityBoostsForOwners@AutoBoost@@YAXPEAU_AB_HEAD_ENTRY@1@CPEAU_AB_BOOST_CONTEX.c)
+ *     ?KiAbpProcessThreadState@AutoBoost@@YAXPEAU_KTHREAD@@PEAU_AB_THREAD_STATE@1@PEAU_AB_BOOST_CONTEXT@1@@Z @ 0x1403777D0 (-KiAbpProcessThreadState@AutoBoost@@YAXPEAU_KTHREAD@@PEAU_AB_THREAD_STATE@1@PEAU_AB_BOOST_CONTEX.c)
+ *     ?KiAbpProcessEntry@AutoBoost@@YAXPEAU_KTHREAD@@PEAU_AB_THREAD_ENTRY@1@PEAU_AB_BOOST_CONTEXT@1@@Z @ 0x1403789A0 (-KiAbpProcessEntry@AutoBoost@@YAXPEAU_KTHREAD@@PEAU_AB_THREAD_ENTRY@1@PEAU_AB_BOOST_CONTEXT@1@@Z.c)
  * Callees:
- *     PsBoostThreadIoQoS @ 0x140205500 (PsBoostThreadIoQoS.c)
- *     ?KiAbpQueueAutoBoostDpc@AutoBoost@@YAXPEAU_KPRCB@@@Z @ 0x14023BA30 (-KiAbpQueueAutoBoostDpc@AutoBoost@@YAXPEAU_KPRCB@@@Z.c)
- *     PsBoostThreadIo @ 0x1402BA700 (PsBoostThreadIo.c)
- *     HvlNotifyLongSpinWait @ 0x1402BBF00 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1402BC760 (KiCheckVpBackingLongSpinWaitHypercall.c)
- *     ?KiAbpOwnerComputeCpuPriorityKey@AutoBoost@@YACPEAU_AB_THREAD_ENTRY@1@@Z @ 0x1403759C0 (-KiAbpOwnerComputeCpuPriorityKey@AutoBoost@@YACPEAU_AB_THREAD_ENTRY@1@@Z.c)
- *     KiSetPriorityThread @ 0x14037F250 (KiSetPriorityThread.c)
- *     ?KiAbpThreadInsertList@AutoBoost@@YAKPEAU_KTHREAD@@PEAU_SINGLE_LIST_ENTRY@@1@Z @ 0x140430D9C (-KiAbpThreadInsertList@AutoBoost@@YAKPEAU_KTHREAD@@PEAU_SINGLE_LIST_ENTRY@@1@Z.c)
- *     ?KiAbpEntryGetResourceSafe@AutoBoost@@YAPEAXPEAU_AB_THREAD_ENTRY@1@@Z @ 0x140449D40 (-KiAbpEntryGetResourceSafe@AutoBoost@@YAPEAXPEAU_AB_THREAD_ENTRY@1@@Z.c)
- *     EtwTraceAutoBoostSetFloor @ 0x1404B14C4 (EtwTraceAutoBoostSetFloor.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
+ *     PsBoostThreadIoQoS @ 0x1402055E0 (PsBoostThreadIoQoS.c)
+ *     ?KiAbpQueueAutoBoostDpc@AutoBoost@@YAXPEAU_KPRCB@@@Z @ 0x14023D390 (-KiAbpQueueAutoBoostDpc@AutoBoost@@YAXPEAU_KPRCB@@@Z.c)
+ *     PsBoostThreadIo @ 0x1403053C0 (PsBoostThreadIo.c)
+ *     HvlNotifyLongSpinWait @ 0x140306BC0 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140307420 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     ?KiAbpOwnerComputeCpuPriorityKey@AutoBoost@@YACPEAU_AB_THREAD_ENTRY@1@@Z @ 0x140377770 (-KiAbpOwnerComputeCpuPriorityKey@AutoBoost@@YACPEAU_AB_THREAD_ENTRY@1@@Z.c)
+ *     KiSetPriorityThread @ 0x140381000 (KiSetPriorityThread.c)
+ *     ?KiAbpThreadInsertList@AutoBoost@@YAKPEAU_KTHREAD@@PEAU_SINGLE_LIST_ENTRY@@1@Z @ 0x14041DDCC (-KiAbpThreadInsertList@AutoBoost@@YAKPEAU_KTHREAD@@PEAU_SINGLE_LIST_ENTRY@@1@Z.c)
+ *     ?KiAbpEntryGetResourceSafe@AutoBoost@@YAPEAXPEAU_AB_THREAD_ENTRY@1@@Z @ 0x140441E70 (-KiAbpEntryGetResourceSafe@AutoBoost@@YAPEAXPEAU_AB_THREAD_ENTRY@1@@Z.c)
+ *     EtwTraceAutoBoostSetFloor @ 0x1404AAB54 (EtwTraceAutoBoostSetFloor.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall AutoBoost::KiAbpApplyTargetPriority(ULONG_PTR a1, __int64 a2, int a3, __int64 a4, _DWORD *a5)
@@ -249,7 +249,7 @@ LABEL_46:
       _InterlockedIncrement16((volatile signed __int16 *)(a1 + 868));
   }
 LABEL_40:
-  if ( (WORD2(xmmword_140FBFC10) & 0x1000) != 0 && v37 )
+  if ( (WORD2(xmmword_140FC0C10) & 0x1000) != 0 && v37 )
   {
     ResourceSafe = (unsigned int)AutoBoost::KiAbpEntryGetResourceSafe(v40, (struct AutoBoost::_AB_THREAD_ENTRY *)a2);
     v35 = *a5;

@@ -1,9 +1,9 @@
 /*
- * XREFs of EmonIsModifiedByBadActor @ 0x14045E980
+ * XREFs of EmonIsModifiedByBadActor @ 0x14045ED80
  * Callers:
  *     <none>
  * Callees:
- *     EmonIsModifiedByBadActorInternal @ 0x14045E9E0 (EmonIsModifiedByBadActorInternal.c)
+ *     EmonIsModifiedByBadActorInternal @ 0x14045EDE0 (EmonIsModifiedByBadActorInternal.c)
  */
 
 __int64 __fastcall EmonIsModifiedByBadActor(unsigned int a1, __int64 a2)

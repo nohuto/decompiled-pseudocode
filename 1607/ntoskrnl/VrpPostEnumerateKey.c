@@ -1,30 +1,30 @@
 /*
- * XREFs of VrpPostEnumerateKey @ 0x140614D90
+ * XREFs of VrpPostEnumerateKey @ 0x140614E44
  * Callers:
- *     CmpCallCallBacks @ 0x140452A00 (CmpCallCallBacks.c)
- *     RegistryCallback @ 0x140464700 (RegistryCallback.c)
+ *     CmpCallCallBacks @ 0x1404518D0 (CmpCallCallBacks.c)
+ *     RegistryCallback @ 0x1404635D0 (RegistryCallback.c)
  * Callees:
- *     _TlgWrite @ 0x14000A598 (_TlgWrite.c)
- *     ExGetPreviousMode @ 0x140092A40 (ExGetPreviousMode.c)
- *     EtwActivityIdControl @ 0x1400A0BF4 (EtwActivityIdControl.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     ZwClose @ 0x140159E60 (ZwClose.c)
- *     ZwOpenKey @ 0x140159EC0 (ZwOpenKey.c)
- *     ZwQueryKey @ 0x140159F40 (ZwQueryKey.c)
- *     ZwEnumerateKey @ 0x14015A2C0 (ZwEnumerateKey.c)
- *     memmove @ 0x140171280 (memmove.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     _TlgWrite @ 0x14000A118 (_TlgWrite.c)
+ *     ExGetPreviousMode @ 0x140092240 (ExGetPreviousMode.c)
+ *     EtwActivityIdControl @ 0x14009F51C (EtwActivityIdControl.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     ZwClose @ 0x14015A3D0 (ZwClose.c)
+ *     ZwOpenKey @ 0x14015A430 (ZwOpenKey.c)
+ *     ZwQueryKey @ 0x14015A4B0 (ZwQueryKey.c)
+ *     ZwEnumerateKey @ 0x14015A830 (ZwEnumerateKey.c)
+ *     memmove @ 0x140171780 (memmove.c)
+ *     memset @ 0x140171AC0 (memset.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     ObOpenObjectByPointer @ 0x1404203C0 (ObOpenObjectByPointer.c)
- *     VrpCleanupBufferParameter @ 0x140612E98 (VrpCleanupBufferParameter.c)
- *     VrpLockJobContextShared @ 0x140612F80 (VrpLockJobContextShared.c)
- *     VrpOutputBufferParameter @ 0x140612FE4 (VrpOutputBufferParameter.c)
- *     VrpProcessBufferParameter @ 0x140613010 (VrpProcessBufferParameter.c)
- *     VrpUnlockJobContextShared @ 0x14061309C (VrpUnlockJobContextShared.c)
- *     VrpFindExactNamespaceNode @ 0x140614C9C (VrpFindExactNamespaceNode.c)
- *     VrpUpdateKeyInformation @ 0x140616BC4 (VrpUpdateKeyInformation.c)
- *     VrpBuildKeyPath @ 0x140617AE4 (VrpBuildKeyPath.c)
+ *     ObOpenObjectByPointer @ 0x14041F280 (ObOpenObjectByPointer.c)
+ *     VrpCleanupBufferParameter @ 0x140612F4C (VrpCleanupBufferParameter.c)
+ *     VrpLockJobContextShared @ 0x140613034 (VrpLockJobContextShared.c)
+ *     VrpOutputBufferParameter @ 0x140613098 (VrpOutputBufferParameter.c)
+ *     VrpProcessBufferParameter @ 0x1406130C4 (VrpProcessBufferParameter.c)
+ *     VrpUnlockJobContextShared @ 0x140613150 (VrpUnlockJobContextShared.c)
+ *     VrpFindExactNamespaceNode @ 0x140614D50 (VrpFindExactNamespaceNode.c)
+ *     VrpUpdateKeyInformation @ 0x140616C78 (VrpUpdateKeyInformation.c)
+ *     VrpBuildKeyPath @ 0x140617B98 (VrpBuildKeyPath.c)
  */
 
 __int64 __fastcall VrpPostEnumerateKey(__int64 a1, void *a2)
@@ -132,7 +132,7 @@ __int64 __fastcall VrpPostEnumerateKey(__int64 a1, void *a2)
     v50 = Buffer;
     v51 = Length;
     v52 = 0;
-    TlgWrite(&stru_1402F3520, &unk_14027B696, &ActivityId, 0LL, 5u, &pData);
+    TlgWrite(&stru_1402F3520, &unk_14027B796, &ActivityId, 0LL, 5u, &pData);
   }
   if ( v6 < 0 && v6 != -1073741789 && v6 != -2147483643 )
     goto LABEL_59;
@@ -311,7 +311,7 @@ LABEL_61:
     v56[1] = 0;
     v57 = &v30;
     v58 = 4LL;
-    TlgWrite(&stru_1402F3520, &unk_14027B7E8, &ActivityId, 0LL, 8u, &pData);
+    TlgWrite(&stru_1402F3520, &unk_14027B8E8, &ActivityId, 0LL, 8u, &pData);
   }
   if ( KeyHandle )
     ZwClose(KeyHandle);

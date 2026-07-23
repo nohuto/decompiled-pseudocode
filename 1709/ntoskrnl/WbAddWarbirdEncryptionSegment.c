@@ -19,8 +19,8 @@ __int64 __fastcall WbAddWarbirdEncryptionSegment(__int64 a1, __int64 a2, _QWORD 
 {
   struct _KTHREAD *CurrentThread; // rax
   unsigned __int64 *v7; // rsi
-  unsigned __int64 v8; // rax
-  unsigned __int64 v9; // rdi
+  PRTL_BALANCED_NODE v8; // rax
+  PRTL_BALANCED_NODE v9; // rdi
   int v10; // eax
   int v11; // r8d
   int v12; // edi
@@ -42,9 +42,9 @@ __int64 __fastcall WbAddWarbirdEncryptionSegment(__int64 a1, __int64 a2, _QWORD 
   v8 = KeAbPreAcquire(a1 + 176, 0LL, 0);
   v9 = v8;
   if ( _interlockedbittestandset64((volatile signed __int32 *)v7, 0LL) )
-    ExfAcquirePushLockExclusiveEx(v7, v8, (__int16 *)v7);
+    ExfAcquirePushLockExclusiveEx(v7, (__int64)v8, (__int16 *)v7);
   if ( v9 )
-    *(_BYTE *)(v9 + 26) |= 1u;
+    BYTE2(v9[1].Left) |= 1u;
   v10 = sub_14044A7A8(a1, &v18, &v17, &v16);
   v12 = v10;
   if ( v10 )

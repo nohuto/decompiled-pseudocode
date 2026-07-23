@@ -10,18 +10,24 @@
 
 size_t __cdecl wcstombs(char *Dest, const wchar_t *Source, size_t MaxCount)
 {
-  int v3; // eax
-  unsigned int v5; // [esp+0h] [ebp-8h]
+  size_t result; // rax
+  ULONG v4; // [esp+0h] [ebp-8h]
   ULONG BytesInMultiByteString; // [esp+4h] [ebp-4h] BYREF
 
   BytesInMultiByteString = 0;
-  v5 = 2 * wcslen(Source) + 2;
+  v4 = 2 * wcslen(Source) + 2;
   if ( Dest )
-    v3 = RtlUnicodeToMultiByteN(Dest, MaxCount, &BytesInMultiByteString, (unsigned __int16 *)Source, v5);
+    LODWORD(result) = RtlUnicodeToMultiByteN(Dest, MaxCount, &BytesInMultiByteString, (PCWCH)Source, v4);
   else
-    v3 = RtlUnicodeToMultiByteSize(&BytesInMultiByteString, (PWCH)Source, v5);
-  if ( v3 >= 0 )
-    return BytesInMultiByteString - 1;
-  *_errno() = 42;
-  return -1;
+    LODWORD(result) = RtlUnicodeToMultiByteSize(&BytesInMultiByteString, (PWCH)Source, v4);
+  if ( (result & 0x80000000) != 0LL )
+  {
+    *_errno() = 42;
+    LODWORD(result) = -1;
+  }
+  else
+  {
+    LODWORD(result) = BytesInMultiByteString - 1;
+  }
+  return result;
 }

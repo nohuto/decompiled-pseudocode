@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlpLookupFunctionEntryForStackWalks @ 0x14027EDF0
+ * XREFs of RtlpLookupFunctionEntryForStackWalks @ 0x140234380
  * Callers:
- *     RtlpWalkFrameChain @ 0x14027E270 (RtlpWalkFrameChain.c)
- *     RtlpSameFunction @ 0x1404839F8 (RtlpSameFunction.c)
- *     PspGetSetContextInternal @ 0x1409A4CA0 (PspGetSetContextInternal.c)
+ *     RtlpWalkFrameChain @ 0x140233800 (RtlpWalkFrameChain.c)
+ *     RtlpSameFunction @ 0x14047EF18 (RtlpSameFunction.c)
+ *     PspGetSetContextInternal @ 0x1409882C0 (PspGetSetContextInternal.c)
  * Callees:
- *     RtlpxLookupFunctionTable @ 0x14027DCB0 (RtlpxLookupFunctionTable.c)
- *     RtlpLookupUserFunctionTable @ 0x140280BA0 (RtlpLookupUserFunctionTable.c)
- *     ExRaiseDatatypeMisalignment @ 0x14089B1F0 (ExRaiseDatatypeMisalignment.c)
+ *     RtlpxLookupFunctionTable @ 0x140233240 (RtlpxLookupFunctionTable.c)
+ *     RtlpLookupUserFunctionTable @ 0x140236130 (RtlpLookupUserFunctionTable.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408A3890 (ExRaiseDatatypeMisalignment.c)
  */
 
 char *__fastcall RtlpLookupFunctionEntryForStackWalks(unsigned __int64 a1, __int64 a2)

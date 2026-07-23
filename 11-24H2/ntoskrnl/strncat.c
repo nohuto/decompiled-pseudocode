@@ -1,5 +1,5 @@
 /*
- * XREFs of strncat @ 0x1406C05A0
+ * XREFs of strncat @ 0x1406C14A0
  * Callers:
  *     <none>
  * Callees:

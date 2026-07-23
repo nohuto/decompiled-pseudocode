@@ -1,5 +1,5 @@
 /*
- * XREFs of NtdllMDIActivateDlgProc_A @ 0x18015EE40
+ * XREFs of NtdllMDIActivateDlgProc_A @ 0x18015ED40
  * Callers:
  *     <none>
  * Callees:
@@ -9,5 +9,5 @@
 // attributes: thunk
 void __noreturn NtdllMDIActivateDlgProc_A()
 {
-  off_1801E01F0();
+  off_1801DF1F0();
 }

@@ -1,13 +1,13 @@
 /*
- * XREFs of KeSetKernelStackSwapEnable @ 0x1402A8CB0
+ * XREFs of KeSetKernelStackSwapEnable @ 0x1402A8F40
  * Callers:
- *     NtSetInformationFile @ 0x1402A6BF0 (NtSetInformationFile.c)
- *     ExpWorkerThread @ 0x1402BEB90 (ExpWorkerThread.c)
- *     KiEpfStart @ 0x140579034 (KiEpfStart.c)
- *     ObWaitForMultipleObjects @ 0x1406E3890 (ObWaitForMultipleObjects.c)
- *     NtQueryInformationFile @ 0x140725070 (NtQueryInformationFile.c)
- *     ExSwapinWorkerThreads @ 0x140A005C8 (ExSwapinWorkerThreads.c)
- *     ExpSetSwappingKernelApc @ 0x140AAB110 (ExpSetSwappingKernelApc.c)
+ *     NtSetInformationFile @ 0x1402A6E80 (NtSetInformationFile.c)
+ *     ExpWorkerThread @ 0x1402BEE20 (ExpWorkerThread.c)
+ *     KiEpfStart @ 0x140579524 (KiEpfStart.c)
+ *     ObWaitForMultipleObjects @ 0x1406E38C0 (ObWaitForMultipleObjects.c)
+ *     NtQueryInformationFile @ 0x140725270 (NtQueryInformationFile.c)
+ *     ExSwapinWorkerThreads @ 0x140A00858 (ExSwapinWorkerThreads.c)
+ *     ExpSetSwappingKernelApc @ 0x140AAAF80 (ExpSetSwappingKernelApc.c)
  * Callees:
  *     <none>
  */

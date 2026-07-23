@@ -1,8 +1,8 @@
 /*
- * XREFs of IopCloseFileObjectExtension @ 0x1400A49D4
+ * XREFs of IopCloseFileObjectExtension @ 0x1400A30E0
  * Callers:
- *     IopCloseFile @ 0x140443140 (IopCloseFile.c)
- *     IoCancelFileOpen @ 0x14062333C (IoCancelFileOpen.c)
+ *     IopCloseFile @ 0x140442010 (IopCloseFile.c)
+ *     IoCancelFileOpen @ 0x1406233F0 (IoCancelFileOpen.c)
  * Callees:
  *     <none>
  */

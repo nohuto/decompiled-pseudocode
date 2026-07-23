@@ -19,7 +19,7 @@ void __fastcall SMKM_STORE_MGR<SM_TRAITS>::SmWorkItemFree(__int64 a1, __int64 a2
   unsigned int v5; // edi
   int v7; // esi
   __int128 v10; // xmm1
-  union _SLIST_HEADER *v11; // rcx
+  _SLIST_HEADER *v11; // rcx
   BOOL v12; // ebx
   int v13; // eax
   struct _EX_RUNDOWN_REF *v14; // rax
@@ -46,7 +46,7 @@ void __fastcall SMKM_STORE_MGR<SM_TRAITS>::SmWorkItemFree(__int64 a1, __int64 a2
     {
       if ( (*((_DWORD *)a3 + 2) & 0x4000000) != 0 )
       {
-        v11 = (union _SLIST_HEADER *)(a1 + 1248);
+        v11 = (_SLIST_HEADER *)(a1 + 1248);
         if ( LOWORD(v11->Alignment) >= 0x1000u )
         {
           ExFreePoolWithTag(a3, 0);
@@ -62,7 +62,7 @@ LABEL_11:
     else if ( !v5 && *((int *)a3 + 2) < 0 )
     {
       *(_QWORD *)&v16 = **((_QWORD **)a3 + 2);
-      v11 = (union _SLIST_HEADER *)(a1 + 1408);
+      v11 = (_SLIST_HEADER *)(a1 + 1408);
       goto LABEL_11;
     }
     SMKM_STORE_MGR<SM_TRAITS>::SmWorkItemFreeResource(a1, a3, v4);

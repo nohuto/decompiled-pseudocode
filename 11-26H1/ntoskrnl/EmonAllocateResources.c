@@ -1,16 +1,16 @@
 /*
- * XREFs of EmonAllocateResources @ 0x140594F44
+ * XREFs of EmonAllocateResources @ 0x1405976C4
  * Callers:
- *     EmonReserveProfileResources @ 0x140596360 (EmonReserveProfileResources.c)
+ *     EmonReserveProfileResources @ 0x140598AE0 (EmonReserveProfileResources.c)
  * Callees:
- *     KeReleaseSpinLock @ 0x1402BE860 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14032F300 (KeAcquireSpinLockRaiseToDpc.c)
- *     HalpMmAllocCtxAlloc @ 0x140357FFC (HalpMmAllocCtxAlloc.c)
- *     HalpMmAllocCtxFree @ 0x140359004 (HalpMmAllocCtxFree.c)
- *     HalpQueryMaximumRegisteredProcessorCount @ 0x14057CE5C (HalpQueryMaximumRegisteredProcessorCount.c)
- *     HalpPmuReservedResourcesProcessorCallback @ 0x1405805F8 (HalpPmuReservedResourcesProcessorCallback.c)
- *     EmonReleaseProfileResourcesInternal @ 0x140595FF4 (EmonReleaseProfileResourcesInternal.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     KeReleaseSpinLock @ 0x140309520 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140331330 (KeAcquireSpinLockRaiseToDpc.c)
+ *     HalpMmAllocCtxAlloc @ 0x140359D9C (HalpMmAllocCtxAlloc.c)
+ *     HalpMmAllocCtxFree @ 0x14035ADA4 (HalpMmAllocCtxFree.c)
+ *     HalpQueryMaximumRegisteredProcessorCount @ 0x14057F37C (HalpQueryMaximumRegisteredProcessorCount.c)
+ *     HalpPmuReservedResourcesProcessorCallback @ 0x140582B18 (HalpPmuReservedResourcesProcessorCallback.c)
+ *     EmonReleaseProfileResourcesInternal @ 0x140598774 (EmonReleaseProfileResourcesInternal.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall EmonAllocateResources(
@@ -23,7 +23,7 @@ __int64 __fastcall EmonAllocateResources(
 {
   __int32 v10; // esi
   int v11; // ebx
-  int ReadOperationCount; // eax
+  int InGlobalForegroundList; // eax
   size_t v13; // rbx
   unsigned int **v14; // rax
   unsigned int **v15; // rdi
@@ -46,10 +46,10 @@ __int64 __fastcall EmonAllocateResources(
             1);
     if ( v10 )
       return (unsigned int)-1073741670;
-    ReadOperationCount = IommuInterfaceStateChangeCallbackPushLock.ReadOperationCount;
+    InGlobalForegroundList = IommuInterfaceStateChangeCallbackPushLock.InGlobalForegroundList;
     if ( *(_DWORD *)(a4 + 8) )
-      ReadOperationCount = *(_DWORD *)(a4 + 8);
-    LODWORD(IommuInterfaceStateChangeCallbackPushLock.GlobalForegroundListEntry.Flink) = ReadOperationCount;
+      InGlobalForegroundList = *(_DWORD *)(a4 + 8);
+    LODWORD(IommuInterfaceStateChangeCallbackPushLock.GlobalForegroundListEntry.Flink) = InGlobalForegroundList;
   }
   v13 = 80 * (unsigned int)HalpQueryMaximumRegisteredProcessorCount() + 112;
   v14 = (unsigned int **)HalpMmAllocCtxAlloc(v13, v13);

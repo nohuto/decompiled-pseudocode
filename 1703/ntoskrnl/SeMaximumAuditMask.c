@@ -32,8 +32,11 @@ unsigned __int64 __fastcall SeMaximumAuditMask(__int64 a1, int a2, __int64 a3, _
         if ( (v10 & 8) == 0 && (*(_BYTE *)v8 == 2 || *(_BYTE *)v8 == 13) )
         {
           v11 = a2 & *(_DWORD *)(v8 + 4);
-          if ( ((v10 >> 6) & (v11 != 0)) != 0 && SepSidInTokenSidHash(a3 + 232, 0LL, (void *)(v8 + 8), 1, 0, 0) )
+          if ( ((v10 >> 6) & (v11 != 0)) != 0
+            && SepSidInTokenSidHash((PSID_AND_ATTRIBUTES_HASH)(a3 + 232), 0LL, (void *)(v8 + 8), 1, 0, 0) )
+          {
             *a4 |= v11;
+          }
         }
         result = *(unsigned __int16 *)(v8 + 2);
         v8 += result;

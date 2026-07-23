@@ -1,9 +1,9 @@
 /*
- * XREFs of PpmPerfSelectProcessorStates @ 0x140102B50
+ * XREFs of PpmPerfSelectProcessorStates @ 0x140102BD0
  * Callers:
  *     <none>
  * Callees:
- *     PpmPerfSelectProcessorState @ 0x140102C30 (PpmPerfSelectProcessorState.c)
+ *     PpmPerfSelectProcessorState @ 0x140102CB0 (PpmPerfSelectProcessorState.c)
  */
 
 char PpmPerfSelectProcessorStates()
@@ -22,7 +22,7 @@ char PpmPerfSelectProcessorStates()
     if ( v1 != -1 )
       *(_DWORD *)(i + 680) = v1 + 1;
   }
-  v2 = qword_1404040A8[0];
+  v2 = qword_1404050A8[0];
   v3 = 0;
   while ( v2 )
   {
@@ -38,7 +38,7 @@ LABEL_7:
   }
   while ( ++v3 < (unsigned int)(unsigned __int16)PpmPerfStatesRegistered )
   {
-    v2 = qword_1404040A8[v3];
+    v2 = qword_1404050A8[v3];
     if ( v2 )
       goto LABEL_7;
   }

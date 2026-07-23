@@ -32,19 +32,19 @@ NTSTATUS PopInitializePowerSettingCallbacks()
     PoRegisterPowerSettingCallback(
       0LL,
       *(GUID **)((char *)GUIDS_BATTERY_DISCHARGE_ACTION + v1),
-      (PPOWER_SETTING_CALLBACK)PopBatteryAlarmPowerSettingCallback,
+      PopBatteryAlarmPowerSettingCallback,
       v2,
       0LL);
     PoRegisterPowerSettingCallback(
       0LL,
       *(GUID **)((char *)GUIDS_BATTERY_DISCHARGE_LEVEL + v1),
-      (PPOWER_SETTING_CALLBACK)PopBatteryAlarmPowerSettingCallback,
+      PopBatteryAlarmPowerSettingCallback,
       v2,
       0LL);
     result = PoRegisterPowerSettingCallback(
                0LL,
                *(GUID **)((char *)GUIDS_BATTERY_DISCHARGE_FLAGS + v1),
-               (PPOWER_SETTING_CALLBACK)PopBatteryAlarmPowerSettingCallback,
+               PopBatteryAlarmPowerSettingCallback,
                v2++,
                0LL);
     v1 += 8LL;

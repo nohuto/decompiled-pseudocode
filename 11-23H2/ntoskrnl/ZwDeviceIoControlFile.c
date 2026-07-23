@@ -1,26 +1,26 @@
 /*
- * XREFs of ZwDeviceIoControlFile @ 0x14041AE40
+ * XREFs of ZwDeviceIoControlFile @ 0x14041B1D0
  * Callers:
- *     PopFlushAndHold @ 0x1405902B8 (PopFlushAndHold.c)
- *     DifZwDeviceIoControlFileWrapper @ 0x1405EF890 (DifZwDeviceIoControlFileWrapper.c)
+ *     PopFlushAndHold @ 0x1405907A8 (PopFlushAndHold.c)
+ *     DifZwDeviceIoControlFileWrapper @ 0x1405EFE00 (DifZwDeviceIoControlFileWrapper.c)
  *     PfSnVolumeCheckSeekPenalty @ 0x14068714C (PfSnVolumeCheckSeekPenalty.c)
- *     SiGetDiskPartitionInformation @ 0x1407C0140 (SiGetDiskPartitionInformation.c)
- *     BiGetPartitionVhdFilePathFromUnicodeString @ 0x1408069EC (BiGetPartitionVhdFilePathFromUnicodeString.c)
- *     BiIssueGetDriveLayoutIoctl @ 0x140806BE4 (BiIssueGetDriveLayoutIoctl.c)
- *     BiGetPartitionInformation @ 0x140806CBC (BiGetPartitionInformation.c)
- *     BiIsVolumePartitionInformationRetained @ 0x140806DD0 (BiIsVolumePartitionInformationRetained.c)
- *     PnpHardwareConfigCreateBootDriverFlags @ 0x140810608 (PnpHardwareConfigCreateBootDriverFlags.c)
- *     EtwpUpdateFileInfoDriverRegistration @ 0x14085B698 (EtwpUpdateFileInfoDriverRegistration.c)
- *     ExpGetSystemWriteConstraintInformation @ 0x1408623E4 (ExpGetSystemWriteConstraintInformation.c)
- *     PfSnVolumeCheckIsSdBus @ 0x1408A5914 (PfSnVolumeCheckIsSdBus.c)
- *     ExpGetDriveGeometry @ 0x1409FCA40 (ExpGetDriveGeometry.c)
- *     ExpGetPartitionTableInfo @ 0x1409FCB94 (ExpGetPartitionTableInfo.c)
- *     ExpTranslateNtPath @ 0x1409FE45C (ExpTranslateNtPath.c)
- *     BiGetVolumeDiskExtentsInformation @ 0x140A5D180 (BiGetVolumeDiskExtentsInformation.c)
- *     SiGetDeviceNumberInformation @ 0x140A5F4DC (SiGetDeviceNumberInformation.c)
- *     SiGetDriveLayoutInformation @ 0x140A5F5B8 (SiGetDriveLayoutInformation.c)
- *     SiIssueSynchronousIoctl @ 0x140A5F6B8 (SiIssueSynchronousIoctl.c)
- *     SiQueryProperty @ 0x140A5F754 (SiQueryProperty.c)
+ *     SiGetDiskPartitionInformation @ 0x1407C0410 (SiGetDiskPartitionInformation.c)
+ *     BiGetPartitionVhdFilePathFromUnicodeString @ 0x140806CBC (BiGetPartitionVhdFilePathFromUnicodeString.c)
+ *     BiIssueGetDriveLayoutIoctl @ 0x140806EB4 (BiIssueGetDriveLayoutIoctl.c)
+ *     BiGetPartitionInformation @ 0x140806F8C (BiGetPartitionInformation.c)
+ *     BiIsVolumePartitionInformationRetained @ 0x1408070A0 (BiIsVolumePartitionInformationRetained.c)
+ *     PnpHardwareConfigCreateBootDriverFlags @ 0x1408108D8 (PnpHardwareConfigCreateBootDriverFlags.c)
+ *     EtwpUpdateFileInfoDriverRegistration @ 0x14085B8D8 (EtwpUpdateFileInfoDriverRegistration.c)
+ *     ExpGetSystemWriteConstraintInformation @ 0x140862624 (ExpGetSystemWriteConstraintInformation.c)
+ *     PfSnVolumeCheckIsSdBus @ 0x1408A5B64 (PfSnVolumeCheckIsSdBus.c)
+ *     ExpGetDriveGeometry @ 0x1409FCCD0 (ExpGetDriveGeometry.c)
+ *     ExpGetPartitionTableInfo @ 0x1409FCE24 (ExpGetPartitionTableInfo.c)
+ *     ExpTranslateNtPath @ 0x1409FE6EC (ExpTranslateNtPath.c)
+ *     BiGetVolumeDiskExtentsInformation @ 0x140A5D430 (BiGetVolumeDiskExtentsInformation.c)
+ *     SiGetDeviceNumberInformation @ 0x140A5F78C (SiGetDeviceNumberInformation.c)
+ *     SiGetDriveLayoutInformation @ 0x140A5F868 (SiGetDriveLayoutInformation.c)
+ *     SiIssueSynchronousIoctl @ 0x140A5F968 (SiIssueSynchronousIoctl.c)
+ *     SiQueryProperty @ 0x140A5FA04 (SiQueryProperty.c)
  *     PopPdcCsCheckSystemVolumeDevice @ 0x140B758B0 (PopPdcCsCheckSystemVolumeDevice.c)
  *     VhdiGetVolumeNumber @ 0x140B9ABAC (VhdiGetVolumeNumber.c)
  *     VhdiInitializeBootDisk @ 0x140B9AD30 (VhdiInitializeBootDisk.c)
@@ -45,5 +45,5 @@ NTSTATUS __stdcall ZwDeviceIoControlFile(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(FileHandle, Event, ApcRoutine);
+  return KiServiceInternal(FileHandle);
 }

@@ -1,15 +1,15 @@
 /*
- * XREFs of IopIoRingDispatchWrite @ 0x140949C64
+ * XREFs of IopIoRingDispatchWrite @ 0x140949E64
  * Callers:
- *     IopProcessIoRingEntry @ 0x140949F78 (IopProcessIoRingEntry.c)
+ *     IopProcessIoRingEntry @ 0x14094A178 (IopProcessIoRingEntry.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     IopFileObjectRevoked @ 0x140301740 (IopFileObjectRevoked.c)
- *     IopCompleteIoRingEntry @ 0x14055935C (IopCompleteIoRingEntry.c)
- *     IopMcReleaseMdl @ 0x14055F174 (IopMcReleaseMdl.c)
- *     IopWriteFile @ 0x1406B6DD0 (IopWriteFile.c)
- *     IopIoRingGetBuffer @ 0x140949E0C (IopIoRingGetBuffer.c)
- *     IopIoRingReferenceFileObject @ 0x140949F04 (IopIoRingReferenceFileObject.c)
+ *     ObfDereferenceObject @ 0x140231660 (ObfDereferenceObject.c)
+ *     IopFileObjectRevoked @ 0x1403019D0 (IopFileObjectRevoked.c)
+ *     IopCompleteIoRingEntry @ 0x140559A1C (IopCompleteIoRingEntry.c)
+ *     IopMcReleaseMdl @ 0x14055F834 (IopMcReleaseMdl.c)
+ *     IopWriteFile @ 0x1406B6F80 (IopWriteFile.c)
+ *     IopIoRingGetBuffer @ 0x14094A00C (IopIoRingGetBuffer.c)
+ *     IopIoRingReferenceFileObject @ 0x14094A104 (IopIoRingReferenceFileObject.c)
  */
 
 __int64 __fastcall IopIoRingDispatchWrite(__int64 a1, __int64 a2, __int64 a3)

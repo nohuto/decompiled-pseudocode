@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlpMuiRegLangInfoMatchesSpec @ 0x180113674
+ * XREFs of RtlpMuiRegLangInfoMatchesSpec @ 0x180113644
  * Callers:
- *     RtlpMuiRegConfigMatchesInstalled @ 0x180112698 (RtlpMuiRegConfigMatchesInstalled.c)
+ *     RtlpMuiRegConfigMatchesInstalled @ 0x180112668 (RtlpMuiRegConfigMatchesInstalled.c)
  * Callees:
  *     RtlLCIDToCultureName @ 0x180015AB0 (RtlLCIDToCultureName.c)
  *     _MuiRegAllocArray @ 0x180015CD8 (_MuiRegAllocArray.c)
@@ -15,7 +15,7 @@ bool __fastcall RtlpMuiRegLangInfoMatchesSpec(__int64 a1, __int64 a2, char a3, _
 {
   __int64 v4; // rbx
   char v5; // bp
-  __int64 v8; // rsi
+  wchar_t *v8; // rsi
   int v9; // eax
   __int64 v12; // rdx
   __int64 v13; // r8
@@ -24,12 +24,12 @@ bool __fastcall RtlpMuiRegLangInfoMatchesSpec(__int64 a1, __int64 a2, char a3, _
   __int64 v16; // r8
   const WCHAR *v17; // rdx
   wchar_t *v18; // rax
-  unsigned int v19; // ecx
+  LCID v19; // ecx
   __int64 v20; // r8
   const wchar_t *v21; // rdx
   __int64 v22; // rdx
-  UNICODE_STRING DestinationString; // [rsp+20h] [rbp-28h] BYREF
-  int v24; // [rsp+60h] [rbp+18h] BYREF
+  _UNICODE_STRING DestinationString; // [rsp+20h] [rbp-28h] BYREF
+  DWORD Lcid; // [rsp+60h] [rbp+18h] BYREF
 
   v4 = a4;
   v5 = 1;
@@ -51,8 +51,8 @@ bool __fastcall RtlpMuiRegLangInfoMatchesSpec(__int64 a1, __int64 a2, char a3, _
           if ( v14 )
           {
             RtlInitUnicodeString(&DestinationString, v14);
-            if ( RtlCultureNameToLCID(&DestinationString.Length, &v24) )
-              return (_WORD)v24 == (unsigned __int16)v4;
+            if ( RtlCultureNameToLCID(&DestinationString, &Lcid) )
+              return (_WORD)Lcid == (unsigned __int16)v4;
           }
         }
       }
@@ -68,13 +68,13 @@ bool __fastcall RtlpMuiRegLangInfoMatchesSpec(__int64 a1, __int64 a2, char a3, _
       if ( *(_WORD *)(a2 + 4) )
       {
         v18 = (wchar_t *)MuiRegAllocArray(a1, 0x55u);
-        v8 = (__int64)v18;
+        v8 = v18;
         if ( v18 )
         {
           v19 = *(unsigned __int16 *)(a2 + 4);
           DestinationString.Buffer = v18;
           *(_DWORD *)&DestinationString.Length = 11141120;
-          if ( RtlLCIDToCultureName(v19, (__int64)&DestinationString) )
+          if ( RtlLCIDToCultureName(v19, &DestinationString) )
           {
 LABEL_22:
             v20 = *(_QWORD *)(a1 + 32);
@@ -87,10 +87,10 @@ LABEL_22:
               v5 = 0;
             }
             if ( v8 )
-              RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v8);
+              RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v8);
             return v5;
           }
-          RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v8);
+          RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v8);
         }
       }
     }

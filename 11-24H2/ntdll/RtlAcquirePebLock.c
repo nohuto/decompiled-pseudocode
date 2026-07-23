@@ -1,14 +1,14 @@
 /*
- * XREFs of RtlAcquirePebLock @ 0x1800F4700
+ * XREFs of RtlAcquirePebLock @ 0x180001100
  * Callers:
- *     RtlpMoveActCtxToFreeList @ 0x1800F4600 (RtlpMoveActCtxToFreeList.c)
- *     RtlpPlaceActivationContextOnLiveList @ 0x18011D010 (RtlpPlaceActivationContextOnLiveList.c)
- *     RtlpEnsureLiveDeadListsInitialized @ 0x18011D06C (RtlpEnsureLiveDeadListsInitialized.c)
+ *     RtlpMoveActCtxToFreeList @ 0x180001008 (RtlpMoveActCtxToFreeList.c)
+ *     RtlpPlaceActivationContextOnLiveList @ 0x18011B240 (RtlpPlaceActivationContextOnLiveList.c)
+ *     RtlpEnsureLiveDeadListsInitialized @ 0x18011B29C (RtlpEnsureLiveDeadListsInitialized.c)
  * Callees:
  *     <none>
  */
 
-__int64 RtlAcquirePebLock()
+NTSTATUS RtlAcquirePebLock(void)
 {
-  return RtlEnterCriticalSection((__int64)NtCurrentPeb()->FastPebLock);
+  return RtlEnterCriticalSection(NtCurrentPeb()->FastPebLock);
 }

@@ -1,13 +1,13 @@
 /*
- * XREFs of PfpScenCtxServiceThreadSet @ 0x1409A18EC
+ * XREFs of PfpScenCtxServiceThreadSet @ 0x1409A281C
  * Callers:
- *     PfSetSuperfetchInformation @ 0x1406DBD54 (PfSetSuperfetchInformation.c)
+ *     PfSetSuperfetchInformation @ 0x1406B3034 (PfSetSuperfetchInformation.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
- *     PsGetThreadId @ 0x1402B62E0 (PsGetThreadId.c)
- *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
- *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
+ *     PsGetThreadId @ 0x1402344C0 (PsGetThreadId.c)
+ *     KeLeaveCriticalRegionThread @ 0x1402AB8C0 (KeLeaveCriticalRegionThread.c)
+ *     ExfTryToWakePushLock @ 0x1402FC2C0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x1403539D0 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1403556E0 (ExAcquirePushLockExclusiveEx.c)
  */
 
 _QWORD *__fastcall PfpScenCtxServiceThreadSet(ULONG_PTR BugCheckParameter2, int a2)
@@ -18,6 +18,9 @@ _QWORD *__fastcall PfpScenCtxServiceThreadSet(ULONG_PTR BugCheckParameter2, int 
   __int64 v6; // rbx
   struct _KTHREAD *v7; // rax
   char v8; // bp
+  __int64 v9; // rdx
+  __int64 v10; // r8
+  __int64 v11; // r9
 
   v2 = 0LL;
   if ( a2 )
@@ -40,5 +43,5 @@ _QWORD *__fastcall PfpScenCtxServiceThreadSet(ULONG_PTR BugCheckParameter2, int 
   if ( (v8 & 2) != 0 && (v8 & 4) == 0 )
     ExfTryToWakePushLock(BugCheckParameter2);
   KeAbPostRelease(BugCheckParameter2);
-  return KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+  return KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v9, v10, v11);
 }

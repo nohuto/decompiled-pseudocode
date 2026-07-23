@@ -1,11 +1,11 @@
 /*
- * XREFs of VslEnableOnDemandDebugWithResponse @ 0x140620764
+ * XREFs of VslEnableOnDemandDebugWithResponse @ 0x140620818
  * Callers:
- *     PsIumEnableOnDemandDebugWithResponse @ 0x1406820E8 (PsIumEnableOnDemandDebugWithResponse.c)
+ *     PsIumEnableOnDemandDebugWithResponse @ 0x1406821CC (PsIumEnableOnDemandDebugWithResponse.c)
  * Callees:
- *     VslpEnterIumSecureMode @ 0x1400AA174 (VslpEnterIumSecureMode.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     memmove @ 0x140171280 (memmove.c)
+ *     VslpEnterIumSecureMode @ 0x1400A86F4 (VslpEnterIumSecureMode.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     memmove @ 0x140171780 (memmove.c)
  */
 
 NTSTATUS __fastcall VslEnableOnDemandDebugWithResponse(__int64 a1, const void *a2, unsigned int a3)

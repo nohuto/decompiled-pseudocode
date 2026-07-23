@@ -1,27 +1,27 @@
 /*
- * XREFs of CmpReplicateKeyToVirtual @ 0x1408709C4
+ * XREFs of CmpReplicateKeyToVirtual @ 0x140870B24
  * Callers:
- *     CmKeyBodyReplicateToVirtual @ 0x1406A0A00 (CmKeyBodyReplicateToVirtual.c)
- *     CmpVEExecuteCreateLogic @ 0x1406A0C50 (CmpVEExecuteCreateLogic.c)
+ *     CmKeyBodyReplicateToVirtual @ 0x1405FFD40 (CmKeyBodyReplicateToVirtual.c)
+ *     CmpVEExecuteCreateLogic @ 0x1405FFF90 (CmpVEExecuteCreateLogic.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
- *     EtwGetKernelTraceTimestamp @ 0x14029B060 (EtwGetKernelTraceTimestamp.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     CmpLockKcbExclusive @ 0x1405EC35C (CmpLockKcbExclusive.c)
- *     RtlFreeAnsiString @ 0x140602CB0 (RtlFreeAnsiString.c)
- *     CmRealKCBToVirtualPath @ 0x140672A9C (CmRealKCBToVirtualPath.c)
- *     CmpUnlockKcb @ 0x1406F2B40 (CmpUnlockKcb.c)
- *     CmpConvertRegistryShared @ 0x14086EAA8 (CmpConvertRegistryShared.c)
- *     CmpTryConvertRegistryExclusive @ 0x14086EAC4 (CmpTryConvertRegistryExclusive.c)
- *     CmpBuildVirtualReplicationStack @ 0x14086FC2C (CmpBuildVirtualReplicationStack.c)
- *     CmpDestroyVirtualStack @ 0x14086FDA4 (CmpDestroyVirtualStack.c)
- *     CmpDoBuildVirtualStack @ 0x14086FF9C (CmpDoBuildVirtualStack.c)
- *     CmpGetVirtualStoreRoot @ 0x14087090C (CmpGetVirtualStoreRoot.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     EtwGetKernelTraceTimestamp @ 0x1402129F0 (EtwGetKernelTraceTimestamp.c)
+ *     RtlInitUnicodeString @ 0x14026A4C0 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     RtlFreeAnsiString @ 0x14063DA40 (RtlFreeAnsiString.c)
+ *     CmRealKCBToVirtualPath @ 0x140667CCC (CmRealKCBToVirtualPath.c)
+ *     CmpLockKcbExclusive @ 0x1406DBABC (CmpLockKcbExclusive.c)
+ *     CmpUnlockKcb @ 0x140709F20 (CmpUnlockKcb.c)
+ *     CmpConvertRegistryShared @ 0x14086EC08 (CmpConvertRegistryShared.c)
+ *     CmpTryConvertRegistryExclusive @ 0x14086EC24 (CmpTryConvertRegistryExclusive.c)
+ *     CmpBuildVirtualReplicationStack @ 0x14086FD8C (CmpBuildVirtualReplicationStack.c)
+ *     CmpDestroyVirtualStack @ 0x14086FF04 (CmpDestroyVirtualStack.c)
+ *     CmpDoBuildVirtualStack @ 0x1408700FC (CmpDoBuildVirtualStack.c)
+ *     CmpGetVirtualStoreRoot @ 0x140870A6C (CmpGetVirtualStoreRoot.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall CmpReplicateKeyToVirtual(ULONG_PTR a1, __int64 a2, char a3, unsigned __int64 *a4)
+__int64 __fastcall CmpReplicateKeyToVirtual(ULONG_PTR BugCheckParameter2, __int64 a2, char a3, unsigned __int64 *a4)
 {
   ULONG_PTR v7; // r14
   char v8; // r15
@@ -54,8 +54,8 @@ __int64 __fastcall CmpReplicateKeyToVirtual(ULONG_PTR a1, __int64 a2, char a3, u
   v8 = 0;
   RtlInitUnicodeString(&DestinationString, 0LL);
   v22 = 0LL;
-  if ( *(BOOLEAN **)((char *)&NlsMbCodePageTag + 7) && a1 )
-    v7 = a1;
+  if ( *(BOOLEAN **)((char *)&NlsMbCodePageTag + 7) && BugCheckParameter2 )
+    v7 = BugCheckParameter2;
   if ( !a3 )
   {
     v8 = CmpTryConvertRegistryExclusive();
@@ -80,11 +80,11 @@ LABEL_22:
       return (unsigned int)VirtualStoreRoot;
     }
   }
-  CmpUnlockKcb(a1);
-  VirtualStoreRoot = CmRealKCBToVirtualPath(a1, 0LL, a2, &DestinationString);
+  CmpUnlockKcb(BugCheckParameter2);
+  VirtualStoreRoot = CmRealKCBToVirtualPath(BugCheckParameter2, 0LL, a2, &DestinationString);
   if ( VirtualStoreRoot >= 0 )
   {
-    if ( (int)CmpBuildVirtualReplicationStack(a1, (__int64)&DestinationString, &v17, &P) >= 0 )
+    if ( (int)CmpBuildVirtualReplicationStack(BugCheckParameter2, (__int64)&DestinationString, &v17, &P) >= 0 )
     {
       v11 = P;
       if ( v17 )
@@ -98,7 +98,7 @@ LABEL_22:
           *v23 = v21;
           v11[8] = *(_DWORD *)(v12 + 40);
           *((_QWORD *)v11 + 2) = v12;
-          VirtualStoreRoot = CmpDoBuildVirtualStack((__int64)v11, v14, v13, a1, a2);
+          VirtualStoreRoot = CmpDoBuildVirtualStack((__int64)v11, v14, v13, BugCheckParameter2, a2);
         }
       }
       else
@@ -115,7 +115,7 @@ LABEL_22:
     {
       VirtualStoreRoot = -1073741670;
     }
-    CmpLockKcbExclusive(a1);
+    CmpLockKcbExclusive(BugCheckParameter2);
     if ( v8 )
       CmpConvertRegistryShared();
     goto LABEL_22;

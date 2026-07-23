@@ -1,5 +1,5 @@
 /*
- * XREFs of ?RtlpCompareRelocation@@YAHPEBX0@Z @ 0x140A324B0
+ * XREFs of ?RtlpCompareRelocation@@YAHPEBX0@Z @ 0x140A26420
  * Callers:
  *     <none>
  * Callees:

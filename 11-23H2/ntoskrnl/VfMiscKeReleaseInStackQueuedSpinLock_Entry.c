@@ -1,10 +1,10 @@
 /*
- * XREFs of VfMiscKeReleaseInStackQueuedSpinLock_Entry @ 0x140ADFF80
+ * XREFs of VfMiscKeReleaseInStackQueuedSpinLock_Entry @ 0x140ADFF70
  * Callers:
  *     <none>
  * Callees:
- *     VerifierBugCheckIfAppropriate @ 0x140ACD2B4 (VerifierBugCheckIfAppropriate.c)
- *     ViMiscCheckKeLowerIrql @ 0x140AE1338 (ViMiscCheckKeLowerIrql.c)
+ *     VerifierBugCheckIfAppropriate @ 0x140ACD2A4 (VerifierBugCheckIfAppropriate.c)
+ *     ViMiscCheckKeLowerIrql @ 0x140AE1328 (ViMiscCheckKeLowerIrql.c)
  */
 
 __int64 __fastcall VfMiscKeReleaseInStackQueuedSpinLock_Entry(__int64 a1, __int64 a2)

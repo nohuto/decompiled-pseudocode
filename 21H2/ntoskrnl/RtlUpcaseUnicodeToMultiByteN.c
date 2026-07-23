@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlUpcaseUnicodeToMultiByteN @ 0x1405EDF40
+ * XREFs of RtlUpcaseUnicodeToMultiByteN @ 0x1406DD6A0
  * Callers:
- *     toupper @ 0x1403D3D30 (toupper.c)
- *     RtlUpcaseUnicodeStringToAnsiString @ 0x14090FCE0 (RtlUpcaseUnicodeStringToAnsiString.c)
+ *     toupper @ 0x1403D3EA0 (toupper.c)
+ *     RtlUpcaseUnicodeStringToAnsiString @ 0x14090FE40 (RtlUpcaseUnicodeStringToAnsiString.c)
  * Callees:
- *     UpcaseUnicodeToSingleByteNHelper @ 0x140206A40 (UpcaseUnicodeToSingleByteNHelper.c)
- *     UpcaseUnicodeToMultiByteNHelper @ 0x1405859C4 (UpcaseUnicodeToMultiByteNHelper.c)
- *     UpcaseUnicodeToUTF8NHelper @ 0x140585AB8 (UpcaseUnicodeToUTF8NHelper.c)
- *     RtlpIsUtf8Process @ 0x1405EE580 (RtlpIsUtf8Process.c)
+ *     UpcaseUnicodeToSingleByteNHelper @ 0x1402AB370 (UpcaseUnicodeToSingleByteNHelper.c)
+ *     UpcaseUnicodeToMultiByteNHelper @ 0x140585BF4 (UpcaseUnicodeToMultiByteNHelper.c)
+ *     UpcaseUnicodeToUTF8NHelper @ 0x140585CE8 (UpcaseUnicodeToUTF8NHelper.c)
+ *     RtlpIsUtf8Process @ 0x1406DDCE0 (RtlpIsUtf8Process.c)
  */
 
 NTSTATUS __stdcall RtlUpcaseUnicodeToMultiByteN(

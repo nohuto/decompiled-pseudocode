@@ -4,9 +4,9 @@
  *     VerifierMmAllocateNodePagesForMdlEx @ 0x14071B988 (VerifierMmAllocateNodePagesForMdlEx.c)
  *     VerifierMmAllocatePagesForMdlEx @ 0x14071BB84 (VerifierMmAllocatePagesForMdlEx.c)
  * Callees:
- *     MmUnmapLockedPages @ 0x140025D10 (MmUnmapLockedPages.c)
- *     MmMapLockedPagesSpecifyCache @ 0x1400DE220 (MmMapLockedPagesSpecifyCache.c)
- *     VfFillAllocatedMemory @ 0x1407108F0 (VfFillAllocatedMemory.c)
+ *     MmUnmapLockedPages @ 0x140025890 (MmUnmapLockedPages.c)
+ *     MmMapLockedPagesSpecifyCache @ 0x1400DC0C0 (MmMapLockedPagesSpecifyCache.c)
+ *     VfFillAllocatedMemory @ 0x140710920 (VfFillAllocatedMemory.c)
  */
 
 void __fastcall VfFillAllocatePagesForMdl(PMDL MemoryDescriptorList, int a2, char a3)

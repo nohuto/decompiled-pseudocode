@@ -1,10 +1,10 @@
 /*
- * XREFs of BgpFwAllocateMemory @ 0x140129508
+ * XREFs of BgpFwAllocateMemory @ 0x140129A78
  * Callers:
- *     BgpRasPrintGlyph @ 0x1401277B0 (BgpRasPrintGlyph.c)
- *     RaspAllocateMemory @ 0x1401294CC (RaspAllocateMemory.c)
- *     BgpFwQueryBootGraphicsInformation @ 0x140129AF0 (BgpFwQueryBootGraphicsInformation.c)
- *     BcpGetProgressMessages @ 0x140141250 (BcpGetProgressMessages.c)
+ *     BgpRasPrintGlyph @ 0x140127D20 (BgpRasPrintGlyph.c)
+ *     RaspAllocateMemory @ 0x140129A3C (RaspAllocateMemory.c)
+ *     BgpFwQueryBootGraphicsInformation @ 0x14012A060 (BgpFwQueryBootGraphicsInformation.c)
+ *     BcpGetProgressMessages @ 0x1401417C0 (BcpGetProgressMessages.c)
  *     ResFwpPageInBackground @ 0x140725B0C (ResFwpPageInBackground.c)
  *     BgpFwLibraryInitialize @ 0x140725E8C (BgpFwLibraryInitialize.c)
  *     BgpTxtCreateRegion @ 0x140726BC4 (BgpTxtCreateRegion.c)
@@ -21,10 +21,10 @@
  *     FopValidateFontNameTable @ 0x1407D49E4 (FopValidateFontNameTable.c)
  *     FopReadNamingTable @ 0x1407D4B64 (FopReadNamingTable.c)
  * Callees:
- *     MiFreePagesFromMdl @ 0x140099EF8 (MiFreePagesFromMdl.c)
- *     MmAllocatePagesForMdlEx @ 0x1400AA410 (MmAllocatePagesForMdlEx.c)
- *     MmMapLockedPagesSpecifyCache @ 0x1400DE220 (MmMapLockedPagesSpecifyCache.c)
- *     BgpFwReserveAllocate @ 0x140129748 (BgpFwReserveAllocate.c)
+ *     MiFreePagesFromMdl @ 0x1400996F8 (MiFreePagesFromMdl.c)
+ *     MmAllocatePagesForMdlEx @ 0x1400A8990 (MmAllocatePagesForMdlEx.c)
+ *     MmMapLockedPagesSpecifyCache @ 0x1400DC0C0 (MmMapLockedPagesSpecifyCache.c)
+ *     BgpFwReserveAllocate @ 0x140129CB8 (BgpFwReserveAllocate.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
  */

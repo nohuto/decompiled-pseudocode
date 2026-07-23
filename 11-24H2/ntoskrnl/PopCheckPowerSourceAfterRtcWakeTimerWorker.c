@@ -1,13 +1,13 @@
 /*
- * XREFs of PopCheckPowerSourceAfterRtcWakeTimerWorker @ 0x140B5F5B0
+ * XREFs of PopCheckPowerSourceAfterRtcWakeTimerWorker @ 0x140B61630
  * Callers:
  *     <none>
  * Callees:
- *     KeSetEvent @ 0x1402725A0 (KeSetEvent.c)
- *     PopOkayToQueueNextWorkItem @ 0x1404A4D54 (PopOkayToQueueNextWorkItem.c)
- *     NtInitiatePowerAction @ 0x140754BF0 (NtInitiatePowerAction.c)
- *     PopCurrentPowerStatePrecise @ 0x140A2C144 (PopCurrentPowerStatePrecise.c)
- *     PopQueryPowerSettingUlong @ 0x140AB4520 (PopQueryPowerSettingUlong.c)
+ *     KeSetEvent @ 0x140227B30 (KeSetEvent.c)
+ *     PopOkayToQueueNextWorkItem @ 0x14049FAE4 (PopOkayToQueueNextWorkItem.c)
+ *     NtInitiatePowerAction @ 0x140752F10 (NtInitiatePowerAction.c)
+ *     PopCurrentPowerStatePrecise @ 0x140A2006C (PopCurrentPowerStatePrecise.c)
+ *     PopQueryPowerSettingUlong @ 0x140AAF490 (PopQueryPowerSettingUlong.c)
  */
 
 LONG PopCheckPowerSourceAfterRtcWakeTimerWorker()
@@ -25,9 +25,9 @@ LONG PopCheckPowerSourceAfterRtcWakeTimerWorker()
       v2 = 0;
       PopQueryPowerSettingUlong(&GUID_ALLOW_RTC_WAKE, &v3, &v2);
       if ( !v2 )
-        NtInitiatePowerAction(dword_140F0B660, (unsigned int)dword_140F0B664, 0x80000000, 1);
+        NtInitiatePowerAction(SystemAction, LightestSystemState, 0x80000000, 1u);
     }
   }
-  PopOkayToQueueNextWorkItem((__int64)&unk_140F0AAE8);
+  PopOkayToQueueNextWorkItem((__int64)&unk_140F0AC88);
   return KeSetEvent(&PopCheckPowerSourceAfterRtcWakeCompleted, 0, 0);
 }

@@ -1,26 +1,26 @@
 /*
- * XREFs of MiZeroInParallelWorker @ 0x1402D1300
+ * XREFs of MiZeroInParallelWorker @ 0x1402D1590
  * Callers:
- *     MiZeroInParallel @ 0x140304230 (MiZeroInParallel.c)
+ *     MiZeroInParallel @ 0x1403044C0 (MiZeroInParallel.c)
  * Callees:
- *     MiPteInShadowRange @ 0x140271360 (MiPteInShadowRange.c)
- *     MiGetUltraMapping @ 0x1402D1A10 (MiGetUltraMapping.c)
- *     MiInitializePageColorBase @ 0x1402E1690 (MiInitializePageColorBase.c)
- *     MiGetLeafVa @ 0x1402E5A20 (MiGetLeafVa.c)
- *     MiGetPfnPageSizeIndex @ 0x1402E88E0 (MiGetPfnPageSizeIndex.c)
- *     MiDeleteUltraThreadContext @ 0x1402E92A4 (MiDeleteUltraThreadContext.c)
- *     MiCreateUltraThreadContext @ 0x1402EC3F0 (MiCreateUltraThreadContext.c)
- *     PsDereferencePartition @ 0x1402F9C4C (PsDereferencePartition.c)
- *     MiDereferencePageChains @ 0x14032F62C (MiDereferencePageChains.c)
- *     MiZeroPhysicalPage @ 0x1403391FC (MiZeroPhysicalPage.c)
- *     MiUserPdeOrAbove @ 0x14033C630 (MiUserPdeOrAbove.c)
- *     MiWritePteShadow @ 0x14035734C (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x1403573AC (MiPteHasShadow.c)
- *     KeSignalGate @ 0x14035D33C (KeSignalGate.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     KeZeroPages @ 0x140424640 (KeZeroPages.c)
- *     memset @ 0x140435A00 (memset.c)
- *     MiZeroAndConvertPage @ 0x140650034 (MiZeroAndConvertPage.c)
+ *     MiPteInShadowRange @ 0x1402715F0 (MiPteInShadowRange.c)
+ *     MiGetUltraMapping @ 0x1402D1CA0 (MiGetUltraMapping.c)
+ *     MiInitializePageColorBase @ 0x1402E1920 (MiInitializePageColorBase.c)
+ *     MiGetLeafVa @ 0x1402E5CB0 (MiGetLeafVa.c)
+ *     MiGetPfnPageSizeIndex @ 0x1402E8B70 (MiGetPfnPageSizeIndex.c)
+ *     MiDeleteUltraThreadContext @ 0x1402E9534 (MiDeleteUltraThreadContext.c)
+ *     MiCreateUltraThreadContext @ 0x1402EC680 (MiCreateUltraThreadContext.c)
+ *     PsDereferencePartition @ 0x1402F9EDC (PsDereferencePartition.c)
+ *     MiDereferencePageChains @ 0x14032F8BC (MiDereferencePageChains.c)
+ *     MiZeroPhysicalPage @ 0x14033948C (MiZeroPhysicalPage.c)
+ *     MiUserPdeOrAbove @ 0x14033C8C0 (MiUserPdeOrAbove.c)
+ *     MiWritePteShadow @ 0x1403574EC (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x14035754C (MiPteHasShadow.c)
+ *     KeSignalGate @ 0x14035D4DC (KeSignalGate.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     KeZeroPages @ 0x1404249D0 (KeZeroPages.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     MiZeroAndConvertPage @ 0x140650584 (MiZeroAndConvertPage.c)
  */
 
 __int64 __fastcall MiZeroInParallelWorker(__int64 a1)
@@ -305,7 +305,7 @@ LABEL_41:
         v34 = v32 & 0xF0FFFFFFFFFFFFFFuLL | 0xA00000000000000LL;
         if ( v14 <= 2 )
         {
-          v35 = *(_QWORD *)(v24 + 8 * v15 + 92216);
+          v35 = *(_QWORD *)(v24 + 8 * v15 + 92200);
           if ( !v35 )
             goto LABEL_55;
         }

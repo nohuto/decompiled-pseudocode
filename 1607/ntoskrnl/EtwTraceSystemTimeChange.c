@@ -1,12 +1,12 @@
 /*
  * XREFs of EtwTraceSystemTimeChange @ 0x1403D23AC
  * Callers:
- *     PoNotifySystemTimeSet @ 0x140131E00 (PoNotifySystemTimeSet.c)
+ *     PoNotifySystemTimeSet @ 0x140132370 (PoNotifySystemTimeSet.c)
  * Callees:
- *     _TlgWrite @ 0x14000A598 (_TlgWrite.c)
- *     EtwWrite @ 0x140013320 (EtwWrite.c)
- *     _TlgKeywordOn @ 0x140088D98 (_TlgKeywordOn.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
+ *     _TlgWrite @ 0x14000A118 (_TlgWrite.c)
+ *     EtwWrite @ 0x140012EA0 (EtwWrite.c)
+ *     _TlgKeywordOn @ 0x14010CF88 (_TlgKeywordOn.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
  */
 
 char __fastcall EtwTraceSystemTimeChange(__int64 *a1, _QWORD *a2, int a3)
@@ -57,7 +57,7 @@ char __fastcall EtwTraceSystemTimeChange(__int64 *a1, _QWORD *a2, int a3)
       v21 = 8;
       v24 = 8;
       v27 = 4;
-      LOBYTE(v3) = TlgWrite(&stru_1402F3680, &unk_14027E6F8, 0LL, 0LL, 5u, &pData);
+      LOBYTE(v3) = TlgWrite(&stru_1402F3680, &unk_14027E7F8, 0LL, 0LL, 5u, &pData);
     }
   }
   if ( EtwKernelProvRegHandle )

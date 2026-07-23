@@ -1,16 +1,16 @@
 /*
  * XREFs of IoReportTargetDeviceChangeAsynchronous @ 0x1402E0740
  * Callers:
- *     PnpDeviceActionWorker @ 0x1402DD320 (PnpDeviceActionWorker.c)
+ *     sub_1402DD320 @ 0x1402DD320 (sub_1402DD320.c)
  *     FsRtlNotifyVolumeEventEx @ 0x14074C800 (FsRtlNotifyVolumeEventEx.c)
  * Callees:
  *     ObfReferenceObjectWithTag @ 0x1402A6D50 (ObfReferenceObjectWithTag.c)
  *     ExQueueWorkItem @ 0x140345FC0 (ExQueueWorkItem.c)
- *     IoAddTriageDumpDataBlock @ 0x1403D99B4 (IoAddTriageDumpDataBlock.c)
+ *     sub_1403D99B4 @ 0x1403D99B4 (sub_1403D99B4.c)
  *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
  *     RtlCompareMemory @ 0x14042A1E0 (RtlCompareMemory.c)
  *     memmove @ 0x140435B40 (memmove.c)
- *     PnpSetCustomTargetEvent @ 0x14078AB30 (PnpSetCustomTargetEvent.c)
+ *     sub_14078AB30 @ 0x14078AB30 (sub_14078AB30.c)
  *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
  */
 
@@ -21,7 +21,7 @@ NTSTATUS __stdcall IoReportTargetDeviceChangeAsynchronous(
         PVOID Context)
 {
   _DWORD *DeviceNode; // rcx
-  GUID *v9; // rdi
+  __int128 *v9; // rdi
   int v10; // ecx
   int v11; // edx
   struct _WORK_QUEUE_ITEM *Pool2; // rdi
@@ -40,16 +40,16 @@ NTSTATUS __stdcall IoReportTargetDeviceChangeAsynchronous(
   DeviceNode = PhysicalDeviceObject->DeviceObjectExtension->DeviceNode;
   if ( !DeviceNode || (DeviceNode[99] & 0x20000) != 0 )
   {
-    IoAddTriageDumpDataBlock((ULONG)PhysicalDeviceObject, (PVOID)PhysicalDeviceObject->Size);
+    sub_1403D99B4((ULONG)PhysicalDeviceObject, (PVOID)PhysicalDeviceObject->Size);
     DriverObject = PhysicalDeviceObject->DriverObject;
     if ( DriverObject )
     {
-      IoAddTriageDumpDataBlock((ULONG)DriverObject, (PVOID)(unsigned int)DriverObject->Size);
+      sub_1403D99B4((ULONG)DriverObject, (PVOID)(unsigned int)DriverObject->Size);
       p_DriverName = &PhysicalDeviceObject->DriverObject->DriverName;
       if ( p_DriverName->Length )
       {
-        IoAddTriageDumpDataBlock((ULONG)p_DriverName, (PVOID)2);
-        IoAddTriageDumpDataBlock(
+        sub_1403D99B4((ULONG)p_DriverName, (PVOID)2);
+        sub_1403D99B4(
           (ULONG)PhysicalDeviceObject->DriverObject->DriverName.Buffer,
           (PVOID)PhysicalDeviceObject->DriverObject->DriverName.Length);
       }
@@ -58,18 +58,18 @@ NTSTATUS __stdcall IoReportTargetDeviceChangeAsynchronous(
     if ( v16 )
     {
       v17 = (unsigned __int16 *)(v16 + 40);
-      IoAddTriageDumpDataBlock((ULONG)v16, (PVOID)0x310);
+      sub_1403D99B4((ULONG)v16, (PVOID)0x310);
       if ( *v17 )
       {
-        IoAddTriageDumpDataBlock((ULONG)v17, (PVOID)2);
-        IoAddTriageDumpDataBlock(*((_QWORD *)v17 + 1), (PVOID)*v17);
+        sub_1403D99B4((ULONG)v17, (PVOID)2);
+        sub_1403D99B4(*((_QWORD *)v17 + 1), (PVOID)*v17);
       }
       DeviceObjectExtension = PhysicalDeviceObject->DeviceObjectExtension;
       v19 = (char *)DeviceObjectExtension->DeviceNode + 56;
       if ( *v19 )
       {
-        IoAddTriageDumpDataBlock((ULONG)v19, (PVOID)2);
-        IoAddTriageDumpDataBlock(
+        sub_1403D99B4((ULONG)v19, (PVOID)2);
+        sub_1403D99B4(
           *((_QWORD *)PhysicalDeviceObject->DeviceObjectExtension->DeviceNode + 8),
           (PVOID)*((unsigned __int16 *)PhysicalDeviceObject->DeviceObjectExtension->DeviceNode + 28));
         DeviceObjectExtension = PhysicalDeviceObject->DeviceObjectExtension;
@@ -80,27 +80,27 @@ NTSTATUS __stdcall IoReportTargetDeviceChangeAsynchronous(
         v21 = (_WORD *)(v20 + 56);
         if ( *v21 )
         {
-          IoAddTriageDumpDataBlock((ULONG)v21, (PVOID)2);
+          sub_1403D99B4((ULONG)v21, (PVOID)2);
           v22 = *((_QWORD *)PhysicalDeviceObject->DeviceObjectExtension->DeviceNode + 2);
-          IoAddTriageDumpDataBlock(*(_QWORD *)(v22 + 64), (PVOID)*(unsigned __int16 *)(v22 + 56));
+          sub_1403D99B4(*(_QWORD *)(v22 + 64), (PVOID)*(unsigned __int16 *)(v22 + 56));
         }
       }
     }
 LABEL_31:
     KeBugCheckEx(0xCAu, 2uLL, (ULONG_PTR)PhysicalDeviceObject, 0LL, 0LL);
   }
-  v9 = (GUID *)((char *)NotificationStructure + 4);
-  if ( (char *)NotificationStructure + 4 == (char *)&GUID_TARGET_DEVICE_QUERY_REMOVE )
+  v9 = (__int128 *)((char *)NotificationStructure + 4);
+  if ( (char *)NotificationStructure + 4 == (char *)&qword_140010CE8 )
     return -1073741808;
-  if ( RtlCompareMemory(v9, &GUID_TARGET_DEVICE_QUERY_REMOVE, 0x10uLL) == 16 )
+  if ( RtlCompareMemory(v9, &qword_140010CE8, 0x10uLL) == 16 )
     return -1073741808;
-  if ( v9 == &GUID_TARGET_DEVICE_REMOVE_CANCELLED )
+  if ( v9 == &xmmword_140010CC8 )
     return -1073741808;
-  if ( RtlCompareMemory(v9, &GUID_TARGET_DEVICE_REMOVE_CANCELLED, 0x10uLL) == 16 )
+  if ( RtlCompareMemory(v9, &xmmword_140010CC8, 0x10uLL) == 16 )
     return -1073741808;
-  if ( v9 == &GUID_TARGET_DEVICE_REMOVE_COMPLETE )
+  if ( v9 == &xmmword_140010CF8 )
     return -1073741808;
-  if ( RtlCompareMemory(v9, &GUID_TARGET_DEVICE_REMOVE_COMPLETE, 0x10uLL) == 16 )
+  if ( RtlCompareMemory(v9, &xmmword_140010CF8, 0x10uLL) == 16 )
     return -1073741808;
   v10 = *((unsigned __int16 *)NotificationStructure + 1);
   if ( (unsigned __int16)v10 < 0x24u )
@@ -109,7 +109,7 @@ LABEL_31:
   if ( v11 != -1 && v11 > v10 - 36 )
     return -1073741808;
   if ( KeGetCurrentIrql() != 2 )
-    return PnpSetCustomTargetEvent(PhysicalDeviceObject, (__int64)Context, NotificationStructure);
+    return sub_14078AB30(PhysicalDeviceObject, (__int64)Context, NotificationStructure);
   Pool2 = (struct _WORK_QUEUE_ITEM *)ExAllocatePool2(
                                        64LL,
                                        *((unsigned __int16 *)NotificationStructure + 1) + 64LL,
@@ -121,8 +121,8 @@ LABEL_31:
   Pool2[1].Parameter = &Pool2[2];
   memmove(&Pool2[2], NotificationStructure, *((unsigned __int16 *)NotificationStructure + 1));
   Pool2[1].List.Blink = (struct _LIST_ENTRY *)Callback;
-  Pool2[1].WorkerRoutine = (void (__fastcall *)(void *))Context;
-  Pool2->WorkerRoutine = (void (__fastcall *)(void *))PnpReportTargetDeviceChangeAsyncWorker;
+  Pool2[1].WorkerRoutine = (PWORKER_THREAD_ROUTINE)Context;
+  Pool2->WorkerRoutine = (PWORKER_THREAD_ROUTINE)sub_140944BB0;
   Pool2->Parameter = Pool2;
   Pool2->List.Flink = 0LL;
   ExQueueWorkItem(Pool2, DelayedWorkQueue);

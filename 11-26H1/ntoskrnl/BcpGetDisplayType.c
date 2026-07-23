@@ -1,10 +1,10 @@
 /*
- * XREFs of BcpGetDisplayType @ 0x140717B10
+ * XREFs of BcpGetDisplayType @ 0x14071C800
  * Callers:
- *     BgpDisplaySafeToPowerOffScreen @ 0x140717E40 (BgpDisplaySafeToPowerOffScreen.c)
- *     BgpFwDisplayBugCheckProgressUpdate @ 0x140717EE8 (BgpFwDisplayBugCheckProgressUpdate.c)
- *     BgpFwDisplayBugCheckScreen @ 0x1407180B4 (BgpFwDisplayBugCheckScreen.c)
- *     BgpFwDisplayBugCheckScreenModernized @ 0x14071840C (BgpFwDisplayBugCheckScreenModernized.c)
+ *     BgpDisplaySafeToPowerOffScreen @ 0x14071CB30 (BgpDisplaySafeToPowerOffScreen.c)
+ *     BgpFwDisplayBugCheckProgressUpdate @ 0x14071CBD8 (BgpFwDisplayBugCheckProgressUpdate.c)
+ *     BgpFwDisplayBugCheckScreen @ 0x14071CDA4 (BgpFwDisplayBugCheckScreen.c)
+ *     BgpFwDisplayBugCheckScreenModernized @ 0x14071D0FC (BgpFwDisplayBugCheckScreenModernized.c)
  * Callees:
  *     <none>
  */
@@ -17,9 +17,9 @@ __int64 __fastcall BcpGetDisplayType(_DWORD *a1)
   result = 0LL;
   for ( i = 0LL; i < 84; i += 21LL )
   {
-    if ( *a1 < dword_140E0F020[i + 37] )
+    if ( *a1 < dword_140E0F0A0[i + 37] )
       break;
-    if ( a1[1] < dword_140E0F020[i + 38] )
+    if ( a1[1] < dword_140E0F0A0[i + 38] )
       break;
     result = (unsigned int)(result + 1);
   }

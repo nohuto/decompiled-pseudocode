@@ -1,12 +1,12 @@
 /*
- * XREFs of PspDereferenceSyscallProvider @ 0x1405A4BCC
+ * XREFs of PspDereferenceSyscallProvider @ 0x1405A513C
  * Callers:
- *     PsUnregisterSyscallProvider @ 0x1409B4850 (PsUnregisterSyscallProvider.c)
- *     PspDetachProcessFromSyscallProvider @ 0x1409B4AE8 (PspDetachProcessFromSyscallProvider.c)
- *     PspInsertSyscallProvider @ 0x1409B4CE4 (PspInsertSyscallProvider.c)
- *     PspSyscallProviderOptIn @ 0x1409B4ECC (PspSyscallProviderOptIn.c)
+ *     PsUnregisterSyscallProvider @ 0x1409B4A50 (PsUnregisterSyscallProvider.c)
+ *     PspDetachProcessFromSyscallProvider @ 0x1409B4CE8 (PspDetachProcessFromSyscallProvider.c)
+ *     PspInsertSyscallProvider @ 0x1409B4EE4 (PspInsertSyscallProvider.c)
+ *     PspSyscallProviderOptIn @ 0x1409B50CC (PspSyscallProviderOptIn.c)
  * Callees:
- *     PspDestroySyscallProvider @ 0x1409B49D0 (PspDestroySyscallProvider.c)
+ *     PspDestroySyscallProvider @ 0x1409B4BD0 (PspDestroySyscallProvider.c)
  */
 
 __int64 __fastcall PspDereferenceSyscallProvider(volatile signed __int64 *a1)

@@ -1,24 +1,24 @@
 /*
- * XREFs of DifZwQueryWnfStateDataWrapper @ 0x1406B5000
+ * XREFs of DifZwQueryWnfStateDataWrapper @ 0x1406B8BE0
  * Callers:
  *     <none>
  * Callees:
- *     DifGetReturnAddressForWrappers @ 0x140260EA4 (DifGetReturnAddressForWrappers.c)
- *     ExReleaseRundownProtection_0 @ 0x140266240 (ExReleaseRundownProtection_0.c)
- *     ExAcquireRundownProtection_0 @ 0x1402F0590 (ExAcquireRundownProtection_0.c)
- *     DifGetAPIThunkContextById @ 0x1404C17A4 (DifGetAPIThunkContextById.c)
- *     ZwQueryWnfStateData @ 0x140726210 (ZwQueryWnfStateData.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     DifGetReturnAddressForWrappers @ 0x14026040C (DifGetReturnAddressForWrappers.c)
+ *     ExReleaseRundownProtection_0 @ 0x1402657B0 (ExReleaseRundownProtection_0.c)
+ *     ExAcquireRundownProtection_0 @ 0x1402D2610 (ExAcquireRundownProtection_0.c)
+ *     DifGetAPIThunkContextById @ 0x1404BAFF4 (DifGetAPIThunkContextById.c)
+ *     ZwQueryWnfStateData @ 0x14072ADE0 (ZwQueryWnfStateData.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall DifZwQueryWnfStateDataWrapper(
-        __int64 a1,
-        __int64 a2,
-        __int64 a3,
-        __int64 a4,
-        __int64 a5,
-        __int64 a6)
+        const WNF_STATE_NAME *a1,
+        const WNF_TYPE_ID *a2,
+        const void *a3,
+        ULONG *a4,
+        PVOID Buffer,
+        ULONG *BufferSize)
 {
   __int128 *APIThunkContextById; // rax
   __int64 v10; // rdx
@@ -54,8 +54,8 @@ __int64 __fastcall DifZwQueryWnfStateDataWrapper(
 LABEL_7:
   v14 = 0;
   v20[6] = a1;
-  v20[2] = a5;
-  v20[1] = a6;
+  v20[2] = Buffer;
+  v20[1] = BufferSize;
   v20[5] = a2;
   v20[4] = a3;
   v20[3] = a4;
@@ -71,7 +71,7 @@ LABEL_7:
       ExReleaseRundownProtection_0(&DifRebootlessRundown);
   }
 LABEL_17:
-  WnfStateData = ZwQueryWnfStateData(a1, a2, a3, a4, a5, a6);
+  WnfStateData = ZwQueryWnfStateData(a1, a2, a3, a4, Buffer, BufferSize);
   if ( v11 )
   {
     if ( (v17 = 0, !VfDifRunningWithoutReboot) && (VfOptionFlags & 0x800) == 0

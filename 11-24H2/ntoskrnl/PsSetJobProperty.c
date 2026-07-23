@@ -1,9 +1,9 @@
 /*
- * XREFs of PsSetJobProperty @ 0x1405E5470
+ * XREFs of PsSetJobProperty @ 0x1405E29B0
  * Callers:
  *     <none>
  * Callees:
- *     PspSetPropertyHelper @ 0x14042D138 (PspSetPropertyHelper.c)
+ *     PspSetPropertyHelper @ 0x14041F4B8 (PspSetPropertyHelper.c)
  */
 
 __int64 __fastcall PsSetJobProperty(__int64 a1, __int64 a2, __int64 a3)

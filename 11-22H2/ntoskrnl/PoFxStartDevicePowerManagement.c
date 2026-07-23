@@ -77,10 +77,13 @@ __int64 __fastcall PoFxStartDevicePowerManagement(ULONG_PTR BugCheckParameter2)
         *(_BYTE *)(v5 + 8) = 1;
       }
       KxReleaseSpinLock((volatile signed __int64 *)v5);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         CurrentIrql = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v6 <= 0xFu && CurrentIrql >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+          && CurrentIrql <= 0xFu
+          && (unsigned __int8)v6 <= 0xFu
+          && CurrentIrql >= 2u )
         {
           CurrentPrcb = KeGetCurrentPrcb();
           SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -98,10 +101,10 @@ __int64 __fastcall PoFxStartDevicePowerManagement(ULONG_PTR BugCheckParameter2)
   v8 = ExAcquireSpinLockExclusive((PEX_SPIN_LOCK)(v7 + 64));
   *(_DWORD *)(v7 + 172) = 1;
   ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(v7 + 64));
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v24 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v24 <= 0xFu && (unsigned __int8)v8 <= 0xFu && v24 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v24 <= 0xFu && (unsigned __int8)v8 <= 0xFu && v24 >= 2u )
     {
       v25 = KeGetCurrentPrcb();
       v26 = v25->SchedulerAssist;
@@ -148,10 +151,10 @@ __int64 __fastcall PoFxStartDevicePowerManagement(ULONG_PTR BugCheckParameter2)
     }
     _InterlockedOr((volatile signed __int32 *)(v2 + 296), 4u);
     ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(v2 + 88));
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v28 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v28 <= 0xFu && (unsigned __int8)v12 <= 0xFu && v28 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v28 <= 0xFu && (unsigned __int8)v12 <= 0xFu && v28 >= 2u )
       {
         v29 = KeGetCurrentPrcb();
         v30 = v29->SchedulerAssist;

@@ -1,13 +1,13 @@
 /*
- * XREFs of MiInitializeHugePfnDatabase @ 0x1405333A0
+ * XREFs of MiInitializeHugePfnDatabase @ 0x1405335E0
  * Callers:
- *     MiHotAddHugeRange @ 0x1408C69B8 (MiHotAddHugeRange.c)
+ *     MiHotAddHugeRange @ 0x1408C6B18 (MiHotAddHugeRange.c)
  * Callees:
- *     KeAcquireInStackQueuedSpinLock @ 0x14022EE10 (KeAcquireInStackQueuedSpinLock.c)
- *     MiAllocatePool @ 0x14025AD70 (MiAllocatePool.c)
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402042B0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     MiAllocatePool @ 0x14027C2E0 (MiAllocatePool.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402D3660 (KeAcquireInStackQueuedSpinLock.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 __int64 MiInitializeHugePfnDatabase()
@@ -38,8 +38,8 @@ __int64 MiInitializeHugePfnDatabase()
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+20h] [rbp-20h] BYREF
 
   memset(&LockHandle, 0, sizeof(LockHandle));
-  KeAcquireInStackQueuedSpinLock(&qword_140C4E680, &LockHandle);
-  if ( qword_140C4E670 )
+  KeAcquireInStackQueuedSpinLock(&qword_140C4E6C0, &LockHandle);
+  if ( qword_140C4E6B0 )
   {
     KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
     OldIrql = LockHandle.OldIrql;
@@ -98,9 +98,9 @@ LABEL_36:
   v13 = MiAllocatePool(64, 0x200000uLL, 0x7048694Du);
   if ( v13 )
   {
-    qword_140C4E660 = 0x40000LL;
-    qword_140C4E668 = (__int64)Pool;
-    qword_140C4E670 = (__int64)v13;
+    qword_140C4E6A0 = 0x40000LL;
+    qword_140C4E6A8 = (__int64)Pool;
+    qword_140C4E6B0 = (__int64)v13;
     KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
     OldIrql = LockHandle.OldIrql;
     if ( !KiIrqlFlags )

@@ -1,9 +1,9 @@
 /*
- * XREFs of Feature_FastResource2__private_IsEnabledFallback @ 0x1404129C4
+ * XREFs of Feature_FastResource2__private_IsEnabledFallback @ 0x140412D58
  * Callers:
- *     Feature_FastResource2__private_IsEnabledDeviceUsage @ 0x14041298C (Feature_FastResource2__private_IsEnabledDeviceUsage.c)
+ *     Feature_FastResource2__private_IsEnabledDeviceUsage @ 0x140412D20 (Feature_FastResource2__private_IsEnabledDeviceUsage.c)
  * Callees:
- *     wil_details_IsEnabledFallback @ 0x14040F8CC (wil_details_IsEnabledFallback.c)
+ *     wil_details_IsEnabledFallback @ 0x14040FAAC (wil_details_IsEnabledFallback.c)
  */
 
 __int64 __fastcall Feature_FastResource2__private_IsEnabledFallback(__int64 a1, int a2)

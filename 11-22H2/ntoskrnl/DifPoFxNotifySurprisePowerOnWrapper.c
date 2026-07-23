@@ -9,7 +9,7 @@
  *     DifGetReturnAddressForWrappers @ 0x1405F8954 (DifGetReturnAddressForWrappers.c)
  */
 
-int __fastcall DifPoFxNotifySurprisePowerOnWrapper(__int64 a1)
+void __fastcall DifPoFxNotifySurprisePowerOnWrapper(__int64 a1)
 {
   __int64 *APIThunkContextById; // rax
   __int64 v3; // rdx
@@ -20,13 +20,12 @@ int __fastcall DifPoFxNotifySurprisePowerOnWrapper(__int64 a1)
   int v8; // eax
   __int64 ReturnAddressForWrappers; // rax
   __int64 *i; // rdi
-  _QWORD *v11; // rax
-  _QWORD *v12; // rdi
+  _QWORD *v11; // rdi
   _QWORD *j; // rbx
-  __int128 v15; // [rsp+20h] [rbp-18h] BYREF
+  __int128 v13; // [rsp+20h] [rbp-18h] BYREF
   __int64 retaddr; // [rsp+38h] [rbp+0h]
 
-  v15 = 0LL;
+  v13 = 0LL;
   APIThunkContextById = DifGetAPIThunkContextById(383);
   v7 = APIThunkContextById;
   if ( !APIThunkContextById )
@@ -44,7 +43,7 @@ int __fastcall DifPoFxNotifySurprisePowerOnWrapper(__int64 a1)
     {
       ReturnAddressForWrappers = retaddr;
 LABEL_9:
-      *(_QWORD *)&v15 = ReturnAddressForWrappers;
+      *(_QWORD *)&v13 = ReturnAddressForWrappers;
       goto LABEL_10;
     }
     if ( (v8 & 4) != 0 )
@@ -54,25 +53,23 @@ LABEL_8:
       goto LABEL_9;
     }
   }
-  *(_QWORD *)&v15 = 0LL;
+  *(_QWORD *)&v13 = 0LL;
 LABEL_10:
-  *((_QWORD *)&v15 + 1) = a1;
+  *((_QWORD *)&v13 + 1) = a1;
   for ( i = (__int64 *)v7[4]; i != v7 + 4; i = (__int64 *)*i )
   {
     if ( i != (__int64 *)16 )
-      ((void (__fastcall *)(__int128 *))*(i - 1))(&v15);
+      ((void (__fastcall *)(__int128 *))*(i - 1))(&v13);
   }
 LABEL_17:
-  LODWORD(v11) = PoFxNotifySurprisePowerOn(a1);
+  PoFxNotifySurprisePowerOn(a1);
   if ( v7 )
   {
-    v12 = v7 + 6;
-    for ( j = (_QWORD *)v7[6]; j != v12; j = (_QWORD *)*j )
+    v11 = v7 + 6;
+    for ( j = (_QWORD *)v7[6]; j != v11; j = (_QWORD *)*j )
     {
-      v11 = j - 2;
       if ( j != (_QWORD *)16 )
-        LODWORD(v11) = ((__int64 (__fastcall *)(__int128 *))v11[1])(&v15);
+        ((void (__fastcall *)(__int128 *))*(j - 1))(&v13);
     }
   }
-  return (int)v11;
 }

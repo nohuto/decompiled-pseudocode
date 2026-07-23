@@ -7,12 +7,12 @@
  *     RtlDeleteElementGenericTableAvlEx @ 0x180060B70 (RtlDeleteElementGenericTableAvlEx.c)
  */
 
-char __fastcall RtlDeleteElementGenericTableAvl(__int64 a1, __int64 a2)
+BOOLEAN __cdecl RtlDeleteElementGenericTableAvl(PRTL_AVL_TABLE Table, PVOID Buffer)
 {
-  __int64 v4; // [rsp+40h] [rbp+18h] BYREF
+  __int64 v4; // [rsp+40h] [rbp+18h]
 
-  if ( (unsigned int)FindNodeOrParent(a1, a2, &v4) != 1 )
+  if ( (unsigned int)FindNodeOrParent(Table, Buffer) != 1 )
     return 0;
-  RtlDeleteElementGenericTableAvlEx(a1, v4);
+  RtlDeleteElementGenericTableAvlEx(Table, v4);
   return 1;
 }

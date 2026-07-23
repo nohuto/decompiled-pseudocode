@@ -1,16 +1,16 @@
 /*
- * XREFs of CmpConstructNameFromKeyNodes @ 0x1405F3210
+ * XREFs of CmpConstructNameFromKeyNodes @ 0x1406E2970
  * Callers:
- *     CmpConstructNameWithStatus @ 0x1405F2FF0 (CmpConstructNameWithStatus.c)
+ *     CmpConstructNameWithStatus @ 0x1406E2750 (CmpConstructNameWithStatus.c)
  * Callees:
- *     CmSiFreeMemory @ 0x140201A30 (CmSiFreeMemory.c)
- *     CmpAllocateTransientPoolWithTag @ 0x140206F90 (CmpAllocateTransientPoolWithTag.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     memmove @ 0x140413F40 (memmove.c)
- *     memset @ 0x140414200 (memset.c)
+ *     CmSiFreeMemory @ 0x1402253C0 (CmSiFreeMemory.c)
+ *     CmpAllocateTransientPoolWithTag @ 0x14023EDD0 (CmpAllocateTransientPoolWithTag.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     memset @ 0x140414300 (memset.c)
  *     CmpSetKcbAtLayerHeight @ 0x1405D6C8C (CmpSetKcbAtLayerHeight.c)
- *     CmpKeyFullNameLength @ 0x1405F3480 (CmpKeyFullNameLength.c)
- *     CmpCopyCompressedName @ 0x140669F74 (CmpCopyCompressedName.c)
+ *     CmpCopyCompressedName @ 0x14065ED94 (CmpCopyCompressedName.c)
+ *     CmpKeyFullNameLength @ 0x1406E2BE0 (CmpKeyFullNameLength.c)
  */
 
 __int64 __fastcall CmpConstructNameFromKeyNodes(__int64 a1, _QWORD *a2, __int64 a3, struct _LOOKASIDE_LIST_EX *a4)
@@ -47,8 +47,8 @@ __int64 __fastcall CmpConstructNameFromKeyNodes(__int64 a1, _QWORD *a2, __int64 
   __int16 v34; // dx
   __int64 v35; // r10
   __int16 v36; // dx
-  _DWORD *v37; // rdx
-  void *v38; // rcx
+  __int64 v37; // rdx
+  _WORD *v38; // rcx
   __int128 v39; // [rsp+20h] [rbp-58h] BYREF
   __int128 v40; // [rsp+30h] [rbp-48h]
   __int64 v41; // [rsp+80h] [rbp+8h] BYREF
@@ -160,12 +160,12 @@ __int64 __fastcall CmpConstructNameFromKeyNodes(__int64 a1, _QWORD *a2, __int64 
             v23 = 2LL * v20;
             if ( v22 == (const void *)1 )
             {
-              v37 = *(_DWORD **)(i + 80);
-              v38 = (void *)(v23 + *((_QWORD *)v13 + 1));
-              if ( (*v37 & 1) != 0 )
-                CmpCopyCompressedName(v38, 2 * (unsigned int)v19, (char *)v37 + 26);
+              v37 = *(_QWORD *)(i + 80);
+              v38 = (_WORD *)(v23 + *((_QWORD *)v13 + 1));
+              if ( (*(_DWORD *)v37 & 1) != 0 )
+                CmpCopyCompressedName(v38, 2 * v19, (unsigned __int8 *)(v37 + 26), v19);
               else
-                memmove(v38, (char *)v37 + 26, 2LL * v19);
+                memmove(v38, (const void *)(v37 + 26), 2LL * v19);
             }
             else
             {

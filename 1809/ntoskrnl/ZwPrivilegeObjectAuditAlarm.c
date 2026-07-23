@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwPrivilegeObjectAuditAlarm @ 0x1401BA7D0
+ * XREFs of ZwPrivilegeObjectAuditAlarm @ 0x1401BA930
  * Callers:
  *     <none>
  * Callees:
@@ -16,5 +16,5 @@ NTSTATUS __stdcall ZwPrivilegeObjectAuditAlarm(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(SubsystemName, HandleId, ClientToken);
+  return KiServiceInternal(SubsystemName);
 }

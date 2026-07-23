@@ -3,7 +3,7 @@
  * Callers:
  *     <none>
  * Callees:
- *     xHalTimerWatchdogStop @ 0x1403A7020 (xHalTimerWatchdogStop.c)
+ *     __misaligned_access @ 0x1403A7020 (__misaligned_access.c)
  *     wcsnlen @ 0x1403E3480 (wcsnlen.c)
  */
 
@@ -19,7 +19,7 @@ errno_t __cdecl wcslwr_s(wchar_t *Str, size_t SizeInWords)
   {
     *v2 = 0;
 LABEL_2:
-    xHalTimerWatchdogStop();
+    _misaligned_access();
     return 22;
   }
   while ( 1 )

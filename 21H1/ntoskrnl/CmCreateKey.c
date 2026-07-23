@@ -25,7 +25,7 @@
 __int64 __fastcall CmCreateKey(
         HANDLE *a1,
         int a2,
-        __int64 a3,
+        ULONG_PTR a3,
         __int64 a4,
         __int128 *a5,
         int a6,
@@ -62,7 +62,7 @@ __int64 __fastcall CmCreateKey(
   int v39; // [rsp+90h] [rbp-1F8h]
   size_t Size; // [rsp+98h] [rbp-1F0h]
   HANDLE *v41; // [rsp+A0h] [rbp-1E8h]
-  __int64 v42; // [rsp+A8h] [rbp-1E0h]
+  ULONG_PTR v42; // [rsp+A8h] [rbp-1E0h]
   _DWORD *v43; // [rsp+B0h] [rbp-1D8h]
   __int128 v44; // [rsp+C0h] [rbp-1C8h]
   __int128 v45; // [rsp+D0h] [rbp-1B8h]
@@ -82,7 +82,7 @@ __int64 __fastcall CmCreateKey(
   memset(v48, 0, sizeof(v48));
   v37 = 0LL;
   if ( *(BOOLEAN **)((char *)&NlsMbCodePageTag + 7) )
-    EtwGetKernelTraceTimestamp(v48, 0x20000LL, a3, a4);
+    EtwGetKernelTraceTimestamp(v48, 0x20000u);
   memset(v47, 0, 0x128uLL);
   LODWORD(v47[6]) = -1;
   *((_QWORD *)&v47[9] + 1) = &v47[9];

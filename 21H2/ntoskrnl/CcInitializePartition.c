@@ -1,16 +1,16 @@
 /*
- * XREFs of CcInitializePartition @ 0x1403C2964
+ * XREFs of CcInitializePartition @ 0x1403C2D94
  * Callers:
- *     CcCreatePartition @ 0x1403C2910 (CcCreatePartition.c)
+ *     CcCreatePartition @ 0x1403C2D40 (CcCreatePartition.c)
  * Callees:
- *     KeQueryActiveProcessorCountEx @ 0x14027B610 (KeQueryActiveProcessorCountEx.c)
- *     DbgPrintEx @ 0x14037F820 (DbgPrintEx.c)
- *     CcInitializeAsyncRead @ 0x1403C2F70 (CcInitializeAsyncRead.c)
- *     CcInitializePartitionVacbs @ 0x1403C3328 (CcInitializePartitionVacbs.c)
- *     memset @ 0x140414200 (memset.c)
- *     PsCreateSystemThread @ 0x1406D0140 (PsCreateSystemThread.c)
- *     MmGetNumberOfPhysicalPagesForPartitionObject @ 0x1407BC924 (MmGetNumberOfPhysicalPagesForPartitionObject.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     KeQueryActiveProcessorCountEx @ 0x1402695B0 (KeQueryActiveProcessorCountEx.c)
+ *     DbgPrintEx @ 0x14037F370 (DbgPrintEx.c)
+ *     CcInitializeAsyncRead @ 0x1403C33A0 (CcInitializeAsyncRead.c)
+ *     CcInitializePartitionVacbs @ 0x1403C3758 (CcInitializePartitionVacbs.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     PsCreateSystemThread @ 0x1406A7420 (PsCreateSystemThread.c)
+ *     MmGetNumberOfPhysicalPagesForPartitionObject @ 0x1407BD0B4 (MmGetNumberOfPhysicalPagesForPartitionObject.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 char __fastcall CcInitializePartition(char *StartContext, _QWORD *a2)

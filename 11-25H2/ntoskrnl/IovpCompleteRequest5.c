@@ -10,10 +10,10 @@
 
 void __fastcall IovpCompleteRequest5(__int64 a1)
 {
-  struct _SLIST_ENTRY *v1; // rdi
+  _SLIST_ENTRY *v1; // rdi
   __int64 v2; // rbx
 
-  v1 = *(struct _SLIST_ENTRY **)a1;
+  v1 = *(_SLIST_ENTRY **)a1;
   if ( *(_QWORD *)a1 )
   {
     v2 = *(_QWORD *)(a1 + 8);

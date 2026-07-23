@@ -1,12 +1,12 @@
 /*
- * XREFs of SmKmFreeMdlForLock @ 0x14038302C
+ * XREFs of SmKmFreeMdlForLock @ 0x140384DDC
  * Callers:
- *     SmKmStoreHelperCommandProcess @ 0x140382C98 (SmKmStoreHelperCommandProcess.c)
- *     ?SmStUnmapVirtualRegion@?$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@KKKPEAXK@Z @ 0x14038FB60 (-SmStUnmapVirtualRegion@-$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@KKKPEAXK@Z.c)
- *     SmFpCleanup @ 0x1403F02E0 (SmFpCleanup.c)
+ *     SmKmStoreHelperCommandProcess @ 0x140384A48 (SmKmStoreHelperCommandProcess.c)
+ *     ?SmStUnmapVirtualRegion@?$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@KKKPEAXK@Z @ 0x140391910 (-SmStUnmapVirtualRegion@-$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@KKKPEAXK@Z.c)
+ *     SmFpCleanup @ 0x1403E9CB0 (SmFpCleanup.c)
  * Callees:
- *     SmAcquireReleaseCharges @ 0x140394610 (SmAcquireReleaseCharges.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     SmAcquireReleaseCharges @ 0x140396390 (SmAcquireReleaseCharges.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __fastcall SmKmFreeMdlForLock(__int64 a1, unsigned int *a2)

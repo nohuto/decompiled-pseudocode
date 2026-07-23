@@ -1,12 +1,12 @@
 /*
- * XREFs of EtwpLogMemInfoWsHelper @ 0x140936D30
+ * XREFs of EtwpLogMemInfoWsHelper @ 0x140936F00
  * Callers:
- *     EtwpLogMemInfoWs @ 0x140936A0C (EtwpLogMemInfoWs.c)
+ *     EtwpLogMemInfoWs @ 0x140936BDC (EtwpLogMemInfoWs.c)
  * Callees:
- *     EtwWrite @ 0x14025DC90 (EtwWrite.c)
- *     EtwTraceKernelEvent @ 0x1402EAC90 (EtwTraceKernelEvent.c)
- *     EtwpLogKernelEvent @ 0x140350000 (EtwpLogKernelEvent.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     EtwWrite @ 0x14027F7C0 (EtwWrite.c)
+ *     EtwTraceKernelEvent @ 0x14029BFE0 (EtwTraceKernelEvent.c)
+ *     EtwpLogKernelEvent @ 0x14035AD50 (EtwpLogKernelEvent.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  */
 
 void __fastcall EtwpLogMemInfoWsHelper(__int64 a1, _DWORD *a2)

@@ -1,13 +1,13 @@
 /*
- * XREFs of CmpLazyCommitDpcRoutine @ 0x1406E27E0
+ * XREFs of CmpLazyCommitDpcRoutine @ 0x1406E6AC0
  * Callers:
  *     <none>
  * Callees:
- *     ExQueueWorkItem @ 0x140381C70 (ExQueueWorkItem.c)
+ *     ExQueueWorkItem @ 0x140383A20 (ExQueueWorkItem.c)
  */
 
 void CmpLazyCommitDpcRoutine()
 {
-  if ( BYTE5(WheapPfaLock.SwapListEntry.Next) )
+  if ( LOBYTE(WheapPfaLock.Timer.Header.WaitListHead.Blink) )
     ExQueueWorkItem(&CmpLazyCommitWorkItem, DelayedWorkQueue);
 }

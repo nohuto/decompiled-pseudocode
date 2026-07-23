@@ -1,14 +1,14 @@
 /*
- * XREFs of PssNtValidateDescriptor @ 0x1800B5C90
+ * XREFs of PssNtValidateDescriptor @ 0x1800B31B0
  * Callers:
- *     PssNtDuplicateSnapshot @ 0x1800B4CF0 (PssNtDuplicateSnapshot.c)
- *     PssNtFreeSnapshot @ 0x1800B5590 (PssNtFreeSnapshot.c)
- *     PssNtQuerySnapshot @ 0x1800B5760 (PssNtQuerySnapshot.c)
- *     PssNtWalkSnapshot @ 0x1800B5A00 (PssNtWalkSnapshot.c)
+ *     PssNtDuplicateSnapshot @ 0x1800B2210 (PssNtDuplicateSnapshot.c)
+ *     PssNtFreeSnapshot @ 0x1800B2AB0 (PssNtFreeSnapshot.c)
+ *     PssNtQuerySnapshot @ 0x1800B2C80 (PssNtQuerySnapshot.c)
+ *     PssNtWalkSnapshot @ 0x1800B2F20 (PssNtWalkSnapshot.c)
  * Callees:
- *     RtlRaiseException @ 0x180040C10 (RtlRaiseException.c)
- *     __security_check_cookie @ 0x180162C90 (__security_check_cookie.c)
- *     memset$thunk$772440563353939046 @ 0x180170030 (memset$thunk$772440563353939046.c)
+ *     RtlRaiseException @ 0x18002B180 (RtlRaiseException.c)
+ *     __security_check_cookie @ 0x180162B90 (__security_check_cookie.c)
+ *     memset$thunk$772440563353939046 @ 0x18016F030 (memset$thunk$772440563353939046.c)
  */
 
 __int64 __fastcall PssNtValidateDescriptor(unsigned int *a1, void *a2)

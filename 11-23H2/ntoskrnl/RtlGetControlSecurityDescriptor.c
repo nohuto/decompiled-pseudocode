@@ -1,19 +1,22 @@
 /*
  * XREFs of RtlGetControlSecurityDescriptor @ 0x14069E2C0
  * Callers:
- *     AdtpIsSDValidSelfRelative @ 0x14067116C (AdtpIsSDValidSelfRelative.c)
+ *     AdtpIsSDValidSelfRelative @ 0x1406716BC (AdtpIsSDValidSelfRelative.c)
  *     SepHasCriticalAcesRemoved @ 0x14069C020 (SepHasCriticalAcesRemoved.c)
  *     LocalConvertSDToStringSD_Rev1 @ 0x14069CE68 (LocalConvertSDToStringSD_Rev1.c)
- *     ObpInsertOrLocateNamedObject @ 0x1406C0ABC (ObpInsertOrLocateNamedObject.c)
+ *     ObpInsertOrLocateNamedObject @ 0x1406C0AEC (ObpInsertOrLocateNamedObject.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall RtlGetControlSecurityDescriptor(unsigned __int8 *a1, _WORD *a2, _DWORD *a3)
+NTSTATUS __cdecl RtlGetControlSecurityDescriptor(
+        PSECURITY_DESCRIPTOR SecurityDescriptor,
+        PSECURITY_DESCRIPTOR_CONTROL Control,
+        PULONG Revision)
 {
-  *a3 = *a1;
-  if ( *a1 != 1 )
-    return 3221225560LL;
-  *a2 = *((_WORD *)a1 + 1);
-  return 0LL;
+  *Revision = *(unsigned __int8 *)SecurityDescriptor;
+  if ( *(_BYTE *)SecurityDescriptor != 1 )
+    return -1073741736;
+  *Control = *((_WORD *)SecurityDescriptor + 1);
+  return 0;
 }

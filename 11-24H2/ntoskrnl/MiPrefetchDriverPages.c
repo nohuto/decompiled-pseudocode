@@ -1,10 +1,10 @@
 /*
- * XREFs of MiPrefetchDriverPages @ 0x1409ED0BC
+ * XREFs of MiPrefetchDriverPages @ 0x1409E63EC
  * Callers:
- *     MiLockCode @ 0x14023D6F0 (MiLockCode.c)
+ *     MiLockCode @ 0x140205480 (MiLockCode.c)
  * Callees:
- *     MiPrefetchVirtualMemory @ 0x1402A98D0 (MiPrefetchVirtualMemory.c)
- *     MiMakeDemandZeroPte @ 0x1402E3CC0 (MiMakeDemandZeroPte.c)
+ *     MiPrefetchVirtualMemory @ 0x140351B80 (MiPrefetchVirtualMemory.c)
+ *     MiMakeDemandZeroPte @ 0x140392C40 (MiMakeDemandZeroPte.c)
  */
 
 __int64 MiPrefetchDriverPages()
@@ -51,7 +51,7 @@ __int64 MiPrefetchDriverPages()
     }
     while ( v1 <= v2 );
     if ( v5 > 0x1000 )
-      return MiPrefetchVirtualMemory(1uLL, (unsigned __int64)&v8, 1LL, 45);
+      return MiPrefetchVirtualMemory(1uLL, (__int64)&v8, 1LL, 45);
   }
   return result;
 }

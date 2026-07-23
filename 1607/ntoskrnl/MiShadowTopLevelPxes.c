@@ -1,10 +1,10 @@
 /*
- * XREFs of MiShadowTopLevelPxes @ 0x1401EF5E0
+ * XREFs of MiShadowTopLevelPxes @ 0x1401EF40C
  * Callers:
- *     MiCopyTopLevelMappings @ 0x140101694 (MiCopyTopLevelMappings.c)
- *     MiReplicatePteChange @ 0x1401482F0 (MiReplicatePteChange.c)
+ *     MiCopyTopLevelMappings @ 0x1400FF414 (MiCopyTopLevelMappings.c)
+ *     MiReplicatePteChange @ 0x140148860 (MiReplicatePteChange.c)
  * Callees:
- *     MI_READ_PTE_LOCK_FREE @ 0x1401F25D0 (MI_READ_PTE_LOCK_FREE.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1401F23FC (MI_READ_PTE_LOCK_FREE.c)
  */
 
 void __fastcall MiShadowTopLevelPxes(__int64 a1, unsigned int a2, int a3)
@@ -27,7 +27,7 @@ void __fastcall MiShadowTopLevelPxes(__int64 a1, unsigned int a2, int a3)
         v6 = (a2 >> 3) & 0x1FF;
         do
         {
-          if ( _bittest64(qword_140326CD4, (unsigned int)(v6 - 256)) )
+          if ( _bittest64(qword_140326D14, (unsigned int)(v6 - 256)) )
           {
             v7 = MI_READ_PTE_LOCK_FREE(v5 + 8 * v6);
             *(_QWORD *)(v4 + 8 * v6) = v7;

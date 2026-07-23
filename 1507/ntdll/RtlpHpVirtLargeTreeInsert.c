@@ -8,17 +8,17 @@
  *     RtlpHpVirtLargeTreeInsertNode @ 0x1800EB644 (RtlpHpVirtLargeTreeInsertNode.c)
  */
 
-__int64 __fastcall RtlpHpVirtLargeTreeInsert(__int64 a1, __int64 a2)
+__int64 __fastcall RtlpHpVirtLargeTreeInsert(_RTL_BALANCED_NODE *a1, _RTL_BALANCED_NODE *a2)
 {
-  _QWORD *v4; // rax
+  _RTL_BALANCED_NODE *v4; // rax
   unsigned int v5; // r8d
 
-  v4 = RtlpHpMetadataAlloc(0x28uLL, 0);
+  v4 = (_RTL_BALANCED_NODE *)RtlpHpMetadataAlloc(0x28uLL, 0);
   v5 = 0;
   if ( v4 )
   {
-    v4[4] = a2;
-    v4[3] = a1;
+    v4[1].Children[1] = a2;
+    v4[1].Children[0] = a1;
     RtlpHpVirtLargeTreeInsertNode(v4);
     return 1;
   }

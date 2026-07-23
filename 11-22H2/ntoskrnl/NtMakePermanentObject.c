@@ -11,7 +11,7 @@
  *     SeSinglePrivilegeCheck @ 0x140738000 (SeSinglePrivilegeCheck.c)
  */
 
-NTSTATUS __fastcall NtMakePermanentObject(HANDLE Handle)
+NTSTATUS __cdecl NtMakePermanentObject(HANDLE Handle)
 {
   KPROCESSOR_MODE PreviousMode; // bl
   NTSTATUS result; // eax

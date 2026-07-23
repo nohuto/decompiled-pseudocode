@@ -3,10 +3,10 @@
  * Callers:
  *     CmInitSystem1 @ 0x1407ADA6C (CmInitSystem1.c)
  * Callees:
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     NtSetValueKey @ 0x140403098 (NtSetValueKey.c)
- *     NtOpenKey @ 0x140415458 (NtOpenKey.c)
- *     NtClose @ 0x14050B0E0 (NtClose.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     NtSetValueKey @ 0x140401F58 (NtSetValueKey.c)
+ *     NtOpenKey @ 0x140414318 (NtOpenKey.c)
+ *     NtClose @ 0x1404EE070 (NtClose.c)
  */
 
 __int64 CmpMigrateOOBELanguageToInstallationLanguage()

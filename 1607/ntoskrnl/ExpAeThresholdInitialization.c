@@ -3,10 +3,10 @@
  * Callers:
  *     ExpInitSystemPhase1 @ 0x14079EB74 (ExpInitSystemPhase1.c)
  * Callees:
- *     KeGenericCallDpc @ 0x1400A04BC (KeGenericCallDpc.c)
- *     ExpAeMeasureContention @ 0x140140B24 (ExpAeMeasureContention.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     KeGenericCallDpc @ 0x14009EDE4 (KeGenericCallDpc.c)
+ *     ExpAeMeasureContention @ 0x140141094 (ExpAeMeasureContention.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     memset @ 0x140171AC0 (memset.c)
  */
 
 char ExpAeThresholdInitialization()

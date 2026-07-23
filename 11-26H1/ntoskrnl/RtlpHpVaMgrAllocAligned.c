@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlpHpVaMgrAllocAligned @ 0x14035115C
+ * XREFs of RtlpHpVaMgrAllocAligned @ 0x1403531DC
  * Callers:
- *     RtlpHpVaMgrAlloc @ 0x140350BAC (RtlpHpVaMgrAlloc.c)
- *     RtlpHpVaMgrRegionAllocate @ 0x1403510D8 (RtlpHpVaMgrRegionAllocate.c)
+ *     RtlpHpVaMgrAlloc @ 0x140352C2C (RtlpHpVaMgrAlloc.c)
+ *     RtlpHpVaMgrRegionAllocate @ 0x140353158 (RtlpHpVaMgrRegionAllocate.c)
  * Callees:
- *     RtlpHpEnvAllocVA @ 0x140364570 (RtlpHpEnvAllocVA.c)
+ *     RtlpHpEnvAllocVA @ 0x140366310 (RtlpHpEnvAllocVA.c)
  */
 
 __int64 __fastcall RtlpHpVaMgrAllocAligned(__int64 a1, int a2, int a3)

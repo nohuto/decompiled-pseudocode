@@ -1,12 +1,12 @@
 /*
- * XREFs of MiUnlinkHugeRange @ 0x140533B5C
+ * XREFs of MiUnlinkHugeRange @ 0x140533D9C
  * Callers:
  *     MiMakeEntireHugePfnGood @ 0x1403F394C (MiMakeEntireHugePfnGood.c)
  *     MiMarkHugePfnBad @ 0x1403F39F4 (MiMarkHugePfnBad.c)
  *     MiMarkHugePfnGood @ 0x1403F3DA8 (MiMarkHugePfnGood.c)
- *     MiGetHugeRangeFromNode @ 0x140532A54 (MiGetHugeRangeFromNode.c)
+ *     MiGetHugeRangeFromNode @ 0x140532C94 (MiGetHugeRangeFromNode.c)
  * Callees:
- *     MiSearchNumaNodeTable @ 0x14032B790 (MiSearchNumaNodeTable.c)
+ *     MiSearchNumaNodeTable @ 0x1403364E0 (MiSearchNumaNodeTable.c)
  */
 
 __int64 __fastcall MiUnlinkHugeRange(__int64 a1, int a2)
@@ -28,12 +28,12 @@ __int64 __fastcall MiUnlinkHugeRange(__int64 a1, int a2)
   unsigned __int64 v17; // rcx
 
   v2 = *(_QWORD *)(a1 + 6160);
-  v4 = (unsigned int)dword_140C4DF80[0];
+  v4 = (unsigned int)dword_140C4DFC0[0];
   v5 = *(_QWORD *)&a2 & 0x3FFFFLL;
   v6 = MiSearchNumaNodeTable((*(_QWORD *)&a2 & 0x3FFFFLL) << 18);
-  v7 = qword_140C4E670;
+  v7 = qword_140C4E6B0;
   v8 = *((unsigned int *)v6 + 2);
-  v9 = *(_QWORD *)(qword_140C4E670 + 8 * v5);
+  v9 = *(_QWORD *)(qword_140C4E6B0 + 8 * v5);
   if ( (v9 & 0x1C0000) == 0x80000 )
   {
     v10 = 1;
@@ -61,10 +61,10 @@ __int64 __fastcall MiUnlinkHugeRange(__int64 a1, int a2)
     v14 += v5 % v4;
   v15 = (unsigned __int64 *)v14;
   if ( ((v9 >> 21) & 0x3FFFF) != 0 )
-    v15 = (unsigned __int64 *)(qword_140C4E670 + 8 * ((v9 >> 21) & 0x3FFFF));
+    v15 = (unsigned __int64 *)(qword_140C4E6B0 + 8 * ((v9 >> 21) & 0x3FFFF));
   *v15 = v9 & 0x3FFFF | *v15 & 0xFFFFFFFFFFFC0000uLL;
   if ( (v9 & 0x3FFFF) != 0 )
-    v14 = (__int64 *)(qword_140C4E670 + 8 * (v9 & 0x3FFFF));
+    v14 = (__int64 *)(qword_140C4E6B0 + 8 * (v9 & 0x3FFFF));
   result = *v14 ^ (v9 ^ *v14) & 0x7FFFE00000LL;
   *v14 = result;
   if ( *(_BYTE *)(a1 + 4829) == 1 || v10 )

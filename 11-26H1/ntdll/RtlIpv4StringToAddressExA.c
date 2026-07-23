@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlIpv4StringToAddressExA @ 0x1800DA8D0
+ * XREFs of RtlIpv4StringToAddressExA @ 0x1800D7890
  * Callers:
  *     <none>
  * Callees:
- *     RtlIpv4StringToAddressA @ 0x1800DAAD0 (RtlIpv4StringToAddressA.c)
- *     __isascii @ 0x180127A50 (__isascii.c)
- *     isdigit @ 0x180127B90 (isdigit.c)
- *     islower @ 0x180127BF0 (islower.c)
- *     isxdigit @ 0x180127CE0 (isxdigit.c)
+ *     RtlIpv4StringToAddressA @ 0x1800D7A90 (RtlIpv4StringToAddressA.c)
+ *     __isascii @ 0x1801277C0 (__isascii.c)
+ *     isdigit @ 0x180127900 (isdigit.c)
+ *     islower @ 0x180127960 (islower.c)
+ *     isxdigit @ 0x180127A50 (isxdigit.c)
  */
 
 LONG __stdcall RtlIpv4StringToAddressExA(PCSTR AddressString, BOOLEAN Strict, struct in_addr *Address, PUSHORT Port)

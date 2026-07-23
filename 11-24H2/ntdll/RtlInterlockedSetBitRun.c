@@ -1,58 +1,56 @@
 /*
- * XREFs of RtlInterlockedSetBitRun @ 0x18013D850
+ * XREFs of RtlInterlockedSetBitRun @ 0x18013BA40
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-unsigned __int64 __fastcall RtlInterlockedSetBitRun(__int64 a1, unsigned int a2, unsigned int a3)
+void __cdecl RtlInterlockedSetBitRun(PRTL_BITMAP BitMapHeader, ULONG StartingIndex, ULONG NumberToSet)
 {
-  unsigned int v3; // r9d
+  ULONG v3; // r9d
   __int64 v4; // r11
   volatile signed __int32 *v5; // r10
-  unsigned __int64 result; // rax
-  int v7; // ebx
+  unsigned int v6; // eax
+  ULONG v7; // ebx
+  unsigned __int64 v8; // rax
 
-  v3 = a3;
-  v4 = a2 & 0x1F;
-  v5 = (volatile signed __int32 *)(*(_QWORD *)(a1 + 8) + 4 * ((unsigned __int64)a2 >> 5));
-  result = v4 + a3;
-  if ( result <= 0x20 )
+  v3 = NumberToSet;
+  v4 = StartingIndex & 0x1F;
+  v5 = (volatile signed __int32 *)&BitMapHeader->Buffer[(unsigned __int64)StartingIndex >> 5];
+  if ( v4 + (unsigned __int64)NumberToSet <= 0x20 )
   {
-    if ( a3 == 32 )
+    if ( NumberToSet == 32 )
     {
       *v5 = -1;
-      return result;
+      return;
     }
-    result = (unsigned int)(((1 << a3) - 1) << v4);
+    v6 = ((1 << NumberToSet) - 1) << v4;
     goto LABEL_12;
   }
-  v7 = a2 & 0x1F;
-  if ( (a2 & 0x1F) != 0 )
+  v7 = StartingIndex & 0x1F;
+  if ( (StartingIndex & 0x1F) != 0 )
   {
-    result = (unsigned int)(((1 << (32 - v7)) - 1) << v4);
-    _InterlockedOr(v5, result);
-    v3 = a3 - (32 - v7);
+    _InterlockedOr(v5, ((1 << (32 - v7)) - 1) << v4);
+    v3 = NumberToSet - (32 - v7);
     ++v5;
   }
   if ( v3 >= 0x20 )
   {
-    result = (unsigned __int64)v3 >> 5;
+    v8 = (unsigned __int64)v3 >> 5;
     do
     {
       *v5 = -1;
       v3 -= 32;
       ++v5;
-      --result;
+      --v8;
     }
-    while ( result );
+    while ( v8 );
   }
   if ( v3 )
   {
-    result = (unsigned int)((1 << v3) - 1);
+    v6 = (1 << v3) - 1;
 LABEL_12:
-    _InterlockedOr(v5, result);
+    _InterlockedOr(v5, v6);
   }
-  return result;
 }

@@ -19,9 +19,9 @@ __int64 __fastcall PiAuCreateUserSids(PVOID *a1)
   PSID *v8; // rsi
   BOOLEAN valid; // al
   unsigned int v10; // ecx
-  struct _SID_IDENTIFIER_AUTHORITY v12; // [rsp+60h] [rbp+40h] BYREF
-  struct _SID_IDENTIFIER_AUTHORITY v13; // [rsp+68h] [rbp+48h] BYREF
-  struct _SID_IDENTIFIER_AUTHORITY v14; // [rsp+70h] [rbp+50h] BYREF
+  _SID_IDENTIFIER_AUTHORITY v12; // [rsp+60h] [rbp+40h] BYREF
+  _SID_IDENTIFIER_AUTHORITY v13; // [rsp+68h] [rbp+48h] BYREF
+  _SID_IDENTIFIER_AUTHORITY v14; // [rsp+70h] [rbp+50h] BYREF
 
   *(_WORD *)&v12.Value[4] = 1280;
   *(_DWORD *)v12.Value = 0;

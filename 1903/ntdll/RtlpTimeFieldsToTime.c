@@ -9,9 +9,9 @@
 
 char __fastcall RtlpTimeFieldsToTime(__m128i *a1, _QWORD *a2, __int64 *a3)
 {
-  __int64 v4; // rdi
+  PLEAP_SECOND_DATA LeapSecondData; // rdi
   unsigned int v5; // esi
-  DWORD v6; // ebx
+  ULONG v6; // ebx
   __int64 v7; // rbp
   __int64 v8; // rax
   unsigned int v9; // r8d
@@ -28,12 +28,12 @@ char __fastcall RtlpTimeFieldsToTime(__m128i *a1, _QWORD *a2, __int64 *a3)
   __m128i v21; // [rsp+20h] [rbp-28h] BYREF
   __int64 v22; // [rsp+68h] [rbp+20h] BYREF
 
-  v4 = *(_QWORD *)&NtCurrentPeb()[2].NumberOfProcessors;
-  if ( !v4 || !*(_BYTE *)v4 )
+  LeapSecondData = NtCurrentPeb()->LeapSecondData;
+  if ( !LeapSecondData || !*(_BYTE *)LeapSecondData )
     return ((__int64 (*)(void))sub_18005DEE8)();
-  v5 = *(_DWORD *)(v4 + 4);
+  v5 = *((_DWORD *)LeapSecondData + 1);
   _InterlockedOr(v20, 0);
-  v6 = NtCurrentPeb()[2].CriticalSectionTimeout.LowPart & 1;
+  v6 = NtCurrentPeb()->LeapSecondFlags & 1;
   if ( a3 )
     v7 = *a3;
   else
@@ -52,7 +52,7 @@ char __fastcall RtlpTimeFieldsToTime(__m128i *a1, _QWORD *a2, __int64 *a3)
     v11 = 0;
     if ( !v5 )
       goto LABEL_13;
-    v12 = (__int64 *)(v4 + 8);
+    v12 = (__int64 *)((char *)LeapSecondData + 8);
     while ( 1 )
     {
       v13 = *v12;
@@ -98,7 +98,7 @@ LABEL_13:
   v9 = 0;
   if ( !v5 )
     goto LABEL_8;
-  v16 = (__int64 *)(v4 + 8);
+  v16 = (__int64 *)((char *)LeapSecondData + 8);
   while ( 1 )
   {
     v17 = *v16;

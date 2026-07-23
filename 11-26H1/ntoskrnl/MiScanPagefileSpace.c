@@ -1,15 +1,15 @@
 /*
- * XREFs of MiScanPagefileSpace @ 0x14086C170
+ * XREFs of MiScanPagefileSpace @ 0x140872550
  * Callers:
  *     <none>
  * Callees:
- *     MiReferencePageRuns @ 0x14028EEEC (MiReferencePageRuns.c)
- *     MiReleasePageFileInfo @ 0x1402DAD50 (MiReleasePageFileInfo.c)
- *     MiSafeLockPage @ 0x1402F3700 (MiSafeLockPage.c)
- *     MiCaptureDirtyBitToPfn @ 0x14031AE30 (MiCaptureDirtyBitToPfn.c)
- *     PsDereferencePartition @ 0x140381940 (PsDereferencePartition.c)
- *     MiDereferencePageRuns @ 0x1403C9634 (MiDereferencePageRuns.c)
- *     MiUnlockPage @ 0x14041BB70 (MiUnlockPage.c)
+ *     MiReferencePageRuns @ 0x14028E44C (MiReferencePageRuns.c)
+ *     MiReleasePageFileInfo @ 0x1402BCB10 (MiReleasePageFileInfo.c)
+ *     MiSafeLockPage @ 0x1402D5780 (MiSafeLockPage.c)
+ *     MiCaptureDirtyBitToPfn @ 0x14031CE60 (MiCaptureDirtyBitToPfn.c)
+ *     PsDereferencePartition @ 0x1403836F0 (PsDereferencePartition.c)
+ *     MiDereferencePageRuns @ 0x1403D34E4 (MiDereferencePageRuns.c)
+ *     MiUnlockPage @ 0x1404133C0 (MiUnlockPage.c)
  */
 
 void __fastcall MiScanPagefileSpace(struct _KEVENT *a1)
@@ -54,7 +54,7 @@ void __fastcall MiScanPagefileSpace(struct _KEVENT *a1)
             && (*(_BYTE *)(v6 + 35) & 0x10) == 0 )
           {
             v10 = *(_QWORD *)&CLFS_LSN_NULL_EXT;
-            v11 = MiSafeLockPage(v5, 0xFFFFFFFFFFLL);
+            v11 = MiSafeLockPage(v5, 0xFFFFFFFFFFLL, 0x3FFFFFFFFELL);
             if ( v11 != 17 )
             {
               v12 = *(_BYTE *)(v6 + 34) & 7;
@@ -73,7 +73,7 @@ void __fastcall MiScanPagefileSpace(struct _KEVENT *a1)
               MiUnlockPage(v6, v11);
             }
             if ( v10 )
-              MiReleasePageFileInfo(a1, v10, 0);
+              MiReleasePageFileInfo(a1, v10, 0LL);
             Lock = v15;
           }
         }

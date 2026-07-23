@@ -1,14 +1,14 @@
 /*
- * XREFs of DbgkLkmdRegisterCallback @ 0x14057CDB4
+ * XREFs of DbgkLkmdRegisterCallback @ 0x14057D260
  * Callers:
  *     <none>
  * Callees:
- *     ExDereferenceCallBackBlock @ 0x140013F40 (ExDereferenceCallBackBlock.c)
- *     ExReferenceCallBackBlock @ 0x140013F80 (ExReferenceCallBackBlock.c)
- *     ExGetCallBackBlockRoutine @ 0x140014034 (ExGetCallBackBlockRoutine.c)
- *     ExCompareExchangeCallBack @ 0x140136688 (ExCompareExchangeCallBack.c)
+ *     ExDereferenceCallBackBlock @ 0x140013AC0 (ExDereferenceCallBackBlock.c)
+ *     ExReferenceCallBackBlock @ 0x140013B00 (ExReferenceCallBackBlock.c)
+ *     ExGetCallBackBlockRoutine @ 0x140013BB4 (ExGetCallBackBlockRoutine.c)
+ *     ExCompareExchangeCallBack @ 0x140136BF8 (ExCompareExchangeCallBack.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
- *     ExAllocateCallBack @ 0x14054CCD0 (ExAllocateCallBack.c)
+ *     ExAllocateCallBack @ 0x14054D210 (ExAllocateCallBack.c)
  */
 
 __int64 __fastcall DbgkLkmdRegisterCallback(__int64 a1, __int64 a2, int a3)

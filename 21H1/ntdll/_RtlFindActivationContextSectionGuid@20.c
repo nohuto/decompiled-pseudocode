@@ -13,242 +13,246 @@
  *     _DbgPrintEx @ 0x4B33EE00 (_DbgPrintEx.c)
  */
 
-int __stdcall RtlFindActivationContextSectionGuid(int a1, const void *a2, unsigned int a3, void *a4, _DWORD *a5)
+NTSTATUS __cdecl RtlFindActivationContextSectionGuid(
+        ULONG Flags,
+        PGUID ExtensionGuid,
+        ULONG SectionId,
+        PGUID GuidToFind,
+        PACTCTX_SECTION_KEYED_DATA ReturnedData)
 {
   struct _TEB *v5; // ecx
   _PEB *ProcessEnvironmentBlock; // eax
   bool v7; // zf
-  int result; // eax
-  unsigned int v9; // eax
-  _DWORD *v10; // edi
-  _DWORD *v11; // esi
-  size_t v12; // ebx
+  NTSTATUS result; // eax
+  PACTIVATION_CONTEXT v9; // edi
+  _DWORD *v10; // esi
+  unsigned int v11; // ebx
+  int v12; // ecx
   int v13; // ecx
-  int v14; // ecx
-  _DWORD *v15; // ebx
-  struct _TEB *v16; // ecx
-  unsigned int v17; // esi
+  _DWORD *v14; // ebx
+  struct _TEB *v15; // ecx
+  unsigned int v16; // esi
   char *SystemDefaultActivationContextData; // ebx
-  _PEB *v19; // edx
-  int v20; // ecx
-  struct _TEB *v21; // eax
-  const void *v22; // eax
-  _DWORD *v23; // edx
-  int v24; // ecx
-  void (__thiscall *v25)(_DWORD, int, _DWORD *, _DWORD, _DWORD, _DWORD, char *); // ebx
+  _PEB *v18; // edx
+  int v19; // ecx
+  struct _TEB *v20; // eax
+  const void *v21; // eax
+  _DWORD *p_cbSize; // edx
+  ULONG cbSize; // ecx
+  void (__thiscall *v24)(_DWORD, int, PACTIVATION_CONTEXT, PVOID, ULONG, _DWORD, char *); // ebx
   _ACTIVATION_CONTEXT_STACK *ActivationContextStackPointer; // eax
   _RTL_ACTIVATION_CONTEXT_STACK_FRAME *ActiveFrame; // eax
-  unsigned int ActivationContext; // eax
-  char v29; // [esp+19h] [ebp-59h] BYREF
-  unsigned int v30; // [esp+1Ah] [ebp-58h]
-  unsigned int v31; // [esp+1Eh] [ebp-54h] BYREF
+  unsigned int v27; // eax
+  size_t v28; // [esp+6h] [ebp-6Ch]
+  int (__cdecl *v29)(const void *, const void *); // [esp+Eh] [ebp-64h]
+  char v30; // [esp+19h] [ebp-59h] BYREF
+  unsigned int v31; // [esp+1Ah] [ebp-58h]
+  int v32; // [esp+1Eh] [ebp-54h] BYREF
   void *Source2; // [esp+22h] [ebp-50h]
-  _DWORD *v33; // [esp+26h] [ebp-4Ch]
-  int v34; // [esp+2Ah] [ebp-48h] BYREF
+  PACTCTX_SECTION_KEYED_DATA v34; // [esp+26h] [ebp-4Ch]
+  int v35; // [esp+2Ah] [ebp-48h] BYREF
   unsigned int *i; // [esp+2Eh] [ebp-44h]
   struct _TEB *p_StackBase; // [esp+32h] [ebp-40h]
-  _DWORD *v37; // [esp+36h] [ebp-3Ch] BYREF
-  _DWORD v38[2]; // [esp+3Ah] [ebp-38h] BYREF
-  const void *v39; // [esp+42h] [ebp-30h]
-  unsigned int v40; // [esp+46h] [ebp-2Ch]
-  int v41; // [esp+4Ah] [ebp-28h]
-  int v42; // [esp+4Eh] [ebp-24h]
+  PACTIVATION_CONTEXT ActivationContext; // [esp+36h] [ebp-3Ch] BYREF
+  int v39[2]; // [esp+3Ah] [ebp-38h] BYREF
+  PGUID v40; // [esp+42h] [ebp-30h]
+  int v41; // [esp+46h] [ebp-2Ch]
+  int v42; // [esp+4Ah] [ebp-28h]
+  int v43; // [esp+4Eh] [ebp-24h]
   _DWORD Key[7]; // [esp+52h] [ebp-20h] BYREF
 
   v5 = NtCurrentTeb();
   ProcessEnvironmentBlock = v5->ProcessEnvironmentBlock;
   v7 = ProcessEnvironmentBlock->ActivationContextData == 0;
-  Source2 = a4;
-  v33 = a5;
+  Source2 = GuidToFind;
+  v34 = ReturnedData;
   if ( v7
     && !ProcessEnvironmentBlock->SystemDefaultActivationContextData
     && !v5->ActivationContextStackPointer->ActiveFrame )
   {
     return -1072365567;
   }
-  v31 = 0;
-  if ( !a4 || (a1 & 0xFFFFFFF8) != 0 )
+  v32 = 0;
+  if ( !GuidToFind || (Flags & 0xFFFFFFF8) != 0 )
     return -1073741811;
-  if ( (a1 & 7) != 0 )
+  if ( (Flags & 7) != 0 )
   {
-    if ( !a5 )
+    if ( !ReturnedData )
       return -1073741811;
   }
-  else if ( !a5 )
+  else if ( !ReturnedData )
   {
     goto LABEL_7;
   }
-  if ( *a5 < 0x24u )
+  if ( ReturnedData->cbSize < 0x24 )
     return -1073741811;
 LABEL_7:
-  if ( (a1 & 2) != 0 && a5 + 11 > (_DWORD *)((char *)a5 + *a5) )
+  if ( (Flags & 2) != 0
+    && &ReturnedData->AssemblyMetadata > (ACTCTX_SECTION_KEYED_DATA_ASSEMBLY_METADATA *)((char *)ReturnedData
+                                                                                       + ReturnedData->cbSize) )
   {
     DbgPrintEx(
       51,
       0,
-      "SXS: %s() flags contains return_flags but they don't fit in size, return invalid_parameter 0x%08lx.\n",
-      "RtlpFindActivationContextSection_CheckParameters",
-      -1073741811);
+      (int)"SXS: %s() flags contains return_flags but they don't fit in size, return invalid_parameter 0x%08lx.\n",
+      (int)"RtlpFindActivationContextSection_CheckParameters");
     return -1073741811;
   }
-  if ( (a1 & 4) != 0 && a5 + 16 > (_DWORD *)((char *)a5 + *a5) )
+  if ( (Flags & 4) != 0 && &ReturnedData[1] > (PACTCTX_SECTION_KEYED_DATA)((char *)ReturnedData + ReturnedData->cbSize) )
   {
     DbgPrintEx(
       51,
       0,
-      "SXS: %s() flags contains return_assembly_metadata but they don't fit in size, return invalid_parameter 0x%08lx.\n",
-      "RtlpFindActivationContextSection_CheckParameters",
-      -1073741811);
+      (int)"SXS: %s() flags contains return_assembly_metadata but they don't fit in size, return invalid_parameter 0x%08lx.\n",
+      (int)"RtlpFindActivationContextSection_CheckParameters");
     return -1073741811;
   }
-  v40 = a3;
-  v38[0] = 24;
-  v38[1] = 0;
-  v39 = a2;
+  v41 = SectionId;
+  v39[0] = 24;
+  v39[1] = 0;
+  v40 = ExtensionGuid;
+  v43 = 0;
+  ActivationContext = 0;
   v42 = 0;
-  v37 = 0;
-  v41 = 0;
-  result = RtlpFindNextActivationContextSection((int)v38, &v34, &v31, &v37);
+  result = RtlpFindNextActivationContextSection((int)v39, &v35, &v32, &ActivationContext);
   if ( result < 0 )
     return result;
-  v9 = v31;
-  if ( v31 < 0x28 )
+  if ( (unsigned int)v32 < 0x28 )
     goto LABEL_32;
-  v10 = v37;
+  v9 = ActivationContext;
   while ( 2 )
   {
-    v11 = (_DWORD *)v34;
-    if ( *(_DWORD *)v34 != 1682469703 )
+    v10 = (_DWORD *)v35;
+    if ( *(_DWORD *)v35 != 1682469703 )
     {
 LABEL_85:
       DbgPrintEx(
         51,
         0,
-        "RtlFindActivationContextSectionGuid() found section at %p (length %lu) which is not a GUID section\n",
-        v11,
-        v9);
+        (int)"RtlFindActivationContextSectionGuid() found section at %p (length %lu) which is not a GUID section\n",
+        (int)v10);
       return -1072365565;
     }
-    v12 = *(_DWORD *)(v34 + 20);
-    if ( !v12 )
+    v11 = *(_DWORD *)(v35 + 20);
+    if ( !v11 )
       goto LABEL_18;
-    v13 = *(_DWORD *)(v34 + 28);
-    if ( !v13 || *(_DWORD *)(v34 + 8) != 1 )
+    v12 = *(_DWORD *)(v35 + 28);
+    if ( !v12 || *(_DWORD *)(v35 + 8) != 1 )
     {
-      v14 = *(_DWORD *)(v34 + 24);
-      if ( (*(_BYTE *)(v34 + 16) & 1) != 0 )
+      v13 = *(_DWORD *)(v35 + 24);
+      if ( (*(_BYTE *)(v35 + 16) & 1) != 0 )
       {
+        LODWORD(v28) = RtlpSearchProtectedPolicyEntry;
         Key[0] = *(_DWORD *)Source2;
         Key[1] = *((_DWORD *)Source2 + 1);
         Key[2] = *((_DWORD *)Source2 + 2);
         Key[3] = *((_DWORD *)Source2 + 3);
-        v15 = bsearch(
-                Key,
-                (const void *)(v14 + v34),
-                v12,
-                0x1Cu,
-                (_CoreCrtNonSecureSearchSortCompareFunction)RtlpSearchProtectedPolicyEntry);
+        v14 = bsearch(Key, (const void *)(v13 + v35), v11 | 0x1C00000000LL, v28, v29);
       }
       else
       {
-        v22 = (const void *)(v14 + v34);
-        v30 = v14 + v34;
-        while ( RtlCompareMemory(v22, Source2, 0x10u) != 16 )
+        v21 = (const void *)(v13 + v35);
+        v31 = v13 + v35;
+        while ( 1 )
         {
-          v22 = (const void *)(v30 + 28);
-          v30 += 28;
-          if ( !--v12 )
+          LODWORD(v28) = 16;
+          if ( (unsigned int)RtlCompareMemory(v21, Source2, v28) == 16 )
+            break;
+          v21 = (const void *)(v31 + 28);
+          v31 += 28;
+          if ( !--v11 )
             goto LABEL_18;
         }
-        v15 = (_DWORD *)v30;
+        v14 = (_DWORD *)v31;
       }
       goto LABEL_17;
     }
-    v30 = 0;
-    v20 = *(_DWORD *)(v13 + v34 + 4) + 8 * (*(_DWORD *)Source2 % *(_DWORD *)(v13 + v34));
-    v21 = (struct _TEB *)(v34 + *(_DWORD *)(v20 + v34 + 4));
-    i = (unsigned int *)(v34 + v20);
-    if ( *(_DWORD *)(v34 + v20) )
+    v31 = 0;
+    v19 = *(_DWORD *)(v12 + v35 + 4) + 8 * (*(_DWORD *)Source2 % *(_DWORD *)(v12 + v35));
+    v20 = (struct _TEB *)(v35 + *(_DWORD *)(v19 + v35 + 4));
+    i = (unsigned int *)(v35 + v19);
+    if ( *(_DWORD *)(v35 + v19) )
     {
       while ( 1 )
       {
-        v15 = (_DWORD *)((char *)v11 + (unsigned int)v21->NtTib.ExceptionList);
-        p_StackBase = (struct _TEB *)&v21->NtTib.StackBase;
-        if ( RtlCompareMemory(v15, Source2, 0x10u) == 16 )
+        LODWORD(v28) = 16;
+        v14 = (_DWORD *)((char *)v10 + (unsigned int)v20->NtTib.ExceptionList);
+        p_StackBase = (struct _TEB *)&v20->NtTib.StackBase;
+        if ( (unsigned int)RtlCompareMemory(v14, Source2, v28) == 16 )
           break;
-        ++v30;
-        v21 = p_StackBase;
-        if ( v30 >= *i )
+        ++v31;
+        v20 = p_StackBase;
+        if ( v31 >= *i )
           goto LABEL_18;
       }
 LABEL_17:
-      if ( v15 && v15[4] )
+      if ( v14 && v14[4] )
       {
-        v23 = v33;
-        if ( v33 )
+        p_cbSize = &v34->cbSize;
+        if ( v34 )
         {
-          v24 = *v33;
-          v33[1] = v11[3];
-          v23[2] = (char *)v11 + v15[4];
-          v23[3] = v15[5];
-          if ( v23 + 10 <= (_DWORD *)((char *)v23 + v24) )
-            v23[9] = v15[6];
+          cbSize = v34->cbSize;
+          v34->ulDataFormatVersion = v10[3];
+          p_cbSize[2] = (char *)v10 + v14[4];
+          p_cbSize[3] = v14[5];
+          if ( p_cbSize + 10 <= (_DWORD *)((char *)p_cbSize + cbSize) )
+            p_cbSize[9] = v14[6];
         }
-        if ( (((unsigned int)v10 - 1) | 7) != 0xFFFFFFFF )
+        if ( (((unsigned int)&v9[-1].InlineStorageMapEntries[31] + 3) | 7) != 0xFFFFFFFF )
         {
-          v25 = (void (__thiscall *)(_DWORD, int, _DWORD *, _DWORD, _DWORD, _DWORD, char *))v10[5];
-          if ( v25 )
+          v24 = (void (__thiscall *)(_DWORD, int, PACTIVATION_CONTEXT, PVOID, ULONG, _DWORD, char *))v9->SentNotifications[0];
+          if ( v24 )
           {
-            if ( (v10[7] & 8) == 0 || (v10[15] & 8) == 0 )
+            if ( (v9->SentNotifications[2] & 8) == 0 || (v9->DisabledNotifications[2] & 8) == 0 )
             {
-              v29 = 0;
-              v25(v25, 3, v10, v10[4], v10[6], 0, &v29);
-              v10[7] |= 8u;
-              v23 = v33;
-              if ( v29 )
-                v10[15] |= 8u;
+              v30 = 0;
+              v24(v24, 3, v9, v9->NotificationContext, v9->SentNotifications[1], 0, &v30);
+              v9->SentNotifications[2] |= 8u;
+              p_cbSize = &v34->cbSize;
+              if ( v30 )
+                v9->DisabledNotifications[2] |= 8u;
             }
           }
         }
-        if ( !v23 )
+        if ( !p_cbSize )
           return 0;
         result = RtlpFindActivationContextSection_FillOutReturnedData(
-                   a1,
-                   v23,
+                   Flags,
+                   p_cbSize,
+                   v9,
+                   (int)v39,
                    (int)v10,
-                   (int)v38,
-                   (int)v11,
-                   v11[8],
-                   v11[9],
-                   v31);
+                   v10[8],
+                   v10[9],
+                   v32);
         if ( result >= 0 )
           return 0;
         return result;
       }
     }
 LABEL_18:
-    v16 = NtCurrentTeb();
-    v17 = v41;
+    v15 = NtCurrentTeb();
+    v16 = v42;
     SystemDefaultActivationContextData = 0;
-    v30 = 0;
-    v10 = 0;
-    p_StackBase = v16;
-    v19 = v16->ProcessEnvironmentBlock;
-    for ( i = (unsigned int *)&v19->InheritedAddressSpace; ; v19 = (_PEB *)i )
+    v31 = 0;
+    v9 = 0;
+    p_StackBase = v15;
+    v18 = v15->ProcessEnvironmentBlock;
+    for ( i = (unsigned int *)&v18->InheritedAddressSpace; ; v18 = (_PEB *)i )
     {
-      if ( v17 <= 2 )
+      if ( v16 <= 2 )
       {
-        if ( v17 )
+        if ( v16 )
         {
-          if ( v17 != 1 )
+          if ( v16 != 1 )
           {
 LABEL_26:
-            SystemDefaultActivationContextData = (char *)v19->SystemDefaultActivationContextData;
-            v30 = -4;
+            SystemDefaultActivationContextData = (char *)v18->SystemDefaultActivationContextData;
+            v31 = -4;
             if ( SystemDefaultActivationContextData )
             {
-              v17 = 3;
-              v41 = 3;
+              v16 = 3;
+              v42 = 3;
               goto LABEL_21;
             }
             goto LABEL_20;
@@ -256,31 +260,31 @@ LABEL_26:
         }
         else
         {
-          ActivationContextStackPointer = v16->ActivationContextStackPointer;
+          ActivationContextStackPointer = v15->ActivationContextStackPointer;
           if ( ActivationContextStackPointer )
           {
             ActiveFrame = ActivationContextStackPointer->ActiveFrame;
             if ( ActiveFrame )
             {
-              ActivationContext = (unsigned int)ActiveFrame->ActivationContext;
-              v30 = ActivationContext;
-              if ( ActivationContext )
+              v27 = (unsigned int)ActiveFrame->ActivationContext;
+              v31 = v27;
+              if ( v27 )
               {
-                if ( ActivationContext == -4 )
+                if ( v27 == -4 )
                 {
-                  SystemDefaultActivationContextData = (char *)v19->SystemDefaultActivationContextData;
+                  SystemDefaultActivationContextData = (char *)v18->SystemDefaultActivationContextData;
                 }
                 else
                 {
-                  if ( ActivationContext == -3 )
+                  if ( v27 == -3 )
                   {
                     SystemDefaultActivationContextData = "Actx ";
 LABEL_78:
-                    v17 = 1;
-                    v41 = 1;
+                    v16 = 1;
+                    v42 = 1;
                     goto LABEL_21;
                   }
-                  SystemDefaultActivationContextData = *(char **)(ActivationContext + 16);
+                  SystemDefaultActivationContextData = *(char **)(v27 + 16);
                 }
               }
               if ( SystemDefaultActivationContextData )
@@ -288,40 +292,39 @@ LABEL_78:
             }
           }
         }
-        SystemDefaultActivationContextData = (char *)v19->ActivationContextData;
-        v30 = 0;
+        SystemDefaultActivationContextData = (char *)v18->ActivationContextData;
+        v31 = 0;
         if ( SystemDefaultActivationContextData )
         {
-          v17 = 2;
-          v41 = 2;
+          v16 = 2;
+          v42 = 2;
           goto LABEL_21;
         }
         goto LABEL_26;
       }
 LABEL_20:
-      if ( v17 > 3 )
+      if ( v16 > 3 )
         return -1073741595;
 LABEL_21:
       if ( !SystemDefaultActivationContextData )
         return -1072365560;
-      result = RtlpLocateActivationContextSection(SystemDefaultActivationContextData, v39, v40, &v34, &v31);
+      result = RtlpLocateActivationContextSection(SystemDefaultActivationContextData, v40, v41, &v35, &v32);
       if ( result >= 0 )
         break;
-      if ( result != -1072365567 || v17 == 3 )
+      if ( result != -1072365567 || v16 == 3 )
         goto LABEL_30;
-      v16 = p_StackBase;
+      v15 = p_StackBase;
     }
-    v42 = (v30 == 0) | (v30 != -4 ? 0 : 2);
-    v10 = v30 != -4 ? (_DWORD *)v30 : 0;
+    v43 = (v31 == 0) | (v31 != -4 ? 0 : 2);
+    v9 = v31 != -4 ? (PACTIVATION_CONTEXT)v31 : 0;
     result = 0;
 LABEL_30:
     if ( result >= 0 )
     {
-      v9 = v31;
-      if ( v31 >= 0x28 )
+      if ( (unsigned int)v32 >= 0x28 )
         continue;
 LABEL_32:
-      v11 = (_DWORD *)v34;
+      v10 = (_DWORD *)v35;
       goto LABEL_85;
     }
     break;

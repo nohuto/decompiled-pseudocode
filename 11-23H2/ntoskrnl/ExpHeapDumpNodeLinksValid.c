@@ -1,9 +1,9 @@
 /*
- * XREFs of ExpHeapDumpNodeLinksValid @ 0x14060F420
+ * XREFs of ExpHeapDumpNodeLinksValid @ 0x14060F970
  * Callers:
- *     ExpHeapDumpEnumLargeAllocs @ 0x14060F328 (ExpHeapDumpEnumLargeAllocs.c)
+ *     ExpHeapDumpEnumLargeAllocs @ 0x14060F878 (ExpHeapDumpEnumLargeAllocs.c)
  * Callees:
- *     MmIsAddressValidEx @ 0x1402E5FB0 (MmIsAddressValidEx.c)
+ *     MmIsAddressValidEx @ 0x1402E6240 (MmIsAddressValidEx.c)
  */
 
 __int64 __fastcall ExpHeapDumpNodeLinksValid(__int64 *a1)

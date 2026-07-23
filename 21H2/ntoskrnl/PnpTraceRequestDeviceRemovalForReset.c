@@ -1,11 +1,11 @@
 /*
- * XREFs of PnpTraceRequestDeviceRemovalForReset @ 0x1408B1FF0
+ * XREFs of PnpTraceRequestDeviceRemovalForReset @ 0x1408B2150
  * Callers:
- *     IoRequestDeviceRemovalForReset @ 0x1408A05B0 (IoRequestDeviceRemovalForReset.c)
+ *     IoRequestDeviceRemovalForReset @ 0x1408A0710 (IoRequestDeviceRemovalForReset.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14025FAE0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgKeywordOn @ 0x1402605BC (_tlgKeywordOn.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14027E1A4 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x1402864F4 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  */
 
 void __fastcall PnpTraceRequestDeviceRemovalForReset(__int64 a1, int a2, int a3)
@@ -37,9 +37,9 @@ void __fastcall PnpTraceRequestDeviceRemovalForReset(__int64 a1, int a2, int a3)
   int v29; // [rsp+C8h] [rbp+3Fh]
   int v30; // [rsp+CCh] [rbp+43h]
 
-  if ( (unsigned int)dword_140C02E00 > 5 )
+  if ( (unsigned int)dword_140C02D90 > 5 )
   {
-    if ( tlgKeywordOn((__int64)&dword_140C02E00, 0x400000000000LL) )
+    if ( tlgKeywordOn((__int64)&dword_140C02D90, 0x400000000000LL) )
     {
       v14 = 0;
       v16[1] = 0;
@@ -66,8 +66,8 @@ void __fastcall PnpTraceRequestDeviceRemovalForReset(__int64 a1, int a2, int a3)
       v9 = a2;
       v10 = a3;
       tlgWriteTransfer_EtwWriteTransfer(
-        (__int64)&dword_140C02E00,
-        (unsigned __int8 *)byte_1400254B5,
+        (__int64)&dword_140C02D90,
+        (unsigned __int8 *)byte_14002548B,
         0LL,
         0LL,
         9u,

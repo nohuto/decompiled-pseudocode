@@ -1,10 +1,10 @@
 /*
- * XREFs of CmpMarkKeyParentDirty @ 0x140608D50
+ * XREFs of CmpMarkKeyParentDirty @ 0x140608E04
  * Callers:
- *     CmpCopySyncTree2 @ 0x140608240 (CmpCopySyncTree2.c)
+ *     CmpCopySyncTree2 @ 0x1406082F4 (CmpCopySyncTree2.c)
  * Callees:
- *     CmpMarkIndexDirty @ 0x1404D6634 (CmpMarkIndexDirty.c)
- *     HvpMarkCellDirty @ 0x1405136F0 (HvpMarkCellDirty.c)
+ *     CmpMarkIndexDirty @ 0x1404B9C38 (CmpMarkIndexDirty.c)
+ *     HvpMarkCellDirty @ 0x1404F6AE0 (HvpMarkCellDirty.c)
  */
 
 bool __fastcall CmpMarkKeyParentDirty(ULONG_PTR BugCheckParameter2, __int64 a2)

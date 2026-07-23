@@ -1,12 +1,12 @@
 /*
- * XREFs of PpmParkCalculateUnparkCount @ 0x140357E50
+ * XREFs of PpmParkCalculateUnparkCount @ 0x140357FF0
  * Callers:
- *     PpmCheckComputeHeteroResponse @ 0x140596470 (PpmCheckComputeHeteroResponse.c)
- *     PpmCheckComputeMultiClassHeteroResponse @ 0x1405968A8 (PpmCheckComputeMultiClassHeteroResponse.c)
+ *     PpmCheckComputeHeteroResponse @ 0x140596960 (PpmCheckComputeHeteroResponse.c)
+ *     PpmCheckComputeMultiClassHeteroResponse @ 0x140596D98 (PpmCheckComputeMultiClassHeteroResponse.c)
  * Callees:
- *     PpmHeteroIsMultiClassParkingEnabled @ 0x14039216C (PpmHeteroIsMultiClassParkingEnabled.c)
- *     PpmEventHgsCoresUnparkedCount @ 0x14046332E (PpmEventHgsCoresUnparkedCount.c)
- *     PpmEventParkingCountSelection @ 0x14059AEDC (PpmEventParkingCountSelection.c)
+ *     PpmHeteroIsMultiClassParkingEnabled @ 0x14039234C (PpmHeteroIsMultiClassParkingEnabled.c)
+ *     PpmEventHgsCoresUnparkedCount @ 0x14046372E (PpmEventHgsCoresUnparkedCount.c)
+ *     PpmEventParkingCountSelection @ 0x14059B3CC (PpmEventParkingCountSelection.c)
  */
 
 char PpmParkCalculateUnparkCount()
@@ -44,7 +44,7 @@ char PpmParkCalculateUnparkCount()
 
   if ( PpmIsParkingEnabled )
   {
-    v0 = 55LL * dword_140C3D86C;
+    v0 = 55LL * dword_140C3D96C;
     v28 = BYTE1(PpmCurrentProfile[v0 + 21]);
     v27 = PpmCurrentProfile[v0 + 21];
     v26 = PpmCurrentProfile[v0 + 22];

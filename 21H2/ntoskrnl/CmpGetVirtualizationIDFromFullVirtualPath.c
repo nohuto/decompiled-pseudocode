@@ -1,7 +1,7 @@
 /*
- * XREFs of CmpGetVirtualizationIDFromFullVirtualPath @ 0x1406729E4
+ * XREFs of CmpGetVirtualizationIDFromFullVirtualPath @ 0x140667C14
  * Callers:
- *     CmpGetCmHiveFromVirtualPath @ 0x1406727CC (CmpGetCmHiveFromVirtualPath.c)
+ *     CmpGetCmHiveFromVirtualPath @ 0x1406679FC (CmpGetCmHiveFromVirtualPath.c)
  * Callees:
  *     <none>
  */

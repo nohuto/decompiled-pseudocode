@@ -1,7 +1,7 @@
 /*
- * XREFs of EmonResumeProfilingInternal @ 0x1405966BC
+ * XREFs of EmonResumeProfilingInternal @ 0x140598E3C
  * Callers:
- *     EmonResumeProfiling @ 0x140596680 (EmonResumeProfiling.c)
+ *     EmonResumeProfiling @ 0x140598E00 (EmonResumeProfiling.c)
  * Callees:
  *     <none>
  */

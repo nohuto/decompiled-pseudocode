@@ -10,54 +10,54 @@
  *     _RtlSplay@4 @ 0x4B2E8250 (_RtlSplay@4.c)
  */
 
-_DWORD *__stdcall RtlDelete(_DWORD *a1)
+PRTL_SPLAY_LINKS __cdecl RtlDelete(PRTL_SPLAY_LINKS Links)
 {
-  _DWORD *v1; // ecx
-  int v2; // ecx
-  _DWORD *result; // eax
-  int v4; // eax
-  int v5; // eax
-  int v6; // [esp-4h] [ebp-8h]
+  _RTL_SPLAY_LINKS *LeftChild; // ecx
+  _RTL_SPLAY_LINKS *v2; // ecx
+  PRTL_SPLAY_LINKS result; // eax
+  PRTL_SPLAY_LINKS v4; // eax
+  _RTL_SPLAY_LINKS *Parent; // eax
+  _RTL_SPLAY_LINKS *v6; // [esp-4h] [ebp-8h]
 
-  v1 = (_DWORD *)a1[1];
-  if ( v1 )
+  LeftChild = Links->LeftChild;
+  if ( LeftChild )
   {
-    if ( a1[2] )
+    if ( Links->RightChild )
     {
-      v4 = RtlSubtreePredecessor(a1);
-      SwapSplayLinks(v4, a1);
-      v1 = (_DWORD *)a1[1];
+      v4 = RtlSubtreePredecessor(Links);
+      SwapSplayLinks(v4, Links);
+      LeftChild = Links->LeftChild;
     }
-    if ( v1 )
+    if ( LeftChild )
       goto LABEL_8;
   }
-  v1 = (_DWORD *)a1[2];
-  if ( v1 )
+  LeftChild = Links->RightChild;
+  if ( LeftChild )
   {
 LABEL_8:
-    if ( (_DWORD *)*a1 == a1 )
+    if ( Links->Parent == Links )
     {
-      *v1 = v1;
-      return v1;
+      LeftChild->Parent = LeftChild;
+      return LeftChild;
     }
     else
     {
-      *(_DWORD *)(4 * (*(_DWORD *)(*a1 + 4) != (_DWORD)a1) + 4 + *a1) = v1;
-      v5 = *a1;
-      *v1 = *a1;
-      return (_DWORD *)RtlSplay(v5);
+      *((_DWORD *)&Links->Parent->LeftChild + (Links->Parent->LeftChild != Links)) = LeftChild;
+      Parent = Links->Parent;
+      LeftChild->Parent = Links->Parent;
+      return RtlSplay(Parent);
     }
   }
   else
   {
-    v2 = *a1;
+    v2 = Links->Parent;
     result = 0;
-    if ( (_DWORD *)*a1 != a1 )
+    if ( Links->Parent != Links )
     {
-      v6 = *a1;
-      LOBYTE(result) = *(_DWORD *)(v2 + 4) != (_DWORD)a1;
-      *(_DWORD *)(4 * (_DWORD)result + 4 + v2) = 0;
-      return (_DWORD *)RtlSplay(v6);
+      v6 = Links->Parent;
+      LOBYTE(result) = v2->LeftChild != Links;
+      *((_DWORD *)&v2->LeftChild + (_DWORD)result) = 0;
+      return RtlSplay(v6);
     }
   }
   return result;

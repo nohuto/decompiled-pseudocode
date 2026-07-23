@@ -1,13 +1,13 @@
 /*
- * XREFs of ExpAcquireFannedOutPushLockExclusive @ 0x1403912D0
+ * XREFs of ExpAcquireFannedOutPushLockExclusive @ 0x140391420
  * Callers:
- *     ExAcquireAutoExpandPushLockExclusive @ 0x1402A2710 (ExAcquireAutoExpandPushLockExclusive.c)
+ *     ExAcquireAutoExpandPushLockExclusive @ 0x14021FB50 (ExAcquireAutoExpandPushLockExclusive.c)
  * Callees:
- *     KeQueryMaximumProcessorCountEx @ 0x14027B730 (KeQueryMaximumProcessorCountEx.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1402F2C90 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeQueryMaximumProcessorCountEx @ 0x1402696D0 (KeQueryMaximumProcessorCountEx.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402FD9E0 (ExfAcquirePushLockExclusiveEx.c)
  */
 
-int __fastcall ExpAcquireFannedOutPushLockExclusive(unsigned int a1, __int64 a2, ULONG_PTR a3)
+int __fastcall ExpAcquireFannedOutPushLockExclusive(unsigned int a1, _RTL_BALANCED_NODE *a2, ULONG_PTR a3)
 {
   unsigned int v3; // esi
   unsigned __int64 v4; // rbp

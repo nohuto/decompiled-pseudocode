@@ -1,15 +1,15 @@
 /*
- * XREFs of MmGetDumpRange @ 0x140538770
+ * XREFs of MmGetDumpRange @ 0x1405389B0
  * Callers:
- *     IoWriteCrashDump @ 0x140502CD0 (IoWriteCrashDump.c)
+ *     IoWriteCrashDump @ 0x140502C50 (IoWriteCrashDump.c)
  * Callees:
- *     MiIsPageOnBadList @ 0x14030356C (MiIsPageOnBadList.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     MiAddNonSecuredPagesToDump @ 0x140537864 (MiAddNonSecuredPagesToDump.c)
- *     MiAddPhysicalPagesToCrashDump @ 0x140537C98 (MiAddPhysicalPagesToCrashDump.c)
- *     MmAddRangeToCrashDump @ 0x1405385D8 (MmAddRangeToCrashDump.c)
- *     MmRemoveSystemCacheFromDump @ 0x140538B8C (MmRemoveSystemCacheFromDump.c)
- *     MiRemoveEnclavePagesFromDump @ 0x14054B25C (MiRemoveEnclavePagesFromDump.c)
+ *     MiIsPageOnBadList @ 0x14030E2BC (MiIsPageOnBadList.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     MiAddNonSecuredPagesToDump @ 0x140537AA4 (MiAddNonSecuredPagesToDump.c)
+ *     MiAddPhysicalPagesToCrashDump @ 0x140537ED8 (MiAddPhysicalPagesToCrashDump.c)
+ *     MmAddRangeToCrashDump @ 0x140538818 (MmAddRangeToCrashDump.c)
+ *     MmRemoveSystemCacheFromDump @ 0x140538DCC (MmRemoveSystemCacheFromDump.c)
+ *     MiRemoveEnclavePagesFromDump @ 0x14054B49C (MiRemoveEnclavePagesFromDump.c)
  */
 
 __int64 __fastcall MmGetDumpRange(ULONG_PTR BugCheckParameter2, int a2, char a3)
@@ -99,7 +99,7 @@ __int64 __fastcall MmGetDumpRange(ULONG_PTR BugCheckParameter2, int a2, char a3)
       MiAddPhysicalPagesToCrashDump((void (__fastcall **)(_QWORD, __int64, __int64, __int64))BugCheckParameter2);
       MmRemoveSystemCacheFromDump(BugCheckParameter2);
     }
-    v8 = (_QWORD *)qword_140C4C8D8;
+    v8 = (_QWORD *)qword_140C4C918;
     while ( v8 )
     {
       v9 = v8;
@@ -114,10 +114,10 @@ __int64 __fastcall MmGetDumpRange(ULONG_PTR BugCheckParameter2, int a2, char a3)
   v14 = 0;
   while ( 1 )
   {
-    v15 = v14 < qword_140C4E628->SizeOfBitMap ? v14 : 0;
-    v16 = qword_140C4E628->SizeOfBitMap - 1;
-    v17 = ((__int64)qword_140C4E628->Buffer & 4) != 0LL ? 0x20 : 0;
-    v18 = (char *)qword_140C4E628->Buffer - (((__int64)qword_140C4E628->Buffer & 4) != 0 ? 4 : 0);
+    v15 = v14 < qword_140C4E668->SizeOfBitMap ? v14 : 0;
+    v16 = qword_140C4E668->SizeOfBitMap - 1;
+    v17 = ((__int64)qword_140C4E668->Buffer & 4) != 0LL ? 0x20 : 0;
+    v18 = (char *)qword_140C4E668->Buffer - (((__int64)qword_140C4E668->Buffer & 4) != 0 ? 4 : 0);
     while ( 1 )
     {
       v19 = v17 + v16;
@@ -145,8 +145,8 @@ LABEL_22:
         break;
       SizeOfBitMap = v14 + 1;
       v15 = 0;
-      if ( v14 + 1 > qword_140C4E628->SizeOfBitMap )
-        SizeOfBitMap = qword_140C4E628->SizeOfBitMap;
+      if ( v14 + 1 > qword_140C4E668->SizeOfBitMap )
+        SizeOfBitMap = qword_140C4E668->SizeOfBitMap;
       v16 = SizeOfBitMap - 1;
     }
     result = v20 - v17;
@@ -155,7 +155,7 @@ LABEL_22:
     if ( (unsigned int)result < v14 || (_DWORD)result == -1 )
       break;
     v14 = result + 1;
-    v26 = *(_QWORD *)(qword_140C4E648 + 8LL * (unsigned int)result);
+    v26 = *(_QWORD *)(qword_140C4E688 + 8LL * (unsigned int)result);
     if ( (*(_DWORD *)(v26 + 4) & 2) != 0 )
     {
       for ( k = *(_QWORD *)(v26 + 4112); k != 0xFFFFFFFFFLL; k = *(_QWORD *)(48 * k - 0x58000000000LL) & 0xFFFFFFFFFLL )
@@ -166,7 +166,7 @@ LABEL_22:
           2LL);
     }
   }
-  if ( byte_140C4E7F8 == 1 )
+  if ( byte_140C4E838 == 1 )
   {
     v28 = 0xFFFFFA8000000000uLL;
     result = 0xFFFFFA8000000000uLL;
@@ -187,7 +187,7 @@ LABEL_22:
       while ( v28 <= v29 );
     }
   }
-  if ( qword_140C4EE80 )
+  if ( qword_140C4EEC0 )
     return MiRemoveEnclavePagesFromDump(BugCheckParameter2);
   return result;
 }

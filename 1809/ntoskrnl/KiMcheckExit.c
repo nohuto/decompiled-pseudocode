@@ -1,7 +1,7 @@
 /*
- * XREFs of KiMcheckExit @ 0x1401BCCE0
+ * XREFs of KiMcheckExit @ 0x1401BCE40
  * Callers:
- *     KiMcheckAbort @ 0x1401CC3C0 (KiMcheckAbort.c)
+ *     KiMcheckAbort @ 0x1401CC4C0 (KiMcheckAbort.c)
  * Callees:
  *     <none>
  */

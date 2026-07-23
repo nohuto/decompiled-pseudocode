@@ -1,7 +1,7 @@
 /*
  * XREFs of IoRemoveShareAccess @ 0x14074B990
  * Callers:
- *     DifIoRemoveShareAccessWrapper @ 0x140610B30 (DifIoRemoveShareAccessWrapper.c)
+ *     sub_140610B30 @ 0x140610B30 (sub_140610B30.c)
  * Callees:
  *     IoRemoveLinkShareAccessEx @ 0x14074BF60 (IoRemoveLinkShareAccessEx.c)
  */

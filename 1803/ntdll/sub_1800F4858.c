@@ -11,9 +11,9 @@
  *     <none>
  */
 
-uint8_t sub_1800F4858()
+BOOLEAN sub_1800F4858()
 {
-  uint8_t result; // al
+  BOOLEAN result; // al
 
   result = NtCurrentPeb()->BeingDebugged;
   if ( !result )

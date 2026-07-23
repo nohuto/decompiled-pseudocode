@@ -1,9 +1,9 @@
 /*
- * XREFs of ExpTryAcquireResourceExclusive @ 0x14034D720
+ * XREFs of ExpTryAcquireResourceExclusive @ 0x140358470
  * Callers:
- *     ExAcquireResourceExclusiveLite @ 0x14034BBA0 (ExAcquireResourceExclusiveLite.c)
- *     ExAcquireFastResourceExclusive @ 0x14038ECD0 (ExAcquireFastResourceExclusive.c)
- *     ExpTryToAcquireResourceExclusiveLite @ 0x1405B58FC (ExpTryToAcquireResourceExclusiveLite.c)
+ *     ExAcquireResourceExclusiveLite @ 0x1403568F0 (ExAcquireResourceExclusiveLite.c)
+ *     ExAcquireFastResourceExclusive @ 0x14038EE20 (ExAcquireFastResourceExclusive.c)
+ *     ExpTryToAcquireResourceExclusiveLite @ 0x1405B5B2C (ExpTryToAcquireResourceExclusiveLite.c)
  * Callees:
  *     <none>
  */

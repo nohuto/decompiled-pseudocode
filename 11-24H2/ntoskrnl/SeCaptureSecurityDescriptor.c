@@ -1,29 +1,29 @@
 /*
- * XREFs of SeCaptureSecurityDescriptor @ 0x14091CE60
+ * XREFs of SeCaptureSecurityDescriptor @ 0x1409108D0
  * Callers:
- *     SeAccessCheckByType @ 0x14035C8A0 (SeAccessCheckByType.c)
- *     CmpCopySaclToVirtualKey @ 0x1407DCB7C (CmpCopySaclToVirtualKey.c)
- *     NtCreateWnfStateName @ 0x140836950 (NtCreateWnfStateName.c)
- *     AlpcpConnectPort @ 0x1408645A0 (AlpcpConnectPort.c)
- *     NtSetSecurityObject @ 0x14087A070 (NtSetSecurityObject.c)
- *     ObpCaptureObjectCreateInformation @ 0x14089CCA0 (ObpCaptureObjectCreateInformation.c)
- *     SeTokenDefaultDaclChangedAuditAlarm @ 0x1408F2FA8 (SeTokenDefaultDaclChangedAuditAlarm.c)
- *     SepAccessCheckAndAuditAlarm @ 0x14091DB90 (SepAccessCheckAndAuditAlarm.c)
- *     NtOpenObjectAuditAlarm @ 0x140920280 (NtOpenObjectAuditAlarm.c)
- *     PipGetRegistrySecurityWithFallback @ 0x140994B48 (PipGetRegistrySecurityWithFallback.c)
- *     IopQuerySecureDeviceClassState @ 0x140AA47E0 (IopQuerySecureDeviceClassState.c)
+ *     SeAccessCheckByType @ 0x14042DC70 (SeAccessCheckByType.c)
+ *     CmpCopySaclToVirtualKey @ 0x1407DD0CC (CmpCopySaclToVirtualKey.c)
+ *     NtCreateWnfStateName @ 0x1408340B0 (NtCreateWnfStateName.c)
+ *     SeTokenDefaultDaclChangedAuditAlarm @ 0x14086395C (SeTokenDefaultDaclChangedAuditAlarm.c)
+ *     AlpcpConnectPort @ 0x140868BB0 (AlpcpConnectPort.c)
+ *     ObpCaptureObjectCreateInformation @ 0x1408A5340 (ObpCaptureObjectCreateInformation.c)
+ *     NtSetSecurityObject @ 0x1409118E0 (NtSetSecurityObject.c)
+ *     NtOpenObjectAuditAlarm @ 0x140911F00 (NtOpenObjectAuditAlarm.c)
+ *     PipGetRegistrySecurityWithFallback @ 0x14097FB88 (PipGetRegistrySecurityWithFallback.c)
+ *     SepAccessCheckAndAuditAlarm @ 0x140A07A00 (SepAccessCheckAndAuditAlarm.c)
+ *     IopQuerySecureDeviceClassState @ 0x140A9FB70 (IopQuerySecureDeviceClassState.c)
  * Callees:
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     RtlpValidAccessFilterAce @ 0x140780754 (RtlpValidAccessFilterAce.c)
- *     RtlpValidCompoundAce @ 0x1407808C0 (RtlpValidCompoundAce.c)
- *     RtlLengthRequiredSid @ 0x140867110 (RtlLengthRequiredSid.c)
- *     ExRaiseDatatypeMisalignment @ 0x14089B1F0 (ExRaiseDatatypeMisalignment.c)
- *     RtlValidAcl @ 0x14091CB10 (RtlValidAcl.c)
- *     RtlpValidAttributeAce @ 0x14099EDA8 (RtlpValidAttributeAce.c)
- *     RtlpValidObjectAce @ 0x14099EF7C (RtlpValidObjectAce.c)
- *     ExAllocatePoolWithTag @ 0x140B72010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     RtlpValidAccessFilterAce @ 0x140780684 (RtlpValidAccessFilterAce.c)
+ *     RtlpValidCompoundAce @ 0x1407807F0 (RtlpValidCompoundAce.c)
+ *     RtlLengthRequiredSid @ 0x14086B5A0 (RtlLengthRequiredSid.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408A3890 (ExRaiseDatatypeMisalignment.c)
+ *     RtlValidAcl @ 0x140910580 (RtlValidAcl.c)
+ *     RtlpValidObjectAce @ 0x14098353C (RtlpValidObjectAce.c)
+ *     RtlpValidAttributeAce @ 0x1409835D0 (RtlpValidAttributeAce.c)
+ *     ExAllocatePoolWithTag @ 0x140B74010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall SeCaptureSecurityDescriptor(__int64 a1, char a2, int a3, char a4, _QWORD *a5)
@@ -354,7 +354,7 @@ LABEL_112:
     {
       memmove(v26 + 5, v13, v16);
       v28 = a2;
-      if ( a2 && (v16 < 8 || v16 != *((unsigned __int16 *)v26 + 11) || !RtlValidAcl((__int64)(v26 + 5))) )
+      if ( a2 && (v16 < 8 || v16 != *((unsigned __int16 *)v26 + 11) || !RtlValidAcl((PACL)(v26 + 5))) )
         goto LABEL_135;
       v26[3] = 20;
       *((_WORD *)v26 + 11) = v57;

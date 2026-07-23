@@ -1,5 +1,5 @@
 /*
- * XREFs of VerifierIoRegisterPlugPlayNotification @ 0x14070C864
+ * XREFs of VerifierIoRegisterPlugPlayNotification @ 0x14070C894
  * Callers:
  *     <none>
  * Callees:

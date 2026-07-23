@@ -1,20 +1,20 @@
 /*
- * XREFs of MiAssignInitialPageAttribute @ 0x140146D38
+ * XREFs of MiAssignInitialPageAttribute @ 0x1401472A8
  * Callers:
- *     MiMapContiguousMemory @ 0x14009B8AC (MiMapContiguousMemory.c)
- *     MmMapLockedPagesSpecifyCache @ 0x1400DE220 (MmMapLockedPagesSpecifyCache.c)
- *     MiMapLockedPagesInUserSpaceHelper @ 0x14010E214 (MiMapLockedPagesInUserSpaceHelper.c)
- *     MiInsertViewOfPhysicalSection @ 0x140146848 (MiInsertViewOfPhysicalSection.c)
- *     MiMapMdlCommon @ 0x1401E3868 (MiMapMdlCommon.c)
+ *     MiMapContiguousMemory @ 0x14009B0AC (MiMapContiguousMemory.c)
+ *     MmMapLockedPagesSpecifyCache @ 0x1400DC0C0 (MmMapLockedPagesSpecifyCache.c)
+ *     MiMapLockedPagesInUserSpaceHelper @ 0x14010E778 (MiMapLockedPagesInUserSpaceHelper.c)
+ *     MiInsertViewOfPhysicalSection @ 0x140146DB8 (MiInsertViewOfPhysicalSection.c)
+ *     MiMapMdlCommon @ 0x1401E3694 (MiMapMdlCommon.c)
  * Callees:
- *     MiLockPageInline @ 0x140022E70 (MiLockPageInline.c)
+ *     MiLockPageInline @ 0x1400229F0 (MiLockPageInline.c)
  */
 
 unsigned __int8 __fastcall MiAssignInitialPageAttribute(__int64 a1, char a2)
 {
   unsigned __int8 result; // al
 
-  if ( (struct _KTHREAD *)qword_140327058 == KeGetCurrentThread() )
+  if ( (struct _KTHREAD *)qword_140327098 == KeGetCurrentThread() )
     result = 17;
   else
     result = MiLockPageInline(a1);

@@ -1,13 +1,13 @@
 /*
- * XREFs of MiNodeFreeZeroPages @ 0x1400665F0
+ * XREFs of MiNodeFreeZeroPages @ 0x140066170
  * Callers:
- *     MiGetFreeOrZeroPage @ 0x14003DC80 (MiGetFreeOrZeroPage.c)
- *     MiReplenishPageSlist @ 0x140064330 (MiReplenishPageSlist.c)
- *     MiSignalLargePageRebuild @ 0x1400BE73C (MiSignalLargePageRebuild.c)
- *     MiPruneStandbyPages @ 0x1401F37A0 (MiPruneStandbyPages.c)
- *     MiRebalanceZeroFreeLists @ 0x1401F3998 (MiRebalanceZeroFreeLists.c)
- *     MiRebuildLargePage @ 0x1401FD8CC (MiRebuildLargePage.c)
- *     MiRebuildLargePages @ 0x1401FDB30 (MiRebuildLargePages.c)
+ *     MiGetFreeOrZeroPage @ 0x14003D800 (MiGetFreeOrZeroPage.c)
+ *     MiReplenishPageSlist @ 0x140063EB0 (MiReplenishPageSlist.c)
+ *     MiSignalLargePageRebuild @ 0x1400BC5CC (MiSignalLargePageRebuild.c)
+ *     MiPruneStandbyPages @ 0x1401F35CC (MiPruneStandbyPages.c)
+ *     MiRebalanceZeroFreeLists @ 0x1401F37C4 (MiRebalanceZeroFreeLists.c)
+ *     MiRebuildLargePage @ 0x1401FD6F8 (MiRebuildLargePage.c)
+ *     MiRebuildLargePages @ 0x1401FD95C (MiRebuildLargePages.c)
  * Callees:
  *     <none>
  */

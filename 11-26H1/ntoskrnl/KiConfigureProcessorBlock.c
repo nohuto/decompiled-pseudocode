@@ -1,12 +1,12 @@
 /*
- * XREFs of KiConfigureProcessorBlock @ 0x140BF3A10
+ * XREFs of KiConfigureProcessorBlock @ 0x140BF9A10
  * Callers:
- *     KiInitializeDynamicProcessorDpc @ 0x140BF5030 (KiInitializeDynamicProcessorDpc.c)
- *     KiInitializeKernel @ 0x140BF6190 (KiInitializeKernel.c)
- *     KeStartAllProcessors @ 0x140CC8ACC (KeStartAllProcessors.c)
+ *     KiInitializeDynamicProcessorDpc @ 0x140BFB030 (KiInitializeDynamicProcessorDpc.c)
+ *     KiInitializeKernel @ 0x140BFC190 (KiInitializeKernel.c)
+ *     KeStartAllProcessors @ 0x140CCEBBC (KeStartAllProcessors.c)
  * Callees:
- *     KeIsEmptyGroupMask @ 0x14040B460 (KeIsEmptyGroupMask.c)
- *     KeSetBitGroupMask @ 0x1404DA280 (KeSetBitGroupMask.c)
+ *     KeIsEmptyGroupMask @ 0x140404550 (KeIsEmptyGroupMask.c)
+ *     KeSetBitGroupMask @ 0x1404D3960 (KeSetBitGroupMask.c)
  */
 
 unsigned __int64 __fastcall KiConfigureProcessorBlock(__int64 a1)
@@ -23,7 +23,7 @@ unsigned __int64 __fastcall KiConfigureProcessorBlock(__int64 a1)
   int v10; // eax
 
   v1 = *(_QWORD *)(a1 + 192);
-  v2 = *(_DWORD *)(*(_QWORD *)&KiSupervisorXStateFeaturesLock.WaitBlockFill11[112] + 4LL * *(unsigned int *)(a1 + 36));
+  v2 = *((_DWORD *)&KiSupervisorXStateFeaturesLock.SchedulerApc.Thread->Header.Lock + *(unsigned int *)(a1 + 36));
   v3 = v2 & 0x3F;
   v4 = v2 >> 6;
   v5 = *(_QWORD *)(v1 + 128) | (1LL << v3);
@@ -31,12 +31,10 @@ unsigned __int64 __fastcall KiConfigureProcessorBlock(__int64 a1)
   *(_QWORD *)(v1 + 128) = v5;
   *(_BYTE *)(v1 + 124) = v6;
   _BitScanReverse64(&v7, v5);
-  *(_DWORD *)(v1 + 176) = *((_DWORD *)&KiSupervisorXStateFeaturesLock.WaitBlock[2].Thread->Header.Lock
-                          + 64 * v4
+  *(_DWORD *)(v1 + 176) = *((_DWORD *)&KiSupervisorXStateFeaturesLock.SchedulerApc.ApcListEntry.Flink[16 * v4].Flink
                           + (unsigned int)v6);
   result = v5 - 1;
-  *(_DWORD *)(v1 + 180) = *((_DWORD *)&KiSupervisorXStateFeaturesLock.WaitBlock[2].Thread->Header.Lock
-                          + 64 * v4
+  *(_DWORD *)(v1 + 180) = *((_DWORD *)&KiSupervisorXStateFeaturesLock.SchedulerApc.ApcListEntry.Flink[16 * v4].Flink
                           + (unsigned int)v7);
   if ( ((v5 - 1) & v5) == 0 )
   {

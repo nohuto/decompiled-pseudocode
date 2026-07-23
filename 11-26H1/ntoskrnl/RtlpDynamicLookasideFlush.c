@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpDynamicLookasideFlush @ 0x140347CA8
+ * XREFs of RtlpDynamicLookasideFlush @ 0x140349D28
  * Callers:
- *     ExpHpCompactHeapCallback @ 0x140346EF0 (ExpHpCompactHeapCallback.c)
+ *     ExpHpCompactHeapCallback @ 0x140348F70 (ExpHpCompactHeapCallback.c)
  * Callees:
- *     RtlpInterlockedFlushSList @ 0x140730D10 (RtlpInterlockedFlushSList.c)
+ *     RtlpInterlockedFlushSList @ 0x1407358E0 (RtlpInterlockedFlushSList.c)
  */
 
 PSLIST_ENTRY __fastcall RtlpDynamicLookasideFlush(_QWORD *a1)
@@ -12,7 +12,7 @@ PSLIST_ENTRY __fastcall RtlpDynamicLookasideFlush(_QWORD *a1)
   PSLIST_ENTRY v3; // rbx
   unsigned __int64 v4; // rcx
   PSLIST_ENTRY v5; // rax
-  struct _SLIST_ENTRY *v7; // rdx
+  _SLIST_ENTRY *v7; // rdx
 
   v2 = ~*a1;
   v3 = 0LL;

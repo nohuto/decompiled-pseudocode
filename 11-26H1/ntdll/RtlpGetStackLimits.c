@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpGetStackLimits @ 0x1800CD7A0
+ * XREFs of RtlpGetStackLimits @ 0x1800CAF10
  * Callers:
- *     RtlpWalkFrameChain @ 0x180010544 (RtlpWalkFrameChain.c)
- *     RtlUnwindEx @ 0x180049930 (RtlUnwindEx.c)
- *     RtlDispatchException @ 0x18004C680 (RtlDispatchException.c)
+ *     RtlUnwindEx @ 0x180033EB0 (RtlUnwindEx.c)
+ *     RtlDispatchException @ 0x180036C00 (RtlDispatchException.c)
+ *     RtlpWalkFrameChain @ 0x18005BC74 (RtlpWalkFrameChain.c)
  * Callees:
  *     <none>
  */

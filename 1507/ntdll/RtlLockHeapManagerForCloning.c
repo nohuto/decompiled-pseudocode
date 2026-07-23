@@ -17,58 +17,52 @@
 __int64 RtlLockHeapManagerForCloning()
 {
   struct _PEB *v0; // r14
-  __int64 v1; // r8
-  __int64 v2; // r9
-  unsigned int v3; // ebx
+  unsigned int v1; // ebx
   unsigned int i; // esi
   void **ProcessHeaps; // rax
-  char *v6; // rdi
-  char *v7; // rdx
-  __int64 v8; // r8
-  __int64 v9; // r9
-  int v10; // ebp
-  char *v11; // rdx
-  __int64 v12; // r8
-  __int64 v13; // r9
-  volatile signed __int64 *v15; // rcx
+  char *v4; // rdi
+  int v5; // ebp
+  _RTL_SRWLOCK *v7; // rcx
+  LARGE_INTEGER DelayInterval; // [rsp+40h] [rbp+8h] BYREF
 
   v0 = NtCurrentPeb();
-  RtlEnterCriticalSection((__int64)&RtlpProcessHeapsListLock);
-  RtlpSparseBitmapCtxLockExclusive((__int64)&RtlpHpLargeAllocationBitmap, &RtlpHpLargeAllocationBitmap, v1, v2);
-  v3 = 0;
+  RtlEnterCriticalSection(&RtlpProcessHeapsListLock);
+  RtlpSparseBitmapCtxLockExclusive((__int64)&RtlpHpLargeAllocationBitmap, (_RTL_SRWLOCK *)&RtlpHpLargeAllocationBitmap);
+  v1 = 0;
   for ( i = 0; i < v0->NumberOfHeaps; ++i )
   {
     ProcessHeaps = v0->ProcessHeaps;
-    v6 = (char *)ProcessHeaps[i];
-    if ( *((_DWORD *)v6 + 4) == -571548178 )
+    v4 = (char *)ProcessHeaps[i];
+    if ( *((_DWORD *)v4 + 4) == -571548178 )
     {
-      if ( (v6[20] & 1) == 0 )
+      if ( (v4[20] & 1) == 0 )
       {
         RtlpHpHeapLock((__int64)ProcessHeaps[i]);
-        RtlAcquireSRWLockExclusive((volatile signed __int64 *)v6 + 18, v7, v8, v9);
-        RtlpHpLfhContextLockUnlock(v6 + 288, 0LL);
+        RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)v4 + 18);
+        RtlpHpLfhContextLockUnlock(v4 + 288, 0LL);
       }
     }
-    else if ( (v6[112] & 1) == 0 )
+    else if ( (v4[112] & 1) == 0 )
     {
-      v10 = 0;
-      while ( !(unsigned int)RtlTryEnterCriticalSection(*((_QWORD *)v6 + 44)) )
+      v5 = 0;
+      DelayInterval.QuadPart = -250000LL;
+      while ( !RtlTryEnterCriticalSection(*((PRTL_CRITICAL_SECTION *)v4 + 44)) )
       {
-        ZwDelayExecution();
-        if ( (unsigned int)++v10 >= 0x64 )
+        ZwDelayExecution(0, &DelayInterval);
+        if ( (unsigned int)++v5 >= 0x64 )
         {
-          v3 = -1073741420;
+          v1 = -1073741420;
           RtlpUnlockHeapManagerForCloning(0LL, i);
-          return v3;
+          return v1;
         }
       }
-      if ( v6[378] == 2 )
-        v15 = (volatile signed __int64 *)*((_QWORD *)v6 + 46);
+      if ( v4[378] == 2 )
+        v7 = (_RTL_SRWLOCK *)*((_QWORD *)v4 + 46);
       else
-        v15 = 0LL;
-      if ( v15 )
-        RtlAcquireSRWLockExclusive(v15, v11, v12, v13);
+        v7 = 0LL;
+      if ( v7 )
+        RtlAcquireSRWLockExclusive(v7);
     }
   }
-  return v3;
+  return v1;
 }

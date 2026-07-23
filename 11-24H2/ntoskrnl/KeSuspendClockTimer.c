@@ -1,9 +1,9 @@
 /*
- * XREFs of KeSuspendClockTimer @ 0x1404BEE1C
+ * XREFs of KeSuspendClockTimer @ 0x1404BA350
  * Callers:
- *     PopHandleNextState @ 0x140B65E10 (PopHandleNextState.c)
+ *     PopHandleNextState @ 0x140B67F50 (PopHandleNextState.c)
  * Callees:
- *     KiSuspendClockTimer @ 0x1404BEE34 (KiSuspendClockTimer.c)
+ *     KiSuspendClockTimer @ 0x1404BA368 (KiSuspendClockTimer.c)
  */
 
 __int64 KeSuspendClockTimer()

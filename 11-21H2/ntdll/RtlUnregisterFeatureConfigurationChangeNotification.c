@@ -7,14 +7,15 @@
  *     RtlpFcRemoveChangeRegistration @ 0x180084C8C (RtlpFcRemoveChangeRegistration.c)
  */
 
-__int64 __fastcall RtlUnregisterFeatureConfigurationChangeNotification(__int64 a1)
+NTSTATUS __cdecl RtlUnregisterFeatureConfigurationChangeNotification(
+        RTL_FEATURE_CONFIGURATION_CHANGE_REGISTRATION RegistrationHandle)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
   if ( !byte_18017A188 )
   {
-    RtlpFcRemoveChangeRegistration(a1, a1);
-    return RtlpFcFreeChangeRegistration(a1);
+    RtlpFcRemoveChangeRegistration(RegistrationHandle, RegistrationHandle);
+    return RtlpFcFreeChangeRegistration(RegistrationHandle);
   }
   return result;
 }

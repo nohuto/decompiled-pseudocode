@@ -1,12 +1,12 @@
 /*
- * XREFs of MxMapFreePageNode @ 0x140CF7CF4
+ * XREFs of MxMapFreePageNode @ 0x140CFE074
  * Callers:
- *     MxCreateFreePages @ 0x140CF5CA8 (MxCreateFreePages.c)
+ *     MxCreateFreePages @ 0x140CFC028 (MxCreateFreePages.c)
  * Callees:
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     MxCreatePfnsForDescriptor @ 0x140CF60C4 (MxCreatePfnsForDescriptor.c)
- *     MxCreatePfnsForPfns @ 0x140CF6108 (MxCreatePfnsForPfns.c)
- *     MxIsPfnDatabaseMapped @ 0x140CF7B2C (MxIsPfnDatabaseMapped.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     MxCreatePfnsForDescriptor @ 0x140CFC444 (MxCreatePfnsForDescriptor.c)
+ *     MxCreatePfnsForPfns @ 0x140CFC488 (MxCreatePfnsForPfns.c)
+ *     MxIsPfnDatabaseMapped @ 0x140CFDEAC (MxIsPfnDatabaseMapped.c)
  */
 
 void __fastcall MxMapFreePageNode(__int64 a1, _QWORD **a2)
@@ -30,7 +30,7 @@ void __fastcall MxMapFreePageNode(__int64 a1, _QWORD **a2)
     if ( !(unsigned int)MxIsPfnDatabaseMapped((__int64)v4)
       && (!(unsigned int)MxCreatePfnsForDescriptor((__int64)v4) || !(unsigned int)MxCreatePfnsForPfns()) )
     {
-      KeBugCheckEx(0x1Au, 0x62002uLL, v4[4], v4[5], qword_14101EBF0);
+      KeBugCheckEx(0x1Au, 0x62002uLL, v4[4], v4[5], qword_14101FBF0);
     }
     v6 = *(_QWORD **)(a1 + 88);
     if ( *v6 != a1 + 80 )

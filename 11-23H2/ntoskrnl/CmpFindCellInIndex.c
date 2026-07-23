@@ -1,7 +1,7 @@
 /*
- * XREFs of CmpFindCellInIndex @ 0x140A2340C
+ * XREFs of CmpFindCellInIndex @ 0x140A236BC
  * Callers:
- *     CmpRemoveSubKeyCellNoCellRef @ 0x140A246EC (CmpRemoveSubKeyCellNoCellRef.c)
+ *     CmpRemoveSubKeyCellNoCellRef @ 0x140A2499C (CmpRemoveSubKeyCellNoCellRef.c)
  * Callees:
  *     <none>
  */

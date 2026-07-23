@@ -1,9 +1,9 @@
 /*
- * XREFs of MiUnlockBootPageSections @ 0x140C5BE00
+ * XREFs of MiUnlockBootPageSections @ 0x140C5DF90
  * Callers:
  *     <none>
  * Callees:
- *     MiLockPagableSections @ 0x140C5B998 (MiLockPagableSections.c)
+ *     MiLockPagableSections @ 0x140C5DB28 (MiLockPagableSections.c)
  */
 
 __int64 __fastcall MiUnlockBootPageSections(__int64 a1)

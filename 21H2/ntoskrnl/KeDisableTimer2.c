@@ -1,24 +1,24 @@
 /*
- * XREFs of KeDisableTimer2 @ 0x14027FC30
+ * XREFs of KeDisableTimer2 @ 0x14026DE70
  * Callers:
- *     ExDeleteTimer @ 0x14027F910 (ExDeleteTimer.c)
- *     PopPowerButtonWorkCallback @ 0x140578850 (PopPowerButtonWorkCallback.c)
- *     ExpDeleteTimer2 @ 0x140677610 (ExpDeleteTimer2.c)
- *     PopThermalZoneRemove @ 0x1408E7D80 (PopThermalZoneRemove.c)
+ *     ExDeleteTimer @ 0x14026DB50 (ExDeleteTimer.c)
+ *     PopPowerButtonWorkCallback @ 0x140578A90 (PopPowerButtonWorkCallback.c)
+ *     ExpDeleteTimer2 @ 0x14066AD50 (ExpDeleteTimer2.c)
+ *     PopThermalZoneRemove @ 0x1408E7EE0 (PopThermalZoneRemove.c)
  * Callees:
- *     KeAddProcessorAffinityEx @ 0x140229380 (KeAddProcessorAffinityEx.c)
- *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
- *     KiRemoveTimer2 @ 0x14024B3E0 (KiRemoveTimer2.c)
- *     KiUpdateTimer2Flags @ 0x14027FE44 (KiUpdateTimer2Flags.c)
- *     KiAcquireTimer2LockUnlessDisabled @ 0x14027FEE0 (KiAcquireTimer2LockUnlessDisabled.c)
- *     KiAcquireTimer2CollectionLockIfInserted @ 0x14027FF0C (KiAcquireTimer2CollectionLockIfInserted.c)
- *     EtwGetKernelTraceTimestamp @ 0x14029B060 (EtwGetKernelTraceTimestamp.c)
- *     EtwTraceTimedEvent @ 0x1402AEDFC (EtwTraceTimedEvent.c)
- *     KeGenericProcessorCallback @ 0x1402EB178 (KeGenericProcessorCallback.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     KxReleaseSpinLock @ 0x140212140 (KxReleaseSpinLock.c)
+ *     EtwGetKernelTraceTimestamp @ 0x1402129F0 (EtwGetKernelTraceTimestamp.c)
+ *     EtwTraceTimedEvent @ 0x14022D15C (EtwTraceTimedEvent.c)
+ *     KiUpdateTimer2Flags @ 0x14026E084 (KiUpdateTimer2Flags.c)
+ *     KiAcquireTimer2LockUnlessDisabled @ 0x14026E120 (KiAcquireTimer2LockUnlessDisabled.c)
+ *     KiAcquireTimer2CollectionLockIfInserted @ 0x14026E14C (KiAcquireTimer2CollectionLockIfInserted.c)
+ *     KeGenericProcessorCallback @ 0x14029C4C8 (KeGenericProcessorCallback.c)
+ *     KeAddProcessorAffinityEx @ 0x1402CDC80 (KeAddProcessorAffinityEx.c)
+ *     KiRemoveTimer2 @ 0x1402EFC30 (KiRemoveTimer2.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     memset @ 0x140414200 (memset.c)
- *     KiTraceCancelTimer2 @ 0x140523AC4 (KiTraceCancelTimer2.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     KiTraceCancelTimer2 @ 0x140523D04 (KiTraceCancelTimer2.c)
  */
 
 char __fastcall KeDisableTimer2(__int64 a1, char a2, char a3, __int64 *a4)
@@ -28,7 +28,7 @@ char __fastcall KeDisableTimer2(__int64 a1, char a2, char a3, __int64 *a4)
   char v8; // r13
   unsigned __int8 CurrentIrql; // bl
   __int64 v10; // rdx
-  __int64 v11; // r8
+  unsigned int v11; // esi
   char updated; // si
   char v13; // r15
   __int64 v15; // r8
@@ -110,7 +110,7 @@ char __fastcall KeDisableTimer2(__int64 a1, char a2, char a3, __int64 *a4)
       goto LABEL_11;
     if ( (unsigned __int8)KiAcquireTimer2CollectionLockIfInserted(a1) )
     {
-      KiRemoveTimer2(a1, v10, v11);
+      KiRemoveTimer2(a1, v10);
       KxReleaseSpinLock(&KiTimer2CollectionLock);
     }
     else
@@ -118,9 +118,11 @@ char __fastcall KeDisableTimer2(__int64 a1, char a2, char a3, __int64 *a4)
       if ( (*(_BYTE *)(a1 + 1) & 0xA) == 0 )
       {
 LABEL_11:
+        v11 = 6;
+LABEL_12:
         if ( v8 )
-          EtwGetKernelTraceTimestamp(v39, 1073872896LL);
-        updated = KiUpdateTimer2Flags(a1, v33);
+          EtwGetKernelTraceTimestamp((LARGE_INTEGER *)v39, 0x40020000u);
+        updated = KiUpdateTimer2Flags(a1, v33, v11);
         if ( KiIrqlFlags )
         {
           if ( (KiIrqlFlags & 1) != 0 )
@@ -144,15 +146,16 @@ LABEL_11:
         {
           v40[0] = 1310721;
           memset(&v40[1], 0, 0xA4uLL);
-          KeAddProcessorAffinityEx(v40, KiClockTimerOwner);
+          KeAddProcessorAffinityEx(v40, (unsigned int)KiClockTimerOwner);
           KeGenericProcessorCallback(v40, xHalTimerWatchdogStop, 0LL, 2LL);
         }
-        goto LABEL_17;
+        goto LABEL_18;
       }
       v33 = 36;
     }
+    v11 = 4;
     v29 = 1;
-    goto LABEL_11;
+    goto LABEL_12;
   }
   if ( KiIrqlFlags )
   {
@@ -174,7 +177,7 @@ LABEL_11:
   __writecr8(CurrentIrql);
   updated = 0;
   v13 = a3;
-LABEL_17:
+LABEL_18:
   if ( v8 && !v32 )
   {
     v27 = KiWaitAlways ^ _byteswap_uint64(a1 ^ __ROL8__(v34 ^ KiWaitNever, KiWaitNever));
@@ -194,12 +197,12 @@ LABEL_17:
     }
     if ( updated )
     {
-      EtwTraceTimedEvent(3947, 1073872896, (unsigned int)&v35, 32, 4197890, (__int64)v39);
+      EtwTraceTimedEvent(3947, 0x40020000u, (__int64)&v35, 32, 4197890, (__int64)v39);
     }
     else
     {
       LOBYTE(v38) = v28 | 4;
-      EtwTraceTimedEvent(3947, 1073872896, (unsigned int)&v35, 32, 1538, (__int64)v39);
+      EtwTraceTimedEvent(3947, 0x40020000u, (__int64)&v35, 32, 1538, (__int64)v39);
     }
   }
   return v29;

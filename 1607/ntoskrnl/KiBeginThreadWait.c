@@ -1,15 +1,15 @@
 /*
- * XREFs of KiBeginThreadWait @ 0x1400D0980
+ * XREFs of KiBeginThreadWait @ 0x1400CE820
  * Callers:
- *     MiWaitForInPageComplete @ 0x1400251B0 (MiWaitForInPageComplete.c)
- *     KeWaitForGate @ 0x140097C98 (KeWaitForGate.c)
- *     KiWaitForAllObjects @ 0x140097D9C (KiWaitForAllObjects.c)
- *     KeWaitForAlertByThreadId @ 0x1400D0448 (KeWaitForAlertByThreadId.c)
- *     KeDelayExecutionThread @ 0x1400D0580 (KeDelayExecutionThread.c)
+ *     MiWaitForInPageComplete @ 0x140024D30 (MiWaitForInPageComplete.c)
+ *     KeWaitForGate @ 0x140097498 (KeWaitForGate.c)
+ *     KiWaitForAllObjects @ 0x14009759C (KiWaitForAllObjects.c)
+ *     KeWaitForAlertByThreadId @ 0x1400CE2E8 (KeWaitForAlertByThreadId.c)
+ *     KeDelayExecutionThread @ 0x1400CE420 (KeDelayExecutionThread.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x14002ECB0 (KeYieldProcessorEx.c)
- *     KiDeliverApc @ 0x14005DBD0 (KiDeliverApc.c)
- *     KiCheckForThreadDispatch @ 0x1400F2960 (KiCheckForThreadDispatch.c)
+ *     KeYieldProcessorEx @ 0x14002E830 (KeYieldProcessorEx.c)
+ *     KiDeliverApc @ 0x14005D750 (KiDeliverApc.c)
+ *     KiCheckForThreadDispatch @ 0x1400F07B0 (KiCheckForThreadDispatch.c)
  */
 
 __int64 __fastcall KiBeginThreadWait(__int64 a1, unsigned __int8 a2, __int64 a3, __int64 a4)

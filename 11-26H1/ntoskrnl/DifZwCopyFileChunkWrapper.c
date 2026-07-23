@@ -1,28 +1,28 @@
 /*
- * XREFs of DifZwCopyFileChunkWrapper @ 0x14069E020
+ * XREFs of DifZwCopyFileChunkWrapper @ 0x1406A1C00
  * Callers:
  *     <none>
  * Callees:
- *     DifGetReturnAddressForWrappers @ 0x140260EA4 (DifGetReturnAddressForWrappers.c)
- *     ExReleaseRundownProtection_0 @ 0x140266240 (ExReleaseRundownProtection_0.c)
- *     ExAcquireRundownProtection_0 @ 0x1402F0590 (ExAcquireRundownProtection_0.c)
- *     DifGetAPIThunkContextById @ 0x1404C17A4 (DifGetAPIThunkContextById.c)
- *     ZwCopyFileChunk @ 0x1407248D0 (ZwCopyFileChunk.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     DifGetReturnAddressForWrappers @ 0x14026040C (DifGetReturnAddressForWrappers.c)
+ *     ExReleaseRundownProtection_0 @ 0x1402657B0 (ExReleaseRundownProtection_0.c)
+ *     ExAcquireRundownProtection_0 @ 0x1402D2610 (ExAcquireRundownProtection_0.c)
+ *     DifGetAPIThunkContextById @ 0x1404BAFF4 (DifGetAPIThunkContextById.c)
+ *     ZwCopyFileChunk @ 0x1407294A0 (ZwCopyFileChunk.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall DifZwCopyFileChunkWrapper(
-        __int64 a1,
-        __int64 a2,
-        __int64 a3,
-        __int64 a4,
-        int a5,
-        __int64 a6,
-        __int64 a7,
-        __int64 a8,
-        __int64 a9,
-        int a10)
+        void *a1,
+        void *a2,
+        void *a3,
+        struct _IO_STATUS_BLOCK *a4,
+        ULONG Length,
+        LARGE_INTEGER *SourceOffset,
+        LARGE_INTEGER *DestOffset,
+        ULONG *SourceKey,
+        ULONG *DestKey,
+        ULONG Flags)
 {
   __int128 *APIThunkContextById; // rax
   __int64 v14; // rdx
@@ -35,16 +35,16 @@ __int64 __fastcall DifZwCopyFileChunkWrapper(
   BOOLEAN v21; // di
   __int128 *j; // rbx
   PVOID v24; // [rsp+58h] [rbp-59h] BYREF
-  int v25; // [rsp+60h] [rbp-51h]
-  __int64 v26; // [rsp+68h] [rbp-49h]
-  __int64 v27; // [rsp+70h] [rbp-41h]
-  __int64 v28; // [rsp+78h] [rbp-39h]
-  __int64 v29; // [rsp+80h] [rbp-31h]
-  int v30; // [rsp+88h] [rbp-29h]
-  __int64 v31; // [rsp+90h] [rbp-21h]
-  __int64 v32; // [rsp+98h] [rbp-19h]
-  __int64 v33; // [rsp+A0h] [rbp-11h]
-  __int64 v34; // [rsp+A8h] [rbp-9h]
+  ULONG v25; // [rsp+60h] [rbp-51h]
+  ULONG *v26; // [rsp+68h] [rbp-49h]
+  ULONG *v27; // [rsp+70h] [rbp-41h]
+  LARGE_INTEGER *v28; // [rsp+78h] [rbp-39h]
+  LARGE_INTEGER *v29; // [rsp+80h] [rbp-31h]
+  ULONG v30; // [rsp+88h] [rbp-29h]
+  struct _IO_STATUS_BLOCK *v31; // [rsp+90h] [rbp-21h]
+  void *v32; // [rsp+98h] [rbp-19h]
+  void *v33; // [rsp+A0h] [rbp-11h]
+  void *v34; // [rsp+A8h] [rbp-9h]
   unsigned int v35; // [rsp+B0h] [rbp-1h]
   void *retaddr; // [rsp+E0h] [rbp+2Fh]
 
@@ -68,12 +68,12 @@ __int64 __fastcall DifZwCopyFileChunkWrapper(
 LABEL_7:
   v18 = 0;
   v34 = a1;
-  v30 = a5;
-  v29 = a6;
-  v28 = a7;
-  v27 = a8;
-  v26 = a9;
-  v25 = a10;
+  v30 = Length;
+  v29 = SourceOffset;
+  v28 = DestOffset;
+  v27 = SourceKey;
+  v26 = DestKey;
+  v25 = Flags;
   v33 = a2;
   v32 = a3;
   v31 = a4;
@@ -89,7 +89,7 @@ LABEL_7:
       ExReleaseRundownProtection_0(&DifRebootlessRundown);
   }
 LABEL_17:
-  v35 = ZwCopyFileChunk(a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, v24, v25, v26, v27, v28, v29, v30, v31, v32, v33, v34);
+  v35 = ZwCopyFileChunk(a1, a2, a3, a4, Length, SourceOffset, DestOffset, SourceKey, DestKey, Flags);
   if ( v15 )
   {
     if ( (v21 = 0, !VfDifRunningWithoutReboot) && (VfOptionFlags & 0x800) == 0

@@ -1,51 +1,70 @@
 /*
  * XREFs of NtQuerySystemInformation @ 0x14073D860
  * Callers:
- *     HalpTimerConfigureQpcBypass @ 0x1403BAA84 (HalpTimerConfigureQpcBypass.c)
- *     AlpcpInitSystem @ 0x14085C5A8 (AlpcpInitSystem.c)
+ *     sub_1403BAA84 @ 0x1403BAA84 (sub_1403BAA84.c)
+ *     sub_14085C5A8 @ 0x14085C5A8 (sub_14085C5A8.c)
  * Callees:
- *     ExpQuerySystemInformation @ 0x14073B5A0 (ExpQuerySystemInformation.c)
+ *     sub_14073B5A0 @ 0x14073B5A0 (sub_14073B5A0.c)
  */
 
-int __fastcall NtQuerySystemInformation(int a1, unsigned __int64 a2, unsigned int a3, ULONG *a4)
+NTSTATUS __cdecl NtQuerySystemInformation(
+        SYSTEM_INFORMATION_CLASS SystemInformationClass,
+        PVOID SystemInformation,
+        ULONG SystemInformationLength,
+        PULONG ReturnLength)
 {
-  __int16 *p_Group; // r10
+  __int16 *v4; // r10
   unsigned int v6; // r8d
-  __int16 Group; // [rsp+40h] [rbp+8h] BYREF
+  __int16 v8; // [rsp+40h] [rbp+8h] BYREF
 
-  p_Group = 0LL;
-  Group = 0;
-  if ( (a1 >= 83 || a1 < 74) && (a1 < 181 || a1 >= 210) )
+  v4 = 0LL;
+  v8 = 0;
+  if ( (SystemInformationClass >= SystemProcessorIdleCycleTimeInformation
+     || SystemInformationClass < SystemWow64SharedInformationObsolete)
+    && (SystemInformationClass < SystemSupportedProcessorArchitectures
+     || SystemInformationClass >= SystemFeatureConfigurationInformation) )
   {
-    switch ( a1 )
+    switch ( SystemInformationClass )
     {
-      case 8:
-      case 23:
-      case 42:
-      case 61:
-      case 83:
-      case 100:
-      case 108:
-      case 141:
-        Group = KeGetCurrentPrcb()->Group;
+      case SystemProcessorPerformanceInformation:
+      case SystemInterruptInformation:
+      case SystemProcessorIdleInformation:
+      case SystemProcessorPowerInformation:
+      case SystemProcessorIdleCycleTimeInformation:
+      case SystemProcessorPerformanceDistribution:
+      case SystemProcessorCycleTimeInformation:
+      case SystemProcessorPerformanceInformationEx:
+        v8 = *((unsigned __int8 *)KeGetCurrentPrcb() + 208);
         goto LABEL_10;
-      case 73:
+      case SystemLogicalProcessorInformation:
 LABEL_10:
-        p_Group = &Group;
+        v4 = &v8;
         v6 = 2;
-        return ExpQuerySystemInformation(a1, p_Group, v6, a2, a3, a4);
-      case 107:
-      case 121:
-      case 180:
-      case 210:
-      case 211:
-      case 222:
-      case 231:
+        return sub_14073B5A0(
+                 SystemInformationClass,
+                 v4,
+                 v6,
+                 (unsigned __int64)SystemInformation,
+                 SystemInformationLength,
+                 ReturnLength);
+      case SystemLogicalProcessorAndGroupInformation:
+      case SystemNodeDistanceInformation:
+      case SystemInterruptSteeringInformation:
+      case SystemFeatureConfigurationInformation:
+      case SystemFeatureConfigurationSectionInformation:
+      case SystemBuildVersionInformation:
+      case SystemSingleProcessorRelationshipInformation:
         return -1073741821;
       default:
         break;
     }
   }
   v6 = 0;
-  return ExpQuerySystemInformation(a1, p_Group, v6, a2, a3, a4);
+  return sub_14073B5A0(
+           SystemInformationClass,
+           v4,
+           v6,
+           (unsigned __int64)SystemInformation,
+           SystemInformationLength,
+           ReturnLength);
 }

@@ -1,26 +1,26 @@
 /*
- * XREFs of SepIsParentOfChildAppContainer @ 0x140816B9C
+ * XREFs of SepIsParentOfChildAppContainer @ 0x14081CDAC
  * Callers:
- *     SeIsParentOfChildAppContainer @ 0x140810BB0 (SeIsParentOfChildAppContainer.c)
+ *     SeIsParentOfChildAppContainer @ 0x140816640 (SeIsParentOfChildAppContainer.c)
  * Callees:
- *     ExfAcquirePushLockSharedEx @ 0x140277CC0 (ExfAcquirePushLockSharedEx.c)
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     ExfReleasePushLockShared @ 0x140278BD0 (ExfReleasePushLockShared.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     ExfTryToWakePushLock @ 0x1403170A0 (ExfTryToWakePushLock.c)
- *     SepGetTokenSessionMapEntry @ 0x1404B8110 (SepGetTokenSessionMapEntry.c)
- *     SepFindMatchingLowBoxNumberEntries @ 0x1408169E0 (SepFindMatchingLowBoxNumberEntries.c)
- *     RtlIsParentOfChildAppContainer @ 0x140A8F93C (RtlIsParentOfChildAppContainer.c)
+ *     ExfAcquirePushLockSharedEx @ 0x140277230 (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     ExfReleasePushLockShared @ 0x140278140 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     ExfTryToWakePushLock @ 0x1403190D0 (ExfTryToWakePushLock.c)
+ *     SepGetTokenSessionMapEntry @ 0x1404B1940 (SepGetTokenSessionMapEntry.c)
+ *     SepFindMatchingLowBoxNumberEntries @ 0x14081CBF0 (SepFindMatchingLowBoxNumberEntries.c)
+ *     RtlIsParentOfChildAppContainer @ 0x1409E4888 (RtlIsParentOfChildAppContainer.c)
  */
 
-char __fastcall SepIsParentOfChildAppContainer(unsigned int a1, int a2, int a3, struct _KLOCK_ENTRIES *a4)
+BOOLEAN __fastcall SepIsParentOfChildAppContainer(unsigned int a1, int a2, int a3, struct _KLOCK_ENTRIES *a4)
 {
-  char IsParentOfChildAppContainer; // r12
+  BOOLEAN IsParentOfChildAppContainer; // r12
   char v8; // bp
-  unsigned __int64 *v9; // rdi
+  char *v9; // rdi
   struct _KTHREAD *CurrentThread; // rax
   void *v11; // rdx
   LegacyAutoBoost *v12; // rdi
@@ -30,7 +30,7 @@ char __fastcall SepIsParentOfChildAppContainer(unsigned int a1, int a2, int a3, 
   AutoBoost *v16; // rsi
   __int64 v18; // [rsp+30h] [rbp-48h] BYREF
   PRTL_DYNAMIC_HASH_TABLE_ENTRY v19; // [rsp+38h] [rbp-40h] BYREF
-  unsigned __int64 *v20; // [rsp+98h] [rbp+20h] BYREF
+  char *v20; // [rsp+98h] [rbp+20h] BYREF
 
   v20 = 0LL;
   v19 = 0LL;
@@ -43,13 +43,13 @@ char __fastcall SepIsParentOfChildAppContainer(unsigned int a1, int a2, int a3, 
     {
       CurrentThread = KeGetCurrentThread();
       --CurrentThread->KernelApcDisable;
-      v12 = (LegacyAutoBoost *)KeAbPreAcquire((__int64)&SepRmCapTableLock.ThreadListEntry.Blink, 0LL, 0LL, a4);
-      if ( _InterlockedCompareExchange64((volatile signed __int64 *)&SepRmCapTableLock.ThreadListEntry.Blink, 17LL, 0LL) )
+      v12 = (LegacyAutoBoost *)KeAbPreAcquire((__int64)&SepRmCapTableLock.Affinity, 0LL, 0LL, a4);
+      if ( _InterlockedCompareExchange64((volatile signed __int64 *)&SepRmCapTableLock.Affinity, 17LL, 0LL) )
         ExfAcquirePushLockSharedEx(
-          (signed __int64 *)&SepRmCapTableLock.ThreadListEntry.Blink,
+          (signed __int64 *)&SepRmCapTableLock.Affinity,
           0,
           v12,
-          (struct _KTHREAD *)&SepRmCapTableLock.ThreadListEntry.Blink);
+          (struct _KTHREAD *)&SepRmCapTableLock.Affinity);
       if ( v12 )
       {
         if ( (KiAbpGlobalState & 1) != 0 )
@@ -61,12 +61,9 @@ char __fastcall SepIsParentOfChildAppContainer(unsigned int a1, int a2, int a3, 
       if ( (int)SepGetTokenSessionMapEntry(a1, 0, (__int64 *)&v20) < 0 )
       {
 LABEL_24:
-        if ( _InterlockedCompareExchange64(
-               (volatile signed __int64 *)&SepRmCapTableLock.ThreadListEntry.Blink,
-               0LL,
-               17LL) != 17 )
-          ExfReleasePushLockShared((signed __int64 *)&SepRmCapTableLock.ThreadListEntry.Blink);
-        KeAbPostRelease((unsigned __int64)&SepRmCapTableLock.ThreadListEntry.Blink);
+        if ( _InterlockedCompareExchange64((volatile signed __int64 *)&SepRmCapTableLock.Affinity, 0LL, 17LL) != 17 )
+          ExfReleasePushLockShared((signed __int64 *)&SepRmCapTableLock.Affinity);
+        KeAbPostRelease((unsigned __int64)&SepRmCapTableLock.Affinity);
         KeLeaveCriticalRegion();
         return IsParentOfChildAppContainer;
       }
@@ -74,14 +71,14 @@ LABEL_24:
     }
     else
     {
-      v9 = &SepRmCapTableLock.AffinityVersion + 5 * a1;
+      v9 = (char *)&SepRmCapTableLock.600 + 40 * a1;
     }
     v13 = KeGetCurrentThread();
     --v13->KernelApcDisable;
     v14 = (AutoBoost *)KeAbPreAcquire((__int64)v9, 0LL, 0LL, a4);
     v16 = v14;
     if ( _interlockedbittestandset64((volatile signed __int32 *)v9, 0LL) )
-      ExfAcquirePushLockExclusiveEx(v9, v14, (__int64)v9);
+      ExfAcquirePushLockExclusiveEx((unsigned __int64 *)v9, v14, (__int64)v9);
     if ( v16 )
     {
       if ( (KiAbpGlobalState & 1) != 0 )
@@ -90,7 +87,7 @@ LABEL_24:
         *((_BYTE *)v16 + 10) = 1;
     }
     if ( (int)SepFindMatchingLowBoxNumberEntries(
-                (PRTL_DYNAMIC_HASH_TABLE)v9[3],
+                *((PRTL_DYNAMIC_HASH_TABLE *)v9 + 3),
                 a2,
                 a3,
                 &v19,

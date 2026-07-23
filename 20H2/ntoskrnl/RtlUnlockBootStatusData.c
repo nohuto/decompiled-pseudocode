@@ -15,10 +15,11 @@
  *     ExFreePoolWithTag @ 0x1409B70B0 (ExFreePoolWithTag.c)
  */
 
-void __fastcall RtlUnlockBootStatusData(HANDLE Handle)
+NTSTATUS __cdecl RtlUnlockBootStatusData(HANDLE FileHandle)
 {
   int v2; // eax
   char v3; // di
+  NTSTATUS result; // eax
   struct _IO_STATUS_BLOCK IoStatusBlock; // [rsp+50h] [rbp-18h] BYREF
   __int16 InputBuffer; // [rsp+78h] [rbp+10h] BYREF
 
@@ -32,9 +33,9 @@ void __fastcall RtlUnlockBootStatusData(HANDLE Handle)
   --BootStatReferenceCount;
   if ( BootStatFileHandleAcquired )
   {
-    if ( !Handle )
+    if ( !FileHandle )
     {
-      Handle = BootStatFileHandle;
+      FileHandle = BootStatFileHandle;
 LABEL_8:
       BootStatReferenceCount = 0;
       v3 = 1;
@@ -46,9 +47,9 @@ LABEL_8:
       goto LABEL_8;
   }
 LABEL_9:
-  if ( Handle )
+  if ( FileHandle )
   {
-    ZwFsControlFile(Handle, 0LL, 0LL, 0LL, &IoStatusBlock, 0x9C040u, &InputBuffer, 2u, 0LL, 0);
+    ZwFsControlFile(FileHandle, 0LL, 0LL, 0LL, &IoStatusBlock, 0x9C040u, &InputBuffer, 2u, 0LL, 0);
     if ( v3 )
     {
       if ( BootStatDataCache )
@@ -57,9 +58,10 @@ LABEL_9:
         BootStatDataCache = 0LL;
       }
       BootStatFileHandleAcquired = 0;
-      ZwClose(Handle);
+      ZwClose(FileHandle);
     }
   }
 LABEL_14:
   RtlpReleaseBootStatusLock();
+  return result;
 }

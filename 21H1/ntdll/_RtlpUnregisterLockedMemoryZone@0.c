@@ -9,10 +9,10 @@
  *     _RtlReleaseSRWLockExclusive@4 @ 0x4B2C2480 (_RtlReleaseSRWLockExclusive@4.c)
  */
 
-int __stdcall RtlpUnregisterLockedMemoryZone()
+void __stdcall RtlpUnregisterLockedMemoryZone()
 {
   RtlAcquireSRWLockExclusive(&RtlpMemoryZoneLock);
   if ( !--RtlpLockedMemoryZoneCount )
     RtlUnlockModuleSection(RtlAllocateMemoryZone);
-  return RtlReleaseSRWLockExclusive(&RtlpMemoryZoneLock);
+  RtlReleaseSRWLockExclusive(&RtlpMemoryZoneLock);
 }

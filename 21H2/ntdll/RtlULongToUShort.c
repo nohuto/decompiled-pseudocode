@@ -2,7 +2,7 @@
  * XREFs of RtlULongToUShort @ 0x18005E984
  * Callers:
  *     RtlSetCurrentDirectory_U @ 0x18005E560 (RtlSetCurrentDirectory_U.c)
- *     RtlpGetDefaultLanguageBaseOrParent @ 0x1800F0760 (RtlpGetDefaultLanguageBaseOrParent.c)
+ *     RtlpGetDefaultLanguageBaseOrParent @ 0x1800F0720 (RtlpGetDefaultLanguageBaseOrParent.c)
  * Callees:
  *     <none>
  */

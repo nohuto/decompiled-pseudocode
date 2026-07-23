@@ -1,17 +1,17 @@
 /*
- * XREFs of MiSetImageHotPatchAllowed @ 0x140857FC4
+ * XREFs of MiSetImageHotPatchAllowed @ 0x140859224
  * Callers:
- *     NtSetInformationVirtualMemory @ 0x1405F6680 (NtSetInformationVirtualMemory.c)
+ *     NtSetInformationVirtualMemory @ 0x1405F7680 (NtSetInformationVirtualMemory.c)
  * Callees:
- *     MiUnlockAndDereferenceVad @ 0x140074550 (MiUnlockAndDereferenceVad.c)
- *     MiObtainReferencedVadEx @ 0x1400747E0 (MiObtainReferencedVadEx.c)
- *     MiUnlockAndDereferenceVadShared @ 0x1400754A0 (MiUnlockAndDereferenceVadShared.c)
- *     MiVadDeleted @ 0x140075560 (MiVadDeleted.c)
- *     MiLockVadShared @ 0x140075570 (MiLockVadShared.c)
- *     MiUnlockVad @ 0x1400784B0 (MiUnlockVad.c)
- *     MiSetVadFlags @ 0x1400879E0 (MiSetVadFlags.c)
- *     MiImageVadHotPatchEligible @ 0x1405EE758 (MiImageVadHotPatchEligible.c)
- *     MiHotPatchImage @ 0x140855330 (MiHotPatchImage.c)
+ *     MiUnlockAndDereferenceVad @ 0x140074540 (MiUnlockAndDereferenceVad.c)
+ *     MiObtainReferencedVadEx @ 0x1400747D0 (MiObtainReferencedVadEx.c)
+ *     MiUnlockAndDereferenceVadShared @ 0x140075490 (MiUnlockAndDereferenceVadShared.c)
+ *     MiVadDeleted @ 0x140075550 (MiVadDeleted.c)
+ *     MiLockVadShared @ 0x140075560 (MiLockVadShared.c)
+ *     MiUnlockVad @ 0x1400784A0 (MiUnlockVad.c)
+ *     MiSetVadFlags @ 0x1400879D0 (MiSetVadFlags.c)
+ *     MiImageVadHotPatchEligible @ 0x1405EF758 (MiImageVadHotPatchEligible.c)
+ *     MiHotPatchImage @ 0x140856590 (MiHotPatchImage.c)
  */
 
 __int64 __fastcall MiSetImageHotPatchAllowed(unsigned __int64 a1)
@@ -64,7 +64,7 @@ LABEL_10:
   v11 = *(_BYTE *)(v7 + 15) >> 4;
   v12 = v8;
   MiUnlockVad((__int64)CurrentThread, v4);
-  v6 = MiHotPatchImage(v13, v12, v4, v9, v10, v11, 1);
+  v6 = MiHotPatchImage(v13, v12, (_RTL_BALANCED_NODE *)v4, v9, v10, v11, 1);
   MiLockVadShared((__int64)CurrentThread, v4);
   MiUnlockAndDereferenceVadShared((char *)v4);
   return v6;

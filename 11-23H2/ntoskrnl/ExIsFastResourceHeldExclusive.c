@@ -1,12 +1,12 @@
 /*
- * XREFs of ExIsFastResourceHeldExclusive @ 0x1403CA320
+ * XREFs of ExIsFastResourceHeldExclusive @ 0x1403CA500
  * Callers:
- *     ExIsResourceAcquiredExclusiveLite @ 0x1403286E0 (ExIsResourceAcquiredExclusiveLite.c)
+ *     ExIsResourceAcquiredExclusiveLite @ 0x140328970 (ExIsResourceAcquiredExclusiveLite.c)
  * Callees:
- *     ExpFindFastOwnerEntryForThread @ 0x1403CA8F4 (ExpFindFastOwnerEntryForThread.c)
- *     ExIsFastResourceHeldExclusive2 @ 0x140413C50 (ExIsFastResourceHeldExclusive2.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExpFindFastOwnerEntryForThread @ 0x1403CAAD4 (ExpFindFastOwnerEntryForThread.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     ExIsFastResourceHeldExclusive2 @ 0x140413FE4 (ExIsFastResourceHeldExclusive2.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
  */
 
 char __fastcall ExIsFastResourceHeldExclusive(ULONG_PTR BugCheckParameter2)
@@ -37,7 +37,7 @@ char __fastcall ExIsFastResourceHeldExclusive(ULONG_PTR BugCheckParameter2)
   {
     v6 = KeGetCurrentIrql();
     __writecr8(2uLL);
-    if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && v6 <= 0xFu )
+    if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && v6 <= 0xFu )
     {
       SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
       v8 = 4;
@@ -46,10 +46,10 @@ char __fastcall ExIsFastResourceHeldExclusive(ULONG_PTR BugCheckParameter2)
       SchedulerAssist[5] |= v8;
     }
     v9 = ExpFindFastOwnerEntryForThread(KeGetCurrentThread(), BugCheckParameter2, 0LL, 0LL) != 0;
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v10 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v10 <= 0xFu && v6 <= 0xFu && v10 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v10 <= 0xFu && v6 <= 0xFu && v10 >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         v12 = CurrentPrcb->SchedulerAssist;

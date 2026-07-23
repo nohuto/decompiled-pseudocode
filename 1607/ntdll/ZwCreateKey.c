@@ -1,23 +1,30 @@
 /*
  * XREFs of ZwCreateKey @ 0x1800A67C0
  * Callers:
- *     RtlpGetRegistryHandle @ 0x1800582AC (RtlpGetRegistryHandle.c)
- *     RXactpOpenTargetKey @ 0x1800838F4 (RXactpOpenTargetKey.c)
- *     RtlInitializeRXact @ 0x18008D180 (RtlInitializeRXact.c)
- *     RtlpVerifyAndCommitUILanguageSettings @ 0x18008D890 (RtlpVerifyAndCommitUILanguageSettings.c)
- *     RtlpNtCreateKey @ 0x180090D80 (RtlpNtCreateKey.c)
- *     RtlpSetMachineUILanguagesImmediate @ 0x1800E7C4C (RtlpSetMachineUILanguagesImmediate.c)
- *     RtlpSetPreferredUILanguages @ 0x1800E7E30 (RtlpSetPreferredUILanguages.c)
- *     OpenOrCreateKeyWithFlags @ 0x180102D44 (OpenOrCreateKeyWithFlags.c)
+ *     RtlpGetRegistryHandle @ 0x18005829C (RtlpGetRegistryHandle.c)
+ *     RXactpOpenTargetKey @ 0x1800838E4 (RXactpOpenTargetKey.c)
+ *     RtlInitializeRXact @ 0x18008D170 (RtlInitializeRXact.c)
+ *     RtlpVerifyAndCommitUILanguageSettings @ 0x18008D880 (RtlpVerifyAndCommitUILanguageSettings.c)
+ *     RtlpNtCreateKey @ 0x180090D70 (RtlpNtCreateKey.c)
+ *     RtlpSetMachineUILanguagesImmediate @ 0x1800E7D0C (RtlpSetMachineUILanguagesImmediate.c)
+ *     RtlpSetPreferredUILanguages @ 0x1800E7EF0 (RtlpSetPreferredUILanguages.c)
+ *     OpenOrCreateKeyWithFlags @ 0x180102C84 (OpenOrCreateKeyWithFlags.c)
  * Callees:
  *     <none>
  */
 
-__int64 ZwCreateKey()
+NTSTATUS __cdecl ZwCreateKey(
+        PHANDLE KeyHandle,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        ULONG TitleIndex,
+        PUNICODE_STRING Class,
+        ULONG CreateOptions,
+        PULONG Disposition)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 29LL;
+  result = 29;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

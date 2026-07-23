@@ -14,37 +14,32 @@
  *     ZwCreateSection @ 0x18009D020 (ZwCreateSection.c)
  */
 
-__int64 __fastcall sub_1800599C4(__int64 a1, __int128 *a2, char a3, _QWORD *a4, _QWORD *a5, _QWORD *a6)
+__int64 __fastcall sub_1800599C4(__int64 a1, const WCHAR **a2, char a3, HANDLE *a4, PVOID *a5, ULONG_PTR *a6)
 {
-  _QWORD *v9; // r15
-  __int64 v10; // rax
-  int v11; // esi
-  int v12; // ebx
-  __int64 v13; // rdi
-  __int64 v14; // rax
-  __int64 v15; // rax
+  PVOID *v9; // r15
+  PIMAGE_NT_HEADERS v10; // rax
+  ULONG Win32Protect; // esi
+  NTSTATUS v12; // ebx
+  PVOID v13; // rdi
+  HANDLE ContainingDirectory; // rax
+  PIMAGE_NT_HEADERS v15; // rax
   int v16; // ecx
-  _QWORD *v17; // rcx
+  ULONG_PTR *v17; // rcx
   __int128 v19; // xmm0
-  __int64 v20; // [rsp+50h] [rbp-69h] BYREF
-  __int64 v21; // [rsp+58h] [rbp-61h] BYREF
-  __int64 v22; // [rsp+60h] [rbp-59h] BYREF
-  __int64 v23; // [rsp+68h] [rbp-51h] BYREF
-  __int128 v24; // [rsp+70h] [rbp-49h] BYREF
-  __int128 v25; // [rsp+80h] [rbp-39h] BYREF
-  __int64 v26; // [rsp+90h] [rbp-29h]
-  int v27; // [rsp+A0h] [rbp-19h] BYREF
-  __int64 v28; // [rsp+A8h] [rbp-11h]
-  __int128 *v29; // [rsp+B0h] [rbp-9h]
-  int v30; // [rsp+B8h] [rbp-1h]
-  __int128 v31; // [rsp+C0h] [rbp+7h]
-  _BYTE v32[16]; // [rsp+D0h] [rbp+17h] BYREF
-  __int64 v33; // [rsp+110h] [rbp+57h] BYREF
+  HANDLE SectionHandle; // [rsp+50h] [rbp-69h] BYREF
+  PVOID BaseOfImage; // [rsp+58h] [rbp-61h] BYREF
+  LARGE_INTEGER SectionOffset; // [rsp+60h] [rbp-59h] BYREF
+  ULONG_PTR ViewSize; // [rsp+68h] [rbp-51h] BYREF
+  PVOID BaseAddress[2]; // [rsp+70h] [rbp-49h] BYREF
+  _RTL_RELATIVE_NAME_U RelativeName; // [rsp+80h] [rbp-39h] BYREF
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+A0h] [rbp-19h] BYREF
+  _IO_STATUS_BLOCK IoStatusBlock; // [rsp+D0h] [rbp+17h] BYREF
+  HANDLE FileHandle; // [rsp+110h] [rbp+57h] BYREF
 
-  v33 = 0LL;
-  v20 = 0LL;
-  v21 = 0LL;
-  v23 = 0LL;
+  FileHandle = 0LL;
+  SectionHandle = 0LL;
+  BaseOfImage = 0LL;
+  ViewSize = 0LL;
   if ( a1 )
   {
     if ( a2 )
@@ -52,66 +47,76 @@ __int64 __fastcall sub_1800599C4(__int64 a1, __int128 *a2, char a3, _QWORD *a4, 
       v9 = a5;
       if ( a5 )
       {
-        v10 = RtlImageNtHeader(a1 & 0xFFFFFFFFFFFFFFFCuLL);
+        v10 = RtlImageNtHeader((PVOID)(a1 & 0xFFFFFFFFFFFFFFFCuLL));
         if ( !v10 )
         {
           v12 = -1073741701;
           goto LABEL_25;
         }
-        v11 = *(_WORD *)(v10 + 72) < 6u ? 8 : 2;
+        Win32Protect = v10->OptionalHeader.MajorSubsystemVersion < 6u ? 8 : 2;
         if ( a3 )
         {
-          v19 = *a2;
+          v19 = *(_OWORD *)a2;
           v13 = 0LL;
-          v26 = 0LL;
-          v27 = 48;
-          v24 = v19;
+          RelativeName.ContainingDirectory = 0LL;
+          ObjectAttributes.Length = 48;
+          *(_OWORD *)BaseAddress = v19;
         }
         else
         {
-          v12 = sub_180025F70(2, *((_QWORD *)a2 + 1), (int)&v24, 0LL, (__int64)&v25);
+          v12 = sub_180025F70(2, a2[1], (int)BaseAddress, 0LL, (__int64)&RelativeName);
           if ( v12 < 0 )
             goto LABEL_25;
-          v13 = *((_QWORD *)&v24 + 1);
-          if ( (_WORD)v25 )
+          v13 = BaseAddress[1];
+          if ( RelativeName.RelativeName.Length )
           {
-            v14 = v26;
-            v24 = v25;
+            ContainingDirectory = RelativeName.ContainingDirectory;
+            *(UNICODE_STRING *)BaseAddress = RelativeName.RelativeName;
           }
           else
           {
-            v14 = 0LL;
-            v26 = 0LL;
+            ContainingDirectory = 0LL;
+            RelativeName.ContainingDirectory = 0LL;
           }
-          v27 = 48;
-          v28 = v14;
+          ObjectAttributes.Length = 48;
+          ObjectAttributes.RootDirectory = ContainingDirectory;
           if ( v13 )
           {
 LABEL_10:
-            v29 = &v24;
-            v30 = 64;
-            v31 = 0LL;
-            v12 = ZwOpenFile(&v33, 1048577LL, &v27, v32, 5, 96);
+            ObjectAttributes.ObjectName = (PUNICODE_STRING)BaseAddress;
+            ObjectAttributes.Attributes = 64;
+            *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+            v12 = ZwOpenFile(&FileHandle, 0x100001u, &ObjectAttributes, &IoStatusBlock, 5u, 0x60u);
             if ( v13 )
             {
-              RtlReleaseRelativeName((__int64)&v25);
-              RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v13);
+              RtlReleaseRelativeName(&RelativeName);
+              RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v13);
             }
             if ( v12 >= 0 )
             {
-              v12 = ZwCreateSection(&v20, 983045LL, 0LL);
+              v12 = ZwCreateSection(&SectionHandle, 0xF0005u, 0LL, 0LL, Win32Protect, 0x8000000u, FileHandle);
               if ( v12 >= 0 )
               {
-                v22 = 0LL;
-                v12 = ZwMapViewOfSection(v20, -1LL, &v21, 0LL, 0LL, &v22, &v23, 1, 0, v11);
-                if ( v20 )
+                SectionOffset.QuadPart = 0LL;
+                v12 = ZwMapViewOfSection(
+                        SectionHandle,
+                        (HANDLE)0xFFFFFFFFFFFFFFFFLL,
+                        &BaseOfImage,
+                        0LL,
+                        0LL,
+                        &SectionOffset,
+                        &ViewSize,
+                        ViewShare,
+                        0,
+                        Win32Protect);
+                if ( SectionHandle )
                 {
-                  ZwClose(v20);
-                  v20 = 0LL;
+                  ZwClose(SectionHandle);
+                  SectionHandle = 0LL;
                 }
                 if ( v12 >= 0 )
                 {
-                  v15 = RtlImageNtHeader(v21);
+                  v15 = RtlImageNtHeader(BaseOfImage);
                   v16 = v12;
                   if ( !v15 )
                     v16 = -1073741701;
@@ -119,16 +124,16 @@ LABEL_10:
                   if ( v16 >= 0 )
                   {
                     v17 = a6;
-                    *v9 = v21;
+                    *v9 = BaseOfImage;
                     if ( v17 )
-                      *v17 = v23;
+                      *v17 = ViewSize;
                     if ( a4 )
                     {
-                      *a4 = v33;
+                      *a4 = FileHandle;
                     }
-                    else if ( v33 )
+                    else if ( FileHandle )
                     {
-                      ZwClose(v33);
+                      ZwClose(FileHandle);
                     }
                     return (unsigned int)v12;
                   }
@@ -136,17 +141,17 @@ LABEL_10:
               }
             }
 LABEL_25:
-            if ( v33 )
+            if ( FileHandle )
             {
-              ZwClose(v33);
-              v33 = 0LL;
+              ZwClose(FileHandle);
+              FileHandle = 0LL;
             }
-            if ( v21 )
-              ZwUnmapViewOfSection(-1LL);
+            if ( BaseOfImage )
+              ZwUnmapViewOfSection((HANDLE)0xFFFFFFFFFFFFFFFFLL, BaseOfImage);
             return (unsigned int)v12;
           }
         }
-        v28 = 0LL;
+        ObjectAttributes.RootDirectory = 0LL;
         goto LABEL_10;
       }
     }

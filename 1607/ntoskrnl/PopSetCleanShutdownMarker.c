@@ -1,12 +1,12 @@
 /*
- * XREFs of PopSetCleanShutdownMarker @ 0x14066A634
+ * XREFs of PopSetCleanShutdownMarker @ 0x14066A718
  * Callers:
  *     PopGracefulShutdown @ 0x1403DEE20 (PopGracefulShutdown.c)
  * Callees:
- *     RtlComputeCrc32 @ 0x14010FFAC (RtlComputeCrc32.c)
- *     RtlGetSetBootStatusData @ 0x140543314 (RtlGetSetBootStatusData.c)
- *     RtlLockBootStatusData @ 0x1405478FC (RtlLockBootStatusData.c)
- *     RtlUnlockBootStatusData @ 0x140547DAC (RtlUnlockBootStatusData.c)
+ *     RtlComputeCrc32 @ 0x140110510 (RtlComputeCrc32.c)
+ *     RtlGetSetBootStatusData @ 0x140543854 (RtlGetSetBootStatusData.c)
+ *     RtlLockBootStatusData @ 0x140547E3C (RtlLockBootStatusData.c)
+ *     RtlUnlockBootStatusData @ 0x1405482EC (RtlUnlockBootStatusData.c)
  */
 
 int PopSetCleanShutdownMarker()

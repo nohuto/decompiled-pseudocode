@@ -4,7 +4,7 @@
  *     RtlpQueryExtendedInformationHeap @ 0x18008B1F0 (RtlpQueryExtendedInformationHeap.c)
  *     RtlpHeapQueryTotalReserveSize @ 0x180100870 (RtlpHeapQueryTotalReserveSize.c)
  * Callees:
- *     RtlpGetLowFragHeapMetadataSize @ 0x180119F14 (RtlpGetLowFragHeapMetadataSize.c)
+ *     RtlpGetLowFragHeapMetadataSize @ 0x180119EE4 (RtlpGetLowFragHeapMetadataSize.c)
  */
 
 __int64 __fastcall RtlpQueryMemoryUsageHeap(__int64 a1, _QWORD *a2, _QWORD *a3)

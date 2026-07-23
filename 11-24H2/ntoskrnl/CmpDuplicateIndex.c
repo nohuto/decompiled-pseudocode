@@ -1,15 +1,15 @@
 /*
- * XREFs of CmpDuplicateIndex @ 0x140A41674
+ * XREFs of CmpDuplicateIndex @ 0x140A36F54
  * Callers:
- *     CmRenameKey @ 0x1407D9068 (CmRenameKey.c)
- *     CmpLightWeightDuplicateParentLists @ 0x140A1F7A8 (CmpLightWeightDuplicateParentLists.c)
+ *     CmRenameKey @ 0x1407D95B8 (CmRenameKey.c)
+ *     CmpLightWeightDuplicateParentLists @ 0x140A148A8 (CmpLightWeightDuplicateParentLists.c)
  * Callees:
- *     HvpGetCellFlat @ 0x140874470 (HvpGetCellFlat.c)
- *     HvpGetCellPaged @ 0x1408744C0 (HvpGetCellPaged.c)
- *     HvpReleaseCellPaged @ 0x140875760 (HvpReleaseCellPaged.c)
- *     HvFreeCell @ 0x140881C04 (HvFreeCell.c)
- *     HvpReleaseCellFlat @ 0x140884BB0 (HvpReleaseCellFlat.c)
- *     HvDuplicateCell @ 0x140A41968 (HvDuplicateCell.c)
+ *     HvpGetCellFlat @ 0x1408787A0 (HvpGetCellFlat.c)
+ *     HvpGetCellPaged @ 0x1408787F0 (HvpGetCellPaged.c)
+ *     HvpReleaseCellPaged @ 0x140879A90 (HvpReleaseCellPaged.c)
+ *     HvFreeCell @ 0x140885AB4 (HvFreeCell.c)
+ *     HvpReleaseCellFlat @ 0x140888A60 (HvpReleaseCellFlat.c)
+ *     HvDuplicateCell @ 0x140A37248 (HvDuplicateCell.c)
  */
 
 __int64 __fastcall CmpDuplicateIndex(ULONG_PTR BugCheckParameter3, ULONG_PTR a2, int a3, unsigned int *a4)

@@ -6,7 +6,7 @@
  *     ZwPowerInformation @ 0x1401A80A0 (ZwPowerInformation.c)
  */
 
-NTSTATUS RtlRestoreSystemBootStatusDefaults()
+NTSTATUS RtlRestoreSystemBootStatusDefaults(void)
 {
   _DWORD v1[4]; // [rsp+30h] [rbp-28h] BYREF
   __int64 v2; // [rsp+40h] [rbp-18h]
@@ -16,5 +16,5 @@ NTSTATUS RtlRestoreSystemBootStatusDefaults()
   v1[0] = 35;
   v1[2] = 0;
   v2 = 0LL;
-  return ZwPowerInformation(SystemPowerStateLogging|0x40, v1, 0x18u, 0LL, 0);
+  return ZwPowerInformation(PowerInformationInternal, v1, 0x18u, 0LL, 0);
 }

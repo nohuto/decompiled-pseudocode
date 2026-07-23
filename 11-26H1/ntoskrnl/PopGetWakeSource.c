@@ -1,13 +1,13 @@
 /*
- * XREFs of PopGetWakeSource @ 0x140B322A4
+ * XREFs of PopGetWakeSource @ 0x140B346F8
  * Callers:
- *     NtPowerInformation @ 0x1409DE3E0 (NtPowerInformation.c)
+ *     NtPowerInformation @ 0x140A1B510 (NtPowerInformation.c)
  * Callees:
- *     KeWaitForSingleObject @ 0x140278560 (KeWaitForSingleObject.c)
- *     PopGetCurrentWakeInfos @ 0x1404F237C (PopGetCurrentWakeInfos.c)
- *     PopDereferenceWakeInfos @ 0x1404FA21C (PopDereferenceWakeInfos.c)
- *     PopCopyWakeSource @ 0x1407CF76C (PopCopyWakeSource.c)
- *     PopWakeSourceSize @ 0x1407CFA58 (PopWakeSourceSize.c)
+ *     KeWaitForSingleObject @ 0x140277AD0 (KeWaitForSingleObject.c)
+ *     PopGetCurrentWakeInfos @ 0x1404EB95C (PopGetCurrentWakeInfos.c)
+ *     PopDereferenceWakeInfos @ 0x1404F382C (PopDereferenceWakeInfos.c)
+ *     PopCopyWakeSource @ 0x1407D280C (PopCopyWakeSource.c)
+ *     PopWakeSourceSize @ 0x1407D2AF8 (PopWakeSourceSize.c)
  */
 
 __int64 __fastcall PopGetWakeSource(_DWORD *a1, unsigned int *a2)
@@ -48,7 +48,7 @@ __int64 __fastcall PopGetWakeSource(_DWORD *a1, unsigned int *a2)
   v4 = a1;
   if ( (_DWORD)v2 && !a1 )
     return 3221225485LL;
-  KeWaitForSingleObject(&stru_140F11D08.Timer.Processor, Executive, 0, 0, 0LL);
+  KeWaitForSingleObject(&PopWakeSourceAvailable, Executive, 0, 0, 0LL);
   CurrentWakeInfos = PopGetCurrentWakeInfos((__int64 *)&v31);
   v7 = CurrentWakeInfos;
   v30 = CurrentWakeInfos;

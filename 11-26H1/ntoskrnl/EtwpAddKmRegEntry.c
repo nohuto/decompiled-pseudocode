@@ -1,10 +1,10 @@
 /*
- * XREFs of EtwpAddKmRegEntry @ 0x14093B68C
+ * XREFs of EtwpAddKmRegEntry @ 0x14091722C
  * Callers:
- *     EtwpRegisterKMProvider @ 0x14093B298 (EtwpRegisterKMProvider.c)
+ *     EtwpRegisterKMProvider @ 0x140916E38 (EtwpRegisterKMProvider.c)
  * Callees:
- *     EtwpInitializeRegEntry @ 0x1409371A4 (EtwpInitializeRegEntry.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
+ *     EtwpInitializeRegEntry @ 0x140912D44 (EtwpInitializeRegEntry.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall EtwpAddKmRegEntry(ULONG_PTR a1, int a2, __int64 a3, __int64 a4, __int64 *a5)

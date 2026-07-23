@@ -1,14 +1,14 @@
 /*
- * XREFs of ObpAssignSecurity @ 0x140857F90
+ * XREFs of ObpAssignSecurity @ 0x140854270
  * Callers:
- *     ObpInsertOrLocateNamedObject @ 0x1409E45C0 (ObpInsertOrLocateNamedObject.c)
- *     ObAssignSecurity @ 0x140AA1EC0 (ObAssignSecurity.c)
+ *     ObpInsertOrLocateNamedObject @ 0x1409DF020 (ObpInsertOrLocateNamedObject.c)
+ *     ObAssignSecurity @ 0x140A9D250 (ObAssignSecurity.c)
  * Callees:
- *     SeComputeAutoInheritByObjectTypeEx @ 0x140428F20 (SeComputeAutoInheritByObjectTypeEx.c)
- *     SeAssignSecurityEx2 @ 0x1404325B0 (SeAssignSecurityEx2.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     SeDefaultObjectMethod @ 0x140858190 (SeDefaultObjectMethod.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     SeComputeAutoInheritByObjectTypeEx @ 0x14041D070 (SeComputeAutoInheritByObjectTypeEx.c)
+ *     SeAssignSecurityEx2 @ 0x140424AE0 (SeAssignSecurityEx2.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     SeDefaultObjectMethod @ 0x140854470 (SeDefaultObjectMethod.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall ObpAssignSecurity(__int64 a1, __int64 a2, __int64 a3, POBJECT_TYPE a4, int a5, char a6)
@@ -78,7 +78,7 @@ __int64 __fastcall ObpAssignSecurity(__int64 a1, __int64 a2, __int64 a3, POBJECT
         if ( (__int64 (__fastcall *)(_QWORD, _QWORD, _QWORD, _QWORD, _QWORD, _QWORD, _DWORD, _QWORD, _DWORD))a4->TypeInfo.SecurityProcedure == SeDefaultObjectMethod )
           v16 = SeDefaultObjectMethod(a3, 3LL, 0LL, v20, 0LL, 0LL, 1, &a4->TypeInfo.GenericMapping, v18);
         else
-          v16 = guard_dispatch_icall_no_overrides(a3, 3LL, 0LL, v20);
+          v16 = guard_dispatch_icall_no_overrides(a3, 3LL);
         v17 = v16;
         if ( v16 < 0 )
         {

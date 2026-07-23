@@ -47,7 +47,7 @@ __int64 __fastcall MmCreatePeb(_QWORD *a1, __int64 a2, _QWORD *a3, _QWORD *a4)
   __int64 v32; // [rsp+70h] [rbp-158h] BYREF
   __int64 v33; // [rsp+78h] [rbp-150h] BYREF
   __int64 v34; // [rsp+80h] [rbp-148h] BYREF
-  struct _IMAGE_NT_HEADERS64 *v35; // [rsp+88h] [rbp-140h]
+  _IMAGE_NT_HEADERS64 *v35; // [rsp+88h] [rbp-140h]
   _QWORD v36[20]; // [rsp+90h] [rbp-138h] BYREF
   ULONG Size; // [rsp+130h] [rbp-98h] BYREF
   _WORD *v38; // [rsp+138h] [rbp-90h]

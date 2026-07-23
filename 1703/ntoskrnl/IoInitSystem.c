@@ -11,7 +11,7 @@
  *     IoInitSystemPreDrivers @ 0x1407FD20C (IoInitSystemPreDrivers.c)
  */
 
-char __fastcall IoInitSystem(__int64 a1)
+char __fastcall IoInitSystem(_QWORD *a1)
 {
   if ( !IoInitSystemPreDrivers(a1) )
     return 0;

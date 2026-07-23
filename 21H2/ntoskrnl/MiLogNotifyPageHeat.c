@@ -1,11 +1,11 @@
 /*
- * XREFs of MiLogNotifyPageHeat @ 0x14055F678
+ * XREFs of MiLogNotifyPageHeat @ 0x14055F8B8
  * Callers:
- *     MiNotifyPageHeat @ 0x14055FDC4 (MiNotifyPageHeat.c)
+ *     MiNotifyPageHeat @ 0x140560004 (MiNotifyPageHeat.c)
  * Callees:
- *     _tlgKeywordOn @ 0x1402605BC (_tlgKeywordOn.c)
- *     _tlgWriteEx_EtwWriteEx @ 0x1402D2F3C (_tlgWriteEx_EtwWriteEx.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     _tlgWriteEx_EtwWriteEx @ 0x1402514DC (_tlgWriteEx_EtwWriteEx.c)
+ *     _tlgKeywordOn @ 0x1402864F4 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
@@ -67,10 +67,10 @@ void __fastcall MiLogNotifyPageHeat(_DWORD *a1)
   int v54; // [rsp+19Ch] [rbp-2Ch]
 
   v1 = a1;
-  if ( *(_QWORD *)&qword_140C4EEE0 )
+  if ( *(_QWORD *)&qword_140C4EF20 )
   {
     v2 = 64LL;
-    if ( !**(_DWORD **)&qword_140C4EEE0 || (v3 = tlgKeywordOn(*(__int64 *)&qword_140C4EEE0, 64LL) == 0, v4 = 1, v3) )
+    if ( !**(_DWORD **)&qword_140C4EF20 || (v3 = tlgKeywordOn(*(__int64 *)&qword_140C4EF20, 64LL) == 0, v4 = 1, v3) )
       v4 = 0;
     if ( v4 )
     {
@@ -108,10 +108,10 @@ void __fastcall MiLogNotifyPageHeat(_DWORD *a1)
       }
       if ( *v1 )
       {
-        if ( **(_DWORD **)&qword_140C4EEE0 <= 5u || !tlgKeywordOn(*(__int64 *)&qword_140C4EEE0, v2) )
+        if ( **(_DWORD **)&qword_140C4EF20 <= 5u || !tlgKeywordOn(*(__int64 *)&qword_140C4EF20, v2) )
           goto LABEL_23;
         v19 = *v5;
-        v16 = (int *)&word_140026D3E;
+        v16 = (int *)&word_140026DFE;
         v29 = *(_DWORD *)(v18 + 4);
         v40 = &v29;
         v42 = &v34;
@@ -137,10 +137,10 @@ void __fastcall MiLogNotifyPageHeat(_DWORD *a1)
       }
       else
       {
-        if ( **(_DWORD **)&qword_140C4EEE0 <= 5u || !tlgKeywordOn(*(__int64 *)&qword_140C4EEE0, v2) )
+        if ( **(_DWORD **)&qword_140C4EF20 <= 5u || !tlgKeywordOn(*(__int64 *)&qword_140C4EF20, v2) )
           goto LABEL_23;
         v15 = *v5;
-        v16 = &dword_140026DC4;
+        v16 = &dword_140026E84;
         v26 = *(_DWORD *)(v14 + 4);
         v36[4] = (__int64)&v26;
         v36[6] = (__int64)&v32;

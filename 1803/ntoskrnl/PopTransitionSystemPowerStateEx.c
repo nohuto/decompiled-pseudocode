@@ -124,61 +124,52 @@ NTSTATUS __fastcall PopTransitionSystemPowerStateEx(__int64 a1)
   unsigned int v22; // ecx
   __int64 v23; // rcx
   __int64 v24; // rcx
-  __int64 v25; // rdx
-  __int64 v26; // rcx
-  __int64 v27; // r8
-  int v28; // eax
+  int v25; // eax
   int HiberContext; // eax
-  __int64 v30; // rcx
-  __int64 v31; // rcx
+  __int64 v27; // rcx
+  __int64 v28; // rcx
   int inited; // eax
-  __int64 v33; // r10
-  _DWORD *v34; // r9
-  __int64 *v35; // rsi
-  int v36; // r8d
-  int v37; // ecx
-  int v38; // r8d
-  int v39; // ecx
-  __int64 v40; // rcx
-  __int64 v41; // rdx
-  __int64 v42; // rcx
-  __int64 v43; // r8
-  __int64 v44; // rdx
-  __int64 v45; // rcx
-  __int64 v46; // r8
-  void *v47; // rcx
-  __int64 v48; // rcx
-  __int64 v49; // rdx
-  __int64 v50; // rcx
-  __int64 v51; // r8
-  __int64 v52; // r9
-  int v54; // edx
+  __int64 v30; // r10
+  _DWORD *v31; // r9
+  __int64 *v32; // rsi
+  int v33; // r8d
+  int v34; // ecx
+  int v35; // r8d
+  int v36; // ecx
+  __int64 v37; // rcx
+  void *v38; // rcx
+  __int64 v39; // rcx
+  __int64 v40; // rdx
+  __int64 v41; // rcx
+  __int64 v42; // r8
+  __int64 v43; // r9
+  int v45; // edx
   char NextSystemPowerState; // al
-  __int64 v56; // r9
-  __int64 v57; // rdx
-  __int64 v58; // rcx
-  __int64 v59; // rdx
-  __int64 v60; // rcx
-  __int64 v61; // rdx
-  __int64 *v62; // rax
-  _DWORD *v63; // rdx
-  __int64 *v64; // rcx
-  unsigned __int64 v65; // rcx
-  __int64 *v66; // rsi
-  __int64 *v67; // r14
+  __int64 v47; // r9
+  __int64 v48; // rdx
+  __int64 v49; // rcx
+  __int64 v50; // rdx
+  __int64 v51; // rcx
+  __int64 v52; // rdx
+  __int64 *v53; // rax
+  _DWORD *v54; // rdx
+  __int64 *v55; // rcx
+  unsigned __int64 v56; // rcx
+  __int64 *v57; // rsi
+  __int64 *v58; // r14
   char NextWakeTime; // al
-  int v69; // eax
-  char v70; // al
-  __int64 v71; // rax
+  int v60; // eax
+  char v61; // al
+  __int64 v62; // rax
   UNICODE_STRING DestinationString; // [rsp+40h] [rbp-40h] BYREF
-  int v73; // [rsp+50h] [rbp-30h] BYREF
-  char *v74; // [rsp+58h] [rbp-28h]
-  int v75; // [rsp+60h] [rbp-20h]
-  int v76; // [rsp+68h] [rbp-18h]
-  unsigned __int64 v77; // [rsp+70h] [rbp-10h]
-  int v78; // [rsp+78h] [rbp-8h]
-  char v79; // [rsp+C0h] [rbp+40h] BYREF
-  int v80; // [rsp+C8h] [rbp+48h]
+  int v64; // [rsp+50h] [rbp-30h] BYREF
+  char *v65; // [rsp+58h] [rbp-28h]
+  int v66; // [rsp+60h] [rbp-20h]
+  int v67; // [rsp+68h] [rbp-18h]
+  unsigned __int64 v68; // [rsp+70h] [rbp-10h]
+  int v69; // [rsp+78h] [rbp-8h]
+  char v70; // [rsp+C0h] [rbp+40h] BYREF
+  int v71; // [rsp+C8h] [rbp+48h]
 
   v1 = 0;
   v2 = (_DWORD *)(a1 + 232);
@@ -207,7 +198,7 @@ NTSTATUS __fastcall PopTransitionSystemPowerStateEx(__int64 a1)
   if ( (unsigned int)(*(_DWORD *)(a1 + 4) - 1) > 5 )
     return -1073741811;
   v6 = *(_DWORD *)a1;
-  v80 = 6;
+  v71 = 6;
   if ( (unsigned int)(v6 - 1) > 6
     || (*(_DWORD *)(a1 + 8) & 0xCFFFFC0) != 0
     || dword_1403AA074 >= 16 && v6 < PowerActionShutdown )
@@ -413,11 +404,11 @@ LABEL_43:
         LOBYTE(v24) = *v14;
         PopDiagTraceKernelQueriesAllowed(v24);
         if ( !*v14
-          || (v28 = PopSetDevicesSystemState(v26, v25, v27),
+          || (v25 = PopSetDevicesSystemState(),
               v20 = 0x80000000LL,
-              *(_DWORD *)(a1 + 104) = v28,
-              (int)(v28 + 0x80000000) < 0)
-          || v28 == -1073741536 )
+              *(_DWORD *)(a1 + 104) = v25,
+              (int)(v25 + 0x80000000) < 0)
+          || v25 == -1073741536 )
         {
           if ( *(int *)(a1 + 104) >= 0 )
           {
@@ -446,19 +437,19 @@ LABEL_43:
               }
               PopEsEnterSleepShutdown();
               PopForceCompleteCsSleepStudySession(dword_1403AA074);
-              PopThermalSxEntry(v30);
+              PopThermalSxEntry(v27);
               if ( !*(_BYTE *)(a1 + 24) )
               {
                 if ( byte_1403AA062 )
                 {
-                  v79 = 1;
-                  v73 = 5;
-                  v75 = 1;
-                  v74 = &v79;
-                  v76 = 11;
-                  v77 = 0xFFFFF780000002C4uLL;
-                  v78 = 4;
-                  RtlSetSystemBootStatusEx(&v73, 2LL, 0LL);
+                  v70 = 1;
+                  v64 = 5;
+                  v66 = 1;
+                  v65 = &v70;
+                  v67 = 11;
+                  v68 = 0xFFFFF780000002C4uLL;
+                  v69 = 4;
+                  RtlSetSystemBootStatusEx(&v64, 2LL, 0LL);
                 }
                 *(_BYTE *)(a1 + 24) = 1;
               }
@@ -482,9 +473,9 @@ LABEL_43:
                 KeSuspendThread((__int64)KeGetCurrentThread());
                 return -1073741077;
               }
-              v31 = *(unsigned int *)(a1 + 68);
+              v28 = *(unsigned int *)(a1 + 68);
               KeMtrrComparisonFailed = 0;
-              inited = PopInitSystemSleeperThread(v31, a1 + 264);
+              inited = PopInitSystemSleeperThread(v28, a1 + 264);
               *(_DWORD *)(a1 + 104) = inited;
               if ( inited >= 0 )
               {
@@ -494,18 +485,18 @@ LABEL_43:
                   byte_1403AA110 = 1;
                 }
                 *(_QWORD *)(a1 + 192) = MEMORY[0xFFFFF78000000008];
-                v33 = MEMORY[0xFFFFF78000000014];
-                v34 = PopPolicy;
+                v30 = MEMORY[0xFFFFF78000000014];
+                v31 = PopPolicy;
                 *(_QWORD *)(a1 + 200) = MEMORY[0xFFFFF78000000014];
                 *(_QWORD *)(a1 + 224) = 0LL;
-                if ( v34[22]
+                if ( v31[22]
                   && dword_1403AA080 != 5
                   && (unsigned __int8)PopIsDozeSupported(&PopCapabilities)
                   && (dword_1403AA06C & 0x40000000) == 0 )
                 {
-                  v57 = *(_QWORD *)(a1 + 192);
-                  *(_QWORD *)(a1 + 216) = v57;
-                  v58 = v57 + 10000000LL * *(unsigned int *)(v56 + 88);
+                  v48 = *(_QWORD *)(a1 + 192);
+                  *(_QWORD *)(a1 + 216) = v48;
+                  v49 = v48 + 10000000LL * *(unsigned int *)(v47 + 88);
                   *(_QWORD *)(a1 + 224) = -1LL;
                   goto LABEL_142;
                 }
@@ -515,19 +506,19 @@ LABEL_43:
                   && qword_1403A9FA8
                   && ((dword_1403AA074 - 11) & 0xFFFFFFFD) == 0 )
                 {
-                  v59 = qword_1403A9FA8 - v33;
-                  *(_QWORD *)(a1 + 352) = qword_1403A9FA8 - v33;
-                  v60 = -10000000LL * (unsigned int)PopSmartUserPresenceWakeOffset;
+                  v50 = qword_1403A9FA8 - v30;
+                  *(_QWORD *)(a1 + 352) = qword_1403A9FA8 - v30;
+                  v51 = -10000000LL * (unsigned int)PopSmartUserPresenceWakeOffset;
                   *(_QWORD *)(a1 + 224) = -2LL;
-                  v61 = v60 + v59;
-                  v58 = v61 + *(_QWORD *)(a1 + 192);
-                  *(_QWORD *)(a1 + 352) = v61;
+                  v52 = v51 + v50;
+                  v49 = v52 + *(_QWORD *)(a1 + 192);
+                  *(_QWORD *)(a1 + 352) = v52;
 LABEL_142:
-                  *(_QWORD *)(a1 + 216) = v58;
+                  *(_QWORD *)(a1 + 216) = v49;
                 }
                 if ( *(_QWORD *)(a1 + 224) == -1LL && !qword_1403AA120 )
                   qword_1403AA120 = *(_QWORD *)(a1 + 192);
-                v35 = &qword_1403AA0C8;
+                v32 = &qword_1403AA0C8;
                 memset(&qword_1403AA0C8, 0, 0x48uLL);
                 dword_1403AA0C0 = 3;
                 if ( byte_1403AA1C0 || dword_1403AA074 == 14 )
@@ -537,20 +528,20 @@ LABEL_142:
                   PopQueryPowerSettingUlong(&GUID_LEGACY_RTC_MITIGATION, v2, v4);
                   if ( *v2 || *v4 )
                   {
-                    v62 = qword_1403AA0D0;
+                    v53 = qword_1403AA0D0;
                     do
                     {
-                      *v62 = 0LL;
-                      v62 += 3;
+                      *v53 = 0LL;
+                      v53 += 3;
                     }
-                    while ( (__int64)v62 < (__int64)&qword_1403AA100 );
+                    while ( (__int64)v53 < (__int64)&qword_1403AA100 );
                   }
                 }
                 if ( *(_QWORD *)(a1 + 216) )
                 {
                   if ( *(_QWORD *)(a1 + 224) == -2LL )
                   {
-                    v63 = (_DWORD *)(a1 + 360);
+                    v54 = (_DWORD *)(a1 + 360);
                     if ( *(_DWORD *)(a1 + 360) )
                     {
                       qword_1403AA0C8 = *(_QWORD *)(a1 + 216);
@@ -562,56 +553,56 @@ LABEL_142:
                       qword_1403AA0F0 = *(_QWORD *)(a1 + 224);
                     }
 LABEL_161:
-                    v65 = qword_1403AA118;
+                    v56 = qword_1403AA118;
                     *(_QWORD *)(a1 + 80) = qword_1403AA118;
-                    if ( v65 )
+                    if ( v56 )
                     {
-                      if ( v65 < *(_QWORD *)(a1 + 192) + 20000000LL )
-                        v65 = *(_QWORD *)(a1 + 192) + 20000000LL;
-                      *(_QWORD *)(a1 + 80) = v65;
+                      if ( v56 < *(_QWORD *)(a1 + 192) + 20000000LL )
+                        v56 = *(_QWORD *)(a1 + 192) + 20000000LL;
+                      *(_QWORD *)(a1 + 80) = v56;
                     }
-                    if ( *v63 )
+                    if ( *v54 )
                     {
-                      if ( *v63 != 2 || (LOBYTE(v36) = 1, PopSimulate < 0) )
-                        LOBYTE(v36) = 0;
-                      *(_BYTE *)(a1 + 208) = v36;
-                      v66 = (__int64 *)(a1 + 56);
-                      v67 = (__int64 *)(a1 + 240);
+                      if ( *v54 != 2 || (LOBYTE(v33) = 1, PopSimulate < 0) )
+                        LOBYTE(v33) = 0;
+                      *(_BYTE *)(a1 + 208) = v33;
+                      v57 = (__int64 *)(a1 + 56);
+                      v58 = (__int64 *)(a1 + 240);
                       NextWakeTime = ExGetNextWakeTime(
                                        (unsigned int)*(_QWORD *)(a1 + 80) + 1,
                                        *(_QWORD *)(a1 + 216),
-                                       v36,
+                                       v33,
                                        (int)a1 + 56,
                                        a1 + 240);
                       *(_BYTE *)(a1 + 368) = NextWakeTime;
                       if ( NextWakeTime )
                       {
-                        qword_1403AA0C8 = *v66;
-                        qword_1403AA0D8[0] = *v67;
+                        qword_1403AA0C8 = *v57;
+                        qword_1403AA0D8[0] = *v58;
                       }
                     }
                     else
                     {
-                      v66 = (__int64 *)(a1 + 56);
-                      v67 = (__int64 *)(a1 + 240);
+                      v57 = (__int64 *)(a1 + 56);
+                      v58 = (__int64 *)(a1 + 240);
                     }
-                    v69 = *(_DWORD *)(a1 + 364);
-                    if ( v69 )
+                    v60 = *(_DWORD *)(a1 + 364);
+                    if ( v60 )
                     {
-                      if ( v69 != 2 || (LOBYTE(v36) = 1, PopSimulate < 0) )
-                        LOBYTE(v36) = 0;
-                      *(_BYTE *)(a1 + 208) = v36;
-                      v70 = ExGetNextWakeTime(
+                      if ( v60 != 2 || (LOBYTE(v33) = 1, PopSimulate < 0) )
+                        LOBYTE(v33) = 0;
+                      *(_BYTE *)(a1 + 208) = v33;
+                      v61 = ExGetNextWakeTime(
                               (unsigned int)*(_QWORD *)(a1 + 80) + 1,
                               *(_QWORD *)(a1 + 216),
-                              v36,
-                              (_DWORD)v66,
-                              (__int64)v67);
-                      *(_BYTE *)(a1 + 368) = v70;
-                      if ( v70 )
+                              v33,
+                              (_DWORD)v57,
+                              (__int64)v58);
+                      *(_BYTE *)(a1 + 368) = v61;
+                      if ( v61 )
                       {
-                        qword_1403AA0E0 = *v66;
-                        qword_1403AA0F0 = *v67;
+                        qword_1403AA0E0 = *v57;
+                        qword_1403AA0F0 = *v58;
                       }
                     }
 LABEL_64:
@@ -630,7 +621,7 @@ LABEL_64:
                     qword_1403AA490 = KeQueryPerformanceCounter(0LL).QuadPart;
                     ExUpdateSystemTimeFromCmos(1, 1u);
                     ((void (__fastcall *)(__int64, __int64))off_1403986A0)(qword_1403AA0D0[0], qword_1403AA0E8);
-                    ((void (*)(void))PopSetDevicesSystemState)();
+                    PopSetDevicesSystemState();
                     PopNewWakeInfo();
                     *(_QWORD *)(a1 + 344) = MEMORY[0xFFFFF78000000008];
                     *(_DWORD *)(a1 + 148) = dword_1403AAA2C;
@@ -640,10 +631,10 @@ LABEL_64:
                     qword_1403AA250 = 0LL;
                     *(_DWORD *)(a1 + 104) = *(_DWORD *)(a1 + 340);
                     PpmCheckResumePpmEngineFromSx();
-                    v37 = dword_1403AA080;
+                    v34 = dword_1403AA080;
                     if ( PoResumeFromHibernate )
-                      v37 = dword_1403AA088;
-                    dword_1403AA08C = v37;
+                      v34 = dword_1403AA088;
+                    dword_1403AA08C = v34;
                     if ( (*(_DWORD *)(a1 + 8) & 8) != 0 )
                     {
                       *(_DWORD *)(a1 + 44) = 6;
@@ -651,15 +642,15 @@ LABEL_64:
                     else
                     {
                       *(_DWORD *)(a1 + 44) = dword_1403AA080;
-                      v80 = dword_1403AA080;
+                      v71 = dword_1403AA080;
                     }
-                    v38 = dword_1403AA08C;
-                    v39 = v80;
+                    v35 = dword_1403AA08C;
+                    v36 = v71;
                     *(_DWORD *)(a1 + 40) = dword_1403AA08C;
                     PopDiagTracePostSleepNotification(
-                      v39,
+                      v36,
                       dword_1403AA088,
-                      v38,
+                      v35,
                       qword_1403AA0D0[0],
                       qword_1403AA0E8,
                       qword_1403AA0D8[0],
@@ -683,15 +674,15 @@ LABEL_73:
                     {
                       qword_1403AA0B0 = *(_QWORD *)(a1 + 344);
                       ExUpdateSystemTimeFromCmos(1, 1u);
-                      LOBYTE(v40) = 1;
-                      if ( ((unsigned __int8 (__fastcall *)(__int64))off_140398A28[0])(v40) )
-                        ZwUpdateWnfStateData((__int64)&WNF_BOOT_INVALID_TIME_SOURCE, 0LL, 0LL);
+                      LOBYTE(v37) = 1;
+                      if ( ((unsigned __int8 (__fastcall *)(__int64))off_140398A28[0])(v37) )
+                        ZwUpdateWnfStateData(&WNF_BOOT_INVALID_TIME_SOURCE, 0LL, 0, 0LL, 0LL, 0, 0);
                       qword_1403AA4A8 = KeQueryPerformanceCounter(0LL).QuadPart;
                       PfPowerActionNotify(2LL, 0LL, 0LL);
                       qword_1403AA0A8 = MEMORY[0xFFFFF78000000008];
                       PopDiagComputeEarlyHiberStats();
                       if ( *(_DWORD *)(a1 + 40) == 4 )
-                        PopDiagTraceFirmwareS3Stats(v42, v41, v43);
+                        PopDiagTraceFirmwareS3Stats();
                     }
                     byte_1403AA07D = 1;
                     PoPowerDownActionInProgress = 0;
@@ -700,13 +691,13 @@ LABEL_73:
                     if ( qword_1403AA098 )
                     {
                       PfPowerActionNotify(3LL, 0LL, 0LL);
-                      PopSetDevicesSystemState(v45, v44, v46);
+                      PopSetDevicesSystemState();
                       PfPowerActionNotify(3LL, 1LL, 0LL);
                     }
-                    v47 = *(void **)(a1 + 240);
-                    if ( v47 )
+                    v38 = *(void **)(a1 + 240);
+                    if ( v38 )
                     {
-                      ExDeleteWakeTimerInfo(v47);
+                      ExDeleteWakeTimerInfo(v38);
                       *(_QWORD *)(a1 + 240) = 0LL;
                     }
                     ((void (__fastcall *)(_QWORD, _QWORD))off_1403986A0)(0LL, 0LL);
@@ -736,7 +727,7 @@ LABEL_73:
                     PopSpoilEstimatesOnPowerStateTransitionWorkItem.WorkerRoutine = (void (__fastcall *)(void *))PopSpoilEstimatesOnPowerStateTransitionWorker;
                     PopSpoilEstimatesOnPowerStateTransitionWorkItem.List.Flink = 0LL;
                     ExQueueWorkItem(&PopSpoilEstimatesOnPowerStateTransitionWorkItem, DelayedWorkQueue);
-                    PopThermalSxExit(v48);
+                    PopThermalSxExit(v39);
                     if ( !*(_BYTE *)(a1 + 64) )
                     {
                       PopAcquirePolicyLock();
@@ -745,18 +736,18 @@ LABEL_73:
                     if ( *(int *)(a1 + 104) < 0 )
                       goto LABEL_90;
                     PopInitSIdle(1LL);
-                    v52 = dword_1403AA0C0;
+                    v43 = dword_1403AA0C0;
                     PopAction = 0;
                     if ( (unsigned __int64)dword_1403AA0C0 >= 3 )
                       goto LABEL_90;
-                    v50 = 0x140000000uLL;
-                    v52 = 3LL * dword_1403AA0C0;
+                    v41 = 0x140000000uLL;
+                    v43 = 3LL * dword_1403AA0C0;
                     qword_1403AA118 = qword_1403AA0D0[3 * dword_1403AA0C0];
-                    v71 = qword_1403AA0D8[3 * dword_1403AA0C0];
+                    v62 = qword_1403AA0D8[3 * dword_1403AA0C0];
                     PopFullWake = 0;
                     PopPendingUserPresenceDuringSystemSleep = 0;
                     PopPendingUserPresenceMonitorOnReason = 0;
-                    if ( v71 == -1 )
+                    if ( v62 == -1 )
                     {
                       if ( (unsigned __int8)PopDeferDoze(
                                               *(unsigned int *)(a1 + 360),
@@ -769,7 +760,7 @@ LABEL_73:
                     }
                     else
                     {
-                      if ( v71 == -2 )
+                      if ( v62 == -2 )
                       {
                         if ( !qword_1403AA0B8 )
                           qword_1403AA0B8 = qword_1403AA0A8;
@@ -786,7 +777,7 @@ LABEL_73:
 LABEL_90:
                         if ( byte_1403AA110 && *(_BYTE *)(a1 + 256) )
                         {
-                          ExWakeTimersResume(v50, v49, v51, v52);
+                          ExWakeTimersResume(v41, v40, v42, v43);
                           byte_1403AA110 = 0;
                           qword_1403AA118 = 0LL;
                         }
@@ -817,19 +808,19 @@ LABEL_90:
                   }
                   do
                   {
-                    *v35 = *(_QWORD *)(a1 + 216);
-                    v35 += 3;
+                    *v32 = *(_QWORD *)(a1 + 216);
+                    v32 += 3;
                   }
-                  while ( (__int64)v35 < (__int64)&qword_1403AA0F8 );
-                  v64 = qword_1403AA0D8;
+                  while ( (__int64)v32 < (__int64)&qword_1403AA0F8 );
+                  v55 = qword_1403AA0D8;
                   do
                   {
-                    *v64 = *(_QWORD *)(a1 + 224);
-                    v64 += 3;
+                    *v55 = *(_QWORD *)(a1 + 224);
+                    v55 += 3;
                   }
-                  while ( (__int64)v64 < (__int64)&qword_1403AA108 );
+                  while ( (__int64)v55 < (__int64)&qword_1403AA108 );
                 }
-                v63 = (_DWORD *)(a1 + 360);
+                v54 = (_DWORD *)(a1 + 360);
                 goto LABEL_161;
               }
             }
@@ -858,10 +849,10 @@ LABEL_130:
     }
     else
     {
-      v54 = -2147483599;
+      v45 = -2147483599;
       if ( v9 != PowerActionShutdownReset )
-        v54 = -1073741077;
-      *(_DWORD *)(a1 + 32) = v54;
+        v45 = -1073741077;
+      *(_DWORD *)(a1 + 32) = v45;
       PsTerminateServerSilo(*(_QWORD *)(a1 + 96));
     }
     *(_DWORD *)(a1 + 104) = v1;

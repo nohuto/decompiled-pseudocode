@@ -1,22 +1,22 @@
 /*
- * XREFs of RegistryCallback @ 0x140464700
+ * XREFs of RegistryCallback @ 0x1404635D0
  * Callers:
  *     <none>
  * Callees:
- *     EtwActivityIdControl @ 0x1400A0BF4 (EtwActivityIdControl.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
+ *     EtwActivityIdControl @ 0x14009F51C (EtwActivityIdControl.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
- *     VrpShouldOperateOnCall @ 0x140464780 (VrpShouldOperateOnCall.c)
- *     VrpFreeKeyContext @ 0x140612F08 (VrpFreeKeyContext.c)
- *     VrpPostEnumerateKey @ 0x140614D90 (VrpPostEnumerateKey.c)
- *     VrpPostOpenOrCreate @ 0x140615588 (VrpPostOpenOrCreate.c)
- *     VrpPostQueryKey @ 0x140615828 (VrpPostQueryKey.c)
- *     VrpPostUnloadKey @ 0x140615BC8 (VrpPostUnloadKey.c)
- *     VrpPreFlushKey @ 0x140615C38 (VrpPreFlushKey.c)
- *     VrpPreLoadKey @ 0x140615D08 (VrpPreLoadKey.c)
- *     VrpPreOpenOrCreate @ 0x1406163E4 (VrpPreOpenOrCreate.c)
- *     VrpPreQueryKeyName @ 0x140616708 (VrpPreQueryKeyName.c)
- *     VrpPreUnloadKey @ 0x140616948 (VrpPreUnloadKey.c)
+ *     VrpShouldOperateOnCall @ 0x140463650 (VrpShouldOperateOnCall.c)
+ *     VrpFreeKeyContext @ 0x140612FBC (VrpFreeKeyContext.c)
+ *     VrpPostEnumerateKey @ 0x140614E44 (VrpPostEnumerateKey.c)
+ *     VrpPostOpenOrCreate @ 0x14061563C (VrpPostOpenOrCreate.c)
+ *     VrpPostQueryKey @ 0x1406158DC (VrpPostQueryKey.c)
+ *     VrpPostUnloadKey @ 0x140615C7C (VrpPostUnloadKey.c)
+ *     VrpPreFlushKey @ 0x140615CEC (VrpPreFlushKey.c)
+ *     VrpPreLoadKey @ 0x140615DBC (VrpPreLoadKey.c)
+ *     VrpPreOpenOrCreate @ 0x140616498 (VrpPreOpenOrCreate.c)
+ *     VrpPreQueryKeyName @ 0x1406167BC (VrpPreQueryKeyName.c)
+ *     VrpPreUnloadKey @ 0x1406169FC (VrpPreUnloadKey.c)
  */
 
 __int64 __fastcall RegistryCallback(PVOID CallbackContext, PVOID Argument1, PVOID Argument2)

@@ -1,16 +1,16 @@
 /*
- * XREFs of ZwCommitEnlistment @ 0x1800A1570
+ * XREFs of ZwCommitEnlistment @ 0x1800A1590
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 ZwCommitEnlistment()
+NTSTATUS __cdecl ZwCommitEnlistment(HANDLE EnlistmentHandle, PLARGE_INTEGER TmVirtualClock)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 149LL;
+  result = 149;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

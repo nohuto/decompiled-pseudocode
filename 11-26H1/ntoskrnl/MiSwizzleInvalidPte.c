@@ -1,22 +1,22 @@
 /*
- * XREFs of MiSwizzleInvalidPte @ 0x1402D0130
+ * XREFs of MiSwizzleInvalidPte @ 0x1402B1EF0
  * Callers:
- *     MiSharedInsertPfnChainInList @ 0x1402CE100 (MiSharedInsertPfnChainInList.c)
- *     MiEmptyPageAccessLog @ 0x1402CFDDC (MiEmptyPageAccessLog.c)
- *     MiUnmapFrameBuffer @ 0x140312AA4 (MiUnmapFrameBuffer.c)
- *     MiInitializeTransitionPfn @ 0x14036A9A4 (MiInitializeTransitionPfn.c)
- *     MiMakeSubsectionPte @ 0x1404B5EF8 (MiMakeSubsectionPte.c)
- *     MiInitializeMdlBatchPages @ 0x14050EE1C (MiInitializeMdlBatchPages.c)
+ *     MiSharedInsertPfnChainInList @ 0x1402AFEC0 (MiSharedInsertPfnChainInList.c)
+ *     MiEmptyPageAccessLog @ 0x1402B1B9C (MiEmptyPageAccessLog.c)
+ *     MiUnmapFrameBuffer @ 0x140314AD4 (MiUnmapFrameBuffer.c)
+ *     MiInitializeTransitionPfn @ 0x14036C744 (MiInitializeTransitionPfn.c)
+ *     MiMakeSubsectionPte @ 0x1404AF348 (MiMakeSubsectionPte.c)
+ *     MiInitializeMdlBatchPages @ 0x14050888C (MiInitializeMdlBatchPages.c)
  * Callees:
  *     <none>
  */
 
 __int64 __fastcall MiSwizzleInvalidPte(__int64 a1)
 {
-  if ( qword_140E2D740 )
+  if ( qword_140E2D8C0 )
   {
-    if ( (qword_140E2D740 & a1) == 0 )
-      return a1 | qword_140E2D740;
+    if ( (qword_140E2D8C0 & a1) == 0 )
+      return a1 | qword_140E2D8C0;
     return a1 | 0x10;
   }
   return a1;

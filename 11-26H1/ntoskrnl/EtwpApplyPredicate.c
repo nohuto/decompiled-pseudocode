@@ -1,18 +1,18 @@
 /*
- * XREFs of EtwpApplyPredicate @ 0x1406C966C
+ * XREFs of EtwpApplyPredicate @ 0x1406CD64C
  * Callers:
- *     EtwpApplyPayloadFilterInternal @ 0x1406C8DE8 (EtwpApplyPayloadFilterInternal.c)
+ *     EtwpApplyPayloadFilterInternal @ 0x1406CCDC8 (EtwpApplyPayloadFilterInternal.c)
  * Callees:
- *     RtlCopyFromUser @ 0x140533E38 (RtlCopyFromUser.c)
- *     wcsncmp @ 0x1405381A0 (wcsncmp.c)
- *     EtwpGetFieldValue @ 0x1406C9BF8 (EtwpGetFieldValue.c)
- *     EtwpGetSignedFieldValue @ 0x1406C9C8C (EtwpGetSignedFieldValue.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     RtlCopyVolatileMemory @ 0x140733080 (RtlCopyVolatileMemory.c)
- *     strncmp @ 0x14073D360 (strncmp.c)
- *     RtlReadUCharFromUser @ 0x14077F51C (RtlReadUCharFromUser.c)
- *     RtlReadUShortFromUser @ 0x14077F5CC (RtlReadUShortFromUser.c)
- *     ExSystemExceptionFilter @ 0x140836A60 (ExSystemExceptionFilter.c)
+ *     RtlCopyFromUser @ 0x1405362B8 (RtlCopyFromUser.c)
+ *     wcsncmp @ 0x14053A620 (wcsncmp.c)
+ *     EtwpGetFieldValue @ 0x1406CDBD8 (EtwpGetFieldValue.c)
+ *     EtwpGetSignedFieldValue @ 0x1406CDC6C (EtwpGetSignedFieldValue.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     RtlCopyVolatileMemory @ 0x140737C50 (RtlCopyVolatileMemory.c)
+ *     strncmp @ 0x140741F60 (strncmp.c)
+ *     RtlReadUCharFromUser @ 0x14078201C (RtlReadUCharFromUser.c)
+ *     RtlReadUShortFromUser @ 0x1407820CC (RtlReadUShortFromUser.c)
+ *     ExSystemExceptionFilter @ 0x14083CCA0 (ExSystemExceptionFilter.c)
  */
 
 char __fastcall EtwpApplyPredicate(

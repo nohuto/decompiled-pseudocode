@@ -1,7 +1,7 @@
 /*
- * XREFs of PfpRpControlRequestVerify @ 0x14033DEF8
+ * XREFs of PfpRpControlRequestVerify @ 0x14033E188
  * Callers:
- *     PfpRpControlRequest @ 0x1407B4F68 (PfpRpControlRequest.c)
+ *     PfpRpControlRequest @ 0x1407B5248 (PfpRpControlRequest.c)
  * Callees:
  *     <none>
  */

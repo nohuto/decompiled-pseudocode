@@ -1,17 +1,17 @@
 /*
- * XREFs of ExpTryEnterWorkerFactoryAwayMode @ 0x1403DF6B0
+ * XREFs of ExpTryEnterWorkerFactoryAwayMode @ 0x1403E28A0
  * Callers:
- *     NtWaitForWorkViaWorkerFactory @ 0x14037CC40 (NtWaitForWorkViaWorkerFactory.c)
- *     NtSetInformationWorkerFactory @ 0x1403DE960 (NtSetInformationWorkerFactory.c)
- *     ExpWorkerFactoryManagerThread @ 0x1406D33B0 (ExpWorkerFactoryManagerThread.c)
+ *     NtWaitForWorkViaWorkerFactory @ 0x14037E9F0 (NtWaitForWorkViaWorkerFactory.c)
+ *     NtSetInformationWorkerFactory @ 0x1403E1B50 (NtSetInformationWorkerFactory.c)
+ *     ExpWorkerFactoryManagerThread @ 0x1406D73E0 (ExpWorkerFactoryManagerThread.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiExitDispatcher @ 0x140246C20 (KiExitDispatcher.c)
- *     KiInsertQueueInternal @ 0x140274E80 (KiInsertQueueInternal.c)
- *     KiAcquireKobjectLockSafe @ 0x140277760 (KiAcquireKobjectLockSafe.c)
- *     ObfReferenceObjectWithTag @ 0x140278B30 (ObfReferenceObjectWithTag.c)
- *     KiWaitSatisfyOther @ 0x1403DF924 (KiWaitSatisfyOther.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiExitDispatcher @ 0x140248580 (KiExitDispatcher.c)
+ *     KiInsertQueueInternal @ 0x1402743F0 (KiInsertQueueInternal.c)
+ *     KiAcquireKobjectLockSafe @ 0x140276CD0 (KiAcquireKobjectLockSafe.c)
+ *     ObfReferenceObjectWithTag @ 0x1402780A0 (ObfReferenceObjectWithTag.c)
+ *     KiWaitSatisfyOther @ 0x1403E2B14 (KiWaitSatisfyOther.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 char __fastcall ExpTryEnterWorkerFactoryAwayMode(_QWORD *Object)
@@ -43,7 +43,7 @@ char __fastcall ExpTryEnterWorkerFactoryAwayMode(_QWORD *Object)
         v8 = *(_QWORD *)(v2 + 8);
         *((_QWORD *)v7 + 4) = v8;
         *((_WORD *)v7 + 8) = 1026;
-        *((_QWORD *)v7 + 3) = &WheapConfigTableLock.Affinity;
+        *((_QWORD *)v7 + 3) = &WheapConfigTableLock.SavedApcStateFill[40];
         CurrentIrql = KeGetCurrentIrql();
         if ( CurrentIrql != 2 )
           __writecr8(2uLL);
@@ -57,7 +57,7 @@ char __fastcall ExpTryEnterWorkerFactoryAwayMode(_QWORD *Object)
         {
           KiWaitSatisfyOther(v8);
           v7[17] = 5;
-          KiInsertQueueInternal((__int64)&WheapConfigTableLock.Affinity, v7, v11);
+          KiInsertQueueInternal((__int64)&WheapConfigTableLock.SavedApcStateFill[40], v7, v11);
           _InterlockedAnd((volatile signed __int32 *)v8, 0xFFFFFF7F);
           KiExitDispatcher((__int64)KeGetCurrentPrcb(), 0LL, 1u, 0, CurrentIrql);
         }

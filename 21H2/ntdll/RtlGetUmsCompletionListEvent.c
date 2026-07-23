@@ -1,23 +1,30 @@
 /*
- * XREFs of RtlGetUmsCompletionListEvent @ 0x1800F7590
+ * XREFs of RtlGetUmsCompletionListEvent @ 0x1800F7550
  * Callers:
  *     <none>
  * Callees:
- *     ZwDuplicateObject @ 0x18009DDC0 (ZwDuplicateObject.c)
+ *     ZwDuplicateObject @ 0x18009DD80 (ZwDuplicateObject.c)
  */
 
-__int64 __fastcall RtlGetUmsCompletionListEvent(__int64 a1, _QWORD *a2)
+NTSTATUS __fastcall RtlGetUmsCompletionListEvent(__int64 a1, _QWORD *a2)
 {
-  __int64 result; // rax
-  __int64 v4; // [rsp+50h] [rbp+8h]
+  NTSTATUS result; // eax
+  HANDLE v4; // [rsp+50h] [rbp+8h] BYREF
 
   if ( !a1 || !a2 )
-    return 3221225485LL;
-  result = ZwDuplicateObject();
-  if ( (int)result >= 0 )
+    return -1073741811;
+  result = ZwDuplicateObject(
+             (HANDLE)0xFFFFFFFFFFFFFFFFLL,
+             *(HANDLE *)(a1 + 8),
+             (HANDLE)0xFFFFFFFFFFFFFFFFLL,
+             &v4,
+             0,
+             0,
+             2u);
+  if ( result >= 0 )
   {
     *a2 = v4;
-    return 0LL;
+    return 0;
   }
   return result;
 }

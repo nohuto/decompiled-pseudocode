@@ -1,9 +1,9 @@
 /*
- * XREFs of _wcslwr @ 0x1800983B0
+ * XREFs of _wcslwr @ 0x1800983A0
  * Callers:
  *     <none>
  * Callees:
- *     _invalid_parameter @ 0x180096B68 (_invalid_parameter.c)
+ *     _invalid_parameter @ 0x180096B58 (_invalid_parameter.c)
  */
 
 wchar_t *__cdecl wcslwr(wchar_t *String)

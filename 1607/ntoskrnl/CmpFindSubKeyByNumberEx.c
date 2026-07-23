@@ -1,18 +1,18 @@
 /*
- * XREFs of CmpFindSubKeyByNumberEx @ 0x140438CE0
+ * XREFs of CmpFindSubKeyByNumberEx @ 0x140437BB0
  * Callers:
- *     CmEnumerateKey @ 0x1404390C0 (CmEnumerateKey.c)
- *     CmpFindSubKeyByNumberFromMergedView @ 0x140601238 (CmpFindSubKeyByNumberFromMergedView.c)
+ *     CmEnumerateKey @ 0x140437F90 (CmEnumerateKey.c)
+ *     CmpFindSubKeyByNumberFromMergedView @ 0x1406012EC (CmpFindSubKeyByNumberFromMergedView.c)
  * Callees:
- *     CmEqualTrans @ 0x1403FD9D0 (CmEqualTrans.c)
- *     CmListGetNextElement @ 0x140402E2C (CmListGetNextElement.c)
- *     CmpIsKeyDeleted @ 0x140405030 (CmpIsKeyDeleted.c)
- *     CmpDelayDerefKeyControlBlock @ 0x14043735C (CmpDelayDerefKeyControlBlock.c)
- *     CmpDoFindSubKeyByNumber @ 0x140438510 (CmpDoFindSubKeyByNumber.c)
- *     CmpFindSubKeyByNumber @ 0x1404386C0 (CmpFindSubKeyByNumber.c)
- *     CmpFindSubkeyInHashByChildCell @ 0x1404A01C8 (CmpFindSubkeyInHashByChildCell.c)
- *     CmpReferenceKeyControlBlock @ 0x1404A0538 (CmpReferenceKeyControlBlock.c)
- *     CmRmIsKCBVisible @ 0x1404BB590 (CmRmIsKCBVisible.c)
+ *     CmEqualTrans @ 0x1403FC890 (CmEqualTrans.c)
+ *     CmListGetNextElement @ 0x140401CEC (CmListGetNextElement.c)
+ *     CmpIsKeyDeleted @ 0x140403EF0 (CmpIsKeyDeleted.c)
+ *     CmpDelayDerefKeyControlBlock @ 0x14043622C (CmpDelayDerefKeyControlBlock.c)
+ *     CmpDoFindSubKeyByNumber @ 0x1404373E0 (CmpDoFindSubKeyByNumber.c)
+ *     CmpFindSubKeyByNumber @ 0x140437590 (CmpFindSubKeyByNumber.c)
+ *     CmRmIsKCBVisible @ 0x1404A72C0 (CmRmIsKCBVisible.c)
+ *     CmpFindSubkeyInHashByChildCell @ 0x1405185D4 (CmpFindSubkeyInHashByChildCell.c)
+ *     CmpReferenceKeyControlBlock @ 0x140518944 (CmpReferenceKeyControlBlock.c)
  */
 
 __int64 __fastcall CmpFindSubKeyByNumberEx(

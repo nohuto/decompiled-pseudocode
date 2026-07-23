@@ -1,20 +1,20 @@
 /*
- * XREFs of VfDeadlockInitializeResource @ 0x140C36320
+ * XREFs of VfDeadlockInitializeResource @ 0x140C3C330
  * Callers:
- *     ViDeadlockKeInitializeMutant_Exit @ 0x140C379A0 (ViDeadlockKeInitializeMutant_Exit.c)
- *     ViDeadlockKeInitializeMutex_Exit @ 0x140C379F0 (ViDeadlockKeInitializeMutex_Exit.c)
+ *     ViDeadlockKeInitializeMutant_Exit @ 0x140C3D9B0 (ViDeadlockKeInitializeMutant_Exit.c)
+ *     ViDeadlockKeInitializeMutex_Exit @ 0x140C3DA00 (ViDeadlockKeInitializeMutex_Exit.c)
  * Callees:
- *     RtlCaptureStackBackTrace @ 0x140261920 (RtlCaptureStackBackTrace.c)
- *     ViLowerIrql @ 0x14064738C (ViLowerIrql.c)
- *     ViRaiseIrqlToDpcLevel @ 0x1406473C4 (ViRaiseIrqlToDpcLevel.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     ViDeadlockAddResource @ 0x140C36AF0 (ViDeadlockAddResource.c)
- *     ViDeadlockAllocate @ 0x140C36DFC (ViDeadlockAllocate.c)
- *     ViDeadlockDetectionLock @ 0x140C37460 (ViDeadlockDetectionLock.c)
- *     ViDeadlockDetectionUnlock @ 0x140C37498 (ViDeadlockDetectionUnlock.c)
- *     ViDeadlockFree @ 0x140C37910 (ViDeadlockFree.c)
- *     ViDeadlockCanProceed @ 0x140C45460 (ViDeadlockCanProceed.c)
+ *     RtlCaptureStackBackTrace @ 0x140260E90 (RtlCaptureStackBackTrace.c)
+ *     ViLowerIrql @ 0x14064AF6C (ViLowerIrql.c)
+ *     ViRaiseIrqlToDpcLevel @ 0x14064AFA4 (ViRaiseIrqlToDpcLevel.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     ViDeadlockAddResource @ 0x140C3CB00 (ViDeadlockAddResource.c)
+ *     ViDeadlockAllocate @ 0x140C3CE0C (ViDeadlockAllocate.c)
+ *     ViDeadlockDetectionLock @ 0x140C3D470 (ViDeadlockDetectionLock.c)
+ *     ViDeadlockDetectionUnlock @ 0x140C3D4A8 (ViDeadlockDetectionUnlock.c)
+ *     ViDeadlockFree @ 0x140C3D920 (ViDeadlockFree.c)
+ *     ViDeadlockCanProceed @ 0x140C4B470 (ViDeadlockCanProceed.c)
  */
 
 __int64 __fastcall VfDeadlockInitializeResource(__int64 a1, __int64 a2, void *a3)

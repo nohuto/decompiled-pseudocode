@@ -1,10 +1,10 @@
 /*
- * XREFs of ExpHpCompactionRoutine @ 0x1404AAB60
+ * XREFs of ExpHpCompactionRoutine @ 0x1404A41F0
  * Callers:
  *     <none>
  * Callees:
- *     ExpHpEnumerateHeaps @ 0x1404AABAC (ExpHpEnumerateHeaps.c)
- *     ExpPoolMgrCompactPools @ 0x140AC36CC (ExpPoolMgrCompactPools.c)
+ *     ExpHpEnumerateHeaps @ 0x1404A423C (ExpHpEnumerateHeaps.c)
+ *     ExpPoolMgrCompactPools @ 0x140AC533C (ExpPoolMgrCompactPools.c)
  */
 
 __int64 __fastcall ExpHpCompactionRoutine(__int64 a1)
@@ -14,10 +14,10 @@ __int64 __fastcall ExpHpCompactionRoutine(__int64 a1)
 
   v1 = a1;
   ExpHpEnumerateHeaps(a1, ExpHpCompactHeapCallback);
-  result = ExpPoolMgrCompactPools(&dword_140E6BC60, v1);
+  result = ExpPoolMgrCompactPools(&dword_140E6BF60, v1);
   if ( v1 == 1 )
-    *(_DWORD *)&ExSaPageGroupDescriptorArrayLock.Tag = 0;
+    HIDWORD(ExSaPageGroupDescriptorArrayLock.StackBase) = 0;
   else
-    ExSaPageGroupDescriptorArrayLock.SystemCallNumber = 0;
+    LODWORD(ExSaPageGroupDescriptorArrayLock.ThreadLock) = 0;
   return result;
 }

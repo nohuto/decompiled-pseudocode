@@ -1,13 +1,13 @@
 /*
- * XREFs of CmpLoadManufacturingModeNode @ 0x140CEFDF4
+ * XREFs of CmpLoadManufacturingModeNode @ 0x140CF6170
  * Callers:
- *     CmpLoadManufacturingProfileNode @ 0x140CEFF30 (CmpLoadManufacturingProfileNode.c)
+ *     CmpLoadManufacturingProfileNode @ 0x140CF62AC (CmpLoadManufacturingProfileNode.c)
  * Callees:
- *     HvpGetCellFlat @ 0x14085EB00 (HvpGetCellFlat.c)
- *     HvpReleaseCellFlat @ 0x1408D51E0 (HvpReleaseCellFlat.c)
- *     HvpReleaseCellPaged @ 0x1408D73B0 (HvpReleaseCellPaged.c)
- *     HvpGetCellPaged @ 0x1408D7410 (HvpGetCellPaged.c)
- *     CmpFindSubKeyByName @ 0x140AC351C (CmpFindSubKeyByName.c)
+ *     HvpGetCellFlat @ 0x140864DF0 (HvpGetCellFlat.c)
+ *     HvpReleaseCellFlat @ 0x1408DB7A0 (HvpReleaseCellFlat.c)
+ *     HvpReleaseCellPaged @ 0x1408DD970 (HvpReleaseCellPaged.c)
+ *     HvpGetCellPaged @ 0x1408DD9D0 (HvpGetCellPaged.c)
+ *     CmpFindSubKeyByName @ 0x140AC518C (CmpFindSubKeyByName.c)
  */
 
 bool __fastcall CmpLoadManufacturingModeNode(ULONG_PTR BugCheckParameter3, __int64 a2, __int64 *a3, unsigned int *a4)

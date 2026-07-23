@@ -1,9 +1,9 @@
 /*
- * XREFs of MiInitializeLargePageNodeLists @ 0x14072B33C
+ * XREFs of MiInitializeLargePageNodeLists @ 0x14072C52C
  * Callers:
- *     MiInitializePartition @ 0x14072AB28 (MiInitializePartition.c)
+ *     MiInitializePartition @ 0x14072BD18 (MiInitializePartition.c)
  * Callees:
- *     MiInitializeColorTable @ 0x14016A4CC (MiInitializeColorTable.c)
+ *     MiInitializeColorTable @ 0x14016A5CC (MiInitializeColorTable.c)
  */
 
 __int64 __fastcall MiInitializeLargePageNodeLists(__int64 a1)
@@ -24,7 +24,7 @@ __int64 __fastcall MiInitializeLargePageNodeLists(__int64 a1)
   v1 = *(_QWORD **)(a1 + 5032);
   v2 = 0;
   result = 0LL;
-  if ( dword_14043A6F8 )
+  if ( dword_14043B7B8 )
   {
     do
     {
@@ -33,7 +33,7 @@ __int64 __fastcall MiInitializeLargePageNodeLists(__int64 a1)
       *v1 = v1;
       v1 += 3;
     }
-    while ( (unsigned int)result < dword_14043A6F8 );
+    while ( (unsigned int)result < dword_14043B7B8 );
     v1 = *(_QWORD **)(a1 + 5032);
   }
   if ( KeNumberNodes )
@@ -41,7 +41,7 @@ __int64 __fastcall MiInitializeLargePageNodeLists(__int64 a1)
     v4 = (_DWORD *)(*(_QWORD *)(a1 + 16) + 1936LL);
     do
     {
-      v5 = dword_14043A100;
+      v5 = dword_14043B1C0;
       v6 = 3LL;
       v7 = v4 - 448;
       do

@@ -10,7 +10,7 @@ NTSTATUS __stdcall IoGetAffinityInterrupt(PKINTERRUPT InterruptObject, PGROUP_AF
 {
   NTSTATUS result; // eax
   unsigned __int16 Group; // ax
-  struct _PROCESSOR_NUMBER ProcNumber; // [rsp+30h] [rbp+8h] BYREF
+  _PROCESSOR_NUMBER ProcNumber; // [rsp+30h] [rbp+8h] BYREF
 
   ProcNumber = 0;
   result = KeGetProcessorNumberFromIndex(InterruptObject->Number, &ProcNumber);

@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpIommuGetReservedRanges @ 0x14058DA88
+ * XREFs of HalpIommuGetReservedRanges @ 0x140590208
  * Callers:
- *     HalpDmaGetReservedRegionsForTranslateDomain @ 0x14058AB4C (HalpDmaGetReservedRegionsForTranslateDomain.c)
+ *     HalpDmaGetReservedRegionsForTranslateDomain @ 0x14058D2D4 (HalpDmaGetReservedRegionsForTranslateDomain.c)
  * Callees:
- *     IidAreIdsStrictlyEqual @ 0x1407197C4 (IidAreIdsStrictlyEqual.c)
+ *     IidAreIdsStrictlyEqual @ 0x14071E4B4 (IidAreIdsStrictlyEqual.c)
  */
 
 __int64 __fastcall HalpIommuGetReservedRanges(__int64 a1, _DWORD *a2, _QWORD *a3)

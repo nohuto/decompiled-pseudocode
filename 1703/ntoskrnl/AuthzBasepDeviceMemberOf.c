@@ -16,7 +16,7 @@ __int64 __fastcall AuthzBasepDeviceMemberOf(__int64 a1, __int64 a2, char a3, cha
   int v12; // ebx
   size_t v13; // r8
   __int64 v14; // rax
-  __int64 v15; // rcx
+  _SID_AND_ATTRIBUTES_HASH *v15; // rcx
   _BYTE v17[24]; // [rsp+30h] [rbp-B8h] BYREF
   unsigned int v18; // [rsp+48h] [rbp-A0h]
   void *Src; // [rsp+50h] [rbp-98h]
@@ -39,9 +39,9 @@ __int64 __fastcall AuthzBasepDeviceMemberOf(__int64 a1, __int64 a2, char a3, cha
     v14 = *(_QWORD *)(a2 + 1096);
     if ( v14 )
     {
-      v15 = v14 + 304;
+      v15 = (_SID_AND_ATTRIBUTES_HASH *)(v14 + 304);
       if ( !a4 )
-        v15 = v14 + 32;
+        v15 = (_SID_AND_ATTRIBUTES_HASH *)(v14 + 32);
       LOBYTE(v14) = SepSidInTokenSidHash(v15, 0LL, v20, a3, a4, 0);
     }
     if ( a5 )

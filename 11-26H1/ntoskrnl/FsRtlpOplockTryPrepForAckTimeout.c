@@ -1,23 +1,23 @@
 /*
- * XREFs of FsRtlpOplockTryPrepForAckTimeout @ 0x140AE6EA0
+ * XREFs of FsRtlpOplockTryPrepForAckTimeout @ 0x140AE4C60
  * Callers:
- *     FsRtlpRequestExclusiveOplock @ 0x1403FC3F4 (FsRtlpRequestExclusiveOplock.c)
- *     FsRtlpRequestShareableOplock @ 0x1403FEDE8 (FsRtlpRequestShareableOplock.c)
+ *     FsRtlpRequestExclusiveOplock @ 0x1403F8BE4 (FsRtlpRequestExclusiveOplock.c)
+ *     FsRtlpRequestShareableOplock @ 0x140514FAC (FsRtlpRequestShareableOplock.c)
  * Callees:
- *     PsReferenceSiloContext @ 0x140277800 (PsReferenceSiloContext.c)
- *     ExAllocateFromNPagedLookasideList @ 0x1402C1770 (ExAllocateFromNPagedLookasideList.c)
- *     SepPrivilegeCheck @ 0x14042F0A0 (SepPrivilegeCheck.c)
- *     ExGetPreviousMode @ 0x140470680 (ExGetPreviousMode.c)
- *     KeInitializeDpc @ 0x140481A50 (KeInitializeDpc.c)
- *     KeInitializeTimer @ 0x140483D00 (KeInitializeTimer.c)
- *     IoIsFileOriginRemote @ 0x140499E70 (IoIsFileOriginRemote.c)
- *     Feature_OwnerAckTimeout__private_IsEnabledDeviceUsageNoInline @ 0x140526AE8 (Feature_OwnerAckTimeout__private_IsEnabledDeviceUsageNoInline.c)
- *     FsRtlpOplockIsSubjectToTimeout @ 0x1405B7740 (FsRtlpOplockIsSubjectToTimeout.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     FsRtlpOplockGetThreadIntegrityLevel @ 0x14078F03C (FsRtlpOplockGetThreadIntegrityLevel.c)
- *     SeReleaseSubjectContext @ 0x1408CB2E0 (SeReleaseSubjectContext.c)
- *     SeCaptureSubjectContext @ 0x140933620 (SeCaptureSubjectContext.c)
+ *     PsReferenceSiloContext @ 0x140276D70 (PsReferenceSiloContext.c)
+ *     ExAllocateFromNPagedLookasideList @ 0x14030C430 (ExAllocateFromNPagedLookasideList.c)
+ *     SepPrivilegeCheck @ 0x14041BFB0 (SepPrivilegeCheck.c)
+ *     ExGetPreviousMode @ 0x140469E00 (ExGetPreviousMode.c)
+ *     KeInitializeDpc @ 0x14047B3C0 (KeInitializeDpc.c)
+ *     KeInitializeTimer @ 0x14047D670 (KeInitializeTimer.c)
+ *     IoIsFileOriginRemote @ 0x1404939C0 (IoIsFileOriginRemote.c)
+ *     Feature_OwnerAckTimeout__private_IsEnabledDeviceUsageNoInline @ 0x140529158 (Feature_OwnerAckTimeout__private_IsEnabledDeviceUsageNoInline.c)
+ *     FsRtlpOplockIsSubjectToTimeout @ 0x1405B9FB0 (FsRtlpOplockIsSubjectToTimeout.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     FsRtlpOplockGetThreadIntegrityLevel @ 0x140791B6C (FsRtlpOplockGetThreadIntegrityLevel.c)
+ *     SeReleaseSubjectContext @ 0x1408D1890 (SeReleaseSubjectContext.c)
+ *     SeCaptureSubjectContext @ 0x14090F1D0 (SeCaptureSubjectContext.c)
  */
 
 void __fastcall FsRtlpOplockTryPrepForAckTimeout(

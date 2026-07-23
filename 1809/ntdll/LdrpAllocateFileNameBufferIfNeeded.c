@@ -16,7 +16,7 @@ __int64 __fastcall LdrpAllocateFileNameBufferIfNeeded(unsigned __int16 *a1, unsi
   unsigned __int16 *v8; // rdx
   unsigned int v9; // ebp
   __int64 v10; // rsi
-  void *StringRoutine; // rax
+  PVOID StringRoutine; // rax
 
   v4 = 0;
   if ( a2 > a1[1] )
@@ -30,7 +30,7 @@ __int64 __fastcall LdrpAllocateFileNameBufferIfNeeded(unsigned __int16 *a1, unsi
       v9 = 65534;
     if ( v8 == a1 + 8 )
     {
-      StringRoutine = (void *)NtdllpAllocateStringRoutine(v9);
+      StringRoutine = NtdllpAllocateStringRoutine(v9);
       v10 = (__int64)StringRoutine;
       if ( !StringRoutine )
         return (unsigned int)-1073741801;

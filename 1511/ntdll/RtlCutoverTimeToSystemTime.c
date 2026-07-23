@@ -7,103 +7,97 @@
  *     RtlTimeToTimeFields @ 0x180067860 (RtlTimeToTimeFields.c)
  */
 
-bool __fastcall RtlCutoverTimeToSystemTime(_WORD *a1, _QWORD *a2, _QWORD *a3, char a4)
+BOOLEAN __cdecl RtlCutoverTimeToSystemTime(
+        PTIME_FIELDS CutoverTime,
+        PLARGE_INTEGER SystemTime,
+        PLARGE_INTEGER CurrentSystemTime,
+        BOOLEAN ThisYear)
 {
-  _WORD *v5; // r14
-  __int16 v8; // r13
-  __int16 v9; // r15
+  PTIME_FIELDS v5; // r14
+  __int16 Day; // r13
+  CSHORT Weekday; // r15
   bool v10; // r12
-  __int16 v11; // ax
-  __int16 v12; // si
-  __int16 v13; // di
-  __int16 v14; // r15
+  CSHORT Month; // ax
+  CSHORT Year; // si
+  CSHORT v13; // di
+  CSHORT v14; // r15
   __int16 i; // r14
-  __int16 v17; // [rsp+20h] [rbp-40h]
-  __int64 v18; // [rsp+28h] [rbp-38h] BYREF
-  _WORD v19[2]; // [rsp+30h] [rbp-30h] BYREF
-  __int16 v20; // [rsp+34h] [rbp-2Ch]
-  __int16 v21; // [rsp+36h] [rbp-2Ah]
-  __int16 v22; // [rsp+38h] [rbp-28h]
-  __int16 v23; // [rsp+3Ah] [rbp-26h]
-  __int16 v24; // [rsp+3Ch] [rbp-24h]
-  __int16 v25; // [rsp+3Eh] [rbp-22h]
-  __int16 v26; // [rsp+40h] [rbp-20h] BYREF
-  __int16 v27; // [rsp+42h] [rbp-1Eh]
-  __int16 v28; // [rsp+44h] [rbp-1Ch]
-  _BYTE v29[4]; // [rsp+50h] [rbp-10h] BYREF
-  __int16 v30; // [rsp+54h] [rbp-Ch]
-  __int16 v31; // [rsp+5Eh] [rbp-2h]
+  CSHORT v17; // [rsp+20h] [rbp-40h]
+  LARGE_INTEGER Time; // [rsp+28h] [rbp-38h] BYREF
+  _TIME_FIELDS v19; // [rsp+30h] [rbp-30h] BYREF
+  _TIME_FIELDS TimeFields; // [rsp+40h] [rbp-20h] BYREF
+  _TIME_FIELDS v21; // [rsp+50h] [rbp-10h] BYREF
 
-  v5 = a1;
-  RtlTimeToTimeFields(a3, &v26);
-  if ( !*v5 )
+  v5 = CutoverTime;
+  RtlTimeToTimeFields(CurrentSystemTime, &TimeFields);
+  if ( !v5->Year )
   {
-    v8 = v5[2];
-    if ( v8 <= 5 && v8 )
+    Day = v5->Day;
+    if ( Day <= 5 && Day )
     {
-      v9 = v5[7];
+      Weekday = v5->Weekday;
       v10 = 0;
-      v11 = v5[1];
-      v12 = v26;
-      v17 = v9;
-      if ( !a4 )
+      Month = v5->Month;
+      Year = TimeFields.Year;
+      v17 = Weekday;
+      if ( !ThisYear )
       {
-        if ( v11 >= v27 )
-          v10 = v11 <= v27;
+        if ( Month >= TimeFields.Month )
+          v10 = Month <= TimeFields.Month;
         else
-          v12 = v26 + 1;
+          Year = TimeFields.Year + 1;
       }
-      v19[1] = v5[1];
-      v25 = 0;
+      v19.Month = v5->Month;
+      v19.Weekday = 0;
       while ( 1 )
       {
-        v21 = v5[3];
+        v19.Hour = v5->Hour;
         v13 = 1;
-        v22 = v5[4];
-        v23 = v5[5];
-        v24 = v5[6];
-        v19[0] = v12;
-        v20 = 1;
-        if ( !(unsigned __int8)RtlTimeFieldsToTime(v19, &v18) )
+        v19.Minute = v5->Minute;
+        v19.Second = v5->Second;
+        v19.Milliseconds = v5->Milliseconds;
+        v19.Year = Year;
+        v19.Day = 1;
+        if ( !RtlTimeFieldsToTime(&v19, &Time) )
           break;
-        RtlTimeToTimeFields(&v18, v29);
-        if ( v31 <= v9 )
+        RtlTimeToTimeFields(&Time, &v21);
+        if ( v21.Weekday <= Weekday )
         {
-          if ( v31 < v9 )
-            v13 = v9 - v31 + 1;
+          if ( v21.Weekday < Weekday )
+            v13 = Weekday - v21.Weekday + 1;
         }
         else
         {
-          v13 = v9 - v31 + 8;
+          v13 = Weekday - v21.Weekday + 8;
         }
         v14 = v13;
-        if ( v8 > 1 )
+        if ( Day > 1 )
         {
-          for ( i = 1; i < v8; ++i )
+          for ( i = 1; i < Day; ++i )
           {
             v13 += 7;
-            v20 = v13;
-            if ( !(unsigned __int8)RtlTimeFieldsToTime(v19, &v18) )
+            v19.Day = v13;
+            if ( !RtlTimeFieldsToTime(&v19, &Time) )
               break;
-            RtlTimeToTimeFields(&v18, v29);
-            v14 = v30;
+            RtlTimeToTimeFields(&Time, &v21);
+            v14 = v21.Day;
           }
-          v5 = a1;
+          v5 = CutoverTime;
         }
-        v20 = v14;
-        if ( !(unsigned __int8)RtlTimeFieldsToTime(v19, &v18) )
+        v19.Day = v14;
+        if ( !RtlTimeFieldsToTime(&v19, &Time) )
           break;
-        if ( !v10 || v14 >= v28 && (v14 != v28 || v18 >= *a3) )
+        if ( !v10 || v14 >= TimeFields.Day && (v14 != TimeFields.Day || Time.QuadPart >= CurrentSystemTime->QuadPart) )
         {
-          *a2 = v18;
+          *SystemTime = Time;
           return 1;
         }
-        v9 = v17;
+        Weekday = v17;
         v10 = 0;
-        ++v12;
+        ++Year;
       }
     }
     return 0;
   }
-  return (unsigned __int8)RtlTimeFieldsToTime(v5, a2) && (a4 || *a2 >= *a3);
+  return RtlTimeFieldsToTime(v5, SystemTime) && (ThisYear || SystemTime->QuadPart >= CurrentSystemTime->QuadPart);
 }

@@ -26,7 +26,7 @@ __int64 *__fastcall PfSnNameRemoveAll(__int64 a1)
     v7 = (__int64)result;
     if ( !result )
       break;
-    if ( (unsigned int)PfSnNameRemove((__int64)result, *(_QWORD *)(a1 + 16)) )
+    if ( (unsigned int)PfSnNameRemove((__int64)result, *(_RTL_BALANCED_NODE **)(a1 + 16)) )
     {
       v8 = 0LL;
       if ( (int)PfSnTraceGetLogEntry(v7, 4u, &v8) < 0 )

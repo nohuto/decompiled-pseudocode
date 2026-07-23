@@ -1,15 +1,15 @@
 /*
- * XREFs of ExpQueryNumaAvailableMemory @ 0x140832DEC
+ * XREFs of ExpQueryNumaAvailableMemory @ 0x14083902C
  * Callers:
- *     ExpQuerySystemInformation @ 0x140B145DC (ExpQuerySystemInformation.c)
+ *     ExpQuerySystemInformation @ 0x140B169CC (ExpQuerySystemInformation.c)
  * Callees:
- *     KeQueryHighestNodeNumber @ 0x1404884A0 (KeQueryHighestNodeNumber.c)
- *     MmGetAvailablePages @ 0x1404933C8 (MmGetAvailablePages.c)
- *     MmGetProcessPartitionId @ 0x1404A9E18 (MmGetProcessPartitionId.c)
- *     RtlWriteULong64ToUser @ 0x14077F758 (RtlWriteULong64ToUser.c)
- *     RtlWriteULongToUser @ 0x14077F7A0 (RtlWriteULongToUser.c)
- *     MmGetChannelInformation @ 0x140B0D228 (MmGetChannelInformation.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     KeQueryHighestNodeNumber @ 0x140481FE0 (KeQueryHighestNodeNumber.c)
+ *     MmGetAvailablePages @ 0x14048C960 (MmGetAvailablePages.c)
+ *     MmGetProcessPartitionId @ 0x1404A34A8 (MmGetProcessPartitionId.c)
+ *     RtlWriteULong64ToUser @ 0x140782258 (RtlWriteULong64ToUser.c)
+ *     RtlWriteULongToUser @ 0x1407822A0 (RtlWriteULongToUser.c)
+ *     MmGetChannelInformation @ 0x140B0E978 (MmGetChannelInformation.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall ExpQueryNumaAvailableMemory(_DWORD *a1, unsigned int a2, _DWORD *a3, char a4)

@@ -1,15 +1,15 @@
 /*
- * XREFs of PopDeepSleepResiliencyPhaseAccountingUpdate @ 0x1403CB59C
+ * XREFs of PopDeepSleepResiliencyPhaseAccountingUpdate @ 0x1402BA0B4
  * Callers:
- *     PopDeepSleepSetDisengageReason @ 0x1403CB2E4 (PopDeepSleepSetDisengageReason.c)
- *     PopDeepSleepClearDisengageReason @ 0x1403CB4D8 (PopDeepSleepClearDisengageReason.c)
+ *     PopDeepSleepSetDisengageReason @ 0x1402B9DFC (PopDeepSleepSetDisengageReason.c)
+ *     PopDeepSleepClearDisengageReason @ 0x1402B9FF0 (PopDeepSleepClearDisengageReason.c)
  * Callees:
- *     KeAcquireSpinLockRaiseToDpc @ 0x140254B20 (KeAcquireSpinLockRaiseToDpc.c)
- *     KxReleaseSpinLock @ 0x140279CC0 (KxReleaseSpinLock.c)
- *     KeQueryPerformanceCounter @ 0x14034FA10 (KeQueryPerformanceCounter.c)
- *     PopDeepSleepResiliencyPhaseAccountingBegin @ 0x1403CB8A4 (PopDeepSleepResiliencyPhaseAccountingBegin.c)
- *     PopDeepSleepResiliencyPhaseAccountingEnd @ 0x1403CB954 (PopDeepSleepResiliencyPhaseAccountingEnd.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KxReleaseSpinLock @ 0x14022F250 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140285130 (KeAcquireSpinLockRaiseToDpc.c)
+ *     PopDeepSleepResiliencyPhaseAccountingEnd @ 0x1402B962C (PopDeepSleepResiliencyPhaseAccountingEnd.c)
+ *     PopDeepSleepResiliencyPhaseAccountingBegin @ 0x1402BA3BC (PopDeepSleepResiliencyPhaseAccountingBegin.c)
+ *     KeQueryPerformanceCounter @ 0x14036DEF0 (KeQueryPerformanceCounter.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
  */
 
 __int64 __fastcall PopDeepSleepResiliencyPhaseAccountingUpdate(int a1, char a2)
@@ -32,9 +32,9 @@ __int64 __fastcall PopDeepSleepResiliencyPhaseAccountingUpdate(int a1, char a2)
   v5 = 0;
   v6 = 1 << a1;
   v7 = KeAcquireSpinLockRaiseToDpc(&PopCsResiliencyStatsLock);
-  v8 = dword_140F0BF9C;
+  v8 = dword_140F0C41C;
   v9 = v7;
-  if ( (v6 & dword_140F0BF9C) != 0 )
+  if ( (v6 & dword_140F0C41C) != 0 )
   {
     PerformanceCounter = KeQueryPerformanceCounter(0LL);
     v14 = &PopCsResiliencyStats[8 * v2 + 160];
@@ -56,8 +56,7 @@ __int64 __fastcall PopDeepSleepResiliencyPhaseAccountingUpdate(int a1, char a2)
       {
         v5 = 1980;
       }
-      LOBYTE(v13.LowPart) = 1;
-      ((void (__fastcall *)(_QWORD, _QWORD))PopDeepSleepResiliencyPhaseAccountingEnd)(v5, (LARGE_INTEGER)v13.QuadPart);
+      PopDeepSleepResiliencyPhaseAccountingEnd(v5, 1);
     }
     else
     {

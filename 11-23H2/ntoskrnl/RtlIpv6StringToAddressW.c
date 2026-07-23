@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlIpv6StringToAddressW @ 0x140358810
+ * XREFs of RtlIpv6StringToAddressW @ 0x1403589B0
  * Callers:
- *     RtlIpv6StringToAddressExW @ 0x140358770 (RtlIpv6StringToAddressExW.c)
+ *     RtlIpv6StringToAddressExW @ 0x140358910 (RtlIpv6StringToAddressExW.c)
  * Callees:
- *     wcstol @ 0x1403DBE8C (wcstol.c)
- *     iswctype @ 0x1403DC344 (iswctype.c)
- *     memmove @ 0x140435700 (memmove.c)
- *     memset @ 0x140435A00 (memset.c)
+ *     wcstol @ 0x1403DC06C (wcstol.c)
+ *     iswctype @ 0x1403DC524 (iswctype.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     memset @ 0x140435E00 (memset.c)
  */
 
 NTSTATUS __stdcall RtlIpv6StringToAddressW(PCWSTR S, PCWSTR *Terminator, struct in6_addr *Addr)
@@ -138,12 +138,12 @@ LABEL_51:
             v18 = wcstol(v8, 0LL, 10);
             if ( v18 > 0xFF )
               return -1073741811;
-            Addr->u.Byte[2 * v24 - 1 + v11] = v18;
+            *((_BYTE *)Addr + 2 * v24 + v11 - 1) = v18;
             goto LABEL_27;
           }
           if ( v12 > 4 )
             return -1073741811;
-          Addr->u.Word[v24] = __ROR2__(wcstol(v8, 0LL, 16), 8);
+          *((_WORD *)Addr + v24) = __ROR2__(wcstol(v8, 0LL, 16), 8);
           v14 = ++v24;
 LABEL_55:
           v9 = v22;
@@ -164,7 +164,7 @@ LABEL_55:
         ++v14;
         v20 = v4;
         v24 = v14;
-        Addr->u.Word[v17] = 0;
+        *((_WORD *)Addr + v17) = 0;
         ++v6;
         v7 = 2;
         goto LABEL_51;
@@ -212,24 +212,24 @@ LABEL_9:
       v19 = wcstol(Str, 0LL, 10);
       if ( v19 > 0xFF )
         return -1073741811;
-      Addr->u.Byte[2 * v24 + v11] = v19;
+      *((_BYTE *)Addr + 2 * v24 + v11) = v19;
     }
     else
     {
       if ( v12 > 4 )
         return -1073741811;
-      Addr->u.Word[v24] = __ROR2__(wcstol(Str, 0LL, 16), 8);
+      *((_WORD *)Addr + v24) = __ROR2__(wcstol(Str, 0LL, 16), 8);
     }
   }
   else
   {
     if ( v7 != 2 )
       return -1073741811;
-    Addr->u.Word[v24] = 0;
+    *((_WORD *)Addr + v24) = 0;
   }
   if ( v13 )
   {
-    memmove((char *)&Addr[1] + 2 * (v13 - v10), (char *)Addr + 2 * v13, 2LL * (v10 - v13));
+    memmove((char *)Addr + 2 * (v13 - v10) + 16, (char *)Addr + 2 * v13, 2LL * (v10 - v13));
     memset((char *)Addr + 2 * v13, 0, 2LL * (8 - v10));
   }
   return 0;

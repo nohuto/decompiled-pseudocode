@@ -6,11 +6,19 @@
  *     <none>
  */
 
-__int64 NtCreateThread()
+NTSTATUS __cdecl NtCreateThread(
+        PHANDLE ThreadHandle,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        HANDLE ProcessHandle,
+        PCLIENT_ID ClientId,
+        PCONTEXT ThreadContext,
+        PINITIAL_TEB InitialTeb,
+        BOOLEAN CreateSuspended)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 78LL;
+  result = 78;
   __asm { syscall; Low latency system call }
   return result;
 }

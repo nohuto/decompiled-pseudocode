@@ -1,15 +1,15 @@
 /*
- * XREFs of FsRtlAddEntry @ 0x1403B58C0
+ * XREFs of FsRtlAddEntry @ 0x1403BF7C0
  * Callers:
- *     FsRtlRemoveBaseMcbEntry @ 0x1403B4AD0 (FsRtlRemoveBaseMcbEntry.c)
- *     FsRtlAddBaseMcbEntryEx @ 0x1403B5030 (FsRtlAddBaseMcbEntryEx.c)
- *     FsRtlSplitBaseMcb @ 0x1405B5610 (FsRtlSplitBaseMcb.c)
+ *     FsRtlRemoveBaseMcbEntry @ 0x1403BE9D0 (FsRtlRemoveBaseMcbEntry.c)
+ *     FsRtlAddBaseMcbEntryEx @ 0x1403BEF30 (FsRtlAddBaseMcbEntryEx.c)
+ *     FsRtlSplitBaseMcb @ 0x1405B7E20 (FsRtlSplitBaseMcb.c)
  * Callees:
- *     RtlRaiseStatus @ 0x1402E84A0 (RtlRaiseStatus.c)
- *     ExFreeToNPagedLookasideList @ 0x1403B5A60 (ExFreeToNPagedLookasideList.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     ExAllocatePoolWithTag @ 0x140C10340 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     RtlRaiseStatus @ 0x1402CA4E0 (RtlRaiseStatus.c)
+ *     ExFreeToNPagedLookasideList @ 0x1403BF960 (ExFreeToNPagedLookasideList.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     ExAllocatePoolWithTag @ 0x140C16340 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 char __fastcall FsRtlAddEntry(__int64 a1, unsigned int a2, int a3)
@@ -54,7 +54,7 @@ LABEL_2:
       {
         v14 = *(void **)(a1 + 16);
         if ( *(_WORD *)(a1 + 8) == 1 )
-          ExFreeToNPagedLookasideList(&FsRtlFirstPagedMappingLookasideList, v14);
+          ExFreeToNPagedLookasideList((PPAGED_LOOKASIDE_LIST)&FsRtlFirstPagedMappingLookasideList, v14);
         else
           ExFreeToNPagedLookasideList(&FsRtlFirstNonPagedMappingLookasideList, v14);
         *(_QWORD *)(a1 + 16) = v13;

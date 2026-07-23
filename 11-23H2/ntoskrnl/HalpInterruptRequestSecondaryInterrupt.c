@@ -1,11 +1,11 @@
 /*
- * XREFs of HalpInterruptRequestSecondaryInterrupt @ 0x14051A25C
+ * XREFs of HalpInterruptRequestSecondaryInterrupt @ 0x14051A7AC
  * Callers:
- *     HalpInterruptRequestInterrupt @ 0x140505170 (HalpInterruptRequestInterrupt.c)
+ *     HalpInterruptRequestInterrupt @ 0x1405056C0 (HalpInterruptRequestInterrupt.c)
  * Callees:
- *     HalpFindSecondaryIcEntry @ 0x14037C680 (HalpFindSecondaryIcEntry.c)
- *     HalpReleaseSecondaryIcEntryShared @ 0x14037CED0 (HalpReleaseSecondaryIcEntryShared.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
+ *     HalpFindSecondaryIcEntry @ 0x14037C820 (HalpFindSecondaryIcEntry.c)
+ *     HalpReleaseSecondaryIcEntryShared @ 0x14037D070 (HalpReleaseSecondaryIcEntryShared.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall HalpInterruptRequestSecondaryInterrupt(unsigned int a1)

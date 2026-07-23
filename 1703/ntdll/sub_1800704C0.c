@@ -18,93 +18,94 @@
  *     memset @ 0x1800ABDC0 (memset.c)
  */
 
-__int64 __fastcall sub_1800704C0(__int64 a1)
+__int64 __fastcall sub_1800704C0(HANDLE ProcessHandle)
 {
   __int64 v3; // rax
-  _WORD *v4; // rbx
+  const WCHAR *v4; // rbx
   __int64 v5; // rcx
   unsigned int v7; // edi
-  __int64 v8; // rbx
-  _DWORD *v9; // rdi
-  int v10; // eax
-  unsigned __int64 v11; // rsi
+  HANDLE v8; // rbx
+  USHORT *v9; // rdi
+  NTSTATUS v10; // eax
+  void *v11; // rsi
   int v12; // ecx
-  unsigned int v13; // r14d
-  void *ProcessHeap; // rcx
-  __int64 v15; // rax
-  int v16; // eax
+  ULONG v13; // r14d
+  PVOID ProcessHeap; // rcx
+  PVOID Heap; // rax
+  NTSTATUS v16; // eax
   unsigned int v17; // eax
-  unsigned int v18; // [rsp+38h] [rbp-D0h] BYREF
-  unsigned int v19; // [rsp+3Ch] [rbp-CCh] BYREF
-  __int64 v20; // [rsp+40h] [rbp-C8h] BYREF
-  __int64 v21; // [rsp+48h] [rbp-C0h] BYREF
-  unsigned __int64 Heap; // [rsp+50h] [rbp-B8h]
-  _WORD v23[4]; // [rsp+58h] [rbp-B0h] BYREF
-  _DWORD *v24; // [rsp+60h] [rbp-A8h]
-  _QWORD v25[3]; // [rsp+68h] [rbp-A0h] BYREF
-  int v26; // [rsp+80h] [rbp-88h]
-  __int128 v27; // [rsp+88h] [rbp-80h]
-  _QWORD v28[68]; // [rsp+98h] [rbp-70h] BYREF
-  _BYTE v29[1024]; // [rsp+2B8h] [rbp+1B0h] BYREF
+  ULONG Length[2]; // [rsp+38h] [rbp-D0h] BYREF
+  HANDLE KeyHandle; // [rsp+40h] [rbp-C8h] BYREF
+  _UNICODE_STRING Destination; // [rsp+48h] [rbp-C0h] BYREF
+  _UNICODE_STRING DestinationString; // [rsp+58h] [rbp-B0h] BYREF
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+68h] [rbp-A0h] BYREF
+  _QWORD ProcessInformation[68]; // [rsp+98h] [rbp-70h] BYREF
+  _BYTE KeyValueInformation[1024]; // [rsp+2B8h] [rbp+1B0h] BYREF
 
-  v20 = 0LL;
-  memset(v28, 0, sizeof(v28));
-  v19 = 0;
-  v21 = 0LL;
-  Heap = 0LL;
-  if ( (ZwQueryInformationProcess(a1, 43LL, v28, 536LL, 0LL) & 0xC0000000) != 0xC0000000 )
+  KeyHandle = 0LL;
+  memset(ProcessInformation, 0, sizeof(ProcessInformation));
+  Length[1] = 0;
+  *(_QWORD *)&Destination.Length = 0LL;
+  Destination.Buffer = 0LL;
+  if ( (ZwQueryInformationProcess(ProcessHandle, ProcessImageFileNameWin32, ProcessInformation, 0x218u, 0LL) & 0xC0000000) != 0xC0000000 )
   {
-    v3 = sub_18007073C(v28[1]);
-    v4 = (_WORD *)v3;
+    v3 = sub_18007073C(ProcessInformation[1]);
+    v4 = (const WCHAR *)v3;
     if ( v3 )
     {
       v5 = -1LL;
       while ( *(_WORD *)(v3 + 2 * v5++ + 2) != 0 )
         ;
       v7 = 2 * v5 + 202;
-      LOWORD(v21) = 0;
-      Heap = RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v7);
-      if ( Heap )
+      Destination.Length = 0;
+      Destination.Buffer = (PWCH)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, v7);
+      if ( Destination.Buffer )
       {
-        WORD1(v21) = v7;
-        if ( (int)RtlAppendUnicodeToString(
-                    (unsigned __int16 *)&v21,
-                    L"\\Registry\\Machine\\Software\\Microsoft\\Windows NT\\CurrentVersion\\Image File Execution Options\\") >= 0
-          && (int)RtlAppendUnicodeToString((unsigned __int16 *)&v21, v4) >= 0 )
+        Destination.MaximumLength = v7;
+        if ( RtlAppendUnicodeToString(
+               &Destination,
+               L"\\Registry\\Machine\\Software\\Microsoft\\Windows NT\\CurrentVersion\\Image File Execution Options\\") >= 0
+          && RtlAppendUnicodeToString(&Destination, v4) >= 0 )
         {
-          LODWORD(v25[0]) = 48;
-          v25[2] = &v21;
-          v25[1] = 0LL;
-          v26 = 64;
-          v27 = 0LL;
-          if ( (int)ZwOpenKey(&v20, 1LL, v25) >= 0 )
+          ObjectAttributes.Length = 48;
+          ObjectAttributes.ObjectName = &Destination;
+          ObjectAttributes.RootDirectory = 0LL;
+          ObjectAttributes.Attributes = 64;
+          *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+          if ( ZwOpenKey(&KeyHandle, 1u, &ObjectAttributes) >= 0 )
           {
-            v8 = v20;
-            if ( (int)RtlInitUnicodeStringEx((__int64)v23, (__int64)L"GlobalFlag") >= 0 )
+            v8 = KeyHandle;
+            if ( RtlInitUnicodeStringEx(&DestinationString, L"GlobalFlag") >= 0 )
             {
-              v9 = v29;
-              v10 = ZwQueryValueKey(v8, v23, 2LL, v29, 1024, &v18);
+              v9 = (USHORT *)KeyValueInformation;
+              v10 = ZwQueryValueKey(
+                      v8,
+                      &DestinationString,
+                      KeyValuePartialInformation,
+                      KeyValueInformation,
+                      0x400u,
+                      Length);
               if ( v10 < 0 )
               {
                 if ( v10 == -2147483643 )
                 {
                   while ( 1 )
                   {
-                    v13 = v18;
+                    v13 = Length[0];
                     ProcessHeap = NtCurrentPeb()->ProcessHeap;
                     if ( !ProcessHeap )
                       break;
-                    v15 = RtlAllocateHeap((__int64)ProcessHeap, dword_18015B268 + 1572864, v18);
-                    v11 = v15;
-                    if ( !v15 )
+                    Heap = RtlAllocateHeap(ProcessHeap, dword_18015B268 + 1572864, Length[0]);
+                    v11 = Heap;
+                    if ( !Heap )
                       break;
-                    v9 = (_DWORD *)v15;
-                    v16 = ZwQueryValueKey(v8, v23, 2LL, v15, v13, &v18);
+                    v9 = (USHORT *)Heap;
+                    v16 = ZwQueryValueKey(v8, &DestinationString, KeyValuePartialInformation, Heap, v13, Length);
                     if ( v16 >= 0 )
                       goto LABEL_18;
                     if ( v16 != -2147483643 )
                       goto LABEL_34;
-                    RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, (unsigned __int64)v9);
+                    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v9);
                   }
                 }
               }
@@ -112,36 +113,36 @@ __int64 __fastcall sub_1800704C0(__int64 a1)
               {
                 v11 = 0LL;
 LABEL_18:
-                v12 = v9[1];
+                v12 = *((_DWORD *)v9 + 1);
                 if ( ((v12 - 3) & 0xFFFFFFFB) != 0 )
                 {
                   if ( v12 == 4 )
                   {
-                    if ( v9[2] == 4 )
+                    if ( *((_DWORD *)v9 + 2) == 4 )
                     {
-                      v18 = 4;
-                      v19 = v9[3];
+                      Length[0] = 4;
+                      Length[1] = *((_DWORD *)v9 + 3);
                     }
                   }
-                  else if ( v12 == 1 && ((unsigned __int8)&v19 & 3) == 0 )
+                  else if ( v12 == 1 && ((unsigned __int8)&Length[1] & 3) == 0 )
                   {
-                    v18 = 4;
-                    v24 = v9 + 3;
-                    v23[0] = *((_WORD *)v9 + 4);
-                    v23[1] = *((_WORD *)v9 + 4);
-                    RtlUnicodeStringToInteger(v23, 0LL, &v19);
+                    Length[0] = 4;
+                    DestinationString.Buffer = v9 + 6;
+                    DestinationString.Length = v9[4];
+                    DestinationString.MaximumLength = v9[4];
+                    RtlUnicodeStringToInteger(&DestinationString, 0, &Length[1]);
                   }
                 }
                 else if ( v12 == 4 )
                 {
-                  v18 = v9[2];
-                  v17 = v9[2];
+                  Length[0] = *((_DWORD *)v9 + 2);
+                  v17 = *((_DWORD *)v9 + 2);
                   if ( v17 <= 4 )
-                    memmove(&v19, v9 + 3, v17);
+                    memmove(&Length[1], v9 + 6, v17);
                 }
 LABEL_34:
                 if ( v11 )
-                  RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v11);
+                  RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v11);
               }
             }
           }
@@ -149,12 +150,12 @@ LABEL_34:
       }
     }
   }
-  if ( v20 )
+  if ( KeyHandle )
   {
-    ZwClose(v20);
-    v20 = 0LL;
+    ZwClose(KeyHandle);
+    KeyHandle = 0LL;
   }
-  if ( Heap )
-    RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, Heap);
-  return v19;
+  if ( Destination.Buffer )
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, Destination.Buffer);
+  return Length[1];
 }

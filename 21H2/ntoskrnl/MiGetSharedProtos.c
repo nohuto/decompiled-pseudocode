@@ -1,23 +1,23 @@
 /*
- * XREFs of MiGetSharedProtos @ 0x1403A6208
+ * XREFs of MiGetSharedProtos @ 0x1403A6358
  * Callers:
- *     MiCompleteProtoPteFault @ 0x140213D90 (MiCompleteProtoPteFault.c)
- *     MiWalkEntireImage @ 0x14023A4B0 (MiWalkEntireImage.c)
- *     MiEmptyPageAccessLog @ 0x14025BC70 (MiEmptyPageAccessLog.c)
- *     MiGetImageProtoProtection @ 0x1402BB36C (MiGetImageProtoProtection.c)
- *     MiComputeImagePteIndex @ 0x1402FCD40 (MiComputeImagePteIndex.c)
- *     MiResolveMappedFileFault @ 0x140319480 (MiResolveMappedFileFault.c)
- *     MiStartingOffset @ 0x14031E410 (MiStartingOffset.c)
- *     MiQueryAddressState @ 0x14032F730 (MiQueryAddressState.c)
- *     MiGetProtoPteAddress @ 0x140330B40 (MiGetProtoPteAddress.c)
- *     MiIdentifyPfn @ 0x140349250 (MiIdentifyPfn.c)
- *     MiFaultGetFileExtents @ 0x1405483F0 (MiFaultGetFileExtents.c)
- *     MiMakePerSessionProtoPte @ 0x14055B4A0 (MiMakePerSessionProtoPte.c)
- *     MiPfAllocateMdls @ 0x1406E8CA0 (MiPfAllocateMdls.c)
- *     MiAddMappedPtes @ 0x1406E9250 (MiAddMappedPtes.c)
- *     MiPfPrepareSequentialReadList @ 0x1406EDDD0 (MiPfPrepareSequentialReadList.c)
+ *     MiGetImageProtoProtection @ 0x14023957C (MiGetImageProtoProtection.c)
+ *     MiEmptyPageAccessLog @ 0x14027D1E0 (MiEmptyPageAccessLog.c)
+ *     MiCompleteProtoPteFault @ 0x1402B8690 (MiCompleteProtoPteFault.c)
+ *     MiWalkEntireImage @ 0x1402DED00 (MiWalkEntireImage.c)
+ *     MiComputeImagePteIndex @ 0x140307A90 (MiComputeImagePteIndex.c)
+ *     MiResolveMappedFileFault @ 0x1403241D0 (MiResolveMappedFileFault.c)
+ *     MiStartingOffset @ 0x140329160 (MiStartingOffset.c)
+ *     MiQueryAddressState @ 0x14033A480 (MiQueryAddressState.c)
+ *     MiGetProtoPteAddress @ 0x14033B890 (MiGetProtoPteAddress.c)
+ *     MiIdentifyPfn @ 0x140353FA0 (MiIdentifyPfn.c)
+ *     MiFaultGetFileExtents @ 0x140548630 (MiFaultGetFileExtents.c)
+ *     MiMakePerSessionProtoPte @ 0x14055B6E0 (MiMakePerSessionProtoPte.c)
+ *     MiPfAllocateMdls @ 0x140700080 (MiPfAllocateMdls.c)
+ *     MiAddMappedPtes @ 0x140700630 (MiAddMappedPtes.c)
+ *     MiPfPrepareSequentialReadList @ 0x1407051B0 (MiPfPrepareSequentialReadList.c)
  * Callees:
- *     MiGetSharedProtosAtDpcLevel @ 0x1403A628C (MiGetSharedProtosAtDpcLevel.c)
+ *     MiGetSharedProtosAtDpcLevel @ 0x1403A63DC (MiGetSharedProtosAtDpcLevel.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 

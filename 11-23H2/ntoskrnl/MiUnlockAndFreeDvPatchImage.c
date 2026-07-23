@@ -1,12 +1,12 @@
 /*
- * XREFs of MiUnlockAndFreeDvPatchImage @ 0x1406411C4
+ * XREFs of MiUnlockAndFreeDvPatchImage @ 0x140641714
  * Callers:
- *     MiLockPatchIatForDV @ 0x1406404A0 (MiLockPatchIatForDV.c)
- *     MiReapplyImportOptimizationForDriverVerifier @ 0x1406408E8 (MiReapplyImportOptimizationForDriverVerifier.c)
+ *     MiLockPatchIatForDV @ 0x1406409F0 (MiLockPatchIatForDV.c)
+ *     MiReapplyImportOptimizationForDriverVerifier @ 0x140640E38 (MiReapplyImportOptimizationForDriverVerifier.c)
  * Callees:
- *     IoFreeMdl @ 0x1402ACFE0 (IoFreeMdl.c)
- *     MmUnmapLockedPages @ 0x1402CB700 (MmUnmapLockedPages.c)
- *     MiUnlockDriverPages @ 0x140875B2C (MiUnlockDriverPages.c)
+ *     IoFreeMdl @ 0x1402AD270 (IoFreeMdl.c)
+ *     MmUnmapLockedPages @ 0x1402CB990 (MmUnmapLockedPages.c)
+ *     MiUnlockDriverPages @ 0x140875D6C (MiUnlockDriverPages.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

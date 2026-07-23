@@ -1,16 +1,16 @@
 /*
- * XREFs of WmipUpdateModifyGuid @ 0x1407C4120
+ * XREFs of WmipUpdateModifyGuid @ 0x1407C4640
  * Callers:
- *     WmipUpdateDataSource @ 0x1407C3FC8 (WmipUpdateDataSource.c)
+ *     WmipUpdateDataSource @ 0x1407C44E8 (WmipUpdateDataSource.c)
  * Callees:
- *     memset @ 0x140414200 (memset.c)
- *     WmipUnreferenceEntry @ 0x140639618 (WmipUnreferenceEntry.c)
- *     WmipBuildInstanceSet @ 0x140756BD8 (WmipBuildInstanceSet.c)
- *     WmipAllocEntry @ 0x1407580C0 (WmipAllocEntry.c)
- *     WmipIsEqualInstanceSets @ 0x1407C4214 (WmipIsEqualInstanceSets.c)
- *     WmipFindISInDSByGuid @ 0x1407C4280 (WmipFindISInDSByGuid.c)
- *     WmipUpdateAddGuid @ 0x140933818 (WmipUpdateAddGuid.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     WmipUnreferenceEntry @ 0x14062E428 (WmipUnreferenceEntry.c)
+ *     WmipBuildInstanceSet @ 0x140756D98 (WmipBuildInstanceSet.c)
+ *     WmipAllocEntry @ 0x140758280 (WmipAllocEntry.c)
+ *     WmipIsEqualInstanceSets @ 0x1407C4734 (WmipIsEqualInstanceSets.c)
+ *     WmipFindISInDSByGuid @ 0x1407C47A0 (WmipFindISInDSByGuid.c)
+ *     WmipUpdateAddGuid @ 0x1409339E8 (WmipUpdateAddGuid.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall WmipUpdateModifyGuid(__int64 a1, _DWORD *a2, __int64 a3, unsigned int a4, __int64 *a5)

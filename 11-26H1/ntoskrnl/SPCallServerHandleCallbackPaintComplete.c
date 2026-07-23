@@ -1,10 +1,10 @@
 /*
- * XREFs of SPCallServerHandleCallbackPaintComplete @ 0x140B21A70
+ * XREFs of SPCallServerHandleCallbackPaintComplete @ 0x140B23E70
  * Callers:
- *     SPCall2ServerInternal @ 0x140A1AE00 (SPCall2ServerInternal.c)
+ *     SPCall2ServerInternal @ 0x140A24430 (SPCall2ServerInternal.c)
  * Callees:
- *     KeReleaseMutex @ 0x1403DD0F0 (KeReleaseMutex.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
+ *     KeReleaseMutex @ 0x1403E02E0 (KeReleaseMutex.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall SPCallServerHandleCallbackPaintComplete(__int64 a1, __int64 a2, __int64 a3, __int64 a4)

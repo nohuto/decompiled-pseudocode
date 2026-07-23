@@ -1,5 +1,5 @@
 /*
- * XREFs of KeGetCurrentIrql @ 0x14002ECE0
+ * XREFs of KeGetCurrentIrql @ 0x14002E860
  * Callers:
  *     BgFreeContext @ 0x140725010 (BgFreeContext.c)
  *     BgGetContext @ 0x1407251F0 (BgGetContext.c)

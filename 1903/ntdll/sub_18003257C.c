@@ -18,52 +18,50 @@
  *     sub_18010F60C @ 0x18010F60C (sub_18010F60C.c)
  */
 
-char __fastcall sub_18003257C(__int64 a1, __int64 a2, char a3)
+char __fastcall sub_18003257C(__int64 a1, _RTL_SRWLOCK *a2, char a3)
 {
   char v3; // bl
   bool v6; // bp
-  unsigned __int64 v9; // rcx
-  unsigned __int64 v10; // r13
-  __int64 v11; // rcx
-  __int64 v12; // rdx
-  _BYTE v13[40]; // [rsp+20h] [rbp-28h] BYREF
+  unsigned __int64 v9; // r13
+  __int64 v10; // rcx
+  __int64 v11; // rdx
+  _BYTE v12[40]; // [rsp+20h] [rbp-28h] BYREF
 
   v3 = 1;
   v6 = (*(_BYTE *)(a1 + 354) & 2) != 0;
   if ( (*(_BYTE *)(a1 + 354) & 1) != 0 )
   {
-    v9 = -(__int64)((*(_BYTE *)(a1 + 354) & 2) != 0) & 0xFFFFFFFFFFFFFF88uLL;
-    v10 = v9 + a2 + 128;
-    if ( (unsigned int)RtlGetCurrentServiceSessionId(v9) )
-      v11 = (__int64)NtCurrentPeb()->HotpatchInformation + 556;
+    v9 = (unsigned __int64)&a2[16] + (-(__int64)((*(_BYTE *)(a1 + 354) & 2) != 0) & 0xFFFFFFFFFFFFFF88uLL);
+    if ( RtlGetCurrentServiceSessionId() )
+      v10 = (__int64)&NtCurrentPeb()->SharedData->UserModeGlobalLogger[3];
     else
-      v11 = 2147353478LL;
-    if ( *(_BYTE *)v11 )
-      sub_18010F60C(v10, a1);
+      v10 = 2147353478LL;
+    if ( *(_BYTE *)v10 )
+      sub_18010F60C(v9, a1);
     RtlAcquireSRWLockExclusive(a2);
     if ( *(_BYTE *)(a1 + 352) )
     {
-      sub_180036214(v10 + 16, a1 + 248);
-      sub_180036214(v10 + 8, a1 + 288);
-      LOBYTE(v12) = v6;
-      sub_1800327D4(v10, v12);
+      sub_180036214(v9 + 16, a1 + 248);
+      sub_180036214(v9 + 8, a1 + 288);
+      LOBYTE(v11) = v6;
+      sub_1800327D4(v9, v11);
       *(_BYTE *)(a1 + 352) = 0;
       RtlReleaseSRWLockExclusive(a2);
       *(_DWORD *)(a1 + 348) = 0;
       *(_QWORD *)(a1 + 328) = 0LL;
       *(_BYTE *)(a1 + 354) = 0;
       if ( !a3 )
-        RtlReleaseSRWLockExclusive(a1 + 240);
+        RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(a1 + 240));
     }
     else
     {
       RtlReleaseSRWLockExclusive(a2);
       *(_BYTE *)(a1 + 354) |= 4u;
-      sub_180066D0C(a1 + 336, v13);
-      RtlReleaseSRWLockExclusive(a1 + 240);
-      ZwWaitForAlertByThreadId(a1 + 336, 0LL);
+      sub_180066D0C(a1 + 336, v12);
+      RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(a1 + 240));
+      ZwWaitForAlertByThreadId((PVOID)(a1 + 336), 0LL);
       if ( a3 )
-        RtlAcquireSRWLockExclusive(a1 + 240);
+        RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)(a1 + 240));
       return 0;
     }
     return v3;
@@ -72,7 +70,7 @@ char __fastcall sub_18003257C(__int64 a1, __int64 a2, char a3)
   {
     *(_QWORD *)(a1 + 328) = 0LL;
     if ( !a3 )
-      RtlReleaseSRWLockExclusive(a1 + 240);
+      RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(a1 + 240));
     return 0;
   }
 }

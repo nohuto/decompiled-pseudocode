@@ -1,19 +1,19 @@
 /*
- * XREFs of PiDmObjectGetCachedObjectPropertyData @ 0x1409B1000
+ * XREFs of PiDmObjectGetCachedObjectPropertyData @ 0x14099AAC0
  * Callers:
- *     PiPnpRtlObjectActionCallback @ 0x1408CE6A0 (PiPnpRtlObjectActionCallback.c)
- *     PiDmObjectGetCachedObjectProperty @ 0x1408D0350 (PiDmObjectGetCachedObjectProperty.c)
+ *     PiPnpRtlObjectActionCallback @ 0x1408CC090 (PiPnpRtlObjectActionCallback.c)
+ *     PiDmObjectGetCachedObjectProperty @ 0x1408CDD40 (PiDmObjectGetCachedObjectProperty.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x1402595A0 (KeLeaveCriticalRegionThread.c)
- *     ExfReleasePushLock @ 0x14025E260 (ExfReleasePushLock.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     ExfAcquirePushLockSharedEx @ 0x14034050C (ExfAcquirePushLockSharedEx.c)
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     RtlGUIDFromString @ 0x1408CA240 (RtlGUIDFromString.c)
- *     PiDmGetObject @ 0x1408CBB70 (PiDmGetObject.c)
- *     PiDmObjectRelease @ 0x1408D0A30 (PiDmObjectRelease.c)
+ *     KeLeaveCriticalRegionThread @ 0x140289BB0 (KeLeaveCriticalRegionThread.c)
+ *     ExfReleasePushLock @ 0x14028E870 (ExfReleasePushLock.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     ExfAcquirePushLockSharedEx @ 0x14031F9EC (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     RtlGUIDFromString @ 0x1408C7C70 (RtlGUIDFromString.c)
+ *     PiDmGetObject @ 0x1408C95A0 (PiDmGetObject.c)
+ *     PiDmObjectRelease @ 0x1408CE420 (PiDmObjectRelease.c)
  */
 
 __int64 __fastcall PiDmObjectGetCachedObjectPropertyData(
@@ -37,7 +37,7 @@ __int64 __fastcall PiDmObjectGetCachedObjectPropertyData(
   struct _KTHREAD *CurrentThread; // rax
   volatile signed __int64 *v19; // rbx
   ULONG_PTR v20; // rcx
-  _QWORD *v21; // rbp
+  char *v21; // rbp
   signed __int64 v22; // rax
   signed __int64 *v23; // rbx
   signed __int64 *v24; // rdx
@@ -101,13 +101,13 @@ LABEL_11:
     v19 = (volatile signed __int64 *)BugCheckParameter2;
     v20 = BugCheckParameter2;
     --CurrentThread->KernelApcDisable;
-    v21 = KeAbPreAcquire(v20, 0LL);
+    v21 = (char *)KeAbPreAcquire(v20, 0LL);
     v22 = _InterlockedCompareExchange64(v19, 17LL, 0LL);
     v23 = (signed __int64 *)BugCheckParameter2;
     if ( v22 )
       ExfAcquirePushLockSharedEx((signed __int64 *)BugCheckParameter2, 0, v21, BugCheckParameter2);
     if ( v21 )
-      *((_BYTE *)v21 + 10) = 1;
+      v21[10] = 1;
     v24 = &v23[3 * i];
     v25 = *((_DWORD *)v24 + 28);
     if ( v25 <= 1 )

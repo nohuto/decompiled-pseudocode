@@ -1,9 +1,9 @@
 /*
- * XREFs of PpmPerfQueryPackageId @ 0x140606BE0
+ * XREFs of PpmPerfQueryPackageId @ 0x1406096E0
  * Callers:
  *     <none>
  * Callees:
- *     KeGetPrcb @ 0x1402916D0 (KeGetPrcb.c)
+ *     KeGetPrcb @ 0x140290C30 (KeGetPrcb.c)
  */
 
 __int64 __fastcall PpmPerfQueryPackageId(unsigned int a1)

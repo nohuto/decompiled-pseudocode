@@ -26,7 +26,7 @@ __int64 __fastcall EtwpFreeCompression(__int64 a1)
   unsigned int v7; // r8d
   bool v8; // zf
   __int64 v9; // rcx
-  unsigned __int64 v10; // rdi
+  __int64 v10; // rdi
   int v11; // eax
   unsigned int v12; // ecx
   __int64 v13; // rdx
@@ -54,7 +54,7 @@ __int64 __fastcall EtwpFreeCompression(__int64 a1)
       v8 = !_BitScanReverse((unsigned int *)&v9, v7);
       if ( v8 )
         goto LABEL_12;
-      v10 = (unsigned __int64)&CurrentThread->LockEntries[v9];
+      v10 = (__int64)&CurrentThread->LockEntries[v9];
       v7 &= ~(1 << v9);
       if ( (*(_BYTE *)(v10 + 26) & 1) != 0
         && (*(_DWORD *)(v10 + 32) & 1) == 0
@@ -75,14 +75,14 @@ LABEL_12:
     }
     *(_BYTE *)(v10 + 32) |= 2u;
     if ( *(__int64 *)(v10 + 32) < 0 )
-      KiAbEntryRemoveFromTree(v10);
+      KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)v10);
     v11 = *(_DWORD *)(v10 + 88) & 0x1FFFF;
     v12 = *(_DWORD *)(v10 + 88) & 0xFFFE0000;
     *(_BYTE *)(v10 + 25) &= ~1u;
     v15 = v11;
     *(_DWORD *)(v10 + 88) = v12;
     *(_QWORD *)(v10 + 32) = 0LL;
-    v13 = (__int64)(v10 - (unsigned __int64)CurrentThread->LockEntries) / 96;
+    v13 = (signed __int64)(v10 - (unsigned __int64)CurrentThread->LockEntries) / 96;
     if ( v6 == 1 )
       CurrentThread->AbEntrySummary |= 1 << v13;
     else

@@ -5,7 +5,7 @@
  *     EtwpAddLogHeaderToLogFile @ 0x18005D0A4 (EtwpAddLogHeaderToLogFile.c)
  * Callees:
  *     EtwpAddBinaryInfoEvents @ 0x180002A80 (EtwpAddBinaryInfoEvents.c)
- *     EtwpAddDebugInfoEvents @ 0x180126168 (EtwpAddDebugInfoEvents.c)
+ *     EtwpAddDebugInfoEvents @ 0x180126138 (EtwpAddDebugInfoEvents.c)
  */
 
 _QWORD *__fastcall EtwpAddProviderTrackingInfo(__int64 a1, __int64 a2, unsigned int a3)

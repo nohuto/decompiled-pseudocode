@@ -1,9 +1,9 @@
 /*
- * XREFs of SmKmGenericCompletion @ 0x14047FC20
+ * XREFs of SmKmGenericCompletion @ 0x14047A860
  * Callers:
  *     <none>
  * Callees:
- *     KeSetEvent @ 0x1402725A0 (KeSetEvent.c)
+ *     KeSetEvent @ 0x140227B30 (KeSetEvent.c)
  */
 
 __int64 __fastcall SmKmGenericCompletion(__int64 a1, __int64 a2, struct _KEVENT *a3)

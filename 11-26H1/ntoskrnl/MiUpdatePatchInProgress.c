@@ -1,11 +1,11 @@
 /*
- * XREFs of MiUpdatePatchInProgress @ 0x1406FCEB4
+ * XREFs of MiUpdatePatchInProgress @ 0x140701B84
  * Callers:
- *     MiLinkHotPatchToBase @ 0x1406FC268 (MiLinkHotPatchToBase.c)
- *     MiApplyDriverHotPatch @ 0x14086DAC4 (MiApplyDriverHotPatch.c)
+ *     MiLinkHotPatchToBase @ 0x140700F38 (MiLinkHotPatchToBase.c)
+ *     MiApplyDriverHotPatch @ 0x140873E94 (MiApplyDriverHotPatch.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 unsigned __int64 __fastcall MiUpdatePatchInProgress(struct _LIST_ENTRY *a1, struct _LIST_ENTRY *a2, char a3)
@@ -27,13 +27,13 @@ unsigned __int64 __fastcall MiUpdatePatchInProgress(struct _LIST_ENTRY *a1, stru
   }
   if ( (a3 & 1) != 0 )
   {
-    stru_140E36558.Header.WaitListHead.Blink = 0LL;
-    stru_140E36558.Header.WaitListHead.Flink = 0LL;
+    stru_140E366D8.Header.WaitListHead.Blink = 0LL;
+    stru_140E366D8.Header.WaitListHead.Flink = 0LL;
   }
   else
   {
-    stru_140E36558.Header.WaitListHead.Blink = a1;
-    stru_140E36558.Header.WaitListHead.Flink = a2;
+    stru_140E366D8.Header.WaitListHead.Blink = a1;
+    stru_140E366D8.Header.WaitListHead.Flink = a2;
   }
   if ( CurrentIrql != 17 )
   {

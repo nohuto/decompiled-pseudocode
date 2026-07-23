@@ -1,16 +1,16 @@
 /*
- * XREFs of ZwFlushKey @ 0x180163AC0
+ * XREFs of ZwFlushKey @ 0x180161E80
  * Callers:
- *     RtlApplyRXact @ 0x180106760 (RtlApplyRXact.c)
+ *     RtlApplyRXact @ 0x180101690 (RtlApplyRXact.c)
  * Callees:
  *     <none>
  */
 
-__int64 ZwFlushKey()
+NTSTATUS __cdecl ZwFlushKey(HANDLE KeyHandle)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 242LL;
+  result = 242;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

@@ -1,18 +1,18 @@
 /*
- * XREFs of IopSynchronousApiServiceTail @ 0x14065E91C
+ * XREFs of IopSynchronousApiServiceTail @ 0x14065FADC
  * Callers:
- *     NtFlushBuffersFileEx @ 0x14065C7A0 (NtFlushBuffersFileEx.c)
- *     NtQueryVolumeInformationFile @ 0x14065E460 (NtQueryVolumeInformationFile.c)
- *     NtUnlockFile @ 0x14069B640 (NtUnlockFile.c)
- *     NtQueryEaFile @ 0x1406A95B0 (NtQueryEaFile.c)
- *     NtSetVolumeInformationFile @ 0x1406FF270 (NtSetVolumeInformationFile.c)
- *     IopSetEaOrQuotaInformationFile @ 0x14081AC3C (IopSetEaOrQuotaInformationFile.c)
- *     NtSetEaFile @ 0x14081E1E0 (NtSetEaFile.c)
- *     NtQueryQuotaInformationFile @ 0x14081E840 (NtQueryQuotaInformationFile.c)
+ *     NtFlushBuffersFileEx @ 0x14065D960 (NtFlushBuffersFileEx.c)
+ *     NtQueryVolumeInformationFile @ 0x14065F620 (NtQueryVolumeInformationFile.c)
+ *     NtUnlockFile @ 0x14069C800 (NtUnlockFile.c)
+ *     NtQueryEaFile @ 0x1406AA850 (NtQueryEaFile.c)
+ *     NtSetVolumeInformationFile @ 0x140700510 (NtSetVolumeInformationFile.c)
+ *     IopSetEaOrQuotaInformationFile @ 0x14081BE3C (IopSetEaOrQuotaInformationFile.c)
+ *     NtSetEaFile @ 0x14081F3E0 (NtSetEaFile.c)
+ *     NtQueryQuotaInformationFile @ 0x14081FA40 (NtQueryQuotaInformationFile.c)
  * Callees:
  *     KeWaitForSingleObject @ 0x140054880 (KeWaitForSingleObject.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     IopCancelAlertedRequest @ 0x1408195EC (IopCancelAlertedRequest.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     IopCancelAlertedRequest @ 0x14081A7EC (IopCancelAlertedRequest.c)
  */
 
 __int64 __fastcall IopSynchronousApiServiceTail(

@@ -9,22 +9,22 @@
 void __stdcall ExRundownCompletedCacheAware(PEX_RUNDOWN_REF_CACHE_AWARE RunRefCacheAware)
 {
   unsigned int v2; // r8d
-  unsigned int Number; // ecx
+  unsigned int v3; // ecx
   int v4; // edx
 
   v2 = 0;
-  Number = RunRefCacheAware->Number;
-  if ( Number )
+  v3 = *((_DWORD *)RunRefCacheAware + 5);
+  if ( v3 )
   {
     do
     {
-      v4 = v2 % Number;
+      v4 = v2 % v3;
       ++v2;
       _InterlockedExchange64(
-        (volatile __int64 *)((char *)RunRefCacheAware->RunRefs + RunRefCacheAware->RunRefSize * v4),
+        (volatile __int64 *)(*(_QWORD *)RunRefCacheAware + (unsigned int)(*((_DWORD *)RunRefCacheAware + 4) * v4)),
         1LL);
-      Number = RunRefCacheAware->Number;
+      v3 = *((_DWORD *)RunRefCacheAware + 5);
     }
-    while ( v2 < Number );
+    while ( v2 < v3 );
   }
 }

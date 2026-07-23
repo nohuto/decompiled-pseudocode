@@ -13,14 +13,14 @@
  *     WdipSemFastFree @ 0x1406EDCC4 (WdipSemFastFree.c)
  */
 
-PSLIST_ENTRY __fastcall WdipSemDeleteTransitionalInstance(struct _SLIST_ENTRY *a1)
+PSLIST_ENTRY __fastcall WdipSemDeleteTransitionalInstance(_SLIST_ENTRY *a1)
 {
   struct _KTHREAD *CurrentThread; // rax
   __int64 *v3; // rax
   signed __int8 v4; // cf
   __int64 *v5; // rdi
   _SLIST_ENTRY *Next; // rcx
-  struct _SLIST_ENTRY **v7; // rax
+  _SLIST_ENTRY **v7; // rax
   signed __int64 v8; // rdx
   ULONG_PTR v9; // rtt
 
@@ -34,7 +34,7 @@ PSLIST_ENTRY __fastcall WdipSemDeleteTransitionalInstance(struct _SLIST_ENTRY *a
   if ( v5 )
     *((_BYTE *)v5 + 10) = 1;
   Next = a1->Next;
-  if ( *(&a1->Next->Next + 1) != a1 || (v7 = (struct _SLIST_ENTRY **)*((_QWORD *)&a1->Next + 1), *v7 != a1) )
+  if ( *(&a1->Next->Next + 1) != a1 || (v7 = (_SLIST_ENTRY **)*((_QWORD *)&a1->Next + 1), *v7 != a1) )
     __fastfail(3u);
   *v7 = Next;
   *((_QWORD *)&Next->Next + 1) = v7;

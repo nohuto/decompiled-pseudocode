@@ -1,23 +1,23 @@
 /*
- * XREFs of MiLockPatchIatForDV @ 0x14067BF00
+ * XREFs of MiLockPatchIatForDV @ 0x14067D0E0
  * Callers:
  *     <none>
  * Callees:
- *     IoAllocateMdl @ 0x140267BF0 (IoAllocateMdl.c)
- *     MmMapLockedPagesSpecifyCache @ 0x14028F9F0 (MmMapLockedPagesSpecifyCache.c)
- *     RtlImageDirectoryEntryToData @ 0x14042CAF0 (RtlImageDirectoryEntryToData.c)
- *     MiGetAnyMultiplexedVm @ 0x140442630 (MiGetAnyMultiplexedVm.c)
- *     MiLockDriverPageRange @ 0x14066AEB0 (MiLockDriverPageRange.c)
- *     MiUnlockAndFreeDvPatchImage @ 0x14067C928 (MiUnlockAndFreeDvPatchImage.c)
- *     MiPrepareDriverPatchState @ 0x1407E7E2C (MiPrepareDriverPatchState.c)
- *     MiInitializeDriverPatchState @ 0x140A9A35C (MiInitializeDriverPatchState.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     IoAllocateMdl @ 0x14025F1D0 (IoAllocateMdl.c)
+ *     MmMapLockedPagesSpecifyCache @ 0x14029F5F0 (MmMapLockedPagesSpecifyCache.c)
+ *     RtlImageDirectoryEntryToData @ 0x1402EEB70 (RtlImageDirectoryEntryToData.c)
+ *     MiGetAnyMultiplexedVm @ 0x140439200 (MiGetAnyMultiplexedVm.c)
+ *     MiLockDriverPageRange @ 0x14066C080 (MiLockDriverPageRange.c)
+ *     MiUnlockAndFreeDvPatchImage @ 0x14067DB08 (MiUnlockAndFreeDvPatchImage.c)
+ *     MiPrepareDriverPatchState @ 0x1407E83FC (MiPrepareDriverPatchState.c)
+ *     MiInitializeDriverPatchState @ 0x140A958C8 (MiInitializeDriverPatchState.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 _BOOL8 __fastcall MiLockPatchIatForDV(__int64 a1, __int64 a2)
 {
   _QWORD *v2; // rdi
-  __int64 v5; // rbp
+  char *v5; // rbp
   __int64 v6; // r15
   __int64 Pool2; // rax
   int v8; // ebx
@@ -27,18 +27,18 @@ _BOOL8 __fastcall MiLockPatchIatForDV(__int64 a1, __int64 a2)
   PMDL Mdl; // rax
   unsigned int v13; // r9d
   __int64 v14; // r8
-  PVOID v15; // rax
+  char *v15; // rax
   _QWORD *v16; // rcx
-  unsigned int v18; // [rsp+70h] [rbp+8h] BYREF
+  ULONG Size; // [rsp+70h] [rbp+8h] BYREF
   int v19; // [rsp+78h] [rbp+10h]
 
-  v18 = 0;
+  Size = 0;
   v19 = 0;
   v2 = 0LL;
-  v5 = RtlImageDirectoryEntryToData(*(_QWORD *)(a1 + 48), 1, 0xCu, &v18);
-  if ( v5 && (v6 = v18, v18 >= 8) )
+  v5 = (char *)RtlImageDirectoryEntryToData(*(PVOID *)(a1 + 48), 1u, 0xCu, &Size);
+  if ( v5 && (v6 = Size, Size >= 8) )
   {
-    Pool2 = ExAllocatePool2(0x40uLL);
+    Pool2 = ExAllocatePool2(0x40uLL, 0x90uLL, 0x50746F48u);
     v2 = (_QWORD *)Pool2;
     if ( !Pool2 )
     {
@@ -71,7 +71,7 @@ LABEL_4:
           do
           {
             ++v13;
-            *((_QWORD *)&Mdl[1].Next + v14) = qword_140E37338;
+            *((_QWORD *)&Mdl[1].Next + v14) = qword_140E37478;
             v14 = v13;
           }
           while ( v13 < (*(unsigned int *)(*v11 + 40) + (*(_DWORD *)(*v11 + 32) & 0xFFFuLL) + 4095) >> 12 );
@@ -79,9 +79,9 @@ LABEL_4:
       }
       v8 = MiLockDriverPageRange(
              v9,
-             (unsigned int)(v5 - *(_DWORD *)(a1 + 48)) >> 12,
-             ((unsigned int)(v5 - *(_DWORD *)(a1 + 48)) >> 12)
-           + ((v6 + 4095 + (unsigned __int64)(v5 & 0xFFF)) >> 12)
+             (unsigned int)((_DWORD)v5 - *(_DWORD *)(a1 + 48)) >> 12,
+             ((unsigned int)((_DWORD)v5 - *(_DWORD *)(a1 + 48)) >> 12)
+           + ((v6 + 4095 + (unsigned __int64)((unsigned __int16)v5 & 0xFFF)) >> 12)
            - 1,
              v19,
              *v11);
@@ -89,10 +89,10 @@ LABEL_4:
       {
         if ( *v11 )
         {
-          v15 = MmMapLockedPagesSpecifyCache((PMDL)*v11, 0, MmCached, 0LL, 0, 0x40000010u);
+          v15 = (char *)MmMapLockedPagesSpecifyCache((PMDL)*v11, 0, MmCached, 0LL, 0, 0x40000010u);
           if ( !v15 )
             goto LABEL_4;
-          v5 += (__int64)v15 - *(_QWORD *)(a1 + 48);
+          v5 = &v15[(_QWORD)v5 - *(_QWORD *)(a1 + 48)];
         }
         v2[16] = v5;
         *((_DWORD *)v2 + 34) = v6;

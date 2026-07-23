@@ -1,21 +1,18 @@
 /*
- * XREFs of ZwLoadDriver @ 0x1401BA170
+ * XREFs of ZwLoadDriver @ 0x1401BA2D0
  * Callers:
- *     KsepLoadShimProvider @ 0x14029FA5C (KsepLoadShimProvider.c)
- *     NtSetSystemInformation @ 0x140663DF0 (NtSetSystemInformation.c)
- *     EtwpUpdateFileInfoDriverState @ 0x1406C5BB8 (EtwpUpdateFileInfoDriverState.c)
- *     PopCadTriggerDriverLoad @ 0x14087A214 (PopCadTriggerDriverLoad.c)
- *     EtwpConstructIptData @ 0x1408C9BFC (EtwpConstructIptData.c)
+ *     KsepLoadShimProvider @ 0x14029FC4C (KsepLoadShimProvider.c)
+ *     NtSetSystemInformation @ 0x140664FB0 (NtSetSystemInformation.c)
+ *     EtwpUpdateFileInfoDriverState @ 0x1406C6E58 (EtwpUpdateFileInfoDriverState.c)
+ *     PopCadTriggerDriverLoad @ 0x14087B474 (PopCadTriggerDriverLoad.c)
+ *     EtwpConstructIptData @ 0x1408CAEBC (EtwpConstructIptData.c)
  * Callees:
  *     <none>
  */
 
 NTSTATUS __stdcall ZwLoadDriver(PUNICODE_STRING DriverServiceName)
 {
-  __int64 v1; // rdx
-  __int64 v2; // r8
-
   _disable();
   __readeflags();
-  return KiServiceInternal(DriverServiceName, v1, v2);
+  return KiServiceInternal(DriverServiceName);
 }

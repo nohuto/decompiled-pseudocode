@@ -1,9 +1,9 @@
 /*
- * XREFs of PopSmartSuspendResetData @ 0x1406FBD60
+ * XREFs of PopSmartSuspendResetData @ 0x1406F99A0
  * Callers:
- *     PopSmartSuspendInit @ 0x140C31EA0 (PopSmartSuspendInit.c)
+ *     PopSmartSuspendInit @ 0x140C33FE0 (PopSmartSuspendInit.c)
  * Callees:
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 __int64 __fastcall PopSmartSuspendResetData(_QWORD *a1)

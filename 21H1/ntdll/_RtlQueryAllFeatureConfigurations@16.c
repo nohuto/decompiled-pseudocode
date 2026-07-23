@@ -8,29 +8,33 @@
  *     _RtlpFcQueryAllFeatureConfigurationsFromBufferSet@16 @ 0x4B3A1246 (_RtlpFcQueryAllFeatureConfigurationsFromBufferSet@16.c)
  */
 
-int __thiscall RtlQueryAllFeatureConfigurations(void *this, int a2, _DWORD *a3, int a4, int a5)
+NTSTATUS __cdecl RtlQueryAllFeatureConfigurations(
+        RTL_FEATURE_CONFIGURATION_TYPE ConfigurationType,
+        PRTL_FEATURE_CHANGE_STAMP ChangeStamp,
+        PRTL_FEATURE_CONFIGURATION Configurations,
+        PSIZE_T ConfigurationCount)
 {
+  int v4; // ecx
   int AllFeatureConfigurationsFromBufferSet; // esi
   int v7; // [esp+0h] [ebp-10h]
-  int v8[2]; // [esp+4h] [ebp-Ch] BYREF
+  ULONGLONG v8; // [esp+4h] [ebp-Ch] BYREF
   int v9; // [esp+Ch] [ebp-4h] BYREF
 
   v9 = 0;
-  AllFeatureConfigurationsFromBufferSet = RtlpFcReferenceFeatureConfigurationBuffers((int)this, 1, v8, &v9);
+  AllFeatureConfigurationsFromBufferSet = RtlpFcReferenceFeatureConfigurationBuffers(v4, 1, &v8, &v9);
   if ( AllFeatureConfigurationsFromBufferSet >= 0 )
   {
-    AllFeatureConfigurationsFromBufferSet = RtlpFcQueryAllFeatureConfigurationsFromBufferSet(a4, a5);
+    AllFeatureConfigurationsFromBufferSet = RtlpFcQueryAllFeatureConfigurationsFromBufferSet(
+                                              Configurations,
+                                              ConfigurationCount);
     if ( AllFeatureConfigurationsFromBufferSet >= 0 )
     {
-      if ( a3 )
-      {
-        *a3 = v8[0];
-        a3[1] = v8[1];
-      }
+      if ( ChangeStamp )
+        *ChangeStamp = v8;
       AllFeatureConfigurationsFromBufferSet = 0;
     }
   }
   if ( v9 )
-    RtlpFcBufferManagerDereferenceBuffers(v7, v8[0]);
+    RtlpFcBufferManagerDereferenceBuffers(v7, v8);
   return AllFeatureConfigurationsFromBufferSet;
 }

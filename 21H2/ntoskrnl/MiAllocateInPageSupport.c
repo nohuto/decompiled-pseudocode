@@ -1,23 +1,23 @@
 /*
- * XREFs of MiAllocateInPageSupport @ 0x140319BA0
+ * XREFs of MiAllocateInPageSupport @ 0x1403248F0
  * Callers:
- *     MiResolvePageFileFault @ 0x14028AF68 (MiResolvePageFileFault.c)
- *     MiResolveMappedFileFault @ 0x140319480 (MiResolveMappedFileFault.c)
+ *     MiResolvePageFileFault @ 0x140208108 (MiResolvePageFileFault.c)
+ *     MiResolveMappedFileFault @ 0x1403241D0 (MiResolveMappedFileFault.c)
  * Callees:
- *     MiUnlockProtoPoolPage @ 0x1402397F0 (MiUnlockProtoPoolPage.c)
- *     MiGetInPageSupportBlock @ 0x14023EF24 (MiGetInPageSupportBlock.c)
- *     MiFreeInPageSupportBlock @ 0x1402FC8DC (MiFreeInPageSupportBlock.c)
- *     MiLockProtoPoolPage @ 0x14031A100 (MiLockProtoPoolPage.c)
+ *     MiUnlockProtoPoolPage @ 0x1402DE040 (MiUnlockProtoPoolPage.c)
+ *     MiGetInPageSupportBlock @ 0x1402E3774 (MiGetInPageSupportBlock.c)
+ *     MiFreeInPageSupportBlock @ 0x14030762C (MiFreeInPageSupportBlock.c)
+ *     MiLockProtoPoolPage @ 0x140324E50 (MiLockProtoPoolPage.c)
  */
 
-PSLIST_ENTRY __fastcall MiAllocateInPageSupport(__int64 a1, char a2, unsigned int *a3, __int64 *a4)
+ULONG_PTR __fastcall MiAllocateInPageSupport(__int64 a1, char a2, unsigned int *a3, __int64 *a4)
 {
   __int64 v7; // rdi
   unsigned int v8; // eax
   char v9; // bl
   char v10; // cl
-  PSLIST_ENTRY result; // rax
-  struct _SLIST_ENTRY *v12; // rdi
+  ULONG_PTR result; // rax
+  _SLIST_ENTRY *v12; // rdi
   __int64 v13; // rax
 
   if ( a4 )
@@ -50,13 +50,13 @@ PSLIST_ENTRY __fastcall MiAllocateInPageSupport(__int64 a1, char a2, unsigned in
       v9 &= ~1u;
       *a3 = 16;
     }
-    v12 = MiGetInPageSupportBlock(v9);
+    v12 = (_SLIST_ENTRY *)MiGetInPageSupportBlock(v9);
     if ( v12 )
       goto LABEL_15;
     if ( (v9 & 1) == 0 )
-      return v12;
+      return (ULONG_PTR)v12;
     *a3 = 16;
-    v12 = MiGetInPageSupportBlock(v9 & 0xFE);
+    v12 = (_SLIST_ENTRY *)MiGetInPageSupportBlock(v9 & 0xFE);
     if ( v12 )
     {
 LABEL_15:
@@ -70,7 +70,7 @@ LABEL_15:
         }
         *a4 = v13;
       }
-      return v12;
+      return (ULONG_PTR)v12;
     }
     return 0LL;
   }

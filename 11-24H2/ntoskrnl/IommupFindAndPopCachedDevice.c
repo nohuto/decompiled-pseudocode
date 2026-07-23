@@ -1,14 +1,14 @@
 /*
- * XREFs of IommupFindAndPopCachedDevice @ 0x140567580
+ * XREFs of IommupFindAndPopCachedDevice @ 0x14056500C
  * Callers:
- *     IommuDomainAttachDevice @ 0x140566390 (IommuDomainAttachDevice.c)
- *     IommuDomainAttachDeviceEx @ 0x140566590 (IommuDomainAttachDeviceEx.c)
- *     IommuDomainDetachDeviceEx @ 0x1405668B0 (IommuDomainDetachDeviceEx.c)
+ *     IommuDomainAttachDevice @ 0x140564090 (IommuDomainAttachDevice.c)
+ *     IommuDomainAttachDeviceEx @ 0x140564290 (IommuDomainAttachDeviceEx.c)
+ *     IommuDomainDetachDeviceEx @ 0x1405645B0 (IommuDomainDetachDeviceEx.c)
  * Callees:
- *     KxAcquireSpinLock @ 0x140254AE0 (KxAcquireSpinLock.c)
- *     KxReleaseSpinLock @ 0x140279CC0 (KxReleaseSpinLock.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KxReleaseSpinLock @ 0x14022F250 (KxReleaseSpinLock.c)
+ *     KxAcquireSpinLock @ 0x1402850F0 (KxAcquireSpinLock.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 char __fastcall IommupFindAndPopCachedDevice(__int64 a1, __int64 **a2)

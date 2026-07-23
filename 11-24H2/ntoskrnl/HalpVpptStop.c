@@ -1,13 +1,13 @@
 /*
- * XREFs of HalpVpptStop @ 0x140548C50
+ * XREFs of HalpVpptStop @ 0x140546510
  * Callers:
  *     <none>
  * Callees:
- *     HalpTimerGetInternalData @ 0x14033BC10 (HalpTimerGetInternalData.c)
- *     HalpReleaseHighLevelLock @ 0x1403B9898 (HalpReleaseHighLevelLock.c)
- *     HalpAcquireHighLevelLock @ 0x1403B9FD0 (HalpAcquireHighLevelLock.c)
- *     HalpVpptUpdatePhysicalTimer @ 0x1403BA018 (HalpVpptUpdatePhysicalTimer.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
+ *     HalpTimerGetInternalData @ 0x14031B0F0 (HalpTimerGetInternalData.c)
+ *     HalpReleaseHighLevelLock @ 0x140372268 (HalpReleaseHighLevelLock.c)
+ *     HalpAcquireHighLevelLock @ 0x1403729A0 (HalpAcquireHighLevelLock.c)
+ *     HalpVpptUpdatePhysicalTimer @ 0x1403729E8 (HalpVpptUpdatePhysicalTimer.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall HalpVpptStop(__int64 a1)
@@ -17,10 +17,8 @@ __int64 __fastcall HalpVpptStop(__int64 a1)
   bool v4; // dl
   __int64 InternalData; // rax
   __int64 v6; // rdx
-  __int64 v7; // r8
-  __int64 v8; // r9
 
-  byte_140FC14D8 = HalpAcquireHighLevelLock(&qword_140FC14D0);
+  byte_140FC1738 = HalpAcquireHighLevelLock(&qword_140FC1730);
   if ( *(_BYTE *)(a1 + 24) )
   {
     v2 = *(_QWORD *)a1;
@@ -35,7 +33,7 @@ __int64 __fastcall HalpVpptStop(__int64 a1)
       if ( *(_DWORD *)(*(_QWORD *)&HalpVpptPhysicalTimer + 228LL) != 3 )
       {
         InternalData = HalpTimerGetInternalData(*(__int64 *)&HalpVpptPhysicalTimer);
-        guard_dispatch_icall_no_overrides(InternalData, v6, v7, v8);
+        guard_dispatch_icall_no_overrides(InternalData, v6);
       }
     }
     else if ( v4 )
@@ -45,5 +43,5 @@ __int64 __fastcall HalpVpptStop(__int64 a1)
   }
   *(_DWORD *)(a1 + 20) = 0;
   *(_BYTE *)(a1 + 24) = 0;
-  return HalpReleaseHighLevelLock((volatile signed __int64 *)&qword_140FC14D0, byte_140FC14D8);
+  return HalpReleaseHighLevelLock((volatile signed __int64 *)&qword_140FC1730, byte_140FC1738);
 }

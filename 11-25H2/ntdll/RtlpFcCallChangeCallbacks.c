@@ -7,16 +7,16 @@
  *     RtlAcquireSRWLockShared @ 0x18004F0C0 (RtlAcquireSRWLockShared.c)
  */
 
-__int64 __fastcall RtlpFcCallChangeCallbacks(__int64 a1)
+void __fastcall RtlpFcCallChangeCallbacks(_RTL_SRWLOCK *a1)
 {
-  volatile signed __int64 *v1; // rsi
-  _QWORD *v2; // rdi
-  _QWORD *i; // rbx
+  _RTL_SRWLOCK *v1; // rsi
+  unsigned __int64 *v2; // rdi
+  unsigned __int64 i; // rbx
 
-  v1 = (volatile signed __int64 *)(a1 + 256);
-  v2 = (_QWORD *)(a1 + 264);
-  RtlAcquireSRWLockShared((volatile signed __int64 *)(a1 + 256));
-  for ( i = (_QWORD *)*v2; i != v2; i = (_QWORD *)*i )
-    TpPostWork(i[5]);
-  return RtlReleaseSRWLockShared(v1);
+  v1 = a1 + 32;
+  v2 = (unsigned __int64 *)&a1[33];
+  RtlAcquireSRWLockShared(a1 + 32);
+  for ( i = *v2; (unsigned __int64 *)i != v2; i = *(_QWORD *)i )
+    TpPostWork(*(PTP_WORK *)(i + 40));
+  RtlReleaseSRWLockShared(v1);
 }

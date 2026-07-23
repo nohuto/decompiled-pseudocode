@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpFindWnfNameSubscription @ 0x180099F00
+ * XREFs of RtlpFindWnfNameSubscription @ 0x18002ED50
  * Callers:
- *     RtlpCreateWnfNameSubscription @ 0x180099A4C (RtlpCreateWnfNameSubscription.c)
+ *     RtlpCreateWnfNameSubscription @ 0x18002E89C (RtlpCreateWnfNameSubscription.c)
  * Callees:
- *     memcmp @ 0x1801676D0 (memcmp.c)
+ *     memcmp @ 0x180165A90 (memcmp.c)
  */
 
 _QWORD *__fastcall RtlpFindWnfNameSubscription(__int64 a1, const void *a2)

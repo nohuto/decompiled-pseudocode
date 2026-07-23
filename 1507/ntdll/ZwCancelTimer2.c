@@ -6,11 +6,11 @@
  *     <none>
  */
 
-__int64 ZwCancelTimer2()
+NTSTATUS __cdecl ZwCancelTimer2(HANDLE TimerHandle, PT2_CANCEL_PARAMETERS Parameters)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 143LL;
+  result = 143;
   __asm { syscall; Low latency system call }
   return result;
 }

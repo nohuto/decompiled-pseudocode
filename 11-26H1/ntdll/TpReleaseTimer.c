@@ -1,55 +1,55 @@
 /*
- * XREFs of TpReleaseTimer @ 0x180067E70
+ * XREFs of TpReleaseTimer @ 0x1800882C0
  * Callers:
- *     RtlDeleteTimer @ 0x180067850 (RtlDeleteTimer.c)
- *     RtlpInitializeWnf @ 0x180070624 (RtlpInitializeWnf.c)
- *     RtlpHpGCTimerEnable @ 0x1800CEDE8 (RtlpHpGCTimerEnable.c)
- *     RtlDeleteTimerQueueEx @ 0x1800FBCA0 (RtlDeleteTimerQueueEx.c)
+ *     RtlDeleteTimer @ 0x180087CA0 (RtlDeleteTimer.c)
+ *     RtlpInitializeWnf @ 0x180090A74 (RtlpInitializeWnf.c)
+ *     RtlpHpGCTimerEnable @ 0x1800CC558 (RtlpHpGCTimerEnable.c)
+ *     RtlDeleteTimerQueueEx @ 0x1800FB3F0 (RtlDeleteTimerQueueEx.c)
  * Callees:
- *     RtlAcquireSRWLockExclusive @ 0x18003F4D0 (RtlAcquireSRWLockExclusive.c)
- *     TppCancelTimer @ 0x1800686D0 (TppCancelTimer.c)
- *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x180170020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
+ *     RtlAcquireSRWLockExclusive @ 0x180029A40 (RtlAcquireSRWLockExclusive.c)
+ *     TppCancelTimer @ 0x180088B20 (TppCancelTimer.c)
+ *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x18016F020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
  */
 
-__int64 __fastcall TpReleaseTimer(__int64 a1, __int64 a2, __int64 a3)
+void __cdecl TpReleaseTimer(PTP_TIMER Timer)
 {
-  int v4; // eax
-  __int64 result; // rax
-  __int64 v6; // rcx
-  __int64 v7; // rdx
-  int v8; // ecx
+  volatile int Flags; // eax
+  signed __int32 v3; // eax
+  _PEB_LDR_DATA *Ldr; // rcx
+  _TP_POOL *Pool; // rdx
+  char v6; // al
   void *ThreadPoolData; // rax
-  _UNKNOWN *retaddr; // [rsp+28h] [rbp+0h]
+  void *retaddr; // [rsp+28h] [rbp+0h]
 
-  if ( !a1
-    || *(_BYTE *)(a1 + 353)
-    || (v4 = *(_DWORD *)(a1 + 168), a3 = 0x10000LL, (v4 & 0x10000) != 0)
-    || (v4 & 0x20000) != 0
-    && ((ThreadPoolData = NtCurrentTeb()->ThreadPoolData) == 0LL || *(_QWORD *)(*(_QWORD *)ThreadPoolData + 240LL) != a1)
-    || *(__int64 (__fastcall ***)())(a1 + 8) != TppTimerpCleanupGroupMemberVFuncs
+  if ( !Timer
+    || Timer->WaitTimer
+    || (Flags = Timer->Work.CleanupGroupMember.Flags, (Flags & 0x10000) != 0)
+    || (Flags & 0x20000) != 0
+    && ((ThreadPoolData = NtCurrentTeb()->ThreadPoolData) == 0LL
+     || *(PTP_TIMER *)(*(_QWORD *)ThreadPoolData + 240LL) != Timer)
+    || (__int64 (__fastcall **)(PVOID))Timer->Work.CleanupGroupMember.VFuncs != &TppTimerpCleanupGroupMemberVFuncs
     || NtCurrentPeb()->Ldr->ShutdownInProgress )
   {
-    result = (__int64)NtCurrentPeb();
-    v6 = *(_QWORD *)(result + 24);
-    if ( *(_BYTE *)(v6 + 72) )
-      return result;
-    return TppRaiseInvalidParameter(v6, 0LL, a3);
+    Ldr = NtCurrentPeb()->Ldr;
+    if ( Ldr->ShutdownInProgress )
+      return;
+LABEL_14:
+    TppRaiseInvalidParameter(Ldr, 0LL);
+    return;
   }
-  _m_prefetchw((const void *)(a1 + 168));
-  v6 = *(_DWORD *)(a1 + 168) | 0x10000u;
-  result = (unsigned int)_InterlockedOr((volatile signed __int32 *)(a1 + 168), 0x10000u);
-  if ( (result & 0x10000) != 0 )
-    return TppRaiseInvalidParameter(v6, 0LL, a3);
-  if ( (result & 0x30000) == 0 )
+  _m_prefetchw(&Timer->Work.CleanupGroupMember.168);
+  Ldr = (_PEB_LDR_DATA *)(Timer->Work.CleanupGroupMember.Flags | 0x10000u);
+  v3 = _InterlockedOr(&Timer->Work.CleanupGroupMember.Flags, 0x10000u);
+  if ( (v3 & 0x10000) != 0 )
+    goto LABEL_14;
+  if ( (v3 & 0x30000) == 0 )
   {
-    *(_QWORD *)(a1 + 184) = retaddr;
-    RtlAcquireSRWLockExclusive((volatile signed __int64 *)(a1 + 240), 0LL);
-    v7 = *(_QWORD *)(a1 + 144);
-    ++*(_BYTE *)(a1 + 355);
-    v8 = ((unsigned __int8)TppCancelTimer(a1, v7 + 112, 0LL) != 0) + 1;
-    result = (unsigned int)_InterlockedExchangeAdd((volatile signed __int32 *)a1, -v8);
-    if ( (_DWORD)result == v8 )
-      return (**(__int64 (__fastcall ***)(__int64))(a1 + 8))(a1);
+    Timer->Work.CleanupGroupMember.ReleaseCaller.ReturnAddress = retaddr;
+    RtlAcquireSRWLockExclusive(&Timer->Lock);
+    Pool = Timer->Work.CleanupGroupMember.Pool;
+    ++Timer->BlockInsert;
+    v6 = TppCancelTimer(Timer, &Pool->TimerQueue, 0LL);
+    if ( _InterlockedExchangeAdd(&Timer->Work.CleanupGroupMember.Refcount.Refcount, -((v6 != 0) + 1)) == (v6 != 0) + 1 )
+      Timer->Work.CleanupGroupMember.VFuncs->Free(&Timer->Work.CleanupGroupMember);
   }
-  return result;
 }

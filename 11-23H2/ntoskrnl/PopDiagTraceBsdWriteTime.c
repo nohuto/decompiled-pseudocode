@@ -1,11 +1,11 @@
 /*
- * XREFs of PopDiagTraceBsdWriteTime @ 0x14032B1D8
+ * XREFs of PopDiagTraceBsdWriteTime @ 0x14032B468
  * Callers:
- *     PopWriteBsdPoInfo @ 0x14032B2E0 (PopWriteBsdPoInfo.c)
+ *     PopWriteBsdPoInfo @ 0x14032B570 (PopWriteBsdPoInfo.c)
  * Callees:
  *     _tlgKeywordOn @ 0x140212E64 (_tlgKeywordOn.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6B24 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6DB4 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  */
 
 void __fastcall PopDiagTraceBsdWriteTime(__int64 a1, int a2, int a3)
@@ -53,7 +53,7 @@ void __fastcall PopDiagTraceBsdWriteTime(__int64 a1, int a2, int a3)
       v9 = 0x1000000LL;
       tlgWriteTransfer_EtwWriteTransfer(
         (__int64)&dword_140C03950,
-        (unsigned __int8 *)&byte_14002DDA7,
+        (unsigned __int8 *)&byte_14002DDD7,
         0LL,
         0LL,
         6u,

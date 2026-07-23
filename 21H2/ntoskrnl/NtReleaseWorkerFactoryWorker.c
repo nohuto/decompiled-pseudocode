@@ -1,28 +1,28 @@
 /*
- * XREFs of NtReleaseWorkerFactoryWorker @ 0x140242B70
+ * XREFs of NtReleaseWorkerFactoryWorker @ 0x1402E73C0
  * Callers:
  *     <none>
  * Callees:
- *     ExpLeaveWorkerFactoryAwayMode @ 0x140202E08 (ExpLeaveWorkerFactoryAwayMode.c)
- *     KxWaitForLockOwnerShip @ 0x14022EEA0 (KxWaitForLockOwnerShip.c)
- *     ExpWorkerFactoryCheckCreate @ 0x140242EF0 (ExpWorkerFactoryCheckCreate.c)
- *     KiWakeOtherQueueWaiters @ 0x140243310 (KiWakeOtherQueueWaiters.c)
- *     KiAcquireKobjectLockSafe @ 0x14024C4A0 (KiAcquireKobjectLockSafe.c)
- *     KiWakeQueueWaiter @ 0x14024C4F0 (KiWakeQueueWaiter.c)
- *     KxWaitForLockChainValid @ 0x140287190 (KxWaitForLockChainValid.c)
- *     KeInsertQueueEx @ 0x1402901A0 (KeInsertQueueEx.c)
- *     KiExitDispatcher @ 0x140343AC0 (KiExitDispatcher.c)
- *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
+ *     KxWaitForLockChainValid @ 0x140204330 (KxWaitForLockChainValid.c)
+ *     KeInsertQueueEx @ 0x14020E110 (KeInsertQueueEx.c)
+ *     ExpLeaveWorkerFactoryAwayMode @ 0x1402A7748 (ExpLeaveWorkerFactoryAwayMode.c)
+ *     KxWaitForLockOwnerShip @ 0x1402D36F0 (KxWaitForLockOwnerShip.c)
+ *     ExpWorkerFactoryCheckCreate @ 0x1402E7740 (ExpWorkerFactoryCheckCreate.c)
+ *     KiWakeOtherQueueWaiters @ 0x1402E7B60 (KiWakeOtherQueueWaiters.c)
+ *     KiAcquireKobjectLockSafe @ 0x1402F0CF0 (KiAcquireKobjectLockSafe.c)
+ *     KiWakeQueueWaiter @ 0x1402F0D40 (KiWakeQueueWaiter.c)
+ *     KiExitDispatcher @ 0x14034E810 (KiExitDispatcher.c)
+ *     ObfDereferenceObjectWithTag @ 0x140355E90 (ObfDereferenceObjectWithTag.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     KeIsThreadRunning @ 0x140513054 (KeIsThreadRunning.c)
- *     KiAcquireQueuedSpinLockInstrumented @ 0x1405163CC (KiAcquireQueuedSpinLockInstrumented.c)
- *     KiReleaseQueuedSpinLockInstrumented @ 0x14051648C (KiReleaseQueuedSpinLockInstrumented.c)
- *     EtwTraceEnqueueWork @ 0x1405A77C0 (EtwTraceEnqueueWork.c)
- *     IopAllocateMiniCompletionPacket @ 0x1406D4C3C (IopAllocateMiniCompletionPacket.c)
- *     ObReferenceObjectByHandle @ 0x1406F0BC0 (ObReferenceObjectByHandle.c)
+ *     KeIsThreadRunning @ 0x140513294 (KeIsThreadRunning.c)
+ *     KiAcquireQueuedSpinLockInstrumented @ 0x14051660C (KiAcquireQueuedSpinLockInstrumented.c)
+ *     KiReleaseQueuedSpinLockInstrumented @ 0x1405166CC (KiReleaseQueuedSpinLockInstrumented.c)
+ *     EtwTraceEnqueueWork @ 0x1405A79F0 (EtwTraceEnqueueWork.c)
+ *     IopAllocateMiniCompletionPacket @ 0x1406ABF1C (IopAllocateMiniCompletionPacket.c)
+ *     ObReferenceObjectByHandle @ 0x140707FA0 (ObReferenceObjectByHandle.c)
  */
 
-NTSTATUS __fastcall NtReleaseWorkerFactoryWorker(void *a1)
+NTSTATUS __cdecl NtReleaseWorkerFactoryWorker(HANDLE WorkerFactoryHandle)
 {
   NTSTATUS result; // eax
   _QWORD *v2; // rdi
@@ -35,7 +35,7 @@ NTSTATUS __fastcall NtReleaseWorkerFactoryWorker(void *a1)
   char v9; // bl
   int v10; // eax
   __int64 v11; // rax
-  int v12; // r12d
+  NTSTATUS v12; // r12d
   __int64 v13; // rax
   struct _KPRCB *v14; // rcx
   _DWORD *v15; // rdx
@@ -70,7 +70,7 @@ NTSTATUS __fastcall NtReleaseWorkerFactoryWorker(void *a1)
   v38 = 0LL;
   Object = 0LL;
   result = ObReferenceObjectByHandle(
-             a1,
+             WorkerFactoryHandle,
              1u,
              ExpWorkerFactoryObjectType,
              KeGetCurrentThread()->PreviousMode,
@@ -136,7 +136,7 @@ NTSTATUS __fastcall NtReleaseWorkerFactoryWorker(void *a1)
       }
       v12 = 0;
       if ( v9 && (*((_DWORD *)Object + 78) & 0x200) != 0 )
-        ExpLeaveWorkerFactoryAwayMode((char *)Object);
+        ExpLeaveWorkerFactoryAwayMode(Object);
     }
   }
   if ( (BYTE6(PerfGlobalGroupMask) & 1) != 0 )
@@ -151,7 +151,7 @@ NTSTATUS __fastcall NtReleaseWorkerFactoryWorker(void *a1)
     {
       if ( (__int128 *)_InterlockedCompareExchange64(*((volatile signed __int64 **)&v38 + 1), 0LL, (signed __int64)&v38) == &v38 )
         goto LABEL_17;
-      v13 = KxWaitForLockChainValid(&v38);
+      v13 = KxWaitForLockChainValid((__int64 *)&v38);
     }
     *(_QWORD *)&v38 = 0LL;
     _InterlockedXor64((volatile signed __int64 *)(v13 + 8), 1uLL);
@@ -246,7 +246,7 @@ LABEL_17:
         *(_QWORD *)(MiniCompletionPacket + 32) = 0LL;
         *(_DWORD *)(MiniCompletionPacket + 40) = 0;
         *(_QWORD *)(MiniCompletionPacket + 48) = 0LL;
-        KeInsertQueueEx(v19, MiniCompletionPacket, 0LL, 0LL);
+        KeInsertQueueEx(v19, (_QWORD *)MiniCompletionPacket, 0, 0);
       }
     }
     v24 = Object;

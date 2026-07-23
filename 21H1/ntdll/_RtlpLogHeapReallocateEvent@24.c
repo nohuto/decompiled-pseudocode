@@ -9,10 +9,10 @@
  *     @__security_check_cookie@4 @ 0x4B2F4B20 (@__security_check_cookie@4.c)
  */
 
-int __fastcall RtlpLogHeapReallocateEvent(int a1, int a2, int a3, int a4, int a5, int a6)
+NTSTATUS __fastcall RtlpLogHeapReallocateEvent(int a1, int a2, int a3, int a4, int a5, int a6)
 {
   int v6; // eax
-  _BYTE v8[6]; // [esp+4h] [ebp-3Ch] BYREF
+  _BYTE Fields[6]; // [esp+4h] [ebp-3Ch] BYREF
   __int16 v9; // [esp+Ah] [ebp-36h]
   int v10; // [esp+24h] [ebp-1Ch]
   int v11; // [esp+28h] [ebp-18h]
@@ -34,5 +34,5 @@ int __fastcall RtlpLogHeapReallocateEvent(int a1, int a2, int a3, int a4, int a5
     v6 = (int)NtCurrentPeb()->SharedData + 550;
   else
     v6 = 2147353472;
-  return NtTraceEvent(*(unsigned __int8 *)v6, 132098, 24, (int)v8);
+  return NtTraceEvent((HANDLE)*(unsigned __int8 *)v6, 0x20402u, 0x18u, Fields);
 }

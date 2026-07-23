@@ -9,38 +9,39 @@
  *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
  */
 
-unsigned __int64 KiSetPageAttributesTable()
+void KiSetPageAttributesTable()
 {
   int v0; // r8d
   volatile signed __int32 *SchedulerAssist; // rcx
   bool v2; // di
   unsigned int v3; // ecx
-  unsigned __int64 result; // rax
+  __int64 v4; // rax
   char v5; // dl
   int v6; // ebx
   struct _KPRCB *CurrentPrcb; // rcx
-  _DWORD *v8; // r8
-  int v9; // ett
-  unsigned __int64 v10; // [rsp+20h] [rbp-28h]
-  unsigned __int64 v11; // [rsp+28h] [rbp-20h]
-  int v12; // [rsp+40h] [rbp-8h]
+  signed __int32 *v8; // r8
+  signed __int32 v9; // eax
+  signed __int32 v10; // ett
+  unsigned __int64 v11; // [rsp+20h] [rbp-28h]
+  unsigned __int64 v12; // [rsp+28h] [rbp-20h]
+  int v13; // [rsp+40h] [rbp-8h]
 
   v0 = 0;
-  v10 = 0x7010600070106LL;
+  v11 = 0x7010600070106LL;
   _disable();
   SchedulerAssist = (volatile signed __int32 *)KeGetCurrentPrcb()->SchedulerAssist;
   if ( SchedulerAssist )
     _InterlockedOr(SchedulerAssist, 0x200000u);
-  v2 = (v12 & 0x200) != 0;
+  v2 = (v13 & 0x200) != 0;
   v3 = 0;
-  v11 = __readmsr(0x277u);
-  result = 0LL;
+  v12 = __readmsr(0x277u);
+  v4 = 0LL;
   do
   {
-    v5 = *((_BYTE *)&v11 + result);
+    v5 = *((_BYTE *)&v12 + v4);
     if ( v5 == 6 )
     {
-      if ( *((_BYTE *)&v10 + result) != 6 )
+      if ( *((_BYTE *)&v11 + v4) != 6 )
       {
         v6 = 2;
 LABEL_17:
@@ -48,12 +49,12 @@ LABEL_17:
         goto LABEL_14;
       }
     }
-    else if ( v5 != *((_BYTE *)&v10 + result) )
+    else if ( v5 != *((_BYTE *)&v11 + v4) )
     {
       v0 |= 1u;
     }
     ++v3;
-    ++result;
+    ++v4;
   }
   while ( v3 < 8 );
   if ( !v0 )
@@ -63,29 +64,28 @@ LABEL_17:
     goto LABEL_17;
 LABEL_14:
   KeFlushCurrentTbImmediately();
-  __writemsr(0x277u, v10);
+  __writemsr(0x277u, v11);
   if ( v6 )
     __wbinvd();
-  result = KeFlushCurrentTbImmediately();
+  KeFlushCurrentTbImmediately();
 LABEL_9:
   if ( v2 )
   {
     CurrentPrcb = KeGetCurrentPrcb();
-    v8 = CurrentPrcb->SchedulerAssist;
+    v8 = (signed __int32 *)CurrentPrcb->SchedulerAssist;
     if ( v8 )
     {
       _m_prefetchw(v8);
-      LODWORD(result) = *v8;
+      v9 = *v8;
       do
       {
-        v9 = result;
-        result = (unsigned int)_InterlockedCompareExchange(v8, result & 0xFFDFFFFF, result);
+        v10 = v9;
+        v9 = _InterlockedCompareExchange(v8, v9 & 0xFFDFFFFF, v9);
       }
-      while ( v9 != (_DWORD)result );
-      if ( (result & 0x200000) != 0 )
-        result = KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+      while ( v10 != v9 );
+      if ( (v9 & 0x200000) != 0 )
+        KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
     }
     _enable();
   }
-  return result;
 }

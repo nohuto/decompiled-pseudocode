@@ -5,14 +5,14 @@
  * Callees:
  *     RtlStringCchCopyW @ 0x180001838 (RtlStringCchCopyW.c)
  *     RtlLCIDToCultureName @ 0x18003FEC0 (RtlLCIDToCultureName.c)
- *     __security_check_cookie @ 0x18008FEC0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x18008FED0 (__security_check_cookie.c)
  *     RtlpMuiRegGetString @ 0x180100D78 (RtlpMuiRegGetString.c)
  */
 
 __int64 __fastcall RtlpMuiRegGetInstalledLanguageInfoByIndex(
         __int64 a1,
         __int16 a2,
-        unsigned int *a3,
+        LCID *a3,
         _WORD *a4,
         unsigned int a5,
         _DWORD *a6)
@@ -21,10 +21,9 @@ __int64 __fastcall RtlpMuiRegGetInstalledLanguageInfoByIndex(
   __int64 v8; // r9
   unsigned __int16 *v9; // rdx
   __int64 v10; // rdx
-  unsigned int v12; // ecx
-  int v13; // [rsp+20h] [rbp-E8h] BYREF
-  char *v14; // [rsp+28h] [rbp-E0h]
-  char v15; // [rsp+30h] [rbp-D8h] BYREF
+  LCID v12; // ecx
+  _UNICODE_STRING String; // [rsp+20h] [rbp-E8h] BYREF
+  char v14; // [rsp+30h] [rbp-D8h] BYREF
 
   if ( !a1 || !a3 || !a4 || !a5 || !a6 )
     return 3221225485LL;
@@ -41,10 +40,10 @@ __int64 __fastcall RtlpMuiRegGetInstalledLanguageInfoByIndex(
   if ( (__int16)v10 > 0 )
     return RtlpMuiRegGetString(a1, v10, a4, a5);
   v12 = *a3;
-  v14 = &v15;
-  v13 = 11141120;
-  if ( RtlLCIDToCultureName(v12, (__int64)&v13) )
-    return RtlStringCchCopyW(a4, a5, (__int64)v14);
+  String.Buffer = (wchar_t *)&v14;
+  *(_DWORD *)&String.Length = 11141120;
+  if ( RtlLCIDToCultureName(v12, &String) )
+    return RtlStringCchCopyW(a4, a5, (__int64)String.Buffer);
   else
     return 3221226021LL;
 }

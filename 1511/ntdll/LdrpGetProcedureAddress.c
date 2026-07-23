@@ -16,15 +16,15 @@ __int64 __fastcall LdrpGetProcedureAddress(unsigned __int64 a1, unsigned __int8 
 {
   int v4; // r14d
   bool v8; // si
-  unsigned __int64 v9; // rdi
-  _DWORD *v10; // rbp
+  char *v9; // rdi
+  char *v10; // rbp
   int v11; // eax
-  __int16 v12; // ax
-  unsigned int v13; // r13d
+  unsigned __int16 Magic; // ax
+  unsigned int Size; // r13d
   char v14; // r11
   int v15; // r10d
   int v16; // r9d
-  __int64 v17; // rax
+  __int64 VirtualAddress; // rax
   int v19; // r8d
   unsigned __int8 *v20; // rax
   unsigned __int64 v21; // rdx
@@ -32,54 +32,54 @@ __int64 __fastcall LdrpGetProcedureAddress(unsigned __int64 a1, unsigned __int8 
   int v23; // eax
   unsigned int v24; // ebx
   unsigned __int64 v25; // rdx
-  _DWORD *v26; // [rsp+40h] [rbp-48h] BYREF
-  __int64 v27; // [rsp+90h] [rbp+8h] BYREF
+  __int64 v26[9]; // [rsp+40h] [rbp-48h] BYREF
+  PIMAGE_NT_HEADERS OutHeaders; // [rsp+90h] [rbp+8h] BYREF
   unsigned __int64 *v28; // [rsp+A8h] [rbp+20h]
 
   v28 = a4;
   v4 = 0;
-  v27 = 0LL;
-  v26 = 0LL;
+  OutHeaders = 0LL;
+  v26[0] = 0LL;
   v8 = 1;
-  v9 = a1;
+  v9 = (char *)a1;
   v10 = 0LL;
   if ( (a1 & 3) != 0 )
   {
     v8 = (a1 & 1) == 0;
-    v9 = a1 & 0xFFFFFFFFFFFFFFFCuLL;
+    v9 = (char *)(a1 & 0xFFFFFFFFFFFFFFFCuLL);
   }
-  v11 = RtlImageNtHeaderEx(1LL, v9, 0LL, &v27);
-  if ( v27 )
+  v11 = RtlImageNtHeaderEx(1u, v9, 0LL, &OutHeaders);
+  if ( OutHeaders )
   {
-    v12 = *(_WORD *)(v27 + 24);
-    if ( v12 != 267 )
+    Magic = OutHeaders->OptionalHeader.Magic;
+    if ( Magic != 267 )
     {
-      if ( v12 != 523 )
+      if ( Magic != 523 )
         return 3221225594LL;
-      if ( !*(_DWORD *)(v27 + 132) )
+      if ( !OutHeaders->OptionalHeader.NumberOfRvaAndSizes )
         return 3221225594LL;
-      v17 = *(unsigned int *)(v27 + 136);
-      if ( !(_DWORD)v17 )
+      VirtualAddress = OutHeaders->OptionalHeader.DataDirectory[0].VirtualAddress;
+      if ( !(_DWORD)VirtualAddress )
         return 3221225594LL;
-      v13 = *(_DWORD *)(v27 + 140);
-      if ( v8 || (unsigned int)v17 < *(_DWORD *)(v27 + 84) )
+      Size = OutHeaders->OptionalHeader.DataDirectory[0].Size;
+      if ( v8 || (unsigned int)VirtualAddress < OutHeaders->OptionalHeader.SizeOfHeaders )
       {
-        v10 = (_DWORD *)(v9 + v17);
+        v10 = &v9[VirtualAddress];
       }
       else
       {
-        v10 = (_DWORD *)RtlAddressInSectionTable(v27, v9, (unsigned int)v17);
+        v10 = (char *)RtlAddressInSectionTable(OutHeaders, v9, VirtualAddress);
         if ( !v10 )
           return 3221225594LL;
       }
       goto LABEL_8;
     }
-    v11 = RtlpImageDirectoryEntryToData32(v9, v8, 0, &v27, v27, &v26);
-    v10 = v26;
+    v11 = RtlpImageDirectoryEntryToData32((__int64)v9, (void *)v8, 0, &OutHeaders, OutHeaders, v26);
+    v10 = (char *)v26[0];
   }
   if ( v11 < 0 )
     return 3221225594LL;
-  v13 = v27;
+  Size = (unsigned int)OutHeaders;
 LABEL_8:
   if ( !v10 )
     return 3221225594LL;
@@ -97,14 +97,14 @@ LABEL_8:
       v14 = LdrpDebugFlags;
     }
     v15 = 0;
-    v16 = v10[6] - 1;
+    v16 = *((_DWORD *)v10 + 6) - 1;
     v19 = v16 / 2;
     if ( v16 >= 0 )
     {
       while ( 1 )
       {
         v20 = a2;
-        v21 = a1 + *(unsigned int *)(a1 + (unsigned int)v10[8] + 4LL * v19) - (_QWORD)a2;
+        v21 = a1 + *(unsigned int *)(a1 + *((unsigned int *)v10 + 8) + 4LL * v19) - (_QWORD)a2;
         while ( 1 )
         {
           v22 = *v20;
@@ -129,7 +129,7 @@ LABEL_27:
         if ( v16 < v15 )
           goto LABEL_32;
       }
-      v24 = *(unsigned __int16 *)(a1 + (unsigned int)v10[9] + 2LL * v19);
+      v24 = *(unsigned __int16 *)(a1 + *((unsigned int *)v10 + 9) + 2LL * v19);
       goto LABEL_41;
     }
 LABEL_32:
@@ -156,13 +156,13 @@ LABEL_32:
       (__int64)"Loading procedure 0x%lx by ordinal\n");
   if ( !a3 )
     return 3221225485LL;
-  v24 = a3 - v10[4];
+  v24 = a3 - *((_DWORD *)v10 + 4);
 LABEL_41:
-  if ( v24 < v10[5] )
+  if ( v24 < *((_DWORD *)v10 + 5) )
   {
-    v25 = a1 + *(unsigned int *)(a1 + (unsigned int)v10[7] + 4LL * (int)v24);
+    v25 = a1 + *(unsigned int *)(a1 + *((unsigned int *)v10 + 7) + 4LL * (int)v24);
     *v28 = v25;
-    if ( v25 < (unsigned __int64)v10 || v25 >= (unsigned __int64)v10 + v13 )
+    if ( v25 < (unsigned __int64)v10 || v25 >= (unsigned __int64)&v10[Size] )
       return 0LL;
     else
       return 3221226029LL;

@@ -1,45 +1,45 @@
 /*
- * XREFs of NtQueryInformationJobObject @ 0x1405FE8F0
+ * XREFs of NtQueryInformationJobObject @ 0x1405FF8F0
  * Callers:
  *     <none>
  * Callees:
  *     PsGetServerSiloServiceSessionId @ 0x1400067D0 (PsGetServerSiloServiceSessionId.c)
  *     ExAcquirePushLockSharedEx @ 0x14004EE20 (ExAcquirePushLockSharedEx.c)
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
- *     PsGetHostSilo @ 0x140091C70 (PsGetHostSilo.c)
- *     PsGetServerSiloGlobals @ 0x14009238C (PsGetServerSiloGlobals.c)
- *     ObfReferenceObjectWithTag @ 0x1400ACDF0 (ObfReferenceObjectWithTag.c)
- *     PsIsHostSilo @ 0x1400B8A80 (PsIsHostSilo.c)
- *     KeIsSingleGroupAffinityEx @ 0x140131600 (KeIsSingleGroupAffinityEx.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     memmove @ 0x1401D1540 (memmove.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     PspGetJobSilo @ 0x1402E965C (PspGetJobSilo.c)
- *     PspIsSiloInServerSilo @ 0x1402E9710 (PspIsSiloInServerSilo.c)
- *     PsGetJobServerSilo @ 0x1402EA0F0 (PsGetJobServerSilo.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     PspGetJobLimitInformationValidFlags @ 0x140582884 (PspGetJobLimitInformationValidFlags.c)
- *     PspQueryRateControlHistory @ 0x1405A7F5C (PspQueryRateControlHistory.c)
- *     ObpReferenceObjectByHandleWithTag @ 0x1405E8390 (ObpReferenceObjectByHandleWithTag.c)
- *     PspQueryJobHierarchyAccountingInformation @ 0x1405FD228 (PspQueryJobHierarchyAccountingInformation.c)
- *     PspUnlockJob @ 0x1405FE0C0 (PspUnlockJob.c)
- *     PspLockJobExclusive @ 0x1405FE100 (PspLockJobExclusive.c)
- *     PspLockJobShared @ 0x1405FE128 (PspLockJobShared.c)
- *     PspUnlockJobMemoryLimitsShared @ 0x1405FE2B4 (PspUnlockJobMemoryLimitsShared.c)
- *     PspLockJobMemoryLimitsShared @ 0x1405FE360 (PspLockJobMemoryLimitsShared.c)
- *     PspRateControlLimitFlag @ 0x140600714 (PspRateControlLimitFlag.c)
- *     PspUnlockJobListShared @ 0x140600A50 (PspUnlockJobListShared.c)
- *     PspNotificationLimitRateControlToleranceIntervalField @ 0x140603400 (PspNotificationLimitRateControlToleranceIntervalField.c)
- *     PspNotificationLimitRateControlToleranceField @ 0x140603428 (PspNotificationLimitRateControlToleranceField.c)
- *     PspQueryJobIoAttribution @ 0x14068CE84 (PspQueryJobIoAttribution.c)
- *     PspAllocateAndQueryNotificationChannel @ 0x1406ACB04 (PspAllocateAndQueryNotificationChannel.c)
- *     PspQueryJobHierarchyProcessIdList @ 0x1406B7710 (PspQueryJobHierarchyProcessIdList.c)
- *     PspLimitViolationRateControlToleranceLimitField @ 0x1406C42FC (PspLimitViolationRateControlToleranceLimitField.c)
- *     PsGetParentSilo @ 0x140886710 (PsGetParentSilo.c)
- *     PspQueryJobHierarchyInterferenceCount @ 0x140889E5C (PspQueryJobHierarchyInterferenceCount.c)
- *     EtwTraceJobSetQuery @ 0x1408B77F8 (EtwTraceJobSetQuery.c)
- *     ExRaiseDatatypeMisalignment @ 0x1408D65C0 (ExRaiseDatatypeMisalignment.c)
- *     ObGetSiloRootDirectoryPath @ 0x140906218 (ObGetSiloRootDirectoryPath.c)
+ *     PsGetHostSilo @ 0x140091BB0 (PsGetHostSilo.c)
+ *     PsGetServerSiloGlobals @ 0x1400922CC (PsGetServerSiloGlobals.c)
+ *     ObfReferenceObjectWithTag @ 0x1400ACD30 (ObfReferenceObjectWithTag.c)
+ *     PsIsHostSilo @ 0x1400B89C0 (PsIsHostSilo.c)
+ *     KeIsSingleGroupAffinityEx @ 0x1401316D0 (KeIsSingleGroupAffinityEx.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     PspGetJobSilo @ 0x1402E984C (PspGetJobSilo.c)
+ *     PspIsSiloInServerSilo @ 0x1402E9900 (PspIsSiloInServerSilo.c)
+ *     PsGetJobServerSilo @ 0x1402EA2E0 (PsGetJobServerSilo.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     PspGetJobLimitInformationValidFlags @ 0x140583884 (PspGetJobLimitInformationValidFlags.c)
+ *     PspQueryRateControlHistory @ 0x1405A8F5C (PspQueryRateControlHistory.c)
+ *     ObpReferenceObjectByHandleWithTag @ 0x1405E9390 (ObpReferenceObjectByHandleWithTag.c)
+ *     PspQueryJobHierarchyAccountingInformation @ 0x1405FE228 (PspQueryJobHierarchyAccountingInformation.c)
+ *     PspUnlockJob @ 0x1405FF0C0 (PspUnlockJob.c)
+ *     PspLockJobExclusive @ 0x1405FF100 (PspLockJobExclusive.c)
+ *     PspLockJobShared @ 0x1405FF128 (PspLockJobShared.c)
+ *     PspUnlockJobMemoryLimitsShared @ 0x1405FF2B4 (PspUnlockJobMemoryLimitsShared.c)
+ *     PspLockJobMemoryLimitsShared @ 0x1405FF360 (PspLockJobMemoryLimitsShared.c)
+ *     PspRateControlLimitFlag @ 0x140601714 (PspRateControlLimitFlag.c)
+ *     PspUnlockJobListShared @ 0x140601A50 (PspUnlockJobListShared.c)
+ *     PspNotificationLimitRateControlToleranceIntervalField @ 0x140604400 (PspNotificationLimitRateControlToleranceIntervalField.c)
+ *     PspNotificationLimitRateControlToleranceField @ 0x140604428 (PspNotificationLimitRateControlToleranceField.c)
+ *     PspQueryJobIoAttribution @ 0x14068E044 (PspQueryJobIoAttribution.c)
+ *     PspAllocateAndQueryNotificationChannel @ 0x1406ADDA4 (PspAllocateAndQueryNotificationChannel.c)
+ *     PspQueryJobHierarchyProcessIdList @ 0x1406B89B0 (PspQueryJobHierarchyProcessIdList.c)
+ *     PspLimitViolationRateControlToleranceLimitField @ 0x1406C559C (PspLimitViolationRateControlToleranceLimitField.c)
+ *     PsGetParentSilo @ 0x140887970 (PsGetParentSilo.c)
+ *     PspQueryJobHierarchyInterferenceCount @ 0x14088B0BC (PspQueryJobHierarchyInterferenceCount.c)
+ *     EtwTraceJobSetQuery @ 0x1408B8AB8 (EtwTraceJobSetQuery.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408D7880 (ExRaiseDatatypeMisalignment.c)
+ *     ObGetSiloRootDirectoryPath @ 0x1409074D8 (ObGetSiloRootDirectoryPath.c)
  */
 
 // local variable allocation has failed, the output may be wrong!
@@ -264,7 +264,7 @@ LABEL_19:
       }
       return -1073741820;
   }
-  v8 = dword_14090B89C[JobInformationClass];
+  v8 = dword_14090CA8C[JobInformationClass];
   if ( JobInformationLength != v8 )
   {
     if ( (unsigned int)JobInformationClass <= JobObjectSiloRootDirectory )
@@ -289,7 +289,7 @@ LABEL_21:
   {
     if ( (_DWORD)v5 )
     {
-      if ( ((dword_14090B7CC[v6] - 1) & (unsigned int)JobInformation) != 0 )
+      if ( ((dword_14090CB5C[v6] - 1) & (unsigned int)JobInformation) != 0 )
         ExRaiseDatatypeMisalignment();
       *(_QWORD *)&JobInformationClass = 0x7FFFFFFF0000LL;
       if ( (unsigned __int64)JobInformation + v5 > 0x7FFFFFFF0000LL || (char *)JobInformation + v5 < JobInformation )

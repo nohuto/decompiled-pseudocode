@@ -1,10 +1,10 @@
 /*
- * XREFs of CmpRemoveKeyHash @ 0x1403FB938
+ * XREFs of CmpRemoveKeyHash @ 0x1403FA7F8
  * Callers:
- *     CmpRemoveKeyControlBlock @ 0x1403FB928 (CmpRemoveKeyControlBlock.c)
- *     CmpCleanUpKcbCacheWithLock @ 0x140436D30 (CmpCleanUpKcbCacheWithLock.c)
- *     CmRenameKey @ 0x1405FD4E8 (CmRenameKey.c)
- *     CmpRehashKcbSubtree @ 0x1405FF874 (CmpRehashKcbSubtree.c)
+ *     CmpRemoveKeyControlBlock @ 0x1403FA7E8 (CmpRemoveKeyControlBlock.c)
+ *     CmpCleanUpKcbCacheWithLock @ 0x140435C00 (CmpCleanUpKcbCacheWithLock.c)
+ *     CmRenameKey @ 0x1405FD59C (CmRenameKey.c)
+ *     CmpRehashKcbSubtree @ 0x1405FF928 (CmpRehashKcbSubtree.c)
  * Callees:
  *     <none>
  */

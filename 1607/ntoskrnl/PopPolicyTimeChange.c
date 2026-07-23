@@ -1,9 +1,9 @@
 /*
- * XREFs of PopPolicyTimeChange @ 0x1405349CC
+ * XREFs of PopPolicyTimeChange @ 0x140534F0C
  * Callers:
- *     PopPolicyWorkerThread @ 0x140009874 (PopPolicyWorkerThread.c)
+ *     PopPolicyWorkerThread @ 0x1400093E8 (PopPolicyWorkerThread.c)
  * Callees:
- *     PopEventCalloutDispatch @ 0x140131C64 (PopEventCalloutDispatch.c)
+ *     PopEventCalloutDispatch @ 0x1401321D4 (PopEventCalloutDispatch.c)
  */
 
 __int64 PopPolicyTimeChange()

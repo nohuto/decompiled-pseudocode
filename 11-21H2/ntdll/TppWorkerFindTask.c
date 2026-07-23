@@ -28,15 +28,15 @@ __int64 __fastcall TppWorkerFindTask(__int64 a1, __int64 a2, _QWORD *a3)
   __int64 v16; // rcx
   __int64 v17; // r15
   _QWORD *v18; // r13
-  __int64 v19; // r14
-  __int64 *v20; // rbx
-  __int64 v21; // rax
+  _RTL_SRWLOCK *v19; // r14
+  _RTL_SRWLOCK *Value; // rbx
+  unsigned __int64 v21; // rax
   unsigned int v22; // eax
   __int64 v24; // r15
   _QWORD *v25; // rdx
-  __int64 v26; // r14
+  _RTL_SRWLOCK *v26; // r14
   volatile signed __int64 *v27; // r13
-  __int64 v28; // rax
+  unsigned __int64 v28; // rax
   signed __int64 v29; // rax
   signed __int64 v30; // rcx
   __int64 v31; // rdx
@@ -54,9 +54,9 @@ __int64 __fastcall TppWorkerFindTask(__int64 a1, __int64 a2, _QWORD *a3)
     v10 = MEMORY[0x7FFE03C0];
   if ( *(_DWORD *)(a1 + 424) != v10 )
   {
-    RtlAcquireSRWLockExclusive(a1 + 72);
+    RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)(a1 + 72));
     TppAdjustRunningThreadGoalWithLock(a1);
-    RtlReleaseSRWLockExclusive(a1 + 72);
+    RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(a1 + 72));
     v7 = TppNumberNodes;
     v4 = a2;
   }
@@ -88,20 +88,20 @@ LABEL_10:
     v18 = (_QWORD *)(a1 + 16);
     while ( 1 )
     {
-      v19 = *v18 + 8 * v16;
-      RtlAcquireSRWLockExclusive(v19 + 16);
-      v20 = *(__int64 **)v19;
-      if ( *(_QWORD *)(*(_QWORD *)v19 + 8LL) != v19 )
+      v19 = (_RTL_SRWLOCK *)(*v18 + 8 * v16);
+      RtlAcquireSRWLockExclusive(v19 + 2);
+      Value = (_RTL_SRWLOCK *)v19->Value;
+      if ( *(_RTL_SRWLOCK **)(v19->Value + 8) != v19 )
         goto LABEL_46;
-      v21 = *v20;
-      if ( *(__int64 **)(*v20 + 8) != v20 )
+      v21 = Value->Value;
+      if ( *(_RTL_SRWLOCK **)(Value->Value + 8) != Value )
         goto LABEL_46;
-      *(_QWORD *)v19 = v21;
+      v19->Value = v21;
       *(_QWORD *)(v21 + 8) = v19;
-      RtlReleaseSRWLockExclusive(v19 + 16);
-      if ( v20 == (__int64 *)v19 )
-        v20 = 0LL;
-      if ( v20 )
+      RtlReleaseSRWLockExclusive(v19 + 2);
+      if ( Value == v19 )
+        Value = 0LL;
+      if ( Value )
         break;
       v16 = 3LL * v14;
       ++v17;
@@ -110,8 +110,8 @@ LABEL_10:
         goto LABEL_27;
     }
 LABEL_19:
-    *a3 = v20 - 2;
-    TppWorkerSwitchNode(a1, a2, v15, *((unsigned __int8 *)v20 - 4));
+    *a3 = Value - 2;
+    TppWorkerSwitchNode(a1, a2, v15, BYTE4(Value[-1].Ptr));
     if ( v15 == v14 )
     {
       v22 = *(_DWORD *)(a2 + 348);
@@ -132,16 +132,16 @@ LABEL_27:
       v34 = (_QWORD *)(a1 + 16);
       while ( 1 )
       {
-        v26 = *v25 + 24LL * v15;
-        v27 = (volatile signed __int64 *)(v26 + 16);
-        RtlAcquireSRWLockExclusive(v26 + 16);
-        v20 = *(__int64 **)v26;
-        if ( *(_QWORD *)(*(_QWORD *)v26 + 8LL) != v26 )
+        v26 = (_RTL_SRWLOCK *)(*v25 + 24LL * v15);
+        v27 = (volatile signed __int64 *)&v26[2];
+        RtlAcquireSRWLockExclusive(v26 + 2);
+        Value = (_RTL_SRWLOCK *)v26->Value;
+        if ( *(_RTL_SRWLOCK **)(v26->Value + 8) != v26 )
           break;
-        v28 = *v20;
-        if ( *(__int64 **)(*v20 + 8) != v20 )
+        v28 = Value->Value;
+        if ( *(_RTL_SRWLOCK **)(Value->Value + 8) != Value )
           break;
-        *(_QWORD *)v26 = v28;
+        v26->Value = v28;
         *(_QWORD *)(v28 + 8) = v26;
         v29 = _InterlockedCompareExchange64(v27, 0LL, 1LL);
         if ( v29 != 1 )
@@ -158,11 +158,11 @@ LABEL_27:
           }
           while ( v33 != v29 );
           if ( v30 == 2 )
-            RtlpWakeSRWLock(v26 + 16, v32, 0LL);
+            RtlpWakeSRWLock(&v26[2], v32, 0LL);
         }
-        if ( v20 == (__int64 *)v26 )
-          v20 = 0LL;
-        if ( v20 )
+        if ( Value == v26 )
+          Value = 0LL;
+        if ( Value )
           goto LABEL_19;
         v25 = v34;
         v15 = v15 + 1 < TppNumberNodes ? v15 + 1 : 0;

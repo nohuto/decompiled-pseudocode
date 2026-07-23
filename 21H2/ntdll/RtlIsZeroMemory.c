@@ -1,36 +1,36 @@
 /*
- * XREFs of RtlIsZeroMemory @ 0x1800FF430
+ * XREFs of RtlIsZeroMemory @ 0x1800FF3F0
  * Callers:
- *     RtlNormalizeSecurityDescriptor @ 0x1800E6810 (RtlNormalizeSecurityDescriptor.c)
+ *     RtlNormalizeSecurityDescriptor @ 0x1800E67D0 (RtlNormalizeSecurityDescriptor.c)
  * Callees:
  *     <none>
  */
 
-char __fastcall RtlIsZeroMemory(_BYTE *a1, unsigned __int64 a2)
+BOOLEAN __cdecl RtlIsZeroMemory(PVOID Buffer, SIZE_T Length)
 {
-  char result; // al
+  BOOLEAN result; // al
 
   result = 0;
-  while ( ((unsigned __int8)a1 & 7) != 0 && a2 )
+  while ( ((unsigned __int8)Buffer & 7) != 0 && Length )
   {
-    if ( *a1 )
+    if ( *(_BYTE *)Buffer )
       return result;
-    ++a1;
-    --a2;
+    Buffer = (char *)Buffer + 1;
+    --Length;
   }
-  while ( a2 >= 8 )
+  while ( Length >= 8 )
   {
-    if ( *(_QWORD *)a1 )
+    if ( *(_QWORD *)Buffer )
       return result;
-    a1 += 8;
-    a2 -= 8LL;
+    Buffer = (char *)Buffer + 8;
+    Length -= 8LL;
   }
-  if ( !a2 )
+  if ( !Length )
     return 1;
-  while ( !*a1 )
+  while ( !*(_BYTE *)Buffer )
   {
-    ++a1;
-    if ( !--a2 )
+    Buffer = (char *)Buffer + 1;
+    if ( !--Length )
       return 1;
   }
   return result;

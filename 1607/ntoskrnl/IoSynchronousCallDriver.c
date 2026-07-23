@@ -1,21 +1,21 @@
 /*
- * XREFs of IoSynchronousCallDriver @ 0x1400AC630
+ * XREFs of IoSynchronousCallDriver @ 0x1400AAB98
  * Callers:
- *     FsRtlGetFileExtents @ 0x1401B81B0 (FsRtlGetFileExtents.c)
- *     IoForwardIrpSynchronously @ 0x1404DC948 (IoForwardIrpSynchronously.c)
- *     FsRtlPrepareMdlWriteEx @ 0x1404EE0B4 (FsRtlPrepareMdlWriteEx.c)
- *     FsRtlMdlReadEx @ 0x1404EE1A8 (FsRtlMdlReadEx.c)
- *     WmipGetFilePDO @ 0x140546704 (WmipGetFilePDO.c)
- *     PopAcquireCoolingInterface @ 0x14056C778 (PopAcquireCoolingInterface.c)
- *     ?Read@PC_ENVIRONMENT@@SAJPEAX0K_K@Z @ 0x140574D00 (-Read@PC_ENVIRONMENT@@SAJPEAX0K_K@Z.c)
- *     ?Write@PC_ENVIRONMENT@@SAJPEAX0K_K@Z @ 0x14061FE98 (-Write@PC_ENVIRONMENT@@SAJPEAX0K_K@Z.c)
- *     PopBatteryInitialize @ 0x14066EF08 (PopBatteryInitialize.c)
- *     PopBatteryQueryEstimatedTime @ 0x14066F09C (PopBatteryQueryEstimatedTime.c)
- *     PopBatteryQueryStatus @ 0x14066F124 (PopBatteryQueryStatus.c)
- *     PopBatteryReadTag @ 0x14066F2A0 (PopBatteryReadTag.c)
+ *     FsRtlGetFileExtents @ 0x1401B8094 (FsRtlGetFileExtents.c)
+ *     IoForwardIrpSynchronously @ 0x1404BFF4C (IoForwardIrpSynchronously.c)
+ *     FsRtlPrepareMdlWriteEx @ 0x1404D017C (FsRtlPrepareMdlWriteEx.c)
+ *     FsRtlMdlReadEx @ 0x1404D0270 (FsRtlMdlReadEx.c)
+ *     WmipGetFilePDO @ 0x140546C44 (WmipGetFilePDO.c)
+ *     PopAcquireCoolingInterface @ 0x14056CCB8 (PopAcquireCoolingInterface.c)
+ *     ?Read@PC_ENVIRONMENT@@SAJPEAX0K_K@Z @ 0x140575240 (-Read@PC_ENVIRONMENT@@SAJPEAX0K_K@Z.c)
+ *     ?Write@PC_ENVIRONMENT@@SAJPEAX0K_K@Z @ 0x14061FF4C (-Write@PC_ENVIRONMENT@@SAJPEAX0K_K@Z.c)
+ *     PopBatteryInitialize @ 0x14066EFEC (PopBatteryInitialize.c)
+ *     PopBatteryQueryEstimatedTime @ 0x14066F180 (PopBatteryQueryEstimatedTime.c)
+ *     PopBatteryQueryStatus @ 0x14066F208 (PopBatteryQueryStatus.c)
+ *     PopBatteryReadTag @ 0x14066F384 (PopBatteryReadTag.c)
  * Callees:
- *     IofCallDriver @ 0x14002E060 (IofCallDriver.c)
- *     KeWaitForSingleObject @ 0x14005C880 (KeWaitForSingleObject.c)
+ *     IofCallDriver @ 0x14002DBE0 (IofCallDriver.c)
+ *     KeWaitForSingleObject @ 0x14005C400 (KeWaitForSingleObject.c)
  */
 
 NTSTATUS __fastcall IoSynchronousCallDriver(struct _DEVICE_OBJECT *a1, IRP *a2)

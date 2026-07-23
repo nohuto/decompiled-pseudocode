@@ -1,12 +1,12 @@
 /*
- * XREFs of SymCryptWipeAsm @ 0x1401591A0
+ * XREFs of SymCryptWipeAsm @ 0x140159710
  * Callers:
- *     SymCryptSha256Result @ 0x1401368E0 (SymCryptSha256Result.c)
- *     SymCryptParallelSha256Result1 @ 0x14023740C (SymCryptParallelSha256Result1.c)
- *     SymCryptParallelSha256Result2 @ 0x140237494 (SymCryptParallelSha256Result2.c)
- *     SymCryptParallelSha256ResultDone @ 0x140237500 (SymCryptParallelSha256ResultDone.c)
- *     SymCryptParallelHashProcess @ 0x14023754C (SymCryptParallelHashProcess.c)
- *     SymCryptParallelHashProcess_serial @ 0x1402377FC (SymCryptParallelHashProcess_serial.c)
+ *     SymCryptSha256Result @ 0x140136E50 (SymCryptSha256Result.c)
+ *     SymCryptParallelSha256Result1 @ 0x140237238 (SymCryptParallelSha256Result1.c)
+ *     SymCryptParallelSha256Result2 @ 0x1402372C0 (SymCryptParallelSha256Result2.c)
+ *     SymCryptParallelSha256ResultDone @ 0x14023732C (SymCryptParallelSha256ResultDone.c)
+ *     SymCryptParallelHashProcess @ 0x140237378 (SymCryptParallelHashProcess.c)
+ *     SymCryptParallelHashProcess_serial @ 0x140237628 (SymCryptParallelHashProcess_serial.c)
  * Callees:
  *     <none>
  */

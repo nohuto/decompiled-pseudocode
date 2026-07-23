@@ -1,9 +1,9 @@
 /*
- * XREFs of MiAllocatePrcb @ 0x14068ED80
+ * XREFs of MiAllocatePrcb @ 0x14068FE5C
  * Callers:
- *     MmInitializeProcessor @ 0x140B62038 (MmInitializeProcessor.c)
+ *     MmInitializeProcessor @ 0x140B64108 (MmInitializeProcessor.c)
  * Callees:
- *     ExAllocatePoolMm @ 0x1402ACBC0 (ExAllocatePoolMm.c)
+ *     ExAllocatePoolMm @ 0x1402775A0 (ExAllocatePoolMm.c)
  */
 
 __int64 __fastcall MiAllocatePrcb(int a1)

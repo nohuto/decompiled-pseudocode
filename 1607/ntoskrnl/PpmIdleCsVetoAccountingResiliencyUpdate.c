@@ -1,11 +1,11 @@
 /*
- * XREFs of PpmIdleCsVetoAccountingResiliencyUpdate @ 0x140200460
+ * XREFs of PpmIdleCsVetoAccountingResiliencyUpdate @ 0x14020028C
  * Callers:
- *     PdcPoResiliencyClient @ 0x14066FC04 (PdcPoResiliencyClient.c)
+ *     PdcPoResiliencyClient @ 0x14066FCE8 (PdcPoResiliencyClient.c)
  * Callees:
- *     KeReleaseSpinLock @ 0x1400E9A70 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x1400EFE30 (KeAcquireSpinLockRaiseToDpc.c)
- *     PpmIdleCsVetoAccountingUpdateBlock @ 0x1402004E8 (PpmIdleCsVetoAccountingUpdateBlock.c)
+ *     KeReleaseSpinLock @ 0x1400EB600 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1400EDCB0 (KeAcquireSpinLockRaiseToDpc.c)
+ *     PpmIdleCsVetoAccountingUpdateBlock @ 0x140200314 (PpmIdleCsVetoAccountingUpdateBlock.c)
  */
 
 void __fastcall PpmIdleCsVetoAccountingResiliencyUpdate(char a1)

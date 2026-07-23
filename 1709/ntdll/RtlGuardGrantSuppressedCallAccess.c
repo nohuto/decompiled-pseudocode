@@ -14,9 +14,11 @@
 
 __int64 __fastcall RtlGuardGrantSuppressedCallAccess(__int64 a1, unsigned int a2, _DWORD *a3)
 {
+  int v6; // eax
   __int64 result; // rax
 
-  if ( (unsigned int)LdrControlFlowGuardEnforced() )
+  LOBYTE(v6) = LdrControlFlowGuardEnforced();
+  if ( v6 )
   {
     if ( ((a2 & 4) == 0 || (unsigned __int8)RtlGuardIsExportSuppressedAddress(a1) == 1)
       && ((a2 & 1) == 0 || (unsigned __int8)RtlpGuardIsSuppressedAddress(a1) == 1) )

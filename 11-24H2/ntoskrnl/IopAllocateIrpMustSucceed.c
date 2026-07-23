@@ -1,28 +1,28 @@
 /*
- * XREFs of IopAllocateIrpMustSucceed @ 0x140253D60
+ * XREFs of IopAllocateIrpMustSucceed @ 0x140284370
  * Callers:
- *     IoCancelFileOpen @ 0x1406F9E00 (IoCancelFileOpen.c)
- *     IopDeleteFile @ 0x140841DB0 (IopDeleteFile.c)
- *     IopCloseFile @ 0x140842070 (IopCloseFile.c)
- *     IopFreeBandwidthContract @ 0x140AC2D5C (IopFreeBandwidthContract.c)
+ *     IoCancelFileOpen @ 0x1406F7A40 (IoCancelFileOpen.c)
+ *     IopDeleteFile @ 0x14083E070 (IopDeleteFile.c)
+ *     IopCloseFile @ 0x14083E330 (IopCloseFile.c)
+ *     IopFreeBandwidthContract @ 0x140ABE044 (IopFreeBandwidthContract.c)
  * Callees:
- *     IopAllocateIrpExReturn @ 0x140253DC0 (IopAllocateIrpExReturn.c)
- *     IopAllocateReserveIrp @ 0x140374518 (IopAllocateReserveIrp.c)
+ *     IopAllocateReserveIrp @ 0x14025CDD8 (IopAllocateReserveIrp.c)
+ *     IopAllocateIrpExReturn @ 0x1402843D0 (IopAllocateIrpExReturn.c)
  */
 
-__int64 __fastcall IopAllocateIrpMustSucceed(__int64 a1, __int64 a2)
+PIRP __fastcall IopAllocateIrpMustSucceed(__int64 a1, __int64 a2)
 {
   unsigned __int8 v2; // bl
-  __int64 result; // rax
-  __int64 v5; // rcx
+  PIRP result; // rax
+  LARGE_INTEGER v5; // rcx
 
   v2 = a2;
-  for ( result = IopAllocateIrpExReturn(a1, a2, 0LL); !result; result = IopAllocateIrpExReturn(a1, v2, 0LL) )
+  for ( result = (PIRP)IopAllocateIrpExReturn(a1, a2, 0LL); !result; result = (PIRP)IopAllocateIrpExReturn(a1, v2, 0LL) )
   {
-    result = IopAllocateReserveIrp(v5, v2, 3LL);
+    result = IopAllocateReserveIrp(v5, v2, 3);
     if ( result )
       break;
   }
-  *(_BYTE *)(result + 71) |= 0x20u;
+  result->AllocationFlags |= 0x20u;
   return result;
 }

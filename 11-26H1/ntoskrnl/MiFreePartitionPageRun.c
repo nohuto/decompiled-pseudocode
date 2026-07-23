@@ -1,10 +1,10 @@
 /*
- * XREFs of MiFreePartitionPageRun @ 0x140708CCC
+ * XREFs of MiFreePartitionPageRun @ 0x14070D980
  * Callers:
- *     MiActOnPartitionNodePages @ 0x140707C4C (MiActOnPartitionNodePages.c)
+ *     MiActOnPartitionNodePages @ 0x14070C91C (MiActOnPartitionNodePages.c)
  * Callees:
- *     MiFreeMdlPageRun @ 0x1403C4140 (MiFreeMdlPageRun.c)
- *     MiInsertHugeRangeInPartition @ 0x140708E54 (MiInsertHugeRangeInPartition.c)
+ *     MiFreeMdlPageRun @ 0x1403CE04C (MiFreeMdlPageRun.c)
+ *     MiInsertHugeRangeInPartition @ 0x14070DB08 (MiInsertHugeRangeInPartition.c)
  */
 
 __int64 __fastcall MiFreePartitionPageRun(__int64 a1, ULONG_PTR a2, unsigned __int64 a3, __int16 a4, int a5)
@@ -14,7 +14,7 @@ __int64 __fastcall MiFreePartitionPageRun(__int64 a1, ULONG_PTR a2, unsigned __i
   unsigned __int64 i; // rbx
 
   v5 = a2;
-  if ( a2 <= qword_140E2D7A0 )
+  if ( a2 <= qword_140E2D920 )
   {
     result = *(_QWORD *)(48 * a2 - 0x21FFFFFFFFD8LL) >> 54;
     if ( (*(_QWORD *)(48 * a2 - 0x21FFFFFFFFD8LL) & 0x40000000000000LL) != 0 )

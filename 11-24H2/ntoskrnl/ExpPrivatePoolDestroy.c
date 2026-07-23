@@ -1,14 +1,14 @@
 /*
- * XREFs of ExpPrivatePoolDestroy @ 0x1407C616C
+ * XREFs of ExpPrivatePoolDestroy @ 0x1407C65CC
  * Callers:
- *     ExDestroyPool @ 0x140654030 (ExDestroyPool.c)
- *     ExpPrivatePoolCreate @ 0x1407C5F40 (ExpPrivatePoolCreate.c)
+ *     ExDestroyPool @ 0x140652790 (ExDestroyPool.c)
+ *     ExpPrivatePoolCreate @ 0x1407C63A0 (ExpPrivatePoolCreate.c)
  * Callees:
- *     ExWaitForRundownProtectionRelease @ 0x1402C6A90 (ExWaitForRundownProtectionRelease.c)
- *     RtlpHpMetadataFree @ 0x140420E2C (RtlpHpMetadataFree.c)
- *     RtlpHpHeapDestroy @ 0x1406050DC (RtlpHpHeapDestroy.c)
- *     ExpAcquirePoolListLockExclusive @ 0x14065B334 (ExpAcquirePoolListLockExclusive.c)
- *     ExpReleasePoolListLockExclusive @ 0x14065B398 (ExpReleasePoolListLockExclusive.c)
+ *     ExWaitForRundownProtectionRelease @ 0x1402BB610 (ExWaitForRundownProtectionRelease.c)
+ *     RtlpHpMetadataFree @ 0x140459100 (RtlpHpMetadataFree.c)
+ *     RtlpHpHeapDestroy @ 0x14060271C (RtlpHpHeapDestroy.c)
+ *     ExpAcquirePoolListLockExclusive @ 0x140659A54 (ExpAcquirePoolListLockExclusive.c)
+ *     ExpReleasePoolListLockExclusive @ 0x140659AB8 (ExpReleasePoolListLockExclusive.c)
  */
 
 __int64 __fastcall ExpPrivatePoolDestroy(ULONG_PTR a1)

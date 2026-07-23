@@ -1,12 +1,12 @@
 /*
- * XREFs of FsRtlPrivateInitializeFileLock @ 0x1402C1BB8
+ * XREFs of FsRtlPrivateInitializeFileLock @ 0x14030C878
  * Callers:
- *     FsRtlPrivateLock @ 0x1402C0190 (FsRtlPrivateLock.c)
+ *     FsRtlPrivateLock @ 0x14030AE50 (FsRtlPrivateLock.c)
  * Callees:
- *     ExAcquireFastMutex @ 0x140278070 (ExAcquireFastMutex.c)
- *     KeReleaseGuardedMutex @ 0x140278D40 (KeReleaseGuardedMutex.c)
- *     ExAllocateFromNPagedLookasideList @ 0x1402C1770 (ExAllocateFromNPagedLookasideList.c)
- *     RtlRaiseStatus @ 0x1402E84A0 (RtlRaiseStatus.c)
+ *     ExAcquireFastMutex @ 0x1402775E0 (ExAcquireFastMutex.c)
+ *     KeReleaseGuardedMutex @ 0x1402782B0 (KeReleaseGuardedMutex.c)
+ *     RtlRaiseStatus @ 0x1402CA4E0 (RtlRaiseStatus.c)
+ *     ExAllocateFromNPagedLookasideList @ 0x14030C430 (ExAllocateFromNPagedLookasideList.c)
  */
 
 char __fastcall FsRtlPrivateInitializeFileLock(_QWORD *a1, char a2)
@@ -14,7 +14,7 @@ char __fastcall FsRtlPrivateInitializeFileLock(_QWORD *a1, char a2)
   char v4; // bl
   _QWORD *v5; // rax
 
-  ExAcquireFastMutex((PKGUARDED_MUTEX)&VslpReservedTransferLock.Padding[4]);
+  ExAcquireFastMutex(&FsRtlCreateLockInfo);
   v4 = 0;
   if ( a1[3] )
     goto LABEL_4;
@@ -37,8 +37,8 @@ LABEL_4:
     goto LABEL_7;
   }
   if ( !a2 )
-    RtlRaiseStatus(3221225626LL);
+    RtlRaiseStatus(-1073741670);
 LABEL_7:
-  KeReleaseGuardedMutex((PKGUARDED_MUTEX)&VslpReservedTransferLock.Padding[4]);
+  KeReleaseGuardedMutex(&FsRtlCreateLockInfo);
   return v4;
 }

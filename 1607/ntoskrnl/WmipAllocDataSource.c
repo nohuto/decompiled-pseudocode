@@ -1,10 +1,10 @@
 /*
- * XREFs of WmipAllocDataSource @ 0x140536F3C
+ * XREFs of WmipAllocDataSource @ 0x14053747C
  * Callers:
- *     WmipAddDataSource @ 0x140537074 (WmipAddDataSource.c)
+ *     WmipAddDataSource @ 0x1405375B4 (WmipAddDataSource.c)
  * Callees:
- *     memset @ 0x1401715C0 (memset.c)
- *     WmipAllocEntry @ 0x140537E68 (WmipAllocEntry.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     WmipAllocEntry @ 0x1405383A8 (WmipAllocEntry.c)
  */
 
 __int64 WmipAllocDataSource()

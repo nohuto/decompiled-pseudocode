@@ -1,7 +1,7 @@
 /*
- * XREFs of PiUEventIsDeviceEventVetoable @ 0x1406E7410
+ * XREFs of PiUEventIsDeviceEventVetoable @ 0x1406FE7F0
  * Callers:
- *     PiUEventNotifyUserMode @ 0x1406E675C (PiUEventNotifyUserMode.c)
+ *     PiUEventNotifyUserMode @ 0x1406FDB3C (PiUEventNotifyUserMode.c)
  * Callees:
  *     <none>
  */

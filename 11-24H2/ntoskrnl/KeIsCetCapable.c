@@ -1,7 +1,7 @@
 /*
- * XREFs of KeIsCetCapable @ 0x1404BECAC
+ * XREFs of KeIsCetCapable @ 0x1404B9E6C
  * Callers:
- *     ExpQuerySystemInformation @ 0x140ADC240 (ExpQuerySystemInformation.c)
+ *     ExpQuerySystemInformation @ 0x140ADDAE0 (ExpQuerySystemInformation.c)
  * Callees:
  *     <none>
  */

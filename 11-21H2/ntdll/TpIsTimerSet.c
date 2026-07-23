@@ -6,15 +6,15 @@
  *     TppTimerpValidateTimer @ 0x18001B710 (TppTimerpValidateTimer.c)
  */
 
-__int64 __fastcall TpIsTimerSet(_PEB_LDR_DATA *a1)
+LOGICAL __cdecl TpIsTimerSet(PTP_TIMER Timer)
 {
   int v2; // eax
-  unsigned int v3; // edx
+  LOGICAL v3; // edx
 
-  v2 = TppTimerpValidateTimer(a1, 0LL, 1LL);
+  v2 = TppTimerpValidateTimer((_PEB_LDR_DATA *)Timer, 0LL, 1LL);
   v3 = 0;
   if ( !v2 )
-    return 0LL;
-  LOBYTE(v3) = a1[3].EntryInProgress != 0LL;
+    return 0;
+  LOBYTE(v3) = *((_QWORD *)Timer + 41) != 0LL;
   return v3;
 }

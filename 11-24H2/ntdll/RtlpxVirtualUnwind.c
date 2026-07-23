@@ -1,19 +1,19 @@
 /*
- * XREFs of RtlpxVirtualUnwind @ 0x180016C30
+ * XREFs of RtlpxVirtualUnwind @ 0x180043630
  * Callers:
- *     RtlUnwindEx @ 0x180015480 (RtlUnwindEx.c)
- *     RtlVirtualUnwind2 @ 0x180015F20 (RtlVirtualUnwind2.c)
- *     RtlpWalkFrameChain @ 0x180016100 (RtlpWalkFrameChain.c)
- *     RtlVirtualUnwind @ 0x180018C20 (RtlVirtualUnwind.c)
- *     RtlDispatchException @ 0x180019060 (RtlDispatchException.c)
+ *     RtlUnwindEx @ 0x180041E80 (RtlUnwindEx.c)
+ *     RtlVirtualUnwind2 @ 0x180042920 (RtlVirtualUnwind2.c)
+ *     RtlpWalkFrameChain @ 0x180042B00 (RtlpWalkFrameChain.c)
+ *     RtlVirtualUnwind @ 0x180045620 (RtlVirtualUnwind.c)
+ *     RtlDispatchException @ 0x180045A60 (RtlDispatchException.c)
  * Callees:
- *     RtlRaiseStatus @ 0x180014DE0 (RtlRaiseStatus.c)
- *     RtlpUnwindPrologue @ 0x180017640 (RtlpUnwindPrologue.c)
- *     RtlpVirtualPopShadowStack @ 0x180018EB0 (RtlpVirtualPopShadowStack.c)
- *     RtlLocateExtendedFeature @ 0x180018F00 (RtlLocateExtendedFeature.c)
- *     RtlpSameFunction @ 0x1800ED7FC (RtlpSameFunction.c)
- *     RtlpUnwindOpSlots @ 0x1800F1664 (RtlpUnwindOpSlots.c)
- *     RtlpUnwindEpilogue @ 0x180117338 (RtlpUnwindEpilogue.c)
+ *     RtlRaiseStatus @ 0x1800417E0 (RtlRaiseStatus.c)
+ *     RtlpUnwindPrologue @ 0x180044040 (RtlpUnwindPrologue.c)
+ *     RtlpVirtualPopShadowStack @ 0x1800458B0 (RtlpVirtualPopShadowStack.c)
+ *     RtlLocateExtendedFeature @ 0x180045900 (RtlLocateExtendedFeature.c)
+ *     RtlpSameFunction @ 0x1800E8AEC (RtlpSameFunction.c)
+ *     RtlpUnwindOpSlots @ 0x1800EC2E4 (RtlpUnwindOpSlots.c)
+ *     RtlpUnwindEpilogue @ 0x180112328 (RtlpUnwindEpilogue.c)
  */
 
 __int64 __fastcall RtlpxVirtualUnwind(
@@ -69,7 +69,7 @@ __int64 __fastcall RtlpxVirtualUnwind(
   unsigned int i; // r10d
   __int16 v51; // si
   _DWORD *v52; // rax
-  __int64 ExtendedFeature; // rax
+  _QWORD *ExtendedFeature; // rax
   _QWORD *v54; // r10
   __int64 v55; // rdx
   __int64 v56; // rax
@@ -350,11 +350,11 @@ LABEL_81:
           *v42 = v43 + 1;
           if ( (*(_DWORD *)(v14 + 48) & 0x100040) == 0x100040 )
           {
-            ExtendedFeature = RtlLocateExtendedFeature(v14 + 1232, 11LL);
+            ExtendedFeature = RtlLocateExtendedFeature((PCONTEXT_EX)(v14 + 1232), 0xBu, 0LL);
             if ( ExtendedFeature )
             {
               if ( (*(_BYTE *)ExtendedFeature & 1) != 0 )
-                *(_QWORD *)(ExtendedFeature + 8) += 8LL;
+                ExtendedFeature[1] += 8LL;
             }
           }
           goto LABEL_82;

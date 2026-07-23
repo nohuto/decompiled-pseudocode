@@ -1,21 +1,21 @@
 /*
- * XREFs of PspAssignProcessQuotaBlock @ 0x1406AD8B4
+ * XREFs of PspAssignProcessQuotaBlock @ 0x14060BFA4
  * Callers:
- *     PspSetQuotaLimits @ 0x1406A5F94 (PspSetQuotaLimits.c)
- *     PspAllocateProcess @ 0x1406D6638 (PspAllocateProcess.c)
+ *     PspSetQuotaLimits @ 0x140603BC4 (PspSetQuotaLimits.c)
+ *     PspAllocateProcess @ 0x1406AD918 (PspAllocateProcess.c)
  * Callees:
- *     PspUnlockQuotaListShared @ 0x1402C2798 (PspUnlockQuotaListShared.c)
- *     ExAcquirePushLockSharedEx @ 0x14034AB50 (ExAcquirePushLockSharedEx.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     memset @ 0x140414200 (memset.c)
- *     PspDereferenceQuotaBlock @ 0x140660410 (PspDereferenceQuotaBlock.c)
- *     PspLookupProcessQuotaBlock @ 0x1406ADA9C (PspLookupProcessQuotaBlock.c)
- *     PspReadUserQuotaLimits @ 0x1406ADBCC (PspReadUserQuotaLimits.c)
- *     PspSafeReferenceQuotaBlock @ 0x1406ADD64 (PspSafeReferenceQuotaBlock.c)
- *     SeQueryUserSidToken @ 0x140706E24 (SeQueryUserSidToken.c)
- *     RtlCopySid @ 0x140706ED0 (RtlCopySid.c)
- *     PspInitializeQuotaBlock @ 0x1407CE7D4 (PspInitializeQuotaBlock.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     PspUnlockQuotaListShared @ 0x140240C38 (PspUnlockQuotaListShared.c)
+ *     ExAcquirePushLockSharedEx @ 0x1403558A0 (ExAcquirePushLockSharedEx.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     PspLookupProcessQuotaBlock @ 0x14060C18C (PspLookupProcessQuotaBlock.c)
+ *     PspReadUserQuotaLimits @ 0x14060C2BC (PspReadUserQuotaLimits.c)
+ *     PspSafeReferenceQuotaBlock @ 0x14060C454 (PspSafeReferenceQuotaBlock.c)
+ *     PspDereferenceQuotaBlock @ 0x140655230 (PspDereferenceQuotaBlock.c)
+ *     SeQueryUserSidToken @ 0x14071E204 (SeQueryUserSidToken.c)
+ *     RtlCopySid @ 0x14071E2B0 (RtlCopySid.c)
+ *     PspInitializeQuotaBlock @ 0x1407CE944 (PspInitializeQuotaBlock.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PspAssignProcessQuotaBlock(__int64 a1, __int64 a2, __int64 a3)
@@ -66,7 +66,7 @@ LABEL_22:
       if ( v8 )
       {
         _InterlockedAdd(v8 + 129, 0xFFFFFFFF);
-        PspDereferenceQuotaBlock(v8);
+        PspDereferenceQuotaBlock((PVOID)v8);
       }
       return (unsigned int)UserQuotaLimits;
     }
@@ -76,7 +76,7 @@ LABEL_22:
     if ( v12 )
     {
       _InterlockedAdd(v8 + 129, 0xFFFFFFFF);
-      PspDereferenceQuotaBlock(v8);
+      PspDereferenceQuotaBlock((PVOID)v8);
       v8 = (volatile signed __int32 *)v12;
     }
 LABEL_7:

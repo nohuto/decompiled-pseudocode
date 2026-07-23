@@ -1,17 +1,17 @@
 /*
- * XREFs of RtlEmptyAtomTable @ 0x1409130B0
+ * XREFs of RtlEmptyAtomTable @ 0x140913210
  * Callers:
  *     <none>
  * Callees:
- *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
- *     KeLeaveCriticalRegion @ 0x14034B3B0 (KeLeaveCriticalRegion.c)
- *     RtlpLockAtomTable @ 0x14061BA14 (RtlpLockAtomTable.c)
- *     RtlpFreeAtom @ 0x1406A156C (RtlpFreeAtom.c)
- *     RtlpFreeHandleForAtom @ 0x1406A159C (RtlpFreeHandleForAtom.c)
+ *     ExfTryToWakePushLock @ 0x1402FC2C0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x1403539D0 (KeAbPostRelease.c)
+ *     KeLeaveCriticalRegion @ 0x140356100 (KeLeaveCriticalRegion.c)
+ *     RtlpFreeAtom @ 0x140600CFC (RtlpFreeAtom.c)
+ *     RtlpFreeHandleForAtom @ 0x140600D2C (RtlpFreeHandleForAtom.c)
+ *     RtlpLockAtomTable @ 0x140685688 (RtlpLockAtomTable.c)
  */
 
-__int64 __fastcall RtlEmptyAtomTable(__int64 a1, char a2)
+NTSTATUS __cdecl RtlEmptyAtomTable(PVOID AtomTableHandle, BOOLEAN IncludePinnedAtoms)
 {
   unsigned int v5; // ebp
   __int64 *i; // r15
@@ -22,10 +22,10 @@ __int64 __fastcall RtlEmptyAtomTable(__int64 a1, char a2)
   _QWORD *v11; // rax
   __int64 v12; // rbx
 
-  if ( !RtlpLockAtomTable((_DWORD *)a1) )
-    return 3221225485LL;
+  if ( !RtlpLockAtomTable(AtomTableHandle) )
+    return -1073741811;
   v5 = 0;
-  for ( i = (__int64 *)(a1 + 32); v5 < *(_DWORD *)(a1 + 28); ++v5 )
+  for ( i = (__int64 *)((char *)AtomTableHandle + 32); v5 < *((_DWORD *)AtomTableHandle + 7); ++v5 )
   {
     v7 = i++;
     while ( 1 )
@@ -33,12 +33,12 @@ __int64 __fastcall RtlEmptyAtomTable(__int64 a1, char a2)
       v12 = *v7;
       if ( !*v7 )
         break;
-      if ( a2 || (*(_BYTE *)(v12 + 38) & 1) == 0 )
+      if ( IncludePinnedAtoms || (*(_BYTE *)(v12 + 38) & 1) == 0 )
       {
         v8 = *v7;
         *v7 = *(_QWORD *)v12;
         *(_QWORD *)v12 = 0LL;
-        RtlpFreeHandleForAtom(a1, v8);
+        RtlpFreeHandleForAtom((__int64)AtomTableHandle, v8);
         v9 = (_QWORD **)(v12 + 16);
         while ( 1 )
         {
@@ -59,9 +59,9 @@ __int64 __fastcall RtlEmptyAtomTable(__int64 a1, char a2)
       }
     }
   }
-  if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)(a1 + 8), 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-    ExfTryToWakePushLock(a1 + 8);
-  KeAbPostRelease(a1 + 8);
+  if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)AtomTableHandle + 1, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+    ExfTryToWakePushLock((char *)AtomTableHandle + 8);
+  KeAbPostRelease((ULONG_PTR)AtomTableHandle + 8);
   KeLeaveCriticalRegion();
-  return 0LL;
+  return 0;
 }

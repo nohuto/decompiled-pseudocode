@@ -25,7 +25,7 @@ LABEL_3:
     InputBuffer[2] = a3;
     InputBuffer[0] = a1;
     v7 = a2;
-    return ZwPowerInformation(SystemPowerStateLogging|0x40, InputBuffer, 0x18u, a4, OutputBufferLength);
+    return ZwPowerInformation(PowerInformationInternal, InputBuffer, 0x18u, a4, OutputBufferLength);
   }
   OutputBufferLength = 4LL * a3;
   if ( OutputBufferLength <= 0xFFFFFFFF )

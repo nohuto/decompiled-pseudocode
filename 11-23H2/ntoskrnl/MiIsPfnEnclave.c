@@ -1,9 +1,9 @@
 /*
- * XREFs of MiIsPfnEnclave @ 0x1402EBF90
+ * XREFs of MiIsPfnEnclave @ 0x1402EC220
  * Callers:
- *     MiFreePagesFromMdl @ 0x1402EBB80 (MiFreePagesFromMdl.c)
- *     MiGetWorkingSetInfoList @ 0x1402F1954 (MiGetWorkingSetInfoList.c)
- *     MiFreeSmallPageFromMdl @ 0x140623230 (MiFreeSmallPageFromMdl.c)
+ *     MiFreePagesFromMdl @ 0x1402EBE10 (MiFreePagesFromMdl.c)
+ *     MiGetWorkingSetInfoList @ 0x1402F1BE4 (MiGetWorkingSetInfoList.c)
+ *     MiFreeSmallPageFromMdl @ 0x140623780 (MiFreeSmallPageFromMdl.c)
  * Callees:
  *     <none>
  */

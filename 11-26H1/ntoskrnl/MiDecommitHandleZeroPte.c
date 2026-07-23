@@ -1,10 +1,10 @@
 /*
- * XREFs of MiDecommitHandleZeroPte @ 0x1403609C0
+ * XREFs of MiDecommitHandleZeroPte @ 0x140362760
  * Callers:
- *     MiDecommitPages @ 0x140360150 (MiDecommitPages.c)
+ *     MiDecommitPages @ 0x140361EF0 (MiDecommitPages.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     MiPteHasShadow @ 0x1403011E0 (MiPteHasShadow.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     MiPteHasShadow @ 0x1402E3260 (MiPteHasShadow.c)
  */
 
 unsigned __int64 __fastcall MiDecommitHandleZeroPte(__int64 a1)

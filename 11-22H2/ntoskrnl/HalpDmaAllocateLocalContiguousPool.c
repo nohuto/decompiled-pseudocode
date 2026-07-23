@@ -23,8 +23,8 @@ __int64 __fastcall HalpDmaAllocateLocalContiguousPool(__int64 a1, unsigned int a
 {
   unsigned int v2; // r14d
   unsigned int v3; // esi
-  RTL_BITMAP *v5; // rax
-  RTL_BITMAP *v6; // rbx
+  _RTL_BITMAP *v5; // rax
+  _RTL_BITMAP *v6; // rbx
   char v8; // r15
   ULONG v9; // eax
   unsigned __int64 v10; // rcx
@@ -64,7 +64,7 @@ __int64 __fastcall HalpDmaAllocateLocalContiguousPool(__int64 a1, unsigned int a
   v2 = a2;
   MemoryDescriptorList = 0LL;
   v3 = (a2 + 31) & 0xFFFFFFE0;
-  v5 = (RTL_BITMAP *)HalpMmAllocCtxAlloc(a1, ((unsigned __int64)v3 >> 3) + 16);
+  v5 = (_RTL_BITMAP *)HalpMmAllocCtxAlloc(a1, ((unsigned __int64)v3 >> 3) + 16);
   v6 = v5;
   if ( !v5 )
     return 3221225626LL;

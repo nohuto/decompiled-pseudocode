@@ -1,12 +1,12 @@
 /*
- * XREFs of IntpInitClassContext @ 0x140C5CA80
+ * XREFs of IntpInitClassContext @ 0x140C5EC10
  * Callers:
- *     IntPartCreate @ 0x140C5CC98 (IntPartCreate.c)
+ *     IntPartCreate @ 0x140C5EE28 (IntPartCreate.c)
  * Callees:
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
-ULONG_PTR __fastcall IntpInitClassContext(_BYTE *a1, unsigned __int8 a2, unsigned int *a3)
+__int64 __fastcall IntpInitClassContext(_BYTE *a1, unsigned __int8 a2, unsigned int *a3)
 {
   unsigned int v3; // edi
   __int64 v4; // rbx
@@ -20,13 +20,13 @@ ULONG_PTR __fastcall IntpInitClassContext(_BYTE *a1, unsigned __int8 a2, unsigne
   bool v13; // zf
   __int16 v14; // dx
   __int64 v15; // rbp
-  ULONG_PTR Pool2; // r8
+  __int64 Pool2; // r8
   __int64 v17; // r9
   __int16 v18; // dx
   __int64 v19; // rcx
   __int64 v20; // rdx
   char v21; // al
-  ULONG_PTR result; // rax
+  __int64 result; // rax
 
   v3 = 0;
   v4 = a2;

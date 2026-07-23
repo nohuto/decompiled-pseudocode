@@ -1,10 +1,10 @@
 /*
- * XREFs of ViDifCaptureDriverEntry @ 0x1405CEF4C
+ * XREFs of ViDifCaptureDriverEntry @ 0x1405CF4BC
  * Callers:
  *     VfDifCaptureDriverEntry @ 0x140209F44 (VfDifCaptureDriverEntry.c)
- *     IovAttachDeviceToDeviceStack @ 0x140AC0FA4 (IovAttachDeviceToDeviceStack.c)
+ *     IovAttachDeviceToDeviceStack @ 0x140AC0F94 (IovAttachDeviceToDeviceStack.c)
  * Callees:
- *     ViDifFindIoCallbackContext @ 0x1405CF184 (ViDifFindIoCallbackContext.c)
+ *     ViDifFindIoCallbackContext @ 0x1405CF6F4 (ViDifFindIoCallbackContext.c)
  */
 
 char __fastcall ViDifCaptureDriverEntry(__int64 a1)

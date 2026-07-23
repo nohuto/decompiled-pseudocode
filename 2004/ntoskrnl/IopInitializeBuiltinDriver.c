@@ -36,13 +36,13 @@ __int64 __fastcall IopInitializeBuiltinDriver(
         unsigned __int8 a5,
         char **a6)
 {
-  __int64 v6; // r12
+  void *v6; // r12
   unsigned __int16 *p_Length; // r13
   unsigned __int16 *v10; // rsi
   int inserted; // edi
   char *v12; // rbx
   PVOID *i; // rdi
-  __int64 v14; // rax
+  PIMAGE_NT_HEADERS v14; // rax
   _WORD *Pool_0; // rax
   _WORD *v16; // rdi
   __int64 v17; // r15
@@ -118,11 +118,11 @@ __int64 __fastcall IopInitializeBuiltinDriver(
       }
       InbvIndicateProgress();
       if ( !a4
-        || (v6 = *(_QWORD *)(a4 + 48),
+        || (v6 = *(void **)(a4 + 48),
             v14 = RtlImageNtHeader(v6),
             *((_QWORD *)v12 + 3) = v6,
-            *((_DWORD *)v12 + 8) = *(_DWORD *)(v14 + 80),
-            (*(_WORD *)(v14 + 94) & 0x2000) == 0) )
+            *((_DWORD *)v12 + 8) = v14->OptionalHeader.SizeOfImage,
+            (v14->OptionalHeader.DllCharacteristics & 0x2000) == 0) )
       {
         *((_DWORD *)v12 + 4) |= 2u;
       }

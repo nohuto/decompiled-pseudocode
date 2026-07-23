@@ -1,47 +1,47 @@
 /*
- * XREFs of RtlSetThreadSubProcessTag @ 0x180022160
+ * XREFs of RtlSetThreadSubProcessTag @ 0x18004EB60
  * Callers:
- *     EtwDeliverDataBlock @ 0x18001E150 (EtwDeliverDataBlock.c)
- *     EtwpProcessNotification @ 0x180020790 (EtwpProcessNotification.c)
- *     RtlpWnfWalkUserSubscriptionList @ 0x180021030 (RtlpWnfWalkUserSubscriptionList.c)
- *     TppWorkCallbackPrologRelease @ 0x1800222C0 (TppWorkCallbackPrologRelease.c)
- *     RtlpTpWorkCallback @ 0x18006F790 (RtlpTpWorkCallback.c)
- *     RtlpTpIoCallback @ 0x1800EC3E0 (RtlpTpIoCallback.c)
+ *     EtwDeliverDataBlock @ 0x18004AB50 (EtwDeliverDataBlock.c)
+ *     EtwpProcessNotification @ 0x18004D190 (EtwpProcessNotification.c)
+ *     RtlpWnfWalkUserSubscriptionList @ 0x18004DA30 (RtlpWnfWalkUserSubscriptionList.c)
+ *     TppWorkCallbackPrologRelease @ 0x18004ECC0 (TppWorkCallbackPrologRelease.c)
+ *     RtlpTpWorkCallback @ 0x18008C070 (RtlpTpWorkCallback.c)
+ *     RtlpTpIoCallback @ 0x1800E7250 (RtlpTpIoCallback.c)
  * Callees:
- *     RtlGetCurrentServiceSessionId @ 0x180055A20 (RtlGetCurrentServiceSessionId.c)
- *     NtTraceEvent @ 0x180162840 (NtTraceEvent.c)
- *     __security_check_cookie @ 0x1801659C0 (__security_check_cookie.c)
+ *     RtlGetCurrentServiceSessionId @ 0x18006B600 (RtlGetCurrentServiceSessionId.c)
+ *     NtTraceEvent @ 0x180160C00 (NtTraceEvent.c)
+ *     __security_check_cookie @ 0x180163D80 (__security_check_cookie.c)
  */
 
-void *__fastcall RtlSetThreadSubProcessTag(void *a1, __int64 a2, __int64 a3, __int64 a4)
+PVOID __cdecl RtlSetThreadSubProcessTag(PVOID SubProcessTag)
 {
-  struct _TEB *v4; // rax
-  __int64 v5; // rdi
-  void *SubProcessTag; // rbx
+  struct _TEB *v1; // rax
+  __int64 v2; // rdi
+  PVOID v3; // rbx
   _DWORD *SharedData; // rdx
-  __int64 v8; // rax
-  _OWORD v10[2]; // [rsp+20h] [rbp-38h] BYREF
-  int v11; // [rsp+40h] [rbp-18h]
-  int v12; // [rsp+44h] [rbp-14h]
+  __int64 v5; // rax
+  _OWORD Fields[2]; // [rsp+20h] [rbp-38h] BYREF
+  int v8; // [rsp+40h] [rbp-18h]
+  int v9; // [rsp+44h] [rbp-14h]
 
-  v4 = NtCurrentTeb();
-  v5 = 2147353488LL;
-  SubProcessTag = v4->SubProcessTag;
-  v4->SubProcessTag = a1;
+  v1 = NtCurrentTeb();
+  v2 = 2147353488LL;
+  v3 = v1->SubProcessTag;
+  v1->SubProcessTag = SubProcessTag;
   SharedData = NtCurrentPeb()->SharedData;
   if ( SharedData && *SharedData )
-    v8 = (__int64)NtCurrentPeb()->SharedData + 566;
+    v5 = (__int64)NtCurrentPeb()->SharedData + 566;
   else
-    v8 = 2147353488LL;
-  if ( *(_BYTE *)v8 && a1 != SubProcessTag )
+    v5 = 2147353488LL;
+  if ( *(_BYTE *)v5 && SubProcessTag != v3 )
   {
-    memset(v10, 0, sizeof(v10));
-    WORD3(v10[0]) = 1349;
-    v11 = (int)SubProcessTag;
-    v12 = (int)a1;
-    if ( (unsigned int)RtlGetCurrentServiceSessionId(a1, SharedData, a3, a4) )
-      v5 = (__int64)NtCurrentPeb()->SharedData + 566;
-    NtTraceEvent(*(unsigned __int8 *)v5, 1026LL, 8LL, v10);
+    memset(Fields, 0, sizeof(Fields));
+    WORD3(Fields[0]) = 1349;
+    v8 = (int)v3;
+    v9 = (int)SubProcessTag;
+    if ( RtlGetCurrentServiceSessionId() )
+      v2 = (__int64)NtCurrentPeb()->SharedData + 566;
+    NtTraceEvent((HANDLE)*(unsigned __int8 *)v2, 0x402u, 8u, Fields);
   }
-  return SubProcessTag;
+  return v3;
 }

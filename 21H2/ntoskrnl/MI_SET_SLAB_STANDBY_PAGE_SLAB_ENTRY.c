@@ -1,9 +1,9 @@
 /*
- * XREFs of MI_SET_SLAB_STANDBY_PAGE_SLAB_ENTRY @ 0x140552B48
+ * XREFs of MI_SET_SLAB_STANDBY_PAGE_SLAB_ENTRY @ 0x140552D88
  * Callers:
- *     MiGetSlabStandbyListWorker @ 0x140552F60 (MiGetSlabStandbyListWorker.c)
+ *     MiGetSlabStandbyListWorker @ 0x1405531A0 (MiGetSlabStandbyListWorker.c)
  * Callees:
- *     MiSetPfnNodeBlinkHigh @ 0x1402B6514 (MiSetPfnNodeBlinkHigh.c)
+ *     MiSetPfnNodeBlinkHigh @ 0x1402346F4 (MiSetPfnNodeBlinkHigh.c)
  */
 
 __int64 __fastcall MI_SET_SLAB_STANDBY_PAGE_SLAB_ENTRY(__int64 a1, unsigned __int64 a2)

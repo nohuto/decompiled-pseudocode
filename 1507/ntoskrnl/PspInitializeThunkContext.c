@@ -38,7 +38,7 @@ void PspInitializeThunkContext()
   __int64 v17; // r8
   _QWORD *InitialStack; // rdx
   _QWORD *v19; // r8
-  struct _EXCEPTION_RECORD ExceptionRecord; // [rsp+40h] [rbp-A58h] BYREF
+  EXCEPTION_RECORD ExceptionRecord; // [rsp+40h] [rbp-A58h] BYREF
   _QWORD v21[154]; // [rsp+E0h] [rbp-9B8h] BYREF
   _QWORD v22[154]; // [rsp+5B0h] [rbp-4E8h] BYREF
 

@@ -1,12 +1,12 @@
 /*
- * XREFs of CmpInitCallbacks @ 0x14085099C
+ * XREFs of CmpInitCallbacks @ 0x140856CAC
  * Callers:
- *     CmInitSystem1 @ 0x140CE888C (CmInitSystem1.c)
+ *     CmInitSystem1 @ 0x140CEEC2C (CmInitSystem1.c)
  * Callees:
- *     RtlRaiseStatus @ 0x1402E84A0 (RtlRaiseStatus.c)
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     CmInitializeProcessorCallbacks @ 0x14085050C (CmInitializeProcessorCallbacks.c)
- *     ExInitializeSystemLookasideList @ 0x140C0D4C0 (ExInitializeSystemLookasideList.c)
+ *     RtlRaiseStatus @ 0x1402CA4E0 (RtlRaiseStatus.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     CmInitializeProcessorCallbacks @ 0x14085681C (CmInitializeProcessorCallbacks.c)
+ *     ExInitializeSystemLookasideList @ 0x140C136D0 (ExInitializeSystemLookasideList.c)
  */
 
 __int64 CmpInitCallbacks()
@@ -15,14 +15,14 @@ __int64 CmpInitCallbacks()
   __int64 result; // rax
 
   v0 = 0;
-  WheapPfaLock.ExpectedRunTime = 0;
-  CmpCallbackListLock.Header.WaitListHead.Blink = &CmpCallbackListLock.Header.WaitListHead;
-  CmpCallbackListLock.Header.WaitListHead.Flink = &CmpCallbackListLock.Header.WaitListHead;
-  *(_QWORD *)&CmpCallbackListLock.Header.Lock = 0LL;
-  CmpCallbackListLock.SListFaultAddress = 0LL;
-  CmpCallbackListLock.QuantumTarget = 0LL;
-  RtlInitUnicodeString((PUNICODE_STRING)&WheapPfaLock.KernelStack, L"425000");
-  CmpCallbackListLock.InitialStack = (void *)MEMORY[0xFFFFF78000000014];
+  HIDWORD(WheapPfaLock.StateSaveArea) = 0;
+  CmpContextListLock.SListFaultAddress = &CmpContextListLock.Header.WaitListHead.Blink;
+  CmpContextListLock.Header.WaitListHead.Blink = (struct _LIST_ENTRY *)&CmpContextListLock.Header.WaitListHead.Blink;
+  CmpContextListLock.Header.WaitListHead.Flink = 0LL;
+  *(_QWORD *)&CmpContextListLock.Header.Lock = 0LL;
+  CallbackListDeleteEvent = 0LL;
+  RtlInitUnicodeString((PUNICODE_STRING)&WheapPfaLock.SchedulingGroup, L"425000");
+  CmpContextListLock.QuantumTarget = MEMORY[0xFFFFF78000000014];
   if ( ((unsigned __int8)&CmpCallbackContextSList & 0xF) != 0 )
     RtlRaiseStatus(-2147483646);
   CmpCallbackContextSList = 0LL;

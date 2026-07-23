@@ -1,14 +1,14 @@
 /*
- * XREFs of AlpcpEnterAllocationEventMessageLog @ 0x140654D3C
+ * XREFs of AlpcpEnterAllocationEventMessageLog @ 0x140654E20
  * Callers:
- *     AlpcpAllocateMessage @ 0x14040B38C (AlpcpAllocateMessage.c)
- *     AlpcpSendMessage @ 0x14044A880 (AlpcpSendMessage.c)
- *     AlpcpSendLegacySynchronousRequest @ 0x1404B436C (AlpcpSendLegacySynchronousRequest.c)
+ *     AlpcpAllocateMessage @ 0x14040A24C (AlpcpAllocateMessage.c)
+ *     AlpcpSendMessage @ 0x140449750 (AlpcpSendMessage.c)
+ *     AlpcpSendLegacySynchronousRequest @ 0x14049E74C (AlpcpSendLegacySynchronousRequest.c)
  * Callees:
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1400C8070 (ExfAcquirePushLockExclusiveEx.c)
- *     ExfTryToWakePushLock @ 0x1400C8738 (ExfTryToWakePushLock.c)
- *     AlpcpAllocateMessageLog @ 0x140654B1C (AlpcpAllocateMessageLog.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1400C5F10 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfTryToWakePushLock @ 0x1400C65D8 (ExfTryToWakePushLock.c)
+ *     AlpcpAllocateMessageLog @ 0x140654C00 (AlpcpAllocateMessageLog.c)
  */
 
 unsigned __int64 __fastcall AlpcpEnterAllocationEventMessageLog(__int64 a1)
@@ -35,14 +35,14 @@ unsigned __int64 __fastcall AlpcpEnterAllocationEventMessageLog(__int64 a1)
     *(_QWORD *)(MessageLog + 32) = a1;
     *(_DWORD *)(MessageLog + 40) = *(_DWORD *)(a1 + 256);
     *(_DWORD *)(MessageLog + 44) = 1;
-    v6 = (__int64 *)qword_140307348;
-    if ( *(__int64 **)qword_140307348 != &AlpcpMessageLogListHead )
+    v6 = (__int64 *)qword_140307388;
+    if ( *(__int64 **)qword_140307388 != &AlpcpMessageLogListHead )
       __fastfail(3u);
-    *(_QWORD *)(MessageLog + 8) = qword_140307348;
+    *(_QWORD *)(MessageLog + 8) = qword_140307388;
     *(_QWORD *)MessageLog = &AlpcpMessageLogListHead;
     v7 = (char *)(MessageLog + 16);
     *v6 = MessageLog;
-    qword_140307348 = MessageLog;
+    qword_140307388 = MessageLog;
     v8 = (char *)AlpcpMessageLogLookupTable + 16 * ((*(_DWORD *)(MessageLog + 40) >> 2) & 0x3FF);
     v9 = (char **)*((_QWORD *)v8 + 1);
     if ( *v9 != v8 )

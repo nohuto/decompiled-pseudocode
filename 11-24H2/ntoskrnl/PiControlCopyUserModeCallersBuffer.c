@@ -1,20 +1,16 @@
 /*
- * XREFs of PiControlCopyUserModeCallersBuffer @ 0x1408D0240
+ * XREFs of PiControlCopyUserModeCallersBuffer @ 0x1408CDC30
  * Callers:
- *     PiControlGetPropertyData @ 0x1408BD4B0 (PiControlGetPropertyData.c)
- *     PiControlGetRelatedDevice @ 0x1408BD8A0 (PiControlGetRelatedDevice.c)
- *     PiCMCaptureObjectInputData @ 0x1408BEB90 (PiCMCaptureObjectInputData.c)
- *     PiCMCapturePropertyInputData @ 0x1408C5220 (PiCMCapturePropertyInputData.c)
- *     PiCMCaptureRegistryPropertyInputData @ 0x1408C5760 (PiCMCaptureRegistryPropertyInputData.c)
- *     NtPlugPlayControl @ 0x1408CFA10 (NtPlugPlayControl.c)
- *     PiControlGetDeviceInterfaceEnabled @ 0x1408CFC60 (PiControlGetDeviceInterfaceEnabled.c)
- *     PiControlMakeUserModeCallersCopy @ 0x1408D0150 (PiControlMakeUserModeCallersCopy.c)
- *     PiControlGetSetDeviceStatus @ 0x1408D1350 (PiControlGetSetDeviceStatus.c)
- *     PiCMCaptureRegistryInputData @ 0x140963DF8 (PiCMCaptureRegistryInputData.c)
+ *     PiControlGetPropertyData @ 0x1408BAE00 (PiControlGetPropertyData.c)
+ *     PiControlGetRelatedDevice @ 0x1408BB1F0 (PiControlGetRelatedDevice.c)
+ *     NtPlugPlayControl @ 0x1408CD400 (NtPlugPlayControl.c)
+ *     PiControlGetDeviceInterfaceEnabled @ 0x1408CD650 (PiControlGetDeviceInterfaceEnabled.c)
+ *     PiControlMakeUserModeCallersCopy @ 0x1408CDB40 (PiControlMakeUserModeCallersCopy.c)
+ *     PiControlGetSetDeviceStatus @ 0x1408CED40 (PiControlGetSetDeviceStatus.c)
  * Callees:
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     ExRaiseDatatypeMisalignment @ 0x14089B1F0 (ExRaiseDatatypeMisalignment.c)
- *     ExRaiseAccessViolation @ 0x1408C10E0 (ExRaiseAccessViolation.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408A3890 (ExRaiseDatatypeMisalignment.c)
+ *     ExRaiseAccessViolation @ 0x1408BEAA0 (ExRaiseAccessViolation.c)
  */
 
 __int64 __fastcall PiControlCopyUserModeCallersBuffer(

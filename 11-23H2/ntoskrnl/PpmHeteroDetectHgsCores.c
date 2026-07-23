@@ -1,11 +1,11 @@
 /*
- * XREFs of PpmHeteroDetectHgsCores @ 0x14039342C
+ * XREFs of PpmHeteroDetectHgsCores @ 0x14039360C
  * Callers:
- *     PopInitializeHeteroProcessors @ 0x14082CE90 (PopInitializeHeteroProcessors.c)
+ *     PopInitializeHeteroProcessors @ 0x14082D190 (PopInitializeHeteroProcessors.c)
  * Callees:
- *     KeEnumerateNextProcessor @ 0x1402572B0 (KeEnumerateNextProcessor.c)
- *     KeGetPrcb @ 0x140257330 (KeGetPrcb.c)
- *     PoHeteroIsArchFavoredCoreSupported @ 0x14041132C (PoHeteroIsArchFavoredCoreSupported.c)
+ *     KeEnumerateNextProcessor @ 0x140257370 (KeEnumerateNextProcessor.c)
+ *     KeGetPrcb @ 0x1402573F0 (KeGetPrcb.c)
+ *     PoHeteroIsArchFavoredCoreSupported @ 0x140411538 (PoHeteroIsArchFavoredCoreSupported.c)
  */
 
 char __fastcall PpmHeteroDetectHgsCores(__int64 a1)
@@ -62,7 +62,7 @@ char __fastcall PpmHeteroDetectHgsCores(__int64 a1)
     if ( (unsigned __int8)PoHeteroIsArchFavoredCoreSupported() || PpmHeteroHgsHeteroCoreTypes )
     {
       v3 = 1;
-      v35 = qword_140C0BE68[0];
+      v35 = qword_140C0BE78[0];
       v5 = -1;
       v42 = -1;
       v34 = (unsigned __int16 *)&PpmCheckRegistered;
@@ -95,7 +95,7 @@ char __fastcall PpmHeteroDetectHgsCores(__int64 a1)
           do
           {
             v36 = 0;
-            v35 = qword_140C0BE68[0];
+            v35 = qword_140C0BE78[0];
             v18 = 1;
             v34 = (unsigned __int16 *)&PpmCheckRegistered;
             if ( !(unsigned int)KeEnumerateNextProcessor(&v33, &v34) )
@@ -136,7 +136,7 @@ char __fastcall PpmHeteroDetectHgsCores(__int64 a1)
               v27 = (v1 != 0) + 1;
             v1 = 0;
             *(_BYTE *)(v24 + 2LL * v16 + 1) = v27;
-            v35 = qword_140C0BE68[0];
+            v35 = qword_140C0BE78[0];
             v34 = (unsigned __int16 *)&PpmCheckRegistered;
             v36 = 0;
             if ( !(unsigned int)KeEnumerateNextProcessor(&v33, &v34) )
@@ -165,7 +165,7 @@ char __fastcall PpmHeteroDetectHgsCores(__int64 a1)
       }
       else if ( v6 != v5 )
       {
-        v35 = qword_140C0BE68[0];
+        v35 = qword_140C0BE78[0];
         v36 = 0;
         v34 = (unsigned __int16 *)&PpmCheckRegistered;
         while ( !(unsigned int)KeEnumerateNextProcessor(&v33, &v34) )

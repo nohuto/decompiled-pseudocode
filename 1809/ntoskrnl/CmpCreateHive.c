@@ -1,14 +1,14 @@
 /*
- * XREFs of CmpCreateHive @ 0x1405A6574
+ * XREFs of CmpCreateHive @ 0x1405A7574
  * Callers:
- *     CmpInitHiveFromFile @ 0x1405B3D68 (CmpInitHiveFromFile.c)
- *     CmRestoreKey @ 0x1408013AC (CmRestoreKey.c)
- *     CmpCreateTemporaryHive @ 0x140802840 (CmpCreateTemporaryHive.c)
- *     CmpLoadHiveVolatile @ 0x1408028F8 (CmpLoadHiveVolatile.c)
- *     CmpRefreshHive @ 0x140802DAC (CmpRefreshHive.c)
- *     CmInitSystem1 @ 0x1409C3050 (CmInitSystem1.c)
- *     CmpInitializeSystemHive @ 0x1409C3B30 (CmpInitializeSystemHive.c)
- *     CmpInitializePreloadedHive @ 0x1409C3CAC (CmpInitializePreloadedHive.c)
+ *     CmpInitHiveFromFile @ 0x1405B4D68 (CmpInitHiveFromFile.c)
+ *     CmRestoreKey @ 0x1408025AC (CmRestoreKey.c)
+ *     CmpCreateTemporaryHive @ 0x140803A40 (CmpCreateTemporaryHive.c)
+ *     CmpLoadHiveVolatile @ 0x140803AF8 (CmpLoadHiveVolatile.c)
+ *     CmpRefreshHive @ 0x140803FAC (CmpRefreshHive.c)
+ *     CmInitSystem1 @ 0x1409C4050 (CmInitSystem1.c)
+ *     CmpInitializeSystemHive @ 0x1409C4B30 (CmpInitializeSystemHive.c)
+ *     CmpInitializePreloadedHive @ 0x1409C4CAC (CmpInitializePreloadedHive.c)
  * Callees:
  *     CmpRecheckHiveVolumePolicy @ 0x14000EDFC (CmpRecheckHiveVolumePolicy.c)
  *     _TlgKeywordOn @ 0x140012A04 (_TlgKeywordOn.c)
@@ -20,31 +20,31 @@
  *     ExAcquirePushLockSharedEx @ 0x14004EE20 (ExAcquirePushLockSharedEx.c)
  *     ExReleasePushLockEx @ 0x14004F160 (ExReleasePushLockEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
- *     ExfReleasePushLockShared @ 0x1400914B0 (ExfReleasePushLockShared.c)
- *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     CmpAdjustFileCFSafety @ 0x1401B3274 (CmpAdjustFileCFSafety.c)
- *     ZwSetInformationObject @ 0x1401B8D10 (ZwSetInformationObject.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     SetFailureLocation @ 0x14026BB58 (SetFailureLocation.c)
- *     CmpGetVolumeClusterSize @ 0x1405A4094 (CmpGetVolumeClusterSize.c)
- *     CmpVolumeManagerGetContextForFile @ 0x1405A4298 (CmpVolumeManagerGetContextForFile.c)
- *     CmpVolumeContextMustHiveFilePagesBeKeptLocal @ 0x1405A49F0 (CmpVolumeContextMustHiveFilePagesBeKeptLocal.c)
- *     HvHiveStartFileBacked @ 0x1405A4A3C (HvHiveStartFileBacked.c)
- *     CmpReorganizeHive @ 0x1405A6F70 (CmpReorganizeHive.c)
- *     CmpHiveInitialize @ 0x1405A717C (CmpHiveInitialize.c)
- *     CmpAllocate @ 0x1405A72D0 (CmpAllocate.c)
- *     HvCheckAndUpdateHiveBackupTimeStamp @ 0x1405A73BC (HvCheckAndUpdateHiveBackupTimeStamp.c)
- *     CmCheckRegistry @ 0x1405A848C (CmCheckRegistry.c)
- *     ObDuplicateObject @ 0x1405D0B70 (ObDuplicateObject.c)
- *     CmpAttachToRegistryProcess @ 0x1405D4048 (CmpAttachToRegistryProcess.c)
- *     CmpLockRegistry @ 0x140645100 (CmpLockRegistry.c)
- *     CmpUnlockRegistry @ 0x140645150 (CmpUnlockRegistry.c)
- *     HvMarkBaseBlockDirty @ 0x1406CAF34 (HvMarkBaseBlockDirty.c)
- *     HvHiveStartMemoryBacked @ 0x14073CB0C (HvHiveStartMemoryBacked.c)
- *     CmpLogHiveInitializeEvent @ 0x1407EBB3C (CmpLogHiveInitializeEvent.c)
- *     CmpDestroyHive @ 0x1407F6778 (CmpDestroyHive.c)
+ *     ExfReleasePushLockShared @ 0x1400913F0 (ExfReleasePushLockShared.c)
+ *     ExfTryToWakePushLock @ 0x140091500 (ExfTryToWakePushLock.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B78F0 (KiLeaveCriticalRegionUnsafe.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     CmpAdjustFileCFSafety @ 0x1401B33B4 (CmpAdjustFileCFSafety.c)
+ *     ZwSetInformationObject @ 0x1401B8E70 (ZwSetInformationObject.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     SetFailureLocation @ 0x14026BD48 (SetFailureLocation.c)
+ *     CmpGetVolumeClusterSize @ 0x1405A5094 (CmpGetVolumeClusterSize.c)
+ *     CmpVolumeManagerGetContextForFile @ 0x1405A5298 (CmpVolumeManagerGetContextForFile.c)
+ *     CmpVolumeContextMustHiveFilePagesBeKeptLocal @ 0x1405A59F0 (CmpVolumeContextMustHiveFilePagesBeKeptLocal.c)
+ *     HvHiveStartFileBacked @ 0x1405A5A3C (HvHiveStartFileBacked.c)
+ *     CmpReorganizeHive @ 0x1405A7F70 (CmpReorganizeHive.c)
+ *     CmpHiveInitialize @ 0x1405A817C (CmpHiveInitialize.c)
+ *     CmpAllocate @ 0x1405A82D0 (CmpAllocate.c)
+ *     HvCheckAndUpdateHiveBackupTimeStamp @ 0x1405A83BC (HvCheckAndUpdateHiveBackupTimeStamp.c)
+ *     CmCheckRegistry @ 0x1405A948C (CmCheckRegistry.c)
+ *     ObDuplicateObject @ 0x1405D1B70 (ObDuplicateObject.c)
+ *     CmpAttachToRegistryProcess @ 0x1405D5048 (CmpAttachToRegistryProcess.c)
+ *     CmpLockRegistry @ 0x140646120 (CmpLockRegistry.c)
+ *     CmpUnlockRegistry @ 0x140646170 (CmpUnlockRegistry.c)
+ *     HvMarkBaseBlockDirty @ 0x1406CC1D4 (HvMarkBaseBlockDirty.c)
+ *     HvHiveStartMemoryBacked @ 0x14073DCFC (HvHiveStartMemoryBacked.c)
+ *     CmpLogHiveInitializeEvent @ 0x1407ECD3C (CmpLogHiveInitializeEvent.c)
+ *     CmpDestroyHive @ 0x1407F7978 (CmpDestroyHive.c)
  */
 
 __int64 __fastcall CmpCreateHive(
@@ -374,14 +374,14 @@ LABEL_87:
     started = CmCheckRegistry(v15, (unsigned int)a8, a12);
     if ( started == -2147483606 )
     {
-      if ( stru_1403FFAA0.LevelPlus1 <= 5 )
+      if ( stru_140400AA0.LevelPlus1 <= 5 )
       {
         started = 0;
       }
       else
       {
         started = 0;
-        if ( TlgKeywordOn(&stru_1403FFAA0, 0x400000000000uLL) )
+        if ( TlgKeywordOn(&stru_140400AA0, 0x400000000000uLL) )
         {
           v61 = v38;
           v39 = *(unsigned __int16 *)(a12 + 8);
@@ -404,7 +404,7 @@ LABEL_87:
           v82 = a12 + 10;
           v83 = 2LL;
           v86 = 0;
-          TlgWrite(&stru_1403FFAA0, &unk_14036C1C3, 0LL, 0LL, 9u, &pData);
+          TlgWrite(&stru_140400AA0, &unk_14036D153, 0LL, 0LL, 9u, &pData);
         }
       }
     }
@@ -456,13 +456,13 @@ LABEL_87:
   else
   {
     ExAcquirePushLockExclusiveEx((ULONG_PTR)&CmpHiveListHeadLock, 0LL);
-    v44 = (_QWORD *)qword_14096E7D0;
-    if ( *(__int64 **)qword_14096E7D0 != &CmpHiveListHead )
+    v44 = (_QWORD *)qword_14096F7D0;
+    if ( *(__int64 **)qword_14096F7D0 != &CmpHiveListHead )
       __fastfail(3u);
     *v43 = &CmpHiveListHead;
     *(_QWORD *)(v15 + 1608) = v44;
     *v44 = v43;
-    qword_14096E7D0 = v15 + 1600;
+    qword_14096F7D0 = v15 + 1600;
     ExReleasePushLockEx((ULONG_PTR)&CmpHiveListHeadLock, 0LL);
     CmpRecheckHiveVolumePolicy(v15);
   }

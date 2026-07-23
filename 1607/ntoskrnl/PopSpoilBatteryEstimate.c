@@ -1,11 +1,11 @@
 /*
- * XREFs of PopSpoilBatteryEstimate @ 0x140534684
+ * XREFs of PopSpoilBatteryEstimate @ 0x140534BC4
  * Callers:
- *     PopSpoilEstimatesOnPowerStateTransitionWorker @ 0x140534678 (PopSpoilEstimatesOnPowerStateTransitionWorker.c)
- *     PopUpdateConsoleDisplayState @ 0x1405477D4 (PopUpdateConsoleDisplayState.c)
+ *     PopSpoilEstimatesOnPowerStateTransitionWorker @ 0x140534BB8 (PopSpoilEstimatesOnPowerStateTransitionWorker.c)
+ *     PopUpdateConsoleDisplayState @ 0x140547D14 (PopUpdateConsoleDisplayState.c)
  * Callees:
- *     DbgPrintEx @ 0x140081B0C (DbgPrintEx.c)
- *     PopBatteryQueueWork @ 0x140131898 (PopBatteryQueueWork.c)
+ *     DbgPrintEx @ 0x140084C90 (DbgPrintEx.c)
+ *     PopBatteryQueueWork @ 0x140131E08 (PopBatteryQueueWork.c)
  */
 
 void __fastcall PopSpoilBatteryEstimate(int a1, char a2)

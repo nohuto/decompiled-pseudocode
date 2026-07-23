@@ -1,12 +1,12 @@
 /*
- * XREFs of ExpSvmReferenceAsid @ 0x1405B9340
+ * XREFs of ExpSvmReferenceAsid @ 0x1405B9570
  * Callers:
  *     <none>
  * Callees:
- *     KeAcquireInStackQueuedSpinLock @ 0x14022EE10 (KeAcquireInStackQueuedSpinLock.c)
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402042B0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402D3660 (KeAcquireInStackQueuedSpinLock.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall ExpSvmReferenceAsid(ULONG_PTR BugCheckParameter1)
@@ -27,16 +27,16 @@ __int64 __fastcall ExpSvmReferenceAsid(ULONG_PTR BugCheckParameter1)
 
   v1 = (unsigned int)BugCheckParameter1;
   memset(&LockHandle, 0, sizeof(LockHandle));
-  KeAcquireInStackQueuedSpinLock(&qword_140C16918, &LockHandle);
+  KeAcquireInStackQueuedSpinLock(&qword_140C16958, &LockHandle);
   v2 = 0LL;
-  v3 = (ULONG_PTR *)((char *)qword_140C16910 + 16 * (unsigned int)v1);
-  if ( (unsigned int)v1 >= (unsigned int)dword_140C16904 )
+  v3 = (ULONG_PTR *)((char *)qword_140C16950 + 16 * (unsigned int)v1);
+  if ( (unsigned int)v1 >= (unsigned int)dword_140C16944 )
   {
     BugCheckParameter4 = 0LL;
 LABEL_14:
-    if ( (unsigned int)v1 < (unsigned int)dword_140C16904 )
+    if ( (unsigned int)v1 < (unsigned int)dword_140C16944 )
       v2 = *v3;
-    KeBugCheckEx(0x158u, v1, (unsigned int)dword_140C16904, v2, BugCheckParameter4);
+    KeBugCheckEx(0x158u, v1, (unsigned int)dword_140C16944, v2, BugCheckParameter4);
   }
   v4 = *v3;
   if ( !*v3 || (v5 = v3[1], v5 < 0) )

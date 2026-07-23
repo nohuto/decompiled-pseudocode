@@ -1,13 +1,13 @@
 /*
- * XREFs of MiFindUserSidHotPatchContext @ 0x140854F60
+ * XREFs of MiFindUserSidHotPatchContext @ 0x1408561C0
  * Callers:
- *     MiFindProcessImageHotPatchRecord @ 0x140854E18 (MiFindProcessImageHotPatchRecord.c)
- *     MiQueryLoadedPatches @ 0x140857908 (MiQueryLoadedPatches.c)
- *     MiUnloadHotPatchForUserSid @ 0x1408582B0 (MiUnloadHotPatchForUserSid.c)
+ *     MiFindProcessImageHotPatchRecord @ 0x140856078 (MiFindProcessImageHotPatchRecord.c)
+ *     MiQueryLoadedPatches @ 0x140858B68 (MiQueryLoadedPatches.c)
+ *     MiUnloadHotPatchForUserSid @ 0x140859510 (MiUnloadHotPatchForUserSid.c)
  * Callees:
  *     RtlLengthSid @ 0x1400162C0 (RtlLengthSid.c)
- *     RtlHashBytes2 @ 0x1402FE2E8 (RtlHashBytes2.c)
- *     MiCompareUserSidHotPatchNodes @ 0x140854AA8 (MiCompareUserSidHotPatchNodes.c)
+ *     RtlHashBytes2 @ 0x1402FE4D8 (RtlHashBytes2.c)
+ *     MiCompareUserSidHotPatchNodes @ 0x140855D08 (MiCompareUserSidHotPatchNodes.c)
  */
 
 _QWORD *__fastcall MiFindUserSidHotPatchContext(void *a1)

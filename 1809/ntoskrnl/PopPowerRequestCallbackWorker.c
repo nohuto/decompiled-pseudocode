@@ -6,10 +6,10 @@
  * Callees:
  *     PopPowerRequestExecuteCallbacks @ 0x1400038BC (PopPowerRequestExecuteCallbacks.c)
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14007DE90 (KeAcquireInStackQueuedSpinLock.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14007DE80 (KeAcquireInStackQueuedSpinLock.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC6A0 (KxReleaseQueuedSpinLock.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 PopPowerRequestCallbackWorker()
@@ -36,11 +36,11 @@ __int64 PopPowerRequestCallbackWorker()
     }
     else
     {
-      v0 = *(_QWORD **)(qword_1404193B8 + 8);
-      if ( *(__int64 **)qword_1404193B8 != &PopPowerRequestCallbacks || *v0 != qword_1404193B8 )
+      v0 = *(_QWORD **)(qword_14041A4A8 + 8);
+      if ( *(__int64 **)qword_14041A4A8 != &PopPowerRequestCallbacks || *v0 != qword_14041A4A8 )
         __fastfail(3u);
-      v1 = qword_1404193B8 - 56;
-      qword_1404193B8 = *(_QWORD *)(qword_1404193B8 + 8);
+      v1 = qword_14041A4A8 - 56;
+      qword_14041A4A8 = *(_QWORD *)(qword_14041A4A8 + 8);
       v2 = 0;
       *v0 = &PopPowerRequestCallbacks;
       v3 = (char *)(v1 + 72);

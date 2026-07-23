@@ -8,19 +8,19 @@
  *     RtlpFlsCloneComplete @ 0x18014CBC8 (RtlpFlsCloneComplete.c)
  */
 
-__int64 __fastcall RtlpHpUnlockHeapManagerForClone(int a1)
+void __fastcall RtlpHpUnlockHeapManagerForClone(int a1)
 {
-  __int128 v3; // [rsp+20h] [rbp-18h] BYREF
+  __int128 v2; // [rsp+20h] [rbp-18h] BYREF
 
   RtlpFlsCloneComplete((__int64)&RtlpHpEnvFlsContext, a1);
-  v3 = 0LL;
+  v2 = 0LL;
   if ( a1 )
   {
     qword_1801D09A0 = -1LL;
     qword_1801D0998 = 1LL;
   }
-  LODWORD(v3) = 1;
-  *((_QWORD *)&v3 + 1) = &unk_1801D0980;
-  BYTE4(v3) = -1;
-  return RtlpCSparseBitmapUnlock((__int64)&v3);
+  LODWORD(v2) = 1;
+  *((_QWORD *)&v2 + 1) = BaseAddress;
+  BYTE4(v2) = -1;
+  RtlpCSparseBitmapUnlock((__int64)&v2);
 }

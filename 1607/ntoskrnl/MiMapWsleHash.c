@@ -1,10 +1,10 @@
 /*
- * XREFs of MiMapWsleHash @ 0x140102D80
+ * XREFs of MiMapWsleHash @ 0x140100B00
  * Callers:
- *     MiUpdateWsleHash @ 0x140048D80 (MiUpdateWsleHash.c)
- *     MiConvertWsleHash @ 0x140102AC0 (MiConvertWsleHash.c)
+ *     MiUpdateWsleHash @ 0x140048900 (MiUpdateWsleHash.c)
+ *     MiConvertWsleHash @ 0x140100840 (MiConvertWsleHash.c)
  * Callees:
- *     MiMapNewWorkingSetPage @ 0x140102E50 (MiMapNewWorkingSetPage.c)
+ *     MiMapNewWorkingSetPage @ 0x140100BD0 (MiMapNewWorkingSetPage.c)
  */
 
 _BOOL8 __fastcall MiMapWsleHash(__int64 a1, __int64 a2)

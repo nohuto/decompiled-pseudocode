@@ -1,14 +1,14 @@
 /*
- * XREFs of PfpRpControlRequestCopy @ 0x140B02DF8
+ * XREFs of PfpRpControlRequestCopy @ 0x140B04A0C
  * Callers:
- *     PfpRpControlRequest @ 0x140B02D24 (PfpRpControlRequest.c)
+ *     PfpRpControlRequest @ 0x140B04938 (PfpRpControlRequest.c)
  * Callees:
- *     RtlCopyFromUser @ 0x140533E38 (RtlCopyFromUser.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     RtlCopyVolatileMemory @ 0x140733080 (RtlCopyVolatileMemory.c)
- *     ProbeForRead @ 0x1408EF880 (ProbeForRead.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     RtlCopyFromUser @ 0x1405362B8 (RtlCopyFromUser.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     RtlCopyVolatileMemory @ 0x140737C50 (RtlCopyVolatileMemory.c)
+ *     ProbeForRead @ 0x1408F5E40 (ProbeForRead.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PfpRpControlRequestCopy(void *Src, SIZE_T Length, _QWORD *a3, _QWORD *a4, char a5)

@@ -1,9 +1,9 @@
 /*
- * XREFs of LZ4_initStream @ 0x18011EBA4
+ * XREFs of LZ4_initStream @ 0x18011CDD4
  * Callers:
- *     LZ4_compress_fast_extState @ 0x18010ED5C (LZ4_compress_fast_extState.c)
+ *     LZ4_compress_fast_extState @ 0x180109D3C (LZ4_compress_fast_extState.c)
  * Callees:
- *     memset$thunk$772440563353939046 @ 0x180172030 (memset$thunk$772440563353939046.c)
+ *     memset$thunk$772440563353939046 @ 0x180171030 (memset$thunk$772440563353939046.c)
  */
 
 void *__fastcall LZ4_initStream(void *a1)

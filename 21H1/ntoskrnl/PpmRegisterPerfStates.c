@@ -590,6 +590,6 @@ LABEL_110:
   }
   v90[1] = -1LL;
   v90[0] = v27;
-  KeSetTimer2((__int64)&PpmPerfTelemetryTimer, -36000000000LL, 36000000000LL, v90);
+  KeSetTimer2((__int64)&PpmPerfTelemetryTimer, -36000000000LL, 36000000000LL, (__int64)v90);
   return (unsigned int)v36;
 }

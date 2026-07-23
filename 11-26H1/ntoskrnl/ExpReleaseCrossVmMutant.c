@@ -1,11 +1,11 @@
 /*
- * XREFs of ExpReleaseCrossVmMutant @ 0x1407780B8
+ * XREFs of ExpReleaseCrossVmMutant @ 0x14077AF58
  * Callers:
- *     NtReleaseMutant @ 0x140A65040 (NtReleaseMutant.c)
+ *     NtReleaseMutant @ 0x140A72010 (NtReleaseMutant.c)
  * Callees:
- *     ExReleaseExtensionTable @ 0x14048FC18 (ExReleaseExtensionTable.c)
- *     ExGetExtensionTable @ 0x14049B7B0 (ExGetExtensionTable.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     ExReleaseExtensionTable @ 0x1404896C4 (ExReleaseExtensionTable.c)
+ *     ExGetExtensionTable @ 0x140495300 (ExGetExtensionTable.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall ExpReleaseCrossVmMutant(__int64 a1, __int64 a2)

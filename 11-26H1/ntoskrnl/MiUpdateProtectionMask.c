@@ -1,14 +1,14 @@
 /*
- * XREFs of MiUpdateProtectionMask @ 0x140303850
+ * XREFs of MiUpdateProtectionMask @ 0x1402E58D0
  * Callers:
- *     MiCompleteTransitionPfnFault @ 0x140302030 (MiCompleteTransitionPfnFault.c)
- *     MiSwitchValidPteToTransition @ 0x14030ED40 (MiSwitchValidPteToTransition.c)
- *     MiMakeProtoReadOnly @ 0x14031C2E0 (MiMakeProtoReadOnly.c)
- *     MiHugePageOperation @ 0x140705138 (MiHugePageOperation.c)
- *     MiUseProcessorHugeMappingAtDpc @ 0x1407054FC (MiUseProcessorHugeMappingAtDpc.c)
- *     MiAllocateZeroCalibrationBuffer @ 0x140710120 (MiAllocateZeroCalibrationBuffer.c)
- *     MiAllocateFastAwePages @ 0x1408776E8 (MiAllocateFastAwePages.c)
- *     MiMapLockedPagesInUserSpace @ 0x14095D148 (MiMapLockedPagesInUserSpace.c)
+ *     MiCompleteTransitionPfnFault @ 0x1402E40B0 (MiCompleteTransitionPfnFault.c)
+ *     MiSwitchValidPteToTransition @ 0x1402F0DC0 (MiSwitchValidPteToTransition.c)
+ *     MiMakeProtoReadOnly @ 0x14031E310 (MiMakeProtoReadOnly.c)
+ *     MiHugePageOperation @ 0x140709E08 (MiHugePageOperation.c)
+ *     MiUseProcessorHugeMappingAtDpc @ 0x14070A1CC (MiUseProcessorHugeMappingAtDpc.c)
+ *     MiAllocateZeroCalibrationBuffer @ 0x140714E1C (MiAllocateZeroCalibrationBuffer.c)
+ *     MiAllocateFastAwePages @ 0x14087DAC8 (MiAllocateFastAwePages.c)
+ *     MiMapLockedPagesInUserSpace @ 0x140A02A08 (MiMapLockedPagesInUserSpace.c)
  * Callees:
  *     <none>
  */

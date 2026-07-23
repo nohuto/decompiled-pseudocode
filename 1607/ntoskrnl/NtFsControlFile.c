@@ -1,12 +1,12 @@
 /*
- * XREFs of NtFsControlFile @ 0x1405084DC
+ * XREFs of NtFsControlFile @ 0x1404EB46C
  * Callers:
- *     PfpVolumePrefetchMetadata @ 0x1403ED2F4 (PfpVolumePrefetchMetadata.c)
- *     PfpPrefetchDirectoryStream @ 0x1403ED670 (PfpPrefetchDirectoryStream.c)
- *     PfSnPrefetchFileMetadata @ 0x1404D3B8C (PfSnPrefetchFileMetadata.c)
- *     PfpPrefetchEntireDirectory @ 0x140508800 (PfpPrefetchEntireDirectory.c)
+ *     PfpVolumePrefetchMetadata @ 0x1403EE924 (PfpVolumePrefetchMetadata.c)
+ *     PfpPrefetchDirectoryStream @ 0x1403EECA0 (PfpPrefetchDirectoryStream.c)
+ *     PfSnPrefetchFileMetadata @ 0x1404B762C (PfSnPrefetchFileMetadata.c)
+ *     PfpPrefetchEntireDirectory @ 0x1404EB790 (PfpPrefetchEntireDirectory.c)
  * Callees:
- *     IopXxxControlFile @ 0x140443F00 (IopXxxControlFile.c)
+ *     IopXxxControlFile @ 0x140442DD0 (IopXxxControlFile.c)
  */
 
 NTSTATUS __stdcall NtFsControlFile(

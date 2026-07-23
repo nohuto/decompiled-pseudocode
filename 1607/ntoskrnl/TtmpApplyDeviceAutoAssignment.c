@@ -1,7 +1,7 @@
 /*
- * XREFs of TtmpApplyDeviceAutoAssignment @ 0x14067729C
+ * XREFs of TtmpApplyDeviceAutoAssignment @ 0x140677380
  * Callers:
- *     TtmiSessionDeviceListWorker @ 0x1406770C8 (TtmiSessionDeviceListWorker.c)
+ *     TtmiSessionDeviceListWorker @ 0x1406771AC (TtmiSessionDeviceListWorker.c)
  * Callees:
  *     <none>
  */

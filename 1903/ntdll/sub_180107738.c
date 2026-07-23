@@ -16,20 +16,21 @@ void *__fastcall sub_180107738(__int64 a1, __int64 a2, __int64 a3)
   char v4; // cl
   unsigned int v5; // eax
   void *result; // rax
-  char v7; // [rsp+58h] [rbp-20h]
+  _BYTE SystemInformation[56]; // [rsp+20h] [rbp-58h] BYREF
+  char v8; // [rsp+58h] [rbp-20h]
 
   v3 = 1;
   qword_180166580 = sub_180049EE0(a1, a2, a3);
-  if ( (int)ZwQuerySystemInformation() >= 0 )
+  if ( ZwQuerySystemInformation(SystemBasicInformation, SystemInformation, 0x40u, 0LL) >= 0 )
   {
     v4 = 0;
-    if ( (unsigned int)v7 > 1 )
+    if ( (unsigned int)v8 > 1 )
     {
       do
         ++v4;
-      while ( (unsigned int)v7 >> v4 > 1 );
+      while ( (unsigned int)v8 >> v4 > 1 );
     }
-    v5 = -(1 << v4) & ((1LL << v4) + v7 - 1);
+    v5 = -(1 << v4) & ((1LL << v4) + v8 - 1);
     if ( v5 > 0x40 )
       v5 = 64;
     v3 = v5;

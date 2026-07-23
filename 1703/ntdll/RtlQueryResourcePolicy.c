@@ -16,32 +16,31 @@
 
 __int64 __fastcall RtlQueryResourcePolicy(int a1, int a2, __int64 a3, __int64 a4)
 {
-  __int64 v7; // rcx
-  int v9; // ebx
-  const wchar_t *v10; // rax
-  int v11; // ebx
-  __int64 NtSystemRoot; // rax
+  int v8; // ebx
+  PWSTR v9; // rax
+  int v10; // ebx
+  PWSTR NtSystemRoot; // rax
 
   if ( !a3 || a2 )
     return 3221225485LL;
-  RtlRunOnceExecuteOnce(&unk_18015C390, sub_1800818B0, 0LL, 0LL);
+  RtlRunOnceExecuteOnce(&stru_18015C390, sub_1800818B0, 0LL, 0LL);
   if ( !a1 )
   {
     if ( a4 == 4 )
       return sub_18000F610(a3);
     return 3221225485LL;
   }
-  v9 = a1 - 1;
-  if ( v9 )
+  v8 = a1 - 1;
+  if ( v8 )
   {
-    v11 = v9 - 1;
-    if ( !v11 )
+    v10 = v8 - 1;
+    if ( !v10 )
     {
       if ( a4 == 4 )
         return sub_18008A924(a3);
       return 3221225485LL;
     }
-    if ( v11 != 1 )
+    if ( v10 != 1 )
       return 3221225475LL;
     if ( a4 == 4 )
     {
@@ -52,9 +51,9 @@ __int64 __fastcall RtlQueryResourcePolicy(int a1, int a2, __int64 a3, __int64 a4
   }
   if ( a4 != 4 )
     return 3221225485LL;
-  if ( (RtlGetSuiteMask(v7) & 0x10000) != 0 )
-    v10 = L"C:\\data\\programs\\windowsapps";
+  if ( (RtlGetSuiteMask() & 0x10000) != 0 )
+    v9 = L"C:\\data\\programs\\windowsapps";
   else
-    v10 = (const wchar_t *)RtlGetNtSystemRoot();
-  return sub_18007D4C0(v10, a3);
+    v9 = RtlGetNtSystemRoot();
+  return sub_18007D4C0(v9, a3);
 }

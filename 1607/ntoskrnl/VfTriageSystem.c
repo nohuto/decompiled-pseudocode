@@ -3,7 +3,7 @@
  * Callers:
  *     ViInitSystemPhase0 @ 0x1407B9E64 (ViInitSystemPhase0.c)
  * Callees:
- *     DbgPrintEx @ 0x140081B0C (DbgPrintEx.c)
+ *     DbgPrintEx @ 0x140084C90 (DbgPrintEx.c)
  *     MmTriageActiveInLastCrash @ 0x1407D0FCC (MmTriageActiveInLastCrash.c)
  *     ViFindTriageDriverTargets @ 0x1407D17A8 (ViFindTriageDriverTargets.c)
  *     ViFindTriageRule @ 0x1407D1820 (ViFindTriageRule.c)
@@ -106,8 +106,8 @@ __int64 __fastcall VfTriageSystem(__int64 a1)
   }
   DbgPrintEx(0x5Du, 3u, "CRASH TRIAGE: previous crash was %Ix %Ix %Ix %Ix %Ix.\n", v6, v7, v9, v10, v11);
   ViTriageCrashData = v15;
-  qword_140300A80 = v17;
-  xmmword_140300A70 = v16;
+  qword_140300A60 = v17;
+  xmmword_140300A50 = v16;
   if ( v8 )
   {
     if ( (unsigned int)MmTriageActiveInLastCrash(a1) == 1 )

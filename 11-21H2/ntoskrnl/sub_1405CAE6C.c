@@ -1,0 +1,70 @@
+/*
+ * XREFs of sub_1405CAE6C @ 0x1405CAE6C
+ * Callers:
+ *     sub_14022ED94 @ 0x14022ED94 (sub_14022ED94.c)
+ *     PoFxCompleteIdleCondition @ 0x14024E680 (PoFxCompleteIdleCondition.c)
+ *     sub_1402D2864 @ 0x1402D2864 (sub_1402D2864.c)
+ *     sub_140354990 @ 0x140354990 (sub_140354990.c)
+ *     sub_140354CBC @ 0x140354CBC (sub_140354CBC.c)
+ *     sub_140355350 @ 0x140355350 (sub_140355350.c)
+ *     sub_140355830 @ 0x140355830 (sub_140355830.c)
+ *     sub_1403562C8 @ 0x1403562C8 (sub_1403562C8.c)
+ *     sub_140356350 @ 0x140356350 (sub_140356350.c)
+ *     sub_140356AF0 @ 0x140356AF0 (sub_140356AF0.c)
+ *     sub_140356BCC @ 0x140356BCC (sub_140356BCC.c)
+ *     PoFxActivateComponent @ 0x140357D10 (PoFxActivateComponent.c)
+ *     sub_1403580A8 @ 0x1403580A8 (sub_1403580A8.c)
+ *     sub_1403B1020 @ 0x1403B1020 (sub_1403B1020.c)
+ *     sub_1403B5F40 @ 0x1403B5F40 (sub_1403B5F40.c)
+ *     PoFxCompleteDevicePowerNotRequired @ 0x1403B6A70 (PoFxCompleteDevicePowerNotRequired.c)
+ *     sub_1403B92D0 @ 0x1403B92D0 (sub_1403B92D0.c)
+ *     PoFxRegisterDripsWatchdogCallback @ 0x1403DDC00 (PoFxRegisterDripsWatchdogCallback.c)
+ *     sub_14045DEFE @ 0x14045DEFE (sub_14045DEFE.c)
+ *     sub_14045DF6A @ 0x14045DF6A (sub_14045DF6A.c)
+ *     PoFxIssueComponentPerfStateChangeMultiple @ 0x1405CA760 (PoFxIssueComponentPerfStateChangeMultiple.c)
+ *     sub_1405CBD34 @ 0x1405CBD34 (sub_1405CBD34.c)
+ *     sub_1405CBF94 @ 0x1405CBF94 (sub_1405CBF94.c)
+ *     sub_1405CCAC0 @ 0x1405CCAC0 (sub_1405CCAC0.c)
+ *     sub_1405CCCFC @ 0x1405CCCFC (sub_1405CCCFC.c)
+ *     sub_1405CE300 @ 0x1405CE300 (sub_1405CE300.c)
+ *     sub_1405CE8D0 @ 0x1405CE8D0 (sub_1405CE8D0.c)
+ *     sub_1405CE8F8 @ 0x1405CE8F8 (sub_1405CE8F8.c)
+ *     sub_1405CE94C @ 0x1405CE94C (sub_1405CE94C.c)
+ *     sub_1405CEA5C @ 0x1405CEA5C (sub_1405CEA5C.c)
+ *     sub_1405CEB08 @ 0x1405CEB08 (sub_1405CEB08.c)
+ *     sub_1405CEB94 @ 0x1405CEB94 (sub_1405CEB94.c)
+ *     sub_1405CEBEC @ 0x1405CEBEC (sub_1405CEBEC.c)
+ *     sub_1405CED0C @ 0x1405CED0C (sub_1405CED0C.c)
+ *     sub_1405CEE50 @ 0x1405CEE50 (sub_1405CEE50.c)
+ *     sub_1405CEFE4 @ 0x1405CEFE4 (sub_1405CEFE4.c)
+ *     sub_1405CF3DC @ 0x1405CF3DC (sub_1405CF3DC.c)
+ *     sub_1405D5604 @ 0x1405D5604 (sub_1405D5604.c)
+ *     sub_1405D5704 @ 0x1405D5704 (sub_1405D5704.c)
+ *     sub_1405D9310 @ 0x1405D9310 (sub_1405D9310.c)
+ *     sub_1405DDD88 @ 0x1405DDD88 (sub_1405DDD88.c)
+ *     sub_1405DDE24 @ 0x1405DDE24 (sub_1405DDE24.c)
+ *     sub_1405DFA70 @ 0x1405DFA70 (sub_1405DFA70.c)
+ *     sub_1408236BC @ 0x1408236BC (sub_1408236BC.c)
+ *     sub_140823988 @ 0x140823988 (sub_140823988.c)
+ *     PoFxRegisterComponentPerfStates @ 0x14098CD20 (PoFxRegisterComponentPerfStates.c)
+ *     sub_14098D0C0 @ 0x14098D0C0 (sub_14098D0C0.c)
+ *     sub_14098D650 @ 0x14098D650 (sub_14098D650.c)
+ *     sub_14098DAB8 @ 0x14098DAB8 (sub_14098DAB8.c)
+ *     sub_14098E0AC @ 0x14098E0AC (sub_14098E0AC.c)
+ *     sub_14098E51C @ 0x14098E51C (sub_14098E51C.c)
+ *     sub_14098E64C @ 0x14098E64C (sub_14098E64C.c)
+ *     sub_14098E728 @ 0x14098E728 (sub_14098E728.c)
+ *     sub_14098E79C @ 0x14098E79C (sub_14098E79C.c)
+ *     sub_1409A0958 @ 0x1409A0958 (sub_1409A0958.c)
+ * Callees:
+ *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
+ */
+
+void __fastcall __noreturn sub_1405CAE6C(
+        ULONG_PTR BugCheckParameter1,
+        ULONG_PTR BugCheckParameter2,
+        ULONG_PTR BugCheckParameter3,
+        ULONG_PTR BugCheckParameter4)
+{
+  KeBugCheckEx(0xA0u, BugCheckParameter1, BugCheckParameter2, BugCheckParameter3, BugCheckParameter4);
+}

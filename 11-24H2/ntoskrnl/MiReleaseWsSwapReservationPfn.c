@@ -1,10 +1,10 @@
 /*
- * XREFs of MiReleaseWsSwapReservationPfn @ 0x1402E46AC
+ * XREFs of MiReleaseWsSwapReservationPfn @ 0x140215E44
  * Callers:
- *     MiInPageSingleKernelStack @ 0x14046A150 (MiInPageSingleKernelStack.c)
- *     MiProcessWsInSwapFault @ 0x14046DEB4 (MiProcessWsInSwapFault.c)
+ *     MiProcessWsInSwapFault @ 0x140215CA4 (MiProcessWsInSwapFault.c)
+ *     MiInPageSingleKernelStack @ 0x14047BE44 (MiInPageSingleKernelStack.c)
  * Callees:
- *     MiSetPfnModified @ 0x1402E4730 (MiSetPfnModified.c)
+ *     MiSetPfnModified @ 0x140215EC0 (MiSetPfnModified.c)
  */
 
 __int64 __fastcall MiReleaseWsSwapReservationPfn(__int64 a1)

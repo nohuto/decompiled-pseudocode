@@ -1,5 +1,5 @@
 /*
- * XREFs of HsaGetRidAcpiMapCount @ 0x1405A9E10
+ * XREFs of HsaGetRidAcpiMapCount @ 0x1405AC620
  * Callers:
  *     <none>
  * Callees:

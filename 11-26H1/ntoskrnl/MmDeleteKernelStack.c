@@ -1,38 +1,38 @@
 /*
- * XREFs of MmDeleteKernelStack @ 0x1404162AC
+ * XREFs of MmDeleteKernelStack @ 0x14040A8BC
  * Callers:
- *     KiExpandKernelStackAndCalloutOnStackSegment @ 0x140264300 (KiExpandKernelStackAndCalloutOnStackSegment.c)
- *     KiEnableOptionalXStateFeatures @ 0x1403D2A3C (KiEnableOptionalXStateFeatures.c)
- *     PspDeleteKernelStack @ 0x1404161E0 (PspDeleteKernelStack.c)
- *     KiFreeProcessorStacks @ 0x1405EB2E0 (KiFreeProcessorStacks.c)
- *     KiDeleteXStateStack @ 0x1405EC5C4 (KiDeleteXStateStack.c)
- *     KeEnableOptionalXStateFeaturesApc @ 0x1405EC9A0 (KeEnableOptionalXStateFeaturesApc.c)
- *     KiFreeTemporaryStacks @ 0x1405F07F0 (KiFreeTemporaryStacks.c)
- *     KeUninitThread @ 0x140A038AC (KeUninitThread.c)
- *     KiDeleteKernelShadowStack @ 0x140A03950 (KiDeleteKernelShadowStack.c)
- *     KeUserModeCallback @ 0x140A59280 (KeUserModeCallback.c)
- *     KeAllocateCalloutStackEx @ 0x140AFADB0 (KeAllocateCalloutStackEx.c)
- *     KeFreeCalloutStack @ 0x140B22C70 (KeFreeCalloutStack.c)
- *     PspEnableProcessOptionalXStateFeatures @ 0x140B6131C (PspEnableProcessOptionalXStateFeatures.c)
- *     KeInitThread @ 0x140C07424 (KeInitThread.c)
+ *     KiExpandKernelStackAndCalloutOnStackSegment @ 0x140263870 (KiExpandKernelStackAndCalloutOnStackSegment.c)
+ *     KiEnableOptionalXStateFeatures @ 0x1403D5A0C (KiEnableOptionalXStateFeatures.c)
+ *     PspDeleteKernelStack @ 0x14040A7F0 (PspDeleteKernelStack.c)
+ *     KiFreeProcessorStacks @ 0x1405EDC50 (KiFreeProcessorStacks.c)
+ *     KiDeleteXStateStack @ 0x1405EEF34 (KiDeleteXStateStack.c)
+ *     KeEnableOptionalXStateFeaturesApc @ 0x1405EF310 (KeEnableOptionalXStateFeaturesApc.c)
+ *     KiFreeTemporaryStacks @ 0x1405F3160 (KiFreeTemporaryStacks.c)
+ *     KeUserModeCallback @ 0x140923D90 (KeUserModeCallback.c)
+ *     KeUninitThread @ 0x140A7BCB0 (KeUninitThread.c)
+ *     KiDeleteKernelShadowStack @ 0x140A7BD54 (KiDeleteKernelShadowStack.c)
+ *     KeAllocateCalloutStackEx @ 0x140AB3C50 (KeAllocateCalloutStackEx.c)
+ *     KeFreeCalloutStack @ 0x140B25070 (KeFreeCalloutStack.c)
+ *     PspEnableProcessOptionalXStateFeatures @ 0x140B643BC (PspEnableProcessOptionalXStateFeatures.c)
+ *     KeInitThread @ 0x140C0D634 (KeInitThread.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     MiReleasePtes @ 0x140281CE0 (MiReleasePtes.c)
- *     MiPageToNode @ 0x140289710 (MiPageToNode.c)
- *     MiDeleteKernelStackPages @ 0x14028E9CC (MiDeleteKernelStackPages.c)
- *     MiSafeLockPage @ 0x1402F3700 (MiSafeLockPage.c)
- *     MiGetLeafPfnBuddy @ 0x140416870 (MiGetLeafPfnBuddy.c)
- *     MiAddKernelStackToPrcbCache @ 0x140416988 (MiAddKernelStackToPrcbCache.c)
- *     MiClearStackOwners @ 0x140416A90 (MiClearStackOwners.c)
- *     MiKernelShadowStackIdealForCaching @ 0x140416D20 (MiKernelShadowStackIdealForCaching.c)
- *     MiLogKernelStackEvent @ 0x1405067FC (MiLogKernelStackEvent.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     KasanMarkAddressValidNoInline @ 0x140523160 (KasanMarkAddressValidNoInline.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     RtlpInterlockedPopEntrySList @ 0x140730C90 (RtlpInterlockedPopEntrySList.c)
- *     RtlpInterlockedPushEntrySList @ 0x140730CD0 (RtlpInterlockedPushEntrySList.c)
- *     VslResetKernelShadowStack @ 0x140AE48AC (VslResetKernelShadowStack.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     MiReleasePtes @ 0x140281250 (MiReleasePtes.c)
+ *     MiPageToNode @ 0x140288C70 (MiPageToNode.c)
+ *     MiDeleteKernelStackPages @ 0x14028DF2C (MiDeleteKernelStackPages.c)
+ *     MiSafeLockPage @ 0x1402D5780 (MiSafeLockPage.c)
+ *     MiGetLeafPfnBuddy @ 0x14040AE80 (MiGetLeafPfnBuddy.c)
+ *     MiAddKernelStackToPrcbCache @ 0x14040AF98 (MiAddKernelStackToPrcbCache.c)
+ *     MiClearStackOwners @ 0x14040B0A0 (MiClearStackOwners.c)
+ *     MiKernelShadowStackIdealForCaching @ 0x14040B330 (MiKernelShadowStackIdealForCaching.c)
+ *     MiLogKernelStackEvent @ 0x1405000AC (MiLogKernelStackEvent.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KasanMarkAddressValidNoInline @ 0x1405257D0 (KasanMarkAddressValidNoInline.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     RtlpInterlockedPopEntrySList @ 0x140735860 (RtlpInterlockedPopEntrySList.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1407358A0 (RtlpInterlockedPushEntrySList.c)
+ *     VslResetKernelShadowStack @ 0x140AE23BC (VslResetKernelShadowStack.c)
  */
 
 unsigned __int64 __fastcall MmDeleteKernelStack(int *a1)
@@ -48,7 +48,7 @@ unsigned __int64 __fastcall MmDeleteKernelStack(int *a1)
   unsigned __int64 v9; // rbx
   unsigned __int8 CurrentIrql; // r12
   __int64 v11; // rbx
-  ULONG_PTR v12; // r8
+  __int64 v12; // r8
   __int64 v13; // rax
   unsigned __int8 v14; // r13
   int *v15; // rbx
@@ -135,8 +135,8 @@ unsigned __int64 __fastcall MmDeleteKernelStack(int *a1)
     v57 = 0;
     if ( (v3 & 1) == 0 )
     {
-      v7 = (unsigned __int8)byte_140E34B64;
-      v48 = (unsigned __int8)byte_140E34B64;
+      v7 = (unsigned __int8)byte_140E34CE4;
+      v48 = (unsigned __int8)byte_140E34CE4;
       LODWORD(BugCheckParameter4) = 2;
       if ( (v3 & 4) != 0 )
       {
@@ -159,12 +159,12 @@ LABEL_7:
   {
     if ( (v3 & 2) != 0 && (BYTE4(PerfGlobalGroupMask) & 1) != 0 )
       MiLogKernelStackEvent(v9 + 4096, v7, 0LL);
-    if ( byte_140FC7BE8 )
+    if ( byte_140FC8BD8 )
       KasanMarkAddressValidNoInline(v9 + 4096, v7 << 12);
   }
   if ( v5 )
   {
-    v6 = *(_QWORD *)(stru_140E2EB88.ThreadLock + 8LL * *(unsigned __int16 *)(*(_QWORD *)(v5 + 544) + 1198LL));
+    v6 = *(_QWORD *)(stru_140E2ED08.ThreadLock + 8LL * *(unsigned __int16 *)(*(_QWORD *)(v5 + 544) + 1198LL));
     v51 = (ULONG *)v6;
   }
   else
@@ -183,7 +183,7 @@ LABEL_7:
       v47 = v13;
       if ( CurrentIrql == 2 )
         break;
-      v14 = MiSafeLockPage(v12, v6);
+      v14 = MiSafeLockPage(v12, v6, v12);
       if ( v14 != 17 )
       {
         v13 = v47;
@@ -275,7 +275,7 @@ LABEL_17:
   if ( v45 == 5 )
   {
     v38 = v46 << 25 >> 16;
-    *(_QWORD *)(v38 + 4064) = qword_140E34BA0 ^ v38;
+    *(_QWORD *)(v38 + 4064) = qword_140E34D20 ^ v38;
     *(_DWORD *)(v38 + 4088) = v17;
     if ( v17 == 1 )
       return (unsigned __int64)RtlpInterlockedPushEntrySList(
@@ -307,9 +307,9 @@ LABEL_42:
     v23 = *((_QWORD *)v15 + 5);
     v24 = (unsigned __int64 *)BugCheckParameter2;
     MiDeleteKernelStackPages(v18, BugCheckParameter2, v48, v45, v23);
-    v25 = &unk_140E34AA0;
+    v25 = &unk_140E34C20;
     if ( v45 != 5 )
-      v25 = &unk_140E34B00;
+      v25 = &unk_140E34C80;
     return MiReleasePtes((__int64)v25, v24, v56);
   }
   else

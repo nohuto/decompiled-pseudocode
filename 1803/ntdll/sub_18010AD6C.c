@@ -15,83 +15,116 @@
  *     sub_18010B4DC @ 0x18010B4DC (sub_18010B4DC.c)
  */
 
-__int64 __fastcall sub_18010AD6C(__int64 a1, int a2, int a3)
+NTSTATUS __fastcall sub_18010AD6C(__int64 a1, void *a2, int a3)
 {
-  __int64 result; // rax
-  int v7; // ebx
-  int InformationProcess; // esi
-  unsigned __int64 Heap; // [rsp+58h] [rbp-19h]
-  unsigned int v10; // [rsp+68h] [rbp-9h]
-  __int64 v11; // [rsp+78h] [rbp+7h]
-  __int64 v12; // [rsp+80h] [rbp+Fh] BYREF
-  int v13; // [rsp+88h] [rbp+17h]
-  __int64 v14; // [rsp+8Ch] [rbp+1Bh]
-  int v15; // [rsp+98h] [rbp+27h]
-  __int64 v16; // [rsp+A0h] [rbp+2Fh]
-  unsigned int v17; // [rsp+F0h] [rbp+7Fh] BYREF
+  NTSTATUS result; // eax
+  ULONG v7; // esi
+  int v8; // ebx
+  PVOID Heap; // rax
+  NTSTATUS v10; // esi
+  PVOID BaseAddress; // [rsp+58h] [rbp-19h] BYREF
+  ULONG_PTR RegionSize; // [rsp+60h] [rbp-11h] BYREF
+  ULONG ReturnLength; // [rsp+68h] [rbp-9h] BYREF
+  PVOID v14; // [rsp+70h] [rbp-1h] BYREF
+  HANDLE SectionHandle; // [rsp+78h] [rbp+7h] BYREF
+  __int64 v16; // [rsp+80h] [rbp+Fh] BYREF
+  int v17; // [rsp+88h] [rbp+17h]
+  __int64 v18; // [rsp+8Ch] [rbp+1Bh]
+  int ProcessInformation; // [rsp+98h] [rbp+27h] BYREF
+  LARGE_INTEGER MaximumSize; // [rsp+A0h] [rbp+2Fh] BYREF
+  __int64 v21; // [rsp+F0h] [rbp+7Fh] BYREF
 
-  result = ZwQueryInformationProcess();
-  if ( (int)result >= 0 )
+  result = ZwQueryInformationProcess(a2, ProcessHandleCount, &ProcessInformation, 8u, 0LL);
+  if ( result >= 0 )
   {
-    v7 = a3 & 0x20000000;
+    v7 = 4 * ProcessInformation;
+    v8 = a3 & 0x20000000;
     if ( (a3 & 0x20000000) != 0 )
     {
-      Heap = 0LL;
-      result = ZwAllocateVirtualMemory();
-      if ( (int)result < 0 )
+      BaseAddress = 0LL;
+      RegionSize = (unsigned int)(4 * ProcessInformation);
+      result = ZwAllocateVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &BaseAddress, 0LL, &RegionSize, 0x1000u, 4u);
+      if ( result < 0 )
         return result;
+      Heap = BaseAddress;
     }
     else
     {
-      Heap = RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, (unsigned int)(4 * v15));
+      Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, (unsigned int)(4 * ProcessInformation));
+      BaseAddress = Heap;
       if ( !Heap )
-        return 3221225626LL;
+        return -1073741670;
     }
-    InformationProcess = ZwQueryInformationProcess();
-    if ( InformationProcess < 0 )
+    v10 = ZwQueryInformationProcess(a2, ProcessHandleTable, Heap, v7, &ReturnLength);
+    if ( v10 < 0 )
     {
-      if ( !v7 )
+      if ( !v8 )
       {
-LABEL_8:
-        RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, Heap);
-        return (unsigned int)InformationProcess;
-      }
 LABEL_9:
-      ZwFreeVirtualMemory();
-      return (unsigned int)InformationProcess;
+        RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, BaseAddress);
+        return v10;
+      }
+LABEL_10:
+      RegionSize = 0LL;
+      ZwFreeVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &BaseAddress, &RegionSize, 0x8000u);
+      return v10;
     }
-    v17 = 0;
-    sub_18010B4DC(a2, Heap, v10 >> 2, a3, (__int64)sub_18010B470, (__int64)&v17);
-    v16 = v17;
-    InformationProcess = ZwCreateSection();
-    if ( InformationProcess < 0 )
+    LODWORD(v21) = 0;
+    sub_18010B4DC(a2, (__int64)sub_18010B470, (__int64)&v21);
+    MaximumSize.QuadPart = (unsigned int)v21;
+    v10 = ZwCreateSection(
+            &SectionHandle,
+            0xF0007u,
+            (POBJECT_ATTRIBUTES)&stru_180131930,
+            &MaximumSize,
+            4u,
+            0x8000000u,
+            0LL);
+    if ( v10 < 0 )
     {
-LABEL_14:
-      if ( !v7 )
-        goto LABEL_8;
-      goto LABEL_9;
+LABEL_15:
+      if ( !v8 )
+        goto LABEL_9;
+      goto LABEL_10;
     }
-    InformationProcess = ZwMapViewOfSection();
-    if ( InformationProcess < 0 )
-    {
-      ZwClose();
-      goto LABEL_14;
-    }
-    v12 = 0LL;
-    v17 = 0;
-    v13 = 0;
     v14 = 0LL;
-    sub_18010B4DC(a2, Heap, v10 >> 2, a3, (__int64)sub_18010B240, (__int64)&v12);
-    ZwUnmapViewOfSection();
-    if ( v7 )
-      ZwFreeVirtualMemory();
+    RegionSize = 0LL;
+    v10 = ZwMapViewOfSection(
+            SectionHandle,
+            (HANDLE)0xFFFFFFFFFFFFFFFFLL,
+            &v14,
+            0LL,
+            0LL,
+            0LL,
+            &RegionSize,
+            ViewShare,
+            0,
+            4u);
+    if ( v10 < 0 )
+    {
+      ZwClose(SectionHandle);
+      goto LABEL_15;
+    }
+    v16 = (__int64)v14;
+    LODWORD(v21) = RegionSize;
+    v17 = RegionSize;
+    v18 = 0LL;
+    sub_18010B4DC(a2, (__int64)sub_18010B240, (__int64)&v16);
+    ZwUnmapViewOfSection((HANDLE)0xFFFFFFFFFFFFFFFFLL, v14);
+    if ( v8 )
+    {
+      RegionSize = 0LL;
+      ZwFreeVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &BaseAddress, &RegionSize, 0x8000u);
+    }
     else
-      RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, Heap);
-    *(_DWORD *)(a1 + 960) = HIDWORD(v14);
-    *(_QWORD *)(a1 + 968) = (unsigned int)v14;
-    *(_QWORD *)(a1 + 976) = v11;
+    {
+      RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, BaseAddress);
+    }
+    *(_DWORD *)(a1 + 960) = HIDWORD(v18);
+    *(_QWORD *)(a1 + 968) = (unsigned int)v18;
+    *(_QWORD *)(a1 + 976) = SectionHandle;
     *(_QWORD *)(a1 + 984) = MEMORY[0x7FFE0014];
-    return 0LL;
+    return 0;
   }
   return result;
 }

@@ -6,7 +6,15 @@
  *     sub_180056454 @ 0x180056454 (sub_180056454.c)
  */
 
-__int64 __fastcall RtlQueryRegistryValuesEx(int a1, int a2, int a3, int a4, __int64 a5)
+NTSTATUS __cdecl RtlQueryRegistryValuesEx(
+        ULONG RelativeTo,
+        PCWSTR Path,
+        PRTL_QUERY_REGISTRY_TABLE QueryTable,
+        PVOID Context,
+        PVOID Environment)
 {
-  return sub_180056454(a1, a2, a3, a4, a5, 1);
+  char v6; // [rsp+28h] [rbp-10h]
+
+  v6 = 1;
+  return sub_180056454(RelativeTo, Path, QueryTable, Context, Environment, v6);
 }

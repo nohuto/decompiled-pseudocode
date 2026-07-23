@@ -1,13 +1,13 @@
 /*
- * XREFs of AlpcpCaptureSecurityAttributeInternal @ 0x140618274
+ * XREFs of AlpcpCaptureSecurityAttributeInternal @ 0x140619274
  * Callers:
- *     AlpcpCaptureSecurityAttribute32 @ 0x1406163F0 (AlpcpCaptureSecurityAttribute32.c)
- *     AlpcpCaptureSecurityAttribute @ 0x14061819C (AlpcpCaptureSecurityAttribute.c)
+ *     AlpcpCaptureSecurityAttribute32 @ 0x1406173F0 (AlpcpCaptureSecurityAttribute32.c)
+ *     AlpcpCaptureSecurityAttribute @ 0x14061919C (AlpcpCaptureSecurityAttribute.c)
  * Callees:
- *     AlpcpCreateSecurityContext @ 0x14061801C (AlpcpCreateSecurityContext.c)
- *     AlpcReferenceBlobByHandle @ 0x140618368 (AlpcReferenceBlobByHandle.c)
- *     AlpcpDeleteBlob @ 0x140618BF4 (AlpcpDeleteBlob.c)
- *     AlpcpDereferenceBlobEx @ 0x140618C70 (AlpcpDereferenceBlobEx.c)
+ *     AlpcpCreateSecurityContext @ 0x14061901C (AlpcpCreateSecurityContext.c)
+ *     AlpcReferenceBlobByHandle @ 0x140619368 (AlpcReferenceBlobByHandle.c)
+ *     AlpcpDeleteBlob @ 0x140619BF4 (AlpcpDeleteBlob.c)
+ *     AlpcpDereferenceBlobEx @ 0x140619C70 (AlpcpDereferenceBlobEx.c)
  */
 
 __int64 __fastcall AlpcpCaptureSecurityAttributeInternal(

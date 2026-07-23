@@ -1,9 +1,9 @@
 /*
- * XREFs of WmipGECleanup @ 0x1409E1570
+ * XREFs of WmipGECleanup @ 0x1409E1800
  * Callers:
  *     <none>
  * Callees:
- *     EtwUnregister @ 0x1407C0E00 (EtwUnregister.c)
+ *     EtwUnregister @ 0x1407C10D0 (EtwUnregister.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

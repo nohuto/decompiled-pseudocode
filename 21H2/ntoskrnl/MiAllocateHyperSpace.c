@@ -1,12 +1,12 @@
 /*
- * XREFs of MiAllocateHyperSpace @ 0x14023D10C
+ * XREFs of MiAllocateHyperSpace @ 0x1402E195C
  * Callers:
- *     MiCopyPage @ 0x140240220 (MiCopyPage.c)
- *     MiFillPageWithImageExtentContents @ 0x140540B54 (MiFillPageWithImageExtentContents.c)
- *     MiGetPteMappingPair @ 0x1405635FC (MiGetPteMappingPair.c)
+ *     MiCopyPage @ 0x1402E4A70 (MiCopyPage.c)
+ *     MiFillPageWithImageExtentContents @ 0x140540D94 (MiFillPageWithImageExtentContents.c)
+ *     MiGetPteMappingPair @ 0x14056383C (MiGetPteMappingPair.c)
  * Callees:
- *     MiGetUltraMapping @ 0x140234700 (MiGetUltraMapping.c)
- *     MiFlushHyperSpace @ 0x1402D2C80 (MiFlushHyperSpace.c)
+ *     MiFlushHyperSpace @ 0x140251200 (MiFlushHyperSpace.c)
+ *     MiGetUltraMapping @ 0x1402D8F50 (MiGetUltraMapping.c)
  */
 
 unsigned __int64 __fastcall MiAllocateHyperSpace(unsigned __int64 a1)
@@ -33,7 +33,7 @@ unsigned __int64 __fastcall MiAllocateHyperSpace(unsigned __int64 a1)
     }
     else
     {
-      MiFlushHyperSpace(HyperPte & 0xFFF, 4095LL, (unsigned int)HyperPte);
+      MiFlushHyperSpace();
       HyperPte = v5;
       v6 = v5;
     }

@@ -1,14 +1,14 @@
 /*
- * XREFs of RtlpGetUserOrMachineUILanguage4NLS @ 0x180103990
+ * XREFs of RtlpGetUserOrMachineUILanguage4NLS @ 0x180103950
  * Callers:
  *     RtlLcidToLocaleName @ 0x18003B2F0 (RtlLcidToLocaleName.c)
- *     RtlpMatchUILanguage @ 0x1800FD53C (RtlpMatchUILanguage.c)
+ *     RtlpMatchUILanguage @ 0x1800FD4FC (RtlpMatchUILanguage.c)
  * Callees:
  *     RtlInitUnicodeString @ 0x18003BA40 (RtlInitUnicodeString.c)
  *     LdrpQueryValueKey @ 0x18003F680 (LdrpQueryValueKey.c)
  *     OpenGlobalizationUserSettingsKey @ 0x1800704E4 (OpenGlobalizationUserSettingsKey.c)
- *     NtClose @ 0x18009D820 (NtClose.c)
- *     NtOpenKey @ 0x18009D880 (NtOpenKey.c)
+ *     NtClose @ 0x18009D7E0 (NtClose.c)
+ *     NtOpenKey @ 0x18009D840 (NtOpenKey.c)
  */
 
 __int64 __fastcall RtlpGetUserOrMachineUILanguage4NLS(int a1, void *a2, unsigned __int64 *a3)
@@ -17,62 +17,58 @@ __int64 __fastcall RtlpGetUserOrMachineUILanguage4NLS(int a1, void *a2, unsigned
   unsigned __int64 v7; // rax
   unsigned int v8; // edi
   int v10; // [rsp+30h] [rbp-19h] BYREF
-  HANDLE Handle; // [rsp+38h] [rbp-11h]
-  HANDLE v12; // [rsp+40h] [rbp-9h] BYREF
-  UNICODE_STRING DestinationString; // [rsp+48h] [rbp-1h] BYREF
-  int v14; // [rsp+58h] [rbp+Fh]
-  HANDLE v15; // [rsp+60h] [rbp+17h]
-  UNICODE_STRING *p_DestinationString; // [rsp+68h] [rbp+1Fh]
-  int v17; // [rsp+70h] [rbp+27h]
-  __int128 v18; // [rsp+78h] [rbp+2Fh]
-  unsigned int v19; // [rsp+C8h] [rbp+7Fh] BYREF
+  HANDLE KeyHandle; // [rsp+38h] [rbp-11h] BYREF
+  HANDLE Handle; // [rsp+40h] [rbp-9h] BYREF
+  _UNICODE_STRING DestinationString; // [rsp+48h] [rbp-1h] BYREF
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+58h] [rbp+Fh] BYREF
+  __int64 v15; // [rsp+C8h] [rbp+7Fh] BYREF
 
-  v12 = 0LL;
   Handle = 0LL;
-  v19 = 0;
+  KeyHandle = 0LL;
+  LODWORD(v15) = 0;
   v10 = 7;
-  v6 = OpenGlobalizationUserSettingsKey(0x2000000u, (__int64)a2, (__int64)&v12);
+  v6 = OpenGlobalizationUserSettingsKey(0x2000000u, (__int64)a2, &Handle);
   if ( v6 < 0 )
     goto LABEL_21;
   if ( a1 == 1 )
   {
     RtlInitUnicodeString(&DestinationString, L"Control Panel\\Desktop");
-    v15 = v12;
+    ObjectAttributes.RootDirectory = Handle;
   }
   else
   {
     RtlInitUnicodeString(&DestinationString, L"Control Panel\\Desktop\\MuiCached");
-    v15 = v12;
-    v14 = 48;
-    p_DestinationString = &DestinationString;
-    v17 = 64;
-    v18 = 0LL;
-    v6 = NtOpenKey();
+    ObjectAttributes.RootDirectory = Handle;
+    ObjectAttributes.Length = 48;
+    ObjectAttributes.ObjectName = &DestinationString;
+    ObjectAttributes.Attributes = 64;
+    *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+    v6 = NtOpenKey(&KeyHandle, 0x20019u, &ObjectAttributes);
     if ( v6 >= 0 )
     {
       RtlInitUnicodeString(&DestinationString, L"MachinePreferredUILanguages");
-      v6 = LdrpQueryValueKey((__int64)Handle, (__int64)&DestinationString, &v10, 0LL, &v19);
+      v6 = LdrpQueryValueKey(KeyHandle, &DestinationString, &v10, 0LL, (ULONG *)&v15);
       if ( v6 >= 0 )
         goto LABEL_10;
     }
     if ( v6 == -2147483643 )
       goto LABEL_10;
-    NtClose(Handle);
+    NtClose(KeyHandle);
     RtlInitUnicodeString(&DestinationString, L"\\Registry\\Machine\\System\\CurrentControlSet\\Control\\MUI\\Settings");
-    Handle = 0LL;
-    v15 = 0LL;
+    KeyHandle = 0LL;
+    ObjectAttributes.RootDirectory = 0LL;
   }
-  v14 = 48;
-  p_DestinationString = &DestinationString;
-  v17 = 64;
-  v18 = 0LL;
-  v6 = NtOpenKey();
+  ObjectAttributes.Length = 48;
+  ObjectAttributes.ObjectName = &DestinationString;
+  ObjectAttributes.Attributes = 64;
+  *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+  v6 = NtOpenKey(&KeyHandle, 0x20019u, &ObjectAttributes);
   if ( v6 < 0 )
     goto LABEL_21;
   RtlInitUnicodeString(&DestinationString, L"PreferredUILanguages");
-  v6 = LdrpQueryValueKey((__int64)Handle, (__int64)&DestinationString, &v10, 0LL, &v19);
+  v6 = LdrpQueryValueKey(KeyHandle, &DestinationString, &v10, 0LL, (ULONG *)&v15);
 LABEL_10:
-  if ( v6 != -1073741772 && v19 )
+  if ( v6 != -1073741772 && (_DWORD)v15 )
   {
     if ( v6 != -2147483643 )
     {
@@ -80,7 +76,7 @@ LABEL_20:
       v6 = -1073741772;
       goto LABEL_21;
     }
-    v7 = v19 + 1;
+    v7 = (unsigned int)(v15 + 1);
     v8 = (unsigned int)v7 >> 1;
     if ( !a2 )
     {
@@ -94,7 +90,7 @@ LABEL_15:
       v6 = -1073741789;
       goto LABEL_15;
     }
-    v6 = LdrpQueryValueKey((__int64)Handle, (__int64)&DestinationString, &v10, a2, &v19);
+    v6 = LdrpQueryValueKey(KeyHandle, &DestinationString, &v10, a2, (ULONG *)&v15);
     if ( v6 >= 0 )
     {
       if ( v10 == 7 )
@@ -103,12 +99,12 @@ LABEL_15:
     }
   }
 LABEL_21:
-  if ( v12 )
-  {
-    NtClose(v12);
-    v12 = 0LL;
-  }
   if ( Handle )
+  {
     NtClose(Handle);
+    Handle = 0LL;
+  }
+  if ( KeyHandle )
+    NtClose(KeyHandle);
   return (unsigned int)v6;
 }

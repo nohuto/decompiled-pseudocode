@@ -1,26 +1,26 @@
 /*
- * XREFs of MiProbeLeafPteAccess @ 0x1402EF490
+ * XREFs of MiProbeLeafPteAccess @ 0x1402D1510
  * Callers:
- *     MiProbeAndLockPacket @ 0x1402EE280 (MiProbeAndLockPacket.c)
- *     MmStoreProbeAndLockPages @ 0x1402F0670 (MmStoreProbeAndLockPages.c)
- *     MmProbeAndLockSelectedPages @ 0x14039F2E0 (MmProbeAndLockSelectedPages.c)
+ *     MiProbeAndLockPacket @ 0x1402D0300 (MiProbeAndLockPacket.c)
+ *     MmStoreProbeAndLockPages @ 0x1402D26F0 (MmStoreProbeAndLockPages.c)
+ *     MmProbeAndLockSelectedPages @ 0x1403A1040 (MmProbeAndLockSelectedPages.c)
  * Callees:
- *     MiGetSubsectionFromPte @ 0x1402836C0 (MiGetSubsectionFromPte.c)
- *     MiLegitimatePageForDriversToMap @ 0x1402F09B0 (MiLegitimatePageForDriversToMap.c)
- *     MiCanPageMove @ 0x1402FDC9C (MiCanPageMove.c)
- *     MiCopyOnWrite @ 0x14036AD38 (MiCopyOnWrite.c)
- *     MiLocateCloneAddress @ 0x14036BA4C (MiLocateCloneAddress.c)
- *     MiOkToSetPteDirtyForNotValidFault @ 0x14038C03C (MiOkToSetPteDirtyForNotValidFault.c)
- *     MiUnlockProbePacketWorkingSet @ 0x1403A0340 (MiUnlockProbePacketWorkingSet.c)
- *     MmAccessFault @ 0x1403A2390 (MmAccessFault.c)
- *     MiCopyOnWriteCheckConditions @ 0x1403A2E0C (MiCopyOnWriteCheckConditions.c)
- *     MiProcessCommitIntact @ 0x14044D910 (MiProcessCommitIntact.c)
- *     MiClearPfnImageVerified @ 0x14046FA64 (MiClearPfnImageVerified.c)
- *     MiLockProbePacketWorkingSet @ 0x14048AFAC (MiLockProbePacketWorkingSet.c)
- *     MiIsDriverPage @ 0x1404BD140 (MiIsDriverPage.c)
- *     MiLogSystemImageReadOnlyPageViolation @ 0x1404C3220 (MiLogSystemImageReadOnlyPageViolation.c)
- *     MiSplitReducedCommitClonePage @ 0x14052CA98 (MiSplitReducedCommitClonePage.c)
- *     MiSplitDriverPage @ 0x140B47A14 (MiSplitDriverPage.c)
+ *     MiGetSubsectionFromPte @ 0x140282C30 (MiGetSubsectionFromPte.c)
+ *     MiLegitimatePageForDriversToMap @ 0x1402D2A30 (MiLegitimatePageForDriversToMap.c)
+ *     MiCanPageMove @ 0x1402DFD1C (MiCanPageMove.c)
+ *     MiCopyOnWrite @ 0x14036CAD8 (MiCopyOnWrite.c)
+ *     MiLocateCloneAddress @ 0x14036D7EC (MiLocateCloneAddress.c)
+ *     MiOkToSetPteDirtyForNotValidFault @ 0x14038DDEC (MiOkToSetPteDirtyForNotValidFault.c)
+ *     MiUnlockProbePacketWorkingSet @ 0x1403A20A0 (MiUnlockProbePacketWorkingSet.c)
+ *     MmAccessFault @ 0x1403A40F0 (MmAccessFault.c)
+ *     MiCopyOnWriteCheckConditions @ 0x1403A4B6C (MiCopyOnWriteCheckConditions.c)
+ *     MiProcessCommitIntact @ 0x140445A40 (MiProcessCommitIntact.c)
+ *     MiClearPfnImageVerified @ 0x1404691E4 (MiClearPfnImageVerified.c)
+ *     MiLockProbePacketWorkingSet @ 0x140484AEC (MiLockProbePacketWorkingSet.c)
+ *     MiIsDriverPage @ 0x1404B6920 (MiIsDriverPage.c)
+ *     MiLogSystemImageReadOnlyPageViolation @ 0x1404BCA70 (MiLogSystemImageReadOnlyPageViolation.c)
+ *     MiSplitReducedCommitClonePage @ 0x14052EFB8 (MiSplitReducedCommitClonePage.c)
+ *     MiSplitDriverPage @ 0x140B497A8 (MiSplitDriverPage.c)
  */
 
 __int64 __fastcall MiProbeLeafPteAccess(__int64 a1, unsigned __int64 a2)
@@ -67,21 +67,21 @@ __int64 __fastcall MiProbeLeafPteAccess(__int64 a1, unsigned __int64 a2)
   BugCheckParameter1 = v5;
   if ( (v4 & 4) == 0 && v7 == 1 )
   {
-    ++LODWORD(stru_140E2EB88.QueueListEntry.Flink);
+    ++LODWORD(stru_140E2ED08.QueueListEntry.Flink);
     return 3221225477LL;
   }
   v8 = ((unsigned __int64)v4 >> 12) & 0xFFFFFFFFFFLL;
   v9 = 48 * v8;
-  if ( v8 <= qword_140E2D7A0 && (*(_QWORD *)(v9 - 0x21FFFFFFFFD8LL) & 0x40000000000000LL) != 0 )
+  if ( v8 <= qword_140E2D920 && (*(_QWORD *)(v9 - 0x21FFFFFFFFD8LL) & 0x40000000000000LL) != 0 )
   {
     v10 = v9 - 0x220000000000LL;
-    if ( stru_140E36558.InitialStack )
+    if ( stru_140E366D8.InitialStack )
     {
       if ( ((*(_QWORD *)(v10 + 40) >> 60) & 7) == 1 )
       {
-        InitialStack = stru_140E36558.InitialStack;
+        InitialStack = stru_140E366D8.InitialStack;
         a2 = v9 / 0x30;
-        if ( stru_140E36558.InitialStack )
+        if ( stru_140E366D8.InitialStack )
         {
           do
           {
@@ -94,7 +94,7 @@ __int64 __fastcall MiProbeLeafPteAccess(__int64 a1, unsigned __int64 a2)
             {
               if ( a2 - v28 < InitialStack[4] )
               {
-                ++*(_DWORD *)&stru_140E2EB88.SharedComputeUnitsUsed;
+                ++*(_DWORD *)&stru_140E2ED08.SharedComputeUnitsUsed;
                 return 3221225477LL;
               }
               InitialStack = (_QWORD *)InitialStack[1];
@@ -106,7 +106,7 @@ __int64 __fastcall MiProbeLeafPteAccess(__int64 a1, unsigned __int64 a2)
     }
     if ( (int)MiLegitimatePageForDriversToMap(v10, a2) < 0 )
     {
-      ++*(_DWORD *)&stru_140E2EB88.UserAffinityPrimaryGroup;
+      ++*(_DWORD *)&stru_140E2ED08.UserAffinityPrimaryGroup;
       return 3221225477LL;
     }
     a2 = (unsigned __int64)v33;
@@ -119,7 +119,7 @@ __int64 __fastcall MiProbeLeafPteAccess(__int64 a1, unsigned __int64 a2)
   if ( v5 < 0xFFFF800000000000uLL )
     v12 = 0;
   else
-    v12 = (unsigned __int8)byte_140E37A70[((v5 >> 39) & 0x1FF) - 256];
+    v12 = (unsigned __int8)byte_140E37BF0[((v5 >> 39) & 0x1FF) - 256];
   if ( v7 == 6 && v12 == 11 )
     v11 = 1;
   v13 = 0x10000000000LL;
@@ -180,7 +180,7 @@ LABEL_10:
       MiLockProbePacketWorkingSet(a1);
       if ( v29 >= 0 )
         goto LABEL_74;
-      ++stru_140E2EB88.ThreadFlags2;
+      ++stru_140E2ED08.ThreadFlags2;
       return (unsigned int)v29;
     }
     goto LABEL_26;
@@ -203,7 +203,7 @@ LABEL_10:
           MiLockProbePacketWorkingSet(a1);
           if ( v31 >= 0 )
             goto LABEL_74;
-          ++HIDWORD(stru_140E2EB88.UserAffinity);
+          ++HIDWORD(stru_140E2ED08.UserAffinity);
           return (unsigned int)v31;
         }
         v13 = 0x10000000000LL;
@@ -277,7 +277,7 @@ LABEL_78:
             result = MiSplitReducedCommitClonePage(a1);
             if ( (int)result < 0 )
             {
-              ++LODWORD(stru_140E2EB88.UserAffinity);
+              ++LODWORD(stru_140E2ED08.UserAffinity);
               return result;
             }
             goto LABEL_74;
@@ -314,6 +314,6 @@ LABEL_74:
     *v33 = 1;
     return 0LL;
   }
-  ++HIDWORD(stru_140E2EB88.UserAffinity);
+  ++HIDWORD(stru_140E2ED08.UserAffinity);
   return 3221225495LL;
 }

@@ -1,13 +1,13 @@
 /*
- * XREFs of SmpKeyedStoreDeleteInitiate @ 0x1407B8180
+ * XREFs of SmpKeyedStoreDeleteInitiate @ 0x1407B8460
  * Callers:
- *     PspProcessDelete @ 0x1407610B0 (PspProcessDelete.c)
+ *     PspProcessDelete @ 0x1407612A0 (PspProcessDelete.c)
  * Callees:
  *     CmSiFreeMemory @ 0x140208C40 (CmSiFreeMemory.c)
- *     ExReleaseRundownProtection_0 @ 0x14028B390 (ExReleaseRundownProtection_0.c)
- *     SmKmStoreDeleteWhenEmpty @ 0x14034313C (SmKmStoreDeleteWhenEmpty.c)
- *     SmpKeyedStoreEntryGet @ 0x140344AE4 (SmpKeyedStoreEntryGet.c)
- *     SmKmStoreRefFromStoreIndex @ 0x140345194 (SmKmStoreRefFromStoreIndex.c)
+ *     ExReleaseRundownProtection_0 @ 0x14028B620 (ExReleaseRundownProtection_0.c)
+ *     SmKmStoreDeleteWhenEmpty @ 0x1403433CC (SmKmStoreDeleteWhenEmpty.c)
+ *     SmpKeyedStoreEntryGet @ 0x140344D74 (SmpKeyedStoreEntryGet.c)
+ *     SmKmStoreRefFromStoreIndex @ 0x140345424 (SmKmStoreRefFromStoreIndex.c)
  */
 
 void __fastcall SmpKeyedStoreDeleteInitiate(ULONG_PTR a1, __int64 a2, __int64 a3)

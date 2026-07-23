@@ -1,24 +1,24 @@
 /*
- * XREFs of _CmOpenDeviceInterfaceRegKey @ 0x1408CB4B4
+ * XREFs of _CmOpenDeviceInterfaceRegKey @ 0x1408C8EE4
  * Callers:
- *     _CmDeleteDeviceInterfaceRegKeyWorker @ 0x1408184FC (_CmDeleteDeviceInterfaceRegKeyWorker.c)
- *     _CmSetDeviceInterfaceMappedPropertyFromRegValue @ 0x1408B16A8 (_CmSetDeviceInterfaceMappedPropertyFromRegValue.c)
- *     _CmDeleteDeviceInterfaceMappedPropertyFromRegValue @ 0x1408B1A6C (_CmDeleteDeviceInterfaceMappedPropertyFromRegValue.c)
- *     _CmGetDeviceInterfaceMappedPropertyFromRegValue @ 0x1408B6960 (_CmGetDeviceInterfaceMappedPropertyFromRegValue.c)
- *     IoGetDeviceInterfaceAlias @ 0x1408B7090 (IoGetDeviceInterfaceAlias.c)
- *     IopGetDeviceInterfaces @ 0x1408C8470 (IopGetDeviceInterfaces.c)
- *     _CmOpenDeviceInterfaceRegKeyWorker @ 0x1408CAE98 (_CmOpenDeviceInterfaceRegKeyWorker.c)
- *     _PnpDispatchDeviceInterface @ 0x1408CCC00 (_PnpDispatchDeviceInterface.c)
- *     PiCMOpenDeviceInterfaceKey @ 0x14096372C (PiCMOpenDeviceInterfaceKey.c)
- *     PiDevCfgConfigureDeviceInterface @ 0x14099A464 (PiDevCfgConfigureDeviceInterface.c)
- *     _CmCreateDeviceInterfaceWorker @ 0x1409D3CA4 (_CmCreateDeviceInterfaceWorker.c)
- *     IoOpenDeviceInterfaceRegistryKey @ 0x140AADBF0 (IoOpenDeviceInterfaceRegistryKey.c)
+ *     _CmDeleteDeviceInterfaceRegKeyWorker @ 0x140818C3C (_CmDeleteDeviceInterfaceRegKeyWorker.c)
+ *     _CmSetDeviceInterfaceMappedPropertyFromRegValue @ 0x1408AEF9C (_CmSetDeviceInterfaceMappedPropertyFromRegValue.c)
+ *     _CmDeleteDeviceInterfaceMappedPropertyFromRegValue @ 0x1408AF360 (_CmDeleteDeviceInterfaceMappedPropertyFromRegValue.c)
+ *     _CmGetDeviceInterfaceMappedPropertyFromRegValue @ 0x1408B42D0 (_CmGetDeviceInterfaceMappedPropertyFromRegValue.c)
+ *     IoGetDeviceInterfaceAlias @ 0x1408B4A00 (IoGetDeviceInterfaceAlias.c)
+ *     IopGetDeviceInterfaces @ 0x1408C5EA0 (IopGetDeviceInterfaces.c)
+ *     _CmOpenDeviceInterfaceRegKeyWorker @ 0x1408C88C8 (_CmOpenDeviceInterfaceRegKeyWorker.c)
+ *     _PnpDispatchDeviceInterface @ 0x1408CA5F0 (_PnpDispatchDeviceInterface.c)
+ *     PiCMOpenDeviceInterfaceKey @ 0x14094B1EC (PiCMOpenDeviceInterfaceKey.c)
+ *     _CmCreateDeviceInterfaceWorker @ 0x1409C3AD4 (_CmCreateDeviceInterfaceWorker.c)
+ *     PiDevCfgConfigureDeviceInterface @ 0x1409CCBD4 (PiDevCfgConfigureDeviceInterface.c)
+ *     IoOpenDeviceInterfaceRegistryKey @ 0x140AA8C70 (IoOpenDeviceInterfaceRegistryKey.c)
  * Callees:
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     PiPnpRtlCmActionCallback @ 0x1408C7450 (PiPnpRtlCmActionCallback.c)
- *     _CmOpenDeviceInterfaceRegKeyWorker @ 0x1408CAE98 (_CmOpenDeviceInterfaceRegKeyWorker.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     PiPnpRtlCmActionCallback @ 0x1408C4E80 (PiPnpRtlCmActionCallback.c)
+ *     _CmOpenDeviceInterfaceRegKeyWorker @ 0x1408C88C8 (_CmOpenDeviceInterfaceRegKeyWorker.c)
  */
 
 __int64 __fastcall CmOpenDeviceInterfaceRegKey(
@@ -56,7 +56,7 @@ __int64 __fastcall CmOpenDeviceInterfaceRegKey(
     if ( v11 == PiPnpRtlCmActionCallback )
       v12 = PiPnpRtlCmActionCallback(a1, a2, 3LL, 11, 1, (__int64)v17);
     else
-      v12 = guard_dispatch_icall_no_overrides(a1, a2, 3LL, 11LL);
+      v12 = guard_dispatch_icall_no_overrides(a1, a2);
     if ( v12 == -1073741822 )
     {
       v11 = 0LL;
@@ -74,7 +74,7 @@ __int64 __fastcall CmOpenDeviceInterfaceRegKey(
   if ( !v11 )
     goto LABEL_7;
   v17[0] = v13;
-  v16 = guard_dispatch_icall_no_overrides(a1, a2, 3LL, 11LL);
+  v16 = guard_dispatch_icall_no_overrides(a1, a2);
   if ( v16 == -1073741822 )
     goto LABEL_7;
   if ( v16 == -1073741536 )

@@ -1,14 +1,14 @@
 /*
- * XREFs of AlpcpEnterAllocationEventMessageLog @ 0x140B13B20
+ * XREFs of AlpcpEnterAllocationEventMessageLog @ 0x140B155E0
  * Callers:
- *     AlpcpSendLegacySynchronousRequest @ 0x140A4992C (AlpcpSendLegacySynchronousRequest.c)
+ *     AlpcpSendLegacySynchronousRequest @ 0x140A52C1C (AlpcpSendLegacySynchronousRequest.c)
  * Callees:
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     ExfTryToWakePushLock @ 0x1403170A0 (ExfTryToWakePushLock.c)
- *     AlpcpAllocateMessageLog @ 0x140B13C3C (AlpcpAllocateMessageLog.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     ExfTryToWakePushLock @ 0x1403190D0 (ExfTryToWakePushLock.c)
+ *     AlpcpAllocateMessageLog @ 0x140B156FC (AlpcpAllocateMessageLog.c)
  */
 
 void __fastcall AlpcpEnterAllocationEventMessageLog(__int64 a1, __int64 a2, __int64 a3, struct _KLOCK_ENTRIES *a4)
@@ -17,11 +17,11 @@ void __fastcall AlpcpEnterAllocationEventMessageLog(__int64 a1, __int64 a2, __in
   void *v6; // rdx
   signed __int8 v7; // cf
   AutoBoost *v8; // rbx
-  _DWORD *MessageLog; // rax
-  _QWORD *SListFaultAddress; // rcx
-  unsigned __int64 *v11; // rdx
-  unsigned __int64 v12; // r8
-  unsigned __int64 **v13; // rax
+  unsigned __int64 MessageLog; // rax
+  _QWORD *ThreadLock; // rcx
+  struct _LIST_ENTRY *v11; // rdx
+  struct _LIST_ENTRY *v12; // r8
+  struct _LIST_ENTRY *Blink; // rax
 
   v5 = (AutoBoost *)KeAbPreAcquire((__int64)&AlpcpMessageLogLock, 0LL, 0LL, a4);
   v7 = _interlockedbittestandset64(&AlpcpMessageLogLock.Header.Lock, 0LL);
@@ -35,29 +35,29 @@ void __fastcall AlpcpEnterAllocationEventMessageLog(__int64 a1, __int64 a2, __in
     else
       *((_BYTE *)v8 + 10) = 1;
   }
-  MessageLog = (_DWORD *)AlpcpAllocateMessageLog();
+  MessageLog = AlpcpAllocateMessageLog();
   if ( MessageLog )
   {
-    *((_QWORD *)MessageLog + 4) = a1;
-    MessageLog[10] = *(_DWORD *)(a1 + 264);
-    MessageLog[11] = 1;
-    SListFaultAddress = AlpcpMessageLogLock.SListFaultAddress;
-    if ( *(struct _KTHREAD **)AlpcpMessageLogLock.SListFaultAddress != (struct _KTHREAD *)&AlpcpMessageLogLock.Header.WaitListHead.Blink
-      || (*(_QWORD *)MessageLog = &AlpcpMessageLogLock.Header.WaitListHead.Blink,
-          v11 = (unsigned __int64 *)(MessageLog + 4),
-          *((_QWORD *)MessageLog + 1) = SListFaultAddress,
-          *SListFaultAddress = MessageLog,
-          AlpcpMessageLogLock.SListFaultAddress = MessageLog,
-          v12 = AlpcpMessageLogLock.ThreadLock + 16LL * ((MessageLog[10] >> 2) & 0x3FF),
-          v13 = *(unsigned __int64 ***)(v12 + 8),
-          *v13 != (unsigned __int64 *)v12) )
+    *(_QWORD *)(MessageLog + 32) = a1;
+    *(_DWORD *)(MessageLog + 40) = *(_DWORD *)(a1 + 264);
+    *(_DWORD *)(MessageLog + 44) = 1;
+    ThreadLock = (_QWORD *)AlpcpMessageLogLock.ThreadLock;
+    if ( *(struct _KTHREAD **)AlpcpMessageLogLock.ThreadLock != (struct _KTHREAD *)&AlpcpMessageLogLock.StackBase
+      || (*(_QWORD *)MessageLog = &AlpcpMessageLogLock.StackBase,
+          v11 = (struct _LIST_ENTRY *)(MessageLog + 16),
+          *(_QWORD *)(MessageLog + 8) = ThreadLock,
+          *ThreadLock = MessageLog,
+          AlpcpMessageLogLock.ThreadLock = MessageLog,
+          v12 = &AlpcpMessageLogLock.Header.WaitListHead.Flink[(*(_DWORD *)(MessageLog + 40) >> 2) & 0x3FF],
+          Blink = v12->Blink,
+          Blink->Flink != v12) )
     {
       __fastfail(3u);
     }
-    *v11 = v12;
-    v11[1] = (unsigned __int64)v13;
-    *v13 = v11;
-    *(_QWORD *)(v12 + 8) = v11;
+    v11->Flink = v12;
+    v11->Blink = Blink;
+    Blink->Flink = v11;
+    v12->Blink = v11;
   }
   if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&AlpcpMessageLogLock, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
     ExfTryToWakePushLock((volatile signed __int64 *)&AlpcpMessageLogLock.Header.Lock);

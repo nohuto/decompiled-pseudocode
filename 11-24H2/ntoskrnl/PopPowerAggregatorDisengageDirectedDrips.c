@@ -1,9 +1,9 @@
 /*
- * XREFs of PopPowerAggregatorDisengageDirectedDrips @ 0x1406F668C
+ * XREFs of PopPowerAggregatorDisengageDirectedDrips @ 0x1406F468C
  * Callers:
- *     PopPowerAggregatorDisengageModernStandby @ 0x1409025F8 (PopPowerAggregatorDisengageModernStandby.c)
+ *     PopPowerAggregatorDisengageModernStandby @ 0x140A6DED8 (PopPowerAggregatorDisengageModernStandby.c)
  * Callees:
- *     PopDirectedDripsNotifyAppsAndServices @ 0x14074C6B4 (PopDirectedDripsNotifyAppsAndServices.c)
+ *     PopDirectedDripsNotifyAppsAndServices @ 0x14074A9E4 (PopDirectedDripsNotifyAppsAndServices.c)
  */
 
 __int64 PopPowerAggregatorDisengageDirectedDrips()
@@ -37,7 +37,7 @@ __int64 PopPowerAggregatorDisengageDirectedDrips()
     }
     while ( v2 != (_DWORD)result );
     if ( (result & 0x800) != 0 )
-      return PopDirectedDripsNotifyAppsAndServices(&PopDirectedDripsState, &dword_140F0DD58, 0LL);
+      return PopDirectedDripsNotifyAppsAndServices(&PopDirectedDripsState, &dword_140F0DFF8, 0LL);
   }
   return result;
 }

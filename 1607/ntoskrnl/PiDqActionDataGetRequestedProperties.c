@@ -1,15 +1,15 @@
 /*
- * XREFs of PiDqActionDataGetRequestedProperties @ 0x14048C370
+ * XREFs of PiDqActionDataGetRequestedProperties @ 0x14048C8D4
  * Callers:
- *     PiDqActionDataCreate @ 0x14048BD40 (PiDqActionDataCreate.c)
+ *     PiDqActionDataCreate @ 0x14048C2A4 (PiDqActionDataCreate.c)
  * Callees:
- *     ZwClose @ 0x140159E60 (ZwClose.c)
+ *     ZwClose @ 0x14015A3D0 (ZwClose.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     PiDqPnPGetObjectPropertyInBestLocale @ 0x14048A28C (PiDqPnPGetObjectPropertyInBestLocale.c)
- *     PiPnpRtlEndOperation @ 0x14050147C (PiPnpRtlEndOperation.c)
- *     PiPnpRtlBeginOperation @ 0x14050173C (PiPnpRtlBeginOperation.c)
- *     PiDqPnPGetObjectProperty @ 0x140501BE4 (PiDqPnPGetObjectProperty.c)
- *     PiDqOpenObjectRegKey @ 0x140631CFC (PiDqOpenObjectRegKey.c)
+ *     PiDqPnPGetObjectPropertyInBestLocale @ 0x1404895F8 (PiDqPnPGetObjectPropertyInBestLocale.c)
+ *     PiPnpRtlEndOperation @ 0x1404E440C (PiPnpRtlEndOperation.c)
+ *     PiPnpRtlBeginOperation @ 0x1404E46CC (PiPnpRtlBeginOperation.c)
+ *     PiDqPnPGetObjectProperty @ 0x1404E4B74 (PiDqPnPGetObjectProperty.c)
+ *     PiDqOpenObjectRegKey @ 0x140631DB0 (PiDqOpenObjectRegKey.c)
  */
 
 __int64 __fastcall PiDqActionDataGetRequestedProperties(

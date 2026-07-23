@@ -16,7 +16,7 @@
  *     BiGetObjectReferenceFromEfiEntry @ 0x140931520 (BiGetObjectReferenceFromEfiEntry.c)
  */
 
-__int64 __fastcall BiUpdateObjectReferenceInEfiEntry(__int64 a1, __int64 a2)
+__int64 __fastcall BiUpdateObjectReferenceInEfiEntry(__int64 a1, void *a2)
 {
   int ObjectReferenceFromEfiEntry; // ebx
   __int64 v5; // rax
@@ -25,25 +25,24 @@ __int64 __fastcall BiUpdateObjectReferenceInEfiEntry(__int64 a1, __int64 a2)
   wchar_t *v8; // rsi
   wchar_t *v9; // rdi
   UNICODE_STRING DestinationString; // [rsp+20h] [rbp-40h] BYREF
-  __int64 v12; // [rsp+30h] [rbp-30h] BYREF
-  __int64 v13; // [rsp+38h] [rbp-28h]
-  GUID v14; // [rsp+40h] [rbp-20h] BYREF
+  GUID Identifier; // [rsp+30h] [rbp-30h] BYREF
+  GUID v13; // [rsp+40h] [rbp-20h] BYREF
 
-  v12 = 0LL;
-  v13 = 0LL;
-  *(_QWORD *)&v14.Data1 = 0LL;
-  *(_QWORD *)v14.Data4 = 0LL;
+  *(_QWORD *)&Identifier.Data1 = 0LL;
+  *(_QWORD *)Identifier.Data4 = 0LL;
+  *(_QWORD *)&v13.Data1 = 0LL;
+  *(_QWORD *)v13.Data4 = 0LL;
   *(_QWORD *)&DestinationString.Length = 0LL;
   DestinationString.Buffer = 0LL;
-  ObjectReferenceFromEfiEntry = BiGetObjectReferenceFromEfiEntry(a1, &v14);
+  ObjectReferenceFromEfiEntry = BiGetObjectReferenceFromEfiEntry(a1, &v13);
   if ( ObjectReferenceFromEfiEntry >= 0 )
   {
-    ObjectReferenceFromEfiEntry = BcdQueryObject(a2, 0, 0LL, (__int64)&v12);
+    ObjectReferenceFromEfiEntry = BcdQueryObject(a2, 0, 0LL, &Identifier);
     if ( ObjectReferenceFromEfiEntry >= 0 )
     {
-      v5 = *(_QWORD *)&v14.Data1 - v12;
-      if ( *(_QWORD *)&v14.Data1 == v12 )
-        v5 = *(_QWORD *)v14.Data4 - v13;
+      v5 = *(_QWORD *)&v13.Data1 - *(_QWORD *)&Identifier.Data1;
+      if ( *(_QWORD *)&v13.Data1 == *(_QWORD *)&Identifier.Data1 )
+        v5 = *(_QWORD *)v13.Data4 - *(_QWORD *)Identifier.Data4;
       if ( v5 )
       {
         v6 = (unsigned int)(*(_DWORD *)(a1 + 40) - 20);
@@ -57,7 +56,7 @@ __int64 __fastcall BiUpdateObjectReferenceInEfiEntry(__int64 a1, __int64 a2)
           if ( v9 )
           {
             RtlInitUnicodeString(&DestinationString, 0LL);
-            ObjectReferenceFromEfiEntry = RtlStringFromGUIDEx((unsigned int *)&v12, (__int64)&DestinationString, 1);
+            ObjectReferenceFromEfiEntry = RtlStringFromGUIDEx(&Identifier, &DestinationString, 1u);
             if ( ObjectReferenceFromEfiEntry >= 0 )
             {
               memmove(

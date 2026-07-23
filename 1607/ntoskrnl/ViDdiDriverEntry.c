@@ -1,12 +1,12 @@
 /*
- * XREFs of ViDdiDriverEntry @ 0x1407047B8
+ * XREFs of ViDdiDriverEntry @ 0x1407047E8
  * Callers:
  *     <none>
  * Callees:
- *     IoDeleteDevice @ 0x14007F30C (IoDeleteDevice.c)
+ *     IoDeleteDevice @ 0x14007F38C (IoDeleteDevice.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     IoCreateDevice @ 0x1404734C0 (IoCreateDevice.c)
- *     IoWMIRegistrationControl @ 0x14053A454 (IoWMIRegistrationControl.c)
+ *     IoCreateDevice @ 0x140472390 (IoCreateDevice.c)
+ *     IoWMIRegistrationControl @ 0x14053A994 (IoWMIRegistrationControl.c)
  */
 
 __int64 __fastcall ViDdiDriverEntry(PDRIVER_OBJECT DriverObject)

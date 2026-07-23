@@ -1,12 +1,12 @@
 /*
- * XREFs of MiWakeAllZeroingThreads @ 0x14050DB8C
+ * XREFs of MiWakeAllZeroingThreads @ 0x1405075FC
  * Callers:
- *     MiWakeZeroingThreads @ 0x14070ED28 (MiWakeZeroingThreads.c)
+ *     MiWakeZeroingThreads @ 0x140713A28 (MiWakeZeroingThreads.c)
  * Callees:
- *     KeSetActualBasePriorityThread @ 0x140239560 (KeSetActualBasePriorityThread.c)
- *     ObReferenceObjectSafeWithTag @ 0x140258450 (ObReferenceObjectSafeWithTag.c)
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     MiIncrementZeroEngineThread @ 0x1405017CC (MiIncrementZeroEngineThread.c)
+ *     KeSetActualBasePriorityThread @ 0x14023AEC0 (KeSetActualBasePriorityThread.c)
+ *     ObReferenceObjectSafeWithTag @ 0x140259C30 (ObReferenceObjectSafeWithTag.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     MiIncrementZeroEngineThread @ 0x1404FAFBC (MiIncrementZeroEngineThread.c)
  */
 
 void __fastcall MiWakeAllZeroingThreads(__int64 a1)

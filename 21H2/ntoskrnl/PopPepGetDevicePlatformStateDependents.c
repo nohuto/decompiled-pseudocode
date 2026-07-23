@@ -1,10 +1,10 @@
 /*
- * XREFs of PopPepGetDevicePlatformStateDependents @ 0x14028452C
+ * XREFs of PopPepGetDevicePlatformStateDependents @ 0x140272B84
  * Callers:
- *     PopDiagTraceDeviceVerboseRundown @ 0x14067E3D8 (PopDiagTraceDeviceVerboseRundown.c)
+ *     PopDiagTraceDeviceVerboseRundown @ 0x140672288 (PopDiagTraceDeviceVerboseRundown.c)
  * Callees:
- *     ExAcquireSpinLockShared @ 0x14021CD80 (ExAcquireSpinLockShared.c)
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14031C800 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     ExAcquireSpinLockShared @ 0x1402C1680 (ExAcquireSpinLockShared.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x140327550 (ExReleaseSpinLockSharedFromDpcLevel.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 

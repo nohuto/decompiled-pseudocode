@@ -1,15 +1,15 @@
 /*
- * XREFs of BiGetObjectIdentifier @ 0x1409D3F80
+ * XREFs of BiGetObjectIdentifier @ 0x1409A4F60
  * Callers:
- *     BcdQueryObject @ 0x140779B20 (BcdQueryObject.c)
- *     BiResolveLocate @ 0x140892F3C (BiResolveLocate.c)
- *     BcdGetElementDataWithFlags @ 0x1409D4B80 (BcdGetElementDataWithFlags.c)
- *     PopBcdSetPendingResume @ 0x140B4C7C4 (PopBcdSetPendingResume.c)
+ *     BcdQueryObject @ 0x14077CA50 (BcdQueryObject.c)
+ *     BiResolveLocate @ 0x14089933C (BiResolveLocate.c)
+ *     BcdGetElementDataWithFlags @ 0x1409A5B60 (BcdGetElementDataWithFlags.c)
+ *     PopBcdSetPendingResume @ 0x140B4E554 (PopBcdSetPendingResume.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     RtlGUIDFromString @ 0x1409A1880 (RtlGUIDFromString.c)
- *     BiGetKeyName @ 0x1409D3FE4 (BiGetKeyName.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     RtlGUIDFromString @ 0x1409622E0 (RtlGUIDFromString.c)
+ *     BiGetKeyName @ 0x1409A4FC4 (BiGetKeyName.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall BiGetObjectIdentifier(__int64 a1, GUID *a2)

@@ -1,14 +1,14 @@
 /*
- * XREFs of HsaUpdateRemappingTableInDeviceTableEntry @ 0x14053144C
+ * XREFs of HsaUpdateRemappingTableInDeviceTableEntry @ 0x14053199C
  * Callers:
- *     HsaAllocateRemappingTableEntry @ 0x14052ECB0 (HsaAllocateRemappingTableEntry.c)
- *     HsaFreeRemappingTableEntry @ 0x14052FE10 (HsaFreeRemappingTableEntry.c)
+ *     HsaAllocateRemappingTableEntry @ 0x14052F200 (HsaAllocateRemappingTableEntry.c)
+ *     HsaFreeRemappingTableEntry @ 0x140530360 (HsaFreeRemappingTableEntry.c)
  * Callees:
- *     KxReleaseQueuedSpinLock @ 0x140260360 (KxReleaseQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x14029CBD0 (KeAcquireInStackQueuedSpinLockAtDpcLevel.c)
- *     HsaBuildInterruptRemappingEntry @ 0x14052F424 (HsaBuildInterruptRemappingEntry.c)
- *     HsaInvalidateRemappingTableEntries @ 0x140530534 (HsaInvalidateRemappingTableEntries.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseQueuedSpinLock @ 0x1402605F0 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x14029CE60 (KeAcquireInStackQueuedSpinLockAtDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     HsaBuildInterruptRemappingEntry @ 0x14052F974 (HsaBuildInterruptRemappingEntry.c)
+ *     HsaInvalidateRemappingTableEntries @ 0x140530A84 (HsaInvalidateRemappingTableEntries.c)
  */
 
 __int64 __fastcall HsaUpdateRemappingTableInDeviceTableEntry(__int64 a1, unsigned int *a2, __int64 a3)
@@ -38,7 +38,7 @@ __int64 __fastcall HsaUpdateRemappingTableInDeviceTableEntry(__int64 a1, unsigne
   memset(&LockHandle, 0, sizeof(LockHandle));
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(0xFuLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     if ( CurrentIrql == 15 )
@@ -70,10 +70,10 @@ __int64 __fastcall HsaUpdateRemappingTableInDeviceTableEntry(__int64 a1, unsigne
     while ( v14 );
   }
   KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v15 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v15 <= 0xFu && CurrentIrql <= 0xFu && v15 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v15 <= 0xFu && CurrentIrql <= 0xFu && v15 >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       v17 = CurrentPrcb->SchedulerAssist;
@@ -81,7 +81,7 @@ __int64 __fastcall HsaUpdateRemappingTableInDeviceTableEntry(__int64 a1, unsigne
       v19 = (v18 & v17[5]) == 0;
       v17[5] &= v18;
       if ( v19 )
-        KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+        KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
     }
   }
   result = CurrentIrql;

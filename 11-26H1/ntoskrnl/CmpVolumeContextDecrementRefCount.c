@@ -1,13 +1,13 @@
 /*
- * XREFs of CmpVolumeContextDecrementRefCount @ 0x1408B7F90
+ * XREFs of CmpVolumeContextDecrementRefCount @ 0x1408BE560
  * Callers:
- *     CmShutdownSystem2 @ 0x1406E24C0 (CmShutdownSystem2.c)
- *     CmpDestroyHive @ 0x1408B6DC4 (CmpDestroyHive.c)
- *     CmpCompleteUnloadKey @ 0x1408B9ACC (CmpCompleteUnloadKey.c)
+ *     CmShutdownSystem2 @ 0x1406E6740 (CmShutdownSystem2.c)
+ *     CmpDestroyHive @ 0x1408BD394 (CmpDestroyHive.c)
+ *     CmpCompleteUnloadKey @ 0x1408C009C (CmpCompleteUnloadKey.c)
  * Callees:
- *     CmSiRWLockReleaseExclusive @ 0x140905AA4 (CmSiRWLockReleaseExclusive.c)
- *     CmpVolumeContextFree @ 0x140905BAC (CmpVolumeContextFree.c)
- *     CmpVolumeManagerLockContextListExclusive @ 0x140905BD0 (CmpVolumeManagerLockContextListExclusive.c)
+ *     CmpVolumeContextFree @ 0x140A2E2E0 (CmpVolumeContextFree.c)
+ *     CmpVolumeManagerLockContextListExclusive @ 0x140A2E304 (CmpVolumeManagerLockContextListExclusive.c)
+ *     CmSiRWLockReleaseExclusive @ 0x140A8992C (CmSiRWLockReleaseExclusive.c)
  */
 
 signed __int64 __fastcall CmpVolumeContextDecrementRefCount(PPRIVILEGE_SET Privileges)

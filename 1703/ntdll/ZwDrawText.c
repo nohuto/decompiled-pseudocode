@@ -6,11 +6,11 @@
  *     <none>
  */
 
-__int64 ZwDrawText()
+NTSTATUS __cdecl ZwDrawText(PUNICODE_STRING Text)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 211LL;
+  result = 211;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

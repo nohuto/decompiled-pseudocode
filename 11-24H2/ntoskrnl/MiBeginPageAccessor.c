@@ -1,14 +1,14 @@
 /*
- * XREFs of MiBeginPageAccessor @ 0x1404342F0
+ * XREFs of MiBeginPageAccessor @ 0x140425C90
  * Callers:
- *     MiSetPageZeroInProgress @ 0x14041E500 (MiSetPageZeroInProgress.c)
- *     MiGetSingleHugeRangeToZero @ 0x1404F0954 (MiGetSingleHugeRangeToZero.c)
- *     MiScrubLargePage @ 0x14068DA04 (MiScrubLargePage.c)
+ *     MiSetPageZeroInProgress @ 0x140414240 (MiSetPageZeroInProgress.c)
+ *     MiGetSingleHugeRangeToZero @ 0x1404EE3F4 (MiGetSingleHugeRangeToZero.c)
+ *     MiScrubLargePage @ 0x14068EB34 (MiScrubLargePage.c)
  * Callees:
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14020FA40 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140210170 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     RtlAvlInsertNodeEx @ 0x14025FDD0 (RtlAvlInsertNodeEx.c)
- *     MiCanBeginHugeIoPageAccessor @ 0x14066FA10 (MiCanBeginHugeIoPageAccessor.c)
+ *     RtlAvlInsertNodeEx @ 0x1402903E0 (RtlAvlInsertNodeEx.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140338DA0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1403394D0 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     MiCanBeginHugeIoPageAccessor @ 0x140670BE0 (MiCanBeginHugeIoPageAccessor.c)
  */
 
 __int64 __fastcall MiBeginPageAccessor(unsigned __int64 a1, int a2, __int64 a3, int a4)
@@ -42,12 +42,12 @@ __int64 __fastcall MiBeginPageAccessor(unsigned __int64 a1, int a2, __int64 a3, 
       }
       v11 = *(_QWORD *)(a3 + 16);
       v12 = ((v9 & 0x3FFFFFFFFFLL) << 12) | 0x18;
-      if ( qword_140E2DB80 )
+      if ( qword_140E2DCC0 )
       {
         if ( (v11 & 0x10) != 0 )
           v11 &= ~0x10uLL;
         else
-          v11 &= ~qword_140E2DB80;
+          v11 &= ~qword_140E2DCC0;
       }
       if ( HIDWORD(v11) == 4294967293 )
         v12 |= 4uLL;
@@ -83,21 +83,21 @@ LABEL_11:
     return 1LL;
   if ( *(_BYTE *)(a1 + 326) )
   {
-    v17 = &dword_140E2FE20;
+    v17 = &dword_140E2FF60;
   }
   else
   {
     if ( !a4 )
       return 1LL;
-    v17 = &dword_140E2FE30;
+    v17 = &dword_140E2FF70;
   }
   ExAcquireSpinLockExclusiveAtDpcLevel(v17);
   v18 = 0;
   *(_BYTE *)(a1 + 325) = 1;
   if ( *(_BYTE *)(a1 + 326) )
   {
-    v19 = (_QWORD *)qword_140E2FE28;
-    if ( qword_140E2FE28 )
+    v19 = (_QWORD *)qword_140E2FF68;
+    if ( qword_140E2FF68 )
     {
       while ( 1 )
       {
@@ -119,11 +119,11 @@ LABEL_11:
         v19 = v22;
       }
     }
-    v21 = &qword_140E2FE28;
+    v21 = &qword_140E2FF68;
     goto LABEL_38;
   }
-  v19 = (_QWORD *)qword_140E2FE38;
-  if ( !qword_140E2FE38 )
+  v19 = (_QWORD *)qword_140E2FF78;
+  if ( !qword_140E2FF78 )
     goto LABEL_30;
   while ( a1 < (unsigned __int64)v19 )
   {
@@ -138,7 +138,7 @@ LABEL_33:
     goto LABEL_33;
   v18 = 1;
 LABEL_30:
-  v21 = &qword_140E2FE38;
+  v21 = &qword_140E2FF78;
 LABEL_38:
   RtlAvlInsertNodeEx((unsigned __int64 *)v21, (unsigned __int64)v19, v18, (_QWORD *)a1);
   ExReleaseSpinLockExclusiveFromDpcLevel(v17);

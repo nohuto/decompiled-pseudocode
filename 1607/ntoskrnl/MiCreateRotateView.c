@@ -1,11 +1,11 @@
 /*
- * XREFs of MiCreateRotateView @ 0x1404EF458
+ * XREFs of MiCreateRotateView @ 0x1404D151C
  * Callers:
- *     MiDeletePartialVad @ 0x140095DC0 (MiDeletePartialVad.c)
- *     MiAllocateVirtualMemory @ 0x140430E80 (MiAllocateVirtualMemory.c)
+ *     MiDeletePartialVad @ 0x1400955C0 (MiDeletePartialVad.c)
+ *     MiAllocateVirtualMemory @ 0x14042FD50 (MiAllocateVirtualMemory.c)
  * Callees:
- *     MiInsertVadEvent @ 0x140014510 (MiInsertVadEvent.c)
- *     MiGetInPageSupportBlock @ 0x1400E7520 (MiGetInPageSupportBlock.c)
+ *     MiInsertVadEvent @ 0x140014090 (MiInsertVadEvent.c)
+ *     MiGetInPageSupportBlock @ 0x1400E53C0 (MiGetInPageSupportBlock.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
  */

@@ -1,10 +1,10 @@
 /*
- * XREFs of Feature_Servicing_HalAbnormalResetDetection__private_IsEnabledDeviceUsageNoInline @ 0x140576A60
+ * XREFs of Feature_Servicing_HalAbnormalResetDetection__private_IsEnabledDeviceUsageNoInline @ 0x140578F90
  * Callers:
- *     HalpTimerInitializeEarlyStallSource @ 0x14057797C (HalpTimerInitializeEarlyStallSource.c)
- *     HalpTimerWatchdogGeneratedLastReset @ 0x140781AD0 (HalpTimerWatchdogGeneratedLastReset.c)
+ *     HalpTimerInitializeEarlyStallSource @ 0x140579EAC (HalpTimerInitializeEarlyStallSource.c)
+ *     HalpTimerWatchdogGeneratedLastReset @ 0x1407845D0 (HalpTimerWatchdogGeneratedLastReset.c)
  * Callees:
- *     Feature_Servicing_HalAbnormalResetDetection__private_IsEnabledFallback @ 0x140576A9C (Feature_Servicing_HalAbnormalResetDetection__private_IsEnabledFallback.c)
+ *     Feature_Servicing_HalAbnormalResetDetection__private_IsEnabledFallback @ 0x140578FCC (Feature_Servicing_HalAbnormalResetDetection__private_IsEnabledFallback.c)
  */
 
 __int64 Feature_Servicing_HalAbnormalResetDetection__private_IsEnabledDeviceUsageNoInline()

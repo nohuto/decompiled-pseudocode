@@ -1,10 +1,10 @@
 /*
- * XREFs of WheapApplyPolicyChanges @ 0x14095DB3C
+ * XREFs of WheapApplyPolicyChanges @ 0x14095DD1C
  * Callers:
- *     WheapPfaReset @ 0x14095E5C4 (WheapPfaReset.c)
+ *     WheapPfaReset @ 0x14095E7A4 (WheapPfaReset.c)
  * Callees:
- *     HalWheaUpdateCmciPolicy @ 0x1403BAA80 (HalWheaUpdateCmciPolicy.c)
- *     __report_rangecheckfailure @ 0x1404B646C (__report_rangecheckfailure.c)
+ *     HalWheaUpdateCmciPolicy @ 0x1403BABF0 (HalWheaUpdateCmciPolicy.c)
+ *     __report_rangecheckfailure @ 0x1404B66AC (__report_rangecheckfailure.c)
  */
 
 void WheapApplyPolicyChanges()
@@ -30,7 +30,7 @@ void WheapApplyPolicyChanges()
     {
       if ( v2 >= 39 )
         _report_rangecheckfailure();
-      v3 = (&off_140985028)[v2];
+      v3 = (&off_140985208)[v2];
       WheaRegPolicyTableChanged[v1] = 0;
       if ( v0 > 6 )
       {

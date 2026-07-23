@@ -21,8 +21,8 @@ __int64 __fastcall EtwpSetProviderTraitsUm(__int64 a1, int a2, int a3)
   unsigned __int16 v9; // dx
   unsigned __int64 v10; // r8
   unsigned __int64 v11; // r9
-  char *PoolWithTag; // rax
-  __int64 v13; // rbx
+  _RTL_BALANCED_NODE *PoolWithTag; // rax
+  _RTL_BALANCED_NODE *Node; // rbx
   __int64 v14; // rdx
   __int64 v15; // rcx
   __int64 v16; // r8
@@ -57,20 +57,20 @@ __int64 __fastcall EtwpSetProviderTraitsUm(__int64 a1, int a2, int a3)
           v9 = *(_WORD *)(a1 + 16);
         }
       }
-      PoolWithTag = (char *)ExAllocatePoolWithTag(PagedPool, v9 + 28LL, 0x54777445u);
-      v13 = (__int64)PoolWithTag;
+      PoolWithTag = (_RTL_BALANCED_NODE *)ExAllocatePoolWithTag(PagedPool, v9 + 28LL, 0x54777445u);
+      Node = PoolWithTag;
       if ( PoolWithTag )
       {
-        memmove(PoolWithTag + 28, *(const void **)(a1 + 8), *(unsigned __int16 *)(a1 + 16));
+        memmove((char *)&PoolWithTag[1].Left + 4, *(const void **)(a1 + 8), *(unsigned __int16 *)(a1 + 16));
         v7 = EtwpSetProviderTraitsCommon(
                a1,
                a2,
                a3,
                (int)v6,
-               v13,
+               Node,
                *(unsigned __int16 *)(a1 + 16),
                &EtwpProviderTraitsUmMutex,
-               (__int64)&EtwpProviderTraitsUmTree);
+               &EtwpProviderTraitsUmTree);
       }
       else
       {

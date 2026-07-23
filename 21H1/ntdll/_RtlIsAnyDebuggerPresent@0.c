@@ -7,9 +7,9 @@
  *     <none>
  */
 
-unsigned __int8 __stdcall RtlIsAnyDebuggerPresent()
+BOOLEAN RtlIsAnyDebuggerPresent(void)
 {
-  unsigned __int8 result; // al
+  BOOLEAN result; // al
 
   result = NtCurrentPeb()->BeingDebugged;
   if ( !result )

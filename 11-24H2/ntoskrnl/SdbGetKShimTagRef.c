@@ -1,11 +1,11 @@
 /*
- * XREFs of SdbGetKShimTagRef @ 0x140802270
+ * XREFs of SdbGetKShimTagRef @ 0x1408029B0
  * Callers:
- *     KsepDbGetShimInfo @ 0x14073E5B4 (KsepDbGetShimInfo.c)
+ *     KsepDbGetShimInfo @ 0x14073C4E4 (KsepDbGetShimInfo.c)
  * Callees:
- *     SdbTagIDToTagRef @ 0x140805C7C (SdbTagIDToTagRef.c)
- *     SdbFindFirstStringIndexedTag @ 0x14095D844 (SdbFindFirstStringIndexedTag.c)
- *     SdbFindFirstTag @ 0x14096003C (SdbFindFirstTag.c)
+ *     SdbTagIDToTagRef @ 0x1408063BC (SdbTagIDToTagRef.c)
+ *     SdbFindFirstStringIndexedTag @ 0x140945304 (SdbFindFirstStringIndexedTag.c)
+ *     SdbFindFirstTag @ 0x140947AFC (SdbFindFirstTag.c)
  */
 
 __int64 __fastcall SdbGetKShimTagRef(__int64 a1, __int64 a2)

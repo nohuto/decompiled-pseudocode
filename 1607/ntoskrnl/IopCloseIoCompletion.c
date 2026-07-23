@@ -1,9 +1,9 @@
 /*
- * XREFs of IopCloseIoCompletion @ 0x14051A174
+ * XREFs of IopCloseIoCompletion @ 0x1404FD564
  * Callers:
  *     <none>
  * Callees:
- *     IopDeleteIoCompletionInternal @ 0x1400F69B8 (IopDeleteIoCompletionInternal.c)
+ *     IopDeleteIoCompletionInternal @ 0x1400F4808 (IopDeleteIoCompletionInternal.c)
  */
 
 __int64 __fastcall IopCloseIoCompletion(__int64 a1, __int64 a2, __int64 a3, __int64 a4)

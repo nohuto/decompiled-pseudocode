@@ -1,19 +1,19 @@
 /*
- * XREFs of ViIovInitialization @ 0x140C2AC6C
+ * XREFs of ViIovInitialization @ 0x140C30C7C
  * Callers:
- *     VfIovPluginEntry @ 0x140642690 (VfIovPluginEntry.c)
+ *     VfIovPluginEntry @ 0x140646270 (VfIovPluginEntry.c)
  * Callees:
- *     RtlRaiseStatus @ 0x1402E84A0 (RtlRaiseStatus.c)
- *     ExInitializeNPagedLookasideListInternal @ 0x140498C60 (ExInitializeNPagedLookasideListInternal.c)
- *     VfAvlInitializeTree @ 0x140640BA8 (VfAvlInitializeTree.c)
- *     IovInitAiDb @ 0x1406424E0 (IovInitAiDb.c)
- *     ExSetPoolFlags @ 0x1406CC070 (ExSetPoolFlags.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     IoVerifierInit @ 0x140C20A2C (IoVerifierInit.c)
- *     IovExpandIrpStackTracker @ 0x140C2A97C (IovExpandIrpStackTracker.c)
- *     IovExpandIrpTracker @ 0x140C2A9E4 (IovExpandIrpTracker.c)
- *     VfMajorRegisterHandlers @ 0x140C314D0 (VfMajorRegisterHandlers.c)
- *     VfWdInit @ 0x140C39FB0 (VfWdInit.c)
+ *     RtlRaiseStatus @ 0x1402CA4E0 (RtlRaiseStatus.c)
+ *     ExInitializeNPagedLookasideListInternal @ 0x1404927B0 (ExInitializeNPagedLookasideListInternal.c)
+ *     VfAvlInitializeTree @ 0x140644788 (VfAvlInitializeTree.c)
+ *     IovInitAiDb @ 0x1406460C0 (IovInitAiDb.c)
+ *     ExSetPoolFlags @ 0x1406D00A0 (ExSetPoolFlags.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     IoVerifierInit @ 0x140C26A3C (IoVerifierInit.c)
+ *     IovExpandIrpStackTracker @ 0x140C3098C (IovExpandIrpStackTracker.c)
+ *     IovExpandIrpTracker @ 0x140C309F4 (IovExpandIrpTracker.c)
+ *     VfMajorRegisterHandlers @ 0x140C374E0 (VfMajorRegisterHandlers.c)
+ *     VfWdInit @ 0x140C3FFC0 (VfWdInit.c)
  */
 
 void ViIovInitialization()
@@ -25,16 +25,17 @@ void ViIovInitialization()
 
   IovIrpTrackerCount = 0;
   IovIrpStackTrackerCount = 0;
-  if ( ((unsigned __int8)&stru_140E27B08.WaitBlockFill11[168] & 0xF) != 0
-    || (*(_OWORD *)&stru_140E27B08.WaitBlockFill11[168] = 0LL,
-        ((unsigned __int8)&stru_140E27B08.WaitBlockFill7[152] & 0xF) != 0)
-    || (*(_OWORD *)&stru_140E27B08.WaitBlockFill11[152] = 0LL,
-        ((unsigned __int8)&stru_140E27B08.QueueListEntry & 0xF) != 0)
-    || (stru_140E27B08.QueueListEntry = 0LL, ((unsigned __int8)&stru_140E27B08.LastXStateSaveDebugInfo & 0xF) != 0) )
+  if ( ((unsigned __int8)&stru_140E27C48.WaitBlockFill7[152] & 0xF) != 0
+    || (*(_OWORD *)&stru_140E27C48.WaitBlockFill11[152] = 0LL,
+        ((unsigned __int8)&stru_140E27C48.WaitBlockFill11[168] & 0xF) != 0)
+    || (*(_OWORD *)&stru_140E27C48.WaitBlockFill11[168] = 0LL,
+        ((unsigned __int8)&stru_140E27C48.LastXStateSaveDebugInfo & 0xF) != 0)
+    || (*(_OWORD *)&stru_140E27C48.LastXStateSaveDebugInfo = 0LL,
+        ((unsigned __int8)&stru_140E27C48.QueueListEntry & 0xF) != 0) )
   {
     RtlRaiseStatus(-2147483646);
   }
-  *(_OWORD *)&stru_140E27B08.LastXStateSaveDebugInfo = 0LL;
+  stru_140E27C48.QueueListEntry = 0LL;
   IovExpandIrpTracker();
   IovExpandIrpStackTracker();
   IovInitAiDb();
@@ -145,18 +146,18 @@ void ViIovInitialization()
     0LL,
     (__int64)VfWmiTestStartedPdoStack,
     0LL);
-  qword_140FF3080 = 0LL;
-  qword_140FF3070 = (__int64)ViGenericVerifyIrpStackDownward;
-  qword_140FF3068 = (__int64)ViSpIoAllocateIrp_Exit;
-  qword_140FF3078 = (__int64)ViGenericVerifyIrpStackUpward;
-  qword_140FF3060 = (__int64)ViGenericDumpIrpStack;
-  qword_140FF3090 = (__int64)ViGenericIsValidIrpStatus;
-  qword_140FF3098 = (__int64)ViGenericIsNewRequest;
-  qword_140FF30A0 = (__int64)ViGenericVerifyNewIrp;
-  qword_140FF30A8 = (__int64)ViSpIoAllocateIrp_Exit;
-  qword_140FF30B8 = (__int64)ViGenericBuildIrpLogEntry;
-  qword_140FF3088 = 0LL;
-  qword_140FF30B0 = 0LL;
+  qword_140FF4080 = 0LL;
+  qword_140FF4070 = (__int64)ViGenericVerifyIrpStackDownward;
+  qword_140FF4068 = (__int64)ViSpIoAllocateIrp_Exit;
+  qword_140FF4078 = (__int64)ViGenericVerifyIrpStackUpward;
+  qword_140FF4060 = (__int64)ViGenericDumpIrpStack;
+  qword_140FF4090 = (__int64)ViGenericIsValidIrpStatus;
+  qword_140FF4098 = (__int64)ViGenericIsNewRequest;
+  qword_140FF40A0 = (__int64)ViGenericVerifyNewIrp;
+  qword_140FF40A8 = (__int64)ViSpIoAllocateIrp_Exit;
+  qword_140FF40B8 = (__int64)ViGenericBuildIrpLogEntry;
+  qword_140FF4088 = 0LL;
+  qword_140FF40B0 = 0LL;
   if ( !ViRemLockInitialized )
   {
     if ( (int)VfAvlInitializeTree(&ViRemLockAvl) < 0 )

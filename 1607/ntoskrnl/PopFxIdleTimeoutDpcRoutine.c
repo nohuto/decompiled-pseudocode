@@ -1,12 +1,12 @@
 /*
- * XREFs of PopFxIdleTimeoutDpcRoutine @ 0x1401319E8
+ * XREFs of PopFxIdleTimeoutDpcRoutine @ 0x140131F58
  * Callers:
  *     <none>
  * Callees:
- *     PopDiagTraceFxDevicePowerRequirement @ 0x1400C15E0 (PopDiagTraceFxDevicePowerRequirement.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x1400EFE30 (KeAcquireSpinLockRaiseToDpc.c)
- *     PopFxDeliverDevicePowerRequired @ 0x140126464 (PopFxDeliverDevicePowerRequired.c)
- *     PopFxBugCheck @ 0x1402022F4 (PopFxBugCheck.c)
+ *     PopDiagTraceFxDevicePowerRequirement @ 0x1400BF470 (PopDiagTraceFxDevicePowerRequirement.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1400EDCB0 (KeAcquireSpinLockRaiseToDpc.c)
+ *     PopFxDeliverDevicePowerRequired @ 0x1401269D4 (PopFxDeliverDevicePowerRequired.c)
+ *     PopFxBugCheck @ 0x140202120 (PopFxBugCheck.c)
  */
 
 void __fastcall PopFxIdleTimeoutDpcRoutine(__int64 a1, ULONG_PTR a2)

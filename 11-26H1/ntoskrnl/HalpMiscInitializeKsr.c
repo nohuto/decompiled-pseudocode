@@ -1,11 +1,11 @@
 /*
- * XREFs of HalpMiscInitializeKsr @ 0x1407860B8
+ * XREFs of HalpMiscInitializeKsr @ 0x140788BE8
  * Callers:
- *     HalpMiscInitSystem @ 0x140BEB3F0 (HalpMiscInitSystem.c)
+ *     HalpMiscInitSystem @ 0x140BF13F0 (HalpMiscInitSystem.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     ExRegisterCallback @ 0x1404F0710 (ExRegisterCallback.c)
- *     ExCreateCallback @ 0x140AFB990 (ExCreateCallback.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     ExRegisterCallback @ 0x1404E9CF0 (ExRegisterCallback.c)
+ *     ExCreateCallback @ 0x140AFD610 (ExCreateCallback.c)
  */
 
 NTSTATUS HalpMiscInitializeKsr()

@@ -1,8 +1,8 @@
 /*
- * XREFs of PopNetUpdateCsConsumptionFlags @ 0x14057C52C
+ * XREFs of PopNetUpdateCsConsumptionFlags @ 0x14057C9D8
  * Callers:
- *     PopNetEvaluationWorkerCallback @ 0x14057C2FC (PopNetEvaluationWorkerCallback.c)
- *     PopPdcCsDeviceNotification @ 0x14066FEEC (PopPdcCsDeviceNotification.c)
+ *     PopNetEvaluationWorkerCallback @ 0x14057C7A8 (PopNetEvaluationWorkerCallback.c)
+ *     PopPdcCsDeviceNotification @ 0x14066FFD0 (PopPdcCsDeviceNotification.c)
  * Callees:
  *     <none>
  */
@@ -11,12 +11,12 @@ char PopNetUpdateCsConsumptionFlags()
 {
   char result; // al
 
-  if ( qword_140328848 )
+  if ( qword_140328888 )
   {
-    if ( (byte_1403288ED & 1) == 0 )
+    if ( (byte_14032892D & 1) == 0 )
     {
-      result = (byte_1403288ED ^ (PopNetCompliantNicCount != 0)) & 1;
-      byte_1403288ED ^= result;
+      result = (byte_14032892D ^ (PopNetCompliantNicCount != 0)) & 1;
+      byte_14032892D ^= result;
     }
   }
   return result;

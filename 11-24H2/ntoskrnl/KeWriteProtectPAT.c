@@ -1,12 +1,11 @@
 /*
- * XREFs of KeWriteProtectPAT @ 0x140B5A790
+ * XREFs of KeWriteProtectPAT @ 0x140B5C800
  * Callers:
- *     HaliAcpiSleep @ 0x1404D9F00 (HaliAcpiSleep.c)
- *     HaliAcpiSleepOld @ 0x140569940 (HaliAcpiSleepOld.c)
- *     HaliCompleteAcpiAPSleep @ 0x140569FA0 (HaliCompleteAcpiAPSleep.c)
+ *     HaliAcpiSleep @ 0x1404D3920 (HaliAcpiSleep.c)
+ *     HaliCompleteAcpiAPSleep @ 0x140567430 (HaliCompleteAcpiAPSleep.c)
  * Callees:
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     KiSetUserTbFlushPending @ 0x1406AB3E0 (KiSetUserTbFlushPending.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     KiSetUserTbFlushPending @ 0x1406AC380 (KiSetUserTbFlushPending.c)
  */
 
 void __fastcall KeWriteProtectPAT(char a1)

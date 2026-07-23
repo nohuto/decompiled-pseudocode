@@ -28,9 +28,9 @@ __int64 RtlPrepareForProcessCloning()
     return 3221225876LL;
   LdrpDrainWorkQueue(0);
   LdrpAcquireLoaderLock();
-  RtlEnterCriticalSection((__int64)&LdrpWorkQueueLock);
+  RtlEnterCriticalSection(&LdrpWorkQueueLock);
   RtlpFlsClonePrepare();
-  RtlEnterCriticalSection((__int64)&FastPebLock);
+  RtlEnterCriticalSection(&FastPebLock);
   LdrpLockTlsDelayedReclaimTable();
   RtlAcquireSRWLockExclusive(&RtlpProtectedPoliciesSRWLock);
   LdrForkMrdata(0LL);
@@ -47,7 +47,7 @@ __int64 RtlPrepareForProcessCloning()
     LdrForkMrdata(2LL);
     RtlReleaseSRWLockExclusive(&RtlpProtectedPoliciesSRWLock);
     LdrpUnlockTlsDelayedReclaimTable(0LL);
-    RtlLeaveCriticalSection((__int64)&FastPebLock);
+    RtlLeaveCriticalSection(&FastPebLock);
     RtlpFlsCloneComplete(v2, 0LL);
     LdrpCompleteProcessCloning(0LL);
     return (unsigned int)v1;

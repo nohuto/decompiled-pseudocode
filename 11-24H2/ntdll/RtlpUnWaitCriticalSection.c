@@ -1,17 +1,17 @@
 /*
- * XREFs of RtlpUnWaitCriticalSection @ 0x18013ABB0
+ * XREFs of RtlpUnWaitCriticalSection @ 0x180138DE0
  * Callers:
  *     <none>
  * Callees:
- *     RtlRaiseStatus @ 0x180014DE0 (RtlRaiseStatus.c)
- *     RtlpCreateDeferredCriticalSectionEvent @ 0x18009AE50 (RtlpCreateDeferredCriticalSectionEvent.c)
- *     ZwSetEventEx @ 0x1801650A0 (ZwSetEventEx.c)
+ *     RtlpCreateDeferredCriticalSectionEvent @ 0x18002FCA0 (RtlpCreateDeferredCriticalSectionEvent.c)
+ *     RtlRaiseStatus @ 0x1800417E0 (RtlRaiseStatus.c)
+ *     ZwSetEventEx @ 0x180163460 (ZwSetEventEx.c)
  */
 
-signed __int64 __fastcall RtlpUnWaitCriticalSection(__int64 a1)
+NTSTATUS __fastcall RtlpUnWaitCriticalSection(__int64 a1)
 {
   HANDLE DeferredCriticalSectionEvent; // rax
-  signed __int64 result; // rax
+  NTSTATUS result; // eax
   signed __int32 v4[10]; // [rsp+0h] [rbp-28h] BYREF
 
   DeferredCriticalSectionEvent = *(HANDLE *)(a1 + 24);
@@ -25,7 +25,7 @@ signed __int64 __fastcall RtlpUnWaitCriticalSection(__int64 a1)
   else
   {
     result = ZwSetEventEx(DeferredCriticalSectionEvent, 0LL, a1);
-    if ( (int)result < 0 )
+    if ( result < 0 )
       RtlRaiseStatus(result);
   }
   return result;

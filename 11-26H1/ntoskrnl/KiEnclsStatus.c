@@ -1,12 +1,12 @@
 /*
- * XREFs of KiEnclsStatus @ 0x14034123C
+ * XREFs of KiEnclsStatus @ 0x1403432BC
  * Callers:
- *     KeRemoveEnclavePage @ 0x140341200 (KeRemoveEnclavePage.c)
- *     KeOutPageEnclavePage @ 0x1405173FC (KeOutPageEnclavePage.c)
- *     KeBlockEnclavePage @ 0x1405EE6F8 (KeBlockEnclavePage.c)
- *     KeCanChangeEnclavePageProtection @ 0x1405EE740 (KeCanChangeEnclavePageProtection.c)
- *     KeChangeEnclavePageProtection @ 0x1405EE800 (KeChangeEnclavePageProtection.c)
- *     KeTrackEnclaveTbFlush @ 0x1405EE93C (KeTrackEnclaveTbFlush.c)
+ *     KeRemoveEnclavePage @ 0x140343280 (KeRemoveEnclavePage.c)
+ *     KeOutPageEnclavePage @ 0x140510E6C (KeOutPageEnclavePage.c)
+ *     KeBlockEnclavePage @ 0x1405F1068 (KeBlockEnclavePage.c)
+ *     KeCanChangeEnclavePageProtection @ 0x1405F10B0 (KeCanChangeEnclavePageProtection.c)
+ *     KeChangeEnclavePageProtection @ 0x1405F1170 (KeChangeEnclavePageProtection.c)
+ *     KeTrackEnclaveTbFlush @ 0x1405F12AC (KeTrackEnclaveTbFlush.c)
  * Callees:
  *     <none>
  */

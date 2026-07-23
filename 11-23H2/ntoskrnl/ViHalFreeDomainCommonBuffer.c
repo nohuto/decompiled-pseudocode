@@ -1,11 +1,11 @@
 /*
- * XREFs of ViHalFreeDomainCommonBuffer @ 0x140AC9214
+ * XREFs of ViHalFreeDomainCommonBuffer @ 0x140AC9204
  * Callers:
- *     VfFreeCommonBuffer @ 0x140AC62B0 (VfFreeCommonBuffer.c)
+ *     VfFreeCommonBuffer @ 0x140AC62A0 (VfFreeCommonBuffer.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250E80 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140250F40 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 
@@ -25,7 +25,7 @@ char __fastcall ViHalFreeDomainCommonBuffer(_QWORD *a1)
 
   v2 = 0;
   v3 = 0LL;
-  v4 = KeAcquireSpinLockRaiseToDpc(&qword_140C369F0);
+  v4 = KeAcquireSpinLockRaiseToDpc(&qword_140C36990);
   v5 = ViDomainCommonBufferList;
   if ( (__int64 *)ViDomainCommonBufferList != &ViDomainCommonBufferList )
   {
@@ -47,11 +47,14 @@ char __fastcall ViHalFreeDomainCommonBuffer(_QWORD *a1)
     v6[1] = (__int64)v13;
   }
 LABEL_4:
-  KxReleaseSpinLock((volatile signed __int64 *)&qword_140C369F0);
-  if ( KiIrqlFlags )
+  KxReleaseSpinLock((volatile signed __int64 *)&qword_140C36990);
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v4 <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
+      && (unsigned __int8)v4 <= 0xFu
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;

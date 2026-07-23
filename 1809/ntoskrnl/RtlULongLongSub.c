@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlULongLongSub @ 0x1400FE064
+ * XREFs of RtlULongLongSub @ 0x1400FE0E4
  * Callers:
- *     PopFxScheduleDeviceIdleTimer @ 0x1400FDF94 (PopFxScheduleDeviceIdleTimer.c)
- *     KiAdjustTimer2DueTimes @ 0x14016FE34 (KiAdjustTimer2DueTimes.c)
- *     IopFillTriageDumpDataBlocks @ 0x14028148C (IopFillTriageDumpDataBlocks.c)
- *     LdrpResSearchResourceInsideDirectory @ 0x1406894AC (LdrpResSearchResourceInsideDirectory.c)
+ *     PopFxScheduleDeviceIdleTimer @ 0x1400FE014 (PopFxScheduleDeviceIdleTimer.c)
+ *     KiAdjustTimer2DueTimes @ 0x14016FF34 (KiAdjustTimer2DueTimes.c)
+ *     IopFillTriageDumpDataBlocks @ 0x14028167C (IopFillTriageDumpDataBlocks.c)
+ *     LdrpResSearchResourceInsideDirectory @ 0x14068A66C (LdrpResSearchResourceInsideDirectory.c)
  * Callees:
  *     <none>
  */

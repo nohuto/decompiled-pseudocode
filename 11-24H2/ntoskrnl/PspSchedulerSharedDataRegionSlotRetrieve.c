@@ -1,7 +1,7 @@
 /*
- * XREFs of PspSchedulerSharedDataRegionSlotRetrieve @ 0x1406FB034
+ * XREFs of PspSchedulerSharedDataRegionSlotRetrieve @ 0x1406F8C74
  * Callers:
- *     NtQueryInformationThread @ 0x1409A7C80 (NtQueryInformationThread.c)
+ *     NtQueryInformationThread @ 0x1409910D0 (NtQueryInformationThread.c)
  * Callees:
  *     <none>
  */

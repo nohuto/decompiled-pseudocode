@@ -28,7 +28,7 @@ __int64 __fastcall SepAddLuidToIndexEntry(__int64 *a1, _QWORD *a2, __int64 *a3)
   __int64 *v7; // rax
   __int64 *v8; // rsi
   ULONG_PTR v9; // r15
-  RTL_BITMAP *v10; // r12
+  _RTL_BITMAP *v10; // r12
   ULONG ClearBitsAndSet; // esi
   int v12; // edi
   __int64 v13; // rax
@@ -36,7 +36,7 @@ __int64 __fastcall SepAddLuidToIndexEntry(__int64 *a1, _QWORD *a2, __int64 *a3)
   ULONG v16; // r14d
   void *v17; // rsi
   _BYTE *v18; // r14
-  struct _RTL_DYNAMIC_HASH_TABLE *HashTable; // [rsp+70h] [rbp+18h]
+  _RTL_DYNAMIC_HASH_TABLE *HashTable; // [rsp+70h] [rbp+18h]
 
   *a3 = 0LL;
   Pool2 = ExAllocatePool2(0x100uLL);
@@ -52,8 +52,8 @@ __int64 __fastcall SepAddLuidToIndexEntry(__int64 *a1, _QWORD *a2, __int64 *a3)
   v9 = 1LL;
   if ( v8 )
     *((_BYTE *)v8 + 10) = 1;
-  v10 = (RTL_BITMAP *)(SeLuidToIndexMapping + 16);
-  HashTable = *(struct _RTL_DYNAMIC_HASH_TABLE **)(SeLuidToIndexMapping + 8);
+  v10 = (_RTL_BITMAP *)(SeLuidToIndexMapping + 16);
+  HashTable = *(_RTL_DYNAMIC_HASH_TABLE **)(SeLuidToIndexMapping + 8);
   ClearBitsAndSet = RtlFindClearBitsAndSet((PRTL_BITMAP)(SeLuidToIndexMapping + 16), 1u, 0);
   if ( ClearBitsAndSet == -1 )
   {

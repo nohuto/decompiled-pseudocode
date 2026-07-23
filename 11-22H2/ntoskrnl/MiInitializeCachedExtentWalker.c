@@ -52,10 +52,13 @@ __int64 __fastcall MiInitializeCachedExtentWalker(__int64 a1, __int64 *a2, __int
         break;
     }
     ExReleaseSpinLockSharedFromDpcLevel(SpinLock);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v8 <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+        && CurrentIrql <= 0xFu
+        && (unsigned __int8)v8 <= 0xFu
+        && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -108,10 +111,10 @@ __int64 __fastcall MiInitializeCachedExtentWalker(__int64 a1, __int64 *a2, __int
   *(_QWORD *)(a1 + 16) = v21;
   *(_QWORD *)(a1 + 24) = v7;
   ExReleaseSpinLockSharedFromDpcLevel(v5);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v22 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v22 <= 0xFu && (unsigned __int8)v8 <= 0xFu && v22 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v22 <= 0xFu && (unsigned __int8)v8 <= 0xFu && v22 >= 2u )
     {
       v23 = KeGetCurrentPrcb();
       v24 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v8 + 1));

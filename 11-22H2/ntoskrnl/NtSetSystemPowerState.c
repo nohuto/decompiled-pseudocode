@@ -8,13 +8,13 @@
  *     PopTransitionSystemPowerStateEx @ 0x140AA91B0 (PopTransitionSystemPowerStateEx.c)
  */
 
-__int64 __fastcall NtSetSystemPowerState(int a1, int a2, int a3)
+NTSTATUS __cdecl NtSetSystemPowerState(POWER_ACTION SystemAction, SYSTEM_POWER_STATE LightestSystemState, ULONG Flags)
 {
   _DWORD v7[96]; // [rsp+20h] [rbp-1A8h] BYREF
 
   memset(&v7[3], 0, 0x174uLL);
-  v7[0] = a1;
-  v7[1] = a2;
-  v7[2] = a3;
+  v7[0] = SystemAction;
+  v7[1] = LightestSystemState;
+  v7[2] = Flags;
   return PopTransitionSystemPowerStateEx(v7);
 }

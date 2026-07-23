@@ -1,12 +1,12 @@
 /*
- * XREFs of IopLiveDumpGenerateIptSecondaryData @ 0x1409AC6A8
+ * XREFs of IopLiveDumpGenerateIptSecondaryData @ 0x1409AD5D8
  * Callers:
- *     IopLiveDumpEndMirroringCallback @ 0x1409ABEE0 (IopLiveDumpEndMirroringCallback.c)
+ *     IopLiveDumpEndMirroringCallback @ 0x1409ACE10 (IopLiveDumpEndMirroringCallback.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     memmove @ 0x140413F40 (memmove.c)
- *     IopLiveDumpGetMillisecondCounter @ 0x1405089CC (IopLiveDumpGetMillisecondCounter.c)
- *     IopLiveDumpTraceCaptureGenerateIptSecondaryDataDuration @ 0x140508F60 (IopLiveDumpTraceCaptureGenerateIptSecondaryDataDuration.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     IopLiveDumpGetMillisecondCounter @ 0x140508C08 (IopLiveDumpGetMillisecondCounter.c)
+ *     IopLiveDumpTraceCaptureGenerateIptSecondaryDataDuration @ 0x14050919C (IopLiveDumpTraceCaptureGenerateIptSecondaryDataDuration.c)
  */
 
 char IopLiveDumpGenerateIptSecondaryData()

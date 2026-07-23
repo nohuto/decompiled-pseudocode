@@ -1,16 +1,21 @@
 /*
- * XREFs of RtlpHpVsContextFreeInternal @ 0x180124394
+ * XREFs of RtlpHpVsContextFreeInternal @ 0x180124364
  * Callers:
- *     RtlpHpVsContextFreeList @ 0x180124544 (RtlpHpVsContextFreeList.c)
+ *     RtlpHpVsContextFreeList @ 0x180124514 (RtlpHpVsContextFreeList.c)
  * Callees:
  *     RtlReleaseSRWLockExclusive @ 0x180033C40 (RtlReleaseSRWLockExclusive.c)
  *     RtlAcquireSRWLockExclusive @ 0x180037D80 (RtlAcquireSRWLockExclusive.c)
  *     RtlpHpVsSubsegmentFree @ 0x180067738 (RtlpHpVsSubsegmentFree.c)
- *     RtlpLogHeapFailure @ 0x1801229F0 (RtlpLogHeapFailure.c)
- *     RtlpHpVsChunkFree @ 0x1801242A8 (RtlpHpVsChunkFree.c)
+ *     RtlpLogHeapFailure @ 0x1801229C0 (RtlpLogHeapFailure.c)
+ *     RtlpHpVsChunkFree @ 0x180124278 (RtlpHpVsChunkFree.c)
  */
 
-__int64 __fastcall RtlpHpVsContextFreeInternal(__int64 a1, __int64 a2, __int64 a3, unsigned int a4, __int64 a5)
+__int64 __fastcall RtlpHpVsContextFreeInternal(
+        __int64 SRWLock,
+        __int64 a2,
+        unsigned __int64 a3,
+        unsigned int a4,
+        __int64 a5)
 {
   unsigned __int64 v6; // rcx
   unsigned __int64 v7; // rax
@@ -18,7 +23,7 @@ __int64 __fastcall RtlpHpVsContextFreeInternal(__int64 a1, __int64 a2, __int64 a
   unsigned int v9; // ebx
   int v11; // ecx
   unsigned __int64 v12; // rcx
-  __int64 v13; // rdx
+  unsigned __int64 v13; // rdx
   __int64 v14; // r9
   int v15; // ecx
   unsigned __int64 v16; // r9
@@ -67,7 +72,7 @@ LABEL_11:
     a3 = v18;
     v19 = 18;
 LABEL_13:
-    RtlpLogHeapFailure(v19, *(_QWORD *)(a1 + 128) ^ a1, a3, 0LL, 0LL, 0LL);
+    RtlpLogHeapFailure(v19, *(_QWORD *)(SRWLock + 128) ^ SRWLock, a3, 0LL, 0LL, 0LL);
     return v9;
   }
   if ( ((HIDWORD(a3) ^ HIDWORD(RtlpHpHeapGlobals) ^ HIDWORD(*(_QWORD *)a3)) & 0xFF0000) == 0 )
@@ -75,21 +80,21 @@ LABEL_13:
     v19 = 8;
     goto LABEL_13;
   }
-  v20 = RtlpHpVsChunkFree(a1, v18, (_WORD *)a3, a4, a5);
+  v20 = RtlpHpVsChunkFree((PRTL_SRWLOCK)SRWLock, v18, a3, a4, a5);
   if ( v20 )
   {
     if ( (a4 & 1) == 0 )
     {
-      RtlReleaseSRWLockExclusive(*(volatile signed __int64 **)(a5 + 8));
+      RtlReleaseSRWLockExclusive(*(PRTL_SRWLOCK *)(a5 + 8));
       *(_QWORD *)(a5 + 8) = 0LL;
     }
-    RtlpHpVsSubsegmentFree(a1, v20, a4);
+    RtlpHpVsSubsegmentFree(SRWLock, v20, a4);
     if ( (a4 & 1) == 0 )
     {
       *(_OWORD *)a5 = 0LL;
       *(_QWORD *)(a5 + 16) = 0LL;
-      *(_QWORD *)(a5 + 8) = a1;
-      RtlAcquireSRWLockExclusive((volatile signed __int64 *)a1);
+      *(_QWORD *)(a5 + 8) = SRWLock;
+      RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)SRWLock);
     }
   }
   return 1;

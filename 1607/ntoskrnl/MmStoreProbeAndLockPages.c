@@ -1,16 +1,16 @@
 /*
- * XREFs of MmStoreProbeAndLockPages @ 0x140122370
+ * XREFs of MmStoreProbeAndLockPages @ 0x1401228E0
  * Callers:
- *     ?SmKmProbeAndLockAddress@@YAJPEAX_KPEAU_MDL@@K@Z @ 0x14011EED0 (-SmKmProbeAndLockAddress@@YAJPEAX_KPEAU_MDL@@K@Z.c)
+ *     ?SmKmProbeAndLockAddress@@YAJPEAX_KPEAU_MDL@@K@Z @ 0x14011F440 (-SmKmProbeAndLockAddress@@YAJPEAX_KPEAU_MDL@@K@Z.c)
  * Callees:
- *     MiLockPageAtDpcInline @ 0x14002EB30 (MiLockPageAtDpcInline.c)
- *     MiProbeLeafFrame @ 0x14002FDC0 (MiProbeLeafFrame.c)
- *     MiUnlockProbePacketWorkingSet @ 0x14009A79C (MiUnlockProbePacketWorkingSet.c)
- *     MiProbeAndLockPrepare @ 0x14009A7D8 (MiProbeAndLockPrepare.c)
- *     MiReferencePageForModifiedWrite @ 0x140101FB8 (MiReferencePageForModifiedWrite.c)
- *     MiStoreMarkLockedPagesModified @ 0x1401224BC (MiStoreMarkLockedPagesModified.c)
- *     MiUnlockStoreLockedPages @ 0x140122A1C (MiUnlockStoreLockedPages.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
+ *     MiLockPageAtDpcInline @ 0x14002E6B0 (MiLockPageAtDpcInline.c)
+ *     MiProbeLeafFrame @ 0x14002F940 (MiProbeLeafFrame.c)
+ *     MiUnlockProbePacketWorkingSet @ 0x140099F9C (MiUnlockProbePacketWorkingSet.c)
+ *     MiProbeAndLockPrepare @ 0x140099FD8 (MiProbeAndLockPrepare.c)
+ *     MiReferencePageForModifiedWrite @ 0x1400FFD38 (MiReferencePageForModifiedWrite.c)
+ *     MiStoreMarkLockedPagesModified @ 0x140122A2C (MiStoreMarkLockedPagesModified.c)
+ *     MiUnlockStoreLockedPages @ 0x140122F8C (MiUnlockStoreLockedPages.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall MmStoreProbeAndLockPages(ULONG_PTR BugCheckParameter4, int a2)

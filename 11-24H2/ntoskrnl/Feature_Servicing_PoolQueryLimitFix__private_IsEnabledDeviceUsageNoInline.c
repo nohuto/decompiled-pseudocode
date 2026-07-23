@@ -1,9 +1,9 @@
 /*
- * XREFs of Feature_Servicing_PoolQueryLimitFix__private_IsEnabledDeviceUsageNoInline @ 0x140655608
+ * XREFs of Feature_Servicing_PoolQueryLimitFix__private_IsEnabledDeviceUsageNoInline @ 0x140653D08
  * Callers:
- *     ExPoolQueryLimits @ 0x140654308 (ExPoolQueryLimits.c)
+ *     ExPoolQueryLimits @ 0x140652A00 (ExPoolQueryLimits.c)
  * Callees:
- *     Feature_Servicing_PoolQueryLimitFix__private_IsEnabledFallback @ 0x140655640 (Feature_Servicing_PoolQueryLimitFix__private_IsEnabledFallback.c)
+ *     Feature_Servicing_PoolQueryLimitFix__private_IsEnabledFallback @ 0x140653D40 (Feature_Servicing_PoolQueryLimitFix__private_IsEnabledFallback.c)
  */
 
 __int64 Feature_Servicing_PoolQueryLimitFix__private_IsEnabledDeviceUsageNoInline()

@@ -1,9 +1,9 @@
 /*
- * XREFs of HvlGetReferenceTime @ 0x1401BCD24
+ * XREFs of HvlGetReferenceTime @ 0x1401BCC08
  * Callers:
- *     HvlGetPpmStatsForProcessor @ 0x1401BF034 (HvlGetPpmStatsForProcessor.c)
+ *     HvlGetPpmStatsForProcessor @ 0x1401BEF18 (HvlGetPpmStatsForProcessor.c)
  * Callees:
- *     HvlpGetRegister64 @ 0x1401C13BC (HvlpGetRegister64.c)
+ *     HvlpGetRegister64 @ 0x1401C12A0 (HvlpGetRegister64.c)
  */
 
 __int64 HvlGetReferenceTime()

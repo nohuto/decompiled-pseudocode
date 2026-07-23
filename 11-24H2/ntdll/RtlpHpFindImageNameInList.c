@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpHpFindImageNameInList @ 0x1800ACDF8
+ * XREFs of RtlpHpFindImageNameInList @ 0x1800094E4
  * Callers:
- *     RtlpHpOptIntoSegmentHeap @ 0x1800AC2B0 (RtlpHpOptIntoSegmentHeap.c)
+ *     RtlpHpOptIntoSegmentHeap @ 0x180009E48 (RtlpHpOptIntoSegmentHeap.c)
  * Callees:
- *     _wcsnicmp @ 0x180122DB0 (_wcsnicmp.c)
+ *     _wcsnicmp @ 0x180120FE0 (_wcsnicmp.c)
  */
 
 __int64 __fastcall RtlpHpFindImageNameInList(unsigned __int16 *a1, __int64 a2)

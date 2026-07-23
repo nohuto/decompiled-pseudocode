@@ -1,11 +1,11 @@
 /*
- * XREFs of KeReadyThread @ 0x14022F420
+ * XREFs of KeReadyThread @ 0x140230DB0
  * Callers:
- *     PspInsertThread @ 0x140A026D0 (PspInsertThread.c)
+ *     PspInsertThread @ 0x140A7B188 (PspInsertThread.c)
  * Callees:
- *     KiFastReadyThread @ 0x14022F1E8 (KiFastReadyThread.c)
- *     KiInSwapSingleProcess @ 0x1402C79E4 (KiInSwapSingleProcess.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KiFastReadyThread @ 0x140230B78 (KiFastReadyThread.c)
+ *     KiInSwapSingleProcess @ 0x140312684 (KiInSwapSingleProcess.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 __int64 __fastcall KeReadyThread(LegacyAutoBoost *this)

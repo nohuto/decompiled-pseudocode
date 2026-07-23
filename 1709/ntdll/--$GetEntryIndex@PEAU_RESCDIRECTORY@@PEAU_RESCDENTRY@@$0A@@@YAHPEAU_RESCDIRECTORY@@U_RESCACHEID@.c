@@ -16,7 +16,7 @@ __int64 __fastcall GetEntryIndex<_RESCDIRECTORY *,_RESCDENTRY *,0>(__int64 a1, _
 
   if ( (a3 & 0xFFFF0000) == 0x100000 )
   {
-    RtlSetLastWin32Error(0x57u);
+    RtlSetLastWin32Error(87);
     return 0xFFFFFFFFLL;
   }
   else

@@ -1,9 +1,9 @@
 /*
- * XREFs of ExQueryHandleExceptionsPermanency @ 0x140160774
+ * XREFs of ExQueryHandleExceptionsPermanency @ 0x140160874
  * Callers:
- *     NtClose @ 0x1405E89E0 (NtClose.c)
- *     ObpCloseHandle @ 0x1405F573C (ObpCloseHandle.c)
- *     NtQueryInformationProcess @ 0x14066DB70 (NtQueryInformationProcess.c)
+ *     NtClose @ 0x1405E99E0 (NtClose.c)
+ *     ObpCloseHandle @ 0x1405F673C (ObpCloseHandle.c)
+ *     NtQueryInformationProcess @ 0x14066ED30 (NtQueryInformationProcess.c)
  * Callees:
  *     KiAbEntryRemoveFromTree @ 0x140004530 (KiAbEntryRemoveFromTree.c)
  *     KiCheckForKernelApcDelivery @ 0x140005A50 (KiCheckForKernelApcDelivery.c)
@@ -12,8 +12,8 @@
  *     KiAbThreadRemoveBoosts @ 0x14004EFD0 (KiAbThreadRemoveBoosts.c)
  *     MmGetSessionIdEx @ 0x14004F060 (MmGetSessionIdEx.c)
  *     KeLeaveCriticalRegionThread @ 0x140051600 (KeLeaveCriticalRegionThread.c)
- *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     ExfTryToWakePushLock @ 0x140091500 (ExfTryToWakePushLock.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
  */
 
 _QWORD *__fastcall ExQueryHandleExceptionsPermanency(__int64 a1, _BYTE *a2, bool *a3)
@@ -90,7 +90,7 @@ _QWORD *__fastcall ExQueryHandleExceptionsPermanency(__int64 a1, _BYTE *a2, bool
         {
           v18->CrossThreadReleasableAndBusyByte |= 2u;
           if ( (__int64)v18->LockState.LockState < 0 )
-            KiAbEntryRemoveFromTree((__int64)&v10->LockEntries[v17], SessionId);
+            KiAbEntryRemoveFromTree(&v10->LockEntries[v17].TreeNode, SessionId);
           v22 = 0;
           v22 = v18->BoostBitmap.AllFields & 0x1FFFF;
           v18->BoostBitmap.AllFields &= 0xFFFE0000;

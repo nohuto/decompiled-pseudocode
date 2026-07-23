@@ -1,13 +1,13 @@
 /*
- * XREFs of MmGetMaximumNonPagedPoolInBytes @ 0x1404F0030
+ * XREFs of MmGetMaximumNonPagedPoolInBytes @ 0x1404E9610
  * Callers:
- *     ExEnableHandleTracing @ 0x1407795D8 (ExEnableHandleTracing.c)
- *     EtwpGetSystemMaximumBufferCount @ 0x140A6DAC8 (EtwpGetSystemMaximumBufferCount.c)
+ *     ExEnableHandleTracing @ 0x14077C508 (ExEnableHandleTracing.c)
+ *     EtwpGetSystemMaximumBufferCount @ 0x140AB286C (EtwpGetSystemMaximumBufferCount.c)
  * Callees:
  *     <none>
  */
 
 __int64 MmGetMaximumNonPagedPoolInBytes()
 {
-  return *(_QWORD *)&stru_140E36558.ApcStateFill[40] << 12;
+  return *(_QWORD *)&stru_140E366D8.ApcStateFill[40] << 12;
 }

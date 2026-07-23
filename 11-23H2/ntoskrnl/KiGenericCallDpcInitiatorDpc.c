@@ -1,11 +1,11 @@
 /*
- * XREFs of KiGenericCallDpcInitiatorDpc @ 0x1403C7670
+ * XREFs of KiGenericCallDpcInitiatorDpc @ 0x1403C7850
  * Callers:
  *     <none>
  * Callees:
- *     KiInitiateGenericCallDpc @ 0x140346EB4 (KiInitiateGenericCallDpc.c)
- *     KeSignalGate @ 0x14035D33C (KeSignalGate.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiInitiateGenericCallDpc @ 0x140347144 (KiInitiateGenericCallDpc.c)
+ *     KeSignalGate @ 0x14035D4DC (KeSignalGate.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall KiGenericCallDpcInitiatorDpc(__int64 a1, _QWORD *a2)
@@ -26,7 +26,7 @@ __int64 __fastcall KiGenericCallDpcInitiatorDpc(__int64 a1, _QWORD *a2)
   KiInitiateGenericCallDpc((__int64)CurrentPrcb, a2);
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(0xDuLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     if ( CurrentIrql == 13 )
@@ -37,10 +37,10 @@ __int64 __fastcall KiGenericCallDpcInitiatorDpc(__int64 a1, _QWORD *a2)
   }
   if ( DpcWatchdogCount < CurrentPrcb->DpcWatchdogCount )
     CurrentPrcb->DpcWatchdogCount = DpcWatchdogCount;
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v9 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v9 <= 0xFu && CurrentIrql <= 0xFu && v9 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v9 <= 0xFu && CurrentIrql <= 0xFu && v9 >= 2u )
     {
       v10 = KeGetCurrentPrcb();
       v11 = v10->SchedulerAssist;

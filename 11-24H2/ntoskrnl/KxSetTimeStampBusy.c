@@ -1,14 +1,14 @@
 /*
- * XREFs of KxSetTimeStampBusy @ 0x1403B0DCC
+ * XREFs of KxSetTimeStampBusy @ 0x14039F5DC
  * Callers:
- *     KeInvalidateAllCaches @ 0x1403AEA80 (KeInvalidateAllCaches.c)
- *     KiFlushAddressSpaceTb @ 0x1403AFCAC (KiFlushAddressSpaceTb.c)
- *     KeFlushTb @ 0x1403AFDF0 (KeFlushTb.c)
- *     KxFlushEntireTb @ 0x1403B07A4 (KxFlushEntireTb.c)
- *     KxFlushNonGlobalTb @ 0x1403B0E50 (KxFlushNonGlobalTb.c)
+ *     KeInvalidateAllCaches @ 0x14039D290 (KeInvalidateAllCaches.c)
+ *     KiFlushAddressSpaceTb @ 0x14039E4BC (KiFlushAddressSpaceTb.c)
+ *     KeFlushTb @ 0x14039E600 (KeFlushTb.c)
+ *     KxFlushEntireTb @ 0x14039EFB4 (KxFlushEntireTb.c)
+ *     KxFlushNonGlobalTb @ 0x14039F660 (KxFlushNonGlobalTb.c)
  * Callees:
- *     HvlNotifyLongSpinWait @ 0x140293260 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140293290 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     HvlNotifyLongSpinWait @ 0x1402A2E60 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1402A2E90 (KiCheckVpBackingLongSpinWaitHypercall.c)
  */
 
 char __fastcall KxSetTimeStampBusy(int *a1)

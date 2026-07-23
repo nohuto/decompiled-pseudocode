@@ -9,29 +9,29 @@
  *     KeReservePrivilegedPages @ 0x14023FC9C (KeReservePrivilegedPages.c)
  */
 
-void __fastcall MiUnlockHotPatchPages(unsigned __int64 *a1)
+void __fastcall MiUnlockHotPatchPages(_RTL_BITMAP_EX *a1)
 {
-  unsigned __int64 v2; // rbx
+  unsigned __int64 SizeOfBitMap; // rbx
   __int64 PteAddress; // rsi
-  unsigned __int64 v4; // r8
-  unsigned __int64 SetBits; // rax
+  ULONG64 v4; // r8
+  ULONG64 SetBits; // rax
   unsigned __int64 v6; // rbx
 
-  if ( a1[3] )
+  if ( a1[1].Buffer )
   {
-    v2 = *a1;
+    SizeOfBitMap = a1->SizeOfBitMap;
     KeReservePrivilegedPages();
-    PteAddress = MiGetPteAddress(*(_QWORD *)(v2 + 48));
+    PteAddress = MiGetPteAddress(*(_QWORD *)(SizeOfBitMap + 48));
     v4 = 0LL;
     while ( 1 )
     {
-      SetBits = RtlFindSetBitsEx(a1 + 2, 1uLL, v4);
+      SetBits = RtlFindSetBitsEx(a1 + 1, 1uLL, v4);
       v6 = SetBits;
       if ( SetBits == -1LL )
         break;
       MiUnlockCodePage(PteAddress + 8 * SetBits, PteAddress + 8 * SetBits);
       v4 = v6;
-      _bittestandreset64((signed __int64 *)a1[3], v6);
+      _bittestandreset64((signed __int64 *)a1[1].Buffer, v6);
     }
   }
 }

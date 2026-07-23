@@ -50,10 +50,13 @@ signed __int32 __fastcall AlpcpQueueIoCompletionPort(_QWORD *a1, char a2, char a
   {
     KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
     OldIrql = LockHandle.OldIrql;
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && LockHandle.OldIrql <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+        && CurrentIrql <= 0xFu
+        && LockHandle.OldIrql <= 0xFu
+        && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -77,10 +80,10 @@ signed __int32 __fastcall AlpcpQueueIoCompletionPort(_QWORD *a1, char a2, char a
         ++*(_DWORD *)(v5 + 16);
       result = KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
       v26 = LockHandle.OldIrql;
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         result = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
           && (unsigned __int8)result <= 0xFu
           && LockHandle.OldIrql <= 0xFu
           && (unsigned __int8)result >= 2u )
@@ -112,10 +115,10 @@ signed __int32 __fastcall AlpcpQueueIoCompletionPort(_QWORD *a1, char a2, char a
     *(_DWORD *)(v5 + 12) = v10 + 1;
     KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
     v13 = LockHandle.OldIrql;
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v14 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v14 <= 0xFu && LockHandle.OldIrql <= 0xFu && v14 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v14 <= 0xFu && LockHandle.OldIrql <= 0xFu && v14 >= 2u )
       {
         v15 = KeGetCurrentPrcb();
         v16 = v15->SchedulerAssist;

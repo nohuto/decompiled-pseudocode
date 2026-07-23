@@ -1,11 +1,11 @@
 /*
- * XREFs of IoRequestDeviceRemovalForReset @ 0x1407212F0
+ * XREFs of IoRequestDeviceRemovalForReset @ 0x14071EE80
  * Callers:
  *     <none>
  * Callees:
- *     IoAddTriageDumpDataBlock @ 0x1403F2880 (IoAddTriageDumpDataBlock.c)
- *     PnpRequestDeviceAction @ 0x14046C968 (PnpRequestDeviceAction.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
+ *     IoAddTriageDumpDataBlock @ 0x1403E65A0 (IoAddTriageDumpDataBlock.c)
+ *     PnpRequestDeviceAction @ 0x140467508 (PnpRequestDeviceAction.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall IoRequestDeviceRemovalForReset(ULONG_PTR BugCheckParameter2, int a2)

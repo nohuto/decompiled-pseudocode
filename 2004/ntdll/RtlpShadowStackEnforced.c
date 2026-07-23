@@ -8,5 +8,5 @@
 
 _BOOL8 RtlpShadowStackEnforced()
 {
-  return ((*((_QWORD *)&xmmword_18017F390 + 1) >> 60) & 3) == 1;
+  return ((LdrSystemDllInitBlock.MitigationOptionsMap.Map[1] >> 60) & 3) == 1;
 }

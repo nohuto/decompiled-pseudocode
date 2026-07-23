@@ -1,8 +1,8 @@
 /*
- * XREFs of PoDirectedDripsSetDeviceFlags @ 0x1402D6A10
+ * XREFs of PoDirectedDripsSetDeviceFlags @ 0x1402D6C00
  * Callers:
- *     PopDirectedDripsNotifyDeviceStarted @ 0x1406ED0D0 (PopDirectedDripsNotifyDeviceStarted.c)
- *     PopDirectedDripsNotifyUsbDeviceStarted @ 0x14087CCF0 (PopDirectedDripsNotifyUsbDeviceStarted.c)
+ *     PopDirectedDripsNotifyDeviceStarted @ 0x1406EE370 (PopDirectedDripsNotifyDeviceStarted.c)
+ *     PopDirectedDripsNotifyUsbDeviceStarted @ 0x14087DF50 (PopDirectedDripsNotifyUsbDeviceStarted.c)
  * Callees:
  *     <none>
  */

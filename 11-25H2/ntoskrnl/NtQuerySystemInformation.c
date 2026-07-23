@@ -8,43 +8,64 @@
  *     ExpQuerySystemInformation @ 0x1409DB5B0 (ExpQuerySystemInformation.c)
  */
 
-__int64 __fastcall NtQuerySystemInformation(unsigned int a1)
+NTSTATUS __cdecl NtQuerySystemInformation(
+        SYSTEM_INFORMATION_CLASS SystemInformationClass,
+        PVOID SystemInformation,
+        ULONG SystemInformationLength,
+        PULONG ReturnLength)
 {
   __int16 *p_PrimaryGroupThread; // rdx
-  unsigned int v2; // r10d
+  PULONG v6; // r11
+  SYSTEM_INFORMATION_CLASS v8; // r10d
+  __int64 v9; // r8
   __int16 PrimaryGroupThread; // [rsp+40h] [rbp+8h] BYREF
 
   p_PrimaryGroupThread = 0LL;
+  v6 = ReturnLength;
   PrimaryGroupThread = 0;
-  v2 = a1;
-  switch ( a1 )
+  v8 = SystemInformationClass;
+  switch ( SystemInformationClass )
   {
-    case 8u:
-    case 0x17u:
-    case 0x2Au:
-    case 0x3Du:
-    case 0x53u:
-    case 0x64u:
-    case 0x6Cu:
-    case 0x8Du:
+    case SystemProcessorPerformanceInformation:
+    case SystemInterruptInformation:
+    case SystemProcessorIdleInformation:
+    case SystemProcessorPowerInformation:
+    case SystemProcessorIdleCycleTimeInformation:
+    case SystemProcessorPerformanceDistribution:
+    case SystemProcessorCycleTimeInformation:
+    case SystemProcessorPerformanceInformationEx:
       PrimaryGroupThread = KeQueryPrimaryGroupThread((__int64)KeGetCurrentThread());
-      goto LABEL_6;
-    case 0x49u:
-LABEL_6:
+      goto LABEL_7;
+    case SystemLogicalProcessorInformation:
+LABEL_7:
       p_PrimaryGroupThread = &PrimaryGroupThread;
-      return ExpQuerySystemInformation(v2, p_PrimaryGroupThread);
-    case 0x6Bu:
-    case 0x79u:
-    case 0xB4u:
-    case 0xD2u:
-    case 0xD3u:
-    case 0xDEu:
-    case 0xE7u:
-    case 0xEEu:
-    case 0xEFu:
-    case 0xF0u:
-      return 3221225475LL;
+      v9 = 2LL;
+      return ExpQuerySystemInformation(
+               (unsigned int)v8,
+               p_PrimaryGroupThread,
+               v9,
+               SystemInformation,
+               SystemInformationLength,
+               v6);
+    case SystemLogicalProcessorAndGroupInformation:
+    case SystemNodeDistanceInformation:
+    case SystemInterruptSteeringInformation:
+    case SystemFeatureConfigurationInformation:
+    case SystemFeatureConfigurationSectionInformation:
+    case SystemBuildVersionInformation:
+    case SystemSingleProcessorRelationshipInformation:
+    case SystemOriginalImageFeatureInformation:
+    case SystemMemoryNumaInformation:
+    case SystemMemoryNumaPerformanceInformation:
+      return -1073741821;
     default:
-      return ExpQuerySystemInformation(v2, p_PrimaryGroupThread);
+      v9 = 0LL;
+      return ExpQuerySystemInformation(
+               (unsigned int)v8,
+               p_PrimaryGroupThread,
+               v9,
+               SystemInformation,
+               SystemInformationLength,
+               v6);
   }
 }

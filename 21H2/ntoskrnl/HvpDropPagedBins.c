@@ -1,18 +1,18 @@
 /*
- * XREFs of HvpDropPagedBins @ 0x14079F728
+ * XREFs of HvpDropPagedBins @ 0x14079F928
  * Callers:
- *     CmpLoadHiveThread @ 0x14079ED50 (CmpLoadHiveThread.c)
- *     CmpMountPreloadedHives @ 0x1407AABF4 (CmpMountPreloadedHives.c)
+ *     CmpLoadHiveThread @ 0x14079EF50 (CmpLoadHiveThread.c)
+ *     CmpMountPreloadedHives @ 0x1407AADF4 (CmpMountPreloadedHives.c)
  * Callees:
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
- *     memmove @ 0x140413F40 (memmove.c)
- *     HvpMapEntryGetFreeBin @ 0x14070810C (HvpMapEntryGetFreeBin.c)
- *     HvpGetCellMap @ 0x140708730 (HvpGetCellMap.c)
- *     CmpReleaseGlobalQuota @ 0x140709E4C (CmpReleaseGlobalQuota.c)
- *     HvpPointMapEntriesToBuffer @ 0x14072305C (HvpPointMapEntriesToBuffer.c)
- *     HvpAllocateBin @ 0x1407249BC (HvpAllocateBin.c)
- *     HvpFreeBin @ 0x140725BD0 (HvpFreeBin.c)
- *     MmFreeBootRegistry @ 0x14079F85C (MmFreeBootRegistry.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     HvpFreeBin @ 0x140621684 (HvpFreeBin.c)
+ *     HvpPointMapEntriesToBuffer @ 0x1406FB088 (HvpPointMapEntriesToBuffer.c)
+ *     HvpAllocateBin @ 0x1406FC9B8 (HvpAllocateBin.c)
+ *     HvpMapEntryGetFreeBin @ 0x14071F4EC (HvpMapEntryGetFreeBin.c)
+ *     HvpGetCellMap @ 0x14071FB10 (HvpGetCellMap.c)
+ *     CmpReleaseGlobalQuota @ 0x14072122C (CmpReleaseGlobalQuota.c)
+ *     MmFreeBootRegistry @ 0x14079FA5C (MmFreeBootRegistry.c)
  */
 
 __int64 __fastcall HvpDropPagedBins(ULONG_PTR BugCheckParameter2)
@@ -62,7 +62,7 @@ __int64 __fastcall HvpDropPagedBins(ULONG_PTR BugCheckParameter2)
     Bin = 0;
 LABEL_11:
     if ( v12 )
-      HvpFreeBin(BugCheckParameter2, v1, (unsigned __int64)v12);
+      HvpFreeBin(BugCheckParameter2, v1, (__int64)v12);
   }
   else
   {

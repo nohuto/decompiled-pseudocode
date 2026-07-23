@@ -1,27 +1,27 @@
 /*
- * XREFs of ?KiAbpProcessThreadState@AutoBoost@@YAXPEAU_KTHREAD@@PEAU_AB_THREAD_STATE@1@PEAU_AB_BOOST_CONTEXT@1@@Z @ 0x140375A20
+ * XREFs of ?KiAbpProcessThreadState@AutoBoost@@YAXPEAU_KTHREAD@@PEAU_AB_THREAD_STATE@1@PEAU_AB_BOOST_CONTEXT@1@@Z @ 0x1403777D0
  * Callers:
- *     KiAbProcessPreContextSwitch @ 0x14023DEB0 (KiAbProcessPreContextSwitch.c)
- *     ?KiAbpDeferredProcessingWorker@AutoBoost@@YAXPEAU_KDPC@@PEAX11@Z @ 0x140375320 (-KiAbpDeferredProcessingWorker@AutoBoost@@YAXPEAU_KDPC@@PEAX11@Z.c)
- *     ?KiAbpPropagateBoosts@AutoBoost@@YAXPEAU_AB_BOOST_CONTEXT@1@@Z @ 0x140467F10 (-KiAbpPropagateBoosts@AutoBoost@@YAXPEAU_AB_BOOST_CONTEXT@1@@Z.c)
+ *     KiAbProcessPreContextSwitch @ 0x14023F810 (KiAbProcessPreContextSwitch.c)
+ *     ?KiAbpDeferredProcessingWorker@AutoBoost@@YAXPEAU_KDPC@@PEAX11@Z @ 0x1403770D0 (-KiAbpDeferredProcessingWorker@AutoBoost@@YAXPEAU_KDPC@@PEAX11@Z.c)
+ *     ?KiAbpPropagateBoosts@AutoBoost@@YAXPEAU_AB_BOOST_CONTEXT@1@@Z @ 0x140461660 (-KiAbpPropagateBoosts@AutoBoost@@YAXPEAU_AB_BOOST_CONTEXT@1@@Z.c)
  * Callees:
- *     IoBoostThreadIoPriority @ 0x140205ACC (IoBoostThreadIoPriority.c)
- *     ObReferenceObjectSafeWithTag @ 0x140258450 (ObReferenceObjectSafeWithTag.c)
- *     ObDereferenceObjectDeferDeleteWithTag @ 0x14027C870 (ObDereferenceObjectDeferDeleteWithTag.c)
- *     KiReleaseSpinLockInstrumented @ 0x1402BDFEC (KiReleaseSpinLockInstrumented.c)
- *     PsBoostThreadOutstandingIoQoS @ 0x1402F0600 (PsBoostThreadOutstandingIoQoS.c)
- *     KiAcquireSpinLockInstrumented @ 0x14032F380 (KiAcquireSpinLockInstrumented.c)
- *     KxWaitForSpinLockAndAcquire @ 0x14032F490 (KxWaitForSpinLockAndAcquire.c)
- *     ?KiAbpPerformIoBoostsForOwners@AutoBoost@@YAXPEAU_AB_HEAD_ENTRY@1@T_AB_IO_BOOST@1@PEAU_AB_BOOST_CONTEXT@1@@Z @ 0x140374D50 (-KiAbpPerformIoBoostsForOwners@AutoBoost@@YAXPEAU_AB_HEAD_ENTRY@1@T_AB_IO_BOOST@1@PEAU_AB_BOOST_.c)
- *     ?KiAbpPerformCpuPriorityBoostsForOwners@AutoBoost@@YAXPEAU_AB_HEAD_ENTRY@1@CPEAU_AB_BOOST_CONTEXT@1@@Z @ 0x140374E28 (-KiAbpPerformCpuPriorityBoostsForOwners@AutoBoost@@YAXPEAU_AB_HEAD_ENTRY@1@CPEAU_AB_BOOST_CONTEX.c)
- *     ?KiAbpEntryUpdateWaiterTreePosition@AutoBoost@@YAXPEAU_AB_HEAD_ENTRY@1@PEAU_AB_THREAD_ENTRY@1@@Z @ 0x140375128 (-KiAbpEntryUpdateWaiterTreePosition@AutoBoost@@YAXPEAU_AB_HEAD_ENTRY@1@PEAU_AB_THREAD_ENTRY@1@@Z.c)
- *     ?KiAbpTryIncrementIoWaiterCounts@AutoBoost@@YA?AT_AB_IO_BOOST@1@PEAU_AB_HEAD_ENTRY@1@PEAU_AB_THREAD_ENTRY@1@PEAU_KTHREAD@@@Z @ 0x140375210 (-KiAbpTryIncrementIoWaiterCounts@AutoBoost@@YA-AT_AB_IO_BOOST@1@PEAU_AB_HEAD_ENTRY@1@PEAU_AB_THR.c)
- *     ?KiAbpApplyTargetPriority@AutoBoost@@YAKPEAU_KTHREAD@@PEAU_AB_THREAD_ENTRY@1@U_AB_PRIORITY@1@PEAU_AB_BOOST_CONTEXT@1@PEAT_AB_IO_BOOST@1@@Z @ 0x1403754D0 (-KiAbpApplyTargetPriority@AutoBoost@@YAKPEAU_KTHREAD@@PEAU_AB_THREAD_ENTRY@1@U_AB_PRIORITY@1@PEA.c)
- *     ?KiAbpOwnerComputeCpuPriorityKey@AutoBoost@@YACPEAU_AB_THREAD_ENTRY@1@@Z @ 0x1403759C0 (-KiAbpOwnerComputeCpuPriorityKey@AutoBoost@@YACPEAU_AB_THREAD_ENTRY@1@@Z.c)
- *     ?KiAbpProcessEntryAddToTree@AutoBoost@@YAXPEAU_AB_THREAD_ENTRY@1@@Z @ 0x1403764A0 (-KiAbpProcessEntryAddToTree@AutoBoost@@YAXPEAU_AB_THREAD_ENTRY@1@@Z.c)
- *     ?KiAbpEntryUpdateOwnerTreePosition@AutoBoost@@YAXPEAU_AB_HEAD_ENTRY@1@PEAU_AB_THREAD_ENTRY@1@@Z @ 0x140377390 (-KiAbpEntryUpdateOwnerTreePosition@AutoBoost@@YAXPEAU_AB_HEAD_ENTRY@1@PEAU_AB_THREAD_ENTRY@1@@Z.c)
- *     RtlRbInsertNodeEx @ 0x1403774B0 (RtlRbInsertNodeEx.c)
- *     RtlRbRemoveNode @ 0x140377C60 (RtlRbRemoveNode.c)
+ *     IoBoostThreadIoPriority @ 0x140205BAC (IoBoostThreadIoPriority.c)
+ *     ObReferenceObjectSafeWithTag @ 0x140259C30 (ObReferenceObjectSafeWithTag.c)
+ *     ObDereferenceObjectDeferDeleteWithTag @ 0x14027BDE0 (ObDereferenceObjectDeferDeleteWithTag.c)
+ *     PsBoostThreadOutstandingIoQoS @ 0x1402D2680 (PsBoostThreadOutstandingIoQoS.c)
+ *     KiReleaseSpinLockInstrumented @ 0x140308CAC (KiReleaseSpinLockInstrumented.c)
+ *     KiAcquireSpinLockInstrumented @ 0x1403313B0 (KiAcquireSpinLockInstrumented.c)
+ *     KxWaitForSpinLockAndAcquire @ 0x1403314C0 (KxWaitForSpinLockAndAcquire.c)
+ *     ?KiAbpPerformIoBoostsForOwners@AutoBoost@@YAXPEAU_AB_HEAD_ENTRY@1@T_AB_IO_BOOST@1@PEAU_AB_BOOST_CONTEXT@1@@Z @ 0x140376B00 (-KiAbpPerformIoBoostsForOwners@AutoBoost@@YAXPEAU_AB_HEAD_ENTRY@1@T_AB_IO_BOOST@1@PEAU_AB_BOOST_.c)
+ *     ?KiAbpPerformCpuPriorityBoostsForOwners@AutoBoost@@YAXPEAU_AB_HEAD_ENTRY@1@CPEAU_AB_BOOST_CONTEXT@1@@Z @ 0x140376BD8 (-KiAbpPerformCpuPriorityBoostsForOwners@AutoBoost@@YAXPEAU_AB_HEAD_ENTRY@1@CPEAU_AB_BOOST_CONTEX.c)
+ *     ?KiAbpEntryUpdateWaiterTreePosition@AutoBoost@@YAXPEAU_AB_HEAD_ENTRY@1@PEAU_AB_THREAD_ENTRY@1@@Z @ 0x140376ED8 (-KiAbpEntryUpdateWaiterTreePosition@AutoBoost@@YAXPEAU_AB_HEAD_ENTRY@1@PEAU_AB_THREAD_ENTRY@1@@Z.c)
+ *     ?KiAbpTryIncrementIoWaiterCounts@AutoBoost@@YA?AT_AB_IO_BOOST@1@PEAU_AB_HEAD_ENTRY@1@PEAU_AB_THREAD_ENTRY@1@PEAU_KTHREAD@@@Z @ 0x140376FC0 (-KiAbpTryIncrementIoWaiterCounts@AutoBoost@@YA-AT_AB_IO_BOOST@1@PEAU_AB_HEAD_ENTRY@1@PEAU_AB_THR.c)
+ *     ?KiAbpApplyTargetPriority@AutoBoost@@YAKPEAU_KTHREAD@@PEAU_AB_THREAD_ENTRY@1@U_AB_PRIORITY@1@PEAU_AB_BOOST_CONTEXT@1@PEAT_AB_IO_BOOST@1@@Z @ 0x140377280 (-KiAbpApplyTargetPriority@AutoBoost@@YAKPEAU_KTHREAD@@PEAU_AB_THREAD_ENTRY@1@U_AB_PRIORITY@1@PEA.c)
+ *     ?KiAbpOwnerComputeCpuPriorityKey@AutoBoost@@YACPEAU_AB_THREAD_ENTRY@1@@Z @ 0x140377770 (-KiAbpOwnerComputeCpuPriorityKey@AutoBoost@@YACPEAU_AB_THREAD_ENTRY@1@@Z.c)
+ *     ?KiAbpProcessEntryAddToTree@AutoBoost@@YAXPEAU_AB_THREAD_ENTRY@1@@Z @ 0x140378250 (-KiAbpProcessEntryAddToTree@AutoBoost@@YAXPEAU_AB_THREAD_ENTRY@1@@Z.c)
+ *     ?KiAbpEntryUpdateOwnerTreePosition@AutoBoost@@YAXPEAU_AB_HEAD_ENTRY@1@PEAU_AB_THREAD_ENTRY@1@@Z @ 0x140379140 (-KiAbpEntryUpdateOwnerTreePosition@AutoBoost@@YAXPEAU_AB_HEAD_ENTRY@1@PEAU_AB_THREAD_ENTRY@1@@Z.c)
+ *     RtlRbInsertNodeEx @ 0x140379260 (RtlRbInsertNodeEx.c)
+ *     RtlRbRemoveNode @ 0x140379A10 (RtlRbRemoveNode.c)
  */
 
 void __fastcall AutoBoost::KiAbpProcessThreadState(
@@ -50,7 +50,7 @@ void __fastcall AutoBoost::KiAbpProcessThreadState(
   signed __int8 v21; // al
   signed __int8 v22; // tt
   __int64 v23; // rax
-  __int64 v24; // r8
+  BOOLEAN v24; // r8
   int v25; // edx
   char v26; // cl
   char v27; // al
@@ -59,7 +59,7 @@ void __fastcall AutoBoost::KiAbpProcessThreadState(
   unsigned int v30; // r13d
   __int64 v31; // rax
   __int64 v32; // rax
-  __int64 v33; // r8
+  BOOLEAN v33; // r8
   int v34; // edx
   char v35; // cl
   char v36; // al
@@ -224,7 +224,7 @@ LABEL_56:
         }
         v50 = *(_QWORD *)v14;
         v51 = (volatile signed __int32 *)(*(_QWORD *)v14 + 32LL);
-        if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+        if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || PopHibernateInProgress )
         {
           if ( _interlockedbittestandset64(v51, 0LL) )
             KxWaitForSpinLockAndAcquire(v51);
@@ -253,7 +253,7 @@ LABEL_56:
             }
             if ( *(_BYTE *)(v14 + 37) == (_BYTE)v53 )
               goto LABEL_46;
-            RtlRbRemoveNode(v50 + 40, v14 + 8);
+            RtlRbRemoveNode((PRTL_RB_TREE)(v50 + 40), (PRTL_BALANCED_NODE)(v14 + 8));
             *(_BYTE *)(v14 + 37) = v53;
             v56 = *(_QWORD *)(v50 + 48);
             v57 = *(_QWORD *)(v50 + 40);
@@ -261,10 +261,10 @@ LABEL_56:
             {
               if ( !v57 )
               {
-LABEL_164:
-                LOBYTE(v33) = 0;
+LABEL_162:
+                v33 = 0;
 LABEL_45:
-                RtlRbInsertNodeEx(v50 + 40, v57, v33, v14 + 8);
+                RtlRbInsertNodeEx((PRTL_RB_TREE)(v50 + 40), (PRTL_BALANCED_NODE)v57, v33, (PRTL_BALANCED_NODE)(v14 + 8));
                 v4 = a3;
 LABEL_46:
                 v34 = *(_DWORD *)(v50 + 76);
@@ -293,24 +293,23 @@ LABEL_46:
               }
               v57 ^= v50 + 40;
             }
-            LOBYTE(v33) = 0;
+            v33 = 0;
             v58 = v56 & 1;
             if ( v57 )
             {
-              v33 = (unsigned int)(char)v53;
               while ( 1 )
               {
-                while ( (int)v33 - *(char *)(v57 + 29) < 0 )
+                while ( (char)v53 - *(char *)(v57 + 29) < 0 )
                 {
                   v59 = *(_QWORD *)v57;
                   if ( v58 )
                   {
                     if ( !v59 )
-                      goto LABEL_164;
+                      goto LABEL_162;
                     v59 ^= v57;
                   }
                   if ( !v59 )
-                    goto LABEL_164;
+                    goto LABEL_162;
                   v57 = v59;
                 }
                 v32 = *(_QWORD *)(v57 + 8);
@@ -324,13 +323,13 @@ LABEL_46:
                   break;
                 v57 = v32;
               }
-              LOBYTE(v33) = 1;
+              v33 = 1;
             }
             goto LABEL_45;
           }
 LABEL_53:
           v38 = (volatile signed __int64 *)(v50 + 32);
-          if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+          if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || PopHibernateInProgress )
             _InterlockedAnd64(v38, 0LL);
           else
             KiReleaseSpinLockInstrumented(v38, retaddr);
@@ -356,14 +355,14 @@ LABEL_53:
         if ( (char)v77 < v75 )
         {
           if ( !v76 )
-            goto LABEL_143;
+            goto LABEL_141;
         }
         else if ( !v76 )
         {
           goto LABEL_53;
         }
         AutoBoost::KiAbpPerformIoBoostsForOwners(v50, v76, (__int64)v4);
-LABEL_143:
+LABEL_141:
         AutoBoost::KiAbpPerformCpuPriorityBoostsForOwners(
           (AutoBoost *)v50,
           (struct AutoBoost::_AB_HEAD_ENTRY *)(unsigned __int8)v75,
@@ -456,7 +455,7 @@ LABEL_59:
         {
           v60 = *(_QWORD *)v41;
           v61 = (volatile signed __int32 *)(*(_QWORD *)v41 + 32LL);
-          if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+          if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || PopHibernateInProgress )
           {
             if ( _interlockedbittestandset64(v61, 0LL) )
               KxWaitForSpinLockAndAcquire(v61);
@@ -485,7 +484,7 @@ LABEL_59:
               }
               if ( *(_BYTE *)(v41 + 37) != (_BYTE)v63 )
               {
-                RtlRbRemoveNode(v60 + 40, v41 + 8);
+                RtlRbRemoveNode((PRTL_RB_TREE)(v60 + 40), (PRTL_BALANCED_NODE)(v41 + 8));
                 *(_BYTE *)(v41 + 37) = v63;
                 v66 = *(_QWORD *)(v60 + 48);
                 if ( (v66 & 1) != 0 )
@@ -494,34 +493,33 @@ LABEL_59:
                   if ( v84 )
                   {
                     v67 = v84 ^ (v60 + 40);
-                    goto LABEL_113;
+                    goto LABEL_112;
                   }
                   v67 = 0LL;
-LABEL_167:
-                  LOBYTE(v24) = 0;
+LABEL_165:
+                  v24 = 0;
                 }
                 else
                 {
                   v67 = *(_QWORD *)(v60 + 40);
-LABEL_113:
-                  LOBYTE(v24) = 0;
+LABEL_112:
+                  v24 = 0;
                   v68 = v66 & 1;
                   if ( v67 )
                   {
-                    v24 = (unsigned int)(char)v63;
                     while ( 1 )
                     {
-                      while ( (int)v24 - *(char *)(v67 + 29) < 0 )
+                      while ( (char)v63 - *(char *)(v67 + 29) < 0 )
                       {
                         v69 = *(_QWORD *)v67;
                         if ( v68 )
                         {
                           if ( !v69 )
-                            goto LABEL_167;
+                            goto LABEL_165;
                           v69 ^= v67;
                         }
                         if ( !v69 )
-                          goto LABEL_167;
+                          goto LABEL_165;
                         v67 = v69;
                       }
                       v23 = *(_QWORD *)(v67 + 8);
@@ -535,10 +533,10 @@ LABEL_113:
                         break;
                       v67 = v23;
                     }
-                    LOBYTE(v24) = 1;
+                    v24 = 1;
                   }
                 }
-                RtlRbInsertNodeEx(v60 + 40, v67, v24, v41 + 8);
+                RtlRbInsertNodeEx((PRTL_RB_TREE)(v60 + 40), (PRTL_BALANCED_NODE)v67, v24, (PRTL_BALANCED_NODE)(v41 + 8));
                 v4 = a3;
               }
               v25 = *(_DWORD *)(v60 + 76);
@@ -566,7 +564,7 @@ LABEL_113:
             }
 LABEL_37:
             v29 = (volatile signed __int64 *)(v60 + 32);
-            if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+            if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || PopHibernateInProgress )
               _InterlockedAnd64(v29, 0LL);
             else
               KiReleaseSpinLockInstrumented(v29, retaddr);
@@ -592,13 +590,13 @@ LABEL_37:
           if ( (char)v74 < v72 )
           {
             if ( v73 )
-              goto LABEL_136;
+              goto LABEL_134;
           }
           else
           {
             if ( !v73 )
               goto LABEL_37;
-LABEL_136:
+LABEL_134:
             AutoBoost::KiAbpPerformIoBoostsForOwners(v60, v73, (__int64)v4);
           }
           AutoBoost::KiAbpPerformCpuPriorityBoostsForOwners(

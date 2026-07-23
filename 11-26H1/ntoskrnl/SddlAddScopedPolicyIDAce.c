@@ -1,28 +1,28 @@
 /*
- * XREFs of SddlAddScopedPolicyIDAce @ 0x140818554
+ * XREFs of SddlAddScopedPolicyIDAce @ 0x14081E764
  * Callers:
- *     LocalGetAclForString @ 0x1409243B0 (LocalGetAclForString.c)
+ *     LocalGetAclForString @ 0x1408FFEC0 (LocalGetAclForString.c)
  * Callees:
- *     RtlLengthSid @ 0x1404872D0 (RtlLengthSid.c)
- *     RtlValidSid @ 0x140924370 (RtlValidSid.c)
- *     RtlValidAcl @ 0x140928000 (RtlValidAcl.c)
- *     RtlCopySid @ 0x140A2AE10 (RtlCopySid.c)
- *     RtlFirstFreeAce @ 0x140A47520 (RtlFirstFreeAce.c)
+ *     RtlLengthSid @ 0x140480CA0 (RtlLengthSid.c)
+ *     RtlValidSid @ 0x1408FFE80 (RtlValidSid.c)
+ *     RtlValidAcl @ 0x140903B10 (RtlValidAcl.c)
+ *     RtlCopySid @ 0x140A3DEA0 (RtlCopySid.c)
+ *     RtlFirstFreeAce @ 0x140A50810 (RtlFirstFreeAce.c)
  */
 
-__int64 __fastcall SddlAddScopedPolicyIDAce(__int64 a1, __int64 a2, int a3, int a4, char *Sid)
+__int64 __fastcall SddlAddScopedPolicyIDAce(PACL Acl, __int64 a2, int a3, int a4, char *Sid)
 {
   __int64 result; // rax
   int v9; // ecx
-  char v10; // bp
+  UCHAR AclRevision; // bp
   __int16 v11; // ax
-  __int64 v12; // rbx
+  _WORD *v12; // rbx
   unsigned __int16 v13; // ax
   ULONG v14; // eax
-  _QWORD v15[5]; // [rsp+20h] [rbp-28h] BYREF
+  PVOID FirstFree; // [rsp+20h] [rbp-28h] BYREF
 
-  v15[0] = 0LL;
-  if ( !a1 )
+  FirstFree = 0LL;
+  if ( !Acl )
     return 3221225591LL;
   if ( !RtlValidSid(Sid) )
     return 3221225592LL;
@@ -31,28 +31,28 @@ __int64 __fastcall SddlAddScopedPolicyIDAce(__int64 a1, __int64 a2, int a3, int 
     v9 = *((unsigned __int16 *)Sid + 3) - 4352;
   if ( v9 )
     return 3221225485LL;
-  if ( *(_BYTE *)a1 > 4u )
+  if ( Acl->AclRevision > 4u )
     return 3221225561LL;
-  v10 = 2;
-  if ( *(_BYTE *)a1 > 2u )
-    v10 = *(_BYTE *)a1;
+  AclRevision = 2;
+  if ( Acl->AclRevision > 2u )
+    AclRevision = Acl->AclRevision;
   if ( (a3 & 0xFFFFFFE0) != 0 || a4 )
     return 3221225485LL;
-  if ( !(unsigned __int8)RtlValidAcl(a1) || !(unsigned __int8)RtlFirstFreeAce(a1, v15) )
+  if ( !RtlValidAcl(Acl) || !RtlFirstFreeAce(Acl, &FirstFree) )
     return 3221225591LL;
   v11 = RtlLengthSid(Sid);
-  v12 = v15[0];
+  v12 = FirstFree;
   v13 = v11 + 8;
-  if ( !v15[0] || v15[0] + (unsigned __int64)v13 > a1 + (unsigned __int64)*(unsigned __int16 *)(a1 + 2) )
+  if ( !FirstFree || (char *)FirstFree + v13 > (char *)Acl + Acl->AclSize )
     return 3221225625LL;
-  *(_BYTE *)(v15[0] + 1LL) = a3;
+  *((_BYTE *)FirstFree + 1) = a3;
   *(_BYTE *)v12 = 19;
-  *(_WORD *)(v12 + 2) = v13;
-  *(_DWORD *)(v12 + 4) = 0;
+  v12[1] = v13;
+  *((_DWORD *)v12 + 1) = 0;
   v14 = RtlLengthSid(Sid);
-  RtlCopySid(v14, (PSID)(v12 + 8), Sid);
-  ++*(_WORD *)(a1 + 4);
+  RtlCopySid(v14, v12 + 4, Sid);
+  ++Acl->AceCount;
   result = 0LL;
-  *(_BYTE *)a1 = v10;
+  Acl->AclRevision = AclRevision;
   return result;
 }

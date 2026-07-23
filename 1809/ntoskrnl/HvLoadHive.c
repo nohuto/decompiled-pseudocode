@@ -1,27 +1,27 @@
 /*
- * XREFs of HvLoadHive @ 0x1405A4C9C
+ * XREFs of HvLoadHive @ 0x1405A5C9C
  * Callers:
- *     HvHiveStartFileBacked @ 0x1405A4A3C (HvHiveStartFileBacked.c)
+ *     HvHiveStartFileBacked @ 0x1405A5A3C (HvHiveStartFileBacked.c)
  * Callees:
  *     _TlgKeywordOn @ 0x140012A04 (_TlgKeywordOn.c)
  *     _TlgWrite @ 0x140012EE4 (_TlgWrite.c)
  *     CmSiFreeMemory @ 0x140013000 (CmSiFreeMemory.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     SetFailureLocation @ 0x14026BB58 (SetFailureLocation.c)
- *     HvpAdjustHiveFreeDisplay @ 0x1405A4FA8 (HvpAdjustHiveFreeDisplay.c)
- *     CmpTraceHiveMountBaseFileMounted @ 0x1405A5128 (CmpTraceHiveMountBaseFileMounted.c)
- *     HvpViewMapStart @ 0x1405A51A0 (HvpViewMapStart.c)
- *     HvpInitMap @ 0x1405A5BE0 (HvpInitMap.c)
- *     CmpInitializeActualFileSizes @ 0x1405A6144 (CmpInitializeActualFileSizes.c)
- *     HvpGetHiveHeader @ 0x1405A63B8 (HvpGetHiveHeader.c)
- *     HvpRemapAndEnlistHiveBins @ 0x1405F96A0 (HvpRemapAndEnlistHiveBins.c)
- *     HvpMapHiveImageFromViewMap @ 0x1405F9C30 (HvpMapHiveImageFromViewMap.c)
- *     CmpFileFlush @ 0x1406B8918 (CmpFileFlush.c)
- *     HvpMapHiveImageFromFile @ 0x1407F7AB4 (HvpMapHiveImageFromFile.c)
- *     HvpPerformLogFileRecovery @ 0x1407F7B60 (HvpPerformLogFileRecovery.c)
- *     HvAnalyzeLogFiles @ 0x1408060D4 (HvAnalyzeLogFiles.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     SetFailureLocation @ 0x14026BD48 (SetFailureLocation.c)
+ *     HvpAdjustHiveFreeDisplay @ 0x1405A5FA8 (HvpAdjustHiveFreeDisplay.c)
+ *     CmpTraceHiveMountBaseFileMounted @ 0x1405A6128 (CmpTraceHiveMountBaseFileMounted.c)
+ *     HvpViewMapStart @ 0x1405A61A0 (HvpViewMapStart.c)
+ *     HvpInitMap @ 0x1405A6BE0 (HvpInitMap.c)
+ *     CmpInitializeActualFileSizes @ 0x1405A7144 (CmpInitializeActualFileSizes.c)
+ *     HvpGetHiveHeader @ 0x1405A73B8 (HvpGetHiveHeader.c)
+ *     HvpRemapAndEnlistHiveBins @ 0x1405FA6A0 (HvpRemapAndEnlistHiveBins.c)
+ *     HvpMapHiveImageFromViewMap @ 0x1405FAC30 (HvpMapHiveImageFromViewMap.c)
+ *     CmpFileFlush @ 0x1406B9BB8 (CmpFileFlush.c)
+ *     HvpMapHiveImageFromFile @ 0x1407F8CB4 (HvpMapHiveImageFromFile.c)
+ *     HvpPerformLogFileRecovery @ 0x1407F8D60 (HvpPerformLogFileRecovery.c)
+ *     HvAnalyzeLogFiles @ 0x1408072D4 (HvAnalyzeLogFiles.c)
  */
 
 __int64 __fastcall HvLoadHive(ULONG_PTR BugCheckParameter2)
@@ -195,7 +195,7 @@ LABEL_8:
   v13 = HIDWORD(v31);
   if ( HIDWORD(v31) < *(_DWORD *)(v12 + 40) + 4096 && (CmpSelfHeal || (CmpBootType & 6) != 0) )
   {
-    if ( stru_1403FFAA0.LevelPlus1 > 5 && TlgKeywordOn(&stru_1403FFAA0, 0x200000000000uLL) )
+    if ( stru_140400AA0.LevelPlus1 > 5 && TlgKeywordOn(&stru_140400AA0, 0x200000000000uLL) )
     {
       LODWORD(v32) = v13;
       HIDWORD(v31) = v28 + 4096;
@@ -203,7 +203,7 @@ LABEL_8:
       pData[2].Ptr = (ULONGLONG)&v31 + 4;
       v36 = &v32;
       v37 = 4LL;
-      TlgWrite(&stru_1403FFAA0, &unk_14036C475, 0LL, 0LL, 4u, pData);
+      TlgWrite(&stru_140400AA0, &unk_14036D405, 0LL, 0LL, 4u, pData);
       v12 = *(_QWORD *)(BugCheckParameter2 + 64);
     }
     *(_DWORD *)(v12 + 4088) |= 4u;

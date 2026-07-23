@@ -12,30 +12,30 @@
  */
 
 int __fastcall RtlpAddKnownObjectAce(
-        int a1,
+        PACL Acl,
         int a2,
         int a3,
         int a4,
         _DWORD *a5,
         _DWORD *a6,
-        unsigned __int8 *Src,
+        unsigned __int8 *Sid,
         char a8)
 {
   int result; // eax
   unsigned int v11; // eax
   unsigned __int16 v12; // si
-  unsigned int v13; // edx
+  _DWORD *v13; // edx
   int v14; // eax
   _DWORD *v15; // edx
   _DWORD *v16; // edi
   _DWORD *v17; // edi
-  unsigned int v18; // [esp+Ch] [ebp-Ch]
-  unsigned int v19; // [esp+10h] [ebp-8h] BYREF
+  int DestinationSidLength; // [esp+Ch] [ebp-Ch]
+  PVOID FirstFree; // [esp+10h] [ebp-8h] BYREF
   int v20; // [esp+14h] [ebp-4h]
 
-  if ( !RtlValidSid(Src) )
+  if ( !RtlValidSid(Sid) )
     return -1073741704;
-  if ( *(_BYTE *)a1 > 4u || a2 != 4 )
+  if ( Acl->AclRevision > 4u || a2 != 4 )
     return -1073741735;
   v11 = a3 & 0xFFFFFFE0;
   if ( (a3 & 0xFFFFFFE0) != 0 )
@@ -45,28 +45,28 @@ int __fastcall RtlpAddKnownObjectAce(
     if ( v11 )
       return -1073741811;
   }
-  if ( !RtlValidAcl(a1) || !RtlFirstFreeAce(a1, &v19) )
+  if ( !RtlValidAcl(Acl) || !RtlFirstFreeAce(Acl, &FirstFree) )
     return -1073741705;
-  v18 = 4 * Src[1] + 8;
-  v12 = 4 * Src[1] + 20;
+  DestinationSidLength = 4 * Sid[1] + 8;
+  v12 = 4 * Sid[1] + 20;
   if ( a5 )
-    v12 = 4 * Src[1] + 36;
+    v12 = 4 * Sid[1] + 36;
   v20 = a5 != 0;
   if ( a6 )
   {
     v12 += 16;
     v20 = (a5 != 0) | 2;
   }
-  v13 = v19;
-  if ( !v19 || v19 + v12 > a1 + (unsigned int)*(unsigned __int16 *)(a1 + 2) )
+  v13 = FirstFree;
+  if ( !FirstFree || (char *)FirstFree + v12 > (char *)Acl + Acl->AclSize )
     return -1073741671;
-  *(_BYTE *)(v19 + 1) = a3;
+  *((_BYTE *)FirstFree + 1) = a3;
   *(_BYTE *)v13 = a8;
-  *(_DWORD *)(v13 + 4) = a4;
+  v13[1] = a4;
   v14 = v20;
-  *(_WORD *)(v13 + 2) = v12;
-  *(_DWORD *)(v13 + 8) = v14;
-  v15 = (_DWORD *)(v13 + 12);
+  *((_WORD *)v13 + 1) = v12;
+  v13[2] = v14;
+  v15 = v13 + 3;
   if ( a5 )
   {
     v16 = v15;
@@ -85,9 +85,9 @@ int __fastcall RtlpAddKnownObjectAce(
     *v17 = a6[2];
     v17[1] = a6[3];
   }
-  RtlCopySid(v18, v15, Src);
-  ++*(_WORD *)(a1 + 4);
+  RtlCopySid(DestinationSidLength, v15, Sid);
+  ++Acl->AceCount;
   result = 0;
-  *(_BYTE *)a1 = 4;
+  Acl->AclRevision = 4;
   return result;
 }

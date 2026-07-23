@@ -1,16 +1,16 @@
 /*
- * XREFs of PiDevCfgEnumDeviceKeys @ 0x140637764
+ * XREFs of PiDevCfgEnumDeviceKeys @ 0x140637818
  * Callers:
- *     PiDevCfgConfigureDeviceKeys @ 0x1406358F4 (PiDevCfgConfigureDeviceKeys.c)
- *     PiDevCfgResetDeviceKeys @ 0x14063D9F8 (PiDevCfgResetDeviceKeys.c)
+ *     PiDevCfgConfigureDeviceKeys @ 0x1406359A8 (PiDevCfgConfigureDeviceKeys.c)
+ *     PiDevCfgResetDeviceKeys @ 0x14063DADC (PiDevCfgResetDeviceKeys.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14002DC60 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     ZwClose @ 0x140159E60 (ZwClose.c)
- *     ZwOpenKey @ 0x140159EC0 (ZwOpenKey.c)
- *     _CmOpenDeviceRegKey @ 0x1404FCD30 (_CmOpenDeviceRegKey.c)
- *     _CmGetDeviceRegProp @ 0x1404FCE4C (_CmGetDeviceRegProp.c)
- *     _PnpCtxOpenContextBaseKey @ 0x1406D6F90 (_PnpCtxOpenContextBaseKey.c)
+ *     RtlInitUnicodeString @ 0x14002D7E0 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     ZwClose @ 0x14015A3D0 (ZwClose.c)
+ *     ZwOpenKey @ 0x14015A430 (ZwOpenKey.c)
+ *     _CmOpenDeviceRegKey @ 0x1404DFCC0 (_CmOpenDeviceRegKey.c)
+ *     _CmGetDeviceRegProp @ 0x1404DFDDC (_CmGetDeviceRegProp.c)
+ *     _PnpCtxOpenContextBaseKey @ 0x1406D70C8 (_PnpCtxOpenContextBaseKey.c)
  */
 
 __int64 __fastcall PiDevCfgEnumDeviceKeys(
@@ -45,7 +45,7 @@ __int64 __fastcall PiDevCfgEnumDeviceKeys(
   __int64 (__fastcall *v30)(__int64, __int64, __int64 *, HANDLE, HANDLE, __int64); // [rsp+B8h] [rbp-48h]
   WCHAR SourceString[40]; // [rsp+C0h] [rbp-40h] BYREF
 
-  v7 = qword_1406EB730;
+  v7 = qword_1406EB860;
   v30 = a6;
   v8 = a3;
   v28 = a7;

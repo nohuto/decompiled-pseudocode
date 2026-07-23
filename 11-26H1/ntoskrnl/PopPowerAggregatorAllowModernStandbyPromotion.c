@@ -1,7 +1,7 @@
 /*
- * XREFs of PopPowerAggregatorAllowModernStandbyPromotion @ 0x1407D6580
+ * XREFs of PopPowerAggregatorAllowModernStandbyPromotion @ 0x1407D970C
  * Callers:
- *     PopPowerAggregatorHandleModernStandbyIntent @ 0x140B719D0 (PopPowerAggregatorHandleModernStandbyIntent.c)
+ *     PopPowerAggregatorHandleModernStandbyIntent @ 0x140B761C0 (PopPowerAggregatorHandleModernStandbyIntent.c)
  * Callees:
  *     <none>
  */
@@ -30,7 +30,7 @@ char __fastcall PopPowerAggregatorAllowModernStandbyPromotion(__int64 a1, __int6
       v4 = *(_DWORD *)(a2 + 8);
       if ( v4 == 4 )
       {
-        if ( dword_140F1060C )
+        if ( *(_DWORD *)&PpmIdlePolicyLock.SavedApcStateFill[20] )
           return v2;
         return 0;
       }

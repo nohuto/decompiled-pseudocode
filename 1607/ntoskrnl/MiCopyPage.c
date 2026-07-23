@@ -1,39 +1,39 @@
 /*
- * XREFs of MiCopyPage @ 0x1400E3260
+ * XREFs of MiCopyPage @ 0x1400E1100
  * Callers:
  *     MiDuplicateCloneLeaf @ 0x14000155C (MiDuplicateCloneLeaf.c)
- *     MiWaitForInPageComplete @ 0x1400251B0 (MiWaitForInPageComplete.c)
- *     MiMigratePfn @ 0x140036E10 (MiMigratePfn.c)
- *     MiCopyOnWriteEx @ 0x1400E2730 (MiCopyOnWriteEx.c)
- *     MiCopyHeaderIfResident @ 0x1400FD5B8 (MiCopyHeaderIfResident.c)
- *     MiReplaceTransitionPage @ 0x1401074C4 (MiReplaceTransitionPage.c)
- *     MiStealPage @ 0x140107E84 (MiStealPage.c)
- *     MiTradeActivePage @ 0x14010B184 (MiTradeActivePage.c)
- *     MiPrivateFixup @ 0x14010B3F0 (MiPrivateFixup.c)
- *     MiSwapStackPageNoDpc @ 0x14010BB54 (MiSwapStackPageNoDpc.c)
- *     MiSplitDirectMapPage @ 0x1401EDA58 (MiSplitDirectMapPage.c)
- *     MiSwapNumaStandbyPage @ 0x1401F3ACC (MiSwapNumaStandbyPage.c)
- *     MiIdealClusterPage @ 0x1401F6748 (MiIdealClusterPage.c)
- *     MiFillPerSessionProtos @ 0x140661E34 (MiFillPerSessionProtos.c)
+ *     MiWaitForInPageComplete @ 0x140024D30 (MiWaitForInPageComplete.c)
+ *     MiMigratePfn @ 0x140036990 (MiMigratePfn.c)
+ *     MiCopyOnWriteEx @ 0x1400E05D0 (MiCopyOnWriteEx.c)
+ *     MiCopyHeaderIfResident @ 0x1400FB338 (MiCopyHeaderIfResident.c)
+ *     MiReplaceTransitionPage @ 0x140105244 (MiReplaceTransitionPage.c)
+ *     MiStealPage @ 0x140105C04 (MiStealPage.c)
+ *     MiTradeActivePage @ 0x140108F04 (MiTradeActivePage.c)
+ *     MiPrivateFixup @ 0x140109170 (MiPrivateFixup.c)
+ *     MiSwapStackPageNoDpc @ 0x1401098D4 (MiSwapStackPageNoDpc.c)
+ *     MiSplitDirectMapPage @ 0x1401ED884 (MiSplitDirectMapPage.c)
+ *     MiSwapNumaStandbyPage @ 0x1401F38F8 (MiSwapNumaStandbyPage.c)
+ *     MiIdealClusterPage @ 0x1401F6574 (MiIdealClusterPage.c)
+ *     MiFillPerSessionProtos @ 0x140661F18 (MiFillPerSessionProtos.c)
  *     MiReloadBootLoadedDrivers @ 0x1407A57F0 (MiReloadBootLoadedDrivers.c)
  * Callees:
- *     MiChangePageAttribute @ 0x14001D088 (MiChangePageAttribute.c)
- *     MiAbortCombineScan @ 0x14001D810 (MiAbortCombineScan.c)
- *     MiClearPfnImageVerified @ 0x14001DCB8 (MiClearPfnImageVerified.c)
- *     MiFlushEntireTbDueToAttributeChange @ 0x14001DD98 (MiFlushEntireTbDueToAttributeChange.c)
- *     MiLockPageInline @ 0x140022E70 (MiLockPageInline.c)
- *     MiGetPteFromCopyList @ 0x140034B80 (MiGetPteFromCopyList.c)
- *     MiReleasePtes @ 0x1400516D0 (MiReleasePtes.c)
- *     MiAllocateHyperSpace @ 0x14009E16C (MiAllocateHyperSpace.c)
- *     MiReservePtes @ 0x1400DDB50 (MiReservePtes.c)
- *     MiGetPagePrivilege @ 0x1400E3730 (MiGetPagePrivilege.c)
- *     MiMarkPfnVerified @ 0x14010A2D4 (MiMarkPfnVerified.c)
- *     KeSetPagePrivilege @ 0x140146DA4 (KeSetPagePrivilege.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
- *     KeCopyPage @ 0x140161F20 (KeCopyPage.c)
- *     KeCopyPrivilegedPage @ 0x1401D2040 (KeCopyPrivilegedPage.c)
- *     MiPteInShadowRange @ 0x1401EF3B8 (MiPteInShadowRange.c)
- *     MiWritePteShadow @ 0x1401EF658 (MiWritePteShadow.c)
+ *     MiChangePageAttribute @ 0x14001CC08 (MiChangePageAttribute.c)
+ *     MiAbortCombineScan @ 0x14001D390 (MiAbortCombineScan.c)
+ *     MiClearPfnImageVerified @ 0x14001D838 (MiClearPfnImageVerified.c)
+ *     MiFlushEntireTbDueToAttributeChange @ 0x14001D918 (MiFlushEntireTbDueToAttributeChange.c)
+ *     MiLockPageInline @ 0x1400229F0 (MiLockPageInline.c)
+ *     MiGetPteFromCopyList @ 0x140034700 (MiGetPteFromCopyList.c)
+ *     MiReleasePtes @ 0x140051250 (MiReleasePtes.c)
+ *     MiAllocateHyperSpace @ 0x14009D96C (MiAllocateHyperSpace.c)
+ *     MiReservePtes @ 0x1400DB9F0 (MiReservePtes.c)
+ *     MiGetPagePrivilege @ 0x1400E15D0 (MiGetPagePrivilege.c)
+ *     MiMarkPfnVerified @ 0x140108054 (MiMarkPfnVerified.c)
+ *     KeSetPagePrivilege @ 0x140147314 (KeSetPagePrivilege.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
+ *     KeCopyPage @ 0x140162490 (KeCopyPage.c)
+ *     KeCopyPrivilegedPage @ 0x1401D1E6C (KeCopyPrivilegedPage.c)
+ *     MiPteInShadowRange @ 0x1401EF1E4 (MiPteInShadowRange.c)
+ *     MiWritePteShadow @ 0x1401EF484 (MiWritePteShadow.c)
  */
 
 char __fastcall MiCopyPage(ULONG_PTR a1, ULONG_PTR a2, int *a3, char a4)
@@ -219,7 +219,7 @@ LABEL_42:
       v40 = 17;
       while ( 1 )
       {
-        v41 = MiReservePtes((__int64)&qword_140327870, v24, v13);
+        v41 = MiReservePtes((__int64)&qword_1403278B0, v24, v13);
         if ( v41 )
           break;
         v25 = v24 == 2;
@@ -254,7 +254,7 @@ LABEL_60:
     {
       LOBYTE(v22) = *((_BYTE *)a3 + 8);
       if ( (_BYTE)v22 == 17 )
-        LOBYTE(v22) = MiReleasePtes((__int64)&qword_140327870, *((_QWORD *)a3 + 2), 2u);
+        LOBYTE(v22) = MiReleasePtes((__int64)&qword_1403278B0, *((_QWORD *)a3 + 2), 2u);
       else
         __writecr8((unsigned __int8)v22);
     }

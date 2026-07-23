@@ -1,9 +1,9 @@
 /*
- * XREFs of KsepRegistryQueryMULTISZ @ 0x140578EA8
+ * XREFs of KsepRegistryQueryMULTISZ @ 0x1405793E8
  * Callers:
  *     KsepMatchInitBiosInfo @ 0x1407B775C (KsepMatchInitBiosInfo.c)
  * Callees:
- *     KsepRegistryQuerySZ @ 0x140578ED0 (KsepRegistryQuerySZ.c)
+ *     KsepRegistryQuerySZ @ 0x140579410 (KsepRegistryQuerySZ.c)
  */
 
 __int64 __fastcall KsepRegistryQueryMULTISZ(void *a1, const WCHAR *a2, __int64 a3, __int64 a4, __int64 a5)

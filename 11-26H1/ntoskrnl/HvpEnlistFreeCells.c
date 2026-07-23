@@ -1,13 +1,13 @@
 /*
- * XREFs of HvpEnlistFreeCells @ 0x1408DC600
+ * XREFs of HvpEnlistFreeCells @ 0x1408E2BC0
  * Callers:
- *     HvpBuildMapForMemoryBackedHive @ 0x14086040C (HvpBuildMapForMemoryBackedHive.c)
- *     HvpRemapAndEnlistHiveBins @ 0x1408DBDF0 (HvpRemapAndEnlistHiveBins.c)
+ *     HvpBuildMapForMemoryBackedHive @ 0x1408666FC (HvpBuildMapForMemoryBackedHive.c)
+ *     HvpRemapAndEnlistHiveBins @ 0x1408E23B0 (HvpRemapAndEnlistHiveBins.c)
  * Callees:
- *     SetFailureLocation @ 0x140494894 (SetFailureLocation.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     HvpMarkDirty @ 0x1408DAF50 (HvpMarkDirty.c)
- *     HvpEnlistFreeCell @ 0x1408DC7D0 (HvpEnlistFreeCell.c)
+ *     SetFailureLocation @ 0x14048E3E4 (SetFailureLocation.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     HvpMarkDirty @ 0x1408E1510 (HvpMarkDirty.c)
+ *     HvpEnlistFreeCell @ 0x1408E2D90 (HvpEnlistFreeCell.c)
  */
 
 __int64 __fastcall HvpEnlistFreeCells(ULONG_PTR BugCheckParameter2, __int64 a2, int a3, int a4)
@@ -45,7 +45,7 @@ LABEL_18:
     HvpEnlistFreeCell(BugCheckParameter2, i + a3);
   }
   SetFailureLocation(v4, 1, 26, -1073741492, 8);
-  if ( (a4 & 0x20000) != 0 || !BYTE2(NlsMbOemCodePageTag) && (CmpCallbackListLock.ApcStateFill[28] & 6) == 0 )
+  if ( (a4 & 0x20000) != 0 || !BYTE2(NlsMbOemCodePageTag) && (CmpContextListLock.ApcStateFill[36] & 6) == 0 )
   {
     SetFailureLocation(v4, 0, 26, -1073741492, 0);
     return 3221225804LL;

@@ -1,13 +1,13 @@
 /*
- * XREFs of MiGetLargePageWorkMapping @ 0x14013ADC0
+ * XREFs of MiGetLargePageWorkMapping @ 0x14013B330
  * Callers:
- *     MiCreateZeroThreadContext @ 0x14013AB00 (MiCreateZeroThreadContext.c)
- *     MiScrubNodeLargePageList @ 0x1401FBCA8 (MiScrubNodeLargePageList.c)
+ *     MiCreateZeroThreadContext @ 0x14013B070 (MiCreateZeroThreadContext.c)
+ *     MiScrubNodeLargePageList @ 0x1401FBAD4 (MiScrubNodeLargePageList.c)
  * Callees:
- *     MiObtainSystemVa @ 0x1400A3024 (MiObtainSystemVa.c)
- *     MiObtainDynamicVa @ 0x1400A3088 (MiObtainDynamicVa.c)
- *     MiReturnSystemVa @ 0x1400C08D0 (MiReturnSystemVa.c)
- *     MiMakeZeroedPageTables @ 0x1401022B4 (MiMakeZeroedPageTables.c)
+ *     MiObtainSystemVa @ 0x1400A194C (MiObtainSystemVa.c)
+ *     MiObtainDynamicVa @ 0x1400A19B0 (MiObtainDynamicVa.c)
+ *     MiReturnSystemVa @ 0x1400BE760 (MiReturnSystemVa.c)
+ *     MiMakeZeroedPageTables @ 0x140100034 (MiMakeZeroedPageTables.c)
  */
 
 unsigned __int64 __fastcall MiGetLargePageWorkMapping(int a1)
@@ -27,7 +27,7 @@ unsigned __int64 __fastcall MiGetLargePageWorkMapping(int a1)
   }
   else
   {
-    v3 = MiObtainDynamicVa(&qword_140326AD0, v2, 15, v2);
+    v3 = MiObtainDynamicVa(&qword_140326B10, v2, 15, v2);
     v4 = 6;
   }
   v5 = v3;

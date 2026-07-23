@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpAddMcaToProcessorSpecificSection @ 0x140502060
+ * XREFs of HalpAddMcaToProcessorSpecificSection @ 0x1405025B0
  * Callers:
- *     HalpCreateMcaProcessorErrorRecord @ 0x140502B50 (HalpCreateMcaProcessorErrorRecord.c)
+ *     HalpCreateMcaProcessorErrorRecord @ 0x1405030A0 (HalpCreateMcaProcessorErrorRecord.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     memmove @ 0x140435700 (memmove.c)
- *     memset @ 0x140435A00 (memset.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     memset @ 0x140435E00 (memset.c)
  */
 
 __int64 __fastcall HalpAddMcaToProcessorSpecificSection(__int64 a1, unsigned __int64 *a2, unsigned int *a3)

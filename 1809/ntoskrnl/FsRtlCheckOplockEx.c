@@ -1,8 +1,8 @@
 /*
- * XREFs of FsRtlCheckOplockEx @ 0x1400B7C80
+ * XREFs of FsRtlCheckOplockEx @ 0x1400B7BC0
  * Callers:
- *     FsRtlCheckOplock @ 0x1400B7BD0 (FsRtlCheckOplock.c)
- *     FsRtlpOplockFsctrlInternal @ 0x1405DC640 (FsRtlpOplockFsctrlInternal.c)
+ *     FsRtlCheckOplock @ 0x1400B7B10 (FsRtlCheckOplock.c)
+ *     FsRtlpOplockFsctrlInternal @ 0x1405DD640 (FsRtlpOplockFsctrlInternal.c)
  * Callees:
  *     ExpAcquireFastMutexContended @ 0x140005480 (ExpAcquireFastMutexContended.c)
  *     KiCheckForKernelApcDelivery @ 0x140005A50 (KiCheckForKernelApcDelivery.c)
@@ -18,22 +18,22 @@
  *     KiAbThreadRemoveBoosts @ 0x14004EFD0 (KiAbThreadRemoveBoosts.c)
  *     MmGetSessionIdEx @ 0x14004F060 (MmGetSessionIdEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
- *     FsRtlpOplockStoreKeyForDeleteOperation @ 0x1400B8730 (FsRtlpOplockStoreKeyForDeleteOperation.c)
- *     FsRtlpClearOwner @ 0x14012173C (FsRtlpClearOwner.c)
- *     FsRtlpOplockBreakToII @ 0x140130730 (FsRtlpOplockBreakToII.c)
- *     FsRtlpReleaseIrpsWaitingForRH @ 0x140133290 (FsRtlpReleaseIrpsWaitingForRH.c)
- *     FsRtlpOplockBreakToNone @ 0x14013AB0C (FsRtlpOplockBreakToNone.c)
- *     IoSetOplockKeyContext @ 0x140166C04 (IoSetOplockKeyContext.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
- *     FsRtlGetMarkHandleInfo @ 0x14026F728 (FsRtlGetMarkHandleInfo.c)
- *     EtwTraceAutoBoostEntryExhaustion @ 0x14030FA34 (EtwTraceAutoBoostEntryExhaustion.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     FsRtlFreeExtraCreateParameter @ 0x14060CFB0 (FsRtlFreeExtraCreateParameter.c)
- *     FsRtlFindExtraCreateParameter @ 0x140639830 (FsRtlFindExtraCreateParameter.c)
- *     FsRtlRemoveExtraCreateParameter @ 0x1406398C0 (FsRtlRemoveExtraCreateParameter.c)
- *     IoGetIrpExtraCreateParameter @ 0x14063ED90 (IoGetIrpExtraCreateParameter.c)
- *     FsRtlAcknowledgeEcp @ 0x1406C1FC0 (FsRtlAcknowledgeEcp.c)
+ *     FsRtlpOplockStoreKeyForDeleteOperation @ 0x1400B8670 (FsRtlpOplockStoreKeyForDeleteOperation.c)
+ *     FsRtlpClearOwner @ 0x14012180C (FsRtlpClearOwner.c)
+ *     FsRtlpOplockBreakToII @ 0x140130800 (FsRtlpOplockBreakToII.c)
+ *     FsRtlpReleaseIrpsWaitingForRH @ 0x140133360 (FsRtlpReleaseIrpsWaitingForRH.c)
+ *     FsRtlpOplockBreakToNone @ 0x14013AC0C (FsRtlpOplockBreakToNone.c)
+ *     IoSetOplockKeyContext @ 0x140166D04 (IoSetOplockKeyContext.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
+ *     FsRtlGetMarkHandleInfo @ 0x14026F918 (FsRtlGetMarkHandleInfo.c)
+ *     EtwTraceAutoBoostEntryExhaustion @ 0x14030FC24 (EtwTraceAutoBoostEntryExhaustion.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     FsRtlFreeExtraCreateParameter @ 0x14060DFB0 (FsRtlFreeExtraCreateParameter.c)
+ *     FsRtlFindExtraCreateParameter @ 0x14063A850 (FsRtlFindExtraCreateParameter.c)
+ *     FsRtlRemoveExtraCreateParameter @ 0x14063A8E0 (FsRtlRemoveExtraCreateParameter.c)
+ *     IoGetIrpExtraCreateParameter @ 0x14063FDB0 (IoGetIrpExtraCreateParameter.c)
+ *     FsRtlAcknowledgeEcp @ 0x1406C3260 (FsRtlAcknowledgeEcp.c)
  */
 
 NTSTATUS __stdcall FsRtlCheckOplockEx(
@@ -522,7 +522,7 @@ LABEL_38:
             KiCheckForKernelApcDelivery(v25);
           v26 = (volatile signed __int32 *)v57;
           if ( !_interlockedbittestandreset((volatile signed __int32 *)v57, 0) )
-            ExpAcquireFastMutexContended((ULONG_PTR)v26, v23);
+            ExpAcquireFastMutexContended((ULONG_PTR)v26, (PRTL_BALANCED_NODE)v23);
           if ( v23 )
             *(_BYTE *)(v23 + 26) |= 1u;
           *((_QWORD *)v26 + 1) = CurrentThread;
@@ -531,7 +531,7 @@ LABEL_38:
         }
         if ( v19 >= 0xFFFF800000000000uLL )
         {
-          if ( byte_14043B950[((v19 >> 39) & 0x1FF) - 256] == 1 )
+          if ( byte_14043CA10[((v19 >> 39) & 0x1FF) - 256] == 1 )
           {
             SessionId = MmGetSessionIdEx(*(_QWORD *)(v20 + 184));
             v19 = (ULONG_PTR)v57;

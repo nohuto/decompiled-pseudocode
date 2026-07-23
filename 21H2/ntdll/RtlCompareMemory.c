@@ -1,5 +1,5 @@
 /*
- * XREFs of RtlCompareMemory @ 0x1800A1FF0
+ * XREFs of RtlCompareMemory @ 0x1800A1FB0
  * Callers:
  *     RtlInitializeResource @ 0x1800112E0 (RtlInitializeResource.c)
  *     RtlpAddDebugInfoToCriticalSection @ 0x180011840 (RtlpAddDebugInfoToCriticalSection.c)
@@ -9,14 +9,14 @@
  *     RtlGetAppContainerSidType @ 0x180044680 (RtlGetAppContainerSidType.c)
  *     RtlIsPackageSid @ 0x1800841C0 (RtlIsPackageSid.c)
  *     EtwpTrackBinaryForSession @ 0x180087A68 (EtwpTrackBinaryForSession.c)
- *     CompareNamesCaseSensitive @ 0x1800E5EE8 (CompareNamesCaseSensitive.c)
- *     RtlNormalizeSecurityDescriptor @ 0x1800E6810 (RtlNormalizeSecurityDescriptor.c)
- *     RtlpCheckBusyBlockTail @ 0x1800F6A88 (RtlpCheckBusyBlockTail.c)
- *     RtlpValidateHeapHeaders @ 0x1800FABF4 (RtlpValidateHeapHeaders.c)
- *     RtlpHeapTrkTrackStack @ 0x1800FED54 (RtlpHeapTrkTrackStack.c)
- *     RtlpStdLogCapturedStackTrace @ 0x1801019E8 (RtlpStdLogCapturedStackTrace.c)
- *     RtlpRegisterStackTrace @ 0x18010AE18 (RtlpRegisterStackTrace.c)
- *     EtwpTrackDebugIdForSession @ 0x180111B68 (EtwpTrackDebugIdForSession.c)
+ *     CompareNamesCaseSensitive @ 0x1800E5EA8 (CompareNamesCaseSensitive.c)
+ *     RtlNormalizeSecurityDescriptor @ 0x1800E67D0 (RtlNormalizeSecurityDescriptor.c)
+ *     RtlpCheckBusyBlockTail @ 0x1800F6A48 (RtlpCheckBusyBlockTail.c)
+ *     RtlpValidateHeapHeaders @ 0x1800FABB4 (RtlpValidateHeapHeaders.c)
+ *     RtlpHeapTrkTrackStack @ 0x1800FED14 (RtlpHeapTrkTrackStack.c)
+ *     RtlpStdLogCapturedStackTrace @ 0x1801019A8 (RtlpStdLogCapturedStackTrace.c)
+ *     RtlpRegisterStackTrace @ 0x18010ADD8 (RtlpRegisterStackTrace.c)
+ *     EtwpTrackDebugIdForSession @ 0x180111B28 (EtwpTrackDebugIdForSession.c)
  * Callees:
  *     <none>
  */

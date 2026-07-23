@@ -1,15 +1,15 @@
 /*
- * XREFs of ?VerifyPartitionTable@SC_GPT@@QEAAJE@Z @ 0x14069CAB8
+ * XREFs of ?VerifyPartitionTable@SC_GPT@@QEAAJE@Z @ 0x14069DB44
  * Callers:
- *     ?VerifyPartitionTable@SC_DISK@@QEAAJE@Z @ 0x14069DFD0 (-VerifyPartitionTable@SC_DISK@@QEAAJE@Z.c)
+ *     ?VerifyPartitionTable@SC_DISK@@QEAAJE@Z @ 0x14069F060 (-VerifyPartitionTable@SC_DISK@@QEAAJE@Z.c)
  * Callees:
- *     crc32 @ 0x140460AF8 (crc32.c)
- *     ?ReadEntries@SC_GPT@@AEAAJPEAVGPT_HEADER@@PEAVGPT_ENTRY@@@Z @ 0x14069C61C (-ReadEntries@SC_GPT@@AEAAJPEAVGPT_HEADER@@PEAVGPT_ENTRY@@@Z.c)
- *     ?ReadHeader@SC_GPT@@AEAAJKPEAVGPT_HEADER@@@Z @ 0x14069C6A4 (-ReadHeader@SC_GPT@@AEAAJKPEAVGPT_HEADER@@@Z.c)
- *     ?WriteSectors@SC_DISK@@QEAAJK_KPEAX@Z @ 0x14069E0EC (-WriteSectors@SC_DISK@@QEAAJK_KPEAX@Z.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     ?Allocate@SC_ENV@@SAPEAX_KKEK@Z @ 0x14070DD00 (-Allocate@SC_ENV@@SAPEAX_KKEK@Z.c)
- *     PspUserApcKernelRoutine @ 0x1408A8FB0 (PspUserApcKernelRoutine.c)
+ *     crc32 @ 0x140455F88 (crc32.c)
+ *     ?ReadEntries@SC_GPT@@AEAAJPEAVGPT_HEADER@@PEAVGPT_ENTRY@@@Z @ 0x14069D6A0 (-ReadEntries@SC_GPT@@AEAAJPEAVGPT_HEADER@@PEAVGPT_ENTRY@@@Z.c)
+ *     ?ReadHeader@SC_GPT@@AEAAJKPEAVGPT_HEADER@@@Z @ 0x14069D728 (-ReadHeader@SC_GPT@@AEAAJKPEAVGPT_HEADER@@@Z.c)
+ *     ?WriteSectors@SC_DISK@@QEAAJK_KPEAX@Z @ 0x14069F17C (-WriteSectors@SC_DISK@@QEAAJK_KPEAX@Z.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     ?Allocate@SC_ENV@@SAPEAX_KKEK@Z @ 0x14070B8A0 (-Allocate@SC_ENV@@SAPEAX_KKEK@Z.c)
+ *     PspUserApcKernelRoutine @ 0x1408FF210 (PspUserApcKernelRoutine.c)
  */
 
 __int64 __fastcall SC_GPT::VerifyPartitionTable(SC_DISK **this, char a2)
@@ -19,14 +19,14 @@ __int64 __fastcall SC_GPT::VerifyPartitionTable(SC_DISK **this, char a2)
   unsigned int v6; // edi
   _DWORD *v7; // rsi
   unsigned __int8 v8; // r8
-  unsigned int v9; // r9d
+  int v9; // eax
   int v10; // edx
-  int v11; // r14d
+  int v11; // esi
   unsigned int v12; // edx
-  unsigned int v13; // r14d
+  unsigned int v13; // esi
   char *v14; // rax
-  char *v15; // rsi
-  char *v16; // r14
+  char *v15; // r14
+  char *v16; // rsi
   unsigned int v17; // edi
   SC_DISK *v18; // r9
   __int64 v19; // rbx
@@ -63,11 +63,12 @@ __int64 __fastcall SC_GPT::VerifyPartitionTable(SC_DISK **this, char a2)
     v37[v5 - 2] = v7;
     if ( (int)SC_GPT::ReadHeader(this, v5, (struct GPT_HEADER *)v7) >= 0 )
     {
+      v9 = v7[20] * v7[21];
       v10 = *((_DWORD *)*this + 59);
       v11 = v10 - 1;
       v12 = -v10;
-      v13 = v12 & (v7[20] * v7[21] + v11);
-      v14 = (char *)SC_ENV::Allocate(v13 + (1 << *((_DWORD *)*this + 60)), v12, v8, v9);
+      v13 = v12 & (v9 + v11);
+      v14 = (char *)SC_ENV::Allocate(v13 + (1 << *((_DWORD *)*this + 60)), v12, v8, 1u);
       *((_QWORD *)&v38 + v5) = v14;
       v15 = v14;
       if ( !v14 )

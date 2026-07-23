@@ -1,16 +1,16 @@
 /*
- * XREFs of KeRevertToUserAffinityThreadEx @ 0x1404AB950
+ * XREFs of KeRevertToUserAffinityThreadEx @ 0x1404A4FE0
  * Callers:
  *     <none>
  * Callees:
- *     KeRevertToUserGroupAffinityThread @ 0x14037C490 (KeRevertToUserGroupAffinityThread.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     KeRevertToUserGroupAffinityThread @ 0x14037E240 (KeRevertToUserGroupAffinityThread.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 void __stdcall KeRevertToUserAffinityThreadEx(KAFFINITY Affinity)
 {
   unsigned __int16 v1; // ax
-  struct _GROUP_AFFINITY PreviousAffinity; // [rsp+20h] [rbp-28h] BYREF
+  _GROUP_AFFINITY PreviousAffinity; // [rsp+20h] [rbp-28h] BYREF
 
   v1 = 0;
   *(_QWORD *)&PreviousAffinity.Group = 0LL;

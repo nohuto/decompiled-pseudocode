@@ -1,17 +1,17 @@
 /*
- * XREFs of MmFreeSecureKernelPages @ 0x1402C3134
+ * XREFs of MmFreeSecureKernelPages @ 0x1402C3324
  * Callers:
- *     MmAllocateSecureKernelPages @ 0x1402C2E4C (MmAllocateSecureKernelPages.c)
- *     PspIumAllocatePhysicalPages @ 0x1402EB64C (PspIumAllocatePhysicalPages.c)
- *     PspIumFreePartitionState @ 0x1402EB864 (PspIumFreePartitionState.c)
- *     PspIumFreePhysicalPages @ 0x1402EB92C (PspIumFreePhysicalPages.c)
+ *     MmAllocateSecureKernelPages @ 0x1402C303C (MmAllocateSecureKernelPages.c)
+ *     PspIumAllocatePhysicalPages @ 0x1402EB83C (PspIumAllocatePhysicalPages.c)
+ *     PspIumFreePartitionState @ 0x1402EBA54 (PspIumFreePartitionState.c)
+ *     PspIumFreePhysicalPages @ 0x1402EBB1C (PspIumFreePhysicalPages.c)
  * Callees:
  *     MiFreeSmallPageFromMdl @ 0x140029F10 (MiFreeSmallPageFromMdl.c)
  *     MiFreePagesFromMdl @ 0x14002A000 (MiFreePagesFromMdl.c)
  *     MiLockPageInline @ 0x14002CE40 (MiLockPageInline.c)
  *     MiIsPfnFromSlabAllocation @ 0x14003120C (MiIsPfnFromSlabAllocation.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MmFreeSecureKernelPages(ULONG_PTR a1, int a2)
@@ -35,7 +35,7 @@ __int64 __fastcall MmFreeSecureKernelPages(ULONG_PTR a1, int a2)
   v2 = (ULONG_PTR *)(a1 + 48);
   v4 = a1;
   v5 = a1 + 48 + 8 * ((unsigned __int64)*(unsigned int *)(a1 + 40) >> 12);
-  result = *(unsigned int *)(*(_QWORD *)(qword_14043A748
+  result = *(unsigned int *)(*(_QWORD *)(qword_14043B808
                                        + 8
                                        * ((*(_QWORD *)(48LL * *(_QWORD *)(a1 + 48) - 0x57FFFFFFFD8LL) >> 40) & 0x3FFLL))
                            + 4LL);
@@ -62,7 +62,7 @@ __int64 __fastcall MmFreeSecureKernelPages(ULONG_PTR a1, int a2)
           }
           __writecr8(v9);
         }
-        _InterlockedDecrement64(&qword_14043A180);
+        _InterlockedDecrement64(&qword_14043B240);
         result = MiFreeSmallPageFromMdl(*v2, 0);
       }
       else

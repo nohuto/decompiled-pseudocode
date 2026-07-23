@@ -1,7 +1,7 @@
 /*
- * XREFs of PopNetIsCompliantNicPresent @ 0x140AA18E4
+ * XREFs of PopNetIsCompliantNicPresent @ 0x140A9CC74
  * Callers:
- *     PopCaptureSleepStudyStatistics @ 0x14032DC2C (PopCaptureSleepStudyStatistics.c)
+ *     PopCaptureSleepStudyStatistics @ 0x1402B63C0 (PopCaptureSleepStudyStatistics.c)
  * Callees:
  *     <none>
  */

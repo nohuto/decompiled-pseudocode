@@ -1,17 +1,17 @@
 /*
- * XREFs of RtlpHpLfhSubsegmentDelayFreeProcess @ 0x18004D160
+ * XREFs of RtlpHpLfhSubsegmentDelayFreeProcess @ 0x180062D40
  * Callers:
- *     RtlpHpLfhSlotAllocateSlow @ 0x18004B690 (RtlpHpLfhSlotAllocateSlow.c)
- *     RtlpHpLfhOwnerGetSubsegment @ 0x18004CC40 (RtlpHpLfhOwnerGetSubsegment.c)
- *     RtlpHpLfhOwnerRunMaintenance @ 0x18004D870 (RtlpHpLfhOwnerRunMaintenance.c)
- *     RtlpHpLfhOwnerFreeListProcess @ 0x18004E2B0 (RtlpHpLfhOwnerFreeListProcess.c)
- *     RtlpHpLfhOwnerCompact @ 0x1800506A0 (RtlpHpLfhOwnerCompact.c)
+ *     RtlpHpLfhSlotAllocateSlow @ 0x180061270 (RtlpHpLfhSlotAllocateSlow.c)
+ *     RtlpHpLfhOwnerGetSubsegment @ 0x180062820 (RtlpHpLfhOwnerGetSubsegment.c)
+ *     RtlpHpLfhOwnerRunMaintenance @ 0x180063450 (RtlpHpLfhOwnerRunMaintenance.c)
+ *     RtlpHpLfhOwnerFreeListProcess @ 0x180063E90 (RtlpHpLfhOwnerFreeListProcess.c)
+ *     RtlpHpLfhOwnerCompact @ 0x180066280 (RtlpHpLfhOwnerCompact.c)
  * Callees:
- *     RtlpLogHeapFailure @ 0x18002A380 (RtlpLogHeapFailure.c)
- *     RtlpHpLfhSubsegmentDecommitPages @ 0x18004D510 (RtlpHpLfhSubsegmentDecommitPages.c)
- *     RtlpHpLfhSubsegmentDelayFreeListBatch @ 0x18004E040 (RtlpHpLfhSubsegmentDelayFreeListBatch.c)
- *     RtlpHpLfhContextUpdateFreeCommitCount @ 0x180056220 (RtlpHpLfhContextUpdateFreeCommitCount.c)
- *     memset$thunk$772440563353939046 @ 0x180172030 (memset$thunk$772440563353939046.c)
+ *     RtlpLogHeapFailure @ 0x180056D80 (RtlpLogHeapFailure.c)
+ *     RtlpHpLfhSubsegmentDecommitPages @ 0x1800630F0 (RtlpHpLfhSubsegmentDecommitPages.c)
+ *     RtlpHpLfhSubsegmentDelayFreeListBatch @ 0x180063C20 (RtlpHpLfhSubsegmentDelayFreeListBatch.c)
+ *     RtlpHpLfhContextUpdateFreeCommitCount @ 0x18006BE00 (RtlpHpLfhContextUpdateFreeCommitCount.c)
+ *     memset$thunk$772440563353939046 @ 0x180171030 (memset$thunk$772440563353939046.c)
  */
 
 __int64 __fastcall RtlpHpLfhSubsegmentDelayFreeProcess(__int64 *a1, unsigned __int64 a2, int a3)
@@ -53,10 +53,10 @@ __int64 __fastcall RtlpHpLfhSubsegmentDelayFreeProcess(__int64 *a1, unsigned __i
     {
       v7 = _InterlockedExchange((volatile __int32 *)(a2 + 16), 0);
       v29 = a2 >> 12;
-      v8 = (unsigned int)qword_1801CDEC8 ^ *(_DWORD *)(a2 + 40) ^ (unsigned int)(a2 >> 12);
+      v8 = (unsigned int)qword_1801CCEC8 ^ *(_DWORD *)(a2 + 40) ^ (unsigned int)(a2 >> 12);
       v9 = *(unsigned __int16 *)(a2 + 34);
       v10 = *(_BYTE *)(a2 + 51);
-      v11 = (unsigned __int16)(qword_1801CDEC8 ^ *(_WORD *)(a2 + 40) ^ (a2 >> 12));
+      v11 = (unsigned __int16)(qword_1801CCEC8 ^ *(_WORD *)(a2 + 40) ^ (a2 >> 12));
       v12 = v10 & 1;
       v13 = a2 + (v8 >> 16);
       v32 = HIWORD(v7);
@@ -109,7 +109,7 @@ LABEL_25:
             v23 = &v20[2
                      * ((((_DWORD)v16
                         - (_DWORD)a2
-                        + (*(unsigned __int16 *)(a2 + 40) ^ (unsigned __int16)v29 ^ (unsigned int)(unsigned __int16)qword_1801CDEC8)
+                        + (*(unsigned __int16 *)(a2 + 40) ^ (unsigned __int16)v29 ^ (unsigned int)(unsigned __int16)qword_1801CCEC8)
                         - 1) >> 12 >> v17)
                       - (unsigned int)v18)
                      + 2];

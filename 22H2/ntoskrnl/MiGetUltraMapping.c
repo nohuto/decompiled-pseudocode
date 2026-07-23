@@ -59,8 +59,8 @@ __int64 __fastcall MiGetUltraMapping(unsigned __int64 *a1, unsigned int a2, __in
   __int64 v29; // r9
   __int64 v30; // rdx
   unsigned __int64 v31; // rbx
-  __int64 SetBitsAndClear; // rax
-  __int64 v33; // r13
+  ULONG64 SetBitsAndClear; // rax
+  ULONG64 v33; // r13
   unsigned __int64 OldIrql; // rbx
   unsigned __int64 v35; // r13
   __int64 v36; // rdi
@@ -92,7 +92,7 @@ __int64 __fastcall MiGetUltraMapping(unsigned __int64 *a1, unsigned int a2, __in
   bool v62; // zf
   unsigned __int64 v63; // r9
   unsigned __int64 i; // r8
-  _QWORD *v65; // rdx
+  unsigned __int64 *v65; // rdx
   __int64 v66; // rcx
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
@@ -257,20 +257,20 @@ LABEL_20:
   {
     while ( 1 )
     {
-      SetBitsAndClear = RtlFindSetBitsAndClearEx(&qword_140C4EC08, 1LL, qword_140C4EC00);
+      SetBitsAndClear = RtlFindSetBitsAndClearEx(&BitMapHeader, 1uLL, HintIndex);
       v33 = SetBitsAndClear;
-      if ( SetBitsAndClear != -1 )
+      if ( SetBitsAndClear != -1LL )
         break;
       KeFlushTb(0, 2u);
       v63 = 0LL;
-      for ( i = (unsigned __int64)qword_140C4EC08 >> 6; v63 < i; *v65 |= v66 )
+      for ( i = BitMapHeader.SizeOfBitMap >> 6; v63 < i; *v65 |= v66 )
       {
-        v65 = (_QWORD *)(qword_140C4EC10 + 8 * v63);
+        v65 = &BitMapHeader.Buffer[v63];
         v66 = *((_QWORD *)qword_140C4EC20 + v63++);
       }
       memset(qword_140C4EC20, 0, 4 * (((unsigned __int64)qword_140C4EC18 >> 5) + ((qword_140C4EC18 & 0x1F) != 0)));
     }
-    qword_140C4EC00 = SetBitsAndClear + 1;
+    HintIndex = SetBitsAndClear + 1;
     KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
     OldIrql = LockHandle.OldIrql;
     if ( KiIrqlFlags )

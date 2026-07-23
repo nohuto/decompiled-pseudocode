@@ -18,13 +18,13 @@ __int64 __fastcall MiDeleteAweInfoPages(__int64 a1)
 {
   struct _KTHREAD *CurrentThread; // rbp
   __int64 v2; // rdi
-  unsigned __int64 v3; // r13
+  ULONG64 v3; // r13
   __int64 v4; // r15
-  _DWORD *v5; // r14
+  _RTL_BITMAP_EX *v5; // r14
   __int64 v6; // rax
-  int v7; // ecx
-  unsigned __int64 *v8; // r12
-  unsigned __int64 SetBits; // rax
+  int SizeOfBitMap; // ecx
+  _RTL_BITMAP_EX *v8; // r12
+  ULONG64 SetBits; // rax
   unsigned __int64 v10; // rbx
   unsigned __int64 NextForwardRunClear; // rax
   unsigned __int64 v12; // rsi
@@ -47,14 +47,14 @@ __int64 __fastcall MiDeleteAweInfoPages(__int64 a1)
   v3 = 0LL;
   v4 = 0LL;
   v23 = CurrentThread;
-  v5 = (_DWORD *)a1;
+  v5 = (_RTL_BITMAP_EX *)a1;
   AweInfoPartition = MiGetAweInfoPartition(a1);
   MiLockAwePagesExclusive((__int64)v5, (__int64)CurrentThread);
   v6 = ExGetCallBackBlockRoutine((__int64)v5);
-  v7 = *v5;
-  v8 = (unsigned __int64 *)(v5 + 4);
+  SizeOfBitMap = v5->SizeOfBitMap;
+  v8 = v5 + 1;
   v26 = v6;
-  if ( (v7 & 1) == 0 || *(_QWORD *)&KeGetCurrentThread()->ApcState.Process[1].Spare2[39] )
+  if ( (SizeOfBitMap & 1) == 0 || *(_QWORD *)&KeGetCurrentThread()->ApcState.Process[1].Spare2[39] )
   {
     do
     {
@@ -66,7 +66,7 @@ __int64 __fastcall MiDeleteAweInfoPages(__int64 a1)
       v12 = v25;
       v13 = NextForwardRunClear;
       if ( !NextForwardRunClear )
-        v12 = *v8;
+        v12 = v8->SizeOfBitMap;
       v14 = v12 - v10;
       RtlClearBitsEx((__int64)v8, v10, v14);
       v15 = v26;
@@ -94,12 +94,12 @@ __int64 __fastcall MiDeleteAweInfoPages(__int64 a1)
           --v14;
         }
         while ( v14 );
-        v5 = (_DWORD *)a1;
-        v8 = (unsigned __int64 *)(a1 + 16);
+        v5 = (_RTL_BITMAP_EX *)a1;
+        v8 = (_RTL_BITMAP_EX *)(a1 + 16);
       }
       MiFreeMdlPageRun(v16, v17, 0);
     }
-    while ( v3 < *v8 );
+    while ( v3 < v8->SizeOfBitMap );
     if ( v4 )
     {
       _InterlockedExchangeAdd64((volatile signed __int64 *)(AweInfoPartition + 7608), -v4);

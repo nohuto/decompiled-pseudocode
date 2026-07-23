@@ -1,41 +1,41 @@
 /*
- * XREFs of MiWriteComplete @ 0x1402F4320
+ * XREFs of MiWriteComplete @ 0x1402F45B0
  * Callers:
- *     MiGatherMappedPages @ 0x140297D24 (MiGatherMappedPages.c)
- *     MiGatherPagefilePages @ 0x14063A144 (MiGatherPagefilePages.c)
- *     MiStoreWriteModifiedCompleteApc @ 0x14065CDF0 (MiStoreWriteModifiedCompleteApc.c)
+ *     MiGatherMappedPages @ 0x140297FB4 (MiGatherMappedPages.c)
+ *     MiGatherPagefilePages @ 0x14063A694 (MiGatherPagefilePages.c)
+ *     MiStoreWriteModifiedCompleteApc @ 0x14065D340 (MiStoreWriteModifiedCompleteApc.c)
  * Callees:
- *     KeSetEvent @ 0x14023C5E0 (KeSetEvent.c)
- *     ExAcquireSpinLockExclusive @ 0x14024D360 (ExAcquireSpinLockExclusive.c)
- *     MiUpdatePageFileHighInPte @ 0x14028563C (MiUpdatePageFileHighInPte.c)
- *     MiSwizzleInvalidPte @ 0x1402857A0 (MiSwizzleInvalidPte.c)
- *     MiTransferSoftwarePte @ 0x1402857D0 (MiTransferSoftwarePte.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402894C0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     MiReleasePageFileInfo @ 0x1402952DC (MiReleasePageFileInfo.c)
- *     MiReferenceControlAreaFileWithTag @ 0x1402A23F0 (MiReferenceControlAreaFileWithTag.c)
- *     ObFastDereferenceObjectDeferDelete @ 0x1402A2500 (ObFastDereferenceObjectDeferDelete.c)
- *     ExQueueWorkItem @ 0x1402B7C30 (ExQueueWorkItem.c)
- *     MmUnmapLockedPages @ 0x1402CB700 (MmUnmapLockedPages.c)
- *     MiAllocatePool @ 0x1402DF1A0 (MiAllocatePool.c)
- *     MiReleaseControlAreaWaiters @ 0x1402E3F2C (MiReleaseControlAreaWaiters.c)
- *     MiLockPageInline @ 0x1402EF680 (MiLockPageInline.c)
- *     CcNotifyOfMappedWriteComplete @ 0x1402F4158 (CcNotifyOfMappedWriteComplete.c)
- *     MiWriteCompletePfn @ 0x1402F4750 (MiWriteCompletePfn.c)
- *     MiDecrementModifiedWriteCount @ 0x1402F4824 (MiDecrementModifiedWriteCount.c)
- *     MiFreeModWriterEntry @ 0x1402F489C (MiFreeModWriterEntry.c)
- *     MiReleaseWriteInProgressCharges @ 0x1402F48D8 (MiReleaseWriteInProgressCharges.c)
- *     MiIsRetryIoStatus @ 0x1402F4998 (MiIsRetryIoStatus.c)
- *     MmIsWriteErrorFatal @ 0x1402F49DC (MmIsWriteErrorFatal.c)
- *     FsRtlReleaseFileForModWrite @ 0x1402F4A7C (FsRtlReleaseFileForModWrite.c)
- *     KeSignalGate @ 0x14035D33C (KeSignalGate.c)
- *     MiStoreCheckCompleteWriteBatch @ 0x1403B28A4 (MiStoreCheckCompleteWriteBatch.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     MiRetardMdl @ 0x14061C9C0 (MiRetardMdl.c)
- *     MiSetDeleteOnClose @ 0x140625DEC (MiSetDeleteOnClose.c)
- *     MiMakePagefileWriterEntryAvailable @ 0x14063B028 (MiMakePagefileWriterEntryAvailable.c)
- *     MiStoreDecrementOutstandingWrites @ 0x14065C000 (MiStoreDecrementOutstandingWrites.c)
- *     MI_PAGEFILE_WRITE @ 0x140661128 (MI_PAGEFILE_WRITE.c)
+ *     KeSetEvent @ 0x14023C6B0 (KeSetEvent.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024D430 (ExAcquireSpinLockExclusive.c)
+ *     MiUpdatePageFileHighInPte @ 0x1402858CC (MiUpdatePageFileHighInPte.c)
+ *     MiSwizzleInvalidPte @ 0x140285A30 (MiSwizzleInvalidPte.c)
+ *     MiTransferSoftwarePte @ 0x140285A60 (MiTransferSoftwarePte.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140289750 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiReleasePageFileInfo @ 0x14029556C (MiReleasePageFileInfo.c)
+ *     MiReferenceControlAreaFileWithTag @ 0x1402A2680 (MiReferenceControlAreaFileWithTag.c)
+ *     ObFastDereferenceObjectDeferDelete @ 0x1402A2790 (ObFastDereferenceObjectDeferDelete.c)
+ *     ExQueueWorkItem @ 0x1402B7EC0 (ExQueueWorkItem.c)
+ *     MmUnmapLockedPages @ 0x1402CB990 (MmUnmapLockedPages.c)
+ *     MiAllocatePool @ 0x1402DF430 (MiAllocatePool.c)
+ *     MiReleaseControlAreaWaiters @ 0x1402E41BC (MiReleaseControlAreaWaiters.c)
+ *     MiLockPageInline @ 0x1402EF910 (MiLockPageInline.c)
+ *     CcNotifyOfMappedWriteComplete @ 0x1402F43E8 (CcNotifyOfMappedWriteComplete.c)
+ *     MiWriteCompletePfn @ 0x1402F49E0 (MiWriteCompletePfn.c)
+ *     MiDecrementModifiedWriteCount @ 0x1402F4AB4 (MiDecrementModifiedWriteCount.c)
+ *     MiFreeModWriterEntry @ 0x1402F4B2C (MiFreeModWriterEntry.c)
+ *     MiReleaseWriteInProgressCharges @ 0x1402F4B68 (MiReleaseWriteInProgressCharges.c)
+ *     MiIsRetryIoStatus @ 0x1402F4C28 (MiIsRetryIoStatus.c)
+ *     MmIsWriteErrorFatal @ 0x1402F4C6C (MmIsWriteErrorFatal.c)
+ *     FsRtlReleaseFileForModWrite @ 0x1402F4D0C (FsRtlReleaseFileForModWrite.c)
+ *     KeSignalGate @ 0x14035D4DC (KeSignalGate.c)
+ *     MiStoreCheckCompleteWriteBatch @ 0x1403B2A84 (MiStoreCheckCompleteWriteBatch.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
+ *     MiRetardMdl @ 0x14061CF10 (MiRetardMdl.c)
+ *     MiSetDeleteOnClose @ 0x14062633C (MiSetDeleteOnClose.c)
+ *     MiMakePagefileWriterEntryAvailable @ 0x14063B578 (MiMakePagefileWriterEntryAvailable.c)
+ *     MiStoreDecrementOutstandingWrites @ 0x14065C550 (MiStoreDecrementOutstandingWrites.c)
+ *     MI_PAGEFILE_WRITE @ 0x140661678 (MI_PAGEFILE_WRITE.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 
@@ -246,10 +246,10 @@ LABEL_22:
 LABEL_20:
     v20 = MiWriteCompletePfn(v19);
     _InterlockedAnd64((volatile signed __int64 *)(v56 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v57 <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v57 <= 0xFu && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -406,10 +406,10 @@ LABEL_122:
       *(_BYTE *)(v5 + v25 + 2) = 1;
 LABEL_123:
       ExReleaseSpinLockExclusiveFromDpcLevel(v41);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v47 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v47 <= 0xFu && (unsigned __int8)v44 <= 0xFu && v47 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v47 <= 0xFu && (unsigned __int8)v44 <= 0xFu && v47 >= 2u )
         {
           v48 = KeGetCurrentPrcb();
           v49 = v48->SchedulerAssist;

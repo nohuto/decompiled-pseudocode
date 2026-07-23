@@ -1,16 +1,16 @@
 /*
- * XREFs of ExIsResourceAcquiredSharedLite @ 0x14043CCB0
+ * XREFs of ExIsResourceAcquiredSharedLite @ 0x14042F560
  * Callers:
- *     DifExIsResourceAcquiredSharedLiteWrapper @ 0x140652D70 (DifExIsResourceAcquiredSharedLiteWrapper.c)
- *     PnpUnlinkDeviceRemovalRelations @ 0x14091129C (PnpUnlinkDeviceRemovalRelations.c)
- *     FsRtlAcquireFileForCcFlushEx @ 0x140A5D320 (FsRtlAcquireFileForCcFlushEx.c)
- *     PpDevNodeLockTree @ 0x140A88424 (PpDevNodeLockTree.c)
- *     PnpRestartDeviceNode @ 0x140B218FC (PnpRestartDeviceNode.c)
+ *     DifExIsResourceAcquiredSharedLiteWrapper @ 0x140656950 (DifExIsResourceAcquiredSharedLiteWrapper.c)
+ *     PnpUnlinkDeviceRemovalRelations @ 0x1409B337C (PnpUnlinkDeviceRemovalRelations.c)
+ *     FsRtlAcquireFileForCcFlushEx @ 0x140A6A2E0 (FsRtlAcquireFileForCcFlushEx.c)
+ *     PpDevNodeLockTree @ 0x140A8F554 (PpDevNodeLockTree.c)
+ *     PnpRestartDeviceNode @ 0x140B23CFC (PnpRestartDeviceNode.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     ExpIsResourceAcquiredSharedLite @ 0x14043CD80 (ExpIsResourceAcquiredSharedLite.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     ExpIsResourceAcquiredSharedLite @ 0x14042F630 (ExpIsResourceAcquiredSharedLite.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
  */
 
 ULONG __stdcall ExIsResourceAcquiredSharedLite(PERESOURCE Resource)

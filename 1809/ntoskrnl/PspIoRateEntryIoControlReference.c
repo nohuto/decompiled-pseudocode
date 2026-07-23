@@ -1,8 +1,8 @@
 /*
- * XREFs of PspIoRateEntryIoControlReference @ 0x140105B1C
+ * XREFs of PspIoRateEntryIoControlReference @ 0x140105B9C
  * Callers:
- *     PsIoRateControlReference @ 0x140105A5C (PsIoRateControlReference.c)
- *     PspJobIoRateVolumeEntryReference @ 0x1402EA47C (PspJobIoRateVolumeEntryReference.c)
+ *     PsIoRateControlReference @ 0x140105ADC (PsIoRateControlReference.c)
+ *     PspJobIoRateVolumeEntryReference @ 0x1402EA66C (PspJobIoRateVolumeEntryReference.c)
  * Callees:
  *     ExAcquireRundownProtection_0 @ 0x14004D320 (ExAcquireRundownProtection_0.c)
  */

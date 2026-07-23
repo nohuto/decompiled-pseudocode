@@ -1,17 +1,17 @@
 /*
- * XREFs of KiCollectTriageDumpDataBlocks @ 0x1405E7B6C
+ * XREFs of KiCollectTriageDumpDataBlocks @ 0x1405EA4DC
  * Callers:
- *     KeBugCheck2 @ 0x1405E5F10 (KeBugCheck2.c)
+ *     KeBugCheck2 @ 0x1405E8880 (KeBugCheck2.c)
  * Callees:
- *     PsGetCurrentServerSiloGlobals @ 0x1402150C0 (PsGetCurrentServerSiloGlobals.c)
- *     MmIsAddressValidEx @ 0x14034DFD0 (MmIsAddressValidEx.c)
- *     IoAddTriageDumpDataBlock @ 0x14044AB54 (IoAddTriageDumpDataBlock.c)
- *     KiIsAddressRangeValid @ 0x1404B11EC (KiIsAddressRangeValid.c)
- *     KiMarkBugCheckRegions @ 0x1405407FC (KiMarkBugCheckRegions.c)
- *     IopAddBugcheckTriageThread @ 0x1405D44EC (IopAddBugcheckTriageThread.c)
- *     KiCollectFullProcessName @ 0x1405E7B24 (KiCollectFullProcessName.c)
- *     KiSaveCurrentEtwTraceBuffer @ 0x1405E8920 (KiSaveCurrentEtwTraceBuffer.c)
- *     PopInternalAddToDumpFile @ 0x140600824 (PopInternalAddToDumpFile.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x1402153F0 (PsGetCurrentServerSiloGlobals.c)
+ *     MmIsAddressValidEx @ 0x140350050 (MmIsAddressValidEx.c)
+ *     IoAddTriageDumpDataBlock @ 0x140442C84 (IoAddTriageDumpDataBlock.c)
+ *     KiIsAddressRangeValid @ 0x1404AA87C (KiIsAddressRangeValid.c)
+ *     KiMarkBugCheckRegions @ 0x140542C7C (KiMarkBugCheckRegions.c)
+ *     IopAddBugcheckTriageThread @ 0x1405D6CDC (IopAddBugcheckTriageThread.c)
+ *     KiCollectFullProcessName @ 0x1405EA494 (KiCollectFullProcessName.c)
+ *     KiSaveCurrentEtwTraceBuffer @ 0x1405EB290 (KiSaveCurrentEtwTraceBuffer.c)
+ *     PopInternalAddToDumpFile @ 0x1406032D4 (PopInternalAddToDumpFile.c)
  */
 
 char __fastcall KiCollectTriageDumpDataBlocks(int a1, char a2)
@@ -23,7 +23,7 @@ char __fastcall KiCollectTriageDumpDataBlocks(int a1, char a2)
   int v8; // ebx
   struct _LIST_ENTRY *Flink; // rcx
   __int64 Blink_low; // rdx
-  unsigned __int64 QuantumTarget; // rbx
+  __int64 v11; // rbx
   struct _LIST_ENTRY *CurrentServerSiloGlobals; // rbx
   struct _KTHREAD *CurrentThread; // rdi
   _KPROCESS *Process; // rcx
@@ -64,7 +64,7 @@ LABEL_18:
           IopAddBugcheckTriageThread(*(__int64 *)&KeSwapProcessOrStackThread);
           goto LABEL_30;
         }
-        if ( KiDpcWatchdogConfigurationLock.Header.WaitListHead.Blink == (struct _LIST_ENTRY *)396 )
+        if ( qword_140F4B108 == 396 )
         {
           if ( KdpBreakpointChangeCount )
             IoAddTriageDumpDataBlock((ULONG)&KdpBreakpointChangeCount, (PVOID)4);
@@ -79,25 +79,20 @@ LABEL_29:
           }
         }
       }
-      else if ( KiDpcWatchdogConfigurationLock.Header.WaitListHead.Blink == (struct _LIST_ENTRY *)4
-             || KiDpcWatchdogConfigurationLock.Header.WaitListHead.Blink == (struct _LIST_ENTRY *)100 )
+      else if ( qword_140F4B108 == 4 || qword_140F4B108 == 100 )
       {
         goto LABEL_18;
       }
     }
     else
     {
-      KiMarkBugCheckRegions(
-        (__int64)KiDpcWatchdogConfigurationLock.Header.WaitListHead.Blink,
-        (__int64)KiDpcWatchdogConfigurationLock.SListFaultAddress,
-        KiDpcWatchdogConfigurationLock.QuantumTarget,
-        (__int64)KiDpcWatchdogConfigurationLock.InitialStack);
-      if ( KiDpcWatchdogConfigurationLock.InitialStack == (void *)47 )
+      KiMarkBugCheckRegions(qword_140F4B108, qword_140F4B110, qword_140F4B118, qword_140F4B120);
+      if ( qword_140F4B120 == 47 )
       {
-        QuantumTarget = KiDpcWatchdogConfigurationLock.QuantumTarget;
-        if ( MmIsAddressValidEx(KiDpcWatchdogConfigurationLock.QuantumTarget + 1288) )
+        v11 = qword_140F4B118;
+        if ( MmIsAddressValidEx(qword_140F4B118 + 1288) )
         {
-          Flink = *(struct _LIST_ENTRY **)(QuantumTarget + 1288);
+          Flink = *(struct _LIST_ENTRY **)(v11 + 1288);
           Blink_low = 4096LL;
           goto LABEL_29;
         }

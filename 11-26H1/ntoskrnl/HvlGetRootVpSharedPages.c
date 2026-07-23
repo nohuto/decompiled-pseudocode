@@ -1,12 +1,12 @@
 /*
- * XREFs of HvlGetRootVpSharedPages @ 0x1405B92C8
+ * XREFs of HvlGetRootVpSharedPages @ 0x1405BBB38
  * Callers:
- *     HvlInitializeProcessor @ 0x1407918C4 (HvlInitializeProcessor.c)
+ *     HvlInitializeProcessor @ 0x1407943F4 (HvlInitializeProcessor.c)
  * Callees:
- *     HvlpReleaseHypercallPage @ 0x14032B890 (HvlpReleaseHypercallPage.c)
- *     HvlpAcquireHypercallPage @ 0x14032B970 (HvlpAcquireHypercallPage.c)
- *     HvcallInitiateHypercall @ 0x14032BB00 (HvcallInitiateHypercall.c)
- *     HvlpHvToNtStatus @ 0x1403E7DC0 (HvlpHvToNtStatus.c)
+ *     HvlpHvToNtStatus @ 0x1402F4CA0 (HvlpHvToNtStatus.c)
+ *     HvlpReleaseHypercallPage @ 0x14032D8C0 (HvlpReleaseHypercallPage.c)
+ *     HvlpAcquireHypercallPage @ 0x14032D9A0 (HvlpAcquireHypercallPage.c)
+ *     HvcallInitiateHypercall @ 0x14032DB30 (HvcallInitiateHypercall.c)
  */
 
 __int64 __fastcall HvlGetRootVpSharedPages(unsigned int a1, _QWORD *a2, _QWORD *a3)

@@ -1,13 +1,13 @@
 /*
- * XREFs of EtwpSwitchBuffer @ 0x18005CE98
+ * XREFs of EtwpSwitchBuffer @ 0x18005CE88
  * Callers:
- *     EtwpReserveTraceBuffer @ 0x18005BD10 (EtwpReserveTraceBuffer.c)
+ *     EtwpReserveTraceBuffer @ 0x18005BD00 (EtwpReserveTraceBuffer.c)
  * Callees:
- *     RtlEnterCriticalSection @ 0x180019B50 (RtlEnterCriticalSection.c)
- *     RtlLeaveCriticalSection @ 0x180019DC0 (RtlLeaveCriticalSection.c)
- *     EtwpAllocateFreeBuffers @ 0x1800547A8 (EtwpAllocateFreeBuffers.c)
- *     EtwpDequeueFreeBuffer @ 0x18005CFFC (EtwpDequeueFreeBuffer.c)
- *     RtlSleepConditionVariableCS @ 0x180062AF0 (RtlSleepConditionVariableCS.c)
+ *     RtlEnterCriticalSection @ 0x180019B40 (RtlEnterCriticalSection.c)
+ *     RtlLeaveCriticalSection @ 0x180019DB0 (RtlLeaveCriticalSection.c)
+ *     EtwpAllocateFreeBuffers @ 0x180054798 (EtwpAllocateFreeBuffers.c)
+ *     EtwpDequeueFreeBuffer @ 0x18005CFEC (EtwpDequeueFreeBuffer.c)
+ *     RtlSleepConditionVariableCS @ 0x180062AE0 (RtlSleepConditionVariableCS.c)
  *     ZwSetEvent @ 0x1800A65E0 (ZwSetEvent.c)
  */
 
@@ -25,7 +25,7 @@ char __fastcall EtwpSwitchBuffer(__int64 a1, __int64 a2, unsigned int a3)
   v5 = (*(_DWORD *)(a1 + 324) & 0x400) != 0;
   v6 = a3;
   v7 = 0;
-  RtlEnterCriticalSection(a1 + 88);
+  RtlEnterCriticalSection((PRTL_CRITICAL_SECTION)(a1 + 88));
   v9 = *(_QWORD *)(a1 + 8 * v6 + 528);
   v10 = (unsigned int)v6;
   while ( !v9 || a2 == v9 )
@@ -75,17 +75,17 @@ LABEL_4:
       v4 = 0;
       break;
     }
-    RtlSleepConditionVariableCS(a1 + 80, a1 + 88, 0LL);
+    RtlSleepConditionVariableCS((PRTL_CONDITION_VARIABLE)(a1 + 80), (PRTL_CRITICAL_SECTION)(a1 + 88), 0LL);
     v9 = *(_QWORD *)(a1 + 8 * v10 + 528);
   }
-  RtlLeaveCriticalSection(a1 + 88);
+  RtlLeaveCriticalSection((PRTL_CRITICAL_SECTION)(a1 + 88));
   if ( a2 )
     _InterlockedDecrement((volatile signed __int32 *)(a2 + 12));
   if ( v7
     && (!*(_DWORD *)(a1 + 368)
      || (unsigned int)(*(_DWORD *)(a1 + 224) - *(_DWORD *)(a1 + 204) - *(_DWORD *)(a1 + 228)) >= *(_DWORD *)(a1 + 368)) )
   {
-    ZwSetEvent(*(_QWORD *)(a1 + 128), 0LL);
+    ZwSetEvent(*(HANDLE *)(a1 + 128), 0LL);
   }
   return v4;
 }

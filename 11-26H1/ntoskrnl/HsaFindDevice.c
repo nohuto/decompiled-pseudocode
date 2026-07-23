@@ -1,9 +1,9 @@
 /*
- * XREFs of HsaFindDevice @ 0x1405A9730
+ * XREFs of HsaFindDevice @ 0x1405ABF40
  * Callers:
  *     <none>
  * Callees:
- *     HsaIommuFindDevice @ 0x1405AA258 (HsaIommuFindDevice.c)
+ *     HsaIommuFindDevice @ 0x1405ACA68 (HsaIommuFindDevice.c)
  */
 
 __int64 __fastcall HsaFindDevice(__int64 a1, __int64 a2, __int64 a3, int *a4)

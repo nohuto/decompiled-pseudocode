@@ -7,10 +7,10 @@
  *     PspQueryJobHierarchyAccountingInformation @ 0x1406A2AC0 (PspQueryJobHierarchyAccountingInformation.c)
  *     PspRemoveProcessFromJobChain @ 0x1406A2DB0 (PspRemoveProcessFromJobChain.c)
  *     NtSetInformationJobObject @ 0x1406A4040 (NtSetInformationJobObject.c)
- *     PspSetJobIoRateControl @ 0x1407D809C (PspSetJobIoRateControl.c)
- *     PspSetNetRateControl @ 0x1409B2FF4 (PspSetNetRateControl.c)
+ *     PspSetJobIoRateControl @ 0x1407D836C (PspSetJobIoRateControl.c)
+ *     PspSetNetRateControl @ 0x1409B31F4 (PspSetNetRateControl.c)
  * Callees:
- *     ExReleaseResourceLite @ 0x14023D410 (ExReleaseResourceLite.c)
+ *     ExReleaseResourceLite @ 0x14023D4E0 (ExReleaseResourceLite.c)
  */
 
 void __fastcall PspUnlockJobConditionally(__int64 a1, _QWORD *a2)

@@ -13,22 +13,22 @@
  *     RtlImageNtHeaderEx @ 0x180033760 (RtlImageNtHeaderEx.c)
  */
 
-_DWORD *__fastcall sub_18003A72C(unsigned __int64 a1)
+_DWORD *__fastcall sub_18003A72C(PVOID BaseOfImage)
 {
-  int v2; // eax
+  NTSTATUS v2; // eax
   _DWORD *v3; // rdx
-  int v5; // [rsp+40h] [rbp+8h] BYREF
-  _DWORD *v6; // [rsp+48h] [rbp+10h] BYREF
-  __int64 v7; // [rsp+50h] [rbp+18h] BYREF
+  DWORD v5; // [rsp+40h] [rbp+8h] BYREF
+  __int64 v6; // [rsp+48h] [rbp+10h] BYREF
+  PIMAGE_NT_HEADERS OutHeaders; // [rsp+50h] [rbp+18h] BYREF
 
-  RtlImageNtHeaderEx(1, a1, 0LL, &v7);
-  if ( !a1 )
+  RtlImageNtHeaderEx(1u, BaseOfImage, 0LL, &OutHeaders);
+  if ( !BaseOfImage )
     return 0LL;
-  v2 = sub_180032C0C(a1, 1, 0xAu, &v5, (__int64 *)&v6);
-  v3 = v6;
+  v2 = sub_180032C0C((unsigned __int64)BaseOfImage, 1, 0xAu, &v5, (char **)&v6);
+  v3 = (_DWORD *)v6;
   if ( v2 < 0 )
     v3 = 0LL;
-  if ( v3 && v5 && v5 == *v3 && *(_WORD *)(v7 + 4) == 0x8664 )
+  if ( v3 && v5 && v5 == *v3 && OutHeaders->FileHeader.Machine == 0x8664 )
     return v3;
   else
     return 0LL;

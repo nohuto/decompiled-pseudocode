@@ -1,9 +1,9 @@
 /*
- * XREFs of SymCryptInitEnvCommon @ 0x1403EF5DC
+ * XREFs of SymCryptInitEnvCommon @ 0x1403EF74C
  * Callers:
- *     SymCryptInitEnvWindowsKernelmodeWin8_1nLater @ 0x1403EC02C (SymCryptInitEnvWindowsKernelmodeWin8_1nLater.c)
+ *     SymCryptInitEnvWindowsKernelmodeWin8_1nLater @ 0x1403EC19C (SymCryptInitEnvWindowsKernelmodeWin8_1nLater.c)
  * Callees:
- *     SymCryptFatal @ 0x140514F28 (SymCryptFatal.c)
+ *     SymCryptFatal @ 0x140515168 (SymCryptFatal.c)
  */
 
 __int64 __fastcall SymCryptInitEnvCommon(int a1)

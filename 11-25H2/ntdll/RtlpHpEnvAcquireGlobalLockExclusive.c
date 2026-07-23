@@ -10,7 +10,7 @@
  *     __security_check_cookie @ 0x180166F50 (__security_check_cookie.c)
  */
 
-__int64 __fastcall RtlpHpEnvAcquireGlobalLockExclusive(void *a1)
+NTSTATUS __fastcall RtlpHpEnvAcquireGlobalLockExclusive(void *a1)
 {
   signed __int32 i; // eax
   __int64 v4; // [rsp+30h] [rbp-28h] BYREF
@@ -35,7 +35,12 @@ __int64 __fastcall RtlpHpEnvAcquireGlobalLockExclusive(void *a1)
     ProcessInformation[0] = 0;
     ProcessInformation[1] = 6232;
     v6 = a1;
-    NtQueryInformationProcess((HANDLE)0xFFFFFFFFFFFFFFFFLL, (PROCESSINFOCLASS)115, ProcessInformation, 0x10u, 0LL);
+    NtQueryInformationProcess(
+      (HANDLE)0xFFFFFFFFFFFFFFFFLL,
+      ProcessFindFirstThreadByTebValue,
+      ProcessInformation,
+      0x10u,
+      0LL);
     if ( !ProcessInformation[0] )
       break;
     RtlBackoff((unsigned int *)&v4 + 1);

@@ -1,14 +1,14 @@
 /*
- * XREFs of RtlpHashStringToAtom @ 0x140429580
+ * XREFs of RtlpHashStringToAtom @ 0x140428450
  * Callers:
- *     RtlAddAtomToAtomTableEx @ 0x140014694 (RtlAddAtomToAtomTableEx.c)
- *     RtlpFreeAllAtom @ 0x140089010 (RtlpFreeAllAtom.c)
- *     RtlLookupAtomInAtomTable @ 0x140429390 (RtlLookupAtomInAtomTable.c)
+ *     RtlAddAtomToAtomTableEx @ 0x140014214 (RtlAddAtomToAtomTableEx.c)
+ *     RtlpFreeAllAtom @ 0x14010D200 (RtlpFreeAllAtom.c)
+ *     RtlLookupAtomInAtomTable @ 0x140428260 (RtlLookupAtomInAtomTable.c)
  * Callees:
- *     RtlpLookupOrCreateLowBox @ 0x14001403C (RtlpLookupOrCreateLowBox.c)
- *     _wcsicmp @ 0x14014D79C (_wcsicmp.c)
- *     RtlpAtomMapAtomToHandleEntry @ 0x140425940 (RtlpAtomMapAtomToHandleEntry.c)
- *     RtlUpcaseUnicodeChar @ 0x1405132D0 (RtlUpcaseUnicodeChar.c)
+ *     RtlpLookupOrCreateLowBox @ 0x140013BBC (RtlpLookupOrCreateLowBox.c)
+ *     _wcsicmp @ 0x14014DD0C (_wcsicmp.c)
+ *     RtlpAtomMapAtomToHandleEntry @ 0x140424810 (RtlpAtomMapAtomToHandleEntry.c)
+ *     RtlUpcaseUnicodeChar @ 0x1404F66C0 (RtlUpcaseUnicodeChar.c)
  */
 
 __int64 __fastcall RtlpHashStringToAtom(

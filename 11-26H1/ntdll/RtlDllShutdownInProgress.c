@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlDllShutdownInProgress @ 0x1800CD6B0
+ * XREFs of RtlDllShutdownInProgress @ 0x1800CAE20
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-bool RtlDllShutdownInProgress()
+BOOLEAN RtlDllShutdownInProgress(void)
 {
-  return byte_1801CB8C8 != 0;
+  return byte_1801CA908 != 0;
 }

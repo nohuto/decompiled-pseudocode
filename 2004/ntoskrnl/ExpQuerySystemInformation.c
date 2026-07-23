@@ -146,7 +146,7 @@
  *     BgkQueryBootGraphicsInformation @ 0x1409EF48C (BgkQueryBootGraphicsInformation.c)
  */
 
-int __fastcall ExpQuerySystemInformation(
+NTSTATUS __fastcall ExpQuerySystemInformation(
         unsigned int a1,
         __int64 a2,
         int a3,
@@ -203,7 +203,7 @@ int __fastcall ExpQuerySystemInformation(
   char *v54; // rdx
   struct _KTHREAD *CurrentThread; // r14
   NTSTATUS v56; // edi
-  int result; // eax
+  NTSTATUS result; // eax
   PCONFIGURATION_INFORMATION ConfigurationInformation; // rax
   __int64 v59; // rcx
   signed int ModuleInformation; // eax
@@ -272,7 +272,7 @@ int __fastcall ExpQuerySystemInformation(
   __int64 v123; // rax
   unsigned int Size; // [rsp+30h] [rbp-308h] BYREF
   int Size_4; // [rsp+34h] [rbp-304h]
-  struct _PROCESSOR_NUMBER ProcNumber; // [rsp+38h] [rbp-300h] BYREF
+  _PROCESSOR_NUMBER ProcNumber; // [rsp+38h] [rbp-300h] BYREF
   unsigned __int16 v127; // [rsp+3Ch] [rbp-2FCh]
   int v128; // [rsp+40h] [rbp-2F8h]
   unsigned int v129; // [rsp+44h] [rbp-2F4h]
@@ -282,7 +282,7 @@ int __fastcall ExpQuerySystemInformation(
   int v133[2]; // [rsp+58h] [rbp-2E0h]
   unsigned int *v134; // [rsp+60h] [rbp-2D8h]
   int v135; // [rsp+68h] [rbp-2D0h] BYREF
-  char v136; // [rsp+6Ch] [rbp-2CCh]
+  char Data[4]; // [rsp+6Ch] [rbp-2CCh] BYREF
   unsigned __int16 v137; // [rsp+70h] [rbp-2C8h]
   ULONG v138; // [rsp+74h] [rbp-2C4h]
   unsigned int v139; // [rsp+78h] [rbp-2C0h]
@@ -560,15 +560,15 @@ LABEL_35:
                 goto LABEL_91;
               v129 += v42;
               PoGetIdleTimes(&ProcNumber, 0LL, (__int64)Src);
-              *(_QWORD *)(a4 + 16) = (unsigned int)KeMaximumIncrement * (unsigned __int64)(unsigned int)v44[8098];
-              *(_QWORD *)(a4 + 8) = (unsigned int)KeMaximumIncrement * (unsigned __int64)DWORD1(Src[0]);
-              *(_QWORD *)(a4 + 24) = (unsigned int)KeMaximumIncrement * (unsigned __int64)(unsigned int)v44[8099];
-              *(_QWORD *)(a4 + 32) = (unsigned int)KeMaximumIncrement * (unsigned __int64)(unsigned int)v44[8100];
-              *(_QWORD *)a4 = (unsigned int)KeMaximumIncrement * (unsigned __int64)LODWORD(Src[0]);
+              *(_QWORD *)(a4 + 16) = KeMaximumIncrement * (unsigned __int64)(unsigned int)v44[8098];
+              *(_QWORD *)(a4 + 8) = KeMaximumIncrement * (unsigned __int64)DWORD1(Src[0]);
+              *(_QWORD *)(a4 + 24) = KeMaximumIncrement * (unsigned __int64)(unsigned int)v44[8099];
+              *(_QWORD *)(a4 + 32) = KeMaximumIncrement * (unsigned __int64)(unsigned int)v44[8100];
+              *(_QWORD *)a4 = KeMaximumIncrement * (unsigned __int64)LODWORD(Src[0]);
               *(_DWORD *)(a4 + 40) = v44[8096];
               if ( v140 == 141 )
               {
-                *(_QWORD *)(a4 + 48) = (unsigned int)KeMaximumIncrement * (unsigned __int64)(unsigned int)v44[8107];
+                *(_QWORD *)(a4 + 48) = KeMaximumIncrement * (unsigned __int64)(unsigned int)v44[8107];
                 *(_DWORD *)(a4 + 44) = 0;
                 *(_QWORD *)(a4 + 56) = 0LL;
                 *(_QWORD *)(a4 + 64) = 0LL;
@@ -764,7 +764,7 @@ LABEL_181:
           }
           else
           {
-            *(_DWORD *)a4 = MEMORY[0xFFFFF78000000300] * (unsigned __int64)(unsigned int)KeMaximumIncrement / v52;
+            *(_DWORD *)a4 = MEMORY[0xFFFFF78000000300] * (unsigned __int64)KeMaximumIncrement / v52;
             *(_DWORD *)(a4 + 4) = KeMaximumIncrement;
             *(_BYTE *)(a4 + 8) = v53;
           }
@@ -1013,9 +1013,9 @@ LABEL_290:
             *(_OWORD *)(a4 + 32) = 0LL;
             *(_OWORD *)(a4 + 48) = 0LL;
             *(_OWORD *)(a4 + 64) = 0LL;
-            *(_QWORD *)(a4 + 40) = (unsigned int)KeMaximumIncrement
+            *(_QWORD *)(a4 + 40) = KeMaximumIncrement
                                  * (unsigned __int64)(unsigned int)(*(_DWORD *)(v50 + 32388) + *(_DWORD *)(v50 + 32392));
-            *(_QWORD *)(a4 + 48) = (unsigned int)KeMaximumIncrement
+            *(_QWORD *)(a4 + 48) = KeMaximumIncrement
                                  * (unsigned __int64)*(unsigned int *)(*(_QWORD *)(v50 + 24) + 652LL);
             if ( BYTE12(Src[1]) )
             {
@@ -1928,7 +1928,7 @@ LABEL_641:
             if ( WORD4(ExpManufacturingInformation) )
             {
               *(_QWORD *)(a4 + 16) = v107;
-              memmove(v107, qword_140C195B0, WORD5(ExpManufacturingInformation));
+              memmove(v107, ::Data, WORD5(ExpManufacturingInformation));
             }
             BootGraphicsInformation = Size_4;
           }
@@ -2196,8 +2196,8 @@ LABEL_67:
         case 0xBAu:
           if ( !Length )
           {
-            v136 = 1;
-            return ZwFilterBootOption(1LL, 270532611LL);
+            Data[0] = 1;
+            return ZwFilterBootOption(FilterBootOptionOperationSetElement, 0x10200003u, 0x260000A0u, Data, 1u);
           }
           if ( a6 )
             *a6 = 0;

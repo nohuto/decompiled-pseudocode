@@ -19,66 +19,63 @@
  *     ZwTraceEvent @ 0x1800A5EB0 (ZwTraceEvent.c)
  */
 
-__int64 __fastcall RtlInitializeCriticalSectionEx(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+NTSTATUS __cdecl RtlInitializeCriticalSectionEx(PRTL_CRITICAL_SECTION CriticalSection, ULONG SpinCount, ULONG Flags)
 {
-  __int64 v6; // rcx
-  __int64 v7; // rdx
-  __int64 v8; // r8
-  __int64 v9; // r9
-  __int64 v10; // rdi
-  __int64 v11; // rcx
-  _BYTE v12[6]; // [rsp+20h] [rbp-48h] BYREF
-  __int16 v13; // [rsp+26h] [rbp-42h]
-  __int64 v14; // [rsp+40h] [rbp-28h]
-  __int64 v15; // [rsp+48h] [rbp-20h]
+  char v5; // cl
+  __int64 v6; // rdi
+  __int64 v7; // rcx
+  _BYTE Fields[6]; // [rsp+20h] [rbp-48h] BYREF
+  __int16 v9; // [rsp+26h] [rbp-42h]
+  ULONG_PTR v10; // [rsp+40h] [rbp-28h]
+  PRTL_CRITICAL_SECTION v11; // [rsp+48h] [rbp-20h]
 
-  if ( (a3 & 0xE0000000) != 0 || (a3 & 0x11000000) == 0x11000000 )
-    return 3221225713LL;
-  if ( (a2 & 0xFF000000) != 0 )
-    return 3221225712LL;
-  if ( (a3 & 0x4000000) == 0 )
+  if ( (Flags & 0xE0000000) != 0 || (Flags & 0x11000000) == 0x11000000 )
+    return -1073741583;
+  if ( (SpinCount & 0xFF000000) != 0 )
+    return -1073741584;
+  if ( (Flags & 0x4000000) == 0 )
   {
-    *(_DWORD *)(a1 + 12) = 0;
-    *(_QWORD *)(a1 + 16) = 0LL;
-    *(_QWORD *)(a1 + 24) = 0LL;
-    *(_DWORD *)(a1 + 8) = -1;
-    v6 = 1LL;
+    CriticalSection->RecursionCount = 0;
+    CriticalSection->OwningThread = 0LL;
+    CriticalSection->LockSemaphore = 0LL;
+    CriticalSection->LockCount = -1;
+    v5 = 1;
     if ( NtCurrentPeb()->NumberOfProcessors <= 1 )
     {
-      *(_QWORD *)(a1 + 32) = 0LL;
+      CriticalSection->SpinCount = 0LL;
     }
-    else if ( (a3 & 0x2000000) != 0 || !(_DWORD)a2 )
+    else if ( (Flags & 0x2000000) != 0 || !SpinCount )
     {
-      *(_QWORD *)(a1 + 32) = 33556432LL;
+      CriticalSection->SpinCount = 33556432LL;
     }
     else
     {
-      *(_QWORD *)(a1 + 32) = a2 & 0xFFFFFF;
+      CriticalSection->SpinCount = SpinCount & 0xFFFFFF;
     }
-    *(_QWORD *)(a1 + 32) |= a3 & 0x9000000;
-    if ( (a3 & 0x10000000) == 0 && !byte_180159BC8 )
-      LOBYTE(v6) = 0;
-    *(_QWORD *)a1 = -1LL;
-    if ( (_BYTE)v6 )
+    CriticalSection->SpinCount |= Flags & 0x9000000;
+    if ( (Flags & 0x10000000) == 0 && !byte_180159BC8 )
+      v5 = 0;
+    CriticalSection->DebugInfo = (PRTL_CRITICAL_SECTION_DEBUG)-1LL;
+    if ( v5 )
     {
-      sub_18000F30C(a1);
-      if ( *(_QWORD *)a1 == -1LL )
-        *(_QWORD *)(a1 + 32) |= 0x1000000uLL;
+      sub_18000F30C((__int64)CriticalSection);
+      if ( CriticalSection->DebugInfo == (PRTL_CRITICAL_SECTION_DEBUG)-1LL )
+        CriticalSection->SpinCount |= 0x1000000uLL;
     }
-    v10 = 2147353474LL;
-    if ( (unsigned int)RtlGetCurrentServiceSessionId(v6, a2, a3, a4) )
-      v11 = (__int64)NtCurrentPeb()->HotpatchInformation + 552;
+    v6 = 2147353474LL;
+    if ( RtlGetCurrentServiceSessionId() )
+      v7 = (__int64)&NtCurrentPeb()->SharedData->UserModeGlobalLogger[1];
     else
-      v11 = 2147353474LL;
-    if ( *(_BYTE *)v11 && (NtCurrentPeb()->TracingFlags & 2) != 0 )
+      v7 = 2147353474LL;
+    if ( *(_BYTE *)v7 && (NtCurrentPeb()->TracingFlags & 2) != 0 )
     {
-      v15 = a1;
-      v13 = 5923;
-      v14 = *(_QWORD *)(a1 + 32);
-      if ( (unsigned int)RtlGetCurrentServiceSessionId(v11, v7, v8, v9) )
-        v10 = (__int64)NtCurrentPeb()->HotpatchInformation + 552;
-      ZwTraceEvent(*(unsigned __int8 *)v10, 66562LL, 16LL, v12);
+      v11 = CriticalSection;
+      v9 = 5923;
+      v10 = CriticalSection->SpinCount;
+      if ( RtlGetCurrentServiceSessionId() )
+        v6 = (__int64)&NtCurrentPeb()->SharedData->UserModeGlobalLogger[1];
+      ZwTraceEvent((HANDLE)*(unsigned __int8 *)v6, 0x10402u, 0x10u, Fields);
     }
   }
-  return 0LL;
+  return 0;
 }

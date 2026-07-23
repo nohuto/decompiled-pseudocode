@@ -9,45 +9,53 @@
  *     RtlDeleteBoundaryDescriptor @ 0x18006D6E0 (RtlDeleteBoundaryDescriptor.c)
  */
 
-__int64 __fastcall RtlOemStringToUnicodeString(unsigned __int16 *a1, unsigned __int16 *a2, char a3)
+NTSTATUS __cdecl RtlOemStringToUnicodeString(
+        PUNICODE_STRING DestinationString,
+        POEM_STRING SourceString,
+        BOOLEAN AllocateDestinationString)
 {
   unsigned int v6; // eax
   unsigned __int64 v7; // rcx
   int v8; // edi
-  __int64 v10; // rax
-  unsigned int v11; // [rsp+78h] [rbp+20h] BYREF
+  WCHAR *v10; // rax
+  ULONG BytesInUnicodeString; // [rsp+78h] [rbp+20h] BYREF
 
-  v6 = RtlxOemStringToUnicodeSize(a2);
+  v6 = RtlxOemStringToUnicodeSize((PCSTR *)SourceString);
   if ( v6 > 0xFFFE )
-    return 3221225712LL;
-  *a1 = v6 - 2;
-  if ( a3 )
+    return -1073741584;
+  DestinationString->Length = v6 - 2;
+  if ( AllocateDestinationString )
   {
-    a1[1] = v6;
-    v10 = sub_18006D6B8(v6, 2LL);
-    *((_QWORD *)a1 + 1) = v10;
+    DestinationString->MaximumLength = v6;
+    v10 = (WCHAR *)sub_18006D6B8(v6, 2LL);
+    DestinationString->Buffer = v10;
     if ( !v10 )
-      return 3221225495LL;
+      return -1073741801;
   }
   else
   {
     v7 = (unsigned __int16)(v6 - 2) + 2LL;
-    if ( v7 > a1[1] || v7 < 2 )
-      return 2147483653LL;
+    if ( v7 > DestinationString->MaximumLength || v7 < 2 )
+      return -2147483643;
   }
-  v8 = RtlOemToUnicodeN(*((_QWORD *)a1 + 1), *a1, (unsigned int)&v11, *((_QWORD *)a2 + 1), *a2);
+  v8 = RtlOemToUnicodeN(
+         DestinationString->Buffer,
+         DestinationString->Length,
+         &BytesInUnicodeString,
+         SourceString->Buffer,
+         SourceString->Length);
   if ( v8 >= 0 )
   {
-    *(_WORD *)(*((_QWORD *)a1 + 1) + 2 * ((unsigned __int64)v11 >> 1)) = 0;
+    DestinationString->Buffer[(unsigned __int64)BytesInUnicodeString >> 1] = 0;
     v8 = 0;
   }
   if ( v8 < 0 )
   {
-    if ( a3 )
+    if ( AllocateDestinationString )
     {
-      RtlDeleteBoundaryDescriptor(*((_QWORD *)a1 + 1));
-      *((_QWORD *)a1 + 1) = 0LL;
+      RtlDeleteBoundaryDescriptor((POBJECT_BOUNDARY_DESCRIPTOR)DestinationString->Buffer);
+      DestinationString->Buffer = 0LL;
     }
   }
-  return (unsigned int)v8;
+  return v8;
 }

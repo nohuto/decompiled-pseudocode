@@ -1,16 +1,16 @@
 /*
- * XREFs of MiFillPoolCommitPageTable @ 0x1402EB2D0
+ * XREFs of MiFillPoolCommitPageTable @ 0x14034C910
  * Callers:
- *     MiCommitPoolMemory @ 0x1402EB010 (MiCommitPoolMemory.c)
+ *     MiCommitPoolMemory @ 0x14034C650 (MiCommitPoolMemory.c)
  * Callees:
- *     KeShouldYieldProcessor @ 0x1402DA180 (KeShouldYieldProcessor.c)
- *     MiLockPoolCommitWs @ 0x1402E3A94 (MiLockPoolCommitWs.c)
- *     MiLockPoolCommitPageTable @ 0x1402EA640 (MiLockPoolCommitPageTable.c)
- *     MiUnlockPoolCommitWs @ 0x1402EA9E4 (MiUnlockPoolCommitWs.c)
- *     MiAssignNonPagedPoolPte @ 0x1402EB5C0 (MiAssignNonPagedPoolPte.c)
- *     MiUnlockPageTableInternal @ 0x140321070 (MiUnlockPageTableInternal.c)
- *     MiDecreaseUsedPtes @ 0x1403A4830 (MiDecreaseUsedPtes.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
+ *     MiLockPoolCommitWs @ 0x14020C760 (MiLockPoolCommitWs.c)
+ *     MiDecreaseUsedPtes @ 0x14021C060 (MiDecreaseUsedPtes.c)
+ *     KeShouldYieldProcessor @ 0x14023BA60 (KeShouldYieldProcessor.c)
+ *     MiUnlockPageTableInternal @ 0x1402C9C00 (MiUnlockPageTableInternal.c)
+ *     MiLockPoolCommitPageTable @ 0x14034BC80 (MiLockPoolCommitPageTable.c)
+ *     MiUnlockPoolCommitWs @ 0x14034C024 (MiUnlockPoolCommitWs.c)
+ *     MiAssignNonPagedPoolPte @ 0x14034CC00 (MiAssignNonPagedPoolPte.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall MiFillPoolCommitPageTable(__int64 a1)
@@ -20,7 +20,7 @@ __int64 __fastcall MiFillPoolCommitPageTable(__int64 a1)
   char v4; // si
   __int64 v5; // r14
   ULONG_PTR v6; // rdi
-  __int64 v7; // rdx
+  unsigned __int64 v7; // rdx
   __int64 v8; // rcx
   unsigned __int64 v9; // rcx
   __int64 v10; // rax
@@ -67,12 +67,12 @@ LABEL_7:
       v9 = *(_QWORD *)v6;
       if ( !*(_QWORD *)v6 )
         goto LABEL_12;
-      if ( qword_140E2DB80 )
+      if ( qword_140E2DCC0 )
       {
         if ( (v9 & 0x10) != 0 )
           v9 &= ~0x10uLL;
         else
-          v9 &= ~qword_140E2DB80;
+          v9 &= ~qword_140E2DCC0;
       }
       v9 >>= 25;
       if ( v9 == 0x7FFFFFFFFFLL )
@@ -96,12 +96,12 @@ LABEL_12:
       if ( (v11 & 2) != 0 )
       {
         v12 = 32LL * ((unsigned __int8)v11 >> 3);
-        if ( qword_140E2DB80 )
+        if ( qword_140E2DCC0 )
         {
-          if ( (qword_140E2DB80 & v12) != 0 )
+          if ( (qword_140E2DCC0 & v12) != 0 )
             v12 |= 0x10uLL;
           else
-            v12 |= qword_140E2DB80;
+            v12 |= qword_140E2DCC0;
         }
         *(_QWORD *)v6 = v12;
       }
@@ -116,7 +116,7 @@ LABEL_20:
       if ( *(_QWORD *)(a1 + 56) && (v4 & 0xF) == 0 && *(_BYTE *)(a1 + 103) < 2u )
       {
         if ( (*(_DWORD *)(v5 + 184) & 0xFu) <= 5
-          && ((*(_DWORD *)(v5 + 184) & 0xF) != 1 ? (v13 = (__int64 *)(v5 + 192)) : (v13 = (__int64 *)&unk_140E38740),
+          && ((*(_DWORD *)(v5 + 184) & 0xF) != 1 ? (v13 = (__int64 *)(v5 + 192)) : (v13 = (__int64 *)&unk_140E38880),
               (v14 = *v13, (MmInternal = (unsigned int *)KeGetCurrentPrcb()->MmInternal) == 0LL)
             ? (v16 = 0LL)
             : (v16 = MmInternal[81]),

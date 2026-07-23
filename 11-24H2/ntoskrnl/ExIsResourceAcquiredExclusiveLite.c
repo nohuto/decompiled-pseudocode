@@ -1,11 +1,11 @@
 /*
- * XREFs of ExIsResourceAcquiredExclusiveLite @ 0x140403710
+ * XREFs of ExIsResourceAcquiredExclusiveLite @ 0x1403FE4D0
  * Callers:
- *     DifExIsResourceAcquiredExclusiveLiteWrapper @ 0x14061F7D0 (DifExIsResourceAcquiredExclusiveLiteWrapper.c)
- *     CmpTestRegistryLockExclusive @ 0x1406680E4 (CmpTestRegistryLockExclusive.c)
- *     HvpTruncateBins @ 0x14097ED44 (HvpTruncateBins.c)
+ *     DifExIsResourceAcquiredExclusiveLiteWrapper @ 0x14061DD90 (DifExIsResourceAcquiredExclusiveLiteWrapper.c)
+ *     CmpTestRegistryLockExclusive @ 0x1406669D4 (CmpTestRegistryLockExclusive.c)
+ *     HvpTruncateBins @ 0x140967554 (HvpTruncateBins.c)
  * Callees:
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
  */
 
 BOOLEAN __stdcall ExIsResourceAcquiredExclusiveLite(PERESOURCE Resource)

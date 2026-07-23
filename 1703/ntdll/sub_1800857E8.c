@@ -9,15 +9,15 @@
  *     RtlReleaseSRWLockShared @ 0x180028DE0 (RtlReleaseSRWLockShared.c)
  */
 
-__int64 sub_1800857E8()
+PVOID sub_1800857E8()
 {
-  __int64 v0; // rbx
-  __int64 v2; // [rsp+30h] [rbp+8h]
+  PVOID v0; // rbx
+  PVOID v2; // [rsp+30h] [rbp+8h]
 
   v0 = 0LL;
   if ( qword_18015C378 )
   {
-    RtlAcquireSRWLockShared(&qword_18015C380);
+    RtlAcquireSRWLockShared(&stru_18015C380);
     v0 = qword_18015C378;
     v2 = qword_18015C378;
     if ( qword_18015C378 )
@@ -25,7 +25,7 @@ __int64 sub_1800857E8()
       _InterlockedIncrement((volatile signed __int32 *)qword_18015C378);
       v0 = v2;
     }
-    RtlReleaseSRWLockShared(&qword_18015C380);
+    RtlReleaseSRWLockShared(&stru_18015C380);
   }
   return v0;
 }

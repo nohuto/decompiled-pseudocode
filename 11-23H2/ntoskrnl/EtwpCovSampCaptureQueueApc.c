@@ -1,16 +1,16 @@
 /*
- * XREFs of EtwpCovSampCaptureQueueApc @ 0x140603480
+ * XREFs of EtwpCovSampCaptureQueueApc @ 0x1406039D0
  * Callers:
- *     EtwpCovSampCaptureSample @ 0x140603720 (EtwpCovSampCaptureSample.c)
+ *     EtwpCovSampCaptureSample @ 0x140603C70 (EtwpCovSampCaptureSample.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     KeInitializeApc @ 0x1402BE6D0 (KeInitializeApc.c)
- *     KeInsertQueueApc @ 0x1402CC640 (KeInsertQueueApc.c)
- *     memset @ 0x140435A00 (memset.c)
- *     EtwpCovSampCaptureReleaseToLookaside @ 0x14046A18A (EtwpCovSampCaptureReleaseToLookaside.c)
- *     EtwpCovSampLookasidePop @ 0x14046A208 (EtwpCovSampLookasidePop.c)
- *     KeIsThreadRunning @ 0x14056EDD0 (KeIsThreadRunning.c)
- *     KeTryToInsertQueueApc @ 0x1405731B0 (KeTryToInsertQueueApc.c)
+ *     KeLeaveCriticalRegion @ 0x140231550 (KeLeaveCriticalRegion.c)
+ *     KeInitializeApc @ 0x1402BE960 (KeInitializeApc.c)
+ *     KeInsertQueueApc @ 0x1402CC8D0 (KeInsertQueueApc.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     EtwpCovSampCaptureReleaseToLookaside @ 0x14046A58A (EtwpCovSampCaptureReleaseToLookaside.c)
+ *     EtwpCovSampLookasidePop @ 0x14046A608 (EtwpCovSampLookasidePop.c)
+ *     KeIsThreadRunning @ 0x14056F310 (KeIsThreadRunning.c)
+ *     KeTryToInsertQueueApc @ 0x1405736F0 (KeTryToInsertQueueApc.c)
  */
 
 __int64 __fastcall EtwpCovSampCaptureQueueApc(__int64 a1)
@@ -36,8 +36,8 @@ __int64 __fastcall EtwpCovSampCaptureQueueApc(__int64 a1)
 
   CurrentThread = KeGetCurrentThread();
   v2 = 0;
-  v3 = qword_140C31CC8;
-  v20 = qword_140C31CC8;
+  v3 = qword_140C31C68;
+  v20 = qword_140C31C68;
   v5 = 1;
   if ( CurrentThread->Process->FreezeCount + ((*(_DWORD *)&CurrentThread->Process->0 >> 3) & 1)
     || CurrentThread->SuspendCount
@@ -110,7 +110,7 @@ LABEL_23:
       return v7;
     }
 LABEL_21:
-    v17 = qword_140C31CC8;
+    v17 = qword_140C31C68;
     memset(&v13[3].Next + 1, 0, 0x58uLL);
     Next = (__int64)v13[3].Next;
     LODWORD(v13[9].Next) = 0;

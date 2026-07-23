@@ -1,5 +1,5 @@
 /*
- * XREFs of A_SHAInit @ 0x18000A490
+ * XREFs of A_SHAInit @ 0x18000A480
  * Callers:
  *     <none>
  * Callees:

@@ -1,46 +1,46 @@
 /*
- * XREFs of RtlNtStatusToDosError @ 0x18001C620
+ * XREFs of RtlNtStatusToDosError @ 0x180049020
  * Callers:
- *     EtwpProviderArrivalCallback @ 0x18001B9D0 (EtwpProviderArrivalCallback.c)
- *     EtwEventActivityIdControl @ 0x18001C4A0 (EtwEventActivityIdControl.c)
- *     EtwpRegisterProvider @ 0x18001DD30 (EtwpRegisterProvider.c)
- *     EtwEventWrite @ 0x18003AA80 (EtwEventWrite.c)
- *     EtwEventWriteTransfer @ 0x18003AD80 (EtwEventWriteTransfer.c)
- *     EtwpEventWriteFull @ 0x18003B0D0 (EtwpEventWriteFull.c)
- *     EtwpFinalizeLogFileHeader @ 0x18003ED60 (EtwpFinalizeLogFileHeader.c)
- *     EtwEventWriteNoRegistration @ 0x180066310 (EtwEventWriteNoRegistration.c)
- *     EtwpStopUmLogger @ 0x18008C4B4 (EtwpStopUmLogger.c)
- *     EtwpIncrementUmLoggerFile @ 0x18008C9F0 (EtwpIncrementUmLoggerFile.c)
- *     EtwpUpdateUmLogger @ 0x18008CAC4 (EtwpUpdateUmLogger.c)
- *     EtwpStartUmLogger @ 0x18008CCDC (EtwpStartUmLogger.c)
- *     EtwpAddLogHeaderToLogFile @ 0x1800B3D70 (EtwpAddLogHeaderToLogFile.c)
- *     EtwTraceMessage @ 0x1800D7060 (EtwTraceMessage.c)
- *     EtwTraceMessageVa @ 0x1800D7150 (EtwTraceMessageVa.c)
- *     EtwLogTraceEvent @ 0x1800E58D0 (EtwLogTraceEvent.c)
- *     EtwpSetProviderTraits @ 0x1800E8690 (EtwpSetProviderTraits.c)
- *     EtwEventWriteString @ 0x1800E9540 (EtwEventWriteString.c)
- *     EtwSendNotification @ 0x1800EE760 (EtwSendNotification.c)
- *     EtwpReceiveReplyDataBlock @ 0x1800EE9F8 (EtwpReceiveReplyDataBlock.c)
- *     EtwWriteUMSecurityEvent @ 0x1800F44A0 (EtwWriteUMSecurityEvent.c)
- *     RtlSetLastWin32ErrorAndNtStatusFromNtStatus @ 0x1800FB650 (RtlSetLastWin32ErrorAndNtStatusFromNtStatus.c)
- *     EtwReplyNotification @ 0x18010ED10 (EtwReplyNotification.c)
- *     EtwpTrackProviderBinary @ 0x18011A13C (EtwpTrackProviderBinary.c)
- *     EtwRegisterSecurityProvider @ 0x18015BE30 (EtwRegisterSecurityProvider.c)
- *     EtwpUseDescriptorType @ 0x18015BE88 (EtwpUseDescriptorType.c)
- *     EtwSetMark @ 0x18015C020 (EtwSetMark.c)
- *     EtwTraceEventInstance @ 0x18015C050 (EtwTraceEventInstance.c)
- *     EtwpBufferingModeFlush @ 0x18015C218 (EtwpBufferingModeFlush.c)
+ *     EtwEventWrite @ 0x18001AD00 (EtwEventWrite.c)
+ *     EtwEventWriteTransfer @ 0x18001B000 (EtwEventWriteTransfer.c)
+ *     EtwpEventWriteFull @ 0x18001B350 (EtwpEventWriteFull.c)
+ *     EtwpFinalizeLogFileHeader @ 0x18001EFE0 (EtwpFinalizeLogFileHeader.c)
+ *     EtwpProviderArrivalCallback @ 0x1800483D0 (EtwpProviderArrivalCallback.c)
+ *     EtwEventActivityIdControl @ 0x180048EA0 (EtwEventActivityIdControl.c)
+ *     EtwpRegisterProvider @ 0x18004A730 (EtwpRegisterProvider.c)
+ *     EtwpAddLogHeaderToLogFile @ 0x180080610 (EtwpAddLogHeaderToLogFile.c)
+ *     EtwpStopUmLogger @ 0x1800A7F74 (EtwpStopUmLogger.c)
+ *     EtwpIncrementUmLoggerFile @ 0x1800A84B0 (EtwpIncrementUmLoggerFile.c)
+ *     EtwpUpdateUmLogger @ 0x1800A8584 (EtwpUpdateUmLogger.c)
+ *     EtwpStartUmLogger @ 0x1800A879C (EtwpStartUmLogger.c)
+ *     EtwEventWriteNoRegistration @ 0x1800AE4F0 (EtwEventWriteNoRegistration.c)
+ *     EtwTraceMessage @ 0x1800D23D0 (EtwTraceMessage.c)
+ *     EtwTraceMessageVa @ 0x1800D24C0 (EtwTraceMessageVa.c)
+ *     EtwLogTraceEvent @ 0x1800E0D80 (EtwLogTraceEvent.c)
+ *     EtwpSetProviderTraits @ 0x1800E3D80 (EtwpSetProviderTraits.c)
+ *     EtwEventWriteString @ 0x1800E4C30 (EtwEventWriteString.c)
+ *     EtwSendNotification @ 0x1800E9940 (EtwSendNotification.c)
+ *     EtwpReceiveReplyDataBlock @ 0x1800E9BD8 (EtwpReceiveReplyDataBlock.c)
+ *     EtwWriteUMSecurityEvent @ 0x1800EEBB0 (EtwWriteUMSecurityEvent.c)
+ *     RtlSetLastWin32ErrorAndNtStatusFromNtStatus @ 0x1800F6580 (RtlSetLastWin32ErrorAndNtStatusFromNtStatus.c)
+ *     EtwReplyNotification @ 0x180109CF0 (EtwReplyNotification.c)
+ *     EtwpTrackProviderBinary @ 0x18011836C (EtwpTrackProviderBinary.c)
+ *     EtwRegisterSecurityProvider @ 0x18015A1F0 (EtwRegisterSecurityProvider.c)
+ *     EtwpUseDescriptorType @ 0x18015A248 (EtwpUseDescriptorType.c)
+ *     EtwSetMark @ 0x18015A3E0 (EtwSetMark.c)
+ *     EtwTraceEventInstance @ 0x18015A410 (EtwTraceEventInstance.c)
+ *     EtwpBufferingModeFlush @ 0x18015A5D8 (EtwpBufferingModeFlush.c)
  * Callees:
- *     DbgPrint @ 0x18002FC00 (DbgPrint.c)
+ *     DbgPrint @ 0x18000F790 (DbgPrint.c)
  */
 
 ULONG __stdcall RtlNtStatusToDosError(NTSTATUS Status)
 {
   NTSTATUS v1; // edx
   struct _TEB *v2; // rax
-  unsigned int v3; // eax
-  unsigned int v4; // ecx
-  unsigned int v5; // r11d
+  unsigned __int32 v3; // eax
+  unsigned __int32 v4; // ecx
+  unsigned __int32 v5; // r11d
   unsigned int v6; // ecx
   unsigned int v7; // r10d
   __int64 v8; // rdx
@@ -67,7 +67,7 @@ ULONG __stdcall RtlNtStatusToDosError(NTSTATUS Status)
     v4 = v1;
   v5 = v4;
   v6 = 0;
-  v7 = 341;
+  v7 = 342;
   while ( 1 )
   {
     v8 = (v6 + v7) >> 1;

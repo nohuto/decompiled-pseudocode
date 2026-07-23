@@ -1,14 +1,14 @@
 /*
- * XREFs of ObInheritObjectHandle @ 0x1407B04FC
+ * XREFs of ObInheritObjectHandle @ 0x1407B06EC
  * Callers:
- *     ExpDuplicateSingleHandle @ 0x1407B0458 (ExpDuplicateSingleHandle.c)
+ *     ExpDuplicateSingleHandle @ 0x1407B0648 (ExpDuplicateSingleHandle.c)
  * Callees:
- *     ExGetHandlePointer @ 0x14022F740 (ExGetHandlePointer.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     ObpIncrPointerCount @ 0x14025A244 (ObpIncrPointerCount.c)
- *     ExfUnblockPushLock @ 0x140412160 (ExfUnblockPushLock.c)
- *     ObpIncrementHandleCountEx @ 0x1406E7060 (ObpIncrementHandleCountEx.c)
- *     EtwTraceDuplicateHandle @ 0x1409E50BC (EtwTraceDuplicateHandle.c)
+ *     ExGetHandlePointer @ 0x14022F830 (ExGetHandlePointer.c)
+ *     ObfDereferenceObject @ 0x140231660 (ObfDereferenceObject.c)
+ *     ObpIncrPointerCount @ 0x14025A4D4 (ObpIncrPointerCount.c)
+ *     ExfUnblockPushLock @ 0x1404124A0 (ExfUnblockPushLock.c)
+ *     ObpIncrementHandleCountEx @ 0x1406E7090 (ObpIncrementHandleCountEx.c)
+ *     EtwTraceDuplicateHandle @ 0x1409E534C (EtwTraceDuplicateHandle.c)
  */
 
 __int64 __fastcall ObInheritObjectHandle(__int64 a1, int a2, __int64 a3, __int64 a4)

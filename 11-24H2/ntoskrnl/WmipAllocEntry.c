@@ -1,14 +1,14 @@
 /*
- * XREFs of WmipAllocEntry @ 0x1409D00A0
+ * XREFs of WmipAllocEntry @ 0x1409B04E8
  * Callers:
- *     WmipAddMofResource @ 0x1407A58A8 (WmipAddMofResource.c)
- *     WmipUpdateAddGuid @ 0x1407A5DE0 (WmipUpdateAddGuid.c)
- *     WmipUpdateModifyGuid @ 0x1407A5EB8 (WmipUpdateModifyGuid.c)
- *     WmipAddDataSource @ 0x1409CFD60 (WmipAddDataSource.c)
- *     WmipAllocGuidEntry @ 0x1409D0E2C (WmipAllocGuidEntry.c)
+ *     WmipAddMofResource @ 0x1407A59E8 (WmipAddMofResource.c)
+ *     WmipUpdateAddGuid @ 0x1407A5F20 (WmipUpdateAddGuid.c)
+ *     WmipUpdateModifyGuid @ 0x1407A5FF8 (WmipUpdateModifyGuid.c)
+ *     WmipAllocGuidEntry @ 0x1409AFDEC (WmipAllocGuidEntry.c)
+ *     WmipAddDataSource @ 0x1409B01A8 (WmipAddDataSource.c)
  * Callees:
- *     ExAllocateFromPagedLookasideList @ 0x1403FA0E0 (ExAllocateFromPagedLookasideList.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     ExAllocateFromPagedLookasideList @ 0x1403EFFF0 (ExAllocateFromPagedLookasideList.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 _QWORD *__fastcall WmipAllocEntry(__int64 a1)

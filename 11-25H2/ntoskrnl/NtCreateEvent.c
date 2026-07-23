@@ -27,7 +27,12 @@
  *     ExFreePoolWithTag @ 0x140B62CD0 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall NtCreateEvent(unsigned __int64 a1, __int64 a2, __int64 a3, EVENT_TYPE a4, BOOLEAN a5)
+NTSTATUS __cdecl NtCreateEvent(
+        PHANDLE EventHandle,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        EVENT_TYPE EventType,
+        BOOLEAN InitialState)
 {
   char PreviousMode; // r14
   __int64 v9; // rcx
@@ -35,7 +40,7 @@ __int64 __fastcall NtCreateEvent(unsigned __int64 a1, __int64 a2, __int64 a3, EV
   struct _KPRCB *CurrentPrcb; // rsi
   _GENERAL_LOOKASIDE *P; // rbx
   __int64 v13; // rdi
-  int Information; // ebx
+  NTSTATUS Information; // ebx
   int v15; // ecx
   struct _KPRCB *v16; // rdx
   _GENERAL_LOOKASIDE *v17; // rcx
@@ -64,25 +69,25 @@ __int64 __fastcall NtCreateEvent(unsigned __int64 a1, __int64 a2, __int64 a3, EV
   __int64 v41; // [rsp+58h] [rbp-B0h] BYREF
   PSLIST_ENTRY ListEntry[2]; // [rsp+60h] [rbp-A8h] BYREF
   PSID Sid2; // [rsp+70h] [rbp-98h]
-  _QWORD *v44; // [rsp+78h] [rbp-90h]
+  PHANDLE v44; // [rsp+78h] [rbp-90h]
   struct _SECURITY_SUBJECT_CONTEXT SubjectContext; // [rsp+80h] [rbp-88h] BYREF
   PSE_EXPORTS v46; // [rsp+A0h] [rbp-68h]
   unsigned int v47[2]; // [rsp+A8h] [rbp-60h] BYREF
   LUID v48; // [rsp+B0h] [rbp-58h] BYREF
   int v49; // [rsp+B8h] [rbp-50h]
 
-  v44 = (_QWORD *)a1;
+  v44 = EventHandle;
   v41 = 0LL;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   if ( PreviousMode )
   {
     v9 = 0x7FFFFFFF0000LL;
-    if ( a1 < 0x7FFFFFFF0000LL )
-      v9 = a1;
+    if ( (unsigned __int64)EventHandle < 0x7FFFFFFF0000LL )
+      v9 = (__int64)EventHandle;
     *(_QWORD *)v9 = *(_QWORD *)v9;
   }
-  if ( (unsigned int)a4 > SynchronizationEvent )
-    return 3221225485LL;
+  if ( (unsigned int)EventType > SynchronizationEvent )
+    return -1073741811;
   v10 = ExEventObjectType;
   *(_OWORD *)ListEntry = 0LL;
   v40 = 0LL;
@@ -109,7 +114,13 @@ __int64 __fastcall NtCreateEvent(unsigned __int64 a1, __int64 a2, __int64 a3, EV
     goto LABEL_23;
   }
   *(_DWORD *)v13 = CurrentPrcb->Number;
-  Information = ObpCaptureObjectCreateInformation(PreviousMode, PreviousMode, a3, ListEntry, v13, 0);
+  Information = ObpCaptureObjectCreateInformation(
+                  PreviousMode,
+                  PreviousMode,
+                  (__int64)ObjectAttributes,
+                  ListEntry,
+                  v13,
+                  0);
   if ( Information >= 0 )
   {
     if ( (*(_DWORD *)v13 & (_DWORD)v10[9]) != 0 )
@@ -310,10 +321,10 @@ LABEL_22:
 LABEL_23:
   if ( Information >= 0 )
   {
-    KeInitializeEvent(v21, a4, a5);
+    KeInitializeEvent(v21, EventType, InitialState);
     Information = ObInsertObjectEx(v21, 0LL, 0, 0LL, (__int64)&v41);
     if ( Information >= 0 )
-      *v44 = v41;
+      *v44 = (HANDLE)v41;
   }
-  return (unsigned int)Information;
+  return Information;
 }

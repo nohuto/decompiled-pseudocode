@@ -1,21 +1,21 @@
 /*
- * XREFs of MmAllocateNonChargedSecurePages @ 0x14065749C
+ * XREFs of MmAllocateNonChargedSecurePages @ 0x1406579EC
  * Callers:
- *     PspIumAllocatePartitionState @ 0x1405A5910 (PspIumAllocatePartitionState.c)
- *     PspIumReplenishPartitionPages @ 0x1405A6200 (PspIumReplenishPartitionPages.c)
+ *     PspIumAllocatePartitionState @ 0x1405A5E80 (PspIumAllocatePartitionState.c)
+ *     PspIumReplenishPartitionPages @ 0x1405A6770 (PspIumReplenishPartitionPages.c)
  * Callees:
- *     MiGetSlabPage @ 0x14023BD70 (MiGetSlabPage.c)
- *     MiGetPage @ 0x14026D360 (MiGetPage.c)
- *     MiUpdatePageFileHighInPte @ 0x14028563C (MiUpdatePageFileHighInPte.c)
- *     MiReturnCommit @ 0x1402DC250 (MiReturnCommit.c)
- *     MiInitializePageColorBase @ 0x1402E1690 (MiInitializePageColorBase.c)
- *     MiAcquireNonPagedResources @ 0x1402E4314 (MiAcquireNonPagedResources.c)
- *     MiLockPageInline @ 0x1402EF680 (MiLockPageInline.c)
- *     MiPartitionObjectToPartition @ 0x1402F8AA4 (MiPartitionObjectToPartition.c)
- *     PsDereferencePartition @ 0x1402F9C4C (PsDereferencePartition.c)
- *     MiCheckSlabPfnBitmap @ 0x140324730 (MiCheckSlabPfnBitmap.c)
- *     MiInitializeMdlPfn @ 0x14038C220 (MiInitializeMdlPfn.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiGetSlabPage @ 0x14023BE40 (MiGetSlabPage.c)
+ *     MiGetPage @ 0x14026D5F0 (MiGetPage.c)
+ *     MiUpdatePageFileHighInPte @ 0x1402858CC (MiUpdatePageFileHighInPte.c)
+ *     MiReturnCommit @ 0x1402DC4E0 (MiReturnCommit.c)
+ *     MiInitializePageColorBase @ 0x1402E1920 (MiInitializePageColorBase.c)
+ *     MiAcquireNonPagedResources @ 0x1402E45A4 (MiAcquireNonPagedResources.c)
+ *     MiLockPageInline @ 0x1402EF910 (MiLockPageInline.c)
+ *     MiPartitionObjectToPartition @ 0x1402F8D34 (MiPartitionObjectToPartition.c)
+ *     PsDereferencePartition @ 0x1402F9EDC (PsDereferencePartition.c)
+ *     MiCheckSlabPfnBitmap @ 0x1403249C0 (MiCheckSlabPfnBitmap.c)
+ *     MiInitializeMdlPfn @ 0x14038C400 (MiInitializeMdlPfn.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 void __fastcall MmAllocateNonChargedSecurePages(void **a1, int a2, unsigned int *a3, __int64 *a4)
@@ -86,10 +86,13 @@ void __fastcall MmAllocateNonChargedSecurePages(void **a1, int a2, unsigned int 
       v16 = (unsigned __int8)MiLockPageInline(48 * Page - 0x220000000000LL);
       MiInitializeMdlPfn(48 * Page - 0x220000000000LL, 131584);
       _InterlockedAnd64((volatile signed __int64 *)(v14 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         CurrentIrql = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v16 <= 0xFu && CurrentIrql >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+          && CurrentIrql <= 0xFu
+          && (unsigned __int8)v16 <= 0xFu
+          && CurrentIrql >= 2u )
         {
           CurrentPrcb = KeGetCurrentPrcb();
           SchedulerAssist = CurrentPrcb->SchedulerAssist;

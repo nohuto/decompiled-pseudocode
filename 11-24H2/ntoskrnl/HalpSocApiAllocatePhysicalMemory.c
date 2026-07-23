@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpSocApiAllocatePhysicalMemory @ 0x140561670
+ * XREFs of HalpSocApiAllocatePhysicalMemory @ 0x14055F2A0
  * Callers:
  *     <none>
  * Callees:
- *     HalpAllocPhysicalMemoryEx @ 0x140C673EC (HalpAllocPhysicalMemoryEx.c)
+ *     HalpAllocPhysicalMemoryEx @ 0x140C69568 (HalpAllocPhysicalMemoryEx.c)
  */
 
 __int64 __fastcall HalpSocApiAllocatePhysicalMemory(__int64 a1, int a2)

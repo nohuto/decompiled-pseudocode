@@ -1,27 +1,27 @@
 /*
- * XREFs of CmAddLogForAction @ 0x140A05328
+ * XREFs of CmAddLogForAction @ 0x140A01858
  * Callers:
- *     CmDeleteKey @ 0x140869BFC (CmDeleteKey.c)
- *     CmSetValueKey @ 0x14086B130 (CmSetValueKey.c)
- *     CmDeleteValueKey @ 0x14086D078 (CmDeleteValueKey.c)
- *     CmpCreateChild @ 0x14091788C (CmpCreateChild.c)
- *     CmSetLastWriteTimeKey @ 0x14097A430 (CmSetLastWriteTimeKey.c)
- *     CmSetKeyFlags @ 0x14097AE70 (CmSetKeyFlags.c)
- *     CmpSetSecurityDescriptorInfo @ 0x1409A0064 (CmpSetSecurityDescriptorInfo.c)
+ *     CmpSetSecurityDescriptorInfo @ 0x140830F98 (CmpSetSecurityDescriptorInfo.c)
+ *     CmDeleteKey @ 0x14086DF2C (CmDeleteKey.c)
+ *     CmSetValueKey @ 0x14086F460 (CmSetValueKey.c)
+ *     CmDeleteValueKey @ 0x1408713A8 (CmDeleteValueKey.c)
+ *     CmpCreateChild @ 0x14090B2FC (CmpCreateChild.c)
+ *     CmSetLastWriteTimeKey @ 0x140962C40 (CmSetLastWriteTimeKey.c)
+ *     CmSetKeyFlags @ 0x140963680 (CmSetKeyFlags.c)
  * Callees:
- *     CmpFreeTransientPoolWithTag @ 0x140441FC0 (CmpFreeTransientPoolWithTag.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     HvpGetCellFlat @ 0x140874470 (HvpGetCellFlat.c)
- *     HvpGetCellPaged @ 0x1408744C0 (HvpGetCellPaged.c)
- *     HvpReleaseCellPaged @ 0x140875760 (HvpReleaseCellPaged.c)
- *     CmpConstructName @ 0x1408763E0 (CmpConstructName.c)
- *     CmpGetValueData @ 0x1408765B0 (CmpGetValueData.c)
- *     CmpCopyCompressedName @ 0x14087E8A0 (CmpCopyCompressedName.c)
- *     HvpReleaseCellFlat @ 0x140884BB0 (HvpReleaseCellFlat.c)
- *     CmpTransWriteLog @ 0x140A0592C (CmpTransWriteLog.c)
- *     HvBufferCheckSum @ 0x140A060E4 (HvBufferCheckSum.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     CmpFreeTransientPoolWithTag @ 0x140438B90 (CmpFreeTransientPoolWithTag.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     HvpGetCellFlat @ 0x1408787A0 (HvpGetCellFlat.c)
+ *     HvpGetCellPaged @ 0x1408787F0 (HvpGetCellPaged.c)
+ *     HvpReleaseCellPaged @ 0x140879A90 (HvpReleaseCellPaged.c)
+ *     CmpConstructName @ 0x14087A710 (CmpConstructName.c)
+ *     CmpGetValueData @ 0x14087A8E0 (CmpGetValueData.c)
+ *     CmpCopyCompressedName @ 0x140882750 (CmpCopyCompressedName.c)
+ *     HvpReleaseCellFlat @ 0x140888A60 (HvpReleaseCellFlat.c)
+ *     CmpTransWriteLog @ 0x140A01E5C (CmpTransWriteLog.c)
+ *     HvBufferCheckSum @ 0x140A02614 (HvBufferCheckSum.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall CmAddLogForAction(__int64 a1, ULONG a2, __int64 a3, __int64 a4)
@@ -126,7 +126,7 @@ LABEL_25:
           v20 = -1073741562;
           goto LABEL_50;
         }
-        Pool2 = ExAllocatePool2(0x100uLL);
+        Pool2 = ExAllocatePool2(0x100uLL, v25, 0x20204D43u);
         v10 = Pool2;
         if ( Pool2 )
         {
@@ -190,7 +190,7 @@ LABEL_45:
             if ( v20 >= 0 && ClfsLsnInvalid((const CLFS_LSN *)(*(_QWORD *)(a1 + 56) + 104LL)) )
               *(CLFS_LSN *)(*(_QWORD *)(a1 + 56) + 104LL) = v50;
             pcbInfoBuffer = 120;
-            v38 = (CLFS_INFORMATION *)ExAllocatePool2(0x100uLL);
+            v38 = (CLFS_INFORMATION *)ExAllocatePool2(0x100uLL, 0x78uLL, 0x20204D43u);
             v39 = v38;
             if ( v38 )
             {

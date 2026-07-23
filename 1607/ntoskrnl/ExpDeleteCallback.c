@@ -1,9 +1,9 @@
 /*
- * XREFs of ExpDeleteCallback @ 0x1406AFC08
+ * XREFs of ExpDeleteCallback @ 0x1406AFD40
  * Callers:
  *     <none>
  * Callees:
- *     ExpLockCallbackListExclusive @ 0x140148500 (ExpLockCallbackListExclusive.c)
+ *     ExpLockCallbackListExclusive @ 0x140148A70 (ExpLockCallbackListExclusive.c)
  */
 
 __int64 __fastcall ExpDeleteCallback(__int64 a1)

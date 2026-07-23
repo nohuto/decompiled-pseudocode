@@ -1,12 +1,12 @@
 /*
- * XREFs of PpLastGoodDeleteFilesCallback @ 0x140722890
+ * XREFs of PpLastGoodDeleteFilesCallback @ 0x140720420
  * Callers:
  *     <none>
  * Callees:
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     ZwSetInformationFile @ 0x1406A68F0 (ZwSetInformationFile.c)
- *     ZwOpenFile @ 0x1406A6A70 (ZwOpenFile.c)
- *     IopFileUtilClearAttributes @ 0x1407357CC (IopFileUtilClearAttributes.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     ZwSetInformationFile @ 0x1406A7890 (ZwSetInformationFile.c)
+ *     ZwOpenFile @ 0x1406A7A10 (ZwOpenFile.c)
+ *     IopFileUtilClearAttributes @ 0x1407336FC (IopFileUtilClearAttributes.c)
  */
 
 NTSTATUS __fastcall PpLastGoodDeleteFilesCallback(UNICODE_STRING *a1, __int64 a2, char a3)

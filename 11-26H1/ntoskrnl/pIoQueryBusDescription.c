@@ -1,23 +1,23 @@
 /*
- * XREFs of pIoQueryBusDescription @ 0x140A744A8
+ * XREFs of pIoQueryBusDescription @ 0x140A4AF48
  * Callers:
- *     IoQueryDeviceDescription @ 0x140A74360 (IoQueryDeviceDescription.c)
- *     pIoQueryBusDescription @ 0x140A744A8 (pIoQueryBusDescription.c)
+ *     IoQueryDeviceDescription @ 0x140A4AE00 (IoQueryDeviceDescription.c)
+ *     pIoQueryBusDescription @ 0x140A4AF48 (pIoQueryBusDescription.c)
  * Callees:
- *     RtlAppendUnicodeToString @ 0x140432EB0 (RtlAppendUnicodeToString.c)
- *     RtlAppendUnicodeStringToString @ 0x140432F70 (RtlAppendUnicodeStringToString.c)
- *     wcsncmp @ 0x1405381A0 (wcsncmp.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     ZwOpenKey @ 0x140723630 (ZwOpenKey.c)
- *     ZwEnumerateKey @ 0x140723A30 (ZwEnumerateKey.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     pIoQueryDeviceDescription @ 0x140A73E4C (pIoQueryDeviceDescription.c)
- *     pIoQueryBusDescription @ 0x140A744A8 (pIoQueryBusDescription.c)
- *     IopGetRegistryKeyInformation @ 0x140A74810 (IopGetRegistryKeyInformation.c)
- *     IopGetRegistryValues @ 0x140A748C8 (IopGetRegistryValues.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     RtlAppendUnicodeToString @ 0x14041FEE0 (RtlAppendUnicodeToString.c)
+ *     RtlAppendUnicodeStringToString @ 0x14041FFA0 (RtlAppendUnicodeStringToString.c)
+ *     wcsncmp @ 0x14053A620 (wcsncmp.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     ZwOpenKey @ 0x140728200 (ZwOpenKey.c)
+ *     ZwEnumerateKey @ 0x140728600 (ZwEnumerateKey.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     pIoQueryDeviceDescription @ 0x140A4A8E8 (pIoQueryDeviceDescription.c)
+ *     pIoQueryBusDescription @ 0x140A4AF48 (pIoQueryBusDescription.c)
+ *     IopGetRegistryKeyInformation @ 0x140A4B2B0 (IopGetRegistryKeyInformation.c)
+ *     IopGetRegistryValues @ 0x140A4B368 (IopGetRegistryValues.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall pIoQueryBusDescription(__int64 a1, UNICODE_STRING *a2, void *a3, _DWORD *a4, char a5)

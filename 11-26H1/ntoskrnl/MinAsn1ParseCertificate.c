@@ -1,10 +1,10 @@
 /*
- * XREFs of MinAsn1ParseCertificate @ 0x1408A33C0
+ * XREFs of MinAsn1ParseCertificate @ 0x1408A97D0
  * Callers:
- *     MinCryptCheckCertsAndKeys @ 0x14071CC38 (MinCryptCheckCertsAndKeys.c)
- *     MinAsn1ParseSignedDataCertificatesEx @ 0x1408A35F0 (MinAsn1ParseSignedDataCertificatesEx.c)
+ *     MinCryptCheckCertsAndKeys @ 0x1407218C8 (MinCryptCheckCertsAndKeys.c)
+ *     MinAsn1ParseSignedDataCertificatesEx @ 0x1408A9A00 (MinAsn1ParseSignedDataCertificatesEx.c)
  * Callees:
- *     MinAsn1ExtractValues @ 0x1408A4838 (MinAsn1ExtractValues.c)
+ *     MinAsn1ExtractValues @ 0x1408AAC48 (MinAsn1ExtractValues.c)
  */
 
 __int64 __fastcall MinAsn1ParseCertificate(int a1, int a2, __int64 a3)
@@ -15,7 +15,7 @@ __int64 __fastcall MinAsn1ParseCertificate(int a1, int a2, __int64 a3)
   int v8; // [rsp+58h] [rbp+20h] BYREF
 
   v8 = 20;
-  Values = MinAsn1ExtractValues(a1, a2, (unsigned int)&v8, (unsigned int)&qword_1400103A0, 15, a3);
+  Values = MinAsn1ExtractValues(a1, a2, (unsigned int)&v8, (unsigned int)&qword_140010170, 15, a3);
   if ( Values > 0 )
   {
     v5 = *(_DWORD *)(a3 + 192);

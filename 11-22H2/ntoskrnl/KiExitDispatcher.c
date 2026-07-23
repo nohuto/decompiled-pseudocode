@@ -73,12 +73,7 @@
  *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
  */
 
-__int64 __fastcall KiExitDispatcher(
-        __int64 a1,
-        char a2,
-        struct _PROCESSOR_NUMBER a3,
-        unsigned int a4,
-        unsigned __int8 a5)
+__int64 __fastcall KiExitDispatcher(__int64 a1, char a2, _PROCESSOR_NUMBER a3, unsigned int a4, unsigned __int8 a5)
 {
   char v5; // bp
   __int64 result; // rax
@@ -102,7 +97,7 @@ __int64 __fastcall KiExitDispatcher(
   char v25; // r8
   _QWORD *v26; // rbx
   _QWORD *v27; // rdx
-  __int64 (__fastcall *v28)(_QWORD, _DWORD *, int *, __int64, struct _PROCESSOR_NUMBER *); // r10
+  __int64 (__fastcall *v28)(_QWORD, _DWORD *, int *, __int64, _PROCESSOR_NUMBER *); // r10
   __int64 *v29; // rax
   __int64 **v30; // rcx
   __int64 v31; // rcx
@@ -135,7 +130,7 @@ __int64 __fastcall KiExitDispatcher(
   __int64 (__fastcall *v58)(_QWORD, _DWORD *, __int128 *, __int64, _DWORD *); // rax
   __int64 (__fastcall *v59)(_QWORD, _DWORD *, __int128 *, __int64, _DWORD *); // rax
   _DWORD v60[2]; // [rsp+40h] [rbp-368h] BYREF
-  struct _PROCESSOR_NUMBER ProcNumber; // [rsp+48h] [rbp-360h] BYREF
+  _PROCESSOR_NUMBER ProcNumber; // [rsp+48h] [rbp-360h] BYREF
   int v62; // [rsp+4Ch] [rbp-35Ch]
   __int128 v63; // [rsp+50h] [rbp-358h] BYREF
   int v64; // [rsp+60h] [rbp-348h]
@@ -354,10 +349,10 @@ LABEL_51:
       KiQueueReadyThread(a1, (__int64 *)&v76, v8);
       if ( !(unsigned __int8)KiSwapContext(v8, v33, a5) )
         goto LABEL_6;
-      if ( !KiIrqlFlags )
+      if ( !(_DWORD)KiIrqlFlags )
         goto LABEL_71;
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) == 0 )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) == 0 )
         goto LABEL_71;
       if ( (unsigned __int8)(CurrentIrql - 2) > 0xDu )
         goto LABEL_71;
@@ -372,8 +367,8 @@ LABEL_51:
     {
       if ( (*(_DWORD *)(v8 + 116) & 0x40) == 0 )
         goto LABEL_6;
-      if ( !KiIrqlFlags
-        || (v46 = KeGetCurrentIrql(), (KiIrqlFlags & 1) == 0)
+      if ( !(_DWORD)KiIrqlFlags
+        || (v46 = KeGetCurrentIrql(), ((unsigned __int8)KiIrqlFlags & 1) == 0)
         || (unsigned __int8)(v46 - 2) > 0xDu
         || (v44 = KeGetCurrentPrcb(),
             v47 = v44->SchedulerAssist,
@@ -387,10 +382,10 @@ LABEL_71:
         KiDeliverApc(0LL, 0LL, 0LL);
 LABEL_6:
         result = (unsigned int)KiIrqlFlags;
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
           v48 = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && (unsigned __int8)(v48 - 2) <= 0xDu )
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && (unsigned __int8)(v48 - 2) <= 0xDu )
           {
             v49 = KeGetCurrentPrcb();
             v50 = v49->SchedulerAssist;
@@ -423,9 +418,8 @@ LABEL_6:
   if ( (*(_DWORD *)(HalpInterruptController + 244) & 0x40) != 0 && !HalpInterruptNoShorthand )
   {
     v83 = 3;
-    v28 = *(__int64 (__fastcall **)(_QWORD, _DWORD *, int *, __int64, struct _PROCESSOR_NUMBER *))(HalpInterruptController
-                                                                                                 + 120);
-    ProcNumber = (struct _PROCESSOR_NUMBER)-1;
+    v28 = *(__int64 (__fastcall **)(_QWORD, _DWORD *, int *, __int64, _PROCESSOR_NUMBER *))(HalpInterruptController + 120);
+    ProcNumber = (_PROCESSOR_NUMBER)-1;
     v60[1] = *(_DWORD *)(HalpInterruptIpiLines + 20);
     v60[0] = *(_DWORD *)(HalpInterruptIpiLines + 16);
     v62 = 1;

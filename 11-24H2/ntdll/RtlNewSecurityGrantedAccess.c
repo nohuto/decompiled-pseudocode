@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlNewSecurityGrantedAccess @ 0x180133A40
+ * XREFs of RtlNewSecurityGrantedAccess @ 0x180131C70
  * Callers:
  *     <none>
  * Callees:
- *     NtQueryInformationToken @ 0x1801620B0 (NtQueryInformationToken.c)
- *     ZwPrivilegeCheck @ 0x1801644C0 (ZwPrivilegeCheck.c)
- *     __security_check_cookie @ 0x1801659C0 (__security_check_cookie.c)
+ *     NtQueryInformationToken @ 0x180160470 (NtQueryInformationToken.c)
+ *     ZwPrivilegeCheck @ 0x180162880 (ZwPrivilegeCheck.c)
+ *     __security_check_cookie @ 0x180163D80 (__security_check_cookie.c)
  */
 
 __int64 __fastcall RtlNewSecurityGrantedAccess(int a1, __int64 a2, _DWORD *a3, __int64 a4, _DWORD *a5, int *a6)
@@ -13,27 +13,25 @@ __int64 __fastcall RtlNewSecurityGrantedAccess(int a1, __int64 a2, _DWORD *a3, _
   unsigned int v6; // edi
   __int64 v10; // r12
   int v11; // ebx
-  int v12; // eax
-  char v13; // cl
+  NTSTATUS v12; // eax
+  BOOLEAN v13; // cl
   __int64 result; // rax
-  _BYTE v15[8]; // [rsp+30h] [rbp-59h] BYREF
+  BOOLEAN Result[8]; // [rsp+30h] [rbp-59h] BYREF
   __int64 v16; // [rsp+38h] [rbp-51h]
-  int v17; // [rsp+40h] [rbp-49h] BYREF
-  _DWORD v18[2]; // [rsp+48h] [rbp-41h] BYREF
-  __int64 v19; // [rsp+50h] [rbp-39h]
-  int v20; // [rsp+58h] [rbp-31h]
-  _OWORD v21[3]; // [rsp+60h] [rbp-29h] BYREF
-  __int64 v22; // [rsp+90h] [rbp+7h]
+  ULONG ReturnLength; // [rsp+40h] [rbp-49h] BYREF
+  _PRIVILEGE_SET RequiredPrivileges; // [rsp+48h] [rbp-41h] BYREF
+  _OWORD TokenInformation[3]; // [rsp+60h] [rbp-29h] BYREF
+  __int64 v20; // [rsp+90h] [rbp+7h]
 
   v6 = 0;
-  v15[0] = 0;
-  v22 = 0LL;
-  v17 = 0;
+  Result[0] = 0;
+  v20 = 0LL;
+  ReturnLength = 0;
   v10 = -5LL;
   if ( a4 )
     v10 = a4;
-  memset(v21, 0, sizeof(v21));
-  NtQueryInformationToken(v10, 10LL, v21, 56LL, &v17);
+  memset(TokenInformation, 0, sizeof(TokenInformation));
+  NtQueryInformationToken((HANDLE)v10, 0xAu, TokenInformation, 0x38u, &ReturnLength);
   if ( a1 < 0 )
     a1 |= *a5;
   if ( (a1 & 0x40000000) != 0 )
@@ -47,19 +45,19 @@ __int64 __fastcall RtlNewSecurityGrantedAccess(int a1, __int64 a2, _DWORD *a3, _
   if ( (v11 & 0x1000000) != 0 )
   {
     v16 = 8LL;
-    v19 = 8LL;
-    v18[0] = 1;
-    v18[1] = 1;
-    v20 = 0;
-    v12 = ZwPrivilegeCheck(v10, v18, v15);
-    v13 = v15[0];
-    if ( (v12 < 0 || !v15[0]) && !v15[0] )
+    RequiredPrivileges.Privilege[0].Luid = (_LUID)8LL;
+    RequiredPrivileges.PrivilegeCount = 1;
+    RequiredPrivileges.Control = 1;
+    RequiredPrivileges.Privilege[0].Attributes = 0;
+    v12 = ZwPrivilegeCheck((HANDLE)v10, &RequiredPrivileges, Result);
+    v13 = Result[0];
+    if ( (v12 < 0 || !Result[0]) && !Result[0] )
       return 3221225569LL;
     *a6 &= ~0x1000000u;
   }
   else
   {
-    v13 = v15[0];
+    v13 = Result[0];
   }
   if ( *a3 >= 0x14u )
   {

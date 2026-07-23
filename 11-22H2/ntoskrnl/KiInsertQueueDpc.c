@@ -166,7 +166,7 @@ __int64 __fastcall KiInsertQueueDpc(
   CurrentIrql = KeGetCurrentIrql();
   v41 = CurrentIrql;
   __writecr8(0xFuLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     if ( CurrentIrql == 15 )
@@ -393,10 +393,10 @@ LABEL_40:
     }
   }
 LABEL_47:
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v33 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v33 <= 0xFu && v41 <= 0xFu && v33 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v33 <= 0xFu && v41 <= 0xFu && v33 >= 2u )
     {
       v34 = KeGetCurrentPrcb();
       v35 = v34->SchedulerAssist;

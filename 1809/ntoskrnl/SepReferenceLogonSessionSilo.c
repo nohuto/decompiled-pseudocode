@@ -1,11 +1,11 @@
 /*
- * XREFs of SepReferenceLogonSessionSilo @ 0x1405BD728
+ * XREFs of SepReferenceLogonSessionSilo @ 0x1405BE728
  * Callers:
- *     SepReferenceLogonSession @ 0x1405BD6F4 (SepReferenceLogonSession.c)
- *     NtQueryInformationToken @ 0x14062A760 (NtQueryInformationToken.c)
- *     SeInitServerSilo @ 0x14089B7C4 (SeInitServerSilo.c)
- *     SepSetServerSiloToken @ 0x14089BFE0 (SepSetServerSiloToken.c)
- *     SeGetLinkedToken @ 0x1408A1AF0 (SeGetLinkedToken.c)
+ *     SepReferenceLogonSession @ 0x1405BE6F4 (SepReferenceLogonSession.c)
+ *     NtQueryInformationToken @ 0x14062B780 (NtQueryInformationToken.c)
+ *     SeInitServerSilo @ 0x14089CA24 (SeInitServerSilo.c)
+ *     SepSetServerSiloToken @ 0x14089D240 (SepSetServerSiloToken.c)
+ *     SeGetLinkedToken @ 0x1408A2D50 (SeGetLinkedToken.c)
  * Callees:
  *     KeLeaveCriticalRegion @ 0x14004F410 (KeLeaveCriticalRegion.c)
  *     ExReleaseResourceLite @ 0x14004F590 (ExReleaseResourceLite.c)

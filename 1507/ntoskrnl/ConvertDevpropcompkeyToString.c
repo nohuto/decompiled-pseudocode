@@ -12,7 +12,7 @@
 __int64 __fastcall ConvertDevpropcompkeyToString(__int64 a1, wchar_t *a2, unsigned int a3, unsigned int *a4)
 {
   size_t v4; // rsi
-  int v8; // ebx
+  NTSTATUS v8; // ebx
   int v9; // r9d
   const wchar_t *v10; // r10
   __int64 v11; // rax
@@ -21,16 +21,16 @@ __int64 __fastcall ConvertDevpropcompkeyToString(__int64 a1, wchar_t *a2, unsign
   int v14; // ecx
   const wchar_t *v15; // r8
   unsigned int v16; // ecx
-  UNICODE_STRING UnicodeString; // [rsp+50h] [rbp-28h] BYREF
+  UNICODE_STRING GuidString; // [rsp+50h] [rbp-28h] BYREF
 
   v4 = a3;
-  UnicodeString.Length = 0;
-  *(_QWORD *)&UnicodeString.MaximumLength = 0LL;
-  *(_DWORD *)((char *)&UnicodeString.Buffer + 2) = 0;
-  HIWORD(UnicodeString.Buffer) = 0;
+  GuidString.Length = 0;
+  *(_QWORD *)&GuidString.MaximumLength = 0LL;
+  *(_DWORD *)((char *)&GuidString.Buffer + 2) = 0;
+  HIWORD(GuidString.Buffer) = 0;
   if ( a3 >= 2 )
     *a2 = 0;
-  v8 = RtlStringFromGUIDEx((unsigned int *)a1, (__int64)&UnicodeString, 1);
+  v8 = RtlStringFromGUIDEx((PGUID)a1, &GuidString, 1u);
   if ( v8 >= 0 )
   {
     v9 = *(_DWORD *)(a1 + 20);
@@ -57,7 +57,7 @@ __int64 __fastcall ConvertDevpropcompkeyToString(__int64 a1, wchar_t *a2, unsign
       while ( aSystem_7[v12] );
     }
     v13 = *(const wchar_t **)(a1 + 24);
-    v14 = UnicodeString.Length + 18 + 2 * v12 + 2;
+    v14 = GuidString.Length + 18 + 2 * v12 + 2;
     v15 = L"(NULL)";
     if ( v13 )
     {
@@ -91,13 +91,13 @@ __int64 __fastcall ConvertDevpropcompkeyToString(__int64 a1, wchar_t *a2, unsign
              0LL,
              0x800u,
              L"[(%s %3d) %s %s]",
-             UnicodeString.Buffer,
+             GuidString.Buffer,
              *(_DWORD *)(a1 + 16),
              v10,
              v15);
     }
   }
 LABEL_25:
-  RtlFreeAnsiString(&UnicodeString);
+  RtlFreeAnsiString(&GuidString);
   return (unsigned int)v8;
 }

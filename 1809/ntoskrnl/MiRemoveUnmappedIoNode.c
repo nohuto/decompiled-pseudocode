@@ -1,11 +1,11 @@
 /*
- * XREFs of MiRemoveUnmappedIoNode @ 0x1400E59D0
+ * XREFs of MiRemoveUnmappedIoNode @ 0x1400E5A50
  * Callers:
- *     MiReferenceIoPages @ 0x1400E5FAC (MiReferenceIoPages.c)
- *     MiMakeIoRangePermanent @ 0x1402ABA0C (MiMakeIoRangePermanent.c)
+ *     MiReferenceIoPages @ 0x1400E602C (MiReferenceIoPages.c)
+ *     MiMakeIoRangePermanent @ 0x1402ABBFC (MiMakeIoRangePermanent.c)
  * Callees:
  *     RtlAvlRemoveNode @ 0x140037250 (RtlAvlRemoveNode.c)
- *     MiInitializeIoPageNodeArray @ 0x1400E5998 (MiInitializeIoPageNodeArray.c)
+ *     MiInitializeIoPageNodeArray @ 0x1400E5A18 (MiInitializeIoPageNodeArray.c)
  */
 
 __int64 __fastcall MiRemoveUnmappedIoNode(unsigned __int64 *a1, unsigned __int64 a2)
@@ -35,8 +35,8 @@ __int64 __fastcall MiRemoveUnmappedIoNode(unsigned __int64 *a1, unsigned __int64
   }
   RtlAvlRemoveNode(a1, (unsigned __int64 *)i);
   v5 = i + 24;
-  if ( qword_14043AD20 == i + 24 && *(__int64 **)v5 != &qword_14043AD20 )
-    dword_14043AD30 = *(_DWORD *)(*(_QWORD *)v5 + 32LL);
+  if ( qword_14043BDE0 == i + 24 && *(__int64 **)v5 != &qword_14043BDE0 )
+    dword_14043BDF0 = *(_DWORD *)(*(_QWORD *)v5 + 32LL);
   v6 = *(_QWORD *)v5;
   if ( *(_QWORD *)(*(_QWORD *)v5 + 8LL) != v5 || (v7 = *(_QWORD **)(i + 32), *v7 != v5) )
     __fastfail(3u);
@@ -51,6 +51,6 @@ __int64 __fastcall MiRemoveUnmappedIoNode(unsigned __int64 *a1, unsigned __int64
   }
   *(_QWORD *)(i + 56) = 0LL;
   result = i;
-  --qword_14043AD38;
+  --qword_14043BDF8;
   return result;
 }

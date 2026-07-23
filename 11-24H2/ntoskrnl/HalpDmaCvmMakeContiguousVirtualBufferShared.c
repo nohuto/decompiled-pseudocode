@@ -1,11 +1,11 @@
 /*
- * XREFs of HalpDmaCvmMakeContiguousVirtualBufferShared @ 0x1406FFD04
+ * XREFs of HalpDmaCvmMakeContiguousVirtualBufferShared @ 0x1406FD944
  * Callers:
- *     HalpAllocateDomainCommonBufferInternal @ 0x140550340 (HalpAllocateDomainCommonBufferInternal.c)
+ *     HalpAllocateDomainCommonBufferInternal @ 0x14054DC80 (HalpAllocateDomainCommonBufferInternal.c)
  * Callees:
- *     MmGetPhysicalAddress @ 0x140263A60 (MmGetPhysicalAddress.c)
- *     MmMapIoSpaceEx @ 0x1402E9A50 (MmMapIoSpaceEx.c)
- *     HalpDmaCvmSetPageShareability @ 0x1406FFFBC (HalpDmaCvmSetPageShareability.c)
+ *     MmGetPhysicalAddress @ 0x1402932D0 (MmGetPhysicalAddress.c)
+ *     MmMapIoSpaceEx @ 0x14034B090 (MmMapIoSpaceEx.c)
+ *     HalpDmaCvmSetPageShareability @ 0x1406FDBFC (HalpDmaCvmSetPageShareability.c)
  */
 
 __int64 __fastcall HalpDmaCvmMakeContiguousVirtualBufferShared(
@@ -63,7 +63,7 @@ __int64 __fastcall HalpDmaCvmMakeContiguousVirtualBufferShared(
   if ( (int)result >= 0 )
   {
     v15 = QuadPart;
-    v16 = MmMapIoSpaceEx(QuadPart, a2, 4u);
+    v16 = MmMapIoSpaceEx(QuadPart, a2, 4LL);
     if ( v16 )
     {
       result = 0LL;

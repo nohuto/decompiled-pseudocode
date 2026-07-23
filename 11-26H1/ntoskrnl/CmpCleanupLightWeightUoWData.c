@@ -1,17 +1,17 @@
 /*
- * XREFs of CmpCleanupLightWeightUoWData @ 0x14085BE94
+ * XREFs of CmpCleanupLightWeightUoWData @ 0x140862184
  * Callers:
- *     CmpCommitLightWeightTransaction @ 0x1408AE64C (CmpCommitLightWeightTransaction.c)
- *     CmpCleanupLightWeightPrepare @ 0x140AEB104 (CmpCleanupLightWeightPrepare.c)
+ *     CmpCommitLightWeightTransaction @ 0x1408B4A8C (CmpCommitLightWeightTransaction.c)
+ *     CmpCleanupLightWeightPrepare @ 0x140AEDED4 (CmpCleanupLightWeightPrepare.c)
  * Callees:
- *     CmpFreeTransientPoolWithTag @ 0x140477290 (CmpFreeTransientPoolWithTag.c)
- *     CmSiFreeMemory @ 0x140495010 (CmSiFreeMemory.c)
- *     CmpFreeKeyByCell @ 0x1408BCC94 (CmpFreeKeyByCell.c)
- *     CmpFreeValue @ 0x1408D0BF4 (CmpFreeValue.c)
- *     CmpLightWeightCleanupModifyKeyDataUoW @ 0x140A2EC9C (CmpLightWeightCleanupModifyKeyDataUoW.c)
- *     CmpCleanupDiscardReplaceContext @ 0x140A2EE10 (CmpCleanupDiscardReplaceContext.c)
- *     CmpLightWeightCleanupSetValueKeyUoW @ 0x140AB1DB4 (CmpLightWeightCleanupSetValueKeyUoW.c)
- *     CmpLightWeightCleanupSetSecDescUoW @ 0x140AE5C70 (CmpLightWeightCleanupSetSecDescUoW.c)
+ *     CmpFreeTransientPoolWithTag @ 0x140470A10 (CmpFreeTransientPoolWithTag.c)
+ *     CmSiFreeMemory @ 0x14048EB60 (CmSiFreeMemory.c)
+ *     CmpFreeKeyByCell @ 0x1408C3264 (CmpFreeKeyByCell.c)
+ *     CmpFreeValue @ 0x1408D71B4 (CmpFreeValue.c)
+ *     CmpLightWeightCleanupModifyKeyDataUoW @ 0x140A40B28 (CmpLightWeightCleanupModifyKeyDataUoW.c)
+ *     CmpCleanupDiscardReplaceContext @ 0x140A40C9C (CmpCleanupDiscardReplaceContext.c)
+ *     CmpLightWeightCleanupSetValueKeyUoW @ 0x140AAFCD4 (CmpLightWeightCleanupSetValueKeyUoW.c)
+ *     CmpLightWeightCleanupSetSecDescUoW @ 0x140AE3A30 (CmpLightWeightCleanupSetSecDescUoW.c)
  */
 
 void __fastcall CmpCleanupLightWeightUoWData(__int64 a1, __int64 a2, __int64 a3)

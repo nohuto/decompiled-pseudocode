@@ -19,11 +19,11 @@ __int64 __fastcall KiSetVirtualHeteroClockIntervalRequest(char a1)
   if ( a1 )
   {
     if ( byte_140356878 )
-      KiResetClockInterval((__int64)&KiVirtualHeteroClockRequest);
+      KiResetClockInterval(&KiVirtualHeteroClockRequest);
   }
   else if ( !byte_140356878 )
   {
-    KiSetClockInterval(0x2710u, 0, (unsigned __int64)&KiVirtualHeteroClockRequest);
+    KiSetClockInterval(0x2710u, 0, (__int64)&KiVirtualHeteroClockRequest);
     KiSendClockInterruptToClockOwner();
   }
   result = CurrentIrql;

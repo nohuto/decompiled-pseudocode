@@ -1,11 +1,11 @@
 /*
- * XREFs of MiLockHotPatchPages @ 0x1408CB184
+ * XREFs of MiLockHotPatchPages @ 0x1408CB2E4
  * Callers:
- *     MiPrepareDriverForHotPatch @ 0x1408CD548 (MiPrepareDriverForHotPatch.c)
+ *     MiPrepareDriverForHotPatch @ 0x1408CD6A8 (MiPrepareDriverForHotPatch.c)
  * Callees:
- *     MiGetAnyMultiplexedVm @ 0x1402FD0FC (MiGetAnyMultiplexedVm.c)
- *     MiLockDriverPageRange @ 0x14052DA04 (MiLockDriverPageRange.c)
- *     RtlDetermineHotPatchExtent @ 0x14091ADEC (RtlDetermineHotPatchExtent.c)
+ *     MiGetAnyMultiplexedVm @ 0x140307E4C (MiGetAnyMultiplexedVm.c)
+ *     MiLockDriverPageRange @ 0x14052DC44 (MiLockDriverPageRange.c)
+ *     RtlDetermineHotPatchExtent @ 0x14091AF4C (RtlDetermineHotPatchExtent.c)
  */
 
 __int64 __fastcall MiLockHotPatchPages(__int64 *a1, __int64 a2, int a3, __int64 a4, unsigned int a5, unsigned int a6)

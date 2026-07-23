@@ -1,5 +1,5 @@
 /*
- * XREFs of InbvEnableDisplayString @ 0x1401C36A0
+ * XREFs of InbvEnableDisplayString @ 0x1401C3584
  * Callers:
  *     PopShutdownHandler @ 0x1403DF97C (PopShutdownHandler.c)
  * Callees:
@@ -10,7 +10,7 @@ char __fastcall InbvEnableDisplayString(char a1)
 {
   char result; // al
 
-  result = byte_140323438;
-  byte_140323438 = a1;
+  result = byte_140323478;
+  byte_140323478 = a1;
   return result;
 }

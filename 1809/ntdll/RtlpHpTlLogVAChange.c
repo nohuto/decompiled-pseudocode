@@ -5,7 +5,7 @@
  *     RtlpHpFreeVA @ 0x1800611FC (RtlpHpFreeVA.c)
  * Callees:
  *     _TlgWrite @ 0x18004D1E8 (_TlgWrite.c)
- *     __security_check_cookie @ 0x18008FEC0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x18008FED0 (__security_check_cookie.c)
  */
 
 TLG_STATUS __fastcall RtlpHpTlLogVAChange(int a1, const GUID *a2, const GUID *a3, const GUID *a4)
@@ -36,7 +36,7 @@ TLG_STATUS __fastcall RtlpHpTlLogVAChange(int a1, const GUID *a2, const GUID *a3
         v12 = 8LL;
         v13 = &v5;
         v14 = 4LL;
-        return TlgWrite((TraceLoggingHProvider)&dword_18015F698, &unk_18012C749, a3, a4, 5u, &pData);
+        return TlgWrite((TraceLoggingHProvider)&dword_18015F698, &unk_18012C7D9, a3, a4, 5u, &pData);
       }
       break;
     case 0x2000:
@@ -51,7 +51,7 @@ TLG_STATUS __fastcall RtlpHpTlLogVAChange(int a1, const GUID *a2, const GUID *a3
         v12 = 8LL;
         v13 = &v5;
         v14 = 4LL;
-        return TlgWrite((TraceLoggingHProvider)&dword_18015F698, &unk_18012C6EE, a3, a4, 5u, &pData);
+        return TlgWrite((TraceLoggingHProvider)&dword_18015F698, &unk_18012C77E, a3, a4, 5u, &pData);
       }
       break;
     case 0x4000:
@@ -66,7 +66,7 @@ TLG_STATUS __fastcall RtlpHpTlLogVAChange(int a1, const GUID *a2, const GUID *a3
         v12 = 8LL;
         v13 = &v5;
         v14 = 4LL;
-        return TlgWrite((TraceLoggingHProvider)&dword_18015F698, &unk_18012C80D, a3, a4, 5u, &pData);
+        return TlgWrite((TraceLoggingHProvider)&dword_18015F698, &unk_18012C89D, a3, a4, 5u, &pData);
       }
       break;
     default:
@@ -81,7 +81,7 @@ TLG_STATUS __fastcall RtlpHpTlLogVAChange(int a1, const GUID *a2, const GUID *a3
         v12 = 8LL;
         v13 = &v5;
         v14 = 4LL;
-        return TlgWrite((TraceLoggingHProvider)&dword_18015F698, &unk_18012C6B8, a3, a4, 5u, &pData);
+        return TlgWrite((TraceLoggingHProvider)&dword_18015F698, &unk_18012C748, a3, a4, 5u, &pData);
       }
       break;
   }

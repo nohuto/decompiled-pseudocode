@@ -1,15 +1,15 @@
 /*
- * XREFs of PpmParkCalculateCoreParkingMask @ 0x1402AE4A0
+ * XREFs of PpmParkCalculateCoreParkingMask @ 0x14022C800
  * Callers:
  *     <none>
  * Callees:
- *     KeGetPrcb @ 0x140228E30 (KeGetPrcb.c)
- *     KeEnumerateNextProcessor @ 0x140229400 (KeEnumerateNextProcessor.c)
- *     KeCpuSetQueryUnparkRecommendation @ 0x14051C5B0 (KeCpuSetQueryUnparkRecommendation.c)
- *     PpmEventLPICoreParking @ 0x140579B1C (PpmEventLPICoreParking.c)
- *     PpmEventTraceSoftCoreParkingSelection @ 0x14057B040 (PpmEventTraceSoftCoreParkingSelection.c)
- *     PpmParkComputeDiff @ 0x14057D004 (PpmParkComputeDiff.c)
- *     PpmParkComputeUnparkMask @ 0x14057D0EC (PpmParkComputeUnparkMask.c)
+ *     KeGetPrcb @ 0x1402CD730 (KeGetPrcb.c)
+ *     KeEnumerateNextProcessor @ 0x1402CDD00 (KeEnumerateNextProcessor.c)
+ *     KeCpuSetQueryUnparkRecommendation @ 0x14051C7F0 (KeCpuSetQueryUnparkRecommendation.c)
+ *     PpmEventLPICoreParking @ 0x140579D5C (PpmEventLPICoreParking.c)
+ *     PpmEventTraceSoftCoreParkingSelection @ 0x14057B280 (PpmEventTraceSoftCoreParkingSelection.c)
+ *     PpmParkComputeDiff @ 0x14057D244 (PpmParkComputeDiff.c)
+ *     PpmParkComputeUnparkMask @ 0x14057D32C (PpmParkComputeUnparkMask.c)
  */
 
 char PpmParkCalculateCoreParkingMask()
@@ -81,7 +81,7 @@ char PpmParkCalculateCoreParkingMask()
   __int64 v65; // [rsp+D0h] [rbp-30h]
   __int64 *v66; // [rsp+D8h] [rbp-28h]
   unsigned __int64 v67; // [rsp+E0h] [rbp-20h]
-  unsigned __int16 *v68[2]; // [rsp+E8h] [rbp-18h] BYREF
+  _QWORD v68[2]; // [rsp+E8h] [rbp-18h] BYREF
   __int16 v69; // [rsp+F8h] [rbp-8h]
   int v70; // [rsp+FAh] [rbp-6h]
   __int16 v71; // [rsp+FEh] [rbp-2h]
@@ -100,7 +100,7 @@ char PpmParkCalculateCoreParkingMask()
     return 1;
   v1 = 0;
   v56 = 0;
-  v66 = &PpmCurrentProfile[342 * dword_140C23E8C];
+  v66 = &PpmCurrentProfile[342 * dword_140C2332C];
   v2 = 100 * *((unsigned __int8 *)v66 + 164);
   v58 = v2;
   if ( !PpmParkNumNodes )
@@ -121,7 +121,7 @@ char PpmParkCalculateCoreParkingMask()
       v5 = v6;
     v74 = 0;
     v69 = *(_WORD *)(v3 + 4);
-    v68[1] = *(unsigned __int16 **)(v3 + 8);
+    v68[1] = *(_QWORD *)(v3 + 8);
     v75 = v5;
     v68[0] = 0LL;
     while ( !(unsigned int)KeEnumerateNextProcessor(&v74, v68) )
@@ -153,7 +153,7 @@ char PpmParkCalculateCoreParkingMask()
         LOWORD(v54) = *(_WORD *)(v3 + 4);
         *((_QWORD *)&v53 + 1) = *v8;
         *(_QWORD *)&v53 = 0LL;
-        while ( !(unsigned int)KeEnumerateNextProcessor(&v72, (unsigned __int16 **)&v53) )
+        while ( !(unsigned int)KeEnumerateNextProcessor(&v72, &v53) )
           v12 |= *(_QWORD *)(KeGetPrcb(v72) + 33880);
       }
       v13 = v10 & v12;
@@ -180,7 +180,7 @@ char PpmParkCalculateCoreParkingMask()
       if ( !KiClockTimerPerCpu )
       {
         v72 = KiClockTimerOwner;
-        v17 = KeGetPrcb(KiClockTimerOwner);
+        v17 = KeGetPrcb((unsigned int)KiClockTimerOwner);
         v18 = *(_WORD *)(v3 + 4);
         if ( *(unsigned __int8 *)(v17 + 208) == v18 )
         {
@@ -190,7 +190,7 @@ char PpmParkCalculateCoreParkingMask()
             *(_QWORD *)&v53 = 0LL;
             LOWORD(v54) = v18;
             *((_QWORD *)&v53 + 1) = v19;
-            while ( !(unsigned int)KeEnumerateNextProcessor(&v72, (unsigned __int16 **)&v53) && (unsigned int)v16 < v14 )
+            while ( !(unsigned int)KeEnumerateNextProcessor(&v72, &v53) && (unsigned int)v16 < v14 )
             {
               v20 = KeGetPrcb(v72);
               v21 = *(_QWORD *)(v20 + 200);
@@ -225,7 +225,7 @@ char PpmParkCalculateCoreParkingMask()
           *(_QWORD *)&v53 = 0LL;
           LOWORD(v54) = v24;
           *((_QWORD *)&v53 + 1) = v55;
-          while ( !(unsigned int)KeEnumerateNextProcessor(&v72, (unsigned __int16 **)&v53) )
+          while ( !(unsigned int)KeEnumerateNextProcessor(&v72, &v53) )
             v23 |= *(_QWORD *)(KeGetPrcb(v72) + 33880);
           v55 = v23;
           v63 = (0x101010101010101LL
@@ -238,7 +238,7 @@ char PpmParkCalculateCoreParkingMask()
         *(_QWORD *)&v53 = 0LL;
         LOWORD(v54) = v25;
         *((_QWORD *)&v53 + 1) = v23;
-        while ( !(unsigned int)KeEnumerateNextProcessor(&v72, (unsigned __int16 **)&v53) && (unsigned int)v16 < v14 )
+        while ( !(unsigned int)KeEnumerateNextProcessor(&v72, &v53) && (unsigned int)v16 < v14 )
         {
           v26 = KeGetPrcb(v72);
           v27 = *(_QWORD *)(v26 + 200);
@@ -262,7 +262,7 @@ char PpmParkCalculateCoreParkingMask()
       *(_QWORD *)&v53 = 0LL;
       v29 = v51;
       *((_QWORD *)&v53 + 1) = v28;
-      while ( !(unsigned int)KeEnumerateNextProcessor(&v72, (unsigned __int16 **)&v53) && (unsigned int)v16 < v14 )
+      while ( !(unsigned int)KeEnumerateNextProcessor(&v72, &v53) && (unsigned int)v16 < v14 )
       {
         v30 = KeGetPrcb(v72);
         v31 = *(_QWORD *)(v30 + 200);

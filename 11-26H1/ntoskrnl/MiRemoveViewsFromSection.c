@@ -1,17 +1,17 @@
 /*
- * XREFs of MiRemoveViewsFromSection @ 0x14036D750
+ * XREFs of MiRemoveViewsFromSection @ 0x14036F4F0
  * Callers:
- *     MmUnmapViewInSystemCache @ 0x14031E380 (MmUnmapViewInSystemCache.c)
- *     MiRemoveMappedPtes @ 0x14033FBF8 (MiRemoveMappedPtes.c)
- *     MiRemoveSystemCacheReferences @ 0x14036D470 (MiRemoveSystemCacheReferences.c)
- *     MiConvertStaticSubsections @ 0x1404809B0 (MiConvertStaticSubsections.c)
+ *     MmUnmapViewInSystemCache @ 0x1403203B0 (MmUnmapViewInSystemCache.c)
+ *     MiRemoveMappedPtes @ 0x140341C78 (MiRemoveMappedPtes.c)
+ *     MiRemoveSystemCacheReferences @ 0x14036F210 (MiRemoveSystemCacheReferences.c)
+ *     MiConvertStaticSubsections @ 0x14047A2F0 (MiConvertStaticSubsections.c)
  * Callees:
- *     MiControlAreaExemptFromCrossPartitionCharges @ 0x14036E598 (MiControlAreaExemptFromCrossPartitionCharges.c)
- *     MiInsertUnusedSubsectionInternal @ 0x14036E724 (MiInsertUnusedSubsectionInternal.c)
- *     MiGetSubsectionHoldingCrossPartitionReferences @ 0x140499D04 (MiGetSubsectionHoldingCrossPartitionReferences.c)
- *     MiUpdateSubsectionCrossPartitionRefs @ 0x140512248 (MiUpdateSubsectionCrossPartitionRefs.c)
- *     MiComputeCrossPartitionSectionCharges @ 0x140531EA8 (MiComputeCrossPartitionSectionCharges.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
+ *     MiControlAreaExemptFromCrossPartitionCharges @ 0x140370338 (MiControlAreaExemptFromCrossPartitionCharges.c)
+ *     MiInsertUnusedSubsectionInternal @ 0x1403704C4 (MiInsertUnusedSubsectionInternal.c)
+ *     MiGetSubsectionHoldingCrossPartitionReferences @ 0x140493854 (MiGetSubsectionHoldingCrossPartitionReferences.c)
+ *     MiUpdateSubsectionCrossPartitionRefs @ 0x14050BCB8 (MiUpdateSubsectionCrossPartitionRefs.c)
+ *     MiComputeCrossPartitionSectionCharges @ 0x140534348 (MiComputeCrossPartitionSectionCharges.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall MiRemoveViewsFromSection(ULONG_PTR BugCheckParameter2, unsigned __int64 a2, int a3)
@@ -57,9 +57,9 @@ __int64 __fastcall MiRemoveViewsFromSection(ULONG_PTR BugCheckParameter2, unsign
       else
         v13 = (v12 & 0x40) != 0
             ? &MiSystemPartition
-            : *(ULONG **)(stru_140E2EB88.ThreadLock
+            : *(ULONG **)(stru_140E2ED08.ThreadLock
                         + 8LL * HIWORD(KeGetCurrentThread()->ApcState.Process[2].ProcessListEntry.Blink));
-      if ( v13 != *(ULONG **)(stru_140E2EB88.ThreadLock + 8LL * (*(_DWORD *)(v8 + 60) & 0x3FF)) )
+      if ( v13 != *(ULONG **)(stru_140E2ED08.ThreadLock + 8LL * (*(_DWORD *)(v8 + 60) & 0x3FF)) )
       {
         SubsectionHoldingCrossPartitionReferences = MiGetSubsectionHoldingCrossPartitionReferences(v4);
         v18 = *(_DWORD *)(MiGetSubsectionHoldingCrossPartitionReferences(SubsectionHoldingCrossPartitionReferences) + 48) & 0x3FFFFFFF;

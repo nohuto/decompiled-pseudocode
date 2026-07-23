@@ -2,11 +2,11 @@
  * XREFs of MiReduceZeroingThreads @ 0x140220A68
  * Callers:
  *     MiScheduleZeroPageThreads @ 0x14021F3CC (MiScheduleZeroPageThreads.c)
- *     MiReassessZeroThreads @ 0x1403515FC (MiReassessZeroThreads.c)
+ *     MiReassessZeroThreads @ 0x14035179C (MiReassessZeroThreads.c)
  * Callees:
  *     MiMoveZeroThreadsToOtherCores @ 0x140220C88 (MiMoveZeroThreadsToOtherCores.c)
  *     MiZeroThreadContending @ 0x140220D2C (MiZeroThreadContending.c)
- *     MiDecrementZeroEngineThread @ 0x14035D518 (MiDecrementZeroEngineThread.c)
+ *     MiDecrementZeroEngineThread @ 0x14035D6B8 (MiDecrementZeroEngineThread.c)
  */
 
 __int64 __fastcall MiReduceZeroingThreads(int *a1, int a2)

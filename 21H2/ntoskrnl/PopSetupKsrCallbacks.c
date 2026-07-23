@@ -1,11 +1,11 @@
 /*
- * XREFs of PopSetupKsrCallbacks @ 0x140A73FF0
+ * XREFs of PopSetupKsrCallbacks @ 0x140A74FF0
  * Callers:
- *     PoInitSystem @ 0x140A3F948 (PoInitSystem.c)
+ *     PoInitSystem @ 0x140A40948 (PoInitSystem.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
- *     ExRegisterCallback @ 0x14037F1A0 (ExRegisterCallback.c)
- *     ExCreateCallback @ 0x1406BD240 (ExCreateCallback.c)
+ *     RtlInitUnicodeString @ 0x14026A4C0 (RtlInitUnicodeString.c)
+ *     ExRegisterCallback @ 0x14037ECF0 (ExRegisterCallback.c)
+ *     ExCreateCallback @ 0x14061C450 (ExCreateCallback.c)
  */
 
 NTSTATUS PopSetupKsrCallbacks()

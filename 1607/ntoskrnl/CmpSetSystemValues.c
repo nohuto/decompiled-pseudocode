@@ -3,13 +3,13 @@
  * Callers:
  *     CmInitSystem1 @ 0x1407ADA6C (CmInitSystem1.c)
  * Callees:
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     NtSetValueKey @ 0x140403098 (NtSetValueKey.c)
- *     NtOpenKey @ 0x140415458 (NtOpenKey.c)
- *     NtQueryValueKey @ 0x14043B880 (NtQueryValueKey.c)
- *     RtlFreeAnsiString @ 0x140458CF0 (RtlFreeAnsiString.c)
- *     NtClose @ 0x14050B0E0 (NtClose.c)
- *     RtlCreateUnicodeStringFromAsciiz @ 0x14055FCEC (RtlCreateUnicodeStringFromAsciiz.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     NtSetValueKey @ 0x140401F58 (NtSetValueKey.c)
+ *     NtOpenKey @ 0x140414318 (NtOpenKey.c)
+ *     NtQueryValueKey @ 0x14043A750 (NtQueryValueKey.c)
+ *     RtlFreeAnsiString @ 0x140457BC0 (RtlFreeAnsiString.c)
+ *     NtClose @ 0x1404EE070 (NtClose.c)
+ *     RtlCreateUnicodeStringFromAsciiz @ 0x14056022C (RtlCreateUnicodeStringFromAsciiz.c)
  */
 
 __int64 __fastcall CmpSetSystemValues(__int64 a1)

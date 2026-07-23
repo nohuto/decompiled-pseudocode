@@ -1,7 +1,7 @@
 /*
- * XREFs of ExQueryBigPoolTag @ 0x1406078CC
+ * XREFs of ExQueryBigPoolTag @ 0x140607E1C
  * Callers:
- *     sub_1403F30EC @ 0x1403F30EC (sub_1403F30EC.c)
+ *     sub_1403F32CC @ 0x1403F32CC (sub_1403F32CC.c)
  * Callees:
  *     <none>
  */

@@ -1,18 +1,18 @@
 /*
- * XREFs of MmStealTopLevelPage @ 0x1403116F0
+ * XREFs of MmStealTopLevelPage @ 0x1403F4960
  * Callers:
- *     KiSwapDirectoryTableBaseTarget @ 0x140311500 (KiSwapDirectoryTableBaseTarget.c)
+ *     KiSwapDirectoryTableBaseTarget @ 0x1403F4770 (KiSwapDirectoryTableBaseTarget.c)
  * Callees:
- *     MiUnlockWorkingSetExclusive @ 0x140218550 (MiUnlockWorkingSetExclusive.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x14021A250 (MI_READ_PTE_LOCK_FREE.c)
- *     MiMapPageInHyperSpaceWorker @ 0x14021F1A0 (MiMapPageInHyperSpaceWorker.c)
- *     MiFlushSingleTbEntry @ 0x14022A7E0 (MiFlushSingleTbEntry.c)
- *     MiCheckLinearProtectedPteAccessedBit @ 0x140232A20 (MiCheckLinearProtectedPteAccessedBit.c)
- *     MiLockWorkingSetExclusiveAtDpc @ 0x1402E39BC (MiLockWorkingSetExclusiveAtDpc.c)
- *     MiReplacePageTablePage @ 0x140311CD4 (MiReplacePageTablePage.c)
+ *     MiCheckLinearProtectedPteAccessedBit @ 0x140203550 (MiCheckLinearProtectedPteAccessedBit.c)
+ *     MiLockWorkingSetExclusiveAtDpc @ 0x14020BEF8 (MiLockWorkingSetExclusiveAtDpc.c)
+ *     MiUnlockWorkingSetExclusive @ 0x140243400 (MiUnlockWorkingSetExclusive.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140246FA0 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiMapPageInHyperSpaceWorker @ 0x14024BEF0 (MiMapPageInHyperSpaceWorker.c)
+ *     MiFlushSingleTbEntry @ 0x1402FDA50 (MiFlushSingleTbEntry.c)
+ *     MiReplacePageTablePage @ 0x1403F2DE8 (MiReplacePageTablePage.c)
  */
 
-__int64 __fastcall MmStealTopLevelPage(__int64 a1)
+__int64 __fastcall MmStealTopLevelPage(unsigned __int64 a1)
 {
   struct _KTHREAD *CurrentThread; // r15
   _KPROCESS *Process; // r15
@@ -38,8 +38,8 @@ __int64 __fastcall MmStealTopLevelPage(__int64 a1)
   if ( *(int *)(a1 + 56) >= 0 )
   {
     v6 = *(_QWORD *)(a1 + 32);
-    ++dword_140EF4D88;
-    v7 = MiMapPageInHyperSpaceWorker(*(_QWORD *)(a1 + 32), 0LL, 0x80000000LL);
+    ++dword_140EF4FA8;
+    v7 = MiMapPageInHyperSpaceWorker(*(_QWORD *)(a1 + 32), 0LL, 0x80000000);
     BugCheckParameter2 = (ULONG_PTR *)(v7
                                      + 8
                                      * (((((*(_QWORD *)(a1 + 8) >> 9) & 0x7FFFFFFFF8uLL) - 0x98000000000LL) >> 3) & 0x1FF));
@@ -49,7 +49,7 @@ __int64 __fastcall MmStealTopLevelPage(__int64 a1)
       && (v8 & 0x20) == 0
       && (unsigned __int64)BugCheckParameter2 >= 0xFFFFF6C000000000uLL )
     {
-      MiCheckLinearProtectedPteAccessedBit((ULONG_PTR)BugCheckParameter2, v8, 128);
+      MiCheckLinearProtectedPteAccessedBit((ULONG_PTR)BugCheckParameter2, v8, 128LL);
     }
     *BugCheckParameter2 = v8;
     *(_QWORD *)KeGetCurrentPrcb()->MmInternal = 0LL;
@@ -62,7 +62,7 @@ __int64 __fastcall MmStealTopLevelPage(__int64 a1)
       MiFlushSingleTbEntry((__int64)(v10 << 25) >> 16, 2, 1);
       v12 = (v6 << 12) ^ (v11 ^ (v6 << 12)) & 0xFFF0000000000FFFuLL;
       if ( _bittest64(&MiFlags, 0x24u) && (v11 & 0x20) == 0 && v10 >= 0xFFFFF6C000000000uLL )
-        MiCheckLinearProtectedPteAccessedBit(v10, (v6 << 12) ^ (v11 ^ (v6 << 12)) & 0xFFF0000000000FFFuLL, 128);
+        MiCheckLinearProtectedPteAccessedBit(v10, (v6 << 12) ^ (v11 ^ (v6 << 12)) & 0xFFF0000000000FFFuLL, 128LL);
       v13 = v6 << 12;
       v14 = KiFlushPcid == 0;
       *(_QWORD *)v10 = v12;

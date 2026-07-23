@@ -1,5 +1,5 @@
 /*
- * XREFs of PsRegisterPicoProvider @ 0x140779D40
+ * XREFs of PsRegisterPicoProvider @ 0x140779E40
  * Callers:
  *     <none>
  * Callees:
@@ -18,12 +18,12 @@ __int64 __fastcall PsRegisterPicoProvider(__int64 a1, _QWORD *a2)
   if ( PspPicoRegistrationDisabled )
     return 3221225865LL;
   PspPicoProviderRoutines = *(_OWORD *)a1;
-  xmmword_140F05750 = *(_OWORD *)(a1 + 16);
-  xmmword_140F05760 = *(_OWORD *)(a1 + 32);
-  xmmword_140F05770 = *(_OWORD *)(a1 + 48);
-  xmmword_140F05780 = *(_OWORD *)(a1 + 64);
-  qword_140F05790 = *(_QWORD *)(a1 + 80);
-  PspPicoProviderRanges = _mm_srli_si128((__m128i)xmmword_140F05770, 8).m128i_u64[0];
+  xmmword_140F05A30 = *(_OWORD *)(a1 + 16);
+  xmmword_140F05A40 = *(_OWORD *)(a1 + 32);
+  xmmword_140F05A50 = *(_OWORD *)(a1 + 48);
+  xmmword_140F05A60 = *(_OWORD *)(a1 + 64);
+  qword_140F05A70 = *(_QWORD *)(a1 + 80);
+  PspPicoProviderRanges = _mm_srli_si128((__m128i)xmmword_140F05A50, 8).m128i_u64[0];
   a2[1] = PspCreatePicoProcess;
   a2[2] = PspCreatePicoThread;
   a2[3] = PspGetPicoProcessContext;

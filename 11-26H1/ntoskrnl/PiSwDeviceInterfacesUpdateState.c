@@ -1,15 +1,15 @@
 /*
- * XREFs of PiSwDeviceInterfacesUpdateState @ 0x140AF971C
+ * XREFs of PiSwDeviceInterfacesUpdateState @ 0x140B14B14
  * Callers:
- *     PiSwProcessRemove @ 0x14090B360 (PiSwProcessRemove.c)
- *     PiSwPdoPnPDispatch @ 0x14090C0D0 (PiSwPdoPnPDispatch.c)
+ *     PiSwProcessRemove @ 0x1409AD484 (PiSwProcessRemove.c)
+ *     PiSwPdoPnPDispatch @ 0x1409AE200 (PiSwPdoPnPDispatch.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     McTemplateK0zzzt_EtwWriteTransfer @ 0x1405DC6E8 (McTemplateK0zzzt_EtwWriteTransfer.c)
- *     PnpAllocatePWSTR @ 0x140990AC0 (PnpAllocatePWSTR.c)
- *     _CmValidateDeviceInterfaceName @ 0x1409A0350 (_CmValidateDeviceInterfaceName.c)
- *     IoSetDeviceInterfaceState @ 0x140AF9840 (IoSetDeviceInterfaceState.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     McTemplateK0zzzt_EtwWriteTransfer @ 0x1405DEF98 (McTemplateK0zzzt_EtwWriteTransfer.c)
+ *     PnpAllocatePWSTR @ 0x140951520 (PnpAllocatePWSTR.c)
+ *     _CmValidateDeviceInterfaceName @ 0x140960DB0 (_CmValidateDeviceInterfaceName.c)
+ *     IoSetDeviceInterfaceState @ 0x1409AA7B0 (IoSetDeviceInterfaceState.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PiSwDeviceInterfacesUpdateState(__int64 a1, BOOLEAN a2)
@@ -54,7 +54,7 @@ LABEL_9:
       v6 = IoSetDeviceInterfaceState(&DestinationString, a2);
       if ( v6 >= 0 )
       {
-        if ( (byte_140EF3DCC & 0x40) != 0 )
+        if ( (byte_140EF412C & 0x40) != 0 )
           McTemplateK0zzzt_EtwWriteTransfer(
             v11,
             v10,

@@ -1,5 +1,5 @@
 /*
- * XREFs of RtlInitializeAffinityEx @ 0x18013F910
+ * XREFs of RtlInitializeAffinityEx @ 0x18013F810
  * Callers:
  *     <none>
  * Callees:

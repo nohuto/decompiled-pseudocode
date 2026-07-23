@@ -1,29 +1,29 @@
 /*
- * XREFs of ExpTranslateEfiPath @ 0x140A6389C
+ * XREFs of ExpTranslateEfiPath @ 0x140A5C19C
  * Callers:
- *     NtTranslateFilePath @ 0x140964F50 (NtTranslateFilePath.c)
+ *     NtTranslateFilePath @ 0x14094D9E0 (NtTranslateFilePath.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     swprintf_s @ 0x140502E50 (swprintf_s.c)
- *     wcscpy_s @ 0x1405047E0 (wcscpy_s.c)
- *     wcsncat_s @ 0x140504870 (wcsncat_s.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ExpCreateOutputARC @ 0x1407BB90C (ExpCreateOutputARC.c)
- *     ExpCreateOutputSIGNATURE @ 0x1407BBA04 (ExpCreateOutputSIGNATURE.c)
- *     RtlStringFromGUIDEx @ 0x1409BCE20 (RtlStringFromGUIDEx.c)
- *     ExpParseEfiPath @ 0x140A63B30 (ExpParseEfiPath.c)
- *     ExpTranslateSymbolicLink @ 0x140A63CA4 (ExpTranslateSymbolicLink.c)
- *     ExpCreateOutputNT @ 0x140A63E54 (ExpCreateOutputNT.c)
- *     ExpFindDiskSignature @ 0x140A63F20 (ExpFindDiskSignature.c)
- *     ExpGetDriveGeometry @ 0x140AB2680 (ExpGetDriveGeometry.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     swprintf_s @ 0x140500710 (swprintf_s.c)
+ *     wcscpy_s @ 0x1405020A0 (wcscpy_s.c)
+ *     wcsncat_s @ 0x140502130 (wcsncat_s.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ExpCreateOutputARC @ 0x1407BBD5C (ExpCreateOutputARC.c)
+ *     ExpCreateOutputSIGNATURE @ 0x1407BBE54 (ExpCreateOutputSIGNATURE.c)
+ *     RtlStringFromGUIDEx @ 0x1409A3470 (RtlStringFromGUIDEx.c)
+ *     ExpParseEfiPath @ 0x140A5C430 (ExpParseEfiPath.c)
+ *     ExpTranslateSymbolicLink @ 0x140A5C5A4 (ExpTranslateSymbolicLink.c)
+ *     ExpCreateOutputNT @ 0x140A5C754 (ExpCreateOutputNT.c)
+ *     ExpFindDiskSignature @ 0x140A5C820 (ExpFindDiskSignature.c)
+ *     ExpGetDriveGeometry @ 0x140AAD5F0 (ExpGetDriveGeometry.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall ExpTranslateEfiPath(__int64 a1, int a2, __int64 a3, __int64 a4)
+__int64 __fastcall ExpTranslateEfiPath(__int64 a1, int a2, _DWORD *a3, unsigned int *a4)
 {
   __int64 result; // rax
-  PVOID v6; // rdi
+  char *v6; // rdi
   unsigned int v7; // r14d
   int OutputARC; // eax
   int DiskSignature; // ebx
@@ -42,28 +42,28 @@ __int64 __fastcall ExpTranslateEfiPath(__int64 a1, int a2, __int64 a3, __int64 a
   PVOID P; // [rsp+50h] [rbp-49h] BYREF
   unsigned int v23; // [rsp+58h] [rbp-41h] BYREF
   __int64 v24; // [rsp+60h] [rbp-39h] BYREF
-  __int64 v25; // [rsp+68h] [rbp-31h] BYREF
-  int v26[2]; // [rsp+70h] [rbp-29h]
-  int v27[2]; // [rsp+78h] [rbp-21h]
-  wchar_t *Src[2]; // [rsp+80h] [rbp-19h]
+  unsigned __int64 v25; // [rsp+68h] [rbp-31h] BYREF
+  unsigned int *v26; // [rsp+70h] [rbp-29h]
+  _DWORD *v27; // [rsp+78h] [rbp-21h]
+  UNICODE_STRING GuidString; // [rsp+80h] [rbp-19h]
   UNICODE_STRING DestinationString; // [rsp+90h] [rbp-9h] BYREF
   __int128 v30; // [rsp+A0h] [rbp+7h] BYREF
   __int64 v31; // [rsp+B0h] [rbp+17h]
 
-  *(_QWORD *)v26 = a4;
-  *(_QWORD *)v27 = a3;
+  v26 = a4;
+  v27 = a3;
   P = 0LL;
   v25 = 0LL;
   v24 = 0LL;
   v31 = 0LL;
-  *(_OWORD *)Src = 0LL;
+  GuidString = 0LL;
   DestinationString = 0LL;
   v30 = 0LL;
   result = ExpParseEfiPath((void *)(a1 + 12));
   if ( (int)result >= 0 )
   {
     RtlInitUnicodeString(&DestinationString, 0LL);
-    v6 = P;
+    v6 = (char *)P;
     v7 = 1;
     v23 = 0;
     LODWORD(P) = *((_DWORD *)P + 1);
@@ -96,7 +96,7 @@ __int64 __fastcall ExpTranslateEfiPath(__int64 a1, int a2, __int64 a3, __int64 a
       {
         v14 = 1;
 LABEL_24:
-        Pool2 = (wchar_t *)ExAllocatePool2(0x40uLL);
+        Pool2 = (wchar_t *)ExAllocatePool2(0x40uLL, 0x5EuLL, 0x72766E45u);
         v18 = Pool2;
         if ( !Pool2 )
         {
@@ -114,7 +114,7 @@ LABEL_24:
         }
         if ( a2 == 3 )
         {
-          OutputARC = ExpCreateOutputNT(*(_QWORD *)v27, *(_QWORD *)v26, &DestinationString, 0LL, v21);
+          OutputARC = ExpCreateOutputNT(v27, v26, &DestinationString, 0LL, v21);
         }
         else if ( a2 == 2 )
         {
@@ -130,9 +130,9 @@ LABEL_24:
           v25 = *((_QWORD *)v6 + 1) * v7;
           v24 = v20;
           OutputARC = ExpCreateOutputSIGNATURE(
-                        *(__int64 *)v27,
-                        *(unsigned int **)v26,
-                        (unsigned int *)v6 + 6,
+                        (__int64)v27,
+                        v26,
+                        (GUID *)(v6 + 24),
                         (unsigned int *)&P,
                         &v25,
                         &v24,
@@ -141,7 +141,7 @@ LABEL_24:
         }
         else
         {
-          OutputARC = ExpCreateOutputARC(*(_DWORD **)v27, *(unsigned int **)v26, (__int64)&DestinationString, 0LL);
+          OutputARC = ExpCreateOutputARC(v27, v26, (__int64)&DestinationString, 0LL);
         }
         DiskSignature = OutputARC;
 LABEL_6:

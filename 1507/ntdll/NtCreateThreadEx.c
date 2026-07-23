@@ -6,11 +6,22 @@
  *     <none>
  */
 
-__int64 NtCreateThreadEx()
+NTSTATUS __cdecl NtCreateThreadEx(
+        PHANDLE ThreadHandle,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        HANDLE ProcessHandle,
+        PUSER_THREAD_START_ROUTINE StartRoutine,
+        PVOID Argument,
+        ULONG CreateFlags,
+        SIZE_T ZeroBits,
+        SIZE_T StackSize,
+        SIZE_T MaximumStackSize,
+        PPS_ATTRIBUTE_LIST AttributeList)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 179LL;
+  result = 179;
   __asm { syscall; Low latency system call }
   return result;
 }

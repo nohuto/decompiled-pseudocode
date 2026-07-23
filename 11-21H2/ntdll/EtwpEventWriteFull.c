@@ -36,7 +36,7 @@ __int64 __fastcall EtwpEventWriteFull(
   _GUID ActivityId; // xmm0
   __int128 v20; // xmm0
   NTSTATUS v21; // eax
-  _BYTE v25[4]; // [rsp+68h] [rbp-98h] BYREF
+  _BYTE Fields[4]; // [rsp+68h] [rbp-98h] BYREF
   __int16 v26; // [rsp+6Ch] [rbp-94h]
   __int16 v27; // [rsp+6Eh] [rbp-92h]
   __int128 v28; // [rsp+90h] [rbp-70h]
@@ -106,7 +106,7 @@ LABEL_32:
       }
       v31 = a3;
       v35 = a4;
-      v21 = NtTraceEvent(*(_QWORD *)(v13 + 88), 768LL, 120LL, v25);
+      v21 = NtTraceEvent(*(HANDLE *)(v13 + 88), 0x300u, 0x78u, Fields);
       if ( v21 )
         v9 = RtlNtStatusToDosError(v21);
       else

@@ -1,11 +1,11 @@
 /*
- * XREFs of CmpUnblockTwoHiveWrites @ 0x1408B1620
+ * XREFs of CmpUnblockTwoHiveWrites @ 0x1408B7C2C
  * Callers:
- *     CmpVirtualPathPresent @ 0x1407734E0 (CmpVirtualPathPresent.c)
- *     CmpVirtualBranchIsReplicated @ 0x1408B1674 (CmpVirtualBranchIsReplicated.c)
+ *     CmpVirtualPathPresent @ 0x1407764E0 (CmpVirtualPathPresent.c)
+ *     CmpVirtualBranchIsReplicated @ 0x1408B7C80 (CmpVirtualBranchIsReplicated.c)
  * Callees:
- *     CmpDereferenceHive @ 0x1408C6580 (CmpDereferenceHive.c)
- *     HvUnlockHiveFlusherExclusive @ 0x140C58D14 (HvUnlockHiveFlusherExclusive.c)
+ *     CmpDereferenceHive @ 0x1408CCB50 (CmpDereferenceHive.c)
+ *     HvUnlockHiveFlusherExclusive @ 0x140C5ED14 (HvUnlockHiveFlusherExclusive.c)
  */
 
 __int64 __fastcall CmpUnblockTwoHiveWrites(PVOID P, PVOID a2)

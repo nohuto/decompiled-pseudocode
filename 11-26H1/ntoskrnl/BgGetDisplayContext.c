@@ -1,8 +1,8 @@
 /*
- * XREFs of BgGetDisplayContext @ 0x140C4FA38
+ * XREFs of BgGetDisplayContext @ 0x140C55A38
  * Callers:
- *     BgkSetVirtualFrameBuffer @ 0x1405C5690 (BgkSetVirtualFrameBuffer.c)
- *     Phase1InitializationDiscard @ 0x140CABD00 (Phase1InitializationDiscard.c)
+ *     BgkSetVirtualFrameBuffer @ 0x1405C7F00 (BgkSetVirtualFrameBuffer.c)
+ *     Phase1InitializationDiscard @ 0x140CB1D40 (Phase1InitializationDiscard.c)
  * Callees:
  *     <none>
  */

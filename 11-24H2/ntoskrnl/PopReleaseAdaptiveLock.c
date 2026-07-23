@@ -1,27 +1,27 @@
 /*
- * XREFs of PopReleaseAdaptiveLock @ 0x1409BB1EC
+ * XREFs of PopReleaseAdaptiveLock @ 0x1409A183C
  * Callers:
- *     PopActiveLockScreenPowerRequest @ 0x14075F100 (PopActiveLockScreenPowerRequest.c)
- *     PopAdaptivePowerSettingCallback @ 0x14075F370 (PopAdaptivePowerSettingCallback.c)
- *     PopAdaptiveSetSystemInitiatedRebootTargetStateOverride @ 0x14075F5C0 (PopAdaptiveSetSystemInitiatedRebootTargetStateOverride.c)
- *     PopAdaptiveWnfCallback @ 0x14075F680 (PopAdaptiveWnfCallback.c)
- *     PopSessionConnectionChangeV2 @ 0x14075F904 (PopSessionConnectionChangeV2.c)
- *     PopAdaptiveGetBootIsUnattended @ 0x1409B9E70 (PopAdaptiveGetBootIsUnattended.c)
- *     PopIsLockConsoleTimeoutActive @ 0x1409BA32C (PopIsLockConsoleTimeoutActive.c)
- *     PopSetDisplayStatus @ 0x1409BA3E8 (PopSetDisplayStatus.c)
- *     PopAdaptiveGetBootTargetSystemState @ 0x1409BA4D8 (PopAdaptiveGetBootTargetSystemState.c)
- *     PopUserPresenceHostStateChange @ 0x1409BA7C8 (PopUserPresenceHostStateChange.c)
- *     PopAdaptiveGetBootIsSystemInitiated @ 0x1409BB16C (PopAdaptiveGetBootIsSystemInitiated.c)
- *     PopAdaptiveGetSessionState @ 0x1409BB2A4 (PopAdaptiveGetSessionState.c)
- *     PopAdaptiveGetSystemInitiatedRebootTargetState @ 0x140A9EA5C (PopAdaptiveGetSystemInitiatedRebootTargetState.c)
- *     PopSessionConnectionChange @ 0x140ACB140 (PopSessionConnectionChange.c)
- *     PopSessionWinlogonNotification @ 0x140ACB1FC (PopSessionWinlogonNotification.c)
+ *     PopActiveLockScreenPowerRequest @ 0x14075E0A0 (PopActiveLockScreenPowerRequest.c)
+ *     PopAdaptivePowerSettingCallback @ 0x14075E310 (PopAdaptivePowerSettingCallback.c)
+ *     PopAdaptiveSetSystemInitiatedRebootTargetStateOverride @ 0x14075E560 (PopAdaptiveSetSystemInitiatedRebootTargetStateOverride.c)
+ *     PopAdaptiveWnfCallback @ 0x14075E620 (PopAdaptiveWnfCallback.c)
+ *     PopSessionConnectionChangeV2 @ 0x14075E8A4 (PopSessionConnectionChangeV2.c)
+ *     PopAdaptiveGetBootIsUnattended @ 0x1409A04C0 (PopAdaptiveGetBootIsUnattended.c)
+ *     PopIsLockConsoleTimeoutActive @ 0x1409A097C (PopIsLockConsoleTimeoutActive.c)
+ *     PopSetDisplayStatus @ 0x1409A0A38 (PopSetDisplayStatus.c)
+ *     PopAdaptiveGetBootTargetSystemState @ 0x1409A0B28 (PopAdaptiveGetBootTargetSystemState.c)
+ *     PopUserPresenceHostStateChange @ 0x1409A0E18 (PopUserPresenceHostStateChange.c)
+ *     PopAdaptiveGetBootIsSystemInitiated @ 0x1409A17BC (PopAdaptiveGetBootIsSystemInitiated.c)
+ *     PopAdaptiveGetSessionState @ 0x1409A18F4 (PopAdaptiveGetSessionState.c)
+ *     PopAdaptiveGetSystemInitiatedRebootTargetState @ 0x140A99FCC (PopAdaptiveGetSystemInitiatedRebootTargetState.c)
+ *     PopSessionConnectionChange @ 0x140AC8CFC (PopSessionConnectionChange.c)
+ *     PopSessionWinlogonNotification @ 0x140AC8DB8 (PopSessionWinlogonNotification.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     ExReleaseResourceLite @ 0x14025A450 (ExReleaseResourceLite.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     PopSendSessionInfo @ 0x1409B9C8C (PopSendSessionInfo.c)
- *     PopDispatchStateCallout @ 0x1409B9D64 (PopDispatchStateCallout.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     ExReleaseResourceLite @ 0x14028AA60 (ExReleaseResourceLite.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     PopSendSessionInfo @ 0x1409A02DC (PopSendSessionInfo.c)
+ *     PopDispatchStateCallout @ 0x1409A03B4 (PopDispatchStateCallout.c)
  */
 
 void PopReleaseAdaptiveLock()
@@ -37,7 +37,7 @@ void PopReleaseAdaptiveLock()
   int v8; // [rsp+60h] [rbp-18h]
 
   v0 = PopAdaptiveContext;
-  v1 = dword_140F07358;
+  v1 = dword_140F07678;
   PopAdpmLockThread = 0LL;
   DWORD1(v5[0]) = 0;
   ExReleaseResourceLite(&PopAdpmLock);

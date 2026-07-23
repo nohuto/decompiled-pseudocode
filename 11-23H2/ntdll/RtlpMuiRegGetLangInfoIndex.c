@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlpMuiRegGetLangInfoIndex @ 0x180113350
+ * XREFs of RtlpMuiRegGetLangInfoIndex @ 0x180113320
  * Callers:
- *     RtlpMuiRegGetOrAddLangInfo @ 0x180113470 (RtlpMuiRegGetOrAddLangInfo.c)
+ *     RtlpMuiRegGetOrAddLangInfo @ 0x180113440 (RtlpMuiRegGetOrAddLangInfo.c)
  * Callees:
  *     <none>
  */

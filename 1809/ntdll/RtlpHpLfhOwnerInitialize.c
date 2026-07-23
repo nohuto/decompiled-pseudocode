@@ -3,7 +3,7 @@
  * Callers:
  *     RtlpHpLfhBucketActivate @ 0x180061E48 (RtlpHpLfhBucketActivate.c)
  *     RtlpHpLfhBucketInitialize @ 0x180062014 (RtlpHpLfhBucketInitialize.c)
- *     RtlpHpLfhBucketAllocateSlot @ 0x18007EABC (RtlpHpLfhBucketAllocateSlot.c)
+ *     RtlpHpLfhBucketAllocateSlot @ 0x18007EACC (RtlpHpLfhBucketAllocateSlot.c)
  * Callees:
  *     memset @ 0x1800A7100 (memset.c)
  */

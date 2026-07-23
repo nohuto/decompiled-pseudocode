@@ -1,9 +1,9 @@
 /*
- * XREFs of PfSnLogScenarioMeasures @ 0x14049E454
+ * XREFs of PfSnLogScenarioMeasures @ 0x140499254
  * Callers:
- *     PfSnBeginScenario @ 0x140960CB0 (PfSnBeginScenario.c)
+ *     PfSnBeginScenario @ 0x140948770 (PfSnBeginScenario.c)
  * Callees:
- *     PfSnTraceGetLogEntry @ 0x140276790 (PfSnTraceGetLogEntry.c)
+ *     PfSnTraceGetLogEntry @ 0x14022BD20 (PfSnTraceGetLogEntry.c)
  */
 
 __int64 __fastcall PfSnLogScenarioMeasures(__int64 a1, _OWORD *a2)

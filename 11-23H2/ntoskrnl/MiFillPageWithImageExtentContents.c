@@ -1,17 +1,17 @@
 /*
- * XREFs of MiFillPageWithImageExtentContents @ 0x14063D090
+ * XREFs of MiFillPageWithImageExtentContents @ 0x14063D5E0
  * Callers:
- *     MiCopyImageExtentContents @ 0x14063C664 (MiCopyImageExtentContents.c)
- *     MiCopyFromDirectMapExtent @ 0x140A3394C (MiCopyFromDirectMapExtent.c)
+ *     MiCopyImageExtentContents @ 0x14063CBB4 (MiCopyImageExtentContents.c)
+ *     MiCopyFromDirectMapExtent @ 0x140A33BFC (MiCopyFromDirectMapExtent.c)
  * Callees:
- *     MiPteInShadowRange @ 0x140271360 (MiPteInShadowRange.c)
- *     MiReturnPteMappingSet @ 0x140284188 (MiReturnPteMappingSet.c)
- *     MiGetPteMappingSet @ 0x1402841F0 (MiGetPteMappingSet.c)
- *     MiMakeValidPte @ 0x1402CF2B0 (MiMakeValidPte.c)
- *     MiWritePteShadow @ 0x14035734C (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x1403573AC (MiPteHasShadow.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     memmove @ 0x140435700 (memmove.c)
+ *     MiPteInShadowRange @ 0x1402715F0 (MiPteInShadowRange.c)
+ *     MiReturnPteMappingSet @ 0x140284418 (MiReturnPteMappingSet.c)
+ *     MiGetPteMappingSet @ 0x140284480 (MiGetPteMappingSet.c)
+ *     MiMakeValidPte @ 0x1402CF540 (MiMakeValidPte.c)
+ *     MiWritePteShadow @ 0x1403574EC (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x14035754C (MiPteHasShadow.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
+ *     memmove @ 0x140435B00 (memmove.c)
  */
 
 __int64 __fastcall MiFillPageWithImageExtentContents(

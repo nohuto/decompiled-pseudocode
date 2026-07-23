@@ -1,5 +1,5 @@
 /*
- * XREFs of IoGetBootDiskInformation @ 0x1409473B0
+ * XREFs of IoGetBootDiskInformation @ 0x1409475B0
  * Callers:
  *     <none>
  * Callees:

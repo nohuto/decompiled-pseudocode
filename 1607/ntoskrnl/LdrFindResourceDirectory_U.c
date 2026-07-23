@@ -1,9 +1,9 @@
 /*
- * XREFs of LdrFindResourceDirectory_U @ 0x140686230
+ * XREFs of LdrFindResourceDirectory_U @ 0x140686314
  * Callers:
  *     <none>
  * Callees:
- *     LdrpSearchResourceSection_U @ 0x14051C944 (LdrpSearchResourceSection_U.c)
+ *     LdrpSearchResourceSection_U @ 0x1404FFD34 (LdrpSearchResourceSection_U.c)
  */
 
 NTSTATUS __stdcall LdrFindResourceDirectory_U(

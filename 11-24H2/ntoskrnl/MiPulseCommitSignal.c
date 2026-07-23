@@ -1,12 +1,12 @@
 /*
- * XREFs of MiPulseCommitSignal @ 0x1404D4F60
+ * XREFs of MiPulseCommitSignal @ 0x1404CE238
  * Callers:
- *     MiChargeCommit @ 0x140211450 (MiChargeCommit.c)
+ *     MiChargeCommit @ 0x14033A7B0 (MiChargeCommit.c)
  * Callees:
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140210170 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     MiReleaseSpinLockExclusive @ 0x14028EE30 (MiReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x14028F370 (ExAcquireSpinLockExclusive.c)
- *     KePulseEvent @ 0x1404674D0 (KePulseEvent.c)
+ *     MiReleaseSpinLockExclusive @ 0x14029EA30 (MiReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14029EF70 (ExAcquireSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1403394D0 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     KePulseEvent @ 0x14045EF70 (KePulseEvent.c)
  */
 
 __int64 __fastcall MiPulseCommitSignal(__int64 a1)

@@ -1,22 +1,22 @@
 /*
  * XREFs of CmUnlockHiveSecurity @ 0x140AF5100
  * Callers:
- *     CmpCreateTombstone @ 0x140616E4C (CmpCreateTombstone.c)
+ *     CmpCreateTombstone @ 0x14061739C (CmpCreateTombstone.c)
  *     CmpUndoDeleteKeyForTransEx @ 0x140680518 (CmpUndoDeleteKeyForTransEx.c)
- *     CmpCreateChild @ 0x1406D0F70 (CmpCreateChild.c)
- *     CmpCreateKeyControlBlock @ 0x1406D8790 (CmpCreateKeyControlBlock.c)
- *     CmpFreeKeyByCell @ 0x14070B214 (CmpFreeKeyByCell.c)
- *     CmpSetKeySecurity @ 0x14070C3BC (CmpSetKeySecurity.c)
- *     CmpAssignSecurityToKcb @ 0x14076AA60 (CmpAssignSecurityToKcb.c)
- *     CmpUnlockTwoSecurityCaches @ 0x1407DDDCC (CmpUnlockTwoSecurityCaches.c)
- *     CmpAssignKeySecurity @ 0x14085838C (CmpAssignKeySecurity.c)
- *     CmpCreateHiveRootCell @ 0x14087448C (CmpCreateHiveRootCell.c)
- *     CmDumpKeyToFile @ 0x140A0AAA4 (CmDumpKeyToFile.c)
- *     CmSaveMergedKeys @ 0x140A0BD84 (CmSaveMergedKeys.c)
- *     CmpCopyMergeOfLayeredKeyNode @ 0x140A210D8 (CmpCopyMergeOfLayeredKeyNode.c)
+ *     CmpCreateChild @ 0x1406D0FA0 (CmpCreateChild.c)
+ *     CmpCreateKeyControlBlock @ 0x1406D87C0 (CmpCreateKeyControlBlock.c)
+ *     CmpFreeKeyByCell @ 0x14070B424 (CmpFreeKeyByCell.c)
+ *     CmpSetKeySecurity @ 0x14070C5CC (CmpSetKeySecurity.c)
+ *     CmpAssignSecurityToKcb @ 0x14076AC50 (CmpAssignSecurityToKcb.c)
+ *     CmpUnlockTwoSecurityCaches @ 0x1407DE09C (CmpUnlockTwoSecurityCaches.c)
+ *     CmpAssignKeySecurity @ 0x1408585CC (CmpAssignKeySecurity.c)
+ *     CmpCreateHiveRootCell @ 0x1408746CC (CmpCreateHiveRootCell.c)
+ *     CmDumpKeyToFile @ 0x140A0AD54 (CmDumpKeyToFile.c)
+ *     CmSaveMergedKeys @ 0x140A0C034 (CmSaveMergedKeys.c)
+ *     CmpCopyMergeOfLayeredKeyNode @ 0x140A21388 (CmpCopyMergeOfLayeredKeyNode.c)
  * Callees:
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfReleasePushLock @ 0x1402BD830 (ExfReleasePushLock.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     ExfReleasePushLock @ 0x1402BDAC0 (ExfReleasePushLock.c)
  */
 
 signed __int32 __fastcall CmUnlockHiveSecurity(__int64 a1)

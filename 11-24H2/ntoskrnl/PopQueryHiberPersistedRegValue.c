@@ -1,15 +1,15 @@
 /*
- * XREFs of PopQueryHiberPersistedRegValue @ 0x140752CB0
+ * XREFs of PopQueryHiberPersistedRegValue @ 0x140750FD0
  * Callers:
- *     PopInitHiberPersistedRegValues @ 0x14075282C (PopInitHiberPersistedRegValues.c)
- *     PopWnfHibernatePolicyCallback @ 0x140753280 (PopWnfHibernatePolicyCallback.c)
+ *     PopInitHiberPersistedRegValues @ 0x140750B4C (PopInitHiberPersistedRegValues.c)
+ *     PopWnfHibernatePolicyCallback @ 0x1407515A0 (PopWnfHibernatePolicyCallback.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     PopReadUlongPowerKey @ 0x1405CD3CC (PopReadUlongPowerKey.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     ZwQueryValueKey @ 0x1406A66F0 (ZwQueryValueKey.c)
- *     PopOpenHiberPersistedKey @ 0x1406F9380 (PopOpenHiberPersistedKey.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     PopReadUlongPowerKey @ 0x1405CAB3C (PopReadUlongPowerKey.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     ZwQueryValueKey @ 0x1406A7690 (ZwQueryValueKey.c)
+ *     PopOpenHiberPersistedKey @ 0x1406F6FC0 (PopOpenHiberPersistedKey.c)
  */
 
 __int64 __fastcall PopQueryHiberPersistedRegValue(int a1, unsigned int *a2)

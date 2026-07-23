@@ -1,24 +1,24 @@
 /*
- * XREFs of IoWriteCrashDump @ 0x1401C65BC
+ * XREFs of IoWriteCrashDump @ 0x1401C645C
  * Callers:
- *     KeBugCheck2 @ 0x1401D40EC (KeBugCheck2.c)
+ *     KeBugCheck2 @ 0x1401D3F18 (KeBugCheck2.c)
  * Callees:
- *     KdCheckForDebugBreak @ 0x1401140F8 (KdCheckForDebugBreak.c)
- *     RtlNumberOfSetBitsEx @ 0x14013ACD8 (RtlNumberOfSetBitsEx.c)
- *     xKdEnumerateDebuggingDevices @ 0x14014CA24 (xKdEnumerateDebuggingDevices.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     IoFillTriageDumpBuffer @ 0x1401C5868 (IoFillTriageDumpBuffer.c)
- *     IoSaveBugCheckProgress @ 0x1401C6260 (IoSaveBugCheckProgress.c)
- *     IoSetBugCheckProgressFlag @ 0x1401C62E0 (IoSetBugCheckProgressFlag.c)
- *     IopDumpCallAddPagesCallbacks @ 0x1401C7164 (IopDumpCallAddPagesCallbacks.c)
- *     IopDumpCallRemovePagesCallbacks @ 0x1401C7288 (IopDumpCallRemovePagesCallbacks.c)
- *     IopUpdateMinidumpContext @ 0x1401C7AD0 (IopUpdateMinidumpContext.c)
- *     IopWriteCapsuleTriageDumpToFirmware @ 0x1401C7E24 (IopWriteCapsuleTriageDumpToFirmware.c)
- *     IopWriteTriageDumpToFirmware @ 0x1401C8154 (IopWriteTriageDumpToFirmware.c)
- *     MmGetDumpRange @ 0x1401E7BA8 (MmGetDumpRange.c)
- *     MmSnapTriageDumpInformation @ 0x1401E8040 (MmSnapTriageDumpInformation.c)
- *     VfDisableHalVerifier @ 0x140222B10 (VfDisableHalVerifier.c)
+ *     KdCheckForDebugBreak @ 0x140114668 (KdCheckForDebugBreak.c)
+ *     RtlNumberOfSetBitsEx @ 0x14013B248 (RtlNumberOfSetBitsEx.c)
+ *     xKdEnumerateDebuggingDevices @ 0x14014CF94 (xKdEnumerateDebuggingDevices.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     IoFillTriageDumpBuffer @ 0x1401C5708 (IoFillTriageDumpBuffer.c)
+ *     IoSaveBugCheckProgress @ 0x1401C6100 (IoSaveBugCheckProgress.c)
+ *     IoSetBugCheckProgressFlag @ 0x1401C6180 (IoSetBugCheckProgressFlag.c)
+ *     IopDumpCallAddPagesCallbacks @ 0x1401C7004 (IopDumpCallAddPagesCallbacks.c)
+ *     IopDumpCallRemovePagesCallbacks @ 0x1401C7128 (IopDumpCallRemovePagesCallbacks.c)
+ *     IopUpdateMinidumpContext @ 0x1401C7970 (IopUpdateMinidumpContext.c)
+ *     IopWriteCapsuleTriageDumpToFirmware @ 0x1401C7CC4 (IopWriteCapsuleTriageDumpToFirmware.c)
+ *     IopWriteTriageDumpToFirmware @ 0x1401C7FF4 (IopWriteTriageDumpToFirmware.c)
+ *     MmGetDumpRange @ 0x1401E79D4 (MmGetDumpRange.c)
+ *     MmSnapTriageDumpInformation @ 0x1401E7E6C (MmSnapTriageDumpInformation.c)
+ *     VfDisableHalVerifier @ 0x14022293C (VfDisableHalVerifier.c)
  */
 
 char __fastcall IoWriteCrashDump(
@@ -112,10 +112,10 @@ LABEL_11:
     v13 = 1;
     v39 = 3319;
   }
-  qword_1403289F0(1LL, 0LL, v13);
+  qword_140328A30(1LL, 0LL, v13);
   VfDisableHalVerifier();
   LOBYTE(v18) = 1;
-  v19 = qword_140328A20(v18);
+  v19 = qword_140328A60(v18);
   IoSaveBugCheckProgress(32);
   v20 = 9LL;
   v21 = v43;
@@ -236,7 +236,7 @@ LABEL_30:
       v27 = CrashdmpDumpBlock;
     }
     v34 = v45;
-    v35 = qword_1403289F8(v27, v45);
+    v35 = qword_140328A38(v27, v45);
     if ( v35 == -1073741267 )
     {
       if ( *(_QWORD *)(CrashdmpDumpBlock + 1328) )
@@ -263,7 +263,7 @@ LABEL_30:
                 &v40);
         if ( v35 >= 0 )
         {
-          v35 = qword_1403289F8(CrashdmpDumpBlock, v34);
+          v35 = qword_140328A38(CrashdmpDumpBlock, v34);
           IoSaveBugCheckProgress(35);
         }
       }

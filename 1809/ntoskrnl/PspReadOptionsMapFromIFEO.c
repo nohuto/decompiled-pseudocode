@@ -1,11 +1,11 @@
 /*
- * XREFs of PspReadOptionsMapFromIFEO @ 0x14064E784
+ * XREFs of PspReadOptionsMapFromIFEO @ 0x14064F944
  * Callers:
- *     PspReadIFEOMitigationOptions @ 0x14064E6A0 (PspReadIFEOMitigationOptions.c)
- *     PspReadIFEOMitigationAuditOptions @ 0x14064E714 (PspReadIFEOMitigationAuditOptions.c)
+ *     PspReadIFEOMitigationOptions @ 0x14064F860 (PspReadIFEOMitigationOptions.c)
+ *     PspReadIFEOMitigationAuditOptions @ 0x14064F8D4 (PspReadIFEOMitigationAuditOptions.c)
  * Callees:
- *     memset @ 0x1401D1880 (memset.c)
- *     RtlQueryImageFileKeyOption @ 0x1406BB3A0 (RtlQueryImageFileKeyOption.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     RtlQueryImageFileKeyOption @ 0x1406BC640 (RtlQueryImageFileKeyOption.c)
  */
 
 __int64 __fastcall PspReadOptionsMapFromIFEO(__int64 a1, __int64 a2, __int64 a3, int a4)

@@ -1,11 +1,11 @@
 /*
- * XREFs of ExpPoolTrackerReturnLimit @ 0x140344FF0
+ * XREFs of ExpPoolTrackerReturnLimit @ 0x140347070
  * Callers:
- *     ExRemovePoolTag @ 0x1403447D0 (ExRemovePoolTag.c)
- *     ExpFreeHeapSpecialPool @ 0x140345B28 (ExpFreeHeapSpecialPool.c)
- *     ExInsertPoolTag @ 0x14034AD9C (ExInsertPoolTag.c)
- *     ExFreeHeapPool @ 0x1403A7BB0 (ExFreeHeapPool.c)
- *     ExPoolCleanupExpansionTable @ 0x140522698 (ExPoolCleanupExpansionTable.c)
+ *     ExRemovePoolTag @ 0x140346850 (ExRemovePoolTag.c)
+ *     ExpFreeHeapSpecialPool @ 0x140347BA8 (ExpFreeHeapSpecialPool.c)
+ *     ExInsertPoolTag @ 0x14034CE1C (ExInsertPoolTag.c)
+ *     ExFreeHeapPool @ 0x1403A9910 (ExFreeHeapPool.c)
+ *     ExPoolCleanupExpansionTable @ 0x140524D04 (ExPoolCleanupExpansionTable.c)
  * Callees:
  *     <none>
  */

@@ -12,8 +12,8 @@
 __int64 __fastcall ConvertDevpropcompkeyToString(__int64 a1, wchar_t *a2, unsigned int a3, unsigned int *a4)
 {
   size_t v4; // rbp
-  int v8; // eax
-  void *v9; // rsi
+  NTSTATUS v8; // eax
+  wchar_t *Buffer; // rsi
   unsigned int v10; // ebx
   int v11; // r8d
   int v12; // ecx
@@ -23,14 +23,14 @@ __int64 __fastcall ConvertDevpropcompkeyToString(__int64 a1, wchar_t *a2, unsign
   unsigned int v16; // ecx
   const wchar_t *v17; // rcx
   const wchar_t *v18; // rax
-  __int128 v20; // [rsp+50h] [rbp-28h] BYREF
+  UNICODE_STRING GuidString; // [rsp+50h] [rbp-28h] BYREF
 
   v4 = a3;
-  v20 = 0LL;
+  GuidString = 0LL;
   if ( a3 >= 2 )
     *a2 = 0;
-  v8 = RtlStringFromGUIDEx((unsigned int *)a1, (__int64)&v20, 1);
-  v9 = (void *)*((_QWORD *)&v20 + 1);
+  v8 = RtlStringFromGUIDEx((PGUID)a1, &GuidString, 1u);
+  Buffer = GuidString.Buffer;
   v10 = v8;
   if ( v8 >= 0 )
   {
@@ -61,7 +61,7 @@ __int64 __fastcall ConvertDevpropcompkeyToString(__int64 a1, wchar_t *a2, unsign
     {
       v15 = 12;
     }
-    v16 = v15 + (unsigned __int16)v20 + v12;
+    v16 = v15 + GuidString.Length + v12;
     if ( a4 )
       *a4 = v16;
     if ( v16 > (unsigned int)v4 )
@@ -76,11 +76,11 @@ __int64 __fastcall ConvertDevpropcompkeyToString(__int64 a1, wchar_t *a2, unsign
         v17 = v13;
       if ( v11 )
         v18 = L"User";
-      v10 = RtlStringCbPrintfExW(a2, v4, 0LL, 0LL, 0x800u, L"[(%s %3d) %s %s]", v9, *(_DWORD *)(a1 + 16), v18, v17);
+      v10 = RtlStringCbPrintfExW(a2, v4, 0LL, 0LL, 0x800u, L"[(%s %3d) %s %s]", Buffer, *(_DWORD *)(a1 + 16), v18, v17);
     }
   }
 LABEL_23:
-  if ( v9 )
-    ExFreePool(v9);
+  if ( Buffer )
+    ExFreePool(Buffer);
   return v10;
 }

@@ -12,12 +12,12 @@
  *     RtlpAbFreeKernelEntry @ 0x180047D90 (RtlpAbFreeKernelEntry.c)
  */
 
-char __fastcall RtlTryAcquireSRWLockExclusive(volatile signed __int32 *a1)
+BOOLEAN __cdecl RtlTryAcquireSRWLockExclusive(PRTL_SRWLOCK SRWLock)
 {
   char *v1; // rbx
   char *SchedulerSharedDataSlot; // r9
   __int64 i; // rdx
-  volatile signed __int32 **v4; // r8
+  PRTL_SRWLOCK *v4; // r8
 
   v1 = 0LL;
   SchedulerSharedDataSlot = (char *)NtCurrentTeb()->SchedulerSharedDataSlot;
@@ -25,17 +25,17 @@ char __fastcall RtlTryAcquireSRWLockExclusive(volatile signed __int32 *a1)
   {
     for ( i = 0LL; (unsigned int)i < 8; i = (unsigned int)(i + 1) )
     {
-      v4 = (volatile signed __int32 **)&SchedulerSharedDataSlot[8 * i];
+      v4 = (PRTL_SRWLOCK *)&SchedulerSharedDataSlot[8 * i];
       if ( !*v4 )
       {
         v1 = &SchedulerSharedDataSlot[8 * i];
         if ( v4 )
-          *v4 = a1;
+          *v4 = SRWLock;
         break;
       }
     }
   }
-  if ( !_interlockedbittestandset64(a1, 0LL) )
+  if ( !_interlockedbittestandset64((volatile signed __int32 *)SRWLock, 0LL) )
     return 1;
   if ( v1 )
   {

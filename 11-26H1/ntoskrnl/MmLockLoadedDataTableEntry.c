@@ -1,13 +1,13 @@
 /*
- * XREFs of MmLockLoadedDataTableEntry @ 0x1404C3C10
+ * XREFs of MmLockLoadedDataTableEntry @ 0x1404BD460
  * Callers:
- *     KeSetTracepoint @ 0x1407BBB10 (KeSetTracepoint.c)
- *     KsepPatchImportTableEntry @ 0x1407BDD24 (KsepPatchImportTableEntry.c)
- *     MmGetSectionRange @ 0x140864C1C (MmGetSectionRange.c)
- *     MmCompactServiceTable @ 0x14087B270 (MmCompactServiceTable.c)
- *     MiLogPinDriverAddress @ 0x140AB3234 (MiLogPinDriverAddress.c)
+ *     KeSetTracepoint @ 0x1407BEB70 (KeSetTracepoint.c)
+ *     KsepPatchImportTableEntry @ 0x1407C0D84 (KsepPatchImportTableEntry.c)
+ *     MmGetSectionRange @ 0x14086AFFC (MmGetSectionRange.c)
+ *     MmCompactServiceTable @ 0x140881670 (MmCompactServiceTable.c)
+ *     MiLogPinDriverAddress @ 0x140AB45D4 (MiLogPinDriverAddress.c)
  * Callees:
- *     MiLockLoadedDataTableEntry @ 0x1406FD170 (MiLockLoadedDataTableEntry.c)
+ *     MiLockLoadedDataTableEntry @ 0x140701E40 (MiLockLoadedDataTableEntry.c)
  */
 
 __int64 __fastcall MmLockLoadedDataTableEntry(__int64 a1)

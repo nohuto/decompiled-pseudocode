@@ -1,19 +1,19 @@
 /*
- * XREFs of ExHandleLogBadReference @ 0x140606A28
+ * XREFs of ExHandleLogBadReference @ 0x140606F78
  * Callers:
- *     NtWriteFile @ 0x1406B6A20 (NtWriteFile.c)
- *     ObWaitForMultipleObjects @ 0x1406E3890 (ObWaitForMultipleObjects.c)
- *     ObpReferenceObjectByHandleWithTag @ 0x1406E6300 (ObpReferenceObjectByHandleWithTag.c)
- *     ObpCloseHandle @ 0x1406E7680 (ObpCloseHandle.c)
- *     AlpcpLookupMessage @ 0x1407388B0 (AlpcpLookupMessage.c)
- *     ObpReferenceObjectByHandle @ 0x140749F3C (ObpReferenceObjectByHandle.c)
- *     ExMapHandleToPointerEx @ 0x1407C6238 (ExMapHandleToPointerEx.c)
+ *     NtWriteFile @ 0x1406B6BD0 (NtWriteFile.c)
+ *     ObWaitForMultipleObjects @ 0x1406E38C0 (ObWaitForMultipleObjects.c)
+ *     ObpReferenceObjectByHandleWithTag @ 0x1406E6330 (ObpReferenceObjectByHandleWithTag.c)
+ *     ObpCloseHandle @ 0x1406E76B0 (ObpCloseHandle.c)
+ *     AlpcpLookupMessage @ 0x140738AA0 (AlpcpLookupMessage.c)
+ *     ObpReferenceObjectByHandle @ 0x14074A12C (ObpReferenceObjectByHandle.c)
+ *     ExMapHandleToPointerEx @ 0x1407C6508 (ExMapHandleToPointerEx.c)
  * Callees:
- *     DbgPrintEx @ 0x14032A740 (DbgPrintEx.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     KeRaiseUserException @ 0x140570E90 (KeRaiseUserException.c)
- *     DbgkWerCaptureLiveKernelDump @ 0x1408834E0 (DbgkWerCaptureLiveKernelDump.c)
- *     ExpUpdateDebugInfo @ 0x1409F9258 (ExpUpdateDebugInfo.c)
+ *     DbgPrintEx @ 0x14032A9D0 (DbgPrintEx.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
+ *     KeRaiseUserException @ 0x1405713D0 (KeRaiseUserException.c)
+ *     DbgkWerCaptureLiveKernelDump @ 0x140883720 (DbgkWerCaptureLiveKernelDump.c)
+ *     ExpUpdateDebugInfo @ 0x1409F94E8 (ExpUpdateDebugInfo.c)
  */
 
 struct _KTHREAD *__fastcall ExHandleLogBadReference(

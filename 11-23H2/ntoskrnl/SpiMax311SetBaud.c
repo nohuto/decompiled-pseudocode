@@ -1,9 +1,9 @@
 /*
- * XREFs of SpiMax311SetBaud @ 0x14067D420
+ * XREFs of SpiMax311SetBaud @ 0x14067D970
  * Callers:
- *     SpiMax311InitializePort @ 0x14067D2F0 (SpiMax311InitializePort.c)
+ *     SpiMax311InitializePort @ 0x14067D840 (SpiMax311InitializePort.c)
  * Callees:
- *     SpiSend16 @ 0x14067D5AC (SpiSend16.c)
+ *     SpiSend16 @ 0x14067DAFC (SpiSend16.c)
  */
 
 char __fastcall SpiMax311SetBaud(__int64 a1, unsigned int a2)

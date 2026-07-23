@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlEncodeSystemPointer @ 0x1800E2780
+ * XREFs of RtlEncodeSystemPointer @ 0x1800DDD50
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall RtlEncodeSystemPointer(__int64 a1)
+PVOID __cdecl RtlEncodeSystemPointer(PVOID Ptr)
 {
-  return __ROR8__(a1 ^ MEMORY[0x7FFE0330], MEMORY[0x7FFE0330] & 0x3F);
+  return (PVOID)__ROR8__((unsigned __int64)Ptr ^ MEMORY[0x7FFE0330], MEMORY[0x7FFE0330] & 0x3F);
 }

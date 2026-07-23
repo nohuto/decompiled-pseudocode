@@ -1,17 +1,17 @@
 /*
- * XREFs of EtwpCovSampPushListSList @ 0x14046A27E
+ * XREFs of EtwpCovSampPushListSList @ 0x14046A67E
  * Callers:
- *     EtwpCovSampCaptureQueueDpc @ 0x14046A130 (EtwpCovSampCaptureQueueDpc.c)
- *     EtwpCovSampLookasideFlushFreeListToCleanupList @ 0x1406038B8 (EtwpCovSampLookasideFlushFreeListToCleanupList.c)
+ *     EtwpCovSampCaptureQueueDpc @ 0x14046A530 (EtwpCovSampCaptureQueueDpc.c)
+ *     EtwpCovSampLookasideFlushFreeListToCleanupList @ 0x140603E08 (EtwpCovSampLookasideFlushFreeListToCleanupList.c)
  * Callees:
- *     InterlockedPushListSList @ 0x140428F60 (InterlockedPushListSList.c)
+ *     InterlockedPushListSList @ 0x1404292F0 (InterlockedPushListSList.c)
  */
 
-PSLIST_ENTRY __fastcall EtwpCovSampPushListSList(union _SLIST_HEADER *a1, struct _SLIST_ENTRY *a2, ULONG *a3)
+PSLIST_ENTRY __fastcall EtwpCovSampPushListSList(_SLIST_HEADER *a1, _SLIST_ENTRY *a2, ULONG *a3)
 {
-  struct _SLIST_ENTRY *Next; // r9
+  _SLIST_ENTRY *Next; // r9
   ULONG v5; // ebx
-  struct _SLIST_ENTRY *i; // r8
+  _SLIST_ENTRY *i; // r8
   PSLIST_ENTRY result; // rax
 
   Next = a2->Next;

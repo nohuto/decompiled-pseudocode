@@ -1,10 +1,10 @@
 /*
- * XREFs of Feature_NotifyQuotaCharge__private_IsEnabledDeviceUsageNoInline @ 0x1404BD94C
+ * XREFs of Feature_NotifyQuotaCharge__private_IsEnabledDeviceUsageNoInline @ 0x1404B712C
  * Callers:
- *     CmpAllocatePostBlock @ 0x14097AD98 (CmpAllocatePostBlock.c)
- *     CmpNotifyChangeKey @ 0x14097AF04 (CmpNotifyChangeKey.c)
+ *     CmpAllocatePostBlock @ 0x14093CDA8 (CmpAllocatePostBlock.c)
+ *     CmpNotifyChangeKey @ 0x14093CF14 (CmpNotifyChangeKey.c)
  * Callees:
- *     Feature_NotifyQuotaCharge__private_IsEnabledFallback @ 0x140532D94 (Feature_NotifyQuotaCharge__private_IsEnabledFallback.c)
+ *     Feature_NotifyQuotaCharge__private_IsEnabledFallback @ 0x140535234 (Feature_NotifyQuotaCharge__private_IsEnabledFallback.c)
  */
 
 __int64 Feature_NotifyQuotaCharge__private_IsEnabledDeviceUsageNoInline()

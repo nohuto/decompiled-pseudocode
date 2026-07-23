@@ -5,13 +5,13 @@
  *     KiEndDebugAccumulation @ 0x14020E5F0 (KiEndDebugAccumulation.c)
  *     KiAccumulateCycleStats @ 0x14020E7C0 (KiAccumulateCycleStats.c)
  *     KiAccumulateProcessorCycleStats @ 0x14020E890 (KiAccumulateProcessorCycleStats.c)
- *     KeYieldExecution @ 0x1402469F0 (KeYieldExecution.c)
- *     KiSetQuantumTargetThread @ 0x1402B2AF0 (KiSetQuantumTargetThread.c)
- *     KeSetBasePriorityThread @ 0x1402B9DA0 (KeSetBasePriorityThread.c)
- *     KeRemovePriQueue @ 0x1402BF0B0 (KeRemovePriQueue.c)
- *     KeQueryLogicalProcessorRelationship @ 0x140305FB0 (KeQueryLogicalProcessorRelationship.c)
- *     KiConfigureCpuSetSchedulingInformation @ 0x140382B90 (KiConfigureCpuSetSchedulingInformation.c)
- *     IntPartGetProcessorEfficiencyClass @ 0x140383A44 (IntPartGetProcessorEfficiencyClass.c)
+ *     KeYieldExecution @ 0x140246AC0 (KeYieldExecution.c)
+ *     KiSetQuantumTargetThread @ 0x1402B2D80 (KiSetQuantumTargetThread.c)
+ *     KeSetBasePriorityThread @ 0x1402BA030 (KeSetBasePriorityThread.c)
+ *     KeRemovePriQueue @ 0x1402BF340 (KeRemovePriQueue.c)
+ *     KeQueryLogicalProcessorRelationship @ 0x140306240 (KeQueryLogicalProcessorRelationship.c)
+ *     KiConfigureCpuSetSchedulingInformation @ 0x140382D30 (KiConfigureCpuSetSchedulingInformation.c)
+ *     IntPartGetProcessorEfficiencyClass @ 0x140383C24 (IntPartGetProcessorEfficiencyClass.c)
  * Callees:
  *     <none>
  */

@@ -1,15 +1,15 @@
 /*
- * XREFs of CmpMachineHiveListInitialize @ 0x140B639D4
+ * XREFs of CmpMachineHiveListInitialize @ 0x140B66A74
  * Callers:
- *     CmInitSystem2 @ 0x140D0A83C (CmInitSystem2.c)
+ *     CmInitSystem2 @ 0x140D10B0C (CmInitSystem2.c)
  * Callees:
- *     RtlAppendUnicodeToString @ 0x140432EB0 (RtlAppendUnicodeToString.c)
- *     KeInitializeEvent @ 0x140466F30 (KeInitializeEvent.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     CmpBuildMachineHiveMountPoint @ 0x14084AE80 (CmpBuildMachineHiveMountPoint.c)
- *     CmpQueryHiveRedirectionFileList @ 0x140AE1E78 (CmpQueryHiveRedirectionFileList.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
+ *     RtlAppendUnicodeToString @ 0x14041FEE0 (RtlAppendUnicodeToString.c)
+ *     KeInitializeEvent @ 0x140460680 (KeInitializeEvent.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     CmpBuildMachineHiveMountPoint @ 0x140851190 (CmpBuildMachineHiveMountPoint.c)
+ *     CmpQueryHiveRedirectionFileList @ 0x140ADF368 (CmpQueryHiveRedirectionFileList.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
  */
 
 char CmpMachineHiveListInitialize()

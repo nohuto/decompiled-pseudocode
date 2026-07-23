@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpPmuArbiterStartPeriodicTimer @ 0x140B11650
+ * XREFs of HalpPmuArbiterStartPeriodicTimer @ 0x140B133D0
  * Callers:
- *     HalpRegisterPmuNotification @ 0x140B10EBC (HalpRegisterPmuNotification.c)
+ *     HalpRegisterPmuNotification @ 0x140B12C3C (HalpRegisterPmuNotification.c)
  * Callees:
- *     ExSetTimer @ 0x14037A420 (ExSetTimer.c)
- *     ExAllocateTimer @ 0x140456CE0 (ExAllocateTimer.c)
+ *     ExSetTimer @ 0x14037C1D0 (ExSetTimer.c)
+ *     ExAllocateTimer @ 0x14044E550 (ExAllocateTimer.c)
  */
 
 __int64 HalpPmuArbiterStartPeriodicTimer()

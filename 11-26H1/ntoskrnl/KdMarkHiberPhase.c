@@ -1,9 +1,9 @@
 /*
- * XREFs of KdMarkHiberPhase @ 0x140BF2E94
+ * XREFs of KdMarkHiberPhase @ 0x140BF8E94
  * Callers:
- *     PopMarkComponentsBootPhase @ 0x140BFAE30 (PopMarkComponentsBootPhase.c)
+ *     PopMarkComponentsBootPhase @ 0x140C00E30 (PopMarkComponentsBootPhase.c)
  * Callees:
- *     PoSetHiberRange @ 0x1404AFD60 (PoSetHiberRange.c)
+ *     PoSetHiberRange @ 0x1404A93F0 (PoSetHiberRange.c)
  */
 
 void KdMarkHiberPhase()

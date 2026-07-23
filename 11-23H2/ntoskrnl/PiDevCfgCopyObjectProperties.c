@@ -1,18 +1,18 @@
 /*
- * XREFs of PiDevCfgCopyObjectProperties @ 0x14087C3F4
+ * XREFs of PiDevCfgCopyObjectProperties @ 0x14087C634
  * Callers:
- *     PiDevCfgConfigureDeviceDriverConfiguration @ 0x14087BEB8 (PiDevCfgConfigureDeviceDriverConfiguration.c)
- *     PiDevCfgConfigureDeviceInterface @ 0x14095D3F0 (PiDevCfgConfigureDeviceInterface.c)
- *     PiDevCfgInitDriverDatabaseCallback @ 0x14095E648 (PiDevCfgInitDriverDatabaseCallback.c)
+ *     PiDevCfgConfigureDeviceDriverConfiguration @ 0x14087C0F8 (PiDevCfgConfigureDeviceDriverConfiguration.c)
+ *     PiDevCfgConfigureDeviceInterface @ 0x14095D5F0 (PiDevCfgConfigureDeviceInterface.c)
+ *     PiDevCfgInitDriverDatabaseCallback @ 0x14095E848 (PiDevCfgInitDriverDatabaseCallback.c)
  * Callees:
- *     ZwClose @ 0x14041AF40 (ZwClose.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     _PnpGetGenericStoreProperty @ 0x1406CDA00 (_PnpGetGenericStoreProperty.c)
- *     _PnpOpenObjectRegKey @ 0x1406CF960 (_PnpOpenObjectRegKey.c)
- *     _PnpGetObjectProperty @ 0x1406D01F0 (_PnpGetObjectProperty.c)
- *     _PnpGetObjectPropertyKeys @ 0x14083A52C (_PnpGetObjectPropertyKeys.c)
- *     _PnpGetGenericStorePropertyKeys @ 0x140875BC4 (_PnpGetGenericStorePropertyKeys.c)
- *     PiDevCfgSetObjectProperty @ 0x14087B740 (PiDevCfgSetObjectProperty.c)
+ *     ZwClose @ 0x14041B2D0 (ZwClose.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     _PnpGetGenericStoreProperty @ 0x1406CDA30 (_PnpGetGenericStoreProperty.c)
+ *     _PnpOpenObjectRegKey @ 0x1406CF990 (_PnpOpenObjectRegKey.c)
+ *     _PnpGetObjectProperty @ 0x1406D0220 (_PnpGetObjectProperty.c)
+ *     _PnpGetObjectPropertyKeys @ 0x14083A82C (_PnpGetObjectPropertyKeys.c)
+ *     _PnpGetGenericStorePropertyKeys @ 0x140875E04 (_PnpGetGenericStorePropertyKeys.c)
+ *     PiDevCfgSetObjectProperty @ 0x14087B980 (PiDevCfgSetObjectProperty.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

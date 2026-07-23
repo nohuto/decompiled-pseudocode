@@ -1,11 +1,11 @@
 /*
- * XREFs of MiIssueFlowThroughFault @ 0x14038B1F8
+ * XREFs of MiIssueFlowThroughFault @ 0x14038CFA8
  * Callers:
- *     MiHandleCollidedFault @ 0x14038B418 (MiHandleCollidedFault.c)
+ *     MiHandleCollidedFault @ 0x14038D1C8 (MiHandleCollidedFault.c)
  * Callees:
- *     MiResolveMappedFileFault @ 0x14036F5D0 (MiResolveMappedFileFault.c)
- *     MiResolvePageFileFault @ 0x1403701DC (MiResolvePageFileFault.c)
- *     PsGetIoPriorityThread @ 0x1403750A0 (PsGetIoPriorityThread.c)
+ *     MiResolveMappedFileFault @ 0x140371380 (MiResolveMappedFileFault.c)
+ *     MiResolvePageFileFault @ 0x140371F8C (MiResolvePageFileFault.c)
+ *     PsGetIoPriorityThread @ 0x140376E50 (PsGetIoPriorityThread.c)
  */
 
 __int64 __fastcall MiIssueFlowThroughFault(
@@ -14,7 +14,7 @@ __int64 __fastcall MiIssueFlowThroughFault(
         __int64 a3,
         __int64 a4,
         __int64 a5,
-        struct _SLIST_ENTRY **a6,
+        _SLIST_ENTRY **a6,
         _DWORD *a7)
 {
   char v7; // bl

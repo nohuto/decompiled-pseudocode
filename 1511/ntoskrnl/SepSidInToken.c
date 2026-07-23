@@ -15,10 +15,13 @@
  *     <none>
  */
 
-__int64 __fastcall SepSidInToken(__int64 a1, __int64 a2, __int64 a3, __int64 a4, char a5)
+__int64 __fastcall SepSidInToken(__int64 a1, __int64 a2, __int64 a3, __int64 a4, char a5, char a6)
 {
+  _SID_AND_ATTRIBUTES_HASH *v6; // rcx
+
   if ( a5 )
-    return SepSidInTokenSidHash(a1 + 504);
+    v6 = (_SID_AND_ATTRIBUTES_HASH *)(a1 + 504);
   else
-    return SepSidInTokenSidHash(a1 + 232);
+    v6 = (_SID_AND_ATTRIBUTES_HASH *)(a1 + 232);
+  return SepSidInTokenSidHash(v6, a5, a6);
 }

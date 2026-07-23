@@ -1,9 +1,9 @@
 /*
- * XREFs of AVrfpSetProcessVerifierOptions @ 0x1800DB32C
+ * XREFs of AVrfpSetProcessVerifierOptions @ 0x1800DB2EC
  * Callers:
- *     RtlSetProcessDebugInformation @ 0x1800D8510 (RtlSetProcessDebugInformation.c)
+ *     RtlSetProcessDebugInformation @ 0x1800D84D0 (RtlSetProcessDebugInformation.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1800A1160 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1800A1120 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall AVrfpSetProcessVerifierOptions(__int64 a1)

@@ -1,8 +1,8 @@
 /*
- * XREFs of IsLegalAttributeChar2 @ 0x140927E90
+ * XREFs of IsLegalAttributeChar2 @ 0x140927FF0
  * Callers:
- *     GetAttributeName @ 0x140927030 (GetAttributeName.c)
- *     LocalGetRelativeAttributeForString @ 0x1409285E0 (LocalGetRelativeAttributeForString.c)
+ *     GetAttributeName @ 0x140927190 (GetAttributeName.c)
+ *     LocalGetRelativeAttributeForString @ 0x140928740 (LocalGetRelativeAttributeForString.c)
  * Callees:
  *     <none>
  */

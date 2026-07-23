@@ -1,22 +1,29 @@
 /*
- * XREFs of LsaCallAuthenticationPackage @ 0x14078F340
+ * XREFs of LsaCallAuthenticationPackage @ 0x14078F310
  * Callers:
  *     <none>
  * Callees:
- *     ExGetExtensionTable @ 0x1403AA530 (ExGetExtensionTable.c)
- *     ExReleaseExtensionTable @ 0x14044FE80 (ExReleaseExtensionTable.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
+ *     ExGetExtensionTable @ 0x140398F94 (ExGetExtensionTable.c)
+ *     ExReleaseExtensionTable @ 0x1404450F0 (ExReleaseExtensionTable.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
  */
 
-__int64 __fastcall LsaCallAuthenticationPackage(__int64 a1, unsigned int a2, __int64 a3, unsigned int a4)
+NTSTATUS __cdecl LsaCallAuthenticationPackage(
+        HANDLE LsaHandle,
+        ULONG AuthenticationPackage,
+        PVOID ProtocolSubmitBuffer,
+        ULONG SubmitBufferLength,
+        PVOID *ProtocolReturnBuffer,
+        PULONG ReturnBufferLength,
+        PNTSTATUS ProtocolStatus)
 {
-  unsigned int v8; // ebx
+  NTSTATUS v9; // ebx
 
-  v8 = -1073741822;
+  v9 = -1073741822;
   if ( ExGetExtensionTable((struct _EX_RUNDOWN_REF *)SepAuthExtensionHost) )
   {
-    v8 = guard_dispatch_icall_no_overrides(a1, a2, a3, a4);
+    v9 = guard_dispatch_icall_no_overrides(LsaHandle, AuthenticationPackage);
     ExReleaseExtensionTable((struct _EX_RUNDOWN_REF *)SepAuthExtensionHost);
   }
-  return v8;
+  return v9;
 }

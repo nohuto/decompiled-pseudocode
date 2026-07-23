@@ -1,14 +1,14 @@
 /*
- * XREFs of SecureDump_ReadRegistry @ 0x1405D71B0
+ * XREFs of SecureDump_ReadRegistry @ 0x1405D99A0
  * Callers:
- *     SecureDump_PrepareForInit @ 0x1405D6CBC (SecureDump_PrepareForInit.c)
+ *     SecureDump_PrepareForInit @ 0x1405D94AC (SecureDump_PrepareForInit.c)
  * Callees:
- *     memmove @ 0x14073D480 (memmove.c)
- *     ObCloseHandle @ 0x140A00740 (ObCloseHandle.c)
- *     IopGetRegistryValue @ 0x140A121A8 (IopGetRegistryValue.c)
- *     IopOpenRegistryKey @ 0x140B1C920 (IopOpenRegistryKey.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     ObCloseHandle @ 0x14091D2C0 (ObCloseHandle.c)
+ *     IopGetRegistryValue @ 0x140A11398 (IopGetRegistryValue.c)
+ *     IopOpenRegistryKey @ 0x140B1EB30 (IopOpenRegistryKey.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall SecureDump_ReadRegistry(__int64 a1, __int64 a2, int a3, void **a4, _DWORD *a5)

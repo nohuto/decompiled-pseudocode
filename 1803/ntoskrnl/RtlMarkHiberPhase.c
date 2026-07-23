@@ -27,7 +27,7 @@ void RtlMarkHiberPhase()
     v1 = *(_DWORD *)(BugCheckParameter4 + 184);
     if ( v1 == 8 )
     {
-      v2 = ((unsigned __int64)&EtwSecondaryDumpDataGuid + 7) >> 12;
+      v2 = ((unsigned __int64)&EtwSecondaryDumpDataGuid.Data3 + 1) >> 12;
       for ( i = (unsigned __int64)XpressHashFunction >> 12; i < v2; i += j )
       {
         v4 = i + 1;

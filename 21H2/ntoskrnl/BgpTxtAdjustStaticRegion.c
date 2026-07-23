@@ -1,9 +1,9 @@
 /*
- * XREFs of BgpTxtAdjustStaticRegion @ 0x1405C4670
+ * XREFs of BgpTxtAdjustStaticRegion @ 0x1405C48A0
  * Callers:
- *     BgpDisplayCharacterEx @ 0x1405C43D4 (BgpDisplayCharacterEx.c)
+ *     BgpDisplayCharacterEx @ 0x1405C4604 (BgpDisplayCharacterEx.c)
  * Callees:
- *     BgpGxFillRectangle @ 0x14039C9C0 (BgpGxFillRectangle.c)
+ *     BgpGxFillRectangle @ 0x14039CB10 (BgpGxFillRectangle.c)
  */
 
 __int64 __fastcall BgpTxtAdjustStaticRegion(__int64 a1, _QWORD *a2, unsigned int *a3)

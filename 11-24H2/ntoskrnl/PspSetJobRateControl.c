@@ -1,13 +1,13 @@
 /*
- * XREFs of PspSetJobRateControl @ 0x14077800C
+ * XREFs of PspSetJobRateControl @ 0x1407781CC
  * Callers:
- *     PspSetNetRateControl @ 0x140778224 (PspSetNetRateControl.c)
+ *     PspSetNetRateControl @ 0x1407783E4 (PspSetNetRateControl.c)
  * Callees:
- *     PspModifyAncestorBits @ 0x14077796C (PspModifyAncestorBits.c)
- *     PspRemoveRateControl @ 0x140777BF8 (PspRemoveRateControl.c)
- *     PspEnumJobsAndProcessesInJobHierarchy @ 0x1408EBCAC (PspEnumJobsAndProcessesInJobHierarchy.c)
- *     PspFreeRateControl @ 0x14098CF0C (PspFreeRateControl.c)
- *     PspAllocateRateControl @ 0x14098CF58 (PspAllocateRateControl.c)
+ *     PspModifyAncestorBits @ 0x140777B2C (PspModifyAncestorBits.c)
+ *     PspRemoveRateControl @ 0x140777DB8 (PspRemoveRateControl.c)
+ *     PspEnumJobsAndProcessesInJobHierarchy @ 0x14085D4DC (PspEnumJobsAndProcessesInJobHierarchy.c)
+ *     PspFreeRateControl @ 0x14097782C (PspFreeRateControl.c)
+ *     PspAllocateRateControl @ 0x140977878 (PspAllocateRateControl.c)
  */
 
 __int64 __fastcall PspSetJobRateControl(__int64 Object, __int64 a2, char a3)

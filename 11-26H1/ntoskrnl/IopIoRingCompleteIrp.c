@@ -1,18 +1,18 @@
 /*
- * XREFs of IopIoRingCompleteIrp @ 0x1404113E8
+ * XREFs of IopIoRingCompleteIrp @ 0x140410B08
  * Callers:
- *     IopfCompleteRequest @ 0x1403FDA10 (IopfCompleteRequest.c)
- *     IopCompleteRequest @ 0x14045B5C0 (IopCompleteRequest.c)
- *     IopSynchronousServiceTail @ 0x1409B2704 (IopSynchronousServiceTail.c)
+ *     IopfCompleteRequest @ 0x1403FA200 (IopfCompleteRequest.c)
+ *     IopCompleteRequest @ 0x140454DF0 (IopCompleteRequest.c)
+ *     IopSynchronousServiceTail @ 0x1409837C4 (IopSynchronousServiceTail.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     IopDropIrp @ 0x140268190 (IopDropIrp.c)
- *     IopDequeueIrpFromThread @ 0x14032F1A0 (IopDequeueIrpFromThread.c)
- *     IopDequeueIrpFromFileObject @ 0x1403DE5B0 (IopDequeueIrpFromFileObject.c)
- *     IopProcessBufferedIoCompletion @ 0x1404111D0 (IopProcessBufferedIoCompletion.c)
- *     IopUpdateIrpTransferCount @ 0x140411290 (IopUpdateIrpTransferCount.c)
- *     IopMcReleaseMdl @ 0x1404114C8 (IopMcReleaseMdl.c)
- *     IopCompleteIoRingEntry @ 0x140411574 (IopCompleteIoRingEntry.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     IopDropIrp @ 0x140267700 (IopDropIrp.c)
+ *     IopDequeueIrpFromThread @ 0x1403311D0 (IopDequeueIrpFromThread.c)
+ *     IopDequeueIrpFromFileObject @ 0x1403E17A0 (IopDequeueIrpFromFileObject.c)
+ *     IopProcessBufferedIoCompletion @ 0x1404108F0 (IopProcessBufferedIoCompletion.c)
+ *     IopUpdateIrpTransferCount @ 0x1404109B0 (IopUpdateIrpTransferCount.c)
+ *     IopMcReleaseMdl @ 0x140410BE8 (IopMcReleaseMdl.c)
+ *     IopCompleteIoRingEntry @ 0x140410C94 (IopCompleteIoRingEntry.c)
  */
 
 void __fastcall IopIoRingCompleteIrp(PIRP Irp, ULONG_PTR BugCheckParameter2, unsigned int a3)

@@ -37,7 +37,7 @@
  *     PpmEventIdleDurationExpiration @ 0x140301E38 (PpmEventIdleDurationExpiration.c)
  */
 
-void __fastcall KeClockInterruptNotify(__int64 a1, __int64 a2)
+void __fastcall KeClockInterruptNotify(__int64 a1, unsigned __int8 a2)
 {
   struct _KPRCB *CurrentPrcb; // rdi
   char v3; // bp
@@ -47,7 +47,7 @@ void __fastcall KeClockInterruptNotify(__int64 a1, __int64 a2)
   int v8; // eax
   _DWORD *v9; // rcx
   int v10; // eax
-  __int64 InterruptTimePrecise; // rbx
+  LARGE_INTEGER InterruptTimePrecise; // rbx
   __int64 v12; // rdx
   int v13; // eax
   char *v14; // r14
@@ -64,7 +64,7 @@ void __fastcall KeClockInterruptNotify(__int64 a1, __int64 a2)
   bool v25; // bp
   signed __int64 v26; // rax
   signed __int64 v27; // rtt
-  LARGE_INTEGER PerformanceCounter; // r8
+  LARGE_INTEGER v28; // r8
   unsigned __int128 v29; // rax
   LONGLONG v30; // rdx
   __int64 v31; // r11
@@ -128,7 +128,6 @@ void __fastcall KeClockInterruptNotify(__int64 a1, __int64 a2)
   unsigned __int64 v89; // rax
   unsigned __int8 v90; // bl
   struct _KPRCB *v91; // rcx
-  unsigned __int8 v92; // [rsp+30h] [rbp-388h]
   char v93; // [rsp+31h] [rbp-387h]
   char v94; // [rsp+32h] [rbp-386h]
   ULONG v95; // [rsp+34h] [rbp-384h] BYREF
@@ -148,7 +147,7 @@ void __fastcall KeClockInterruptNotify(__int64 a1, __int64 a2)
   char v109[8]; // [rsp+98h] [rbp-320h] BYREF
   __int64 v110; // [rsp+A0h] [rbp-318h] BYREF
   __int64 v111; // [rsp+A8h] [rbp-310h] BYREF
-  char v112[16]; // [rsp+B0h] [rbp-308h] BYREF
+  LARGE_INTEGER PerformanceCounter; // [rsp+B0h] [rbp-308h] BYREF
   _DWORD v113[44]; // [rsp+C0h] [rbp-2F8h] BYREF
   _QWORD v114[22]; // [rsp+170h] [rbp-248h] BYREF
   _QWORD v115[44]; // [rsp+220h] [rbp-198h] BYREF
@@ -156,8 +155,7 @@ void __fastcall KeClockInterruptNotify(__int64 a1, __int64 a2)
 
   CurrentPrcb = KeGetCurrentPrcb();
   v3 = 0;
-  v92 = a2;
-  v4 = (unsigned __int8)a2;
+  v4 = a2;
   v93 = 0;
   v101 = 0LL;
   v99 = 0LL;
@@ -198,8 +196,8 @@ void __fastcall KeClockInterruptNotify(__int64 a1, __int64 a2)
     }
     if ( CurrentPrcb->ClockOwner && !KiForceIdleDisabled && KiForceIdleState == 4 )
     {
-      InterruptTimePrecise = RtlGetInterruptTimePrecise(v112, a2, v4);
-      PoExecuteIdleCheck(InterruptTimePrecise);
+      InterruptTimePrecise = RtlGetInterruptTimePrecise(&PerformanceCounter);
+      ((void (__fastcall *)(_QWORD))PoExecuteIdleCheck)((LARGE_INTEGER)InterruptTimePrecise.QuadPart);
       if ( KiForceIdleWatchdogResetCount == 32 )
       {
         off_140424600[0]();
@@ -210,7 +208,7 @@ void __fastcall KeClockInterruptNotify(__int64 a1, __int64 a2)
         v13 = KiForceIdleWatchdogResetCount + 1;
       }
       KiForceIdleWatchdogResetCount = v13;
-      if ( (unsigned __int64)(InterruptTimePrecise - KiForceIdleActiveLastStartTime) > 0x1312D00 )
+      if ( (unsigned __int64)(InterruptTimePrecise.QuadPart - KiForceIdleActiveLastStartTime) > 0x1312D00 )
       {
         LOBYTE(v12) = 1;
         KiResetForceIdle(2LL, v12);
@@ -224,7 +222,7 @@ void __fastcall KeClockInterruptNotify(__int64 a1, __int64 a2)
         v101 = v14;
         KiClockTickSkipTraceIndex = (KiClockTickSkipTraceIndex + 1) & 0xF;
         *v14 = 0;
-        *((_QWORD *)v14 + 1) = InterruptTimePrecise;
+        *((LARGE_INTEGER *)v14 + 1) = InterruptTimePrecise;
       }
     }
     _InterlockedAnd64(&KiForceIdleLock, 0LL);
@@ -243,7 +241,7 @@ void __fastcall KeClockInterruptNotify(__int64 a1, __int64 a2)
     _enable();
     if ( v3 )
       goto LABEL_215;
-    LOBYTE(v4) = v92;
+    LOBYTE(v4) = a2;
   }
   v18 = *(_BYTE *)(a1 + 368) & 1;
   v94 = v18;
@@ -454,11 +452,11 @@ LABEL_71:
   v26 = _InterlockedCompareExchange64((volatile signed __int64 *)0xFFFFF78000000340LL, v26 + 1, v26);
   if ( v27 != v26 )
     goto LABEL_71;
-  PerformanceCounter = KeQueryPerformanceCounter(0LL);
+  v28 = KeQueryPerformanceCounter(0LL);
   *((_QWORD *)&v29 + 1) = 0LL;
-  if ( PerformanceCounter.QuadPart > MEMORY[0xFFFFF78000000348] )
+  if ( v28.QuadPart > MEMORY[0xFFFFF78000000348] )
   {
-    v30 = PerformanceCounter.QuadPart - MEMORY[0xFFFFF78000000348];
+    v30 = v28.QuadPart - MEMORY[0xFFFFF78000000348];
     if ( MEMORY[0xFFFFF78000000368] )
       v30 <<= MEMORY[0xFFFFF78000000368];
     v29 = (unsigned __int64)v30 * (unsigned __int128)MEMORY[0xFFFFF78000000358];
@@ -470,9 +468,9 @@ LABEL_71:
   v31 = *((_QWORD *)&v29 + 1) + MEMORY[0xFFFFF78000000014];
   *((_QWORD *)&v29 + 1) = 0LL;
   v32 = MEMORY[0xFFFFF78000000360];
-  if ( PerformanceCounter.QuadPart > MEMORY[0xFFFFF78000000350] )
+  if ( v28.QuadPart > MEMORY[0xFFFFF78000000350] )
   {
-    v33 = PerformanceCounter.QuadPart - MEMORY[0xFFFFF78000000350];
+    v33 = v28.QuadPart - MEMORY[0xFFFFF78000000350];
     if ( MEMORY[0xFFFFF78000000369] )
       v33 <<= MEMORY[0xFFFFF78000000369];
     v29 = (unsigned __int64)v33 * (unsigned __int128)MEMORY[0xFFFFF78000000360];
@@ -486,8 +484,8 @@ LABEL_71:
   MEMORY[0xFFFFF78000000014] = v31;
   MEMORY[0xFFFFF78000000010] = (MEMORY[0xFFFFF78000000008] + *((_QWORD *)&v29 + 1)) >> 32;
   MEMORY[0xFFFFF78000000008] += *((_QWORD *)&v29 + 1);
-  MEMORY[0xFFFFF78000000348] = PerformanceCounter.QuadPart;
-  MEMORY[0xFFFFF78000000350] = PerformanceCounter.QuadPart;
+  MEMORY[0xFFFFF78000000348] = v28.QuadPart;
+  MEMORY[0xFFFFF78000000350] = v28.QuadPart;
   v35 = MEMORY[0xFFFFF78000000320];
   v36 = (unsigned int)KiTickOffset - *((_QWORD *)&v29 + 1);
   if ( v36 <= 0 )
@@ -650,7 +648,7 @@ LABEL_71:
   v58 = MEMORY[0xFFFFF78000000320];
   if ( (v116 & 0x200) != 0 )
     _enable();
-  KeAccumulateTicks((__int64)v56, v56->LastTick, MEMORY[0xFFFFF78000000320], v92, v94);
+  KeAccumulateTicks((__int64)v56, v56->LastTick, MEMORY[0xFFFFF78000000320], a2, v94);
   v59 = (__int64)v56->CurrentThread;
   v56->ClockKeepAlive = 1;
   if ( (_KTHREAD *)v59 == v56->IdleThread )

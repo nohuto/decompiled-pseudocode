@@ -1,5 +1,5 @@
 /*
- * XREFs of KiSchedulerApc @ 0x1400F17D0
+ * XREFs of KiSchedulerApc @ 0x1400F1850
  * Callers:
  *     <none>
  * Callees:
@@ -8,25 +8,25 @@
  *     KiAbProcessContextSwitch @ 0x140057DC0 (KiAbProcessContextSwitch.c)
  *     KiDeliverApc @ 0x140058490 (KiDeliverApc.c)
  *     KiSelectReadyThreadEx @ 0x14005ADA0 (KiSelectReadyThreadEx.c)
- *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
- *     KiExitDispatcher @ 0x1400C2F70 (KiExitDispatcher.c)
- *     KiEndThreadCycleAccumulation @ 0x1400D1FA0 (KiEndThreadCycleAccumulation.c)
- *     KiQueueReadyThread @ 0x1400D2370 (KiQueueReadyThread.c)
- *     KiCheckForMaxOverQuotaScb @ 0x1400D2F54 (KiCheckForMaxOverQuotaScb.c)
- *     KiSetProcessorIdle @ 0x1400D7344 (KiSetProcessorIdle.c)
- *     KiSignalThreadForApc @ 0x1400F1F84 (KiSignalThreadForApc.c)
- *     KiInsertQueueApc @ 0x1400F2120 (KiInsertQueueApc.c)
- *     KiIsProcessTerminationRequested @ 0x1400F2358 (KiIsProcessTerminationRequested.c)
- *     KiReleaseThreadLockSafe @ 0x14010C410 (KiReleaseThreadLockSafe.c)
- *     KiRemoveQueueApc @ 0x14012F3FC (KiRemoveQueueApc.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     KiUpdatePriorityMatrixThreadState @ 0x1401B4B9C (KiUpdatePriorityMatrixThreadState.c)
- *     KiSwapContext @ 0x1401C3F70 (KiSwapContext.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     DbgkForwardException @ 0x1406D68DC (DbgkForwardException.c)
- *     KiResumeUmsThread @ 0x1408456BC (KiResumeUmsThread.c)
- *     KiSuspendUmsThread @ 0x140845714 (KiSuspendUmsThread.c)
+ *     KeYieldProcessorEx @ 0x14006C9E0 (KeYieldProcessorEx.c)
+ *     KiExitDispatcher @ 0x1400C2EB0 (KiExitDispatcher.c)
+ *     KiEndThreadCycleAccumulation @ 0x1400D2020 (KiEndThreadCycleAccumulation.c)
+ *     KiQueueReadyThread @ 0x1400D23F0 (KiQueueReadyThread.c)
+ *     KiCheckForMaxOverQuotaScb @ 0x1400D2FD4 (KiCheckForMaxOverQuotaScb.c)
+ *     KiSetProcessorIdle @ 0x1400D73C4 (KiSetProcessorIdle.c)
+ *     KiSignalThreadForApc @ 0x1400F2004 (KiSignalThreadForApc.c)
+ *     KiInsertQueueApc @ 0x1400F21A0 (KiInsertQueueApc.c)
+ *     KiIsProcessTerminationRequested @ 0x1400F23D8 (KiIsProcessTerminationRequested.c)
+ *     KiReleaseThreadLockSafe @ 0x14010C490 (KiReleaseThreadLockSafe.c)
+ *     KiRemoveQueueApc @ 0x14012F4CC (KiRemoveQueueApc.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiUpdatePriorityMatrixThreadState @ 0x1401B4CDC (KiUpdatePriorityMatrixThreadState.c)
+ *     KiSwapContext @ 0x1401C40D0 (KiSwapContext.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     DbgkForwardException @ 0x1406D7B7C (DbgkForwardException.c)
+ *     KiResumeUmsThread @ 0x14084691C (KiResumeUmsThread.c)
+ *     KiSuspendUmsThread @ 0x140846974 (KiSuspendUmsThread.c)
  */
 
 int __fastcall KiSchedulerApc(__int64 a1, __int64 a2, __int64 a3)

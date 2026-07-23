@@ -13,11 +13,11 @@
 
 void __stdcall FsRtlDeleteKeyFromTunnelCache(TUNNEL *Cache, ULONGLONG DirectoryKey)
 {
-  RTL_SPLAY_LINKS *v2; // rbx
+  _RTL_SPLAY_LINKS *v2; // rbx
   char v5; // bp
   PRTL_SPLAY_LINKS v6; // rax
   PRTL_SPLAY_LINKS v7; // r15
-  RTL_SPLAY_LINKS *v8; // rbx
+  _RTL_SPLAY_LINKS *v8; // rbx
   _RTL_SPLAY_LINKS *Parent; // rcx
   _RTL_SPLAY_LINKS *LeftChild; // rax
   _QWORD *v11; // rax

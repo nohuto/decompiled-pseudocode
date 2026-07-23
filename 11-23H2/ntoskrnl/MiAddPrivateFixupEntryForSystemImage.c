@@ -1,15 +1,15 @@
 /*
- * XREFs of MiAddPrivateFixupEntryForSystemImage @ 0x1403ABEB4
+ * XREFs of MiAddPrivateFixupEntryForSystemImage @ 0x1403AC094
  * Callers:
  *     MiGetSystemAddressForImage @ 0x140696090 (MiGetSystemAddressForImage.c)
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x14024D360 (ExAcquireSpinLockExclusive.c)
- *     MiGetSystemRegionType @ 0x140284870 (MiGetSystemRegionType.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402894C0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     MiAllocatePool @ 0x1402DF1A0 (MiAllocatePool.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     MiInitializePrivateFixupBitmap @ 0x140705530 (MiInitializePrivateFixupBitmap.c)
- *     MiCreateSessionDriverProtos @ 0x140A45DD0 (MiCreateSessionDriverProtos.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024D430 (ExAcquireSpinLockExclusive.c)
+ *     MiGetSystemRegionType @ 0x140284B00 (MiGetSystemRegionType.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140289750 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiAllocatePool @ 0x1402DF430 (MiAllocatePool.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     MiInitializePrivateFixupBitmap @ 0x140705740 (MiInitializePrivateFixupBitmap.c)
+ *     MiCreateSessionDriverProtos @ 0x140A46080 (MiCreateSessionDriverProtos.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 
@@ -66,10 +66,13 @@ LABEL_7:
   *v8 = v5;
   qword_140C658C8 = (__int64)v5;
   ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140C658E4);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v7 <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
+      && (unsigned __int8)v7 <= 0xFu
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;

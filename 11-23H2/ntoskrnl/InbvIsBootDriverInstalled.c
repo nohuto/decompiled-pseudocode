@@ -1,11 +1,11 @@
 /*
- * XREFs of InbvIsBootDriverInstalled @ 0x1403AA140
+ * XREFs of InbvIsBootDriverInstalled @ 0x1403AA320
  * Callers:
- *     DisplayBootBitmap @ 0x1403AA048 (DisplayBootBitmap.c)
- *     BvgaReleaseResources @ 0x1403AA0D0 (BvgaReleaseResources.c)
+ *     DisplayBootBitmap @ 0x1403AA228 (DisplayBootBitmap.c)
+ *     BvgaReleaseResources @ 0x1403AA2B0 (BvgaReleaseResources.c)
  *     StartFirstUserProcess @ 0x140B68C34 (StartFirstUserProcess.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
  */
 
 char InbvIsBootDriverInstalled()

@@ -14,7 +14,7 @@
  *     __security_check_cookie @ 0x180090C90 (__security_check_cookie.c)
  */
 
-__int64 __fastcall LdrpLoadDll(__int64 a1, int a2, int a3, char a4, __int64 *a5)
+__int64 __fastcall LdrpLoadDll(__int64 a1, int a2, int a3, char a4, PVOID *a5)
 {
   int v9; // edx
   int v10; // r8d
@@ -22,14 +22,13 @@ __int64 __fastcall LdrpLoadDll(__int64 a1, int a2, int a3, char a4, __int64 *a5)
   int v12; // eax
   unsigned int v13; // r8d
   unsigned int v15; // [rsp+40h] [rbp-C0h] BYREF
-  unsigned int v16[3]; // [rsp+44h] [rbp-BCh] BYREF
-  int v17; // [rsp+50h] [rbp-B0h] BYREF
-  __int16 *v18; // [rsp+58h] [rbp-A8h]
-  __int16 v19; // [rsp+60h] [rbp-A0h] BYREF
+  __int64 v16; // [rsp+44h] [rbp-BCh] BYREF
+  _UNICODE_STRING v17; // [rsp+50h] [rbp-B0h] BYREF
+  __int16 v18; // [rsp+60h] [rbp-A0h] BYREF
 
   LdrpLogDllState(0LL, a1, 5288LL);
-  v17 = 0x1000000;
-  v19 = 0;
+  *(_DWORD *)&v17.Length = 0x1000000;
+  v18 = 0;
   v9 = (2 * (a3 & 4)) | 0x40;
   if ( (a3 & 2) == 0 )
     v9 = 2 * (a3 & 4);
@@ -43,15 +42,15 @@ __int64 __fastcall LdrpLoadDll(__int64 a1, int a2, int a3, char a4, __int64 *a5)
   if ( a3 >= 0 )
     v12 = v11;
   v15 = v12;
-  v18 = &v19;
-  v16[0] = LdrpPreprocessDllName(a1, &v17, 0LL, &v15);
-  if ( (v16[0] & 0x80000000) == 0 )
+  v17.Buffer = (wchar_t *)&v18;
+  LODWORD(v16) = LdrpPreprocessDllName(a1, &v17, 0LL, &v15);
+  if ( (int)v16 >= 0 )
   {
     v13 = v15;
     if ( !a4 )
       v13 = v15 | 1;
-    LdrpLoadDllInternal((__int64)&v17, a2, v13, 4, 0LL, 0LL, a5, (int *)v16);
+    LdrpLoadDllInternal(&v17, a2, v13, 4, 0LL, 0LL, a5, (int *)&v16);
   }
   LdrpLogDllState(0LL, a1, 5289LL);
-  return v16[0];
+  return (unsigned int)v16;
 }

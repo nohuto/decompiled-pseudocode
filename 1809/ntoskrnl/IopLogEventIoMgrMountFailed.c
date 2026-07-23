@@ -1,11 +1,11 @@
 /*
- * XREFs of IopLogEventIoMgrMountFailed @ 0x140169634
+ * XREFs of IopLogEventIoMgrMountFailed @ 0x140169734
  * Callers:
- *     IopMountVolume @ 0x1405A2E64 (IopMountVolume.c)
+ *     IopMountVolume @ 0x1405A3E64 (IopMountVolume.c)
  * Callees:
  *     EtwEventEnabled @ 0x14005B2D0 (EtwEventEnabled.c)
- *     EtwWriteEx @ 0x1400CAD60 (EtwWriteEx.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     EtwWriteEx @ 0x1400CAE40 (EtwWriteEx.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
  */
 
 char __fastcall IopLogEventIoMgrMountFailed(LPCGUID ActivityId, ULONGLONG a2, unsigned __int16 *a3, int a4)
@@ -30,7 +30,7 @@ char __fastcall IopLogEventIoMgrMountFailed(LPCGUID ActivityId, ULONGLONG a2, un
   v4 = *a3;
   v7 = *a3 >> 1;
   v11 = v7;
-  if ( (_BYTE)dword_14054019C )
+  if ( (_BYTE)dword_14054119C )
   {
     v9 = IoMgrTraceHandle;
     LOBYTE(v7) = EtwEventEnabled(IoMgrTraceHandle, &IoMgr_MountFailed);

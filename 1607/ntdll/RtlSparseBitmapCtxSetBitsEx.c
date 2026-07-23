@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlSparseBitmapCtxSetBitsEx @ 0x180100930
+ * XREFs of RtlSparseBitmapCtxSetBitsEx @ 0x180100870
  * Callers:
  *     <none>
  * Callees:
- *     RtlpSparseBitmapCtxUpdateBitRanges @ 0x18004FAC4 (RtlpSparseBitmapCtxUpdateBitRanges.c)
+ *     RtlpSparseBitmapCtxUpdateBitRanges @ 0x18004FAB4 (RtlpSparseBitmapCtxUpdateBitRanges.c)
  */
 
 __int64 __fastcall RtlSparseBitmapCtxSetBitsEx(

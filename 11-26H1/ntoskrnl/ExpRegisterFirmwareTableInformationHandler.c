@@ -1,28 +1,28 @@
 /*
- * XREFs of ExpRegisterFirmwareTableInformationHandler @ 0x14083306C
+ * XREFs of ExpRegisterFirmwareTableInformationHandler @ 0x1408392AC
  * Callers:
- *     NtSetSystemInformation @ 0x140833840 (NtSetSystemInformation.c)
+ *     NtSetSystemInformation @ 0x140839A80 (NtSetSystemInformation.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     ExAcquireResourceExclusiveLite @ 0x140275200 (ExAcquireResourceExclusiveLite.c)
- *     PsReferenceSiloContext @ 0x140277800 (PsReferenceSiloContext.c)
- *     ExReleaseResourceLite @ 0x1402B4CF0 (ExReleaseResourceLite.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     ExAcquireResourceExclusiveLite @ 0x140274770 (ExAcquireResourceExclusiveLite.c)
+ *     PsReferenceSiloContext @ 0x140276D70 (PsReferenceSiloContext.c)
+ *     ExReleaseResourceLite @ 0x1402FF9C0 (ExReleaseResourceLite.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall ExpRegisterFirmwareTableInformationHandler(__int64 a1, unsigned int a2, char a3)
 {
   unsigned int v3; // ebx
   struct _KTHREAD *CurrentThread; // rax
-  struct _LIST_ENTRY **i; // rdi
-  struct _LIST_ENTRY *v7; // rcx
-  struct _LIST_ENTRY *Flink; // rdx
-  struct _LIST_ENTRY *v9; // rax
+  struct _SINGLE_LIST_ENTRY *i; // rdi
+  struct _SINGLE_LIST_ENTRY *v7; // rcx
+  struct _SINGLE_LIST_ENTRY *Next; // rdx
+  struct _SINGLE_LIST_ENTRY *v9; // rax
   __int64 Pool2; // rax
-  struct _LIST_ENTRY *v11; // rdi
-  struct _LIST_ENTRY *Blink; // rax
+  _SINGLE_LIST_ENTRY **v11; // rdi
+  _SINGLE_LIST_ENTRY *v12; // rax
 
   v3 = 0;
   if ( a3 )
@@ -33,30 +33,30 @@ __int64 __fastcall ExpRegisterFirmwareTableInformationHandler(__int64 a1, unsign
   {
     CurrentThread = KeGetCurrentThread();
     --CurrentThread->KernelApcDisable;
-    ExAcquireResourceExclusiveLite((PERESOURCE)&ExpSysDbgLock.792, 1u);
-    for ( i = &ExpSysDbgLock.ThreadListEntry.Flink[-2].Blink; ; i = &v7->Flink[-2].Blink )
+    ExAcquireResourceExclusiveLite((PERESOURCE)&ExpSysDbgLock.PriorityFloorCounts[24], 1u);
+    for ( i = ExpSysDbgLock.IoSelfBoostsEntry.Next - 3; ; i = v7->Next - 3 )
     {
-      v7 = (struct _LIST_ENTRY *)(i + 3);
-      if ( &ExpSysDbgLock.ThreadListEntry == (_LIST_ENTRY *)(i + 3) )
+      v7 = i + 3;
+      if ( &ExpSysDbgLock.IoSelfBoostsEntry == &i[3] )
         break;
-      if ( *(_DWORD *)i == *(_DWORD *)a1 )
+      if ( LODWORD(i->Next) == *(_DWORD *)a1 )
       {
         if ( *(_BYTE *)(a1 + 4) )
         {
           v3 = 0x40000000;
           goto LABEL_22;
         }
-        if ( i[2] == *(struct _LIST_ENTRY **)(a1 + 16) )
+        if ( i[2].Next == *(struct _SINGLE_LIST_ENTRY **)(a1 + 16) )
         {
-          Flink = v7->Flink;
-          if ( v7->Flink->Blink == v7 )
+          Next = v7->Next;
+          if ( v7->Next[1].Next == v7 )
           {
-            v9 = i[4];
-            if ( v9->Flink == v7 )
+            v9 = i[4].Next;
+            if ( v9->Next == v7 )
             {
-              v9->Flink = Flink;
-              Flink->Blink = v9;
-              ObfDereferenceObject(i[2]);
+              v9->Next = Next;
+              Next[1].Next = v9;
+              ObfDereferenceObject(i[2].Next);
               ExFreePoolWithTag(i, 0x54465241u);
               goto LABEL_22;
             }
@@ -76,7 +76,7 @@ LABEL_21:
     Pool2 = ExAllocatePool2(0x100uLL);
     if ( Pool2 )
     {
-      v11 = (struct _LIST_ENTRY *)(Pool2 + 24);
+      v11 = (_SINGLE_LIST_ENTRY **)(Pool2 + 24);
       *(_DWORD *)Pool2 = *(_DWORD *)a1;
       *(_QWORD *)(Pool2 + 8) = *(_QWORD *)(a1 + 8);
       *(_QWORD *)(Pool2 + 16) = *(_QWORD *)(a1 + 16);
@@ -85,20 +85,20 @@ LABEL_21:
       *(_QWORD *)(Pool2 + 48) = Pool2 + 40;
       *(_QWORD *)(Pool2 + 40) = Pool2 + 40;
       PsReferenceSiloContext(*(void **)(Pool2 + 16));
-      Blink = ExpSysDbgLock.ThreadListEntry.Blink;
-      if ( ExpSysDbgLock.ThreadListEntry.Blink->Flink != &ExpSysDbgLock.ThreadListEntry )
+      v12 = *(_SINGLE_LIST_ENTRY **)ExpSysDbgLock.PriorityFloorCounts;
+      if ( **(struct _KTHREAD ***)ExpSysDbgLock.PriorityFloorCounts != (struct _KTHREAD *)&ExpSysDbgLock.IoSelfBoostsEntry )
         goto LABEL_19;
-      v11->Flink = &ExpSysDbgLock.ThreadListEntry;
-      v11->Blink = Blink;
-      Blink->Flink = v11;
-      ExpSysDbgLock.ThreadListEntry.Blink = v11;
+      *v11 = &ExpSysDbgLock.IoSelfBoostsEntry;
+      v11[1] = v12;
+      v12->Next = (struct _SINGLE_LIST_ENTRY *)v11;
+      *(_QWORD *)ExpSysDbgLock.PriorityFloorCounts = v11;
     }
     else
     {
       v3 = -1073741670;
     }
 LABEL_22:
-    ExReleaseResourceLite((PERESOURCE)&ExpSysDbgLock.792);
+    ExReleaseResourceLite((PERESOURCE)&ExpSysDbgLock.PriorityFloorCounts[24]);
     KeLeaveCriticalRegion();
   }
   else

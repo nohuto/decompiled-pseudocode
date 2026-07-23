@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlpGetExtraStuffPointerUnsafe @ 0x1800F4024
+ * XREFs of RtlpGetExtraStuffPointerUnsafe @ 0x1800F3FE4
  * Callers:
- *     RtlpWalkHeap @ 0x1800F4F2C (RtlpWalkHeap.c)
+ *     RtlpWalkHeap @ 0x1800F4EEC (RtlpWalkHeap.c)
  * Callees:
  *     <none>
  */

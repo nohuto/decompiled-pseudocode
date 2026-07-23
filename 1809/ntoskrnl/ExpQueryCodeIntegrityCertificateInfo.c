@@ -1,17 +1,17 @@
 /*
- * XREFs of ExpQueryCodeIntegrityCertificateInfo @ 0x1408CBCEC
+ * XREFs of ExpQueryCodeIntegrityCertificateInfo @ 0x1408CCFAC
  * Callers:
- *     ExpQuerySystemInformation @ 0x140626390 (ExpQuerySystemInformation.c)
+ *     ExpQuerySystemInformation @ 0x1406273B0 (ExpQuerySystemInformation.c)
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
- *     ZwClose @ 0x1401B8370 (ZwClose.c)
- *     ZwMapViewOfSection @ 0x1401B8690 (ZwMapViewOfSection.c)
- *     ZwUnmapViewOfSection @ 0x1401B86D0 (ZwUnmapViewOfSection.c)
- *     ZwCreateSection @ 0x1401B8AD0 (ZwCreateSection.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     ObReferenceObjectByHandle @ 0x1405E8350 (ObReferenceObjectByHandle.c)
- *     FsRtlGetFileSize @ 0x14061B4A0 (FsRtlGetFileSize.c)
- *     IoConvertFileHandleToKernelHandle @ 0x14081C000 (IoConvertFileHandleToKernelHandle.c)
+ *     ZwClose @ 0x1401B84D0 (ZwClose.c)
+ *     ZwMapViewOfSection @ 0x1401B87F0 (ZwMapViewOfSection.c)
+ *     ZwUnmapViewOfSection @ 0x1401B8830 (ZwUnmapViewOfSection.c)
+ *     ZwCreateSection @ 0x1401B8C30 (ZwCreateSection.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     ObReferenceObjectByHandle @ 0x1405E9350 (ObReferenceObjectByHandle.c)
+ *     FsRtlGetFileSize @ 0x14061C4A0 (FsRtlGetFileSize.c)
+ *     IoConvertFileHandleToKernelHandle @ 0x14081D200 (IoConvertFileHandleToKernelHandle.c)
  */
 
 __int64 __fastcall ExpQueryCodeIntegrityCertificateInfo(void *a1, int a2)
@@ -99,9 +99,9 @@ __int64 __fastcall ExpQueryCodeIntegrityCertificateInfo(void *a1, int a2)
               BaseAddress = 0LL;
               goto LABEL_25;
             }
-            if ( qword_14040DDA8 )
+            if ( qword_14040EE08 )
             {
-              v5 = ((__int64 (__fastcall *)(_QWORD, _QWORD, _QWORD))qword_14040DDA8)(
+              v5 = ((__int64 (__fastcall *)(_QWORD, _QWORD, _QWORD))qword_14040EE08)(
                      v4,
                      BaseAddress,
                      (LARGE_INTEGER)v7.QuadPart);

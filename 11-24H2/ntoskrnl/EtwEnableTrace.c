@@ -1,11 +1,11 @@
 /*
- * XREFs of EtwEnableTrace @ 0x140A48790
+ * XREFs of EtwEnableTrace @ 0x140A3E540
  * Callers:
- *     EtwWmitraceWorker @ 0x1407AC83C (EtwWmitraceWorker.c)
- *     WdipSemEnableDisableTrace @ 0x140A48730 (WdipSemEnableDisableTrace.c)
+ *     EtwWmitraceWorker @ 0x1407ACD0C (EtwWmitraceWorker.c)
+ *     WdipSemEnableDisableTrace @ 0x140A3E4E0 (WdipSemEnableDisableTrace.c)
  * Callees:
- *     PsGetCurrentServerSiloGlobals @ 0x140347D10 (PsGetCurrentServerSiloGlobals.c)
- *     EtwpEnableTrace @ 0x140A4882C (EtwpEnableTrace.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x140326710 (PsGetCurrentServerSiloGlobals.c)
+ *     EtwpEnableTrace @ 0x140A3E5DC (EtwpEnableTrace.c)
  */
 
 __int64 __fastcall EtwEnableTrace(

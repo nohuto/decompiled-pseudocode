@@ -1,19 +1,19 @@
 /*
- * XREFs of PspTerminateProcess @ 0x140507F68
+ * XREFs of PspTerminateProcess @ 0x1404EAEF8
  * Callers:
- *     PsTerminateProcess @ 0x1404EC470 (PsTerminateProcess.c)
- *     NtTerminateProcess @ 0x140507D84 (NtTerminateProcess.c)
- *     PspTerminatePicoProcess @ 0x140681B88 (PspTerminatePicoProcess.c)
+ *     PsTerminateProcess @ 0x1404CE4F8 (PsTerminateProcess.c)
+ *     NtTerminateProcess @ 0x1404EAD14 (NtTerminateProcess.c)
+ *     PspTerminatePicoProcess @ 0x140681C6C (PspTerminatePicoProcess.c)
  * Callees:
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1400C8070 (ExfAcquirePushLockExclusiveEx.c)
- *     ExfTryToWakePushLock @ 0x1400C8738 (ExfTryToWakePushLock.c)
- *     EtwTraceProcessTerminate @ 0x1400C88B0 (EtwTraceProcessTerminate.c)
- *     KeSetProcessSchedulingGroup @ 0x1400C8B14 (KeSetProcessSchedulingGroup.c)
- *     KeForceResumeProcess @ 0x1400C8E70 (KeForceResumeProcess.c)
- *     PspRundownSingleProcess @ 0x14045E0C0 (PspRundownSingleProcess.c)
- *     PspTerminateAllThreads @ 0x1405096F0 (PspTerminateAllThreads.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1400C5F10 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfTryToWakePushLock @ 0x1400C65D8 (ExfTryToWakePushLock.c)
+ *     EtwTraceProcessTerminate @ 0x1400C6750 (EtwTraceProcessTerminate.c)
+ *     KeSetProcessSchedulingGroup @ 0x1400C69B4 (KeSetProcessSchedulingGroup.c)
+ *     KeForceResumeProcess @ 0x1400C6D10 (KeForceResumeProcess.c)
+ *     PspRundownSingleProcess @ 0x14045CF90 (PspRundownSingleProcess.c)
+ *     PspTerminateAllThreads @ 0x1404EC680 (PspTerminateAllThreads.c)
  */
 
 __int64 __fastcall PspTerminateProcess(ULONG_PTR BugCheckParameter1, __int64 a2, unsigned int a3, char a4)

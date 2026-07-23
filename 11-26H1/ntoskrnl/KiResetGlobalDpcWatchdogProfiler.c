@@ -1,8 +1,8 @@
 /*
- * XREFs of KiResetGlobalDpcWatchdogProfiler @ 0x14052DD04
+ * XREFs of KiResetGlobalDpcWatchdogProfiler @ 0x140530224
  * Callers:
- *     KeAccumulateTicks @ 0x14021F980 (KeAccumulateTicks.c)
- *     KeRelaxTimingConstraints @ 0x1405E8DE0 (KeRelaxTimingConstraints.c)
+ *     KeAccumulateTicks @ 0x140221310 (KeAccumulateTicks.c)
+ *     KeRelaxTimingConstraints @ 0x1405EB750 (KeRelaxTimingConstraints.c)
  * Callees:
  *     <none>
  */

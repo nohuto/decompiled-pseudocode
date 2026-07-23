@@ -1,12 +1,12 @@
 /*
- * XREFs of ApiSetResolveToHost @ 0x140529334
+ * XREFs of ApiSetResolveToHost @ 0x14052B7C8
  * Callers:
- *     ExIsMultiSessionSku @ 0x14083763C (ExIsMultiSessionSku.c)
- *     MiResolveImageReferences @ 0x140ADCF50 (MiResolveImageReferences.c)
+ *     ExIsMultiSessionSku @ 0x14083D87C (ExIsMultiSessionSku.c)
+ *     MiResolveImageReferences @ 0x14097E950 (MiResolveImageReferences.c)
  * Callees:
- *     ApiSetpSearchForApiSet @ 0x1404EEA08 (ApiSetpSearchForApiSet.c)
- *     ApiSetpResolveHost @ 0x14051CD10 (ApiSetpResolveHost.c)
- *     ApiSetpSearchForApiSetHost @ 0x1406D9520 (ApiSetpSearchForApiSetHost.c)
+ *     ApiSetpSearchForApiSet @ 0x1404E7FE8 (ApiSetpSearchForApiSet.c)
+ *     ApiSetpResolveHost @ 0x14051F22C (ApiSetpResolveHost.c)
+ *     ApiSetpSearchForApiSetHost @ 0x1406DD6B0 (ApiSetpSearchForApiSetHost.c)
  */
 
 __int64 __fastcall ApiSetResolveToHost(__int64 a1, unsigned __int16 *a2, __int64 a3, char *a4, __int64 a5)

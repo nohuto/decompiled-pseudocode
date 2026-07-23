@@ -6,7 +6,7 @@
  *     <none>
  */
 
-__int64 __fastcall RtlWalkHeap(__int64 a1, __int64 a2)
+NTSTATUS __cdecl RtlWalkHeap(PVOID HeapHandle, PRTL_HEAP_WALK_ENTRY Entry)
 {
-  return RtlpWalkHeapInternal(a1, a2);
+  return RtlpWalkHeapInternal((__int64)HeapHandle, (__int64)Entry);
 }

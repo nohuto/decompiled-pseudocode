@@ -1,14 +1,14 @@
 /*
- * XREFs of PiUEventDereferenceEventEntry @ 0x140782218
+ * XREFs of PiUEventDereferenceEventEntry @ 0x140782408
  * Callers:
- *     PiUEventDequeuePendingEventWorker @ 0x14078207C (PiUEventDequeuePendingEventWorker.c)
- *     PiUEventProcessEventWorker @ 0x1407820E0 (PiUEventProcessEventWorker.c)
- *     PiUEventNotifyUserMode @ 0x1407839EC (PiUEventNotifyUserMode.c)
+ *     PiUEventDequeuePendingEventWorker @ 0x14078226C (PiUEventDequeuePendingEventWorker.c)
+ *     PiUEventProcessEventWorker @ 0x1407822D0 (PiUEventProcessEventWorker.c)
+ *     PiUEventNotifyUserMode @ 0x140783BDC (PiUEventNotifyUserMode.c)
  * Callees:
- *     ExAcquireFastMutex @ 0x140230720 (ExAcquireFastMutex.c)
- *     ExReleaseFastMutex @ 0x140230860 (ExReleaseFastMutex.c)
- *     KeSetEvent @ 0x14023C5E0 (KeSetEvent.c)
- *     PiUEventFreeEventEntry @ 0x14078260C (PiUEventFreeEventEntry.c)
+ *     ExAcquireFastMutex @ 0x140230810 (ExAcquireFastMutex.c)
+ *     ExReleaseFastMutex @ 0x140230950 (ExReleaseFastMutex.c)
+ *     KeSetEvent @ 0x14023C6B0 (KeSetEvent.c)
+ *     PiUEventFreeEventEntry @ 0x1407827FC (PiUEventFreeEventEntry.c)
  */
 
 __int64 __fastcall PiUEventDereferenceEventEntry(PVOID P)

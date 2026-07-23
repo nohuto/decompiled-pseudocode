@@ -21,11 +21,11 @@ void __fastcall HalpCmciInit(__int64 a1)
   ULONG ActiveProcessorCount; // r15d
   int *v5; // r14
   unsigned int v6; // ecx
-  struct _GROUP_AFFINITY *p_PreviousAffinity; // rdx
+  _GROUP_AFFINITY *p_PreviousAffinity; // rdx
   __int64 i; // rsi
   __int64 v9; // rbx
-  struct _GROUP_AFFINITY Affinity; // [rsp+20h] [rbp-58h] BYREF
-  struct _GROUP_AFFINITY PreviousAffinity; // [rsp+30h] [rbp-48h] BYREF
+  _GROUP_AFFINITY Affinity; // [rsp+20h] [rbp-58h] BYREF
+  _GROUP_AFFINITY PreviousAffinity; // [rsp+30h] [rbp-48h] BYREF
 
   Affinity = 0LL;
   PreviousAffinity = 0LL;

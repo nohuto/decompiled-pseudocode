@@ -11,7 +11,7 @@
  *     _DbgPrintEx @ 0x4B33EE00 (_DbgPrintEx.c)
  */
 
-void __stdcall RtlDeactivateActivationContext(int a1, unsigned int a2)
+void __cdecl RtlDeactivateActivationContext(ULONG Flags, ULONG_PTR Cookie)
 {
   unsigned int *ActivationContextStackPointer; // eax
   unsigned int v3; // edi
@@ -21,39 +21,37 @@ void __stdcall RtlDeactivateActivationContext(int a1, unsigned int a2)
   _DWORD *v7; // esi
   unsigned int v8; // ecx
   _DWORD *v9; // eax
-  unsigned int *v10; // [esp+Ch] [ebp-5Ch]
-  EXCEPTION_RECORD ExceptionRecord; // [esp+10h] [ebp-58h] BYREF
+  unsigned int *StackCookie; // [esp+Ch] [ebp-5Ch]
+  EXCEPTION_RECORD StackCookie_4; // [esp+10h] [ebp-58h] BYREF
 
-  if ( (a1 & 0xFFFFFFFE) != 0 )
+  if ( (Flags & 0xFFFFFFFE) != 0 )
   {
-    DbgPrintEx(51, 0, "SXS: %s() called with invalid flags 0x%08lx\n", "RtlDeactivateActivationContext", a1);
+    DbgPrintEx(51, 0, (int)"SXS: %s() called with invalid flags 0x%08lx\n", (int)"RtlDeactivateActivationContext");
     goto LABEL_19;
   }
-  if ( !a2 )
+  if ( !(_DWORD)Cookie )
     return;
-  if ( (a2 & 0xF0000000) != 0x10000000 )
+  if ( (Cookie & 0xF0000000) != 0x10000000 )
   {
-    DbgPrintEx(51, 0, "SXS: %s() called with invalid cookie type 0x%08Ix\n", "RtlDeactivateActivationContext", a2);
+    DbgPrintEx(51, 0, (int)"SXS: %s() called with invalid cookie type 0x%08Ix\n", (int)"RtlDeactivateActivationContext");
     goto LABEL_19;
   }
   ActivationContextStackPointer = (unsigned int *)NtCurrentTeb()->ActivationContextStackPointer;
-  if ( ((ActivationContextStackPointer[5] ^ HIWORD(a2)) & 0xFFF) != 0 )
+  if ( ((ActivationContextStackPointer[5] ^ WORD1(Cookie)) & 0xFFF) != 0 )
   {
     DbgPrintEx(
       51,
       0,
-      "SXS: %s() called with invalid cookie tid 0x%08Ix - should be %08Ix\n",
-      "RtlDeactivateActivationContext",
-      a2,
-      ActivationContextStackPointer[5] & 0xFFF);
+      (int)"SXS: %s() called with invalid cookie tid 0x%08Ix - should be %08Ix\n",
+      (int)"RtlDeactivateActivationContext");
 LABEL_19:
     RtlRaiseStatus(-1073741811);
   }
   v3 = *ActivationContextStackPointer;
-  v10 = ActivationContextStackPointer;
+  StackCookie = ActivationContextStackPointer;
   if ( *ActivationContextStackPointer )
   {
-    if ( (*(_DWORD *)(v3 + 8) & 8) == 0 || *(_DWORD *)((*(_DWORD *)(v3 + 8) & 8) != 0 ? v3 + 0xC : 12) != a2 )
+    if ( (*(_DWORD *)(v3 + 8) & 8) == 0 || *(_DWORD *)((*(_DWORD *)(v3 + 8) & 8) != 0 ? v3 + 0xC : 12) != (_DWORD)Cookie )
     {
       v7 = *(_DWORD **)v3;
       v8 = 0;
@@ -65,7 +63,7 @@ LABEL_19:
       {
         do
         {
-          if ( v9 && v9[3] == a2 )
+          if ( v9 && v9[3] == (_DWORD)Cookie )
             break;
           v7 = (_DWORD *)*v7;
           ++v8;
@@ -74,14 +72,14 @@ LABEL_19:
         while ( v7 );
         if ( v7 )
         {
-          ExceptionRecord.ExceptionRecord = 0;
-          ExceptionRecord.ExceptionFlags = 0;
-          ExceptionRecord.NumberParameters = 3;
-          ExceptionRecord.ExceptionInformation[0] = v8;
-          ExceptionRecord.ExceptionInformation[1] = (unsigned int)v7;
-          ExceptionRecord.ExceptionInformation[2] = v3;
-          ExceptionRecord.ExceptionCode = -1072365553;
-          RtlRaiseException(&ExceptionRecord);
+          StackCookie_4.ExceptionRecord = 0;
+          StackCookie_4.ExceptionFlags = 0;
+          StackCookie_4.NumberParameters = 3;
+          StackCookie_4.ExceptionInformation[0] = v8;
+          StackCookie_4.ExceptionInformation[1] = (unsigned int)v7;
+          StackCookie_4.ExceptionInformation[2] = v3;
+          StackCookie_4.ExceptionCode = -1072365553;
+          RtlRaiseException(&StackCookie_4);
         }
       }
       RtlRaiseStatus(-1072365552);
@@ -93,14 +91,14 @@ LABEL_19:
       v6 = *(_DWORD **)v3;
       if ( (v5 & 1) != 0 )
       {
-        RtlReleaseActivationContext(*(volatile signed __int32 **)(v3 + 4));
+        RtlReleaseActivationContext(*(PACTIVATION_CONTEXT *)(v3 + 4));
         v5 = *(_DWORD *)(v3 + 8);
       }
       if ( (v5 & 8) != 0 )
-        RtlpFreeActivationContextStackFrame(v10, v3);
+        RtlpFreeActivationContextStackFrame(StackCookie, v3);
       v3 = (unsigned int)v6;
     }
     while ( v6 != v4 );
-    *v10 = (unsigned int)v4;
+    *StackCookie = (unsigned int)v4;
   }
 }

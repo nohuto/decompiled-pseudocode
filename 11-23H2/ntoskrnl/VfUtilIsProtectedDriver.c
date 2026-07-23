@@ -1,12 +1,12 @@
 /*
- * XREFs of VfUtilIsProtectedDriver @ 0x140AC27FC
+ * XREFs of VfUtilIsProtectedDriver @ 0x140AC27EC
  * Callers:
- *     VfDriverApplyDifVerification @ 0x140ACA308 (VfDriverApplyDifVerification.c)
- *     VfDriverEnableVerifier @ 0x140ACA4C8 (VfDriverEnableVerifier.c)
- *     VfDriverEnableVerifierForAll @ 0x140ACA648 (VfDriverEnableVerifierForAll.c)
+ *     VfDriverApplyDifVerification @ 0x140ACA2F8 (VfDriverApplyDifVerification.c)
+ *     VfDriverEnableVerifier @ 0x140ACA4B8 (VfDriverEnableVerifier.c)
+ *     VfDriverEnableVerifierForAll @ 0x140ACA638 (VfDriverEnableVerifierForAll.c)
  * Callees:
  *     MiIsImportOptimizationEnabled @ 0x14020EBB8 (MiIsImportOptimizationEnabled.c)
- *     KeIsImageIATProtected @ 0x14056C4EC (KeIsImageIATProtected.c)
+ *     KeIsImageIATProtected @ 0x14056CBAC (KeIsImageIATProtected.c)
  */
 
 __int64 VfUtilIsProtectedDriver()

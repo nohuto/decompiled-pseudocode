@@ -1,12 +1,12 @@
 /*
- * XREFs of AuthzBasepFindSecurityAttributeValue @ 0x140250EDC
+ * XREFs of AuthzBasepFindSecurityAttributeValue @ 0x1402F56EC
  * Callers:
- *     AuthzBasepAddSecurityAttributeValues @ 0x140250CE4 (AuthzBasepAddSecurityAttributeValues.c)
- *     AuthzBasepDeleteSecurityAttributeValues @ 0x1405C1294 (AuthzBasepDeleteSecurityAttributeValues.c)
- *     AuthzBasepCompareSecurityAttribute @ 0x140717814 (AuthzBasepCompareSecurityAttribute.c)
+ *     AuthzBasepAddSecurityAttributeValues @ 0x1402F54F4 (AuthzBasepAddSecurityAttributeValues.c)
+ *     AuthzBasepDeleteSecurityAttributeValues @ 0x1405C14C4 (AuthzBasepDeleteSecurityAttributeValues.c)
+ *     AuthzBasepCompareSecurityAttribute @ 0x1406C5E64 (AuthzBasepCompareSecurityAttribute.c)
  * Callees:
- *     AuthzBasepEqualUnicodeString @ 0x14024DBB0 (AuthzBasepEqualUnicodeString.c)
- *     memcmp @ 0x1403D29E0 (memcmp.c)
+ *     AuthzBasepEqualUnicodeString @ 0x1402F2400 (AuthzBasepEqualUnicodeString.c)
+ *     memcmp @ 0x1403D2B50 (memcmp.c)
  */
 
 __int64 __fastcall AuthzBasepFindSecurityAttributeValue(__int64 a1, __int64 a2, unsigned __int16 a3)

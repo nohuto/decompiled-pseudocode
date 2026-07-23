@@ -1,15 +1,15 @@
 /*
- * XREFs of SeCodeIntegritySetInformation @ 0x14091BE58
+ * XREFs of SeCodeIntegritySetInformation @ 0x14091BFB8
  * Callers:
- *     NtSetSystemInformation @ 0x1406DA380 (NtSetSystemInformation.c)
+ *     NtSetSystemInformation @ 0x1406B1660 (NtSetSystemInformation.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
  */
 
 __int64 SeCodeIntegritySetInformation()
 {
-  if ( qword_140C1DB68 )
-    return qword_140C1DB68();
+  if ( qword_140C1DB88 )
+    return qword_140C1DB88();
   else
     return 3221225659LL;
 }

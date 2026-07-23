@@ -1,7 +1,7 @@
 /*
- * XREFs of KeReadStateSemaphore @ 0x1402B9E60
+ * XREFs of KeReadStateSemaphore @ 0x140238070
  * Callers:
- *     IopParseDevice @ 0x140700F60 (IopParseDevice.c)
+ *     IopParseDevice @ 0x140718340 (IopParseDevice.c)
  * Callees:
  *     <none>
  */

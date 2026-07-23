@@ -1,9 +1,9 @@
 /*
- * XREFs of ApiSetpGetContractKeyInfo @ 0x18013600C
+ * XREFs of ApiSetpGetContractKeyInfo @ 0x18013423C
  * Callers:
- *     ApiSetQuerySchemaInfo2_V7 @ 0x180135634 (ApiSetQuerySchemaInfo2_V7.c)
- *     ApiSetQuerySchemaInfo_V7 @ 0x180135950 (ApiSetQuerySchemaInfo_V7.c)
- *     ApiSetpResolveHost @ 0x180135C7C (ApiSetpResolveHost.c)
+ *     ApiSetQuerySchemaInfo2_V7 @ 0x180133864 (ApiSetQuerySchemaInfo2_V7.c)
+ *     ApiSetQuerySchemaInfo_V7 @ 0x180133B80 (ApiSetQuerySchemaInfo_V7.c)
+ *     ApiSetpResolveHost @ 0x180133EAC (ApiSetpResolveHost.c)
  * Callees:
  *     <none>
  */

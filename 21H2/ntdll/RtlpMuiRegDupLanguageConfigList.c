@@ -1,17 +1,17 @@
 /*
- * XREFs of RtlpMuiRegDupLanguageConfigList @ 0x180104718
+ * XREFs of RtlpMuiRegDupLanguageConfigList @ 0x1801046D8
  * Callers:
- *     RtlpDupTebLanguageList @ 0x1800F0588 (RtlpDupTebLanguageList.c)
+ *     RtlpDupTebLanguageList @ 0x1800F0548 (RtlpDupTebLanguageList.c)
  * Callees:
  *     RtlpMuiRegCreateLanguageConfigList @ 0x18007E9E4 (RtlpMuiRegCreateLanguageConfigList.c)
- *     memmove @ 0x1800A44C0 (memmove.c)
+ *     memmove @ 0x1800A4480 (memmove.c)
  */
 
-__int64 __fastcall RtlpMuiRegDupLanguageConfigList(__int64 a1)
+_QWORD *__fastcall RtlpMuiRegDupLanguageConfigList(__int64 a1)
 {
   __int64 v2; // rsi
-  __int64 LanguageConfigList; // rax
-  __int64 v4; // rbx
+  _QWORD *LanguageConfigList; // rax
+  _QWORD *v4; // rbx
 
   if ( !a1 )
     return 0LL;
@@ -22,8 +22,8 @@ __int64 __fastcall RtlpMuiRegDupLanguageConfigList(__int64 a1)
     return 0LL;
   if ( (_DWORD)v2 )
   {
-    memmove(*(void **)(LanguageConfigList + 8), *(const void **)(a1 + 8), 12 * v2);
-    *(_WORD *)(v4 + 4) = v2;
+    memmove((void *)LanguageConfigList[1], *(const void **)(a1 + 8), 12 * v2);
+    *((_WORD *)v4 + 2) = v2;
   }
   return v4;
 }

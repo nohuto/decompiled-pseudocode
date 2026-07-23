@@ -1,13 +1,13 @@
 /*
- * XREFs of MiYieldPageTableWalk @ 0x140362E50
+ * XREFs of MiYieldPageTableWalk @ 0x140364BF0
  * Callers:
- *     MiWalkPageTablesRecursively @ 0x1403270E0 (MiWalkPageTablesRecursively.c)
- *     MiWalkPageTablesEvaluatePte @ 0x140327B30 (MiWalkPageTablesEvaluatePte.c)
+ *     MiWalkPageTablesRecursively @ 0x140329110 (MiWalkPageTablesRecursively.c)
+ *     MiWalkPageTablesEvaluatePte @ 0x140329B60 (MiWalkPageTablesEvaluatePte.c)
  * Callees:
- *     MiUnlockPageTableInternal @ 0x1402D13E0 (MiUnlockPageTableInternal.c)
- *     MiReleaseWalkLocks @ 0x140362F00 (MiReleaseWalkLocks.c)
- *     MiSkipWalkLock @ 0x14045A6C0 (MiSkipWalkLock.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     MiUnlockPageTableInternal @ 0x1402B31A0 (MiUnlockPageTableInternal.c)
+ *     MiReleaseWalkLocks @ 0x140364CA0 (MiReleaseWalkLocks.c)
+ *     MiSkipWalkLock @ 0x140451F40 (MiSkipWalkLock.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall MiYieldPageTableWalk(__int64 a1, __int64 a2, __int64 a3)

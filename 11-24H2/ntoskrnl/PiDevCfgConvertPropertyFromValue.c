@@ -1,11 +1,11 @@
 /*
- * XREFs of PiDevCfgConvertPropertyFromValue @ 0x1407290F0
+ * XREFs of PiDevCfgConvertPropertyFromValue @ 0x140726CF0
  * Callers:
- *     PiDevCfgCopyDeviceKey @ 0x14099BA04 (PiDevCfgCopyDeviceKey.c)
+ *     PiDevCfgCopyDeviceKey @ 0x1409CE174 (PiDevCfgCopyDeviceKey.c)
  * Callees:
- *     RtlGUIDFromString @ 0x1408CA240 (RtlGUIDFromString.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     RtlGUIDFromString @ 0x1408C7C70 (RtlGUIDFromString.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PiDevCfgConvertPropertyFromValue(int a1, int a2, wchar_t *a3, unsigned int a4, int *a5, GUID **a6)
@@ -64,7 +64,7 @@ __int64 __fastcall PiDevCfgConvertPropertyFromValue(int a1, int a2, wchar_t *a3,
         goto LABEL_60;
       v36 = *(_DWORD *)a3;
       v8 = 1;
-      Pool2 = (GUID *)ExAllocatePool2(0x100uLL);
+      Pool2 = (GUID *)ExAllocatePool2(0x100uLL, 1uLL, 0x63647050u);
       if ( Pool2 )
       {
         LOBYTE(Pool2->Data1) = -(v36 != 0);
@@ -131,7 +131,7 @@ LABEL_59:
     if ( *(_DWORD *)a3 > 0xFFu )
       goto LABEL_60;
     v8 = 1;
-    v27 = (GUID *)ExAllocatePool2(0x100uLL);
+    v27 = (GUID *)ExAllocatePool2(0x100uLL, 1uLL, 0x63647050u);
     Pool2 = v27;
     if ( v27 )
     {
@@ -149,7 +149,7 @@ LABEL_59:
     if ( *(_DWORD *)a3 > 0xFFFFu )
       goto LABEL_60;
     v8 = 2;
-    v25 = (GUID *)ExAllocatePool2(0x100uLL);
+    v25 = (GUID *)ExAllocatePool2(0x100uLL, 2uLL, 0x63647050u);
     Pool2 = v25;
     if ( v25 )
     {
@@ -171,7 +171,7 @@ LABEL_59:
     {
       v22 = *(unsigned int *)a3;
       v8 = 8;
-      v23 = (GUID *)ExAllocatePool2(0x100uLL);
+      v23 = (GUID *)ExAllocatePool2(0x100uLL, 8uLL, 0x63647050u);
       Pool2 = v23;
       if ( v23 )
       {
@@ -205,7 +205,7 @@ LABEL_60:
   if ( a2 != 78 )
     goto LABEL_60;
   v8 = 16;
-  Pool2 = (GUID *)ExAllocatePool2(0x100uLL);
+  Pool2 = (GUID *)ExAllocatePool2(0x100uLL, 0x10uLL, 0x63647050u);
   if ( Pool2 )
   {
     GuidString.Buffer = a3;

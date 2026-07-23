@@ -14,55 +14,53 @@
  *     sub_1800D5274 @ 0x1800D5274 (sub_1800D5274.c)
  */
 
-__int64 __fastcall sub_18001A58C(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+__int64 __fastcall sub_18001A58C(__int64 a1, __int64 a2)
 {
-  int v4; // ebx
+  int v2; // ebx
+  __int64 v5; // rax
+  __int64 v6; // rcx
   __int64 v7; // rcx
-  __int64 v8; // r8
-  __int64 v9; // rax
-  __int64 v10; // rcx
-  __int64 v11; // rcx
-  char v13; // al
-  char v14; // [rsp+50h] [rbp+18h] BYREF
+  char v9; // al
+  char v10; // [rsp+50h] [rbp+18h] BYREF
 
-  v4 = 0;
-  if ( (HANDLE)qword_180155590 == NtCurrentTeb()->ClientId.UniqueThread )
-    return (unsigned int)v4;
-  v7 = *(_QWORD *)(a1 + 152);
-  if ( *(_DWORD *)(v7 + 56) == 5 )
+  v2 = 0;
+  if ( CriticalSection.OwningThread == NtCurrentTeb()->ClientId.UniqueThread )
+    return (unsigned int)v2;
+  switch ( *(_DWORD *)(*(_QWORD *)(a1 + 152) + 56LL) )
   {
-    sub_18001A7FC();
-  }
-  else if ( *(_DWORD *)(v7 + 56) != 6 )
-  {
-    v8 = (unsigned int)(*(_DWORD *)(v7 + 56) - 7);
-    if ( *(_DWORD *)(v7 + 56) == 7 )
+    case 5:
+      sub_18001A7FC();
+      break;
+    case 6:
+      break;
+    case 7:
       goto LABEL_9;
-    if ( (unsigned int)(*(_DWORD *)(v7 + 56) - 8) >= 2 )
-      return (unsigned int)-1073741595;
-    return (unsigned int)v4;
+    default:
+      if ( (unsigned int)(*(_DWORD *)(*(_QWORD *)(a1 + 152) + 56LL) - 8) >= 2 )
+        return (unsigned int)-1073741595;
+      return (unsigned int)v2;
   }
   if ( (*(_BYTE *)(a1 + 104) & 0x20) == 0 && LODWORD(NtCurrentTeb()->SubProcessTag) )
     sub_18007E234(*(_QWORD *)(a1 + 152));
-  v4 = sub_180038790(*(_QWORD *)(a1 + 152));
-  if ( v4 >= 0 )
+  v2 = sub_180038790(*(_QWORD *)(a1 + 152));
+  if ( v2 >= 0 )
   {
-    v4 = sub_18001A2D0(*(_QWORD **)(a1 + 152));
-    if ( v4 >= 0 )
+    v2 = sub_18001A2D0(*(_QWORD **)(a1 + 152));
+    if ( v2 >= 0 )
     {
 LABEL_9:
-      v9 = *(_QWORD *)(a1 + 176);
-      if ( v9 && (*(_BYTE *)(v9 + 24) & 1) == 0 )
+      v5 = *(_QWORD *)(a1 + 176);
+      if ( v5 && (*(_BYTE *)(v5 + 24) & 1) == 0 )
       {
-        sub_180019FC0(v7, a2, v8, a4);
-        v10 = *(_QWORD *)(a1 + 152);
-        v14 = 0;
-        v4 = sub_18006FC38(v10, a2, &v14);
-        sub_18001A028(v11, 2, v4);
+        sub_180019FC0();
+        v6 = *(_QWORD *)(a1 + 152);
+        v10 = 0;
+        v2 = sub_18006FC38(v6, a2, &v10);
+        sub_18001A028(v7, 2, v2);
       }
-      return (unsigned int)v4;
+      return (unsigned int)v2;
     }
-    v13 = dword_180155A10;
+    v9 = dword_180155A10;
     if ( (dword_180155A10 & 3) != 0 )
     {
       sub_1800D5274(
@@ -71,10 +69,10 @@ LABEL_9:
         (unsigned int)"LdrpPrepareModuleForExecution",
         1,
         "Failed to load for appcompat reasons\n");
-      v13 = dword_180155A10;
+      v9 = dword_180155A10;
     }
-    if ( (v13 & 0x40) != 0 )
+    if ( (v9 & 0x40) != 0 )
       __debugbreak();
   }
-  return (unsigned int)v4;
+  return (unsigned int)v2;
 }

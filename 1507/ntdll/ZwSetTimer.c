@@ -6,11 +6,18 @@
  *     <none>
  */
 
-__int64 ZwSetTimer()
+NTSTATUS __cdecl ZwSetTimer(
+        HANDLE TimerHandle,
+        PLARGE_INTEGER DueTime,
+        PTIMER_APC_ROUTINE TimerApcRoutine,
+        PVOID TimerContext,
+        BOOLEAN ResumeTimer,
+        LONG Period,
+        PBOOLEAN PreviousState)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 98LL;
+  result = 98;
   __asm { syscall; Low latency system call }
   return result;
 }

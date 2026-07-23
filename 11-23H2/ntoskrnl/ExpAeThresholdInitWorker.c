@@ -1,10 +1,10 @@
 /*
- * XREFs of ExpAeThresholdInitWorker @ 0x140394CA0
+ * XREFs of ExpAeThresholdInitWorker @ 0x140394E80
  * Callers:
  *     <none>
  * Callees:
- *     KeYieldProcessorEx @ 0x140242E40 (KeYieldProcessorEx.c)
- *     ExpAeMeasureContention @ 0x140394D44 (ExpAeMeasureContention.c)
+ *     KeYieldProcessorEx @ 0x140242F10 (KeYieldProcessorEx.c)
+ *     ExpAeMeasureContention @ 0x140394F24 (ExpAeMeasureContention.c)
  */
 
 __int64 __fastcall ExpAeThresholdInitWorker(__int64 a1, __int64 a2, volatile signed __int32 *a3, __int64 a4)

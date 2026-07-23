@@ -1,36 +1,33 @@
 /*
- * XREFs of KsepPatchDriverImportsTable @ 0x14085E744
+ * XREFs of KsepPatchDriverImportsTable @ 0x14085E984
  * Callers:
- *     KsepApplyShimsToDriver @ 0x14085E5C4 (KsepApplyShimsToDriver.c)
+ *     KsepApplyShimsToDriver @ 0x14085E804 (KsepApplyShimsToDriver.c)
  * Callees:
  *     RtlImageDirectoryEntryToData @ 0x140214A20 (RtlImageDirectoryEntryToData.c)
- *     VfIsVerifierEnabled @ 0x140293980 (VfIsVerifierEnabled.c)
- *     VfIsVerificationEnabledForImage @ 0x1405CE1F8 (VfIsVerificationEnabledForImage.c)
- *     KsepPatchImportTableEntry @ 0x140977324 (KsepPatchImportTableEntry.c)
- *     VfGetHookAddressForOriginal @ 0x140ACA8BC (VfGetHookAddressForOriginal.c)
+ *     VfIsVerifierEnabled @ 0x140293C10 (VfIsVerifierEnabled.c)
+ *     VfIsVerificationEnabledForImage @ 0x1405CE768 (VfIsVerificationEnabledForImage.c)
+ *     KsepPatchImportTableEntry @ 0x140977524 (KsepPatchImportTableEntry.c)
+ *     VfGetHookAddressForOriginal @ 0x140ACA8AC (VfGetHookAddressForOriginal.c)
  */
 
 __int64 __fastcall KsepPatchDriverImportsTable(__int64 a1, __int64 a2)
 {
-  __int64 v2; // rbp
-  __int64 v4; // r13
+  PVOID v4; // r13
   __int64 v5; // rdi
   __int64 v6; // r12
   __int64 result; // rax
   __int64 v8; // rbx
   int v9; // r15d
   __int64 HookAddressForOriginal; // rsi
-  unsigned int v11; // [rsp+50h] [rbp+8h] BYREF
+  ULONG v11; // [rsp+50h] [rbp+8h] BYREF
 
   v11 = 0;
-  v2 = a2;
   if ( a1 && a2 )
   {
-    LOBYTE(a2) = 1;
-    v4 = RtlImageDirectoryEntryToData(*(_QWORD *)(a1 + 48), a2, 12, (int)&v11);
+    v4 = RtlImageDirectoryEntryToData(*(PVOID *)(a1 + 48), 1u, 0xCu, &v11);
     if ( !v4 )
       return 3221225473LL;
-    v5 = *(_QWORD *)(v2 + 48);
+    v5 = *(_QWORD *)(a2 + 48);
     if ( v5 )
     {
       LODWORD(v6) = 0;
@@ -42,7 +39,7 @@ __int64 __fastcall KsepPatchDriverImportsTable(__int64 a1, __int64 a2)
           break;
 LABEL_8:
         v6 = (unsigned int)(v6 + 1);
-        v5 = *(_QWORD *)(v2 + 48) + 24 * v6;
+        v5 = *(_QWORD *)(a2 + 48) + 24 * v6;
         if ( !v5 )
           return 0LL;
       }

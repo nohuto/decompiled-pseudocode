@@ -1,12 +1,12 @@
 /*
- * XREFs of EtwTraceFreezeThawProcess @ 0x140A6F33C
+ * XREFs of EtwTraceFreezeThawProcess @ 0x140A687C0
  * Callers:
- *     PsThawMultiProcess @ 0x1404EEE60 (PsThawMultiProcess.c)
- *     PsFreezeProcess @ 0x14093A750 (PsFreezeProcess.c)
+ *     PsThawMultiProcess @ 0x1404E6564 (PsThawMultiProcess.c)
+ *     PsFreezeProcess @ 0x140ACF964 (PsFreezeProcess.c)
  * Callees:
- *     EtwTraceKernelEvent @ 0x140255180 (EtwTraceKernelEvent.c)
- *     EtwWrite @ 0x14041C1B0 (EtwWrite.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     EtwTraceKernelEvent @ 0x140285790 (EtwTraceKernelEvent.c)
+ *     EtwWrite @ 0x14040FFB0 (EtwWrite.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 __int64 __fastcall EtwTraceFreezeThawProcess(__int64 a1, char a2)

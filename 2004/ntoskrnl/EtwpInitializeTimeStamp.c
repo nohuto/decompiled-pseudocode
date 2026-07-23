@@ -9,7 +9,7 @@
  *     _guard_dispatch_icall @ 0x1403FFC70 (_guard_dispatch_icall.c)
  */
 
-__int64 __fastcall EtwpInitializeTimeStamp(__int64 a1)
+LARGE_INTEGER __fastcall EtwpInitializeTimeStamp(__int64 a1)
 {
   __int64 v2; // rax
   _QWORD *v3; // rdi
@@ -17,7 +17,7 @@ __int64 __fastcall EtwpInitializeTimeStamp(__int64 a1)
   __int64 v5; // rsi
   __int64 v6; // r14
   __int64 v7; // rcx
-  __int64 result; // rax
+  LARGE_INTEGER result; // rax
   int v9; // edx
   __int64 v10; // rcx
   __int128 v11; // [rsp+20h] [rbp-38h] BYREF
@@ -54,7 +54,7 @@ LABEL_5:
     if ( *(_DWORD *)(a1 + 216) == 3 )
     {
       *(LARGE_INTEGER *)(a1 + 328) = EtwpGetLoggerTimeStamp(a1);
-      result = KeQuerySystemTimePrecise((__int64 *)(a1 + 320));
+      result = KeQuerySystemTimePrecise((LARGE_INTEGER *)(a1 + 320));
       goto LABEL_14;
     }
     LODWORD(v13) = 0;
@@ -67,20 +67,20 @@ LABEL_5:
     if ( (v13 & 5) == 5 )
     {
       v7 = v12;
-      result = *(unsigned int *)(a1 + 216);
+      result.QuadPart = *(unsigned int *)(a1 + 216);
       *v3 = v12;
-      switch ( (_DWORD)result )
+      switch ( result.LowPart )
       {
-        case 2:
+        case 2u:
           *(_QWORD *)(a1 + 328) = v7;
           break;
-        case 1:
+        case 1u:
           *(_QWORD *)(a1 + 328) = v6;
           break;
-        case 4:
+        case 4u:
           *(_QWORD *)(a1 + 328) = v5;
 LABEL_30:
-          if ( (_DWORD)result == 4 )
+          if ( result.LowPart == 4 )
             goto LABEL_14;
           break;
       }
@@ -89,18 +89,18 @@ LABEL_30:
       goto LABEL_14;
     }
     *(LARGE_INTEGER *)(a1 + 328) = EtwpGetLoggerTimeStamp(a1);
-    KeQuerySystemTimePrecise((__int64 *)(a1 + 320));
+    KeQuerySystemTimePrecise((LARGE_INTEGER *)(a1 + 320));
     *(_DWORD *)(a1 + 832) &= ~0x8000000u;
-    result = *(unsigned int *)(a1 + 216);
+    result.QuadPart = *(unsigned int *)(a1 + 216);
     goto LABEL_30;
   }
   v9 = *(_DWORD *)(a1 + 216);
   *v3 = EtwpRefTimeSystem;
-  result = EtwpRefQpcDelta;
+  result.QuadPart = EtwpRefQpcDelta;
   *(_QWORD *)(a1 + 1296) = EtwpRefQpcDelta;
   if ( v9 == 3 )
   {
-    result = EtwpRefTimeCycle;
+    result.QuadPart = EtwpRefTimeCycle;
     *(_QWORD *)(a1 + 328) = EtwpRefTimeCycle;
   }
   else

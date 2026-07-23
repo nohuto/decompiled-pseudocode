@@ -7,7 +7,9 @@
  */
 
 // attributes: thunk
-_QWORD *__fastcall RtlWeaklyEnumerateEntryHashTable(__int64 a1, __int64 *a2)
+PRTL_DYNAMIC_HASH_TABLE_ENTRY __cdecl RtlWeaklyEnumerateEntryHashTable(
+        PRTL_DYNAMIC_HASH_TABLE HashTable,
+        PRTL_DYNAMIC_HASH_TABLE_ENUMERATOR Enumerator)
 {
-  return RtlEnumerateEntryHashTable(a1, a2);
+  return RtlEnumerateEntryHashTable(HashTable, Enumerator);
 }

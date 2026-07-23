@@ -1,12 +1,12 @@
 /*
- * XREFs of Feature_SleepStudySlimControlEtl__private_ReportDeviceUsage @ 0x1404FAA10
+ * XREFs of Feature_SleepStudySlimControlEtl__private_ReportDeviceUsage @ 0x1404F82F0
  * Callers:
- *     PopBootBatteryStatusWorker @ 0x140A6FF70 (PopBootBatteryStatusWorker.c)
- *     SshSessionManagerTracePostSleepNotification @ 0x140A70024 (SshSessionManagerTracePostSleepNotification.c)
- *     SshpSessionManagerSendControlEvent @ 0x140A70190 (SshpSessionManagerSendControlEvent.c)
+ *     PopBootBatteryStatusWorker @ 0x140A69400 (PopBootBatteryStatusWorker.c)
+ *     SshSessionManagerTracePostSleepNotification @ 0x140A694B4 (SshSessionManagerTracePostSleepNotification.c)
+ *     SshpSessionManagerSendControlEvent @ 0x140A69620 (SshpSessionManagerSendControlEvent.c)
  * Callees:
- *     wil_details_FeatureReporting_ReportUsageToService @ 0x14053CAC4 (wil_details_FeatureReporting_ReportUsageToService.c)
- *     wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath @ 0x14053CB54 (wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath.c)
+ *     wil_details_FeatureReporting_ReportUsageToService @ 0x14053A3BC (wil_details_FeatureReporting_ReportUsageToService.c)
+ *     wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath @ 0x14053A44C (wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath.c)
  */
 
 __int64 Feature_SleepStudySlimControlEtl__private_ReportDeviceUsage()

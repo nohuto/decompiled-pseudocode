@@ -1,25 +1,25 @@
 /*
- * XREFs of ExpCheckPortableOperatingSystem @ 0x1404ED840
+ * XREFs of ExpCheckPortableOperatingSystem @ 0x1404CF8F8
  * Callers:
- *     ExIsWindowsToGo @ 0x1404ED81C (ExIsWindowsToGo.c)
+ *     ExIsWindowsToGo @ 0x1404CF8D4 (ExIsWindowsToGo.c)
  *     ExInitLicenseData @ 0x1407B505C (ExInitLicenseData.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14002DC60 (RtlInitUnicodeString.c)
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
- *     RtlStringCchPrintfW @ 0x14007F50C (RtlStringCchPrintfW.c)
- *     RtlCheckPortableOperatingSystem @ 0x1400B3B38 (RtlCheckPortableOperatingSystem.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     RtlInitUnicodeString @ 0x14002D7E0 (RtlInitUnicodeString.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
+ *     RtlStringCchPrintfW @ 0x14007F58C (RtlStringCchPrintfW.c)
+ *     RtlCheckPortableOperatingSystem @ 0x1400B19B8 (RtlCheckPortableOperatingSystem.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     memset @ 0x140171AC0 (memset.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     IoGetDevicePropertyData @ 0x1404F757C (IoGetDevicePropertyData.c)
- *     ExpHwidSendSynchronousIrpToDevice @ 0x14051DCA4 (ExpHwidSendSynchronousIrpToDevice.c)
+ *     IoGetDevicePropertyData @ 0x1404DA508 (IoGetDevicePropertyData.c)
+ *     ExpHwidSendSynchronousIrpToDevice @ 0x140500D54 (ExpHwidSendSynchronousIrpToDevice.c)
  */
 
 __int64 __fastcall ExpCheckPortableOperatingSystem(_DWORD *a1)
 {
   unsigned int *v2; // rsi
-  int DevicePropertyData; // ebx
+  NTSTATUS DevicePropertyData; // ebx
   unsigned int v5; // edi
   int i; // r14d
   unsigned int *PoolWithTag; // rax
@@ -30,7 +30,7 @@ __int64 __fastcall ExpCheckPortableOperatingSystem(_DWORD *a1)
   char v12; // dl
   char *v13; // rcx
   char *v14; // r8
-  bool v15; // [rsp+40h] [rbp-C0h] BYREF
+  BOOLEAN IsPortable; // [rsp+40h] [rbp-C0h] BYREF
   _BYTE Data[7]; // [rsp+41h] [rbp-BFh] BYREF
   unsigned __int64 v17; // [rsp+48h] [rbp-B8h]
   _DWORD NumberOfBytes[3]; // [rsp+54h] [rbp-ACh]
@@ -48,11 +48,11 @@ __int64 __fastcall ExpCheckPortableOperatingSystem(_DWORD *a1)
   *a1 = 0;
   v2 = 0LL;
   *(_QWORD *)&NumberOfBytes[1] = 0LL;
-  DevicePropertyData = RtlCheckPortableOperatingSystem(&v15);
-  if ( DevicePropertyData >= 0 && v15 )
+  DevicePropertyData = RtlCheckPortableOperatingSystem(&IsPortable);
+  if ( DevicePropertyData >= 0 && IsPortable )
   {
     v26 = *(_DWORD *)L"x:";
-    v27 = asc_14058C390[6];
+    v27 = asc_14058C840[6];
     *(_QWORD *)SourceString = *(_QWORD *)L"\\??\\x:";
     LOWORD(v26) = *NtSystemRoot.Buffer;
     RtlInitUnicodeString(&DestinationString, SourceString);

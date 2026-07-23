@@ -1,5 +1,5 @@
 /*
- * XREFs of RtlGetProcessHeapsCallback @ 0x180113E30
+ * XREFs of RtlGetProcessHeapsCallback @ 0x18010F130
  * Callers:
  *     <none>
  * Callees:

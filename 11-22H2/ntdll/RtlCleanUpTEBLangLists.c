@@ -8,22 +8,17 @@
  *     RtlFreeHeap @ 0x18003B190 (RtlFreeHeap.c)
  */
 
-struct _TEB *RtlCleanUpTEBLangLists()
+void RtlCleanUpTEBLangLists(void)
 {
-  struct _TEB *result; // rax
-
   RtlpMuiRegFreeLanguageList(NtCurrentTeb()->MergedPrefLanguages);
   NtCurrentTeb()->MergedPrefLanguages = 0LL;
-  RtlpFreeTebLanguageList((__int64 *)NtCurrentTeb()->UserPrefLanguages);
+  RtlpFreeTebLanguageList((void **)NtCurrentTeb()->UserPrefLanguages);
   NtCurrentTeb()->UserPrefLanguages = 0LL;
   RtlpMuiRegFreeLanguageList(NtCurrentTeb()->PreferredLanguages);
   NtCurrentTeb()->PreferredLanguages = 0LL;
-  result = NtCurrentTeb();
-  if ( result->ResourceRetValue )
+  if ( NtCurrentTeb()->ResourceRetValue )
   {
-    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0LL, NtCurrentTeb()->ResourceRetValue);
-    result = NtCurrentTeb();
-    result->ResourceRetValue = 0LL;
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, NtCurrentTeb()->ResourceRetValue);
+    NtCurrentTeb()->ResourceRetValue = 0LL;
   }
-  return result;
 }

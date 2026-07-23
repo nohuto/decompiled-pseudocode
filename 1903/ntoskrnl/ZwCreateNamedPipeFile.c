@@ -6,7 +6,6 @@
  *     <none>
  */
 
-// local variable allocation has failed, the output may be wrong!
 NTSTATUS __stdcall ZwCreateNamedPipeFile(
         PHANDLE NamedPipeFileHandle,
         ACCESS_MASK DesiredAccess,
@@ -25,5 +24,5 @@ NTSTATUS __stdcall ZwCreateNamedPipeFile(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(NamedPipeFileHandle, *(_QWORD *)&DesiredAccess, ObjectAttributes);
+  return KiServiceInternal(NamedPipeFileHandle);
 }

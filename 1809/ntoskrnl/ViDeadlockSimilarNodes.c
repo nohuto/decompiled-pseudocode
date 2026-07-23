@@ -1,8 +1,8 @@
 /*
- * XREFs of ViDeadlockSimilarNodes @ 0x14093DD90
+ * XREFs of ViDeadlockSimilarNodes @ 0x14093ED90
  * Callers:
- *     ViDeadlockCheckDuplicatesAmongChildren @ 0x14093CFA8 (ViDeadlockCheckDuplicatesAmongChildren.c)
- *     ViDeadlockCheckDuplicatesAmongRoots @ 0x14093D028 (ViDeadlockCheckDuplicatesAmongRoots.c)
+ *     ViDeadlockCheckDuplicatesAmongChildren @ 0x14093DFA8 (ViDeadlockCheckDuplicatesAmongChildren.c)
+ *     ViDeadlockCheckDuplicatesAmongRoots @ 0x14093E028 (ViDeadlockCheckDuplicatesAmongRoots.c)
  * Callees:
  *     <none>
  */

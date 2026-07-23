@@ -1,18 +1,12 @@
 /*
  * XREFs of CmRegisterCallback @ 0x1408651C0
  * Callers:
- *     DifCmRegisterCallbackWrapper @ 0x140605F20 (DifCmRegisterCallbackWrapper.c)
+ *     sub_140605F20 @ 0x140605F20 (sub_140605F20.c)
  * Callees:
- *     CmpRegisterCallbackInternal @ 0x140690198 (CmpRegisterCallbackInternal.c)
+ *     sub_140690198 @ 0x140690198 (sub_140690198.c)
  */
 
 NTSTATUS __stdcall CmRegisterCallback(PEX_CALLBACK_FUNCTION Function, PVOID Context, PLARGE_INTEGER Cookie)
 {
-  return CmpRegisterCallbackInternal(
-           (__int64)Function,
-           (__int64)Context,
-           (const void **)&CmLegacyAltitude,
-           1,
-           0,
-           Cookie);
+  return sub_140690198((__int64)Function, (__int64)Context, (const void **)&stru_140D00A00, 1, 0, Cookie);
 }

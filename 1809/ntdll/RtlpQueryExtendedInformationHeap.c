@@ -1,15 +1,15 @@
 /*
- * XREFs of RtlpQueryExtendedInformationHeap @ 0x18007D320
+ * XREFs of RtlpQueryExtendedInformationHeap @ 0x18007D330
  * Callers:
- *     RtlpQueryExtendedHeapInformation @ 0x18007B16C (RtlpQueryExtendedHeapInformation.c)
+ *     RtlpQueryExtendedHeapInformation @ 0x18007B17C (RtlpQueryExtendedHeapInformation.c)
  * Callees:
  *     RtlpWalkHeapInternal @ 0x18005B71C (RtlpWalkHeapInternal.c)
  *     RtlpGetHeapProtection @ 0x180060908 (RtlpGetHeapProtection.c)
  *     RtlpHpLargeAllocGetMetadata @ 0x18006651C (RtlpHpLargeAllocGetMetadata.c)
- *     RtlpEstimateAllocatedSize @ 0x18007D508 (RtlpEstimateAllocatedSize.c)
- *     RtlpHpHeapReportCounters @ 0x18007D548 (RtlpHpHeapReportCounters.c)
- *     __security_check_cookie @ 0x18008FEC0 (__security_check_cookie.c)
- *     _guard_dispatch_icall_nop @ 0x1800A3CE0 (_guard_dispatch_icall_nop.c)
+ *     RtlpEstimateAllocatedSize @ 0x18007D518 (RtlpEstimateAllocatedSize.c)
+ *     RtlpHpHeapReportCounters @ 0x18007D558 (RtlpHpHeapReportCounters.c)
+ *     __security_check_cookie @ 0x18008FED0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1800A3D00 (_guard_dispatch_icall_nop.c)
  *     memset @ 0x1800A7100 (memset.c)
  *     RtlpGetContainingRange @ 0x1800F3544 (RtlpGetContainingRange.c)
  *     RtlpQueryMemoryUsageHeap @ 0x1800F3CBC (RtlpQueryMemoryUsageHeap.c)
@@ -169,7 +169,7 @@ __int64 __fastcall RtlpQueryExtendedInformationHeap(__int64 a1, __int64 a2)
           v19 = v43[0] + LODWORD(v43[3]);
           v41 = v43[0];
           v42 = v19;
-          HeapProtection = RtlpGetHeapProtection(a1, 0);
+          HeapProtection = RtlpGetHeapProtection((_DWORD *)a1, 0);
           v37 = HeapProtection;
         }
         else
@@ -340,7 +340,7 @@ LABEL_85:
       v46[2] = v25;
       v46[3] = *(_QWORD *)(v25 + 32);
       LODWORD(v46[4]) = 1;
-      HIDWORD(v46[4]) = RtlpGetHeapProtection(a1, 0);
+      HIDWORD(v46[4]) = RtlpGetHeapProtection((_DWORD *)a1, 0);
     }
     result = v40(v46, v39);
     if ( (int)result < 0 )

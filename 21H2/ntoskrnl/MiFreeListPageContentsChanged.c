@@ -1,12 +1,12 @@
 /*
- * XREFs of MiFreeListPageContentsChanged @ 0x14054EE4C
+ * XREFs of MiFreeListPageContentsChanged @ 0x14054F08C
  * Callers:
- *     MiZeroPage @ 0x140233310 (MiZeroPage.c)
+ *     MiZeroPage @ 0x1402D7B60 (MiZeroPage.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     MiGetPfnChannel @ 0x1403041C4 (MiGetPfnChannel.c)
- *     MiSearchNumaNodeTable @ 0x14032B790 (MiSearchNumaNodeTable.c)
- *     KxAcquireQueuedSpinLock @ 0x140350970 (KxAcquireQueuedSpinLock.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402042B0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     MiGetPfnChannel @ 0x14030EF14 (MiGetPfnChannel.c)
+ *     MiSearchNumaNodeTable @ 0x1403364E0 (MiSearchNumaNodeTable.c)
+ *     KxAcquireQueuedSpinLock @ 0x14035B6C0 (KxAcquireQueuedSpinLock.c)
  */
 
 void __fastcall MiFreeListPageContentsChanged(unsigned __int64 a1)
@@ -25,16 +25,16 @@ void __fastcall MiFreeListPageContentsChanged(unsigned __int64 a1)
   *(_QWORD *)&LockHandle.OldIrql = 0LL;
   v2 = 48 * a1 - 0x58000000000LL;
   v3 = *((_DWORD *)MiSearchNumaNodeTable((__int64)(48 * a1) / 48) + 2);
-  v4 = ((unsigned int)MiGetPfnChannel(v2) << byte_140C4DE8D) | dword_140C4DEF8 & (unsigned int)a1 | (v3 << byte_140C4DE8C);
-  v5 = *(_QWORD *)(*(_QWORD *)(qword_140C4E648 + 8 * ((*(_QWORD *)(v2 + 40) >> 39) & 0x3FFLL)) + 2184LL);
+  v4 = ((unsigned int)MiGetPfnChannel(v2) << byte_140C4DECD) | dword_140C4DF38 & (unsigned int)a1 | (v3 << byte_140C4DECC);
+  v5 = *(_QWORD *)(*(_QWORD *)(qword_140C4E688 + 8 * ((*(_QWORD *)(v2 + 40) >> 39) & 0x3FFLL)) + 2184LL);
   LockHandle.LockQueue.Next = 0LL;
   LockHandle.LockQueue.Lock = (unsigned __int64 *volatile)(v5 + 8 * (v4 + 4 * (v4 + 1)));
   KxAcquireQueuedSpinLock((__int64)&LockHandle, (volatile __int64 *)LockHandle.LockQueue.Lock);
-  if ( dword_140C4E6CC == 1 )
+  if ( dword_140C4E70C == 1 )
   {
     v6 = a1 & 0x1F;
     LOBYTE(v7) = 1;
-    v8 = (volatile signed __int32 *)(qword_140C4E728 + 4 * (a1 >> 5));
+    v8 = (volatile signed __int32 *)(qword_140C4E768 + 4 * (a1 >> 5));
     if ( (unsigned __int64)(v6 + 1) > 0x20 )
     {
       if ( (a1 & 0x1F) == 0 )

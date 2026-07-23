@@ -1,9 +1,9 @@
 /*
- * XREFs of AppendUlongAsHexadecimalW @ 0x1406197F4
+ * XREFs of AppendUlongAsHexadecimalW @ 0x140617DB4
  * Callers:
- *     CarInitializeTelemetryData @ 0x140616BA0 (CarInitializeTelemetryData.c)
+ *     CarInitializeTelemetryData @ 0x140615160 (CarInitializeTelemetryData.c)
  * Callees:
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 void __fastcall AppendUlongAsHexadecimalW(__int64 a1, int a2)

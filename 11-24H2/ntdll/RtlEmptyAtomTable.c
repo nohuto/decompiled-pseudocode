@@ -1,39 +1,39 @@
 /*
- * XREFs of RtlEmptyAtomTable @ 0x1800ADAF0
+ * XREFs of RtlEmptyAtomTable @ 0x18010E600
  * Callers:
  *     <none>
  * Callees:
- *     RtlpSysVolFree @ 0x180001470 (RtlpSysVolFree.c)
- *     RtlReleaseSRWLockExclusive @ 0x1800567B0 (RtlReleaseSRWLockExclusive.c)
- *     RtlpLockAtomTable @ 0x1800AEA00 (RtlpLockAtomTable.c)
- *     RtlpFreeHandleForAtom @ 0x1800AEEC8 (RtlpFreeHandleForAtom.c)
+ *     RtlpSysVolFree @ 0x180005870 (RtlpSysVolFree.c)
+ *     RtlReleaseSRWLockExclusive @ 0x18006C390 (RtlReleaseSRWLockExclusive.c)
+ *     RtlpLockAtomTable @ 0x18007B1E0 (RtlpLockAtomTable.c)
+ *     RtlpFreeHandleForAtom @ 0x18007B6A8 (RtlpFreeHandleForAtom.c)
  */
 
-__int64 __fastcall RtlEmptyAtomTable(__int64 a1, char a2)
+NTSTATUS __cdecl RtlEmptyAtomTable(PVOID AtomTableHandle, BOOLEAN IncludePinnedAtoms)
 {
   unsigned int v5; // ebp
   __int64 *i; // r14
   __int64 *v7; // rsi
   __int64 v8; // rdx
-  __int64 v9; // rbx
+  _BYTE *v9; // rbx
 
-  if ( !(unsigned __int8)RtlpLockAtomTable() )
-    return 3221225485LL;
+  if ( !RtlpLockAtomTable((__int64)AtomTableHandle) )
+    return -1073741811;
   v5 = 0;
-  for ( i = (__int64 *)(a1 + 72); v5 < *(_DWORD *)(a1 + 64); ++v5 )
+  for ( i = (__int64 *)((char *)AtomTableHandle + 72); v5 < *((_DWORD *)AtomTableHandle + 16); ++v5 )
   {
     v7 = i++;
     while ( 1 )
     {
-      v9 = *v7;
+      v9 = (_BYTE *)*v7;
       if ( !*v7 )
         break;
-      if ( a2 || (*(_BYTE *)(v9 + 14) & 1) == 0 )
+      if ( IncludePinnedAtoms || (v9[14] & 1) == 0 )
       {
         v8 = *v7;
         *v7 = *(_QWORD *)v9;
         *(_QWORD *)v9 = 0LL;
-        RtlpFreeHandleForAtom(a1, v8);
+        RtlpFreeHandleForAtom((__int64)AtomTableHandle, v8);
         RtlpSysVolFree(v9);
       }
       else
@@ -42,6 +42,6 @@ __int64 __fastcall RtlEmptyAtomTable(__int64 a1, char a2)
       }
     }
   }
-  RtlReleaseSRWLockExclusive((volatile signed __int64 *)(a1 + 8));
-  return 0LL;
+  RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)AtomTableHandle + 1);
+  return 0;
 }

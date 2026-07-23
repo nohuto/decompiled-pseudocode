@@ -1,7 +1,7 @@
 /*
- * XREFs of PsIsSystemThread @ 0x1400A3DEC
+ * XREFs of PsIsSystemThread @ 0x1400A2714
  * Callers:
- *     IopAllocRealFileObject @ 0x140442AB0 (IopAllocRealFileObject.c)
+ *     IopAllocRealFileObject @ 0x140441980 (IopAllocRealFileObject.c)
  *     VerifierObReferenceObjectByHandle @ 0x14071CCF0 (VerifierObReferenceObjectByHandle.c)
  * Callees:
  *     <none>

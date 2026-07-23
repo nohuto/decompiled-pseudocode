@@ -84,7 +84,7 @@ LABEL_6:
   }
   if ( ((*(_BYTE *)(a1 + 116) | a2) & 1) == 0 )
   {
-    RtlEnterCriticalSection(*(_QWORD *)(a1 + 352));
+    RtlEnterCriticalSection(*(PRTL_CRITICAL_SECTION *)(a1 + 352));
     v8 = 1;
   }
   if ( *(_DWORD *)(a1 + 124) )
@@ -107,6 +107,6 @@ LABEL_6:
   *(_WORD *)(v10 - 4) = a5 + v17;
   *(_DWORD *)(v10 - 8) = a6;
   if ( v8 )
-    RtlLeaveCriticalSection(*(_QWORD *)(a1 + 352));
+    RtlLeaveCriticalSection(*(PRTL_CRITICAL_SECTION *)(a1 + 352));
   return v10;
 }

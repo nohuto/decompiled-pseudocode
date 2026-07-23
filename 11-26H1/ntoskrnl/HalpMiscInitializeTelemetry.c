@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpMiscInitializeTelemetry @ 0x140781978
+ * XREFs of HalpMiscInitializeTelemetry @ 0x140784478
  * Callers:
- *     HalpMiscInitSystem @ 0x140BEB3F0 (HalpMiscInitSystem.c)
+ *     HalpMiscInitSystem @ 0x140BF13F0 (HalpMiscInitSystem.c)
  * Callees:
- *     EtwRegister @ 0x14093BDE0 (EtwRegister.c)
- *     TraceLoggingRegisterEx_EtwRegister_EtwSetInformation @ 0x14093BE80 (TraceLoggingRegisterEx_EtwRegister_EtwSetInformation.c)
+ *     EtwRegister @ 0x140917980 (EtwRegister.c)
+ *     TraceLoggingRegisterEx_EtwRegister_EtwSetInformation @ 0x140917A20 (TraceLoggingRegisterEx_EtwRegister_EtwSetInformation.c)
  */
 
 __int64 HalpMiscInitializeTelemetry()

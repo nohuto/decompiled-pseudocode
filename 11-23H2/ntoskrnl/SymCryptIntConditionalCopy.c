@@ -1,9 +1,9 @@
 /*
- * XREFs of SymCryptIntConditionalCopy @ 0x1403F92E8
+ * XREFs of SymCryptIntConditionalCopy @ 0x1403F94C8
  * Callers:
- *     SymCryptIntExtendedGcd @ 0x1403FDD64 (SymCryptIntExtendedGcd.c)
+ *     SymCryptIntExtendedGcd @ 0x1403FDF44 (SymCryptIntExtendedGcd.c)
  * Callees:
- *     SymCryptFdefIntConditionalCopy @ 0x140405748 (SymCryptFdefIntConditionalCopy.c)
+ *     SymCryptFdefIntConditionalCopy @ 0x140405928 (SymCryptFdefIntConditionalCopy.c)
  */
 
 __int64 SymCryptIntConditionalCopy()

@@ -5,7 +5,7 @@
  *     RtlpHpLfhSubsegmentFreeBlock @ 0x180024FE0 (RtlpHpLfhSubsegmentFreeBlock.c)
  * Callees:
  *     TpSetTimerEx @ 0x1800126D0 (TpSetTimerEx.c)
- *     RtlpHpTlLogGCScheduled @ 0x18010B5F8 (RtlpHpTlLogGCScheduled.c)
+ *     RtlpHpTlLogGCScheduled @ 0x18010B5B8 (RtlpHpTlLogGCScheduled.c)
  */
 
 __int64 RtlpHpScheduleCompaction()
@@ -16,7 +16,7 @@ __int64 RtlpHpScheduleCompaction()
   {
     if ( !_InterlockedCompareExchange(&RtlpHpGCTimerScheduled, 1, 0) )
     {
-      TpSetTimerEx(RtlpHpGCTimer, (__int64)&RtlpHpGCInterval, 0, 5000);
+      TpSetTimerEx(RtlpHpGCTimer, &RtlpHpGCInterval, 0, 0x1388u);
       if ( (RtlpHpHeapFeatures & 8) != 0 )
         RtlpHpTlLogGCScheduled();
     }

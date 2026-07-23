@@ -13,7 +13,7 @@
  *     sub_1800F5294 @ 0x1800F5294 (sub_1800F5294.c)
  */
 
-__int64 __fastcall sub_1800F56C8(__int64 a1, _QWORD *a2, _QWORD *a3)
+__int64 __fastcall sub_1800F56C8(__int64 a1, PVOID *a2, _QWORD *a3)
 {
   __int64 v5; // r8
   WCHAR *v6; // rdx
@@ -29,15 +29,15 @@ __int64 __fastcall sub_1800F56C8(__int64 a1, _QWORD *a2, _QWORD *a3)
   __int64 v16; // rdx
   char *v17; // rcx
   WCHAR v18; // r8
-  int Section; // ebx
-  __int64 v21; // [rsp+50h] [rbp-B0h]
-  _QWORD v22[3]; // [rsp+58h] [rbp-A8h] BYREF
-  UNICODE_STRING DestinationString; // [rsp+70h] [rbp-90h] BYREF
-  int v24; // [rsp+80h] [rbp-80h]
-  __int64 v25; // [rsp+88h] [rbp-78h]
-  UNICODE_STRING *p_DestinationString; // [rsp+90h] [rbp-70h]
-  int v27; // [rsp+98h] [rbp-68h]
-  __int128 v28; // [rsp+A0h] [rbp-60h]
+  NTSTATUS v19; // ebx
+  HANDLE v20; // rcx
+  HANDLE FileHandle; // [rsp+50h] [rbp-B0h] BYREF
+  __int64 v23; // [rsp+58h] [rbp-A8h] BYREF
+  HANDLE SectionHandle; // [rsp+60h] [rbp-A0h] BYREF
+  ULONG_PTR ViewSize; // [rsp+68h] [rbp-98h] BYREF
+  _UNICODE_STRING DestinationString; // [rsp+70h] [rbp-90h] BYREF
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+80h] [rbp-80h] BYREF
+  _IO_STATUS_BLOCK IoStatusBlock; // [rsp+B0h] [rbp-50h] BYREF
   WCHAR SourceString[264]; // [rsp+C0h] [rbp-40h] BYREF
 
   v5 = 256LL;
@@ -109,31 +109,32 @@ LABEL_22:
   if ( v13 < 0 )
     return 3221225473LL;
   RtlInitUnicodeString(&DestinationString, SourceString);
-  p_DestinationString = &DestinationString;
-  v24 = 48;
-  v25 = 0LL;
-  v27 = 64;
-  v28 = 0LL;
-  Section = ZwOpenFile();
-  if ( Section >= 0 )
+  ObjectAttributes.ObjectName = &DestinationString;
+  ObjectAttributes.Length = 48;
+  ObjectAttributes.RootDirectory = 0LL;
+  ObjectAttributes.Attributes = 64;
+  *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+  v19 = ZwOpenFile(&FileHandle, 0x80100000, &ObjectAttributes, &IoStatusBlock, 1u, 0);
+  if ( v19 >= 0 )
   {
-    if ( (int)sub_1800F5294(v21, v22) < 0 || HIDWORD(v22[0]) )
+    if ( sub_1800F5294(FileHandle, &v23) < 0 || HIDWORD(v23) )
     {
-      Section = -1073741823;
+      v19 = -1073741823;
     }
     else
     {
-      *a3 = LODWORD(v22[0]);
-      Section = ZwCreateSection();
-      if ( Section >= 0 )
+      *a3 = (unsigned int)v23;
+      v19 = ZwCreateSection(&SectionHandle, 0xF0005u, 0LL, 0LL, 2u, 0x8000000u, FileHandle);
+      if ( v19 >= 0 )
       {
+        v20 = SectionHandle;
         *a2 = 0LL;
-        v22[2] = 0LL;
-        Section = ZwMapViewOfSection();
-        ZwClose();
+        ViewSize = 0LL;
+        v19 = ZwMapViewOfSection(v20, (HANDLE)0xFFFFFFFFFFFFFFFFLL, a2, 0LL, 0LL, 0LL, &ViewSize, ViewShare, 0, 2u);
+        ZwClose(SectionHandle);
       }
     }
-    ZwClose();
+    ZwClose(FileHandle);
   }
-  return (unsigned int)Section;
+  return (unsigned int)v19;
 }

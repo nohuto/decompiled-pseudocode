@@ -3,8 +3,8 @@
  * Callers:
  *     FsRtlInitSystem @ 0x140B68494 (FsRtlInitSystem.c)
  * Callees:
- *     ExInitializeNPagedLookasideList @ 0x1403C3290 (ExInitializeNPagedLookasideList.c)
- *     ExInitializePagedLookasideList @ 0x1407D6C40 (ExInitializePagedLookasideList.c)
+ *     ExInitializeNPagedLookasideList @ 0x1403C3470 (ExInitializeNPagedLookasideList.c)
+ *     ExInitializePagedLookasideList @ 0x1407D6F10 (ExInitializePagedLookasideList.c)
  */
 
 LIST_ENTRY *FsRtlInitializeFileLocks()

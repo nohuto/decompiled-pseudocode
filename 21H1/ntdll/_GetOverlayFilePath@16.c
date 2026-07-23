@@ -11,30 +11,29 @@
  *     @__security_check_cookie@4 @ 0x4B2F4B20 (@__security_check_cookie@4.c)
  */
 
-int __fastcall GetOverlayFilePath(int a1, void *a2, unsigned int *a3, wchar_t *a4)
+NTSTATUS __fastcall GetOverlayFilePath(int a1, const WCHAR *a2, unsigned int *a3, wchar_t *a4)
 {
-  int result; // eax
-  char *v6; // ebx
-  int v7; // [esp+10h] [ebp-2D8h] BYREF
-  char *v8; // [esp+14h] [ebp-2D4h]
-  int v9; // [esp+18h] [ebp-2D0h]
-  wchar_t *Source; // [esp+1Ch] [ebp-2CCh] BYREF
-  char v11; // [esp+20h] [ebp-2C8h] BYREF
+  NTSTATUS result; // eax
+  wchar_t *Buffer; // ebx
+  _UNICODE_STRING Destination; // [esp+10h] [ebp-2D8h] BYREF
+  int v8; // [esp+18h] [ebp-2D0h]
+  const unsigned __int16 *v9; // [esp+1Ch] [ebp-2CCh] BYREF
+  char v10; // [esp+20h] [ebp-2C8h] BYREF
 
   if ( !a1 || !a2 || !a3 )
     return -1073741811;
-  v7 = 46006272;
-  v8 = &v11;
-  result = RtlAppendUnicodeToString((int)&v7, a2);
+  *(_DWORD *)&Destination.Length = 46006272;
+  Destination.Buffer = (wchar_t *)&v10;
+  result = RtlAppendUnicodeToString(&Destination, a2);
   if ( result >= 0 )
   {
-    LdrStandardizeSystemPath(&v7);
-    v6 = v8;
+    LdrStandardizeSystemPath(&Destination);
+    Buffer = Destination.Buffer;
+    v8 = 0;
     v9 = 0;
-    Source = 0;
-    result = IsOverlaySupportedPath(&Source);
+    result = IsOverlaySupportedPath(&v9);
     if ( result >= 0 )
-      return BuildOverlayFilePath(a1, (const wchar_t *)&v6[2 * v9], Source, a3, a4);
+      return BuildOverlayFilePath(a1, &Buffer[v8], v9, a3, a4);
   }
   return result;
 }

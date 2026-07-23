@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlInvertRangeListEx @ 0x140B10830
+ * XREFs of RtlInvertRangeListEx @ 0x140B12270
  * Callers:
- *     ArbInitializeRangeList @ 0x140788DC0 (ArbInitializeRangeList.c)
- *     RtlInvertRangeList @ 0x140B10800 (RtlInvertRangeList.c)
+ *     ArbInitializeRangeList @ 0x14078B8F0 (ArbInitializeRangeList.c)
+ *     RtlInvertRangeList @ 0x140B12240 (RtlInvertRangeList.c)
  * Callees:
- *     RtlpFreeRangeListEntry @ 0x140AE4F68 (RtlpFreeRangeListEntry.c)
- *     RtlAddRange @ 0x140B10960 (RtlAddRange.c)
- *     RtlpCreateRangeListEntry @ 0x140B10A0C (RtlpCreateRangeListEntry.c)
- *     RtlpAddRange @ 0x140B10A7C (RtlpAddRange.c)
+ *     RtlpFreeRangeListEntry @ 0x140AE2D28 (RtlpFreeRangeListEntry.c)
+ *     RtlAddRange @ 0x140B123A0 (RtlAddRange.c)
+ *     RtlpCreateRangeListEntry @ 0x140B1244C (RtlpCreateRangeListEntry.c)
+ *     RtlpAddRange @ 0x140B124BC (RtlpAddRange.c)
  */
 
 __int64 __fastcall RtlInvertRangeListEx(__int64 a1, unsigned __int64 *a2, char a3, __int64 a4, __int64 a5)

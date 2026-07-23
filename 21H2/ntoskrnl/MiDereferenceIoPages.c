@@ -1,42 +1,42 @@
 /*
- * XREFs of MiDereferenceIoPages @ 0x140297968
+ * XREFs of MiDereferenceIoPages @ 0x1402183E8
  * Callers:
- *     MiDeletePteRun @ 0x140236C60 (MiDeletePteRun.c)
- *     MmUnlockPages @ 0x140244A70 (MmUnlockPages.c)
- *     MiReferenceIoPages @ 0x140295A24 (MiReferenceIoPages.c)
- *     MiZeroAndFlushPtes @ 0x140297640 (MiZeroAndFlushPtes.c)
- *     MiReplaceRotateWithDemandZero @ 0x140299824 (MiReplaceRotateWithDemandZero.c)
- *     MiMapContiguousMemoryLarge @ 0x1403B8854 (MiMapContiguousMemoryLarge.c)
- *     MmRotatePhysicalView @ 0x140682910 (MmRotatePhysicalView.c)
- *     MiMapLockedPagesInUserSpace @ 0x14076B6A0 (MiMapLockedPagesInUserSpace.c)
- *     MiMapViewOfPhysicalSection @ 0x1407C2C08 (MiMapViewOfPhysicalSection.c)
+ *     MiReferenceIoPages @ 0x1402176E4 (MiReferenceIoPages.c)
+ *     MiZeroAndFlushPtes @ 0x1402180C0 (MiZeroAndFlushPtes.c)
+ *     MiReplaceRotateWithDemandZero @ 0x140219184 (MiReplaceRotateWithDemandZero.c)
+ *     MiDeletePteRun @ 0x1402DB4B0 (MiDeletePteRun.c)
+ *     MmUnlockPages @ 0x1402E92C0 (MmUnlockPages.c)
+ *     MiMapContiguousMemoryLarge @ 0x1403B89C4 (MiMapContiguousMemoryLarge.c)
+ *     MmRotatePhysicalView @ 0x1405E48E0 (MmRotatePhysicalView.c)
+ *     MiMapLockedPagesInUserSpace @ 0x14076B860 (MiMapLockedPagesInUserSpace.c)
+ *     MiMapViewOfPhysicalSection @ 0x1407C3128 (MiMapViewOfPhysicalSection.c)
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x14021D060 (ExAcquireSpinLockExclusive.c)
- *     RtlAvlRemoveNode @ 0x140234B20 (RtlAvlRemoveNode.c)
- *     RtlAvlInsertNodeEx @ 0x140316550 (RtlAvlInsertNodeEx.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14033BD80 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusive @ 0x1402C1960 (ExAcquireSpinLockExclusive.c)
+ *     RtlAvlRemoveNode @ 0x1402D9370 (RtlAvlRemoveNode.c)
+ *     RtlAvlInsertNodeEx @ 0x1403212A0 (RtlAvlInsertNodeEx.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140346AD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 void __fastcall MiDereferenceIoPages(int a1, __int64 a2, ULONG_PTR a3)
 {
-  unsigned __int64 *v3; // rbx
+  void *v3; // rbx
   ULONG_PTR v4; // rbp
   ULONG_PTR BugCheckParameter4; // r12
   ULONG_PTR v7; // r13
-  unsigned __int64 *i; // rdi
+  _QWORD *i; // rdi
   __int64 *v9; // rax
   KIRQL v10; // r14
   ULONG_PTR v11; // rcx
   unsigned __int64 v12; // r14
-  unsigned __int64 v13; // rcx
-  unsigned __int64 k; // r14
+  _QWORD *v13; // rcx
+  __int64 k; // r14
   _QWORD *j; // rax
-  unsigned __int64 v16; // r8
-  unsigned __int64 *v17; // rsi
-  unsigned __int64 v18; // rax
+  __int64 v16; // r8
+  _QWORD *v17; // rsi
+  __int64 v18; // rax
   ULONG_PTR v19; // rdx
   _WORD *v20; // r15
   __int64 v21; // rax
@@ -60,7 +60,7 @@ void __fastcall MiDereferenceIoPages(int a1, __int64 a2, ULONG_PTR a3)
   int v39; // eax
   bool v40; // zf
   signed __int32 v41[8]; // [rsp+0h] [rbp-88h] BYREF
-  unsigned __int64 *v42; // [rsp+30h] [rbp-58h]
+  _QWORD *v42; // [rsp+30h] [rbp-58h]
   __int64 *v43; // [rsp+38h] [rbp-50h]
   KIRQL v44; // [rsp+90h] [rbp+8h]
   ULONG_PTR v45; // [rsp+98h] [rbp+10h]
@@ -73,16 +73,16 @@ void __fastcall MiDereferenceIoPages(int a1, __int64 a2, ULONG_PTR a3)
   v48 = 0LL;
   BugCheckParameter4 = a2 & 0xFFFFFFFFFLL;
   v7 = a3;
-  i = (unsigned __int64 *)&xmmword_140C4EC48 + a1;
+  i = (_QWORD *)&xmmword_140C4EC88 + a1;
   v42 = i;
-  v9 = &qword_140C4EC58;
+  v9 = &qword_140C4EC98;
   if ( a1 != 1 )
     v9 = 0LL;
   v43 = v9;
-  v10 = ExAcquireSpinLockExclusive(&dword_140C4EC40);
+  v10 = ExAcquireSpinLockExclusive(&dword_140C4EC80);
   v44 = v10;
 LABEL_4:
-  for ( i = (unsigned __int64 *)*i; i; i = (unsigned __int64 *)i[1] )
+  for ( i = (_QWORD *)*i; i; i = (_QWORD *)i[1] )
   {
     v11 = i[5];
     if ( v4 < v11 )
@@ -97,7 +97,7 @@ LABEL_4:
       if ( !i )
         KeBugCheckEx(0x1Au, 0x61948uLL, v4, a3, BugCheckParameter4);
       v12 = i[1];
-      v13 = (unsigned __int64)i;
+      v13 = i;
       if ( v12 )
       {
         for ( j = *(_QWORD **)v12; j; j = (_QWORD *)*j )
@@ -108,9 +108,9 @@ LABEL_4:
         for ( k = i[2]; ; k = *(_QWORD *)(v12 + 16) )
         {
           v12 = k & 0xFFFFFFFFFFFFFFFCuLL;
-          if ( !v12 || *(_QWORD *)v12 == v13 )
+          if ( !v12 || *(_QWORD **)v12 == v13 )
             break;
-          v13 = v12;
+          v13 = (_QWORD *)v12;
         }
       }
       v16 = i[6];
@@ -124,7 +124,7 @@ LABEL_4:
         break;
 LABEL_29:
       v7 = v45;
-      i = (unsigned __int64 *)v12;
+      i = (_QWORD *)v12;
       if ( !v45 )
       {
         v10 = v44;
@@ -163,17 +163,17 @@ LABEL_23:
       _InterlockedOr(v41, 0);
       v31 = KiCacheFlushTimeStamp;
       *((_DWORD *)v17 + 14) = KiCacheFlushTimeStamp;
-      if ( (__int64 *)qword_140C4EC60 == &qword_140C4EC60 )
-        dword_140C4EC70 = v31;
-      v32 = (_QWORD *)qword_140C4EC68;
+      if ( (__int64 *)qword_140C4ECA0 == &qword_140C4ECA0 )
+        dword_140C4ECB0 = v31;
+      v32 = (_QWORD *)qword_140C4ECA8;
       v33 = v17 + 3;
-      if ( *(__int64 **)qword_140C4EC68 != &qword_140C4EC60 )
+      if ( *(__int64 **)qword_140C4ECA8 != &qword_140C4ECA0 )
         __fastfail(3u);
-      *v33 = &qword_140C4EC60;
+      *v33 = &qword_140C4ECA0;
       LOBYTE(v25) = 0;
-      v17[4] = (unsigned __int64)v32;
+      v17[4] = v32;
       *v32 = v33;
-      qword_140C4EC68 = (__int64)(v17 + 3);
+      qword_140C4ECA8 = (__int64)(v17 + 3);
       v34 = (_QWORD *)*v26;
       if ( *v26 )
       {
@@ -199,7 +199,7 @@ LABEL_23:
       }
       RtlAvlInsertNodeEx(v26, v34, v25, i);
       v17 = 0LL;
-      ++qword_140C4EC78;
+      ++qword_140C4ECB8;
     }
 LABEL_40:
     if ( !v17 )
@@ -241,7 +241,7 @@ LABEL_27:
     }
   }
 LABEL_31:
-  ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140C4EC40);
+  ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140C4EC80);
   if ( KiIrqlFlags )
   {
     if ( (KiIrqlFlags & 1) != 0 )
@@ -263,7 +263,7 @@ LABEL_31:
   __writecr8(v10);
   while ( v3 )
   {
-    RtlAvlRemoveNode((unsigned __int64 *)&v48, v3);
+    RtlAvlRemoveNode(&v48, v3);
     ExFreePoolWithTag(v3, 0);
     v3 = v48;
   }

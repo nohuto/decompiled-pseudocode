@@ -1,18 +1,18 @@
 /*
- * XREFs of ViExCheckAPCsDisabled @ 0x1409426FC
+ * XREFs of ViExCheckAPCsDisabled @ 0x1409436FC
  * Callers:
- *     VerifierExAcquireFastMutexUnsafeNoReboot @ 0x140942150 (VerifierExAcquireFastMutexUnsafeNoReboot.c)
- *     VerifierExReleaseFastMutexUnsafe @ 0x140942260 (VerifierExReleaseFastMutexUnsafe.c)
- *     VerifierExReleaseFastMutexUnsafeNoReboot @ 0x1409422C0 (VerifierExReleaseFastMutexUnsafeNoReboot.c)
- *     VerifierExfAcquirePushLockExclusive @ 0x140942380 (VerifierExfAcquirePushLockExclusive.c)
- *     VerifierExfAcquirePushLockShared @ 0x1409423C0 (VerifierExfAcquirePushLockShared.c)
- *     VerifierExfReleasePushLock @ 0x140942400 (VerifierExfReleasePushLock.c)
- *     VerifierExfReleasePushLockShared @ 0x140942440 (VerifierExfReleasePushLockShared.c)
- *     VerifierExfTryAcquirePushLockShared @ 0x140942480 (VerifierExfTryAcquirePushLockShared.c)
- *     VerifierExfTryToWakePushLock @ 0x1409424C0 (VerifierExfTryToWakePushLock.c)
- *     ViExReleaseFastMutexCommon @ 0x140942768 (ViExReleaseFastMutexCommon.c)
+ *     VerifierExAcquireFastMutexUnsafeNoReboot @ 0x140943150 (VerifierExAcquireFastMutexUnsafeNoReboot.c)
+ *     VerifierExReleaseFastMutexUnsafe @ 0x140943260 (VerifierExReleaseFastMutexUnsafe.c)
+ *     VerifierExReleaseFastMutexUnsafeNoReboot @ 0x1409432C0 (VerifierExReleaseFastMutexUnsafeNoReboot.c)
+ *     VerifierExfAcquirePushLockExclusive @ 0x140943380 (VerifierExfAcquirePushLockExclusive.c)
+ *     VerifierExfAcquirePushLockShared @ 0x1409433C0 (VerifierExfAcquirePushLockShared.c)
+ *     VerifierExfReleasePushLock @ 0x140943400 (VerifierExfReleasePushLock.c)
+ *     VerifierExfReleasePushLockShared @ 0x140943440 (VerifierExfReleasePushLockShared.c)
+ *     VerifierExfTryAcquirePushLockShared @ 0x140943480 (VerifierExfTryAcquirePushLockShared.c)
+ *     VerifierExfTryToWakePushLock @ 0x1409434C0 (VerifierExfTryToWakePushLock.c)
+ *     ViExReleaseFastMutexCommon @ 0x140943768 (ViExReleaseFastMutexCommon.c)
  * Callees:
- *     VerifierBugCheckIfAppropriate @ 0x14092FD84 (VerifierBugCheckIfAppropriate.c)
+ *     VerifierBugCheckIfAppropriate @ 0x140930D84 (VerifierBugCheckIfAppropriate.c)
  */
 
 unsigned __int8 __fastcall ViExCheckAPCsDisabled(ULONG_PTR BugCheckParameter1, __int64 a2)

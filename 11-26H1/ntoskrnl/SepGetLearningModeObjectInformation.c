@@ -1,13 +1,13 @@
 /*
- * XREFs of SepGetLearningModeObjectInformation @ 0x140516F8C
+ * XREFs of SepGetLearningModeObjectInformation @ 0x1405109FC
  * Callers:
- *     SeLogAccessFailure @ 0x1402B59D0 (SeLogAccessFailure.c)
+ *     SeLogAccessFailure @ 0x1403006A0 (SeLogAccessFailure.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     ProbeForRead @ 0x1408EF880 (ProbeForRead.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     ProbeForRead @ 0x1408F5E40 (ProbeForRead.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 struct _LIST_ENTRY *__fastcall SepGetLearningModeObjectInformation(_BYTE *a1)

@@ -1,11 +1,11 @@
 /*
- * XREFs of VrpAllocateDiffHiveEntry @ 0x14077C838
+ * XREFs of VrpAllocateDiffHiveEntry @ 0x14077CA28
  * Callers:
- *     VrpFindOrCreateDiffHiveEntryForMountPoint @ 0x14077C178 (VrpFindOrCreateDiffHiveEntryForMountPoint.c)
+ *     VrpFindOrCreateDiffHiveEntryForMountPoint @ 0x14077C368 (VrpFindOrCreateDiffHiveEntryForMountPoint.c)
  * Callees:
- *     KeInitializeWaitChain @ 0x14031C8D0 (KeInitializeWaitChain.c)
- *     memmove @ 0x140435700 (memmove.c)
- *     RtlUpcaseUnicodeChar @ 0x1406DA280 (RtlUpcaseUnicodeChar.c)
+ *     KeInitializeWaitChain @ 0x14031CB60 (KeInitializeWaitChain.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     RtlUpcaseUnicodeChar @ 0x1406DA2B0 (RtlUpcaseUnicodeChar.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
 

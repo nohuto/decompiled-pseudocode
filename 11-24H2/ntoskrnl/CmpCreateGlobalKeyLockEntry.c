@@ -1,11 +1,11 @@
 /*
- * XREFs of CmpCreateGlobalKeyLockEntry @ 0x1407DDD98
+ * XREFs of CmpCreateGlobalKeyLockEntry @ 0x1407DE2E8
  * Callers:
- *     CmpGlobalLockKeyForWrite @ 0x140A66C2C (CmpGlobalLockKeyForWrite.c)
+ *     CmpGlobalLockKeyForWrite @ 0x140A5FA10 (CmpGlobalLockKeyForWrite.c)
  * Callees:
- *     CmpAllocatePool @ 0x1403E1834 (CmpAllocatePool.c)
- *     CmpReferenceKeyControlBlockUnsafe @ 0x14087B450 (CmpReferenceKeyControlBlockUnsafe.c)
- *     CmpDereferenceKeyControlBlockUnsafe @ 0x14099E750 (CmpDereferenceKeyControlBlockUnsafe.c)
+ *     CmpAllocatePool @ 0x1403C9EA4 (CmpAllocatePool.c)
+ *     CmpReferenceKeyControlBlockUnsafe @ 0x14087F300 (CmpReferenceKeyControlBlockUnsafe.c)
+ *     CmpDereferenceKeyControlBlockUnsafe @ 0x140987400 (CmpDereferenceKeyControlBlockUnsafe.c)
  */
 
 __int64 __fastcall CmpCreateGlobalKeyLockEntry(ULONG_PTR a1)
@@ -14,7 +14,7 @@ __int64 __fastcall CmpCreateGlobalKeyLockEntry(ULONG_PTR a1)
   __int64 v3; // rbx
 
   CmpReferenceKeyControlBlockUnsafe(a1);
-  Pool = CmpAllocatePool(0x100uLL);
+  Pool = CmpAllocatePool(0x100uLL, 0x20uLL, 0x33374D43u);
   v3 = Pool;
   if ( Pool )
   {

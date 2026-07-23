@@ -1,8 +1,8 @@
 /*
- * XREFs of HsaGetBlockedDomain @ 0x1405A9AB8
+ * XREFs of HsaGetBlockedDomain @ 0x1405AC2C8
  * Callers:
- *     HsaUpdateDeviceTableEntry @ 0x1405AAA50 (HsaUpdateDeviceTableEntry.c)
- *     HsaInitializeIommu @ 0x140BF0BE0 (HsaInitializeIommu.c)
+ *     HsaUpdateDeviceTableEntry @ 0x1405AD260 (HsaUpdateDeviceTableEntry.c)
+ *     HsaInitializeIommu @ 0x140BF6BE0 (HsaInitializeIommu.c)
  * Callees:
  *     <none>
  */
@@ -32,7 +32,7 @@ __int64 __fastcall HsaGetBlockedDomain(__int64 a1, _DWORD *a2, unsigned __int64 
       }
     }
   }
-  v9 = qword_140F87390;
+  v9 = qword_140F87878;
   v7 = (unsigned int *)(a1 + 200);
 LABEL_10:
   result = *v7;

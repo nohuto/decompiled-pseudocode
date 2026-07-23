@@ -1,29 +1,29 @@
 /*
- * XREFs of DifNtCreateUserProcessWrapper @ 0x140674DE0
+ * XREFs of DifNtCreateUserProcessWrapper @ 0x1406789C0
  * Callers:
  *     <none>
  * Callees:
- *     DifGetReturnAddressForWrappers @ 0x140260EA4 (DifGetReturnAddressForWrappers.c)
- *     ExReleaseRundownProtection_0 @ 0x140266240 (ExReleaseRundownProtection_0.c)
- *     ExAcquireRundownProtection_0 @ 0x1402F0590 (ExAcquireRundownProtection_0.c)
- *     DifGetAPIThunkContextById @ 0x1404C17A4 (DifGetAPIThunkContextById.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     NtCreateUserProcess @ 0x140B77FE0 (NtCreateUserProcess.c)
+ *     DifGetReturnAddressForWrappers @ 0x14026040C (DifGetReturnAddressForWrappers.c)
+ *     ExReleaseRundownProtection_0 @ 0x1402657B0 (ExReleaseRundownProtection_0.c)
+ *     ExAcquireRundownProtection_0 @ 0x1402D2610 (ExAcquireRundownProtection_0.c)
+ *     DifGetAPIThunkContextById @ 0x1404BAFF4 (DifGetAPIThunkContextById.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     NtCreateUserProcess @ 0x140B7D6F0 (NtCreateUserProcess.c)
  */
 
 __int64 __fastcall DifNtCreateUserProcessWrapper(
-        __int64 a1,
-        __int64 a2,
-        int a3,
-        int a4,
-        volatile void *Address,
-        __int64 a6,
-        int a7,
-        int a8,
-        __int64 a9,
-        __int64 a10,
-        void *a11)
+        HANDLE *a1,
+        HANDLE *a2,
+        ACCESS_MASK a3,
+        ACCESS_MASK a4,
+        OBJECT_ATTRIBUTES *ProcessObjectAttributes,
+        OBJECT_ATTRIBUTES *ThreadObjectAttributes,
+        ULONG ProcessFlags,
+        ULONG ThreadFlags,
+        PVOID ProcessParameters,
+        _PS_CREATE_INFO *CreateInfo,
+        _PS_ATTRIBUTE_LIST *AttributeList)
 {
   __int128 *APIThunkContextById; // rax
   __int64 v15; // rdx
@@ -36,14 +36,14 @@ __int64 __fastcall DifNtCreateUserProcessWrapper(
   BOOLEAN v22; // di
   __int128 *j; // rbx
   _QWORD v25[4]; // [rsp+68h] [rbp-59h] BYREF
-  int v26; // [rsp+88h] [rbp-39h]
-  int v27; // [rsp+8Ch] [rbp-35h]
-  __int64 v28; // [rsp+90h] [rbp-31h]
-  volatile void *v29; // [rsp+98h] [rbp-29h]
-  int v30; // [rsp+A0h] [rbp-21h]
-  int v31; // [rsp+A4h] [rbp-1Dh]
-  __int64 v32; // [rsp+A8h] [rbp-19h]
-  __int64 v33; // [rsp+B0h] [rbp-11h]
+  ULONG v26; // [rsp+88h] [rbp-39h]
+  ULONG v27; // [rsp+8Ch] [rbp-35h]
+  OBJECT_ATTRIBUTES *v28; // [rsp+90h] [rbp-31h]
+  OBJECT_ATTRIBUTES *v29; // [rsp+98h] [rbp-29h]
+  ACCESS_MASK v30; // [rsp+A0h] [rbp-21h]
+  ACCESS_MASK v31; // [rsp+A4h] [rbp-1Dh]
+  HANDLE *v32; // [rsp+A8h] [rbp-19h]
+  HANDLE *v33; // [rsp+B0h] [rbp-11h]
   unsigned int UserProcess; // [rsp+B8h] [rbp-9h]
   void *retaddr; // [rsp+F0h] [rbp+2Fh]
 
@@ -67,13 +67,13 @@ __int64 __fastcall DifNtCreateUserProcessWrapper(
 LABEL_7:
   v19 = 0;
   v33 = a1;
-  v29 = Address;
-  v28 = a6;
-  v27 = a7;
-  v26 = a8;
-  v25[3] = a9;
-  v25[2] = a10;
-  v25[1] = a11;
+  v29 = ProcessObjectAttributes;
+  v28 = ThreadObjectAttributes;
+  v27 = ProcessFlags;
+  v26 = ThreadFlags;
+  v25[3] = ProcessParameters;
+  v25[2] = CreateInfo;
+  v25[1] = AttributeList;
   v32 = a2;
   v31 = a3;
   v30 = a4;
@@ -89,7 +89,18 @@ LABEL_7:
       ExReleaseRundownProtection_0(&DifRebootlessRundown);
   }
 LABEL_17:
-  UserProcess = NtCreateUserProcess(a1, a2, a3, a4, Address, a6, a7, a8, a9, a10, a11);
+  UserProcess = NtCreateUserProcess(
+                  a1,
+                  a2,
+                  a3,
+                  a4,
+                  ProcessObjectAttributes,
+                  ThreadObjectAttributes,
+                  ProcessFlags,
+                  ThreadFlags,
+                  ProcessParameters,
+                  CreateInfo,
+                  AttributeList);
   if ( v16 )
   {
     if ( (v22 = 0, !VfDifRunningWithoutReboot) && (VfOptionFlags & 0x800) == 0

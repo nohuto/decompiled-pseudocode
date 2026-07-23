@@ -1,11 +1,11 @@
 /*
- * XREFs of PpmParkInitialize @ 0x140C33334
+ * XREFs of PpmParkInitialize @ 0x140C35474
  * Callers:
- *     PoInitSystem @ 0x140C61990 (PoInitSystem.c)
+ *     PoInitSystem @ 0x140C63AE4 (PoInitSystem.c)
  * Callees:
- *     Feature_PpmParkEx__private_IsEnabledDeviceUsageNoInline @ 0x1405B4FB0 (Feature_PpmParkEx__private_IsEnabledDeviceUsageNoInline.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     Feature_PpmParkEx__private_IsEnabledDeviceUsageNoInline @ 0x1405B2224 (Feature_PpmParkEx__private_IsEnabledDeviceUsageNoInline.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 __int64 PpmParkInitialize()
@@ -15,7 +15,7 @@ __int64 PpmParkInitialize()
   struct _KAFFINITY_EX *Pool2; // rax
   __int64 v3; // rsi
   unsigned int *p_Reserved; // rdi
-  char *v5; // rax
+  void *v5; // rax
   __int64 v6; // rcx
 
   v0 = PpmHeteroMultiClassParkingRegValue;
@@ -48,13 +48,13 @@ __int64 PpmParkInitialize()
           --v3;
         }
         while ( v3 );
-        v5 = (char *)ExAllocatePool2(0x40uLL, (unsigned int)(16 * KeMaximumProcessors), 0x704D5050uLL);
+        v5 = (void *)ExAllocatePool2(0x40uLL, (unsigned int)(16 * KeMaximumProcessors), 0x704D5050uLL);
         if ( v5 )
         {
           v6 = 4LL * (unsigned int)KeMaximumProcessors;
           PpmHeteroPerfCheckUtilities = v5;
-          Base = &v5[v6];
-          qword_140F06268 = (__int64)&v5[v6 + v6];
+          qword_140F06570 = (__int64)v5 + v6;
+          qword_140F06568 = (__int64)v5 + v6 + v6;
           goto LABEL_12;
         }
       }

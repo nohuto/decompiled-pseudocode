@@ -6,9 +6,14 @@
  *     <none>
  */
 
-__int64 __fastcall ZwQueryInformationJobObject(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwQueryInformationJobObject(
+        HANDLE JobHandle,
+        JOBOBJECTINFOCLASS JobObjectInformationClass,
+        PVOID JobObjectInformation,
+        ULONG JobObjectInformationLength,
+        PULONG ReturnLength)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(JobHandle);
 }

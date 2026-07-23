@@ -1,11 +1,11 @@
 /*
- * XREFs of FsRtlInitializeWorkerThread @ 0x140CB92D0
+ * XREFs of FsRtlInitializeWorkerThread @ 0x140CBF314
  * Callers:
- *     FsRtlInitSystem @ 0x140CB8A6C (FsRtlInitSystem.c)
+ *     FsRtlInitSystem @ 0x140CBEAB0 (FsRtlInitSystem.c)
  * Callees:
- *     KeInitializeQueue @ 0x1404CBEC0 (KeInitializeQueue.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     PsCreateSystemThread @ 0x140A03420 (PsCreateSystemThread.c)
+ *     KeInitializeQueue @ 0x1404C58F0 (KeInitializeQueue.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     PsCreateSystemThread @ 0x140A78D90 (PsCreateSystemThread.c)
  */
 
 NTSTATUS FsRtlInitializeWorkerThread()
@@ -22,7 +22,7 @@ NTSTATUS FsRtlInitializeWorkerThread()
   memset(&ObjectAttributes.RootDirectory, 0, 40);
   for ( i = 0; i < 2; ++i )
   {
-    KeInitializeQueue((PRKQUEUE)&VslpReservedTransferLock.SavedApcStateFill[64 * (unsigned __int64)i + 32], 0);
+    KeInitializeQueue((PRKQUEUE)&VslpReservedTransferLock.SchedulerApcFill5[64 * (unsigned __int64)i + 32], 0);
     result = PsCreateSystemThread(
                &ThreadHandle,
                0x1FFFFFu,
@@ -36,11 +36,11 @@ NTSTATUS FsRtlInitializeWorkerThread()
       return result;
     ZwClose(ThreadHandle);
   }
-  LOWORD(VslpReservedTransferLock.ThreadListEntry.Flink) = 1;
-  VslpReservedTransferLock.MutantListHead.Flink = (struct _LIST_ENTRY *)&VslpReservedTransferLock.ThreadListEntry.Blink;
-  VslpReservedTransferLock.ThreadListEntry.Blink = (struct _LIST_ENTRY *)&VslpReservedTransferLock.ThreadListEntry.Blink;
+  LOWORD(VslpReservedTransferLock.PropagateBoostsEntry.Next) = 1;
+  *(_QWORD *)VslpReservedTransferLock.PriorityFloorCounts = &VslpReservedTransferLock.IoSelfBoostsEntry;
+  VslpReservedTransferLock.IoSelfBoostsEntry.Next = &VslpReservedTransferLock.IoSelfBoostsEntry;
   result = v0;
-  BYTE2(VslpReservedTransferLock.ThreadListEntry.Flink) = 6;
-  HIDWORD(VslpReservedTransferLock.ThreadListEntry.Flink) = 1;
+  BYTE2(VslpReservedTransferLock.PropagateBoostsEntry.Next) = 6;
+  HIDWORD(VslpReservedTransferLock.PropagateBoostsEntry.Next) = 1;
   return result;
 }

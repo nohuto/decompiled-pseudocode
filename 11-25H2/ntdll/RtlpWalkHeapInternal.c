@@ -6,13 +6,10 @@
  *     RtlpEnsureSegHeapLockedForWalk @ 0x18009BA24 (RtlpEnsureSegHeapLockedForWalk.c)
  */
 
-__int64 __fastcall RtlpWalkHeapInternal(__int64 a1, __int64 a2, __int64 a3)
+__int64 __fastcall RtlpWalkHeapInternal(__int64 a1, __int64 a2, unsigned __int8 a3)
 {
-  unsigned __int8 v3; // di
-
-  v3 = a3;
   if ( *(_DWORD *)(a1 + 16) != -571548178 )
-    return RtlpWalkHeap(a1, a2, a3);
+    return RtlpWalkHeap(a1);
   RtlpEnsureSegHeapLockedForWalk();
-  return RtlpHpHeapWalk(a1, a2, v3);
+  return RtlpHpHeapWalk(a1, a2, a3);
 }

@@ -15,7 +15,7 @@
 
 PEXCEPTION_ROUTINE __stdcall RtlVirtualUnwind(ULONG HandlerType, ULONG64 ImageBase, ULONG64 ControlPc, PRUNTIME_FUNCTION FunctionEntry, PCONTEXT ContextRecord, PVOID *HandlerData, PULONG64 EstablisherFrame, PKNONVOLATILE_CONTEXT_POINTERS ContextPointers)
 {
-  EXCEPTION_ROUTINE *v8; // rsi
+  EXCEPTION_DISPOSITION (__cdecl *v8)(_EXCEPTION_RECORD *, PVOID, _CONTEXT *, PVOID); // rsi
   ULONG64 v9; // rbp
   PRUNTIME_FUNCTION v10; // r14
   ULONG64 v11; // rdi
@@ -385,7 +385,7 @@ LABEL_19:
                   {
                     if ( v66 != 1 )
 LABEL_155:
-                      RtlRaiseStatus(3221225727LL);
+                      RtlRaiseStatus(-1073741569);
                     v67 = (DWORD64 *)v17->Rsp;
                     v88 = 1;
                     v68 = v67 + 3;
@@ -513,7 +513,7 @@ LABEL_155:
     v22 = (struct _IMAGE_RUNTIME_FUNCTION_ENTRY *)&v26[2 * v63 + 4];
     v89 = v22;
     if ( v24 > 0x20 )
-      RtlRaiseStatus(3221225727LL);
+      RtlRaiseStatus(-1073741569);
   }
   if ( !v29 )
   {

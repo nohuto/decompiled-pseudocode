@@ -38,7 +38,7 @@ char __fastcall CcQuickLazyWriteScanForVolume(_QWORD *a1)
     LockHandle.LockQueue.Next,
     LockHandle.LockQueue.Lock,
     *(_QWORD *)&LockHandle.OldIrql);
-  CcFreeWorkQueueEntry((struct _SLIST_ENTRY *)v1);
+  CcFreeWorkQueueEntry((_SLIST_ENTRY *)v1);
   KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)(v3 + 832), &LockHandle);
   v7 = *(_QWORD **)(v2 + 1568);
   if ( *v7 != v2 + 1560 )

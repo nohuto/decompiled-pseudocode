@@ -1,16 +1,16 @@
 /*
- * XREFs of RtlGetDaclSecurityDescriptor @ 0x140009CC4
+ * XREFs of RtlGetDaclSecurityDescriptor @ 0x140009844
  * Callers:
- *     AdtpBuildAccessReasonAuditStringInternal @ 0x140238284 (AdtpBuildAccessReasonAuditStringInternal.c)
- *     ExpWnfSpecializeSecurityDescriptor @ 0x1403F6F64 (ExpWnfSpecializeSecurityDescriptor.c)
- *     ObpInsertOrLocateNamedObject @ 0x140405EE0 (ObpInsertOrLocateNamedObject.c)
- *     PipChangeDeviceObjectFromRegistryProperties @ 0x1404E1F74 (PipChangeDeviceObjectFromRegistryProperties.c)
- *     RtlpSysVolCheckOwnerAndSecurity @ 0x14052A01C (RtlpSysVolCheckOwnerAndSecurity.c)
- *     ObpCreateDosDevicesDirectory @ 0x140579BE8 (ObpCreateDosDevicesDirectory.c)
- *     CmpCopySaclToVirtualKey @ 0x1406021A4 (CmpCopySaclToVirtualKey.c)
- *     RtlReplaceSidInSd @ 0x140683A68 (RtlReplaceSidInSd.c)
- *     SepHasAllAppPackagesPresent @ 0x140694E28 (SepHasAllAppPackagesPresent.c)
- *     LocalConvertSDToStringSD_Rev1 @ 0x1406CAE68 (LocalConvertSDToStringSD_Rev1.c)
+ *     AdtpBuildAccessReasonAuditStringInternal @ 0x1402380B0 (AdtpBuildAccessReasonAuditStringInternal.c)
+ *     ExpWnfSpecializeSecurityDescriptor @ 0x1403F5E24 (ExpWnfSpecializeSecurityDescriptor.c)
+ *     ObpInsertOrLocateNamedObject @ 0x140404DA0 (ObpInsertOrLocateNamedObject.c)
+ *     PipChangeDeviceObjectFromRegistryProperties @ 0x1404D3B60 (PipChangeDeviceObjectFromRegistryProperties.c)
+ *     RtlpSysVolCheckOwnerAndSecurity @ 0x14052A55C (RtlpSysVolCheckOwnerAndSecurity.c)
+ *     ObpCreateDosDevicesDirectory @ 0x14057A128 (ObpCreateDosDevicesDirectory.c)
+ *     CmpCopySaclToVirtualKey @ 0x140602258 (CmpCopySaclToVirtualKey.c)
+ *     RtlReplaceSidInSd @ 0x140683B4C (RtlReplaceSidInSd.c)
+ *     SepHasAllAppPackagesPresent @ 0x140694F0C (SepHasAllAppPackagesPresent.c)
+ *     LocalConvertSDToStringSD_Rev1 @ 0x1406CAFA0 (LocalConvertSDToStringSD_Rev1.c)
  * Callees:
  *     <none>
  */

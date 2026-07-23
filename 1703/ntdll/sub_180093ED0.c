@@ -11,7 +11,7 @@
 char __fastcall sub_180093ED0(__int64 a1, __int64 a2)
 {
   __int64 v2; // rsi
-  __int64 v5; // r14
+  _RTL_SRWLOCK *v5; // r14
   unsigned __int64 v6; // rdi
   unsigned __int64 v8; // rcx
   __int64 v9; // r14
@@ -35,7 +35,7 @@ char __fastcall sub_180093ED0(__int64 a1, __int64 a2)
   unsigned __int64 v27; // rcx
   unsigned __int16 v28; // ax
   int v29; // eax
-  __int64 v30; // rdx
+  _BYTE *Ptr; // rdx
   int v31; // eax
   unsigned __int16 v32; // ax
   char v33; // al
@@ -57,9 +57,9 @@ char __fastcall sub_180093ED0(__int64 a1, __int64 a2)
   unsigned __int16 v49; // ax
   int v50; // eax
   char v51; // al
-  __int64 v52; // rdx
+  _BYTE *v52; // rdx
   unsigned __int8 v53; // r8
-  __int64 v54; // rcx
+  _DWORD *v54; // rcx
   int v55; // eax
   unsigned __int16 v56; // ax
   int v57; // [rsp+28h] [rbp-20h]
@@ -71,7 +71,7 @@ char __fastcall sub_180093ED0(__int64 a1, __int64 a2)
 
   v2 = 0LL;
   if ( *(_BYTE *)(a1 + 386) == 2 )
-    v5 = *(_QWORD *)(a1 + 376);
+    v5 = *(_RTL_SRWLOCK **)(a1 + 376);
   else
     v5 = 0LL;
   if ( !v5 )
@@ -93,15 +93,15 @@ char __fastcall sub_180093ED0(__int64 a1, __int64 a2)
 LABEL_22:
   if ( *(char *)(v6 + 15) >= 0 )
   {
-    v30 = *(_QWORD *)(v5 + 24);
-    if ( ((*(_BYTE *)(v6 + 10) ^ (unsigned __int8)(*(_BYTE *)(v30 + 138) & (*(_DWORD *)(v30 + 124) >> 20))) & 1) == 0 )
+    Ptr = v5[3].Ptr;
+    if ( ((*(_BYTE *)(v6 + 10) ^ (unsigned __int8)(Ptr[138] & (*((_DWORD *)Ptr + 31) >> 20))) & 1) == 0 )
       goto LABEL_11;
-    if ( *(_DWORD *)(v30 + 124) )
+    if ( *((_DWORD *)Ptr + 31) )
     {
       v31 = *(_DWORD *)(v6 + 8);
       LOWORD(v59) = v31;
-      if ( (v31 & *(_DWORD *)(v30 + 124)) != 0 )
-        v59 = *(_DWORD *)(v30 + 136) ^ v31;
+      if ( (v31 & *((_DWORD *)Ptr + 31)) != 0 )
+        v59 = *((_DWORD *)Ptr + 34) ^ v31;
       v32 = v59;
     }
     else
@@ -251,12 +251,12 @@ LABEL_136:
           return 1;
         }
 LABEL_11:
-        if ( !sub_18008AC1C(v5, v6) && v5 != *(_QWORD *)a2 )
+        if ( !sub_18008AC1C(v5, v6) && v5 != *(_RTL_SRWLOCK **)a2 )
         {
-          v52 = *(_QWORD *)(v5 + 24);
+          v52 = v5[3].Ptr;
           v53 = *(_BYTE *)(v6 + 10);
-          if ( ((v53 ^ (unsigned __int8)(*(_BYTE *)(v52 + 138) & (*(_DWORD *)(v52 + 124) >> 20))) & 1) == 0
-            || ((v53 ^ (unsigned __int8)(*(_BYTE *)(v52 + 138) & (*(_DWORD *)(v52 + 124) >> 17))) & 8) == 0 )
+          if ( ((v53 ^ (unsigned __int8)(v52[138] & (*((_DWORD *)v52 + 31) >> 20))) & 1) == 0
+            || ((v53 ^ (unsigned __int8)(v52[138] & (*((_DWORD *)v52 + 31) >> 17))) & 8) == 0 )
           {
             return 0;
           }
@@ -264,13 +264,13 @@ LABEL_11:
         *(_BYTE *)(a2 + 16) = 16;
         *(_WORD *)(a2 + 18) = 8193;
         *(_QWORD *)(a2 + 36) = 16LL;
-        v54 = *(_QWORD *)(v5 + 24);
-        if ( *(_DWORD *)(v54 + 124) )
+        v54 = v5[3].Ptr;
+        if ( v54[31] )
         {
           v55 = *(_DWORD *)(v6 + 8);
           LOWORD(v62) = v55;
-          if ( (v55 & *(_DWORD *)(v54 + 124)) != 0 )
-            v62 = *(_DWORD *)(v54 + 136) ^ v55;
+          if ( (v55 & v54[31]) != 0 )
+            v62 = v54[34] ^ v55;
           v56 = v62;
         }
         else

@@ -1,17 +1,17 @@
 /*
- * XREFs of MiRescanPagefileBitmaps @ 0x14018806C
+ * XREFs of MiRescanPagefileBitmaps @ 0x1401881AC
  * Callers:
- *     MiFindFreePageFileSpace @ 0x14012413C (MiFindFreePageFileSpace.c)
+ *     MiFindFreePageFileSpace @ 0x14012420C (MiFindFreePageFileSpace.c)
  * Callees:
- *     MiRescanPageFileBitmapPortion @ 0x14012090C (MiRescanPageFileBitmapPortion.c)
- *     RtlFindNextClearRunUlong @ 0x140120B68 (RtlFindNextClearRunUlong.c)
- *     MiInitializePagefileBitmapsCache @ 0x140188224 (MiInitializePagefileBitmapsCache.c)
+ *     MiRescanPageFileBitmapPortion @ 0x1401209DC (MiRescanPageFileBitmapPortion.c)
+ *     RtlFindNextClearRunUlong @ 0x140120C38 (RtlFindNextClearRunUlong.c)
+ *     MiInitializePagefileBitmapsCache @ 0x140188364 (MiInitializePagefileBitmapsCache.c)
  */
 
 __int64 __fastcall MiRescanPagefileBitmaps(__int64 a1)
 {
   __int64 v2; // r8
-  unsigned __int64 v3; // rsi
+  __int64 v3; // rsi
   int v4; // edi
   unsigned int v5; // ebp
   __int64 v6; // rax
@@ -19,7 +19,7 @@ __int64 __fastcall MiRescanPagefileBitmaps(__int64 a1)
   unsigned int v8; // [rsp+30h] [rbp-28h] BYREF
   __int64 v9; // [rsp+38h] [rbp-20h]
   unsigned int v10; // [rsp+60h] [rbp+8h] BYREF
-  unsigned __int64 v11; // [rsp+68h] [rbp+10h] BYREF
+  __int64 v11; // [rsp+68h] [rbp+10h] BYREF
 
   MiInitializePagefileBitmapsCache();
   v3 = *(_QWORD *)(a1 + 176);

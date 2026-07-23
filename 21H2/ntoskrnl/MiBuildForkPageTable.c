@@ -1,18 +1,18 @@
 /*
- * XREFs of MiBuildForkPageTable @ 0x140557FCC
+ * XREFs of MiBuildForkPageTable @ 0x14055820C
  * Callers:
- *     MiUpdateForkMaps @ 0x14055B7A0 (MiUpdateForkMaps.c)
+ *     MiUpdateForkMaps @ 0x14055B9E0 (MiUpdateForkMaps.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x14024B280 (KeYieldProcessorEx.c)
- *     MiWritePteShadow @ 0x1402B69BC (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x1402B6A1C (MiPteHasShadow.c)
- *     MiLockPageInline @ 0x1402FFE30 (MiLockPageInline.c)
- *     MiChangePageAttribute @ 0x1403041E4 (MiChangePageAttribute.c)
- *     MiAddLockedPageCharge @ 0x14031A408 (MiAddLockedPageCharge.c)
- *     MiSwizzleInvalidPte @ 0x140329F90 (MiSwizzleInvalidPte.c)
- *     MiMakeValidPte @ 0x14032E730 (MiMakeValidPte.c)
- *     MiMakeTransitionPte @ 0x14032E9B0 (MiMakeTransitionPte.c)
- *     MiPteInShadowRange @ 0x140348AF0 (MiPteInShadowRange.c)
+ *     MiWritePteShadow @ 0x140234B9C (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140234BFC (MiPteHasShadow.c)
+ *     KeYieldProcessorEx @ 0x1402EFAD0 (KeYieldProcessorEx.c)
+ *     MiLockPageInline @ 0x14030AB80 (MiLockPageInline.c)
+ *     MiChangePageAttribute @ 0x14030EF34 (MiChangePageAttribute.c)
+ *     MiAddLockedPageCharge @ 0x140325158 (MiAddLockedPageCharge.c)
+ *     MiSwizzleInvalidPte @ 0x140334CE0 (MiSwizzleInvalidPte.c)
+ *     MiMakeValidPte @ 0x140339480 (MiMakeValidPte.c)
+ *     MiMakeTransitionPte @ 0x140339700 (MiMakeTransitionPte.c)
+ *     MiPteInShadowRange @ 0x140353840 (MiPteInShadowRange.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
@@ -40,7 +40,6 @@ char __fastcall MiBuildForkPageTable(__int64 a1, __int64 a2, unsigned __int64 a3
   __int64 TransitionPte; // rbx
   int v30; // ebp
   struct _KTHREAD *CurrentThread; // rax
-  __int64 v32; // r8
 
   v10 = 48 * a2 - 0x58000000000LL;
   v11 = 48 * a5 - 0x58000000000LL;
@@ -103,7 +102,7 @@ char __fastcall MiBuildForkPageTable(__int64 a1, __int64 a2, unsigned __int64 a3
     if ( (_DWORD)CurrentThread )
     {
       v30 = 1;
-      if ( HIBYTE(word_140C4E008) )
+      if ( HIBYTE(word_140C4E048) )
         goto LABEL_33;
     }
     else
@@ -121,7 +120,7 @@ char __fastcall MiBuildForkPageTable(__int64 a1, __int64 a2, unsigned __int64 a3
     if ( a6 == 3 && (MiFlags & 0xC00000) != 0 && *(_BYTE *)(a1 + 912) != 1 )
     {
       *(_QWORD *)((a3 & 0xFFF) + *(_QWORD *)(a1 + 1928)) = TransitionPte;
-      if ( !HIBYTE(word_140C4E008) )
+      if ( !HIBYTE(word_140C4E048) )
         TransitionPte |= 0x8000000000000000uLL;
     }
     v30 = 0;
@@ -132,7 +131,7 @@ char __fastcall MiBuildForkPageTable(__int64 a1, __int64 a2, unsigned __int64 a3
       if ( (_DWORD)CurrentThread )
       {
         v30 = 1;
-        if ( HIBYTE(word_140C4E008) )
+        if ( HIBYTE(word_140C4E048) )
           goto LABEL_33;
       }
       else
@@ -149,6 +148,6 @@ LABEL_32:
 LABEL_33:
   *a4 = TransitionPte;
   if ( v30 )
-    LOBYTE(CurrentThread) = MiWritePteShadow((__int64)a4, TransitionPte, v32);
+    LOBYTE(CurrentThread) = MiWritePteShadow((__int64)a4, TransitionPte);
   return (char)CurrentThread;
 }

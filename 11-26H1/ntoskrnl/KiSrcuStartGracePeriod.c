@@ -1,12 +1,12 @@
 /*
- * XREFs of KiSrcuStartGracePeriod @ 0x1405F5D68
+ * XREFs of KiSrcuStartGracePeriod @ 0x1405F8724
  * Callers:
- *     KeSrcuSynchronize @ 0x1407BB2C0 (KeSrcuSynchronize.c)
+ *     KeSrcuSynchronize @ 0x1407BE320 (KeSrcuSynchronize.c)
  * Callees:
- *     KeReleaseSpinLock @ 0x1402BE860 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14032F300 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiSrcuNotifyGracePeriodStarted @ 0x1405290A4 (KiSrcuNotifyGracePeriodStarted.c)
- *     KiSrcuFlushCompleted @ 0x14052EB44 (KiSrcuFlushCompleted.c)
+ *     KeReleaseSpinLock @ 0x140309520 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140331330 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiSrcuNotifyGracePeriodStarted @ 0x14052B694 (KiSrcuNotifyGracePeriodStarted.c)
+ *     KiSrcuFlushCompleted @ 0x140531064 (KiSrcuFlushCompleted.c)
  */
 
 _QWORD **__fastcall KiSrcuStartGracePeriod(KSPIN_LOCK *a1, KSPIN_LOCK *a2)

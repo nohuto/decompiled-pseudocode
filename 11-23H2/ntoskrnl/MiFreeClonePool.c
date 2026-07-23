@@ -1,18 +1,18 @@
 /*
- * XREFs of MiFreeClonePool @ 0x14066471C
+ * XREFs of MiFreeClonePool @ 0x140664C6C
  * Callers:
- *     MiDereferenceSegmentThread @ 0x1403A7C90 (MiDereferenceSegmentThread.c)
- *     MiProcessDereferenceList @ 0x1406250B4 (MiProcessDereferenceList.c)
- *     MiDeletePartitionResources @ 0x140659488 (MiDeletePartitionResources.c)
+ *     MiDereferenceSegmentThread @ 0x1403A7E70 (MiDereferenceSegmentThread.c)
+ *     MiProcessDereferenceList @ 0x140625604 (MiProcessDereferenceList.c)
+ *     MiDeletePartitionResources @ 0x1406599D8 (MiDeletePartitionResources.c)
  * Callees:
- *     MiUnlockPagedAddress @ 0x14035B2A4 (MiUnlockPagedAddress.c)
- *     RtlpInterlockedPopEntrySList @ 0x140428EB0 (RtlpInterlockedPopEntrySList.c)
+ *     MiUnlockPagedAddress @ 0x14035B444 (MiUnlockPagedAddress.c)
+ *     RtlpInterlockedPopEntrySList @ 0x140429240 (RtlpInterlockedPopEntrySList.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 
-PSLIST_ENTRY __fastcall MiFreeClonePool(union _SLIST_HEADER *a1)
+PSLIST_ENTRY __fastcall MiFreeClonePool(_SLIST_HEADER *a1)
 {
-  union _SLIST_HEADER *v1; // rbp
+  _SLIST_HEADER *v1; // rbp
   __int64 v2; // rdi
   unsigned __int64 v3; // rsi
   PSLIST_ENTRY result; // rax

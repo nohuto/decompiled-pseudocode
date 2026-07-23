@@ -1,30 +1,30 @@
 /*
- * XREFs of LdrControlFlowGuardEnforced @ 0x1800818D0
+ * XREFs of LdrControlFlowGuardEnforced @ 0x180078C70
  * Callers:
- *     RtlUnwindEx @ 0x180049930 (RtlUnwindEx.c)
- *     RtlpCallVectoredHandlers @ 0x18004CF90 (RtlpCallVectoredHandlers.c)
- *     RtlpRemoveVectoredHandler @ 0x18007E530 (RtlpRemoveVectoredHandler.c)
- *     RtlpAddVectoredHandler @ 0x18007FCD4 (RtlpAddVectoredHandler.c)
- *     RtlGuardRestoreContext @ 0x180080B50 (RtlGuardRestoreContext.c)
- *     RtlAddGrowableFunctionTable @ 0x180081550 (RtlAddGrowableFunctionTable.c)
- *     LdrEnsureMrdataHeapExists @ 0x180081F4C (LdrEnsureMrdataHeapExists.c)
- *     RtlDeleteGrowableFunctionTable @ 0x180082300 (RtlDeleteGrowableFunctionTable.c)
- *     AVrfCallAPILookupCallback @ 0x1800C5D7C (AVrfCallAPILookupCallback.c)
- *     LdrpUnsuppressAddressTakenIat @ 0x1800C6960 (LdrpUnsuppressAddressTakenIat.c)
- *     AVrfpSnapDllImports @ 0x1800C6E40 (AVrfpSnapDllImports.c)
- *     RtlInstallFunctionTableCallback @ 0x1800CCB20 (RtlInstallFunctionTableCallback.c)
- *     RtlDeleteFunctionTable @ 0x1800DB030 (RtlDeleteFunctionTable.c)
- *     RtlAddFunctionTable @ 0x1800E56B0 (RtlAddFunctionTable.c)
- *     RtlGrowFunctionTable @ 0x1800ED2C0 (RtlGrowFunctionTable.c)
- *     RtlSetProtectedPolicy @ 0x1800F9120 (RtlSetProtectedPolicy.c)
- *     LdrpInitializeCfgScpHelpers @ 0x1800FF4BC (LdrpInitializeCfgScpHelpers.c)
- *     LdrpInitializeExecutionOptions @ 0x180118558 (LdrpInitializeExecutionOptions.c)
- *     RtlRemoteCall @ 0x180148280 (RtlRemoteCall.c)
+ *     RtlUnwindEx @ 0x180033EB0 (RtlUnwindEx.c)
+ *     RtlpCallVectoredHandlers @ 0x180037510 (RtlpCallVectoredHandlers.c)
+ *     RtlpAddVectoredHandler @ 0x180077074 (RtlpAddVectoredHandler.c)
+ *     RtlGuardRestoreContext @ 0x180077EF0 (RtlGuardRestoreContext.c)
+ *     RtlAddGrowableFunctionTable @ 0x1800788F0 (RtlAddGrowableFunctionTable.c)
+ *     LdrEnsureMrdataHeapExists @ 0x1800792EC (LdrEnsureMrdataHeapExists.c)
+ *     RtlDeleteGrowableFunctionTable @ 0x1800796A0 (RtlDeleteGrowableFunctionTable.c)
+ *     AVrfCallAPILookupCallback @ 0x1800C353C (AVrfCallAPILookupCallback.c)
+ *     LdrpUnsuppressAddressTakenIat @ 0x1800C4120 (LdrpUnsuppressAddressTakenIat.c)
+ *     AVrfpSnapDllImports @ 0x1800C4600 (AVrfpSnapDllImports.c)
+ *     RtlInstallFunctionTableCallback @ 0x1800CA290 (RtlInstallFunctionTableCallback.c)
+ *     RtlDeleteFunctionTable @ 0x1800D7FF0 (RtlDeleteFunctionTable.c)
+ *     RtlpRemoveVectoredHandler @ 0x1800DFA80 (RtlpRemoveVectoredHandler.c)
+ *     RtlAddFunctionTable @ 0x1800E3560 (RtlAddFunctionTable.c)
+ *     RtlGrowFunctionTable @ 0x1800EC760 (RtlGrowFunctionTable.c)
+ *     RtlSetProtectedPolicy @ 0x1800F8890 (RtlSetProtectedPolicy.c)
+ *     LdrpInitializeCfgScpHelpers @ 0x1800FEC0C (LdrpInitializeCfgScpHelpers.c)
+ *     LdrpInitializeExecutionOptions @ 0x180118308 (LdrpInitializeExecutionOptions.c)
+ *     RtlRemoteCall @ 0x180148130 (RtlRemoteCall.c)
  * Callees:
  *     <none>
  */
 
-_BOOL8 LdrControlFlowGuardEnforced()
+BOOLEAN LdrControlFlowGuardEnforced(void)
 {
-  return qword_1801E3518 && (dword_1801E34FC & 1) == 0;
+  return LdrSystemDllInitBlock.CfgBitMap && (LdrSystemDllInitBlock.Flags & 1) == 0;
 }

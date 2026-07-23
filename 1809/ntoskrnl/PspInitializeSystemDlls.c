@@ -1,12 +1,12 @@
 /*
- * XREFs of PspInitializeSystemDlls @ 0x1409D6048
+ * XREFs of PspInitializeSystemDlls @ 0x1409D7048
  * Callers:
- *     PspInitPhase2 @ 0x1409D5F0C (PspInitPhase2.c)
+ *     PspInitPhase2 @ 0x1409D6F0C (PspInitPhase2.c)
  * Callees:
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
- *     PspWow64GetSharedInformation @ 0x1406783DC (PspWow64GetSharedInformation.c)
- *     RtlFindExportedRoutineByName @ 0x140678EC0 (RtlFindExportedRoutineByName.c)
- *     PsQuerySystemDllInfo @ 0x1406820BC (PsQuerySystemDllInfo.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
+ *     PspWow64GetSharedInformation @ 0x14067959C (PspWow64GetSharedInformation.c)
+ *     RtlFindExportedRoutineByName @ 0x14067A080 (RtlFindExportedRoutineByName.c)
+ *     PsQuerySystemDllInfo @ 0x14068327C (PsQuerySystemDllInfo.c)
  */
 
 __int64 PspInitializeSystemDlls()
@@ -21,7 +21,7 @@ __int64 PspInitializeSystemDlls()
   char *ExportedRoutineByName; // rax
 
   v0 = 0;
-  v1 = &qword_1409FCAB8;
+  v1 = &qword_1409FDAB8;
   do
   {
     result = PsQuerySystemDllInfo(v0);
@@ -34,7 +34,7 @@ __int64 PspInitializeSystemDlls()
             **(_QWORD **)(v4 + 8 * v6 + 8) = &ExportedRoutineByName[*(_QWORD *)(v3 + 24) - *(_QWORD *)(v3 + 32)] )
       {
         v6 = 2LL * i;
-        ExportedRoutineByName = RtlFindExportedRoutineByName(*(char **)(v3 + 32), *(char **)(v4 + 16LL * i));
+        ExportedRoutineByName = (char *)RtlFindExportedRoutineByName(*(PVOID *)(v3 + 32), *(PCSTR *)(v4 + 16LL * i));
         if ( !ExportedRoutineByName )
           KeBugCheckEx(0x6Bu, 0xFFFFFFFFC000007AuLL, 6uLL, 0LL, 0LL);
         ++i;

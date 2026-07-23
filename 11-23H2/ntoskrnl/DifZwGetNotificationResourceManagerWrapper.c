@@ -1,13 +1,13 @@
 /*
- * XREFs of DifZwGetNotificationResourceManagerWrapper @ 0x1405F0BF0
+ * XREFs of DifZwGetNotificationResourceManagerWrapper @ 0x1405F1160
  * Callers:
  *     <none>
  * Callees:
- *     ZwGetNotificationResourceManager @ 0x14041CD80 (ZwGetNotificationResourceManager.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     memset @ 0x140435A00 (memset.c)
- *     DifGetAPIThunkContextById @ 0x1404664BE (DifGetAPIThunkContextById.c)
- *     DifGetReturnAddressForWrappers @ 0x1405F88C4 (DifGetReturnAddressForWrappers.c)
+ *     ZwGetNotificationResourceManager @ 0x14041D110 (ZwGetNotificationResourceManager.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     DifGetAPIThunkContextById @ 0x1404668BE (DifGetAPIThunkContextById.c)
+ *     DifGetReturnAddressForWrappers @ 0x1405F8E34 (DifGetReturnAddressForWrappers.c)
  */
 
 NTSTATUS __fastcall DifZwGetNotificationResourceManagerWrapper(

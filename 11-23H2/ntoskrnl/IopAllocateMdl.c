@@ -1,25 +1,25 @@
 /*
- * XREFs of IopAllocateMdl @ 0x1402FC0EC
+ * XREFs of IopAllocateMdl @ 0x1402FC37C
  * Callers:
  *     IopAllocateAndPopulateWriteIrp @ 0x140224220 (IopAllocateAndPopulateWriteIrp.c)
- *     IopBuildDeviceIoControlRequest @ 0x140251210 (IopBuildDeviceIoControlRequest.c)
- *     CcZeroDataInCache @ 0x1402FBF18 (CcZeroDataInCache.c)
- *     CcPrepareMdlWrite @ 0x140369190 (CcPrepareMdlWrite.c)
- *     IopBuildAsynchronousFsdRequest @ 0x140371BF0 (IopBuildAsynchronousFsdRequest.c)
- *     MiZeroPageWrite @ 0x1403C17F4 (MiZeroPageWrite.c)
- *     HalBuildMdlFromScatterGatherListV2 @ 0x1403D3FF0 (HalBuildMdlFromScatterGatherListV2.c)
- *     HalpDmaCheckMdlAccessibility @ 0x1404FF724 (HalpDmaCheckMdlAccessibility.c)
- *     HalBuildMdlFromScatterGatherListV3 @ 0x14050EAC0 (HalBuildMdlFromScatterGatherListV3.c)
- *     CcLockSystemCacheBuffer @ 0x140537760 (CcLockSystemCacheBuffer.c)
- *     HvlGetCoverageData @ 0x14053F5B8 (HvlGetCoverageData.c)
- *     IoWriteCapturedPristineTriageDumpToDedicatedDumpFile @ 0x1405510E4 (IoWriteCapturedPristineTriageDumpToDedicatedDumpFile.c)
- *     MmAllocateMdlForIoSpace @ 0x14061EB50 (MmAllocateMdlForIoSpace.c)
- *     MiLockPatchIatForDV @ 0x1406404A0 (MiLockPatchIatForDV.c)
- *     MiPrepareImagePagesForHotPatch @ 0x1406428C8 (MiPrepareImagePagesForHotPatch.c)
- *     IopMcCreatePartialMdl @ 0x1409516CC (IopMcCreatePartialMdl.c)
+ *     IopBuildDeviceIoControlRequest @ 0x1402512D0 (IopBuildDeviceIoControlRequest.c)
+ *     CcZeroDataInCache @ 0x1402FC1A8 (CcZeroDataInCache.c)
+ *     CcPrepareMdlWrite @ 0x140369330 (CcPrepareMdlWrite.c)
+ *     IopBuildAsynchronousFsdRequest @ 0x140371D90 (IopBuildAsynchronousFsdRequest.c)
+ *     MiZeroPageWrite @ 0x1403C19D4 (MiZeroPageWrite.c)
+ *     HalBuildMdlFromScatterGatherListV2 @ 0x1403D41D0 (HalBuildMdlFromScatterGatherListV2.c)
+ *     HalpDmaCheckMdlAccessibility @ 0x1404FFC74 (HalpDmaCheckMdlAccessibility.c)
+ *     HalBuildMdlFromScatterGatherListV3 @ 0x14050F010 (HalBuildMdlFromScatterGatherListV3.c)
+ *     CcLockSystemCacheBuffer @ 0x140537CB0 (CcLockSystemCacheBuffer.c)
+ *     HvlGetCoverageData @ 0x14053FC78 (HvlGetCoverageData.c)
+ *     IoWriteCapturedPristineTriageDumpToDedicatedDumpFile @ 0x1405517A4 (IoWriteCapturedPristineTriageDumpToDedicatedDumpFile.c)
+ *     MmAllocateMdlForIoSpace @ 0x14061F0A0 (MmAllocateMdlForIoSpace.c)
+ *     MiLockPatchIatForDV @ 0x1406409F0 (MiLockPatchIatForDV.c)
+ *     MiPrepareImagePagesForHotPatch @ 0x140642E18 (MiPrepareImagePagesForHotPatch.c)
+ *     IopMcCreatePartialMdl @ 0x1409518CC (IopMcCreatePartialMdl.c)
  * Callees:
- *     RtlpInterlockedPopEntrySList @ 0x140428EB0 (RtlpInterlockedPopEntrySList.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
+ *     RtlpInterlockedPopEntrySList @ 0x140429240 (RtlpInterlockedPopEntrySList.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
 

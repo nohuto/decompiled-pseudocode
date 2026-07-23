@@ -1,11 +1,11 @@
 /*
- * XREFs of PpmEventGetEventDescriptorAndProcessorId @ 0x140398FCC
+ * XREFs of PpmEventGetEventDescriptorAndProcessorId @ 0x14039911C
  * Callers:
- *     PpmEventBiosCapChange @ 0x140392CD0 (PpmEventBiosCapChange.c)
- *     PpmEventProcessorPerfStateChange @ 0x140398E88 (PpmEventProcessorPerfStateChange.c)
- *     PpmEventTraceExpectedUtility @ 0x140398F28 (PpmEventTraceExpectedUtility.c)
- *     PpmEventAutonomousModeChange @ 0x1405792A0 (PpmEventAutonomousModeChange.c)
- *     PpmEventThermalCapChange @ 0x14057A638 (PpmEventThermalCapChange.c)
+ *     PpmEventBiosCapChange @ 0x140392E20 (PpmEventBiosCapChange.c)
+ *     PpmEventProcessorPerfStateChange @ 0x140398FD8 (PpmEventProcessorPerfStateChange.c)
+ *     PpmEventTraceExpectedUtility @ 0x140399078 (PpmEventTraceExpectedUtility.c)
+ *     PpmEventAutonomousModeChange @ 0x1405794E0 (PpmEventAutonomousModeChange.c)
+ *     PpmEventThermalCapChange @ 0x14057A878 (PpmEventThermalCapChange.c)
  * Callees:
  *     <none>
  */

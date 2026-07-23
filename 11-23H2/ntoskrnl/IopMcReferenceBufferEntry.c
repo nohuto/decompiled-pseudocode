@@ -1,10 +1,10 @@
 /*
- * XREFs of IopMcReferenceBufferEntry @ 0x14055F138
+ * XREFs of IopMcReferenceBufferEntry @ 0x14055F7F8
  * Callers:
- *     IopMcFindNextTableEntryForUnlock @ 0x14055EFA4 (IopMcFindNextTableEntryForUnlock.c)
- *     IopMcGetBuffer @ 0x140951780 (IopMcGetBuffer.c)
+ *     IopMcFindNextTableEntryForUnlock @ 0x14055F664 (IopMcFindNextTableEntryForUnlock.c)
+ *     IopMcGetBuffer @ 0x140951980 (IopMcGetBuffer.c)
  * Callees:
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall IopMcReferenceBufferEntry(ULONG_PTR BugCheckParameter2)

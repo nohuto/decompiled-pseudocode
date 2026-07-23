@@ -1,23 +1,23 @@
 /*
- * XREFs of CmFcpManagerPublishFeatureUsageData @ 0x140ABF83C
+ * XREFs of CmFcpManagerPublishFeatureUsageData @ 0x140AC18DC
  * Callers:
- *     CmFcShutdownSystem @ 0x140854C94 (CmFcShutdownSystem.c)
- *     CmFcpManagerPublishFeatureUsageDataIfNearCapacity @ 0x140ABF4C0 (CmFcpManagerPublishFeatureUsageDataIfNearCapacity.c)
- *     CmFcpManagerProcessUsageDataProviders @ 0x140ABF658 (CmFcpManagerProcessUsageDataProviders.c)
- *     CmFcManagerStartRuntimePhase @ 0x140CF0AF0 (CmFcManagerStartRuntimePhase.c)
+ *     CmFcShutdownSystem @ 0x14085AFA4 (CmFcShutdownSystem.c)
+ *     CmFcpManagerPublishFeatureUsageDataIfNearCapacity @ 0x140AC1560 (CmFcpManagerPublishFeatureUsageDataIfNearCapacity.c)
+ *     CmFcpManagerProcessUsageDataProviders @ 0x140AC16F8 (CmFcpManagerProcessUsageDataProviders.c)
+ *     CmFcManagerStartRuntimePhase @ 0x140CF6E68 (CmFcManagerStartRuntimePhase.c)
  * Callees:
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     ExfTryToWakePushLock @ 0x1403170A0 (ExfTryToWakePushLock.c)
- *     CmpWorkItemQueueWork @ 0x140356AAC (CmpWorkItemQueueWork.c)
- *     RtlpFcInitializeDelayedFeatureUsageDataBuffer @ 0x1404EA330 (RtlpFcInitializeDelayedFeatureUsageDataBuffer.c)
- *     RtlpFcSizeOfFeatureUsageDataBuffer @ 0x1404F94C4 (RtlpFcSizeOfFeatureUsageDataBuffer.c)
- *     CmFcpManagerAddBufferIntoPublishListAndSetPublishState @ 0x140ABFA00 (CmFcpManagerAddBufferIntoPublishListAndSetPublishState.c)
- *     RtlUpdateSwapReference @ 0x140ABFBBC (RtlUpdateSwapReference.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     ExfTryToWakePushLock @ 0x1403190D0 (ExfTryToWakePushLock.c)
+ *     CmpWorkItemQueueWork @ 0x14035884C (CmpWorkItemQueueWork.c)
+ *     RtlpFcInitializeDelayedFeatureUsageDataBuffer @ 0x1404E36E0 (RtlpFcInitializeDelayedFeatureUsageDataBuffer.c)
+ *     RtlpFcSizeOfFeatureUsageDataBuffer @ 0x1404F2AD4 (RtlpFcSizeOfFeatureUsageDataBuffer.c)
+ *     CmFcpManagerAddBufferIntoPublishListAndSetPublishState @ 0x140AC1AA0 (CmFcpManagerAddBufferIntoPublishListAndSetPublishState.c)
+ *     RtlUpdateSwapReference @ 0x140AC1C5C (RtlUpdateSwapReference.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
  */
 
 void __fastcall CmFcpManagerPublishFeatureUsageData(__int64 a1, char a2, __int64 a3, struct _KLOCK_ENTRIES *a4)
@@ -38,14 +38,14 @@ void __fastcall CmFcpManagerPublishFeatureUsageData(__int64 a1, char a2, __int64
   size_t v18; // [rsp+50h] [rbp+8h]
 
   v5 = 0;
-  if ( _InterlockedCompareExchange((volatile signed __int32 *)(a1 + 1792), 2, 0) == 1 )
+  if ( _InterlockedCompareExchange((volatile signed __int32 *)(a1 + 1864), 2, 0) == 1 )
   {
     if ( !a2 )
     {
       CurrentThread = KeGetCurrentThread();
-      v7 = (unsigned __int64 *)(a1 + 1400);
+      v7 = (unsigned __int64 *)(a1 + 1472);
       --CurrentThread->KernelApcDisable;
-      v8 = (AutoBoost *)KeAbPreAcquire(a1 + 1400, 0LL, 0LL, a4);
+      v8 = (AutoBoost *)KeAbPreAcquire(a1 + 1472, 0LL, 0LL, a4);
       v10 = v8;
       if ( _interlockedbittestandset64((volatile signed __int32 *)v7, 0LL) )
         ExfAcquirePushLockExclusiveEx(v7, v8, (__int64)v7);
@@ -59,14 +59,14 @@ void __fastcall CmFcpManagerPublishFeatureUsageData(__int64 a1, char a2, __int64
       v5 = 1;
     }
     v11 = *(_QWORD *)(a1 + 944) & 1LL;
-    v12 = *(_QWORD *)(a1 + 8 * v11 + 1320);
-    if ( *(_BYTE *)(a1 + 1784) )
+    v12 = *(_QWORD *)(a1 + 8 * v11 + 1392);
+    if ( *(_BYTE *)(a1 + 1856) )
     {
       if ( *(_DWORD *)(v12 + 16) )
       {
         v13 = ((_BYTE)v11 - 1) & 1;
-        v14 = (*(_DWORD *)(a1 + 1336) + 511 + *(_DWORD *)(v12 + 20)) & 0xFFFFFE00;
-        *(_DWORD *)(a1 + 1336) = v14;
+        v14 = (*(_DWORD *)(a1 + 1408) + 511 + *(_DWORD *)(v12 + 20)) & 0xFFFFFE00;
+        *(_DWORD *)(a1 + 1408) = v14;
         v15 = v14 + 508;
         v18 = RtlpFcSizeOfFeatureUsageDataBuffer(v14 + 508);
         Pool2 = (_DWORD *)ExAllocatePool2(0x40uLL);
@@ -75,10 +75,10 @@ void __fastcall CmFcpManagerPublishFeatureUsageData(__int64 a1, char a2, __int64
         {
           RtlpFcInitializeDelayedFeatureUsageDataBuffer(Pool2, v18);
           v17[7] = v15;
-          *(_QWORD *)(a1 + 8 * v13 + 1320) = v17;
+          *(_QWORD *)(a1 + 8 * v13 + 1392) = v17;
           RtlUpdateSwapReference(a1 + 944);
           if ( (unsigned __int8)CmFcpManagerAddBufferIntoPublishListAndSetPublishState(a1, v12) == 1 )
-            CmpWorkItemQueueWork((PWORK_QUEUE_ITEM)(a1 + 1616));
+            CmpWorkItemQueueWork((PWORK_QUEUE_ITEM)(a1 + 1688));
         }
       }
     }
@@ -88,9 +88,9 @@ void __fastcall CmFcpManagerPublishFeatureUsageData(__int64 a1, char a2, __int64
     }
     if ( v5 == 1 )
     {
-      if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)(a1 + 1400), 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-        ExfTryToWakePushLock((volatile signed __int64 *)(a1 + 1400));
-      KeAbPostRelease(a1 + 1400);
+      if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)(a1 + 1472), 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+        ExfTryToWakePushLock((volatile signed __int64 *)(a1 + 1472));
+      KeAbPostRelease(a1 + 1472);
       KeLeaveCriticalRegion();
     }
   }

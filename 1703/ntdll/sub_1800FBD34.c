@@ -8,14 +8,14 @@
  *     sub_1800FAA04 @ 0x1800FAA04 (sub_1800FAA04.c)
  */
 
-__int64 __fastcall sub_1800FBD34(unsigned __int64 a1, __int16 a2, __int16 a3, char a4)
+_QWORD *__fastcall sub_1800FBD34(const void **BaseAddress, __int16 a2, __int16 a3, char a4)
 {
-  __int64 v4; // rdi
+  _QWORD *v4; // rdi
   __int16 v7; // ax
   __int16 v8; // cx
   unsigned __int64 v9; // rsi
   unsigned __int64 v10; // rbp
-  __int64 v11; // rax
+  _QWORD *v11; // rax
 
   v4 = 0LL;
   v7 = 4;
@@ -24,26 +24,26 @@ __int64 __fastcall sub_1800FBD34(unsigned __int64 a1, __int16 a2, __int16 a3, ch
   v8 = 40;
   if ( a3 >= 1 )
     v8 = a3;
-  if ( a1 )
+  if ( BaseAddress )
   {
-    if ( v7 >= (int)*(unsigned __int16 *)(a1 + 6) && v8 >= (int)*(unsigned __int16 *)(a1 + 10) )
+    if ( v7 >= (int)*((unsigned __int16 *)BaseAddress + 3) && v8 >= (int)*((unsigned __int16 *)BaseAddress + 5) )
     {
-      v9 = 2LL * *(unsigned __int16 *)(a1 + 4);
+      v9 = 2LL * *((unsigned __int16 *)BaseAddress + 2);
       if ( v9 <= 0xFFFFFFFF )
       {
-        v10 = 2LL * *(unsigned __int16 *)(a1 + 8);
+        v10 = 2LL * *((unsigned __int16 *)BaseAddress + 4);
         if ( v10 <= 0xFFFFFFFF )
         {
           v11 = sub_1800FAA04(v7, v8);
           v4 = v11;
           if ( v11 )
           {
-            memmove(*(void **)(v11 + 16), *(const void **)(a1 + 16), (unsigned int)v9);
-            memmove(*(void **)(v4 + 24), *(const void **)(a1 + 24), (unsigned int)v10);
-            *(_WORD *)(v4 + 6) = *(_WORD *)(a1 + 6);
-            *(_WORD *)(v4 + 10) = *(_WORD *)(a1 + 10);
+            memmove((void *)v11[2], BaseAddress[2], (unsigned int)v9);
+            memmove((void *)v4[3], BaseAddress[3], (unsigned int)v10);
+            *((_WORD *)v4 + 3) = *((_WORD *)BaseAddress + 3);
+            *((_WORD *)v4 + 5) = *((_WORD *)BaseAddress + 5);
             if ( !a4 )
-              sub_18006EBF4(a1);
+              sub_18006EBF4(BaseAddress);
           }
         }
       }

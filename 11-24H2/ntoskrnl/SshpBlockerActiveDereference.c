@@ -1,10 +1,10 @@
 /*
- * XREFs of SshpBlockerActiveDereference @ 0x14044DC58
+ * XREFs of SshpBlockerActiveDereference @ 0x140444B58
  * Callers:
- *     SleepstudyHelperBlockerActiveDereference @ 0x14044DC00 (SleepstudyHelperBlockerActiveDereference.c)
- *     SshpDereferenceBlocker @ 0x14047C6F0 (SshpDereferenceBlocker.c)
+ *     SleepstudyHelperBlockerActiveDereference @ 0x140444B00 (SleepstudyHelperBlockerActiveDereference.c)
+ *     SshpDereferenceBlocker @ 0x140477900 (SshpDereferenceBlocker.c)
  * Callees:
- *     SshpIterateParentBlockers @ 0x14044DD1C (SshpIterateParentBlockers.c)
+ *     SshpIterateParentBlockers @ 0x140444C1C (SshpIterateParentBlockers.c)
  */
 
 __int64 __fastcall SshpBlockerActiveDereference(__int64 a1, int a2)

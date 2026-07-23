@@ -1,16 +1,16 @@
 /*
- * XREFs of PiUEventBroadcastEventWorker @ 0x140773BF0
+ * XREFs of PiUEventBroadcastEventWorker @ 0x140773DB0
  * Callers:
  *     <none>
  * Callees:
- *     MmGetSessionById @ 0x140206410 (MmGetSessionById.c)
- *     KeReleaseGuardedMutex @ 0x140265CD0 (KeReleaseGuardedMutex.c)
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     ExAcquireFastMutex @ 0x14034A080 (ExAcquireFastMutex.c)
- *     ZwUpdateWnfStateData @ 0x1403FDDA0 (ZwUpdateWnfStateData.c)
- *     PiUEventBroadcastHardwareProfilesChangedEvent @ 0x1408A2B00 (PiUEventBroadcastHardwareProfilesChangedEvent.c)
- *     PiUEventBroadcastPortsChangedEvent @ 0x1408A2B8C (PiUEventBroadcastPortsChangedEvent.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     KeReleaseGuardedMutex @ 0x140253C70 (KeReleaseGuardedMutex.c)
+ *     MmGetSessionById @ 0x1402AAD40 (MmGetSessionById.c)
+ *     ExAcquireFastMutex @ 0x140354DD0 (ExAcquireFastMutex.c)
+ *     ZwUpdateWnfStateData @ 0x1403FDF80 (ZwUpdateWnfStateData.c)
+ *     PiUEventBroadcastHardwareProfilesChangedEvent @ 0x1408A2C60 (PiUEventBroadcastHardwareProfilesChangedEvent.c)
+ *     PiUEventBroadcastPortsChangedEvent @ 0x1408A2CEC (PiUEventBroadcastPortsChangedEvent.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 void __fastcall PiUEventBroadcastEventWorker(PVOID P)
@@ -21,13 +21,14 @@ void __fastcall PiUEventBroadcastEventWorker(PVOID P)
   __int64 v5; // rdx
   int v6; // ecx
   __int64 v7; // rcx
-  __int64 *v8; // rcx
+  const WNF_STATE_NAME *v8; // rcx
   __int64 v9; // rcx
   int v10; // ecx
   __int64 v11; // rcx
   struct _DMA_ADAPTER *SessionById; // rbx
-  __int64 *v13; // rcx
+  const WNF_STATE_NAME *v13; // rcx
   int v14; // ecx
+  int ExplicitScope; // [rsp+58h] [rbp+10h] BYREF
 
   v2 = 0;
   do
@@ -42,11 +43,12 @@ void __fastcall PiUEventBroadcastEventWorker(PVOID P)
       if ( !v6 )
       {
         v7 = (unsigned int)v3[6];
+        ExplicitScope = v7;
         if ( (_DWORD)v7 == -1 )
         {
           v8 = &WNF_PNPA_DEVNODES_CHANGED;
 LABEL_6:
-          ZwUpdateWnfStateData((__int64)v8, 0LL);
+          ZwUpdateWnfStateData(v8, 0LL, 0, 0LL, 0LL, 0, 0);
           goto LABEL_7;
         }
         SessionById = (struct _DMA_ADAPTER *)MmGetSessionById(v7, v5);
@@ -59,17 +61,18 @@ LABEL_6:
       if ( !v10 )
       {
         v11 = (unsigned int)v3[6];
+        ExplicitScope = v11;
         if ( (_DWORD)v11 == -1 )
         {
-          v8 = &WNF_PNPA_VOLUMES_CHANGED;
+          v8 = (const WNF_STATE_NAME *)&WNF_PNPA_VOLUMES_CHANGED;
           goto LABEL_6;
         }
         SessionById = (struct _DMA_ADAPTER *)MmGetSessionById(v11, v5);
         if ( !SessionById )
           goto LABEL_7;
-        v13 = &WNF_PNPA_VOLUMES_CHANGED_SESSION;
+        v13 = (const WNF_STATE_NAME *)&WNF_PNPA_VOLUMES_CHANGED_SESSION;
 LABEL_18:
-        ZwUpdateWnfStateData((__int64)v13, 0LL);
+        ZwUpdateWnfStateData(v13, 0LL, 0, 0LL, &ExplicitScope, 0, 0);
         HalPutDmaAdapter(SessionById);
         goto LABEL_7;
       }

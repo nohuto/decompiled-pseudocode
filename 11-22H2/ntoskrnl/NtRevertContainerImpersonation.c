@@ -6,7 +6,7 @@
  *     PspRevertContainerImpersonation @ 0x140259D1C (PspRevertContainerImpersonation.c)
  */
 
-__int64 NtRevertContainerImpersonation()
+NTSTATUS NtRevertContainerImpersonation(void)
 {
   return PspRevertContainerImpersonation((ULONG_PTR)KeGetCurrentThread());
 }

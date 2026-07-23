@@ -11,46 +11,48 @@
  *     _memcmp @ 0x4B2F8860 (_memcmp.c)
  */
 
-int __stdcall RtlAddScopedPolicyIDAce(int a1, unsigned int a2, int a3, int a4, unsigned __int8 *Src)
+NTSTATUS __cdecl RtlAddScopedPolicyIDAce(PACL Acl, ULONG AceRevision, ULONG AceFlags, ULONG AccessMask, PSID Sid)
 {
-  int result; // eax
-  unsigned __int8 v6; // bl
-  unsigned int v7; // edx
+  NTSTATUS result; // eax
+  unsigned __int8 AclRevision; // bl
+  char *v7; // edx
   unsigned __int16 v8; // ax
-  unsigned int v9; // [esp+Ch] [ebp-10h] BYREF
+  size_t v9; // [esp-4h] [ebp-20h]
+  PVOID FirstFree; // [esp+Ch] [ebp-10h] BYREF
   int Buf2; // [esp+10h] [ebp-Ch] BYREF
-  __int16 v11; // [esp+14h] [ebp-8h]
+  __int16 v12; // [esp+14h] [ebp-8h]
 
-  v9 = 0;
+  FirstFree = 0;
   Buf2 = 0;
-  v11 = 4352;
-  if ( !a1 )
+  v12 = 4352;
+  if ( !Acl )
     return -1073741705;
-  if ( !RtlValidSid(Src) )
+  if ( !RtlValidSid(Sid) )
     return -1073741704;
-  if ( memcmp(Src + 2, &Buf2, 6u) )
+  LODWORD(v9) = 6;
+  if ( memcmp((char *)Sid + 2, &Buf2, v9) )
     return -1073741811;
-  v6 = *(_BYTE *)a1;
-  if ( *(_BYTE *)a1 > 4u || a2 > 4 )
+  AclRevision = Acl->AclRevision;
+  if ( Acl->AclRevision > 4u || AceRevision > 4 )
     return -1073741735;
-  if ( v6 <= (unsigned __int8)a2 )
-    v6 = a2;
-  if ( (a3 & 0xFFFFFFE0) != 0 || a4 )
+  if ( AclRevision <= (unsigned __int8)AceRevision )
+    AclRevision = AceRevision;
+  if ( (AceFlags & 0xFFFFFFE0) != 0 || AccessMask )
     return -1073741811;
-  if ( !RtlValidAcl(a1) || !RtlFirstFreeAce(a1, &v9) )
+  if ( !RtlValidAcl(Acl) || !RtlFirstFreeAce(Acl, &FirstFree) )
     return -1073741705;
-  v7 = v9;
-  v8 = 4 * (Src[1] + 4);
+  v7 = (char *)FirstFree;
+  v8 = 4 * (*((unsigned __int8 *)Sid + 1) + 4);
   Buf2 = v8;
-  if ( !v9 || v9 + v8 > a1 + (unsigned int)*(unsigned __int16 *)(a1 + 2) )
+  if ( !FirstFree || (char *)FirstFree + v8 > (char *)Acl + Acl->AclSize )
     return -1073741671;
-  *(_DWORD *)(v9 + 4) = 0;
-  *(_BYTE *)(v7 + 1) = a3;
-  *(_WORD *)(v7 + 2) = Buf2;
-  *(_BYTE *)v7 = 19;
-  RtlCopySid(4 * Src[1] + 8, (void *)(v7 + 8), Src);
-  ++*(_WORD *)(a1 + 4);
+  *((_DWORD *)FirstFree + 1) = 0;
+  v7[1] = AceFlags;
+  *((_WORD *)v7 + 1) = Buf2;
+  *v7 = 19;
+  RtlCopySid(4 * *((unsigned __int8 *)Sid + 1) + 8, v7 + 8, Sid);
+  ++Acl->AceCount;
   result = 0;
-  *(_BYTE *)a1 = v6;
+  Acl->AclRevision = AclRevision;
   return result;
 }

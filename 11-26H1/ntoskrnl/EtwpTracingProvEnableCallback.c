@@ -1,22 +1,22 @@
 /*
- * XREFs of EtwpTracingProvEnableCallback @ 0x140B4C3A0
+ * XREFs of EtwpTracingProvEnableCallback @ 0x140B4E130
  * Callers:
  *     <none>
  * Callees:
- *     EtwEventEnabled @ 0x140212D90 (EtwEventEnabled.c)
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     ExfReleasePushLock @ 0x1402E3120 (ExfReleasePushLock.c)
- *     EtwpEventWriteEnableInfo @ 0x1408253AC (EtwpEventWriteEnableInfo.c)
- *     EtwpEventWriteGuidEntry @ 0x140825498 (EtwpEventWriteGuidEntry.c)
- *     EtwpEventWriteRegEntry @ 0x140825518 (EtwpEventWriteRegEntry.c)
- *     EtwpAcquireLoggerContextByLoggerId @ 0x14091EFC0 (EtwpAcquireLoggerContextByLoggerId.c)
- *     EtwpGetNextGuidEntry @ 0x1409366D0 (EtwpGetNextGuidEntry.c)
- *     EtwpReleaseLoggerContext @ 0x14093D918 (EtwpReleaseLoggerContext.c)
- *     EtwpEventWriteTemplateSession @ 0x140A7010C (EtwpEventWriteTemplateSession.c)
+ *     EtwEventEnabled @ 0x140212E70 (EtwEventEnabled.c)
+ *     ExfReleasePushLock @ 0x14021B220 (ExfReleasePushLock.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     EtwpEventWriteEnableInfo @ 0x14082B5EC (EtwpEventWriteEnableInfo.c)
+ *     EtwpEventWriteGuidEntry @ 0x14082B6D8 (EtwpEventWriteGuidEntry.c)
+ *     EtwpEventWriteRegEntry @ 0x14082B758 (EtwpEventWriteRegEntry.c)
+ *     EtwpGetNextGuidEntry @ 0x140912280 (EtwpGetNextGuidEntry.c)
+ *     EtwpReleaseLoggerContext @ 0x1409194B8 (EtwpReleaseLoggerContext.c)
+ *     EtwpAcquireLoggerContextByLoggerId @ 0x140979A20 (EtwpAcquireLoggerContextByLoggerId.c)
+ *     EtwpEventWriteTemplateSession @ 0x140AB32A0 (EtwpEventWriteTemplateSession.c)
  */
 
 void __fastcall EtwpTracingProvEnableCallback(
@@ -102,14 +102,17 @@ void __fastcall EtwpTracingProvEnableCallback(
           *((_BYTE *)v15 + 10) = 1;
       }
       *(_QWORD *)(v25 + 672) = KeGetCurrentThread();
-      if ( EtwEventEnabled(EtwpEventTracingProvRegHandle, &ETW_EVENT_GROUP_ENTRY_INFO) )
+      if ( EtwEventEnabled((REGHANDLE)stru_140F03830.SavedApcState.ApcListHead[0].Blink, &ETW_EVENT_GROUP_ENTRY_INFO) )
         EtwpEventWriteGuidEntry(v16, &ETW_EVENT_GROUP_ENTRY_INFO, v25);
       v17 = 0;
       v18 = (_DWORD *)(v25 + 128);
       do
       {
-        if ( *v18 && EtwEventEnabled(EtwpEventTracingProvRegHandle, &ETW_EVENT_ENABLE_INFO) )
+        if ( *v18
+          && EtwEventEnabled((REGHANDLE)stru_140F03830.SavedApcState.ApcListHead[0].Blink, &ETW_EVENT_ENABLE_INFO) )
+        {
           EtwpEventWriteEnableInfo(v19, v25, v17);
+        }
         ++v17;
         v18 += 8;
       }
@@ -157,21 +160,24 @@ void __fastcall EtwpTracingProvEnableCallback(
         v5 = 1;
         v43[84] = KeGetCurrentThread();
       }
-      if ( EtwEventEnabled(EtwpEventTracingProvRegHandle, &ETW_EVENT_GUID_ENTRY_INFO) )
+      if ( EtwEventEnabled((REGHANDLE)stru_140F03830.SavedApcState.ApcListHead[0].Blink, &ETW_EVENT_GUID_ENTRY_INFO) )
         EtwpEventWriteGuidEntry(v32, &ETW_EVENT_GUID_ENTRY_INFO, (__int64)v43);
       v33 = 0;
       v34 = v43 + 16;
       do
       {
-        if ( *v34 && EtwEventEnabled(EtwpEventTracingProvRegHandle, &ETW_EVENT_ENABLE_INFO) )
+        if ( *v34
+          && EtwEventEnabled((REGHANDLE)stru_140F03830.SavedApcState.ApcListHead[0].Blink, &ETW_EVENT_ENABLE_INFO) )
+        {
           EtwpEventWriteEnableInfo(v35, (__int64)v43, v33);
+        }
         ++v33;
         v34 += 8;
       }
       while ( v33 < 0x10 );
       for ( m = (_QWORD *)v43[7]; m != v43 + 7; m = (_QWORD *)*m )
       {
-        if ( EtwEventEnabled(EtwpEventTracingProvRegHandle, &ETW_EVENT_REG_ENTRY_INFO) )
+        if ( EtwEventEnabled((REGHANDLE)stru_140F03830.SavedApcState.ApcListHead[0].Blink, &ETW_EVENT_REG_ENTRY_INFO) )
           EtwpEventWriteRegEntry(v37, (__int64)m);
       }
       if ( v5 )

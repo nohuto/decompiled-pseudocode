@@ -1,9 +1,9 @@
 /*
- * XREFs of CmpCallCallBacks @ 0x1408C9D10
+ * XREFs of CmpCallCallBacks @ 0x1408D02C0
  * Callers:
- *     CmpDoQueryKeyName @ 0x140261160 (CmpDoQueryKeyName.c)
+ *     CmpDoQueryKeyName @ 0x1402606D0 (CmpDoQueryKeyName.c)
  * Callees:
- *     CmpCallCallBacksEx @ 0x1408C9E40 (CmpCallCallBacksEx.c)
+ *     CmpCallCallBacksEx @ 0x1408D03F0 (CmpCallCallBacksEx.c)
  */
 
 __int64 __fastcall CmpCallCallBacks(int a1, int a2, __int64 a3, int a4, __int64 a5, __int64 a6)

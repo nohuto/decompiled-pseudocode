@@ -1,25 +1,24 @@
 /*
- * XREFs of IoAcquireCancelSpinLock @ 0x14029CF20
+ * XREFs of IoAcquireCancelSpinLock @ 0x140219A60
  * Callers:
- *     FsRtlpOplockBreakByCacheFlags @ 0x140354E00 (FsRtlpOplockBreakByCacheFlags.c)
- *     FsRtlpRemoveAndCompleteRHIrp @ 0x1403F0B48 (FsRtlpRemoveAndCompleteRHIrp.c)
+ *     FsRtlpOplockBreakByCacheFlags @ 0x14035FB50 (FsRtlpOplockBreakByCacheFlags.c)
+ *     FsRtlpRemoveAndCompleteRHIrp @ 0x1403F0A78 (FsRtlpRemoveAndCompleteRHIrp.c)
  * Callees:
- *     KxWaitForLockOwnerShip @ 0x14022EEA0 (KxWaitForLockOwnerShip.c)
+ *     KxWaitForLockOwnerShip @ 0x1402D36F0 (KxWaitForLockOwnerShip.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     KiAcquireQueuedSpinLockInstrumented @ 0x1405163CC (KiAcquireQueuedSpinLockInstrumented.c)
+ *     KiAcquireQueuedSpinLockInstrumented @ 0x14051660C (KiAcquireQueuedSpinLockInstrumented.c)
  */
 
 void __stdcall IoAcquireCancelSpinLock(PKIRQL Irql)
 {
-  KIRQL CurrentIrql; // si
+  UCHAR CurrentIrql; // si
   void *ArbitraryUserPointer; // rbx
   volatile __int64 *v4; // rdi
   __int64 v5; // rbx
   struct _KPRCB *CurrentPrcb; // rcx
   _DWORD *v7; // rdx
-  _QWORD *v8; // rdx
   _DWORD *SchedulerAssist; // r9
-  int v10; // eax
+  int v9; // eax
 
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
@@ -37,9 +36,9 @@ void __stdcall IoAcquireCancelSpinLock(PKIRQL Irql)
   {
     if ( CurrentPrcb->NestingLevel <= 1u )
     {
-      v10 = v7[6];
-      v7[6] = v10 + 1;
-      if ( v10 == -1 )
+      v9 = v7[6];
+      v7[6] = v9 + 1;
+      if ( v9 == -1 )
         KiRemoveSystemWorkPriorityKick(CurrentPrcb);
     }
   }
@@ -47,11 +46,9 @@ void __stdcall IoAcquireCancelSpinLock(PKIRQL Irql)
   {
     KiAcquireQueuedSpinLockInstrumented(v5, v4);
   }
-  else
+  else if ( _InterlockedExchange64(v4, v5) )
   {
-    v8 = (_QWORD *)_InterlockedExchange64(v4, v5);
-    if ( v8 )
-      KxWaitForLockOwnerShip(v5, v8);
+    KxWaitForLockOwnerShip(v5);
   }
   *Irql = CurrentIrql;
 }

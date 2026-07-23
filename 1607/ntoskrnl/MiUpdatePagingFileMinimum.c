@@ -1,10 +1,10 @@
 /*
- * XREFs of MiUpdatePagingFileMinimum @ 0x1401EEDEC
+ * XREFs of MiUpdatePagingFileMinimum @ 0x1401EEC18
  * Callers:
- *     MiExtendPagingFiles @ 0x14065AF94 (MiExtendPagingFiles.c)
+ *     MiExtendPagingFiles @ 0x14065B078 (MiExtendPagingFiles.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLock @ 0x140012750 (KeReleaseInStackQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14001BD40 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x1400122D0 (KeReleaseInStackQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14001B8C0 (KeAcquireInStackQueuedSpinLock.c)
  */
 
 void __fastcall MiUpdatePagingFileMinimum(__int64 a1, __int64 a2)

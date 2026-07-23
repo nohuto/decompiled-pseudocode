@@ -6,7 +6,7 @@
  *     IopLoadDriverImage @ 0x140396978 (IopLoadDriverImage.c)
  */
 
-__int64 __fastcall NtLoadDriver(_OWORD *a1)
+NTSTATUS __cdecl NtLoadDriver(PUNICODE_STRING DriverServiceName)
 {
-  return IopLoadDriverImage(a1);
+  return IopLoadDriverImage(DriverServiceName);
 }

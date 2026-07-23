@@ -1,16 +1,16 @@
 /*
- * XREFs of MiSetPageTablePfnBuddy @ 0x14013D9A8
+ * XREFs of MiSetPageTablePfnBuddy @ 0x14013DAA8
  * Callers:
- *     KiInSwapProcesses @ 0x14010B340 (KiInSwapProcesses.c)
- *     MiInitializeUnusablePfns @ 0x14017F04C (MiInitializeUnusablePfns.c)
- *     MiMakeOutswappedPageResident @ 0x1402A4368 (MiMakeOutswappedPageResident.c)
- *     MiAllocateTopLevelPage @ 0x1406D1BCC (MiAllocateTopLevelPage.c)
- *     MiMapNewSession @ 0x140715F38 (MiMapNewSession.c)
- *     MiInitSystem @ 0x1409BC5A8 (MiInitSystem.c)
- *     MiInitializeBootProcess @ 0x1409DD13C (MiInitializeBootProcess.c)
+ *     KiInSwapProcesses @ 0x14010B3C0 (KiInSwapProcesses.c)
+ *     MiInitializeUnusablePfns @ 0x14017F18C (MiInitializeUnusablePfns.c)
+ *     MiMakeOutswappedPageResident @ 0x1402A4558 (MiMakeOutswappedPageResident.c)
+ *     MiAllocateTopLevelPage @ 0x1406D2E6C (MiAllocateTopLevelPage.c)
+ *     MiMapNewSession @ 0x1407171D8 (MiMapNewSession.c)
+ *     MiInitSystem @ 0x1409BD5A8 (MiInitSystem.c)
+ *     MiInitializeBootProcess @ 0x1409DE13C (MiInitializeBootProcess.c)
  * Callees:
  *     MiLockPageInline @ 0x14002CE40 (MiLockPageInline.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiSetPageTablePfnBuddy(__int64 a1, __int64 a2, int a3)

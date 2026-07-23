@@ -1,12 +1,12 @@
 /*
- * XREFs of PopPowerAggregatorRecordIntent @ 0x1407A95B4
+ * XREFs of PopPowerAggregatorRecordIntent @ 0x1407A97A4
  * Callers:
- *     PopPowerAggregatorHandleIntentUnsafe @ 0x1407A93D4 (PopPowerAggregatorHandleIntentUnsafe.c)
+ *     PopPowerAggregatorHandleIntentUnsafe @ 0x1407A95C4 (PopPowerAggregatorHandleIntentUnsafe.c)
  * Callees:
- *     RtlGetInterruptTimePrecise @ 0x1402C42E0 (RtlGetInterruptTimePrecise.c)
- *     PopPowerAggregatorAllocateLogEntry @ 0x1407A96C4 (PopPowerAggregatorAllocateLogEntry.c)
- *     PopPowerAggregatorDiagTraceHandleIntent @ 0x1407A974C (PopPowerAggregatorDiagTraceHandleIntent.c)
- *     PopPowerAggregatorAreTargetStatesEqual @ 0x1409934F0 (PopPowerAggregatorAreTargetStatesEqual.c)
+ *     RtlGetInterruptTimePrecise @ 0x1402C4570 (RtlGetInterruptTimePrecise.c)
+ *     PopPowerAggregatorAllocateLogEntry @ 0x1407A98B4 (PopPowerAggregatorAllocateLogEntry.c)
+ *     PopPowerAggregatorDiagTraceHandleIntent @ 0x1407A993C (PopPowerAggregatorDiagTraceHandleIntent.c)
+ *     PopPowerAggregatorAreTargetStatesEqual @ 0x1409936F0 (PopPowerAggregatorAreTargetStatesEqual.c)
  */
 
 unsigned __int64 __fastcall PopPowerAggregatorRecordIntent(
@@ -25,21 +25,21 @@ unsigned __int64 __fastcall PopPowerAggregatorRecordIntent(
   int v14; // r12d
   char *v15; // rbx
   unsigned __int64 result; // rax
-  LARGE_INTEGER v17; // [rsp+60h] [rbp+8h] BYREF
+  LARGE_INTEGER PerformanceCounter; // [rsp+60h] [rbp+8h] BYREF
 
   v8 = a6;
   v10 = a8;
   v12 = a7;
   v14 = a5;
   PopPowerAggregatorDiagTraceHandleIntent(a2, a4, a5, a6, a7, a8);
-  v15 = (char *)&unk_140C3AB90 + 128 * (unsigned __int64)(((_BYTE)dword_140C3AB88 - 1) & 0x1F);
+  v15 = (char *)&unk_140C3AB70 + 128 * (unsigned __int64)(((_BYTE)dword_140C3AB68 - 1) & 0x1F);
   if ( *(_DWORD *)v15 != 1
     || *((_DWORD *)v15 + 6) != a2
     || *((_DWORD *)v15 + 9) != v14
     || *((_DWORD *)v15 + 30) != v10
     || !(unsigned __int8)PopPowerAggregatorAreTargetStatesEqual(v15 + 40, v8)
     || !(unsigned __int8)PopPowerAggregatorAreTargetStatesEqual(v15 + 80, v12)
-    || (result = RtlGetInterruptTimePrecise(&v17) - *((_QWORD *)v15 + 1), result >= 0x2FAF080) )
+    || (result = *(_QWORD *)&RtlGetInterruptTimePrecise(&PerformanceCounter) - *((_QWORD *)v15 + 1), result >= 0x2FAF080) )
   {
     result = PopPowerAggregatorAllocateLogEntry(&PopPowerAggregatorContext, 1LL);
     *(_DWORD *)(result + 24) = a2;

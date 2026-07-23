@@ -1,14 +1,14 @@
 /*
- * XREFs of CmpGetVirtualStoreRoot @ 0x1407F3488
+ * XREFs of CmpGetVirtualStoreRoot @ 0x1407F4688
  * Callers:
- *     CmpReplicateKeyToVirtual @ 0x1407F3798 (CmpReplicateKeyToVirtual.c)
+ *     CmpReplicateKeyToVirtual @ 0x1407F4998 (CmpReplicateKeyToVirtual.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
- *     RtlFreeAnsiString @ 0x140623790 (RtlFreeAnsiString.c)
- *     CmpReferenceKeyControlBlock @ 0x140692A3C (CmpReferenceKeyControlBlock.c)
- *     CmpFindKcbInHashEntryByCellIndex @ 0x1407F0FD8 (CmpFindKcbInHashEntryByCellIndex.c)
- *     CmpGetMappingHiveForString @ 0x1407F3374 (CmpGetMappingHiveForString.c)
- *     CmpGetVirtualizationID @ 0x1407F3544 (CmpGetVirtualizationID.c)
+ *     RtlInitUnicodeString @ 0x1400B99D0 (RtlInitUnicodeString.c)
+ *     RtlFreeAnsiString @ 0x140624790 (RtlFreeAnsiString.c)
+ *     CmpReferenceKeyControlBlock @ 0x140693BFC (CmpReferenceKeyControlBlock.c)
+ *     CmpFindKcbInHashEntryByCellIndex @ 0x1407F21D8 (CmpFindKcbInHashEntryByCellIndex.c)
+ *     CmpGetMappingHiveForString @ 0x1407F4574 (CmpGetMappingHiveForString.c)
+ *     CmpGetVirtualizationID @ 0x1407F4744 (CmpGetVirtualizationID.c)
  */
 
 __int64 __fastcall CmpGetVirtualStoreRoot(__int64 a1, __int64 *a2, int *a3, ULONG_PTR *a4)

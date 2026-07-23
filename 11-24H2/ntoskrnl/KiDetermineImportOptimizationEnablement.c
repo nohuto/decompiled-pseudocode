@@ -1,10 +1,10 @@
 /*
- * XREFs of KiDetermineImportOptimizationEnablement @ 0x1405BDD68
+ * XREFs of KiDetermineImportOptimizationEnablement @ 0x1405BB398
  * Callers:
- *     KiInitializeBootStructures @ 0x140B580C0 (KiInitializeBootStructures.c)
+ *     KiInitializeBootStructures @ 0x140B5A140 (KiInitializeBootStructures.c)
  * Callees:
- *     KiIsSafeBoot @ 0x1405BDFF4 (KiIsSafeBoot.c)
- *     KiIsWinPEBoot @ 0x1405BE13C (KiIsWinPEBoot.c)
+ *     KiIsSafeBoot @ 0x1405BB624 (KiIsSafeBoot.c)
+ *     KiIsWinPEBoot @ 0x1405BB76C (KiIsWinPEBoot.c)
  */
 
 __int64 __fastcall KiDetermineImportOptimizationEnablement(__int64 a1)

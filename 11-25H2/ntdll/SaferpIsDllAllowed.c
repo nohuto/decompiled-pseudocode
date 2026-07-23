@@ -19,21 +19,20 @@ __int64 __fastcall SaferpIsDllAllowed(__int64 a1, const void **a2)
   ULONG InputBufferLength; // ebx
   _WORD *Heap; // rax
   _WORD *InputBuffer; // rdi
-  __int64 v9; // r9
-  _QWORD v11[2]; // [rsp+50h] [rbp-19h] BYREF
-  struct _IO_STATUS_BLOCK IoStatusBlock; // [rsp+60h] [rbp-9h] BYREF
-  OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+70h] [rbp+7h] BYREF
+  _QWORD v10[2]; // [rsp+50h] [rbp-19h] BYREF
+  _IO_STATUS_BLOCK IoStatusBlock; // [rsp+60h] [rbp-9h] BYREF
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+70h] [rbp+7h] BYREF
   NTSTATUS OutputBuffer; // [rsp+E0h] [rbp+77h] BYREF
   HANDLE FileHandle; // [rsp+E8h] [rbp+7Fh] BYREF
 
-  v11[0] = 2359330LL;
+  v10[0] = 2359330LL;
   FileHandle = 0LL;
-  v11[1] = L"\\Device\\SrpDevice";
+  v10[1] = L"\\Device\\SrpDevice";
   OutputBuffer = 0;
   *(_QWORD *)&ObjectAttributes.Length = 48LL;
   *(_QWORD *)&ObjectAttributes.Attributes = 64LL;
   ObjectAttributes.RootDirectory = 0LL;
-  ObjectAttributes.ObjectName = (PUNICODE_STRING)v11;
+  ObjectAttributes.ObjectName = (PUNICODE_STRING)v10;
   IoStatusBlock = 0LL;
   *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
   v4 = NtOpenFile(&FileHandle, 1u, &ObjectAttributes, &IoStatusBlock, 7u, 0);
@@ -46,7 +45,7 @@ __int64 __fastcall SaferpIsDllAllowed(__int64 a1, const void **a2)
   else
   {
     InputBufferLength = *(unsigned __int16 *)a2 + 10;
-    Heap = (_WORD *)RtlAllocateHeap((char *)NtCurrentPeb()->ProcessHeap, 0, InputBufferLength);
+    Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, InputBufferLength);
     InputBuffer = Heap;
     if ( Heap )
     {
@@ -70,7 +69,7 @@ __int64 __fastcall SaferpIsDllAllowed(__int64 a1, const void **a2)
              4u);
       if ( v5 >= 0 )
         v5 = OutputBuffer;
-      RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, (__int64)InputBuffer, v9);
+      RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, InputBuffer);
     }
     else
     {

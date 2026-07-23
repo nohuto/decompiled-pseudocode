@@ -1,15 +1,15 @@
 /*
- * XREFs of PfCalculateProcessHash @ 0x1409E9560
+ * XREFs of PfCalculateProcessHash @ 0x1409D2980
  * Callers:
- *     PfProcessCreateNotification @ 0x1409E9D20 (PfProcessCreateNotification.c)
- *     PfSnBeginAppLaunch @ 0x1409E9DD0 (PfSnBeginAppLaunch.c)
- *     PfSnOperationProcess @ 0x140A43E74 (PfSnOperationProcess.c)
- *     PfSnSetAltPrefetchParam @ 0x140B6B900 (PfSnSetAltPrefetchParam.c)
+ *     PfProcessCreateNotification @ 0x1409D1270 (PfProcessCreateNotification.c)
+ *     PfSnBeginAppLaunch @ 0x1409D1320 (PfSnBeginAppLaunch.c)
+ *     PfSnOperationProcess @ 0x140ACAAC0 (PfSnOperationProcess.c)
+ *     PfSnSetAltPrefetchParam @ 0x140B6E9FC (PfSnSetAltPrefetchParam.c)
  * Callees:
- *     PfpLogApplicationEvent @ 0x140446FB0 (PfpLogApplicationEvent.c)
- *     PsGetAllocatedFullProcessImageName @ 0x1409E9780 (PsGetAllocatedFullProcessImageName.c)
- *     RtlUpcaseUnicodeString @ 0x1409E9B60 (RtlUpcaseUnicodeString.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     PfpLogApplicationEvent @ 0x14043FAA0 (PfpLogApplicationEvent.c)
+ *     PsGetAllocatedFullProcessImageName @ 0x1409D2BA0 (PsGetAllocatedFullProcessImageName.c)
+ *     RtlUpcaseUnicodeString @ 0x1409D2F80 (RtlUpcaseUnicodeString.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PfCalculateProcessHash(__int64 a1, unsigned __int64 a2)

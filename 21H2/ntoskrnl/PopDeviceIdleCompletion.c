@@ -1,11 +1,11 @@
 /*
- * XREFs of PopDeviceIdleCompletion @ 0x140568F70
+ * XREFs of PopDeviceIdleCompletion @ 0x1405691B0
  * Callers:
  *     <none>
  * Callees:
- *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
- *     KeSetEvent @ 0x1403435A0 (KeSetEvent.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KxReleaseSpinLock @ 0x140212140 (KxReleaseSpinLock.c)
+ *     KeSetEvent @ 0x14034E2F0 (KeSetEvent.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140362F80 (KeAcquireSpinLockRaiseToDpc.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
@@ -19,7 +19,7 @@ __int64 PopDeviceIdleCompletion()
   _DWORD *SchedulerAssist; // r9
 
   v0 = KeAcquireSpinLockRaiseToDpc(&PopDopeGlobalLock);
-  v1 = dword_140C505B0-- == 1;
+  v1 = dword_140C505F0-- == 1;
   v2 = v0;
   if ( v1 && PopDeviceIdleSync )
   {

@@ -1,10 +1,10 @@
 /*
- * XREFs of KxSwitchKernelStackCallout @ 0x1406AB9C0
+ * XREFs of KxSwitchKernelStackCallout @ 0x1406AC960
  * Callers:
- *     KiSwitchKernelStackAndCallout @ 0x1406AB930 (KiSwitchKernelStackAndCallout.c)
+ *     KiSwitchKernelStackAndCallout @ 0x1406AC8D0 (KiSwitchKernelStackAndCallout.c)
  * Callees:
- *     MmGrowKernelStackEx @ 0x140477D50 (MmGrowKernelStackEx.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
+ *     MmGrowKernelStackEx @ 0x140474350 (MmGrowKernelStackEx.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
  */
 
 void __fastcall KxSwitchKernelStackCallout(__int64 a1, __int64 a2, __int64 a3, __int64 a4, int a5, int a6, __int64 a7)
@@ -23,7 +23,7 @@ void __fastcall KxSwitchKernelStackCallout(__int64 a1, __int64 a2, __int64 a3, _
       goto LABEL_5;
     a1 = v11;
   }
-  guard_dispatch_icall_no_overrides(a1, a2, a3, a4);
+  guard_dispatch_icall_no_overrides(a1, a2);
 LABEL_5:
   v8 = (_QWORD *)v7[5];
   _disable();
@@ -36,5 +36,5 @@ LABEL_5:
   else
     *(_QWORD *)((char *)KeGetPcr()->NtTib.StackBase + 4) = v9;
   __writegsqword(0x1A8u, v9);
-  JUMPOUT(0x1406AB9ABLL);
+  JUMPOUT(0x1406AC94BLL);
 }

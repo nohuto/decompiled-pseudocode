@@ -9,95 +9,93 @@
 
 BOOLEAN __stdcall RtlIsNameLegalDOS8Dot3(PUNICODE_STRING Name, POEM_STRING OemName, PBOOLEAN NameContainsSpaces)
 {
-  int v3; // ecx
-  POEM_STRING v4; // esi
-  BOOLEAN v5; // bl
-  bool v6; // cc
-  char v7; // bh
+  POEM_STRING v3; // esi
+  BOOLEAN v4; // bl
+  bool v5; // cc
+  char v6; // bh
   unsigned int Length; // ecx
   char *Buffer; // eax
-  unsigned int v11; // edx
-  char *v12; // eax
-  unsigned __int8 v13; // bl
-  _WORD v14[2]; // [esp+Ch] [ebp-24h] BYREF
-  char *v15; // [esp+10h] [ebp-20h]
-  char *v16; // [esp+14h] [ebp-1Ch]
-  unsigned int v17; // [esp+18h] [ebp-18h]
-  char v18; // [esp+1Fh] [ebp-11h]
-  char v19; // [esp+20h] [ebp-10h] BYREF
+  unsigned int v10; // edx
+  char *v11; // eax
+  unsigned __int8 v12; // bl
+  _WORD v13[2]; // [esp+Ch] [ebp-24h] BYREF
+  char *v14; // [esp+10h] [ebp-20h]
+  char *v15; // [esp+14h] [ebp-1Ch]
+  unsigned int v16; // [esp+18h] [ebp-18h]
+  char v17; // [esp+1Fh] [ebp-11h]
+  char v18; // [esp+20h] [ebp-10h] BYREF
 
-  v4 = OemName;
-  v5 = 0;
-  v6 = Name->Length <= 0x18u;
-  v7 = 0;
-  v18 = 0;
-  if ( !v6 )
+  v3 = OemName;
+  v4 = 0;
+  v5 = Name->Length <= 0x18u;
+  v6 = 0;
+  v17 = 0;
+  if ( !v5 )
     return 0;
   if ( !OemName )
   {
-    v15 = &v19;
-    v4 = (POEM_STRING)v14;
-    v14[0] = 0;
-    v3 = 12;
-    v14[1] = 12;
+    v14 = &v18;
+    v3 = (POEM_STRING)v13;
+    v13[0] = 0;
+    v13[1] = 12;
   }
-  if ( RtlUpcaseUnicodeStringToCountedOemString((void *)v3, &v4->Length, &Name->Length, 0) < 0 )
+  if ( RtlUpcaseUnicodeStringToCountedOemString(v3, Name, 0) < 0 )
     return 0;
-  Length = v4->Length;
-  if ( (_WORD)Length == 1 && *v4->Buffer == 46 || Length == 2 && (Buffer = v4->Buffer, *Buffer == 46) && Buffer[1] == 46 )
+  Length = v3->Length;
+  if ( (_WORD)Length == 1 && *v3->Buffer == 46 || Length == 2 && (Buffer = v3->Buffer, *Buffer == 46) && Buffer[1] == 46 )
   {
     if ( NameContainsSpaces )
       *NameContainsSpaces = 0;
     return 1;
   }
-  v17 = v4->Length;
-  v11 = 0;
+  v16 = v3->Length;
+  v10 = 0;
   if ( Length )
   {
-    v12 = v4->Buffer;
-    v16 = v12;
+    v11 = v3->Buffer;
+    v15 = v11;
     do
     {
-      v13 = v12[v11];
-      if ( NlsMbOemCodePageTag && (Length = v17, NlsOemLeadByteInfoTable[v13]) )
+      v12 = v11[v10];
+      if ( NlsMbOemCodePageTag && (Length = v16, NlsOemLeadByteInfoTable[v12]) )
       {
-        if ( !v7 && v11 >= 7 || v11 == v17 - 1 )
+        if ( !v6 && v10 >= 7 || v10 == v16 - 1 )
           return 0;
-        ++v11;
+        ++v10;
       }
       else
       {
-        if ( v13 < 0x80u )
+        if ( v12 < 0x80u )
         {
-          if ( ((1 << (v13 & 0x1F)) & RtlFatIllegalTable[v13 >> 5]) != 0 )
+          if ( ((1 << (v12 & 0x1F)) & RtlFatIllegalTable[v12 >> 5]) != 0 )
             return 0;
-          Length = v17;
-          v12 = v16;
+          Length = v16;
+          v11 = v15;
         }
-        if ( v13 == 32 )
-          v18 = 1;
-        if ( v13 == 46 )
+        if ( v12 == 32 )
+          v17 = 1;
+        if ( v12 == 46 )
         {
-          if ( v7 || !v11 || v12[v11 - 1] == 32 || Length - v11 - 1 > 3 )
+          if ( v6 || !v10 || v11[v10 - 1] == 32 || Length - v10 - 1 > 3 )
             return 0;
-          v7 = 1;
+          v6 = 1;
         }
-        if ( v11 >= 8 && !v7 )
+        if ( v10 >= 8 && !v6 )
           return 0;
       }
-      v12 = v16;
-      ++v11;
+      v11 = v15;
+      ++v10;
     }
-    while ( v11 < Length );
-    if ( v13 != 32 && v13 != 46 )
+    while ( v10 < Length );
+    if ( v12 != 32 && v12 != 46 )
     {
-      v5 = v18;
+      v4 = v17;
       goto LABEL_38;
     }
     return 0;
   }
 LABEL_38:
   if ( NameContainsSpaces )
-    *NameContainsSpaces = v5;
+    *NameContainsSpaces = v4;
   return 1;
 }

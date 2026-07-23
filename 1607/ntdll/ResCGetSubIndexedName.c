@@ -1,11 +1,11 @@
 /*
- * XREFs of ResCGetSubIndexedName @ 0x1801054FC
+ * XREFs of ResCGetSubIndexedName @ 0x18010543C
  * Callers:
  *     ResCRuntimeGetSegmentDataEx @ 0x1800FF43C (ResCRuntimeGetSegmentDataEx.c)
  * Callees:
- *     ResCGetIndexedName @ 0x1800957A0 (ResCGetIndexedName.c)
- *     ?StringCchPrintfW@@YAJPEAG_KPEBGZZ @ 0x180102DF8 (-StringCchPrintfW@@YAJPEAG_KPEBGZZ.c)
- *     ResCGetName @ 0x180105118 (ResCGetName.c)
+ *     ResCGetIndexedName @ 0x180095790 (ResCGetIndexedName.c)
+ *     ?StringCchPrintfW@@YAJPEAG_KPEBGZZ @ 0x180102D38 (-StringCchPrintfW@@YAJPEAG_KPEBGZZ.c)
+ *     ResCGetName @ 0x180105058 (ResCGetName.c)
  */
 
 __int64 __fastcall ResCGetSubIndexedName(__int64 a1, __int64 a2, int a3, int a4, wchar_t *Buffer)

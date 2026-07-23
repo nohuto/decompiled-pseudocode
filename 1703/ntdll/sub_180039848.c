@@ -22,7 +22,7 @@ __int64 __fastcall sub_180039848(__int64 a1)
   __int64 v1; // r12
   void (__fastcall *v2)(__int64); // rsi
   _BOOL8 v3; // rdi
-  unsigned int NtGlobalFlag; // ebp
+  ULONG NtGlobalFlag; // ebp
   _DWORD *v5; // rdx
   __int64 v6; // r15
   int v7; // r13d
@@ -46,7 +46,7 @@ __int64 __fastcall sub_180039848(__int64 a1)
   v3 = qword_18015C3C0 != 0LL;
   v23 = v3;
   NtGlobalFlag = NtCurrentPeb()->NtGlobalFlag;
-  RtlEnterCriticalSection((__int64)&off_180155580);
+  RtlEnterCriticalSection(&CriticalSection);
   if ( byte_18015BF54 )
   {
     v5 = (_DWORD *)MEMORY[0x7FFE0330];
@@ -96,7 +96,7 @@ __int64 __fastcall sub_180039848(__int64 a1)
             while ( v10[v15] );
             v14 = v15 + 2;
           }
-          Heap = (char *)RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 8u, 2 * v14);
+          Heap = (char *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, 2 * v14);
           if ( Heap )
           {
             if ( qword_18015C3C0 )
@@ -108,7 +108,7 @@ __int64 __fastcall sub_180039848(__int64 a1)
                 ++v19;
               while ( v10[v19] );
               memmove(&Heap[v18 + 2], v10, 2 * v19);
-              RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, (unsigned __int64)qword_18015C3C0);
+              RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, qword_18015C3C0);
               v1 = a1;
             }
             else
@@ -150,6 +150,6 @@ __int64 __fastcall sub_180039848(__int64 a1)
     }
     while ( v6 != v1 );
   }
-  RtlLeaveCriticalSection((__int64)&off_180155580);
+  RtlLeaveCriticalSection(&CriticalSection);
   return (unsigned int)v7;
 }

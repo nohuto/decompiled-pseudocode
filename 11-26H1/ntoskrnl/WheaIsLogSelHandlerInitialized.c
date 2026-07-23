@@ -1,5 +1,5 @@
 /*
- * XREFs of WheaIsLogSelHandlerInitialized @ 0x1406D7190
+ * XREFs of WheaIsLogSelHandlerInitialized @ 0x1406DB320
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 bool WheaIsLogSelHandlerInitialized()
 {
-  return LODWORD(CmpCallbackListLock.PropagateBoostsEntry.Next) != 0;
+  return *(_DWORD *)&CmpContextListLock.SchedulerApcFill5[56] != 0;
 }

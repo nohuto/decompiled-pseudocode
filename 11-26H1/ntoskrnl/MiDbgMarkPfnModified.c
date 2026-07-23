@@ -1,19 +1,19 @@
 /*
- * XREFs of MiDbgMarkPfnModified @ 0x1406FE520
+ * XREFs of MiDbgMarkPfnModified @ 0x1407031F0
  * Callers:
- *     MiDbgWriteCheck @ 0x1406FED48 (MiDbgWriteCheck.c)
+ *     MiDbgWriteCheck @ 0x140703A18 (MiDbgWriteCheck.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     MiGetSubsectionFromPte @ 0x1402836C0 (MiGetSubsectionFromPte.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402DED10 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     MiAddLockedPageCharge @ 0x1402F5D30 (MiAddLockedPageCharge.c)
- *     MiPfnIsPageTable @ 0x1403A77E0 (MiPfnIsPageTable.c)
- *     MiCanPfnOriginalPteBeLost @ 0x140408680 (MiCanPfnOriginalPteBeLost.c)
- *     ExTryAcquireSpinLockExclusiveAtDpcLevel @ 0x140416FD0 (ExTryAcquireSpinLockExclusiveAtDpcLevel.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     MiDbgIsPfn @ 0x1406FE024 (MiDbgIsPfn.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     MiGetSubsectionFromPte @ 0x140282C30 (MiGetSubsectionFromPte.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402C0B20 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     MiAddLockedPageCharge @ 0x1402D7DB0 (MiAddLockedPageCharge.c)
+ *     MiPfnIsPageTable @ 0x1403A9540 (MiPfnIsPageTable.c)
+ *     MiCanPfnOriginalPteBeLost @ 0x140401770 (MiCanPfnOriginalPteBeLost.c)
+ *     ExTryAcquireSpinLockExclusiveAtDpcLevel @ 0x14040B5E0 (ExTryAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     MiDbgIsPfn @ 0x140702CF4 (MiDbgIsPfn.c)
  */
 
 __int64 __fastcall MiDbgMarkPfnModified(unsigned __int64 a1, char a2)
@@ -69,7 +69,7 @@ __int64 __fastcall MiDbgMarkPfnModified(unsigned __int64 a1, char a2)
         KiLowerIrqlProcessIrqlFlags(KeGetCurrentIrql(), CurrentIrql);
       __writecr8(CurrentIrql);
     }
-    stru_140E2EB88.SuspendEvent.Header.SignalState |= 0x400u;
+    stru_140E2ED08.SuspendEvent.Header.SignalState |= 0x400u;
     return 0LL;
   }
   if ( (*(_QWORD *)(v4 + 24) & 0x4000000000000000LL) != 0 )
@@ -78,7 +78,7 @@ __int64 __fastcall MiDbgMarkPfnModified(unsigned __int64 a1, char a2)
     v9 = v8 == 0x3FFFFFFFFELL;
     if ( v8 != 0x3FFFFFFFFELL )
     {
-      stru_140E2EB88.SuspendEvent.Header.SignalState |= 0x800u;
+      stru_140E2ED08.SuspendEvent.Header.SignalState |= 0x800u;
       v9 = v8 == 0x3FFFFFFFFELL;
     }
     LOBYTE(v5) = v9;
@@ -142,7 +142,7 @@ __int64 __fastcall MiDbgMarkPfnModified(unsigned __int64 a1, char a2)
       }
       if ( v19 )
       {
-        stru_140E2EB88.SuspendEvent.Header.SignalState |= 0x2000u;
+        stru_140E2ED08.SuspendEvent.Header.SignalState |= 0x2000u;
         goto LABEL_75;
       }
       v21 = 5;
@@ -163,7 +163,7 @@ LABEL_74:
     v10 = *(_QWORD *)MiGetSubsectionFromPte(*(_QWORD *)(v4 + 16));
     if ( !(unsigned int)ExTryAcquireSpinLockExclusiveAtDpcLevel((volatile signed __int32 *)(v10 + 72)) )
     {
-      stru_140E2EB88.SuspendEvent.Header.SignalState |= 0x400u;
+      stru_140E2ED08.SuspendEvent.Header.SignalState |= 0x400u;
       goto LABEL_75;
     }
     v11 = *(_DWORD *)(v4 + 32);
@@ -199,7 +199,7 @@ LABEL_74:
 LABEL_60:
     KeBugCheckEx(0x1Au, 0x8840uLL, v4, 0LL, 1uLL);
   }
-  stru_140E2EB88.SuspendEvent.Header.SignalState |= 0x1000u;
+  stru_140E2ED08.SuspendEvent.Header.SignalState |= 0x1000u;
 LABEL_75:
   if ( (a2 & 3) == 0 )
     _InterlockedAnd64((volatile signed __int64 *)(v4 + 24), 0x7FFFFFFFFFFFFFFFuLL);

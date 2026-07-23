@@ -12,33 +12,30 @@
  *     _memcpy @ 0x4B2F88B0 (_memcpy.c)
  */
 
-unsigned int __stdcall RtlCopyUnicodeString(unsigned __int16 *a1, unsigned __int16 *a2)
+void __cdecl RtlCopyUnicodeString(PUNICODE_STRING DestinationString, PCUNICODE_STRING SourceString)
 {
-  const void *v2; // edx
-  size_t v3; // esi
-  void *v4; // ebx
-  unsigned int result; // eax
+  int v2; // edi
+  wchar_t *Buffer; // edx
+  unsigned int Length; // esi
+  wchar_t *v5; // ebx
+  size_t v6; // [esp-8h] [ebp-10h]
 
-  if ( a2 )
+  if ( SourceString )
   {
-    v2 = (const void *)*((_DWORD *)a2 + 1);
-    v3 = *a2;
-    v4 = (void *)*((_DWORD *)a1 + 1);
-    if ( (unsigned __int16)v3 > a1[1] )
-      v3 = a1[1];
-    *a1 = v3;
-    memcpy(v4, v2, v3);
-    result = a1[1];
-    if ( (unsigned int)*a1 + 2 <= result )
-    {
-      result = 0;
-      *((_WORD *)v4 + (v3 >> 1)) = 0;
-    }
+    Buffer = SourceString->Buffer;
+    HIDWORD(v6) = v2;
+    Length = SourceString->Length;
+    v5 = DestinationString->Buffer;
+    if ( (unsigned __int16)Length > DestinationString->MaximumLength )
+      Length = DestinationString->MaximumLength;
+    LODWORD(v6) = Length;
+    DestinationString->Length = Length;
+    memcpy(v5, Buffer, v6);
+    if ( (unsigned int)DestinationString->Length + 2 <= DestinationString->MaximumLength )
+      v5[Length >> 1] = 0;
   }
   else
   {
-    result = (unsigned int)a1;
-    *a1 = 0;
+    DestinationString->Length = 0;
   }
-  return result;
 }

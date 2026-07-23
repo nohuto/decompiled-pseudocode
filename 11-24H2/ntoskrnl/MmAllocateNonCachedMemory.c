@@ -1,16 +1,16 @@
 /*
- * XREFs of MmAllocateNonCachedMemory @ 0x1407EABD0
+ * XREFs of MmAllocateNonCachedMemory @ 0x1407EB1A0
  * Callers:
- *     DifMmAllocateNonCachedMemoryWrapper @ 0x140632710 (DifMmAllocateNonCachedMemoryWrapper.c)
+ *     DifMmAllocateNonCachedMemoryWrapper @ 0x140630CD0 (DifMmAllocateNonCachedMemoryWrapper.c)
  * Callees:
- *     MiCheckLinearProtectedPteAccessedBit @ 0x140232A20 (MiCheckLinearProtectedPteAccessedBit.c)
- *     MiMakeValidPte @ 0x1402383C0 (MiMakeValidPte.c)
- *     MiReservePtes @ 0x14028FF10 (MiReservePtes.c)
- *     MmFreePagesFromMdl @ 0x1403A37F0 (MmFreePagesFromMdl.c)
- *     MiAllocatePagesForMdl @ 0x14041225C (MiAllocatePagesForMdl.c)
- *     MiGetPteAddress @ 0x140437550 (MiGetPteAddress.c)
- *     KeGetIdealNodeNumberThread @ 0x14048652C (KeGetIdealNodeNumberThread.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     MiCheckLinearProtectedPteAccessedBit @ 0x140203550 (MiCheckLinearProtectedPteAccessedBit.c)
+ *     MiMakeValidPte @ 0x140212550 (MiMakeValidPte.c)
+ *     MiReservePtes @ 0x14029FB10 (MiReservePtes.c)
+ *     MiAllocatePagesForMdl @ 0x14039469C (MiAllocatePagesForMdl.c)
+ *     MiGetPteAddress @ 0x140429FD0 (MiGetPteAddress.c)
+ *     KeGetIdealNodeNumberThread @ 0x140481B1C (KeGetIdealNodeNumberThread.c)
+ *     MmFreePagesFromMdl @ 0x14048E2C0 (MmFreePagesFromMdl.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 PVOID __stdcall MmAllocateNonCachedMemory(SIZE_T NumberOfBytes)
@@ -42,7 +42,7 @@ PVOID __stdcall MmAllocateNonCachedMemory(SIZE_T NumberOfBytes)
                                  0LL);
   if ( !PagesForMdl )
     return 0LL;
-  v5 = MiReservePtes((__int64)&unk_140E35D80, v1);
+  v5 = MiReservePtes((__int64)&unk_140E35EC0, v1);
   if ( !v5 )
   {
     MmFreePagesFromMdl(PagesForMdl);
@@ -58,7 +58,7 @@ PVOID __stdcall MmAllocateNonCachedMemory(SIZE_T NumberOfBytes)
   {
     ValidPte = (*(_QWORD *)&v10[v5] << 12) ^ ((*(_QWORD *)&v10[v5] << 12) ^ ValidPte) & 0xFFF0000000000FFFuLL;
     if ( _bittest64(&MiFlags, 0x24u) && (ValidPte & 0x20) == 0 && v5 >= MiGetPteAddress(0xFFFF800000000000uLL) )
-      MiCheckLinearProtectedPteAccessedBit(v5, ValidPte, 128);
+      MiCheckLinearProtectedPteAccessedBit(v5, ValidPte, 128LL);
     *(_QWORD *)v5 = ValidPte;
     v5 += 8LL;
     --v1;

@@ -17,7 +17,7 @@ void LdrpDetectDetour()
   __int64 (__fastcall **v2)(int, int, int, int, ULONG, ULONG); // r8
   __int64 v3; // rax
   char v4; // al
-  int v5; // [rsp+40h] [rbp+8h] BYREF
+  int ThreadInformation; // [rsp+40h] [rbp+8h] BYREF
 
   if ( !LdrpDetourExist )
   {
@@ -45,14 +45,19 @@ void LdrpDetectDetour()
       "!!! Detour detected, disable parallel loading\n");
     LdrpDetourExist = 1;
 LABEL_7:
-    if ( (int)ZwQueryInformationThread(-2LL, 42LL, &v5, 4LL, 0LL) < 0 )
+    if ( ZwQueryInformationThread(
+           (HANDLE)0xFFFFFFFFFFFFFFFELL,
+           ThreadDynamicCodePolicyInfo,
+           &ThreadInformation,
+           4u,
+           0LL) < 0 )
     {
       v4 = LdrpDetourExist;
     }
     else
     {
       v4 = LdrpDetourExist;
-      if ( v5 == 1 )
+      if ( ThreadInformation == 1 )
         v4 = 1;
       LdrpDetourExist = v4;
     }
@@ -60,7 +65,7 @@ LABEL_7:
     {
       if ( LdrpMapAndSnapWork )
       {
-        TpWaitForWork(LdrpMapAndSnapWork, 1LL);
+        TpWaitForWork(LdrpMapAndSnapWork, 1u);
         TpReleaseWork(LdrpMapAndSnapWork);
         LdrpMapAndSnapWork = 0LL;
       }

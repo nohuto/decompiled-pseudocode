@@ -1,16 +1,16 @@
 /*
- * XREFs of _PnpCtxDestroyNode @ 0x140817430
+ * XREFs of _PnpCtxDestroyNode @ 0x140817B70
  * Callers:
- *     _PnpCtxCloseMachine @ 0x1408171F0 (_PnpCtxCloseMachine.c)
- *     _PnpCtxCreateNode @ 0x1408172AC (_PnpCtxCreateNode.c)
- *     _PnpCtxOpenMachine @ 0x140817690 (_PnpCtxOpenMachine.c)
- *     _PnpCtxRegisterMachineNode @ 0x14081799C (_PnpCtxRegisterMachineNode.c)
- *     _PnpCtxUnregisterMachineNode @ 0x140817BBC (_PnpCtxUnregisterMachineNode.c)
+ *     _PnpCtxCloseMachine @ 0x140817930 (_PnpCtxCloseMachine.c)
+ *     _PnpCtxCreateNode @ 0x1408179EC (_PnpCtxCreateNode.c)
+ *     _PnpCtxOpenMachine @ 0x140817DD0 (_PnpCtxOpenMachine.c)
+ *     _PnpCtxRegisterMachineNode @ 0x1408180DC (_PnpCtxRegisterMachineNode.c)
+ *     _PnpCtxUnregisterMachineNode @ 0x1408182FC (_PnpCtxUnregisterMachineNode.c)
  * Callees:
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     _SysCtxCloseMachine @ 0x140820150 (_SysCtxCloseMachine.c)
- *     RtlFreeAnsiString @ 0x1408A4990 (RtlFreeAnsiString.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     _SysCtxCloseMachine @ 0x140820890 (_SysCtxCloseMachine.c)
+ *     RtlFreeAnsiString @ 0x1408B69C0 (RtlFreeAnsiString.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PnpCtxDestroyNode(UNICODE_STRING *P)

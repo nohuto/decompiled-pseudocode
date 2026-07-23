@@ -8,9 +8,9 @@
  *     <none>
  */
 
-__int64 __fastcall ZwQueryAttributesFile(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwQueryAttributesFile(POBJECT_ATTRIBUTES ObjectAttributes, PFILE_BASIC_INFORMATION FileInformation)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(ObjectAttributes);
 }

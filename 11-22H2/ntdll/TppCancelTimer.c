@@ -18,65 +18,57 @@
  *     TppETWTimerCancelled @ 0x18012640C (TppETWTimerCancelled.c)
  */
 
-char __fastcall TppCancelTimer(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+char __fastcall TppCancelTimer(__int64 a1, _RTL_SRWLOCK *a2, char a3)
 {
-  char v4; // bl
-  char v5; // r15
-  bool v7; // bp
-  unsigned __int64 v10; // rcx
-  __int64 v11; // r13
-  __int64 v12; // rcx
-  __int64 v13; // rdx
-  __int64 v14; // r8
-  __int64 v15; // r9
-  _BYTE v16[40]; // [rsp+20h] [rbp-28h] BYREF
+  char v3; // bl
+  char v6; // bp
+  __int64 v9; // r13
+  __int64 v10; // rcx
+  _BYTE v11[40]; // [rsp+20h] [rbp-28h] BYREF
 
-  v4 = 1;
-  v5 = a3;
-  v7 = (*(_BYTE *)(a1 + 354) & 2) != 0;
+  v3 = 1;
+  v6 = (*(_BYTE *)(a1 + 354) & 2) != 0;
   if ( (*(_BYTE *)(a1 + 354) & 1) != 0 )
   {
-    v10 = -(__int64)((*(_BYTE *)(a1 + 354) & 2) != 0) & 0xFFFFFFFFFFFFFF88uLL;
-    v11 = v10 + a2 + 128;
-    if ( (unsigned int)RtlGetCurrentServiceSessionId(v10, a2, a3, a4) )
-      v12 = (__int64)NtCurrentPeb()->SharedData + 556;
+    v9 = (__int64)&a2[16] + (-(__int64)((*(_BYTE *)(a1 + 354) & 2) != 0) & 0xFFFFFFFFFFFFFF88uLL);
+    if ( RtlGetCurrentServiceSessionId() )
+      v10 = (__int64)NtCurrentPeb()->SharedData + 556;
     else
-      v12 = 2147353478LL;
-    if ( *(_BYTE *)v12 )
-      TppETWTimerCancelled(v11, a1);
+      v10 = 2147353478LL;
+    if ( *(_BYTE *)v10 )
+      TppETWTimerCancelled(v9, a1);
     RtlAcquireSRWLockExclusive(a2);
     if ( *(_BYTE *)(a1 + 352) )
     {
-      TppPHDelete((_QWORD *)(v11 + 16), (_QWORD *)(a1 + 248));
-      TppPHDelete((_QWORD *)(v11 + 8), (_QWORD *)(a1 + 288));
-      LOBYTE(v13) = v7;
-      TppUpdateSubQueueTimer(v11, v13, v14, v15);
+      TppPHDelete((_QWORD *)(v9 + 16), (_QWORD *)(a1 + 248));
+      TppPHDelete((_QWORD *)(v9 + 8), (_QWORD *)(a1 + 288));
+      TppUpdateSubQueueTimer(v9, v6);
       *(_BYTE *)(a1 + 352) = 0;
       RtlReleaseSRWLockExclusive(a2);
       *(_DWORD *)(a1 + 348) = 0;
       *(_QWORD *)(a1 + 328) = 0LL;
       *(_BYTE *)(a1 + 354) = 0;
-      if ( !v5 )
-        RtlReleaseSRWLockExclusive(a1 + 240);
+      if ( !a3 )
+        RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(a1 + 240));
     }
     else
     {
       RtlReleaseSRWLockExclusive(a2);
       *(_BYTE *)(a1 + 354) |= 4u;
-      TppItePush(a1 + 336, v16);
-      RtlReleaseSRWLockExclusive(a1 + 240);
-      NtWaitForAlertByThreadId(a1 + 336, 0LL);
-      if ( v5 )
-        RtlAcquireSRWLockExclusive(a1 + 240);
+      TppItePush(a1 + 336, v11);
+      RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(a1 + 240));
+      NtWaitForAlertByThreadId((PVOID)(a1 + 336), 0LL);
+      if ( a3 )
+        RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)(a1 + 240));
       return 0;
     }
-    return v4;
+    return v3;
   }
   else
   {
     *(_QWORD *)(a1 + 328) = 0LL;
-    if ( !(_BYTE)a3 )
-      RtlReleaseSRWLockExclusive(a1 + 240);
+    if ( !a3 )
+      RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(a1 + 240));
     return 0;
   }
 }

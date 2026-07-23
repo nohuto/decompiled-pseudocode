@@ -1,24 +1,24 @@
 /*
- * XREFs of ObfDereferenceDeviceMap @ 0x140625534
+ * XREFs of ObfDereferenceDeviceMap @ 0x14068F1A4
  * Callers:
- *     ObQueryDeviceMapInformation @ 0x1406250A0 (ObQueryDeviceMapInformation.c)
- *     ObSetCurrentProcessDeviceMap @ 0x140692BA8 (ObSetCurrentProcessDeviceMap.c)
- *     SeGetTokenDeviceMap @ 0x140692CBC (SeGetTokenDeviceMap.c)
- *     SepDeReferenceLogonSession @ 0x1406A5640 (SepDeReferenceLogonSession.c)
- *     ObDereferenceDeviceMap @ 0x1406B0914 (ObDereferenceDeviceMap.c)
- *     ObpSetDeviceMap @ 0x1406BD6D4 (ObpSetDeviceMap.c)
- *     ObpLookupObjectName @ 0x1406F3F20 (ObpLookupObjectName.c)
- *     SepDeleteLogonSessionTrack @ 0x14077A670 (SepDeleteLogonSessionTrack.c)
- *     ObCleanupSiloState @ 0x1408DC470 (ObCleanupSiloState.c)
+ *     ObSetCurrentProcessDeviceMap @ 0x1405F222C (ObSetCurrentProcessDeviceMap.c)
+ *     SeGetTokenDeviceMap @ 0x1405F2340 (SeGetTokenDeviceMap.c)
+ *     SepDeReferenceLogonSession @ 0x140603270 (SepDeReferenceLogonSession.c)
+ *     ObpSetDeviceMap @ 0x14061C8E4 (ObpSetDeviceMap.c)
+ *     ObDereferenceDeviceMap @ 0x14067BE28 (ObDereferenceDeviceMap.c)
+ *     ObQueryDeviceMapInformation @ 0x14068ED10 (ObQueryDeviceMapInformation.c)
+ *     ObpLookupObjectName @ 0x14070B300 (ObpLookupObjectName.c)
+ *     SepDeleteLogonSessionTrack @ 0x14077A830 (SepDeleteLogonSessionTrack.c)
+ *     ObCleanupSiloState @ 0x1408DC5D0 (ObCleanupSiloState.c)
  * Callees:
- *     PsGetServerSiloGlobals @ 0x140252E18 (PsGetServerSiloGlobals.c)
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
- *     KiLeaveGuardedRegionUnsafe @ 0x14034AD90 (KiLeaveGuardedRegionUnsafe.c)
- *     ExReleasePushLockEx @ 0x14034AE90 (ExReleasePushLockEx.c)
- *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
- *     ZwClose @ 0x1403FA580 (ZwClose.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     PsGetServerSiloGlobals @ 0x140285C94 (PsGetServerSiloGlobals.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1403556E0 (ExAcquirePushLockExclusiveEx.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x140355AE0 (KiLeaveGuardedRegionUnsafe.c)
+ *     ExReleasePushLockEx @ 0x140355BE0 (ExReleasePushLockEx.c)
+ *     ObfDereferenceObjectWithTag @ 0x140355E90 (ObfDereferenceObjectWithTag.c)
+ *     ZwClose @ 0x1403FA760 (ZwClose.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 void __fastcall ObfDereferenceDeviceMap(PVOID P)

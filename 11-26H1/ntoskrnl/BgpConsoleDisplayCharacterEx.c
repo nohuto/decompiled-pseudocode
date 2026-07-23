@@ -1,19 +1,19 @@
 /*
- * XREFs of BgpConsoleDisplayCharacterEx @ 0x140C4FF18
+ * XREFs of BgpConsoleDisplayCharacterEx @ 0x140C55F18
  * Callers:
- *     BgpConsoleDisplayString @ 0x140C501C0 (BgpConsoleDisplayString.c)
+ *     BgpConsoleDisplayString @ 0x140C561C0 (BgpConsoleDisplayString.c)
  * Callees:
- *     BgpDisplayCharacterEx @ 0x140715C90 (BgpDisplayCharacterEx.c)
- *     BgpConsoleScrollScreen @ 0x140C50694 (BgpConsoleScrollScreen.c)
+ *     BgpDisplayCharacterEx @ 0x14071A980 (BgpDisplayCharacterEx.c)
+ *     BgpConsoleScrollScreen @ 0x140C56694 (BgpConsoleScrollScreen.c)
  */
 
 __int64 BgpConsoleDisplayCharacterEx(unsigned __int16 a1, unsigned int a2, unsigned int a3, int a4, int a5, ...)
 {
   int v5; // esi
-  struct _LIST_ENTRY *Flink; // rdx
+  __int64 **NormalContext; // rdx
   int *v8; // rbx
   _DWORD *v9; // r12
-  struct _LIST_ENTRY *v10; // r13
+  _DWORD *v10; // r13
   int v11; // ebp
   __int64 v12; // rcx
   int v13; // ecx
@@ -36,12 +36,12 @@ __int64 BgpConsoleDisplayCharacterEx(unsigned __int16 a1, unsigned int a2, unsig
   v5 = a1;
   if ( a2 > 0x50 )
     return 3221225485LL;
-  Flink = WheapPfaLock.SavedApcState.ApcListHead[1].Flink;
-  if ( a3 > HIDWORD(WheapPfaLock.SavedApcState.ApcListHead[1].Flink->Flink) )
+  NormalContext = (__int64 **)WheapPfaLock.SchedulerApc.NormalContext;
+  if ( a3 > *((_DWORD *)WheapPfaLock.SchedulerApc.NormalContext + 1) )
     return 3221225485LL;
-  v8 = (int *)&WheapPfaLock.SavedApcState.ApcListHead[1].Flink[4].Flink + 1;
-  v9 = (_DWORD *)&WheapPfaLock.SavedApcState.ApcListHead[1].Flink[3].Blink + 1;
-  v10 = WheapPfaLock.SavedApcState.ApcListHead[1].Flink + 3;
+  v8 = (int *)((char *)WheapPfaLock.SchedulerApc.NormalContext + 68);
+  v9 = (char *)WheapPfaLock.SchedulerApc.NormalContext + 60;
+  v10 = (char *)WheapPfaLock.SchedulerApc.NormalContext + 48;
   v11 = 0;
   v12 = (unsigned int)a1 - 8;
   if ( v5 == 8 )
@@ -53,9 +53,9 @@ __int64 BgpConsoleDisplayCharacterEx(unsigned __int16 a1, unsigned int a2, unsig
     *v8 = v22;
     v11 = BgpDisplayCharacterEx(
             0x20u,
-            (__int64 *)Flink[2].Blink,
-            *v9 + LODWORD(v10->Flink) * v22,
-            v9[1] + LODWORD(Flink[4].Blink) * HIDWORD(Flink[3].Flink),
+            NormalContext[5],
+            *v9 + *v10 * v22,
+            v9[1] + *((_DWORD *)NormalContext + 18) * *((_DWORD *)NormalContext + 13),
             v21,
             a4,
             (int *)va,
@@ -63,12 +63,12 @@ __int64 BgpConsoleDisplayCharacterEx(unsigned __int16 a1, unsigned int a2, unsig
             v26);
     if ( v11 >= 0 )
     {
-      Flink = WheapPfaLock.SavedApcState.ApcListHead[1].Flink;
+      NormalContext = (__int64 **)WheapPfaLock.SchedulerApc.NormalContext;
       v12 = (unsigned int)v8[1] + 25LL * (unsigned int)*v8;
       v23 = 3 * v12;
-      *((_WORD *)&WheapPfaLock.SavedApcState.ApcListHead[1].Flink[5].Blink + 2 * v23) = 32;
-      *((_DWORD *)&Flink[5].Flink + v23) = a4;
-      *((_DWORD *)&Flink[5].Flink + v23 + 1) = v21;
+      *((_WORD *)WheapPfaLock.SchedulerApc.NormalContext + 2 * v23 + 44) = 32;
+      *((_DWORD *)NormalContext + v23 + 20) = a4;
+      *((_DWORD *)NormalContext + v23 + 21) = v21;
       goto LABEL_20;
     }
     goto LABEL_19;
@@ -92,11 +92,11 @@ LABEL_22:
     v14 = a5;
     v11 = BgpDisplayCharacterEx(
             v5,
-            (__int64 *)WheapPfaLock.SavedApcState.ApcListHead[1].Flink[2].Blink,
-            HIDWORD(WheapPfaLock.SavedApcState.ApcListHead[1].Flink[3].Blink) + LODWORD(v10->Flink) * *v8,
-            LODWORD(WheapPfaLock.SavedApcState.ApcListHead[1].Flink[4].Flink)
-          + LODWORD(WheapPfaLock.SavedApcState.ApcListHead[1].Flink[4].Blink)
-          * HIDWORD(WheapPfaLock.SavedApcState.ApcListHead[1].Flink[3].Flink),
+            *((__int64 **)WheapPfaLock.SchedulerApc.NormalContext + 5),
+            *((_DWORD *)WheapPfaLock.SchedulerApc.NormalContext + 15) + *v10 * *v8,
+            *((_DWORD *)WheapPfaLock.SchedulerApc.NormalContext + 16)
+          + *((_DWORD *)WheapPfaLock.SchedulerApc.NormalContext + 18)
+          * *((_DWORD *)WheapPfaLock.SchedulerApc.NormalContext + 13),
             a5,
             a4,
             (int *)va,
@@ -105,15 +105,15 @@ LABEL_22:
     if ( v11 >= 0 )
     {
       v12 = 3 * ((unsigned int)v8[1] + 25LL * (unsigned int)*v8);
-      Flink = WheapPfaLock.SavedApcState.ApcListHead[1].Flink;
-      *((_WORD *)&WheapPfaLock.SavedApcState.ApcListHead[1].Flink[5].Blink + 2 * v12) = v5;
-      *((_DWORD *)&Flink[5].Flink + v12) = a4;
-      *((_DWORD *)&Flink[5].Flink + v12 + 1) = v14;
+      NormalContext = (__int64 **)WheapPfaLock.SchedulerApc.NormalContext;
+      *((_WORD *)WheapPfaLock.SchedulerApc.NormalContext + 2 * v12 + 44) = v5;
+      *((_DWORD *)NormalContext + v12 + 20) = a4;
+      *((_DWORD *)NormalContext + v12 + 21) = v14;
       ++*v8;
       goto LABEL_20;
     }
 LABEL_19:
-    Flink = WheapPfaLock.SavedApcState.ApcListHead[1].Flink;
+    NormalContext = (__int64 **)WheapPfaLock.SchedulerApc.NormalContext;
     goto LABEL_20;
   }
   v15 = *v8;
@@ -127,23 +127,23 @@ LABEL_19:
     {
       v19 = BgpDisplayCharacterEx(
               0x20u,
-              (__int64 *)Flink[2].Blink,
-              *v9 + LODWORD(v10->Flink) * v15,
-              v9[1] + HIDWORD(v10->Flink) * v8[1],
+              NormalContext[5],
+              *v9 + *v10 * v15,
+              v9[1] + v10[1] * v8[1],
               v17,
               a4,
               (int *)va,
               &v27,
               v26);
-      Flink = WheapPfaLock.SavedApcState.ApcListHead[1].Flink;
+      NormalContext = (__int64 **)WheapPfaLock.SchedulerApc.NormalContext;
       v11 = v19;
       if ( v19 >= 0 )
       {
         v12 = (unsigned int)v8[1] + 25LL * (unsigned int)*v8;
         v20 = 3 * v12;
-        *((_WORD *)&WheapPfaLock.SavedApcState.ApcListHead[1].Flink[5].Blink + 2 * v20) = 32;
-        *((_DWORD *)&Flink[5].Flink + v20) = a4;
-        *((_DWORD *)&Flink[5].Flink + v20 + 1) = v17;
+        *((_WORD *)WheapPfaLock.SchedulerApc.NormalContext + 2 * v20 + 44) = 32;
+        *((_DWORD *)NormalContext + v20 + 20) = a4;
+        *((_DWORD *)NormalContext + v20 + 21) = v17;
       }
       v15 = ++*v8;
       --v18;
@@ -155,7 +155,7 @@ LABEL_20:
     goto LABEL_21;
 LABEL_23:
   v24 = v8[1];
-  if ( v24 >= HIDWORD(Flink->Flink) )
+  if ( v24 >= *((_DWORD *)NormalContext + 1) )
   {
     v8[1] = v24 - 1;
     BgpConsoleScrollScreen(v12);

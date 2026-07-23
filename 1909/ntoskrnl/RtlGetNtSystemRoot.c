@@ -10,10 +10,10 @@
  *     PsGetCurrentServerSiloGlobals @ 0x1400EBE80 (PsGetCurrentServerSiloGlobals.c)
  */
 
-__int64 RtlGetNtSystemRoot()
+PWSTR RtlGetNtSystemRoot(void)
 {
   if ( PsIsCurrentThreadInServerSilo() )
-    return *((_QWORD *)PsGetCurrentServerSiloGlobals() + 138) + 30LL;
+    return (PWSTR)(*((_QWORD *)PsGetCurrentServerSiloGlobals() + 138) + 30LL);
   else
-    return 0xFFFFF78000000030uLL;
+    return (PWSTR)0xFFFFF78000000030LL;
 }

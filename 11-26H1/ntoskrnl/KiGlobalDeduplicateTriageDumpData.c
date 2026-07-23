@@ -1,22 +1,22 @@
 /*
- * XREFs of KiGlobalDeduplicateTriageDumpData @ 0x1405E8520
+ * XREFs of KiGlobalDeduplicateTriageDumpData @ 0x1405EAE90
  * Callers:
- *     KiInvokeBugCheckAddTriageDumpDataCallbacks @ 0x1405E85B4 (KiInvokeBugCheckAddTriageDumpDataCallbacks.c)
+ *     KiInvokeBugCheckAddTriageDumpDataCallbacks @ 0x1405EAF24 (KiInvokeBugCheckAddTriageDumpDataCallbacks.c)
  * Callees:
- *     KiDeduplicateTriageDumpDataArrays @ 0x1405E7E88 (KiDeduplicateTriageDumpDataArrays.c)
+ *     KiDeduplicateTriageDumpDataArrays @ 0x1405EA7F8 (KiDeduplicateTriageDumpDataArrays.c)
  */
 
 void __fastcall KiGlobalDeduplicateTriageDumpData(_DWORD *a1)
 {
-  __int64 *v1; // rbx
+  struct _KTHREAD *StackLimit; // rbx
 
-  v1 = (__int64 *)KeBugCheckTriageDumpDataArrayListHead;
-  if ( KeBugCheckTriageDumpDataArrayListHead && qword_140F26D08 )
+  StackLimit = (struct _KTHREAD *)KiSupervisorXStateFeaturesLock.StackLimit;
+  if ( KiSupervisorXStateFeaturesLock.StackLimit && KiSupervisorXStateFeaturesLock.StackBase )
   {
-    while ( v1 != &KeBugCheckTriageDumpDataArrayListHead )
+    while ( StackLimit != (struct _KTHREAD *)&KiSupervisorXStateFeaturesLock.StackLimit )
     {
-      KiDeduplicateTriageDumpDataArrays(a1, (__int64)v1);
-      v1 = (__int64 *)*v1;
+      KiDeduplicateTriageDumpDataArrays(a1, (__int64)StackLimit);
+      StackLimit = *(struct _KTHREAD **)&StackLimit->Header.Lock;
     }
   }
 }

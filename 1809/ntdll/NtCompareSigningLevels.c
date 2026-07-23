@@ -1,17 +1,17 @@
 /*
- * XREFs of NtCompareSigningLevels @ 0x1800A1610
+ * XREFs of NtCompareSigningLevels @ 0x1800A1630
  * Callers:
- *     LdrpValidateIntegrityContinuity @ 0x180086FE0 (LdrpValidateIntegrityContinuity.c)
- *     LdrpSetModuleSigningLevel @ 0x18008F4D0 (LdrpSetModuleSigningLevel.c)
+ *     LdrpValidateIntegrityContinuity @ 0x180086FF0 (LdrpValidateIntegrityContinuity.c)
+ *     LdrpSetModuleSigningLevel @ 0x18008F4E0 (LdrpSetModuleSigningLevel.c)
  * Callees:
  *     <none>
  */
 
-__int64 NtCompareSigningLevels()
+NTSTATUS __cdecl NtCompareSigningLevels(SE_SIGNING_LEVEL FirstSigningLevel, SE_SIGNING_LEVEL SecondSigningLevel)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 154LL;
+  result = 154;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

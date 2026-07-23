@@ -3,7 +3,7 @@
  * Callers:
  *     BgpBcInitializeCriticalMode @ 0x1407D3ED8 (BgpBcInitializeCriticalMode.c)
  * Callees:
- *     BgpFoGetTextMetrics @ 0x140127E00 (BgpFoGetTextMetrics.c)
+ *     BgpFoGetTextMetrics @ 0x140128370 (BgpFoGetTextMetrics.c)
  *     BgpFoGetFontHandle @ 0x1407279B8 (BgpFoGetFontHandle.c)
  */
 

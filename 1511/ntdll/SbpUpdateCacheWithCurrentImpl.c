@@ -34,7 +34,7 @@ __int64 __fastcall SbpUpdateCacheWithCurrentImpl(__int64 a1, __int64 a2)
   unsigned int v24; // esi
   _DWORD *v25; // rcx
   __int64 v26; // rdi
-  _BYTE v27[16]; // [rsp+20h] [rbp-178h] BYREF
+  _NT_PRODUCT_TYPE NtProductType[4]; // [rsp+20h] [rbp-178h] BYREF
   int v28; // [rsp+30h] [rbp-168h]
   _DWORD v29[71]; // [rsp+34h] [rbp-164h] BYREF
 
@@ -50,7 +50,7 @@ __int64 __fastcall SbpUpdateCacheWithCurrentImpl(__int64 a1, __int64 a2)
   if ( Buffer && *Buffer )
     RtlStringCbCopyW(&v29[4], 256LL);
   if ( ((v28 - 284) & 0xFFFFFFF7) == 0 )
-    RtlGetNtProductType(v27);
+    RtlGetNtProductType(NtProductType);
   v7 = &unk_180100C06;
   v8 = -1LL;
   v9 = 0LL;

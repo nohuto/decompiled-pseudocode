@@ -1,45 +1,45 @@
 /*
- * XREFs of KcsanValidateAddress @ 0x1405AE5E0
+ * XREFs of KcsanValidateAddress @ 0x1405AB550
  * Callers:
- *     KasanValidateAddress @ 0x1405A9DF0 (KasanValidateAddress.c)
- *     __asan_load1 @ 0x1405AB270 (__asan_load1.c)
- *     __asan_load16 @ 0x1405AB320 (__asan_load16.c)
- *     __asan_load16_volatile @ 0x1405AB550 (__asan_load16_volatile.c)
- *     __asan_load1_volatile @ 0x1405AB780 (__asan_load1_volatile.c)
- *     __asan_load2 @ 0x1405AB830 (__asan_load2.c)
- *     __asan_load2_volatile @ 0x1405AB920 (__asan_load2_volatile.c)
- *     __asan_load4 @ 0x1405ABA10 (__asan_load4.c)
- *     __asan_load4_volatile @ 0x1405ABB30 (__asan_load4_volatile.c)
- *     __asan_load8 @ 0x1405ABC50 (__asan_load8.c)
- *     __asan_load8_volatile @ 0x1405ABDA0 (__asan_load8_volatile.c)
- *     __asan_loadN @ 0x1405ABEF0 (__asan_loadN.c)
- *     __asan_loadN_volatile @ 0x1405ABFE0 (__asan_loadN_volatile.c)
- *     __asan_memcpy @ 0x1405AC0D0 (__asan_memcpy.c)
- *     __asan_memset @ 0x1405AC290 (__asan_memset.c)
- *     __asan_store1 @ 0x1405AC600 (__asan_store1.c)
- *     __asan_store16 @ 0x1405AC6B0 (__asan_store16.c)
- *     __asan_store16_volatile @ 0x1405AC8E0 (__asan_store16_volatile.c)
- *     __asan_store1_volatile @ 0x1405ACB10 (__asan_store1_volatile.c)
- *     __asan_store2 @ 0x1405ACBC0 (__asan_store2.c)
- *     __asan_store2_volatile @ 0x1405ACCB0 (__asan_store2_volatile.c)
- *     __asan_store4 @ 0x1405ACDA0 (__asan_store4.c)
- *     __asan_store4_volatile @ 0x1405ACEC0 (__asan_store4_volatile.c)
- *     __asan_store8 @ 0x1405ACFE0 (__asan_store8.c)
- *     __asan_store8_volatile @ 0x1405AD130 (__asan_store8_volatile.c)
- *     __asan_storeN @ 0x1405AD280 (__asan_storeN.c)
- *     __asan_storeN_volatile @ 0x1405AD370 (__asan_storeN_volatile.c)
- *     __asan_wrap_memchr @ 0x1405AD460 (__asan_wrap_memchr.c)
- *     __asan_wrap_memcmp @ 0x1405AD570 (__asan_wrap_memcmp.c)
- *     __asan_wrap_strcat @ 0x1405AD730 (__asan_wrap_strcat.c)
- *     __asan_wrap_strcmp @ 0x1405AD990 (__asan_wrap_strcmp.c)
- *     __asan_wrap_strcpy @ 0x1405ADB30 (__asan_wrap_strcpy.c)
- *     __asan_wrap_strlen @ 0x1405ADCE0 (__asan_wrap_strlen.c)
- *     __asan_wrap_strncmp @ 0x1405ADDD0 (__asan_wrap_strncmp.c)
- *     __asan_wrap_strncpy @ 0x1405ADF60 (__asan_wrap_strncpy.c)
- *     __asan_wrap_wcslen @ 0x1405AE110 (__asan_wrap_wcslen.c)
+ *     KasanValidateAddress @ 0x1405A6D60 (KasanValidateAddress.c)
+ *     __asan_load1 @ 0x1405A81E0 (__asan_load1.c)
+ *     __asan_load16 @ 0x1405A8290 (__asan_load16.c)
+ *     __asan_load16_volatile @ 0x1405A84C0 (__asan_load16_volatile.c)
+ *     __asan_load1_volatile @ 0x1405A86F0 (__asan_load1_volatile.c)
+ *     __asan_load2 @ 0x1405A87A0 (__asan_load2.c)
+ *     __asan_load2_volatile @ 0x1405A8890 (__asan_load2_volatile.c)
+ *     __asan_load4 @ 0x1405A8980 (__asan_load4.c)
+ *     __asan_load4_volatile @ 0x1405A8AA0 (__asan_load4_volatile.c)
+ *     __asan_load8 @ 0x1405A8BC0 (__asan_load8.c)
+ *     __asan_load8_volatile @ 0x1405A8D10 (__asan_load8_volatile.c)
+ *     __asan_loadN @ 0x1405A8E60 (__asan_loadN.c)
+ *     __asan_loadN_volatile @ 0x1405A8F50 (__asan_loadN_volatile.c)
+ *     __asan_memcpy @ 0x1405A9040 (__asan_memcpy.c)
+ *     __asan_memset @ 0x1405A9200 (__asan_memset.c)
+ *     __asan_store1 @ 0x1405A9570 (__asan_store1.c)
+ *     __asan_store16 @ 0x1405A9620 (__asan_store16.c)
+ *     __asan_store16_volatile @ 0x1405A9850 (__asan_store16_volatile.c)
+ *     __asan_store1_volatile @ 0x1405A9A80 (__asan_store1_volatile.c)
+ *     __asan_store2 @ 0x1405A9B30 (__asan_store2.c)
+ *     __asan_store2_volatile @ 0x1405A9C20 (__asan_store2_volatile.c)
+ *     __asan_store4 @ 0x1405A9D10 (__asan_store4.c)
+ *     __asan_store4_volatile @ 0x1405A9E30 (__asan_store4_volatile.c)
+ *     __asan_store8 @ 0x1405A9F50 (__asan_store8.c)
+ *     __asan_store8_volatile @ 0x1405AA0A0 (__asan_store8_volatile.c)
+ *     __asan_storeN @ 0x1405AA1F0 (__asan_storeN.c)
+ *     __asan_storeN_volatile @ 0x1405AA2E0 (__asan_storeN_volatile.c)
+ *     __asan_wrap_memchr @ 0x1405AA3D0 (__asan_wrap_memchr.c)
+ *     __asan_wrap_memcmp @ 0x1405AA4E0 (__asan_wrap_memcmp.c)
+ *     __asan_wrap_strcat @ 0x1405AA6A0 (__asan_wrap_strcat.c)
+ *     __asan_wrap_strcmp @ 0x1405AA900 (__asan_wrap_strcmp.c)
+ *     __asan_wrap_strcpy @ 0x1405AAAA0 (__asan_wrap_strcpy.c)
+ *     __asan_wrap_strlen @ 0x1405AAC50 (__asan_wrap_strlen.c)
+ *     __asan_wrap_strncmp @ 0x1405AAD40 (__asan_wrap_strncmp.c)
+ *     __asan_wrap_strncpy @ 0x1405AAED0 (__asan_wrap_strncpy.c)
+ *     __asan_wrap_wcslen @ 0x1405AB080 (__asan_wrap_wcslen.c)
  * Callees:
- *     KeStallExecutionProcessor @ 0x14033A030 (KeStallExecutionProcessor.c)
- *     KcsaniInsertInDatabase @ 0x1405AE880 (KcsaniInsertInDatabase.c)
+ *     KeStallExecutionProcessor @ 0x140319510 (KeStallExecutionProcessor.c)
+ *     KcsaniInsertInDatabase @ 0x1405AB7F0 (KcsaniInsertInDatabase.c)
  */
 
 struct _KTHREAD *__fastcall KcsanValidateAddress(struct _LIST_ENTRY *a1, __int64 a2, char a3, char a4, __int64 a5)
@@ -68,8 +68,8 @@ struct _KTHREAD *__fastcall KcsanValidateAddress(struct _LIST_ENTRY *a1, __int64
   if ( !v7 )
   {
     v8 = 0LL;
-    for ( result = (struct _KTHREAD *)(qword_140FCDC30 + 8);
-          v8 < *(_QWORD *)qword_140FCDC30 && (unsigned __int64)a1 >= *(_QWORD *)&result->Header.Lock;
+    for ( result = (struct _KTHREAD *)(qword_140FCECB0 + 8);
+          v8 < *(_QWORD *)qword_140FCECB0 && (unsigned __int64)a1 >= *(_QWORD *)&result->Header.Lock;
           result = (struct _KTHREAD *)((char *)result + 16) )
     {
       if ( a1 < result->Header.WaitListHead.Flink )
@@ -84,7 +84,7 @@ struct _KTHREAD *__fastcall KcsanValidateAddress(struct _LIST_ENTRY *a1, __int64
     BYTE9(v18[1]) = a4;
     if ( (_DWORD)KeNumberProcessors_0 )
     {
-      v10 = &unk_140E3ED68;
+      v10 = &unk_140E3EEA8;
       do
       {
         *(_QWORD *)&v19[0] = *(v10 - 5);
@@ -125,7 +125,7 @@ struct _KTHREAD *__fastcall KcsanValidateAddress(struct _LIST_ENTRY *a1, __int64
         _disable();
         HIDWORD(v21) = HIDWORD(KcsanThread) + 1;
         v15 = *(_OWORD *)((char *)&v18[1] + 8);
-        v16 = (char *)&unk_140E3ED40 + 64 * (unsigned __int64)KeGetCurrentPrcb()->Number;
+        v16 = (char *)&unk_140E3EE80 + 64 * (unsigned __int64)KeGetCurrentPrcb()->Number;
         LODWORD(v21) = -1395763731;
         *(_OWORD *)(v16 + 8) = *(_OWORD *)((char *)v18 + 8);
         *(_OWORD *)(v16 + 24) = v15;

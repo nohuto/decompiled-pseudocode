@@ -3,16 +3,16 @@
  * Callers:
  *     IoInitSystemPreDrivers @ 0x14079EDEC (IoInitSystemPreDrivers.c)
  * Callees:
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1400C8070 (ExfAcquirePushLockExclusiveEx.c)
- *     ExfTryToWakePushLock @ 0x1400C8738 (ExfTryToWakePushLock.c)
- *     KeGetPrcb @ 0x1400D3FF8 (KeGetPrcb.c)
- *     WheapInitializeWorkQueue @ 0x14014C110 (WheapInitializeWorkQueue.c)
- *     WheapCheckForAndReportErrorsFromPreviousSession @ 0x14014C3DC (WheapCheckForAndReportErrorsFromPreviousSession.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
- *     IoWMIRegistrationControl @ 0x14053A454 (IoWMIRegistrationControl.c)
- *     WheapLogInitEvent @ 0x14057AC08 (WheapLogInitEvent.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1400C5F10 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfTryToWakePushLock @ 0x1400C65D8 (ExfTryToWakePushLock.c)
+ *     KeGetPrcb @ 0x1400D1E98 (KeGetPrcb.c)
+ *     WheapInitializeWorkQueue @ 0x14014C680 (WheapInitializeWorkQueue.c)
+ *     WheapCheckForAndReportErrorsFromPreviousSession @ 0x14014C94C (WheapCheckForAndReportErrorsFromPreviousSession.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
+ *     IoWMIRegistrationControl @ 0x14053A994 (IoWMIRegistrationControl.c)
+ *     WheapLogInitEvent @ 0x14057B148 (WheapLogInitEvent.c)
  *     WheapQueryPshedForErrorSources @ 0x1407A0CAC (WheapQueryPshedForErrorSources.c)
  *     WheapInitializeErrorSourceTable @ 0x1407B4128 (WheapInitializeErrorSourceTable.c)
  *     WheapLoadPolicy @ 0x1407B966C (WheapLoadPolicy.c)
@@ -84,7 +84,7 @@ __int64 __fastcall WheaInitialize(__int64 a1, unsigned int a2)
       **(_DWORD **)(Prcb + 24528) = v26;
       *(_QWORD *)(*(_QWORD *)(Prcb + 24528) + 16LL) = &WheapDispatchPtr.Reserved;
     }
-    for ( j = qword_140329938; (__int64 *)j != &qword_140329938; j = *(_QWORD *)j )
+    for ( j = qword_140329968; (__int64 *)j != &qword_140329968; j = *(_QWORD *)j )
     {
       if ( *(_DWORD *)(j + 97) == 7 )
       {
@@ -99,9 +99,9 @@ __int64 __fastcall WheaInitialize(__int64 a1, unsigned int a2)
     }
     if ( (*(_BYTE *)(*(_QWORD *)(a1 + 240) + 2264LL) & 4) == 0 && PshedIsSystemWheaEnabled() )
       WheapCheckForAndReportErrorsFromPreviousSession();
-    v13 = qword_140329938;
+    v13 = qword_140329968;
     v14 = 0;
-    while ( (__int64 *)v13 != &qword_140329938 )
+    while ( (__int64 *)v13 != &qword_140329968 )
     {
       v15 = *(_DWORD *)(v13 + 97) == 7;
       *(_DWORD *)(v13 + 117) = v14;
@@ -147,15 +147,15 @@ __int64 __fastcall WheaInitialize(__int64 a1, unsigned int a2)
     if ( v19 < 0 )
       KeBugCheckEx(0x122u, 5uLL, v19, 0LL, 0LL);
     v20 = (int *)Address;
-    qword_140329940 = (__int64)&qword_140329938;
-    qword_140329938 = (__int64)&qword_140329938;
+    qword_140329970 = (__int64)&qword_140329968;
+    qword_140329968 = (__int64)&qword_140329968;
     v21 = 0;
     WheapErrorSourceTable = 1279410516LL;
-    word_140329948 = 1;
-    byte_14032994A = 6;
-    dword_14032994C = 1;
-    qword_140329958 = (__int64)&qword_140329950;
-    qword_140329950 = (__int64)&qword_140329950;
+    word_140329978 = 1;
+    byte_14032997A = 6;
+    dword_14032997C = 1;
+    qword_140329988 = (__int64)&qword_140329980;
+    qword_140329980 = (__int64)&qword_140329980;
     if ( v26 )
     {
       do

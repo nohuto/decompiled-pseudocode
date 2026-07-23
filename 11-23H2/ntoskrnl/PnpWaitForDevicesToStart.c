@@ -4,7 +4,7 @@
  *     IopInitializeSystemDrivers @ 0x140B3CA80 (IopInitializeSystemDrivers.c)
  *     IopInitializeBootDrivers @ 0x140B3CEB4 (IopInitializeBootDrivers.c)
  * Callees:
- *     PnpWaitForEmptyDeviceActionQueue @ 0x1408110E4 (PnpWaitForEmptyDeviceActionQueue.c)
+ *     PnpWaitForEmptyDeviceActionQueue @ 0x1408113B4 (PnpWaitForEmptyDeviceActionQueue.c)
  */
 
 _BOOL8 PnpWaitForDevicesToStart()

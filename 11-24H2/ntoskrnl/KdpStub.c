@@ -1,10 +1,10 @@
 /*
- * XREFs of KdpStub @ 0x1404289D0
+ * XREFs of KdpStub @ 0x14041C950
  * Callers:
- *     KiDispatchException @ 0x1403E8310 (KiDispatchException.c)
+ *     KiDispatchException @ 0x1403D5EB0 (KiDispatchException.c)
  * Callees:
- *     KdEnableDebugger @ 0x1405AFA40 (KdEnableDebugger.c)
- *     KdpTrap @ 0x140B752B8 (KdpTrap.c)
+ *     KdEnableDebugger @ 0x1405AC9B0 (KdEnableDebugger.c)
+ *     KdpTrap @ 0x140B772B8 (KdpTrap.c)
  */
 
 char __fastcall KdpStub(int a1, int a2, __int64 a3, __int64 a4, char a5, char a6)

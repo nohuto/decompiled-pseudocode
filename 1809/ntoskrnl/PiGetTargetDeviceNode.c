@@ -1,9 +1,9 @@
 /*
- * XREFs of PiGetTargetDeviceNode @ 0x1406F00D4
+ * XREFs of PiGetTargetDeviceNode @ 0x1406F1374
  * Callers:
- *     PiCheckRemovalPreconditions @ 0x1406EF748 (PiCheckRemovalPreconditions.c)
- *     PnpRecordBlackboxPnpEventInformation @ 0x1406EFF78 (PnpRecordBlackboxPnpEventInformation.c)
- *     PiProcessQueryRemoveNoFdo @ 0x140840318 (PiProcessQueryRemoveNoFdo.c)
+ *     PiCheckRemovalPreconditions @ 0x1406F09E8 (PiCheckRemovalPreconditions.c)
+ *     PnpRecordBlackboxPnpEventInformation @ 0x1406F1218 (PnpRecordBlackboxPnpEventInformation.c)
+ *     PiProcessQueryRemoveNoFdo @ 0x140841578 (PiProcessQueryRemoveNoFdo.c)
  * Callees:
  *     <none>
  */

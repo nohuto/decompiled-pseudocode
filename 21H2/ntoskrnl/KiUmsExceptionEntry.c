@@ -1,10 +1,10 @@
 /*
- * XREFs of KiUmsExceptionEntry @ 0x140413940
+ * XREFs of KiUmsExceptionEntry @ 0x140413A40
  * Callers:
- *     KiExceptionDispatch @ 0x1404127C0 (KiExceptionDispatch.c)
- *     KiFastFailDispatch @ 0x140412C80 (KiFastFailDispatch.c)
+ *     KiExceptionDispatch @ 0x1404128C0 (KiExceptionDispatch.c)
+ *     KiFastFailDispatch @ 0x140412D80 (KiFastFailDispatch.c)
  * Callees:
- *     KiSwapToUmsThread @ 0x1408BD920 (KiSwapToUmsThread.c)
+ *     KiSwapToUmsThread @ 0x1408BDA80 (KiSwapToUmsThread.c)
  */
 
 __int64 __fastcall KiUmsExceptionEntry(
@@ -69,7 +69,7 @@ __int64 __fastcall KiUmsExceptionEntry(
   v42[4] = v38 + 272;
   v43 = v38 + 272 - (_QWORD)v42;
   v44 = v43;
-  v45 = byte_1404139C3;
+  v45 = byte_140413AC3;
   v48 = &v49;
   v47 = v38 - 128;
   v46 |= 1uLL;

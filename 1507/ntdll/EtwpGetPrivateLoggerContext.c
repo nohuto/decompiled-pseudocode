@@ -15,13 +15,13 @@ __int64 __fastcall EtwpGetPrivateLoggerContext(__int64 a1, _QWORD *a2)
   unsigned int v2; // r8d
   unsigned int v5; // eax
   __int64 v6; // rdx
-  UNICODE_STRING DestinationString; // [rsp+20h] [rbp-18h] BYREF
+  _UNICODE_STRING DestinationString; // [rsp+20h] [rbp-18h] BYREF
 
   v2 = 0;
   if ( *(_WORD *)(a1 + 144) )
   {
     RtlInitUnicodeString(&DestinationString, (PCWSTR)(a1 + 176));
-    return EtwpGetPrivateLoggerContextByName(&DestinationString, a2);
+    return EtwpGetPrivateLoggerContextByName(&DestinationString);
   }
   v5 = *(_WORD *)(a1 + 8) & 0x7FFF;
   if ( v5 >= 0x40 || !EtwpLoggerArray )

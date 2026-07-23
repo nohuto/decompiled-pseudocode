@@ -9,20 +9,20 @@
  *     SepAdtInitializeCrashOnFail @ 0x1407AAAB8 (SepAdtInitializeCrashOnFail.c)
  */
 
-__int64 SepAdtRegNotificationCallback()
+NTSTATUS SepAdtRegNotificationCallback()
 {
   SepAdtInitializeCrashOnFail();
   SepAdtInitializePrivilegeAuditing();
   SepAdtInitializeBounds();
   return NtNotifyChangeKey(
-           (int)SepAdtRegNotifyHandle,
-           0,
-           (__int64)&SepAdtLsaRegWatchWorkItem,
-           1LL,
+           SepAdtRegNotifyHandle,
+           0LL,
+           SepAdtLsaRegWatchWorkItem,
+           (PVOID)1,
            &SepAdtIoStatusBlock,
-           5,
+           5u,
            0,
            0LL,
            0,
-           1);
+           1u);
 }

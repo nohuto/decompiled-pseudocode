@@ -104,7 +104,7 @@ __int64 __fastcall CmFcManagerOverwriteFeatureConfigurationSection(
   v15 = _interlockedbittestandset64((volatile signed __int32 *)&stru_140C14030, 0LL);
   v16 = v14;
   if ( v15 )
-    ExfAcquirePushLockExclusiveEx(&stru_140C14030, v14, (__int64)&stru_140C14030);
+    ExfAcquirePushLockExclusiveEx((unsigned __int64 *)&stru_140C14030, v14, (__int64)&stru_140C14030);
   if ( v16 )
     *(_BYTE *)(v16 + 18) = 1;
   RtlpFcBufferManagerReferenceBuffers((__int64)qword_140C14090, (__int64)&v29, &v26);
@@ -136,7 +136,7 @@ LABEL_12:
   v15 = _interlockedbittestandset64((volatile signed __int32 *)&RunOnce, 0LL);
   v21 = v20;
   if ( v15 )
-    ExfAcquirePushLockExclusiveEx(&RunOnce, v20, (__int64)&RunOnce);
+    ExfAcquirePushLockExclusiveEx((unsigned __int64 *)&RunOnce, v20, (__int64)&RunOnce);
   if ( v21 )
     *(_BYTE *)(v21 + 18) = 1;
   v22 = 3LL * v25;

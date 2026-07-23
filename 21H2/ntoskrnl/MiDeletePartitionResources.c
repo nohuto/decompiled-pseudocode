@@ -1,43 +1,43 @@
 /*
- * XREFs of MiDeletePartitionResources @ 0x140561918
+ * XREFs of MiDeletePartitionResources @ 0x140561B58
  * Callers:
- *     MiDeletePartition @ 0x1405356DC (MiDeletePartition.c)
+ *     MiDeletePartition @ 0x14053591C (MiDeletePartition.c)
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x14021D060 (ExAcquireSpinLockExclusive.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14022EE10 (KeAcquireInStackQueuedSpinLock.c)
- *     KeSetActualBasePriorityThread @ 0x1402305B0 (KeSetActualBasePriorityThread.c)
- *     RtlAvlRemoveNode @ 0x140234B20 (RtlAvlRemoveNode.c)
- *     KiCheckForKernelApcDelivery @ 0x14024A6E0 (KiCheckForKernelApcDelivery.c)
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     KiAbEntryRemoveFromTree @ 0x14028F490 (KiAbEntryRemoveFromTree.c)
- *     MiUnlinkWorkingSet @ 0x14029736C (MiUnlinkWorkingSet.c)
- *     MiEnumerateSlabAllocators @ 0x1402B8CCC (MiEnumerateSlabAllocators.c)
- *     MiDereferencePageRunsEx @ 0x1402C34F8 (MiDereferencePageRunsEx.c)
- *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
- *     RtlAvlInsertNodeEx @ 0x140316550 (RtlAvlInsertNodeEx.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14033BD80 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KeSetEvent @ 0x1403435A0 (KeSetEvent.c)
- *     MiGetSystemRegionType @ 0x14034A950 (MiGetSystemRegionType.c)
- *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
- *     KiAbThreadRemoveBoosts @ 0x14034AD00 (KiAbThreadRemoveBoosts.c)
- *     KiLeaveGuardedRegionUnsafe @ 0x14034AD90 (KiLeaveGuardedRegionUnsafe.c)
- *     MmGetSessionIdEx @ 0x14034AE60 (MmGetSessionIdEx.c)
- *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
- *     ExFreeCacheAwareRundownProtection @ 0x140360670 (ExFreeCacheAwareRundownProtection.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402042B0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KiAbEntryRemoveFromTree @ 0x14020C630 (KiAbEntryRemoveFromTree.c)
+ *     MiEnumerateSlabAllocators @ 0x140236EDC (MiEnumerateSlabAllocators.c)
+ *     MiDereferencePageRunsEx @ 0x140241A18 (MiDereferencePageRunsEx.c)
+ *     MiUnlinkWorkingSet @ 0x14027444C (MiUnlinkWorkingSet.c)
+ *     ExFreeCacheAwareRundownProtection @ 0x1402A6400 (ExFreeCacheAwareRundownProtection.c)
+ *     ExAcquireSpinLockExclusive @ 0x1402C1960 (ExAcquireSpinLockExclusive.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402D3660 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeSetActualBasePriorityThread @ 0x1402D4E00 (KeSetActualBasePriorityThread.c)
+ *     RtlAvlRemoveNode @ 0x1402D9370 (RtlAvlRemoveNode.c)
+ *     KiCheckForKernelApcDelivery @ 0x1402EEF30 (KiCheckForKernelApcDelivery.c)
+ *     ExfTryToWakePushLock @ 0x1402FC2C0 (ExfTryToWakePushLock.c)
+ *     RtlAvlInsertNodeEx @ 0x1403212A0 (RtlAvlInsertNodeEx.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140346AD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KeSetEvent @ 0x14034E2F0 (KeSetEvent.c)
+ *     MiGetSystemRegionType @ 0x1403556A0 (MiGetSystemRegionType.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1403556E0 (ExAcquirePushLockExclusiveEx.c)
+ *     KiAbThreadRemoveBoosts @ 0x140355A50 (KiAbThreadRemoveBoosts.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x140355AE0 (KiLeaveGuardedRegionUnsafe.c)
+ *     MmGetSessionIdEx @ 0x140355BB0 (MmGetSessionIdEx.c)
+ *     ObfDereferenceObjectWithTag @ 0x140355E90 (ObfDereferenceObjectWithTag.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     ZwWaitForSingleObject @ 0x1403FA420 (ZwWaitForSingleObject.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
- *     CcExitPartition @ 0x1404EC154 (CcExitPartition.c)
- *     MiUnlockDynamicMemoryNestedParentExclusive @ 0x14052F604 (MiUnlockDynamicMemoryNestedParentExclusive.c)
- *     MiFreeClonePool @ 0x14055A8C0 (MiFreeClonePool.c)
- *     MiMergePageNodes @ 0x140562AE4 (MiMergePageNodes.c)
- *     ObCloseHandle @ 0x14061AB80 (ObCloseHandle.c)
- *     ObReferenceObjectByHandle @ 0x1406F0BC0 (ObReferenceObjectByHandle.c)
- *     MiDeletePagingFiles @ 0x1408D059C (MiDeletePagingFiles.c)
- *     MiDeletePfnBitMaps @ 0x1408D864C (MiDeletePfnBitMaps.c)
- *     MiFreePartitionPhysicalPages @ 0x1408DB0F0 (MiFreePartitionPhysicalPages.c)
- *     MiMakePartitionMemoryBlock @ 0x1408DB580 (MiMakePartitionMemoryBlock.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ZwWaitForSingleObject @ 0x1403FA600 (ZwWaitForSingleObject.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
+ *     CcExitPartition @ 0x1404EC394 (CcExitPartition.c)
+ *     MiUnlockDynamicMemoryNestedParentExclusive @ 0x14052F844 (MiUnlockDynamicMemoryNestedParentExclusive.c)
+ *     MiFreeClonePool @ 0x14055AB00 (MiFreeClonePool.c)
+ *     MiMergePageNodes @ 0x140562D24 (MiMergePageNodes.c)
+ *     ObCloseHandle @ 0x1406847E0 (ObCloseHandle.c)
+ *     ObReferenceObjectByHandle @ 0x140707FA0 (ObReferenceObjectByHandle.c)
+ *     MiDeletePagingFiles @ 0x1408D06FC (MiDeletePagingFiles.c)
+ *     MiDeletePfnBitMaps @ 0x1408D87AC (MiDeletePfnBitMaps.c)
+ *     MiFreePartitionPhysicalPages @ 0x1408DB250 (MiFreePartitionPhysicalPages.c)
+ *     MiMakePartitionMemoryBlock @ 0x1408DB6E0 (MiMakePartitionMemoryBlock.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 void __fastcall MiDeletePartitionResources(__int64 a1)
@@ -89,30 +89,29 @@ void __fastcall MiDeletePartitionResources(__int64 a1)
   int v46; // eax
   unsigned int v47; // ecx
   __int64 v48; // rdx
-  __int64 v49; // rcx
-  unsigned __int64 *v50; // rax
-  unsigned __int64 *v51; // rbx
-  unsigned __int64 *v52; // rax
-  unsigned __int64 *v53; // rsi
-  unsigned __int64 *v54; // rcx
-  void *v55; // rcx
+  unsigned __int64 *v49; // rax
+  unsigned __int64 *v50; // rbx
+  unsigned __int64 *v51; // rax
+  unsigned __int64 *v52; // rsi
+  unsigned __int64 *v53; // rcx
+  void *v54; // rcx
+  __int64 v55; // rcx
   __int64 v56; // rcx
-  __int64 v57; // rcx
-  __int64 v58; // rsi
-  __int64 v59; // rbx
-  void *v60; // rcx
-  struct _EX_RUNDOWN_REF_CACHE_AWARE *v61; // rcx
+  __int64 v57; // rsi
+  __int64 v58; // rbx
+  void *v59; // rcx
+  struct _EX_RUNDOWN_REF_CACHE_AWARE *v60; // rcx
+  void *v61; // rcx
   void *v62; // rcx
-  void *v63; // rcx
   PVOID Object; // [rsp+30h] [rbp-28h] BYREF
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+38h] [rbp-20h] BYREF
-  int v66; // [rsp+A8h] [rbp+50h] BYREF
+  int v65; // [rsp+A8h] [rbp+50h] BYREF
   struct _KTHREAD *CurrentThread; // [rsp+B0h] [rbp+58h]
-  _QWORD *v68; // [rsp+B8h] [rbp+60h] BYREF
+  _QWORD *v67; // [rsp+B8h] [rbp+60h] BYREF
 
   v2 = *(_QWORD **)(a1 + 176);
   memset(&LockHandle, 0, sizeof(LockHandle));
-  v68 = 0LL;
+  v67 = 0LL;
   CcExitPartition(v2, 1);
   KeSetEvent((PRKEVENT)(a1 + 104), 1, 0);
   SessionId = -1;
@@ -202,7 +201,7 @@ LABEL_14:
     --v17;
   }
   while ( v17 );
-  MiFreeClonePool((union _SLIST_HEADER *)a1);
+  MiFreeClonePool((_SLIST_HEADER *)a1);
   v19 = **(_QWORD **)(*(_QWORD *)(a1 + 176) + 56LL);
   *(_QWORD *)(a1 + 7592) -= MiDeletePagingFiles(a1);
   MiEnumerateSlabAllocators(
@@ -279,9 +278,9 @@ LABEL_44:
     RtlAvlRemoveNode((unsigned __int64 *)(a1 + 24), v32);
     if ( (unsigned int)MiMergePageNodes(v19, v32) != 1 )
       goto LABEL_59;
-    v34 = v68;
+    v34 = v67;
     v35 = 0;
-    if ( !v68 )
+    if ( !v67 )
       goto LABEL_58;
     while ( 1 )
     {
@@ -292,7 +291,7 @@ LABEL_44:
         {
           v35 = 0;
 LABEL_58:
-          RtlAvlInsertNodeEx((unsigned __int64 *)&v68, (unsigned __int64)v34, v35, v32);
+          RtlAvlInsertNodeEx((unsigned __int64 *)&v67, (unsigned __int64)v34, v35, v32);
 LABEL_59:
           if ( !v29 )
           {
@@ -360,7 +359,7 @@ LABEL_69:
   if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)v20, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
     ExfTryToWakePushLock(v20);
   v41 = KeGetCurrentThread();
-  v66 = 0;
+  v65 = 0;
   if ( (unsigned int)MiGetSystemRegionType(v20) == 1 )
     SessionId = MmGetSessionIdEx((__int64)v41->ApcState.Process);
   --v41->SpecialApcDisable;
@@ -392,11 +391,11 @@ LABEL_80:
   }
   *(_BYTE *)(v44 + 32) |= 2u;
   if ( *(__int64 *)(v44 + 32) < 0 )
-    KiAbEntryRemoveFromTree(v44);
+    KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)v44);
   v46 = *(_DWORD *)(v44 + 88) & 0x1FFFF;
   v47 = *(_DWORD *)(v44 + 88) & 0xFFFE0000;
   *(_BYTE *)(v44 + 25) &= ~1u;
-  v66 = v46;
+  v65 = v46;
   *(_DWORD *)(v44 + 88) = v47;
   *(_QWORD *)(v44 + 32) = 0LL;
   v48 = (signed __int64)(v44 - (unsigned __int64)v41->LockEntries) / 96;
@@ -406,79 +405,79 @@ LABEL_80:
     _InterlockedOr8((volatile signed __int8 *)&v41->AbOrphanedEntrySummary, 1 << v48);
 LABEL_87:
   --v41->AbAllocationRegionCount;
-  KiAbThreadRemoveBoosts((ULONG_PTR)v41, v20, (__int64)&v66, (_DWORD *)1);
+  KiAbThreadRemoveBoosts((ULONG_PTR)v41, v20, (unsigned int *)&v65);
   v7 = v41->SpecialApcDisable++ == -1;
   if ( v7 && ($C459BD0D405E8E46662177FB3D0A143F *)v41->ApcState.ApcListHead[0].Flink != &v41->152 )
-    KiCheckForKernelApcDelivery(v49);
+    KiCheckForKernelApcDelivery();
   KiLeaveGuardedRegionUnsafe((__int64)CurrentThread);
-  v50 = v68;
-  v51 = 0LL;
+  v49 = v67;
+  v50 = 0LL;
+  while ( v49 )
+  {
+    v50 = v49;
+    v49 = (unsigned __int64 *)*v49;
+  }
   while ( v50 )
   {
-    v51 = v50;
-    v50 = (unsigned __int64 *)*v50;
-  }
-  while ( v51 )
-  {
-    v52 = (unsigned __int64 *)v51[1];
-    v53 = v51;
-    v54 = v51;
-    if ( v52 )
+    v51 = (unsigned __int64 *)v50[1];
+    v52 = v50;
+    v53 = v50;
+    if ( v51 )
     {
       do
       {
-        v51 = v52;
-        v52 = (unsigned __int64 *)*v52;
+        v50 = v51;
+        v51 = (unsigned __int64 *)*v51;
       }
-      while ( v52 );
+      while ( v51 );
     }
     else
     {
       while ( 1 )
       {
-        v51 = (unsigned __int64 *)(v51[2] & 0xFFFFFFFFFFFFFFFCuLL);
-        if ( !v51 || (unsigned __int64 *)*v51 == v54 )
+        v50 = (unsigned __int64 *)(v50[2] & 0xFFFFFFFFFFFFFFFCuLL);
+        if ( !v50 || (unsigned __int64 *)*v50 == v53 )
           break;
-        v54 = v51;
+        v53 = v50;
       }
     }
-    RtlAvlRemoveNode((unsigned __int64 *)&v68, v53);
-    ExFreePoolWithTag((PVOID)v53[5], 0);
-    ExFreePoolWithTag(v53, 0);
+    RtlAvlRemoveNode((unsigned __int64 *)&v67, v52);
+    ExFreePoolWithTag((PVOID)v52[5], 0);
+    ExFreePoolWithTag(v52, 0);
   }
-  v55 = *(void **)(a1 + 6848);
-  if ( v55 )
+  v54 = *(void **)(a1 + 6848);
+  if ( v54 )
   {
-    ExFreePoolWithTag(v55, 0);
+    ExFreePoolWithTag(v54, 0);
     *(_QWORD *)(a1 + 6848) = 0LL;
   }
-  v56 = *(_QWORD *)(a1 + 96);
+  v55 = *(_QWORD *)(a1 + 96);
+  if ( v55 )
+    MiDereferencePageRunsEx(v55, 0);
+  v56 = *(_QWORD *)(a1 + 32);
   if ( v56 )
     MiDereferencePageRunsEx(v56, 0);
-  v57 = *(_QWORD *)(a1 + 32);
-  if ( v57 )
-    MiDereferencePageRunsEx(v57, 0);
   MiDeletePfnBitMaps(a1);
-  v58 = 11LL;
-  v59 = a1 + 248;
+  v57 = 11LL;
+  v58 = a1 + 248;
   do
   {
-    v60 = *(void **)(v59 + 88);
-    if ( v60 )
-      ObCloseHandle(v60, 0);
-    if ( *(_QWORD *)v59 != a1 + 208 )
-      ObfDereferenceObjectWithTag(*(PVOID *)v59, 0x746C6644u);
-    v59 += 8LL;
-    --v58;
+    v59 = *(void **)(v58 + 88);
+    if ( v59 )
+      ObCloseHandle(v59, 0);
+    if ( *(_QWORD *)v58 != a1 + 208 )
+      ObfDereferenceObjectWithTag(*(PVOID *)v58, 0x746C6644u);
+    v58 += 8LL;
+    --v57;
   }
-  while ( v58 );
-  v61 = *(struct _EX_RUNDOWN_REF_CACHE_AWARE **)(a1 + 2144);
+  while ( v57 );
+  v60 = *(struct _EX_RUNDOWN_REF_CACHE_AWARE **)(a1 + 2144);
+  if ( v60 )
+    ExFreeCacheAwareRundownProtection(v60);
+  v61 = *(void **)(a1 + 240);
   if ( v61 )
-    ExFreeCacheAwareRundownProtection(v61);
-  v62 = *(void **)(a1 + 240);
+    ObCloseHandle(v61, 0);
+  v62 = *(void **)(a1 + 232);
   if ( v62 )
     ObCloseHandle(v62, 0);
-  v63 = *(void **)(a1 + 232);
-  if ( v63 )
-    ObCloseHandle(v63, 0);
 }

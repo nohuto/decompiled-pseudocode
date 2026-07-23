@@ -1,10 +1,10 @@
 /*
- * XREFs of SymCryptIntBitsizeOfObject @ 0x14055C160
+ * XREFs of SymCryptIntBitsizeOfObject @ 0x14055E648
  * Callers:
- *     SymCryptIntExtendedGcd @ 0x140562838 (SymCryptIntExtendedGcd.c)
- *     SymCryptModExpWindowed @ 0x14057116C (SymCryptModExpWindowed.c)
+ *     SymCryptIntExtendedGcd @ 0x140564D48 (SymCryptIntExtendedGcd.c)
+ *     SymCryptModExpWindowed @ 0x14057034C (SymCryptModExpWindowed.c)
  * Callees:
- *     SymCryptFdefIntBitsizeOfObject @ 0x140570994 (SymCryptFdefIntBitsizeOfObject.c)
+ *     SymCryptFdefIntBitsizeOfObject @ 0x14056FB74 (SymCryptFdefIntBitsizeOfObject.c)
  */
 
 __int64 SymCryptIntBitsizeOfObject()

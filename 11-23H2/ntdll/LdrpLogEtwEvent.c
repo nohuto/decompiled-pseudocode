@@ -25,32 +25,32 @@
  *     memset$thunk$772440563353939046 @ 0x180132010 (memset$thunk$772440563353939046.c)
  */
 
-_BYTE *__fastcall LdrpLogEtwEvent(__int16 a1, __int64 a2, char a3, char a4, unsigned __int16 *a5, unsigned __int16 *a6)
+int __fastcall LdrpLogEtwEvent(__int16 a1, __int64 a2, char a3, char a4, unsigned __int16 *a5, unsigned __int16 *a6)
 {
   _BYTE *v6; // rdi
   unsigned int v7; // ebx
-  _BYTE *result; // rax
+  _BYTE *Heap; // rax
   size_t v11; // r8
-  int v13[3]; // [rsp+24h] [rbp-284h] BYREF
-  _BYTE v14[576]; // [rsp+30h] [rbp-278h] BYREF
+  __int64 v12; // rcx
+  int v15[3]; // [rsp+24h] [rbp-284h] BYREF
+  _BYTE Fields[576]; // [rsp+30h] [rbp-278h] BYREF
 
-  v6 = v14;
+  v6 = Fields;
   v7 = 0;
-  LOWORD(v13[0]) = a1;
+  LOWORD(v15[0]) = a1;
   if ( a5 )
   {
     v7 = *a5 + 2;
     if ( a6 )
       v7 += *a6 + 2;
   }
-  if ( v7 <= 0x214
-    || (result = (_BYTE *)RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v7 + 42), (v6 = result) != 0LL) )
+  if ( v7 <= 0x214 || (Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, v7 + 42), (v6 = Heap) != 0LL) )
   {
     v11 = 576LL;
     if ( v7 + 42 > 0x240 )
       v11 = v7 + 42;
     memset_thunk_772440563353939046(v6, 0, v11);
-    *((_WORD *)v6 + 3) = v13[0];
+    *((_WORD *)v6 + 3) = v15[0];
     if ( a2 != -1 )
     {
       v6[40] = a3;
@@ -58,16 +58,19 @@ _BYTE *__fastcall LdrpLogEtwEvent(__int16 a1, __int64 a2, char a3, char a4, unsi
       v6[41] = a4;
       if ( v7 )
       {
-        LdrpEventAddUnicodeString((__int64)a5, (_WORD *)v6 + 21, v7, v13);
+        LdrpEventAddUnicodeString((__int64)a5, (_WORD *)v6 + 21, v7, v15);
         if ( a6 )
-          LdrpEventAddUnicodeString((__int64)a6, &v6[v13[0] + 42], v7 - v13[0], v13);
+          LdrpEventAddUnicodeString((__int64)a6, &v6[v15[0] + 42], v7 - v15[0], v15);
       }
     }
-    RtlGetCurrentServiceSessionId();
-    NtTraceEvent();
-    result = v14;
-    if ( v14 != v6 )
-      return (_BYTE *)RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, (__int64)v6);
+    if ( RtlGetCurrentServiceSessionId() )
+      v12 = (__int64)NtCurrentPeb()->SharedData + 554;
+    else
+      v12 = 2147353476LL;
+    NtTraceEvent((HANDLE)*(unsigned __int8 *)v12, 0x402u, v7 + 10, v6);
+    Heap = Fields;
+    if ( Fields != v6 )
+      LODWORD(Heap) = RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v6);
   }
-  return result;
+  return (int)Heap;
 }

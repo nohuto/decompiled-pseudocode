@@ -4,10 +4,10 @@
  *     RtlpGetPolicyValueForSystemCapability @ 0x18004B6A4 (RtlpGetPolicyValueForSystemCapability.c)
  *     RtlpGetDynamicTimeZoneInfoHandle @ 0x180053260 (RtlpGetDynamicTimeZoneInfoHandle.c)
  *     RtlStringCbCatW @ 0x1800533D8 (RtlStringCbCatW.c)
- *     RtlpGetVolumeHandle @ 0x18008E950 (RtlpGetVolumeHandle.c)
+ *     RtlpGetVolumeHandle @ 0x18008E960 (RtlpGetVolumeHandle.c)
  *     LdrpAppxGetRemediationRegistryKey @ 0x1800CDCB4 (LdrpAppxGetRemediationRegistryKey.c)
  *     RtlpCleanupRegistryKeys @ 0x1800EF6F0 (RtlpCleanupRegistryKeys.c)
- *     RtlpQueryDiskSpacePolicy @ 0x1801150C4 (RtlpQueryDiskSpacePolicy.c)
+ *     RtlpQueryDiskSpacePolicy @ 0x180115060 (RtlpQueryDiskSpacePolicy.c)
  * Callees:
  *     <none>
  */

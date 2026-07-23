@@ -1,18 +1,18 @@
 /*
- * XREFs of ExpOsProductCacheProviderHelper @ 0x1407B9058
+ * XREFs of ExpOsProductCacheProviderHelper @ 0x1407B94A8
  * Callers:
- *     ExpCloudbookHardwareIDProvider @ 0x1407B8320 (ExpCloudbookHardwareIDProvider.c)
- *     ExpCloudbookHardwareLockedProvider @ 0x1407B8420 (ExpCloudbookHardwareLockedProvider.c)
- *     ExpGenuinePolicyPostProcess @ 0x1407B8980 (ExpGenuinePolicyPostProcess.c)
- *     ExpOsProductContentIdCacheProvider @ 0x1407B91A0 (ExpOsProductContentIdCacheProvider.c)
- *     ExpOsProductPfnCacheProvider @ 0x1407B91E0 (ExpOsProductPfnCacheProvider.c)
+ *     ExpCloudbookHardwareIDProvider @ 0x1407B8770 (ExpCloudbookHardwareIDProvider.c)
+ *     ExpCloudbookHardwareLockedProvider @ 0x1407B8870 (ExpCloudbookHardwareLockedProvider.c)
+ *     ExpGenuinePolicyPostProcess @ 0x1407B8DD0 (ExpGenuinePolicyPostProcess.c)
+ *     ExpOsProductContentIdCacheProvider @ 0x1407B95F0 (ExpOsProductContentIdCacheProvider.c)
+ *     ExpOsProductPfnCacheProvider @ 0x1407B9630 (ExpOsProductPfnCacheProvider.c)
  * Callees:
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     ZwQueryValueKey @ 0x1406A66F0 (ZwQueryValueKey.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     SpRegOpenRedirectedKey @ 0x1407BB144 (SpRegOpenRedirectedKey.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     ZwQueryValueKey @ 0x1406A7690 (ZwQueryValueKey.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     SpRegOpenRedirectedKey @ 0x1407BB594 (SpRegOpenRedirectedKey.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall ExpOsProductCacheProviderHelper(
@@ -41,7 +41,7 @@ __int64 __fastcall ExpOsProductCacheProviderHelper(
     v10 = ZwQueryValueKey(KeyHandle[0], a2, KeyValuePartialInformation, 0LL, 0, &ResultLength);
     if ( (int)(v10 + 0x80000000) < 0 || v10 == -1073741789 )
     {
-      Pool2 = (_DWORD *)ExAllocatePool2(0x100uLL);
+      Pool2 = (_DWORD *)ExAllocatePool2(0x100uLL, ResultLength, 0x20534C53u);
       v12 = Pool2;
       if ( Pool2 )
       {

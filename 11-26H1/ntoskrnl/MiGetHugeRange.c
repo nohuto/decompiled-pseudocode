@@ -1,20 +1,20 @@
 /*
- * XREFs of MiGetHugeRange @ 0x1406EB880
+ * XREFs of MiGetHugeRange @ 0x1406F0520
  * Callers:
- *     MmAllocateMemoryRanges @ 0x140867D80 (MmAllocateMemoryRanges.c)
- *     MiPartitionTransferAllocateHugeRange @ 0x14087C900 (MiPartitionTransferAllocateHugeRange.c)
+ *     MmAllocateMemoryRanges @ 0x14086E160 (MmAllocateMemoryRanges.c)
+ *     MiPartitionTransferAllocateHugeRange @ 0x140882D00 (MiPartitionTransferAllocateHugeRange.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     MiAssignDefaultChannel @ 0x140284390 (MiAssignDefaultChannel.c)
- *     MiLockHugePfnAtDpc @ 0x140358C94 (MiLockHugePfnAtDpc.c)
- *     MiSnapPageMoveInProgress @ 0x1403C85E0 (MiSnapPageMoveInProgress.c)
- *     MiWaitForPageMoveComplete @ 0x1403C8610 (MiWaitForPageMoveComplete.c)
- *     MiInitializeGetPageChannels @ 0x14043BBE0 (MiInitializeGetPageChannels.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     MiGetBestHugeRangeFromNode @ 0x1406EB5A4 (MiGetBestHugeRangeFromNode.c)
- *     MiHugePageOperation @ 0x140705138 (MiHugePageOperation.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     MiAssignDefaultChannel @ 0x140283900 (MiAssignDefaultChannel.c)
+ *     MiLockHugePfnAtDpc @ 0x14035AA34 (MiLockHugePfnAtDpc.c)
+ *     MiSnapPageMoveInProgress @ 0x1403D24D0 (MiSnapPageMoveInProgress.c)
+ *     MiWaitForPageMoveComplete @ 0x1403D2500 (MiWaitForPageMoveComplete.c)
+ *     MiInitializeGetPageChannels @ 0x14042E490 (MiInitializeGetPageChannels.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     MiGetBestHugeRangeFromNode @ 0x1406F0244 (MiGetBestHugeRangeFromNode.c)
+ *     MiHugePageOperation @ 0x140709E08 (MiHugePageOperation.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall MiGetHugeRange(__int64 a1, unsigned int a2, unsigned int a3)
@@ -50,7 +50,7 @@ __int64 __fastcall MiGetHugeRange(__int64 a1, unsigned int a2, unsigned int a3)
   v6 = v23;
   MiInitializeGetPageChannels((char *)&v25, v23, v4, a3);
   v22 = 0;
-  while ( *(_DWORD *)&stru_140E2EB88.WaitBlockFill11[32] )
+  while ( *(_DWORD *)&stru_140E2ED08.WaitBlockFill11[32] )
     KeYieldProcessorEx(&v22);
   v7 = MiSnapPageMoveInProgress(v6, 4);
   v8 = BYTE2(v25);
@@ -83,8 +83,8 @@ LABEL_5:
     v12 = v23;
     v4 ^= ((unsigned __int16)v4 ^ (unsigned __int16)(v13 << 8)) & 0x100;
   }
-  v16 = (((__int64)BestHugeRangeFromNode - *(_QWORD *)((char *)&stru_140E2EB88.116 + 4)) >> 3) & 0x3FFFFF;
-  if ( (a3 & 0x20) != 0 && (*(_QWORD *)(*(_QWORD *)((char *)&stru_140E2EB88.116 + 4) + 8 * v16) & 0x10000LL) != 0 )
+  v16 = (((__int64)BestHugeRangeFromNode - *(_QWORD *)((char *)&stru_140E2ED08.116 + 4)) >> 3) & 0x3FFFFF;
+  if ( (a3 & 0x20) != 0 && (*(_QWORD *)(*(_QWORD *)((char *)&stru_140E2ED08.116 + 4) + 8 * v16) & 0x10000LL) != 0 )
   {
     v17 = v10 & a3;
     MiHugePageOperation(v24, v16 << 18, v14, v17, v22);
@@ -106,10 +106,10 @@ LABEL_5:
     MiLockHugePfnAtDpc((__int64)BestHugeRangeFromNode);
     *BestHugeRangeFromNode &= ~0x10000uLL;
     _InterlockedAnd(
-      (volatile signed __int32 *)(*(_QWORD *)&stru_140E2EB88.SystemCallNumber
+      (volatile signed __int32 *)(*(_QWORD *)&stru_140E2ED08.SystemCallNumber
                                 + 4
-                                * (((((__int64)BestHugeRangeFromNode - *(_QWORD *)((char *)&stru_140E2EB88.116 + 4)) >> 3) & 0x3FFFFFuLL) >> 5)),
-      ~(v10 << (((__int64)BestHugeRangeFromNode - *(_QWORD *)((char *)&stru_140E2EB88.116 + 4)) >> 3)));
+                                * (((((__int64)BestHugeRangeFromNode - *(_QWORD *)((char *)&stru_140E2ED08.116 + 4)) >> 3) & 0x3FFFFFuLL) >> 5)),
+      ~(v10 << (((__int64)BestHugeRangeFromNode - *(_QWORD *)((char *)&stru_140E2ED08.116 + 4)) >> 3)));
     if ( CurrentIrql != 17 )
     {
       if ( KiIrqlFlags )

@@ -1,13 +1,13 @@
 /*
- * XREFs of HalpHvIsFrequencyAvailable @ 0x14054AB84
+ * XREFs of HalpHvIsFrequencyAvailable @ 0x140548444
  * Callers:
- *     HalSocRequestApi @ 0x1404AE160 (HalSocRequestApi.c)
- *     HalpHvGetApicFrequency @ 0x14054A9E0 (HalpHvGetApicFrequency.c)
- *     HalpHvGetTscFrequency @ 0x14054AA10 (HalpHvGetTscFrequency.c)
+ *     HalSocRequestApi @ 0x1404A8A70 (HalSocRequestApi.c)
+ *     HalpHvGetApicFrequency @ 0x1405482A0 (HalpHvGetApicFrequency.c)
+ *     HalpHvGetTscFrequency @ 0x1405482D0 (HalpHvGetTscFrequency.c)
  * Callees:
- *     HalpIsMicrosoftCompatibleHvLoaded @ 0x1404A57AC (HalpIsMicrosoftCompatibleHvLoaded.c)
- *     HalpIsXboxNanovisorPresent @ 0x14054AC90 (HalpIsXboxNanovisorPresent.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     HalpIsMicrosoftCompatibleHvLoaded @ 0x1404A053C (HalpIsMicrosoftCompatibleHvLoaded.c)
+ *     HalpIsXboxNanovisorPresent @ 0x140548550 (HalpIsXboxNanovisorPresent.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 bool __fastcall HalpHvIsFrequencyAvailable()

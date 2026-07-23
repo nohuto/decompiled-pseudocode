@@ -1,5 +1,5 @@
 /*
- * XREFs of EtwpKsrMemoryEnumCallback @ 0x1408CA0A0
+ * XREFs of EtwpKsrMemoryEnumCallback @ 0x1408CB360
  * Callers:
  *     <none>
  * Callees:

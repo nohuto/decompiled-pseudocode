@@ -1,13 +1,13 @@
 /*
- * XREFs of MiDeleteMergedPte @ 0x1402F408C
+ * XREFs of MiDeleteMergedPte @ 0x1402F431C
  * Callers:
- *     MiDecrementCloneBlock @ 0x1402F3C28 (MiDecrementCloneBlock.c)
+ *     MiDecrementCloneBlock @ 0x1402F3EB8 (MiDecrementCloneBlock.c)
  * Callees:
  *     MiReleasePageFileSpace @ 0x14021941C (MiReleasePageFileSpace.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1402712F0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiUnlockProtoPoolPage @ 0x1402DAEF0 (MiUnlockProtoPoolPage.c)
- *     MiLockProtoPoolPage @ 0x1402DD200 (MiLockProtoPoolPage.c)
- *     MiTryDeleteTransitionPte @ 0x1402F4108 (MiTryDeleteTransitionPte.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140271580 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiUnlockProtoPoolPage @ 0x1402DB180 (MiUnlockProtoPoolPage.c)
+ *     MiLockProtoPoolPage @ 0x1402DD490 (MiLockProtoPoolPage.c)
+ *     MiTryDeleteTransitionPte @ 0x1402F4398 (MiTryDeleteTransitionPte.c)
  */
 
 __int64 __fastcall MiDeleteMergedPte(__int64 a1, unsigned __int64 a2)

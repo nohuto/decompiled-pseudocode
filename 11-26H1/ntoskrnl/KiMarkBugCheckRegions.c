@@ -1,12 +1,12 @@
 /*
- * XREFs of KiMarkBugCheckRegions @ 0x1405407FC
+ * XREFs of KiMarkBugCheckRegions @ 0x140542C7C
  * Callers:
- *     KiCollectTriageDumpDataBlocks @ 0x1405E7B6C (KiCollectTriageDumpDataBlocks.c)
+ *     KiCollectTriageDumpDataBlocks @ 0x1405EA4DC (KiCollectTriageDumpDataBlocks.c)
  * Callees:
- *     MmIsAddressValid @ 0x140444500 (MmIsAddressValid.c)
- *     IoAddTriageDumpDataBlock @ 0x14044AB54 (IoAddTriageDumpDataBlock.c)
- *     sub_140553084 @ 0x140553084 (sub_140553084.c)
- *     MmQueryApiSetSchema @ 0x1406E706C (MmQueryApiSetSchema.c)
+ *     MmIsAddressValid @ 0x14043D010 (MmIsAddressValid.c)
+ *     IoAddTriageDumpDataBlock @ 0x140442C84 (IoAddTriageDumpDataBlock.c)
+ *     sub_140555504 @ 0x140555504 (sub_140555504.c)
+ *     MmQueryApiSetSchema @ 0x1406EBD1C (MmQueryApiSetSchema.c)
  */
 
 char __fastcall KiMarkBugCheckRegions(__int64 a1, __int64 a2, unsigned __int64 a3, __int64 a4)
@@ -51,15 +51,15 @@ char __fastcall KiMarkBugCheckRegions(__int64 a1, __int64 a2, unsigned __int64 a
   v6 = 4;
   if ( KdpBreakpointChangeCount )
     IoAddTriageDumpDataBlock((ULONG)&KdpBreakpointChangeCount, (PVOID)4);
-  if ( qword_140E0F320 )
+  if ( qword_140E0F3A0 )
   {
-    *(_QWORD *)&KiMismatchSummary = qword_140E0F320;
+    *(_QWORD *)&KiMismatchSummary = qword_140E0F3A0;
     IoAddTriageDumpDataBlock((ULONG)&KiMismatchSummary, (PVOID)8);
   }
   v7 = 3;
-  if ( (_DWORD)a4 == 257 && dword_140E0F318 )
+  if ( (_DWORD)a4 == 257 && dword_140E0F398 )
   {
-    v8 = qword_140E0F308;
+    v8 = qword_140E0F388;
     v9 = 0;
     while ( 1 )
     {
@@ -109,16 +109,16 @@ LABEL_16:
       while ( v16 );
 LABEL_21:
       v9 += 4096;
-      if ( v9 >= dword_140E0F318 )
+      if ( v9 >= dword_140E0F398 )
       {
-        dword_140E0F318 = 4096;
+        dword_140E0F398 = 4096;
         break;
       }
     }
   }
-  v18 = &qword_140E0F308;
+  v18 = &qword_140E0F388;
   v19 = 2LL;
-  v20 = &dword_140E0F318;
+  v20 = &dword_140E0F398;
   do
   {
     v21 = (unsigned int)*v20;
@@ -235,7 +235,7 @@ LABEL_53:
   if ( MmIsAddressValid(VirtualAddress) && a3 == *(_QWORD *)VirtualAddress )
     IoAddTriageDumpDataBlock((ULONG)VirtualAddress, (PVOID)8);
 LABEL_60:
-  result = sub_140553084(a1, a2, a3, a4);
+  result = sub_140555504(a1, a2, a3, a4);
   if ( *(_QWORD *)&::MaxDataSize )
     return IoAddTriageDumpDataBlock(::MaxDataSize, (PVOID)0xAE8);
   return result;

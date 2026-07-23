@@ -1,7 +1,7 @@
 /*
  * XREFs of KdpSysReadBusData @ 0x1406F5B20
  * Callers:
- *     KdSystemDebugControl @ 0x14064E858 (KdSystemDebugControl.c)
+ *     KdSystemDebugControl @ 0x14064E93C (KdSystemDebugControl.c)
  *     KdpGetBusData @ 0x1406F5434 (KdpGetBusData.c)
  * Callees:
  *     <none>

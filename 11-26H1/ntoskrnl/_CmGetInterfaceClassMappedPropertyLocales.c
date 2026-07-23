@@ -1,7 +1,7 @@
 /*
- * XREFs of _CmGetInterfaceClassMappedPropertyLocales @ 0x14089C150
+ * XREFs of _CmGetInterfaceClassMappedPropertyLocales @ 0x1408A2550
  * Callers:
- *     _PnpDispatchInterfaceClass @ 0x140917770 (_PnpDispatchInterfaceClass.c)
+ *     _PnpDispatchInterfaceClass @ 0x1409721D0 (_PnpDispatchInterfaceClass.c)
  * Callees:
  *     <none>
  */

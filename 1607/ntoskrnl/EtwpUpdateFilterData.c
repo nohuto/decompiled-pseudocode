@@ -1,18 +1,18 @@
 /*
- * XREFs of EtwpUpdateFilterData @ 0x140491C98
+ * XREFs of EtwpUpdateFilterData @ 0x140492728
  * Callers:
- *     EtwpClearSessionAndUnreferenceEntry @ 0x14040AED0 (EtwpClearSessionAndUnreferenceEntry.c)
- *     EtwpUpdateGuidEnableInfo @ 0x140491A10 (EtwpUpdateGuidEnableInfo.c)
+ *     EtwpClearSessionAndUnreferenceEntry @ 0x140409D90 (EtwpClearSessionAndUnreferenceEntry.c)
+ *     EtwpUpdateGuidEnableInfo @ 0x1404924A0 (EtwpUpdateGuidEnableInfo.c)
  * Callees:
- *     KeGenericCallDpc @ 0x1400A04BC (KeGenericCallDpc.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     KeGenericCallDpc @ 0x14009EDE4 (KeGenericCallDpc.c)
+ *     memset @ 0x140171AC0 (memset.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     EtwpFreeEventNameFilter @ 0x1406A9238 (EtwpFreeEventNameFilter.c)
- *     EtwpUpdatePerfectHashFunction @ 0x1406A9260 (EtwpUpdatePerfectHashFunction.c)
- *     EtwpUpdatePidFilterData @ 0x1406A9280 (EtwpUpdatePidFilterData.c)
- *     EtwpUpdateSchematizedFilterData @ 0x1406A931C (EtwpUpdateSchematizedFilterData.c)
- *     EtwpUpdateStringFilterData @ 0x1406A93DC (EtwpUpdateStringFilterData.c)
+ *     EtwpFreeEventNameFilter @ 0x1406A9370 (EtwpFreeEventNameFilter.c)
+ *     EtwpUpdatePerfectHashFunction @ 0x1406A9398 (EtwpUpdatePerfectHashFunction.c)
+ *     EtwpUpdatePidFilterData @ 0x1406A93B8 (EtwpUpdatePidFilterData.c)
+ *     EtwpUpdateSchematizedFilterData @ 0x1406A9454 (EtwpUpdateSchematizedFilterData.c)
+ *     EtwpUpdateStringFilterData @ 0x1406A9514 (EtwpUpdateStringFilterData.c)
  */
 
 __int64 __fastcall EtwpUpdateFilterData(__int64 a1, unsigned int a2, __int64 a3, __int64 a4, __int64 a5)

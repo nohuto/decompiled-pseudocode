@@ -1,15 +1,15 @@
 /*
- * XREFs of MiGetPageToTrade @ 0x1402951E0
+ * XREFs of MiGetPageToTrade @ 0x140294740
  * Callers:
- *     MiTradePageMarkedActive @ 0x1402931C0 (MiTradePageMarkedActive.c)
+ *     MiTradePageMarkedActive @ 0x140292720 (MiTradePageMarkedActive.c)
  * Callees:
- *     MiGetPageChain @ 0x140285DD0 (MiGetPageChain.c)
- *     MiGetPage @ 0x1402866A0 (MiGetPage.c)
- *     MiPageToNode @ 0x140289710 (MiPageToNode.c)
- *     MiSearchChannelTable @ 0x1402CBEE8 (MiSearchChannelTable.c)
- *     MiUnlinkPageChainHead @ 0x140365EF0 (MiUnlinkPageChainHead.c)
- *     MiInitializePageChainPacket @ 0x14041AAB0 (MiInitializePageChainPacket.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     MiGetPageChain @ 0x140285330 (MiGetPageChain.c)
+ *     MiGetPage @ 0x140285C00 (MiGetPage.c)
+ *     MiPageToNode @ 0x140288C70 (MiPageToNode.c)
+ *     MiSearchChannelTable @ 0x1402ADCA8 (MiSearchChannelTable.c)
+ *     MiUnlinkPageChainHead @ 0x140367C90 (MiUnlinkPageChainHead.c)
+ *     MiInitializePageChainPacket @ 0x140412300 (MiInitializePageChainPacket.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall MiGetPageToTrade(__int64 a1)
@@ -40,7 +40,7 @@ __int64 __fastcall MiGetPageToTrade(__int64 a1)
   else
   {
     v4 = MiPageToNode(*(_QWORD *)(a1 + 240));
-    if ( qword_140E2D6E8 )
+    if ( qword_140E2D868 )
       v5 = *(_BYTE *)(MiSearchChannelTable(*(_QWORD *)(a1 + 240)) + 12);
     else
       v5 = 0;
@@ -74,7 +74,7 @@ LABEL_12:
       *(_QWORD *)(a1 + 264) = v12;
       return 0LL;
     }
-    _InterlockedIncrement(&dword_140EF8CD4);
+    _InterlockedIncrement(&dword_140EF9034);
     return 1LL;
   }
   else
@@ -102,7 +102,7 @@ LABEL_12:
       *(_QWORD *)(a1 + 248) = (v12 + 0x220000000000LL) / 48;
       goto LABEL_12;
     }
-    _InterlockedIncrement(&dword_140EF8CD8);
+    _InterlockedIncrement(&dword_140EF9038);
     return 1LL;
   }
 }

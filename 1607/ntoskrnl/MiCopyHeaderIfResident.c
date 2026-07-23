@@ -1,18 +1,18 @@
 /*
- * XREFs of MiCopyHeaderIfResident @ 0x1400FD5B8
+ * XREFs of MiCopyHeaderIfResident @ 0x1400FB338
  * Callers:
- *     MiCreateImageFileMap @ 0x1405229BC (MiCreateImageFileMap.c)
+ *     MiCreateImageFileMap @ 0x140505A1C (MiCreateImageFileMap.c)
  * Callees:
- *     MiTryLockLeafAndContainingPagesAtDpc @ 0x140022F98 (MiTryLockLeafAndContainingPagesAtDpc.c)
- *     ExReleaseSpinLockExclusive @ 0x14002E9A0 (ExReleaseSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14002E9E0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusive @ 0x14002EB90 (ExAcquireSpinLockExclusive.c)
- *     MiUnlockProtoPoolPage @ 0x14004C4E0 (MiUnlockProtoPoolPage.c)
- *     ExTryAcquireSpinLockExclusiveAtDpcLevel @ 0x1400C2F60 (ExTryAcquireSpinLockExclusiveAtDpcLevel.c)
- *     MiCopyPage @ 0x1400E3260 (MiCopyPage.c)
- *     MiUpdatePageAttributeStamp @ 0x1400FCF10 (MiUpdatePageAttributeStamp.c)
- *     MI_GET_PAGE_FRAME_FROM_TRANSITION_PTE @ 0x1401F2570 (MI_GET_PAGE_FRAME_FROM_TRANSITION_PTE.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1401F25D0 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiTryLockLeafAndContainingPagesAtDpc @ 0x140022B18 (MiTryLockLeafAndContainingPagesAtDpc.c)
+ *     ExReleaseSpinLockExclusive @ 0x14002E520 (ExReleaseSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14002E560 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusive @ 0x14002E710 (ExAcquireSpinLockExclusive.c)
+ *     MiUnlockProtoPoolPage @ 0x14004C060 (MiUnlockProtoPoolPage.c)
+ *     ExTryAcquireSpinLockExclusiveAtDpcLevel @ 0x1400C0DF0 (ExTryAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     MiCopyPage @ 0x1400E1100 (MiCopyPage.c)
+ *     MiUpdatePageAttributeStamp @ 0x1400FAC90 (MiUpdatePageAttributeStamp.c)
+ *     MI_GET_PAGE_FRAME_FROM_TRANSITION_PTE @ 0x1401F239C (MI_GET_PAGE_FRAME_FROM_TRANSITION_PTE.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1401F23FC (MI_READ_PTE_LOCK_FREE.c)
  */
 
 __int64 __fastcall MiCopyHeaderIfResident(__int64 a1, ULONG_PTR a2)
@@ -32,7 +32,7 @@ __int64 __fastcall MiCopyHeaderIfResident(__int64 a1, ULONG_PTR a2)
   __int64 v17; // [rsp+50h] [rbp+8h] BYREF
   __int64 v18; // [rsp+60h] [rbp+18h] BYREF
 
-  v4 = ExAcquireSpinLockExclusive(&dword_140326540);
+  v4 = ExAcquireSpinLockExclusive(&dword_140326580);
   v5 = 0;
   while ( 1 )
   {
@@ -40,17 +40,17 @@ __int64 __fastcall MiCopyHeaderIfResident(__int64 a1, ULONG_PTR a2)
     v8 = *(__int64 **)(a1 + 40);
     if ( !v8 || (v6 = *v8) == 0 )
     {
-      v9 = &dword_140326540;
+      v9 = &dword_140326580;
 LABEL_7:
       ExReleaseSpinLockExclusive(v9, v7);
       return 0LL;
     }
     if ( (unsigned int)ExTryAcquireSpinLockExclusiveAtDpcLevel((volatile signed __int32 *)(v6 + 72)) )
       break;
-    ExReleaseSpinLockExclusive(&dword_140326540, v7);
-    v4 = ExAcquireSpinLockExclusive(&dword_140326540);
+    ExReleaseSpinLockExclusive(&dword_140326580, v7);
+    v4 = ExAcquireSpinLockExclusive(&dword_140326580);
   }
-  ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140326540);
+  ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140326580);
   if ( (*(_DWORD *)(v6 + 56) & 3) != 0
     || (v11 = *(_QWORD *)(v6 + 136)) == 0
     || (v12 = MiTryLockLeafAndContainingPagesAtDpc(*(_QWORD *)(v6 + 136), &v17, 0)) == 0 )

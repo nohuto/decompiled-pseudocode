@@ -1,13 +1,13 @@
 /*
- * XREFs of PfpCheckPrefetchAbort @ 0x1402F88F8
+ * XREFs of PfpCheckPrefetchAbort @ 0x1402F8B88
  * Callers:
  *     PfpPrefetchRequestPerform @ 0x1406846E8 (PfpPrefetchRequestPerform.c)
  *     PfpVolumePrefetchMetadata @ 0x140684C04 (PfpVolumePrefetchMetadata.c)
- *     PfpOpenHandleCreate @ 0x14075D084 (PfpOpenHandleCreate.c)
- *     PfpPrefetchFilesTrickle @ 0x14075D490 (PfpPrefetchFilesTrickle.c)
- *     PfpPrefetchDirectoryStream @ 0x1407D7B0C (PfpPrefetchDirectoryStream.c)
- *     PfpPrefetchFiles @ 0x14097DEE4 (PfpPrefetchFiles.c)
- *     PfpPrefetchPrivatePages @ 0x14097E268 (PfpPrefetchPrivatePages.c)
+ *     PfpOpenHandleCreate @ 0x14075D274 (PfpOpenHandleCreate.c)
+ *     PfpPrefetchFilesTrickle @ 0x14075D680 (PfpPrefetchFilesTrickle.c)
+ *     PfpPrefetchDirectoryStream @ 0x1407D7DDC (PfpPrefetchDirectoryStream.c)
+ *     PfpPrefetchFiles @ 0x14097E0E4 (PfpPrefetchFiles.c)
+ *     PfpPrefetchPrivatePages @ 0x14097E468 (PfpPrefetchPrivatePages.c)
  * Callees:
  *     <none>
  */

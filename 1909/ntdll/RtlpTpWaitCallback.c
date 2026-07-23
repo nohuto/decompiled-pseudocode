@@ -14,62 +14,47 @@
  *     RtlpTpETWCallbackStop @ 0x18010F42C (RtlpTpETWCallbackStop.c)
  */
 
-__int64 __fastcall RtlpTpWaitCallback(__int64 a1, __int64 a2, __int64 a3, int a4)
+void __fastcall RtlpTpWaitCallback(PTP_CALLBACK_INSTANCE a1, _BYTE *a2, PTP_WAIT a3, int a4)
 {
-  __int64 UniqueThread_low; // rcx
-  struct _TEB *v7; // r14
-  __int64 v8; // rdi
-  __int64 v9; // rcx
-  __int64 v10; // rdx
-  __int64 v11; // rcx
-  __int64 v13; // [rsp+30h] [rbp-38h] BYREF
-  _QWORD v14[6]; // [rsp+38h] [rbp-30h] BYREF
+  struct _TEB *v6; // r14
+  __int64 v7; // rdi
+  __int64 v8; // rcx
+  __int64 v9; // rdx
+  int v10; // ecx
+  __int64 ThreadInformation; // [rsp+30h] [rbp-38h] BYREF
+  _QWORD v12[6]; // [rsp+38h] [rbp-30h] BYREF
 
-  if ( (*(_BYTE *)(a2 + 8) & 4) == 0 )
-    RtlpTpWaitCheckReset(a2, a4);
-  UniqueThread_low = *(_QWORD *)a2;
+  if ( (a2[8] & 4) == 0 )
+    RtlpTpWaitCheckReset((__int64)a2, a4);
   if ( *(_QWORD *)a2 )
-    RtlpTpImpersonate();
-  if ( (*(_BYTE *)(a2 + 8) & 4) != 0 )
-  {
-    UniqueThread_low = LODWORD(NtCurrentTeb()->ClientId.UniqueThread);
-    *(_DWORD *)(a2 + 88) = UniqueThread_low;
-  }
-  v7 = NtCurrentTeb();
-  v8 = 2147353478LL;
-  if ( (unsigned int)RtlGetCurrentServiceSessionId(UniqueThread_low) )
-    v9 = (__int64)NtCurrentPeb()->SharedData + 556;
+    RtlpTpImpersonate(*(_QWORD *)a2, a2, a3);
+  if ( (a2[8] & 4) != 0 )
+    *((_DWORD *)a2 + 22) = NtCurrentTeb()->ClientId.UniqueThread;
+  v6 = NtCurrentTeb();
+  v7 = 2147353478LL;
+  if ( RtlGetCurrentServiceSessionId() )
+    v8 = (__int64)NtCurrentPeb()->SharedData + 556;
   else
-    v9 = 2147353478LL;
-  if ( *(_BYTE *)v9 )
-    RtlpTpETWCallbackStart(
-      0,
-      *(_QWORD *)(a2 + 48),
-      *(_QWORD *)(a2 + 32),
-      *(_QWORD *)(a2 + 40),
-      (__int64)v7->SubProcessTag);
-  TppStartThreadData(v14, *(_QWORD *)(a2 + 32), *(_QWORD *)(a2 + 40), v7->SubProcessTag);
-  LOBYTE(v10) = a4 == 258;
-  (*(void (__fastcall **)(_QWORD, __int64))(a2 + 32))(*(_QWORD *)(a2 + 40), v10);
-  v11 = *(unsigned int *)(a2 + 8);
-  if ( (v11 & 4) != 0 )
-    *(_DWORD *)(a2 + 88) = 0;
+    v8 = 2147353478LL;
+  if ( *(_BYTE *)v8 )
+    RtlpTpETWCallbackStart(0, *((_QWORD *)a2 + 6), *((_QWORD *)a2 + 4), *((_QWORD *)a2 + 5), (__int64)v6->SubProcessTag);
+  TppStartThreadData(v12, *((_QWORD *)a2 + 4), *((_QWORD *)a2 + 5), v6->SubProcessTag);
+  LOBYTE(v9) = a4 == 258;
+  (*((void (__fastcall **)(_QWORD, __int64))a2 + 4))(*((_QWORD *)a2 + 5), v9);
+  v10 = *((_DWORD *)a2 + 2);
+  if ( (v10 & 4) != 0 )
+    *((_DWORD *)a2 + 22) = 0;
   if ( NtCurrentTeb()->IsImpersonating )
   {
-    v13 = 0LL;
-    NtSetInformationThread(-2LL, 5LL, &v13);
-    v11 = *(unsigned int *)(a2 + 8);
+    ThreadInformation = 0LL;
+    NtSetInformationThread((HANDLE)0xFFFFFFFFFFFFFFFELL, ThreadImpersonationToken, &ThreadInformation, 8u);
+    v10 = *((_DWORD *)a2 + 2);
   }
-  if ( (v11 & 4) != 0 )
-    RtlpTpWaitCheckReset(a2, a4);
-  if ( (unsigned int)RtlGetCurrentServiceSessionId(v11) )
-    v8 = (__int64)NtCurrentPeb()->SharedData + 556;
-  if ( *(_BYTE *)v8 )
-    RtlpTpETWCallbackStop(
-      0,
-      *(_QWORD *)(a2 + 48),
-      *(_QWORD *)(a2 + 32),
-      *(_QWORD *)(a2 + 40),
-      (__int64)v7->SubProcessTag);
-  return TppCompleteThreadData(v14[0]);
+  if ( (v10 & 4) != 0 )
+    RtlpTpWaitCheckReset((__int64)a2, a4);
+  if ( RtlGetCurrentServiceSessionId() )
+    v7 = (__int64)NtCurrentPeb()->SharedData + 556;
+  if ( *(_BYTE *)v7 )
+    RtlpTpETWCallbackStop(0, *((_QWORD *)a2 + 6), *((_QWORD *)a2 + 4), *((_QWORD *)a2 + 5), (__int64)v6->SubProcessTag);
+  TppCompleteThreadData(v12[0]);
 }

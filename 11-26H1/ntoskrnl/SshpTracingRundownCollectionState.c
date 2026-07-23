@@ -1,16 +1,16 @@
 /*
- * XREFs of SshpTracingRundownCollectionState @ 0x140B13F74
+ * XREFs of SshpTracingRundownCollectionState @ 0x140B15A34
  * Callers:
- *     SshpEtwEnableCallback @ 0x140B13E20 (SshpEtwEnableCallback.c)
+ *     SshpEtwEnableCallback @ 0x140B158E0 (SshpEtwEnableCallback.c)
  * Callees:
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     SSHSupportEtwEventEnabled @ 0x1404AF1CC (SSHSupportEtwEventEnabled.c)
- *     SSHSupportReleasePushLockExclusive @ 0x1404B32FC (SSHSupportReleasePushLockExclusive.c)
- *     SSHSupportEtwWrite @ 0x1404DBE1C (SSHSupportEtwWrite.c)
- *     SSHSupportQueryInterruptTime @ 0x1404E9278 (SSHSupportQueryInterruptTime.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     SSHSupportEtwEventEnabled @ 0x1404A885C (SSHSupportEtwEventEnabled.c)
+ *     SSHSupportReleasePushLockExclusive @ 0x1404AC97C (SSHSupportReleasePushLockExclusive.c)
+ *     SSHSupportEtwWrite @ 0x1404D54FC (SSHSupportEtwWrite.c)
+ *     SSHSupportQueryInterruptTime @ 0x1404E2358 (SSHSupportQueryInterruptTime.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 void __fastcall SshpTracingRundownCollectionState(__int64 a1)

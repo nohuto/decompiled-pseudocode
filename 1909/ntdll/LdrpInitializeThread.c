@@ -25,8 +25,8 @@ __int64 __fastcall LdrpInitializeThread(__int64 a1, __int64 a2, __int64 a3)
   _PEB *ProcessEnvironmentBlock; // rsi
   __int64 v5; // r10
   __int64 result; // rax
-  int Tls; // eax
-  unsigned int v8; // ebx
+  NTSTATUS Tls; // eax
+  NTSTATUS v8; // ebx
   __int64 v9; // rcx
   __int64 i; // rbx
   int v11; // eax
@@ -41,7 +41,7 @@ __int64 __fastcall LdrpInitializeThread(__int64 a1, __int64 a2, __int64 a3)
   __int64 v20; // [rsp+80h] [rbp-58h] BYREF
   int v21; // [rsp+88h] [rbp-50h]
   _BYTE v22[56]; // [rsp+90h] [rbp-48h] BYREF
-  __int64 v23; // [rsp+E8h] [rbp+10h] BYREF
+  LARGE_INTEGER DelayInterval; // [rsp+E8h] [rbp+10h] BYREF
 
   v3 = NtCurrentTeb();
   ProcessEnvironmentBlock = v3->ProcessEnvironmentBlock;
@@ -64,12 +64,12 @@ __int64 __fastcall LdrpInitializeThread(__int64 a1, __int64 a2, __int64 a3)
         v8 = Tls;
         if ( Tls != -1073741801 )
           break;
-        v23 = -3000000LL;
-        ZwDelayExecution(0LL, &v23);
+        DelayInterval.QuadPart = -3000000LL;
+        ZwDelayExecution(0, &DelayInterval);
       }
       if ( Tls < 0 )
       {
-        ZwTerminateProcess(-1LL, (unsigned int)Tls);
+        ZwTerminateProcess((HANDLE)0xFFFFFFFFFFFFFFFFLL, Tls);
         RtlRaiseStatus(v8);
       }
       LdrpDrainWorkQueue(0LL);

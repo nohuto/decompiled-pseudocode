@@ -6,13 +6,13 @@
  *     KiSetTimerEx @ 0x14001D380 (KiSetTimerEx.c)
  *     ExpSetTimerObject @ 0x14001D7C0 (ExpSetTimerObject.c)
  *     KeSetTimerEx @ 0x14001DF70 (KeSetTimerEx.c)
- *     KiSuspendThread @ 0x1400F23A8 (KiSuspendThread.c)
- *     KeCancelTimerInternal @ 0x140132144 (KeCancelTimerInternal.c)
+ *     KiSuspendThread @ 0x1400F2428 (KiSuspendThread.c)
+ *     KeCancelTimerInternal @ 0x140132214 (KeCancelTimerInternal.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
- *     EtwTraceKernelEvent @ 0x1400F3710 (EtwTraceKernelEvent.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeYieldProcessorEx @ 0x14006C9E0 (KeYieldProcessorEx.c)
+ *     EtwTraceKernelEvent @ 0x1400F3790 (EtwTraceKernelEvent.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall KiCancelTimer(__int64 a1, _DWORD *a2)
@@ -128,7 +128,7 @@ LABEL_38:
           v14 = v5 << 6;
         }
         _interlockedbittestandreset64(
-          (volatile signed __int32 *)(qword_1405424C8[2 * *(unsigned __int8 *)(v9 - 13744)] + v14),
+          (volatile signed __int32 *)(qword_1405434C8[2 * *(unsigned __int8 *)(v9 - 13744)] + v14),
           v13);
       }
       _InterlockedAnd64((volatile signed __int64 *)v10, 0LL);

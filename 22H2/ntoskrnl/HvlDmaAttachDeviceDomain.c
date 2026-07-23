@@ -40,7 +40,7 @@ __int64 __fastcall HvlDmaAttachDeviceDomain(__int64 a1, int *a2)
 LABEL_7:
   while ( 1 )
   {
-    v3 = HvcallFastExtended(65714LL, (__int64)v7, 32LL, 0LL, 0);
+    v3 = HvcallFastExtended(65714LL, (__int64)v7, 0x20u, 0, 0);
     if ( !(unsigned __int8)HvlpHvStatusIsInsufficientMemory((unsigned __int16)v3, v3) )
       break;
     if ( (int)HvlpHandleInsufficientMemory(v5, v4, v6) < 0 )

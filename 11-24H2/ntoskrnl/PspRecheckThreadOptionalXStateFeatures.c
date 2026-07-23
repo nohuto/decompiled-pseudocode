@@ -1,14 +1,14 @@
 /*
- * XREFs of PspRecheckThreadOptionalXStateFeatures @ 0x1408A644C
+ * XREFs of PspRecheckThreadOptionalXStateFeatures @ 0x1408FCA64
  * Callers:
- *     PspInsertThread @ 0x1408A59BC (PspInsertThread.c)
+ *     PspInsertThread @ 0x1408FBFD4 (PspInsertThread.c)
  * Callees:
- *     MmCreateKernelStack @ 0x14026B230 (MmCreateKernelStack.c)
- *     KeInsertQueueApc @ 0x140337240 (KeInsertQueueApc.c)
- *     KeInitializeApc @ 0x140422520 (KeInitializeApc.c)
- *     KeGetProcessorNodeNumberByIndex @ 0x14043AC00 (KeGetProcessorNodeNumberByIndex.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     MmCreateKernelStack @ 0x1402207C0 (MmCreateKernelStack.c)
+ *     KeInsertQueueApc @ 0x1402DF360 (KeInsertQueueApc.c)
+ *     KeInitializeApc @ 0x1404163D0 (KeInitializeApc.c)
+ *     KeGetProcessorNodeNumberByIndex @ 0x14042D440 (KeGetProcessorNodeNumberByIndex.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PspRecheckThreadOptionalXStateFeatures(__int64 a1, __int64 a2)
@@ -29,7 +29,7 @@ __int64 __fastcall PspRecheckThreadOptionalXStateFeatures(__int64 a1, __int64 a2
   v4 = *(_QWORD *)(a2 + 1064) & v2;
   if ( !v4 )
     return 0LL;
-  Pool2 = (_QWORD *)ExAllocatePool2(0x40uLL);
+  Pool2 = (_QWORD *)ExAllocatePool2(0x40uLL, 0x88uLL, 0x58457350u);
   if ( Pool2 )
   {
     if ( (*(_DWORD *)(a2 + 116) & 0x800000) == 0 )

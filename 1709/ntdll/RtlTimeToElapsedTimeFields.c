@@ -6,23 +6,20 @@
  *     TimeToDaysAndFraction @ 0x18007E6A0 (TimeToDaysAndFraction.c)
  */
 
-__int64 __fastcall RtlTimeToElapsedTimeFields(__int64 a1, __int64 a2)
+void __cdecl RtlTimeToElapsedTimeFields(PLARGE_INTEGER Time, PTIME_FIELDS TimeFields)
 {
   unsigned int v3; // r10d
   unsigned int v4; // r8d
-  __int64 result; // rax
-  unsigned int v6; // [rsp+38h] [rbp+10h] BYREF
-  __int16 v7; // [rsp+40h] [rbp+18h] BYREF
+  unsigned int v5; // [rsp+38h] [rbp+10h] BYREF
+  CSHORT v6; // [rsp+40h] [rbp+18h] BYREF
 
-  TimeToDaysAndFraction(a1, &v7, &v6);
-  v3 = v6;
-  *(_DWORD *)a2 = 0;
-  *(_WORD *)(a2 + 4) = v7;
-  *(_WORD *)(a2 + 12) = v3 % 0x3E8;
+  TimeToDaysAndFraction(Time, &v6, &v5);
+  v3 = v5;
+  *(_DWORD *)&TimeFields->Year = 0;
+  TimeFields->Day = v6;
+  TimeFields->Milliseconds = v3 % 0x3E8;
   v4 = v3 / 0x3E8 / 0x3C;
-  *(_WORD *)(a2 + 6) = v4 / 0x3C;
-  *(_WORD *)(a2 + 8) = v4 % 0x3C;
-  result = (unsigned int)(__int16)v4;
-  *(_WORD *)(a2 + 10) = v3 / 0x3E8 % 0x3C;
-  return result;
+  TimeFields->Hour = v4 / 0x3C;
+  TimeFields->Minute = v4 % 0x3C;
+  TimeFields->Second = v3 / 0x3E8 % 0x3C;
 }

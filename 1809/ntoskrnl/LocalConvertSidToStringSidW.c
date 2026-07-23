@@ -1,14 +1,14 @@
 /*
- * XREFs of LocalConvertSidToStringSidW @ 0x1408A5F94
+ * XREFs of LocalConvertSidToStringSidW @ 0x1408A71F4
  * Callers:
- *     SeConvertSidToStringSid @ 0x140300DE0 (SeConvertSidToStringSid.c)
- *     LocalConvertAclToString @ 0x1408A4F50 (LocalConvertAclToString.c)
- *     LocalGetStringForSid @ 0x1408A62B4 (LocalGetStringForSid.c)
+ *     SeConvertSidToStringSid @ 0x140300FD0 (SeConvertSidToStringSid.c)
+ *     LocalConvertAclToString @ 0x1408A61B0 (LocalConvertAclToString.c)
+ *     LocalGetStringForSid @ 0x1408A7514 (LocalGetStringForSid.c)
  * Callees:
- *     RtlStringCbCopyNW @ 0x140155DDC (RtlStringCbCopyNW.c)
- *     RtlFreeAnsiString @ 0x140623790 (RtlFreeAnsiString.c)
- *     RtlConvertSidToUnicodeString @ 0x14065A6B0 (RtlConvertSidToUnicodeString.c)
- *     SddlpAlloc @ 0x1406B0574 (SddlpAlloc.c)
+ *     RtlStringCbCopyNW @ 0x140155EDC (RtlStringCbCopyNW.c)
+ *     RtlFreeAnsiString @ 0x140624790 (RtlFreeAnsiString.c)
+ *     RtlConvertSidToUnicodeString @ 0x14065B870 (RtlConvertSidToUnicodeString.c)
+ *     SddlpAlloc @ 0x1406B1814 (SddlpAlloc.c)
  */
 
 NTSTATUS __fastcall LocalConvertSidToStringSidW(PSID Sid, wchar_t **a2)

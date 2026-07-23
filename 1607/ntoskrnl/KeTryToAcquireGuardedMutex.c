@@ -1,5 +1,5 @@
 /*
- * XREFs of KeTryToAcquireGuardedMutex @ 0x140099E70
+ * XREFs of KeTryToAcquireGuardedMutex @ 0x140099670
  * Callers:
  *     <none>
  * Callees:

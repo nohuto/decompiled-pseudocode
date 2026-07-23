@@ -1,9 +1,9 @@
 /*
- * XREFs of PiAuFreeUserSids @ 0x1409C683C
+ * XREFs of PiAuFreeUserSids @ 0x1409C783C
  * Callers:
- *     PiAuCreateSecurityObjects @ 0x1409C67E0 (PiAuCreateSecurityObjects.c)
+ *     PiAuCreateSecurityObjects @ 0x1409C77E0 (PiAuCreateSecurityObjects.c)
  * Callees:
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PiAuFreeUserSids(__int64 a1)

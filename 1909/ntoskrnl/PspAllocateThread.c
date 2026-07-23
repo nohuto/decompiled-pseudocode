@@ -103,7 +103,7 @@ __int64 __fastcall PspAllocateThread(
   __int64 v62; // [rsp+90h] [rbp-108h]
   __int64 v63; // [rsp+98h] [rbp-100h]
   __int64 v64; // [rsp+A0h] [rbp-F8h]
-  SIZE_T NumberOfBytes; // [rsp+A8h] [rbp-F0h]
+  ULONG ContextLength; // [rsp+A8h] [rbp-F0h] BYREF
   _QWORD *v66; // [rsp+B0h] [rbp-E8h]
   ULONG_PTR v67; // [rsp+B8h] [rbp-E0h]
   __int64 v68; // [rsp+C0h] [rbp-D8h]
@@ -329,8 +329,8 @@ LABEL_80:
         *((_QWORD *)v25 + 246) = v66[1];
         *((_QWORD *)v25 + 247) = v45[2];
         _interlockedbittestandset((volatile signed __int32 *)v25, 0x1Au);
-        RtlGetExtendedContextLength(MEMORY[0xFFFFF780000003D8] != 0LL ? 1048671 : 1048607);
-        PoolWithTag = ExAllocatePoolWithTag(PagedPool, (unsigned int)NumberOfBytes, 0x63537350u);
+        RtlGetExtendedContextLength(MEMORY[0xFFFFF780000003D8] != 0LL ? 1048671 : 1048607, &ContextLength);
+        PoolWithTag = ExAllocatePoolWithTag(PagedPool, ContextLength, 0x63537350u);
         v25 = (char *)Object;
         *((_QWORD *)Object + 253) = PoolWithTag;
         if ( !PoolWithTag )

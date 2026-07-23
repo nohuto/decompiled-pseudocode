@@ -1,22 +1,22 @@
 /*
- * XREFs of wcsstr @ 0x14014F14C
+ * XREFs of wcsstr @ 0x14014F70C
  * Callers:
- *     BcpGetProgressMessages @ 0x140141250 (BcpGetProgressMessages.c)
- *     SmUniqueIdParseProductName @ 0x14021FE7C (SmUniqueIdParseProductName.c)
+ *     BcpGetProgressMessages @ 0x1401417C0 (BcpGetProgressMessages.c)
+ *     SmUniqueIdParseProductName @ 0x14021FCA8 (SmUniqueIdParseProductName.c)
  *     PopGetBitlockerKeyLocation @ 0x1403D2030 (PopGetBitlockerKeyLocation.c)
- *     PfSnIsHostingApplication @ 0x1403E6324 (PfSnIsHostingApplication.c)
- *     EtwpGenerateFileName @ 0x1404F08C8 (EtwpGenerateFileName.c)
- *     PiGetDeviceRegProperty @ 0x1404F9894 (PiGetDeviceRegProperty.c)
- *     BiIsWinPEBoot @ 0x14053CF20 (BiIsWinPEBoot.c)
- *     SiGetFirmwareBootDeviceName @ 0x14054207C (SiGetFirmwareBootDeviceName.c)
- *     SiIsWinPEBoot @ 0x1405424B8 (SiIsWinPEBoot.c)
- *     IopCheckIfNotNativeDriver @ 0x1406210F4 (IopCheckIfNotNativeDriver.c)
- *     PiGetDeviceRegistryProperty @ 0x14062A568 (PiGetDeviceRegistryProperty.c)
- *     SdbpOpenLocalDatabaseEx @ 0x1406C421C (SdbpOpenLocalDatabaseEx.c)
- *     BiGetObjectReferenceFromEfiEntry @ 0x1406D518C (BiGetObjectReferenceFromEfiEntry.c)
- *     BiUpdateObjectReferenceInEfiEntry @ 0x1406D5E64 (BiUpdateObjectReferenceInEfiEntry.c)
- *     SiGetBiosSystemPartition @ 0x1406D6BC8 (SiGetBiosSystemPartition.c)
- *     SubstringMatch @ 0x1406E4B08 (SubstringMatch.c)
+ *     PfSnIsHostingApplication @ 0x1403E7954 (PfSnIsHostingApplication.c)
+ *     EtwpGenerateFileName @ 0x1404D29BC (EtwpGenerateFileName.c)
+ *     PiGetDeviceRegProperty @ 0x1404DC820 (PiGetDeviceRegProperty.c)
+ *     BiIsWinPEBoot @ 0x14053D460 (BiIsWinPEBoot.c)
+ *     SiGetFirmwareBootDeviceName @ 0x1405425BC (SiGetFirmwareBootDeviceName.c)
+ *     SiIsWinPEBoot @ 0x1405429F8 (SiIsWinPEBoot.c)
+ *     IopCheckIfNotNativeDriver @ 0x1406211A8 (IopCheckIfNotNativeDriver.c)
+ *     PiGetDeviceRegistryProperty @ 0x14062A61C (PiGetDeviceRegistryProperty.c)
+ *     SdbpOpenLocalDatabaseEx @ 0x1406C4354 (SdbpOpenLocalDatabaseEx.c)
+ *     BiGetObjectReferenceFromEfiEntry @ 0x1406D52C4 (BiGetObjectReferenceFromEfiEntry.c)
+ *     BiUpdateObjectReferenceInEfiEntry @ 0x1406D5F9C (BiUpdateObjectReferenceInEfiEntry.c)
+ *     SiGetBiosSystemPartition @ 0x1406D6D00 (SiGetBiosSystemPartition.c)
+ *     SubstringMatch @ 0x1406E4C40 (SubstringMatch.c)
  * Callees:
  *     <none>
  */

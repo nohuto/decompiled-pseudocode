@@ -1,13 +1,13 @@
 /*
- * XREFs of EtwpFreeSecurityDescriptor @ 0x1405C5658
+ * XREFs of EtwpFreeSecurityDescriptor @ 0x1405C6658
  * Callers:
- *     EtwpAllocGuidEntry @ 0x1405C0C8C (EtwpAllocGuidEntry.c)
- *     EtwpAccessCheckFromState @ 0x1405C558C (EtwpAccessCheckFromState.c)
- *     EtwpCheckGuidAccess @ 0x140656D04 (EtwpCheckGuidAccess.c)
- *     EtwpStartLogger @ 0x1406591A0 (EtwpStartLogger.c)
- *     EtwpUpdateTrace @ 0x140725ADC (EtwpUpdateTrace.c)
+ *     EtwpAllocGuidEntry @ 0x1405C1C8C (EtwpAllocGuidEntry.c)
+ *     EtwpAccessCheckFromState @ 0x1405C658C (EtwpAccessCheckFromState.c)
+ *     EtwpCheckGuidAccess @ 0x140657EC4 (EtwpCheckGuidAccess.c)
+ *     EtwpStartLogger @ 0x14065A360 (EtwpStartLogger.c)
+ *     EtwpUpdateTrace @ 0x140726D7C (EtwpUpdateTrace.c)
  * Callees:
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
  */
 
 void __fastcall EtwpFreeSecurityDescriptor(void **a1)

@@ -1,17 +1,17 @@
 /*
- * XREFs of PiDevCfgFreeDriverNode @ 0x140638D1C
+ * XREFs of PiDevCfgFreeDriverNode @ 0x140638DD0
  * Callers:
- *     PiDevCfgCheckDeviceNeedsUpdate @ 0x140632B70 (PiDevCfgCheckDeviceNeedsUpdate.c)
- *     PiDevCfgFindDeviceDriver @ 0x140637AD4 (PiDevCfgFindDeviceDriver.c)
- *     PiDevCfgFreeDriverNode @ 0x140638D1C (PiDevCfgFreeDriverNode.c)
- *     PiDevCfgProcessDevice @ 0x14063B128 (PiDevCfgProcessDevice.c)
- *     PiDevCfgQueryDriverNode @ 0x14063C23C (PiDevCfgQueryDriverNode.c)
- *     PiDevCfgQueryIncludedDriverNode @ 0x14063CCDC (PiDevCfgQueryIncludedDriverNode.c)
- *     PpDevCfgProcessDeviceExtensions @ 0x140641684 (PpDevCfgProcessDeviceExtensions.c)
+ *     PiDevCfgCheckDeviceNeedsUpdate @ 0x140632C24 (PiDevCfgCheckDeviceNeedsUpdate.c)
+ *     PiDevCfgFindDeviceDriver @ 0x140637B88 (PiDevCfgFindDeviceDriver.c)
+ *     PiDevCfgFreeDriverNode @ 0x140638DD0 (PiDevCfgFreeDriverNode.c)
+ *     PiDevCfgProcessDevice @ 0x14063B1DC (PiDevCfgProcessDevice.c)
+ *     PiDevCfgQueryDriverNode @ 0x14063C2F0 (PiDevCfgQueryDriverNode.c)
+ *     PiDevCfgQueryIncludedDriverNode @ 0x14063CD90 (PiDevCfgQueryIncludedDriverNode.c)
+ *     PpDevCfgProcessDeviceExtensions @ 0x140641768 (PpDevCfgProcessDeviceExtensions.c)
  * Callees:
- *     ZwClose @ 0x140159E60 (ZwClose.c)
- *     RtlFreeAnsiString @ 0x140458CF0 (RtlFreeAnsiString.c)
- *     PiDevCfgFreeDriverNode @ 0x140638D1C (PiDevCfgFreeDriverNode.c)
+ *     ZwClose @ 0x14015A3D0 (ZwClose.c)
+ *     RtlFreeAnsiString @ 0x140457BC0 (RtlFreeAnsiString.c)
+ *     PiDevCfgFreeDriverNode @ 0x140638DD0 (PiDevCfgFreeDriverNode.c)
  */
 
 void __fastcall PiDevCfgFreeDriverNode(__int64 a1)

@@ -3,7 +3,7 @@
  * Callers:
  *     KiInitializeKernel @ 0x1403D3DE0 (KiInitializeKernel.c)
  * Callees:
- *     KeStartThread @ 0x1400F2A6C (KeStartThread.c)
+ *     KeStartThread @ 0x1400F08BC (KeStartThread.c)
  *     KeInitThread @ 0x1403C8E74 (KeInitThread.c)
  */
 

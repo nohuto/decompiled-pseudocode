@@ -27,14 +27,14 @@ __int64 __fastcall MiReloadBootLoadedDrivers(__int64 a1)
 {
   _KPROCESS *v2; // rdx
   ULONG_PTR *v3; // rdi
-  ULONG_PTR *i; // rbx
+  __int64 i; // rbx
   ULONG_PTR *k; // rbx
   ULONG_PTR v7; // rbx
-  unsigned __int64 v8; // rsi
+  PVOID v8; // rsi
   unsigned __int64 v9; // r15
-  __int64 v10; // r14
+  PIMAGE_NT_HEADERS v10; // r14
   unsigned __int64 v11; // r9
-  int v12; // eax
+  NTSTATUS v12; // eax
   ULONG_PTR j; // rbx
   _QWORD v14[14]; // [rsp+50h] [rbp-158h] BYREF
   _QWORD v15[24]; // [rsp+C0h] [rbp-E8h] BYREF
@@ -44,10 +44,10 @@ __int64 __fastcall MiReloadBootLoadedDrivers(__int64 a1)
   LODWORD(v15[1]) = 20;
   MmAcquireLoadLock();
   v3 = (ULONG_PTR *)(a1 + 16);
-  for ( i = *(ULONG_PTR **)(a1 + 16); i != v3; i = (ULONG_PTR *)*i )
+  for ( i = *(_QWORD *)(a1 + 16); (ULONG_PTR *)i != v3; i = *(_QWORD *)i )
   {
-    if ( PsNtosImageBase != i[6] )
-      MiProcessLoadConfigForDriver((__int64)i);
+    if ( PsNtosImageBase != *(PVOID *)(i + 48) )
+      MiProcessLoadConfigForDriver(i);
     MiHandleBootImage(a1, i, v15);
   }
   MiFlushTbList((__int64)v15, v2);
@@ -58,19 +58,19 @@ __int64 __fastcall MiReloadBootLoadedDrivers(__int64 a1)
     {
       do
       {
-        v8 = *(_QWORD *)(v7 + 48);
+        v8 = *(PVOID *)(v7 + 48);
         v9 = ((unsigned __int64)*(unsigned int *)(v7 + 64) + 4095) >> 12;
         v10 = RtlImageNtHeader(v8);
         MiLogRetpolineImageLoadEvents(v7);
         if ( (KiSpeculationFeatures & 0x20000000000LL) != 0
           && v8 != PsNtosImageBase
           && v8 != PsHalImageBase
-          && (*(_BYTE *)(v10 + 22) & 1) == 0
-          && *(_DWORD *)(v10 + 132) > 5u )
+          && (v10->FileHeader.Characteristics & 1) == 0
+          && v10->OptionalHeader.NumberOfRvaAndSizes > 5 )
         {
           if ( !(unsigned int)MI_IS_PHYSICAL_ADDRESS(*(_QWORD *)(v7 + 48)) )
           {
-            v11 = MiMapRetpolineStubs(v8, v9);
+            v11 = MiMapRetpolineStubs((unsigned __int64)v8, v9);
             if ( (MiFlags & 0x10000) != 0 )
             {
               memset(v14, 0, 0x68uLL);
@@ -81,8 +81,8 @@ __int64 __fastcall MiReloadBootLoadedDrivers(__int64 a1)
             else
             {
               v12 = RtlPerformRetpolineRelocationsOnImageEx(
-                      v8,
-                      v8,
+                      (char *)v8,
+                      (__int64)v8,
                       *(_DWORD *)(v7 + 64),
                       v11,
                       (__int64)Base,
@@ -94,7 +94,7 @@ __int64 __fastcall MiReloadBootLoadedDrivers(__int64 a1)
             if ( (int)(v12 + 0x80000000) >= 0 && v12 != -1073741637 )
               KeBugCheckEx(0x1Au, 0x1080uLL, v7, *(_QWORD *)(v7 + 48), v12);
           }
-          if ( (unsigned int)RtlIsImageFullyRetpolined(*(_QWORD *)(v7 + 48)) )
+          if ( (unsigned int)RtlIsImageFullyRetpolined(*(void **)(v7 + 48)) )
             MiMarkRetpolineBits(*(_QWORD *)(v7 + 48));
         }
         v7 = *(_QWORD *)v7;
@@ -102,7 +102,7 @@ __int64 __fastcall MiReloadBootLoadedDrivers(__int64 a1)
       while ( (ULONG_PTR *)v7 != v3 );
       for ( j = *(_QWORD *)(a1 + 16); (ULONG_PTR *)j != v3; j = *(_QWORD *)j )
       {
-        if ( (*(_DWORD *)(j + 104) & 0x1000000) == 0 && !(unsigned int)RtlIsImageFullyRetpolined(*(_QWORD *)(j + 48)) )
+        if ( (*(_DWORD *)(j + 104) & 0x1000000) == 0 && !(unsigned int)RtlIsImageFullyRetpolined(*(void **)(j + 48)) )
           MiMarkRetpolineBits(*(_QWORD *)(j + 48));
       }
     }

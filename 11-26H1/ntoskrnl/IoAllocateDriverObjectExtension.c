@@ -1,12 +1,12 @@
 /*
- * XREFs of IoAllocateDriverObjectExtension @ 0x1404ED930
+ * XREFs of IoAllocateDriverObjectExtension @ 0x1404E6F10
  * Callers:
- *     DifIoAllocateDriverObjectExtensionWrapper @ 0x140658F30 (DifIoAllocateDriverObjectExtensionWrapper.c)
+ *     DifIoAllocateDriverObjectExtensionWrapper @ 0x14065CB10 (DifIoAllocateDriverObjectExtensionWrapper.c)
  * Callees:
- *     KeAcquireQueuedSpinLock @ 0x1402B4690 (KeAcquireQueuedSpinLock.c)
- *     KeReleaseQueuedSpinLock @ 0x1402E2650 (KeReleaseQueuedSpinLock.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     KeReleaseQueuedSpinLock @ 0x1402C4710 (KeReleaseQueuedSpinLock.c)
+ *     KeAcquireQueuedSpinLock @ 0x1402FF360 (KeAcquireQueuedSpinLock.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 NTSTATUS __stdcall IoAllocateDriverObjectExtension(

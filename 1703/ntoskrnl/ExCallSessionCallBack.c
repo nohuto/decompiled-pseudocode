@@ -23,14 +23,14 @@ __int64 __fastcall ExCallSessionCallBack(int *a1, __int64 a2, __int64 a3, int *a
   ULONG_PTR SessionById; // rax
   void *v9; // rsi
   int v10; // ebx
-  union _RTL_RUN_ONCE *Win32Callouts; // r15
+  _RTL_RUN_ONCE *Win32Callouts; // r15
   struct _EX_RUNDOWN_REF *v12; // rax
   struct _EX_RUNDOWN_REF *v13; // rbp
   struct _KPROCESS *NextSession; // rbx
   __int64 v16; // r14
   int SessionId; // r12d
   int v18; // ebp
-  union _RTL_RUN_ONCE *v19; // r15
+  _RTL_RUN_ONCE *v19; // r15
   struct _EX_RUNDOWN_REF *v20; // rax
   struct _EX_RUNDOWN_REF *v21; // rsi
   _BYTE v23[48]; // [rsp+30h] [rbp-88h] BYREF

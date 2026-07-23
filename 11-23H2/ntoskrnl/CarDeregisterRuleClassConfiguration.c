@@ -1,11 +1,11 @@
 /*
- * XREFs of CarDeregisterRuleClassConfiguration @ 0x1405D3B80
+ * XREFs of CarDeregisterRuleClassConfiguration @ 0x1405D40F0
  * Callers:
- *     CarRegisterRuleClassConfiguration @ 0x1405D40A0 (CarRegisterRuleClassConfiguration.c)
- *     DifDeregisterAllPlugins @ 0x1405D4C08 (DifDeregisterAllPlugins.c)
+ *     CarRegisterRuleClassConfiguration @ 0x1405D4610 (CarRegisterRuleClassConfiguration.c)
+ *     DifDeregisterAllPlugins @ 0x1405D5178 (DifDeregisterAllPlugins.c)
  * Callees:
- *     CarDeleteTelemetryData @ 0x1405D3AE4 (CarDeleteTelemetryData.c)
- *     CarFindRuleClassConfigurationEntryByRuleClassId @ 0x1405D3C8C (CarFindRuleClassConfigurationEntryByRuleClassId.c)
+ *     CarDeleteTelemetryData @ 0x1405D4054 (CarDeleteTelemetryData.c)
+ *     CarFindRuleClassConfigurationEntryByRuleClassId @ 0x1405D41FC (CarFindRuleClassConfigurationEntryByRuleClassId.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

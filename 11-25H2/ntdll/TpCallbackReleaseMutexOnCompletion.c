@@ -6,15 +6,15 @@
  *     <none>
  */
 
-void __fastcall TpCallbackReleaseMutexOnCompletion(__int64 a1, __int64 a2)
+void __cdecl TpCallbackReleaseMutexOnCompletion(PTP_CALLBACK_INSTANCE Instance, HANDLE Mutex)
 {
-  if ( !a1 || (unsigned __int64)(a2 - 1) > 0xFFFFFFFFFFFFFFFDuLL || *(_DWORD *)(a1 + 152) )
+  if ( !Instance || (char *)Mutex - 1 > (char *)0xFFFFFFFFFFFFFFFDLL || Instance->Mutex )
   {
     TppRaiseInvalidParameter();
   }
   else
   {
-    *(_DWORD *)(a1 + 144) |= 2u;
-    *(_DWORD *)(a1 + 152) = a2;
+    Instance->CallbackEpilogFlags |= 2u;
+    Instance->Mutex = (unsigned int)Mutex;
   }
 }

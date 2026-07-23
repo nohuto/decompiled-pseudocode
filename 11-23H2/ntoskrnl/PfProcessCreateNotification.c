@@ -1,11 +1,11 @@
 /*
- * XREFs of PfProcessCreateNotification @ 0x140760464
+ * XREFs of PfProcessCreateNotification @ 0x140760654
  * Callers:
- *     PspNotifyThreadCreation @ 0x14076F800 (PspNotifyThreadCreation.c)
+ *     PspNotifyThreadCreation @ 0x14076F9F0 (PspNotifyThreadCreation.c)
  * Callees:
- *     PfSnBeginAppLaunch @ 0x1407604F8 (PfSnBeginAppLaunch.c)
- *     PfCheckDeprioritizeImage @ 0x140760AA0 (PfCheckDeprioritizeImage.c)
- *     PfCalculateProcessHash @ 0x140760C10 (PfCalculateProcessHash.c)
+ *     PfSnBeginAppLaunch @ 0x1407606E8 (PfSnBeginAppLaunch.c)
+ *     PfCheckDeprioritizeImage @ 0x140760C90 (PfCheckDeprioritizeImage.c)
+ *     PfCalculateProcessHash @ 0x140760E00 (PfCalculateProcessHash.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

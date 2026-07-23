@@ -1,7 +1,7 @@
 /*
- * XREFs of IopAddBootDiskInformation @ 0x140596D70
+ * XREFs of IopAddBootDiskInformation @ 0x140593D50
  * Callers:
- *     IopGetBootDiskInformationLite @ 0x140C1DD34 (IopGetBootDiskInformationLite.c)
+ *     IopGetBootDiskInformationLite @ 0x140C1FD74 (IopGetBootDiskInformationLite.c)
  * Callees:
  *     <none>
  */

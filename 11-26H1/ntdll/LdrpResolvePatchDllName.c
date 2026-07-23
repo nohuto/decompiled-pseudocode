@@ -1,12 +1,12 @@
 /*
- * XREFs of LdrpResolvePatchDllName @ 0x18009918C
+ * XREFs of LdrpResolvePatchDllName @ 0x1800982BC
  * Callers:
- *     LdrpMapDllWithSectionHandle @ 0x180084430 (LdrpMapDllWithSectionHandle.c)
- *     LdrpInitializeNtdllDataTableEntry @ 0x180118DB0 (LdrpInitializeNtdllDataTableEntry.c)
+ *     LdrpMapDllWithSectionHandle @ 0x18007B7D0 (LdrpMapDllWithSectionHandle.c)
+ *     LdrpInitializeNtdllDataTableEntry @ 0x180118B60 (LdrpInitializeNtdllDataTableEntry.c)
  * Callees:
- *     LdrpAllocateUnicodeString @ 0x180099220 (LdrpAllocateUnicodeString.c)
- *     LdrpGetBaseNameFromFullName @ 0x1800992B0 (LdrpGetBaseNameFromFullName.c)
- *     memmove @ 0x180164700 (memmove.c)
+ *     LdrpAllocateUnicodeString @ 0x180098350 (LdrpAllocateUnicodeString.c)
+ *     LdrpGetBaseNameFromFullName @ 0x1800983E0 (LdrpGetBaseNameFromFullName.c)
+ *     memmove @ 0x180164600 (memmove.c)
  */
 
 __int64 __fastcall LdrpResolvePatchDllName(_WORD *Src, __int64 a2, __int64 a3)

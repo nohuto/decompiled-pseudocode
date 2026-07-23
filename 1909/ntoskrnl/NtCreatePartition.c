@@ -10,42 +10,51 @@
  *     PspAllocatePartition @ 0x140785400 (PspAllocatePartition.c)
  */
 
-__int64 __fastcall NtCreatePartition(ULONG_PTR a1, HANDLE *a2, ACCESS_MASK a3, int a4)
+NTSTATUS __cdecl NtCreatePartition(
+        HANDLE ParentPartitionHandle,
+        PHANDLE PartitionHandle,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        ULONG PreferredNode)
 {
+  int v5; // r14d
   char PreviousMode; // di
-  __int64 v9; // rcx
-  int v10; // ebx
+  __int64 v10; // rcx
+  NTSTATUS v11; // ebx
   HANDLE Handle; // [rsp+48h] [rbp-30h] BYREF
-  __int64 v13; // [rsp+50h] [rbp-28h] BYREF
-  volatile signed __int64 *v14; // [rsp+60h] [rbp-18h] BYREF
+  __int64 v14; // [rsp+50h] [rbp-28h] BYREF
+  volatile signed __int64 *v15; // [rsp+60h] [rbp-18h] BYREF
 
+  v5 = (int)ObjectAttributes;
   Handle = 0LL;
-  v13 = 0LL;
+  v14 = 0LL;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   if ( PreviousMode )
   {
-    v9 = 0x7FFFFFFF0000LL;
-    if ( (unsigned __int64)a2 < 0x7FFFFFFF0000LL )
-      v9 = (__int64)a2;
-    *(_QWORD *)v9 = *(_QWORD *)v9;
+    v10 = 0x7FFFFFFF0000LL;
+    if ( (unsigned __int64)PartitionHandle < 0x7FFFFFFF0000LL )
+      v10 = (__int64)PartitionHandle;
+    *(_QWORD *)v10 = *(_QWORD *)v10;
   }
   if ( SeSinglePrivilegeCheck(SeLockMemoryPrivilege, PreviousMode) )
   {
-    if ( !a1 || (v10 = PsReferencePartitionByHandle(a1, 2, PreviousMode, 0x70437350u, &v13), v10 >= 0) )
+    if ( !ParentPartitionHandle
+      || (v11 = PsReferencePartitionByHandle((ULONG_PTR)ParentPartitionHandle, 2, PreviousMode, 0x70437350u, &v14),
+          v11 >= 0) )
     {
-      v10 = PspAllocatePartition(a4, a3, PreviousMode, v13, 0, &v14, (__int64)&Handle);
-      if ( v10 >= 0 )
+      v11 = PspAllocatePartition(v5, DesiredAccess, PreviousMode, v14, 0, &v15, (__int64)&Handle);
+      if ( v11 >= 0 )
       {
-        PsDereferencePartition((__int64)v14);
-        *a2 = Handle;
+        PsDereferencePartition((__int64)v15);
+        *PartitionHandle = Handle;
       }
     }
   }
   else
   {
-    v10 = -1073741727;
+    v11 = -1073741727;
   }
-  if ( v13 )
-    PsDereferencePartition(v13);
-  return (unsigned int)v10;
+  if ( v14 )
+    PsDereferencePartition(v14);
+  return v11;
 }

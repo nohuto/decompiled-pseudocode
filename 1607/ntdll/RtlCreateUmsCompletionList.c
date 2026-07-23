@@ -1,43 +1,51 @@
 /*
- * XREFs of RtlCreateUmsCompletionList @ 0x1800EC3F0
+ * XREFs of RtlCreateUmsCompletionList @ 0x1800EC4B0
  * Callers:
  *     <none>
  * Callees:
- *     RtlAllocateHeap @ 0x180022DB0 (RtlAllocateHeap.c)
- *     RtlFreeHeap @ 0x1800466F0 (RtlFreeHeap.c)
+ *     RtlAllocateHeap @ 0x180022DA0 (RtlAllocateHeap.c)
+ *     RtlFreeHeap @ 0x1800466E0 (RtlFreeHeap.c)
  *     ZwCreateEvent @ 0x1800A6D20 (ZwCreateEvent.c)
  */
 
-__int64 __fastcall RtlCreateUmsCompletionList(_QWORD *a1)
+NTSTATUS __fastcall RtlCreateUmsCompletionList(_QWORD *a1)
 {
-  _QWORD *Heap; // rbx
-  __int64 result; // rax
-  unsigned int v4; // [rsp+30h] [rbp-48h]
+  PVOID Heap; // rax
+  _QWORD *v3; // rbx
+  NTSTATUS result; // eax
+  NTSTATUS v5; // [rsp+30h] [rbp-48h]
+  PVOID BaseAddress; // [rsp+38h] [rbp-40h]
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+40h] [rbp-38h] BYREF
 
-  Heap = (_QWORD *)RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 8u, 0x20uLL);
+  Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, 0x20uLL);
+  v3 = Heap;
+  BaseAddress = Heap;
   if ( Heap )
   {
-    result = ZwCreateEvent();
-    v4 = result;
-    if ( (int)result < 0 )
+    ObjectAttributes.Length = 48;
+    memset(&ObjectAttributes.RootDirectory, 0, 20);
+    *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+    result = ZwCreateEvent((PHANDLE)Heap + 1, 0x1F0003u, &ObjectAttributes, SynchronizationEvent, 0);
+    v5 = result;
+    if ( result < 0 )
       goto LABEL_6;
-    *Heap = Heap + 3;
-    Heap[3] = 0LL;
-    *a1 = Heap;
-    result = 0LL;
+    *v3 = v3 + 3;
+    v3[3] = 0LL;
+    *a1 = v3;
+    result = 0;
   }
   else
   {
-    result = 3221225495LL;
+    result = -1073741801;
   }
-  v4 = result;
+  v5 = result;
 LABEL_6:
-  if ( (int)result < 0 )
+  if ( result < 0 )
   {
-    if ( Heap )
+    if ( v3 )
     {
-      RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, (unsigned __int64)Heap);
-      return v4;
+      RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, BaseAddress);
+      return v5;
     }
   }
   return result;

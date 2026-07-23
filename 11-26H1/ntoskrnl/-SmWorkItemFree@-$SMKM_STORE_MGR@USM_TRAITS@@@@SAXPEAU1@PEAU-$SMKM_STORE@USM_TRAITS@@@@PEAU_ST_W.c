@@ -1,32 +1,28 @@
 /*
- * XREFs of ?SmWorkItemFree@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@PEAU?$SMKM_STORE@USM_TRAITS@@@@PEAU_ST_WORK_ITEM_HDR@@PEAJ@Z @ 0x14020C8C0
+ * XREFs of ?SmWorkItemFree@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@PEAU?$SMKM_STORE@USM_TRAITS@@@@PEAU_ST_WORK_ITEM_HDR@@PEAJ@Z @ 0x14020C9A0
  * Callers:
- *     ?SmCompressCtxProcessReadyQueue@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU_SM_COMPRESS_CONTEXT@1@PEAU1@E@Z @ 0x14021A770 (-SmCompressCtxProcessReadyQueue@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU_SM_COMPRESS_CONTEXT@1@PEA.c)
+ *     ?SmCompressCtxProcessReadyQueue@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU_SM_COMPRESS_CONTEXT@1@PEAU1@E@Z @ 0x14021C100 (-SmCompressCtxProcessReadyQueue@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU_SM_COMPRESS_CONTEXT@1@PEA.c)
  * Callees:
- *     ?SmIoCtxWorkItemComplete@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAKPEAU_ST_WORK_ITEM_HDR@@PEAU1@PEAU?$SMKM_STORE@USM_TRAITS@@@@J@Z @ 0x14020CDA0 (-SmIoCtxWorkItemComplete@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAKPEAU_ST_WORK_ITEM_HDR@@PEAU1@PEAU-$SM.c)
- *     ExReleaseRundownProtection_0 @ 0x140266240 (ExReleaseRundownProtection_0.c)
- *     KeSetEvent @ 0x1402DE9C0 (KeSetEvent.c)
- *     SmpFpReleaseResource @ 0x140405920 (SmpFpReleaseResource.c)
- *     RtlpInterlockedPushEntrySList @ 0x140730CD0 (RtlpInterlockedPushEntrySList.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ?SmIoCtxWorkItemComplete@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAKPEAU_ST_WORK_ITEM_HDR@@PEAU1@PEAU?$SMKM_STORE@USM_TRAITS@@@@J@Z @ 0x14020CE80 (-SmIoCtxWorkItemComplete@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAKPEAU_ST_WORK_ITEM_HDR@@PEAU1@PEAU-$SM.c)
+ *     ExReleaseRundownProtection_0 @ 0x1402657B0 (ExReleaseRundownProtection_0.c)
+ *     KeSetEvent @ 0x1402C0780 (KeSetEvent.c)
+ *     SmpFpReleaseResource @ 0x1403FEA14 (SmpFpReleaseResource.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1407358A0 (RtlpInterlockedPushEntrySList.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
-void __fastcall SMKM_STORE_MGR<SM_TRAITS>::SmWorkItemFree(
-        __int64 a1,
-        __int64 a2,
-        struct _SLIST_ENTRY *a3,
-        unsigned int *a4)
+void __fastcall SMKM_STORE_MGR<SM_TRAITS>::SmWorkItemFree(__int64 a1, __int64 a2, _SLIST_ENTRY *a3, unsigned int *a4)
 {
   unsigned int v5; // edi
   _SLIST_ENTRY *Next; // r13
-  struct _SLIST_ENTRY v10; // xmm1
+  _SLIST_ENTRY v10; // xmm1
   struct _EX_RUNDOWN_REF *v11; // rbx
   __int64 v12; // rbp
   BOOL v13; // ebp
   __int64 v14; // rdx
-  union _SLIST_HEADER *v15; // rcx
-  struct _SLIST_ENTRY v16; // [rsp+20h] [rbp-58h] BYREF
-  struct _SLIST_ENTRY v17; // [rsp+30h] [rbp-48h]
+  _SLIST_HEADER *v15; // rcx
+  _SLIST_ENTRY v16; // [rsp+20h] [rbp-58h] BYREF
+  _SLIST_ENTRY v17; // [rsp+30h] [rbp-48h]
   _SLIST_ENTRY *v18; // [rsp+40h] [rbp-38h]
 
   v5 = (__int64)a3->Next & 7;
@@ -55,7 +51,7 @@ void __fastcall SMKM_STORE_MGR<SM_TRAITS>::SmWorkItemFree(
   {
     if ( (*(_DWORD *)(&a3->Next + 1) & 0x200) != 0 )
     {
-      v15 = (union _SLIST_HEADER *)(a1 + 1088);
+      v15 = (_SLIST_HEADER *)(a1 + 1088);
       if ( LOWORD(v15->Alignment) < 0x1000u )
       {
         RtlpInterlockedPushEntrySList(v15, a3);

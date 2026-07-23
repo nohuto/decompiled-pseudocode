@@ -1,9 +1,9 @@
 /*
- * XREFs of ExpTranslateHexStringToULONG @ 0x1407BD3B4
+ * XREFs of ExpTranslateHexStringToULONG @ 0x1407BD804
  * Callers:
- *     ExpParseSignatureName @ 0x1407BC030 (ExpParseSignatureName.c)
+ *     ExpParseSignatureName @ 0x1407BC480 (ExpParseSignatureName.c)
  * Callees:
- *     towlower @ 0x1404FFC10 (towlower.c)
+ *     towlower @ 0x1404FD4D0 (towlower.c)
  */
 
 __int64 __fastcall ExpTranslateHexStringToULONG(__int64 a1, int *a2)

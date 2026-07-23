@@ -1,10 +1,10 @@
 /*
- * XREFs of ExInterlockedPushEntryList @ 0x1406D09F0
+ * XREFs of ExInterlockedPushEntryList @ 0x1406D4A20
  * Callers:
- *     WheapPushPendingOfflineWrapper @ 0x14084A4E8 (WheapPushPendingOfflineWrapper.c)
+ *     WheapPushPendingOfflineWrapper @ 0x1408507F8 (WheapPushPendingOfflineWrapper.c)
  * Callees:
- *     ExpAcquireSpinLockDisabled @ 0x1403DE500 (ExpAcquireSpinLockDisabled.c)
- *     ExpReleaseSpinLockDisabled @ 0x1403DFB08 (ExpReleaseSpinLockDisabled.c)
+ *     ExpAcquireSpinLockDisabled @ 0x1403E16F0 (ExpAcquireSpinLockDisabled.c)
+ *     ExpReleaseSpinLockDisabled @ 0x1403E2CF8 (ExpReleaseSpinLockDisabled.c)
  */
 
 PSINGLE_LIST_ENTRY __stdcall ExInterlockedPushEntryList(
@@ -13,7 +13,7 @@ PSINGLE_LIST_ENTRY __stdcall ExInterlockedPushEntryList(
         PKSPIN_LOCK Lock)
 {
   char v6; // al
-  struct _SINGLE_LIST_ENTRY *Next; // rbx
+  _SINGLE_LIST_ENTRY *Next; // rbx
   __int64 v8; // r8
   __int64 v9; // r9
 

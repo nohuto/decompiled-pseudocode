@@ -29,183 +29,177 @@
  *     memset$thunk$772440563353939046 @ 0x180174030 (memset$thunk$772440563353939046.c)
  */
 
-__int64 __fastcall LdrpMapAndSnapDependency(__int64 a1, __int64 a2)
+void __fastcall LdrpMapAndSnapDependency(__int64 a1)
 {
-  __int64 v2; // r13
-  char v3; // di
-  bool v4; // zf
-  __int64 v5; // rbx
+  __int64 v1; // r13
+  char v2; // di
+  bool v3; // zf
+  __int64 v4; // rbx
   int DllActivationContext; // esi
-  __int64 result; // rax
-  int v8; // r15d
-  __int64 v9; // r9
-  __int64 v10; // rdx
-  int v11; // ebx
-  __int64 v12; // r14
-  unsigned int *v13; // rdx
-  __int64 v14; // rcx
-  unsigned int v15; // r12d
-  unsigned int *v16; // r14
-  unsigned int v17; // ecx
+  int v6; // r15d
+  __int64 v7; // r9
+  char *ImportDescriptorForSnap; // rax
+  unsigned int v9; // ebx
+  char *v10; // r14
+  unsigned int *v11; // rdx
+  __int64 v12; // rcx
+  PVOID Heap; // rax
+  unsigned int v14; // r12d
+  unsigned int *v15; // r14
+  unsigned int v16; // ecx
+  __int64 v17; // rax
   __int64 v18; // rdx
   char *v19; // rbx
   size_t v20; // rax
-  unsigned __int64 v21; // rdi
+  unsigned __int16 Length; // di
   _QWORD *v22; // r15
   int v23; // ecx
-  int v24; // edx
+  ULONG v24; // edx
   unsigned __int16 v25; // cx
   unsigned int v26; // ebx
   unsigned int v27; // r8d
-  char *v28; // rdi
+  wchar_t *Buffer; // rdi
   __int64 v29; // rbx
   __int64 v31; // rax
   __int64 v32; // rcx
-  char *Atom; // rax
-  signed __int32 v34[8]; // [rsp+0h] [rbp-100h] BYREF
-  char v35[8]; // [rsp+30h] [rbp-D0h] BYREF
-  __int64 v36; // [rsp+38h] [rbp-C8h]
-  int v37; // [rsp+40h] [rbp-C0h] BYREF
-  int v38; // [rsp+44h] [rbp-BCh]
-  __int64 v39; // [rsp+48h] [rbp-B8h] BYREF
-  STRING SourceString; // [rsp+50h] [rbp-B0h] BYREF
-  UNICODE_STRING DestinationString; // [rsp+60h] [rbp-A0h] BYREF
-  _DWORD v42[2]; // [rsp+70h] [rbp-90h] BYREF
-  void *Src; // [rsp+78h] [rbp-88h]
-  __int16 v44; // [rsp+80h] [rbp-80h] BYREF
-  char v45[254]; // [rsp+82h] [rbp-7Eh] BYREF
+  __int64 v33; // rax
+  wchar_t *Atom; // rax
+  int DependentModuleW; // eax
+  signed __int32 v36[8]; // [rsp+0h] [rbp-100h] BYREF
+  char v37[8]; // [rsp+30h] [rbp-D0h] BYREF
+  __int64 v38; // [rsp+38h] [rbp-C8h]
+  ULONG UnicodeStringActualByteCount; // [rsp+40h] [rbp-C0h] BYREF
+  int v40; // [rsp+44h] [rbp-BCh]
+  PVOID BaseAddress; // [rsp+48h] [rbp-B8h] BYREF
+  ANSI_STRING SourceString; // [rsp+50h] [rbp-B0h] BYREF
+  _UNICODE_STRING DestinationString; // [rsp+60h] [rbp-A0h] BYREF
+  _UNICODE_STRING OriginalName; // [rsp+70h] [rbp-90h] BYREF
+  __int16 v45; // [rsp+80h] [rbp-80h] BYREF
+  char v46[254]; // [rsp+82h] [rbp-7Eh] BYREF
 
-  v2 = *(_QWORD *)(a1 + 56);
-  v3 = 0;
-  v4 = (*(_DWORD *)(a1 + 32) & 0x800000) == 0;
-  v5 = a1;
-  v36 = a1;
+  v1 = *(_QWORD *)(a1 + 56);
+  v2 = 0;
+  v3 = (*(_DWORD *)(a1 + 32) & 0x800000) == 0;
+  v4 = a1;
+  v38 = a1;
   SourceString = 0LL;
-  v35[0] = 0;
-  if ( v4
-    && *(_DWORD *)(v2 + 268) != 9
-    && (DllActivationContext = LdrpFindDllActivationContext((_QWORD *)v2), DllActivationContext < 0)
-    || (result = LdrpPrepareImportAddressTableForSnap(v5, a2), DllActivationContext = result, (int)result < 0) )
+  v37[0] = 0;
+  if ( v3
+    && *(_DWORD *)(v1 + 268) != 9
+    && (DllActivationContext = LdrpFindDllActivationContext((_QWORD *)v1), DllActivationContext < 0)
+    || (DllActivationContext = LdrpPrepareImportAddressTableForSnap(v4), DllActivationContext < 0) )
   {
 LABEL_4:
-    result = *(_QWORD *)(v5 + 40);
-    *(_DWORD *)result = DllActivationContext;
-    return result;
+    **(_DWORD **)(v4 + 40) = DllActivationContext;
+    return;
   }
-  v8 = 0;
-  v9 = v5;
-  v38 = 0;
-  if ( LdrpIsHotPatchingEnabled && *(_QWORD *)(v5 + 56) )
+  v6 = 0;
+  v7 = v4;
+  v40 = 0;
+  if ( LdrpIsHotPatchingEnabled && *(_QWORD *)(v4 + 56) )
   {
-    result = LdrpQueryCurrentPatch(*(_QWORD *)(v2 + 48), v35);
-    DllActivationContext = result;
-    if ( (int)result < 0 )
+    DllActivationContext = LdrpQueryCurrentPatch(*(_QWORD *)(v1 + 48), v37);
+    if ( DllActivationContext < 0 )
       goto LABEL_4;
-    v3 = v35[0];
-    v9 = v5;
+    v2 = v37[0];
+    v7 = v4;
   }
-  if ( !*(_QWORD *)(v9 + 112) && !v3 )
+  if ( !*(_QWORD *)(v7 + 112) && !v2 )
     goto LABEL_65;
-  if ( (unsigned __int8)LdrpShouldModuleImportBeRedirected(v2) )
-    *(_DWORD *)(v5 + 32) |= 0x2000000u;
-  result = LdrpGetImportDescriptorForSnap(v5, v10);
-  v11 = 0;
-  v12 = result;
-  if ( !result )
+  if ( (unsigned __int8)LdrpShouldModuleImportBeRedirected(v1) )
+    *(_DWORD *)(v4 + 32) |= 0x2000000u;
+  ImportDescriptorForSnap = (char *)LdrpGetImportDescriptorForSnap(v4);
+  v9 = 0;
+  v10 = ImportDescriptorForSnap;
+  if ( !ImportDescriptorForSnap )
     goto LABEL_12;
-  v13 = (unsigned int *)(result + 16);
+  v11 = (unsigned int *)(ImportDescriptorForSnap + 16);
   do
   {
-    if ( !*(v13 - 1) )
+    if ( !*(v11 - 1) )
       break;
-    v14 = *v13;
-    if ( !(_DWORD)v14 )
+    v12 = *v11;
+    if ( !(_DWORD)v12 )
       break;
-    ++v11;
-    if ( *(_QWORD *)(v14 + *(_QWORD *)(v2 + 48)) )
-      ++v8;
-    v13 += 5;
-    result = (__int64)(v13 - 4);
+    ++v9;
+    if ( *(_QWORD *)(v12 + *(_QWORD *)(v1 + 48)) )
+      ++v6;
+    v11 += 5;
   }
-  while ( v13 != (unsigned int *)16 );
-  v38 = v8;
-  if ( !v8 )
+  while ( v11 != (unsigned int *)16 );
+  v40 = v6;
+  if ( !v6 )
   {
 LABEL_12:
-    if ( !v3 )
+    if ( !v2 )
       goto LABEL_64;
   }
-  result = RtlAllocateHeap((void *)LdrpHeap);
-  v9 = v36;
-  *(_QWORD *)(v36 + 88) = result;
-  if ( !result )
+  Heap = RtlAllocateHeap(LdrpHeap, (NtdllBaseTag + 1572864) | 8, 8LL * v9);
+  v7 = v38;
+  *(_QWORD *)(v38 + 88) = Heap;
+  if ( !Heap )
   {
     DllActivationContext = -1073741801;
     goto LABEL_65;
   }
-  result = (unsigned int)(v8 + 1);
-  *(_DWORD *)(v9 + 108) = result;
-  *(_DWORD *)(v9 + 104) = v11;
-  *(_QWORD *)(v9 + 136) = v12;
-  if ( v3 )
-  {
-    result = (unsigned int)(v8 + 2);
-    *(_DWORD *)(v9 + 108) = result;
-  }
-  v39 = 0LL;
-  v15 = 0;
-  if ( !v12 )
+  *(_DWORD *)(v7 + 108) = v6 + 1;
+  *(_DWORD *)(v7 + 104) = v9;
+  *(_QWORD *)(v7 + 136) = v10;
+  if ( v2 )
+    *(_DWORD *)(v7 + 108) = v6 + 2;
+  BaseAddress = 0LL;
+  v14 = 0;
+  if ( !v10 )
     goto LABEL_59;
-  v16 = (unsigned int *)(v12 + 16);
+  v15 = (unsigned int *)(v10 + 16);
   while ( 1 )
   {
-    v17 = *(v16 - 1);
-    if ( !v17 || (result = *v16, !(_DWORD)result) )
+    v16 = *(v15 - 1);
+    if ( !v16 || (v17 = *v15, !(_DWORD)v17) )
     {
 LABEL_49:
-      v8 = v38;
-      v9 = v36;
+      v6 = v40;
+      v7 = v38;
       goto LABEL_58;
     }
-    v18 = *(_QWORD *)(v2 + 48);
-    if ( *(_QWORD *)(result + v18) )
+    v18 = *(_QWORD *)(v1 + 48);
+    if ( *(_QWORD *)(v17 + v18) )
       break;
 LABEL_48:
-    v16 += 5;
-    ++v15;
-    result = (__int64)(v16 - 4);
-    if ( v16 == (unsigned int *)16 )
+    v15 += 5;
+    ++v14;
+    if ( v15 == (unsigned int *)16 )
       goto LABEL_49;
   }
   *(_QWORD *)&SourceString.Length = 0LL;
-  v19 = (char *)(v18 + v17);
+  v19 = (char *)(v18 + v16);
   SourceString.Buffer = v19;
   if ( !v19 )
   {
-    LOWORD(v21) = SourceString.Length;
+    Length = SourceString.Length;
 LABEL_35:
-    v22 = (_QWORD *)(*(_QWORD *)(v9 + 88) + 8LL * v15);
-    v42[1] = 0;
-    memset_thunk_772440563353939046(v45, 0, 0xFEuLL);
-    v42[0] = 0x1000000;
-    v44 = 0;
-    Src = &v44;
+    v22 = (_QWORD *)(*(_QWORD *)(v7 + 88) + 8LL * v14);
+    *(_DWORD *)(&OriginalName.MaximumLength + 1) = 0;
+    memset_thunk_772440563353939046(v46, 0, 0xFEuLL);
+    *(_DWORD *)&OriginalName.Length = 0x1000000;
+    v45 = 0;
+    OriginalName.Buffer = (wchar_t *)&v45;
     DestinationString = 0LL;
-    if ( !(_WORD)v21 )
+    if ( !Length )
       goto LABEL_43;
-    v37 = 0;
-    v23 = (unsigned __int16)v21;
-    _InterlockedOr(v34, 0);
-    if ( word_1801CEFD0 == -535 || GlobalRtlNlsState == -535 )
+    UnicodeStringActualByteCount = 0;
+    v23 = Length;
+    _InterlockedOr(v36, 0);
+    if ( CodePageTable.CodePage == 0xFDE9 || GlobalRtlNlsState.CodePage == 0xFDE9 )
     {
-      RtlUTF8ToUnicodeN(0LL, 0, &v37, v19, (unsigned __int16)v21);
-      v24 = v37;
+      RtlUTF8ToUnicodeN(0LL, 0, &UnicodeStringActualByteCount, v19, Length);
+      v24 = UnicodeStringActualByteCount;
     }
     else
     {
-      _InterlockedOr(v34, 0);
+      _InterlockedOr(v36, 0);
       v24 = 0;
-      if ( word_1801CEF9C )
+      if ( GlobalRtlNlsState.DBCSCodePage )
       {
         while ( v23-- )
         {
@@ -225,37 +219,36 @@ LABEL_35:
       }
       else
       {
-        v24 = 2 * (unsigned __int16)v21;
+        v24 = 2 * Length;
       }
     }
-    v25 = v42[0];
-    LOWORD(v26) = HIWORD(v42[0]);
-    v27 = v24 + LOWORD(v42[0]) + 2;
-    if ( v27 <= HIWORD(v42[0]) )
+    v25 = OriginalName.Length;
+    LOWORD(v26) = OriginalName.MaximumLength;
+    v27 = v24 + OriginalName.Length + 2;
+    if ( v27 <= OriginalName.MaximumLength )
     {
-      v28 = (char *)Src;
+      Buffer = OriginalName.Buffer;
 LABEL_42:
       DestinationString.Length = 0;
       DestinationString.MaximumLength = v26 - v25;
-      DestinationString.Buffer = (wchar_t *)&v28[v25];
+      DestinationString.Buffer = (wchar_t *)((char *)Buffer + v25);
       RtlAnsiStringToUnicodeString(&DestinationString, &SourceString, 0);
-      LOWORD(v42[0]) += DestinationString.Length;
+      OriginalName.Length += DestinationString.Length;
 LABEL_43:
-      v29 = v36;
-      DllActivationContext = LdrpLoadDependentModuleInternal((char)v42, (__int64)v22, (__int64)&v39);
+      v29 = v38;
+      DllActivationContext = LdrpLoadDependentModuleInternal(&OriginalName, (__int64)v22, (__int64)&BaseAddress);
       if ( DllActivationContext >= 0 )
       {
 LABEL_44:
-        if ( &v44 != Src )
-          RtlpSysVolFree((__int64)Src);
-        v42[0] = 0x1000000;
-        result = (__int64)&v44;
-        Src = &v44;
-        v44 = 0;
+        if ( &v45 != (__int16 *)OriginalName.Buffer )
+          RtlpSysVolFree(OriginalName.Buffer);
+        *(_DWORD *)&OriginalName.Length = 0x1000000;
+        OriginalName.Buffer = (wchar_t *)&v45;
+        v45 = 0;
         if ( DllActivationContext < 0 )
           goto LABEL_49;
-        v8 = v38;
-        v9 = v36;
+        v6 = v40;
+        v7 = v38;
         goto LABEL_48;
       }
 LABEL_56:
@@ -272,100 +265,93 @@ LABEL_56:
       v26 = (v27 + 63) & 0xFFFFFFC0;
       if ( v26 > 0xFFFE )
         v26 = 65534;
-      if ( Src == &v44 )
+      if ( (__int16 *)OriginalName.Buffer == &v45 )
       {
-        Atom = (char *)RtlpAllocateAtom(v26);
-        v28 = Atom;
+        Atom = (wchar_t *)RtlpAllocateAtom(v26);
+        Buffer = Atom;
         if ( Atom )
         {
-          v25 = v42[0];
-          if ( !LOWORD(v42[0]) )
+          v25 = OriginalName.Length;
+          if ( !OriginalName.Length )
           {
 LABEL_87:
-            Src = v28;
-            HIWORD(v42[0]) = v26;
+            OriginalName.Buffer = Buffer;
+            OriginalName.MaximumLength = v26;
             goto LABEL_42;
           }
-          memmove(Atom, Src, LOWORD(v42[0]));
+          memmove(Atom, OriginalName.Buffer, OriginalName.Length);
 LABEL_86:
-          v25 = v42[0];
+          v25 = OriginalName.Length;
           goto LABEL_87;
         }
       }
       else
       {
-        v28 = (char *)NtdllpReallocateStringRoutine(v26);
-        if ( v28 )
+        Buffer = (wchar_t *)NtdllpReallocateStringRoutine(v26);
+        if ( Buffer )
           goto LABEL_86;
       }
       DllActivationContext = -1073741801;
     }
-    v29 = v36;
+    v29 = v38;
     goto LABEL_56;
   }
-  v20 = strlen((const char *)(v18 + v17));
-  v9 = v36;
-  v21 = v20;
-  result = 65534LL;
-  if ( v21 <= 0xFFFE )
+  v20 = strlen((const char *)(v18 + v16));
+  v7 = v38;
+  Length = v20;
+  if ( v20 <= 0xFFFE )
   {
-    SourceString.Length = v21;
-    SourceString.MaximumLength = v21 + 1;
+    SourceString.Length = v20;
+    SourceString.MaximumLength = v20 + 1;
     goto LABEL_35;
   }
   DllActivationContext = -1073741562;
 LABEL_58:
-  v3 = v35[0];
+  v2 = v37[0];
 LABEL_59:
-  if ( v3 )
+  if ( v2 )
   {
-    result = LdrpLoadDependentModuleW((unsigned int)&v39, v9, v2, v9, v9 + 96, (__int64)&v39);
-    DllActivationContext = result;
-    if ( (int)result < 0 )
-      result = LdrpLogEtwHotPatchStatus((int)LdrpImageEntry + 88, v2, (int)v2 + 72, result, 5);
+    DependentModuleW = LdrpLoadDependentModuleW((unsigned int)&BaseAddress, v7, v1, v7, v7 + 96, (__int64)&BaseAddress);
+    DllActivationContext = DependentModuleW;
+    if ( DependentModuleW < 0 )
+      LdrpLogEtwHotPatchStatus(LdrpImageEntry + 88, v1, v1 + 72, DependentModuleW, 5);
   }
-  if ( v39 )
-    result = RtlFreeHeap(LdrpHeap, 0LL, v39);
+  if ( BaseAddress )
+    RtlFreeHeap(LdrpHeap, 0, BaseAddress);
   if ( DllActivationContext >= 0 )
   {
-    RtlAcquireSRWLockExclusive((volatile signed __int32 *)&LdrpModuleDatatableLock);
-    v8 = *(_DWORD *)(v36 + 108) - 1;
-    *(_DWORD *)(v36 + 108) = v8;
-    result = RtlReleaseSRWLockExclusive(&LdrpModuleDatatableLock);
+    RtlAcquireSRWLockExclusive(&LdrpModuleDatatableLock);
+    v6 = *(_DWORD *)(v38 + 108) - 1;
+    *(_DWORD *)(v38 + 108) = v6;
+    RtlReleaseSRWLockExclusive(&LdrpModuleDatatableLock);
   }
 LABEL_64:
-  v9 = v36;
+  v7 = v38;
 LABEL_65:
-  v32 = *(_QWORD *)(v9 + 112);
-  if ( v32 || !v3 )
+  v32 = *(_QWORD *)(v7 + 112);
+  if ( v32 || !v2 )
   {
-    if ( !v8 )
+    if ( !v6 )
     {
-      result = *(_QWORD *)(v2 + 152);
+      v33 = *(_QWORD *)(v1 + 152);
       if ( !v32 )
         goto LABEL_94;
-      *(_DWORD *)(result + 56) = 4;
-      if ( *(_QWORD *)(v9 + 48) )
-      {
-        result = (__int64)LdrpQueueWork(v9);
-      }
+      *(_DWORD *)(v33 + 56) = 4;
+      if ( *(_QWORD *)(v7 + 48) )
+        LdrpQueueWork(v7);
       else
-      {
-        result = LdrpSnapModule(v9);
-        DllActivationContext = result;
-      }
+        DllActivationContext = LdrpSnapModule(v7);
     }
   }
   else
   {
-    result = *(_QWORD *)(v2 + 152);
+    v33 = *(_QWORD *)(v1 + 152);
 LABEL_94:
-    *(_DWORD *)(result + 56) = 5;
+    *(_DWORD *)(v33 + 56) = 5;
   }
   if ( DllActivationContext < 0 )
   {
-    v5 = v36;
+    v4 = v38;
     goto LABEL_4;
   }
-  return result;
 }

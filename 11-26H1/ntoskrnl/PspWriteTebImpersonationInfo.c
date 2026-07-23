@@ -1,15 +1,15 @@
 /*
- * XREFs of PspWriteTebImpersonationInfo @ 0x140928FB0
+ * XREFs of PspWriteTebImpersonationInfo @ 0x140904AC0
  * Callers:
- *     PsImpersonateClient @ 0x140928820 (PsImpersonateClient.c)
- *     PsRestoreImpersonation @ 0x140A48260 (PsRestoreImpersonation.c)
+ *     PsImpersonateClient @ 0x140904330 (PsImpersonateClient.c)
+ *     PsRestoreImpersonation @ 0x140A51550 (PsRestoreImpersonation.c)
  * Callees:
- *     KiUnstackDetachProcess @ 0x1402307C0 (KiUnstackDetachProcess.c)
- *     ExReleaseRundownProtection_0 @ 0x140266240 (ExReleaseRundownProtection_0.c)
- *     KeStackAttachProcess @ 0x1402C5270 (KeStackAttachProcess.c)
- *     ExAcquireRundownProtection_0 @ 0x1402F0590 (ExAcquireRundownProtection_0.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     RtlWriteULongToUser @ 0x14077F7A0 (RtlWriteULongToUser.c)
+ *     KiUnstackDetachProcess @ 0x140232120 (KiUnstackDetachProcess.c)
+ *     ExReleaseRundownProtection_0 @ 0x1402657B0 (ExReleaseRundownProtection_0.c)
+ *     ExAcquireRundownProtection_0 @ 0x1402D2610 (ExAcquireRundownProtection_0.c)
+ *     KeStackAttachProcess @ 0x14030FF30 (KeStackAttachProcess.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     RtlWriteULongToUser @ 0x1407822A0 (RtlWriteULongToUser.c)
  */
 
 __int64 __fastcall PspWriteTebImpersonationInfo(__int64 a1, __int64 a2)

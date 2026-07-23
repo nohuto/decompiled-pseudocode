@@ -1,16 +1,16 @@
 /*
- * XREFs of CmpTransSearchAddLightWeightTrans @ 0x1408790E8
+ * XREFs of CmpTransSearchAddLightWeightTrans @ 0x14087D418
  * Callers:
- *     CmpDoParseKey @ 0x14086E7B0 (CmpDoParseKey.c)
+ *     CmpDoParseKey @ 0x140872AE0 (CmpDoParseKey.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     ExReleaseFastMutexUnsafe @ 0x14031CF70 (ExReleaseFastMutexUnsafe.c)
- *     CmpTransReferenceTransaction @ 0x140879088 (CmpTransReferenceTransaction.c)
- *     CmpTransDereferenceTransaction @ 0x14087925C (CmpTransDereferenceTransaction.c)
- *     LOCK_TRANSACTION_LIST @ 0x14087B17C (LOCK_TRANSACTION_LIST.c)
- *     CmpBindHiveToTrans @ 0x14087B228 (CmpBindHiveToTrans.c)
- *     CmpTransAllocateTrans @ 0x140A7F5EC (CmpTransAllocateTrans.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     ExReleaseFastMutexUnsafe @ 0x1402C5B00 (ExReleaseFastMutexUnsafe.c)
+ *     CmpTransReferenceTransaction @ 0x14087D3B8 (CmpTransReferenceTransaction.c)
+ *     CmpTransDereferenceTransaction @ 0x14087D58C (CmpTransDereferenceTransaction.c)
+ *     LOCK_TRANSACTION_LIST @ 0x14087F02C (LOCK_TRANSACTION_LIST.c)
+ *     CmpBindHiveToTrans @ 0x14087F0D8 (CmpBindHiveToTrans.c)
+ *     CmpTransAllocateTrans @ 0x140A78D9C (CmpTransAllocateTrans.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall CmpTransSearchAddLightWeightTrans(__int64 a1, __int64 a2, int a3, _QWORD *a4)
@@ -72,13 +72,13 @@ LABEL_19:
     goto LABEL_19;
   }
   *((_DWORD *)v14 + 12) = 128;
-  v16 = (_QWORD *)qword_140EF5388;
-  if ( *(__int64 **)qword_140EF5388 != &CmpLightTransactionList )
+  v16 = (_QWORD *)qword_140EF5598;
+  if ( *(__int64 **)qword_140EF5598 != &CmpLightTransactionList )
     __fastfail(3u);
   *v14 = &CmpLightTransactionList;
   v14[1] = v16;
   *v16 = v14;
-  qword_140EF5388 = (__int64)v14;
+  qword_140EF5598 = (__int64)v14;
   ExReleaseFastMutexUnsafe(&CmpTransactionListLock);
   KeLeaveCriticalRegion();
   v10 = 0;

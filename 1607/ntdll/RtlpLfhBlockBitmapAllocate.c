@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlpLfhBlockBitmapAllocate @ 0x180041D94
+ * XREFs of RtlpLfhBlockBitmapAllocate @ 0x180041D84
  * Callers:
- *     RtlpHpLfhSubsegmentAllocateBlock @ 0x180041C48 (RtlpHpLfhSubsegmentAllocateBlock.c)
+ *     RtlpHpLfhSubsegmentAllocateBlock @ 0x180041C38 (RtlpHpLfhSubsegmentAllocateBlock.c)
  * Callees:
  *     <none>
  */

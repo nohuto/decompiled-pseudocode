@@ -19,7 +19,7 @@ __int64 __fastcall ExpQueryProcessorInformationCounters(__int64 a1, char a2, cha
   unsigned __int64 v13; // r8
   __int64 v14; // r9
   __int64 result; // rax
-  struct _PROCESSOR_NUMBER ProcNumber; // [rsp+20h] [rbp-51h] BYREF
+  _PROCESSOR_NUMBER ProcNumber; // [rsp+20h] [rbp-51h] BYREF
   int v17[8]; // [rsp+28h] [rbp-49h] BYREF
   __int64 v18; // [rsp+48h] [rbp-29h] BYREF
   __int64 v19; // [rsp+50h] [rbp-21h]

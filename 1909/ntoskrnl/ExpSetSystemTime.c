@@ -17,7 +17,7 @@ void __fastcall ExpSetSystemTime(char a1, char a2, __int64 a3, LARGE_INTEGER a4,
   __int64 v7; // rcx
   LARGE_INTEGER LocalTime; // [rsp+20h] [rbp-30h] BYREF
   LARGE_INTEGER SystemTime; // [rsp+28h] [rbp-28h] BYREF
-  struct _TIME_FIELDS TimeFields; // [rsp+30h] [rbp-20h] BYREF
+  _TIME_FIELDS TimeFields; // [rsp+30h] [rbp-20h] BYREF
 
   LocalTime.QuadPart = 0LL;
   SystemTime = a4;

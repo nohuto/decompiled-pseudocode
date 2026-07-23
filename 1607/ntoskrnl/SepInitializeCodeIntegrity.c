@@ -1,10 +1,10 @@
 /*
- * XREFs of SepInitializeCodeIntegrity @ 0x1405538F4
+ * XREFs of SepInitializeCodeIntegrity @ 0x140553E34
  * Callers:
- *     SepInitializationPhase1 @ 0x140552FE0 (SepInitializationPhase1.c)
+ *     SepInitializationPhase1 @ 0x140553520 (SepInitializationPhase1.c)
  * Callees:
- *     memset @ 0x1401715C0 (memset.c)
- *     SepIsOptionPresent @ 0x1405539A4 (SepIsOptionPresent.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     SepIsOptionPresent @ 0x140553EE4 (SepIsOptionPresent.c)
  */
 
 __int64 SepInitializeCodeIntegrity()

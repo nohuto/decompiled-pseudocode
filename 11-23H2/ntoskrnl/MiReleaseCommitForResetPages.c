@@ -1,22 +1,22 @@
 /*
- * XREFs of MiReleaseCommitForResetPages @ 0x1406190E8
+ * XREFs of MiReleaseCommitForResetPages @ 0x140619638
  * Callers:
- *     MmOutSwapProcess @ 0x14034CFF8 (MmOutSwapProcess.c)
+ *     MmOutSwapProcess @ 0x14034D198 (MmOutSwapProcess.c)
  * Callees:
  *     UNLOCK_ADDRESS_SPACE_UNORDERED @ 0x140214D94 (UNLOCK_ADDRESS_SPACE_UNORDERED.c)
- *     KeSetEvent @ 0x14023C5E0 (KeSetEvent.c)
- *     ExAcquireSpinLockExclusive @ 0x14024D360 (ExAcquireSpinLockExclusive.c)
- *     MiGetSharedVm @ 0x140286E74 (MiGetSharedVm.c)
- *     MiUnlockVad @ 0x140289CA0 (MiUnlockVad.c)
- *     MiUnlockWorkingSetExclusive @ 0x14028A2F0 (MiUnlockWorkingSetExclusive.c)
- *     MiLockVad @ 0x14029C7D0 (MiLockVad.c)
- *     LOCK_ADDRESS_SPACE @ 0x14029C94C (LOCK_ADDRESS_SPACE.c)
- *     MiReturnCommit @ 0x1402DC250 (MiReturnCommit.c)
- *     KeForceAttachProcess @ 0x140353538 (KeForceAttachProcess.c)
- *     KeForceDetachProcess @ 0x14035559C (KeForceDetachProcess.c)
- *     MiIsVadEligibleForCommitRelease @ 0x1406181CC (MiIsVadEligibleForCommitRelease.c)
- *     MiLogResetPagesCommitRelease @ 0x14061847C (MiLogResetPagesCommitRelease.c)
- *     MiWalkResetCommitPages @ 0x140619648 (MiWalkResetCommitPages.c)
+ *     KeSetEvent @ 0x14023C6B0 (KeSetEvent.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024D430 (ExAcquireSpinLockExclusive.c)
+ *     MiGetSharedVm @ 0x140287104 (MiGetSharedVm.c)
+ *     MiUnlockVad @ 0x140289F30 (MiUnlockVad.c)
+ *     MiUnlockWorkingSetExclusive @ 0x14028A580 (MiUnlockWorkingSetExclusive.c)
+ *     MiLockVad @ 0x14029CA60 (MiLockVad.c)
+ *     LOCK_ADDRESS_SPACE @ 0x14029CBDC (LOCK_ADDRESS_SPACE.c)
+ *     MiReturnCommit @ 0x1402DC4E0 (MiReturnCommit.c)
+ *     KeForceAttachProcess @ 0x1403536D8 (KeForceAttachProcess.c)
+ *     KeForceDetachProcess @ 0x14035573C (KeForceDetachProcess.c)
+ *     MiIsVadEligibleForCommitRelease @ 0x14061871C (MiIsVadEligibleForCommitRelease.c)
+ *     MiLogResetPagesCommitRelease @ 0x1406189CC (MiLogResetPagesCommitRelease.c)
+ *     MiWalkResetCommitPages @ 0x140619B98 (MiWalkResetCommitPages.c)
  */
 
 LONG __fastcall MiReleaseCommitForResetPages(__int64 a1)

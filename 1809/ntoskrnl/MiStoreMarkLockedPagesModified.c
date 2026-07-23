@@ -1,12 +1,12 @@
 /*
- * XREFs of MiStoreMarkLockedPagesModified @ 0x140153ED0
+ * XREFs of MiStoreMarkLockedPagesModified @ 0x140153FD0
  * Callers:
- *     MmStoreProbeAndLockPages @ 0x140153D74 (MmStoreProbeAndLockPages.c)
+ *     MmStoreProbeAndLockPages @ 0x140153E74 (MmStoreProbeAndLockPages.c)
  * Callees:
  *     MiReleasePageFileInfo @ 0x14002A628 (MiReleasePageFileInfo.c)
  *     MiLockPageInline @ 0x14002CE40 (MiLockPageInline.c)
- *     MiCapturePageFileInfoInline @ 0x140119DD0 (MiCapturePageFileInfoInline.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiCapturePageFileInfoInline @ 0x140119E40 (MiCapturePageFileInfoInline.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 int __fastcall MiStoreMarkLockedPagesModified(_DWORD *a1)
@@ -34,7 +34,7 @@ int __fastcall MiStoreMarkLockedPagesModified(_DWORD *a1)
     v8 = v6;
     if ( (v7 & 0x10) == 0 )
       *(_BYTE *)(v4 + 34) = v7 | 0x10;
-    v9 = *(struct _KEVENT **)(qword_14043A748 + 8 * ((*(_QWORD *)(v4 + 40) >> 40) & 0x3FFLL));
+    v9 = *(struct _KEVENT **)(qword_14043B808 + 8 * ((*(_QWORD *)(v4 + 40) >> 40) & 0x3FFLL));
     _InterlockedAnd64((volatile signed __int64 *)(v4 + 24), 0x7FFFFFFFFFFFFFFFuLL);
     if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && KeGetCurrentIrql() >= 2u && v5 < 2u )
     {

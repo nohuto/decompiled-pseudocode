@@ -2,9 +2,9 @@
  * XREFs of MiCheckMdlSlabFragmentation @ 0x14021EE44
  * Callers:
  *     MiFreeUnusedSlabPages @ 0x14021ED0C (MiFreeUnusedSlabPages.c)
- *     MiDemoteSlabEntriesDpc @ 0x1403CD0C0 (MiDemoteSlabEntriesDpc.c)
+ *     MiDemoteSlabEntriesDpc @ 0x1403CD2A0 (MiDemoteSlabEntriesDpc.c)
  * Callees:
- *     KiQueryUnbiasedInterruptTime @ 0x1402E7464 (KiQueryUnbiasedInterruptTime.c)
+ *     KiQueryUnbiasedInterruptTime @ 0x1402E76F4 (KiQueryUnbiasedInterruptTime.c)
  */
 
 __int64 __fastcall MiCheckMdlSlabFragmentation(__int64 a1, int a2)

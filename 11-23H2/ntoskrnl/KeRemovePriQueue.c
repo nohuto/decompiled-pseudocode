@@ -1,29 +1,29 @@
 /*
- * XREFs of KeRemovePriQueue @ 0x1402BF0B0
+ * XREFs of KeRemovePriQueue @ 0x1402BF340
  * Callers:
- *     ExpWorkerThread @ 0x1402BEB90 (ExpWorkerThread.c)
+ *     ExpWorkerThread @ 0x1402BEE20 (ExpWorkerThread.c)
  * Callees:
  *     KiGetProcessorEfficiencyClass @ 0x14020E8D4 (KiGetProcessorEfficiencyClass.c)
- *     KiCommitThreadWait @ 0x140241F20 (KiCommitThreadWait.c)
- *     KeYieldProcessorEx @ 0x140242E40 (KeYieldProcessorEx.c)
- *     KiEndThreadAccountingPeriodEx @ 0x140248450 (KiEndThreadAccountingPeriodEx.c)
- *     PoGetFrequencyBucket @ 0x140249C20 (PoGetFrequencyBucket.c)
- *     KiProcessThreadWaitList @ 0x140253DC0 (KiProcessThreadWaitList.c)
- *     HalRequestSoftwareInterrupt @ 0x140254D10 (HalRequestSoftwareInterrupt.c)
- *     KiSetPriorityThread @ 0x1402B05D0 (KiSetPriorityThread.c)
- *     KiSetBasePriorityAndClearDecrement @ 0x1402B8430 (KiSetBasePriorityAndClearDecrement.c)
- *     KiAdjustRealtimePriorityFloor @ 0x1402B852C (KiAdjustRealtimePriorityFloor.c)
- *     KiFastExitThreadWait @ 0x1402BBC10 (KiFastExitThreadWait.c)
- *     KiCheckForThreadDispatch @ 0x1402BCA78 (KiCheckForThreadDispatch.c)
- *     KiAttemptFastRemovePriQueue @ 0x1402BF740 (KiAttemptFastRemovePriQueue.c)
- *     KiQueryUnbiasedInterruptTime @ 0x1402E7464 (KiQueryUnbiasedInterruptTime.c)
- *     KiDeliverApc @ 0x14030F890 (KiDeliverApc.c)
- *     KiSwitchPriQueue @ 0x1403677E8 (KiSwitchPriQueue.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1403CD2C0 (KiCheckVpBackingLongSpinWaitHypercall.c)
- *     HvlNotifyLongSpinWait @ 0x1403CD2F0 (HvlNotifyLongSpinWait.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     KiBeginCounterAccumulation @ 0x1405740F0 (KiBeginCounterAccumulation.c)
- *     KiGetDueTimeWithThreadTimerDelay @ 0x14057A228 (KiGetDueTimeWithThreadTimerDelay.c)
+ *     KiCommitThreadWait @ 0x140241FF0 (KiCommitThreadWait.c)
+ *     KeYieldProcessorEx @ 0x140242F10 (KeYieldProcessorEx.c)
+ *     KiEndThreadAccountingPeriodEx @ 0x140248520 (KiEndThreadAccountingPeriodEx.c)
+ *     PoGetFrequencyBucket @ 0x140249CF0 (PoGetFrequencyBucket.c)
+ *     KiProcessThreadWaitList @ 0x140253E80 (KiProcessThreadWaitList.c)
+ *     HalRequestSoftwareInterrupt @ 0x140254DD0 (HalRequestSoftwareInterrupt.c)
+ *     KiSetPriorityThread @ 0x1402B0860 (KiSetPriorityThread.c)
+ *     KiSetBasePriorityAndClearDecrement @ 0x1402B86C0 (KiSetBasePriorityAndClearDecrement.c)
+ *     KiAdjustRealtimePriorityFloor @ 0x1402B87BC (KiAdjustRealtimePriorityFloor.c)
+ *     KiFastExitThreadWait @ 0x1402BBEA0 (KiFastExitThreadWait.c)
+ *     KiCheckForThreadDispatch @ 0x1402BCD08 (KiCheckForThreadDispatch.c)
+ *     KiAttemptFastRemovePriQueue @ 0x1402BF9D0 (KiAttemptFastRemovePriQueue.c)
+ *     KiQueryUnbiasedInterruptTime @ 0x1402E76F4 (KiQueryUnbiasedInterruptTime.c)
+ *     KiDeliverApc @ 0x14030FB20 (KiDeliverApc.c)
+ *     KiSwitchPriQueue @ 0x140367988 (KiSwitchPriQueue.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1403CD4A0 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     HvlNotifyLongSpinWait @ 0x1403CD4D0 (HvlNotifyLongSpinWait.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     KiBeginCounterAccumulation @ 0x140574630 (KiBeginCounterAccumulation.c)
+ *     KiGetDueTimeWithThreadTimerDelay @ 0x14057A718 (KiGetDueTimeWithThreadTimerDelay.c)
  */
 
 struct _KPRCB *__fastcall KeRemovePriQueue(ULONG_PTR a1, char a2, char a3, __int64 a4)
@@ -105,7 +105,7 @@ struct _KPRCB *__fastcall KeRemovePriQueue(ULONG_PTR a1, char a2, char a3, __int
   {
     CurrentIrql = KeGetCurrentIrql();
     __writecr8(2uLL);
-    if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+    if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
     {
       SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
       if ( CurrentIrql == 2 )
@@ -158,10 +158,10 @@ struct _KPRCB *__fastcall KeRemovePriQueue(ULONG_PTR a1, char a2, char a3, __int
       if ( !CurrentThread->ApcState.KernelApcPending || CurrentThread->SpecialApcDisable || v10 )
         break;
       CurrentThread->ThreadLock = 0LL;
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v49 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && (unsigned __int8)(v49 - 2) <= 0xDu )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && (unsigned __int8)(v49 - 2) <= 0xDu )
         {
           CurrentPrcb = KeGetCurrentPrcb();
           v51 = CurrentPrcb->SchedulerAssist;
@@ -175,7 +175,7 @@ struct _KPRCB *__fastcall KeRemovePriQueue(ULONG_PTR a1, char a2, char a3, __int
       KiDeliverApc(0LL, 0LL, 0LL);
       v8 = KeGetCurrentIrql();
       __writecr8(2uLL);
-      if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && (unsigned __int8)v8 <= 0xFu )
+      if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && (unsigned __int8)v8 <= 0xFu )
       {
         v52 = KeGetCurrentPrcb()->SchedulerAssist;
         if ( (_BYTE)v8 == 2 )
@@ -435,7 +435,7 @@ LABEL_24:
       return result;
     v58 = KeGetCurrentIrql();
     __writecr8(2uLL);
-    if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && v58 <= 0xFu )
+    if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && v58 <= 0xFu )
     {
       v59 = KeGetCurrentPrcb()->SchedulerAssist;
       if ( v58 == 2 )

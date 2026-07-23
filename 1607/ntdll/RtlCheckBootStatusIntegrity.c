@@ -1,43 +1,43 @@
 /*
- * XREFs of RtlCheckBootStatusIntegrity @ 0x18008CFC0
+ * XREFs of RtlCheckBootStatusIntegrity @ 0x18008CFB0
  * Callers:
  *     <none>
  * Callees:
- *     RtlAllocateHeap @ 0x180022DB0 (RtlAllocateHeap.c)
- *     RtlFreeHeap @ 0x1800466F0 (RtlFreeHeap.c)
+ *     RtlAllocateHeap @ 0x180022DA0 (RtlAllocateHeap.c)
+ *     RtlFreeHeap @ 0x1800466E0 (RtlFreeHeap.c)
  *     NtReadFile @ 0x1800A64E0 (NtReadFile.c)
  */
 
-__int64 __fastcall RtlCheckBootStatusIntegrity(__int64 a1, char *a2)
+NTSTATUS __cdecl RtlCheckBootStatusIntegrity(HANDLE FileHandle, PBOOLEAN Verified)
 {
-  char v2; // bl
+  BOOLEAN v2; // bl
   char v5; // bp
   int v6; // edi
-  unsigned __int64 Heap; // rsi
+  PVOID Buffer; // rsi
   __int64 v8; // rcx
   _BYTE *v9; // rax
-  _BYTE v11[56]; // [rsp+50h] [rbp-38h] BYREF
-  unsigned int v12; // [rsp+A0h] [rbp+18h] BYREF
-  __int64 v13; // [rsp+A8h] [rbp+20h] BYREF
+  _IO_STATUS_BLOCK IoStatusBlock; // [rsp+50h] [rbp-38h] BYREF
+  SIZE_T Size; // [rsp+A0h] [rbp+18h] BYREF
+  LARGE_INTEGER ByteOffset; // [rsp+A8h] [rbp+20h] BYREF
 
   v2 = 0;
-  v13 = 0LL;
+  ByteOffset.QuadPart = 0LL;
   v5 = 0;
-  v6 = NtReadFile(a1, 0LL, 0LL, 0LL, v11, &v12, 4, &v13, 0LL);
+  v6 = NtReadFile(FileHandle, 0LL, 0LL, 0LL, &IoStatusBlock, &Size, 4u, &ByteOffset, 0LL);
   if ( v6 >= 0 )
   {
-    if ( v12 )
+    if ( (_DWORD)Size )
     {
-      Heap = RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v12);
-      if ( Heap )
+      Buffer = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, (unsigned int)Size);
+      if ( Buffer )
       {
-        v6 = NtReadFile(a1, 0LL, 0LL, 0LL, v11, Heap, v12, &v13, 0LL);
+        v6 = NtReadFile(FileHandle, 0LL, 0LL, 0LL, &IoStatusBlock, Buffer, Size, &ByteOffset, 0LL);
         if ( v6 >= 0 )
         {
-          if ( !v12 )
+          if ( !(_DWORD)Size )
             goto LABEL_9;
-          v8 = v12;
-          v9 = (_BYTE *)Heap;
+          v8 = (unsigned int)Size;
+          v9 = Buffer;
           do
           {
             v5 += *v9++;
@@ -47,19 +47,19 @@ __int64 __fastcall RtlCheckBootStatusIntegrity(__int64 a1, char *a2)
           if ( !v5 )
 LABEL_9:
             v2 = 1;
-          *a2 = v2;
+          *Verified = v2;
         }
-        RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, Heap);
+        RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, Buffer);
       }
       else
       {
-        return (unsigned int)-1073741801;
+        return -1073741801;
       }
     }
     else
     {
-      *a2 = 0;
+      *Verified = 0;
     }
   }
-  return (unsigned int)v6;
+  return v6;
 }

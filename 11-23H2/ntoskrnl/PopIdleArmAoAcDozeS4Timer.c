@@ -1,20 +1,20 @@
 /*
- * XREFs of PopIdleArmAoAcDozeS4Timer @ 0x14059E178
+ * XREFs of PopIdleArmAoAcDozeS4Timer @ 0x14059E668
  * Callers:
- *     PopUmpoProcessPowerMessage @ 0x1407A6C54 (PopUmpoProcessPowerMessage.c)
- *     PopUpdateSystemIdleContext @ 0x140824978 (PopUpdateSystemIdleContext.c)
- *     PopIdleCsStateChanged @ 0x14099BE3C (PopIdleCsStateChanged.c)
- *     PopUpdateSmartUserPresencePredictions @ 0x14099BF6C (PopUpdateSmartUserPresencePredictions.c)
+ *     PopUmpoProcessPowerMessage @ 0x1407A6E44 (PopUmpoProcessPowerMessage.c)
+ *     PopUpdateSystemIdleContext @ 0x140824C78 (PopUpdateSystemIdleContext.c)
+ *     PopIdleCsStateChanged @ 0x14099C03C (PopIdleCsStateChanged.c)
+ *     PopUpdateSmartUserPresencePredictions @ 0x14099C16C (PopUpdateSmartUserPresencePredictions.c)
  * Callees:
- *     KeSetTimer2 @ 0x140250150 (KeSetTimer2.c)
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250E80 (KeAcquireSpinLockRaiseToDpc.c)
- *     memset @ 0x140435A00 (memset.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     PopIdleChooseDozeS4Time @ 0x14059E2C8 (PopIdleChooseDozeS4Time.c)
- *     PopFilterCapabilities @ 0x1407A8694 (PopFilterCapabilities.c)
- *     PopIsDozeSupported @ 0x140980B04 (PopIsDozeSupported.c)
- *     PopTraceSystemIdleS0LowPowerDozeTimerArmed @ 0x140992CB8 (PopTraceSystemIdleS0LowPowerDozeTimerArmed.c)
+ *     KeSetTimer2 @ 0x140250220 (KeSetTimer2.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140250F40 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     PopIdleChooseDozeS4Time @ 0x14059E7B8 (PopIdleChooseDozeS4Time.c)
+ *     PopFilterCapabilities @ 0x1407A8884 (PopFilterCapabilities.c)
+ *     PopIsDozeSupported @ 0x140980D04 (PopIsDozeSupported.c)
+ *     PopTraceSystemIdleS0LowPowerDozeTimerArmed @ 0x140992EB8 (PopTraceSystemIdleS0LowPowerDozeTimerArmed.c)
  */
 
 __int64 PopIdleArmAoAcDozeS4Timer()
@@ -43,18 +43,18 @@ __int64 PopIdleArmAoAcDozeS4Timer()
       if ( (_BYTE)result )
       {
         v2 = KeAcquireSpinLockRaiseToDpc(&PopIdleAoAcDozeS4Lock);
-        if ( !byte_140C3CD44 )
+        if ( !byte_140C3CCE4 )
         {
           KeSetTimer2((__int64)&PopIdleAoAcDozeS4Timer, v8, 0LL, 0LL);
           v1 = 1;
-          dword_140C3CD48 = v7;
-          byte_140C3CD44 = 1;
+          dword_140C3CCE8 = v7;
+          byte_140C3CCE4 = 1;
         }
         result = KxReleaseSpinLock((volatile signed __int64 *)&PopIdleAoAcDozeS4Lock);
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
           result = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
             && (unsigned __int8)result <= 0xFu
             && (unsigned __int8)v2 <= 0xFu
             && (unsigned __int8)result >= 2u )

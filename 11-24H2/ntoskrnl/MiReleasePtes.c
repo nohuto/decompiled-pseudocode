@@ -1,67 +1,67 @@
 /*
- * XREFs of MiReleasePtes @ 0x14028DDA0
+ * XREFs of MiReleasePtes @ 0x14029D9A0
  * Callers:
- *     MiReturnPteMappingSet @ 0x140225EF0 (MiReturnPteMappingSet.c)
- *     MiRemoveFromSystemSpace @ 0x14026086C (MiRemoveFromSystemSpace.c)
- *     MiUnmapContiguousMemory @ 0x140263178 (MiUnmapContiguousMemory.c)
- *     MiDeleteCachedKernelShadowStack @ 0x140269224 (MiDeleteCachedKernelShadowStack.c)
- *     MiDeleteCachedKernelStack @ 0x140269ADC (MiDeleteCachedKernelStack.c)
- *     MmDeleteKernelStack @ 0x14026A4B0 (MmDeleteKernelStack.c)
- *     MmCreateKernelStack @ 0x14026B230 (MmCreateKernelStack.c)
- *     MmUnmapLockedPages @ 0x14028D9C0 (MmUnmapLockedPages.c)
- *     MmMapLockedPagesSpecifyCache @ 0x14028F9F0 (MmMapLockedPagesSpecifyCache.c)
- *     MiUpdateImagePfnImportRelocations @ 0x1402C89A4 (MiUpdateImagePfnImportRelocations.c)
- *     MiMapContiguousMemory @ 0x1402E9A9C (MiMapContiguousMemory.c)
- *     MmCopyToCachedPage @ 0x1402EDA94 (MmCopyToCachedPage.c)
- *     MiPrivateFixup @ 0x1402EE4F0 (MiPrivateFixup.c)
- *     MiMakePageAvoidRead @ 0x1402EF168 (MiMakePageAvoidRead.c)
- *     MiBuildReservationCluster @ 0x140368F90 (MiBuildReservationCluster.c)
- *     MmFreeIndependentPages @ 0x14039EC60 (MmFreeIndependentPages.c)
- *     MiInsertInSystemSpace @ 0x140415F30 (MiInsertInSystemSpace.c)
- *     MiDeleteProcessShadow @ 0x14045BC70 (MiDeleteProcessShadow.c)
- *     MiReleasePteCopyList @ 0x1404A6F48 (MiReleasePteCopyList.c)
- *     MiUnmapSinglePage @ 0x1404CA48C (MiUnmapSinglePage.c)
- *     MmMapMdl @ 0x140676C90 (MmMapMdl.c)
- *     MiChangePagingFileMaximum @ 0x140679DB0 (MiChangePagingFileMaximum.c)
- *     MiPrepareEnclaveMetadataPage @ 0x1406808E8 (MiPrepareEnclaveMetadataPage.c)
- *     MiCopyMemoryPagefileData @ 0x14068E320 (MiCopyMemoryPagefileData.c)
- *     MiReleasePageHash @ 0x140691310 (MiReleasePageHash.c)
- *     MiFreeZeroCalibrationBuffer @ 0x140693634 (MiFreeZeroCalibrationBuffer.c)
- *     MmDeleteProcessor @ 0x1407E8154 (MmDeleteProcessor.c)
- *     MmReleaseDumpHibernateResources @ 0x1407ED788 (MmReleaseDumpHibernateResources.c)
- *     MiUnlockEntireDriver @ 0x1407F0AF0 (MiUnlockEntireDriver.c)
- *     MmFreeIsrStack @ 0x1407F6C5C (MmFreeIsrStack.c)
- *     MiAllocateEnclaveVad @ 0x1407F6D40 (MiAllocateEnclaveVad.c)
- *     MiCreatePfnBitMaps @ 0x1407FA7CC (MiCreatePfnBitMaps.c)
- *     MiDeleteSparseRange @ 0x1407FADD4 (MiDeleteSparseRange.c)
- *     MiExpandPartitionIds @ 0x1407FBF28 (MiExpandPartitionIds.c)
- *     MiRelocateImageAgain @ 0x1408F642C (MiRelocateImageAgain.c)
- *     MiValidateImagePfn @ 0x140957464 (MiValidateImagePfn.c)
- *     MiRelocateImagePfn @ 0x1409587A8 (MiRelocateImagePfn.c)
- *     MmFreeMappingAddress @ 0x140A5DAA0 (MmFreeMappingAddress.c)
- *     MiApplyImportOptimizationToRuntimeDriver @ 0x140A8760C (MiApplyImportOptimizationToRuntimeDriver.c)
- *     MmAllocateIndependentPagesEx @ 0x140A88F6C (MmAllocateIndependentPagesEx.c)
- *     MmFreeNonCachedMemory @ 0x140A9DA90 (MmFreeNonCachedMemory.c)
- *     MiReleaseHotPatchResources @ 0x140AB45B8 (MiReleaseHotPatchResources.c)
- *     MiReleaseEnclaveMetadataPage @ 0x140B63724 (MiReleaseEnclaveMetadataPage.c)
- *     MiDeleteEnclavePages @ 0x140B6E178 (MiDeleteEnclavePages.c)
- *     MmInitializeImageViewExtensionCfg @ 0x140C5428C (MmInitializeImageViewExtensionCfg.c)
- *     MiCreateRetpolineBitmap @ 0x140C557C0 (MiCreateRetpolineBitmap.c)
- *     MiInitializePteInfo @ 0x140C59DC0 (MiInitializePteInfo.c)
- *     MiInitializeTbFlush @ 0x140C5A5FC (MiInitializeTbFlush.c)
+ *     MmFreeIndependentPages @ 0x14021D100 (MmFreeIndependentPages.c)
+ *     MiDeleteCachedKernelShadowStack @ 0x14021E9E8 (MiDeleteCachedKernelShadowStack.c)
+ *     MiDeleteCachedKernelStack @ 0x14021F06C (MiDeleteCachedKernelStack.c)
+ *     MmDeleteKernelStack @ 0x14021FA40 (MmDeleteKernelStack.c)
+ *     MmCreateKernelStack @ 0x1402207C0 (MmCreateKernelStack.c)
+ *     MiReturnPteMappingSet @ 0x1402532A0 (MiReturnPteMappingSet.c)
+ *     MiMakePageAvoidRead @ 0x140253334 (MiMakePageAvoidRead.c)
+ *     MiRemoveFromSystemSpace @ 0x140290E7C (MiRemoveFromSystemSpace.c)
+ *     MiUnmapContiguousMemory @ 0x1402929E8 (MiUnmapContiguousMemory.c)
+ *     MmUnmapLockedPages @ 0x14029D5C0 (MmUnmapLockedPages.c)
+ *     MmMapLockedPagesSpecifyCache @ 0x14029F5F0 (MmMapLockedPagesSpecifyCache.c)
+ *     MiBuildReservationCluster @ 0x1402EAD30 (MiBuildReservationCluster.c)
+ *     MiMapContiguousMemory @ 0x14034B0DC (MiMapContiguousMemory.c)
+ *     MmCopyToCachedPage @ 0x14034F0D4 (MmCopyToCachedPage.c)
+ *     MiPrivateFixup @ 0x14034FB30 (MiPrivateFixup.c)
+ *     MiInsertInSystemSpace @ 0x140393BFC (MiInsertInSystemSpace.c)
+ *     MiUpdateImagePfnImportRelocations @ 0x14043A5B4 (MiUpdateImagePfnImportRelocations.c)
+ *     MiDeleteProcessShadow @ 0x140451008 (MiDeleteProcessShadow.c)
+ *     MiReleasePteCopyList @ 0x1404A18B4 (MiReleasePteCopyList.c)
+ *     MiUnmapSinglePage @ 0x1404C39B0 (MiUnmapSinglePage.c)
+ *     MmMapMdl @ 0x140677E60 (MmMapMdl.c)
+ *     MiChangePagingFileMaximum @ 0x14067AF90 (MiChangePagingFileMaximum.c)
+ *     MiPrepareEnclaveMetadataPage @ 0x140681AE8 (MiPrepareEnclaveMetadataPage.c)
+ *     MiCopyMemoryPagefileData @ 0x14068F450 (MiCopyMemoryPagefileData.c)
+ *     MiReleasePageHash @ 0x1406923E0 (MiReleasePageHash.c)
+ *     MiFreeZeroCalibrationBuffer @ 0x140694704 (MiFreeZeroCalibrationBuffer.c)
+ *     MmDeleteProcessor @ 0x1407E8724 (MmDeleteProcessor.c)
+ *     MmReleaseDumpHibernateResources @ 0x1407EDD58 (MmReleaseDumpHibernateResources.c)
+ *     MiUnlockEntireDriver @ 0x1407F10C0 (MiUnlockEntireDriver.c)
+ *     MmFreeIsrStack @ 0x1407F73D0 (MmFreeIsrStack.c)
+ *     MiAllocateEnclaveVad @ 0x1407F74B4 (MiAllocateEnclaveVad.c)
+ *     MiCreatePfnBitMaps @ 0x1407FAF3C (MiCreatePfnBitMaps.c)
+ *     MiDeleteSparseRange @ 0x1407FB544 (MiDeleteSparseRange.c)
+ *     MiExpandPartitionIds @ 0x1407FC698 (MiExpandPartitionIds.c)
+ *     MiValidateImagePfn @ 0x14093AE5C (MiValidateImagePfn.c)
+ *     MiRelocateImagePfn @ 0x14093B6F8 (MiRelocateImagePfn.c)
+ *     MmFreeMappingAddress @ 0x140A55EC0 (MmFreeMappingAddress.c)
+ *     MiApplyImportOptimizationToRuntimeDriver @ 0x140A83AFC (MiApplyImportOptimizationToRuntimeDriver.c)
+ *     MmAllocateIndependentPagesEx @ 0x140A8536C (MmAllocateIndependentPagesEx.c)
+ *     MmFreeNonCachedMemory @ 0x140A99000 (MmFreeNonCachedMemory.c)
+ *     MiReleaseHotPatchResources @ 0x140AAF528 (MiReleaseHotPatchResources.c)
+ *     MiRelocateImageAgain @ 0x140AEAE48 (MiRelocateImageAgain.c)
+ *     MiReleaseEnclaveMetadataPage @ 0x140B657F4 (MiReleaseEnclaveMetadataPage.c)
+ *     MiDeleteEnclavePages @ 0x140B6FC18 (MiDeleteEnclavePages.c)
+ *     MmInitializeImageViewExtensionCfg @ 0x140C5641C (MmInitializeImageViewExtensionCfg.c)
+ *     MiCreateRetpolineBitmap @ 0x140C57950 (MiCreateRetpolineBitmap.c)
+ *     MiInitializePteInfo @ 0x140C5BF50 (MiInitializePteInfo.c)
+ *     MiInitializeTbFlush @ 0x140C5C78C (MiInitializeTbFlush.c)
  * Callees:
- *     MiVaToFlushVm @ 0x1402293EC (MiVaToFlushVm.c)
- *     MiReturnSystemPtes @ 0x140241AE0 (MiReturnSystemPtes.c)
- *     MiInsertCachedPte @ 0x14028E4E0 (MiInsertCachedPte.c)
- *     MiFlushTbList @ 0x140291730 (MiFlushTbList.c)
- *     MiCompressTbFlushList @ 0x140432A2C (MiCompressTbFlushList.c)
- *     MiInitializeTbFlushStamps @ 0x14044464C (MiInitializeTbFlushStamps.c)
- *     MiAttemptCoalesce @ 0x14046E710 (MiAttemptCoalesce.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     qsort @ 0x1404FED20 (qsort.c)
- *     MiCheckPteRelease @ 0x14068DFE0 (MiCheckPteRelease.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     MiReturnSystemPtes @ 0x140209C30 (MiReturnSystemPtes.c)
+ *     MiCompressTbFlushList @ 0x140215218 (MiCompressTbFlushList.c)
+ *     MiInsertCachedPte @ 0x14029E0E0 (MiInsertCachedPte.c)
+ *     MiFlushTbList @ 0x1402A1330 (MiFlushTbList.c)
+ *     MiVaToFlushVm @ 0x1402FC5EC (MiVaToFlushVm.c)
+ *     MiInitializeTbFlushStamps @ 0x14043A0EC (MiInitializeTbFlushStamps.c)
+ *     MiAttemptCoalesce @ 0x140468B98 (MiAttemptCoalesce.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     qsort @ 0x1404FC5E0 (qsort.c)
+ *     MiCheckPteRelease @ 0x14068F110 (MiCheckPteRelease.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 unsigned __int64 __fastcall MiReleasePtes(__int64 a1, _QWORD *a2, unsigned int a3)
@@ -82,19 +82,19 @@ unsigned __int64 __fastcall MiReleasePtes(__int64 a1, _QWORD *a2, unsigned int a
   __int64 v18; // rax
   _QWORD *v19; // rdi
   unsigned __int64 v20; // rdi
-  struct _LIST_ENTRY **v21; // rax
+  __int64 v21; // rax
   int v22; // r8d
   unsigned int v23; // r9d
   __int64 v24; // r11
-  unsigned __int64 v25; // rdx
+  __int64 v25; // rdx
   unsigned int v26; // r8d
   unsigned __int64 v27; // r10
   int v28; // r12d
   __int64 v29; // rax
   unsigned __int64 v30; // r10
   __int64 v31; // rax
-  unsigned __int64 v32; // r8
-  unsigned __int64 v33; // rcx
+  __int64 v32; // rcx
+  __int64 v33; // rdx
   unsigned __int64 v34; // rax
   unsigned __int64 v35; // r8
   unsigned __int64 v36; // r9
@@ -103,10 +103,10 @@ unsigned __int64 __fastcall MiReleasePtes(__int64 a1, _QWORD *a2, unsigned int a
   __int64 v39; // rcx
   unsigned __int64 v40; // rcx
   int v41; // [rsp+30h] [rbp-D0h]
-  unsigned __int64 v42; // [rsp+38h] [rbp-C8h]
+  __int64 v42; // [rsp+38h] [rbp-C8h]
   unsigned __int64 v43; // [rsp+40h] [rbp-C0h]
   __int64 v44[3]; // [rsp+48h] [rbp-B8h] BYREF
-  struct _LIST_ENTRY **v45; // [rsp+60h] [rbp-A0h] BYREF
+  __int64 v45; // [rsp+60h] [rbp-A0h] BYREF
   int v46; // [rsp+68h] [rbp-98h]
   int v47; // [rsp+6Ch] [rbp-94h]
   int v48; // [rsp+70h] [rbp-90h]
@@ -129,7 +129,7 @@ unsigned __int64 __fastcall MiReleasePtes(__int64 a1, _QWORD *a2, unsigned int a
   v8 = (unsigned __int64)(unsigned int)v3 >> 4;
   if ( (*(_DWORD *)(a1 + 40) & 1) == 0 )
     v8 = (unsigned int)v3;
-  if ( (unsigned int)v3 < 0x200 || (__int64 *)a1 != &qword_140E37568 && (_UNKNOWN *)a1 != &unk_140E35D80 )
+  if ( (unsigned int)v3 < 0x200 || (__int64 *)a1 != &qword_140E376A8 && (_UNKNOWN *)a1 != &unk_140E35EC0 )
   {
     v41 = 0;
     if ( BugCheckParameter4 >= *(_QWORD *)a1 )
@@ -204,21 +204,22 @@ LABEL_19:
     while ( v39 );
   }
   v19 = &a2[-(unsigned int)v3];
-  if ( qword_140E2DB80 && (v18 & 0x10) == 0 )
-    v18 &= ~qword_140E2DB80;
+  if ( qword_140E2DCC0 && (v18 & 0x10) == 0 )
+    v18 &= ~qword_140E2DCC0;
   if ( (v18 & 0xFFFFFFFF00000000uLL) == 0 )
   {
     v20 = (__int64)((_QWORD)v19 << 25) >> 16;
-    v21 = (struct _LIST_ENTRY **)MiVaToFlushVm(v20);
+    v21 = MiVaToFlushVm(v20);
     v47 = 20;
     v48 = 8;
     v49 = 1;
     v45 = v21;
-    v50 = ((_DWORD)v21[23] & 0x800) != 0;
-    if ( ((_DWORD)v21[23] & 0xF) != 0 || v21 == &KeGetCurrentThread()->ApcState.Process[2].ReadyListHead.Blink )
+    v50 = (*(_DWORD *)(v21 + 184) & 0x800) != 0;
+    if ( (*(_DWORD *)(v21 + 184) & 0xF) != 0
+      || (struct _LIST_ENTRY **)v21 == &KeGetCurrentThread()->ApcState.Process[2].ReadyListHead.Blink )
     {
       v22 = v48;
-      if ( ((_DWORD)v21[23] & 0xF) == 0 )
+      if ( (*(_DWORD *)(v21 + 184) & 0xF) == 0 )
       {
         v23 = 0;
         v46 = 1;
@@ -268,8 +269,7 @@ LABEL_36:
               v30 = Base[v23 - 1] & 0x3FFLL;
               if ( (v29 & 0xFFFFFFFFFFFFF000uLL) + ((v30 + 1) << 12) == v43 )
               {
-                v25 = v30 + v42;
-                if ( v30 + v42 > v30 && v25 <= 0x3FF )
+                if ( v30 + v42 > v30 && v30 + v42 <= 0x3FF )
                 {
                   v53 = v42 + v24;
                   Base[v23 - 1] = (v29 + v42) ^ ((v29 + v42) ^ v29) & 0xFFFFFFFFFFFFFC00uLL;
@@ -287,20 +287,14 @@ LABEL_36:
           if ( (v26 & 2) == 0 )
           {
             v31 = Base[v23 - 1];
-            if ( (v31 & 0xC00) == 0 )
+            if ( (v31 & 0xC00) == 0 && (v31 & 0xFFFFFFFFFFFFF000uLL) == (v25 << 12) + v27 )
             {
-              v32 = v25 << 12;
-              v25 = (v25 << 12) + v27;
-              if ( (v31 & 0xFFFFFFFFFFFFF000uLL) == v25 )
+              v40 = Base[v23 - 1] & 0x3FFLL;
+              if ( v40 + v42 <= 0x3FF && v40 + v42 > v40 )
               {
-                v25 = v42;
-                v40 = Base[v23 - 1] & 0x3FFLL;
-                if ( v40 + v42 <= 0x3FF && v40 + v42 > v40 )
-                {
-                  v53 = v42 + v24;
-                  Base[v23 - 1] = (v31 - v32 + v42) ^ ((v31 - v32 + v42) ^ (v31 - v32)) & 0xFFFFFFFFFFFFFC00uLL;
-                  goto LABEL_61;
-                }
+                v53 = v42 + v24;
+                Base[v23 - 1] = (v31 - (v25 << 12) + v42) ^ ((v31 - (v25 << 12) + v42) ^ (v31 - (v25 << 12))) & 0xFFFFFFFFFFFFFC00uLL;
+                goto LABEL_61;
               }
             }
           }
@@ -316,7 +310,7 @@ LABEL_36:
         if ( (_BYTE)v51 )
           goto LABEL_61;
         qsort(Base, v23, 8uLL, MiTbFlushSort);
-        MiCompressTbFlushList(&v45);
+        MiCompressTbFlushList((__int64)&v45);
         v24 = v53;
         v28 = 1;
         v23 = v52;
@@ -324,22 +318,22 @@ LABEL_36:
         v27 = v43;
         v25 = v42;
       }
-      v33 = v42;
-      while ( v33 )
+      v32 = v42;
+      while ( v32 )
       {
-        v25 = 1024LL;
-        if ( v33 - 1 <= 0x3FF )
-          v25 = v33;
-        v42 = v33 - v25;
-        v34 = v27 & 0xFFFFFFFFFFFFF000uLL | ((_WORD)v25 - 1) & 0x3FF;
-        v27 += v25 << 12;
+        v33 = 1024LL;
+        if ( (unsigned __int64)(v32 - 1) <= 0x3FF )
+          v33 = v32;
+        v42 = v32 - v33;
+        v34 = v27 & 0xFFFFFFFFFFFFF000uLL | ((_WORD)v33 - 1) & 0x3FF;
+        v27 += v33 << 12;
         v43 = v27;
         Base[v23] = v34;
         v23 = v52 + 1;
-        v33 = v42;
-        v24 = v25 + v53;
+        v32 = v42;
+        v24 = v33 + v53;
         ++v52;
-        v53 += v25;
+        v53 += v33;
         if ( !v42 )
           break;
         if ( v23 == v47 )
@@ -350,7 +344,7 @@ LABEL_36:
         }
       }
 LABEL_61:
-      MiFlushTbList(&v45, v25);
+      MiFlushTbList(&v45);
       goto LABEL_62;
     }
     v26 |= 4u;

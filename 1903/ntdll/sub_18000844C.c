@@ -9,64 +9,64 @@
  *     RtlTryAcquireSRWLockShared @ 0x180078D70 (RtlTryAcquireSRWLockShared.c)
  */
 
-_QWORD *__fastcall sub_18000844C(__int64 a1, __int16 a2)
+_RTL_SRWLOCK *__fastcall sub_18000844C(__int64 a1, __int16 a2)
 {
-  unsigned __int64 v2; // rbx
+  unsigned __int64 Root; // rbx
   int v3; // esi
-  _QWORD *i; // rdi
+  _RTL_SRWLOCK *i; // rdi
   int v5; // eax
   unsigned __int64 v6; // rax
-  _QWORD **v8; // rax
-  _QWORD *v9; // rcx
-  _QWORD *v10; // rcx
+  _RTL_SRWLOCK **Ptr; // rax
+  _RTL_SRWLOCK *v9; // rcx
+  _RTL_SRWLOCK *v10; // rcx
   __int64 v11; // [rsp+20h] [rbp-18h] BYREF
   __int16 v12; // [rsp+28h] [rbp-10h]
 
   v11 = a1;
   v12 = a2;
-  RtlAcquireSRWLockExclusive(&unk_180166440);
-  v2 = qword_180166430;
-  if ( (qword_180166438 & 1) != 0 && qword_180166430 )
-    v2 = (unsigned __int64)&qword_180166430 ^ qword_180166430;
-  v3 = qword_180166438 & 1;
+  RtlAcquireSRWLockExclusive(&stru_180166440);
+  Root = (unsigned __int64)Tree.Root;
+  if ( ((__int64)Tree.Min & 1) != 0 && Tree.Root )
+    Root = (unsigned __int64)&Tree ^ (unsigned __int64)Tree.Root;
+  v3 = (__int64)Tree.Min & 1;
   i = 0LL;
-  while ( v2 )
+  while ( Root )
   {
-    v5 = sub_18006C4F8(&v11, v2);
+    v5 = sub_18006C4F8(&v11, Root);
     if ( v5 < 0 )
       goto LABEL_10;
     if ( v5 <= 0 )
     {
-      i = (_QWORD *)v2;
+      i = (_RTL_SRWLOCK *)Root;
 LABEL_10:
-      v6 = *(_QWORD *)v2;
+      v6 = *(_QWORD *)Root;
       goto LABEL_11;
     }
-    v6 = *(_QWORD *)(v2 + 8);
+    v6 = *(_QWORD *)(Root + 8);
 LABEL_11:
     if ( v3 && v6 )
-      v2 ^= v6;
+      Root ^= v6;
     else
-      v2 = v6;
+      Root = v6;
   }
   if ( i )
   {
-    while ( !(unsigned __int8)RtlTryAcquireSRWLockShared(i + 9) )
+    while ( !RtlTryAcquireSRWLockShared(i + 9) )
     {
-      v8 = (_QWORD **)i[1];
+      Ptr = (_RTL_SRWLOCK **)i[1].Ptr;
       v9 = i;
-      if ( v8 )
+      if ( Ptr )
       {
-        v10 = *v8;
-        for ( i = (_QWORD *)i[1]; v10; v10 = (_QWORD *)*v10 )
+        v10 = *Ptr;
+        for ( i = (_RTL_SRWLOCK *)i[1].Ptr; v10; v10 = (_RTL_SRWLOCK *)v10->Ptr )
           i = v10;
       }
       else
       {
         while ( 1 )
         {
-          i = (_QWORD *)(i[2] & 0xFFFFFFFFFFFFFFFCuLL);
-          if ( !i || (_QWORD *)*i == v9 )
+          i = (_RTL_SRWLOCK *)((unsigned __int64)i[2].Ptr & 0xFFFFFFFFFFFFFFFCuLL);
+          if ( !i || i->Ptr == v9 )
             break;
           v9 = i;
         }
@@ -80,6 +80,6 @@ LABEL_11:
 LABEL_18:
     i = 0LL;
   }
-  RtlReleaseSRWLockExclusive(&unk_180166440);
+  RtlReleaseSRWLockExclusive(&stru_180166440);
   return i;
 }

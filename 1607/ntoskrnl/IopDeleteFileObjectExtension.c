@@ -1,19 +1,19 @@
 /*
- * XREFs of IopDeleteFileObjectExtension @ 0x1400998A0
+ * XREFs of IopDeleteFileObjectExtension @ 0x1400990A0
  * Callers:
- *     IopParseDevice @ 0x1404408F0 (IopParseDevice.c)
- *     IopDeleteFile @ 0x1404463A0 (IopDeleteFile.c)
+ *     IopParseDevice @ 0x14043F7C0 (IopParseDevice.c)
+ *     IopDeleteFile @ 0x140445270 (IopDeleteFile.c)
  * Callees:
- *     ExFreeToNPagedLookasideList @ 0x14000F4A4 (ExFreeToNPagedLookasideList.c)
- *     ObfDereferenceObjectWithTag @ 0x14006ACD0 (ObfDereferenceObjectWithTag.c)
- *     ObDereferenceObjectDeferDeleteWithTag @ 0x1400D3F30 (ObDereferenceObjectDeferDeleteWithTag.c)
- *     KeReleaseSpinLock @ 0x1400E9A70 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x1400EFE30 (KeAcquireSpinLockRaiseToDpc.c)
- *     IopCleanupNotifications @ 0x1401302A4 (IopCleanupNotifications.c)
- *     PsReleaseSiloHardReference @ 0x14020F62C (PsReleaseSiloHardReference.c)
+ *     ExFreeToNPagedLookasideList @ 0x14000F024 (ExFreeToNPagedLookasideList.c)
+ *     ObfDereferenceObjectWithTag @ 0x14006A850 (ObfDereferenceObjectWithTag.c)
+ *     ObDereferenceObjectDeferDeleteWithTag @ 0x1400D1DD0 (ObDereferenceObjectDeferDeleteWithTag.c)
+ *     KeReleaseSpinLock @ 0x1400EB600 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1400EDCB0 (KeAcquireSpinLockRaiseToDpc.c)
+ *     IopCleanupNotifications @ 0x140130814 (IopCleanupNotifications.c)
+ *     PsReleaseSiloHardReference @ 0x14020F458 (PsReleaseSiloHardReference.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
- *     FsRtlFreeExtraCreateParameter @ 0x1404150D0 (FsRtlFreeExtraCreateParameter.c)
- *     PspAdjustKeepAliveCountProcess @ 0x14067D6BC (PspAdjustKeepAliveCountProcess.c)
+ *     FsRtlFreeExtraCreateParameter @ 0x140413F90 (FsRtlFreeExtraCreateParameter.c)
+ *     PspAdjustKeepAliveCountProcess @ 0x14067D7A0 (PspAdjustKeepAliveCountProcess.c)
  */
 
 void __fastcall IopDeleteFileObjectExtension(__int64 a1)
@@ -97,13 +97,13 @@ void __fastcall IopDeleteFileObjectExtension(__int64 a1)
             v13 = (_BYTE *)v5[3];
             v14 = v5;
             v5 = (_QWORD *)*v5;
-            v15 = KeAcquireSpinLockRaiseToDpc(&qword_140320C30);
+            v15 = KeAcquireSpinLockRaiseToDpc(&qword_140320C50);
             v16 = v13[18];
             if ( v13[16] == 1 )
               v13[17] = 1;
             else
               ExFreePoolWithTag(v13, 0);
-            KeReleaseSpinLock(&qword_140320C30, v15);
+            KeReleaseSpinLock(&qword_140320C50, v15);
             if ( *((_DWORD *)v14 + 4) )
             {
               PspAdjustKeepAliveCountProcess(v14[1], 0xFFFFFFFFLL, a1, v16);

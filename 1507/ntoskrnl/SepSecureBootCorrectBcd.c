@@ -15,62 +15,62 @@
 
 __int64 SepSecureBootCorrectBcd()
 {
-  int updated; // ebx
-  PVOID PoolWithTag; // r15
-  unsigned int v2; // r14d
+  NTSTATUS updated; // ebx
+  char *PoolWithTag; // r15
+  ULONG v2; // r14d
   unsigned __int16 *v3; // rdx
   unsigned int v4; // r12d
   HANDLE v5; // rdi
   __int64 v6; // r8
   _DWORD *v7; // r10
   __int16 v8; // r9
-  _QWORD v10[3]; // [rsp+30h] [rbp-18h] BYREF
-  unsigned int v11; // [rsp+80h] [rbp+38h] BYREF
-  SIZE_T NumberOfBytes; // [rsp+88h] [rbp+40h] BYREF
-  HANDLE v13; // [rsp+90h] [rbp+48h] BYREF
-  HANDLE Handle; // [rsp+98h] [rbp+50h] BYREF
+  _BCD_OBJECT_DESCRIPTION BcdEnumDescriptor; // [rsp+30h] [rbp-18h] BYREF
+  ULONG ObjectCount; // [rsp+80h] [rbp+38h] BYREF
+  const GUID *BufferSize; // [rsp+88h] [rbp+40h] BYREF
+  HANDLE BcdStoreHandle; // [rsp+90h] [rbp+48h] BYREF
+  HANDLE BcdObjectHandle; // [rsp+98h] [rbp+50h] BYREF
 
-  Handle = 0LL;
-  v11 = 0;
-  LODWORD(NumberOfBytes) = 0;
-  v13 = 0LL;
-  updated = BcdOpenSystemStore((__int64)&v13);
+  BcdObjectHandle = 0LL;
+  ObjectCount = 0;
+  LODWORD(BufferSize) = 0;
+  BcdStoreHandle = 0LL;
+  updated = BcdOpenSystemStore(&BcdStoreHandle);
   if ( updated >= 0 )
   {
-    v10[0] = 1LL;
-    updated = BcdEnumerateObjects((_DWORD)v13, (unsigned int)v10, 0, (unsigned int)&NumberOfBytes, (__int64)&v11);
+    BcdEnumDescriptor = (_BCD_OBJECT_DESCRIPTION)1LL;
+    updated = BcdEnumerateObjects(BcdStoreHandle, &BcdEnumDescriptor, 0LL, (PULONG)&BufferSize, &ObjectCount);
     if ( updated == -1073741789 )
     {
-      PoolWithTag = ExAllocatePoolWithTag(PagedPool, (unsigned int)NumberOfBytes, 0x62536553u);
+      PoolWithTag = (char *)ExAllocatePoolWithTag(PagedPool, (unsigned int)BufferSize, 0x62536553u);
       if ( PoolWithTag )
       {
         updated = BcdEnumerateObjects(
-                    (_DWORD)v13,
-                    (unsigned int)v10,
-                    (_DWORD)PoolWithTag,
-                    (unsigned int)&NumberOfBytes,
-                    (__int64)&v11);
+                    BcdStoreHandle,
+                    &BcdEnumDescriptor,
+                    PoolWithTag,
+                    (PULONG)&BufferSize,
+                    &ObjectCount);
         if ( updated >= 0 )
         {
           v2 = 0;
-          if ( v11 )
+          if ( ObjectCount )
           {
             while ( 1 )
             {
-              NumberOfBytes = (SIZE_T)PoolWithTag + 24 * v2;
-              updated = BcdOpenObject((__int64)v13, (__int128 *)NumberOfBytes, &Handle);
+              BufferSize = (const GUID *)&PoolWithTag[24 * v2];
+              updated = BcdOpenObject(BcdStoreHandle, BufferSize, &BcdObjectHandle);
               if ( updated < 0 )
                 break;
               v3 = (unsigned __int16 *)qword_14036CCD8;
               v4 = 0;
-              v5 = Handle;
+              v5 = BcdObjectHandle;
               if ( *((_WORD *)qword_14036CCD8 + 18) )
               {
                 v6 = (unsigned int)dword_140356BA4;
                 do
                 {
                   v7 = (_DWORD *)(qword_1403861D8 + 12LL * v4);
-                  if ( !*v7 || *v7 == *(_DWORD *)(*(_QWORD *)(NumberOfBytes + 16) + 4LL) )
+                  if ( !*v7 || *v7 == *(_DWORD *)(*(_QWORD *)&BufferSize[1].Data1 + 4LL) )
                   {
                     v8 = *(_WORD *)(qword_1403861E0 + (unsigned int)v7[2]);
                     if ( ((v8 & 0x20) == 0 || (v6 & 4) != 0) && ((v8 & 0x40) == 0 || (v6 & 0x10) != 0) )
@@ -89,11 +89,11 @@ __int64 SepSecureBootCorrectBcd()
               BcdCloseObject(v5);
               v5 = 0LL;
               ++v2;
-              Handle = 0LL;
-              if ( v2 >= v11 )
+              BcdObjectHandle = 0LL;
+              if ( v2 >= ObjectCount )
                 goto LABEL_22;
             }
-            v5 = Handle;
+            v5 = BcdObjectHandle;
 LABEL_22:
             if ( v5 )
               BcdCloseObject(v5);
@@ -107,7 +107,7 @@ LABEL_22:
       }
     }
   }
-  if ( v13 )
-    BcdCloseStore(v13);
+  if ( BcdStoreHandle )
+    BcdCloseStore(BcdStoreHandle);
   return (unsigned int)updated;
 }

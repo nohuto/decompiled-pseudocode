@@ -5,7 +5,7 @@
  *     CmpInitHiveFromFile @ 0x14068B418 (CmpInitHiveFromFile.c)
  *     CmpGetCompleteFileName @ 0x14068BFFC (CmpGetCompleteFileName.c)
  *     CmpQueryFileSecurityDescriptor @ 0x14068C0AC (CmpQueryFileSecurityDescriptor.c)
- *     CmpVolumeContextCreate @ 0x14084E968 (CmpVolumeContextCreate.c)
+ *     CmpVolumeContextCreate @ 0x14084EC68 (CmpVolumeContextCreate.c)
  * Callees:
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

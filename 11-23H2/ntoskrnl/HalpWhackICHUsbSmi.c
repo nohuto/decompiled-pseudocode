@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpWhackICHUsbSmi @ 0x140521014
+ * XREFs of HalpWhackICHUsbSmi @ 0x140521564
  * Callers:
- *     HalpPiix4Detect @ 0x140A8F324 (HalpPiix4Detect.c)
+ *     HalpPiix4Detect @ 0x140A8F1A4 (HalpPiix4Detect.c)
  * Callees:
- *     HalGetBusDataByOffset @ 0x140396AD0 (HalGetBusDataByOffset.c)
+ *     HalGetBusDataByOffset @ 0x140396CB0 (HalGetBusDataByOffset.c)
  */
 
 __int64 __fastcall HalpWhackICHUsbSmi(ULONG BusNumber, ULONG SlotNumber)

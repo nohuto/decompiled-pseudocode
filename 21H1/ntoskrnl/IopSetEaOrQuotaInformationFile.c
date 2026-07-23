@@ -51,8 +51,8 @@ __int64 __fastcall IopSetEaOrQuotaInformationFile(void *a1, unsigned __int64 a2,
   struct _KEVENT *v27; // rcx
   __int64 v28; // rax
   ULONG Flags; // eax
-  struct _FILE_QUOTA_INFORMATION *PoolWithQuota_0; // rdi
-  NTSTATUS v31; // eax
+  _FILE_QUOTA_INFORMATION *PoolWithQuota_0; // rdi
+  int v31; // eax
   PMDL Mdl; // rcx
   _DWORD *v33; // r15
   char v34; // bl
@@ -99,7 +99,7 @@ __int64 __fastcall IopSetEaOrQuotaInformationFile(void *a1, unsigned __int64 a2,
       v15 = KeGetCurrentThread();
       --v15->KernelApcDisable;
       v16 = (volatile __int32 *)Object;
-      v17 = KeAbPreAcquire((ULONG_PTR)Object + 128, 0LL, 0LL);
+      v17 = KeAbPreAcquire((ULONG_PTR)Object + 128, 0LL, 0);
       a5 = 0;
       if ( _InterlockedExchange(v16 + 29, 1) )
       {
@@ -172,7 +172,7 @@ LABEL_23:
           ErrorOffset = 0;
           if ( (_DWORD)v5 )
           {
-            PoolWithQuota_0 = (struct _FILE_QUOTA_INFORMATION *)IopVerifierExAllocatePoolWithQuota_0(NonPagedPoolNx, v5);
+            PoolWithQuota_0 = (_FILE_QUOTA_INFORMATION *)IopVerifierExAllocatePoolWithQuota_0(NonPagedPoolNx, v5);
             Irp->AssociatedIrp.MasterIrp = (struct _IRP *)PoolWithQuota_0;
             memmove(PoolWithQuota_0, a3, v5);
             LODWORD(v5) = a4;
@@ -195,7 +195,7 @@ LABEL_23:
           {
             Mdl = IoAllocateMdl(a3, v5, 0, 1u, Irp);
             if ( !Mdl )
-              RtlRaiseStatus(0xC000009A);
+              RtlRaiseStatus(-1073741670);
             v33 = v37;
             IopProbeAndLockPages((__int64)Mdl, v35, 0, (__int64)DeviceObject, *(unsigned __int8 *)v37);
             goto LABEL_43;

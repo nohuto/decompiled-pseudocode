@@ -1,9 +1,9 @@
 /*
- * XREFs of PpmPerfGetCurrentState @ 0x14047CB64
+ * XREFs of PpmPerfGetCurrentState @ 0x1404764D4
  * Callers:
- *     PoGetPerfStateAndParkingInfo @ 0x14047C978 (PoGetPerfStateAndParkingInfo.c)
- *     PopProcessorInformation @ 0x140A843AC (PopProcessorInformation.c)
- *     PpmWmiGetAllData @ 0x140A8C898 (PpmWmiGetAllData.c)
+ *     PoGetPerfStateAndParkingInfo @ 0x1404762E8 (PoGetPerfStateAndParkingInfo.c)
+ *     PopProcessorInformation @ 0x140A89700 (PopProcessorInformation.c)
+ *     PpmWmiGetAllData @ 0x140A91568 (PpmWmiGetAllData.c)
  * Callees:
  *     <none>
  */

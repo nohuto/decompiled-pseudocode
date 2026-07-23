@@ -10,18 +10,18 @@
  *     RtlDeCommitDebugInfo_0 @ 0x1800D3188 (RtlDeCommitDebugInfo_0.c)
  */
 
-__int64 __fastcall sub_180077744(__int64 a1, unsigned int a2, __int64 a3)
+__int64 __fastcall sub_180077744(__int64 a1, unsigned int a2, _RTL_DEBUG_INFORMATION *a3)
 {
   int v4; // r14d
   int v5; // edi
   int v6; // r15d
   unsigned int v7; // eax
   unsigned int v8; // r10d
-  void *v9; // rax
-  void *v10; // rbx
+  _RTL_PROCESS_MODULES *v9; // rax
+  _RTL_PROCESS_MODULES *v10; // rbx
   int v11; // eax
   char v13; // [rsp+50h] [rbp+8h] BYREF
-  size_t Size; // [rsp+58h] [rbp+10h] BYREF
+  SIZE_T Size; // [rsp+58h] [rbp+10h] BYREF
 
   v4 = a1;
   v5 = (a1 == 0 ? 2 : 0) | (a2 >> 6) & 1;
@@ -33,7 +33,7 @@ __int64 __fastcall sub_180077744(__int64 a1, unsigned int a2, __int64 a3)
   v8 = v7;
   if ( v7 == -1073741820 )
   {
-    v9 = (void *)RtlCommitDebugInfo_0(a3, (unsigned int)Size);
+    v9 = (_RTL_PROCESS_MODULES *)RtlCommitDebugInfo_0(a3, (unsigned int)Size);
     v10 = v9;
     if ( v9 )
     {
@@ -44,7 +44,7 @@ __int64 __fastcall sub_180077744(__int64 a1, unsigned int a2, __int64 a3)
         v11 = sub_180077930(v4, v5, (_DWORD)v10, Size, (__int64)&v13);
       if ( v11 >= 0 )
       {
-        *(_QWORD *)(a3 + 96) = v10;
+        a3->Modules = v10;
         return 0LL;
       }
       RtlDeCommitDebugInfo_0(a3, v10, (unsigned int)Size);

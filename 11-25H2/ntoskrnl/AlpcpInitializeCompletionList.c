@@ -22,7 +22,7 @@
  *     ExFreePoolWithTag @ 0x140B62CD0 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall AlpcpInitializeCompletionList(__int64 a1, char *a2, unsigned int a3, int a4, int a5, int a6)
+__int64 __fastcall AlpcpInitializeCompletionList(__int64 a1, char *a2, unsigned int a3, int a4, int Flags, int a6)
 {
   size_t v6; // rbx
   char v8; // r15
@@ -39,9 +39,9 @@ __int64 __fastcall AlpcpInitializeCompletionList(__int64 a1, char *a2, unsigned 
   __int64 v19; // rax
   int v20; // eax
   int v21; // ecx
-  int v22; // eax
-  int v23; // ecx
-  int HeaderSize; // eax
+  ULONG v22; // eax
+  ULONG v23; // ecx
+  ULONG HeaderSize; // eax
   char *v25; // rcx
   __int64 v26; // rax
   unsigned __int64 v27; // r8
@@ -65,7 +65,7 @@ __int64 __fastcall AlpcpInitializeCompletionList(__int64 a1, char *a2, unsigned 
   if ( ((unsigned __int16)a2 & 0xFFF) != 0LL
     || (a3 & 0xFFF) != 0
     || a3 - 0x4000 > 0x3FFFC000
-    || (a5 & 0x55FFFFFF) != 0
+    || (Flags & 0x55FFFFFF) != 0
     || !a4 )
   {
     v33 = 0;
@@ -131,28 +131,28 @@ LABEL_47:
     *((_QWORD *)v10 + 5) = a2;
     *((_QWORD *)v10 + 6) = v40;
     *((_QWORD *)v10 + 7) = &a2[v18 + 4096 + v16];
-    *((_DWORD *)v10 + 37) = a5;
+    *((_DWORD *)v10 + 37) = Flags;
     if ( a6 )
     {
-      v20 = ((a5 >> 31) & 0xC) + 24;
-      if ( (a5 & 0x40000000) == 0 )
-        v20 = ((a5 >> 31) & 0xC) + 8;
+      v20 = ((Flags >> 31) & 0xC) + 24;
+      if ( (Flags & 0x40000000) == 0 )
+        v20 = ((Flags >> 31) & 0xC) + 8;
       v21 = v20 + 20;
-      if ( (a5 & 0x20000000) == 0 )
+      if ( (Flags & 0x20000000) == 0 )
         v21 = v20;
       v22 = v21 + 16;
-      if ( (a5 & 0x10000000) == 0 )
+      if ( (Flags & 0x10000000) == 0 )
         v22 = v21;
       v23 = v22 + 24;
-      if ( (a5 & 0x8000000) == 0 )
+      if ( (Flags & 0x8000000) == 0 )
         v23 = v22;
       HeaderSize = v23 + 8;
-      if ( (a5 & 0x2000000) == 0 )
+      if ( (Flags & 0x2000000) == 0 )
         HeaderSize = v23;
     }
     else
     {
-      HeaderSize = AlpcGetHeaderSize(a5);
+      HeaderSize = AlpcGetHeaderSize(Flags);
       LODWORD(v16) = v36;
       LODWORD(v18) = v37;
     }

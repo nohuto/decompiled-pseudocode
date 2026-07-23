@@ -1,7 +1,7 @@
 /*
- * XREFs of ExAreApcsDisabledForThread @ 0x140276780
+ * XREFs of ExAreApcsDisabledForThread @ 0x140275CF0
  * Callers:
- *     ExAcquireFastResourceShared @ 0x140276AE0 (ExAcquireFastResourceShared.c)
+ *     ExAcquireFastResourceShared @ 0x140276050 (ExAcquireFastResourceShared.c)
  * Callees:
  *     <none>
  */

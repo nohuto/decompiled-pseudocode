@@ -1,18 +1,18 @@
 /*
- * XREFs of SepVerifyDesktopAppxImage @ 0x140356A00
+ * XREFs of SepVerifyDesktopAppxImage @ 0x1404EC6F0
  * Callers:
- *     SepDesktopAppxSubProcessToken @ 0x140355ABC (SepDesktopAppxSubProcessToken.c)
+ *     SepDesktopAppxSubProcessToken @ 0x1404EBED4 (SepDesktopAppxSubProcessToken.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x1403254A0 (ObfDereferenceObjectWithTag.c)
- *     SepVerifyDesktopAppxPackageName @ 0x140355758 (SepVerifyDesktopAppxPackageName.c)
- *     SeGetTrustLabelAce @ 0x1403613D0 (SeGetTrustLabelAce.c)
- *     Feature_TrustedLaunchHosts__private_IsEnabledDeviceUsageNoInline @ 0x1405E56E0 (Feature_TrustedLaunchHosts__private_IsEnabledDeviceUsageNoInline.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     PsReferenceProcessFilePointer @ 0x1408FF760 (PsReferenceProcessFilePointer.c)
- *     ObQuerySecurityObject @ 0x1409A1EC4 (ObQuerySecurityObject.c)
- *     RtlCreateSecurityDescriptor @ 0x1409E6710 (RtlCreateSecurityDescriptor.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CE030 (ObfDereferenceObjectWithTag.c)
+ *     SepVerifyDesktopAppxPackageName @ 0x1403BAF3C (SepVerifyDesktopAppxPackageName.c)
+ *     SeGetTrustLabelAce @ 0x1403F9950 (SeGetTrustLabelAce.c)
+ *     Feature_TrustedLaunchHosts__private_IsEnabledDeviceUsageNoInline @ 0x1405E2D38 (Feature_TrustedLaunchHosts__private_IsEnabledDeviceUsageNoInline.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ObQuerySecurityObject @ 0x1408AEA1C (ObQuerySecurityObject.c)
+ *     PsReferenceProcessFilePointer @ 0x140922040 (PsReferenceProcessFilePointer.c)
+ *     RtlCreateSecurityDescriptor @ 0x1409E16D0 (RtlCreateSecurityDescriptor.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall SepVerifyDesktopAppxImage(__int64 a1, void *a2, _DWORD *a3, char a4, _BYTE *a5)
@@ -84,7 +84,7 @@ LABEL_13:
   SecurityObject = ObQuerySecurityObject((_DWORD)v6, 132, (unsigned int)SecurityDescriptor, 512, (__int64)&v18);
   if ( SecurityObject == -1073741789 )
   {
-    Pool2 = (_BYTE *)ExAllocatePool2(0x100uLL);
+    Pool2 = (_BYTE *)ExAllocatePool2(0x100uLL, (unsigned int)v18, 0x20206553u);
     v5 = Pool2;
     if ( !Pool2 )
     {
@@ -105,7 +105,7 @@ LABEL_13:
   }
   v12 = SepVerifyDesktopAppxPackageName(v19, (__int64)v5, v17);
   if ( v12 >= 0 && a4 == 1 )
-    TrustLabelAce = SeGetTrustLabelAce(v5);
+    TrustLabelAce = SeGetTrustLabelAce((__int64)v5);
   if ( v17[0] == 1 )
   {
     if ( a4 == 1 )

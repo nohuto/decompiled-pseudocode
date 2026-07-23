@@ -1,35 +1,35 @@
 /*
- * XREFs of MiUserFault @ 0x140235890
+ * XREFs of MiUserFault @ 0x140235960
  * Callers:
- *     MmAccessFault @ 0x140235370 (MmAccessFault.c)
+ *     MmAccessFault @ 0x140235440 (MmAccessFault.c)
  * Callees:
  *     MiLocateAddress @ 0x140217240 (MiLocateAddress.c)
- *     MiZeroFault @ 0x140232320 (MiZeroFault.c)
- *     MiResolvePageTablePage @ 0x140236020 (MiResolvePageTablePage.c)
- *     MiUnlockWorkingSetShared @ 0x14023C500 (MiUnlockWorkingSetShared.c)
- *     MiCheckVirtualAddress @ 0x14025AB00 (MiCheckVirtualAddress.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1402712F0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiPteInShadowRange @ 0x140271360 (MiPteInShadowRange.c)
- *     MiUnlockVadTree @ 0x140287878 (MiUnlockVadTree.c)
- *     MiUnlockWorkingSetExclusive @ 0x14028A2F0 (MiUnlockWorkingSetExclusive.c)
- *     MiLockVadTree @ 0x14028A8C0 (MiLockVadTree.c)
- *     MiReleaseFaultState @ 0x1402EF2A0 (MiReleaseFaultState.c)
- *     ExpWaitForSpinLockSharedAndAcquire @ 0x140316D70 (ExpWaitForSpinLockSharedAndAcquire.c)
- *     MiUnlockPageTableInternal @ 0x1403195C0 (MiUnlockPageTableInternal.c)
- *     MiValidFault @ 0x1403334E0 (MiValidFault.c)
- *     MiEmptyDeferredWorkingSetEntries @ 0x140339CD0 (MiEmptyDeferredWorkingSetEntries.c)
- *     MiAllowGuardFault @ 0x140341B90 (MiAllowGuardFault.c)
- *     MiLockTransitionLeafPageEx @ 0x140347CA8 (MiLockTransitionLeafPageEx.c)
- *     MiWritePteShadow @ 0x14035734C (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x1403573AC (MiPteHasShadow.c)
- *     MiCheckFatalAccessViolation @ 0x14036875C (MiCheckFatalAccessViolation.c)
- *     ExpAcquireSpinLockSharedAtDpcLevelInstrumented @ 0x14046B4F2 (ExpAcquireSpinLockSharedAtDpcLevelInstrumented.c)
- *     ExpReleaseSpinLockSharedFromDpcLevelInstrumented @ 0x14060B0EC (ExpReleaseSpinLockSharedFromDpcLevelInstrumented.c)
- *     MiIsVadEligibleForCommitRelease @ 0x1406181CC (MiIsVadEligibleForCommitRelease.c)
- *     MiWaitForRotateToComplete @ 0x140633C04 (MiWaitForRotateToComplete.c)
- *     MiCheckHoldFaultForHotPatch @ 0x140641CA0 (MiCheckHoldFaultForHotPatch.c)
- *     MiDelayFaultingThread @ 0x140645E18 (MiDelayFaultingThread.c)
- *     MiCheckForUserStackOverflow @ 0x1407BD998 (MiCheckForUserStackOverflow.c)
+ *     MiZeroFault @ 0x1402323F0 (MiZeroFault.c)
+ *     MiResolvePageTablePage @ 0x1402360F0 (MiResolvePageTablePage.c)
+ *     MiUnlockWorkingSetShared @ 0x14023C5D0 (MiUnlockWorkingSetShared.c)
+ *     MiCheckVirtualAddress @ 0x14025AD90 (MiCheckVirtualAddress.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140271580 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiPteInShadowRange @ 0x1402715F0 (MiPteInShadowRange.c)
+ *     MiUnlockVadTree @ 0x140287B08 (MiUnlockVadTree.c)
+ *     MiUnlockWorkingSetExclusive @ 0x14028A580 (MiUnlockWorkingSetExclusive.c)
+ *     MiLockVadTree @ 0x14028AB50 (MiLockVadTree.c)
+ *     MiReleaseFaultState @ 0x1402EF530 (MiReleaseFaultState.c)
+ *     ExpWaitForSpinLockSharedAndAcquire @ 0x140317000 (ExpWaitForSpinLockSharedAndAcquire.c)
+ *     MiUnlockPageTableInternal @ 0x140319850 (MiUnlockPageTableInternal.c)
+ *     MiValidFault @ 0x140333770 (MiValidFault.c)
+ *     MiEmptyDeferredWorkingSetEntries @ 0x140339F60 (MiEmptyDeferredWorkingSetEntries.c)
+ *     MiAllowGuardFault @ 0x140341E20 (MiAllowGuardFault.c)
+ *     MiLockTransitionLeafPageEx @ 0x140347F38 (MiLockTransitionLeafPageEx.c)
+ *     MiWritePteShadow @ 0x1403574EC (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x14035754C (MiPteHasShadow.c)
+ *     MiCheckFatalAccessViolation @ 0x1403688FC (MiCheckFatalAccessViolation.c)
+ *     ExpAcquireSpinLockSharedAtDpcLevelInstrumented @ 0x14046B8F2 (ExpAcquireSpinLockSharedAtDpcLevelInstrumented.c)
+ *     ExpReleaseSpinLockSharedFromDpcLevelInstrumented @ 0x14060B63C (ExpReleaseSpinLockSharedFromDpcLevelInstrumented.c)
+ *     MiIsVadEligibleForCommitRelease @ 0x14061871C (MiIsVadEligibleForCommitRelease.c)
+ *     MiWaitForRotateToComplete @ 0x140634154 (MiWaitForRotateToComplete.c)
+ *     MiCheckHoldFaultForHotPatch @ 0x1406421F0 (MiCheckHoldFaultForHotPatch.c)
+ *     MiDelayFaultingThread @ 0x140646368 (MiDelayFaultingThread.c)
+ *     MiCheckForUserStackOverflow @ 0x1407BDC68 (MiCheckForUserStackOverflow.c)
  */
 
 __int64 __fastcall MiUserFault(_QWORD *a1)
@@ -163,7 +163,7 @@ LABEL_11:
     {
       CurrentIrql = KeGetCurrentIrql();
       __writecr8(2uLL);
-      if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+      if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
       {
         SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
         if ( CurrentIrql == 2 )
@@ -186,7 +186,7 @@ LABEL_13:
 LABEL_14:
   v11 = KeGetCurrentIrql();
   __writecr8(2uLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && v11 <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && v11 <= 0xFu )
   {
     v52 = KeGetCurrentPrcb()->SchedulerAssist;
     if ( v11 == 2 )

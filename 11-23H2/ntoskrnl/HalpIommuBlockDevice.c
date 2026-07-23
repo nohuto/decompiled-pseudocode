@@ -1,16 +1,16 @@
 /*
- * XREFs of HalpIommuBlockDevice @ 0x140517830
+ * XREFs of HalpIommuBlockDevice @ 0x140517D80
  * Callers:
  *     <none>
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1402BD960 (ExfTryToWakePushLock.c)
- *     HalpMmAllocCtxFree @ 0x1403A56C0 (HalpMmAllocCtxFree.c)
- *     HalpIommuQueryAcpiDeviceMapping @ 0x1403B4674 (HalpIommuQueryAcpiDeviceMapping.c)
- *     HalpIommuDecreaseAliasTrack @ 0x140517A44 (HalpIommuDecreaseAliasTrack.c)
- *     HalpIommuLeaveDmaDomain @ 0x1405184B4 (HalpIommuLeaveDmaDomain.c)
- *     HalpIommuDeleteDevice @ 0x140933A2C (HalpIommuDeleteDevice.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140231120 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     ExfTryToWakePushLock @ 0x1402BDBF0 (ExfTryToWakePushLock.c)
+ *     HalpMmAllocCtxFree @ 0x1403A58A0 (HalpMmAllocCtxFree.c)
+ *     HalpIommuQueryAcpiDeviceMapping @ 0x1403B4854 (HalpIommuQueryAcpiDeviceMapping.c)
+ *     HalpIommuDecreaseAliasTrack @ 0x140517F94 (HalpIommuDecreaseAliasTrack.c)
+ *     HalpIommuLeaveDmaDomain @ 0x140518A04 (HalpIommuLeaveDmaDomain.c)
+ *     HalpIommuDeleteDevice @ 0x140933C2C (HalpIommuDeleteDevice.c)
  */
 
 __int64 __fastcall HalpIommuBlockDevice(__int64 *a1)

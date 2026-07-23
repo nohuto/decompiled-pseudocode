@@ -9,17 +9,17 @@
  *     sub_18009BDD4 @ 0x18009BDD4 (sub_18009BDD4.c)
  */
 
-__int64 __fastcall sub_18004DC8C(__int64 a1, unsigned __int64 a2, int a3)
+__int64 __fastcall sub_18004DC8C(unsigned __int16 *HeapHandle, unsigned __int64 a2, int a3)
 {
   __int64 v6; // rcx
   unsigned __int16 v7; // di
   __int64 result; // rax
 
-  if ( sub_18004DC4C(a1) )
+  if ( sub_18004DC4C((__int64)HeapHandle) )
     v7 = sub_18009BDD4(v6, a2);
   else
     v7 = 0;
-  result = sub_18003AAA0(a1, a2, a3, v7);
+  result = sub_18003AAA0(HeapHandle, a2, a3, v7);
   if ( !result )
   {
     if ( v7 )

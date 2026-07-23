@@ -1,11 +1,11 @@
 /*
- * XREFs of HalpTimerQueryCycleCounter @ 0x140577BA0
+ * XREFs of HalpTimerQueryCycleCounter @ 0x14057A0D0
  * Callers:
  *     <none>
  * Callees:
- *     HalpTimerGetInternalData @ 0x140426EC0 (HalpTimerGetInternalData.c)
- *     HalpFindTimer @ 0x140581834 (HalpFindTimer.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     HalpTimerGetInternalData @ 0x140433FD0 (HalpTimerGetInternalData.c)
+ *     HalpFindTimer @ 0x140583D54 (HalpFindTimer.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall HalpTimerQueryCycleCounter(_QWORD *a1)

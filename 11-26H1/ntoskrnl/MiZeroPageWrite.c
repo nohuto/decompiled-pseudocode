@@ -1,18 +1,18 @@
 /*
- * XREFs of MiZeroPageWrite @ 0x14046D748
+ * XREFs of MiZeroPageWrite @ 0x140466EC8
  * Callers:
- *     MmZeroPageWrite @ 0x14046D60C (MmZeroPageWrite.c)
- *     CcZeroDataOnDisk @ 0x14046D690 (CcZeroDataOnDisk.c)
+ *     MmZeroPageWrite @ 0x140466D8C (MmZeroPageWrite.c)
+ *     CcZeroDataOnDisk @ 0x140466E10 (CcZeroDataOnDisk.c)
  * Callees:
- *     IoSynchronousPageWriteEx @ 0x14026B9F0 (IoSynchronousPageWriteEx.c)
- *     KeWaitForSingleObject @ 0x140278560 (KeWaitForSingleObject.c)
- *     MmUnmapLockedPages @ 0x140281690 (MmUnmapLockedPages.c)
- *     IopAllocateMdl @ 0x14039EBE0 (IopAllocateMdl.c)
- *     IoFreeMdl @ 0x14039F190 (IoFreeMdl.c)
- *     MiIsRetryIoStatus @ 0x14046DB90 (MiIsRetryIoStatus.c)
- *     MiRetardMdl @ 0x140504688 (MiRetardMdl.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     IoSynchronousPageWriteEx @ 0x14026AF60 (IoSynchronousPageWriteEx.c)
+ *     KeWaitForSingleObject @ 0x140277AD0 (KeWaitForSingleObject.c)
+ *     MmUnmapLockedPages @ 0x140280C00 (MmUnmapLockedPages.c)
+ *     IopAllocateMdl @ 0x1403A0940 (IopAllocateMdl.c)
+ *     IoFreeMdl @ 0x1403A0EF0 (IoFreeMdl.c)
+ *     MiIsRetryIoStatus @ 0x140467310 (MiIsRetryIoStatus.c)
+ *     MiRetardMdl @ 0x1404FDE4C (MiRetardMdl.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall MiZeroPageWrite(struct _FILE_OBJECT *a1, _QWORD *a2, unsigned int a3, unsigned int a4)
@@ -104,7 +104,7 @@ __int64 __fastcall MiZeroPageWrite(struct _FILE_OBJECT *a1, _QWORD *a2, unsigned
       v20 = v13;
       do
       {
-        *p_Next++ = qword_140E36000[0];
+        *p_Next++ = qword_140E36180[0];
         --v20;
       }
       while ( v20 );

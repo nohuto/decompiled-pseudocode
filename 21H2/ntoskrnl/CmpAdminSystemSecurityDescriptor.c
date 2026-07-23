@@ -1,18 +1,18 @@
 /*
- * XREFs of CmpAdminSystemSecurityDescriptor @ 0x1407A70A0
+ * XREFs of CmpAdminSystemSecurityDescriptor @ 0x1407A72A0
  * Callers:
- *     CmInitSystem1 @ 0x140A59F78 (CmInitSystem1.c)
+ *     CmInitSystem1 @ 0x140A5AF78 (CmInitSystem1.c)
  * Callees:
- *     RtlSubAuthoritySid @ 0x14027F290 (RtlSubAuthoritySid.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
- *     memmove @ 0x140413F40 (memmove.c)
- *     RtlCreateSecurityDescriptor @ 0x140603560 (RtlCreateSecurityDescriptor.c)
- *     RtlpAddKnownAce @ 0x14065C460 (RtlpAddKnownAce.c)
- *     RtlSetDaclSecurityDescriptor @ 0x140660500 (RtlSetDaclSecurityDescriptor.c)
- *     RtlCreateAcl @ 0x140660570 (RtlCreateAcl.c)
- *     RtlInitializeSid @ 0x1406E52A0 (RtlInitializeSid.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     RtlSubAuthoritySid @ 0x14026D6C0 (RtlSubAuthoritySid.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     RtlpAddKnownAce @ 0x140651280 (RtlpAddKnownAce.c)
+ *     RtlSetDaclSecurityDescriptor @ 0x140655320 (RtlSetDaclSecurityDescriptor.c)
+ *     RtlCreateAcl @ 0x140655390 (RtlCreateAcl.c)
+ *     RtlInitializeSid @ 0x1406BC580 (RtlInitializeSid.c)
+ *     RtlCreateSecurityDescriptor @ 0x1406F2C90 (RtlCreateSecurityDescriptor.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 ACL *CmpAdminSystemSecurityDescriptor()
@@ -32,7 +32,7 @@ ACL *CmpAdminSystemSecurityDescriptor()
   ULONG_PTR v12; // r14
   NTSTATUS v13; // eax
   ULONG_PTR v14; // r14
-  struct _SID_IDENTIFIER_AUTHORITY IdentifierAuthority; // [rsp+60h] [rbp+8h] BYREF
+  _SID_IDENTIFIER_AUTHORITY IdentifierAuthority; // [rsp+60h] [rbp+8h] BYREF
 
   *(_WORD *)&IdentifierAuthority.Value[4] = 1280;
   *(_DWORD *)IdentifierAuthority.Value = 0;
@@ -55,8 +55,8 @@ ACL *CmpAdminSystemSecurityDescriptor()
   Acl = RtlCreateAcl(v5, v3, 2u);
   if ( Acl < 0 )
     KeBugCheckEx(0x51u, 0xBuLL, 4uLL, Acl, 0LL);
-  v8 = RtlpAddKnownAce((__int64)v6, 2u, 0, 2032127, PoolWithTag, 0);
-  if ( v8 < 0 || (v8 = RtlpAddKnownAce((__int64)v6, 2u, 0, 2032127, v2, 0), v8 < 0) )
+  v8 = RtlpAddKnownAce(v6, 2u, 0, 2032127, PoolWithTag, 0);
+  if ( v8 < 0 || (v8 = RtlpAddKnownAce(v6, 2u, 0, 2032127, v2, 0), v8 < 0) )
     KeBugCheckEx(0x51u, 0xBuLL, 5uLL, v8, 0LL);
   v9 = (ACL *)ExAllocatePoolWithTag(PagedPool, v3 + 40LL, 0x20204D43u);
   v10 = v9;

@@ -1,17 +1,17 @@
 /*
- * XREFs of NtUmsThreadYield @ 0x140650D48
+ * XREFs of NtUmsThreadYield @ 0x140650E2C
  * Callers:
  *     <none>
  * Callees:
- *     KiIsPrimaryPresent @ 0x1401DC17C (KiIsPrimaryPresent.c)
- *     KiUmsExceptionFilter @ 0x140650D28 (KiUmsExceptionFilter.c)
+ *     KiIsPrimaryPresent @ 0x1401DBFA8 (KiIsPrimaryPresent.c)
+ *     KiUmsExceptionFilter @ 0x140650E0C (KiUmsExceptionFilter.c)
  */
 
-__int64 __fastcall NtUmsThreadYield(__int64 a1)
+NTSTATUS __cdecl NtUmsThreadYield(PVOID SchedulerParam)
 {
   struct _KTHREAD *CurrentThread; // rsi
   struct _KTHREAD *v2; // rax
-  unsigned int v3; // ebx
+  NTSTATUS v3; // ebx
   _DWORD *Object; // rsi
   __int64 v6; // rdi
   __int64 v7; // r14
@@ -22,12 +22,12 @@ __int64 __fastcall NtUmsThreadYield(__int64 a1)
   if ( !CurrentThread )
     v2 = KeGetCurrentThread();
   if ( (v2->Header.Reserved1 & 0x40) == 0 )
-    return 3221225659LL;
+    return -1073741637;
   Object = CurrentThread->WaitBlock[3].Object;
   v6 = *(_QWORD *)Object;
   v7 = *(_QWORD *)(*(_QWORD *)Object + 1272LL);
   *(_QWORD *)(*(_QWORD *)Object + 1272LL) = 1LL;
-  if ( KiIsPrimaryPresent(v6, a1) )
+  if ( KiIsPrimaryPresent(v6, (__int64)SchedulerParam) )
   {
     Object[20] |= 1u;
   }

@@ -1,12 +1,12 @@
 /*
- * XREFs of KiInvokeBugCheckAddTriageDumpDataCallbacks @ 0x1405185EC
+ * XREFs of KiInvokeBugCheckAddTriageDumpDataCallbacks @ 0x14051882C
  * Callers:
- *     KeBugCheck2 @ 0x140516AD0 (KeBugCheck2.c)
+ *     KeBugCheck2 @ 0x140516D10 (KeBugCheck2.c)
  * Callees:
- *     KiValidateTriageDumpDataArray @ 0x1403CA18C (KiValidateTriageDumpDataArray.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     KeValidateBugCheckCallbackRecord @ 0x140517B98 (KeValidateBugCheckCallbackRecord.c)
- *     KiValidateComponentName @ 0x140518B40 (KiValidateComponentName.c)
+ *     KiValidateTriageDumpDataArray @ 0x1403CA32C (KiValidateTriageDumpDataArray.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     KeValidateBugCheckCallbackRecord @ 0x140517DD8 (KeValidateBugCheckCallbackRecord.c)
+ *     KiValidateComponentName @ 0x140518D80 (KiValidateComponentName.c)
  */
 
 char KiInvokeBugCheckAddTriageDumpDataCallbacks()
@@ -30,7 +30,7 @@ char KiInvokeBugCheckAddTriageDumpDataCallbacks()
   v8 = 0LL;
   v11 = &KeBugCheckReasonCallbackListHead;
   v1 = (PVOID *)KeBugCheckReasonCallbackListHead;
-  if ( KeBugCheckReasonCallbackListHead && qword_140C31DA8 )
+  if ( KeBugCheckReasonCallbackListHead && qword_140C32128 )
   {
     v9 = &KeBugCheckReasonCallbackListHead;
     while ( 1 )
@@ -45,8 +45,8 @@ char KiInvokeBugCheckAddTriageDumpDataCallbacks()
         *((_QWORD *)&v5 + 1) = 0x200000000000001LL;
         LODWORD(v6) = KiBugCheckData;
         *((_QWORD *)&v6 + 1) = *((_QWORD *)&KiBugCheckData + 1);
-        v7 = xmmword_140C31550;
-        v8 = qword_140C31560;
+        v7 = xmmword_140C31530;
+        v8 = qword_140C31540;
         LOBYTE(v0) = ((__int64 (__fastcall *)(__int64, PVOID *, __int128 *))v1[2])(7LL, v1, &v5);
         if ( (_QWORD)v5
           && (LOBYTE(v0) = KiValidateTriageDumpDataArray(v5, v2, 0x2000000u), (_BYTE)v0)
@@ -55,13 +55,13 @@ char KiInvokeBugCheckAddTriageDumpDataCallbacks()
           *(_QWORD *)(v5 + 40) = v1[3];
           *(_DWORD *)(v5 + 32) = 1;
           v0 = v5;
-          v3 = (__int64 *)qword_140C31DB8;
-          if ( *(__int64 **)qword_140C31DB8 != &KeBugCheckTriageDumpDataArrayListHead )
+          v3 = (__int64 *)qword_140C32118;
+          if ( *(__int64 **)qword_140C32118 != &KeBugCheckTriageDumpDataArrayListHead )
             __fastfail(3u);
           *(_QWORD *)v5 = &KeBugCheckTriageDumpDataArrayListHead;
           *(_QWORD *)(v0 + 8) = v3;
           *v3 = v0;
-          qword_140C31DB8 = v0;
+          qword_140C32118 = v0;
           *((_BYTE *)v1 + 44) = 3;
         }
         else

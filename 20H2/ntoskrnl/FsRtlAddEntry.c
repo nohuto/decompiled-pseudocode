@@ -75,6 +75,6 @@ LABEL_12:
     }
   }
   if ( (*(_BYTE *)(a1 + 10) & 1) != 0 )
-    RtlRaiseStatus(0xC000009A);
+    RtlRaiseStatus(-1073741670);
   return 0;
 }

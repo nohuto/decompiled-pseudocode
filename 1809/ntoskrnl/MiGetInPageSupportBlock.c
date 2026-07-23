@@ -2,25 +2,25 @@
  * XREFs of MiGetInPageSupportBlock @ 0x14002C610
  * Callers:
  *     MiAllocateInPageSupport @ 0x14002C548 (MiAllocateInPageSupport.c)
- *     MiPfPutPagesInTransition @ 0x140064E70 (MiPfPutPagesInTransition.c)
- *     MiPrivateFixup @ 0x140125E40 (MiPrivateFixup.c)
- *     MiPfAllocateMdls @ 0x1406982A0 (MiPfAllocateMdls.c)
- *     MiCreateRotateView @ 0x1406CA9C4 (MiCreateRotateView.c)
- *     MiGetReadyInPageBlock @ 0x14084F2EC (MiGetReadyInPageBlock.c)
+ *     MiPfPutPagesInTransition @ 0x140064E60 (MiPfPutPagesInTransition.c)
+ *     MiPrivateFixup @ 0x140125F10 (MiPrivateFixup.c)
+ *     MiPfAllocateMdls @ 0x140699460 (MiPfAllocateMdls.c)
+ *     MiCreateRotateView @ 0x1406CBC64 (MiCreateRotateView.c)
+ *     MiGetReadyInPageBlock @ 0x14085054C (MiGetReadyInPageBlock.c)
  * Callees:
  *     MiInitializeInPageSupport @ 0x14002C6B0 (MiInitializeInPageSupport.c)
- *     RtlpInterlockedPopEntrySList @ 0x1401C53D0 (RtlpInterlockedPopEntrySList.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
+ *     RtlpInterlockedPopEntrySList @ 0x1401C5530 (RtlpInterlockedPopEntrySList.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
  */
 
 void *__fastcall MiGetInPageSupportBlock(char a1)
 {
   int v2; // esi
-  union _SLIST_HEADER *v3; // rcx
+  _SLIST_HEADER *v3; // rcx
   void *PoolWithTag; // rdi
 
   v2 = a1 & 1;
-  v3 = (union _SLIST_HEADER *)((char *)&unk_14043AD80 + 16 * !(a1 & 1));
+  v3 = (_SLIST_HEADER *)((char *)&unk_14043BE40 + 16 * !(a1 & 1));
   if ( LOWORD(v3->Alignment) )
   {
     PoolWithTag = RtlpInterlockedPopEntrySList(v3);

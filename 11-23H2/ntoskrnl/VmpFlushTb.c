@@ -1,12 +1,12 @@
 /*
- * XREFs of VmpFlushTb @ 0x140466B2A
+ * XREFs of VmpFlushTb @ 0x140466F2A
  * Callers:
- *     VmFlushTb @ 0x1404664EC (VmFlushTb.c)
+ *     VmFlushTb @ 0x1404668EC (VmFlushTb.c)
  * Callees:
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402894C0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     VmpProcessContextLockExclusive @ 0x140466D1E (VmpProcessContextLockExclusive.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     VmpFlushTbVaRange @ 0x1405F9210 (VmpFlushTbVaRange.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140289750 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     VmpProcessContextLockExclusive @ 0x14046711E (VmpProcessContextLockExclusive.c)
+ *     VmpFlushTbVaRange @ 0x1405F9780 (VmpFlushTbVaRange.c)
  */
 
 __int64 __fastcall VmpFlushTb(PEX_SPIN_LOCK SpinLock, unsigned int a2, unsigned __int64 *a3)
@@ -75,10 +75,13 @@ __int64 __fastcall VmpFlushTb(PEX_SPIN_LOCK SpinLock, unsigned int a2, unsigned 
   if ( v3 != -1 )
   {
     ExReleaseSpinLockExclusiveFromDpcLevel(SpinLock);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v3 <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+        && CurrentIrql <= 0xFu
+        && (unsigned __int8)v3 <= 0xFu
+        && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -87,7 +90,7 @@ __int64 __fastcall VmpFlushTb(PEX_SPIN_LOCK SpinLock, unsigned int a2, unsigned 
         v15 = (v14 & SchedulerAssist[5]) == 0;
         SchedulerAssist[5] &= v14;
         if ( v15 )
-          KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+          KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
       }
     }
     result = (unsigned __int8)v3;

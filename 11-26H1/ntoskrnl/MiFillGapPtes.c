@@ -1,13 +1,13 @@
 /*
- * XREFs of MiFillGapPtes @ 0x140CF9690
+ * XREFs of MiFillGapPtes @ 0x140CFFA10
  * Callers:
  *     <none>
  * Callees:
- *     MiGetContainingPageTable @ 0x1402D9BF0 (MiGetContainingPageTable.c)
- *     MiMakeValidPte @ 0x1402DA020 (MiMakeValidPte.c)
- *     MiIncreaseUsedPtesInPfn @ 0x14030B600 (MiIncreaseUsedPtesInPfn.c)
- *     MiWritePteShadow @ 0x14031C28C (MiWritePteShadow.c)
- *     MiSanitizeShadowPxe @ 0x140342108 (MiSanitizeShadowPxe.c)
+ *     MiGetContainingPageTable @ 0x1402BB9B0 (MiGetContainingPageTable.c)
+ *     MiMakeValidPte @ 0x1402BBDE0 (MiMakeValidPte.c)
+ *     MiIncreaseUsedPtesInPfn @ 0x1402ED680 (MiIncreaseUsedPtesInPfn.c)
+ *     MiWritePteShadow @ 0x14031E2BC (MiWritePteShadow.c)
+ *     MiSanitizeShadowPxe @ 0x140344188 (MiSanitizeShadowPxe.c)
  */
 
 __int64 __fastcall MiFillGapPtes(__int64 a1, unsigned __int64 *a2, int a3)
@@ -35,7 +35,7 @@ __int64 __fastcall MiFillGapPtes(__int64 a1, unsigned __int64 *a2, int a3)
       v7 = 0LL;
     ValidPte = MiMakeValidPte(v7, v6, v8);
     v10 = ValidPte;
-    if ( (MiFlags & 0x8000000) == 0 && ((unsigned __int8)(1 << a3) & (unsigned __int8)byte_140E2D689) != 0 )
+    if ( (MiFlags & 0x8000000) == 0 && ((unsigned __int8)(1 << a3) & (unsigned __int8)byte_140E2D809) != 0 )
       v10 = ValidPte & 0xFFFFFFFFFFFFFFDFuLL;
     v13 = v10;
     v11 = 0;

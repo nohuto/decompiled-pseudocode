@@ -1,13 +1,13 @@
 /*
- * XREFs of VfSuspectDriversGetVerifierInformation @ 0x140C463F0
+ * XREFs of VfSuspectDriversGetVerifierInformation @ 0x140C4C400
  * Callers:
- *     VfGetVerifierInformation @ 0x14051A5C4 (VfGetVerifierInformation.c)
+ *     VfGetVerifierInformation @ 0x140514034 (VfGetVerifierInformation.c)
  * Callees:
- *     KeReleaseMutex @ 0x1403DD0F0 (KeReleaseMutex.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     VfTargetDriversGetCounters @ 0x140C29044 (VfTargetDriversGetCounters.c)
- *     VfTargetDriversGetZeroCounters @ 0x140C290B8 (VfTargetDriversGetZeroCounters.c)
- *     VfDriverLock @ 0x140C46804 (VfDriverLock.c)
+ *     KeReleaseMutex @ 0x1403E02E0 (KeReleaseMutex.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     VfTargetDriversGetCounters @ 0x140C2F054 (VfTargetDriversGetCounters.c)
+ *     VfTargetDriversGetZeroCounters @ 0x140C2F0C8 (VfTargetDriversGetZeroCounters.c)
+ *     VfDriverLock @ 0x140C4C814 (VfDriverLock.c)
  */
 
 __int64 __fastcall VfSuspectDriversGetVerifierInformation(
@@ -18,8 +18,8 @@ __int64 __fastcall VfSuspectDriversGetVerifierInformation(
         unsigned int a5)
 {
   __int64 v6; // rdi
-  unsigned int v7; // r14d
-  int v8; // ebp
+  unsigned int v7; // ebp
+  int v8; // r14d
   __int64 *v9; // r15
   __int64 v10; // r13
   size_t v11; // rbx
@@ -62,18 +62,18 @@ __int64 __fastcall VfSuspectDriversGetVerifierInformation(
     v14 = VfClearanceFlag;
     *(_DWORD *)(v6 + 16) = VfTriageContext;
     *(_DWORD *)(v6 + 20) = ViVerifyAllDrivers & 1 | *(_DWORD *)(v6 + 20) & 0xFFFFFFFC | (2 * (v14 & 1));
-    *(_DWORD *)(v6 + 40) = dword_140F08684;
-    *(_DWORD *)(v6 + 44) = dword_140F08688;
-    *(_DWORD *)(v6 + 92) = dword_140F086BC;
-    *(_DWORD *)(v6 + 48) = dword_140F0868C;
-    *(_DWORD *)(v6 + 52) = dword_140F08690;
-    *(_DWORD *)(v6 + 56) = dword_140F08694;
-    *(_DWORD *)(v6 + 60) = dword_140F08698;
-    *(_DWORD *)(v6 + 64) = dword_140F0869C;
-    *(_DWORD *)(v6 + 68) = dword_140F086A0;
-    *(_DWORD *)(v6 + 72) = dword_140F086A4;
-    *(_DWORD *)(v6 + 76) = dword_140F086A8;
-    *(_DWORD *)(v6 + 80) = dword_140F086AC;
+    *(_DWORD *)(v6 + 40) = dword_140F08A24;
+    *(_DWORD *)(v6 + 44) = dword_140F08A28;
+    *(_DWORD *)(v6 + 92) = dword_140F08A5C;
+    *(_DWORD *)(v6 + 48) = dword_140F08A2C;
+    *(_DWORD *)(v6 + 52) = dword_140F08A30;
+    *(_DWORD *)(v6 + 56) = dword_140F08A34;
+    *(_DWORD *)(v6 + 60) = dword_140F08A38;
+    *(_DWORD *)(v6 + 64) = dword_140F08A3C;
+    *(_DWORD *)(v6 + 68) = dword_140F08A40;
+    *(_DWORD *)(v6 + 72) = dword_140F08A44;
+    *(_DWORD *)(v6 + 76) = dword_140F08A48;
+    *(_DWORD *)(v6 + 80) = dword_140F08A4C;
     *(_DWORD *)(v6 + 84) = *(_DWORD *)(v10 + 16);
     *(_DWORD *)(v6 + 88) = *(_DWORD *)(v10 + 20);
     if ( *(_DWORD *)(v10 + 16) <= *(_DWORD *)(v10 + 20) )

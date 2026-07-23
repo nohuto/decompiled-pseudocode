@@ -20,12 +20,12 @@
  *     ExFreePoolWithTag @ 0x140B62CD0 (ExFreePoolWithTag.c)
  */
 
-NTSTATUS __fastcall NtStartProfile(void *a1)
+NTSTATUS __cdecl NtStartProfile(HANDLE ProfileHandle)
 {
   KPROCESSOR_MODE PreviousMode; // r14
   NTSTATUS result; // eax
   __int64 *v3; // rbx
-  int v4; // edi
+  NTSTATUS v4; // edi
   __int64 Pool2; // rax
   char *v6; // rdi
   struct _MDL *v7; // rsi
@@ -39,13 +39,13 @@ NTSTATUS __fastcall NtStartProfile(void *a1)
   __int64 v15; // rcx
   __int64 v16; // rax
   unsigned int v17; // eax
-  int started; // r14d
+  NTSTATUS started; // r14d
   PVOID Object; // [rsp+68h] [rbp+10h] BYREF
   PVOID P; // [rsp+70h] [rbp+18h]
 
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   Object = 0LL;
-  result = ObReferenceObjectByHandle(a1, 1u, ExProfileObjectType, PreviousMode, &Object, 0LL);
+  result = ObReferenceObjectByHandle(ProfileHandle, 1u, ExProfileObjectType, PreviousMode, &Object, 0LL);
   v3 = (__int64 *)Object;
   if ( result >= 0 )
   {

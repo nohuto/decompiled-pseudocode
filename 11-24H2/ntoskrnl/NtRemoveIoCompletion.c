@@ -1,14 +1,19 @@
 /*
- * XREFs of NtRemoveIoCompletion @ 0x14098B370
+ * XREFs of NtRemoveIoCompletion @ 0x140975980
  * Callers:
  *     <none>
  * Callees:
- *     IoRemoveIoCompletion @ 0x1402A4220 (IoRemoveIoCompletion.c)
- *     ObfDereferenceObject @ 0x140325680 (ObfDereferenceObject.c)
- *     ObReferenceObjectByHandle @ 0x14084AF40 (ObReferenceObjectByHandle.c)
+ *     ObfDereferenceObject @ 0x1402CE210 (ObfDereferenceObject.c)
+ *     IoRemoveIoCompletion @ 0x1402D3950 (IoRemoveIoCompletion.c)
+ *     ObReferenceObjectByHandle @ 0x140847200 (ObReferenceObjectByHandle.c)
  */
 
-NTSTATUS __fastcall NtRemoveIoCompletion(HANDLE Handle, _QWORD *a2, _QWORD *a3, _OWORD *a4, unsigned __int64 a5)
+NTSTATUS __cdecl NtRemoveIoCompletion(
+        HANDLE IoCompletionHandle,
+        PVOID *KeyContext,
+        PVOID *ApcContext,
+        PIO_STATUS_BLOCK IoStatusBlock,
+        PLARGE_INTEGER Timeout)
 {
   KPROCESSOR_MODE PreviousMode; // di
   __int64 v9; // rax
@@ -17,7 +22,7 @@ NTSTATUS __fastcall NtRemoveIoCompletion(HANDLE Handle, _QWORD *a2, _QWORD *a3, 
   __int64 v12; // rdx
   LARGE_INTEGER *v13; // rbx
   NTSTATUS result; // eax
-  int v15; // esi
+  NTSTATUS v15; // esi
   ULONG v16; // [rsp+44h] [rbp-64h] BYREF
   LARGE_INTEGER *v17; // [rsp+48h] [rbp-60h]
   __int64 v18; // [rsp+50h] [rbp-58h] BYREF
@@ -37,22 +42,22 @@ NTSTATUS __fastcall NtRemoveIoCompletion(HANDLE Handle, _QWORD *a2, _QWORD *a3, 
   {
     v9 = 0x7FFFFFFF0000LL;
     v10 = 0x7FFFFFFF0000LL;
-    if ( (unsigned __int64)a3 < 0x7FFFFFFF0000LL )
-      v10 = (__int64)a3;
+    if ( (unsigned __int64)ApcContext < 0x7FFFFFFF0000LL )
+      v10 = (__int64)ApcContext;
     *(_QWORD *)v10 = *(_QWORD *)v10;
     v11 = 0x7FFFFFFF0000LL;
-    if ( (unsigned __int64)a2 < 0x7FFFFFFF0000LL )
-      v11 = (__int64)a2;
+    if ( (unsigned __int64)KeyContext < 0x7FFFFFFF0000LL )
+      v11 = (__int64)KeyContext;
     *(_QWORD *)v11 = *(_QWORD *)v11;
     v12 = 0x7FFFFFFF0000LL;
-    if ( (unsigned __int64)a4 < 0x7FFFFFFF0000LL )
-      v12 = (__int64)a4;
+    if ( (unsigned __int64)IoStatusBlock < 0x7FFFFFFF0000LL )
+      v12 = (__int64)IoStatusBlock;
     *(_DWORD *)v12 = *(_DWORD *)v12;
-    if ( a5 )
+    if ( Timeout )
     {
       v17 = (LARGE_INTEGER *)&v18;
-      if ( a5 < 0x7FFFFFFF0000LL )
-        v9 = a5;
+      if ( (unsigned __int64)Timeout < 0x7FFFFFFF0000LL )
+        v9 = (__int64)Timeout;
       v18 = *(_QWORD *)v9;
     }
     v13 = v17;
@@ -60,20 +65,20 @@ NTSTATUS __fastcall NtRemoveIoCompletion(HANDLE Handle, _QWORD *a2, _QWORD *a3, 
   else
   {
     v13 = v17;
-    if ( a5 )
-      v13 = (LARGE_INTEGER *)a5;
+    if ( Timeout )
+      v13 = Timeout;
   }
   Object = 0LL;
-  result = ObReferenceObjectByHandle(Handle, 2u, IoCompletionObjectType, PreviousMode, &Object, 0LL);
+  result = ObReferenceObjectByHandle(IoCompletionHandle, 2u, IoCompletionObjectType, PreviousMode, &Object, 0LL);
   if ( result >= 0 )
   {
     v15 = IoRemoveIoCompletion((struct _KQUEUE *)Object, (__int64)&v20, &v22, 1u, &v16, PreviousMode, v13, 0);
     ObfDereferenceObject(Object);
     if ( !v15 )
     {
-      *a2 = v20;
-      *a3 = *((_QWORD *)&v20 + 1);
-      *a4 = v21;
+      *KeyContext = (PVOID)v20;
+      *ApcContext = (PVOID)*((_QWORD *)&v20 + 1);
+      *(_OWORD *)&IoStatusBlock->Status = v21;
     }
     return v15;
   }

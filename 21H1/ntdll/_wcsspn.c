@@ -8,38 +8,42 @@
 
 size_t __cdecl wcsspn(const wchar_t *String, const wchar_t *Control)
 {
-  const wchar_t *v2; // ecx
-  wchar_t v3; // si
-  const wchar_t *v4; // eax
-  wchar_t v5; // bx
-  const wchar_t *v6; // edi
+  size_t result; // rax
+  const wchar_t *v3; // ecx
+  wchar_t v4; // si
+  const wchar_t *v5; // eax
+  wchar_t v6; // bx
+  const wchar_t *v7; // edi
 
-  v2 = String;
+  HIDWORD(result) = String;
+  v3 = String;
   if ( *String )
   {
-    v3 = *String;
-    v4 = Control;
-    v5 = *Control;
+    v4 = *String;
+    v5 = Control;
+    v6 = *Control;
     while ( 1 )
     {
-      v6 = v4;
-      if ( v5 != v3 )
+      v7 = v5;
+      if ( v6 != v4 )
         break;
 LABEL_7:
-      v3 = *++v2;
-      if ( !*v2 )
-        return v2 - String;
-      v4 = Control;
+      v4 = *++v3;
+      if ( !*v3 )
+        goto LABEL_9;
+      v5 = Control;
     }
-    while ( v5 )
+    while ( v6 )
     {
-      v5 = *++v6;
-      if ( *v6 == v3 )
+      v6 = *++v7;
+      if ( *v7 == v4 )
       {
-        v5 = *Control;
+        v6 = *Control;
         goto LABEL_7;
       }
     }
   }
-  return v2 - String;
+LABEL_9:
+  LODWORD(result) = v3 - String;
+  return result;
 }

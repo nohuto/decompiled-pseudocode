@@ -1,7 +1,7 @@
 /*
- * XREFs of HalpStoreFreeCr3 @ 0x1403A2414
+ * XREFs of HalpStoreFreeCr3 @ 0x1403A2564
  * Callers:
- *     HalpMapCR3Ex @ 0x14099A2A0 (HalpMapCR3Ex.c)
+ *     HalpMapCR3Ex @ 0x14099B2A0 (HalpMapCR3Ex.c)
  * Callees:
  *     <none>
  */

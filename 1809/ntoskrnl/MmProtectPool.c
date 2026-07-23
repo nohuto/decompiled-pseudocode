@@ -13,31 +13,31 @@
  *     MmAccessFault @ 0x140043DA0 (MmAccessFault.c)
  *     MiUnlockWorkingSetShared @ 0x140046970 (MiUnlockWorkingSetShared.c)
  *     MiGetSystemRegionType @ 0x14004EC30 (MiGetSystemRegionType.c)
- *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
- *     MiLockPageTableInternal @ 0x14006CA20 (MiLockPageTableInternal.c)
- *     MiFlushTbList @ 0x1400740C0 (MiFlushTbList.c)
- *     MiMakeProtectionMask @ 0x1400744A0 (MiMakeProtectionMask.c)
- *     MiLockWorkingSetShared @ 0x140076050 (MiLockWorkingSetShared.c)
- *     MiGetWsleContents @ 0x140085F40 (MiGetWsleContents.c)
- *     MI_TIGHTER_PERMISSIONS @ 0x140086748 (MI_TIGHTER_PERMISSIONS.c)
- *     MiCaptureDirtyBitToPfn @ 0x140087910 (MiCaptureDirtyBitToPfn.c)
- *     MiWriteValidPteNewProtection @ 0x140087970 (MiWriteValidPteNewProtection.c)
- *     MI_WSLE_LOG_ACCESS @ 0x140088044 (MI_WSLE_LOG_ACCESS.c)
- *     MiLockTransitionLeafPage @ 0x140095744 (MiLockTransitionLeafPage.c)
- *     MiFreeWsleList @ 0x1400B2AB0 (MiFreeWsleList.c)
- *     MiInsertTbFlushEntry @ 0x1400B3AF0 (MiInsertTbFlushEntry.c)
- *     MiCopyOnWrite @ 0x1400B45E0 (MiCopyOnWrite.c)
- *     MiGetSessionVm @ 0x1400E945C (MiGetSessionVm.c)
- *     MiTbFlushType @ 0x1400EDBA4 (MiTbFlushType.c)
- *     MiUnlockPageTableInternal @ 0x140104A90 (MiUnlockPageTableInternal.c)
- *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
- *     MiFindLargeMapping @ 0x140156A04 (MiFindLargeMapping.c)
- *     MiVaIsSessionSpecialPool @ 0x14015FC04 (MiVaIsSessionSpecialPool.c)
- *     MiLockNonPagedPoolPte @ 0x140162470 (MiLockNonPagedPoolPte.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     MiCopyOnWriteCheckConditions @ 0x1402CB21C (MiCopyOnWriteCheckConditions.c)
+ *     KeYieldProcessorEx @ 0x14006C9E0 (KeYieldProcessorEx.c)
+ *     MiLockPageTableInternal @ 0x14006CA10 (MiLockPageTableInternal.c)
+ *     MiFlushTbList @ 0x1400740B0 (MiFlushTbList.c)
+ *     MiMakeProtectionMask @ 0x140074490 (MiMakeProtectionMask.c)
+ *     MiLockWorkingSetShared @ 0x140076040 (MiLockWorkingSetShared.c)
+ *     MiGetWsleContents @ 0x140085F30 (MiGetWsleContents.c)
+ *     MI_TIGHTER_PERMISSIONS @ 0x140086738 (MI_TIGHTER_PERMISSIONS.c)
+ *     MiCaptureDirtyBitToPfn @ 0x140087900 (MiCaptureDirtyBitToPfn.c)
+ *     MiWriteValidPteNewProtection @ 0x140087960 (MiWriteValidPteNewProtection.c)
+ *     MI_WSLE_LOG_ACCESS @ 0x140088034 (MI_WSLE_LOG_ACCESS.c)
+ *     MiLockTransitionLeafPage @ 0x140095684 (MiLockTransitionLeafPage.c)
+ *     MiFreeWsleList @ 0x1400B29F0 (MiFreeWsleList.c)
+ *     MiInsertTbFlushEntry @ 0x1400B3A30 (MiInsertTbFlushEntry.c)
+ *     MiCopyOnWrite @ 0x1400B4520 (MiCopyOnWrite.c)
+ *     MiGetSessionVm @ 0x1400E94DC (MiGetSessionVm.c)
+ *     MiTbFlushType @ 0x1400EDC24 (MiTbFlushType.c)
+ *     MiUnlockPageTableInternal @ 0x140104B10 (MiUnlockPageTableInternal.c)
+ *     MiWritePteShadow @ 0x140120F40 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120FA0 (MiPteHasShadow.c)
+ *     MiFindLargeMapping @ 0x140156B04 (MiFindLargeMapping.c)
+ *     MiVaIsSessionSpecialPool @ 0x14015FD04 (MiVaIsSessionSpecialPool.c)
+ *     MiLockNonPagedPoolPte @ 0x140162570 (MiLockNonPagedPoolPte.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiCopyOnWriteCheckConditions @ 0x1402CB40C (MiCopyOnWriteCheckConditions.c)
  */
 
 __int64 __fastcall MmProtectPool(__int64 a1, __int64 a2, unsigned int a3)
@@ -217,7 +217,7 @@ LABEL_5:
   v110 = 0LL;
   v15 = *(unsigned __int16 *)(v13 + 174);
   v100 = ((v12 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
-  v105 = *(_QWORD *)(qword_14043A748 + 8 * v15);
+  v105 = *(_QWORD *)(qword_14043B808 + 8 * v15);
   v19 = MiLockWorkingSetShared(v13);
   v94 = v19;
   if ( v9 <= v100 )
@@ -250,8 +250,8 @@ LABEL_9:
             else
             {
               v75 = v73;
-              if ( qword_14043A0C0 && (v73 & 0x10) == 0 )
-                v75 = v73 & ~qword_14043A0C0;
+              if ( qword_14043B180 && (v73 & 0x10) == 0 )
+                v75 = v73 & ~qword_14043B180;
             }
             v76 = v73;
             v77 = v22 & (v75 >> 12);
@@ -342,7 +342,7 @@ LABEL_125:
             if ( (unsigned int)MiPteHasShadow() )
             {
               v16 = 1LL;
-              if ( !HIBYTE(word_14043A1AC) )
+              if ( !HIBYTE(word_14043B26C) )
               {
                 v83 = (v81 & 1) == 0;
 LABEL_147:
@@ -380,7 +380,7 @@ LABEL_31:
               if ( (unsigned int)MiPteHasShadow() )
               {
                 v35 = 1;
-                if ( HIBYTE(word_14043A1AC) )
+                if ( HIBYTE(word_14043B26C) )
                   goto LABEL_31;
                 v92 = (v17 & 1) == 0;
               }
@@ -408,7 +408,7 @@ LABEL_159:
                 if ( (unsigned int)MiPteHasShadow() )
                 {
                   v17 = 1LL;
-                  if ( !HIBYTE(word_14043A1AC) )
+                  if ( !HIBYTE(word_14043B26C) )
                   {
                     v90 = (v89 & 1) == 0;
 LABEL_165:
@@ -498,7 +498,7 @@ LABEL_165:
             }
             goto LABEL_22;
           }
-          if ( dword_14043A8E8 )
+          if ( dword_14043B9A8 )
             MI_WSLE_LOG_ACCESS(v13, v9);
           if ( (MiGetWsleContents(v58, (__int64)(v9 << 25) >> 16) & 0xF) == 8 )
             goto LABEL_22;
@@ -525,7 +525,7 @@ LABEL_165:
               if ( (unsigned int)MiPteHasShadow() )
               {
                 v17 = 1LL;
-                if ( !HIBYTE(word_14043A1AC) )
+                if ( !HIBYTE(word_14043B26C) )
                 {
                   v72 = (v70 & 1) == 0;
 LABEL_96:
@@ -599,7 +599,7 @@ LABEL_57:
             if ( (unsigned int)MiPteHasShadow() )
             {
               v51 = 1;
-              if ( !HIBYTE(word_14043A1AC) )
+              if ( !HIBYTE(word_14043B26C) )
               {
                 v52 = (v50 & 1) == 0;
 LABEL_69:

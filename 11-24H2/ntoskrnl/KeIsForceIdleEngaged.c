@@ -1,9 +1,10 @@
 /*
- * XREFs of KeIsForceIdleEngaged @ 0x14040C350
+ * XREFs of KeIsForceIdleEngaged @ 0x1404049E0
  * Callers:
- *     KiCallInterruptServiceRoutine @ 0x14033B0A0 (KiCallInterruptServiceRoutine.c)
- *     KiResetForceIdle @ 0x14040C2A4 (KiResetForceIdle.c)
- *     KePrepareClockTimerForPlatformIdle @ 0x1405B94A0 (KePrepareClockTimerForPlatformIdle.c)
+ *     KiCallInterruptServiceRoutine @ 0x14031A580 (KiCallInterruptServiceRoutine.c)
+ *     KiResetForceIdle @ 0x1404048A4 (KiResetForceIdle.c)
+ *     KiForceIdleInterruptNotify @ 0x140404948 (KiForceIdleInterruptNotify.c)
+ *     KePrepareClockTimerForPlatformIdle @ 0x1405B6AE0 (KePrepareClockTimerForPlatformIdle.c)
  * Callees:
  *     <none>
  */

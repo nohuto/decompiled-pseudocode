@@ -1,11 +1,11 @@
 /*
- * XREFs of NormBuffer__Insert @ 0x1402F4E8C
+ * XREFs of NormBuffer__Insert @ 0x1402F507C
  * Callers:
- *     NormBuffer__AppendAndSortDecomposed @ 0x1402F4D04 (NormBuffer__AppendAndSortDecomposed.c)
- *     NormBuffer__Insert @ 0x1402F4E8C (NormBuffer__Insert.c)
- *     Normalization__NormalizeCharacter @ 0x140898C3C (Normalization__NormalizeCharacter.c)
+ *     NormBuffer__AppendAndSortDecomposed @ 0x1402F4EF4 (NormBuffer__AppendAndSortDecomposed.c)
+ *     NormBuffer__Insert @ 0x1402F507C (NormBuffer__Insert.c)
+ *     Normalization__NormalizeCharacter @ 0x140899E9C (Normalization__NormalizeCharacter.c)
  * Callees:
- *     NormBuffer__Insert @ 0x1402F4E8C (NormBuffer__Insert.c)
+ *     NormBuffer__Insert @ 0x1402F507C (NormBuffer__Insert.c)
  */
 
 bool __fastcall NormBuffer__Insert(_QWORD *a1, int a2, __int16 *a3)

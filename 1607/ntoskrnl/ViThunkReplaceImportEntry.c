@@ -1,10 +1,10 @@
 /*
- * XREFs of ViThunkReplaceImportEntry @ 0x14070FCC0
+ * XREFs of ViThunkReplaceImportEntry @ 0x14070FCF0
  * Callers:
- *     VfThunkApplyDriverAddedThunks @ 0x14070F3B8 (VfThunkApplyDriverAddedThunks.c)
- *     ViThunkReplaceAllThunkedImports @ 0x14070FB64 (ViThunkReplaceAllThunkedImports.c)
+ *     VfThunkApplyDriverAddedThunks @ 0x14070F3E8 (VfThunkApplyDriverAddedThunks.c)
+ *     ViThunkReplaceAllThunkedImports @ 0x14070FB94 (ViThunkReplaceAllThunkedImports.c)
  * Callees:
- *     MmReplaceImportEntry @ 0x1401E5FA8 (MmReplaceImportEntry.c)
+ *     MmReplaceImportEntry @ 0x1401E5DD4 (MmReplaceImportEntry.c)
  */
 
 __int64 __fastcall ViThunkReplaceImportEntry(__int64 **a1, _QWORD *a2)

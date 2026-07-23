@@ -1,12 +1,12 @@
 /*
- * XREFs of KiApplyProcessorDpcLimits @ 0x140BF3624
+ * XREFs of KiApplyProcessorDpcLimits @ 0x140BF9624
  * Callers:
- *     KiUpdateProcessorDpcWatchdogConfiguration @ 0x1405E9270 (KiUpdateProcessorDpcWatchdogConfiguration.c)
- *     KiInitializeProcessor @ 0x140BF3FD4 (KiInitializeProcessor.c)
+ *     KiUpdateProcessorDpcWatchdogConfiguration @ 0x1405EBBE0 (KiUpdateProcessorDpcWatchdogConfiguration.c)
+ *     KiInitializeProcessor @ 0x140BF9FD4 (KiInitializeProcessor.c)
  * Callees:
- *     KiSetProcessorDpcLimits @ 0x1405EB84C (KiSetProcessorDpcLimits.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     KiSetProcessorDpcLimits @ 0x1405EE1BC (KiSetProcessorDpcLimits.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall KiApplyProcessorDpcLimits(__int64 a1, _DWORD *a2)

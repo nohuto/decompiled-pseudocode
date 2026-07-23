@@ -1,22 +1,22 @@
 /*
- * XREFs of CcNotifyWriteBehindInternal @ 0x1403E07DC
+ * XREFs of CcNotifyWriteBehindInternal @ 0x1403E39CC
  * Callers:
- *     CcCanIWrite @ 0x140383700 (CcCanIWrite.c)
- *     CcFlushCachePostProcess @ 0x1403998E0 (CcFlushCachePostProcess.c)
- *     CcUninitializeCacheMap @ 0x14039C460 (CcUninitializeCacheMap.c)
- *     CcDecrementOpenCount @ 0x14039E74C (CcDecrementOpenCount.c)
- *     CcNotifyWriteBehindHelper @ 0x1403E01E0 (CcNotifyWriteBehindHelper.c)
- *     CcDeferWrite @ 0x1403E0210 (CcDeferWrite.c)
- *     CcNotifyWriteBehindEx @ 0x1403E045C (CcNotifyWriteBehindEx.c)
- *     CcCoalescingCallBackHelper @ 0x1403E0480 (CcCoalescingCallBackHelper.c)
- *     CcScheduleLazyWriteScan @ 0x1403E0640 (CcScheduleLazyWriteScan.c)
- *     CcInitializeCacheMapInternal @ 0x1403E1230 (CcInitializeCacheMapInternal.c)
- *     CcExitPartition @ 0x1405B26C4 (CcExitPartition.c)
+ *     CcCanIWrite @ 0x1403854B0 (CcCanIWrite.c)
+ *     CcFlushCachePostProcess @ 0x14039B640 (CcFlushCachePostProcess.c)
+ *     CcUninitializeCacheMap @ 0x14039E1C0 (CcUninitializeCacheMap.c)
+ *     CcDecrementOpenCount @ 0x1403A04AC (CcDecrementOpenCount.c)
+ *     CcNotifyWriteBehindHelper @ 0x1403E33D0 (CcNotifyWriteBehindHelper.c)
+ *     CcDeferWrite @ 0x1403E3400 (CcDeferWrite.c)
+ *     CcNotifyWriteBehindEx @ 0x1403E364C (CcNotifyWriteBehindEx.c)
+ *     CcCoalescingCallBackHelper @ 0x1403E3670 (CcCoalescingCallBackHelper.c)
+ *     CcScheduleLazyWriteScan @ 0x1403E3830 (CcScheduleLazyWriteScan.c)
+ *     CcInitializeCacheMapInternal @ 0x1403E4420 (CcInitializeCacheMapInternal.c)
+ *     CcExitPartition @ 0x1405B4ED4 (CcExitPartition.c)
  * Callees:
- *     KeSetEvent @ 0x1402DE9C0 (KeSetEvent.c)
- *     KiSetTimerEx @ 0x1403ABF20 (KiSetTimerEx.c)
- *     CcForEachPrivateVolumeCacheMap @ 0x1403E0938 (CcForEachPrivateVolumeCacheMap.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
+ *     KeSetEvent @ 0x1402C0780 (KeSetEvent.c)
+ *     KiSetTimerEx @ 0x1403B5C30 (KiSetTimerEx.c)
+ *     CcForEachPrivateVolumeCacheMap @ 0x1403E3B28 (CcForEachPrivateVolumeCacheMap.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
  */
 
 LONG __fastcall CcNotifyWriteBehindInternal(__int64 a1, int a2)

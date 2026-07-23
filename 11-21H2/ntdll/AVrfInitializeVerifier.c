@@ -31,379 +31,375 @@
  *     AvrfMiniLoadDll @ 0x1800E6C5C (AvrfMiniLoadDll.c)
  */
 
-__int64 __fastcall AVrfInitializeVerifier(char a1, __int64 a2, __int64 a3, __int64 a4, __int64 a5, _QWORD *a6)
+__int64 __fastcall AVrfInitializeVerifier(char a1, __int64 a2, void *a3, int a4, __int64 a5, _IMAGE_NT_HEADERS64 *a6)
 {
-  __int64 v6; // rdi
+  void *v6; // rdi
   struct _PEB *v7; // rsi
   int Dll; // ebx
   __int64 *i; // rbx
   int LoadedDllByName; // eax
-  unsigned __int64 v13; // rdx
-  unsigned __int64 v14; // r8
-  unsigned __int64 v15; // r9
-  unsigned __int64 v16; // rbx
-  int ProcedureAddressForCaller; // ebx
-  unsigned __int64 v18; // rdx
-  unsigned __int64 v19; // r8
-  unsigned __int64 v20; // r9
-  unsigned __int64 v21; // rdx
-  unsigned __int64 v22; // r8
-  unsigned __int64 v23; // r9
-  __int64 *v24; // rdi
-  __int64 v25; // rax
-  __int64 *v26; // rbx
-  __int64 v27; // rdx
+  void *v13; // rbx
+  NTSTATUS ProcedureAddressForCaller; // ebx
+  __int64 *v15; // rdi
+  __int64 v16; // rax
+  __int64 *v17; // rbx
+  __int64 v18; // rdx
   unsigned int NtGlobalFlag; // r11d
-  char v29; // al
-  int v30; // ecx
-  int v31; // ebx
-  char *v32; // rbx
-  int ValueKey; // eax
-  __int64 v34; // rsi
-  int v35; // ecx
+  char v20; // al
+  int v21; // ecx
+  int v22; // ebx
+  _BYTE *v23; // rbx
+  NTSTATUS v24; // eax
+  void *v25; // rsi
+  int v26; // ecx
+  ULONG v27; // edi
   void *ProcessHeap; // rcx
-  __int64 Heap; // rax
-  int v38; // eax
-  int v39; // eax
-  char *v40; // rbx
-  int v41; // eax
+  PVOID Heap; // rax
+  NTSTATUS v30; // eax
+  int v31; // eax
+  _BYTE *v32; // rbx
+  NTSTATUS v33; // eax
+  ULONG v34; // esi
+  void *v35; // rcx
+  PVOID v36; // rax
+  NTSTATUS v37; // eax
+  int v38; // ecx
+  _BYTE *v39; // rbx
+  NTSTATUS v40; // eax
+  ULONG v41; // esi
   void *v42; // rcx
-  __int64 v43; // rax
-  int v44; // eax
+  PVOID v43; // rax
+  NTSTATUS v44; // eax
   int v45; // ecx
-  char *v46; // rbx
-  int v47; // eax
-  void *v48; // rcx
-  __int64 v49; // rax
-  int v50; // eax
-  int v51; // ecx
-  char *v52; // rdi
-  int v53; // eax
-  __int64 v54; // rbx
-  unsigned int v55; // eax
-  int v56; // ecx
-  unsigned int v57; // eax
-  unsigned __int64 v58; // rdx
-  unsigned __int64 v59; // r8
-  unsigned __int64 v60; // r9
-  unsigned __int64 v61; // rdx
-  unsigned __int64 v62; // r8
-  unsigned __int64 v63; // r9
-  void *v65; // rcx
-  __int64 v66; // rax
-  int v67; // eax
-  __int64 v68; // [rsp+20h] [rbp-E0h]
-  _BYTE v69[4]; // [rsp+30h] [rbp-D0h] BYREF
-  unsigned int v70; // [rsp+34h] [rbp-CCh]
-  unsigned int v71; // [rsp+38h] [rbp-C8h]
-  unsigned int v72; // [rsp+3Ch] [rbp-C4h]
-  __int64 v73; // [rsp+40h] [rbp-C0h] BYREF
-  __int64 v74; // [rsp+48h] [rbp-B8h] BYREF
-  int v75; // [rsp+50h] [rbp-B0h] BYREF
-  unsigned __int16 v76[4]; // [rsp+58h] [rbp-A8h] BYREF
-  _DWORD *v77; // [rsp+60h] [rbp-A0h]
-  unsigned __int16 v78[4]; // [rsp+68h] [rbp-98h] BYREF
-  _DWORD *v79; // [rsp+70h] [rbp-90h]
-  unsigned __int16 v80[4]; // [rsp+78h] [rbp-88h] BYREF
-  _DWORD *v81; // [rsp+80h] [rbp-80h]
-  _QWORD *v82; // [rsp+88h] [rbp-78h] BYREF
-  __int64 v83; // [rsp+90h] [rbp-70h]
-  __int64 v84; // [rsp+98h] [rbp-68h]
-  _BYTE v85[16]; // [rsp+A0h] [rbp-60h] BYREF
-  char v86; // [rsp+B0h] [rbp-50h] BYREF
-  char v87; // [rsp+4B0h] [rbp+3B0h] BYREF
-  char v88; // [rsp+8B0h] [rbp+7B0h] BYREF
-  char v89; // [rsp+CB0h] [rbp+BB0h] BYREF
-  unsigned __int64 retaddr; // [rsp+10F8h] [rbp+FF8h]
+  _DWORD *v46; // rdi
+  NTSTATUS v47; // eax
+  void *v48; // rbx
+  unsigned int v49; // eax
+  int v50; // ecx
+  unsigned int v51; // eax
+  ULONG v53; // esi
+  void *v54; // rcx
+  PVOID v55; // rax
+  NTSTATUS v56; // eax
+  ULONG Flags[2]; // [rsp+20h] [rbp-E0h]
+  _BYTE v58[4]; // [rsp+30h] [rbp-D0h] BYREF
+  ULONG ResultLength; // [rsp+34h] [rbp-CCh] BYREF
+  ULONG Length; // [rsp+38h] [rbp-C8h] BYREF
+  ULONG v61; // [rsp+3Ch] [rbp-C4h] BYREF
+  PVOID ProcedureAddress; // [rsp+40h] [rbp-C0h] BYREF
+  PVOID BaseAddress; // [rsp+48h] [rbp-B8h] BYREF
+  ULONG Value; // [rsp+50h] [rbp-B0h] BYREF
+  _UNICODE_STRING DestinationString; // [rsp+58h] [rbp-A8h] BYREF
+  _UNICODE_STRING ValueName; // [rsp+68h] [rbp-98h] BYREF
+  _UNICODE_STRING String; // [rsp+78h] [rbp-88h] BYREF
+  PIMAGE_NT_HEADERS OutHeaders; // [rsp+88h] [rbp-78h] BYREF
+  __int64 v69; // [rsp+90h] [rbp-70h]
+  __int64 v70; // [rsp+98h] [rbp-68h]
+  _UNICODE_STRING v71; // [rsp+A0h] [rbp-60h] BYREF
+  _BYTE KeyValueInformation[1024]; // [rsp+B0h] [rbp-50h] BYREF
+  _BYTE v73[1024]; // [rsp+4B0h] [rbp+3B0h] BYREF
+  _BYTE v74[1024]; // [rsp+8B0h] [rbp+7B0h] BYREF
+  _BYTE v75[1024]; // [rsp+CB0h] [rbp+BB0h] BYREF
+  PVOID *Callback; // [rsp+10F8h] [rbp+FF8h]
 
   v6 = 0LL;
   v7 = NtCurrentPeb();
-  v83 = a5;
-  v82 = a6;
-  v84 = a2;
-  v75 = 0;
-  if ( !(_DWORD)a4 )
+  v69 = a5;
+  OutHeaders = a6;
+  v70 = a2;
+  Value = 0;
+  if ( !a4 )
   {
     if ( !a6 )
       return (unsigned int)-1073741811;
-    *a6 = 0LL;
+    *(_QWORD *)&a6->Signature = 0LL;
     NtGlobalFlag = v7->NtGlobalFlag;
     if ( (NtGlobalFlag & 0x2000100) != 0 )
     {
-      LODWORD(v74) = 1;
+      LODWORD(BaseAddress) = 1;
     }
     else
     {
-      v29 = LdrpPayloadRestrictionMitigationsEnabled();
-      v30 = 0;
-      if ( v29 )
-        v30 = 2;
-      LODWORD(v74) = v30;
+      v20 = LdrpPayloadRestrictionMitigationsEnabled();
+      v21 = 0;
+      if ( v20 )
+        v21 = 2;
+      LODWORD(BaseAddress) = v21;
     }
-    if ( (NtGlobalFlag & 0x100) != 0 || (v31 = 0, a1) )
-      v31 = 294916;
-    AVrfpVerifierFlags = v31;
+    if ( (NtGlobalFlag & 0x100) != 0 || (v22 = 0, a1) )
+      v22 = 294916;
+    AVrfpVerifierFlags = v22;
     AVrfpVerifierDllsString = 0;
-    if ( a3 && (int)RtlInitUnicodeStringEx((__int64)v76, (__int64)L"VerifierFlags") >= 0 )
+    if ( a3 && RtlInitUnicodeStringEx(&DestinationString, L"VerifierFlags") >= 0 )
     {
-      v32 = &v86;
-      ValueKey = NtQueryValueKey();
-      if ( ValueKey < 0 )
+      v23 = KeyValueInformation;
+      v24 = NtQueryValueKey(
+              a3,
+              &DestinationString,
+              KeyValuePartialInformation,
+              KeyValueInformation,
+              0x400u,
+              &ResultLength);
+      if ( v24 < 0 )
       {
-        if ( ValueKey == -2147483643 )
+        if ( v24 == -2147483643 )
         {
           while ( 1 )
           {
+            v27 = ResultLength;
             ProcessHeap = NtCurrentPeb()->ProcessHeap;
             if ( !ProcessHeap )
               break;
-            Heap = RtlAllocateHeap((__int64)ProcessHeap, NtdllBaseTag + 1572864, v70);
-            v34 = Heap;
+            Heap = RtlAllocateHeap(ProcessHeap, NtdllBaseTag + 1572864, ResultLength);
+            v25 = Heap;
             if ( !Heap )
               break;
-            v32 = (char *)Heap;
-            v38 = NtQueryValueKey();
+            v23 = Heap;
+            v30 = NtQueryValueKey(a3, &DestinationString, KeyValuePartialInformation, Heap, v27, &ResultLength);
             v6 = 0LL;
-            if ( v38 >= 0 )
+            if ( v30 >= 0 )
               goto LABEL_42;
-            if ( v38 != -2147483643 )
+            if ( v30 != -2147483643 )
               goto LABEL_56;
-            RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, (__int64)v32);
+            RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v23);
           }
           v6 = 0LL;
         }
       }
       else
       {
-        v34 = 0LL;
+        v25 = 0LL;
 LABEL_42:
-        v35 = *((_DWORD *)v32 + 1);
-        if ( ((v35 - 3) & 0xFFFFFFFB) != 0 )
+        v26 = *((_DWORD *)v23 + 1);
+        if ( ((v26 - 3) & 0xFFFFFFFB) != 0 )
         {
-          if ( v35 == 4 )
+          if ( v26 == 4 )
           {
-            if ( *((_DWORD *)v32 + 2) == 4 )
+            if ( *((_DWORD *)v23 + 2) == 4 )
             {
-              v70 = 4;
-              v75 = *((_DWORD *)v32 + 3);
+              ResultLength = 4;
+              Value = *((_DWORD *)v23 + 3);
             }
           }
-          else if ( v35 == 1 && ((unsigned __int8)&v75 & 3) == 0 )
+          else if ( v26 == 1 && ((unsigned __int8)&Value & 3) == 0 )
           {
-            v70 = 4;
-            v77 = v32 + 12;
-            v76[0] = *((_WORD *)v32 + 4);
-            v76[1] = *((_WORD *)v32 + 4);
-            RtlUnicodeStringToInteger(v76, 0, &v75);
+            ResultLength = 4;
+            DestinationString.Buffer = (wchar_t *)(v23 + 12);
+            DestinationString.Length = *((_WORD *)v23 + 4);
+            DestinationString.MaximumLength = *((_WORD *)v23 + 4);
+            RtlUnicodeStringToInteger(&DestinationString, 0, &Value);
           }
         }
-        if ( v34 )
+        if ( v25 )
 LABEL_56:
-          RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v34);
-        LOBYTE(v31) = v75;
-        if ( v75 )
+          RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v25);
+        LOBYTE(v22) = Value;
+        if ( Value )
         {
-          AVrfpVerifierFlags = v75;
+          AVrfpVerifierFlags = Value;
           goto LABEL_64;
         }
       }
-      LOBYTE(v31) = AVrfpVerifierFlags;
+      LOBYTE(v22) = AVrfpVerifierFlags;
     }
-    v39 = AVrfpEnabledSystemWide;
+    v31 = AVrfpEnabledSystemWide;
     if ( a1 )
-      v39 = 1;
-    AVrfpEnabledSystemWide = v39;
+      v31 = 1;
+    AVrfpEnabledSystemWide = v31;
     if ( !a3 )
     {
 LABEL_110:
-      Dll = AvrfMiniLoadDll((unsigned int)&VerifierDllString, v84, a3, v83, (__int64)&AvrfpLoaderEntry);
+      Dll = AvrfMiniLoadDll((unsigned int)&VerifierDllString, v70, (_DWORD)a3, v69, (__int64)&AvrfpLoaderEntry);
       if ( Dll >= 0 )
       {
-        *v82 = &AvrfpLoaderEntry;
+        *(_QWORD *)&OutHeaders->Signature = &AvrfpLoaderEntry;
         Dll = AVrfpEnableVerifierOptions();
         if ( Dll >= 0 )
         {
-          LdrProtectMrdata(0, v58, v59, v60);
-          AvrfAppVerifierMode = v74;
-          LdrProtectMrdata(1, v61, v62, v63);
+          LdrProtectMrdata(0);
+          AvrfAppVerifierMode = (int)BaseAddress;
+          LdrProtectMrdata(1);
         }
       }
       return (unsigned int)Dll;
     }
 LABEL_64:
-    if ( (v31 & 4) != 0 && (int)RtlInitUnicodeStringEx((__int64)v78, (__int64)L"HandleTraces") >= 0 )
+    if ( (v22 & 4) != 0 && RtlInitUnicodeStringEx(&ValueName, L"HandleTraces") >= 0 )
     {
-      v40 = &v87;
-      v41 = NtQueryValueKey();
-      if ( v41 >= 0 )
+      v32 = v73;
+      v33 = NtQueryValueKey(a3, &ValueName, KeyValuePartialInformation, v73, 0x400u, &Length);
+      if ( v33 >= 0 )
       {
 LABEL_73:
-        v45 = *((_DWORD *)v40 + 1);
-        if ( ((v45 - 3) & 0xFFFFFFFB) != 0 )
+        v38 = *((_DWORD *)v32 + 1);
+        if ( ((v38 - 3) & 0xFFFFFFFB) != 0 )
         {
-          if ( v45 == 4 )
+          if ( v38 == 4 )
           {
-            if ( *((_DWORD *)v40 + 2) == 4 )
+            if ( *((_DWORD *)v32 + 2) == 4 )
             {
-              v71 = 4;
-              AVrfpHandleTraces = *((_DWORD *)v40 + 3);
+              Length = 4;
+              AVrfpHandleTraces = *((_DWORD *)v32 + 3);
             }
           }
-          else if ( v45 == 1 && ((unsigned __int8)&AVrfpHandleTraces & 3) == 0 )
+          else if ( v38 == 1 && ((unsigned __int8)&AVrfpHandleTraces & 3) == 0 )
           {
-            v71 = 4;
-            v79 = v40 + 12;
-            v78[0] = *((_WORD *)v40 + 4);
-            v78[1] = *((_WORD *)v40 + 4);
-            RtlUnicodeStringToInteger(v78, 0, &AVrfpHandleTraces);
+            Length = 4;
+            ValueName.Buffer = (wchar_t *)(v32 + 12);
+            ValueName.Length = *((_WORD *)v32 + 4);
+            ValueName.MaximumLength = *((_WORD *)v32 + 4);
+            RtlUnicodeStringToInteger(&ValueName, 0, &AVrfpHandleTraces);
           }
         }
         if ( v6 )
 LABEL_81:
-          RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v6);
+          RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v6);
 LABEL_82:
         v6 = 0LL;
       }
-      else if ( v41 == -2147483643 )
+      else if ( v33 == -2147483643 )
       {
         while ( 1 )
         {
-          v42 = NtCurrentPeb()->ProcessHeap;
-          if ( !v42 )
+          v34 = Length;
+          v35 = NtCurrentPeb()->ProcessHeap;
+          if ( !v35 )
             break;
-          v43 = RtlAllocateHeap((__int64)v42, NtdllBaseTag + 1572864, v71);
-          v6 = v43;
-          if ( !v43 )
+          v36 = RtlAllocateHeap(v35, NtdllBaseTag + 1572864, Length);
+          v6 = v36;
+          if ( !v36 )
             goto LABEL_82;
-          v40 = (char *)v43;
-          v44 = NtQueryValueKey();
-          if ( v44 >= 0 )
+          v32 = v36;
+          v37 = NtQueryValueKey(a3, &ValueName, KeyValuePartialInformation, v36, v34, &Length);
+          if ( v37 >= 0 )
             goto LABEL_73;
-          if ( v44 != -2147483643 )
+          if ( v37 != -2147483643 )
             goto LABEL_81;
-          RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, (__int64)v40);
+          RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v32);
           v6 = 0LL;
         }
       }
     }
-    if ( (int)RtlInitUnicodeStringEx((__int64)v80, (__int64)L"VerifierDebug") >= 0 )
+    if ( RtlInitUnicodeStringEx(&String, L"VerifierDebug") >= 0 )
     {
-      v46 = &v88;
-      v47 = NtQueryValueKey();
-      if ( v47 >= 0 )
+      v39 = v74;
+      v40 = NtQueryValueKey(a3, &String, KeyValuePartialInformation, v74, 0x400u, &v61);
+      if ( v40 >= 0 )
       {
 LABEL_91:
-        v51 = *((_DWORD *)v46 + 1);
-        if ( ((v51 - 3) & 0xFFFFFFFB) != 0 )
+        v45 = *((_DWORD *)v39 + 1);
+        if ( ((v45 - 3) & 0xFFFFFFFB) != 0 )
         {
-          if ( v51 == 4 )
+          if ( v45 == 4 )
           {
-            if ( *((_DWORD *)v46 + 2) == 4 )
+            if ( *((_DWORD *)v39 + 2) == 4 )
             {
-              v72 = 4;
-              AVrfpDebug = *((_DWORD *)v46 + 3);
+              v61 = 4;
+              AVrfpDebug = *((_DWORD *)v39 + 3);
             }
           }
-          else if ( v51 == 1 && ((unsigned __int8)&AVrfpDebug & 3) == 0 )
+          else if ( v45 == 1 && ((unsigned __int8)&AVrfpDebug & 3) == 0 )
           {
-            v72 = 4;
-            v81 = v46 + 12;
-            v80[0] = *((_WORD *)v46 + 4);
-            v80[1] = *((_WORD *)v46 + 4);
-            RtlUnicodeStringToInteger(v80, 0, &AVrfpDebug);
+            v61 = 4;
+            String.Buffer = (wchar_t *)(v39 + 12);
+            String.Length = *((_WORD *)v39 + 4);
+            String.MaximumLength = *((_WORD *)v39 + 4);
+            RtlUnicodeStringToInteger(&String, 0, &AVrfpDebug);
           }
         }
         if ( v6 )
 LABEL_99:
-          RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v6);
+          RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v6);
       }
-      else if ( v47 == -2147483643 )
+      else if ( v40 == -2147483643 )
       {
         while ( 1 )
         {
-          v48 = NtCurrentPeb()->ProcessHeap;
-          if ( !v48 )
+          v41 = v61;
+          v42 = NtCurrentPeb()->ProcessHeap;
+          if ( !v42 )
             break;
-          v49 = RtlAllocateHeap((__int64)v48, NtdllBaseTag + 1572864, v72);
-          v6 = v49;
-          if ( !v49 )
+          v43 = RtlAllocateHeap(v42, NtdllBaseTag + 1572864, v61);
+          v6 = v43;
+          if ( !v43 )
             break;
-          v46 = (char *)v49;
-          v50 = NtQueryValueKey();
-          if ( v50 >= 0 )
+          v39 = v43;
+          v44 = NtQueryValueKey(a3, &String, KeyValuePartialInformation, v43, v41, &v61);
+          if ( v44 >= 0 )
             goto LABEL_91;
-          if ( v50 != -2147483643 )
+          if ( v44 != -2147483643 )
             goto LABEL_99;
-          RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, (__int64)v46);
+          RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v39);
         }
       }
     }
-    if ( (int)RtlInitUnicodeStringEx((__int64)v85, (__int64)L"VerifierDlls") >= 0 )
+    if ( RtlInitUnicodeStringEx(&v71, L"VerifierDlls") >= 0 )
     {
-      v52 = &v89;
-      v53 = NtQueryValueKey();
-      if ( v53 < 0 )
+      v46 = v75;
+      v47 = NtQueryValueKey(a3, &v71, KeyValuePartialInformation, v75, 0x400u, (PULONG)&ProcedureAddress);
+      if ( v47 < 0 )
       {
-        if ( v53 == -2147483643 )
+        if ( v47 == -2147483643 )
         {
           while ( 1 )
           {
-            v65 = NtCurrentPeb()->ProcessHeap;
-            if ( !v65 )
+            v53 = (unsigned int)ProcedureAddress;
+            v54 = NtCurrentPeb()->ProcessHeap;
+            if ( !v54 )
               break;
-            v66 = RtlAllocateHeap((__int64)v65, NtdllBaseTag + 1572864, (unsigned int)v73);
-            v54 = v66;
-            if ( !v66 )
+            v55 = RtlAllocateHeap(v54, NtdllBaseTag + 1572864, (unsigned int)ProcedureAddress);
+            v48 = v55;
+            if ( !v55 )
               break;
-            v52 = (char *)v66;
-            v67 = NtQueryValueKey();
-            if ( v67 >= 0 )
+            v46 = v55;
+            v56 = NtQueryValueKey(a3, &v71, KeyValuePartialInformation, v55, v53, (PULONG)&ProcedureAddress);
+            if ( v56 >= 0 )
               goto LABEL_103;
-            if ( v67 != -2147483643 )
+            if ( v56 != -2147483643 )
               goto LABEL_109;
-            RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v54);
+            RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v48);
           }
         }
       }
       else
       {
-        v54 = 0LL;
+        v48 = 0LL;
 LABEL_103:
-        v55 = *((_DWORD *)v52 + 1);
-        if ( v55 > 0xB || (v56 = 2200, !_bittest(&v56, v55)) )
+        v49 = v46[1];
+        if ( v49 > 0xB || (v50 = 2200, !_bittest(&v50, v49)) )
         {
-          if ( v55 == 1 )
+          if ( v49 == 1 )
           {
-            v57 = *((_DWORD *)v52 + 2);
-            LODWORD(v73) = v57;
-            if ( v57 <= 0x200 )
-              memmove(&AVrfpVerifierDllsString, v52 + 12, v57);
+            v51 = v46[2];
+            LODWORD(ProcedureAddress) = v51;
+            if ( v51 <= 0x200 )
+              memmove(&AVrfpVerifierDllsString, v46 + 3, v51);
           }
         }
-        if ( v54 )
+        if ( v48 )
 LABEL_109:
-          RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v54);
+          RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v48);
       }
     }
     goto LABEL_110;
   }
-  if ( (_DWORD)a4 != 1 )
+  if ( a4 != 1 )
     return 0;
   qword_180179358 = (__int64)&AVrfpVerifierProvidersList;
   AVrfpVerifierProvidersList = (__int64)&AVrfpVerifierProvidersList;
-  Dll = RtlInitializeCriticalSectionEx((__int64)&AVrfpVerifierLock, 0LL, 0LL, a4);
+  Dll = RtlInitializeCriticalSectionEx(&AVrfpVerifierLock, 0, 0);
   if ( Dll < 0 )
     return (unsigned int)Dll;
   if ( AvrfAppVerifierMode == 2 )
   {
-    v69[0] = 0;
-    Dll = LdrpInitializeGraphRecurse(qword_180179498, 0LL, v69);
+    v58[0] = 0;
+    Dll = LdrpInitializeGraphRecurse(qword_180179498, 0LL, v58);
     if ( Dll < 0 )
       return (unsigned int)Dll;
     return 0;
   }
   DbgPrintEx(
-    93,
+    0x5Du,
     0,
     "AVRF: %ws: pid 0x%X: flags 0x%X: application verifier enabled\n",
     *(_QWORD *)(qword_18017A150 + 96),
@@ -411,13 +407,13 @@ LABEL_109:
     AVrfpVerifierFlags);
   if ( (int)AVrfpParseVerifierDllsString() < 0 )
   {
-    LODWORD(v68) = NtCurrentTeb()->ClientId.UniqueProcess;
+    Flags[0] = (ULONG)NtCurrentTeb()->ClientId.UniqueProcess;
     DbgPrintEx(
-      93,
+      0x5Du,
       0,
       "AVRF: %ws: pid 0x%X: application verifier will be disabled due to an initialization error.\n",
       *(_QWORD *)(qword_18017A150 + 96),
-      v68);
+      *(_QWORD *)Flags);
     Dll = -1073741823;
     NtCurrentPeb()->NtGlobalFlag = NtCurrentPeb()->NtGlobalFlag & 0xFFFFFEFF;
     return (unsigned int)Dll;
@@ -428,65 +424,66 @@ LABEL_109:
       return (unsigned int)-1073741502;
   }
   AVrfpChainDuplicateVerificationLayers();
-  LoadedDllByName = LdrpFindLoadedDllByName(VrfcoreDllString, 0LL, 0LL, (unsigned __int64)&v74, 0LL);
+  LoadedDllByName = LdrpFindLoadedDllByName(VrfcoreDllString, 0LL, 0, (__int64)&BaseAddress, 0LL);
   Dll = LoadedDllByName;
   if ( LoadedDllByName < 0 )
   {
     if ( LoadedDllByName != -1073741515 )
       return (unsigned int)Dll;
-    v16 = qword_180179390;
+    v13 = (void *)qword_180179390;
   }
   else
   {
-    v16 = *(_QWORD *)(v74 + 48);
-    LdrpDereferenceModule(v74, v13, v14, v15);
+    v13 = (void *)*((_QWORD *)BaseAddress + 6);
+    LdrpDereferenceModule((char *)BaseAddress);
   }
   ProcedureAddressForCaller = LdrGetProcedureAddressForCaller(
-                                v16,
-                                &AvrfpAPILookupCallbackName,
-                                0LL,
-                                (volatile signed __int32 *)&v73,
-                                1,
-                                retaddr);
-  LdrProtectMrdata(0, v18, v19, v20);
+                                v13,
+                                (PANSI_STRING)&AvrfpAPILookupCallbackName,
+                                0,
+                                &ProcedureAddress,
+                                1u,
+                                Callback);
+  LdrProtectMrdata(0);
   if ( ProcedureAddressForCaller >= 0 )
   {
-    v21 = __ROR8__(v73 ^ MEMORY[0x7FFE0330], MEMORY[0x7FFE0330] & 0x3F);
-    AvrfpAPILookupCallbackRoutine = v21;
+    AvrfpAPILookupCallbackRoutine = __ROR8__(
+                                      (unsigned __int64)ProcedureAddress ^ MEMORY[0x7FFE0330],
+                                      MEMORY[0x7FFE0330] & 0x3F);
     AvrfpAPILookupCallbacksEnabled = 1;
   }
   AVrfpEnabled = 1;
   RtlGuardAllowSuppressedCalls = 1;
-  LdrProtectMrdata(1, v21, v22, v23);
+  LdrProtectMrdata(1);
   AVrfpSnapAlreadyLoadedDlls();
-  v24 = (__int64 *)AVrfpVerifierProvidersList;
+  v15 = (__int64 *)AVrfpVerifierProvidersList;
   if ( (__int64 *)AVrfpVerifierProvidersList == &AVrfpVerifierProvidersList )
   {
 LABEL_21:
     if ( (AVrfpDebug & 8) != 0 )
     {
       DbgPrint("AVRF: -*- final list of providers -*- \n");
-      v26 = (__int64 *)AVrfpVerifierProvidersList;
-      while ( v26 != &AVrfpVerifierProvidersList )
+      v17 = (__int64 *)AVrfpVerifierProvidersList;
+      while ( v17 != &AVrfpVerifierProvidersList )
       {
-        v27 = v26[3];
-        v26 = (__int64 *)*v26;
-        DbgPrint("AVRF: provider %ws \n", v27);
+        v18 = v17[3];
+        v17 = (__int64 *)*v17;
+        DbgPrint("AVRF: provider %ws \n", v18);
       }
     }
     AVrfpVerifierStopInitialize();
-    RtlImageNtHeaderEx(3, (unsigned __int64)v7->ImageBaseAddress, 0LL, &v82);
+    RtlImageNtHeaderEx(3u, v7->ImageBaseAddress, 0LL, &OutHeaders);
     return 0;
   }
   while ( 1 )
   {
-    v25 = v24[4];
-    v69[0] = 0;
-    Dll = LdrpInitializeGraphRecurse(*(__int64 **)(v25 + 152), 0LL, v69);
+    v16 = v15[4];
+    v58[0] = 0;
+    Dll = LdrpInitializeGraphRecurse(*(__int64 **)(v16 + 152), 0LL, v58);
     if ( Dll < 0 )
       return (unsigned int)Dll;
-    v24 = (__int64 *)*v24;
-    if ( v24 == &AVrfpVerifierProvidersList )
+    v15 = (__int64 *)*v15;
+    if ( v15 == &AVrfpVerifierProvidersList )
       goto LABEL_21;
   }
 }

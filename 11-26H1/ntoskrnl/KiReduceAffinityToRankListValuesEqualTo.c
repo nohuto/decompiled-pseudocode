@@ -1,7 +1,7 @@
 /*
- * XREFs of KiReduceAffinityToRankListValuesEqualTo @ 0x140486940
+ * XREFs of KiReduceAffinityToRankListValuesEqualTo @ 0x1404802B8
  * Callers:
- *     KiCheckPreferredHeteroProcessor @ 0x14021EB80 (KiCheckPreferredHeteroProcessor.c)
+ *     KiCheckPreferredHeteroProcessor @ 0x140220510 (KiCheckPreferredHeteroProcessor.c)
  * Callees:
  *     <none>
  */

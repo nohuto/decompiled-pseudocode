@@ -1,9 +1,10 @@
 /*
- * XREFs of SepIsAppSiloCapability @ 0x1404833CC
+ * XREFs of SepIsAppSiloCapability @ 0x14047E93C
  * Callers:
- *     NtCreateLowBoxToken @ 0x140AD8020 (NtCreateLowBoxToken.c)
+ *     SepCreateAppContainerToken @ 0x140606A30 (SepCreateAppContainerToken.c)
+ *     NtCreateLowBoxToken @ 0x140AD5A60 (NtCreateLowBoxToken.c)
  * Callees:
- *     RtlIdentifierAuthoritySid @ 0x140A5E8A8 (RtlIdentifierAuthoritySid.c)
+ *     RtlIdentifierAuthoritySid @ 0x140A56B18 (RtlIdentifierAuthoritySid.c)
  */
 
 char __fastcall SepIsAppSiloCapability(_BYTE *a1)

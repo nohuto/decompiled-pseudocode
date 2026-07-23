@@ -1,11 +1,11 @@
 /*
- * XREFs of LdrpAppCompatRedirect @ 0x18007653C
+ * XREFs of LdrpAppCompatRedirect @ 0x180092E1C
  * Callers:
- *     LdrpMapDllFullPath @ 0x180075388 (LdrpMapDllFullPath.c)
+ *     LdrpMapDllFullPath @ 0x180091C68 (LdrpMapDllFullPath.c)
  * Callees:
- *     LdrpResolveDllName @ 0x180075B50 (LdrpResolveDllName.c)
- *     LdrpFreeUnicodeString @ 0x18007625C (LdrpFreeUnicodeString.c)
- *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x180172020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
+ *     LdrpResolveDllName @ 0x180092430 (LdrpResolveDllName.c)
+ *     LdrpFreeUnicodeString @ 0x180092B3C (LdrpFreeUnicodeString.c)
+ *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x180171020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
  */
 
 __int64 __fastcall LdrpAppCompatRedirect(__int64 a1, _OWORD *a2, __int64 a3, __int64 a4, int a5)

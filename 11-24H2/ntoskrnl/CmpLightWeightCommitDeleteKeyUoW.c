@@ -1,26 +1,26 @@
 /*
- * XREFs of CmpLightWeightCommitDeleteKeyUoW @ 0x140A1F204
+ * XREFs of CmpLightWeightCommitDeleteKeyUoW @ 0x140A14304
  * Callers:
- *     CmpProcessLightWeightUOW @ 0x140A069C4 (CmpProcessLightWeightUOW.c)
+ *     CmpProcessLightWeightUOW @ 0x140A02EF4 (CmpProcessLightWeightUOW.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140330CB0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgKeywordOn @ 0x140426AF0 (_tlgKeywordOn.c)
- *     CmSiFreeMemory @ 0x14046B8D0 (CmSiFreeMemory.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     CmpFlushNotifiesOnKeyBodyList @ 0x140869324 (CmpFlushNotifiesOnKeyBodyList.c)
- *     HvpGetCellFlat @ 0x140874470 (HvpGetCellFlat.c)
- *     HvpGetCellPaged @ 0x1408744C0 (HvpGetCellPaged.c)
- *     HvpReleaseCellPaged @ 0x140875760 (HvpReleaseCellPaged.c)
- *     CmpMarkKeyUnbacked @ 0x14087B8F8 (CmpMarkKeyUnbacked.c)
- *     CmpCleanUpSubKeyInfo @ 0x14087C170 (CmpCleanUpSubKeyInfo.c)
- *     CmpFreeKeyByCell @ 0x140880420 (CmpFreeKeyByCell.c)
- *     HvpReleaseCellFlat @ 0x140884BB0 (HvpReleaseCellFlat.c)
- *     CmpDiscardKcb @ 0x14097C848 (CmpDiscardKcb.c)
- *     CmpFlushNotifiesOnAllUnbackedHigherLayerKcbs @ 0x140A1F3A0 (CmpFlushNotifiesOnAllUnbackedHigherLayerKcbs.c)
- *     CmpLightWeightCleanupModifyKeyDataUoW @ 0x140A1FAD8 (CmpLightWeightCleanupModifyKeyDataUoW.c)
- *     CmpLightWeightSwapParentSubKeyList @ 0x140A1FB30 (CmpLightWeightSwapParentSubKeyList.c)
- *     CmpCleanupDiscardReplaceContext @ 0x140A1FBEC (CmpCleanupDiscardReplaceContext.c)
- *     CmpCommitDiscardAndReplaceKcbAndUnbackedHigherLayers @ 0x140A1FC64 (CmpCommitDiscardAndReplaceKcbAndUnbackedHigherLayers.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402B92F0 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x14041A970 (_tlgKeywordOn.c)
+ *     CmSiFreeMemory @ 0x140464550 (CmSiFreeMemory.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     CmpFlushNotifiesOnKeyBodyList @ 0x14086D654 (CmpFlushNotifiesOnKeyBodyList.c)
+ *     HvpGetCellFlat @ 0x1408787A0 (HvpGetCellFlat.c)
+ *     HvpGetCellPaged @ 0x1408787F0 (HvpGetCellPaged.c)
+ *     HvpReleaseCellPaged @ 0x140879A90 (HvpReleaseCellPaged.c)
+ *     CmpMarkKeyUnbacked @ 0x14087F7A8 (CmpMarkKeyUnbacked.c)
+ *     CmpCleanUpSubKeyInfo @ 0x140880020 (CmpCleanUpSubKeyInfo.c)
+ *     CmpFreeKeyByCell @ 0x1408842D0 (CmpFreeKeyByCell.c)
+ *     HvpReleaseCellFlat @ 0x140888A60 (HvpReleaseCellFlat.c)
+ *     CmpDiscardKcb @ 0x140965058 (CmpDiscardKcb.c)
+ *     CmpFlushNotifiesOnAllUnbackedHigherLayerKcbs @ 0x140A144A0 (CmpFlushNotifiesOnAllUnbackedHigherLayerKcbs.c)
+ *     CmpLightWeightCleanupModifyKeyDataUoW @ 0x140A14BD8 (CmpLightWeightCleanupModifyKeyDataUoW.c)
+ *     CmpLightWeightSwapParentSubKeyList @ 0x140A14C30 (CmpLightWeightSwapParentSubKeyList.c)
+ *     CmpCleanupDiscardReplaceContext @ 0x140A14CEC (CmpCleanupDiscardReplaceContext.c)
+ *     CmpCommitDiscardAndReplaceKcbAndUnbackedHigherLayers @ 0x140A14D64 (CmpCommitDiscardAndReplaceKcbAndUnbackedHigherLayers.c)
  */
 
 __int64 __fastcall CmpLightWeightCommitDeleteKeyUoW(__int64 a1, _QWORD *a2, __int64 a3)
@@ -55,8 +55,8 @@ __int64 __fastcall CmpLightWeightCommitDeleteKeyUoW(__int64 a1, _QWORD *a2, __in
   v9 = *(unsigned int *)(v3 + 40);
   v20[1] = 0;
   if ( (int)CmpFreeKeyByCell(v8, v9, 0) < 0
-    && (unsigned int)dword_140E09EE8 > 5
-    && tlgKeywordOn((__int64)&dword_140E09EE8, 0x200000000000LL) )
+    && (unsigned int)dword_140E09F58 > 5
+    && tlgKeywordOn((__int64)&dword_140E09F58, 0x200000000000LL) )
   {
     v21 = v19;
     v25 = 4LL;
@@ -64,7 +64,7 @@ __int64 __fastcall CmpLightWeightCommitDeleteKeyUoW(__int64 a1, _QWORD *a2, __in
     v22 = 0x1000000LL;
     v26 = &v22;
     v27 = 8LL;
-    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140E09EE8, (unsigned __int8 *)byte_140055BE5, 0LL, 0LL, 4u, &v23);
+    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140E09F58, (unsigned __int8 *)&byte_1400566DF, 0LL, 0LL, 4u, &v23);
   }
   v10 = *(_QWORD *)(*(_QWORD *)(a1 + 48) + 72LL);
   if ( *v5 == 1 )

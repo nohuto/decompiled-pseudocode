@@ -1,5 +1,5 @@
 /*
- * XREFs of KeQueryEffectivePriorityThread @ 0x1401102F4
+ * XREFs of KeQueryEffectivePriorityThread @ 0x140110858
  * Callers:
  *     <none>
  * Callees:

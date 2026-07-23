@@ -1,16 +1,16 @@
 /*
- * XREFs of NtLoadKey @ 0x1800A22F0
+ * XREFs of NtLoadKey @ 0x1800A2310
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 NtLoadKey()
+NTSTATUS __cdecl NtLoadKey(POBJECT_ATTRIBUTES TargetKey, POBJECT_ATTRIBUTES SourceFile)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 257LL;
+  result = 257;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

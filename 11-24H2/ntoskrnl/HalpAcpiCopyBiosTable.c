@@ -1,15 +1,15 @@
 /*
- * XREFs of HalpAcpiCopyBiosTable @ 0x14053D1B0
+ * XREFs of HalpAcpiCopyBiosTable @ 0x14053AAB0
  * Callers:
- *     HalpAcpiGetTableWork @ 0x14047856C (HalpAcpiGetTableWork.c)
- *     HalpAcpiGetRsdt @ 0x1404789A4 (HalpAcpiGetRsdt.c)
- *     HalpAcpiGetAllTablesWork @ 0x14053D2C8 (HalpAcpiGetAllTablesWork.c)
- *     HalpAcpiTableCacheInit @ 0x140C67860 (HalpAcpiTableCacheInit.c)
+ *     HalpAcpiGetTableWork @ 0x14045F9FC (HalpAcpiGetTableWork.c)
+ *     HalpAcpiGetRsdt @ 0x14046014C (HalpAcpiGetRsdt.c)
+ *     HalpAcpiGetAllTablesWork @ 0x14053ABC8 (HalpAcpiGetAllTablesWork.c)
+ *     HalpAcpiTableCacheInit @ 0x140C699DC (HalpAcpiTableCacheInit.c)
  * Callees:
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     RtlCopyDeviceMemory @ 0x140520F1C (RtlCopyDeviceMemory.c)
- *     HalpAcpiAllocateMemory @ 0x14053D0C0 (HalpAcpiAllocateMemory.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     RtlCopyDeviceMemory @ 0x14051E7EC (RtlCopyDeviceMemory.c)
+ *     HalpAcpiAllocateMemory @ 0x14053A9C0 (HalpAcpiAllocateMemory.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 char *__fastcall HalpAcpiCopyBiosTable(__int64 a1, ULONG_PTR a2, __int64 a3)

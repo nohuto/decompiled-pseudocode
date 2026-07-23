@@ -1,14 +1,14 @@
 /*
- * XREFs of HvCheckHive @ 0x140709848
+ * XREFs of HvCheckHive @ 0x140720C28
  * Callers:
- *     CmCheckRegistry @ 0x1407216C8 (CmCheckRegistry.c)
+ *     CmCheckRegistry @ 0x1406F8F20 (CmCheckRegistry.c)
  * Callees:
- *     SetFailureLocation @ 0x1402C4808 (SetFailureLocation.c)
- *     HvpMapEntryGetFreeBin @ 0x14070810C (HvpMapEntryGetFreeBin.c)
- *     HvpGetCellMap @ 0x140708730 (HvpGetCellMap.c)
- *     HvCheckBin @ 0x140709190 (HvCheckBin.c)
- *     HvMoveLayoutStats @ 0x1407093D8 (HvMoveLayoutStats.c)
- *     HvAddToLayoutStats @ 0x1407093F4 (HvAddToLayoutStats.c)
+ *     SetFailureLocation @ 0x140242D88 (SetFailureLocation.c)
+ *     HvpMapEntryGetFreeBin @ 0x14071F4EC (HvpMapEntryGetFreeBin.c)
+ *     HvpGetCellMap @ 0x14071FB10 (HvpGetCellMap.c)
+ *     HvCheckBin @ 0x140720570 (HvCheckBin.c)
+ *     HvMoveLayoutStats @ 0x1407207B8 (HvMoveLayoutStats.c)
+ *     HvAddToLayoutStats @ 0x1407207D4 (HvAddToLayoutStats.c)
  */
 
 __int64 __fastcall HvCheckHive(__int64 a1, __int64 a2, __int64 a3, __int64 a4, __int64 a5, __int64 a6)
@@ -24,10 +24,10 @@ __int64 __fastcall HvCheckHive(__int64 a1, __int64 a2, __int64 a3, __int64 a4, _
   __int64 FreeBin; // rax
   __int64 v15; // rcx
   __int64 v16; // r8
-  RTL_BITMAP *BitMapHeader; // r10
+  _RTL_BITMAP *BitMapHeader; // r10
   _DWORD *v18; // rbp
   __int64 v19; // rcx
-  int v20; // eax
+  signed int v20; // eax
   unsigned int v21; // esi
   int v23; // edx
   _DWORD *v24; // rcx
@@ -53,7 +53,7 @@ __int64 __fastcall HvCheckHive(__int64 a1, __int64 a2, __int64 a3, __int64 a4, _
         v21 = -1073741492;
         if ( v7 )
         {
-          SetFailureLocation(v7, 0, 16, -1073741492, 0);
+          SetFailureLocation(v7, 0, 16, 0xC000014C, 0);
           *(_DWORD *)(v7 + 296) = v10;
           *(_DWORD *)(v7 + 300) = v8;
         }
@@ -83,7 +83,7 @@ __int64 __fastcall HvCheckHive(__int64 a1, __int64 a2, __int64 a3, __int64 a4, _
           v21 = -1073741492;
           if ( !v7 )
             return v21;
-          SetFailureLocation(v7, 0, 16, -1073741492, 32);
+          SetFailureLocation(v7, 0, 16, 0xC000014C, 0x20u);
           goto LABEL_23;
         }
         v20 = HvCheckBin(v19, v18, v16, &v26, BitMapHeader, v9, v7);
@@ -92,7 +92,7 @@ __int64 __fastcall HvCheckHive(__int64 a1, __int64 a2, __int64 a3, __int64 a4, _
         {
           if ( !v7 )
             return v21;
-          SetFailureLocation(v7, 0, 16, v20, 48);
+          SetFailureLocation(v7, 0, 16, v20, 0x30u);
 LABEL_23:
           *(_DWORD *)(v7 + 296) = v10;
           *(_DWORD *)(v7 + 300) = v8;

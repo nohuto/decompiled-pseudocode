@@ -1,11 +1,11 @@
 /*
- * XREFs of IoSetShadowFileInformation @ 0x1403C5970
+ * XREFs of IoSetShadowFileInformation @ 0x1403B4530
  * Callers:
  *     <none>
  * Callees:
- *     IopAllocateFileObjectExtension @ 0x1403C5A80 (IopAllocateFileObjectExtension.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     IopAllocateFileObjectExtension @ 0x1403B4640 (IopAllocateFileObjectExtension.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall IoSetShadowFileInformation(__int64 a1, __int64 a2, __int64 a3)
@@ -21,7 +21,7 @@ __int64 __fastcall IoSetShadowFileInformation(__int64 a1, __int64 a2, __int64 a3
   result = IopAllocateFileObjectExtension(a1, &v9, 0LL);
   if ( (int)result >= 0 )
   {
-    Pool2 = (_QWORD *)ExAllocatePool2(0x40uLL);
+    Pool2 = (_QWORD *)ExAllocatePool2(0x40uLL, 0x10uLL, 0x66536F49u);
     if ( Pool2 )
     {
       v8 = v9;

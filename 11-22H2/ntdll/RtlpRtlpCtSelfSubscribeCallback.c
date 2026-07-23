@@ -6,8 +6,8 @@
  *     ZwSetEvent @ 0x18009EFB0 (ZwSetEvent.c)
  */
 
-__int64 RtlpRtlpCtSelfSubscribeCallback()
+__int64 __fastcall RtlpRtlpCtSelfSubscribeCallback(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
-  ZwSetEvent();
+  ZwSetEvent(*(HANDLE *)(a4 + 16), 0LL);
   return 0LL;
 }

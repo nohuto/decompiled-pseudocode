@@ -3,8 +3,8 @@
  * Callers:
  *     InbvDriverInitialize @ 0x140B52524 (InbvDriverInitialize.c)
  * Callees:
- *     _strupr @ 0x1403D8960 (_strupr.c)
- *     strstr @ 0x1403D91D0 (strstr.c)
+ *     _strupr @ 0x1403D8B40 (_strupr.c)
+ *     strstr @ 0x1403D93B0 (strstr.c)
  *     FindBitmapResource @ 0x140B526E0 (FindBitmapResource.c)
  *     BvgaSaveResources @ 0x140B53464 (BvgaSaveResources.c)
  */

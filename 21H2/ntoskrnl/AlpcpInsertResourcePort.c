@@ -1,15 +1,15 @@
 /*
- * XREFs of AlpcpInsertResourcePort @ 0x140660DCC
+ * XREFs of AlpcpInsertResourcePort @ 0x140655BEC
  * Callers:
- *     AlpcpCreateSecurityContext @ 0x1406605EC (AlpcpCreateSecurityContext.c)
- *     AlpcpCreateView @ 0x140660B40 (AlpcpCreateView.c)
- *     AlpcpCreateReserve @ 0x1406B0D14 (AlpcpCreateReserve.c)
- *     AlpcpCreateSection @ 0x1406D43DC (AlpcpCreateSection.c)
- *     AlpcpMapLegacyPortRemoteView @ 0x1407702F0 (AlpcpMapLegacyPortRemoteView.c)
+ *     AlpcpCreateReserve @ 0x14060FCC4 (AlpcpCreateReserve.c)
+ *     AlpcpCreateSecurityContext @ 0x14065540C (AlpcpCreateSecurityContext.c)
+ *     AlpcpCreateView @ 0x140655960 (AlpcpCreateView.c)
+ *     AlpcpCreateSection @ 0x1406AB6BC (AlpcpCreateSection.c)
+ *     AlpcpMapLegacyPortRemoteView @ 0x1407704B0 (AlpcpMapLegacyPortRemoteView.c)
  * Callees:
- *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
- *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
+ *     ExfTryToWakePushLock @ 0x1402FC2C0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x1403539D0 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1403556E0 (ExAcquirePushLockExclusiveEx.c)
  */
 
 char __fastcall AlpcpInsertResourcePort(__int64 a1, __int64 a2)

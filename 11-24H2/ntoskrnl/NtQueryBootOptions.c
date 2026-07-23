@@ -1,58 +1,58 @@
 /*
- * XREFs of NtQueryBootOptions @ 0x140A97A60
+ * XREFs of NtQueryBootOptions @ 0x140A942B0
  * Callers:
  *     <none>
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     ExReleaseFastMutexUnsafe @ 0x14031CF70 (ExReleaseFastMutexUnsafe.c)
- *     ExAcquireFastMutexUnsafe @ 0x1403DB130 (ExAcquireFastMutexUnsafe.c)
- *     PsIsCurrentThreadInServerSilo @ 0x14042F240 (PsIsCurrentThreadInServerSilo.c)
- *     SeSinglePrivilegeCheck @ 0x140853E90 (SeSinglePrivilegeCheck.c)
- *     ProbeForWrite @ 0x1408C0590 (ProbeForWrite.c)
- *     IoGetEnvironmentVariableEx @ 0x140966F70 (IoGetEnvironmentVariableEx.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     ExReleaseFastMutexUnsafe @ 0x1402C5B00 (ExReleaseFastMutexUnsafe.c)
+ *     ExAcquireFastMutexUnsafe @ 0x1403CD970 (ExAcquireFastMutexUnsafe.c)
+ *     PsIsCurrentThreadInServerSilo @ 0x140421410 (PsIsCurrentThreadInServerSilo.c)
+ *     SeSinglePrivilegeCheck @ 0x140850150 (SeSinglePrivilegeCheck.c)
+ *     ProbeForWrite @ 0x1408BDF50 (ProbeForWrite.c)
+ *     IoGetEnvironmentVariableEx @ 0x14094FA00 (IoGetEnvironmentVariableEx.c)
  */
 
-__int64 __fastcall NtQueryBootOptions(_DWORD *Address, _DWORD *a2)
+NTSTATUS __cdecl NtQueryBootOptions(PBOOT_OPTIONS BootOptions, PULONG BootOptionsLength)
 {
   __int64 v4; // rcx
-  unsigned int v5; // ebx
-  unsigned int v7; // ebx
+  ULONG v5; // ebx
+  NTSTATUS v7; // ebx
   struct _KTHREAD *v8; // rax
-  unsigned int EnvironmentVariable; // eax
-  unsigned int v10; // eax
-  unsigned int v11; // eax
+  NTSTATUS EnvironmentVariable; // eax
+  NTSTATUS v10; // eax
+  NTSTATUS v11; // eax
   unsigned int v12; // [rsp+30h] [rbp-48h] BYREF
-  unsigned int v13; // [rsp+34h] [rbp-44h] BYREF
-  int v14; // [rsp+3Ch] [rbp-3Ch] BYREF
-  int v15; // [rsp+40h] [rbp-38h] BYREF
-  unsigned int v16; // [rsp+44h] [rbp-34h]
+  ULONG v13[2]; // [rsp+34h] [rbp-44h] BYREF
+  ULONG v14; // [rsp+3Ch] [rbp-3Ch] BYREF
+  ULONG v15; // [rsp+40h] [rbp-38h] BYREF
+  ULONG v16; // [rsp+44h] [rbp-34h]
   struct _KTHREAD *CurrentThread; // [rsp+58h] [rbp-20h]
   KPROCESSOR_MODE PreviousMode; // [rsp+90h] [rbp+18h]
 
-  v13 = 0;
+  v13[0] = 0;
   v14 = 0;
   v15 = 0;
   v12 = 0;
-  if ( dword_140EFEAF0 != 2 || PsIsCurrentThreadInServerSilo() )
-    return 3221225474LL;
+  if ( dword_140EFEE10 != 2 || PsIsCurrentThreadInServerSilo() )
+    return -1073741822;
   CurrentThread = KeGetCurrentThread();
   PreviousMode = CurrentThread->PreviousMode;
   if ( PreviousMode )
   {
     v4 = 0x7FFFFFFF0000LL;
-    if ( (unsigned __int64)a2 < 0x7FFFFFFF0000LL )
-      v4 = (__int64)a2;
+    if ( (unsigned __int64)BootOptionsLength < 0x7FFFFFFF0000LL )
+      v4 = (__int64)BootOptionsLength;
     *(_DWORD *)v4 = *(_DWORD *)v4;
-    v5 = Address != 0LL ? *a2 : 0;
+    v5 = BootOptions != 0LL ? *BootOptionsLength : 0;
     v16 = v5;
     if ( v5 )
-      ProbeForWrite(Address, v5, 4u);
+      ProbeForWrite(BootOptions, v5, 4u);
     if ( !SeSinglePrivilegeCheck(SeSystemEnvironmentPrivilege, PreviousMode) )
-      return 3221225569LL;
+      return -1073741727;
   }
   else
   {
-    v5 = Address != 0LL ? *a2 : 0;
+    v5 = BootOptions != 0LL ? *BootOptionsLength : 0;
     v16 = v5;
   }
   if ( v5 >= 0x16 )
@@ -64,13 +64,13 @@ __int64 __fastcall NtQueryBootOptions(_DWORD *Address, _DWORD *a2)
     EnvironmentVariable = IoGetEnvironmentVariableEx(
                             L"Timeout",
                             (__int64)&EfiBootVariablesGuid,
-                            (__int64)&v13,
+                            (__int64)v13,
                             (int *)&v12,
                             0LL);
     v7 = EnvironmentVariable;
     if ( EnvironmentVariable == -1073741789 )
     {
-      v13 = -2;
+      v13[0] = -2;
 LABEL_23:
       v12 = 4;
       v10 = IoGetEnvironmentVariableEx(L"BootCurrent", (__int64)&EfiBootVariablesGuid, (__int64)&v14, (int *)&v12, 0LL);
@@ -111,35 +111,35 @@ LABEL_35:
       if ( v12 <= 2 )
       {
 LABEL_20:
-        if ( v13 != 0xFFFF )
+        if ( v13[0] != 0xFFFF )
           goto LABEL_23;
         goto LABEL_21;
       }
-      if ( v13 != -1 )
+      if ( v13[0] != -1 )
       {
-        if ( v13 > 0xFFFE )
-          v13 = 65534;
+        if ( v13[0] > 0xFFFE )
+          v13[0] = 65534;
         goto LABEL_20;
       }
     }
 LABEL_21:
-    v13 = -1;
+    v13[0] = -1;
     goto LABEL_23;
   }
   v7 = -1073741789;
 LABEL_36:
   if ( !v7 )
   {
-    if ( Address )
+    if ( BootOptions )
     {
-      *Address = 1;
-      Address[1] = 22;
-      Address[2] = v13;
-      Address[3] = v14;
-      Address[4] = v15;
-      *((_WORD *)Address + 10) = 0;
+      BootOptions->Version = 1;
+      BootOptions->Length = 22;
+      BootOptions->Timeout = v13[0];
+      BootOptions->CurrentBootEntryId = v14;
+      BootOptions->NextBootEntryId = v15;
+      BootOptions->HeadlessRedirection[0] = 0;
     }
   }
-  *a2 = 22;
+  *BootOptionsLength = 22;
   return v7;
 }

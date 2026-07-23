@@ -1,14 +1,14 @@
 /*
- * XREFs of ZwQueryAuxiliaryCounterFrequency @ 0x1403FCB80
+ * XREFs of ZwQueryAuxiliaryCounterFrequency @ 0x1403FCD60
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwQueryAuxiliaryCounterFrequency(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwQueryAuxiliaryCounterFrequency(PLARGE_INTEGER AuxiliaryCounterFrequency)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(AuxiliaryCounterFrequency);
 }

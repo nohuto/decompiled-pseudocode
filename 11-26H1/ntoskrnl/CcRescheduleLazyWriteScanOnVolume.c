@@ -1,12 +1,12 @@
 /*
- * XREFs of CcRescheduleLazyWriteScanOnVolume @ 0x140218EC0
+ * XREFs of CcRescheduleLazyWriteScanOnVolume @ 0x140218F44
  * Callers:
- *     CcLazyWriteScanVolume @ 0x140388CAC (CcLazyWriteScanVolume.c)
- *     CcCoalescingCallBackHelper @ 0x1403E0480 (CcCoalescingCallBackHelper.c)
+ *     CcLazyWriteScanVolume @ 0x14038AA5C (CcLazyWriteScanVolume.c)
+ *     CcCoalescingCallBackHelper @ 0x1403E3670 (CcCoalescingCallBackHelper.c)
  * Callees:
- *     KeSetCoalescableTimer @ 0x140219B40 (KeSetCoalescableTimer.c)
- *     KiSetTimerEx @ 0x1403ABF20 (KiSetTimerEx.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
+ *     KeSetCoalescableTimer @ 0x140219CA0 (KeSetCoalescableTimer.c)
+ *     KiSetTimerEx @ 0x1403B5C30 (KiSetTimerEx.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
  */
 
 void __fastcall CcRescheduleLazyWriteScanOnVolume(_BYTE *a1, __int64 *a2)
@@ -22,7 +22,7 @@ void __fastcall CcRescheduleLazyWriteScanOnVolume(_BYTE *a1, __int64 *a2)
   {
     if ( a2 && (v4 = *a2, *a2 != 0x7FFFFFFFFFFFFFFFLL) && v4 )
     {
-      v5.QuadPart = v4 * (unsigned int)KeMaximumIncrement;
+      v5.QuadPart = v4 * KeMaximumIncrement;
       if ( v5.QuadPart > 160000000 )
       {
         v5.QuadPart = 160000000LL;

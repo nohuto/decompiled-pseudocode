@@ -1,13 +1,13 @@
 /*
- * XREFs of PnpCompareInterruptInformation @ 0x14071D404
+ * XREFs of PnpCompareInterruptInformation @ 0x14071E6A4
  * Callers:
- *     PnpGetDevicePropertyData @ 0x1405869C8 (PnpGetDevicePropertyData.c)
+ *     PnpGetDevicePropertyData @ 0x1405879C8 (PnpGetDevicePropertyData.c)
  * Callees:
  *     _TlgCreateSz @ 0x140003938 (_TlgCreateSz.c)
  *     _TlgKeywordOn @ 0x140012A04 (_TlgKeywordOn.c)
  *     _TlgWrite @ 0x140012EE4 (_TlgWrite.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     RtlCompareMemory @ 0x1401C5BD0 (RtlCompareMemory.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     RtlCompareMemory @ 0x1401C5D30 (RtlCompareMemory.c)
  */
 
 char __fastcall PnpCompareInterruptInformation(__int64 a1, const void *a2, unsigned int a3)
@@ -47,9 +47,9 @@ char __fastcall PnpCompareInterruptInformation(__int64 a1, const void *a2, unsig
     if ( *v5 == a3 )
     {
       v3 = RtlCompareMemory(v5 + 1, a2, a3);
-      if ( v3 != v4 && stru_1403FFBC8.LevelPlus1 > 5 )
+      if ( v3 != v4 && stru_140400BC8.LevelPlus1 > 5 )
       {
-        LOBYTE(v3) = TlgKeywordOn(&stru_1403FFBC8, 0x400000000000uLL);
+        LOBYTE(v3) = TlgKeywordOn(&stru_140400BC8, 0x400000000000uLL);
         if ( (_BYTE)v3 )
         {
           v14[0] = v10;
@@ -68,13 +68,13 @@ char __fastcall PnpCompareInterruptInformation(__int64 a1, const void *a2, unsig
           v27 = v11;
           v20 = &v13;
           v24 = 2;
-          LOBYTE(v3) = TlgWrite(&stru_1403FFBC8, &unk_14036D2F3, 0LL, 0LL, 7u, &pData);
+          LOBYTE(v3) = TlgWrite(&stru_140400BC8, &unk_14036E283, 0LL, 0LL, 7u, &pData);
         }
       }
     }
-    else if ( stru_1403FFBC8.LevelPlus1 > 5 )
+    else if ( stru_140400BC8.LevelPlus1 > 5 )
     {
-      LOBYTE(v3) = TlgKeywordOn(&stru_1403FFBC8, 0x400000000000uLL);
+      LOBYTE(v3) = TlgKeywordOn(&stru_140400BC8, 0x400000000000uLL);
       if ( (_BYTE)v3 )
       {
         v13 = v8;
@@ -93,13 +93,13 @@ char __fastcall PnpCompareInterruptInformation(__int64 a1, const void *a2, unsig
         v27 = v9;
         v20 = v14;
         v24 = 2;
-        LOBYTE(v3) = TlgWrite(&stru_1403FFBC8, &unk_14036D29C, 0LL, 0LL, 7u, &pData);
+        LOBYTE(v3) = TlgWrite(&stru_140400BC8, &unk_14036E22C, 0LL, 0LL, 7u, &pData);
       }
     }
   }
-  else if ( stru_1403FFBC8.LevelPlus1 > 5 )
+  else if ( stru_140400BC8.LevelPlus1 > 5 )
   {
-    LOBYTE(v3) = TlgKeywordOn(&stru_1403FFBC8, 0x400000000000uLL);
+    LOBYTE(v3) = TlgKeywordOn(&stru_140400BC8, 0x400000000000uLL);
     if ( (_BYTE)v3 )
     {
       TlgCreateSz(&pDesc, "Not Found");
@@ -110,7 +110,7 @@ char __fastcall PnpCompareInterruptInformation(__int64 a1, const void *a2, unsig
       v21 = *(unsigned __int16 *)(v6 + 40);
       v17 = &v21;
       v18 = 2;
-      LOBYTE(v3) = TlgWrite(&stru_1403FFBC8, &unk_14036D34A, 0LL, 0LL, 5u, &pData);
+      LOBYTE(v3) = TlgWrite(&stru_140400BC8, &unk_14036E2DA, 0LL, 0LL, 5u, &pData);
     }
   }
   return v3;

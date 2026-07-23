@@ -1,9 +1,9 @@
 /*
- * XREFs of PpmPerfGetCurrentFrequency @ 0x1402B2AA0
+ * XREFs of PpmPerfGetCurrentFrequency @ 0x1402B2D30
  * Callers:
- *     PpmCheckComputeEnergy @ 0x1402565E0 (PpmCheckComputeEnergy.c)
- *     KiDirectSwitchThread @ 0x1402B18A0 (KiDirectSwitchThread.c)
- *     PpmPerfGetCurrentState @ 0x14032A5B8 (PpmPerfGetCurrentState.c)
+ *     PpmCheckComputeEnergy @ 0x1402566A0 (PpmCheckComputeEnergy.c)
+ *     KiDirectSwitchThread @ 0x1402B1B30 (KiDirectSwitchThread.c)
+ *     PpmPerfGetCurrentState @ 0x14032A848 (PpmPerfGetCurrentState.c)
  * Callees:
  *     <none>
  */

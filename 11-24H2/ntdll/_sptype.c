@@ -1,7 +1,7 @@
 /*
- * XREFs of _sptype @ 0x18012B2E0
+ * XREFs of _sptype @ 0x180129510
  * Callers:
- *     fabs @ 0x180124820 (fabs.c)
+ *     fabs @ 0x180122A50 (fabs.c)
  * Callees:
  *     <none>
  */

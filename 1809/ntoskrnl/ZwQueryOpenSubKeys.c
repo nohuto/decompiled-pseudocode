@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwQueryOpenSubKeys @ 0x1401BAB70
+ * XREFs of ZwQueryOpenSubKeys @ 0x1401BACD0
  * Callers:
  *     <none>
  * Callees:
@@ -8,9 +8,7 @@
 
 NTSTATUS __stdcall ZwQueryOpenSubKeys(POBJECT_ATTRIBUTES TargetKey, PULONG HandleCount)
 {
-  __int64 v2; // r8
-
   _disable();
   __readeflags();
-  return KiServiceInternal(TargetKey, HandleCount, v2);
+  return KiServiceInternal(TargetKey);
 }

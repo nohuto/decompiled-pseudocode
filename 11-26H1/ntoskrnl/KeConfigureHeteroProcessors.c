@@ -1,18 +1,18 @@
 /*
- * XREFs of KeConfigureHeteroProcessors @ 0x1403ED9F4
+ * XREFs of KeConfigureHeteroProcessors @ 0x140452524
  * Callers:
- *     PopInitializeHeteroProcessors @ 0x140A9DA10 (PopInitializeHeteroProcessors.c)
+ *     PopInitializeHeteroProcessors @ 0x140B76758 (PopInitializeHeteroProcessors.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiConfigureCpuSetSchedulingInformation @ 0x1403EDC14 (KiConfigureCpuSetSchedulingInformation.c)
- *     KiGetNumberOfActiveSubNodes @ 0x1403EDDC0 (KiGetNumberOfActiveSubNodes.c)
- *     KeEnumerateNextNodeInSystem @ 0x1403EE250 (KeEnumerateNextNodeInSystem.c)
- *     KiComputeHeteroConfig @ 0x1403EE2D8 (KiComputeHeteroConfig.c)
- *     KiTraceLogHeteroRundown @ 0x1403EE744 (KiTraceLogHeteroRundown.c)
- *     KiUpdateProcessorClasses @ 0x1403EEB80 (KiUpdateProcessorClasses.c)
- *     KiUpdateHgsScores @ 0x1403EEE40 (KiUpdateHgsScores.c)
- *     KiInstallSubNodeHeteroSets @ 0x1403EF348 (KiInstallSubNodeHeteroSets.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiConfigureCpuSetSchedulingInformation @ 0x140452744 (KiConfigureCpuSetSchedulingInformation.c)
+ *     KiGetNumberOfActiveSubNodes @ 0x1404528F0 (KiGetNumberOfActiveSubNodes.c)
+ *     KeEnumerateNextNodeInSystem @ 0x140452D80 (KeEnumerateNextNodeInSystem.c)
+ *     KiComputeHeteroConfig @ 0x140452E08 (KiComputeHeteroConfig.c)
+ *     KiTraceLogHeteroRundown @ 0x140453274 (KiTraceLogHeteroRundown.c)
+ *     KiUpdateProcessorClasses @ 0x1404536B0 (KiUpdateProcessorClasses.c)
+ *     KiUpdateHgsScores @ 0x140453970 (KiUpdateHgsScores.c)
+ *     KiInstallSubNodeHeteroSets @ 0x140453E78 (KiInstallSubNodeHeteroSets.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 __int64 __fastcall KeConfigureHeteroProcessors(__int64 a1, __int64 a2, _DWORD *a3)
@@ -110,7 +110,7 @@ LABEL_13:
   if ( KiIrqlFlags )
     KiLowerIrqlProcessIrqlFlags(KeGetCurrentIrql(), CurrentIrql);
   __writecr8(CurrentIrql);
-  KiTraceLogHeteroRundown(&dword_140E06F90);
+  KiTraceLogHeteroRundown(&dword_140E06F58);
   v15 = KeHeteroSystem;
   v16 = 0;
   v17 = KiDefaultHeteroCpuPolicy;

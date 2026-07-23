@@ -33,7 +33,7 @@
 
 __int64 __fastcall MiUnmapViewOfSection(__int64 BugCheckParameter1, unsigned __int64 a2, int a3, int a4)
 {
-  __int64 v4; // rsi
+  char *v4; // rsi
   __int64 v5; // r13
   _KPROCESS *Process; // rcx
   __int64 *v9; // rax
@@ -94,7 +94,7 @@ __int64 __fastcall MiUnmapViewOfSection(__int64 BugCheckParameter1, unsigned __i
     v13 = *((unsigned int *)v9 + 6);
     v14 = (v13 | ((unsigned __int64)*((unsigned __int8 *)v9 + 32) << 32)) << 12;
     if ( (v12 & 7) == 2 && (v11 & 0xF80) == 0x380 )
-      v4 = (v13 | ((unsigned __int64)*((unsigned __int8 *)v9 + 32) << 32)) << 12;
+      v4 = (char *)((v13 | ((unsigned __int64)*((unsigned __int8 *)v9 + 32) << 32)) << 12);
     v15 = ((*((unsigned int *)v9 + 7) | ((unsigned __int64)*((unsigned __int8 *)v9 + 33) << 32))
          - (v13 | ((unsigned __int64)*((unsigned __int8 *)v9 + 32) << 32))
          + 1) << 12;
@@ -127,7 +127,7 @@ __int64 __fastcall MiUnmapViewOfSection(__int64 BugCheckParameter1, unsigned __i
     if ( v4 && (unsigned int)MiVadMapsLargeImage(v10) )
     {
       v30 = MiLocateVadEvent(v18, 16LL);
-      v4 += (unsigned __int64)*(unsigned __int8 *)(v30 + 8) << 16;
+      v4 += 0x10000 * (unsigned __int64)*(unsigned __int8 *)(v30 + 8);
       v15 = *(_QWORD *)(v30 + 16) << 12;
     }
     if ( (PerfGlobalGroupMask & 4) != 0 )

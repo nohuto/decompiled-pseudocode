@@ -337,7 +337,7 @@ LABEL_13:
       {
 LABEL_27:
         v38 = (_DWORD *)(v24 + 8);
-        SepMatchCapability(a1, -1, (__int64)v31, *((_DWORD *)v23 + 1), (_BYTE *)(v24 + 22), (_DWORD *)(v24 + 8));
+        SepMatchCapability(a1, -1, v31, *((_DWORD *)v23 + 1), (_SID_AND_ATTRIBUTES *)(v24 + 22), (_DWORD *)(v24 + 8));
         goto LABEL_28;
       }
     }

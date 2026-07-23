@@ -38,10 +38,10 @@ __int64 MiInitializeRetpoline()
     if ( RetpolineStubsFunctionTable < 0 )
       return (unsigned int)RetpolineStubsFunctionTable;
     MmAcquireLoadLock();
-    RetpolineStubsFunctionTable = MiMarkRetpolineBits(PsNtosImageBase);
+    RetpolineStubsFunctionTable = MiMarkRetpolineBits((__int64)PsNtosImageBase);
     if ( RetpolineStubsFunctionTable < 0
       || (unsigned int)RtlIsImageFullyRetpolined(PsHalImageBase)
-      && (RetpolineStubsFunctionTable = MiMarkRetpolineBits(PsHalImageBase), RetpolineStubsFunctionTable < 0) )
+      && (RetpolineStubsFunctionTable = MiMarkRetpolineBits((__int64)PsHalImageBase), RetpolineStubsFunctionTable < 0) )
     {
       MmReleaseLoadLock((__int64)CurrentThread);
       return (unsigned int)RetpolineStubsFunctionTable;

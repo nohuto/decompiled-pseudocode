@@ -10,7 +10,7 @@
  *     SeSinglePrivilegeCheck @ 0x14063B9A0 (SeSinglePrivilegeCheck.c)
  */
 
-NTSTATUS __fastcall NtSetDefaultHardErrorPort(HANDLE Handle)
+NTSTATUS __cdecl NtSetDefaultHardErrorPort(HANDLE DefaultHardErrorPort)
 {
   _DWORD *CurrentServerSiloGlobals; // rbx
   NTSTATUS result; // eax
@@ -23,7 +23,13 @@ NTSTATUS __fastcall NtSetDefaultHardErrorPort(HANDLE Handle)
   if ( CurrentServerSiloGlobals[224] == 1 )
     return -1073741823;
   Object = 0LL;
-  result = ObReferenceObjectByHandle(Handle, 0, LpcPortObjectType, KeGetCurrentThread()->PreviousMode, &Object, 0LL);
+  result = ObReferenceObjectByHandle(
+             DefaultHardErrorPort,
+             0,
+             LpcPortObjectType,
+             KeGetCurrentThread()->PreviousMode,
+             &Object,
+             0LL);
   *((_QWORD *)CurrentServerSiloGlobals + 111) = Object;
   if ( result >= 0 )
   {

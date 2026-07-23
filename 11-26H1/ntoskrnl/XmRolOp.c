@@ -1,9 +1,9 @@
 /*
- * XREFs of XmRolOp @ 0x1405ACF80
+ * XREFs of XmRolOp @ 0x1405AF790
  * Callers:
  *     <none>
  * Callees:
- *     XmStoreResult @ 0x1404A8E3C (XmStoreResult.c)
+ *     XmStoreResult @ 0x1404A24CC (XmStoreResult.c)
  */
 
 _WORD *__fastcall XmRolOp(_DWORD *a1)

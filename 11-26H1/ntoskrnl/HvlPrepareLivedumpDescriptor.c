@@ -1,13 +1,13 @@
 /*
- * XREFs of HvlPrepareLivedumpDescriptor @ 0x1405C0578
+ * XREFs of HvlPrepareLivedumpDescriptor @ 0x1405C2DE8
  * Callers:
- *     IopLiveDumpAllocateExtraBuffers @ 0x1405CD084 (IopLiveDumpAllocateExtraBuffers.c)
+ *     IopLiveDumpAllocateExtraBuffers @ 0x1405CF894 (IopLiveDumpAllocateExtraBuffers.c)
  * Callees:
- *     HvlSetupLiveDumpBuffer @ 0x1405C25C8 (HvlSetupLiveDumpBuffer.c)
- *     VslAbortLiveDump @ 0x1405C2994 (VslAbortLiveDump.c)
- *     VslpAddLiveDumpBufferChunk @ 0x1405C4534 (VslpAddLiveDumpBufferChunk.c)
- *     VslpLiveDumpStart @ 0x1405C4758 (VslpLiveDumpStart.c)
- *     VslpSetupLiveDumpBuffer @ 0x1405C47E4 (VslpSetupLiveDumpBuffer.c)
+ *     HvlSetupLiveDumpBuffer @ 0x1405C4E38 (HvlSetupLiveDumpBuffer.c)
+ *     VslAbortLiveDump @ 0x1405C5204 (VslAbortLiveDump.c)
+ *     VslpAddLiveDumpBufferChunk @ 0x1405C6DA4 (VslpAddLiveDumpBufferChunk.c)
+ *     VslpLiveDumpStart @ 0x1405C6FC8 (VslpLiveDumpStart.c)
+ *     VslpSetupLiveDumpBuffer @ 0x1405C7054 (VslpSetupLiveDumpBuffer.c)
  */
 
 __int64 __fastcall HvlPrepareLivedumpDescriptor(

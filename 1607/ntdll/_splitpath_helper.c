@@ -1,9 +1,9 @@
 /*
- * XREFs of _splitpath_helper @ 0x180097B10
+ * XREFs of _splitpath_helper @ 0x180097B00
  * Callers:
- *     _splitpath @ 0x180097A80 (_splitpath.c)
+ *     _splitpath @ 0x180097A70 (_splitpath.c)
  * Callees:
- *     _invalid_parameter @ 0x180096B68 (_invalid_parameter.c)
+ *     _invalid_parameter @ 0x180096B58 (_invalid_parameter.c)
  *     strncpy_s @ 0x1800A2130 (strncpy_s.c)
  */
 

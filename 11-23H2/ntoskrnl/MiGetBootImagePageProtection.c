@@ -3,7 +3,7 @@
  * Callers:
  *     MiHandleBootImage @ 0x140B46AA8 (MiHandleBootImage.c)
  * Callees:
- *     MiComputeDriverProtection @ 0x14081CFD8 (MiComputeDriverProtection.c)
+ *     MiComputeDriverProtection @ 0x14081D2A8 (MiComputeDriverProtection.c)
  */
 
 __int64 __fastcall MiGetBootImagePageProtection(unsigned int a1, __int64 a2, __int64 a3, _QWORD *a4)

@@ -1,9 +1,9 @@
 /*
- * XREFs of ExCancelDpcEventWait @ 0x1406575C0
+ * XREFs of ExCancelDpcEventWait @ 0x140655CC0
  * Callers:
  *     <none>
  * Callees:
- *     ?KiDeregisterObjectWaitBlock@@YAEPEAXPEAU_KWAIT_BLOCK@@@Z @ 0x1402A40EC (-KiDeregisterObjectWaitBlock@@YAEPEAXPEAU_KWAIT_BLOCK@@@Z.c)
+ *     ?KiDeregisterObjectWaitBlock@@YAEPEAXPEAU_KWAIT_BLOCK@@@Z @ 0x1402D381C (-KiDeregisterObjectWaitBlock@@YAEPEAXPEAU_KWAIT_BLOCK@@@Z.c)
  */
 
 char __fastcall ExCancelDpcEventWait(struct _KWAIT_BLOCK *a1)

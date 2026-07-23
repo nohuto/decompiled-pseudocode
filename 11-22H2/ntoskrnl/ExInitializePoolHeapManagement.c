@@ -34,7 +34,7 @@ __int64 __fastcall ExInitializePoolHeapManagement(unsigned int a1)
   __int128 v19; // [rsp+98h] [rbp-9h] BYREF
   __int64 v20; // [rsp+A8h] [rbp+7h]
   __int64 v21; // [rsp+110h] [rbp+6Fh] BYREF
-  union _RTL_RUN_ONCE v22; // [rsp+118h] [rbp+77h] BYREF
+  _RTL_RUN_ONCE v22; // [rsp+118h] [rbp+77h] BYREF
 
   v21 = 0LL;
   v20 = 0LL;

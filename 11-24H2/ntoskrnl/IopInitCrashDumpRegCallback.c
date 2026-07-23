@@ -1,14 +1,14 @@
 /*
- * XREFs of IopInitCrashDumpRegCallback @ 0x140C1CA50
+ * XREFs of IopInitCrashDumpRegCallback @ 0x140C1EA90
  * Callers:
  *     <none>
  * Callees:
- *     ExReleaseResourceLite @ 0x14025A450 (ExReleaseResourceLite.c)
- *     ExAcquireResourceExclusiveLite @ 0x1402769C0 (ExAcquireResourceExclusiveLite.c)
- *     RtlInitUnicodeStringEx @ 0x14045AA10 (RtlInitUnicodeStringEx.c)
- *     IopInitializeCrashDump @ 0x140710F50 (IopInitializeCrashDump.c)
- *     NtClose @ 0x14084AA00 (NtClose.c)
- *     IoCreateFile @ 0x14096CA20 (IoCreateFile.c)
+ *     ExAcquireResourceExclusiveLite @ 0x14022BF50 (ExAcquireResourceExclusiveLite.c)
+ *     ExReleaseResourceLite @ 0x14028AA60 (ExReleaseResourceLite.c)
+ *     RtlInitUnicodeStringEx @ 0x14044FE60 (RtlInitUnicodeStringEx.c)
+ *     IopInitializeCrashDump @ 0x14070EAE0 (IopInitializeCrashDump.c)
+ *     NtClose @ 0x140846CC0 (NtClose.c)
+ *     IoCreateFile @ 0x140955480 (IoCreateFile.c)
  */
 
 __int64 __fastcall IopInitCrashDumpRegCallback(__int64 a1, __int64 a2, const WCHAR *a3, int a4, __int64 a5, _BYTE *a6)

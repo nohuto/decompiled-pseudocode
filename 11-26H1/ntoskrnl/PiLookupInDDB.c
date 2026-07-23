@@ -1,14 +1,14 @@
 /*
- * XREFs of PiLookupInDDB @ 0x140A25D58
+ * XREFs of PiLookupInDDB @ 0x140A38DF8
  * Callers:
- *     PpCheckInDriverDatabase @ 0x140A26144 (PpCheckInDriverDatabase.c)
+ *     PpCheckInDriverDatabase @ 0x140A391E4 (PpCheckInDriverDatabase.c)
  * Callees:
- *     PiIsDriverBlocked @ 0x140A250AC (PiIsDriverBlocked.c)
- *     PiReleaseDDB @ 0x140A25E84 (PiReleaseDDB.c)
- *     PiInitializeDDB @ 0x140A25EE0 (PiInitializeDDB.c)
+ *     PiIsDriverBlocked @ 0x140A3814C (PiIsDriverBlocked.c)
+ *     PiReleaseDDB @ 0x140A38F24 (PiReleaseDDB.c)
+ *     PiInitializeDDB @ 0x140A38F80 (PiInitializeDDB.c)
  */
 
-__int64 __fastcall PiLookupInDDB(__int64 a1, __int64 a2, unsigned int a3, __int128 *a4)
+__int64 __fastcall PiLookupInDDB(__int64 a1, void *a2, unsigned int a3, __int128 *a4)
 {
   struct _LIST_ENTRY *Blink; // rdi
   _KTRAP_FRAME *TrapFrame; // rcx

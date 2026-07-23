@@ -1,21 +1,21 @@
 /*
- * XREFs of RtlStringCbPrintfExW @ 0x18005E3A8
+ * XREFs of RtlStringCbPrintfExW @ 0x18005E398
  * Callers:
- *     RtlpQueryPseudoEnvironmentVariable @ 0x18005DC00 (RtlpQueryPseudoEnvironmentVariable.c)
- *     RtlQueryPackageClaims @ 0x18005E0D0 (RtlQueryPackageClaims.c)
- *     LdrpConstructModernAppKeyName @ 0x1800D1FC0 (LdrpConstructModernAppKeyName.c)
+ *     RtlpQueryPseudoEnvironmentVariable @ 0x18005DBF0 (RtlpQueryPseudoEnvironmentVariable.c)
+ *     RtlQueryPackageClaims @ 0x18005E0C0 (RtlQueryPackageClaims.c)
+ *     LdrpConstructModernAppKeyName @ 0x1800D2080 (LdrpConstructModernAppKeyName.c)
  * Callees:
- *     RtlStringVPrintfWorkerW_0 @ 0x18005E4AC (RtlStringVPrintfWorkerW_0.c)
+ *     RtlStringVPrintfWorkerW_0 @ 0x18005E49C (RtlStringVPrintfWorkerW_0.c)
  *     memset @ 0x1800ACCC0 (memset.c)
- *     RtlStringExHandleOtherFlagsW @ 0x1800EE4C4 (RtlStringExHandleOtherFlagsW.c)
+ *     RtlStringExHandleOtherFlagsW @ 0x1800D0544 (RtlStringExHandleOtherFlagsW.c)
  */
 
-__int64 RtlStringCbPrintfExW(_WORD *a1, unsigned __int64 a2, _QWORD *a3, _QWORD *a4, int a5, _WORD *a6, ...)
+__int64 RtlStringCbPrintfExW(_WORD *a1, unsigned __int64 a2, _QWORD *a3, _QWORD *a4, int a5, const WCHAR *a6, ...)
 {
   unsigned __int64 v7; // rdi
   int v10; // ebx
   _WORD *v11; // r13
-  _WORD *v12; // r9
+  const WCHAR *v12; // r9
   int v13; // eax
   __int64 v14; // rcx
   unsigned __int64 v16; // r8
@@ -47,7 +47,7 @@ __int64 RtlStringCbPrintfExW(_WORD *a1, unsigned __int64 a2, _QWORD *a3, _QWORD 
     v18[0] = a2 >> 1;
     if ( (a5 & 0x100) != 0 )
     {
-      v12 = &unk_180113454;
+      v12 = &word_180113454;
       if ( a6 )
         v12 = a6;
     }

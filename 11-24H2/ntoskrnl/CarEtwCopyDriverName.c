@@ -1,8 +1,8 @@
 /*
- * XREFs of CarEtwCopyDriverName @ 0x1406198AC
+ * XREFs of CarEtwCopyDriverName @ 0x140617E6C
  * Callers:
- *     CarGetDriverInfoFromDriverName @ 0x140615E40 (CarGetDriverInfoFromDriverName.c)
- *     CarInitializeTelemetryData @ 0x140616BA0 (CarInitializeTelemetryData.c)
+ *     CarGetDriverInfoFromDriverName @ 0x140614400 (CarGetDriverInfoFromDriverName.c)
+ *     CarInitializeTelemetryData @ 0x140615160 (CarInitializeTelemetryData.c)
  * Callees:
  *     <none>
  */

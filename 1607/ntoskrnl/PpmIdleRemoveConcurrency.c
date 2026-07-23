@@ -1,9 +1,9 @@
 /*
- * XREFs of PpmIdleRemoveConcurrency @ 0x1401464DC
+ * XREFs of PpmIdleRemoveConcurrency @ 0x140146A4C
  * Callers:
  *     <none>
  * Callees:
- *     PpmIdleUpdateConcurrency @ 0x140146564 (PpmIdleUpdateConcurrency.c)
+ *     PpmIdleUpdateConcurrency @ 0x140146AD4 (PpmIdleUpdateConcurrency.c)
  */
 
 __int64 __fastcall PpmIdleRemoveConcurrency(__int64 a1)

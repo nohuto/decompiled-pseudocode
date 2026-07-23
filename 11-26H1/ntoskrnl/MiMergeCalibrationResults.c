@@ -1,13 +1,13 @@
 /*
- * XREFs of MiMergeCalibrationResults @ 0x140710A90
+ * XREFs of MiMergeCalibrationResults @ 0x14071578C
  * Callers:
- *     MiZeroPageCalibrate @ 0x140710F80 (MiZeroPageCalibrate.c)
+ *     MiZeroPageCalibrate @ 0x140715C7C (MiZeroPageCalibrate.c)
  * Callees:
- *     ExReleaseSpinLockExclusive @ 0x14021AA80 (ExReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x140249CD0 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     MiIsCalibrationWorthwhile @ 0x1404CACF0 (MiIsCalibrationWorthwhile.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ExReleaseSpinLockExclusive @ 0x14021C410 (ExReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024B630 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiIsCalibrationWorthwhile @ 0x1404C4720 (MiIsCalibrationWorthwhile.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __fastcall MiMergeCalibrationResults(_QWORD *a1, __int64 a2, __int64 a3, __int64 a4, int a5, int a6)

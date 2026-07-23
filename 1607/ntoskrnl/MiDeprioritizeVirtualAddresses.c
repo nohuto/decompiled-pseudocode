@@ -1,23 +1,23 @@
 /*
- * XREFs of MiDeprioritizeVirtualAddresses @ 0x140110334
+ * XREFs of MiDeprioritizeVirtualAddresses @ 0x140110898
  * Callers:
- *     MiDeprioritizeVad @ 0x1400ACF60 (MiDeprioritizeVad.c)
- *     MmTrimPagedPool @ 0x14065A268 (MmTrimPagedPool.c)
+ *     MiDeprioritizeVad @ 0x1400AB4C8 (MiDeprioritizeVad.c)
+ *     MmTrimPagedPool @ 0x14065A34C (MmTrimPagedPool.c)
  * Callees:
- *     MI_WSLE_LOG_ACCESS @ 0x140016E5C (MI_WSLE_LOG_ACCESS.c)
- *     MiUnlockWorkingSetExclusive @ 0x14002E930 (MiUnlockWorkingSetExclusive.c)
- *     MiGetSharedVm @ 0x14002EA30 (MiGetSharedVm.c)
- *     MiLockPageAtDpcInline @ 0x14002EB30 (MiLockPageAtDpcInline.c)
- *     ExAcquireSpinLockExclusive @ 0x14002EB90 (ExAcquireSpinLockExclusive.c)
- *     MiIsAddressValid @ 0x140037540 (MiIsAddressValid.c)
- *     MiLocateWsle @ 0x140046B50 (MiLocateWsle.c)
- *     MiGetSharedWorkingSetList @ 0x140047070 (MiGetSharedWorkingSetList.c)
- *     MiUpdatePfnPriority @ 0x1400BDCE0 (MiUpdatePfnPriority.c)
- *     MiFreeWsleList @ 0x1400E3AD0 (MiFreeWsleList.c)
- *     MiGetPfnPriority @ 0x1400E67A4 (MiGetPfnPriority.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     MI_GET_PAGE_FRAME_FROM_PTE @ 0x1401F2550 (MI_GET_PAGE_FRAME_FROM_PTE.c)
- *     MiDemoteCombinedPte @ 0x1401F97B0 (MiDemoteCombinedPte.c)
+ *     MI_WSLE_LOG_ACCESS @ 0x1400169DC (MI_WSLE_LOG_ACCESS.c)
+ *     MiUnlockWorkingSetExclusive @ 0x14002E4B0 (MiUnlockWorkingSetExclusive.c)
+ *     MiGetSharedVm @ 0x14002E5B0 (MiGetSharedVm.c)
+ *     MiLockPageAtDpcInline @ 0x14002E6B0 (MiLockPageAtDpcInline.c)
+ *     ExAcquireSpinLockExclusive @ 0x14002E710 (ExAcquireSpinLockExclusive.c)
+ *     MiIsAddressValid @ 0x1400370C0 (MiIsAddressValid.c)
+ *     MiLocateWsle @ 0x1400466D0 (MiLocateWsle.c)
+ *     MiGetSharedWorkingSetList @ 0x140046BF0 (MiGetSharedWorkingSetList.c)
+ *     MiUpdatePfnPriority @ 0x1400BBB70 (MiUpdatePfnPriority.c)
+ *     MiFreeWsleList @ 0x1400E1970 (MiFreeWsleList.c)
+ *     MiGetPfnPriority @ 0x1400E4644 (MiGetPfnPriority.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     MI_GET_PAGE_FRAME_FROM_PTE @ 0x1401F237C (MI_GET_PAGE_FRAME_FROM_PTE.c)
+ *     MiDemoteCombinedPte @ 0x1401F95DC (MiDemoteCombinedPte.c)
  */
 
 char __fastcall MiDeprioritizeVirtualAddresses(unsigned __int64 a1, __int64 a2, ULONG_PTR a3, char a4)
@@ -47,7 +47,7 @@ char __fastcall MiDeprioritizeVirtualAddresses(unsigned __int64 a1, __int64 a2, 
 
   v29[0] = 0;
   v27 = a4 & 7;
-  v28 = dword_140327188;
+  v28 = dword_1403271C8;
   SharedWorkingSetList = MiGetSharedWorkingSetList(a3);
   v9 = 0LL;
   v10 = ((a1 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;

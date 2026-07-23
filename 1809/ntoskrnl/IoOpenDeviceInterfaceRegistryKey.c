@@ -1,14 +1,14 @@
 /*
- * XREFs of IoOpenDeviceInterfaceRegistryKey @ 0x140825A00
+ * XREFs of IoOpenDeviceInterfaceRegistryKey @ 0x140826C00
  * Callers:
- *     IoWMISuggestInstanceName @ 0x1408B2430 (IoWMISuggestInstanceName.c)
+ *     IoWMISuggestInstanceName @ 0x1408B3690 (IoWMISuggestInstanceName.c)
  * Callees:
  *     ExReleaseResourceLite @ 0x14004F590 (ExReleaseResourceLite.c)
  *     ExAcquireResourceExclusiveLite @ 0x1400505F0 (ExAcquireResourceExclusiveLite.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
- *     PnpUnicodeStringToWstrFree @ 0x1405980AC (PnpUnicodeStringToWstrFree.c)
- *     PnpUnicodeStringToWstr @ 0x140599CA8 (PnpUnicodeStringToWstr.c)
- *     _CmOpenDeviceInterfaceRegKey @ 0x14059B4E8 (_CmOpenDeviceInterfaceRegKey.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B78F0 (KiLeaveCriticalRegionUnsafe.c)
+ *     PnpUnicodeStringToWstrFree @ 0x1405990AC (PnpUnicodeStringToWstrFree.c)
+ *     PnpUnicodeStringToWstr @ 0x14059ACA8 (PnpUnicodeStringToWstr.c)
+ *     _CmOpenDeviceInterfaceRegKey @ 0x14059C4E8 (_CmOpenDeviceInterfaceRegKey.c)
  */
 
 NTSTATUS __stdcall IoOpenDeviceInterfaceRegistryKey(

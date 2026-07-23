@@ -1,9 +1,9 @@
 /*
- * XREFs of CfgAddressToBitState @ 0x1404F0B80
+ * XREFs of CfgAddressToBitState @ 0x1404EA160
  * Callers:
- *     MiCheckVerifierFunctionsCfgState @ 0x14087BAA8 (MiCheckVerifierFunctionsCfgState.c)
- *     MiCfgMarkValidEntries @ 0x140AA0D20 (MiCfgMarkValidEntries.c)
- *     MiValidateUserCallTarget @ 0x140AA0FF0 (MiValidateUserCallTarget.c)
+ *     MiCheckVerifierFunctionsCfgState @ 0x140881EA8 (MiCheckVerifierFunctionsCfgState.c)
+ *     MiCfgMarkValidEntries @ 0x140AA27E4 (MiCfgMarkValidEntries.c)
+ *     MiValidateUserCallTarget @ 0x140AA2AB4 (MiValidateUserCallTarget.c)
  * Callees:
  *     <none>
  */

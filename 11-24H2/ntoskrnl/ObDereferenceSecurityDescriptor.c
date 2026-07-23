@@ -1,36 +1,36 @@
 /*
- * XREFs of ObDereferenceSecurityDescriptor @ 0x140879D10
+ * XREFs of ObDereferenceSecurityDescriptor @ 0x14087E040
  * Callers:
- *     IopCompleteUnloadOrDelete @ 0x1403F2590 (IopCompleteUnloadOrDelete.c)
- *     EtwpCheckLoggerControlAccess @ 0x140836724 (EtwpCheckLoggerControlAccess.c)
- *     EtwpReferenceLoggerSecurityDescriptor @ 0x140836818 (EtwpReferenceLoggerSecurityDescriptor.c)
- *     ExpWnfCreateNameInstance @ 0x140837E90 (ExpWnfCreateNameInstance.c)
- *     EtwpFreeGuidEntry @ 0x14083E7D4 (EtwpFreeGuidEntry.c)
- *     ObpCreateHandle @ 0x14084DAA0 (ObpCreateHandle.c)
- *     ObpGrantAccess @ 0x140851390 (ObpGrantAccess.c)
- *     SeDefaultObjectMethod @ 0x140858190 (SeDefaultObjectMethod.c)
- *     ObSetSecurityDescriptorInfo @ 0x1408588B0 (ObSetSecurityDescriptorInfo.c)
- *     ObReleaseObjectSecurityEx @ 0x140867FD0 (ObReleaseObjectSecurityEx.c)
- *     ObpCheckObjectReference @ 0x14086802C (ObpCheckObjectReference.c)
- *     ObCheckCreateObjectAccess @ 0x1408682F0 (ObCheckCreateObjectAccess.c)
- *     ObQuerySecurityDescriptorInfo @ 0x1408792D4 (ObQuerySecurityDescriptorInfo.c)
- *     IopGetSetSecurityObject @ 0x1408796F0 (IopGetSetSecurityObject.c)
- *     ObCheckObjectAccess @ 0x14087A740 (ObCheckObjectAccess.c)
- *     ObpAdjustCreatorAccessState @ 0x14087AD00 (ObpAdjustCreatorAccessState.c)
- *     ObpReferenceSecurityDescriptorSlow @ 0x14087AEFC (ObpReferenceSecurityDescriptorSlow.c)
- *     ExpWnfDeleteNameInstance @ 0x1408AA6E8 (ExpWnfDeleteNameInstance.c)
- *     EtwpFreeLoggerContext @ 0x1409D77E0 (EtwpFreeLoggerContext.c)
- *     ObpInsertOrLocateNamedObject @ 0x1409E45C0 (ObpInsertOrLocateNamedObject.c)
- *     EtwpDereferenceLoggerSecurityDescriptor @ 0x140A2B970 (EtwpDereferenceLoggerSecurityDescriptor.c)
- *     IopSetDeviceSecurityDescriptor @ 0x140A5AC1C (IopSetDeviceSecurityDescriptor.c)
- *     EtwpUpdateLoggerSecurityDescriptor @ 0x140A9290C (EtwpUpdateLoggerSecurityDescriptor.c)
+ *     IopCompleteUnloadOrDelete @ 0x1403E62B0 (IopCompleteUnloadOrDelete.c)
+ *     ExpWnfCreateNameInstance @ 0x140835DA0 (ExpWnfCreateNameInstance.c)
+ *     EtwpReferenceLoggerSecurityDescriptor @ 0x14083732C (EtwpReferenceLoggerSecurityDescriptor.c)
+ *     EtwpCheckLoggerControlAccess @ 0x1408375F4 (EtwpCheckLoggerControlAccess.c)
+ *     EtwpFreeGuidEntry @ 0x14083ADD4 (EtwpFreeGuidEntry.c)
+ *     ObpCreateHandle @ 0x140849D60 (ObpCreateHandle.c)
+ *     ObpGrantAccess @ 0x14084D650 (ObpGrantAccess.c)
+ *     SeDefaultObjectMethod @ 0x140854470 (SeDefaultObjectMethod.c)
+ *     ObSetSecurityDescriptorInfo @ 0x140854B90 (ObSetSecurityDescriptorInfo.c)
+ *     ObReleaseObjectSecurityEx @ 0x14086C2C0 (ObReleaseObjectSecurityEx.c)
+ *     ObpCheckObjectReference @ 0x14086C31C (ObpCheckObjectReference.c)
+ *     ObCheckCreateObjectAccess @ 0x14086C5E0 (ObCheckCreateObjectAccess.c)
+ *     ObQuerySecurityDescriptorInfo @ 0x14087D604 (ObQuerySecurityDescriptorInfo.c)
+ *     IopGetSetSecurityObject @ 0x14087DA20 (IopGetSetSecurityObject.c)
+ *     ObCheckObjectAccess @ 0x14087E5F0 (ObCheckObjectAccess.c)
+ *     ObpAdjustCreatorAccessState @ 0x14087EBB0 (ObpAdjustCreatorAccessState.c)
+ *     ObpReferenceSecurityDescriptorSlow @ 0x14087EDAC (ObpReferenceSecurityDescriptorSlow.c)
+ *     ExpWnfDeleteNameInstance @ 0x140900948 (ExpWnfDeleteNameInstance.c)
+ *     ObpInsertOrLocateNamedObject @ 0x1409DF020 (ObpInsertOrLocateNamedObject.c)
+ *     EtwpDereferenceLoggerSecurityDescriptor @ 0x140A1F830 (EtwpDereferenceLoggerSecurityDescriptor.c)
+ *     EtwpFreeLoggerContext @ 0x140A48E90 (EtwpFreeLoggerContext.c)
+ *     IopSetDeviceSecurityDescriptor @ 0x140A524DC (IopSetDeviceSecurityDescriptor.c)
+ *     EtwpUpdateLoggerSecurityDescriptor @ 0x140A8F0BC (EtwpUpdateLoggerSecurityDescriptor.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x1402595A0 (KeLeaveCriticalRegionThread.c)
- *     ExfTryToWakePushLock @ 0x14025F9A0 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     KeLeaveCriticalRegionThread @ 0x140289BB0 (KeLeaveCriticalRegionThread.c)
+ *     ExfTryToWakePushLock @ 0x14028FFB0 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __fastcall ObDereferenceSecurityDescriptor(__int64 a1, unsigned int a2)
@@ -43,8 +43,8 @@ void __fastcall ObDereferenceSecurityDescriptor(__int64 a1, unsigned int a2)
   struct _KTHREAD *CurrentThread; // r12
   unsigned __int64 *v9; // rbp
   volatile signed __int64 *v10; // r14
-  _QWORD *v11; // rax
-  _QWORD *v12; // r15
+  char *v11; // rax
+  char *v12; // r15
   __int64 v13; // rax
   volatile signed __int64 *i; // rcx
 
@@ -68,12 +68,12 @@ void __fastcall ObDereferenceSecurityDescriptor(__int64 a1, unsigned int a2)
   v9 = (unsigned __int64 *)((char *)&ObsSecurityDescriptorCache + 16 * (unsigned __int8)*((_DWORD *)v3 + 4));
   --CurrentThread->KernelApcDisable;
   v10 = (volatile signed __int64 *)(v9 + 1);
-  v11 = KeAbPreAcquire((__int64)v9, 0LL);
+  v11 = (char *)KeAbPreAcquire((__int64)v9, 0LL);
   v12 = v11;
   if ( _interlockedbittestandset64((volatile signed __int32 *)v9, 0LL) )
-    ExfAcquirePushLockExclusiveEx(v9, (__int64)v11, (__int64)v9);
+    ExfAcquirePushLockExclusiveEx(v9, v11, (__int64)v9);
   if ( v12 )
-    *((_BYTE *)v12 + 10) = 1;
+    v12[10] = 1;
   v13 = _InterlockedExchangeAdd64(v3 + 1, -a2) - v5;
   if ( v13 > 0 )
   {

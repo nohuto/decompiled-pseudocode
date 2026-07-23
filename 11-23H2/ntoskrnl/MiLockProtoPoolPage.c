@@ -1,32 +1,32 @@
 /*
- * XREFs of MiLockProtoPoolPage @ 0x1402DD200
+ * XREFs of MiLockProtoPoolPage @ 0x1402DD490
  * Callers:
  *     MiCombineWithExisting @ 0x1402179B4 (MiCombineWithExisting.c)
  *     MiSoftFaultMappedView @ 0x140217E90 (MiSoftFaultMappedView.c)
  *     MiDeleteSubsectionPages @ 0x140218EF0 (MiDeleteSubsectionPages.c)
- *     MiMigratePfn @ 0x1402630E0 (MiMigratePfn.c)
- *     MiLockCode @ 0x140282330 (MiLockCode.c)
- *     MiWalkVaRange @ 0x140293D54 (MiWalkVaRange.c)
- *     MiWalkEntireImage @ 0x1402DAFE0 (MiWalkEntireImage.c)
- *     MiLockProtoPoolPageForce @ 0x1402DDFD4 (MiLockProtoPoolPageForce.c)
- *     MiAllocateInPageSupport @ 0x1402E0CE4 (MiAllocateInPageSupport.c)
- *     MiResolveProtoCombine @ 0x1402E3AF8 (MiResolveProtoCombine.c)
- *     MiTranslatePageForCopy @ 0x1402EDE44 (MiTranslatePageForCopy.c)
- *     MiDeleteMergedPte @ 0x1402F408C (MiDeleteMergedPte.c)
- *     MiZeroCfgSystemWideBitmapWorker @ 0x140348168 (MiZeroCfgSystemWideBitmapWorker.c)
- *     MiCombineWithStandbyExisting @ 0x14035A17C (MiCombineWithStandbyExisting.c)
- *     MiStealPage @ 0x1403BC3DC (MiStealPage.c)
- *     MiReplaceLockedPage @ 0x140636C94 (MiReplaceLockedPage.c)
- *     MiGetPageFileSectionForReservation @ 0x14063AC44 (MiGetPageFileSectionForReservation.c)
- *     MiClearDriverHotPatchPtes @ 0x140641DEC (MiClearDriverHotPatchPtes.c)
- *     MmMapHotPatchTablePage @ 0x14064307C (MmMapHotPatchTablePage.c)
- *     MiInsertLargeVadMapping @ 0x14064615C (MiInsertLargeVadMapping.c)
+ *     MiMigratePfn @ 0x140263370 (MiMigratePfn.c)
+ *     MiLockCode @ 0x1402825C0 (MiLockCode.c)
+ *     MiWalkVaRange @ 0x140293FE4 (MiWalkVaRange.c)
+ *     MiWalkEntireImage @ 0x1402DB270 (MiWalkEntireImage.c)
+ *     MiLockProtoPoolPageForce @ 0x1402DE264 (MiLockProtoPoolPageForce.c)
+ *     MiAllocateInPageSupport @ 0x1402E0F74 (MiAllocateInPageSupport.c)
+ *     MiResolveProtoCombine @ 0x1402E3D88 (MiResolveProtoCombine.c)
+ *     MiTranslatePageForCopy @ 0x1402EE0D4 (MiTranslatePageForCopy.c)
+ *     MiDeleteMergedPte @ 0x1402F431C (MiDeleteMergedPte.c)
+ *     MiZeroCfgSystemWideBitmapWorker @ 0x1403483F8 (MiZeroCfgSystemWideBitmapWorker.c)
+ *     MiCombineWithStandbyExisting @ 0x14035A31C (MiCombineWithStandbyExisting.c)
+ *     MiStealPage @ 0x1403BC5BC (MiStealPage.c)
+ *     MiReplaceLockedPage @ 0x1406371E4 (MiReplaceLockedPage.c)
+ *     MiGetPageFileSectionForReservation @ 0x14063B194 (MiGetPageFileSectionForReservation.c)
+ *     MiClearDriverHotPatchPtes @ 0x14064233C (MiClearDriverHotPatchPtes.c)
+ *     MmMapHotPatchTablePage @ 0x1406435CC (MmMapHotPatchTablePage.c)
+ *     MiInsertLargeVadMapping @ 0x1406466AC (MiInsertLargeVadMapping.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x140242E40 (KeYieldProcessorEx.c)
- *     MiAreChargesNeededToLockPage @ 0x1402CDF90 (MiAreChargesNeededToLockPage.c)
- *     MiChargeForLockedPage @ 0x1402DC320 (MiChargeForLockedPage.c)
- *     MiLockOwnedProtoPage @ 0x1402DD410 (MiLockOwnedProtoPage.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeYieldProcessorEx @ 0x140242F10 (KeYieldProcessorEx.c)
+ *     MiAreChargesNeededToLockPage @ 0x1402CE220 (MiAreChargesNeededToLockPage.c)
+ *     MiChargeForLockedPage @ 0x1402DC5B0 (MiChargeForLockedPage.c)
+ *     MiLockOwnedProtoPage @ 0x1402DD6A0 (MiLockOwnedProtoPage.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiLockProtoPoolPage(unsigned __int64 a1, unsigned __int8 *a2)
@@ -71,7 +71,7 @@ __int64 __fastcall MiLockProtoPoolPage(unsigned __int64 a1, unsigned __int8 *a2)
     {
       CurrentIrql = KeGetCurrentIrql();
       __writecr8(2uLL);
-      if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+      if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
       {
         SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
         if ( CurrentIrql == 2 )
@@ -107,10 +107,10 @@ __int64 __fastcall MiLockProtoPoolPage(unsigned __int64 a1, unsigned __int8 *a2)
       _InterlockedAnd64((volatile signed __int64 *)v8, 0x7FFFFFFFFFFFFFFFuLL);
       if ( CurrentIrql != 17 )
       {
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
           v19 = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && v19 <= 0xFu && CurrentIrql <= 0xFu && v19 >= 2u )
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v19 <= 0xFu && CurrentIrql <= 0xFu && v19 >= 2u )
           {
             CurrentPrcb = KeGetCurrentPrcb();
             v21 = CurrentPrcb->SchedulerAssist;
@@ -130,10 +130,10 @@ __int64 __fastcall MiLockProtoPoolPage(unsigned __int64 a1, unsigned __int8 *a2)
     _InterlockedAnd64((volatile signed __int64 *)v8, 0x7FFFFFFFFFFFFFFFuLL);
     if ( CurrentIrql != 17 )
     {
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v14 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v14 <= 0xFu && CurrentIrql <= 0xFu && v14 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v14 <= 0xFu && CurrentIrql <= 0xFu && v14 >= 2u )
         {
           v15 = KeGetCurrentPrcb();
           v16 = v15->SchedulerAssist;

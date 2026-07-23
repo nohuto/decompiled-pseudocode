@@ -1,14 +1,14 @@
 /*
- * XREFs of PopSaveHiberContextWrapper @ 0x140730A80
+ * XREFs of PopSaveHiberContextWrapper @ 0x140735650
  * Callers:
  *     <none>
  * Callees:
- *     VslSwapHiberShadowStacks @ 0x1405C4190 (VslSwapHiberShadowStacks.c)
- *     KasanHibernationGetStackLow @ 0x1405DD630 (KasanHibernationGetStackLow.c)
- *     KasanHibernationResume @ 0x1405DD6F0 (KasanHibernationResume.c)
- *     KeSaveStateForHibernate @ 0x140727DD0 (KeSaveStateForHibernate.c)
- *     PopHiberCheckResume @ 0x140BFA8A0 (PopHiberCheckResume.c)
- *     PopSaveHiberContext @ 0x140BFBD50 (PopSaveHiberContext.c)
+ *     VslSwapHiberShadowStacks @ 0x1405C6A00 (VslSwapHiberShadowStacks.c)
+ *     KasanHibernationGetStackLow @ 0x1405DFFA0 (KasanHibernationGetStackLow.c)
+ *     KasanHibernationResume @ 0x1405E0060 (KasanHibernationResume.c)
+ *     KeSaveStateForHibernate @ 0x14072C9A0 (KeSaveStateForHibernate.c)
+ *     PopHiberCheckResume @ 0x140C008A0 (PopHiberCheckResume.c)
+ *     PopSaveHiberContext @ 0x140C01D50 (PopSaveHiberContext.c)
  */
 
 __int64 __fastcall PopSaveHiberContextWrapper(PVOID Address)

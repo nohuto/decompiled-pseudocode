@@ -1,12 +1,11 @@
 /*
- * XREFs of ZwCreateThread @ 0x1401B8B50
+ * XREFs of ZwCreateThread @ 0x1401B8CB0
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-// local variable allocation has failed, the output may be wrong!
 NTSTATUS __stdcall ZwCreateThread(
         PHANDLE ThreadHandle,
         ACCESS_MASK DesiredAccess,
@@ -19,5 +18,5 @@ NTSTATUS __stdcall ZwCreateThread(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(ThreadHandle, *(_QWORD *)&DesiredAccess, ObjectAttributes);
+  return KiServiceInternal(ThreadHandle);
 }

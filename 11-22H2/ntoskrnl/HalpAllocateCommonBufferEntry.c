@@ -15,13 +15,13 @@
  *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
  */
 
-__int64 __fastcall HalpAllocateCommonBufferEntry(__int64 a1, unsigned __int64 a2, __int64 a3, __int64 a4, char a5)
+__int64 __fastcall HalpAllocateCommonBufferEntry(__int64 a1, _RTL_BALANCED_NODE *a2, __int64 a3, __int64 a4, char a5)
 {
   __int64 Pool2; // rax
-  unsigned __int64 v10; // rsi
+  _RTL_BALANCED_NODE *v10; // rsi
   unsigned __int64 v11; // rbx
   unsigned __int64 v12; // rdx
-  bool v13; // r8
+  BOOLEAN v13; // r8
   unsigned __int64 v14; // rax
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
@@ -30,7 +30,7 @@ __int64 __fastcall HalpAllocateCommonBufferEntry(__int64 a1, unsigned __int64 a2
   bool v20; // zf
 
   Pool2 = ExAllocatePool2(66LL, 64LL, 1147953480LL);
-  v10 = Pool2;
+  v10 = (_RTL_BALANCED_NODE *)Pool2;
   if ( !Pool2 )
     return 3221225626LL;
   *(_QWORD *)(Pool2 + 40) = a1;
@@ -47,7 +47,7 @@ __int64 __fastcall HalpAllocateCommonBufferEntry(__int64 a1, unsigned __int64 a2
   {
     while ( 1 )
     {
-      if ( *(_QWORD *)(v12 + 24) > a2 )
+      if ( *(_QWORD *)(v12 + 24) > (unsigned __int64)a2 )
       {
         v14 = *(_QWORD *)v12;
         if ( (*(_BYTE *)(a4 + 72) & 1) != 0 )
@@ -78,12 +78,15 @@ LABEL_9:
       v12 = v14;
     }
   }
-  RtlRbInsertNodeEx((unsigned __int64 *)(a4 + 64), v12, v13, v10);
+  RtlRbInsertNodeEx((PRTL_RB_TREE)(a4 + 64), (PRTL_BALANCED_NODE)v12, v13, v10);
   KxReleaseSpinLock((volatile signed __int64 *)(a4 + 80));
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v11 <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
+      && (unsigned __int8)v11 <= 0xFu
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;

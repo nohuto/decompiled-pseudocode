@@ -1,10 +1,10 @@
 /*
- * XREFs of DmrpRmrrTreeAddNewScope @ 0x14037F608
+ * XREFs of DmrpRmrrTreeAddNewScope @ 0x14037F7A8
  * Callers:
- *     DmrEnumerateRmrrDomains @ 0x14037F0D0 (DmrEnumerateRmrrDomains.c)
+ *     DmrEnumerateRmrrDomains @ 0x14037F270 (DmrEnumerateRmrrDomains.c)
  * Callees:
- *     ExtEnvAllocateMemory @ 0x14037FC68 (ExtEnvAllocateMemory.c)
- *     memmove @ 0x140435700 (memmove.c)
+ *     ExtEnvAllocateMemory @ 0x14037FE08 (ExtEnvAllocateMemory.c)
+ *     memmove @ 0x140435B00 (memmove.c)
  */
 
 __int64 __fastcall DmrpRmrrTreeAddNewScope(__int64 a1, __int16 a2, unsigned __int8 *a3)

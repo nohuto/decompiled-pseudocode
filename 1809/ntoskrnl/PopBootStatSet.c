@@ -1,21 +1,21 @@
 /*
- * XREFs of PopBootStatSet @ 0x1407184C4
+ * XREFs of PopBootStatSet @ 0x140719764
  * Callers:
- *     PopPowerInformationInternal @ 0x14058DF30 (PopPowerInformationInternal.c)
+ *     PopPowerInformationInternal @ 0x14058EF30 (PopPowerInformationInternal.c)
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
- *     memmove @ 0x1401D1540 (memmove.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     RtlGetSetBootStatusData @ 0x1407187C0 (RtlGetSetBootStatusData.c)
- *     RtlBootStatusItemInfo @ 0x140718AD8 (RtlBootStatusItemInfo.c)
- *     RtlUnlockBootStatusData @ 0x140718BA0 (RtlUnlockBootStatusData.c)
- *     RtlLockBootStatusData @ 0x140718C80 (RtlLockBootStatusData.c)
- *     PopBootStatAccessCheck @ 0x140753370 (PopBootStatAccessCheck.c)
- *     ExRaiseDatatypeMisalignment @ 0x1408D65C0 (ExRaiseDatatypeMisalignment.c)
+ *     ExfTryToWakePushLock @ 0x140091500 (ExfTryToWakePushLock.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B78F0 (KiLeaveCriticalRegionUnsafe.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     RtlGetSetBootStatusData @ 0x140719A60 (RtlGetSetBootStatusData.c)
+ *     RtlBootStatusItemInfo @ 0x140719D78 (RtlBootStatusItemInfo.c)
+ *     RtlUnlockBootStatusData @ 0x140719E40 (RtlUnlockBootStatusData.c)
+ *     RtlLockBootStatusData @ 0x140719F20 (RtlLockBootStatusData.c)
+ *     PopBootStatAccessCheck @ 0x140754560 (PopBootStatAccessCheck.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408D7880 (ExRaiseDatatypeMisalignment.c)
  */
 
 __int64 __fastcall PopBootStatSet(__int64 a1, __int64 a2)

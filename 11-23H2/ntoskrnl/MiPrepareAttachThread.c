@@ -2,10 +2,10 @@
  * XREFs of MiPrepareAttachThread @ 0x1402178B0
  * Callers:
  *     MiSharePages @ 0x1402161B0 (MiSharePages.c)
- *     MiTrimSharedPageFromViews @ 0x1402EFC5C (MiTrimSharedPageFromViews.c)
- *     MmQueryCommitReleaseState @ 0x140366928 (MmQueryCommitReleaseState.c)
- *     MiLockStealUserVm @ 0x1403BDF18 (MiLockStealUserVm.c)
- *     MmReleaseCommitForMemResetPages @ 0x140619848 (MmReleaseCommitForMemResetPages.c)
+ *     MiTrimSharedPageFromViews @ 0x1402EFEEC (MiTrimSharedPageFromViews.c)
+ *     MmQueryCommitReleaseState @ 0x140366AC8 (MmQueryCommitReleaseState.c)
+ *     MiLockStealUserVm @ 0x1403BE0F8 (MiLockStealUserVm.c)
+ *     MmReleaseCommitForMemResetPages @ 0x140619D98 (MmReleaseCommitForMemResetPages.c)
  * Callees:
  *     <none>
  */

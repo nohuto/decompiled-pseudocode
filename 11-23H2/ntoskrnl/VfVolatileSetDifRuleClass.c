@@ -1,18 +1,18 @@
 /*
- * XREFs of VfVolatileSetDifRuleClass @ 0x140ADDC1C
+ * XREFs of VfVolatileSetDifRuleClass @ 0x140ADDC0C
  * Callers:
- *     NtSetSystemInformation @ 0x14075EE30 (NtSetSystemInformation.c)
+ *     NtSetSystemInformation @ 0x14075F020 (NtSetSystemInformation.c)
  * Callees:
- *     memmove @ 0x140435700 (memmove.c)
- *     VfUtilSetRuleClass @ 0x1405CE35C (VfUtilSetRuleClass.c)
- *     CarCleanup @ 0x1405D3738 (CarCleanup.c)
- *     CarInit @ 0x1405D3D04 (CarInit.c)
- *     DifRegisterKernelPlugin @ 0x1405D4F40 (DifRegisterKernelPlugin.c)
- *     DifSetPluginRunningWithoutReboot @ 0x1405D5400 (DifSetPluginRunningWithoutReboot.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     VfUtilSetRuleClass @ 0x1405CE8CC (VfUtilSetRuleClass.c)
+ *     CarCleanup @ 0x1405D3CA8 (CarCleanup.c)
+ *     CarInit @ 0x1405D4274 (CarInit.c)
+ *     DifRegisterKernelPlugin @ 0x1405D54B0 (DifRegisterKernelPlugin.c)
+ *     DifSetPluginRunningWithoutReboot @ 0x1405D5970 (DifSetPluginRunningWithoutReboot.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
- *     VfClearDifWithoutReboot @ 0x140AC2BDC (VfClearDifWithoutReboot.c)
- *     VfInitDifWithoutReboot @ 0x140AC2C34 (VfInitDifWithoutReboot.c)
+ *     VfClearDifWithoutReboot @ 0x140AC2BCC (VfClearDifWithoutReboot.c)
+ *     VfInitDifWithoutReboot @ 0x140AC2C24 (VfInitDifWithoutReboot.c)
  */
 
 __int64 __fastcall VfVolatileSetDifRuleClass(void *Src, size_t Size)
@@ -39,7 +39,7 @@ __int64 __fastcall VfVolatileSetDifRuleClass(void *Src, size_t Size)
   v4 = 0LL;
   v5 = 0;
   v6 = 0;
-  if ( (_DWORD)InitSafeBootMode )
+  if ( InitSafeBootMode )
     return 3221228554LL;
   if ( (_DWORD)VfRuleClasses )
     return 3221228669LL;

@@ -1,22 +1,22 @@
 /*
- * XREFs of CcInitializePartitionVacbs @ 0x1405B2EE8
+ * XREFs of CcInitializePartitionVacbs @ 0x1405B56F8
  * Callers:
- *     CcInitializePartition @ 0x1405B285C (CcInitializePartition.c)
+ *     CcInitializePartition @ 0x1405B506C (CcInitializePartition.c)
  * Callees:
- *     KeAcquireQueuedSpinLock @ 0x1402B4690 (KeAcquireQueuedSpinLock.c)
- *     KeReleaseQueuedSpinLock @ 0x1402E2650 (KeReleaseQueuedSpinLock.c)
- *     CcSetVacbInFreeList @ 0x1402E28F0 (CcSetVacbInFreeList.c)
- *     CcGetVacbFromFreeList @ 0x140461210 (CcGetVacbFromFreeList.c)
- *     CcInsertVacbArray @ 0x1404D120C (CcInsertVacbArray.c)
- *     CcAllocateInitializeVacbArray @ 0x1404D943C (CcAllocateInitializeVacbArray.c)
- *     MmReserveViewInSystemCache @ 0x14086AB08 (MmReserveViewInSystemCache.c)
+ *     KeReleaseQueuedSpinLock @ 0x1402C4710 (KeReleaseQueuedSpinLock.c)
+ *     CcSetVacbInFreeList @ 0x1402C49B0 (CcSetVacbInFreeList.c)
+ *     KeAcquireQueuedSpinLock @ 0x1402FF360 (KeAcquireQueuedSpinLock.c)
+ *     CcGetVacbFromFreeList @ 0x14045A1D0 (CcGetVacbFromFreeList.c)
+ *     CcInsertVacbArray @ 0x1404CAC3C (CcInsertVacbArray.c)
+ *     CcAllocateInitializeVacbArray @ 0x1404D2B1C (CcAllocateInitializeVacbArray.c)
+ *     MmReserveViewInSystemCache @ 0x140870EE8 (MmReserveViewInSystemCache.c)
  */
 
 char __fastcall CcInitializePartitionVacbs(__int64 a1)
 {
   char v1; // di
   KIRQL v3; // bl
-  struct _SINGLE_LIST_ENTRY *VacbFromFreeList; // r14
+  __int64 *VacbFromFreeList; // r14
   char *InitializeVacbArray; // rbx
   KIRQL v6; // bp
   KIRQL v7; // dl
@@ -27,15 +27,15 @@ char __fastcall CcInitializePartitionVacbs(__int64 a1)
   KIRQL v12; // bl
 
   v1 = 1;
-  while ( *(_DWORD *)(a1 + 1248) < *(_DWORD *)EmpParseLock.PriorityFloorCounts )
+  while ( *(_DWORD *)(a1 + 1248) < LODWORD(EmpParseLock.PropagateBoostsEntry.Next) )
   {
     v3 = KeAcquireQueuedSpinLock(4uLL);
-    VacbFromFreeList = CcGetVacbFromFreeList(a1, 0);
+    VacbFromFreeList = CcGetVacbFromFreeList(($04F135B480AA75E9F84DA8531FC1BADA *)a1, 0);
     KeReleaseQueuedSpinLock(4uLL, v3);
     if ( VacbFromFreeList )
     {
       v8 = MmReserveViewInSystemCache(*(_QWORD *)(a1 + 8));
-      VacbFromFreeList->Next = (struct _SINGLE_LIST_ENTRY *)v8;
+      *VacbFromFreeList = v8;
       if ( !v8 )
       {
         v1 = 0;
@@ -57,7 +57,7 @@ char __fastcall CcInitializePartitionVacbs(__int64 a1)
         return 0;
       v6 = KeAcquireQueuedSpinLock(4uLL);
       CcInsertVacbArray(a1, InitializeVacbArray);
-      if ( LODWORD(EmpParseLock.MutantListHead.Blink) == 1 )
+      if ( *(_DWORD *)&EmpParseLock.PriorityFloorCounts[24] == 1 )
         *((_DWORD *)InitializeVacbArray + 1) = 1;
       v7 = v6;
     }

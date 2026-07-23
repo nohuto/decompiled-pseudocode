@@ -11,15 +11,41 @@
  *     sub_1800FD9BC @ 0x1800FD9BC (sub_1800FD9BC.c)
  */
 
-__int64 __fastcall sub_1800FF8DC(__int64 a1)
+NTSTATUS __fastcall sub_1800FF8DC(
+        __int64 a1,
+        __int64 a2,
+        __int64 a3,
+        __int64 a4,
+        char a5,
+        __int64 a6,
+        HANDLE TraceHandle)
 {
-  __int64 v3; // [rsp+68h] [rbp+7h] BYREF
-  int v4; // [rsp+70h] [rbp+Fh] BYREF
-  __int64 v5; // [rsp+74h] [rbp+13h]
+  __int64 v8; // r8
+  char v9; // r9
+  __int64 v10; // rax
+  _BYTE Fields[6]; // [rsp+20h] [rbp-41h] BYREF
+  __int16 v13; // [rsp+26h] [rbp-3Bh]
+  __int64 v14; // [rsp+40h] [rbp-21h]
+  __int64 v15; // [rsp+48h] [rbp-19h]
+  __int64 v16; // [rsp+50h] [rbp-11h]
+  __int64 v17; // [rsp+58h] [rbp-9h]
+  __int64 v18; // [rsp+60h] [rbp-1h]
+  __int64 v19; // [rsp+68h] [rbp+7h] BYREF
+  int v20; // [rsp+70h] [rbp+Fh] BYREF
+  __int64 v21; // [rsp+74h] [rbp+13h]
 
-  v3 = 0LL;
-  v4 = 0;
-  v5 = sub_1800062F4(a1);
-  sub_1800FD9BC(a1, &v3, &v4);
-  return ZwTraceEvent();
+  v17 = a4;
+  v19 = 0LL;
+  v18 = 0LL;
+  v20 = 0;
+  v14 = a1;
+  v16 = a2;
+  v21 = sub_1800062F4(a1);
+  if ( a5 != v9 )
+    v8 -= a6;
+  v15 = v8;
+  v10 = sub_1800FD9BC(a1, &v19, &v20);
+  v18 = v19 - *(_QWORD *)(a1 + 632) - v10;
+  v13 = 4138;
+  return ZwTraceEvent(TraceHandle, 0x403u, 0x3Cu, Fields);
 }

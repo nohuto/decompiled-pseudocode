@@ -1,9 +1,9 @@
 /*
- * XREFs of ?RtlpGetFunctionOverrideIndex@@YAPEBU_RTL_FUNCTION_OVERRIDE_INDEX@@PEBU_RTL_FUNCTION_OVERRIDE_INFORMATION@@K@Z @ 0x1409CF5F4
+ * XREFs of ?RtlpGetFunctionOverrideIndex@@YAPEBU_RTL_FUNCTION_OVERRIDE_INDEX@@PEBU_RTL_FUNCTION_OVERRIDE_INFORMATION@@K@Z @ 0x1409A05D4
  * Callers:
- *     RtlApplyFunctionOverrideFixups @ 0x1409CF2EC (RtlApplyFunctionOverrideFixups.c)
+ *     RtlApplyFunctionOverrideFixups @ 0x1409A02CC (RtlApplyFunctionOverrideFixups.c)
  * Callees:
- *     ?terminate@details@gsl@@YAXXZ @ 0x14047FF64 (-terminate@details@gsl@@YAXXZ.c)
+ *     ?terminate@details@gsl@@YAXXZ @ 0x1404798A4 (-terminate@details@gsl@@YAXXZ.c)
  */
 
 const struct _RTL_FUNCTION_OVERRIDE_INDEX *__fastcall RtlpGetFunctionOverrideIndex(

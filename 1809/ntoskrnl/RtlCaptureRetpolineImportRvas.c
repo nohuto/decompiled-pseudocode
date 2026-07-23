@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlCaptureRetpolineImportRvas @ 0x1401B5EC8
+ * XREFs of RtlCaptureRetpolineImportRvas @ 0x1401B6030
  * Callers:
- *     MiCaptureRetpolineImportInfo @ 0x1401B4F98 (MiCaptureRetpolineImportInfo.c)
- *     RtlUpdateImportRelocationsInImage @ 0x1401B600C (RtlUpdateImportRelocationsInImage.c)
+ *     MiCaptureRetpolineImportInfo @ 0x1401B50D8 (MiCaptureRetpolineImportInfo.c)
+ *     RtlUpdateImportRelocationsInImage @ 0x1401B6174 (RtlUpdateImportRelocationsInImage.c)
  * Callees:
- *     RtlImageDirectoryEntryToData @ 0x1400F2C40 (RtlImageDirectoryEntryToData.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     RtlImageDirectoryEntryToData @ 0x1400F2CC0 (RtlImageDirectoryEntryToData.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall RtlCaptureRetpolineImportRvas(

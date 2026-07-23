@@ -1,47 +1,47 @@
 /*
- * XREFs of EtwpEventApiCallback @ 0x18001EC50
+ * XREFs of EtwpEventApiCallback @ 0x18004B650
  * Callers:
- *     EtwpUpdateEnableInfoAndCallback @ 0x18001E990 (EtwpUpdateEnableInfoAndCallback.c)
+ *     EtwpUpdateEnableInfoAndCallback @ 0x18004B390 (EtwpUpdateEnableInfoAndCallback.c)
  * Callees:
- *     RtlAllocateHeap @ 0x180011260 (RtlAllocateHeap.c)
- *     RtlFreeHeap @ 0x1800269F0 (RtlFreeHeap.c)
- *     RtlReleaseSRWLockExclusive @ 0x1800567B0 (RtlReleaseSRWLockExclusive.c)
- *     EtwpAcquireGuidEntryExclusive @ 0x18010AC5C (EtwpAcquireGuidEntryExclusive.c)
- *     __security_check_cookie @ 0x1801659C0 (__security_check_cookie.c)
- *     memmove @ 0x180167400 (memmove.c)
- *     _tlgEnableCallback @ 0x180171590 (_tlgEnableCallback.c)
- *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x180172020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
+ *     RtlAllocateHeap @ 0x18003DC60 (RtlAllocateHeap.c)
+ *     RtlFreeHeap @ 0x1800533F0 (RtlFreeHeap.c)
+ *     RtlReleaseSRWLockExclusive @ 0x18006C390 (RtlReleaseSRWLockExclusive.c)
+ *     EtwpAcquireGuidEntryExclusive @ 0x1801057CC (EtwpAcquireGuidEntryExclusive.c)
+ *     __security_check_cookie @ 0x180163D80 (__security_check_cookie.c)
+ *     memmove @ 0x1801657C0 (memmove.c)
+ *     _tlgEnableCallback @ 0x180170590 (_tlgEnableCallback.c)
+ *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x180171020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
  */
 
 __int64 __fastcall EtwpEventApiCallback(__int64 a1, __int64 a2)
 {
-  unsigned int v2; // esi
+  ULONG v2; // esi
   __int64 v4; // r15
   void **v6; // r14
-  __int64 v7; // r9
-  __int64 v8; // rdx
+  ULONGLONG v7; // r9
+  ULONGLONG v8; // rdx
   __int64 v9; // rax
   __int64 v10; // r10
   char v11; // si
   __int64 v12; // r8
   unsigned __int8 v13; // cl
   unsigned int i; // ecx
-  void (__fastcall *v15)(__int64, _QWORD, __int64); // rax
-  __int64 v16; // rcx
+  void (__cdecl *v15)(LPCGUID, ULONG, UCHAR, ULONGLONG, ULONGLONG, PEVENT_FILTER_DESCRIPTOR, PVOID); // rax
+  const GUID *v16; // rcx
   int v18; // r10d
   __int64 v19; // r13
   bool v20; // sf
   __int64 v21; // r10
-  __int64 v22; // r8
-  __int64 Heap; // rax
+  void *v22; // r8
+  _DWORD *Heap; // rax
   __int64 v24; // [rsp+40h] [rbp-40h]
-  int v25; // [rsp+48h] [rbp-38h]
+  ULONGLONG v25; // [rsp+48h] [rbp-38h]
   unsigned __int8 v26; // [rsp+55h] [rbp-2Bh]
   void *Src[2]; // [rsp+58h] [rbp-28h] BYREF
 
   v2 = *(_DWORD *)(a1 + 72);
   v4 = *(_QWORD *)(a2 + 240);
-  v25 = 0;
+  v25 = 0LL;
   v6 = 0LL;
   v26 = 0;
   v7 = 0LL;
@@ -133,36 +133,36 @@ LABEL_11:
         if ( v4 )
         {
           EtwpAcquireGuidEntryExclusive(v4);
-          v22 = *(_QWORD *)(v4 + 168);
+          v22 = *(void **)(v4 + 168);
           if ( v22 )
-            RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0LL, v22);
-          Heap = RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 8u, LODWORD(Src[1]) + 16LL);
+            RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v22);
+          Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, LODWORD(Src[1]) + 16LL);
           *(_QWORD *)(v4 + 168) = Heap;
           if ( Heap )
           {
-            *(_DWORD *)(Heap + 8) = Src[1];
+            Heap[2] = Src[1];
             *(_DWORD *)(*(_QWORD *)(v4 + 168) + 12LL) = HIDWORD(Src[1]);
             **(_QWORD **)(v4 + 168) = *(_QWORD *)(v4 + 168) + 16LL;
             memmove(**(void ***)(v4 + 168), Src[0], LODWORD(Src[1]));
           }
           *(_DWORD *)(v4 + 48) = 0;
-          RtlReleaseSRWLockExclusive(v4 + 40);
+          RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(v4 + 40));
           v12 = v26;
-          LODWORD(v7) = v25;
+          v7 = v25;
           v8 = v24;
         }
       }
       break;
     }
   }
-  v15 = *(void (__fastcall **)(__int64, _QWORD, __int64))(a2 + 48);
+  v15 = *(void (__cdecl **)(LPCGUID, ULONG, UCHAR, ULONGLONG, ULONGLONG, PEVENT_FILTER_DESCRIPTOR, PVOID))(a2 + 48);
   if ( v15 )
   {
-    v16 = a1 + 56;
-    if ( (char *)v15 == (char *)tlgEnableCallback )
-      tlgEnableCallback(v16, v2, v12, v7, v8, (__int64)v6, *(_QWORD *)(a2 + 56));
+    v16 = (const GUID *)(a1 + 56);
+    if ( v15 == tlgEnableCallback )
+      tlgEnableCallback(v16, v2, v12, v7, v8, (PEVENT_FILTER_DESCRIPTOR)v6, *(PVOID *)(a2 + 56));
     else
-      v15(v16, v2, v12);
+      ((void (__fastcall *)(const GUID *, _QWORD, __int64))v15)(v16, v2, v12);
   }
   return 0LL;
 }

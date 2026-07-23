@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpHpSegLfhAllocate @ 0x180117CF0
+ * XREFs of RtlpHpSegLfhAllocate @ 0x180117AA0
  * Callers:
  *     <none>
  * Callees:
- *     RtlpHpSegSubAllocate @ 0x180117D30 (RtlpHpSegSubAllocate.c)
+ *     RtlpHpSegSubAllocate @ 0x180117AE0 (RtlpHpSegSubAllocate.c)
  */
 
 __int64 __fastcall RtlpHpSegLfhAllocate(int a1, unsigned int a2, int a3, __int64 a4)

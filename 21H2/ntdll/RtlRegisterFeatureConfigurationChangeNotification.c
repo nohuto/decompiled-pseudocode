@@ -9,34 +9,38 @@
  *     TpPostWork @ 0x1800128C0 (TpPostWork.c)
  */
 
-__int64 __fastcall RtlRegisterFeatureConfigurationChangeNotification(__int64 a1, __int64 a2, _QWORD *a3, __int64 *a4)
+NTSTATUS __cdecl RtlRegisterFeatureConfigurationChangeNotification(
+        PRTL_FEATURE_CONFIGURATION_CHANGE_CALLBACK Callback,
+        PVOID Context,
+        PRTL_FEATURE_CHANGE_STAMP ObservedChangeStamp,
+        PRTL_FEATURE_CONFIGURATION_CHANGE_REGISTRATION RegistrationHandle)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
   __int64 v9; // rax
   __int64 v10; // rcx
-  __int64 v11; // rbx
+  PTP_WORK *v11; // rbx
 
   if ( byte_18016C508 )
-    return 3221226238LL;
+    return -1073741058;
   result = RtlpFcEnsureSubscriptionManagerStarted();
-  if ( (int)result >= 0 )
+  if ( result >= 0 )
   {
-    v9 = RtlpFcAllocateChangeRegistration(a1, a2);
-    v11 = v9;
+    v9 = RtlpFcAllocateChangeRegistration(Callback, Context);
+    v11 = (PTP_WORK *)v9;
     if ( v9 )
     {
       RtlpFcInsertChangeRegistration(v10, v9);
-      if ( a3 )
+      if ( ObservedChangeStamp )
       {
-        if ( MEMORY[0x7FFE0710] != *a3 )
-          TpPostWork(*(_QWORD *)(v11 + 40));
+        if ( MEMORY[0x7FFE0710] != *ObservedChangeStamp )
+          TpPostWork(v11[5]);
       }
-      *a4 = v11;
-      return 0LL;
+      *RegistrationHandle = v11;
+      return 0;
     }
     else
     {
-      return 3221225626LL;
+      return -1073741670;
     }
   }
   return result;

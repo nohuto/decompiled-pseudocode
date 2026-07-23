@@ -7,7 +7,7 @@
  *     RtlpReportHeapFailure @ 0x180106BB0 (RtlpReportHeapFailure.c)
  * Callees:
  *     DbgPrintEx @ 0x18004D290 (DbgPrintEx.c)
- *     __security_check_cookie @ 0x18008FEC0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x18008FED0 (__security_check_cookie.c)
  *     RtlIsAnyDebuggerPresent @ 0x1800FB37C (RtlIsAnyDebuggerPresent.c)
  *     RtlReportFatalFailure @ 0x1800FB4C0 (RtlReportFatalFailure.c)
  */
@@ -23,7 +23,7 @@ __int64 __fastcall RtlReportCriticalFailure(int a1, __int64 a2, int a3)
 
   if ( RtlIsAnyDebuggerPresent() )
   {
-    DbgPrintEx(101, 0, "Critical error detected %lx\n", v6);
+    DbgPrintEx(0x65u, 0, "Critical error detected %lx\n", v6);
     if ( a3 )
       __debugbreak();
   }

@@ -1,16 +1,16 @@
 /*
- * XREFs of RtlpLowFragHeapAllocFromContext @ 0x1800240C0
+ * XREFs of RtlpLowFragHeapAllocFromContext @ 0x1800240B0
  * Callers:
- *     RtlpAllocateHeapInternal @ 0x180022DF0 (RtlpAllocateHeapInternal.c)
+ *     RtlpAllocateHeapInternal @ 0x180022DE0 (RtlpAllocateHeapInternal.c)
  * Callees:
- *     RtlpAllocateUserBlockFromHeap @ 0x180019974 (RtlpAllocateUserBlockFromHeap.c)
- *     RtlpSubSegmentInitialize @ 0x180027270 (RtlpSubSegmentInitialize.c)
- *     RtlpFreeUserBlock @ 0x180045F48 (RtlpFreeUserBlock.c)
- *     RtlpIsSubSegmentReuseable @ 0x1800460E4 (RtlpIsSubSegmentReuseable.c)
- *     RtlpIsSubSegmentReuseThresholdExceeded @ 0x18004F4B4 (RtlpIsSubSegmentReuseThresholdExceeded.c)
- *     RtlpSetSegmentInfo @ 0x180051A50 (RtlpSetSegmentInfo.c)
- *     RtlpLowFragHeapAllocateFromZone @ 0x180074DB4 (RtlpLowFragHeapAllocateFromZone.c)
- *     RtlpAffinitizeSegmentInfoForBucket @ 0x180080594 (RtlpAffinitizeSegmentInfoForBucket.c)
+ *     RtlpAllocateUserBlockFromHeap @ 0x180019964 (RtlpAllocateUserBlockFromHeap.c)
+ *     RtlpSubSegmentInitialize @ 0x180027260 (RtlpSubSegmentInitialize.c)
+ *     RtlpFreeUserBlock @ 0x180045F38 (RtlpFreeUserBlock.c)
+ *     RtlpIsSubSegmentReuseable @ 0x1800460D4 (RtlpIsSubSegmentReuseable.c)
+ *     RtlpIsSubSegmentReuseThresholdExceeded @ 0x18004F4A4 (RtlpIsSubSegmentReuseThresholdExceeded.c)
+ *     RtlpSetSegmentInfo @ 0x180051A40 (RtlpSetSegmentInfo.c)
+ *     RtlpLowFragHeapAllocateFromZone @ 0x180074DA4 (RtlpLowFragHeapAllocateFromZone.c)
+ *     RtlpAffinitizeSegmentInfoForBucket @ 0x180080584 (RtlpAffinitizeSegmentInfoForBucket.c)
  *     RtlpLogHeapFailure @ 0x1800A5E64 (RtlpLogHeapFailure.c)
  *     RtlGetCurrentProcessorNumber @ 0x1800A6010 (RtlGetCurrentProcessorNumber.c)
  *     RtlpInterlockedPopEntrySList @ 0x1800A9D30 (RtlpInterlockedPopEntrySList.c)
@@ -23,7 +23,7 @@
  *     RtlpLogHeapSubSegmentAllocCached @ 0x1800F95AC (RtlpLogHeapSubSegmentAllocCached.c)
  */
 
-__int64 __fastcall RtlpLowFragHeapAllocFromContext(__int64 a1, __int64 a2, __int64 a3, char a4)
+__int64 __fastcall RtlpLowFragHeapAllocFromContext(PRTL_SRWLOCK SRWLock, unsigned __int16 a2, __int64 a3, char a4)
 {
   __int64 v5; // r15
   unsigned __int16 *v6; // rsi
@@ -31,7 +31,7 @@ __int64 __fastcall RtlpLowFragHeapAllocFromContext(__int64 a1, __int64 a2, __int
   __int64 UniqueThread_low; // rdi
   __int64 v9; // rax
   __int64 v10; // rdi
-  __int64 v11; // r13
+  unsigned __int64 Value; // r13
   __int64 v12; // rbx
   int v13; // eax
   volatile signed __int64 *v14; // rcx
@@ -62,8 +62,8 @@ __int64 __fastcall RtlpLowFragHeapAllocFromContext(__int64 a1, __int64 a2, __int
   unsigned int v40; // r12d
   signed __int64 *v41; // rbx
   signed __int64 v42; // rdx
-  union _SLIST_HEADER *v43; // rbp
-  union _SLIST_HEADER *v44; // r12
+  _SLIST_HEADER *v43; // rbp
+  _SLIST_HEADER *v44; // r12
   PSLIST_ENTRY v45; // rbx
   volatile signed __int64 *v46; // rcx
   signed __int64 v47; // rtt
@@ -82,25 +82,25 @@ __int64 __fastcall RtlpLowFragHeapAllocFromContext(__int64 a1, __int64 a2, __int
   unsigned int v60; // r8d
   unsigned int v61; // r10d
   BOOL v62; // r9d
-  signed __int64 v63; // rax
+  unsigned __int64 v63; // rax
   char v64; // r11
   char v65; // cl
   char v66; // cl
-  union _SLIST_HEADER *v67; // r9
+  _SLIST_HEADER *v67; // r9
   unsigned int v68; // edx
   unsigned int v69; // ebx
   unsigned int v70; // edx
-  __int64 v71; // r12
+  _RTL_SRWLOCK *v71; // r12
   PSLIST_ENTRY v72; // rax
   PSLIST_ENTRY v73; // r10
-  __int64 v74; // r8
+  PSLIST_ENTRY v74; // r8
   unsigned __int64 v75; // rax
   unsigned __int64 v76; // rbx
   unsigned int v77; // edx
   unsigned __int64 v78; // rax
   __int64 v79; // r12
   PSLIST_ENTRY v80; // rax
-  struct _SLIST_ENTRY *v81; // rbx
+  _SLIST_ENTRY *v81; // rbx
   signed __int32 v82; // eax
   __int64 *v83; // r8
   signed __int32 v84; // eax
@@ -111,16 +111,16 @@ __int64 __fastcall RtlpLowFragHeapAllocFromContext(__int64 a1, __int64 a2, __int
   __int64 v89; // rcx
   __int64 v90; // rcx
   int v91; // ebx
-  unsigned int CurrentProcessorNumber; // eax
+  ULONG CurrentProcessorNumber; // eax
   char *v93; // r12
   int v94; // ecx
   _SLIST_ENTRY *Next; // rcx
   unsigned __int16 *v96; // rax
-  struct _SLIST_ENTRY *v97; // rdx
-  unsigned __int32 v98; // eax
+  _SLIST_ENTRY *v97; // rdx
+  unsigned __int32 Ptr_high; // eax
   unsigned __int32 v99; // eax
   __int64 v100; // rcx
-  union _SLIST_HEADER *v101; // rdi
+  _SLIST_HEADER *v101; // rdi
   unsigned int v102; // ebp
   signed __int64 v103; // r12
   int v104; // eax
@@ -137,7 +137,7 @@ __int64 __fastcall RtlpLowFragHeapAllocFromContext(__int64 a1, __int64 a2, __int
   int v115; // r8d
   __int64 v116; // rax
   unsigned __int16 *v117; // rcx
-  struct _SLIST_ENTRY *v118; // rdx
+  _SLIST_ENTRY *v118; // rdx
   __int64 v119; // rcx
   signed __int32 v120; // eax
   _SLIST_ENTRY *v121; // r9
@@ -163,15 +163,15 @@ __int64 __fastcall RtlpLowFragHeapAllocFromContext(__int64 a1, __int64 a2, __int
   __int64 *v141; // [rsp+D0h] [rbp+8h]
   unsigned int v142; // [rsp+D0h] [rbp+8h]
   signed __int64 v143; // [rsp+D0h] [rbp+8h]
-  __int64 UserBlockFromHeap; // [rsp+D0h] [rbp+8h]
+  _SLIST_ENTRY *UserBlockFromHeap; // [rsp+D0h] [rbp+8h]
   int v145; // [rsp+D8h] [rbp+10h]
   unsigned int v146; // [rsp+D8h] [rbp+10h]
   char v147; // [rsp+D8h] [rbp+10h]
   unsigned int v148; // [rsp+D8h] [rbp+10h]
 
   LODWORD(v5) = 0;
-  v6 = (unsigned __int16 *)(a1 + 4 * ((unsigned __int16)a2 + 169LL));
-  if ( (*(_BYTE *)(a1 + 672) & 1) == 0 && (*((_BYTE *)v6 + 3) & 1) != 0 )
+  v6 = (unsigned __int16 *)&SRWLock[84].Ptr + 2 * a2 + 2;
+  if ( (*(_BYTE *)&SRWLock[84].0 & 1) == 0 && (*((_BYTE *)v6 + 3) & 1) != 0 )
   {
     v7 = NtCurrentTeb();
     LODWORD(v5) = v7->HeapVirtualAffinity - 1;
@@ -179,7 +179,7 @@ __int64 __fastcall RtlpLowFragHeapAllocFromContext(__int64 a1, __int64 a2, __int
     if ( (int)v5 < 0 || qword_1801503E8[(int)v5] != UniqueThread_low )
     {
       v91 = dword_1801503E4;
-      CurrentProcessorNumber = RtlGetCurrentProcessorNumber(a1, a2);
+      CurrentProcessorNumber = RtlGetCurrentProcessorNumber();
       v5 = v91 & CurrentProcessorNumber;
       v7->HeapVirtualAffinity = (v91 & CurrentProcessorNumber) + 1;
       qword_1801503E8[v5] = UniqueThread_low;
@@ -188,27 +188,27 @@ __int64 __fastcall RtlpLowFragHeapAllocFromContext(__int64 a1, __int64 a2, __int
   v9 = *((unsigned __int8 *)v6 + 2);
   v10 = 16LL * *v6;
   v138 = v10;
-  ListHead = (PSLIST_HEADER)(a1 + 48 * ((unsigned int)v5 + 68LL));
+  ListHead = (PSLIST_HEADER)&SRWLock[6 * (unsigned int)v5 + 408];
   if ( (_DWORD)v5 )
-    v11 = *(_QWORD *)(a1 + 8 * v9 + 2224) - 192LL + 192LL * (unsigned int)v5;
+    Value = SRWLock[v9 + 278].Value - 192 + 192LL * (unsigned int)v5;
   else
-    v11 = *(_QWORD *)(a1 + 8 * v9 + 1192);
+    Value = SRWLock[v9 + 149].Value;
 LABEL_7:
   while ( 2 )
   {
     while ( 2 )
     {
-      v12 = *(_QWORD *)(v11 + 8);
+      v12 = *(_QWORD *)(Value + 8);
       if ( v12 )
       {
         v13 = HIWORD(*(_DWORD *)(v12 + 32));
         v145 = 0;
-        v14 = *(volatile signed __int64 **)(*(_QWORD *)v11 + 24LL);
+        v14 = *(volatile signed __int64 **)(*(_QWORD *)Value + 24LL);
         v135 = v14;
         if ( (v13 & 0x8000) != 0 )
         {
           v145 = 1;
-          v93 = (char *)v14 + 4 * *(unsigned __int16 *)(v11 + 172);
+          v93 = (char *)v14 + 4 * *(unsigned __int16 *)(Value + 172);
           if ( (v93[679] & 1) == 0 && (int)RtlpAffinitizeSegmentInfoForBucket(v14, (unsigned __int8)v93[678]) >= 0 )
           {
             v93[679] |= 1u;
@@ -239,7 +239,7 @@ LABEL_7:
         if ( v17 == -1 )
           goto LABEL_41;
         v18 = *(_QWORD *)(v12 + 8);
-        if ( !v18 || *(_QWORD *)v12 != v11 || !(_WORD)v17 )
+        if ( !v18 || *(_QWORD *)v12 != Value || !(_WORD)v17 )
         {
           *(_DWORD *)(v12 + 32) = v17;
 LABEL_41:
@@ -248,7 +248,7 @@ LABEL_41:
         }
         v19 = NtCurrentTeb();
         LowFragHeapDataSlot = v19->LowFragHeapDataSlot;
-        v21 = RtlpSearchWidth[*(unsigned __int16 *)(v11 + 172)];
+        v21 = RtlpSearchWidth[*(unsigned __int16 *)(Value + 172)];
         v22 = *((unsigned __int8 *)&RtlpLowFragHeapRandomData + LowFragHeapDataSlot);
         v19->LowFragHeapDataSlot = (unsigned __int8)(LowFragHeapDataSlot + 1);
         v23 = *(_QWORD *)(v18 + 32);
@@ -306,7 +306,7 @@ LABEL_41:
         v32 = v18 + v31 * WORD1(v29) + (unsigned __int16)v29;
         if ( (*(_BYTE *)(v32 + 15) & 0x3F) != 0 )
         {
-          RtlpLogHeapFailure(14, *(_QWORD *)(*(_QWORD *)(*(_QWORD *)v11 + 24LL) + 24LL), v32, 0, 0LL, 0LL);
+          RtlpLogHeapFailure(14, *(_QWORD *)(*(_QWORD *)(*(_QWORD *)Value + 24LL) + 24LL), v32, 0, 0LL, 0LL);
           goto LABEL_41;
         }
 LABEL_26:
@@ -329,8 +329,8 @@ LABEL_26:
           return v32 + 16;
         }
       }
-      v37 = *(_QWORD *)v11;
-      v133 = *(PSLIST_HEADER *)v11;
+      v37 = *(_QWORD *)Value;
+      v133 = *(PSLIST_HEADER *)Value;
 LABEL_47:
       v132 = 0LL;
       while ( 2 )
@@ -340,7 +340,7 @@ LABEL_47:
         v142 = 0;
         v135 = 0LL;
         v40 = 0;
-        v41 = (signed __int64 *)(v11 + 16);
+        v41 = (signed __int64 *)(Value + 16);
         do
         {
           v42 = *v41;
@@ -357,11 +357,11 @@ LABEL_78:
           }
           if ( (RtlpLowFragHeapGlobalFlags & 4) == 0 )
           {
-            LODWORD(v37) = *(unsigned __int16 *)(v11 + 172);
+            LODWORD(v37) = *(unsigned __int16 *)(Value + 172);
             if ( (unsigned __int16)v37 <= 0x70u )
             {
-              if ( *(_DWORD *)(v11 + 160) >= 16
-                                           * (unsigned int)(unsigned __int16)RtlpBucketSizeIndexReuseThreshold[(unsigned __int16)v37] )
+              if ( *(_DWORD *)(Value + 160) >= 16
+                                             * (unsigned int)(unsigned __int16)RtlpBucketSizeIndexReuseThreshold[(unsigned __int16)v37] )
               {
                 v110 = *(_WORD *)(v42 + 32);
                 v111 = *(_WORD *)(v42 + 40) >> 2;
@@ -383,9 +383,9 @@ LABEL_81:
             if ( !(_BYTE)v37 )
               goto LABEL_84;
             RtlpLogHeapReuseThresholdActivate(
-              *(_QWORD *)(*(_QWORD *)(*(_QWORD *)v11 + 24LL) + 24LL),
+              *(_QWORD *)(*(_QWORD *)(*(_QWORD *)Value + 24LL) + 24LL),
               *(_QWORD *)(v42 + 8),
-              *(unsigned __int16 *)(v11 + 172));
+              *(unsigned __int16 *)(Value + 172));
             v42 = v137;
             v57 = v146;
             LODWORD(v37) = v134;
@@ -397,7 +397,7 @@ LABEL_84:
           v38 = v57;
           v142 = v57;
           v132 = v42;
-          v39 = (volatile signed __int64 *)(v11 + 8LL * v40 + 16);
+          v39 = (volatile signed __int64 *)(Value + 8LL * v40 + 16);
           v135 = v39;
 LABEL_50:
           ++v40;
@@ -407,8 +407,7 @@ LABEL_50:
         v43 = ListHead;
         if ( v39 )
         {
-          v44 = (union _SLIST_HEADER *)(*(_QWORD *)(v133[1].Region + 8LL * *(unsigned __int16 *)(v11 + 172) + 1192)
-                                      + 144LL);
+          v44 = (_SLIST_HEADER *)(*(_QWORD *)(v133[1].Region + 8LL * *(unsigned __int16 *)(Value + 172) + 1192) + 144LL);
           v45 = RtlpInterlockedPopEntrySList(v44);
           if ( v45 )
           {
@@ -429,7 +428,7 @@ LABEL_50:
               if ( !v45 )
                 goto LABEL_53;
             }
-            if ( !(unsigned int)RtlpSetSegmentInfo(v45, v11) )
+            if ( !(unsigned int)RtlpSetSegmentInfo(v45, Value) )
             {
               RtlpInterlockedPushEntrySList(v44, &v45[3]);
               v45 = 0LL;
@@ -446,7 +445,7 @@ LABEL_53:
             continue;
           }
           if ( !v45 )
-            *(_WORD *)(v11 + 174) = (unsigned __int8)(((__int64)v46 - v11 - 16) >> 3);
+            *(_WORD *)(Value + 174) = (unsigned __int8)((__int64)((__int64)v46 - Value - 16) >> 3);
           if ( v37 )
           {
             _m_prefetchw((const void *)(v37 + 44));
@@ -466,7 +465,7 @@ LABEL_53:
       }
       v58 = 0LL;
       v143 = 0LL;
-      v133 = (PSLIST_HEADER)(*(_QWORD *)(v133[1].Region + 8LL * *(unsigned __int16 *)(v11 + 172) + 1192) + 144LL);
+      v133 = (PSLIST_HEADER)(*(_QWORD *)(v133[1].Region + 8LL * *(unsigned __int16 *)(Value + 172) + 1192) + 144LL);
       v59 = RtlpInterlockedPopEntrySList(v133);
       if ( !v59 )
         goto LABEL_88;
@@ -488,7 +487,7 @@ LABEL_195:
           RtlpInterlockedPushEntrySList(v106, v103 + 48);
           goto LABEL_196;
         }
-        if ( !(unsigned int)RtlpSetSegmentInfo(v103, v11) )
+        if ( !(unsigned int)RtlpSetSegmentInfo(v103, Value) )
         {
           if ( !v102 )
             v143 = v103 + 48;
@@ -500,7 +499,7 @@ LABEL_195:
         _m_prefetchw((const void *)(v103 + 44));
         if ( _InterlockedAnd((volatile signed __int32 *)(v103 + 44), 0xFFFFFFFD) == 2 )
           goto LABEL_195;
-        if ( (unsigned __int8)RtlpIsSubSegmentReuseable(v11, v103) )
+        if ( (unsigned __int8)RtlpIsSubSegmentReuseable(Value, v103) )
           break;
 LABEL_196:
         v132 = 0LL;
@@ -529,7 +528,7 @@ LABEL_58:
         }
         while ( v48 != _InterlockedCompareExchange((volatile signed __int32 *)(v37 + 44), v48 | 6, v48) );
         v49 = *(__int64 **)v37;
-        if ( *(_QWORD *)v37 != v11 )
+        if ( *(_QWORD *)v37 != Value )
         {
           _m_prefetchw((const void *)(v37 + 44));
           if ( _InterlockedAnd((volatile signed __int32 *)(v37 + 44), 0xFFFFFFF9) != 6 )
@@ -578,7 +577,7 @@ LABEL_208:
               {
 LABEL_204:
                 v96 = *(unsigned __int16 **)v50;
-                v97 = (struct _SLIST_ENTRY *)(v50 + 48);
+                v97 = (_SLIST_ENTRY *)(v50 + 48);
                 goto LABEL_205;
               }
             }
@@ -591,17 +590,17 @@ LABEL_146:
         }
         if ( MEMORY[0x7FFE0380] && (NtCurrentPeb()->TracingFlags & 1) != 0 )
         {
-          RtlpLogHeapSubSegmentActivate(*(_QWORD *)(*(_QWORD *)(*(_QWORD *)v11 + 24LL) + 24LL), *(_QWORD *)(v37 + 8));
+          RtlpLogHeapSubSegmentActivate(*(_QWORD *)(*(_QWORD *)(*(_QWORD *)Value + 24LL) + 24LL), *(_QWORD *)(v37 + 8));
           v37 = v132;
         }
-        v37 = _InterlockedExchange64((volatile __int64 *)(v11 + 8), v37);
+        v37 = _InterlockedExchange64((volatile __int64 *)(Value + 8), v37);
         v132 = v37;
         if ( !v37 )
           continue;
         _m_prefetchw((const void *)(v37 + 44));
         if ( _InterlockedAnd((volatile signed __int32 *)(v37 + 44), 0xFFFFFFF9) == 6 )
           goto LABEL_146;
-        if ( *(_WORD *)(v37 + 32) && !(unsigned __int8)RtlpIsSubSegmentReuseThresholdExceeded(v11, v37) )
+        if ( *(_WORD *)(v37 + 32) && !(unsigned __int8)RtlpIsSubSegmentReuseThresholdExceeded(Value, v37) )
         {
           v50 = v132;
           while ( 1 )
@@ -643,12 +642,12 @@ LABEL_146:
       }
       break;
     }
-    v60 = *(_DWORD *)(v11 + 160);
+    v60 = *(_DWORD *)(Value + 160);
     v61 = *((unsigned __int8 *)v6 + 2);
-    v62 = (*(_BYTE *)(a1 + 672) & 2) != 0;
+    v62 = (*(_BYTE *)&SRWLock[84].0 & 2) != 0;
     do
     {
-      v63 = *(_QWORD *)(a1 + 80);
+      v63 = SRWLock[10].Value;
       v64 = 0;
       if ( (_DWORD)v63 == v61 )
       {
@@ -664,7 +663,7 @@ LABEL_146:
         v136 = v61 | 0x100000000LL;
       }
     }
-    while ( v63 != _InterlockedCompareExchange64((volatile signed __int64 *)(a1 + 80), v136, v63) );
+    while ( v63 != _InterlockedCompareExchange64((volatile signed __int64 *)&SRWLock[10], v136, v63) );
     if ( !v64 || v62 )
     {
       v65 = 3;
@@ -673,10 +672,10 @@ LABEL_146:
       v60 >>= v65;
     }
     v66 = *((_BYTE *)v6 + 3) & 1;
-    v67 = (union _SLIST_HEADER *)(unsigned __int16)RtlpBucketBlockSizes[*((unsigned __int8 *)v6 + 2)];
+    v67 = (_SLIST_HEADER *)(unsigned __int16)RtlpBucketBlockSizes[*((unsigned __int8 *)v6 + 2)];
     if ( (unsigned int)v67 < 0x100 )
       --v66;
-    if ( *(_DWORD *)(v11 + 164) )
+    if ( *(_DWORD *)(Value + 164) )
       --v66;
     v68 = v60;
     if ( v60 < 1 << (3 - v66) )
@@ -714,76 +713,78 @@ LABEL_146:
 LABEL_116:
     v133 = v67 + 1;
     v137 = (unsigned __int8)v69 - 7;
-    v71 = a1 + 48 * (v137 + 2);
-    ++*(_WORD *)(v71 + 28);
+    v71 = &SRWLock[6 * v137 + 12];
+    ++WORD2(v71[3].Ptr);
     v72 = RtlpInterlockedPopEntrySList((PSLIST_HEADER)v71);
     v73 = v72;
     if ( v72 )
     {
-      ++*(_WORD *)(v71 + 32);
+      ++*(_WORD *)&v71[4].0;
       goto LABEL_118;
     }
     if ( (unsigned __int8)v69 > 7u
-      && (v72 = RtlpInterlockedPopEntrySList((PSLIST_HEADER)(a1 + 48 * ((unsigned __int8)v69 - 8 + 2LL))),
-          (v73 = v72) != 0LL) )
+      && (v72 = RtlpInterlockedPopEntrySList((PSLIST_HEADER)&SRWLock[6 * (unsigned __int8)v69 - 36]), (v73 = v72) != 0LL) )
     {
 LABEL_118:
-      v74 = (__int64)v72;
-      UserBlockFromHeap = (__int64)v72;
+      v74 = v72;
+      UserBlockFromHeap = v72;
       v75 = 1LL << LOBYTE(v73[1].Next);
       if ( v75 > 0xF0000 )
         v75 = 983040LL;
       v76 = v75 + WORD1(v73[1].Next);
       if ( MEMORY[0x7FFE0380] && (NtCurrentPeb()->TracingFlags & 1) != 0 )
       {
-        RtlpLogHeapSubSegmentAllocCached(*(_QWORD *)(a1 + 24), v73, v76, v133);
+        RtlpLogHeapSubSegmentAllocCached(SRWLock[3].Value, v73, v76, v133);
         v74 = UserBlockFromHeap;
       }
-      _InterlockedExchangeAdd64((volatile signed __int64 *)(a1 + 72), -(__int64)v76);
+      _InterlockedExchangeAdd64((volatile signed __int64 *)&SRWLock[9], -(__int64)v76);
     }
     else
     {
-      UserBlockFromHeap = RtlpAllocateUserBlockFromHeap(*(_QWORD *)(a1 + 24), v69, (__int64)v133, v147);
+      UserBlockFromHeap = (_SLIST_ENTRY *)RtlpAllocateUserBlockFromHeap(
+                                            (PRTL_CRITICAL_SECTION *)SRWLock[3].Value,
+                                            v69,
+                                            (__int64)v133,
+                                            v147);
       v74 = UserBlockFromHeap;
       if ( UserBlockFromHeap )
-        _InterlockedIncrement((volatile signed __int32 *)(a1 + 48 * v137 + 112));
+        _InterlockedIncrement((volatile signed __int32 *)&SRWLock[6 * v137 + 14]);
     }
-    v77 = *(unsigned __int16 *)(v71 + 28);
+    v77 = WORD2(v71[3].Ptr);
     if ( v77 > 0x40 )
     {
-      if ( v77 < *(unsigned __int16 *)(v71 + 30) + (*(unsigned __int16 *)(v71 + 30) >> 1)
-        && *(unsigned __int16 *)(v71 + 32) < v77 - (v77 >> 1) )
+      if ( v77 < HIWORD(v71[3].Ptr) + (HIWORD(v71[3].Ptr) >> 1) && LOWORD(v71[4].Value) < v77 - (v77 >> 1) )
       {
-        v98 = *(_DWORD *)(v71 + 20);
-        if ( v98 < 2 )
+        Ptr_high = HIDWORD(v71[2].Ptr);
+        if ( Ptr_high < 2 )
         {
-          _InterlockedCompareExchange((volatile signed __int32 *)(v71 + 20), v98 + 1, v98);
+          _InterlockedCompareExchange((volatile signed __int32 *)&v71[2].Ptr + 1, Ptr_high + 1, Ptr_high);
         }
         else
         {
-          v99 = *(_DWORD *)(v71 + 24);
+          v99 = v71[3].Value;
           if ( v99 > 2 )
-            _InterlockedCompareExchange((volatile signed __int32 *)(v71 + 24), v99 - 1, v99);
+            _InterlockedCompareExchange((volatile signed __int32 *)&v71[3], v99 - 1, v99);
         }
       }
-      *(_WORD *)(v71 + 28) = 0;
-      *(_WORD *)(v71 + 30) = 0;
-      *(_WORD *)(v71 + 32) = 0;
+      WORD2(v71[3].Ptr) = 0;
+      HIWORD(v71[3].Ptr) = 0;
+      *(_WORD *)&v71[4].0 = 0;
     }
     if ( !v74 )
       return 0LL;
-    v78 = 1LL << *(_BYTE *)(v74 + 16);
+    v78 = 1LL << LOBYTE(v74[1].Next);
     if ( v78 > 0xF0000 )
       v78 = 983040LL;
-    v79 = v78 + *(unsigned __int16 *)(v74 + 18);
-    _InterlockedIncrement((volatile signed __int32 *)(a1 + 56));
+    v79 = v78 + WORD1(v74[1].Next);
+    _InterlockedIncrement((volatile signed __int32 *)&SRWLock[7]);
     v80 = RtlpInterlockedPopEntrySList(v43);
     if ( v80 )
     {
       v81 = v80 - 3;
       goto LABEL_128;
     }
-    v81 = (struct _SLIST_ENTRY *)RtlpLowFragHeapAllocateFromZone(a1, (unsigned int)v5);
+    v81 = (_SLIST_ENTRY *)RtlpLowFragHeapAllocateFromZone(SRWLock);
     if ( v81 )
     {
       *((_QWORD *)&v81->Next + 1) = 0LL;
@@ -792,14 +793,14 @@ LABEL_128:
         break;
       *((_BYTE *)&v81[2].Next + 11) = v5;
       RtlpSubSegmentInitialize(
-        a1,
+        (_DWORD)SRWLock,
         (_DWORD)v81,
-        UserBlockFromHeap,
+        (_DWORD)UserBlockFromHeap,
         (unsigned __int16)RtlpBucketBlockSizes[*((unsigned __int8 *)v6 + 2)],
         v79,
         (__int64)v6);
       _InterlockedOr(v131, 0);
-      *(_DWORD *)(UserBlockFromHeap + 20) = -253701952;
+      HIDWORD(UserBlockFromHeap[1].Next) = -253701952;
       do
       {
         v82 = *((_DWORD *)&v81[2].Next + 3);
@@ -808,7 +809,7 @@ LABEL_128:
       }
       while ( v82 != _InterlockedCompareExchange((volatile signed __int32 *)&v81[2].Next + 3, v82 | 6, v82) );
       v83 = (__int64 *)v81->Next;
-      if ( v81->Next != (_SLIST_ENTRY *)v11 )
+      if ( v81->Next != (_SLIST_ENTRY *)Value )
       {
         _m_prefetchw((char *)&v81[2].Next + 12);
         if ( _InterlockedAnd((volatile signed __int32 *)&v81[2].Next + 3, 0xFFFFFFF9) == 6 )
@@ -847,7 +848,7 @@ LABEL_128:
               {
                 v119 = **v129;
                 *v129 = 0LL;
-                v118 = (struct _SLIST_ENTRY *)(v129 + 6);
+                v118 = (_SLIST_ENTRY *)(v129 + 6);
 LABEL_245:
                 RtlpInterlockedPushEntrySList(v119, v118);
               }
@@ -880,7 +881,7 @@ LABEL_184:
                       goto LABEL_7;
                     v100 = **(_QWORD **)v88;
                     *(_QWORD *)v88 = 0LL;
-                    v97 = (struct _SLIST_ENTRY *)(v88 + 12);
+                    v97 = (_SLIST_ENTRY *)(v88 + 12);
                     goto LABEL_186;
                   }
                 }
@@ -919,9 +920,9 @@ LABEL_186:
       }
       if ( MEMORY[0x7FFE0380] && (NtCurrentPeb()->TracingFlags & 1) != 0 )
         RtlpLogHeapSubSegmentActivate(
-          *(_QWORD *)(*(_QWORD *)(*(_QWORD *)v11 + 24LL) + 24LL),
+          *(_QWORD *)(*(_QWORD *)(*(_QWORD *)Value + 24LL) + 24LL),
           *((_QWORD *)&v81->Next + 1));
-      v81 = (struct _SLIST_ENTRY *)_InterlockedExchange64((volatile __int64 *)(v11 + 8), (__int64)v81);
+      v81 = (_SLIST_ENTRY *)_InterlockedExchange64((volatile __int64 *)(Value + 8), (__int64)v81);
       if ( v81 )
       {
         _m_prefetchw((char *)&v81[2].Next + 12);
@@ -932,7 +933,7 @@ LABEL_186:
           RtlpInterlockedPushEntrySList(v108, &v81[3]);
           continue;
         }
-        if ( LOWORD(v81[2].Next) && !(unsigned __int8)RtlpIsSubSegmentReuseThresholdExceeded(v11, v81) )
+        if ( LOWORD(v81[2].Next) && !(unsigned __int8)RtlpIsSubSegmentReuseThresholdExceeded(Value, v81) )
         {
           do
           {
@@ -972,6 +973,6 @@ LABEL_186:
     }
     break;
   }
-  RtlpFreeUserBlock(a1, UserBlockFromHeap);
+  RtlpFreeUserBlock(SRWLock, UserBlockFromHeap);
   return 0LL;
 }

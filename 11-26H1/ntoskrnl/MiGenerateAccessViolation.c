@@ -1,15 +1,15 @@
 /*
- * XREFs of MiGenerateAccessViolation @ 0x1404ED878
+ * XREFs of MiGenerateAccessViolation @ 0x1404E6E58
  * Callers:
- *     MiRaisedIrqlFault @ 0x1403A2A28 (MiRaisedIrqlFault.c)
- *     MiSystemFault @ 0x1403A4508 (MiSystemFault.c)
- *     MiCheckSystemPageTables @ 0x1403A6808 (MiCheckSystemPageTables.c)
+ *     MiRaisedIrqlFault @ 0x1403A4788 (MiRaisedIrqlFault.c)
+ *     MiSystemFault @ 0x1403A6268 (MiSystemFault.c)
+ *     MiCheckSystemPageTables @ 0x1403A8568 (MiCheckSystemPageTables.c)
  * Callees:
- *     ExReleaseSpinLockShared @ 0x14026CEE0 (ExReleaseSpinLockShared.c)
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402DC6D0 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     ExAcquireSpinLockShared @ 0x1402EDF10 (ExAcquireSpinLockShared.c)
- *     ExAcquireSpinLockSharedAtDpcLevel @ 0x1402EDFB0 (ExAcquireSpinLockSharedAtDpcLevel.c)
- *     MiDeterminePoolType @ 0x140351CB8 (MiDeterminePoolType.c)
+ *     ExReleaseSpinLockShared @ 0x14026C450 (ExReleaseSpinLockShared.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402BE490 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     ExAcquireSpinLockShared @ 0x1402CFF90 (ExAcquireSpinLockShared.c)
+ *     ExAcquireSpinLockSharedAtDpcLevel @ 0x1402D0030 (ExAcquireSpinLockSharedAtDpcLevel.c)
+ *     MiDeterminePoolType @ 0x140353D3C (MiDeterminePoolType.c)
  */
 
 __int64 __fastcall MiGenerateAccessViolation(unsigned __int64 *a1)
@@ -30,13 +30,13 @@ __int64 __fastcall MiGenerateAccessViolation(unsigned __int64 *a1)
   if ( CurrentIrql == 2 )
   {
     v4 = 17;
-    ExAcquireSpinLockSharedAtDpcLevel(&dword_140E2C5B0);
+    ExAcquireSpinLockSharedAtDpcLevel(&dword_140E2C730);
   }
   else
   {
-    v4 = ExAcquireSpinLockShared(&dword_140E2C5B0);
+    v4 = ExAcquireSpinLockShared(&dword_140E2C730);
   }
-  v5 = (_QWORD *)qword_140E2C5B8;
+  v5 = (_QWORD *)qword_140E2C738;
   while ( v5 )
   {
     if ( v1 > v5[4] )
@@ -51,9 +51,9 @@ __int64 __fastcall MiGenerateAccessViolation(unsigned __int64 *a1)
     }
   }
   if ( v4 == 17 )
-    ExReleaseSpinLockSharedFromDpcLevel(&dword_140E2C5B0);
+    ExReleaseSpinLockSharedFromDpcLevel(&dword_140E2C730);
   else
-    ExReleaseSpinLockShared(&dword_140E2C5B0, v4);
+    ExReleaseSpinLockShared(&dword_140E2C730, v4);
   LOBYTE(v2) = v5 != 0LL;
   return v2;
 }

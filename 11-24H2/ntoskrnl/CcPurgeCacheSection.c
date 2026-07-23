@@ -1,28 +1,28 @@
 /*
- * XREFs of CcPurgeCacheSection @ 0x14023EF70
+ * XREFs of CcPurgeCacheSection @ 0x1402070C0
  * Callers:
- *     CcUnmapAndPurge @ 0x14023F5D8 (CcUnmapAndPurge.c)
- *     CcZeroEndOfLastPage @ 0x14044C774 (CcZeroEndOfLastPage.c)
- *     CcPurgeAndClearCacheSection @ 0x1404612E4 (CcPurgeAndClearCacheSection.c)
- *     CcSetFileSizesEx @ 0x1404A6800 (CcSetFileSizesEx.c)
- *     CcUninitializeCacheMap @ 0x1404DA4B0 (CcUninitializeCacheMap.c)
- *     CcCoherencyFlushAndPurgeCache @ 0x1404DD130 (CcCoherencyFlushAndPurgeCache.c)
+ *     CcUnmapAndPurge @ 0x140207728 (CcUnmapAndPurge.c)
+ *     CcZeroEndOfLastPage @ 0x140443674 (CcZeroEndOfLastPage.c)
+ *     CcPurgeAndClearCacheSection @ 0x1404568F4 (CcPurgeAndClearCacheSection.c)
+ *     CcSetFileSizesEx @ 0x1404A10D0 (CcSetFileSizesEx.c)
+ *     CcUninitializeCacheMap @ 0x1404D3ED0 (CcUninitializeCacheMap.c)
+ *     CcCoherencyFlushAndPurgeCache @ 0x1404D6B50 (CcCoherencyFlushAndPurgeCache.c)
  * Callees:
- *     CcUnmapVacbArray @ 0x14023F290 (CcUnmapVacbArray.c)
- *     KeReleaseInStackQueuedSpinLock @ 0x140275CD0 (KeReleaseInStackQueuedSpinLock.c)
- *     CcIncrementOpenCount @ 0x1402AAADC (CcIncrementOpenCount.c)
- *     CcDecrementOpenCount @ 0x1402ABDBC (CcDecrementOpenCount.c)
- *     CcGetPartitionForSectionObject @ 0x1402CC890 (CcGetPartitionForSectionObject.c)
- *     KxWaitForLockOwnerShip @ 0x1402D6990 (KxWaitForLockOwnerShip.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x1402D8540 (KeAcquireInStackQueuedSpinLock.c)
- *     KiAcquireQueuedSpinLockInstrumented @ 0x1402D85F0 (KiAcquireQueuedSpinLockInstrumented.c)
- *     MmCanFileBeTruncated @ 0x140314BE0 (MmCanFileBeTruncated.c)
- *     KeDelayExecutionThread @ 0x14033BC60 (KeDelayExecutionThread.c)
- *     MmPurgeSection @ 0x1403704CC (MmPurgeSection.c)
- *     MmTrimSection @ 0x140370AB4 (MmTrimSection.c)
- *     CcUninitializeCacheMap @ 0x1404DA4B0 (CcUninitializeCacheMap.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
+ *     CcUnmapVacbArray @ 0x1402073E0 (CcUnmapVacbArray.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x14022B260 (KeReleaseInStackQueuedSpinLock.c)
+ *     CcIncrementOpenCount @ 0x14027516C (CcIncrementOpenCount.c)
+ *     CcDecrementOpenCount @ 0x140279504 (CcDecrementOpenCount.c)
+ *     KeDelayExecutionThread @ 0x14031B140 (KeDelayExecutionThread.c)
+ *     KxWaitForLockOwnerShip @ 0x140357C10 (KxWaitForLockOwnerShip.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1403597C0 (KeAcquireInStackQueuedSpinLock.c)
+ *     KiAcquireQueuedSpinLockInstrumented @ 0x140359870 (KiAcquireQueuedSpinLockInstrumented.c)
+ *     MmPurgeSection @ 0x1403F06F0 (MmPurgeSection.c)
+ *     MmCanFileBeTruncated @ 0x1403F21C0 (MmCanFileBeTruncated.c)
+ *     CcGetPartitionForSectionObject @ 0x14040B960 (CcGetPartitionForSectionObject.c)
+ *     MmTrimSection @ 0x1404724C4 (MmTrimSection.c)
+ *     CcUninitializeCacheMap @ 0x1404D3ED0 (CcUninitializeCacheMap.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
  */
 
 BOOLEAN __stdcall CcPurgeCacheSection(
@@ -39,71 +39,73 @@ BOOLEAN __stdcall CcPurgeCacheSection(
   char v9; // r15
   LARGE_INTEGER *v10; // rdi
   unsigned __int8 CurrentIrql; // bl
+  __int64 v12; // rdx
   _QWORD *SharedCacheMap; // rbx
-  __int64 v13; // r8
-  __int64 v14; // rdx
-  int v15; // r13d
-  int v16; // eax
-  int v17; // esi
-  BOOLEAN v18; // r15
-  _QWORD *v19; // rbx
-  __int64 v20; // r14
-  LARGE_INTEGER v22; // rax
+  __int64 v14; // r8
+  __int64 v15; // rdx
+  int v16; // r13d
+  int v17; // eax
+  int v18; // esi
+  BOOLEAN v19; // r15
+  _QWORD *v20; // rbx
+  __int64 v21; // r14
+  LARGE_INTEGER v23; // rax
   _QWORD *i; // rsi
-  char v24[4]; // [rsp+30h] [rbp-50h] BYREF
-  int v25; // [rsp+34h] [rbp-4Ch]
-  __int64 v26; // [rsp+38h] [rbp-48h]
-  _QWORD *v27; // [rsp+40h] [rbp-40h]
-  struct _KLOCK_QUEUE_HANDLE v28; // [rsp+48h] [rbp-38h] BYREF
+  char v25[4]; // [rsp+30h] [rbp-50h] BYREF
+  int v26; // [rsp+34h] [rbp-4Ch]
+  __int64 v27; // [rsp+38h] [rbp-48h]
+  _QWORD *v28; // [rsp+40h] [rbp-40h]
+  struct _KLOCK_QUEUE_HANDLE v29; // [rsp+48h] [rbp-38h] BYREF
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+60h] [rbp-20h] BYREF
   PSECTION_OBJECT_POINTERS SectionPointera; // [rsp+C0h] [rbp+40h]
-  char v32; // [rsp+D8h] [rbp+58h]
+  char v33; // [rsp+D8h] [rbp+58h]
 
-  v32 = Flags;
+  v33 = Flags;
   v4 = Length;
   v5 = 0;
-  *(_QWORD *)&v28.OldIrql = 0LL;
+  *(_QWORD *)&v29.OldIrql = 0LL;
   v6 = 0LL;
   v7 = SectionObjectPointer;
-  v24[0] = 0;
-  v25 = 0;
-  v28.LockQueue.Next = 0LL;
+  v25[0] = 0;
+  v26 = 0;
+  v29.LockQueue.Next = 0LL;
   v8 = &CcMasterLock;
-  v28.LockQueue.Lock = &CcMasterLock;
+  v29.LockQueue.Lock = &CcMasterLock;
   memset(&LockHandle, 0, sizeof(LockHandle));
-  v26 = 0LL;
+  v27 = 0LL;
   v9 = Flags;
   v10 = FileOffset;
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
-  if ( KiIrqlFlags != (unsigned __int8)v25 )
+  if ( KiIrqlFlags != (unsigned __int8)v26 )
   {
     LOBYTE(FileOffset) = 2;
     LOBYTE(v8) = CurrentIrql;
-    KiRaiseIrqlProcessIrqlFlags(v8, FileOffset, Length);
+    KiRaiseIrqlProcessIrqlFlags(v8, FileOffset);
   }
-  v28.OldIrql = CurrentIrql;
+  v29.OldIrql = CurrentIrql;
   if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || PopHibernateInProgress )
   {
-    if ( _InterlockedExchange64((volatile __int64 *)&CcMasterLock, (__int64)&v28) )
-      KxWaitForLockOwnerShip(&v28);
+    v12 = _InterlockedExchange64((volatile __int64 *)&CcMasterLock, (__int64)&v29);
+    if ( v12 )
+      KxWaitForLockOwnerShip(&v29, v12);
   }
   else
   {
-    KiAcquireQueuedSpinLockInstrumented(&v28, &CcMasterLock);
+    KiAcquireQueuedSpinLockInstrumented(&v29, &CcMasterLock);
   }
   SharedCacheMap = v7->SharedCacheMap;
-  v27 = SharedCacheMap;
+  v28 = SharedCacheMap;
   if ( SharedCacheMap )
   {
     v6 = SharedCacheMap[67];
-    v26 = v6;
+    v27 = v6;
     KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)(v6 + 768), &LockHandle);
-    LOBYTE(v13) = 1;
-    CcIncrementOpenCount(SharedCacheMap, v14, v13);
+    LOBYTE(v14) = 1;
+    CcIncrementOpenCount(SharedCacheMap, v15, v14);
     KeReleaseInStackQueuedSpinLock(&LockHandle);
   }
-  KeReleaseInStackQueuedSpinLock(&v28);
+  KeReleaseInStackQueuedSpinLock(&v29);
   if ( SharedCacheMap )
   {
     if ( v6 != CcGetPartitionForSectionObject(v7) )
@@ -131,54 +133,54 @@ BOOLEAN __stdcall CcPurgeCacheSection(
     if ( v10 )
     {
       v5 = 1;
-      v25 = 1;
+      v26 = 1;
     }
   }
-  v15 = v5 | 2;
+  v16 = v5 | 2;
   if ( (v9 & 4) == 0 )
-    v15 = v25;
-  v16 = v4;
-  v17 = (v9 & 4) != 0 ? 5 : -1;
+    v16 = v26;
+  v17 = v4;
+  v18 = (v9 & 4) != 0 ? 5 : -1;
   do
   {
-    v18 = MmPurgeSection((_DWORD)SectionObjectPointer, (_DWORD)v10, v16, v15, (__int64)v24);
-    if ( v18 )
+    v19 = MmPurgeSection((_DWORD)SectionObjectPointer, (_DWORD)v10, v17, v16, (__int64)v25);
+    if ( v19 )
       break;
     if ( (_DWORD)v4 )
       break;
     if ( !MmCanFileBeTruncated(SectionObjectPointer, v10) )
       break;
-    if ( (v32 & 2) != 0 )
+    if ( (v33 & 2) != 0 )
       break;
     KeDelayExecutionThread(0, 0, &CcCollisionDelay);
-    v16 = 0;
-    --v17;
+    v17 = 0;
+    --v18;
   }
-  while ( v17 );
-  v19 = v27;
-  v20 = v26;
-  if ( v27 )
+  while ( v18 );
+  v20 = v28;
+  v21 = v27;
+  if ( v28 )
   {
     if ( !(_DWORD)v4 )
     {
       if ( v10 )
       {
-        v22 = *v10;
-        if ( v10->QuadPart < v27[47] )
+        v23 = *v10;
+        if ( v10->QuadPart < v28[47] )
         {
-          SectionPointera = (PSECTION_OBJECT_POINTERS)(v22.QuadPart + 0x3FFFF);
-          LODWORD(SectionPointera) = (v22.LowPart + 0x3FFFF) & 0xFFFC0000;
-          v27[47] = (char *)SectionPointera + 0x40000;
+          SectionPointera = (PSECTION_OBJECT_POINTERS)(v23.QuadPart + 0x3FFFF);
+          LODWORD(SectionPointera) = (v23.LowPart + 0x3FFFF) & 0xFFFC0000;
+          v28[47] = (char *)SectionPointera + 0x40000;
         }
       }
       else
       {
-        v27[47] = 0LL;
+        v28[47] = 0LL;
       }
     }
-    KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)(v20 + 768), &LockHandle);
-    CcDecrementOpenCount(v19);
+    KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)(v21 + 768), &LockHandle);
+    CcDecrementOpenCount(v20);
     KeReleaseInStackQueuedSpinLock(&LockHandle);
   }
-  return v18;
+  return v19;
 }

@@ -6,34 +6,35 @@
  *     RtlImageDirectoryEntryToData @ 0x14033AA90 (RtlImageDirectoryEntryToData.c)
  */
 
-__int64 __fastcall ViThunkFindExportAddress(__int64 a1, char *a2, int *a3)
+char *__fastcall ViThunkFindExportAddress(__int64 a1, char *a2, int *a3)
 {
   _QWORD *v3; // r14
   _QWORD *v4; // rdi
   int v6; // ebp
   int v7; // ebx
-  __int64 v8; // rsi
+  char *v8; // rsi
   _DWORD *v9; // rax
   _DWORD *v10; // r10
-  __int64 v11; // r12
-  __int64 v12; // r15
-  int v13; // ecx
-  __int64 v14; // r8
-  char *v15; // rax
-  __int64 v16; // r11
-  char v17; // r9
-  int v18; // eax
-  unsigned int v19; // r9d
-  __int64 v20; // r8
-  __int64 v21; // rcx
-  __int64 v22; // r11
-  int v23; // edx
-  __int64 v24; // r10
-  unsigned __int16 v25; // cx
-  __int64 v27; // [rsp+60h] [rbp+8h] BYREF
-  char *v28; // [rsp+68h] [rbp+10h]
+  int v11; // edx
+  char *v12; // r12
+  char *v13; // r15
+  int v14; // ecx
+  __int64 v15; // r8
+  char *v16; // rax
+  char *v17; // r11
+  char v18; // r9
+  int v19; // eax
+  unsigned int v20; // r9d
+  __int64 v21; // r8
+  __int64 v22; // rcx
+  char *v23; // r11
+  int v24; // edx
+  char *v25; // r10
+  unsigned __int16 v26; // cx
+  __int64 Size; // [rsp+60h] [rbp+8h] BYREF
+  char *v29; // [rsp+68h] [rbp+10h]
 
-  v28 = a2;
+  v29 = a2;
   v3 = (_QWORD *)(a1 + 16);
   v4 = *(_QWORD **)(a1 + 16);
   *a3 = 0;
@@ -43,58 +44,57 @@ __int64 __fastcall ViThunkFindExportAddress(__int64 a1, char *a2, int *a3)
   v7 = 1;
   while ( 1 )
   {
-    v8 = v4[6];
-    LOBYTE(a2) = 1;
-    v9 = (_DWORD *)RtlImageDirectoryEntryToData(v8, (int)a2, 0, (int)&v27);
+    v8 = (char *)v4[6];
+    v9 = RtlImageDirectoryEntryToData(v8, 1u, 0, (PULONG)&Size);
     v10 = v9;
     if ( v9 )
     {
-      LODWORD(a2) = 0;
-      v11 = v8 + (unsigned int)v9[8];
-      v12 = v8 + (unsigned int)v9[9];
-      v13 = v9[6] - 1;
+      v11 = 0;
+      v12 = &v8[v9[8]];
+      v13 = &v8[v9[9]];
+      v14 = v9[6] - 1;
       while ( 1 )
       {
-        v14 = (unsigned int)(v13 + (_DWORD)a2) >> 1;
-        v27 = v14;
-        v15 = v28;
-        v16 = v8 + *(unsigned int *)(v11 + 4 * v14) - (_QWORD)v28;
+        v15 = (unsigned int)(v14 + v11) >> 1;
+        Size = v15;
+        v16 = v29;
+        v17 = (char *)(&v8[*(unsigned int *)&v12[4 * v15]] - v29);
         while ( 1 )
         {
-          v17 = *v15;
-          if ( *v15 != v15[v16] )
+          v18 = *v16;
+          if ( *v16 != v17[(_QWORD)v16] )
             break;
-          ++v15;
-          if ( !v17 )
+          ++v16;
+          if ( !v18 )
           {
-            v18 = 0;
+            v19 = 0;
             goto LABEL_9;
           }
         }
-        v18 = (unsigned __int8)*v15 < (unsigned __int8)v15[v16] ? -1 : 1;
+        v19 = (unsigned __int8)*v16 < (unsigned int)v17[(_QWORD)v16] ? -1 : 1;
 LABEL_9:
-        if ( v18 >= 0 )
+        if ( v19 >= 0 )
         {
-          if ( v18 <= 0 )
+          if ( v19 <= 0 )
             goto LABEL_13;
-          LODWORD(a2) = v14 + 1;
+          v11 = v15 + 1;
           goto LABEL_12;
         }
-        if ( !(_DWORD)v14 )
+        if ( !(_DWORD)v15 )
           break;
-        v13 = v14 - 1;
+        v14 = v15 - 1;
 LABEL_12:
-        if ( v13 < (unsigned int)a2 )
+        if ( v14 < (unsigned int)v11 )
           goto LABEL_13;
       }
-      LODWORD(a2) = 1;
-      v13 = 0;
+      v11 = 1;
+      v14 = 0;
 LABEL_13:
-      if ( v13 >= (int)a2 )
+      if ( v14 >= v11 )
       {
-        v19 = v10[5];
-        v20 = *(unsigned __int16 *)(v12 + 2 * v27);
-        if ( (unsigned int)v20 < v19 )
+        v20 = v10[5];
+        v21 = *(unsigned __int16 *)&v13[2 * Size];
+        if ( (unsigned int)v21 < v20 )
           break;
       }
     }
@@ -106,16 +106,16 @@ LABEL_13:
     }
     return 0LL;
   }
-  v21 = (unsigned int)v10[7];
-  v22 = v21 + v8;
-  v23 = *(_DWORD *)(v21 + v8 + 4 * v20);
-  v24 = v8 + *(unsigned int *)(v21 + 4 * v20 + v8);
-  v25 = 0;
-  if ( v19 )
+  v22 = (unsigned int)v10[7];
+  v23 = &v8[v22];
+  v24 = *(_DWORD *)&v8[4 * v21 + v22];
+  v25 = &v8[*(unsigned int *)&v8[4 * v21 + v22]];
+  v26 = 0;
+  if ( v20 )
   {
-    while ( v25 == (_WORD)v20 || *(_DWORD *)(v22 + 4LL * v25) != v23 )
+    while ( v26 == (_WORD)v21 || *(_DWORD *)&v23[4 * v26] != v24 )
     {
-      if ( ++v25 >= v19 )
+      if ( ++v26 >= v20 )
         goto LABEL_19;
     }
   }
@@ -125,5 +125,5 @@ LABEL_19:
     v7 = 0;
   }
   *a3 = v7;
-  return v24;
+  return v25;
 }

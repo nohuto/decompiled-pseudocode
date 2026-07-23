@@ -1,15 +1,15 @@
 /*
- * XREFs of VfTriageSystem @ 0x140CDF730
+ * XREFs of VfTriageSystem @ 0x140CE5AC8
  * Callers:
- *     ViInitSystemPhase0 @ 0x140CDEDA4 (ViInitSystemPhase0.c)
+ *     ViInitSystemPhase0 @ 0x140CE513C (ViInitSystemPhase0.c)
  * Callees:
- *     DbgPrintEx @ 0x140397530 (DbgPrintEx.c)
- *     ViFindTriageRule @ 0x140CDFA98 (ViFindTriageRule.c)
- *     ViMakeVerifierSettings @ 0x140CDFB38 (ViMakeVerifierSettings.c)
- *     ViTriageSameDriversFromDump @ 0x140CDFC28 (ViTriageSameDriversFromDump.c)
- *     ViValidateTriageRules @ 0x140CDFCE0 (ViValidateTriageRules.c)
- *     MmTriageActiveInLastCrash @ 0x140CF9E9C (MmTriageActiveInLastCrash.c)
- *     TriageGetBugcheckData @ 0x140D04130 (TriageGetBugcheckData.c)
+ *     DbgPrintEx @ 0x1403992B0 (DbgPrintEx.c)
+ *     ViFindTriageRule @ 0x140CE5E30 (ViFindTriageRule.c)
+ *     ViMakeVerifierSettings @ 0x140CE5ED0 (ViMakeVerifierSettings.c)
+ *     ViTriageSameDriversFromDump @ 0x140CE5FC0 (ViTriageSameDriversFromDump.c)
+ *     ViValidateTriageRules @ 0x140CE6078 (ViValidateTriageRules.c)
+ *     MmTriageActiveInLastCrash @ 0x140D0021C (MmTriageActiveInLastCrash.c)
+ *     TriageGetBugcheckData @ 0x140D0A400 (TriageGetBugcheckData.c)
  */
 
 __int64 __fastcall VfTriageSystem(__int64 a1)
@@ -87,8 +87,8 @@ __int64 __fastcall VfTriageSystem(__int64 a1)
           *(_DWORD *)&v12[24],
           *(_DWORD *)&v12[32]);
         ViTriageCrashData = *(_OWORD *)v12;
-        qword_140F08AC0 = *(_QWORD *)&v12[32];
-        xmmword_140F08AB0 = *(_OWORD *)&v12[16];
+        qword_140F09080 = *(_QWORD *)&v12[32];
+        xmmword_140F09070 = *(_OWORD *)&v12[16];
         if ( v7 )
         {
           if ( (unsigned int)MmTriageActiveInLastCrash(a1) == 1 )

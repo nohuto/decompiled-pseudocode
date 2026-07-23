@@ -1,27 +1,27 @@
 /*
- * XREFs of MiGetNextPageTable @ 0x140235DA0
+ * XREFs of MiGetNextPageTable @ 0x14020FF30
  * Callers:
- *     MiFlushDirtyBitsToPfn @ 0x140233F80 (MiFlushDirtyBitsToPfn.c)
- *     MiIsCfgBitMapPageShared @ 0x140234458 (MiIsCfgBitMapPageShared.c)
- *     MiCountSharedPages @ 0x140235F64 (MiCountSharedPages.c)
- *     MiComputePageCommitment @ 0x140238A7C (MiComputePageCommitment.c)
- *     MiCloneVads @ 0x1402C4DAC (MiCloneVads.c)
- *     MiMakeHyperRangeAccessible @ 0x1402DFB90 (MiMakeHyperRangeAccessible.c)
- *     NtLockVirtualMemory @ 0x1403FD910 (NtLockVirtualMemory.c)
- *     MiSplitPrivatePage @ 0x1404051C4 (MiSplitPrivatePage.c)
- *     MiCloneCaptureVadCommit @ 0x1404AA908 (MiCloneCaptureVadCommit.c)
- *     MiMoveDirtyBitsToPfns @ 0x1404F32E4 (MiMoveDirtyBitsToPfns.c)
- *     NtGetWriteWatch @ 0x1404F3710 (NtGetWriteWatch.c)
- *     MiCheckCommitReleaseFromVad @ 0x140669880 (MiCheckCommitReleaseFromVad.c)
- *     MiGetNextNonGapPfnPage @ 0x14066D5C4 (MiGetNextNonGapPfnPage.c)
- *     MiQueryVaPhysicalContiguity @ 0x140680DC0 (MiQueryVaPhysicalContiguity.c)
- *     MiMakeVaRangePhysicallyContiguous @ 0x14068CDFC (MiMakeVaRangePhysicallyContiguous.c)
+ *     MiCountSharedPages @ 0x1402100F4 (MiCountSharedPages.c)
+ *     MiComputePageCommitment @ 0x140212C0C (MiComputePageCommitment.c)
+ *     MiFlushDirtyBitsToPfn @ 0x1402155E0 (MiFlushDirtyBitsToPfn.c)
+ *     MiMakeHyperRangeAccessible @ 0x140241470 (MiMakeHyperRangeAccessible.c)
+ *     MiCloneVads @ 0x140268194 (MiCloneVads.c)
+ *     MiSplitPrivatePage @ 0x1403C7720 (MiSplitPrivatePage.c)
+ *     NtLockVirtualMemory @ 0x1403DBC30 (NtLockVirtualMemory.c)
+ *     MiIsCfgBitMapPageShared @ 0x14046208C (MiIsCfgBitMapPageShared.c)
+ *     MiCloneCaptureVadCommit @ 0x1404A4B08 (MiCloneCaptureVadCommit.c)
+ *     MiMoveDirtyBitsToPfns @ 0x1404F0C98 (MiMoveDirtyBitsToPfns.c)
+ *     NtGetWriteWatch @ 0x1404F10C0 (NtGetWriteWatch.c)
+ *     MiCheckCommitReleaseFromVad @ 0x14066AA50 (MiCheckCommitReleaseFromVad.c)
+ *     MiGetNextNonGapPfnPage @ 0x14066E798 (MiGetNextNonGapPfnPage.c)
+ *     MiQueryVaPhysicalContiguity @ 0x140681F6C (MiQueryVaPhysicalContiguity.c)
+ *     MiMakeVaRangePhysicallyContiguous @ 0x14068DF2C (MiMakeVaRangePhysicallyContiguous.c)
  * Callees:
- *     MiWalkPageTables @ 0x140235640 (MiWalkPageTables.c)
- *     MiFastLockLeafPageTable @ 0x1402D90E0 (MiFastLockLeafPageTable.c)
- *     MiGetLeafVa @ 0x1402DEE20 (MiGetLeafVa.c)
- *     MiGetAnyMultiplexedVm @ 0x140442630 (MiGetAnyMultiplexedVm.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     MiWalkPageTables @ 0x14020F7D0 (MiWalkPageTables.c)
+ *     MiFastLockLeafPageTable @ 0x14023A9C0 (MiFastLockLeafPageTable.c)
+ *     MiGetLeafVa @ 0x140240700 (MiGetLeafVa.c)
+ *     MiGetAnyMultiplexedVm @ 0x140439200 (MiGetAnyMultiplexedVm.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 __int64 __fastcall MiGetNextPageTable(__int64 a1, __int64 a2, char a3, char a4, _DWORD *a5)
@@ -55,7 +55,7 @@ __int64 __fastcall MiGetNextPageTable(__int64 a1, __int64 a2, char a3, char a4, 
   if ( (a4 & 2) != 0 )
     v18 = v11 | 0x200;
   LeafVa = MiGetLeafVa(v9);
-  if ( LeafVa < 0xFFFF800000000000uLL || LeafVa >= qword_140E2F280 && LeafVa <= qword_140E2F290 )
+  if ( LeafVa < 0xFFFF800000000000uLL || LeafVa >= qword_140E2F3C0 && LeafVa <= qword_140E2F3D0 )
     p_Blink = &KeGetCurrentThread()->ApcState.Process[2].ReadyListHead.Blink;
   else
     p_Blink = (struct _LIST_ENTRY **)MiGetAnyMultiplexedVm(2LL);
@@ -73,7 +73,7 @@ LABEL_12:
     v19 = v19 & 0xFFFFFE3F | 0x40;
     v24 = MiGetNextPageTableTail;
     v23 = v10;
-    MiWalkPageTables((__int64)&v18);
+    MiWalkPageTables(&v18);
     *a5 = v17;
     return *((_QWORD *)&v17 + 1);
   }

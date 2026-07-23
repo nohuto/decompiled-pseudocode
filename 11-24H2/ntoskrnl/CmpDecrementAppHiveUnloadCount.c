@@ -1,23 +1,23 @@
 /*
- * XREFs of CmpDecrementAppHiveUnloadCount @ 0x1402C8200
+ * XREFs of CmpDecrementAppHiveUnloadCount @ 0x1402BA854
  * Callers:
- *     CmpLateUnloadHiveWorker @ 0x14097C4F0 (CmpLateUnloadHiveWorker.c)
- *     CmpCompleteUnloadKey @ 0x14097CB58 (CmpCompleteUnloadKey.c)
+ *     CmpLateUnloadHiveWorker @ 0x140964D00 (CmpLateUnloadHiveWorker.c)
+ *     CmpCompleteUnloadKey @ 0x140965368 (CmpCompleteUnloadKey.c)
  * Callees:
- *     ExpUnblockPushLock @ 0x1402C793C (ExpUnblockPushLock.c)
+ *     ExpUnblockPushLock @ 0x1402BC2BC (ExpUnblockPushLock.c)
  */
 
-NTSTATUS CmpDecrementAppHiveUnloadCount()
+__int64 CmpDecrementAppHiveUnloadCount()
 {
-  NTSTATUS result; // eax
+  __int64 result; // rax
   signed __int32 v1[10]; // [rsp+0h] [rbp-28h] BYREF
 
-  result = --CmpActiveAppHiveUnloadCount;
+  result = (unsigned int)--CmpActiveAppHiveUnloadCount;
   if ( !CmpActiveAppHiveUnloadCount )
   {
     _InterlockedOr(v1, 0);
     if ( CmpActiveAppHiveUnloadEvent )
-      return ExpUnblockPushLock(&CmpActiveAppHiveUnloadEvent, 0LL, 0);
+      return ExpUnblockPushLock(&CmpActiveAppHiveUnloadEvent, 0LL, 0LL);
   }
   return result;
 }

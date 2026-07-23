@@ -1,10 +1,10 @@
 /*
- * XREFs of SshpAlpcOpenTraceSessionUnsafe @ 0x14084C370
+ * XREFs of SshpAlpcOpenTraceSessionUnsafe @ 0x14084C670
  * Callers:
- *     SshpSessionManagerSendControlEvent @ 0x1408741A8 (SshpSessionManagerSendControlEvent.c)
+ *     SshpSessionManagerSendControlEvent @ 0x1408743E8 (SshpSessionManagerSendControlEvent.c)
  * Callees:
- *     KeCancelTimer2 @ 0x14031DEE0 (KeCancelTimer2.c)
- *     SshpAlpcSendMessage @ 0x14084C7E0 (SshpAlpcSendMessage.c)
+ *     KeCancelTimer2 @ 0x14031E170 (KeCancelTimer2.c)
+ *     SshpAlpcSendMessage @ 0x14084CAE0 (SshpAlpcSendMessage.c)
  */
 
 __int64 __fastcall SshpAlpcOpenTraceSessionUnsafe(__int64 a1, unsigned int a2, int *a3)
@@ -17,7 +17,7 @@ __int64 __fastcall SshpAlpcOpenTraceSessionUnsafe(__int64 a1, unsigned int a2, i
   v8 = a2;
   if ( a2 > 1 || a3 && !*((_QWORD *)a3 + 2) )
     return 3221225485LL;
-  v4 = &dword_140C38558[48 * a2];
+  v4 = &dword_140C384F8[48 * a2];
   LOBYTE(a1) = *((_BYTE *)v4 + 4);
   if ( !(_BYTE)a1 && !a3 )
     return 3221227264LL;

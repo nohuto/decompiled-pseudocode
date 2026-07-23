@@ -1,25 +1,25 @@
 /*
- * XREFs of EtwpEnableAutoLoggerProvider @ 0x140AD7C68
+ * XREFs of EtwpEnableAutoLoggerProvider @ 0x140AD4710
  * Callers:
- *     EtwpEnumerateKeyProviders @ 0x140B3E040 (EtwpEnumerateKeyProviders.c)
+ *     EtwpEnumerateKeyProviders @ 0x140B40078 (EtwpEnumerateKeyProviders.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     RtlStringCbPrintfW @ 0x140433060 (RtlStringCbPrintfW.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     ZwOpenKey @ 0x140723630 (ZwOpenKey.c)
- *     ZwSetValueKey @ 0x140723FF0 (ZwSetValueKey.c)
- *     memcmp @ 0x14073D750 (memcmp.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     RtlGUIDFromString @ 0x1409A1880 (RtlGUIDFromString.c)
- *     RtlFreeAnsiString @ 0x140A007C0 (RtlFreeAnsiString.c)
- *     RtlpQueryRegistryValues @ 0x140A10F94 (RtlpQueryRegistryValues.c)
- *     RtlpGetRegistryHandle @ 0x140A11948 (RtlpGetRegistryHandle.c)
- *     RtlNtStatusToDosError @ 0x140A62640 (RtlNtStatusToDosError.c)
- *     EtwpGetAutoLoggerProviderFilter @ 0x140AD83D0 (EtwpGetAutoLoggerProviderFilter.c)
- *     EtwpEnableTrace @ 0x140AD9C34 (EtwpEnableTrace.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     RtlStringCbPrintfW @ 0x140420090 (RtlStringCbPrintfW.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     ZwOpenKey @ 0x140728200 (ZwOpenKey.c)
+ *     ZwSetValueKey @ 0x140728BC0 (ZwSetValueKey.c)
+ *     memcmp @ 0x140742350 (memcmp.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     RtlGUIDFromString @ 0x1409622E0 (RtlGUIDFromString.c)
+ *     RtlpQueryRegistryValues @ 0x140A10184 (RtlpQueryRegistryValues.c)
+ *     RtlpGetRegistryHandle @ 0x140A10B38 (RtlpGetRegistryHandle.c)
+ *     RtlFreeAnsiString @ 0x140A169F0 (RtlFreeAnsiString.c)
+ *     RtlNtStatusToDosError @ 0x140A6F610 (RtlNtStatusToDosError.c)
+ *     EtwpGetAutoLoggerProviderFilter @ 0x140AD4E78 (EtwpGetAutoLoggerProviderFilter.c)
+ *     EtwpEnableTrace @ 0x140AD66E4 (EtwpEnableTrace.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __fastcall EtwpEnableAutoLoggerProvider(
@@ -288,7 +288,7 @@ LABEL_10:
   RegistryValues = RtlGUIDFromString(&DestinationString, &Guid);
   if ( RegistryValues < 0 )
     goto LABEL_10;
-  if ( !memcmp(&Guid, qword_140020258, 0x10uLL) || !memcmp(&Guid, &s_ProviderThreatInt, 0x10uLL) )
+  if ( !memcmp(&Guid, qword_14001F880, 0x10uLL) || !memcmp(&Guid, &s_ProviderThreatInt, 0x10uLL) )
   {
     v24 = (int)v35;
     if ( v35 != (HANDLE)EtwpHostSiloState )

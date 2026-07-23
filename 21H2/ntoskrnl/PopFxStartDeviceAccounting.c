@@ -1,16 +1,16 @@
 /*
- * XREFs of PopFxStartDeviceAccounting @ 0x14056CD7C
+ * XREFs of PopFxStartDeviceAccounting @ 0x14056CFBC
  * Callers:
- *     PopCaptureSleepStudyStatistics @ 0x140570558 (PopCaptureSleepStudyStatistics.c)
+ *     PopCaptureSleepStudyStatistics @ 0x140570798 (PopCaptureSleepStudyStatistics.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
- *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
- *     ExfReleasePushLockShared @ 0x1402F1470 (ExfReleasePushLockShared.c)
- *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
- *     ExAcquirePushLockSharedEx @ 0x14034AB50 (ExAcquirePushLockSharedEx.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KxReleaseSpinLock @ 0x140212140 (KxReleaseSpinLock.c)
+ *     KeLeaveCriticalRegionThread @ 0x1402AB8C0 (KeLeaveCriticalRegionThread.c)
+ *     ExfReleasePushLockShared @ 0x1402FC1C0 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x1403539D0 (KeAbPostRelease.c)
+ *     ExAcquirePushLockSharedEx @ 0x1403558A0 (ExAcquirePushLockSharedEx.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140362F80 (KeAcquireSpinLockRaiseToDpc.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     memset @ 0x140414200 (memset.c)
+ *     memset @ 0x140414300 (memset.c)
  */
 
 unsigned __int64 PopFxStartDeviceAccounting()
@@ -37,6 +37,9 @@ unsigned __int64 PopFxStartDeviceAccounting()
   struct _KPRCB *v19; // r9
   int v20; // eax
   _DWORD *v21; // r8
+  __int64 v22; // rdx
+  __int64 v23; // r8
+  __int64 v24; // r9
 
   result = (unsigned int)PopFxDeviceAccountingLevel;
   if ( PopFxDeviceAccountingLevel )
@@ -105,9 +108,9 @@ unsigned __int64 PopFxStartDeviceAccounting()
       }
     }
     v17 = KeAcquireSpinLockRaiseToDpc(&PopFxGlobalDeviceAccountingLock);
-    qword_140C248F0 = 0LL;
-    qword_140C248F8 = 0LL;
-    memset(&xmmword_140C24900, 0, 0x50uLL);
+    qword_140C24850 = 0LL;
+    qword_140C24858 = 0LL;
+    memset(&xmmword_140C24860, 0, 0x50uLL);
     KxReleaseSpinLock(&PopFxGlobalDeviceAccountingLock);
     if ( KiIrqlFlags )
     {
@@ -130,7 +133,7 @@ unsigned __int64 PopFxStartDeviceAccounting()
     if ( _InterlockedCompareExchange64((volatile signed __int64 *)&PopFxDeviceListLock, 0LL, 17LL) != 17 )
       ExfReleasePushLockShared((signed __int64 *)&PopFxDeviceListLock);
     KeAbPostRelease((ULONG_PTR)&PopFxDeviceListLock);
-    return (unsigned __int64)KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+    return (unsigned __int64)KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v22, v23, v24);
   }
   return result;
 }

@@ -1,8 +1,8 @@
 /*
- * XREFs of RtlpHpLfhHeatMapDecayCounts @ 0x14046006C
+ * XREFs of RtlpHpLfhHeatMapDecayCounts @ 0x140454F4C
  * Callers:
- *     RtlpHpLfhHeatMapQuery @ 0x1402B4550 (RtlpHpLfhHeatMapQuery.c)
- *     RtlpHpLfhSlotAllocateSlow @ 0x1402B6D78 (RtlpHpLfhSlotAllocateSlow.c)
+ *     RtlpHpLfhSlotAllocateSlow @ 0x14035EE00 (RtlpHpLfhSlotAllocateSlow.c)
+ *     RtlpHpLfhHeatMapQuery @ 0x1404321F4 (RtlpHpLfhHeatMapQuery.c)
  * Callees:
  *     <none>
  */

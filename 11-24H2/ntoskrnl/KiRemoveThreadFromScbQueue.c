@@ -1,13 +1,13 @@
 /*
- * XREFs of KiRemoveThreadFromScbQueue @ 0x14030D7C0
+ * XREFs of KiRemoveThreadFromScbQueue @ 0x1402D8F60
  * Callers:
- *     KiRemoveThreadFromSchedulingGroup @ 0x1402A7194 (KiRemoveThreadFromSchedulingGroup.c)
- *     KiRemoveThreadFromAnyReadyQueue @ 0x14030D3E8 (KiRemoveThreadFromAnyReadyQueue.c)
- *     KiRemoveCurrentlyEnumeratedThreadFromReadyQueue @ 0x14030D510 (KiRemoveCurrentlyEnumeratedThreadFromReadyQueue.c)
- *     KiRemoveCurrentThreadScbReadyQueueEnumerator @ 0x14030E650 (KiRemoveCurrentThreadScbReadyQueueEnumerator.c)
+ *     KiRemoveThreadFromSchedulingGroup @ 0x1402D68C4 (KiRemoveThreadFromSchedulingGroup.c)
+ *     KiRemoveCurrentThreadScbReadyQueueEnumerator @ 0x1402D8A9C (KiRemoveCurrentThreadScbReadyQueueEnumerator.c)
+ *     KiRemoveThreadFromAnyReadyQueue @ 0x1402D8B94 (KiRemoveThreadFromAnyReadyQueue.c)
+ *     KiRemoveCurrentlyEnumeratedThreadFromReadyQueue @ 0x1402D8CB0 (KiRemoveCurrentlyEnumeratedThreadFromReadyQueue.c)
  * Callees:
- *     ?KiResortScbQueue@@YAEPEAU_KPRCB@@PEAU_KSCB@@E@Z @ 0x14030D204 (-KiResortScbQueue@@YAEPEAU_KPRCB@@PEAU_KSCB@@E@Z.c)
- *     ?KiRemoveSchedulingGroupQueue@@YAXPEAU_KPRCB@@PEAU_KSCB@@E@Z @ 0x14030E6D0 (-KiRemoveSchedulingGroupQueue@@YAXPEAU_KPRCB@@PEAU_KSCB@@E@Z.c)
+ *     ?KiRemoveSchedulingGroupQueue@@YAXPEAU_KPRCB@@PEAU_KSCB@@E@Z @ 0x1402D89A8 (-KiRemoveSchedulingGroupQueue@@YAXPEAU_KPRCB@@PEAU_KSCB@@E@Z.c)
+ *     ?KiResortScbQueue@@YAEPEAU_KPRCB@@PEAU_KSCB@@E@Z @ 0x1402D9DF0 (-KiResortScbQueue@@YAEPEAU_KPRCB@@PEAU_KSCB@@E@Z.c)
  */
 
 unsigned __int8 __fastcall KiRemoveThreadFromScbQueue(struct _KPRCB *a1, __int64 a2, __int64 a3, char a4)
@@ -41,7 +41,7 @@ unsigned __int8 __fastcall KiRemoveThreadFromScbQueue(struct _KPRCB *a1, __int64
       if ( (_WORD)v12 )
       {
 LABEL_12:
-        v9 = KiResortScbQueue(a1, (struct _KSCB *)a2, 1);
+        v9 = KiResortScbQueue(a1, (struct _KSCB *)a2, 1u);
         goto LABEL_13;
       }
       v13 = *(_QWORD *)(a2 + 400);
@@ -54,7 +54,7 @@ LABEL_12:
       if ( v13 )
         goto LABEL_12;
 LABEL_14:
-      KiRemoveSchedulingGroupQueue(a1, (struct _KSCB *)a2, 1u);
+      KiRemoveSchedulingGroupQueue(a1, (struct _KSCB *)a2, 1);
       v9 = 1;
     }
   }

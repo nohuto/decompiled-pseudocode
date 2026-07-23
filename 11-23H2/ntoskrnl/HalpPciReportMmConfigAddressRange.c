@@ -1,7 +1,7 @@
 /*
  * XREFs of HalpPciReportMmConfigAddressRange @ 0x140B69E10
  * Callers:
- *     HalpPciInitSystem @ 0x140A916E0 (HalpPciInitSystem.c)
+ *     HalpPciInitSystem @ 0x140A91560 (HalpPciInitSystem.c)
  * Callees:
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)

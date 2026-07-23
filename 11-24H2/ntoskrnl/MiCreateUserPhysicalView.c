@@ -1,19 +1,19 @@
 /*
- * XREFs of MiCreateUserPhysicalView @ 0x140AE76D8
+ * XREFs of MiCreateUserPhysicalView @ 0x140AEA2A8
  * Callers:
- *     MiReserveUserMemory @ 0x1408DFE98 (MiReserveUserMemory.c)
+ *     MiReserveUserMemory @ 0x140916A48 (MiReserveUserMemory.c)
  * Callees:
- *     MiAllocatePool @ 0x1402ACA70 (MiAllocatePool.c)
- *     MiSectionControlArea @ 0x1402D4800 (MiSectionControlArea.c)
- *     ObfDereferenceObjectWithTag @ 0x1403254A0 (ObfDereferenceObjectWithTag.c)
- *     MiGetAweInfoPartition @ 0x1403CCDEC (MiGetAweInfoPartition.c)
- *     MiLocateLockedVadEvent @ 0x1403CDE38 (MiLocateLockedVadEvent.c)
- *     MiCheckPurgeAndUpMapCount @ 0x14040EFF0 (MiCheckPurgeAndUpMapCount.c)
- *     MiPageChainCount @ 0x1404642D0 (MiPageChainCount.c)
- *     MiReferenceAweHandle @ 0x1404D61C4 (MiReferenceAweHandle.c)
- *     MiInsertVadEvent @ 0x1404F1B48 (MiInsertVadEvent.c)
- *     MiCreateProcessDefaultAweInfo @ 0x1407F9560 (MiCreateProcessDefaultAweInfo.c)
- *     MiCreateVadEventBitmap @ 0x1409C3A04 (MiCreateVadEventBitmap.c)
+ *     MiGetAweInfoPartition @ 0x140266FBC (MiGetAweInfoPartition.c)
+ *     MiLocateLockedVadEvent @ 0x14026757C (MiLocateLockedVadEvent.c)
+ *     MiAllocatePool @ 0x140277450 (MiAllocatePool.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CE030 (ObfDereferenceObjectWithTag.c)
+ *     MiSectionControlArea @ 0x140355A80 (MiSectionControlArea.c)
+ *     MiCheckPurgeAndUpMapCount @ 0x1404071F0 (MiCheckPurgeAndUpMapCount.c)
+ *     MiPageChainCount @ 0x14045AA00 (MiPageChainCount.c)
+ *     MiReferenceAweHandle @ 0x1404CF614 (MiReferenceAweHandle.c)
+ *     MiInsertVadEvent @ 0x1404EF5E8 (MiInsertVadEvent.c)
+ *     MiCreateProcessDefaultAweInfo @ 0x1407F9CD0 (MiCreateProcessDefaultAweInfo.c)
+ *     MiCreateVadEventBitmap @ 0x1408DC8AC (MiCreateVadEventBitmap.c)
  */
 
 int __fastcall MiCreateUserPhysicalView(__int64 a1, int a2, __int64 a3, _WORD *a4)
@@ -37,22 +37,20 @@ int __fastcall MiCreateUserPhysicalView(__int64 a1, int a2, __int64 a3, _WORD *a
   unsigned __int64 *LockedVadEvent; // rsi
   __int64 Pool; // rax
   _WORD *AweInfoPartition; // rax
-  __int64 v26; // rdx
-  __int64 v27; // r8
-  unsigned __int64 *v28; // r14
-  int v29; // eax
-  unsigned int v30; // eax
+  unsigned __int64 *v26; // r14
+  int v27; // eax
+  unsigned int v28; // eax
   PVOID Object; // [rsp+30h] [rbp-38h] BYREF
-  __int64 v32; // [rsp+38h] [rbp-30h] BYREF
-  PVOID v33; // [rsp+80h] [rbp+18h] BYREF
+  __int64 v30; // [rsp+38h] [rbp-30h] BYREF
+  PVOID v31; // [rsp+80h] [rbp+18h] BYREF
 
   Object = 0LL;
   v4 = 0LL;
-  v32 = 0LL;
+  v30 = 0LL;
   v6 = *(void **)(a3 + 104);
   v7 = 0LL;
   v8 = *(_QWORD *)(a3 + 112);
-  v33 = 0LL;
+  v31 = 0LL;
   v11 = a2;
   if ( v6 )
   {
@@ -61,17 +59,17 @@ int __fastcall MiCreateUserPhysicalView(__int64 a1, int a2, __int64 a3, _WORD *a
     v14 = v12 | 8;
     if ( (v11 & 2) == 0 )
       v14 = v12;
-    result = MiReferenceAweHandle(v6, v14, PreviousMode, &Object, &v33);
+    result = MiReferenceAweHandle(v6, v14, PreviousMode, &Object, &v31);
     if ( result < 0 )
       return result;
-    v4 = v33;
-    if ( !v33 )
+    v4 = v31;
+    if ( !v31 )
     {
       if ( Object )
         ObfDereferenceObjectWithTag(Object, 0x68506D4Du);
       return -1073741816;
     }
-    v7 = MiSectionControlArea((__int64)v33);
+    v7 = MiSectionControlArea((__int64)v31);
     v16 = *(_QWORD *)(v7 + 8);
     v17 = MiPageChainCount(v16);
     v18 = v17;
@@ -114,10 +112,10 @@ LABEL_20:
     return -1073741811;
   if ( a2 != 4 )
     return -1073741755;
-  result = MiCreateProcessDefaultAweInfo(*(_BYTE *)(a3 + 57), &v32);
+  result = MiCreateProcessDefaultAweInfo(*(_BYTE *)(a3 + 57), &v30);
   if ( result < 0 )
     return result;
-  v16 = v32;
+  v16 = v30;
   v18 = 1LL;
   v19 = 1LL;
 LABEL_34:
@@ -139,30 +137,30 @@ LABEL_43:
     LockedVadEvent[4] = a1;
     LockedVadEvent[5] = v16;
     AweInfoPartition = (_WORD *)MiGetAweInfoPartition(v16);
-    v28 = LockedVadEvent + 6;
+    v26 = LockedVadEvent + 6;
     *a4 = *AweInfoPartition;
     if ( v4 )
     {
-      MiCheckPurgeAndUpMapCount(v7, v26, v27);
-      *v28 = v7;
+      MiCheckPurgeAndUpMapCount(v7);
+      *v26 = v7;
       ObfDereferenceObjectWithTag(v4, 0x68506D4Du);
     }
     if ( v19 != v18 )
     {
-      v29 = *(_DWORD *)v28;
+      v27 = *(_DWORD *)v26;
       if ( v19 == 16 )
       {
-        v30 = v29 & 0xFFFFFFFC | 1;
+        v28 = v27 & 0xFFFFFFFC | 1;
       }
       else if ( v19 == 0x40000 )
       {
-        v30 = v29 | 3;
+        v28 = v27 | 3;
       }
       else
       {
-        v30 = v29 & 0xFFFFFFFC | 2;
+        v28 = v27 & 0xFFFFFFFC | 2;
       }
-      *(_DWORD *)v28 = v30;
+      *(_DWORD *)v26 = v28;
     }
     LockedVadEvent[3] = 0LL;
     if ( !LockedVadEvent[7] )

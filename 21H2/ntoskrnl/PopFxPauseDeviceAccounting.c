@@ -1,19 +1,19 @@
 /*
- * XREFs of PopFxPauseDeviceAccounting @ 0x14056B764
+ * XREFs of PopFxPauseDeviceAccounting @ 0x14056B9A4
  * Callers:
- *     PdcPoCurrentPdcPhase @ 0x1405763C0 (PdcPoCurrentPdcPhase.c)
- *     PopPdcIdleResiliencyCallback @ 0x1408F004C (PopPdcIdleResiliencyCallback.c)
+ *     PdcPoCurrentPdcPhase @ 0x140576600 (PdcPoCurrentPdcPhase.c)
+ *     PopPdcIdleResiliencyCallback @ 0x1408F01AC (PopPdcIdleResiliencyCallback.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
- *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
- *     PopFxUpdateAccountingActiveTime @ 0x1402613A4 (PopFxUpdateAccountingActiveTime.c)
- *     ExfReleasePushLockShared @ 0x1402F1470 (ExfReleasePushLockShared.c)
- *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
- *     ExAcquirePushLockSharedEx @ 0x14034AB50 (ExAcquirePushLockSharedEx.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KxReleaseSpinLock @ 0x140212140 (KxReleaseSpinLock.c)
+ *     PopFxUpdateAccountingActiveTime @ 0x140282874 (PopFxUpdateAccountingActiveTime.c)
+ *     KeLeaveCriticalRegionThread @ 0x1402AB8C0 (KeLeaveCriticalRegionThread.c)
+ *     ExfReleasePushLockShared @ 0x1402FC1C0 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x1403539D0 (KeAbPostRelease.c)
+ *     ExAcquirePushLockSharedEx @ 0x1403558A0 (ExAcquirePushLockSharedEx.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140362F80 (KeAcquireSpinLockRaiseToDpc.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     PopFxMergeActiveTimeAccounting @ 0x14056B720 (PopFxMergeActiveTimeAccounting.c)
- *     PopFxSetGlobalDeviceAccountingEnabled @ 0x14056CCA4 (PopFxSetGlobalDeviceAccountingEnabled.c)
+ *     PopFxMergeActiveTimeAccounting @ 0x14056B960 (PopFxMergeActiveTimeAccounting.c)
+ *     PopFxSetGlobalDeviceAccountingEnabled @ 0x14056CEE4 (PopFxSetGlobalDeviceAccountingEnabled.c)
  */
 
 _QWORD *PopFxPauseDeviceAccounting()
@@ -36,6 +36,9 @@ _QWORD *PopFxPauseDeviceAccounting()
   struct _KPRCB *v15; // r10
   _DWORD *v16; // r9
   int v17; // eax
+  __int64 v18; // rdx
+  __int64 v19; // r8
+  __int64 v20; // r9
 
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
@@ -103,5 +106,5 @@ _QWORD *PopFxPauseDeviceAccounting()
   if ( _InterlockedCompareExchange64((volatile signed __int64 *)&PopFxDeviceListLock, 0LL, 17LL) != 17 )
     ExfReleasePushLockShared((signed __int64 *)&PopFxDeviceListLock);
   KeAbPostRelease((ULONG_PTR)&PopFxDeviceListLock);
-  return KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+  return KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v18, v19, v20);
 }

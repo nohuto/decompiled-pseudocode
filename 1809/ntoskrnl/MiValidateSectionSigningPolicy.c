@@ -1,12 +1,12 @@
 /*
- * XREFs of MiValidateSectionSigningPolicy @ 0x14064F440
+ * XREFs of MiValidateSectionSigningPolicy @ 0x140650600
  * Callers:
- *     MiCreateNewSection @ 0x14061B7E0 (MiCreateNewSection.c)
- *     MiValidateExistingImage @ 0x14064F184 (MiValidateExistingImage.c)
+ *     MiCreateNewSection @ 0x14061C7E0 (MiCreateNewSection.c)
+ *     MiValidateExistingImage @ 0x140650344 (MiValidateExistingImage.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     MiValidateSectionCreate @ 0x140652E10 (MiValidateSectionCreate.c)
- *     EtwTimLogProhibitNonMicrosoftBinaries @ 0x1408BCFBC (EtwTimLogProhibitNonMicrosoftBinaries.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     MiValidateSectionCreate @ 0x140653FD0 (MiValidateSectionCreate.c)
+ *     EtwTimLogProhibitNonMicrosoftBinaries @ 0x1408BE27C (EtwTimLogProhibitNonMicrosoftBinaries.c)
  */
 
 __int64 __fastcall MiValidateSectionSigningPolicy(
@@ -38,7 +38,7 @@ __int64 __fastcall MiValidateSectionSigningPolicy(
   Process = KeGetCurrentThread()->ApcState.Process;
   v18 = MiValidateSectionCreate(a2, a3, a4, a5, a6, a10, a11);
   if ( v18 < 0 && a1 == 1 )
-    dword_140438DF0 = 60;
+    dword_140439EB0 = 60;
   if ( a7 == 1 && v18 < 0 )
   {
     if ( v18 != -1073740760 || a9 != 1 )
@@ -55,11 +55,11 @@ LABEL_19:
   {
     if ( v18 < 0 )
       return 0;
-    if ( qword_14040DDA0 )
+    if ( qword_14040EE00 )
     {
       LOBYTE(v16) = a11;
       LOBYTE(v17) = *(_BYTE *)(*(_QWORD *)a3 + 15LL) >> 4;
-      if ( (unsigned int)qword_14040DDA0(v17, v16) )
+      if ( (unsigned int)qword_14040EE00(v17, v16) )
         return (unsigned int)v18;
     }
     LOBYTE(v19) = a11;

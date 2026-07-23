@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpBlkInitializeIdt @ 0x140B506E4
+ * XREFs of HalpBlkInitializeIdt @ 0x140B52734
  * Callers:
- *     HalpBlkInitializeProcessorState @ 0x140B507C0 (HalpBlkInitializeProcessorState.c)
+ *     HalpBlkInitializeProcessorState @ 0x140B52810 (HalpBlkInitializeProcessorState.c)
  * Callees:
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 unsigned __int64 __fastcall HalpBlkInitializeIdt(__int64 a1, char *a2)

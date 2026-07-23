@@ -1,18 +1,18 @@
 /*
- * XREFs of KiProcessControlProtection @ 0x1404F7C00
+ * XREFs of KiProcessControlProtection @ 0x1404F1210
  * Callers:
- *     KiControlProtectionFault @ 0x140739B00 (KiControlProtectionFault.c)
+ *     KiControlProtectionFault @ 0x14073E700 (KiControlProtectionFault.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiLogControlProtectionUserModeReturnMismatch @ 0x1404BD988 (KiLogControlProtectionUserModeReturnMismatch.c)
- *     KiFixupControlProtectionUserModeReturnMismatch @ 0x1404DD610 (KiFixupControlProtectionUserModeReturnMismatch.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     KiProcessControlProtectionFromKernelMode @ 0x14052865C (KiProcessControlProtectionFromKernelMode.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     RtlReadULong64FromUser @ 0x14077F554 (RtlReadULong64FromUser.c)
- *     RtlWriteULong64ToUser @ 0x14077F758 (RtlWriteULong64ToUser.c)
- *     ExRaiseDatatypeMisalignment @ 0x1408F29F0 (ExRaiseDatatypeMisalignment.c)
- *     KiCheckUserAddressCetCompat @ 0x140942AB8 (KiCheckUserAddressCetCompat.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiLogControlProtectionUserModeReturnMismatch @ 0x1404B71D4 (KiLogControlProtectionUserModeReturnMismatch.c)
+ *     KiFixupControlProtectionUserModeReturnMismatch @ 0x1404D6CF0 (KiFixupControlProtectionUserModeReturnMismatch.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KiProcessControlProtectionFromKernelMode @ 0x14052ACCC (KiProcessControlProtectionFromKernelMode.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     RtlReadULong64FromUser @ 0x140782054 (RtlReadULong64FromUser.c)
+ *     RtlWriteULong64ToUser @ 0x140782258 (RtlWriteULong64ToUser.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408F8FB0 (ExRaiseDatatypeMisalignment.c)
+ *     KiCheckUserAddressCetCompat @ 0x140A35BC8 (KiCheckUserAddressCetCompat.c)
  */
 
 __int64 __fastcall KiProcessControlProtection(__int64 a1, __int64 a2)
@@ -65,7 +65,7 @@ __int64 __fastcall KiProcessControlProtection(__int64 a1, __int64 a2)
       if ( (unsigned __int64)(ULong64FromUser - 0x10000) <= 0x7FFFFFFDFFFFLL
         && (unsigned __int64)(v4 - 0x10000) <= 0x7FFFFFFDFFFFLL )
       {
-        if ( ULong64FromUser == stru_140FC01F0.Spare35[1] )
+        if ( ULong64FromUser == stru_140FC11F0.Spare35[1] )
         {
           v11 = RtlReadULong64FromUser(v8);
           RtlWriteULong64ToUser(v9, v11);

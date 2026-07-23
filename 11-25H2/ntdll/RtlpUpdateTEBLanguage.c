@@ -22,7 +22,7 @@ __int64 __fastcall RtlpUpdateTEBLanguage(__int64 a1, __int64 a2, int a3)
   }
   else
   {
-    Heap = (_QWORD *)RtlAllocateHeap((char *)NtCurrentPeb()->ProcessHeap, 8u, 0x10uLL);
+    Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, 0x10uLL);
     UserPrefLanguages = Heap;
     if ( !Heap )
       return 3221225495LL;

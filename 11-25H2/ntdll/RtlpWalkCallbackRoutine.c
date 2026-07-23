@@ -26,8 +26,8 @@ __int64 __fastcall RtlpWalkCallbackRoutine(__int64 a1, _QWORD **a2)
   __int64 v18; // rcx
   unsigned __int64 i; // rsi
   __int16 v20; // ax
-  unsigned __int64 v21; // [rsp+50h] [rbp+8h] BYREF
-  char *v22; // [rsp+58h] [rbp+10h] BYREF
+  ULONG_PTR RegionSize; // [rsp+50h] [rbp+8h] BYREF
+  PVOID BaseAddress; // [rsp+58h] [rbp+10h] BYREF
 
   switch ( *(_DWORD *)a1 )
   {
@@ -37,17 +37,17 @@ __int64 __fastcall RtlpWalkCallbackRoutine(__int64 a1, _QWORD **a2)
       {
         v5 = v4[10];
         v6 = v4[9] + 32LL;
-        v22 = 0LL;
-        v21 = 0LL;
+        BaseAddress = 0LL;
+        RegionSize = 0LL;
         if ( v6 <= v5 )
           goto LABEL_4;
         if ( v6 <= v4[11] )
         {
-          v22 = (char *)v4 + v5;
-          v21 = v6 - v5;
-          if ( (int)ZwAllocateVirtualMemory(-1LL, &v22, 0LL, &v21, 4096, 4) >= 0 )
+          BaseAddress = (char *)v4 + v5;
+          RegionSize = v6 - v5;
+          if ( ZwAllocateVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &BaseAddress, 0LL, &RegionSize, 0x1000u, 4u) >= 0 )
           {
-            v4[10] += v21;
+            v4[10] += RegionSize;
 LABEL_4:
             v7 = v4[9];
             v4[9] = v6;

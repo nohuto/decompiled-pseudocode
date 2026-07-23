@@ -1,22 +1,22 @@
 /*
- * XREFs of KiSwapDirectoryTableBaseTarget @ 0x140311500
+ * XREFs of KiSwapDirectoryTableBaseTarget @ 0x1403F4770
  * Callers:
- *     KiExecuteAllDpcs @ 0x1402552D0 (KiExecuteAllDpcs.c)
+ *     KiExecuteAllDpcs @ 0x1402858E0 (KiExecuteAllDpcs.c)
  * Callees:
- *     HvlNotifyLongSpinWait @ 0x140293260 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140293290 (KiCheckVpBackingLongSpinWaitHypercall.c)
- *     MmStealTopLevelPage @ 0x1403116F0 (MmStealTopLevelPage.c)
- *     KiLoadDirectoryTableBase @ 0x140321990 (KiLoadDirectoryTableBase.c)
- *     KeWakeAddressAll @ 0x140321AA0 (KeWakeAddressAll.c)
- *     KiHaltOnAddress @ 0x1404FA2B8 (KiHaltOnAddress.c)
- *     KeCanUseHaltOnAddress @ 0x1404FA680 (KeCanUseHaltOnAddress.c)
+ *     HvlNotifyLongSpinWait @ 0x1402A2E60 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1402A2E90 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     KiLoadDirectoryTableBase @ 0x1402CA520 (KiLoadDirectoryTableBase.c)
+ *     KeWakeAddressAll @ 0x1402CA630 (KeWakeAddressAll.c)
+ *     MmStealTopLevelPage @ 0x1403F4960 (MmStealTopLevelPage.c)
+ *     KiHaltOnAddress @ 0x1404F7B98 (KiHaltOnAddress.c)
+ *     KeCanUseHaltOnAddress @ 0x1404F7F60 (KeCanUseHaltOnAddress.c)
  */
 
 volatile signed __int32 *__fastcall KiSwapDirectoryTableBaseTarget(
         __int64 a1,
         __int64 a2,
         volatile signed __int32 *a3,
-        __int64 a4)
+        unsigned __int64 a4)
 {
   _KPROCESS *v4; // r15
   signed __int32 v7; // eax
@@ -25,26 +25,24 @@ volatile signed __int32 *__fastcall KiSwapDirectoryTableBaseTarget(
   unsigned int v10; // ebp
   char v11; // r14
   __int64 v12; // rdx
-  __int64 v13; // r8
-  __int64 v14; // r9
-  signed __int32 v15; // eax
-  unsigned int v16; // edi
-  unsigned int v17; // ebp
-  char v18; // r14
+  signed __int32 v13; // eax
+  unsigned int v14; // edi
+  unsigned int v15; // ebp
+  char v16; // r14
   volatile signed __int32 *result; // rax
-  signed __int32 v20; // ecx
-  signed __int32 v21; // edx
-  volatile signed __int32 v22; // r8d
-  signed __int32 v23; // ecx
-  signed __int32 v24; // edx
-  volatile signed __int32 v25; // r8d
-  int v26; // esi
-  int v27; // esi
-  __int32 v28; // [rsp+68h] [rbp+10h] BYREF
-  volatile signed __int32 *v29; // [rsp+70h] [rbp+18h]
-  __int32 v30; // [rsp+78h] [rbp+20h] BYREF
+  signed __int32 v18; // ecx
+  signed __int32 v19; // edx
+  volatile signed __int32 v20; // r8d
+  signed __int32 v21; // ecx
+  signed __int32 v22; // edx
+  volatile signed __int32 v23; // r8d
+  int v24; // esi
+  int v25; // esi
+  __int32 v26; // [rsp+68h] [rbp+10h] BYREF
+  volatile signed __int32 *v27; // [rsp+70h] [rbp+18h]
+  __int32 v28; // [rsp+78h] [rbp+20h] BYREF
 
-  v29 = a3;
+  v27 = a3;
   v4 = *(_KPROCESS **)(a2 + 8);
   v7 = _InterlockedDecrement((volatile signed __int32 *)a4);
   v8 = ~v7 & 0x80000000;
@@ -62,29 +60,29 @@ volatile signed __int32 *__fastcall KiSwapDirectoryTableBaseTarget(
         ++v11;
         if ( (unsigned __int8)KeCanUseHaltOnAddress() && (KiVelocityFlags & 0x20000) != 0 && (v11 & 7) == 0 )
         {
-          v20 = *(_DWORD *)a4;
+          v18 = *(_DWORD *)a4;
           if ( (*(_DWORD *)a4 & 0x80000000) != v8 )
           {
-            v21 = *(_DWORD *)a4;
-            v22 = *(_DWORD *)a4;
+            v19 = *(_DWORD *)a4;
+            v20 = *(_DWORD *)a4;
             do
             {
-              v26 = v20 | 0x40000000;
-              v20 = _InterlockedCompareExchange((volatile signed __int32 *)a4, v20 | 0x40000000, v21);
-              if ( v20 == v22 )
+              v24 = v18 | 0x40000000;
+              v18 = _InterlockedCompareExchange((volatile signed __int32 *)a4, v18 | 0x40000000, v19);
+              if ( v18 == v20 )
               {
-                v28 = v26;
+                v26 = v24;
                 do
                 {
-                  KiHaltOnAddress(a4, &v28, 4LL);
-                  v20 = *(_DWORD *)a4;
+                  KiHaltOnAddress(a4, &v26, 4LL);
+                  v18 = *(_DWORD *)a4;
                 }
-                while ( *(_DWORD *)a4 == v26 );
+                while ( *(_DWORD *)a4 == v24 );
               }
-              v21 = v20;
-              v22 = v20;
+              v19 = v18;
+              v20 = v18;
             }
-            while ( (v20 & 0x80000000) != v8 );
+            while ( (v18 & 0x80000000) != v8 );
           }
         }
         else
@@ -101,55 +99,55 @@ volatile signed __int32 *__fastcall KiSwapDirectoryTableBaseTarget(
   }
   else
   {
-    v28 = _InterlockedExchange((volatile __int32 *)a4, *(_DWORD *)(a4 + 4) | v8);
-    if ( (v28 & 0x40000000) != 0 )
-      KeWakeAddressAll(a4, a2, a3, a4);
+    v26 = _InterlockedExchange((volatile __int32 *)a4, *(_DWORD *)(a4 + 4) | v8);
+    if ( (v26 & 0x40000000) != 0 )
+      KeWakeAddressAll(a4, a2);
   }
   if ( (unsigned int)MmStealTopLevelPage(*(_QWORD *)(a2 + 16)) )
     *(_BYTE *)a2 = 1;
-  v15 = _InterlockedDecrement((volatile signed __int32 *)a4);
-  v16 = ~v15 & 0x80000000;
-  if ( (v15 & 0x3FFFFFFF) != 0 )
+  v13 = _InterlockedDecrement((volatile signed __int32 *)a4);
+  v14 = ~v13 & 0x80000000;
+  if ( (v13 & 0x3FFFFFFF) != 0 )
   {
-    v17 = 0;
-    v18 = 0;
-    while ( (*(_DWORD *)a4 & 0x80000000) != v16 )
+    v15 = 0;
+    v16 = 0;
+    while ( (*(_DWORD *)a4 & 0x80000000) != v14 )
     {
-      if ( (++v17 & HvlLongSpinCountMask) == 0
+      if ( (++v15 & HvlLongSpinCountMask) == 0
         && (HvlEnlightenments & 0x40) != 0
         && KiCheckVpBackingLongSpinWaitHypercall() )
       {
-        ++v18;
-        if ( (unsigned __int8)KeCanUseHaltOnAddress() && (KiVelocityFlags & 0x20000) != 0 && (v18 & 7) == 0 )
+        ++v16;
+        if ( (unsigned __int8)KeCanUseHaltOnAddress() && (KiVelocityFlags & 0x20000) != 0 && (v16 & 7) == 0 )
         {
-          v23 = *(_DWORD *)a4;
-          if ( (*(_DWORD *)a4 & 0x80000000) != v16 )
+          v21 = *(_DWORD *)a4;
+          if ( (*(_DWORD *)a4 & 0x80000000) != v14 )
           {
-            v24 = *(_DWORD *)a4;
-            v25 = *(_DWORD *)a4;
+            v22 = *(_DWORD *)a4;
+            v23 = *(_DWORD *)a4;
             do
             {
-              v27 = v23 | 0x40000000;
-              v23 = _InterlockedCompareExchange((volatile signed __int32 *)a4, v23 | 0x40000000, v24);
-              if ( v23 == v25 )
+              v25 = v21 | 0x40000000;
+              v21 = _InterlockedCompareExchange((volatile signed __int32 *)a4, v21 | 0x40000000, v22);
+              if ( v21 == v23 )
               {
-                v30 = v27;
+                v28 = v25;
                 do
                 {
-                  KiHaltOnAddress(a4, &v30, 4LL);
-                  v23 = *(_DWORD *)a4;
+                  KiHaltOnAddress(a4, &v28, 4LL);
+                  v21 = *(_DWORD *)a4;
                 }
-                while ( *(_DWORD *)a4 == v27 );
+                while ( *(_DWORD *)a4 == v25 );
               }
-              v24 = v23;
-              v25 = v23;
+              v22 = v21;
+              v23 = v21;
             }
-            while ( (v23 & 0x80000000) != v16 );
+            while ( (v21 & 0x80000000) != v14 );
           }
         }
         else
         {
-          HvlNotifyLongSpinWait(v17);
+          HvlNotifyLongSpinWait(v15);
         }
       }
       else
@@ -160,13 +158,13 @@ volatile signed __int32 *__fastcall KiSwapDirectoryTableBaseTarget(
   }
   else
   {
-    v30 = _InterlockedExchange((volatile __int32 *)a4, *(_DWORD *)(a4 + 4) | v16);
-    if ( (v30 & 0x40000000) != 0 )
-      KeWakeAddressAll(a4, v12, v13, v14);
+    v28 = _InterlockedExchange((volatile __int32 *)a4, *(_DWORD *)(a4 + 4) | v14);
+    if ( (v28 & 0x40000000) != 0 )
+      KeWakeAddressAll(a4, v12);
   }
   if ( *(_BYTE *)a2 && KeGetCurrentThread()->ApcState.Process == v4 )
-    KiLoadDirectoryTableBase(v4, v4->DirectoryTableBase);
-  result = v29;
-  _InterlockedDecrement(v29);
+    KiLoadDirectoryTableBase((__int64)v4, v4->DirectoryTableBase);
+  result = v27;
+  _InterlockedDecrement(v27);
   return result;
 }

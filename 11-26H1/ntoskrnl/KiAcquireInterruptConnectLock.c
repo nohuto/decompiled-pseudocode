@@ -1,20 +1,20 @@
 /*
- * XREFs of KiAcquireInterruptConnectLock @ 0x14042372C
+ * XREFs of KiAcquireInterruptConnectLock @ 0x14043081C
  * Callers:
- *     KiConnectInterrupt @ 0x140424570 (KiConnectInterrupt.c)
- *     KeMaskInterrupt @ 0x140424930 (KeMaskInterrupt.c)
+ *     KiConnectInterrupt @ 0x140431660 (KiConnectInterrupt.c)
+ *     KeMaskInterrupt @ 0x140431A20 (KeMaskInterrupt.c)
  * Callees:
- *     KeSetSystemGroupAffinityThread @ 0x14037A1C0 (KeSetSystemGroupAffinityThread.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KeSetSystemGroupAffinityThread @ 0x14037BF70 (KeSetSystemGroupAffinityThread.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
-struct _KPRCB *__fastcall KiAcquireInterruptConnectLock(int a1, unsigned __int8 *a2, struct _GROUP_AFFINITY *a3)
+struct _KPRCB *__fastcall KiAcquireInterruptConnectLock(int a1, unsigned __int8 *a2, _GROUP_AFFINITY *a3)
 {
   __int64 v5; // r9
   __int64 v6; // rcx
   struct _KPRCB *result; // rax
   unsigned __int8 CurrentIrql; // bl
-  struct _GROUP_AFFINITY Affinity; // [rsp+20h] [rbp-18h] BYREF
+  _GROUP_AFFINITY Affinity; // [rsp+20h] [rbp-18h] BYREF
 
   Affinity = 0LL;
   v5 = KiProcessorBlock[a1];

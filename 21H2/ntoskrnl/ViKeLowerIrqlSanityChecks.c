@@ -1,13 +1,13 @@
 /*
- * XREFs of ViKeLowerIrqlSanityChecks @ 0x1409DC138
+ * XREFs of ViKeLowerIrqlSanityChecks @ 0x1409DD138
  * Callers:
- *     VerifierKeReleaseQueuedSpinLock @ 0x1409D34D0 (VerifierKeReleaseQueuedSpinLock.c)
- *     VerifierKeLowerIrql @ 0x1409DAE40 (VerifierKeLowerIrql.c)
- *     VerifierKeReleaseInStackQueuedSpinLockCommon @ 0x1409DAFF0 (VerifierKeReleaseInStackQueuedSpinLockCommon.c)
- *     ViKeReleaseSpinLockCommon @ 0x1409DC360 (ViKeReleaseSpinLockCommon.c)
+ *     VerifierKeReleaseQueuedSpinLock @ 0x1409D44D0 (VerifierKeReleaseQueuedSpinLock.c)
+ *     VerifierKeLowerIrql @ 0x1409DBE40 (VerifierKeLowerIrql.c)
+ *     VerifierKeReleaseInStackQueuedSpinLockCommon @ 0x1409DBFF0 (VerifierKeReleaseInStackQueuedSpinLockCommon.c)
+ *     ViKeReleaseSpinLockCommon @ 0x1409DD360 (ViKeReleaseSpinLockCommon.c)
  * Callees:
- *     VerifierBugCheckIfAppropriate @ 0x1409D0D54 (VerifierBugCheckIfAppropriate.c)
- *     VfKeIrqlTransitionReserveLogEntry @ 0x1409DBE50 (VfKeIrqlTransitionReserveLogEntry.c)
+ *     VerifierBugCheckIfAppropriate @ 0x1409D1D54 (VerifierBugCheckIfAppropriate.c)
+ *     VfKeIrqlTransitionReserveLogEntry @ 0x1409DCE50 (VfKeIrqlTransitionReserveLogEntry.c)
  */
 
 char *__fastcall ViKeLowerIrqlSanityChecks(unsigned __int8 a1, unsigned __int8 a2)

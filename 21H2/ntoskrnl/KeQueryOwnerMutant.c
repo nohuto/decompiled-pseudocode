@@ -1,9 +1,9 @@
 /*
- * XREFs of KeQueryOwnerMutant @ 0x14051AE60
+ * XREFs of KeQueryOwnerMutant @ 0x14051B0A0
  * Callers:
- *     NtQueryMutant @ 0x140956F50 (NtQueryMutant.c)
+ *     NtQueryMutant @ 0x140957120 (NtQueryMutant.c)
  * Callees:
- *     KiAcquireKobjectLockSafe @ 0x14024C4A0 (KiAcquireKobjectLockSafe.c)
+ *     KiAcquireKobjectLockSafe @ 0x1402F0CF0 (KiAcquireKobjectLockSafe.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 

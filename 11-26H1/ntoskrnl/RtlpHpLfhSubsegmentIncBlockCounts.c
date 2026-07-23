@@ -1,14 +1,14 @@
 /*
- * XREFs of RtlpHpLfhSubsegmentIncBlockCounts @ 0x14034C570
+ * XREFs of RtlpHpLfhSubsegmentIncBlockCounts @ 0x14034E5F0
  * Callers:
- *     RtlpHpLfhSubsegmentAllocateBlockShared @ 0x14034C7D0 (RtlpHpLfhSubsegmentAllocateBlockShared.c)
+ *     RtlpHpLfhSubsegmentAllocateBlockShared @ 0x14034E850 (RtlpHpLfhSubsegmentAllocateBlockShared.c)
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x140249CD0 (ExAcquireSpinLockExclusive.c)
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     RtlpHpReleaseLockExclusive @ 0x14034D300 (RtlpHpReleaseLockExclusive.c)
- *     RtlpHpEnvCompactionSchedule @ 0x14034D650 (RtlpHpEnvCompactionSchedule.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024B630 (ExAcquireSpinLockExclusive.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     RtlpHpReleaseLockExclusive @ 0x14034F380 (RtlpHpReleaseLockExclusive.c)
+ *     RtlpHpEnvCompactionSchedule @ 0x14034F6D0 (RtlpHpEnvCompactionSchedule.c)
  */
 
 __int64 __fastcall RtlpHpLfhSubsegmentIncBlockCounts(
@@ -134,8 +134,8 @@ LABEL_7:
       {
         *(_BYTE *)(v20 + a1 + 92) = 1;
         if ( !(BYTE1(**(_QWORD **)(*(_QWORD *)a1 + 56LL)) == 1
-             ? *(_DWORD *)&ExSaPageGroupDescriptorArrayLock.Tag
-             : ExSaPageGroupDescriptorArrayLock.SystemCallNumber) )
+             ? HIDWORD(ExSaPageGroupDescriptorArrayLock.StackBase)
+             : LODWORD(ExSaPageGroupDescriptorArrayLock.ThreadLock)) )
           RtlpHpEnvCompactionSchedule(*(_QWORD *)(*(_QWORD *)a1 + 56LL), (v18 >> 31) & 0xFFF, a3, a4);
       }
     }

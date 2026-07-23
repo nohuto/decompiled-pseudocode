@@ -21,20 +21,20 @@ __int64 __fastcall SepMandatorySubProcessToken(_DWORD *Token, __int64 a2, __int6
   int v4; // r15d
   _QWORD *v5; // r14
   int v6; // eax
-  int SecurityObject; // ebx
+  NTSTATUS SecurityObject; // ebx
   void *v10; // r12
   _BYTE *v11; // rdi
   __int16 v12; // ax
   __int64 v13; // rax
-  __int64 v14; // rcx
-  unsigned __int8 *AceByType; // rax
+  ACL *v14; // rcx
+  char *AceByType; // rax
   _BYTE *PoolWithTag; // rax
-  unsigned __int8 *v18; // r14
-  __int64 *TokenIntegrity; // rax
-  __int64 *v20; // r15
+  _BYTE *v18; // r14
+  PSID *TokenIntegrity; // rax
+  PSID *v20; // r15
   unsigned __int8 v21; // al
   int v22; // ecx
-  __int64 v23; // rax
+  PSID v23; // rax
   unsigned __int8 v24; // al
   unsigned int v25; // ecx
   int v26; // eax
@@ -58,7 +58,7 @@ __int64 __fastcall SepMandatorySubProcessToken(_DWORD *Token, __int64 a2, __int6
   unsigned int v44; // ecx
   int v45; // eax
   unsigned int v46; // eax
-  bool v47; // [rsp+30h] [rbp-99h] BYREF
+  BOOLEAN Dominates[4]; // [rsp+30h] [rbp-99h] BYREF
   _DWORD NumberOfBytes[3]; // [rsp+34h] [rbp-95h] BYREF
   void *v49; // [rsp+40h] [rbp-89h] BYREF
   _BYTE SecurityDescriptor[128]; // [rsp+50h] [rbp-79h] BYREF
@@ -69,7 +69,7 @@ __int64 __fastcall SepMandatorySubProcessToken(_DWORD *Token, __int64 a2, __int6
   v5 = a4;
   v6 = *(_DWORD *)(a3 + 1788);
   v49 = 0LL;
-  v47 = 0;
+  Dominates[0] = 0;
   SecurityObject = 0;
   v10 = 0LL;
   v11 = 0LL;
@@ -97,27 +97,27 @@ LABEL_6:
       {
         if ( v12 >= 0 )
         {
-          v14 = *((_QWORD *)v11 + 3);
+          v14 = (ACL *)*((_QWORD *)v11 + 3);
 LABEL_12:
-          AceByType = RtlFindAceByType(v14, 17, 0LL);
+          AceByType = (char *)RtlFindAceByType(v14, 0x11u, 0LL);
           if ( AceByType )
           {
             v18 = AceByType + 8;
-            TokenIntegrity = (__int64 *)SepLocateTokenIntegrity(a2);
+            TokenIntegrity = (PSID *)SepLocateTokenIntegrity(a2);
             v20 = TokenIntegrity;
             if ( !TokenIntegrity )
               goto LABEL_42;
-            SecurityObject = RtlSidDominates((_DWORD *)*TokenIntegrity, v18, &v47);
+            SecurityObject = RtlSidDominates(*TokenIntegrity, v18, Dominates);
             if ( SecurityObject < 0 )
               goto LABEL_15;
-            if ( v47 )
+            if ( Dominates[0] )
             {
               v21 = v18[1];
               if ( v21 )
                 v22 = *(_DWORD *)&v18[4 * v21 + 4];
               else
                 v22 = 0;
-              *(_DWORD *)(*v20 + 8) = v22;
+              *((_DWORD *)*v20 + 2) = v22;
               v23 = *v20;
               v4 = 0;
               **(_QWORD **)&NumberOfBytes[1] = v23;
@@ -146,7 +146,7 @@ LABEL_42:
         v13 = *((unsigned int *)v11 + 3);
         if ( (_DWORD)v13 )
         {
-          v14 = (__int64)&v11[v13];
+          v14 = (ACL *)&v11[v13];
           goto LABEL_12;
         }
       }

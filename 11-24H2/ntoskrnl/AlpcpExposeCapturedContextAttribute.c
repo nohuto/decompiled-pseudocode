@@ -1,8 +1,8 @@
 /*
- * XREFs of AlpcpExposeCapturedContextAttribute @ 0x140A3D29C
+ * XREFs of AlpcpExposeCapturedContextAttribute @ 0x140A32BAC
  * Callers:
- *     AlpcpReceiveMessage @ 0x140899160 (AlpcpReceiveMessage.c)
- *     AlpcpProcessSynchronousRequest @ 0x140A304CC (AlpcpProcessSynchronousRequest.c)
+ *     AlpcpReceiveMessage @ 0x1408A1800 (AlpcpReceiveMessage.c)
+ *     AlpcpProcessSynchronousRequest @ 0x140A24FBC (AlpcpProcessSynchronousRequest.c)
  * Callees:
  *     <none>
  */

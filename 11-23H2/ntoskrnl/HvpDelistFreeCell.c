@@ -1,14 +1,14 @@
 /*
- * XREFs of HvpDelistFreeCell @ 0x140709C10
+ * XREFs of HvpDelistFreeCell @ 0x140709E20
  * Callers:
- *     HvpDoAllocateCell @ 0x14070A440 (HvpDoAllocateCell.c)
- *     HvpIsFreeNeighbor @ 0x14070AE00 (HvpIsFreeNeighbor.c)
+ *     HvpDoAllocateCell @ 0x14070A650 (HvpDoAllocateCell.c)
+ *     HvpIsFreeNeighbor @ 0x14070B010 (HvpIsFreeNeighbor.c)
  * Callees:
- *     HvpGetCellPaged @ 0x1406E0150 (HvpGetCellPaged.c)
- *     HvpReleaseCellPaged @ 0x1406E0260 (HvpReleaseCellPaged.c)
- *     HvpRemoveFreeCellHint @ 0x14070A220 (HvpRemoveFreeCellHint.c)
- *     HvpReleaseCellFlat @ 0x1407D9470 (HvpReleaseCellFlat.c)
- *     HvpGetCellFlat @ 0x1407FD9F0 (HvpGetCellFlat.c)
+ *     HvpGetCellPaged @ 0x1406E0180 (HvpGetCellPaged.c)
+ *     HvpReleaseCellPaged @ 0x1406E0290 (HvpReleaseCellPaged.c)
+ *     HvpRemoveFreeCellHint @ 0x14070A430 (HvpRemoveFreeCellHint.c)
+ *     HvpReleaseCellFlat @ 0x1407D9740 (HvpReleaseCellFlat.c)
+ *     HvpGetCellFlat @ 0x1407FDCC0 (HvpGetCellFlat.c)
  */
 
 __int64 __fastcall HvpDelistFreeCell(ULONG_PTR BugCheckParameter2, ULONG_PTR BugCheckParameter3)

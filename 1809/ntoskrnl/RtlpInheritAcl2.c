@@ -1,14 +1,14 @@
 /*
- * XREFs of RtlpInheritAcl2 @ 0x14062ED40
+ * XREFs of RtlpInheritAcl2 @ 0x14062FD60
  * Callers:
- *     RtlpNewSecurityObject @ 0x14062D630 (RtlpNewSecurityObject.c)
+ *     RtlpNewSecurityObject @ 0x14062E650 (RtlpNewSecurityObject.c)
  * Callees:
- *     RtlFindAceByType @ 0x1400A8FB0 (RtlFindAceByType.c)
- *     memmove @ 0x1401D1540 (memmove.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     RtlpGenerateInheritedAce @ 0x14062F2D0 (RtlpGenerateInheritedAce.c)
- *     RtlpCopyAces @ 0x14062FDC0 (RtlpCopyAces.c)
- *     RtlFirstFreeAce @ 0x1406309F0 (RtlFirstFreeAce.c)
+ *     RtlFindAceByType @ 0x1400A8EF0 (RtlFindAceByType.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     RtlpGenerateInheritedAce @ 0x1406302F0 (RtlpGenerateInheritedAce.c)
+ *     RtlpCopyAces @ 0x140630DE0 (RtlpCopyAces.c)
+ *     RtlFirstFreeAce @ 0x140631A10 (RtlFirstFreeAce.c)
  */
 
 __int64 __fastcall RtlpInheritAcl2(
@@ -198,7 +198,7 @@ LABEL_48:
       {
         if ( a12 == 3 )
         {
-          if ( RtlFindAceByType((__int64)Acl, 17, 0LL) )
+          if ( RtlFindAceByType(Acl, 0x11u, 0LL) )
           {
 LABEL_39:
             if ( !(_BYTE)a18 )

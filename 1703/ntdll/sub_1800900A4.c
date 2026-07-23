@@ -10,60 +10,61 @@
  *     memmove @ 0x1800ABA80 (memmove.c)
  */
 
-__int64 __fastcall sub_1800900A4(unsigned __int64 a1)
+NTSTATUS __fastcall sub_1800900A4(void *a1)
 {
-  __int64 v1; // rbx
-  int v2; // eax
+  PIMAGE_NT_HEADERS v1; // rbx
+  NTSTATUS v2; // eax
   __int64 v3; // rcx
-  _QWORD *v4; // r14
+  ULONGLONG *p_SizeOfHeapCommit; // r14
   __int64 v5; // rsi
-  __int64 result; // rax
-  unsigned int v7; // edi
-  unsigned __int16 v8; // ax
+  NTSTATUS result; // eax
+  NTSTATUS v7; // edi
+  WORD Machine; // ax
   __int64 v9; // [rsp+30h] [rbp-10h] BYREF
-  unsigned __int64 v10; // [rsp+80h] [rbp+40h] BYREF
-  unsigned int v11; // [rsp+88h] [rbp+48h] BYREF
-  int v12; // [rsp+90h] [rbp+50h] BYREF
-  __int64 v13; // [rsp+98h] [rbp+58h] BYREF
+  PVOID BaseAddress; // [rsp+80h] [rbp+40h] BYREF
+  ULONG NewProtect; // [rsp+88h] [rbp+48h] BYREF
+  DWORD v12; // [rsp+90h] [rbp+50h] BYREF
+  ULONG_PTR RegionSize; // [rsp+98h] [rbp+58h] BYREF
 
-  v10 = a1;
+  BaseAddress = a1;
   v1 = RtlImageNtHeader(a1);
-  v2 = sub_180032C0C(v10, 1, 0xEu, &v12, &v9);
+  v2 = sub_180032C0C((unsigned __int64)BaseAddress, 1, 0xEu, &v12, (char **)&v9);
   v3 = v9;
   if ( v2 < 0 )
     v3 = 0LL;
-  if ( *(_WORD *)(v1 + 24) != 267 || *(_WORD *)(v1 + 4) != 332 || (*(_BYTE *)(v3 + 16) & 2) != 0 )
+  if ( v1->OptionalHeader.Magic != 267 || v1->FileHeader.Machine != 332 || (*(_BYTE *)(v3 + 16) & 2) != 0 )
   {
-    v8 = *(_WORD *)(v1 + 4);
-    if ( v8 < MEMORY[0x7FFE002C] )
-      return (unsigned int)-1073741701;
+    Machine = v1->FileHeader.Machine;
+    if ( Machine < MEMORY[0x7FFE002C] )
+      return -1073741701;
     v7 = 0;
-    if ( v8 > MEMORY[0x7FFE002E] )
-      return (unsigned int)-1073741701;
+    if ( Machine > MEMORY[0x7FFE002E] )
+      return -1073741701;
     return v7;
   }
-  v4 = (_QWORD *)(v1 + 120);
-  v5 = v1
-     + *(unsigned __int16 *)(v1 + 20)
-     + 8 * (*(unsigned __int16 *)(v1 + 6) + 4LL * *(unsigned __int16 *)(v1 + 6) + 3);
-  v13 = 4096LL;
-  if ( v5 - v10 + 16 > 0x1000 )
-    return 3221225595LL;
-  result = ZwProtectVirtualMemory(-1LL, &v10, &v13, 4LL, &v11);
+  p_SizeOfHeapCommit = &v1->OptionalHeader.SizeOfHeapCommit;
+  v5 = (__int64)&v1->OptionalHeader
+     + 32 * v1->FileHeader.NumberOfSections
+     + 8 * v1->FileHeader.NumberOfSections
+     + v1->FileHeader.SizeOfOptionalHeader;
+  RegionSize = 4096LL;
+  if ( (unsigned __int64)(v5 - (_QWORD)BaseAddress + 16) > 0x1000 )
+    return -1073741701;
+  result = ZwProtectVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &BaseAddress, &RegionSize, 4u, &NewProtect);
   v7 = result;
-  if ( (int)result >= 0 )
+  if ( result >= 0 )
   {
-    memmove((void *)(v1 + 136), (const void *)(v1 + 120), v5 - (_QWORD)v4);
-    *(_DWORD *)(v1 + 132) = *(_DWORD *)(v1 + 116);
-    *(_DWORD *)(v1 + 128) = *(_DWORD *)(v1 + 112);
-    *v4 = *(unsigned int *)(v1 + 108);
-    *(_QWORD *)(v1 + 112) = *(unsigned int *)(v1 + 104);
-    *(_QWORD *)(v1 + 104) = *(unsigned int *)(v1 + 100);
-    *(_QWORD *)(v1 + 96) = *(unsigned int *)(v1 + 96);
-    *(_QWORD *)(v1 + 48) = *(unsigned int *)(v1 + 52);
-    *(_WORD *)(v1 + 20) += 16;
-    *(_WORD *)(v1 + 24) = 523;
-    ZwProtectVirtualMemory(-1LL, &v10, &v13, v11, &v11);
+    memmove(v1->OptionalHeader.DataDirectory, &v1->OptionalHeader.SizeOfHeapCommit, v5 - (_QWORD)p_SizeOfHeapCommit);
+    v1->OptionalHeader.NumberOfRvaAndSizes = HIDWORD(v1->OptionalHeader.SizeOfHeapReserve);
+    v1->OptionalHeader.LoaderFlags = v1->OptionalHeader.SizeOfHeapReserve;
+    *p_SizeOfHeapCommit = HIDWORD(v1->OptionalHeader.SizeOfStackCommit);
+    v1->OptionalHeader.SizeOfHeapReserve = LODWORD(v1->OptionalHeader.SizeOfStackCommit);
+    v1->OptionalHeader.SizeOfStackCommit = HIDWORD(v1->OptionalHeader.SizeOfStackReserve);
+    v1->OptionalHeader.SizeOfStackReserve = LODWORD(v1->OptionalHeader.SizeOfStackReserve);
+    v1->OptionalHeader.ImageBase = HIDWORD(v1->OptionalHeader.ImageBase);
+    v1->FileHeader.SizeOfOptionalHeader += 16;
+    v1->OptionalHeader.Magic = 523;
+    ZwProtectVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &BaseAddress, &RegionSize, NewProtect, &NewProtect);
     return v7;
   }
   return result;

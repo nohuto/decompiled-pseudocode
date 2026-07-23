@@ -32,7 +32,7 @@ PVOID __stdcall RtlLookupElementGenericTableAvl(PRTL_AVL_TABLE Table, PVOID Buff
 {
   void *v2; // rsi
   _RTL_BALANCED_LINKS *i; // rbx
-  _RTL_GENERIC_COMPARE_RESULTS (__fastcall *CompareRoutine)(_RTL_AVL_TABLE *, void *, void *); // rax
+  RTL_GENERIC_COMPARE_RESULTS (__cdecl *CompareRoutine)(_RTL_AVL_TABLE *, PVOID, PVOID); // rax
   _RTL_BALANCED_LINKS *v7; // r8
   RTL_GENERIC_COMPARE_RESULTS v8; // eax
   int v9; // eax
@@ -46,9 +46,9 @@ PVOID __stdcall RtlLookupElementGenericTableAvl(PRTL_AVL_TABLE Table, PVOID Buff
     {
       while ( 1 )
       {
-        CompareRoutine = Table->CompareRoutine;
+        CompareRoutine = (RTL_GENERIC_COMPARE_RESULTS (__cdecl *)(_RTL_AVL_TABLE *, PVOID, PVOID))Table->CompareRoutine;
         v7 = i + 1;
-        if ( (char *)CompareRoutine == (char *)PiDmCompareObjects )
+        if ( CompareRoutine == PiDmCompareObjects )
         {
           v8 = PiDmCompareObjects(Table, Buffer, v7);
         }
@@ -58,7 +58,7 @@ PVOID __stdcall RtlLookupElementGenericTableAvl(PRTL_AVL_TABLE Table, PVOID Buff
         }
         else
         {
-          v8 = (char *)CompareRoutine == (char *)PiPnpRtlObjectEventCompareObjects
+          v8 = CompareRoutine == PiPnpRtlObjectEventCompareObjects
              ? PiPnpRtlObjectEventCompareObjects(Table, Buffer, v7)
              : (unsigned int)guard_dispatch_icall_no_overrides(Table, Buffer);
         }

@@ -1,11 +1,11 @@
 /*
- * XREFs of TtmiLogTerminalDisplayTimeouts @ 0x140885C34
+ * XREFs of TtmiLogTerminalDisplayTimeouts @ 0x140886E94
  * Callers:
- *     TtmiTerminalSetDisplayTimeouts @ 0x14087EEC8 (TtmiTerminalSetDisplayTimeouts.c)
+ *     TtmiTerminalSetDisplayTimeouts @ 0x140880128 (TtmiTerminalSetDisplayTimeouts.c)
  * Callees:
  *     _TlgKeywordOn @ 0x140012A04 (_TlgKeywordOn.c)
  *     _TlgWrite @ 0x140012EE4 (_TlgWrite.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
  */
 
 void __fastcall TtmiLogTerminalDisplayTimeouts(int a1, __int64 a2, __int64 a3, __int64 a4, __int64 a5, __int64 a6)
@@ -33,9 +33,9 @@ void __fastcall TtmiLogTerminalDisplayTimeouts(int a1, __int64 a2, __int64 a3, _
   __int64 *v27; // [rsp+C0h] [rbp+27h]
   __int64 v28; // [rsp+C8h] [rbp+2Fh]
 
-  if ( stru_14096D820.LevelPlus1 > 5 )
+  if ( stru_14096E820.LevelPlus1 > 5 )
   {
-    if ( TlgKeywordOn(&stru_14096D820, 1uLL) )
+    if ( TlgKeywordOn(&stru_14096E820, 1uLL) )
     {
       v14 = a5;
       v15 = a6;
@@ -55,7 +55,7 @@ void __fastcall TtmiLogTerminalDisplayTimeouts(int a1, __int64 a2, __int64 a3, _
       v24 = 4LL;
       v26 = 8LL;
       v28 = 8LL;
-      TlgWrite(&stru_14096D820, &unk_140372A10, 0LL, 0LL, 8u, &pData);
+      TlgWrite(&stru_14096E820, &unk_1403739AA, 0LL, 0LL, 8u, &pData);
     }
   }
 }

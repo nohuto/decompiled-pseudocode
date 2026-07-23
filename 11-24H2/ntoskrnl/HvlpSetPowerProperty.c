@@ -1,22 +1,22 @@
 /*
- * XREFs of HvlpSetPowerProperty @ 0x1404BD770
+ * XREFs of HvlpSetPowerProperty @ 0x1404B88E0
  * Callers:
- *     HvlRegisterLogicalProcessorFrequency @ 0x1404BD714 (HvlRegisterLogicalProcessorFrequency.c)
- *     HvlConfigureIdleStates @ 0x140589094 (HvlConfigureIdleStates.c)
- *     HvlRegisterPerfFeedbackCounters @ 0x140589634 (HvlRegisterPerfFeedbackCounters.c)
- *     HvlSetLogicalProcessorCppcRequest @ 0x140589720 (HvlSetLogicalProcessorCppcRequest.c)
- *     HvlSetPlatformIdleState @ 0x140589780 (HvlSetPlatformIdleState.c)
- *     HvlpPowerPolicySettingCallback @ 0x140589BF0 (HvlpPowerPolicySettingCallback.c)
+ *     HvlRegisterLogicalProcessorFrequency @ 0x1404B8884 (HvlRegisterLogicalProcessorFrequency.c)
+ *     HvlConfigureIdleStates @ 0x140586374 (HvlConfigureIdleStates.c)
+ *     HvlRegisterPerfFeedbackCounters @ 0x140586924 (HvlRegisterPerfFeedbackCounters.c)
+ *     HvlSetLogicalProcessorCppcRequest @ 0x140586A10 (HvlSetLogicalProcessorCppcRequest.c)
+ *     HvlSetPlatformIdleState @ 0x140586A70 (HvlSetPlatformIdleState.c)
+ *     HvlpPowerPolicySettingCallback @ 0x140586EE0 (HvlpPowerPolicySettingCallback.c)
  * Callees:
- *     KiRemoveSystemWorkPriorityKick @ 0x14025E408 (KiRemoveSystemWorkPriorityKick.c)
- *     KeDisableInterrupts @ 0x140321E80 (KeDisableInterrupts.c)
- *     HvlpHvStatusIsInsufficientMemory @ 0x1403AE3D0 (HvlpHvStatusIsInsufficientMemory.c)
- *     HvlpHvToNtStatus @ 0x1403AE3F8 (HvlpHvToNtStatus.c)
- *     HvcallInitiateHypercall @ 0x1403AF710 (HvcallInitiateHypercall.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     HvlpHandleInsufficientMemory @ 0x1405831D4 (HvlpHandleInsufficientMemory.c)
- *     RtlpInterlockedPopEntrySList @ 0x1406B3890 (RtlpInterlockedPopEntrySList.c)
- *     RtlpInterlockedPushEntrySList @ 0x1406B38D0 (RtlpInterlockedPushEntrySList.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14028EA18 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeDisableInterrupts @ 0x1402CAA10 (KeDisableInterrupts.c)
+ *     HvlpHvStatusIsInsufficientMemory @ 0x14039CBE0 (HvlpHvStatusIsInsufficientMemory.c)
+ *     HvlpHvToNtStatus @ 0x14039CC08 (HvlpHvToNtStatus.c)
+ *     HvcallInitiateHypercall @ 0x14039DF20 (HvcallInitiateHypercall.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     HvlpHandleInsufficientMemory @ 0x140580554 (HvlpHandleInsufficientMemory.c)
+ *     RtlpInterlockedPopEntrySList @ 0x1406B4830 (RtlpInterlockedPopEntrySList.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1406B4870 (RtlpInterlockedPushEntrySList.c)
  */
 
 __int64 __fastcall HvlpSetPowerProperty(__int128 *a1)
@@ -26,7 +26,7 @@ __int64 __fastcall HvlpSetPowerProperty(__int128 *a1)
   _QWORD *HypercallCachedPages; // rcx
   _SLIST_ENTRY *Next; // rdi
   char v6; // r14
-  struct _SLIST_ENTRY *v7; // rsi
+  _SLIST_ENTRY *v7; // rsi
   __int128 *v8; // rax
   __int64 v9; // rdx
   __int128 v10; // xmm0
@@ -39,7 +39,7 @@ __int64 __fastcall HvlpSetPowerProperty(__int128 *a1)
   signed __int32 v17; // eax
   signed __int32 v18; // ett
   __int128 v20; // [rsp+20h] [rbp-20h]
-  struct _SLIST_ENTRY *v21; // [rsp+30h] [rbp-10h]
+  _SLIST_ENTRY *v21; // [rsp+30h] [rbp-10h]
 
   v20 = 0LL;
   v21 = 0LL;

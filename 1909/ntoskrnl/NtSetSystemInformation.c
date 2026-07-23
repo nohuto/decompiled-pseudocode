@@ -795,7 +795,7 @@ LABEL_305:
     if ( (_DWORD)v3 != v77 )
       return -1073741820;
     if ( PreviousMode
-      && !(unsigned __int8)ExpCapabilityCheck(&TimeZoneCapability)
+      && !(unsigned __int8)ExpCapabilityCheck((PUNICODE_STRING)&TimeZoneCapability)
       && !SeSinglePrivilegeCheck(SeTimeZonePrivilege, PreviousMode) )
     {
       return -1073741727;

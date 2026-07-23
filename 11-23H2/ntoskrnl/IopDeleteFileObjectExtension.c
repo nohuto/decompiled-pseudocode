@@ -1,20 +1,20 @@
 /*
- * XREFs of IopDeleteFileObjectExtension @ 0x1402BB810
+ * XREFs of IopDeleteFileObjectExtension @ 0x1402BBAA0
  * Callers:
- *     IopParseDevice @ 0x14072CD50 (IopParseDevice.c)
- *     IopDeleteFile @ 0x140730490 (IopDeleteFile.c)
+ *     IopParseDevice @ 0x14072CF50 (IopParseDevice.c)
+ *     IopDeleteFile @ 0x140730680 (IopDeleteFile.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14022F5B0 (ObfDereferenceObjectWithTag.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250E80 (KeAcquireSpinLockRaiseToDpc.c)
- *     ObDereferenceObjectDeferDeleteWithTag @ 0x1402A8CE0 (ObDereferenceObjectDeferDeleteWithTag.c)
- *     ExFreeToNPagedLookasideList @ 0x1402B6B70 (ExFreeToNPagedLookasideList.c)
- *     PsReleaseSiloHardReference @ 0x140354550 (PsReleaseSiloHardReference.c)
- *     IopCleanupNotifications @ 0x1403ABDC8 (IopCleanupNotifications.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     FsRtlFreeExtraCreateParameter @ 0x14073E120 (FsRtlFreeExtraCreateParameter.c)
- *     PspAdjustKeepAliveCountProcess @ 0x1409AE8C0 (PspAdjustKeepAliveCountProcess.c)
+ *     ObfDereferenceObjectWithTag @ 0x14022F6C0 (ObfDereferenceObjectWithTag.c)
+ *     ObfDereferenceObject @ 0x140231660 (ObfDereferenceObject.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140250F40 (KeAcquireSpinLockRaiseToDpc.c)
+ *     ObDereferenceObjectDeferDeleteWithTag @ 0x1402A8F70 (ObDereferenceObjectDeferDeleteWithTag.c)
+ *     ExFreeToNPagedLookasideList @ 0x1402B6E00 (ExFreeToNPagedLookasideList.c)
+ *     PsReleaseSiloHardReference @ 0x1403546F0 (PsReleaseSiloHardReference.c)
+ *     IopCleanupNotifications @ 0x1403ABFA8 (IopCleanupNotifications.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     FsRtlFreeExtraCreateParameter @ 0x14073E310 (FsRtlFreeExtraCreateParameter.c)
+ *     PspAdjustKeepAliveCountProcess @ 0x1409AEAC0 (PspAdjustKeepAliveCountProcess.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 
@@ -98,10 +98,13 @@ void __fastcall IopDeleteFileObjectExtension(__int64 a1)
               else
                 ExFreePoolWithTag(v18, 0);
               KxReleaseSpinLock((volatile signed __int64 *)qword_140C5DDF0);
-              if ( KiIrqlFlags )
+              if ( (_DWORD)KiIrqlFlags )
               {
                 CurrentIrql = KeGetCurrentIrql();
-                if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v20 <= 0xFu && CurrentIrql >= 2u )
+                if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+                  && CurrentIrql <= 0xFu
+                  && (unsigned __int8)v20 <= 0xFu
+                  && CurrentIrql >= 2u )
                 {
                   CurrentPrcb = KeGetCurrentPrcb();
                   SchedulerAssist = CurrentPrcb->SchedulerAssist;

@@ -1,8 +1,8 @@
 /*
- * XREFs of KeAbDecodeLockHandle @ 0x140530FB8
+ * XREFs of KeAbDecodeLockHandle @ 0x1405334B8
  * Callers:
- *     KeWaitForMultipleObjects @ 0x140396440 (KeWaitForMultipleObjects.c)
- *     KiWaitForAllObjects @ 0x1403C0E68 (KiWaitForAllObjects.c)
+ *     KeWaitForMultipleObjects @ 0x1403981C0 (KeWaitForMultipleObjects.c)
+ *     KiWaitForAllObjects @ 0x1403CAD68 (KiWaitForAllObjects.c)
  * Callees:
  *     <none>
  */

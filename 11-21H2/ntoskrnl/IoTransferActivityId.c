@@ -4,15 +4,15 @@
  *     <none>
  * Callees:
  *     EtwWriteEx @ 0x140300C00 (EtwWriteEx.c)
- *     IopIsActivityTracingEventEnabled @ 0x140386368 (IopIsActivityTracingEventEnabled.c)
+ *     sub_140386368 @ 0x140386368 (sub_140386368.c)
  */
 
 NTSTATUS __fastcall IoTransferActivityId(LPCGUID ActivityId, LPCGUID RelatedActivityId)
 {
   NTSTATUS result; // eax
 
-  result = IopIsActivityTracingEventEnabled(&IoTrace_ActivityIdTransfer);
+  result = sub_140386368(&stru_14000EDC8);
   if ( (_BYTE)result )
-    return EtwWriteEx(IoTraceHandle, &IoTrace_ActivityIdTransfer, 0LL, 0, ActivityId, RelatedActivityId, 0, 0LL);
+    return EtwWriteEx(qword_140C47358, &stru_14000EDC8, 0LL, 0, ActivityId, RelatedActivityId, 0, 0LL);
   return result;
 }

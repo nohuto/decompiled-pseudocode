@@ -1,9 +1,9 @@
 /*
- * XREFs of GetNextNoneWhiteSpace @ 0x140818ABC
+ * XREFs of GetNextNoneWhiteSpace @ 0x14081ECCC
  * Callers:
- *     GetOperandValue @ 0x140A64000 (GetOperandValue.c)
+ *     GetOperandValue @ 0x140A70FD0 (GetOperandValue.c)
  * Callees:
- *     iswspace @ 0x140536D20 (iswspace.c)
+ *     iswspace @ 0x1405391A0 (iswspace.c)
  */
 
 __int64 __fastcall GetNextNoneWhiteSpace(__int64 a1, _DWORD *a2)

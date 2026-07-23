@@ -4,7 +4,7 @@
  *     _snscanf_s @ 0x1800A13D0 (_snscanf_s.c)
  *     sscanf_s @ 0x1800A1EA0 (sscanf_s.c)
  * Callees:
- *     _invalid_parameter @ 0x180096B68 (_invalid_parameter.c)
+ *     _invalid_parameter @ 0x180096B58 (_invalid_parameter.c)
  *     _input_s @ 0x1800A3754 (_input_s.c)
  */
 

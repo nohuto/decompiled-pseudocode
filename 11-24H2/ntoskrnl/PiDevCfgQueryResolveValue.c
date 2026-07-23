@@ -1,16 +1,16 @@
 /*
- * XREFs of PiDevCfgQueryResolveValue @ 0x1405A6EBC
+ * XREFs of PiDevCfgQueryResolveValue @ 0x1405A3EAC
  * Callers:
- *     PiDevCfgConfigureDeviceKeys @ 0x140964604 (PiDevCfgConfigureDeviceKeys.c)
- *     PiDevCfgVerifyDeviceAllowed @ 0x140964C64 (PiDevCfgVerifyDeviceAllowed.c)
+ *     PiDevCfgConfigureDeviceKeys @ 0x14094C3DC (PiDevCfgConfigureDeviceKeys.c)
+ *     PiDevCfgVerifyDeviceAllowed @ 0x14094CA3C (PiDevCfgVerifyDeviceAllowed.c)
  * Callees:
- *     PiDevCfgParseVariableName @ 0x1404240F0 (PiDevCfgParseVariableName.c)
- *     PnpValidateStringData @ 0x1404ACF1C (PnpValidateStringData.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     IopGetRegistryValue @ 0x1409CAD5C (IopGetRegistryValue.c)
- *     PiDevCfgResolveVariable @ 0x140A6A668 (PiDevCfgResolveVariable.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     PiDevCfgParseVariableName @ 0x140417FA0 (PiDevCfgParseVariableName.c)
+ *     PnpValidateStringData @ 0x1404A7600 (PnpValidateStringData.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     IopGetRegistryValue @ 0x1409B5F9C (IopGetRegistryValue.c)
+ *     PiDevCfgResolveVariable @ 0x140A63A18 (PiDevCfgResolveVariable.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PiDevCfgQueryResolveValue(__int64 a1, void *a2, __int64 a3, _QWORD *a4)
@@ -42,7 +42,10 @@ __int64 __fastcall PiDevCfgQueryResolveValue(__int64 a1, void *a2, __int64 a3, _
       if ( RegistryValue >= 0 )
       {
         v8 = v14;
-        Pool2 = (_DWORD *)ExAllocatePool2(0x100uLL);
+        Pool2 = (_DWORD *)ExAllocatePool2(
+                            0x100uLL,
+                            (unsigned int)(*(_DWORD *)(v14 + 36) + 26 + MEMORY[0x10]),
+                            0x63647050u);
         v10 = Pool2;
         if ( Pool2 )
         {

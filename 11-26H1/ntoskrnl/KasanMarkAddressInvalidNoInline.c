@@ -1,12 +1,12 @@
 /*
- * XREFs of KasanMarkAddressInvalidNoInline @ 0x1405DD740
+ * XREFs of KasanMarkAddressInvalidNoInline @ 0x1405E00B0
  * Callers:
- *     RtlpHpVsFreeChunkInsert @ 0x14024AA50 (RtlpHpVsFreeChunkInsert.c)
- *     MiMapContiguousMemory @ 0x140363E10 (MiMapContiguousMemory.c)
- *     KcsanMarkAddressIgnored @ 0x1404F7F60 (KcsanMarkAddressIgnored.c)
- *     KasanPoolAllocateNoInline @ 0x1405DD960 (KasanPoolAllocateNoInline.c)
+ *     RtlpHpVsFreeChunkInsert @ 0x14024C3B0 (RtlpHpVsFreeChunkInsert.c)
+ *     MiMapContiguousMemory @ 0x140365BB0 (MiMapContiguousMemory.c)
+ *     KcsanMarkAddressIgnored @ 0x1404F1570 (KcsanMarkAddressIgnored.c)
+ *     KasanPoolAllocateNoInline @ 0x1405E02D0 (KasanPoolAllocateNoInline.c)
  * Callees:
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
  */
 
 _BYTE *__fastcall KasanMarkAddressInvalidNoInline(ULONG_PTR BugCheckParameter3, ULONG_PTR BugCheckParameter4, char a3)

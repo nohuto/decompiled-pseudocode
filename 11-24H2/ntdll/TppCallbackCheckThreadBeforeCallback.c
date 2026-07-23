@@ -1,7 +1,7 @@
 /*
- * XREFs of TppCallbackCheckThreadBeforeCallback @ 0x180021C00
+ * XREFs of TppCallbackCheckThreadBeforeCallback @ 0x18004E600
  * Callers:
- *     TppCleanupGroupMemberDestroy @ 0x180021980 (TppCleanupGroupMemberDestroy.c)
+ *     TppCleanupGroupMemberDestroy @ 0x18004E380 (TppCleanupGroupMemberDestroy.c)
  * Callees:
  *     <none>
  */

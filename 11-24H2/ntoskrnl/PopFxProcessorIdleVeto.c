@@ -1,35 +1,27 @@
 /*
- * XREFs of PopFxProcessorIdleVeto @ 0x1405D18A0
+ * XREFs of PopFxProcessorIdleVeto @ 0x1405CEFC0
  * Callers:
  *     <none>
  * Callees:
- *     PopFxDereferenceDevice @ 0x140376880 (PopFxDereferenceDevice.c)
- *     PopFxTryReferenceDevice @ 0x140377BF0 (PopFxTryReferenceDevice.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
+ *     PopFxTryReferenceDevice @ 0x1403A6408 (PopFxTryReferenceDevice.c)
+ *     PopFxDereferenceDevice @ 0x1403A7F58 (PopFxDereferenceDevice.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
  */
 
-__int64 __fastcall PopFxProcessorIdleVeto(__int64 a1, unsigned int a2, unsigned int a3, char a4)
+__int64 __fastcall PopFxProcessorIdleVeto(__int64 a1)
 {
-  int v8; // ebx
-  __int64 v9; // rcx
-  unsigned __int64 v11; // [rsp+48h] [rbp-40h] BYREF
-  int v12; // [rsp+50h] [rbp-38h]
+  int v2; // ebx
 
-  v11 = 0LL;
-  v8 = -1073741822;
-  v12 = 0;
+  v2 = -1073741822;
   if ( *(_QWORD *)(a1 + 152) )
   {
-    v8 = PopFxTryReferenceDevice(a1, 1);
-    if ( v8 >= 0 )
+    v2 = PopFxTryReferenceDevice(a1, 1);
+    if ( v2 >= 0 )
     {
-      v9 = *(_QWORD *)(a1 + 192);
-      v11 = __PAIR64__(a3, a2);
-      LOBYTE(v12) = a4;
-      v8 = guard_dispatch_icall_no_overrides(v9, &GUID_PROCESSOR_IDLE_VETO, &v11, 12LL);
+      v2 = guard_dispatch_icall_no_overrides(*(_QWORD *)(a1 + 192), &GUID_PROCESSOR_IDLE_VETO);
       PopFxDereferenceDevice(a1, 1);
     }
   }
-  return (unsigned int)v8;
+  return (unsigned int)v2;
 }

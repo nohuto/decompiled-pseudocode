@@ -1,78 +1,77 @@
 /*
- * XREFs of RtlpHpLargeReAlloc @ 0x180093AA4
+ * XREFs of RtlpHpLargeReAlloc @ 0x18009E474
  * Callers:
- *     RtlpHpReAllocateHeap @ 0x1800A2F84 (RtlpHpReAllocateHeap.c)
- *     RtlpHpReAllocateHeapSlow @ 0x18011C8F0 (RtlpHpReAllocateHeapSlow.c)
+ *     RtlpHpReAllocateHeap @ 0x18005CD30 (RtlpHpReAllocateHeap.c)
+ *     RtlpHpReAllocateHeapSlow @ 0x18011AB20 (RtlpHpReAllocateHeapSlow.c)
  * Callees:
- *     RtlpHpLargeAllocGetMetadata @ 0x1800477C0 (RtlpHpLargeAllocGetMetadata.c)
- *     RtlGetCurrentServiceSessionId @ 0x180055A20 (RtlGetCurrentServiceSessionId.c)
- *     RtlpHeapLogRangeRelease @ 0x180055A44 (RtlpHeapLogRangeRelease.c)
- *     RtlReleaseSRWLockExclusive @ 0x1800567B0 (RtlReleaseSRWLockExclusive.c)
- *     RtlpHpVaMgrCtxFree @ 0x180092700 (RtlpHpVaMgrCtxFree.c)
- *     RtlpHpTlLogVAChange @ 0x180092B90 (RtlpHpTlLogVAChange.c)
- *     RtlpHpLargeLockAcquire @ 0x180093A88 (RtlpHpLargeLockAcquire.c)
- *     RtlpHpReallocMove @ 0x180094540 (RtlpHpReallocMove.c)
- *     RtlpHpVaMgrCtxDecommit @ 0x180158008 (RtlpHpVaMgrCtxDecommit.c)
- *     ZwFreeVirtualMemory @ 0x180162050 (ZwFreeVirtualMemory.c)
- *     memmove @ 0x180167400 (memmove.c)
- *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x180172020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
+ *     RtlGetCurrentServiceSessionId @ 0x18006B600 (RtlGetCurrentServiceSessionId.c)
+ *     RtlpHeapLogRangeRelease @ 0x18006B624 (RtlpHeapLogRangeRelease.c)
+ *     RtlReleaseSRWLockExclusive @ 0x18006C390 (RtlReleaseSRWLockExclusive.c)
+ *     RtlpHpVaMgrCtxFree @ 0x18009D290 (RtlpHpVaMgrCtxFree.c)
+ *     RtlpHpTlLogVAChange @ 0x18009D720 (RtlpHpTlLogVAChange.c)
+ *     RtlpHpLargeAllocGetMetadata @ 0x18009EE8C (RtlpHpLargeAllocGetMetadata.c)
+ *     RtlpHpLargeLockAcquire @ 0x18009EEEC (RtlpHpLargeLockAcquire.c)
+ *     RtlpHpReallocMove @ 0x18009EFF0 (RtlpHpReallocMove.c)
+ *     RtlpHpVaMgrCtxDecommit @ 0x1801563C8 (RtlpHpVaMgrCtxDecommit.c)
+ *     ZwFreeVirtualMemory @ 0x180160410 (ZwFreeVirtualMemory.c)
+ *     memmove @ 0x1801657C0 (memmove.c)
+ *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x180171020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
  */
 
-__int64 __fastcall RtlpHpLargeReAlloc(__m128i *a1, volatile signed __int32 **a2, unsigned __int64 a3, __int64 a4)
+__int64 __fastcall RtlpHpLargeReAlloc(__int64 a1, unsigned int a2, __int64 a3, __int64 a4)
 {
   __int64 v4; // rbx
   unsigned __int64 v6; // rax
   unsigned __int64 v7; // r14
   unsigned __int64 v10; // rsi
   __int64 v11; // rcx
-  unsigned __int64 Metadata; // rax
-  unsigned __int64 v13; // r13
+  __int64 Metadata; // rax
+  __int64 v13; // r13
   __int64 v14; // r8
   __int64 v15; // rdx
   unsigned __int8 *v16; // rdx
   __int64 v17; // rcx
   unsigned __int64 v18; // rax
   __int64 v19; // rcx
-  volatile signed __int32 **v20; // rdx
-  unsigned __int64 v21; // r12
-  bool v22; // zf
-  unsigned __int64 v23; // r8
-  char v24; // r9
-  int v25; // eax
-  unsigned __int64 v26; // rax
-  __int64 v27; // rbx
-  unsigned __int64 v29; // xmm1_8
-  unsigned __int64 v30; // [rsp+30h] [rbp-48h] BYREF
-  unsigned __int64 v31; // [rsp+38h] [rbp-40h] BYREF
-  unsigned __int64 v32; // [rsp+40h] [rbp-38h]
-  __int16 v33; // [rsp+88h] [rbp+10h]
-  __int64 v34; // [rsp+98h] [rbp+20h]
-  unsigned __int64 v35; // [rsp+98h] [rbp+20h]
+  ULONG_PTR v20; // r12
+  bool v21; // zf
+  char *v22; // r8
+  char v23; // r9
+  NTSTATUS v24; // eax
+  unsigned __int64 v25; // rax
+  __int64 v26; // rbx
+  unsigned __int64 v28; // xmm1_8
+  ULONG_PTR RegionSize; // [rsp+30h] [rbp-48h] BYREF
+  PVOID BaseAddress; // [rsp+38h] [rbp-40h] BYREF
+  unsigned __int64 v31; // [rsp+40h] [rbp-38h]
+  __int16 v32; // [rsp+88h] [rbp+10h]
+  __int64 v33; // [rsp+98h] [rbp+20h]
+  unsigned __int64 v34; // [rsp+98h] [rbp+20h]
 
-  v33 = (__int16)a2;
+  v32 = a2;
   v4 = 0LL;
   v6 = *(_QWORD *)(a4 + 32);
   v7 = (unsigned __int64)(*(_QWORD *)(a4 + 8) + 4095LL) >> 12;
   v10 = (v6 + 4095) >> 12;
-  v32 = v10 << 12;
+  v31 = v10 << 12;
   if ( v10 << 12 >= v6 )
   {
     if ( v10 > v7
-      || (v11 = a1->m128i_i64[0], BYTE1(a1->m128i_i64[0]) >= 2u) && (v11 & 6) == 0
-      || (a1[1].m128i_i32[1] & 0x4000000) != 0 )
+      || (v11 = *(_QWORD *)a1, BYTE1(*(_QWORD *)a1) >= 2u) && (v11 & 6) == 0
+      || (*(_DWORD *)(a1 + 20) & 0x4000000) != 0 )
     {
-      if ( ((unsigned int)a2 & 0x10000000) == 0 )
-        return RtlpHpReallocMove(a1, a3, a4, (unsigned int)a2);
+      if ( (a2 & 0x10000000) == 0 )
+        return RtlpHpReallocMove(a1, a3, a4, a2);
     }
     else
     {
-      RtlpHpLargeLockAcquire((__int64)a1, a2, a3);
-      Metadata = RtlpHpLargeAllocGetMetadata((__int64)a1, a3);
+      RtlpHpLargeLockAcquire(a1);
+      Metadata = RtlpHpLargeAllocGetMetadata(a1, a3);
       v13 = Metadata;
       if ( Metadata )
       {
         v14 = ((*(_QWORD *)(Metadata + 32) >> 12) + ((*(_QWORD *)(Metadata + 32) >> 1) & 1LL)) << 12;
-        v34 = (1LL << (((unsigned __int8)*(_QWORD *)(Metadata + 32) >> 2) & 0x3F))
+        v33 = (1LL << (((unsigned __int8)*(_QWORD *)(Metadata + 32) >> 2) & 0x3F))
             - (((1LL << (((unsigned __int8)*(_QWORD *)(Metadata + 32) >> 2) & 0x3F)) - 1) & ((1LL << (((unsigned __int8)*(_QWORD *)(Metadata + 32) >> 2) & 0x3F))
                                                                                            + v14
                                                                                            - 1))
@@ -80,86 +79,85 @@ __int64 __fastcall RtlpHpLargeReAlloc(__m128i *a1, volatile signed __int32 **a2,
             - 1;
         *(_QWORD *)(Metadata + 32) = (v10 << 12) | *(_QWORD *)(Metadata + 32) & 0xFFFLL;
         *(_WORD *)(Metadata + 24) = ((_WORD)v10 << 12) - *(_WORD *)(a4 + 24);
-        RtlReleaseSRWLockExclusive(a1[4].m128i_i64);
+        RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(a1 + 64));
         if ( *(_DWORD *)(a4 + 16) )
         {
           v15 = a3 + *(_QWORD *)a4 + 16;
-          if ( (v33 & 0x2000) == 0 )
+          if ( (v32 & 0x2000) == 0 )
             v15 = a3 + *(_QWORD *)a4;
           v16 = (unsigned __int8 *)((v15 + 15) & 0xFFFFFFFFFFFFFFF0uLL);
           v17 = a3 + *(_QWORD *)(a4 + 24) + 16;
-          if ( (v33 & 0x2000) == 0 )
+          if ( (v32 & 0x2000) == 0 )
             v17 = a3 + *(_QWORD *)(a4 + 24);
           memmove((void *)((v17 + 15) & 0xFFFFFFFFFFFFFFF0uLL), v16, 16 * (v16[3] + 1LL));
         }
         if ( v10 < v7 )
         {
-          v18 = v34 - ((a3 + ((v10 + ((*(_DWORD *)(v13 + 32) >> 1) & 1)) << 12) + 0xFFFFF) & 0xFFFFFFFFFFF00000uLL);
-          v31 = (a3 + ((v10 + ((*(_DWORD *)(v13 + 32) >> 1) & 1)) << 12) + 0xFFFFF) & 0xFFFFFFFFFFF00000uLL;
-          v30 = v18 + a3;
+          v18 = v33 - ((a3 + ((v10 + ((*(_DWORD *)(v13 + 32) >> 1) & 1)) << 12) + 0xFFFFF) & 0xFFFFFFFFFFF00000uLL);
+          BaseAddress = (PVOID)((a3 + ((v10 + ((*(_DWORD *)(v13 + 32) >> 1) & 1)) << 12) + 0xFFFFF) & 0xFFFFFFFFFFF00000uLL);
+          RegionSize = v18 + a3;
           if ( v18 + a3 )
           {
-            RtlpHpVaMgrCtxFree((__int64)&unk_1801CE978, &v31, (__int64 *)&v30);
+            RtlpHpVaMgrCtxFree((__int64)&unk_1801CD968, &BaseAddress, &RegionSize);
             if ( (RtlpHpHeapFeatures & 8) != 0 )
-              RtlpHpTlLogVAChange(0x8000, v30, v31, 0LL);
+              RtlpHpTlLogVAChange(0x8000, RegionSize, (__int64)BaseAddress, 0LL);
           }
-          if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+          if ( RtlGetCurrentServiceSessionId() )
             v19 = (__int64)NtCurrentPeb()->SharedData + 558;
           else
             v19 = 2147353480LL;
           if ( *(_BYTE *)v19 )
-            RtlpHeapLogRangeRelease((__int64)a1, v31, v30);
-          v20 = (volatile signed __int32 **)(a3 + v32);
-          v21 = v30 >> 12;
-          v23 = v31 - (a3 + v32);
-          v22 = v31 == a3 + v32;
-          v35 = v34 - v30;
-          v30 = v23;
-          v31 = a3 + v32;
-          if ( !v22 )
+            RtlpHeapLogRangeRelease(a1, (__int64)BaseAddress, RegionSize);
+          v20 = RegionSize >> 12;
+          v22 = (char *)BaseAddress - a3 - v31;
+          v21 = BaseAddress == (PVOID)(a3 + v31);
+          v34 = v33 - RegionSize;
+          RegionSize = (ULONG_PTR)v22;
+          BaseAddress = (PVOID)(a3 + v31);
+          if ( !v21 )
           {
-            v24 = _mm_cvtsi128_si32(_mm_srli_si128(*a1, 1));
-            if ( (unsigned __int8)(v24 - 2) <= 2u )
+            v23 = _mm_cvtsi128_si32(_mm_srli_si128(*(__m128i *)a1, 1));
+            if ( (unsigned __int8)(v23 - 2) <= 2u )
             {
-              RtlpHpVaMgrCtxDecommit(&unk_1801CE978, v20, v23);
+              RtlpHpVaMgrCtxDecommit(&unk_1801CD968, a3 + v31, v22);
             }
             else
             {
-              if ( v24 == 5 )
+              if ( v23 == 5 )
               {
-                v29 = _mm_srli_si128(*a1, 8).m128i_u64[0];
-                v25 = ((__int64 (__fastcall *)(unsigned __int64, __int64, unsigned __int64 *, unsigned __int64 *, int))(*(_QWORD *)(v29 + 16) ^ v29 ^ RtlpHpHeapGlobals))(
-                        RtlpHpHeapGlobals ^ *(_QWORD *)v29 ^ v29,
+                v28 = _mm_srli_si128(*(__m128i *)a1, 8).m128i_u64[0];
+                v24 = ((__int64 (__fastcall *)(unsigned __int64, __int64, PVOID *, ULONG_PTR *, int))(*(_QWORD *)(v28 + 16) ^ v28 ^ RtlpHpHeapGlobals))(
+                        RtlpHpHeapGlobals ^ *(_QWORD *)v28 ^ v28,
                         -1LL,
-                        &v31,
-                        &v30,
+                        &BaseAddress,
+                        &RegionSize,
                         0x4000);
               }
               else
               {
-                v25 = ZwFreeVirtualMemory(-1LL, &v31, &v30, 0x4000LL);
+                v24 = ZwFreeVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &BaseAddress, &RegionSize, 0x4000u);
               }
-              LODWORD(v4) = v25;
+              LODWORD(v4) = v24;
             }
             if ( (RtlpHpHeapFeatures & 8) != 0 )
-              RtlpHpTlLogVAChange(0x4000, v30, v31, (unsigned int)v4);
+              RtlpHpTlLogVAChange(0x4000, RegionSize, (__int64)BaseAddress, (unsigned int)v4);
           }
-          _BitScanForward64(&v26, v35);
-          v27 = (unsigned int)v26;
-          if ( (unsigned int)v26 != (unsigned __int64)((*(_DWORD *)(v13 + 32) >> 2) & 0x3F) )
+          _BitScanForward64(&v25, v34);
+          v26 = (unsigned int)v25;
+          if ( (unsigned int)v25 != (unsigned __int64)((*(_DWORD *)(v13 + 32) >> 2) & 0x3F) )
           {
-            RtlpHpLargeLockAcquire((__int64)a1, v20, v23);
-            *(_QWORD *)(v13 + 32) = (4 * v27) ^ (*(_QWORD *)(v13 + 32) ^ (4 * v27)) & 0xFFFFFFFFFFFFFF03uLL;
-            RtlReleaseSRWLockExclusive(a1[4].m128i_i64);
+            RtlpHpLargeLockAcquire(a1);
+            *(_QWORD *)(v13 + 32) = (4 * v26) ^ (*(_QWORD *)(v13 + 32) ^ (4 * v26)) & 0xFFFFFFFFFFFFFF03uLL;
+            RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(a1 + 64));
           }
-          _InterlockedAdd64(a1[6].m128i_i64, v10 - v7);
-          _InterlockedAdd64(&a1[5].m128i_i64[1], -(__int64)v21);
+          _InterlockedAdd64((volatile signed __int64 *)(a1 + 96), v10 - v7);
+          _InterlockedAdd64((volatile signed __int64 *)(a1 + 88), -(__int64)v20);
         }
         return a3;
       }
       else
       {
-        RtlReleaseSRWLockExclusive(a1[4].m128i_i64);
+        RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(a1 + 64));
         return -1LL;
       }
     }

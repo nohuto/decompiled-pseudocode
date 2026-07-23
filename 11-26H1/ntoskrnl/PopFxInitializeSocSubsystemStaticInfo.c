@@ -1,19 +1,19 @@
 /*
- * XREFs of PopFxInitializeSocSubsystemStaticInfo @ 0x140987604
+ * XREFs of PopFxInitializeSocSubsystemStaticInfo @ 0x140A4235C
  * Callers:
- *     PopFxEnablePlatformStates @ 0x140604EB4 (PopFxEnablePlatformStates.c)
+ *     PopFxEnablePlatformStates @ 0x1406079B4 (PopFxEnablePlatformStates.c)
  * Callees:
- *     PopFxBugCheck @ 0x1403B0E54 (PopFxBugCheck.c)
- *     RtlStringCchCopyW @ 0x14046AD84 (RtlStringCchCopyW.c)
- *     wcsncmp @ 0x1405381A0 (wcsncmp.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     PopPluginInitializeSocSubsystemStaticInfo @ 0x1407CDE90 (PopPluginInitializeSocSubsystemStaticInfo.c)
- *     PopFxLookupSocSubsystemsByPlatformIdleState @ 0x140987D50 (PopFxLookupSocSubsystemsByPlatformIdleState.c)
- *     RtlHashUnicodeString @ 0x1409893C0 (RtlHashUnicodeString.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     PopFxBugCheck @ 0x1403BAB64 (PopFxBugCheck.c)
+ *     RtlStringCchCopyW @ 0x140464504 (RtlStringCchCopyW.c)
+ *     wcsncmp @ 0x14053A620 (wcsncmp.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     PopPluginInitializeSocSubsystemStaticInfo @ 0x1407D0F30 (PopPluginInitializeSocSubsystemStaticInfo.c)
+ *     PopFxLookupSocSubsystemsByPlatformIdleState @ 0x140A427E8 (PopFxLookupSocSubsystemsByPlatformIdleState.c)
+ *     RtlHashUnicodeString @ 0x140A43AE0 (RtlHashUnicodeString.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PopFxInitializeSocSubsystemStaticInfo(unsigned int a1)
@@ -50,7 +50,7 @@ __int64 __fastcall PopFxInitializeSocSubsystemStaticInfo(unsigned int a1)
   v22 = 0LL;
   v23 = 0LL;
   memset_0(pszDest, 0, sizeof(pszDest));
-  if ( stru_140E66FF0.Padding[0]
+  if ( qword_140E676E8
     && (v26 = a1, BugCheckParameter4 = 0LL, (unsigned __int8)guard_dispatch_icall_no_overrides(36LL, (__int64)&v26)) )
   {
     v2 = BugCheckParameter4;
@@ -149,14 +149,14 @@ LABEL_30:
           *((_WORD *)v11 + 46) = v15;
           *((_WORD *)v11 + 47) = v16;
         }
-        v17 = (_QWORD *)qword_140F12418;
+        v17 = *(_QWORD **)&PopFxBlockingDeviceListLock.PriorityFloorCounts[8];
         v4 = 0;
-        if ( *(__int64 **)qword_140F12418 != &qword_140F12410 )
+        if ( **(struct _KTHREAD ***)&PopFxBlockingDeviceListLock.PriorityFloorCounts[8] != (struct _KTHREAD *)PopFxBlockingDeviceListLock.PriorityFloorCounts )
           __fastfail(3u);
-        *v3 = &qword_140F12410;
+        *v3 = PopFxBlockingDeviceListLock.PriorityFloorCounts;
         v3[1] = v17;
         *v17 = v3;
-        qword_140F12418 = (__int64)v3;
+        *(_QWORD *)&PopFxBlockingDeviceListLock.PriorityFloorCounts[8] = v3;
       }
       else
       {

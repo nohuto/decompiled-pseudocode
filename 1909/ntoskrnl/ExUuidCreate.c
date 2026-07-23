@@ -29,9 +29,9 @@ NTSTATUS __stdcall ExUuidCreate(UUID *Uuid)
   char v6; // cl
   int v7; // eax
   __int64 v8; // rdi
-  __int64 v10; // rax
+  _RTL_BALANCED_NODE *v10; // rax
   signed __int8 v11; // cf
-  __int64 v12; // rbp
+  _RTL_BALANCED_NODE *v12; // rbp
   int v13; // eax
   __int64 v14; // rdx
   char v15; // al
@@ -72,7 +72,7 @@ NTSTATUS __stdcall ExUuidCreate(UUID *Uuid)
     if ( v11 )
       ExfAcquirePushLockExclusiveEx(&ExpUuidLock, v10, (ULONG_PTR)&ExpUuidLock);
     if ( v12 )
-      *(_BYTE *)(v12 + 26) |= 1u;
+      BYTE2(v12[1].Left) |= 1u;
     if ( v5 != ExpUuidCachedValues )
     {
       v16 = (_InterlockedExchangeAdd64((volatile signed __int64 *)&ExpUuidLock, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2;

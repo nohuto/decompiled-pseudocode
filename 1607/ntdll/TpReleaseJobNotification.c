@@ -1,11 +1,11 @@
 /*
- * XREFs of TpReleaseJobNotification @ 0x1800843C0
+ * XREFs of TpReleaseJobNotification @ 0x1800843B0
  * Callers:
  *     <none>
  * Callees:
- *     TppCleanupGroupMemberRelease @ 0x18003B9D0 (TppCleanupGroupMemberRelease.c)
- *     TppJobpRundownJob @ 0x180084428 (TppJobpRundownJob.c)
- *     TppJobpValidateJob @ 0x180084708 (TppJobpValidateJob.c)
+ *     TppCleanupGroupMemberRelease @ 0x18003B9C0 (TppCleanupGroupMemberRelease.c)
+ *     TppJobpRundownJob @ 0x180084418 (TppJobpRundownJob.c)
+ *     TppJobpValidateJob @ 0x1800846F8 (TppJobpValidateJob.c)
  *     _guard_dispatch_icall_nop @ 0x1800A9C80 (_guard_dispatch_icall_nop.c)
  */
 

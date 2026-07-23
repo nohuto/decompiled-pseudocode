@@ -9,11 +9,16 @@
  *     _RtlEqualUnicodeString@12 @ 0x4B2D1250 (_RtlEqualUnicodeString@12.c)
  */
 
-unsigned int __fastcall LdrpFindLoadedDllByNameLockHeld(unsigned __int16 *a1, int a2, char a3, int **a4, int a5)
+unsigned int __fastcall LdrpFindLoadedDllByNameLockHeld(
+        unsigned __int16 *a1,
+        _UNICODE_STRING *a2,
+        char a3,
+        int **a4,
+        int a5)
 {
   int v6; // ecx
   int *v7; // eax
-  char v8; // bl
+  BOOLEAN v8; // bl
   int *v9; // edi
   int *v10; // esi
   int v11; // ecx
@@ -47,7 +52,7 @@ unsigned int __fastcall LdrpFindLoadedDllByNameLockHeld(unsigned __int16 *a1, in
       goto LABEL_28;
     if ( a2 )
     {
-      v8 = RtlEqualUnicodeString(a2, v10 + 9, 1);
+      v8 = RtlEqualUnicodeString(a2, (PUNICODE_STRING)(v10 + 9), 1u);
       if ( !v8 )
       {
         v7 = &LdrpHashTable[2 * (a5 & 0x1F)];

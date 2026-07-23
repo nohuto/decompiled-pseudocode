@@ -72,11 +72,11 @@ void __fastcall KiAbProcessContextSwitch(__int64 a1, __int64 a2)
   bool v7; // zf
   __int64 v8; // rdi
   __int64 v9; // rcx
-  unsigned __int64 v10; // rsi
+  __int64 v10; // rsi
   __int64 v11; // rax
   int v12; // r12d
-  __int64 LockedHeadEntry; // rax
-  __int64 v14; // r15
+  char *LockedHeadEntry; // rax
+  char *v14; // r15
   char v15; // cl
   __int64 v16; // rax
   char v17; // r13
@@ -87,9 +87,9 @@ void __fastcall KiAbProcessContextSwitch(__int64 a1, __int64 a2)
   char v22; // cl
   char v23; // al
   _QWORD *v24; // rdx
-  bool v25; // r8
-  unsigned __int64 v26; // rdx
-  unsigned __int64 v27; // rax
+  BOOLEAN v25; // r8
+  __int64 v26; // rdx
+  __int64 v27; // rax
   _DWORD *v28; // rsi
   __int64 ExtensionTable; // rax
   __int64 v31; // r14
@@ -142,14 +142,14 @@ void __fastcall KiAbProcessContextSwitch(__int64 a1, __int64 a2)
 LABEL_9:
       v12 = 0;
       v42 = 0;
-      LockedHeadEntry = KiAbEntryGetLockedHeadEntry(v10, 1LL, (__int64)&LockHandle);
+      LockedHeadEntry = KiAbEntryGetLockedHeadEntry((char *)v10, 1LL, &LockHandle);
       v14 = LockedHeadEntry;
       if ( !LockedHeadEntry )
         goto LABEL_21;
       if ( (*(_BYTE *)(v10 + 25) & 1) == 0 )
       {
-        if ( v10 != LockedHeadEntry )
-          KiAbEntryUpdateOwnerTreePosition(v10, LockedHeadEntry);
+        if ( (char *)v10 != LockedHeadEntry )
+          KiAbEntryUpdateOwnerTreePosition((PRTL_BALANCED_NODE)v10);
         KiAbDetermineMaxWaiterPriority(v14, &v41);
         if ( !v41 )
         {
@@ -164,14 +164,14 @@ LABEL_20:
                              (unsigned int)&v34,
                              v8,
                              (__int64)&v42)
-          && v10 != v14 )
+          && (char *)v10 != v14 )
         {
-          KiAbEntryUpdateOwnerTreePosition(v10, v14);
+          KiAbEntryUpdateOwnerTreePosition((PRTL_BALANCED_NODE)v10);
         }
         v12 = v42;
         goto LABEL_38;
       }
-      if ( v10 != LockedHeadEntry )
+      if ( (char *)v10 != LockedHeadEntry )
       {
         v15 = *(_BYTE *)(v10 - (unsigned __int16)(16 * *(unsigned __int8 *)(v10 + 24)) + 195);
         if ( v15 > 15 )
@@ -179,13 +179,13 @@ LABEL_20:
         if ( *(_BYTE *)(v10 + 48) != v15 )
         {
           *(_BYTE *)(v10 + 48) = v15;
-          RtlRbRemoveNode(LockedHeadEntry + 64, v10);
+          RtlRbRemoveNode((PRTL_RB_TREE)LockedHeadEntry + 4, (PRTL_BALANCED_NODE)v10);
           v25 = 0;
-          v26 = *(_QWORD *)(v14 + 64);
+          v26 = *((_QWORD *)v14 + 8);
           if ( !v26 )
           {
 LABEL_57:
-            RtlRbInsertNodeEx(v14 + 64, v26, v25, v10);
+            RtlRbInsertNodeEx((PRTL_RB_TREE)v14 + 4, (PRTL_BALANCED_NODE)v26, v25, (PRTL_BALANCED_NODE)v10);
             goto LABEL_15;
           }
           while ( 1 )
@@ -193,12 +193,12 @@ LABEL_57:
             if ( *(_BYTE *)(v26 + 48) < *(_BYTE *)(v10 + 48) )
             {
               v27 = *(_QWORD *)v26;
-              if ( (*(_BYTE *)(v14 + 72) & 1) != 0 )
+              if ( (v14[72] & 1) != 0 )
               {
                 if ( !v27 )
                 {
 LABEL_65:
-                  RtlRbInsertNodeEx(v14 + 64, v26, 0, v10);
+                  RtlRbInsertNodeEx((PRTL_RB_TREE)v14 + 4, (PRTL_BALANCED_NODE)v26, 0, (PRTL_BALANCED_NODE)v10);
                   break;
                 }
                 v27 ^= v26;
@@ -209,7 +209,7 @@ LABEL_65:
             else
             {
               v27 = *(_QWORD *)(v26 + 8);
-              if ( (*(_BYTE *)(v14 + 72) & 1) != 0 )
+              if ( (v14[72] & 1) != 0 )
               {
                 if ( !v27 )
                 {
@@ -227,12 +227,12 @@ LABEL_62:
         }
       }
 LABEL_15:
-      v16 = *(_QWORD *)(v14 + 56);
+      v16 = *((_QWORD *)v14 + 7);
       if ( v16 )
         v17 = *(_BYTE *)(v16 + 48);
       else
         v17 = 15;
-      v7 = (*(_BYTE *)(v14 + 25) & 1) == 0;
+      v7 = (v14[25] & 1) == 0;
       LOBYTE(v41) = v17;
       if ( v7 )
       {
@@ -251,7 +251,7 @@ LABEL_15:
         if ( !v19 )
         {
 LABEL_37:
-          KiAbCpuBoostOwners(v14, (unsigned __int8)CpuPriorityKey, (unsigned int)&v35, (unsigned int)&v34, v8);
+          KiAbCpuBoostOwners((_DWORD)v14, (unsigned __int8)CpuPriorityKey, (unsigned int)&v35, (unsigned int)&v34, v8);
 LABEL_38:
           KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
           if ( v12 )
@@ -283,7 +283,7 @@ LABEL_38:
       {
         goto LABEL_20;
       }
-      KiAbIoBoostOwners(v14, v19, (unsigned int)&v35, (unsigned int)&v34, v8);
+      KiAbIoBoostOwners((_DWORD)v14, v19, (unsigned int)&v35, (unsigned int)&v34, v8);
       CpuPriorityKey = v39;
       goto LABEL_37;
     }

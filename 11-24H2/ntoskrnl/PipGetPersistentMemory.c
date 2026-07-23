@@ -1,23 +1,23 @@
 /*
- * XREFs of PipGetPersistentMemory @ 0x14071BE10
+ * XREFs of PipGetPersistentMemory @ 0x1407199A0
  * Callers:
- *     IoAcquireKsrPersistentMemoryEx @ 0x14071AD20 (IoAcquireKsrPersistentMemoryEx.c)
- *     IoMapKsrPersistentMemoryEx @ 0x14071B010 (IoMapKsrPersistentMemoryEx.c)
- *     IoQueryKsrPersistentMemorySizeEx @ 0x14071B220 (IoQueryKsrPersistentMemorySizeEx.c)
- *     IoReserveKsrPersistentMemoryEx @ 0x14071B440 (IoReserveKsrPersistentMemoryEx.c)
+ *     IoAcquireKsrPersistentMemoryEx @ 0x1407188B0 (IoAcquireKsrPersistentMemoryEx.c)
+ *     IoMapKsrPersistentMemoryEx @ 0x140718BA0 (IoMapKsrPersistentMemoryEx.c)
+ *     IoQueryKsrPersistentMemorySizeEx @ 0x140718DB0 (IoQueryKsrPersistentMemorySizeEx.c)
+ *     IoReserveKsrPersistentMemoryEx @ 0x140718FD0 (IoReserveKsrPersistentMemoryEx.c)
  * Callees:
- *     MmUnmapLockedPages @ 0x14028D9C0 (MmUnmapLockedPages.c)
- *     MmMapLockedPagesSpecifyCache @ 0x14028F9F0 (MmMapLockedPagesSpecifyCache.c)
- *     IoAddTriageDumpDataBlock @ 0x1403F2880 (IoAddTriageDumpDataBlock.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     PipUnpackMetadata @ 0x1405A44AC (PipUnpackMetadata.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     PipGetDriverKsrGuid @ 0x14071BC80 (PipGetDriverKsrGuid.c)
- *     PipMatchPersistentMemory @ 0x14071C4CC (PipMatchPersistentMemory.c)
- *     PipMatchPersistentMemoryV1 @ 0x14071C5B0 (PipMatchPersistentMemoryV1.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     MmUnmapLockedPages @ 0x14029D5C0 (MmUnmapLockedPages.c)
+ *     MmMapLockedPagesSpecifyCache @ 0x14029F5F0 (MmMapLockedPagesSpecifyCache.c)
+ *     IoAddTriageDumpDataBlock @ 0x1403E65A0 (IoAddTriageDumpDataBlock.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     PipUnpackMetadata @ 0x1405A13EC (PipUnpackMetadata.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     PipGetDriverKsrGuid @ 0x140719810 (PipGetDriverKsrGuid.c)
+ *     PipMatchPersistentMemory @ 0x14071A05C (PipMatchPersistentMemory.c)
+ *     PipMatchPersistentMemoryV1 @ 0x14071A140 (PipMatchPersistentMemoryV1.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PipGetPersistentMemory(
@@ -164,7 +164,7 @@ __int64 __fastcall PipGetPersistentMemory(
     {
       if ( !DWORD2(v59) )
         return (unsigned int)-1073741772;
-      *(_QWORD *)&v59 = ExAllocatePool2(0x40uLL);
+      *(_QWORD *)&v59 = ExAllocatePool2(0x40uLL, 8LL * DWORD2(v59), 0x61706E50u);
       if ( !(_QWORD)v59 )
         return (unsigned int)-1073741670;
       DriverKsrGuid = KsrEnumeratePersistedMemory(&v64, PipEnumeratePersistedMemory, &v59);
@@ -188,7 +188,7 @@ __int64 __fastcall PipGetPersistentMemory(
         v24 = *(_QWORD *)(v59 + 8LL * v21);
         v54 = v24;
         KsrQueryMetadata(&v64, v24, 0LL, 0LL, &v53);
-        Pool2 = (_WORD *)ExAllocatePool2(0x40uLL);
+        Pool2 = (_WORD *)ExAllocatePool2(0x40uLL, v53, 0x61706E50u);
         if ( !Pool2 )
           return (unsigned int)-1073741670;
         DriverKsrGuid = KsrQueryMetadata(&v64, v24, Pool2, v53, &v53);
@@ -229,7 +229,7 @@ LABEL_66:
             DriverKsrGuid = v27;
           if ( DriverKsrGuid >= 0 )
           {
-            v23 = (unsigned __int64 *)ExAllocatePool2(0x40uLL);
+            v23 = (unsigned __int64 *)ExAllocatePool2(0x40uLL, 8LL * v52, 0x61706E50u);
             if ( !v23 )
             {
               DriverKsrGuid = -1073741670;
@@ -245,13 +245,13 @@ LABEL_66:
                 do
                 {
                   v30 = *v28++;
-                  LODWORD(v19) = (v30 >> 40) + (_DWORD)v19;
+                  v19 = (size_t *)((v30 >> 40) + (unsigned int)v19);
                   --v29;
                 }
                 while ( v29 );
                 v9 = v63;
               }
-              v31 = ExAllocatePool2(0x40uLL);
+              v31 = ExAllocatePool2(0x40uLL, 8LL * (_QWORD)v19 + 48, 0x61706E50u);
               v22 = (struct _MDL *)v31;
               if ( v31 )
               {
@@ -322,7 +322,7 @@ LABEL_72:
                     v47 = v58;
                     if ( v58 )
                     {
-                      v48 = ExAllocatePool2(0x40uLL);
+                      v48 = ExAllocatePool2(0x40uLL, 0x38uLL, 0x61706E50u);
                       if ( !v48 )
                       {
                         DriverKsrGuid = -1073741670;

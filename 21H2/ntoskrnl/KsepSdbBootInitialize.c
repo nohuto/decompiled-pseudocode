@@ -1,15 +1,15 @@
 /*
- * XREFs of KsepSdbBootInitialize @ 0x1407D1ED8
+ * XREFs of KsepSdbBootInitialize @ 0x1407D2048
  * Callers:
- *     KseShimDatabaseBootInitialize @ 0x140A72134 (KseShimDatabaseBootInitialize.c)
+ *     KseShimDatabaseBootInitialize @ 0x140A73134 (KseShimDatabaseBootInitialize.c)
  * Callees:
- *     KsepPoolFreePaged @ 0x140371724 (KsepPoolFreePaged.c)
- *     KsepPoolAllocatePaged @ 0x14037174C (KsepPoolAllocatePaged.c)
- *     KsepLogError @ 0x140371F74 (KsepLogError.c)
- *     memmove @ 0x140413F40 (memmove.c)
- *     KsepDebugPrint @ 0x140526EE8 (KsepDebugPrint.c)
- *     SdbInitDatabaseInMemory @ 0x140756110 (SdbInitDatabaseInMemory.c)
- *     SdbGetDatabaseEdition @ 0x1407564B0 (SdbGetDatabaseEdition.c)
+ *     KsepPoolFreePaged @ 0x140371274 (KsepPoolFreePaged.c)
+ *     KsepPoolAllocatePaged @ 0x14037129C (KsepPoolAllocatePaged.c)
+ *     KsepLogError @ 0x140371AC4 (KsepLogError.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     KsepDebugPrint @ 0x140527128 (KsepDebugPrint.c)
+ *     SdbInitDatabaseInMemory @ 0x1407562D0 (SdbInitDatabaseInMemory.c)
+ *     SdbGetDatabaseEdition @ 0x140756670 (SdbGetDatabaseEdition.c)
  */
 
 __int64 __fastcall KsepSdbBootInitialize(void *Src, size_t Size, __int64 a3)

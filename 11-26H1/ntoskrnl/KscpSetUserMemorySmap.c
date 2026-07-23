@@ -1,9 +1,9 @@
 /*
- * XREFs of KscpSetUserMemorySmap @ 0x140C5EDA0
+ * XREFs of KscpSetUserMemorySmap @ 0x140C64DA0
  * Callers:
  *     <none>
  * Callees:
- *     KscpSetUserMemory @ 0x140C5EC80 (KscpSetUserMemory.c)
+ *     KscpSetUserMemory @ 0x140C64C80 (KscpSetUserMemory.c)
  */
 
 __int64 __fastcall KscpSetUserMemorySmap(unsigned __int64 a1, unsigned __int8 a2, unsigned __int64 a3)

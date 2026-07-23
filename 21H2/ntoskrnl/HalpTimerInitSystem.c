@@ -1,33 +1,33 @@
 /*
- * XREFs of HalpTimerInitSystem @ 0x1403A85B0
+ * XREFs of HalpTimerInitSystem @ 0x1403A9340
  * Callers:
  *     <none>
  * Callees:
- *     KeQueryPerformanceCounter @ 0x14022C340 (KeQueryPerformanceCounter.c)
- *     HalQueryMaximumProcessorCount @ 0x14037B300 (HalQueryMaximumProcessorCount.c)
- *     HalpInterruptModel @ 0x14037B354 (HalpInterruptModel.c)
- *     HalpMmAllocCtxAlloc @ 0x14037CA48 (HalpMmAllocCtxAlloc.c)
- *     HalpTimerPropagateQpcBiasUpdate @ 0x1403A5D6C (HalpTimerPropagateQpcBiasUpdate.c)
- *     HalpTimerInitializeHypervisorTimer @ 0x1403A8104 (HalpTimerInitializeHypervisorTimer.c)
- *     HalpTimerInitializeClock @ 0x1403A8454 (HalpTimerInitializeClock.c)
- *     HalpTimerInitializeProfiling @ 0x1403A8850 (HalpTimerInitializeProfiling.c)
- *     HalpTimerSaveProcessorFrequency @ 0x1403A8900 (HalpTimerSaveProcessorFrequency.c)
- *     HalpTimerInitializeClockPn @ 0x1403A8A10 (HalpTimerInitializeClockPn.c)
- *     HalpInitializePnTimers @ 0x1403A8AB0 (HalpInitializePnTimers.c)
- *     HalpTimerInitializeEarlyStallSource @ 0x1403A9548 (HalpTimerInitializeEarlyStallSource.c)
- *     HalpInitializeTimers @ 0x1403A9638 (HalpInitializeTimers.c)
- *     HalpTimerInitPowerManagement @ 0x1403BE700 (HalpTimerInitPowerManagement.c)
- *     HalpTscReserveResources @ 0x1403CD028 (HalpTscReserveResources.c)
- *     HalpTimerConfigureQpcBypass @ 0x1403CDDAC (HalpTimerConfigureQpcBypass.c)
- *     HalpTimerSchedulePeriodicQueries @ 0x1403CE86C (HalpTimerSchedulePeriodicQueries.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
- *     HalpTimerCaptureCloestAuxiliaryQpcPair @ 0x1404B649C (HalpTimerCaptureCloestAuxiliaryQpcPair.c)
- *     HalpTscFallbackToPlatformSource @ 0x1404C1698 (HalpTscFallbackToPlatformSource.c)
- *     HalpTimerInitializeSystemWatchdog @ 0x1404C24E0 (HalpTimerInitializeSystemWatchdog.c)
- *     HalpTimerMeasureAllProcessorFrequencies @ 0x1404C3544 (HalpTimerMeasureAllProcessorFrequencies.c)
- *     HalpTscReportSyncStatus @ 0x1407D2A90 (HalpTscReportSyncStatus.c)
- *     HalpTimerWatchdogLogReset @ 0x1407D5114 (HalpTimerWatchdogLogReset.c)
- *     HalpTimerTraceTimingHardware @ 0x1407D5648 (HalpTimerTraceTimingHardware.c)
+ *     KeQueryPerformanceCounter @ 0x1402D0BC0 (KeQueryPerformanceCounter.c)
+ *     HalQueryMaximumProcessorCount @ 0x14037AE50 (HalQueryMaximumProcessorCount.c)
+ *     HalpInterruptModel @ 0x14037AEA4 (HalpInterruptModel.c)
+ *     HalpMmAllocCtxAlloc @ 0x14037C598 (HalpMmAllocCtxAlloc.c)
+ *     HalpTimerPropagateQpcBiasUpdate @ 0x1403A5EBC (HalpTimerPropagateQpcBiasUpdate.c)
+ *     HalpTimerInitializeHypervisorTimer @ 0x1403A8E94 (HalpTimerInitializeHypervisorTimer.c)
+ *     HalpTimerInitializeClock @ 0x1403A91E4 (HalpTimerInitializeClock.c)
+ *     HalpTimerInitializeProfiling @ 0x1403A95E0 (HalpTimerInitializeProfiling.c)
+ *     HalpTimerSaveProcessorFrequency @ 0x1403A9690 (HalpTimerSaveProcessorFrequency.c)
+ *     HalpTimerInitializeClockPn @ 0x1403A97A0 (HalpTimerInitializeClockPn.c)
+ *     HalpInitializePnTimers @ 0x1403A9840 (HalpInitializePnTimers.c)
+ *     HalpTimerInitializeEarlyStallSource @ 0x1403AA2D8 (HalpTimerInitializeEarlyStallSource.c)
+ *     HalpInitializeTimers @ 0x1403AA3C8 (HalpInitializeTimers.c)
+ *     HalpTimerInitPowerManagement @ 0x1403BE05C (HalpTimerInitPowerManagement.c)
+ *     HalpTscReserveResources @ 0x1403CD198 (HalpTscReserveResources.c)
+ *     HalpTimerConfigureQpcBypass @ 0x1403CDF1C (HalpTimerConfigureQpcBypass.c)
+ *     HalpTimerSchedulePeriodicQueries @ 0x1403CE9DC (HalpTimerSchedulePeriodicQueries.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
+ *     HalpTimerCaptureCloestAuxiliaryQpcPair @ 0x1404B66DC (HalpTimerCaptureCloestAuxiliaryQpcPair.c)
+ *     HalpTscFallbackToPlatformSource @ 0x1404C18D8 (HalpTscFallbackToPlatformSource.c)
+ *     HalpTimerInitializeSystemWatchdog @ 0x1404C2720 (HalpTimerInitializeSystemWatchdog.c)
+ *     HalpTimerMeasureAllProcessorFrequencies @ 0x1404C3784 (HalpTimerMeasureAllProcessorFrequencies.c)
+ *     HalpTscReportSyncStatus @ 0x1407D2C00 (HalpTscReportSyncStatus.c)
+ *     HalpTimerWatchdogLogReset @ 0x1407D5284 (HalpTimerWatchdogLogReset.c)
+ *     HalpTimerTraceTimingHardware @ 0x1407D57B8 (HalpTimerTraceTimingHardware.c)
  */
 
 __int64 __fastcall HalpTimerInitSystem(int a1, __int64 a2, __int64 a3)
@@ -68,8 +68,8 @@ __int64 __fastcall HalpTimerInitSystem(int a1, __int64 a2, __int64 a3)
   v5 = v4 - 7;
   if ( !v5 )
   {
-    v25 = byte_140C4A04C;
-    if ( !byte_140C4A04C )
+    v25 = byte_140C4A08C;
+    if ( !byte_140C4A08C )
       v25 = 50;
     HalpCmosCenturyOffset = v25;
     return inited;
@@ -107,7 +107,7 @@ __int64 __fastcall HalpTimerInitSystem(int a1, __int64 a2, __int64 a3)
     v8 = (unsigned int)(v7 - 2);
     if ( !(_DWORD)v8 )
     {
-      if ( !qword_140C4A188 )
+      if ( !qword_140C4A1C8 )
       {
         v8 = 16LL;
         __writemsr(0x10u, 0LL);

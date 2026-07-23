@@ -1,16 +1,16 @@
 /*
- * XREFs of CmpVERemoveHiveFromSIDMappingTable @ 0x140601C64
+ * XREFs of CmpVERemoveHiveFromSIDMappingTable @ 0x140601D18
  * Callers:
- *     CmpLoadKeyCommon @ 0x140087994 (CmpLoadKeyCommon.c)
- *     CmpInitializeHive @ 0x14047F184 (CmpInitializeHive.c)
- *     CmLoadKey @ 0x14049C9B4 (CmLoadKey.c)
- *     CmUnloadKey @ 0x14049F858 (CmUnloadKey.c)
- *     CmShutdownSystem @ 0x1405FC64C (CmShutdownSystem.c)
- *     CmpDestroyTemporaryHive @ 0x14060D2A0 (CmpDestroyTemporaryHive.c)
+ *     CmpLoadKeyCommon @ 0x14010BB8C (CmpLoadKeyCommon.c)
+ *     CmpInitializeHive @ 0x14047DED8 (CmpInitializeHive.c)
+ *     CmLoadKey @ 0x1404A4834 (CmLoadKey.c)
+ *     CmUnloadKey @ 0x140517C64 (CmUnloadKey.c)
+ *     CmShutdownSystem @ 0x1405FC700 (CmShutdownSystem.c)
+ *     CmpDestroyTemporaryHive @ 0x14060D354 (CmpDestroyTemporaryHive.c)
  * Callees:
- *     KeReleaseGuardedMutex @ 0x14000CA40 (KeReleaseGuardedMutex.c)
- *     KeAcquireGuardedMutex @ 0x14002C0A0 (KeAcquireGuardedMutex.c)
- *     memmove @ 0x140171280 (memmove.c)
+ *     KeReleaseGuardedMutex @ 0x14000C5C0 (KeReleaseGuardedMutex.c)
+ *     KeAcquireGuardedMutex @ 0x14002BC20 (KeAcquireGuardedMutex.c)
+ *     memmove @ 0x140171780 (memmove.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  */
 

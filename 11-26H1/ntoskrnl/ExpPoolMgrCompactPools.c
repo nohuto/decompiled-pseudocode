@@ -1,14 +1,14 @@
 /*
- * XREFs of ExpPoolMgrCompactPools @ 0x140AC36CC
+ * XREFs of ExpPoolMgrCompactPools @ 0x140AC533C
  * Callers:
- *     ExpHpCompactionRoutine @ 0x1404AAB60 (ExpHpCompactionRoutine.c)
+ *     ExpHpCompactionRoutine @ 0x1404A41F0 (ExpHpCompactionRoutine.c)
  * Callees:
- *     ExReleaseRundownProtection_0 @ 0x140266240 (ExReleaseRundownProtection_0.c)
- *     ExpPoolCompact @ 0x140346EA0 (ExpPoolCompact.c)
- *     DbgPrintEx @ 0x140397530 (DbgPrintEx.c)
- *     ExpPoolMgrGetNextPoolCommon @ 0x140AC379C (ExpPoolMgrGetNextPoolCommon.c)
- *     ExpPoolMgrResolveMaintenanceHint @ 0x140AC3850 (ExpPoolMgrResolveMaintenanceHint.c)
- *     ExpPoolMgrSetMaintenanceHint @ 0x140AC38B0 (ExpPoolMgrSetMaintenanceHint.c)
+ *     ExReleaseRundownProtection_0 @ 0x1402657B0 (ExReleaseRundownProtection_0.c)
+ *     ExpPoolCompact @ 0x140348F20 (ExpPoolCompact.c)
+ *     DbgPrintEx @ 0x1403992B0 (DbgPrintEx.c)
+ *     ExpPoolMgrGetNextPoolCommon @ 0x140AC540C (ExpPoolMgrGetNextPoolCommon.c)
+ *     ExpPoolMgrResolveMaintenanceHint @ 0x140AC54C0 (ExpPoolMgrResolveMaintenanceHint.c)
+ *     ExpPoolMgrSetMaintenanceHint @ 0x140AC5520 (ExpPoolMgrSetMaintenanceHint.c)
  */
 
 ULONG __fastcall ExpPoolMgrCompactPools(__int64 a1, __int64 a2)

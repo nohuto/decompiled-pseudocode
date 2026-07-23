@@ -1,14 +1,14 @@
 /*
- * XREFs of FsRtlRemoveNodeFromTunnel @ 0x1400C46CC
+ * XREFs of FsRtlRemoveNodeFromTunnel @ 0x1400C256C
  * Callers:
- *     FsRtlDeleteKeyFromTunnelCache @ 0x1404D9130 (FsRtlDeleteKeyFromTunnelCache.c)
- *     FsRtlPruneTunnelCache @ 0x14050466C (FsRtlPruneTunnelCache.c)
+ *     FsRtlDeleteKeyFromTunnelCache @ 0x1404BC734 (FsRtlDeleteKeyFromTunnelCache.c)
+ *     FsRtlPruneTunnelCache @ 0x1404E75FC (FsRtlPruneTunnelCache.c)
  * Callees:
- *     RtlDeleteNoSplay @ 0x1400C4A90 (RtlDeleteNoSplay.c)
- *     RtlDelete @ 0x1400C58D4 (RtlDelete.c)
+ *     RtlDeleteNoSplay @ 0x1400C2930 (RtlDeleteNoSplay.c)
+ *     RtlDelete @ 0x1400C3774 (RtlDelete.c)
  */
 
-void __fastcall FsRtlRemoveNodeFromTunnel(__int64 a1, struct _RTL_SPLAY_LINKS *a2, __int64 *a3, _BYTE *a4)
+void __fastcall FsRtlRemoveNodeFromTunnel(__int64 a1, _RTL_SPLAY_LINKS *a2, __int64 *a3, _BYTE *a4)
 {
   _RTL_SPLAY_LINKS *Parent; // rdx
   _RTL_SPLAY_LINKS *LeftChild; // rcx

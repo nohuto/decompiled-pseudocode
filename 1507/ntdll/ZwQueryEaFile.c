@@ -6,11 +6,20 @@
  *     <none>
  */
 
-__int64 ZwQueryEaFile()
+NTSTATUS __cdecl ZwQueryEaFile(
+        HANDLE FileHandle,
+        PIO_STATUS_BLOCK IoStatusBlock,
+        PVOID Buffer,
+        ULONG Length,
+        BOOLEAN ReturnSingleEntry,
+        PVOID EaList,
+        ULONG EaListLength,
+        PULONG EaIndex,
+        BOOLEAN RestartScan)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 301LL;
+  result = 301;
   __asm { syscall; Low latency system call }
   return result;
 }

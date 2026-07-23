@@ -2,39 +2,39 @@
  * XREFs of TpBindFileToDirect @ 0x180076EC8
  * Callers:
  *     TpAllocIoCompletion @ 0x180076CD0 (TpAllocIoCompletion.c)
- *     RtlpTpIoAlloc @ 0x18011314C (RtlpTpIoAlloc.c)
- *     RtlpTpIoLookup @ 0x180113704 (RtlpTpIoLookup.c)
+ *     RtlpTpIoAlloc @ 0x18011310C (RtlpTpIoAlloc.c)
+ *     RtlpTpIoLookup @ 0x1801136C4 (RtlpTpIoLookup.c)
  * Callees:
  *     TpAdjustBindingCount @ 0x180010A00 (TpAdjustBindingCount.c)
- *     ZwSetInformationFile @ 0x18009DB20 (ZwSetInformationFile.c)
- *     TppRaiseInvalidParameter @ 0x1801124DC (TppRaiseInvalidParameter.c)
+ *     ZwSetInformationFile @ 0x18009DAE0 (ZwSetInformationFile.c)
+ *     TppRaiseInvalidParameter @ 0x18011249C (TppRaiseInvalidParameter.c)
  */
 
-__int64 __fastcall TpBindFileToDirect(__int64 a1, __int64 a2, _PEB_LDR_DATA *Ldr, __int64 a4)
+NTSTATUS __fastcall TpBindFileToDirect(void *a1, __int64 a2, _PEB_LDR_DATA *Ldr)
 {
-  __int64 v4; // rbx
-  __int64 v5; // rax
-  __int64 result; // rax
-  _QWORD v7[2]; // [rsp+30h] [rbp-28h] BYREF
-  __int64 v8; // [rsp+40h] [rbp-18h] BYREF
+  __int64 v3; // rbx
+  __int64 v4; // rax
+  NTSTATUS result; // eax
+  _QWORD v6[2]; // [rsp+30h] [rbp-28h] BYREF
+  _IO_STATUS_BLOCK v7; // [rsp+40h] [rbp-18h] BYREF
 
-  v4 = (__int64)Ldr;
+  v3 = (__int64)Ldr;
   if ( a1 && a2 && Ldr && (Ldr = NtCurrentPeb()->Ldr, !Ldr->ShutdownInProgress) )
   {
-    v5 = *(_QWORD *)(v4 + 64);
-    v7[1] = a2;
-    v7[0] = v5;
-    result = ZwSetInformationFile(a1, &v8, v7, 16LL, 30);
-    if ( (int)result >= 0 )
+    v4 = *(_QWORD *)(v3 + 64);
+    v6[1] = a2;
+    v6[0] = v4;
+    result = ZwSetInformationFile(a1, &v7, v6, 0x10u, FileCompletionInformation);
+    if ( result >= 0 )
     {
-      TpAdjustBindingCount(v4, 1u);
-      return 0LL;
+      TpAdjustBindingCount(v3, 1u);
+      return 0;
     }
   }
   else
   {
-    TppRaiseInvalidParameter(a1, a2, Ldr, a4);
-    return 3221225485LL;
+    TppRaiseInvalidParameter(a1, a2, Ldr);
+    return -1073741811;
   }
   return result;
 }

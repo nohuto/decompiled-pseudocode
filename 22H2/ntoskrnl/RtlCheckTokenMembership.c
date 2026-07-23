@@ -14,7 +14,7 @@
  *     RtlCheckTokenMembershipEx @ 0x140348460 (RtlCheckTokenMembershipEx.c)
  */
 
-__int64 __fastcall RtlCheckTokenMembership(void *a1, void *a2)
+NTSTATUS __cdecl RtlCheckTokenMembership(HANDLE TokenHandle, PSID SidToCheck, PBOOLEAN IsMember)
 {
-  return RtlCheckTokenMembershipEx(a1, a2);
+  return RtlCheckTokenMembershipEx(TokenHandle, SidToCheck, 0, IsMember);
 }

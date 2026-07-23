@@ -1,7 +1,7 @@
 /*
- * XREFs of CcSetVacbIntoList @ 0x1401B29B8
+ * XREFs of CcSetVacbIntoList @ 0x1401B289C
  * Callers:
- *     CcSetVacbInFreeList @ 0x1400182B4 (CcSetVacbInFreeList.c)
+ *     CcSetVacbInFreeList @ 0x140017E34 (CcSetVacbInFreeList.c)
  * Callees:
  *     <none>
  */

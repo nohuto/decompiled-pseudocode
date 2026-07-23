@@ -1,15 +1,15 @@
 /*
- * XREFs of TtmpInsertPowerRequestToSession @ 0x1409A5468
+ * XREFs of TtmpInsertPowerRequestToSession @ 0x1409A5668
  * Callers:
- *     TtmNotifySessionPowerRequestCreated @ 0x1409A4520 (TtmNotifySessionPowerRequestCreated.c)
- *     TtmNotifySessionPowerRequestPresent @ 0x1409A46D0 (TtmNotifySessionPowerRequestPresent.c)
+ *     TtmNotifySessionPowerRequestCreated @ 0x1409A4720 (TtmNotifySessionPowerRequestCreated.c)
+ *     TtmNotifySessionPowerRequestPresent @ 0x1409A48D0 (TtmNotifySessionPowerRequestPresent.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     ExReleaseResourceLite @ 0x14023D410 (ExReleaseResourceLite.c)
- *     TtmpAcquireSessionById @ 0x1409A4F30 (TtmpAcquireSessionById.c)
- *     TtmpPowerRequestHashAllocator @ 0x1409A578C (TtmpPowerRequestHashAllocator.c)
- *     TtmpPowerRequestHashDeallocator @ 0x1409A57B0 (TtmpPowerRequestHashDeallocator.c)
- *     TtmiLogError @ 0x1409A8344 (TtmiLogError.c)
+ *     KeLeaveCriticalRegion @ 0x140231550 (KeLeaveCriticalRegion.c)
+ *     ExReleaseResourceLite @ 0x14023D4E0 (ExReleaseResourceLite.c)
+ *     TtmpAcquireSessionById @ 0x1409A5130 (TtmpAcquireSessionById.c)
+ *     TtmpPowerRequestHashAllocator @ 0x1409A598C (TtmpPowerRequestHashAllocator.c)
+ *     TtmpPowerRequestHashDeallocator @ 0x1409A59B0 (TtmpPowerRequestHashDeallocator.c)
+ *     TtmiLogError @ 0x1409A8544 (TtmiLogError.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

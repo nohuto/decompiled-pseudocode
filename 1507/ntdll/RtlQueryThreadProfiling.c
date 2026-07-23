@@ -6,7 +6,7 @@
  *     ZwQueryInformationThread @ 0x180093B50 (ZwQueryInformationThread.c)
  */
 
-__int64 RtlQueryThreadProfiling()
+NTSTATUS __cdecl RtlQueryThreadProfiling(HANDLE ThreadHandle, PBOOLEAN Enabled)
 {
-  return ZwQueryInformationThread();
+  return ZwQueryInformationThread(ThreadHandle, ThreadCounterProfiling, Enabled, 1u, 0LL);
 }

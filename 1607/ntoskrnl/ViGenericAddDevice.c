@@ -3,7 +3,7 @@
  * Callers:
  *     <none>
  * Callees:
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall ViGenericAddDevice(ULONG_PTR BugCheckParameter2, __int64 a2)

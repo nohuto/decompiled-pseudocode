@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlpWow64SuspendThreadWorker @ 0x1800DC860
+ * XREFs of RtlpWow64SuspendThreadWorker @ 0x1800DC820
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall RtlpWow64SuspendThreadWorker(__int64 a1, __int64 a2)
+__int64 __fastcall RtlpWow64SuspendThreadWorker(unsigned __int64 a1, __int64 a2)
 {
   if ( !g_LdrpWow64SuspendLocalThread )
     return 3221225485LL;

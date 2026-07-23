@@ -44,7 +44,7 @@ __int64 __fastcall sub_18005DC24(__int64 a1, __int64 a2, __int64 a3)
         break;
       *(_DWORD *)(v10 + 32LL * *(unsigned __int8 *)(a1 + 10)) = -857879331;
       sub_18005E3F8(a1, v10, v9);
-      sub_18001F734(a1, v12, 1LL);
+      sub_18001F734(a1, v12, 1);
       sub_18005E3B4(a1, v11);
       if ( !--v6 )
         return v5;

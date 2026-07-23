@@ -1,15 +1,15 @@
 /*
- * XREFs of KeRestoreExtendedAndSupervisorState @ 0x14012F7C4
+ * XREFs of KeRestoreExtendedAndSupervisorState @ 0x14012F894
  * Callers:
- *     KeRestoreExtendedProcessorState @ 0x14012F7B0 (KeRestoreExtendedProcessorState.c)
- *     PopHandleNextState @ 0x140569410 (PopHandleNextState.c)
- *     PnprQuiesceProcessorDpc @ 0x14057A350 (PnprQuiesceProcessorDpc.c)
+ *     KeRestoreExtendedProcessorState @ 0x14012F880 (KeRestoreExtendedProcessorState.c)
+ *     PopHandleNextState @ 0x14056A410 (PopHandleNextState.c)
+ *     PnprQuiesceProcessorDpc @ 0x14057B350 (PnprQuiesceProcessorDpc.c)
  * Callees:
  *     KiLeaveGuardedRegionUnsafe @ 0x14004F090 (KiLeaveGuardedRegionUnsafe.c)
- *     RtlXRestore @ 0x14012F8F4 (RtlXRestore.c)
- *     KeFreeXStateContext @ 0x14012F938 (KeFreeXStateContext.c)
- *     RtlXRestoreS @ 0x1401421F8 (RtlXRestoreS.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     RtlXRestore @ 0x14012F9C4 (RtlXRestore.c)
+ *     KeFreeXStateContext @ 0x14012FA08 (KeFreeXStateContext.c)
+ *     RtlXRestoreS @ 0x1401422F8 (RtlXRestoreS.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
  */
 
 char __fastcall KeRestoreExtendedAndSupervisorState(__int64 a1)

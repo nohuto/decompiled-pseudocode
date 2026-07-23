@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpNMIHalt @ 0x140543E84
+ * XREFs of HalpNMIHalt @ 0x1405417D4
  * Callers:
- *     HalBugCheckSystem @ 0x14053E440 (HalBugCheckSystem.c)
- *     HalHandleNMI @ 0x140543B40 (HalHandleNMI.c)
+ *     HalBugCheckSystem @ 0x14053BD40 (HalBugCheckSystem.c)
+ *     HalHandleNMI @ 0x140541490 (HalHandleNMI.c)
  * Callees:
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
  */
 
 void __fastcall __noreturn HalpNMIHalt(unsigned __int8 a1)

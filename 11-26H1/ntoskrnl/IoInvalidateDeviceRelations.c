@@ -1,20 +1,20 @@
 /*
- * XREFs of IoInvalidateDeviceRelations @ 0x1404D2B60
+ * XREFs of IoInvalidateDeviceRelations @ 0x1404CC3D0
  * Callers:
- *     PiProfileUpdateDeviceTreeCallback @ 0x1407ACF70 (PiProfileUpdateDeviceTreeCallback.c)
- *     PipKsrDeferredHardwareInit @ 0x1407B2E04 (PipKsrDeferredHardwareInit.c)
- *     PiSwProcessRemove @ 0x14090B360 (PiSwProcessRemove.c)
- *     PiSwGetChildPdo @ 0x140A7AAD4 (PiSwGetChildPdo.c)
- *     PiSwCloseDevice @ 0x140A7B100 (PiSwCloseDevice.c)
- *     PiSwIrpStartCreateWorker @ 0x140A7B9C8 (PiSwIrpStartCreateWorker.c)
- *     IopPnPDispatch @ 0x140A9FA40 (IopPnPDispatch.c)
- *     PiSwProcessParentStartIrp @ 0x140B249AC (PiSwProcessParentStartIrp.c)
+ *     PiProfileUpdateDeviceTreeCallback @ 0x1407AFFD0 (PiProfileUpdateDeviceTreeCallback.c)
+ *     PipKsrDeferredHardwareInit @ 0x1407B5E64 (PipKsrDeferredHardwareInit.c)
+ *     PiSwProcessRemove @ 0x1409AD484 (PiSwProcessRemove.c)
+ *     PiSwGetChildPdo @ 0x140A8BC18 (PiSwGetChildPdo.c)
+ *     PiSwCloseDevice @ 0x140A8C244 (PiSwCloseDevice.c)
+ *     PiSwIrpStartCreateWorker @ 0x140A8CB08 (PiSwIrpStartCreateWorker.c)
+ *     IopPnPDispatch @ 0x140AA13D0 (IopPnPDispatch.c)
+ *     PiSwProcessParentStartIrp @ 0x140B26E4C (PiSwProcessParentStartIrp.c)
  * Callees:
- *     IoAddTriageDumpDataBlock @ 0x14044AB54 (IoAddTriageDumpDataBlock.c)
- *     PnpRequestDeviceAction @ 0x140482588 (PnpRequestDeviceAction.c)
- *     IopQueueInvalidateBusRelationsRequest @ 0x1404D2C8C (IopQueueInvalidateBusRelationsRequest.c)
- *     Feature_PdcClientPnpActionQueue__private_ReportDeviceUsage @ 0x1404D2E5C (Feature_PdcClientPnpActionQueue__private_ReportDeviceUsage.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
+ *     IoAddTriageDumpDataBlock @ 0x140442C84 (IoAddTriageDumpDataBlock.c)
+ *     PnpRequestDeviceAction @ 0x14047BEF8 (PnpRequestDeviceAction.c)
+ *     IopQueueInvalidateBusRelationsRequest @ 0x1404CC4FC (IopQueueInvalidateBusRelationsRequest.c)
+ *     Feature_PdcClientPnpActionQueue__private_ReportDeviceUsage @ 0x1404CC6CC (Feature_PdcClientPnpActionQueue__private_ReportDeviceUsage.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
  */
 
 void __stdcall IoInvalidateDeviceRelations(PDEVICE_OBJECT DeviceObject, DEVICE_RELATION_TYPE Type)

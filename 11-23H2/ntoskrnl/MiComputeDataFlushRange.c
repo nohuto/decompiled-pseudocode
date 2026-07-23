@@ -1,18 +1,18 @@
 /*
- * XREFs of MiComputeDataFlushRange @ 0x140288E80
+ * XREFs of MiComputeDataFlushRange @ 0x140289110
  * Callers:
- *     MiComputeFlushRange @ 0x140287A28 (MiComputeFlushRange.c)
- *     MmPurgeSection @ 0x1402DC8D0 (MmPurgeSection.c)
+ *     MiComputeFlushRange @ 0x140287CB8 (MiComputeFlushRange.c)
+ *     MmPurgeSection @ 0x1402DCB60 (MmPurgeSection.c)
  * Callees:
- *     MiReferenceSubsection @ 0x140289170 (MiReferenceSubsection.c)
- *     MiLocateSubsectionNode @ 0x1402892C0 (MiLocateSubsectionNode.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402894C0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     MiBuildWakeList @ 0x1402894E4 (MiBuildWakeList.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x14028A930 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     MiFindLastSubsection @ 0x140293258 (MiFindLastSubsection.c)
- *     MiUnlinkUnusedControlArea @ 0x1402A0F98 (MiUnlinkUnusedControlArea.c)
- *     KeSignalGate @ 0x14035D33C (KeSignalGate.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiReferenceSubsection @ 0x140289400 (MiReferenceSubsection.c)
+ *     MiLocateSubsectionNode @ 0x140289550 (MiLocateSubsectionNode.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140289750 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiBuildWakeList @ 0x140289774 (MiBuildWakeList.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x14028ABC0 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     MiFindLastSubsection @ 0x1402934E8 (MiFindLastSubsection.c)
+ *     MiUnlinkUnusedControlArea @ 0x1402A1228 (MiUnlinkUnusedControlArea.c)
+ *     KeSignalGate @ 0x14035D4DC (KeSignalGate.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiComputeDataFlushRange(__int64 a1, unsigned __int8 a2, _QWORD *a3, __int64 a4, int a5, __int64 a6)
@@ -58,10 +58,10 @@ __int64 __fastcall MiComputeDataFlushRange(__int64 a1, unsigned __int8 a2, _QWOR
   if ( !*(_QWORD *)(a1 + 32) )
   {
     ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(a1 + 72));
-    if ( !KiIrqlFlags )
+    if ( !(_DWORD)KiIrqlFlags )
       goto LABEL_22;
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) == 0 || CurrentIrql > 0xFu || (unsigned __int8)v8 > 0xFu )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) == 0 || CurrentIrql > 0xFu || (unsigned __int8)v8 > 0xFu )
       goto LABEL_22;
     v28 = CurrentIrql < 2u;
     goto LABEL_44;
@@ -83,10 +83,10 @@ LABEL_20:
   {
 LABEL_31:
     ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(v9 + 72));
-    if ( !KiIrqlFlags )
+    if ( !(_DWORD)KiIrqlFlags )
       goto LABEL_22;
     v33 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) == 0 || v33 > 0xFu || (unsigned __int8)v8 > 0xFu )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) == 0 || v33 > 0xFu || (unsigned __int8)v8 > 0xFu )
       goto LABEL_22;
     v28 = v33 < 2u;
 LABEL_44:
@@ -123,10 +123,10 @@ LABEL_7:
     {
 LABEL_52:
       ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(v9 + 72));
-      if ( !KiIrqlFlags )
+      if ( !(_DWORD)KiIrqlFlags )
         goto LABEL_22;
       v34 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) == 0 )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) == 0 )
         goto LABEL_22;
       if ( v34 > 0xFu )
         goto LABEL_22;
@@ -195,10 +195,10 @@ LABEL_24:
   if ( a5 )
     *(_DWORD *)(v9 + 56) |= 4u;
   ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(v9 + 72));
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v37 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v37 <= 0xFu && (unsigned __int8)v8 <= 0xFu && v37 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v37 <= 0xFu && (unsigned __int8)v8 <= 0xFu && v37 >= 2u )
     {
       v38 = KeGetCurrentPrcb();
       v39 = v38->SchedulerAssist;

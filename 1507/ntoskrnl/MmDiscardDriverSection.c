@@ -20,9 +20,9 @@ char __fastcall MmDiscardDriverSection(unsigned __int64 a1)
   v3 = (unsigned __int64)v2[6];
   if ( (*(_BYTE *)(8 * ((v3 >> 39) & 0x1FF) - 0x90482413000LL) & 1) == 0
     || (*(_BYTE *)(((v3 >> 27) & 0x1FFFF8) - 0x90482600000LL) & 1) == 0
-    || (LOBYTE(v4) = *(_BYTE *)(((v3 >> 18) & 0x3FFFFFF8) - 0x904C0000000LL) & 0x81, v3 == PsNtosImageBase)
+    || (LOBYTE(v4) = *(_BYTE *)(((v3 >> 18) & 0x3FFFFFF8) - 0x904C0000000LL) & 0x81, (PVOID)v3 == PsNtosImageBase)
     || (_BYTE)v4 != 0x81
-    || v3 == PsHalImageBase )
+    || (PVOID)v3 == PsHalImageBase )
   {
     LOBYTE(v4) = MiSnapDriverRange((__int64)v2, 0, 0, a1, &v6, &v7);
     if ( v6 )
@@ -30,7 +30,7 @@ char __fastcall MmDiscardDriverSection(unsigned __int64 a1)
       v4 = MiFreeInitializationCode((__int64)v2, (__int64)(v6 << 25) >> 16, (__int64)((v7 << 25) | 0xFFF0000) >> 16);
       if ( v4 )
       {
-        if ( v3 == PsNtosImageBase || v3 == PsHalImageBase )
+        if ( (PVOID)v3 == PsNtosImageBase || (PVOID)v3 == PsHalImageBase )
           qword_14034FCD8 -= v4;
         else
           LOBYTE(v4) = _InterlockedExchangeAdd(&dword_14034FD18, -(int)v4);

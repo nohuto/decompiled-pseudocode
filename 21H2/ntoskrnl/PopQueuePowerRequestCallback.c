@@ -1,10 +1,10 @@
 /*
- * XREFs of PopQueuePowerRequestCallback @ 0x1402824B8
+ * XREFs of PopQueuePowerRequestCallback @ 0x1402706F8
  * Callers:
- *     PoClearPowerRequestInternal @ 0x140281F9C (PoClearPowerRequestInternal.c)
- *     PoSetPowerRequestInternal @ 0x140282160 (PoSetPowerRequestInternal.c)
+ *     PoClearPowerRequestInternal @ 0x1402701DC (PoClearPowerRequestInternal.c)
+ *     PoSetPowerRequestInternal @ 0x1402703A0 (PoSetPowerRequestInternal.c)
  * Callees:
- *     PopQueuePowerRequestCallbacks @ 0x1402824F8 (PopQueuePowerRequestCallbacks.c)
+ *     PopQueuePowerRequestCallbacks @ 0x140270738 (PopQueuePowerRequestCallbacks.c)
  */
 
 __int64 __fastcall PopQueuePowerRequestCallback(__int64 a1, int a2, __int64 a3, char a4)

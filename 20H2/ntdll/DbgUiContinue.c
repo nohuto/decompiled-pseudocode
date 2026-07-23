@@ -6,7 +6,7 @@
  *     <none>
  */
 
-__int64 DbgUiContinue()
+NTSTATUS __cdecl DbgUiContinue(PCLIENT_ID AppClientId, NTSTATUS ContinueStatus)
 {
-  return NtDebugContinue();
+  return NtDebugContinue(NtCurrentTeb()->DbgSsReserved[1], AppClientId, ContinueStatus);
 }

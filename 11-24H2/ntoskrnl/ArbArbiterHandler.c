@@ -1,25 +1,23 @@
 /*
- * XREFs of ArbArbiterHandler @ 0x140AB47A0
+ * XREFs of ArbArbiterHandler @ 0x140AAF710
  * Callers:
  *     <none>
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     KeSetEvent @ 0x1402725A0 (KeSetEvent.c)
- *     KeResetEvent @ 0x14028EEC0 (KeResetEvent.c)
- *     KeWaitForSingleObject @ 0x14033E960 (KeWaitForSingleObject.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
+ *     KeSetEvent @ 0x140227B30 (KeSetEvent.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     KeResetEvent @ 0x14029EAC0 (KeResetEvent.c)
+ *     KeWaitForSingleObject @ 0x14031DE40 (KeWaitForSingleObject.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall ArbArbiterHandler(__int64 a1, int a2, __int64 a3)
 {
   struct _KTHREAD *CurrentThread; // rax
   __int64 v7; // rdx
-  __int64 v8; // r8
-  __int64 v9; // r9
-  unsigned int v10; // edi
-  int v11; // eax
-  struct _KEVENT *v12; // rcx
-  struct _KEVENT *v13; // rcx
+  unsigned int v8; // edi
+  int v9; // eax
+  struct _KEVENT *v10; // rcx
+  struct _KEVENT *v11; // rcx
 
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
@@ -38,13 +36,13 @@ __int64 __fastcall ArbArbiterHandler(__int64 a1, int a2, __int64 a3)
   if ( a2 == 5 )
   {
 LABEL_7:
-    v10 = -1073741822;
+    v8 = -1073741822;
     goto LABEL_22;
   }
   if ( (unsigned int)a2 < 2 )
   {
 LABEL_16:
-    v11 = guard_dispatch_icall_no_overrides(a1, a3, v8, v9);
+    v9 = guard_dispatch_icall_no_overrides(a1, a3);
     goto LABEL_17;
   }
   if ( a2 != 2 && a2 != 3 )
@@ -52,29 +50,29 @@ LABEL_16:
     if ( a2 == 4 )
       goto LABEL_7;
 LABEL_15:
-    v10 = -1073741811;
+    v8 = -1073741811;
     goto LABEL_22;
   }
-  v11 = guard_dispatch_icall_no_overrides(a1, v7, v8, v9);
+  v9 = guard_dispatch_icall_no_overrides(a1, v7);
 LABEL_17:
-  v10 = v11;
-  if ( v11 >= 0 )
+  v8 = v9;
+  if ( v9 >= 0 )
   {
     if ( (unsigned int)a2 <= 1 )
     {
-      v13 = *(struct _KEVENT **)(a1 + 304);
+      v11 = *(struct _KEVENT **)(a1 + 304);
       *(_BYTE *)(a1 + 296) = 1;
-      KeResetEvent(v13);
+      KeResetEvent(v11);
     }
     else if ( (unsigned int)(a2 - 2) <= 1 )
     {
-      v12 = *(struct _KEVENT **)(a1 + 304);
+      v10 = *(struct _KEVENT **)(a1 + 304);
       *(_BYTE *)(a1 + 296) = 0;
-      KeSetEvent(v12, 0, 0);
+      KeSetEvent(v10, 0, 0);
     }
   }
 LABEL_22:
   KeSetEvent(*(PRKEVENT *)(a1 + 8), 0, 0);
   KeLeaveCriticalRegion();
-  return v10;
+  return v8;
 }

@@ -1,7 +1,7 @@
 /*
- * XREFs of StEtaInitialize @ 0x140171958
+ * XREFs of StEtaInitialize @ 0x140171E58
  * Callers:
- *     SmcCacheInitialize @ 0x140699F1C (SmcCacheInitialize.c)
+ *     SmcCacheInitialize @ 0x14069A000 (SmcCacheInitialize.c)
  * Callees:
  *     <none>
  */

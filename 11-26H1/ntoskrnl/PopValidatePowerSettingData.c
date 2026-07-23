@@ -1,9 +1,9 @@
 /*
- * XREFs of PopValidatePowerSettingData @ 0x140A3EA58
+ * XREFs of PopValidatePowerSettingData @ 0x1409FA478
  * Callers:
- *     PopSetPowerSettingValue @ 0x140A3E538 (PopSetPowerSettingValue.c)
+ *     PopSetPowerSettingValue @ 0x1409F9F58 (PopSetPowerSettingValue.c)
  * Callees:
- *     SSHSupportIsPlatformAoAc @ 0x1404C9760 (SSHSupportIsPlatformAoAc.c)
+ *     SSHSupportIsPlatformAoAc @ 0x1404C3180 (SSHSupportIsPlatformAoAc.c)
  */
 
 __int64 __fastcall PopValidatePowerSettingData(_QWORD *a1, int a2, _DWORD *a3)

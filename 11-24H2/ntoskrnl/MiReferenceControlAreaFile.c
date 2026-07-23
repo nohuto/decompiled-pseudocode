@@ -1,37 +1,37 @@
 /*
- * XREFs of MiReferenceControlAreaFile @ 0x1402464D0
+ * XREFs of MiReferenceControlAreaFile @ 0x14041CAA0
  * Callers:
- *     MmGetFileNameForAddress @ 0x140838768 (MmGetFileNameForAddress.c)
- *     MiAllowImageMap @ 0x1408694B4 (MiAllowImageMap.c)
- *     MiMapImageForEnclaveUse @ 0x1408DB088 (MiMapImageForEnclaveUse.c)
- *     MiFillMapFileInfo @ 0x1408E3144 (MiFillMapFileInfo.c)
- *     MiMapViewOfImageSection @ 0x1408E3418 (MiMapViewOfImageSection.c)
- *     MiUnmapViewOfSection @ 0x1408E4E04 (MiUnmapViewOfSection.c)
- *     MiUnmapVad @ 0x1408E5280 (MiUnmapVad.c)
- *     NtAreMappedFilesTheSame @ 0x1408E8130 (NtAreMappedFilesTheSame.c)
- *     MmIsFileMapped @ 0x1408EF744 (MmIsFileMapped.c)
- *     MmSectionToSectionObjectPointers @ 0x1408EFD74 (MmSectionToSectionObjectPointers.c)
- *     MiParseImageLoadConfig @ 0x1408F42B8 (MiParseImageLoadConfig.c)
- *     MiLogRelocationFaults @ 0x1408F4E8C (MiLogRelocationFaults.c)
- *     MiParseComAndCetHeaders @ 0x1408F4F14 (MiParseComAndCetHeaders.c)
- *     MiMapImageInSystemSpace @ 0x1408F5378 (MiMapImageInSystemSpace.c)
- *     MmExtendSection @ 0x140946018 (MmExtendSection.c)
- *     MmEnumerateAddressSpaceAndReferenceImages @ 0x140967B50 (MmEnumerateAddressSpaceAndReferenceImages.c)
- *     MiCreateSectionCommon @ 0x14096B594 (MiCreateSectionCommon.c)
- *     MmQueryVirtualMemory @ 0x140986420 (MmQueryVirtualMemory.c)
- *     MmFlushVirtualMemory @ 0x1409D1A4C (MmFlushVirtualMemory.c)
- *     MmGetFileNameForSection @ 0x140A830BC (MmGetFileNameForSection.c)
- *     MiConstructLoaderEntry @ 0x140A92FE4 (MiConstructLoaderEntry.c)
- *     MiAllocateFileExtents @ 0x140AA5B84 (MiAllocateFileExtents.c)
- *     MiLoadUserSymbols @ 0x140AB13D8 (MiLoadUserSymbols.c)
- *     MiCallImageNotify @ 0x140AC26CC (MiCallImageNotify.c)
- *     MmCreateSpecialImageSection @ 0x140AE6B20 (MmCreateSpecialImageSection.c)
+ *     MmIsFileMapped @ 0x140860F44 (MmIsFileMapped.c)
+ *     MmSectionToSectionObjectPointers @ 0x140861574 (MmSectionToSectionObjectPointers.c)
+ *     MiAllowImageMap @ 0x14086D7E4 (MiAllowImageMap.c)
+ *     MiUnmapVad @ 0x140895E38 (MiUnmapVad.c)
+ *     MiUnmapViewOfSection @ 0x140896E14 (MiUnmapViewOfSection.c)
+ *     NtAreMappedFilesTheSame @ 0x1408D8910 (NtAreMappedFilesTheSame.c)
+ *     MiFillMapFileInfo @ 0x140919CF4 (MiFillMapFileInfo.c)
+ *     MiParseImageLoadConfig @ 0x14093D160 (MiParseImageLoadConfig.c)
+ *     MiLogRelocationFaults @ 0x14093DD34 (MiLogRelocationFaults.c)
+ *     MiParseComAndCetHeaders @ 0x14093DDBC (MiParseComAndCetHeaders.c)
+ *     MiMapImageInSystemSpace @ 0x14093E220 (MiMapImageInSystemSpace.c)
+ *     MmEnumerateAddressSpaceAndReferenceImages @ 0x1409505E0 (MmEnumerateAddressSpaceAndReferenceImages.c)
+ *     MiCreateSectionCommon @ 0x140954024 (MiCreateSectionCommon.c)
+ *     MmQueryVirtualMemory @ 0x14096EC30 (MmQueryVirtualMemory.c)
+ *     MmExtendSection @ 0x14098A134 (MmExtendSection.c)
+ *     MmFlushVirtualMemory @ 0x1409C187C (MmFlushVirtualMemory.c)
+ *     MmGetFileNameForAddress @ 0x140A15B1C (MmGetFileNameForAddress.c)
+ *     MiMapImageForEnclaveUse @ 0x140A2AB18 (MiMapImageForEnclaveUse.c)
+ *     MmGetFileNameForSection @ 0x140A7DBDC (MmGetFileNameForSection.c)
+ *     MiConstructLoaderEntry @ 0x140A8F794 (MiConstructLoaderEntry.c)
+ *     MiAllocateFileExtents @ 0x140AA0BF4 (MiAllocateFileExtents.c)
+ *     MiLoadUserSymbols @ 0x140AAC348 (MiLoadUserSymbols.c)
+ *     MiCallImageNotify @ 0x140ABD9B4 (MiCallImageNotify.c)
+ *     MmCreateSpecialImageSection @ 0x140AE8400 (MmCreateSpecialImageSection.c)
+ *     MiMapViewOfImageSection @ 0x140AE8594 (MiMapViewOfImageSection.c)
  * Callees:
- *     MiReleaseSpinLockShared @ 0x140244830 (MiReleaseSpinLockShared.c)
- *     ExAcquireSpinLockShared @ 0x14031A1A0 (ExAcquireSpinLockShared.c)
- *     ObfReferenceObjectWithTag @ 0x1403403E0 (ObfReferenceObjectWithTag.c)
- *     ObpTraceObjectReferenceIfActive @ 0x140340450 (ObpTraceObjectReferenceIfActive.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
+ *     MiReleaseSpinLockShared @ 0x14020CFC0 (MiReleaseSpinLockShared.c)
+ *     ExAcquireSpinLockShared @ 0x1402C2D30 (ExAcquireSpinLockShared.c)
+ *     ObfReferenceObjectWithTag @ 0x14031F8C0 (ObfReferenceObjectWithTag.c)
+ *     ObpTraceObjectReferenceIfActive @ 0x14031F930 (ObpTraceObjectReferenceIfActive.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
  */
 
 ULONG_PTR __fastcall MiReferenceControlAreaFile(__int64 a1)
@@ -45,6 +45,8 @@ ULONG_PTR __fastcall MiReferenceControlAreaFile(__int64 a1)
   signed __int64 v9; // rax
   signed __int64 v10; // rtt
   KIRQL v11; // bp
+  __int64 v12; // r8
+  __int64 v13; // r9
 
   _m_prefetchw((const void *)(a1 + 64));
   v2 = *(_QWORD *)(a1 + 64);
@@ -80,7 +82,7 @@ ULONG_PTR __fastcall MiReferenceControlAreaFile(__int64 a1)
     }
     _InterlockedAdd64((volatile signed __int64 *)(v6 - 48), 0xFFFFFFFFFFFFFFF1uLL);
 LABEL_5:
-    ObpTraceObjectReferenceIfActive(v6 - 48, 1LL, 1666411853LL);
+    ObpTraceObjectReferenceIfActive(v6 - 48);
     if ( v6 )
       return v6;
   }
@@ -88,6 +90,6 @@ LABEL_5:
   v6 = *(_QWORD *)(a1 + 64) & 0xFFFFFFFFFFFFFFF0uLL;
   if ( v6 )
     ObfReferenceObjectWithTag((PVOID)(*(_QWORD *)(a1 + 64) & 0xFFFFFFFFFFFFFFF0uLL), 0x63536D4Du);
-  MiReleaseSpinLockShared((volatile signed __int32 *)(a1 + 72), v11);
+  MiReleaseSpinLockShared((volatile signed __int32 *)(a1 + 72), v11, v12, v13);
   return v6;
 }

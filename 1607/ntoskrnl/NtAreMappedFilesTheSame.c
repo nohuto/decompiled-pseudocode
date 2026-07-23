@@ -1,21 +1,21 @@
 /*
- * XREFs of NtAreMappedFilesTheSame @ 0x1405293B4
+ * XREFs of NtAreMappedFilesTheSame @ 0x1405298F4
  * Callers:
  *     <none>
  * Callees:
- *     MiUnlockVad @ 0x1400144A0 (MiUnlockVad.c)
- *     MiDereferenceControlAreaFile @ 0x140026640 (MiDereferenceControlAreaFile.c)
- *     MiReferenceControlAreaFile @ 0x140026690 (MiReferenceControlAreaFile.c)
- *     MiUnlockAndDereferenceVad @ 0x14002BDA0 (MiUnlockAndDereferenceVad.c)
- *     MiLockVad @ 0x14002BFB0 (MiLockVad.c)
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     MiVadDeleted @ 0x14002C370 (MiVadDeleted.c)
- *     MiObtainReferencedVad @ 0x14003E320 (MiObtainReferencedVad.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1400C8070 (ExfAcquirePushLockExclusiveEx.c)
- *     ExfTryToWakePushLock @ 0x1400C8738 (ExfTryToWakePushLock.c)
- *     MiDereferenceVad @ 0x1401F76FC (MiDereferenceVad.c)
- *     MiVadIsCfgBitmap @ 0x1404F3B20 (MiVadIsCfgBitmap.c)
+ *     MiUnlockVad @ 0x140014020 (MiUnlockVad.c)
+ *     MiDereferenceControlAreaFile @ 0x1400261C0 (MiDereferenceControlAreaFile.c)
+ *     MiReferenceControlAreaFile @ 0x140026210 (MiReferenceControlAreaFile.c)
+ *     MiUnlockAndDereferenceVad @ 0x14002B920 (MiUnlockAndDereferenceVad.c)
+ *     MiLockVad @ 0x14002BB30 (MiLockVad.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     MiVadDeleted @ 0x14002BEF0 (MiVadDeleted.c)
+ *     MiObtainReferencedVad @ 0x14003DEA0 (MiObtainReferencedVad.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1400C5F10 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfTryToWakePushLock @ 0x1400C65D8 (ExfTryToWakePushLock.c)
+ *     MiDereferenceVad @ 0x1401F7528 (MiDereferenceVad.c)
+ *     MiVadIsCfgBitmap @ 0x1404D6AAC (MiVadIsCfgBitmap.c)
  */
 
 NTSTATUS __stdcall NtAreMappedFilesTheSame(PVOID File1MappedAsAnImage, PVOID File2MappedAsFile)

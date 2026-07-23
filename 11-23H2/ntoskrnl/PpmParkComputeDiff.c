@@ -1,10 +1,10 @@
 /*
- * XREFs of PpmParkComputeDiff @ 0x1404636D0
+ * XREFs of PpmParkComputeDiff @ 0x140463AD0
  * Callers:
- *     PpmParkCalculateCoreParkingMask @ 0x140353830 (PpmParkCalculateCoreParkingMask.c)
+ *     PpmParkCalculateCoreParkingMask @ 0x1403539D0 (PpmParkCalculateCoreParkingMask.c)
  * Callees:
- *     memset @ 0x140435A00 (memset.c)
- *     KiXorAffinityEx @ 0x14045FF6C (KiXorAffinityEx.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     KiXorAffinityEx @ 0x14046036C (KiXorAffinityEx.c)
  */
 
 __int64 PpmParkComputeDiff()
@@ -19,7 +19,7 @@ __int64 PpmParkComputeDiff()
   PpmPerfNewCoreParkingMask[0] = 2097153;
   memset(&unk_140C0BBB4, 0, 0x104uLL);
   PpmParkNewSoftParkingMask = 2097153;
-  memset(&unk_140C0D6E4, 0, 0x104uLL);
+  memset(&unk_140C0D5D4, 0, 0x104uLL);
   if ( PpmParkNumNodes )
   {
     v0 = (unsigned int)PpmParkNumNodes;
@@ -44,7 +44,7 @@ LABEL_7:
       {
         LOWORD(PpmParkNewSoftParkingMask) = v4 + 1;
 LABEL_10:
-        qword_140C0D6E8[v4] |= v5;
+        qword_140C0D5D8[v4] |= v5;
       }
       v1 += 96;
       --v0;
@@ -55,5 +55,5 @@ LABEL_10:
            (char *)PpmPerfCoreParkingMask,
            PpmPerfNewCoreParkingMask,
            &PpmPerfChangedCoreParkingMask,
-           word_140C0D5D2);
+           word_140C0DA12);
 }

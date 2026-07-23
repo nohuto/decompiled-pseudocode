@@ -4,7 +4,7 @@
  *     ExfAcquirePushLockSharedEx @ 0x140005550 (ExfAcquirePushLockSharedEx.c)
  *     ExfAcquirePushLockExclusiveEx @ 0x140005760 (ExfAcquirePushLockExclusiveEx.c)
  * Callees:
- *     ExpWakePushLock @ 0x1400915F0 (ExpWakePushLock.c)
+ *     ExpWakePushLock @ 0x140091530 (ExpWakePushLock.c)
  */
 
 signed __int64 __fastcall ExpOptimizePushLockList(volatile signed __int64 *a1, signed __int64 a2)

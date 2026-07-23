@@ -1,16 +1,13 @@
 /*
- * XREFs of RtlReleaseStackTrace @ 0x1801010C0
+ * XREFs of RtlReleaseStackTrace @ 0x180100810
  * Callers:
- *     RtlDeleteCriticalSection @ 0x180079550 (RtlDeleteCriticalSection.c)
+ *     RtlDeleteCriticalSection @ 0x180067D70 (RtlDeleteCriticalSection.c)
  * Callees:
  *     <none>
  */
 
-struct _TEB *__fastcall RtlReleaseStackTrace(__int64 *a1)
+void __fastcall RtlReleaseStackTrace(__int64 a1)
 {
-  struct _TEB *result; // rax
-
   if ( RtlpStackTraceDatabase )
-    return RtlStdReleaseStackTrace(RtlpStackTraceDatabase, a1);
-  return result;
+    RtlStdReleaseStackTrace((__int64)RtlpStackTraceDatabase, a1);
 }

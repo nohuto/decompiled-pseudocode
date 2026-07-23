@@ -8,7 +8,7 @@
  *     ExInterlockedInsertTailList @ 0x140354630 (ExInterlockedInsertTailList.c)
  */
 
-LONG __fastcall PopFxQueueWorkItem(__int64 a1, struct _LIST_ENTRY *a2, char a3)
+LONG __fastcall PopFxQueueWorkItem(__int64 a1, _LIST_ENTRY *a2, char a3)
 {
   LONG result; // eax
 

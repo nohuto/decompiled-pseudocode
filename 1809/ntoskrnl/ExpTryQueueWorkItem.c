@@ -1,16 +1,16 @@
 /*
- * XREFs of ExpTryQueueWorkItem @ 0x1400D172C
+ * XREFs of ExpTryQueueWorkItem @ 0x1400D17AC
  * Callers:
- *     ExTryQueueWorkItem @ 0x1400D1700 (ExTryQueueWorkItem.c)
- *     IoTryQueueWorkItem @ 0x140141610 (IoTryQueueWorkItem.c)
+ *     ExTryQueueWorkItem @ 0x1400D1780 (ExTryQueueWorkItem.c)
+ *     IoTryQueueWorkItem @ 0x140141710 (IoTryQueueWorkItem.c)
  * Callees:
  *     MmGetNextNode @ 0x140061FC0 (MmGetNextNode.c)
- *     ExpIsPoolReadyForWork @ 0x1400B75F0 (ExpIsPoolReadyForWork.c)
- *     KeInsertPriQueue @ 0x1400D18C0 (KeInsertPriQueue.c)
- *     ExpTypeToPriority @ 0x1400D1A58 (ExpTypeToPriority.c)
- *     ExpValidateWorkItem @ 0x1400D1A78 (ExpValidateWorkItem.c)
- *     ExpPartitionCreateThreadIfNecessary @ 0x14012AF20 (ExpPartitionCreateThreadIfNecessary.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExpIsPoolReadyForWork @ 0x1400B7530 (ExpIsPoolReadyForWork.c)
+ *     KeInsertPriQueue @ 0x1400D1940 (KeInsertPriQueue.c)
+ *     ExpTypeToPriority @ 0x1400D1AD8 (ExpTypeToPriority.c)
+ *     ExpValidateWorkItem @ 0x1400D1AF8 (ExpValidateWorkItem.c)
+ *     ExpPartitionCreateThreadIfNecessary @ 0x14012AFF0 (ExpPartitionCreateThreadIfNecessary.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 char __fastcall ExpTryQueueWorkItem(__int64 a1, ULONG_PTR a2, unsigned int a3, int a4)

@@ -9,37 +9,37 @@
  *     KiCheckGroupSchedulingQuantumEnd @ 0x140061B80 (KiCheckGroupSchedulingQuantumEnd.c)
  *     KeIsEmptyAffinityEx @ 0x140062160 (KeIsEmptyAffinityEx.c)
  *     KiInsertQueueDpc @ 0x1400621B0 (KiInsertQueueDpc.c)
- *     KeAddProcessorAffinityEx @ 0x140063A40 (KeAddProcessorAffinityEx.c)
- *     KeEnumerateNextProcessor @ 0x140063BE0 (KeEnumerateNextProcessor.c)
- *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
- *     RtlGetInterruptTimePrecise @ 0x14008BAA0 (RtlGetInterruptTimePrecise.c)
- *     KeGetPrcb @ 0x1400A62C4 (KeGetPrcb.c)
- *     KiCheckPreferredHeteroProcessor @ 0x1400D0CB4 (KiCheckPreferredHeteroProcessor.c)
- *     KiShouldScanSharedReadyQueue @ 0x1400D0F20 (KiShouldScanSharedReadyQueue.c)
- *     KiSetClockIntervalToMinimumRequested @ 0x1400FCD10 (KiSetClockIntervalToMinimumRequested.c)
- *     KiEventClockStateChange @ 0x1400FCF34 (KiEventClockStateChange.c)
- *     KiRestoreClockTickRate @ 0x1400FCFD8 (KiRestoreClockTickRate.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     KeCheckAndApplyBamQos @ 0x140297C90 (KeCheckAndApplyBamQos.c)
- *     KeUpdatePendingQosRequest @ 0x140297FF4 (KeUpdatePendingQosRequest.c)
- *     KiConvertDynamicHeteroPolicy @ 0x1402983B0 (KiConvertDynamicHeteroPolicy.c)
- *     KiGenerateHeteroSets @ 0x14029861C (KiGenerateHeteroSets.c)
- *     KiResetForceIdle @ 0x14029B43C (KiResetForceIdle.c)
- *     KiSetForceIdleState @ 0x14029B5B4 (KiSetForceIdleState.c)
- *     PoExecuteIdleCheck @ 0x1402D3830 (PoExecuteIdleCheck.c)
- *     PpmGetIdleConstrainedMask @ 0x1402D3F3C (PpmGetIdleConstrainedMask.c)
- *     PoSetProcessorQoS @ 0x1402DB068 (PoSetProcessorQoS.c)
- *     PpmEventIdleDurationExpiration @ 0x1402E56FC (PpmEventIdleDurationExpiration.c)
+ *     KeAddProcessorAffinityEx @ 0x140063A30 (KeAddProcessorAffinityEx.c)
+ *     KeEnumerateNextProcessor @ 0x140063BD0 (KeEnumerateNextProcessor.c)
+ *     KeYieldProcessorEx @ 0x14006C9E0 (KeYieldProcessorEx.c)
+ *     RtlGetInterruptTimePrecise @ 0x14008BA90 (RtlGetInterruptTimePrecise.c)
+ *     KeGetPrcb @ 0x1400A6204 (KeGetPrcb.c)
+ *     KiCheckPreferredHeteroProcessor @ 0x1400D0D34 (KiCheckPreferredHeteroProcessor.c)
+ *     KiShouldScanSharedReadyQueue @ 0x1400D0FA0 (KiShouldScanSharedReadyQueue.c)
+ *     KiSetClockIntervalToMinimumRequested @ 0x1400FCD90 (KiSetClockIntervalToMinimumRequested.c)
+ *     KiEventClockStateChange @ 0x1400FCFB4 (KiEventClockStateChange.c)
+ *     KiRestoreClockTickRate @ 0x1400FD058 (KiRestoreClockTickRate.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     KeCheckAndApplyBamQos @ 0x140297E80 (KeCheckAndApplyBamQos.c)
+ *     KeUpdatePendingQosRequest @ 0x1402981E4 (KeUpdatePendingQosRequest.c)
+ *     KiConvertDynamicHeteroPolicy @ 0x1402985A0 (KiConvertDynamicHeteroPolicy.c)
+ *     KiGenerateHeteroSets @ 0x14029880C (KiGenerateHeteroSets.c)
+ *     KiResetForceIdle @ 0x14029B62C (KiResetForceIdle.c)
+ *     KiSetForceIdleState @ 0x14029B7A4 (KiSetForceIdleState.c)
+ *     PoExecuteIdleCheck @ 0x1402D3A20 (PoExecuteIdleCheck.c)
+ *     PpmGetIdleConstrainedMask @ 0x1402D412C (PpmGetIdleConstrainedMask.c)
+ *     PoSetProcessorQoS @ 0x1402DB258 (PoSetProcessorQoS.c)
+ *     PpmEventIdleDurationExpiration @ 0x1402E58EC (PpmEventIdleDurationExpiration.c)
  */
 
 void __fastcall KeClockInterruptNotify(__int64 a1, unsigned __int8 a2)
 {
   struct _KPRCB *CurrentPrcb; // rsi
   char v3; // r12
-  char *v6; // r14
+  LARGE_INTEGER *v6; // r14
   char v7; // di
   struct _KPRCB *v8; // rbx
   __int16 v9; // bp
@@ -54,7 +54,7 @@ void __fastcall KeClockInterruptNotify(__int64 a1, unsigned __int8 a2)
   bool v18; // bp
   signed __int64 v19; // rax
   signed __int64 v20; // rtt
-  LARGE_INTEGER PerformanceCounter; // r8
+  LARGE_INTEGER v21; // r8
   unsigned __int128 v22; // rax
   LONGLONG v23; // rdx
   __int64 v24; // r11
@@ -106,7 +106,7 @@ void __fastcall KeClockInterruptNotify(__int64 a1, unsigned __int8 a2)
   int v70; // eax
   int v71; // eax
   int v72; // eax
-  __int64 InterruptTimePrecise; // rbp
+  LARGE_INTEGER InterruptTimePrecise; // rbp
   __int64 v74; // rdx
   int v75; // eax
   int v76; // eax
@@ -146,7 +146,7 @@ void __fastcall KeClockInterruptNotify(__int64 a1, unsigned __int8 a2)
   struct _KPRCB *v110; // [rsp+48h] [rbp-2D0h]
   __int64 v111; // [rsp+50h] [rbp-2C8h] BYREF
   __int64 v112; // [rsp+58h] [rbp-2C0h] BYREF
-  char *v113; // [rsp+60h] [rbp-2B8h]
+  LARGE_INTEGER *v113; // [rsp+60h] [rbp-2B8h]
   __int64 v114; // [rsp+68h] [rbp-2B0h]
   int v115; // [rsp+70h] [rbp-2A8h]
   __int64 v116; // [rsp+78h] [rbp-2A0h]
@@ -158,7 +158,7 @@ void __fastcall KeClockInterruptNotify(__int64 a1, unsigned __int8 a2)
   __int64 v122; // [rsp+A8h] [rbp-270h] BYREF
   _QWORD v123[2]; // [rsp+B0h] [rbp-268h] BYREF
   __int16 v124; // [rsp+C0h] [rbp-258h]
-  char v125[8]; // [rsp+C8h] [rbp-250h] BYREF
+  LARGE_INTEGER PerformanceCounter; // [rsp+C8h] [rbp-250h] BYREF
   _DWORD v126[44]; // [rsp+D0h] [rbp-248h] BYREF
   _WORD v127[88]; // [rsp+180h] [rbp-198h] BYREF
   char v128[8]; // [rsp+230h] [rbp-E8h] BYREF
@@ -217,11 +217,11 @@ LABEL_122:
     }
     if ( CurrentPrcb->ClockOwner && !KiForceIdleDisabled && KiForceIdleState == 4 )
     {
-      InterruptTimePrecise = RtlGetInterruptTimePrecise(v125);
-      PoExecuteIdleCheck(InterruptTimePrecise);
+      InterruptTimePrecise = RtlGetInterruptTimePrecise(&PerformanceCounter);
+      ((void (__fastcall *)(_QWORD))PoExecuteIdleCheck)((LARGE_INTEGER)InterruptTimePrecise.QuadPart);
       if ( KiForceIdleWatchdogResetCount == 32 )
       {
-        off_1403FE600[0]();
+        off_1403FF600[0]();
         v75 = 0;
       }
       else
@@ -229,20 +229,20 @@ LABEL_122:
         v75 = KiForceIdleWatchdogResetCount + 1;
       }
       KiForceIdleWatchdogResetCount = v75;
-      if ( (unsigned __int64)(InterruptTimePrecise - KiForceIdleActiveLastStartTime) > 0x1312D00 )
+      if ( (unsigned __int64)(InterruptTimePrecise.QuadPart - KiForceIdleActiveLastStartTime) > 0x1312D00 )
       {
         LOBYTE(v74) = 1;
         KiResetForceIdle(2LL, v74);
       }
       else
       {
-        ++qword_1404216B0;
+        ++qword_140422750;
         v3 = 1;
-        v6 = (char *)&KiClockTickSkipTraces + 16 * (unsigned int)KiClockTickSkipTraceIndex;
+        v6 = (LARGE_INTEGER *)((char *)&KiClockTickSkipTraces + 16 * (unsigned int)KiClockTickSkipTraceIndex);
         v113 = v6;
         KiClockTickSkipTraceIndex = ((_BYTE)KiClockTickSkipTraceIndex + 1) & 0xF;
-        *v6 = 0;
-        *((_QWORD *)v6 + 1) = InterruptTimePrecise;
+        LOBYTE(v6->LowPart) = 0;
+        v6[1] = InterruptTimePrecise;
       }
     }
     _InterlockedAnd64(&KiForceIdleLock, 0LL);
@@ -277,8 +277,8 @@ LABEL_122:
         }
         __writecr8(CurrentIrql);
         if ( v6 )
-          *v6 = 1;
-        ++qword_1404216B8;
+          LOBYTE(v6->LowPart) = 1;
+        ++qword_140422758;
       }
       return;
     }
@@ -441,7 +441,7 @@ LABEL_217:
     v15->PrcbFlags.PrcbFlags = IdleNonParkedCpuSet;
     goto LABEL_217;
   }
-  v16 = 24LL * (unsigned int)KiClockTickTraceIndex + 4331872;
+  v16 = 24LL * (unsigned int)KiClockTickTraceIndex + 4336128;
   KiClockTickTraceIndex = (KiClockTickTraceIndex + 1) & 0xF;
   v17 = KiClockOwnerOneShotRequestState == 1;
   v119 = (_QWORD *)(0x140000000LL + v16);
@@ -479,11 +479,11 @@ LABEL_146:
   v19 = _InterlockedCompareExchange64((volatile signed __int64 *)0xFFFFF78000000340LL, v19 + 1, v19);
   if ( v20 != v19 )
     goto LABEL_146;
-  PerformanceCounter = KeQueryPerformanceCounter(0LL);
+  v21 = KeQueryPerformanceCounter(0LL);
   *((_QWORD *)&v22 + 1) = 0LL;
-  if ( PerformanceCounter.QuadPart > MEMORY[0xFFFFF78000000348] )
+  if ( v21.QuadPart > MEMORY[0xFFFFF78000000348] )
   {
-    v23 = PerformanceCounter.QuadPart - MEMORY[0xFFFFF78000000348];
+    v23 = v21.QuadPart - MEMORY[0xFFFFF78000000348];
     if ( MEMORY[0xFFFFF78000000368] )
       v23 <<= MEMORY[0xFFFFF78000000368];
     v22 = (unsigned __int64)v23 * (unsigned __int128)MEMORY[0xFFFFF78000000358];
@@ -495,9 +495,9 @@ LABEL_146:
   v24 = *((_QWORD *)&v22 + 1) + MEMORY[0xFFFFF78000000014];
   *((_QWORD *)&v25 + 1) = 0LL;
   v26 = MEMORY[0xFFFFF78000000360];
-  if ( PerformanceCounter.QuadPart > MEMORY[0xFFFFF78000000350] )
+  if ( v21.QuadPart > MEMORY[0xFFFFF78000000350] )
   {
-    v27 = PerformanceCounter.QuadPart - MEMORY[0xFFFFF78000000350];
+    v27 = v21.QuadPart - MEMORY[0xFFFFF78000000350];
     if ( MEMORY[0xFFFFF78000000369] )
       v27 <<= MEMORY[0xFFFFF78000000369];
     v25 = (unsigned __int64)v27 * (unsigned __int128)MEMORY[0xFFFFF78000000360];
@@ -511,8 +511,8 @@ LABEL_146:
   MEMORY[0xFFFFF78000000014] = v24;
   MEMORY[0xFFFFF78000000010] = (MEMORY[0xFFFFF78000000008] + *((_QWORD *)&v25 + 1)) >> 32;
   MEMORY[0xFFFFF78000000008] += *((_QWORD *)&v25 + 1);
-  MEMORY[0xFFFFF78000000348] = PerformanceCounter.QuadPart;
-  MEMORY[0xFFFFF78000000350] = PerformanceCounter.QuadPart;
+  MEMORY[0xFFFFF78000000348] = v21.QuadPart;
+  MEMORY[0xFFFFF78000000350] = v21.QuadPart;
   v29 = (unsigned int)KiTickOffset - *((_QWORD *)&v25 + 1);
   v109 = MEMORY[0xFFFFF78000000320];
   if ( v29 <= 0 )
@@ -665,7 +665,7 @@ LABEL_146:
       LOWORD(v40) = v127[0];
     }
     v42 = 0;
-    word_140403CA2 = 20;
+    word_140404CA2 = 20;
     KiClockCheckPending[0] = *v41;
     if ( (_WORD)v40 )
     {
@@ -682,7 +682,7 @@ LABEL_146:
     }
     for ( ; v42 < (unsigned __int16)*v41; *(_QWORD *)&KiClockCheckPending[4 * v44 + 4] = *(_QWORD *)&v41[4 * v44 + 4] )
       v44 = v42++;
-    for ( dword_140403CA4 = 0; v42 < (unsigned __int16)word_140403CA2; *(_QWORD *)&KiClockCheckPending[4 * v84 + 4] = 0LL )
+    for ( dword_140404CA4 = 0; v42 < (unsigned __int16)word_140404CA2; *(_QWORD *)&KiClockCheckPending[4 * v84 + 4] = 0LL )
       v84 = v42++;
   }
   v45 = KeGetCurrentPrcb();

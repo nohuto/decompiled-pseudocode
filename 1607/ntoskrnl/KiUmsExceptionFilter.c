@@ -1,9 +1,9 @@
 /*
- * XREFs of KiUmsExceptionFilter @ 0x140650D28
+ * XREFs of KiUmsExceptionFilter @ 0x140650E0C
  * Callers:
- *     KiParkUmsThread @ 0x1401DC264 (KiParkUmsThread.c)
- *     KeUpdateUmsThreadState @ 0x14065074C (KeUpdateUmsThreadState.c)
- *     NtUmsThreadYield @ 0x140650D48 (NtUmsThreadYield.c)
+ *     KiParkUmsThread @ 0x1401DC090 (KiParkUmsThread.c)
+ *     KeUpdateUmsThreadState @ 0x140650830 (KeUpdateUmsThreadState.c)
+ *     NtUmsThreadYield @ 0x140650E2C (NtUmsThreadYield.c)
  * Callees:
  *     <none>
  */

@@ -1,13 +1,13 @@
 /*
- * XREFs of EtwpSendReplyDataBlock @ 0x1406BB2E8
+ * XREFs of EtwpSendReplyDataBlock @ 0x1406BCB68
  * Callers:
- *     NtTraceControl @ 0x1405EAF60 (NtTraceControl.c)
+ *     NtTraceControl @ 0x1406DA6C0 (NtTraceControl.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     EtwpQueueReply @ 0x1406BB3D0 (EtwpQueueReply.c)
- *     EtwpReleaseQueueEntry @ 0x1406E491C (EtwpReleaseQueueEntry.c)
- *     ObReferenceObjectByHandle @ 0x1406F0BC0 (ObReferenceObjectByHandle.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     KeLeaveCriticalRegionThread @ 0x1402AB8C0 (KeLeaveCriticalRegionThread.c)
+ *     EtwpReleaseQueueEntry @ 0x1406BBBFC (EtwpReleaseQueueEntry.c)
+ *     EtwpQueueReply @ 0x1406BCC50 (EtwpQueueReply.c)
+ *     ObReferenceObjectByHandle @ 0x140707FA0 (ObReferenceObjectByHandle.c)
  */
 
 __int64 __fastcall EtwpSendReplyDataBlock(__int64 a1)
@@ -15,10 +15,13 @@ __int64 __fastcall EtwpSendReplyDataBlock(__int64 a1)
   struct _KTHREAD *CurrentThread; // rax
   void *v3; // rcx
   unsigned int v4; // edi
-  NTSTATUS v5; // ebx
-  struct _DMA_ADAPTER *v6; // rcx
-  _QWORD *v7; // rdi
-  __int64 v8; // rcx
+  __int64 v5; // rdx
+  NTSTATUS v6; // ebx
+  __int64 v7; // r8
+  __int64 v8; // r9
+  struct _DMA_ADAPTER *v9; // rcx
+  __int64 v10; // rdi
+  __int64 v11; // rcx
   PADAPTER_OBJECT DmaAdapter; // [rsp+40h] [rbp+8h] BYREF
 
   CurrentThread = KeGetCurrentThread();
@@ -26,41 +29,41 @@ __int64 __fastcall EtwpSendReplyDataBlock(__int64 a1)
   v4 = *(_DWORD *)(a1 + 16);
   --CurrentThread->KernelApcDisable;
   DmaAdapter = 0LL;
-  v5 = ObReferenceObjectByHandle(v3, 4u, EtwpRegistrationObjectType, 1, (PVOID *)&DmaAdapter, 0LL);
-  if ( v5 >= 0 )
+  v6 = ObReferenceObjectByHandle(v3, 4u, EtwpRegistrationObjectType, 1, (PVOID *)&DmaAdapter, 0LL);
+  if ( v6 >= 0 )
   {
-    v6 = DmaAdapter;
+    v9 = DmaAdapter;
     if ( (DmaAdapter[6].Size & 2) != 0 )
     {
       if ( v4 >= 4 )
       {
-        v5 = -1073741811;
+        v6 = -1073741811;
       }
       else
       {
-        v7 = (_QWORD *)_InterlockedExchange64((volatile __int64 *)&DmaAdapter[3] + v4, 0LL);
-        if ( v7 )
+        v10 = _InterlockedExchange64((volatile __int64 *)&DmaAdapter[3] + v4, 0LL);
+        if ( v10 )
         {
-          v8 = v7[4];
-          if ( (*(_BYTE *)(v8 + 98) & 0x40) != 0 )
-            v5 = -1073741055;
+          v11 = *(_QWORD *)(v10 + 32);
+          if ( (*(_BYTE *)(v11 + 98) & 0x40) != 0 )
+            v6 = -1073741055;
           else
-            v5 = EtwpQueueReply(*(PRKQUEUE *)(v8 + 48));
-          EtwpReleaseQueueEntry(v7);
+            v6 = EtwpQueueReply(*(PRKQUEUE *)(v11 + 48));
+          EtwpReleaseQueueEntry((PADAPTER_OBJECT *)v10, 2);
         }
         else
         {
-          v5 = -1073741811;
+          v6 = -1073741811;
         }
-        v6 = DmaAdapter;
+        v9 = DmaAdapter;
       }
     }
     else
     {
-      v5 = -1073741816;
+      v6 = -1073741816;
     }
-    HalPutDmaAdapter(v6);
+    HalPutDmaAdapter(v9);
   }
-  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
-  return (unsigned int)v5;
+  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v5, v7, v8);
+  return (unsigned int)v6;
 }

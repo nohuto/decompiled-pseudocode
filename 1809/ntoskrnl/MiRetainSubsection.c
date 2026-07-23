@@ -1,14 +1,14 @@
 /*
- * XREFs of MiRetainSubsection @ 0x140131E88
+ * XREFs of MiRetainSubsection @ 0x140131F58
  * Callers:
  *     MiGetHardFaultPages @ 0x140029BE0 (MiGetHardFaultPages.c)
  *     MmAccessFault @ 0x140043DA0 (MmAccessFault.c)
- *     MiFaultGetFileExtents @ 0x1402BBE04 (MiFaultGetFileExtents.c)
+ *     MiFaultGetFileExtents @ 0x1402BBFF4 (MiFaultGetFileExtents.c)
  * Callees:
- *     MiIncrementSubsectionViewCount @ 0x140077A50 (MiIncrementSubsectionViewCount.c)
- *     ExAcquireSpinLockExclusive @ 0x1400BC4E0 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC660 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiIncrementSubsectionViewCount @ 0x140077A40 (MiIncrementSubsectionViewCount.c)
+ *     ExAcquireSpinLockExclusive @ 0x1400BC420 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC5A0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiRetainSubsection(_QWORD *BugCheckParameter2)

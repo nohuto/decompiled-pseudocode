@@ -1,21 +1,21 @@
 /*
- * XREFs of KeClockInterruptNotify @ 0x1400D9870
+ * XREFs of KeClockInterruptNotify @ 0x1400D7710
  * Callers:
  *     <none>
  * Callees:
- *     KiEventClockStateChange @ 0x14009E0BC (KiEventClockStateChange.c)
- *     KiSetPendingTick @ 0x14009E0F8 (KiSetPendingTick.c)
- *     KiShouldScanSharedReadyQueue @ 0x1400A3E30 (KiShouldScanSharedReadyQueue.c)
- *     KiRequestSoftwareInterrupt @ 0x1400D8230 (KiRequestSoftwareInterrupt.c)
- *     KiInsertQueueDpc @ 0x1400D82C0 (KiInsertQueueDpc.c)
- *     KiForwardTick @ 0x1400D89C0 (KiForwardTick.c)
- *     KeAccumulateTicks @ 0x1400DC3C0 (KeAccumulateTicks.c)
- *     KiCheckGroupSchedulingQuantumEnd @ 0x1400DD240 (KiCheckGroupSchedulingQuantumEnd.c)
- *     KiCheckPreferredHeteroProcessor @ 0x1400DD2C0 (KiCheckPreferredHeteroProcessor.c)
- *     KiComputeNewSystemTime @ 0x1400DD2E0 (KiComputeNewSystemTime.c)
- *     PoExecutePerfCheck @ 0x1400DD360 (PoExecutePerfCheck.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     xHalUnmaskInterrupt @ 0x14014CC60 (xHalUnmaskInterrupt.c)
+ *     KiEventClockStateChange @ 0x14009D8BC (KiEventClockStateChange.c)
+ *     KiSetPendingTick @ 0x14009D8F8 (KiSetPendingTick.c)
+ *     KiShouldScanSharedReadyQueue @ 0x1400A2758 (KiShouldScanSharedReadyQueue.c)
+ *     KiRequestSoftwareInterrupt @ 0x1400D60D0 (KiRequestSoftwareInterrupt.c)
+ *     KiInsertQueueDpc @ 0x1400D6160 (KiInsertQueueDpc.c)
+ *     KiForwardTick @ 0x1400D6860 (KiForwardTick.c)
+ *     KeAccumulateTicks @ 0x1400DA260 (KeAccumulateTicks.c)
+ *     KiCheckGroupSchedulingQuantumEnd @ 0x1400DB0E0 (KiCheckGroupSchedulingQuantumEnd.c)
+ *     KiCheckPreferredHeteroProcessor @ 0x1400DB160 (KiCheckPreferredHeteroProcessor.c)
+ *     KiComputeNewSystemTime @ 0x1400DB180 (KiComputeNewSystemTime.c)
+ *     PoExecutePerfCheck @ 0x1400DB200 (PoExecutePerfCheck.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     xHalUnmaskInterrupt @ 0x14014D1D0 (xHalUnmaskInterrupt.c)
  */
 
 __int64 __fastcall KeClockInterruptNotify(__int64 a1, unsigned __int8 a2)

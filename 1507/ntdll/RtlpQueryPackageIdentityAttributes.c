@@ -6,33 +6,45 @@
  *     ZwQuerySecurityAttributesToken @ 0x180094D10 (ZwQuerySecurityAttributesToken.c)
  */
 
-__int64 __fastcall RtlpQueryPackageIdentityAttributes(__int64 a1, int a2, __int64 a3, _QWORD *a4)
+NTSTATUS __fastcall RtlpQueryPackageIdentityAttributes(HANDLE TokenHandle, ULONG a2, __int64 a3, _QWORD *a4)
 {
   char v4; // bl
-  unsigned int v7; // ebp
-  __int64 result; // rax
+  ULONG v7; // ebp
+  NTSTATUS result; // eax
   __int64 v10; // rax
-  int v11; // [rsp+58h] [rbp+10h] BYREF
+  ULONG ReturnLength; // [rsp+58h] [rbp+10h] BYREF
 
-  v11 = a2;
+  ReturnLength = a2;
   v4 = 1;
   v7 = 1;
   if ( a4 )
     v7 = 2;
-  result = ZwQuerySecurityAttributesToken(a1, &unk_180102600, v7, a3, 672, &v11);
-  if ( (int)result < 0 )
+  result = ZwQuerySecurityAttributesToken(
+             TokenHandle,
+             (PUNICODE_STRING)&Attributes,
+             v7,
+             (PVOID)a3,
+             0x2A0u,
+             &ReturnLength);
+  if ( result < 0 )
   {
-    if ( (_DWORD)result != -1073741275 )
+    if ( result != -1073741275 )
       return result;
     if ( v7 == 1 )
       return result;
-    result = ZwQuerySecurityAttributesToken(a1, &unk_180102600, 1LL, a3, 672, &v11);
-    if ( (int)result < 0 )
+    result = ZwQuerySecurityAttributesToken(
+               TokenHandle,
+               (PUNICODE_STRING)&Attributes,
+               1u,
+               (PVOID)a3,
+               0x2A0u,
+               &ReturnLength);
+    if ( result < 0 )
       return result;
     v4 = 0;
   }
   if ( !*(_DWORD *)(a3 + 4) )
-    return 3221226021LL;
+    return -1073741275;
   if ( a4 )
   {
     if ( v4 )
@@ -41,5 +53,5 @@ __int64 __fastcall RtlpQueryPackageIdentityAttributes(__int64 a1, int a2, __int6
       v10 = 0LL;
     *a4 = v10;
   }
-  return 0LL;
+  return 0;
 }

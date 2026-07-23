@@ -29,7 +29,7 @@ __int64 __fastcall SmKmVirtualLockContextIncreaseWsMin(ULONG_PTR BugCheckParamet
   unsigned int SessionId; // edx
   unsigned __int8 v15; // r15
   unsigned int v16; // r8d
-  unsigned __int64 v17; // rdi
+  __int64 v17; // rdi
   bool v18; // zf
   __int64 v19; // rcx
   __int64 v20; // rdx
@@ -110,7 +110,7 @@ __int64 __fastcall SmKmVirtualLockContextIncreaseWsMin(ULONG_PTR BugCheckParamet
     v33 = v19;
     if ( v18 )
       goto LABEL_26;
-    v17 = (unsigned __int64)&v13->LockEntries[v19];
+    v17 = (__int64)&v13->LockEntries[v19];
     v16 &= ~(1 << v19);
     if ( (*(_BYTE *)(v17 + 26) & 1) != 0
       && (*(_DWORD *)(v17 + 32) & 1) == 0
@@ -131,12 +131,12 @@ LABEL_26:
   }
   *(_BYTE *)(v17 + 32) |= 2u;
   if ( *(__int64 *)(v17 + 32) < 0 )
-    KiAbEntryRemoveFromTree(v17);
+    KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)v17);
   v34 = *(_DWORD *)(v17 + 88) & 0x1FFFF;
   *(_DWORD *)(v17 + 88) &= 0xFFFE0000;
   *(_BYTE *)(v17 + 25) &= ~1u;
   *(_QWORD *)(v17 + 32) = 0LL;
-  v20 = (__int64)(v17 - (unsigned __int64)v13->LockEntries) / 96;
+  v20 = (signed __int64)(v17 - (unsigned __int64)v13->LockEntries) / 96;
   if ( v15 == 1 )
     v13->AbEntrySummary |= 1 << v20;
   else

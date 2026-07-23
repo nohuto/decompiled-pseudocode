@@ -1,13 +1,13 @@
 /*
- * XREFs of HalpIsPartitionCpuManager @ 0x140585200
+ * XREFs of HalpIsPartitionCpuManager @ 0x140587720
  * Callers:
- *     HalpTimerInitializeHypervisorTimer @ 0x140584840 (HalpTimerInitializeHypervisorTimer.c)
- *     HalSocRequestConfigurationData @ 0x14059955C (HalSocRequestConfigurationData.c)
- *     HalpInterruptRegisterController @ 0x14059AC04 (HalpInterruptRegisterController.c)
- *     HalpProcIsSmtDisabled @ 0x140CAF4C8 (HalpProcIsSmtDisabled.c)
- *     HalpMiscGetParameters @ 0x140CAF604 (HalpMiscGetParameters.c)
+ *     HalpTimerInitializeHypervisorTimer @ 0x140586D60 (HalpTimerInitializeHypervisorTimer.c)
+ *     HalSocRequestConfigurationData @ 0x14059BCDC (HalSocRequestConfigurationData.c)
+ *     HalpInterruptRegisterController @ 0x14059D384 (HalpInterruptRegisterController.c)
+ *     HalpProcIsSmtDisabled @ 0x140CB5508 (HalpProcIsSmtDisabled.c)
+ *     HalpMiscGetParameters @ 0x140CB5644 (HalpMiscGetParameters.c)
  * Callees:
- *     HalpIsMicrosoftCompatibleHvLoaded @ 0x1404B938C (HalpIsMicrosoftCompatibleHvLoaded.c)
+ *     HalpIsMicrosoftCompatibleHvLoaded @ 0x1404B2BBC (HalpIsMicrosoftCompatibleHvLoaded.c)
  */
 
 char HalpIsPartitionCpuManager()

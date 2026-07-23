@@ -1,11 +1,11 @@
 /*
- * XREFs of PpmEventParkNodeClassRecordedStats @ 0x140579CCC
+ * XREFs of PpmEventParkNodeClassRecordedStats @ 0x140579F0C
  * Callers:
- *     PpmParkRecordNodeStatistics @ 0x1402896A0 (PpmParkRecordNodeStatistics.c)
+ *     PpmParkRecordNodeStatistics @ 0x140206840 (PpmParkRecordNodeStatistics.c)
  * Callees:
- *     EtwEventEnabled @ 0x14021BF30 (EtwEventEnabled.c)
- *     EtwWriteEx @ 0x14025DD10 (EtwWriteEx.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     EtwWriteEx @ 0x14027F840 (EtwWriteEx.c)
+ *     EtwEventEnabled @ 0x1402C0830 (EtwEventEnabled.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  */
 
 char __fastcall PpmEventParkNodeClassRecordedStats(__int16 a1, __int64 a2, char a3, __int64 a4, char a5)

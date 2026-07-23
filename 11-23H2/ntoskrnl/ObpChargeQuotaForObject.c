@@ -1,12 +1,12 @@
 /*
- * XREFs of ObpChargeQuotaForObject @ 0x14075C044
+ * XREFs of ObpChargeQuotaForObject @ 0x14075C234
  * Callers:
- *     ObInsertObjectEx @ 0x1407359D0 (ObInsertObjectEx.c)
+ *     ObInsertObjectEx @ 0x140735BC0 (ObInsertObjectEx.c)
  * Callees:
- *     OBJECT_HEADER_TO_QUOTA_INFO @ 0x1402F8670 (OBJECT_HEADER_TO_QUOTA_INFO.c)
+ *     OBJECT_HEADER_TO_QUOTA_INFO @ 0x1402F8900 (OBJECT_HEADER_TO_QUOTA_INFO.c)
  *     PsReturnSharedPoolQuota @ 0x14069ECA8 (PsReturnSharedPoolQuota.c)
- *     SeComputeQuotaInformationSize @ 0x140728B80 (SeComputeQuotaInformationSize.c)
- *     PsChargeSharedPoolQuota @ 0x14075C144 (PsChargeSharedPoolQuota.c)
+ *     SeComputeQuotaInformationSize @ 0x140728D80 (SeComputeQuotaInformationSize.c)
+ *     PsChargeSharedPoolQuota @ 0x14075C334 (PsChargeSharedPoolQuota.c)
  */
 
 __int64 __fastcall ObpChargeQuotaForObject(__int64 a1, __int64 a2)

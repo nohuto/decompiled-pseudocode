@@ -9,7 +9,7 @@
  *     SeDeleteObjectAuditAlarmWithTransaction @ 0x14091CCB0 (SeDeleteObjectAuditAlarmWithTransaction.c)
  */
 
-NTSTATUS __fastcall NtMakeTemporaryObject(HANDLE Handle)
+NTSTATUS __cdecl NtMakeTemporaryObject(HANDLE Handle)
 {
   NTSTATUS result; // eax
   NTSTATUS v3; // edi

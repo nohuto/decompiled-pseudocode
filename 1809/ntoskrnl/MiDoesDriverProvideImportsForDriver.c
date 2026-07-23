@@ -1,37 +1,43 @@
 /*
- * XREFs of MiDoesDriverProvideImportsForDriver @ 0x1409F7100
+ * XREFs of MiDoesDriverProvideImportsForDriver @ 0x1409F8100
  * Callers:
- *     MiImportOptimizationVetosDriverRelocation @ 0x1409AAEA0 (MiImportOptimizationVetosDriverRelocation.c)
+ *     MiImportOptimizationVetosDriverRelocation @ 0x1409ABEA0 (MiImportOptimizationVetosDriverRelocation.c)
  * Callees:
- *     RtlpImageDirectoryEntryToDataEx @ 0x1400F2C70 (RtlpImageDirectoryEntryToDataEx.c)
+ *     RtlpImageDirectoryEntryToDataEx @ 0x1400F2CF0 (RtlpImageDirectoryEntryToDataEx.c)
  */
 
-__int64 __fastcall MiDoesDriverProvideImportsForDriver(__int64 a1, __int64 a2)
+__int64 __fastcall MiDoesDriverProvideImportsForDriver(__int64 a1, __int64 a2, __int64 a3)
 {
-  unsigned __int64 v2; // rdi
-  unsigned __int64 v3; // rbx
-  NTSTATUS v4; // eax
-  __int64 v5; // r9
-  unsigned int v6; // ecx
-  unsigned __int64 v7; // r8
-  unsigned int v9; // [rsp+40h] [rbp+8h] BYREF
-  __int64 v10; // [rsp+48h] [rbp+10h] BYREF
+  unsigned __int64 v3; // rdi
+  __int64 v4; // rbx
+  unsigned __int64 v5; // rcx
+  unsigned __int64 v6; // rbx
+  NTSTATUS v7; // eax
+  __int64 v8; // r9
+  unsigned int v9; // ecx
+  unsigned __int64 v10; // r8
+  unsigned int v12; // [rsp+40h] [rbp+8h] BYREF
+  __int64 v13; // [rsp+48h] [rbp+10h] BYREF
 
-  v2 = *(_QWORD *)(a1 + 48);
-  v3 = v2 + *(unsigned int *)(a1 + 64);
-  v4 = RtlpImageDirectoryEntryToDataEx(*(_QWORD *)(a2 + 48), 1, 0xCu, (int)&v9, &v10);
-  v5 = v10;
-  v6 = 0;
-  if ( v4 < 0 )
-    v5 = 0LL;
-  if ( !v5 || !(v9 >> 3) )
+  v3 = *(_QWORD *)(a1 + 48);
+  v4 = *(unsigned int *)(a1 + 64);
+  v5 = *(_QWORD *)(a2 + 48);
+  LOWORD(a3) = 12;
+  LOBYTE(a2) = 1;
+  v6 = v3 + v4;
+  v7 = RtlpImageDirectoryEntryToDataEx(v5, a2, a3, (__int64)&v12, &v13);
+  v8 = v13;
+  v9 = 0;
+  if ( v7 < 0 )
+    v8 = 0LL;
+  if ( !v8 || !(v12 >> 3) )
     return 0LL;
   while ( 1 )
   {
-    v7 = *(_QWORD *)(v5 + 8LL * v6);
-    if ( v7 >= v2 && v7 < v3 )
+    v10 = *(_QWORD *)(v8 + 8LL * v9);
+    if ( v10 >= v3 && v10 < v6 )
       break;
-    if ( ++v6 >= v9 >> 3 )
+    if ( ++v9 >= v12 >> 3 )
       return 0LL;
   }
   return 1LL;

@@ -1,10 +1,10 @@
 /*
- * XREFs of KseDsHookIoCreateDevice @ 0x140581420
+ * XREFs of KseDsHookIoCreateDevice @ 0x140581910
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     KsepDsEventIoCreateDevice @ 0x140581C0C (KsepDsEventIoCreateDevice.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     KsepDsEventIoCreateDevice @ 0x1405820FC (KsepDsEventIoCreateDevice.c)
  */
 
 __int64 __fastcall KseDsHookIoCreateDevice(__int64 a1, __int64 a2, __int64 a3, int a4, int a5, char a6, __int64 *a7)
@@ -15,7 +15,7 @@ __int64 __fastcall KseDsHookIoCreateDevice(__int64 a1, __int64 a2, __int64 a3, i
   unsigned int v11; // ebx
 
   v8 = a1;
-  v9 = ((__int64 (__fastcall *)(__int64, __int64, __int64))qword_140C06F48)(a1, a2, a3);
+  v9 = ((__int64 (__fastcall *)(__int64, __int64, __int64))qword_140C06F38)(a1, a2, a3);
   LODWORD(v10) = 0;
   v11 = v9;
   if ( v9 >= 0 )

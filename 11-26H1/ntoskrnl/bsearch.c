@@ -1,22 +1,22 @@
 /*
- * XREFs of bsearch @ 0x140536920
+ * XREFs of bsearch @ 0x140538DA0
  * Callers:
- *     LdrpResSearchResourceMappedFile @ 0x1403DAAE8 (LdrpResSearchResourceMappedFile.c)
- *     LdrLoadAlternateResourceModuleEx @ 0x1403DCBD0 (LdrLoadAlternateResourceModuleEx.c)
- *     MiPurgeSubsection @ 0x140422170 (MiPurgeSubsection.c)
- *     MiLookupFixupExtentByPte @ 0x1404CBA54 (MiLookupFixupExtentByPte.c)
- *     DownLevelLangIDToLanguageName @ 0x1404EF488 (DownLevelLangIDToLanguageName.c)
- *     LdrpGetParentLangId @ 0x1404F40D0 (LdrpGetParentLangId.c)
- *     RtlCompareExchangePropertyStore @ 0x14061A3D0 (RtlCompareExchangePropertyStore.c)
- *     RtlQueryPropertyStore @ 0x14061A6C0 (RtlQueryPropertyStore.c)
- *     RtlRemovePropertyStore @ 0x14061A840 (RtlRemovePropertyStore.c)
- *     DownLevelGetParentLanguageName @ 0x1406D8D50 (DownLevelGetParentLanguageName.c)
- *     DownLevelLanguageNameToLangID @ 0x1406D8E14 (DownLevelLanguageNameToLangID.c)
- *     sub_1408391D8 @ 0x1408391D8 (sub_1408391D8.c)
- *     EtwpIsGuidAllowed @ 0x14093B14C (EtwpIsGuidAllowed.c)
+ *     LdrpResSearchResourceMappedFile @ 0x1403DDCD8 (LdrpResSearchResourceMappedFile.c)
+ *     LdrLoadAlternateResourceModuleEx @ 0x1403DFDC0 (LdrLoadAlternateResourceModuleEx.c)
+ *     MiPurgeSubsection @ 0x1404199B0 (MiPurgeSubsection.c)
+ *     MiLookupFixupExtentByPte @ 0x1404C5484 (MiLookupFixupExtentByPte.c)
+ *     DownLevelLangIDToLanguageName @ 0x1404E8A68 (DownLevelLangIDToLanguageName.c)
+ *     LdrpGetParentLangId @ 0x1404ED6B0 (LdrpGetParentLangId.c)
+ *     RtlCompareExchangePropertyStore @ 0x14061D420 (RtlCompareExchangePropertyStore.c)
+ *     RtlQueryPropertyStore @ 0x14061D710 (RtlQueryPropertyStore.c)
+ *     RtlRemovePropertyStore @ 0x14061D890 (RtlRemovePropertyStore.c)
+ *     DownLevelGetParentLanguageName @ 0x1406DCEE0 (DownLevelGetParentLanguageName.c)
+ *     DownLevelLanguageNameToLangID @ 0x1406DCFA4 (DownLevelLanguageNameToLangID.c)
+ *     sub_14083F418 @ 0x14083F418 (sub_14083F418.c)
+ *     EtwpIsGuidAllowed @ 0x140916CEC (EtwpIsGuidAllowed.c)
  * Callees:
- *     xHalTimerWatchdogStop @ 0x1404D1DF0 (xHalTimerWatchdogStop.c)
- *     _guard_check_icall_no_overrides @ 0x140731180 (_guard_check_icall_no_overrides.c)
+ *     xHalTimerWatchdogStop @ 0x1404CB9A0 (xHalTimerWatchdogStop.c)
+ *     _guard_check_icall_no_overrides @ 0x140735D50 (_guard_check_icall_no_overrides.c)
  */
 
 void *__cdecl bsearch(

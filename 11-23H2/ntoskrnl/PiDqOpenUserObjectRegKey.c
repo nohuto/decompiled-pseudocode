@@ -1,22 +1,22 @@
 /*
- * XREFs of PiDqOpenUserObjectRegKey @ 0x1407FA4D8
+ * XREFs of PiDqOpenUserObjectRegKey @ 0x1407FA7A8
  * Callers:
- *     PiDqOpenObjectRegKey @ 0x1407FA458 (PiDqOpenObjectRegKey.c)
+ *     PiDqOpenObjectRegKey @ 0x1407FA728 (PiDqOpenObjectRegKey.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     ZwClose @ 0x14041AF40 (ZwClose.c)
- *     memset @ 0x140435A00 (memset.c)
- *     _SysCtxRegOpenKey @ 0x1406CED20 (_SysCtxRegOpenKey.c)
- *     SeQueryUserSidToken @ 0x140714E00 (SeQueryUserSidToken.c)
- *     SeQueryInformationToken @ 0x1407196A0 (SeQueryInformationToken.c)
- *     SeReleaseSubjectContext @ 0x140737BC0 (SeReleaseSubjectContext.c)
- *     SeCaptureSubjectContext @ 0x140737C70 (SeCaptureSubjectContext.c)
- *     RtlFreeUnicodeString @ 0x14076F3D0 (RtlFreeUnicodeString.c)
- *     _PnpCtxRegCreateTree @ 0x140797964 (_PnpCtxRegCreateTree.c)
- *     _PnpValidateObjectName @ 0x1407FA768 (_PnpValidateObjectName.c)
- *     PiDqGetRelativeObjectRegPath @ 0x1407FA8D4 (PiDqGetRelativeObjectRegPath.c)
- *     PnpConcatPWSTR @ 0x1407FA9A8 (PnpConcatPWSTR.c)
- *     RtlConvertSidToUnicodeString @ 0x1407FAD40 (RtlConvertSidToUnicodeString.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     ZwClose @ 0x14041B2D0 (ZwClose.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     _SysCtxRegOpenKey @ 0x1406CED50 (_SysCtxRegOpenKey.c)
+ *     SeQueryUserSidToken @ 0x140715010 (SeQueryUserSidToken.c)
+ *     SeQueryInformationToken @ 0x1407198A0 (SeQueryInformationToken.c)
+ *     SeReleaseSubjectContext @ 0x140737DB0 (SeReleaseSubjectContext.c)
+ *     SeCaptureSubjectContext @ 0x140737E60 (SeCaptureSubjectContext.c)
+ *     RtlFreeUnicodeString @ 0x14076F5C0 (RtlFreeUnicodeString.c)
+ *     _PnpCtxRegCreateTree @ 0x140797B54 (_PnpCtxRegCreateTree.c)
+ *     _PnpValidateObjectName @ 0x1407FAA38 (_PnpValidateObjectName.c)
+ *     PiDqGetRelativeObjectRegPath @ 0x1407FABA4 (PiDqGetRelativeObjectRegPath.c)
+ *     PnpConcatPWSTR @ 0x1407FAC78 (PnpConcatPWSTR.c)
+ *     RtlConvertSidToUnicodeString @ 0x1407FB010 (RtlConvertSidToUnicodeString.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

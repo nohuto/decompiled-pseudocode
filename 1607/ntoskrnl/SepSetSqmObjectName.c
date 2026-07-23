@@ -1,10 +1,10 @@
 /*
- * XREFs of SepSetSqmObjectName @ 0x140695270
+ * XREFs of SepSetSqmObjectName @ 0x140695354
  * Callers:
- *     SepSqmInformation @ 0x140695354 (SepSqmInformation.c)
+ *     SepSqmInformation @ 0x140695438 (SepSqmInformation.c)
  * Callees:
- *     EtwWrite @ 0x140013320 (EtwWrite.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
+ *     EtwWrite @ 0x140012EA0 (EtwWrite.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall SepSetSqmObjectName(__int64 a1, __int64 a2)
@@ -26,14 +26,14 @@ NTSTATUS __fastcall SepSetSqmObjectName(__int64 a1, __int64 a2)
   int v17; // [rsp+A8h] [rbp+3Fh]
   int v18; // [rsp+ACh] [rbp+43h]
 
-  UserData.Ptr = (ULONGLONG)&unk_140286BE0;
+  UserData.Ptr = (ULONGLONG)&unk_140286CD0;
   v3 = 1;
-  v6 = &unk_140286C00;
+  v6 = &unk_140286CF0;
   v8 = &unk_1403581D4;
   v10 = &v3;
   v4 = 2;
   v12 = &v4;
-  v14 = &unk_140286BD8;
+  v14 = &unk_140286CC8;
   v16 = *(_QWORD *)(a2 + 8);
   v17 = *(unsigned __int16 *)(a2 + 2);
   *(_QWORD *)&UserData.Size = 16LL;

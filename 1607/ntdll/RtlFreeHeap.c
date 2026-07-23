@@ -1,5 +1,5 @@
 /*
- * XREFs of RtlFreeHeap @ 0x1800466F0
+ * XREFs of RtlFreeHeap @ 0x1800466E0
  * Callers:
  *     LdrSetDllDirectory @ 0x180001540 (LdrSetDllDirectory.c)
  *     RtlLockModuleSection @ 0x180001DA0 (RtlLockModuleSection.c)
@@ -9,223 +9,223 @@
  *     RtlGetAppContainerParent @ 0x180003330 (RtlGetAppContainerParent.c)
  *     RtlpSetSecurityObject @ 0x180003850 (RtlpSetSecurityObject.c)
  *     RtlpValidOwnerSubjectContext @ 0x180004234 (RtlpValidOwnerSubjectContext.c)
- *     PsspCaptureHandleInformation @ 0x180004AAC (PsspCaptureHandleInformation.c)
- *     RtlpCombineAcls @ 0x1800061B8 (RtlpCombineAcls.c)
- *     RtlSetSearchPathMode @ 0x1800069D0 (RtlSetSearchPathMode.c)
- *     WerpGlobalFlagsForProcess @ 0x1800075CC (WerpGlobalFlagsForProcess.c)
- *     PssNtFreeSnapshot @ 0x180007C40 (PssNtFreeSnapshot.c)
- *     RtlReleasePath @ 0x1800091A0 (RtlReleasePath.c)
- *     NtdllpFreeStringRoutine @ 0x1800094E0 (NtdllpFreeStringRoutine.c)
- *     RtlAddSIDToBoundaryDescriptorEx @ 0x18000B784 (RtlAddSIDToBoundaryDescriptorEx.c)
- *     LdrUnloadAlternateResourceModuleEx @ 0x18000C360 (LdrUnloadAlternateResourceModuleEx.c)
- *     RtlpGetCachedPath @ 0x18000CAF0 (RtlpGetCachedPath.c)
- *     RtlpComputePath @ 0x18000CD84 (RtlpComputePath.c)
- *     LdrpUnloadNode @ 0x18000D730 (LdrpUnloadNode.c)
- *     RtlReleaseRelativeName @ 0x18000E930 (RtlReleaseRelativeName.c)
- *     LdrpMapResourceFile @ 0x18000E970 (LdrpMapResourceFile.c)
- *     LdrpSearchPath @ 0x18000EBF0 (LdrpSearchPath.c)
- *     RtlGetAppContainerNamedObjectPath @ 0x18000F010 (RtlGetAppContainerNamedObjectPath.c)
- *     LdrpAllocatePlaceHolder @ 0x18000F5F4 (LdrpAllocatePlaceHolder.c)
- *     LdrpAllocateModuleEntry @ 0x18000F710 (LdrpAllocateModuleEntry.c)
- *     LdrpLogDelayLoadTrigger @ 0x1800112C0 (LdrpLogDelayLoadTrigger.c)
- *     RtlpMUIRegPatchLicenseInfortmation @ 0x1800114D8 (RtlpMUIRegPatchLicenseInfortmation.c)
- *     LdrLoadAlternateResourceModuleEx @ 0x180012AB0 (LdrLoadAlternateResourceModuleEx.c)
- *     LdrShutdownThread @ 0x180015E50 (LdrShutdownThread.c)
- *     LdrpMapAndSnapDependency @ 0x180016434 (LdrpMapAndSnapDependency.c)
- *     LdrpLoadDependentModule @ 0x180016680 (LdrpLoadDependentModule.c)
- *     RtlGetFullPathName_Ustr @ 0x18001D830 (RtlGetFullPathName_Ustr.c)
- *     TppWorkerThread @ 0x18001E750 (TppWorkerThread.c)
- *     TppPrepareDirectParams @ 0x180020180 (TppPrepareDirectParams.c)
- *     RtlpReAllocateHeap @ 0x1800211D0 (RtlpReAllocateHeap.c)
- *     RtlDosPathNameToRelativeNtPathName @ 0x1800222B0 (RtlDosPathNameToRelativeNtPathName.c)
- *     RtlpAllocateHeapInternal @ 0x180022DF0 (RtlpAllocateHeapInternal.c)
- *     RtlSubscribeWnfStateChangeNotificationInternal @ 0x18002943C (RtlSubscribeWnfStateChangeNotificationInternal.c)
- *     RtlpCreateWnfNameSubscription @ 0x1800296B0 (RtlpCreateWnfNameSubscription.c)
- *     RtlpExtendFrontEndUsageArray @ 0x18002995C (RtlpExtendFrontEndUsageArray.c)
- *     EtwpSetProviderTraits @ 0x18002A1B4 (EtwpSetProviderTraits.c)
- *     EtwRegisterTraceGuidsW @ 0x18002A2F0 (EtwRegisterTraceGuidsW.c)
- *     EtwpRegisterProvider @ 0x18002A504 (EtwpRegisterProvider.c)
- *     SbpRetrieveCompatibilityManifest @ 0x18002AF4C (SbpRetrieveCompatibilityManifest.c)
- *     RtlpAddHeapToProtectedList @ 0x18002C8C8 (RtlpAddHeapToProtectedList.c)
- *     LdrRemoveLoadAsDataTable @ 0x18002CE00 (LdrRemoveLoadAsDataTable.c)
- *     RtlpAddHeapToUnprotectedList @ 0x18002D5AC (RtlpAddHeapToUnprotectedList.c)
- *     LdrpDynamicShimModule @ 0x18002D734 (LdrpDynamicShimModule.c)
- *     LdrpHandleTlsData @ 0x18002DED4 (LdrpHandleTlsData.c)
- *     SbpDetermineDllContext @ 0x18002E304 (SbpDetermineDllContext.c)
- *     LdrpSendPostSnapNotifications @ 0x18002E4EC (LdrpSendPostSnapNotifications.c)
- *     LdrGetProcedureAddressForCaller @ 0x180031D60 (LdrGetProcedureAddressForCaller.c)
- *     LdrpDereferenceModule @ 0x180032238 (LdrpDereferenceModule.c)
- *     LdrpHandleProtectedDelayload @ 0x180033840 (LdrpHandleProtectedDelayload.c)
- *     LdrpSnapModule @ 0x180033FA0 (LdrpSnapModule.c)
- *     LdrpResSearchResourceInsideDirectory @ 0x1800381DC (LdrpResSearchResourceInsideDirectory.c)
- *     RtlQueueWorkItem @ 0x180039CF0 (RtlQueueWorkItem.c)
- *     RtlpTpWorkUnposted @ 0x18003A050 (RtlpTpWorkUnposted.c)
- *     TppTimerpFree @ 0x18003A540 (TppTimerpFree.c)
- *     TpAllocWait @ 0x18003A580 (TpAllocWait.c)
- *     TppWorkpFree @ 0x18003B5B0 (TppWorkpFree.c)
- *     TppCleanupGroupMemberDestroy @ 0x18003B5F0 (TppCleanupGroupMemberDestroy.c)
- *     TpAllocWork @ 0x18003BBB0 (TpAllocWork.c)
- *     RtlpAddNeutralsToMergedList @ 0x18003F364 (RtlpAddNeutralsToMergedList.c)
- *     LdrpMergeLangFallbackLists @ 0x180041058 (LdrpMergeLangFallbackLists.c)
- *     RtlpInheritAcl @ 0x18004158C (RtlpInheritAcl.c)
- *     RtlpMuiRegAddMultiSzToLangFallbackList @ 0x180044194 (RtlpMuiRegAddMultiSzToLangFallbackList.c)
- *     RtlDoesFileExists_UstrEx @ 0x180044734 (RtlDoesFileExists_UstrEx.c)
- *     RtlpMuiRegGetInstalledLanguageIndexByLangId @ 0x180044994 (RtlpMuiRegGetInstalledLanguageIndexByLangId.c)
- *     RtlpNewSecurityObject @ 0x180044AD8 (RtlpNewSecurityObject.c)
- *     RtlpMuiRegFreeLanguageList @ 0x180045F14 (RtlpMuiRegFreeLanguageList.c)
- *     RtlpFreeUserBlockToHeap @ 0x18004F41C (RtlpFreeUserBlockToHeap.c)
- *     LdrpAllocateTlsEntry @ 0x18004FF74 (LdrpAllocateTlsEntry.c)
- *     LdrpAcquireTlsIndex @ 0x1800500C0 (LdrpAcquireTlsIndex.c)
- *     RtlFlsAlloc @ 0x1800501A0 (RtlFlsAlloc.c)
- *     RtlpHpAllocateHeap @ 0x1800507D8 (RtlpHpAllocateHeap.c)
- *     LdrpAllocateTls @ 0x1800512B4 (LdrpAllocateTls.c)
- *     EtwpFreeLoggerContext @ 0x180051E5C (EtwpFreeLoggerContext.c)
- *     EtwpFreeStreamIndexMap @ 0x180052020 (EtwpFreeStreamIndexMap.c)
- *     RtlpFreeDebugInfo @ 0x1800524D8 (RtlpFreeDebugInfo.c)
- *     EtwpFinalizeLogFileHeader @ 0x1800530C0 (EtwpFinalizeLogFileHeader.c)
- *     EtwpNotificationThread @ 0x180053D60 (EtwpNotificationThread.c)
- *     EtwpAddLogHeaderToLogFile @ 0x180054914 (EtwpAddLogHeaderToLogFile.c)
- *     EtwpInitLoggerContext @ 0x1800550E0 (EtwpInitLoggerContext.c)
- *     RtlIdnToUnicode @ 0x180056690 (RtlIdnToUnicode.c)
- *     RtlpGetNormalization @ 0x180058730 (RtlpGetNormalization.c)
- *     EtwUnregisterTraceGuids @ 0x1800596A0 (EtwUnregisterTraceGuids.c)
- *     EvtIntReportEventWorker @ 0x1800598DC (EvtIntReportEventWorker.c)
- *     ResCKeOpenRuntimeView @ 0x18005A014 (ResCKeOpenRuntimeView.c)
- *     ResCKeDirectoryOpenMapping @ 0x18005A110 (ResCKeDirectoryOpenMapping.c)
- *     _ResQueryValueKey @ 0x18005AAA8 (_ResQueryValueKey.c)
- *     RtlCreateProcessParametersEx @ 0x18005E900 (RtlCreateProcessParametersEx.c)
- *     TpTrimPools @ 0x180062620 (TpTrimPools.c)
- *     TppPoolUpdateTrimmedWorker @ 0x180062DF8 (TppPoolUpdateTrimmedWorker.c)
- *     RtlCreateTimer @ 0x180064830 (RtlCreateTimer.c)
- *     RtlRegisterWait @ 0x180064AA0 (RtlRegisterWait.c)
- *     TppFreeWait @ 0x180064E00 (TppFreeWait.c)
- *     RtlpTpTimerRundown @ 0x180064E50 (RtlpTpTimerRundown.c)
- *     RtlpTpWaitRundown @ 0x180064EF0 (RtlpTpWaitRundown.c)
- *     RtlpTpTimerQueueRundown @ 0x180065028 (RtlpTpTimerQueueRundown.c)
- *     TppAlpcpFree @ 0x180065530 (TppAlpcpFree.c)
- *     TppAllocAlpcCompletion @ 0x180065614 (TppAllocAlpcCompletion.c)
- *     RtlpWnfNotificationThread @ 0x180065C30 (RtlpWnfNotificationThread.c)
- *     RtlpWnfProcessCurrentDescriptor @ 0x180065D48 (RtlpWnfProcessCurrentDescriptor.c)
- *     RtlpDecRefWnfUserSubscription @ 0x1800662F8 (RtlpDecRefWnfUserSubscription.c)
- *     RtlpDecRefWnfNameSubscription @ 0x1800663C8 (RtlpDecRefWnfNameSubscription.c)
- *     RtlpDecrementWnfSerializationGroup @ 0x180066D88 (RtlpDecrementWnfSerializationGroup.c)
- *     RtlpCallVectoredHandlers @ 0x18006701C (RtlpCallVectoredHandlers.c)
- *     LdrpMergeParentBaseLanguagesToList @ 0x180067188 (LdrpMergeParentBaseLanguagesToList.c)
- *     PsspCaptureAuxiliaryPages @ 0x180067344 (PsspCaptureAuxiliaryPages.c)
- *     RtlDosSearchPath_U @ 0x1800675C0 (RtlDosSearchPath_U.c)
- *     RtlpFreeAllAtom @ 0x180067AEC (RtlpFreeAllAtom.c)
- *     RtlpDereferenceAtom @ 0x180067CA8 (RtlpDereferenceAtom.c)
- *     RtlAddAtomToAtomTableEx @ 0x180067D0C (RtlAddAtomToAtomTableEx.c)
- *     RtlpGetActivationContextDataStorageMapAndRosterHeader @ 0x18006893C (RtlpGetActivationContextDataStorageMapAndRosterHeader.c)
- *     RtlpResolveAssemblyStorageMapEntry @ 0x180068EAC (RtlpResolveAssemblyStorageMapEntry.c)
- *     RtlpInsertAssemblyStorageMapEntry @ 0x180069698 (RtlpInsertAssemblyStorageMapEntry.c)
- *     RtlpProbeAssemblyStorageRootForAssembly @ 0x1800697C0 (RtlpProbeAssemblyStorageRootForAssembly.c)
- *     RtlGetFileMUIPath @ 0x180069AA0 (RtlGetFileMUIPath.c)
- *     RtlpGetMUIRedirectedFilePath @ 0x18006A4B4 (RtlpGetMUIRedirectedFilePath.c)
- *     RtlpFreeTraverseNodes @ 0x18006A7E0 (RtlpFreeTraverseNodes.c)
- *     RtlpFileIsWin32WithRCManifest @ 0x18006A95C (RtlpFileIsWin32WithRCManifest.c)
- *     RtlCreateActivationContext @ 0x18006ABF0 (RtlCreateActivationContext.c)
- *     RtlpGetDefaultsSubjectContext @ 0x18006B014 (RtlpGetDefaultsSubjectContext.c)
- *     RtlpGetDefaultTrustSubjectContext @ 0x18006B250 (RtlpGetDefaultTrustSubjectContext.c)
- *     LdrpFreeLoadContext @ 0x18006B738 (LdrpFreeLoadContext.c)
- *     RtlDeleteFunctionTable @ 0x18006E9D0 (RtlDeleteFunctionTable.c)
- *     RtlDeleteGrowableFunctionTable @ 0x18006EBC0 (RtlDeleteGrowableFunctionTable.c)
- *     RtlCleanUpTEBLangLists @ 0x1800705C0 (RtlCleanUpTEBLangLists.c)
- *     RtlpMuiRegLoadMachinePreferredUILanguages @ 0x180070764 (RtlpMuiRegLoadMachinePreferredUILanguages.c)
- *     RtlpMuiFreeLangRegistryInfo @ 0x180070880 (RtlpMuiFreeLangRegistryInfo.c)
- *     RtlpMuiRegCreateAndLoadRegistryInfo @ 0x180070C5C (RtlpMuiRegCreateAndLoadRegistryInfo.c)
- *     RtlpMuiRegFreeRegistryInfo @ 0x180070EB0 (RtlpMuiRegFreeRegistryInfo.c)
- *     RtlpMuiRegLoadPreferredUILanguages @ 0x1800712D8 (RtlpMuiRegLoadPreferredUILanguages.c)
- *     LdrpQueryValueKey @ 0x1800716D4 (LdrpQueryValueKey.c)
- *     _RtlpMuiRegAddNeutralLanguage @ 0x180071D80 (_RtlpMuiRegAddNeutralLanguage.c)
- *     RtlpMuiRegFreeStringPool @ 0x1800720D8 (RtlpMuiRegFreeStringPool.c)
- *     TpAllocPoolInternal @ 0x180072E74 (TpAllocPoolInternal.c)
- *     TppPoolUpdateNodeRelation @ 0x180073458 (TppPoolUpdateNodeRelation.c)
- *     LdrpLoadContextReplaceModule @ 0x180073728 (LdrpLoadContextReplaceModule.c)
- *     LdrpDestroyNode @ 0x1800747A0 (LdrpDestroyNode.c)
- *     LdrpMergeNodes @ 0x1800747F4 (LdrpMergeNodes.c)
- *     RtlpCreateSerializationGroup @ 0x180074C90 (RtlpCreateSerializationGroup.c)
- *     RtlpLowFragHeapAllocateFromZone @ 0x180074DB4 (RtlpLowFragHeapAllocateFromZone.c)
- *     CsrpConnectToServer @ 0x180075364 (CsrpConnectToServer.c)
- *     CsrFreeCaptureBuffer @ 0x1800757F0 (CsrFreeCaptureBuffer.c)
- *     LdrpIsReparsePoint @ 0x180075EF4 (LdrpIsReparsePoint.c)
- *     RtlpMuiRegTryToAppendLanguageName @ 0x180076AF4 (RtlpMuiRegTryToAppendLanguageName.c)
- *     RtlFreeActivationContextStack @ 0x180077870 (RtlFreeActivationContextStack.c)
- *     RtlpFreeActivationContextStackFrame @ 0x180077A58 (RtlpFreeActivationContextStackFrame.c)
- *     TppIopFree @ 0x180078690 (TppIopFree.c)
- *     RtlSetCurrentDirectory_U @ 0x180079060 (RtlSetCurrentDirectory_U.c)
- *     RtlpCheckForSameCurdir @ 0x1800791BC (RtlpCheckForSameCurdir.c)
- *     RtlGetCurrentDirectory_U @ 0x180079280 (RtlGetCurrentDirectory_U.c)
- *     RtlpReferenceCurrentDirectory @ 0x18007936C (RtlpReferenceCurrentDirectory.c)
- *     RtlpCreateNewDirectoryReference @ 0x180079468 (RtlpCreateNewDirectoryReference.c)
- *     LdrpFreeTls @ 0x18007963C (LdrpFreeTls.c)
- *     LdrpCleanupThreadTlsData @ 0x1800796F8 (LdrpCleanupThreadTlsData.c)
- *     TpAllocIoCompletion @ 0x180079E70 (TpAllocIoCompletion.c)
- *     TpSimpleTryPost @ 0x18007A0F0 (TpSimpleTryPost.c)
- *     RtlFreeSid @ 0x18007A4A0 (RtlFreeSid.c)
- *     RtlAcquirePrivilege @ 0x18007D360 (RtlAcquirePrivilege.c)
- *     LdrpInitShimEngine @ 0x18007DB94 (LdrpInitShimEngine.c)
- *     RtlpProcessIFEOKeyFilter @ 0x18007F260 (RtlpProcessIFEOKeyFilter.c)
- *     RtlQueryImageFileKeyOption @ 0x18007F330 (RtlQueryImageFileKeyOption.c)
- *     LdrpCodeAuthzInitialize @ 0x18008020C (LdrpCodeAuthzInitialize.c)
- *     RtlpLoadNlsData @ 0x1800806AC (RtlpLoadNlsData.c)
- *     RtlDeleteSecurityObject @ 0x180080A20 (RtlDeleteSecurityObject.c)
- *     TpAllocCleanupGroup @ 0x180080D10 (TpAllocCleanupGroup.c)
- *     RtlpNtQueryValueKey @ 0x180081410 (RtlpNtQueryValueKey.c)
- *     TpReleaseCleanupGroup @ 0x1800817B0 (TpReleaseCleanupGroup.c)
- *     LdrEnsureMrdataHeapExists @ 0x180081D00 (LdrEnsureMrdataHeapExists.c)
- *     LdrpLogDeprecatedDllEtwEvent @ 0x1800826C0 (LdrpLogDeprecatedDllEtwEvent.c)
- *     RtlpInitializeWnf @ 0x1800829C0 (RtlpInitializeWnf.c)
- *     TppFreeDirectParamsCache @ 0x180082CD4 (TppFreeDirectParamsCache.c)
- *     TppFreeDirectParams @ 0x180082F28 (TppFreeDirectParams.c)
- *     TppFreeThreadData @ 0x180082F4C (TppFreeThreadData.c)
- *     TppSimplepFree @ 0x1800830F0 (TppSimplepFree.c)
- *     RtlSetProtectedPolicy @ 0x180083130 (RtlSetProtectedPolicy.c)
- *     TppCallbackSendAndDestroyAlpcMessage @ 0x1800833AC (TppCallbackSendAndDestroyAlpcMessage.c)
- *     RtlAbortRXact @ 0x180083760 (RtlAbortRXact.c)
- *     TppPoolpFree @ 0x180083BB8 (TppPoolpFree.c)
- *     RtlpNtEnumerateSubKey @ 0x180083D00 (RtlpNtEnumerateSubKey.c)
- *     LdrpReleaseTlsEntry @ 0x18008410C (LdrpReleaseTlsEntry.c)
- *     TpAllocJobNotification @ 0x180084520 (TpAllocJobNotification.c)
- *     TppJobpFree @ 0x180084770 (TppJobpFree.c)
- *     LdrpLogDllRelocationEtwEvent @ 0x180085048 (LdrpLogDllRelocationEtwEvent.c)
- *     RtlDestroyProcessParameters @ 0x180085270 (RtlDestroyProcessParameters.c)
- *     LdrpInitializePerUserWindowsDirectory @ 0x180085D2C (LdrpInitializePerUserWindowsDirectory.c)
- *     RtlpFreeActivationContext @ 0x1800861CC (RtlpFreeActivationContext.c)
- *     RtlpUninitializeAssemblyStorageMap @ 0x18008623C (RtlpUninitializeAssemblyStorageMap.c)
- *     RtlpRemoveVectoredHandler @ 0x180086660 (RtlpRemoveVectoredHandler.c)
- *     RtlContractHashTable @ 0x180086850 (RtlContractHashTable.c)
- *     RtlAddAttributeActionToRXact @ 0x180086A20 (RtlAddAttributeActionToRXact.c)
- *     RtlReleasePrivilege @ 0x180087830 (RtlReleasePrivilege.c)
- *     RtlDeleteHashTable @ 0x1800881F0 (RtlDeleteHashTable.c)
- *     LdrpGetParentLangId @ 0x1800885D8 (LdrpGetParentLangId.c)
- *     RtlpMergeSecurityAttributeInformation @ 0x180088710 (RtlpMergeSecurityAttributeInformation.c)
- *     LdrpGetModuleInfoFromVirtualMemory @ 0x1800896B8 (LdrpGetModuleInfoFromVirtualMemory.c)
- *     RtlDestroyHandleTable @ 0x180089850 (RtlDestroyHandleTable.c)
- *     RtlDefaultNpAcl @ 0x18008B250 (RtlDefaultNpAcl.c)
- *     RtlExpandHashTable @ 0x18008B4E0 (RtlExpandHashTable.c)
- *     RtlCreateSystemVolumeInformationFolder @ 0x18008C150 (RtlCreateSystemVolumeInformationFolder.c)
- *     RtlpSysVolCreateSecurityDescriptor @ 0x18008C3E4 (RtlpSysVolCreateSecurityDescriptor.c)
- *     RtlpSysVolCheckOwnerAndSecurity @ 0x18008C544 (RtlpSysVolCheckOwnerAndSecurity.c)
- *     RtlCreateAndSetSD @ 0x18008C800 (RtlCreateAndSetSD.c)
- *     RtlCheckBootStatusIntegrity @ 0x18008CFC0 (RtlCheckBootStatusIntegrity.c)
- *     RtlInitializeRXact @ 0x18008D180 (RtlInitializeRXact.c)
- *     LdrFlushAlternateResourceModules @ 0x18008D350 (LdrFlushAlternateResourceModules.c)
- *     RtlpLoadInstallLanguageFallback @ 0x18008DB34 (RtlpLoadInstallLanguageFallback.c)
- *     RtlpHeapTrkTrackAdd @ 0x18008ECDC (RtlpHeapTrkTrackAdd.c)
- *     RtlpHeapTrkTrackStack @ 0x18008EDAC (RtlpHeapTrkTrackStack.c)
- *     RtlpHeapTrkTrackRemove @ 0x18008EF98 (RtlpHeapTrkTrackRemove.c)
- *     RtlpHeapTrkDereferenceStack @ 0x18008F130 (RtlpHeapTrkDereferenceStack.c)
- *     RtlpHeapTrkAllocCacheAligned @ 0x18008F700 (RtlpHeapTrkAllocCacheAligned.c)
- *     RtlpComputeMergedAcl @ 0x18008FC68 (RtlpComputeMergedAcl.c)
- *     RtlpTpIoDllLoaded @ 0x180090048 (RtlpTpIoDllLoaded.c)
- *     RtlpTpIoAlloc @ 0x18009053C (RtlpTpIoAlloc.c)
- *     LdrAddDllDirectory @ 0x180090690 (LdrAddDllDirectory.c)
- *     RtlDebugFreeHeap @ 0x180091B60 (RtlDebugFreeHeap.c)
- *     LdrpInitializeProcess @ 0x180091E34 (LdrpInitializeProcess.c)
- *     RtlpMuiRegConfigMatchesInstalled @ 0x180094AB0 (RtlpMuiRegConfigMatchesInstalled.c)
- *     RtlpMuiRegLangInfoMatchesSpec @ 0x180094DF4 (RtlpMuiRegLangInfoMatchesSpec.c)
- *     ResCGetIndexedName @ 0x1800957A0 (ResCGetIndexedName.c)
+ *     PsspCaptureHandleInformation @ 0x180004AC8 (PsspCaptureHandleInformation.c)
+ *     RtlpCombineAcls @ 0x1800061A8 (RtlpCombineAcls.c)
+ *     RtlSetSearchPathMode @ 0x1800069C0 (RtlSetSearchPathMode.c)
+ *     WerpGlobalFlagsForProcess @ 0x1800075BC (WerpGlobalFlagsForProcess.c)
+ *     PssNtFreeSnapshot @ 0x180007C30 (PssNtFreeSnapshot.c)
+ *     RtlReleasePath @ 0x180009190 (RtlReleasePath.c)
+ *     NtdllpFreeStringRoutine @ 0x1800094D0 (NtdllpFreeStringRoutine.c)
+ *     RtlAddSIDToBoundaryDescriptorEx @ 0x18000B774 (RtlAddSIDToBoundaryDescriptorEx.c)
+ *     LdrUnloadAlternateResourceModuleEx @ 0x18000C350 (LdrUnloadAlternateResourceModuleEx.c)
+ *     RtlpGetCachedPath @ 0x18000CAE0 (RtlpGetCachedPath.c)
+ *     RtlpComputePath @ 0x18000CD74 (RtlpComputePath.c)
+ *     LdrpUnloadNode @ 0x18000D720 (LdrpUnloadNode.c)
+ *     RtlReleaseRelativeName @ 0x18000E920 (RtlReleaseRelativeName.c)
+ *     LdrpMapResourceFile @ 0x18000E960 (LdrpMapResourceFile.c)
+ *     LdrpSearchPath @ 0x18000EBE0 (LdrpSearchPath.c)
+ *     RtlGetAppContainerNamedObjectPath @ 0x18000F000 (RtlGetAppContainerNamedObjectPath.c)
+ *     LdrpAllocatePlaceHolder @ 0x18000F5E4 (LdrpAllocatePlaceHolder.c)
+ *     LdrpAllocateModuleEntry @ 0x18000F700 (LdrpAllocateModuleEntry.c)
+ *     LdrpLogDelayLoadTrigger @ 0x1800112B0 (LdrpLogDelayLoadTrigger.c)
+ *     RtlpMUIRegPatchLicenseInfortmation @ 0x1800114C8 (RtlpMUIRegPatchLicenseInfortmation.c)
+ *     LdrLoadAlternateResourceModuleEx @ 0x180012AA0 (LdrLoadAlternateResourceModuleEx.c)
+ *     LdrShutdownThread @ 0x180015E40 (LdrShutdownThread.c)
+ *     LdrpMapAndSnapDependency @ 0x180016424 (LdrpMapAndSnapDependency.c)
+ *     LdrpLoadDependentModule @ 0x180016670 (LdrpLoadDependentModule.c)
+ *     RtlGetFullPathName_Ustr @ 0x18001D820 (RtlGetFullPathName_Ustr.c)
+ *     TppWorkerThread @ 0x18001E740 (TppWorkerThread.c)
+ *     TppPrepareDirectParams @ 0x180020170 (TppPrepareDirectParams.c)
+ *     RtlpReAllocateHeap @ 0x1800211C0 (RtlpReAllocateHeap.c)
+ *     RtlDosPathNameToRelativeNtPathName @ 0x1800222A0 (RtlDosPathNameToRelativeNtPathName.c)
+ *     RtlpAllocateHeapInternal @ 0x180022DE0 (RtlpAllocateHeapInternal.c)
+ *     RtlSubscribeWnfStateChangeNotificationInternal @ 0x18002942C (RtlSubscribeWnfStateChangeNotificationInternal.c)
+ *     RtlpCreateWnfNameSubscription @ 0x1800296A0 (RtlpCreateWnfNameSubscription.c)
+ *     RtlpExtendFrontEndUsageArray @ 0x18002994C (RtlpExtendFrontEndUsageArray.c)
+ *     EtwpSetProviderTraits @ 0x18002A1A4 (EtwpSetProviderTraits.c)
+ *     EtwRegisterTraceGuidsW @ 0x18002A2E0 (EtwRegisterTraceGuidsW.c)
+ *     EtwpRegisterProvider @ 0x18002A4F4 (EtwpRegisterProvider.c)
+ *     SbpRetrieveCompatibilityManifest @ 0x18002AF3C (SbpRetrieveCompatibilityManifest.c)
+ *     RtlpAddHeapToProtectedList @ 0x18002C8B8 (RtlpAddHeapToProtectedList.c)
+ *     LdrRemoveLoadAsDataTable @ 0x18002CDF0 (LdrRemoveLoadAsDataTable.c)
+ *     RtlpAddHeapToUnprotectedList @ 0x18002D59C (RtlpAddHeapToUnprotectedList.c)
+ *     LdrpDynamicShimModule @ 0x18002D724 (LdrpDynamicShimModule.c)
+ *     LdrpHandleTlsData @ 0x18002DEC4 (LdrpHandleTlsData.c)
+ *     SbpDetermineDllContext @ 0x18002E2F4 (SbpDetermineDllContext.c)
+ *     LdrpSendPostSnapNotifications @ 0x18002E4DC (LdrpSendPostSnapNotifications.c)
+ *     LdrGetProcedureAddressForCaller @ 0x180031D50 (LdrGetProcedureAddressForCaller.c)
+ *     LdrpDereferenceModule @ 0x180032228 (LdrpDereferenceModule.c)
+ *     LdrpHandleProtectedDelayload @ 0x180033830 (LdrpHandleProtectedDelayload.c)
+ *     LdrpSnapModule @ 0x180033F90 (LdrpSnapModule.c)
+ *     LdrpResSearchResourceInsideDirectory @ 0x1800381CC (LdrpResSearchResourceInsideDirectory.c)
+ *     RtlQueueWorkItem @ 0x180039CE0 (RtlQueueWorkItem.c)
+ *     RtlpTpWorkUnposted @ 0x18003A040 (RtlpTpWorkUnposted.c)
+ *     TppTimerpFree @ 0x18003A530 (TppTimerpFree.c)
+ *     TpAllocWait @ 0x18003A570 (TpAllocWait.c)
+ *     TppWorkpFree @ 0x18003B5A0 (TppWorkpFree.c)
+ *     TppCleanupGroupMemberDestroy @ 0x18003B5E0 (TppCleanupGroupMemberDestroy.c)
+ *     TpAllocWork @ 0x18003BBA0 (TpAllocWork.c)
+ *     RtlpAddNeutralsToMergedList @ 0x18003F354 (RtlpAddNeutralsToMergedList.c)
+ *     LdrpMergeLangFallbackLists @ 0x180041048 (LdrpMergeLangFallbackLists.c)
+ *     RtlpInheritAcl @ 0x18004157C (RtlpInheritAcl.c)
+ *     RtlpMuiRegAddMultiSzToLangFallbackList @ 0x180044184 (RtlpMuiRegAddMultiSzToLangFallbackList.c)
+ *     RtlDoesFileExists_UstrEx @ 0x180044724 (RtlDoesFileExists_UstrEx.c)
+ *     RtlpMuiRegGetInstalledLanguageIndexByLangId @ 0x180044984 (RtlpMuiRegGetInstalledLanguageIndexByLangId.c)
+ *     RtlpNewSecurityObject @ 0x180044AC8 (RtlpNewSecurityObject.c)
+ *     RtlpMuiRegFreeLanguageList @ 0x180045F04 (RtlpMuiRegFreeLanguageList.c)
+ *     RtlpFreeUserBlockToHeap @ 0x18004F40C (RtlpFreeUserBlockToHeap.c)
+ *     LdrpAllocateTlsEntry @ 0x18004FF64 (LdrpAllocateTlsEntry.c)
+ *     LdrpAcquireTlsIndex @ 0x1800500B0 (LdrpAcquireTlsIndex.c)
+ *     RtlFlsAlloc @ 0x180050190 (RtlFlsAlloc.c)
+ *     RtlpHpAllocateHeap @ 0x1800507C8 (RtlpHpAllocateHeap.c)
+ *     LdrpAllocateTls @ 0x1800512A4 (LdrpAllocateTls.c)
+ *     EtwpFreeLoggerContext @ 0x180051E4C (EtwpFreeLoggerContext.c)
+ *     EtwpFreeStreamIndexMap @ 0x180052010 (EtwpFreeStreamIndexMap.c)
+ *     RtlpFreeDebugInfo @ 0x1800524C8 (RtlpFreeDebugInfo.c)
+ *     EtwpFinalizeLogFileHeader @ 0x1800530B0 (EtwpFinalizeLogFileHeader.c)
+ *     EtwpNotificationThread @ 0x180053D50 (EtwpNotificationThread.c)
+ *     EtwpAddLogHeaderToLogFile @ 0x180054904 (EtwpAddLogHeaderToLogFile.c)
+ *     EtwpInitLoggerContext @ 0x1800550D0 (EtwpInitLoggerContext.c)
+ *     RtlIdnToUnicode @ 0x180056680 (RtlIdnToUnicode.c)
+ *     RtlpGetNormalization @ 0x180058720 (RtlpGetNormalization.c)
+ *     EtwUnregisterTraceGuids @ 0x180059690 (EtwUnregisterTraceGuids.c)
+ *     EvtIntReportEventWorker @ 0x1800598CC (EvtIntReportEventWorker.c)
+ *     ResCKeOpenRuntimeView @ 0x18005A004 (ResCKeOpenRuntimeView.c)
+ *     ResCKeDirectoryOpenMapping @ 0x18005A100 (ResCKeDirectoryOpenMapping.c)
+ *     _ResQueryValueKey @ 0x18005AA98 (_ResQueryValueKey.c)
+ *     RtlCreateProcessParametersEx @ 0x18005E8F0 (RtlCreateProcessParametersEx.c)
+ *     TpTrimPools @ 0x180062610 (TpTrimPools.c)
+ *     TppPoolUpdateTrimmedWorker @ 0x180062DE8 (TppPoolUpdateTrimmedWorker.c)
+ *     RtlCreateTimer @ 0x180064820 (RtlCreateTimer.c)
+ *     RtlRegisterWait @ 0x180064A90 (RtlRegisterWait.c)
+ *     TppFreeWait @ 0x180064DF0 (TppFreeWait.c)
+ *     RtlpTpTimerRundown @ 0x180064E40 (RtlpTpTimerRundown.c)
+ *     RtlpTpWaitRundown @ 0x180064EE0 (RtlpTpWaitRundown.c)
+ *     RtlpTpTimerQueueRundown @ 0x180065018 (RtlpTpTimerQueueRundown.c)
+ *     TppAlpcpFree @ 0x180065520 (TppAlpcpFree.c)
+ *     TppAllocAlpcCompletion @ 0x180065604 (TppAllocAlpcCompletion.c)
+ *     RtlpWnfNotificationThread @ 0x180065C20 (RtlpWnfNotificationThread.c)
+ *     RtlpWnfProcessCurrentDescriptor @ 0x180065D38 (RtlpWnfProcessCurrentDescriptor.c)
+ *     RtlpDecRefWnfUserSubscription @ 0x1800662E8 (RtlpDecRefWnfUserSubscription.c)
+ *     RtlpDecRefWnfNameSubscription @ 0x1800663B8 (RtlpDecRefWnfNameSubscription.c)
+ *     RtlpDecrementWnfSerializationGroup @ 0x180066D78 (RtlpDecrementWnfSerializationGroup.c)
+ *     RtlpCallVectoredHandlers @ 0x18006700C (RtlpCallVectoredHandlers.c)
+ *     LdrpMergeParentBaseLanguagesToList @ 0x180067178 (LdrpMergeParentBaseLanguagesToList.c)
+ *     PsspCaptureAuxiliaryPages @ 0x180067334 (PsspCaptureAuxiliaryPages.c)
+ *     RtlDosSearchPath_U @ 0x1800675B0 (RtlDosSearchPath_U.c)
+ *     RtlpFreeAllAtom @ 0x180067ADC (RtlpFreeAllAtom.c)
+ *     RtlpDereferenceAtom @ 0x180067C98 (RtlpDereferenceAtom.c)
+ *     RtlAddAtomToAtomTableEx @ 0x180067CFC (RtlAddAtomToAtomTableEx.c)
+ *     RtlpGetActivationContextDataStorageMapAndRosterHeader @ 0x18006892C (RtlpGetActivationContextDataStorageMapAndRosterHeader.c)
+ *     RtlpResolveAssemblyStorageMapEntry @ 0x180068E9C (RtlpResolveAssemblyStorageMapEntry.c)
+ *     RtlpInsertAssemblyStorageMapEntry @ 0x180069688 (RtlpInsertAssemblyStorageMapEntry.c)
+ *     RtlpProbeAssemblyStorageRootForAssembly @ 0x1800697B0 (RtlpProbeAssemblyStorageRootForAssembly.c)
+ *     RtlGetFileMUIPath @ 0x180069A90 (RtlGetFileMUIPath.c)
+ *     RtlpGetMUIRedirectedFilePath @ 0x18006A4A4 (RtlpGetMUIRedirectedFilePath.c)
+ *     RtlpFreeTraverseNodes @ 0x18006A7D0 (RtlpFreeTraverseNodes.c)
+ *     RtlpFileIsWin32WithRCManifest @ 0x18006A94C (RtlpFileIsWin32WithRCManifest.c)
+ *     RtlCreateActivationContext @ 0x18006ABE0 (RtlCreateActivationContext.c)
+ *     RtlpGetDefaultsSubjectContext @ 0x18006B004 (RtlpGetDefaultsSubjectContext.c)
+ *     RtlpGetDefaultTrustSubjectContext @ 0x18006B240 (RtlpGetDefaultTrustSubjectContext.c)
+ *     LdrpFreeLoadContext @ 0x18006B728 (LdrpFreeLoadContext.c)
+ *     RtlDeleteFunctionTable @ 0x18006E9C0 (RtlDeleteFunctionTable.c)
+ *     RtlDeleteGrowableFunctionTable @ 0x18006EBB0 (RtlDeleteGrowableFunctionTable.c)
+ *     RtlCleanUpTEBLangLists @ 0x1800705B0 (RtlCleanUpTEBLangLists.c)
+ *     RtlpMuiRegLoadMachinePreferredUILanguages @ 0x180070754 (RtlpMuiRegLoadMachinePreferredUILanguages.c)
+ *     RtlpMuiFreeLangRegistryInfo @ 0x180070870 (RtlpMuiFreeLangRegistryInfo.c)
+ *     RtlpMuiRegCreateAndLoadRegistryInfo @ 0x180070C4C (RtlpMuiRegCreateAndLoadRegistryInfo.c)
+ *     RtlpMuiRegFreeRegistryInfo @ 0x180070EA0 (RtlpMuiRegFreeRegistryInfo.c)
+ *     RtlpMuiRegLoadPreferredUILanguages @ 0x1800712C8 (RtlpMuiRegLoadPreferredUILanguages.c)
+ *     LdrpQueryValueKey @ 0x1800716C4 (LdrpQueryValueKey.c)
+ *     _RtlpMuiRegAddNeutralLanguage @ 0x180071D70 (_RtlpMuiRegAddNeutralLanguage.c)
+ *     RtlpMuiRegFreeStringPool @ 0x1800720C8 (RtlpMuiRegFreeStringPool.c)
+ *     TpAllocPoolInternal @ 0x180072E64 (TpAllocPoolInternal.c)
+ *     TppPoolUpdateNodeRelation @ 0x180073448 (TppPoolUpdateNodeRelation.c)
+ *     LdrpLoadContextReplaceModule @ 0x180073718 (LdrpLoadContextReplaceModule.c)
+ *     LdrpDestroyNode @ 0x180074790 (LdrpDestroyNode.c)
+ *     LdrpMergeNodes @ 0x1800747E4 (LdrpMergeNodes.c)
+ *     RtlpCreateSerializationGroup @ 0x180074C80 (RtlpCreateSerializationGroup.c)
+ *     RtlpLowFragHeapAllocateFromZone @ 0x180074DA4 (RtlpLowFragHeapAllocateFromZone.c)
+ *     CsrpConnectToServer @ 0x180075354 (CsrpConnectToServer.c)
+ *     CsrFreeCaptureBuffer @ 0x1800757E0 (CsrFreeCaptureBuffer.c)
+ *     LdrpIsReparsePoint @ 0x180075EE4 (LdrpIsReparsePoint.c)
+ *     RtlpMuiRegTryToAppendLanguageName @ 0x180076AE4 (RtlpMuiRegTryToAppendLanguageName.c)
+ *     RtlFreeActivationContextStack @ 0x180077860 (RtlFreeActivationContextStack.c)
+ *     RtlpFreeActivationContextStackFrame @ 0x180077A48 (RtlpFreeActivationContextStackFrame.c)
+ *     TppIopFree @ 0x180078680 (TppIopFree.c)
+ *     RtlSetCurrentDirectory_U @ 0x180079050 (RtlSetCurrentDirectory_U.c)
+ *     RtlpCheckForSameCurdir @ 0x1800791AC (RtlpCheckForSameCurdir.c)
+ *     RtlGetCurrentDirectory_U @ 0x180079270 (RtlGetCurrentDirectory_U.c)
+ *     RtlpReferenceCurrentDirectory @ 0x18007935C (RtlpReferenceCurrentDirectory.c)
+ *     RtlpCreateNewDirectoryReference @ 0x180079458 (RtlpCreateNewDirectoryReference.c)
+ *     LdrpFreeTls @ 0x18007962C (LdrpFreeTls.c)
+ *     LdrpCleanupThreadTlsData @ 0x1800796E8 (LdrpCleanupThreadTlsData.c)
+ *     TpAllocIoCompletion @ 0x180079E60 (TpAllocIoCompletion.c)
+ *     TpSimpleTryPost @ 0x18007A0E0 (TpSimpleTryPost.c)
+ *     RtlFreeSid @ 0x18007A490 (RtlFreeSid.c)
+ *     RtlAcquirePrivilege @ 0x18007D350 (RtlAcquirePrivilege.c)
+ *     LdrpInitShimEngine @ 0x18007DB84 (LdrpInitShimEngine.c)
+ *     RtlpProcessIFEOKeyFilter @ 0x18007F250 (RtlpProcessIFEOKeyFilter.c)
+ *     RtlQueryImageFileKeyOption @ 0x18007F320 (RtlQueryImageFileKeyOption.c)
+ *     LdrpCodeAuthzInitialize @ 0x1800801FC (LdrpCodeAuthzInitialize.c)
+ *     RtlpLoadNlsData @ 0x18008069C (RtlpLoadNlsData.c)
+ *     RtlDeleteSecurityObject @ 0x180080A10 (RtlDeleteSecurityObject.c)
+ *     TpAllocCleanupGroup @ 0x180080D00 (TpAllocCleanupGroup.c)
+ *     RtlpNtQueryValueKey @ 0x180081400 (RtlpNtQueryValueKey.c)
+ *     TpReleaseCleanupGroup @ 0x1800817A0 (TpReleaseCleanupGroup.c)
+ *     LdrEnsureMrdataHeapExists @ 0x180081CF0 (LdrEnsureMrdataHeapExists.c)
+ *     LdrpLogDeprecatedDllEtwEvent @ 0x1800826B0 (LdrpLogDeprecatedDllEtwEvent.c)
+ *     RtlpInitializeWnf @ 0x1800829B0 (RtlpInitializeWnf.c)
+ *     TppFreeDirectParamsCache @ 0x180082CC4 (TppFreeDirectParamsCache.c)
+ *     TppFreeDirectParams @ 0x180082F18 (TppFreeDirectParams.c)
+ *     TppFreeThreadData @ 0x180082F3C (TppFreeThreadData.c)
+ *     TppSimplepFree @ 0x1800830E0 (TppSimplepFree.c)
+ *     RtlSetProtectedPolicy @ 0x180083120 (RtlSetProtectedPolicy.c)
+ *     TppCallbackSendAndDestroyAlpcMessage @ 0x18008339C (TppCallbackSendAndDestroyAlpcMessage.c)
+ *     RtlAbortRXact @ 0x180083750 (RtlAbortRXact.c)
+ *     TppPoolpFree @ 0x180083BA8 (TppPoolpFree.c)
+ *     RtlpNtEnumerateSubKey @ 0x180083CF0 (RtlpNtEnumerateSubKey.c)
+ *     LdrpReleaseTlsEntry @ 0x1800840FC (LdrpReleaseTlsEntry.c)
+ *     TpAllocJobNotification @ 0x180084510 (TpAllocJobNotification.c)
+ *     TppJobpFree @ 0x180084760 (TppJobpFree.c)
+ *     LdrpLogDllRelocationEtwEvent @ 0x180085038 (LdrpLogDllRelocationEtwEvent.c)
+ *     RtlDestroyProcessParameters @ 0x180085260 (RtlDestroyProcessParameters.c)
+ *     LdrpInitializePerUserWindowsDirectory @ 0x180085D1C (LdrpInitializePerUserWindowsDirectory.c)
+ *     RtlpFreeActivationContext @ 0x1800861BC (RtlpFreeActivationContext.c)
+ *     RtlpUninitializeAssemblyStorageMap @ 0x18008622C (RtlpUninitializeAssemblyStorageMap.c)
+ *     RtlpRemoveVectoredHandler @ 0x180086650 (RtlpRemoveVectoredHandler.c)
+ *     RtlContractHashTable @ 0x180086840 (RtlContractHashTable.c)
+ *     RtlAddAttributeActionToRXact @ 0x180086A10 (RtlAddAttributeActionToRXact.c)
+ *     RtlReleasePrivilege @ 0x180087820 (RtlReleasePrivilege.c)
+ *     RtlDeleteHashTable @ 0x1800881E0 (RtlDeleteHashTable.c)
+ *     LdrpGetParentLangId @ 0x1800885C8 (LdrpGetParentLangId.c)
+ *     RtlpMergeSecurityAttributeInformation @ 0x180088700 (RtlpMergeSecurityAttributeInformation.c)
+ *     LdrpGetModuleInfoFromVirtualMemory @ 0x1800896A8 (LdrpGetModuleInfoFromVirtualMemory.c)
+ *     RtlDestroyHandleTable @ 0x180089840 (RtlDestroyHandleTable.c)
+ *     RtlDefaultNpAcl @ 0x18008B240 (RtlDefaultNpAcl.c)
+ *     RtlExpandHashTable @ 0x18008B4D0 (RtlExpandHashTable.c)
+ *     RtlCreateSystemVolumeInformationFolder @ 0x18008C140 (RtlCreateSystemVolumeInformationFolder.c)
+ *     RtlpSysVolCreateSecurityDescriptor @ 0x18008C3D4 (RtlpSysVolCreateSecurityDescriptor.c)
+ *     RtlpSysVolCheckOwnerAndSecurity @ 0x18008C534 (RtlpSysVolCheckOwnerAndSecurity.c)
+ *     RtlCreateAndSetSD @ 0x18008C7F0 (RtlCreateAndSetSD.c)
+ *     RtlCheckBootStatusIntegrity @ 0x18008CFB0 (RtlCheckBootStatusIntegrity.c)
+ *     RtlInitializeRXact @ 0x18008D170 (RtlInitializeRXact.c)
+ *     LdrFlushAlternateResourceModules @ 0x18008D340 (LdrFlushAlternateResourceModules.c)
+ *     RtlpLoadInstallLanguageFallback @ 0x18008DB24 (RtlpLoadInstallLanguageFallback.c)
+ *     RtlpHeapTrkTrackAdd @ 0x18008ECCC (RtlpHeapTrkTrackAdd.c)
+ *     RtlpHeapTrkTrackStack @ 0x18008ED9C (RtlpHeapTrkTrackStack.c)
+ *     RtlpHeapTrkTrackRemove @ 0x18008EF88 (RtlpHeapTrkTrackRemove.c)
+ *     RtlpHeapTrkDereferenceStack @ 0x18008F120 (RtlpHeapTrkDereferenceStack.c)
+ *     RtlpHeapTrkAllocCacheAligned @ 0x18008F6F0 (RtlpHeapTrkAllocCacheAligned.c)
+ *     RtlpComputeMergedAcl @ 0x18008FC58 (RtlpComputeMergedAcl.c)
+ *     RtlpTpIoDllLoaded @ 0x180090038 (RtlpTpIoDllLoaded.c)
+ *     RtlpTpIoAlloc @ 0x18009052C (RtlpTpIoAlloc.c)
+ *     LdrAddDllDirectory @ 0x180090680 (LdrAddDllDirectory.c)
+ *     RtlDebugFreeHeap @ 0x180091B50 (RtlDebugFreeHeap.c)
+ *     LdrpInitializeProcess @ 0x180091E24 (LdrpInitializeProcess.c)
+ *     RtlpMuiRegConfigMatchesInstalled @ 0x180094AA0 (RtlpMuiRegConfigMatchesInstalled.c)
+ *     RtlpMuiRegLangInfoMatchesSpec @ 0x180094DE4 (RtlpMuiRegLangInfoMatchesSpec.c)
+ *     ResCGetIndexedName @ 0x180095790 (ResCGetIndexedName.c)
  *     CsrpLocalSetupForSecureProcess @ 0x1800CEC24 (CsrpLocalSetupForSecureProcess.c)
  *     LdrAppxHandleIntegrityFailure @ 0x1800CEEC0 (LdrAppxHandleIntegrityFailure.c)
  *     LdrpAppxGetBinaryNameKeyInformation @ 0x1800CF250 (LdrpAppxGetBinaryNameKeyInformation.c)
@@ -233,45 +233,45 @@
  *     RtlDisableThreadProfiling @ 0x1800CF6E0 (RtlDisableThreadProfiling.c)
  *     RtlEnableThreadProfiling @ 0x1800CF750 (RtlEnableThreadProfiling.c)
  *     RtlpCheckDeviceName @ 0x1800CFF7C (RtlpCheckDeviceName.c)
- *     LdrUnregisterDllNotification @ 0x1800D0BF0 (LdrUnregisterDllNotification.c)
- *     LdrpLogEtwDllSearchResults @ 0x1800D129C (LdrpLogEtwDllSearchResults.c)
- *     LdrpLogEtwEvent @ 0x1800D1538 (LdrpLogEtwEvent.c)
- *     LdrpLogFatalLdrEtwEvent @ 0x1800D16A8 (LdrpLogFatalLdrEtwEvent.c)
- *     LdrpLogNewDllLoadInternal @ 0x1800D18F0 (LdrpLogNewDllLoadInternal.c)
- *     LdrpUnlockTlsDelayedReclaimTable @ 0x1800D2BCC (LdrpUnlockTlsDelayedReclaimTable.c)
- *     RtlCheckSandboxedToken @ 0x1800D4580 (RtlCheckSandboxedToken.c)
- *     RtlCreateUserSecurityObject @ 0x1800D48F0 (RtlCreateUserSecurityObject.c)
- *     RtlpValidateRemoteDebugInformation @ 0x1800D59C0 (RtlpValidateRemoteDebugInformation.c)
- *     RtlpWnfRetryTimerCallback @ 0x1800D9D60 (RtlpWnfRetryTimerCallback.c)
- *     LdrRemoveDllDirectory @ 0x1800D9F80 (LdrRemoveDllDirectory.c)
- *     RtlpLookupSafeCurDirList @ 0x1800DA2C0 (RtlpLookupSafeCurDirList.c)
- *     RtlpSignalSystemDirsModification @ 0x1800DA5F8 (RtlpSignalSystemDirsModification.c)
- *     RtlComputeImportTableHash @ 0x1800DB660 (RtlComputeImportTableHash.c)
- *     LdrpCnvrtShortToLongFileName @ 0x1800DC01C (LdrpCnvrtShortToLongFileName.c)
- *     RtlQueryModuleInformation @ 0x1800DCD60 (RtlQueryModuleInformation.c)
- *     LdrpResMapFile @ 0x1800DD12C (LdrpResMapFile.c)
- *     LdrpResSearchResourceHandle @ 0x1800DD4C0 (LdrpResSearchResourceHandle.c)
- *     LdrpResValidateFilePath @ 0x1800DDB90 (LdrpResValidateFilePath.c)
- *     RtlIsUntrustedObject @ 0x1800DF7C0 (RtlIsUntrustedObject.c)
- *     RtlpConvertAclToAutoInherit @ 0x1800DFF70 (RtlpConvertAclToAutoInherit.c)
- *     RtlpConvertToAutoInheritSecurityObject @ 0x1800E077C (RtlpConvertToAutoInheritSecurityObject.c)
- *     RtlAddResourceAttributeAce @ 0x1800E1510 (RtlAddResourceAttributeAce.c)
- *     RtlDestroyAtomTable @ 0x1800E2D40 (RtlDestroyAtomTable.c)
- *     RtlEmptyAtomTable @ 0x1800E2E20 (RtlEmptyAtomTable.c)
- *     RtlGetUILanguageInfo @ 0x1800E5AC0 (RtlGetUILanguageInfo.c)
- *     RtlpAddLanguagesToMultiSZ @ 0x1800E6164 (RtlpAddLanguagesToMultiSZ.c)
- *     RtlpCleanupRegistryKeys @ 0x1800E65D0 (RtlpCleanupRegistryKeys.c)
- *     RtlpConvertCultureNamesToLCIDs @ 0x1800E6A40 (RtlpConvertCultureNamesToLCIDs.c)
- *     RtlpConvertLCIDsToCultureNames @ 0x1800E6C60 (RtlpConvertLCIDsToCultureNames.c)
- *     RtlpMUIEnumerateFolder @ 0x1800E7250 (RtlpMUIEnumerateFolder.c)
- *     RtlpSetPreferredUILanguages @ 0x1800E7E30 (RtlpSetPreferredUILanguages.c)
- *     RtlMultipleFreeHeap @ 0x1800E91E0 (RtlMultipleFreeHeap.c)
- *     RtlCreateUmsCompletionList @ 0x1800EC3F0 (RtlCreateUmsCompletionList.c)
- *     RtlCreateUmsThreadContext @ 0x1800EC510 (RtlCreateUmsThreadContext.c)
- *     RtlDeleteUmsCompletionList @ 0x1800EC620 (RtlDeleteUmsCompletionList.c)
- *     RtlDeleteUmsThreadContext @ 0x1800EC680 (RtlDeleteUmsThreadContext.c)
- *     RtlDeregisterSecureMemoryCacheCallback @ 0x1800ED0D0 (RtlDeregisterSecureMemoryCacheCallback.c)
- *     RtlpCallSecureMemoryCallbacks @ 0x1800ED2B0 (RtlpCallSecureMemoryCallbacks.c)
+ *     LdrUnregisterDllNotification @ 0x1800D0CB0 (LdrUnregisterDllNotification.c)
+ *     LdrpLogEtwDllSearchResults @ 0x1800D135C (LdrpLogEtwDllSearchResults.c)
+ *     LdrpLogEtwEvent @ 0x1800D15F8 (LdrpLogEtwEvent.c)
+ *     LdrpLogFatalLdrEtwEvent @ 0x1800D1768 (LdrpLogFatalLdrEtwEvent.c)
+ *     LdrpLogNewDllLoadInternal @ 0x1800D19B0 (LdrpLogNewDllLoadInternal.c)
+ *     LdrpUnlockTlsDelayedReclaimTable @ 0x1800D2C8C (LdrpUnlockTlsDelayedReclaimTable.c)
+ *     RtlCheckSandboxedToken @ 0x1800D4640 (RtlCheckSandboxedToken.c)
+ *     RtlCreateUserSecurityObject @ 0x1800D49B0 (RtlCreateUserSecurityObject.c)
+ *     RtlpValidateRemoteDebugInformation @ 0x1800D5A80 (RtlpValidateRemoteDebugInformation.c)
+ *     RtlpWnfRetryTimerCallback @ 0x1800D9E20 (RtlpWnfRetryTimerCallback.c)
+ *     LdrRemoveDllDirectory @ 0x1800DA040 (LdrRemoveDllDirectory.c)
+ *     RtlpLookupSafeCurDirList @ 0x1800DA380 (RtlpLookupSafeCurDirList.c)
+ *     RtlpSignalSystemDirsModification @ 0x1800DA6B8 (RtlpSignalSystemDirsModification.c)
+ *     RtlComputeImportTableHash @ 0x1800DB720 (RtlComputeImportTableHash.c)
+ *     LdrpCnvrtShortToLongFileName @ 0x1800DC0DC (LdrpCnvrtShortToLongFileName.c)
+ *     RtlQueryModuleInformation @ 0x1800DCE20 (RtlQueryModuleInformation.c)
+ *     LdrpResMapFile @ 0x1800DD1EC (LdrpResMapFile.c)
+ *     LdrpResSearchResourceHandle @ 0x1800DD580 (LdrpResSearchResourceHandle.c)
+ *     LdrpResValidateFilePath @ 0x1800DDC50 (LdrpResValidateFilePath.c)
+ *     RtlIsUntrustedObject @ 0x1800DF880 (RtlIsUntrustedObject.c)
+ *     RtlpConvertAclToAutoInherit @ 0x1800E0030 (RtlpConvertAclToAutoInherit.c)
+ *     RtlpConvertToAutoInheritSecurityObject @ 0x1800E083C (RtlpConvertToAutoInheritSecurityObject.c)
+ *     RtlAddResourceAttributeAce @ 0x1800E15D0 (RtlAddResourceAttributeAce.c)
+ *     RtlDestroyAtomTable @ 0x1800E2E00 (RtlDestroyAtomTable.c)
+ *     RtlEmptyAtomTable @ 0x1800E2EE0 (RtlEmptyAtomTable.c)
+ *     RtlGetUILanguageInfo @ 0x1800E5B80 (RtlGetUILanguageInfo.c)
+ *     RtlpAddLanguagesToMultiSZ @ 0x1800E6224 (RtlpAddLanguagesToMultiSZ.c)
+ *     RtlpCleanupRegistryKeys @ 0x1800E6690 (RtlpCleanupRegistryKeys.c)
+ *     RtlpConvertCultureNamesToLCIDs @ 0x1800E6B00 (RtlpConvertCultureNamesToLCIDs.c)
+ *     RtlpConvertLCIDsToCultureNames @ 0x1800E6D20 (RtlpConvertLCIDsToCultureNames.c)
+ *     RtlpMUIEnumerateFolder @ 0x1800E7310 (RtlpMUIEnumerateFolder.c)
+ *     RtlpSetPreferredUILanguages @ 0x1800E7EF0 (RtlpSetPreferredUILanguages.c)
+ *     RtlMultipleFreeHeap @ 0x1800E92A0 (RtlMultipleFreeHeap.c)
+ *     RtlCreateUmsCompletionList @ 0x1800EC4B0 (RtlCreateUmsCompletionList.c)
+ *     RtlCreateUmsThreadContext @ 0x1800EC5D0 (RtlCreateUmsThreadContext.c)
+ *     RtlDeleteUmsCompletionList @ 0x1800EC6E0 (RtlDeleteUmsCompletionList.c)
+ *     RtlDeleteUmsThreadContext @ 0x1800EC740 (RtlDeleteUmsThreadContext.c)
+ *     RtlDeregisterSecureMemoryCacheCallback @ 0x1800ED190 (RtlDeregisterSecureMemoryCacheCallback.c)
+ *     RtlpCallSecureMemoryCallbacks @ 0x1800ED370 (RtlpCallSecureMemoryCallbacks.c)
  *     RtlpHeapTrkTrackRemoveHeap @ 0x1800F0380 (RtlpHeapTrkTrackRemoveHeap.c)
  *     RtlpIsNameInExpressionPrivate @ 0x1800F0934 (RtlpIsNameInExpressionPrivate.c)
  *     RtlpUpcaseUnicodeStringPrivate @ 0x1800F0E54 (RtlpUpcaseUnicodeStringPrivate.c)
@@ -287,40 +287,40 @@
  *     ResCKeCreateRuntimeView @ 0x1800FF07C (ResCKeCreateRuntimeView.c)
  *     ??$InitStack@H@@YAHPEAPEAXI@Z @ 0x1800FF9D4 (--$InitStack@H@@YAHPEAPEAXI@Z.c)
  *     ??$RecurseValidate@PEAU_RESCDIRECTORY@@@@YAHPEAU_RESCDIRECTORY@@HPEAE@Z @ 0x1800FFA6C (--$RecurseValidate@PEAU_RESCDIRECTORY@@@@YAHPEAU_RESCDIRECTORY@@HPEAE@Z.c)
- *     ??$StackPush@I@@YAHIPEAX@Z @ 0x1800FFC4C (--$StackPush@I@@YAHIPEAX@Z.c)
- *     ??$Validate@PEAU_RESCDIRECTORY@@PEAU_RESCDENTRY@@@@YAHPEAU_RESCDIRECTORY@@@Z @ 0x1800FFD14 (--$Validate@PEAU_RESCDIRECTORY@@PEAU_RESCDENTRY@@@@YAHPEAU_RESCDIRECTORY@@@Z.c)
- *     ResCDirectoryFree @ 0x1800FFE18 (ResCDirectoryFree.c)
- *     ResCHitsFree @ 0x1801000BC (ResCHitsFree.c)
- *     ResCSegmentFree @ 0x180100318 (ResCSegmentFree.c)
- *     OpenGlobalizationUserSettingsKey_ForSingleUserModel @ 0x180102BB0 (OpenGlobalizationUserSettingsKey_ForSingleUserModel.c)
- *     BasepInitializeFindFileHandle @ 0x18010328C (BasepInitializeFindFileHandle.c)
- *     _CreateSecureFileMapping @ 0x180103484 (_CreateSecureFileMapping.c)
- *     _ResCLoadFixedSize @ 0x180103908 (_ResCLoadFixedSize.c)
- *     _ResCreateFile @ 0x180103B80 (_ResCreateFile.c)
- *     _ResCreateSecurityDescriptor @ 0x180103F4C (_ResCreateSecurityDescriptor.c)
- *     _ResFindClose @ 0x18010426C (_ResFindClose.c)
- *     _ResFindFirstFileExW @ 0x180104314 (_ResFindFirstFileExW.c)
- *     _ResGetFileAttributesEx @ 0x180104948 (_ResGetFileAttributesEx.c)
- *     _ResGetFileAttributesW @ 0x180104A74 (_ResGetFileAttributesW.c)
- *     ResCGetName @ 0x180105118 (ResCGetName.c)
- *     ResCCultureMapCreateAndPopulate @ 0x1801057C0 (ResCCultureMapCreateAndPopulate.c)
- *     ResCFreeCultureMap @ 0x1801058E8 (ResCFreeCultureMap.c)
- *     ??$ReleaseStack@I@@YAXPEAX@Z @ 0x180105BC4 (--$ReleaseStack@I@@YAXPEAX@Z.c)
- *     ResCDirectoryCreateAndPopulate @ 0x180105C14 (ResCDirectoryCreateAndPopulate.c)
- *     ResCHitsCreateAndPopulate @ 0x180105F14 (ResCHitsCreateAndPopulate.c)
+ *     ??$Validate@PEAU_RESCDIRECTORY@@PEAU_RESCDENTRY@@@@YAHPEAU_RESCDIRECTORY@@@Z @ 0x1800FFC4C (--$Validate@PEAU_RESCDIRECTORY@@PEAU_RESCDENTRY@@@@YAHPEAU_RESCDIRECTORY@@@Z.c)
+ *     ResCDirectoryFree @ 0x1800FFD50 (ResCDirectoryFree.c)
+ *     ResCHitsFree @ 0x1800FFFF4 (ResCHitsFree.c)
+ *     ResCSegmentFree @ 0x180100250 (ResCSegmentFree.c)
+ *     OpenGlobalizationUserSettingsKey_ForSingleUserModel @ 0x180102AF0 (OpenGlobalizationUserSettingsKey_ForSingleUserModel.c)
+ *     BasepInitializeFindFileHandle @ 0x1801031CC (BasepInitializeFindFileHandle.c)
+ *     _CreateSecureFileMapping @ 0x1801033C4 (_CreateSecureFileMapping.c)
+ *     _ResCLoadFixedSize @ 0x180103848 (_ResCLoadFixedSize.c)
+ *     _ResCreateFile @ 0x180103AC0 (_ResCreateFile.c)
+ *     _ResCreateSecurityDescriptor @ 0x180103E8C (_ResCreateSecurityDescriptor.c)
+ *     _ResFindClose @ 0x1801041AC (_ResFindClose.c)
+ *     _ResFindFirstFileExW @ 0x180104254 (_ResFindFirstFileExW.c)
+ *     _ResGetFileAttributesEx @ 0x180104888 (_ResGetFileAttributesEx.c)
+ *     _ResGetFileAttributesW @ 0x1801049B4 (_ResGetFileAttributesW.c)
+ *     ResCGetName @ 0x180105058 (ResCGetName.c)
+ *     ResCCultureMapCreateAndPopulate @ 0x180105700 (ResCCultureMapCreateAndPopulate.c)
+ *     ResCFreeCultureMap @ 0x180105828 (ResCFreeCultureMap.c)
+ *     ??$ReleaseStack@I@@YAXPEAX@Z @ 0x180105B04 (--$ReleaseStack@I@@YAXPEAX@Z.c)
+ *     ??$StackPush@I@@YAHIPEAX@Z @ 0x180105B54 (--$StackPush@I@@YAHIPEAX@Z.c)
+ *     ResCDirectoryCreateAndPopulate @ 0x180105C1C (ResCDirectoryCreateAndPopulate.c)
+ *     ResCHitsCreateAndPopulate @ 0x180105F1C (ResCHitsCreateAndPopulate.c)
  *     ResCSegmentCreateAndPopulate @ 0x180106000 (ResCSegmentCreateAndPopulate.c)
  * Callees:
  *     RtlpGetReservedBlockSize @ 0x180001058 (RtlpGetReservedBlockSize.c)
- *     RtlpGetHeapProtection @ 0x1800436E4 (RtlpGetHeapProtection.c)
- *     RtlpFreeUserBlock @ 0x180045F48 (RtlpFreeUserBlock.c)
- *     RtlpIsSubSegmentReuseable @ 0x1800460E4 (RtlpIsSubSegmentReuseable.c)
- *     RtlpHpFreeWithExceptionProtection @ 0x180046F90 (RtlpHpFreeWithExceptionProtection.c)
- *     RtlpFreeHeapInternal @ 0x180048100 (RtlpFreeHeapInternal.c)
- *     RtlpFreeHeap @ 0x180049370 (RtlpFreeHeap.c)
- *     RtlNtStatusToDosError @ 0x18005A4E0 (RtlNtStatusToDosError.c)
- *     RtlpProbeUserBufferSafe @ 0x18007AE0C (RtlpProbeUserBufferSafe.c)
- *     RtlpCallInterceptRoutine @ 0x180090F54 (RtlpCallInterceptRoutine.c)
- *     RtlpValidateLFHBlock @ 0x18009117C (RtlpValidateLFHBlock.c)
+ *     RtlpGetHeapProtection @ 0x1800436D4 (RtlpGetHeapProtection.c)
+ *     RtlpFreeUserBlock @ 0x180045F38 (RtlpFreeUserBlock.c)
+ *     RtlpIsSubSegmentReuseable @ 0x1800460D4 (RtlpIsSubSegmentReuseable.c)
+ *     RtlpHpFreeWithExceptionProtection @ 0x180046F80 (RtlpHpFreeWithExceptionProtection.c)
+ *     RtlpFreeHeapInternal @ 0x1800480F0 (RtlpFreeHeapInternal.c)
+ *     RtlpFreeHeap @ 0x180049360 (RtlpFreeHeap.c)
+ *     RtlNtStatusToDosError @ 0x18005A4D0 (RtlNtStatusToDosError.c)
+ *     RtlpProbeUserBufferSafe @ 0x18007ADFC (RtlpProbeUserBufferSafe.c)
+ *     RtlpCallInterceptRoutine @ 0x180090F44 (RtlpCallInterceptRoutine.c)
+ *     RtlpValidateLFHBlock @ 0x18009116C (RtlpValidateLFHBlock.c)
  *     RtlpLogHeapFailure @ 0x1800A5E64 (RtlpLogHeapFailure.c)
  *     ZwProtectVirtualMemory @ 0x1800A6E20 (ZwProtectVirtualMemory.c)
  *     RtlpInterlockedPushEntrySList @ 0x1800A9D70 (RtlpInterlockedPushEntrySList.c)
@@ -329,11 +329,11 @@
  *     RtlpLogHeapFreeEvent @ 0x1800F93BC (RtlpLogHeapFreeEvent.c)
  */
 
-__int64 __fastcall RtlFreeHeap(__int64 a1, unsigned int a2, unsigned __int64 a3)
+LOGICAL __cdecl RtlFreeHeap(PVOID HeapHandle, ULONG Flags, PVOID BaseAddress)
 {
-  unsigned __int64 v3; // rdi
-  unsigned int v4; // r15d
-  unsigned int v7; // ebp
+  _DWORD *v3; // rdi
+  ULONG v4; // r15d
+  LOGICAL v7; // ebp
   unsigned __int64 v8; // rsi
   unsigned int v9; // edx
   int v10; // eax
@@ -374,7 +374,7 @@ __int64 __fastcall RtlFreeHeap(__int64 a1, unsigned int a2, unsigned __int64 a3)
   __int64 v45; // rsi
   unsigned __int16 ReservedBlockSize; // ax
   _DWORD *v47; // rcx
-  unsigned int HeapProtection; // eax
+  ULONG HeapProtection; // eax
   int v49; // edx
   signed __int64 v50; // rax
   int v51; // ecx
@@ -385,24 +385,24 @@ __int64 __fastcall RtlFreeHeap(__int64 a1, unsigned int a2, unsigned __int64 a3)
   volatile signed __int32 *v56; // rdx
   __int64 v57; // rcx
   unsigned __int8 v58; // al
-  char v59[8]; // [rsp+30h] [rbp-78h] BYREF
+  ULONG OldProtect; // [rsp+30h] [rbp-78h] BYREF
   signed __int64 v60; // [rsp+38h] [rbp-70h]
   int v61; // [rsp+40h] [rbp-68h]
-  __int64 v62; // [rsp+48h] [rbp-60h] BYREF
-  unsigned __int64 v63; // [rsp+50h] [rbp-58h] BYREF
-  unsigned __int64 v64; // [rsp+58h] [rbp-50h] BYREF
+  __int64 v62; // [rsp+48h] [rbp-60h]
+  ULONG_PTR RegionSize; // [rsp+50h] [rbp-58h] BYREF
+  PVOID BaseAddressa; // [rsp+58h] [rbp-50h] BYREF
   int v65; // [rsp+68h] [rbp-40h]
   unsigned __int16 v68; // [rsp+C8h] [rbp+20h] BYREF
 
-  v3 = a3;
-  v4 = a2;
-  if ( !a3 )
-    return 1LL;
-  if ( *(_DWORD *)(a1 + 16) == -571548178 )
-    return (unsigned int)RtlpHpFreeWithExceptionProtection(a1, a3, a2);
+  v3 = BaseAddress;
+  v4 = Flags;
+  if ( !BaseAddress )
+    return 1;
+  if ( *((_DWORD *)HeapHandle + 4) == -571548178 )
+    return RtlpHpFreeWithExceptionProtection(HeapHandle);
   if ( (RtlpHpHeapFeatures & 2) != 0 )
   {
-    v7 = RtlpFreeHeapInternal(a1, a3, a2, (unsigned int)&v62, (__int64)&v68);
+    v7 = RtlpFreeHeapInternal(HeapHandle, (__int64)&v68);
     if ( v7 )
     {
       if ( v68 )
@@ -414,58 +414,58 @@ __int64 __fastcall RtlFreeHeap(__int64 a1, unsigned int a2, unsigned __int64 a3)
   }
   v7 = 0;
   v8 = 0LL;
-  if ( (*(_DWORD *)(a1 + 116) & 0x1000000) != 0 )
+  if ( (*((_DWORD *)HeapHandle + 29) & 0x1000000) != 0 )
   {
 LABEL_119:
-    v58 = RtlpFreeHeap(a1, v4 | 2, v8, v3);
+    v58 = RtlpFreeHeap(HeapHandle);
     v7 = v58;
     if ( v58 )
       goto LABEL_120;
     return v7;
   }
-  if ( (*(_BYTE *)(a1 + 120) & 1) != 0 )
+  if ( (*((_BYTE *)HeapHandle + 120) & 1) != 0 )
   {
-    v8 = RtlpProbeUserBufferSafe(a1, a3);
+    v8 = RtlpProbeUserBufferSafe(HeapHandle, BaseAddress);
   }
-  else if ( (a3 & 0xF) != 0 )
+  else if ( ((unsigned __int8)BaseAddress & 0xF) != 0 )
   {
-    RtlpLogHeapFailure(9, a1, a3, 0, 0LL, 0LL);
+    RtlpLogHeapFailure(9, (_DWORD)HeapHandle, (_DWORD)BaseAddress, 0, 0LL, 0LL);
   }
   else
   {
-    v8 = a3 - 16;
-    _m_prefetchw((const void *)(a3 - 16));
-    if ( *(_BYTE *)(a3 - 16 + 15) == 5 )
+    v8 = (unsigned __int64)BaseAddress - 16;
+    _m_prefetchw((char *)BaseAddress - 16);
+    if ( *((char *)BaseAddress - 1) == 5 )
       v8 -= 16LL * *(unsigned __int8 *)(v8 + 14);
     if ( (*(_BYTE *)(v8 + 15) & 0x3F) == 0 )
     {
-      RtlpLogHeapFailure(8, a1, v8, 0, 0LL, 0LL);
+      RtlpLogHeapFailure(8, (_DWORD)HeapHandle, v8, 0, 0LL, 0LL);
       v8 = 0LL;
     }
   }
   if ( !v8 )
     goto LABEL_50;
-  if ( *(_BYTE *)(v3 - 1) == 5 )
+  if ( *((_BYTE *)v3 - 1) == 5 )
   {
     if ( *(char *)(v8 + 15) >= 0 )
     {
-      if ( !*(_DWORD *)(a1 + 124) )
+      if ( !*((_DWORD *)HeapHandle + 31) )
         goto LABEL_25;
-      v65 = *(_DWORD *)(a1 + 136) ^ *(_DWORD *)(v8 + 8);
+      v65 = *((_DWORD *)HeapHandle + 34) ^ *(_DWORD *)(v8 + 8);
       if ( HIBYTE(v65) == (BYTE2(v65) ^ (unsigned __int8)(BYTE1(v65) ^ v65)) )
         goto LABEL_25;
     }
-    else if ( (unsigned __int8)RtlpValidateLFHBlock(a1, v8) )
+    else if ( (unsigned __int8)RtlpValidateLFHBlock(HeapHandle, v8) )
     {
 LABEL_25:
       if ( *(char *)(v8 + 15) >= 0 )
       {
-        if ( *(_DWORD *)(a1 + 124) )
+        if ( *((_DWORD *)HeapHandle + 31) )
         {
           v10 = *(_DWORD *)(v8 + 8);
           v61 = v10;
-          if ( (v10 & *(_DWORD *)(a1 + 124)) != 0 )
-            v61 = *(_DWORD *)(a1 + 136) ^ v10;
+          if ( (v10 & *((_DWORD *)HeapHandle + 31)) != 0 )
+            v61 = *((_DWORD *)HeapHandle + 34) ^ v10;
           v11 = v61;
         }
         else
@@ -474,24 +474,24 @@ LABEL_25:
         }
         v9 = v11;
       }
-      else if ( *(_WORD *)(v8 + 8) ^ (unsigned __int16)(RtlpLFHKey ^ a1 ^ (v8 >> 4)) )
+      else if ( *(_WORD *)(v8 + 8) ^ (unsigned __int16)(RtlpLFHKey ^ (unsigned __int16)HeapHandle ^ (v8 >> 4)) )
       {
         v9 = MEMORY[0x24];
       }
       else
       {
         v9 = *(unsigned __int16 *)(*(_QWORD *)(v8
-                                             - ((unsigned __int64)(*(_DWORD *)(v8 + 8) ^ (unsigned int)RtlpLFHKey ^ (unsigned int)a1 ^ (unsigned int)(v8 >> 4)) >> 12))
+                                             - ((unsigned __int64)(*(_DWORD *)(v8 + 8) ^ (unsigned int)RtlpLFHKey ^ (unsigned int)HeapHandle ^ (unsigned int)(v8 >> 4)) >> 12))
                                  + 36LL);
       }
       if ( *(_BYTE *)(v8 + 15) == 4 )
       {
-        if ( *(_DWORD *)(a1 + 124) )
+        if ( *((_DWORD *)HeapHandle + 31) )
         {
           v12 = *(_DWORD *)(v8 + 8);
           v61 = v12;
-          if ( (v12 & *(_DWORD *)(a1 + 124)) != 0 )
-            v61 = *(_DWORD *)(a1 + 136) ^ v12;
+          if ( (v12 & *((_DWORD *)HeapHandle + 31)) != 0 )
+            v61 = *((_DWORD *)HeapHandle + 34) ^ v12;
           v13 = v61;
         }
         else
@@ -504,18 +504,18 @@ LABEL_25:
       {
         v14 = 16LL * v9;
       }
-      if ( v14 + v8 < v3 )
+      if ( v14 + v8 < (unsigned __int64)v3 )
         goto LABEL_44;
       if ( (v4 & 0x3C000102) == 0 )
       {
-        v15 = *(_BYTE *)(v3 - 1) == 5 ? v3 - 16LL * *(unsigned __int8 *)(v3 - 16 + 14) : 0LL;
-        if ( (int)RtlpCallInterceptRoutine(*(_DWORD *)(v3 - 8), a1, v3, 3, v15) < 0 )
+        v15 = *((_BYTE *)v3 - 1) == 5 ? (__int64)&v3[-4 * *((unsigned __int8 *)v3 - 2)] : 0LL;
+        if ( (int)RtlpCallInterceptRoutine(*(v3 - 2), (_DWORD)HeapHandle, (_DWORD)v3, 3, v15) < 0 )
           goto LABEL_50;
       }
       goto LABEL_51;
     }
 LABEL_44:
-    RtlpLogHeapFailure(3, a1, v8, v3, 0LL, 0LL);
+    RtlpLogHeapFailure(3, (_DWORD)HeapHandle, v8, (_DWORD)v3, 0LL, 0LL);
 LABEL_50:
     NtCurrentTeb()->LastStatusValue = -1073741811;
     v16 = NtCurrentTeb();
@@ -525,12 +525,12 @@ LABEL_50:
 LABEL_51:
   if ( *(char *)(v8 + 15) >= 0 )
     goto LABEL_119;
-  if ( (unsigned __int16)RtlpLFHKey ^ (unsigned __int16)(a1 ^ *(_WORD *)(v8 + 8) ^ (v8 >> 4))
+  if ( (unsigned __int16)RtlpLFHKey ^ (unsigned __int16)((unsigned __int16)HeapHandle ^ *(_WORD *)(v8 + 8) ^ (v8 >> 4))
     || (v17 = *(signed __int32 **)(v8
-                                 - ((unsigned __int64)((unsigned int)RtlpLFHKey ^ (unsigned int)a1 ^ *(_DWORD *)(v8 + 8) ^ (unsigned int)(v8 >> 4)) >> 12))) == 0LL )
+                                 - ((unsigned __int64)((unsigned int)RtlpLFHKey ^ (unsigned int)HeapHandle ^ *(_DWORD *)(v8 + 8) ^ (unsigned int)(v8 >> 4)) >> 12))) == 0LL )
   {
-    RtlpLogHeapFailure(3, a1, v8, 0, 0LL, 0LL);
-    v3 = a3;
+    RtlpLogHeapFailure(3, (_DWORD)HeapHandle, v8, 0, 0LL, 0LL);
+    v3 = BaseAddress;
     v7 = 1;
     goto LABEL_120;
   }
@@ -703,12 +703,12 @@ LABEL_92:
   v45 = *(_QWORD *)(*(_QWORD *)v34 + 24LL);
   if ( (*((_BYTE *)v17 + 38) & 3) != 0 )
   {
-    v64 = (*((_QWORD *)v17 + 1) + 4151LL) & 0xFFFFFFFFFFFFF000uLL;
+    BaseAddressa = (PVOID)((*((_QWORD *)v17 + 1) + 4151LL) & 0xFFFFFFFFFFFFF000uLL);
     ReservedBlockSize = RtlpGetReservedBlockSize((__int64)v17);
     v47 = *(_DWORD **)(v45 + 24);
-    v63 = 16 * ReservedBlockSize * (unsigned __int64)*((unsigned __int16 *)v17 + 20);
+    RegionSize = 16 * ReservedBlockSize * (unsigned __int64)*((unsigned __int16 *)v17 + 20);
     HeapProtection = RtlpGetHeapProtection(v47, 1);
-    ZwProtectVirtualMemory(-1LL, &v64, &v63, HeapProtection, v59);
+    ZwProtectVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &BaseAddressa, &RegionSize, HeapProtection, &OldProtect);
   }
   *(_DWORD *)(*((_QWORD *)v17 + 1) + 20LL) = 0;
   RtlpFreeUserBlock(v45, *((__int64 **)v17 + 1));
@@ -736,11 +736,11 @@ LABEL_92:
     goto LABEL_65;
   }
 LABEL_66:
-  v4 = a2;
-  v3 = a3;
+  v4 = Flags;
+  v3 = BaseAddress;
   v7 = 1;
 LABEL_120:
-  if ( (RtlpHpHeapFeatures & 4) != 0 && a1 != RtlpHpMetadataHeap && (v4 & 0x10000000) == 0 )
-    RtlpHpStackTraceRemoveStack(a1, v3);
+  if ( (RtlpHpHeapFeatures & 4) != 0 && HeapHandle != RtlpHpMetadataHeap && (v4 & 0x10000000) == 0 )
+    RtlpHpStackTraceRemoveStack(HeapHandle, v3);
   return v7;
 }

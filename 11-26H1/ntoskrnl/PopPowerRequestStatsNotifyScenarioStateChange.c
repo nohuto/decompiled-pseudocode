@@ -1,11 +1,11 @@
 /*
- * XREFs of PopPowerRequestStatsNotifyScenarioStateChange @ 0x1404F4938
+ * XREFs of PopPowerRequestStatsNotifyScenarioStateChange @ 0x1404EDF18
  * Callers:
- *     PopPowerRequestNotifyMobileHotspotChanged @ 0x1407C95DC (PopPowerRequestNotifyMobileHotspotChanged.c)
- *     PopPowerRequestNotifyAudioStateChanged @ 0x140946794 (PopPowerRequestNotifyAudioStateChanged.c)
+ *     PopPowerRequestNotifyMobileHotspotChanged @ 0x1407CC67C (PopPowerRequestNotifyMobileHotspotChanged.c)
+ *     PopPowerRequestNotifyAudioStateChanged @ 0x1409C2104 (PopPowerRequestNotifyAudioStateChanged.c)
  * Callees:
- *     SleepstudyHelperBlockerActiveDereference @ 0x140256460 (SleepstudyHelperBlockerActiveDereference.c)
- *     SleepstudyHelperBlockerActiveReference @ 0x140256500 (SleepstudyHelperBlockerActiveReference.c)
+ *     SleepstudyHelperBlockerActiveDereference @ 0x140257DF0 (SleepstudyHelperBlockerActiveDereference.c)
+ *     SleepstudyHelperBlockerActiveReference @ 0x140257E90 (SleepstudyHelperBlockerActiveReference.c)
  */
 
 __int64 __fastcall PopPowerRequestStatsNotifyScenarioStateChange(int a1, char a2)
@@ -14,7 +14,7 @@ __int64 __fastcall PopPowerRequestStatsNotifyScenarioStateChange(int a1, char a2
   KSPIN_LOCK *v3; // rcx
 
   result = a1;
-  v3 = (KSPIN_LOCK *)PopDirectedDripsUmLock.Padding[a1 + 1];
+  v3 = (KSPIN_LOCK *)*((_QWORD *)&PopDirectedDripsDiagLock.SavedApcState.ApcListHead[2].Flink + a1);
   if ( v3 )
   {
     if ( a2 )

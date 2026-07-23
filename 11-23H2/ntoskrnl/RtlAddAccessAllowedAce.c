@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlAddAccessAllowedAce @ 0x1407EF430
+ * XREFs of RtlAddAccessAllowedAce @ 0x1407EF700
  * Callers:
- *     RtlCheckTokenMembershipEx @ 0x14031D1F0 (RtlCheckTokenMembershipEx.c)
- *     SepAppendAceToTokenDefaultDacl @ 0x14037046C (SepAppendAceToTokenDefaultDacl.c)
- *     RtlCheckTokenCapability @ 0x140370630 (RtlCheckTokenCapability.c)
- *     SepInitProcessAuditSd @ 0x14038848C (SepInitProcessAuditSd.c)
- *     WdipAccessCheck @ 0x1405FB808 (WdipAccessCheck.c)
- *     ExpPlRunOnceInit @ 0x140608A00 (ExpPlRunOnceInit.c)
- *     ViInitializeLocalSystemDescriptor @ 0x140AC2A58 (ViInitializeLocalSystemDescriptor.c)
+ *     RtlCheckTokenMembershipEx @ 0x14031D480 (RtlCheckTokenMembershipEx.c)
+ *     SepAppendAceToTokenDefaultDacl @ 0x14037060C (SepAppendAceToTokenDefaultDacl.c)
+ *     RtlCheckTokenCapability @ 0x1403707D0 (RtlCheckTokenCapability.c)
+ *     SepInitProcessAuditSd @ 0x14038866C (SepInitProcessAuditSd.c)
+ *     WdipAccessCheck @ 0x1405FBD78 (WdipAccessCheck.c)
+ *     ExpPlRunOnceInit @ 0x140608F50 (ExpPlRunOnceInit.c)
+ *     ViInitializeLocalSystemDescriptor @ 0x140AC2A48 (ViInitializeLocalSystemDescriptor.c)
  *     WmipInitializeSecurity @ 0x140B39160 (WmipInitializeSecurity.c)
  *     SeMakeAnonymousLogonTokenNoEveryone @ 0x140B53620 (SeMakeAnonymousLogonTokenNoEveryone.c)
  *     SeMakeAnonymousLogonToken @ 0x140B538B0 (SeMakeAnonymousLogonToken.c)
@@ -21,10 +21,10 @@
  *     PopUmpoInitializeChannel @ 0x140B6FC1C (PopUmpoInitializeChannel.c)
  *     IopApplySystemPartitionProt @ 0x140B93EE0 (IopApplySystemPartitionProt.c)
  * Callees:
- *     RtlpAddKnownAce @ 0x140735270 (RtlpAddKnownAce.c)
+ *     RtlpAddKnownAce @ 0x140735460 (RtlpAddKnownAce.c)
  */
 
 NTSTATUS __stdcall RtlAddAccessAllowedAce(PACL Acl, ULONG AceRevision, ACCESS_MASK AccessMask, PSID Sid)
 {
-  return RtlpAddKnownAce((__int64)Acl, AceRevision, 0, AccessMask, (unsigned __int8 *)Sid, 0);
+  return RtlpAddKnownAce(Acl, AceRevision, 0, AccessMask, (unsigned __int8 *)Sid, 0);
 }

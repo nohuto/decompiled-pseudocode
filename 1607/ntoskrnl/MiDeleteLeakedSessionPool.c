@@ -1,12 +1,12 @@
 /*
- * XREFs of MiDeleteLeakedSessionPool @ 0x140531EB8
+ * XREFs of MiDeleteLeakedSessionPool @ 0x1405323F8
  * Callers:
- *     MiCheckSessionPoolAllocations @ 0x140531DC8 (MiCheckSessionPoolAllocations.c)
+ *     MiCheckSessionPoolAllocations @ 0x140532308 (MiCheckSessionPoolAllocations.c)
  * Callees:
- *     RtlFindSetBits @ 0x14000AFC0 (RtlFindSetBits.c)
- *     MiReturnCommit @ 0x14004E500 (MiReturnCommit.c)
- *     RtlFindNextForwardRunClear @ 0x140084724 (RtlFindNextForwardRunClear.c)
- *     MiDeleteSessionPoolRange @ 0x1401ECB48 (MiDeleteSessionPoolRange.c)
+ *     RtlFindSetBits @ 0x14000AB40 (RtlFindSetBits.c)
+ *     MiReturnCommit @ 0x14004E080 (MiReturnCommit.c)
+ *     RtlFindNextForwardRunClear @ 0x140082884 (RtlFindNextForwardRunClear.c)
+ *     MiDeleteSessionPoolRange @ 0x1401EC974 (MiDeleteSessionPoolRange.c)
  */
 
 unsigned __int64 MiDeleteLeakedSessionPool()
@@ -20,7 +20,7 @@ unsigned __int64 MiDeleteLeakedSessionPool()
   bool v6; // zf
   ULONG SizeOfBitMap; // eax
   unsigned int v8; // eax
-  struct _RTL_BITMAP BitMapHeader; // [rsp+20h] [rbp-30h] BYREF
+  _RTL_BITMAP BitMapHeader; // [rsp+20h] [rbp-30h] BYREF
   __int64 v10; // [rsp+30h] [rbp-20h] BYREF
   __int64 v11; // [rsp+38h] [rbp-18h]
   __int64 v12; // [rsp+40h] [rbp-10h]
@@ -47,7 +47,7 @@ unsigned __int64 MiDeleteLeakedSessionPool()
       SizeOfBitMap = BitMapHeader.SizeOfBitMap;
     v8 = SizeOfBitMap - v3;
     v0 += v8;
-    MiDeleteSessionPoolRange(qword_1403268C0 + (v3 << 21), (unsigned __int64)v8 << 21, &v10);
+    MiDeleteSessionPoolRange(qword_140326900 + (v3 << 21), (unsigned __int64)v8 << 21, &v10);
   }
   while ( v0 < BitMapHeader.SizeOfBitMap );
   v4 = v13;

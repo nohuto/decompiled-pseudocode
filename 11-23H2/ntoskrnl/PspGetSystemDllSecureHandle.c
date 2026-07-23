@@ -3,9 +3,9 @@
  * Callers:
  *     PspInitPhase3 @ 0x140B75C30 (PspInitPhase3.c)
  * Callees:
- *     ObFastDereferenceObject @ 0x140297C80 (ObFastDereferenceObject.c)
- *     PspReferenceSystemDll @ 0x1407A34A4 (PspReferenceSystemDll.c)
- *     MmGetSectionStrongImageReference @ 0x140A437EC (MmGetSectionStrongImageReference.c)
+ *     ObFastDereferenceObject @ 0x140297F10 (ObFastDereferenceObject.c)
+ *     PspReferenceSystemDll @ 0x1407A3694 (PspReferenceSystemDll.c)
+ *     MmGetSectionStrongImageReference @ 0x140A43A9C (MmGetSectionStrongImageReference.c)
  */
 
 __int64 __fastcall PspGetSystemDllSecureHandle(signed __int64 *a1, _QWORD *a2)

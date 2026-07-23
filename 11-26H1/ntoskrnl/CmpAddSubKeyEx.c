@@ -1,20 +1,20 @@
 /*
- * XREFs of CmpAddSubKeyEx @ 0x1408C04BC
+ * XREFs of CmpAddSubKeyEx @ 0x1408C6A8C
  * Callers:
- *     CmpAddSubKey @ 0x1408BFCB4 (CmpAddSubKey.c)
- *     CmpCopySyncTree2 @ 0x1408DE354 (CmpCopySyncTree2.c)
- *     CmpCreateChild @ 0x1408DF4A0 (CmpCreateChild.c)
- *     CmpPartialPromoteSingleKeyFromKeyNodeStacks @ 0x1409817F4 (CmpPartialPromoteSingleKeyFromKeyNodeStacks.c)
+ *     CmpAddSubKey @ 0x1408C6284 (CmpAddSubKey.c)
+ *     CmpCopySyncTree2 @ 0x1408E4914 (CmpCopySyncTree2.c)
+ *     CmpCreateChild @ 0x1408E5A60 (CmpCreateChild.c)
+ *     CmpPartialPromoteSingleKeyFromKeyNodeStacks @ 0x140943804 (CmpPartialPromoteSingleKeyFromKeyNodeStacks.c)
  * Callees:
- *     HvpGetCellFlat @ 0x14085EB00 (HvpGetCellFlat.c)
- *     CmpAddSubKeyToList @ 0x1408C1970 (CmpAddSubKeyToList.c)
- *     HvFreeCell @ 0x1408D1528 (HvFreeCell.c)
- *     HvpMarkCellDirty @ 0x1408D4AB0 (HvpMarkCellDirty.c)
- *     HvpReleaseCellFlat @ 0x1408D51E0 (HvpReleaseCellFlat.c)
- *     HvpReleaseCellPaged @ 0x1408D73B0 (HvpReleaseCellPaged.c)
- *     HvpGetCellPaged @ 0x1408D7410 (HvpGetCellPaged.c)
- *     HvpGetCellContextInitialize @ 0x1408D9320 (HvpGetCellContextInitialize.c)
- *     HvAllocateCell @ 0x1408DB7FC (HvAllocateCell.c)
+ *     HvpGetCellFlat @ 0x140864DF0 (HvpGetCellFlat.c)
+ *     CmpAddSubKeyToList @ 0x1408C7F40 (CmpAddSubKeyToList.c)
+ *     HvFreeCell @ 0x1408D7AE8 (HvFreeCell.c)
+ *     HvpMarkCellDirty @ 0x1408DB070 (HvpMarkCellDirty.c)
+ *     HvpReleaseCellFlat @ 0x1408DB7A0 (HvpReleaseCellFlat.c)
+ *     HvpReleaseCellPaged @ 0x1408DD970 (HvpReleaseCellPaged.c)
+ *     HvpGetCellPaged @ 0x1408DD9D0 (HvpGetCellPaged.c)
+ *     HvpGetCellContextInitialize @ 0x1408DF8E0 (HvpGetCellContextInitialize.c)
+ *     HvAllocateCell @ 0x1408E1DBC (HvAllocateCell.c)
  */
 
 __int64 __fastcall CmpAddSubKeyEx(ULONG_PTR BugCheckParameter3, __int64 a2, unsigned int a3)

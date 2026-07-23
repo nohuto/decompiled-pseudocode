@@ -6,12 +6,12 @@
  *     <none>
  */
 
-void **__fastcall sub_18000D9D4(__int64 a1)
+PVOID *__fastcall sub_18000D9D4(__int64 a1)
 {
   struct _PEB *v1; // r8
-  void **result; // rax
+  PVOID *result; // rax
   unsigned int NumberOfHeaps; // r9d
-  void **v5; // r11
+  PVOID *v5; // r11
   __int64 *v6; // rbx
   unsigned int v7; // r9d
   __int16 v8; // di
@@ -22,9 +22,9 @@ void **__fastcall sub_18000D9D4(__int64 a1)
 
   v1 = NtCurrentPeb();
   if ( *(_DWORD *)(a1 + 16) == -571548178 )
-    result = (void **)*(unsigned __int16 *)(a1 + 36);
+    result = (PVOID *)*(unsigned __int16 *)(a1 + 36);
   else
-    result = (void **)*(unsigned __int16 *)(a1 + 208);
+    result = (PVOID *)*(unsigned __int16 *)(a1 + 208);
   NumberOfHeaps = v1->NumberOfHeaps;
   if ( NumberOfHeaps && (_WORD)result && (unsigned __int16)result <= NumberOfHeaps )
   {
@@ -39,7 +39,7 @@ void **__fastcall sub_18000D9D4(__int64 a1)
       do
       {
         v11 = *v6++;
-        *v5 = (void *)v11;
+        *v5 = (PVOID)v11;
         if ( *(_DWORD *)(v11 + 16) == -571548178 )
           v12 = *(_WORD *)(v11 + 36);
         else

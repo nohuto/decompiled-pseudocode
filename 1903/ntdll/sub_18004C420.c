@@ -29,14 +29,14 @@ __int64 __fastcall sub_18004C420(unsigned int a1, unsigned __int64 a2, __int64 a
   __int64 v13; // rbx
   __int64 v14; // rcx
   __int64 v15; // r14
-  __int64 v16; // rcx
+  __int64 UserModeGlobalLogger; // rcx
   int v18; // [rsp+28h] [rbp-49h]
   __int128 v19; // [rsp+48h] [rbp-29h] BYREF
   __int128 v20; // [rsp+58h] [rbp-19h] BYREF
   __int128 v21; // [rsp+68h] [rbp-9h] BYREF
   __int64 (__fastcall *v22)(); // [rsp+78h] [rbp+7h] BYREF
   __int64 (__fastcall *v23)(__int64, __int64, __int64, char); // [rsp+80h] [rbp+Fh]
-  __int64 (__fastcall *v24)(__int64, unsigned __int64, unsigned int); // [rsp+88h] [rbp+17h]
+  __int64 (__fastcall *v24)(__int64, __int64); // [rsp+88h] [rbp+17h]
   __int64 (__fastcall *v25)(__int64, unsigned __int64, unsigned int); // [rsp+90h] [rbp+1Fh]
   __int64 (__fastcall *v26)(); // [rsp+98h] [rbp+27h]
 
@@ -95,21 +95,21 @@ LABEL_28:
   }
   v13 = v9;
   v9 = 0LL;
-  if ( (unsigned int)RtlGetCurrentServiceSessionId() )
-    v14 = (__int64)NtCurrentPeb()->HotpatchInformation + 558;
+  if ( RtlGetCurrentServiceSessionId() )
+    v14 = (__int64)&NtCurrentPeb()->SharedData->UserModeGlobalLogger[4];
   else
     v14 = 2147353480LL;
   if ( *(_BYTE *)v14 )
     sub_180101420(v13, *(_QWORD *)(v13 + 248) - v13, a1);
   v15 = 2147353472LL;
-  if ( (unsigned int)RtlGetCurrentServiceSessionId() )
-    v16 = (__int64)NtCurrentPeb()->HotpatchInformation + 550;
+  if ( RtlGetCurrentServiceSessionId() )
+    UserModeGlobalLogger = (__int64)NtCurrentPeb()->SharedData->UserModeGlobalLogger;
   else
-    v16 = 2147353472LL;
-  if ( *(_BYTE *)v16 && (NtCurrentPeb()->TracingFlags & 1) != 0 )
+    UserModeGlobalLogger = 2147353472LL;
+  if ( *(_BYTE *)UserModeGlobalLogger && (NtCurrentPeb()->TracingFlags & 1) != 0 )
   {
-    if ( (unsigned int)RtlGetCurrentServiceSessionId() )
-      v15 = (__int64)NtCurrentPeb()->HotpatchInformation + 550;
+    if ( RtlGetCurrentServiceSessionId() )
+      v15 = (__int64)NtCurrentPeb()->SharedData->UserModeGlobalLogger;
     sub_1801032A0(v13, a1, *(_QWORD *)(v13 + 248) - v13, *(_DWORD *)(v13 + 240) - v13, *(unsigned __int8 *)v15);
     goto LABEL_28;
   }

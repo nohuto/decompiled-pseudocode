@@ -84,7 +84,7 @@ __int64 __fastcall MiEmptyPteBins(__int64 a1)
             {
               CurrentIrql = KeGetCurrentIrql();
               __writecr8(2uLL);
-              if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+              if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
               {
                 SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
                 if ( CurrentIrql == 2 )
@@ -96,10 +96,10 @@ __int64 __fastcall MiEmptyPteBins(__int64 a1)
               }
               if ( CurrentIrql == 2 && v12 == &qword_140C69A40 && i )
               {
-                if ( KiIrqlFlags )
+                if ( (_DWORD)KiIrqlFlags )
                 {
                   v31 = KeGetCurrentIrql();
-                  if ( (KiIrqlFlags & 1) != 0 && (unsigned __int8)(v31 - 2) <= 0xDu )
+                  if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && (unsigned __int8)(v31 - 2) <= 0xDu )
                   {
                     CurrentPrcb = KeGetCurrentPrcb();
                     v33 = CurrentPrcb->SchedulerAssist;
@@ -123,10 +123,10 @@ __int64 __fastcall MiEmptyPteBins(__int64 a1)
                 if ( i == 2 )
                 {
                   v18 = MiReleaseLargePdeMappings(v17, &v37, MayNeedFlush);
-                  if ( KiIrqlFlags )
+                  if ( (_DWORD)KiIrqlFlags )
                   {
                     v22 = KeGetCurrentIrql();
-                    if ( (KiIrqlFlags & 1) != 0 && v22 <= 0xFu && CurrentIrql <= 0xFu && v22 >= 2u )
+                    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v22 <= 0xFu && CurrentIrql <= 0xFu && v22 >= 2u )
                     {
                       v23 = KeGetCurrentPrcb();
                       v24 = v23->SchedulerAssist;
@@ -153,10 +153,10 @@ __int64 __fastcall MiEmptyPteBins(__int64 a1)
                 --j;
                 v19 = CurrentIrql;
               }
-              if ( KiIrqlFlags )
+              if ( (_DWORD)KiIrqlFlags )
               {
                 v27 = KeGetCurrentIrql();
-                if ( (KiIrqlFlags & 1) != 0 && v27 <= 0xFu && CurrentIrql <= 0xFu && v27 >= 2u )
+                if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v27 <= 0xFu && CurrentIrql <= 0xFu && v27 >= 2u )
                 {
                   v28 = KeGetCurrentPrcb();
                   v29 = v28->SchedulerAssist;

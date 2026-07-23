@@ -1,20 +1,20 @@
 /*
- * XREFs of VfDeadlockInitializeResource @ 0x140AD7768
+ * XREFs of VfDeadlockInitializeResource @ 0x140AD7758
  * Callers:
- *     ViDeadlockKeInitializeMutant_Exit @ 0x140AD9380 (ViDeadlockKeInitializeMutant_Exit.c)
- *     ViDeadlockKeInitializeMutex_Exit @ 0x140AD93D0 (ViDeadlockKeInitializeMutex_Exit.c)
+ *     ViDeadlockKeInitializeMutant_Exit @ 0x140AD9370 (ViDeadlockKeInitializeMutant_Exit.c)
+ *     ViDeadlockKeInitializeMutex_Exit @ 0x140AD93C0 (ViDeadlockKeInitializeMutex_Exit.c)
  * Callees:
- *     RtlCaptureStackBackTrace @ 0x1402276E0 (RtlCaptureStackBackTrace.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memset @ 0x140435A00 (memset.c)
- *     ViLowerIrql @ 0x1405D1AB8 (ViLowerIrql.c)
- *     ViRaiseIrqlToDpcLevel @ 0x1405D1B30 (ViRaiseIrqlToDpcLevel.c)
- *     ViDeadlockCanProceed @ 0x140AC079A (ViDeadlockCanProceed.c)
- *     ViDeadlockAddResource @ 0x140AD840C (ViDeadlockAddResource.c)
- *     ViDeadlockAllocate @ 0x140AD8714 (ViDeadlockAllocate.c)
- *     ViDeadlockDetectionLock @ 0x140AD8E08 (ViDeadlockDetectionLock.c)
- *     ViDeadlockDetectionUnlock @ 0x140AD8E40 (ViDeadlockDetectionUnlock.c)
- *     ViDeadlockFree @ 0x140AD92B0 (ViDeadlockFree.c)
+ *     RtlCaptureStackBackTrace @ 0x1402277F0 (RtlCaptureStackBackTrace.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     ViLowerIrql @ 0x1405D2028 (ViLowerIrql.c)
+ *     ViRaiseIrqlToDpcLevel @ 0x1405D20A0 (ViRaiseIrqlToDpcLevel.c)
+ *     ViDeadlockCanProceed @ 0x140AC078A (ViDeadlockCanProceed.c)
+ *     ViDeadlockAddResource @ 0x140AD83FC (ViDeadlockAddResource.c)
+ *     ViDeadlockAllocate @ 0x140AD8704 (ViDeadlockAllocate.c)
+ *     ViDeadlockDetectionLock @ 0x140AD8DF8 (ViDeadlockDetectionLock.c)
+ *     ViDeadlockDetectionUnlock @ 0x140AD8E30 (ViDeadlockDetectionUnlock.c)
+ *     ViDeadlockFree @ 0x140AD92A0 (ViDeadlockFree.c)
  */
 
 __int64 __fastcall VfDeadlockInitializeResource(LONG *a1, __int64 a2, void *a3)

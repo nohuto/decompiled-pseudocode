@@ -1,22 +1,22 @@
 /*
- * XREFs of MiJumpStackTarget @ 0x14015E910
+ * XREFs of MiJumpStackTarget @ 0x14015EA10
  * Callers:
- *     MiDoStackCopy @ 0x14015E800 (MiDoStackCopy.c)
+ *     MiDoStackCopy @ 0x14015E900 (MiDoStackCopy.c)
  * Callees:
  *     MiRemoveLockedPageChargeAndDecRef @ 0x140030B20 (MiRemoveLockedPageChargeAndDecRef.c)
  *     MiPteInShadowRange @ 0x14003D740 (MiPteInShadowRange.c)
  *     MiUnlockWorkingSetShared @ 0x140046970 (MiUnlockWorkingSetShared.c)
- *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
- *     MiLockPageTableInternal @ 0x14006CA20 (MiLockPageTableInternal.c)
- *     MiLockWorkingSetShared @ 0x140076050 (MiLockWorkingSetShared.c)
- *     KeFlushSingleTb @ 0x1400ECDF4 (KeFlushSingleTb.c)
- *     MiUnlockPageTableInternal @ 0x140104A90 (MiUnlockPageTableInternal.c)
- *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
- *     MiCanStealKernelStack @ 0x14012D5CC (MiCanStealKernelStack.c)
- *     MiGetLeafPfnBuddy @ 0x14015E8D4 (MiGetLeafPfnBuddy.c)
- *     MiSwitchKstackPages @ 0x14015EB94 (MiSwitchKstackPages.c)
- *     MiCopyKstack @ 0x14015EC00 (MiCopyKstack.c)
+ *     KeYieldProcessorEx @ 0x14006C9E0 (KeYieldProcessorEx.c)
+ *     MiLockPageTableInternal @ 0x14006CA10 (MiLockPageTableInternal.c)
+ *     MiLockWorkingSetShared @ 0x140076040 (MiLockWorkingSetShared.c)
+ *     KeFlushSingleTb @ 0x1400ECE74 (KeFlushSingleTb.c)
+ *     MiUnlockPageTableInternal @ 0x140104B10 (MiUnlockPageTableInternal.c)
+ *     MiWritePteShadow @ 0x140120F40 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120FA0 (MiPteHasShadow.c)
+ *     MiCanStealKernelStack @ 0x14012D69C (MiCanStealKernelStack.c)
+ *     MiGetLeafPfnBuddy @ 0x14015E9D4 (MiGetLeafPfnBuddy.c)
+ *     MiSwitchKstackPages @ 0x14015EC94 (MiSwitchKstackPages.c)
+ *     MiCopyKstack @ 0x14015ED00 (MiCopyKstack.c)
  */
 
 volatile signed __int32 *__fastcall MiJumpStackTarget(__int64 *a1, __int64 a2, __int64 *a3)
@@ -110,7 +110,7 @@ volatile signed __int32 *__fastcall MiJumpStackTarget(__int64 *a1, __int64 a2, _
     if ( (unsigned int)MiPteHasShadow() )
     {
       v18 = 1;
-      if ( !HIBYTE(word_14043A1AC) )
+      if ( !HIBYTE(word_14043B26C) )
       {
         v23 = (a2 & 1) == 0;
         goto LABEL_34;

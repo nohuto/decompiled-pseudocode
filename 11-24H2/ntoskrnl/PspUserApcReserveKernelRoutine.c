@@ -1,9 +1,9 @@
 /*
- * XREFs of PspUserApcReserveKernelRoutine @ 0x140A46390
+ * XREFs of PspUserApcReserveKernelRoutine @ 0x140A3C050
  * Callers:
- *     KiDeliverApc @ 0x14031D9B0 (KiDeliverApc.c)
+ *     KiDeliverApc @ 0x1402C6540 (KiDeliverApc.c)
  * Callees:
- *     PspUserApcReserveRundownRoutine @ 0x140A463B0 (PspUserApcReserveRundownRoutine.c)
+ *     PspUserApcReserveRundownRoutine @ 0x140A3C070 (PspUserApcReserveRundownRoutine.c)
  */
 
 __int64 PspUserApcReserveKernelRoutine()

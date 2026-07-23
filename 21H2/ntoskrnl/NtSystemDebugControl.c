@@ -1,52 +1,52 @@
 /*
- * XREFs of NtSystemDebugControl @ 0x1407CFC00
+ * XREFs of NtSystemDebugControl @ 0x1407CFD70
  * Callers:
  *     <none>
  * Callees:
- *     ExUnlockUserBuffer @ 0x1402997FC (ExUnlockUserBuffer.c)
- *     KdDisableDebugger @ 0x1403CFA20 (KdDisableDebugger.c)
- *     DbgBreakPointWithStatus @ 0x1404078B0 (DbgBreakPointWithStatus.c)
- *     memmove @ 0x140413F40 (memmove.c)
- *     memset @ 0x140414200 (memset.c)
- *     DbgkCaptureLiveKernelDump @ 0x1404EE658 (DbgkCaptureLiveKernelDump.c)
- *     KdEnableDebugger @ 0x140510D40 (KdEnableDebugger.c)
- *     KdSetDbgPrintBufferSize @ 0x1405116E4 (KdSetDbgPrintBufferSize.c)
- *     SeSinglePrivilegeCheck @ 0x140627640 (SeSinglePrivilegeCheck.c)
- *     ProbeForWrite @ 0x1406547A0 (ProbeForWrite.c)
- *     ExLockUserBuffer @ 0x140683180 (ExLockUserBuffer.c)
- *     ExRaiseDatatypeMisalignment @ 0x14077BDF0 (ExRaiseDatatypeMisalignment.c)
- *     DbgkCaptureLiveDump @ 0x140887D1C (DbgkCaptureLiveDump.c)
- *     ExpKdPullRemoteFileForUser @ 0x14095B9CC (ExpKdPullRemoteFileForUser.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     ExUnlockUserBuffer @ 0x1402161DC (ExUnlockUserBuffer.c)
+ *     KdDisableDebugger @ 0x1403CFB90 (KdDisableDebugger.c)
+ *     DbgBreakPointWithStatus @ 0x140407A90 (DbgBreakPointWithStatus.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     DbgkCaptureLiveKernelDump @ 0x1404EE898 (DbgkCaptureLiveKernelDump.c)
+ *     KdEnableDebugger @ 0x140510F80 (KdEnableDebugger.c)
+ *     KdSetDbgPrintBufferSize @ 0x140511924 (KdSetDbgPrintBufferSize.c)
+ *     ExLockUserBuffer @ 0x1405E45FC (ExLockUserBuffer.c)
+ *     ProbeForWrite @ 0x1406495C0 (ProbeForWrite.c)
+ *     SeSinglePrivilegeCheck @ 0x140693750 (SeSinglePrivilegeCheck.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BFB0 (ExRaiseDatatypeMisalignment.c)
+ *     DbgkCaptureLiveDump @ 0x140887E7C (DbgkCaptureLiveDump.c)
+ *     ExpKdPullRemoteFileForUser @ 0x14095BB9C (ExpKdPullRemoteFileForUser.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall NtSystemDebugControl(
-        int a1,
-        unsigned int *a2,
-        unsigned int a3,
-        bool *a4,
-        unsigned int Length,
-        _DWORD *a6)
+NTSTATUS __cdecl NtSystemDebugControl(
+        SYSDBG_COMMAND Command,
+        PVOID InputBuffer,
+        ULONG InputBufferLength,
+        PVOID OutputBuffer,
+        ULONG OutputBufferLength,
+        PULONG ReturnLength)
 {
   __int64 v7; // r15
   KPROCESSOR_MODE PreviousMode; // r13
-  int v12; // ebx
+  NTSTATUS v12; // ebx
   __int64 v13; // r13
-  int v14; // eax
-  int v15; // edi
-  int v16; // edi
-  int v17; // edi
-  int v18; // edi
-  int v19; // edi
-  int v20; // edi
-  int v21; // edi
+  NTSTATUS v14; // eax
+  __int32 v15; // edi
+  __int32 v16; // edi
+  __int32 v17; // edi
+  __int32 v18; // edi
+  __int32 v19; // edi
+  __int32 v20; // edi
+  __int32 v21; // edi
   unsigned int v22; // eax
   size_t v23; // rsi
   PVOID PoolWithTag; // rdi
-  int v25; // edi
-  int v26; // edi
-  int v27; // edi
+  __int32 v25; // edi
+  __int32 v26; // edi
+  __int32 v27; // edi
   KPROCESSOR_MODE v28; // [rsp+34h] [rbp-D4h]
   size_t Size; // [rsp+38h] [rbp-D0h] BYREF
   SIZE_T NumberOfBytes; // [rsp+40h] [rbp-C8h]
@@ -58,8 +58,8 @@ __int64 __fastcall NtSystemDebugControl(
   unsigned __int64 v36; // [rsp+88h] [rbp-80h]
   _OWORD v37[7]; // [rsp+90h] [rbp-78h] BYREF
 
-  v7 = a3;
-  LODWORD(NumberOfBytes) = Length;
+  v7 = InputBufferLength;
+  LODWORD(NumberOfBytes) = OutputBufferLength;
   LODWORD(Size) = 0;
   v33 = 0LL;
   v34 = 0LL;
@@ -68,61 +68,61 @@ __int64 __fastcall NtSystemDebugControl(
   memset(v37, 0, 0x40uLL);
   v31 = 0LL;
   P = 0LL;
-  if ( KdPitchDebugger && !KdLocalDebugEnabled && ((a1 - 29) & 0xFFFFFFF7) != 0 )
-    return 3221226324LL;
+  if ( KdPitchDebugger && !KdLocalDebugEnabled && ((Command - 29) & 0xFFFFFFF7) != 0 )
+    return -1073740972;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   v28 = PreviousMode;
-  if ( a1 != 38 && !SeSinglePrivilegeCheck(SeDebugPrivilege, PreviousMode) )
-    return 3221225506LL;
+  if ( Command != SysDbgKdPullRemoteFile && !SeSinglePrivilegeCheck(SeDebugPrivilege, PreviousMode) )
+    return -1073741790;
   v12 = 0;
   if ( PreviousMode )
   {
     if ( (_DWORD)v7 )
     {
-      if ( ((unsigned __int8)a2 & 3) != 0 )
+      if ( ((unsigned __int8)InputBuffer & 3) != 0 )
         ExRaiseDatatypeMisalignment();
       v13 = 0x7FFFFFFF0000LL;
-      if ( (unsigned __int64)a2 + v7 > 0x7FFFFFFF0000LL || (unsigned int *)((char *)a2 + v7) < a2 )
+      if ( (unsigned __int64)InputBuffer + v7 > 0x7FFFFFFF0000LL || (char *)InputBuffer + v7 < InputBuffer )
         MEMORY[0x7FFFFFFF0000] = 0;
     }
     else
     {
       v13 = 0x7FFFFFFF0000LL;
     }
-    if ( Length )
-      ProbeForWrite(a4, Length, 4u);
-    if ( a6 )
+    if ( OutputBufferLength )
+      ProbeForWrite(OutputBuffer, OutputBufferLength, 4u);
+    if ( ReturnLength )
     {
-      if ( (unsigned __int64)a6 < 0x7FFFFFFF0000LL )
-        v13 = (__int64)a6;
+      if ( (unsigned __int64)ReturnLength < 0x7FFFFFFF0000LL )
+        v13 = (__int64)ReturnLength;
       *(_DWORD *)v13 = *(_DWORD *)v13;
     }
     PreviousMode = v28;
   }
-  if ( a1 > 28 )
+  if ( Command > SysDbgSetKdUmExceptionEnable )
   {
-    if ( a1 <= 34 )
+    if ( Command <= SysDbgClearUmBreakPid )
     {
-      if ( a1 == 34 )
+      if ( Command == SysDbgClearUmBreakPid )
         goto LABEL_64;
-      v18 = a1 - 29;
+      v18 = Command - 29;
       if ( !v18 )
       {
-        if ( (_DWORD)v7 == 56 && Length >= 0x40000 )
+        if ( (_DWORD)v7 == 56 && OutputBufferLength >= 0x40000 )
         {
-          v33 = *(_OWORD *)a2;
-          v34 = *((_OWORD *)a2 + 1);
-          v35 = *((_OWORD *)a2 + 2);
-          v36 = *((_QWORD *)a2 + 6);
+          v33 = *(_OWORD *)InputBuffer;
+          v34 = *((_OWORD *)InputBuffer + 1);
+          v35 = *((_OWORD *)InputBuffer + 2);
+          v36 = *((_QWORD *)InputBuffer + 6);
           if ( DWORD2(v35)
             || !HIDWORD(v35)
             || (v33 & 0xFFFFFFFE) != 0
             || 8 * (unsigned __int64)HIDWORD(v35) > 0xFFFFFFFF )
           {
-            return 3221225485LL;
+            return -1073741811;
           }
           v22 = 0x100000;
-          if ( Length <= 0x100000 )
+          if ( OutputBufferLength <= 0x100000 )
             v22 = NumberOfBytes;
           v23 = v22;
           PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, v22, 0x704E534Bu);
@@ -137,8 +137,8 @@ __int64 __fastcall NtSystemDebugControl(
               v12 = DbgkCaptureLiveDump(&v33, PoolWithTag, (unsigned int)v23, &Size);
               if ( v12 >= 0 )
               {
-                if ( (unsigned int)Size <= Length )
-                  memmove(a4, PoolWithTag, (unsigned int)Size);
+                if ( (unsigned int)Size <= OutputBufferLength )
+                  memmove(OutputBuffer, PoolWithTag, (unsigned int)Size);
                 else
                   v12 = -1073741823;
               }
@@ -156,27 +156,27 @@ __int64 __fastcall NtSystemDebugControl(
           }
           goto LABEL_105;
         }
-        return 3221225476LL;
+        return -1073741820;
       }
       v19 = v18 - 1;
       if ( !v19 )
       {
-        if ( Length == 1 )
+        if ( OutputBufferLength == 1 )
         {
-          *a4 = KdBlockEnable;
+          *(_BYTE *)OutputBuffer = KdBlockEnable;
           goto LABEL_105;
         }
-        return 3221225476LL;
+        return -1073741820;
       }
       v20 = v19 - 1;
       if ( !v20 )
       {
         if ( (_DWORD)v7 == 1 )
         {
-          KdBlockEnable = *(_BYTE *)a2;
+          KdBlockEnable = *(_BYTE *)InputBuffer;
           goto LABEL_105;
         }
-        return 3221225476LL;
+        return -1073741820;
       }
       v21 = v20 - 1;
       if ( !v21 )
@@ -186,9 +186,9 @@ __int64 __fastcall NtSystemDebugControl(
       }
       if ( v21 != 1 )
         goto LABEL_95;
-      if ( Length != 4 )
-        return 3221225476LL;
-      *(_DWORD *)a4 = KdUmBreakPid;
+      if ( OutputBufferLength != 4 )
+        return -1073741820;
+      *(_DWORD *)OutputBuffer = KdUmBreakPid;
       if ( KdResetUmBreakPid )
 LABEL_64:
         KdUmBreakPid = 0;
@@ -196,7 +196,7 @@ LABEL_104:
       v12 = 0;
       goto LABEL_105;
     }
-    v25 = a1 - 35;
+    v25 = Command - 35;
     if ( v25 )
     {
       v26 = v25 - 1;
@@ -207,18 +207,18 @@ LABEL_104:
         {
           if ( v27 != 1 )
             goto LABEL_95;
-          if ( (_DWORD)v7 != 16 || Length )
-            return 3221225476LL;
-          v14 = ExpKdPullRemoteFileForUser(a2);
+          if ( (_DWORD)v7 != 16 || OutputBufferLength )
+            return -1073741820;
+          v14 = ExpKdPullRemoteFileForUser(InputBuffer);
         }
         else
         {
-          if ( (_DWORD)v7 != 64 || Length )
-            return 3221225476LL;
-          v37[0] = *(_OWORD *)a2;
-          v37[1] = *((_OWORD *)a2 + 1);
-          v37[2] = *((_OWORD *)a2 + 2);
-          v37[3] = *((_OWORD *)a2 + 3);
+          if ( (_DWORD)v7 != 64 || OutputBufferLength )
+            return -1073741820;
+          v37[0] = *(_OWORD *)InputBuffer;
+          v37[1] = *((_OWORD *)InputBuffer + 1);
+          v37[2] = *((_OWORD *)InputBuffer + 2);
+          v37[3] = *((_OWORD *)InputBuffer + 3);
           v14 = DbgkCaptureLiveKernelDump((__int64)v37);
         }
         goto LABEL_34;
@@ -226,101 +226,101 @@ LABEL_104:
     }
     else
     {
-      if ( Length != 4 )
-        return 3221225476LL;
-      *(_DWORD *)a4 = KdUmAttachPid;
+      if ( OutputBufferLength != 4 )
+        return -1073741820;
+      *(_DWORD *)OutputBuffer = KdUmAttachPid;
       if ( !KdResetUmAttachPid )
         goto LABEL_104;
     }
     KdUmAttachPid = 0;
     goto LABEL_104;
   }
-  if ( a1 == 28 )
+  if ( Command == SysDbgSetKdUmExceptionEnable )
   {
     if ( (_DWORD)v7 == 1 )
     {
-      KdIgnoreUmExceptions = *(_BYTE *)a2 == 0;
+      KdIgnoreUmExceptions = *(_BYTE *)InputBuffer == 0;
       goto LABEL_105;
     }
-    return 3221225476LL;
+    return -1073741820;
   }
-  if ( a1 > 23 )
+  if ( Command > SysDbgGetAutoKdEnable )
   {
-    v15 = a1 - 24;
+    v15 = Command - 24;
     if ( !v15 )
     {
       if ( (_DWORD)v7 == 1 )
       {
-        KdAutoEnableOnEvent = *(_BYTE *)a2 != 0;
+        KdAutoEnableOnEvent = *(_BYTE *)InputBuffer != 0;
         goto LABEL_105;
       }
-      return 3221225476LL;
+      return -1073741820;
     }
     v16 = v15 - 1;
     if ( !v16 )
     {
-      if ( Length == 4 )
+      if ( OutputBufferLength == 4 )
       {
-        *(_DWORD *)a4 = KdPrintBufferSize;
+        *(_DWORD *)OutputBuffer = KdPrintBufferSize;
         goto LABEL_105;
       }
-      return 3221225476LL;
+      return -1073741820;
     }
     v17 = v16 - 1;
     if ( v17 )
     {
       if ( v17 != 1 )
         goto LABEL_95;
-      if ( Length == 1 )
+      if ( OutputBufferLength == 1 )
       {
-        *a4 = KdIgnoreUmExceptions == 0;
+        *(_BYTE *)OutputBuffer = KdIgnoreUmExceptions == 0;
         goto LABEL_105;
       }
-      return 3221225476LL;
+      return -1073741820;
     }
     if ( (_DWORD)v7 != 4 )
-      return 3221225476LL;
+      return -1073741820;
     HIDWORD(Size) = 0;
-    v14 = KdSetDbgPrintBufferSize(*a2);
+    v14 = KdSetDbgPrintBufferSize(*(unsigned int *)InputBuffer);
 LABEL_34:
     v12 = v14;
     goto LABEL_105;
   }
-  if ( a1 == 23 )
+  if ( Command == SysDbgGetAutoKdEnable )
   {
-    if ( Length == 1 )
+    if ( OutputBufferLength == 1 )
     {
-      *a4 = KdAutoEnableOnEvent;
+      *(_BYTE *)OutputBuffer = KdAutoEnableOnEvent;
       goto LABEL_105;
     }
-    return 3221225476LL;
+    return -1073741820;
   }
-  if ( a1 < 0 )
+  if ( Command < SysDbgQueryModuleInformation )
   {
 LABEL_95:
     v12 = -1073741821;
     goto LABEL_105;
   }
-  if ( a1 <= 5 )
-    return 3221225474LL;
-  if ( a1 != 6 )
+  if ( Command <= SysDbgQuerySpecialCalls )
+    return -1073741822;
+  if ( Command != SysDbgBreakPoint )
   {
-    if ( a1 > 20 )
+    if ( Command > SysDbgCheckLowMemory )
     {
-      if ( a1 == 21 )
+      if ( Command == SysDbgEnableKernelDebugger )
         v14 = KdEnableDebugger();
       else
         v14 = KdDisableDebugger();
       goto LABEL_34;
     }
-    return 3221225474LL;
+    return -1073741822;
   }
   if ( (_BYTE)KdDebuggerEnabled == 1 )
     DbgBreakPointWithStatus(6u);
   else
     v12 = -1073741823;
 LABEL_105:
-  if ( a6 )
-    *a6 = Size;
-  return (unsigned int)v12;
+  if ( ReturnLength )
+    *ReturnLength = Size;
+  return v12;
 }

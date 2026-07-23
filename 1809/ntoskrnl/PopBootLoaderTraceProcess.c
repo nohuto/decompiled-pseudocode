@@ -1,11 +1,11 @@
 /*
- * XREFs of PopBootLoaderTraceProcess @ 0x1406DCF68
+ * XREFs of PopBootLoaderTraceProcess @ 0x1406DE208
  * Callers:
- *     PopTransitionSystemPowerStateEx @ 0x140566D74 (PopTransitionSystemPowerStateEx.c)
+ *     PopTransitionSystemPowerStateEx @ 0x140567D74 (PopTransitionSystemPowerStateEx.c)
  * Callees:
- *     BapdWriteEtwEvents @ 0x140178708 (BapdWriteEtwEvents.c)
- *     BapdRecordFirmwareBootStats @ 0x14056F2A0 (BapdRecordFirmwareBootStats.c)
- *     EtwUnregister @ 0x140707370 (EtwUnregister.c)
+ *     BapdWriteEtwEvents @ 0x140178808 (BapdWriteEtwEvents.c)
+ *     BapdRecordFirmwareBootStats @ 0x1405702A0 (BapdRecordFirmwareBootStats.c)
+ *     EtwUnregister @ 0x140708610 (EtwUnregister.c)
  */
 
 void PopBootLoaderTraceProcess()
@@ -19,9 +19,9 @@ void PopBootLoaderTraceProcess()
   if ( BugCheckParameter4 )
   {
     BapdRecordFirmwareBootStats();
-    EtwUnregister(stru_140400410.RegHandle);
-    stru_140400410.RegHandle = 0LL;
-    stru_140400410.LevelPlus1 = 0;
+    EtwUnregister(stru_140401410.RegHandle);
+    stru_140401410.RegHandle = 0LL;
+    stru_140401410.LevelPlus1 = 0;
     v1 = *(_QWORD *)(v0 + 216);
     if ( v1 )
     {

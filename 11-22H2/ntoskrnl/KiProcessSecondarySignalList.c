@@ -55,7 +55,9 @@ void __fastcall KiProcessSecondarySignalList(
   }
   KiSecondarySignalDpcRunning = 0;
   KxReleaseSpinLock((volatile signed __int64 *)&KiSecondarySignalListLock);
-  if ( KiIrqlFlags && (CurrentIrql = KeGetCurrentIrql(), (KiIrqlFlags & 1) != 0) && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags
+    && (CurrentIrql = KeGetCurrentIrql(), ((unsigned __int8)KiIrqlFlags & 1) != 0)
+    && CurrentIrql <= 0xFu )
   {
     v7 = v12[0];
     if ( v12[0] <= 0xFu && CurrentIrql >= 2u )

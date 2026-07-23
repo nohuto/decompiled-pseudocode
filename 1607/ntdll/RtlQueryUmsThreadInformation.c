@@ -1,5 +1,5 @@
 /*
- * XREFs of RtlQueryUmsThreadInformation @ 0x1800ECA80
+ * XREFs of RtlQueryUmsThreadInformation @ 0x1800ECB40
  * Callers:
  *     <none>
  * Callees:

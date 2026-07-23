@@ -1,12 +1,12 @@
 /*
- * XREFs of ExLogTimeZoneInformation @ 0x1403B4A9C
+ * XREFs of ExLogTimeZoneInformation @ 0x1403B4C0C
  * Callers:
- *     Phase1InitializationIoReady @ 0x140A4C104 (Phase1InitializationIoReady.c)
+ *     Phase1InitializationIoReady @ 0x140A4D104 (Phase1InitializationIoReady.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14025FAE0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgCreate1Sz_wchar_t @ 0x140263EF0 (_tlgCreate1Sz_wchar_t.c)
- *     PsGetCurrentServerSiloGlobals @ 0x140362150 (PsGetCurrentServerSiloGlobals.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     _tlgCreate1Sz_wchar_t @ 0x1402709CC (_tlgCreate1Sz_wchar_t.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14027E1A4 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x1402F6FB0 (PsGetCurrentServerSiloGlobals.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  */
 
 int __fastcall ExLogTimeZoneInformation(__int64 a1, __int64 a2)
@@ -113,7 +113,7 @@ int __fastcall ExLogTimeZoneInformation(__int64 a1, __int64 a2)
     v45 = 4;
     LODWORD(CurrentServerSiloGlobals) = tlgWriteTransfer_EtwWriteTransfer(
                                           (__int64)&dword_140C02C60,
-                                          (unsigned __int8 *)&dword_14002DDE4,
+                                          (unsigned __int8 *)&byte_14002DB97,
                                           0LL,
                                           0LL,
                                           0xEu,

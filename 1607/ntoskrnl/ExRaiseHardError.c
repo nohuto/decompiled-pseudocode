@@ -1,22 +1,22 @@
 /*
- * XREFs of ExRaiseHardError @ 0x1406B6068
+ * XREFs of ExRaiseHardError @ 0x1406B61A0
  * Callers:
- *     CmpLoadHiveThread @ 0x14054D5A8 (CmpLoadHiveThread.c)
- *     CmpMountPreloadedHives @ 0x14055E464 (CmpMountPreloadedHives.c)
- *     CmpQuotaWarningWorker @ 0x1405FC5EC (CmpQuotaWarningWorker.c)
- *     CmpDiskFullWarningWorker @ 0x140603684 (CmpDiskFullWarningWorker.c)
- *     IopHardErrorThread @ 0x1406217E0 (IopHardErrorThread.c)
- *     IopRaiseHardError @ 0x140622078 (IopRaiseHardError.c)
- *     IopRaiseInformationalHardError @ 0x140622314 (IopRaiseInformationalHardError.c)
- *     ExpExpirationThread @ 0x1406AD040 (ExpExpirationThread.c)
- *     NtRaiseHardError @ 0x1406B66AC (NtRaiseHardError.c)
+ *     CmpLoadHiveThread @ 0x14054D948 (CmpLoadHiveThread.c)
+ *     CmpMountPreloadedHives @ 0x14055E9A4 (CmpMountPreloadedHives.c)
+ *     CmpQuotaWarningWorker @ 0x1405FC6A0 (CmpQuotaWarningWorker.c)
+ *     CmpDiskFullWarningWorker @ 0x140603738 (CmpDiskFullWarningWorker.c)
+ *     IopHardErrorThread @ 0x140621894 (IopHardErrorThread.c)
+ *     IopRaiseHardError @ 0x14062212C (IopRaiseHardError.c)
+ *     IopRaiseInformationalHardError @ 0x1406223C8 (IopRaiseInformationalHardError.c)
+ *     ExpExpirationThread @ 0x1406AD178 (ExpExpirationThread.c)
+ *     NtRaiseHardError @ 0x1406B67E4 (NtRaiseHardError.c)
  * Callees:
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     ZwAllocateVirtualMemory @ 0x140159F80 (ZwAllocateVirtualMemory.c)
- *     ZwFreeVirtualMemory @ 0x14015A040 (ZwFreeVirtualMemory.c)
- *     memmove @ 0x140171280 (memmove.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     ExpRaiseHardError @ 0x1406B634C (ExpRaiseHardError.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     ZwAllocateVirtualMemory @ 0x14015A4F0 (ZwAllocateVirtualMemory.c)
+ *     ZwFreeVirtualMemory @ 0x14015A5B0 (ZwFreeVirtualMemory.c)
+ *     memmove @ 0x140171780 (memmove.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     ExpRaiseHardError @ 0x1406B6484 (ExpRaiseHardError.c)
  */
 
 __int64 __fastcall ExRaiseHardError(int a1, unsigned int a2, int a3, char *a4, int a5, int *a6)

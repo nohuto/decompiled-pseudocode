@@ -1,40 +1,40 @@
 /*
- * XREFs of PiSwIrpStartCreateWorker @ 0x1404C6CB4
+ * XREFs of PiSwIrpStartCreateWorker @ 0x1404880D0
  * Callers:
- *     PiSwIrpStartCreate @ 0x1404C6934 (PiSwIrpStartCreate.c)
- *     PiSwStartCreate @ 0x140645984 (PiSwStartCreate.c)
+ *     PiSwIrpStartCreate @ 0x140488374 (PiSwIrpStartCreate.c)
+ *     PiSwStartCreate @ 0x140645A68 (PiSwStartCreate.c)
  * Callees:
- *     IofCompleteRequest @ 0x140053560 (IofCompleteRequest.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x140055FA0 (KiLeaveCriticalRegionUnsafe.c)
- *     ExReleaseResourceLite @ 0x140068940 (ExReleaseResourceLite.c)
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
- *     IoInvalidateDeviceRelations @ 0x14009ECD4 (IoInvalidateDeviceRelations.c)
- *     RtlStringCbLengthW @ 0x14009ED7C (RtlStringCbLengthW.c)
- *     RtlDeleteElementGenericTableAvl @ 0x1400C3FD4 (RtlDeleteElementGenericTableAvl.c)
- *     RtlInsertElementGenericTableAvl @ 0x1400C4544 (RtlInsertElementGenericTableAvl.c)
- *     RtlStringCbCopyW @ 0x1400C47BC (RtlStringCbCopyW.c)
- *     memmove @ 0x140171280 (memmove.c)
+ *     IofCompleteRequest @ 0x1400530E0 (IofCompleteRequest.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140055B20 (KiLeaveCriticalRegionUnsafe.c)
+ *     ExReleaseResourceLite @ 0x1400684C0 (ExReleaseResourceLite.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
+ *     RtlStringCbLengthW @ 0x140085E34 (RtlStringCbLengthW.c)
+ *     IoInvalidateDeviceRelations @ 0x140085F2C (IoInvalidateDeviceRelations.c)
+ *     RtlDeleteElementGenericTableAvl @ 0x1400C1E74 (RtlDeleteElementGenericTableAvl.c)
+ *     RtlInsertElementGenericTableAvl @ 0x1400C23E4 (RtlInsertElementGenericTableAvl.c)
+ *     RtlStringCbCopyW @ 0x1400C265C (RtlStringCbCopyW.c)
+ *     memmove @ 0x140171780 (memmove.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     PiSwFindPdoAssociation @ 0x1403F1654 (PiSwFindPdoAssociation.c)
- *     PiSwLock @ 0x1403F1A74 (PiSwLock.c)
- *     PnpDeviceObjectFromDeviceInstance @ 0x1403F4A34 (PnpDeviceObjectFromDeviceInstance.c)
- *     PiSwPropertySet @ 0x140487AA0 (PiSwPropertySet.c)
- *     PiSwIrpCleanup @ 0x1404C3820 (PiSwIrpCleanup.c)
- *     PiSwBusRelationRemove @ 0x1404C3A38 (PiSwBusRelationRemove.c)
- *     PiSwDeviceDereference @ 0x1404C3AB4 (PiSwDeviceDereference.c)
- *     PiSwPnPInfoFree @ 0x1404C3B28 (PiSwPnPInfoFree.c)
- *     PiSwFreeInterfaceList @ 0x1404C6C98 (PiSwFreeInterfaceList.c)
- *     PiSwBusRelationAdd @ 0x1404C6F58 (PiSwBusRelationAdd.c)
- *     PnpCopyDevPropertyArray @ 0x1404C70A4 (PnpCopyDevPropertyArray.c)
- *     PiSwPnPInfoInit @ 0x1404C7204 (PiSwPnPInfoInit.c)
- *     PiSwInstanceInfoInit @ 0x1404C7390 (PiSwInstanceInfoInit.c)
- *     PiSwDeviceCreate @ 0x1404C7410 (PiSwDeviceCreate.c)
- *     PiSwValidateCreateData @ 0x1404C7488 (PiSwValidateCreateData.c)
- *     PnpFreeDevPropertyArray @ 0x140502730 (PnpFreeDevPropertyArray.c)
- *     PiSwDoesCreateChangesRequireReEnum @ 0x1406455D8 (PiSwDoesCreateChangesRequireReEnum.c)
- *     PiSwQueuedCreateInfoCreate @ 0x140645808 (PiSwQueuedCreateInfoCreate.c)
- *     PiSwQueuedCreateInfoFree @ 0x140645918 (PiSwQueuedCreateInfoFree.c)
+ *     PiSwFindPdoAssociation @ 0x1403F0518 (PiSwFindPdoAssociation.c)
+ *     PiSwLock @ 0x1403F0938 (PiSwLock.c)
+ *     PnpDeviceObjectFromDeviceInstance @ 0x1403F38F8 (PnpDeviceObjectFromDeviceInstance.c)
+ *     PiSwBusRelationRemove @ 0x140483D54 (PiSwBusRelationRemove.c)
+ *     PiSwPnPInfoFree @ 0x140483E58 (PiSwPnPInfoFree.c)
+ *     PiSwIrpCleanup @ 0x1404868C8 (PiSwIrpCleanup.c)
+ *     PiSwDeviceDereference @ 0x1404869A8 (PiSwDeviceDereference.c)
+ *     PiSwFreeInterfaceList @ 0x1404878CC (PiSwFreeInterfaceList.c)
+ *     PiSwValidateCreateData @ 0x1404878E8 (PiSwValidateCreateData.c)
+ *     PiSwDeviceCreate @ 0x140487BA0 (PiSwDeviceCreate.c)
+ *     PiSwInstanceInfoInit @ 0x140487C18 (PiSwInstanceInfoInit.c)
+ *     PiSwPnPInfoInit @ 0x140487C98 (PiSwPnPInfoInit.c)
+ *     PnpCopyDevPropertyArray @ 0x140487E24 (PnpCopyDevPropertyArray.c)
+ *     PiSwBusRelationAdd @ 0x140487F84 (PiSwBusRelationAdd.c)
+ *     PnpFreeDevPropertyArray @ 0x1404E56C0 (PnpFreeDevPropertyArray.c)
+ *     PiSwPropertySet @ 0x140510214 (PiSwPropertySet.c)
+ *     PiSwDoesCreateChangesRequireReEnum @ 0x1406456BC (PiSwDoesCreateChangesRequireReEnum.c)
+ *     PiSwQueuedCreateInfoCreate @ 0x1406458EC (PiSwQueuedCreateInfoCreate.c)
+ *     PiSwQueuedCreateInfoFree @ 0x1406459FC (PiSwQueuedCreateInfoFree.c)
  */
 
 __int64 __fastcall PiSwIrpStartCreateWorker(__int64 a1, __int64 a2)
@@ -45,7 +45,7 @@ __int64 __fastcall PiSwIrpStartCreateWorker(__int64 a1, __int64 a2)
   int Data; // ebx
   void **inserted; // rax
   _QWORD *v9; // rax
-  int v10; // r8d
+  __int64 v10; // r8
   void *v11; // rcx
   __int64 v12; // rdx
   __int64 v13; // r8
@@ -53,7 +53,7 @@ __int64 __fastcall PiSwIrpStartCreateWorker(__int64 a1, __int64 a2)
   _QWORD *v16; // rcx
   int v17; // eax
   __int64 v18; // rax
-  int v19; // r8d
+  __int64 v19; // r8
   _QWORD *v20; // rcx
   __int64 v21; // rdx
   struct _DEVICE_OBJECT *v22; // rax
@@ -62,12 +62,12 @@ __int64 __fastcall PiSwIrpStartCreateWorker(__int64 a1, __int64 a2)
   _QWORD *v25; // rax
   __int64 **v26; // rcx
   __int64 *v27; // rdx
-  int v28; // r8d
+  __int64 v28; // r8
   void *v29; // rcx
   __int64 v30; // r8
-  char *Buffer; // [rsp+30h] [rbp-20h] BYREF
+  void *Buffer; // [rsp+30h] [rbp-20h] BYREF
   size_t pcbLength; // [rsp+38h] [rbp-18h] BYREF
-  __int64 v33; // [rsp+40h] [rbp-10h] BYREF
+  PVOID v33; // [rsp+40h] [rbp-10h] BYREF
   BOOLEAN NewElement; // [rsp+98h] [rbp+48h] BYREF
   int v35; // [rsp+A0h] [rbp+50h] BYREF
   _QWORD *v36; // [rsp+A8h] [rbp+58h] BYREF
@@ -79,7 +79,7 @@ __int64 __fastcall PiSwIrpStartCreateWorker(__int64 a1, __int64 a2)
   NewElement = 0;
   v5 = 0;
   pcbLength = 0LL;
-  Data = PiSwValidateCreateData();
+  Data = PiSwValidateCreateData(a1);
   if ( Data < 0 )
     goto LABEL_29;
   PiSwLock();
@@ -94,7 +94,7 @@ LABEL_94:
     Data = PiSwDeviceCreate(&Buffer);
     if ( Data >= 0 )
     {
-      Data = PiSwInstanceInfoInit(Buffer + 8, a1);
+      Data = PiSwInstanceInfoInit((__int64)Buffer + 8, a1);
       if ( Data >= 0 )
       {
         inserted = (void **)RtlInsertElementGenericTableAvl(&PiSwDeviceInstanceTable, &Buffer, 8u, &NewElement);
@@ -112,7 +112,7 @@ LABEL_26:
         {
           Buffer = 0LL;
           _InterlockedIncrement((volatile signed __int32 *)v9);
-          Data = PiSwPnPInfoInit(v36 + 3, a1);
+          Data = PiSwPnPInfoInit((__int64)(v36 + 3), a1);
           if ( Data < 0 )
             goto LABEL_42;
           *((_DWORD *)v36 + 40) = *(_DWORD *)(a1 + 88);
@@ -131,9 +131,9 @@ LABEL_26:
                    *(_DWORD *)(a1 + 104),
                    *(_QWORD *)(a1 + 112),
                    v10,
-                   (int)v36 + 176,
-                   (__int64)(v36 + 21));
-          if ( Data < 0 || (Data = PiSwBusRelationAdd(*(_QWORD *)(a1 + 8)), Data < 0) )
+                   (_DWORD *)v36 + 44,
+                   (PVOID *)v36 + 21);
+          if ( Data < 0 || (Data = PiSwBusRelationAdd(*(const wchar_t **)(a1 + 8), (__int64)v36), Data < 0) )
           {
 LABEL_42:
             if ( NewElement )
@@ -201,12 +201,7 @@ LABEL_18:
           {
             if ( !(unsigned __int8)PiSwDoesCreateChangesRequireReEnum(v36, a1) )
             {
-              Data = PnpCopyDevPropertyArray(
-                       *(_DWORD *)(a1 + 104),
-                       *(_QWORD *)(a1 + 112),
-                       v19,
-                       (unsigned int)&v35,
-                       (__int64)&v33);
+              Data = PnpCopyDevPropertyArray(*(_DWORD *)(a1 + 104), *(_QWORD *)(a1 + 112), v19, &v35, &v33);
               if ( Data < 0 )
                 goto LABEL_27;
               v20 = v36;
@@ -273,7 +268,7 @@ LABEL_18:
           v26 = (__int64 **)v36;
         }
         PiSwFreeInterfaceList(v26 + 23);
-        Data = PiSwPnPInfoInit(v36 + 3, a1);
+        Data = PiSwPnPInfoInit((__int64)(v36 + 3), a1);
         if ( Data < 0 )
           goto LABEL_27;
         *((_DWORD *)v36 + 40) = *(_DWORD *)(a1 + 88);
@@ -292,11 +287,11 @@ LABEL_18:
                  *(_DWORD *)(a1 + 104),
                  *(_QWORD *)(a1 + 112),
                  v28,
-                 (int)v36 + 176,
-                 (__int64)(v36 + 21));
+                 (_DWORD *)v36 + 44,
+                 (PVOID *)v36 + 21);
         if ( Data >= 0 )
         {
-          Data = PiSwBusRelationAdd(*(_QWORD *)(a1 + 8));
+          Data = PiSwBusRelationAdd(*(const wchar_t **)(a1 + 8), (__int64)v36);
           if ( Data >= 0 )
           {
             *((_DWORD *)v36 + 1) &= ~2u;
@@ -314,7 +309,7 @@ LABEL_27:
     v30 = *(_QWORD *)(a1 + 112);
     if ( v30 )
     {
-      Data = PiSwPropertySet(*(_QWORD *)(a2 + 24), 1u, v30, *(_DWORD *)(a1 + 104));
+      Data = PiSwPropertySet(*(_QWORD *)(a2 + 24), 1LL, v30, *(unsigned int *)(a1 + 104));
       if ( Data == -1073741772 )
         Data = 0;
     }

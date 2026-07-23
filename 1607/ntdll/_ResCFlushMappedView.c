@@ -1,22 +1,27 @@
 /*
- * XREFs of _ResCFlushMappedView @ 0x1801038BC
+ * XREFs of _ResCFlushMappedView @ 0x1801037FC
  * Callers:
- *     ResCHitsFree @ 0x1801000BC (ResCHitsFree.c)
+ *     ResCHitsFree @ 0x1800FFFF4 (ResCHitsFree.c)
  * Callees:
- *     RtlSetLastWin32Error @ 0x18005A470 (RtlSetLastWin32Error.c)
- *     RtlNtStatusToDosError @ 0x18005A4E0 (RtlNtStatusToDosError.c)
+ *     RtlSetLastWin32Error @ 0x18005A460 (RtlSetLastWin32Error.c)
+ *     RtlNtStatusToDosError @ 0x18005A4D0 (RtlNtStatusToDosError.c)
  *     ZwFlushVirtualMemory @ 0x1800A7FF0 (ZwFlushVirtualMemory.c)
  */
 
-__int64 ResCFlushMappedView()
+__int64 __fastcall ResCFlushMappedView(void *a1)
 {
-  NTSTATUS v0; // eax
-  ULONG v1; // eax
+  int v1; // eax
+  LONG v2; // eax
+  _IO_STATUS_BLOCK v4; // [rsp+20h] [rbp-18h] BYREF
+  ULONG_PTR v5; // [rsp+40h] [rbp+8h] BYREF
+  PVOID v6; // [rsp+50h] [rbp+18h] BYREF
 
-  v0 = ZwFlushVirtualMemory();
-  if ( v0 >= 0 )
+  v5 = 0LL;
+  v6 = a1;
+  v1 = ZwFlushVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &v6, &v5, &v4);
+  if ( v1 >= 0 )
     return 1LL;
-  v1 = RtlNtStatusToDosError(v0);
-  RtlSetLastWin32Error(v1);
+  v2 = RtlNtStatusToDosError(v1);
+  RtlSetLastWin32Error(v2);
   return 0LL;
 }

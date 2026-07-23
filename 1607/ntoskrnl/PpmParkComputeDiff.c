@@ -1,9 +1,9 @@
 /*
- * XREFs of PpmParkComputeDiff @ 0x14020DF9C
+ * XREFs of PpmParkComputeDiff @ 0x14020DDC8
  * Callers:
- *     PpmParkCalculateCoreParkingMask @ 0x1400D4BCC (PpmParkCalculateCoreParkingMask.c)
+ *     PpmParkCalculateCoreParkingMask @ 0x1400D2A6C (PpmParkCalculateCoreParkingMask.c)
  * Callees:
- *     memset @ 0x1401715C0 (memset.c)
+ *     memset @ 0x140171AC0 (memset.c)
  */
 
 __int64 PpmParkComputeDiff()

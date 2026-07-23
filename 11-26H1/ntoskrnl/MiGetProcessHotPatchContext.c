@@ -1,14 +1,14 @@
 /*
- * XREFs of MiGetProcessHotPatchContext @ 0x14086FFF8
+ * XREFs of MiGetProcessHotPatchContext @ 0x140876358
  * Callers:
- *     MiLogHotPatchRundownForProcess @ 0x1406FC34C (MiLogHotPatchRundownForProcess.c)
- *     MiApplyImageHotPatchRequest @ 0x14086E8A8 (MiApplyImageHotPatchRequest.c)
- *     MiDeleteHotPatchEntry @ 0x14086FA4C (MiDeleteHotPatchEntry.c)
- *     MiQueryProcessActivePatches @ 0x140874330 (MiQueryProcessActivePatches.c)
+ *     MiLogHotPatchRundownForProcess @ 0x14070101C (MiLogHotPatchRundownForProcess.c)
+ *     MiApplyImageHotPatchRequest @ 0x140874C78 (MiApplyImageHotPatchRequest.c)
+ *     MiDeleteHotPatchEntry @ 0x140875DB0 (MiDeleteHotPatchEntry.c)
+ *     MiQueryProcessActivePatches @ 0x14087A690 (MiQueryProcessActivePatches.c)
  * Callees:
- *     ExAllocatePoolMm @ 0x1403985B0 (ExAllocatePoolMm.c)
- *     MmGetCurrentProcessorColor @ 0x14044ADC0 (MmGetCurrentProcessorColor.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolMm @ 0x14039A310 (ExAllocatePoolMm.c)
+ *     MmGetCurrentProcessorColor @ 0x140442EF0 (MmGetCurrentProcessorColor.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 _QWORD *__fastcall MiGetProcessHotPatchContext(__int64 a1, int a2)

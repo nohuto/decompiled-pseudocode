@@ -1,17 +1,17 @@
 /*
- * XREFs of LdrpGetRcConfig @ 0x1400F3F30
+ * XREFs of LdrpGetRcConfig @ 0x1400F3FB0
  * Callers:
- *     LdrIsResItemExist @ 0x1400F3CB8 (LdrIsResItemExist.c)
- *     LdrpVerifyAlternateResourceModuleEx @ 0x140177BF8 (LdrpVerifyAlternateResourceModuleEx.c)
+ *     LdrIsResItemExist @ 0x1400F3D38 (LdrIsResItemExist.c)
+ *     LdrpVerifyAlternateResourceModuleEx @ 0x140177CF8 (LdrpVerifyAlternateResourceModuleEx.c)
  * Callees:
- *     LdrpGetFromMUIMemCache @ 0x1400F4280 (LdrpGetFromMUIMemCache.c)
- *     LdrpSetAlternateResourceModuleHandle @ 0x140174B40 (LdrpSetAlternateResourceModuleHandle.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     LdrpAccessResourceDataNoMultipleLanguage @ 0x14067AC98 (LdrpAccessResourceDataNoMultipleLanguage.c)
- *     LdrpSearchResourceSection_U @ 0x14067AEF0 (LdrpSearchResourceSection_U.c)
+ *     LdrpGetFromMUIMemCache @ 0x1400F4300 (LdrpGetFromMUIMemCache.c)
+ *     LdrpSetAlternateResourceModuleHandle @ 0x140174C40 (LdrpSetAlternateResourceModuleHandle.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     LdrpAccessResourceDataNoMultipleLanguage @ 0x14067BE58 (LdrpAccessResourceDataNoMultipleLanguage.c)
+ *     LdrpSearchResourceSection_U @ 0x14067C0B0 (LdrpSearchResourceSection_U.c)
  */
 
-_DWORD *__fastcall LdrpGetRcConfig(PVOID BaseAddress, __int64 a2, char a3, char a4)
+_DWORD *__fastcall LdrpGetRcConfig(PVOID BaseOfImage, __int64 a2, char a3, char a4)
 {
   int v4; // esi
   __int64 v7; // rax
@@ -25,7 +25,7 @@ _DWORD *__fastcall LdrpGetRcConfig(PVOID BaseAddress, __int64 a2, char a3, char 
   v11 = 0LL;
   if ( !a4 )
     goto LABEL_5;
-  v7 = LdrpGetFromMUIMemCache(BaseAddress, 0LL, 0LL, 8LL);
+  v7 = LdrpGetFromMUIMemCache(BaseOfImage);
   v11 = (_DWORD *)v7;
   v8 = (_DWORD *)v7;
   if ( v7 != -1 )
@@ -36,10 +36,10 @@ LABEL_5:
     v13[1] = 1LL;
     v13[2] = 0LL;
     v13[0] = L"MUI";
-    v10 = LdrpSearchResourceSection_U((_DWORD)BaseAddress, (unsigned int)v13, 3, 48, (__int64)&v12);
+    v10 = LdrpSearchResourceSection_U((_DWORD)BaseOfImage, (unsigned int)v13, 3, 48, (__int64)&v12);
     if ( v10 >= 0 )
     {
-      v10 = LdrpAccessResourceDataNoMultipleLanguage(BaseAddress);
+      v10 = LdrpAccessResourceDataNoMultipleLanguage(BaseOfImage);
       if ( v10 >= 0 )
       {
         v8 = v11;
@@ -54,7 +54,7 @@ LABEL_8:
     {
       if ( v8 )
         v4 = (int)v8;
-      LdrpSetAlternateResourceModuleHandle((_DWORD)BaseAddress, 0, 0, v4, 0, 2, v10, 0LL);
+      LdrpSetAlternateResourceModuleHandle((_DWORD)BaseOfImage, 0, 0, v4, 0, 2, v10, 0LL);
     }
     return v8;
   }

@@ -1,23 +1,23 @@
 /*
- * XREFs of AVrfpVerifierStopInitialize @ 0x18011DC24
+ * XREFs of AVrfpVerifierStopInitialize @ 0x18011BE54
  * Callers:
- *     AVrfInitializeVerifier @ 0x180118960 (AVrfInitializeVerifier.c)
+ *     AVrfInitializeVerifier @ 0x180113994 (AVrfInitializeVerifier.c)
  * Callees:
- *     LdrGetProcedureAddressEx @ 0x180004FC0 (LdrGetProcedureAddressEx.c)
- *     DbgPrint @ 0x18002FC00 (DbgPrint.c)
- *     RtlInitAnsiString @ 0x1800E3C60 (RtlInitAnsiString.c)
- *     _wcsicmp @ 0x180122C70 (_wcsicmp.c)
+ *     DbgPrint @ 0x18000F790 (DbgPrint.c)
+ *     LdrGetProcedureAddressEx @ 0x1800319C0 (LdrGetProcedureAddressEx.c)
+ *     RtlInitAnsiString @ 0x1800DF230 (RtlInitAnsiString.c)
+ *     _wcsicmp @ 0x180120EA0 (_wcsicmp.c)
  */
 
 __int64 AVrfpVerifierStopInitialize()
 {
   __int64 v0; // rbx
-  __int64 v1; // rbx
-  int ProcedureAddress; // ebx
-  STRING DestinationString; // [rsp+30h] [rbp-18h] BYREF
-  __int64 v5; // [rsp+50h] [rbp+8h] BYREF
+  void *v1; // rbx
+  NTSTATUS v2; // ebx
+  _STRING DestinationString; // [rsp+30h] [rbp-18h] BYREF
+  PVOID ProcedureAddress; // [rsp+50h] [rbp+8h] BYREF
 
-  v5 = 0LL;
+  ProcedureAddress = 0LL;
   v0 = AVrfpVerifierProvidersList;
   DestinationString = 0LL;
   while ( 1 )
@@ -28,7 +28,7 @@ __int64 AVrfpVerifierStopInitialize()
       break;
     v0 = *(_QWORD *)v0;
   }
-  v1 = *(_QWORD *)(*(_QWORD *)(v0 + 32) + 48LL);
+  v1 = *(void **)(*(_QWORD *)(v0 + 32) + 48LL);
   if ( !v1 )
   {
 LABEL_10:
@@ -36,10 +36,10 @@ LABEL_10:
     return 3221225473LL;
   }
   RtlInitAnsiString(&DestinationString, "VerifierStopMessage");
-  ProcedureAddress = LdrGetProcedureAddressEx(v1, (int)&DestinationString, 0, (int)&v5, 0);
-  if ( ProcedureAddress >= 0 )
-    AVrfpVerifierStopMessageFunction = v5;
+  v2 = LdrGetProcedureAddressEx(v1, &DestinationString, 0, &ProcedureAddress, 0);
+  if ( v2 >= 0 )
+    AVrfpVerifierStopMessageFunction = (__int64)ProcedureAddress;
   else
     DbgPrint("AVRF: Failed to find `VerifierStopMessage()' export in verifier.dll! \n");
-  return (unsigned int)ProcedureAddress;
+  return (unsigned int)v2;
 }

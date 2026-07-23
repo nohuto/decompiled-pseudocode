@@ -9,19 +9,19 @@
  *     @__security_check_cookie@4 @ 0x4B2F4B20 (@__security_check_cookie@4.c)
  */
 
-NTSTATUS __stdcall RtlIntegerToUnicodeString(int a1, int a2, PUNICODE_STRING DestinationString)
+NTSTATUS __cdecl RtlIntegerToUnicodeString(ULONG Value, ULONG Base, PUNICODE_STRING String)
 {
   NTSTATUS result; // eax
-  STRING SourceString; // [esp+8h] [ebp-30h] BYREF
-  char v5[36]; // [esp+10h] [ebp-28h] BYREF
+  ANSI_STRING SourceString; // [esp+8h] [ebp-30h] BYREF
+  CHAR v5[36]; // [esp+10h] [ebp-28h] BYREF
 
-  result = RtlIntegerToChar(a1, a2, 33, v5);
+  result = RtlIntegerToChar(Value, Base, 33, v5);
   if ( result >= 0 )
   {
     SourceString.MaximumLength = 33;
     SourceString.Buffer = v5;
     SourceString.Length = strlen(v5);
-    return RtlAnsiStringToUnicodeString(DestinationString, &SourceString, 0);
+    return RtlAnsiStringToUnicodeString(String, &SourceString, 0);
   }
   return result;
 }

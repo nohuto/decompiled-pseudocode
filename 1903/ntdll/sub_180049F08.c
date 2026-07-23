@@ -22,11 +22,11 @@ unsigned __int16 *__fastcall sub_180049F08(__int64 a1, __int64 a2, __int64 a3)
   unsigned int v11; // r10d
   unsigned __int64 v12; // rax
   int v13; // eax
-  unsigned __int64 v14; // r9
-  unsigned __int64 v15; // r8
+  unsigned int v14; // r9d
+  unsigned int v15; // r8d
   unsigned int v16; // r10d
-  int v17; // eax
-  unsigned __int64 v18; // rdx
+  unsigned int v17; // eax
+  unsigned int v18; // edx
   unsigned int v19; // ecx
   unsigned int v20; // eax
   unsigned int v21; // ecx
@@ -69,16 +69,16 @@ unsigned __int16 *__fastcall sub_180049F08(__int64 a1, __int64 a2, __int64 a3)
     LODWORD(v12) = -1;
   LOBYTE(a3) = v10 > 1;
   v13 = sub_18004A1B4(v11, (unsigned int)v12, a3, *(_QWORD *)(a2 + 64) != 0LL);
-  v14 = 7LL;
+  v14 = 7;
   v15 = v8 * v13;
   v16 = ((8 * (((unsigned __int64)(unsigned int)(2 * v13) + 63) >> 6) + 63) & 0xFFFFFFF0)
       + 2
-      * (((unsigned int)v15
+      * ((v8 * v13
         + ((8 * (unsigned int)(((unsigned __int64)(unsigned int)(2 * v13) + 63) >> 6) + 63) & 0xFFFFFFF0)
         + 4095) >> 12);
-  v17 = v16 + v15;
-  v18 = 18LL;
-  if ( v16 + (unsigned int)v15 >= 0xF0000 )
+  v17 = v16 + v8 * v13;
+  v18 = 18;
+  if ( v17 >= 0xF0000 )
     v17 = 983040;
   _BitScanReverse(&v19, v17 - 1);
   v20 = 7;
@@ -92,24 +92,24 @@ unsigned __int16 *__fastcall sub_180049F08(__int64 a1, __int64 a2, __int64 a3)
   if ( v22 <= 0xC )
     LOBYTE(v22) = 12;
   v23 = 1 << v22;
-  if ( (v4 & 8) != 0 && v16 <= (unsigned int)v15 >> 6 )
+  if ( (v4 & 8) != 0 && v16 <= v15 >> 6 )
   {
-    if ( (unsigned int)v15 >= 0xF0000 )
-      v15 = 983040LL;
+    if ( v15 >= 0xF0000 )
+      v15 = 983040;
     _BitScanReverse(&v24, v15 - 1);
     v35 = v24;
     v25 = v24 + 1;
     if ( v25 > 7 )
       v14 = v25;
-    if ( (unsigned int)v14 < 0x12 )
-      v18 = (unsigned int)v14;
-    if ( (unsigned int)v18 <= 0xC )
-      v18 = 12LL;
+    if ( v14 < 0x12 )
+      v18 = v14;
+    if ( v18 <= 0xC )
+      LOBYTE(v18) = 12;
     if ( v23 > 1 << v18 )
       v23 = 1 << v18;
   }
   if ( (v5 & 1) == 0 )
-    RtlAcquireSRWLockShared((volatile signed __int64 *)(a1 + 72), v18, v15, v14);
+    RtlAcquireSRWLockShared((PRTL_SRWLOCK)(a1 + 72));
   v26 = (unsigned __int16 *)((__int64 (__fastcall *)(_QWORD, _QWORD, _QWORD, char *, char *))(a1 ^ qword_180163540 ^ *(_QWORD *)(a1 + 8)))(
                               *(_QWORD *)a1,
                               v23,
@@ -167,6 +167,6 @@ unsigned __int16 *__fastcall sub_180049F08(__int64 a1, __int64 a2, __int64 a3)
     v29 = 0LL;
   }
   if ( (v5 & 1) == 0 )
-    RtlReleaseSRWLockShared((volatile signed __int64 *)(a1 + 72));
+    RtlReleaseSRWLockShared((PRTL_SRWLOCK)(a1 + 72));
   return v29;
 }

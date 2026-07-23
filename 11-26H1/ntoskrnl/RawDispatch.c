@@ -1,22 +1,22 @@
 /*
- * XREFs of RawDispatch @ 0x140A35180
+ * XREFs of RawDispatch @ 0x140919E90
  * Callers:
  *     <none>
  * Callees:
- *     ExAcquireFastMutex @ 0x140278070 (ExAcquireFastMutex.c)
- *     KeReleaseGuardedMutex @ 0x140278D40 (KeReleaseGuardedMutex.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     FsRtlIsNtstatusExpected @ 0x1402E2870 (FsRtlIsNtstatusExpected.c)
- *     IofCompleteRequest @ 0x1403FD9D0 (IofCompleteRequest.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     RawSetInformation @ 0x140800084 (RawSetInformation.c)
- *     RawCleanup @ 0x140A35394 (RawCleanup.c)
- *     RawClose @ 0x140A3552C (RawClose.c)
- *     RawReadWriteDeviceControl @ 0x140A355B4 (RawReadWriteDeviceControl.c)
- *     RawCreate @ 0x140A356CC (RawCreate.c)
- *     RawQueryVolumeInformation @ 0x140A35C8C (RawQueryVolumeInformation.c)
- *     RawFileSystemControl @ 0x140A35E00 (RawFileSystemControl.c)
- *     RawQueryInformation @ 0x140A36C34 (RawQueryInformation.c)
+ *     ExAcquireFastMutex @ 0x1402775E0 (ExAcquireFastMutex.c)
+ *     KeReleaseGuardedMutex @ 0x1402782B0 (KeReleaseGuardedMutex.c)
+ *     FsRtlIsNtstatusExpected @ 0x1402C4930 (FsRtlIsNtstatusExpected.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     IofCompleteRequest @ 0x1403FA1C0 (IofCompleteRequest.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     RawSetInformation @ 0x140805AB4 (RawSetInformation.c)
+ *     RawQueryInformation @ 0x14091992C (RawQueryInformation.c)
+ *     RawCleanup @ 0x14091A0A4 (RawCleanup.c)
+ *     RawClose @ 0x14091A23C (RawClose.c)
+ *     RawReadWriteDeviceControl @ 0x14091A2C4 (RawReadWriteDeviceControl.c)
+ *     RawCreate @ 0x14091A3DC (RawCreate.c)
+ *     RawQueryVolumeInformation @ 0x14091A99C (RawQueryVolumeInformation.c)
+ *     RawFileSystemControl @ 0x14091AB10 (RawFileSystemControl.c)
  */
 
 __int64 __fastcall RawDispatch(__int64 a1, IRP *a2)
@@ -70,7 +70,7 @@ __int64 __fastcall RawDispatch(__int64 a1, IRP *a2)
       v16 = v15 - 1;
       if ( !v16 )
       {
-        Information = RawQueryInformation(a1 + 336, a2, CurrentStackLocation);
+        Information = RawQueryInformation(a1 + 336, (__int64)a2, (__int64)CurrentStackLocation);
         goto LABEL_8;
       }
       if ( v16 == 1 )

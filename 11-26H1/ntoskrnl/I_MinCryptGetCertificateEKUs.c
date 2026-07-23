@@ -1,11 +1,11 @@
 /*
- * XREFs of I_MinCryptGetCertificateEKUs @ 0x1408A09CC
+ * XREFs of I_MinCryptGetCertificateEKUs @ 0x1408A6DDC
  * Callers:
- *     I_MinCryptFindIssuerCertificateByName @ 0x1408A0774 (I_MinCryptFindIssuerCertificateByName.c)
- *     MinCryptVerifyCertificateWithPolicy2 @ 0x1408A0AA4 (MinCryptVerifyCertificateWithPolicy2.c)
+ *     I_MinCryptFindIssuerCertificateByName @ 0x1408A6B84 (I_MinCryptFindIssuerCertificateByName.c)
+ *     MinCryptVerifyCertificateWithPolicy2 @ 0x1408A6EB4 (MinCryptVerifyCertificateWithPolicy2.c)
  * Callees:
- *     MinAsn1ParseOIDSequence @ 0x1408A3438 (MinAsn1ParseOIDSequence.c)
- *     MinAsn1ParseSingleExtensionValue @ 0x1408A36E0 (MinAsn1ParseSingleExtensionValue.c)
+ *     MinAsn1ParseOIDSequence @ 0x1408A9848 (MinAsn1ParseOIDSequence.c)
+ *     MinAsn1ParseSingleExtensionValue @ 0x1408A9AF0 (MinAsn1ParseSingleExtensionValue.c)
  */
 
 __int64 __fastcall I_MinCryptGetCertificateEKUs(_DWORD *a1, _DWORD *a2, __int64 a3)
@@ -19,7 +19,7 @@ __int64 __fastcall I_MinCryptGetCertificateEKUs(_DWORD *a1, _DWORD *a2, __int64 
   v7[0] = 0LL;
   if ( *a1 )
   {
-    if ( (int)MinAsn1ParseSingleExtensionValue(&qword_140BD9A98, a1, &v8, v7) > 0 )
+    if ( (int)MinAsn1ParseSingleExtensionValue(&qword_140BE0948, a1, &v8, v7) > 0 )
     {
       if ( v8 )
       {

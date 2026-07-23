@@ -1,15 +1,15 @@
 /*
- * XREFs of DbgkpPostModuleMessages @ 0x140A4A9B8
+ * XREFs of DbgkpPostModuleMessages @ 0x140A41618
  * Callers:
- *     DbgkCreateThread @ 0x1408FED24 (DbgkCreateThread.c)
- *     DbgkpPostFakeProcessCreateMessages @ 0x1409E8EA0 (DbgkpPostFakeProcessCreateMessages.c)
+ *     DbgkCreateThread @ 0x140921604 (DbgkCreateThread.c)
+ *     DbgkpPostFakeProcessCreateMessages @ 0x1409E3E60 (DbgkpPostFakeProcessCreateMessages.c)
  * Callees:
- *     RtlImageNtHeader @ 0x14043E310 (RtlImageNtHeader.c)
- *     DbgkPostModuleMessage @ 0x140485670 (DbgkPostModuleMessage.c)
- *     PsGetProcessEnclaveModuleInfo @ 0x1404BEA10 (PsGetProcessEnclaveModuleInfo.c)
- *     PsFreeEnclaveModuleInfo @ 0x1404BEC50 (PsFreeEnclaveModuleInfo.c)
- *     DbgkPostEnclaveModuleMessages @ 0x14057E52C (DbgkPostEnclaveModuleMessages.c)
- *     VslSendDebugAttachNotifications @ 0x140710364 (VslSendDebugAttachNotifications.c)
+ *     RtlImageNtHeader @ 0x140432E80 (RtlImageNtHeader.c)
+ *     DbgkPostModuleMessage @ 0x140480C54 (DbgkPostModuleMessage.c)
+ *     PsGetProcessEnclaveModuleInfo @ 0x1404B9BD0 (PsGetProcessEnclaveModuleInfo.c)
+ *     PsFreeEnclaveModuleInfo @ 0x1404B9E10 (PsFreeEnclaveModuleInfo.c)
+ *     DbgkPostEnclaveModuleMessages @ 0x14057B9BC (DbgkPostEnclaveModuleMessages.c)
+ *     VslSendDebugAttachNotifications @ 0x14070DEF4 (VslSendDebugAttachNotifications.c)
  */
 
 void __fastcall DbgkpPostModuleMessages(__int64 a1, void *a2, struct _KEVENT *a3)
@@ -20,9 +20,9 @@ void __fastcall DbgkpPostModuleMessages(__int64 a1, void *a2, struct _KEVENT *a3
   _QWORD *v9; // r9
   unsigned int v10; // eax
   int v11; // edx
-  unsigned __int64 v12; // rax
-  int v13; // r9d
-  int v14; // eax
+  PIMAGE_NT_HEADERS v12; // rax
+  int PointerToSymbolTable; // r9d
+  int NumberOfSymbols; // eax
   __int64 v15; // rcx
   __int16 v16; // ax
   unsigned int *v18; // r8
@@ -30,7 +30,7 @@ void __fastcall DbgkpPostModuleMessages(__int64 a1, void *a2, struct _KEVENT *a3
   unsigned int *v20; // r9
   unsigned int v21; // eax
   int v22; // edx
-  unsigned __int64 v23; // rax
+  PIMAGE_NT_HEADERS v23; // rax
   int v24; // r9d
   int v25; // ecx
   int v26; // edi
@@ -40,8 +40,8 @@ void __fastcall DbgkpPostModuleMessages(__int64 a1, void *a2, struct _KEVENT *a3
   unsigned int v30; // [rsp+30h] [rbp-78h]
   int v31; // [rsp+34h] [rbp-74h]
   int v32; // [rsp+34h] [rbp-74h]
-  void *v33; // [rsp+38h] [rbp-70h]
-  unsigned __int64 v34; // [rsp+38h] [rbp-70h]
+  PVOID BaseOfImage; // [rsp+38h] [rbp-70h]
+  PVOID BaseOfImagea; // [rsp+38h] [rbp-70h]
   _QWORD *v35; // [rsp+40h] [rbp-68h]
   PVOID P; // [rsp+48h] [rbp-60h] BYREF
   _QWORD *v37; // [rsp+50h] [rbp-58h]
@@ -75,19 +75,19 @@ void __fastcall DbgkpPostModuleMessages(__int64 a1, void *a2, struct _KEVENT *a3
       {
         if ( v10 > 1 )
         {
-          v33 = (void *)v35[6];
-          v12 = RtlImageNtHeader((unsigned __int64)v33);
+          BaseOfImage = (PVOID)v35[6];
+          v12 = RtlImageNtHeader(BaseOfImage);
           if ( v12 )
           {
-            v13 = *(_DWORD *)(v12 + 12);
-            v14 = *(_DWORD *)(v12 + 16);
+            PointerToSymbolTable = v12->FileHeader.PointerToSymbolTable;
+            NumberOfSymbols = v12->FileHeader.NumberOfSymbols;
           }
           else
           {
-            v13 = 0;
-            v14 = 0;
+            PointerToSymbolTable = 0;
+            NumberOfSymbols = 0;
           }
-          DbgkPostModuleMessage((PVOID)a1, a2, v33, v13, v14, a3);
+          DbgkPostModuleMessage((PVOID)a1, a2, BaseOfImage, PointerToSymbolTable, NumberOfSymbols, a3);
           v8 = v35;
           v10 = v29;
           v11 = v31;
@@ -142,19 +142,19 @@ void __fastcall DbgkpPostModuleMessages(__int64 a1, void *a2, struct _KEVENT *a3
         {
           if ( v21 > 1 )
           {
-            v34 = v40[6];
-            v23 = RtlImageNtHeader(v34);
+            BaseOfImagea = (PVOID)v40[6];
+            v23 = RtlImageNtHeader(BaseOfImagea);
             if ( v23 )
             {
-              v24 = *(_DWORD *)(v23 + 12);
-              v25 = *(_DWORD *)(v23 + 16);
+              v24 = v23->FileHeader.PointerToSymbolTable;
+              v25 = v23->FileHeader.NumberOfSymbols;
             }
             else
             {
               v24 = 0;
               v25 = 0;
             }
-            DbgkPostModuleMessage((PVOID)a1, a2, (void *)v34, v24, v25, a3);
+            DbgkPostModuleMessage((PVOID)a1, a2, BaseOfImagea, v24, v25, a3);
             v21 = v30;
             v22 = v32;
             v19 = v40;

@@ -8,83 +8,94 @@
  *     _memcpy @ 0x4B2F88B0 (_memcpy.c)
  */
 
-_DWORD *__stdcall RtlInsertElementGenericTableFullAvl(int a1, void *Src, size_t Size, bool *a4, _DWORD *a5, int a6)
+PVOID __cdecl RtlInsertElementGenericTableFullAvl(
+        PRTL_AVL_TABLE Table,
+        PVOID Buffer,
+        CLONG BufferSize,
+        PBOOLEAN NewElement,
+        PVOID NodeOrParent,
+        TABLE_SEARCH_RESULT SearchResult)
 {
-  _DWORD *v6; // esi
-  _DWORD *v7; // edx
-  int v8; // ecx
-  int v9; // eax
+  _RTL_BALANCED_LINKS *v6; // esi
+  _RTL_BALANCED_LINKS *v7; // edx
+  _RTL_BALANCED_LINKS *v8; // ecx
+  _RTL_BALANCED_LINKS *Parent; // eax
   bool v10; // zf
-  char v11; // dl
+  char Balance; // dl
   char v12; // al
-  _DWORD *result; // eax
+  PVOID result; // eax
+  size_t v14; // [esp-4h] [ebp-Ch]
 
-  if ( a6 == 1 )
+  if ( SearchResult == TableFoundNode )
   {
-    v6 = a5;
+    v6 = (_RTL_BALANCED_LINKS *)NodeOrParent;
 LABEL_14:
-    if ( a4 )
-      *a4 = a6 != 1;
-    *(_DWORD *)(a1 + 20) = 0;
-    result = v6 + 4;
-    *(_DWORD *)(a1 + 16) = 0;
+    if ( NewElement )
+      *NewElement = SearchResult != TableFoundNode;
+    Table->WhichOrderedElement = 0;
+    result = &v6[1];
+    Table->OrderedPointer = 0;
     return result;
   }
-  if ( Size + 16 >= Size )
+  if ( BufferSize + 16 >= BufferSize )
   {
-    v6 = (_DWORD *)(*(int (__thiscall **)(_DWORD, int, size_t))(a1 + 44))(*(_DWORD *)(a1 + 44), a1, Size + 16);
+    v6 = (_RTL_BALANCED_LINKS *)((int (__thiscall *)(void *(__stdcall *)(_RTL_AVL_TABLE *, unsigned int), PRTL_AVL_TABLE, CLONG))Table->AllocateRoutine)(
+                                  Table->AllocateRoutine,
+                                  Table,
+                                  BufferSize + 16);
     if ( v6 )
     {
-      *v6 = 0;
-      v6[1] = 0;
-      v6[2] = 0;
-      v6[3] = 0;
-      ++*(_DWORD *)(a1 + 24);
-      if ( a6 )
+      v6->Parent = 0;
+      v6->LeftChild = 0;
+      v6->RightChild = 0;
+      *(_DWORD *)&v6->Balance = 0;
+      ++Table->NumberGenericTableElements;
+      if ( SearchResult )
       {
         v7 = v6;
-        v8 = (int)a5;
-        if ( a6 == 2 )
-          a5[1] = v6;
+        v8 = (_RTL_BALANCED_LINKS *)NodeOrParent;
+        if ( SearchResult == TableInsertAsLeft )
+          *((_DWORD *)NodeOrParent + 1) = v6;
         else
-          a5[2] = v6;
-        *v6 = a5;
-        *(_BYTE *)(a1 + 12) = -1;
-        v9 = *v6;
+          *((_DWORD *)NodeOrParent + 2) = v6;
+        v6->Parent = (_RTL_BALANCED_LINKS *)NodeOrParent;
+        Table->BalancedRoot.Balance = -1;
+        Parent = v6->Parent;
         while ( 1 )
         {
-          v10 = *(_DWORD *)(v9 + 4) == (_DWORD)v7;
-          v11 = *(_BYTE *)(v8 + 12);
+          v10 = Parent->LeftChild == v7;
+          Balance = v8->Balance;
           v12 = 2 * !v10 - 1;
-          if ( v11 )
+          if ( Balance )
             break;
-          *(_BYTE *)(v8 + 12) = v12;
-          v7 = (_DWORD *)v8;
-          v9 = *(_DWORD *)v8;
-          v8 = *(_DWORD *)v8;
+          v8->Balance = v12;
+          v7 = v8;
+          Parent = v8->Parent;
+          v8 = v8->Parent;
         }
-        if ( v11 == v12 )
+        if ( Balance == v12 )
         {
           RebalanceNode(v8);
         }
         else
         {
-          *(_BYTE *)(v8 + 12) = 0;
-          if ( !*(_BYTE *)(a1 + 12) )
-            ++*(_DWORD *)(a1 + 28);
+          v8->Balance = 0;
+          if ( !Table->BalancedRoot.Balance )
+            ++Table->DepthOfTree;
         }
       }
       else
       {
-        *(_DWORD *)(a1 + 8) = v6;
-        *v6 = a1;
-        *(_DWORD *)(a1 + 28) = 1;
+        Table->BalancedRoot.RightChild = v6;
+        v6->Parent = &Table->BalancedRoot;
+        Table->DepthOfTree = 1;
       }
-      memcpy(v6 + 4, Src, Size);
+      LODWORD(v14) = BufferSize;
+      memcpy(&v6[1], Buffer, v14);
       goto LABEL_14;
     }
   }
-  if ( a4 )
-    *a4 = 0;
+  if ( NewElement )
+    *NewElement = 0;
   return 0;
 }

@@ -1,10 +1,10 @@
 /*
- * XREFs of DbgUnLoadImageSymbols @ 0x1402113D4
+ * XREFs of DbgUnLoadImageSymbols @ 0x140211200
  * Callers:
  *     PopSaveHiberContext @ 0x1403CCB40 (PopSaveHiberContext.c)
  *     PopShutdownSystem @ 0x1403DFA40 (PopShutdownSystem.c)
  * Callees:
- *     DebugService2 @ 0x140166DD0 (DebugService2.c)
+ *     DebugService2 @ 0x140167340 (DebugService2.c)
  */
 
 void __stdcall DbgUnLoadImageSymbols(PSTRING Name, PVOID Base, ULONG_PTR ProcessId)

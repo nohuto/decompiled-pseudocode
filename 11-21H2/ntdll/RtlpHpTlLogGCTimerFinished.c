@@ -7,12 +7,18 @@
  *     __security_check_cookie @ 0x180093840 (__security_check_cookie.c)
  */
 
-__int64 __fastcall RtlpHpTlLogGCTimerFinished(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+ULONG __fastcall RtlpHpTlLogGCTimerFinished(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
-  __int64 result; // rax
-  _BYTE v5[32]; // [rsp+30h] [rbp-38h] BYREF
+  ULONG result; // eax
+  _EVENT_DATA_DESCRIPTOR v5; // [rsp+30h] [rbp-38h] BYREF
 
   if ( (unsigned int)dword_180174430 > 5 )
-    return tlgWriteTransfer_EtwEventWriteTransfer((__int64)&dword_180174430, byte_180141E25, a3, a4, 2, (__int64)v5);
+    return tlgWriteTransfer_EtwEventWriteTransfer(
+             (__int64)&dword_180174430,
+             (unsigned __int8 *)dword_180141E25,
+             a3,
+             a4,
+             2u,
+             &v5);
   return result;
 }

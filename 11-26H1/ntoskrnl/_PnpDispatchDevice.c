@@ -1,22 +1,22 @@
 /*
- * XREFs of _PnpDispatchDevice @ 0x1409956A0
+ * XREFs of _PnpDispatchDevice @ 0x140956100
  * Callers:
  *     <none>
  * Callees:
- *     _CmDeleteDevice @ 0x14089690C (_CmDeleteDevice.c)
- *     _CmValidateDeviceName @ 0x14098CC00 (_CmValidateDeviceName.c)
- *     _CmGetDeviceMappedPropertyFromInstanceKeyRegValue @ 0x140992C9C (_CmGetDeviceMappedPropertyFromInstanceKeyRegValue.c)
- *     _CmGetDeviceMappedPropertyFromComposite @ 0x140992EEC (_CmGetDeviceMappedPropertyFromComposite.c)
- *     _CmGetDeviceMappedPropertyFromRegProp @ 0x140994750 (_CmGetDeviceMappedPropertyFromRegProp.c)
- *     _CmOpenDeviceRegKey @ 0x140996B50 (_CmOpenDeviceRegKey.c)
- *     _CmGetMatchingDeviceList @ 0x140A8A7DC (_CmGetMatchingDeviceList.c)
- *     _CmSetDeviceMappedProperty @ 0x140AAFB8C (_CmSetDeviceMappedProperty.c)
- *     _CmGetDeviceMappedPropertyLocales @ 0x140ADD7A4 (_CmGetDeviceMappedPropertyLocales.c)
- *     _CmGetDeviceMappedPropertyKeys @ 0x140AE2F14 (_CmGetDeviceMappedPropertyKeys.c)
- *     _CmCreateDevice @ 0x140AF2C20 (_CmCreateDevice.c)
+ *     _CmDeleteDevice @ 0x14089CD0C (_CmDeleteDevice.c)
+ *     _CmValidateDeviceName @ 0x14094D660 (_CmValidateDeviceName.c)
+ *     _CmGetDeviceMappedPropertyFromInstanceKeyRegValue @ 0x1409536FC (_CmGetDeviceMappedPropertyFromInstanceKeyRegValue.c)
+ *     _CmGetDeviceMappedPropertyFromComposite @ 0x14095394C (_CmGetDeviceMappedPropertyFromComposite.c)
+ *     _CmGetDeviceMappedPropertyFromRegProp @ 0x1409551B0 (_CmGetDeviceMappedPropertyFromRegProp.c)
+ *     _CmOpenDeviceRegKey @ 0x1409575B0 (_CmOpenDeviceRegKey.c)
+ *     _CmGetMatchingDeviceList @ 0x1409B75FC (_CmGetMatchingDeviceList.c)
+ *     _CmSetDeviceMappedProperty @ 0x140AAD7DC (_CmSetDeviceMappedProperty.c)
+ *     _CmGetDeviceMappedPropertyLocales @ 0x140ADA514 (_CmGetDeviceMappedPropertyLocales.c)
+ *     _CmGetDeviceMappedPropertyKeys @ 0x140AE0A94 (_CmGetDeviceMappedPropertyKeys.c)
+ *     _CmCreateDevice @ 0x140AF540C (_CmCreateDevice.c)
  */
 
-__int64 __fastcall PnpDispatchDevice(_QWORD *a1, wchar_t *a2, __int64 a3, int a4, _DWORD *a5)
+__int64 __fastcall PnpDispatchDevice(__int64 a1, wchar_t *a2, __int64 a3, int a4, _DWORD *a5)
 {
   __int64 (__fastcall *v5)(__int64, __int64, unsigned int); // rbx
   __int128 *v8; // r8
@@ -74,7 +74,7 @@ __int64 __fastcall PnpDispatchDevice(_QWORD *a1, wchar_t *a2, __int64 a3, int a4
           if ( !v22 )
           {
             DeviceMappedPropertyFromRegProp = CmGetDeviceMappedPropertyFromRegProp(
-                                                (__int64)a1,
+                                                a1,
                                                 (__int64)a2,
                                                 v17,
                                                 v14,
@@ -95,7 +95,7 @@ __int64 __fastcall PnpDispatchDevice(_QWORD *a1, wchar_t *a2, __int64 a3, int a4
       {
         if ( j >= 2 )
           goto LABEL_27;
-        v24 = (__int64)*(&off_140BD9560 + 4 * j);
+        v24 = (__int64)*(&off_140BE03F0 + 4 * j);
         if ( *(_DWORD *)(v14 + 16) == *(_DWORD *)(v24 + 16) )
         {
           v27 = *(_QWORD *)v14 - *(_QWORD *)v24;
@@ -106,7 +106,7 @@ __int64 __fastcall PnpDispatchDevice(_QWORD *a1, wchar_t *a2, __int64 a3, int a4
         }
       }
       DeviceMappedPropertyFromRegProp = CmGetDeviceMappedPropertyFromInstanceKeyRegValue(
-                                          (__int64)a1,
+                                          a1,
                                           (int)a2,
                                           v28,
                                           v14,
@@ -119,7 +119,7 @@ __int64 __fastcall PnpDispatchDevice(_QWORD *a1, wchar_t *a2, __int64 a3, int a4
 LABEL_27:
         while ( (unsigned int)v5 < 0x1C )
         {
-          v25 = (__int64)*(&off_140BDB9A0 + 2 * (unsigned int)v5);
+          v25 = (__int64)*(&off_140BE2850 + 2 * (unsigned int)v5);
           if ( *(_DWORD *)(v14 + 16) == *(_DWORD *)(v25 + 16) )
           {
             v26 = *(_QWORD *)v14 - *(_QWORD *)v25;
@@ -152,11 +152,11 @@ LABEL_27:
       switch ( a4 )
       {
         case 1:
-          DeviceMappedPropertyFromRegProp = CmValidateDeviceName((__int64)a1, a2);
+          DeviceMappedPropertyFromRegProp = CmValidateDeviceName(a1, a2);
           goto LABEL_3;
         case 3:
           DeviceMappedPropertyFromRegProp = CmCreateDevice(
-                                              (_DWORD)a1,
+                                              a1,
                                               (_DWORD)a2,
                                               *a5,
                                               (int)a5 + 8,
@@ -164,7 +164,7 @@ LABEL_27:
                                               a5[5] & 0xFFFF0000);
           goto LABEL_3;
         case 4:
-          DeviceMappedPropertyFromRegProp = CmDeleteDevice((__int64)a1, (__int64)a2, *a5 & 0xFFFF0000);
+          DeviceMappedPropertyFromRegProp = CmDeleteDevice(a1, (__int64)a2, *a5 & 0xFFFF0000);
           goto LABEL_3;
         case 5:
           if ( *(_QWORD *)a5 )
@@ -175,7 +175,7 @@ LABEL_27:
             *((_QWORD *)&v31 + 1) = *((_QWORD *)a5 + 1);
           }
           DeviceMappedPropertyFromRegProp = CmGetMatchingDeviceList(
-                                              (_DWORD)a1,
+                                              a1,
                                               (_DWORD)v5,
                                               (_DWORD)v8,
                                               *((_QWORD *)a5 + 2),
@@ -185,7 +185,7 @@ LABEL_27:
           goto LABEL_3;
         case 6:
           DeviceMappedPropertyFromRegProp = CmGetDeviceMappedPropertyKeys(
-                                              (_DWORD)a1,
+                                              a1,
                                               (_DWORD)a2,
                                               *(_QWORD *)a5,
                                               0,
@@ -195,7 +195,7 @@ LABEL_27:
           goto LABEL_3;
         case 7:
           DeviceMappedPropertyFromRegProp = CmGetDeviceMappedPropertyLocales(
-                                              (_DWORD)a1,
+                                              a1,
                                               (_DWORD)a2,
                                               0,
                                               *((_QWORD *)a5 + 1),
@@ -205,7 +205,7 @@ LABEL_27:
           goto LABEL_3;
         case 9:
           DeviceMappedPropertyFromRegProp = CmSetDeviceMappedProperty(
-                                              (_DWORD)a1,
+                                              a1,
                                               (_DWORD)a2,
                                               *((_QWORD *)a5 + 2),
                                               a5[6],
@@ -217,7 +217,7 @@ LABEL_27:
       }
     }
     DeviceMappedPropertyFromRegProp = CmOpenDeviceRegKey(
-                                        (_DWORD)a1,
+                                        a1,
                                         (_DWORD)a2,
                                         16,
                                         0,

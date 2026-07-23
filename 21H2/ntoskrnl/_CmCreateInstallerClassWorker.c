@@ -1,13 +1,19 @@
 /*
- * XREFs of _CmCreateInstallerClassWorker @ 0x140974C5C
+ * XREFs of _CmCreateInstallerClassWorker @ 0x140974E3C
  * Callers:
- *     _CmCreateInstallerClass @ 0x140974AE0 (_CmCreateInstallerClass.c)
+ *     _CmCreateInstallerClass @ 0x140974CC0 (_CmCreateInstallerClass.c)
  * Callees:
- *     _CmOpenInstallerClassRegKey @ 0x140645BF0 (_CmOpenInstallerClassRegKey.c)
- *     _CmRaiseCreateEvent @ 0x14074BAB0 (_CmRaiseCreateEvent.c)
+ *     _CmOpenInstallerClassRegKey @ 0x14063A9DC (_CmOpenInstallerClassRegKey.c)
+ *     _CmRaiseCreateEvent @ 0x14074BC70 (_CmRaiseCreateEvent.c)
  */
 
-__int64 __fastcall CmCreateInstallerClassWorker(__int64 a1, __int64 a2, __int64 a3, __int64 *a4, bool *a5, __int16 a6)
+__int64 __fastcall CmCreateInstallerClassWorker(
+        __int64 a1,
+        const WCHAR *a2,
+        __int64 a3,
+        __int64 *a4,
+        bool *a5,
+        __int16 a6)
 {
   int v9; // ebx
   bool v10; // dl
@@ -26,7 +32,7 @@ __int64 __fastcall CmCreateInstallerClassWorker(__int64 a1, __int64 a2, __int64 
       v10 = v12[0] == 1;
       *a5 = v12[0] == 1;
       if ( v10 )
-        CmRaiseCreateEvent(a1, a2, 2u, *a4);
+        CmRaiseCreateEvent(a1, (__int64)a2, 2u, *a4);
     }
   }
   return (unsigned int)v9;

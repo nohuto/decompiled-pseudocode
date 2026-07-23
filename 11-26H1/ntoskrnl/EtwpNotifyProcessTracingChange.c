@@ -1,16 +1,16 @@
 /*
- * XREFs of EtwpNotifyProcessTracingChange @ 0x14082848C
+ * XREFs of EtwpNotifyProcessTracingChange @ 0x14082E6CC
  * Callers:
- *     EtwpUpdateProcessTracingCallback @ 0x140828630 (EtwpUpdateProcessTracingCallback.c)
+ *     EtwpUpdateProcessTracingCallback @ 0x14082E870 (EtwpUpdateProcessTracingCallback.c)
  * Callees:
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     ZwOpenProcess @ 0x1407238B0 (ZwOpenProcess.c)
- *     ZwUpdateWnfStateData @ 0x140727030 (ZwUpdateWnfStateData.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     ZwOpenProcess @ 0x140728480 (ZwOpenProcess.c)
+ *     ZwUpdateWnfStateData @ 0x14072BC00 (ZwUpdateWnfStateData.c)
  */
 
 __int64 __fastcall EtwpNotifyProcessTracingChange(void *a1)
 {
-  int updated; // ebx
+  NTSTATUS updated; // ebx
   CLIENT_ID ClientId; // [rsp+40h] [rbp-40h] BYREF
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+50h] [rbp-30h] BYREF
   HANDLE ProcessHandle; // [rsp+90h] [rbp+10h] BYREF
@@ -25,7 +25,7 @@ __int64 __fastcall EtwpNotifyProcessTracingChange(void *a1)
   *(_QWORD *)&ObjectAttributes.Attributes = 512LL;
   updated = ZwOpenProcess(&ProcessHandle, 0, &ObjectAttributes, &ClientId);
   if ( updated >= 0 )
-    updated = ZwUpdateWnfStateData((__int64)&WNF_ETW_UMGL_TRACING_CHANGE, 0LL);
+    updated = ZwUpdateWnfStateData(&WNF_ETW_UMGL_TRACING_CHANGE, 0LL, 0, 0LL, ProcessHandle, 0, 0);
   if ( ProcessHandle )
     ZwClose(ProcessHandle);
   return (unsigned int)updated;

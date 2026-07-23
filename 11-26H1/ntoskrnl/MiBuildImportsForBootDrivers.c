@@ -1,14 +1,14 @@
 /*
- * XREFs of MiBuildImportsForBootDrivers @ 0x140CFFA0C
+ * XREFs of MiBuildImportsForBootDrivers @ 0x140D05DAC
  * Callers:
- *     MiInitializeLoadedModuleList @ 0x140D00470 (MiInitializeLoadedModuleList.c)
+ *     MiInitializeLoadedModuleList @ 0x140D06810 (MiInitializeLoadedModuleList.c)
  * Callees:
- *     MmFindDataTableEntryByAddress @ 0x140366EA0 (MmFindDataTableEntryByAddress.c)
- *     ExAllocatePoolMm @ 0x1403985B0 (ExAllocatePoolMm.c)
- *     RtlImageDirectoryEntryToData @ 0x14040E290 (RtlImageDirectoryEntryToData.c)
- *     MmReleaseLoadLock @ 0x1404A4B70 (MmReleaseLoadLock.c)
- *     MmAcquireLoadLock @ 0x1404AB9B0 (MmAcquireLoadLock.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     MmFindDataTableEntryByAddress @ 0x140368C40 (MmFindDataTableEntryByAddress.c)
+ *     ExAllocatePoolMm @ 0x14039A310 (ExAllocatePoolMm.c)
+ *     RtlImageDirectoryEntryToData @ 0x14042B1C0 (RtlImageDirectoryEntryToData.c)
+ *     MmReleaseLoadLock @ 0x14049E200 (MmReleaseLoadLock.c)
+ *     MmAcquireLoadLock @ 0x1404A5040 (MmAcquireLoadLock.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 MiBuildImportsForBootDrivers()
@@ -23,10 +23,10 @@ __int64 MiBuildImportsForBootDrivers()
   struct _LIST_ENTRY *k; // rbx
   unsigned __int64 *v8; // r14
   unsigned int v9; // r15d
-  unsigned int v10; // ebp
+  ULONG v10; // ebp
   struct _LIST_ENTRY *v11; // rdi
   struct _LIST_ENTRY *v12; // rcx
-  unsigned int m; // r12d
+  ULONG m; // r12d
   unsigned __int64 Flink; // r8
   struct _LIST_ENTRY *DataTableEntryByAddress; // rax
   __int64 v16; // r11
@@ -34,12 +34,12 @@ __int64 MiBuildImportsForBootDrivers()
   __int64 v18; // rdx
   struct _LIST_ENTRY *v19; // r8
   PVOID v20; // rcx
-  unsigned int v22; // [rsp+60h] [rbp+8h] BYREF
+  ULONG Size; // [rsp+60h] [rbp+8h] BYREF
   struct _KTHREAD *v23; // [rsp+68h] [rbp+10h]
   struct _LIST_ENTRY *v24; // [rsp+70h] [rbp+18h]
 
   v0 = 0;
-  v22 = 0;
+  Size = 0;
   v1 = 0;
   v24 = 0LL;
   v2 = 0LL;
@@ -65,13 +65,13 @@ LABEL_11:
       goto LABEL_60;
     }
     v5 = i[6];
-    if ( (PVOID)PsNtosImageBase == v5 )
+    if ( PsNtosImageBase == v5 )
     {
       v2 = (struct _LIST_ENTRY *)i;
     }
     else
     {
-      if ( (PVOID)PsHalImageBase != v5 )
+      if ( PsHalImageBase != v5 )
         goto LABEL_7;
       v24 = (struct _LIST_ENTRY *)i;
     }
@@ -82,14 +82,14 @@ LABEL_7:
   }
   for ( k = (struct _LIST_ENTRY *)PsLoadedModuleList; k != (struct _LIST_ENTRY *)&PsLoadedModuleList; k = k->Flink )
   {
-    v8 = (unsigned __int64 *)RtlImageDirectoryEntryToData((unsigned __int64)k[3].Flink, 1, 0xCu, &v22);
+    v8 = (unsigned __int64 *)RtlImageDirectoryEntryToData(k[3].Flink, 1u, 0xCu, &Size);
     if ( v8 )
     {
       v9 = 0;
-      v10 = v22 >> 3;
+      v10 = Size >> 3;
       v11 = 0LL;
       v12 = 0LL;
-      v22 >>= 3;
+      Size >>= 3;
       for ( m = 0; m < v10; ++m )
       {
         if ( !v12 || (Flink = (unsigned __int64)v12[3].Flink, *v8 < Flink) || *v8 >= Flink + LODWORD(v12[4].Flink) )

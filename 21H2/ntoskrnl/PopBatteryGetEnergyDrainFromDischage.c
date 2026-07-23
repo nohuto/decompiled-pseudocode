@@ -1,8 +1,8 @@
 /*
- * XREFs of PopBatteryGetEnergyDrainFromDischage @ 0x140573DDC
+ * XREFs of PopBatteryGetEnergyDrainFromDischage @ 0x14057401C
  * Callers:
- *     PopCalculateCsSummary @ 0x14056FEA0 (PopCalculateCsSummary.c)
- *     PopDiagTraceCsResiliencyExit @ 0x1405712F4 (PopDiagTraceCsResiliencyExit.c)
+ *     PopCalculateCsSummary @ 0x1405700E0 (PopCalculateCsSummary.c)
+ *     PopDiagTraceCsResiliencyExit @ 0x140571534 (PopDiagTraceCsResiliencyExit.c)
  * Callees:
  *     <none>
  */
@@ -12,7 +12,7 @@ __int64 __fastcall PopBatteryGetEnergyDrainFromDischage(unsigned int a1, unsigne
   unsigned int v2; // r8d
 
   v2 = 0;
-  if ( (xmmword_140C23674 & 0x40000000) == 0 && a2 < a1 && a2 )
+  if ( (xmmword_140C23C94 & 0x40000000) == 0 && a2 < a1 && a2 )
     return a1 - a2;
   return v2;
 }

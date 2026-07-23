@@ -1,11 +1,11 @@
 /*
- * XREFs of SymCryptFdefModElementGetValue @ 0x1404041E8
+ * XREFs of SymCryptFdefModElementGetValue @ 0x1404043C8
  * Callers:
- *     SymCryptModElementGetValue @ 0x1403F9684 (SymCryptModElementGetValue.c)
+ *     SymCryptModElementGetValue @ 0x1403F9864 (SymCryptModElementGetValue.c)
  * Callees:
- *     xHalTimerWatchdogStop @ 0x14036E3C0 (xHalTimerWatchdogStop.c)
- *     SymCryptFdefRawGetValue @ 0x1404059D4 (SymCryptFdefRawGetValue.c)
- *     _guard_dispatch_icall_nop @ 0x14041A550 (_guard_dispatch_icall_nop.c)
+ *     xHalTimerWatchdogStop @ 0x14036E560 (xHalTimerWatchdogStop.c)
+ *     SymCryptFdefRawGetValue @ 0x140405BB4 (SymCryptFdefRawGetValue.c)
+ *     _guard_dispatch_icall_nop @ 0x14041A8E0 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall SymCryptFdefModElementGetValue(

@@ -1,11 +1,11 @@
 /*
- * XREFs of CmpRecordRegistryLockAcquire @ 0x1404F0170
+ * XREFs of CmpRecordRegistryLockAcquire @ 0x1404EDC10
  * Callers:
- *     CmpLockRegistryExclusive @ 0x14087DD80 (CmpLockRegistryExclusive.c)
- *     CmpLockRegistry @ 0x140BB9E60 (CmpLockRegistry.c)
+ *     CmpLockRegistryExclusive @ 0x140881C30 (CmpLockRegistryExclusive.c)
+ *     CmpLockRegistry @ 0x140BBBE60 (CmpLockRegistry.c)
  * Callees:
- *     CmpThreadInfoLogStack @ 0x1404BECC0 (CmpThreadInfoLogStack.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
+ *     CmpThreadInfoLogStack @ 0x1404B9E80 (CmpThreadInfoLogStack.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
  */
 
 char CmpRecordRegistryLockAcquire()
@@ -15,7 +15,7 @@ char CmpRecordRegistryLockAcquire()
 
   CurrentThread = KeGetCurrentThread();
   UserAffinity = CurrentThread[1].UserAffinity;
-  if ( dword_140EF6D28 )
+  if ( dword_140EF6F68 )
   {
     if ( !UserAffinity )
     {

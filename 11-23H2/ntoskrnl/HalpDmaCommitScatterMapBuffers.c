@@ -1,14 +1,14 @@
 /*
- * XREFs of HalpDmaCommitScatterMapBuffers @ 0x140510A44
+ * XREFs of HalpDmaCommitScatterMapBuffers @ 0x140510F94
  * Callers:
- *     HalpDmaAllocateLocalScatterPool @ 0x140934238 (HalpDmaAllocateLocalScatterPool.c)
- *     HalpDmaGrowScatterMapBuffers @ 0x140934624 (HalpDmaGrowScatterMapBuffers.c)
+ *     HalpDmaAllocateLocalScatterPool @ 0x140934438 (HalpDmaAllocateLocalScatterPool.c)
+ *     HalpDmaGrowScatterMapBuffers @ 0x140934824 (HalpDmaGrowScatterMapBuffers.c)
  * Callees:
- *     KxReleaseQueuedSpinLock @ 0x140260360 (KxReleaseQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140260E60 (KeAcquireInStackQueuedSpinLock.c)
- *     HalpDmaGetTranslationEntries @ 0x14039C4FC (HalpDmaGetTranslationEntries.c)
- *     HalpDmaPrependTranslations @ 0x14045C7B6 (HalpDmaPrependTranslations.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseQueuedSpinLock @ 0x1402605F0 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402610F0 (KeAcquireInStackQueuedSpinLock.c)
+ *     HalpDmaGetTranslationEntries @ 0x14039C6DC (HalpDmaGetTranslationEntries.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     HalpDmaPrependTranslations @ 0x14045CBB6 (HalpDmaPrependTranslations.c)
  */
 
 __int64 __fastcall HalpDmaCommitScatterMapBuffers(__int64 a1, __int64 a2, __int64 a3, int a4, _DWORD *a5)
@@ -83,10 +83,13 @@ __int64 __fastcall HalpDmaCommitScatterMapBuffers(__int64 a1, __int64 a2, __int6
       *(_DWORD *)(a1 + 216) += v9;
     KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
     OldIrql = LockHandle.OldIrql;
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && LockHandle.OldIrql <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+        && CurrentIrql <= 0xFu
+        && LockHandle.OldIrql <= 0xFu
+        && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -94,7 +97,7 @@ __int64 __fastcall HalpDmaCommitScatterMapBuffers(__int64 a1, __int64 a2, __int6
         v23 = (v22 & SchedulerAssist[5]) == 0;
         SchedulerAssist[5] &= v22;
         if ( v23 )
-          KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+          KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
       }
     }
     __writecr8(OldIrql);

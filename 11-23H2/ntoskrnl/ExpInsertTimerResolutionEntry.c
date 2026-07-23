@@ -1,11 +1,11 @@
 /*
- * XREFs of ExpInsertTimerResolutionEntry @ 0x1403B51A4
+ * XREFs of ExpInsertTimerResolutionEntry @ 0x1403B5384
  * Callers:
- *     NtSetTimerResolution @ 0x1407DCB20 (NtSetTimerResolution.c)
+ *     NtSetTimerResolution @ 0x1407DCDF0 (NtSetTimerResolution.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250E80 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140250F40 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall ExpInsertTimerResolutionEntry(__int64 a1)
@@ -28,10 +28,10 @@ __int64 __fastcall ExpInsertTimerResolutionEntry(__int64 a1)
   *(_QWORD *)(v3 + 8) = v4;
   ExpTimerResolutionListHead = (__int64)v4;
   result = KxReleaseSpinLock((volatile signed __int64 *)&ExpKernelResolutionLock);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     result = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
       && (unsigned __int8)result <= 0xFu
       && (unsigned __int8)v2 <= 0xFu
       && (unsigned __int8)result >= 2u )

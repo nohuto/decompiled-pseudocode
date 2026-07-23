@@ -1,16 +1,16 @@
 /*
- * XREFs of PopCreateKernelPowerRequest @ 0x1407727C8
+ * XREFs of PopCreateKernelPowerRequest @ 0x140772988
  * Callers:
- *     PoRegisterSystemState @ 0x14056EF10 (PoRegisterSystemState.c)
- *     PoCreatePowerRequest @ 0x140772740 (PoCreatePowerRequest.c)
- *     PopInitializeHighPerfPowerRequest @ 0x140A710FC (PopInitializeHighPerfPowerRequest.c)
+ *     PoRegisterSystemState @ 0x14056F150 (PoRegisterSystemState.c)
+ *     PoCreatePowerRequest @ 0x140772900 (PoCreatePowerRequest.c)
+ *     PopInitializeHighPerfPowerRequest @ 0x140A720FC (PopInitializeHighPerfPowerRequest.c)
  * Callees:
- *     PopReleaseRwLock @ 0x14027C284 (PopReleaseRwLock.c)
- *     PopUmpoSendPowerRequestOverrideQuery @ 0x140282D74 (PopUmpoSendPowerRequestOverrideQuery.c)
- *     PopCreatePowerRequestObject @ 0x14062BBB0 (PopCreatePowerRequestObject.c)
- *     PopAcquirePowerRequestPushLock @ 0x14067B148 (PopAcquirePowerRequestPushLock.c)
- *     PopDiagTracePowerRequestCreate @ 0x14067C538 (PopDiagTracePowerRequestCreate.c)
- *     PopInsertPowerRequestObject @ 0x14067CEC4 (PopInsertPowerRequestObject.c)
+ *     PopReleaseRwLock @ 0x14026A224 (PopReleaseRwLock.c)
+ *     PopUmpoSendPowerRequestOverrideQuery @ 0x140271020 (PopUmpoSendPowerRequestOverrideQuery.c)
+ *     PopAcquirePowerRequestPushLock @ 0x14066E888 (PopAcquirePowerRequestPushLock.c)
+ *     PopDiagTracePowerRequestCreate @ 0x140670078 (PopDiagTracePowerRequestCreate.c)
+ *     PopCreatePowerRequestObject @ 0x140670788 (PopCreatePowerRequestObject.c)
+ *     PopInsertPowerRequestObject @ 0x140670D60 (PopInsertPowerRequestObject.c)
  */
 
 __int64 __fastcall PopCreateKernelPowerRequest(_QWORD *a1, _DWORD *a2)

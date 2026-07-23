@@ -1,13 +1,13 @@
 /*
- * XREFs of MiCommitPagefileBackedSection @ 0x14069BA84
+ * XREFs of MiCommitPagefileBackedSection @ 0x1405FAC44
  * Callers:
- *     MiAllocateVirtualMemory @ 0x1405F8650 (MiAllocateVirtualMemory.c)
+ *     MiAllocateVirtualMemory @ 0x1406E7DB0 (MiAllocateVirtualMemory.c)
  * Callees:
- *     MiVadPureReserve @ 0x14021B990 (MiVadPureReserve.c)
- *     MiAddViewsForSection @ 0x1403155F0 (MiAddViewsForSection.c)
- *     MiGetProtoPteAddress @ 0x140330B40 (MiGetProtoPteAddress.c)
- *     MiSetProtectionOnSection @ 0x140332C70 (MiSetProtectionOnSection.c)
- *     MiChargeSegmentCommit @ 0x14061FED0 (MiChargeSegmentCommit.c)
+ *     MiVadPureReserve @ 0x1402C0290 (MiVadPureReserve.c)
+ *     MiAddViewsForSection @ 0x140320340 (MiAddViewsForSection.c)
+ *     MiGetProtoPteAddress @ 0x14033B890 (MiGetProtoPteAddress.c)
+ *     MiSetProtectionOnSection @ 0x14033D9C0 (MiSetProtectionOnSection.c)
+ *     MiChargeSegmentCommit @ 0x140689B40 (MiChargeSegmentCommit.c)
  */
 
 __int64 __fastcall MiCommitPagefileBackedSection(
@@ -17,7 +17,7 @@ __int64 __fastcall MiCommitPagefileBackedSection(
         unsigned __int64 a4,
         unsigned int a5,
         int a6,
-        __int64 a7,
+        int a7,
         _DWORD *a8,
         __int64 a9)
 {
@@ -25,7 +25,7 @@ __int64 __fastcall MiCommitPagefileBackedSection(
   unsigned __int64 v11; // rsi
   __int64 v13; // r15
   __int64 v14; // rdi
-  __int64 *ProtoPteAddress; // r14
+  __int64 ProtoPteAddress; // r14
   int v16; // eax
   __int64 v17; // r9
   __int64 *v18; // rbx
@@ -44,7 +44,7 @@ __int64 __fastcall MiCommitPagefileBackedSection(
     return 3221225550LL;
   v13 = a3 >> 12;
   v14 = a4 >> 12;
-  ProtoPteAddress = (__int64 *)MiGetProtoPteAddress(a2, a3 >> 12, 0, &v23);
+  ProtoPteAddress = MiGetProtoPteAddress(a2, a3 >> 12, 0, &v23);
   MiGetProtoPteAddress(a2, v14, 0, &v24);
   v16 = MiVadPureReserve(a2);
   v18 = v23;
@@ -62,7 +62,7 @@ __int64 __fastcall MiCommitPagefileBackedSection(
         {
           v22 = MiGetProtoPteAddress(a2, v13, 0, &v23);
           v18 = v23;
-          ProtoPteAddress = (__int64 *)v22;
+          ProtoPteAddress = v22;
         }
         v11 = a3;
         goto LABEL_3;

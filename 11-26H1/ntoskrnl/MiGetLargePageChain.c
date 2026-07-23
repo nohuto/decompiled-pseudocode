@@ -1,19 +1,19 @@
 /*
- * XREFs of MiGetLargePageChain @ 0x1403C7E10
+ * XREFs of MiGetLargePageChain @ 0x1403D1D00
  * Callers:
- *     MiGetLargePoolPages @ 0x1403C7CA8 (MiGetLargePoolPages.c)
+ *     MiGetLargePoolPages @ 0x1403D1B98 (MiGetLargePoolPages.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     MiUpdatePageFileHighInPte @ 0x14028C010 (MiUpdatePageFileHighInPte.c)
- *     MiIssuePageHeatList @ 0x1402F383C (MiIssuePageHeatList.c)
- *     MiInsertPageChainHead @ 0x14033A060 (MiInsertPageChainHead.c)
- *     MiGetLargePageDemoteAsNeeded @ 0x1403C7FF0 (MiGetLargePageDemoteAsNeeded.c)
- *     MiFreeLargePageChain @ 0x1403C971C (MiFreeLargePageChain.c)
- *     MiAddPageToHeatList @ 0x140491430 (MiAddPageToHeatList.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     MiUpdatePageFileHighInPte @ 0x14028B570 (MiUpdatePageFileHighInPte.c)
+ *     MiIssuePageHeatList @ 0x1402D58BC (MiIssuePageHeatList.c)
+ *     MiInsertPageChainHead @ 0x14033C0E0 (MiInsertPageChainHead.c)
+ *     MiGetLargePageDemoteAsNeeded @ 0x1403D1EE0 (MiGetLargePageDemoteAsNeeded.c)
+ *     MiFreeLargePageChain @ 0x1403D35CC (MiFreeLargePageChain.c)
+ *     MiAddPageToHeatList @ 0x14048AF80 (MiAddPageToHeatList.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 void __fastcall MiGetLargePageChain(unsigned int a1, unsigned __int64 a2, unsigned __int8 a3, __int64 a4, __int64 *a5)
@@ -38,7 +38,7 @@ void __fastcall MiGetLargePageChain(unsigned int a1, unsigned __int64 a2, unsign
   memset_0(v20, 0, sizeof(v20));
   *(_OWORD *)a5 = 0LL;
   a5[2] = 0LL;
-  v9 = *(_QWORD *)(56320 * v7 + qword_140E37CD0 + 13888);
+  v9 = *(_QWORD *)(56320 * v7 + qword_140E37E50 + 13888);
   if ( v9 || (MiFlags & 0x30) == 0 )
   {
     v10 = a2 >> 9;
@@ -58,9 +58,9 @@ void __fastcall MiGetLargePageChain(unsigned int a1, unsigned __int64 a2, unsign
       if ( LargePageDemoteAsNeeded )
       {
         v15 = *(_QWORD *)(LargePageDemoteAsNeeded + 16);
-        if ( qword_140E2D740 && (v15 & 0x10) == 0 )
-          HIDWORD(v15) &= HIDWORD(qword_140E2D748);
-        if ( HIDWORD(v15) == -3 && (stru_140E36558.WaitRegister.Flags & 1) != 0 )
+        if ( qword_140E2D8C0 && (v15 & 0x10) == 0 )
+          HIDWORD(v15) &= HIDWORD(qword_140E2D8C8);
+        if ( HIDWORD(v15) == -3 && (stru_140E366D8.WaitRegister.Flags & 1) != 0 )
         {
           MiAddPageToHeatList(&v19, (v14 + 0x220000000000LL) / 48, 1LL);
           if ( (_BYTE)v6 != 2 )

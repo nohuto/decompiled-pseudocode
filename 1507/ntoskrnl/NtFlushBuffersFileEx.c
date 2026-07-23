@@ -21,13 +21,19 @@
  *     IopAllocateIrpCleanup @ 0x140670E48 (IopAllocateIrpCleanup.c)
  */
 
-__int64 __fastcall NtFlushBuffersFileEx(HANDLE Handle, char a2, __int64 a3, int a4, struct _IO_STATUS_BLOCK *a5)
+NTSTATUS __cdecl NtFlushBuffersFileEx(
+        HANDLE FileHandle,
+        ULONG Flags,
+        PVOID Parameters,
+        ULONG ParametersSize,
+        PIO_STATUS_BLOCK IoStatusBlock)
 {
+  char v5; // r12
   char v7; // si
   struct _KTHREAD *CurrentThread; // r13
   KPROCESSOR_MODE PreviousMode; // r14
   _DWORD *v10; // rcx
-  NTSTATUS v11; // edi
+  int v11; // edi
   _DWORD *v12; // rcx
   _DWORD *v13; // r15
   struct _KTHREAD *v14; // rax
@@ -35,13 +41,13 @@ __int64 __fastcall NtFlushBuffersFileEx(HANDLE Handle, char a2, __int64 a3, int 
   PDEVICE_OBJECT RelatedDeviceObject; // r15
   __int64 v17; // rdx
   IRP *Irp; // rbx
-  struct _IO_STATUS_BLOCK *v19; // rax
+  PIO_STATUS_BLOCK v19; // rax
   struct _IO_STACK_LOCATION *CurrentStackLocation; // rcx
-  __int64 result; // rax
+  NTSTATUS result; // eax
   struct _KEVENT *PoolWithTagPriority; // rax
   struct _KPROCESS *Process; // rcx
   PACCESS_TOKEN v24; // rbx
-  unsigned int v25; // ebx
+  NTSTATUS v25; // ebx
   struct _KTHREAD *v26; // rcx
   __int16 v27; // ax
   PVOID TokenInformation; // [rsp+40h] [rbp-58h] BYREF
@@ -51,21 +57,28 @@ __int64 __fastcall NtFlushBuffersFileEx(HANDLE Handle, char a2, __int64 a3, int 
   void *retaddr; // [rsp+98h] [rbp+0h]
   char v33; // [rsp+B0h] [rbp+18h]
 
+  v5 = Flags;
   v31[0] = 0LL;
   v31[1] = 0LL;
   v7 = 0;
-  if ( a3 || a4 )
-    return 3221225485LL;
+  if ( Parameters || ParametersSize )
+    return -1073741811;
   CurrentThread = KeGetCurrentThread();
   PreviousMode = CurrentThread->PreviousMode;
   if ( PreviousMode )
   {
-    v10 = &a5->0;
-    if ( (unsigned __int64)a5 >= MmUserProbeAddress )
+    v10 = &IoStatusBlock->0;
+    if ( (unsigned __int64)IoStatusBlock >= MmUserProbeAddress )
       v10 = (_DWORD *)MmUserProbeAddress;
     *v10 = *v10;
   }
-  v11 = ObReferenceObjectByHandle(Handle, 0, (POBJECT_TYPE)IoFileObjectType, PreviousMode, &Object, &HandleInformation);
+  v11 = ObReferenceObjectByHandle(
+          FileHandle,
+          0,
+          (POBJECT_TYPE)IoFileObjectType,
+          PreviousMode,
+          &Object,
+          &HandleInformation);
   if ( v11 >= 0 )
   {
     v12 = (_DWORD *)*((_QWORD *)Object + 26);
@@ -87,7 +100,7 @@ __int64 __fastcall NtFlushBuffersFileEx(HANDLE Handle, char a2, __int64 a3, int 
     }
   }
   if ( v11 < 0 )
-    return (unsigned int)v11;
+    return v11;
   v13 = Object;
   if ( ((((unsigned __int8)~*((_BYTE *)Object + 80) >> 5) & 4 | 2) & HandleInformation.GrantedAccess) == 0 )
   {
@@ -151,12 +164,12 @@ LABEL_15:
     if ( v7 )
     {
       Irp->UserEvent = 0LL;
-      v19 = a5;
+      v19 = IoStatusBlock;
     }
     else
     {
       Irp->UserEvent = v15;
-      v19 = (struct _IO_STATUS_BLOCK *)v31;
+      v19 = (PIO_STATUS_BLOCK)v31;
       Irp->Flags = 4;
     }
     Irp->UserIosb = v19;
@@ -164,24 +177,24 @@ LABEL_15:
     CurrentStackLocation = Irp->Tail.Overlay.CurrentStackLocation;
     CurrentStackLocation[-1].MajorFunction = 9;
     CurrentStackLocation[-1].FileObject = (PFILE_OBJECT)Object;
-    if ( (a2 & 1) != 0 )
+    if ( (v5 & 1) != 0 )
     {
       CurrentStackLocation[-1].MinorFunction = 2;
     }
-    else if ( (a2 & 2) != 0 )
+    else if ( (v5 & 2) != 0 )
     {
       CurrentStackLocation[-1].MinorFunction = 3;
     }
     result = IopSynchronousServiceTail(RelatedDeviceObject, Irp, Object, PreviousMode, v7, 2);
     if ( !v7 )
-      return IopSynchronousApiServiceTail(result, v15, Irp, PreviousMode, (unsigned int *)v31, a5);
+      return IopSynchronousApiServiceTail(result, v15, Irp, PreviousMode, (unsigned int *)v31, IoStatusBlock);
   }
   else
   {
     if ( v15 )
       ExFreePoolWithTag(v15, 0);
     IopAllocateIrpCleanup(Object, 0LL);
-    return 3221225626LL;
+    return -1073741670;
   }
   return result;
 }

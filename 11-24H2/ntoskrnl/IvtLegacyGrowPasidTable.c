@@ -1,12 +1,12 @@
 /*
- * XREFs of IvtLegacyGrowPasidTable @ 0x140570920
+ * XREFs of IvtLegacyGrowPasidTable @ 0x14056DDB0
  * Callers:
  *     <none>
  * Callees:
- *     IvtFreeScalableModePasidTables @ 0x14056E600 (IvtFreeScalableModePasidTables.c)
- *     IvtLegacyAllocateScalableModePasidTables @ 0x14056F7A0 (IvtLegacyAllocateScalableModePasidTables.c)
- *     IvtLegacyExtendScalableModePasidTables @ 0x14056FFCC (IvtLegacyExtendScalableModePasidTables.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
+ *     IvtFreeScalableModePasidTables @ 0x14056BA90 (IvtFreeScalableModePasidTables.c)
+ *     IvtLegacyAllocateScalableModePasidTables @ 0x14056CC30 (IvtLegacyAllocateScalableModePasidTables.c)
+ *     IvtLegacyExtendScalableModePasidTables @ 0x14056D45C (IvtLegacyExtendScalableModePasidTables.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
  */
 
 __int64 __fastcall IvtLegacyGrowPasidTable(__int64 a1, __int64 a2, int a3, unsigned int a4, int a5)

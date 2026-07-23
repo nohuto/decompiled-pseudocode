@@ -1,11 +1,11 @@
 /*
- * XREFs of PopNewWakeSource @ 0x14086B7F4
+ * XREFs of PopNewWakeSource @ 0x14086CA54
  * Callers:
- *     PopHandleWakeSources @ 0x140566540 (PopHandleWakeSources.c)
- *     PopProcessWakeSourceWork @ 0x14086B844 (PopProcessWakeSourceWork.c)
+ *     PopHandleWakeSources @ 0x140567540 (PopHandleWakeSources.c)
+ *     PopProcessWakeSourceWork @ 0x14086CAA4 (PopProcessWakeSourceWork.c)
  * Callees:
- *     memset @ 0x1401D1880 (memset.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
  */
 
 _DWORD *__fastcall PopNewWakeSource(int a1)

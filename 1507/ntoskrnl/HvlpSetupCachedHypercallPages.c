@@ -8,9 +8,9 @@
  *     MmGetPhysicalAddress @ 0x1400DF958 (MmGetPhysicalAddress.c)
  */
 
-PSLIST_ENTRY __fastcall HvlpSetupCachedHypercallPages(union _SLIST_HEADER *a1)
+PSLIST_ENTRY __fastcall HvlpSetupCachedHypercallPages(_SLIST_HEADER *a1)
 {
-  union _SLIST_HEADER *v1; // r14
+  _SLIST_HEADER *v1; // r14
   __int64 v2; // rdi
   PHYSICAL_ADDRESS *v3; // rbx
   char *v4; // rsi

@@ -1,32 +1,32 @@
 /*
- * XREFs of MiMapMdlWithLargePages @ 0x140502900
+ * XREFs of MiMapMdlWithLargePages @ 0x1404FC1D0
  * Callers:
- *     MiMapMdlCommon @ 0x140312C2C (MiMapMdlCommon.c)
+ *     MiMapMdlCommon @ 0x140314C5C (MiMapMdlCommon.c)
  * Callees:
- *     ExReleaseSpinLockExclusive @ 0x14021AA80 (ExReleaseSpinLockExclusive.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     ExAcquireSpinLockExclusive @ 0x140249CD0 (ExAcquireSpinLockExclusive.c)
- *     MiRewritePteWithLockBit @ 0x14029F518 (MiRewritePteWithLockBit.c)
- *     MiWriteLargePte @ 0x1402A10E0 (MiWriteLargePte.c)
- *     MiLockPageTableInternal @ 0x1402B34E0 (MiLockPageTableInternal.c)
- *     MiUnlockPageTableInternal @ 0x1402D13E0 (MiUnlockPageTableInternal.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402DED10 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     MiUnlockWorkingSetShared @ 0x1402EB6C0 (MiUnlockWorkingSetShared.c)
- *     MiLockWorkingSetShared @ 0x1402EDD60 (MiLockWorkingSetShared.c)
- *     MiIoSpaceGetBounds @ 0x140313748 (MiIoSpaceGetBounds.c)
- *     MiGetLeafVa @ 0x140326060 (MiGetLeafVa.c)
- *     MiFlushTbList @ 0x140329040 (MiFlushTbList.c)
- *     MiInsertPageChainHead @ 0x14033A060 (MiInsertPageChainHead.c)
- *     MiMakeProtectionPfnCompatible @ 0x14033C7D0 (MiMakeProtectionPfnCompatible.c)
- *     MiInsertTbFlushEntry @ 0x14035E7E0 (MiInsertTbFlushEntry.c)
- *     MiInitializeTbFlushList @ 0x140360920 (MiInitializeTbFlushList.c)
- *     MiLockWorkingSetSharedAtDpc @ 0x1403654E4 (MiLockWorkingSetSharedAtDpc.c)
- *     MiLookupIoPageNode @ 0x140367E4C (MiLookupIoPageNode.c)
- *     MiGetAnyMultiplexedVm @ 0x140457870 (MiGetAnyMultiplexedVm.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     ExReleaseSpinLockExclusive @ 0x14021C410 (ExReleaseSpinLockExclusive.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024B630 (ExAcquireSpinLockExclusive.c)
+ *     MiRewritePteWithLockBit @ 0x14029EA68 (MiRewritePteWithLockBit.c)
+ *     MiWriteLargePte @ 0x1402A0630 (MiWriteLargePte.c)
+ *     MiUnlockPageTableInternal @ 0x1402B31A0 (MiUnlockPageTableInternal.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402C0B20 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     MiUnlockWorkingSetShared @ 0x1402CD700 (MiUnlockWorkingSetShared.c)
+ *     MiLockWorkingSetShared @ 0x1402CFDE0 (MiLockWorkingSetShared.c)
+ *     MiLockPageTableInternal @ 0x1402FE1B0 (MiLockPageTableInternal.c)
+ *     MiIoSpaceGetBounds @ 0x140315778 (MiIoSpaceGetBounds.c)
+ *     MiGetLeafVa @ 0x140328090 (MiGetLeafVa.c)
+ *     MiFlushTbList @ 0x14032B070 (MiFlushTbList.c)
+ *     MiInsertPageChainHead @ 0x14033C0E0 (MiInsertPageChainHead.c)
+ *     MiMakeProtectionPfnCompatible @ 0x14033E850 (MiMakeProtectionPfnCompatible.c)
+ *     MiInsertTbFlushEntry @ 0x140360580 (MiInsertTbFlushEntry.c)
+ *     MiInitializeTbFlushList @ 0x1403626C0 (MiInitializeTbFlushList.c)
+ *     MiLockWorkingSetSharedAtDpc @ 0x140367284 (MiLockWorkingSetSharedAtDpc.c)
+ *     MiLookupIoPageNode @ 0x140369BEC (MiLookupIoPageNode.c)
+ *     MiGetAnyMultiplexedVm @ 0x14044F0E0 (MiGetAnyMultiplexedVm.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 void __fastcall MiMapMdlWithLargePages(_DWORD *a1, unsigned __int64 a2, __int64 a3, char a4, int a5, __int64 a6)
@@ -147,7 +147,7 @@ void __fastcall MiMapMdlWithLargePages(_DWORD *a1, unsigned __int64 a2, __int64 
         {
           v26 = *v25;
           v27 = 6 * *v25;
-          if ( *v25 <= qword_140E2D7A0 && ((*(_QWORD *)(48 * *v25 - 0x21FFFFFFFFD8LL) >> 54) & 1) != 0 )
+          if ( *v25 <= qword_140E2D920 && ((*(_QWORD *)(48 * *v25 - 0x21FFFFFFFFD8LL) >> 54) & 1) != 0 )
           {
             MiMakeProtectionPfnCompatible(a4, 48 * *v25 - 0x220000000000LL);
           }
@@ -211,25 +211,25 @@ void __fastcall MiMapMdlWithLargePages(_DWORD *a1, unsigned __int64 a2, __int64 
   if ( CurrentIrql == 2 )
   {
     v31 = 17;
-    ExAcquireSpinLockExclusiveAtDpcLevel(&dword_140E34B68);
+    ExAcquireSpinLockExclusiveAtDpcLevel(&dword_140E34CE8);
   }
   else
   {
-    v31 = ExAcquireSpinLockExclusive(&dword_140E34B68);
+    v31 = ExAcquireSpinLockExclusive(&dword_140E34CE8);
   }
-  if ( (_QWORD)xmmword_140E34B78 )
+  if ( (_QWORD)xmmword_140E34CF8 )
   {
-    **((_QWORD **)&xmmword_140E34B78 + 1) = v39;
-    qword_140E34B88 += v10;
-    *((_QWORD *)&xmmword_140E34B78 + 1) = *((_QWORD *)&v39 + 1);
+    **((_QWORD **)&xmmword_140E34CF8 + 1) = v39;
+    qword_140E34D08 += v10;
+    *((_QWORD *)&xmmword_140E34CF8 + 1) = *((_QWORD *)&v39 + 1);
   }
   else
   {
-    xmmword_140E34B78 = v41;
-    qword_140E34B88 = v40;
+    xmmword_140E34CF8 = v41;
+    qword_140E34D08 = v40;
   }
   if ( v31 == 17 )
-    ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140E34B68);
+    ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140E34CE8);
   else
-    ExReleaseSpinLockExclusive(&dword_140E34B68, v31);
+    ExReleaseSpinLockExclusive(&dword_140E34CE8, v31);
 }

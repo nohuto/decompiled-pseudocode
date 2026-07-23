@@ -1,11 +1,11 @@
 /*
- * XREFs of MinCryptDecodeSignatureAlgorithmIdentifier @ 0x140A6F220
+ * XREFs of MinCryptDecodeSignatureAlgorithmIdentifier @ 0x140A6F4D0
  * Callers:
- *     MinCryptVerifySignedHash2 @ 0x140A6F330 (MinCryptVerifySignedHash2.c)
+ *     MinCryptVerifySignedHash2 @ 0x140A6F5E0 (MinCryptVerifySignedHash2.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     RtlCompareMemory @ 0x140429820 (RtlCompareMemory.c)
- *     MinAsn1ParseAlgorithmIdentifier @ 0x140A70314 (MinAsn1ParseAlgorithmIdentifier.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     RtlCompareMemory @ 0x140429BB0 (RtlCompareMemory.c)
+ *     MinAsn1ParseAlgorithmIdentifier @ 0x140A705C4 (MinAsn1ParseAlgorithmIdentifier.c)
  */
 
 __int64 __fastcall MinCryptDecodeSignatureAlgorithmIdentifier(__int64 a1)
@@ -26,7 +26,7 @@ __int64 __fastcall MinCryptDecodeSignatureAlgorithmIdentifier(__int64 a1)
   if ( (int)MinAsn1ParseAlgorithmIdentifier(a1, v8) < 0 )
     return 0LL;
   v1 = (unsigned int)Length;
-  v2 = (const void **)&off_140A798D8;
+  v2 = (const void **)&off_140A79B88;
   v3 = 0LL;
   while ( (_DWORD)v1 != *((_DWORD *)v2 - 2) || RtlCompareMemory(Source1, *v2, v1) != v1 )
   {
@@ -35,11 +35,11 @@ __int64 __fastcall MinCryptDecodeSignatureAlgorithmIdentifier(__int64 a1)
     if ( (unsigned int)v3 >= 2 )
       return 0LL;
   }
-  result = (unsigned int)dword_140A798E0[6 * v3];
+  result = (unsigned int)dword_140A79B90[6 * v3];
   if ( (_DWORD)result == 11776 )
   {
     v5 = (unsigned int)v11;
-    v6 = (const void **)&off_140A79908;
+    v6 = (const void **)&off_140A79BB8;
     v7 = 0LL;
     while ( (_DWORD)v5 != *((_DWORD *)v6 - 2) || RtlCompareMemory(v12, *v6, v5) != v5 )
     {
@@ -48,7 +48,7 @@ __int64 __fastcall MinCryptDecodeSignatureAlgorithmIdentifier(__int64 a1)
       if ( (unsigned int)v7 >= 2 )
         return 0LL;
     }
-    return (unsigned int)dword_140A79910[6 * v7];
+    return (unsigned int)dword_140A79BC0[6 * v7];
   }
   return result;
 }

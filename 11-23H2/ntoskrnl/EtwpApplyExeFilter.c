@@ -1,10 +1,10 @@
 /*
- * XREFs of EtwpApplyExeFilter @ 0x1409F4E44
+ * XREFs of EtwpApplyExeFilter @ 0x1409F50D4
  * Callers:
- *     EtwpApplyScopeFilters @ 0x1406BFCC4 (EtwpApplyScopeFilters.c)
- *     EtwpApplyTransientFilters @ 0x1409F5118 (EtwpApplyTransientFilters.c)
+ *     EtwpApplyScopeFilters @ 0x1406BFCF4 (EtwpApplyScopeFilters.c)
+ *     EtwpApplyTransientFilters @ 0x1409F53A8 (EtwpApplyTransientFilters.c)
  * Callees:
- *     _wcsnicmp @ 0x1403D9B90 (_wcsnicmp.c)
+ *     _wcsnicmp @ 0x1403D9D70 (_wcsnicmp.c)
  */
 
 char __fastcall EtwpApplyExeFilter(__int64 a1, _WORD *a2)

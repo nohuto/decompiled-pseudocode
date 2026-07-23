@@ -1,14 +1,20 @@
 /*
- * XREFs of ZwReadVirtualMemoryEx @ 0x14041DC00
+ * XREFs of ZwReadVirtualMemoryEx @ 0x14041DF90
  * Callers:
- *     MmCopyMemory @ 0x1402EDB50 (MmCopyMemory.c)
+ *     MmCopyMemory @ 0x1402EDDE0 (MmCopyMemory.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwReadVirtualMemoryEx(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwReadVirtualMemoryEx(
+        HANDLE ProcessHandle,
+        PVOID BaseAddress,
+        PVOID Buffer,
+        SIZE_T BufferSize,
+        PSIZE_T NumberOfBytesRead,
+        ULONG Flags)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(ProcessHandle);
 }

@@ -28,7 +28,7 @@ bool __fastcall HvlGetCoverageData(char a1, ULONG a2, void *a3)
   char v13; // r15
   PHYSICAL_ADDRESS PhysicalAddress; // r14
   PSLIST_ENTRY v15; // rax
-  struct _SLIST_ENTRY *v16; // rbp
+  _SLIST_ENTRY *v16; // rbp
   _BYTE *v17; // rcx
   bool v18; // zf
   __int64 v19; // rax
@@ -39,10 +39,10 @@ bool __fastcall HvlGetCoverageData(char a1, ULONG a2, void *a3)
   bool v26; // [rsp+38h] [rbp-950h]
   PHYSICAL_ADDRESS Next; // [rsp+40h] [rbp-948h]
   PSLIST_ENTRY ListEntry; // [rsp+48h] [rbp-940h]
-  union _SLIST_HEADER *v29; // [rsp+58h] [rbp-930h]
-  struct _SLIST_ENTRY *v30; // [rsp+60h] [rbp-928h]
-  union _SLIST_HEADER *v31; // [rsp+78h] [rbp-910h]
-  struct _SLIST_ENTRY *v32; // [rsp+80h] [rbp-908h]
+  _SLIST_HEADER *v29; // [rsp+58h] [rbp-930h]
+  _SLIST_ENTRY *v30; // [rsp+60h] [rbp-928h]
+  _SLIST_HEADER *v31; // [rsp+78h] [rbp-910h]
+  _SLIST_ENTRY *v32; // [rsp+80h] [rbp-908h]
   unsigned __int64 v33; // [rsp+90h] [rbp-8F8h]
   struct _MDL *Mdl; // [rsp+98h] [rbp-8F0h]
   unsigned __int64 *Src; // [rsp+A0h] [rbp-8E8h]
@@ -75,7 +75,7 @@ bool __fastcall HvlGetCoverageData(char a1, ULONG a2, void *a3)
       ListEntry = v12;
       Next = (PHYSICAL_ADDRESS)v12[1].Next;
       v25 = 1;
-      v31 = (union _SLIST_HEADER *)CurrentPrcb;
+      v31 = (_SLIST_HEADER *)CurrentPrcb;
     }
     else
     {
@@ -135,7 +135,7 @@ LABEL_21:
   }
   PhysicalAddress = (PHYSICAL_ADDRESS)v15[1].Next;
   v8 = 1;
-  v29 = (union _SLIST_HEADER *)v6;
+  v29 = (_SLIST_HEADER *)v6;
   v13 = BYTE4(v6);
 LABEL_22:
   HypercallCachedPages[1] = v33;

@@ -1,8 +1,8 @@
 /*
- * XREFs of FsRtlFindLargeIndex @ 0x1403F9F20
+ * XREFs of FsRtlFindLargeIndex @ 0x1403EFE30
  * Callers:
- *     FsRtlTruncateBaseMcb @ 0x1403F9E10 (FsRtlTruncateBaseMcb.c)
- *     FsRtlSplitBaseMcb @ 0x14057FC80 (FsRtlSplitBaseMcb.c)
+ *     FsRtlTruncateBaseMcb @ 0x1403EFD20 (FsRtlTruncateBaseMcb.c)
+ *     FsRtlSplitBaseMcb @ 0x14057D0C0 (FsRtlSplitBaseMcb.c)
  * Callees:
  *     <none>
  */

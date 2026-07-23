@@ -1,11 +1,11 @@
 /*
- * XREFs of MI_GET_GRAPHICS_PROTECTION_FROM_VAD @ 0x140302420
+ * XREFs of MI_GET_GRAPHICS_PROTECTION_FROM_VAD @ 0x14030CBA0
  * Callers:
- *     MiProtectPrivateMemory @ 0x140237480 (MiProtectPrivateMemory.c)
- *     MiQueryAddressState @ 0x140300420 (MiQueryAddressState.c)
- *     MiWriteAwePtes @ 0x1404BA130 (MiWriteAwePtes.c)
- *     MiProtectAweRegion @ 0x1404C2558 (MiProtectAweRegion.c)
- *     MmQueryVirtualMemory @ 0x140986420 (MmQueryVirtualMemory.c)
+ *     MiProtectPrivateMemory @ 0x140211610 (MiProtectPrivateMemory.c)
+ *     MiQueryAddressState @ 0x14030ABA0 (MiQueryAddressState.c)
+ *     MiWriteAwePtes @ 0x1404B4FD0 (MiWriteAwePtes.c)
+ *     MiProtectAweRegion @ 0x1404BDA90 (MiProtectAweRegion.c)
+ *     MmQueryVirtualMemory @ 0x14096EC30 (MmQueryVirtualMemory.c)
  * Callees:
  *     <none>
  */

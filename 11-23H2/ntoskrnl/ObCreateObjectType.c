@@ -1,7 +1,7 @@
 /*
- * XREFs of ObCreateObjectType @ 0x14081F1D0
+ * XREFs of ObCreateObjectType @ 0x14081F4D0
  * Callers:
- *     HalpDmaInitializeObjectType @ 0x14039C1EC (HalpDmaInitializeObjectType.c)
+ *     HalpDmaInitializeObjectType @ 0x14039C3CC (HalpDmaInitializeObjectType.c)
  *     CmpCreateObjectTypes @ 0x140B36BE8 (CmpCreateObjectTypes.c)
  *     WmipInitializeSecurity @ 0x140B39160 (WmipInitializeSecurity.c)
  *     PspInitializeSiloStructures @ 0x140B49810 (PspInitializeSiloStructures.c)
@@ -28,7 +28,7 @@
  *     ExpSemaphoreInitialization @ 0x140B74FA0 (ExpSemaphoreInitialization.c)
  *     ExpEventInitialization @ 0x140B75044 (ExpEventInitialization.c)
  * Callees:
- *     ObCreateObjectTypeEx @ 0x14081F1F0 (ObCreateObjectTypeEx.c)
+ *     ObCreateObjectTypeEx @ 0x14081F4F0 (ObCreateObjectTypeEx.c)
  */
 
 __int64 __fastcall ObCreateObjectType(const UNICODE_STRING *a1, __int64 a2, __int64 a3, __int64 a4)

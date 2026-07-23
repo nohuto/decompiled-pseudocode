@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlpHeapTrkFindStack @ 0x18010C594
+ * XREFs of RtlpHeapTrkFindStack @ 0x18010C564
  * Callers:
- *     RtlpHeapTrkLeakCallback @ 0x18010C870 (RtlpHeapTrkLeakCallback.c)
+ *     RtlpHeapTrkLeakCallback @ 0x18010C840 (RtlpHeapTrkLeakCallback.c)
  * Callees:
  *     RtlReleaseSRWLockExclusive @ 0x180033C40 (RtlReleaseSRWLockExclusive.c)
  *     RtlpHeapTrkHash @ 0x1800B0BDE (RtlpHeapTrkHash.c)
@@ -24,7 +24,7 @@ __int64 __fastcall RtlpHeapTrkFindStack(__int64 a1)
   {
     if ( i == v4 )
     {
-      RtlReleaseSRWLockExclusive(*(volatile signed __int64 **)(qword_180188A20 + 8 * v3));
+      RtlReleaseSRWLockExclusive(*(PRTL_SRWLOCK *)(qword_180188A20 + 8 * v3));
       return 0LL;
     }
     if ( i[3] == a1 )
@@ -32,6 +32,6 @@ __int64 __fastcall RtlpHeapTrkFindStack(__int64 a1)
   }
   i[3] = 0LL;
   v7 = i[4];
-  RtlReleaseSRWLockExclusive(*(volatile signed __int64 **)(qword_180188A20 + 8 * v3));
+  RtlReleaseSRWLockExclusive(*(PRTL_SRWLOCK *)(qword_180188A20 + 8 * v3));
   return v7;
 }

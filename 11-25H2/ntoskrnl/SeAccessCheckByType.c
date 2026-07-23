@@ -76,7 +76,7 @@ __int64 __fastcall SeAccessCheckByType(
   int v12; // r11d
   __int64 v15; // rdx
   unsigned __int64 v16; // r8
-  __int64 PreviousMode; // r9
+  unsigned __int64 PreviousMode; // r9
   __int64 v18; // rax
   unsigned int v19; // eax
   int v20; // ebx
@@ -92,9 +92,9 @@ __int64 __fastcall SeAccessCheckByType(
   __int64 v30; // rax
   __int64 v31; // rax
   __int64 v32; // rax
-  __int64 v33; // r13
+  _DWORD *v33; // r13
   char v34; // r12
-  __int64 v35; // r14
+  _DWORD *v35; // r14
   int v36; // r15d
   __int64 v37; // rax
   __int64 v38; // rax
@@ -183,8 +183,8 @@ __int64 __fastcall SeAccessCheckByType(
   _QWORD *v121; // rax
   _QWORD *v122; // r10
   __int64 v123; // r9
-  __int64 v124; // rax
-  __int64 v125; // r11
+  _DWORD *v124; // rax
+  _DWORD *v125; // r11
   unsigned int v126; // eax
   int v127; // ecx
   int v128; // eax
@@ -323,7 +323,7 @@ __int64 __fastcall SeAccessCheckByType(
   __int64 v261; // [rsp+148h] [rbp-1C0h]
   PVOID v262; // [rsp+150h] [rbp-1B8h]
   volatile void *Address; // [rsp+158h] [rbp-1B0h]
-  __int64 v264; // [rsp+160h] [rbp-1A8h]
+  _DWORD *v264; // [rsp+160h] [rbp-1A8h]
   int v265; // [rsp+168h] [rbp-1A0h] BYREF
   PVOID v266; // [rsp+170h] [rbp-198h] BYREF
   __int64 v267; // [rsp+178h] [rbp-190h] BYREF
@@ -539,7 +539,7 @@ LABEL_225:
     v123 = v122[138];
     v235 = 0;
     v264 = 0LL;
-    v124 = SepSidFromProcessProtection(v243, v15, v16, v123);
+    v124 = (_DWORD *)SepSidFromProcessProtection(v243, v15, v16, v123);
     v125 = v124;
     if ( !v124 || RtlIsValidProcessTrustLabelSid(v124) )
     {
@@ -549,14 +549,14 @@ LABEL_222:
         LOBYTE(v16) = 1;
         goto LABEL_223;
       }
-      if ( RtlIsValidProcessTrustLabelSid(PreviousMode) )
+      if ( RtlIsValidProcessTrustLabelSid((PSID)PreviousMode) )
       {
         if ( !PreviousMode )
           goto LABEL_222;
         v140 = *(_DWORD *)(PreviousMode + 8);
         if ( v125 )
         {
-          if ( *(_DWORD *)(v125 + 8) >= v140 && *(_DWORD *)(v125 + 12) >= *(_DWORD *)(PreviousMode + 12) )
+          if ( v125[2] >= v140 && v125[3] >= *(_DWORD *)(PreviousMode + 12) )
             goto LABEL_222;
         }
         else
@@ -654,7 +654,7 @@ LABEL_42:
   if ( v235 )
     v33 = v264;
   else
-    v33 = *((_QWORD *)Object + 138);
+    v33 = (_DWORD *)*((_QWORD *)Object + 138);
   v26 = 0;
   v34 = 0;
   v35 = 0LL;
@@ -706,7 +706,7 @@ LABEL_55:
   if ( v39 )
   {
     v36 = *(_DWORD *)(v39 + 4);
-    v35 = v39 + 8;
+    v35 = (_DWORD *)(v39 + 8);
   }
   if ( !v35 )
   {
@@ -730,7 +730,7 @@ LABEL_55:
   if ( !MEMORY[0] )
     goto LABEL_392;
   v16 = *(_QWORD *)(MEMORY[0] + 1104LL);
-  if ( *(_QWORD *)(MEMORY[0x10] + 1104LL) && !RtlIsValidProcessTrustLabelSid(*(_QWORD *)(MEMORY[0x10] + 1104LL)) )
+  if ( *(_QWORD *)(MEMORY[0x10] + 1104LL) && !RtlIsValidProcessTrustLabelSid(*(PSID *)(MEMORY[0x10] + 1104LL)) )
   {
     v26 = -1073741811;
     goto LABEL_59;
@@ -741,7 +741,7 @@ LABEL_297:
     v137 = 1;
     goto LABEL_298;
   }
-  if ( RtlIsValidProcessTrustLabelSid(v16) )
+  if ( RtlIsValidProcessTrustLabelSid((PSID)v16) )
   {
     if ( !v16 )
       goto LABEL_297;
@@ -762,17 +762,17 @@ LABEL_392:
     }
 LABEL_298:
     if ( v137 && v136 )
-      v33 = *(_QWORD *)(v136 + 1104);
+      v33 = *(_DWORD **)(v136 + 1104);
     else
-      v33 = *(_QWORD *)(MEMORY[0x10] + 1104LL);
+      v33 = *(_DWORD **)(MEMORY[0x10] + 1104LL);
 LABEL_300:
     if ( !v33 || RtlIsValidProcessTrustLabelSid(v33) )
     {
       if ( RtlIsValidProcessTrustLabelSid(v35) )
       {
-        v138 = *(_DWORD *)(v35 + 8);
+        v138 = v35[2];
         if ( v33 )
-          v139 = *(_DWORD *)(v33 + 8) >= v138 && *(_DWORD *)(v33 + 12) >= *(_DWORD *)(v35 + 12);
+          v139 = v33[2] >= v138 && v33[3] >= v35[3];
         else
           v139 = v138 == 0;
         if ( v139 )
@@ -962,7 +962,7 @@ LABEL_74:
     {
       v156 = 0;
       v16 = (unsigned __int64)v253;
-      PreviousMode = (__int64)v252;
+      PreviousMode = (unsigned __int64)v252;
       while ( 1 )
       {
         v245 = v156;
@@ -1762,7 +1762,7 @@ LABEL_145:
     {
       v148 = 0;
       v16 = (unsigned __int64)v253;
-      PreviousMode = (__int64)v252;
+      PreviousMode = (unsigned __int64)v252;
       v149 = v233;
       while ( 1 )
       {
@@ -1931,7 +1931,7 @@ LABEL_147:
   *(_DWORD *)v253 = *(_DWORD *)v90;
   v246 = *v88;
   v96 = v234;
-  PreviousMode = (__int64)v257;
+  PreviousMode = (unsigned __int64)v257;
   v97 = v258;
   if ( SepRmEnforceCap && v234 && *v88 >= 0 )
   {

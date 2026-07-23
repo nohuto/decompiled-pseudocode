@@ -3,9 +3,9 @@
  * Callers:
  *     HalpSetupAcpiPhase0 @ 0x140B65578 (HalpSetupAcpiPhase0.c)
  * Callees:
- *     HalpAcpiGetTable @ 0x140336FF0 (HalpAcpiGetTable.c)
- *     memcmp @ 0x1403DA350 (memcmp.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
+ *     HalpAcpiGetTable @ 0x140337280 (HalpAcpiGetTable.c)
+ *     memcmp @ 0x1403DA530 (memcmp.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
  */
 
 int __fastcall HalpAcpiDetectMachineSpecificActions(__int64 a1)
@@ -19,7 +19,7 @@ int __fastcall HalpAcpiDetectMachineSpecificActions(__int64 a1)
 
   Table = &retaddr;
   v2 = 0;
-  v3 = &dword_140B9EB2C;
+  v3 = &dword_140B9EB3C;
   v4 = 0LL;
   do
   {

@@ -1,9 +1,9 @@
 /*
- * XREFs of CmpFileRead @ 0x1406C28A0
+ * XREFs of CmpFileRead @ 0x1406C3B40
  * Callers:
- *     CmpSaveKeyByFileCopy @ 0x140803290 (CmpSaveKeyByFileCopy.c)
+ *     CmpSaveKeyByFileCopy @ 0x140804490 (CmpSaveKeyByFileCopy.c)
  * Callees:
- *     CmpDoFileRead @ 0x140134314 (CmpDoFileRead.c)
+ *     CmpDoFileRead @ 0x1401343E4 (CmpDoFileRead.c)
  */
 
 __int64 __fastcall CmpFileRead(__int64 a1, unsigned int a2, ULONG a3, char *a4, ULONG a5)

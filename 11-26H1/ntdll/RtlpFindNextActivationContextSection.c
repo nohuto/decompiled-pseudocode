@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlpFindNextActivationContextSection @ 0x180040ED0
+ * XREFs of RtlpFindNextActivationContextSection @ 0x18002B440
  * Callers:
- *     RtlFindActivationContextSectionString @ 0x180041C30 (RtlFindActivationContextSectionString.c)
- *     RtlFindActivationContextSectionGuid @ 0x1800C09D0 (RtlFindActivationContextSectionGuid.c)
+ *     RtlFindActivationContextSectionString @ 0x18002C1A0 (RtlFindActivationContextSectionString.c)
+ *     RtlFindActivationContextSectionGuid @ 0x1800BE160 (RtlFindActivationContextSectionGuid.c)
  * Callees:
- *     RtlpLocateActivationContextSection @ 0x180041090 (RtlpLocateActivationContextSection.c)
+ *     RtlpLocateActivationContextSection @ 0x18002B600 (RtlpLocateActivationContextSection.c)
  */
 
 __int64 __fastcall RtlpFindNextActivationContextSection(__int64 a1, int a2, __int64 a3, __int64 *a4)

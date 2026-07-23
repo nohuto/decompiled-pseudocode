@@ -1,13 +1,13 @@
 /*
- * XREFs of MiUpdateWorkingSetPrivateSize @ 0x1402EE150
+ * XREFs of MiUpdateWorkingSetPrivateSize @ 0x1402D01D0
  * Callers:
- *     MiDemoteCombinedPte @ 0x1402FE120 (MiDemoteCombinedPte.c)
- *     MiCombineInitialFinish @ 0x14030A2B4 (MiCombineInitialFinish.c)
- *     MiHandleForkValidPrivatePte @ 0x14030ADC0 (MiHandleForkValidPrivatePte.c)
+ *     MiDemoteCombinedPte @ 0x1402E01A0 (MiDemoteCombinedPte.c)
+ *     MiCombineInitialFinish @ 0x1402EC334 (MiCombineInitialFinish.c)
+ *     MiHandleForkValidPrivatePte @ 0x1402ECE40 (MiHandleForkValidPrivatePte.c)
  * Callees:
- *     ExpWaitForSpinLockSharedAndAcquire @ 0x14029BC90 (ExpWaitForSpinLockSharedAndAcquire.c)
- *     ExpAcquireSpinLockSharedAtDpcLevelInstrumented @ 0x1402EE000 (ExpAcquireSpinLockSharedAtDpcLevelInstrumented.c)
- *     ExpReleaseSpinLockSharedFromDpcLevelInstrumented @ 0x14036A848 (ExpReleaseSpinLockSharedFromDpcLevelInstrumented.c)
+ *     ExpWaitForSpinLockSharedAndAcquire @ 0x14029B1F0 (ExpWaitForSpinLockSharedAndAcquire.c)
+ *     ExpAcquireSpinLockSharedAtDpcLevelInstrumented @ 0x1402D0080 (ExpAcquireSpinLockSharedAtDpcLevelInstrumented.c)
+ *     ExpReleaseSpinLockSharedFromDpcLevelInstrumented @ 0x14036C5E8 (ExpReleaseSpinLockSharedFromDpcLevelInstrumented.c)
  */
 
 char __fastcall MiUpdateWorkingSetPrivateSize(__int64 a1, unsigned __int64 a2, unsigned __int64 a3, int a4)
@@ -20,14 +20,14 @@ char __fastcall MiUpdateWorkingSetPrivateSize(__int64 a1, unsigned __int64 a2, u
   char result; // al
   void *retaddr; // [rsp+28h] [rbp+0h]
 
-  v4 = (volatile signed __int32 *)&unk_140E37840;
+  v4 = (volatile signed __int32 *)&unk_140E379C0;
   if ( !a4 )
   {
     if ( (*(_DWORD *)(a1 + 184) & 0xF) == 1 )
-      v9 = &unk_140E37840;
+      v9 = &unk_140E379C0;
     else
       v9 = (_DWORD *)(a1 + 256);
-    if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+    if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || PopHibernateInProgress )
     {
       _m_prefetchw(v9);
       v10 = *v9 & 0x7FFFFFFF;
@@ -60,8 +60,7 @@ char __fastcall MiUpdateWorkingSetPrivateSize(__int64 a1, unsigned __int64 a2, u
     result = *(_DWORD *)(a1 + 184) & 0xF;
     if ( result != 1 )
       v4 = (volatile signed __int32 *)(a1 + 256);
-    if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0
-      || (result = stru_140F11D08.WaitStatus, LODWORD(stru_140F11D08.WaitStatus)) )
+    if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || (result = PopHibernateInProgress, PopHibernateInProgress) )
     {
       _InterlockedAnd(v4, 0xBFFFFFFF);
       _InterlockedDecrement(v4);

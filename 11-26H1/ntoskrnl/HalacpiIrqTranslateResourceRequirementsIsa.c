@@ -1,12 +1,12 @@
 /*
- * XREFs of HalacpiIrqTranslateResourceRequirementsIsa @ 0x140786210
+ * XREFs of HalacpiIrqTranslateResourceRequirementsIsa @ 0x140788D40
  * Callers:
  *     <none>
  * Callees:
- *     HalpIsInterruptTypeSecondary @ 0x140423170 (HalpIsInterruptTypeSecondary.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     HalpIsInterruptTypeSecondary @ 0x140430260 (HalpIsInterruptTypeSecondary.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall HalacpiIrqTranslateResourceRequirementsIsa(
@@ -26,7 +26,7 @@ __int64 __fastcall HalacpiIrqTranslateResourceRequirementsIsa(
   unsigned int v15; // eax
   __int64 v16; // rcx
   __int64 v17; // rax
-  unsigned int IdealProcessor_high; // r13d
+  unsigned int UserAffinity_high; // r13d
   char v19; // r12
   unsigned int i; // r14d
   char *v21; // r9
@@ -108,7 +108,7 @@ LABEL_2:
       *(_DWORD *)&v14[v17 + 12] = 9;
     }
   }
-  IdealProcessor_high = HIWORD(HalpDeviceBlockUnblockPushLock.IdealProcessor);
+  UserAffinity_high = HIWORD(HalpDeviceBlockUnblockPushLock.UserAffinity);
   v19 = 0;
   for ( i = 0; i < v9; ++i )
   {
@@ -119,7 +119,7 @@ LABEL_2:
       v6 = -1073741823;
       goto LABEL_52;
     }
-    if ( v23 <= IdealProcessor_high && v22 >= IdealProcessor_high )
+    if ( v23 <= UserAffinity_high && v22 >= UserAffinity_high )
     {
       if ( v19 )
       {
@@ -127,16 +127,16 @@ LABEL_2:
         goto LABEL_52;
       }
       v19 = 1;
-      if ( v23 < IdealProcessor_high )
+      if ( v23 < UserAffinity_high )
       {
         v24 = 32LL * v9++;
         *(_DWORD *)&v14[v24 + 8] = v23;
-        *(_DWORD *)&v14[v24 + 12] = IdealProcessor_high - 1;
+        *(_DWORD *)&v14[v24 + 12] = UserAffinity_high - 1;
       }
-      if ( *((_DWORD *)v21 + 3) > IdealProcessor_high )
+      if ( *((_DWORD *)v21 + 3) > UserAffinity_high )
       {
         v25 = 32LL * v9++;
-        *(_DWORD *)&v14[v25 + 8] = IdealProcessor_high + 1;
+        *(_DWORD *)&v14[v25 + 8] = UserAffinity_high + 1;
         *(_DWORD *)&v14[v25 + 12] = *((_DWORD *)v21 + 3);
       }
       memmove(&v14[32 * i], v21 + 32, 32LL * (v9 - i));

@@ -1,41 +1,41 @@
 /*
- * XREFs of MiTrimUnusedPageFileRegionsWorker @ 0x140403D20
+ * XREFs of MiTrimUnusedPageFileRegionsWorker @ 0x1403C5F70
  * Callers:
  *     <none>
  * Callees:
- *     MiReleasePageFileInfo @ 0x14021B9A0 (MiReleasePageFileInfo.c)
- *     MiSwizzleInvalidPte @ 0x14022A3B0 (MiSwizzleInvalidPte.c)
- *     ExReleaseRundownProtection_0 @ 0x140245670 (ExReleaseRundownProtection_0.c)
- *     PsDereferencePartition @ 0x140275E60 (PsDereferencePartition.c)
- *     ExAcquireRundownProtection @ 0x1402792A0 (ExAcquireRundownProtection.c)
- *     KeResetEvent @ 0x14028EEC0 (KeResetEvent.c)
- *     KiCheckForKernelApcDelivery @ 0x1402BB4D0 (KiCheckForKernelApcDelivery.c)
- *     KeInsertQueueApc @ 0x140337240 (KeInsertQueueApc.c)
- *     KeWaitForSingleObject @ 0x14033E960 (KeWaitForSingleObject.c)
- *     MiPageFileLargestBitmapsRun @ 0x1403664F0 (MiPageFileLargestBitmapsRun.c)
- *     MiTransferSoftwarePte @ 0x14039F300 (MiTransferSoftwarePte.c)
- *     MiMakePageFilePte @ 0x14039F4D8 (MiMakePageFilePte.c)
- *     MiLockWsSwapExclusive @ 0x1404043DC (MiLockWsSwapExclusive.c)
- *     MiUnlockWsSwapExclusive @ 0x140404DE4 (MiUnlockWsSwapExclusive.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ZwFsControlFile @ 0x1406A6B30 (ZwFsControlFile.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     MiContractWsSwapPageFile @ 0x140A07248 (MiContractWsSwapPageFile.c)
+ *     ExReleaseRundownProtection_0 @ 0x14020DE50 (ExReleaseRundownProtection_0.c)
+ *     MiTransferSoftwarePte @ 0x140215AA0 (MiTransferSoftwarePte.c)
+ *     MiMakePageFilePte @ 0x140215C78 (MiMakePageFilePte.c)
+ *     PsDereferencePartition @ 0x14022B3F0 (PsDereferencePartition.c)
+ *     ExAcquireRundownProtection_0 @ 0x14022E830 (ExAcquireRundownProtection_0.c)
+ *     MiReleasePageFileInfo @ 0x1402486F0 (MiReleasePageFileInfo.c)
+ *     KeResetEvent @ 0x14029EAC0 (KeResetEvent.c)
+ *     KeInsertQueueApc @ 0x1402DF360 (KeInsertQueueApc.c)
+ *     MiSwizzleInvalidPte @ 0x1402FD620 (MiSwizzleInvalidPte.c)
+ *     KeWaitForSingleObject @ 0x14031DE40 (KeWaitForSingleObject.c)
+ *     KiCheckForKernelApcDelivery @ 0x140362C10 (KiCheckForKernelApcDelivery.c)
+ *     MiPageFileLargestBitmapsRun @ 0x1403C5B54 (MiPageFileLargestBitmapsRun.c)
+ *     MiLockWsSwapExclusive @ 0x1403C637C (MiLockWsSwapExclusive.c)
+ *     MiUnlockWsSwapExclusive @ 0x1403C6778 (MiUnlockWsSwapExclusive.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ZwFsControlFile @ 0x1406A7AD0 (ZwFsControlFile.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     MiContractWsSwapPageFile @ 0x140A03778 (MiContractWsSwapPageFile.c)
  */
 
 void __fastcall MiTrimUnusedPageFileRegionsWorker(__int64 a1)
 {
   struct _KTHREAD *CurrentThread; // r15
   __int64 PageFilePte; // rdi
-  __int64 v4; // rdx
-  bool v5; // zf
-  unsigned int v6; // r14d
-  unsigned int v7; // r12d
-  __int64 *v8; // rbx
-  __int64 v9; // r13
-  unsigned int v10; // eax
-  __int64 v11; // rax
-  unsigned __int64 v12; // rbx
+  bool v4; // zf
+  unsigned int v5; // r14d
+  unsigned int v6; // r12d
+  __int64 *v7; // rbx
+  __int64 v8; // r13
+  unsigned int v9; // eax
+  __int64 v10; // rax
+  unsigned __int64 v11; // rbx
+  __int64 v12; // r9
   unsigned __int64 v13; // r14
   unsigned __int64 v14; // r14
   int v15; // r15d
@@ -71,37 +71,37 @@ void __fastcall MiTrimUnusedPageFileRegionsWorker(__int64 a1)
   CurrentThread = KeGetCurrentThread();
   v24 = CurrentThread;
   PageFilePte = MiMakePageFilePte(0LL);
-  if ( ExAcquireRundownProtection((PEX_RUNDOWN_REF)(a1 + 1000)) )
+  if ( ExAcquireRundownProtection_0((PEX_RUNDOWN_REF)(a1 + 1000)) )
   {
     MiLockWsSwapExclusive(CurrentThread, a1);
-    v5 = CurrentThread->SpecialApcDisable++ == -1;
-    if ( v5 && ($81B80DCEA5A02D890AB7B2872B48AC01 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
-      KiCheckForKernelApcDelivery(1LL, v4);
-    v6 = *(_DWORD *)(a1 + 18520);
-    v7 = 0;
-    v22 = v6;
-    if ( v6 )
+    v4 = CurrentThread->SpecialApcDisable++ == -1;
+    if ( v4 && ($727077A9B6E167EAE1398C74674DC5A5 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
+      KiCheckForKernelApcDelivery();
+    v5 = *(_DWORD *)(a1 + 18520);
+    v6 = 0;
+    v22 = v5;
+    if ( v5 )
     {
-      v8 = (__int64 *)(a1 + 18528);
+      v7 = (__int64 *)(a1 + 18528);
       v23 = a1 + 18528;
       do
       {
-        v9 = *v8;
-        if ( (*(_WORD *)(*v8 + 172) & 0x850) == 0x10 )
+        v8 = *v7;
+        if ( (*(_WORD *)(*v7 + 172) & 0x850) == 0x10 )
         {
           *(_QWORD *)&Object_8 = 393216LL;
           *(_QWORD *)&v20 = (char *)&Object_8 + 8;
           *((_QWORD *)&Object_8 + 1) = (char *)&Object_8 + 8;
-          v21 = v7 | 0x200000000000uLL;
+          v21 = v6 | 0x200000000000uLL;
           *((_QWORD *)&v20 + 1) = a1;
-          v10 = MiPageFileLargestBitmapsRun(v9);
-          if ( v10 >= DWORD1(v21) )
+          v9 = MiPageFileLargestBitmapsRun(v8);
+          if ( v9 >= DWORD1(v21) )
           {
             do
             {
-              v11 = *(_QWORD *)(a1 + 992);
+              v10 = *(_QWORD *)(a1 + 992);
               v33 = 0;
-              v28 = v11;
+              v28 = v10;
               v26 = 18;
               v29 = xHalTimerWatchdogStop;
               v27 = 88;
@@ -118,7 +118,7 @@ void __fastcall MiTrimUnusedPageFileRegionsWorker(__int64 a1)
               *(_QWORD *)&InputBuffer = 0x100000000LL;
               KeResetEvent((PRKEVENT)&Object_8);
               Object = ZwFsControlFile(
-                         *(HANDLE *)(v9 + 192),
+                         *(HANDLE *)(v8 + 192),
                          0LL,
                          MiIrpCompletionApcRoutine,
                          &Object_8,
@@ -133,14 +133,14 @@ void __fastcall MiTrimUnusedPageFileRegionsWorker(__int64 a1)
                 KeWaitForSingleObject(&Object_8, Executive, 0, 0, 0LL);
                 Object = IoStatusBlock.Status;
               }
-              v12 = MiTransferSoftwarePte(PageFilePte, v9, DWORD2(v21), 3);
-              v13 = v12;
-              if ( qword_140E2DB80 )
+              v11 = MiTransferSoftwarePte(PageFilePte, v8, DWORD2(v21), 3);
+              v13 = v11;
+              if ( qword_140E2DCC0 )
               {
-                if ( (v12 & 0x10) != 0 )
-                  v13 = v12 & 0xFFFFFFFFFFFFFFEFuLL;
+                if ( (v11 & 0x10) != 0 )
+                  v13 = v11 & 0xFFFFFFFFFFFFFFEFuLL;
                 else
-                  v13 = v12 & ~qword_140E2DB80;
+                  v13 = v11 & ~qword_140E2DCC0;
               }
               v14 = HIDWORD(v13);
               if ( HIDWORD(v21) )
@@ -148,16 +148,16 @@ void __fastcall MiTrimUnusedPageFileRegionsWorker(__int64 a1)
                 v15 = HIDWORD(v21);
                 do
                 {
-                  MiReleasePageFileInfo(a1, v12, 2LL);
+                  MiReleasePageFileInfo(a1, v11, 2LL, v12);
                   ++v14;
-                  if ( v12 && qword_140E2DB80 )
+                  if ( v11 && qword_140E2DCC0 )
                   {
-                    if ( (v12 & 0x10) != 0 )
-                      LODWORD(v12) = v12 & 0xFFFFFFEF;
+                    if ( (v11 & 0x10) != 0 )
+                      LODWORD(v11) = v11 & 0xFFFFFFEF;
                     else
-                      LODWORD(v12) = ~(_DWORD)qword_140E2DB80 & v12;
+                      LODWORD(v11) = ~(_DWORD)qword_140E2DCC0 & v11;
                   }
-                  v12 = MiSwizzleInvalidPte((v14 << 32) | (unsigned int)v12);
+                  v11 = MiSwizzleInvalidPte((v14 << 32) | (unsigned int)v11);
                   --v15;
                 }
                 while ( v15 );
@@ -168,16 +168,16 @@ void __fastcall MiTrimUnusedPageFileRegionsWorker(__int64 a1)
               v16 = HIDWORD(v21) + DWORD2(v21);
               *((_QWORD *)&v21 + 1) = (unsigned int)(HIDWORD(v21) + DWORD2(v21));
             }
-            while ( v16 < *(_DWORD *)v9 );
-            v8 = (__int64 *)v23;
-            v6 = v22;
+            while ( v16 < *(_DWORD *)v8 );
+            v7 = (__int64 *)v23;
+            v5 = v22;
           }
         }
-        ++v8;
         ++v7;
-        v23 = (__int64)v8;
+        ++v6;
+        v23 = (__int64)v7;
       }
-      while ( v7 < v6 );
+      while ( v6 < v5 );
       CurrentThread = v24;
     }
     --CurrentThread->SpecialApcDisable;

@@ -534,7 +534,7 @@ LABEL_45:
           IopWarmEjectLock.Header.Size = 6;
           IopWarmEjectLock.Header.SignalState = 1;
           *(_DWORD *)&v29.Length = 2490404;
-          CachedContextBaseKey = IoCreateDriver(&v29, (unsigned __int64)PipPnPDriverEntry);
+          CachedContextBaseKey = IoCreateDriver(&v29, PipPnPDriverEntry);
           if ( CachedContextBaseKey < 0 )
             return CachedContextBaseKey;
           CachedContextBaseKey = IoCreateDevice(PnpDriverObject, 0, 0LL, 4u, 0, 0, &DeviceObject);
@@ -607,7 +607,7 @@ LABEL_80:
                       {
                         *(_QWORD *)&v36 = 2359330LL;
                         *((_QWORD *)&v36 + 1) = L"\\Driver\\DeviceApi";
-                        CachedContextBaseKey = IoCreateDriver(&v36, (unsigned __int64)PiDaDriverEntry);
+                        CachedContextBaseKey = IoCreateDriver(&v36, PiDaDriverEntry);
                         if ( CachedContextBaseKey >= 0 )
                         {
                           CachedContextBaseKey = PiDmaGuardInitialize(0);

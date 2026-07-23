@@ -1,11 +1,11 @@
 /*
- * XREFs of DefaultInitializeProfiling @ 0x140B4CA20
+ * XREFs of DefaultInitializeProfiling @ 0x140B4EA60
  * Callers:
  *     <none>
  * Callees:
- *     Feature_Test52061194__private_IsEnabledDeviceUsageNoInline @ 0x1404F6654 (Feature_Test52061194__private_IsEnabledDeviceUsageNoInline.c)
- *     DefaultInitializeProfilingEnhanced @ 0x140B4CA48 (DefaultInitializeProfilingEnhanced.c)
- *     DefaultInitializeProfilingOriginal @ 0x140B4CB10 (DefaultInitializeProfilingOriginal.c)
+ *     Feature_Test52061194__private_IsEnabledDeviceUsageNoInline @ 0x1404F3F38 (Feature_Test52061194__private_IsEnabledDeviceUsageNoInline.c)
+ *     DefaultInitializeProfilingEnhanced @ 0x140B4EA88 (DefaultInitializeProfilingEnhanced.c)
+ *     DefaultInitializeProfilingOriginal @ 0x140B4EB50 (DefaultInitializeProfilingOriginal.c)
  */
 
 __int64 DefaultInitializeProfiling()

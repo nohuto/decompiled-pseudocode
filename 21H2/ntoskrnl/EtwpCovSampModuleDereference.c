@@ -1,9 +1,9 @@
 /*
- * XREFs of EtwpCovSampModuleDereference @ 0x1409452C8
+ * XREFs of EtwpCovSampModuleDereference @ 0x140945498
  * Callers:
- *     EtwpCovSampImageNotify @ 0x140945050 (EtwpCovSampImageNotify.c)
- *     EtwpCovSampProcessCleanup @ 0x140945700 (EtwpCovSampProcessCleanup.c)
- *     EtwpCovSampProcessRemoveModule @ 0x140945A4C (EtwpCovSampProcessRemoveModule.c)
+ *     EtwpCovSampImageNotify @ 0x140945220 (EtwpCovSampImageNotify.c)
+ *     EtwpCovSampProcessCleanup @ 0x1409458D0 (EtwpCovSampProcessCleanup.c)
+ *     EtwpCovSampProcessRemoveModule @ 0x140945C1C (EtwpCovSampProcessRemoveModule.c)
  * Callees:
  *     <none>
  */

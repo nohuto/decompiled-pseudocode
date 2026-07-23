@@ -1,12 +1,12 @@
 /*
- * XREFs of MiAllocateUserPhysicalPagesMdl @ 0x140877C6C
+ * XREFs of MiAllocateUserPhysicalPagesMdl @ 0x14087E04C
  * Callers:
- *     MiAllocateUserPhysicalPages @ 0x140877868 (MiAllocateUserPhysicalPages.c)
+ *     MiAllocateUserPhysicalPages @ 0x14087DC48 (MiAllocateUserPhysicalPages.c)
  * Callees:
- *     MiAllocatePagesForMdl @ 0x14034898C (MiAllocatePagesForMdl.c)
- *     MiGetAweInfoPartition @ 0x1403BC1DC (MiGetAweInfoPartition.c)
- *     MiAllocateFastAwePages @ 0x1408776E8 (MiAllocateFastAwePages.c)
- *     MiAllocateUserPhysicalRanges @ 0x1408785D0 (MiAllocateUserPhysicalRanges.c)
+ *     MiAllocatePagesForMdl @ 0x14034AA0C (MiAllocatePagesForMdl.c)
+ *     MiGetAweInfoPartition @ 0x1403C604C (MiGetAweInfoPartition.c)
+ *     MiAllocateFastAwePages @ 0x14087DAC8 (MiAllocateFastAwePages.c)
+ *     MiAllocateUserPhysicalRanges @ 0x14087E9B0 (MiAllocateUserPhysicalRanges.c)
  */
 
 PVOID __fastcall MiAllocateUserPhysicalPagesMdl(int *a1, __int64 a2)

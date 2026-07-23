@@ -1,9 +1,9 @@
 /*
- * XREFs of PpmInfoRegisterCallbacks @ 0x140CD2CF4
+ * XREFs of PpmInfoRegisterCallbacks @ 0x140CD8E94
  * Callers:
- *     PopInitializePowerSettingCallbacks @ 0x140CD0CDC (PopInitializePowerSettingCallbacks.c)
+ *     PopInitializePowerSettingCallbacks @ 0x140CD6E84 (PopInitializePowerSettingCallbacks.c)
  * Callees:
- *     PoRegisterPowerSettingCallback @ 0x140B05F90 (PoRegisterPowerSettingCallback.c)
+ *     PoRegisterPowerSettingCallback @ 0x140B080C0 (PoRegisterPowerSettingCallback.c)
  */
 
 __int64 PpmInfoRegisterCallbacks()

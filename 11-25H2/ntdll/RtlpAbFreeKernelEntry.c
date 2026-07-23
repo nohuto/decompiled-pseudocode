@@ -9,11 +9,11 @@
  *     NtSetInformationThread @ 0x1801633C0 (NtSetInformationThread.c)
  */
 
-__int64 __fastcall RtlpAbFreeKernelEntry(__int64 a1)
+NTSTATUS __fastcall RtlpAbFreeKernelEntry(__int64 a1)
 {
-  _QWORD v2[3]; // [rsp+20h] [rbp-18h] BYREF
+  _QWORD ThreadInformation[3]; // [rsp+20h] [rbp-18h] BYREF
 
-  v2[1] = 0LL;
-  v2[0] = (signed __int64)(a1 - (unsigned __int64)NtCurrentTeb()->SchedulerSharedDataSlot) >> 3;
-  return NtSetInformationThread(-2LL, 56LL, v2);
+  ThreadInformation[1] = 0LL;
+  ThreadInformation[0] = (signed __int64)(a1 - (unsigned __int64)NtCurrentTeb()->SchedulerSharedDataSlot) >> 3;
+  return NtSetInformationThread((HANDLE)0xFFFFFFFFFFFFFFFELL, ThreadUpdateLockOwnership, ThreadInformation, 0x10u);
 }

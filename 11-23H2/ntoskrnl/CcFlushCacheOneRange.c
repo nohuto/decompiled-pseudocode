@@ -1,18 +1,18 @@
 /*
- * XREFs of CcFlushCacheOneRange @ 0x14029E650
+ * XREFs of CcFlushCacheOneRange @ 0x14029E8E0
  * Callers:
- *     CcFlushCachePriv @ 0x14029CD34 (CcFlushCachePriv.c)
- *     CcWriteBehindAsync @ 0x14053A480 (CcWriteBehindAsync.c)
- *     CcWriteBehindAsyncFlushOneRange @ 0x14053B7A0 (CcWriteBehindAsyncFlushOneRange.c)
+ *     CcFlushCachePriv @ 0x14029CFC4 (CcFlushCachePriv.c)
+ *     CcWriteBehindAsync @ 0x14053A9D0 (CcWriteBehindAsync.c)
+ *     CcWriteBehindAsyncFlushOneRange @ 0x14053BCF0 (CcWriteBehindAsyncFlushOneRange.c)
  * Callees:
- *     KeSetEvent @ 0x14023C5E0 (KeSetEvent.c)
- *     KxReleaseQueuedSpinLock @ 0x140260360 (KxReleaseQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140260E60 (KeAcquireInStackQueuedSpinLock.c)
- *     MmSetAddressRangeModifiedEx @ 0x14027F1D0 (MmSetAddressRangeModifiedEx.c)
- *     MmFlushSection @ 0x140287490 (MmFlushSection.c)
- *     CcGetVirtualAddressIfMapped @ 0x14029E940 (CcGetVirtualAddressIfMapped.c)
- *     CcPerfLogFlushSection @ 0x140394304 (CcPerfLogFlushSection.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeSetEvent @ 0x14023C6B0 (KeSetEvent.c)
+ *     KxReleaseQueuedSpinLock @ 0x1402605F0 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402610F0 (KeAcquireInStackQueuedSpinLock.c)
+ *     MmSetAddressRangeModifiedEx @ 0x14027F460 (MmSetAddressRangeModifiedEx.c)
+ *     MmFlushSection @ 0x140287720 (MmFlushSection.c)
+ *     CcGetVirtualAddressIfMapped @ 0x14029EBD0 (CcGetVirtualAddressIfMapped.c)
+ *     CcPerfLogFlushSection @ 0x1403944E4 (CcPerfLogFlushSection.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall CcFlushCacheOneRange(__int64 *a1)
@@ -124,10 +124,13 @@ __int64 __fastcall CcFlushCacheOneRange(__int64 *a1)
       *(_QWORD *)(v24 + 1160) += v15;
     KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
     OldIrql = LockHandle.OldIrql;
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && LockHandle.OldIrql <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+        && CurrentIrql <= 0xFu
+        && LockHandle.OldIrql <= 0xFu
+        && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;

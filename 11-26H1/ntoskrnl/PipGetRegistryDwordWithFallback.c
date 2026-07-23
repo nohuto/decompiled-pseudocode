@@ -1,13 +1,19 @@
 /*
- * XREFs of PipGetRegistryDwordWithFallback @ 0x1409152F8
+ * XREFs of PipGetRegistryDwordWithFallback @ 0x14096FD64
  * Callers:
- *     PipChangeDeviceObjectFromRegistryProperties @ 0x140914F6C (PipChangeDeviceObjectFromRegistryProperties.c)
+ *     PipChangeDeviceObjectFromRegistryProperties @ 0x14096F9D8 (PipChangeDeviceObjectFromRegistryProperties.c)
  * Callees:
- *     _CmGetInstallerClassRegProp @ 0x140918E5C (_CmGetInstallerClassRegProp.c)
- *     _CmGetDeviceRegProp @ 0x140996210 (_CmGetDeviceRegProp.c)
+ *     _CmGetDeviceRegProp @ 0x140956C70 (_CmGetDeviceRegProp.c)
+ *     _CmGetInstallerClassRegProp @ 0x1409738BC (_CmGetInstallerClassRegProp.c)
  */
 
-char __fastcall PipGetRegistryDwordWithFallback(int a1, int a2, int a3, int a4, __int64 a5, _DWORD *a6)
+char __fastcall PipGetRegistryDwordWithFallback(
+        unsigned int a1,
+        __int64 a2,
+        __int64 a3,
+        int a4,
+        __int64 a5,
+        _DWORD *a6)
 {
   char v6; // bl
   int v10; // [rsp+40h] [rbp-10h] BYREF
@@ -18,7 +24,7 @@ char __fastcall PipGetRegistryDwordWithFallback(int a1, int a2, int a3, int a4, 
   v10 = 4;
   v11 = 0;
   v12 = 0;
-  if ( (int)CmGetDeviceRegProp(PiPnpRtlCtx, a2, a3, a1, (__int64)&v11, (__int64)&v12, (__int64)&v10, 0) >= 0
+  if ( (int)CmGetDeviceRegProp(*(__int64 *)&PiPnpRtlCtx, a2, a3, a1, (__int64)&v11, (__int64)&v12, (__int64)&v10, 0) >= 0
     && v11 == 4
     && v10 == 4
     || a5

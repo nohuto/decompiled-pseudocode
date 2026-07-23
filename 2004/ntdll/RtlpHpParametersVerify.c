@@ -17,11 +17,11 @@ __int64 __fastcall RtlpHpParametersVerify(__int64 a1)
   if ( *(_WORD *)a1 == 2
     && *(_WORD *)(a1 + 2) == 80
     && (*(_DWORD *)(a1 + 4) & 0xFFFFFFFE) == 0
-    && RtlCompareMemoryUlong((_DWORD *)(a1 + 48), 0x20uLL, 0) == 32 )
+    && RtlCompareMemoryUlong((PVOID)(a1 + 48), 0x20uLL, 0) == 32 )
   {
     if ( (*(_BYTE *)(a1 + 4) & 1) != 0 )
     {
-      v3 = RtlCompareMemoryUlong((_DWORD *)(a1 + 8), 0x28uLL, 0) == 40;
+      v3 = RtlCompareMemoryUlong((PVOID)(a1 + 8), 0x28uLL, 0) == 40;
     }
     else
     {
@@ -35,7 +35,7 @@ __int64 __fastcall RtlpHpParametersVerify(__int64 a1)
         return 0LL;
       if ( *(_DWORD *)(a1 + 16) != -1 )
         return 0LL;
-      if ( RtlCompareMemoryUlong((_DWORD *)(a1 + 32), 0x10uLL, 0) != 16 )
+      if ( RtlCompareMemoryUlong((PVOID)(a1 + 32), 0x10uLL, 0) != 16 )
         return 0LL;
       v5 = v2 & 0xFFFFFFF3;
       if ( *(_QWORD *)(a1 + 24) )

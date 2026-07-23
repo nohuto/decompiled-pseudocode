@@ -1,18 +1,18 @@
 /*
- * XREFs of BiResolveLocatePartitionCallback @ 0x140893368
+ * XREFs of BiResolveLocatePartitionCallback @ 0x140899768
  * Callers:
- *     BiEnumerateDiskPartitions @ 0x1408920E0 (BiEnumerateDiskPartitions.c)
+ *     BiEnumerateDiskPartitions @ 0x1408984DC (BiEnumerateDiskPartitions.c)
  * Callees:
- *     RtlAppendUnicodeToString @ 0x140432EB0 (RtlAppendUnicodeToString.c)
- *     RtlULongLongMult @ 0x1404655A0 (RtlULongLongMult.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     ZwQueryAttributesFile @ 0x140723B90 (ZwQueryAttributesFile.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     BiLogMessage @ 0x1409D490C (BiLogMessage.c)
- *     BiTranslateSymbolicLink @ 0x140B220E4 (BiTranslateSymbolicLink.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     RtlAppendUnicodeToString @ 0x14041FEE0 (RtlAppendUnicodeToString.c)
+ *     RtlULongLongMult @ 0x14045E560 (RtlULongLongMult.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     ZwQueryAttributesFile @ 0x140728760 (ZwQueryAttributesFile.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     BiLogMessage @ 0x1409A58EC (BiLogMessage.c)
+ *     BiTranslateSymbolicLink @ 0x140B244E4 (BiTranslateSymbolicLink.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 char __fastcall BiResolveLocatePartitionCallback(PCWSTR Source, __int64 a2, __int64 a3, __int64 a4)
@@ -26,7 +26,7 @@ char __fastcall BiResolveLocatePartitionCallback(PCWSTR Source, __int64 a2, __in
   ULONGLONG v12; // rbx
   wchar_t *Pool2; // rax
   wchar_t *v14; // r14
-  unsigned int AttributesFile; // eax
+  unsigned int v15; // eax
   int v16; // r9d
   int v17; // eax
   void *v18; // rbx
@@ -36,24 +36,17 @@ char __fastcall BiResolveLocatePartitionCallback(PCWSTR Source, __int64 a2, __in
   ULONGLONG pullResult; // [rsp+30h] [rbp-59h] BYREF
   void *Src; // [rsp+38h] [rbp-51h]
   _DWORD *v25; // [rsp+40h] [rbp-49h]
-  _DWORD v26[2]; // [rsp+48h] [rbp-41h] BYREF
-  __int64 v27; // [rsp+50h] [rbp-39h]
-  UNICODE_STRING *p_Destination; // [rsp+58h] [rbp-31h]
-  int v29; // [rsp+60h] [rbp-29h]
-  int v30; // [rsp+64h] [rbp-25h]
-  __int128 v31; // [rsp+68h] [rbp-21h]
-  _OWORD v32[2]; // [rsp+78h] [rbp-11h] BYREF
-  __int64 v33; // [rsp+98h] [rbp+Fh]
+  OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+48h] [rbp-41h] BYREF
+  struct _FILE_BASIC_INFORMATION FileInformation; // [rsp+78h] [rbp-11h] BYREF
 
-  v33 = 0LL;
-  v26[1] = 0;
+  *(&ObjectAttributes.Length + 1) = 0;
   v5 = -1LL;
-  v30 = 0;
+  *(&ObjectAttributes.Attributes + 1) = 0;
   v7 = *(_QWORD *)(a4 + 120);
   v8 = -1LL;
   v9 = *(const WCHAR **)(a4 + 136);
   v25 = *(_DWORD **)(a4 + 112);
-  memset(v32, 0, sizeof(v32));
+  memset(&FileInformation, 0, sizeof(FileInformation));
   Src = 0LL;
   do
     ++v8;
@@ -80,17 +73,13 @@ char __fastcall BiResolveLocatePartitionCallback(PCWSTR Source, __int64 a2, __in
           Destination.Buffer = Pool2;
           RtlAppendUnicodeToString(&Destination, Source);
           RtlAppendUnicodeToString(&Destination, v9);
-          v26[0] = 48;
-          p_Destination = &Destination;
-          v29 = 576;
-          v27 = 0LL;
-          v31 = 0LL;
-          AttributesFile = ZwQueryAttributesFile((__int64)v26, (__int64)v32);
-          BiLogMessage(
-            1LL,
-            L"BiResolveLocatePartitionCallback: Checking '%ws'. Status %x",
-            Destination.Buffer,
-            AttributesFile);
+          ObjectAttributes.Length = 48;
+          ObjectAttributes.ObjectName = &Destination;
+          ObjectAttributes.Attributes = 576;
+          ObjectAttributes.RootDirectory = 0LL;
+          *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+          v15 = ZwQueryAttributesFile(&ObjectAttributes, &FileInformation);
+          BiLogMessage(1LL, L"BiResolveLocatePartitionCallback: Checking '%ws'. Status %x", Destination.Buffer, v15);
           if ( v16 >= 0 )
           {
             v17 = BiTranslateSymbolicLink(Source);

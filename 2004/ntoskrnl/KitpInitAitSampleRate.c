@@ -17,24 +17,24 @@ NTSTATUS __fastcall KitpInitAitSampleRate(__int64 a1, __int64 a2)
   NTSTATUS v4; // eax
   int v5; // ecx
   NTSTATUS result; // eax
-  int v7; // [rsp+30h] [rbp+8h] BYREF
+  int SystemInformation; // [rsp+30h] [rbp+8h] BYREF
   HANDLE Handle; // [rsp+38h] [rbp+10h] BYREF
 
-  v7 = 0;
+  SystemInformation = 0;
   Handle = 0LL;
   if ( a1 )
   {
     v2 = *(const char **)(a1 + 216);
     if ( (!v2 || !strstr(v2, "SAFEBOOT:")) && KitpOpenRegKey((__int64)v2, a2, &Handle) >= 0 )
     {
-      v4 = KitpReadUlongFromKey(Handle, v3, &v7);
-      v5 = v7;
+      v4 = KitpReadUlongFromKey(Handle, v3, &SystemInformation);
+      v5 = SystemInformation;
       if ( v4 < 0 )
         v5 = 0;
-      v7 = v5;
+      SystemInformation = v5;
     }
   }
-  result = ZwSetSystemInformation(111LL, (__int64)&v7);
+  result = ZwSetSystemInformation(SystemAitSamplingValue, &SystemInformation, 4u);
   if ( Handle )
     return ZwClose(Handle);
   return result;

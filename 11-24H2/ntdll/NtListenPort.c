@@ -1,16 +1,16 @@
 /*
- * XREFs of NtListenPort @ 0x180163E20
+ * XREFs of NtListenPort @ 0x1801621E0
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 NtListenPort()
+NTSTATUS __cdecl NtListenPort(HANDLE PortHandle, PPORT_MESSAGE ConnectionRequest)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 269LL;
+  result = 269;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

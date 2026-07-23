@@ -1,10 +1,10 @@
 /*
- * XREFs of MiAddNonSecuredPagesToDump @ 0x140676ECC
+ * XREFs of MiAddNonSecuredPagesToDump @ 0x14067809C
  * Callers:
- *     MmGetDumpRange @ 0x140677B48 (MmGetDumpRange.c)
+ *     MmGetDumpRange @ 0x140678D28 (MmGetDumpRange.c)
  * Callees:
- *     MiIsPageSecured @ 0x140395B74 (MiIsPageSecured.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
+ *     MiIsPageSecured @ 0x1403F4404 (MiIsPageSecured.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall MiAddNonSecuredPagesToDump(__int64 a1, __int64 a2, __int64 a3)
@@ -30,7 +30,7 @@ __int64 __fastcall MiAddNonSecuredPagesToDump(__int64 a1, __int64 a2, __int64 a3
     {
       if ( v10 )
       {
-        result = guard_dispatch_icall_no_overrides(a1, v4, v10, 2LL);
+        result = guard_dispatch_icall_no_overrides(a1, v4);
         v7 = result;
         if ( (int)result < 0 )
           return result;
@@ -47,6 +47,6 @@ __int64 __fastcall MiAddNonSecuredPagesToDump(__int64 a1, __int64 a2, __int64 a3
     --v3;
   }
   if ( v6 )
-    return (unsigned int)guard_dispatch_icall_no_overrides(a1, v4, v6, 2LL);
+    return (unsigned int)guard_dispatch_icall_no_overrides(a1, v4);
   return v7;
 }

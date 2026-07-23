@@ -1,16 +1,16 @@
 /*
- * XREFs of NtSetBootOptions @ 0x1800A0770
+ * XREFs of NtSetBootOptions @ 0x1800A0730
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 NtSetBootOptions()
+NTSTATUS __cdecl NtSetBootOptions(PBOOT_OPTIONS BootOptions, ULONG FieldsToChange)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 394LL;
+  result = 394;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

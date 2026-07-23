@@ -1,11 +1,11 @@
 /*
- * XREFs of ObpDirectoryTeardownCallback @ 0x140A73F90
+ * XREFs of ObpDirectoryTeardownCallback @ 0x140A74240
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14022F5B0 (ObfDereferenceObjectWithTag.c)
- *     ObDereferenceDeviceMap @ 0x1407AFE5C (ObDereferenceDeviceMap.c)
- *     ObMakeTemporaryObject @ 0x1407E0C90 (ObMakeTemporaryObject.c)
+ *     ObfDereferenceObjectWithTag @ 0x14022F6C0 (ObfDereferenceObjectWithTag.c)
+ *     ObDereferenceDeviceMap @ 0x1407B004C (ObDereferenceDeviceMap.c)
+ *     ObMakeTemporaryObject @ 0x1407E0F60 (ObMakeTemporaryObject.c)
  */
 
 char __fastcall ObpDirectoryTeardownCallback(__int64 a1)

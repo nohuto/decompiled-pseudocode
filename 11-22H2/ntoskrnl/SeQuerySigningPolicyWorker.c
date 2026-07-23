@@ -29,18 +29,18 @@ __int64 __fastcall SeQuerySigningPolicyWorker(
   NTSTATUS v20; // eax
   char v21[4]; // [rsp+30h] [rbp-20h] BYREF
   PVOID TokenInformation; // [rsp+34h] [rbp-1Ch] BYREF
-  __int64 v23; // [rsp+40h] [rbp-10h] BYREF
-  __int64 v24; // [rsp+48h] [rbp-8h] BYREF
+  _PS_PKG_CLAIM v23; // [rsp+40h] [rbp-10h] BYREF
+  unsigned __int64 v24; // [rsp+48h] [rbp-8h] BYREF
 
   v21[0] = 0;
   v23 = 0LL;
   HIDWORD(TokenInformation) = 0;
   v24 = 0LL;
-  LODWORD(v12) = AppModelPolicy_GetPolicy_Internal((int)Token, a2, (int *)&TokenInformation + 1, (int *)&v23, &v24);
+  LODWORD(v12) = AppModelPolicy_GetPolicy_Internal(Token, a2, (int *)&TokenInformation + 1, &v23, &v24);
   if ( (int)v12 >= 0 )
   {
     if ( (unsigned int)(HIDWORD(TokenInformation) - 3014657) > 1
-      || HIDWORD(TokenInformation) == 3014658 && (unsigned int)BYTE4(v23) - 4 > 1 )
+      || HIDWORD(TokenInformation) == 3014658 && (unsigned int)LOBYTE(v23.Origin) - 4 > 1 )
     {
       v13 = a3 & 1;
     }
@@ -49,13 +49,13 @@ __int64 __fastcall SeQuerySigningPolicyWorker(
       v13 = a3 & 1;
       if ( !v13 )
       {
-        if ( !BYTE4(v23) || BYTE4(v23) == 1 )
+        if ( !LOBYTE(v23.Origin) || LOBYTE(v23.Origin) == 1 )
         {
           v14 = a5;
         }
         else
         {
-          switch ( BYTE4(v23) )
+          switch ( LOBYTE(v23.Origin) )
           {
             case 2u:
               *a6 = 8;

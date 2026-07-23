@@ -1,7 +1,7 @@
 /*
- * XREFs of DifObjTrkIsExceptionPluginId @ 0x14064B02C
+ * XREFs of DifObjTrkIsExceptionPluginId @ 0x14064EC0C
  * Callers:
- *     DifObjTrkQeuryInvokeDeleteRange @ 0x14051C810 (DifObjTrkQeuryInvokeDeleteRange.c)
+ *     DifObjTrkQeuryInvokeDeleteRange @ 0x14051E9C0 (DifObjTrkQeuryInvokeDeleteRange.c)
  * Callees:
  *     <none>
  */

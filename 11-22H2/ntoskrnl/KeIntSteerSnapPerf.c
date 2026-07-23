@@ -14,7 +14,7 @@
  *     KiIntSteerAddLoadToProcessorAndCheckThreshold @ 0x140579EA0 (KiIntSteerAddLoadToProcessorAndCheckThreshold.c)
  */
 
-__int64 __fastcall KeIntSteerSnapPerf(__int64 a1, int **a2, _DWORD *a3, __int64 *a4)
+__int64 __fastcall KeIntSteerSnapPerf(__int64 a1, int **a2, _DWORD *a3, LARGE_INTEGER *a4)
 {
   int v4; // esi
   ULONG v5; // edi
@@ -24,9 +24,9 @@ __int64 __fastcall KeIntSteerSnapPerf(__int64 a1, int **a2, _DWORD *a3, __int64 
   unsigned __int64 v9; // r8
   __int64 v10; // rax
   void *v11; // rsp
-  __int64 InterruptTimePrecise; // rax
-  __int64 v13; // r12
-  __int64 v14; // r14
+  LARGE_INTEGER InterruptTimePrecise; // rax
+  LONGLONG v13; // r12
+  LARGE_INTEGER v14; // r14
   int *v16; // rbx
   __int64 v17; // rbx
   KIRQL v18; // al
@@ -56,11 +56,11 @@ __int64 __fastcall KeIntSteerSnapPerf(__int64 a1, int **a2, _DWORD *a3, __int64 
   KIRQL v42[8]; // [rsp+20h] [rbp+0h] BYREF
   KIRQL *v43; // [rsp+28h] [rbp+8h]
   __int64 v44; // [rsp+30h] [rbp+10h]
-  __int64 v45; // [rsp+38h] [rbp+18h] BYREF
-  __int64 v46; // [rsp+40h] [rbp+20h]
+  LARGE_INTEGER PerformanceCounter; // [rsp+38h] [rbp+18h] BYREF
+  LARGE_INTEGER v46; // [rsp+40h] [rbp+20h]
   int **v47; // [rsp+48h] [rbp+28h]
   _DWORD *v48; // [rsp+50h] [rbp+30h]
-  __int64 *v49; // [rsp+58h] [rbp+38h]
+  LARGE_INTEGER *v49; // [rsp+58h] [rbp+38h]
 
   v4 = PpmIntSteerLoadMax;
   v5 = 0;
@@ -69,7 +69,7 @@ __int64 __fastcall KeIntSteerSnapPerf(__int64 a1, int **a2, _DWORD *a3, __int64 
   v7 = 0;
   v48 = a3;
   v47 = a2;
-  v45 = 0LL;
+  PerformanceCounter.QuadPart = 0LL;
   v43 = 0LL;
   if ( KiIntSteerEnabled )
   {
@@ -84,14 +84,14 @@ __int64 __fastcall KeIntSteerSnapPerf(__int64 a1, int **a2, _DWORD *a3, __int64 
     if ( v7 )
       memset(v42, 0, v9 & 0xFFFFFFFFFFFFFFF8uLL);
   }
-  InterruptTimePrecise = RtlGetInterruptTimePrecise(&v45);
+  InterruptTimePrecise = RtlGetInterruptTimePrecise(&PerformanceCounter);
   v46 = InterruptTimePrecise;
-  v13 = InterruptTimePrecise - KiIntSteerPreviousPerfSnap;
+  v13 = InterruptTimePrecise.QuadPart - KiIntSteerPreviousPerfSnap;
   v14 = InterruptTimePrecise;
-  if ( (unsigned __int64)(InterruptTimePrecise - KiIntSteerPreviousPerfSnap) >= 0x16E360 )
+  if ( (unsigned __int64)(InterruptTimePrecise.QuadPart - KiIntSteerPreviousPerfSnap) >= 0x16E360 )
   {
     v16 = (int *)KiIntSteerDistributionContext;
-    KiIntSteerPreviousPerfSnap = InterruptTimePrecise;
+    KiIntSteerPreviousPerfSnap = InterruptTimePrecise.QuadPart;
     KiIntSteerPreviousPerfSnapDelta = v13;
     memset(KiIntSteerDistributionContext, 0, 0x204uLL);
     *v16 = v4;
@@ -159,7 +159,9 @@ __int64 __fastcall KeIntSteerSnapPerf(__int64 a1, int **a2, _DWORD *a3, __int64 
       v6 = v47;
     }
     KxReleaseSpinLock(&KiIntTrackSpinlock);
-    if ( KiIrqlFlags && (CurrentIrql = KeGetCurrentIrql(), (KiIrqlFlags & 1) != 0) && CurrentIrql <= 0xFu )
+    if ( (_DWORD)KiIrqlFlags
+      && (CurrentIrql = KeGetCurrentIrql(), ((unsigned __int8)KiIrqlFlags & 1) != 0)
+      && CurrentIrql <= 0xFu )
     {
       v33 = v42[0];
       if ( v42[0] <= 0xFu && CurrentIrql >= 2u )

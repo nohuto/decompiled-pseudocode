@@ -1,10 +1,10 @@
 /*
- * XREFs of MiInitializePurgeCriteria @ 0x1404A4714
+ * XREFs of MiInitializePurgeCriteria @ 0x14049DDA4
  * Callers:
- *     MiPurgeSubsection @ 0x140422170 (MiPurgeSubsection.c)
+ *     MiPurgeSubsection @ 0x1404199B0 (MiPurgeSubsection.c)
  * Callees:
- *     MiChangingSubsectionProtos @ 0x1406F9120 (MiChangingSubsectionProtos.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     MiChangingSubsectionProtos @ 0x1406FDDF0 (MiChangingSubsectionProtos.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall MiInitializePurgeCriteria(
@@ -23,7 +23,7 @@ __int64 __fastcall MiInitializePurgeCriteria(
   *((_QWORD *)a1 + 5) = a4;
   v8 = a1 + 2;
   v9 = *(_QWORD *)&a4->Header.Lock;
-  *((_QWORD *)a1 + 7) = *(_QWORD *)(stru_140E2EB88.ThreadLock
+  *((_QWORD *)a1 + 7) = *(_QWORD *)(stru_140E2ED08.ThreadLock
                                   + 8LL * (*(_DWORD *)(*(_QWORD *)&a4->Header.Lock + 60LL) & 0x3FF));
   *a1 = a6;
   *((_QWORD *)a1 + 4) = a5;

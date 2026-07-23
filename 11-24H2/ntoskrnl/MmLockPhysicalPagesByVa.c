@@ -1,13 +1,13 @@
 /*
- * XREFs of MmLockPhysicalPagesByVa @ 0x1407EA9A0
+ * XREFs of MmLockPhysicalPagesByVa @ 0x1407EAF70
  * Callers:
- *     VmpPinMemoryRange @ 0x14064ACC0 (VmpPinMemoryRange.c)
+ *     VmpPinMemoryRange @ 0x140649280 (VmpPinMemoryRange.c)
  * Callees:
- *     MiProbeAndLockComplete @ 0x140282248 (MiProbeAndLockComplete.c)
- *     MiProbeAndLockPrepare @ 0x140282460 (MiProbeAndLockPrepare.c)
- *     MiProbeAndLockPacket @ 0x140282730 (MiProbeAndLockPacket.c)
- *     MiCheckLockUnlockByVa @ 0x14066EA6C (MiCheckLockUnlockByVa.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     MiProbeAndLockComplete @ 0x1402377D8 (MiProbeAndLockComplete.c)
+ *     MiProbeAndLockPrepare @ 0x1402379F0 (MiProbeAndLockPrepare.c)
+ *     MiProbeAndLockPacket @ 0x140237CC0 (MiProbeAndLockPacket.c)
+ *     MiCheckLockUnlockByVa @ 0x14066FC3C (MiCheckLockUnlockByVa.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 __int64 __fastcall MmLockPhysicalPagesByVa(__int64 a1, __int64 a2, __int64 a3, int a4)
@@ -24,9 +24,10 @@ __int64 __fastcall MmLockPhysicalPagesByVa(__int64 a1, __int64 a2, __int64 a3, i
   int v17; // [rsp+64h] [rbp-A4h]
   unsigned __int64 v18; // [rsp+68h] [rbp-A0h]
   __int64 v19; // [rsp+70h] [rbp-98h]
-  unsigned __int64 v20[22]; // [rsp+78h] [rbp-90h] BYREF
+  _BYTE v20[128]; // [rsp+78h] [rbp-90h] BYREF
+  __int64 v21; // [rsp+F8h] [rbp-10h]
 
-  memset_0(v20, 0, sizeof(v20));
+  memset_0(v20, 0, 0xB0uLL);
   v17 = 0;
   v8 = (a1 & 0xFFF) + a2 + 4095;
   v16 = 0LL;
@@ -40,9 +41,9 @@ __int64 __fastcall MmLockPhysicalPagesByVa(__int64 a1, __int64 a2, __int64 a3, i
   result = MiProbeAndLockPrepare((__int64)v20, (__int64)&v14, v9, v8 & 0xFFFFFFFFFFFFF000uLL, 1, a4, 3);
   if ( (int)result >= 0 )
   {
-    v20[16] = a3;
+    v21 = a3;
     v13 = MiProbeAndLockPacket((__int64)v20);
-    return MiProbeAndLockComplete(v20, v13);
+    return MiProbeAndLockComplete((__int64)v20, v13);
   }
   return result;
 }

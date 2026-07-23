@@ -8,14 +8,14 @@
 
 __int64 _cpu_features_init()
 {
-  unsigned __int8 IsProcessorFeaturePresent; // bl
-  unsigned __int8 v1; // al
+  BOOLEAN IsProcessorFeaturePresent; // bl
+  BOOLEAN v1; // al
   char v2; // dl
   char v3; // bl
-  unsigned __int8 v4; // al
+  BOOLEAN v4; // al
   char v5; // dl
   char v6; // bl
-  unsigned __int8 v7; // al
+  BOOLEAN v7; // al
   char v8; // dl
 
   IsProcessorFeaturePresent = RtlIsProcessorFeaturePresent(0x26u);

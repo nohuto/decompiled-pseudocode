@@ -3,7 +3,7 @@
  * Callers:
  *     VrpFindNamespaceNode @ 0x1405D4CE4 (VrpFindNamespaceNode.c)
  * Callees:
- *     _wcsnicmp @ 0x1403D2210 (_wcsnicmp.c)
+ *     _wcsnicmp @ 0x1403D2380 (_wcsnicmp.c)
  *     VrpGetNextToken @ 0x1405D52F4 (VrpGetNextToken.c)
  */
 

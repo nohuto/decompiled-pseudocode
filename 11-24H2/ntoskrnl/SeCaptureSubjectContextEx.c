@@ -1,28 +1,28 @@
 /*
- * XREFs of SeCaptureSubjectContextEx @ 0x14083FC40
+ * XREFs of SeCaptureSubjectContextEx @ 0x14083BF00
  * Callers:
- *     NtSetInformationFile @ 0x1403C34C0 (NtSetInformationFile.c)
- *     CmQueryLayeredKey @ 0x140462148 (CmQueryLayeredKey.c)
- *     ExCpuSetResourceManagerAccessCheck @ 0x1404AA1D4 (ExCpuSetResourceManagerAccessCheck.c)
- *     PsOpenThread @ 0x14083F680 (PsOpenThread.c)
- *     CmQueryKey @ 0x140877890 (CmQueryKey.c)
- *     IopXxxControlFile @ 0x1408C1970 (IopXxxControlFile.c)
- *     CmpIsSystemEntity @ 0x14090D660 (CmpIsSystemEntity.c)
- *     NtSetInformationProcess @ 0x140947500 (NtSetInformationProcess.c)
- *     ExCheckFullProcessInformationAccess @ 0x14095F62C (ExCheckFullProcessInformationAccess.c)
- *     MiIsUserQueryVmCallerTrusted @ 0x140987584 (MiIsUserQueryVmCallerTrusted.c)
- *     ObpVerifyCreatorAccessCheck @ 0x140A09994 (ObpVerifyCreatorAccessCheck.c)
- *     ObpCaptureBoundaryDescriptor @ 0x140A09D98 (ObpCaptureBoundaryDescriptor.c)
- *     NtSetInformationJobObject @ 0x140ACE760 (NtSetInformationJobObject.c)
- *     VfUtilIsLocalSystem @ 0x140B83404 (VfUtilIsLocalSystem.c)
+ *     NtSetInformationFile @ 0x1403B2080 (NtSetInformationFile.c)
+ *     ExCpuSetResourceManagerAccessCheck @ 0x1403B5184 (ExCpuSetResourceManagerAccessCheck.c)
+ *     CmQueryLayeredKey @ 0x140457758 (CmQueryLayeredKey.c)
+ *     PsOpenThread @ 0x14083B940 (PsOpenThread.c)
+ *     CmQueryKey @ 0x14087BBC0 (CmQueryKey.c)
+ *     IopXxxControlFile @ 0x1408BF330 (IopXxxControlFile.c)
+ *     CmpIsSystemEntity @ 0x1408E4D80 (CmpIsSystemEntity.c)
+ *     NtSetInformationProcess @ 0x1408EBA70 (NtSetInformationProcess.c)
+ *     ExCheckFullProcessInformationAccess @ 0x1409470EC (ExCheckFullProcessInformationAccess.c)
+ *     MiIsUserQueryVmCallerTrusted @ 0x14096FD94 (MiIsUserQueryVmCallerTrusted.c)
+ *     ObpVerifyCreatorAccessCheck @ 0x140A05EC4 (ObpVerifyCreatorAccessCheck.c)
+ *     ObpCaptureBoundaryDescriptor @ 0x140A062C8 (ObpCaptureBoundaryDescriptor.c)
+ *     NtSetInformationJobObject @ 0x140ACC7F0 (NtSetInformationJobObject.c)
+ *     VfUtilIsLocalSystem @ 0x140B85404 (VfUtilIsLocalSystem.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x1402595A0 (KeLeaveCriticalRegionThread.c)
- *     ExfReleasePushLockShared @ 0x14025DE00 (ExfReleasePushLockShared.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     PsReferencePrimaryTokenWithTag @ 0x14033FFF0 (PsReferencePrimaryTokenWithTag.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     ObfReferenceObjectWithTag @ 0x1403403E0 (ObfReferenceObjectWithTag.c)
- *     ExfAcquirePushLockSharedEx @ 0x14034050C (ExfAcquirePushLockSharedEx.c)
+ *     KeLeaveCriticalRegionThread @ 0x140289BB0 (KeLeaveCriticalRegionThread.c)
+ *     ExfReleasePushLockShared @ 0x14028E410 (ExfReleasePushLockShared.c)
+ *     PsReferencePrimaryTokenWithTag @ 0x14031F4D0 (PsReferencePrimaryTokenWithTag.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     ObfReferenceObjectWithTag @ 0x14031F8C0 (ObfReferenceObjectWithTag.c)
+ *     ExfAcquirePushLockSharedEx @ 0x14031F9EC (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
  */
 
 void __stdcall SeCaptureSubjectContextEx(PETHREAD Thread, PEPROCESS Process, PSECURITY_SUBJECT_CONTEXT SubjectContext)
@@ -31,7 +31,7 @@ void __stdcall SeCaptureSubjectContextEx(PETHREAD Thread, PEPROCESS Process, PSE
   _QWORD *v6; // rax
   signed __int64 *p_WaitBlockList; // r14
   struct _KTHREAD *CurrentThread; // r15
-  _QWORD *v9; // rbp
+  char *v9; // rbp
   struct _KTHREAD *v10; // rbp
 
   v5 = Thread;
@@ -43,11 +43,11 @@ void __stdcall SeCaptureSubjectContextEx(PETHREAD Thread, PEPROCESS Process, PSE
       p_WaitBlockList = (signed __int64 *)&Thread[1].WaitBlockList;
       CurrentThread = KeGetCurrentThread();
       --CurrentThread->KernelApcDisable;
-      v9 = KeAbPreAcquire((__int64)&Thread[1].WaitBlockList, 0LL);
+      v9 = (char *)KeAbPreAcquire((__int64)&Thread[1].WaitBlockList, 0LL);
       if ( _InterlockedCompareExchange64(p_WaitBlockList, 17LL, 0LL) )
         ExfAcquirePushLockSharedEx(p_WaitBlockList, 0, v9, (__int64)p_WaitBlockList);
       if ( v9 )
-        *((_BYTE *)v9 + 10) = 1;
+        v9[10] = 1;
       if ( (*(_DWORD *)(&v5[1].SwapListEntry + 1) & 8) != 0 )
       {
         v10 = (struct _KTHREAD *)(*(_QWORD *)((char *)&v5[1].116 + 4) & 0xFFFFFFFFFFFFFFF8uLL);

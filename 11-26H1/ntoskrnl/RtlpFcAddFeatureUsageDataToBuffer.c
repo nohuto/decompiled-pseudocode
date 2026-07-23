@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlpFcAddFeatureUsageDataToBuffer @ 0x1402C593C
+ * XREFs of RtlpFcAddFeatureUsageDataToBuffer @ 0x1403105D8
  * Callers:
- *     CmFcManagerRecordFeatureUsage @ 0x1402C56C8 (CmFcManagerRecordFeatureUsage.c)
+ *     CmFcManagerRecordFeatureUsage @ 0x140310364 (CmFcManagerRecordFeatureUsage.c)
  * Callees:
- *     RtlBackoff @ 0x140335EF0 (RtlBackoff.c)
- *     memmove @ 0x14073D480 (memmove.c)
+ *     RtlBackoff @ 0x140337F20 (RtlBackoff.c)
+ *     memmove @ 0x140742080 (memmove.c)
  */
 
 __int64 __fastcall RtlpFcAddFeatureUsageDataToBuffer(__int64 a1, const void *a2, unsigned __int64 *a3)

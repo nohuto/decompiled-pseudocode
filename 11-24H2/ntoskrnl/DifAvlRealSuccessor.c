@@ -1,7 +1,7 @@
 /*
- * XREFs of DifAvlRealSuccessor @ 0x14045901C
+ * XREFs of DifAvlRealSuccessor @ 0x14044E0CC
  * Callers:
- *     DifObjTrkQeuryInvokeDeleteRange @ 0x140617E90 (DifObjTrkQeuryInvokeDeleteRange.c)
+ *     DifObjTrkQeuryInvokeDeleteRange @ 0x140616450 (DifObjTrkQeuryInvokeDeleteRange.c)
  * Callees:
  *     <none>
  */

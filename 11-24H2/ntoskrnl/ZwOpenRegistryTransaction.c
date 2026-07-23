@@ -1,14 +1,14 @@
 /*
- * XREFs of ZwOpenRegistryTransaction @ 0x1406A8A90
+ * XREFs of ZwOpenRegistryTransaction @ 0x1406A9A30
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwOpenRegistryTransaction(__int64 a1, __int64 a2)
+__int64 __fastcall ZwOpenRegistryTransaction(__int64 a1)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(a1);
 }

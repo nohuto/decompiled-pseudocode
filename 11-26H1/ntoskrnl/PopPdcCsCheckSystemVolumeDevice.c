@@ -1,16 +1,16 @@
 /*
- * XREFs of PopPdcCsCheckSystemVolumeDevice @ 0x140CD5870
+ * XREFs of PopPdcCsCheckSystemVolumeDevice @ 0x140CDBBC4
  * Callers:
- *     PoInitSystem @ 0x140CCE870 (PoInitSystem.c)
+ *     PoInitSystem @ 0x140CD49D0 (PoInitSystem.c)
  * Callees:
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     ZwDeviceIoControlFile @ 0x1407234D0 (ZwDeviceIoControlFile.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     ZwOpenFile @ 0x140723A50 (ZwOpenFile.c)
- *     PopNetIsDisconnectStandbyActive @ 0x140B27F88 (PopNetIsDisconnectStandbyActive.c)
- *     PopPdcCsDeviceNotification @ 0x140B3018C (PopPdcCsDeviceNotification.c)
- *     PopAcquirePolicyLock @ 0x140C04BF0 (PopAcquirePolicyLock.c)
- *     PopReleasePolicyLock @ 0x140C04C40 (PopReleasePolicyLock.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     ZwDeviceIoControlFile @ 0x1407280A0 (ZwDeviceIoControlFile.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     ZwOpenFile @ 0x140728620 (ZwOpenFile.c)
+ *     PopNetIsDisconnectStandbyActive @ 0x140B29C18 (PopNetIsDisconnectStandbyActive.c)
+ *     PopPdcCsDeviceNotification @ 0x140B32390 (PopPdcCsDeviceNotification.c)
+ *     PopAcquirePolicyLock @ 0x140C0AE00 (PopAcquirePolicyLock.c)
+ *     PopReleasePolicyLock @ 0x140C0AE50 (PopReleasePolicyLock.c)
  */
 
 void PopPdcCsCheckSystemVolumeDevice()
@@ -39,7 +39,7 @@ void PopPdcCsCheckSystemVolumeDevice()
   *(&ObjectAttributes.Length + 1) = 0;
   *(&ObjectAttributes.Attributes + 1) = 0;
   IoStatusBlock = 0LL;
-  if ( *(_DWORD *)&stru_140E66FF0.WaitBlockFill11[80] && stru_140E66FF0.WaitBlockFill6[84] )
+  if ( *(_DWORD *)&stru_140E67200.WaitBlockFill11[88] && stru_140E67200.WaitBlockFill6[80] )
   {
     v6 = *(_QWORD *)&KiSystemServiceTraceCallbackLock.SystemCallNumber;
     ObjectAttributes.ObjectName = (PUNICODE_STRING)((char *)&KiSystemServiceTraceCallbackLock.116 + 4);
@@ -67,7 +67,7 @@ void PopPdcCsCheckSystemVolumeDevice()
              0xCu) >= 0 )
       {
         if ( (_BYTE)v14 )
-          LOBYTE(stru_140F12D20.SchedulerAssist) = 1;
+          PopBsdSkipLogging = 1;
         else
           BYTE1(v8) = 1;
       }
@@ -78,7 +78,7 @@ void PopPdcCsCheckSystemVolumeDevice()
       ZwClose(FileHandle);
     PopAcquirePolicyLock((__int64)v3, v0, v1, v2);
     PopNetIsDisconnectStandbyActive(&v4);
-    stru_140F10828.WaitBlockFill5[47] = (unsigned int)(v4 - 3) > 1;
+    HIBYTE(PpmIdlePolicyLock.Padding[3]) = (unsigned int)(v4 - 3) > 1;
     PopReleasePolicyLock();
   }
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of MiGetPfnKernelStack @ 0x1404474B8
+ * XREFs of MiGetPfnKernelStack @ 0x14043FBD8
  * Callers:
- *     MiSwapStackPage @ 0x1404303C4 (MiSwapStackPage.c)
- *     MiCanStealKernelStack @ 0x140430A58 (MiCanStealKernelStack.c)
- *     MiJumpStackTarget @ 0x140480E20 (MiJumpStackTarget.c)
+ *     MiSwapStackPage @ 0x140421D74 (MiSwapStackPage.c)
+ *     MiCanStealKernelStack @ 0x140422408 (MiCanStealKernelStack.c)
+ *     MiJumpStackTarget @ 0x14047B8F0 (MiJumpStackTarget.c)
  * Callees:
  *     <none>
  */

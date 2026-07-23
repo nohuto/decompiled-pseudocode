@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlpStackDbEntryCreate @ 0x1801161C8
+ * XREFs of RtlpStackDbEntryCreate @ 0x180116164
  * Callers:
- *     RtlStackDbStackAdd @ 0x1801158F0 (RtlStackDbStackAdd.c)
+ *     RtlStackDbStackAdd @ 0x18011588C (RtlStackDbStackAdd.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1800A3CE0 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1800A3D00 (_guard_dispatch_icall_nop.c)
  *     memset @ 0x1800A7100 (memset.c)
- *     RtlpStackDbEntryCleanup @ 0x180116144 (RtlpStackDbEntryCleanup.c)
- *     RtlpStackDbSegmentFindOrCreate @ 0x180116420 (RtlpStackDbSegmentFindOrCreate.c)
+ *     RtlpStackDbEntryCleanup @ 0x1801160E0 (RtlpStackDbEntryCleanup.c)
+ *     RtlpStackDbSegmentFindOrCreate @ 0x1801163BC (RtlpStackDbSegmentFindOrCreate.c)
  */
 
 __int64 __fastcall RtlpStackDbEntryCreate(__int64 a1, __int64 a2, __int64 a3)

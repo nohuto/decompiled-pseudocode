@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlpHeapZeroFastString @ 0x140732350
+ * XREFs of RtlpHeapZeroFastString @ 0x140736F20
  * Callers:
- *     RtlHeapZero @ 0x1407322C0 (RtlHeapZero.c)
+ *     RtlHeapZero @ 0x140736E90 (RtlHeapZero.c)
  * Callees:
  *     <none>
  */

@@ -1,14 +1,14 @@
 /*
- * XREFs of PsRemoveCreateThreadNotifyRoutine @ 0x140A8B940
+ * XREFs of PsRemoveCreateThreadNotifyRoutine @ 0x140A87E30
  * Callers:
  *     <none>
  * Callees:
- *     KiLeaveCriticalRegionUnsafe @ 0x1402595C0 (KiLeaveCriticalRegionUnsafe.c)
- *     ExReferenceCallBackBlock @ 0x140279300 (ExReferenceCallBackBlock.c)
- *     ExWaitForRundownProtectionRelease @ 0x1402C6A90 (ExWaitForRundownProtectionRelease.c)
- *     ExCompareExchangeCallBack @ 0x1402C9C50 (ExCompareExchangeCallBack.c)
- *     ExDereferenceCallBackBlock @ 0x1404459D0 (ExDereferenceCallBackBlock.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ExReferenceCallBackBlock @ 0x14022E890 (ExReferenceCallBackBlock.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140289BD0 (KiLeaveCriticalRegionUnsafe.c)
+ *     ExWaitForRundownProtectionRelease @ 0x1402BB610 (ExWaitForRundownProtectionRelease.c)
+ *     ExCompareExchangeCallBack @ 0x14040EA64 (ExCompareExchangeCallBack.c)
+ *     ExDereferenceCallBackBlock @ 0x14043DD80 (ExDereferenceCallBackBlock.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 NTSTATUS __stdcall PsRemoveCreateThreadNotifyRoutine(PCREATE_THREAD_NOTIFY_ROUTINE NotifyRoutine)
@@ -21,9 +21,6 @@ NTSTATUS __stdcall PsRemoveCreateThreadNotifyRoutine(PCREATE_THREAD_NOTIFY_ROUTI
   struct _EX_RUNDOWN_REF *v7; // rax
   struct _EX_RUNDOWN_REF *v8; // rbx
   volatile signed __int32 *v9; // rdx
-  __int64 v10; // rdx
-  __int64 v11; // r8
-  __int64 v12; // r9
 
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
@@ -31,10 +28,10 @@ NTSTATUS __stdcall PsRemoveCreateThreadNotifyRoutine(PCREATE_THREAD_NOTIFY_ROUTI
   {
     if ( (unsigned int)i >= 0x40 )
     {
-      KiLeaveCriticalRegionUnsafe((__int64)CurrentThread, v1, v2, v3);
+      KiLeaveCriticalRegionUnsafe((__int64)CurrentThread);
       return -1073741702;
     }
-    v7 = ExReferenceCallBackBlock((signed __int64 *)&PspCreateThreadNotifyRoutine.Ptr + i);
+    v7 = ExReferenceCallBackBlock((signed __int64 *)&PspCreateThreadNotifyRoutine.Ptr + i, v1, v2, v3);
     v8 = v7;
     if ( v7 )
       break;
@@ -52,7 +49,7 @@ LABEL_10:
     v9 = &PspCreateThreadNotifyRoutineCount;
   _InterlockedAdd(v9, 0xFFFFFFFF);
   ExDereferenceCallBackBlock((signed __int64 *)&PspCreateThreadNotifyRoutine.Ptr + i, v8);
-  KiLeaveCriticalRegionUnsafe((__int64)CurrentThread, v10, v11, v12);
+  KiLeaveCriticalRegionUnsafe((__int64)CurrentThread);
   ExWaitForRundownProtectionRelease(v8);
   ExFreePoolWithTag(v8, 0);
   return 0;

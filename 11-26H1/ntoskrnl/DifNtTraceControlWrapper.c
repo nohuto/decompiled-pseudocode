@@ -1,23 +1,23 @@
 /*
- * XREFs of DifNtTraceControlWrapper @ 0x14068F7D0
+ * XREFs of DifNtTraceControlWrapper @ 0x1406933B0
  * Callers:
  *     <none>
  * Callees:
- *     DifGetReturnAddressForWrappers @ 0x140260EA4 (DifGetReturnAddressForWrappers.c)
- *     ExReleaseRundownProtection_0 @ 0x140266240 (ExReleaseRundownProtection_0.c)
- *     ExAcquireRundownProtection_0 @ 0x1402F0590 (ExAcquireRundownProtection_0.c)
- *     DifGetAPIThunkContextById @ 0x1404C17A4 (DifGetAPIThunkContextById.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     NtTraceControl @ 0x14093CB40 (NtTraceControl.c)
+ *     DifGetReturnAddressForWrappers @ 0x14026040C (DifGetReturnAddressForWrappers.c)
+ *     ExReleaseRundownProtection_0 @ 0x1402657B0 (ExReleaseRundownProtection_0.c)
+ *     ExAcquireRundownProtection_0 @ 0x1402D2610 (ExAcquireRundownProtection_0.c)
+ *     DifGetAPIThunkContextById @ 0x1404BAFF4 (DifGetAPIThunkContextById.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     NtTraceControl @ 0x1409186E0 (NtTraceControl.c)
  */
 
 __int64 __fastcall DifNtTraceControlWrapper(
-        unsigned int a1,
-        __int64 a2,
-        unsigned int a3,
-        __int64 a4,
-        int a5,
-        __int64 a6)
+        ETWTRACECONTROLCODE a1,
+        void *a2,
+        ULONG a3,
+        void *a4,
+        ULONG OutputBufferLength,
+        ULONG *ReturnLength)
 {
   __int128 *APIThunkContextById; // rax
   __int64 v10; // rdx
@@ -58,8 +58,8 @@ __int64 __fastcall DifNtTraceControlWrapper(
 LABEL_7:
   v14 = 0;
   LODWORD(v23) = a1;
-  LODWORD(v21) = a5;
-  *((_QWORD *)&v20 + 1) = a6;
+  LODWORD(v21) = OutputBufferLength;
+  *((_QWORD *)&v20 + 1) = ReturnLength;
   *((_QWORD *)&v22 + 1) = a2;
   LODWORD(v22) = a3;
   *((_QWORD *)&v21 + 1) = a4;
@@ -75,20 +75,7 @@ LABEL_7:
       ExReleaseRundownProtection_0(&DifRebootlessRundown);
   }
 LABEL_17:
-  HIDWORD(v23) = NtTraceControl(
-                   a1,
-                   a2,
-                   a3,
-                   a4,
-                   a5,
-                   a6,
-                   v20,
-                   *((_QWORD *)&v20 + 1),
-                   v21,
-                   *((_QWORD *)&v21 + 1),
-                   v22,
-                   *((_QWORD *)&v22 + 1),
-                   v23);
+  HIDWORD(v23) = NtTraceControl(a1, a2, a3, a4, OutputBufferLength, ReturnLength);
   if ( v11 )
   {
     if ( (v17 = 0, !VfDifRunningWithoutReboot) && (VfOptionFlags & 0x800) == 0

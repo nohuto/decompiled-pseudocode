@@ -1,11 +1,11 @@
 /*
- * XREFs of PsSessionObjectDelete @ 0x14077BA40
+ * XREFs of PsSessionObjectDelete @ 0x14077B8F0
  * Callers:
  *     <none>
  * Callees:
- *     KeRemoveSchedulingGroup @ 0x1404A45D8 (KeRemoveSchedulingGroup.c)
- *     PspReleaseReferenceToSession @ 0x140A86D78 (PspReleaseReferenceToSession.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     KeRemoveSchedulingGroup @ 0x14049F368 (KeRemoveSchedulingGroup.c)
+ *     PspReleaseReferenceToSession @ 0x140A81850 (PspReleaseReferenceToSession.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __fastcall PsSessionObjectDelete(__int64 a1)

@@ -1,16 +1,26 @@
 /*
- * XREFs of NtCreateWorkerFactory @ 0x180163720
+ * XREFs of NtCreateWorkerFactory @ 0x180161AE0
  * Callers:
- *     TpAllocPoolInternal @ 0x1800AB494 (TpAllocPoolInternal.c)
+ *     TpAllocPoolInternal @ 0x180085914 (TpAllocPoolInternal.c)
  * Callees:
  *     <none>
  */
 
-__int64 NtCreateWorkerFactory()
+NTSTATUS __cdecl NtCreateWorkerFactory(
+        PHANDLE WorkerFactoryHandleReturn,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        HANDLE CompletionPortHandle,
+        HANDLE WorkerProcessHandle,
+        PVOID StartRoutine,
+        PVOID StartParameter,
+        ULONG MaxThreadCount,
+        SIZE_T StackReserve,
+        SIZE_T StackCommit)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 213LL;
+  result = 213;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

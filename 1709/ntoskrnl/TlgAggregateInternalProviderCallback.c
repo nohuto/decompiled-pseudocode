@@ -16,7 +16,7 @@ void __fastcall TlgAggregateInternalProviderCallback(
         UCHAR Level,
         ULONGLONG MatchAnyKeyword)
 {
-  unsigned __int64 v4; // rax
+  PRTL_BALANCED_NODE v4; // rax
   __int64 i; // rbx
 
   if ( ControlCode == 2 && MatchAnyKeyword == 32 )
@@ -25,12 +25,12 @@ void __fastcall TlgAggregateInternalProviderCallback(
     if ( _interlockedbittestandset64((volatile signed __int32 *)&qword_14038DDF0, 0LL) )
     {
       if ( v4 )
-        KeAbPostReleaseEx((ULONG_PTR)&qword_14038DDF0, v4);
+        KeAbPostReleaseEx((ULONG_PTR)&qword_14038DDF0, (unsigned __int64)v4);
     }
     else
     {
       if ( v4 )
-        *(_BYTE *)(v4 + 26) |= 1u;
+        BYTE2(v4[1].Left) |= 1u;
       for ( i = qword_1403A3038; i; i = *(_QWORD *)(i + 352) )
         LookUpTableFlushComplete(i);
       if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_14038DDF0, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )

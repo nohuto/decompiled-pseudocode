@@ -22,7 +22,7 @@ __int64 __fastcall sub_18002C944(__int64 a1)
   __int64 v1; // r13
   void (__fastcall *v2)(__int64); // rdi
   _BOOL8 v3; // rsi
-  unsigned int NtGlobalFlag; // ebp
+  ULONG NtGlobalFlag; // ebp
   __int64 v5; // rdx
   __int64 v6; // r14
   int v7; // r12d
@@ -42,10 +42,10 @@ __int64 __fastcall sub_18002C944(__int64 a1)
 
   v1 = a1;
   v2 = 0LL;
-  v3 = qword_1801664E8 != 0LL;
+  v3 = Src != 0LL;
   v22 = v3;
   NtGlobalFlag = NtCurrentPeb()->NtGlobalFlag;
-  RtlEnterCriticalSection((__int64)&off_18015F3F0);
+  RtlEnterCriticalSection(&stru_18015F3F0);
   if ( byte_180166014 )
   {
     v5 = MEMORY[0x7FFE0330];
@@ -83,23 +83,23 @@ __int64 __fastcall sub_18002C944(__int64 a1)
           do
             ++v13;
           while ( v10[v13] );
-          if ( qword_1801664E8 )
+          if ( Src )
             v14 = v13 + qword_180165370 + 1;
           else
             v14 = v13 + 2;
-          Heap = (char *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8LL, 2 * v14);
+          Heap = (char *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, 2 * v14);
           if ( Heap )
           {
-            if ( qword_1801664E8 )
+            if ( Src )
             {
               v17 = 2 * qword_180165370;
-              memmove(Heap, qword_1801664E8, 2 * qword_180165370);
+              memmove(Heap, Src, 2 * qword_180165370);
               v18 = -1LL;
               do
                 ++v18;
               while ( v10[v18] );
               memmove(&Heap[v17 + 2], v10, 2 * v18);
-              RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0LL, qword_1801664E8);
+              RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, Src);
               v1 = a1;
             }
             else
@@ -110,7 +110,7 @@ __int64 __fastcall sub_18002C944(__int64 a1)
               while ( v10[v19] );
               memmove(Heap, v10, 2 * v19);
             }
-            qword_1801664E8 = Heap;
+            Src = Heap;
             qword_180165370 = v14;
           }
           else
@@ -141,6 +141,6 @@ __int64 __fastcall sub_18002C944(__int64 a1)
     }
     while ( v6 != v1 );
   }
-  RtlLeaveCriticalSection(&off_18015F3F0);
+  RtlLeaveCriticalSection(&stru_18015F3F0);
   return (unsigned int)v7;
 }

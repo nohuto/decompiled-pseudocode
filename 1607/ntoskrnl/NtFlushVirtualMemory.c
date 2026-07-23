@@ -1,11 +1,11 @@
 /*
- * XREFs of NtFlushVirtualMemory @ 0x1404D1844
+ * XREFs of NtFlushVirtualMemory @ 0x1404B52E4
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14006ACD0 (ObfDereferenceObjectWithTag.c)
- *     ObReferenceObjectByHandleWithTag @ 0x140425420 (ObReferenceObjectByHandleWithTag.c)
- *     MmFlushVirtualMemory @ 0x1404D1998 (MmFlushVirtualMemory.c)
+ *     ObfDereferenceObjectWithTag @ 0x14006A850 (ObfDereferenceObjectWithTag.c)
+ *     ObReferenceObjectByHandleWithTag @ 0x1404242E0 (ObReferenceObjectByHandleWithTag.c)
+ *     MmFlushVirtualMemory @ 0x1404B5438 (MmFlushVirtualMemory.c)
  */
 
 NTSTATUS __stdcall NtFlushVirtualMemory(

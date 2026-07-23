@@ -1,17 +1,17 @@
 /*
- * XREFs of MiZeroInParallelWorker @ 0x14030A090
+ * XREFs of MiZeroInParallelWorker @ 0x140313F70
  * Callers:
  *     <none>
  * Callees:
- *     MiDeleteUltraThreadContext @ 0x14020C870 (MiDeleteUltraThreadContext.c)
- *     MiAssignDefaultChannel @ 0x1402F3560 (MiAssignDefaultChannel.c)
- *     MiCreateUltraThreadContext @ 0x1402F3EF0 (MiCreateUltraThreadContext.c)
- *     MiZeroChainWorker @ 0x14030A258 (MiZeroChainWorker.c)
- *     MiZeroMoveToProcessor @ 0x14030AA98 (MiZeroMoveToProcessor.c)
- *     MiRevertProcessorMove @ 0x14030AAFC (MiRevertProcessorMove.c)
- *     KeSignalGate @ 0x14030AB68 (KeSignalGate.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     MiAssignDefaultChannel @ 0x140251B50 (MiAssignDefaultChannel.c)
+ *     MiZeroChainWorker @ 0x140314138 (MiZeroChainWorker.c)
+ *     MiZeroMoveToProcessor @ 0x140314978 (MiZeroMoveToProcessor.c)
+ *     MiRevertProcessorMove @ 0x1403149DC (MiRevertProcessorMove.c)
+ *     KeSignalGate @ 0x140314A48 (KeSignalGate.c)
+ *     MiDeleteUltraThreadContext @ 0x140335BD0 (MiDeleteUltraThreadContext.c)
+ *     MiCreateUltraThreadContext @ 0x14033BC80 (MiCreateUltraThreadContext.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 __int64 __fastcall MiZeroInParallelWorker(__int64 a1)
@@ -47,9 +47,9 @@ __int64 __fastcall MiZeroInParallelWorker(__int64 a1)
   v14 = ((2 * (v6 & 0x3F | 0x380)) | v5 & 1) << 8;
   v13 = v7 + 34640;
   v8 = (unsigned __int64)v18 & -(__int64)((unsigned int)MiCreateUltraThreadContext(
-                                                          (__int64)v18,
-                                                          (__int64)&v13,
-                                                          15,
+                                                          v18,
+                                                          &v13,
+                                                          15LL,
                                                           (*(_DWORD *)(v2 + 16) >> 1) & 4) != 0);
   MiZeroMoveToProcessor(a1, &v16);
   v9 = 0;

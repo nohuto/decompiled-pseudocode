@@ -1,14 +1,22 @@
 /*
- * XREFs of PopFxResidentTimeoutDpcRoutine @ 0x14049A3F0
+ * XREFs of PopFxResidentTimeoutDpcRoutine @ 0x140314FB0
  * Callers:
- *     KiProcessExpiredTimerList @ 0x1403358E0 (KiProcessExpiredTimerList.c)
+ *     KiProcessExpiredTimerList @ 0x140315CC0 (KiProcessExpiredTimerList.c)
  * Callees:
- *     ExQueueWorkItemEx @ 0x1402A7430 (ExQueueWorkItemEx.c)
- *     PopFxArmResidentTimer @ 0x140483290 (PopFxArmResidentTimer.c)
+ *     ExQueueWorkItemEx @ 0x1402D6B60 (ExQueueWorkItemEx.c)
+ *     PopFxArmResidentTimer @ 0x14047E3D0 (PopFxArmResidentTimer.c)
  */
 
-void PopFxResidentTimeoutDpcRoutine()
+__int64 PopFxResidentTimeoutDpcRoutine()
 {
-  if ( !(unsigned __int8)ExQueueWorkItemEx((ULONG_PTR)&PopFxResidentWorkItem, 1u, -1) )
-    PopFxArmResidentTimer(1);
+  __int64 result; // rax
+  __int64 v1; // rcx
+
+  result = ExQueueWorkItemEx(&PopFxResidentWorkItem, 1u, 0xFFFFFFFF);
+  if ( !(_BYTE)result )
+  {
+    LOBYTE(v1) = 1;
+    return PopFxArmResidentTimer(v1);
+  }
+  return result;
 }

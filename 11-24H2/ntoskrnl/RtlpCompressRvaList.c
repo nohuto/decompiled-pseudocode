@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlpCompressRvaList @ 0x1408F3900
+ * XREFs of RtlpCompressRvaList @ 0x14093EA90
  * Callers:
- *     RtlCreateRvaList @ 0x1408F3740 (RtlCreateRvaList.c)
+ *     RtlCreateRvaList @ 0x14093E8D0 (RtlCreateRvaList.c)
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     MiQueryFlagsForRvaEntry @ 0x1408F3F70 (MiQueryFlagsForRvaEntry.c)
- *     MiImageGetRawRvaState @ 0x1408F4010 (MiImageGetRawRvaState.c)
- *     RtlpSetRvaListRvaStateBits @ 0x1408F4080 (RtlpSetRvaListRvaStateBits.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     MiQueryFlagsForRvaEntry @ 0x14093F100 (MiQueryFlagsForRvaEntry.c)
+ *     MiImageGetRawRvaState @ 0x14093F1A0 (MiImageGetRawRvaState.c)
+ *     RtlpSetRvaListRvaStateBits @ 0x14093F210 (RtlpSetRvaListRvaStateBits.c)
  */
 
 __int64 __fastcall RtlpCompressRvaList(
@@ -27,18 +27,18 @@ __int64 __fastcall RtlpCompressRvaList(
   unsigned int *v13; // r12
   unsigned int v14; // r13d
   unsigned int v15; // eax
-  __int64 v16; // r9
-  unsigned int v17; // ebp
-  __int64 v18; // r8
-  unsigned int v19; // edi
-  unsigned int v20; // ebx
-  _DWORD *v21; // r10
-  unsigned int *v22; // r14
-  unsigned int v23; // esi
-  _DWORD *v24; // rbx
-  __int64 (__fastcall *v25)(); // rax
-  unsigned int v26; // r15d
-  int v27; // r13d
+  unsigned int v16; // ebp
+  __int64 v17; // r8
+  unsigned int v18; // edi
+  unsigned int v19; // ebx
+  _DWORD *v20; // r10
+  unsigned int *v21; // r14
+  unsigned int v22; // esi
+  _DWORD *v23; // rbx
+  __int64 (__fastcall *v24)(); // rax
+  unsigned int v25; // r15d
+  int v26; // r13d
+  unsigned int v27; // r9d
   __int64 v28; // rcx
   unsigned int v29; // edx
   unsigned __int32 *v30; // rsi
@@ -46,37 +46,38 @@ __int64 __fastcall RtlpCompressRvaList(
   unsigned int v32; // eax
   unsigned int v33; // edx
   unsigned int v34; // ecx
-  unsigned int v35; // r8d
-  unsigned int v36; // eax
+  unsigned int v35; // r9d
+  unsigned int v36; // r8d
+  unsigned int v37; // r9d
   __int64 result; // rax
-  int v38; // [rsp+50h] [rbp-78h]
-  unsigned int v39; // [rsp+54h] [rbp-74h] BYREF
-  unsigned __int32 v40; // [rsp+58h] [rbp-70h] BYREF
-  unsigned int v41; // [rsp+5Ch] [rbp-6Ch]
-  unsigned int v42; // [rsp+60h] [rbp-68h]
-  unsigned int v43; // [rsp+64h] [rbp-64h]
-  unsigned int v44; // [rsp+68h] [rbp-60h]
-  __int64 v45; // [rsp+70h] [rbp-58h]
-  unsigned __int32 *v46; // [rsp+78h] [rbp-50h]
-  unsigned __int32 v49; // [rsp+E0h] [rbp+18h] BYREF
-  __int64 (__fastcall *v50)(); // [rsp+E8h] [rbp+20h]
+  int v39; // [rsp+50h] [rbp-78h]
+  unsigned int v40; // [rsp+54h] [rbp-74h] BYREF
+  unsigned __int32 v41; // [rsp+58h] [rbp-70h] BYREF
+  unsigned int v42; // [rsp+5Ch] [rbp-6Ch]
+  unsigned int v43; // [rsp+60h] [rbp-68h]
+  unsigned int v44; // [rsp+64h] [rbp-64h]
+  unsigned int v45; // [rsp+68h] [rbp-60h]
+  __int64 v46; // [rsp+70h] [rbp-58h]
+  unsigned __int32 *v47; // [rsp+78h] [rbp-50h]
+  unsigned __int32 v50; // [rsp+E0h] [rbp+18h] BYREF
+  __int64 (__fastcall *v51)(); // [rsp+E8h] [rbp+20h]
 
-  v50 = a4;
+  v51 = a4;
   v7 = a5;
-  v8 = &v40;
+  v8 = &v41;
   v9 = 0;
   v10 = a2;
   v11 = a1;
-  v40 = 0;
+  v41 = 0;
   v12 = 0;
   v13 = a5;
   if ( !a5 )
     v8 = 0LL;
   v14 = 0;
-  v46 = v8;
-  v15 = guard_dispatch_icall_no_overrides(a2, v8, a3, a4);
-  v42 = v15;
-  v17 = v15;
+  v47 = v8;
+  v15 = guard_dispatch_icall_no_overrides(a2, v8);
+  v43 = v15;
+  v16 = v15;
   if ( !v15 )
   {
     v9 = -1073741811;
@@ -84,40 +85,39 @@ __int64 __fastcall RtlpCompressRvaList(
   }
   if ( v7 )
   {
-    v18 = v40;
+    v17 = v41;
     v13 = v7 + 1;
     *v7 = v15;
-    RtlpSetRvaListRvaStateBits(v11, 0LL, v18);
+    RtlpSetRvaListRvaStateBits(v11, 0LL, v17);
   }
   v14 = 4;
-  v38 = 1;
-  v19 = v17;
+  v39 = 1;
+  v18 = v16;
 LABEL_7:
-  v41 = v14;
+  v42 = v14;
 LABEL_8:
-  while ( v17 != v19 )
+  while ( v16 != v18 )
   {
 LABEL_44:
     v34 = 0;
-    v16 = v19 - v17;
+    v35 = v18 - v16;
     while ( v34 < 4 )
     {
-      v35 = *((_DWORD *)RtlpRvaCompressionTableScales + v34);
-      if ( (unsigned int)v16 >= v35 )
+      v36 = *((_DWORD *)RtlpRvaCompressionTableScales + v34);
+      if ( v35 >= v36 )
       {
-        v36 = (unsigned int)v16 / v35;
-        v16 = (unsigned int)v16 / v35;
-        if ( v36 >= 0x3F )
-          v16 = 63LL;
+        v37 = v35 / v36;
+        if ( v37 >= 0x3F )
+          v37 = 63;
         if ( v13 )
         {
-          *(_BYTE *)v13 = v16 | ((_BYTE)v34 << 6);
+          *(_BYTE *)v13 = v37 | ((_BYTE)v34 << 6);
           v13 = (unsigned int *)((char *)v13 + 1);
         }
-        v41 = ++v14;
-        v17 += v16 * v35;
-        v42 = v17;
-        if ( v17 != v19 )
+        v42 = ++v14;
+        v16 += v37 * v36;
+        v43 = v16;
+        if ( v16 != v18 )
           goto LABEL_44;
         if ( v34 == 3 )
           goto LABEL_8;
@@ -132,136 +132,136 @@ LABEL_44:
       ++v34;
     }
   }
-  v20 = v19;
-  v44 = v19;
-  if ( v50 == MiImageRvaRawEnumNext )
+  v19 = v18;
+  v45 = v18;
+  if ( v51 == MiImageRvaRawEnumNext )
   {
-    v21 = a2;
+    v20 = a2;
     if ( !a2[78] )
       goto LABEL_58;
-    v22 = a2 + 38;
-    v19 = 0;
-    v23 = 0;
+    v21 = a2 + 38;
+    v18 = 0;
+    v22 = 0;
     if ( a2[36] )
     {
-      v24 = a2 + 46;
+      v23 = a2 + 46;
       while ( 1 )
       {
-        v25 = (__int64 (__fastcall *)())*((_QWORD *)v24 - 2);
-        if ( v25 )
+        v24 = (__int64 (__fastcall *)())*((_QWORD *)v23 - 2);
+        if ( v24 )
           break;
 LABEL_28:
-        ++v23;
-        v22 += 10;
-        v24 += 10;
-        if ( v23 >= v21[36] )
+        ++v22;
+        v21 += 10;
+        v23 += 10;
+        if ( v22 >= v20[36] )
         {
-          v17 = v42;
+          v16 = v43;
           v9 = 0;
-          v20 = v44;
-          v14 = v41;
+          v19 = v45;
+          v14 = v42;
           goto LABEL_30;
         }
       }
-      v26 = *v22;
-      if ( *v22 != v21[78] )
+      v25 = *v21;
+      if ( *v21 != v20[78] )
       {
 LABEL_25:
-        if ( v26 )
+        if ( v25 )
         {
-          if ( v19 )
+          if ( v18 )
           {
-            if ( v19 >= v26 )
-              v19 = v26;
+            if ( v18 >= v25 )
+              v18 = v25;
           }
           else
           {
-            v19 = v26;
+            v18 = v25;
           }
         }
         goto LABEL_28;
       }
-      if ( v25 == MiImageCfgRvaIteratorNext )
+      if ( v24 == MiImageCfgRvaIteratorNext )
       {
-        v27 = *v24;
-        v26 = 0;
-        LOBYTE(v49) = 0;
-        v16 = 0LL;
-        v39 = 0;
-        if ( !v27 )
+        v26 = *v23;
+        v25 = 0;
+        LOBYTE(v50) = 0;
+        v27 = 0;
+        v40 = 0;
+        if ( !v26 )
         {
 LABEL_24:
-          *v22 = v26;
+          *v21 = v25;
           goto LABEL_25;
         }
-        v28 = *((_QWORD *)v24 - 1);
-        v29 = v21[21];
-        v45 = v28;
-        v43 = v29;
+        v28 = *((_QWORD *)v23 - 1);
+        v29 = v20[21];
+        v46 = v28;
+        v44 = v29;
         while ( 1 )
         {
-          if ( !v27 )
+          if ( !v26 )
             goto LABEL_22;
           if ( (int)MiQueryFlagsForRvaEntry(
                       v28,
                       v29,
-                      (unsigned int)&v39,
-                      v16,
-                      v21[8],
-                      v21[9],
+                      (unsigned int)&v40,
+                      v27,
+                      v20[8],
+                      v20[9],
                       0,
-                      (__int64)(v24 - 7),
-                      (__int64)&v49) < 0 )
+                      (__int64)(v23 - 7),
+                      (__int64)&v50) < 0 )
             break;
-          --v27;
-          v29 = v43;
-          v28 = v43 + v45;
-          v45 = v28;
-          if ( !(_BYTE)v49 )
+          --v26;
+          v29 = v44;
+          v28 = v44 + v46;
+          v46 = v28;
+          if ( !(_BYTE)v50 )
           {
-            v26 = v39;
+            v25 = v40;
 LABEL_22:
-            *v24 = v27;
-            *((_QWORD *)v24 - 1) = v28;
+            *v23 = v26;
+            *((_QWORD *)v23 - 1) = v28;
             goto LABEL_23;
           }
-          v16 = v39;
-          v21 = a2;
+          v27 = v40;
+          v20 = a2;
         }
-        dword_140E2D728 = 14;
+        dword_140E2D868 = 14;
       }
       else
       {
-        v26 = guard_dispatch_icall_no_overrides(v21, v24 - 2, v24 - 7, v16);
+        v25 = guard_dispatch_icall_no_overrides(v20, v23 - 2);
       }
 LABEL_23:
-      v21 = a2;
+      v20 = a2;
       goto LABEL_24;
     }
 LABEL_30:
-    v30 = v46;
-    if ( v46 && v19 )
+    v30 = v47;
+    if ( v47 && v18 )
     {
-      RawRvaState = MiImageGetRawRvaState(v21, v19);
-      v21 = a2;
+      RawRvaState = MiImageGetRawRvaState(v20, v18);
+      v20 = a2;
       *v30 = RawRvaState;
     }
     v10 = a2;
     v11 = a1;
-    v21[78] = v19;
+    v20[78] = v18;
   }
   else
   {
-    v19 = guard_dispatch_icall_no_overrides(v10, v46, MiImageRvaRawEnumNext, v16);
+    v18 = guard_dispatch_icall_no_overrides(v10, v47);
   }
-  if ( !v19 )
+  if ( !v18 )
     goto LABEL_58;
-  if ( v19 > v20 )
+  if ( v18 > v19 )
   {
     if ( v13 )
     {
-      v49 = v40;
-      if ( v40 )
+      v50 = v41;
+      if ( v41 )
       {
         v32 = *(_DWORD *)(v11 + 8);
         if ( v32 > 1 )
@@ -269,20 +269,20 @@ LABEL_30:
           v33 = 0;
           do
           {
-            if ( _bittest((const signed __int32 *)&v49, v33) )
-              _bittestandset64(*(signed __int64 **)(v11 + 40), v38 * v32 + (unsigned __int64)v33);
+            if ( _bittest((const signed __int32 *)&v50, v33) )
+              _bittestandset64(*(signed __int64 **)(v11 + 40), v39 * v32 + (unsigned __int64)v33);
             ++v33;
           }
           while ( v33 < *(_DWORD *)(v11 + 8) );
         }
       }
     }
-    ++v38;
+    ++v39;
     goto LABEL_44;
   }
   v9 = -1073741701;
 LABEL_58:
-  v12 = v38;
+  v12 = v39;
   v7 = a5;
 LABEL_59:
   if ( !v7 )

@@ -17,14 +17,14 @@
  *     _TppAdjustRunningThreadGoalWithLock@4 @ 0x4B384257 (_TppAdjustRunningThreadGoalWithLock@4.c)
  */
 
-unsigned __int8 *__fastcall TppGetCurrentThreadNumaNode(_DWORD *a1, _DWORD *a2, unsigned __int8 *a3)
+unsigned __int8 *__fastcall TppGetCurrentThreadNumaNode(_RTL_SRWLOCK *a1, _DWORD *a2, unsigned __int8 *a3)
 {
   unsigned __int8 Number; // cl
   unsigned int v5; // esi
   unsigned int v6; // ebx
-  int v7; // eax
+  unsigned int Value; // eax
   unsigned int v8; // edx
-  int v9; // edi
+  unsigned int v9; // edi
   unsigned __int16 v10; // ax
   unsigned __int8 *result; // eax
   unsigned __int16 Group; // [esp+14h] [ebp-8h]
@@ -35,9 +35,9 @@ unsigned __int8 *__fastcall TppGetCurrentThreadNumaNode(_DWORD *a1, _DWORD *a2, 
   v6 = TppNumberNodes;
   v14 = Number;
   Group = NtCurrentTeb()->CurrentIdealProcessor.Group;
-  if ( !a1 || (v7 = a1[68], v5 = TppNumberNodes, !v7) )
-    v7 = MEMORY[0x7FFE03C0];
-  if ( a1[64] != v7 )
+  if ( !a1 || (Value = a1[68].Value, v5 = TppNumberNodes, !Value) )
+    Value = MEMORY[0x7FFE03C0];
+  if ( a1[64].Value != Value )
   {
     RtlAcquireSRWLockExclusive(a1 + 11);
     TppAdjustRunningThreadGoalWithLock(a1);
@@ -48,7 +48,7 @@ unsigned __int8 *__fastcall TppGetCurrentThreadNumaNode(_DWORD *a1, _DWORD *a2, 
   v8 = 0;
   if ( v5 )
   {
-    v9 = a1[8];
+    v9 = a1[8].Value;
     v10 = Group;
     do
     {

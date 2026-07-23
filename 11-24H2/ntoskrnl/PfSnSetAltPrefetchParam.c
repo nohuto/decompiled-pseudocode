@@ -1,30 +1,30 @@
 /*
- * XREFs of PfSnSetAltPrefetchParam @ 0x140747784
+ * XREFs of PfSnSetAltPrefetchParam @ 0x140745A74
  * Callers:
- *     NtSetInformationProcess @ 0x140947500 (NtSetInformationProcess.c)
+ *     NtSetInformationProcess @ 0x1408EBA70 (NtSetInformationProcess.c)
  * Callees:
- *     RtlRbInsertNodeEx @ 0x1402BDA80 (RtlRbInsertNodeEx.c)
- *     ObfDereferenceObjectWithTag @ 0x1403254A0 (ObfDereferenceObjectWithTag.c)
- *     FsRtlAcquirePushLockExclusive @ 0x1403C5B9C (FsRtlAcquirePushLockExclusive.c)
- *     VmpReleasePushLockExclusive @ 0x1404860F0 (VmpReleasePushLockExclusive.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     PfSnAltProfileCleanup @ 0x1407475D0 (PfSnAltProfileCleanup.c)
- *     ObpReferenceObjectByHandleWithTag @ 0x14084B7E0 (ObpReferenceObjectByHandleWithTag.c)
- *     PfSnAltProfileFindByProcess @ 0x140939988 (PfSnAltProfileFindByProcess.c)
- *     PfSnAltProfileTreeCompareByProcess @ 0x140939A14 (PfSnAltProfileTreeCompareByProcess.c)
- *     PfSnCheckScenario @ 0x140960C4C (PfSnCheckScenario.c)
- *     PfSnAltProfileFindByScenarioId @ 0x14096192C (PfSnAltProfileFindByScenarioId.c)
- *     PfSnAltProfileTreeCompareByScenarioId @ 0x1409619C0 (PfSnAltProfileTreeCompareByScenarioId.c)
- *     PfSnCalculateScenarioNameAndHash @ 0x140961A08 (PfSnCalculateScenarioNameAndHash.c)
- *     PfCalculateProcessHash @ 0x140962000 (PfCalculateProcessHash.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CE030 (ObfDereferenceObjectWithTag.c)
+ *     RtlRbInsertNodeEx @ 0x1403651C0 (RtlRbInsertNodeEx.c)
+ *     FsRtlAcquirePushLockExclusive @ 0x1403B475C (FsRtlAcquirePushLockExclusive.c)
+ *     VmpReleasePushLockExclusive @ 0x1404816E0 (VmpReleasePushLockExclusive.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     PfSnAltProfileCleanup @ 0x1407458C0 (PfSnAltProfileCleanup.c)
+ *     ObpReferenceObjectByHandleWithTag @ 0x140847AA0 (ObpReferenceObjectByHandleWithTag.c)
+ *     PfSnCheckScenario @ 0x14094870C (PfSnCheckScenario.c)
+ *     PfSnAltProfileFindByScenarioId @ 0x1409493EC (PfSnAltProfileFindByScenarioId.c)
+ *     PfSnAltProfileTreeCompareByScenarioId @ 0x140949480 (PfSnAltProfileTreeCompareByScenarioId.c)
+ *     PfSnCalculateScenarioNameAndHash @ 0x1409494C8 (PfSnCalculateScenarioNameAndHash.c)
+ *     PfCalculateProcessHash @ 0x140949AC0 (PfCalculateProcessHash.c)
+ *     PfSnAltProfileFindByProcess @ 0x14094BE6C (PfSnAltProfileFindByProcess.c)
+ *     PfSnAltProfileTreeCompareByProcess @ 0x14094BEF8 (PfSnAltProfileTreeCompareByProcess.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PfSnSetAltPrefetchParam(ULONG_PTR BugCheckParameter1, _DWORD *a2, int a3)
 {
-  unsigned __int64 v5; // r14
+  __int64 v5; // r14
   int v6; // r15d
   int v7; // edi
   PVOID v8; // r12
@@ -32,13 +32,13 @@ __int64 __fastcall PfSnSetAltPrefetchParam(ULONG_PTR BugCheckParameter1, _DWORD 
   __int64 v10; // rcx
   void *Pool2; // rax
   __int64 v12; // rax
-  _BOOL8 v13; // r8
-  __int64 v14; // rbx
+  __int64 v13; // r8
+  unsigned __int64 Root; // rbx
   int v15; // edi
-  __int64 v16; // rax
+  unsigned __int64 v16; // rax
   unsigned __int64 v17; // rbx
   int v18; // edi
-  bool v19; // r8
+  BOOLEAN v19; // r8
   unsigned __int64 v20; // rax
   PVOID Object; // [rsp+68h] [rbp-1E0h] BYREF
   int v23; // [rsp+70h] [rbp-1D8h] BYREF
@@ -46,7 +46,7 @@ __int64 __fastcall PfSnSetAltPrefetchParam(ULONG_PTR BugCheckParameter1, _DWORD 
   int v25; // [rsp+78h] [rbp-1D0h] BYREF
   int v26; // [rsp+7Ch] [rbp-1CCh] BYREF
   int v27; // [rsp+80h] [rbp-1C8h] BYREF
-  _DWORD v28[3]; // [rsp+84h] [rbp-1C4h] BYREF
+  int v28[3]; // [rsp+84h] [rbp-1C4h] BYREF
   PVOID P; // [rsp+90h] [rbp-1B8h] BYREF
   _DWORD *v30; // [rsp+98h] [rbp-1B0h]
   __int64 v31; // [rsp+A8h] [rbp-1A0h]
@@ -56,7 +56,7 @@ __int64 __fastcall PfSnSetAltPrefetchParam(ULONG_PTR BugCheckParameter1, _DWORD 
   __int128 v35; // [rsp+E0h] [rbp-168h]
   __int128 v36; // [rsp+F0h] [rbp-158h]
   int v37; // [rsp+100h] [rbp-148h]
-  _BYTE v38[256]; // [rsp+110h] [rbp-138h] BYREF
+  char v38[256]; // [rsp+110h] [rbp-138h] BYREF
 
   v30 = a2;
   memset_0(Str2, 0, 0x44uLL);
@@ -107,8 +107,8 @@ LABEL_3:
         {
           v37 = v23;
           HIDWORD(v36) = v26 + v25 + v24;
-          Pool2 = (void *)ExAllocatePool2(0x100uLL);
-          v5 = (unsigned __int64)Pool2;
+          Pool2 = (void *)ExAllocatePool2(0x100uLL, 0x80uLL, 0x66506343u);
+          v5 = (__int64)Pool2;
           if ( !Pool2 )
           {
             v7 = -1073741670;
@@ -124,7 +124,7 @@ LABEL_3:
           *(_DWORD *)(v5 + 120) = v37;
           v8 = 0LL;
           v6 = 1;
-          FsRtlAcquirePushLockExclusive(&qword_140E67138);
+          FsRtlAcquirePushLockExclusive(&qword_140E67288);
           v12 = PfSnAltProfileFindByScenarioId(Str2);
           if ( v12 )
           {
@@ -140,23 +140,23 @@ LABEL_3:
             Object = *(PVOID *)(v5 + 48);
             if ( PfSnAltProfileFindByProcess(Object) )
               goto LABEL_3;
-            v14 = qword_140E67118;
-            if ( (xmmword_140E67120 & 1) != 0 && qword_140E67118 )
-              v14 = (unsigned __int64)&qword_140E67118 ^ qword_140E67118;
-            v15 = xmmword_140E67120 & 1;
+            Root = (unsigned __int64)Parent.Root;
+            if ( (*(_BYTE *)&Parent.0 & 1) != 0 && Parent.Root )
+              Root = (unsigned __int64)&Parent ^ (unsigned __int64)Parent.Root;
+            v15 = *(_BYTE *)&Parent.0 & 1;
             LOBYTE(v13) = 0;
-            if ( v14 )
+            if ( Root )
             {
               while ( 1 )
               {
-                if ( (int)PfSnAltProfileTreeCompareByProcess(Object, v14, v13) < 0 )
+                if ( (int)PfSnAltProfileTreeCompareByProcess(Object, Root, v13) < 0 )
                 {
-                  v16 = *(_QWORD *)v14;
+                  v16 = *(_QWORD *)Root;
                   if ( v15 )
                   {
                     if ( !v16 )
                       goto LABEL_33;
-                    v16 ^= v14;
+                    v16 ^= Root;
                   }
                   if ( !v16 )
                   {
@@ -167,12 +167,12 @@ LABEL_33:
                 }
                 else
                 {
-                  v16 = *(_QWORD *)(v14 + 8);
+                  v16 = *(_QWORD *)(Root + 8);
                   if ( v15 )
                   {
                     if ( !v16 )
                       goto LABEL_27;
-                    v16 ^= v14;
+                    v16 ^= Root;
                   }
                   if ( !v16 )
                   {
@@ -181,14 +181,14 @@ LABEL_27:
                     break;
                   }
                 }
-                v14 = v16;
+                Root = v16;
               }
             }
-            RtlRbInsertNodeEx(&qword_140E67118, v14, v13, v5);
-            v17 = *((_QWORD *)&xmmword_140E67120 + 1);
-            if ( (qword_140E67130 & 1) != 0 && *((_QWORD *)&xmmword_140E67120 + 1) )
-              v17 = ((unsigned __int64)&xmmword_140E67120 + 8) ^ *((_QWORD *)&xmmword_140E67120 + 1);
-            v18 = qword_140E67130 & 1;
+            RtlRbInsertNodeEx(&Parent, (PRTL_BALANCED_NODE)Root, v13, (PRTL_BALANCED_NODE)v5);
+            v17 = (unsigned __int64)Tree.Root;
+            if ( (*(_BYTE *)&Tree.0 & 1) != 0 && Tree.Root )
+              v17 = (unsigned __int64)&Tree ^ (unsigned __int64)Tree.Root;
+            v18 = *(_BYTE *)&Tree.0 & 1;
             v19 = 0;
             if ( v17 )
             {
@@ -229,8 +229,8 @@ LABEL_43:
                 v17 = v20;
               }
             }
-            RtlRbInsertNodeEx((__int64 *)&xmmword_140E67120 + 1, v17, v19, v5 + 24);
-            VmpReleasePushLockExclusive((volatile signed __int64 *)&qword_140E67138);
+            RtlRbInsertNodeEx(&Tree, (PRTL_BALANCED_NODE)v17, v19, (PRTL_BALANCED_NODE)(v5 + 24));
+            VmpReleasePushLockExclusive((volatile signed __int64 *)&qword_140E67288);
             v6 = 0;
             v5 = 0LL;
           }
@@ -241,7 +241,7 @@ LABEL_43:
   }
 LABEL_52:
   if ( v6 )
-    VmpReleasePushLockExclusive((volatile signed __int64 *)&qword_140E67138);
+    VmpReleasePushLockExclusive((volatile signed __int64 *)&qword_140E67288);
   if ( P )
     ExFreePoolWithTag(P, 0);
   if ( v5 )

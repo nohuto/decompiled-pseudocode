@@ -42,7 +42,7 @@
  *     RtlpHpLargeAllocSetExtraPresent @ 0x18008840C (RtlpHpLargeAllocSetExtraPresent.c)
  *     RtlpHpTagQueryTags @ 0x18008BC00 (RtlpHpTagQueryTags.c)
  *     RtlpHpLfhSubsegmentWalk @ 0x18008BDF4 (RtlpHpLfhSubsegmentWalk.c)
- *     RtlGetFeatureToggleConfiguration @ 0x18009F600 (RtlGetFeatureToggleConfiguration.c)
+ *     RtlGetFeatureToggleConfiguration @ 0x18009F5C0 (RtlGetFeatureToggleConfiguration.c)
  *     RtlpFcWnfCallback @ 0x1800B0E70 (RtlpFcWnfCallback.c)
  *     LdrpUnlockTlsDelayedReclaimTable @ 0x1800E17E4 (LdrpUnlockTlsDelayedReclaimTable.c)
  *     RtlQueryProcessLockInformation @ 0x1800E3C30 (RtlQueryProcessLockInformation.c)
@@ -53,20 +53,20 @@
  *     RtlPosixBarrier @ 0x1800FA1A8 (RtlPosixBarrier.c)
  *     RtlQueryPointerMapping @ 0x180102450 (RtlQueryPointerMapping.c)
  *     RtlQueryPropertyStore @ 0x180102510 (RtlQueryPropertyStore.c)
- *     RtlpHpStackTraceAddStack @ 0x180116E80 (RtlpHpStackTraceAddStack.c)
- *     RtlpHpStackTraceHeapSerialize @ 0x1801178C0 (RtlpHpStackTraceHeapSerialize.c)
- *     RtlpHpStackTraceRemoveStack @ 0x180117AD0 (RtlpHpStackTraceRemoveStack.c)
- *     RtlpHpStackTraceSerialize @ 0x180117B4C (RtlpHpStackTraceSerialize.c)
- *     EtwEnumerateProcessRegGuids @ 0x180124D90 (EtwEnumerateProcessRegGuids.c)
- *     RtlStackDbStackAdd @ 0x18012D728 (RtlStackDbStackAdd.c)
- *     RtlpStackDbSegmentFindOrCreate @ 0x18012E15C (RtlpStackDbSegmentFindOrCreate.c)
+ *     RtlpHpStackTraceAddStack @ 0x180116E50 (RtlpHpStackTraceAddStack.c)
+ *     RtlpHpStackTraceHeapSerialize @ 0x180117890 (RtlpHpStackTraceHeapSerialize.c)
+ *     RtlpHpStackTraceRemoveStack @ 0x180117AA0 (RtlpHpStackTraceRemoveStack.c)
+ *     RtlpHpStackTraceSerialize @ 0x180117B1C (RtlpHpStackTraceSerialize.c)
+ *     EtwEnumerateProcessRegGuids @ 0x180124D60 (EtwEnumerateProcessRegGuids.c)
+ *     RtlStackDbStackAdd @ 0x18012D754 (RtlStackDbStackAdd.c)
+ *     RtlpStackDbSegmentFindOrCreate @ 0x18012E188 (RtlpStackDbSegmentFindOrCreate.c)
  * Callees:
- *     RtlRaiseStatus @ 0x1801106D0 (RtlRaiseStatus.c)
+ *     RtlRaiseStatus @ 0x1801106A0 (RtlRaiseStatus.c)
  */
 
-signed __int64 __fastcall RtlReleaseSRWLockShared(volatile signed __int64 *a1)
+void __cdecl RtlReleaseSRWLockShared(PRTL_SRWLOCK SRWLock)
 {
-  signed __int64 result; // rax
+  signed __int64 v2; // rax
   signed __int64 v3; // r8
   signed __int64 v4; // rtt
   __int64 v5; // r8
@@ -77,31 +77,31 @@ signed __int64 __fastcall RtlReleaseSRWLockShared(volatile signed __int64 *a1)
   _QWORD *i; // rcx
   __int64 v11; // rdx
 
-  result = _InterlockedCompareExchange64(a1, 0LL, 17LL);
-  if ( result != 17 )
+  v2 = _InterlockedCompareExchange64((volatile signed __int64 *)SRWLock, 0LL, 17LL);
+  if ( v2 != 17 )
   {
-    if ( (result & 1) == 0 )
-      RtlRaiseStatus(3221226084LL);
-    while ( (result & 2) == 0 )
+    if ( (v2 & 1) == 0 )
+      RtlRaiseStatus(-1073741212);
+    while ( (v2 & 2) == 0 )
     {
       v3 = 0LL;
-      if ( (result & 0xFFFFFFFFFFFFFFF0uLL) != 0x10 )
-        v3 = result - 16;
-      v4 = result;
-      result = _InterlockedCompareExchange64(a1, v3, result);
-      if ( v4 == result )
-        return result;
+      if ( (v2 & 0xFFFFFFFFFFFFFFF0uLL) != 0x10 )
+        v3 = v2 - 16;
+      v4 = v2;
+      v2 = _InterlockedCompareExchange64((volatile signed __int64 *)SRWLock, v3, v2);
+      if ( v4 == v2 )
+        return;
     }
-    if ( (result & 8) != 0 )
+    if ( (v2 & 8) != 0 )
     {
-      for ( i = (_QWORD *)(result & 0xFFFFFFFFFFFFFFF0uLL); ; i = (_QWORD *)*i )
+      for ( i = (_QWORD *)(v2 & 0xFFFFFFFFFFFFFFF0uLL); ; i = (_QWORD *)*i )
       {
         v11 = i[1];
         if ( v11 )
           break;
       }
       if ( _InterlockedDecrement((volatile signed __int32 *)(v11 + 32)) > 0 )
-        return result;
+        return;
       v5 = -9LL;
     }
     else
@@ -111,16 +111,15 @@ signed __int64 __fastcall RtlReleaseSRWLockShared(volatile signed __int64 *a1)
     do
     {
       v6 = v5 + 4;
-      v7 = result & 6;
+      v7 = v2 & 6;
       if ( v7 != 2 )
         v6 = v5;
-      v8 = result + v6;
-      v9 = result;
-      result = _InterlockedCompareExchange64(a1, v8, result);
+      v8 = v2 + v6;
+      v9 = v2;
+      v2 = _InterlockedCompareExchange64((volatile signed __int64 *)SRWLock, v8, v2);
     }
-    while ( v9 != result );
+    while ( v9 != v2 );
     if ( v7 == 2 )
-      return RtlpWakeSRWLock(a1, v8, 0LL);
+      RtlpWakeSRWLock(SRWLock, v8, 0LL);
   }
-  return result;
 }

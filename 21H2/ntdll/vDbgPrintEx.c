@@ -1,12 +1,12 @@
 /*
- * XREFs of vDbgPrintEx @ 0x1800E0AA0
+ * XREFs of vDbgPrintEx @ 0x1800E0A60
  * Callers:
  *     <none>
  * Callees:
  *     vDbgPrintExWithPrefixInternal @ 0x180051B08 (vDbgPrintExWithPrefixInternal.c)
  */
 
-__int64 __fastcall vDbgPrintEx(unsigned int a1, unsigned int a2, char *a3, va_list a4)
+ULONG __cdecl vDbgPrintEx(ULONG ComponentId, ULONG Level, PCCH Format, va_list arglist)
 {
-  return vDbgPrintExWithPrefixInternal(byte_18012277A, a1, a2, a3, a4, 1);
+  return vDbgPrintExWithPrefixInternal(&Flags, ComponentId, Level, (char *)Format, arglist, 1);
 }

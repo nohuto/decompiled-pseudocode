@@ -35,7 +35,7 @@ __int64 SeMakeSystemToken()
   ACL *v11; // r14
   ULONG v12; // edi
   ACL *v13; // rax
-  unsigned __int8 *v14; // rsi
+  ACL *v14; // rsi
   PVOID v15; // rax
   void *v16; // r15
   __int64 v17; // rdx
@@ -44,23 +44,23 @@ __int64 SeMakeSystemToken()
   __int64 v21; // rdx
   __int64 v22; // rdx
   ACL *v23; // rcx
-  signed __int32 v24[12]; // [rsp+8h] [rbp-120h] BYREF
-  int v25; // [rsp+A8h] [rbp-80h] BYREF
-  __int64 v26; // [rsp+B0h] [rbp-78h] BYREF
-  __int64 v27; // [rsp+B8h] [rbp-70h] BYREF
-  __int64 v28; // [rsp+C0h] [rbp-68h] BYREF
-  PSID v29; // [rsp+C8h] [rbp-60h] BYREF
-  int v30; // [rsp+D0h] [rbp-58h]
-  int v31; // [rsp+D4h] [rbp-54h]
+  signed __int32 v24[8]; // [rsp+8h] [rbp-120h] BYREF
+  UCHAR AceType[4]; // [rsp+28h] [rbp-100h]
+  ACCESS_MASK AccessMask[2]; // [rsp+30h] [rbp-F8h]
+  int v27; // [rsp+A8h] [rbp-80h] BYREF
+  __int64 v28; // [rsp+B0h] [rbp-78h] BYREF
+  __int64 v29; // [rsp+B8h] [rbp-70h] BYREF
+  int v30[2]; // [rsp+C0h] [rbp-68h] BYREF
+  _SID_AND_ATTRIBUTES v31; // [rsp+C8h] [rbp-60h] BYREF
   __m128i si128; // [rsp+D8h] [rbp-50h] BYREF
-  _DWORD v33[2]; // [rsp+E8h] [rbp-40h] BYREF
+  int v33[2]; // [rsp+E8h] [rbp-40h] BYREF
   __int64 v34; // [rsp+F0h] [rbp-38h]
   __int64 v35; // [rsp+F8h] [rbp-30h]
   int v36; // [rsp+100h] [rbp-28h]
   int v37; // [rsp+104h] [rbp-24h]
   void *v38; // [rsp+108h] [rbp-20h]
   __int64 v39; // [rsp+110h] [rbp-18h]
-  char *v40; // [rsp+118h] [rbp-10h] BYREF
+  __int64 v40; // [rsp+118h] [rbp-10h] BYREF
   int v41; // [rsp+120h] [rbp-8h]
   LUID v42; // [rsp+124h] [rbp-4h]
   int v43; // [rsp+12Ch] [rbp+4h]
@@ -122,34 +122,33 @@ __int64 SeMakeSystemToken()
   int v99; // [rsp+27Ch] [rbp+154h]
   __int64 v100; // [rsp+280h] [rbp+158h]
   int v101; // [rsp+288h] [rbp+160h]
-  PSID v102; // [rsp+298h] [rbp+170h] BYREF
-  int v103; // [rsp+2A0h] [rbp+178h]
-  PSID v104; // [rsp+2A8h] [rbp+180h]
-  int v105; // [rsp+2B0h] [rbp+188h]
-  __int64 v106; // [rsp+2B8h] [rbp+190h]
-  int v107; // [rsp+2C0h] [rbp+198h]
-  __int64 v108; // [rsp+2C8h] [rbp+1A0h]
-  int v109; // [rsp+2D0h] [rbp+1A8h]
+  _SID_AND_ATTRIBUTES v102; // [rsp+298h] [rbp+170h] BYREF
+  PSID v103; // [rsp+2A8h] [rbp+180h]
+  int v104; // [rsp+2B0h] [rbp+188h]
+  __int64 v105; // [rsp+2B8h] [rbp+190h]
+  int v106; // [rsp+2C0h] [rbp+198h]
+  __int64 v107; // [rsp+2C8h] [rbp+1A0h]
+  int v108; // [rsp+2D0h] [rbp+1A8h]
 
   v0 = (char *)ExLeapSecondData;
-  v28 = 0LL;
-  v31 = 0;
+  *(_QWORD *)v30 = 0LL;
+  *(&v31.Attributes + 1) = 0;
   v33[1] = 0;
-  v25 = 1;
+  v27 = 1;
   v37 = 0;
-  v27 = 0LL;
-  v26 = 0LL;
+  v29 = 0LL;
+  v28 = 0LL;
   si128 = _mm_load_si128((const __m128i *)&_xmm);
   if ( !ExLeapSecondData || !*(_BYTE *)ExLeapSecondData )
   {
-    RtlpTimeFieldsToTimeNoLeapSeconds(si128.m128i_i16, &v27);
+    RtlpTimeFieldsToTimeNoLeapSeconds(si128.m128i_i16, &v29);
     goto LABEL_6;
   }
   v1 = *((_DWORD *)ExLeapSecondData + 1);
   _InterlockedOr(v24, 0);
-  if ( !RtlpTimeFieldsToTimeNoLeapSeconds(si128.m128i_i16, &v26) )
+  if ( !RtlpTimeFieldsToTimeNoLeapSeconds(si128.m128i_i16, &v28) )
     goto LABEL_6;
-  v2 = v26;
+  v2 = v28;
   v3 = 0;
   if ( !v1 )
     goto LABEL_5;
@@ -183,20 +182,20 @@ LABEL_18:
   }
   if ( v2 < v22 )
 LABEL_5:
-    v27 = v2;
+    v29 = v2;
 LABEL_6:
   v4 = SeAliasAdminsSid;
   v5 = SeLocalSystemSid;
-  v105 = 7;
-  v107 = 7;
-  v104 = SeWorldSid;
-  v29 = SeLocalSystemSid;
-  v30 = 0;
-  v102 = SeAliasAdminsSid;
-  v106 = SeAuthenticatedUsersSid;
-  v108 = SeSystemMandatorySid;
-  v103 = 14;
-  v109 = 96;
+  v104 = 7;
+  v106 = 7;
+  v103 = SeWorldSid;
+  v31.Sid = SeLocalSystemSid;
+  v31.Attributes = 0;
+  v102.Sid = SeAliasAdminsSid;
+  v105 = SeAuthenticatedUsersSid;
+  v107 = SeSystemMandatorySid;
+  v102.Attributes = 14;
+  v108 = 96;
   v6 = ((4 * *(unsigned __int8 *)(SeAuthenticatedUsersSid + 1) + 11) & 0xFFFFFFFC)
      + ((4 * *((unsigned __int8 *)SeWorldSid + 1) + 11) & 0xFFFFFFFC)
      + ((4 * *((unsigned __int8 *)SeAliasAdminsSid + 1) + 11) & 0xFFFFFFFC);
@@ -205,7 +204,7 @@ LABEL_6:
   v43 = 0;
   v45 = 0;
   v47 = 3;
-  v40 = (char *)SeTcbPrivilege;
+  v40 = (__int64)SeTcbPrivilege;
   v8 = v6 + ((4 * v7 + 11) & 0xFFFFFFFC) + 16;
   v42 = SeCreateTokenPrivilege;
   v44 = SeTakeOwnershipPrivilege;
@@ -270,21 +269,21 @@ LABEL_6:
   if ( PoolWithTag )
   {
     RtlCreateAcl(PoolWithTag, v9, 2u);
-    v12 = 4 * *(unsigned __int8 *)(SeProcTrustWinTcbSid + 1) + 24;
+    v12 = 4 * *((unsigned __int8 *)SeProcTrustWinTcbSid + 1) + 24;
     v13 = (ACL *)ExAllocatePoolWithTag(PagedPool, v12, 0x63416553u);
-    v14 = (unsigned __int8 *)v13;
+    v14 = v13;
     if ( v13 )
     {
       RtlCreateAcl(v13, v12, 2u);
       RtlAddAccessAllowedAce(v11, 2u, 0xF01FFu, SeLocalSystemSid);
-      RtlAddProcessTrustLabelAce(v14, 2u, 0, (unsigned __int8 *)SeProcTrustWinTcbSid, 20, 131096);
+      RtlAddProcessTrustLabelAce(v14, 2u, 0, SeProcTrustWinTcbSid, 0x14u, 0x20018u);
       v15 = ExAllocatePoolWithTag(PagedPool, 0x28uLL, 0x64536553u);
       v16 = v15;
       if ( v15 )
       {
         RtlCreateSecurityDescriptor(v15, 1u);
         RtlSetDaclSecurityDescriptor(v16, 1u, v11, 0);
-        RtlSetSaclSecurityDescriptor((__int64)v16, 1, (__int64)v14, 0);
+        RtlSetSaclSecurityDescriptor(v16, 1u, v14, 0);
         RtlSetOwnerSecurityDescriptor(v16, SeAliasAdminsSid, 0);
         RtlSetGroupSecurityDescriptor(v16, SeAliasAdminsSid, 0);
         v33[0] = 48;
@@ -294,31 +293,31 @@ LABEL_6:
         v39 = 0LL;
         v38 = v16;
         SepCreateToken(
-          (HANDLE *)&v28,
+          (HANDLE *)v30,
           v17,
           v18,
           (__int64)v33,
-          v24[8],
-          v24[10],
+          *(int *)AceType,
+          AccessMask[0],
           (__int64)&SeSystemAuthenticationId,
-          &v27,
           &v29,
-          4,
-          (__int64)&v102,
+          &v31,
+          4u,
+          &v102,
           v8,
           0x1Fu,
-          &v40,
+          (char **)&v40,
           v4,
           v5,
           SeSystemDefaultDacl);
-        SeSetMandatoryPolicyToken(v28, &v25);
+        SeSetMandatoryPolicyToken(*(__int64 *)v30, &v27);
         ExFreePoolWithTag(v11, 0);
         ExFreePoolWithTag(v14, 0);
         ExFreePoolWithTag(v16, 0);
-        return v28;
+        return *(_QWORD *)v30;
       }
       ExFreePoolWithTag(v11, 0);
-      v23 = (ACL *)v14;
+      v23 = v14;
     }
     else
     {

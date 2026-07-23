@@ -1,31 +1,31 @@
 /*
- * XREFs of MiApplySingleSessionPatch @ 0x140A360A0
+ * XREFs of MiApplySingleSessionPatch @ 0x140A36350
  * Callers:
  *     <none>
  * Callees:
- *     MiSectionControlArea @ 0x14029F880 (MiSectionControlArea.c)
- *     memset @ 0x140435A00 (memset.c)
- *     MiUnlockDriverPages @ 0x140875B2C (MiUnlockDriverPages.c)
- *     MiIdentifyPatchImageDataPages @ 0x140A3777C (MiIdentifyPatchImageDataPages.c)
- *     MiLogHotPatchOperationStatus @ 0x140A38F58 (MiLogHotPatchOperationStatus.c)
- *     MiMapAndApplyPatchInSession @ 0x140A39FB4 (MiMapAndApplyPatchInSession.c)
+ *     MiSectionControlArea @ 0x14029FB10 (MiSectionControlArea.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     MiUnlockDriverPages @ 0x140875D6C (MiUnlockDriverPages.c)
+ *     MiIdentifyPatchImageDataPages @ 0x140A37A2C (MiIdentifyPatchImageDataPages.c)
+ *     MiLogHotPatchOperationStatus @ 0x140A39208 (MiLogHotPatchOperationStatus.c)
+ *     MiMapAndApplyPatchInSession @ 0x140A3A264 (MiMapAndApplyPatchInSession.c)
  */
 
-__int64 __fastcall MiApplySingleSessionPatch(__int64 a1, __int64 *a2)
+__int64 __fastcall MiApplySingleSessionPatch(unsigned __int64 a1, __int64 *a2)
 {
   unsigned int v4; // r8d
   __int64 v5; // rbx
   __int64 v6; // rcx
   int v7; // ebx
   _QWORD v9[8]; // [rsp+38h] [rbp-59h] BYREF
-  __int64 v10[14]; // [rsp+78h] [rbp-19h] BYREF
+  _RTL_BITMAP_EX v10[7]; // [rsp+78h] [rbp-19h] BYREF
 
   memset(v10, 0, 0x68uLL);
   v4 = *(_DWORD *)(a1 + 64);
   v5 = *a2;
-  v10[0] = a1;
-  LODWORD(v10[3]) = (v4 >> 12) + ((v4 & 0xFFF) != 0);
-  v10[2] = *(_QWORD *)(v5 + 16);
+  v10[0].SizeOfBitMap = a1;
+  LODWORD(v10[1].Buffer) = (v4 >> 12) + ((v4 & 0xFFF) != 0);
+  v10[1].SizeOfBitMap = *(_QWORD *)(v5 + 16);
   memset(v9, 0, sizeof(v9));
   v6 = *(_QWORD *)(a1 + 112);
   v9[1] = v10;

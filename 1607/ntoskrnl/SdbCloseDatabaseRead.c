@@ -1,37 +1,37 @@
 /*
- * XREFs of SdbCloseDatabaseRead @ 0x140499CD8
+ * XREFs of SdbCloseDatabaseRead @ 0x1404CEB70
  * Callers:
- *     SdbInitDatabaseInMemory @ 0x1404951FC (SdbInitDatabaseInMemory.c)
- *     SdbReleaseDatabase @ 0x140499BF8 (SdbReleaseDatabase.c)
- *     SdbpCloseLocalDatabaseEx @ 0x1406C4190 (SdbpCloseLocalDatabaseEx.c)
+ *     SdbInitDatabaseInMemory @ 0x140495C8C (SdbInitDatabaseInMemory.c)
+ *     SdbReleaseDatabase @ 0x1404CEA90 (SdbReleaseDatabase.c)
+ *     SdbpCloseLocalDatabaseEx @ 0x1406C42C8 (SdbpCloseLocalDatabaseEx.c)
  * Callees:
- *     AslFileMappingDelete @ 0x140485350 (AslFileMappingDelete.c)
- *     AslFree @ 0x14048538C (AslFree.c)
- *     AslHashFree @ 0x1406C5E28 (AslHashFree.c)
+ *     AslFileMappingDelete @ 0x1405146D8 (AslFileMappingDelete.c)
+ *     AslFree @ 0x140514714 (AslFree.c)
+ *     AslHashFree @ 0x1406C5F60 (AslHashFree.c)
  */
 
-void __fastcall SdbCloseDatabaseRead(__int64 a1)
+__int64 __fastcall SdbCloseDatabaseRead(_QWORD *a1)
 {
   __int64 v1; // rax
   __int64 v3; // rcx
-  void *v4; // rdx
-  __int64 v5; // rcx
+  __int64 v5; // rdx
+  __int64 v6; // rcx
 
-  v1 = *(_QWORD *)(a1 + 1344);
+  v1 = a1[168];
   if ( v1 && *(_DWORD *)(v1 + 16) == 1 )
   {
-    v4 = *(void **)(v1 + 8);
-    if ( v4 )
-      AslFree(a1, v4);
-    AslFree(a1, *(void **)(a1 + 1344));
-    v5 = *(_QWORD *)(a1 + 1352);
-    *(_QWORD *)(a1 + 1344) = 0LL;
+    v5 = *(_QWORD *)(v1 + 8);
     if ( v5 )
+      AslFree(a1, v5);
+    AslFree(a1, a1[168]);
+    v6 = a1[169];
+    a1[168] = 0LL;
+    if ( v6 )
     {
       AslHashFree();
-      *(_QWORD *)(a1 + 1352) = 0LL;
+      a1[169] = 0LL;
     }
   }
-  AslFileMappingDelete(*(_QWORD *)a1);
-  AslFree(v3, (void *)a1);
+  AslFileMappingDelete(*a1);
+  return AslFree(v3, a1);
 }

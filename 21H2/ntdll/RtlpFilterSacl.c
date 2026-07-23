@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpFilterSacl @ 0x1800E8930
+ * XREFs of RtlpFilterSacl @ 0x1800E88F0
  * Callers:
- *     RtlQuerySecurityObject @ 0x1800D70D0 (RtlQuerySecurityObject.c)
+ *     RtlQuerySecurityObject @ 0x1800D7090 (RtlQuerySecurityObject.c)
  * Callees:
- *     memmove @ 0x1800A44C0 (memmove.c)
+ *     memmove @ 0x1800A4480 (memmove.c)
  */
 
 void __fastcall RtlpFilterSacl(__int64 a1, __int64 i, unsigned int *a3, unsigned int a4)

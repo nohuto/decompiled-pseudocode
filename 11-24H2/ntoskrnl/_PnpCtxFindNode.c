@@ -1,11 +1,11 @@
 /*
- * XREFs of _PnpCtxFindNode @ 0x140817530
+ * XREFs of _PnpCtxFindNode @ 0x140817C70
  * Callers:
- *     _PnpCtxRegisterMachineNode @ 0x14081799C (_PnpCtxRegisterMachineNode.c)
- *     _PnpCtxUnregisterMachineNode @ 0x140817BBC (_PnpCtxUnregisterMachineNode.c)
+ *     _PnpCtxRegisterMachineNode @ 0x1408180DC (_PnpCtxRegisterMachineNode.c)
+ *     _PnpCtxUnregisterMachineNode @ 0x1408182FC (_PnpCtxUnregisterMachineNode.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     RtlEqualUnicodeString @ 0x140927050 (RtlEqualUnicodeString.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     RtlEqualUnicodeString @ 0x140929190 (RtlEqualUnicodeString.c)
  */
 
 __int64 __fastcall PnpCtxFindNode(__int64 a1, const WCHAR *a2, int a3, const UNICODE_STRING **a4)

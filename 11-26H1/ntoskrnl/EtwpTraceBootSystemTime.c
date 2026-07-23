@@ -1,12 +1,12 @@
 /*
- * XREFs of EtwpTraceBootSystemTime @ 0x140CE11E8
+ * XREFs of EtwpTraceBootSystemTime @ 0x140CE7588
  * Callers:
- *     EtwpTraceSystemInitialization @ 0x140CE1440 (EtwpTraceSystemInitialization.c)
+ *     EtwpTraceSystemInitialization @ 0x140CE77E0 (EtwpTraceSystemInitialization.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212E30 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     EtwWriteEx @ 0x140212F70 (EtwWriteEx.c)
- *     _tlgKeywordOn @ 0x14044F850 (_tlgKeywordOn.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212F10 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     EtwWriteEx @ 0x140213050 (EtwWriteEx.c)
+ *     _tlgKeywordOn @ 0x140447980 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 char EtwpTraceBootSystemTime()
@@ -54,26 +54,26 @@ char EtwpTraceBootSystemTime()
   _UNKNOWN *retaddr; // [rsp+1B0h] [rbp+A8h] BYREF
 
   v0 = &retaddr;
-  if ( (unsigned int)dword_140E08F48 > 5 )
+  if ( (unsigned int)dword_140E08F78 > 5 )
   {
-    LOBYTE(v0) = tlgKeywordOn((__int64)&dword_140E08F48, 0x200000000000LL);
+    LOBYTE(v0) = tlgKeywordOn((__int64)&dword_140E08F78, 0x200000000000LL);
     if ( (_BYTE)v0 )
     {
-      WaitListHead = stru_140FC01F0.Header.WaitListHead;
+      WaitListHead = stru_140FC11F0.Header.WaitListHead;
       v26 = 8LL;
       p_WaitListHead = &WaitListHead;
       p_Blink = &WaitListHead.Blink;
-      SListFaultAddress = stru_140FC01F0.SListFaultAddress;
+      SListFaultAddress = stru_140FC11F0.SListFaultAddress;
       p_SListFaultAddress = &SListFaultAddress;
-      QuantumTarget = stru_140FC01F0.QuantumTarget;
+      QuantumTarget = stru_140FC11F0.QuantumTarget;
       p_QuantumTarget = &QuantumTarget;
       v2 = ExpRealTimeIsUniversal;
       v33 = &v2;
-      InitialStack = (char)stru_140FC01F0.InitialStack;
+      InitialStack = (char)stru_140FC11F0.InitialStack;
       p_InitialStack = &InitialStack;
-      v4 = BYTE4(stru_140FC01F0.InitialStack);
+      v4 = BYTE4(stru_140FC11F0.InitialStack);
       v37 = &v4;
-      LODWORD(v6) = stru_140FC01F0.StackLimit;
+      LODWORD(v6) = stru_140FC11F0.StackLimit;
       v39 = &v6;
       v28 = 8LL;
       v30 = 8LL;
@@ -83,41 +83,33 @@ char EtwpTraceBootSystemTime()
       v38 = 1LL;
       v40 = 4LL;
       LOBYTE(v0) = tlgWriteTransfer_EtwWriteTransfer(
-                     (__int64)&dword_140E08F48,
-                     (unsigned __int8 *)byte_140054250,
+                     (__int64)&dword_140E08F78,
+                     (unsigned __int8 *)byte_140054AE5,
                      0LL,
                      0LL,
                      0xAu,
                      &v24);
     }
   }
-  if ( EtwpSecurityLock.MutantListHead.Blink )
+  if ( EtwKernelProvRegHandle )
   {
     *(_QWORD *)&UserData.Size = 8LL;
-    UserData.Ptr = (ULONGLONG)&stru_140FC01F0.Header.WaitListHead;
+    UserData.Ptr = (ULONGLONG)&stru_140FC11F0.Header.WaitListHead;
     v11 = 8LL;
-    v10 = &stru_140FC01F0.Header.WaitListHead.Blink;
+    v10 = &stru_140FC11F0.Header.WaitListHead.Blink;
     v13 = 8LL;
-    v12 = &stru_140FC01F0.SListFaultAddress;
+    v12 = &stru_140FC11F0.SListFaultAddress;
     v15 = 4LL;
-    v14 = &stru_140FC01F0.QuantumTarget;
+    v14 = &stru_140FC11F0.QuantumTarget;
     v16 = &ExpRealTimeIsUniversal;
-    v18 = &stru_140FC01F0.InitialStack;
-    v20 = (char *)&stru_140FC01F0.InitialStack + 4;
-    p_StackLimit = &stru_140FC01F0.StackLimit;
+    v18 = &stru_140FC11F0.InitialStack;
+    v20 = (char *)&stru_140FC11F0.InitialStack + 4;
+    p_StackLimit = &stru_140FC11F0.StackLimit;
     v17 = 4LL;
     v19 = 4LL;
     v21 = 4LL;
     v23 = 4LL;
-    LOBYTE(v0) = EtwWriteEx(
-                   (REGHANDLE)EtwpSecurityLock.MutantListHead.Blink,
-                   &KernelBootSystemTime,
-                   0LL,
-                   0,
-                   0LL,
-                   0LL,
-                   8u,
-                   &UserData);
+    LOBYTE(v0) = EtwWriteEx(EtwKernelProvRegHandle, &KernelBootSystemTime, 0LL, 0, 0LL, 0LL, 8u, &UserData);
   }
   return (char)v0;
 }

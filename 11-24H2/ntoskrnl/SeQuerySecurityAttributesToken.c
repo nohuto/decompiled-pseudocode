@@ -1,16 +1,16 @@
 /*
- * XREFs of SeQuerySecurityAttributesToken @ 0x1409ECEB0
+ * XREFs of SeQuerySecurityAttributesToken @ 0x1409E61E0
  * Callers:
- *     SepVerifyDesktopAppxPackageName @ 0x140355758 (SepVerifyDesktopAppxPackageName.c)
- *     RtlQueryPackageIdentityEx @ 0x140355EF0 (RtlQueryPackageIdentityEx.c)
- *     RtlQueryPackageIdentity @ 0x140356170 (RtlQueryPackageIdentity.c)
- *     RtlQueryPackageClaims @ 0x140356380 (RtlQueryPackageClaims.c)
- *     RtlpQueryPackageIdentityAttributes @ 0x14044CCC0 (RtlpQueryPackageIdentityAttributes.c)
+ *     SepVerifyDesktopAppxPackageName @ 0x1403BAF3C (SepVerifyDesktopAppxPackageName.c)
+ *     RtlQueryPackageIdentityEx @ 0x140422890 (RtlQueryPackageIdentityEx.c)
+ *     RtlQueryPackageIdentity @ 0x140422B10 (RtlQueryPackageIdentity.c)
+ *     RtlQueryPackageClaims @ 0x140422D20 (RtlQueryPackageClaims.c)
+ *     RtlpQueryPackageIdentityAttributes @ 0x140443BC0 (RtlpQueryPackageIdentityAttributes.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x1402595A0 (KeLeaveCriticalRegionThread.c)
- *     ExReleaseResourceLite @ 0x14025A450 (ExReleaseResourceLite.c)
- *     ExAcquireResourceSharedLite @ 0x140341E80 (ExAcquireResourceSharedLite.c)
- *     SepInternalQuerySecurityAttributesTokenEx @ 0x140358240 (SepInternalQuerySecurityAttributesTokenEx.c)
+ *     KeLeaveCriticalRegionThread @ 0x140289BB0 (KeLeaveCriticalRegionThread.c)
+ *     ExReleaseResourceLite @ 0x14028AA60 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceSharedLite @ 0x140321360 (ExAcquireResourceSharedLite.c)
+ *     SepInternalQuerySecurityAttributesTokenEx @ 0x1403B7650 (SepInternalQuerySecurityAttributesTokenEx.c)
  */
 
 __int64 __fastcall SeQuerySecurityAttributesToken(

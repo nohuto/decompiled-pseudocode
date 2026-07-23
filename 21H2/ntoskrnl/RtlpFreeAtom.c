@@ -1,17 +1,17 @@
 /*
- * XREFs of RtlpFreeAtom @ 0x1406A156C
+ * XREFs of RtlpFreeAtom @ 0x140600CFC
  * Callers:
- *     RtlAddAtomToAtomTableEx @ 0x14025A350 (RtlAddAtomToAtomTableEx.c)
- *     RtlCreateAtomTableEx @ 0x140264090 (RtlCreateAtomTableEx.c)
- *     RtlpAllocateAtomTableEntry @ 0x140264168 (RtlpAllocateAtomTableEntry.c)
- *     RtlDestroyLowBoxAtoms @ 0x1402BC604 (RtlDestroyLowBoxAtoms.c)
- *     RtlpDereferenceAtom @ 0x1402BC6D8 (RtlpDereferenceAtom.c)
- *     RtlpFreeAllAtom @ 0x1402BC768 (RtlpFreeAllAtom.c)
- *     RtlDestroyAtomTable @ 0x1406A1340 (RtlDestroyAtomTable.c)
- *     RtlEmptyAtomTable @ 0x1409130B0 (RtlEmptyAtomTable.c)
+ *     RtlDestroyLowBoxAtoms @ 0x14023AB94 (RtlDestroyLowBoxAtoms.c)
+ *     RtlpDereferenceAtom @ 0x14023AC68 (RtlpDereferenceAtom.c)
+ *     RtlpFreeAllAtom @ 0x14023ACF8 (RtlpFreeAllAtom.c)
+ *     RtlCreateAtomTableEx @ 0x1402522D0 (RtlCreateAtomTableEx.c)
+ *     RtlpAllocateAtomTableEntry @ 0x1402523A8 (RtlpAllocateAtomTableEntry.c)
+ *     RtlAddAtomToAtomTableEx @ 0x14027B8C0 (RtlAddAtomToAtomTableEx.c)
+ *     RtlDestroyAtomTable @ 0x140600AD0 (RtlDestroyAtomTable.c)
+ *     RtlEmptyAtomTable @ 0x140913210 (RtlEmptyAtomTable.c)
  * Callees:
- *     PsReturnSharedPoolQuota @ 0x1406603C4 (PsReturnSharedPoolQuota.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     PsReturnSharedPoolQuota @ 0x1406551E4 (PsReturnSharedPoolQuota.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 void __fastcall RtlpFreeAtom(__int64 a1)
@@ -19,6 +19,6 @@ void __fastcall RtlpFreeAtom(__int64 a1)
   void *v1; // rbx
 
   v1 = (void *)(a1 - 16);
-  PsReturnSharedPoolQuota(*(char **)(a1 - 16), *(_QWORD *)(a1 - 16 + 8), 0LL);
+  PsReturnSharedPoolQuota(*(PVOID *)(a1 - 16));
   ExFreePoolWithTag(v1, 0);
 }

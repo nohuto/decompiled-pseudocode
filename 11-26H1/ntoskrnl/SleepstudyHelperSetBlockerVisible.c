@@ -1,5 +1,5 @@
 /*
- * XREFs of SleepstudyHelperSetBlockerVisible @ 0x1407E44C0
+ * XREFs of SleepstudyHelperSetBlockerVisible @ 0x1407EA030
  * Callers:
  *     <none>
  * Callees:

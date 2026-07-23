@@ -15,26 +15,26 @@
  *     _RtlImageNtHeaderEx@20 @ 0x4B2BE540 (_RtlImageNtHeaderEx@20.c)
  */
 
-_DWORD *__thiscall LdrImageDirectoryEntryToLoadConfig(void *this)
+_DWORD *__thiscall LdrImageDirectoryEntryToLoadConfig(PVOID BaseOfImage)
 {
   _DWORD *v1; // esi
-  __int16 v3; // ax
-  int v5; // [esp+8h] [ebp-Ch] BYREF
+  unsigned __int16 Machine; // ax
+  PIMAGE_NT_HEADERS OutHeaders; // [esp+8h] [ebp-Ch] BYREF
   int v6; // [esp+Ch] [ebp-8h] BYREF
-  _DWORD *v7; // [esp+10h] [ebp-4h] BYREF
+  int v7; // [esp+10h] [ebp-4h] BYREF
 
   v1 = 0;
-  RtlImageNtHeaderEx(1, this, 0, 0, &v5);
-  if ( !this )
+  RtlImageNtHeaderEx(1u, BaseOfImage, 0LL, &OutHeaders);
+  if ( !BaseOfImage )
     return 0;
-  if ( (int)RtlpImageDirectoryEntryToDataEx(10, &v6, &v7) >= 0 )
-    v1 = v7;
+  if ( RtlpImageDirectoryEntryToDataEx(BaseOfImage, 10, (int)&v6, (int)&v7) >= 0 )
+    v1 = (_DWORD *)v7;
   if ( !v1 || !v6 || v6 != 64 && v6 != *v1 )
     return 0;
-  v3 = *(_WORD *)(v5 + 4);
-  if ( v3 == 14948 )
-    v3 = 332;
-  if ( v3 == 332 )
+  Machine = OutHeaders->FileHeader.Machine;
+  if ( Machine == 14948 )
+    Machine = 332;
+  if ( Machine == 332 )
     return v1;
   else
     return 0;

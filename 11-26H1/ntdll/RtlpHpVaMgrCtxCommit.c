@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlpHpVaMgrCtxCommit @ 0x18011D560
+ * XREFs of RtlpHpVaMgrCtxCommit @ 0x18011D310
  * Callers:
- *     RtlpHpAllocVA @ 0x18008BB10 (RtlpHpAllocVA.c)
+ *     RtlpHpAllocVA @ 0x18006EF50 (RtlpHpAllocVA.c)
  * Callees:
- *     RtlSparseArrayElementAllocated @ 0x18008CD44 (RtlSparseArrayElementAllocated.c)
- *     RtlpHpVaMgrRangeCommit @ 0x18011D5DC (RtlpHpVaMgrRangeCommit.c)
+ *     RtlSparseArrayElementAllocated @ 0x1800706A0 (RtlSparseArrayElementAllocated.c)
+ *     RtlpHpVaMgrRangeCommit @ 0x18011D38C (RtlpHpVaMgrRangeCommit.c)
  */
 
 __int64 __fastcall RtlpHpVaMgrCtxCommit(__int64 a1, __int64 a2, __int64 a3, unsigned int a4)

@@ -1,14 +1,14 @@
 /*
- * XREFs of WdipSemUpdate @ 0x1409DD93C
+ * XREFs of WdipSemUpdate @ 0x1409DDB3C
  * Callers:
- *     WdiUpdateSem @ 0x1405FB7E8 (WdiUpdateSem.c)
+ *     WdiUpdateSem @ 0x1405FBD58 (WdiUpdateSem.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     ExReleasePushLockEx @ 0x140231190 (ExReleasePushLockEx.c)
- *     WdipSemCleanStart @ 0x14082FA50 (WdipSemCleanStart.c)
- *     WdipSemInitializeGlobalState @ 0x14083294C (WdipSemInitializeGlobalState.c)
- *     WdipSemShutdown @ 0x1409DDBF0 (WdipSemShutdown.c)
+ *     KeLeaveCriticalRegionThread @ 0x14022F7F0 (KeLeaveCriticalRegionThread.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140231120 (ExAcquirePushLockExclusiveEx.c)
+ *     ExReleasePushLockEx @ 0x140231280 (ExReleasePushLockEx.c)
+ *     WdipSemCleanStart @ 0x14082FD50 (WdipSemCleanStart.c)
+ *     WdipSemInitializeGlobalState @ 0x140832C4C (WdipSemInitializeGlobalState.c)
+ *     WdipSemShutdown @ 0x1409DDDF0 (WdipSemShutdown.c)
  */
 
 __int64 WdipSemUpdate()

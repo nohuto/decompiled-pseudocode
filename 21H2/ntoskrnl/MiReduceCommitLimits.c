@@ -1,14 +1,14 @@
 /*
- * XREFs of MiReduceCommitLimits @ 0x14055063C
+ * XREFs of MiReduceCommitLimits @ 0x14055087C
  * Callers:
- *     MiAttemptPageFileReductionApc @ 0x140542AD0 (MiAttemptPageFileReductionApc.c)
- *     MiInsertPartitionPages @ 0x140562540 (MiInsertPartitionPages.c)
- *     MiCreatePagingFile @ 0x1407B661C (MiCreatePagingFile.c)
- *     MiRemovePhysicalMemory @ 0x1408C5F8C (MiRemovePhysicalMemory.c)
+ *     MiAttemptPageFileReductionApc @ 0x140542D10 (MiAttemptPageFileReductionApc.c)
+ *     MiInsertPartitionPages @ 0x140562780 (MiInsertPartitionPages.c)
+ *     MiCreatePagingFile @ 0x1407B6B3C (MiCreatePagingFile.c)
+ *     MiRemovePhysicalMemory @ 0x1408C60EC (MiRemovePhysicalMemory.c)
  * Callees:
- *     KeAcquireInStackQueuedSpinLock @ 0x14022EE10 (KeAcquireInStackQueuedSpinLock.c)
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     MiComputeCommitThresholds @ 0x1403BF8C0 (MiComputeCommitThresholds.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402042B0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402D3660 (KeAcquireInStackQueuedSpinLock.c)
+ *     MiComputeCommitThresholds @ 0x1403BFCEC (MiComputeCommitThresholds.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 

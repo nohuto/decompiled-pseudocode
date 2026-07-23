@@ -1,26 +1,26 @@
 /*
- * XREFs of CmpHiveCachePopulateHiveEntryThread @ 0x140862230
+ * XREFs of CmpHiveCachePopulateHiveEntryThread @ 0x140868610
  * Callers:
  *     <none>
  * Callees:
- *     CmpInitializeThreadInfo @ 0x14043CF00 (CmpInitializeThreadInfo.c)
- *     CmCleanupThreadInfo @ 0x14044C0A0 (CmCleanupThreadInfo.c)
- *     SetFailureLocation @ 0x140494894 (SetFailureLocation.c)
- *     CmSiFreeMemory @ 0x140495010 (CmSiFreeMemory.c)
- *     CmSiAllocateMemory @ 0x1404BE3D8 (CmSiAllocateMemory.c)
- *     CmSiSetEvent @ 0x1406E3094 (CmSiSetEvent.c)
- *     CmSiWaitForMultipleEvents @ 0x1406E30B4 (CmSiWaitForMultipleEvents.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     CmpHiveCacheSubscribePnpNotifications @ 0x140857820 (CmpHiveCacheSubscribePnpNotifications.c)
- *     CmpHiveCacheAcknowledgeOplockBreak @ 0x140861AA0 (CmpHiveCacheAcknowledgeOplockBreak.c)
- *     CmpHiveCacheEntryCleanup @ 0x140861D7C (CmpHiveCacheEntryCleanup.c)
- *     CmpHiveCacheEntryLockAcquire @ 0x140861F1C (CmpHiveCacheEntryLockAcquire.c)
- *     CmpHiveCacheEntryLockRelease @ 0x140861F94 (CmpHiveCacheEntryLockRelease.c)
- *     CmpRequestOplockOnHiveFile @ 0x140862648 (CmpRequestOplockOnHiveFile.c)
- *     CmpOpenHiveFiles @ 0x1408B4E2C (CmpOpenHiveFiles.c)
- *     CmpCreateHive @ 0x1408B5E6C (CmpCreateHive.c)
- *     CmpDestroyHive @ 0x1408B6DC4 (CmpDestroyHive.c)
- *     PsTerminateSystemThread @ 0x140956130 (PsTerminateSystemThread.c)
+ *     CmpInitializeThreadInfo @ 0x14042F7B0 (CmpInitializeThreadInfo.c)
+ *     CmCleanupThreadInfo @ 0x1404441C0 (CmCleanupThreadInfo.c)
+ *     SetFailureLocation @ 0x14048E3E4 (SetFailureLocation.c)
+ *     CmSiFreeMemory @ 0x14048EB60 (CmSiFreeMemory.c)
+ *     CmSiAllocateMemory @ 0x1404B7C28 (CmSiAllocateMemory.c)
+ *     CmSiSetEvent @ 0x1406E7D40 (CmSiSetEvent.c)
+ *     CmSiWaitForMultipleEvents @ 0x1406E7D60 (CmSiWaitForMultipleEvents.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     CmpHiveCacheSubscribePnpNotifications @ 0x14085DBB0 (CmpHiveCacheSubscribePnpNotifications.c)
+ *     CmpHiveCacheAcknowledgeOplockBreak @ 0x140867E80 (CmpHiveCacheAcknowledgeOplockBreak.c)
+ *     CmpHiveCacheEntryCleanup @ 0x14086815C (CmpHiveCacheEntryCleanup.c)
+ *     CmpHiveCacheEntryLockAcquire @ 0x1408682FC (CmpHiveCacheEntryLockAcquire.c)
+ *     CmpHiveCacheEntryLockRelease @ 0x140868374 (CmpHiveCacheEntryLockRelease.c)
+ *     CmpRequestOplockOnHiveFile @ 0x140868A28 (CmpRequestOplockOnHiveFile.c)
+ *     CmpOpenHiveFiles @ 0x1408BB400 (CmpOpenHiveFiles.c)
+ *     CmpCreateHive @ 0x1408BC440 (CmpCreateHive.c)
+ *     CmpDestroyHive @ 0x1408BD394 (CmpDestroyHive.c)
+ *     PsTerminateSystemThread @ 0x140949E90 (PsTerminateSystemThread.c)
  */
 
 __int64 __fastcall CmpHiveCachePopulateHiveEntryThread(PPRIVILEGE_SET Privileges)

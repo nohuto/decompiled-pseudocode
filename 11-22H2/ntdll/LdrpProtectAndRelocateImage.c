@@ -12,70 +12,75 @@
  *     LdrRelocateImageWithBias @ 0x1800EE638 (LdrRelocateImageWithBias.c)
  */
 
-__int64 __fastcall LdrpProtectAndRelocateImage(const void *a1)
+__int64 __fastcall LdrpProtectAndRelocateImage(PVOID BaseOfImage)
 {
   bool v2; // di
-  int VirtualMemory; // eax
-  int v4; // eax
-  int v5; // ebx
-  __int64 v6; // rdx
-  __int64 v7; // rdx
-  _BYTE v9[3]; // [rsp+50h] [rbp-18h]
+  NTSTATUS v3; // eax
+  LONGLONG v4; // rdx
+  CHAR *v5; // r8
+  NTSTATUS v6; // r9d
+  int v7; // eax
+  NTSTATUS v8; // ebx
+  int v9; // edx
+  NTSTATUS Conflict; // [rsp+20h] [rbp-48h]
+  NTSTATUS Invalid; // [rsp+28h] [rbp-40h]
+  PVOID v13; // [rsp+48h] [rbp-20h] BYREF
+  __int64 v14; // [rsp+50h] [rbp-18h]
 
   v2 = 0;
-  VirtualMemory = ZwQueryVirtualMemory();
-  if ( VirtualMemory < 0 )
+  v13 = BaseOfImage;
+  v3 = ZwQueryVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, 0LL, MemoryWorkingSetExInformation, &v13, 0x10uLL, 0LL);
+  if ( v3 < 0 )
   {
     LdrpLogInternal(
       (unsigned int)"minkernel\\ntdll\\ldrfind.c",
-      1980LL,
+      1980,
       (__int64)"LdrpProtectAndRelocateImage",
-      0LL,
+      0,
       "Querying large page info failed with status 0x%08lx\n",
-      VirtualMemory);
+      v3);
   }
-  else if ( (v9[0] & 1) != 0 )
+  else if ( (v14 & 1) != 0 )
   {
-    v2 = (*(_QWORD *)v9 & 0x800000LL) != 0;
+    v2 = (v14 & 0x800000) != 0;
   }
   if ( !v2 )
   {
-    v4 = LdrpSetProtection(a1, 0LL);
-    v5 = v4;
-    if ( v4 < 0 )
+    v7 = LdrpSetProtection(BaseOfImage);
+    v8 = v7;
+    if ( v7 < 0 )
     {
-      v6 = 1990LL;
+      v9 = 1990;
 LABEL_12:
       LdrpLogInternal(
         (unsigned int)"minkernel\\ntdll\\ldrfind.c",
-        v6,
+        v9,
         (__int64)"LdrpProtectAndRelocateImage",
-        0LL,
+        0,
         "Changing the protection of the executable at %p failed with status 0x%08lx\n",
-        a1,
-        v4);
+        BaseOfImage,
+        v7);
       goto LABEL_13;
     }
   }
-  v5 = LdrRelocateImageWithBias(a1);
-  if ( v5 >= 0 && !v2 )
+  v8 = LdrRelocateImageWithBias(BaseOfImage, v4, v5, v6, Conflict, Invalid);
+  if ( v8 >= 0 && !v2 )
   {
-    LOBYTE(v7) = 1;
-    v4 = LdrpSetProtection(a1, v7);
-    v5 = v4;
-    if ( v4 < 0 )
+    v7 = LdrpSetProtection(BaseOfImage);
+    v8 = v7;
+    if ( v7 < 0 )
     {
-      v6 = 2014LL;
+      v9 = 2014;
       goto LABEL_12;
     }
   }
 LABEL_13:
   LdrpLogInternal(
     (unsigned int)"minkernel\\ntdll\\ldrfind.c",
-    2054LL,
+    2054,
     (__int64)"LdrpProtectAndRelocateImage",
-    4LL,
+    4u,
     "Status: 0x%08lx\n",
-    v5);
-  return (unsigned int)v5;
+    v8);
+  return (unsigned int)v8;
 }

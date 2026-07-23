@@ -1,8 +1,8 @@
 /*
- * XREFs of MiUnlinkZeroThreadFromActiveDomain @ 0x140655584
+ * XREFs of MiUnlinkZeroThreadFromActiveDomain @ 0x140655AD4
  * Callers:
- *     MiSelectBestZeroingProcessor @ 0x1402D06B0 (MiSelectBestZeroingProcessor.c)
- *     MiMoveBackgroundZeroThreads @ 0x140654FB0 (MiMoveBackgroundZeroThreads.c)
+ *     MiSelectBestZeroingProcessor @ 0x1402D0940 (MiSelectBestZeroingProcessor.c)
+ *     MiMoveBackgroundZeroThreads @ 0x140655500 (MiMoveBackgroundZeroThreads.c)
  * Callees:
  *     <none>
  */

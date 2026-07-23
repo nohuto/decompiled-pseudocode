@@ -1,7 +1,7 @@
 /*
- * XREFs of HalpInitializeLateSystemActions @ 0x1403B6A68
+ * XREFs of HalpInitializeLateSystemActions @ 0x1403B6C48
  * Callers:
- *     HalpDispatchPnp @ 0x140828220 (HalpDispatchPnp.c)
+ *     HalpDispatchPnp @ 0x140828520 (HalpDispatchPnp.c)
  * Callees:
  *     HalpInitSystemHelper @ 0x140A8BAF8 (HalpInitSystemHelper.c)
  */

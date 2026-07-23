@@ -1,11 +1,11 @@
 /*
- * XREFs of HalpGenericErrorSourceRecovery @ 0x14058EED0
+ * XREFs of HalpGenericErrorSourceRecovery @ 0x140591650
  * Callers:
- *     HalpRequestGenericErrorRecovery @ 0x14058F490 (HalpRequestGenericErrorRecovery.c)
+ *     HalpRequestGenericErrorRecovery @ 0x140591C10 (HalpRequestGenericErrorRecovery.c)
  * Callees:
- *     HalpMemoryErrorDeferredRecovery @ 0x14058F17C (HalpMemoryErrorDeferredRecovery.c)
- *     HalpPmemErrorDeferredRecovery @ 0x14058F39C (HalpPmemErrorDeferredRecovery.c)
- *     RtlCompareMemory @ 0x140730D90 (RtlCompareMemory.c)
+ *     HalpMemoryErrorDeferredRecovery @ 0x1405918FC (HalpMemoryErrorDeferredRecovery.c)
+ *     HalpPmemErrorDeferredRecovery @ 0x140591B1C (HalpPmemErrorDeferredRecovery.c)
+ *     RtlCompareMemory @ 0x140735960 (RtlCompareMemory.c)
  */
 
 __int64 __fastcall HalpGenericErrorSourceRecovery(__int64 a1, _DWORD *a2)

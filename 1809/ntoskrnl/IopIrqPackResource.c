@@ -1,5 +1,5 @@
 /*
- * XREFs of IopIrqPackResource @ 0x1406D3F10
+ * XREFs of IopIrqPackResource @ 0x1406D51B0
  * Callers:
  *     <none>
  * Callees:

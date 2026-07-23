@@ -7,18 +7,23 @@
  *     ZwCreateMutant @ 0x1403FB0A0 (ZwCreateMutant.c)
  */
 
-int BcdInitializeBcdSyncMutant()
+void BcdInitializeBcdSyncMutant(void)
 {
-  signed __int64 v0; // rax
-  HANDLE Handle; // [rsp+60h] [rbp+10h] BYREF
+  OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+20h] [rbp-30h] BYREF
+  HANDLE MutantHandle; // [rsp+60h] [rbp+10h] BYREF
 
-  Handle = 0LL;
-  LODWORD(v0) = ZwCreateMutant((__int64)&Handle, 2031617LL);
-  if ( (int)v0 >= 0 )
+  MutantHandle = 0LL;
+  *(&ObjectAttributes.Length + 1) = 0;
+  *(&ObjectAttributes.Attributes + 1) = 0;
+  ObjectAttributes.RootDirectory = 0LL;
+  ObjectAttributes.SecurityQualityOfService = 0LL;
+  ObjectAttributes.ObjectName = (PUNICODE_STRING)L"8:";
+  ObjectAttributes.SecurityDescriptor = BiBcdMutantDescriptor;
+  ObjectAttributes.Length = 48;
+  ObjectAttributes.Attributes = 592;
+  if ( ZwCreateMutant(&MutantHandle, 0x1F0001u, &ObjectAttributes, 0) >= 0 )
   {
-    v0 = _InterlockedCompareExchange64((volatile signed __int64 *)&BcdMutantHandle, (signed __int64)Handle, 0LL);
-    if ( v0 )
-      LODWORD(v0) = ZwClose(Handle);
+    if ( _InterlockedCompareExchange64((volatile signed __int64 *)&BcdMutantHandle, (signed __int64)MutantHandle, 0LL) )
+      ZwClose(MutantHandle);
   }
-  return v0;
 }

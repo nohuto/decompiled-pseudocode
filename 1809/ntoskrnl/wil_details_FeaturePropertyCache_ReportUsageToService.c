@@ -1,16 +1,16 @@
 /*
- * XREFs of wil_details_FeaturePropertyCache_ReportUsageToService @ 0x1400F2A04
+ * XREFs of wil_details_FeaturePropertyCache_ReportUsageToService @ 0x1400F2A84
  * Callers:
- *     NtSetInformationToken @ 0x1405BDAA0 (NtSetInformationToken.c)
- *     SeQuerySigningPolicyWorker @ 0x14060A60C (SeQuerySigningPolicyWorker.c)
- *     MmCreatePeb @ 0x140678530 (MmCreatePeb.c)
- *     CmpHandlePageFileOpenNotification @ 0x1407595E4 (CmpHandlePageFileOpenNotification.c)
- *     PopQueryPowerButtonBugcheckEnabled @ 0x14087719C (PopQueryPowerButtonBugcheckEnabled.c)
- *     PopInitializePowerButtonHold @ 0x1409B3CBC (PopInitializePowerButtonHold.c)
- *     KiInitializeVelocity @ 0x1409C4FA8 (KiInitializeVelocity.c)
+ *     NtSetInformationToken @ 0x1405BEAA0 (NtSetInformationToken.c)
+ *     SeQuerySigningPolicyWorker @ 0x14060B60C (SeQuerySigningPolicyWorker.c)
+ *     MmCreatePeb @ 0x1406796F0 (MmCreatePeb.c)
+ *     CmpHandlePageFileOpenNotification @ 0x14075A7D4 (CmpHandlePageFileOpenNotification.c)
+ *     PopQueryPowerButtonBugcheckEnabled @ 0x1408783FC (PopQueryPowerButtonBugcheckEnabled.c)
+ *     PopInitializePowerButtonHold @ 0x1409B4CBC (PopInitializePowerButtonHold.c)
+ *     KiInitializeVelocity @ 0x1409C5FA8 (KiInitializeVelocity.c)
  * Callees:
- *     wil_details_FeaturePropertyCache_ReportUsageToServiceDirect @ 0x1400F2A88 (wil_details_FeaturePropertyCache_ReportUsageToServiceDirect.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     wil_details_FeaturePropertyCache_ReportUsageToServiceDirect @ 0x1400F2B08 (wil_details_FeaturePropertyCache_ReportUsageToServiceDirect.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
  */
 
 _UNKNOWN **__fastcall wil_details_FeaturePropertyCache_ReportUsageToService(

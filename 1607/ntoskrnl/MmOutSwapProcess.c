@@ -1,26 +1,26 @@
 /*
- * XREFs of MmOutSwapProcess @ 0x14009126C
+ * XREFs of MmOutSwapProcess @ 0x1400909CC
  * Callers:
- *     KiOutSwapProcesses @ 0x140090FD0 (KiOutSwapProcesses.c)
+ *     KiOutSwapProcesses @ 0x140090730 (KiOutSwapProcesses.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLock @ 0x140012750 (KeReleaseInStackQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14001BD40 (KeAcquireInStackQueuedSpinLock.c)
- *     MiUnmapPageInHyperSpaceWorker @ 0x14001DBA0 (MiUnmapPageInHyperSpaceWorker.c)
- *     MiEmptyPageAccessLog @ 0x140027640 (MiEmptyPageAccessLog.c)
- *     MiGetSharedVm @ 0x14002EA30 (MiGetSharedVm.c)
- *     MiLockPageAtDpcInline @ 0x14002EB30 (MiLockPageAtDpcInline.c)
- *     KeYieldProcessorEx @ 0x14002ECB0 (KeYieldProcessorEx.c)
- *     MiMapPageInHyperSpaceWorker @ 0x140034990 (MiMapPageInHyperSpaceWorker.c)
- *     MiLockAndDecrementShareCount @ 0x140075DFC (MiLockAndDecrementShareCount.c)
- *     KeFlushProcessTb @ 0x140075E7C (KeFlushProcessTb.c)
- *     KeWaitForGate @ 0x140097C98 (KeWaitForGate.c)
- *     KeIsEmptyAffinityEx @ 0x1400D4810 (KeIsEmptyAffinityEx.c)
- *     MiDecrementShareCount @ 0x1400E50A0 (MiDecrementShareCount.c)
- *     MiReleaseCommitForResetPages @ 0x1401E0934 (MiReleaseCommitForResetPages.c)
- *     MiReleaseOutSwappedProcessCommit @ 0x1401E0B98 (MiReleaseOutSwappedProcessCommit.c)
- *     MiPteInShadowRange @ 0x1401EF3B8 (MiPteInShadowRange.c)
- *     MiWritePteShadow @ 0x1401EF658 (MiWritePteShadow.c)
- *     MiMakeTransitionPte @ 0x1401F279C (MiMakeTransitionPte.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x1400122D0 (KeReleaseInStackQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14001B8C0 (KeAcquireInStackQueuedSpinLock.c)
+ *     MiUnmapPageInHyperSpaceWorker @ 0x14001D720 (MiUnmapPageInHyperSpaceWorker.c)
+ *     MiEmptyPageAccessLog @ 0x1400271C0 (MiEmptyPageAccessLog.c)
+ *     MiGetSharedVm @ 0x14002E5B0 (MiGetSharedVm.c)
+ *     MiLockPageAtDpcInline @ 0x14002E6B0 (MiLockPageAtDpcInline.c)
+ *     KeYieldProcessorEx @ 0x14002E830 (KeYieldProcessorEx.c)
+ *     MiMapPageInHyperSpaceWorker @ 0x140034510 (MiMapPageInHyperSpaceWorker.c)
+ *     MiLockAndDecrementShareCount @ 0x140075E7C (MiLockAndDecrementShareCount.c)
+ *     KeFlushProcessTb @ 0x140075EFC (KeFlushProcessTb.c)
+ *     KeWaitForGate @ 0x140097498 (KeWaitForGate.c)
+ *     KeIsEmptyAffinityEx @ 0x1400D26B0 (KeIsEmptyAffinityEx.c)
+ *     MiDecrementShareCount @ 0x1400E2F40 (MiDecrementShareCount.c)
+ *     MiReleaseCommitForResetPages @ 0x1401E0760 (MiReleaseCommitForResetPages.c)
+ *     MiReleaseOutSwappedProcessCommit @ 0x1401E09C4 (MiReleaseOutSwappedProcessCommit.c)
+ *     MiPteInShadowRange @ 0x1401EF1E4 (MiPteInShadowRange.c)
+ *     MiWritePteShadow @ 0x1401EF484 (MiWritePteShadow.c)
+ *     MiMakeTransitionPte @ 0x1401F25C8 (MiMakeTransitionPte.c)
  */
 
 void __fastcall MmOutSwapProcess(ULONG_PTR BugCheckParameter1)
@@ -33,7 +33,7 @@ void __fastcall MmOutSwapProcess(ULONG_PTR BugCheckParameter1)
   _QWORD *v7; // rax
   __int64 v8; // rdx
   _QWORD *v9; // rcx
-  struct _SLIST_ENTRY *v10; // rcx
+  _SLIST_ENTRY *v10; // rcx
   __int64 v11; // rdi
   __int64 v12; // r15
   __int64 v13; // rbx
@@ -75,7 +75,7 @@ void __fastcall MmOutSwapProcess(ULONG_PTR BugCheckParameter1)
     v24 = 6;
     v26[0] = v26;
     v25 = 0;
-    KeAcquireInStackQueuedSpinLock(&qword_140327740, &LockHandle);
+    KeAcquireInStackQueuedSpinLock(&qword_140327780, &LockHandle);
     while ( 1 )
     {
       v6 = *(_BYTE *)(v1 + 185);
@@ -86,7 +86,7 @@ void __fastcall MmOutSwapProcess(ULONG_PTR BugCheckParameter1)
       *(_QWORD *)(v1 + 96) = &v23;
       KeReleaseInStackQueuedSpinLock(&LockHandle);
       KeWaitForGate(&v23, 18LL);
-      KeAcquireInStackQueuedSpinLock(&qword_140327740, &LockHandle);
+      KeAcquireInStackQueuedSpinLock(&qword_140327780, &LockHandle);
       *(_QWORD *)(v1 + 96) = 0LL;
     }
     _InterlockedOr((volatile signed __int32 *)(BugCheckParameter1 + 772), 0x80u);
@@ -99,7 +99,7 @@ void __fastcall MmOutSwapProcess(ULONG_PTR BugCheckParameter1)
     *(_QWORD *)(v8 + 8) = v9;
     *v7 = 0LL;
     KeReleaseInStackQueuedSpinLock(&LockHandle);
-    v10 = (struct _SLIST_ENTRY *)*((_QWORD *)v4 + 5);
+    v10 = (_SLIST_ENTRY *)*((_QWORD *)v4 + 5);
     if ( v10 )
     {
       MiEmptyPageAccessLog(v10);
@@ -136,7 +136,7 @@ void __fastcall MmOutSwapProcess(ULONG_PTR BugCheckParameter1)
       MiLockAndDecrementShareCount(v21, 0);
     }
     while ( v19 != v20 );
-    KeAcquireInStackQueuedSpinLock(&qword_140327740, &LockHandle);
+    KeAcquireInStackQueuedSpinLock(&qword_140327780, &LockHandle);
     MiLockPageAtDpcInline(v21);
     v22 = TransitionPte;
     *(_QWORD *)(v21 + 8) = BugCheckParameter1 + 1088;

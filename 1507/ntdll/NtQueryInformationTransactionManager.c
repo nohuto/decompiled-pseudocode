@@ -6,11 +6,16 @@
  *     <none>
  */
 
-__int64 NtQueryInformationTransactionManager()
+NTSTATUS __cdecl NtQueryInformationTransactionManager(
+        HANDLE TransactionManagerHandle,
+        TRANSACTIONMANAGER_INFORMATION_CLASS TransactionManagerInformationClass,
+        PVOID TransactionManagerInformation,
+        ULONG TransactionManagerInformationLength,
+        PULONG ReturnLength)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 309LL;
+  result = 309;
   __asm { syscall; Low latency system call }
   return result;
 }

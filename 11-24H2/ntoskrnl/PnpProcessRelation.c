@@ -1,26 +1,26 @@
 /*
- * XREFs of PnpProcessRelation @ 0x140A0C664
+ * XREFs of PnpProcessRelation @ 0x140A54854
  * Callers:
- *     PnpProcessRelation @ 0x140A0C664 (PnpProcessRelation.c)
- *     PnpProcessBusRelations @ 0x140A0C9BC (PnpProcessBusRelations.c)
- *     PnpBuildRemovalRelationList @ 0x140A0E2D8 (PnpBuildRemovalRelationList.c)
- *     PnpProcessDependencyRelations @ 0x140A1123C (PnpProcessDependencyRelations.c)
+ *     PnpBuildRemovalRelationList @ 0x1409BC6DC (PnpBuildRemovalRelationList.c)
+ *     PnpProcessDependencyRelations @ 0x1409BF64C (PnpProcessDependencyRelations.c)
+ *     PnpProcessRelation @ 0x140A54854 (PnpProcessRelation.c)
+ *     PnpProcessBusRelations @ 0x140A54BAC (PnpProcessBusRelations.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140325680 (ObfDereferenceObject.c)
- *     IoAddTriageDumpDataBlock @ 0x1403F2880 (IoAddTriageDumpDataBlock.c)
- *     RtlCopyUnicodeString @ 0x1403FFE80 (RtlCopyUnicodeString.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     IopMergeRelationLists @ 0x1407337FC (IopMergeRelationLists.c)
- *     IopRemoveRelationFromList @ 0x140733964 (IopRemoveRelationFromList.c)
- *     IopCancelPendingEject @ 0x1407339A0 (IopCancelPendingEject.c)
- *     PipClearDevNodeFlags @ 0x1408BB57C (PipClearDevNodeFlags.c)
- *     PnpQueryDeviceRelations @ 0x1408BB608 (PnpQueryDeviceRelations.c)
- *     PnpProcessRelation @ 0x140A0C664 (PnpProcessRelation.c)
- *     IopAddRelationToList @ 0x140A0C91C (IopAddRelationToList.c)
- *     PnpProcessBusRelations @ 0x140A0C9BC (PnpProcessBusRelations.c)
- *     PipIsDeviceInDeviceObjectList @ 0x140A0FAD0 (PipIsDeviceInDeviceObjectList.c)
- *     PnpProcessDependencyRelations @ 0x140A1123C (PnpProcessDependencyRelations.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ObfDereferenceObject @ 0x1402CE210 (ObfDereferenceObject.c)
+ *     IoAddTriageDumpDataBlock @ 0x1403E65A0 (IoAddTriageDumpDataBlock.c)
+ *     RtlCopyUnicodeString @ 0x1403FA370 (RtlCopyUnicodeString.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     IopMergeRelationLists @ 0x140731730 (IopMergeRelationLists.c)
+ *     IopRemoveRelationFromList @ 0x140731898 (IopRemoveRelationFromList.c)
+ *     IopCancelPendingEject @ 0x1407318D4 (IopCancelPendingEject.c)
+ *     PipClearDevNodeFlags @ 0x1408B8F2C (PipClearDevNodeFlags.c)
+ *     PnpQueryDeviceRelations @ 0x1408B8FB8 (PnpQueryDeviceRelations.c)
+ *     PipIsDeviceInDeviceObjectList @ 0x1409BDEE0 (PipIsDeviceInDeviceObjectList.c)
+ *     PnpProcessDependencyRelations @ 0x1409BF64C (PnpProcessDependencyRelations.c)
+ *     PnpProcessRelation @ 0x140A54854 (PnpProcessRelation.c)
+ *     IopAddRelationToList @ 0x140A54B0C (IopAddRelationToList.c)
+ *     PnpProcessBusRelations @ 0x140A54BAC (PnpProcessBusRelations.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PnpProcessRelation(
@@ -64,7 +64,7 @@ __int64 __fastcall PnpProcessRelation(
   _WORD *v39; // rcx
   __int64 v40; // rax
   __int64 v41; // rcx
-  _QWORD *v42; // rcx
+  unsigned int **v42; // rcx
   __int64 v43; // rcx
   __int64 v44; // rcx
   _WORD *v45; // rcx
@@ -334,10 +334,10 @@ LABEL_3:
         }
         KeBugCheckEx(0xCAu, 6uLL, *(_QWORD *)(a1 + 32), 0LL, 0LL);
       }
-      v42 = (_QWORD *)i[8];
+      v42 = (unsigned int **)i[8];
       if ( v42 )
       {
-        if ( (unsigned __int8)PipIsDeviceInDeviceObjectList(*v42, *v11, 0LL) )
+        if ( PipIsDeviceInDeviceObjectList(*v42, *v11, 0LL) )
           break;
       }
     }
@@ -507,7 +507,7 @@ LABEL_30:
       }
     }
   }
-  result = PnpProcessDependencyRelations(a1, a2, v84 != 0, a4, v10);
+  result = PnpProcessDependencyRelations(a1);
   if ( (int)result >= 0 )
   {
     LODWORD(BugCheckParameter4) = 0;

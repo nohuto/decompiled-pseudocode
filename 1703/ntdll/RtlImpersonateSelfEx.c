@@ -11,44 +11,48 @@
  *     ZwDuplicateToken @ 0x1800A5B40 (ZwDuplicateToken.c)
  */
 
-__int64 __fastcall RtlImpersonateSelfEx(int a1, int a2, _QWORD *a3)
+NTSTATUS __cdecl RtlImpersonateSelfEx(
+        SECURITY_IMPERSONATION_LEVEL ImpersonationLevel,
+        ACCESS_MASK AdditionalAccess,
+        PHANDLE ThreadToken)
 {
   int v5; // ebx
-  __int64 v7; // [rsp+30h] [rbp-19h] BYREF
-  __int64 v8; // [rsp+38h] [rbp-11h] BYREF
-  int v9; // [rsp+40h] [rbp-9h] BYREF
-  __int64 v10; // [rsp+48h] [rbp-1h]
-  __int64 v11; // [rsp+50h] [rbp+7h]
-  int v12; // [rsp+58h] [rbp+Fh]
-  __int64 v13; // [rsp+60h] [rbp+17h]
-  _DWORD *v14; // [rsp+68h] [rbp+1Fh]
-  _DWORD v15[2]; // [rsp+70h] [rbp+27h] BYREF
-  __int16 v16; // [rsp+78h] [rbp+2Fh]
+  HANDLE ThreadInformation; // [rsp+30h] [rbp-19h] BYREF
+  HANDLE TokenHandle; // [rsp+38h] [rbp-11h] BYREF
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+40h] [rbp-9h] BYREF
+  _DWORD v10[2]; // [rsp+70h] [rbp+27h] BYREF
+  __int16 v11; // [rsp+78h] [rbp+2Fh]
 
-  if ( !a3 && a2 )
-    return 3221225712LL;
-  v10 = 0LL;
-  v11 = 0LL;
-  v13 = 0LL;
-  v15[1] = a1;
-  v12 = 512;
-  v14 = v15;
-  v9 = 48;
-  v15[0] = 12;
-  v16 = 1;
-  v5 = ZwOpenProcessTokenEx(-1LL, 2LL, 512LL, &v8);
+  if ( !ThreadToken && AdditionalAccess )
+    return -1073741584;
+  ObjectAttributes.RootDirectory = 0LL;
+  ObjectAttributes.ObjectName = 0LL;
+  ObjectAttributes.SecurityDescriptor = 0LL;
+  v10[1] = ImpersonationLevel;
+  ObjectAttributes.Attributes = 512;
+  ObjectAttributes.SecurityQualityOfService = v10;
+  ObjectAttributes.Length = 48;
+  v10[0] = 12;
+  v11 = 1;
+  v5 = ZwOpenProcessTokenEx((HANDLE)0xFFFFFFFFFFFFFFFFLL, 2u, 0x200u, &TokenHandle);
   if ( v5 >= 0 )
   {
-    v5 = ZwDuplicateToken(v8, a2 | 4u, &v9);
+    v5 = ZwDuplicateToken(
+           TokenHandle,
+           AdditionalAccess | 4,
+           &ObjectAttributes,
+           0,
+           TokenImpersonation,
+           &ThreadInformation);
     if ( v5 >= 0 )
     {
-      v5 = ZwSetInformationThread(-2LL, 5LL, &v7);
-      if ( v5 >= 0 && a3 )
-        *a3 = v7;
+      v5 = ZwSetInformationThread((HANDLE)0xFFFFFFFFFFFFFFFELL, ThreadImpersonationToken, &ThreadInformation, 8u);
+      if ( v5 >= 0 && ThreadToken )
+        *ThreadToken = ThreadInformation;
       else
-        ZwClose(v7);
+        ZwClose(ThreadInformation);
     }
-    ZwClose(v8);
+    ZwClose(TokenHandle);
   }
-  return (unsigned int)v5;
+  return v5;
 }

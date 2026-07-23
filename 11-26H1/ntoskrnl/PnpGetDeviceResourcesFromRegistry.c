@@ -1,17 +1,17 @@
 /*
- * XREFs of PnpGetDeviceResourcesFromRegistry @ 0x140AA5A24
+ * XREFs of PnpGetDeviceResourcesFromRegistry @ 0x140AA0C1C
  * Callers:
- *     IopPnPDispatch @ 0x140A9FA40 (IopPnPDispatch.c)
- *     IopInitializeDeviceInstanceKey @ 0x140AA0078 (IopInitializeDeviceInstanceKey.c)
- *     IopQueryDeviceResources @ 0x140AA5668 (IopQueryDeviceResources.c)
+ *     IopQueryDeviceResources @ 0x140AA0860 (IopQueryDeviceResources.c)
+ *     IopPnPDispatch @ 0x140AA13D0 (IopPnPDispatch.c)
+ *     IopInitializeDeviceInstanceKey @ 0x140AA1A08 (IopInitializeDeviceInstanceKey.c)
  * Callees:
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     _CmOpenDeviceRegKey @ 0x140996B50 (_CmOpenDeviceRegKey.c)
- *     IopGetRegistryValue @ 0x140A121A8 (IopGetRegistryValue.c)
- *     PnpReadDeviceConfiguration @ 0x140AA425C (PnpReadDeviceConfiguration.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     _CmOpenDeviceRegKey @ 0x1409575B0 (_CmOpenDeviceRegKey.c)
+ *     IopGetRegistryValue @ 0x140A11398 (IopGetRegistryValue.c)
+ *     PnpReadDeviceConfiguration @ 0x140AA1288 (PnpReadDeviceConfiguration.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PnpGetDeviceResourcesFromRegistry(__int64 a1, int a2, char a3, void **a4, _DWORD *a5)
@@ -107,7 +107,7 @@ LABEL_44:
                       0LL);
     if ( RegistryValue >= 0 )
     {
-      RegistryValue = PnpReadDeviceConfiguration(Handle, 1, a4, v5);
+      RegistryValue = PnpReadDeviceConfiguration(Handle, 1LL, a4, v5);
       ZwClose(Handle);
       if ( RegistryValue >= 0 )
         return (unsigned int)RegistryValue;
@@ -132,7 +132,7 @@ LABEL_44:
                0LL);
     if ( (int)result < 0 )
       return result;
-    DeviceConfiguration = PnpReadDeviceConfiguration(Handle, 2, a4, v5);
+    DeviceConfiguration = PnpReadDeviceConfiguration(Handle, 2LL, a4, v5);
     v12 = Handle;
     RegistryValue = DeviceConfiguration;
     if ( DeviceConfiguration >= 0 )
@@ -143,7 +143,7 @@ LABEL_44:
   if ( v12 )
   {
 LABEL_15:
-    v14 = PnpReadDeviceConfiguration(v12, 4, a4, v5);
+    v14 = PnpReadDeviceConfiguration(v12, 4LL, a4, v5);
     v12 = Handle;
     RegistryValue = v14;
 LABEL_16:

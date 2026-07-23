@@ -1,7 +1,7 @@
 /*
- * XREFs of MiInitializePageAccessLogging @ 0x14046F40C
+ * XREFs of MiInitializePageAccessLogging @ 0x140469B1C
  * Callers:
- *     MiGetCcAccessLog @ 0x140956DF4 (MiGetCcAccessLog.c)
+ *     MiGetCcAccessLog @ 0x14093A7A4 (MiGetCcAccessLog.c)
  * Callees:
  *     <none>
  */

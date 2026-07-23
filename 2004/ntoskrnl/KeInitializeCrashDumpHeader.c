@@ -21,6 +21,6 @@ NTSTATUS __stdcall KeInitializeCrashDumpHeader(
     return -1073741584;
   if ( BufferSize < 0x2000 )
     return -1073741582;
-  IoFillDumpHeader(Buffer, 1, 0, 0LL, 0LL, 0LL, 0LL, (__int64)KeGetCurrentThread());
+  IoFillDumpHeader((_NT_PRODUCT_TYPE *)Buffer, 1, 0, 0LL, 0LL, 0LL, 0LL, (__int64)KeGetCurrentThread());
   return 0;
 }

@@ -1,12 +1,12 @@
 /*
- * XREFs of PopSqmThermalZoneEnumeration @ 0x14087C9D0
+ * XREFs of PopSqmThermalZoneEnumeration @ 0x14087DC30
  * Callers:
- *     PopDiagTraceThermalZoneEnumeration @ 0x14018BF84 (PopDiagTraceThermalZoneEnumeration.c)
+ *     PopDiagTraceThermalZoneEnumeration @ 0x14018C0C4 (PopDiagTraceThermalZoneEnumeration.c)
  * Callees:
  *     _TlgCreateWsz @ 0x140012934 (_TlgCreateWsz.c)
  *     _TlgKeywordOn @ 0x140012A04 (_TlgKeywordOn.c)
  *     _TlgWrite @ 0x140012EE4 (_TlgWrite.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
  */
 
 char __fastcall PopSqmThermalZoneEnumeration(
@@ -122,7 +122,7 @@ char __fastcall PopSqmThermalZoneEnumeration(
       v62 = 0;
       v60 = &v29;
       v61 = v18;
-      LOBYTE(v12) = TlgWrite(&pCallbackContext, &unk_140371371, 0LL, 0LL, 0xEu, &pData);
+      LOBYTE(v12) = TlgWrite(&pCallbackContext, &unk_140372301, 0LL, 0LL, 0xEu, &pData);
     }
   }
   return v12;

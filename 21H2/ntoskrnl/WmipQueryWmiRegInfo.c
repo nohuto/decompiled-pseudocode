@@ -1,10 +1,10 @@
 /*
- * XREFs of WmipQueryWmiRegInfo @ 0x1407D4DC0
+ * XREFs of WmipQueryWmiRegInfo @ 0x1407D4F30
  * Callers:
- *     IoWMISystemControl @ 0x1406BFA04 (IoWMISystemControl.c)
+ *     IoWMISystemControl @ 0x14061E914 (IoWMISystemControl.c)
  * Callees:
- *     RtlInitAnsiString @ 0x1402502B0 (RtlInitAnsiString.c)
- *     RtlAnsiStringToUnicodeString @ 0x14062C640 (RtlAnsiStringToUnicodeString.c)
+ *     RtlInitAnsiString @ 0x1402713E0 (RtlInitAnsiString.c)
+ *     RtlAnsiStringToUnicodeString @ 0x1406637D0 (RtlAnsiStringToUnicodeString.c)
  */
 
 NTSTATUS __fastcall WmipQueryWmiRegInfo(__int64 a1, __int64 a2, UNICODE_STRING *a3, _QWORD *a4)

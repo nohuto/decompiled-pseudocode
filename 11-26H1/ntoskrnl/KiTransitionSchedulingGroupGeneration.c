@@ -1,21 +1,21 @@
 /*
- * XREFs of KiTransitionSchedulingGroupGeneration @ 0x140333BD0
+ * XREFs of KiTransitionSchedulingGroupGeneration @ 0x140335C00
  * Callers:
- *     KiGroupSchedulingGenerationEnd @ 0x140333210 (KiGroupSchedulingGenerationEnd.c)
- *     KiParkCurrentProcessor @ 0x1403346DC (KiParkCurrentProcessor.c)
+ *     KiGroupSchedulingGenerationEnd @ 0x140335240 (KiGroupSchedulingGenerationEnd.c)
+ *     KiParkCurrentProcessor @ 0x14033670C (KiParkCurrentProcessor.c)
  * Callees:
- *     RtlGetInterruptTimePrecise @ 0x140208110 (RtlGetInterruptTimePrecise.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212E30 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     EtwTraceReadyQueueInsertion @ 0x14022476C (EtwTraceReadyQueueInsertion.c)
- *     KiIsThreadConstrainedBySchedulingGroup @ 0x14022FA40 (KiIsThreadConstrainedBySchedulingGroup.c)
- *     KiCheckForMaxOverQuotaScb @ 0x140230530 (KiCheckForMaxOverQuotaScb.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiInsertQueueDpc @ 0x1402BD330 (KiInsertQueueDpc.c)
- *     KiAddThreadToPrcbQueue @ 0x1402BE9E0 (KiAddThreadToPrcbQueue.c)
- *     ?KiInsertNonMaxOverQuotaScb@@YAXPEAU_KSCB@@PEAU_KPRCB@@E@Z @ 0x140335CBC (-KiInsertNonMaxOverQuotaScb@@YAXPEAU_KSCB@@PEAU_KPRCB@@E@Z.c)
- *     KiQueryEffectivePriorityThread @ 0x14037F0E0 (KiQueryEffectivePriorityThread.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     RtlGetInterruptTimePrecise @ 0x1402081F0 (RtlGetInterruptTimePrecise.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212F10 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     EtwTraceReadyQueueInsertion @ 0x1402260FC (EtwTraceReadyQueueInsertion.c)
+ *     KiIsThreadConstrainedBySchedulingGroup @ 0x1402313D0 (KiIsThreadConstrainedBySchedulingGroup.c)
+ *     KiCheckForMaxOverQuotaScb @ 0x140231EC0 (KiCheckForMaxOverQuotaScb.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiInsertQueueDpc @ 0x140307FF0 (KiInsertQueueDpc.c)
+ *     KiAddThreadToPrcbQueue @ 0x1403096A0 (KiAddThreadToPrcbQueue.c)
+ *     ?KiInsertNonMaxOverQuotaScb@@YAXPEAU_KSCB@@PEAU_KPRCB@@E@Z @ 0x140337CEC (-KiInsertNonMaxOverQuotaScb@@YAXPEAU_KSCB@@PEAU_KPRCB@@E@Z.c)
+ *     KiQueryEffectivePriorityThread @ 0x140380E90 (KiQueryEffectivePriorityThread.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall KiTransitionSchedulingGroupGeneration(
@@ -31,15 +31,15 @@ __int64 __fastcall KiTransitionSchedulingGroupGeneration(
   __int64 v9; // rbx
   bool v10; // zf
   unsigned __int8 CurrentIrql; // di
-  __int64 InterruptTimePrecise; // rdx
+  LARGE_INTEGER InterruptTimePrecise; // rdx
   unsigned int v13; // r15d
   unsigned __int64 v14; // r14
   _KTHREAD *NextThread; // r8
   char v16; // r15
   _KSCHEDULING_GROUP *volatile SchedulingGroup; // rax
   __int64 result; // rax
-  struct _LIST_ENTRY *Flink; // r14
-  char v20; // al
+  struct _LIST_ENTRY *v19; // r14
+  char LowPart; // al
   __int64 p_Blink; // rdi
   int Flink_high; // r10d
   __int16 v23; // r12
@@ -97,14 +97,14 @@ __int64 __fastcall KiTransitionSchedulingGroupGeneration(
   _KTHREAD *v75; // [rsp+40h] [rbp-C0h] BYREF
   unsigned __int64 v76; // [rsp+48h] [rbp-B8h] BYREF
   struct _LIST_ENTRY *v77; // [rsp+50h] [rbp-B0h] BYREF
-  __int64 v78; // [rsp+58h] [rbp-A8h] BYREF
-  unsigned __int64 i; // [rsp+60h] [rbp-A0h] BYREF
+  LARGE_INTEGER v78; // [rsp+58h] [rbp-A8h] BYREF
+  LARGE_INTEGER PerformanceCounter; // [rsp+60h] [rbp-A0h] BYREF
   __int64 v80; // [rsp+68h] [rbp-98h]
-  __int64 v81; // [rsp+70h] [rbp-90h]
+  struct _LIST_ENTRY *Flink; // [rsp+70h] [rbp-90h]
   __int64 v82; // [rsp+78h] [rbp-88h]
   __int128 v83; // [rsp+80h] [rbp-80h]
   struct _EVENT_DATA_DESCRIPTOR v84; // [rsp+90h] [rbp-70h] BYREF
-  __int64 *v85; // [rsp+B0h] [rbp-50h]
+  LARGE_INTEGER *v85; // [rsp+B0h] [rbp-50h]
   __int64 v86; // [rsp+B8h] [rbp-48h]
   int *v87; // [rsp+C0h] [rbp-40h]
   __int64 v88; // [rsp+C8h] [rbp-38h]
@@ -133,10 +133,10 @@ __int64 __fastcall KiTransitionSchedulingGroupGeneration(
     v6 = v8 + 1;
     v80 = (unsigned int)(v8 + 1);
   }
-  v9 = KiGenerationEndTick * (unsigned int)KeMaximumIncrement;
+  v9 = (__int64)KiSupervisorXStateFeaturesLock.Timer.Header.WaitListHead.Flink * KeMaximumIncrement;
   v10 = KiClockTimerPerCpuTickScheduling == 0;
-  v81 = KiGenerationEndTick;
-  a1->GenerationTarget = KiGenerationEndTick;
+  Flink = KiSupervisorXStateFeaturesLock.Timer.Header.WaitListHead.Flink;
+  a1->GenerationTarget = (unsigned __int64)KiSupervisorXStateFeaturesLock.Timer.Header.WaitListHead.Flink;
   if ( !v10 )
   {
     CurrentIrql = KeGetCurrentIrql();
@@ -148,16 +148,16 @@ __int64 __fastcall KiTransitionSchedulingGroupGeneration(
       KiRaiseIrqlProcessIrqlFlags(CurrentIrql, GenerationTarget);
     }
     if ( KiClockTimerReducePreciseTimeQueries )
-      InterruptTimePrecise = RtlGetInterruptTimePrecise(&i);
+      InterruptTimePrecise = RtlGetInterruptTimePrecise(&PerformanceCounter);
     else
-      InterruptTimePrecise = 0LL;
+      InterruptTimePrecise.QuadPart = 0LL;
     v13 = KeMaximumIncrement;
     if ( !KiClockTimerReducePreciseTimeQueries )
-      InterruptTimePrecise = RtlGetInterruptTimePrecise(&i);
+      InterruptTimePrecise = RtlGetInterruptTimePrecise(&PerformanceCounter);
     v14 = v9;
     if ( v9 <= 0 )
-      v14 = InterruptTimePrecise - v9;
-    if ( (unsigned int)dword_140E06F58 > 5 )
+      v14 = InterruptTimePrecise.QuadPart - v9;
+    if ( (unsigned int)dword_140E06F90 > 5 )
     {
       v78 = InterruptTimePrecise;
       v85 = &v78;
@@ -167,7 +167,7 @@ __int64 __fastcall KiTransitionSchedulingGroupGeneration(
       v89 = &v77;
       v88 = 4LL;
       v77 = (struct _LIST_ENTRY *)v9;
-      v75 = (_KTHREAD *)(v14 - InterruptTimePrecise);
+      v75 = (_KTHREAD *)(v14 - InterruptTimePrecise.QuadPart);
       v90 = 8LL;
       v91 = &v75;
       v93 = &v76;
@@ -184,8 +184,8 @@ __int64 __fastcall KiTransitionSchedulingGroupGeneration(
       LOBYTE(v71) = 0;
       v100 = 1LL;
       tlgWriteTransfer_EtwWriteTransfer(
-        (__int64)&dword_140E06F58,
-        (unsigned __int8 *)byte_140048E89,
+        (__int64)&dword_140E06F90,
+        (unsigned __int8 *)word_140049432,
         0LL,
         0LL,
         0xAu,
@@ -218,24 +218,25 @@ __int64 __fastcall KiTransitionSchedulingGroupGeneration(
   }
   SchedulingGroup = NextThread->SchedulingGroup;
   if ( SchedulingGroup )
-    v78 = (__int64)SchedulingGroup + a1->ScbOffset;
+    v78.QuadPart = (LONGLONG)SchedulingGroup + a1->ScbOffset;
   else
-    v78 = 0LL;
+    v78.QuadPart = 0LL;
   result = (__int64)&a1->ActiveScbList;
-  Flink = a1->ActiveScbList.Flink;
-  v77 = Flink;
-  if ( Flink != &a1->ActiveScbList )
+  v19 = a1->ActiveScbList.Flink;
+  v77 = v19;
+  if ( v19 != &a1->ActiveScbList )
   {
-    v20 = v6;
-    for ( i = v6; ; v20 = i )
+    LowPart = v6;
+    PerformanceCounter.QuadPart = v6;
+    while ( 1 )
     {
-      p_Blink = (__int64)&Flink[-6].Blink;
-      Flink_high = HIDWORD(Flink[3].Flink);
-      v23 = (__int64)Flink[2].Blink & 2;
+      p_Blink = (__int64)&v19[-6].Blink;
+      Flink_high = HIDWORD(v19[3].Flink);
+      v23 = (__int64)v19[2].Blink & 2;
       v74 = Flink_high;
       v71 = v23;
       if ( v6 < 0x40 )
-        v24 = *(_QWORD *)(p_Blink + 48) << v20;
+        v24 = *(_QWORD *)(p_Blink + 48) << LowPart;
       else
         v24 = 0LL;
       v25 = v24 | 1;
@@ -262,7 +263,7 @@ __int64 __fastcall KiTransitionSchedulingGroupGeneration(
       {
         v52 = *(_QWORD *)(v27 + 48);
         v53 = *(_QWORD *)(v27 + 56);
-        v54 = v81;
+        v54 = (unsigned __int64)Flink;
         *((_QWORD *)&v83 + 1) = v53;
         *(_QWORD *)&v83 = v52;
         do
@@ -359,7 +360,7 @@ __int64 __fastcall KiTransitionSchedulingGroupGeneration(
 LABEL_110:
                 v68 = 0;
               KiAddThreadToPrcbQueue((__int64)a1, v63, (unsigned int)*(char *)(v63 + 195), 0, v68, (int *)&v73);
-              if ( (WORD2(xmmword_140FBFC10) & 0x800) != 0 )
+              if ( (WORD2(xmmword_140FC0C10) & 0x800) != 0 )
                 EtwTraceReadyQueueInsertion(v63, a1->Number, v73, 0LL);
             }
             while ( v62 != v61 );
@@ -368,7 +369,7 @@ LABEL_110:
             *v61 = v61;
           }
           while ( v34 );
-          Flink = v77;
+          v19 = v77;
           v23 = v71;
           v6 = v80;
         }
@@ -379,7 +380,7 @@ LABEL_110:
         v10 = (*(_BYTE *)(p_Blink + 128) & 2) == 0;
         v70 = 1;
         if ( v10 )
-          KiInsertNonMaxOverQuotaScb((struct _KSCB *)&Flink[-6].Blink, a1, 0);
+          KiInsertNonMaxOverQuotaScb((struct _KSCB *)&v19[-6].Blink, a1, 0);
       }
       v35 = *(_WORD *)(p_Blink + 128);
       if ( (v35 & 0xC00u) >= 0x800
@@ -409,8 +410,8 @@ LABEL_110:
           {
 LABEL_56:
             v39 = *(struct _LIST_ENTRY **)(p_Blink + 88);
-            Blink = Flink->Blink;
-            Flink = Blink;
+            Blink = v19->Blink;
+            v19 = Blink;
             if ( v39->Blink != (struct _LIST_ENTRY *)(p_Blink + 88)
               || Blink->Flink != (struct _LIST_ENTRY *)(p_Blink + 88) )
             {
@@ -426,7 +427,7 @@ LABEL_56:
           }
         }
       }
-      if ( (WORD2(xmmword_140FBFC10) & 0x4000) != 0
+      if ( (WORD2(xmmword_140FC0C10) & 0x4000) != 0
         && (v74 != *(_DWORD *)(p_Blink + 140) || (v23 != 0) != ((*(_WORD *)(p_Blink + 128) >> 1) & 1)) )
       {
         v58 = (_QWORD *)v82;
@@ -435,16 +436,17 @@ LABEL_56:
         *v59 = *v58;
         *v58 = v59;
       }
-      Flink = Flink->Flink;
+      v19 = v19->Flink;
       result = (__int64)&a1->ActiveScbList;
-      v77 = Flink;
-      if ( Flink == &a1->ActiveScbList )
+      v77 = v19;
+      if ( v19 == &a1->ActiveScbList )
         break;
+      LowPart = PerformanceCounter.LowPart;
     }
     NextThread = v75;
     v16 = v70;
   }
-  if ( v78 )
+  if ( v78.QuadPart )
   {
     PriorityState = a1->PriorityState;
     AllFields = PriorityState->AllFields;
@@ -486,11 +488,11 @@ LABEL_56:
   {
     Number = a1->Number;
     a1->GroupSchedulingOverQuota = 0;
-    v50 = *(_DWORD *)(*(_QWORD *)&KiSupervisorXStateFeaturesLock.WaitBlockFill11[112] + 4 * Number);
+    v50 = *((_DWORD *)&KiSupervisorXStateFeaturesLock.SchedulerApc.Thread->Header.Lock + Number);
     result = KiGroupSchedulingOverQuotaMask[1];
     v51 = v50 >> 6;
     if ( KiGroupSchedulingOverQuotaMask[1] > (unsigned int)v51 )
-      _InterlockedAnd64(&qword_140E0B058[v51], ~(1LL << v50));
+      _InterlockedAnd64(&qword_140E0B068[v51], ~(1LL << v50));
   }
   return result;
 }

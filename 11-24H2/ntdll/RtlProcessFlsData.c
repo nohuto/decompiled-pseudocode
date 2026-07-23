@@ -1,5 +1,5 @@
 /*
- * XREFs of RtlProcessFlsData @ 0x1800F2280
+ * XREFs of RtlProcessFlsData @ 0x1800ECF00
  * Callers:
  *     <none>
  * Callees:
@@ -13,5 +13,5 @@ void __fastcall RtlProcessFlsData(__int64 *a1, char a2)
   v2 = a2 & 1 | 2;
   if ( (a2 & 2) == 0 )
     v2 = a2 & 1;
-  RtlpFlsDataCleanup((__int64)&RtlpFlsContext, a1, v2);
+  RtlpFlsDataCleanup(&RtlpFlsContext, a1, v2);
 }

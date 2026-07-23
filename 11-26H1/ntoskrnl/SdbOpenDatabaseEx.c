@@ -1,22 +1,22 @@
 /*
- * XREFs of SdbOpenDatabaseEx @ 0x140880C68
+ * XREFs of SdbOpenDatabaseEx @ 0x140887068
  * Callers:
- *     SdbpOpenLocalDatabaseEx @ 0x14088620C (SdbpOpenLocalDatabaseEx.c)
+ *     SdbpOpenLocalDatabaseEx @ 0x14088C60C (SdbpOpenLocalDatabaseEx.c)
  * Callees:
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     SdbGetMergeRedirectPath @ 0x140880AF0 (SdbGetMergeRedirectPath.c)
- *     SdbpOpenCompressedDatabase @ 0x140887044 (SdbpOpenCompressedDatabase.c)
- *     AslFileMappingEnsureMappedAs @ 0x140888ABC (AslFileMappingEnsureMappedAs.c)
- *     AslFileMappingGetViewBase @ 0x140888F98 (AslFileMappingGetViewBase.c)
- *     AslPathGetFileNamePart @ 0x1408896A4 (AslPathGetFileNamePart.c)
- *     AslFileMappingCreate @ 0x1409E3894 (AslFileMappingCreate.c)
- *     SdbpValidateAndApplyCompatFlags @ 0x1409E3A44 (SdbpValidateAndApplyCompatFlags.c)
- *     AslAlloc @ 0x1409E4C90 (AslAlloc.c)
- *     AslFileMappingDelete @ 0x1409E56C8 (AslFileMappingDelete.c)
- *     AslFree @ 0x1409E6BD8 (AslFree.c)
- *     SdbpReadMappedData @ 0x1409E85D8 (SdbpReadMappedData.c)
- *     AslLogCallPrintf @ 0x1409E8884 (AslLogCallPrintf.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     SdbGetMergeRedirectPath @ 0x140886EF0 (SdbGetMergeRedirectPath.c)
+ *     SdbpOpenCompressedDatabase @ 0x14088D444 (SdbpOpenCompressedDatabase.c)
+ *     AslFileMappingEnsureMappedAs @ 0x14088EEB8 (AslFileMappingEnsureMappedAs.c)
+ *     AslFileMappingGetViewBase @ 0x14088F394 (AslFileMappingGetViewBase.c)
+ *     AslPathGetFileNamePart @ 0x14088FAA0 (AslPathGetFileNamePart.c)
+ *     SdbpReadMappedData @ 0x1409D4FE8 (SdbpReadMappedData.c)
+ *     AslLogCallPrintf @ 0x1409D5294 (AslLogCallPrintf.c)
+ *     AslFree @ 0x1409D6144 (AslFree.c)
+ *     AslFileMappingDelete @ 0x1409D772C (AslFileMappingDelete.c)
+ *     AslAlloc @ 0x1409D8260 (AslAlloc.c)
+ *     SdbpValidateAndApplyCompatFlags @ 0x1409D87A8 (SdbpValidateAndApplyCompatFlags.c)
+ *     AslFileMappingCreate @ 0x140A37E7C (AslFileMappingCreate.c)
  */
 
 _QWORD *__fastcall SdbOpenDatabaseEx(__int64 a1)

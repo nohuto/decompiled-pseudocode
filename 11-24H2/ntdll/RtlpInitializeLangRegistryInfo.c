@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpInitializeLangRegistryInfo @ 0x1800F97E0
+ * XREFs of RtlpInitializeLangRegistryInfo @ 0x1800F4490
  * Callers:
- *     RtlpSetPreferredUILanguages @ 0x180140750 (RtlpSetPreferredUILanguages.c)
+ *     RtlpSetPreferredUILanguages @ 0x18013E940 (RtlpSetPreferredUILanguages.c)
  * Callees:
- *     RtlpMuiRegCreateAndLoadRegistryInfo @ 0x18007CD08 (RtlpMuiRegCreateAndLoadRegistryInfo.c)
+ *     RtlpMuiRegCreateAndLoadRegistryInfo @ 0x180011648 (RtlpMuiRegCreateAndLoadRegistryInfo.c)
  */
 
 __int64 __fastcall RtlpInitializeLangRegistryInfo(_QWORD *a1)

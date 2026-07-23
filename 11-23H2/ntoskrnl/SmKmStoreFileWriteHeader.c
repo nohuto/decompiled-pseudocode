@@ -1,22 +1,22 @@
 /*
- * XREFs of SmKmStoreFileWriteHeader @ 0x1409DA568
+ * XREFs of SmKmStoreFileWriteHeader @ 0x1409DA768
  * Callers:
- *     SmKmStoreFileCreate @ 0x1409D96C4 (SmKmStoreFileCreate.c)
+ *     SmKmStoreFileCreate @ 0x1409D98C4 (SmKmStoreFileCreate.c)
  * Callees:
  *     IoSetThreadHardErrorMode @ 0x140208890 (IoSetThreadHardErrorMode.c)
  *     CmSiFreeMemory @ 0x140208C40 (CmSiFreeMemory.c)
  *     MmBuildMdlForNonPagedPool @ 0x14020D950 (MmBuildMdlForNonPagedPool.c)
- *     KeWaitForSingleObject @ 0x140243CE0 (KeWaitForSingleObject.c)
- *     KeInitializeEvent @ 0x1402AF870 (KeInitializeEvent.c)
- *     SSHSupportAllocateNonPaged @ 0x14032D354 (SSHSupportAllocateNonPaged.c)
- *     RtlComputeCrc32 @ 0x14032D3E0 (RtlComputeCrc32.c)
- *     MmMdlPageContentsState @ 0x14033C100 (MmMdlPageContentsState.c)
- *     MmCreateMdl @ 0x140356AF0 (MmCreateMdl.c)
- *     IoSynchronousPageWrite @ 0x14035CFC0 (IoSynchronousPageWrite.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     ZwWriteFile @ 0x14041AE60 (ZwWriteFile.c)
- *     ZwQueryInformationFile @ 0x14041AF80 (ZwQueryInformationFile.c)
- *     memset @ 0x140435A00 (memset.c)
+ *     KeWaitForSingleObject @ 0x140243DB0 (KeWaitForSingleObject.c)
+ *     KeInitializeEvent @ 0x1402AFB00 (KeInitializeEvent.c)
+ *     SSHSupportAllocateNonPaged @ 0x14032D5E4 (SSHSupportAllocateNonPaged.c)
+ *     RtlComputeCrc32 @ 0x14032D670 (RtlComputeCrc32.c)
+ *     MmMdlPageContentsState @ 0x14033C390 (MmMdlPageContentsState.c)
+ *     MmCreateMdl @ 0x140356C90 (MmCreateMdl.c)
+ *     IoSynchronousPageWrite @ 0x14035D160 (IoSynchronousPageWrite.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     ZwWriteFile @ 0x14041B1F0 (ZwWriteFile.c)
+ *     ZwQueryInformationFile @ 0x14041B310 (ZwQueryInformationFile.c)
+ *     memset @ 0x140435E00 (memset.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 
@@ -67,7 +67,7 @@ __int64 __fastcall SmKmStoreFileWriteHeader(__int64 a1, int a2)
   Buffer->PrivilegeCount = 1164135783;
   Buffer->Control = 3;
   Buffer[2].PrivilegeCount = 1;
-  Buffer->Privilege[0].Luid.LowPart = RtlComputeCrc32(0, (char *)Buffer, 48LL);
+  Buffer->Privilege[0].Luid.LowPart = RtlComputeCrc32(0, Buffer, 0x30u);
   v10 = *(void **)a1;
   if ( a2 )
   {

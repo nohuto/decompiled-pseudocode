@@ -1,12 +1,12 @@
 /*
- * XREFs of PopBatteryDeviceState @ 0x140AFC434
+ * XREFs of PopBatteryDeviceState @ 0x140AFDFA8
  * Callers:
- *     NtPowerInformation @ 0x1409DE3E0 (NtPowerInformation.c)
+ *     NtPowerInformation @ 0x140A1B510 (NtPowerInformation.c)
  * Callees:
- *     PsGetCurrentServerSiloGlobals @ 0x1402150C0 (PsGetCurrentServerSiloGlobals.c)
- *     PopAcquireRwLockShared @ 0x140436298 (PopAcquireRwLockShared.c)
- *     PopReleaseRwLock @ 0x14043630C (PopReleaseRwLock.c)
- *     RtlEqualUnicodeString @ 0x14091F0E0 (RtlEqualUnicodeString.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x1402153F0 (PsGetCurrentServerSiloGlobals.c)
+ *     PopReleaseRwLock @ 0x14021B1A8 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockShared @ 0x140424A28 (PopAcquireRwLockShared.c)
+ *     RtlEqualUnicodeString @ 0x140979B40 (RtlEqualUnicodeString.c)
  */
 
 __int64 __fastcall PopBatteryDeviceState(_WORD *a1, __int64 a2)
@@ -60,10 +60,10 @@ LABEL_23:
       String1.Length = v9;
       String1.MaximumLength = (unsigned __int16)v11;
       String1.Buffer = (wchar_t *)(v10 + 8);
-      PopAcquireRwLockShared((volatile signed __int64 *)&unk_140F10E30.Header.Lock, v9, v10 + 8, v11);
-      PopAcquireRwLockShared((volatile signed __int64 *)&qword_140F0FE60, v13, v14, v15);
-      v16 = (__int64 *)qword_140F0FE80;
-      if ( (__int64 *)qword_140F0FE80 == &qword_140F0FE80 )
+      PopAcquireRwLockShared(&PopPolicyDeviceLock, v9, v10 + 8, v11);
+      PopAcquireRwLockShared((volatile signed __int64 *)&PopCB, v13, v14, v15);
+      v16 = (__int64 *)qword_140F10640;
+      if ( (__int64 *)qword_140F10640 == &qword_140F10640 )
         goto LABEL_22;
       do
       {
@@ -78,7 +78,7 @@ LABEL_23:
         v16 = (__int64 *)*v16;
         v18 = 0LL;
       }
-      while ( v16 != &qword_140F0FE80 );
+      while ( v16 != &qword_140F10640 );
       if ( !v18 )
       {
 LABEL_22:
@@ -97,8 +97,8 @@ LABEL_22:
       {
         v4 = -1073741661;
       }
-      PopReleaseRwLock((struct _KTHREAD *)&qword_140F0FE60);
-      PopReleaseRwLock(&unk_140F10E30);
+      PopReleaseRwLock((struct _KTHREAD *)&PopCB);
+      PopReleaseRwLock((struct _KTHREAD *)&PopPolicyDeviceLock);
     }
     else
     {

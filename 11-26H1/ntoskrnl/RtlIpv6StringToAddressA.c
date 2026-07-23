@@ -1,14 +1,14 @@
 /*
- * XREFs of RtlIpv6StringToAddressA @ 0x1404BBF50
+ * XREFs of RtlIpv6StringToAddressA @ 0x1404B5690
  * Callers:
- *     RtlIpv6StringToAddressExA @ 0x14061DC10 (RtlIpv6StringToAddressExA.c)
+ *     RtlIpv6StringToAddressExA @ 0x140620C60 (RtlIpv6StringToAddressExA.c)
  * Callees:
- *     strtol @ 0x1405357EC (strtol.c)
- *     __isascii @ 0x140536B88 (__isascii.c)
- *     isdigit @ 0x140536BA0 (isdigit.c)
- *     isxdigit @ 0x140536C90 (isxdigit.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     strtol @ 0x140537C6C (strtol.c)
+ *     __isascii @ 0x140539008 (__isascii.c)
+ *     isdigit @ 0x140539020 (isdigit.c)
+ *     isxdigit @ 0x140539110 (isxdigit.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 NTSTATUS __stdcall RtlIpv6StringToAddressA(PCSTR S, PCSTR *Terminator, struct in6_addr *Addr)
@@ -32,7 +32,7 @@ NTSTATUS __stdcall RtlIpv6StringToAddressA(PCSTR S, PCSTR *Terminator, struct in
   char v21; // [rsp+20h] [rbp-58h]
   char *Str; // [rsp+28h] [rbp-50h]
   char v23; // [rsp+80h] [rbp+8h]
-  int v26; // [rsp+98h] [rbp+20h]
+  unsigned int v26; // [rsp+98h] [rbp+20h]
 
   v3 = Addr;
   v4 = 0;
@@ -92,7 +92,7 @@ LABEL_15:
       v21 = v4;
       v26 = ++v12;
       v8 = 2;
-      v3->u.Word[v14] = 0;
+      *((_WORD *)v3 + v14) = 0;
       v6 = 2;
       goto LABEL_54;
     }
@@ -155,13 +155,13 @@ LABEL_31:
         if ( v19 > 0xFF )
           return -1073741811;
         v12 = v26;
-        v3->u.Byte[2 * v26 - 1 + v9] = v19;
+        *((_BYTE *)v3 + 2 * v26 + v9 - 1) = v19;
       }
       else
       {
         if ( v10 > 4 )
           return -1073741811;
-        v3->u.Word[v26] = __ROR2__(strtol(v7, 0LL, 16), 8);
+        *((_WORD *)v3 + v26) = __ROR2__(strtol(v7, 0LL, 16), 8);
         v12 = ++v26;
       }
       v7 = Str;
@@ -199,7 +199,7 @@ LABEL_44:
       if ( v20 > 0xFF )
         return -1073741811;
       v16 = Addr;
-      Addr->u.Byte[2 * v26 + v9] = v20;
+      *((_BYTE *)Addr + 2 * v26 + v9) = v20;
     }
     else
     {
@@ -207,7 +207,7 @@ LABEL_44:
         return -1073741811;
       v15 = strtol(Str, 0LL, 16);
       v16 = Addr;
-      Addr->u.Word[v26] = __ROR2__(v15, 8);
+      *((_WORD *)Addr + v26) = __ROR2__(v15, 8);
     }
   }
   else
@@ -215,12 +215,12 @@ LABEL_44:
     if ( v6 != 2 )
       return -1073741811;
     v16 = Addr;
-    Addr->u.Word[v26] = 0;
+    *((_WORD *)Addr + v26) = 0;
   }
   if ( v11 )
   {
     v17 = (char *)v16 + 2 * v11;
-    memmove((char *)&v16[1] + 2 * (v11 - v8), v17, 2LL * (v8 - v11));
+    memmove((char *)v16 + 2 * (v11 - v8) + 16, v17, 2LL * (v8 - v11));
     memset_0(v17, 0, 2LL * (8 - v8));
   }
   return 0;

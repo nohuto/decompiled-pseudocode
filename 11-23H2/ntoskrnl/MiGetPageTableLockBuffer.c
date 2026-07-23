@@ -1,12 +1,12 @@
 /*
- * XREFs of MiGetPageTableLockBuffer @ 0x1403197D8
+ * XREFs of MiGetPageTableLockBuffer @ 0x140319A68
  * Callers:
- *     MiLockPageTableInternal @ 0x140237700 (MiLockPageTableInternal.c)
- *     MiWalkPageTablesRecursively @ 0x14025C170 (MiWalkPageTablesRecursively.c)
- *     MiQueryAddressState @ 0x140271C00 (MiQueryAddressState.c)
- *     MiPageTableLockIsContended @ 0x1402E6A30 (MiPageTableLockIsContended.c)
- *     MiUnlockPageTableInternal @ 0x1403195C0 (MiUnlockPageTableInternal.c)
- *     MiIsPageTableLocked @ 0x14035E09C (MiIsPageTableLocked.c)
+ *     MiLockPageTableInternal @ 0x1402377D0 (MiLockPageTableInternal.c)
+ *     MiWalkPageTablesRecursively @ 0x14025C400 (MiWalkPageTablesRecursively.c)
+ *     MiQueryAddressState @ 0x140271E90 (MiQueryAddressState.c)
+ *     MiPageTableLockIsContended @ 0x1402E6CC0 (MiPageTableLockIsContended.c)
+ *     MiUnlockPageTableInternal @ 0x140319850 (MiUnlockPageTableInternal.c)
+ *     MiIsPageTableLocked @ 0x14035E23C (MiIsPageTableLocked.c)
  * Callees:
  *     <none>
  */

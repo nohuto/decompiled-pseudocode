@@ -1,18 +1,18 @@
 /*
- * XREFs of MiInitializeSystemImagePage @ 0x1409B8190
+ * XREFs of MiInitializeSystemImagePage @ 0x1409B9190
  * Callers:
- *     MiReloadBootLoadedDrivers @ 0x1409B7C6C (MiReloadBootLoadedDrivers.c)
+ *     MiReloadBootLoadedDrivers @ 0x1409B8C6C (MiReloadBootLoadedDrivers.c)
  * Callees:
  *     MiMarkPfnVerified @ 0x14000F960 (MiMarkPfnVerified.c)
  *     MiPteInShadowRange @ 0x14003D740 (MiPteInShadowRange.c)
  *     MiSwizzleInvalidPte @ 0x14003D7C0 (MiSwizzleInvalidPte.c)
  *     MiMakeValidPte @ 0x14003D7F0 (MiMakeValidPte.c)
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
- *     MiCopyPage @ 0x1400B1C50 (MiCopyPage.c)
- *     MiInitializePfn @ 0x140109430 (MiInitializePfn.c)
- *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
- *     KeSetPagePrivilege @ 0x14028DC20 (KeSetPagePrivilege.c)
+ *     MiCopyPage @ 0x1400B1B90 (MiCopyPage.c)
+ *     MiInitializePfn @ 0x1401094B0 (MiInitializePfn.c)
+ *     MiWritePteShadow @ 0x140120F40 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120FA0 (MiPteHasShadow.c)
+ *     KeSetPagePrivilege @ 0x14028DE10 (KeSetPagePrivilege.c)
  */
 
 char __fastcall MiInitializeSystemImagePage(ULONG_PTR a1, unsigned __int64 a2, unsigned __int64 a3)
@@ -44,7 +44,7 @@ char __fastcall MiInitializeSystemImagePage(ULONG_PTR a1, unsigned __int64 a2, u
     if ( (unsigned int)MiPteHasShadow() )
     {
       v9 = 1;
-      if ( HIBYTE(word_14043A1AC) )
+      if ( HIBYTE(word_14043B26C) )
         goto LABEL_2;
       v15 = (v8 & 1) == 0;
     }
@@ -83,7 +83,7 @@ LABEL_2:
     if ( (_DWORD)ValidPte )
     {
       v12 = 1;
-      if ( HIBYTE(word_14043A1AC) )
+      if ( HIBYTE(word_14043B26C) )
         goto LABEL_7;
       v17 = (v16 & 1) == 0;
     }

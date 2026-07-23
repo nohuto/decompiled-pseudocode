@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpPciHandleSecureAccess @ 0x1404D271C
+ * XREFs of HalpPciHandleSecureAccess @ 0x1404D295C
  * Callers:
- *     HalpAcpiAccessSecureAddress @ 0x1404D2B70 (HalpAcpiAccessSecureAddress.c)
+ *     HalpAcpiAccessSecureAddress @ 0x1404D2DB0 (HalpAcpiAccessSecureAddress.c)
  * Callees:
- *     HalpPCIConfig @ 0x1402B1B20 (HalpPCIConfig.c)
- *     HalpPciIsAddressWithinMcfg @ 0x1404D27DC (HalpPciIsAddressWithinMcfg.c)
+ *     HalpPCIConfig @ 0x14022FCD0 (HalpPCIConfig.c)
+ *     HalpPciIsAddressWithinMcfg @ 0x1404D2A1C (HalpPciIsAddressWithinMcfg.c)
  */
 
 char __fastcall HalpPciHandleSecureAccess(char a1, __int16 a2, __int64 a3, void *a4, unsigned int a5, unsigned int *a6)

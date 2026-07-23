@@ -1,8 +1,8 @@
 /*
- * XREFs of KiGetInterruptObjectFromVector @ 0x1403BF648
+ * XREFs of KiGetInterruptObjectFromVector @ 0x1403AE208
  * Callers:
- *     KiInterruptDispatchCommon @ 0x1403BF7F8 (KiInterruptDispatchCommon.c)
- *     KeQueryWakeSource @ 0x1405B095C (KeQueryWakeSource.c)
+ *     KiInterruptDispatchCommon @ 0x1403AE3B8 (KiInterruptDispatchCommon.c)
+ *     KeQueryWakeSource @ 0x1405AD8CC (KeQueryWakeSource.c)
  * Callees:
  *     <none>
  */

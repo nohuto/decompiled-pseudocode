@@ -1,22 +1,22 @@
 /*
- * XREFs of ExAcquireFastResourceWithFlags @ 0x140656180
+ * XREFs of ExAcquireFastResourceWithFlags @ 0x140654880
  * Callers:
  *     <none>
  * Callees:
- *     KxAcquireSpinLock @ 0x140254AE0 (KxAcquireSpinLock.c)
- *     KeAbPostReleaseEx @ 0x14025CCE0 (KeAbPostReleaseEx.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14025E408 (KiRemoveSystemWorkPriorityKick.c)
- *     KxReleaseSpinLock @ 0x140279CC0 (KxReleaseSpinLock.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     ObfReferenceObjectWithTag @ 0x1403403E0 (ObfReferenceObjectWithTag.c)
- *     ExpAcquireFastResourceSharedSlow @ 0x140341510 (ExpAcquireFastResourceSharedSlow.c)
- *     ExpAcquireFastResourceExclusiveSlow @ 0x1403DD330 (ExpAcquireFastResourceExclusiveSlow.c)
- *     KeAbMarkCrossThreadReleasable @ 0x1403DD90C (KeAbMarkCrossThreadReleasable.c)
- *     ExpAddFastOwnerEntryToThreadList @ 0x14040C760 (ExpAddFastOwnerEntryToThreadList.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
+ *     KxReleaseSpinLock @ 0x14022F250 (KxReleaseSpinLock.c)
+ *     KxAcquireSpinLock @ 0x1402850F0 (KxAcquireSpinLock.c)
+ *     KeAbPostReleaseEx @ 0x14028D2F0 (KeAbPostReleaseEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14028EA18 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     ObfReferenceObjectWithTag @ 0x14031F8C0 (ObfReferenceObjectWithTag.c)
+ *     ExpAcquireFastResourceSharedSlow @ 0x1403209F0 (ExpAcquireFastResourceSharedSlow.c)
+ *     ExpAcquireFastResourceExclusiveSlow @ 0x1403BD020 (ExpAcquireFastResourceExclusiveSlow.c)
+ *     KeAbMarkCrossThreadReleasable @ 0x1403BD5FC (KeAbMarkCrossThreadReleasable.c)
+ *     ExpAddFastOwnerEntryToThreadList @ 0x140404DF0 (ExpAddFastOwnerEntryToThreadList.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
  */
 
-char __fastcall ExAcquireFastResourceWithFlags(ULONG_PTR BugCheckParameter2, ULONG_PTR a2, char a3)
+char __fastcall ExAcquireFastResourceWithFlags(ULONG_PTR BugCheckParameter2, ULONG_PTR a2, unsigned int a3)
 {
   char v3; // di
   unsigned __int64 CurrentThread; // r15
@@ -26,7 +26,7 @@ char __fastcall ExAcquireFastResourceWithFlags(ULONG_PTR BugCheckParameter2, ULO
   unsigned __int8 CurrentIrql; // cl
   struct _KTHREAD *v12; // r8
   __int64 v13; // rdx
-  _QWORD *v14; // rsi
+  char *v14; // rsi
   __int64 v15; // rax
   char v16; // r14
   char v17; // r13
@@ -82,7 +82,7 @@ char __fastcall ExAcquireFastResourceWithFlags(ULONG_PTR BugCheckParameter2, ULO
         {
           if ( CurrentIrql || (v12->MiscFlags & 0x400) != 0 || v12->WaitBlock[3].SpareLong )
           {
-            v14 = KeAbPreAcquire(BugCheckParameter2, 0LL);
+            v14 = (char *)KeAbPreAcquire(BugCheckParameter2, 0LL);
             v15 = _InterlockedCompareExchange64((volatile signed __int64 *)BugCheckParameter2, 1LL, 0LL);
             if ( !v15 )
             {
@@ -97,8 +97,8 @@ char __fastcall ExAcquireFastResourceWithFlags(ULONG_PTR BugCheckParameter2, ULO
               *(_QWORD *)(BugCheckParameter2 + 80) = CurrentThread | (v20 != 0);
               if ( v14 )
               {
-                v21 = v14[1] & 0x3F;
-                *((_BYTE *)v14 + 10) = 1;
+                v21 = v14[8] & 0x3F;
+                v14[10] = 1;
                 *(_BYTE *)(BugCheckParameter2 + 100) = (2 * v21) | 1;
               }
               if ( v18 )
@@ -136,7 +136,7 @@ char __fastcall ExAcquireFastResourceWithFlags(ULONG_PTR BugCheckParameter2, ULO
               {
                 if ( v19 && v14 )
                 {
-                  v27 = v14;
+                  v27 = (__int64 *)v14;
 LABEL_93:
                   KeAbMarkCrossThreadReleasable((__int64)CurrentPrcb, v27);
                 }
@@ -155,12 +155,7 @@ LABEL_94:
             }
             if ( v9 )
             {
-              ExpAcquireFastResourceExclusiveSlow(
-                (signed __int64 *)BugCheckParameter2,
-                v15,
-                CurrentThread,
-                (__int64)v14,
-                a3);
+              ExpAcquireFastResourceExclusiveSlow((signed __int64 *)BugCheckParameter2, v15, CurrentThread, v14, a3);
               return v3;
             }
             if ( v14 )

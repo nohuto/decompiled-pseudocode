@@ -1,11 +1,11 @@
 /*
- * XREFs of PopNotifySessionUserPowerRequestDeleted @ 0x14067CD68
+ * XREFs of PopNotifySessionUserPowerRequestDeleted @ 0x1406709B4
  * Callers:
- *     PopPowerRequestCleanUp @ 0x14028278C (PopPowerRequestCleanUp.c)
+ *     PopPowerRequestCleanUp @ 0x140270A38 (PopPowerRequestCleanUp.c)
  * Callees:
- *     PopUmpoSendPowerMessage @ 0x140282A48 (PopUmpoSendPowerMessage.c)
- *     memset @ 0x140414200 (memset.c)
- *     TtmNotifySessionPowerRequestDeleted @ 0x1408FEBD4 (TtmNotifySessionPowerRequestDeleted.c)
+ *     PopUmpoSendPowerMessage @ 0x140270CF4 (PopUmpoSendPowerMessage.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     TtmNotifySessionPowerRequestDeleted @ 0x1408FED34 (TtmNotifySessionPowerRequestDeleted.c)
  */
 
 __int64 __fastcall PopNotifySessionUserPowerRequestDeleted(__int64 a1, int a2)

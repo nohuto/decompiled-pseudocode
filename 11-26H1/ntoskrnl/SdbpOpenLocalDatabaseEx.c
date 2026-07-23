@@ -1,15 +1,15 @@
 /*
- * XREFs of SdbpOpenLocalDatabaseEx @ 0x14088620C
+ * XREFs of SdbpOpenLocalDatabaseEx @ 0x14088C60C
  * Callers:
- *     SdbTagRefToTagID @ 0x140885C68 (SdbTagRefToTagID.c)
+ *     SdbTagRefToTagID @ 0x14088C068 (SdbTagRefToTagID.c)
  * Callees:
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     SdbOpenDatabaseEx @ 0x140880C68 (SdbOpenDatabaseEx.c)
- *     SdbpGetFileTimestamp @ 0x140880F74 (SdbpGetFileTimestamp.c)
- *     SdbpCheckRuntimePlatformImpl @ 0x140883D9C (SdbpCheckRuntimePlatformImpl.c)
- *     SdbpCloseLocalDatabaseEx @ 0x140886124 (SdbpCloseLocalDatabaseEx.c)
- *     SdbResolveDatabaseEx @ 0x140886554 (SdbResolveDatabaseEx.c)
- *     AslLogCallPrintf @ 0x1409E8884 (AslLogCallPrintf.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     SdbOpenDatabaseEx @ 0x140887068 (SdbOpenDatabaseEx.c)
+ *     SdbpGetFileTimestamp @ 0x140887374 (SdbpGetFileTimestamp.c)
+ *     SdbpCheckRuntimePlatformImpl @ 0x14088A19C (SdbpCheckRuntimePlatformImpl.c)
+ *     SdbpCloseLocalDatabaseEx @ 0x14088C524 (SdbpCloseLocalDatabaseEx.c)
+ *     SdbResolveDatabaseEx @ 0x14088C954 (SdbResolveDatabaseEx.c)
+ *     AslLogCallPrintf @ 0x1409D5294 (AslLogCallPrintf.c)
  */
 
 __int64 __fastcall SdbpOpenLocalDatabaseEx(__int64 a1, __int128 *a2, __int64 a3, _QWORD *a4, unsigned int *a5)

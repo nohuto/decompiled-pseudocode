@@ -4,9 +4,9 @@
  *     IoWMIHandleToInstanceName @ 0x1406C1900 (IoWMIHandleToInstanceName.c)
  * Callees:
  *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
- *     RtlStringCbPrintfW @ 0x1402E1280 (RtlStringCbPrintfW.c)
+ *     sub_1402E1280 @ 0x1402E1280 (sub_1402E1280.c)
  *     IoGetDeviceAttachmentBaseRef @ 0x14036B850 (IoGetDeviceAttachmentBaseRef.c)
- *     WmipGetGuidObjectInstanceInfo @ 0x1406C1A74 (WmipGetGuidObjectInstanceInfo.c)
+ *     sub_1406C1A74 @ 0x1406C1A74 (sub_1406C1A74.c)
  *     RtlFreeUnicodeString @ 0x1407023F0 (RtlFreeUnicodeString.c)
  *     ExAllocatePoolWithTag @ 0x140A6E910 (ExAllocatePoolWithTag.c)
  */
@@ -17,7 +17,7 @@ NTSTATUS __stdcall IoWMIDeviceObjectToInstanceName(
         PUNICODE_STRING InstanceName)
 {
   PDEVICE_OBJECT DeviceAttachmentBaseRef; // rbp
-  NTSTATUS GuidObjectInstanceInfo; // ebx
+  NTSTATUS v6; // ebx
   SIZE_T v7; // rdx
   wchar_t *PoolWithTag; // rax
   __int64 v9; // rax
@@ -27,8 +27,8 @@ NTSTATUS __stdcall IoWMIDeviceObjectToInstanceName(
   v12 = 0;
   UnicodeString = 0LL;
   DeviceAttachmentBaseRef = IoGetDeviceAttachmentBaseRef(DeviceObject);
-  GuidObjectInstanceInfo = WmipGetGuidObjectInstanceInfo(DataBlockObject, DeviceAttachmentBaseRef, &UnicodeString, &v12);
-  if ( GuidObjectInstanceInfo >= 0 )
+  v6 = sub_1406C1A74(DataBlockObject, DeviceAttachmentBaseRef, &UnicodeString, &v12);
+  if ( v6 >= 0 )
   {
     v7 = (unsigned __int16)(UnicodeString.Length + 32);
     InstanceName->MaximumLength = v7;
@@ -36,21 +36,21 @@ NTSTATUS __stdcall IoWMIDeviceObjectToInstanceName(
     InstanceName->Buffer = PoolWithTag;
     if ( PoolWithTag )
     {
-      RtlStringCbPrintfW(PoolWithTag, InstanceName->MaximumLength, L"%ws_%d", UnicodeString.Buffer, v12);
+      sub_1402E1280(PoolWithTag, InstanceName->MaximumLength, L"%ws_%d", UnicodeString.Buffer, v12);
       v9 = -1LL;
       do
         ++v9;
       while ( InstanceName->Buffer[v9] );
-      GuidObjectInstanceInfo = 0;
+      v6 = 0;
       InstanceName->Length = 2 * v9;
     }
     else
     {
-      GuidObjectInstanceInfo = -1073741670;
+      v6 = -1073741670;
     }
     if ( UnicodeString.Buffer )
       RtlFreeUnicodeString(&UnicodeString);
   }
   ObfDereferenceObject(DeviceAttachmentBaseRef);
-  return GuidObjectInstanceInfo;
+  return v6;
 }

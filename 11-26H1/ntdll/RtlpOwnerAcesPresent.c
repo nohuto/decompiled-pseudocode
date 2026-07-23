@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlpOwnerAcesPresent @ 0x18005D610
+ * XREFs of RtlpOwnerAcesPresent @ 0x180047B90
  * Callers:
- *     RtlpNewSecurityObject @ 0x18005E6A0 (RtlpNewSecurityObject.c)
- *     RtlOwnerAcesPresent @ 0x180111E70 (RtlOwnerAcesPresent.c)
+ *     RtlpNewSecurityObject @ 0x180048C20 (RtlpNewSecurityObject.c)
+ *     RtlOwnerAcesPresent @ 0x180111920 (RtlOwnerAcesPresent.c)
  * Callees:
- *     memcmp @ 0x1801649D0 (memcmp.c)
+ *     memcmp @ 0x1801648D0 (memcmp.c)
  */
 
 char __fastcall RtlpOwnerAcesPresent(unsigned __int8 a1, __int64 a2)

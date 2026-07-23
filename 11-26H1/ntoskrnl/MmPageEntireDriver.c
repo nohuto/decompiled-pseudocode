@@ -1,15 +1,15 @@
 /*
- * XREFs of MmPageEntireDriver @ 0x140AC9AA0
+ * XREFs of MmPageEntireDriver @ 0x140ACBBB0
  * Callers:
- *     DifMmPageEntireDriverWrapper @ 0x140667C50 (DifMmPageEntireDriverWrapper.c)
+ *     DifMmPageEntireDriverWrapper @ 0x14066B830 (DifMmPageEntireDriverWrapper.c)
  * Callees:
- *     MI_IS_PHYSICAL_ADDRESS @ 0x14024C8D0 (MI_IS_PHYSICAL_ADDRESS.c)
- *     MiSetPagingOfDriver @ 0x14030F6BC (MiSetPagingOfDriver.c)
- *     MiGetPteAddress @ 0x1404468C0 (MiGetPteAddress.c)
- *     MiLockLoadedDataTableEntryIfNecessary @ 0x1404ABD44 (MiLockLoadedDataTableEntryIfNecessary.c)
- *     KeFlushQueuedDpcs @ 0x14051BE50 (KeFlushQueuedDpcs.c)
- *     MmUnlockLoadedDataTableEntry @ 0x14051E3A8 (MmUnlockLoadedDataTableEntry.c)
- *     MiCancelPhase0Locking @ 0x140AC9B58 (MiCancelPhase0Locking.c)
+ *     MI_IS_PHYSICAL_ADDRESS @ 0x14024E230 (MI_IS_PHYSICAL_ADDRESS.c)
+ *     MiSetPagingOfDriver @ 0x1402F173C (MiSetPagingOfDriver.c)
+ *     MiGetPteAddress @ 0x14043F3C0 (MiGetPteAddress.c)
+ *     MiLockLoadedDataTableEntryIfNecessary @ 0x1404A53D4 (MiLockLoadedDataTableEntryIfNecessary.c)
+ *     KeFlushQueuedDpcs @ 0x1405163E0 (KeFlushQueuedDpcs.c)
+ *     MmUnlockLoadedDataTableEntry @ 0x1405209B8 (MmUnlockLoadedDataTableEntry.c)
+ *     MiCancelPhase0Locking @ 0x140ACBC68 (MiCancelPhase0Locking.c)
  */
 
 PVOID __stdcall MmPageEntireDriver(PVOID AddressWithinSection)
@@ -29,7 +29,7 @@ PVOID __stdcall MmPageEntireDriver(PVOID AddressWithinSection)
   if ( !v2 )
     return 0LL;
   Flink = v2[3].Flink;
-  if ( (dword_140FBE204 & 1) == 0 )
+  if ( (dword_140FBF204 & 1) == 0 )
   {
     KeFlushQueuedDpcs();
     PteAddress = MiGetPteAddress((unsigned __int64)Flink);

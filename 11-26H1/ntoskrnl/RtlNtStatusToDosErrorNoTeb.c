@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlNtStatusToDosErrorNoTeb @ 0x140473A00
+ * XREFs of RtlNtStatusToDosErrorNoTeb @ 0x14046D180
  * Callers:
- *     RtlNtStatusToDosError @ 0x140A62640 (RtlNtStatusToDosError.c)
+ *     RtlNtStatusToDosError @ 0x140A6F610 (RtlNtStatusToDosError.c)
  * Callees:
  *     <none>
  */
@@ -31,7 +31,7 @@ ULONG __stdcall RtlNtStatusToDosErrorNoTeb(NTSTATUS Status)
     if ( (Status & 0xF0000000) != 0xD0000000 )
       v2 = Status;
     v3 = 0;
-    v4 = 341;
+    v4 = 342;
     while ( 1 )
     {
       v5 = (v3 + v4) >> 1;

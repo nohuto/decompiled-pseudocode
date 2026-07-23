@@ -13,11 +13,11 @@
  *     memmove @ 0x1800A32C0 (memmove.c)
  */
 
-__int64 sub_1800F88D8()
+_WORD *sub_1800F88D8()
 {
   USHORT v0; // r15
   ULONG v1; // r13d
-  __int64 Heap; // rdi
+  _WORD *Heap; // rdi
   __int64 v3; // rbp
   __int64 v4; // rbx
   _QWORD *v5; // rcx
@@ -33,7 +33,7 @@ __int64 sub_1800F88D8()
   v1 = BackTraceHash[0];
   Heap = RtlAllocateHeap(qword_180166A08, 0, 8LL * v0 + 24);
   v3 = v1 & 0xF;
-  RtlAcquireSRWLockExclusive(*(volatile signed __int64 **)(qword_180166A00 + 8 * v3));
+  RtlAcquireSRWLockExclusive(*(PRTL_SRWLOCK *)(qword_180166A00 + 8 * v3));
   v4 = qword_180166880;
   v5 = (_QWORD *)(qword_180166880 + 16LL * v1);
   v6 = (_QWORD *)*v5;
@@ -42,25 +42,25 @@ __int64 sub_1800F88D8()
 LABEL_6:
     if ( Heap )
     {
-      *(_WORD *)(Heap + 16) = v0;
-      *(_WORD *)(Heap + 18) = v1;
-      *(_DWORD *)(Heap + 20) = 1;
-      memmove((void *)(Heap + 24), BackTrace, 8LL * v0);
+      Heap[8] = v0;
+      Heap[9] = v1;
+      *((_DWORD *)Heap + 5) = 1;
+      memmove(Heap + 12, BackTrace, 8LL * v0);
       v8 = v4 + 16LL * v1;
       v9 = *(_QWORD *)v8;
       if ( *(_QWORD *)(*(_QWORD *)v8 + 8LL) != v8 )
         __fastfail(3u);
       *(_QWORD *)Heap = v9;
-      *(_QWORD *)(Heap + 8) = v8;
+      *((_QWORD *)Heap + 1) = v8;
       *(_QWORD *)(v9 + 8) = Heap;
       *(_QWORD *)v8 = Heap;
       _InterlockedIncrement(&dword_180166878);
-      RtlReleaseSRWLockExclusive(*(volatile signed __int64 **)(qword_180166A00 + 8 * v3));
+      RtlReleaseSRWLockExclusive(*(PRTL_SRWLOCK *)(qword_180166A00 + 8 * v3));
       return Heap;
     }
     else
     {
-      RtlReleaseSRWLockExclusive(*(volatile signed __int64 **)(qword_180166A00 + 8 * v3));
+      RtlReleaseSRWLockExclusive(*(PRTL_SRWLOCK *)(qword_180166A00 + 8 * v3));
       return 0LL;
     }
   }
@@ -77,8 +77,8 @@ LABEL_5:
     goto LABEL_5;
   }
   ++*((_DWORD *)v6 + 5);
-  RtlReleaseSRWLockExclusive(*(volatile signed __int64 **)(qword_180166A00 + 8 * v3));
+  RtlReleaseSRWLockExclusive(*(PRTL_SRWLOCK *)(qword_180166A00 + 8 * v3));
   if ( Heap )
     RtlFreeHeap(qword_180166A08, 0, Heap);
-  return (__int64)v6;
+  return v6;
 }

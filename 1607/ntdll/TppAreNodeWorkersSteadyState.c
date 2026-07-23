@@ -1,7 +1,7 @@
 /*
- * XREFs of TppAreNodeWorkersSteadyState @ 0x18008EC88
+ * XREFs of TppAreNodeWorkersSteadyState @ 0x18008EC78
  * Callers:
- *     TppWorkerThread @ 0x18001E750 (TppWorkerThread.c)
+ *     TppWorkerThread @ 0x18001E740 (TppWorkerThread.c)
  * Callees:
  *     <none>
  */

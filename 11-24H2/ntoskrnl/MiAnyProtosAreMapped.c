@@ -1,10 +1,10 @@
 /*
- * XREFs of MiAnyProtosAreMapped @ 0x14045B2B8
+ * XREFs of MiAnyProtosAreMapped @ 0x1404506B8
  * Callers:
- *     MiTrimSection @ 0x1402B9B70 (MiTrimSection.c)
+ *     MiTrimSection @ 0x1403612B0 (MiTrimSection.c)
  * Callees:
- *     MiCheckProtoPtePageState @ 0x14023BE50 (MiCheckProtoPtePageState.c)
- *     MiUnlockProtoPoolPage @ 0x14028CBF0 (MiUnlockProtoPoolPage.c)
+ *     MiUnlockProtoPoolPage @ 0x14029C7F0 (MiUnlockProtoPoolPage.c)
+ *     MiCheckProtoPtePageState @ 0x140345BB0 (MiCheckProtoPtePageState.c)
  */
 
 __int64 __fastcall MiAnyProtosAreMapped(__int64 a1, _QWORD *a2)
@@ -13,13 +13,14 @@ __int64 __fastcall MiAnyProtosAreMapped(__int64 a1, _QWORD *a2)
   unsigned __int64 v4; // rbx
   unsigned __int64 v5; // rdi
   unsigned __int64 v6; // rdx
-  ULONG_PTR v7; // rbp
+  __int64 v7; // rbp
   __int64 v8; // r8
-  unsigned __int64 v9; // rcx
-  char v11; // [rsp+40h] [rbp+8h] BYREF
+  __int64 v9; // r9
+  unsigned __int64 v10; // rcx
+  char v12; // [rsp+40h] [rbp+8h] BYREF
 
   v2 = 0;
-  v11 = 17;
+  v12 = 17;
   if ( a1 == a2[3] )
     v4 = a2[1];
   else
@@ -32,13 +33,13 @@ __int64 __fastcall MiAnyProtosAreMapped(__int64 a1, _QWORD *a2)
   {
     do
     {
-      v7 = MiCheckProtoPtePageState(*(_QWORD *)a1, v4, 0, &v11);
+      v7 = MiCheckProtoPtePageState(*(_QWORD *)a1, v4, 0, &v12);
       if ( v7 )
       {
-        v9 = v5;
+        v10 = v5;
         if ( v5 > (v4 & 0xFFFFFFFFFFFFF000uLL) + 4096 )
-          v9 = (v4 & 0xFFFFFFFFFFFFF000uLL) + 4096;
-        while ( v4 < v9 )
+          v10 = (v4 & 0xFFFFFFFFFFFFF000uLL) + 4096;
+        while ( v4 < v10 )
         {
           if ( (*(_QWORD *)v4 & 1) != 0 )
           {
@@ -48,23 +49,23 @@ __int64 __fastcall MiAnyProtosAreMapped(__int64 a1, _QWORD *a2)
           }
           v4 += 8LL;
         }
-        LOBYTE(v6) = v11;
-        if ( v11 != 17 )
+        LOBYTE(v6) = v12;
+        if ( v12 != 17 )
         {
-          MiUnlockProtoPoolPage(v7, v6, v8);
+          MiUnlockProtoPoolPage(v7, v6, v8, v9);
           LOBYTE(v6) = 17;
-          v11 = 17;
+          v12 = 17;
         }
       }
       else
       {
-        LOBYTE(v6) = v11;
+        LOBYTE(v6) = v12;
         v4 = (v4 & 0xFFFFFFFFFFFFF000uLL) + 4096;
       }
     }
     while ( v4 < v5 );
     if ( (_BYTE)v6 != 17 )
-      MiUnlockProtoPoolPage(v7, v6, v8);
+      MiUnlockProtoPoolPage(v7, v6, v8, v9);
   }
   return v2;
 }

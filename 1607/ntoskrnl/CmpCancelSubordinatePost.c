@@ -1,8 +1,8 @@
 /*
- * XREFs of CmpCancelSubordinatePost @ 0x14049AC48
+ * XREFs of CmpCancelSubordinatePost @ 0x1403E3B68
  * Callers:
- *     CmpPostNotify @ 0x14049A9D4 (CmpPostNotify.c)
- *     CmNotifyRunDown @ 0x1405152B8 (CmNotifyRunDown.c)
+ *     CmpPostNotify @ 0x1403E38F4 (CmpPostNotify.c)
+ *     CmNotifyRunDown @ 0x1404F86A8 (CmNotifyRunDown.c)
  * Callees:
  *     <none>
  */

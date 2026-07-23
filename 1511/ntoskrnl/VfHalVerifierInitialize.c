@@ -10,8 +10,8 @@ __int64 VfHalVerifierInitialize()
 {
   Lock = 0LL;
   qword_1406E01F8 = 0LL;
-  *(&ViAdapterList + 1) = (ULONG_PTR)&ViAdapterList;
-  ViAdapterList = (ULONG_PTR)&ViAdapterList;
+  ViAdapterList.Blink = &ViAdapterList;
+  ViAdapterList.Flink = &ViAdapterList;
   qword_1406E01F0 = (__int64)&ViDomainCommonBufferList;
   ViDomainCommonBufferList = (__int64)&ViDomainCommonBufferList;
   pXdvExInitializeNPagedLookasideList(

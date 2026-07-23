@@ -17,45 +17,47 @@
  *     RtlReleaseStackTrace @ 0x1800E4730 (RtlReleaseStackTrace.c)
  */
 
-__int64 __fastcall RtlDeleteCriticalSection(__int64 *a1)
+NTSTATUS __cdecl RtlDeleteCriticalSection(PRTL_CRITICAL_SECTION CriticalSection)
 {
-  char *v2; // rcx
-  unsigned int v3; // r14d
-  __int64 v4; // rbx
+  char *LockSemaphore; // rcx
+  NTSTATUS v3; // r14d
+  _RTL_CRITICAL_SECTION_DEBUG *DebugInfo; // rbx
   BOOL v6; // edi
-  __int64 *v7; // rax
-  __int64 *v8; // rdx
-  __int64 **v9; // rcx
+  _LIST_ENTRY *p_ProcessLocksList; // rax
+  _LIST_ENTRY *Flink; // rdx
+  _LIST_ENTRY *Blink; // rcx
   __int64 StackTraceAddress; // rax
 
-  v2 = (char *)a1[3];
-  if ( (unsigned __int64)(v2 - 1) <= 0xFFFFFFFFFFFFFFFDuLL )
-    v3 = NtClose(v2);
+  LockSemaphore = (char *)CriticalSection->LockSemaphore;
+  if ( (unsigned __int64)(LockSemaphore - 1) <= 0xFFFFFFFFFFFFFFFDuLL )
+    v3 = NtClose(LockSemaphore);
   else
     v3 = 0;
-  v4 = *a1;
-  if ( (unsigned __int64)(*a1 - 1) <= 0xFFFFFFFFFFFFFFFDuLL )
+  DebugInfo = CriticalSection->DebugInfo;
+  if ( (unsigned __int64)&CriticalSection->DebugInfo[-1].SpareUSHORT + 1 <= 0xFFFFFFFFFFFFFFFDuLL )
   {
-    v6 = (a1[4] & 0x4000000) == 0;
+    v6 = (CriticalSection->SpinCount & 0x4000000) == 0LL;
     RtlAcquireSRWLockExclusive(&RtlCriticalSectionLock);
-    v7 = (__int64 *)(v4 + 16);
-    if ( *(_QWORD *)(v4 + 16) )
+    p_ProcessLocksList = &DebugInfo->ProcessLocksList;
+    if ( DebugInfo->ProcessLocksList.Flink )
     {
-      v8 = (__int64 *)*v7;
-      v9 = *(__int64 ***)(v4 + 24);
-      if ( *(__int64 **)(*v7 + 8) != v7 || *v9 != v7 )
+      Flink = p_ProcessLocksList->Flink;
+      Blink = DebugInfo->ProcessLocksList.Blink;
+      if ( p_ProcessLocksList->Flink->Blink != p_ProcessLocksList || Blink->Flink != p_ProcessLocksList )
         __fastfail(3u);
-      *v9 = v8;
-      v8[1] = (__int64)v9;
+      Blink->Flink = Flink;
+      Flink->Blink = Blink;
     }
     RtlReleaseSRWLockExclusive(&RtlCriticalSectionLock);
-    StackTraceAddress = RtlpGetStackTraceAddressEx(*(unsigned __int16 *)(v4 + 2), *(unsigned __int16 *)(v4 + 44));
+    StackTraceAddress = RtlpGetStackTraceAddressEx(
+                          DebugInfo->CreatorBackTraceIndex,
+                          DebugInfo->CreatorBackTraceIndexHigh);
     if ( StackTraceAddress )
       RtlReleaseStackTrace(StackTraceAddress);
-    memset((void *)v4, 0, 0x30uLL);
+    memset(DebugInfo, 0, sizeof(_RTL_CRITICAL_SECTION_DEBUG));
     if ( v6 )
-      RtlpFreeDebugInfo(v4);
+      RtlpFreeDebugInfo(DebugInfo);
   }
-  memset(a1, 0, 0x28uLL);
+  memset(CriticalSection, 0, sizeof(_RTL_CRITICAL_SECTION));
   return v3;
 }

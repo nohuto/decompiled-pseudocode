@@ -1,47 +1,47 @@
 /*
- * XREFs of MiDeletePagingFiles @ 0x1408D059C
+ * XREFs of MiDeletePagingFiles @ 0x1408D06FC
  * Callers:
- *     MiDeletePartitionResources @ 0x140561918 (MiDeletePartitionResources.c)
- *     MiShutdownSystem @ 0x1409AFDB8 (MiShutdownSystem.c)
+ *     MiDeletePartitionResources @ 0x140561B58 (MiDeletePartitionResources.c)
+ *     MiShutdownSystem @ 0x1409B0CE8 (MiShutdownSystem.c)
  * Callees:
- *     MiReturnCommit @ 0x1403182A0 (MiReturnCommit.c)
- *     MiDeletePagefile @ 0x1408D048C (MiDeletePagefile.c)
+ *     MiReturnCommit @ 0x140322FF0 (MiReturnCommit.c)
+ *     MiDeletePagefile @ 0x1408D05EC (MiDeletePagefile.c)
  */
 
-__int64 __fastcall MiDeletePagingFiles(__int64 a1)
+__int64 __fastcall MiDeletePagingFiles(__int64 a1, __int64 a2, __int64 a3, _DWORD *a4)
 {
-  unsigned int v1; // eax
-  __int64 v2; // rbx
-  __int64 v3; // rdi
-  __int64 *v5; // r14
-  __int64 v6; // rbp
-  __int64 v7; // rcx
+  unsigned int v4; // eax
+  __int64 v5; // rbx
+  __int64 v6; // rdi
+  __int64 *v8; // r14
+  __int64 v9; // rbp
+  __int64 v10; // rcx
 
-  v1 = *(_DWORD *)(a1 + 6936);
-  v2 = 0LL;
-  v3 = 0LL;
-  if ( v1 )
+  v4 = *(_DWORD *)(a1 + 6936);
+  v5 = 0LL;
+  v6 = 0LL;
+  if ( v4 )
   {
-    v5 = (__int64 *)(a1 + 6944);
-    v6 = v1;
+    v8 = (__int64 *)(a1 + 6944);
+    v9 = v4;
     do
     {
-      v7 = *v5;
-      if ( *v5 )
+      v10 = *v8;
+      if ( *v8 )
       {
-        if ( (*(_BYTE *)(v7 + 204) & 0x50) == 0 )
+        if ( (*(_BYTE *)(v10 + 204) & 0x50) == 0 )
         {
-          v3 += *(_QWORD *)v7;
-          v2 += 2LL;
+          v6 += *(_QWORD *)v10;
+          v5 += 2LL;
         }
-        MiDeletePagefile(v7, 1);
+        MiDeletePagefile(v10, 1LL, a3, a4);
       }
-      ++v5;
-      --v6;
+      ++v8;
+      --v9;
     }
-    while ( v6 );
-    if ( v2 )
-      MiReturnCommit(a1, v2);
+    while ( v9 );
+    if ( v5 )
+      MiReturnCommit(a1, v5);
   }
-  return v3;
+  return v6;
 }

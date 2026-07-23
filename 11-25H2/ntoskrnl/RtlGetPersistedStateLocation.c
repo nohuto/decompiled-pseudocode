@@ -34,24 +34,24 @@
  *     ExFreePoolWithTag @ 0x140B62CD0 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall RtlGetPersistedStateLocation(
-        PCWSTR SourceString,
-        const WCHAR *a2,
-        _WORD *a3,
-        unsigned int a4,
-        void *a5,
-        unsigned int a6,
-        unsigned int *a7)
+NTSTATUS __cdecl RtlGetPersistedStateLocation(
+        PCWSTR SourceID,
+        PCWSTR CustomValue,
+        PCWSTR DefaultPath,
+        STATE_LOCATION_TYPE StateLocationType,
+        PWCHAR TargetPath,
+        ULONG BufferLengthIn,
+        PULONG BufferLengthOut)
 {
-  _DWORD *Pool2; // rdi
-  signed int v11; // ebx
+  WCHAR *Pool2; // rdi
+  NTSTATUS v11; // ebx
   __int64 v12; // rax
   unsigned int v13; // eax
   unsigned int v14; // ecx
-  const void *v16; // rdx
+  PCWSTR v16; // rdx
   NTSTATUS v17; // eax
   NTSTATUS v18; // eax
-  unsigned int v19; // esi
+  ULONG v19; // esi
   ULONG Length; // ebx
   NTSTATUS v21; // eax
   unsigned __int64 v22; // rax
@@ -67,8 +67,8 @@ __int64 __fastcall RtlGetPersistedStateLocation(
   Pool2 = 0LL;
   memset(&ObjectAttributes, 0, 44);
   DestinationString = 0LL;
-  if ( a4 > 1 )
-    return 3221225713LL;
+  if ( (unsigned int)StateLocationType > LocationTypeFileSystem )
+    return -1073741583;
   if ( byte_140E67559 )
   {
     v11 = -1073741772;
@@ -76,7 +76,7 @@ __int64 __fastcall RtlGetPersistedStateLocation(
   else
   {
     ObjectAttributes.Length = 48;
-    ObjectAttributes.ObjectName = (PUNICODE_STRING)&qword_140B2CF08[2 * (int)a4];
+    ObjectAttributes.ObjectName = (PUNICODE_STRING)&qword_140B2CF08[2 * StateLocationType];
     ObjectAttributes.RootDirectory = 0LL;
     ObjectAttributes.Attributes = 576;
     *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
@@ -90,7 +90,7 @@ __int64 __fastcall RtlGetPersistedStateLocation(
     {
       if ( v17 < 0 )
         goto LABEL_9;
-      RtlInitUnicodeString(&DestinationString, SourceString);
+      RtlInitUnicodeString(&DestinationString, SourceID);
       ObjectAttributes.RootDirectory = KeyHandle;
       ObjectAttributes.Length = 48;
       ObjectAttributes.ObjectName = &DestinationString;
@@ -102,14 +102,14 @@ __int64 __fastcall RtlGetPersistedStateLocation(
       {
         if ( v18 < 0 )
           goto LABEL_9;
-        if ( !a2 )
-          a2 = L"TargetNtPath";
-        RtlInitUnicodeString(&DestinationString, a2);
-        v19 = a6;
-        Length = a6 + 16;
-        if ( a6 + 16 < a6 )
+        if ( !CustomValue )
+          CustomValue = L"TargetNtPath";
+        RtlInitUnicodeString(&DestinationString, CustomValue);
+        v19 = BufferLengthIn;
+        Length = BufferLengthIn + 16;
+        if ( BufferLengthIn + 16 < BufferLengthIn )
           goto LABEL_8;
-        Pool2 = (_DWORD *)ExAllocatePool2(0x100uLL);
+        Pool2 = (WCHAR *)ExAllocatePool2(0x100uLL);
         if ( !Pool2 )
         {
           v11 = -1073741801;
@@ -122,14 +122,14 @@ __int64 __fastcall RtlGetPersistedStateLocation(
           if ( v21 != -2147483643 )
             goto LABEL_9;
         }
-        else if ( Pool2[1] != 1 )
+        else if ( *((_DWORD *)Pool2 + 1) != 1 )
         {
           v11 = -1073741788;
           goto LABEL_9;
         }
-        v14 = Pool2[2];
+        v14 = *((_DWORD *)Pool2 + 2);
         ResultLength = v14;
-        if ( v21 >= 0 && *((_WORD *)Pool2 + ((unsigned __int64)v14 >> 1) + 5) )
+        if ( v21 >= 0 && Pool2[((unsigned __int64)v14 >> 1) + 5] )
         {
           v22 = v14 + 2;
           ResultLength = v22;
@@ -140,25 +140,25 @@ __int64 __fastcall RtlGetPersistedStateLocation(
           }
           else
           {
-            *((_WORD *)Pool2 + (v22 >> 1) + 5) = 0;
+            Pool2[(v22 >> 1) + 5] = 0;
             v14 = ResultLength;
           }
         }
-        if ( a7 )
-          *a7 = v14;
+        if ( BufferLengthOut )
+          *BufferLengthOut = v14;
         if ( v11 < 0 )
           goto LABEL_9;
-        v16 = Pool2 + 3;
+        v16 = Pool2 + 6;
         goto LABEL_20;
       }
     }
   }
-  if ( a3 )
+  if ( DefaultPath )
   {
     v12 = -1LL;
     do
       ++v12;
-    while ( a3[v12] );
+    while ( DefaultPath[v12] );
     v13 = v12 + 1;
     v14 = 2 * v13;
     ResultLength = 2 * v13;
@@ -168,14 +168,14 @@ LABEL_8:
       v11 = -1073741675;
       goto LABEL_9;
     }
-    v11 = a6 < v14 ? 0x80000005 : 0;
-    if ( a7 )
-      *a7 = v14;
-    if ( v14 > a6 )
+    v11 = BufferLengthIn < v14 ? 0x80000005 : 0;
+    if ( BufferLengthOut )
+      *BufferLengthOut = v14;
+    if ( v14 > BufferLengthIn )
       goto LABEL_9;
-    v16 = a3;
+    v16 = DefaultPath;
 LABEL_20:
-    memmove(a5, v16, v14);
+    memmove(TargetPath, v16, v14);
   }
 LABEL_9:
   if ( KeyHandle )
@@ -184,5 +184,5 @@ LABEL_9:
     ZwClose(Handle);
   if ( Pool2 )
     ExFreePoolWithTag(Pool2, 0);
-  return (unsigned int)v11;
+  return v11;
 }

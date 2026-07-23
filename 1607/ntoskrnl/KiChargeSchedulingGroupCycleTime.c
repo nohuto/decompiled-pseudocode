@@ -1,11 +1,11 @@
 /*
- * XREFs of KiChargeSchedulingGroupCycleTime @ 0x140099104
+ * XREFs of KiChargeSchedulingGroupCycleTime @ 0x140098904
  * Callers:
- *     KiSwapThread @ 0x14005B200 (KiSwapThread.c)
- *     KiRecomputeGroupSchedulingRank @ 0x140099064 (KiRecomputeGroupSchedulingRank.c)
- *     KiCheckMaxOverQuotaTransition @ 0x1400D0428 (KiCheckMaxOverQuotaTransition.c)
+ *     KiSwapThread @ 0x14005AD80 (KiSwapThread.c)
+ *     KiRecomputeGroupSchedulingRank @ 0x140098864 (KiRecomputeGroupSchedulingRank.c)
+ *     KiCheckMaxOverQuotaTransition @ 0x1400CE2C8 (KiCheckMaxOverQuotaTransition.c)
  * Callees:
- *     KiInsertQueueDpc @ 0x1400D82C0 (KiInsertQueueDpc.c)
+ *     KiInsertQueueDpc @ 0x1400D6160 (KiInsertQueueDpc.c)
  */
 
 bool __fastcall KiChargeSchedulingGroupCycleTime(volatile signed __int64 *a1, _QWORD *a2)

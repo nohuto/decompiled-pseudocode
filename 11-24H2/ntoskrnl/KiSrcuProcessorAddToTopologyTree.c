@@ -1,8 +1,8 @@
 /*
- * XREFs of KiSrcuProcessorAddToTopologyTree @ 0x1405C166C
+ * XREFs of KiSrcuProcessorAddToTopologyTree @ 0x1405BEC3C
  * Callers:
- *     KiSrcuProcessorInitialize @ 0x1404F9238 (KiSrcuProcessorInitialize.c)
- *     KiSrcuInitializeTopology @ 0x1405C0FF8 (KiSrcuInitializeTopology.c)
+ *     KiSrcuProcessorInitialize @ 0x1404F6B18 (KiSrcuProcessorInitialize.c)
+ *     KiSrcuInitializeTopology @ 0x1405BE5C8 (KiSrcuInitializeTopology.c)
  * Callees:
  *     <none>
  */
@@ -18,7 +18,7 @@ void __fastcall KiSrcuProcessorAddToTopologyTree(__int64 a1, int a2)
   _UNKNOWN *retaddr; // [rsp+0h] [rbp+0h] BYREF
 
   v2 = *(_DWORD *)(a1 + 36);
-  LODWORD(v3) = (unsigned __int8)byte_140F10061[0];
+  LODWORD(v3) = (unsigned __int8)byte_140F10321[0];
   while ( (_DWORD)v3 )
   {
     v3 = (unsigned int)(v3 - 1);

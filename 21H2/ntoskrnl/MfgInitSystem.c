@@ -1,19 +1,19 @@
 /*
- * XREFs of MfgInitSystem @ 0x140A73924
+ * XREFs of MfgInitSystem @ 0x140A74924
  * Callers:
- *     Phase1InitializationDiscard @ 0x140A3B6A4 (Phase1InitializationDiscard.c)
+ *     Phase1InitializationDiscard @ 0x140A3C6A4 (Phase1InitializationDiscard.c)
  * Callees:
- *     RtlStringCbCopyW @ 0x140264ED8 (RtlStringCbCopyW.c)
- *     RtlInitUnicodeStringEx @ 0x140265AF0 (RtlInitUnicodeStringEx.c)
- *     RtlStringCbPrintfW @ 0x14027EB50 (RtlStringCbPrintfW.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     ZwClose @ 0x1403FA580 (ZwClose.c)
- *     ZwOpenKey @ 0x1403FA5E0 (ZwOpenKey.c)
- *     ZwCreateKey @ 0x1403FA740 (ZwCreateKey.c)
- *     ZwSetValueKey @ 0x1403FAFA0 (ZwSetValueKey.c)
- *     ZwDeleteKey @ 0x1403FBE20 (ZwDeleteKey.c)
- *     ZwOpenKeyEx @ 0x1403FC7C0 (ZwOpenKeyEx.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     RtlStringCbCopyW @ 0x140252F68 (RtlStringCbCopyW.c)
+ *     RtlInitUnicodeStringEx @ 0x140253A90 (RtlInitUnicodeStringEx.c)
+ *     RtlStringCbPrintfW @ 0x14026CAF0 (RtlStringCbPrintfW.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     ZwClose @ 0x1403FA760 (ZwClose.c)
+ *     ZwOpenKey @ 0x1403FA7C0 (ZwOpenKey.c)
+ *     ZwCreateKey @ 0x1403FA920 (ZwCreateKey.c)
+ *     ZwSetValueKey @ 0x1403FB180 (ZwSetValueKey.c)
+ *     ZwDeleteKey @ 0x1403FC000 (ZwDeleteKey.c)
+ *     ZwOpenKeyEx @ 0x1403FC9A0 (ZwOpenKeyEx.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall MfgInitSystem(__int64 a1)
@@ -33,7 +33,7 @@ __int64 __fastcall MfgInitSystem(__int64 a1)
 
   Handle = 0LL;
   ExpManufacturingInformation = 0LL;
-  qword_140C19870 = 0LL;
+  Data = 0LL;
   inited = 0;
   v2 = *(_QWORD *)(a1 + 240);
   DestinationString = 0LL;
@@ -48,7 +48,7 @@ __int64 __fastcall MfgInitSystem(__int64 a1)
     return (unsigned int)-1073741811;
   DWORD2(ExpManufacturingInformation) = *(_DWORD *)(v2 + 2808);
   PoolWithTag = ExAllocatePoolWithTag(PagedPool, WORD5(ExpManufacturingInformation), 0x5067664Du);
-  qword_140C19870 = PoolWithTag;
+  Data = PoolWithTag;
   if ( PoolWithTag )
   {
     inited = RtlStringCbCopyW(
@@ -87,7 +87,7 @@ __int64 __fastcall MfgInitSystem(__int64 a1)
     ZwClose(Handle);
     LODWORD(ExpManufacturingInformation) = ExpManufacturingInformation | 1;
     RtlInitUnicodeStringEx(&ValueName, L"LastProfile");
-    inited = ZwSetValueKey(KeyHandle, &ValueName, 0, 1u, qword_140C19870, WORD5(ExpManufacturingInformation));
+    inited = ZwSetValueKey(KeyHandle, &ValueName, 0, 1u, Data, WORD5(ExpManufacturingInformation));
     if ( inited < 0 )
       goto LABEL_22;
     inited = RtlInitUnicodeStringEx(&DestinationString, L"Current");

@@ -1,15 +1,15 @@
 /*
  * XREFs of MiDeleteTopLevelSessionMapping @ 0x1403F4448
  * Callers:
- *     MiDeleteSessionAddressSpace @ 0x1403895EC (MiDeleteSessionAddressSpace.c)
+ *     MiDeleteSessionAddressSpace @ 0x14038973C (MiDeleteSessionAddressSpace.c)
  * Callees:
- *     MiUnlockWorkingSetExclusive @ 0x14021CAE0 (MiUnlockWorkingSetExclusive.c)
- *     MiInsertTbFlushEntry @ 0x140335D70 (MiInsertTbFlushEntry.c)
- *     MiFlushTbList @ 0x14033B520 (MiFlushTbList.c)
- *     MiWriteTopLevelPxe @ 0x14039DF0C (MiWriteTopLevelPxe.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     memset @ 0x140414200 (memset.c)
- *     MiLockWorkingSetExclusive @ 0x14054F7B0 (MiLockWorkingSetExclusive.c)
+ *     MiUnlockWorkingSetExclusive @ 0x1402C13E0 (MiUnlockWorkingSetExclusive.c)
+ *     MiInsertTbFlushEntry @ 0x140340AC0 (MiInsertTbFlushEntry.c)
+ *     MiFlushTbList @ 0x140346270 (MiFlushTbList.c)
+ *     MiWriteTopLevelPxe @ 0x14039E05C (MiWriteTopLevelPxe.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     MiLockWorkingSetExclusive @ 0x14054F9F0 (MiLockWorkingSetExclusive.c)
  */
 
 void __fastcall MiDeleteTopLevelSessionMapping(__int64 a1)
@@ -20,7 +20,7 @@ void __fastcall MiDeleteTopLevelSessionMapping(__int64 a1)
   _QWORD v5[24]; // [rsp+20h] [rbp-D8h] BYREF
 
   memset(v5, 0, 0xB8uLL);
-  v2 = (__int64 *)(8 * (((unsigned __int64)qword_140C4DDE0 >> 39) & 0x1FF) - 0x90482413000LL);
+  v2 = (__int64 *)(8 * (((unsigned __int64)qword_140C4DE20 >> 39) & 0x1FF) - 0x90482413000LL);
   LODWORD(v5[0]) = 2;
   LODWORD(v5[1]) = 20;
   WORD2(v5[0]) = 0;

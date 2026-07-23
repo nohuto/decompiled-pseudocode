@@ -17,7 +17,7 @@ __int64 __fastcall ResCGetHighestCacheIndex(__int64 a1)
 {
   __int64 v3; // rdx
   int v4; // ebx
-  unsigned __int64 FirstFile; // rdi
+  __int64 FirstFile; // rdi
   int v6; // ecx
   char *v7; // rdx
   int v8; // r8d
@@ -25,20 +25,20 @@ __int64 __fastcall ResCGetHighestCacheIndex(__int64 a1)
   _BYTE v10[44]; // [rsp+30h] [rbp-D0h] BYREF
   wchar_t String1[2]; // [rsp+5Ch] [rbp-A4h] BYREF
   char v12; // [rsp+60h] [rbp-A0h] BYREF
-  WCHAR SourceString[264]; // [rsp+280h] [rbp+180h] BYREF
+  WCHAR DosFileName[264]; // [rsp+280h] [rbp+180h] BYREF
   wchar_t Buffer[264]; // [rsp+490h] [rbp+390h] BYREF
 
-  if ( !a1 || !(unsigned int)ResCGetName(a1, 1281LL, SourceString) )
+  if ( !a1 || !(unsigned int)ResCGetName(a1, 1281LL, DosFileName) )
     return 0xFFFFFFFFLL;
   v4 = -1;
-  FirstFile = ResFindFirstFileExW(SourceString, v3, (__int64)v10);
-  while ( FirstFile != -1LL )
+  FirstFile = ResFindFirstFileExW(DosFileName, v3, (__int64)v10);
+  while ( FirstFile != -1 )
   {
     if ( (v10[0] & 0x10) != 0
       && !wcsnicmp(String1, L"rc", 2uLL)
-      && (unsigned int)ResCGetName(String1, 260LL, SourceString)
-      && (int)StringCchPrintfW(Buffer, 0x103uLL, L"%s\\%s", a1, SourceString) >= 0
-      && (unsigned int)ResGetFileAttributesW((__int64)Buffer) != -1 )
+      && (unsigned int)ResCGetName(String1, 260LL, DosFileName)
+      && (int)StringCchPrintfW(Buffer, 0x103uLL, L"%s\\%s", a1, DosFileName) >= 0
+      && (unsigned int)ResGetFileAttributesW(Buffer) != -1 )
     {
       v6 = 0;
       v7 = &v12;
@@ -60,9 +60,9 @@ __int64 __fastcall ResCGetHighestCacheIndex(__int64 a1)
       if ( v6 > v4 )
         v4 = v6;
     }
-    if ( !(unsigned int)ResFindNextFileW((_QWORD *)FirstFile, (__int64)v10) )
+    if ( !(unsigned int)ResFindNextFileW(FirstFile, (__int64)v10) )
     {
-      ResFindClose(FirstFile);
+      ResFindClose((_RTL_CRITICAL_SECTION *)FirstFile);
       FirstFile = -1LL;
     }
   }

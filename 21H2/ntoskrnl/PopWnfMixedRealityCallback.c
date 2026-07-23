@@ -1,22 +1,22 @@
 /*
- * XREFs of PopWnfMixedRealityCallback @ 0x14078EA90
+ * XREFs of PopWnfMixedRealityCallback @ 0x14078EC50
  * Callers:
  *     <none>
  * Callees:
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     PopSetPowerSettingValueAcDc @ 0x140679E68 (PopSetPowerSettingValueAcDc.c)
- *     ExQueryWnfStateData @ 0x1406BB180 (ExQueryWnfStateData.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     ExQueryWnfStateData @ 0x14061A450 (ExQueryWnfStateData.c)
+ *     PopSetPowerSettingValueAcDc @ 0x14066D5A8 (PopSetPowerSettingValueAcDc.c)
  */
 
 __int64 __fastcall PopWnfMixedRealityCallback(__int64 a1)
 {
   int v1; // ebx
   unsigned int v3; // [rsp+20h] [rbp-28h] BYREF
-  int v4; // [rsp+28h] [rbp-20h] BYREF
+  _BYTE v4[8]; // [rsp+28h] [rbp-20h] BYREF
   unsigned int v5; // [rsp+30h] [rbp-18h] BYREF
 
   v3 = 8;
-  v1 = ExQueryWnfStateData(a1, &v4, &v5, &v3);
+  v1 = ExQueryWnfStateData(a1, (__int64)v4, (__int64)&v5, &v3);
   if ( v1 >= 0 )
   {
     if ( v3 < 8 )

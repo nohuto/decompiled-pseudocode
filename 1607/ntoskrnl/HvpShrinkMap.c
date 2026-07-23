@@ -1,9 +1,9 @@
 /*
- * XREFs of HvpShrinkMap @ 0x14061081C
+ * XREFs of HvpShrinkMap @ 0x1406108D0
  * Callers:
- *     HvpAddBin @ 0x14047DF10 (HvpAddBin.c)
+ *     HvpAddBin @ 0x14047CC64 (HvpAddBin.c)
  * Callees:
- *     HvpFreeMap @ 0x1404EA6E8 (HvpFreeMap.c)
+ *     HvpFreeMap @ 0x1404CC7DC (HvpFreeMap.c)
  */
 
 __int64 __fastcall HvpShrinkMap(__int64 a1, int a2, unsigned int a3, unsigned int a4)

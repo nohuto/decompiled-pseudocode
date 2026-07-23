@@ -1,9 +1,9 @@
 /*
- * XREFs of strcmp @ 0x14014E770
+ * XREFs of strcmp @ 0x14014ED30
  * Callers:
- *     ExpSetBootEntry @ 0x1406B16BC (ExpSetBootEntry.c)
- *     NtEnumerateBootEntries @ 0x1406B378C (NtEnumerateBootEntries.c)
- *     ViXdvDriverLoadImage @ 0x14070512C (ViXdvDriverLoadImage.c)
+ *     ExpSetBootEntry @ 0x1406B17F4 (ExpSetBootEntry.c)
+ *     NtEnumerateBootEntries @ 0x1406B38C4 (NtEnumerateBootEntries.c)
+ *     ViXdvDriverLoadImage @ 0x14070515C (ViXdvDriverLoadImage.c)
  *     HdlspDispatch @ 0x140722DE0 (HdlspDispatch.c)
  * Callees:
  *     <none>

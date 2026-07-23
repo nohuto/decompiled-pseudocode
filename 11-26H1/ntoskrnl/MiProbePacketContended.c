@@ -1,11 +1,11 @@
 /*
- * XREFs of MiProbePacketContended @ 0x140306770
+ * XREFs of MiProbePacketContended @ 0x1402E87F0
  * Callers:
- *     MiProbeAndLockPacket @ 0x1402EE280 (MiProbeAndLockPacket.c)
- *     MmProbeAndLockSelectedPages @ 0x14039F2E0 (MmProbeAndLockSelectedPages.c)
+ *     MiProbeAndLockPacket @ 0x1402D0300 (MiProbeAndLockPacket.c)
+ *     MmProbeAndLockSelectedPages @ 0x1403A1040 (MmProbeAndLockSelectedPages.c)
  * Callees:
- *     KeShouldYieldProcessor @ 0x1402D49D0 (KeShouldYieldProcessor.c)
- *     MiPageTableLockIsContended @ 0x140306820 (MiPageTableLockIsContended.c)
+ *     KeShouldYieldProcessor @ 0x1402B6790 (KeShouldYieldProcessor.c)
+ *     MiPageTableLockIsContended @ 0x1402E88A0 (MiPageTableLockIsContended.c)
  */
 
 __int64 __fastcall MiProbePacketContended(__int64 a1, __int64 a2, __int64 a3)
@@ -29,7 +29,7 @@ __int64 __fastcall MiProbePacketContended(__int64 a1, __int64 a2, __int64 a3)
   v7 = *(_DWORD *)(*v4 + 184LL) & 0xF;
   if ( v7 == 5 || v7 <= 4u )
   {
-    v8 = &qword_140E37800;
+    v8 = &qword_140E37980;
     if ( (*(_DWORD *)(v6 + 184) & 0xF) != 1 )
       v8 = (__int64 *)(v6 + 192);
     v9 = *v8;

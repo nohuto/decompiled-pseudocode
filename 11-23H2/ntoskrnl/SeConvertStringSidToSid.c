@@ -6,8 +6,8 @@
  *     SddlpFree @ 0x1406834B8 (SddlpFree.c)
  *     LocalpConvertStringSidToSid @ 0x14069A428 (LocalpConvertStringSidToSid.c)
  *     SddlpAlloc @ 0x14069DF28 (SddlpAlloc.c)
- *     LookupSidInTable @ 0x1406C3660 (LookupSidInTable.c)
- *     RtlCopySid @ 0x140714F70 (RtlCopySid.c)
+ *     LookupSidInTable @ 0x1406C3690 (LookupSidInTable.c)
+ *     RtlCopySid @ 0x140715180 (RtlCopySid.c)
  */
 
 __int64 __fastcall SeConvertStringSidToSid(wchar_t *Str1, __int64 *a2)

@@ -13,33 +13,28 @@
 __int64 __fastcall TppCancelWait(__int64 a1, __int64 a2, char a3, _DWORD *a4)
 {
   int v4; // r8d
-  __int64 v6; // rbx
   _BYTE *v8; // rbx
   unsigned __int8 v9; // di
   __int64 result; // rax
-  int v11; // eax
-  __int64 v12; // rdx
-  __int64 v13; // rcx
-  __int64 v14; // r8
-  char v15; // al
-  char v16; // al
+  NTSTATUS v11; // eax
+  __int64 v12; // rcx
+  char v13; // al
+  char v14; // al
 
   v4 = a3 & 2;
-  v6 = a2;
   if ( *(_QWORD *)(a1 + 360) )
   {
-    LOBYTE(a2) = v4 != 0;
-    v11 = ZwCancelWaitCompletionPacket(*(_QWORD *)(a1 + 368), a2);
+    v11 = ZwCancelWaitCompletionPacket(*(HANDLE *)(a1 + 368), v4 != 0);
     if ( v11 )
     {
       if ( v11 != 259 && v11 != -1073741536 )
-        TppRaiseInvalidParameter(v13, v12, v14);
+        TppRaiseInvalidParameter(v12);
       v8 = (_BYTE *)(a1 + 464);
       v9 = 0;
-      v16 = *(_BYTE *)(a1 + 464);
-      if ( (v16 & 4) == 0 )
+      v14 = *(_BYTE *)(a1 + 464);
+      if ( (v14 & 4) == 0 )
       {
-        *v8 = v16 | 4;
+        *v8 = v14 | 4;
         TppBarrierAdjust(a1 + 56, 1LL, 0LL);
       }
       *a4 = 0;
@@ -48,9 +43,9 @@ __int64 __fastcall TppCancelWait(__int64 a1, __int64 a2, char a3, _DWORD *a4)
     {
       v9 = 1;
       *(_QWORD *)(a1 + 360) = 0LL;
-      v15 = TppCancelTimer(a1, v6, 1LL);
+      v13 = TppCancelTimer(a1, a2, 1LL);
       *a4 = -1;
-      if ( v15 )
+      if ( v13 )
         *a4 = -2;
       v8 = (_BYTE *)(a1 + 464);
       if ( (*(_BYTE *)(a1 + 464) & 4) != 0 )

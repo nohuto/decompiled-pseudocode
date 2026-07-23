@@ -4,11 +4,11 @@
  *     GetOverlayFilePath @ 0x180032BEC (GetOverlayFilePath.c)
  * Callees:
  *     GetOverlayRootFolder @ 0x180042138 (GetOverlayRootFolder.c)
- *     wcscat_s @ 0x18009B830 (wcscat_s.c)
+ *     wcscat_s @ 0x18009B840 (wcscat_s.c)
  */
 
 __int64 __fastcall BuildOverlayFilePath(
-        __int64 a1,
+        const WCHAR *a1,
         const wchar_t *a2,
         const wchar_t *a3,
         unsigned int *a4,
@@ -19,12 +19,12 @@ __int64 __fastcall BuildOverlayFilePath(
   __int64 v10; // rdx
   unsigned int v11; // edi
   __int64 result; // rax
-  unsigned int v13; // [rsp+48h] [rbp+10h] BYREF
+  __int64 v13; // [rsp+48h] [rbp+10h] BYREF
 
   if ( *a2 != 92 || *a3 != 92 )
     return 3221225659LL;
-  v13 = *a4;
-  OverlayRootFolder = GetOverlayRootFolder(a1, &v13, Destination);
+  LODWORD(v13) = *a4;
+  OverlayRootFolder = GetOverlayRootFolder(a1, (__int64)&v13);
   v9 = -1LL;
   v10 = -1LL;
   do

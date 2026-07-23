@@ -10,41 +10,41 @@
  *     _RtlComputePrivatizedDllName_U@12 @ 0x4B334AB0 (_RtlComputePrivatizedDllName_U@12.c)
  */
 
-int __fastcall sxsisol_RespectDotLocal(unsigned __int16 *a1, unsigned __int16 *a2, _DWORD *a3)
+NTSTATUS __fastcall sxsisol_RespectDotLocal(PUNICODE_STRING DllName, unsigned __int16 *a2, _DWORD *a3)
 {
-  int v4; // esi
-  UNICODE_STRING *p_UnicodeString; // esi
+  NTSTATUS v4; // esi
+  _UNICODE_STRING *p_LocalName; // esi
   unsigned int v6; // eax
   int *v7; // ebx
   int v8; // ecx
   int v9; // eax
   unsigned __int16 v10; // cx
   wchar_t *Buffer; // [esp-8h] [ebp-24h]
-  size_t Length; // [esp-4h] [ebp-20h]
-  UNICODE_STRING v14; // [esp+Ch] [ebp-10h] BYREF
-  UNICODE_STRING UnicodeString; // [esp+14h] [ebp-8h] BYREF
+  size_t v13; // [esp-4h] [ebp-20h]
+  _UNICODE_STRING LocalName; // [esp+Ch] [ebp-10h] BYREF
+  _UNICODE_STRING RealName; // [esp+14h] [ebp-8h] BYREF
 
-  *(_DWORD *)&UnicodeString.Length = 0;
-  UnicodeString.Buffer = 0;
-  *(_DWORD *)&v14.Length = 0;
-  v14.Buffer = 0;
+  *(_DWORD *)&RealName.Length = 0;
+  RealName.Buffer = 0;
+  *(_DWORD *)&LocalName.Length = 0;
+  LocalName.Buffer = 0;
   if ( a2 )
   {
-    v4 = RtlComputePrivatizedDllName_U(a1, (int)&UnicodeString, (int)&v14);
+    v4 = RtlComputePrivatizedDllName_U(DllName, &RealName, &LocalName);
     if ( v4 < 0 )
       goto LABEL_19;
-    if ( v14.Buffer && RtlDoesFileExists_UstrEx((int *)&v14, 1) )
+    if ( LocalName.Buffer && RtlDoesFileExists_UstrEx(&LocalName, 1) )
     {
-      p_UnicodeString = &v14;
+      p_LocalName = &LocalName;
     }
     else
     {
-      if ( !UnicodeString.Buffer || !RtlDoesFileExists_UstrEx((int *)&UnicodeString, 1) )
+      if ( !RealName.Buffer || !RtlDoesFileExists_UstrEx(&RealName, 1) )
         goto LABEL_18;
-      p_UnicodeString = &UnicodeString;
+      p_LocalName = &RealName;
     }
     *a2 = 0;
-    v6 = p_UnicodeString->Length + 2;
+    v6 = p_LocalName->Length + 2;
     if ( v6 > 0xFFFE )
     {
       v4 = -1073741562;
@@ -52,18 +52,18 @@ int __fastcall sxsisol_RespectDotLocal(unsigned __int16 *a1, unsigned __int16 *a
     }
     v7 = (int *)(a2 + 4);
     if ( (a2 == (unsigned __int16 *)-8 || v6 > *((_DWORD *)a2 + 4))
-      && RtlpEnsureBufferSize(0, (int)(a2 + 4), p_UnicodeString->Length + 2) < 0 )
+      && RtlpEnsureBufferSize(0, (int)(a2 + 4), p_LocalName->Length + 2) < 0 )
     {
       v4 = -1073741801;
       goto LABEL_19;
     }
     v8 = *v7;
-    Length = p_UnicodeString->Length;
-    Buffer = p_UnicodeString->Buffer;
+    LODWORD(v13) = p_LocalName->Length;
+    Buffer = p_LocalName->Buffer;
     v9 = *a2 >> 1;
     *((_DWORD *)a2 + 1) = *v7;
-    memmove((void *)(v8 + 2 * v9), Buffer, Length);
-    v10 = *a2 + p_UnicodeString->Length;
+    memmove((void *)(v8 + 2 * v9), Buffer, v13);
+    v10 = *a2 + p_LocalName->Length;
     *a2 = v10;
     a2[1] = v10 + 2;
     *(_WORD *)(*((_DWORD *)a2 + 1) + 2 * (v10 >> 1)) = 0;
@@ -75,7 +75,7 @@ LABEL_18:
   }
   v4 = -1073741811;
 LABEL_19:
-  RtlFreeAnsiString(&UnicodeString);
-  RtlFreeAnsiString(&v14);
+  RtlFreeAnsiString(&RealName);
+  RtlFreeAnsiString(&LocalName);
   return v4;
 }

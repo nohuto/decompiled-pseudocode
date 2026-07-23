@@ -1,9 +1,9 @@
 /*
- * XREFs of KiIsBranchConfusionMitigationDesired @ 0x1405F2158
+ * XREFs of KiIsBranchConfusionMitigationDesired @ 0x1405F4B18
  * Callers:
- *     KiIsSrsoMitigationDesired @ 0x1405F2318 (KiIsSrsoMitigationDesired.c)
- *     KiOptimizeSpecCtrlSettingsWorker @ 0x1405F2470 (KiOptimizeSpecCtrlSettingsWorker.c)
- *     KiDetectKvaLeakage @ 0x1405F7100 (KiDetectKvaLeakage.c)
+ *     KiIsSrsoMitigationDesired @ 0x1405F4CD8 (KiIsSrsoMitigationDesired.c)
+ *     KiOptimizeSpecCtrlSettingsWorker @ 0x1405F4E30 (KiOptimizeSpecCtrlSettingsWorker.c)
+ *     KiDetectKvaLeakage @ 0x1405F9AC0 (KiDetectKvaLeakage.c)
  * Callees:
  *     <none>
  */

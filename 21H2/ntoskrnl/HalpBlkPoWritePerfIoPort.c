@@ -1,14 +1,14 @@
 /*
- * XREFs of HalpBlkPoWritePerfIoPort @ 0x1404DEEC0
+ * XREFs of HalpBlkPoWritePerfIoPort @ 0x1404DF100
  * Callers:
  *     <none>
  * Callees:
- *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KxReleaseSpinLock @ 0x140212140 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140362F80 (KeAcquireSpinLockRaiseToDpc.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     HalpBlkPoBusyWait @ 0x1404DE838 (HalpBlkPoBusyWait.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     HalpBlkPoBusyWait @ 0x1404DEA78 (HalpBlkPoBusyWait.c)
  */
 
 __int64 __fastcall HalpBlkPoWritePerfIoPort(unsigned int a1, __int16 a2, __int16 a3, int a4, int a5)

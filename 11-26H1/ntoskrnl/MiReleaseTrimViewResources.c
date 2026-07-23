@@ -1,15 +1,15 @@
 /*
- * XREFs of MiReleaseTrimViewResources @ 0x140360084
+ * XREFs of MiReleaseTrimViewResources @ 0x140361E24
  * Callers:
- *     MiTrimSharedPageFromView @ 0x14046BEB4 (MiTrimSharedPageFromView.c)
- *     MiDeleteActiveTrimView @ 0x14046C034 (MiDeleteActiveTrimView.c)
+ *     MiTrimSharedPageFromView @ 0x140465634 (MiTrimSharedPageFromView.c)
+ *     MiDeleteActiveTrimView @ 0x1404657B4 (MiDeleteActiveTrimView.c)
  * Callees:
- *     MiUnlockPageTableInternal @ 0x1402D13E0 (MiUnlockPageTableInternal.c)
- *     MiUnlockSystemVa @ 0x1402E5200 (MiUnlockSystemVa.c)
- *     MiUnlockWorkingSetShared @ 0x1402EB6C0 (MiUnlockWorkingSetShared.c)
- *     MiFreeWsleList @ 0x140328E50 (MiFreeWsleList.c)
- *     MiFlushTbList @ 0x140329040 (MiFlushTbList.c)
- *     MiReleaseProcessorFlushList @ 0x1403613C0 (MiReleaseProcessorFlushList.c)
+ *     MiUnlockPageTableInternal @ 0x1402B31A0 (MiUnlockPageTableInternal.c)
+ *     MiUnlockSystemVa @ 0x1402C7240 (MiUnlockSystemVa.c)
+ *     MiUnlockWorkingSetShared @ 0x1402CD700 (MiUnlockWorkingSetShared.c)
+ *     MiFreeWsleList @ 0x14032AE80 (MiFreeWsleList.c)
+ *     MiFlushTbList @ 0x14032B070 (MiFlushTbList.c)
+ *     MiReleaseProcessorFlushList @ 0x140363160 (MiReleaseProcessorFlushList.c)
  */
 
 void __fastcall MiReleaseTrimViewResources(__int64 a1, __int64 a2)

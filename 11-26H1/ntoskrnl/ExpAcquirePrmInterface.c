@@ -1,16 +1,16 @@
 /*
- * XREFs of ExpAcquirePrmInterface @ 0x14083EDB0
+ * XREFs of ExpAcquirePrmInterface @ 0x140844FF0
  * Callers:
- *     ExpPrmNotifyInterfaceChange @ 0x14083EEE0 (ExpPrmNotifyInterfaceChange.c)
- *     ExpPrmTargetDeviceChangeCallback @ 0x14083EFD0 (ExpPrmTargetDeviceChangeCallback.c)
+ *     ExpPrmNotifyInterfaceChange @ 0x140845120 (ExpPrmNotifyInterfaceChange.c)
+ *     ExpPrmTargetDeviceChangeCallback @ 0x140845210 (ExpPrmTargetDeviceChangeCallback.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     RtlUnicodeStringCopy @ 0x14043D5D0 (RtlUnicodeStringCopy.c)
- *     ExpQueryPrmInterface @ 0x14083F118 (ExpQueryPrmInterface.c)
- *     IoGetDeviceObjectPointer @ 0x140908800 (IoGetDeviceObjectPointer.c)
- *     IoRegisterPlugPlayNotification @ 0x140908ED0 (IoRegisterPlugPlayNotification.c)
- *     RtlFreeAnsiString @ 0x140A007C0 (RtlFreeAnsiString.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     RtlUnicodeStringCopy @ 0x14042FE80 (RtlUnicodeStringCopy.c)
+ *     ExpQueryPrmInterface @ 0x140845358 (ExpQueryPrmInterface.c)
+ *     IoRegisterPlugPlayNotification @ 0x1409AAA90 (IoRegisterPlugPlayNotification.c)
+ *     RtlFreeAnsiString @ 0x140A169F0 (RtlFreeAnsiString.c)
+ *     IoGetDeviceObjectPointer @ 0x140A30960 (IoGetDeviceObjectPointer.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall ExpAcquirePrmInterface(UNICODE_STRING *SourceString, char a2, void *a3)
@@ -31,31 +31,31 @@ __int64 __fastcall ExpAcquirePrmInterface(UNICODE_STRING *SourceString, char a2,
     if ( a2 )
     {
       v9 = SourceString->Length + 2;
-      *(_QWORD *)&ExSaPageGroupDescriptorArrayLock.ForegroundLossTime = ExAllocatePool2(0x40uLL);
-      if ( !*(_QWORD *)&ExSaPageGroupDescriptorArrayLock.ForegroundLossTime )
+      ExSaPageGroupDescriptorArrayLock.OtherOperationCount = ExAllocatePool2(0x40uLL);
+      if ( !ExSaPageGroupDescriptorArrayLock.OtherOperationCount )
       {
         PrmInterface = -1073741670;
         goto LABEL_8;
       }
-      LOWORD(ExSaPageGroupDescriptorArrayLock.AbCompletedIoQoSBoostCount) = 0;
-      HIWORD(ExSaPageGroupDescriptorArrayLock.AbCompletedIoQoSBoostCount) = v9;
-      RtlUnicodeStringCopy((PUNICODE_STRING)&ExSaPageGroupDescriptorArrayLock.AbCompletedIoQoSBoostCount, SourceString);
+      LOWORD(ExSaPageGroupDescriptorArrayLock.WriteOperationCount) = 0;
+      WORD1(ExSaPageGroupDescriptorArrayLock.WriteOperationCount) = v9;
+      RtlUnicodeStringCopy((PUNICODE_STRING)&ExSaPageGroupDescriptorArrayLock.WriteOperationCount, SourceString);
     }
     PrmInterface = IoRegisterPlugPlayNotification(
                      EventCategoryTargetDeviceChange,
                      0,
                      v7,
-                     (PDRIVER_OBJECT)ExSaPageGroupDescriptorArrayLock.GlobalForegroundListEntry.Flink,
+                     (PDRIVER_OBJECT)ExSaPageGroupDescriptorArrayLock.ReadTransferCount,
                      ExpPrmTargetDeviceChangeCallback,
                      0LL,
-                     (PVOID *)&ExSaPageGroupDescriptorArrayLock.MutantListHead.Blink);
+                     (PVOID *)ExSaPageGroupDescriptorArrayLock.PriorityFloorCounts);
     if ( PrmInterface >= 0 )
       PrmInterface = ExpQueryPrmInterface(v7[1], a3);
   }
 LABEL_8:
   if ( v7 )
     ObfDereferenceObject(v7);
-  if ( PrmInterface < 0 && *(_QWORD *)&ExSaPageGroupDescriptorArrayLock.ForegroundLossTime )
-    RtlFreeAnsiString((PUNICODE_STRING)&ExSaPageGroupDescriptorArrayLock.AbCompletedIoQoSBoostCount);
+  if ( PrmInterface < 0 && ExSaPageGroupDescriptorArrayLock.OtherOperationCount )
+    RtlFreeAnsiString((PUNICODE_STRING)&ExSaPageGroupDescriptorArrayLock.WriteOperationCount);
   return (unsigned int)PrmInterface;
 }

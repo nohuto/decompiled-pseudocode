@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlpGetDynamicTimeZoneInfoHandle @ 0x1407AA5E0
+ * XREFs of RtlpGetDynamicTimeZoneInfoHandle @ 0x1407AA7E0
  * Callers:
- *     RtlpCheckDynamicTimeZoneInformation @ 0x1407AA49C (RtlpCheckDynamicTimeZoneInformation.c)
+ *     RtlpCheckDynamicTimeZoneInformation @ 0x1407AA69C (RtlpCheckDynamicTimeZoneInformation.c)
  * Callees:
- *     RtlStringCbCatW @ 0x140265118 (RtlStringCbCatW.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     RtlpGetRegistryHandle @ 0x140642460 (RtlpGetRegistryHandle.c)
+ *     RtlStringCbCatW @ 0x1402531A8 (RtlStringCbCatW.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     RtlpGetRegistryHandle @ 0x140637270 (RtlpGetRegistryHandle.c)
  */
 
 NTSTATUS __fastcall RtlpGetDynamicTimeZoneInfoHandle(NTSTRSAFE_PCWSTR pszSrc, HANDLE *a2)

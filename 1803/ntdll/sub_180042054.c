@@ -18,16 +18,16 @@
  *     sub_1800CA554 @ 0x1800CA554 (sub_1800CA554.c)
  */
 
-void __fastcall sub_180042054(void *a1, __int64 a2, __int64 *a3)
+void __fastcall sub_180042054(const WCHAR *a1, const WCHAR *a2, const WCHAR **a3)
 {
   __int64 v6; // rcx
   bool v7; // zf
 
   memset(a3, 0, 0x80uLL);
-  if ( (a2 & 1) != 0 || !a2 )
+  if ( ((unsigned __int8)a2 & 1) != 0 || !a2 )
   {
-    a3[4] = (__int64)a1;
-    *((_DWORD *)a3 + 6) = a2 & 0xFFFFFFFE;
+    a3[4] = a1;
+    *((_DWORD *)a3 + 6) = (unsigned int)a2 & 0xFFFFFFFE;
   }
   else
   {

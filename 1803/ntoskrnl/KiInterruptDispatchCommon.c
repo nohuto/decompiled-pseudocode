@@ -18,7 +18,7 @@
 
 char __fastcall KiInterruptDispatchCommon(unsigned int a1, unsigned int a2, char a3, char *a4, unsigned int *a5)
 {
-  struct _PROCESSOR_NUMBER *v5; // rdi
+  _PROCESSOR_NUMBER *v5; // rdi
   unsigned int v6; // r15d
   unsigned int v8; // r12d
   char *v9; // rbx
@@ -26,7 +26,7 @@ char __fastcall KiInterruptDispatchCommon(unsigned int a1, unsigned int a2, char
   unsigned __int8 v11; // si
   __int64 v12; // rbx
   __int64 v13; // rdx
-  struct _PROCESSOR_NUMBER *v14; // rbx
+  _PROCESSOR_NUMBER *v14; // rbx
   __int64 v15; // rbx
   char v16; // r15
   KSPIN_LOCK *v17; // r14
@@ -38,9 +38,9 @@ char __fastcall KiInterruptDispatchCommon(unsigned int a1, unsigned int a2, char
   char v24; // [rsp+21h] [rbp-50h]
   unsigned int v25; // [rsp+24h] [rbp-4Dh]
   int v26; // [rsp+28h] [rbp-49h]
-  struct _PROCESSOR_NUMBER ProcNumber; // [rsp+2Ch] [rbp-45h] BYREF
+  _PROCESSOR_NUMBER ProcNumber; // [rsp+2Ch] [rbp-45h] BYREF
   unsigned int v28; // [rsp+30h] [rbp-41h]
-  struct _PROCESSOR_NUMBER v29; // [rsp+34h] [rbp-3Dh]
+  _PROCESSOR_NUMBER v29; // [rsp+34h] [rbp-3Dh]
   PKSPIN_LOCK SpinLock; // [rsp+38h] [rbp-39h]
   char *v31; // [rsp+40h] [rbp-31h]
   __int64 CurrentIrql; // [rsp+48h] [rbp-29h]
@@ -76,7 +76,7 @@ char __fastcall KiInterruptDispatchCommon(unsigned int a1, unsigned int a2, char
     if ( (unsigned int)v12 < 0x100 )
     {
       _mm_lfence();
-      v5 = *(struct _PROCESSOR_NUMBER **)(KiGlobalSecondaryIDT + 48 * v12 + 40);
+      v5 = *(_PROCESSOR_NUMBER **)(KiGlobalSecondaryIDT + 48 * v12 + 40);
     }
     v9 = v31;
     v6 = v25;
@@ -94,7 +94,7 @@ char __fastcall KiInterruptDispatchCommon(unsigned int a1, unsigned int a2, char
     if ( v28 > 0xFF )
       goto LABEL_10;
     _mm_lfence();
-    v5 = (struct _PROCESSOR_NUMBER *)KeGetCurrentPrcb()->InterruptObject[v28];
+    v5 = (_PROCESSOR_NUMBER *)KeGetCurrentPrcb()->InterruptObject[v28];
   }
   v11 = v23;
 LABEL_10:
@@ -113,7 +113,7 @@ LABEL_10:
           v14 = 0LL;
           break;
         }
-        v14 = (struct _PROCESSOR_NUMBER *)(v15 - 8);
+        v14 = (_PROCESSOR_NUMBER *)(v15 - 8);
         if ( v14 == v5 )
         {
           if ( HIBYTE(v14[23].Group) )
@@ -164,7 +164,7 @@ LABEL_21:
           KiProcessPendingDisconnect(v18, v14, v20);
           v13 = 1LL;
         }
-        v14 = (struct _PROCESSOR_NUMBER *)(v21 - 8);
+        v14 = (_PROCESSOR_NUMBER *)(v21 - 8);
         if ( ProcNumber )
         {
           if ( v10 )

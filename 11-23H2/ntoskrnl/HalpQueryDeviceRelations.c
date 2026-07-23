@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpQueryDeviceRelations @ 0x1408289A0
+ * XREFs of HalpQueryDeviceRelations @ 0x140828CA0
  * Callers:
- *     HalpDispatchPnp @ 0x140828220 (HalpDispatchPnp.c)
+ *     HalpDispatchPnp @ 0x140828520 (HalpDispatchPnp.c)
  * Callees:
- *     ObfReferenceObject @ 0x140233C40 (ObfReferenceObject.c)
+ *     ObfReferenceObject @ 0x140233D10 (ObfReferenceObject.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
 

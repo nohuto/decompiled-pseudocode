@@ -7,11 +7,14 @@
  *     <none>
  */
 
-__int64 NtCreateWaitCompletionPacket()
+NTSTATUS __cdecl NtCreateWaitCompletionPacket(
+        PHANDLE WaitCompletionPacketHandle,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 187LL;
+  result = 187;
   __asm { syscall; Low latency system call }
   return result;
 }

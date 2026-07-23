@@ -1,16 +1,16 @@
 /*
- * XREFs of CmpConstructNameFromKcbNameBlocks @ 0x14087C7CC
+ * XREFs of CmpConstructNameFromKcbNameBlocks @ 0x14088067C
  * Callers:
- *     CmSetValueKey @ 0x14086B130 (CmSetValueKey.c)
- *     CmpConstructNameWithStatus @ 0x140875AB0 (CmpConstructNameWithStatus.c)
- *     CmpConstructName @ 0x1408763E0 (CmpConstructName.c)
- *     CmCallbackGetKeyObjectIDEx @ 0x14087C350 (CmCallbackGetKeyObjectIDEx.c)
- *     CmpLogTransactionAbortedWithChildName @ 0x14097ACC8 (CmpLogTransactionAbortedWithChildName.c)
+ *     CmSetValueKey @ 0x14086F460 (CmSetValueKey.c)
+ *     CmpConstructNameWithStatus @ 0x140879DE0 (CmpConstructNameWithStatus.c)
+ *     CmpConstructName @ 0x14087A710 (CmpConstructName.c)
+ *     CmCallbackGetKeyObjectIDEx @ 0x140880200 (CmCallbackGetKeyObjectIDEx.c)
+ *     CmpLogTransactionAbortedWithChildName @ 0x1409634D8 (CmpLogTransactionAbortedWithChildName.c)
  * Callees:
- *     CmpAllocatePool @ 0x1403E1834 (CmpAllocatePool.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     CmpKeyFullNameLength @ 0x14087B8A0 (CmpKeyFullNameLength.c)
- *     CmpCopyCompressedName @ 0x14087E8A0 (CmpCopyCompressedName.c)
+ *     CmpAllocatePool @ 0x1403C9EA4 (CmpAllocatePool.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     CmpKeyFullNameLength @ 0x14087F750 (CmpKeyFullNameLength.c)
+ *     CmpCopyCompressedName @ 0x140882750 (CmpCopyCompressedName.c)
  */
 
 __int64 __fastcall CmpConstructNameFromKcbNameBlocks(__int64 a1, __int64 *a2)
@@ -37,7 +37,7 @@ __int64 __fastcall CmpConstructNameFromKcbNameBlocks(__int64 a1, __int64 *a2)
   }
   else
   {
-    Pool = CmpAllocatePool(0x100uLL);
+    Pool = CmpAllocatePool(0x100uLL, v4 + 16LL, 0x624E4D43u);
     v7 = 0;
     v8 = Pool;
     if ( Pool )

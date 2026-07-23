@@ -1,7 +1,7 @@
 /*
- * XREFs of KiFlushReadyLists @ 0x1401DBFD4
+ * XREFs of KiFlushReadyLists @ 0x1401DBE00
  * Callers:
- *     KeTransitionProcessorParkState @ 0x1401DBC78 (KeTransitionProcessorParkState.c)
+ *     KeTransitionProcessorParkState @ 0x1401DBAA4 (KeTransitionProcessorParkState.c)
  * Callees:
  *     <none>
  */

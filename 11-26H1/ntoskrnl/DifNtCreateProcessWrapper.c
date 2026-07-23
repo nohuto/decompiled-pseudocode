@@ -1,26 +1,26 @@
 /*
- * XREFs of DifNtCreateProcessWrapper @ 0x140672CB0
+ * XREFs of DifNtCreateProcessWrapper @ 0x140676890
  * Callers:
  *     <none>
  * Callees:
- *     DifGetReturnAddressForWrappers @ 0x140260EA4 (DifGetReturnAddressForWrappers.c)
- *     ExReleaseRundownProtection_0 @ 0x140266240 (ExReleaseRundownProtection_0.c)
- *     ExAcquireRundownProtection_0 @ 0x1402F0590 (ExAcquireRundownProtection_0.c)
- *     DifGetAPIThunkContextById @ 0x1404C17A4 (DifGetAPIThunkContextById.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     NtCreateProcess @ 0x1407EFBF0 (NtCreateProcess.c)
+ *     DifGetReturnAddressForWrappers @ 0x14026040C (DifGetReturnAddressForWrappers.c)
+ *     ExReleaseRundownProtection_0 @ 0x1402657B0 (ExReleaseRundownProtection_0.c)
+ *     ExAcquireRundownProtection_0 @ 0x1402D2610 (ExAcquireRundownProtection_0.c)
+ *     DifGetAPIThunkContextById @ 0x1404BAFF4 (DifGetAPIThunkContextById.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     NtCreateProcess @ 0x1407F5750 (NtCreateProcess.c)
  */
 
 __int64 __fastcall DifNtCreateProcessWrapper(
-        __int64 a1,
-        int a2,
-        __int64 a3,
-        __int64 a4,
-        char a5,
-        __int64 a6,
-        __int64 a7,
-        __int64 a8)
+        HANDLE *a1,
+        ACCESS_MASK a2,
+        OBJECT_ATTRIBUTES *a3,
+        void *a4,
+        BOOLEAN InheritObjectTable,
+        HANDLE SectionHandle,
+        HANDLE DebugPort,
+        HANDLE TokenHandle)
 {
   __int128 *APIThunkContextById; // rax
   __int64 v12; // rdx
@@ -33,11 +33,11 @@ __int64 __fastcall DifNtCreateProcessWrapper(
   BOOLEAN v19; // di
   __int128 *j; // rbx
   _QWORD v22[4]; // [rsp+48h] [rbp-39h] BYREF
-  char v23; // [rsp+68h] [rbp-19h]
-  __int64 v24; // [rsp+70h] [rbp-11h]
-  __int64 v25; // [rsp+78h] [rbp-9h]
-  int v26; // [rsp+80h] [rbp-1h]
-  __int64 v27; // [rsp+88h] [rbp+7h]
+  BOOLEAN v23; // [rsp+68h] [rbp-19h]
+  void *v24; // [rsp+70h] [rbp-11h]
+  OBJECT_ATTRIBUTES *v25; // [rsp+78h] [rbp-9h]
+  ACCESS_MASK v26; // [rsp+80h] [rbp-1h]
+  HANDLE *v27; // [rsp+88h] [rbp+7h]
   unsigned int Process; // [rsp+90h] [rbp+Fh]
   void *retaddr; // [rsp+C0h] [rbp+3Fh]
 
@@ -61,10 +61,10 @@ __int64 __fastcall DifNtCreateProcessWrapper(
 LABEL_7:
   v16 = 0;
   v27 = a1;
-  v23 = a5;
-  v22[3] = a6;
-  v22[2] = a7;
-  v22[1] = a8;
+  v23 = InheritObjectTable;
+  v22[3] = SectionHandle;
+  v22[2] = DebugPort;
+  v22[1] = TokenHandle;
   v26 = a2;
   v25 = a3;
   v24 = a4;
@@ -80,7 +80,7 @@ LABEL_7:
       ExReleaseRundownProtection_0(&DifRebootlessRundown);
   }
 LABEL_17:
-  Process = NtCreateProcess(a1, a2, a3, a4, a5, a6, a7, a8);
+  Process = NtCreateProcess(a1, a2, a3, a4, InheritObjectTable, SectionHandle, DebugPort, TokenHandle);
   if ( v13 )
   {
     if ( (v19 = 0, !VfDifRunningWithoutReboot) && (VfOptionFlags & 0x800) == 0

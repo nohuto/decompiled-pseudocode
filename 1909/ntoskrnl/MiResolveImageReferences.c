@@ -39,7 +39,7 @@ __int64 __fastcall MiResolveImageReferences(char *a1, __int64 a2, _QWORD *a3, co
   _QWORD *v12; // r15
   int ImportDll; // edi
   __int64 v14; // rax
-  const char *v15; // rsi
+  const CHAR *v15; // rsi
   __int64 CurrentApiSetSchema; // rax
   ULONG v17; // esi
   PVOID *v18; // rdi
@@ -67,7 +67,7 @@ __int64 __fastcall MiResolveImageReferences(char *a1, __int64 a2, _QWORD *a3, co
   _QWORD *v41; // [rsp+98h] [rbp-21h]
   char v42[8]; // [rsp+A0h] [rbp-19h] BYREF
   _QWORD v43[2]; // [rsp+A8h] [rbp-11h] BYREF
-  STRING DestinationString; // [rsp+B8h] [rbp-1h] BYREF
+  _STRING DestinationString; // [rsp+B8h] [rbp-1h] BYREF
 
   v5 = a5;
   *(_QWORD *)&DestinationString.Length = 0LL;
@@ -107,7 +107,7 @@ LABEL_11:
       ExFreePoolWithTag(v12, 0);
     return 0LL;
   }
-  v15 = (const char *)(v6 + v8[3]);
+  v15 = (const CHAR *)(v6 + v8[3]);
   p_String1 = 0LL;
   RtlInitAnsiString(&DestinationString, v15);
   ImportDll = RtlAnsiStringToUnicodeString(&UnicodeString, &DestinationString, 1u);

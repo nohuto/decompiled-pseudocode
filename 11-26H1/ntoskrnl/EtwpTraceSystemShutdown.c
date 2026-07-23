@@ -1,13 +1,13 @@
 /*
- * XREFs of EtwpTraceSystemShutdown @ 0x14082810C
+ * XREFs of EtwpTraceSystemShutdown @ 0x14082E34C
  * Callers:
- *     EtwShutdown @ 0x140B362AC (EtwShutdown.c)
+ *     EtwShutdown @ 0x140B384BC (EtwShutdown.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212E30 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     EtwWrite @ 0x140212EF0 (EtwWrite.c)
- *     KeQuerySystemTimePrecise @ 0x14021B070 (KeQuerySystemTimePrecise.c)
- *     _tlgKeywordOn @ 0x14044F850 (_tlgKeywordOn.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212F10 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     EtwWrite @ 0x140212FD0 (EtwWrite.c)
+ *     KeQuerySystemTimePrecise @ 0x14021CA00 (KeQuerySystemTimePrecise.c)
+ *     _tlgKeywordOn @ 0x140447980 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 char EtwpTraceSystemShutdown()
@@ -25,9 +25,9 @@ char EtwpTraceSystemShutdown()
 
   v2 = 0LL;
   result = KeQuerySystemTimePrecise(&v2);
-  if ( (unsigned int)dword_140E08F48 > 5 )
+  if ( (unsigned int)dword_140E08F78 > 5 )
   {
-    result = tlgKeywordOn((__int64)&dword_140E08F48, 0x400000000000LL);
+    result = tlgKeywordOn((__int64)&dword_140E08F78, 0x400000000000LL);
     if ( result )
     {
       v1 = 2;
@@ -37,19 +37,19 @@ char EtwpTraceSystemShutdown()
       v9 = 8LL;
       v8 = &v3;
       result = tlgWriteTransfer_EtwWriteTransfer(
-                 (__int64)&dword_140E08F48,
-                 (unsigned __int8 *)byte_140054471,
+                 (__int64)&dword_140E08F78,
+                 (unsigned __int8 *)byte_1400554B5,
                  0LL,
                  0LL,
                  4u,
                  &v5);
     }
   }
-  if ( EtwpSecurityLock.MutantListHead.Blink )
+  if ( EtwKernelProvRegHandle )
   {
     *(_QWORD *)&UserData.Size = 8LL;
     UserData.Ptr = (ULONGLONG)&v2;
-    return EtwWrite((REGHANDLE)EtwpSecurityLock.MutantListHead.Blink, &KernelSystemStop, 0LL, 1u, &UserData);
+    return EtwWrite(EtwKernelProvRegHandle, &KernelSystemStop, 0LL, 1u, &UserData);
   }
   return result;
 }

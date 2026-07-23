@@ -1,11 +1,11 @@
 /*
- * XREFs of MiCheckContiguityTradeEligible @ 0x140546BC4
+ * XREFs of MiCheckContiguityTradeEligible @ 0x140546E04
  * Callers:
- *     MiQueryVaPhysicalContiguity @ 0x140547254 (MiQueryVaPhysicalContiguity.c)
- *     MiMakeVaRangePhysicallyContiguous @ 0x140551F74 (MiMakeVaRangePhysicallyContiguous.c)
+ *     MiQueryVaPhysicalContiguity @ 0x140547494 (MiQueryVaPhysicalContiguity.c)
+ *     MiMakeVaRangePhysicallyContiguous @ 0x1405521B4 (MiMakeVaRangePhysicallyContiguous.c)
  * Callees:
- *     MiActivePageClaimCandidate @ 0x140302700 (MiActivePageClaimCandidate.c)
- *     MiIsPfnFromSlabAllocation @ 0x140302EF0 (MiIsPfnFromSlabAllocation.c)
+ *     MiActivePageClaimCandidate @ 0x14030D450 (MiActivePageClaimCandidate.c)
+ *     MiIsPfnFromSlabAllocation @ 0x14030DC40 (MiIsPfnFromSlabAllocation.c)
  *     MI_PFN_IS_PROTO @ 0x1403F48C8 (MI_PFN_IS_PROTO.c)
  */
 
@@ -19,7 +19,7 @@ __int64 __fastcall MiCheckContiguityTradeEligible(__int64 a1)
   if ( (*(_BYTE *)(v2 + 34) & 7) == 6 )
   {
     if ( MiActivePageClaimCandidate(
-           *(_QWORD *)(qword_140C4E648 + 8 * ((*(_QWORD *)(v2 + 40) >> 39) & 0x3FFLL)),
+           *(_QWORD *)(qword_140C4E688 + 8 * ((*(_QWORD *)(v2 + 40) >> 39) & 0x3FFLL)),
            v2,
            0LL,
            v2) )

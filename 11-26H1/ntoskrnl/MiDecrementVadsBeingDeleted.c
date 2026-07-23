@@ -1,12 +1,12 @@
 /*
- * XREFs of MiDecrementVadsBeingDeleted @ 0x140442E60
+ * XREFs of MiDecrementVadsBeingDeleted @ 0x14043B970
  * Callers:
- *     MiFinishVadDeletion @ 0x140442CA8 (MiFinishVadDeletion.c)
- *     MiReserveUserMemory @ 0x14095B5DC (MiReserveUserMemory.c)
- *     MiCoalescePlaceholderAllocations @ 0x14095FF68 (MiCoalescePlaceholderAllocations.c)
- *     MiFinishPlaceholderVadReplacement @ 0x140B05F14 (MiFinishPlaceholderVadReplacement.c)
+ *     MiFinishVadDeletion @ 0x14043B7B8 (MiFinishVadDeletion.c)
+ *     MiReserveUserMemory @ 0x140A00E9C (MiReserveUserMemory.c)
+ *     MiCoalescePlaceholderAllocations @ 0x140A05828 (MiCoalescePlaceholderAllocations.c)
+ *     MiFinishPlaceholderVadReplacement @ 0x140B08044 (MiFinishPlaceholderVadReplacement.c)
  * Callees:
- *     KeSetEvent @ 0x1402DE9C0 (KeSetEvent.c)
+ *     KeSetEvent @ 0x1402C0780 (KeSetEvent.c)
  */
 
 LONG __fastcall MiDecrementVadsBeingDeleted(__int64 a1)

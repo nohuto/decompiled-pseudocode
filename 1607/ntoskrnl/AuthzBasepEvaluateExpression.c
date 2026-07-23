@@ -1,15 +1,15 @@
 /*
- * XREFs of AuthzBasepEvaluateExpression @ 0x140234FB0
+ * XREFs of AuthzBasepEvaluateExpression @ 0x140234DDC
  * Callers:
- *     AuthzBasepEvaluateAceCondition @ 0x14009FBFC (AuthzBasepEvaluateAceCondition.c)
+ *     AuthzBasepEvaluateAceCondition @ 0x14009E524 (AuthzBasepEvaluateAceCondition.c)
  * Callees:
- *     AuthzBasepCompareFQBNOperands @ 0x140234658 (AuthzBasepCompareFQBNOperands.c)
- *     AuthzBasepCompareIntegerOperands @ 0x1402348C4 (AuthzBasepCompareIntegerOperands.c)
- *     AuthzBasepCompareOctetStringOperands @ 0x1402349EC (AuthzBasepCompareOctetStringOperands.c)
- *     AuthzBasepCompareUnicodeStringOperands @ 0x140234B30 (AuthzBasepCompareUnicodeStringOperands.c)
- *     AuthzBasepEvaluateSetRelationship @ 0x140235104 (AuthzBasepEvaluateSetRelationship.c)
- *     AuthzBasepGetOperandTypeForEvaluation @ 0x140235674 (AuthzBasepGetOperandTypeForEvaluation.c)
- *     AuthzBasepOperandValueTypesCompatible @ 0x140235780 (AuthzBasepOperandValueTypesCompatible.c)
+ *     AuthzBasepCompareFQBNOperands @ 0x140234484 (AuthzBasepCompareFQBNOperands.c)
+ *     AuthzBasepCompareIntegerOperands @ 0x1402346F0 (AuthzBasepCompareIntegerOperands.c)
+ *     AuthzBasepCompareOctetStringOperands @ 0x140234818 (AuthzBasepCompareOctetStringOperands.c)
+ *     AuthzBasepCompareUnicodeStringOperands @ 0x14023495C (AuthzBasepCompareUnicodeStringOperands.c)
+ *     AuthzBasepEvaluateSetRelationship @ 0x140234F30 (AuthzBasepEvaluateSetRelationship.c)
+ *     AuthzBasepGetOperandTypeForEvaluation @ 0x1402354A0 (AuthzBasepGetOperandTypeForEvaluation.c)
+ *     AuthzBasepOperandValueTypesCompatible @ 0x1402355AC (AuthzBasepOperandValueTypesCompatible.c)
  */
 
 __int64 __fastcall AuthzBasepEvaluateExpression(unsigned __int8 a1, __int64 a2, BOOL *a3)

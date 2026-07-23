@@ -1,13 +1,13 @@
 /*
- * XREFs of MmFreeNonCachedMemory @ 0x140A9DA90
+ * XREFs of MmFreeNonCachedMemory @ 0x140A99000
  * Callers:
- *     DifMmFreeNonCachedMemoryWrapper @ 0x1406334B0 (DifMmFreeNonCachedMemoryWrapper.c)
+ *     DifMmFreeNonCachedMemoryWrapper @ 0x140631A70 (DifMmFreeNonCachedMemoryWrapper.c)
  * Callees:
- *     MiReleasePtes @ 0x14028DDA0 (MiReleasePtes.c)
- *     MiMakeDemandZeroPte @ 0x1402E3CC0 (MiMakeDemandZeroPte.c)
- *     MmFreePagesFromMdl @ 0x1403A37F0 (MmFreePagesFromMdl.c)
- *     MiGetPteAddress @ 0x140437550 (MiGetPteAddress.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     MiReleasePtes @ 0x14029D9A0 (MiReleasePtes.c)
+ *     MiMakeDemandZeroPte @ 0x140392C40 (MiMakeDemandZeroPte.c)
+ *     MiGetPteAddress @ 0x140429FD0 (MiGetPteAddress.c)
+ *     MmFreePagesFromMdl @ 0x14048E2C0 (MmFreePagesFromMdl.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __stdcall MmFreeNonCachedMemory(PVOID BaseAddress, SIZE_T NumberOfBytes)
@@ -23,7 +23,7 @@ void __stdcall MmFreeNonCachedMemory(PVOID BaseAddress, SIZE_T NumberOfBytes)
                        + 16);
   DemandZeroPte = MiMakeDemandZeroPte(4);
   *(_QWORD *)(v4 + 16) = DemandZeroPte;
-  MiReleasePtes((__int64)&unk_140E35D80, v6, (v5 >> 12) + ((v5 & 0xFFF) != 0));
+  MiReleasePtes((__int64)&unk_140E35EC0, v6, (v5 >> 12) + ((v5 & 0xFFF) != 0));
   MmFreePagesFromMdl(v2);
   ExFreePoolWithTag(v2, 0);
 }

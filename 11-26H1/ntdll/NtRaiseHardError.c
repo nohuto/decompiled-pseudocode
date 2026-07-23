@@ -1,19 +1,25 @@
 /*
- * XREFs of NtRaiseHardError @ 0x180161DF0
+ * XREFs of NtRaiseHardError @ 0x180161CF0
  * Callers:
- *     LdrpMapDllNtFileName @ 0x1800833B0 (LdrpMapDllNtFileName.c)
- *     LdrpInitializationFailure @ 0x1800CDD30 (LdrpInitializationFailure.c)
- *     LdrpProcessMachineMismatch @ 0x1800D2784 (LdrpProcessMachineMismatch.c)
- *     LdrpReportError @ 0x1800DA620 (LdrpReportError.c)
+ *     LdrpMapDllNtFileName @ 0x18007A750 (LdrpMapDllNtFileName.c)
+ *     LdrpInitializationFailure @ 0x1800CB4A0 (LdrpInitializationFailure.c)
+ *     LdrpProcessMachineMismatch @ 0x1800D2654 (LdrpProcessMachineMismatch.c)
+ *     LdrpReportError @ 0x1800D75E0 (LdrpReportError.c)
  * Callees:
  *     <none>
  */
 
-__int64 NtRaiseHardError()
+NTSTATUS __cdecl NtRaiseHardError(
+        NTSTATUS ErrorStatus,
+        ULONG NumberOfParameters,
+        ULONG UnicodeStringParameterMask,
+        PULONG_PTR Parameters,
+        ULONG ValidResponseOptions,
+        PULONG Response)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 374LL;
+  result = 374;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

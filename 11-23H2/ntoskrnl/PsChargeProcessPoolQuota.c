@@ -2,7 +2,7 @@
  * XREFs of PsChargeProcessPoolQuota @ 0x1402081D0
  * Callers:
  *     PsChargePoolQuota @ 0x140207F00 (PsChargePoolQuota.c)
- *     FsRtlCancelNotify @ 0x14035E1C0 (FsRtlCancelNotify.c)
+ *     FsRtlCancelNotify @ 0x14035E360 (FsRtlCancelNotify.c)
  *     ExpAllocatePoolWithQuotaTag @ 0x140AAE008 (ExpAllocatePoolWithQuotaTag.c)
  * Callees:
  *     PspExpandQuota @ 0x140208400 (PspExpandQuota.c)

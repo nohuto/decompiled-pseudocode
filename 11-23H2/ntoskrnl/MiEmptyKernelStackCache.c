@@ -1,18 +1,18 @@
 /*
- * XREFs of MiEmptyKernelStackCache @ 0x140644790
+ * XREFs of MiEmptyKernelStackCache @ 0x140644CE0
  * Callers:
- *     MiFindContiguousPagesEx @ 0x1403BB018 (MiFindContiguousPagesEx.c)
- *     MiDeletePartitionResources @ 0x140659488 (MiDeletePartitionResources.c)
- *     MmRelocatePfnList @ 0x140A3C988 (MmRelocatePfnList.c)
- *     MiScrubNode @ 0x140A46670 (MiScrubNode.c)
+ *     MiFindContiguousPagesEx @ 0x1403BB1F8 (MiFindContiguousPagesEx.c)
+ *     MiDeletePartitionResources @ 0x1406599D8 (MiDeletePartitionResources.c)
+ *     MmRelocatePfnList @ 0x140A3CC38 (MmRelocatePfnList.c)
+ *     MiScrubNode @ 0x140A46920 (MiScrubNode.c)
  * Callees:
  *     MiPruneCachedStackList @ 0x14021EB00 (MiPruneCachedStackList.c)
  *     MiDeleteCachedKernelStack @ 0x14021EB64 (MiDeleteCachedKernelStack.c)
- *     KeGetPrcb @ 0x140257330 (KeGetPrcb.c)
- *     MiDeleteCachedKernelShadowStack @ 0x140644354 (MiDeleteCachedKernelShadowStack.c)
+ *     KeGetPrcb @ 0x1402573F0 (KeGetPrcb.c)
+ *     MiDeleteCachedKernelShadowStack @ 0x1406448A4 (MiDeleteCachedKernelShadowStack.c)
  */
 
-__int64 __fastcall MiEmptyKernelStackCache(union _SLIST_HEADER *a1, int a2)
+__int64 __fastcall MiEmptyKernelStackCache(_SLIST_HEADER *a1, int a2)
 {
   __int64 result; // rax
   unsigned int i; // edi
@@ -21,11 +21,11 @@ __int64 __fastcall MiEmptyKernelStackCache(union _SLIST_HEADER *a1, int a2)
   unsigned int j; // edi
   __int64 v9; // r14
   unsigned __int64 Alignment; // rax
-  union _SLIST_HEADER *v11; // rbx
-  union _SLIST_HEADER *v12; // rbp
-  union _SLIST_HEADER *v13; // rbx
-  union _SLIST_HEADER *v14; // rbp
-  struct _SLIST_ENTRY v15; // [rsp+20h] [rbp-38h] BYREF
+  _SLIST_HEADER *v11; // rbx
+  _SLIST_HEADER *v12; // rbp
+  _SLIST_HEADER *v13; // rbx
+  _SLIST_HEADER *v14; // rbp
+  _SLIST_ENTRY v15; // [rsp+20h] [rbp-38h] BYREF
   __int128 v16; // [rsp+30h] [rbp-28h]
   _UNKNOWN *retaddr; // [rsp+58h] [rbp+0h] BYREF
 
@@ -33,7 +33,7 @@ __int64 __fastcall MiEmptyKernelStackCache(union _SLIST_HEADER *a1, int a2)
   if ( a2 || (byte_140C65A8F & 1) == 0 )
   {
     result = (__int64)MiSystemPartition;
-    if ( a1 == (union _SLIST_HEADER *)MiSystemPartition )
+    if ( a1 == (_SLIST_HEADER *)MiSystemPartition )
     {
       for ( i = 0; i < (unsigned int)KeNumberProcessors_0; ++i )
       {
@@ -60,7 +60,7 @@ __int64 __fastcall MiEmptyKernelStackCache(union _SLIST_HEADER *a1, int a2)
     {
       v9 = 25408LL * j;
       Alignment = a1[1].Alignment;
-      v11 = (union _SLIST_HEADER *)(v9 + Alignment + 23200);
+      v11 = (_SLIST_HEADER *)(v9 + Alignment + 23200);
       v12 = v11 + 6;
       if ( v11 < &v11[6] )
       {
@@ -74,7 +74,7 @@ __int64 __fastcall MiEmptyKernelStackCache(union _SLIST_HEADER *a1, int a2)
       }
       if ( a2 )
       {
-        v13 = (union _SLIST_HEADER *)(v9 + Alignment + 23296);
+        v13 = (_SLIST_HEADER *)(v9 + Alignment + 23296);
         v14 = v13 + 6;
         while ( v13 < v14 )
         {

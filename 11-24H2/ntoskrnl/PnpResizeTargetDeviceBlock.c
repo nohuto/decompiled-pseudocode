@@ -1,10 +1,10 @@
 /*
- * XREFs of PnpResizeTargetDeviceBlock @ 0x140A0D5A4
+ * XREFs of PnpResizeTargetDeviceBlock @ 0x1409BB9A8
  * Callers:
- *     PnpProcessQueryRemoveAndEject @ 0x140A0DB78 (PnpProcessQueryRemoveAndEject.c)
+ *     PnpProcessQueryRemoveAndEject @ 0x1409BBF7C (PnpProcessQueryRemoveAndEject.c)
  * Callees:
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     PnpAllocateCriticalMemory @ 0x140A0D890 (PnpAllocateCriticalMemory.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     PnpAllocateCriticalMemory @ 0x1409BBC94 (PnpAllocateCriticalMemory.c)
  */
 
 __int64 __fastcall PnpResizeTargetDeviceBlock(const void **a1, unsigned int a2)

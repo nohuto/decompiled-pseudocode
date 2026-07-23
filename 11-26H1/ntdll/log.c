@@ -1,9 +1,9 @@
 /*
- * XREFs of log @ 0x18012AE40
+ * XREFs of log @ 0x18012ABB0
  * Callers:
  *     <none>
  * Callees:
- *     _handle_error @ 0x1801303D0 (_handle_error.c)
+ *     _handle_error @ 0x180130140 (_handle_error.c)
  */
 
 double __cdecl log(double X)
@@ -58,10 +58,10 @@ LABEL_5:
          / ((*(double *)&v9 - (double)(int)v6 * 0.0078125) * 0.5 + (double)(int)v6 * 0.0078125);
       return ((v8 * v8 * 0.002232198107585598 + 0.01249999999781387) * (v8 * v8) + 0.08333333333333336) * (v8 * v8) * v8
            + v8
-           + qword_1801859D0[v6]
+           + qword_1801848D0[v6]
            + (double)v7 * 0.00000005769999047543285
            + (double)v7 * 0.6931471228599548
-           + qword_1801857C0[v6];
+           + qword_1801846C0[v6];
     }
     else
     {

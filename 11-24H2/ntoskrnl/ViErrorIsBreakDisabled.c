@@ -1,7 +1,7 @@
 /*
- * XREFs of ViErrorIsBreakDisabled @ 0x140B937A4
+ * XREFs of ViErrorIsBreakDisabled @ 0x140B957A4
  * Callers:
- *     ViErrorFinishReport @ 0x140B9367C (ViErrorFinishReport.c)
+ *     ViErrorFinishReport @ 0x140B9567C (ViErrorFinishReport.c)
  * Callees:
  *     <none>
  */

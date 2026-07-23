@@ -1,11 +1,11 @@
 /*
- * XREFs of HalpIsHvUsedForReboot @ 0x1404C2404
+ * XREFs of HalpIsHvUsedForReboot @ 0x1404C2644
  * Callers:
- *     HalpMiscGetParameters @ 0x140A6CF88 (HalpMiscGetParameters.c)
+ *     HalpMiscGetParameters @ 0x140A6DF88 (HalpMiscGetParameters.c)
  * Callees:
- *     HalpIsMicrosoftCompatibleHvLoaded @ 0x1403A1F98 (HalpIsMicrosoftCompatibleHvLoaded.c)
- *     HalpIsXboxNanovisorPresent @ 0x1403A2240 (HalpIsXboxNanovisorPresent.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     HalpIsMicrosoftCompatibleHvLoaded @ 0x1403A20E8 (HalpIsMicrosoftCompatibleHvLoaded.c)
+ *     HalpIsXboxNanovisorPresent @ 0x1403A2390 (HalpIsXboxNanovisorPresent.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  */
 
 bool __fastcall HalpIsHvUsedForReboot(__int64 a1)

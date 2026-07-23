@@ -1,8 +1,8 @@
 /*
- * XREFs of KeAbComputeThreadEntriesSize @ 0x1404BD9E4
+ * XREFs of KeAbComputeThreadEntriesSize @ 0x1404B7230
  * Callers:
- *     KeSizeOfKThreadExtension @ 0x14051FE20 (KeSizeOfKThreadExtension.c)
- *     KiAllocatePrcbThread @ 0x1405EC38C (KiAllocatePrcbThread.c)
+ *     KeSizeOfKThreadExtension @ 0x1405224C4 (KeSizeOfKThreadExtension.c)
+ *     KiAllocatePrcbThread @ 0x1405EECFC (KiAllocatePrcbThread.c)
  * Callees:
  *     <none>
  */

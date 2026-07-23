@@ -1,14 +1,14 @@
 /*
- * XREFs of HviGetEnlightenmentInformation @ 0x14017D750
+ * XREFs of HviGetEnlightenmentInformation @ 0x14017D890
  * Callers:
- *     HvlGetImplementedPhysicalBits @ 0x14017D6C0 (HvlGetImplementedPhysicalBits.c)
- *     KiDetectHardwareSpecControlFeatures @ 0x14017D784 (KiDetectHardwareSpecControlFeatures.c)
- *     HvlpDetermineEnlightenments @ 0x140278CB4 (HvlpDetermineEnlightenments.c)
- *     PopIsRunningInVm @ 0x1402D6DC0 (PopIsRunningInVm.c)
- *     HvlQueryDetailInfo @ 0x140817518 (HvlQueryDetailInfo.c)
- *     ExGetVMType @ 0x1408CEACC (ExGetVMType.c)
+ *     HvlGetImplementedPhysicalBits @ 0x14017D800 (HvlGetImplementedPhysicalBits.c)
+ *     KiDetectHardwareSpecControlFeatures @ 0x14017D8C4 (KiDetectHardwareSpecControlFeatures.c)
+ *     HvlpDetermineEnlightenments @ 0x140278EA4 (HvlpDetermineEnlightenments.c)
+ *     PopIsRunningInVm @ 0x1402D6FB0 (PopIsRunningInVm.c)
+ *     HvlQueryDetailInfo @ 0x140818718 (HvlQueryDetailInfo.c)
+ *     ExGetVMType @ 0x1408CFD8C (ExGetVMType.c)
  * Callees:
- *     HviIsHypervisorMicrosoftCompatible @ 0x14017DBD0 (HviIsHypervisorMicrosoftCompatible.c)
+ *     HviIsHypervisorMicrosoftCompatible @ 0x14017DD10 (HviIsHypervisorMicrosoftCompatible.c)
  */
 
 __int64 __fastcall HviGetEnlightenmentInformation(_DWORD *a1)

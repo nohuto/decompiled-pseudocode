@@ -1,7 +1,7 @@
 /*
- * XREFs of MiPageIndexToMoveInProgress @ 0x1403C8300
+ * XREFs of MiPageIndexToMoveInProgress @ 0x1403D21F0
  * Callers:
- *     MiGetLargePageDemoteAsNeeded @ 0x1403C7FF0 (MiGetLargePageDemoteAsNeeded.c)
+ *     MiGetLargePageDemoteAsNeeded @ 0x1403D1EE0 (MiGetLargePageDemoteAsNeeded.c)
  * Callees:
  *     <none>
  */

@@ -30,7 +30,12 @@
  *     ExRaiseAccessViolation @ 0x140958920 (ExRaiseAccessViolation.c)
  */
 
-__int64 __fastcall NtQueryKey(HANDLE Handle, unsigned int a2, unsigned __int64 a3, unsigned int a4, _DWORD *a5)
+NTSTATUS __cdecl NtQueryKey(
+        HANDLE KeyHandle,
+        KEY_INFORMATION_CLASS KeyInformationClass,
+        PVOID KeyInformation,
+        ULONG Length,
+        PULONG ResultLength)
 {
   __int64 v5; // r15
   struct _KTHREAD *CurrentThread; // rax
@@ -50,9 +55,9 @@ __int64 __fastcall NtQueryKey(HANDLE Handle, unsigned int a2, unsigned __int64 a
   void *v23; // rcx
   unsigned int v25; // r15d
   unsigned int v26; // eax
-  int Key; // ebx
+  NTSTATUS Key; // ebx
   KPROCESSOR_MODE PreviousMode; // r9
-  unsigned int v29; // [rsp+40h] [rbp-198h]
+  NTSTATUS v29; // [rsp+40h] [rbp-198h]
   signed __int8 v30; // [rsp+44h] [rbp-194h]
   char v31; // [rsp+45h] [rbp-193h]
   char v32; // [rsp+46h] [rbp-192h]
@@ -66,10 +71,10 @@ __int64 __fastcall NtQueryKey(HANDLE Handle, unsigned int a2, unsigned __int64 a
   PVOID v40; // [rsp+88h] [rbp-150h] BYREF
   struct _OBJECT_HANDLE_INFORMATION HandleInformation; // [rsp+90h] [rbp-148h] BYREF
   PADAPTER_OBJECT v42; // [rsp+98h] [rbp-140h] BYREF
-  int v43; // [rsp+A0h] [rbp-138h]
+  NTSTATUS v43; // [rsp+A0h] [rbp-138h]
   int v44; // [rsp+A4h] [rbp-134h]
   _QWORD *v45; // [rsp+A8h] [rbp-130h]
-  int v46; // [rsp+B0h] [rbp-128h]
+  NTSTATUS v46; // [rsp+B0h] [rbp-128h]
   __int128 v47; // [rsp+B4h] [rbp-124h]
   __int64 v48; // [rsp+C4h] [rbp-114h]
   int v49; // [rsp+CCh] [rbp-10Ch]
@@ -79,8 +84,8 @@ __int64 __fastcall NtQueryKey(HANDLE Handle, unsigned int a2, unsigned __int64 a
   _BYTE v53[71]; // [rsp+121h] [rbp-B7h] BYREF
   _OWORD v54[2]; // [rsp+170h] [rbp-68h] BYREF
 
-  v5 = a4;
-  Size = a4;
+  v5 = Length;
+  Size = Length;
   HandleInformation = 0LL;
   memset(v53, 0, sizeof(v53));
   memset(v54, 0, sizeof(v54));
@@ -107,15 +112,15 @@ LABEL_34:
     v29 = Key;
     goto LABEL_35;
   }
-  if ( a2 > 8 )
+  if ( (unsigned int)KeyInformationClass > KeyTrustInformation )
   {
     if ( *(BOOLEAN **)((char *)&NlsMbCodePageTag + 7) )
     {
-      if ( Handle )
+      if ( KeyHandle )
       {
         PreviousMode = KeGetCurrentThread()->PreviousMode;
         v40 = 0LL;
-        if ( ObReferenceObjectByHandle(Handle, 0, (POBJECT_TYPE)CmKeyObjectType, PreviousMode, &v40, 0LL) >= 0 )
+        if ( ObReferenceObjectByHandle(KeyHandle, 0, (POBJECT_TYPE)CmKeyObjectType, PreviousMode, &v40, 0LL) >= 0 )
         {
           v38 = *((_QWORD *)v40 + 1);
           HalPutDmaAdapter((PADAPTER_OBJECT)v40);
@@ -131,11 +136,11 @@ LABEL_34:
   {
     if ( (_DWORD)v5 )
     {
-      v11 = a3;
-      if ( (a3 & 3) != 0 )
+      v11 = (unsigned __int64)KeyInformation;
+      if ( ((unsigned __int8)KeyInformation & 3) != 0 )
         ExRaiseDatatypeMisalignment();
-      v12 = a3 + v5 - 1;
-      if ( a3 > v12 || v12 >= 0x7FFFFFFF0000LL )
+      v12 = (unsigned __int64)KeyInformation + v5 - 1;
+      if ( (unsigned __int64)KeyInformation > v12 || v12 >= 0x7FFFFFFF0000LL )
         ExRaiseAccessViolation();
       v13 = (v12 & 0xFFFFFFFFFFFFF000uLL) + 4096;
       do
@@ -145,15 +150,15 @@ LABEL_34:
       }
       while ( v11 != v13 );
     }
-    v14 = (__int64)a5;
-    if ( (unsigned __int64)a5 >= 0x7FFFFFFF0000LL )
+    v14 = (__int64)ResultLength;
+    if ( (unsigned __int64)ResultLength >= 0x7FFFFFFF0000LL )
       v14 = 0x7FFFFFFF0000LL;
     *(_DWORD *)v14 = *(_DWORD *)v14;
     v10 = 1;
   }
-  v15 = ((a2 - 3) & 0xFFFFFFFB) != 0;
+  v15 = ((KeyInformationClass - 3) & 0xFFFFFFFB) != 0;
   Object = 0LL;
-  Key = ObReferenceObjectByHandle(Handle, v15, (POBJECT_TYPE)CmKeyObjectType, v10, &Object, &HandleInformation);
+  Key = ObReferenceObjectByHandle(KeyHandle, v15, (POBJECT_TYPE)CmKeyObjectType, v10, &Object, &HandleInformation);
   v16 = Object;
   DmaAdapter = (PADAPTER_OBJECT)Object;
   v29 = Key;
@@ -161,27 +166,27 @@ LABEL_34:
     goto LABEL_35;
   if ( *(_DWORD *)Object != 1803104306 )
   {
-    if ( a2 != 4 )
+    if ( KeyInformationClass != KeyCachedInformation )
     {
       Key = -1073741816;
       goto LABEL_34;
     }
-    *a5 = 40;
+    *ResultLength = 40;
     if ( (unsigned int)v5 < 0x28 )
     {
       Key = -1073741789;
       v29 = -1073741789;
       goto LABEL_35;
     }
-    *(_OWORD *)a3 = 0LL;
-    *(_OWORD *)(a3 + 16) = 0LL;
-    *(_QWORD *)(a3 + 32) = 0LL;
-    *(_DWORD *)(a3 + 20) = *(_DWORD *)(v16[1] + 96LL);
+    *(_OWORD *)KeyInformation = 0LL;
+    *((_OWORD *)KeyInformation + 1) = 0LL;
+    *((_QWORD *)KeyInformation + 4) = 0LL;
+    *((_DWORD *)KeyInformation + 5) = *(_DWORD *)(v16[1] + 96LL);
     goto LABEL_33;
   }
   if ( *(BOOLEAN **)((char *)&NlsMbCodePageTag + 7) )
     v38 = *((_QWORD *)Object + 1);
-  if ( ((a2 - 3) & 0xFFFFFFFB) == 0 && !HandleInformation.GrantedAccess )
+  if ( ((KeyInformationClass - 3) & 0xFFFFFFFB) == 0 && !HandleInformation.GrantedAccess )
   {
     Key = -1073741790;
     goto LABEL_34;
@@ -199,10 +204,10 @@ LABEL_34:
   if ( !IsResourceAcquiredSharedLite )
   {
     v50[0] = Object;
-    LODWORD(v50[1]) = a2;
-    v50[2] = a3;
+    LODWORD(v50[1]) = KeyInformationClass;
+    v50[2] = KeyInformation;
     LODWORD(v50[3]) = Size;
-    v50[4] = a5;
+    v50[4] = ResultLength;
     v20 = CmpCallCallBacksEx(7u, (__int64)v50, 0LL, 1, 0x16u, (__int64)Object, (__int64)v39);
     Key = v20;
     v29 = v20;
@@ -218,16 +223,16 @@ LABEL_33:
     goto LABEL_34;
   }
 LABEL_29:
-  if ( a2 == 7 )
+  if ( KeyInformationClass == KeyHandleTagsInformation )
   {
-    *a5 = 4;
+    *ResultLength = 4;
     if ( (unsigned int)Size < 4 )
     {
       Key = -1073741789;
       v29 = -1073741789;
       goto LABEL_35;
     }
-    *(_DWORD *)a3 = v19[25];
+    *(_DWORD *)KeyInformation = v19[25];
     goto LABEL_33;
   }
   Key = CmKeyBodyRemapToVirtualForEnum((__int64 *)&DmaAdapter, v30, v15, &v37);
@@ -235,7 +240,7 @@ LABEL_29:
   if ( Key >= 0 )
   {
     v25 = Size;
-    Key = CmpBounceContextStart(Src, a3, (unsigned int)Size, (unsigned int)v30, 2);
+    Key = CmpBounceContextStart(Src, KeyInformation, (unsigned int)Size, (unsigned int)v30, 2);
     v29 = Key;
     if ( Key >= 0 )
     {
@@ -244,7 +249,7 @@ LABEL_29:
       if ( Key >= 0 || Key == -2147483643 || Key == -1073741789 )
       {
         v26 = HIDWORD(Size);
-        *a5 = HIDWORD(Size);
+        *ResultLength = HIDWORD(Size);
         if ( Key != -1073741789 )
         {
           if ( (unsigned int)Size >= v26 )
@@ -298,7 +303,7 @@ LABEL_35:
       if ( LOWORD(CmpBounceBufferLookaside.Alignment) >= (unsigned __int16)word_140CDB610 )
       {
         ++dword_140CDB620;
-        ((void (__fastcall *)(void *, union _SLIST_HEADER *))qword_140CDB638)(Src[1], &CmpBounceBufferLookaside);
+        ((void (__fastcall *)(void *, _SLIST_HEADER *))qword_140CDB638)(Src[1], &CmpBounceBufferLookaside);
       }
       else
       {
@@ -317,7 +322,7 @@ LABEL_35:
       v23,
       v54,
       (unsigned int)Key,
-      a2,
+      (unsigned int)KeyInformationClass,
       v38,
       0LL);
   }
@@ -327,5 +332,5 @@ LABEL_35:
     KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
     return v29;
   }
-  return (unsigned int)Key;
+  return Key;
 }

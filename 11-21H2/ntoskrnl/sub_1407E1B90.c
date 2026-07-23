@@ -1,15 +1,15 @@
 /*
  * XREFs of sub_1407E1B90 @ 0x1407E1B90
  * Callers:
- *     WbGetHeapExecutedBlock @ 0x1407E3260 (WbGetHeapExecutedBlock.c)
+ *     sub_1407E3260 @ 0x1407E3260 (sub_1407E3260.c)
  *     sub_1407E3B7C @ 0x1407E3B7C (sub_1407E3B7C.c)
  * Callees:
- *     ExfAcquirePushLockSharedEx @ 0x14029F350 (ExfAcquirePushLockSharedEx.c)
- *     KeAbPostRelease @ 0x1402AFC00 (KeAbPostRelease.c)
+ *     sub_14029F350 @ 0x14029F350 (sub_14029F350.c)
+ *     sub_1402AFC00 @ 0x1402AFC00 (sub_1402AFC00.c)
  *     KiCheckForKernelApcDelivery @ 0x1402F1D50 (KiCheckForKernelApcDelivery.c)
- *     KeAbPreAcquire @ 0x140347C10 (KeAbPreAcquire.c)
+ *     sub_140347C10 @ 0x140347C10 (sub_140347C10.c)
  *     ExfReleasePushLockShared @ 0x140359E40 (ExfReleasePushLockShared.c)
- *     WbFreeMemoryBlockRegion @ 0x1407E1CA4 (WbFreeMemoryBlockRegion.c)
+ *     sub_1407E1CA4 @ 0x1407E1CA4 (sub_1407E1CA4.c)
  *     sub_1407E3440 @ 0x1407E3440 (sub_1407E3440.c)
  */
 
@@ -29,11 +29,11 @@ __int64 __fastcall sub_1407E1B90(__int64 a1, __int64 a2)
 
   CurrentThread = KeGetCurrentThread();
   v4 = a1;
-  --CurrentThread->SpecialApcDisable;
+  --*((_WORD *)CurrentThread + 243);
   v5 = (signed __int64 *)(a1 + 224);
-  v6 = KeAbPreAcquire(a1 + 224, 0LL);
+  v6 = sub_140347C10(a1 + 224, 0LL);
   if ( _InterlockedCompareExchange64(v5, 17LL, 0LL) )
-    ExfAcquirePushLockSharedEx(v5, 0, v6, (__int64)v5);
+    sub_14029F350(v5, 0, v6, (__int64)v5);
   if ( v6 )
     *(_BYTE *)(v6 + 18) = 1;
   v14 = 0LL;
@@ -44,12 +44,12 @@ __int64 __fastcall sub_1407E1B90(__int64 a1, __int64 a2)
     v8 = v14;
   if ( _InterlockedCompareExchange64(v5, 0LL, 17LL) != 17 )
     ExfReleasePushLockShared(v5);
-  KeAbPostRelease((ULONG_PTR)v5);
+  sub_1402AFC00((ULONG_PTR)v5);
   v10 = KeGetCurrentThread();
-  v11 = v10->SpecialApcDisable++ == -1;
-  if ( v11 && ($CEA84C04E3712D858E5667A507841A2A *)v10->ApcState.ApcListHead[0].Flink != &v10->152 )
+  v11 = (*((_WORD *)v10 + 243))++ == 0xFFFF;
+  if ( v11 && *((struct _KTHREAD **)v10 + 19) != (struct _KTHREAD *)((char *)v10 + 152) )
     KiCheckForKernelApcDelivery();
   if ( v9 >= 0 )
-    return (unsigned int)WbFreeMemoryBlockRegion(v8, a2);
+    return (unsigned int)sub_1407E1CA4(v8, a2);
   return (unsigned int)v9;
 }

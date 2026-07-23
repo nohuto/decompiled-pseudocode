@@ -1,10 +1,10 @@
 /*
- * XREFs of PoFxSetComponentLatency @ 0x140316970
+ * XREFs of PoFxSetComponentLatency @ 0x1402BF520
  * Callers:
- *     DifPoFxSetComponentLatencyWrapper @ 0x140637B50 (DifPoFxSetComponentLatencyWrapper.c)
+ *     DifPoFxSetComponentLatencyWrapper @ 0x140636110 (DifPoFxSetComponentLatencyWrapper.c)
  * Callees:
- *     PopPepComponentSetLatency @ 0x1403169B8 (PopPepComponentSetLatency.c)
- *     PopDiagTraceFxComponentLatency @ 0x140316B7C (PopDiagTraceFxComponentLatency.c)
+ *     PopPepComponentSetLatency @ 0x1402BF568 (PopPepComponentSetLatency.c)
+ *     PopDiagTraceFxComponentLatency @ 0x1402BF72C (PopDiagTraceFxComponentLatency.c)
  */
 
 __int64 __fastcall PoFxSetComponentLatency(__int64 a1, unsigned int a2, __int64 a3)

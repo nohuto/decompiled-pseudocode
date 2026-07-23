@@ -1,56 +1,60 @@
 /*
- * XREFs of NtInitializeNlsFiles @ 0x1407A1120
+ * XREFs of NtInitializeNlsFiles @ 0x1407A1310
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     ZwQueryDefaultLocale @ 0x14041B000 (ZwQueryDefaultLocale.c)
- *     MmMapViewOfSection @ 0x1407A2340 (MmMapViewOfSection.c)
- *     ExpGetGlobalLocaleSection @ 0x1407A2878 (ExpGetGlobalLocaleSection.c)
+ *     ObfDereferenceObject @ 0x140231660 (ObfDereferenceObject.c)
+ *     ZwQueryDefaultLocale @ 0x14041B390 (ZwQueryDefaultLocale.c)
+ *     MmMapViewOfSection @ 0x1407A2530 (MmMapViewOfSection.c)
+ *     ExpGetGlobalLocaleSection @ 0x1407A2A68 (ExpGetGlobalLocaleSection.c)
  */
 
-__int64 __fastcall NtInitializeNlsFiles(_QWORD *a1, _DWORD *a2)
+NTSTATUS __cdecl NtInitializeNlsFiles(
+        PVOID *BaseAddress,
+        PLCID DefaultLocaleId,
+        PLARGE_INTEGER DefaultCasingTableSize,
+        PULONG CurrentNLSVersion)
 {
-  __int64 v4; // rdx
-  __int64 v5; // rcx
-  __int64 result; // rax
-  int v7; // ebx
+  __int64 v6; // rdx
+  __int64 v7; // rcx
+  NTSTATUS result; // eax
+  NTSTATUS v9; // ebx
   PVOID Object; // [rsp+58h] [rbp-30h] BYREF
-  _DWORD v9[2]; // [rsp+60h] [rbp-28h] BYREF
-  __int64 v10; // [rsp+68h] [rbp-20h] BYREF
-  __int64 v11; // [rsp+70h] [rbp-18h] BYREF
-  int v12; // [rsp+A8h] [rbp+20h] BYREF
+  _DWORD v11[2]; // [rsp+60h] [rbp-28h] BYREF
+  void *v12; // [rsp+68h] [rbp-20h] BYREF
+  __int64 v13; // [rsp+70h] [rbp-18h] BYREF
+  DWORD DefaultLocaleIda; // [rsp+A8h] [rbp+20h] BYREF
 
-  v12 = 0;
+  DefaultLocaleIda = 0;
   Object = 0LL;
   if ( !KeGetCurrentThread()->PreviousMode )
-    return 3221225659LL;
-  v4 = 0x7FFFFFFF0000LL;
-  v5 = 0x7FFFFFFF0000LL;
-  if ( (unsigned __int64)a1 < 0x7FFFFFFF0000LL )
-    v5 = (__int64)a1;
-  *(_QWORD *)v5 = *(_QWORD *)v5;
-  if ( (unsigned __int64)a2 < 0x7FFFFFFF0000LL )
-    v4 = (__int64)a2;
-  *(_DWORD *)v4 = *(_DWORD *)v4;
-  result = ZwQueryDefaultLocale(0LL, (__int64)&v12);
-  if ( (int)result >= 0 )
+    return -1073741637;
+  v6 = 0x7FFFFFFF0000LL;
+  v7 = 0x7FFFFFFF0000LL;
+  if ( (unsigned __int64)BaseAddress < 0x7FFFFFFF0000LL )
+    v7 = (__int64)BaseAddress;
+  *(_QWORD *)v7 = *(_QWORD *)v7;
+  if ( (unsigned __int64)DefaultLocaleId < 0x7FFFFFFF0000LL )
+    v6 = (__int64)DefaultLocaleId;
+  *(_DWORD *)v6 = *(_DWORD *)v6;
+  result = ZwQueryDefaultLocale(0, &DefaultLocaleIda);
+  if ( result >= 0 )
   {
     result = ExpGetGlobalLocaleSection(&Object);
-    if ( (int)result >= 0 )
+    if ( result >= 0 )
     {
-      v10 = 0LL;
-      v9[0] = 0;
-      v9[1] = 0;
-      v11 = 0LL;
-      v7 = MmMapViewOfSection(Object, KeGetCurrentThread()->ApcState.Process, &v10, 0LL, 0LL, v9, &v11, 1, 0x400000, 2);
+      v12 = 0LL;
+      v11[0] = 0;
+      v11[1] = 0;
+      v13 = 0LL;
+      v9 = MmMapViewOfSection(Object, KeGetCurrentThread()->ApcState.Process, &v12, 0LL, 0LL, v11, &v13, 1, 0x400000, 2);
       ObfDereferenceObject(Object);
-      if ( v7 >= 0 )
+      if ( v9 >= 0 )
       {
-        *a1 = v10;
-        *a2 = v12;
+        *BaseAddress = v12;
+        *DefaultLocaleId = DefaultLocaleIda;
       }
-      return (unsigned int)v7;
+      return v9;
     }
   }
   return result;

@@ -1,14 +1,14 @@
 /*
- * XREFs of MiAllocateCrcList @ 0x140B55EB8
+ * XREFs of MiAllocateCrcList @ 0x140B58BB8
  * Callers:
- *     MiCombineAllPhysicalMemory @ 0x14087A848 (MiCombineAllPhysicalMemory.c)
+ *     MiCombineAllPhysicalMemory @ 0x140880C48 (MiCombineAllPhysicalMemory.c)
  * Callees:
- *     ExAllocatePoolMm @ 0x1403985B0 (ExAllocatePoolMm.c)
- *     MiGetAvailablePagesBelowPriority @ 0x140406B20 (MiGetAvailablePagesBelowPriority.c)
- *     MmGetCurrentProcessorColor @ 0x14044ADC0 (MmGetCurrentProcessorColor.c)
- *     MiCommitmentAvailable @ 0x14045A690 (MiCommitmentAvailable.c)
- *     MiPagesInChildPartitions @ 0x1404CF078 (MiPagesInChildPartitions.c)
- *     MiGetPrivatePageCount @ 0x1404EE528 (MiGetPrivatePageCount.c)
+ *     ExAllocatePoolMm @ 0x14039A310 (ExAllocatePoolMm.c)
+ *     MiGetAvailablePagesBelowPriority @ 0x1403FFC10 (MiGetAvailablePagesBelowPriority.c)
+ *     MmGetCurrentProcessorColor @ 0x140442EF0 (MmGetCurrentProcessorColor.c)
+ *     MiCommitmentAvailable @ 0x140451F10 (MiCommitmentAvailable.c)
+ *     MiPagesInChildPartitions @ 0x1404C8AA8 (MiPagesInChildPartitions.c)
+ *     MiGetPrivatePageCount @ 0x1404E7B08 (MiGetPrivatePageCount.c)
  */
 
 __int64 __fastcall MiAllocateCrcList(__int64 *a1, char a2, ULONG_PTR *a3)

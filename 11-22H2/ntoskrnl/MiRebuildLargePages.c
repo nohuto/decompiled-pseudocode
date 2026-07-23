@@ -70,7 +70,7 @@ void __fastcall MiRebuildLargePages(ULONG_PTR BugCheckParameter2)
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
   v6 = v45 + 4;
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     if ( CurrentIrql == 2 )
@@ -143,10 +143,10 @@ LABEL_45:
     *(_BYTE *)(v24 + 18) = 1;
   v25 = (volatile LONG *)(BugCheckParameter2 + 23104);
   ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(BugCheckParameter2 + 23104));
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v26 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v26 <= 0xFu && CurrentIrql <= 0xFu && v26 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v26 <= 0xFu && CurrentIrql <= 0xFu && v26 >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       v28 = CurrentPrcb->SchedulerAssist;
@@ -163,7 +163,7 @@ LABEL_45:
   v33 = MiRebuildLargePage(v43, v31, 2u, v44, 0);
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     v34 = KeGetCurrentPrcb()->SchedulerAssist;
     v35 = 4;
@@ -187,10 +187,10 @@ LABEL_46:
   *(_BYTE *)(BugCheckParameter2 + 3248) = v3;
   *(_BYTE *)(BugCheckParameter2 + 3249) = 0;
   ExReleaseSpinLockExclusiveFromDpcLevel(v25);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v37 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v37 <= 0xFu && CurrentIrql <= 0xFu && v37 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v37 <= 0xFu && CurrentIrql <= 0xFu && v37 >= 2u )
     {
       v38 = KeGetCurrentPrcb();
       v39 = v38->SchedulerAssist;

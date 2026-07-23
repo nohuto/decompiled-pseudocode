@@ -1,12 +1,12 @@
 /*
- * XREFs of MiWakeAllZeroConductors @ 0x14068FF14
+ * XREFs of MiWakeAllZeroConductors @ 0x140690FE4
  * Callers:
- *     MiDeleteHardwareAccelerators @ 0x140690ACC (MiDeleteHardwareAccelerators.c)
+ *     MiDeleteHardwareAccelerators @ 0x140691B9C (MiDeleteHardwareAccelerators.c)
  * Callees:
- *     KeSetEvent @ 0x1402725A0 (KeSetEvent.c)
- *     MiReleaseSpinLockExclusive @ 0x14028EE30 (MiReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x14028F370 (ExAcquireSpinLockExclusive.c)
- *     PsGetNextPartition @ 0x1403D42FC (PsGetNextPartition.c)
+ *     KeSetEvent @ 0x140227B30 (KeSetEvent.c)
+ *     PsGetNextPartition @ 0x14026227C (PsGetNextPartition.c)
+ *     MiReleaseSpinLockExclusive @ 0x14029EA30 (MiReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14029EF70 (ExAcquireSpinLockExclusive.c)
  */
 
 _QWORD *MiWakeAllZeroConductors()

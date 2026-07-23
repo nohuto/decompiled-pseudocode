@@ -1,10 +1,10 @@
 /*
- * XREFs of ExInitializeNls @ 0x140A73EC4
+ * XREFs of ExInitializeNls @ 0x140A74EC4
  * Callers:
- *     Phase1InitializationDiscard @ 0x140A3B6A4 (Phase1InitializationDiscard.c)
+ *     Phase1InitializationDiscard @ 0x140A3C6A4 (Phase1InitializationDiscard.c)
  * Callees:
- *     ZwClose @ 0x1403FA580 (ZwClose.c)
- *     ZwCreateDirectoryObject @ 0x1403FB880 (ZwCreateDirectoryObject.c)
+ *     ZwClose @ 0x1403FA760 (ZwClose.c)
+ *     ZwCreateDirectoryObject @ 0x1403FBA60 (ZwCreateDirectoryObject.c)
  */
 
 NTSTATUS ExInitializeNls()

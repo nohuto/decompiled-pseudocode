@@ -1,5 +1,5 @@
 /*
- * XREFs of RtlCompressWorkSpaceSizeXpressHuff @ 0x1404D7480
+ * XREFs of RtlCompressWorkSpaceSizeXpressHuff @ 0x1404D0C50
  * Callers:
  *     <none>
  * Callees:

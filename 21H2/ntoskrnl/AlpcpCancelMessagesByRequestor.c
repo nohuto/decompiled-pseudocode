@@ -1,20 +1,20 @@
 /*
- * XREFs of AlpcpCancelMessagesByRequestor @ 0x1405E2A50
+ * XREFs of AlpcpCancelMessagesByRequestor @ 0x1406D21B0
  * Callers:
- *     AlpcpDisconnectPort @ 0x1405E26FC (AlpcpDisconnectPort.c)
+ *     AlpcpDisconnectPort @ 0x1406D1E5C (AlpcpDisconnectPort.c)
  * Callees:
- *     KeReleaseSemaphoreEx @ 0x1402631F0 (KeReleaseSemaphoreEx.c)
- *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
- *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
- *     PsReleaseProcessWakeCounter @ 0x1405DE9D0 (PsReleaseProcessWakeCounter.c)
- *     AlpcpLockForCachedReferenceBlob @ 0x1405E0AC4 (AlpcpLockForCachedReferenceBlob.c)
- *     AlpcpReleaseMessageAttributesOnCancel @ 0x1405E2F90 (AlpcpReleaseMessageAttributesOnCancel.c)
- *     AlpcpTransferQuotaMessage @ 0x1405E355C (AlpcpTransferQuotaMessage.c)
- *     AlpcpClearOwnerPortMessage @ 0x1405E393C (AlpcpClearOwnerPortMessage.c)
- *     AlpcpTryLockForCachedReferenceBlob @ 0x1405E9260 (AlpcpTryLockForCachedReferenceBlob.c)
- *     AlpcpUnlockMessage @ 0x1405E9ECC (AlpcpUnlockMessage.c)
- *     AlpcpReferenceBlob @ 0x140660A14 (AlpcpReferenceBlob.c)
+ *     KeReleaseSemaphoreEx @ 0x140284630 (KeReleaseSemaphoreEx.c)
+ *     ExfTryToWakePushLock @ 0x1402FC2C0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x1403539D0 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1403556E0 (ExAcquirePushLockExclusiveEx.c)
+ *     AlpcpReferenceBlob @ 0x140655834 (AlpcpReferenceBlob.c)
+ *     PsReleaseProcessWakeCounter @ 0x1406CE130 (PsReleaseProcessWakeCounter.c)
+ *     AlpcpLockForCachedReferenceBlob @ 0x1406D0224 (AlpcpLockForCachedReferenceBlob.c)
+ *     AlpcpReleaseMessageAttributesOnCancel @ 0x1406D26F0 (AlpcpReleaseMessageAttributesOnCancel.c)
+ *     AlpcpTransferQuotaMessage @ 0x1406D2CBC (AlpcpTransferQuotaMessage.c)
+ *     AlpcpClearOwnerPortMessage @ 0x1406D309C (AlpcpClearOwnerPortMessage.c)
+ *     AlpcpTryLockForCachedReferenceBlob @ 0x1406D89C0 (AlpcpTryLockForCachedReferenceBlob.c)
+ *     AlpcpUnlockMessage @ 0x1406D962C (AlpcpUnlockMessage.c)
  */
 
 __int64 __fastcall AlpcpCancelMessagesByRequestor(__int64 a1, __int64 a2, ULONG_PTR *a3, unsigned int a4, __int64 a5)
@@ -26,7 +26,7 @@ __int64 __fastcall AlpcpCancelMessagesByRequestor(__int64 a1, __int64 a2, ULONG_
   ULONG_PTR v12; // rdi
   unsigned int v13; // r12d
   volatile signed __int64 *v14; // rdi
-  _DWORD *v16; // r9
+  __int64 v16; // r9
   int v17; // esi
   int v18; // eax
   __int64 v19; // rcx
@@ -146,7 +146,7 @@ LABEL_30:
         {
           if ( _InterlockedExchange64((volatile __int64 *)(v19 + 1320), 0LL) == v12 )
           {
-            KeReleaseSemaphoreEx(*(_QWORD *)(v12 + 32) + 1160LL, 1LL, 1LL, v16, 2);
+            KeReleaseSemaphoreEx(*(_QWORD *)(v12 + 32) + 1160LL, 1, 1, v16, 2);
             *(_QWORD *)(v12 + 32) = 0LL;
             *(_WORD *)(v12 - 30) -= 3;
             goto LABEL_35;

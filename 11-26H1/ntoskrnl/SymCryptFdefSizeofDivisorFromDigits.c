@@ -1,10 +1,10 @@
 /*
- * XREFs of SymCryptFdefSizeofDivisorFromDigits @ 0x140570F3C
+ * XREFs of SymCryptFdefSizeofDivisorFromDigits @ 0x14057011C
  * Callers:
- *     SymCryptSizeofDivisorFromDigits @ 0x14055C990 (SymCryptSizeofDivisorFromDigits.c)
- *     SymCryptFdefModulusCopyFixupMontgomery @ 0x1405704E0 (SymCryptFdefModulusCopyFixupMontgomery.c)
- *     SymCryptFdefModulusInitMontgomeryInternal @ 0x1405705E0 (SymCryptFdefModulusInitMontgomeryInternal.c)
- *     SymCryptFdefSizeofModulusFromDigits @ 0x140570708 (SymCryptFdefSizeofModulusFromDigits.c)
+ *     SymCryptSizeofDivisorFromDigits @ 0x14055EE78 (SymCryptSizeofDivisorFromDigits.c)
+ *     SymCryptFdefModulusCopyFixupMontgomery @ 0x14056F6C0 (SymCryptFdefModulusCopyFixupMontgomery.c)
+ *     SymCryptFdefModulusInitMontgomeryInternal @ 0x14056F7C0 (SymCryptFdefModulusInitMontgomeryInternal.c)
+ *     SymCryptFdefSizeofModulusFromDigits @ 0x14056F8E8 (SymCryptFdefSizeofModulusFromDigits.c)
  * Callees:
  *     <none>
  */

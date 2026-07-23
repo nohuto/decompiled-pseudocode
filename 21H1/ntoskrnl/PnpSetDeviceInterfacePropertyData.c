@@ -17,7 +17,7 @@
 __int64 __fastcall PnpSetDeviceInterfacePropertyData(
         __int64 a1,
         __int64 a2,
-        unsigned int a3,
+        LCID a3,
         __int64 a4,
         int a5,
         unsigned int a6,
@@ -29,32 +29,31 @@ __int64 __fastcall PnpSetDeviceInterfacePropertyData(
   __int64 v13; // r8
   __int64 v14; // r9
   WCHAR *v16; // [rsp+50h] [rbp-B0h] BYREF
-  __int64 v17; // [rsp+58h] [rbp-A8h] BYREF
-  _BYTE *v18; // [rsp+60h] [rbp-A0h]
-  _BYTE v19[176]; // [rsp+70h] [rbp-90h] BYREF
+  UNICODE_STRING String; // [rsp+58h] [rbp-A8h] BYREF
+  _BYTE v18[176]; // [rsp+70h] [rbp-90h] BYREF
 
-  memset(v19, 0, 0xAAuLL);
-  v17 = 0LL;
+  memset(v18, 0, 0xAAuLL);
+  *(_QWORD *)&String.Length = 0LL;
   v16 = 0LL;
   if ( !a1 || !*(_QWORD *)(a1 + 8) || !*(_WORD *)a1 )
     return (unsigned int)-1073741811;
   if ( a3 )
   {
-    WORD1(v17) = 170;
-    v18 = v19;
-    if ( !(unsigned __int8)RtlLCIDToCultureName(a3, &v17) )
+    String.MaximumLength = 170;
+    String.Buffer = (wchar_t *)v18;
+    if ( !RtlLCIDToCultureName(a3, &String) )
       return (unsigned int)-1073741823;
   }
   else
   {
-    v18 = 0LL;
+    String.Buffer = 0LL;
   }
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
   ExAcquireResourceExclusiveLite(&PnpDevicePropertyLock, 1u);
   v11 = PnpUnicodeStringToWstr((__int16 **)&v16, 0LL, (unsigned __int16 *)a1);
   if ( v11 >= 0 )
-    v11 = PiPnpRtlSetObjectProperty(*(__int64 *)&PiPnpRtlCtx, v16, 3, 0LL, (__int64)v18, a2, a5, a7, a6, 0);
+    v11 = PiPnpRtlSetObjectProperty(*(__int64 *)&PiPnpRtlCtx, v16, 3, 0LL, (__int64)String.Buffer, a2, a5, a7, a6, 0);
   PnpUnicodeStringToWstrFree(v16, a1);
   ExReleaseResourceLite(&PnpDevicePropertyLock);
   KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v12, v13, v14);

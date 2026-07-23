@@ -1,12 +1,12 @@
 /*
- * XREFs of PipAttemptDependentStart @ 0x140861ED4
+ * XREFs of PipAttemptDependentStart @ 0x140862114
  * Callers:
- *     PipAttemptDependentsStart @ 0x14079C1AC (PipAttemptDependentsStart.c)
- *     PipDeleteAllDependencyRelations @ 0x140954410 (PipDeleteAllDependencyRelations.c)
+ *     PipAttemptDependentsStart @ 0x14079C39C (PipAttemptDependentsStart.c)
+ *     PipDeleteAllDependencyRelations @ 0x140954610 (PipDeleteAllDependencyRelations.c)
  * Callees:
- *     PnpRequestDeviceAction @ 0x140359044 (PnpRequestDeviceAction.c)
- *     PipCheckForUnsatisfiedDependencies @ 0x1406C982C (PipCheckForUnsatisfiedDependencies.c)
- *     PipClearDevNodeProblem @ 0x14086919C (PipClearDevNodeProblem.c)
+ *     PnpRequestDeviceAction @ 0x1403591E4 (PnpRequestDeviceAction.c)
+ *     PipCheckForUnsatisfiedDependencies @ 0x1406C985C (PipCheckForUnsatisfiedDependencies.c)
+ *     PipClearDevNodeProblem @ 0x1408693DC (PipClearDevNodeProblem.c)
  */
 
 __int64 __fastcall PipAttemptDependentStart(_QWORD *Object)

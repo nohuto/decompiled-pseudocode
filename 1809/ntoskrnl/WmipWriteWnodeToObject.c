@@ -1,15 +1,15 @@
 /*
- * XREFs of WmipWriteWnodeToObject @ 0x14010C154
+ * XREFs of WmipWriteWnodeToObject @ 0x14010C1D4
  * Callers:
- *     WmipProcessEvent @ 0x14068F1AC (WmipProcessEvent.c)
+ *     WmipProcessEvent @ 0x14069036C (WmipProcessEvent.c)
  * Callees:
- *     KeAcquireInStackQueuedSpinLock @ 0x14007DE90 (KeAcquireInStackQueuedSpinLock.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
- *     IofCompleteRequest @ 0x1400C10C0 (IofCompleteRequest.c)
- *     WmipClearIrpObjectList @ 0x14010C26C (WmipClearIrpObjectList.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     memmove @ 0x1401D1540 (memmove.c)
- *     WmipQueueNotification @ 0x14068F318 (WmipQueueNotification.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14007DE80 (KeAcquireInStackQueuedSpinLock.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC6A0 (KxReleaseQueuedSpinLock.c)
+ *     IofCompleteRequest @ 0x1400C1000 (IofCompleteRequest.c)
+ *     WmipClearIrpObjectList @ 0x14010C2EC (WmipClearIrpObjectList.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     WmipQueueNotification @ 0x1406904D8 (WmipQueueNotification.c)
  */
 
 __int64 __fastcall WmipWriteWnodeToObject(__int64 a1, unsigned int *a2, char a3)

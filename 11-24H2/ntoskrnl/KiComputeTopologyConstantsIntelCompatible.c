@@ -1,53 +1,50 @@
 /*
- * XREFs of KiComputeTopologyConstantsIntelCompatible @ 0x1405C8BF8
+ * XREFs of KiComputeTopologyConstantsIntelCompatible @ 0x1405C6328
  * Callers:
- *     KiComputeTopologyConstants @ 0x1405C8808 (KiComputeTopologyConstants.c)
+ *     KiComputeTopologyConstants @ 0x1405C5F38 (KiComputeTopologyConstants.c)
  * Callees:
- *     Feature_PpmParkEx__private_IsEnabledNoReportingNoInline @ 0x1405B5004 (Feature_PpmParkEx__private_IsEnabledNoReportingNoInline.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     Feature_PpmParkEx__private_IsEnabledNoReportingNoInline @ 0x1405B2278 (Feature_PpmParkEx__private_IsEnabledNoReportingNoInline.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
-__int64 __fastcall KiComputeTopologyConstantsIntelCompatible(__int64 _RCX, __int64 _RDX, __int64 a3, __int64 a4)
+__int64 __fastcall KiComputeTopologyConstantsIntelCompatible(int a1, unsigned int a2, __int64 a3, int *a4)
 {
-  unsigned int *v5; // rdi
-  unsigned int v6; // r15d
-  int v7; // r13d
-  __int64 v8; // r8
-  unsigned int v9; // r10d
-  int v19; // r11d
-  __int64 v25; // rcx
-  int v26; // eax
-  int v27; // eax
-  __int64 v28; // rax
-  int v29; // eax
-  __int64 v30; // rdx
-  unsigned int v34; // eax
-  __int64 v37; // r8
-  __int64 i; // r9
-  unsigned int v39; // ebx
-  unsigned __int64 v40; // rax
-  unsigned int v41; // eax
-  int v45; // eax
+  unsigned int v8; // r10d
+  int v18; // r11d
+  unsigned int v19; // r9d
+  unsigned int v25; // ecx
+  char v26; // r8
+  char v27; // r8
+  int v28; // eax
+  __int64 v29; // rax
+  int v30; // eax
+  unsigned int v36; // ecx
+  unsigned int v37; // eax
+  int v38; // r9d
+  int v39; // r8d
+  unsigned int v40; // ebx
+  unsigned __int64 v41; // rax
+  unsigned int v42; // eax
+  int i; // r9d
+  unsigned int v49; // r8d
+  int v50; // eax
+  unsigned int v51; // ecx
   __int64 result; // rax
   int j; // r9d
-  unsigned int v48; // ecx
-  int v53; // ecx
-  int v54; // ecx
-  __int128 v55; // [rsp+38h] [rbp-28h]
-  __int64 v56; // [rsp+48h] [rbp-18h]
+  unsigned int v54; // ecx
+  int v59; // ecx
+  int v60; // ecx
+  __int128 v61; // [rsp+38h] [rbp-28h]
+  __int64 v62; // [rsp+48h] [rbp-18h]
 
-  v56 = 0LL;
-  v5 = (unsigned int *)a4;
-  v6 = _RDX;
-  v7 = _RCX;
-  v8 = 31LL;
-  v9 = 11;
-  v55 = 0LL;
-  if ( (unsigned int)_RDX < 0x1F )
+  v62 = 0LL;
+  v8 = 11;
+  v61 = 0LL;
+  if ( a2 < 0x1F )
   {
-    if ( (unsigned int)_RDX < 0xB )
+    if ( a2 < 0xB )
     {
-      if ( (unsigned int)_RDX < 4 )
+      if ( a2 < 4 )
         goto LABEL_23;
       goto LABEL_22;
     }
@@ -58,7 +55,7 @@ __int64 __fastcall KiComputeTopologyConstantsIntelCompatible(__int64 _RCX, __int
     __asm { cpuid }
     if ( (_DWORD)_RBX )
     {
-      v9 = 31;
+      v8 = 31;
       goto LABEL_6;
     }
   }
@@ -67,200 +64,176 @@ __int64 __fastcall KiComputeTopologyConstantsIntelCompatible(__int64 _RCX, __int
   if ( (_DWORD)_RBX )
   {
 LABEL_6:
-    *(_DWORD *)a4 |= 0x10u;
+    *a4 |= 0x10u;
+    v18 = 0;
+    a4[6] = _RDX;
     v19 = 0;
-    *(_DWORD *)(a4 + 24) = _RDX;
-    a4 = 0LL;
     do
     {
-      _RAX = v9;
+      _RAX = v8;
       __asm { cpuid }
       v25 = (unsigned int)_RCX >> 8;
-      ++v19;
-      v8 = (unsigned int)_RAX;
+      ++v18;
+      v26 = _RAX;
       if ( (_BYTE)v25 )
       {
         switch ( (unsigned __int8)v25 )
         {
           case 1u:
-            v8 = _RAX & 0x1F;
-            LOBYTE(v25) = _RAX & 0x1F;
-            a4 = 1LL;
-            *v5 |= 1u;
-            v5[2] = 1 << (_RAX & 0x1F);
-            DWORD1(v55) = 1 << (_RAX & 0x1F);
+            v19 = 1;
+            *a4 |= 1u;
+            a4[2] = 1 << (_RAX & 0x1F);
+            DWORD1(v61) = 1 << (_RAX & 0x1F);
             break;
           case 2u:
-            v8 = _RAX & 0x1F;
-            LOBYTE(v25) = _RAX & 0x1F;
-            a4 = 2LL;
-            DWORD2(v55) = 1 << (_RAX & 0x1F);
+            v19 = 2;
+            DWORD2(v61) = 1 << (_RAX & 0x1F);
             break;
           case 3u:
-            *v5 |= 8u;
-            v8 = _RAX & 0x1F;
-            v28 = (unsigned int)a4;
-            a4 = 3LL;
-            v25 = *((unsigned int *)&v55 + v28);
-            v5[5] = v25;
-            LOBYTE(v25) = v8;
-            HIDWORD(v55) = 1 << v8;
+            *a4 |= 8u;
+            v29 = v19;
+            v19 = 3;
+            a4[5] = *((_DWORD *)&v61 + v29);
+            HIDWORD(v61) = 1 << (v26 & 0x1F);
+            break;
+          case 4u:
+            v19 = 4;
+            LODWORD(v62) = 1 << (_RAX & 0x1F);
             break;
           default:
-            v26 = (unsigned __int8)v25 - 4;
-            if ( (unsigned __int8)v25 == 4 )
+            v27 = _RAX & 0x1F;
+            if ( (unsigned __int8)v25 == 5 )
             {
-              v8 &= 0x1Fu;
-              LOBYTE(v25) = v8;
-              a4 = 4LL;
-              LODWORD(v56) = 1 << v8;
+              v28 = *((_DWORD *)&v61 + v19) / (unsigned int)a4[2];
+              *a4 |= 4u;
+              v19 = 5;
+              a4[4] = v28;
+              HIDWORD(v62) = 1 << v27;
             }
             else
             {
-              v8 &= 0x1Fu;
-              LOBYTE(v25) = v8;
-              if ( v26 == 1 )
-              {
-                v27 = *((_DWORD *)&v55 + (unsigned int)a4) / v5[2];
-                *v5 |= 4u;
-                a4 = 5LL;
-                v5[4] = v27;
-                HIDWORD(v56) = 1 << v8;
-              }
-              else
-              {
-                *((_DWORD *)&v55 + (unsigned int)a4) = 1 << v8;
-              }
+              *((_DWORD *)&v61 + v19) = 1 << v27;
             }
             break;
         }
       }
     }
     while ( (_WORD)_RBX );
-    v30 = *((_DWORD *)&v55 + (unsigned int)a4) % v5[2];
-    v29 = *((_DWORD *)&v55 + (unsigned int)a4) / v5[2];
-    *v5 |= 2u;
-    v5[3] = v29;
+    v30 = *((_DWORD *)&v61 + v19) / (unsigned int)a4[2];
+    *a4 |= 2u;
+    a4[3] = v30;
     goto LABEL_27;
   }
 LABEL_22:
   _RAX = 4LL;
   __asm { cpuid }
   _BitScanReverse((unsigned int *)&_RCX, 2 * ((unsigned int)_RAX >> 26) + 1);
-  *(_DWORD *)a4 |= 2u;
-  *(_DWORD *)(a4 + 12) = 1 << _RCX;
+  *a4 |= 2u;
+  a4[3] = 1 << _RCX;
 LABEL_23:
   if ( (*(_DWORD *)(a3 + 12) & 0x10000000) != 0 )
   {
-    HIDWORD(v30) = 0;
-    _BitScanReverse((unsigned int *)&v25, 2 * *(unsigned __int8 *)(a3 + 6) - 1);
-    LODWORD(v30) = (unsigned int)(1 << v25) % *(_DWORD *)(a4 + 12);
-    v34 = (unsigned int)(1 << v25) / *(_DWORD *)(a4 + 12);
-    *(_DWORD *)a4 |= 1u;
-    *(_DWORD *)(a4 + 8) = v34;
+    _BitScanReverse(&v36, 2 * *(unsigned __int8 *)(a3 + 6) - 1);
+    v37 = (1 << v36) / (unsigned int)a4[3];
+    *a4 |= 1u;
+    a4[2] = v37;
   }
-  else if ( (unsigned int)Feature_PpmParkEx__private_IsEnabledNoReportingNoInline(_RCX, _RDX, 31LL, a4) )
+  else if ( (unsigned int)Feature_PpmParkEx__private_IsEnabledNoReportingNoInline() )
   {
-    *v5 |= 1u;
-    v5[2] = 1;
+    *a4 |= 1u;
+    a4[2] = 1;
   }
 LABEL_27:
-  if ( (unsigned int)Feature_PpmParkEx__private_IsEnabledNoReportingNoInline(v25, v30, v8, a4) )
+  if ( (unsigned int)Feature_PpmParkEx__private_IsEnabledNoReportingNoInline() )
   {
-    if ( v7 == 2 )
+    if ( a1 == 2 )
     {
-      i = *v5;
-      if ( (i & 4) == 0 )
+      v38 = *a4;
+      if ( (*a4 & 4) == 0 )
       {
-        v37 = BYTE1(*(_DWORD *)a3) & 0xF;
-        if ( (_DWORD)v37 == 15 )
+        v39 = BYTE1(*(_DWORD *)a3) & 0xF;
+        if ( v39 == 15 )
         {
-          _RCX = *(_DWORD *)a3 >> 20;
-          _RDX = (unsigned int)(unsigned __int8)_RCX + 15;
-          v39 = (*(_DWORD *)a3 & 0xF0 | (*(_DWORD *)a3 >> 8) & 0xF00u) >> 4;
-          if ( (unsigned __int8)_RCX != -9 )
+          v40 = (*(_DWORD *)a3 & 0xF0 | (*(_DWORD *)a3 >> 8) & 0xF00u) >> 4;
+          if ( (unsigned __int8)(*(_DWORD *)a3 >> 20) != -9 )
             goto LABEL_39;
         }
         else
         {
-          if ( (_DWORD)v37 != 6 )
+          if ( v39 != 6 )
             goto LABEL_39;
-          v39 = (*(_DWORD *)a3 & 0xF0 | (*(_DWORD *)a3 >> 8) & 0xF00u) >> 4;
+          v40 = (*(_DWORD *)a3 & 0xF0 | (*(_DWORD *)a3 >> 8) & 0xF00u) >> 4;
         }
-        if ( v39 == 173 )
+        if ( v40 == 173 )
         {
-          _RCX = 23LL;
-          v40 = __readmsr(0x17u);
-          _RDX = (unsigned __int64)HIDWORD(v40) << 32;
-          if ( (((_RDX | (unsigned __int64)(unsigned int)v40) >> 50) & 7) == 1 )
+          v41 = __readmsr(0x17u);
+          if ( (((((unsigned __int64)HIDWORD(v41) << 32) | (unsigned int)v41) >> 50) & 7) == 1 )
           {
-            v41 = v5[3];
-            i = (unsigned int)i | 4;
-            v5[4] = 64;
-            *v5 = i;
-            if ( v41 < 0x40 )
-              v5[4] = v41;
+            v42 = a4[3];
+            a4[4] = 64;
+            *a4 = v38 | 4;
+            if ( v42 < 0x40 )
+              a4[4] = v42;
           }
         }
       }
     }
   }
 LABEL_39:
-  if ( (*v5 & 8) == 0 && v7 == 2 && v6 >= 4 )
+  if ( (*a4 & 8) == 0 && a1 == 2 && a2 >= 4 )
   {
-    for ( i = 0LL; ; i = (unsigned int)(i + 1) )
+    for ( i = 0; ; ++i )
     {
       _RAX = 4LL;
       __asm { cpuid }
-      v37 = (unsigned int)_RAX;
-      v45 = (int)((_DWORD)_RAX << 27) >> 27;
-      if ( !v45 )
+      v49 = _RAX;
+      v50 = (int)((_DWORD)_RAX << 27) >> 27;
+      if ( !v50 )
         break;
-      if ( v45 == 3 && (v37 & 0xE0) == 0x40 )
+      if ( v50 == 3 && (v49 & 0xE0) == 0x40 )
       {
-        v37 = ((unsigned int)v37 >> 14) & 0xFFF;
-        _BitScanReverse((unsigned int *)&_RCX, 2 * v37 + 1);
-        *v5 |= 8u;
-        v5[5] = 1 << _RCX;
+        _BitScanReverse(&v51, 2 * ((v49 >> 14) & 0xFFF) + 1);
+        *a4 |= 8u;
+        a4[5] = 1 << v51;
         break;
       }
     }
   }
-  result = Feature_PpmParkEx__private_IsEnabledNoReportingNoInline(_RCX, _RDX, v37, i);
+  result = Feature_PpmParkEx__private_IsEnabledNoReportingNoInline();
   if ( (_DWORD)result )
   {
-    result = *v5;
-    if ( (result & 0x20) == 0 && v6 >= 4 )
+    result = (unsigned int)*a4;
+    if ( (result & 0x20) == 0 && a2 >= 4 )
     {
       for ( j = 0; ; ++j )
       {
         _RAX = 4LL;
         __asm { cpuid }
-        v53 = (int)((_DWORD)result << 27) >> 27;
-        if ( !v53 )
+        v59 = (int)((_DWORD)result << 27) >> 27;
+        if ( !v59 )
           break;
-        if ( v53 == 3 && ((unsigned __int8)result & 0xE0u) <= 0x60 )
+        if ( v59 == 3 && ((unsigned __int8)result & 0xE0u) <= 0x60 )
         {
-          _BitScanReverse(&v48, 2 * (((unsigned int)result >> 14) & 0xFFF) + 1);
-          *v5 |= 0x20u;
-          v5[7] = 1 << v48;
+          _BitScanReverse(&v54, 2 * (((unsigned int)result >> 14) & 0xFFF) + 1);
+          *a4 |= 0x20u;
+          a4[7] = 1 << v54;
         }
       }
-      v54 = *v5;
-      if ( (*v5 & 0x20) != 0 )
+      v60 = *a4;
+      if ( (*a4 & 0x20) != 0 )
       {
-        result = v54 & 5;
+        result = v60 & 5;
         if ( (_BYTE)result == 5 )
         {
-          result = v5[2] * v5[4];
-          if ( v5[7] > (unsigned int)result )
-            v5[7] = result;
+          result = (unsigned int)(a4[2] * a4[4]);
+          if ( a4[7] > (unsigned int)result )
+            a4[7] = result;
         }
-        if ( (v54 & 3) == 3 )
+        if ( (v60 & 3) == 3 )
         {
-          result = v5[2] * v5[3];
-          if ( v5[7] > (unsigned int)result )
-            v5[7] = result;
+          result = (unsigned int)(a4[2] * a4[3]);
+          if ( a4[7] > (unsigned int)result )
+            a4[7] = result;
         }
       }
     }

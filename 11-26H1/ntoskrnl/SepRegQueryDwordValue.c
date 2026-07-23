@@ -1,11 +1,11 @@
 /*
- * XREFs of SepRegQueryDwordValue @ 0x140AB2D74
+ * XREFs of SepRegQueryDwordValue @ 0x140AB4114
  * Callers:
- *     NtImpersonateAnonymousToken @ 0x140AB2A30 (NtImpersonateAnonymousToken.c)
+ *     NtImpersonateAnonymousToken @ 0x140AB3DD0 (NtImpersonateAnonymousToken.c)
  * Callees:
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     SepRegOpenKey @ 0x140AB2DF4 (SepRegOpenKey.c)
- *     SepRegQueryValue @ 0x140AB2E7C (SepRegQueryValue.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     SepRegOpenKey @ 0x140AB4194 (SepRegOpenKey.c)
+ *     SepRegQueryValue @ 0x140AB421C (SepRegQueryValue.c)
  */
 
 __int64 __fastcall SepRegQueryDwordValue(__int64 a1, __int64 a2, void *a3)

@@ -1,9 +1,9 @@
 /*
- * XREFs of PsGetJobProperty @ 0x14010F350
+ * XREFs of PsGetJobProperty @ 0x14010F3D0
  * Callers:
- *     PsGetThreadProperty @ 0x14010F1A0 (PsGetThreadProperty.c)
+ *     PsGetThreadProperty @ 0x14010F220 (PsGetThreadProperty.c)
  * Callees:
- *     PspGetJobProperty @ 0x14010F3B4 (PspGetJobProperty.c)
+ *     PspGetJobProperty @ 0x14010F434 (PspGetJobProperty.c)
  */
 
 __int64 __fastcall PsGetJobProperty(__int64 a1, __int64 a2)

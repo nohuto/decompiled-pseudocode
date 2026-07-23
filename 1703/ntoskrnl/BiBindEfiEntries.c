@@ -12,12 +12,12 @@
  *     BiUpdateBcdObject @ 0x1407386A8 (BiUpdateBcdObject.c)
  */
 
-__int64 __fastcall BiBindEfiEntries(__int64 a1, __int64 *a2)
+__int64 __fastcall BiBindEfiEntries(HANDLE BcdStoreHandle, __int64 *a2)
 {
   __int64 v2; // rbx
-  int i; // edi
+  NTSTATUS i; // edi
   int v6; // eax
-  void *v8; // [rsp+38h] [rbp+10h] BYREF
+  HANDLE BcdObjectHandle; // [rsp+38h] [rbp+10h] BYREF
 
   v2 = *a2;
   for ( i = 0; (__int64 *)v2 != a2; v2 = *(_QWORD *)v2 )
@@ -25,10 +25,10 @@ __int64 __fastcall BiBindEfiEntries(__int64 a1, __int64 *a2)
     v6 = *(_DWORD *)(v2 + 48);
     if ( (v6 & 1) != 0 )
     {
-      i = BiBindEfiEntryToBcdObject(a1, v2);
+      i = BiBindEfiEntryToBcdObject(BcdStoreHandle, v2);
       if ( i < 0 )
         return (unsigned int)i;
-      i = BiUpdateBcdObject(a1, v2);
+      i = BiUpdateBcdObject(BcdStoreHandle, v2);
       if ( i < 0 )
         return (unsigned int)i;
     }
@@ -36,13 +36,13 @@ __int64 __fastcall BiBindEfiEntries(__int64 a1, __int64 *a2)
     {
       if ( (v6 & 8) != 0 )
       {
-        i = BcdOpenObject(a1, (unsigned int *)(v2 + 16), &v8);
+        i = BcdOpenObject(BcdStoreHandle, (const GUID *)(v2 + 16), &BcdObjectHandle);
         if ( i < 0 )
           return (unsigned int)i;
-        BcdDeleteObject(v8);
+        BcdDeleteObject(BcdObjectHandle);
         *(_DWORD *)(v2 + 48) &= 0xFFFFFFF9;
       }
-      else if ( !BiIsPortableWorkspaceBoot() && (int)BiCreateEfiEntry(a1, v2) >= 0 )
+      else if ( !BiIsPortableWorkspaceBoot() && (int)BiCreateEfiEntry(BcdStoreHandle, v2) >= 0 )
       {
         BiAddBootEntryToNvramDisplayOrder(v2);
       }

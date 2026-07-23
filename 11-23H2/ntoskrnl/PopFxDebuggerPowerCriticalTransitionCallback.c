@@ -1,11 +1,11 @@
 /*
- * XREFs of PopFxDebuggerPowerCriticalTransitionCallback @ 0x140599B40
+ * XREFs of PopFxDebuggerPowerCriticalTransitionCallback @ 0x14059A030
  * Callers:
  *     <none>
  * Callees:
- *     KdPowerTransitionEx @ 0x1403AD9F0 (KdPowerTransitionEx.c)
- *     KdCallPowerHandlers @ 0x140567344 (KdCallPowerHandlers.c)
- *     PopFxBugCheck @ 0x140588BE0 (PopFxBugCheck.c)
+ *     KdPowerTransitionEx @ 0x1403ADBD0 (KdPowerTransitionEx.c)
+ *     KdCallPowerHandlers @ 0x140567A04 (KdCallPowerHandlers.c)
+ *     PopFxBugCheck @ 0x1405890D0 (PopFxBugCheck.c)
  */
 
 __int64 __fastcall PopFxDebuggerPowerCriticalTransitionCallback(__int64 a1, __int64 a2, char a3)

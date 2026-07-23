@@ -43,7 +43,7 @@ char *__fastcall ExpSaPageGroupDescriptorAllocate(__int64 a1, char a2)
   __int64 v20; // r13
   struct _KPRCB *v21; // rax
   USHORT v22; // r15
-  struct _GROUP_AFFINITY *p_PreviousAffinity; // rdx
+  _GROUP_AFFINITY *p_PreviousAffinity; // rdx
   void *Pool3; // rbx
   char v25; // si
   signed __int32 v26; // eax
@@ -55,9 +55,9 @@ char *__fastcall ExpSaPageGroupDescriptorAllocate(__int64 a1, char a2)
   unsigned int v33; // [rsp+40h] [rbp-21h]
   unsigned int v34; // [rsp+44h] [rbp-1Dh]
   __int64 v35; // [rsp+48h] [rbp-19h]
-  struct _GROUP_AFFINITY Affinity; // [rsp+58h] [rbp-9h] BYREF
+  _GROUP_AFFINITY Affinity; // [rsp+58h] [rbp-9h] BYREF
   __int128 v37; // [rsp+68h] [rbp+7h] BYREF
-  struct _GROUP_AFFINITY PreviousAffinity; // [rsp+78h] [rbp+17h] BYREF
+  _GROUP_AFFINITY PreviousAffinity; // [rsp+78h] [rbp+17h] BYREF
 
   Affinity = 0LL;
   v4 = 0;

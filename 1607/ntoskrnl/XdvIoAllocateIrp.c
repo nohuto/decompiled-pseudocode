@@ -1,9 +1,9 @@
 /*
- * XREFs of XdvIoAllocateIrp @ 0x140223410
+ * XREFs of XdvIoAllocateIrp @ 0x14022323C
  * Callers:
  *     IovAllocateIrp @ 0x14070066C (IovAllocateIrp.c)
- *     VerifierIoAllocateIrp @ 0x140705488 (VerifierIoAllocateIrp.c)
- *     VerifierPortIoAllocateIrp @ 0x1407057D0 (VerifierPortIoAllocateIrp.c)
+ *     VerifierIoAllocateIrp @ 0x1407054B8 (VerifierIoAllocateIrp.c)
+ *     VerifierPortIoAllocateIrp @ 0x140705800 (VerifierPortIoAllocateIrp.c)
  * Callees:
  *     <none>
  */

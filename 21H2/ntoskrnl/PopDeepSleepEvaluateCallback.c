@@ -1,16 +1,16 @@
 /*
- * XREFs of PopDeepSleepEvaluateCallback @ 0x140577680
+ * XREFs of PopDeepSleepEvaluateCallback @ 0x1405778C0
  * Callers:
  *     <none>
  * Callees:
- *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
- *     PpmReleaseLock @ 0x14022AB00 (PpmReleaseLock.c)
- *     PoFxSendSystemLatencyUpdate @ 0x140281818 (PoFxSendSystemLatencyUpdate.c)
- *     PpmAcquireLock @ 0x140281A74 (PpmAcquireLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KxReleaseSpinLock @ 0x140212140 (KxReleaseSpinLock.c)
+ *     PoFxSendSystemLatencyUpdate @ 0x14026FA58 (PoFxSendSystemLatencyUpdate.c)
+ *     PpmAcquireLock @ 0x14026FCB4 (PpmAcquireLock.c)
+ *     PpmReleaseLock @ 0x1402CF3B0 (PpmReleaseLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140362F80 (KeAcquireSpinLockRaiseToDpc.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     PopDiagTraceIdleResiliencyEnd @ 0x140572A68 (PopDiagTraceIdleResiliencyEnd.c)
- *     PopDiagTraceIdleResiliencyStart @ 0x140572B18 (PopDiagTraceIdleResiliencyStart.c)
+ *     PopDiagTraceIdleResiliencyEnd @ 0x140572CA8 (PopDiagTraceIdleResiliencyEnd.c)
+ *     PopDiagTraceIdleResiliencyStart @ 0x140572D58 (PopDiagTraceIdleResiliencyStart.c)
  */
 
 __int64 PopDeepSleepEvaluateCallback()
@@ -44,7 +44,7 @@ __int64 PopDeepSleepEvaluateCallback()
     if ( PopDeepSleepDisengageReasonMask )
       PopDiagTraceIdleResiliencyEnd(v1, v3 + 2);
     else
-      PopDiagTraceIdleResiliencyStart(v1, v3 + 2, 0x1Eu / KeMaximumIncrement + 1);
+      PopDiagTraceIdleResiliencyStart(v1, v3 + 2, 0x1E / KeMaximumIncrement + 1);
     PopDeepSleepIsEngaged = v4;
     KxReleaseSpinLock(&PopDeepSleepDisengageReasonLock);
     if ( KiIrqlFlags )
@@ -65,9 +65,9 @@ __int64 PopDeepSleepEvaluateCallback()
       }
     }
     __writecr8(v2);
-    PpmAcquireLock((struct _KTHREAD **)&PopFxSystemLatencyLock);
+    PpmAcquireLock(&PopFxSystemLatencyLock);
     PoFxSendSystemLatencyUpdate();
-    PpmReleaseLock(&PopFxSystemLatencyLock);
+    PpmReleaseLock((__int64 *)&PopFxSystemLatencyLock);
   }
   PopDeepSleepEvaluateWorkItemQueued = 0;
   KxReleaseSpinLock(&PopDeepSleepDisengageReasonLock);

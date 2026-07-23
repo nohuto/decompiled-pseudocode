@@ -1,18 +1,18 @@
 /*
- * XREFs of PiUpdateDriverDBCache @ 0x14067EC68
+ * XREFs of PiUpdateDriverDBCache @ 0x14067FE28
  * Callers:
- *     PiIsDriverBlocked @ 0x14067EAF0 (PiIsDriverBlocked.c)
+ *     PiIsDriverBlocked @ 0x14067FCB0 (PiIsDriverBlocked.c)
  * Callees:
  *     RtlLookupElementGenericTableAvl @ 0x140006BF0 (RtlLookupElementGenericTableAvl.c)
  *     RtlDeleteElementGenericTableAvl @ 0x140006CA0 (RtlDeleteElementGenericTableAvl.c)
  *     RtlInsertElementGenericTableAvl @ 0x140006F00 (RtlInsertElementGenericTableAvl.c)
- *     RtlImageNtHeader @ 0x14009DAE0 (RtlImageNtHeader.c)
- *     RtlNumberGenericTableElementsAvl @ 0x1400F51C0 (RtlNumberGenericTableElementsAvl.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     wcsrchr @ 0x1401978C0 (wcsrchr.c)
- *     memmove @ 0x1401D1540 (memmove.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
+ *     RtlImageNtHeader @ 0x14009DA20 (RtlImageNtHeader.c)
+ *     RtlNumberGenericTableElementsAvl @ 0x1400F5240 (RtlNumberGenericTableElementsAvl.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     wcsrchr @ 0x140197A00 (wcsrchr.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
  */
 
 _QWORD *__fastcall PiUpdateDriverDBCache(__int64 a1, void *a2, __int64 a3, int a4, __int128 *a5)
@@ -112,13 +112,13 @@ LABEL_8:
     result = RtlInsertElementGenericTableAvl(&PiDDBCacheTable, Buffer, 0x38u, 0LL);
     if ( result )
     {
-      v18 = (_QWORD *)qword_14096EAB0;
-      if ( *(PVOID **)qword_14096EAB0 == &PiDDBCacheList )
+      v18 = (_QWORD *)qword_14096FAB0;
+      if ( *(PVOID **)qword_14096FAB0 == &PiDDBCacheList )
       {
         *result = &PiDDBCacheList;
         result[1] = v18;
         *v18 = result;
-        qword_14096EAB0 = (__int64)result;
+        qword_14096FAB0 = (__int64)result;
         return result;
       }
 LABEL_26:

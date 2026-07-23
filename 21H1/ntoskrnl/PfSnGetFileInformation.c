@@ -22,10 +22,10 @@
 __int64 __fastcall PfSnGetFileInformation(__int64 a1, _QWORD *a2)
 {
   unsigned int v2; // esi
-  unsigned __int64 v3; // rbx
+  _RTL_BALANCED_NODE *v3; // rbx
   BOOLEAN v4; // r15
   int v7; // r12d
-  _QWORD *v8; // rax
+  _RTL_BALANCED_NODE **v8; // rax
   unsigned __int64 v9; // rcx
   unsigned __int64 *v10; // r13
   __int64 v11; // rcx
@@ -33,7 +33,7 @@ __int64 __fastcall PfSnGetFileInformation(__int64 a1, _QWORD *a2)
   int v14; // ecx
   unsigned __int64 v15; // rax
   _OWORD *PoolWithTag; // rax
-  unsigned __int64 v17; // r14
+  _OWORD *v17; // r14
   KIRQL v18; // al
   __int64 v19; // rdx
   unsigned __int64 v20; // rcx
@@ -42,7 +42,7 @@ __int64 __fastcall PfSnGetFileInformation(__int64 a1, _QWORD *a2)
   unsigned __int64 v23; // rax
   __int64 v24; // rax
   unsigned __int64 v25; // rdx
-  bool v26; // r8
+  BOOLEAN v26; // r8
   int v27; // ecx
   unsigned __int64 v28; // rax
   unsigned __int8 CurrentIrql; // al
@@ -61,12 +61,12 @@ __int64 __fastcall PfSnGetFileInformation(__int64 a1, _QWORD *a2)
   KIRQL v42; // [rsp+68h] [rbp+10h]
 
   v2 = 0;
-  v3 = a2[3];
+  v3 = (_RTL_BALANCED_NODE *)a2[3];
   v4 = 0;
   v7 = 0;
   if ( (*(_DWORD *)(a2[1] + 52LL) & 0x10) != 0 )
     return 3221225659LL;
-  v8 = (_QWORD *)(a1 + 488);
+  v8 = (_RTL_BALANCED_NODE **)(a1 + 488);
   v9 = a1 + 520;
   if ( (unsigned __int64)v8 >= v9 )
   {
@@ -85,7 +85,7 @@ LABEL_5:
     v14 = v11 & 1;
     while ( v12 )
     {
-      if ( *(_QWORD *)(v12 + 24) > v3 )
+      if ( *(_QWORD *)(v12 + 24) > (unsigned __int64)v3 )
       {
         v15 = *(_QWORD *)v12;
         if ( v14 && v15 )
@@ -96,7 +96,7 @@ LABEL_5:
       }
       else
       {
-        if ( *(_QWORD *)(v12 + 24) >= v3 )
+        if ( *(_QWORD *)(v12 + 24) >= (unsigned __int64)v3 )
           break;
         v15 = *(_QWORD *)(v12 + 8);
         if ( v14 && v15 )
@@ -132,7 +132,7 @@ LABEL_5:
       return 0LL;
     }
     PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, 0x30uLL, 0x6E506343u);
-    v17 = (unsigned __int64)PoolWithTag;
+    v17 = PoolWithTag;
     if ( !PoolWithTag )
     {
       if ( (*(_BYTE *)(a1 + 484) & 2) == 0 )
@@ -143,8 +143,8 @@ LABEL_5:
     PoolWithTag[1] = 0LL;
     PoolWithTag[2] = 0LL;
     ObfReferenceObjectWithTag(a2, 0x746C6644u);
-    *(_QWORD *)(v17 + 40) = a2;
-    *(_QWORD *)(v17 + 24) = v3;
+    *((_QWORD *)v17 + 5) = a2;
+    *((_QWORD *)v17 + 3) = v3;
     v18 = ExAcquireSpinLockExclusive((PEX_SPIN_LOCK)(a1 + 576));
     v19 = *(_QWORD *)(a1 + 528);
     v20 = *v10;
@@ -186,8 +186,8 @@ LABEL_31:
             }
           }
           __writecr8(v21);
-          HalPutDmaAdapter(*(PADAPTER_OBJECT *)(v17 + 40));
-          ExFreePoolWithTag((PVOID)v17, 0);
+          HalPutDmaAdapter(*((PADAPTER_OBJECT *)v17 + 5));
+          ExFreePoolWithTag(v17, 0);
           return v2;
         }
         *(_QWORD *)(a1 + 568) = a1;
@@ -195,8 +195,8 @@ LABEL_31:
         v7 = 1;
         *(_QWORD *)(a1 + 544) = 0LL;
       }
-      *(_QWORD *)(v17 + 32) = *(_QWORD *)(a1 + 536);
-      *(_QWORD *)(a1 + 536) = v17 + 32;
+      *((_QWORD *)v17 + 4) = *(_QWORD *)(a1 + 536);
+      *(_QWORD *)(a1 + 536) = v17 + 2;
       v24 = *(_QWORD *)(a1 + 528);
       v25 = *v10;
       if ( (v24 & 1) != 0 )
@@ -212,7 +212,7 @@ LABEL_31:
       {
         while ( 1 )
         {
-          if ( *(_QWORD *)(v25 + 24) > v3 )
+          if ( *(_QWORD *)(v25 + 24) > (unsigned __int64)v3 )
           {
             v28 = *(_QWORD *)v25;
             if ( v27 )
@@ -243,7 +243,7 @@ LABEL_59:
           v25 = v28;
         }
       }
-      RtlRbInsertNodeEx((unsigned __int64 *)(a1 + 520), v25, v26, v17);
+      RtlRbInsertNodeEx((PRTL_RB_TREE)(a1 + 520), (PRTL_BALANCED_NODE)v25, v26, (PRTL_BALANCED_NODE)v17);
       ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(a1 + 576));
       if ( KiIrqlFlags )
       {
@@ -275,7 +275,7 @@ LABEL_59:
     }
     while ( 1 )
     {
-      if ( *(_QWORD *)(v20 + 24) > v3 )
+      if ( *(_QWORD *)(v20 + 24) > (unsigned __int64)v3 )
       {
         v23 = *(_QWORD *)v20;
         if ( v22 && v23 )
@@ -286,7 +286,7 @@ LABEL_59:
       }
       else
       {
-        if ( *(_QWORD *)(v20 + 24) >= v3 )
+        if ( *(_QWORD *)(v20 + 24) >= (unsigned __int64)v3 )
           goto LABEL_31;
         v23 = *(_QWORD *)(v20 + 8);
         if ( v22 && v23 )

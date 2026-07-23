@@ -1,7 +1,7 @@
 /*
- * XREFs of VslIsSecureKernelRunning @ 0x1404BC594
+ * XREFs of VslIsSecureKernelRunning @ 0x1404B76FC
  * Callers:
- *     ExpQuerySystemInformation @ 0x140ADC240 (ExpQuerySystemInformation.c)
+ *     ExpQuerySystemInformation @ 0x140ADDAE0 (ExpQuerySystemInformation.c)
  * Callees:
  *     <none>
  */

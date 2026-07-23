@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlUnicodeToMultiByteN @ 0x1406980A0
+ * XREFs of RtlUnicodeToMultiByteN @ 0x140699260
  * Callers:
- *     wcstombs @ 0x1401979C0 (wcstombs.c)
- *     _wctomb_s_l @ 0x140197CF4 (_wctomb_s_l.c)
- *     _safecrt_wctomb_s @ 0x14019C8C0 (_safecrt_wctomb_s.c)
+ *     wcstombs @ 0x140197B00 (wcstombs.c)
+ *     _wctomb_s_l @ 0x140197E34 (_wctomb_s_l.c)
+ *     _safecrt_wctomb_s @ 0x14019CA00 (_safecrt_wctomb_s.c)
  * Callees:
- *     RtlUnicodeToUTF8N @ 0x1406BF650 (RtlUnicodeToUTF8N.c)
+ *     RtlUnicodeToUTF8N @ 0x1406C08F0 (RtlUnicodeToUTF8N.c)
  */
 
 NTSTATUS __stdcall RtlUnicodeToMultiByteN(

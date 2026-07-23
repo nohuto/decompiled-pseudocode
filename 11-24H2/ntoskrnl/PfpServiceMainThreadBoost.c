@@ -1,12 +1,12 @@
 /*
- * XREFs of PfpServiceMainThreadBoost @ 0x1405CC530
+ * XREFs of PfpServiceMainThreadBoost @ 0x1405C9CA0
  * Callers:
- *     PfpScenCtxScenarioSet @ 0x140B6D510 (PfpScenCtxScenarioSet.c)
+ *     PfpScenCtxScenarioSet @ 0x140B6EDB0 (PfpScenCtxScenarioSet.c)
  * Callees:
- *     KeSetActualBasePriorityThread @ 0x14020A160 (KeSetActualBasePriorityThread.c)
- *     KeReleaseSpinLock @ 0x14024DD30 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140254B20 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiSetTimerEx @ 0x1403347A0 (KiSetTimerEx.c)
+ *     KeReleaseSpinLock @ 0x14027E340 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140285130 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiSetTimerEx @ 0x140316810 (KiSetTimerEx.c)
+ *     KeSetActualBasePriorityThread @ 0x140331740 (KeSetActualBasePriorityThread.c)
  */
 
 __int64 __fastcall PfpServiceMainThreadBoost(__int64 a1, ULONG_PTR *a2)
@@ -14,9 +14,8 @@ __int64 __fastcall PfpServiceMainThreadBoost(__int64 a1, ULONG_PTR *a2)
   unsigned int v2; // ebx
   __int64 v5; // r14
   KIRQL v6; // al
-  __int64 v7; // r8
-  KIRQL v8; // r15
-  ULONG_PTR v9; // rcx
+  KIRQL v7; // r15
+  ULONG_PTR v8; // rcx
 
   v2 = 0;
   if ( *a2 )
@@ -25,16 +24,16 @@ __int64 __fastcall PfpServiceMainThreadBoost(__int64 a1, ULONG_PTR *a2)
     *(_DWORD *)(v5 + 160) = 1;
     v6 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(a1 + 104));
     ++*(_DWORD *)(a1 + 112);
-    v8 = v6;
+    v7 = v6;
     *(_DWORD *)(v5 + 164) = *(_DWORD *)(a1 + 112);
     if ( !*(_QWORD *)(a1 + 88) )
     {
-      v9 = *a2;
+      v8 = *a2;
       *(_QWORD *)(a1 + 88) = *a2;
       *a2 = 0LL;
-      *(_DWORD *)(a1 + 96) = KeSetActualBasePriorityThread(v9, 12, v7);
+      *(_DWORD *)(a1 + 96) = KeSetActualBasePriorityThread(v8, 12);
     }
-    KeReleaseSpinLock((PKSPIN_LOCK)(a1 + 104), v8);
+    KeReleaseSpinLock((PKSPIN_LOCK)(a1 + 104), v7);
     *(_QWORD *)(v5 + 64) = 0LL;
     *(_BYTE *)(v5 + 64) = 8;
     *(_QWORD *)(v5 + 80) = v5 + 72;

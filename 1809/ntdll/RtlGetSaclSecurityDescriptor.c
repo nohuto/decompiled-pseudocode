@@ -1,36 +1,40 @@
 /*
- * XREFs of RtlGetSaclSecurityDescriptor @ 0x18007BDF0
+ * XREFs of RtlGetSaclSecurityDescriptor @ 0x18007BE00
  * Callers:
  *     RtlReplaceSidInSd @ 0x1800E79E0 (RtlReplaceSidInSd.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall RtlGetSaclSecurityDescriptor(__int64 a1, bool *a2, _QWORD *a3, bool *a4)
+NTSTATUS __cdecl RtlGetSaclSecurityDescriptor(
+        PSECURITY_DESCRIPTOR SecurityDescriptor,
+        PBOOLEAN SaclPresent,
+        PACL *Sacl,
+        PBOOLEAN SaclDefaulted)
 {
   __int16 v5; // cx
-  __int64 v6; // rax
+  ACL *v6; // rax
 
-  if ( *(_BYTE *)a1 != 1 )
-    return 3221225560LL;
-  v5 = *(_WORD *)(a1 + 2) & 0x10;
-  *a2 = v5 != 0;
+  if ( *(_BYTE *)SecurityDescriptor != 1 )
+    return -1073741736;
+  v5 = *((_WORD *)SecurityDescriptor + 1) & 0x10;
+  *SaclPresent = v5 != 0;
   v6 = 0LL;
   if ( v5 )
   {
-    if ( (*(_BYTE *)(a1 + 2) & 0x10) != 0 )
+    if ( (*((_BYTE *)SecurityDescriptor + 2) & 0x10) != 0 )
     {
-      if ( *(__int16 *)(a1 + 2) >= 0 )
+      if ( *((__int16 *)SecurityDescriptor + 1) >= 0 )
       {
-        v6 = *(_QWORD *)(a1 + 24);
+        v6 = (ACL *)*((_QWORD *)SecurityDescriptor + 3);
       }
-      else if ( *(_DWORD *)(a1 + 12) )
+      else if ( *((_DWORD *)SecurityDescriptor + 3) )
       {
-        v6 = a1 + *(unsigned int *)(a1 + 12);
+        v6 = (ACL *)((char *)SecurityDescriptor + *((unsigned int *)SecurityDescriptor + 3));
       }
     }
-    *a3 = v6;
-    *a4 = (*(_BYTE *)(a1 + 2) & 0x20) != 0;
+    *Sacl = v6;
+    *SaclDefaulted = (*((_BYTE *)SecurityDescriptor + 2) & 0x20) != 0;
   }
-  return 0LL;
+  return 0;
 }

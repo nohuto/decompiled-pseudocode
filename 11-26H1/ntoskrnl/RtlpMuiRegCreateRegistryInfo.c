@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpMuiRegCreateRegistryInfo @ 0x1408A81B4
+ * XREFs of RtlpMuiRegCreateRegistryInfo @ 0x1408AE624
  * Callers:
- *     RtlpMuiRegCreateKernelRegistryInfo @ 0x14071FA40 (RtlpMuiRegCreateKernelRegistryInfo.c)
+ *     RtlpMuiRegCreateKernelRegistryInfo @ 0x140724660 (RtlpMuiRegCreateKernelRegistryInfo.c)
  * Callees:
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
  */
 
 _DWORD *RtlpMuiRegCreateRegistryInfo()

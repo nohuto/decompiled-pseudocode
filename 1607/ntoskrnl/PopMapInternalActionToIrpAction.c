@@ -1,7 +1,7 @@
 /*
- * XREFs of PopMapInternalActionToIrpAction @ 0x1401144F0
+ * XREFs of PopMapInternalActionToIrpAction @ 0x140114A60
  * Callers:
- *     PopRequestPowerIrp @ 0x14012AB98 (PopRequestPowerIrp.c)
+ *     PopRequestPowerIrp @ 0x14012B108 (PopRequestPowerIrp.c)
  *     PoBroadcastSystemState @ 0x1403CEBF8 (PoBroadcastSystemState.c)
  *     PopNotifyDevice @ 0x1403CF498 (PopNotifyDevice.c)
  * Callees:

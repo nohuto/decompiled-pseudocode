@@ -1,16 +1,16 @@
 /*
- * XREFs of KeAllocateProcessorProfileStructures @ 0x1405E4550
+ * XREFs of KeAllocateProcessorProfileStructures @ 0x1405E6EC0
  * Callers:
- *     EmonCompleteInitializeProfiling @ 0x140BED1A0 (EmonCompleteInitializeProfiling.c)
+ *     EmonCompleteInitializeProfiling @ 0x140BF31A0 (EmonCompleteInitializeProfiling.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     MmFreeIndependentPages @ 0x140308D40 (MmFreeIndependentPages.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     KiIsIntelPebsSupported @ 0x1405EBA2C (KiIsIntelPebsSupported.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     MmCreateShadowMapping @ 0x140875970 (MmCreateShadowMapping.c)
- *     MmDeleteShadowMapping @ 0x140875BF4 (MmDeleteShadowMapping.c)
- *     MmAllocateIndependentPages @ 0x140B3D7A0 (MmAllocateIndependentPages.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     MmFreeIndependentPages @ 0x1402EADC0 (MmFreeIndependentPages.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KiIsIntelPebsSupported @ 0x1405EE39C (KiIsIntelPebsSupported.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     MmCreateShadowMapping @ 0x14087BD54 (MmCreateShadowMapping.c)
+ *     MmDeleteShadowMapping @ 0x14087BFD8 (MmDeleteShadowMapping.c)
+ *     MmAllocateIndependentPages @ 0x140B3F870 (MmAllocateIndependentPages.c)
  */
 
 __int64 __fastcall KeAllocateProcessorProfileStructures(

@@ -1,7 +1,7 @@
 /*
- * XREFs of ExInitializeExternalBootSupport @ 0x140CE6244
+ * XREFs of ExInitializeExternalBootSupport @ 0x140CEC5E4
  * Callers:
- *     Phase1InitializationDiscard @ 0x140CABD00 (Phase1InitializationDiscard.c)
+ *     Phase1InitializationDiscard @ 0x140CB1D40 (Phase1InitializationDiscard.c)
  * Callees:
  *     <none>
  */
@@ -10,21 +10,21 @@ __int64 ExInitializeExternalBootSupport()
 {
   __int64 result; // rax
 
-  LOWORD(ExSaPageGroupDescriptorArrayLock.SchedulerSharedSwappablePage) = 1;
-  dword_140EFEF38 = 0;
-  ExSaPageGroupDescriptorArrayLock.Padding[3] = (unsigned __int64)&ExSaPageGroupDescriptorArrayLock.Padding[2];
-  ExSaPageGroupDescriptorArrayLock.Padding[2] = (unsigned __int64)&ExSaPageGroupDescriptorArrayLock.Padding[2];
-  ExSaPageGroupDescriptorArrayLock.Spare32 = &ExSaPageGroupDescriptorArrayLock.1136;
-  ExSaPageGroupDescriptorArrayLock.AutoBoostThreadState = &ExSaPageGroupDescriptorArrayLock.1136;
-  ExSaPageGroupDescriptorArrayLock.Padding[0] = (unsigned __int64)&ExSaPageGroupDescriptorArrayLock.SchedulerAssistLastYieldBoostTime;
-  ExSaPageGroupDescriptorArrayLock.SchedulerAssistLastYieldBoostTime = (__int64)&ExSaPageGroupDescriptorArrayLock.SchedulerAssistLastYieldBoostTime;
+  LOWORD(ExSaPageGroupDescriptorArrayLock.SchedulerAssistLastYieldBoostTime) = 1;
+  LODWORD(ExSaPageGroupDescriptorArrayLock.KcsanThread) = 0;
+  ExSaPageGroupDescriptorArrayLock.Padding[4] = (unsigned __int64)&ExSaPageGroupDescriptorArrayLock.Padding[3];
+  ExSaPageGroupDescriptorArrayLock.Padding[3] = (unsigned __int64)&ExSaPageGroupDescriptorArrayLock.Padding[3];
+  ExSaPageGroupDescriptorArrayLock.Padding[1] = (unsigned __int64)ExSaPageGroupDescriptorArrayLock.Padding;
+  ExSaPageGroupDescriptorArrayLock.Padding[0] = (unsigned __int64)ExSaPageGroupDescriptorArrayLock.Padding;
+  qword_140EFF290 = (__int64)&qword_140EFF288;
+  qword_140EFF288 = (__int64)&qword_140EFF288;
   result = 0LL;
-  qword_140EFEF40 = 0LL;
-  ExSaPageGroupDescriptorArrayLock.Padding[4] = 0LL;
-  BYTE2(ExSaPageGroupDescriptorArrayLock.SchedulerSharedSwappablePage) = 6;
-  HIDWORD(ExSaPageGroupDescriptorArrayLock.SchedulerSharedSwappablePage) = 0;
-  LOWORD(ExSaPageGroupDescriptorArrayLock.SchedulerAssistYieldCounter) = 1;
-  BYTE2(ExSaPageGroupDescriptorArrayLock.SchedulerAssistYieldCounter) = 6;
-  ExSaPageGroupDescriptorArrayLock.SchedulerAssistYieldBoostCount = 1;
+  ExSaPageGroupDescriptorArrayLock.Padding[2] = 0LL;
+  *(_QWORD *)&ExSaPageGroupDescriptorArrayLock.SchedulerAssistYieldCounter = 0LL;
+  BYTE2(ExSaPageGroupDescriptorArrayLock.SchedulerAssistLastYieldBoostTime) = 6;
+  HIDWORD(ExSaPageGroupDescriptorArrayLock.SchedulerAssistLastYieldBoostTime) = 0;
+  LOWORD(word_140EFF280.Header.Lock) = 1;
+  byte_140EFF282 = 6;
+  dword_140EFF284 = 1;
   return result;
 }

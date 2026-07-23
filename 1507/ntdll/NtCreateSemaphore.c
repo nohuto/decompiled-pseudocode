@@ -6,11 +6,16 @@
  *     <none>
  */
 
-__int64 NtCreateSemaphore()
+NTSTATUS __cdecl NtCreateSemaphore(
+        PHANDLE SemaphoreHandle,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        LONG InitialCount,
+        LONG MaximumCount)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 177LL;
+  result = 177;
   __asm { syscall; Low latency system call }
   return result;
 }

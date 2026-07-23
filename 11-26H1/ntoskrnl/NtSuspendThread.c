@@ -1,53 +1,55 @@
 /*
- * XREFs of NtSuspendThread @ 0x140AD4F10
+ * XREFs of NtSuspendThread @ 0x140949500
  * Callers:
- *     DifNtSuspendThreadWrapper @ 0x14068F340 (DifNtSuspendThreadWrapper.c)
+ *     DifNtSuspendThreadWrapper @ 0x140692F20 (DifNtSuspendThreadWrapper.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     RtlReadULongFromUser @ 0x14077F590 (RtlReadULongFromUser.c)
- *     RtlWriteULongToUser @ 0x14077F7A0 (RtlWriteULongToUser.c)
- *     ObpReferenceObjectByHandleWithTag @ 0x1408FA680 (ObpReferenceObjectByHandleWithTag.c)
- *     PspSuspendThread @ 0x140AD5030 (PspSuspendThread.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     RtlReadULongFromUser @ 0x140782090 (RtlReadULongFromUser.c)
+ *     RtlWriteULongToUser @ 0x1407822A0 (RtlWriteULongToUser.c)
+ *     ObpReferenceObjectByHandleWithTag @ 0x14092A610 (ObpReferenceObjectByHandleWithTag.c)
+ *     PspSuspendThread @ 0x140949620 (PspSuspendThread.c)
  */
 
-__int64 __fastcall NtSuspendThread(ULONG_PTR BugCheckParameter1, unsigned int *a2)
+NTSTATUS __cdecl NtSuspendThread(HANDLE ThreadHandle, PULONG PreviousSuspendCount)
 {
   char PreviousMode; // di
   int ULongFromUser; // eax
-  __int64 result; // rax
-  unsigned int v7; // esi
+  NTSTATUS result; // eax
+  NTSTATUS v7; // esi
   __int64 Tag; // [rsp+20h] [rbp-38h]
   __int64 v9; // [rsp+28h] [rbp-30h]
+  __int64 v10; // [rsp+30h] [rbp-28h]
+  __int64 v11; // [rsp+38h] [rbp-20h]
   PVOID Object[2]; // [rsp+48h] [rbp-10h] BYREF
-  unsigned int v11; // [rsp+78h] [rbp+20h] BYREF
+  ULONG v13; // [rsp+78h] [rbp+20h] BYREF
 
-  v11 = 0;
+  v13 = 0;
   Object[0] = 0LL;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
-  if ( PreviousMode && a2 )
+  if ( PreviousMode && PreviousSuspendCount )
   {
-    ULongFromUser = RtlReadULongFromUser(a2);
-    RtlWriteULongToUser(a2, ULongFromUser);
+    ULongFromUser = RtlReadULongFromUser(PreviousSuspendCount);
+    RtlWriteULongToUser(PreviousSuspendCount, ULongFromUser);
   }
   result = ObpReferenceObjectByHandleWithTag(
-             BugCheckParameter1,
-             2LL,
-             PsThreadType,
+             (ULONG_PTR)ThreadHandle,
+             2,
+             (__int64)PsThreadType,
              PreviousMode,
              0x75537350u,
              Object,
              0LL,
              0LL);
-  if ( (int)result >= 0 )
+  if ( result >= 0 )
   {
-    v7 = PspSuspendThread(Object[0], 0LL, 0LL, &v11, Tag, v9);
+    v7 = PspSuspendThread(Object[0], 0LL, 0LL, &v13, Tag, v9, v10, v11);
     ObfDereferenceObjectWithTag(Object[0], 0x75537350u);
-    if ( a2 )
+    if ( PreviousSuspendCount )
     {
       if ( PreviousMode )
-        RtlWriteULongToUser(a2, v11);
+        RtlWriteULongToUser(PreviousSuspendCount, v13);
       else
-        *a2 = v11;
+        *PreviousSuspendCount = v13;
     }
     return v7;
   }

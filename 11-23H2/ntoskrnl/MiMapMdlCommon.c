@@ -1,31 +1,31 @@
 /*
- * XREFs of MiMapMdlCommon @ 0x1403A7570
+ * XREFs of MiMapMdlCommon @ 0x1403A7750
  * Callers:
- *     MmMapLockedPagesWithReservedMapping @ 0x1403A73B0 (MmMapLockedPagesWithReservedMapping.c)
- *     MmMapLockedRestartPages @ 0x140A2B3E0 (MmMapLockedRestartPages.c)
+ *     MmMapLockedPagesWithReservedMapping @ 0x1403A7590 (MmMapLockedPagesWithReservedMapping.c)
+ *     MmMapLockedRestartPages @ 0x140A2B690 (MmMapLockedRestartPages.c)
  * Callees:
  *     MiMakeProtectionPfnCompatible @ 0x140217E64 (MiMakeProtectionPfnCompatible.c)
- *     MiLockPageTableInternal @ 0x140237700 (MiLockPageTableInternal.c)
- *     MiUnlockWorkingSetShared @ 0x14023C500 (MiUnlockWorkingSetShared.c)
- *     ExAcquireSpinLockExclusive @ 0x14024D360 (ExAcquireSpinLockExclusive.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1402712F0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiPteInShadowRange @ 0x140271360 (MiPteInShadowRange.c)
- *     MiFlushTbList @ 0x140279880 (MiFlushTbList.c)
- *     MiInsertTbFlushEntry @ 0x14027F570 (MiInsertTbFlushEntry.c)
- *     MiLockWorkingSetShared @ 0x140283C90 (MiLockWorkingSetShared.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402894C0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     MiMakeValidPte @ 0x1402CF2B0 (MiMakeValidPte.c)
- *     MiUnlockPageTableInternal @ 0x1403195C0 (MiUnlockPageTableInternal.c)
- *     MiReferenceIoPages @ 0x140336500 (MiReferenceIoPages.c)
- *     MiIoSpaceGetBounds @ 0x140336CF0 (MiIoSpaceGetBounds.c)
- *     MiWritePteShadow @ 0x14035734C (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x1403573AC (MiPteHasShadow.c)
- *     MiAssignInitialPageAttribute @ 0x1403A2BA4 (MiAssignInitialPageAttribute.c)
- *     MiLookupIoPageNode @ 0x1403B0938 (MiLookupIoPageNode.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memset @ 0x140435A00 (memset.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     MiShowBadMapper @ 0x1406310BC (MiShowBadMapper.c)
+ *     MiLockPageTableInternal @ 0x1402377D0 (MiLockPageTableInternal.c)
+ *     MiUnlockWorkingSetShared @ 0x14023C5D0 (MiUnlockWorkingSetShared.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024D430 (ExAcquireSpinLockExclusive.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140271580 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiPteInShadowRange @ 0x1402715F0 (MiPteInShadowRange.c)
+ *     MiFlushTbList @ 0x140279B10 (MiFlushTbList.c)
+ *     MiInsertTbFlushEntry @ 0x14027F800 (MiInsertTbFlushEntry.c)
+ *     MiLockWorkingSetShared @ 0x140283F20 (MiLockWorkingSetShared.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140289750 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiMakeValidPte @ 0x1402CF540 (MiMakeValidPte.c)
+ *     MiUnlockPageTableInternal @ 0x140319850 (MiUnlockPageTableInternal.c)
+ *     MiReferenceIoPages @ 0x140336790 (MiReferenceIoPages.c)
+ *     MiIoSpaceGetBounds @ 0x140336F80 (MiIoSpaceGetBounds.c)
+ *     MiWritePteShadow @ 0x1403574EC (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x14035754C (MiPteHasShadow.c)
+ *     MiAssignInitialPageAttribute @ 0x1403A2D84 (MiAssignInitialPageAttribute.c)
+ *     MiLookupIoPageNode @ 0x1403B0B18 (MiLookupIoPageNode.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     MiShowBadMapper @ 0x14063160C (MiShowBadMapper.c)
  */
 
 __int64 __fastcall MiMapMdlCommon(__int64 a1, unsigned __int64 a2, __int64 a3, char a4, int a5)
@@ -227,7 +227,7 @@ LABEL_10:
       {
         CurrentIrql = KeGetCurrentIrql();
         __writecr8(2uLL);
-        if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+        if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
         {
           SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
           if ( CurrentIrql == 2 )
@@ -237,10 +237,10 @@ LABEL_10:
           SchedulerAssist[5] |= v36;
         }
         MiIoSpaceGetBounds((__int64)&v105, v20);
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
           v37 = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && v37 <= 0xFu && CurrentIrql <= 0xFu && v37 >= 2u )
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v37 <= 0xFu && CurrentIrql <= 0xFu && v37 >= 2u )
           {
             CurrentPrcb = KeGetCurrentPrcb();
             v39 = CurrentPrcb->SchedulerAssist;
@@ -344,7 +344,7 @@ LABEL_18:
           {
             v84 = KeGetCurrentIrql();
             __writecr8(2uLL);
-            if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && v84 <= 0xFu )
+            if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && v84 <= 0xFu )
             {
               v85 = KeGetCurrentPrcb()->SchedulerAssist;
               if ( v84 == 2 )
@@ -361,10 +361,10 @@ LABEL_18:
           MiIoSpaceGetBounds((__int64)&v105, v26);
           if ( v84 != 17 )
           {
-            if ( KiIrqlFlags )
+            if ( (_DWORD)KiIrqlFlags )
             {
               v88 = KeGetCurrentIrql();
-              if ( (KiIrqlFlags & 1) != 0 && v88 <= 0xFu && v84 <= 0xFu && v88 >= v87 )
+              if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v88 <= 0xFu && v84 <= 0xFu && v88 >= v87 )
               {
                 v89 = KeGetCurrentPrcb();
                 v90 = v89->SchedulerAssist;
@@ -543,7 +543,7 @@ LABEL_95:
         {
           v69 = KeGetCurrentIrql();
           __writecr8(2uLL);
-          if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && v69 <= 0xFu )
+          if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && v69 <= 0xFu )
           {
             v70 = KeGetCurrentPrcb()->SchedulerAssist;
             if ( v69 == 2 )
@@ -560,10 +560,10 @@ LABEL_95:
         MiIoSpaceGetBounds((__int64)&v105, v66);
         if ( v69 != 17 )
         {
-          if ( KiIrqlFlags )
+          if ( (_DWORD)KiIrqlFlags )
           {
             v73 = KeGetCurrentIrql();
-            if ( (KiIrqlFlags & 1) != 0 && v73 <= 0xFu && v69 <= 0xFu && v73 >= v72 )
+            if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v73 <= 0xFu && v69 <= 0xFu && v73 >= v72 )
             {
               v74 = KeGetCurrentPrcb();
               v75 = v74->SchedulerAssist;
@@ -629,10 +629,10 @@ LABEL_147:
   *v49 = qword_140C684D0;
   qword_140C684D0 = v48;
   ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140C684C0);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v80 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v80 <= 0xFu && (unsigned __int8)v79 <= 0xFu && v80 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v80 <= 0xFu && (unsigned __int8)v79 <= 0xFu && v80 >= 2u )
     {
       v81 = KeGetCurrentPrcb();
       v82 = v81->SchedulerAssist;

@@ -1,16 +1,16 @@
 /*
- * XREFs of RtlStringCchCopyNExW @ 0x1402655E8
+ * XREFs of RtlStringCchCopyNExW @ 0x140253584
  * Callers:
- *     _CmGetDeviceInterfaceSubkeyPath @ 0x140640854 (_CmGetDeviceInterfaceSubkeyPath.c)
- *     _CmValidateDeviceInterfaceName @ 0x1406419CC (_CmValidateDeviceInterfaceName.c)
- *     DrvDbSplitDeviceIdDriverInfMatch @ 0x14073BB94 (DrvDbSplitDeviceIdDriverInfMatch.c)
- *     _CmGetDeviceInterfaceSymbolicLinkName @ 0x140749720 (_CmGetDeviceInterfaceSymbolicLinkName.c)
- *     _CmSplitDevicePanelId @ 0x1407AFCD8 (_CmSplitDevicePanelId.c)
- *     punycode_encode @ 0x140916F24 (punycode_encode.c)
+ *     _CmGetDeviceInterfaceSubkeyPath @ 0x140635664 (_CmGetDeviceInterfaceSubkeyPath.c)
+ *     _CmValidateDeviceInterfaceName @ 0x1406367DC (_CmValidateDeviceInterfaceName.c)
+ *     DrvDbSplitDeviceIdDriverInfMatch @ 0x14073BD54 (DrvDbSplitDeviceIdDriverInfMatch.c)
+ *     _CmGetDeviceInterfaceSymbolicLinkName @ 0x1407498E0 (_CmGetDeviceInterfaceSymbolicLinkName.c)
+ *     _CmSplitDevicePanelId @ 0x1407AFE78 (_CmSplitDevicePanelId.c)
+ *     punycode_encode @ 0x140917084 (punycode_encode.c)
  * Callees:
- *     RtlStringCopyWorkerW_0 @ 0x140265750 (RtlStringCopyWorkerW_0.c)
- *     memset @ 0x140414200 (memset.c)
- *     StringExHandleOtherFlagsW @ 0x14050C398 (StringExHandleOtherFlagsW.c)
+ *     RtlStringCopyWorkerW_1 @ 0x1402536F0 (RtlStringCopyWorkerW_1.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     StringExHandleOtherFlagsW @ 0x14050C5D8 (StringExHandleOtherFlagsW.c)
  */
 
 NTSTATUS __stdcall RtlStringCchCopyNExW(
@@ -82,7 +82,7 @@ LABEL_12:
   else if ( cchDest )
   {
     pcchNewDestLength[0] = 0LL;
-    v12 = RtlStringCopyWorkerW_0(pszDest, cchDest, pcchNewDestLength, pszSrc, cchToCopy);
+    v12 = RtlStringCopyWorkerW_1(pszDest, cchDest, pcchNewDestLength, pszSrc, cchToCopy);
     v13 = pcchNewDestLength[0];
     v9 = v12;
     v11 = cchDest - pcchNewDestLength[0];

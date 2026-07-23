@@ -62,7 +62,7 @@ __int64 __fastcall KeSignalGate(__int64 a1, unsigned int a2)
 
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     if ( CurrentIrql == 2 )
@@ -108,7 +108,7 @@ LABEL_6:
           v16 = (_QWORD *)(v15 + 8);
           v17 = KeGetCurrentIrql();
           __writecr8(2uLL);
-          if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && v17 <= 0xFu )
+          if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && v17 <= 0xFu )
           {
             v18 = KeGetCurrentPrcb()->SchedulerAssist;
             if ( v17 == 2 )
@@ -166,5 +166,5 @@ LABEL_6:
   }
 LABEL_15:
   _InterlockedAnd((volatile signed __int32 *)a1, 0xFFFFFF7F);
-  return KiExitDispatcher(v25, 0, (struct _PROCESSOR_NUMBER)1, a2, CurrentIrql);
+  return KiExitDispatcher(v25, 0, (_PROCESSOR_NUMBER)1, a2, CurrentIrql);
 }

@@ -1,12 +1,12 @@
 /*
- * XREFs of PopPowerAggregatorHandleIntent @ 0x140A3F104
+ * XREFs of PopPowerAggregatorHandleIntent @ 0x1409FAB24
  * Callers:
- *     PopTriggerMonitorPowerEvent @ 0x140A3EF18 (PopTriggerMonitorPowerEvent.c)
- *     PopDirectedDripsInitializeBroadcast @ 0x140AC54E8 (PopDirectedDripsInitializeBroadcast.c)
+ *     PopTriggerMonitorPowerEvent @ 0x1409FA938 (PopTriggerMonitorPowerEvent.c)
+ *     PopDirectedDripsInitializeBroadcast @ 0x140AC7158 (PopDirectedDripsInitializeBroadcast.c)
  * Callees:
- *     PopReleaseRwLock @ 0x14043630C (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x140436378 (PopAcquireRwLockExclusive.c)
- *     PopPowerAggregatorHandleIntentUnsafe @ 0x140A3F1C4 (PopPowerAggregatorHandleIntentUnsafe.c)
+ *     PopReleaseRwLock @ 0x14021B1A8 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x140425310 (PopAcquireRwLockExclusive.c)
+ *     PopPowerAggregatorHandleIntentUnsafe @ 0x1409FABE4 (PopPowerAggregatorHandleIntentUnsafe.c)
  */
 
 __int64 __fastcall PopPowerAggregatorHandleIntent(unsigned int a1, __int64 a2, __int64 a3, struct _KLOCK_ENTRIES *a4)
@@ -19,6 +19,6 @@ __int64 __fastcall PopPowerAggregatorHandleIntent(unsigned int a1, __int64 a2, _
   v6 = a3;
   PopAcquireRwLockExclusive((unsigned __int64 *)&PopPowerAggregatorLock, a2, a3, a4);
   v8 = PopPowerAggregatorHandleIntentUnsafe(a1, a2, v6, v5);
-  PopReleaseRwLock(&PopPowerAggregatorLock);
+  PopReleaseRwLock((struct _KTHREAD *)&PopPowerAggregatorLock);
   return v8;
 }

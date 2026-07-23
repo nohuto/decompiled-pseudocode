@@ -62,7 +62,7 @@ void __fastcall MiDeletePartitionResources(__int64 a1)
   while ( v3 );
   if ( *(_BYTE *)(a1 + 18524) )
     MiDeleteUnumappedSystemCacheViews(a1);
-  MiFreeClonePool((union _SLIST_HEADER *)a1);
+  MiFreeClonePool((_SLIST_HEADER *)a1);
   MiAdjustCachedStacks(a1, 3);
   MiCheckAndProcessCcAccessLog(a1, 0LL, 1);
   KeFlushQueuedDpcs();

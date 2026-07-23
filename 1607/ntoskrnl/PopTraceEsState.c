@@ -1,11 +1,11 @@
 /*
- * XREFs of PopTraceEsState @ 0x140126300
+ * XREFs of PopTraceEsState @ 0x140126870
  * Callers:
- *     PopEsSnapTelemetry @ 0x140533FF4 (PopEsSnapTelemetry.c)
+ *     PopEsSnapTelemetry @ 0x140534534 (PopEsSnapTelemetry.c)
  * Callees:
- *     _TlgWrite @ 0x14000A598 (_TlgWrite.c)
- *     _TlgKeywordOn @ 0x140088D98 (_TlgKeywordOn.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
+ *     _TlgWrite @ 0x14000A118 (_TlgWrite.c)
+ *     _TlgKeywordOn @ 0x14010CF88 (_TlgKeywordOn.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
  */
 
 void PopTraceEsState()
@@ -35,9 +35,9 @@ void PopTraceEsState()
   int *v22; // [rsp+D0h] [rbp+1Fh]
   __int64 v23; // [rsp+D8h] [rbp+27h]
 
-  if ( pCallbackContext.LevelPlus1 > 5 )
+  if ( hProvider.LevelPlus1 > 5 )
   {
-    if ( TlgKeywordOn(&pCallbackContext, 0x400000000000uLL) )
+    if ( TlgKeywordOn(&hProvider, 0x400000000000uLL) )
     {
       v2 = PopEsReason;
       v4 = (unsigned __int8)PopEsAcOnline;
@@ -60,7 +60,7 @@ void PopTraceEsState()
       v19 = 4LL;
       v21 = 4LL;
       v23 = 4LL;
-      TlgWrite(&pCallbackContext, &unk_14027D30C, 0LL, 0LL, 9u, &pData);
+      TlgWrite(&hProvider, &unk_14027D40C, 0LL, 0LL, 9u, &pData);
     }
   }
 }

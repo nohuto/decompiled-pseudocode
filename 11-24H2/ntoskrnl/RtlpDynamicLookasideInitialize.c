@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlpDynamicLookasideInitialize @ 0x1406A1B78
+ * XREFs of RtlpDynamicLookasideInitialize @ 0x1406A2BC8
  * Callers:
- *     ExInitializePagedHeaps @ 0x140659CEC (ExInitializePagedHeaps.c)
- *     ExInitializePoolHeapManagement @ 0x140659E80 (ExInitializePoolHeapManagement.c)
+ *     ExInitializePagedHeaps @ 0x14065838C (ExInitializePagedHeaps.c)
+ *     ExInitializePoolHeapManagement @ 0x140658520 (ExInitializePoolHeapManagement.c)
  * Callees:
- *     InitializeSListHead @ 0x14045FE80 (InitializeSListHead.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     InitializeSListHead @ 0x140454D40 (InitializeSListHead.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 void __fastcall RtlpDynamicLookasideInitialize(char *a1)

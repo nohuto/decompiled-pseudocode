@@ -1,19 +1,19 @@
 /*
- * XREFs of SshpSendSessionData @ 0x1408FACA8
+ * XREFs of SshpSendSessionData @ 0x1408FAE08
  * Callers:
- *     SshpWnfCallback @ 0x1408FBB50 (SshpWnfCallback.c)
+ *     SshpWnfCallback @ 0x1408FBCB0 (SshpWnfCallback.c)
  * Callees:
- *     CmpFreeTransientPoolWithTag @ 0x140206FA8 (CmpFreeTransientPoolWithTag.c)
- *     SSHSupportReleasePushLockExclusive @ 0x1402C98E8 (SSHSupportReleasePushLockExclusive.c)
- *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     memset @ 0x140414200 (memset.c)
- *     SshpQueryBlockerPendingDelete @ 0x14057FD9C (SshpQueryBlockerPendingDelete.c)
- *     SshpWriteBlocker @ 0x1405801CC (SshpWriteBlocker.c)
- *     SSHSupportQueryInterruptTime @ 0x140580D2C (SSHSupportQueryInterruptTime.c)
- *     SshpDereferenceBlocker @ 0x1406B7B14 (SshpDereferenceBlocker.c)
- *     SshpFlushBlockerDataCache @ 0x1408FAA00 (SshpFlushBlockerDataCache.c)
+ *     SSHSupportReleasePushLockExclusive @ 0x1402481C8 (SSHSupportReleasePushLockExclusive.c)
+ *     CmpFreeTransientPoolWithTag @ 0x1402483A4 (CmpFreeTransientPoolWithTag.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1403556E0 (ExAcquirePushLockExclusiveEx.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     SshpQueryBlockerPendingDelete @ 0x14057FFDC (SshpQueryBlockerPendingDelete.c)
+ *     SshpWriteBlocker @ 0x14058040C (SshpWriteBlocker.c)
+ *     SSHSupportQueryInterruptTime @ 0x140580F6C (SSHSupportQueryInterruptTime.c)
+ *     SshpDereferenceBlocker @ 0x140617024 (SshpDereferenceBlocker.c)
+ *     SshpFlushBlockerDataCache @ 0x1408FAB60 (SshpFlushBlockerDataCache.c)
  */
 
 __int64 **SshpSendSessionData()

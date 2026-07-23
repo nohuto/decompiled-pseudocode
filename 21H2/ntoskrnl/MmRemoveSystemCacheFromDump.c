@@ -1,20 +1,20 @@
 /*
- * XREFs of MmRemoveSystemCacheFromDump @ 0x140538B8C
+ * XREFs of MmRemoveSystemCacheFromDump @ 0x140538DCC
  * Callers:
- *     MmGetDumpRange @ 0x140538770 (MmGetDumpRange.c)
- *     IopLiveDumpRemoveSystemCacheFromDump @ 0x1409AD4A4 (IopLiveDumpRemoveSystemCacheFromDump.c)
+ *     MmGetDumpRange @ 0x1405389B0 (MmGetDumpRange.c)
+ *     IopLiveDumpRemoveSystemCacheFromDump @ 0x1409AE3D4 (IopLiveDumpRemoveSystemCacheFromDump.c)
  * Callees:
- *     MiWalkPageTables @ 0x1402092C0 (MiWalkPageTables.c)
- *     MiUnlockWorkingSetShared @ 0x14020F790 (MiUnlockWorkingSetShared.c)
- *     MiCheckProcessShadow @ 0x14020F880 (MiCheckProcessShadow.c)
- *     MiLockWorkingSetShared @ 0x140219CB0 (MiLockWorkingSetShared.c)
- *     MiGetSharedVm @ 0x14021AF50 (MiGetSharedVm.c)
- *     ExTryAcquireSpinLockExclusiveAtDpcLevel @ 0x140261880 (ExTryAcquireSpinLockExclusiveAtDpcLevel.c)
- *     MiGetAnyMultiplexedVm @ 0x1402FD0FC (MiGetAnyMultiplexedVm.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14033BD80 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
- *     memset @ 0x140414200 (memset.c)
+ *     ExTryAcquireSpinLockExclusiveAtDpcLevel @ 0x140282D50 (ExTryAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     MiWalkPageTables @ 0x1402ADBC0 (MiWalkPageTables.c)
+ *     MiUnlockWorkingSetShared @ 0x1402B4090 (MiUnlockWorkingSetShared.c)
+ *     MiCheckProcessShadow @ 0x1402B4180 (MiCheckProcessShadow.c)
+ *     MiLockWorkingSetShared @ 0x1402BE5B0 (MiLockWorkingSetShared.c)
+ *     MiGetSharedVm @ 0x1402BF850 (MiGetSharedVm.c)
+ *     MiGetAnyMultiplexedVm @ 0x140307E4C (MiGetAnyMultiplexedVm.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140346AD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
+ *     memset @ 0x140414300 (memset.c)
  */
 
 void __fastcall MmRemoveSystemCacheFromDump(ULONG_PTR BugCheckParameter2)
@@ -35,7 +35,7 @@ void __fastcall MmRemoveSystemCacheFromDump(ULONG_PTR BugCheckParameter2)
   AnyMultiplexedVm = MiGetAnyMultiplexedVm(0);
   v6 = (__int64)AnyMultiplexedVm;
   v9[3] = AnyMultiplexedVm;
-  if ( (KiBugCheckActive & 3) != 0 || (struct _KTHREAD *)qword_140C4E708 == KeGetCurrentThread() )
+  if ( (KiBugCheckActive & 3) != 0 || (struct _KTHREAD *)qword_140C4E748 == KeGetCurrentThread() )
   {
     BYTE6(v9[0]) = 17;
     SharedVm = MiGetSharedVm((__int64)AnyMultiplexedVm);

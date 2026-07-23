@@ -41,60 +41,60 @@
  *     memmove @ 0x180098200 (memmove.c)
  */
 
-char __fastcall RtlCultureNameToLCID(unsigned __int16 *a1, _DWORD *a2)
+BOOLEAN __cdecl RtlCultureNameToLCID(PUNICODE_STRING String, PLCID Lcid)
 {
-  char v2; // bl
-  const void *v4; // rdx
-  size_t v5; // rdi
+  BOOLEAN v2; // bl
+  unsigned __int16 *Buffer; // rdx
+  size_t Length; // rdi
   unsigned __int64 v6; // rdi
-  __int64 v7; // rcx
+  _QWORD *v7; // rcx
   __int64 v8; // rdi
   __int16 v9; // r10
   unsigned __int16 v10; // r9
   unsigned __int16 v11; // dx
   __int64 v12; // r8
   _BYTE v14[16]; // [rsp+20h] [rbp-D8h] BYREF
-  WCHAR SourceString[88]; // [rsp+30h] [rbp-C8h] BYREF
+  WCHAR LocaleName[88]; // [rsp+30h] [rbp-C8h] BYREF
 
   v2 = 0;
-  if ( !a1 )
+  if ( !String )
     return v2;
-  if ( !a2 )
+  if ( !Lcid )
     return v2;
-  if ( !*a1 )
+  if ( !String->Length )
     return v2;
-  v4 = (const void *)*((_QWORD *)a1 + 1);
-  if ( !v4 || *a1 + 2 > 85 )
+  Buffer = String->Buffer;
+  if ( !Buffer || String->Length + 2 > 85 )
     return v2;
-  v5 = *a1;
-  memmove(SourceString, v4, v5);
-  v6 = v5 >> 1;
+  Length = String->Length;
+  memmove(LocaleName, Buffer, Length);
+  v6 = Length >> 1;
   if ( v6 >= 85 )
     _report_rangecheckfailure();
   v7 = g_RegInfo;
-  SourceString[v6] = 0;
+  LocaleName[v6] = 0;
   if ( !v7 )
-    return (int)RtlLocaleNameToLcid(SourceString) >= 0;
-  v8 = *(_QWORD *)(v7 + 24);
+    return RtlLocaleNameToLcid(LocaleName, Lcid, 3u) >= 0;
+  v8 = v7[3];
   if ( !v8 )
-    return (int)RtlLocaleNameToLcid(SourceString) >= 0;
+    return RtlLocaleNameToLcid(LocaleName, Lcid, 3u) >= 0;
   if ( !*(_QWORD *)(v8 + 16) )
-    return (int)RtlLocaleNameToLcid(SourceString) >= 0;
-  if ( !SourceString[0] )
-    return (int)RtlLocaleNameToLcid(SourceString) >= 0;
-  v9 = RtlpMuiRegGetOrAddStringToPool(*(_QWORD *)(v7 + 32), SourceString, 0LL, v14);
+    return RtlLocaleNameToLcid(LocaleName, Lcid, 3u) >= 0;
+  if ( !LocaleName[0] )
+    return RtlLocaleNameToLcid(LocaleName, Lcid, 3u) >= 0;
+  v9 = RtlpMuiRegGetOrAddStringToPool(v7[4], LocaleName, 0LL, v14);
   if ( v9 < 0 )
-    return (int)RtlLocaleNameToLcid(SourceString) >= 0;
+    return RtlLocaleNameToLcid(LocaleName, Lcid, 3u) >= 0;
   v10 = *(_WORD *)(v8 + 6);
   v11 = 0;
   if ( !v10 )
-    return (int)RtlLocaleNameToLcid(SourceString) >= 0;
+    return RtlLocaleNameToLcid(LocaleName, Lcid, 3u) >= 0;
   v12 = *(_QWORD *)(v8 + 16);
   while ( *(_WORD *)(28LL * v11 + v12 + 6) != v9 )
   {
     if ( ++v11 >= v10 )
-      return (int)RtlLocaleNameToLcid(SourceString) >= 0;
+      return RtlLocaleNameToLcid(LocaleName, Lcid, 3u) >= 0;
   }
-  *a2 = *(unsigned __int16 *)(28LL * v11 + v12 + 4);
+  *Lcid = *(unsigned __int16 *)(28LL * v11 + v12 + 4);
   return 1;
 }

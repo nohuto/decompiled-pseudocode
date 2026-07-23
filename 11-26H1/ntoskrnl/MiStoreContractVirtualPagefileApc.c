@@ -1,18 +1,18 @@
 /*
- * XREFs of MiStoreContractVirtualPagefileApc @ 0x1404BC6C0
+ * XREFs of MiStoreContractVirtualPagefileApc @ 0x1404B5E00
  * Callers:
  *     <none>
  * Callees:
- *     ExReleaseSpinLockExclusive @ 0x14021AA80 (ExReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x140249CD0 (ExAcquireSpinLockExclusive.c)
- *     KeSetEvent @ 0x1402DE9C0 (KeSetEvent.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     RtlSetBits @ 0x140358D10 (RtlSetBits.c)
- *     MiDerefPageFileSpaceBitmaps @ 0x14040A44C (MiDerefPageFileSpaceBitmaps.c)
- *     MiRefPageFileSpaceBitmaps @ 0x1404ABE74 (MiRefPageFileSpaceBitmaps.c)
- *     MiStoreCheckContractPageFile @ 0x1404E5548 (MiStoreCheckContractPageFile.c)
- *     MiAttemptChangePagingFileMaximum @ 0x1406F866C (MiAttemptChangePagingFileMaximum.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ExReleaseSpinLockExclusive @ 0x14021C410 (ExReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024B630 (ExAcquireSpinLockExclusive.c)
+ *     KeSetEvent @ 0x1402C0780 (KeSetEvent.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     RtlSetBits @ 0x14035AAB0 (RtlSetBits.c)
+ *     MiDerefPageFileSpaceBitmaps @ 0x14040353C (MiDerefPageFileSpaceBitmaps.c)
+ *     MiRefPageFileSpaceBitmaps @ 0x1404A5504 (MiRefPageFileSpaceBitmaps.c)
+ *     MiStoreCheckContractPageFile @ 0x1404DEAE8 (MiStoreCheckContractPageFile.c)
+ *     MiAttemptChangePagingFileMaximum @ 0x1406FD33C (MiAttemptChangePagingFileMaximum.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 LONG __fastcall MiStoreContractVirtualPagefileApc(__int64 a1, struct _KEVENT *a2)

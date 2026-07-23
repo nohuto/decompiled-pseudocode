@@ -1,19 +1,19 @@
 /*
- * XREFs of RtlpReadExtendedContext @ 0x140620F80
+ * XREFs of RtlpReadExtendedContext @ 0x140621F80
  * Callers:
- *     KiContinuePreviousModeUser @ 0x1400A240C (KiContinuePreviousModeUser.c)
- *     KiRaiseException @ 0x14029A1B0 (KiRaiseException.c)
- *     PspSetContextThreadInternal @ 0x140620A30 (PspSetContextThreadInternal.c)
- *     PspGetContextThreadInternal @ 0x140620C00 (PspGetContextThreadInternal.c)
- *     PspWow64GetContextThread @ 0x1406A82B8 (PspWow64GetContextThread.c)
- *     PspWow64SetContextThread @ 0x1406A89BC (PspWow64SetContextThread.c)
+ *     KiContinuePreviousModeUser @ 0x1400A234C (KiContinuePreviousModeUser.c)
+ *     KiRaiseException @ 0x14029A3A0 (KiRaiseException.c)
+ *     PspSetContextThreadInternal @ 0x140621A30 (PspSetContextThreadInternal.c)
+ *     PspGetContextThreadInternal @ 0x140621C00 (PspGetContextThreadInternal.c)
+ *     PspWow64GetContextThread @ 0x1406A9558 (PspWow64GetContextThread.c)
+ *     PspWow64SetContextThread @ 0x1406A9C5C (PspWow64SetContextThread.c)
  * Callees:
- *     RtlpValidateContextFlags @ 0x1400A2070 (RtlpValidateContextFlags.c)
- *     RtlpCopyExtendedContext @ 0x1400A210C (RtlpCopyExtendedContext.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     RtlpReadExtendedContextLayout @ 0x14062125C (RtlpReadExtendedContextLayout.c)
- *     ExRaiseDatatypeMisalignment @ 0x1408D65C0 (ExRaiseDatatypeMisalignment.c)
+ *     RtlpValidateContextFlags @ 0x1400A1FB0 (RtlpValidateContextFlags.c)
+ *     RtlpCopyExtendedContext @ 0x1400A204C (RtlpCopyExtendedContext.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     RtlpReadExtendedContextLayout @ 0x14062225C (RtlpReadExtendedContextLayout.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408D7880 (ExRaiseDatatypeMisalignment.c)
  */
 
 __int64 __fastcall RtlpReadExtendedContext(__int64 a1, char a2, __int64 a3, int a4, __int64 a5, __int64 *a6)

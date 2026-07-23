@@ -1,21 +1,21 @@
 /*
- * XREFs of KiAddThreadToReadyQueue @ 0x1403F4AB0
+ * XREFs of KiAddThreadToReadyQueue @ 0x1403E7AA0
  * Callers:
- *     KiDeferredReadySingleThread @ 0x14031ED40 (KiDeferredReadySingleThread.c)
+ *     KiDeferredReadySingleThread @ 0x1402C78D0 (KiDeferredReadySingleThread.c)
  * Callees:
- *     KeInsertQueueDpc @ 0x1402542F0 (KeInsertQueueDpc.c)
- *     KiInsertQueueDpc @ 0x140254310 (KiInsertQueueDpc.c)
- *     KxAcquireSpinLock @ 0x140254AE0 (KxAcquireSpinLock.c)
- *     KxReleaseSpinLock @ 0x140279CC0 (KxReleaseSpinLock.c)
- *     HvlNotifyLongSpinWait @ 0x140293260 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140293290 (KiCheckVpBackingLongSpinWaitHypercall.c)
- *     KiIsThreadExemptFromForcePark @ 0x14029AB9C (KiIsThreadExemptFromForcePark.c)
- *     KxWaitForLockOwnerShip @ 0x1402D6990 (KxWaitForLockOwnerShip.c)
- *     KiAddThreadToScbQueue @ 0x14030EA24 (KiAddThreadToScbQueue.c)
- *     KiReadGuestSchedulerAssistPriority @ 0x14030EBE4 (KiReadGuestSchedulerAssistPriority.c)
- *     KeWakeAddressAll @ 0x140321AA0 (KeWakeAddressAll.c)
- *     KxWaitForLockChainValid @ 0x140321D40 (KxWaitForLockChainValid.c)
- *     KiUpdateSoftParkElectionStatisticsOnInsertion @ 0x14042B760 (KiUpdateSoftParkElectionStatisticsOnInsertion.c)
+ *     KxReleaseSpinLock @ 0x14022F250 (KxReleaseSpinLock.c)
+ *     KeInsertQueueDpc @ 0x140284900 (KeInsertQueueDpc.c)
+ *     KiInsertQueueDpc @ 0x140284920 (KiInsertQueueDpc.c)
+ *     KxAcquireSpinLock @ 0x1402850F0 (KxAcquireSpinLock.c)
+ *     HvlNotifyLongSpinWait @ 0x1402A2E60 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1402A2E90 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     KiIsThreadExemptFromForcePark @ 0x1402A968C (KiIsThreadExemptFromForcePark.c)
+ *     KeWakeAddressAll @ 0x1402CA630 (KeWakeAddressAll.c)
+ *     KxWaitForLockChainValid @ 0x1402CA8D0 (KxWaitForLockChainValid.c)
+ *     KiAddThreadToScbQueue @ 0x1402D847C (KiAddThreadToScbQueue.c)
+ *     KiReadGuestSchedulerAssistPriority @ 0x1402D8644 (KiReadGuestSchedulerAssistPriority.c)
+ *     KxWaitForLockOwnerShip @ 0x140357C10 (KxWaitForLockOwnerShip.c)
+ *     KiUpdateSoftParkElectionStatisticsOnInsertion @ 0x14041E2F0 (KiUpdateSoftParkElectionStatisticsOnInsertion.c)
  */
 
 int *__fastcall KiAddThreadToReadyQueue(struct _KPRCB *a1, struct _KSCB *a2, __int64 a3, char a4, int a5, int *a6)
@@ -151,15 +151,15 @@ LABEL_25:
       v20 = (_DWORD *)(a3 + 120);
       if ( *(_QWORD *)(a3 + 1008) == 1LL )
       {
-        v22 = (_QWORD *)qword_140F223C8;
+        v22 = (_QWORD *)qword_140F22508;
         v9 = KiUpdateVpThreadPriorityListHead == (_QWORD)&KiUpdateVpThreadPriorityListHead;
-        if ( *(__int64 **)qword_140F223C8 != &KiUpdateVpThreadPriorityListHead )
+        if ( *(__int64 **)qword_140F22508 != &KiUpdateVpThreadPriorityListHead )
           goto LABEL_83;
         *v21 = &KiUpdateVpThreadPriorityListHead;
         v20 = (_DWORD *)(a3 + 120);
         *(_QWORD *)(a3 + 1016) = v22;
         *v22 = v21;
-        qword_140F223C8 = a3 + 1008;
+        qword_140F22508 = a3 + 1008;
       }
       KxReleaseSpinLock((volatile signed __int64 *)&KiUpdateVpThreadPriorityLock);
       if ( v9 )

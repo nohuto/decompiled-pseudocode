@@ -15,18 +15,14 @@
 __int64 __fastcall HvlpSetPowerProperty(_OWORD *a1)
 {
   _OWORD *v2; // rcx
-  __int64 v3; // r9
-  __int64 v4; // rax
-  __int128 v5; // xmm1
-  __int64 v6; // rdx
-  unsigned int v7; // ebx
-  __int128 v9; // [rsp+20h] [rbp-28h] BYREF
-  __int128 v10; // [rsp+30h] [rbp-18h]
+  __int64 v3; // rax
+  __int128 v4; // xmm1
+  unsigned int v5; // ebx
+  _OWORD v7[2]; // [rsp+20h] [rbp-28h] BYREF
 
-  v9 = 0LL;
-  v10 = 0LL;
-  v2 = HvlpAcquireHypercallPage((PHYSICAL_ADDRESS *)&v9, 1, 0LL, 408LL);
-  v4 = 3LL;
+  memset(v7, 0, sizeof(v7));
+  v2 = HvlpAcquireHypercallPage((PHYSICAL_ADDRESS *)v7, 1, 0LL, 408LL);
+  v3 = 3LL;
   do
   {
     *v2 = *a1;
@@ -37,16 +33,15 @@ __int64 __fastcall HvlpSetPowerProperty(_OWORD *a1)
     v2[5] = a1[5];
     v2[6] = a1[6];
     v2 += 8;
-    v5 = a1[7];
+    v4 = a1[7];
     a1 += 8;
-    *(v2 - 1) = v5;
-    --v4;
+    *(v2 - 1) = v4;
+    --v3;
   }
-  while ( v4 );
-  v6 = *((_QWORD *)&v10 + 1);
+  while ( v3 );
   *v2 = *a1;
   *((_QWORD *)v2 + 2) = *((_QWORD *)a1 + 2);
-  v7 = (unsigned __int16)HvcallInitiateHypercall(156, v6, 0LL, v3) != 0 ? 0xC0000001 : 0;
-  HvlpReleaseHypercallPage((__int64)&v9);
-  return v7;
+  v5 = (unsigned __int16)HvcallInitiateHypercall(156) != 0 ? 0xC0000001 : 0;
+  HvlpReleaseHypercallPage((__int64)v7);
+  return v5;
 }

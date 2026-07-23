@@ -15,24 +15,24 @@ __int64 __fastcall RtlpSetRequestedFrontEndHeap(__int64 a1)
 
   v2 = 0;
   v3 = 0;
-  RtlEnterCriticalSection((__int64)&RtlpProcessHeapsListLock);
+  RtlEnterCriticalSection(&RtlpProcessHeapsListLock);
   if ( (unsigned int)RtlpIsProtectedHeap(a1) )
   {
     v3 = -1073741811;
   }
   else
   {
-    RtlEnterCriticalSection(*(_QWORD *)(a1 + 352));
+    RtlEnterCriticalSection(*(PRTL_CRITICAL_SECTION *)(a1 + 352));
     v2 = 1;
     if ( !*(_BYTE *)(a1 + 379) )
     {
       *(_BYTE *)(a1 + 379) = 2;
-      RtlLeaveCriticalSection(*(_QWORD *)(a1 + 352));
+      RtlLeaveCriticalSection(*(PRTL_CRITICAL_SECTION *)(a1 + 352));
       v2 = 0;
     }
   }
   if ( v2 )
-    RtlLeaveCriticalSection(*(_QWORD *)(a1 + 352));
-  RtlLeaveCriticalSection((__int64)&RtlpProcessHeapsListLock);
+    RtlLeaveCriticalSection(*(PRTL_CRITICAL_SECTION *)(a1 + 352));
+  RtlLeaveCriticalSection(&RtlpProcessHeapsListLock);
   return v3;
 }

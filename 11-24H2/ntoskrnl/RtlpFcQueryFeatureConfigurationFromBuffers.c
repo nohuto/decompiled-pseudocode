@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlpFcQueryFeatureConfigurationFromBuffers @ 0x14078D330
+ * XREFs of RtlpFcQueryFeatureConfigurationFromBuffers @ 0x14078D260
  * Callers:
- *     RtlQueryFeatureConfigurationFromBuffers @ 0x1405E9174 (RtlQueryFeatureConfigurationFromBuffers.c)
- *     RtlpFcQueryFeatureConfigurationFromBufferSet @ 0x1406F9F24 (RtlpFcQueryFeatureConfigurationFromBufferSet.c)
+ *     RtlQueryFeatureConfigurationFromBuffers @ 0x1405E66C4 (RtlQueryFeatureConfigurationFromBuffers.c)
+ *     RtlpFcQueryFeatureConfigurationFromBufferSet @ 0x1406F7B64 (RtlpFcQueryFeatureConfigurationFromBufferSet.c)
  * Callees:
- *     RtlpFcGetFeatureHasSubscriptionsFromBuffer @ 0x14078CF2C (RtlpFcGetFeatureHasSubscriptionsFromBuffer.c)
- *     RtlFindLowerBoundInSortedArray @ 0x1409B0BD0 (RtlFindLowerBoundInSortedArray.c)
- *     RtlpFcLinearSearchInSortedArray @ 0x140AB8330 (RtlpFcLinearSearchInSortedArray.c)
+ *     RtlpFcGetFeatureHasSubscriptionsFromBuffer @ 0x14078CE5C (RtlpFcGetFeatureHasSubscriptionsFromBuffer.c)
+ *     RtlFindLowerBoundInSortedArray @ 0x14099A690 (RtlFindLowerBoundInSortedArray.c)
+ *     RtlpFcLinearSearchInSortedArray @ 0x140AB27F4 (RtlpFcLinearSearchInSortedArray.c)
  */
 
 __int64 __fastcall RtlpFcQueryFeatureConfigurationFromBuffers(int a1, __int64 a2, __int64 a3, __int64 a4)

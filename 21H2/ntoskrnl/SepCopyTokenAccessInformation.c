@@ -1,18 +1,18 @@
 /*
- * XREFs of SepCopyTokenAccessInformation @ 0x1405DBD68
+ * XREFs of SepCopyTokenAccessInformation @ 0x1406CB4E8
  * Callers:
- *     SeQueryInformationToken @ 0x140656BD0 (SeQueryInformationToken.c)
- *     NtQueryInformationToken @ 0x140657DF0 (NtQueryInformationToken.c)
+ *     SeQueryInformationToken @ 0x14064B9F0 (SeQueryInformationToken.c)
+ *     NtQueryInformationToken @ 0x14064CC10 (NtQueryInformationToken.c)
  * Callees:
- *     SeQueryMandatoryPolicyToken @ 0x140202A4C (SeQueryMandatoryPolicyToken.c)
- *     SepConvertTokenPrivilegesToLuidAndAttributes @ 0x140252800 (SepConvertTokenPrivilegesToLuidAndAttributes.c)
- *     RtlSidHashInitialize @ 0x140355DE0 (RtlSidHashInitialize.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     Feature_693672248__private_IsEnabledDeviceUsage @ 0x1403F8B20 (Feature_693672248__private_IsEnabledDeviceUsage.c)
- *     memmove @ 0x140413F40 (memmove.c)
- *     memset @ 0x140414200 (memset.c)
- *     RtlCopySidAndAttributesArray @ 0x1405DC280 (RtlCopySidAndAttributesArray.c)
- *     AuthzBasepQueryInternalSecurityAttributesToken @ 0x1405DC544 (AuthzBasepQueryInternalSecurityAttributesToken.c)
+ *     SepConvertTokenPrivilegesToLuidAndAttributes @ 0x1402856B0 (SepConvertTokenPrivilegesToLuidAndAttributes.c)
+ *     SeQueryMandatoryPolicyToken @ 0x1402A73DC (SeQueryMandatoryPolicyToken.c)
+ *     RtlSidHashInitialize @ 0x140360B30 (RtlSidHashInitialize.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     Feature_693672248__private_IsEnabledDeviceUsage @ 0x1403F8B50 (Feature_693672248__private_IsEnabledDeviceUsage.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     RtlCopySidAndAttributesArray @ 0x1406CBA00 (RtlCopySidAndAttributesArray.c)
+ *     AuthzBasepQueryInternalSecurityAttributesToken @ 0x1406CBCC4 (AuthzBasepQueryInternalSecurityAttributesToken.c)
  */
 
 __int64 __fastcall SepCopyTokenAccessInformation(
@@ -39,10 +39,10 @@ __int64 __fastcall SepCopyTokenAccessInformation(
   unsigned int v22; // r8d
   __int64 v23; // r15
   int IsEnabledDeviceUsage; // eax
-  unsigned int v25; // edx
+  ULONG v25; // edx
   __int64 v26; // r12
-  __int64 *v27; // rcx
-  _OWORD *v28; // rcx
+  _SID_AND_ATTRIBUTES *v27; // rcx
+  unsigned __int64 *Hash; // rcx
   _OWORD *v29; // rax
   __int64 v30; // rdx
   __int128 v31; // xmm1
@@ -54,11 +54,11 @@ __int64 __fastcall SepCopyTokenAccessInformation(
   __int128 v37; // xmm1
   __int64 v38; // rbx
   __int64 v39; // r15
-  int v40; // ecx
+  ULONG v40; // ecx
   int v41; // eax
-  unsigned int v42; // edx
-  __int64 *v43; // rcx
-  _OWORD *v44; // rcx
+  ULONG v42; // edx
+  _SID_AND_ATTRIBUTES *v43; // rcx
+  unsigned __int64 *v44; // rcx
   __int64 v45; // rdx
   _OWORD *v46; // rax
   __int128 v47; // xmm1
@@ -70,11 +70,11 @@ __int64 __fastcall SepCopyTokenAccessInformation(
   __int128 v53; // xmm1
   __int64 v54; // rbx
   __int64 v55; // r15
-  int v56; // ecx
+  ULONG v56; // ecx
   int v57; // eax
-  unsigned int v58; // edx
-  __int64 *v59; // rcx
-  _OWORD *v60; // rcx
+  ULONG v58; // edx
+  _SID_AND_ATTRIBUTES *v59; // rcx
+  unsigned __int64 *v60; // rcx
   _OWORD *v61; // rax
   __int128 v62; // xmm1
   __int128 v63; // xmm0
@@ -92,7 +92,7 @@ __int64 __fastcall SepCopyTokenAccessInformation(
   char *v75; // rbx
   int v76; // eax
   char *v77; // rdx
-  __int64 v79; // [rsp+40h] [rbp-C0h] BYREF
+  PSID RemainingSidArea; // [rsp+40h] [rbp-C0h] BYREF
   unsigned int v80; // [rsp+48h] [rbp-B8h]
   unsigned int v81; // [rsp+4Ch] [rbp-B4h]
   unsigned int v82; // [rsp+50h] [rbp-B0h]
@@ -103,7 +103,7 @@ __int64 __fastcall SepCopyTokenAccessInformation(
   unsigned int v87; // [rsp+64h] [rbp-9Ch]
   int v88; // [rsp+68h] [rbp-98h]
   __int64 v89; // [rsp+70h] [rbp-90h]
-  _QWORD v90[34]; // [rsp+80h] [rbp-80h] BYREF
+  _SID_AND_ATTRIBUTES_HASH SidAttrHash; // [rsp+80h] [rbp-80h] BYREF
 
   v80 = a5;
   v81 = a7;
@@ -115,7 +115,7 @@ __int64 __fastcall SepCopyTokenAccessInformation(
   v18 = a3;
   v87 = a13;
   v88 = a4;
-  memset(v90, 0, sizeof(v90));
+  memset(&SidAttrHash, 0, sizeof(SidAttrHash));
   Feature_693672248__private_IsEnabledDeviceUsage();
   v89 = a2 + v18;
   *(_QWORD *)(a2 + 24) = *(_QWORD *)(a1 + 24);
@@ -136,40 +136,40 @@ __int64 __fastcall SepCopyTokenAccessInformation(
   *(_QWORD *)a2 = a2 + 88;
   RtlCopySidAndAttributesArray(
     *(_DWORD *)(a1 + 124),
-    *(_QWORD *)(a1 + 152),
+    *(PSID_AND_ATTRIBUTES *)(a1 + 152),
     v22 - a6,
-    a2 + 360,
-    (void *)(a2 + 360 + a6),
-    (__int64)&v79,
-    (__int64)&v79);
+    (PSID_AND_ATTRIBUTES)(a2 + 360),
+    (PSID)(a2 + 360 + a6),
+    &RemainingSidArea,
+    (PULONG)&RemainingSidArea);
   IsEnabledDeviceUsage = Feature_693672248__private_IsEnabledDeviceUsage();
   v25 = *(_DWORD *)(a1 + 124);
   v26 = 2LL;
-  v27 = *(__int64 **)(a1 + 152);
+  v27 = *(_SID_AND_ATTRIBUTES **)(a1 + 152);
   if ( IsEnabledDeviceUsage )
   {
-    RtlSidHashInitialize(v27, v25, v90);
+    RtlSidHashInitialize(v27, v25, &SidAttrHash);
     memset((void *)(a2 + 92), 0, 0x10CuLL);
-    v28 = &v90[2];
-    *(_DWORD *)(a2 + 88) = v90[0];
+    Hash = SidAttrHash.Hash;
+    *(_DWORD *)(a2 + 88) = SidAttrHash.SidCount;
     v29 = (_OWORD *)(a2 + 104);
     v30 = 2LL;
     do
     {
-      v31 = v28[1];
-      *v29 = *v28;
-      v32 = v28[2];
+      v31 = *((_OWORD *)Hash + 1);
+      *v29 = *(_OWORD *)Hash;
+      v32 = *((_OWORD *)Hash + 2);
       v29[1] = v31;
-      v33 = v28[3];
+      v33 = *((_OWORD *)Hash + 3);
       v29[2] = v32;
-      v34 = v28[4];
+      v34 = *((_OWORD *)Hash + 4);
       v29[3] = v33;
-      v35 = v28[5];
+      v35 = *((_OWORD *)Hash + 5);
       v29[4] = v34;
-      v36 = v28[6];
+      v36 = *((_OWORD *)Hash + 6);
       v29[5] = v35;
-      v37 = v28[7];
-      v28 += 8;
+      v37 = *((_OWORD *)Hash + 7);
+      Hash += 16;
       v29[6] = v36;
       v29 += 8;
       *(v29 - 1) = v37;
@@ -179,7 +179,7 @@ __int64 __fastcall SepCopyTokenAccessInformation(
   }
   else
   {
-    RtlSidHashInitialize(v27, v25, (_QWORD *)(a2 + 88));
+    RtlSidHashInitialize(v27, v25, (PSID_AND_ATTRIBUTES_HASH)(a2 + 88));
   }
   *(_QWORD *)(a2 + 96) = v23;
   v38 = v23 + v80;
@@ -192,39 +192,39 @@ __int64 __fastcall SepCopyTokenAccessInformation(
   {
     RtlCopySidAndAttributesArray(
       v40,
-      *(_QWORD *)(a1 + 160),
+      *(PSID_AND_ATTRIBUTES *)(a1 + 160),
       v81 - v84,
-      v38 + 272,
-      (void *)(v39 + v84),
-      (__int64)&v79,
-      (__int64)&v79);
+      (PSID_AND_ATTRIBUTES)(v38 + 272),
+      (PSID)(v39 + v84),
+      &RemainingSidArea,
+      (PULONG)&RemainingSidArea);
     v41 = Feature_693672248__private_IsEnabledDeviceUsage();
     v42 = *(_DWORD *)(a1 + 128);
-    v43 = *(__int64 **)(a1 + 160);
+    v43 = *(_SID_AND_ATTRIBUTES **)(a1 + 160);
     if ( v41 )
     {
-      RtlSidHashInitialize(v43, v42, v90);
-      v44 = &v90[2];
+      RtlSidHashInitialize(v43, v42, &SidAttrHash);
+      v44 = SidAttrHash.Hash;
       *(_DWORD *)(v38 + 4) = 0;
       v45 = 2LL;
-      *(_DWORD *)v38 = v90[0];
+      *(_DWORD *)v38 = SidAttrHash.SidCount;
       v46 = (_OWORD *)(v38 + 16);
       do
       {
-        v47 = v44[1];
-        *v46 = *v44;
-        v48 = v44[2];
+        v47 = *((_OWORD *)v44 + 1);
+        *v46 = *(_OWORD *)v44;
+        v48 = *((_OWORD *)v44 + 2);
         v46[1] = v47;
-        v49 = v44[3];
+        v49 = *((_OWORD *)v44 + 3);
         v46[2] = v48;
-        v50 = v44[4];
+        v50 = *((_OWORD *)v44 + 4);
         v46[3] = v49;
-        v51 = v44[5];
+        v51 = *((_OWORD *)v44 + 5);
         v46[4] = v50;
-        v52 = v44[6];
+        v52 = *((_OWORD *)v44 + 6);
         v46[5] = v51;
-        v53 = v44[7];
-        v44 += 8;
+        v53 = *((_OWORD *)v44 + 7);
+        v44 += 16;
         v46[6] = v52;
         v46 += 8;
         *(v46 - 1) = v53;
@@ -234,7 +234,7 @@ __int64 __fastcall SepCopyTokenAccessInformation(
     }
     else
     {
-      RtlSidHashInitialize(v43, v42, (_QWORD *)v38);
+      RtlSidHashInitialize(v43, v42, (PSID_AND_ATTRIBUTES_HASH)v38);
     }
     *(_QWORD *)(v38 + 8) = v39;
   }
@@ -248,38 +248,38 @@ __int64 __fastcall SepCopyTokenAccessInformation(
   {
     RtlCopySidAndAttributesArray(
       v56,
-      *(_QWORD *)(a1 + 792),
+      *(PSID_AND_ATTRIBUTES *)(a1 + 792),
       v82 - v85,
-      v54 + 272,
-      (void *)(v55 + v85),
-      (__int64)&v79,
-      (__int64)&v79);
+      (PSID_AND_ATTRIBUTES)(v54 + 272),
+      (PSID)(v55 + v85),
+      &RemainingSidArea,
+      (PULONG)&RemainingSidArea);
     v57 = Feature_693672248__private_IsEnabledDeviceUsage();
     v58 = *(_DWORD *)(a1 + 800);
-    v59 = *(__int64 **)(a1 + 792);
+    v59 = *(_SID_AND_ATTRIBUTES **)(a1 + 792);
     if ( v57 )
     {
-      RtlSidHashInitialize(v59, v58, v90);
-      v60 = &v90[2];
+      RtlSidHashInitialize(v59, v58, &SidAttrHash);
+      v60 = SidAttrHash.Hash;
       *(_DWORD *)(v54 + 4) = 0;
-      *(_DWORD *)v54 = v90[0];
+      *(_DWORD *)v54 = SidAttrHash.SidCount;
       v61 = (_OWORD *)(v54 + 16);
       do
       {
-        v62 = v60[1];
-        *v61 = *v60;
-        v63 = v60[2];
+        v62 = *((_OWORD *)v60 + 1);
+        *v61 = *(_OWORD *)v60;
+        v63 = *((_OWORD *)v60 + 2);
         v61[1] = v62;
-        v64 = v60[3];
+        v64 = *((_OWORD *)v60 + 3);
         v61[2] = v63;
-        v65 = v60[4];
+        v65 = *((_OWORD *)v60 + 4);
         v61[3] = v64;
-        v66 = v60[5];
+        v66 = *((_OWORD *)v60 + 5);
         v61[4] = v65;
-        v67 = v60[6];
+        v67 = *((_OWORD *)v60 + 6);
         v61[5] = v66;
-        v68 = v60[7];
-        v60 += 8;
+        v68 = *((_OWORD *)v60 + 7);
+        v60 += 16;
         v61[6] = v67;
         v61 += 8;
         *(v61 - 1) = v68;
@@ -289,7 +289,7 @@ __int64 __fastcall SepCopyTokenAccessInformation(
     }
     else
     {
-      RtlSidHashInitialize(v59, v58, (_QWORD *)v54);
+      RtlSidHashInitialize(v59, v58, (PSID_AND_ATTRIBUTES_HASH)v54);
     }
     *(_QWORD *)(v54 + 8) = v55;
   }
@@ -315,7 +315,11 @@ __int64 __fastcall SepCopyTokenAccessInformation(
   v74 = v89;
   v75 = &v73[v72];
   *(_QWORD *)(a2 + 72) = v20;
-  AuthzBasepQueryInternalSecurityAttributesToken(*(_QWORD *)(a1 + 776), v75, (unsigned int)(v74 - (_DWORD)v75), &v79);
+  AuthzBasepQueryInternalSecurityAttributesToken(
+    *(_QWORD *)(a1 + 776),
+    v75,
+    (unsigned int)(v74 - (_DWORD)v75),
+    &RemainingSidArea);
   v76 = v88;
   v77 = &v75[v87];
   *(_QWORD *)(a2 + 80) = v75;

@@ -1,18 +1,18 @@
 /*
- * XREFs of EtwpCovSampContextAddSamples @ 0x1408A8B70
+ * XREFs of EtwpCovSampContextAddSamples @ 0x1408A8DC0
  * Callers:
- *     EtwpCovSampCaptureBufferProcess @ 0x1408A85D4 (EtwpCovSampCaptureBufferProcess.c)
- *     EtwpCovSampContextAddAddresses @ 0x1408A8A76 (EtwpCovSampContextAddAddresses.c)
- *     EtwpCovSampSampleBufferProcess @ 0x1409F2B44 (EtwpCovSampSampleBufferProcess.c)
+ *     EtwpCovSampCaptureBufferProcess @ 0x1408A8824 (EtwpCovSampCaptureBufferProcess.c)
+ *     EtwpCovSampContextAddAddresses @ 0x1408A8CC6 (EtwpCovSampContextAddAddresses.c)
+ *     EtwpCovSampSampleBufferProcess @ 0x1409F2DD4 (EtwpCovSampSampleBufferProcess.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1402BD960 (ExfTryToWakePushLock.c)
- *     EtwCovSampHash @ 0x140469CA8 (EtwCovSampHash.c)
- *     EtwpCovSampHashLookupInTable @ 0x1408A9452 (EtwpCovSampHashLookupInTable.c)
- *     EtwpCovSampHashMakeRoomAndAcquireLock @ 0x1408A951A (EtwpCovSampHashMakeRoomAndAcquireLock.c)
- *     EtwpCovSampCaptureContextSetPaused @ 0x1409F098C (EtwpCovSampCaptureContextSetPaused.c)
- *     EtwpCoverageSamplerFreeTable @ 0x1409F3108 (EtwpCoverageSamplerFreeTable.c)
+ *     KeLeaveCriticalRegionThread @ 0x14022F7F0 (KeLeaveCriticalRegionThread.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     ExfTryToWakePushLock @ 0x1402BDBF0 (ExfTryToWakePushLock.c)
+ *     EtwCovSampHash @ 0x14046A0A8 (EtwCovSampHash.c)
+ *     EtwpCovSampHashLookupInTable @ 0x1408A96A2 (EtwpCovSampHashLookupInTable.c)
+ *     EtwpCovSampHashMakeRoomAndAcquireLock @ 0x1408A976A (EtwpCovSampHashMakeRoomAndAcquireLock.c)
+ *     EtwpCovSampCaptureContextSetPaused @ 0x1409F0C1C (EtwpCovSampCaptureContextSetPaused.c)
+ *     EtwpCoverageSamplerFreeTable @ 0x1409F3398 (EtwpCoverageSamplerFreeTable.c)
  */
 
 __int64 __fastcall EtwpCovSampContextAddSamples(ULONG_PTR BugCheckParameter2, __int64 a2, unsigned int a3)
@@ -44,7 +44,7 @@ __int64 __fastcall EtwpCovSampContextAddSamples(ULONG_PTR BugCheckParameter2, __
   v21 = 0LL;
   v8 = 0;
   P = 0LL;
-  v9 = qword_140C31CC8;
+  v9 = qword_140C31C68;
   RoomAndAcquireLock = EtwpCovSampHashMakeRoomAndAcquireLock(BugCheckParameter2);
   v26 = RoomAndAcquireLock;
   if ( RoomAndAcquireLock < a3 )

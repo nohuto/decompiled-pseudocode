@@ -93,7 +93,7 @@ __int64 __fastcall EtwpWriteUserEvent(
   bool v54; // al
   ULONG v55; // esi
   void *v56; // rsp
-  struct _SLIST_ENTRY *v57; // rdi
+  _SLIST_ENTRY *v57; // rdi
   void *v58; // rsp
   _OWORD *v59; // rdi
   int v60; // r15d
@@ -144,7 +144,7 @@ __int64 __fastcall EtwpWriteUserEvent(
   unsigned __int16 *v105; // rdi
   unsigned int v106; // r15d
   size_t v107; // r8
-  __int64 *v108; // rdx
+  LARGE_INTEGER *v108; // rdx
   unsigned __int8 v109; // cl
   int v110; // ecx
   __int64 v111; // rbx
@@ -180,7 +180,7 @@ __int64 __fastcall EtwpWriteUserEvent(
   unsigned int v142; // [rsp+8A8h] [rbp+78h]
   __int64 v143; // [rsp+8B0h] [rbp+80h]
   __int64 v144; // [rsp+8B8h] [rbp+88h]
-  __int64 v145; // [rsp+8C0h] [rbp+90h] BYREF
+  LARGE_INTEGER v145; // [rsp+8C0h] [rbp+90h] BYREF
   PSLIST_ENTRY ListEntry; // [rsp+8C8h] [rbp+98h] BYREF
   unsigned int v147; // [rsp+8D0h] [rbp+A0h]
   unsigned int v148; // [rsp+8D4h] [rbp+A4h]
@@ -280,7 +280,7 @@ LABEL_14:
     v167 = 0LL;
     v168 = 0LL;
     ListEntry = 0LL;
-    v145 = 0LL;
+    v145.QuadPart = 0LL;
     v124 = 80;
     v142 = 0;
     v31 = 0;
@@ -462,7 +462,7 @@ LABEL_49:
                   v55 = 192;
                 }
               }
-              v57 = (struct _SLIST_ENTRY *)StackLookasideListEntry;
+              v57 = (_SLIST_ENTRY *)StackLookasideListEntry;
               if ( StackLookasideListEntry
                 && !EtwpGetStackExtendedHeaderItem(CurrentThread, 0, v55, (__int64)&StackLookasideListEntry, 0, 0LL) )
               {
@@ -898,7 +898,7 @@ LABEL_132:
         if ( v106 >= v24 )
           break;
         v107 = *(unsigned int *)(v20 + 16LL * v106 + 8);
-        v108 = *(__int64 **)(v20 + 16LL * v106);
+        v108 = *(LARGE_INTEGER **)(v20 + 16LL * v106);
         if ( v133 )
         {
           v109 = *(_BYTE *)(v20 + 16LL * v106 + 12);
@@ -918,7 +918,7 @@ LABEL_132:
             {
               if ( (_DWORD)v107 == 8 )
               {
-                if ( (unsigned __int64)(v108 + 1) > 0x7FFFFFFF0000LL || v108 + 1 < v108 )
+                if ( (unsigned __int64)&v108[1] > 0x7FFFFFFF0000LL || &v108[1] < v108 )
                   MEMORY[0x7FFFFFFF0000] = 0;
                 v145 = *v108;
               }
@@ -937,7 +937,7 @@ LABEL_132:
             if ( (unsigned __int16 *)((char *)v105 + v107) < v105 || (char *)v105 + v107 > v162 || !v131 )
               goto LABEL_235;
             if ( (_DWORD)v107
-              && ((unsigned __int64)v108 + v107 > 0x7FFFFFFF0000LL || (__int64 *)((char *)v108 + v107) < v108) )
+              && ((unsigned __int64)v108 + v107 > 0x7FFFFFFF0000LL || (LARGE_INTEGER *)((char *)v108 + v107) < v108) )
             {
               MEMORY[0x7FFFFFFF0000] = 0;
             }
@@ -959,7 +959,7 @@ LABEL_132:
 LABEL_235:
             v126 = -1073741820;
             *(_DWORD *)v21 = v50 | 0xC00D0000;
-            *(_QWORD *)(v21 + 16) = v145;
+            *(LARGE_INTEGER *)(v21 + 16) = v145;
             LODWORD(v21) = 0;
             v23 = v143;
             v60 = a10;
@@ -974,7 +974,7 @@ LABEL_235:
           PreviousMode = KeGetCurrentThread()->PreviousMode;
           if ( PreviousMode
             && (_DWORD)v107
-            && ((unsigned __int64)v108 + v107 > 0x7FFFFFFF0000LL || (__int64 *)((char *)v108 + v107) < v108) )
+            && ((unsigned __int64)v108 + v107 > 0x7FFFFFFF0000LL || (LARGE_INTEGER *)((char *)v108 + v107) < v108) )
           {
             MEMORY[0x7FFFFFFF0000] = 0;
           }
@@ -987,7 +987,7 @@ LABEL_235:
       }
       if ( v153 )
         *(_DWORD *)(v153 + 4LL * (v139 >> 5)) |= 1 << (v139 & 0x1F);
-      *(_QWORD *)(v21 + 16) = v145;
+      *(LARGE_INTEGER *)(v21 + 16) = v145;
       v114 = CurrentThread;
       *(_DWORD *)(v21 + 56) = CurrentThread->SchedulerApc.SpareLong0;
       *(_DWORD *)(v21 + 60) = v114->UserTime;

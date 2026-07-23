@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlFindClearBitsEx @ 0x180140C60
+ * XREFs of RtlFindClearBitsEx @ 0x180140B60
  * Callers:
- *     RtlFindClearBitsAndSetEx @ 0x180140C10 (RtlFindClearBitsAndSetEx.c)
+ *     RtlFindClearBitsAndSetEx @ 0x180140B10 (RtlFindClearBitsAndSetEx.c)
  * Callees:
  *     <none>
  */

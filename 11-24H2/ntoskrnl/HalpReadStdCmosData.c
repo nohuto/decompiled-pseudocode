@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpReadStdCmosData @ 0x140425BF0
+ * XREFs of HalpReadStdCmosData @ 0x140419AA0
  * Callers:
  *     <none>
  * Callees:
- *     HalpReadCmosDataByPort @ 0x140425C10 (HalpReadCmosDataByPort.c)
+ *     HalpReadCmosDataByPort @ 0x140419AC0 (HalpReadCmosDataByPort.c)
  */
 
 __int64 __fastcall HalpReadStdCmosData(int a1, int a2, int a3)

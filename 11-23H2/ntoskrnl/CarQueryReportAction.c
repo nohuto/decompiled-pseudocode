@@ -1,9 +1,9 @@
 /*
- * XREFs of CarQueryReportAction @ 0x1405D3F30
+ * XREFs of CarQueryReportAction @ 0x1405D44A0
  * Callers:
  *     <none>
  * Callees:
- *     CarQueryReportActionForTriage @ 0x1405D3F60 (CarQueryReportActionForTriage.c)
+ *     CarQueryReportActionForTriage @ 0x1405D44D0 (CarQueryReportActionForTriage.c)
  */
 
 __int64 __fastcall CarQueryReportAction(__int64 a1, int a2, int a3, __int64 a4)

@@ -1,11 +1,11 @@
 /*
- * XREFs of NtOpenCpuPartition @ 0x1407F1E00
+ * XREFs of NtOpenCpuPartition @ 0x1407F7960
  * Callers:
- *     DifNtOpenCpuPartitionWrapper @ 0x14067C9F0 (DifNtOpenCpuPartitionWrapper.c)
+ *     DifNtOpenCpuPartitionWrapper @ 0x1406805D0 (DifNtOpenCpuPartitionWrapper.c)
  * Callees:
- *     RtlReadULong64FromUser @ 0x14077F554 (RtlReadULong64FromUser.c)
- *     RtlWriteULong64ToUser @ 0x14077F758 (RtlWriteULong64ToUser.c)
- *     ObOpenObjectByName @ 0x1408FC870 (ObOpenObjectByName.c)
+ *     RtlReadULong64FromUser @ 0x140782054 (RtlReadULong64FromUser.c)
+ *     RtlWriteULong64ToUser @ 0x140782258 (RtlWriteULong64ToUser.c)
+ *     ObOpenObjectByName @ 0x14092C800 (ObOpenObjectByName.c)
  */
 
 __int64 __fastcall NtOpenCpuPartition(_QWORD *a1, int a2, int a3)

@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlSuffixUnicodeString @ 0x14090FC40
+ * XREFs of RtlSuffixUnicodeString @ 0x14090FDA0
  * Callers:
- *     PiDrvDbSetupNodeHive @ 0x1408B7E64 (PiDrvDbSetupNodeHive.c)
+ *     PiDrvDbSetupNodeHive @ 0x1408B7FC4 (PiDrvDbSetupNodeHive.c)
  * Callees:
- *     NLS_UPCASE @ 0x140206AF0 (NLS_UPCASE.c)
+ *     NLS_UPCASE @ 0x1402AB420 (NLS_UPCASE.c)
  */
 
 BOOLEAN __stdcall RtlSuffixUnicodeString(PCUNICODE_STRING String1, PCUNICODE_STRING String2, BOOLEAN CaseInSensitive)

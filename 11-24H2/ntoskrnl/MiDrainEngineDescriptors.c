@@ -1,11 +1,11 @@
 /*
- * XREFs of MiDrainEngineDescriptors @ 0x14068F710
+ * XREFs of MiDrainEngineDescriptors @ 0x1406907E0
  * Callers:
- *     MiAbsorbPossibleEngineChanges @ 0x14068F0A4 (MiAbsorbPossibleEngineChanges.c)
+ *     MiAbsorbPossibleEngineChanges @ 0x140690174 (MiAbsorbPossibleEngineChanges.c)
  * Callees:
- *     MiReleaseSpinLockExclusive @ 0x14028EE30 (MiReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x14028F370 (ExAcquireSpinLockExclusive.c)
- *     MiDeleteAcceleratorDescriptor @ 0x140415BB8 (MiDeleteAcceleratorDescriptor.c)
+ *     MiDeleteAcceleratorDescriptor @ 0x140271A18 (MiDeleteAcceleratorDescriptor.c)
+ *     MiReleaseSpinLockExclusive @ 0x14029EA30 (MiReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14029EF70 (ExAcquireSpinLockExclusive.c)
  */
 
 __int64 __fastcall MiDrainEngineDescriptors(__int64 a1)
@@ -25,7 +25,7 @@ __int64 __fastcall MiDrainEngineDescriptors(__int64 a1)
     do
     {
       v5 = (_QWORD *)*v4;
-      if ( !*((_BYTE *)v4 + 16) && ((*(_DWORD *)(v4[3] + 52LL) & 1) != 0 || byte_140E37454) )
+      if ( !*((_BYTE *)v4 + 16) && ((*(_DWORD *)(v4[3] + 52LL) & 1) != 0 || byte_140E37594) )
       {
         if ( (_QWORD *)v5[1] != v4 || (v6 = (_QWORD *)v4[1], (_QWORD *)*v6 != v4) )
           __fastfail(3u);

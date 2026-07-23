@@ -1,32 +1,32 @@
 /*
- * XREFs of ObpIncrementHandleCountEx @ 0x1406F5F60
+ * XREFs of ObpIncrementHandleCountEx @ 0x14070D340
  * Callers:
- *     ObInheritObjectHandle @ 0x140606624 (ObInheritObjectHandle.c)
- *     ObCompleteObjectDuplication @ 0x14062D640 (ObCompleteObjectDuplication.c)
- *     ObpInsertOrLocateNamedObject @ 0x140662900 (ObpInsertOrLocateNamedObject.c)
- *     ObCaptureObjectStateForDuplication @ 0x140685408 (ObCaptureObjectStateForDuplication.c)
- *     ObpCreateHandle @ 0x1406F6550 (ObpCreateHandle.c)
- *     ObpIncrementHandleCount @ 0x1408DD08C (ObpIncrementHandleCount.c)
+ *     ObCaptureObjectStateForDuplication @ 0x1405E261C (ObCaptureObjectStateForDuplication.c)
+ *     ObCompleteObjectDuplication @ 0x1405E36D0 (ObCompleteObjectDuplication.c)
+ *     ObpInsertOrLocateNamedObject @ 0x140657720 (ObpInsertOrLocateNamedObject.c)
+ *     ObInheritObjectHandle @ 0x1406960B4 (ObInheritObjectHandle.c)
+ *     ObpCreateHandle @ 0x14070D930 (ObpCreateHandle.c)
+ *     ObpIncrementHandleCount @ 0x1408DD1EC (ObpIncrementHandleCount.c)
  * Callees:
- *     KiUnstackDetachProcess @ 0x140207000 (KiUnstackDetachProcess.c)
- *     PspChargeQuota @ 0x14021ADE0 (PspChargeQuota.c)
- *     KiStackAttachProcess @ 0x14025C2E0 (KiStackAttachProcess.c)
- *     PsGetProcessServerSilo @ 0x14025CA80 (PsGetProcessServerSilo.c)
- *     PsDetachSiloFromCurrentThread @ 0x140264010 (PsDetachSiloFromCurrentThread.c)
- *     PsAttachSiloToCurrentThread @ 0x140264030 (PsAttachSiloToCurrentThread.c)
- *     OBJECT_HEADER_TO_PROCESS_INFO @ 0x1402D1F60 (OBJECT_HEADER_TO_PROCESS_INFO.c)
- *     PspReturnQuota @ 0x140341980 (PspReturnQuota.c)
- *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
- *     KiLeaveGuardedRegionUnsafe @ 0x14034AD90 (KiLeaveGuardedRegionUnsafe.c)
- *     ExReleasePushLockEx @ 0x14034AE90 (ExReleasePushLockEx.c)
- *     KeLeaveCriticalRegion @ 0x14034B3B0 (KeLeaveCriticalRegion.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     ObpDeleteNameCheck @ 0x14062CBD0 (ObpDeleteNameCheck.c)
- *     ObpLockHandleDataBaseEntry @ 0x14062DC70 (ObpLockHandleDataBaseEntry.c)
- *     SeComputeQuotaInformationSize @ 0x14065FBD0 (SeComputeQuotaInformationSize.c)
- *     PsReturnSharedPoolQuota @ 0x1406603C4 (PsReturnSharedPoolQuota.c)
- *     ObpUnlockHandleDatabaseEntry @ 0x1408DD0B8 (ObpUnlockHandleDatabaseEntry.c)
+ *     OBJECT_HEADER_TO_PROCESS_INFO @ 0x140250330 (OBJECT_HEADER_TO_PROCESS_INFO.c)
+ *     PsDetachSiloFromCurrentThread @ 0x14026D070 (PsDetachSiloFromCurrentThread.c)
+ *     PsAttachSiloToCurrentThread @ 0x14026D090 (PsAttachSiloToCurrentThread.c)
+ *     KiStackAttachProcess @ 0x14027D850 (KiStackAttachProcess.c)
+ *     PsGetProcessServerSilo @ 0x14027DFF0 (PsGetProcessServerSilo.c)
+ *     KiUnstackDetachProcess @ 0x1402AB900 (KiUnstackDetachProcess.c)
+ *     PspChargeQuota @ 0x1402BF6E0 (PspChargeQuota.c)
+ *     PspReturnQuota @ 0x14034C6D0 (PspReturnQuota.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1403556E0 (ExAcquirePushLockExclusiveEx.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x140355AE0 (KiLeaveGuardedRegionUnsafe.c)
+ *     ExReleasePushLockEx @ 0x140355BE0 (ExReleasePushLockEx.c)
+ *     KeLeaveCriticalRegion @ 0x140356100 (KeLeaveCriticalRegion.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     ObpLockHandleDataBaseEntry @ 0x1405E76F0 (ObpLockHandleDataBaseEntry.c)
+ *     SeComputeQuotaInformationSize @ 0x1406549F0 (SeComputeQuotaInformationSize.c)
+ *     PsReturnSharedPoolQuota @ 0x1406551E4 (PsReturnSharedPoolQuota.c)
+ *     ObpDeleteNameCheck @ 0x140663D60 (ObpDeleteNameCheck.c)
+ *     ObpUnlockHandleDatabaseEntry @ 0x1408DD218 (ObpUnlockHandleDatabaseEntry.c)
  */
 
 __int64 __fastcall ObpIncrementHandleCountEx(
@@ -67,40 +67,39 @@ __int64 __fastcall ObpIncrementHandleCountEx(
   __int64 v34; // rbp
   int v35; // eax
   struct _LIST_ENTRY *ProcessServerSilo; // rax
-  _DWORD *v37; // r9
-  __int64 v38; // rax
-  int *v39; // rax
-  _DWORD *v40; // rdx
-  int v41; // ecx
+  __int64 v37; // rax
+  int *v38; // rax
+  _DWORD *v39; // rdx
+  int v40; // ecx
   _DWORD *i; // rax
-  struct _KPROCESS **v43; // rax
-  __int64 *v44; // rdi
-  char *v45; // rcx
-  struct _KTHREAD *v46; // rax
-  __int64 **v47; // rax
-  unsigned int v49; // [rsp+48h] [rbp-B0h] BYREF
-  unsigned int v50; // [rsp+4Ch] [rbp-ACh]
-  unsigned __int64 v51; // [rsp+50h] [rbp-A8h]
-  unsigned int v52; // [rsp+58h] [rbp-A0h]
-  int v53; // [rsp+5Ch] [rbp-9Ch] BYREF
+  struct _KPROCESS **v42; // rax
+  __int64 *v43; // rdi
+  char *v44; // rcx
+  struct _KTHREAD *v45; // rax
+  __int64 **v46; // rax
+  unsigned int v48; // [rsp+48h] [rbp-B0h] BYREF
+  unsigned int v49; // [rsp+4Ch] [rbp-ACh]
+  unsigned __int64 v50; // [rsp+50h] [rbp-A8h]
+  unsigned int v51; // [rsp+58h] [rbp-A0h]
+  int v52; // [rsp+5Ch] [rbp-9Ch] BYREF
   ULONG_PTR BugCheckParameter2; // [rsp+60h] [rbp-98h]
-  __int64 v55; // [rsp+68h] [rbp-90h]
-  __int64 v56; // [rsp+70h] [rbp-88h]
-  _OWORD v57[3]; // [rsp+78h] [rbp-80h] BYREF
+  __int64 v54; // [rsp+68h] [rbp-90h]
+  __int64 v55; // [rsp+70h] [rbp-88h]
+  _OWORD v56[3]; // [rsp+78h] [rbp-80h] BYREF
 
   v7 = a7;
   v8 = a4 - 48;
-  v56 = a4;
-  v57[0] = 0LL;
+  v55 = a4;
+  v56[0] = 0LL;
   v9 = 1;
-  v51 = (unsigned __int8)((unsigned __int16)(a4 - 48) >> 8);
-  v10 = *(unsigned __int8 *)(a4 - 48 + 24) ^ (unsigned __int8)ObHeaderCookie ^ v51;
-  v55 = a2;
+  v50 = (unsigned __int8)((unsigned __int16)(a4 - 48) >> 8);
+  v10 = *(unsigned __int8 *)(a4 - 48 + 24) ^ (unsigned __int8)ObHeaderCookie ^ v50;
+  v54 = a2;
   if ( (a6 & 0x400) == 0 )
     v9 = a5;
-  v52 = a1;
+  v51 = a1;
   v11 = ObTypeIndexTable[v10];
-  memset(&v57[1], 0, 32);
+  memset(&v56[1], 0, 32);
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
   BugCheckParameter2 = v8 + 16;
@@ -109,7 +108,7 @@ __int64 __fastcall ObpIncrementHandleCountEx(
   v14 = 0LL;
   v15 = *(_BYTE *)(v8 + 26);
   v16 = v13 & 1;
-  v49 = 0;
+  v48 = 0;
   if ( (v15 & 8) != 0 )
     v17 = v8 - ObpInfoMaskToOffset[v15 & 0xF];
   else
@@ -121,15 +120,15 @@ __int64 __fastcall ObpIncrementHandleCountEx(
     {
       v18 = *(_DWORD *)v17;
       v19 = *(_DWORD *)(v17 + 4);
-      v50 = *(_DWORD *)v17;
-      LODWORD(v51) = v19;
+      v49 = *(_DWORD *)v17;
+      LODWORD(v50) = v19;
       if ( a7 || (v20 = *(_QWORD *)(v8 + 40)) != 0 && (v7 = v20 & 0xFFFFFFFFFFFFFFF0uLL) != 0 )
       {
-        v23 = SeComputeQuotaInformationSize(v7, &v49);
+        v23 = SeComputeQuotaInformationSize(v7, &v48);
         if ( v23 < 0 )
           goto LABEL_97;
-        v33 = v49;
-        if ( v49 )
+        v33 = v48;
+        if ( v48 )
         {
           if ( a3 == PsInitialSystemProcess )
           {
@@ -138,14 +137,14 @@ __int64 __fastcall ObpIncrementHandleCountEx(
           else
           {
             v34 = a3[1].AffinityPadding[7];
-            v35 = PspChargeQuota(v34, 0LL, 1, v49);
-            v18 = v50;
-            v19 = v51;
+            v35 = PspChargeQuota(v34, 0LL, 1, v48);
+            v18 = v49;
+            v19 = v50;
             if ( v35 < 0 )
               v34 = 0LL;
             else
               _InterlockedIncrement((volatile signed __int32 *)(v34 + 512));
-            v33 = v49;
+            v33 = v48;
           }
           *(_QWORD *)(v17 + 16) = v34;
           if ( !v34 )
@@ -156,13 +155,13 @@ __int64 __fastcall ObpIncrementHandleCountEx(
     }
     else
     {
-      v38 = ObTypeIndexTable[*(unsigned __int8 *)(v8 + 24) ^ (unsigned __int8)ObHeaderCookie ^ (unsigned __int64)(unsigned __int8)v51];
-      v18 = *(_DWORD *)(v38 + 104);
-      v19 = *(_DWORD *)(v38 + 108);
-      v50 = v18;
+      v37 = ObTypeIndexTable[*(unsigned __int8 *)(v8 + 24) ^ (unsigned __int8)ObHeaderCookie ^ (unsigned __int64)(unsigned __int8)v50];
+      v18 = *(_DWORD *)(v37 + 104);
+      v19 = *(_DWORD *)(v37 + 108);
+      v49 = v18;
     }
     v21 = v19;
-    v51 = v19;
+    v50 = v19;
     if ( a3 == PsInitialSystemProcess )
     {
       v22 = 1LL;
@@ -175,8 +174,8 @@ __int64 __fastcall ObpIncrementHandleCountEx(
 LABEL_13:
         if ( v21 && (int)PspChargeQuota(v22, 0LL, 0, v21) < 0 )
         {
-          if ( v50 )
-            PspReturnQuota((char *)v22, 0LL, 1, v50);
+          if ( v49 )
+            PspReturnQuota((char *)v22, 0LL, 1, v49);
           v22 = 0LL;
         }
         else
@@ -187,7 +186,7 @@ LABEL_13:
       }
       if ( (int)PspChargeQuota(v22, 0LL, 1, v18) >= 0 )
       {
-        v21 = v51;
+        v21 = v50;
         goto LABEL_13;
       }
       v22 = 0LL;
@@ -198,9 +197,9 @@ LABEL_16:
       goto LABEL_17;
     if ( v17 )
     {
-      v45 = *(char **)(v17 + 16);
-      if ( v45 )
-        PsReturnSharedPoolQuota(v45, v49, 0LL);
+      v44 = *(char **)(v17 + 16);
+      if ( v44 )
+        PsReturnSharedPoolQuota(v44, v48, 0LL);
     }
 LABEL_91:
     v23 = -1073741756;
@@ -220,9 +219,9 @@ LABEL_17:
       goto LABEL_79;
     if ( v24 )
     {
-      v43 = (struct _KPROCESS **)OBJECT_HEADER_TO_PROCESS_INFO(v8);
+      v42 = (struct _KPROCESS **)OBJECT_HEADER_TO_PROCESS_INFO(v8);
       v25 = a3;
-      if ( *v43 && *v43 != a3 )
+      if ( *v42 && *v42 != a3 )
         goto LABEL_79;
     }
     else
@@ -253,10 +252,10 @@ LABEL_79:
     goto LABEL_97;
   }
   v26 = (*(_BYTE *)(v11 + 66) & 0x10) == 0;
-  v53 = 0;
+  v52 = 0;
   if ( !v26 )
   {
-    v23 = ObpLockHandleDataBaseEntry(v8, &a3->Header.LockNV, &v53);
+    v23 = ObpLockHandleDataBaseEntry(v8, &a3->Header.LockNV, &v52);
     if ( v23 >= 0 )
     {
       v25 = a3;
@@ -271,7 +270,7 @@ LABEL_25:
   _InterlockedIncrement64((volatile signed __int64 *)(v8 + 8));
   if ( !*(_QWORD *)(v11 + 120) )
   {
-    v27 = v52;
+    v27 = v51;
 LABEL_27:
     if ( (*(_BYTE *)(v11 + 66) & 0x10) != 0 )
     {
@@ -283,22 +282,22 @@ LABEL_27:
       }
       else
       {
-        v39 = *(int **)v30;
-        v40 = 0LL;
-        v41 = *v39;
-        for ( i = v39 + 2; v41; --v41 )
+        v38 = *(int **)v30;
+        v39 = 0LL;
+        v40 = *v38;
+        for ( i = v38 + 2; v40; --v40 )
         {
           if ( *(struct _KPROCESS **)i == v25 )
           {
-            if ( !v40 )
-              v40 = i;
+            if ( !v39 )
+              v39 = i;
             v14 = i;
             if ( *((_BYTE *)i + 11) != 0xFF )
               break;
           }
           i += 4;
         }
-        v40[2] ^= (v40[2] ^ (v40[2] + 1)) & 0xFFFFFF;
+        v39[2] ^= (v39[2] ^ (v39[2] + 1)) & 0xFFFFFF;
         --*((_BYTE *)v14 + 11);
       }
     }
@@ -306,19 +305,19 @@ LABEL_27:
     KeLeaveCriticalRegion();
     if ( !v27 && (*(_BYTE *)(v8 + 26) & 1) != 0 )
     {
-      v44 = (__int64 *)(v8 - 32);
-      if ( v44 )
+      v43 = (__int64 *)(v8 - 32);
+      if ( v43 )
       {
-        v46 = KeGetCurrentThread();
-        --v46->SpecialApcDisable;
+        v45 = KeGetCurrentThread();
+        --v45->SpecialApcDisable;
         ExAcquirePushLockExclusiveEx(v11 + 184, 0LL);
-        v47 = *(__int64 ***)(v11 + 8);
-        if ( *v47 != (__int64 *)v11 )
+        v46 = *(__int64 ***)(v11 + 8);
+        if ( *v46 != (__int64 *)v11 )
           __fastfail(3u);
-        *v44 = v11;
-        v44[1] = (__int64)v47;
-        *v47 = v44;
-        *(_QWORD *)(v11 + 8) = v44;
+        *v43 = v11;
+        v43[1] = (__int64)v46;
+        *v46 = v43;
+        *(_QWORD *)(v11 + 8) = v43;
         ExReleasePushLockEx(v11 + 184, 0LL);
         KiLeaveGuardedRegionUnsafe((__int64)KeGetCurrentThread());
       }
@@ -331,26 +330,26 @@ LABEL_27:
   ExReleasePushLockEx(v8 + 16, 0LL);
   KeLeaveCriticalRegion();
   v31 = 0;
-  v27 = v52;
-  v51 = 0LL;
-  if ( a3 != KeGetCurrentThread()->ApcState.Process && v52 != 3 )
+  v27 = v51;
+  v50 = 0LL;
+  if ( a3 != KeGetCurrentThread()->ApcState.Process && v51 != 3 )
   {
     v31 = 1;
     ProcessServerSilo = (struct _LIST_ENTRY *)PsGetProcessServerSilo((__int64)a3);
-    v51 = (unsigned __int64)PsAttachSiloToCurrentThread(ProcessServerSilo);
-    KiStackAttachProcess(a3, 0LL, (__int64)v57, v37);
+    v50 = (unsigned __int64)PsAttachSiloToCurrentThread(ProcessServerSilo);
+    KiStackAttachProcess(a3, 0, (__int64)v56);
   }
   v23 = (*(__int64 (__fastcall **)(_QWORD, _QWORD, struct _KPROCESS *, __int64, __int64, int))(v11 + 120))(
           v27,
           a5,
           a3,
-          v56,
           v55,
-          v53);
+          v54,
+          v52);
   if ( v31 )
   {
-    KiUnstackDetachProcess((__int64)v57, 0);
-    PsDetachSiloFromCurrentThread((struct _LIST_ENTRY *)v51);
+    KiUnstackDetachProcess((__int64)v56, 0LL);
+    PsDetachSiloFromCurrentThread((struct _LIST_ENTRY *)v50);
   }
   v32 = KeGetCurrentThread();
   --v32->KernelApcDisable;

@@ -1,25 +1,25 @@
 /*
- * XREFs of MiReferenceActiveSubsection @ 0x14045AE40
+ * XREFs of MiReferenceActiveSubsection @ 0x140454670
  * Callers:
- *     MiAddViewsForSection @ 0x1402E31A0 (MiAddViewsForSection.c)
- *     MiUpControlAreaRefs @ 0x1404DE558 (MiUpControlAreaRefs.c)
- *     MiInsertInSystemSpace @ 0x1404EDA44 (MiInsertInSystemSpace.c)
- *     MiInitializeImageVad @ 0x1409CDD4C (MiInitializeImageVad.c)
- *     MmLoadSystemImageEx @ 0x140A269D4 (MmLoadSystemImageEx.c)
+ *     MiAddViewsForSection @ 0x1402C51E0 (MiAddViewsForSection.c)
+ *     MiUpControlAreaRefs @ 0x1404D7C38 (MiUpControlAreaRefs.c)
+ *     MiInsertInSystemSpace @ 0x1404E7024 (MiInsertInSystemSpace.c)
+ *     MiInitializeImageVad @ 0x14099ED2C (MiInitializeImageVad.c)
+ *     MmLoadSystemImageEx @ 0x140A39A74 (MmLoadSystemImageEx.c)
  * Callees:
- *     ExReleaseSpinLockExclusive @ 0x14021AA80 (ExReleaseSpinLockExclusive.c)
- *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x14021AAD4 (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     ExAcquireSpinLockExclusive @ 0x140249CD0 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     MiRemoveUnusedSubsection @ 0x14030C19C (MiRemoveUnusedSubsection.c)
- *     MiControlAreaExemptFromCrossPartitionCharges @ 0x14036E598 (MiControlAreaExemptFromCrossPartitionCharges.c)
- *     MiGetCommittedPages @ 0x14045C518 (MiGetCommittedPages.c)
- *     MiGetSubsectionHoldingCrossPartitionReferences @ 0x140499D04 (MiGetSubsectionHoldingCrossPartitionReferences.c)
- *     MiGetSubsectionCharges @ 0x1404B69E0 (MiGetSubsectionCharges.c)
- *     MiReturnCrossPartitionSectionCharges @ 0x1404D1140 (MiReturnCrossPartitionSectionCharges.c)
- *     MiUpdateSubsectionCrossPartitionRefs @ 0x140512248 (MiUpdateSubsectionCrossPartitionRefs.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
+ *     ExReleaseSpinLockExclusive @ 0x14021C410 (ExReleaseSpinLockExclusive.c)
+ *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x14021C464 (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024B630 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiRemoveUnusedSubsection @ 0x1402EE21C (MiRemoveUnusedSubsection.c)
+ *     MiControlAreaExemptFromCrossPartitionCharges @ 0x140370338 (MiControlAreaExemptFromCrossPartitionCharges.c)
+ *     MiGetCommittedPages @ 0x1404560C0 (MiGetCommittedPages.c)
+ *     MiGetSubsectionHoldingCrossPartitionReferences @ 0x140493854 (MiGetSubsectionHoldingCrossPartitionReferences.c)
+ *     MiGetSubsectionCharges @ 0x1404AFE30 (MiGetSubsectionCharges.c)
+ *     MiReturnCrossPartitionSectionCharges @ 0x1404CAB70 (MiReturnCrossPartitionSectionCharges.c)
+ *     MiUpdateSubsectionCrossPartitionRefs @ 0x14050BCB8 (MiUpdateSubsectionCrossPartitionRefs.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall MiReferenceActiveSubsection(__int64 *BugCheckParameter2, unsigned int a2, KIRQL a3)
@@ -88,9 +88,9 @@ __int64 __fastcall MiReferenceActiveSubsection(__int64 *BugCheckParameter2, unsi
     else
       v16 = (v15 & 8) != 0
           ? 0LL
-          : *(ULONG **)(stru_140E2EB88.ThreadLock
+          : *(ULONG **)(stru_140E2ED08.ThreadLock
                       + 8LL * HIWORD(KeGetCurrentThread()->ApcState.Process[2].ProcessListEntry.Blink));
-    if ( v16 == *(ULONG **)(stru_140E2EB88.ThreadLock + 8LL * (*(_DWORD *)(v14 + 60) & 0x3FF)) )
+    if ( v16 == *(ULONG **)(stru_140E2ED08.ThreadLock + 8LL * (*(_DWORD *)(v14 + 60) & 0x3FF)) )
       goto LABEL_20;
     if ( (*(_DWORD *)(v14 + 56) & 0x100) != 0 && v15 >= 0 )
       break;
@@ -131,7 +131,7 @@ LABEL_20:
         else
           ExReleaseSpinLockExclusive(v28, v4);
         MiReturnCrossPartitionSectionCharges(
-          *(_QWORD *)(stru_140E2EB88.ThreadLock + 8LL * (*(_DWORD *)(v31 + 60) & 0x3FF)),
+          *(_QWORD *)(stru_140E2ED08.ThreadLock + 8LL * (*(_DWORD *)(v31 + 60) & 0x3FF)),
           v32 != 0,
           v6);
         if ( !v35 )
@@ -146,7 +146,7 @@ LABEL_20:
         v29 = (_DWORD *)(v31 + 72);
         if ( v4 == 17 )
         {
-          if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+          if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || PopHibernateInProgress )
           {
             *v29 = 0;
             return 0LL;
@@ -157,7 +157,7 @@ LABEL_20:
             return 0LL;
           }
         }
-        if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+        if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || PopHibernateInProgress )
           *v29 = 0;
         else
           ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented(v29, retaddr);
@@ -180,7 +180,7 @@ LABEL_32:
       else
         ExReleaseSpinLockExclusive(v30, v4);
       MiReturnCrossPartitionSectionCharges(
-        *(_QWORD *)(stru_140E2EB88.ThreadLock + 8LL * (*(_DWORD *)(v3 + 60) & 0x3FF)),
+        *(_QWORD *)(stru_140E2ED08.ThreadLock + 8LL * (*(_DWORD *)(v3 + 60) & 0x3FF)),
         v32 != 0,
         v6);
       if ( !v35 )
@@ -209,14 +209,14 @@ LABEL_32:
     {
       if ( v4 == 17 )
       {
-        if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+        if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || PopHibernateInProgress )
           *(_DWORD *)(v3 + 72) = 0;
         else
           ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented((_DWORD *)(v3 + 72), retaddr);
       }
       else
       {
-        if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+        if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || PopHibernateInProgress )
           *(_DWORD *)(v3 + 72) = 0;
         else
           ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented((_DWORD *)(v3 + 72), retaddr);
@@ -245,14 +245,14 @@ LABEL_32:
 LABEL_89:
             if ( v4 == 17 )
             {
-              if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+              if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || PopHibernateInProgress )
                 *(_DWORD *)(v3 + 72) = 0;
               else
                 ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented((_DWORD *)(v3 + 72), retaddr);
             }
             else
             {
-              if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+              if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || PopHibernateInProgress )
                 *(_DWORD *)(v3 + 72) = 0;
               else
                 ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented((_DWORD *)(v3 + 72), retaddr);
@@ -261,7 +261,7 @@ LABEL_89:
               __writecr8(v4);
             }
             MiReturnCrossPartitionSectionCharges(
-              *(_QWORD *)(stru_140E2EB88.ThreadLock + 8LL * (*(_DWORD *)(v3 + 60) & 0x3FF)),
+              *(_QWORD *)(stru_140E2ED08.ThreadLock + 8LL * (*(_DWORD *)(v3 + 60) & 0x3FF)),
               v32 != 0,
               v6);
             if ( !v35 )
@@ -282,7 +282,7 @@ LABEL_89:
       v34 = a2;
     }
   }
-  ++LODWORD(stru_140E2EB88.CycleTime);
+  ++LODWORD(stru_140E2ED08.CycleTime);
   if ( v35 )
   {
     v26 = (volatile LONG *)(v31 + 72);

@@ -1,11 +1,11 @@
 /*
- * XREFs of SdbpGetPathSystem @ 0x140A52F80
+ * XREFs of SdbpGetPathSystem @ 0x140A53230
  * Callers:
  *     <none>
  * Callees:
  *     AslLogCallPrintf @ 0x1406956FC (AslLogCallPrintf.c)
- *     SdbpGetProcessHostGuestArchitectures @ 0x140A53040 (SdbpGetProcessHostGuestArchitectures.c)
- *     AslEnvGetSystem32DirPathBuf @ 0x140A573FC (AslEnvGetSystem32DirPathBuf.c)
+ *     SdbpGetProcessHostGuestArchitectures @ 0x140A532F0 (SdbpGetProcessHostGuestArchitectures.c)
+ *     AslEnvGetSystem32DirPathBuf @ 0x140A576AC (AslEnvGetSystem32DirPathBuf.c)
  */
 
 __int64 __fastcall SdbpGetPathSystem(NTSTRSAFE_PWSTR pszDest, size_t cchDest, __int64 a3, __int64 a4)

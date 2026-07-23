@@ -1,16 +1,16 @@
 /*
- * XREFs of DrvDbUnloadDatabaseNode @ 0x140925CCC
+ * XREFs of DrvDbUnloadDatabaseNode @ 0x140927E0C
  * Callers:
- *     DrvDbSetDriverDatabaseMappedProperty @ 0x1408226F4 (DrvDbSetDriverDatabaseMappedProperty.c)
- *     DrvDbDestroyDatabaseNode @ 0x140823D38 (DrvDbDestroyDatabaseNode.c)
- *     DrvDbReleaseDatabaseNodeBaseKey @ 0x1409251C8 (DrvDbReleaseDatabaseNodeBaseKey.c)
- *     DrvDbOpenObjectRegKey @ 0x1409254F0 (DrvDbOpenObjectRegKey.c)
- *     DrvDbLoadDatabaseNode @ 0x140925AF8 (DrvDbLoadDatabaseNode.c)
- *     DrvDbOpenDriverDatabaseRegKey @ 0x140A88D94 (DrvDbOpenDriverDatabaseRegKey.c)
+ *     DrvDbSetDriverDatabaseMappedProperty @ 0x140822E34 (DrvDbSetDriverDatabaseMappedProperty.c)
+ *     DrvDbDestroyDatabaseNode @ 0x140824478 (DrvDbDestroyDatabaseNode.c)
+ *     DrvDbReleaseDatabaseNodeBaseKey @ 0x140927308 (DrvDbReleaseDatabaseNodeBaseKey.c)
+ *     DrvDbOpenObjectRegKey @ 0x140927630 (DrvDbOpenObjectRegKey.c)
+ *     DrvDbLoadDatabaseNode @ 0x140927C38 (DrvDbLoadDatabaseNode.c)
+ *     DrvDbOpenDriverDatabaseRegKey @ 0x140A85194 (DrvDbOpenDriverDatabaseRegKey.c)
  * Callees:
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     PiDrvDbNodeActionCallback @ 0x140925E10 (PiDrvDbNodeActionCallback.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     PiDrvDbNodeActionCallback @ 0x140927F50 (PiDrvDbNodeActionCallback.c)
  */
 
 __int64 __fastcall DrvDbUnloadDatabaseNode(__int64 a1, __int64 a2)
@@ -38,7 +38,7 @@ __int64 __fastcall DrvDbUnloadDatabaseNode(__int64 a1, __int64 a2)
     if ( v2 == PiDrvDbNodeActionCallback )
       v8 = PiDrvDbNodeActionCallback(a1, v7, 2, 1, (__int64)&v15, v6);
     else
-      v8 = guard_dispatch_icall_no_overrides(a1, v7, 2LL, 1LL);
+      v8 = guard_dispatch_icall_no_overrides(a1, v7);
     if ( v8 == -1073741822 )
     {
       v2 = 0LL;
@@ -51,7 +51,7 @@ LABEL_8:
       if ( v2 == PiDrvDbNodeActionCallback )
         v10 = PiDrvDbNodeActionCallback(a1, v9, 2, 2, (__int64)&v15, *(_QWORD *)(a2 + 88));
       else
-        v10 = guard_dispatch_icall_no_overrides(a1, v9, 2LL, 2LL);
+        v10 = guard_dispatch_icall_no_overrides(a1, v9);
       if ( (int)(v10 + 0x80000000) >= 0 && v10 != -1073741822 && !v3 )
         return v10;
       return (unsigned int)v3;

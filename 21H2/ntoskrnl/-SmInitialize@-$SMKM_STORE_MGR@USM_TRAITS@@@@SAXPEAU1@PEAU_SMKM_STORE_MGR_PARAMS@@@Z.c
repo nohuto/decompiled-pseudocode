@@ -1,15 +1,15 @@
 /*
- * XREFs of ?SmInitialize@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@PEAU_SMKM_STORE_MGR_PARAMS@@@Z @ 0x1403B4750
+ * XREFs of ?SmInitialize@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@PEAU_SMKM_STORE_MGR_PARAMS@@@Z @ 0x1403B48C0
  * Callers:
- *     ?SmReInitialize@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@@Z @ 0x140599470 (-SmReInitialize@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@@Z.c)
- *     SmGlobalsInitialize @ 0x140A4B528 (SmGlobalsInitialize.c)
+ *     ?SmReInitialize@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@@Z @ 0x1405996A0 (-SmReInitialize@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@@Z.c)
+ *     SmGlobalsInitialize @ 0x140A4C528 (SmGlobalsInitialize.c)
  * Callees:
- *     KeQueryPerformanceCounter @ 0x14022C340 (KeQueryPerformanceCounter.c)
- *     ExInitializePushLock @ 0x140278EE0 (ExInitializePushLock.c)
- *     KiInitializeTimer2 @ 0x1402E927C (KiInitializeTimer2.c)
- *     InitializeSListHead @ 0x14035E3E0 (InitializeSListHead.c)
- *     memset @ 0x140414200 (memset.c)
- *     SmKmInitialize @ 0x14079E090 (SmKmInitialize.c)
+ *     ExInitializePushLock @ 0x140266E80 (ExInitializePushLock.c)
+ *     KiInitializeTimer2 @ 0x14029A5CC (KiInitializeTimer2.c)
+ *     InitializeSListHead @ 0x1402A3310 (InitializeSListHead.c)
+ *     KeQueryPerformanceCounter @ 0x1402D0BC0 (KeQueryPerformanceCounter.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     SmKmInitialize @ 0x14079E290 (SmKmInitialize.c)
  */
 
 __int64 (__fastcall *__fastcall SMKM_STORE_MGR<SM_TRAITS>::SmInitialize(__int64 a1, _OWORD *a2))()

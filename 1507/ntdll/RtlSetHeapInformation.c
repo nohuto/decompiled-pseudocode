@@ -14,71 +14,77 @@
  *     RtlSetHeapDebuggingInformation @ 0x1800D852C (RtlSetHeapDebuggingInformation.c)
  */
 
-__int64 __fastcall RtlSetHeapInformation(__int64 a1, int a2, _DWORD *a3, unsigned __int64 a4)
+NTSTATUS __cdecl RtlSetHeapInformation(
+        PVOID HeapHandle,
+        HEAP_INFORMATION_CLASS HeapInformationClass,
+        PVOID HeapInformation,
+        SIZE_T HeapInformationLength)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  switch ( a2 )
+  switch ( HeapInformationClass )
   {
     case -2147483646:
-      if ( a3 && a4 == 48 )
+      if ( HeapInformation && HeapInformationLength == 48 )
       {
-        result = RtlSetHeapDebuggingInformation(a1, a3);
+        result = RtlSetHeapDebuggingInformation(HeapHandle);
 LABEL_9:
-        if ( (int)result < 0 )
+        if ( result < 0 )
           return result;
-        return 0LL;
+        return 0;
       }
-      return 3221225473LL;
+      return -1073741823;
     case 0:
-      if ( a4 < 4 )
-        return 3221225507LL;
-      if ( *a3 == 2 )
+      if ( HeapInformationLength < 4 )
+        return -1073741789;
+      if ( *(_DWORD *)HeapInformation == 2 )
       {
-        if ( *(_DWORD *)(a1 + 16) != -571548178 )
+        if ( *((_DWORD *)HeapHandle + 4) != -571548178 )
         {
-          if ( (*(_DWORD *)(a1 + 112) & 0x75010F63) == 2 && (NtCurrentPeb()->NtGlobalFlag & 0x800) == 0 )
+          if ( (*((_DWORD *)HeapHandle + 28) & 0x75010F63) == 2 && (NtCurrentPeb()->NtGlobalFlag & 0x800) == 0 )
           {
             result = RtlpSetRequestedFrontEndHeap();
             goto LABEL_9;
           }
-          return 3221225485LL;
+          return -1073741811;
         }
-        return 0LL;
+        return 0;
       }
-      return 3221225473LL;
+      return -1073741823;
     case 1:
       RtlpDisableBreakOnFailureCookie = 0;
-      return 0LL;
+      return 0;
     case 3:
-      if ( !a3 || a4 < 4 || *a3 != 1 || a4 != 8 || a3[1] )
-        return 3221225485LL;
-      if ( a1 )
+      if ( !HeapInformation
+        || HeapInformationLength < 4
+        || *(_DWORD *)HeapInformation != 1
+        || HeapInformationLength != 8
+        || *((_DWORD *)HeapInformation + 1) )
       {
-        RtlEnterCriticalSection((__int64)&RtlpProcessHeapsListLock);
-        if ( !(unsigned int)RtlpIsProtectedHeap(a1) )
-          RtlpFlushHeap(a1);
-        RtlLeaveCriticalSection((__int64)&RtlpProcessHeapsListLock);
+        return -1073741811;
+      }
+      if ( HeapHandle )
+      {
+        RtlEnterCriticalSection(&RtlpProcessHeapsListLock);
+        if ( !(unsigned int)RtlpIsProtectedHeap(HeapHandle) )
+          RtlpFlushHeap((__int64)HeapHandle);
+        RtlLeaveCriticalSection(&RtlpProcessHeapsListLock);
       }
       else
       {
         RtlFlushHeaps();
       }
-      return 0LL;
+      return 0;
   }
-  if ( a2 != 4 )
-    return 0LL;
+  if ( HeapInformationClass != 4 )
+    return 0;
   if ( (RtlpHpHeapFeatures & 1) == 0 )
-    return 3221225485LL;
-  result = RtlRunOnceExecuteOnce(
-             &RtlpHpVirtInitVar,
-             (unsigned int (__fastcall *)(volatile signed __int64 *, __int64, unsigned __int64 *))RtlpHpVirtRunOnceInit,
-             0LL,
-             0LL);
-  if ( (int)result >= 0 )
+    return -1073741811;
+  result = RtlRunOnceExecuteOnce(&RtlpHpVirtInitVar, RtlpHpVirtRunOnceInit, 0LL, 0LL);
+  if ( result >= 0 )
   {
     RtlpHpHeapFeatures |= 2u;
-    return 0LL;
+    return 0;
   }
   return result;
 }

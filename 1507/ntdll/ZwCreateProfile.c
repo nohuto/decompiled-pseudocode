@@ -6,11 +6,20 @@
  *     <none>
  */
 
-__int64 ZwCreateProfile()
+NTSTATUS __cdecl ZwCreateProfile(
+        PHANDLE ProfileHandle,
+        HANDLE Process,
+        PVOID ProfileBase,
+        SIZE_T ProfileSize,
+        ULONG BucketSize,
+        PULONG Buffer,
+        ULONG BufferSize,
+        KPROFILE_SOURCE ProfileSource,
+        KAFFINITY Affinity)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 174LL;
+  result = 174;
   __asm { syscall; Low latency system call }
   return result;
 }

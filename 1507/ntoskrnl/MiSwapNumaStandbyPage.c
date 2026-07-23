@@ -340,7 +340,7 @@ LABEL_72:
     {
       v33 = v31 & 0x1F;
       LOBYTE(v34) = 1;
-      v35 = (volatile signed __int32 *)(*(_QWORD *)(qword_14034F160 + 8) + 4 * (v31 >> 5));
+      v35 = (volatile signed __int32 *)qword_14034F160->Buffer + (v31 >> 5);
       if ( (unsigned __int64)(v33 + 1) <= 0x20 )
       {
         v36 = 1 << v33;

@@ -1,16 +1,16 @@
 /*
- * XREFs of HalpDmaInitializeMasterAdapter @ 0x140A65B2C
+ * XREFs of HalpDmaInitializeMasterAdapter @ 0x140A66B2C
  * Callers:
- *     HalpDmaInit @ 0x140A659C8 (HalpDmaInit.c)
+ *     HalpDmaInit @ 0x140A669C8 (HalpDmaInit.c)
  * Callees:
- *     MmMapIoSpaceEx @ 0x140294E50 (MmMapIoSpaceEx.c)
- *     MmUnmapIoSpace @ 0x140297530 (MmUnmapIoSpace.c)
- *     RtlSetAllBits @ 0x1402E2160 (RtlSetAllBits.c)
- *     HalpMmAllocCtxFree @ 0x140379460 (HalpMmAllocCtxFree.c)
- *     HalpMmAllocCtxAlloc @ 0x14037CA48 (HalpMmAllocCtxAlloc.c)
- *     HalpDmaCommitContiguousMapBuffers @ 0x1403BBD0C (HalpDmaCommitContiguousMapBuffers.c)
- *     HalpDmaAllocateTranslationBuffer @ 0x140A65C64 (HalpDmaAllocateTranslationBuffer.c)
- *     HalpDmaFreeTranslationBuffer @ 0x140A8C9C8 (HalpDmaFreeTranslationBuffer.c)
+ *     MmMapIoSpaceEx @ 0x140216B10 (MmMapIoSpaceEx.c)
+ *     MmUnmapIoSpace @ 0x140217FB0 (MmUnmapIoSpace.c)
+ *     RtlSetAllBits @ 0x1402934B0 (RtlSetAllBits.c)
+ *     HalpMmAllocCtxFree @ 0x140378FB0 (HalpMmAllocCtxFree.c)
+ *     HalpMmAllocCtxAlloc @ 0x14037C598 (HalpMmAllocCtxAlloc.c)
+ *     HalpDmaCommitContiguousMapBuffers @ 0x1403BBE7C (HalpDmaCommitContiguousMapBuffers.c)
+ *     HalpDmaAllocateTranslationBuffer @ 0x140A66C64 (HalpDmaAllocateTranslationBuffer.c)
+ *     HalpDmaFreeTranslationBuffer @ 0x140A8D9C8 (HalpDmaFreeTranslationBuffer.c)
  */
 
 __int64 __fastcall HalpDmaInitializeMasterAdapter(

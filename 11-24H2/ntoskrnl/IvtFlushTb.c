@@ -1,10 +1,10 @@
 /*
- * XREFs of IvtFlushTb @ 0x14056E4B0
+ * XREFs of IvtFlushTb @ 0x14056B940
  * Callers:
  *     <none>
  * Callees:
- *     IvtFlushTbInternal @ 0x1403BA188 (IvtFlushTbInternal.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     IvtFlushTbInternal @ 0x140372B58 (IvtFlushTbInternal.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 void __fastcall IvtFlushTb(

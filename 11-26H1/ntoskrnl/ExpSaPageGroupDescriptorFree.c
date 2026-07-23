@@ -1,16 +1,16 @@
 /*
- * XREFs of ExpSaPageGroupDescriptorFree @ 0x140499C34
+ * XREFs of ExpSaPageGroupDescriptorFree @ 0x140493784
  * Callers:
- *     ExpSaAllocatorOptimizeList @ 0x140499B64 (ExpSaAllocatorOptimizeList.c)
+ *     ExpSaAllocatorOptimizeList @ 0x1404936B4 (ExpSaAllocatorOptimizeList.c)
  * Callees:
- *     KeQueryMaximumProcessorCountEx @ 0x1402767B0 (KeQueryMaximumProcessorCountEx.c)
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     ExfTryToWakePushLock @ 0x1403170A0 (ExfTryToWakePushLock.c)
- *     ExpSaBinaryArrayRemove @ 0x140525D9C (ExpSaBinaryArrayRemove.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     KeQueryMaximumProcessorCountEx @ 0x140275D20 (KeQueryMaximumProcessorCountEx.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     ExfTryToWakePushLock @ 0x1403190D0 (ExfTryToWakePushLock.c)
+ *     ExpSaBinaryArrayRemove @ 0x14052840C (ExpSaBinaryArrayRemove.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __fastcall ExpSaPageGroupDescriptorFree(unsigned int *P)
@@ -54,7 +54,7 @@ void __fastcall ExpSaPageGroupDescriptorFree(unsigned int *P)
       _BitScanReverse(&v10, v9);
       v11 = v9 ^ (unsigned int)(1 << v10);
       v12 = v10 - 2;
-      v13 = *(_QWORD *)(v8 + ExSaPageArrays);
+      v13 = *(_QWORD *)((char *)ExSaPageGroupDescriptorArrayLock.SListFaultAddress + v8);
       v14 = *(void **)(*(_QWORD *)(v13 + 8 * v12) + 8 * v11 + 8);
       ExpSaBinaryArrayRemove(v13, v9);
       ExFreePoolWithTag(v14, 0);
@@ -63,7 +63,7 @@ void __fastcall ExpSaPageGroupDescriptorFree(unsigned int *P)
     }
     while ( MaximumProcessorCount );
   }
-  ExpSaBinaryArrayRemove(ExSaPageGroupDescriptorArray, P[8]);
+  ExpSaBinaryArrayRemove(ExSaPageGroupDescriptorArrayLock.QuantumTarget, P[8]);
   if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&ExSaPageGroupDescriptorArrayLock, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
     ExfTryToWakePushLock((volatile signed __int64 *)&ExSaPageGroupDescriptorArrayLock.Header.Lock);
   KeAbPostRelease((unsigned __int64)&ExSaPageGroupDescriptorArrayLock);

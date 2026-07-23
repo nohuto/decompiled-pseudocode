@@ -1,19 +1,19 @@
 /*
- * XREFs of IopLiveDumpAllocateDumpBuffers @ 0x14049A8E4
+ * XREFs of IopLiveDumpAllocateDumpBuffers @ 0x1404952D4
  * Callers:
- *     IopLiveDumpAllocAndInitResources @ 0x1405982F0 (IopLiveDumpAllocAndInitResources.c)
+ *     IopLiveDumpAllocAndInitResources @ 0x140595270 (IopLiveDumpAllocAndInitResources.c)
  * Callees:
- *     IopLiveDumpDiscardVirtualAddressRange @ 0x140262A88 (IopLiveDumpDiscardVirtualAddressRange.c)
- *     IopLiveDumpIsUnderMemoryPressure @ 0x14049ACB4 (IopLiveDumpIsUnderMemoryPressure.c)
- *     IopLiveDumpFreeDumpBuffers @ 0x14049B264 (IopLiveDumpFreeDumpBuffers.c)
- *     IopLiveDumpTraceEstimatedAndAllocatedPageCount @ 0x14049B4B4 (IopLiveDumpTraceEstimatedAndAllocatedPageCount.c)
- *     IopLiveDumpGetMillisecondCounter @ 0x14049B5E4 (IopLiveDumpGetMillisecondCounter.c)
- *     IopLiveDumpAllocateFromIOSpace @ 0x140598D2C (IopLiveDumpAllocateFromIOSpace.c)
- *     IopLiveDumpAllocateFromVMMemoryPartition @ 0x140599218 (IopLiveDumpAllocateFromVMMemoryPartition.c)
- *     IopLiveDumpTraceEstimatedPageCountNotAvailable @ 0x1405A316C (IopLiveDumpTraceEstimatedPageCountNotAvailable.c)
- *     IopLiveDumpTraceEventGeneric @ 0x1405A31E4 (IopLiveDumpTraceEventGeneric.c)
- *     MmAllocateIndependentPages @ 0x140A88F50 (MmAllocateIndependentPages.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     IopLiveDumpDiscardVirtualAddressRange @ 0x14029293C (IopLiveDumpDiscardVirtualAddressRange.c)
+ *     IopLiveDumpIsUnderMemoryPressure @ 0x1404956A4 (IopLiveDumpIsUnderMemoryPressure.c)
+ *     IopLiveDumpFreeDumpBuffers @ 0x140495C54 (IopLiveDumpFreeDumpBuffers.c)
+ *     IopLiveDumpTraceEstimatedAndAllocatedPageCount @ 0x140495EA4 (IopLiveDumpTraceEstimatedAndAllocatedPageCount.c)
+ *     IopLiveDumpGetMillisecondCounter @ 0x140495FD4 (IopLiveDumpGetMillisecondCounter.c)
+ *     IopLiveDumpAllocateFromIOSpace @ 0x140595CAC (IopLiveDumpAllocateFromIOSpace.c)
+ *     IopLiveDumpAllocateFromVMMemoryPartition @ 0x140596198 (IopLiveDumpAllocateFromVMMemoryPartition.c)
+ *     IopLiveDumpTraceEstimatedPageCountNotAvailable @ 0x1405A00AC (IopLiveDumpTraceEstimatedPageCountNotAvailable.c)
+ *     IopLiveDumpTraceEventGeneric @ 0x1405A0124 (IopLiveDumpTraceEventGeneric.c)
+ *     MmAllocateIndependentPages @ 0x140A85350 (MmAllocateIndependentPages.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall IopLiveDumpAllocateDumpBuffers(__int64 a1)
@@ -33,7 +33,7 @@ __int64 __fastcall IopLiveDumpAllocateDumpBuffers(__int64 a1)
   unsigned __int64 v14; // rax
   int v15; // edx
   unsigned __int64 v16; // r11
-  unsigned __int64 v17; // rsi
+  ULONG_PTR v17; // rsi
   __int64 Pool2; // rax
   __int64 v19; // rax
   int v20; // r15d
@@ -127,13 +127,13 @@ __int64 __fastcall IopLiveDumpAllocateDumpBuffers(__int64 a1)
     }
   }
   v17 = (8 * v16 + 4095) & 0xFFFFFFFFFFFFF000uLL;
-  Pool2 = ExAllocatePool2(0x40uLL);
+  Pool2 = ExAllocatePool2(0x40uLL, v17, 0x706D644Cu);
   *(_QWORD *)(a1 + 752) = Pool2;
   if ( !Pool2 )
     goto LABEL_27;
   if ( (*(_DWORD *)(a1 + 80) & 0x40000) != 0 )
   {
-    v35 = (char *)ExAllocatePool2(0x40uLL);
+    v35 = (char *)ExAllocatePool2(0x40uLL, v17, 0x706D644Cu);
     *(_QWORD *)(a1 + 880) = v35;
     if ( v35 )
     {
@@ -152,7 +152,7 @@ __int64 __fastcall IopLiveDumpAllocateDumpBuffers(__int64 a1)
         v62);
     }
   }
-  v19 = ExAllocatePool2(0x40uLL);
+  v19 = ExAllocatePool2(0x40uLL, v17, 0x706D644Cu);
   *(_QWORD *)(a1 + 760) = v19;
   if ( !v19 )
     goto LABEL_27;

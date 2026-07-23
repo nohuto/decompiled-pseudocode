@@ -10,49 +10,46 @@
  *     TpSetTimerEx @ 0x18003CE70 (TpSetTimerEx.c)
  */
 
-unsigned __int64 __fastcall RtlpWnfCalculateAndSetNextTimer(__int64 a1, char *a2, __int64 a3, __int64 a4)
+void RtlpWnfCalculateAndSetNextTimer()
 {
-  __int64 v4; // rbx
-  int v5; // esi
-  char *v6; // rdx
-  __int64 v7; // r8
-  __int64 v8; // r9
-  __int64 v9; // rcx
-  __int64 *v10; // rdi
-  bool v11; // zf
-  __int64 v13; // [rsp+30h] [rbp+8h] BYREF
+  LARGE_INTEGER Value; // rbx
+  int v1; // esi
+  __int64 v2; // rcx
+  _RTL_SRWLOCK *v3; // rdi
+  bool v4; // zf
+  LARGE_INTEGER DueTime; // [rsp+30h] [rbp+8h] BYREF
 
-  v4 = 0LL;
-  v5 = 0;
-  RtlAcquireSRWLockShared((volatile signed __int64 *)(qword_180146F28 + 8), a2, a3, a4);
-  v9 = qword_180146F28;
-  v10 = *(__int64 **)(qword_180146F28 + 16);
-  if ( v10 != (__int64 *)(qword_180146F28 + 16) )
+  Value.QuadPart = 0LL;
+  v1 = 0;
+  RtlAcquireSRWLockShared((PRTL_SRWLOCK)(qword_180146F28 + 8));
+  v2 = qword_180146F28;
+  v3 = *(_RTL_SRWLOCK **)(qword_180146F28 + 16);
+  if ( v3 != (_RTL_SRWLOCK *)(qword_180146F28 + 16) )
   {
     do
     {
-      RtlAcquireSRWLockExclusive(v10 + 3, v6, v7, v8);
-      if ( *((_DWORD *)v10 + 24) == 2 && (!v4 || v10[13] < v4) )
+      RtlAcquireSRWLockExclusive(v3 + 3);
+      if ( v3[12].0 == 2 && (!Value.QuadPart || (signed __int64)v3[13].Value < Value.QuadPart) )
       {
-        v4 = v10[13];
-        v5 = 1;
+        Value = (LARGE_INTEGER)v3[13].Value;
+        v1 = 1;
       }
-      RtlReleaseSRWLockExclusive(v10 + 3);
-      v9 = qword_180146F28;
-      v10 = (__int64 *)*v10;
+      RtlReleaseSRWLockExclusive(v3 + 3);
+      v2 = qword_180146F28;
+      v3 = (_RTL_SRWLOCK *)v3->Value;
     }
-    while ( v10 != (__int64 *)(qword_180146F28 + 16) );
-    if ( v5 )
+    while ( v3 != (_RTL_SRWLOCK *)(qword_180146F28 + 16) );
+    if ( v1 )
     {
-      v11 = *(_QWORD *)(qword_180146F28 + 88) == 0LL;
-      v13 = v4;
-      if ( v11 || *(_QWORD *)(qword_180146F28 + 88) >= v4 )
+      v4 = *(_QWORD *)(qword_180146F28 + 88) == 0LL;
+      DueTime = Value;
+      if ( v4 || *(_QWORD *)(qword_180146F28 + 88) >= Value.QuadPart )
       {
-        *(_QWORD *)(qword_180146F28 + 88) = v4;
-        TpSetTimerEx(*(_QWORD *)(v9 + 80), (__int64)&v13, 0, 50);
-        v9 = qword_180146F28;
+        *(LARGE_INTEGER *)(qword_180146F28 + 88) = Value;
+        TpSetTimerEx(*(PTP_TIMER *)(v2 + 80), &DueTime, 0, 0x32u);
+        v2 = qword_180146F28;
       }
     }
   }
-  return RtlReleaseSRWLockShared((volatile signed __int64 *)(v9 + 8));
+  RtlReleaseSRWLockShared((PRTL_SRWLOCK)(v2 + 8));
 }

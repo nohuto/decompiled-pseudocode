@@ -14,13 +14,13 @@
  *     _RtlRaiseStatus@4 @ 0x4B308980 (_RtlRaiseStatus@4.c)
  */
 
-_DWORD *__fastcall LdrpGetFromMUIMemCache(int a1, __int16 a2, _DWORD *a3, int a4)
+_DWORD *__fastcall LdrpGetFromMUIMemCache(unsigned int a1, __int16 a2, _DWORD *a3, int a4)
 {
   _DWORD *v4; // edi
   int v5; // esi
-  int v6; // ecx
-  int v7; // edx
-  int v8; // ebx
+  char *v6; // ecx
+  char *v7; // edx
+  PVOID v8; // ebx
   signed __int32 v10; // eax
   signed __int32 v11; // ecx
   signed __int32 v12; // edx
@@ -32,8 +32,8 @@ _DWORD *__fastcall LdrpGetFromMUIMemCache(int a1, __int16 a2, _DWORD *a3, int a4
   int v18; // eax
   signed __int32 v19; // edx
   signed __int32 v20; // eax
-  int v21; // [esp+18h] [ebp-28h] BYREF
-  int v22; // [esp+1Ch] [ebp-24h]
+  PIMAGE_NT_HEADERS OutHeaders; // [esp+18h] [ebp-28h] BYREF
+  PVOID DllHandle; // [esp+1Ch] [ebp-24h]
   _DWORD *v23; // [esp+20h] [ebp-20h]
   __int16 v24; // [esp+24h] [ebp-1Ch]
   char v25; // [esp+26h] [ebp-1Ah]
@@ -41,29 +41,29 @@ _DWORD *__fastcall LdrpGetFromMUIMemCache(int a1, __int16 a2, _DWORD *a3, int a4
   CPPEH_RECORD ms_exc; // [esp+28h] [ebp-18h]
 
   v24 = a2;
-  v22 = a1;
+  DllHandle = (PVOID)a1;
   v4 = 0;
   v23 = 0;
   v26 = 0;
   v25 = 0;
   if ( (a4 & 0xC) == 0 || (a4 & 0xFFFFFFF3) != 0 || (a4 & 4) != 0 && !a2 )
     return 0;
-  v21 = 0;
-  RtlImageNtHeaderEx(1, a1 & 0xFFFFFFFC, 0, 0, &v21);
-  if ( !v21 )
+  OutHeaders = 0;
+  RtlImageNtHeaderEx(1u, (PVOID)(a1 & 0xFFFFFFFC), 0LL, &OutHeaders);
+  if ( !OutHeaders )
     return 0;
   if ( a3 )
     *a3 = 0;
   RtlAcquireSRWLockShared(&MuiCacheSWRLock);
   ms_exc.registration.TryLevel = 0;
   v5 = AlternateResourceModuleCount - 1;
-  v6 = AlternateResourceModules;
+  v6 = (char *)AlternateResourceModules;
   while ( v5 >= 0 )
   {
-    v7 = 32 * v5 + v6;
-    if ( *(_DWORD *)(v7 + 4) == v22 )
+    v7 = &v6[32 * v5];
+    if ( *((PVOID *)v7 + 1) == DllHandle )
     {
-      if ( *(_DWORD *)(v7 + 12) != *(_DWORD *)(v21 + 88) )
+      if ( *((_DWORD *)v7 + 3) != OutHeaders->OptionalHeader.CheckSum )
       {
         v26 = 1;
         v25 = 1;
@@ -71,10 +71,10 @@ _DWORD *__fastcall LdrpGetFromMUIMemCache(int a1, __int16 a2, _DWORD *a3, int a4
       }
       if ( (a4 & 8) != 0 )
       {
-        if ( *(_DWORD *)(v7 + 8) )
+        if ( *((_DWORD *)v7 + 2) )
         {
           _mm_lfence();
-          v4 = *(_DWORD **)(32 * v5 + AlternateResourceModules + 8);
+          v4 = (_DWORD *)*((_DWORD *)AlternateResourceModules + 8 * v5 + 2);
           v23 = v4;
           if ( v4 != (_DWORD *)-1 && v4 && *v4 != -20054323 )
           {
@@ -88,19 +88,19 @@ _DWORD *__fastcall LdrpGetFromMUIMemCache(int a1, __int16 a2, _DWORD *a3, int a4
       }
       else if ( (a4 & 4) != 0 && v24 && *(_WORD *)v7 == v24 )
       {
-        v4 = *(_DWORD **)(v7 + 16);
+        v4 = (_DWORD *)*((_DWORD *)v7 + 4);
         v23 = v4;
         if ( a3 )
-          *a3 = *(_DWORD *)(v7 + 24);
+          *a3 = *((_DWORD *)v7 + 6);
         break;
       }
     }
     --v5;
-    v6 = AlternateResourceModules;
+    v6 = (char *)AlternateResourceModules;
   }
   ms_exc.registration.TryLevel = -2;
-  v8 = v22;
-  v10 = _InterlockedCompareExchange(&MuiCacheSWRLock, 0, 17);
+  v8 = DllHandle;
+  v10 = _InterlockedCompareExchange((volatile signed __int32 *)&MuiCacheSWRLock, 0, 17);
   v11 = v10;
   if ( v10 != 17 )
   {
@@ -113,7 +113,7 @@ _DWORD *__fastcall LdrpGetFromMUIMemCache(int a1, __int16 a2, _DWORD *a3, int a4
         v12 = v11 - 16;
         if ( (v11 & 0xFFFFFFF0) == 0x10 )
           v12 = 0;
-        v13 = _InterlockedCompareExchange(&MuiCacheSWRLock, v12, v11);
+        v13 = _InterlockedCompareExchange((volatile signed __int32 *)&MuiCacheSWRLock, v12, v11);
         if ( v13 == v11 )
           goto LABEL_16;
         v11 = v13;
@@ -140,13 +140,13 @@ _DWORD *__fastcall LdrpGetFromMUIMemCache(int a1, __int16 a2, _DWORD *a3, int a4
       if ( (v11 & 6) != 2 )
         v18 = v17;
       v19 = v18 + v11;
-      v20 = _InterlockedCompareExchange(&MuiCacheSWRLock, v18 + v11, v11);
+      v20 = _InterlockedCompareExchange((volatile signed __int32 *)&MuiCacheSWRLock, v18 + v11, v11);
       if ( v20 == v11 )
         break;
       v11 = v20;
     }
     v4 = v23;
-    v8 = v22;
+    v8 = DllHandle;
     if ( (v11 & 6) == 2 )
       RtlpWakeSRWLock(v19);
   }

@@ -1,16 +1,16 @@
 /*
- * XREFs of KsepRegistryQueryDriverShims @ 0x1409E4314
+ * XREFs of KsepRegistryQueryDriverShims @ 0x1409D8644
  * Callers:
- *     KsepEngineGetShimsFromRegistry @ 0x140A25360 (KsepEngineGetShimsFromRegistry.c)
+ *     KsepEngineGetShimsFromRegistry @ 0x140A38400 (KsepEngineGetShimsFromRegistry.c)
  * Callees:
- *     KsepPoolFreePaged @ 0x1404E2A70 (KsepPoolFreePaged.c)
- *     ZwOpenKey @ 0x140723630 (ZwOpenKey.c)
- *     KsepRegistryQuerySZ @ 0x1407BF28C (KsepRegistryQuerySZ.c)
- *     KsepRegistryCloseKey @ 0x1409E42F0 (KsepRegistryCloseKey.c)
- *     KsepStringConcatenate @ 0x1409E5358 (KsepStringConcatenate.c)
+ *     KsepPoolFreePaged @ 0x1404DC150 (KsepPoolFreePaged.c)
+ *     ZwOpenKey @ 0x140728200 (ZwOpenKey.c)
+ *     KsepRegistryQuerySZ @ 0x1407C22EC (KsepRegistryQuerySZ.c)
+ *     KsepStringConcatenate @ 0x1409D7A8C (KsepStringConcatenate.c)
+ *     KsepRegistryCloseKey @ 0x1409D8784 (KsepRegistryCloseKey.c)
  */
 
-__int64 __fastcall KsepRegistryQueryDriverShims(__int64 a1, void *a2, void *a3, _QWORD *a4)
+__int64 __fastcall KsepRegistryQueryDriverShims(_WORD *a1, void *a2, void *a3, _QWORD *a4)
 {
   HANDLE v6; // rdi
   int SZ; // ebx
@@ -28,10 +28,10 @@ __int64 __fastcall KsepRegistryQueryDriverShims(__int64 a1, void *a2, void *a3, 
   KeyHandle = 0LL;
   memset(&ObjectAttributes, 0, 44);
   SZ = KsepStringConcatenate(
-         &v9,
+         (__int64)&v9,
          L"\\Registry\\Machine\\System\\CurrentControlSet\\Control\\Compatibility\\Driver",
          a1,
-         1LL);
+         1);
   if ( SZ >= 0 )
   {
     ObjectAttributes.Length = 48;
@@ -43,7 +43,7 @@ __int64 __fastcall KsepRegistryQueryDriverShims(__int64 a1, void *a2, void *a3, 
     if ( SZ >= 0 )
     {
       v6 = KeyHandle;
-      _InterlockedIncrement((volatile signed __int32 *)&AlpcpMessageLogLock.RelativeTimerBias);
+      _InterlockedIncrement((volatile signed __int32 *)&AlpcpMessageLogLock.WaitBlockList);
     }
   }
   if ( v10 )

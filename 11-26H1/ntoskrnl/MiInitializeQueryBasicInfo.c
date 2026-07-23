@@ -1,9 +1,9 @@
 /*
- * XREFs of MiInitializeQueryBasicInfo @ 0x140B12F6C
+ * XREFs of MiInitializeQueryBasicInfo @ 0x140B14E0C
  * Callers:
- *     MiQueryAddressSpan @ 0x140304F70 (MiQueryAddressSpan.c)
+ *     MiQueryAddressSpan @ 0x1402E6FF0 (MiQueryAddressSpan.c)
  * Callees:
- *     MiReadVadFlags @ 0x1404655D0 (MiReadVadFlags.c)
+ *     MiReadVadFlags @ 0x14045E590 (MiReadVadFlags.c)
  */
 
 char __fastcall MiInitializeQueryBasicInfo(_OWORD *a1, __int64 a2)

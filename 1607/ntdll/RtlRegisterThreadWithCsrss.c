@@ -1,15 +1,15 @@
 /*
- * XREFs of RtlRegisterThreadWithCsrss @ 0x180081FE0
+ * XREFs of RtlRegisterThreadWithCsrss @ 0x180081FD0
  * Callers:
- *     TppWorkerThread @ 0x18001E750 (TppWorkerThread.c)
+ *     TppWorkerThread @ 0x18001E740 (TppWorkerThread.c)
  * Callees:
- *     __security_check_cookie @ 0x180096C40 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x180096C30 (__security_check_cookie.c)
  *     _guard_dispatch_icall_nop @ 0x1800A9C80 (_guard_dispatch_icall_nop.c)
  */
 
-__int64 RtlRegisterThreadWithCsrss()
+NTSTATUS RtlRegisterThreadWithCsrss(void)
 {
-  unsigned int v0; // ecx
+  NTSTATUS v0; // ecx
   _CLIENT_ID ClientId; // xmm0
   _QWORD v3[6]; // [rsp+20h] [rbp-1C8h] BYREF
   int v4; // [rsp+50h] [rbp-198h]
@@ -27,7 +27,7 @@ __int64 RtlRegisterThreadWithCsrss()
     v6 = ClientId;
     v3[0] = 5767216LL;
     v4 = 65561;
-    return (unsigned int)((__int64 (__fastcall *)(_QWORD *, _QWORD *))CsrServerApiRoutine)(v3, v3);
+    return ((__int64 (__fastcall *)(_QWORD *, _QWORD *))CsrServerApiRoutine)(v3, v3);
   }
-  return 3221225659LL;
+  return -1073741637;
 }

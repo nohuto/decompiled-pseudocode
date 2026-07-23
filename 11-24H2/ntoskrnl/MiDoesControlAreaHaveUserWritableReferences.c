@@ -1,11 +1,11 @@
 /*
- * XREFs of MiDoesControlAreaHaveUserWritableReferences @ 0x14022E880
+ * XREFs of MiDoesControlAreaHaveUserWritableReferences @ 0x140302190
  * Callers:
- *     MmDoesFileHaveUserWritableReferences @ 0x14022E6E0 (MmDoesFileHaveUserWritableReferences.c)
- *     MiComputeFlushRange @ 0x14022F1B8 (MiComputeFlushRange.c)
+ *     MmDoesFileHaveUserWritableReferences @ 0x140301FF0 (MmDoesFileHaveUserWritableReferences.c)
+ *     MiComputeFlushRange @ 0x140302AC8 (MiComputeFlushRange.c)
  * Callees:
- *     ExAcquireSpinLockSharedAtDpcLevel @ 0x140210120 (ExAcquireSpinLockSharedAtDpcLevel.c)
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x140210C80 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     ExAcquireSpinLockSharedAtDpcLevel @ 0x140339480 (ExAcquireSpinLockSharedAtDpcLevel.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x140339FE0 (ExReleaseSpinLockSharedFromDpcLevel.c)
  */
 
 __int64 __fastcall MiDoesControlAreaHaveUserWritableReferences(__int64 a1)
@@ -20,7 +20,7 @@ __int64 __fastcall MiDoesControlAreaHaveUserWritableReferences(__int64 a1)
 
   v1 = 0;
   v2 = *(_DWORD *)(a1 + 92);
-  v4 = *((_QWORD *)qword_140E2FF88 + (*(_WORD *)(a1 + 60) & 0x3FF));
+  v4 = *((_QWORD *)qword_140E300C8 + (*(_WORD *)(a1 + 60) & 0x3FF));
   if ( !v2 )
   {
     v5 = *(_QWORD *)(a1 + 112);

@@ -1,10 +1,10 @@
 /*
- * XREFs of MiTransientPageListWriter @ 0x1401FC43C
+ * XREFs of MiTransientPageListWriter @ 0x1401FC268
  * Callers:
- *     MiSystemFault @ 0x14001BFF0 (MiSystemFault.c)
+ *     MiSystemFault @ 0x14001BB70 (MiSystemFault.c)
  * Callees:
- *     ExReleaseSpinLockShared @ 0x1400EA240 (ExReleaseSpinLockShared.c)
- *     ExAcquireSpinLockShared @ 0x1400EB1D0 (ExAcquireSpinLockShared.c)
+ *     ExReleaseSpinLockShared @ 0x1400E80B0 (ExReleaseSpinLockShared.c)
+ *     ExAcquireSpinLockShared @ 0x1400E9040 (ExAcquireSpinLockShared.c)
  */
 
 __int64 __fastcall MiTransientPageListWriter(unsigned __int64 a1, unsigned __int64 a2)
@@ -14,8 +14,8 @@ __int64 __fastcall MiTransientPageListWriter(unsigned __int64 a1, unsigned __int
   unsigned int v6; // edi
   unsigned __int64 v7; // r8
 
-  v4 = ExAcquireSpinLockShared(&dword_140326FA0);
-  v5 = (_QWORD *)qword_140326FA8;
+  v4 = ExAcquireSpinLockShared(&dword_140326FE0);
+  v5 = (_QWORD *)qword_140326FE8;
   v6 = 0;
   while ( v5 )
   {
@@ -33,7 +33,7 @@ __int64 __fastcall MiTransientPageListWriter(unsigned __int64 a1, unsigned __int
   }
   if ( v5 && (!v5[4] || a2 < v5[5] || a2 > v5[6]) )
     v5 = 0LL;
-  ExReleaseSpinLockShared(&dword_140326FA0, v4);
+  ExReleaseSpinLockShared(&dword_140326FE0, v4);
   LOBYTE(v6) = v5 != 0LL;
   return v6;
 }

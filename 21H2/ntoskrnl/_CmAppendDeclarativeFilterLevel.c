@@ -1,16 +1,16 @@
 /*
- * XREFs of _CmAppendDeclarativeFilterLevel @ 0x140979540
+ * XREFs of _CmAppendDeclarativeFilterLevel @ 0x140979720
  * Callers:
- *     _CmAppendDeclarativeDefaultFilters @ 0x140979458 (_CmAppendDeclarativeDefaultFilters.c)
- *     _CmGetDeclarativeFilterList @ 0x140979BC4 (_CmGetDeclarativeFilterList.c)
+ *     _CmAppendDeclarativeDefaultFilters @ 0x140979638 (_CmAppendDeclarativeDefaultFilters.c)
+ *     _CmGetDeclarativeFilterList @ 0x140979DA4 (_CmGetDeclarativeFilterList.c)
  * Callees:
- *     ZwClose @ 0x1403FA580 (ZwClose.c)
- *     _SysCtxRegOpenKey @ 0x1406426AC (_SysCtxRegOpenKey.c)
- *     _PnpCtxRegEnumValue @ 0x1406C4714 (_PnpCtxRegEnumValue.c)
- *     _PnpCtxRegQueryInfoKey @ 0x1406C484C (_PnpCtxRegQueryInfoKey.c)
- *     _PnpMultiSzAppend @ 0x14097C1EC (_PnpMultiSzAppend.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     ZwClose @ 0x1403FA760 (ZwClose.c)
+ *     _SysCtxRegOpenKey @ 0x1406374BC (_SysCtxRegOpenKey.c)
+ *     _PnpCtxRegEnumValue @ 0x140673004 (_PnpCtxRegEnumValue.c)
+ *     _PnpCtxRegQueryInfoKey @ 0x14067313C (_PnpCtxRegQueryInfoKey.c)
+ *     _PnpMultiSzAppend @ 0x14097C3CC (_PnpMultiSzAppend.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall CmAppendDeclarativeFilterLevel(__int64 a1, __int64 a2, __int64 a3, wchar_t *a4, int a5, _DWORD *a6)

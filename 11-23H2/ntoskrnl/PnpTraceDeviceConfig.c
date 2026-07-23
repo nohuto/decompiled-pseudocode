@@ -1,12 +1,12 @@
 /*
- * XREFs of PnpTraceDeviceConfig @ 0x140878EE0
+ * XREFs of PnpTraceDeviceConfig @ 0x140879120
  * Callers:
- *     PiDevCfgLogDeviceConfigured @ 0x140879C70 (PiDevCfgLogDeviceConfigured.c)
+ *     PiDevCfgLogDeviceConfigured @ 0x140879EB0 (PiDevCfgLogDeviceConfigured.c)
  * Callees:
  *     _tlgKeywordOn @ 0x140212E64 (_tlgKeywordOn.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6B24 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgCreate1Sz_wchar_t @ 0x1402F6BE4 (_tlgCreate1Sz_wchar_t.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6DB4 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgCreate1Sz_wchar_t @ 0x1402F6E74 (_tlgCreate1Sz_wchar_t.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  */
 
 char __fastcall PnpTraceDeviceConfig(
@@ -87,9 +87,9 @@ char __fastcall PnpTraceDeviceConfig(
     v18 = *a18;
     LODWORD(v30) = *a18;
   }
-  if ( (unsigned int)dword_140C06968 > 5 )
+  if ( (unsigned int)dword_140C06958 > 5 )
   {
-    LOBYTE(v18) = tlgKeywordOn((__int64)&dword_140C06968, 0x800000000000LL);
+    LOBYTE(v18) = tlgKeywordOn((__int64)&dword_140C06958, 0x800000000000LL);
     if ( (_BYTE)v18 )
     {
       v34 = &v31;
@@ -137,8 +137,8 @@ char __fastcall PnpTraceDeviceConfig(
       v66 = &v30;
       v67 = 8LL;
       LOBYTE(v18) = tlgWriteTransfer_EtwWriteTransfer(
-                      (__int64)&dword_140C06968,
-                      (unsigned __int8 *)word_14002CDDA,
+                      (__int64)&dword_140C06958,
+                      (unsigned __int8 *)word_14002CEC2,
                       0LL,
                       0LL,
                       0x18u,

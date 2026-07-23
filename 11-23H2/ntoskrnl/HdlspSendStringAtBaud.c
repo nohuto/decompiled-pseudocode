@@ -9,7 +9,7 @@
  *     HdlspPutWideString @ 0x140AEB30C (HdlspPutWideString.c)
  *     HdlspSendBlueScreenInfo @ 0x140AEB3D0 (HdlspSendBlueScreenInfo.c)
  * Callees:
- *     InbvPortPutByte @ 0x1406797B8 (InbvPortPutByte.c)
+ *     InbvPortPutByte @ 0x140679D08 (InbvPortPutByte.c)
  */
 
 char __fastcall HdlspSendStringAtBaud(_BYTE *a1, __int64 a2, __int64 a3)

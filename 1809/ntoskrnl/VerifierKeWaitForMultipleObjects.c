@@ -1,10 +1,10 @@
 /*
- * XREFs of VerifierKeWaitForMultipleObjects @ 0x14093A6F0
+ * XREFs of VerifierKeWaitForMultipleObjects @ 0x14093B6F0
  * Callers:
  *     <none>
  * Callees:
- *     ViKeObjectAcquired @ 0x14093AFD0 (ViKeObjectAcquired.c)
- *     ViKeWaitForMultipleObjectsCommon @ 0x14093B230 (ViKeWaitForMultipleObjectsCommon.c)
+ *     ViKeObjectAcquired @ 0x14093BFD0 (ViKeObjectAcquired.c)
+ *     ViKeWaitForMultipleObjectsCommon @ 0x14093C230 (ViKeWaitForMultipleObjectsCommon.c)
  */
 
 __int64 __fastcall VerifierKeWaitForMultipleObjects(

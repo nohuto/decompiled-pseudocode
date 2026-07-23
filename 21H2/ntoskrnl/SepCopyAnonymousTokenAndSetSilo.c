@@ -1,22 +1,22 @@
 /*
- * XREFs of SepCopyAnonymousTokenAndSetSilo @ 0x14091C640
+ * XREFs of SepCopyAnonymousTokenAndSetSilo @ 0x14091C7A0
  * Callers:
- *     NtImpersonateAnonymousToken @ 0x140716D30 (NtImpersonateAnonymousToken.c)
+ *     NtImpersonateAnonymousToken @ 0x1406C5380 (NtImpersonateAnonymousToken.c)
  * Callees:
- *     PsGetServerSiloServiceSessionId @ 0x140264460 (PsGetServerSiloServiceSessionId.c)
- *     ObFastDereferenceObject @ 0x14027C610 (ObFastDereferenceObject.c)
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     PsGetCurrentProcess @ 0x14033B600 (PsGetCurrentProcess.c)
- *     ObfReferenceObject @ 0x14034B230 (ObfReferenceObject.c)
- *     SepGetAnonymousToken @ 0x14036016C (SepGetAnonymousToken.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     memset @ 0x140414200 (memset.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     ObFastDereferenceObject @ 0x14026A5B0 (ObFastDereferenceObject.c)
+ *     PsGetServerSiloServiceSessionId @ 0x14027E130 (PsGetServerSiloServiceSessionId.c)
+ *     SepGetAnonymousToken @ 0x1402A509C (SepGetAnonymousToken.c)
+ *     PsGetCurrentProcess @ 0x140346350 (PsGetCurrentProcess.c)
+ *     ObfReferenceObject @ 0x140355F80 (ObfReferenceObject.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     memset @ 0x140414300 (memset.c)
  *     SepFinalizeTokenAcls @ 0x1405D00A0 (SepFinalizeTokenAcls.c)
- *     SeDeleteAccessState @ 0x1405DC900 (SeDeleteAccessState.c)
- *     SeCreateAccessState @ 0x140661880 (SeCreateAccessState.c)
- *     SeSetSessionIdToken @ 0x1406BA010 (SeSetSessionIdToken.c)
- *     ObInsertObjectEx @ 0x140704A20 (ObInsertObjectEx.c)
- *     SepSetServerSiloToken @ 0x14091CC64 (SepSetServerSiloToken.c)
+ *     SeSetSessionIdToken @ 0x140619180 (SeSetSessionIdToken.c)
+ *     SeCreateAccessState @ 0x1406566A0 (SeCreateAccessState.c)
+ *     SeDeleteAccessState @ 0x1406CC080 (SeDeleteAccessState.c)
+ *     ObInsertObjectEx @ 0x14071BE00 (ObInsertObjectEx.c)
+ *     SepSetServerSiloToken @ 0x14091CDC4 (SepSetServerSiloToken.c)
  */
 
 __int64 __fastcall SepCopyAnonymousTokenAndSetSilo(__int64 a1, PADAPTER_OBJECT *a2)

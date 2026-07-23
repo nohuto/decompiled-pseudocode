@@ -1,12 +1,12 @@
 /*
- * XREFs of KeQueryTimerDueTime @ 0x1401D37D8
+ * XREFs of KeQueryTimerDueTime @ 0x1401D3604
  * Callers:
- *     ExGetNextWakeTimeForDeepSleep @ 0x14022E180 (ExGetNextWakeTimeForDeepSleep.c)
- *     ExGetWakeTimerList @ 0x14022E1EC (ExGetWakeTimerList.c)
+ *     ExGetNextWakeTimeForDeepSleep @ 0x14022DFAC (ExGetNextWakeTimeForDeepSleep.c)
+ *     ExGetWakeTimerList @ 0x14022E018 (ExGetWakeTimerList.c)
  *     ExGetNextWakeTime @ 0x1403DFDD0 (ExGetNextWakeTime.c)
- *     NtQueryTimer @ 0x1406AFD00 (NtQueryTimer.c)
+ *     NtQueryTimer @ 0x1406AFE38 (NtQueryTimer.c)
  * Callees:
- *     KiAcquireKobjectLockSafe @ 0x1400EE7C0 (KiAcquireKobjectLockSafe.c)
+ *     KiAcquireKobjectLockSafe @ 0x1400EC640 (KiAcquireKobjectLockSafe.c)
  */
 
 __int64 __fastcall KeQueryTimerDueTime(__int64 a1)

@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlpEtcIsValidFeatureId @ 0x1405EF2F4
+ * XREFs of RtlpEtcIsValidFeatureId @ 0x1405EC8D4
  * Callers:
- *     RtlIsFeatureEnabledForEnterprise @ 0x1405EF030 (RtlIsFeatureEnabledForEnterprise.c)
+ *     RtlIsFeatureEnabledForEnterprise @ 0x1405EC610 (RtlIsFeatureEnabledForEnterprise.c)
  * Callees:
- *     RtlStringCchPrintfW @ 0x140476998 (RtlStringCchPrintfW.c)
- *     RtlpEtcGetDwordFromRegistry @ 0x1405EF278 (RtlpEtcGetDwordFromRegistry.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     RtlStringCchPrintfW @ 0x140472F38 (RtlStringCchPrintfW.c)
+ *     RtlpEtcGetDwordFromRegistry @ 0x1405EC858 (RtlpEtcGetDwordFromRegistry.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 bool __fastcall RtlpEtcIsValidFeatureId(unsigned int a1, int a2)
@@ -29,7 +29,7 @@ bool __fastcall RtlpEtcIsValidFeatureId(unsigned int a1, int a2)
          L"\\Registry\\Machine\\SYSTEM\\CurrentControlSet\\Control\\FeatureManagement\\EnterpriseTempControls",
          v6) >= 0
     && RtlStringCchPrintfW(v8, 0x20uLL, L"%lu", a1) >= 0
-    && (int)RtlpEtcGetDwordFromRegistry((__int64)pszDest, (__int64)v8, (__int64)v7) >= 0 )
+    && RtlpEtcGetDwordFromRegistry(pszDest, v8, v7) >= 0 )
   {
     return v7[0] != 0;
   }

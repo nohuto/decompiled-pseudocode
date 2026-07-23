@@ -1,9 +1,9 @@
 /*
- * XREFs of CcRemapBcb @ 0x14010AC00
+ * XREFs of CcRemapBcb @ 0x14010AC80
  * Callers:
  *     <none>
  * Callees:
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
  */
 
 PVOID __stdcall CcRemapBcb(PVOID Bcb)

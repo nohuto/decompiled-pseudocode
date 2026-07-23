@@ -1,13 +1,13 @@
 /*
  * XREFs of VfDriverUnloadImage @ 0x1406FE170
  * Callers:
- *     MiUnloadSystemImage @ 0x140483468 (MiUnloadSystemImage.c)
+ *     MiUnloadSystemImage @ 0x1404821BC (MiUnloadSystemImage.c)
  * Callees:
- *     VfIsVerifierEnabled @ 0x1400822C8 (VfIsVerifierEnabled.c)
- *     VfTargetDriversRemove @ 0x14012EDE8 (VfTargetDriversRemove.c)
+ *     VfIsVerifierEnabled @ 0x140082F44 (VfIsVerifierEnabled.c)
+ *     VfTargetDriversRemove @ 0x14012F358 (VfTargetDriversRemove.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
- *     VfFreeMemoryNotification @ 0x140702884 (VfFreeMemoryNotification.c)
- *     ViThunkRemoveImportEntry @ 0x14070FA70 (ViThunkRemoveImportEntry.c)
+ *     VfFreeMemoryNotification @ 0x1407028B4 (VfFreeMemoryNotification.c)
+ *     ViThunkRemoveImportEntry @ 0x14070FAA0 (ViThunkRemoveImportEntry.c)
  *     VfSuspectDriversUnloadCallback @ 0x140716514 (VfSuspectDriversUnloadCallback.c)
  */
 

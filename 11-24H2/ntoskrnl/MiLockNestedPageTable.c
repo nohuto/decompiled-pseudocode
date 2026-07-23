@@ -1,67 +1,67 @@
 /*
- * XREFs of MiLockNestedPageTable @ 0x140285190
+ * XREFs of MiLockNestedPageTable @ 0x140201F50
  * Callers:
- *     MiRewritePteWithLockBit @ 0x14020CBCC (MiRewritePteWithLockBit.c)
- *     MiClearPteAccessed @ 0x1402307A0 (MiClearPteAccessed.c)
- *     MiSetVaAgeList @ 0x140230FB0 (MiSetVaAgeList.c)
- *     MiEvictPageTableLock @ 0x140234EEC (MiEvictPageTableLock.c)
- *     MiLockCode @ 0x14023D6F0 (MiLockCode.c)
- *     MiDeleteShadowStackPtes @ 0x140269284 (MiDeleteShadowStackPtes.c)
- *     MiLockPageLeafPageTable @ 0x140283A60 (MiLockPageLeafPageTable.c)
- *     MiTerminateWsle @ 0x1402856F0 (MiTerminateWsle.c)
- *     MiWsleFlush @ 0x140286410 (MiWsleFlush.c)
- *     MiDecommitLockNewPageTable @ 0x140289DC0 (MiDecommitLockNewPageTable.c)
- *     MiClearMappingAndDereferenceIoSpace @ 0x14028E960 (MiClearMappingAndDereferenceIoSpace.c)
- *     MiEncodeProtoFill @ 0x1402C6470 (MiEncodeProtoFill.c)
- *     MiUnlockCodePage @ 0x1402C7618 (MiUnlockCodePage.c)
- *     MiUnlockPageTableRange @ 0x1402C7A54 (MiUnlockPageTableRange.c)
- *     MiUpdateImportRelocationsOnDriverPrivatePages @ 0x1402C86D0 (MiUpdateImportRelocationsOnDriverPrivatePages.c)
- *     MiDeleteVa @ 0x1402DB780 (MiDeleteVa.c)
- *     MiGetNextPageTablePte @ 0x1402DE8B0 (MiGetNextPageTablePte.c)
- *     MiCheckProcessShadow @ 0x1402E1370 (MiCheckProcessShadow.c)
- *     MiFaultInPagedPool @ 0x140302344 (MiFaultInPagedPool.c)
- *     MmProtectPool @ 0x1403889FC (MmProtectPool.c)
- *     MiCreateSystemPageTable @ 0x140395350 (MiCreateSystemPageTable.c)
- *     MiInitializeSystemPageTable @ 0x140395744 (MiInitializeSystemPageTable.c)
- *     MiOutPageSingleKernelStack @ 0x14039F510 (MiOutPageSingleKernelStack.c)
- *     MiAllocateKernelStackPages @ 0x14039F96C (MiAllocateKernelStackPages.c)
- *     MiMapWithLargePages @ 0x1403A7068 (MiMapWithLargePages.c)
- *     MiReplaceRotateWithDemandZeroNoCopy @ 0x1403CE11C (MiReplaceRotateWithDemandZeroNoCopy.c)
- *     MiUnlockOpportunisticPagesInPageTable @ 0x1403D1CC8 (MiUnlockOpportunisticPagesInPageTable.c)
- *     NtLockVirtualMemory @ 0x1403FD910 (NtLockVirtualMemory.c)
- *     MiUnmapMdlCommon @ 0x14040F900 (MiUnmapMdlCommon.c)
- *     MiSetSystemCodeProtection @ 0x140435F3C (MiSetSystemCodeProtection.c)
- *     MiMakeDriverPagesPrivate @ 0x140436EA8 (MiMakeDriverPagesPrivate.c)
- *     MiDeleteEmptyPageTableWorker @ 0x140473768 (MiDeleteEmptyPageTableWorker.c)
- *     MiGetWsAndMakePageTablesNx @ 0x140488384 (MiGetWsAndMakePageTablesNx.c)
- *     MiReleaseLargePdeMappings @ 0x140491DC4 (MiReleaseLargePdeMappings.c)
- *     MiSetPagingOfDriver @ 0x14049CBA8 (MiSetPagingOfDriver.c)
- *     MiUnmapKernelScp @ 0x14049DF98 (MiUnmapKernelScp.c)
- *     MiInitializeWorkingSetList @ 0x1404A5D8C (MiInitializeWorkingSetList.c)
- *     MiMapMdlWithLargePages @ 0x1404C71D0 (MiMapMdlWithLargePages.c)
- *     MiAdjustSecureDriverStateForIatCapture @ 0x1404CBB68 (MiAdjustSecureDriverStateForIatCapture.c)
- *     MiMakeSystemLeavesNonZero @ 0x1404D80F4 (MiMakeSystemLeavesNonZero.c)
- *     MiMapMdlCommon @ 0x1404F0304 (MiMapMdlCommon.c)
- *     MiSwitchToTransition @ 0x1404F1388 (MiSwitchToTransition.c)
- *     MiMapKernelScp @ 0x1404F25A8 (MiMapKernelScp.c)
- *     MiClearDriverTablePtes @ 0x1404F2870 (MiClearDriverTablePtes.c)
- *     MiValidFault @ 0x1404F2C70 (MiValidFault.c)
- *     MiDeleteBootRange @ 0x140669130 (MiDeleteBootRange.c)
- *     MiPageBootRegistry @ 0x140669520 (MiPageBootRegistry.c)
- *     MiLockDriverPageRange @ 0x14066AEB0 (MiLockDriverPageRange.c)
- *     MiReplaceImportEntry @ 0x14066C12C (MiReplaceImportEntry.c)
- *     MiSetPageProtection @ 0x14066F27C (MiSetPageProtection.c)
- *     MmMapDriverTablePage @ 0x14067D94C (MmMapDriverTablePage.c)
- *     MiUnmapLegacyAwePage @ 0x1406830EC (MiUnmapLegacyAwePage.c)
- *     MiProtectLargeKernelHalRange @ 0x1407E7EC0 (MiProtectLargeKernelHalRange.c)
- *     MiMarkBootKernelStack @ 0x140C575E4 (MiMarkBootKernelStack.c)
+ *     MiDeleteEmptyPageTableWorker @ 0x1402005C8 (MiDeleteEmptyPageTableWorker.c)
+ *     MiWsleFlush @ 0x140201004 (MiWsleFlush.c)
+ *     MiTerminateWsle @ 0x140201850 (MiTerminateWsle.c)
+ *     MiUnlockCodePage @ 0x140203B44 (MiUnlockCodePage.c)
+ *     MiLockCode @ 0x140205480 (MiLockCode.c)
+ *     MiEvictPageTableLock @ 0x14020EE7C (MiEvictPageTableLock.c)
+ *     MiOutPageSingleKernelStack @ 0x140215F40 (MiOutPageSingleKernelStack.c)
+ *     MiAllocateKernelStackPages @ 0x14021639C (MiAllocateKernelStackPages.c)
+ *     MiDeleteShadowStackPtes @ 0x14021EA48 (MiDeleteShadowStackPtes.c)
+ *     MiLockPageLeafPageTable @ 0x140238FF0 (MiLockPageLeafPageTable.c)
+ *     MiDeleteVa @ 0x14023D060 (MiDeleteVa.c)
+ *     MiGetNextPageTablePte @ 0x140240190 (MiGetNextPageTablePte.c)
+ *     MiCheckProcessShadow @ 0x140242C50 (MiCheckProcessShadow.c)
+ *     MiEncodeProtoFill @ 0x140269858 (MiEncodeProtoFill.c)
+ *     MiMapWithLargePages @ 0x14026BB00 (MiMapWithLargePages.c)
+ *     MiDecommitLockNewPageTable @ 0x1402999C0 (MiDecommitLockNewPageTable.c)
+ *     MiClearMappingAndDereferenceIoSpace @ 0x14029E560 (MiClearMappingAndDereferenceIoSpace.c)
+ *     MiClearPteAccessed @ 0x140304BA0 (MiClearPteAccessed.c)
+ *     MiSetVaAgeList @ 0x140304F30 (MiSetVaAgeList.c)
+ *     MiFaultInPagedPool @ 0x14030CAC4 (MiFaultInPagedPool.c)
+ *     MiRewritePteWithLockBit @ 0x140335F2C (MiRewritePteWithLockBit.c)
+ *     MmProtectPool @ 0x14038233C (MmProtectPool.c)
+ *     MiUnlockOpportunisticPagesInPageTable @ 0x14038DEE4 (MiUnlockOpportunisticPagesInPageTable.c)
+ *     MiReplaceRotateWithDemandZeroNoCopy @ 0x14038E15C (MiReplaceRotateWithDemandZeroNoCopy.c)
+ *     MiCreateSystemPageTable @ 0x14038EDA0 (MiCreateSystemPageTable.c)
+ *     MiInitializeSystemPageTable @ 0x14038F158 (MiInitializeSystemPageTable.c)
+ *     MiUnlockPageTableRange @ 0x1403DB524 (MiUnlockPageTableRange.c)
+ *     NtLockVirtualMemory @ 0x1403DBC30 (NtLockVirtualMemory.c)
+ *     MiSetSystemCodeProtection @ 0x1404289BC (MiSetSystemCodeProtection.c)
+ *     MiMakeDriverPagesPrivate @ 0x140429928 (MiMakeDriverPagesPrivate.c)
+ *     MiUnmapMdlCommon @ 0x140433530 (MiUnmapMdlCommon.c)
+ *     MiUpdateImportRelocationsOnDriverPrivatePages @ 0x14043A2FC (MiUpdateImportRelocationsOnDriverPrivatePages.c)
+ *     MiGetWsAndMakePageTablesNx @ 0x1404834D4 (MiGetWsAndMakePageTablesNx.c)
+ *     MiReleaseLargePdeMappings @ 0x14048CC64 (MiReleaseLargePdeMappings.c)
+ *     MiSetPagingOfDriver @ 0x140497850 (MiSetPagingOfDriver.c)
+ *     MiUnmapKernelScp @ 0x140498D98 (MiUnmapKernelScp.c)
+ *     MiInitializeWorkingSetList @ 0x1404A0B1C (MiInitializeWorkingSetList.c)
+ *     MiMapMdlWithLargePages @ 0x1404C0630 (MiMapMdlWithLargePages.c)
+ *     MiAdjustSecureDriverStateForIatCapture @ 0x1404C4FE4 (MiAdjustSecureDriverStateForIatCapture.c)
+ *     MiMakeSystemLeavesNonZero @ 0x1404D1540 (MiMakeSystemLeavesNonZero.c)
+ *     MiMapMdlCommon @ 0x1404EDDA4 (MiMapMdlCommon.c)
+ *     MiSwitchToTransition @ 0x1404EEE28 (MiSwitchToTransition.c)
+ *     MiMapKernelScp @ 0x1404F0048 (MiMapKernelScp.c)
+ *     MiClearDriverTablePtes @ 0x1404F0310 (MiClearDriverTablePtes.c)
+ *     MiValidFault @ 0x1404F0710 (MiValidFault.c)
+ *     MiDeleteBootRange @ 0x14066A308 (MiDeleteBootRange.c)
+ *     MiPageBootRegistry @ 0x14066A6F8 (MiPageBootRegistry.c)
+ *     MiLockDriverPageRange @ 0x14066C080 (MiLockDriverPageRange.c)
+ *     MiReplaceImportEntry @ 0x14066D2FC (MiReplaceImportEntry.c)
+ *     MiSetPageProtection @ 0x14067044C (MiSetPageProtection.c)
+ *     MmMapDriverTablePage @ 0x14067EB4C (MmMapDriverTablePage.c)
+ *     MiUnmapLegacyAwePage @ 0x1406842DC (MiUnmapLegacyAwePage.c)
+ *     MiProtectLargeKernelHalRange @ 0x1407E8490 (MiProtectLargeKernelHalRange.c)
+ *     MiMarkBootKernelStack @ 0x140C59774 (MiMarkBootKernelStack.c)
  * Callees:
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140210170 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     MiCheckLinearProtectedPteAccessedBit @ 0x140232A20 (MiCheckLinearProtectedPteAccessedBit.c)
- *     HvlNotifyLongSpinWait @ 0x140293260 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140293290 (KiCheckVpBackingLongSpinWaitHypercall.c)
- *     KxWaitForLockOwnerShip @ 0x1402D6990 (KxWaitForLockOwnerShip.c)
- *     KiAcquireQueuedSpinLockInstrumented @ 0x1402D85F0 (KiAcquireQueuedSpinLockInstrumented.c)
+ *     MiCheckLinearProtectedPteAccessedBit @ 0x140203550 (MiCheckLinearProtectedPteAccessedBit.c)
+ *     HvlNotifyLongSpinWait @ 0x1402A2E60 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1402A2E90 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1403394D0 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     KxWaitForLockOwnerShip @ 0x140357C10 (KxWaitForLockOwnerShip.c)
+ *     KiAcquireQueuedSpinLockInstrumented @ 0x140359870 (KiAcquireQueuedSpinLockInstrumented.c)
  */
 
 void __fastcall MiLockNestedPageTable(__int64 a1, ULONG_PTR a2)
@@ -71,31 +71,36 @@ void __fastcall MiLockNestedPageTable(__int64 a1, ULONG_PTR a2)
   volatile __int64 *v6; // rdx
   unsigned int v7; // ebx
   _KSPIN_LOCK_QUEUE *volatile *v8; // rcx
-  unsigned __int64 v9; // rcx
-  unsigned __int64 v10; // rbx
-  unsigned int v11; // ebp
-  __int64 v12; // rcx
-  bool v13; // zf
-  signed __int64 v14; // rax
+  __int64 v9; // rax
+  unsigned __int64 v10; // r8
+  unsigned __int64 v11; // r9
+  unsigned __int64 v12; // rcx
+  unsigned __int64 v13; // rbx
+  unsigned int v14; // ebp
+  __int64 v15; // r8
+  unsigned __int64 v16; // rdx
+  __int64 v17; // rcx
+  bool v18; // zf
+  signed __int64 v19; // rax
   _KPROCESS *Process; // rcx
   unsigned __int64 KernelWaitTime; // rdx
-  __int64 v17; // rax
-  unsigned __int64 v18; // rcx
-  signed __int64 v19; // rdi
-  signed __int64 v20; // rax
-  unsigned int v21; // ebp
-  unsigned __int64 v22; // rdi
-  unsigned int v23; // r14d
-  unsigned __int32 v24; // edx
-  volatile signed __int32 *v25; // rdi
-  char v26; // cl
-  int v27; // r15d
-  int v28; // ebx
-  int v29; // esi
-  __int64 v30; // rcx
-  signed __int32 v31; // eax
-  int v32; // ecx
-  signed __int32 v33; // eax
+  __int64 v22; // rax
+  unsigned __int64 v23; // rcx
+  signed __int64 v24; // rdi
+  signed __int64 v25; // rax
+  unsigned int v26; // ebp
+  unsigned __int64 v27; // rdi
+  unsigned int v28; // r14d
+  __int64 v29; // rdx
+  volatile signed __int32 *v30; // rdi
+  char v31; // cl
+  int v32; // r15d
+  int v33; // ebx
+  int v34; // esi
+  __int64 v35; // rcx
+  unsigned __int32 v36; // eax
+  unsigned int v37; // ecx
+  unsigned __int32 v38; // eax
 
   if ( a2 == 0xFFFFF6FB7DBEDF68uLL )
   {
@@ -125,150 +130,161 @@ void __fastcall MiLockNestedPageTable(__int64 a1, ULONG_PTR a2)
     *v8 = 0LL;
     if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || PopHibernateInProgress )
     {
-      if ( _InterlockedExchange64(v6, (__int64)v8) )
-        KxWaitForLockOwnerShip(v8);
+      v9 = _InterlockedExchange64(v6, (__int64)v8);
+      if ( v9 )
+        KxWaitForLockOwnerShip(v8, v9);
     }
     else
     {
-      KiAcquireQueuedSpinLockInstrumented(v8, v6);
+      KiAcquireQueuedSpinLockInstrumented();
     }
   }
-  else if ( (*(_DWORD *)(a1 + 184) & 0xF) == 0
-         && a2 >= 0xFFFFF6FB7DBED000uLL
-         && a2 <= 0xFFFFF6FB7DBEDFFFuLL
-         && (v9 = KeGetCurrentThread()->ApcState.Process[2].ActiveProcessors[5].StaticBitmap[7]) != 0 )
+  else
   {
-    ExAcquireSpinLockExclusiveAtDpcLevel((PEX_SPIN_LOCK)(v9 + 4 * ((a2 >> 3) & 0x1FF)));
-  }
-  else if ( (*(_DWORD *)(a1 + 184) & 0xF) != 0 && a2 >= 0xFFFFF6FB7DBED000uLL && a2 <= 0xFFFFF6FB7DBEDFFFuLL )
-  {
-    v21 = 0;
-    v22 = (unsigned __int64)(2 * (unsigned int)((__int64)(a2 + 0x90482413000LL) >> 3)) >> 5;
-    v23 = (2 * (unsigned __int8)((__int64)(a2 + 0x90482413000LL) >> 3)) & 0x1F;
-    v24 = *(&MiState + v22 + 2459);
-    v25 = (volatile signed __int32 *)(&MiState + v22 + 2459);
-    v26 = (2 * ((__int64)(a2 + 0x90482413000LL) >> 3)) & 0x1F;
-    v27 = 1 << v26;
-    v28 = 2 << v26;
-    v29 = ~(2 << v26);
-    do
+    v10 = 0xFFFFF6FB7DBED000uLL;
+    v11 = 0xFFFFF6FB7DBEDFFFuLL;
+    if ( (*(_DWORD *)(a1 + 184) & 0xF) == 0
+      && a2 >= 0xFFFFF6FB7DBED000uLL
+      && a2 <= 0xFFFFF6FB7DBEDFFFuLL
+      && (v12 = KeGetCurrentThread()->ApcState.Process[2].ActiveProcessors[5].StaticBitmap[7]) != 0 )
     {
-      while ( 1 )
+      ExAcquireSpinLockExclusiveAtDpcLevel((PEX_SPIN_LOCK)(v12 + 4 * ((a2 >> 3) & 0x1FF)));
+    }
+    else if ( (*(_DWORD *)(a1 + 184) & 0xF) != 0 && a2 >= 0xFFFFF6FB7DBED000uLL && a2 <= 0xFFFFF6FB7DBEDFFFuLL )
+    {
+      v26 = 0;
+      v27 = (unsigned __int64)(2 * (unsigned int)((__int64)(a2 + 0x90482413000LL) >> 3)) >> 5;
+      v28 = (2 * (unsigned __int8)((__int64)(a2 + 0x90482413000LL) >> 3)) & 0x1F;
+      v29 = *(&MiState + v27 + 2459);
+      v30 = (volatile signed __int32 *)(&MiState + v27 + 2459);
+      v31 = (2 * ((__int64)(a2 + 0x90482413000LL) >> 3)) & 0x1F;
+      v32 = 1 << v31;
+      v33 = 2 << v31;
+      v34 = ~(2 << v31);
+      do
       {
-        v30 = v23;
-        if ( ((v24 >> v23) & 1) == 0 )
-          break;
-        if ( ((v24 >> v23) & 2) != 0 )
+        while ( 1 )
+        {
+          v35 = v28;
+          if ( (((unsigned int)v29 >> v28) & 1) == 0 )
+            break;
+          if ( (((unsigned int)v29 >> v28) & 2) != 0 )
+          {
+            do
+            {
+              if ( (++v26 & HvlLongSpinCountMask) == 0
+                && (HvlEnlightenments & 0x40) != 0
+                && (unsigned __int8)KiCheckVpBackingLongSpinWaitHypercall(v35, v29, v10, v11) )
+              {
+                HvlNotifyLongSpinWait(v26);
+              }
+              else
+              {
+                _mm_pause();
+              }
+              v29 = *(unsigned int *)v30;
+              v35 = v28;
+            }
+            while ( (((unsigned __int32)*v30 >> v28) & 1) != 0 );
+          }
+          else
+          {
+            v37 = v29 | v33;
+            v38 = _InterlockedCompareExchange(v30, v29 | v33, v29);
+            v18 = (_DWORD)v29 == v38;
+            v29 = v38;
+            if ( v18 )
+              v29 = v37;
+          }
+        }
+        v36 = _InterlockedCompareExchange(v30, v34 & (v29 | v32), v29);
+        v18 = (_DWORD)v29 == v36;
+        v29 = v36;
+      }
+      while ( !v18 );
+    }
+    else
+    {
+      v13 = *(_QWORD *)a2;
+      v14 = 0;
+      if ( a2 >= 0xFFFFF6FB7DBED000uLL
+        && a2 <= 0xFFFFF6FB7DBED7F8uLL
+        && (v13 & 1) != 0
+        && ((v13 & 0x42) == 0 || (v13 & 0x20) == 0)
+        && (MiFlags & 0x600000) != 0 )
+      {
+        Process = KeGetCurrentThread()->ApcState.Process;
+        if ( Process->AddressPolicy != 1 )
+        {
+          KernelWaitTime = Process[2].KernelWaitTime;
+          if ( KernelWaitTime )
+          {
+            v22 = *(_QWORD *)(KernelWaitTime + 8 * ((a2 >> 3) & 0x1FF));
+            if ( (v22 & 0x20) != 0 )
+              v13 |= 0x20uLL;
+            v23 = v13;
+            v13 |= 0x42uLL;
+            if ( (v22 & 0x42) == 0 )
+              v13 = v23;
+          }
+        }
+      }
+LABEL_18:
+      v15 = 0x4000000000LL;
+      v16 = 0xFFFFF68000000000uLL;
+LABEL_19:
+      v17 = 0x2000000000000000LL;
+      while ( (v13 & 1) != 0 )
+      {
+        if ( (v13 & 0x1000000000000000LL) == 0 )
+        {
+          if ( (MiFlags & 0x2000000) != 0 )
+            _mm_lfence();
+          v19 = _InterlockedCompareExchange64(
+                  (volatile signed __int64 *)a2,
+                  v13 & 0xCFFFFFFFFFFFFFDFuLL | 0x1000000000000020LL,
+                  v13);
+          v18 = v13 == v19;
+          v13 = v19;
+          if ( !v18 )
+            goto LABEL_19;
+          return;
+        }
+        if ( ((v13 >> 60) & 2) != 0 )
         {
           do
           {
-            if ( (++v21 & HvlLongSpinCountMask) == 0
+            if ( (++v14 & HvlLongSpinCountMask) == 0
               && (HvlEnlightenments & 0x40) != 0
-              && (unsigned __int8)KiCheckVpBackingLongSpinWaitHypercall(v30) )
+              && (unsigned __int8)KiCheckVpBackingLongSpinWaitHypercall(v17, v16, v15, v11) )
             {
-              HvlNotifyLongSpinWait(v21);
+              HvlNotifyLongSpinWait(v14);
             }
             else
             {
               _mm_pause();
             }
-            v24 = *v25;
-            v30 = v23;
+            v13 = *(_QWORD *)a2;
           }
-          while ( (((unsigned __int32)*v25 >> v23) & 1) != 0 );
+          while ( (*(_QWORD *)a2 & 0x1000000000000000LL) != 0 );
+          goto LABEL_18;
         }
-        else
-        {
-          v32 = v24 | v28;
-          v33 = _InterlockedCompareExchange(v25, v24 | v28, v24);
-          v13 = v24 == v33;
-          v24 = v33;
-          if ( v13 )
-            v24 = v32;
-        }
-      }
-      v31 = _InterlockedCompareExchange(v25, v29 & (v24 | v27), v24);
-      v13 = v24 == v31;
-      v24 = v31;
-    }
-    while ( !v13 );
-  }
-  else
-  {
-    v10 = *(_QWORD *)a2;
-    v11 = 0;
-    if ( a2 >= 0xFFFFF6FB7DBED000uLL
-      && a2 <= 0xFFFFF6FB7DBED7F8uLL
-      && (v10 & 1) != 0
-      && ((v10 & 0x42) == 0 || (v10 & 0x20) == 0)
-      && (MiFlags & 0x600000) != 0 )
-    {
-      Process = KeGetCurrentThread()->ApcState.Process;
-      if ( Process->AddressPolicy != 1 )
-      {
-        KernelWaitTime = Process[2].KernelWaitTime;
-        if ( KernelWaitTime )
-        {
-          v17 = *(_QWORD *)(KernelWaitTime + 8 * ((a2 >> 3) & 0x1FF));
-          if ( (v17 & 0x20) != 0 )
-            v10 |= 0x20uLL;
-          v18 = v10;
-          v10 |= 0x42uLL;
-          if ( (v17 & 0x42) == 0 )
-            v10 = v18;
-        }
-      }
-    }
-LABEL_18:
-    v12 = 0x2000000000000000LL;
-    while ( (v10 & 1) != 0 )
-    {
-      if ( (v10 & 0x1000000000000000LL) == 0 )
-      {
+        v24 = v13 | 0x2000000000000000LL;
         if ( (MiFlags & 0x2000000) != 0 )
           _mm_lfence();
-        v14 = _InterlockedCompareExchange64(
-                (volatile signed __int64 *)a2,
-                v10 & 0xCFFFFFFFFFFFFFDFuLL | 0x1000000000000020LL,
-                v10);
-        v13 = v10 == v14;
-        v10 = v14;
-        if ( !v13 )
-          goto LABEL_18;
-        return;
-      }
-      if ( ((v10 >> 60) & 2) != 0 )
-      {
-        do
+        if ( _bittest64(&MiFlags, 0x24u) && (v13 & 0x21) == 1 && a2 >= 0xFFFFF6C000000000uLL )
         {
-          if ( (++v11 & HvlLongSpinCountMask) == 0
-            && (HvlEnlightenments & 0x40) != 0
-            && (unsigned __int8)KiCheckVpBackingLongSpinWaitHypercall(v12) )
-          {
-            HvlNotifyLongSpinWait(v11);
-          }
-          else
-          {
-            _mm_pause();
-          }
-          v10 = *(_QWORD *)a2;
+          MiCheckLinearProtectedPteAccessedBit(a2, v13 | 0x2000000000000000LL);
+          v17 = 0x2000000000000000LL;
+          v16 = 0xFFFFF68000000000uLL;
+          v15 = 0x4000000000LL;
         }
-        while ( (*(_QWORD *)a2 & 0x1000000000000000LL) != 0 );
-        goto LABEL_18;
+        v25 = _InterlockedCompareExchange64((volatile signed __int64 *)a2, v24, v13);
+        v18 = v13 == v25;
+        v13 = v25;
+        if ( v18 )
+          v13 = v24;
       }
-      v19 = v10 | 0x2000000000000000LL;
-      if ( (MiFlags & 0x2000000) != 0 )
-        _mm_lfence();
-      if ( _bittest64(&MiFlags, 0x24u) && (v10 & 0x21) == 1 && a2 >= 0xFFFFF6C000000000uLL )
-      {
-        MiCheckLinearProtectedPteAccessedBit(a2, v10 | 0x2000000000000000LL, 128);
-        v12 = 0x2000000000000000LL;
-      }
-      v20 = _InterlockedCompareExchange64((volatile signed __int64 *)a2, v19, v10);
-      v13 = v10 == v20;
-      v10 = v20;
-      if ( v13 )
-        v10 = v19;
     }
   }
 }

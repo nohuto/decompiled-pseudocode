@@ -1,13 +1,13 @@
 /*
- * XREFs of KiReleaseProcessLockShared @ 0x1403B16C0
+ * XREFs of KiReleaseProcessLockShared @ 0x14039FED0
  * Callers:
- *     KeQueryAffinityProcess @ 0x1403B1570 (KeQueryAffinityProcess.c)
- *     KeQueryPrimaryGroupProcess @ 0x1403B3618 (KeQueryPrimaryGroupProcess.c)
- *     KeQueryPrimaryGroupAffinityProcess @ 0x1404850B4 (KeQueryPrimaryGroupAffinityProcess.c)
- *     KeQueryCpuSetsProcess @ 0x1404D43DC (KeQueryCpuSetsProcess.c)
+ *     KeQueryAffinityProcess @ 0x14039FD80 (KeQueryAffinityProcess.c)
+ *     KeQueryPrimaryGroupProcess @ 0x1403A1E28 (KeQueryPrimaryGroupProcess.c)
+ *     KeQueryPrimaryGroupAffinityProcess @ 0x1404805C4 (KeQueryPrimaryGroupAffinityProcess.c)
+ *     KeQueryCpuSetsProcess @ 0x1404CD5EC (KeQueryCpuSetsProcess.c)
  * Callees:
- *     ExpReleaseSpinLockSharedFromDpcLevelInstrumented @ 0x1402465FC (ExpReleaseSpinLockSharedFromDpcLevelInstrumented.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
+ *     ExpReleaseSpinLockSharedFromDpcLevelInstrumented @ 0x140219638 (ExpReleaseSpinLockSharedFromDpcLevelInstrumented.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
  */
 
 __int64 __fastcall KiReleaseProcessLockShared(__int64 a1, __int64 a2)

@@ -25,7 +25,9 @@ __int64 __fastcall MiUpdateDriverLoadInProgress(__int64 a1, int a2)
     a1 = 0LL;
   qword_140C65A70 = a1;
   ExReleaseSpinLockExclusiveFromDpcLevel(&PsLoadedModuleSpinLock);
-  if ( KiIrqlFlags && (CurrentIrql = KeGetCurrentIrql(), (KiIrqlFlags & 1) != 0) && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags
+    && (CurrentIrql = KeGetCurrentIrql(), ((unsigned __int8)KiIrqlFlags & 1) != 0)
+    && CurrentIrql <= 0xFu )
   {
     v4 = v11;
     if ( v11 <= 0xFu && CurrentIrql >= 2u )

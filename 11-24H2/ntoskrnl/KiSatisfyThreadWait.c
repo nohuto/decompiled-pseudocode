@@ -1,26 +1,33 @@
 /*
- * XREFs of KiSatisfyThreadWait @ 0x14024E0B0
+ * XREFs of KiSatisfyThreadWait @ 0x14027E6C0
  * Callers:
- *     KeWaitForMultipleObjects @ 0x14033D720 (KeWaitForMultipleObjects.c)
+ *     KeWaitForMultipleObjects @ 0x14031CC00 (KeWaitForMultipleObjects.c)
  * Callees:
- *     KiComputeThreadPriority @ 0x14024FA80 (KiComputeThreadPriority.c)
- *     KiSetPriorityThread @ 0x14024FBBC (KiSetPriorityThread.c)
- *     HvlNotifyLongSpinWait @ 0x140293260 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140293290 (KiCheckVpBackingLongSpinWaitHypercall.c)
- *     KiExitThreadWaitReschedule @ 0x140297854 (KiExitThreadWaitReschedule.c)
- *     KiProcessDeferredReadyList @ 0x14031D3D0 (KiProcessDeferredReadyList.c)
- *     KiDeliverApc @ 0x14031D9B0 (KiDeliverApc.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
+ *     KiComputeThreadPriority @ 0x140280090 (KiComputeThreadPriority.c)
+ *     KiSetPriorityThread @ 0x1402801CC (KiSetPriorityThread.c)
+ *     HvlNotifyLongSpinWait @ 0x1402A2E60 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1402A2E90 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     KiProcessDeferredReadyList @ 0x1402C5F60 (KiProcessDeferredReadyList.c)
+ *     KiDeliverApc @ 0x1402C6540 (KiDeliverApc.c)
+ *     KiExitThreadWaitReschedule @ 0x1402E1088 (KiExitThreadWaitReschedule.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
  */
 
-__int64 __fastcall KiSatisfyThreadWait(struct _KPRCB *a1, ULONG_PTR BugCheckParameter1, char a3, __int64 *a4, int a5)
+__int64 __fastcall KiSatisfyThreadWait(
+        struct _KPRCB *a1,
+        ULONG_PTR BugCheckParameter1,
+        __int64 a3,
+        __int64 *a4,
+        int a5)
 {
   unsigned int v5; // r15d
   struct _KPRCB *v6; // rsi
   __int64 v7; // r12
+  __int64 *v8; // rdi
   __int64 *v9; // rcx
+  char v10; // bl
   __int64 *v12; // rsi
   char v13; // al
   int v14; // ebx
@@ -33,15 +40,16 @@ __int64 __fastcall KiSatisfyThreadWait(struct _KPRCB *a1, ULONG_PTR BugCheckPara
   __int64 v22; // rax
   char v23; // al
   unsigned int v24; // eax
-  unsigned int v25; // eax
-  __int64 v26; // [rsp+38h] [rbp-30h] BYREF
+  __int64 v25; // [rsp+38h] [rbp-30h] BYREF
 
   v5 = 0;
   *(_BYTE *)(BugCheckParameter1 + 388) = 2;
   *(_QWORD *)(BugCheckParameter1 + 64) = 0LL;
   v6 = a1;
   v7 = *(_QWORD *)(BugCheckParameter1 + 200);
+  v8 = a4;
   v9 = *(__int64 **)(BugCheckParameter1 + 976);
+  v10 = a3;
   if ( v9 )
   {
     *(_QWORD *)(BugCheckParameter1 + 976) = 0LL;
@@ -51,19 +59,19 @@ __int64 __fastcall KiSatisfyThreadWait(struct _KPRCB *a1, ULONG_PTR BugCheckPara
   }
   if ( a5 )
   {
-    v12 = &a4[6 * (unsigned __int8)a5];
+    v12 = &v8[6 * (unsigned __int8)a5];
     do
     {
-      if ( *((_BYTE *)a4 + 17) < 5u )
+      if ( *((_BYTE *)v8 + 17) < 5u )
       {
-        v17 = (volatile signed __int32 *)a4[4];
+        v17 = (volatile signed __int32 *)v8[4];
         if ( _interlockedbittestandset(v17, 7u) )
         {
           do
           {
             if ( (++v5 & HvlLongSpinCountMask) == 0
               && (HvlEnlightenments & 0x40) != 0
-              && (unsigned __int8)KiCheckVpBackingLongSpinWaitHypercall(v9) )
+              && (unsigned __int8)KiCheckVpBackingLongSpinWaitHypercall(v9, BugCheckParameter1, a3, a4) )
             {
               HvlNotifyLongSpinWait(v5);
             }
@@ -74,11 +82,11 @@ __int64 __fastcall KiSatisfyThreadWait(struct _KPRCB *a1, ULONG_PTR BugCheckPara
           }
           while ( (*v17 & 0x80u) != 0 || _interlockedbittestandset(v17, 7u) );
         }
-        if ( *((_BYTE *)a4 + 17) == 4 )
+        if ( *((_BYTE *)v8 + 17) == 4 )
         {
-          v9 = (__int64 *)*a4;
-          v18 = (__int64 **)a4[1];
-          if ( *(__int64 **)(*a4 + 8) != a4 || *v18 != a4 )
+          v9 = (__int64 *)*v8;
+          v18 = (__int64 **)v8[1];
+          if ( *(__int64 **)(*v8 + 8) != v8 || *v18 != v8 )
             __fastfail(3u);
           *v18 = v9;
           v9[1] = (__int64)v18;
@@ -86,13 +94,13 @@ __int64 __fastcall KiSatisfyThreadWait(struct _KPRCB *a1, ULONG_PTR BugCheckPara
         _InterlockedAnd(v17, 0xFFFFFF7F);
         v5 = 0;
       }
-      a4 += 6;
+      v8 += 6;
     }
-    while ( a4 != v12 );
+    while ( v8 != v12 );
     v6 = a1;
   }
-  v26 = 0LL;
-  if ( (a3 & 2) != 0 )
+  v25 = 0LL;
+  if ( (v10 & 2) != 0 )
   {
     v19 = 0;
     while ( _interlockedbittestandset64((volatile signed __int32 *)(BugCheckParameter1 + 64), 0LL) )
@@ -101,7 +109,7 @@ __int64 __fastcall KiSatisfyThreadWait(struct _KPRCB *a1, ULONG_PTR BugCheckPara
       {
         if ( (++v19 & HvlLongSpinCountMask) == 0
           && (HvlEnlightenments & 0x40) != 0
-          && (unsigned __int8)KiCheckVpBackingLongSpinWaitHypercall(v9) )
+          && (unsigned __int8)KiCheckVpBackingLongSpinWaitHypercall(v9, BugCheckParameter1, a3, a4) )
         {
           HvlNotifyLongSpinWait(v19);
         }
@@ -122,18 +130,18 @@ __int64 __fastcall KiSatisfyThreadWait(struct _KPRCB *a1, ULONG_PTR BugCheckPara
     {
       v24 = *(_DWORD *)(BugCheckParameter1 + 856) ^ (1 << v20);
       *(_DWORD *)(BugCheckParameter1 + 856) = v24;
-      if ( v24 < 1 << v20 && *(char *)(BugCheckParameter1 + 195) <= 31 )
+      if ( v24 < 1 << v20
+        && *(char *)(BugCheckParameter1 + 195) <= 31
+        && (int)KiComputeThreadPriority(BugCheckParameter1, 0LL, 0LL) < *(char *)(BugCheckParameter1 + 195) )
       {
-        v25 = KiComputeThreadPriority(BugCheckParameter1, 0LL, 0LL);
-        if ( (int)v25 < *(char *)(BugCheckParameter1 + 195) )
-          KiSetPriorityThread(BugCheckParameter1, &v26, v25);
+        KiSetPriorityThread(BugCheckParameter1, &v25);
       }
     }
     *(_BYTE *)(BugCheckParameter1 + 795) = 32;
     *(_QWORD *)(BugCheckParameter1 + 64) = 0LL;
   }
   v13 = *(_BYTE *)(BugCheckParameter1 + 112);
-  v14 = a3 & 1;
+  v14 = v10 & 1;
   if ( (v13 & 0x38) != 0 )
   {
     if ( (v13 & 0x18) != 0 )

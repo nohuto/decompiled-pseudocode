@@ -1,12 +1,12 @@
 /*
- * XREFs of CmpLockContextListExclusive @ 0x140603BBC
+ * XREFs of CmpLockContextListExclusive @ 0x140603C70
  * Callers:
- *     CmSetCallbackObjectContext @ 0x1405FAFAC (CmSetCallbackObjectContext.c)
- *     CmUnRegisterCallback @ 0x1405FB13C (CmUnRegisterCallback.c)
- *     CmpFreeCallbackObjectContexts @ 0x1405FB518 (CmpFreeCallbackObjectContexts.c)
+ *     CmSetCallbackObjectContext @ 0x1405FB060 (CmSetCallbackObjectContext.c)
+ *     CmUnRegisterCallback @ 0x1405FB1F0 (CmUnRegisterCallback.c)
+ *     CmpFreeCallbackObjectContexts @ 0x1405FB5CC (CmpFreeCallbackObjectContexts.c)
  * Callees:
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1400C8070 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1400C5F10 (ExfAcquirePushLockExclusiveEx.c)
  */
 
 _BYTE *CmpLockContextListExclusive()

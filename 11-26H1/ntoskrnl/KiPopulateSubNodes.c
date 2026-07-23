@@ -1,10 +1,10 @@
 /*
- * XREFs of KiPopulateSubNodes @ 0x140CCADE4
+ * XREFs of KiPopulateSubNodes @ 0x140CD0EC4
  * Callers:
- *     KiPerformGroupConfiguration @ 0x140CCA97C (KiPerformGroupConfiguration.c)
+ *     KiPerformGroupConfiguration @ 0x140CD0A5C (KiPerformGroupConfiguration.c)
  * Callees:
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
  */
 
 ULONG_PTR KiPopulateSubNodes()

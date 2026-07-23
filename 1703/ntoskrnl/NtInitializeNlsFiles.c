@@ -10,65 +10,69 @@
  *     ExRaiseDatatypeMisalignment @ 0x14071ED60 (ExRaiseDatatypeMisalignment.c)
  */
 
-NTSTATUS __fastcall NtInitializeNlsFiles(_QWORD *a1, DWORD *a2, unsigned __int64 a3)
+NTSTATUS __cdecl NtInitializeNlsFiles(
+        PVOID *BaseAddress,
+        PLCID DefaultLocaleId,
+        PLARGE_INTEGER DefaultCasingTableSize,
+        PULONG CurrentNLSVersion)
 {
-  __int64 v6; // rdx
-  __int64 v7; // rcx
+  __int64 v7; // rdx
   __int64 v8; // rcx
+  __int64 v9; // rcx
   NTSTATUS result; // eax
-  int v10; // ebx
-  _DWORD v11[2]; // [rsp+58h] [rbp-30h] BYREF
+  NTSTATUS v11; // ebx
+  _DWORD v12[2]; // [rsp+58h] [rbp-30h] BYREF
   PVOID Object; // [rsp+60h] [rbp-28h] BYREF
-  __int64 v13; // [rsp+68h] [rbp-20h] BYREF
-  __int64 v14; // [rsp+70h] [rbp-18h] BYREF
-  DWORD DefaultLocaleId; // [rsp+A8h] [rbp+20h] BYREF
+  void *v14; // [rsp+68h] [rbp-20h] BYREF
+  __int64 v15; // [rsp+70h] [rbp-18h] BYREF
+  DWORD DefaultLocaleIda; // [rsp+A8h] [rbp+20h] BYREF
 
   if ( !KeGetCurrentThread()->PreviousMode )
     return -1073741637;
-  v6 = 0x7FFFFFFF0000LL;
   v7 = 0x7FFFFFFF0000LL;
-  if ( (unsigned __int64)a1 < 0x7FFFFFFF0000LL )
-    v7 = (__int64)a1;
-  *(_QWORD *)v7 = *(_QWORD *)v7;
   v8 = 0x7FFFFFFF0000LL;
-  if ( (unsigned __int64)a2 < 0x7FFFFFFF0000LL )
-    v8 = (__int64)a2;
-  *(_DWORD *)v8 = *(_DWORD *)v8;
-  if ( (a3 & 3) != 0 )
+  if ( (unsigned __int64)BaseAddress < 0x7FFFFFFF0000LL )
+    v8 = (__int64)BaseAddress;
+  *(_QWORD *)v8 = *(_QWORD *)v8;
+  v9 = 0x7FFFFFFF0000LL;
+  if ( (unsigned __int64)DefaultLocaleId < 0x7FFFFFFF0000LL )
+    v9 = (__int64)DefaultLocaleId;
+  *(_DWORD *)v9 = *(_DWORD *)v9;
+  if ( ((unsigned __int8)DefaultCasingTableSize & 3) != 0 )
     ExRaiseDatatypeMisalignment();
-  if ( a3 < 0x7FFFFFFF0000LL )
-    v6 = a3;
-  *(_BYTE *)v6 = *(_BYTE *)v6;
-  *(_BYTE *)(v6 + 7) = *(_BYTE *)(v6 + 7);
-  result = ZwQueryDefaultLocale(0, &DefaultLocaleId);
+  if ( (unsigned __int64)DefaultCasingTableSize < 0x7FFFFFFF0000LL )
+    v7 = (__int64)DefaultCasingTableSize;
+  *(_BYTE *)v7 = *(_BYTE *)v7;
+  *(_BYTE *)(v7 + 7) = *(_BYTE *)(v7 + 7);
+  result = ZwQueryDefaultLocale(0, &DefaultLocaleIda);
   if ( result >= 0 )
   {
     result = ExpGetGlobalLocaleSection(&Object);
     if ( result >= 0 )
     {
-      v13 = 0LL;
-      v11[0] = 0;
-      v11[1] = 0;
       v14 = 0LL;
-      v10 = MmMapViewOfSection(
+      v12[0] = 0;
+      v12[1] = 0;
+      v15 = 0LL;
+      v11 = MmMapViewOfSection(
               (_DWORD)Object,
               KeGetCurrentThread()->ApcState.Process,
-              (unsigned int)&v13,
+              (unsigned int)&v14,
               0,
               0LL,
-              (__int64)v11,
-              (__int64)&v14,
+              (__int64)v12,
+              (__int64)&v15,
               1,
               0x400000,
               2);
       ObfDereferenceObject(Object);
-      if ( v10 >= 0 )
+      if ( v11 >= 0 )
       {
-        *a1 = v13;
-        *a2 = DefaultLocaleId;
-        *(_QWORD *)a3 = NlsDefaultCasingTableSize;
+        *BaseAddress = v14;
+        *DefaultLocaleId = DefaultLocaleIda;
+        DefaultCasingTableSize->QuadPart = NlsDefaultCasingTableSize;
       }
-      return v10;
+      return v11;
     }
   }
   return result;

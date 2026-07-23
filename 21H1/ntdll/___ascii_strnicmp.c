@@ -6,7 +6,7 @@
  *     <none>
  */
 
-int __cdecl __ascii_strnicmp(unsigned __int8 *a1, unsigned __int8 *a2, int a3)
+int __ascii_strnicmp(const char *String1, const char *String2, int a3, ...)
 {
   int v3; // ecx
   unsigned __int8 v6; // ah
@@ -18,12 +18,12 @@ int __cdecl __ascii_strnicmp(unsigned __int8 *a1, unsigned __int8 *a2, int a3)
   {
     do
     {
-      v6 = *a1;
-      v7 = *a2;
-      if ( !*a1 || !v7 )
+      v6 = *String1;
+      v7 = *String2;
+      if ( !*String1 || !v7 )
         break;
-      ++a1;
-      ++a2;
+      ++String1;
+      ++String2;
       if ( v6 >= 0x41u && v6 <= 0x5Au )
         v6 += 32;
       if ( v7 >= 0x41u && v7 <= 0x5Au )

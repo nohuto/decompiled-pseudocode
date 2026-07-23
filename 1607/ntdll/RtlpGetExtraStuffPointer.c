@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlpGetExtraStuffPointer @ 0x180029020
+ * XREFs of RtlpGetExtraStuffPointer @ 0x180029010
  * Callers:
- *     RtlpReAllocateHeap @ 0x1800211D0 (RtlpReAllocateHeap.c)
- *     RtlpAllocateHeap @ 0x180025060 (RtlpAllocateHeap.c)
- *     RtlSetUserValueHeap @ 0x180029050 (RtlSetUserValueHeap.c)
- *     RtlGetUserInfoHeap @ 0x18007AB50 (RtlGetUserInfoHeap.c)
- *     RtlDebugAllocateHeap @ 0x1800917D4 (RtlDebugAllocateHeap.c)
- *     RtlDebugFreeHeap @ 0x180091B60 (RtlDebugFreeHeap.c)
+ *     RtlpReAllocateHeap @ 0x1800211C0 (RtlpReAllocateHeap.c)
+ *     RtlpAllocateHeap @ 0x180025050 (RtlpAllocateHeap.c)
+ *     RtlSetUserValueHeap @ 0x180029040 (RtlSetUserValueHeap.c)
+ *     RtlGetUserInfoHeap @ 0x18007AB40 (RtlGetUserInfoHeap.c)
+ *     RtlDebugAllocateHeap @ 0x1800917C4 (RtlDebugAllocateHeap.c)
+ *     RtlDebugFreeHeap @ 0x180091B50 (RtlDebugFreeHeap.c)
  *     RtlDebugReAllocateHeap @ 0x1800FAA84 (RtlDebugReAllocateHeap.c)
  *     RtlpValidateHeapSegment @ 0x1800FB6A0 (RtlpValidateHeapSegment.c)
  * Callees:

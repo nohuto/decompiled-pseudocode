@@ -1,18 +1,18 @@
 /*
- * XREFs of FsRtlLookupPerFileObjectContext @ 0x140326610
+ * XREFs of FsRtlLookupPerFileObjectContext @ 0x1403268A0
  * Callers:
  *     <none>
  * Callees:
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     MmGetSessionIdEx @ 0x1402A1720 (MmGetSessionIdEx.c)
- *     ExfReleasePushLockShared @ 0x1402BD860 (ExfReleasePushLockShared.c)
- *     ExfAcquirePushLockSharedEx @ 0x1402FD040 (ExfAcquirePushLockSharedEx.c)
- *     KiCheckForKernelApcDelivery @ 0x14030F820 (KiCheckForKernelApcDelivery.c)
- *     ExfReleasePushLockSharedEx @ 0x1403268D8 (ExfReleasePushLockSharedEx.c)
- *     KiAbTryReclaimOrphanedEntries @ 0x14032FA68 (KiAbTryReclaimOrphanedEntries.c)
- *     ExpAcquireFannedOutPushLockShared @ 0x1403CDBF4 (ExpAcquireFannedOutPushLockShared.c)
- *     ExpTryExpandAutoExpandPushLock @ 0x1403D4E98 (ExpTryExpandAutoExpandPushLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     MmGetSessionIdEx @ 0x1402A19B0 (MmGetSessionIdEx.c)
+ *     ExfReleasePushLockShared @ 0x1402BDAF0 (ExfReleasePushLockShared.c)
+ *     ExfAcquirePushLockSharedEx @ 0x1402FD2D0 (ExfAcquirePushLockSharedEx.c)
+ *     KiCheckForKernelApcDelivery @ 0x14030FAB0 (KiCheckForKernelApcDelivery.c)
+ *     ExfReleasePushLockSharedEx @ 0x140326B68 (ExfReleasePushLockSharedEx.c)
+ *     KiAbTryReclaimOrphanedEntries @ 0x14032FCF8 (KiAbTryReclaimOrphanedEntries.c)
+ *     ExpAcquireFannedOutPushLockShared @ 0x1403CDDD4 (ExpAcquireFannedOutPushLockShared.c)
+ *     ExpTryExpandAutoExpandPushLock @ 0x1403D5078 (ExpTryExpandAutoExpandPushLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 PFSRTL_PER_FILEOBJECT_CONTEXT __stdcall FsRtlLookupPerFileObjectContext(

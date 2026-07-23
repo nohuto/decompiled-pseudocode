@@ -1,5 +1,5 @@
 /*
- * XREFs of NtdllSwitchWindowProc_W @ 0x1800A0000
+ * XREFs of NtdllSwitchWindowProc_W @ 0x1800A0020
  * Callers:
  *     <none>
  * Callees:

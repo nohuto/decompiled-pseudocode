@@ -1,10 +1,10 @@
 /*
  * XREFs of KeFindFirstSetLeftAffinityEx @ 0x14056C170
  * Callers:
- *     KiDeferredReadySingleThread @ 0x1403405E0 (KiDeferredReadySingleThread.c)
- *     KiSetSystemAffinityThread @ 0x14035C1C0 (KiSetSystemAffinityThread.c)
- *     PpmUpdatePlatformIdleVeto @ 0x1405C94E0 (PpmUpdatePlatformIdleVeto.c)
- *     PnpReplacePartitionUnit @ 0x140950E30 (PnpReplacePartitionUnit.c)
+ *     sub_1403405E0 @ 0x1403405E0 (sub_1403405E0.c)
+ *     sub_14035C1C0 @ 0x14035C1C0 (sub_14035C1C0.c)
+ *     sub_1405C94E0 @ 0x1405C94E0 (sub_1405C94E0.c)
+ *     sub_140950E30 @ 0x140950E30 (sub_140950E30.c)
  * Callees:
  *     <none>
  */
@@ -24,5 +24,5 @@ __int64 __fastcall KeFindFirstSetLeftAffinityEx(unsigned __int16 *a1)
   }
   while ( !v2 );
   _BitScanReverse64(&v4, v2);
-  return (unsigned int)KiProcessorNumberToIndexMappingTable[64 * v1 + (unsigned int)v4];
+  return (unsigned int)dword_140D105E0[64 * v1 + (unsigned int)v4];
 }

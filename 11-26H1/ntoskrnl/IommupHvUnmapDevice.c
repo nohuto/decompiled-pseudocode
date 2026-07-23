@@ -1,11 +1,11 @@
 /*
- * XREFs of IommupHvUnmapDevice @ 0x14059E9A0
+ * XREFs of IommupHvUnmapDevice @ 0x1405A1180
  * Callers:
- *     IommupMapDeviceInternal @ 0x14059D094 (IommupMapDeviceInternal.c)
- *     IommupUnmapDeviceInternal @ 0x14059D414 (IommupUnmapDeviceInternal.c)
+ *     IommupMapDeviceInternal @ 0x14059F814 (IommupMapDeviceInternal.c)
+ *     IommupUnmapDeviceInternal @ 0x14059FB94 (IommupUnmapDeviceInternal.c)
  * Callees:
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall IommupHvUnmapDevice(ULONG_PTR BugCheckParameter2, __int64 a2)

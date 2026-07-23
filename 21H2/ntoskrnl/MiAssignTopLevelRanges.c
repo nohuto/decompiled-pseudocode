@@ -1,15 +1,15 @@
 /*
- * XREFs of MiAssignTopLevelRanges @ 0x140A508A8
+ * XREFs of MiAssignTopLevelRanges @ 0x140A518A8
  * Callers:
- *     MiInitializeSystemVa @ 0x140A4F300 (MiInitializeSystemVa.c)
+ *     MiInitializeSystemVa @ 0x140A50300 (MiInitializeSystemVa.c)
  * Callees:
- *     ExGenRandom @ 0x14022C890 (ExGenRandom.c)
- *     MiHyperSpaceSize @ 0x140311F38 (MiHyperSpaceSize.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     qsort @ 0x1403D2AC0 (qsort.c)
- *     memset @ 0x140414200 (memset.c)
- *     MiAssignSystemVa @ 0x140A50B28 (MiAssignSystemVa.c)
- *     MiAddSubRegionEntropy @ 0x140A50C18 (MiAddSubRegionEntropy.c)
+ *     ExGenRandom @ 0x1402D1110 (ExGenRandom.c)
+ *     MiHyperSpaceSize @ 0x14031CC88 (MiHyperSpaceSize.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     qsort @ 0x1403D2C30 (qsort.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     MiAssignSystemVa @ 0x140A51B28 (MiAssignSystemVa.c)
+ *     MiAddSubRegionEntropy @ 0x140A51C18 (MiAddSubRegionEntropy.c)
  */
 
 __int64 __fastcall MiAssignTopLevelRanges(__int64 a1, _QWORD *a2)
@@ -126,8 +126,8 @@ __int64 __fastcall MiAssignTopLevelRanges(__int64 a1, _QWORD *a2)
     v22 = *v20;
     v20 += 6;
     v22 *= 2LL;
-    qword_140C4FAC8[v22] = v21;
-    qword_140C4FAD0[v22] = *((_QWORD *)v20 - 1);
+    qword_140C4FB08[v22] = v21;
+    qword_140C4FB10[v22] = *((_QWORD *)v20 - 1);
     --v17;
   }
   while ( v17 );

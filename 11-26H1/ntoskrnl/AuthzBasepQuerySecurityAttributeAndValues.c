@@ -1,17 +1,17 @@
 /*
- * XREFs of AuthzBasepQuerySecurityAttributeAndValues @ 0x1402B2540
+ * XREFs of AuthzBasepQuerySecurityAttributeAndValues @ 0x1402FD210
  * Callers:
- *     SepCanTokenMatchAllPackageSid @ 0x1402B2370 (SepCanTokenMatchAllPackageSid.c)
- *     SepGetProcUniqueLuidAndIndexFromAttributeInfo @ 0x1403CD3FC (SepGetProcUniqueLuidAndIndexFromAttributeInfo.c)
- *     AuthzBasepRestartOperandValueEnumeration @ 0x1403CDBF4 (AuthzBasepRestartOperandValueEnumeration.c)
- *     AuthzBasepGetNextValue @ 0x1403CDC38 (AuthzBasepGetNextValue.c)
- *     AuthzBasepEvaluateAceCondition @ 0x1403CDD60 (AuthzBasepEvaluateAceCondition.c)
+ *     AuthzBasepRestartOperandValueEnumeration @ 0x1402FB250 (AuthzBasepRestartOperandValueEnumeration.c)
+ *     AuthzBasepGetNextValue @ 0x1402FB294 (AuthzBasepGetNextValue.c)
+ *     AuthzBasepEvaluateAceCondition @ 0x1402FBC90 (AuthzBasepEvaluateAceCondition.c)
+ *     SepCanTokenMatchAllPackageSid @ 0x1402FD040 (SepCanTokenMatchAllPackageSid.c)
+ *     SepGetProcUniqueLuidAndIndexFromAttributeInfo @ 0x1403B1D1C (SepGetProcUniqueLuidAndIndexFromAttributeInfo.c)
  * Callees:
- *     AuthzBasepQueryTokenAttributeAndValues @ 0x1403C9DD0 (AuthzBasepQueryTokenAttributeAndValues.c)
- *     AuthzBasepEqualUnicodeString @ 0x1403CBD00 (AuthzBasepEqualUnicodeString.c)
- *     AuthzBasepEqualUnicodeStringCaseSensitive @ 0x1403CD668 (AuthzBasepEqualUnicodeStringCaseSensitive.c)
- *     RtlEqualUnicodeString @ 0x14091F0E0 (RtlEqualUnicodeString.c)
- *     AuthzBasepQuerySystemSecurityAttributeAndValues @ 0x140A7DB04 (AuthzBasepQuerySystemSecurityAttributeAndValues.c)
+ *     AuthzBasepQueryTokenAttributeAndValues @ 0x1402FB610 (AuthzBasepQueryTokenAttributeAndValues.c)
+ *     AuthzBasepEqualUnicodeString @ 0x1403B0620 (AuthzBasepEqualUnicodeString.c)
+ *     AuthzBasepEqualUnicodeStringCaseSensitive @ 0x1403B1F88 (AuthzBasepEqualUnicodeStringCaseSensitive.c)
+ *     RtlEqualUnicodeString @ 0x140979B40 (RtlEqualUnicodeString.c)
+ *     AuthzBasepQuerySystemSecurityAttributeAndValues @ 0x140A83974 (AuthzBasepQuerySystemSecurityAttributeAndValues.c)
  */
 
 __int64 __fastcall AuthzBasepQuerySecurityAttributeAndValues(__int64 a1)
@@ -31,7 +31,7 @@ __int64 __fastcall AuthzBasepQuerySecurityAttributeAndValues(__int64 a1)
   __int64 v14; // rdx
 
   if ( *(_DWORD *)a1 == 6 )
-    return AuthzBasepQueryTokenAttributeAndValues();
+    return AuthzBasepQueryTokenAttributeAndValues(a1);
   if ( *(_DWORD *)a1 == 7 )
     return AuthzBasepQuerySystemSecurityAttributeAndValues();
   v2 = *(_QWORD *)(a1 + 56);

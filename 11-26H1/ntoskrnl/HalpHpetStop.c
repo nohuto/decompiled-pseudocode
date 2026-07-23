@@ -1,5 +1,5 @@
 /*
- * XREFs of HalpHpetStop @ 0x140598E20
+ * XREFs of HalpHpetStop @ 0x14059B5A0
  * Callers:
  *     <none>
  * Callees:

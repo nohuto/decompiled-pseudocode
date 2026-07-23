@@ -85,7 +85,7 @@ char __fastcall EtwpCovSampCaptureSample(unsigned __int64 a1, unsigned int a2)
       }
     }
     if ( v4 )
-      LOBYTE(v7) = EtwpCovSampCaptureReleaseToLookaside(v5, *(_QWORD *)(v4 + 48), (struct _SLIST_ENTRY *)v4);
+      LOBYTE(v7) = EtwpCovSampCaptureReleaseToLookaside(v5, *(_QWORD *)(v4 + 48), (_SLIST_ENTRY *)v4);
   }
   return v7;
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of PiCMReturnDepthResultData @ 0x140733EF8
+ * XREFs of PiCMReturnDepthResultData @ 0x1407340B8
  * Callers:
- *     PiCMGetDeviceDepth @ 0x140733DF8 (PiCMGetDeviceDepth.c)
+ *     PiCMGetDeviceDepth @ 0x140733FB8 (PiCMGetDeviceDepth.c)
  * Callees:
- *     ProbeForWrite @ 0x1406547A0 (ProbeForWrite.c)
+ *     ProbeForWrite @ 0x1406495C0 (ProbeForWrite.c)
  */
 
 __int64 __fastcall PiCMReturnDepthResultData(int a1, int a2, int a3, _DWORD *a4, unsigned int Length, _DWORD *a6)

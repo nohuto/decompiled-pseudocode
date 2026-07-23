@@ -13,7 +13,7 @@ NTSTATUS __stdcall LdrpDoDebuggerBreak()
   NTSTATUS result; // eax
   char ThreadInformation; // [esp+13h] [ebp-19h] BYREF
 
-  result = NtQueryInformationThread((HANDLE)0xFFFFFFFE, (THREADINFOCLASS)17, &ThreadInformation, 1u, 0);
+  result = NtQueryInformationThread((HANDLE)0xFFFFFFFE, ThreadHideFromDebugger, &ThreadInformation, 1u, 0);
   if ( result >= 0 && !ThreadInformation )
     __debugbreak();
   return result;

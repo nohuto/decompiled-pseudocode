@@ -1,5 +1,5 @@
 /*
- * XREFs of xHalVectorToIDTEntry @ 0x14013DFD0
+ * XREFs of xHalVectorToIDTEntry @ 0x14013E0D0
  * Callers:
  *     <none>
  * Callees:

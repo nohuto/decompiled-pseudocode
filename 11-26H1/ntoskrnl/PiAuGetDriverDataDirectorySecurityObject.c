@@ -1,19 +1,19 @@
 /*
- * XREFs of PiAuGetDriverDataDirectorySecurityObject @ 0x140CC6174
+ * XREFs of PiAuGetDriverDataDirectorySecurityObject @ 0x140CCC254
  * Callers:
- *     PiCreateDriverDataDirectoryRoot @ 0x140CC3BBC (PiCreateDriverDataDirectoryRoot.c)
+ *     PiCreateDriverDataDirectoryRoot @ 0x140CC9C90 (PiCreateDriverDataDirectoryRoot.c)
  * Callees:
- *     RtlLengthSecurityDescriptor @ 0x1409228D0 (RtlLengthSecurityDescriptor.c)
- *     RtlAddAccessAllowedAceEx @ 0x140925D80 (RtlAddAccessAllowedAceEx.c)
- *     RtlValidSecurityDescriptor @ 0x140926EB0 (RtlValidSecurityDescriptor.c)
- *     RtlCreateAcl @ 0x1409D8030 (RtlCreateAcl.c)
- *     RtlSetOwnerSecurityDescriptor @ 0x1409D8260 (RtlSetOwnerSecurityDescriptor.c)
- *     RtlAbsoluteToSelfRelativeSD @ 0x140A61650 (RtlAbsoluteToSelfRelativeSD.c)
- *     RtlSetDaclSecurityDescriptor @ 0x140A6B0F0 (RtlSetDaclSecurityDescriptor.c)
- *     RtlCreateSecurityDescriptor @ 0x140A6C2F0 (RtlCreateSecurityDescriptor.c)
- *     RtlSetGroupSecurityDescriptor @ 0x140AABBB0 (RtlSetGroupSecurityDescriptor.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     RtlLengthSecurityDescriptor @ 0x1408FE3E0 (RtlLengthSecurityDescriptor.c)
+ *     RtlAddAccessAllowedAceEx @ 0x140901890 (RtlAddAccessAllowedAceEx.c)
+ *     RtlValidSecurityDescriptor @ 0x1409029C0 (RtlValidSecurityDescriptor.c)
+ *     RtlCreateAcl @ 0x1409A8F20 (RtlCreateAcl.c)
+ *     RtlSetOwnerSecurityDescriptor @ 0x1409A9150 (RtlSetOwnerSecurityDescriptor.c)
+ *     RtlAbsoluteToSelfRelativeSD @ 0x140A6E620 (RtlAbsoluteToSelfRelativeSD.c)
+ *     RtlSetDaclSecurityDescriptor @ 0x140A7C820 (RtlSetDaclSecurityDescriptor.c)
+ *     RtlCreateSecurityDescriptor @ 0x140A7D920 (RtlCreateSecurityDescriptor.c)
+ *     RtlSetGroupSecurityDescriptor @ 0x140AA9160 (RtlSetGroupSecurityDescriptor.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PiAuGetDriverDataDirectorySecurityObject(_QWORD *a1)
@@ -34,7 +34,7 @@ __int64 __fastcall PiAuGetDriverDataDirectorySecurityObject(_QWORD *a1)
   v2 = 0LL;
   memset(SecurityDescriptor, 0, sizeof(SecurityDescriptor));
   v3 = 4
-     * (*(unsigned __int8 *)(*(_QWORD *)&RtlpBootStatHandleLock.WaitRegister.Flags + 1LL)
+     * (*(unsigned __int8 *)(*(_QWORD *)((char *)&RtlpBootStatHandleLock.116 + 4) + 1LL)
       + *((unsigned __int8 *)SeAliasAdminsSid + 1)
       + *((unsigned __int8 *)SeExports->SeUserModeDriversSid + 1))
      + 56;
@@ -45,7 +45,7 @@ __int64 __fastcall PiAuGetDriverDataDirectorySecurityObject(_QWORD *a1)
     Acl = RtlCreateAcl(Pool2, v3, 2u);
     if ( Acl >= 0 )
     {
-      Acl = RtlAddAccessAllowedAceEx(v5, 2u, 3u, 0x10000000u, *(PSID *)&RtlpBootStatHandleLock.WaitRegister.Flags);
+      Acl = RtlAddAccessAllowedAceEx(v5, 2u, 3u, 0x10000000u, *(PSID *)((char *)&RtlpBootStatHandleLock.116 + 4));
       if ( Acl >= 0 )
       {
         Acl = RtlAddAccessAllowedAceEx(v5, 2u, 3u, 0x10000000u, SeAliasAdminsSid);
@@ -60,10 +60,10 @@ __int64 __fastcall PiAuGetDriverDataDirectorySecurityObject(_QWORD *a1)
               Acl = RtlSetDaclSecurityDescriptor(SecurityDescriptor, 1u, v5, 0);
               if ( Acl >= 0 )
               {
-                v7 = *(void **)&RtlpBootStatHandleLock.WaitRegister.Flags;
+                v7 = *(void **)((char *)&RtlpBootStatHandleLock.116 + 4);
                 Acl = RtlSetOwnerSecurityDescriptor(
                         SecurityDescriptor,
-                        *(PSID *)&RtlpBootStatHandleLock.WaitRegister.Flags,
+                        *(PSID *)((char *)&RtlpBootStatHandleLock.116 + 4),
                         0);
                 if ( Acl >= 0 )
                 {

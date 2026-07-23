@@ -1,12 +1,12 @@
 /*
- * XREFs of MiSetSubsectionBase @ 0x140491CC8
+ * XREFs of MiSetSubsectionBase @ 0x14048CB68
  * Callers:
- *     MiExtendSection @ 0x1409463BC (MiExtendSection.c)
- *     MiAllocateFileExtents @ 0x140AA5B84 (MiAllocateFileExtents.c)
+ *     MiExtendSection @ 0x14098A4D8 (MiExtendSection.c)
+ *     MiAllocateFileExtents @ 0x140AA0BF4 (MiAllocateFileExtents.c)
  * Callees:
- *     MiIncrementSubsectionViewCount @ 0x1402624F0 (MiIncrementSubsectionViewCount.c)
- *     MiReleaseSpinLockExclusive @ 0x14028EE30 (MiReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x14028F370 (ExAcquireSpinLockExclusive.c)
+ *     MiIncrementSubsectionViewCount @ 0x1402743B0 (MiIncrementSubsectionViewCount.c)
+ *     MiReleaseSpinLockExclusive @ 0x14029EA30 (MiReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14029EF70 (ExAcquireSpinLockExclusive.c)
  */
 
 __int64 __fastcall MiSetSubsectionBase(__int64 *BugCheckParameter2, __int64 a2, unsigned int a3, __int64 a4)
@@ -23,7 +23,7 @@ __int64 __fastcall MiSetSubsectionBase(__int64 *BugCheckParameter2, __int64 a2, 
   if ( (*(_DWORD *)(v4 + 56) & 0x20) == 0 )
   {
     v9 = (ULONG_PTR)BugCheckParameter2;
-    MiIncrementSubsectionViewCount(BugCheckParameter2, 0);
+    MiIncrementSubsectionViewCount(BugCheckParameter2, 0LL);
     BugCheckParameter2[14] = a4;
   }
   *((_DWORD *)BugCheckParameter2 + 8) |= 1u;

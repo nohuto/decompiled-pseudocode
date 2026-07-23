@@ -1,8 +1,8 @@
 /*
- * XREFs of PpmIdleSetSynchronizationState @ 0x14020099C
+ * XREFs of PpmIdleSetSynchronizationState @ 0x1402007C8
  * Callers:
- *     PpmIdleExecuteTransition @ 0x1400DA540 (PpmIdleExecuteTransition.c)
- *     PpmIdleSelectStates @ 0x14013B680 (PpmIdleSelectStates.c)
+ *     PpmIdleExecuteTransition @ 0x1400D83E0 (PpmIdleExecuteTransition.c)
+ *     PpmIdleSelectStates @ 0x14013BBF0 (PpmIdleSelectStates.c)
  * Callees:
  *     <none>
  */

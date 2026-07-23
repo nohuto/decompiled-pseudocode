@@ -1,19 +1,19 @@
 /*
- * XREFs of PiUEventNotifyClient @ 0x1406E6D7C
+ * XREFs of PiUEventNotifyClient @ 0x1406FE15C
  * Callers:
- *     PiUEventNotifyTargetDeviceChange @ 0x1406E7188 (PiUEventNotifyTargetDeviceChange.c)
- *     PiUEventNotifyDeviceInterfaceChange @ 0x140749838 (PiUEventNotifyDeviceInterfaceChange.c)
- *     PiUEventNotifyDeviceInstanceChange @ 0x14076C99C (PiUEventNotifyDeviceInstanceChange.c)
- *     PiUEventNotifyDeviceInstancePropertyChange @ 0x140770C5C (PiUEventNotifyDeviceInstancePropertyChange.c)
+ *     PiUEventNotifyTargetDeviceChange @ 0x1406FE568 (PiUEventNotifyTargetDeviceChange.c)
+ *     PiUEventNotifyDeviceInterfaceChange @ 0x1407499F8 (PiUEventNotifyDeviceInterfaceChange.c)
+ *     PiUEventNotifyDeviceInstanceChange @ 0x14076CB5C (PiUEventNotifyDeviceInstanceChange.c)
+ *     PiUEventNotifyDeviceInstancePropertyChange @ 0x140770E1C (PiUEventNotifyDeviceInstancePropertyChange.c)
  * Callees:
- *     KeReleaseGuardedMutex @ 0x140265CD0 (KeReleaseGuardedMutex.c)
- *     ExAcquireFastMutex @ 0x14034A080 (ExAcquireFastMutex.c)
- *     PiUEventDequeuePendingEventWorker @ 0x1406E6284 (PiUEventDequeuePendingEventWorker.c)
- *     PiUEventNotifyClientPendingEvent @ 0x1406E6E60 (PiUEventNotifyClientPendingEvent.c)
- *     PiUEventQueuePendingEvent @ 0x1406E6EB8 (PiUEventQueuePendingEvent.c)
- *     PiUEventReferenceEventEntry @ 0x1406E6EFC (PiUEventReferenceEventEntry.c)
- *     PiUEventIsClientStuck @ 0x1406E6F38 (PiUEventIsClientStuck.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     KeReleaseGuardedMutex @ 0x140253C70 (KeReleaseGuardedMutex.c)
+ *     ExAcquireFastMutex @ 0x140354DD0 (ExAcquireFastMutex.c)
+ *     PiUEventDequeuePendingEventWorker @ 0x1406FD664 (PiUEventDequeuePendingEventWorker.c)
+ *     PiUEventNotifyClientPendingEvent @ 0x1406FE240 (PiUEventNotifyClientPendingEvent.c)
+ *     PiUEventQueuePendingEvent @ 0x1406FE298 (PiUEventQueuePendingEvent.c)
+ *     PiUEventReferenceEventEntry @ 0x1406FE2DC (PiUEventReferenceEventEntry.c)
+ *     PiUEventIsClientStuck @ 0x1406FE318 (PiUEventIsClientStuck.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PiUEventNotifyClient(__int64 a1, __int64 a2)

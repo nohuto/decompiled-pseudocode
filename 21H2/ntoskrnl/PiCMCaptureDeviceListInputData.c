@@ -1,11 +1,11 @@
 /*
- * XREFs of PiCMCaptureDeviceListInputData @ 0x1406A7294
+ * XREFs of PiCMCaptureDeviceListInputData @ 0x140604EC4
  * Callers:
- *     PiCMGetDeviceIdList @ 0x1406A6D64 (PiCMGetDeviceIdList.c)
+ *     PiCMGetDeviceIdList @ 0x140604994 (PiCMGetDeviceIdList.c)
  * Callees:
- *     PiControlFreeUserModeCallersBuffer @ 0x1402647E0 (PiControlFreeUserModeCallersBuffer.c)
- *     PiControlMakeUserModeCallersCopy @ 0x1406356D0 (PiControlMakeUserModeCallersCopy.c)
- *     ExRaiseDatatypeMisalignment @ 0x14077BDF0 (ExRaiseDatatypeMisalignment.c)
+ *     PiControlFreeUserModeCallersBuffer @ 0x140252870 (PiControlFreeUserModeCallersBuffer.c)
+ *     PiControlMakeUserModeCallersCopy @ 0x14062A4E0 (PiControlMakeUserModeCallersCopy.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BFB0 (ExRaiseDatatypeMisalignment.c)
  */
 
 __int64 __fastcall PiCMCaptureDeviceListInputData(_DWORD *a1, unsigned int a2, int a3, __int64 a4)
@@ -15,8 +15,8 @@ __int64 __fastcall PiCMCaptureDeviceListInputData(_DWORD *a1, unsigned int a2, i
   int UserModeCallersCopy; // ebx
   unsigned __int64 v8; // r8
   _QWORD *v9; // r14
-  void *v10; // rcx
-  unsigned int v11; // r8d
+  __int64 v10; // rcx
+  __int64 v11; // r8
   unsigned __int64 v13; // r8
 
   v5 = 0;
@@ -69,14 +69,14 @@ __int64 __fastcall PiCMCaptureDeviceListInputData(_DWORD *a1, unsigned int a2, i
   if ( UserModeCallersCopy >= 0 )
   {
     v9 = (_QWORD *)(a4 + 8);
-    v10 = *(void **)(a4 + 8);
+    v10 = *(_QWORD *)(a4 + 8);
     *(_QWORD *)(a4 + 8) = 0LL;
     if ( v10 )
     {
-      v11 = *(_DWORD *)(a4 + 16);
-      if ( v11 >= 2 )
+      v11 = *(unsigned int *)(a4 + 16);
+      if ( (unsigned int)v11 >= 2 )
       {
-        UserModeCallersCopy = PiControlMakeUserModeCallersCopy((void **)(a4 + 8), v10, v11, 2u, PreviousMode, 1);
+        UserModeCallersCopy = PiControlMakeUserModeCallersCopy(a4 + 8, v10, v11, 2LL, PreviousMode, 1);
         if ( UserModeCallersCopy < 0 )
         {
           *v9 = 0LL;

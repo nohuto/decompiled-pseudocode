@@ -1,14 +1,14 @@
 /*
- * XREFs of SmKmEtwAppendObjectName @ 0x1405CB214
+ * XREFs of SmKmEtwAppendObjectName @ 0x1405CB784
  * Callers:
- *     SmKmStoreTerminateWorker @ 0x1405CBB60 (SmKmStoreTerminateWorker.c)
+ *     SmKmStoreTerminateWorker @ 0x1405CC0D0 (SmKmStoreTerminateWorker.c)
  * Callees:
  *     IoSetThreadHardErrorMode @ 0x140208890 (IoSetThreadHardErrorMode.c)
- *     ObfDereferenceObjectWithTag @ 0x14022F5B0 (ObfDereferenceObjectWithTag.c)
- *     IoGetDeviceAttachmentBaseRefWithTag @ 0x140302A88 (IoGetDeviceAttachmentBaseRefWithTag.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memmove @ 0x140435700 (memmove.c)
- *     ObQueryNameString @ 0x14075B370 (ObQueryNameString.c)
+ *     ObfDereferenceObjectWithTag @ 0x14022F6C0 (ObfDereferenceObjectWithTag.c)
+ *     IoGetDeviceAttachmentBaseRefWithTag @ 0x140302D18 (IoGetDeviceAttachmentBaseRefWithTag.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     ObQueryNameString @ 0x14075B560 (ObQueryNameString.c)
  */
 
 __int64 __fastcall SmKmEtwAppendObjectName(__int64 a1, unsigned __int64 a2)
@@ -18,7 +18,7 @@ __int64 __fastcall SmKmEtwAppendObjectName(__int64 a1, unsigned __int64 a2)
   __int64 v5; // rcx
   unsigned int v6; // r14d
   void *v7; // r13
-  struct _OBJECT_NAME_INFORMATION *v8; // rdi
+  _OBJECT_NAME_INFORMATION *v8; // rdi
   ULONG v9; // r14d
   void *v10; // rbp
   BOOLEAN v11; // r15
@@ -42,7 +42,7 @@ __int64 __fastcall SmKmEtwAppendObjectName(__int64 a1, unsigned __int64 a2)
   v6 = *(_DWORD *)(a1 + 28) - v2;
   Src[1] = *(_OWORD *)L"Unknown";
   v7 = (void *)(v5 + 2);
-  v8 = (struct _OBJECT_NAME_INFORMATION *)((v5 + 9) & 0xFFFFFFFFFFFFFFF8uLL);
+  v8 = (_OBJECT_NAME_INFORMATION *)((v5 + 9) & 0xFFFFFFFFFFFFFFF8uLL);
   v9 = v5 + v6 - (_DWORD)v8;
   *(_QWORD *)&v8->Name.Length = 0LL;
   v8->Name.Buffer = 0LL;

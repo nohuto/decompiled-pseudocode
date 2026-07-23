@@ -1,12 +1,12 @@
 /*
- * XREFs of EtwpLogProcessPerfCtrs @ 0x140936E18
+ * XREFs of EtwpLogProcessPerfCtrs @ 0x140936FE8
  * Callers:
- *     EtwTraceProcess @ 0x14060330C (EtwTraceProcess.c)
+ *     EtwTraceProcess @ 0x1406F2A40 (EtwTraceProcess.c)
  * Callees:
- *     EtwTraceSiloKernelEvent @ 0x14025A84C (EtwTraceSiloKernelEvent.c)
- *     PsGetProcessServerSilo @ 0x14025CA80 (PsGetProcessServerSilo.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     memset @ 0x140414200 (memset.c)
+ *     EtwTraceSiloKernelEvent @ 0x14027BDBC (EtwTraceSiloKernelEvent.c)
+ *     PsGetProcessServerSilo @ 0x14027DFF0 (PsGetProcessServerSilo.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     memset @ 0x140414300 (memset.c)
  */
 
 __int64 __fastcall EtwpLogProcessPerfCtrs(__int64 a1)

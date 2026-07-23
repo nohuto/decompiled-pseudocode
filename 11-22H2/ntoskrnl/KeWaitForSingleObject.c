@@ -587,7 +587,7 @@ NTSTATUS __stdcall KeWaitForSingleObject(
   {
     CurrentIrql = KeGetCurrentIrql();
     __writecr8(2uLL);
-    if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+    if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
     {
       SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
       if ( CurrentIrql == 2 )
@@ -643,10 +643,10 @@ NTSTATUS __stdcall KeWaitForSingleObject(
       if ( !CurrentThread->ApcState.KernelApcPending || v9 || CurrentThread->SpecialApcDisable )
         break;
       CurrentThread->ThreadLock = 0LL;
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v48 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && (unsigned __int8)(v48 - 2) <= 0xDu )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && (unsigned __int8)(v48 - 2) <= 0xDu )
         {
           CurrentPrcb = KeGetCurrentPrcb();
           v50 = CurrentPrcb->SchedulerAssist;
@@ -660,7 +660,7 @@ NTSTATUS __stdcall KeWaitForSingleObject(
       KiDeliverApc(0LL, 0LL, 0LL);
       v47 = KeGetCurrentIrql();
       __writecr8(2uLL);
-      if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && v47 <= 0xFu )
+      if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && v47 <= 0xFu )
       {
         v51 = KeGetCurrentPrcb()->SchedulerAssist;
         if ( v47 == 2 )
@@ -858,7 +858,7 @@ LABEL_25:
     v85 = 0;
     v27 = KeGetCurrentIrql();
     __writecr8(2uLL);
-    if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && v27 <= 0xFu )
+    if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && v27 <= 0xFu )
     {
       v44 = KeGetCurrentPrcb()->SchedulerAssist;
       if ( v27 == 2 )
@@ -880,7 +880,7 @@ LABEL_25:
   {
     _InterlockedAnd((volatile signed __int32 *)v14, 0xFFFFFF7F);
     KiFastExitThreadWait(v20, CurrentThread, v12);
-    RtlRaiseStatus(3221225873LL);
+    RtlRaiseStatus(-1073741423);
   }
   v36 = v35 - 1;
   *(_DWORD *)(v14 + 4) = v36;
@@ -1067,10 +1067,10 @@ LABEL_171:
     LOBYTE(ThreadTimerDelay) = 1;
     KiCheckForThreadDispatch(v20, ThreadTimerDelay, v8);
     KiDeliverApc(0LL, 0LL, 0LL);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v75 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && (unsigned __int8)(v75 - 2) <= 0xDu )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && (unsigned __int8)(v75 - 2) <= 0xDu )
       {
         v76 = KeGetCurrentPrcb();
         v77 = v76->SchedulerAssist;
@@ -1090,10 +1090,10 @@ LABEL_38:
     v45 = (unsigned __int8)v29;
     goto LABEL_100;
   }
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v78 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v78 <= 0xFu && (unsigned __int8)v29 <= 0xFu && v78 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v78 <= 0xFu && (unsigned __int8)v29 <= 0xFu && v78 >= 2u )
     {
       v79 = KeGetCurrentPrcb();
       v80 = v79->SchedulerAssist;

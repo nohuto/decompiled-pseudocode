@@ -1,9 +1,9 @@
 /*
- * XREFs of ViXdvSetXdvKernelUtilities @ 0x1405CF1D0
+ * XREFs of ViXdvSetXdvKernelUtilities @ 0x1405CF740
  * Callers:
- *     ViXdvDriverLoadImage @ 0x140ACAA4C (ViXdvDriverLoadImage.c)
+ *     ViXdvDriverLoadImage @ 0x140ACAA3C (ViXdvDriverLoadImage.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
  */
 
 char __fastcall ViXdvSetXdvKernelUtilities(

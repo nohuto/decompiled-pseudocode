@@ -1,5 +1,5 @@
 /*
- * XREFs of MiSystemFault @ 0x1400E8900
+ * XREFs of MiSystemFault @ 0x1400E8980
  * Callers:
  *     MmAccessFault @ 0x140043DA0 (MmAccessFault.c)
  * Callees:
@@ -11,31 +11,31 @@
  *     MiUnlockWorkingSetShared @ 0x140046970 (MiUnlockWorkingSetShared.c)
  *     MiResolveDemandZeroFault @ 0x140046D50 (MiResolveDemandZeroFault.c)
  *     MiGetSystemRegionType @ 0x14004EC30 (MiGetSystemRegionType.c)
- *     MiUnlockWorkingSetExclusive @ 0x140063CE0 (MiUnlockWorkingSetExclusive.c)
- *     MiLockLowestValidPageTable @ 0x14006C5A0 (MiLockLowestValidPageTable.c)
- *     MiCheckVirtualAddress @ 0x140098CF0 (MiCheckVirtualAddress.c)
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14009D110 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     ExAcquireSpinLockShared @ 0x14009D7C0 (ExAcquireSpinLockShared.c)
- *     MiGetSystemCacheReverseMap @ 0x1400ADF50 (MiGetSystemCacheReverseMap.c)
- *     MiCopyOnWrite @ 0x1400B45E0 (MiCopyOnWrite.c)
- *     ExpWaitForSpinLockSharedAndAcquire @ 0x1400E77A0 (ExpWaitForSpinLockSharedAndAcquire.c)
- *     MiCheckSystemPageTables @ 0x1400E9320 (MiCheckSystemPageTables.c)
- *     MiNoFaultFound @ 0x1400E9394 (MiNoFaultFound.c)
- *     MiGetSessionVm @ 0x1400E945C (MiGetSessionVm.c)
- *     MiCheckSystemNxFault @ 0x1400E9488 (MiCheckSystemNxFault.c)
- *     MiIsWorkingSetTrimThread @ 0x1400E94C0 (MiIsWorkingSetTrimThread.c)
- *     MiUnlockSystemVa @ 0x1400ECDC4 (MiUnlockSystemVa.c)
- *     MiUnlockPageTableInternal @ 0x140104A90 (MiUnlockPageTableInternal.c)
- *     KeInvalidAccessAllowed @ 0x140117D0C (KeInvalidAccessAllowed.c)
- *     MiEmptyDeferredWorkingSetEntries @ 0x140128BF8 (MiEmptyDeferredWorkingSetEntries.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     MiGenerateAccessViolation @ 0x1402BC020 (MiGenerateAccessViolation.c)
- *     MiCopyOnWriteCheckConditions @ 0x1402CB21C (MiCopyOnWriteCheckConditions.c)
- *     MiTransientPageListWriter @ 0x1402CD894 (MiTransientPageListWriter.c)
- *     ExpAcquireSpinLockSharedAtDpcLevelInstrumented @ 0x14031C164 (ExpAcquireSpinLockSharedAtDpcLevelInstrumented.c)
+ *     MiUnlockWorkingSetExclusive @ 0x140063CD0 (MiUnlockWorkingSetExclusive.c)
+ *     MiLockLowestValidPageTable @ 0x14006C590 (MiLockLowestValidPageTable.c)
+ *     MiCheckVirtualAddress @ 0x140098C30 (MiCheckVirtualAddress.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14009D050 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     ExAcquireSpinLockShared @ 0x14009D700 (ExAcquireSpinLockShared.c)
+ *     MiGetSystemCacheReverseMap @ 0x1400ADE90 (MiGetSystemCacheReverseMap.c)
+ *     MiCopyOnWrite @ 0x1400B4520 (MiCopyOnWrite.c)
+ *     ExpWaitForSpinLockSharedAndAcquire @ 0x1400E7820 (ExpWaitForSpinLockSharedAndAcquire.c)
+ *     MiCheckSystemPageTables @ 0x1400E93A0 (MiCheckSystemPageTables.c)
+ *     MiNoFaultFound @ 0x1400E9414 (MiNoFaultFound.c)
+ *     MiGetSessionVm @ 0x1400E94DC (MiGetSessionVm.c)
+ *     MiCheckSystemNxFault @ 0x1400E9508 (MiCheckSystemNxFault.c)
+ *     MiIsWorkingSetTrimThread @ 0x1400E9540 (MiIsWorkingSetTrimThread.c)
+ *     MiUnlockSystemVa @ 0x1400ECE44 (MiUnlockSystemVa.c)
+ *     MiUnlockPageTableInternal @ 0x140104B10 (MiUnlockPageTableInternal.c)
+ *     KeInvalidAccessAllowed @ 0x140117D7C (KeInvalidAccessAllowed.c)
+ *     MiEmptyDeferredWorkingSetEntries @ 0x140128CC8 (MiEmptyDeferredWorkingSetEntries.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     MiGenerateAccessViolation @ 0x1402BC210 (MiGenerateAccessViolation.c)
+ *     MiCopyOnWriteCheckConditions @ 0x1402CB40C (MiCopyOnWriteCheckConditions.c)
+ *     MiTransientPageListWriter @ 0x1402CDA84 (MiTransientPageListWriter.c)
+ *     ExpAcquireSpinLockSharedAtDpcLevelInstrumented @ 0x14031C354 (ExpAcquireSpinLockSharedAtDpcLevelInstrumented.c)
  */
 
 __int64 __fastcall MiSystemFault(__int64 a1)
@@ -144,20 +144,20 @@ __int64 __fastcall MiSystemFault(__int64 a1)
     }
     while ( v4 >= 0xFFFFF68000000000uLL );
   }
-  if ( v3 >= 0xFFFFF68000000000uLL && v3 <= 0xFFFFF6FFFFFFFFFFuLL && v4 >= qword_14043BAC0 && v4 <= qword_14043A530 )
+  if ( v3 >= 0xFFFFF68000000000uLL && v3 <= 0xFFFFF6FFFFFFFFFFuLL && v4 >= qword_14043CB80 && v4 <= qword_14043B5F0 )
     *(_QWORD *)(a1 + 8) |= 2uLL;
   v78 = 0;
   if ( (*(_QWORD *)(a1 + 8) & 0x100000000000000LL) != 0 )
   {
     if ( v3 < 0xFFFFF68000000000uLL
       || v3 > 0xFFFFF6FFFFFFFFFFuLL
-      || v4 > 0x7FFFFFFEFFFFLL && (v4 < qword_14043BAC0 || v4 > qword_14043A530) )
+      || v4 > 0x7FFFFFFEFFFFLL && (v4 < qword_14043CB80 || v4 > qword_14043B5F0) )
     {
       return 3489660934LL;
     }
     return 192LL;
   }
-  if ( v4 < 0xFFFF800000000000uLL || v4 >= qword_14043A528 && v4 < qword_14043A528 + 276840448 )
+  if ( v4 < 0xFFFF800000000000uLL || v4 >= qword_14043B5E8 && v4 < qword_14043B5E8 + 276840448 )
     return 192LL;
   CurrentThread = KeGetCurrentThread();
   v6 = *((_DWORD *)&CurrentThread[1].SwapListEntry + 3);
@@ -169,12 +169,12 @@ __int64 __fastcall MiSystemFault(__int64 a1)
   }
   v7 = *(_QWORD *)a1;
   v8 = 0LL;
-  if ( !dword_14043A6C4 )
+  if ( !dword_14043B784 )
     goto LABEL_12;
-  v59 = ExAcquireSpinLockShared(&dword_14043A6C0);
-  v60 = (_QWORD *)qword_14043A6C8;
+  v59 = ExAcquireSpinLockShared(&dword_14043B780);
+  v60 = (_QWORD *)qword_14043B788;
   v61 = v59;
-  if ( !qword_14043A6C8 )
+  if ( !qword_14043B788 )
     goto LABEL_142;
   while ( 1 )
   {
@@ -195,7 +195,7 @@ LABEL_141:
   if ( v60 && v60[5] != ((v7 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL )
     v60 = 0LL;
 LABEL_142:
-  ExReleaseSpinLockSharedFromDpcLevel(&dword_14043A6C0);
+  ExReleaseSpinLockSharedFromDpcLevel(&dword_14043B780);
   if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && KeGetCurrentIrql() >= 2u && v61 < 2u )
   {
     CurrentPrcb = KeGetCurrentPrcb();
@@ -254,7 +254,7 @@ LABEL_19:
   memset(v88, 0, sizeof(v88));
   HIDWORD(v88[0]) = 1;
   v17 = ((v4 >> 39) & 0x1FF) - 256;
-  v18 = (unsigned __int8)byte_14043B950[v17];
+  v18 = (unsigned __int8)byte_14043CA10[v17];
   if ( (*(_DWORD *)(a1 + 80) & 8) != 0 )
   {
     if ( (unsigned int)(v18 - 6) > 1 )
@@ -266,7 +266,7 @@ LABEL_19:
   }
   if ( v18 == 8 )
   {
-    SessionVm = (char *)&unk_14043E640;
+    SessionVm = (char *)&unk_14043F700;
     goto LABEL_27;
   }
   if ( v18 == 1 )
@@ -281,12 +281,12 @@ LABEL_19:
   }
   if ( (unsigned int)(v18 - 6) <= 1 )
   {
-    SessionVm = (char *)&unk_14043B2A0;
+    SessionVm = (char *)&unk_14043C360;
     goto LABEL_27;
   }
   if ( v18 == 12 )
   {
-    SessionVm = (char *)&unk_14043B190;
+    SessionVm = (char *)&unk_14043C250;
     goto LABEL_27;
   }
   if ( v18 == 15 )
@@ -294,7 +294,7 @@ LABEL_19:
     v55 = (_BYTE *)(v9 & 0xFFFFFFFFFFFFFFFEuLL);
     if ( v11 && (*v55 == 1 || *v55 == 4) )
     {
-      SessionVm = (char *)&unk_14043B4C0;
+      SessionVm = (char *)&unk_14043C580;
       goto LABEL_27;
     }
     goto LABEL_250;
@@ -320,7 +320,7 @@ LABEL_250:
   if ( v22 < 6u )
   {
     if ( v22 == 2 )
-      v23 = &dword_14043B700;
+      v23 = &dword_14043C7C0;
     else
       v23 = (LONG *)(SessionVm + 192);
     CurrentIrql = KeGetCurrentIrql();
@@ -436,7 +436,7 @@ LABEL_38:
       if ( (Process & 1) == 0 )
         v53 = Process;
       v33 = *(_WORD *)(*(_QWORD *)v53 + 60LL) & 0x3FF;
-      AnyMultiplexedVm = (char *)(*(_QWORD *)(qword_14043A748 + 8 * v33) + 7424LL);
+      AnyMultiplexedVm = (char *)(*(_QWORD *)(qword_14043B808 + 8 * v33) + 7424LL);
       goto LABEL_101;
     }
     goto LABEL_249;
@@ -651,8 +651,8 @@ LABEL_85:
   else
   {
     v48 = v45;
-    if ( qword_14043A0C0 && (v45 & 0x10) == 0 )
-      v48 = v45 & ~qword_14043A0C0;
+    if ( qword_14043B180 && (v45 & 0x10) == 0 )
+      v48 = v45 & ~qword_14043B180;
     v46 = v78;
     v8 = v48 >> 16;
     if ( !v78 )

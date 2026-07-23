@@ -1,11 +1,11 @@
 /*
- * XREFs of PspSiloInitializeIsStateSeparationEnabled @ 0x1409AD644
+ * XREFs of PspSiloInitializeIsStateSeparationEnabled @ 0x1409AD844
  * Callers:
- *     PspInitializeServerSiloDeferred @ 0x1409AD0A0 (PspInitializeServerSiloDeferred.c)
+ *     PspInitializeServerSiloDeferred @ 0x1409AD2A0 (PspInitializeServerSiloDeferred.c)
  * Callees:
- *     PsDetachSiloFromCurrentThread @ 0x14031CC90 (PsDetachSiloFromCurrentThread.c)
- *     PsAttachSiloToCurrentThread @ 0x14031CCB0 (PsAttachSiloToCurrentThread.c)
- *     ExIsStateSeparationEnabled @ 0x1409F8C08 (ExIsStateSeparationEnabled.c)
+ *     PsDetachSiloFromCurrentThread @ 0x14031CF20 (PsDetachSiloFromCurrentThread.c)
+ *     PsAttachSiloToCurrentThread @ 0x14031CF40 (PsAttachSiloToCurrentThread.c)
+ *     ExIsStateSeparationEnabled @ 0x1409F8E98 (ExIsStateSeparationEnabled.c)
  */
 
 __int64 __fastcall PspSiloInitializeIsStateSeparationEnabled(struct _LIST_ENTRY *a1)

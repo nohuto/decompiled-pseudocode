@@ -27,11 +27,11 @@ __int64 __fastcall MiReserveBootDriverPtes(__int64 a1, int a2)
   __int64 v17; // r10
   __int64 result; // rax
   unsigned __int64 v19; // r13
-  RTL_BITMAP *v20; // rbx
+  _RTL_BITMAP *v20; // rbx
 
   v4 = a1 << 25 >> 16;
   v5 = *(_QWORD *)&KeNumberProcessorsGroup0[9];
-  if ( v4 == v5 || v4 == PsHalImageBase )
+  if ( v4 == v5 || (PVOID)v4 == PsHalImageBase )
     v6 = ((unsigned int)dword_140E3726C >> 12) + ((dword_140E3726C & 0xFFF) != 0);
   else
     v6 = dword_140E2D4F8
@@ -74,7 +74,7 @@ __int64 __fastcall MiReserveBootDriverPtes(__int64 a1, int a2)
   }
   v19 = (unsigned int)((__int64)(v15 - v14) >> 3) >> 4;
   result = MiAllocatePool(0x40uLL, (v19 >> 3) + 56, 1883532621);
-  v20 = (RTL_BITMAP *)result;
+  v20 = (_RTL_BITMAP *)result;
   if ( result )
   {
     *(_DWORD *)(result + 16) = v19;

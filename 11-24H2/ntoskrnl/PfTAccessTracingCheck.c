@@ -1,7 +1,7 @@
 /*
- * XREFs of PfTAccessTracingCheck @ 0x1405CC6D0
+ * XREFs of PfTAccessTracingCheck @ 0x1405C9E40
  * Callers:
- *     PfpLogScenarioEventCallback @ 0x140745B10 (PfpLogScenarioEventCallback.c)
+ *     PfpLogScenarioEventCallback @ 0x140743E00 (PfpLogScenarioEventCallback.c)
  * Callees:
  *     <none>
  */

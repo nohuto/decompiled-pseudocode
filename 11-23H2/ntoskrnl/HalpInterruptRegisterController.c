@@ -1,18 +1,18 @@
 /*
- * XREFs of HalpInterruptRegisterController @ 0x1403786E4
+ * XREFs of HalpInterruptRegisterController @ 0x140378884
  * Callers:
- *     HalpPicDiscover @ 0x140379234 (HalpPicDiscover.c)
- *     HalpApicRegisterIoUnit @ 0x1403A4C74 (HalpApicRegisterIoUnit.c)
+ *     HalpPicDiscover @ 0x1403793D4 (HalpPicDiscover.c)
+ *     HalpApicRegisterIoUnit @ 0x1403A4E54 (HalpApicRegisterIoUnit.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1B0 (RtlInitUnicodeString.c)
- *     RtlCopyUnicodeString @ 0x1402AEFD0 (RtlCopyUnicodeString.c)
- *     HalpInterruptLookupController @ 0x14031FEE0 (HalpInterruptLookupController.c)
- *     HalpIsPartitionCpuManager @ 0x140377EF8 (HalpIsPartitionCpuManager.c)
- *     HalpInterruptBuildKnownResourceIdString @ 0x140378A60 (HalpInterruptBuildKnownResourceIdString.c)
- *     HalpMmAllocateMemoryInternal @ 0x14037DB08 (HalpMmAllocateMemoryInternal.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memmove @ 0x140435700 (memmove.c)
- *     memset @ 0x140435A00 (memset.c)
+ *     RtlInitUnicodeString @ 0x14022E2C0 (RtlInitUnicodeString.c)
+ *     RtlCopyUnicodeString @ 0x1402AF260 (RtlCopyUnicodeString.c)
+ *     HalpInterruptLookupController @ 0x140320170 (HalpInterruptLookupController.c)
+ *     HalpIsPartitionCpuManager @ 0x140378098 (HalpIsPartitionCpuManager.c)
+ *     HalpInterruptBuildKnownResourceIdString @ 0x140378C00 (HalpInterruptBuildKnownResourceIdString.c)
+ *     HalpMmAllocateMemoryInternal @ 0x14037DCA8 (HalpMmAllocateMemoryInternal.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     memset @ 0x140435E00 (memset.c)
  */
 
 __int64 __fastcall HalpInterruptRegisterController(__int64 a1)

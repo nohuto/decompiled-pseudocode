@@ -6,7 +6,7 @@
  * Callees:
  *     RtlpUpdateUCRIndexInsert @ 0x18000EB34 (RtlpUpdateUCRIndexInsert.c)
  *     RtlpFindUCREntry @ 0x18000EB94 (RtlpFindUCREntry.c)
- *     RtlpLogHeapFailure @ 0x18010E1BC (RtlpLogHeapFailure.c)
+ *     RtlpLogHeapFailure @ 0x18010E17C (RtlpLogHeapFailure.c)
  */
 
 __int64 __fastcall RtlpInsertUCRBlock(unsigned __int64 a1, __int64 *a2)

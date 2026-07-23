@@ -1,79 +1,75 @@
 /*
- * XREFs of RtlpHpAcquireLockExclusive @ 0x14020D790
+ * XREFs of RtlpHpAcquireLockExclusive @ 0x140336AF0
  * Callers:
- *     RtlpHpLfhOwnerCompact @ 0x1402B461C (RtlpHpLfhOwnerCompact.c)
- *     RtlpHpLfhBucketGetSubsegment @ 0x1402B55B8 (RtlpHpLfhBucketGetSubsegment.c)
- *     RtlpHpLfhSubsegmentDecommitPages @ 0x1402B61E0 (RtlpHpLfhSubsegmentDecommitPages.c)
- *     RtlpHpLfhSlotAllocateSlow @ 0x1402B6D78 (RtlpHpLfhSlotAllocateSlow.c)
- *     RtlpHpLfhSubsegmentIncBlockCounts @ 0x1402B8E70 (RtlpHpLfhSubsegmentIncBlockCounts.c)
- *     RtlpHpLfhSubsegmentCommitBlock @ 0x1402B9010 (RtlpHpLfhSubsegmentCommitBlock.c)
- *     RtlpHpSegLockAcquire @ 0x1402BC9B4 (RtlpHpSegLockAcquire.c)
- *     RtlpHpSegMgrLock @ 0x1402C0D1C (RtlpHpSegMgrLock.c)
- *     RtlpHpSegMgrCommitInitiate @ 0x1402C25F4 (RtlpHpSegMgrCommitInitiate.c)
- *     RtlpHpLargeLockAcquire @ 0x140420E08 (RtlpHpLargeLockAcquire.c)
- *     RtlpHpVaMgrCtxFree @ 0x140421038 (RtlpHpVaMgrCtxFree.c)
- *     RtlpHpVaMgrAlloc @ 0x140421420 (RtlpHpVaMgrAlloc.c)
- *     RtlpHpLfhBucketAddSubsegment @ 0x14045CC3C (RtlpHpLfhBucketAddSubsegment.c)
- *     RtlpHpFixedVsFree @ 0x14049D650 (RtlpHpFixedVsFree.c)
- *     RtlpHpFixedVsAllocate @ 0x1404A3AC0 (RtlpHpFixedVsAllocate.c)
- *     RtlpHpHeapExtendContext @ 0x1404A803C (RtlpHpHeapExtendContext.c)
- *     RtlpHpCustomVaCallbacksRegistrarRegister @ 0x140604534 (RtlpHpCustomVaCallbacksRegistrarRegister.c)
- *     RtlpHpCustomVaCallbacksRegistrarUnregister @ 0x1406048CC (RtlpHpCustomVaCallbacksRegistrarUnregister.c)
- *     RtlpHpRegisterEnvironment @ 0x1406053F0 (RtlpHpRegisterEnvironment.c)
- *     RtlpHpVaMgrCtxAllocatorReference @ 0x1406058F0 (RtlpHpVaMgrCtxAllocatorReference.c)
- *     RtlpHpLfhContextLockExtension @ 0x140606780 (RtlpHpLfhContextLockExtension.c)
- *     RtlpHpLfhPrivateSlotCreate @ 0x140606A80 (RtlpHpLfhPrivateSlotCreate.c)
- *     RtlpHpLfhPrivateSlotListCompact @ 0x140606C4C (RtlpHpLfhPrivateSlotListCompact.c)
- *     RtlpHpLfhPrivateSlotShutdown @ 0x140606D74 (RtlpHpLfhPrivateSlotShutdown.c)
+ *     RtlpHpFixedVsAllocate @ 0x14026C140 (RtlpHpFixedVsAllocate.c)
+ *     RtlpHpSegMgrLock @ 0x14035CE14 (RtlpHpSegMgrLock.c)
+ *     RtlpHpSegMgrCommitInitiate @ 0x14035E2C4 (RtlpHpSegMgrCommitInitiate.c)
+ *     RtlpHpLfhBucketAddSubsegment @ 0x14035EA3C (RtlpHpLfhBucketAddSubsegment.c)
+ *     RtlpHpLfhSlotAllocateSlow @ 0x14035EE00 (RtlpHpLfhSlotAllocateSlow.c)
+ *     RtlpHpLfhSubsegmentAllocateBlockShared @ 0x14035FCA0 (RtlpHpLfhSubsegmentAllocateBlockShared.c)
+ *     RtlpHpLfhSubsegmentIncBlockCounts @ 0x1403605B0 (RtlpHpLfhSubsegmentIncBlockCounts.c)
+ *     RtlpHpLfhSubsegmentCommitBlock @ 0x140360750 (RtlpHpLfhSubsegmentCommitBlock.c)
+ *     RtlpHpSegLockAcquire @ 0x1403640F4 (RtlpHpSegLockAcquire.c)
+ *     RtlpHpLfhBucketGetSubsegment @ 0x1403D81F0 (RtlpHpLfhBucketGetSubsegment.c)
+ *     RtlpHpLfhSubsegmentDecommitPages @ 0x1403D8DE0 (RtlpHpLfhSubsegmentDecommitPages.c)
+ *     RtlpHpLfhOwnerCompact @ 0x1404322C0 (RtlpHpLfhOwnerCompact.c)
+ *     RtlpHpLargeLockAcquire @ 0x1404590DC (RtlpHpLargeLockAcquire.c)
+ *     RtlpHpVaMgrCtxFree @ 0x14045930C (RtlpHpVaMgrCtxFree.c)
+ *     RtlpHpVaMgrAlloc @ 0x1404596F4 (RtlpHpVaMgrAlloc.c)
+ *     RtlpHpFixedVsFree @ 0x140498450 (RtlpHpFixedVsFree.c)
+ *     RtlpHpHeapExtendContext @ 0x1404A2A8C (RtlpHpHeapExtendContext.c)
+ *     RtlpHpCustomVaCallbacksRegistrarRegister @ 0x140601B74 (RtlpHpCustomVaCallbacksRegistrarRegister.c)
+ *     RtlpHpCustomVaCallbacksRegistrarUnregister @ 0x140601F0C (RtlpHpCustomVaCallbacksRegistrarUnregister.c)
+ *     RtlpHpRegisterEnvironment @ 0x140602A30 (RtlpHpRegisterEnvironment.c)
+ *     RtlpHpVaMgrCtxAllocatorReference @ 0x140602F30 (RtlpHpVaMgrCtxAllocatorReference.c)
+ *     RtlpHpLfhContextLockExtension @ 0x140603DC0 (RtlpHpLfhContextLockExtension.c)
+ *     RtlpHpLfhPrivateSlotCreate @ 0x1406040C0 (RtlpHpLfhPrivateSlotCreate.c)
+ *     RtlpHpLfhPrivateSlotListCompact @ 0x14060428C (RtlpHpLfhPrivateSlotListCompact.c)
+ *     RtlpHpLfhPrivateSlotShutdown @ 0x140604374 (RtlpHpLfhPrivateSlotShutdown.c)
  * Callees:
- *     ExpWaitForSpinLockExclusiveAndAcquire @ 0x14020D580 (ExpWaitForSpinLockExclusiveAndAcquire.c)
- *     ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x14020D650 (ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented.c)
- *     HvlNotifyLongSpinWait @ 0x140293260 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140293290 (KiCheckVpBackingLongSpinWaitHypercall.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     HvlNotifyLongSpinWait @ 0x1402A2E60 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1402A2E90 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     ExpWaitForSpinLockExclusiveAndAcquire @ 0x1403368E0 (ExpWaitForSpinLockExclusiveAndAcquire.c)
+ *     ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x1403369B0 (ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
-char __fastcall RtlpHpAcquireLockExclusive(int *a1, int a2, __int64 a3)
+char __fastcall RtlpHpAcquireLockExclusive(int *a1, int a2)
 {
   unsigned __int8 CurrentIrql; // si
-  unsigned int v5; // edi
-  int v6; // eax
-  __int64 v7; // rcx
+  unsigned int v4; // edi
+  int i; // eax
   struct _KTHREAD *CurrentThread; // rax
-  __int64 v10; // rax
-  __int64 v11; // rdi
+  char *v8; // rax
+  char *v9; // rdi
 
   if ( a2 )
   {
     CurrentIrql = KeGetCurrentIrql();
     __writecr8(2uLL);
     if ( KiIrqlFlags )
-      KiRaiseIrqlProcessIrqlFlags(CurrentIrql, 2LL, a3);
+      KiRaiseIrqlProcessIrqlFlags(CurrentIrql, 2LL);
     if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || PopHibernateInProgress )
     {
-      v5 = 0;
+      v4 = 0;
       if ( _interlockedbittestandset(a1, 0x1Fu) )
-        v5 = ExpWaitForSpinLockExclusiveAndAcquire(a1, CurrentIrql, a3);
-      v6 = *a1;
-      v7 = (unsigned int)*a1;
-      for ( LODWORD(v7) = v7 & 0xBFFFFFFF; (_DWORD)v7 != 0x80000000; LODWORD(v7) = v7 & 0xBFFFFFFF )
+        v4 = ExpWaitForSpinLockExclusiveAndAcquire(a1, CurrentIrql);
+      for ( i = *a1; (*a1 & 0xBFFFFFFF) != 0x80000000; i = *a1 )
       {
-        if ( (v6 & 0x40000000) == 0 )
+        if ( (i & 0x40000000) == 0 )
           _InterlockedOr(a1, 0x40000000u);
-        if ( (++v5 & HvlLongSpinCountMask) == 0
+        if ( (++v4 & HvlLongSpinCountMask) == 0
           && (HvlEnlightenments & 0x40) != 0
-          && (unsigned __int8)KiCheckVpBackingLongSpinWaitHypercall(v7) )
+          && KiCheckVpBackingLongSpinWaitHypercall() )
         {
-          HvlNotifyLongSpinWait(v5);
+          HvlNotifyLongSpinWait(v4);
         }
         else
         {
           _mm_pause();
         }
-        v6 = *a1;
-        v7 = (unsigned int)*a1;
       }
       return CurrentIrql;
     }
@@ -87,12 +83,12 @@ char __fastcall RtlpHpAcquireLockExclusive(int *a1, int a2, __int64 a3)
   {
     CurrentThread = KeGetCurrentThread();
     --CurrentThread->SpecialApcDisable;
-    v10 = KeAbPreAcquire(a1, 0LL, 0LL);
-    v11 = v10;
+    v8 = (char *)KeAbPreAcquire((__int64)a1, 0LL);
+    v9 = v8;
     if ( _interlockedbittestandset64(a1, 0LL) )
-      ExfAcquirePushLockExclusiveEx(a1, v10, a1);
-    if ( v11 )
-      *(_BYTE *)(v11 + 10) = 1;
+      ExfAcquirePushLockExclusiveEx((unsigned __int64 *)a1, v8, (__int64)a1);
+    if ( v9 )
+      v9[10] = 1;
     return -1;
   }
 }

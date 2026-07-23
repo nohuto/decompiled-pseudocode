@@ -1,12 +1,12 @@
 /*
- * XREFs of PpmEventQosClassPolicy @ 0x140ACD558
+ * XREFs of PpmEventQosClassPolicy @ 0x140ACF798
  * Callers:
- *     PpmPerfCalculateQosClassPolicies @ 0x140489930 (PpmPerfCalculateQosClassPolicies.c)
- *     PpmEventTraceControlCallback @ 0x1407DCAD0 (PpmEventTraceControlCallback.c)
+ *     PpmPerfCalculateQosClassPolicies @ 0x140483470 (PpmPerfCalculateQosClassPolicies.c)
+ *     PpmEventTraceControlCallback @ 0x1407E0E70 (PpmEventTraceControlCallback.c)
  * Callees:
- *     EtwEventEnabled @ 0x140212D90 (EtwEventEnabled.c)
- *     EtwWrite @ 0x140212EF0 (EtwWrite.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x140212E70 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x140212FD0 (EtwWrite.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 char __fastcall PpmEventQosClassPolicy(__int64 a1, char a2)
@@ -44,7 +44,7 @@ char __fastcall PpmEventQosClassPolicy(__int64 a1, char a2)
     v3 = &PPM_ETW_PERF_QOS_CLASS_POLICY_V2;
   if ( PpmEtwRegistered )
   {
-    LOBYTE(v2) = EtwEventEnabled((REGHANDLE)PopModernStandbyStateNotify.ApcState.ApcListHead[1].Blink, v3);
+    LOBYTE(v2) = EtwEventEnabled(PpmEtwHandle, v3);
     if ( (_BYTE)v2 )
     {
       *(_QWORD *)&UserData.Size = 4LL;
@@ -77,7 +77,7 @@ char __fastcall PpmEventQosClassPolicy(__int64 a1, char a2)
         v18 = *(_BYTE *)(a1 + 40LL * v5 + 580);
         v28 = v9;
         v29 = 31LL;
-        EtwWrite((REGHANDLE)PopModernStandbyStateNotify.ApcState.ApcListHead[1].Blink, v3, 0LL, 5u, &UserData);
+        EtwWrite(PpmEtwHandle, v3, 0LL, 5u, &UserData);
         LODWORD(v2) = v7 + 1;
         v7 = (int)v2;
         v5 = (unsigned int)v2;

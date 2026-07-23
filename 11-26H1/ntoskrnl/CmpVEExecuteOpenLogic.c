@@ -1,31 +1,31 @@
 /*
- * XREFs of CmpVEExecuteOpenLogic @ 0x1408D9360
+ * XREFs of CmpVEExecuteOpenLogic @ 0x1408DF920
  * Callers:
- *     CmpDoParseKey @ 0x1408CBC90 (CmpDoParseKey.c)
+ *     CmpDoParseKey @ 0x1408D2240 (CmpDoParseKey.c)
  * Callees:
- *     ExfReleasePushLockShared @ 0x140278BD0 (ExfReleasePushLockShared.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     HvpGetCellFlat @ 0x14085EB00 (HvpGetCellFlat.c)
- *     CmpFindPathByNameEx @ 0x1408B1924 (CmpFindPathByNameEx.c)
- *     CmpGetNextHive @ 0x1408B30D0 (CmpGetNextHive.c)
- *     CmpIsKeyDeleted @ 0x1408C1E30 (CmpIsKeyDeleted.c)
- *     HvLockHiveFlusherShared @ 0x1408C3818 (HvLockHiveFlusherShared.c)
- *     CmpDereferenceHive @ 0x1408C6580 (CmpDereferenceHive.c)
- *     CmpReferenceHive @ 0x1408C8740 (CmpReferenceHive.c)
- *     CmpLockKcbExclusive @ 0x1408CEB50 (CmpLockKcbExclusive.c)
- *     HvpMarkCellDirty @ 0x1408D4AB0 (HvpMarkCellDirty.c)
- *     HvpReleaseCellFlat @ 0x1408D51E0 (HvpReleaseCellFlat.c)
- *     HvpReleaseCellPaged @ 0x1408D73B0 (HvpReleaseCellPaged.c)
- *     HvpGetCellPaged @ 0x1408D7410 (HvpGetCellPaged.c)
- *     HvpGetCellContextInitialize @ 0x1408D9320 (HvpGetCellContextInitialize.c)
- *     CmpIsSystemEntity @ 0x1408F4110 (CmpIsSystemEntity.c)
- *     CmVirtualKCBToRealPath @ 0x140AF49A0 (CmVirtualKCBToRealPath.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
- *     CmpUnlockKcb @ 0x140C582B0 (CmpUnlockKcb.c)
- *     CmpAttachToRegistryProcess @ 0x140C58930 (CmpAttachToRegistryProcess.c)
- *     HvUnlockHiveFlusherExclusive @ 0x140C58D14 (HvUnlockHiveFlusherExclusive.c)
- *     HvLockHiveFlusherExclusive @ 0x140C58D30 (HvLockHiveFlusherExclusive.c)
+ *     ExfReleasePushLockShared @ 0x140278140 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     HvpGetCellFlat @ 0x140864DF0 (HvpGetCellFlat.c)
+ *     CmpFindPathByNameEx @ 0x1408B7F30 (CmpFindPathByNameEx.c)
+ *     CmpGetNextHive @ 0x1408B9680 (CmpGetNextHive.c)
+ *     CmpIsKeyDeleted @ 0x1408C8400 (CmpIsKeyDeleted.c)
+ *     HvLockHiveFlusherShared @ 0x1408C9DE8 (HvLockHiveFlusherShared.c)
+ *     CmpDereferenceHive @ 0x1408CCB50 (CmpDereferenceHive.c)
+ *     CmpReferenceHive @ 0x1408CECF0 (CmpReferenceHive.c)
+ *     CmpLockKcbExclusive @ 0x1408D5100 (CmpLockKcbExclusive.c)
+ *     HvpMarkCellDirty @ 0x1408DB070 (HvpMarkCellDirty.c)
+ *     HvpReleaseCellFlat @ 0x1408DB7A0 (HvpReleaseCellFlat.c)
+ *     HvpReleaseCellPaged @ 0x1408DD970 (HvpReleaseCellPaged.c)
+ *     HvpGetCellPaged @ 0x1408DD9D0 (HvpGetCellPaged.c)
+ *     HvpGetCellContextInitialize @ 0x1408DF8E0 (HvpGetCellContextInitialize.c)
+ *     CmpIsSystemEntity @ 0x1408FA6D0 (CmpIsSystemEntity.c)
+ *     CmVirtualKCBToRealPath @ 0x140AF7040 (CmVirtualKCBToRealPath.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
+ *     CmpUnlockKcb @ 0x140C5E2B0 (CmpUnlockKcb.c)
+ *     CmpAttachToRegistryProcess @ 0x140C5E930 (CmpAttachToRegistryProcess.c)
+ *     HvUnlockHiveFlusherExclusive @ 0x140C5ED14 (HvUnlockHiveFlusherExclusive.c)
+ *     HvLockHiveFlusherExclusive @ 0x140C5ED30 (HvLockHiveFlusherExclusive.c)
  */
 
 __int64 __fastcall CmpVEExecuteOpenLogic(
@@ -37,44 +37,38 @@ __int64 __fastcall CmpVEExecuteOpenLogic(
 {
   char *v9; // r14
   int v10; // ebx
-  __int64 v12; // rdx
-  __int64 v13; // r8
-  __int64 v14; // r9
-  char *i; // rcx
+  struct _KTHREAD **i; // rcx
   volatile signed __int32 *NextHive; // rax
-  char *v17; // rbx
-  __int64 v18; // rcx
-  __int64 v19; // rdx
-  __int64 v20; // r8
-  __int64 v21; // r9
+  struct _KTHREAD **v14; // rbx
+  __int64 v15; // rcx
   char PathByName; // r12
-  char *v23; // rcx
-  volatile signed __int32 *v24; // rax
-  char *v25; // rbx
-  __int64 v26; // rdx
-  __int64 v27; // r8
-  struct _KLOCK_ENTRIES *v28; // r9
-  ULONG_PTR v29; // rbp
-  __int64 v30; // rdx
+  struct _KTHREAD **v17; // rcx
+  volatile signed __int32 *v18; // rax
+  char *v19; // rbx
+  __int64 v20; // rdx
+  __int64 v21; // r8
+  struct _KLOCK_ENTRIES *v22; // r9
+  ULONG_PTR v23; // rbp
+  __int64 v24; // rdx
   __int64 CellFlat; // rax
-  __int64 v32; // r14
-  __int64 v33; // rcx
-  void *v34; // rcx
-  __int64 v35; // rdx
-  __int64 v36; // r8
-  struct _KLOCK_ENTRIES *v37; // r9
-  unsigned int v38; // [rsp+30h] [rbp-58h] BYREF
-  __int64 v39; // [rsp+38h] [rbp-50h] BYREF
-  ULONG_PTR v40; // [rsp+40h] [rbp-48h] BYREF
+  __int64 v26; // r14
+  __int64 v27; // rcx
+  void *v28; // rcx
+  __int64 v29; // rdx
+  __int64 v30; // r8
+  struct _KLOCK_ENTRIES *v31; // r9
+  unsigned int v32; // [rsp+30h] [rbp-58h] BYREF
+  __int64 v33; // [rsp+38h] [rbp-50h] BYREF
+  ULONG_PTR v34; // [rsp+40h] [rbp-48h] BYREF
   __m128i P; // [rsp+48h] [rbp-40h] BYREF
 
-  v38 = 0;
-  v40 = 0LL;
-  v39 = 0LL;
+  v32 = 0;
+  v34 = 0LL;
+  v33 = 0LL;
   v9 = 0LL;
   P = 0LL;
   RtlInitUnicodeString((PUNICODE_STRING)&P, 0LL);
-  HvpGetCellContextInitialize(&v39);
+  HvpGetCellContextInitialize(&v33);
   if ( !CmpVEEnabled
     || (*(_DWORD *)(a2 + 24) & 0x10) != 0
     || *(_WORD *)(BugCheckParameter2 + 66)
@@ -95,39 +89,39 @@ __int64 __fastcall CmpVEExecuteOpenLogic(
     v10 = CmVirtualKCBToRealPath(BugCheckParameter2, &P);
     if ( v10 >= 0 )
     {
-      for ( i = 0LL; ; i = v17 )
+      for ( i = 0LL; ; i = v14 )
       {
-        NextHive = CmpGetNextHive(i, v12, v13, v14);
-        v17 = (char *)NextHive;
+        NextHive = CmpGetNextHive(i);
+        v14 = (struct _KTHREAD **)NextHive;
         if ( !NextHive )
           break;
         if ( (NextHive[1030] & 0x10) != 0 || NextHive == (volatile signed __int32 *)CmpMasterHive )
         {
           CmpReferenceHive((__int64)NextHive);
-          v9 = v17;
-          HvLockHiveFlusherExclusive(v18);
+          v9 = (char *)v14;
+          HvLockHiveFlusherExclusive(v15);
         }
       }
-      PathByName = CmpFindPathByNameEx(0LL, &P, 0LL, 16, &v38, &v40);
-      v23 = 0LL;
+      PathByName = CmpFindPathByNameEx(0LL, &P, 0LL, 16, &v32, &v34);
+      v17 = 0LL;
       do
       {
-        v24 = CmpGetNextHive(v23, v19, v20, v21);
-        v25 = (char *)v24;
-        if ( (v24[1030] & 0x10) != 0 || v24 == (volatile signed __int32 *)CmpMasterHive )
+        v18 = CmpGetNextHive(v17);
+        v19 = (char *)v18;
+        if ( (v18[1030] & 0x10) != 0 || v18 == (volatile signed __int32 *)CmpMasterHive )
         {
-          HvUnlockHiveFlusherExclusive(v24);
-          CmpDereferenceHive(v25);
+          HvUnlockHiveFlusherExclusive(v18);
+          CmpDereferenceHive(v19);
         }
-        v23 = v25;
+        v17 = (struct _KTHREAD **)v19;
       }
-      while ( v25 != v9 );
-      CmpDereferenceHive(v25);
+      while ( v19 != v9 );
+      CmpDereferenceHive(v19);
       if ( PathByName )
       {
-        v34 = (void *)a4->m128i_i64[1];
-        if ( v34 )
-          ExFreePoolWithTag(v34, 0);
+        v28 = (void *)a4->m128i_i64[1];
+        if ( v28 )
+          ExFreePoolWithTag(v28, 0);
         *a4 = P;
         RtlInitUnicodeString((PUNICODE_STRING)&P, 0LL);
         *(_DWORD *)a2 |= 8u;
@@ -135,42 +129,42 @@ __int64 __fastcall CmpVEExecuteOpenLogic(
       }
       else if ( a3
              || (CmpUnlockKcb(BugCheckParameter2),
-                 CmpLockKcbExclusive(BugCheckParameter2, v35, v36, v37),
+                 CmpLockKcbExclusive(BugCheckParameter2, v29, v30, v31),
                  !CmpIsKeyDeleted(BugCheckParameter2, 0LL)) )
       {
-        HvLockHiveFlusherShared(*(_QWORD *)(BugCheckParameter2 + 32), v26, v27, v28);
-        v29 = *(_QWORD *)(BugCheckParameter2 + 32);
-        v30 = *(unsigned int *)(BugCheckParameter2 + 40);
-        if ( (*(_BYTE *)(v29 + 140) & 1) != 0 )
-          CellFlat = HvpGetCellFlat(v29, v30, (unsigned int *)&v39);
+        HvLockHiveFlusherShared(*(_QWORD *)(BugCheckParameter2 + 32), v20, v21, v22);
+        v23 = *(_QWORD *)(BugCheckParameter2 + 32);
+        v24 = *(unsigned int *)(BugCheckParameter2 + 40);
+        if ( (*(_BYTE *)(v23 + 140) & 1) != 0 )
+          CellFlat = HvpGetCellFlat(v23, v24, (unsigned int *)&v33);
         else
-          CellFlat = HvpGetCellPaged(v29, v30);
-        v32 = CellFlat;
+          CellFlat = HvpGetCellPaged(v23, v24);
+        v26 = CellFlat;
         if ( CellFlat )
         {
           v10 = HvpMarkCellDirty(*(_QWORD *)(BugCheckParameter2 + 32), *(_DWORD *)(BugCheckParameter2 + 40), 1);
           if ( v10 >= 0 )
           {
             v10 = 260;
-            *(_WORD *)(v32 + 2) |= 0x100u;
+            *(_WORD *)(v26 + 2) |= 0x100u;
             *(_WORD *)(BugCheckParameter2 + 186) |= 0x100u;
             *(_DWORD *)a2 |= 8u;
           }
-          v33 = *(_QWORD *)(BugCheckParameter2 + 32);
-          if ( (*(_BYTE *)(v33 + 140) & 1) != 0 )
-            HvpReleaseCellFlat(v33, (__int64)&v39);
+          v27 = *(_QWORD *)(BugCheckParameter2 + 32);
+          if ( (*(_BYTE *)(v27 + 140) & 1) != 0 )
+            HvpReleaseCellFlat(v27, (__int64)&v33);
           else
-            HvpReleaseCellPaged(v33, (unsigned int *)&v39);
+            HvpReleaseCellPaged(v27, (unsigned int *)&v33);
         }
         else
         {
           v10 = -1073741670;
         }
-        if ( v29 )
+        if ( v23 )
         {
-          if ( _InterlockedCompareExchange64((volatile signed __int64 *)(v29 + 72), 0LL, 17LL) != 17 )
-            ExfReleasePushLockShared((signed __int64 *)(v29 + 72));
-          KeAbPostRelease(v29 + 72);
+          if ( _InterlockedCompareExchange64((volatile signed __int64 *)(v23 + 72), 0LL, 17LL) != 17 )
+            ExfReleasePushLockShared((signed __int64 *)(v23 + 72));
+          KeAbPostRelease(v23 + 72);
         }
       }
       else

@@ -1,18 +1,18 @@
 /*
- * XREFs of MmCreateSpecialImageSection @ 0x140B7F20C
+ * XREFs of MmCreateSpecialImageSection @ 0x140B880EC
  * Callers:
- *     PspLocateSystemDll @ 0x1407EE38C (PspLocateSystemDll.c)
- *     NtCreateUserProcess @ 0x140B77FE0 (NtCreateUserProcess.c)
+ *     PspLocateSystemDll @ 0x1407F3EEC (PspLocateSystemDll.c)
+ *     NtCreateUserProcess @ 0x140B7D6F0 (NtCreateUserProcess.c)
  * Callees:
- *     KeDelayExecutionThread @ 0x140244840 (KeDelayExecutionThread.c)
- *     MiDereferenceControlAreaFile @ 0x1402649C0 (MiDereferenceControlAreaFile.c)
- *     CcZeroEndOfLastPage @ 0x1402C6408 (CcZeroEndOfLastPage.c)
- *     PsGetSessionIdEx @ 0x14030B820 (PsGetSessionIdEx.c)
- *     MiSectionControlArea @ 0x14038A9B0 (MiSectionControlArea.c)
- *     MiReferenceControlAreaFile @ 0x140448EB0 (MiReferenceControlAreaFile.c)
- *     Feature_TrustedLaunchHosts__private_IsEnabledDeviceUsageNoInline @ 0x140615670 (Feature_TrustedLaunchHosts__private_IsEnabledDeviceUsageNoInline.c)
- *     ObInsertObjectEx @ 0x14092B470 (ObInsertObjectEx.c)
- *     MiCreateSection @ 0x1409BA4D4 (MiCreateSection.c)
+ *     KeDelayExecutionThread @ 0x1402461A0 (KeDelayExecutionThread.c)
+ *     MiDereferenceControlAreaFile @ 0x140263F30 (MiDereferenceControlAreaFile.c)
+ *     PsGetSessionIdEx @ 0x1402ED8A0 (PsGetSessionIdEx.c)
+ *     CcZeroEndOfLastPage @ 0x1403110A8 (CcZeroEndOfLastPage.c)
+ *     MiSectionControlArea @ 0x14038C760 (MiSectionControlArea.c)
+ *     MiReferenceControlAreaFile @ 0x1404419A0 (MiReferenceControlAreaFile.c)
+ *     Feature_TrustedLaunchHosts__private_IsEnabledDeviceUsageNoInline @ 0x140618694 (Feature_TrustedLaunchHosts__private_IsEnabledDeviceUsageNoInline.c)
+ *     ObInsertObjectEx @ 0x140906FA0 (ObInsertObjectEx.c)
+ *     MiCreateSection @ 0x14098B4B4 (MiCreateSection.c)
  */
 
 __int64 __fastcall MmCreateSpecialImageSection(_QWORD *a1, int a2, __int64 a3, char a4, __int64 a5, char a6)
@@ -47,7 +47,7 @@ __int64 __fastcall MmCreateSpecialImageSection(_QWORD *a1, int a2, __int64 a3, c
   v15 = (struct _FILE_OBJECT *)MiReferenceControlAreaFile(v14);
   CcZeroEndOfLastPage(v15);
   MiDereferenceControlAreaFile(v14, (unsigned __int64)v15);
-  result = ObInsertObjectEx(v16, 0LL, 0xF001Fu, 0, 0, 0LL, &v17);
+  result = ObInsertObjectEx(v16, 0LL, 983071, 0, 0, 0LL, &v17);
   if ( (int)result >= 0 )
     *a1 = v17;
   return result;

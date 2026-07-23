@@ -1,14 +1,14 @@
 /*
- * XREFs of PpmEventHgsHardwareTableResonChanged @ 0x1404CCC34
+ * XREFs of PpmEventHgsHardwareTableResonChanged @ 0x1404C6008
  * Callers:
- *     PpmHeteroUpdateHgsConfiguration @ 0x140203248 (PpmHeteroUpdateHgsConfiguration.c)
- *     PpmEventTraceControlCallback @ 0x140ACA960 (PpmEventTraceControlCallback.c)
+ *     PpmHeteroUpdateHgsConfiguration @ 0x1404E2E24 (PpmHeteroUpdateHgsConfiguration.c)
+ *     PpmEventTraceControlCallback @ 0x140AC8550 (PpmEventTraceControlCallback.c)
  * Callees:
- *     EtwWriteEx @ 0x140259680 (EtwWriteEx.c)
- *     EtwEventEnabled @ 0x1402A1BD0 (EtwEventEnabled.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     EtwWriteEx @ 0x140289C90 (EtwWriteEx.c)
+ *     EtwEventEnabled @ 0x1402D1300 (EtwEventEnabled.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __fastcall PpmEventHgsHardwareTableResonChanged(char a1)
@@ -38,7 +38,7 @@ void __fastcall PpmEventHgsHardwareTableResonChanged(char a1)
     {
       v7 = PpmHeteroWorkloadClasses;
       v8 = PpmHeteroWorkloadClasses;
-      Pool2 = (_BYTE *)ExAllocatePool2(0x100uLL);
+      Pool2 = (_BYTE *)ExAllocatePool2(0x100uLL, (unsigned int)(6 * PpmHeteroWorkloadClasses), 0x654D5050u);
       if ( Pool2 )
       {
         v3 = PpmHeteroHgsOldUpdateReason;

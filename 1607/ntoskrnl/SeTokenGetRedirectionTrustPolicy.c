@@ -1,12 +1,12 @@
 /*
- * XREFs of SeTokenGetRedirectionTrustPolicy @ 0x14021A648
+ * XREFs of SeTokenGetRedirectionTrustPolicy @ 0x14021A474
  * Callers:
- *     IoCheckRedirectionTrustLevel @ 0x1401CA1D0 (IoCheckRedirectionTrustLevel.c)
- *     PspGetRedirectionTrustPolicy @ 0x14067D22C (PspGetRedirectionTrustPolicy.c)
+ *     IoCheckRedirectionTrustLevel @ 0x1401CA070 (IoCheckRedirectionTrustLevel.c)
+ *     PspGetRedirectionTrustPolicy @ 0x14067D310 (PspGetRedirectionTrustPolicy.c)
  * Callees:
- *     ExAcquireResourceSharedLite @ 0x1400685B0 (ExAcquireResourceSharedLite.c)
- *     ExReleaseResourceLite @ 0x140068940 (ExReleaseResourceLite.c)
- *     KeLeaveCriticalRegion @ 0x140069D00 (KeLeaveCriticalRegion.c)
+ *     ExAcquireResourceSharedLite @ 0x140068130 (ExAcquireResourceSharedLite.c)
+ *     ExReleaseResourceLite @ 0x1400684C0 (ExReleaseResourceLite.c)
+ *     KeLeaveCriticalRegion @ 0x140069880 (KeLeaveCriticalRegion.c)
  */
 
 __int64 __fastcall SeTokenGetRedirectionTrustPolicy(__int64 a1, bool *a2, bool *a3)

@@ -1,44 +1,45 @@
 /*
- * XREFs of NtAlpcDisconnectPort @ 0x1406AC420
+ * XREFs of NtAlpcDisconnectPort @ 0x14060AB10
  * Callers:
  *     <none>
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     AlpcpDisconnectPort @ 0x1405E26FC (AlpcpDisconnectPort.c)
- *     ObReferenceObjectByHandle @ 0x1406F0BC0 (ObReferenceObjectByHandle.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     KeLeaveCriticalRegionThread @ 0x1402AB8C0 (KeLeaveCriticalRegionThread.c)
+ *     AlpcpDisconnectPort @ 0x1406D1E5C (AlpcpDisconnectPort.c)
+ *     ObReferenceObjectByHandle @ 0x140707FA0 (ObReferenceObjectByHandle.c)
  */
 
-__int64 __fastcall NtAlpcDisconnectPort(void *a1, int a2)
+// local variable allocation has failed, the output may be wrong!
+NTSTATUS __cdecl NtAlpcDisconnectPort(HANDLE PortHandle, ULONG Flags)
 {
+  __int64 v2; // r8
+  __int64 v3; // r9
   struct _KTHREAD *CurrentThread; // rax
-  char v3; // di
-  int v4; // ebx
+  int v5; // ebx
   PADAPTER_OBJECT DmaAdapter; // [rsp+50h] [rbp+18h] BYREF
 
   CurrentThread = KeGetCurrentThread();
-  v3 = a2;
   --CurrentThread->KernelApcDisable;
-  if ( (a2 & 0xFFFFFFFE) != 0 )
+  if ( (Flags & 0xFFFFFFFE) != 0 )
   {
-    v4 = -1073741811;
+    v5 = -1073741811;
   }
   else
   {
     DmaAdapter = 0LL;
-    v4 = ObReferenceObjectByHandle(
-           a1,
+    v5 = ObReferenceObjectByHandle(
+           PortHandle,
            1u,
            AlpcPortObjectType,
            KeGetCurrentThread()->PreviousMode,
            (PVOID *)&DmaAdapter,
            0LL);
-    if ( v4 >= 0 )
+    if ( v5 >= 0 )
     {
-      v4 = AlpcpDisconnectPort((__int64)DmaAdapter, v3);
+      v5 = AlpcpDisconnectPort(DmaAdapter);
       HalPutDmaAdapter(DmaAdapter);
     }
   }
-  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
-  return (unsigned int)v4;
+  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), *(__int64 *)&Flags, v2, v3);
+  return v5;
 }

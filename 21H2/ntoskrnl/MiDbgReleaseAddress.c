@@ -1,16 +1,16 @@
 /*
- * XREFs of MiDbgReleaseAddress @ 0x1405460BC
+ * XREFs of MiDbgReleaseAddress @ 0x1405462FC
  * Callers:
- *     MiDbgCopyMemory @ 0x1405458A4 (MiDbgCopyMemory.c)
+ *     MiDbgCopyMemory @ 0x140545AE4 (MiDbgCopyMemory.c)
  * Callees:
- *     KeFlushSingleTb @ 0x14026BA08 (KeFlushSingleTb.c)
- *     MiWritePteShadow @ 0x1402B69BC (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x1402B6A1C (MiPteHasShadow.c)
- *     MI_IS_PHYSICAL_ADDRESS @ 0x14031CBD0 (MI_IS_PHYSICAL_ADDRESS.c)
- *     MiGetLeafVa @ 0x14032CE60 (MiGetLeafVa.c)
- *     MiPteInShadowRange @ 0x140348AF0 (MiPteInShadowRange.c)
- *     MiRealVaToFlushType @ 0x1403791A8 (MiRealVaToFlushType.c)
- *     KeFlushSingleCurrentTb @ 0x140389ED8 (KeFlushSingleCurrentTb.c)
+ *     MiWritePteShadow @ 0x140234B9C (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140234BFC (MiPteHasShadow.c)
+ *     KeFlushSingleTb @ 0x1402599A8 (KeFlushSingleTb.c)
+ *     MI_IS_PHYSICAL_ADDRESS @ 0x140327920 (MI_IS_PHYSICAL_ADDRESS.c)
+ *     MiGetLeafVa @ 0x140337BB0 (MiGetLeafVa.c)
+ *     MiPteInShadowRange @ 0x140353840 (MiPteInShadowRange.c)
+ *     MiRealVaToFlushType @ 0x140378CF8 (MiRealVaToFlushType.c)
+ *     KeFlushSingleCurrentTb @ 0x14038A028 (KeFlushSingleCurrentTb.c)
  */
 
 _UNKNOWN **__fastcall MiDbgReleaseAddress(unsigned __int64 a1, __int64 *a2, char a3)
@@ -21,10 +21,9 @@ _UNKNOWN **__fastcall MiDbgReleaseAddress(unsigned __int64 a1, __int64 *a2, char
   unsigned __int64 v8; // rax
   __int64 *v9; // rdi
   int v10; // ebp
-  __int64 v11; // r8
-  bool v12; // zf
+  bool v11; // zf
   unsigned __int64 LeafVa; // rax
-  unsigned int v14; // edx
+  unsigned int v13; // edx
   _UNKNOWN *retaddr; // [rsp+28h] [rbp+0h] BYREF
 
   result = &retaddr;
@@ -42,35 +41,35 @@ _UNKNOWN **__fastcall MiDbgReleaseAddress(unsigned __int64 a1, __int64 *a2, char
     v8 = 0xFFFFF68000000000uLL;
   }
   v9 = (__int64 *)(v8 + v7);
-  _InterlockedIncrement(&dword_140C4E894);
+  _InterlockedIncrement(&dword_140C4E8D4);
   v10 = 0;
   if ( MiPteInShadowRange((unsigned __int64)v9) )
   {
     if ( (unsigned int)MiPteHasShadow() )
     {
       v10 = 1;
-      if ( !HIBYTE(word_140C4E008) )
+      if ( !HIBYTE(word_140C4E048) )
       {
-        v12 = (v4 & 1) == 0;
+        v11 = (v4 & 1) == 0;
         goto LABEL_11;
       }
     }
     else if ( (HIDWORD(KeGetCurrentThread()->ApcState.Process[2].Header.WaitListHead.Flink) & 0x1000) != 0 )
     {
-      v12 = (v4 & 1) == 0;
+      v11 = (v4 & 1) == 0;
 LABEL_11:
-      if ( !v12 )
+      if ( !v11 )
         v4 |= 0x8000000000000000uLL;
     }
   }
   *v9 = v4;
   if ( v10 )
-    MiWritePteShadow((__int64)v9, v4, v11);
-  _InterlockedDecrement(&dword_140C4E894);
+    MiWritePteShadow((__int64)v9, v4);
+  _InterlockedDecrement(&dword_140C4E8D4);
   LeafVa = MiGetLeafVa(a1);
-  v14 = MiRealVaToFlushType(LeafVa);
+  v13 = MiRealVaToFlushType(LeafVa);
   if ( (a3 & 4) != 0 )
-    return (_UNKNOWN **)KeFlushSingleCurrentTb(a1, v14);
+    return (_UNKNOWN **)KeFlushSingleCurrentTb(a1, v13);
   else
-    return (_UNKNOWN **)KeFlushSingleTb(a1, v14, 2u);
+    return (_UNKNOWN **)KeFlushSingleTb(a1, v13, 2u);
 }

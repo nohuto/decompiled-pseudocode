@@ -1,15 +1,15 @@
 /*
- * XREFs of HalpIommuProcessIvhdEntry @ 0x140571BB8
+ * XREFs of HalpIommuProcessIvhdEntry @ 0x14056F048
  * Callers:
- *     HalpIommuHsaDiscover @ 0x140C15508 (HalpIommuHsaDiscover.c)
+ *     HalpIommuHsaDiscover @ 0x140C17508 (HalpIommuHsaDiscover.c)
  * Callees:
- *     RtlClearBits @ 0x14037CD40 (RtlClearBits.c)
- *     ExtEnvAllocateMemory @ 0x14055FA30 (ExtEnvAllocateMemory.c)
- *     HalRegisterPermanentAddressUsage @ 0x14055FED0 (HalRegisterPermanentAddressUsage.c)
- *     HalpIommuProcessDeviceEntries @ 0x1405718D8 (HalpIommuProcessDeviceEntries.c)
- *     HsaProcessIvmd @ 0x140573580 (HsaProcessIvmd.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     ExtEnvRegisterIommu @ 0x140C10D18 (ExtEnvRegisterIommu.c)
+ *     RtlClearBits @ 0x1402EA360 (RtlClearBits.c)
+ *     ExtEnvAllocateMemory @ 0x14055D660 (ExtEnvAllocateMemory.c)
+ *     HalRegisterPermanentAddressUsage @ 0x14055DB00 (HalRegisterPermanentAddressUsage.c)
+ *     HalpIommuProcessDeviceEntries @ 0x14056ED68 (HalpIommuProcessDeviceEntries.c)
+ *     HsaProcessIvmd @ 0x140570A10 (HsaProcessIvmd.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     ExtEnvRegisterIommu @ 0x140C12D0C (ExtEnvRegisterIommu.c)
  */
 
 int __fastcall HalpIommuProcessIvhdEntry(__int64 a1, __int64 a2, char *a3)
@@ -257,13 +257,13 @@ int __fastcall HalpIommuProcessIvhdEntry(__int64 a1, __int64 a2, char *a3)
                 {
                   v33 = v38;
                   v38[2] = *(_QWORD *)(a2 + 8);
-                  v34 = (_QWORD *)qword_140F8E8E8;
-                  if ( *(__int64 **)qword_140F8E8E8 != &HsaIvhdList )
+                  v34 = (_QWORD *)qword_140F8EAC8;
+                  if ( *(__int64 **)qword_140F8EAC8 != &HsaIvhdList )
                     __fastfail(3u);
                   *v33 = &HsaIvhdList;
                   v33[1] = v34;
                   *v34 = v33;
-                  qword_140F8E8E8 = (__int64)v33;
+                  qword_140F8EAC8 = (__int64)v33;
                   if ( v53 || v55 )
                     v6 = 1;
                   *v54 = v6;

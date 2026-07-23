@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlEnterUmsSchedulingMode @ 0x1800EC770
+ * XREFs of RtlEnterUmsSchedulingMode @ 0x1800EC830
  * Callers:
  *     <none>
  * Callees:
- *     RtlGetCurrentUmsThread @ 0x180061980 (RtlGetCurrentUmsThread.c)
+ *     RtlGetCurrentUmsThread @ 0x180061970 (RtlGetCurrentUmsThread.c)
  *     ZwRaiseException @ 0x1800A8E70 (ZwRaiseException.c)
  *     RtlpUmsPrimaryContextWrap @ 0x1800AAC70 (RtlpUmsPrimaryContextWrap.c)
- *     RtlpAttachThreadToUmsCompletionList @ 0x1800ECBF0 (RtlpAttachThreadToUmsCompletionList.c)
- *     RtlpDetachThreadFromUmsCompletionList @ 0x1800ECCB4 (RtlpDetachThreadFromUmsCompletionList.c)
+ *     RtlpAttachThreadToUmsCompletionList @ 0x1800ECCB0 (RtlpAttachThreadToUmsCompletionList.c)
+ *     RtlpDetachThreadFromUmsCompletionList @ 0x1800ECD74 (RtlpDetachThreadFromUmsCompletionList.c)
  *     RtlpSaveUmsDebugRegisterState @ 0x1800FCBA4 (RtlpSaveUmsDebugRegisterState.c)
  */
 

@@ -1,8 +1,8 @@
 /*
- * XREFs of wcsncmp @ 0x180095B70
+ * XREFs of wcsncmp @ 0x180095B80
  * Callers:
  *     LdrpResCompareResourceNames @ 0x180039618 (LdrpResCompareResourceNames.c)
- *     LdrpCompareResourceNamesWithValidation @ 0x18009EF7C (LdrpCompareResourceNamesWithValidation.c)
+ *     LdrpCompareResourceNamesWithValidation @ 0x18009EF8C (LdrpCompareResourceNamesWithValidation.c)
  * Callees:
  *     <none>
  */

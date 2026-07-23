@@ -1,9 +1,9 @@
 /*
- * XREFs of UmapInterlockedAnd64ToUser @ 0x14077FD20
+ * XREFs of UmapInterlockedAnd64ToUser @ 0x140782820
  * Callers:
  *     <none>
  * Callees:
- *     ProbeForRead @ 0x1408EF880 (ProbeForRead.c)
+ *     ProbeForRead @ 0x1408F5E40 (ProbeForRead.c)
  */
 
 signed __int64 __fastcall UmapInterlockedAnd64ToUser(volatile void *a1, unsigned __int64 a2)

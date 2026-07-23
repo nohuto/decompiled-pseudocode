@@ -1,10 +1,10 @@
 /*
- * XREFs of WheapGenerateETWErrorRecord @ 0x1403DFE40
+ * XREFs of WheapGenerateETWErrorRecord @ 0x1403E3030
  * Callers:
- *     WheapGenerateETWEvents @ 0x1403DFC68 (WheapGenerateETWEvents.c)
+ *     WheapGenerateETWEvents @ 0x1403E2E58 (WheapGenerateETWEvents.c)
  * Callees:
- *     EtwWriteEx @ 0x140212F70 (EtwWriteEx.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwWriteEx @ 0x140213050 (EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall WheapGenerateETWErrorRecord(__int64 a1)
@@ -22,7 +22,7 @@ NTSTATUS __fastcall WheapGenerateETWErrorRecord(__int64 a1)
   v5 = v1;
   v6 = 0;
   return EtwWriteEx(
-           *(REGHANDLE *)&CmpCallbackListLock.PriorityFloorCounts[8],
+           *(REGHANDLE *)&CmpContextListLock.SchedulerApcFill5[80],
            &EVENT_WHEA_ERROR,
            0LL,
            0,

@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpNormalizeStringWorker @ 0x180058480
+ * XREFs of RtlpNormalizeStringWorker @ 0x180058470
  * Callers:
- *     RtlNormalizeString @ 0x180058400 (RtlNormalizeString.c)
+ *     RtlNormalizeString @ 0x1800583F0 (RtlNormalizeString.c)
  * Callees:
- *     Normalization__Normalize @ 0x180058508 (Normalization__Normalize.c)
+ *     Normalization__Normalize @ 0x1800584F8 (Normalization__Normalize.c)
  *     Normalization__GuessCharCountBySize @ 0x1800F1D9C (Normalization__GuessCharCountBySize.c)
  */
 

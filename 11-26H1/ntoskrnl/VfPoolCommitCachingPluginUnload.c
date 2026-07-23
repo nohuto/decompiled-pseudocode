@@ -1,9 +1,9 @@
 /*
- * XREFs of VfPoolCommitCachingPluginUnload @ 0x140C43F20
+ * XREFs of VfPoolCommitCachingPluginUnload @ 0x140C49F30
  * Callers:
  *     <none>
  * Callees:
- *     ExConfigurePoolCommitCaching @ 0x1406D2710 (ExConfigurePoolCommitCaching.c)
+ *     ExConfigurePoolCommitCaching @ 0x1406D6740 (ExConfigurePoolCommitCaching.c)
  */
 
 void __fastcall __noreturn VfPoolCommitCachingPluginUnload(

@@ -1,9 +1,9 @@
 /*
- * XREFs of PspIsParentProcess @ 0x14047F71C
+ * XREFs of PspIsParentProcess @ 0x14047908C
  * Callers:
- *     PspThreadOpen @ 0x1409854A0 (PspThreadOpen.c)
- *     PspOneDirectionSecurityDomainCombine @ 0x1409FE890 (PspOneDirectionSecurityDomainCombine.c)
- *     PspProcessOpen @ 0x140A7FB60 (PspProcessOpen.c)
+ *     PspOneDirectionSecurityDomainCombine @ 0x14091B690 (PspOneDirectionSecurityDomainCombine.c)
+ *     PspThreadOpen @ 0x1409474A0 (PspThreadOpen.c)
+ *     PspProcessOpen @ 0x140A859D0 (PspProcessOpen.c)
  * Callees:
  *     <none>
  */

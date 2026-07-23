@@ -3,10 +3,10 @@
  * Callers:
  *     PspInitPhase0 @ 0x14079E090 (PspInitPhase0.c)
  * Callees:
- *     PsIumResumeAfterHibernate @ 0x140131CD8 (PsIumResumeAfterHibernate.c)
- *     VslGetNestedPageProtectionFlags @ 0x14013D140 (VslGetNestedPageProtectionFlags.c)
+ *     PsIumResumeAfterHibernate @ 0x140132248 (PsIumResumeAfterHibernate.c)
+ *     VslGetNestedPageProtectionFlags @ 0x14013D6B0 (VslGetNestedPageProtectionFlags.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     MmAllocateMappingAddress @ 0x14052C2FC (MmAllocateMappingAddress.c)
+ *     MmAllocateMappingAddress @ 0x14052C83C (MmAllocateMappingAddress.c)
  */
 
 char PspIumInitialize()

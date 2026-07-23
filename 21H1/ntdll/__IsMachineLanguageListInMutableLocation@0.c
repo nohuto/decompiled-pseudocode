@@ -13,35 +13,35 @@ bool __stdcall _IsMachineLanguageListInMutableLocation()
 {
   bool v0; // bl
   int v2; // ecx
-  _DWORD v3[6]; // [esp+8h] [ebp-38h] BYREF
-  UNICODE_STRING v4; // [esp+20h] [ebp-20h] BYREF
-  UNICODE_STRING DestinationString; // [esp+28h] [ebp-18h] BYREF
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [esp+8h] [ebp-38h] BYREF
+  _UNICODE_STRING v4; // [esp+20h] [ebp-20h] BYREF
+  _UNICODE_STRING DestinationString; // [esp+28h] [ebp-18h] BYREF
   int v6; // [esp+30h] [ebp-10h] BYREF
-  int v7; // [esp+34h] [ebp-Ch] BYREF
+  ULONG v7; // [esp+34h] [ebp-Ch] BYREF
   int v8; // [esp+38h] [ebp-8h] BYREF
-  HANDLE Handle; // [esp+3Ch] [ebp-4h] BYREF
+  HANDLE KeyHandle; // [esp+3Ch] [ebp-4h] BYREF
 
   v0 = 0;
   RtlInitUnicodeString(
     &DestinationString,
     L"\\Registry\\Machine\\OSDATA\\System\\CurrentControlSet\\Control\\MUI\\UILanguages");
-  Handle = 0;
-  v3[2] = &DestinationString;
-  v3[0] = 24;
-  v3[1] = 0;
-  v3[3] = 64;
-  v3[4] = 0;
-  v3[5] = 0;
-  if ( (int)ZwOpenKey(&Handle, 131097, v3) >= 0 )
+  KeyHandle = 0;
+  ObjectAttributes.ObjectName = &DestinationString;
+  ObjectAttributes.Length = 24;
+  ObjectAttributes.RootDirectory = 0;
+  ObjectAttributes.Attributes = 64;
+  ObjectAttributes.SecurityDescriptor = 0;
+  ObjectAttributes.SecurityQualityOfService = 0;
+  if ( ZwOpenKey(&KeyHandle, 0x20019u, &ObjectAttributes) >= 0 )
   {
     RtlInitUnicodeString(&v4, L"MachineLanguageListMigrationState");
     v6 = 4;
     v7 = 4;
     v8 = 0;
-    if ( LdrpQueryValueKey((int)Handle, (int)&v4, &v6, &v8, (unsigned int *)&v7, v2) >= 0 )
+    if ( LdrpQueryValueKey(KeyHandle, &v4, &v6, &v8, &v7, v2) >= 0 )
       v0 = v8 == 1;
   }
-  if ( Handle )
-    NtClose(Handle);
+  if ( KeyHandle )
+    NtClose(KeyHandle);
   return v0;
 }

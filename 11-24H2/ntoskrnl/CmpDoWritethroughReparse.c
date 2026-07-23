@@ -1,20 +1,20 @@
 /*
- * XREFs of CmpDoWritethroughReparse @ 0x14087B570
+ * XREFs of CmpDoWritethroughReparse @ 0x14087F420
  * Callers:
- *     CmpDoParseKey @ 0x14086E7B0 (CmpDoParseKey.c)
+ *     CmpDoParseKey @ 0x140872AE0 (CmpDoParseKey.c)
  * Callees:
- *     RtlUnicodeStringCopy @ 0x1403E4550 (RtlUnicodeStringCopy.c)
- *     RtlUnicodeStringCat @ 0x1403EA5B0 (RtlUnicodeStringCat.c)
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     CmSiFreeMemory @ 0x14046B8D0 (CmSiFreeMemory.c)
- *     CmpRecordParseFailure @ 0x140845C40 (CmpRecordParseFailure.c)
- *     CmpStartKcbStackForTopLayerKcb @ 0x14086DD20 (CmpStartKcbStackForTopLayerKcb.c)
- *     CmpConstructNameWithStatus @ 0x140875AB0 (CmpConstructNameWithStatus.c)
- *     CmpKeyFullNameLength @ 0x14087B8A0 (CmpKeyFullNameLength.c)
- *     CmpGetKcbAtLayerHeight @ 0x140918910 (CmpGetKcbAtLayerHeight.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
- *     CmpAttachToRegistryProcess @ 0x140BB98E0 (CmpAttachToRegistryProcess.c)
+ *     RtlUnicodeStringCopy @ 0x1403D20F0 (RtlUnicodeStringCopy.c)
+ *     RtlUnicodeStringCat @ 0x1403DA240 (RtlUnicodeStringCat.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     CmSiFreeMemory @ 0x140464550 (CmSiFreeMemory.c)
+ *     CmpRecordParseFailure @ 0x140841F00 (CmpRecordParseFailure.c)
+ *     CmpStartKcbStackForTopLayerKcb @ 0x140872050 (CmpStartKcbStackForTopLayerKcb.c)
+ *     CmpConstructNameWithStatus @ 0x140879DE0 (CmpConstructNameWithStatus.c)
+ *     CmpKeyFullNameLength @ 0x14087F750 (CmpKeyFullNameLength.c)
+ *     CmpGetKcbAtLayerHeight @ 0x14090C380 (CmpGetKcbAtLayerHeight.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
+ *     CmpAttachToRegistryProcess @ 0x140BBB8E0 (CmpAttachToRegistryProcess.c)
  */
 
 __int64 __fastcall CmpDoWritethroughReparse(
@@ -33,7 +33,7 @@ __int64 __fastcall CmpDoWritethroughReparse(
   unsigned int v16; // eax
   __int64 v17; // r8
   __int64 v18; // r9
-  unsigned __int16 v19; // r14
+  ULONG_PTR v19; // r14
   __int64 v20; // rdi
   int v21; // eax
   unsigned int Length; // edx
@@ -136,7 +136,7 @@ LABEL_12:
         goto LABEL_3;
       }
     }
-    DestinationString.Buffer = (wchar_t *)ExAllocatePool2(0x100uLL);
+    DestinationString.Buffer = (wchar_t *)ExAllocatePool2(0x100uLL, v19, 0x36364D43u);
     if ( DestinationString.Buffer )
     {
       DestinationString.Length = 0;

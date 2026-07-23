@@ -1,17 +1,17 @@
 /*
- * XREFs of LpcpCopyRequestData @ 0x1408C1C4C
+ * XREFs of LpcpCopyRequestData @ 0x1408C1DAC
  * Callers:
- *     NtReadRequestData @ 0x1408C20E0 (NtReadRequestData.c)
- *     NtWriteRequestData @ 0x1408C2260 (NtWriteRequestData.c)
+ *     NtReadRequestData @ 0x1408C2240 (NtReadRequestData.c)
+ *     NtWriteRequestData @ 0x1408C23C0 (NtWriteRequestData.c)
  * Callees:
  *     AlpcpAvailableBufferSize @ 0x1405CF054 (AlpcpAvailableBufferSize.c)
- *     AlpcpProbeAndCaptureMessageHeader @ 0x1405E0284 (AlpcpProbeAndCaptureMessageHeader.c)
- *     AlpcpLookupMessage @ 0x1405E6870 (AlpcpLookupMessage.c)
- *     AlpcpUnlockMessage @ 0x1405E9ECC (AlpcpUnlockMessage.c)
- *     MmCopyVirtualMemory @ 0x1405F6DB0 (MmCopyVirtualMemory.c)
- *     ProbeForWrite @ 0x1406547A0 (ProbeForWrite.c)
- *     PsDereferencePrimaryToken @ 0x1406B4570 (PsDereferencePrimaryToken.c)
- *     ObReferenceObjectByHandle @ 0x1406F0BC0 (ObReferenceObjectByHandle.c)
+ *     PsDereferencePrimaryToken @ 0x140613740 (PsDereferencePrimaryToken.c)
+ *     ProbeForWrite @ 0x1406495C0 (ProbeForWrite.c)
+ *     AlpcpProbeAndCaptureMessageHeader @ 0x1406CF9E4 (AlpcpProbeAndCaptureMessageHeader.c)
+ *     AlpcpLookupMessage @ 0x1406D5FD0 (AlpcpLookupMessage.c)
+ *     AlpcpUnlockMessage @ 0x1406D962C (AlpcpUnlockMessage.c)
+ *     MmCopyVirtualMemory @ 0x1406E6510 (MmCopyVirtualMemory.c)
+ *     ObReferenceObjectByHandle @ 0x140707FA0 (ObReferenceObjectByHandle.c)
  */
 
 NTSTATUS __fastcall LpcpCopyRequestData(
@@ -95,7 +95,7 @@ NTSTATUS __fastcall LpcpCopyRequestData(
   result = ObReferenceObjectByHandle(a2, 1u, AlpcPortObjectType, PreviousMode, &PrimaryToken, HandleInformation);
   if ( result >= 0 )
   {
-    v18 = AlpcpLookupMessage((__int64)PrimaryToken, DWORD2(v35), v36, v17, &BugCheckParameter2);
+    v18 = AlpcpLookupMessage((__int64)PrimaryToken, SDWORD2(v35), v36, v17, &BugCheckParameter2);
     if ( v18 < 0 )
     {
 LABEL_35:

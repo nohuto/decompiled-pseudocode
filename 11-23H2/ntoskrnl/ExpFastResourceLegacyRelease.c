@@ -1,18 +1,18 @@
 /*
- * XREFs of ExpFastResourceLegacyRelease @ 0x1403CA7A0
+ * XREFs of ExpFastResourceLegacyRelease @ 0x1403CA980
  * Callers:
- *     ExReleaseResourceLite @ 0x14023D410 (ExReleaseResourceLite.c)
- *     CcUnpinFileDataEx @ 0x14025D810 (CcUnpinFileDataEx.c)
- *     ExReleaseResourceForThreadLite @ 0x14025FD60 (ExReleaseResourceForThreadLite.c)
- *     ExReleaseResourceAndLeaveCriticalRegion @ 0x140260480 (ExReleaseResourceAndLeaveCriticalRegion.c)
- *     SeAccessCheckByType @ 0x1402B3AC0 (SeAccessCheckByType.c)
- *     SepMandatoryIntegrityCheck @ 0x1402B5EA0 (SepMandatoryIntegrityCheck.c)
+ *     ExReleaseResourceLite @ 0x14023D4E0 (ExReleaseResourceLite.c)
+ *     CcUnpinFileDataEx @ 0x14025DAA0 (CcUnpinFileDataEx.c)
+ *     ExReleaseResourceForThreadLite @ 0x14025FFF0 (ExReleaseResourceForThreadLite.c)
+ *     ExReleaseResourceAndLeaveCriticalRegion @ 0x140260710 (ExReleaseResourceAndLeaveCriticalRegion.c)
+ *     SeAccessCheckByType @ 0x1402B3D50 (SeAccessCheckByType.c)
+ *     SepMandatoryIntegrityCheck @ 0x1402B6130 (SepMandatoryIntegrityCheck.c)
  * Callees:
- *     ExpFindFastOwnerEntryForThread @ 0x1403CA8F4 (ExpFindFastOwnerEntryForThread.c)
- *     ExReleaseFastResource @ 0x1403CAE50 (ExReleaseFastResource.c)
- *     ExpFastResourceLegacyRelease2 @ 0x140415898 (ExpFastResourceLegacyRelease2.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExpFindFastOwnerEntryForThread @ 0x1403CAAD4 (ExpFindFastOwnerEntryForThread.c)
+ *     ExReleaseFastResource @ 0x1403CB030 (ExReleaseFastResource.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     ExpFastResourceLegacyRelease2 @ 0x140415C2C (ExpFastResourceLegacyRelease2.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 
@@ -45,7 +45,7 @@ void __fastcall ExpFastResourceLegacyRelease(
     CurrentThread = KeGetCurrentThread();
     CurrentIrql = KeGetCurrentIrql();
     __writecr8(2uLL);
-    if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+    if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
     {
       SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
       v7 = 4;
@@ -59,7 +59,7 @@ void __fastcall ExpFastResourceLegacyRelease(
     if ( !FastOwnerEntryForThread )
       KeBugCheckEx(0xE3u, BugCheckParameter1, v11, 0LL, 0LL);
     *(_BYTE *)(FastOwnerEntryForThread + 17) &= ~2u;
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v13 = KeGetCurrentIrql();
       if ( ((unsigned __int8)KiIrqlFlags & v9) != 0 && v13 <= 0xFu && CurrentIrql <= 0xFu && v13 >= 2u )

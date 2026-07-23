@@ -1,14 +1,14 @@
 /*
- * XREFs of MiFindPagesForMdl @ 0x140337DE8
+ * XREFs of MiFindPagesForMdl @ 0x140339E68
  * Callers:
- *     MiAllocatePagesForMdl @ 0x14034898C (MiAllocatePagesForMdl.c)
+ *     MiAllocatePagesForMdl @ 0x14034AA0C (MiAllocatePagesForMdl.c)
  * Callees:
- *     MiAllocateSkipPagesForMdl @ 0x140337AFC (MiAllocateSkipPagesForMdl.c)
- *     MiAllocateMdlPagesByLists @ 0x140337F84 (MiAllocateMdlPagesByLists.c)
- *     MiAllocateEnclavePagesForMdl @ 0x140338234 (MiAllocateEnclavePagesForMdl.c)
- *     MiAllocateMostlyContiguousPagesForMdl @ 0x1403382F4 (MiAllocateMostlyContiguousPagesForMdl.c)
- *     MiAllocateBadPagesForMdl @ 0x1405245B4 (MiAllocateBadPagesForMdl.c)
- *     MiAllocateFastLargePagesForMdl @ 0x1406EDF70 (MiAllocateFastLargePagesForMdl.c)
+ *     MiAllocateSkipPagesForMdl @ 0x140339B7C (MiAllocateSkipPagesForMdl.c)
+ *     MiAllocateMdlPagesByLists @ 0x14033A004 (MiAllocateMdlPagesByLists.c)
+ *     MiAllocateEnclavePagesForMdl @ 0x14033A2B4 (MiAllocateEnclavePagesForMdl.c)
+ *     MiAllocateMostlyContiguousPagesForMdl @ 0x14033A374 (MiAllocateMostlyContiguousPagesForMdl.c)
+ *     MiAllocateBadPagesForMdl @ 0x140526C24 (MiAllocateBadPagesForMdl.c)
+ *     MiAllocateFastLargePagesForMdl @ 0x1406F2C10 (MiAllocateFastLargePagesForMdl.c)
  */
 
 unsigned __int64 __fastcall MiFindPagesForMdl(__int64 a1)
@@ -44,7 +44,7 @@ LABEL_3:
     v13[0] = v12;
     goto LABEL_3;
   }
-  v6 = (_DWORD *)(qword_140E2D690 + 4LL * (unsigned int)(unsigned __int16)KeNumberNodes * v12);
+  v6 = (_DWORD *)(qword_140E2D810 + 4LL * (unsigned int)(unsigned __int16)KeNumberNodes * v12);
   v1 = &v6[(unsigned __int16)KeNumberNodes];
 LABEL_4:
   v7 = v6 + 1;

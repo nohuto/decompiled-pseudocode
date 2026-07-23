@@ -1,5 +1,5 @@
 /*
- * XREFs of EtwpIsPrivateLoggerOn @ 0x1800866CC
+ * XREFs of EtwpIsPrivateLoggerOn @ 0x1800866DC
  * Callers:
  *     EtwpUpdateEnableInfoAndCallback @ 0x180021104 (EtwpUpdateEnableInfoAndCallback.c)
  * Callees:

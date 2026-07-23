@@ -1,16 +1,16 @@
 /*
- * XREFs of EtwTiLogQueueApcThread @ 0x140312880
+ * XREFs of EtwTiLogQueueApcThread @ 0x140312A70
  * Callers:
- *     IopfCompleteRequest @ 0x1400C10F0 (IopfCompleteRequest.c)
- *     KeInsertQueueApc @ 0x1400F1480 (KeInsertQueueApc.c)
+ *     IopfCompleteRequest @ 0x1400C1030 (IopfCompleteRequest.c)
+ *     KeInsertQueueApc @ 0x1400F1500 (KeInsertQueueApc.c)
  * Callees:
  *     EtwEventEnabled @ 0x14005B2D0 (EtwEventEnabled.c)
- *     EtwProviderEnabled @ 0x1400F1780 (EtwProviderEnabled.c)
- *     EtwpTiFillProcessIdentity @ 0x140131FEC (EtwpTiFillProcessIdentity.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     EtwpTiVadQueryEventWrite @ 0x140312F64 (EtwpTiVadQueryEventWrite.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
+ *     EtwProviderEnabled @ 0x1400F1800 (EtwProviderEnabled.c)
+ *     EtwpTiFillProcessIdentity @ 0x1401320BC (EtwpTiFillProcessIdentity.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     EtwpTiVadQueryEventWrite @ 0x140313154 (EtwpTiVadQueryEventWrite.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
  */
 
 void EtwTiLogQueueApcThread(char a1, __int64 a2, __int64 a3, ...)

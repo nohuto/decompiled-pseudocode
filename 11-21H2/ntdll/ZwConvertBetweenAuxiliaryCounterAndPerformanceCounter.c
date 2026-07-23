@@ -6,11 +6,15 @@
  *     <none>
  */
 
-__int64 ZwConvertBetweenAuxiliaryCounterAndPerformanceCounter()
+NTSTATUS __cdecl ZwConvertBetweenAuxiliaryCounterAndPerformanceCounter(
+        BOOLEAN ConvertAuxiliaryToPerformanceCounter,
+        PLARGE_INTEGER PerformanceOrAuxiliaryCounterValue,
+        PLARGE_INTEGER ConvertedValue,
+        PLARGE_INTEGER ConversionError)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 164LL;
+  result = 164;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

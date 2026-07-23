@@ -1,13 +1,12 @@
 /*
- * XREFs of RtlSidHashLookup @ 0x1402AFED0
+ * XREFs of RtlSidHashLookup @ 0x1403F15C0
  * Callers:
- *     SepMatchCapability @ 0x1402AFC18 (SepMatchCapability.c)
- *     SepMaximumAccessCheck @ 0x1402B1890 (SepMaximumAccessCheck.c)
+ *     SepMatchCapability @ 0x1403F1568 (SepMatchCapability.c)
  * Callees:
- *     memcmp @ 0x14073D750 (memcmp.c)
+ *     memcmp @ 0x140742350 (memcmp.c)
  */
 
-const void **__fastcall RtlSidHashLookup(__int64 a1, unsigned __int8 *a2)
+PSID_AND_ATTRIBUTES __cdecl RtlSidHashLookup(PSID_AND_ATTRIBUTES_HASH SidAttrHash, PSID Sid)
 {
   __int64 v4; // rax
   __int16 v5; // r9
@@ -17,20 +16,20 @@ const void **__fastcall RtlSidHashLookup(__int64 a1, unsigned __int8 *a2)
   unsigned __int8 v9; // bp
   int v10; // ebx
   int v11; // r15d
-  const void **v12; // r12
-  unsigned int v13; // ebx
+  _SID_AND_ATTRIBUTES *v12; // r12
+  unsigned int SidCount; // ebx
   unsigned int i; // edi
-  const void **v16; // r15
+  _SID_AND_ATTRIBUTES *v16; // r15
   __int16 v17; // [rsp+50h] [rbp+8h]
 
-  if ( !a1 || !a2 )
+  if ( !SidAttrHash || !Sid )
     return 0LL;
-  v4 = a2[1];
-  v5 = *(_WORD *)a2;
-  v17 = *(_WORD *)a2;
+  v4 = *((unsigned __int8 *)Sid + 1);
+  v5 = *(_WORD *)Sid;
+  v17 = *(_WORD *)Sid;
   v6 = 4 * v4 + 8;
-  v7 = a2[4 * v4 + 4];
-  v8 = *(_QWORD *)(a1 + 8 * (v7 & 0xF) + 16) & *(_QWORD *)(a1 + 8 * (v7 >> 4) + 144);
+  v7 = *((unsigned __int8 *)Sid + 4 * v4 + 4);
+  v8 = SidAttrHash->Hash[v7 & 0xF] & SidAttrHash->Hash[(v7 >> 4) + 16];
   v9 = 0;
 LABEL_4:
   if ( v8 )
@@ -45,30 +44,30 @@ LABEL_4:
         goto LABEL_4;
       }
       v11 = *((unsigned __int8 *)SidHashByteToIndexLookupTable + (unsigned __int8)v10);
-      v12 = (const void **)(*(_QWORD *)(a1 + 8) + 16LL * (v11 + (unsigned int)v9));
-      if ( *(_WORD *)*v12 == v5 )
+      v12 = &SidAttrHash->SidAttr[v11 + (unsigned int)v9];
+      if ( *(_WORD *)v12->Sid == v5 )
       {
-        if ( !memcmp(a2, *v12, v6) )
+        if ( !memcmp(Sid, v12->Sid, v6) )
           return v12;
         v5 = v17;
       }
       v10 = (unsigned __int8)v10 ^ (1 << v11);
     }
   }
-  v13 = *(_DWORD *)a1;
-  if ( *(_DWORD *)a1 <= 0x40u )
+  SidCount = SidAttrHash->SidCount;
+  if ( SidAttrHash->SidCount <= 0x40 )
     return 0LL;
   for ( i = 64; ; ++i )
   {
-    if ( i >= v13 )
+    if ( i >= SidCount )
       return 0LL;
-    v16 = (const void **)(*(_QWORD *)(a1 + 8) + 16LL * i);
-    if ( *(_WORD *)*v16 == v5 )
+    v16 = &SidAttrHash->SidAttr[i];
+    if ( *(_WORD *)v16->Sid == v5 )
       break;
 LABEL_18:
     ;
   }
-  if ( memcmp(a2, *v16, v6) )
+  if ( memcmp(Sid, v16->Sid, v6) )
   {
     v5 = v17;
     goto LABEL_18;

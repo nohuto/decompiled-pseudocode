@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpInitializePmcCounterSetInfo @ 0x140C0E7E4
+ * XREFs of HalpInitializePmcCounterSetInfo @ 0x140C107E4
  * Callers:
- *     HalpHwPerfCntInitSystem @ 0x140B4C570 (HalpHwPerfCntInitSystem.c)
+ *     HalpHwPerfCntInitSystem @ 0x140B4E5B0 (HalpHwPerfCntInitSystem.c)
  * Callees:
- *     HalQueryMaximumProcessorCount @ 0x1403BC0C0 (HalQueryMaximumProcessorCount.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     HalpMmAllocatePerProcessorMemory @ 0x140542DE8 (HalpMmAllocatePerProcessorMemory.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     HalQueryMaximumProcessorCount @ 0x140375540 (HalQueryMaximumProcessorCount.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     HalpMmAllocatePerProcessorMemory @ 0x140540738 (HalpMmAllocatePerProcessorMemory.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 void *HalpInitializePmcCounterSetInfo()
@@ -26,7 +26,7 @@ void *HalpInitializePmcCounterSetInfo()
       24 * MaximumProcessorCount,
       0x2200uLL,
       (ULONG_PTR)"minkernel\\hals\\lib\\hwperfcnt\\profile.c",
-      0xBA7uLL);
+      0xBA3uLL);
   if ( (_DWORD)MaximumProcessorCount )
   {
     v1 = 0LL;
@@ -46,6 +46,6 @@ void *HalpInitializePmcCounterSetInfo()
   v5 = 16LL * (unsigned int)MaximumProcessorCount;
   HalpProfileTimeInfo = (__int64)PerProcessorMemory;
   if ( !PerProcessorMemory )
-    KeBugCheckEx(0xACu, v5, 0x2200uLL, (ULONG_PTR)"minkernel\\hals\\lib\\hwperfcnt\\profile.c", 0xBBBuLL);
+    KeBugCheckEx(0xACu, v5, 0x2200uLL, (ULONG_PTR)"minkernel\\hals\\lib\\hwperfcnt\\profile.c", 0xBB7uLL);
   return memset_0(PerProcessorMemory, 0, v5);
 }

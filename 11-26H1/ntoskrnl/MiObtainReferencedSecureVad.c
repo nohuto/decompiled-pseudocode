@@ -1,21 +1,21 @@
 /*
- * XREFs of MiObtainReferencedSecureVad @ 0x1404E4F18
+ * XREFs of MiObtainReferencedSecureVad @ 0x1404DE4B8
  * Callers:
- *     MmLockPhysicalPagesByVa @ 0x1406EA82C (MmLockPhysicalPagesByVa.c)
- *     MmAdjustSecuredVirtualMemorySize @ 0x14086AC5C (MmAdjustSecuredVirtualMemorySize.c)
- *     MmCommitDecommitSecuredMemory @ 0x14086AD74 (MmCommitDecommitSecuredMemory.c)
- *     MmUnsecureVirtualMemory @ 0x1409C1B90 (MmUnsecureVirtualMemory.c)
- *     MmStoreAllocateVirtualMemory @ 0x1409F1A98 (MmStoreAllocateVirtualMemory.c)
+ *     MmLockPhysicalPagesByVa @ 0x1406EF4CC (MmLockPhysicalPagesByVa.c)
+ *     MmAdjustSecuredVirtualMemorySize @ 0x14087103C (MmAdjustSecuredVirtualMemorySize.c)
+ *     MmCommitDecommitSecuredMemory @ 0x140871154 (MmCommitDecommitSecuredMemory.c)
+ *     MmUnsecureVirtualMemory @ 0x140992B70 (MmUnsecureVirtualMemory.c)
+ *     MmStoreAllocateVirtualMemory @ 0x1409EE268 (MmStoreAllocateVirtualMemory.c)
  * Callees:
- *     KiCheckForKernelApcDelivery @ 0x14027DB80 (KiCheckForKernelApcDelivery.c)
- *     MiReferenceVad @ 0x14027E890 (MiReferenceVad.c)
- *     MiLockVad @ 0x14027EBC0 (MiLockVad.c)
- *     MiUnlockAndDereferenceVad @ 0x14027F600 (MiUnlockAndDereferenceVad.c)
- *     MiUnlockVadTree @ 0x140326440 (MiUnlockVadTree.c)
- *     MiLockVadTree @ 0x1403265D0 (MiLockVadTree.c)
- *     MiLocateAddress @ 0x140326730 (MiLocateAddress.c)
- *     MiWaitForVadDeletion @ 0x140531014 (MiWaitForVadDeletion.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
+ *     KiCheckForKernelApcDelivery @ 0x14027D0F0 (KiCheckForKernelApcDelivery.c)
+ *     MiReferenceVad @ 0x14027DE00 (MiReferenceVad.c)
+ *     MiLockVad @ 0x14027E130 (MiLockVad.c)
+ *     MiUnlockAndDereferenceVad @ 0x14027EB70 (MiUnlockAndDereferenceVad.c)
+ *     MiUnlockVadTree @ 0x140328470 (MiUnlockVadTree.c)
+ *     MiLockVadTree @ 0x140328600 (MiLockVadTree.c)
+ *     MiLocateAddress @ 0x140328760 (MiLocateAddress.c)
+ *     MiWaitForVadDeletion @ 0x140533514 (MiWaitForVadDeletion.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
  */
 
 struct _LIST_ENTRY *__fastcall MiObtainReferencedSecureVad(__int64 a1, _DWORD *a2, __int64 a3)
@@ -47,7 +47,7 @@ struct _LIST_ENTRY *__fastcall MiObtainReferencedSecureVad(__int64 a1, _DWORD *a
   {
     MiUnlockVadTree(0, v7);
     v18 = CurrentThread->SpecialApcDisable++ == -1;
-    if ( v18 && ($7A85BAF4F1FA08634C1C4A3E45B775B3 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
+    if ( v18 && ($241382875694CED3D471BC5892DE3337 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
       KiCheckForKernelApcDelivery(v21, v20);
     *a2 = -1073741558;
     return 0LL;
@@ -67,7 +67,7 @@ struct _LIST_ENTRY *__fastcall MiObtainReferencedSecureVad(__int64 a1, _DWORD *a
   v13 = v11 >> 12;
   MiLockVad((__int64)CurrentThread, (__int64)Address, v14, v15);
   v18 = CurrentThread->SpecialApcDisable++ == -1;
-  if ( v18 && ($7A85BAF4F1FA08634C1C4A3E45B775B3 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
+  if ( v18 && ($241382875694CED3D471BC5892DE3337 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
     KiCheckForKernelApcDelivery(v17, v16);
   if ( ((__int64)Address[3].Flink & 1) != 0 )
   {

@@ -1,9 +1,9 @@
 /*
- * XREFs of EtwpInitializeLoggerSecurityDescriptor @ 0x1406DDF64
+ * XREFs of EtwpInitializeLoggerSecurityDescriptor @ 0x1406B5244
  * Callers:
- *     EtwpStartLogger @ 0x1406DE1A0 (EtwpStartLogger.c)
+ *     EtwpStartLogger @ 0x1406B5480 (EtwpStartLogger.c)
  * Callees:
- *     ObLogSecurityDescriptor @ 0x14065FEB0 (ObLogSecurityDescriptor.c)
+ *     ObLogSecurityDescriptor @ 0x140654CD0 (ObLogSecurityDescriptor.c)
  */
 
 __int64 __fastcall EtwpInitializeLoggerSecurityDescriptor(__int64 a1, char *a2)

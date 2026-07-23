@@ -1,26 +1,26 @@
 /*
- * XREFs of PiCMQueryRemove @ 0x140ABB70C
+ * XREFs of PiCMQueryRemove @ 0x140AB672C
  * Callers:
- *     PiCMHandleIoctl @ 0x1408C3A00 (PiCMHandleIoctl.c)
+ *     PiCMHandleIoctl @ 0x1408C13C0 (PiCMHandleIoctl.c)
  * Callees:
- *     RtlGetActiveConsoleId @ 0x14042F190 (RtlGetActiveConsoleId.c)
- *     PiControlFreeUserModeCallersBuffer @ 0x140441F70 (PiControlFreeUserModeCallersBuffer.c)
- *     RtlInitUnicodeStringEx @ 0x14045AA10 (RtlInitUnicodeStringEx.c)
- *     McTemplateK0dz_EtwWriteTransfer @ 0x1404BD534 (McTemplateK0dz_EtwWriteTransfer.c)
- *     McTemplateK0z_EtwWriteTransfer @ 0x1404D4ED8 (McTemplateK0z_EtwWriteTransfer.c)
- *     PnpGetCallerSessionId @ 0x140723328 (PnpGetCallerSessionId.c)
- *     PiAuCheckClientInteractive @ 0x140727E24 (PiAuCheckClientInteractive.c)
- *     PnpQueueQueryAndRemoveEvent @ 0x1408B2EAC (PnpQueueQueryAndRemoveEvent.c)
- *     _CmValidateDeviceName @ 0x1408B8070 (_CmValidateDeviceName.c)
- *     PiAuDoesClientHaveAccess @ 0x1408BC6A8 (PiAuDoesClientHaveAccess.c)
- *     _CmGetDeviceStatus @ 0x1408BC8C8 (_CmGetDeviceStatus.c)
- *     PiCMCaptureObjectInputData @ 0x1408BEB90 (PiCMCaptureObjectInputData.c)
- *     PiCMReturnBufferResultData @ 0x1408C5620 (PiCMReturnBufferResultData.c)
- *     _CmGetDeviceRegProp @ 0x1408C5BB0 (_CmGetDeviceRegProp.c)
- *     _CmIsRootDevice @ 0x140926C14 (_CmIsRootDevice.c)
- *     PiAuDoesClientHavePrivilege @ 0x140A85868 (PiAuDoesClientHavePrivilege.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     RtlGetActiveConsoleId @ 0x140421360 (RtlGetActiveConsoleId.c)
+ *     PiControlFreeUserModeCallersBuffer @ 0x140438B40 (PiControlFreeUserModeCallersBuffer.c)
+ *     RtlInitUnicodeStringEx @ 0x14044FE60 (RtlInitUnicodeStringEx.c)
+ *     McTemplateK0dz_EtwWriteTransfer @ 0x1404B86A4 (McTemplateK0dz_EtwWriteTransfer.c)
+ *     McTemplateK0z_EtwWriteTransfer @ 0x1404CE1B0 (McTemplateK0z_EtwWriteTransfer.c)
+ *     PnpGetCallerSessionId @ 0x140720EB8 (PnpGetCallerSessionId.c)
+ *     PiAuCheckClientInteractive @ 0x1407259B4 (PiAuCheckClientInteractive.c)
+ *     PnpQueueQueryAndRemoveEvent @ 0x1408B079C (PnpQueueQueryAndRemoveEvent.c)
+ *     _CmValidateDeviceName @ 0x1408B59E0 (_CmValidateDeviceName.c)
+ *     PiAuDoesClientHaveAccess @ 0x1408B9FF8 (PiAuDoesClientHaveAccess.c)
+ *     _CmGetDeviceStatus @ 0x1408BA218 (_CmGetDeviceStatus.c)
+ *     PiCMCaptureObjectInputData @ 0x1408BC4E0 (PiCMCaptureObjectInputData.c)
+ *     PiCMReturnBufferResultData @ 0x1408C3020 (PiCMReturnBufferResultData.c)
+ *     _CmGetDeviceRegProp @ 0x1408C35E0 (_CmGetDeviceRegProp.c)
+ *     _CmIsRootDevice @ 0x140928D54 (_CmIsRootDevice.c)
+ *     PiAuDoesClientHavePrivilege @ 0x140A803A8 (PiAuDoesClientHavePrivilege.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PiCMQueryRemove(
@@ -90,7 +90,7 @@ __int64 __fastcall PiCMQueryRemove(
   if ( v11 < 0 )
     goto LABEL_59;
   v16 = HIDWORD(SourceString[1]);
-  if ( (byte_140EEFD23 & 8) != 0 )
+  if ( (byte_140EEFF63 & 8) != 0 )
     McTemplateK0dz_EtwWriteTransfer(
       v12,
       (const EVENT_DESCRIPTOR *)KMPnPEvt_CfgMgr_QueryRemove_Start,
@@ -115,7 +115,7 @@ LABEL_55:
     v19 = v18;
   if ( v19 )
   {
-    Pool2 = (_WORD *)ExAllocatePool2(0x100uLL);
+    Pool2 = (_WORD *)ExAllocatePool2(0x100uLL, v19, 0x34706E50u);
     v10 = Pool2;
     if ( !Pool2 )
     {
@@ -159,7 +159,7 @@ LABEL_55:
       else
       {
         DeviceRegProp = PnpGetCallerSessionId(&SessionId);
-        if ( DeviceRegProp < 0 || SessionId != (unsigned int)RtlGetActiveConsoleId() )
+        if ( DeviceRegProp < 0 || SessionId != RtlGetActiveConsoleId() )
         {
           DeviceRegProp = PiAuCheckClientInteractive(v27);
           if ( DeviceRegProp < 0 || !v27[0] )
@@ -233,7 +233,7 @@ LABEL_56:
     ExFreePoolWithTag(v10, 0x34706E50u);
   v7 = v14;
 LABEL_59:
-  if ( (byte_140EEFD23 & 8) != 0 )
+  if ( (byte_140EEFF63 & 8) != 0 )
     McTemplateK0z_EtwWriteTransfer(v12, (const EVENT_DESCRIPTOR *)KMPnPEvt_CfgMgr_QueryRemove_Stop, v13, v7);
   if ( v14 )
     PiControlFreeUserModeCallersBuffer(KeGetCurrentThread()->PreviousMode, (void *)SourceString[0]);

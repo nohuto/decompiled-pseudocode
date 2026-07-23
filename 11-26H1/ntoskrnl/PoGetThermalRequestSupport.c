@@ -1,7 +1,7 @@
 /*
- * XREFs of PoGetThermalRequestSupport @ 0x140B5CCC0
+ * XREFs of PoGetThermalRequestSupport @ 0x140B5FE40
  * Callers:
- *     PoSetThermalActiveCooling @ 0x1407CB6B0 (PoSetThermalActiveCooling.c)
+ *     PoSetThermalActiveCooling @ 0x1407CE750 (PoSetThermalActiveCooling.c)
  * Callees:
  *     <none>
  */

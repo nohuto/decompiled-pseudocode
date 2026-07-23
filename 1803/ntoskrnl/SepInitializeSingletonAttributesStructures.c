@@ -48,7 +48,7 @@ __int64 SepInitializeSingletonAttributesStructures()
         {
           *v6 = v5;
           ++*((_DWORD *)v7 + 1);
-          if ( RtlpCreateHashTable((struct _RTL_DYNAMIC_HASH_TABLE **)(SeLuidToIndexMapping + 8), 0x80u, 0, 0) )
+          if ( RtlpCreateHashTable((_RTL_DYNAMIC_HASH_TABLE **)(SeLuidToIndexMapping + 8), 0x80u, 0, 0) )
           {
             v8 = SeLuidToIndexMapping;
             *(_DWORD *)(SeLuidToIndexMapping + 16) = 64;

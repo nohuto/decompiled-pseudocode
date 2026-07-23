@@ -1,22 +1,22 @@
 /*
- * XREFs of SdbQueryDataExTagID @ 0x1407C1768
+ * XREFs of SdbQueryDataExTagID @ 0x1407C1C88
  * Callers:
- *     PiIsDriverBlocked @ 0x14077E304 (PiIsDriverBlocked.c)
+ *     PiIsDriverBlocked @ 0x14077E4C4 (PiIsDriverBlocked.c)
  * Callees:
- *     RtlStringCchCopyNW @ 0x140371570 (RtlStringCchCopyNW.c)
- *     RtlStringCchCopyW @ 0x1403716A0 (RtlStringCchCopyW.c)
- *     wcschr @ 0x1403D3F10 (wcschr.c)
- *     memmove @ 0x140413F40 (memmove.c)
- *     AslLogCallPrintf @ 0x140755F64 (AslLogCallPrintf.c)
- *     SdbGetStringTagPtr @ 0x140756580 (SdbGetStringTagPtr.c)
- *     SdbReadDWORDTag @ 0x140759D94 (SdbReadDWORDTag.c)
- *     SdbpGetMappedTagData @ 0x140759E04 (SdbpGetMappedTagData.c)
- *     SdbFindFirstTag @ 0x14075A184 (SdbFindFirstTag.c)
- *     SdbGetTagDataSize @ 0x14075A340 (SdbGetTagDataSize.c)
- *     AslAlloc @ 0x14075B098 (AslAlloc.c)
- *     SdbReadQWORDTag @ 0x1407B3A20 (SdbReadQWORDTag.c)
- *     SdbFindFirstNamedTag @ 0x1407C198C (SdbFindFirstNamedTag.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     RtlStringCchCopyNW @ 0x1403710C0 (RtlStringCchCopyNW.c)
+ *     RtlStringCchCopyW @ 0x1403711F0 (RtlStringCchCopyW.c)
+ *     wcschr @ 0x1403D4080 (wcschr.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     AslLogCallPrintf @ 0x140756124 (AslLogCallPrintf.c)
+ *     SdbGetStringTagPtr @ 0x140756740 (SdbGetStringTagPtr.c)
+ *     SdbReadDWORDTag @ 0x140759F54 (SdbReadDWORDTag.c)
+ *     SdbpGetMappedTagData @ 0x140759FC4 (SdbpGetMappedTagData.c)
+ *     SdbFindFirstTag @ 0x14075A344 (SdbFindFirstTag.c)
+ *     SdbGetTagDataSize @ 0x14075A500 (SdbGetTagDataSize.c)
+ *     AslAlloc @ 0x14075B258 (AslAlloc.c)
+ *     SdbReadQWORDTag @ 0x1407B3BC0 (SdbReadQWORDTag.c)
+ *     SdbFindFirstNamedTag @ 0x1407C1EAC (SdbFindFirstNamedTag.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall SdbQueryDataExTagID(

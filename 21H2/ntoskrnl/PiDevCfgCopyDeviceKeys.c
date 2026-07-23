@@ -1,19 +1,19 @@
 /*
- * XREFs of PiDevCfgCopyDeviceKeys @ 0x140769CFC
+ * XREFs of PiDevCfgCopyDeviceKeys @ 0x140769EBC
  * Callers:
- *     PiDevCfgConfigureDeviceKeyCallback @ 0x140769C80 (PiDevCfgConfigureDeviceKeyCallback.c)
- *     PiDevCfgConfigureDeviceInterface @ 0x1408A5A38 (PiDevCfgConfigureDeviceInterface.c)
- *     PiDevCfgResetDeviceKeyCallback @ 0x1408A7FC0 (PiDevCfgResetDeviceKeyCallback.c)
- *     PipCommitPendingOsExtensionResource @ 0x140A90B40 (PipCommitPendingOsExtensionResource.c)
- *     PipCommitPendingService @ 0x140A90D50 (PipCommitPendingService.c)
+ *     PiDevCfgConfigureDeviceKeyCallback @ 0x140769E40 (PiDevCfgConfigureDeviceKeyCallback.c)
+ *     PiDevCfgConfigureDeviceInterface @ 0x1408A5B98 (PiDevCfgConfigureDeviceInterface.c)
+ *     PiDevCfgResetDeviceKeyCallback @ 0x1408A8120 (PiDevCfgResetDeviceKeyCallback.c)
+ *     PipCommitPendingOsExtensionResource @ 0x140A91B40 (PipCommitPendingOsExtensionResource.c)
+ *     PipCommitPendingService @ 0x140A91D50 (PipCommitPendingService.c)
  * Callees:
- *     PiDevCfgPopCopyKeyEntry @ 0x14037C634 (PiDevCfgPopCopyKeyEntry.c)
- *     PiDevCfgPushCopyKeyEntry @ 0x14037C694 (PiDevCfgPushCopyKeyEntry.c)
- *     ZwClose @ 0x1403FA580 (ZwClose.c)
- *     ZwSetSecurityObject @ 0x1403FD8C0 (ZwSetSecurityObject.c)
- *     PiDevCfgGetKeySecurityDescriptor @ 0x14073C380 (PiDevCfgGetKeySecurityDescriptor.c)
- *     PiDevCfgCopyDeviceKey @ 0x140769E0C (PiDevCfgCopyDeviceKey.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     PiDevCfgPopCopyKeyEntry @ 0x14037C184 (PiDevCfgPopCopyKeyEntry.c)
+ *     PiDevCfgPushCopyKeyEntry @ 0x14037C1E4 (PiDevCfgPushCopyKeyEntry.c)
+ *     ZwClose @ 0x1403FA760 (ZwClose.c)
+ *     ZwSetSecurityObject @ 0x1403FDAA0 (ZwSetSecurityObject.c)
+ *     PiDevCfgGetKeySecurityDescriptor @ 0x14073C540 (PiDevCfgGetKeySecurityDescriptor.c)
+ *     PiDevCfgCopyDeviceKey @ 0x140769FCC (PiDevCfgCopyDeviceKey.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PiDevCfgCopyDeviceKeys(void *a1, void *a2, __int64 a3, __int64 a4)

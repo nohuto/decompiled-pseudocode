@@ -1,15 +1,15 @@
 /*
- * XREFs of Feature_Servicing_SWDripsDiagnostics__private_IsEnabledDeviceUsageNoInline @ 0x140526BA0
+ * XREFs of Feature_Servicing_SWDripsDiagnostics__private_IsEnabledDeviceUsageNoInline @ 0x140529210
  * Callers:
- *     PpmExitCoordinatedIdle @ 0x1403EC374 (PpmExitCoordinatedIdle.c)
- *     PopCalculateCsSummary @ 0x14042A4C8 (PopCalculateCsSummary.c)
- *     PopCaptureSleepStudyStatistics @ 0x14042AB54 (PopCaptureSleepStudyStatistics.c)
- *     PopCalculateIdleInformation @ 0x140434E0C (PopCalculateIdleInformation.c)
- *     PopSleepstudyCaptureResiliencyStatistics @ 0x1407D6328 (PopSleepstudyCaptureResiliencyStatistics.c)
- *     PopDiagTraceCsExitReason @ 0x140B58D58 (PopDiagTraceCsExitReason.c)
- *     PopSleepstudyCaptureSessionStatistics @ 0x140B65FE4 (PopSleepstudyCaptureSessionStatistics.c)
+ *     PpmExitCoordinatedIdle @ 0x1402F93B8 (PpmExitCoordinatedIdle.c)
+ *     PopCaptureSleepStudyStatistics @ 0x140421FC8 (PopCaptureSleepStudyStatistics.c)
+ *     PopCalculateCsSummary @ 0x140422F4C (PopCalculateCsSummary.c)
+ *     PopCalculateIdleInformation @ 0x140423CE4 (PopCalculateIdleInformation.c)
+ *     PopSleepstudyCaptureResiliencyStatistics @ 0x1407D94D8 (PopSleepstudyCaptureResiliencyStatistics.c)
+ *     PopDiagTraceCsExitReason @ 0x140B5BB78 (PopDiagTraceCsExitReason.c)
+ *     PopSleepstudyCaptureSessionStatistics @ 0x140B69084 (PopSleepstudyCaptureSessionStatistics.c)
  * Callees:
- *     Feature_Servicing_SWDripsDiagnostics__private_IsEnabledFallback @ 0x140526BDC (Feature_Servicing_SWDripsDiagnostics__private_IsEnabledFallback.c)
+ *     Feature_Servicing_SWDripsDiagnostics__private_IsEnabledFallback @ 0x14052924C (Feature_Servicing_SWDripsDiagnostics__private_IsEnabledFallback.c)
  */
 
 __int64 Feature_Servicing_SWDripsDiagnostics__private_IsEnabledDeviceUsageNoInline()

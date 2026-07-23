@@ -1,15 +1,15 @@
 /*
- * XREFs of MiFindHotPatchRecord @ 0x14075DAA8
+ * XREFs of MiFindHotPatchRecord @ 0x14075DC68
  * Callers:
- *     MiApplyRequiredDriverHotPatches @ 0x14075C848 (MiApplyRequiredDriverHotPatches.c)
- *     MiFindProcessImageHotPatchRecord @ 0x1408C9CF0 (MiFindProcessImageHotPatchRecord.c)
+ *     MiApplyRequiredDriverHotPatches @ 0x14075CA08 (MiApplyRequiredDriverHotPatches.c)
+ *     MiFindProcessImageHotPatchRecord @ 0x1408C9E50 (MiFindProcessImageHotPatchRecord.c)
  * Callees:
- *     ExfReleasePushLockShared @ 0x1402F1470 (ExfReleasePushLockShared.c)
- *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
- *     ExAcquirePushLockSharedEx @ 0x14034AB50 (ExAcquirePushLockSharedEx.c)
- *     KiLeaveGuardedRegionUnsafe @ 0x14034AD90 (KiLeaveGuardedRegionUnsafe.c)
- *     RtlDuplicateUnicodeString @ 0x14068B130 (RtlDuplicateUnicodeString.c)
- *     MiCompareHotPatchNodes @ 0x1408C9830 (MiCompareHotPatchNodes.c)
+ *     ExfReleasePushLockShared @ 0x1402FC1C0 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x1403539D0 (KeAbPostRelease.c)
+ *     ExAcquirePushLockSharedEx @ 0x1403558A0 (ExAcquirePushLockSharedEx.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x140355AE0 (KiLeaveGuardedRegionUnsafe.c)
+ *     RtlDuplicateUnicodeString @ 0x1405EAFA0 (RtlDuplicateUnicodeString.c)
+ *     MiCompareHotPatchNodes @ 0x1408C9990 (MiCompareHotPatchNodes.c)
  */
 
 __int64 __fastcall MiFindHotPatchRecord(

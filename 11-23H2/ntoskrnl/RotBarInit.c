@@ -1,7 +1,7 @@
 /*
- * XREFs of RotBarInit @ 0x14054E870
+ * XREFs of RotBarInit @ 0x14054EF30
  * Callers:
- *     DisplayBootBitmap @ 0x1403AA048 (DisplayBootBitmap.c)
+ *     DisplayBootBitmap @ 0x1403AA228 (DisplayBootBitmap.c)
  * Callees:
  *     <none>
  */

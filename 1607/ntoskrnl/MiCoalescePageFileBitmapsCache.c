@@ -1,14 +1,14 @@
 /*
- * XREFs of MiCoalescePageFileBitmapsCache @ 0x14001A460
+ * XREFs of MiCoalescePageFileBitmapsCache @ 0x140019FE0
  * Callers:
- *     MiReleasePageFileInfo @ 0x14001A280 (MiReleasePageFileInfo.c)
- *     MiAttemptPageFileReductionApc @ 0x1401EDF10 (MiAttemptPageFileReductionApc.c)
- *     MiFinishPageFileExtension @ 0x1401EE648 (MiFinishPageFileExtension.c)
+ *     MiReleasePageFileInfo @ 0x140019E00 (MiReleasePageFileInfo.c)
+ *     MiAttemptPageFileReductionApc @ 0x1401EDD3C (MiAttemptPageFileReductionApc.c)
+ *     MiFinishPageFileExtension @ 0x1401EE474 (MiFinishPageFileExtension.c)
  * Callees:
- *     RtlLengthCurrentClearRunForward @ 0x14001A990 (RtlLengthCurrentClearRunForward.c)
- *     MiBitmapsCachedEntryLengthChanged @ 0x14001BDE8 (MiBitmapsCachedEntryLengthChanged.c)
- *     RtlRbRemoveNode @ 0x140031320 (RtlRbRemoveNode.c)
- *     MiRescanPageFileBitmapPortion @ 0x1400B63D0 (MiRescanPageFileBitmapPortion.c)
+ *     RtlLengthCurrentClearRunForward @ 0x14001A510 (RtlLengthCurrentClearRunForward.c)
+ *     MiBitmapsCachedEntryLengthChanged @ 0x14001B968 (MiBitmapsCachedEntryLengthChanged.c)
+ *     RtlRbRemoveNode @ 0x140030EA0 (RtlRbRemoveNode.c)
+ *     MiRescanPageFileBitmapPortion @ 0x1400B41F8 (MiRescanPageFileBitmapPortion.c)
  */
 
 __int64 __fastcall MiCoalescePageFileBitmapsCache(__int64 a1, int a2, unsigned int a3)
@@ -143,8 +143,8 @@ LABEL_10:
       {
         *(_DWORD *)(v20 + 52) = *(_DWORD *)(v15 + 52) + v21;
         *(_DWORD *)(v15 + 52) = 0;
-        RtlRbRemoveNode(a1 + 144, v15);
-        RtlRbRemoveNode(a1 + 160, v15 + 24);
+        RtlRbRemoveNode((PRTL_RB_TREE)(a1 + 144), (PRTL_BALANCED_NODE)v15);
+        RtlRbRemoveNode((PRTL_RB_TREE)(a1 + 160), (PRTL_BALANCED_NODE)(v15 + 24));
         v53 = *(unsigned __int64 **)(a1 + 184);
         if ( *v53 != a1 + 176 )
           __fastfail(3u);
@@ -201,7 +201,7 @@ LABEL_10:
         v32 = v5 & 0x1F;
         v33 = *(_DWORD **)(v58 + 8);
         v34 = &v33[v5 >> 5];
-        v35 = dword_14026D370[v32] & *v34;
+        v35 = dword_14026D390[v32] & *v34;
         v36 = 31 - v32;
         if ( v35 )
         {
@@ -258,7 +258,7 @@ LABEL_46:
       v43 = 0;
       v44 = 4 * (v5 >> 5);
       v45 = v41 + v44;
-      LODWORD(v46) = dword_14026D370[v42] & *(_DWORD *)(v41 + v44);
+      LODWORD(v46) = dword_14026D390[v42] & *(_DWORD *)(v41 + v44);
       if ( (_DWORD)v46 )
       {
 LABEL_64:
@@ -288,7 +288,7 @@ LABEL_64:
         v48 = 31 - v42;
         v49 = *(_QWORD *)(v57 + 8);
         v50 = v49 + v44;
-        v51 = dword_14026D370[v42] & *(_DWORD *)(v49 + v44);
+        v51 = dword_14026D390[v42] & *(_DWORD *)(v49 + v44);
         if ( v51 )
         {
 LABEL_86:

@@ -1,14 +1,14 @@
 /*
- * XREFs of CarCleanDbLockContext @ 0x1406192D4
+ * XREFs of CarCleanDbLockContext @ 0x140617894
  * Callers:
- *     CarAddUniqueViolation @ 0x14061907C (CarAddUniqueViolation.c)
- *     CarDeleteDriverRuleViolations @ 0x14061937C (CarDeleteDriverRuleViolations.c)
- *     CarDeletePluginRuleViolations @ 0x140619430 (CarDeletePluginRuleViolations.c)
- *     CarDeleteRuleViolationDB @ 0x1406194C0 (CarDeleteRuleViolationDB.c)
- *     CarWriteEarlyRuleViolationEvents @ 0x140619618 (CarWriteEarlyRuleViolationEvents.c)
+ *     CarAddUniqueViolation @ 0x14061763C (CarAddUniqueViolation.c)
+ *     CarDeleteDriverRuleViolations @ 0x14061793C (CarDeleteDriverRuleViolations.c)
+ *     CarDeletePluginRuleViolations @ 0x1406179F0 (CarDeletePluginRuleViolations.c)
+ *     CarDeleteRuleViolationDB @ 0x140617A80 (CarDeleteRuleViolationDB.c)
+ *     CarWriteEarlyRuleViolationEvents @ 0x140617BD8 (CarWriteEarlyRuleViolationEvents.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     CarReleaseDbLockFromDpcLevel @ 0x1406195CC (CarReleaseDbLockFromDpcLevel.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     CarReleaseDbLockFromDpcLevel @ 0x140617B8C (CarReleaseDbLockFromDpcLevel.c)
  */
 
 __int64 __fastcall CarCleanDbLockContext(__int64 a1)

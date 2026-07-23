@@ -1,13 +1,13 @@
 /*
- * XREFs of SeAccessCheckFromState @ 0x140228690
+ * XREFs of SeAccessCheckFromState @ 0x1402287A0
  * Callers:
- *     EtwpAccessCheckFromState @ 0x1406C0384 (EtwpAccessCheckFromState.c)
- *     CmpCheckAdminAccess @ 0x140A18DF0 (CmpCheckAdminAccess.c)
+ *     EtwpAccessCheckFromState @ 0x1406C03B4 (EtwpAccessCheckFromState.c)
+ *     CmpCheckAdminAccess @ 0x140A190A0 (CmpCheckAdminAccess.c)
  * Callees:
- *     SepTokenFromAccessInformation @ 0x14022822C (SepTokenFromAccessInformation.c)
- *     SeAccessCheckFromStateEx @ 0x140228790 (SeAccessCheckFromStateEx.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memset @ 0x140435A00 (memset.c)
+ *     SepTokenFromAccessInformation @ 0x14022833C (SepTokenFromAccessInformation.c)
+ *     SeAccessCheckFromStateEx @ 0x1402288A0 (SeAccessCheckFromStateEx.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     memset @ 0x140435E00 (memset.c)
  */
 
 BOOLEAN __stdcall SeAccessCheckFromState(
@@ -30,11 +30,11 @@ BOOLEAN __stdcall SeAccessCheckFromState(
   v12 = (int)SecurityDescriptor;
   memset(v17, 0, 0x498uLL);
   memset(v16, 0, 0x498uLL);
-  SepTokenFromAccessInformation((unsigned int **)PrimaryTokenInformation, (__int64)v17);
+  SepTokenFromAccessInformation((__int64)PrimaryTokenInformation, (__int64)v17);
   LODWORD(v14) = 0;
   if ( ClientTokenInformation )
   {
-    SepTokenFromAccessInformation((unsigned int **)ClientTokenInformation, (__int64)v16);
+    SepTokenFromAccessInformation((__int64)ClientTokenInformation, (__int64)v16);
     v14 = v16;
   }
   return SeAccessCheckFromStateEx(

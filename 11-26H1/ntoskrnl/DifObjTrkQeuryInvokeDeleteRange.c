@@ -1,29 +1,29 @@
 /*
- * XREFs of DifObjTrkQeuryInvokeDeleteRange @ 0x14051C810
+ * XREFs of DifObjTrkQeuryInvokeDeleteRange @ 0x14051E9C0
  * Callers:
- *     VfPtFreePoolNotification @ 0x140C44F7C (VfPtFreePoolNotification.c)
- *     VfDriverUnloadImage @ 0x140C46D88 (VfDriverUnloadImage.c)
+ *     VfPtFreePoolNotification @ 0x140C4AF8C (VfPtFreePoolNotification.c)
+ *     VfDriverUnloadImage @ 0x140C4CD98 (VfDriverUnloadImage.c)
  * Callees:
- *     RtlDeleteElementGenericTableAvlEx @ 0x1403B8CE0 (RtlDeleteElementGenericTableAvlEx.c)
- *     RtlLookupElementGenericTableFullAvl @ 0x14041CC60 (RtlLookupElementGenericTableFullAvl.c)
- *     DifAvlRealSuccessor @ 0x14048F508 (DifAvlRealSuccessor.c)
- *     RtlGetElementGenericTableAvl @ 0x1404CA470 (RtlGetElementGenericTableAvl.c)
- *     DifObjTrkGetPluginContext @ 0x14064AEAC (DifObjTrkGetPluginContext.c)
- *     DifObjTrkIsExceptionPluginId @ 0x14064B02C (DifObjTrkIsExceptionPluginId.c)
- *     DifAcquireSpinLockAtDpcLevelSafe @ 0x14064D16C (DifAcquireSpinLockAtDpcLevelSafe.c)
- *     DifReleaseSpinLockFromDpcLevelSafe @ 0x14064D224 (DifReleaseSpinLockFromDpcLevelSafe.c)
- *     DifAvlRealPredecessor @ 0x14064D294 (DifAvlRealPredecessor.c)
- *     MmGetVaTypeForVerifier @ 0x1406F38B0 (MmGetVaTypeForVerifier.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     RtlDeleteElementGenericTableAvlEx @ 0x1403C2BE0 (RtlDeleteElementGenericTableAvlEx.c)
+ *     RtlLookupElementGenericTableFullAvl @ 0x1404144B0 (RtlLookupElementGenericTableFullAvl.c)
+ *     DifAvlRealSuccessor @ 0x140488EC8 (DifAvlRealSuccessor.c)
+ *     RtlGetElementGenericTableAvl @ 0x1404C3EA0 (RtlGetElementGenericTableAvl.c)
+ *     DifObjTrkGetPluginContext @ 0x14064EA8C (DifObjTrkGetPluginContext.c)
+ *     DifObjTrkIsExceptionPluginId @ 0x14064EC0C (DifObjTrkIsExceptionPluginId.c)
+ *     DifAcquireSpinLockAtDpcLevelSafe @ 0x140650D4C (DifAcquireSpinLockAtDpcLevelSafe.c)
+ *     DifReleaseSpinLockFromDpcLevelSafe @ 0x140650E04 (DifReleaseSpinLockFromDpcLevelSafe.c)
+ *     DifAvlRealPredecessor @ 0x140650E74 (DifAvlRealPredecessor.c)
+ *     MmGetVaTypeForVerifier @ 0x1406F8520 (MmGetVaTypeForVerifier.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 void __fastcall DifObjTrkQeuryInvokeDeleteRange(unsigned __int64 a1, __int64 a2, __int64 a3, unsigned int a4)
 {
   int VaTypeForVerifier; // eax
   __int64 v9; // rdx
-  RTL_AVL_TABLE *v10; // rsi
+  _RTL_AVL_TABLE *v10; // rsi
   unsigned int *v11; // rbx
   __int64 *v12; // r12
   unsigned int *v13; // rdi
@@ -50,7 +50,7 @@ void __fastcall DifObjTrkQeuryInvokeDeleteRange(unsigned __int64 a1, __int64 a2,
   TABLE_SEARCH_RESULT SearchResult; // [rsp+24h] [rbp-3Ch] BYREF
   PVOID NodeOrParent; // [rsp+28h] [rbp-38h] BYREF
   __int64 v36; // [rsp+30h] [rbp-30h]
-  RTL_AVL_TABLE *v37; // [rsp+38h] [rbp-28h]
+  _RTL_AVL_TABLE *v37; // [rsp+38h] [rbp-28h]
   __int64 Buffer; // [rsp+40h] [rbp-20h] BYREF
   unsigned __int64 v39; // [rsp+48h] [rbp-18h]
   unsigned __int64 v40; // [rsp+50h] [rbp-10h]
@@ -69,7 +69,7 @@ void __fastcall DifObjTrkQeuryInvokeDeleteRange(unsigned __int64 a1, __int64 a2,
           VaTypeForVerifier = MmGetVaTypeForVerifier(a1);
           if ( VaTypeForVerifier != 5 )
           {
-            v10 = (RTL_AVL_TABLE *)(&stru_140E27B08.1144 + 15 * VaTypeForVerifier);
+            v10 = (_RTL_AVL_TABLE *)&stru_140E27C48.Spare35[15 * VaTypeForVerifier];
             v37 = v10;
             if ( v10->NumberGenericTableElements )
             {
@@ -78,7 +78,7 @@ void __fastcall DifObjTrkQeuryInvokeDeleteRange(unsigned __int64 a1, __int64 a2,
               if ( (_RTL_BALANCED_LINKS *)(a1 + a2) > v10[1].BalancedRoot.Parent
                 && (_RTL_BALANCED_LINKS *)a1 <= v10[1].BalancedRoot.LeftChild )
               {
-                DifAcquireSpinLockAtDpcLevelSafe(v33, v9, stru_140E27B08.Spare35);
+                DifAcquireSpinLockAtDpcLevelSafe(v33, v9, &stru_140E27C48.InGlobalUpdateVpThreadPriorityList);
                 if ( DifObjTrkInitialized )
                 {
                   NodeOrParent = 0LL;
@@ -86,12 +86,12 @@ void __fastcall DifObjTrkQeuryInvokeDeleteRange(unsigned __int64 a1, __int64 a2,
                   v11 = (unsigned int *)RtlLookupElementGenericTableFullAvl(v10, &Buffer, &NodeOrParent, &SearchResult);
                   if ( v11 )
                   {
-                    v12 = &qword_140E281D8;
-                    NodeOrParent = &qword_140E281D8;
-                    memset_0(&qword_140E281D8, 0, 0xA0uLL);
+                    v12 = &qword_140E282D8;
+                    NodeOrParent = &qword_140E282D8;
+                    memset_0(&qword_140E282D8, 0, 0xA0uLL);
                     v13 = v11 - 8;
                     if ( !(unsigned __int8)DifObjTrkIsExceptionPluginId(*v11, a3, a4) )
-                      qword_140E281D8 = (__int64)(v11 - 8);
+                      qword_140E282D8 = (__int64)(v11 - 8);
                     v14 = DifAvlRealSuccessor((_QWORD *)v11 - 4);
                     v16 = v40;
                     v17 = v14;
@@ -107,13 +107,13 @@ void __fastcall DifObjTrkQeuryInvokeDeleteRange(unsigned __int64 a1, __int64 a2,
                         {
                           if ( v20 == 20 )
                             break;
-                          *((_QWORD *)&stru_140E27B08 + v20 + 218) = v17;
+                          *((_QWORD *)&stru_140E27C48 + v20 + 210) = v17;
                         }
                         v17 = DifAvlRealSuccessor(v17);
                       }
                       while ( v17 );
                       v10 = v37;
-                      v12 = &qword_140E281D8;
+                      v12 = &qword_140E282D8;
                     }
                     v21 = DifAvlRealPredecessor(v13);
                     if ( v21 )
@@ -127,13 +127,13 @@ void __fastcall DifObjTrkQeuryInvokeDeleteRange(unsigned __int64 a1, __int64 a2,
                         {
                           if ( v22 == 20 )
                             break;
-                          *((_QWORD *)&stru_140E27B08 + v22 + 218) = v21;
+                          *((_QWORD *)&stru_140E27C48 + v22 + 210) = v21;
                         }
                         v21 = DifAvlRealPredecessor(v21);
                       }
                       while ( v21 );
                       v10 = v37;
-                      v12 = &qword_140E281D8;
+                      v12 = &qword_140E282D8;
                     }
                     if ( v22 )
                     {
@@ -154,14 +154,14 @@ void __fastcall DifObjTrkQeuryInvokeDeleteRange(unsigned __int64 a1, __int64 a2,
                         if ( NumberGenericTableElements == 1 )
                         {
                           RtlDeleteElementGenericTableAvlEx((__int64)v10, v25);
-                          --dword_140E28278;
+                          --dword_140E28378;
                           v10[1].BalancedRoot.LeftChild = 0LL;
                           v10[1].BalancedRoot.Parent = 0LL;
                         }
                         else if ( NumberGenericTableElements == 2 )
                         {
                           RtlDeleteElementGenericTableAvlEx((__int64)v10, v25);
-                          --dword_140E28278;
+                          --dword_140E28378;
                           ElementGenericTableAvl = RtlGetElementGenericTableAvl(v10, 0);
                           v10[1].BalancedRoot.LeftChild = (_RTL_BALANCED_LINKS *)*((_QWORD *)ElementGenericTableAvl + 2);
                           v10[1].BalancedRoot.Parent = (_RTL_BALANCED_LINKS *)*((_QWORD *)ElementGenericTableAvl + 1);
@@ -173,7 +173,7 @@ void __fastcall DifObjTrkQeuryInvokeDeleteRange(unsigned __int64 a1, __int64 a2,
                           v31 = *(_QWORD *)(v25 + 48);
                           LeftChild = v10[1].BalancedRoot.LeftChild;
                           RtlDeleteElementGenericTableAvlEx((__int64)v10, v25);
-                          --dword_140E28278;
+                          --dword_140E28378;
                           if ( v29 <= (unsigned __int64)Parent )
                             v10[1].BalancedRoot.Parent = (_RTL_BALANCED_LINKS *)*((_QWORD *)RtlGetElementGenericTableAvl(
                                                                                               v10,
@@ -194,7 +194,7 @@ void __fastcall DifObjTrkQeuryInvokeDeleteRange(unsigned __int64 a1, __int64 a2,
                     }
                   }
                 }
-                DifReleaseSpinLockFromDpcLevelSafe(v33, stru_140E27B08.Spare35);
+                DifReleaseSpinLockFromDpcLevelSafe(v33, &stru_140E27C48.InGlobalUpdateVpThreadPriorityList);
               }
             }
           }

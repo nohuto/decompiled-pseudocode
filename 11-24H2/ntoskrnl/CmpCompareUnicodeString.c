@@ -1,11 +1,11 @@
 /*
- * XREFs of CmpCompareUnicodeString @ 0x140A03D60
+ * XREFs of CmpCompareUnicodeString @ 0x140A00290
  * Callers:
- *     CmpCheckValueList @ 0x140887180 (CmpCheckValueList.c)
- *     CmpGetMappingHiveForString @ 0x14090AC0C (CmpGetMappingHiveForString.c)
- *     CmpCompareKeysByName @ 0x140A4D6E4 (CmpCompareKeysByName.c)
+ *     CmpCheckValueList @ 0x14088B030 (CmpCheckValueList.c)
+ *     CmpGetMappingHiveForString @ 0x1408E232C (CmpGetMappingHiveForString.c)
+ *     CmpCompareKeysByName @ 0x140A44274 (CmpCompareKeysByName.c)
  * Callees:
- *     RtlUpcaseUnicodeChar @ 0x1408441F0 (RtlUpcaseUnicodeChar.c)
+ *     RtlUpcaseUnicodeChar @ 0x1408404B0 (RtlUpcaseUnicodeChar.c)
  */
 
 __int64 __fastcall CmpCompareUnicodeString(__int64 a1, __int64 a2, char a3)

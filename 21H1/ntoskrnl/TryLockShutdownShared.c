@@ -20,7 +20,7 @@ char TryLockShutdownShared()
 
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
-  v1 = KeAbPreAcquire((ULONG_PTR)&CmpShutdownLock, 0LL, 1LL);
+  v1 = KeAbPreAcquire((ULONG_PTR)&CmpShutdownLock, 0LL, 1);
   v2 = 0;
   if ( !_InterlockedCompareExchange64((volatile signed __int64 *)&CmpShutdownLock, 17LL, 0LL)
     || ExfTryAcquirePushLockShared(&CmpShutdownLock) )

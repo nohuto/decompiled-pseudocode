@@ -1,7 +1,7 @@
 /*
- * XREFs of MiSetLeafFillToUninitializedWsle @ 0x14055C430
+ * XREFs of MiSetLeafFillToUninitializedWsle @ 0x14055C670
  * Callers:
- *     MiMakeZeroedPageTablesEx @ 0x1402FCDFC (MiMakeZeroedPageTablesEx.c)
+ *     MiMakeZeroedPageTablesEx @ 0x140307B4C (MiMakeZeroedPageTablesEx.c)
  * Callees:
  *     <none>
  */

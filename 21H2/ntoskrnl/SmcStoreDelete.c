@@ -1,20 +1,20 @@
 /*
- * XREFs of SmcStoreDelete @ 0x14092DDB0
+ * XREFs of SmcStoreDelete @ 0x14092DF10
  * Callers:
- *     SmcProcessStoreCreateRequest @ 0x14092AD7C (SmcProcessStoreCreateRequest.c)
- *     SmcProcessStoreDeleteRequest @ 0x14092AEC4 (SmcProcessStoreDeleteRequest.c)
+ *     SmcProcessStoreCreateRequest @ 0x14092AEDC (SmcProcessStoreCreateRequest.c)
+ *     SmcProcessStoreDeleteRequest @ 0x14092B024 (SmcProcessStoreDeleteRequest.c)
  * Callees:
- *     CmSiFreeMemory @ 0x140201A30 (CmSiFreeMemory.c)
- *     ExRundownCompleted @ 0x140251F40 (ExRundownCompleted.c)
- *     ExWaitForRundownProtectionRelease @ 0x1402797E0 (ExWaitForRundownProtectionRelease.c)
- *     ExReleaseRundownProtection_0 @ 0x14027C4F0 (ExReleaseRundownProtection_0.c)
- *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
- *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
- *     KeLeaveCriticalRegion @ 0x14034B3B0 (KeLeaveCriticalRegion.c)
- *     SmStoreDelete @ 0x14092A480 (SmStoreDelete.c)
- *     SmcCacheReference @ 0x14092D704 (SmcCacheReference.c)
- *     SmcStoreEntryFind @ 0x14092DF18 (SmcStoreEntryFind.c)
+ *     CmSiFreeMemory @ 0x1402253C0 (CmSiFreeMemory.c)
+ *     ExWaitForRundownProtectionRelease @ 0x140267780 (ExWaitForRundownProtectionRelease.c)
+ *     ExReleaseRundownProtection @ 0x14026A490 (ExReleaseRundownProtection.c)
+ *     ExRundownCompleted @ 0x1402F6750 (ExRundownCompleted.c)
+ *     ExfTryToWakePushLock @ 0x1402FC2C0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x1403539D0 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1403556E0 (ExAcquirePushLockExclusiveEx.c)
+ *     KeLeaveCriticalRegion @ 0x140356100 (KeLeaveCriticalRegion.c)
+ *     SmStoreDelete @ 0x14092A5E0 (SmStoreDelete.c)
+ *     SmcCacheReference @ 0x14092D864 (SmcCacheReference.c)
+ *     SmcStoreEntryFind @ 0x14092E078 (SmcStoreEntryFind.c)
  */
 
 __int64 __fastcall SmcStoreDelete(__int64 a1, unsigned int a2, unsigned int a3, unsigned int a4)
@@ -67,7 +67,7 @@ __int64 __fastcall SmcStoreDelete(__int64 a1, unsigned int a2, unsigned int a3, 
       ExfTryToWakePushLock(v12);
     KeAbPostRelease((ULONG_PTR)v12);
     KeLeaveCriticalRegion();
-    ExReleaseRundownProtection_0((PEX_RUNDOWN_REF)(32LL * (v6 & 0xF) + a1 + 8));
+    ExReleaseRundownProtection((PEX_RUNDOWN_REF)(32LL * (v6 & 0xF) + a1 + 8));
     if ( v8 )
       CmSiFreeMemory(v8);
   }

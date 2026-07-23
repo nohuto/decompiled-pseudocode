@@ -166,7 +166,7 @@ __int64 __fastcall MiSetProtectionOnSection(
   struct _KTHREAD *v92; // rdi
   unsigned int v93; // r11d
   unsigned __int8 v94; // r14
-  __int64 v95; // rdx
+  unsigned int v95; // edx
   bool v96; // zf
   __int64 v97; // rcx
   int v98; // eax
@@ -216,7 +216,7 @@ __int64 __fastcall MiSetProtectionOnSection(
   struct _KTHREAD *v142; // rdi
   unsigned int SessionId; // r11d
   unsigned __int8 v144; // r15
-  __int64 v145; // rdx
+  unsigned int v145; // edx
   __int64 v146; // rcx
   int v147; // eax
   __int64 v148; // rcx
@@ -433,7 +433,7 @@ __int64 __fastcall MiSetProtectionOnSection(
       SessionId = -1;
     --v142->SpecialApcDisable;
     v144 = ++v142->AbAllocationRegionCount;
-    LODWORD(v145) = ((char)v142->AbEntrySummary | (char)v142->AbOrphanedEntrySummary) ^ 0x3F;
+    v145 = ((char)v142->AbEntrySummary | (char)v142->AbOrphanedEntrySummary) ^ 0x3F;
     v96 = !_BitScanReverse((unsigned int *)&v146, v145);
     v203 = v146;
     if ( v96 )
@@ -443,7 +443,7 @@ __int64 __fastcall MiSetProtectionOnSection(
       v147 = 1 << v146;
       v148 = v146;
       v149 = &v142->LockEntries[v148];
-      v145 = ~v147 & (unsigned int)v145;
+      v145 &= ~v147;
       if ( (v149->AcquiredByte & 1) != 0
         && (*(_DWORD *)&v149->LockState.0 & 1) == 0
         && (*(_QWORD *)&v149->LockState.0 & 0x7FFFFFFFFFFFFFFCLL) == (v90 & 0x7FFFFFFFFFFFFFFCLL)
@@ -468,7 +468,7 @@ LABEL_265:
     {
       v149->CrossThreadReleasableAndBusyByte |= 2u;
       if ( (__int64)v149->LockState.LockState < 0 )
-        KiAbEntryRemoveFromTree(&v142->LockEntries[v148], v145);
+        KiAbEntryRemoveFromTree(&v142->LockEntries[v148].TreeNode);
       v194 = v149->BoostBitmap.AllFields & 0x1FFFF;
       v149->BoostBitmap.AllFields &= 0xFFFE0000;
       v149->ThreadLocalFlags &= ~1u;
@@ -1248,7 +1248,7 @@ LABEL_66:
       v93 = -1;
     --v92->SpecialApcDisable;
     v94 = ++v92->AbAllocationRegionCount;
-    LODWORD(v95) = ((char)v92->AbEntrySummary | (char)v92->AbOrphanedEntrySummary) ^ 0x3F;
+    v95 = ((char)v92->AbEntrySummary | (char)v92->AbOrphanedEntrySummary) ^ 0x3F;
     v96 = !_BitScanReverse((unsigned int *)&v97, v95);
     v206 = v97;
     if ( v96 )
@@ -1258,7 +1258,7 @@ LABEL_66:
       v98 = 1 << v97;
       v99 = v97;
       v100 = &v92->LockEntries[v99];
-      v95 = ~v98 & (unsigned int)v95;
+      v95 &= ~v98;
       if ( (v100->AcquiredByte & 1) != 0
         && (*(_DWORD *)&v100->LockState.0 & 1) == 0
         && (*(_QWORD *)&v100->LockState.0 & 0x7FFFFFFFFFFFFFFCLL) == ((a1 + 888) & 0x7FFFFFFFFFFFFFFCLL)
@@ -1283,7 +1283,7 @@ LABEL_165:
     {
       v100->CrossThreadReleasableAndBusyByte |= 2u;
       if ( (__int64)v100->LockState.LockState < 0 )
-        KiAbEntryRemoveFromTree(&v92->LockEntries[v99], v95);
+        KiAbEntryRemoveFromTree(&v92->LockEntries[v99].TreeNode);
       v196 = v100->BoostBitmap.AllFields & 0x1FFFF;
       v100->BoostBitmap.AllFields &= 0xFFFE0000;
       v100->ThreadLocalFlags &= ~1u;

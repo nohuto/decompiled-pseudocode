@@ -6,11 +6,11 @@
  *     <none>
  */
 
-__int64 NtEnumerateBootEntries()
+NTSTATUS __cdecl NtEnumerateBootEntries(PVOID Buffer, PULONG BufferLength)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 207LL;
+  result = 207;
   __asm { syscall; Low latency system call }
   return result;
 }

@@ -1,16 +1,16 @@
 /*
- * XREFs of IoTryReleasePages @ 0x140411820
+ * XREFs of IoTryReleasePages @ 0x140410F40
  * Callers:
- *     MiRequestIoPageMdlCacheRelease @ 0x140411798 (MiRequestIoPageMdlCacheRelease.c)
- *     MiInvokeIoReleasePages @ 0x1405141E4 (MiInvokeIoReleasePages.c)
+ *     MiRequestIoPageMdlCacheRelease @ 0x140410EB8 (MiRequestIoPageMdlCacheRelease.c)
+ *     MiInvokeIoReleasePages @ 0x14050DC54 (MiInvokeIoReleasePages.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402DC6D0 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     ExAcquireSpinLockShared @ 0x1402EDF10 (ExAcquireSpinLockShared.c)
- *     ExpReleaseSpinLockSharedFromDpcLevelInstrumented @ 0x14036A848 (ExpReleaseSpinLockSharedFromDpcLevelInstrumented.c)
- *     IopMcDereferenceBufferEntry @ 0x140411A80 (IopMcDereferenceBufferEntry.c)
- *     IopMcReferenceBufferEntry @ 0x1404FDCA8 (IopMcReferenceBufferEntry.c)
- *     IopMcTryUnlockMdl @ 0x1405D7788 (IopMcTryUnlockMdl.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402BE490 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     ExAcquireSpinLockShared @ 0x1402CFF90 (ExAcquireSpinLockShared.c)
+ *     ExpReleaseSpinLockSharedFromDpcLevelInstrumented @ 0x14036C5E8 (ExpReleaseSpinLockSharedFromDpcLevelInstrumented.c)
+ *     IopMcDereferenceBufferEntry @ 0x1404111A0 (IopMcDereferenceBufferEntry.c)
+ *     IopMcReferenceBufferEntry @ 0x1404F71E8 (IopMcReferenceBufferEntry.c)
+ *     IopMcTryUnlockMdl @ 0x1405D9F78 (IopMcTryUnlockMdl.c)
  */
 
 void __fastcall IoTryReleasePages(unsigned __int64 a1, __int64 a2)
@@ -47,16 +47,16 @@ void __fastcall IoTryReleasePages(unsigned __int64 a1, __int64 a2)
     v2 = a2;
     do
     {
-      _InterlockedIncrement(&dword_140F84D40);
+      _InterlockedIncrement(&dword_140F850E0);
       v4 = 0;
       v5 = 0LL;
       v6 = 0LL;
       v7 = 0LL;
-      v8 = ExAcquireSpinLockShared(&dword_140F84D44);
-      v9 = qword_140F84D48;
+      v8 = ExAcquireSpinLockShared(&dword_140F850E4);
+      v9 = qword_140F850E8;
       v10 = 0LL;
       v11 = v8;
-      if ( qword_140F84D48 )
+      if ( qword_140F850E8 )
       {
         do
         {
@@ -118,14 +118,14 @@ void __fastcall IoTryReleasePages(unsigned __int64 a1, __int64 a2)
           v7 = *(_QWORD *)(v5 + 56);
         }
       }
-      if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+      if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || PopHibernateInProgress )
       {
-        _InterlockedAnd(&dword_140F84D44, 0xBFFFFFFF);
-        _InterlockedDecrement(&dword_140F84D44);
+        _InterlockedAnd(&dword_140F850E4, 0xBFFFFFFF);
+        _InterlockedDecrement(&dword_140F850E4);
       }
       else
       {
-        ExpReleaseSpinLockSharedFromDpcLevelInstrumented(&dword_140F84D44, retaddr);
+        ExpReleaseSpinLockSharedFromDpcLevelInstrumented(&dword_140F850E4, retaddr);
       }
       if ( KiIrqlFlags )
         KiLowerIrqlProcessIrqlFlags(KeGetCurrentIrql(), v11);
@@ -139,11 +139,11 @@ void __fastcall IoTryReleasePages(unsigned __int64 a1, __int64 a2)
         v7 = 0LL;
         if ( v4 )
           break;
-        v15 = ExAcquireSpinLockShared(&dword_140F84D44);
-        v16 = qword_140F84D48;
+        v15 = ExAcquireSpinLockShared(&dword_140F850E4);
+        v16 = qword_140F850E8;
         v17 = 0LL;
         v18 = v15;
-        if ( qword_140F84D48 )
+        if ( qword_140F850E8 )
         {
           do
           {
@@ -205,7 +205,7 @@ void __fastcall IoTryReleasePages(unsigned __int64 a1, __int64 a2)
             v7 = *(_QWORD *)(v5 + 56);
           }
         }
-        ExReleaseSpinLockSharedFromDpcLevel(&dword_140F84D44);
+        ExReleaseSpinLockSharedFromDpcLevel(&dword_140F850E4);
         if ( KiIrqlFlags )
           KiLowerIrqlProcessIrqlFlags(KeGetCurrentIrql(), v18);
         __writecr8(v18);

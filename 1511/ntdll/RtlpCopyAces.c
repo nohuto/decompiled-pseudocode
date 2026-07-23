@@ -14,7 +14,7 @@
 
 __int64 __fastcall RtlpCopyAces(
         __int64 a1,
-        __int64 a2,
+        GENERIC_MAPPING *a2,
         int a3,
         char a4,
         char a5,
@@ -25,21 +25,21 @@ __int64 __fastcall RtlpCopyAces(
         char a10,
         char a11,
         int a12,
-        _DWORD *a13,
-        __int64 a14)
+        unsigned int *a13,
+        PACL Acl)
 {
   char v14; // r14
-  _DWORD *v15; // r15
-  _DWORD *v16; // r13
+  PGENERIC_MAPPING v15; // r15
+  unsigned int *v16; // r13
   unsigned __int8 v18; // al
   __int64 v19; // rbx
   unsigned int v20; // edx
   unsigned int v21; // esi
-  _BYTE *v22; // rdi
+  ACCESS_MASK *v22; // rdi
   bool v23; // zf
-  __int64 v25; // r13
+  signed __int64 v25; // r13
   int v26; // ecx
-  int v27; // eax
+  int GenericAll; // eax
   int v28; // edx
   _BYTE *v29; // rsi
   char v30; // r15
@@ -48,11 +48,11 @@ __int64 __fastcall RtlpCopyAces(
   char v33; // r8
   int v34; // ecx
   _BYTE v36[15]; // [rsp+89h] [rbp-68h] BYREF
-  void *v37; // [rsp+98h] [rbp-59h] BYREF
+  PVOID FirstFree; // [rsp+98h] [rbp-59h] BYREF
   int v38; // [rsp+A0h] [rbp-51h]
   int v39; // [rsp+A4h] [rbp-4Dh]
-  __int64 v40; // [rsp+A8h] [rbp-49h]
-  __int64 v41; // [rsp+B0h] [rbp-41h]
+  PGENERIC_MAPPING GenericMapping; // [rsp+A8h] [rbp-49h]
+  unsigned int *v41; // [rsp+B0h] [rbp-41h]
   __int64 v42; // [rsp+B8h] [rbp-39h]
   __int64 v43; // [rsp+C0h] [rbp-31h]
   __int64 v44; // [rsp+C8h] [rbp-29h]
@@ -62,20 +62,20 @@ __int64 __fastcall RtlpCopyAces(
   unsigned __int16 v48; // [rsp+E4h] [rbp-Dh]
 
   v14 = 0;
-  v15 = (_DWORD *)a2;
+  v15 = a2;
   v16 = a13;
   v44 = a6;
   v42 = a7;
   v45 = a8;
   v43 = a9;
-  v18 = *(_BYTE *)a14 - 2;
+  v18 = Acl->AclRevision - 2;
   v39 = a3;
-  v40 = a2;
+  GenericMapping = a2;
   v46 = a1;
-  v41 = (__int64)a13;
+  v41 = a13;
   if ( v18 > 2u )
     return 3221225560LL;
-  if ( !RtlFirstFreeAce(a14, &v37) )
+  if ( !RtlFirstFreeAce(Acl, &FirstFree) )
     return 3221225597LL;
   v19 = a1 + 8;
   v20 = 0;
@@ -84,7 +84,7 @@ __int64 __fastcall RtlpCopyAces(
   v38 = 0;
   if ( !*(_WORD *)(a1 + 4) )
     goto LABEL_14;
-  v22 = v37;
+  v22 = (ACCESS_MASK *)FirstFree;
   do
   {
     if ( *(_BYTE *)v19 != 17 )
@@ -95,7 +95,7 @@ __int64 __fastcall RtlpCopyAces(
     }
     if ( a12 != 3 )
       goto LABEL_11;
-    if ( RtlFindAceByType(a14, 17, 0LL) )
+    if ( RtlFindAceByType(Acl, 0x11u, 0LL) )
       break;
     v20 = *(_DWORD *)&v36[3];
 LABEL_7:
@@ -111,26 +111,27 @@ LABEL_16:
       if ( !a5 )
       {
         v25 = *(unsigned __int16 *)(v19 + 2);
-        if ( v22 && v25 <= a14 + *(unsigned __int16 *)(a14 + 2) - (_QWORD)v22 )
+        if ( v22 && v25 <= (__int64)Acl + Acl->AclSize - (_QWORD)v22 )
         {
           if ( !v14 )
           {
             memmove(v22, (const void *)v19, *(unsigned __int16 *)(v19 + 2));
-            if ( (*v22 <= 0xAu || (unsigned __int8)(*v22 - 13) <= 1u) && (v22[1] & 8) == 0 )
+            if ( (*(_BYTE *)v22 <= 0xAu || (unsigned __int8)(*(_BYTE *)v22 - 13) <= 1u)
+              && (*((_BYTE *)v22 + 1) & 8) == 0 )
             {
-              RtlMapGenericMask((_DWORD *)v22 + 1, v15);
-              if ( *v22 <= 0xAu && (v26 = 1651, _bittest(&v26, (unsigned __int8)*v22)) )
-                v27 = v15[3];
+              RtlMapGenericMask(v22 + 1, v15);
+              if ( *(_BYTE *)v22 <= 0xAu && (v26 = 1651, _bittest(&v26, *(unsigned __int8 *)v22)) )
+                GenericAll = v15->GenericAll;
               else
-                v27 = v15[3] | 0x1000000;
-              *((_DWORD *)v22 + 1) &= v27;
+                GenericAll = v15->GenericAll | 0x1000000;
+              v22[1] &= GenericAll;
             }
-            v22[1] &= ~a4;
-            ++*(_WORD *)(a14 + 4);
+            *((_BYTE *)v22 + 1) &= ~a4;
+            ++Acl->AceCount;
             goto LABEL_27;
           }
 LABEL_56:
-          v22 = (_BYTE *)(a14 + *(unsigned __int16 *)(a14 + 2));
+          v22 = (ACCESS_MASK *)((char *)Acl + Acl->AclSize);
           goto LABEL_28;
         }
         v14 = 1;
@@ -141,7 +142,7 @@ LABEL_56:
       v29 = v22;
       *(_DWORD *)&v36[7] = 0;
       LODWORD(v25) = 0;
-      v37 = v22;
+      FirstFree = v22;
       if ( !a10 || (v30 = 1, (*(_BYTE *)(v19 + 1) & 3) == 0) )
         v30 = 0;
       v31 = *(_BYTE *)(v19 + 1);
@@ -151,19 +152,19 @@ LABEL_56:
         if ( a11 )
           v32 = (v31 & 0x10) != 0;
         if ( !RtlpCopyEffectiveAce(
-                (char *)v19,
+                (ACCESS_MASK *)v19,
                 v32,
                 v30,
                 v44,
                 v42,
                 v45,
                 v43,
-                v40,
+                GenericMapping,
                 0LL,
                 0,
-                &v37,
+                &FirstFree,
                 &v36[7],
-                a14,
+                (__int64)Acl,
                 0LL,
                 v36,
                 &v36[1]) )
@@ -175,11 +176,11 @@ LABEL_56:
         if ( !v14 && *(_DWORD *)&v36[7] )
         {
           v33 = a4;
-          v29 = v37;
-          v22[1] &= ~a4;
+          v29 = FirstFree;
+          *((_BYTE *)v22 + 1) &= ~a4;
           goto LABEL_42;
         }
-        v29 = v37;
+        v29 = FirstFree;
       }
       v33 = a4;
 LABEL_42:
@@ -194,11 +195,11 @@ LABEL_42:
         {
           if ( v14 )
             goto LABEL_56;
-          v22[1] = ~v33 & (v22[1] | *(_BYTE *)(v19 + 1) & 0x1F);
+          *((_BYTE *)v22 + 1) = ~v33 & (*((_BYTE *)v22 + 1) | *(_BYTE *)(v19 + 1) & 0x1F);
 LABEL_27:
-          v22 += (unsigned int)v25;
+          v22 = (ACCESS_MASK *)((char *)v22 + (unsigned int)v25);
 LABEL_28:
-          v15 = (_DWORD *)v40;
+          v15 = GenericMapping;
           v21 = v25 + v38;
           v20 = *(_DWORD *)&v36[3];
           v38 += v25;
@@ -209,7 +210,7 @@ LABEL_28:
           LODWORD(v25) = *(unsigned __int16 *)(v19 + 2) + (_DWORD)v25;
           if ( (unsigned int)v25 > 0xFFFF )
             return 3221225597LL;
-          if ( *(unsigned __int16 *)(v19 + 2) > a14 + *(unsigned __int16 *)(a14 + 2) - (_QWORD)v29 )
+          if ( *(unsigned __int16 *)(v19 + 2) > (__int64)Acl + Acl->AclSize - (_QWORD)v29 )
           {
             v14 = 1;
             goto LABEL_56;
@@ -218,7 +219,7 @@ LABEL_28:
             goto LABEL_56;
           memmove(v29, (const void *)v19, *(unsigned __int16 *)(v19 + 2));
           v29[1] = ~a4 & (v29[1] | 8);
-          ++*(_WORD *)(a14 + 4);
+          ++Acl->AceCount;
         }
       }
 LABEL_43:
@@ -236,7 +237,7 @@ LABEL_11:
   while ( v20 < *(unsigned __int16 *)(v46 + 4) );
   if ( v21 > 0xFFFF )
     return 3221225597LL;
-  v16 = (_DWORD *)v41;
+  v16 = v41;
 LABEL_14:
   *v16 = v21;
   return v14 != 0 ? 0xC0000023 : 0;

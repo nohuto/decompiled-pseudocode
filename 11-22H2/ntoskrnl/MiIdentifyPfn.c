@@ -126,10 +126,10 @@ unsigned __int64 __fastcall MiIdentifyPfn(unsigned __int64 a1, _QWORD *a2)
   void *retaddr; // [rsp+F8h] [rbp+5Fh]
 
   v88 = a1;
-  if ( qword_140C67EE8 )
+  if ( stru_140C67EE0.Buffer )
   {
     v73 = (a1 >> 18) & 0x3FFFFF;
-    if ( _bittest64((const signed __int64 *)qword_140C67EE8, v73) )
+    if ( _bittest64((const signed __int64 *)stru_140C67EE0.Buffer, v73) )
     {
       v74 = *(_QWORD *)(qword_140C67EF0 + 8 * v73) & 7LL;
       if ( v74 > 5 )

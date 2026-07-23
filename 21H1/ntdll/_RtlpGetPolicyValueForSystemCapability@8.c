@@ -14,30 +14,32 @@
  *     RtlUnicodeStringInitWorker @ 0x4B32C921 (RtlUnicodeStringInitWorker.c)
  */
 
-int __fastcall RtlpGetPolicyValueForSystemCapability(const void **a1, UNICODE_STRING *a2)
+NTSTATUS __fastcall RtlpGetPolicyValueForSystemCapability(const UNICODE_STRING *a1, _UNICODE_STRING *a2)
 {
-  size_t v2; // ebx
+  void *v2; // ebx
   wchar_t *StringRoutine; // eax
   wchar_t *v5; // esi
-  int appended; // esi
-  size_t v8; // ebx
-  void *v9; // eax
+  NTSTATUS appended; // esi
+  ULONG v8; // ebx
+  PVOID v9; // eax
   int v10; // [esp-8h] [ebp-30h]
   size_t v11; // [esp-4h] [ebp-2Ch]
-  int v12; // [esp-4h] [ebp-2Ch]
-  UNICODE_STRING UnicodeString; // [esp+Ch] [ebp-1Ch] BYREF
-  const void **v14; // [esp+14h] [ebp-14h]
-  int v15; // [esp+18h] [ebp-10h]
-  int v16; // [esp+1Ch] [ebp-Ch] BYREF
-  size_t v17; // [esp+20h] [ebp-8h] BYREF
+  SIZE_T v12; // [esp-4h] [ebp-2Ch]
+  size_t v13; // [esp-4h] [ebp-2Ch]
+  int v14; // [esp-4h] [ebp-2Ch]
+  _UNICODE_STRING Destination; // [esp+Ch] [ebp-1Ch] BYREF
+  PCUNICODE_STRING Source; // [esp+14h] [ebp-14h]
+  int v17; // [esp+18h] [ebp-10h]
+  ULONG Type; // [esp+1Ch] [ebp-Ch] BYREF
+  ULONG ResultDataSize; // [esp+20h] [ebp-8h] BYREF
   size_t Size; // [esp+24h] [ebp-4h]
 
-  v14 = a1;
+  Source = a1;
   v2 = 0;
-  *(_DWORD *)&UnicodeString.Length = 0;
-  UnicodeString.Buffer = 0;
-  v17 = 0;
-  v16 = 0;
+  *(_DWORD *)&Destination.Length = 0;
+  Destination.Buffer = 0;
+  ResultDataSize = 0;
+  Type = 0;
   if ( !a1 || !a2 )
   {
     appended = -1073741811;
@@ -46,49 +48,51 @@ LABEL_7:
       goto LABEL_12;
     goto LABEL_8;
   }
-  v15 = (unsigned __int16)(*(_WORD *)a1 + 56);
-  Size = (unsigned __int16)v15;
-  StringRoutine = (wchar_t *)NtdllpAllocateStringRoutine((unsigned __int16)v15);
+  v17 = (unsigned __int16)(a1->Length + 56);
+  LODWORD(Size) = (unsigned __int16)v17;
+  StringRoutine = (wchar_t *)NtdllpAllocateStringRoutine((unsigned __int16)v17);
   v5 = StringRoutine;
   if ( !StringRoutine )
   {
     appended = -1073741801;
     goto LABEL_8;
   }
-  memset(StringRoutine, 0, Size);
-  UnicodeString.MaximumLength = v15;
-  UnicodeString.Buffer = v5;
-  appended = RtlAppendUnicodeStringToString(&UnicodeString.Length, (const void **)&dword_4B2811E0);
+  LODWORD(v11) = Size;
+  memset(StringRoutine, 0, v11);
+  Destination.MaximumLength = v17;
+  Destination.Buffer = v5;
+  appended = RtlAppendUnicodeStringToString(&Destination, &stru_4B2811E0);
   if ( appended < 0 )
     goto LABEL_8;
-  appended = RtlAppendUnicodeStringToString(&UnicodeString.Length, v14);
+  appended = RtlAppendUnicodeStringToString(&Destination, Source);
   if ( appended < 0 )
     goto LABEL_8;
-  appended = NtQueryLicenseValue(&UnicodeString, &v16, 0, 0, &v17);
+  appended = NtQueryLicenseValue(&Destination, &Type, 0, 0, &ResultDataSize);
   if ( appended != -1073741789 )
     goto LABEL_7;
-  v8 = v17;
-  Size = RtlAllocateHeap((int)NtCurrentPeb()->ProcessHeap, NtdllBaseTag + 1310720, v17);
-  appended = NtQueryLicenseValue(&UnicodeString, &v16, Size, v8, &v17);
+  v8 = ResultDataSize;
+  LODWORD(v12) = ResultDataSize;
+  LODWORD(Size) = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, NtdllBaseTag + 1310720, v12);
+  appended = NtQueryLicenseValue(&Destination, &Type, (PVOID)Size, v8, &ResultDataSize);
   if ( appended < 0 )
     goto LABEL_20;
-  if ( v16 != 1 || !v8 || (v8 & 1) != 0 )
+  if ( Type != 1 || !v8 || (v8 & 1) != 0 )
   {
     appended = -1073741823;
     goto LABEL_20;
   }
-  v9 = (void *)NtdllpAllocateStringRoutine(v8);
+  v9 = NtdllpAllocateStringRoutine(v8);
   if ( !v9 )
   {
     appended = -1073741801;
 LABEL_20:
-    v2 = Size;
+    v2 = (void *)Size;
     goto LABEL_8;
   }
-  v11 = v8;
-  v2 = Size;
-  memcpy(v9, (const void *)Size, v11);
-  appended = RtlUnicodeStringInitWorker(v10, v12);
+  LODWORD(v13) = v8;
+  v2 = (void *)Size;
+  memcpy(v9, (const void *)Size, v13);
+  appended = RtlUnicodeStringInitWorker(v10, v14);
   if ( appended < 0 )
   {
 LABEL_8:
@@ -99,8 +103,8 @@ LABEL_8:
   appended = 0;
 LABEL_10:
   if ( v2 )
-    RtlFreeHeap((int)NtCurrentPeb()->ProcessHeap, 0, v2);
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v2);
 LABEL_12:
-  RtlFreeAnsiString(&UnicodeString);
+  RtlFreeAnsiString(&Destination);
   return appended;
 }

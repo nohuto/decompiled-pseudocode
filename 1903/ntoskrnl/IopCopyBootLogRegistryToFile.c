@@ -34,13 +34,13 @@ _QWORD *IopCopyBootLogRegistryToFile()
   PUNICODE_STRING v5; // rcx
   ULONG v6; // [rsp+28h] [rbp-E0h]
   ULONG v7; // [rsp+28h] [rbp-E0h]
-  struct _TIME_FIELDS TimeFields; // [rsp+58h] [rbp-B0h] BYREF
+  _TIME_FIELDS TimeFields; // [rsp+58h] [rbp-B0h] BYREF
   HANDLE KeyHandle; // [rsp+68h] [rbp-A0h] BYREF
   HANDLE Handle; // [rsp+70h] [rbp-98h] BYREF
   LARGE_INTEGER LocalTime; // [rsp+78h] [rbp-90h] BYREF
   PVOID P; // [rsp+80h] [rbp-88h] BYREF
   UNICODE_STRING UnicodeString; // [rsp+88h] [rbp-80h] BYREF
-  STRING DestinationString; // [rsp+98h] [rbp-70h] BYREF
+  _STRING DestinationString; // [rsp+98h] [rbp-70h] BYREF
   UNICODE_STRING v15; // [rsp+A8h] [rbp-60h] BYREF
   UNICODE_STRING v16; // [rsp+B8h] [rbp-50h] BYREF
   char pszDest[256]; // [rsp+C8h] [rbp-40h] BYREF

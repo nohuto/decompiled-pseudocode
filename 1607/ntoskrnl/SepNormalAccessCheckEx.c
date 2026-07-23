@@ -1,18 +1,18 @@
 /*
- * XREFs of SepNormalAccessCheckEx @ 0x140136148
+ * XREFs of SepNormalAccessCheckEx @ 0x1401366B8
  * Callers:
- *     SepAccessCheckEx @ 0x140135DF0 (SepAccessCheckEx.c)
+ *     SepAccessCheckEx @ 0x140136360 (SepAccessCheckEx.c)
  * Callees:
- *     SepMatchPackage @ 0x14000E138 (SepMatchPackage.c)
- *     AuthzBasepAddAccessTypeList @ 0x140092B20 (AuthzBasepAddAccessTypeList.c)
- *     AuthzBasepSetAccessReasons @ 0x140092C00 (AuthzBasepSetAccessReasons.c)
- *     AuthzBasepEvaluateAceCondition @ 0x14009FBFC (AuthzBasepEvaluateAceCondition.c)
- *     SepIsPackageSid @ 0x1400A06E0 (SepIsPackageSid.c)
- *     SepIsCapabilitySid @ 0x1400A0DAC (SepIsCapabilitySid.c)
- *     SepMatchCapability @ 0x1400A7790 (SepMatchCapability.c)
- *     AuthzBasepInitializeResourceClaimsFromSacl @ 0x1400AC934 (AuthzBasepInitializeResourceClaimsFromSacl.c)
- *     SepSidInToken @ 0x1400C45A4 (SepSidInToken.c)
- *     AuthzBasepObjectInTypeList @ 0x140234488 (AuthzBasepObjectInTypeList.c)
+ *     SepMatchPackage @ 0x14000DCB8 (SepMatchPackage.c)
+ *     AuthzBasepAddAccessTypeList @ 0x140092320 (AuthzBasepAddAccessTypeList.c)
+ *     AuthzBasepSetAccessReasons @ 0x140092400 (AuthzBasepSetAccessReasons.c)
+ *     AuthzBasepEvaluateAceCondition @ 0x14009E524 (AuthzBasepEvaluateAceCondition.c)
+ *     SepIsPackageSid @ 0x14009F008 (SepIsPackageSid.c)
+ *     SepIsCapabilitySid @ 0x14009F6D4 (SepIsCapabilitySid.c)
+ *     SepMatchCapability @ 0x1400A5D08 (SepMatchCapability.c)
+ *     AuthzBasepInitializeResourceClaimsFromSacl @ 0x1400AAE9C (AuthzBasepInitializeResourceClaimsFromSacl.c)
+ *     SepSidInToken @ 0x1400C2444 (SepSidInToken.c)
+ *     AuthzBasepObjectInTypeList @ 0x1402342B4 (AuthzBasepObjectInTypeList.c)
  */
 
 void __fastcall SepNormalAccessCheckEx(

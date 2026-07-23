@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlCountSetBitsAffinityEx @ 0x18013F8A0
+ * XREFs of RtlCountSetBitsAffinityEx @ 0x18013F7A0
  * Callers:
- *     RtlIsMultipleProcessorAffinityEx @ 0x18013F9E0 (RtlIsMultipleProcessorAffinityEx.c)
+ *     RtlIsMultipleProcessorAffinityEx @ 0x18013F8E0 (RtlIsMultipleProcessorAffinityEx.c)
  * Callees:
  *     <none>
  */

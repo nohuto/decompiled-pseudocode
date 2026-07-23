@@ -1,9 +1,9 @@
 /*
- * XREFs of HalFlushDmaBuffer @ 0x14045CE80
+ * XREFs of HalFlushDmaBuffer @ 0x14045D280
  * Callers:
  *     <none>
  * Callees:
- *     KeFlushIoBuffers @ 0x1403472B0 (KeFlushIoBuffers.c)
+ *     KeFlushIoBuffers @ 0x140347540 (KeFlushIoBuffers.c)
  */
 
 __int64 __fastcall HalFlushDmaBuffer(__int64 a1, ULONG_PTR a2, char a3)

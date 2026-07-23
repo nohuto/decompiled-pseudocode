@@ -8,21 +8,21 @@
 
 char *__cdecl strncat(char *Destination, const char *Source, size_t Count)
 {
-  size_t v3; // ecx
+  unsigned int v3; // ecx
   char *v4; // edi
   int v6; // eax
   int v7; // eax
   char *v8; // edi
   const char *v9; // esi
   char v10; // bl
-  size_t v11; // ecx
+  unsigned int v11; // ecx
   int v12; // edx
   char v13; // dl
   char *result; // eax
   int v15; // eax
 
   v3 = Count;
-  if ( !Count )
+  if ( !(_DWORD)Count )
     return Destination;
   v4 = Destination;
   if ( ((unsigned __int8)Destination & 3) == 0 )
@@ -68,8 +68,8 @@ LABEL_14:
   if ( ((unsigned __int8)Source & 3) == 0 )
   {
     v10 = Count;
-    v11 = Count >> 2;
-    if ( Count >> 2 )
+    v11 = (unsigned int)Count >> 2;
+    if ( (unsigned int)Count >> 2 )
       goto LABEL_28;
 LABEL_21:
     v3 = v10 & 3;

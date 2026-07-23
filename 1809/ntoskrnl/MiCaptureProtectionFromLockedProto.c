@@ -1,11 +1,11 @@
 /*
- * XREFs of MiCaptureProtectionFromLockedProto @ 0x1402BF3EC
+ * XREFs of MiCaptureProtectionFromLockedProto @ 0x1402BF5DC
  * Callers:
  *     MiGetPageProtection @ 0x14003FFE0 (MiGetPageProtection.c)
  * Callees:
  *     MiLockPageInline @ 0x14002CE40 (MiLockPageInline.c)
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 unsigned __int64 __fastcall MiCaptureProtectionFromLockedProto(unsigned __int64 a1)

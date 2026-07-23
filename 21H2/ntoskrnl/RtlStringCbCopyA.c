@@ -1,14 +1,14 @@
 /*
- * XREFs of RtlStringCbCopyA @ 0x1402D6260
+ * XREFs of RtlStringCbCopyA @ 0x1402875B0
  * Callers:
- *     PfpPrivSourceEnum @ 0x1406CE0D0 (PfpPrivSourceEnum.c)
- *     NtSetInformationProcess @ 0x14070A4B0 (NtSetInformationProcess.c)
- *     ObpRegisterObject @ 0x1408DEDCC (ObpRegisterObject.c)
- *     EtwpLogRefSetAutoMark @ 0x14093DE54 (EtwpLogRefSetAutoMark.c)
- *     Phase1InitializationDiscard @ 0x140A3B6A4 (Phase1InitializationDiscard.c)
- *     IopStoreArcInformation @ 0x140A5D274 (IopStoreArcInformation.c)
+ *     PfpPrivSourceEnum @ 0x1406A53B4 (PfpPrivSourceEnum.c)
+ *     NtSetInformationProcess @ 0x140721890 (NtSetInformationProcess.c)
+ *     ObpRegisterObject @ 0x1408DEF2C (ObpRegisterObject.c)
+ *     EtwpLogRefSetAutoMark @ 0x14093E024 (EtwpLogRefSetAutoMark.c)
+ *     Phase1InitializationDiscard @ 0x140A3C6A4 (Phase1InitializationDiscard.c)
+ *     IopStoreArcInformation @ 0x140A5E274 (IopStoreArcInformation.c)
  * Callees:
- *     RtlStringCopyWorkerA @ 0x1402D62A4 (RtlStringCopyWorkerA.c)
+ *     RtlStringCopyWorkerA @ 0x1402875F4 (RtlStringCopyWorkerA.c)
  */
 
 NTSTATUS __stdcall RtlStringCbCopyA(NTSTRSAFE_PSTR pszDest, size_t cbDest, NTSTRSAFE_PCSTR pszSrc)

@@ -1,18 +1,18 @@
 /*
- * XREFs of IoReportTargetDeviceChangeAsynchronous @ 0x14046B8F0
+ * XREFs of IoReportTargetDeviceChangeAsynchronous @ 0x140464570
  * Callers:
- *     PnpDeviceActionWorker @ 0x14046CD70 (PnpDeviceActionWorker.c)
- *     RawMountVolume @ 0x1409A3134 (RawMountVolume.c)
- *     FsRtlNotifyVolumeEventEx @ 0x140A50700 (FsRtlNotifyVolumeEventEx.c)
+ *     PnpDeviceActionWorker @ 0x140467910 (PnpDeviceActionWorker.c)
+ *     RawMountVolume @ 0x1408ACB4C (RawMountVolume.c)
+ *     FsRtlNotifyVolumeEventEx @ 0x140A474B0 (FsRtlNotifyVolumeEventEx.c)
  * Callees:
- *     ExQueueWorkItem @ 0x140325850 (ExQueueWorkItem.c)
- *     ObfReferenceObjectWithTag @ 0x1403403E0 (ObfReferenceObjectWithTag.c)
- *     IoAddTriageDumpDataBlock @ 0x1403F2880 (IoAddTriageDumpDataBlock.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     RtlCompareMemory @ 0x1406B3990 (RtlCompareMemory.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     PnpSetCustomTargetEvent @ 0x1408B37C0 (PnpSetCustomTargetEvent.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     ExQueueWorkItem @ 0x1402CE3E0 (ExQueueWorkItem.c)
+ *     ObfReferenceObjectWithTag @ 0x14031F8C0 (ObfReferenceObjectWithTag.c)
+ *     IoAddTriageDumpDataBlock @ 0x1403E65A0 (IoAddTriageDumpDataBlock.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     RtlCompareMemory @ 0x1406B4930 (RtlCompareMemory.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     PnpSetCustomTargetEvent @ 0x1408B10B0 (PnpSetCustomTargetEvent.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 NTSTATUS __stdcall IoReportTargetDeviceChangeAsynchronous(
@@ -103,7 +103,10 @@ LABEL_15:
     return -1073741808;
   if ( KeGetCurrentIrql() != 2 )
     return PnpSetCustomTargetEvent(PhysicalDeviceObject, (__int64)Context, NotificationStructure);
-  Pool2 = (struct _WORK_QUEUE_ITEM *)ExAllocatePool2(0x40uLL);
+  Pool2 = (struct _WORK_QUEUE_ITEM *)ExAllocatePool2(
+                                       0x40uLL,
+                                       *((unsigned __int16 *)NotificationStructure + 1) + 64LL,
+                                       0x38706E50u);
   if ( !Pool2 )
     return -1073741670;
   ObfReferenceObjectWithTag(PhysicalDeviceObject, 0x4E706E50u);

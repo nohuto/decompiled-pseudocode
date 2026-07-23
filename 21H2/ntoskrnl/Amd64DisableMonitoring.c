@@ -1,9 +1,9 @@
 /*
- * XREFs of Amd64DisableMonitoring @ 0x1404DD880
+ * XREFs of Amd64DisableMonitoring @ 0x1404DDAC0
  * Callers:
  *     <none>
  * Callees:
- *     Amd64ConfigureCounter @ 0x1404DD80C (Amd64ConfigureCounter.c)
+ *     Amd64ConfigureCounter @ 0x1404DDA4C (Amd64ConfigureCounter.c)
  */
 
 unsigned int __fastcall Amd64DisableMonitoring(int a1, unsigned int *a2)

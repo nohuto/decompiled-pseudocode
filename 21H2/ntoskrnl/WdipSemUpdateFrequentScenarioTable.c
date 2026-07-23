@@ -1,19 +1,22 @@
 /*
- * XREFs of WdipSemUpdateFrequentScenarioTable @ 0x140930074
+ * XREFs of WdipSemUpdateFrequentScenarioTable @ 0x1409301D4
  * Callers:
- *     WdipSemLogInflightLimitExceededInformation @ 0x14092FEB4 (WdipSemLogInflightLimitExceededInformation.c)
+ *     WdipSemLogInflightLimitExceededInformation @ 0x140930014 (WdipSemLogInflightLimitExceededInformation.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
- *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
- *     ExReleasePushLockEx @ 0x14034AE90 (ExReleasePushLockEx.c)
- *     WdipSemFastAllocate @ 0x1407889C0 (WdipSemFastAllocate.c)
+ *     KeLeaveCriticalRegionThread @ 0x1402AB8C0 (KeLeaveCriticalRegionThread.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1403556E0 (ExAcquirePushLockExclusiveEx.c)
+ *     ExReleasePushLockEx @ 0x140355BE0 (ExReleasePushLockEx.c)
+ *     WdipSemFastAllocate @ 0x140788B80 (WdipSemFastAllocate.c)
  */
 
-__int64 __fastcall WdipSemUpdateFrequentScenarioTable(struct _SLIST_ENTRY *a1)
+__int64 __fastcall WdipSemUpdateFrequentScenarioTable(_SLIST_ENTRY *a1)
 {
   struct _KTHREAD *CurrentThread; // rax
   unsigned int v2; // ebx
   PSLIST_ENTRY v4; // rax
+  __int64 v5; // rdx
+  __int64 v6; // r8
+  __int64 v7; // r9
 
   CurrentThread = KeGetCurrentThread();
   v2 = 0;
@@ -45,6 +48,6 @@ __int64 __fastcall WdipSemUpdateFrequentScenarioTable(struct _SLIST_ENTRY *a1)
     v2 = -1073741811;
   }
   ExReleasePushLockEx((ULONG_PTR)&qword_140C1A988, 0LL);
-  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v5, v6, v7);
   return v2;
 }

@@ -1,12 +1,12 @@
 /*
- * XREFs of ObpLockDirectoryShared @ 0x1409E1EF0
+ * XREFs of ObpLockDirectoryShared @ 0x1409DEF00
  * Callers:
- *     ObpCreateSymbolicLinkName @ 0x1409E185C (ObpCreateSymbolicLinkName.c)
- *     NtQueryDirectoryObject @ 0x1409E1C50 (NtQueryDirectoryObject.c)
+ *     ObpCreateSymbolicLinkName @ 0x1409DE86C (ObpCreateSymbolicLinkName.c)
+ *     NtQueryDirectoryObject @ 0x1409DEC60 (NtQueryDirectoryObject.c)
  * Callees:
- *     ExfAcquirePushLockSharedEx @ 0x140277CC0 (ExfAcquirePushLockSharedEx.c)
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     ExfAcquirePushLockSharedEx @ 0x140277230 (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
  */
 
 void __fastcall ObpLockDirectoryShared(__int64 a1, __int64 a2, __int64 a3, struct _KLOCK_ENTRIES *a4)

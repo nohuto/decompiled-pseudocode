@@ -37,7 +37,7 @@
  *     <none>
  */
 
-__int64 __fastcall sub_180043FE0(__int64 a1)
+PVOID __fastcall sub_180043FE0(SIZE_T a1)
 {
-  return RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, a1);
+  return RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, a1);
 }

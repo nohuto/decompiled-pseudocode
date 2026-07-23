@@ -1,8 +1,8 @@
 /*
  * XREFs of MiSetResidentPageMemberInPfn @ 0x1403F4998
  * Callers:
- *     MiDemotePfnListChain @ 0x14055E218 (MiDemotePfnListChain.c)
- *     MxCreatePfn @ 0x140A56F34 (MxCreatePfn.c)
+ *     MiDemotePfnListChain @ 0x14055E458 (MiDemotePfnListChain.c)
+ *     MxCreatePfn @ 0x140A57F34 (MxCreatePfn.c)
  * Callees:
  *     <none>
  */

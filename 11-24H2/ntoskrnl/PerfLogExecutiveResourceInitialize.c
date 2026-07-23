@@ -1,12 +1,12 @@
 /*
- * XREFs of PerfLogExecutiveResourceInitialize @ 0x140650228
+ * XREFs of PerfLogExecutiveResourceInitialize @ 0x14064E868
  * Callers:
- *     ExReinitializeResourceLite @ 0x1402CDC90 (ExReinitializeResourceLite.c)
- *     ExInitializeResourceLite2 @ 0x140365350 (ExInitializeResourceLite2.c)
- *     ExInitializeResourceLite @ 0x1403655E0 (ExInitializeResourceLite.c)
+ *     ExReinitializeResourceLite @ 0x1402E5910 (ExReinitializeResourceLite.c)
+ *     ExInitializeResourceLite2 @ 0x1403EAA00 (ExInitializeResourceLite2.c)
+ *     ExInitializeResourceLite @ 0x1403EAC90 (ExInitializeResourceLite.c)
  * Callees:
- *     EtwTraceKernelEvent @ 0x140255180 (EtwTraceKernelEvent.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     EtwTraceKernelEvent @ 0x140285790 (EtwTraceKernelEvent.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 __int64 __fastcall PerfLogExecutiveResourceInitialize(int a1, __int64 a2, int a3, int a4)

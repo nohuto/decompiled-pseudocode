@@ -1,8 +1,8 @@
 /*
- * XREFs of PipUnlinkDeviceObjectAndDependencyNode @ 0x14062B634
+ * XREFs of PipUnlinkDeviceObjectAndDependencyNode @ 0x14062B6E8
  * Callers:
- *     IoResolveDependency @ 0x1401428E4 (IoResolveDependency.c)
- *     PipDeleteAllDependencyRelations @ 0x14062B078 (PipDeleteAllDependencyRelations.c)
+ *     IoResolveDependency @ 0x140142E54 (IoResolveDependency.c)
+ *     PipDeleteAllDependencyRelations @ 0x14062B12C (PipDeleteAllDependencyRelations.c)
  * Callees:
  *     <none>
  */

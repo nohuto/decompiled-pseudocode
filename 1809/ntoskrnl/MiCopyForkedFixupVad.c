@@ -1,9 +1,9 @@
 /*
- * XREFs of MiCopyForkedFixupVad @ 0x14085C1A8
+ * XREFs of MiCopyForkedFixupVad @ 0x14085D408
  * Callers:
- *     MiCloneImageVad @ 0x1402C8ACC (MiCloneImageVad.c)
+ *     MiCloneImageVad @ 0x1402C8CBC (MiCloneImageVad.c)
  * Callees:
- *     memmove @ 0x1401D1540 (memmove.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
  */
 
 __int64 __fastcall MiCopyForkedFixupVad(__int64 a1, __int64 a2)

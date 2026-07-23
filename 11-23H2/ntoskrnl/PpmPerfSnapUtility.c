@@ -1,11 +1,11 @@
 /*
- * XREFs of PpmPerfSnapUtility @ 0x140255B10
+ * XREFs of PpmPerfSnapUtility @ 0x140255BD0
  * Callers:
- *     PpmCheckSnapAllUtility @ 0x140256820 (PpmCheckSnapAllUtility.c)
+ *     PpmCheckSnapAllUtility @ 0x1402568E0 (PpmCheckSnapAllUtility.c)
  * Callees:
- *     Feature_MultiCoreClasses__private_IsEnabledPreCheck @ 0x140255F60 (Feature_MultiCoreClasses__private_IsEnabledPreCheck.c)
- *     Feature_MultiCoreClasses__private_ReportDeviceUsage @ 0x1404102E0 (Feature_MultiCoreClasses__private_ReportDeviceUsage.c)
- *     memmove @ 0x140435700 (memmove.c)
+ *     Feature_MultiCoreClasses__private_IsEnabledPreCheck @ 0x140256020 (Feature_MultiCoreClasses__private_IsEnabledPreCheck.c)
+ *     Feature_MultiCoreClasses__private_ReportDeviceUsage @ 0x1404103BC (Feature_MultiCoreClasses__private_ReportDeviceUsage.c)
+ *     memmove @ 0x140435B00 (memmove.c)
  */
 
 void __fastcall PpmPerfSnapUtility(__int64 a1)

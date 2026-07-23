@@ -46,7 +46,7 @@ PSLIST_ENTRY __fastcall EtwpStackRundown(__int64 a1, unsigned int a2)
         do
         {
           EtwpTraceCachedStack(a2, 6180LL, *v10);
-          result = EtwpDereferenceStackEntry(*v10++, (union _SLIST_HEADER *)a1);
+          result = EtwpDereferenceStackEntry(*v10++, (_SLIST_HEADER *)a1);
           --v6;
         }
         while ( v6 );

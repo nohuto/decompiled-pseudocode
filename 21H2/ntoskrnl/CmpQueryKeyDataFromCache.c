@@ -1,14 +1,14 @@
 /*
- * XREFs of CmpQueryKeyDataFromCache @ 0x14066A75C
+ * XREFs of CmpQueryKeyDataFromCache @ 0x14065F57C
  * Callers:
- *     CmpQueryKeyData @ 0x14066A67C (CmpQueryKeyData.c)
+ *     CmpQueryKeyData @ 0x14065F49C (CmpQueryKeyData.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     CmGetVisibleValueCount @ 0x14066A924 (CmGetVisibleValueCount.c)
- *     CmGetKeyLastWriteTime @ 0x14066A960 (CmGetKeyLastWriteTime.c)
- *     CmGetVisibleMaxValueNameLenAndDataLen @ 0x14066A9D8 (CmGetVisibleMaxValueNameLenAndDataLen.c)
- *     CmGetVisibleMaxNameLenAndClassLen @ 0x14066AA6C (CmGetVisibleMaxNameLenAndClassLen.c)
- *     CmGetVisibleSubkeyCount @ 0x14066B1EC (CmGetVisibleSubkeyCount.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     CmGetVisibleValueCount @ 0x14065F744 (CmGetVisibleValueCount.c)
+ *     CmGetKeyLastWriteTime @ 0x14065F780 (CmGetKeyLastWriteTime.c)
+ *     CmGetVisibleMaxValueNameLenAndDataLen @ 0x14065F7F8 (CmGetVisibleMaxValueNameLenAndDataLen.c)
+ *     CmGetVisibleMaxNameLenAndClassLen @ 0x14065F88C (CmGetVisibleMaxNameLenAndClassLen.c)
+ *     CmGetVisibleSubkeyCount @ 0x14066000C (CmGetVisibleSubkeyCount.c)
  */
 
 __int64 __fastcall CmpQueryKeyDataFromCache(__int64 a1, int a2, __int64 a3, unsigned int a4, _DWORD *a5, __int64 a6)

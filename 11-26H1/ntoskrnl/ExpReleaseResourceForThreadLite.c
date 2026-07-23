@@ -1,18 +1,18 @@
 /*
- * XREFs of ExpReleaseResourceForThreadLite @ 0x1402B9360
+ * XREFs of ExpReleaseResourceForThreadLite @ 0x140304020
  * Callers:
- *     ExReleaseResourceForThreadLite @ 0x14049AFC0 (ExReleaseResourceForThreadLite.c)
+ *     ExReleaseResourceForThreadLite @ 0x140494B10 (ExReleaseResourceForThreadLite.c)
  * Callees:
- *     ExpCommitWakeResourceShared @ 0x140273EB0 (ExpCommitWakeResourceShared.c)
- *     KxWaitForLockOwnerShip @ 0x1402B29C0 (KxWaitForLockOwnerShip.c)
- *     KiAcquireQueuedSpinLockInstrumented @ 0x1402B4830 (KiAcquireQueuedSpinLockInstrumented.c)
- *     KeReleaseInStackQueuedSpinLock @ 0x1402B98C0 (KeReleaseInStackQueuedSpinLock.c)
- *     PerfLogExecutiveResourceRelease @ 0x1402B9AE0 (PerfLogExecutiveResourceRelease.c)
- *     ExpFreeOwnerEntry @ 0x1402B9E50 (ExpFreeOwnerEntry.c)
- *     RtlRemoveEntryCircularList @ 0x140447A90 (RtlRemoveEntryCircularList.c)
- *     RtlInsertHeadCircularList @ 0x140447AE0 (RtlInsertHeadCircularList.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
+ *     ExpCommitWakeResourceShared @ 0x140273420 (ExpCommitWakeResourceShared.c)
+ *     KxWaitForLockOwnerShip @ 0x1402FD690 (KxWaitForLockOwnerShip.c)
+ *     KiAcquireQueuedSpinLockInstrumented @ 0x1402FF500 (KiAcquireQueuedSpinLockInstrumented.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x140304580 (KeReleaseInStackQueuedSpinLock.c)
+ *     PerfLogExecutiveResourceRelease @ 0x1403047A0 (PerfLogExecutiveResourceRelease.c)
+ *     ExpFreeOwnerEntry @ 0x140304B10 (ExpFreeOwnerEntry.c)
+ *     RtlRemoveEntryCircularList @ 0x140440580 (RtlRemoveEntryCircularList.c)
+ *     RtlInsertHeadCircularList @ 0x1404405D0 (RtlInsertHeadCircularList.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
  */
 
 void __fastcall ExpReleaseResourceForThreadLite(ULONG_PTR BugCheckParameter1, ULONG_PTR BugCheckParameter3, __int64 a3)
@@ -65,7 +65,7 @@ void __fastcall ExpReleaseResourceForThreadLite(ULONG_PTR BugCheckParameter1, UL
   if ( KiIrqlFlags )
     KiRaiseIrqlProcessIrqlFlags(CurrentIrql, 2LL);
   LockHandle.OldIrql = CurrentIrql;
-  if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+  if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || PopHibernateInProgress )
   {
     v7 = _InterlockedExchange64(v3, (__int64)&LockHandle);
     if ( v7 )
@@ -76,7 +76,7 @@ void __fastcall ExpReleaseResourceForThreadLite(ULONG_PTR BugCheckParameter1, UL
     KiAcquireQueuedSpinLockInstrumented((__int64)&LockHandle, v3);
   }
   CurrentThread = KeGetCurrentThread();
-  if ( ((*(_BYTE *)(BugCheckParameter1 + 26) & 1) != 0 || LODWORD(ExSaPageGroupDescriptorArrayLock.Spare35[1]))
+  if ( ((*(_BYTE *)(BugCheckParameter1 + 26) & 1) != 0 || LODWORD(ExSaPageGroupDescriptorArrayLock.AutoBoostThreadState))
     && (BugCheckParameter3 & 3) != 3
     && (struct _KTHREAD *)BugCheckParameter3 != CurrentThread )
   {
@@ -85,7 +85,8 @@ void __fastcall ExpReleaseResourceForThreadLite(ULONG_PTR BugCheckParameter1, UL
   if ( *(char *)(BugCheckParameter1 + 26) < 0 )
   {
     v9 = (DWORD1(PerfGlobalGroupMask) & 0x20000) != 0;
-    if ( (*(_BYTE *)(BugCheckParameter1 + 26) & 1) != 0 || LODWORD(ExSaPageGroupDescriptorArrayLock.Spare35[1]) )
+    if ( (*(_BYTE *)(BugCheckParameter1 + 26) & 1) != 0
+      || LODWORD(ExSaPageGroupDescriptorArrayLock.AutoBoostThreadState) )
     {
       v10 = BugCheckParameter1 + 48;
       if ( *(_QWORD *)(BugCheckParameter1 + 48) != BugCheckParameter3 )

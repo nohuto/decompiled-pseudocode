@@ -1,12 +1,12 @@
 /*
- * XREFs of AslpFileGetImageResourceDirectoryRoot @ 0x14088D570
+ * XREFs of AslpFileGetImageResourceDirectoryRoot @ 0x14089396C
  * Callers:
- *     AslpFileGetVersionBlockImageOnly @ 0x14088E394 (AslpFileGetVersionBlockImageOnly.c)
+ *     AslpFileGetVersionBlockImageOnly @ 0x140894790 (AslpFileGetVersionBlockImageOnly.c)
  * Callees:
- *     AslpMemoryCheckBounds @ 0x140714E44 (AslpMemoryCheckBounds.c)
- *     AslpFileGetImageNtHeader @ 0x14088D430 (AslpFileGetImageNtHeader.c)
- *     AslpImageRvaToVa @ 0x14088F60C (AslpImageRvaToVa.c)
- *     AslLogCallPrintf @ 0x1409E8884 (AslLogCallPrintf.c)
+ *     AslpMemoryCheckBounds @ 0x140719B34 (AslpMemoryCheckBounds.c)
+ *     AslpFileGetImageNtHeader @ 0x14089382C (AslpFileGetImageNtHeader.c)
+ *     AslpImageRvaToVa @ 0x140895A08 (AslpImageRvaToVa.c)
+ *     AslLogCallPrintf @ 0x1409D5294 (AslLogCallPrintf.c)
  */
 
 __int64 __fastcall AslpFileGetImageResourceDirectoryRoot(unsigned __int64 *a1, unsigned __int64 a2, __int64 a3)

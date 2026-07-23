@@ -1,10 +1,10 @@
 /*
- * XREFs of PopPowerRequestTableDeleteEntry @ 0x140AD624C
+ * XREFs of PopPowerRequestTableDeleteEntry @ 0x140AD31FC
  * Callers:
- *     PopPowerRequestCreateCommon @ 0x140436FDC (PopPowerRequestCreateCommon.c)
- *     PopPowerRequestDelete @ 0x140AD6100 (PopPowerRequestDelete.c)
+ *     PopPowerRequestCreateCommon @ 0x140425F6C (PopPowerRequestCreateCommon.c)
+ *     PopPowerRequestDelete @ 0x140AD30B0 (PopPowerRequestDelete.c)
  * Callees:
- *     RtlDeleteElementGenericTableAvl @ 0x1403B8A60 (RtlDeleteElementGenericTableAvl.c)
+ *     RtlDeleteElementGenericTableAvl @ 0x1403C2960 (RtlDeleteElementGenericTableAvl.c)
  */
 
 BOOLEAN __fastcall PopPowerRequestTableDeleteEntry(int a1)
@@ -13,5 +13,5 @@ BOOLEAN __fastcall PopPowerRequestTableDeleteEntry(int a1)
 
   Buffer = 0LL;
   DWORD2(Buffer) = a1;
-  return RtlDeleteElementGenericTableAvl((PRTL_AVL_TABLE)&stru_140F12D20.ApcStateFill[40], &Buffer);
+  return RtlDeleteElementGenericTableAvl((PRTL_AVL_TABLE)&stru_140F12EA0.PriorityFloorCounts[8], &Buffer);
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of FsRtlResetLargeMcb @ 0x1401B8834
+ * XREFs of FsRtlResetLargeMcb @ 0x1401B8608
  * Callers:
  *     <none>
  * Callees:
- *     ExAcquireFastMutex @ 0x14002D0A0 (ExAcquireFastMutex.c)
+ *     ExAcquireFastMutex @ 0x14002CC20 (ExAcquireFastMutex.c)
  */
 
 void __stdcall FsRtlResetLargeMcb(PLARGE_MCB Mcb, BOOLEAN SelfSynchronized)

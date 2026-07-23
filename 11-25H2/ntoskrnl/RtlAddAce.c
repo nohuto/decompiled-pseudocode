@@ -31,7 +31,7 @@ NTSTATUS __stdcall RtlAddAce(PACL Acl, ULONG AceRevision, ULONG StartingAceIndex
   UCHAR v25; // cl
   __int16 v26; // [rsp+20h] [rbp-38h]
 
-  if ( !RtlValidAcl((__int64)Acl) )
+  if ( !RtlValidAcl(Acl) )
     return -1073741811;
   AceCount = Acl->AceCount;
   v10 = Acl + 1;

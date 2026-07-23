@@ -57,7 +57,7 @@ char __fastcall KeFlushIoBuffers(ULONG_PTR BugCheckParameter4, char a2, char a3,
       if ( (xmmword_140FC5B10 & 0x4000000) != 0 )
       {
         v12 = 1;
-        LOBYTE(v4) = EtwGetKernelTraceTimestamp((LARGE_INTEGER *)v14, 0x84000000);
+        LOBYTE(v4) = EtwGetKernelTraceTimestamp((LARGE_INTEGER *)v14, 0x84000000).LowPart;
       }
       else
       {

@@ -1,15 +1,15 @@
 /*
- * XREFs of MiBuildNewCloneDescriptor @ 0x140A54400
+ * XREFs of MiBuildNewCloneDescriptor @ 0x140A4C34C
  * Callers:
- *     MiCloneVads @ 0x1402C4DAC (MiCloneVads.c)
- *     MiCloneProcessAddressSpace @ 0x140ABD72C (MiCloneProcessAddressSpace.c)
+ *     MiCloneVads @ 0x140268194 (MiCloneVads.c)
+ *     MiCloneProcessAddressSpace @ 0x140AB879C (MiCloneProcessAddressSpace.c)
  * Callees:
- *     MiAllocatePool @ 0x1402ACA70 (MiAllocatePool.c)
- *     PsChargeProcessNonPagedPoolQuota @ 0x1403CDFC0 (PsChargeProcessNonPagedPoolQuota.c)
- *     MiGetVmPartition @ 0x140417CA0 (MiGetVmPartition.c)
- *     PsReturnProcessNonPagedPoolQuota @ 0x14041B3B0 (PsReturnProcessNonPagedPoolQuota.c)
- *     MiLockPagedRange @ 0x140A5457C (MiLockPagedRange.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     PsChargeProcessNonPagedPoolQuota @ 0x1402676E0 (PsChargeProcessNonPagedPoolQuota.c)
+ *     MiAllocatePool @ 0x140277450 (MiAllocatePool.c)
+ *     MiGetVmPartition @ 0x140407A50 (MiGetVmPartition.c)
+ *     PsReturnProcessNonPagedPoolQuota @ 0x14040EEF0 (PsReturnProcessNonPagedPoolQuota.c)
+ *     MiLockPagedRange @ 0x140A4C4C8 (MiLockPagedRange.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 _QWORD *__fastcall MiBuildNewCloneDescriptor(ULONG_PTR BugCheckParameter1, __int64 a2, __int64 a3)

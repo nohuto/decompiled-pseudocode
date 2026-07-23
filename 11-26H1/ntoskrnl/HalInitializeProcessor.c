@@ -1,9 +1,9 @@
 /*
- * XREFs of HalInitializeProcessor @ 0x140578450
+ * XREFs of HalInitializeProcessor @ 0x14057A980
  * Callers:
- *     KiInitializeBootStructures @ 0x140BF5890 (KiInitializeBootStructures.c)
+ *     KiInitializeBootStructures @ 0x140BFB890 (KiInitializeBootStructures.c)
  * Callees:
- *     HalpInitSystemHelper @ 0x140BE99CC (HalpInitSystemHelper.c)
+ *     HalpInitSystemHelper @ 0x140BEF9CC (HalpInitSystemHelper.c)
  */
 
 __int64 __fastcall HalInitializeProcessor(int a1, __int64 a2)

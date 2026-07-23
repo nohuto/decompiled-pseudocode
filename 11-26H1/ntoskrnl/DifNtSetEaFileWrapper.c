@@ -1,17 +1,17 @@
 /*
- * XREFs of DifNtSetEaFileWrapper @ 0x14068AFD0
+ * XREFs of DifNtSetEaFileWrapper @ 0x14068EBB0
  * Callers:
  *     <none>
  * Callees:
- *     DifGetReturnAddressForWrappers @ 0x140260EA4 (DifGetReturnAddressForWrappers.c)
- *     ExReleaseRundownProtection_0 @ 0x140266240 (ExReleaseRundownProtection_0.c)
- *     ExAcquireRundownProtection_0 @ 0x1402F0590 (ExAcquireRundownProtection_0.c)
- *     DifGetAPIThunkContextById @ 0x1404C17A4 (DifGetAPIThunkContextById.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     NtSetEaFile @ 0x1409AFCE0 (NtSetEaFile.c)
+ *     DifGetReturnAddressForWrappers @ 0x14026040C (DifGetReturnAddressForWrappers.c)
+ *     ExReleaseRundownProtection_0 @ 0x1402657B0 (ExReleaseRundownProtection_0.c)
+ *     ExAcquireRundownProtection_0 @ 0x1402D2610 (ExAcquireRundownProtection_0.c)
+ *     DifGetAPIThunkContextById @ 0x1404BAFF4 (DifGetAPIThunkContextById.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     NtSetEaFile @ 0x140980DA0 (NtSetEaFile.c)
  */
 
-__int64 __fastcall DifNtSetEaFileWrapper(__int64 a1, __int64 a2, __int64 a3, int a4)
+__int64 __fastcall DifNtSetEaFileWrapper(void *a1, struct _IO_STATUS_BLOCK *a2, void *a3, ULONG a4)
 {
   __int128 *APIThunkContextById; // rax
   __int64 v8; // rdx
@@ -61,7 +61,7 @@ __int64 __fastcall DifNtSetEaFileWrapper(__int64 a1, __int64 a2, __int64 a3, int
         ExReleaseRundownProtection_0(&DifRebootlessRundown);
     }
   }
-  DWORD2(v20) = NtSetEaFile(a1);
+  DWORD2(v20) = NtSetEaFile(a1, a2, a3, a4);
   if ( v9 )
   {
     if ( (v14 = 0, !VfDifRunningWithoutReboot) && (VfOptionFlags & 0x800) == 0

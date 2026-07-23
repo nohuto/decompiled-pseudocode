@@ -1,7 +1,7 @@
 /*
- * XREFs of PspSetEffectiveLimit @ 0x1407D9A6C
+ * XREFs of PspSetEffectiveLimit @ 0x1407D9D3C
  * Callers:
- *     PspSetEffectiveJobLimits @ 0x1407D97F4 (PspSetEffectiveJobLimits.c)
+ *     PspSetEffectiveJobLimits @ 0x1407D9AC4 (PspSetEffectiveJobLimits.c)
  * Callees:
  *     <none>
  */

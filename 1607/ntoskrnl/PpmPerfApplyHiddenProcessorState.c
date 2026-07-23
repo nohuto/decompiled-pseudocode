@@ -1,7 +1,7 @@
 /*
- * XREFs of PpmPerfApplyHiddenProcessorState @ 0x140204F10
+ * XREFs of PpmPerfApplyHiddenProcessorState @ 0x140204D3C
  * Callers:
- *     PpmPerfApplyProcessorStates @ 0x14012F1C0 (PpmPerfApplyProcessorStates.c)
+ *     PpmPerfApplyProcessorStates @ 0x14012F730 (PpmPerfApplyProcessorStates.c)
  * Callees:
  *     <none>
  */

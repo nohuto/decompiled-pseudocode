@@ -1,12 +1,12 @@
 /*
- * XREFs of TtmiLogSessionPowerControlStart @ 0x140885008
+ * XREFs of TtmiLogSessionPowerControlStart @ 0x140886268
  * Callers:
- *     TtmpSessionPowerControl @ 0x140881018 (TtmpSessionPowerControl.c)
+ *     TtmpSessionPowerControl @ 0x140882278 (TtmpSessionPowerControl.c)
  * Callees:
  *     PsGetProcessSessionIdEx @ 0x140003190 (PsGetProcessSessionIdEx.c)
  *     _TlgKeywordOn @ 0x140012A04 (_TlgKeywordOn.c)
  *     _TlgWrite @ 0x140012EE4 (_TlgWrite.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
  */
 
 void __fastcall TtmiLogSessionPowerControlStart(char a1, int a2)
@@ -26,9 +26,9 @@ void __fastcall TtmiLogSessionPowerControlStart(char a1, int a2)
   int v16; // [rsp+88h] [rbp+3Fh]
   int v17; // [rsp+8Ch] [rbp+43h]
 
-  if ( stru_14096D820.LevelPlus1 > 5 )
+  if ( stru_14096E820.LevelPlus1 > 5 )
   {
-    if ( TlgKeywordOn(&stru_14096D820, 1uLL) )
+    if ( TlgKeywordOn(&stru_14096E820, 1uLL) )
     {
       ProcessSessionId = PsGetProcessSessionIdEx((__int64)KeGetCurrentThread()->ApcState.Process);
       v11 = 0;
@@ -43,7 +43,7 @@ void __fastcall TtmiLogSessionPowerControlStart(char a1, int a2)
       v10 = 4;
       v13 = 1;
       v16 = 4;
-      TlgWrite(&stru_14096D820, &unk_1403718B9, 0LL, 0LL, 5u, &pData);
+      TlgWrite(&stru_14096E820, &unk_140372849, 0LL, 0LL, 5u, &pData);
     }
   }
 }

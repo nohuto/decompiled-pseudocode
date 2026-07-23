@@ -1,17 +1,17 @@
 /*
- * XREFs of EtwpCovSampCaptureWorkerThread @ 0x1408C44F0
+ * XREFs of EtwpCovSampCaptureWorkerThread @ 0x1408C57B0
  * Callers:
  *     <none>
  * Callees:
  *     KeWaitForMultipleObjects @ 0x140053760 (KeWaitForMultipleObjects.c)
- *     KeResetEvent @ 0x1400B8AA0 (KeResetEvent.c)
- *     KeSetEvent @ 0x1400C2B00 (KeSetEvent.c)
- *     RtlpInterlockedFlushSList @ 0x1401C5450 (RtlpInterlockedFlushSList.c)
- *     EtwpCovSampCaptureBufferRelease @ 0x140316528 (EtwpCovSampCaptureBufferRelease.c)
- *     EtwpCovSampCaptureReleaseToLookaside @ 0x140316E50 (EtwpCovSampCaptureReleaseToLookaside.c)
- *     EtwpCovSampLookasideGrow @ 0x14031709C (EtwpCovSampLookasideGrow.c)
- *     EtwpCovSampCaptureBufferProcess @ 0x1408C3C5C (EtwpCovSampCaptureBufferProcess.c)
- *     EtwpCovSampSampleBufferProcess @ 0x1408C7564 (EtwpCovSampSampleBufferProcess.c)
+ *     KeResetEvent @ 0x1400B89E0 (KeResetEvent.c)
+ *     KeSetEvent @ 0x1400C2A40 (KeSetEvent.c)
+ *     RtlpInterlockedFlushSList @ 0x1401C55B0 (RtlpInterlockedFlushSList.c)
+ *     EtwpCovSampCaptureBufferRelease @ 0x140316718 (EtwpCovSampCaptureBufferRelease.c)
+ *     EtwpCovSampCaptureReleaseToLookaside @ 0x140317040 (EtwpCovSampCaptureReleaseToLookaside.c)
+ *     EtwpCovSampLookasideGrow @ 0x14031728C (EtwpCovSampLookasideGrow.c)
+ *     EtwpCovSampCaptureBufferProcess @ 0x1408C4F1C (EtwpCovSampCaptureBufferProcess.c)
+ *     EtwpCovSampSampleBufferProcess @ 0x1408C8824 (EtwpCovSampSampleBufferProcess.c)
  */
 
 void __fastcall __noreturn EtwpCovSampCaptureWorkerThread(__int64 a1)
@@ -54,7 +54,7 @@ void __fastcall __noreturn EtwpCovSampCaptureWorkerThread(__int64 a1)
           {
             case 1342288122LL:
               EtwpCovSampSampleBufferProcess(a1, v5);
-              EtwpCovSampCaptureReleaseToLookaside(a1, a1 + 512, (struct _SLIST_ENTRY *)v5);
+              EtwpCovSampCaptureReleaseToLookaside(a1, a1 + 512, (_SLIST_ENTRY *)v5);
               break;
             case 3401298175LL:
               EtwpCovSampCaptureBufferProcess(a1, v5);

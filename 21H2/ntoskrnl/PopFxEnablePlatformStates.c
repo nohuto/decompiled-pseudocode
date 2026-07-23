@@ -1,12 +1,12 @@
 /*
- * XREFs of PopFxEnablePlatformStates @ 0x14056AA20
+ * XREFs of PopFxEnablePlatformStates @ 0x14056AC60
  * Callers:
- *     PpmEnableCoordinatedIdleStates @ 0x1408E1CBC (PpmEnableCoordinatedIdleStates.c)
+ *     PpmEnableCoordinatedIdleStates @ 0x1408E1E1C (PpmEnableCoordinatedIdleStates.c)
  * Callees:
- *     PpmGetDeepSleepPlatformStateIndex @ 0x140565CEC (PpmGetDeepSleepPlatformStateIndex.c)
- *     PopFxSetDeviceAccountingCsPlatformState @ 0x14056C884 (PopFxSetDeviceAccountingCsPlatformState.c)
- *     PopPepPlatformStateRegistered @ 0x1405754BC (PopPepPlatformStateRegistered.c)
- *     PopFxInitializeSocSubsystemStaticInfo @ 0x1408E4720 (PopFxInitializeSocSubsystemStaticInfo.c)
+ *     PpmGetDeepSleepPlatformStateIndex @ 0x140565F2C (PpmGetDeepSleepPlatformStateIndex.c)
+ *     PopFxSetDeviceAccountingCsPlatformState @ 0x14056CAC4 (PopFxSetDeviceAccountingCsPlatformState.c)
+ *     PopPepPlatformStateRegistered @ 0x1405756FC (PopPepPlatformStateRegistered.c)
+ *     PopFxInitializeSocSubsystemStaticInfo @ 0x1408E4880 (PopFxInitializeSocSubsystemStaticInfo.c)
  */
 
 void __fastcall PopFxEnablePlatformStates(int a1)
@@ -21,7 +21,7 @@ void __fastcall PopFxEnablePlatformStates(int a1)
     v2 = DeepSleepPlatformStateIndex;
     if ( DeepSleepPlatformStateIndex != -1 )
     {
-      _InterlockedExchange(&dword_140C50080, DeepSleepPlatformStateIndex);
+      _InterlockedExchange(&dword_140C500C0, DeepSleepPlatformStateIndex);
       PopFxSetDeviceAccountingCsPlatformState(DeepSleepPlatformStateIndex);
       PopFxInitializeSocSubsystemStaticInfo(v2);
     }

@@ -1,9 +1,9 @@
 /*
- * XREFs of MiDbgPatchIdentity @ 0x1406FE974
+ * XREFs of MiDbgPatchIdentity @ 0x140703644
  * Callers:
- *     MiDbgLockPage @ 0x1406FE238 (MiDbgLockPage.c)
+ *     MiDbgLockPage @ 0x140702F08 (MiDbgLockPage.c)
  * Callees:
- *     MiGetSubsectionFromPte @ 0x1402836C0 (MiGetSubsectionFromPte.c)
+ *     MiGetSubsectionFromPte @ 0x140282C30 (MiGetSubsectionFromPte.c)
  */
 
 __int64 __fastcall MiDbgPatchIdentity(__int64 a1)

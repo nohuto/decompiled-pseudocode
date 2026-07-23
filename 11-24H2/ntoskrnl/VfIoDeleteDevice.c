@@ -1,20 +1,20 @@
 /*
- * XREFs of VfIoDeleteDevice @ 0x140B9222C
+ * XREFs of VfIoDeleteDevice @ 0x140B9422C
  * Callers:
- *     IovDeleteDevice @ 0x140B82734 (IovDeleteDevice.c)
+ *     IovDeleteDevice @ 0x140B84734 (IovDeleteDevice.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x1403254A0 (ObfDereferenceObjectWithTag.c)
- *     IovUtilMarkDeviceObject @ 0x1404AD250 (IovUtilMarkDeviceObject.c)
- *     RtlStringCbPrintfA @ 0x14053A038 (RtlStringCbPrintfA.c)
- *     VfUtilDbgPrint @ 0x14061029C (VfUtilDbgPrint.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     VfHalDeleteDevice @ 0x140B871A0 (VfHalDeleteDevice.c)
- *     ViDevObjRemove @ 0x140B9249C (ViDevObjRemove.c)
- *     IovUtilGetLowerDeviceObjectWithTag @ 0x140B92A94 (IovUtilGetLowerDeviceObjectWithTag.c)
- *     IovUtilIsDeviceObjectMarked @ 0x140B92B44 (IovUtilIsDeviceObjectMarked.c)
- *     ViErrorDisplayDescription @ 0x140B9362C (ViErrorDisplayDescription.c)
- *     ViErrorFinishReport @ 0x140B9367C (ViErrorFinishReport.c)
- *     VfIrpLogDeleteDeviceLogs @ 0x140B9B59C (VfIrpLogDeleteDeviceLogs.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CE030 (ObfDereferenceObjectWithTag.c)
+ *     IovUtilMarkDeviceObject @ 0x1404A7930 (IovUtilMarkDeviceObject.c)
+ *     RtlStringCbPrintfA @ 0x140537878 (RtlStringCbPrintfA.c)
+ *     VfUtilDbgPrint @ 0x14060E85C (VfUtilDbgPrint.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     VfHalDeleteDevice @ 0x140B891A0 (VfHalDeleteDevice.c)
+ *     ViDevObjRemove @ 0x140B9449C (ViDevObjRemove.c)
+ *     IovUtilGetLowerDeviceObjectWithTag @ 0x140B94A94 (IovUtilGetLowerDeviceObjectWithTag.c)
+ *     IovUtilIsDeviceObjectMarked @ 0x140B94B44 (IovUtilIsDeviceObjectMarked.c)
+ *     ViErrorDisplayDescription @ 0x140B9562C (ViErrorDisplayDescription.c)
+ *     ViErrorFinishReport @ 0x140B9567C (ViErrorFinishReport.c)
+ *     VfIrpLogDeleteDeviceLogs @ 0x140B9D59C (VfIrpLogDeleteDeviceLogs.c)
  */
 
 LONG_PTR __fastcall VfIoDeleteDevice(struct _LIST_ENTRY *BugCheckParameter2, const void *a2)

@@ -1,5 +1,5 @@
 /*
- * XREFs of EmonGetCounterResolutionOriginal @ 0x14055B970
+ * XREFs of EmonGetCounterResolutionOriginal @ 0x1405595A0
  * Callers:
  *     <none>
  * Callees:

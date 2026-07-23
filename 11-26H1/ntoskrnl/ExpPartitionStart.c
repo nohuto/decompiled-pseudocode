@@ -1,12 +1,12 @@
 /*
- * XREFs of ExpPartitionStart @ 0x14083FE48
+ * XREFs of ExpPartitionStart @ 0x140846088
  * Callers:
- *     PspAllocatePartition @ 0x1407FDBD8 (PspAllocatePartition.c)
- *     ExpWorkerInitialization @ 0x140CE6768 (ExpWorkerInitialization.c)
+ *     PspAllocatePartition @ 0x140803608 (PspAllocatePartition.c)
+ *     ExpWorkerInitialization @ 0x140CECB08 (ExpWorkerInitialization.c)
  * Callees:
  *     KeQueryNodeActiveAffinity @ 0x140201320 (KeQueryNodeActiveAffinity.c)
- *     KeIsNodeInitialized @ 0x14038227C (KeIsNodeInitialized.c)
- *     ExpWorkQueueManagerStart @ 0x140840394 (ExpWorkQueueManagerStart.c)
+ *     KeIsNodeInitialized @ 0x14038402C (KeIsNodeInitialized.c)
+ *     ExpWorkQueueManagerStart @ 0x1408465D4 (ExpWorkQueueManagerStart.c)
  */
 
 __int64 __fastcall ExpPartitionStart(__int64 a1)
@@ -15,7 +15,7 @@ __int64 __fastcall ExpPartitionStart(__int64 a1)
   USHORT *v3; // rcx
   USHORT v4; // cx
   __int64 result; // rax
-  struct _GROUP_AFFINITY Affinity; // [rsp+20h] [rbp-18h] BYREF
+  _GROUP_AFFINITY Affinity; // [rsp+20h] [rbp-18h] BYREF
 
   for ( i = 0; i < (unsigned __int16)KeNumberNodes; ++i )
   {

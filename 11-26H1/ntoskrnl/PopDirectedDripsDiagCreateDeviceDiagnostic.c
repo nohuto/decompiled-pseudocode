@@ -1,25 +1,25 @@
 /*
- * XREFs of PopDirectedDripsDiagCreateDeviceDiagnostic @ 0x14077F104
+ * XREFs of PopDirectedDripsDiagCreateDeviceDiagnostic @ 0x140781C04
  * Callers:
- *     PopDirectedDripsDiagGetOrCreateDeviceDiagnostic @ 0x140B0C608 (PopDirectedDripsDiagGetOrCreateDeviceDiagnostic.c)
+ *     PopDirectedDripsDiagGetOrCreateDeviceDiagnostic @ 0x140B0DFFC (PopDirectedDripsDiagGetOrCreateDeviceDiagnostic.c)
  * Callees:
- *     PopDirectedDripsDiagCreateDeviceDescription @ 0x1407E20F8 (PopDirectedDripsDiagCreateDeviceDescription.c)
- *     PopDirectedDripsDiagFreeDeviceDiagnostic @ 0x1407E229C (PopDirectedDripsDiagFreeDeviceDiagnostic.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
+ *     PopDirectedDripsDiagCreateDeviceDescription @ 0x1407E7188 (PopDirectedDripsDiagCreateDeviceDescription.c)
+ *     PopDirectedDripsDiagFreeDeviceDiagnostic @ 0x1407E732C (PopDirectedDripsDiagFreeDeviceDiagnostic.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
  */
 
 _QWORD *__fastcall PopDirectedDripsDiagCreateDeviceDiagnostic(__int64 a1)
 {
   __int64 Pool2; // rax
   _QWORD *v3; // rbx
-  _QWORD *WaitStatus; // rax
+  _QWORD *StackLimit; // rax
 
   Pool2 = ExAllocatePool2(0x100uLL);
   v3 = (_QWORD *)Pool2;
   if ( Pool2 )
   {
     *(_QWORD *)(Pool2 + 16) = a1;
-    *(_DWORD *)(Pool2 + 24) = LODWORD(PopDirectedDripsUmLock.SuspendEvent.Header.WaitListHead.Blink)++;
+    *(_DWORD *)(Pool2 + 24) = LODWORD(PopDirectedDripsDiagLock.SavedApcState.ApcListHead[0].Flink)++;
     *(_DWORD *)(Pool2 + 148) = -1;
     if ( (int)PopDirectedDripsDiagCreateDeviceDescription(a1, Pool2) < 0 )
     {
@@ -29,13 +29,13 @@ _QWORD *__fastcall PopDirectedDripsDiagCreateDeviceDiagnostic(__int64 a1)
     else
     {
       *(_QWORD *)(a1 + 776) = v3;
-      WaitStatus = (_QWORD *)PopDirectedDripsUmLock.WaitStatus;
-      if ( *(struct _KTHREAD **)PopDirectedDripsUmLock.WaitStatus != (struct _KTHREAD *)&PopDirectedDripsUmLock.ApcStateFill[40] )
+      StackLimit = PopDirectedDripsDiagLock.StackLimit;
+      if ( *(struct _KTHREAD **)PopDirectedDripsDiagLock.StackLimit != (struct _KTHREAD *)&PopDirectedDripsDiagLock.InitialStack )
         __fastfail(3u);
-      *v3 = &PopDirectedDripsUmLock.ApcStateFill[40];
-      v3[1] = WaitStatus;
-      *WaitStatus = v3;
-      PopDirectedDripsUmLock.WaitStatus = (volatile __int64)v3;
+      *v3 = &PopDirectedDripsDiagLock.InitialStack;
+      v3[1] = StackLimit;
+      *StackLimit = v3;
+      PopDirectedDripsDiagLock.StackLimit = v3;
     }
   }
   return v3;

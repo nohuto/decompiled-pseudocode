@@ -3,9 +3,9 @@
  * Callers:
  *     KiSetFeatureBits @ 0x1403D57C8 (KiSetFeatureBits.c)
  * Callees:
- *     KeGetPrcb @ 0x1400D3FF8 (KeGetPrcb.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
+ *     KeGetPrcb @ 0x1400D1E98 (KeGetPrcb.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
  *     KdInitSystem @ 0x1406F3740 (KdInitSystem.c)
  */
 
@@ -55,7 +55,7 @@ __int64 __fastcall KiSetProcessorSignature(__int64 a1, int a2)
   v16 = 0;
   v42 = 0;
   v17 = 0;
-  v18 = (unsigned int *)&unk_140261CB0;
+  v18 = (unsigned int *)&unk_140261CC0;
   v19 = KeFeatureBits2;
   do
   {

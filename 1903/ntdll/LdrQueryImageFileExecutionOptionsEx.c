@@ -9,28 +9,29 @@
  *     ZwClose @ 0x18009C8C0 (ZwClose.c)
  */
 
-__int64 __fastcall LdrQueryImageFileExecutionOptionsEx(
-        unsigned __int16 *a1,
-        __int64 a2,
-        unsigned int a3,
-        __int64 a4,
-        int a5,
-        __int64 a6)
+NTSTATUS __cdecl LdrQueryImageFileExecutionOptionsEx(
+        PUNICODE_STRING SubKey,
+        PCWSTR ValueName,
+        ULONG Type,
+        PVOID Buffer,
+        ULONG BufferSize,
+        PULONG ReturnedLength,
+        BOOLEAN Wow64)
 {
-  int v10; // eax
-  unsigned int ImageFileKeyOption; // ebx
-  __int64 v13; // [rsp+50h] [rbp+8h] BYREF
+  int v11; // eax
+  NTSTATUS ImageFileKeyOption; // ebx
+  HANDLE KeyHandle; // [rsp+50h] [rbp+8h] BYREF
 
-  if ( a1 )
-    v10 = sub_180073150(a1, 9LL, 0, &v13);
+  if ( SubKey )
+    v11 = sub_180073150(&SubKey->Length, 9LL, 0, &KeyHandle);
   else
-    v10 = sub_1800732AC(&v13);
-  ImageFileKeyOption = v10;
-  if ( v10 >= 0 )
+    v11 = sub_1800732AC(&KeyHandle);
+  ImageFileKeyOption = v11;
+  if ( v11 >= 0 )
   {
-    ImageFileKeyOption = LdrQueryImageFileKeyOption(v13, a2, a3, a4, a5, a6);
-    if ( a1 )
-      ZwClose(v13);
+    ImageFileKeyOption = LdrQueryImageFileKeyOption(KeyHandle, ValueName, Type, Buffer, BufferSize, ReturnedLength);
+    if ( SubKey )
+      ZwClose(KeyHandle);
   }
   return ImageFileKeyOption;
 }

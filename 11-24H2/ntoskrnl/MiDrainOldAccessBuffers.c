@@ -1,53 +1,53 @@
 /*
- * XREFs of MiDrainOldAccessBuffers @ 0x1403799CC
+ * XREFs of MiDrainOldAccessBuffers @ 0x14045F56C
  * Callers:
- *     MiTrimOrAgeWorkingSet @ 0x140378F30 (MiTrimOrAgeWorkingSet.c)
+ *     MiTrimOrAgeWorkingSet @ 0x1402F35B0 (MiTrimOrAgeWorkingSet.c)
  * Callees:
- *     MiEmptyPageAccessLog @ 0x140244260 (MiEmptyPageAccessLog.c)
- *     MiLockWorkingSetCoreExclusive @ 0x140379CE4 (MiLockWorkingSetCoreExclusive.c)
- *     MiUnlockWorkingSetCoreExclusive @ 0x140379DAC (MiUnlockWorkingSetCoreExclusive.c)
- *     MiGetVmAccessLoggingPartition @ 0x140399050 (MiGetVmAccessLoggingPartition.c)
+ *     MiEmptyPageAccessLog @ 0x14020C9F0 (MiEmptyPageAccessLog.c)
+ *     MiLockWorkingSetCoreExclusive @ 0x140296038 (MiLockWorkingSetCoreExclusive.c)
+ *     MiUnlockWorkingSetCoreExclusive @ 0x140296808 (MiUnlockWorkingSetCoreExclusive.c)
+ *     MiGetVmAccessLoggingPartition @ 0x140351780 (MiGetVmAccessLoggingPartition.c)
  */
 
-__int64 __fastcall MiDrainOldAccessBuffers(__int64 a1, __int64 a2)
+char __fastcall MiDrainOldAccessBuffers(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
-  _QWORD *v4; // rbp
-  __int64 *v5; // rdi
-  __int64 result; // rax
-  _QWORD **v7; // r8
-  _QWORD *v8; // rcx
+  _QWORD *v6; // rbp
+  _QWORD *v7; // rdi
+  _QWORD **v8; // rax
+  _QWORD **v9; // r8
+  _QWORD *v10; // rcx
   _QWORD *i; // rdx
-  __int64 VmAccessLoggingPartition; // rax
-  unsigned __int64 *v11; // r8
+  ULONG *VmAccessLoggingPartition; // rax
+  unsigned __int64 *v13; // r8
 
   if ( (*(_DWORD *)(a1 + 184) & 0xF) == 1 )
   {
-    v4 = &unk_140E38740;
-    v5 = (__int64 *)&unk_140E38768;
+    v6 = &unk_140E38880;
+    v7 = &unk_140E388A8;
   }
   else
   {
-    v4 = (_QWORD *)(a1 + 192);
-    v5 = (__int64 *)(a1 + 232);
+    v6 = (_QWORD *)(a1 + 192);
+    v7 = (_QWORD *)(a1 + 232);
   }
-  result = *v5;
-  if ( *v5 )
+  v8 = (_QWORD **)*v7;
+  if ( *v7 )
   {
-    MiLockWorkingSetCoreExclusive(a1, a2);
-    v7 = (_QWORD **)*v5;
-    if ( *v5 )
+    MiLockWorkingSetCoreExclusive(a1, a2, a3, a4);
+    v9 = (_QWORD **)*v7;
+    if ( *v7 )
     {
-      v8 = *v7;
-      for ( i = (_QWORD *)*v5; v8; v8 = (_QWORD *)*v8 )
-        i = v8;
+      v10 = *v9;
+      for ( i = (_QWORD *)*v7; v10; v10 = (_QWORD *)*v10 )
+        i = v10;
       if ( a2 - i[2] > (unsigned __int64)PfKernelGlobals )
       {
         VmAccessLoggingPartition = MiGetVmAccessLoggingPartition(a1);
-        MiEmptyPageAccessLog(VmAccessLoggingPartition, v11);
-        v4[5] = 0LL;
+        MiEmptyPageAccessLog((__int64)VmAccessLoggingPartition, v13);
+        v6[5] = 0LL;
       }
     }
-    return MiUnlockWorkingSetCoreExclusive(a1);
+    LOBYTE(v8) = MiUnlockWorkingSetCoreExclusive(a1);
   }
-  return result;
+  return (char)v8;
 }

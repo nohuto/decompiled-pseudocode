@@ -1,9 +1,9 @@
 /*
- * XREFs of PsTlsGetValue @ 0x1407AABB0
+ * XREFs of PsTlsGetValue @ 0x1407AADA0
  * Callers:
  *     <none>
  * Callees:
- *     RtlpFlsCallbackEntryGetContext @ 0x1403346BC (RtlpFlsCallbackEntryGetContext.c)
+ *     RtlpFlsCallbackEntryGetContext @ 0x14033494C (RtlpFlsCallbackEntryGetContext.c)
  */
 
 __int64 __fastcall PsTlsGetValue(__int64 a1, _QWORD *a2)

@@ -1,11 +1,11 @@
 /*
- * XREFs of PspWritePebAffinityInfoAttached @ 0x140A9B4C4
+ * XREFs of PspWritePebAffinityInfoAttached @ 0x1409E64F4
  * Callers:
- *     PspUpdatePebForAffinityChange @ 0x140A9AA04 (PspUpdatePebForAffinityChange.c)
+ *     PspUpdatePebForAffinityChange @ 0x1409E5A34 (PspUpdatePebForAffinityChange.c)
  * Callees:
- *     KeQueryPrimaryGroupAffinityProcess @ 0x140462F90 (KeQueryPrimaryGroupAffinityProcess.c)
- *     RtlWriteULong64ToUser @ 0x14077F758 (RtlWriteULong64ToUser.c)
- *     RtlWriteULongToUser @ 0x14077F7A0 (RtlWriteULongToUser.c)
+ *     KeQueryPrimaryGroupAffinityProcess @ 0x14045BF50 (KeQueryPrimaryGroupAffinityProcess.c)
+ *     RtlWriteULong64ToUser @ 0x140782258 (RtlWriteULong64ToUser.c)
+ *     RtlWriteULongToUser @ 0x1407822A0 (RtlWriteULongToUser.c)
  */
 
 __int64 __fastcall PspWritePebAffinityInfoAttached(__int64 a1)

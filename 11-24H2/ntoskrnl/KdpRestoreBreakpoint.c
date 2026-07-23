@@ -1,9 +1,9 @@
 /*
- * XREFs of KdpRestoreBreakpoint @ 0x140B77E90
+ * XREFs of KdpRestoreBreakpoint @ 0x140B79E90
  * Callers:
- *     KdpSendWaitContinue @ 0x140B7A32C (KdpSendWaitContinue.c)
+ *     KdpSendWaitContinue @ 0x140B7C32C (KdpSendWaitContinue.c)
  * Callees:
- *     KdpDeleteBreakpoint @ 0x140B79988 (KdpDeleteBreakpoint.c)
+ *     KdpDeleteBreakpoint @ 0x140B7B988 (KdpDeleteBreakpoint.c)
  */
 
 __int64 __fastcall KdpRestoreBreakpoint(__int64 a1)

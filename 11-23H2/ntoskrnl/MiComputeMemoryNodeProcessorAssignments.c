@@ -4,10 +4,10 @@
  *     MiInitSystem @ 0x140B44518 (MiInitSystem.c)
  * Callees:
  *     KeFindFirstSetRightGroupAffinity @ 0x140221CF0 (KeFindFirstSetRightGroupAffinity.c)
- *     ExAllocatePoolMm @ 0x1402E26E0 (ExAllocatePoolMm.c)
- *     KeQueryNodeActiveAffinity @ 0x1403059B0 (KeQueryNodeActiveAffinity.c)
- *     KeQueryNodeActiveAffinity2 @ 0x14036BB80 (KeQueryNodeActiveAffinity2.c)
- *     MiGetEngineType @ 0x14039955C (MiGetEngineType.c)
+ *     ExAllocatePoolMm @ 0x1402E2970 (ExAllocatePoolMm.c)
+ *     KeQueryNodeActiveAffinity @ 0x140305C40 (KeQueryNodeActiveAffinity.c)
+ *     KeQueryNodeActiveAffinity2 @ 0x14036BD20 (KeQueryNodeActiveAffinity2.c)
+ *     MiGetEngineType @ 0x14039973C (MiGetEngineType.c)
  *     MiReassignProcessorsToMemoryOnlyNodes @ 0x140B9A3E4 (MiReassignProcessorsToMemoryOnlyNodes.c)
  */
 

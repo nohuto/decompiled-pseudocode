@@ -1,12 +1,12 @@
 /*
- * XREFs of _umatherr @ 0x18009F7F8
+ * XREFs of _umatherr @ 0x18009F7E8
  * Callers:
- *     _except1 @ 0x18009F150 (_except1.c)
- *     _handle_qnan1 @ 0x18009F4B0 (_handle_qnan1.c)
+ *     _except1 @ 0x18009F140 (_except1.c)
+ *     _handle_qnan1 @ 0x18009F4A0 (_handle_qnan1.c)
  * Callees:
- *     WinSqmCheckEscalationSetString @ 0x180086890 (WinSqmCheckEscalationSetString.c)
- *     _set_errno_from_matherr @ 0x18009F7C4 (_set_errno_from_matherr.c)
- *     _ctrlfp @ 0x18009FAB0 (_ctrlfp.c)
+ *     WinSqmCheckEscalationSetString @ 0x180086880 (WinSqmCheckEscalationSetString.c)
+ *     _set_errno_from_matherr @ 0x18009F7B4 (_set_errno_from_matherr.c)
+ *     _ctrlfp @ 0x18009FAA0 (_ctrlfp.c)
  */
 
 double __fastcall umatherr(int a1, int a2, __int64 a3, __int64 a4, double a5, __int64 a6)

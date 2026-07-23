@@ -35,7 +35,7 @@ __int64 __fastcall PiCMDeleteDeviceWorker(PCWSTR SourceString)
   PVOID P; // [rsp+40h] [rbp-9h] BYREF
   UNICODE_STRING DestinationString; // [rsp+48h] [rbp-1h] BYREF
   UNICODE_STRING v12; // [rsp+58h] [rbp+Fh] BYREF
-  UNICODE_STRING v13; // [rsp+68h] [rbp+1Fh] BYREF
+  UNICODE_STRING PnPControlData; // [rsp+68h] [rbp+1Fh] BYREF
   __int128 v14; // [rsp+78h] [rbp+2Fh]
   __int64 v15; // [rsp+88h] [rbp+3Fh]
   int v16; // [rsp+B8h] [rbp+6Fh] BYREF
@@ -48,7 +48,7 @@ __int64 __fastcall PiCMDeleteDeviceWorker(PCWSTR SourceString)
   v17 = 0;
   DestinationString = 0LL;
   v15 = 0LL;
-  v13 = 0LL;
+  PnPControlData = 0LL;
   v14 = 0LL;
   v12 = 0LL;
   inited = CmValidateDeviceName(SourceString, SourceString);
@@ -82,10 +82,10 @@ __int64 __fastcall PiCMDeleteDeviceWorker(PCWSTR SourceString)
         PpDevNodeUnlockTree(3LL);
         if ( inited >= 0 )
         {
-          if ( RtlInitUnicodeStringEx(&v13, SourceString) >= 0 )
+          if ( RtlInitUnicodeStringEx(&PnPControlData, SourceString) >= 0 )
           {
             *(_QWORD *)&v14 = 0x4000000000001LL;
-            ZwPlugPlayControl(14LL, (__int64)&v13);
+            ZwPlugPlayControl(PlugPlayControlDeviceStatus, &PnPControlData, 0x28u);
           }
 LABEL_18:
           if ( RtlInitUnicodeStringEx(&v12, SourceString) >= 0 )

@@ -3,7 +3,7 @@
  * Callers:
  *     SHA256Update @ 0x180048B98 (SHA256Update.c)
  * Callees:
- *     __security_check_cookie @ 0x18008FEC0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x18008FED0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall SHA256Transform(_DWORD *a1, __int64 a2)

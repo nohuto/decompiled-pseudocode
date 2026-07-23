@@ -1,9 +1,9 @@
 /*
- * XREFs of AslpFileHasSecuromWrapper @ 0x1406C86E0
+ * XREFs of AslpFileHasSecuromWrapper @ 0x1406C8818
  * Callers:
- *     AslpFileGetExeWrapper @ 0x1406C76A0 (AslpFileGetExeWrapper.c)
+ *     AslpFileGetExeWrapper @ 0x1406C77D8 (AslpFileGetExeWrapper.c)
  * Callees:
- *     strncmp @ 0x14014CE80 (strncmp.c)
+ *     strncmp @ 0x14014D3F0 (strncmp.c)
  */
 
 __int64 __fastcall AslpFileHasSecuromWrapper(__int64 a1)

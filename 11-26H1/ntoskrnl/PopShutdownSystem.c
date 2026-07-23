@@ -1,16 +1,16 @@
 /*
- * XREFs of PopShutdownSystem @ 0x140BFDFD4
+ * XREFs of PopShutdownSystem @ 0x140C04024
  * Callers:
- *     PopGracefulShutdown @ 0x140BF9180 (PopGracefulShutdown.c)
+ *     PopGracefulShutdown @ 0x140BFF180 (PopGracefulShutdown.c)
  * Callees:
- *     DbgUnLoadImageSymbols @ 0x1404FDB4C (DbgUnLoadImageSymbols.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     HalReturnToFirmware @ 0x14057F640 (HalReturnToFirmware.c)
- *     HvlConfigureMemoryZeroingOnReset @ 0x1405B8380 (HvlConfigureMemoryZeroingOnReset.c)
- *     VslNotifyShutdown @ 0x1405C36C0 (VslNotifyShutdown.c)
- *     PopSetMemoryOverwriteRequestAction @ 0x140BF90C8 (PopSetMemoryOverwriteRequestAction.c)
- *     PopNotifyShutdownListener @ 0x140BFDF58 (PopNotifyShutdownListener.c)
- *     PopInvokeSystemStateHandler @ 0x140C04104 (PopInvokeSystemStateHandler.c)
+ *     DbgUnLoadImageSymbols @ 0x1404F708C (DbgUnLoadImageSymbols.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     HalReturnToFirmware @ 0x140581B60 (HalReturnToFirmware.c)
+ *     HvlConfigureMemoryZeroingOnReset @ 0x1405BABF0 (HvlConfigureMemoryZeroingOnReset.c)
+ *     VslNotifyShutdown @ 0x1405C5F30 (VslNotifyShutdown.c)
+ *     PopSetMemoryOverwriteRequestAction @ 0x140BFF0C8 (PopSetMemoryOverwriteRequestAction.c)
+ *     PopNotifyShutdownListener @ 0x140C03FA4 (PopNotifyShutdownListener.c)
+ *     PopInvokeSystemStateHandler @ 0x140C0A314 (PopInvokeSystemStateHandler.c)
  */
 
 void __fastcall __noreturn PopShutdownSystem(__int64 a1, __int64 a2)
@@ -26,13 +26,13 @@ void __fastcall __noreturn PopShutdownSystem(__int64 a1, __int64 a2)
     HvlConfigureMemoryZeroingOnReset(0);
   PopSetMemoryOverwriteRequestAction();
   DbgUnLoadImageSymbols(0LL, -1LL, 0LL);
-  if ( (*(_WORD *)&stru_140F10828.WaitBlockFill11[100] & 0x800) == 0 || ((v2 - 4) & 0xFFFFFFFD) != 0 )
+  if ( (PpmIdlePolicyLock.SchedulerAssistLastYieldBoostTime & 0x800) == 0 || ((v2 - 4) & 0xFFFFFFFD) != 0 )
   {
     v3 = v2 - 4;
     if ( !v3 )
     {
-      if ( stru_140F10070.ApcStateFill[24] )
-        qword_140F107C8 = (__int64)PopShutdownHandler;
+      if ( PopShutdownPowerOffPolicy )
+        PpmIdlePolicyLock.WaitBlock[0].SparePtr = PopShutdownHandler;
       goto LABEL_12;
     }
     v4 = v3 - 1;

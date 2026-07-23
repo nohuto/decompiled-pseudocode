@@ -3,9 +3,9 @@
  * Callers:
  *     <none>
  * Callees:
- *     $$b9 @ 0x140AD049C ($$b9.c)
- *     KeGuardDispatchICall @ 0x140AD23B0 (KeGuardDispatchICall.c)
- *     RtlMinimalBarrier @ 0x140AD25C8 (RtlMinimalBarrier.c)
+ *     sub_140AD049C @ 0x140AD049C (sub_140AD049C.c)
+ *     j__guard_dispatch_icall_nop @ 0x140AD23B0 (j__guard_dispatch_icall_nop.c)
+ *     sub_140AD25C8 @ 0x140AD25C8 (sub_140AD25C8.c)
  */
 
 __int64 __fastcall sub_140AD18C0(__int64 a1)
@@ -16,7 +16,7 @@ __int64 __fastcall sub_140AD18C0(__int64 a1)
   int v5; // r8d
   __int64 v6; // r15
   __int64 v7; // r9
-  _KIDTENTRY64 *IdtBase; // r10
+  union _KIDTENTRY64 *IdtBase; // r10
   _WORD *v9; // r13
   char *v10; // rcx
   char v11; // al
@@ -79,7 +79,7 @@ __int64 __fastcall sub_140AD18C0(__int64 a1)
   if ( *v2 == 44 )
   {
     _disable();
-    RtlMinimalBarrier(a1 + 2568, 0LL);
+    sub_140AD25C8(a1 + 2568, 0LL);
     v65 = *(_QWORD *)(a1 + 2608);
     do
     {
@@ -126,7 +126,7 @@ __int64 __fastcall sub_140AD18C0(__int64 a1)
       }
       v66 = (__int64 *)(*(_QWORD *)(a1 + 1464) + (((unsigned __int64)IdtBase >> 9) & 0x7FFFFFFFF8LL));
       v61 = *v66;
-      if ( (unsigned __int8)RtlMinimalBarrier(a1 + 2568, 0LL) )
+      if ( (unsigned __int8)sub_140AD25C8(a1 + 2568, 0LL) )
       {
         v18 = v6 + a1 + 16;
         v19 = (_QWORD *)(v4 + 1024);
@@ -184,7 +184,7 @@ __int64 __fastcall sub_140AD18C0(__int64 a1)
         *(_QWORD *)(v4 + 5152) = *v31;
       }
       v32 = a1 + 2568;
-      RtlMinimalBarrier(a1 + 2568, 0LL);
+      sub_140AD25C8(a1 + 2568, 0LL);
       *v66 = v61 ^ (v61 ^ (*(_QWORD *)(v4 + 5144) << 12)) & 0xFFFFFFFFFF000LL;
       **(_QWORD **)(v4 + 5160) = *(_QWORD *)(v4 + 5152) | 0x42LL;
       v33 = __readcr4();
@@ -198,13 +198,13 @@ __int64 __fastcall sub_140AD18C0(__int64 a1)
         v34 = __readcr3();
         __writecr3(v34);
       }
-      if ( (unsigned __int8)RtlMinimalBarrier(a1 + 2568, 0LL) )
+      if ( (unsigned __int8)sub_140AD25C8(a1 + 2568, 0LL) )
         _InterlockedAnd((volatile signed __int32 *)(v4 + 5168), 0xFFFFFFFB);
-      if ( (unsigned __int8)RtlMinimalBarrier(a1 + 2568, 0LL) )
+      if ( (unsigned __int8)sub_140AD25C8(a1 + 2568, 0LL) )
       {
         v35 = (char *)(v4 + 1024);
         v36 = (_QWORD *)(v4 + 1024);
-        *(_DWORD *)(v4 + 5172) = KeGetPcr()->Prcb.Number;
+        *(_DWORD *)(v4 + 5172) = HIDWORD(KeGetPcr()[1].LockArray);
         v37 = 0;
         while ( 1 )
         {
@@ -275,7 +275,7 @@ LABEL_38:
           **(_QWORD **)(a1 + 1200) = 0LL;
         }
       }
-      RtlMinimalBarrier(v32, 0LL);
+      sub_140AD25C8(v32, 0LL);
       **(_QWORD **)(v4 + 5160) = *(_QWORD *)(v4 + 5152);
       *v66 = v61;
       v46 = __readcr4();
@@ -290,7 +290,7 @@ LABEL_38:
         __writecr3(v47);
       }
       v48 = *(_DWORD *)(v4 + 5168);
-      if ( (unsigned __int8)RtlMinimalBarrier(a1 + 2568, 0LL) )
+      if ( (unsigned __int8)sub_140AD25C8(a1 + 2568, 0LL) )
       {
         *(_QWORD *)(v4 + 5120) = 0LL;
         v49 = 4096;
@@ -351,7 +351,7 @@ LABEL_38:
           v12 = (_WORD *)((char *)v12 + 1);
         }
       }
-      RtlMinimalBarrier(a1 + 2568, 0LL);
+      sub_140AD25C8(a1 + 2568, 0LL);
     }
     while ( (v48 & 8) != 0 );
     _enable();
@@ -363,7 +363,7 @@ LABEL_38:
     *(_QWORD *)(a1 + 2248) = a1 - 0x5C5FC0A76E374B18LL;
     *(_DWORD *)(a1 + 2240) = 1;
     *(_QWORD *)(a1 + 2256) = (char *)v2 - 0x4C48B4211BBACBEBLL;
-    __b9(a1, 0LL);
+    sub_140AD049C(a1, 0LL);
   }
   return a1;
 }

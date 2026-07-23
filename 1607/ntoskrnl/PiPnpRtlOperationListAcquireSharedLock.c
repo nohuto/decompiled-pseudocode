@@ -1,8 +1,8 @@
 /*
- * XREFs of PiPnpRtlOperationListAcquireSharedLock @ 0x1404FFB30
+ * XREFs of PiPnpRtlOperationListAcquireSharedLock @ 0x1404E2AC0
  * Callers:
- *     PiPnpRtlGetCurrentOperation @ 0x1404FFAA0 (PiPnpRtlGetCurrentOperation.c)
- *     PiPnpRtlObjectEventWorker @ 0x14050470C (PiPnpRtlObjectEventWorker.c)
+ *     PiPnpRtlGetCurrentOperation @ 0x1404E2A30 (PiPnpRtlGetCurrentOperation.c)
+ *     PiPnpRtlObjectEventWorker @ 0x1404E769C (PiPnpRtlObjectEventWorker.c)
  * Callees:
  *     <none>
  */

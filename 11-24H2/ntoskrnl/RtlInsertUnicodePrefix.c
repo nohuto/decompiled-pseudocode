@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlInsertUnicodePrefix @ 0x14098B7D0
+ * XREFs of RtlInsertUnicodePrefix @ 0x140975DE0
  * Callers:
  *     <none>
  * Callees:
- *     RtlSplay @ 0x1402496A0 (RtlSplay.c)
- *     ComputeUnicodeNameLength @ 0x14098BC20 (ComputeUnicodeNameLength.c)
- *     CompareUnicodeStrings @ 0x14098BC60 (CompareUnicodeStrings.c)
+ *     RtlSplay @ 0x1402E38E0 (RtlSplay.c)
+ *     ComputeUnicodeNameLength @ 0x140976230 (ComputeUnicodeNameLength.c)
+ *     CompareUnicodeStrings @ 0x140976270 (CompareUnicodeStrings.c)
  */
 
 BOOLEAN __stdcall RtlInsertUnicodePrefix(
@@ -16,14 +16,14 @@ BOOLEAN __stdcall RtlInsertUnicodePrefix(
   CSHORT v6; // ax
   RTL_SPLAY_LINKS *p_Links; // r14
   UNICODE_STRING *v8; // rcx
-  UNICODE_PREFIX_TABLE *i; // rsi
-  UNICODE_PREFIX_TABLE *j; // rdi
+  _UNICODE_PREFIX_TABLE *i; // rsi
+  _UNICODE_PREFIX_TABLE *j; // rdi
   int v11; // eax
   PUNICODE_PREFIX_TABLE_ENTRY NextPrefixTree; // rax
-  RTL_SPLAY_LINKS *v13; // rcx
-  struct _UNICODE_PREFIX_TABLE_ENTRY *v14; // rbx
-  UNICODE_PREFIX_TABLE_ENTRY *v15; // rax
-  UNICODE_PREFIX_TABLE *v17; // rbp
+  _RTL_SPLAY_LINKS *v13; // rcx
+  _UNICODE_PREFIX_TABLE_ENTRY *v14; // rbx
+  _UNICODE_PREFIX_TABLE_ENTRY *v15; // rax
+  _UNICODE_PREFIX_TABLE *v17; // rbp
 
   v6 = ComputeUnicodeNameLength(Prefix);
   PrefixTableEntry->NameLength = v6;
@@ -32,15 +32,15 @@ BOOLEAN __stdcall RtlInsertUnicodePrefix(
   PrefixTableEntry->Links.LeftChild = 0LL;
   PrefixTableEntry->Links.RightChild = 0LL;
   PrefixTableEntry->Links.Parent = &PrefixTableEntry->Links;
-  for ( i = (UNICODE_PREFIX_TABLE *)PrefixTable->NextPrefixTree;
+  for ( i = (_UNICODE_PREFIX_TABLE *)PrefixTable->NextPrefixTree;
         i->NameLength > v6;
-        i = (UNICODE_PREFIX_TABLE *)i->NextPrefixTree )
+        i = (_UNICODE_PREFIX_TABLE *)i->NextPrefixTree )
   {
     PrefixTable = i;
   }
   if ( i->NameLength == v6 )
   {
-    for ( j = i; ; j = (UNICODE_PREFIX_TABLE *)&NextPrefixTree[-1].Links.LeftChild )
+    for ( j = i; ; j = (_UNICODE_PREFIX_TABLE *)&NextPrefixTree[-1].Links.LeftChild )
     {
       v11 = CompareUnicodeStrings(*(_QWORD *)&j[2].NodeTypeCode, Prefix, 0LL);
       if ( v11 == 2 )
@@ -52,7 +52,7 @@ BOOLEAN __stdcall RtlInsertUnicodePrefix(
         {
           PrefixTableEntry->NextPrefixTree = 0LL;
           PrefixTableEntry->NodeTypeCode = 2050;
-          v13 = (RTL_SPLAY_LINKS *)&j[1];
+          v13 = (_RTL_SPLAY_LINKS *)&j[1];
           PrefixTableEntry->CaseMatch = PrefixTableEntry;
           j[1].NextPrefixTree = (PUNICODE_PREFIX_TABLE_ENTRY)p_Links;
 LABEL_11:
@@ -67,7 +67,7 @@ LABEL_11:
         {
           PrefixTableEntry->NextPrefixTree = 0LL;
           PrefixTableEntry->NodeTypeCode = 2050;
-          v13 = (RTL_SPLAY_LINKS *)&j[1];
+          v13 = (_RTL_SPLAY_LINKS *)&j[1];
           PrefixTableEntry->CaseMatch = PrefixTableEntry;
           j[1].LastNextEntry = (PUNICODE_PREFIX_TABLE_ENTRY)p_Links;
           goto LABEL_11;
@@ -79,11 +79,11 @@ LABEL_11:
     {
       if ( (unsigned int)CompareUnicodeStrings(*(_QWORD *)&v17[2].NodeTypeCode, Prefix, 0xFFFFFFFFLL) == 2 )
         return 0;
-      v17 = (UNICODE_PREFIX_TABLE *)v17->LastNextEntry;
+      v17 = (_UNICODE_PREFIX_TABLE *)v17->LastNextEntry;
     }
     while ( v17 != j );
     PrefixTableEntry->NextPrefixTree = 0LL;
-    v13 = (RTL_SPLAY_LINKS *)&j[1];
+    v13 = (_RTL_SPLAY_LINKS *)&j[1];
     PrefixTableEntry->NodeTypeCode = 2051;
     PrefixTableEntry->CaseMatch = j->LastNextEntry;
     j->LastNextEntry = PrefixTableEntry;
@@ -91,7 +91,7 @@ LABEL_12:
     v14 = i->NextPrefixTree;
     i->NextPrefixTree = 0LL;
     i->NodeTypeCode = 2050;
-    v15 = (UNICODE_PREFIX_TABLE_ENTRY *)&RtlSplay(v13)[-1];
+    v15 = (_UNICODE_PREFIX_TABLE_ENTRY *)&RtlSplay(v13)[-1];
     v15->NodeTypeCode = 2049;
     PrefixTable->NextPrefixTree = v15;
     v15->NextPrefixTree = v14;
@@ -99,7 +99,7 @@ LABEL_12:
   else
   {
     PrefixTable->NextPrefixTree = PrefixTableEntry;
-    PrefixTableEntry->NextPrefixTree = (struct _UNICODE_PREFIX_TABLE_ENTRY *)i;
+    PrefixTableEntry->NextPrefixTree = (_UNICODE_PREFIX_TABLE_ENTRY *)i;
     PrefixTableEntry->NodeTypeCode = 2049;
     PrefixTableEntry->CaseMatch = PrefixTableEntry;
   }

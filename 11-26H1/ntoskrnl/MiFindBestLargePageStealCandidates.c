@@ -1,11 +1,11 @@
 /*
- * XREFs of MiFindBestLargePageStealCandidates @ 0x14042DA48
+ * XREFs of MiFindBestLargePageStealCandidates @ 0x14041A958
  * Callers:
- *     MiFindContiguousPagesInOptimizedCandidates @ 0x14028EB58 (MiFindContiguousPagesInOptimizedCandidates.c)
+ *     MiFindContiguousPagesInOptimizedCandidates @ 0x14028E0B8 (MiFindContiguousPagesInOptimizedCandidates.c)
  * Callees:
- *     MiFindNextLowerLargePageCandidate @ 0x14042E03C (MiFindNextLowerLargePageCandidate.c)
- *     MiCollapseRunTopDown @ 0x14042E160 (MiCollapseRunTopDown.c)
- *     memmove @ 0x14073D480 (memmove.c)
+ *     MiFindNextLowerLargePageCandidate @ 0x14041AF4C (MiFindNextLowerLargePageCandidate.c)
+ *     MiCollapseRunTopDown @ 0x14041B070 (MiCollapseRunTopDown.c)
+ *     memmove @ 0x140742080 (memmove.c)
  */
 
 unsigned __int64 __fastcall MiFindBestLargePageStealCandidates(
@@ -249,7 +249,7 @@ LABEL_44:
         }
       }
       if ( (_DWORD)v8 == 2 )
-        result = ((unsigned __int64)*(unsigned __int16 *)(qword_140E3BE38 + 2 * v26) >> 5) & 0x1F;
+        result = ((unsigned __int64)*(unsigned __int16 *)(qword_140E3BFB8 + 2 * v26) >> 5) & 0x1F;
       else
         result = (_DWORD)v8 == 1
                ? *(_WORD *)(*(_QWORD *)(v67 + 16768) + 2 * v26) & 0x3FF
@@ -302,7 +302,7 @@ LABEL_29:
         break;
       if ( result >= 0x20000 )
       {
-        _InterlockedIncrement(&dword_140EF8ED0[v8]);
+        _InterlockedIncrement(&dword_140EF9230[v8]);
 LABEL_33:
         v32 = 0;
         goto LABEL_34;

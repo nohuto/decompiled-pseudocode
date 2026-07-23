@@ -1,10 +1,10 @@
 /*
- * XREFs of CmpInitializeMachineHiveLoadedCallbacks @ 0x1407CB5B8
+ * XREFs of CmpInitializeMachineHiveLoadedCallbacks @ 0x1407CB728
  * Callers:
- *     CmInitSystem1 @ 0x140A59F78 (CmInitSystem1.c)
+ *     CmInitSystem1 @ 0x140A5AF78 (CmInitSystem1.c)
  * Callees:
- *     KeInitializeEvent @ 0x1403538F0 (KeInitializeEvent.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     KeInitializeEvent @ 0x14035E640 (KeInitializeEvent.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 _QWORD *CmpInitializeMachineHiveLoadedCallbacks()

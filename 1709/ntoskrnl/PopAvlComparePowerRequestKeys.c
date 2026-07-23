@@ -6,12 +6,12 @@
  *     RtlCompareUnicodeString @ 0x140523C80 (RtlCompareUnicodeString.c)
  */
 
-__int64 __fastcall PopAvlComparePowerRequestKeys(struct _RTL_AVL_TABLE *Table, char *FirstStruct, char *SecondStruct)
+__int64 __fastcall PopAvlComparePowerRequestKeys(_RTL_AVL_TABLE *a1, char *a2, char *a3)
 {
   LONG v3; // ecx
   __int64 result; // rax
 
-  v3 = RtlCompareUnicodeString((PCUNICODE_STRING)(FirstStruct + 8), (PCUNICODE_STRING)(SecondStruct + 8), 1u);
+  v3 = RtlCompareUnicodeString((PCUNICODE_STRING)(a2 + 8), (PCUNICODE_STRING)(a3 + 8), 1u);
   result = 0LL;
   if ( v3 >= 0 )
   {

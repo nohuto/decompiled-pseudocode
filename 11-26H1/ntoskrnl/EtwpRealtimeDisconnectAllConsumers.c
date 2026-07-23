@@ -1,11 +1,11 @@
 /*
- * XREFs of EtwpRealtimeDisconnectAllConsumers @ 0x140A1520C
+ * XREFs of EtwpRealtimeDisconnectAllConsumers @ 0x140A14400
  * Callers:
- *     EtwpLogger @ 0x140A13B90 (EtwpLogger.c)
- *     EtwpShutdownConsumers @ 0x140A6D194 (EtwpShutdownConsumers.c)
+ *     EtwpLogger @ 0x140A12D80 (EtwpLogger.c)
+ *     EtwpShutdownConsumers @ 0x140A153E4 (EtwpShutdownConsumers.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     KeSetEvent @ 0x1402DE9C0 (KeSetEvent.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     KeSetEvent @ 0x1402C0780 (KeSetEvent.c)
  */
 
 void __fastcall EtwpRealtimeDisconnectAllConsumers(__int64 a1)

@@ -35,7 +35,7 @@ __int64 __fastcall RtlpxVirtualUnwind(
   __int64 v16; // rbx
   unsigned int v17; // r14d
   __int64 v18; // rcx
-  __int64 v19; // rdx
+  int v19; // edx
   int v20; // r15d
   unsigned __int64 v21; // rcx
   __int64 result; // rax
@@ -130,7 +130,7 @@ __int64 __fastcall RtlpxVirtualUnwind(
     if ( v17 >= 2 )
       goto LABEL_13;
     v18 = v16;
-    LODWORD(v19) = 0;
+    v19 = 0;
     while ( !*(_BYTE *)(v18 + 2) )
     {
       if ( (*(_BYTE *)v18 & 0x20) == 0 )
@@ -138,9 +138,8 @@ __int64 __fastcall RtlpxVirtualUnwind(
         v15 = 1;
         goto LABEL_12;
       }
-      v19 = (unsigned int)(v19 + 1);
-      if ( (unsigned int)v19 > 0x20 )
-        RtlRaiseStatus(3221225727LL, v19, 0x7FFFFFFEFFFFLL, a4);
+      if ( (unsigned int)++v19 > 0x20 )
+        RtlRaiseStatus(-1073741569);
       v18 = v11 + *(unsigned int *)(v18 + 12);
       if ( a3 <= 0x7FFFFFFEFFFFLL && (v18 & 3) != 0 )
         goto LABEL_4;

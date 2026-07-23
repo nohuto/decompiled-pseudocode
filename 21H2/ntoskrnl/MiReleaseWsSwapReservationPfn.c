@@ -1,10 +1,10 @@
 /*
- * XREFs of MiReleaseWsSwapReservationPfn @ 0x1402E510C
+ * XREFs of MiReleaseWsSwapReservationPfn @ 0x14029645C
  * Callers:
- *     MiAllocateWsle @ 0x140211CC0 (MiAllocateWsle.c)
- *     MiInPageSingleKernelStack @ 0x1402E4C40 (MiInPageSingleKernelStack.c)
+ *     MiInPageSingleKernelStack @ 0x140295F90 (MiInPageSingleKernelStack.c)
+ *     MiAllocateWsle @ 0x1402B65C0 (MiAllocateWsle.c)
  * Callees:
- *     MiCapturePageFileInfoInline @ 0x1402A2CF0 (MiCapturePageFileInfoInline.c)
+ *     MiCapturePageFileInfoInline @ 0x140220130 (MiCapturePageFileInfoInline.c)
  *     MI_PFN_IS_PROTO @ 0x1403F48C8 (MI_PFN_IS_PROTO.c)
  */
 

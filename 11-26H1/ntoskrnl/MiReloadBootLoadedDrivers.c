@@ -1,27 +1,27 @@
 /*
- * XREFs of MiReloadBootLoadedDrivers @ 0x140D00CF0
+ * XREFs of MiReloadBootLoadedDrivers @ 0x140D07090
  * Callers:
- *     MiInitializeLoadedModuleList @ 0x140D00470 (MiInitializeLoadedModuleList.c)
+ *     MiInitializeLoadedModuleList @ 0x140D06810 (MiInitializeLoadedModuleList.c)
  * Callees:
- *     KeQueryPerformanceCounter @ 0x14021C3F0 (KeQueryPerformanceCounter.c)
- *     MI_IS_PHYSICAL_ADDRESS @ 0x14024C8D0 (MI_IS_PHYSICAL_ADDRESS.c)
- *     MmReleaseLoadLock @ 0x1404A4B70 (MmReleaseLoadLock.c)
- *     MiAcquireLoadLock @ 0x1404AB9EC (MiAcquireLoadLock.c)
- *     MiMapKernelScp @ 0x1404F3160 (MiMapKernelScp.c)
- *     MiProcessLoadConfigForDriver @ 0x140B0594C (MiProcessLoadConfigForDriver.c)
- *     MiProcessKernelUmaImageLoadConfig @ 0x140B059BC (MiProcessKernelUmaImageLoadConfig.c)
- *     MiApplyImportOptimizationToBootDriver @ 0x140CFA76C (MiApplyImportOptimizationToBootDriver.c)
- *     MiApplyRetpolineToBootDriver @ 0x140CFA8C8 (MiApplyRetpolineToBootDriver.c)
- *     MiApplyFunctionOverrideToBootDriver @ 0x140CFF854 (MiApplyFunctionOverrideToBootDriver.c)
- *     MiHandleBootImage @ 0x140CFFFDC (MiHandleBootImage.c)
+ *     KeQueryPerformanceCounter @ 0x14021DD80 (KeQueryPerformanceCounter.c)
+ *     MI_IS_PHYSICAL_ADDRESS @ 0x14024E230 (MI_IS_PHYSICAL_ADDRESS.c)
+ *     MmReleaseLoadLock @ 0x14049E200 (MmReleaseLoadLock.c)
+ *     MiAcquireLoadLock @ 0x1404A507C (MiAcquireLoadLock.c)
+ *     MiMapKernelScp @ 0x1404EC740 (MiMapKernelScp.c)
+ *     MiProcessLoadConfigForDriver @ 0x140B079E0 (MiProcessLoadConfigForDriver.c)
+ *     MiProcessKernelUmaImageLoadConfig @ 0x140B07A50 (MiProcessKernelUmaImageLoadConfig.c)
+ *     MiApplyImportOptimizationToBootDriver @ 0x140D00AEC (MiApplyImportOptimizationToBootDriver.c)
+ *     MiApplyRetpolineToBootDriver @ 0x140D00C48 (MiApplyRetpolineToBootDriver.c)
+ *     MiApplyFunctionOverrideToBootDriver @ 0x140D05BF4 (MiApplyFunctionOverrideToBootDriver.c)
+ *     MiHandleBootImage @ 0x140D0637C (MiHandleBootImage.c)
  */
 
 LARGE_INTEGER __fastcall MiReloadBootLoadedDrivers(__int64 a1)
 {
   _QWORD *v2; // rbx
-  _QWORD *i; // rdi
+  __int64 i; // rdi
   _QWORD *j; // rdi
-  ULONG_PTR v5; // rsi
+  PVOID v5; // rsi
   unsigned __int64 v6; // rbp
   __int64 v7; // r8
   _QWORD *k; // rdi
@@ -32,27 +32,27 @@ LARGE_INTEGER __fastcall MiReloadBootLoadedDrivers(__int64 a1)
 
   MiAcquireLoadLock(1u);
   v2 = (_QWORD *)(a1 + 16);
-  for ( i = *(_QWORD **)(a1 + 16); i != v2; i = (_QWORD *)*i )
+  for ( i = *(_QWORD *)(a1 + 16); (_QWORD *)i != v2; i = *(_QWORD *)i )
   {
-    if ( i[6] == PsNtosImageBase )
+    if ( *(PVOID *)(i + 48) == PsNtosImageBase )
     {
-      if ( (int)MiProcessKernelUmaImageLoadConfig((__int64)i) < 0 )
+      if ( (int)MiProcessKernelUmaImageLoadConfig(i) < 0 )
         continue;
     }
     else
     {
-      MiProcessLoadConfigForDriver((__int64)i, 0LL);
+      MiProcessLoadConfigForDriver(i, 0LL);
     }
-    MiHandleBootImage(a1, (__int64)i);
+    MiHandleBootImage(a1, i);
   }
   MiFlags |= 0x2000uLL;
   MmReleaseLoadLock(0LL);
   for ( j = (_QWORD *)*v2; j != v2; j = (_QWORD *)*j )
   {
-    v5 = j[6];
+    v5 = (PVOID)j[6];
     v6 = ((unsigned __int64)*((unsigned int *)j + 16) + 4095) >> 12;
     if ( v5 != PsNtosImageBase && v5 != PsHalImageBase && !(unsigned int)MI_IS_PHYSICAL_ADDRESS(j[6]) )
-      MiMapKernelScp(v5, v6, v7);
+      MiMapKernelScp((ULONG_PTR)v5, v6, v7);
   }
   if ( (KiSpeculationFeatures & 0x20000000000LL) != 0 )
   {
@@ -72,6 +72,6 @@ LARGE_INTEGER __fastcall MiReloadBootLoadedDrivers(__int64 a1)
   for ( m = (_QWORD *)*v2; m != v2; m = (_QWORD *)*m )
     MiApplyFunctionOverrideToBootDriver((ULONG_PTR)m);
   result = KeQueryPerformanceCounter(0LL);
-  qword_140FFB9D0 = result.QuadPart;
+  qword_140FFC9D0 = result.QuadPart;
   return result;
 }

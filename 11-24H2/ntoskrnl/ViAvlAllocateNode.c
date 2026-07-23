@@ -1,16 +1,16 @@
 /*
- * XREFs of ViAvlAllocateNode @ 0x1404B4170
+ * XREFs of ViAvlAllocateNode @ 0x1404AE990
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-_RTL_BALANCED_LINKS *__fastcall ViAvlAllocateNode(struct _RTL_AVL_TABLE *Table, CLONG ByteSize)
+_RTL_BALANCED_LINKS *__fastcall ViAvlAllocateNode(_RTL_AVL_TABLE *a1)
 {
   _RTL_BALANCED_LINKS *Parent; // rax
 
-  Parent = Table[1].BalancedRoot.Parent;
-  Table[1].BalancedRoot.Parent = 0LL;
+  Parent = a1[1].BalancedRoot.Parent;
+  a1[1].BalancedRoot.Parent = 0LL;
   return Parent - 1;
 }

@@ -1,14 +1,14 @@
 /*
- * XREFs of RtlpCreateUCREntry @ 0x1405EBE80
+ * XREFs of RtlpCreateUCREntry @ 0x1405E93F0
  * Callers:
- *     RtlpDeCommitFreeBlock @ 0x1405EBFC0 (RtlpDeCommitFreeBlock.c)
- *     RtlpFindAndCommitPages @ 0x1405EC7B4 (RtlpFindAndCommitPages.c)
- *     RtlpInitializeHeapSegment @ 0x1405ED010 (RtlpInitializeHeapSegment.c)
+ *     RtlpDeCommitFreeBlock @ 0x1405E953C (RtlpDeCommitFreeBlock.c)
+ *     RtlpFindAndCommitPages @ 0x1405E9D48 (RtlpFindAndCommitPages.c)
+ *     RtlpInitializeHeapSegment @ 0x1405EA5CC (RtlpInitializeHeapSegment.c)
  * Callees:
- *     RtlpLogHeapFailure @ 0x1402B2E04 (RtlpLogHeapFailure.c)
- *     DbgPrint @ 0x1402CB260 (DbgPrint.c)
- *     RtlpInsertUCRBlock @ 0x1405ED600 (RtlpInsertUCRBlock.c)
- *     RtlpHeapHandleError @ 0x1405F2F2C (RtlpHeapHandleError.c)
+ *     DbgPrint @ 0x140274290 (DbgPrint.c)
+ *     RtlpLogHeapFailure @ 0x14035B9C4 (RtlpLogHeapFailure.c)
+ *     RtlpInsertUCRBlock @ 0x1405EABE8 (RtlpInsertUCRBlock.c)
+ *     RtlpHeapHandleError @ 0x1405F056C (RtlpHeapHandleError.c)
  */
 
 __int64 *__fastcall RtlpCreateUCREntry(
@@ -24,7 +24,8 @@ __int64 *__fastcall RtlpCreateUCREntry(
   unsigned __int64 v11; // rsi
   bool v12; // cc
   bool v13; // zf
-  unsigned __int64 v14; // rax
+  __int64 v14; // rcx
+  unsigned __int64 v15; // rax
   __int64 *result; // rax
 
   *(_QWORD *)(a3 + 40) = a4;
@@ -68,11 +69,12 @@ __int64 *__fastcall RtlpCreateUCREntry(
   RtlpInsertUCRBlock(a1, a3);
   ++*(_DWORD *)(a2 + 84);
   *(_DWORD *)(a2 + 80) += *(_QWORD *)(a3 + 40) >> 12;
-  *(_QWORD *)(a1 + 576) -= *(_QWORD *)(a3 + 40);
-  ++*(_DWORD *)(a1 + 604);
-  v14 = *(_QWORD *)(a3 + 40);
-  if ( v14 >= 0xFF000 )
-    *(_QWORD *)(a1 + 584) += v14;
+  v14 = *(_QWORD *)(a1 + 576) - *(_QWORD *)(a3 + 40);
+  ++*(_DWORD *)(a1 + 612);
+  *(_QWORD *)(a1 + 576) = v14;
+  v15 = *(_QWORD *)(a3 + 40);
+  if ( v15 >= 0xFF000 )
+    *(_QWORD *)(a1 + 584) += v15;
   result = a6;
   *a6 = (__int64)(v6 - a5) >> 4;
   return result;

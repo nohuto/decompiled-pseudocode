@@ -8,11 +8,11 @@
  *     _guard_dispatch_icall_no_overrides @ 0x1406A8B20 (_guard_dispatch_icall_no_overrides.c)
  */
 
-__int64 __fastcall ExpFlushGeneralLookaside(union _SLIST_HEADER *a1)
+__int64 __fastcall ExpFlushGeneralLookaside(_SLIST_HEADER *a1)
 {
   __int64 v1; // rdx
   PSLIST_ENTRY v2; // rcx
-  struct _SLIST_ENTRY *Next; // rbx
+  _SLIST_ENTRY *Next; // rbx
 
   v2 = RtlpInterlockedFlushSList(a1);
   if ( v2 )

@@ -7,17 +7,17 @@
  *     sub_1800FE028 @ 0x1800FE028 (sub_1800FE028.c)
  */
 
-__int64 __fastcall sub_18000ABAC(__int64 a1)
+void __fastcall sub_18000ABAC(__int64 a1)
 {
-  __int64 v3; // rcx
+  __int64 v2; // rcx
 
-  RtlAcquireSRWLockExclusive(&unk_18015C2A0);
+  RtlAcquireSRWLockExclusive(&stru_18015C2A0);
   if ( (dword_18015C2A8 & 1) != 0 && (dword_18015C2A8 & 2) != 0 )
   {
-    v3 = 368LL;
+    v2 = 368LL;
     if ( *(_DWORD *)(a1 + 16) == -571548178 )
-      v3 = 136LL;
-    sub_1800FE028(a1 + v3, 0LL, 0LL);
+      v2 = 136LL;
+    sub_1800FE028(a1 + v2, 0LL, 0LL);
   }
-  return RtlReleaseSRWLockExclusive(&unk_18015C2A0);
+  RtlReleaseSRWLockExclusive(&stru_18015C2A0);
 }

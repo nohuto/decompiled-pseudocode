@@ -1,13 +1,13 @@
 /*
- * XREFs of PspRecordCrashedProcessIntoBlackbox @ 0x140888F60
+ * XREFs of PspRecordCrashedProcessIntoBlackbox @ 0x14088A1C0
  * Callers:
- *     PsSetProcessFaultInformation @ 0x1406E1DA0 (PsSetProcessFaultInformation.c)
+ *     PsSetProcessFaultInformation @ 0x1406E3040 (PsSetProcessFaultInformation.c)
  * Callees:
- *     ZwPowerInformation @ 0x1401B8D70 (ZwPowerInformation.c)
- *     memmove @ 0x1401D1540 (memmove.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
+ *     ZwPowerInformation @ 0x1401B8ED0 (ZwPowerInformation.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
  */
 
 void __fastcall PspRecordCrashedProcessIntoBlackbox(__int64 a1)
@@ -35,7 +35,7 @@ void __fastcall PspRecordCrashedProcessIntoBlackbox(__int64 a1)
     LODWORD(InputBuffer[3]) = 13;
     InputBuffer[0] = v4;
     InputBuffer[1] = (unsigned int)(v2 + 8);
-    ZwPowerInformation(TraceApplicationPowerMessage|0x40, InputBuffer, 0x20u, 0LL, 0);
+    ZwPowerInformation(UpdateBlackBoxRecorder, InputBuffer, 0x20u, 0LL, 0);
     ExFreePoolWithTag(v4, 0x62427350u);
   }
 }

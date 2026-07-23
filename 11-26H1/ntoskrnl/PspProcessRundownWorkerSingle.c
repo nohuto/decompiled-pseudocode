@@ -1,10 +1,10 @@
 /*
- * XREFs of PspProcessRundownWorkerSingle @ 0x140B44830
+ * XREFs of PspProcessRundownWorkerSingle @ 0x140B465F0
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     PspRundownSingleProcess @ 0x14095918C (PspRundownSingleProcess.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     PspRundownSingleProcess @ 0x1409FEA50 (PspRundownSingleProcess.c)
  */
 
 __int64 __fastcall PspProcessRundownWorkerSingle(__int64 a1, __int64 a2, __int64 a3, struct _KLOCK_ENTRIES *a4)

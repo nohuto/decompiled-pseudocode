@@ -1,9 +1,9 @@
 /*
- * XREFs of NtListenPort @ 0x140580EF0
+ * XREFs of NtListenPort @ 0x14058139C
  * Callers:
  *     <none>
  * Callees:
- *     NtReplyWaitReceivePortEx @ 0x1404B2FA0 (NtReplyWaitReceivePortEx.c)
+ *     NtReplyWaitReceivePortEx @ 0x14049D380 (NtReplyWaitReceivePortEx.c)
  */
 
 NTSTATUS __stdcall NtListenPort(HANDLE PortHandle, PPORT_MESSAGE ConnectionRequest)

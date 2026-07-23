@@ -1,36 +1,34 @@
 /*
- * XREFs of RtlValidateUserCallTarget @ 0x180004930
+ * XREFs of RtlValidateUserCallTarget @ 0x1800F4240
  * Callers:
- *     LdrGetProcedureAddressForCaller @ 0x180004FF0 (LdrGetProcedureAddressForCaller.c)
- *     LdrpUnsuppressAddressTakenIat @ 0x1800074AC (LdrpUnsuppressAddressTakenIat.c)
- *     RtlpUnsuppressForwardReferencingCallTarget @ 0x180112FB0 (RtlpUnsuppressForwardReferencingCallTarget.c)
+ *     LdrGetProcedureAddressForCaller @ 0x1800319F0 (LdrGetProcedureAddressForCaller.c)
+ *     LdrpUnsuppressAddressTakenIat @ 0x180033EAC (LdrpUnsuppressAddressTakenIat.c)
+ *     RtlpUnsuppressForwardReferencingCallTarget @ 0x18010E270 (RtlpUnsuppressForwardReferencingCallTarget.c)
  * Callees:
- *     CfgAddressToBitState @ 0x180003274 (CfgAddressToBitState.c)
- *     LdrControlFlowGuardEnforcedWithExportSuppression @ 0x180009670 (LdrControlFlowGuardEnforcedWithExportSuppression.c)
+ *     LdrControlFlowGuardEnforcedWithExportSuppression @ 0x180036070 (LdrControlFlowGuardEnforcedWithExportSuppression.c)
+ *     CfgAddressToBitState @ 0x1800F42DC (CfgAddressToBitState.c)
  */
 
-__int64 __fastcall RtlValidateUserCallTarget(unsigned __int64 a1, _DWORD *a2)
+__int64 __fastcall RtlValidateUserCallTarget(__int64 a1, _DWORD *a2)
 {
   char v3; // di
   int v4; // eax
-  __int64 v5; // rdx
-  __int64 v6; // rcx
-  unsigned int v7; // r8d
+  unsigned int v5; // r8d
+  int v6; // eax
   int v8; // eax
-  int v10; // eax
 
   v3 = a1;
-  v4 = CfgAddressToBitState(a1, (const signed __int64 *)qword_1801EA508);
-  v7 = 0;
+  v4 = CfgAddressToBitState(a1, LdrSystemDllInitBlock.CfgBitMap);
+  v5 = 0;
   if ( !v4 )
     goto LABEL_8;
-  v8 = v4 - 1;
-  if ( v8 )
+  v6 = v4 - 1;
+  if ( v6 )
   {
-    v10 = v8 - 1;
-    if ( v10 )
+    v8 = v6 - 1;
+    if ( v8 )
     {
-      if ( v10 == 1 )
+      if ( v8 == 1 )
       {
         *a2 = 8;
         return 1;
@@ -38,10 +36,10 @@ __int64 __fastcall RtlValidateUserCallTarget(unsigned __int64 a1, _DWORD *a2)
     }
     else
     {
-      if ( (unsigned int)LdrControlFlowGuardEnforcedWithExportSuppression(v6, v5, 0LL) )
+      if ( LdrControlFlowGuardEnforcedWithExportSuppression() )
       {
         *a2 = 16;
-        return v7;
+        return v5;
       }
       if ( (v3 & 0xF) == 0 )
       {
@@ -51,9 +49,9 @@ __int64 __fastcall RtlValidateUserCallTarget(unsigned __int64 a1, _DWORD *a2)
     }
 LABEL_8:
     *a2 = 2;
-    return v7;
+    return v5;
   }
-  LOBYTE(v7) = (v3 & 0xF) == 0;
-  *a2 = (v7 ^ 1) + 1;
-  return v7;
+  LOBYTE(v5) = (v3 & 0xF) == 0;
+  *a2 = (v5 ^ 1) + 1;
+  return v5;
 }

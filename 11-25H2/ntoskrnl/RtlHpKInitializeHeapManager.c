@@ -14,8 +14,8 @@ int RtlHpKInitializeHeapManager()
 {
   __int64 v0; // r8
   int result; // eax
-  __int128 Parameter; // [rsp+30h] [rbp-10h] BYREF
-  union _RTL_RUN_ONCE v3; // [rsp+50h] [rbp+10h] BYREF
+  __int128 v2; // [rsp+30h] [rbp-10h] BYREF
+  _RTL_RUN_ONCE v3; // [rsp+50h] [rbp+10h] BYREF
 
   RtlHpGlobalsInitialize();
   v3.Value = 0x300010200LL;
@@ -30,10 +30,10 @@ int RtlHpKInitializeHeapManager()
     result = RtlpHpVaMgrCtxStart((__int64)&unk_140E68098);
     if ( result >= 0 )
     {
-      Parameter = 0LL;
-      *(_WORD *)((char *)&Parameter + 1) = 1;
-      LOBYTE(Parameter) = 3;
-      RtlpHpMetadataHeapCreate(&RunOnce, &Parameter, 0LL);
+      v2 = 0LL;
+      *(_WORD *)((char *)&v2 + 1) = 1;
+      LOBYTE(v2) = 3;
+      RtlpHpMetadataHeapCreate(&stru_140E6B8F0, &v2, 0LL);
       return 0;
     }
   }

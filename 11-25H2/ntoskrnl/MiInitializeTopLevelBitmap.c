@@ -13,7 +13,7 @@ __int64 MiInitializeTopLevelBitmap()
   unsigned __int64 v0; // rbx
   __int64 v1; // rdi
   __int64 result; // rax
-  RTL_BITMAP BitMapHeader; // [rsp+20h] [rbp-18h] BYREF
+  _RTL_BITMAP BitMapHeader; // [rsp+20h] [rbp-18h] BYREF
 
   *(_QWORD *)&BitMapHeader.SizeOfBitMap = 256LL;
   dword_140E2EE48 = (unsigned __int8)ExGenRandom(1);

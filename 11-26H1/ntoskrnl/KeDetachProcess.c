@@ -1,9 +1,9 @@
 /*
- * XREFs of KeDetachProcess @ 0x1404C7F80
+ * XREFs of KeDetachProcess @ 0x1404C1CC0
  * Callers:
  *     <none>
  * Callees:
- *     KiDetachProcess @ 0x140246EA0 (KiDetachProcess.c)
+ *     KiDetachProcess @ 0x140248800 (KiDetachProcess.c)
  */
 
 void KeDetachProcess(void)

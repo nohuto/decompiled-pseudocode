@@ -11,27 +11,27 @@
 __int64 __fastcall LdrpLangFallbackListFindNode(__int64 a1, __int64 a2, const WCHAR *a3, _WORD *a4)
 {
   __int16 v8; // r8
-  int v9; // esi
+  DWORD v9; // esi
   int v10; // eax
   __int16 v11; // dx
   __int64 v13; // r9
   __int64 v14; // r10
   __int64 v15; // rcx
   bool v16; // zf
-  UNICODE_STRING DestinationString; // [rsp+20h] [rbp-38h] BYREF
-  int v18; // [rsp+60h] [rbp+8h] BYREF
+  _UNICODE_STRING DestinationString; // [rsp+20h] [rbp-38h] BYREF
+  DWORD Lcid; // [rsp+60h] [rbp+8h] BYREF
 
   if ( a1 && a2 && a3 && a4 )
   {
     *a4 = -1;
     RtlInitUnicodeString(&DestinationString, a3);
-    if ( !(unsigned __int8)RtlCultureNameToLCID(&DestinationString, &v18) )
+    if ( !RtlCultureNameToLCID(&DestinationString, &Lcid) )
       return 3221225524LL;
     v8 = -1;
-    v9 = ((v18 - 4096) & 0xFFFFFBFF) != 0 ? v18 : 0;
+    v9 = ((Lcid - 4096) & 0xFFFFFBFF) != 0 ? Lcid : 0;
     if ( *a3 )
     {
-      v8 = RtlpMuiRegGetOrAddStringToPool(*(_QWORD *)(a1 + 32), a3, 0LL, &v18);
+      v8 = RtlpMuiRegGetOrAddStringToPool(*(_QWORD *)(a1 + 32), a3, 0LL, &Lcid);
       if ( v8 < 0 )
         goto LABEL_23;
       v10 = 0;

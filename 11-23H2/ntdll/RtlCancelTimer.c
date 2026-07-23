@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlCancelTimer @ 0x180127DA0
+ * XREFs of RtlCancelTimer @ 0x180127D70
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall RtlCancelTimer(__int64 a1, volatile signed __int32 *a2)
+NTSTATUS __fastcall RtlCancelTimer(void *a1, void *a2)
 {
   return RtlDeleteTimer(a1, a2, 0LL);
 }

@@ -60,27 +60,14 @@
  *     RtlRaiseStatus @ 0x180102310 (RtlRaiseStatus.c)
  */
 
-void __fastcall __noreturn RtlRaiseStatus(int a1)
+void __cdecl __noreturn RtlRaiseStatus(NTSTATUS Status)
 {
-  char v1; // bl
-  unsigned int v2; // eax
-  _DWORD v3[2]; // [rsp+20h] [rbp-578h] BYREF
-  __int64 v4; // [rsp+28h] [rbp-570h]
-  int v5; // [rsp+38h] [rbp-560h]
-  _BYTE v6[1240]; // [rsp+C0h] [rbp-4D8h] BYREF
+  EXCEPTION_RECORD ExceptionRecord; // [rsp+20h] [rbp-578h] BYREF
+  struct _CONTEXT ContextRecord; // [rsp+C0h] [rbp-4D8h] BYREF
 
-  v4 = 0LL;
-  v1 = 1;
-  v5 = 0;
-  v3[1] = 1;
-  v3[0] = a1;
-  do
-  {
-    RtlRaiseNoncontinuableException((__int64)v3, (__int64)v6);
-    if ( NtCurrentPeb()->BeingDebugged )
-      break;
-    --v1;
-  }
-  while ( !v1 );
-  RtlRaiseStatus(v2);
+  ExceptionRecord.ExceptionRecord = 0LL;
+  ExceptionRecord.NumberParameters = 0;
+  ExceptionRecord.ExceptionFlags = 1;
+  ExceptionRecord.ExceptionCode = Status;
+  RtlRaiseNoncontinuableException(&ExceptionRecord, &ContextRecord);
 }

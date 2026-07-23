@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlCopyMemoryNonTemporal @ 0x140408260
+ * XREFs of RtlCopyMemoryNonTemporal @ 0x140408440
  * Callers:
- *     MmCopyToCachedPage @ 0x140331500 (MmCopyToCachedPage.c)
- *     RtlWriteNonVolatileMemory @ 0x14058CE50 (RtlWriteNonVolatileMemory.c)
- *     HviCopyMemoryNonTemporal @ 0x140594658 (HviCopyMemoryNonTemporal.c)
+ *     MmCopyToCachedPage @ 0x14033C250 (MmCopyToCachedPage.c)
+ *     RtlWriteNonVolatileMemory @ 0x14058D080 (RtlWriteNonVolatileMemory.c)
+ *     HviCopyMemoryNonTemporal @ 0x140594888 (HviCopyMemoryNonTemporal.c)
  * Callees:
  *     <none>
  */

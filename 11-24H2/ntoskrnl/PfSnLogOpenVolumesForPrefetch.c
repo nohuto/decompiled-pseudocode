@@ -1,11 +1,11 @@
 /*
- * XREFs of PfSnLogOpenVolumesForPrefetch @ 0x140A4D3E8
+ * XREFs of PfSnLogOpenVolumesForPrefetch @ 0x140A43F78
  * Callers:
- *     PfSnOpenVolumesForPrefetch @ 0x14096BF6C (PfSnOpenVolumesForPrefetch.c)
+ *     PfSnOpenVolumesForPrefetch @ 0x1409549CC (PfSnOpenVolumesForPrefetch.c)
  * Callees:
- *     EtwEventEnabled @ 0x1402A1BD0 (EtwEventEnabled.c)
- *     EtwWrite @ 0x14041C1B0 (EtwWrite.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x1402D1300 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x14040FFB0 (EtwWrite.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 void __fastcall PfSnLogOpenVolumesForPrefetch(__int64 a1, char a2)
@@ -27,7 +27,7 @@ void __fastcall PfSnLogOpenVolumesForPrefetch(__int64 a1, char a2)
     v2 = (const EVENT_DESCRIPTOR *)PfSnEvt_OpenVolumes_Start;
     if ( !a2 )
       v2 = &PfSnEvt_OpenVolumes_Stop;
-    if ( qword_140E67108 && EtwEventEnabled(qword_140E67108, v2) )
+    if ( qword_140E67258 && EtwEventEnabled(qword_140E67258, v2) )
     {
       v4 = -1LL;
       do
@@ -43,7 +43,7 @@ void __fastcall PfSnLogOpenVolumesForPrefetch(__int64 a1, char a2)
       v9 = 0;
       v11 = 4LL;
       v13 = 4LL;
-      EtwWrite(qword_140E67108, v2, 0LL, 4u, &UserData);
+      EtwWrite(qword_140E67258, v2, 0LL, 4u, &UserData);
     }
   }
 }

@@ -3,10 +3,10 @@
  * Callers:
  *     RtlpIsQualifiedLanguage @ 0x180058730 (RtlpIsQualifiedLanguage.c)
  *     RtlpTraverseParents @ 0x18005884C (RtlpTraverseParents.c)
- *     LdrpMergeParentBaseLanguagesToList @ 0x1800EED40 (LdrpMergeParentBaseLanguagesToList.c)
+ *     LdrpMergeParentBaseLanguagesToList @ 0x1800EED00 (LdrpMergeParentBaseLanguagesToList.c)
  * Callees:
  *     RtlpTraverseParents @ 0x18005884C (RtlpTraverseParents.c)
- *     LdrpGetMUILangConfigNode @ 0x1800EEC68 (LdrpGetMUILangConfigNode.c)
+ *     LdrpGetMUILangConfigNode @ 0x1800EEC28 (LdrpGetMUILangConfigNode.c)
  */
 
 char __fastcall RtlpTraverseParents(_WORD *a1, __int64 a2, __int64 a3, __int64 a4, unsigned int a5, int a6)

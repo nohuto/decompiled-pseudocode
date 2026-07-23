@@ -1,9 +1,9 @@
 /*
  * XREFs of VfFaultsSetParameters @ 0x140710F7C
  * Callers:
- *     NtSetSystemInformation @ 0x1403E9F6C (NtSetSystemInformation.c)
+ *     NtSetSystemInformation @ 0x1403EB59C (NtSetSystemInformation.c)
  * Callees:
- *     PsSetCreateProcessNotifyRoutine @ 0x140575940 (PsSetCreateProcessNotifyRoutine.c)
+ *     PsSetCreateProcessNotifyRoutine @ 0x140575E80 (PsSetCreateProcessNotifyRoutine.c)
  *     ViFaultsAddAllApps @ 0x140711110 (ViFaultsAddAllApps.c)
  *     ViFaultsAddAllTags @ 0x1407111BC (ViFaultsAddAllTags.c)
  *     ViFaultsRemoveAllApps @ 0x1407116C0 (ViFaultsRemoveAllApps.c)

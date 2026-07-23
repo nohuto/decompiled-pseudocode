@@ -1,34 +1,34 @@
 /*
- * XREFs of MiAddPageToInsertList @ 0x14031EF60
+ * XREFs of MiAddPageToInsertList @ 0x140320F90
  * Callers:
- *     MiInsertProtectedStandbyPage @ 0x1402CCD38 (MiInsertProtectedStandbyPage.c)
- *     MiUnlockMdlWritePages @ 0x14031D67C (MiUnlockMdlWritePages.c)
- *     MiFinishHardFault @ 0x14031D830 (MiFinishHardFault.c)
- *     MmUnmapViewInSystemCache @ 0x14031E380 (MmUnmapViewInSystemCache.c)
+ *     MiInsertProtectedStandbyPage @ 0x1402AEAF8 (MiInsertProtectedStandbyPage.c)
+ *     MiUnlockMdlWritePages @ 0x14031F6AC (MiUnlockMdlWritePages.c)
+ *     MiFinishHardFault @ 0x14031F860 (MiFinishHardFault.c)
+ *     MmUnmapViewInSystemCache @ 0x1403203B0 (MmUnmapViewInSystemCache.c)
  * Callees:
- *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x14021AAD4 (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     ExAcquireSpinLockExclusive @ 0x140249CD0 (ExAcquireSpinLockExclusive.c)
- *     MiGetSubsectionFromPte @ 0x1402836C0 (MiGetSubsectionFromPte.c)
- *     HvlNotifyLongSpinWait @ 0x1402BBF00 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1402BC760 (KiCheckVpBackingLongSpinWaitHypercall.c)
- *     MiReleaseWriteInProgressCharges @ 0x1402CCBF4 (MiReleaseWriteInProgressCharges.c)
- *     MiEnqueuePageList @ 0x1402CCEE0 (MiEnqueuePageList.c)
- *     MiInsertPagesInList @ 0x1402CD600 (MiInsertPagesInList.c)
- *     MiBadShareCount @ 0x1402DC710 (MiBadShareCount.c)
- *     MiPfnShareCountIsZero @ 0x1402DC770 (MiPfnShareCountIsZero.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402DED10 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     MiGetPfnSlabType @ 0x1402FDC40 (MiGetPfnSlabType.c)
- *     MiPteHasShadow @ 0x1403011E0 (MiPteHasShadow.c)
- *     MiCaptureDirtyBitToPfn @ 0x14031AE30 (MiCaptureDirtyBitToPfn.c)
- *     MiPfnReferenceCountIsZero @ 0x14031C374 (MiPfnReferenceCountIsZero.c)
- *     MiHardFaultPageRelease @ 0x14031C920 (MiHardFaultPageRelease.c)
- *     MiCanBatchHardFaultPages @ 0x14031CEC0 (MiCanBatchHardFaultPages.c)
- *     MiCanPfnOriginalPteBeLost @ 0x140408680 (MiCanPfnOriginalPteBeLost.c)
- *     MiSignalCommitSignals @ 0x14043CAA0 (MiSignalCommitSignals.c)
- *     MiSetSubsectionModified @ 0x14045CF48 (MiSetSubsectionModified.c)
- *     MiRestockOverCommit @ 0x1404F9494 (MiRestockOverCommit.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
+ *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x14021C464 (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024B630 (ExAcquireSpinLockExclusive.c)
+ *     MiGetSubsectionFromPte @ 0x140282C30 (MiGetSubsectionFromPte.c)
+ *     MiReleaseWriteInProgressCharges @ 0x1402AE9B4 (MiReleaseWriteInProgressCharges.c)
+ *     MiEnqueuePageList @ 0x1402AECA0 (MiEnqueuePageList.c)
+ *     MiInsertPagesInList @ 0x1402AF3C0 (MiInsertPagesInList.c)
+ *     MiBadShareCount @ 0x1402BE4D0 (MiBadShareCount.c)
+ *     MiPfnShareCountIsZero @ 0x1402BE530 (MiPfnShareCountIsZero.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402C0B20 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     MiGetPfnSlabType @ 0x1402DFCC0 (MiGetPfnSlabType.c)
+ *     MiPteHasShadow @ 0x1402E3260 (MiPteHasShadow.c)
+ *     HvlNotifyLongSpinWait @ 0x140306BC0 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140307420 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     MiCaptureDirtyBitToPfn @ 0x14031CE60 (MiCaptureDirtyBitToPfn.c)
+ *     MiPfnReferenceCountIsZero @ 0x14031E3A4 (MiPfnReferenceCountIsZero.c)
+ *     MiHardFaultPageRelease @ 0x14031E950 (MiHardFaultPageRelease.c)
+ *     MiCanBatchHardFaultPages @ 0x14031EEF0 (MiCanBatchHardFaultPages.c)
+ *     MiCanPfnOriginalPteBeLost @ 0x140401770 (MiCanPfnOriginalPteBeLost.c)
+ *     MiSignalCommitSignals @ 0x14042F350 (MiSignalCommitSignals.c)
+ *     MiSetSubsectionModified @ 0x140456AF0 (MiSetSubsectionModified.c)
+ *     MiRestockOverCommit @ 0x1404F2AA4 (MiRestockOverCommit.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall MiAddPageToInsertList(__int64 a1, __int64 *a2, ULONG_PTR a3)
@@ -169,7 +169,7 @@ LABEL_5:
     if ( *(_BYTE *)a2 )
       MiCaptureDirtyBitToPfn(v7);
     v17 = *(_DWORD *)(v7 + 32);
-    if ( (*(_QWORD *)(v7 + 40) & 0x20000000000000LL) != 0 && (v17 & 0x100000) != 0 && byte_140E2D719 )
+    if ( (*(_QWORD *)(v7 + 40) & 0x20000000000000LL) != 0 && (v17 & 0x100000) != 0 && byte_140E2D899 )
     {
       v18 = *(_DWORD *)(v7 + 32);
       if ( (v18 & 0x80000) != 0
@@ -189,8 +189,8 @@ LABEL_41:
     }
     if ( (_WORD)v17 == 1
       && (*(_QWORD *)(v7 + 24) & 0x3FFFFFFFFFFFFFFFLL) == 1
-      && (!byte_140E3BD26
-       || (v19 = *(_BYTE *)(qword_140E3D0C0 + 2 * ((unsigned __int64)((v7 + 0x220000000000LL) / 48) >> 9))) == 0
+      && (!byte_140E3BEA6
+       || (v19 = *(_BYTE *)(qword_140E3D240 + 2 * ((unsigned __int64)((v7 + 0x220000000000LL) / 48) >> 9))) == 0
        || v19 == 10) )
     {
       v20 = v7 + 16;
@@ -248,7 +248,7 @@ LABEL_114:
       else
       {
         MiReleaseWriteInProgressCharges(
-          *(_QWORD *)(stru_140E2EB88.ThreadLock + 8 * ((*(_QWORD *)(v7 + 40) >> 43) & 0x3FFLL)),
+          *(_QWORD *)(stru_140E2ED08.ThreadLock + 8 * ((*(_QWORD *)(v7 + 40) >> 43) & 0x3FFLL)),
           1LL,
           1);
         MiPfnReferenceCountIsZero(v7, a3);
@@ -268,7 +268,7 @@ LABEL_114:
   if ( v3 != 1 )
     goto LABEL_125;
   v27 = 1LL;
-  v28 = *(_QWORD *)(stru_140E2EB88.ThreadLock + 8 * ((*(_QWORD *)(v7 + 40) >> 43) & 0x3FFLL));
+  v28 = *(_QWORD *)(stru_140E2ED08.ThreadLock + 8 * ((*(_QWORD *)(v7 + 40) >> 43) & 0x3FFLL));
   if ( !*(_QWORD *)(v28 + 17288) )
     goto LABEL_94;
   v29 = (_DWORD *)(v28 + 17272);
@@ -278,7 +278,7 @@ LABEL_114:
     ExAcquireSpinLockExclusiveAtDpcLevel(v30);
     v27 = MiRestockOverCommit(v28, 1LL);
 LABEL_82:
-    if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+    if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || PopHibernateInProgress )
       *v29 = 0;
     else
       ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented((_DWORD *)(v28 + 17272), retaddr);
@@ -288,7 +288,7 @@ LABEL_82:
   v27 = MiRestockOverCommit(v28, 1LL);
   if ( (_BYTE)v31 == 17 )
     goto LABEL_82;
-  if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+  if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || PopHibernateInProgress )
     *v29 = 0;
   else
     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented((_DWORD *)(v28 + 17272), retaddr);

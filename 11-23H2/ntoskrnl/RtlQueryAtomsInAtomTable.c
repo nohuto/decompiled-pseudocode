@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlQueryAtomsInAtomTable @ 0x1409BBE18
+ * XREFs of RtlQueryAtomsInAtomTable @ 0x1409BC018
  * Callers:
- *     NtQueryInformationAtom @ 0x1407DB770 (NtQueryInformationAtom.c)
+ *     NtQueryInformationAtom @ 0x1407DBA40 (NtQueryInformationAtom.c)
  * Callees:
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     RtlpLookupLowBox @ 0x1402976B4 (RtlpLookupLowBox.c)
- *     ExfTryToWakePushLock @ 0x1402BD960 (ExfTryToWakePushLock.c)
- *     RtlpLockAtomTable @ 0x1407180D0 (RtlpLockAtomTable.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     KeLeaveCriticalRegion @ 0x140231550 (KeLeaveCriticalRegion.c)
+ *     RtlpLookupLowBox @ 0x140297944 (RtlpLookupLowBox.c)
+ *     ExfTryToWakePushLock @ 0x1402BDBF0 (ExfTryToWakePushLock.c)
+ *     RtlpLockAtomTable @ 0x1407182D0 (RtlpLockAtomTable.c)
  */
 
 __int64 __fastcall RtlQueryAtomsInAtomTable(__int64 a1, unsigned int a2, _DWORD *a3, __int64 a4)

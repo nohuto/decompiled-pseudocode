@@ -1,16 +1,16 @@
 /*
- * XREFs of EtwpAllocateFilter @ 0x140AA11F0
+ * XREFs of EtwpAllocateFilter @ 0x140AA2CB4
  * Callers:
- *     EtwpValidateTraceControlFilterDescriptors @ 0x140832148 (EtwpValidateTraceControlFilterDescriptors.c)
- *     EtwpValidateFilterDescriptors @ 0x140AA1090 (EtwpValidateFilterDescriptors.c)
+ *     EtwpValidateTraceControlFilterDescriptors @ 0x140838388 (EtwpValidateTraceControlFilterDescriptors.c)
+ *     EtwpValidateFilterDescriptors @ 0x140AA2B54 (EtwpValidateFilterDescriptors.c)
  * Callees:
- *     EtwpAllocateStringFilterData @ 0x140779374 (EtwpAllocateStringFilterData.c)
- *     EtwpAllocatePayloadFilterData @ 0x14083201C (EtwpAllocatePayloadFilterData.c)
- *     EtwpAllocateSchematizedFilter @ 0x1408320B4 (EtwpAllocateSchematizedFilter.c)
- *     EtwpAllocateEventNameFilter @ 0x140AA144C (EtwpAllocateEventNameFilter.c)
- *     EtwpCreatePerfectHashFunction @ 0x140AA1844 (EtwpCreatePerfectHashFunction.c)
- *     EtwpAllocatePidFilter @ 0x140AA1C34 (EtwpAllocatePidFilter.c)
- *     EtwpAllocateLevelKwFilter @ 0x140AA1CC4 (EtwpAllocateLevelKwFilter.c)
+ *     EtwpAllocateStringFilterData @ 0x14077C2A4 (EtwpAllocateStringFilterData.c)
+ *     EtwpAllocatePayloadFilterData @ 0x14083825C (EtwpAllocatePayloadFilterData.c)
+ *     EtwpAllocateSchematizedFilter @ 0x1408382F4 (EtwpAllocateSchematizedFilter.c)
+ *     EtwpAllocateEventNameFilter @ 0x140AA2F10 (EtwpAllocateEventNameFilter.c)
+ *     EtwpCreatePerfectHashFunction @ 0x140AA3308 (EtwpCreatePerfectHashFunction.c)
+ *     EtwpAllocatePidFilter @ 0x140AA36F8 (EtwpAllocatePidFilter.c)
+ *     EtwpAllocateLevelKwFilter @ 0x140AA3788 (EtwpAllocateLevelKwFilter.c)
  */
 
 __int64 __fastcall EtwpAllocateFilter(int a1, __int64 a2, __int64 a3, __int64 a4)

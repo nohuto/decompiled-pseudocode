@@ -1,15 +1,15 @@
 /*
- * XREFs of IoWMIWriteEvent @ 0x14012F930
+ * XREFs of IoWMIWriteEvent @ 0x14012FEA0
  * Callers:
- *     PpmFireWmiEvent @ 0x14020B330 (PpmFireWmiEvent.c)
- *     PpmWmiFireIdleAccountingEvent @ 0x14020B3B0 (PpmWmiFireIdleAccountingEvent.c)
+ *     PpmFireWmiEvent @ 0x14020B15C (PpmFireWmiEvent.c)
+ *     PpmWmiFireIdleAccountingEvent @ 0x14020B1DC (PpmWmiFireIdleAccountingEvent.c)
  * Callees:
- *     ExQueueWorkItem @ 0x14005FE5C (ExQueueWorkItem.c)
- *     ExInterlockedInsertTailList @ 0x14008C0E0 (ExInterlockedInsertTailList.c)
- *     WmipDoFindRegEntryByProviderId @ 0x1400C48A4 (WmipDoFindRegEntryByProviderId.c)
- *     KeReleaseSpinLock @ 0x1400E9A70 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x1400EFE30 (KeAcquireSpinLockRaiseToDpc.c)
- *     EtwTraceEvent @ 0x14022528C (EtwTraceEvent.c)
+ *     ExQueueWorkItem @ 0x14005F9DC (ExQueueWorkItem.c)
+ *     ExInterlockedInsertTailList @ 0x14008B840 (ExInterlockedInsertTailList.c)
+ *     WmipDoFindRegEntryByProviderId @ 0x1400C2744 (WmipDoFindRegEntryByProviderId.c)
+ *     KeReleaseSpinLock @ 0x1400EB600 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1400EDCB0 (KeAcquireSpinLockRaiseToDpc.c)
+ *     EtwTraceEvent @ 0x1402250B8 (EtwTraceEvent.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
  */
 
@@ -17,7 +17,7 @@ NTSTATUS __stdcall IoWMIWriteEvent(PVOID WnodeEventItem)
 {
   NTSTATUS v1; // edi
   int v3; // ebx
-  struct _LIST_ENTRY *PoolWithTag; // rbp
+  _LIST_ENTRY *PoolWithTag; // rbp
   int v5; // ebx
   _DWORD *RegEntryByProviderId; // rax
   KIRQL v7; // r9
@@ -51,7 +51,7 @@ NTSTATUS __stdcall IoWMIWriteEvent(PVOID WnodeEventItem)
     if ( v11 )
       return result;
   }
-  PoolWithTag = (struct _LIST_ENTRY *)ExAllocatePoolWithTag(NonPagedPoolNx, 0x20uLL, 0x77696D57u);
+  PoolWithTag = (_LIST_ENTRY *)ExAllocatePoolWithTag(NonPagedPoolNx, 0x20uLL, 0x77696D57u);
   if ( !PoolWithTag )
     return -1073741670;
   v5 = *((_DWORD *)WnodeEventItem + 1);

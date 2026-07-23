@@ -1,20 +1,20 @@
 /*
- * XREFs of PopFxTraceDeviceRegistration @ 0x140A58DFC
+ * XREFs of PopFxTraceDeviceRegistration @ 0x140A505AC
  * Callers:
- *     PopDiagTraceFxRundown @ 0x14032E260 (PopDiagTraceFxRundown.c)
- *     PopFxRegisterDevice @ 0x14074E950 (PopFxRegisterDevice.c)
+ *     PopDiagTraceFxRundown @ 0x1402B69F4 (PopDiagTraceFxRundown.c)
+ *     PopFxRegisterDevice @ 0x14074CC80 (PopFxRegisterDevice.c)
  * Callees:
- *     EtwEventEnabled @ 0x1402A1BD0 (EtwEventEnabled.c)
- *     PopFxAddLogEntry @ 0x1403782D8 (PopFxAddLogEntry.c)
- *     PopPepGetComponentVetoMasks @ 0x1404A9BDC (PopPepGetComponentVetoMasks.c)
- *     PopPepGetDeviceVetoMasks @ 0x1404C1A8C (PopPepGetDeviceVetoMasks.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     PopDiagTraceFxDeviceRegistration @ 0x140A5909C (PopDiagTraceFxDeviceRegistration.c)
- *     PopDiagTraceFxComponentRegistration @ 0x140A59194 (PopDiagTraceFxComponentRegistration.c)
- *     PopFxTracePerfRegistration @ 0x140ABE960 (PopFxTracePerfRegistration.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     EtwEventEnabled @ 0x1402D1300 (EtwEventEnabled.c)
+ *     PopFxAddLogEntry @ 0x1402E69B4 (PopFxAddLogEntry.c)
+ *     PopPepGetComponentVetoMasks @ 0x1404A3EAC (PopPepGetComponentVetoMasks.c)
+ *     PopPepGetDeviceVetoMasks @ 0x1404BD07C (PopPepGetDeviceVetoMasks.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     PopDiagTraceFxDeviceRegistration @ 0x140A5084C (PopDiagTraceFxDeviceRegistration.c)
+ *     PopDiagTraceFxComponentRegistration @ 0x140A50944 (PopDiagTraceFxComponentRegistration.c)
+ *     PopFxTracePerfRegistration @ 0x140AB99D0 (PopFxTracePerfRegistration.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __fastcall PopFxTraceDeviceRegistration(__int64 a1, char a2)
@@ -91,7 +91,7 @@ void __fastcall PopFxTraceDeviceRegistration(__int64 a1, char a2)
           }
           while ( v25 );
         }
-        Pool2 = ExAllocatePool2(0x100uLL);
+        Pool2 = ExAllocatePool2(0x100uLL, 28 * v11, 0x4D584650u);
         v13 = (_DWORD *)Pool2;
         if ( Pool2 )
         {

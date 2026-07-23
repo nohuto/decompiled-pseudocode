@@ -1,16 +1,16 @@
 /*
- * XREFs of PiCMSetObjectProperty @ 0x1404EAA14
+ * XREFs of PiCMSetObjectProperty @ 0x1404CCC18
  * Callers:
- *     PiCMHandleIoctl @ 0x1404FC77C (PiCMHandleIoctl.c)
+ *     PiCMHandleIoctl @ 0x1404DF70C (PiCMHandleIoctl.c)
  * Callees:
- *     RtlInitUnicodeStringEx @ 0x1400C39C0 (RtlInitUnicodeStringEx.c)
- *     PnpSetDeviceInstancePropertyChangeEventFromDeviceInstance @ 0x140138C28 (PnpSetDeviceInstancePropertyChangeEventFromDeviceInstance.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     PiPnpRtlSetObjectProperty @ 0x140488870 (PiPnpRtlSetObjectProperty.c)
- *     PiAuDoesClientHaveAccess @ 0x1404F6100 (PiAuDoesClientHaveAccess.c)
- *     PiCMReturnBasicResultData @ 0x1404F7090 (PiCMReturnBasicResultData.c)
- *     PiCMReleasePropertyInputData @ 0x1404FCBE0 (PiCMReleasePropertyInputData.c)
- *     PiCMCapturePropertyInputData @ 0x1404FFFF8 (PiCMCapturePropertyInputData.c)
+ *     RtlInitUnicodeStringEx @ 0x1400C1850 (RtlInitUnicodeStringEx.c)
+ *     PnpSetDeviceInstancePropertyChangeEventFromDeviceInstance @ 0x140139198 (PnpSetDeviceInstancePropertyChangeEventFromDeviceInstance.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     PiAuDoesClientHaveAccess @ 0x1404D908C (PiAuDoesClientHaveAccess.c)
+ *     PiCMReturnBasicResultData @ 0x1404DA01C (PiCMReturnBasicResultData.c)
+ *     PiCMReleasePropertyInputData @ 0x1404DFB70 (PiCMReleasePropertyInputData.c)
+ *     PiCMCapturePropertyInputData @ 0x1404E2F88 (PiCMCapturePropertyInputData.c)
+ *     PiPnpRtlSetObjectProperty @ 0x140510FE4 (PiPnpRtlSetObjectProperty.c)
  */
 
 __int64 __fastcall PiCMSetObjectProperty(
@@ -22,7 +22,7 @@ __int64 __fastcall PiCMSetObjectProperty(
         _DWORD *a6)
 {
   int v8; // ebx
-  int v9; // edi
+  unsigned int v9; // edi
   int v10; // esi
   int v11; // r13d
   const WCHAR *v12; // r14
@@ -128,14 +128,14 @@ LABEL_21:
               if ( v8 >= 0 )
               {
                 v8 = PiPnpRtlSetObjectProperty(
-                       PiPnpRtlCtx,
+                       *(_QWORD *)&PiPnpRtlCtx,
                        v12,
                        v9,
-                       0,
                        0LL,
-                       (__int64)&v27,
+                       0LL,
+                       &v27,
                        v11,
-                       *(unsigned int **)&DestinationString.Length,
+                       *(_QWORD *)&DestinationString.Length,
                        v20,
                        0);
                 if ( v8 == -1073741790 )

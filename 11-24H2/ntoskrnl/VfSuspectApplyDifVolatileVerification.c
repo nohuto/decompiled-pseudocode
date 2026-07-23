@@ -1,17 +1,17 @@
 /*
- * XREFs of VfSuspectApplyDifVolatileVerification @ 0x140B9A568
+ * XREFs of VfSuspectApplyDifVolatileVerification @ 0x140B9C568
  * Callers:
- *     VfDriverApplyDifVerification @ 0x140B8A038 (VfDriverApplyDifVerification.c)
- *     VfDriverEnableVerifier @ 0x140B8A250 (VfDriverEnableVerifier.c)
+ *     VfDriverApplyDifVerification @ 0x140B8C038 (VfDriverApplyDifVerification.c)
+ *     VfDriverEnableVerifier @ 0x140B8C250 (VfDriverEnableVerifier.c)
  * Callees:
- *     KeReleaseMutex @ 0x1403379B0 (KeReleaseMutex.c)
- *     VfTargetReplaceIoCallbacks @ 0x140611250 (VfTargetReplaceIoCallbacks.c)
- *     VfDifCallbackReplacementRequested @ 0x140613F58 (VfDifCallbackReplacementRequested.c)
- *     VfDriverLock @ 0x140B8A4B4 (VfDriverLock.c)
- *     VfTargetDriversDisableVerifier @ 0x140B8B2DC (VfTargetDriversDisableVerifier.c)
- *     VfTargetDriversEnableVerifier @ 0x140B8B364 (VfTargetDriversEnableVerifier.c)
- *     VfThunkApplyPristineToAllSession @ 0x140B97184 (VfThunkApplyPristineToAllSession.c)
- *     ViThunkApplyWdmThunksCurrentSession @ 0x140B97424 (ViThunkApplyWdmThunksCurrentSession.c)
+ *     KeReleaseMutex @ 0x1402DEA60 (KeReleaseMutex.c)
+ *     VfTargetReplaceIoCallbacks @ 0x14060F810 (VfTargetReplaceIoCallbacks.c)
+ *     VfDifCallbackReplacementRequested @ 0x140612518 (VfDifCallbackReplacementRequested.c)
+ *     VfDriverLock @ 0x140B8C4B4 (VfDriverLock.c)
+ *     VfTargetDriversDisableVerifier @ 0x140B8D2DC (VfTargetDriversDisableVerifier.c)
+ *     VfTargetDriversEnableVerifier @ 0x140B8D364 (VfTargetDriversEnableVerifier.c)
+ *     VfThunkApplyPristineToAllSession @ 0x140B99184 (VfThunkApplyPristineToAllSession.c)
+ *     ViThunkApplyWdmThunksCurrentSession @ 0x140B99424 (ViThunkApplyWdmThunksCurrentSession.c)
  */
 
 __int64 __fastcall VfSuspectApplyDifVolatileVerification(ULONG_PTR a1, __int64 a2)
@@ -36,7 +36,7 @@ __int64 __fastcall VfSuspectApplyDifVolatileVerification(ULONG_PTR a1, __int64 a
       }
       else
       {
-        ++dword_140F03EB4;
+        ++dword_140F04814;
         ++*(_DWORD *)(a2 + 16);
       }
     }

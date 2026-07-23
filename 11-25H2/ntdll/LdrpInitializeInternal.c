@@ -31,7 +31,7 @@ struct _TEB *__fastcall LdrpInitializeInternal(__int64 a1, __int64 a2)
     }
     else
     {
-      ZwCreateEvent(&LdrpHotPatchInitCompleteEvent, 2031619LL, 0LL, 0LL, 0);
+      ZwCreateEvent(&LdrpHotPatchInitCompleteEvent, 0x1F0003u, 0LL, NotificationEvent, 0);
       LdrpInitializeHotPatching();
       LdrpNtdllHotPatchContext = (__int64)&v7;
       v7 = 0LL;

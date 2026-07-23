@@ -2,14 +2,14 @@
  * XREFs of IoDiskIoAttributionQuery @ 0x14020C224
  * Callers:
  *     IoGetIoRateControl @ 0x14020C410 (IoGetIoRateControl.c)
- *     IopIoRateStartRateControl @ 0x1403627A4 (IopIoRateStartRateControl.c)
+ *     IopIoRateStartRateControl @ 0x140362944 (IopIoRateStartRateControl.c)
  *     PspQueryJobIoAttribution @ 0x1406A0A9C (PspQueryJobIoAttribution.c)
  * Callees:
  *     KeQueryUnbiasedInterruptTimePrecise @ 0x14020C300 (KeQueryUnbiasedInterruptTimePrecise.c)
  *     IopRecordIoAttribution @ 0x14020C6C0 (IopRecordIoAttribution.c)
- *     KxReleaseQueuedSpinLock @ 0x140260360 (KxReleaseQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140260E60 (KeAcquireInStackQueuedSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseQueuedSpinLock @ 0x1402605F0 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402610F0 (KeAcquireInStackQueuedSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall IoDiskIoAttributionQuery(__int64 a1, _OWORD *a2, _OWORD *a3)
@@ -45,10 +45,10 @@ __int64 __fastcall IoDiskIoAttributionQuery(__int64 a1, _OWORD *a2, _OWORD *a3)
   a3[1] = v8;
   result = KxReleaseQueuedSpinLock(&LockHandle);
   OldIrql = LockHandle.OldIrql;
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     result = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
       && (unsigned __int8)result <= 0xFu
       && LockHandle.OldIrql <= 0xFu
       && (unsigned __int8)result >= 2u )

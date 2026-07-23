@@ -17,27 +17,24 @@ __int64 __fastcall LdrpGetProcApphelpCheckModule(_QWORD *a1)
 {
   unsigned int v1; // edi
   __int64 v3; // r8
-  int v4; // ebx
-  unsigned __int64 v5; // rdx
-  unsigned __int64 v6; // r8
-  unsigned __int64 v7; // r9
+  int Dll; // ebx
   int ShimEngineInterface; // eax
-  __int64 v9; // rdx
-  __int64 v11; // [rsp+40h] [rbp-C0h] BYREF
-  int v12; // [rsp+48h] [rbp-B8h] BYREF
-  const wchar_t *v13; // [rsp+50h] [rbp-B0h]
-  int v14; // [rsp+60h] [rbp-A0h] BYREF
-  _WORD *v15; // [rsp+68h] [rbp-98h]
-  _WORD v16[128]; // [rsp+70h] [rbp-90h] BYREF
-  __int64 v17[15]; // [rsp+170h] [rbp+70h] BYREF
-  char v18; // [rsp+1ECh] [rbp+ECh]
+  __int64 v6; // rdx
+  _DWORD *v8; // [rsp+40h] [rbp-C0h] BYREF
+  int v9; // [rsp+48h] [rbp-B8h] BYREF
+  const wchar_t *v10; // [rsp+50h] [rbp-B0h]
+  int v11; // [rsp+60h] [rbp-A0h] BYREF
+  _WORD *v12; // [rsp+68h] [rbp-98h]
+  _WORD v13[128]; // [rsp+70h] [rbp-90h] BYREF
+  PWSTR Path[15]; // [rsp+170h] [rbp+70h] BYREF
+  char v15; // [rsp+1ECh] [rbp+ECh]
 
   v1 = 0;
-  v13 = L"apphelp.dll";
-  v12 = 1572886;
-  v15 = v16;
-  v14 = 0x1000000;
-  v16[0] = 0;
+  v10 = L"apphelp.dll";
+  v9 = 1572886;
+  v12 = v13;
+  v11 = 0x1000000;
+  v13[0] = 0;
   if ( g_pfnApphelpCheckModuleProc )
   {
     v3 = MEMORY[0x7FFE0330] ^ __ROR8__(g_pfnApphelpCheckModuleProc, 64 - (MEMORY[0x7FFE0330] & 0x3Fu));
@@ -48,26 +45,26 @@ __int64 __fastcall LdrpGetProcApphelpCheckModule(_QWORD *a1)
   }
   else
   {
-    v4 = LdrpBuildSystem32FileName((unsigned __int16 *)&v14, (unsigned __int16 *)&v12);
-    if ( v4 >= 0 )
+    Dll = LdrpBuildSystem32FileName((unsigned __int16 *)&v11, (unsigned __int16 *)&v9);
+    if ( Dll >= 0 )
     {
-      LdrpInitializeDllPath(0LL, 16385LL, v17);
-      v4 = LdrpLoadDll((unsigned __int16 *)&v14, (int)v17, 0, &v11);
-      if ( v18 )
-        RtlReleasePath(v17[0], v5, v6, v7);
-      if ( v4 >= 0 )
+      LdrpInitializeDllPath(0LL, (const WCHAR *)0x4001, (const WCHAR **)Path);
+      Dll = LdrpLoadDll((unsigned __int16 *)&v11, (int)Path, 0, (PVOID *)&v8);
+      if ( v15 )
+        RtlReleasePath(Path[0]);
+      if ( Dll >= 0 )
       {
-        *(_DWORD *)(v11 + 104) |= 0x100u;
-        g_pShimEngineModule = *(_QWORD *)(v11 + 48);
+        v8[26] |= 0x100u;
+        g_pShimEngineModule = (PVOID)*((_QWORD *)v8 + 6);
         ShimEngineInterface = LdrpGetShimEngineInterface();
-        v4 = ShimEngineInterface;
+        Dll = ShimEngineInterface;
         if ( ShimEngineInterface >= 0 )
         {
-          v4 = 0;
-          v9 = MEMORY[0x7FFE0330] ^ __ROR8__(g_pfnApphelpCheckModuleProc, 64 - (MEMORY[0x7FFE0330] & 0x3Fu));
-          *a1 = v9;
-          if ( !v9 )
-            v4 = -1073741823;
+          Dll = 0;
+          v6 = MEMORY[0x7FFE0330] ^ __ROR8__(g_pfnApphelpCheckModuleProc, 64 - (MEMORY[0x7FFE0330] & 0x3Fu));
+          *a1 = v6;
+          if ( !v6 )
+            Dll = -1073741823;
         }
         else
         {
@@ -88,12 +85,12 @@ __int64 __fastcall LdrpGetProcApphelpCheckModule(_QWORD *a1)
           (__int64)"LdrpGetProcApphelpCheckModule",
           0,
           "Loading the shim engine DLL \"%wZ\" failed with status 0x%08lx\n",
-          &v14,
-          v4);
+          &v11,
+          Dll);
       }
     }
-    if ( v16 != v15 )
-      NtdllpFreeStringRoutine((__int64)v15);
+    if ( v13 != v12 )
+      NtdllpFreeStringRoutine(v12);
   }
-  return (unsigned int)v4;
+  return (unsigned int)Dll;
 }

@@ -1,33 +1,33 @@
 /*
- * XREFs of PopClearTransitionCheckpoints @ 0x140B30120
+ * XREFs of PopClearTransitionCheckpoints @ 0x140B31F00
  * Callers:
- *     PopUnlockAfterSleepWorker @ 0x140C04AB0 (PopUnlockAfterSleepWorker.c)
+ *     PopUnlockAfterSleepWorker @ 0x140C0ACC0 (PopUnlockAfterSleepWorker.c)
  * Callees:
- *     PopReleaseRwLock @ 0x14043630C (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x140436378 (PopAcquireRwLockExclusive.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     PopReleaseRwLock @ 0x14021B1A8 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x140425310 (PopAcquireRwLockExclusive.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PopClearTransitionCheckpoints(__int64 a1, __int64 a2, __int64 a3, struct _KLOCK_ENTRIES *a4)
 {
-  PVOID SystemArgument2; // rcx
+  PVOID v4; // rcx
   __int64 v5; // rax
 
-  PopAcquireRwLockExclusive((unsigned __int64 *)&stru_140F12D20.PriorityFloorCounts[8], a2, a3, a4);
+  PopAcquireRwLockExclusive(&stru_140F12EA0.Padding[1], a2, a3, a4);
   while ( 1 )
   {
-    SystemArgument2 = stru_140F12D20.SchedulerApc.SystemArgument2;
-    if ( stru_140F12D20.SchedulerApc.SystemArgument2 == &stru_140F12D20.SchedulerApcFill5[72] )
+    v4 = PopTransitionCheckpoints;
+    if ( PopTransitionCheckpoints == &PopTransitionCheckpoints )
       break;
-    if ( *((struct _KTHREAD **)stru_140F12D20.SchedulerApc.SystemArgument2 + 1) != (struct _KTHREAD *)&stru_140F12D20.SchedulerApcFill5[72]
-      || (v5 = *(_QWORD *)stru_140F12D20.SchedulerApc.SystemArgument2,
-          *(PVOID *)(*(_QWORD *)stru_140F12D20.SchedulerApc.SystemArgument2 + 8LL) != stru_140F12D20.SchedulerApc.SystemArgument2) )
+    if ( *((PVOID **)PopTransitionCheckpoints + 1) != &PopTransitionCheckpoints
+      || (v5 = *(_QWORD *)PopTransitionCheckpoints,
+          *(PVOID *)(*(_QWORD *)PopTransitionCheckpoints + 8LL) != PopTransitionCheckpoints) )
     {
       __fastfail(3u);
     }
-    stru_140F12D20.SchedulerApc.SystemArgument2 = *(PVOID *)stru_140F12D20.SchedulerApc.SystemArgument2;
-    *(_QWORD *)(v5 + 8) = &stru_140F12D20.SchedulerApc.SystemArgument2;
-    ExFreePoolWithTag(SystemArgument2, 0x50434B50u);
+    PopTransitionCheckpoints = *(PVOID *)PopTransitionCheckpoints;
+    *(_QWORD *)(v5 + 8) = &PopTransitionCheckpoints;
+    ExFreePoolWithTag(v4, 0x50434B50u);
   }
-  return PopReleaseRwLock((struct _KTHREAD *)&stru_140F12D20.PriorityFloorCounts[8]);
+  return PopReleaseRwLock((struct _KTHREAD *)&stru_140F12EA0.Padding[1]);
 }

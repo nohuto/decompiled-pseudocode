@@ -1,22 +1,22 @@
 /*
- * XREFs of IoReserveKsrPersistentMemoryEx @ 0x14079CB90
+ * XREFs of IoReserveKsrPersistentMemoryEx @ 0x14079F6D0
  * Callers:
- *     IoReserveKsrPersistentMemory @ 0x14079CB50 (IoReserveKsrPersistentMemory.c)
+ *     IoReserveKsrPersistentMemory @ 0x14079F690 (IoReserveKsrPersistentMemory.c)
  * Callees:
- *     MmUnmapLockedPages @ 0x140281690 (MmUnmapLockedPages.c)
- *     MmFreePagesFromMdl @ 0x1403454A0 (MmFreePagesFromMdl.c)
- *     MmAllocatePagesForMdlEx @ 0x140348200 (MmAllocatePagesForMdlEx.c)
- *     MmMapLockedPagesSpecifyCache @ 0x14035D330 (MmMapLockedPagesSpecifyCache.c)
- *     IoAddTriageDumpDataBlock @ 0x14044AB54 (IoAddTriageDumpDataBlock.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     PipGetDeviceObjectLocation @ 0x14079D194 (PipGetDeviceObjectLocation.c)
- *     PipGetDriverKsrGuid @ 0x14079D3F0 (PipGetDriverKsrGuid.c)
- *     PipGetPersistentMemory @ 0x14079D57C (PipGetPersistentMemory.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     MmUnmapLockedPages @ 0x140280C00 (MmUnmapLockedPages.c)
+ *     MmFreePagesFromMdl @ 0x140347520 (MmFreePagesFromMdl.c)
+ *     MmAllocatePagesForMdlEx @ 0x14034A280 (MmAllocatePagesForMdlEx.c)
+ *     MmMapLockedPagesSpecifyCache @ 0x14035F0D0 (MmMapLockedPagesSpecifyCache.c)
+ *     IoAddTriageDumpDataBlock @ 0x140442C84 (IoAddTriageDumpDataBlock.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     PipGetDeviceObjectLocation @ 0x14079FCD4 (PipGetDeviceObjectLocation.c)
+ *     PipGetDriverKsrGuid @ 0x14079FF30 (PipGetDriverKsrGuid.c)
+ *     PipGetPersistentMemory @ 0x1407A00BC (PipGetPersistentMemory.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall IoReserveKsrPersistentMemoryEx(

@@ -1,12 +1,12 @@
 /*
- * XREFs of MiPreInitializeSystemImagePage @ 0x14062C5CC
+ * XREFs of MiPreInitializeSystemImagePage @ 0x14062CB1C
  * Callers:
- *     MiAllocateDriverPage @ 0x140706324 (MiAllocateDriverPage.c)
+ *     MiAllocateDriverPage @ 0x140706534 (MiAllocateDriverPage.c)
  * Callees:
- *     MiSetOriginalPtePfnFromFreeList @ 0x1402859D4 (MiSetOriginalPtePfnFromFreeList.c)
- *     MiSetPfnBlink @ 0x1402DF0B0 (MiSetPfnBlink.c)
- *     MiLockPageInline @ 0x1402EF680 (MiLockPageInline.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiSetOriginalPtePfnFromFreeList @ 0x140285C64 (MiSetOriginalPtePfnFromFreeList.c)
+ *     MiSetPfnBlink @ 0x1402DF340 (MiSetPfnBlink.c)
+ *     MiLockPageInline @ 0x1402EF910 (MiLockPageInline.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 unsigned __int64 __fastcall MiPreInitializeSystemImagePage(__int64 a1)
@@ -33,10 +33,10 @@ unsigned __int64 __fastcall MiPreInitializeSystemImagePage(__int64 a1)
   if ( (_BYTE)v2 != 17 )
   {
     _InterlockedAnd64((volatile signed __int64 *)(a1 + 24), v5);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       result = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
         && (unsigned __int8)result <= 0xFu
         && (unsigned __int8)v2 <= 0xFu
         && (unsigned __int8)result >= 2u )

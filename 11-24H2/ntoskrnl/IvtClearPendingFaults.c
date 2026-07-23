@@ -1,7 +1,7 @@
 /*
- * XREFs of IvtClearPendingFaults @ 0x14056DDCC
+ * XREFs of IvtClearPendingFaults @ 0x14056B25C
  * Callers:
- *     IvtEnableInterrupt @ 0x140B51B20 (IvtEnableInterrupt.c)
+ *     IvtEnableInterrupt @ 0x140B53B70 (IvtEnableInterrupt.c)
  * Callees:
  *     <none>
  */

@@ -1,22 +1,22 @@
 /*
- * XREFs of RtlpCheckHeapSignature @ 0x180014E10
+ * XREFs of RtlpCheckHeapSignature @ 0x180060540
  * Callers:
- *     RtlDebugAllocateHeap @ 0x180014940 (RtlDebugAllocateHeap.c)
- *     RtlDebugSizeHeap @ 0x180014CCC (RtlDebugSizeHeap.c)
- *     RtlDebugReAllocateHeap @ 0x180022780 (RtlDebugReAllocateHeap.c)
- *     RtlDebugWalkHeap @ 0x180074344 (RtlDebugWalkHeap.c)
- *     RtlDebugGetUserInfoHeap @ 0x1800DC6E4 (RtlDebugGetUserInfoHeap.c)
- *     RtlDebugFreeHeap @ 0x1800FF818 (RtlDebugFreeHeap.c)
- *     RtlDebugQueryTagHeap @ 0x180106C68 (RtlDebugQueryTagHeap.c)
- *     RtlDebugSetUserFlagsHeap @ 0x180108A0C (RtlDebugSetUserFlagsHeap.c)
- *     RtlDebugSetUserValueHeap @ 0x18010DBB0 (RtlDebugSetUserValueHeap.c)
- *     RtlDebugDestroyHeap @ 0x18011FBB4 (RtlDebugDestroyHeap.c)
- *     RtlDebugCompactHeap @ 0x1801214DC (RtlDebugCompactHeap.c)
- *     RtlDebugCreateTagHeap @ 0x180146E14 (RtlDebugCreateTagHeap.c)
- *     RtlDebugZeroHeap @ 0x180146F08 (RtlDebugZeroHeap.c)
+ *     RtlDebugReAllocateHeap @ 0x18000D850 (RtlDebugReAllocateHeap.c)
+ *     RtlDebugAllocateHeap @ 0x180060070 (RtlDebugAllocateHeap.c)
+ *     RtlDebugSizeHeap @ 0x1800603FC (RtlDebugSizeHeap.c)
+ *     RtlDebugWalkHeap @ 0x180094934 (RtlDebugWalkHeap.c)
+ *     RtlDebugGetUserInfoHeap @ 0x1800D9654 (RtlDebugGetUserInfoHeap.c)
+ *     RtlDebugFreeHeap @ 0x1800FEF68 (RtlDebugFreeHeap.c)
+ *     RtlDebugQueryTagHeap @ 0x180106668 (RtlDebugQueryTagHeap.c)
+ *     RtlDebugSetUserFlagsHeap @ 0x1801083AC (RtlDebugSetUserFlagsHeap.c)
+ *     RtlDebugSetUserValueHeap @ 0x18010D700 (RtlDebugSetUserValueHeap.c)
+ *     RtlDebugDestroyHeap @ 0x18011F964 (RtlDebugDestroyHeap.c)
+ *     RtlDebugCompactHeap @ 0x180121278 (RtlDebugCompactHeap.c)
+ *     RtlDebugCreateTagHeap @ 0x180146CC4 (RtlDebugCreateTagHeap.c)
+ *     RtlDebugZeroHeap @ 0x180146DB8 (RtlDebugZeroHeap.c)
  * Callees:
- *     DbgPrint @ 0x180025720 (DbgPrint.c)
- *     RtlpBreakPointHeap @ 0x180027944 (RtlpBreakPointHeap.c)
+ *     DbgPrint @ 0x1800107F0 (DbgPrint.c)
+ *     RtlpBreakPointHeap @ 0x180012A14 (RtlpBreakPointHeap.c)
  */
 
 char __fastcall RtlpCheckHeapSignature(_DWORD *a1, const char *a2)

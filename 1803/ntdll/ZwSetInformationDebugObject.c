@@ -6,11 +6,16 @@
  *     <none>
  */
 
-__int64 ZwSetInformationDebugObject()
+NTSTATUS __cdecl ZwSetInformationDebugObject(
+        HANDLE DebugObjectHandle,
+        DEBUGOBJECTINFOCLASS DebugObjectInformationClass,
+        PVOID DebugInformation,
+        ULONG DebugInformationLength,
+        PULONG ReturnLength)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 397LL;
+  result = 397;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

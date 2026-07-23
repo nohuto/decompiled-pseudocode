@@ -1,10 +1,10 @@
 /*
- * XREFs of IoNotifyDump @ 0x1401445FC
+ * XREFs of IoNotifyDump @ 0x1401446FC
  * Callers:
- *     PopRestoreHiberContext @ 0x140569770 (PopRestoreHiberContext.c)
- *     PopSaveHiberContext @ 0x14056A060 (PopSaveHiberContext.c)
+ *     PopRestoreHiberContext @ 0x14056A770 (PopRestoreHiberContext.c)
+ *     PopSaveHiberContext @ 0x14056B060 (PopSaveHiberContext.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall IoNotifyDump(int a1)
@@ -14,7 +14,7 @@ __int64 __fastcall IoNotifyDump(int a1)
   __int64 v3; // rcx
   __int64 result; // rax
 
-  if ( qword_14043C7F0 )
+  if ( qword_14043D8B0 )
   {
     v1 = a1 - 1;
     if ( v1 )
@@ -35,7 +35,7 @@ __int64 __fastcall IoNotifyDump(int a1)
     {
       v3 = 3LL;
     }
-    return ((__int64 (__fastcall *)(__int64, _QWORD, _QWORD))qword_14043C7F0)(v3, 0LL, 0LL);
+    return ((__int64 (__fastcall *)(__int64, _QWORD, _QWORD))qword_14043D8B0)(v3, 0LL, 0LL);
   }
   return result;
 }

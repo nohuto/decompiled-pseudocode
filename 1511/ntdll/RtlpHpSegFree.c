@@ -13,20 +13,20 @@
  *     RtlpLogHeapFreeEvent @ 0x1800F18BC (RtlpLogHeapFreeEvent.c)
  */
 
-__int64 __fastcall RtlpHpSegFree(__int64 a1, unsigned __int64 a2, unsigned int a3)
+__int64 __fastcall RtlpHpSegFree(_RTL_SRWLOCK *a1, unsigned __int64 a2, unsigned int a3)
 {
   __int64 v6; // rax
   __int64 v7; // rbp
   unsigned int v8; // edi
   unsigned __int64 v9; // rdx
   __int64 v10; // r8
-  unsigned int v12; // [rsp+58h] [rbp+20h] BYREF
+  __int64 v12; // [rsp+58h] [rbp+20h] BYREF
 
   v6 = RtlpHpSegDescriptorValidate(a1, a2);
   v7 = v6;
   if ( !v6 )
   {
-    RtlpLogHeapFailure(9, a1, a2, 0, 0LL, 0LL);
+    RtlpLogHeapFailure(9, (_DWORD)a1, a2, 0, 0LL, 0LL);
     return 0;
   }
   v9 = (v6 & 0xFFFFFFFFFFF00000uLL) + ((unsigned int)((__int64)(v6 - (v6 & 0xFFFFFFFFFFF00000uLL)) >> 5) << 12);
@@ -44,13 +44,13 @@ __int64 __fastcall RtlpHpSegFree(__int64 a1, unsigned __int64 a2, unsigned int a
   {
     if ( (*(_BYTE *)(v6 + 24) & 1) != 0 )
     {
-      v8 = RtlpHpLfhSubsegmentFreeBlock((_QWORD *)(a1 + 272), v9, a2, a3);
+      v8 = RtlpHpLfhSubsegmentFreeBlock(&a1[34].Value, v9, a2, a3);
     }
     else
     {
-      v8 = RtlpHpVsContextFree((int)a1 + 168, v9, a2, a3, (__int64)&v12);
-      if ( v8 && v12 <= 0x3FF0 )
-        RtlpHpLfhBucketUpdateStats(a1 + 272, v12, 0LL);
+      v8 = RtlpHpVsContextFree(a1 + 21, (__int64)&v12);
+      if ( v8 && (unsigned int)v12 <= 0x3FF0 )
+        RtlpHpLfhBucketUpdateStats(&a1[34], (unsigned int)v12, 0LL);
     }
     if ( MEMORY[0x7FFE0380] && (NtCurrentPeb()->TracingFlags & 1) != 0 && v8 )
     {

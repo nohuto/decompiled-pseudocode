@@ -42,12 +42,12 @@ PDEVICE_OBJECT __fastcall IopAttachDeviceToDeviceStackSafe(__int64 a1, struct _D
   unsigned int v19; // eax
   int v20; // r8d
   __int64 v22; // rax
-  struct _OBJECT_NAME_INFORMATION *p_ObjectNameInfo; // rsi
-  struct _OBJECT_NAME_INFORMATION *v24; // r15
+  _OBJECT_NAME_INFORMATION *p_ObjectNameInfo; // rsi
+  _OBJECT_NAME_INFORMATION *v24; // r15
   int v25; // r9d
   PDEVICE_OBJECT v26; // r13
   NTSTATUS v27; // r12d
-  struct _OBJECT_NAME_INFORMATION *Pool2; // rax
+  _OBJECT_NAME_INFORMATION *Pool2; // rax
   __int16 v29; // dx
   bool v30; // [rsp+40h] [rbp-B8h]
   bool v31; // [rsp+41h] [rbp-B7h]
@@ -58,7 +58,7 @@ PDEVICE_OBJECT __fastcall IopAttachDeviceToDeviceStackSafe(__int64 a1, struct _D
   _QWORD v36[2]; // [rsp+50h] [rbp-A8h] BYREF
   struct _DEVICE_OBJECT *DeviceAttachmentBase; // [rsp+60h] [rbp-98h]
   struct _DEVICE_OBJECT *v38; // [rsp+68h] [rbp-90h]
-  struct _OBJECT_NAME_INFORMATION ObjectNameInfo; // [rsp+70h] [rbp-88h] BYREF
+  _OBJECT_NAME_INFORMATION ObjectNameInfo; // [rsp+70h] [rbp-88h] BYREF
 
   v4 = 0;
   DiskDeviceObject = *(PDEVICE_OBJECT *)(a1 + 312);
@@ -143,7 +143,7 @@ PDEVICE_OBJECT __fastcall IopAttachDeviceToDeviceStackSafe(__int64 a1, struct _D
       v22 = *(_QWORD *)(a1 + 8);
       p_ObjectNameInfo = &ObjectNameInfo;
       v36[0] = 1835034LL;
-      v24 = (struct _OBJECT_NAME_INFORMATION *)v36;
+      v24 = (_OBJECT_NAME_INFORMATION *)v36;
       v25 = *(unsigned __int16 *)(v22 + 56);
       LOWORD(v25) = (unsigned __int16)v25 >> 1;
       DiskDeviceObject = 0LL;
@@ -158,7 +158,7 @@ PDEVICE_OBJECT __fastcall IopAttachDeviceToDeviceStackSafe(__int64 a1, struct _D
           v27 = ObQueryNameString(DiskDeviceObject, &ObjectNameInfo, Length, &Length);
           if ( v27 == -1073741820 )
           {
-            Pool2 = (struct _OBJECT_NAME_INFORMATION *)ExAllocatePool2(0x100uLL);
+            Pool2 = (_OBJECT_NAME_INFORMATION *)ExAllocatePool2(0x100uLL);
             p_ObjectNameInfo = Pool2;
             if ( Pool2 )
               v27 = ObQueryNameString(v26, Pool2, Length, &Length);

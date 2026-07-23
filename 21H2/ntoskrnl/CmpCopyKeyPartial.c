@@ -1,22 +1,22 @@
 /*
- * XREFs of CmpCopyKeyPartial @ 0x14076F88C
+ * XREFs of CmpCopyKeyPartial @ 0x14076FA4C
  * Callers:
- *     CmpReorganizeHive @ 0x140720AB8 (CmpReorganizeHive.c)
- *     CmpCopySyncTree2 @ 0x140878590 (CmpCopySyncTree2.c)
- *     CmRestoreKey @ 0x14087BF30 (CmRestoreKey.c)
- *     CmSaveMergedKeys @ 0x14087CA90 (CmSaveMergedKeys.c)
- *     CmpLoadHiveVolatile @ 0x14087CF5C (CmpLoadHiveVolatile.c)
- *     CmpLightWeightPrepareAddKeyUoW @ 0x14087F3B4 (CmpLightWeightPrepareAddKeyUoW.c)
+ *     CmpReorganizeHive @ 0x1406F7F2C (CmpReorganizeHive.c)
+ *     CmpCopySyncTree2 @ 0x1408786F0 (CmpCopySyncTree2.c)
+ *     CmRestoreKey @ 0x14087C090 (CmRestoreKey.c)
+ *     CmSaveMergedKeys @ 0x14087CBF0 (CmSaveMergedKeys.c)
+ *     CmpLoadHiveVolatile @ 0x14087D0BC (CmpLoadHiveVolatile.c)
+ *     CmpLightWeightPrepareAddKeyUoW @ 0x14087F514 (CmpLightWeightPrepareAddKeyUoW.c)
  * Callees:
- *     CmpFindSecurityCellCacheIndex @ 0x140206EB0 (CmpFindSecurityCellCacheIndex.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     CmpAddValueToListEx @ 0x140667464 (CmpAddValueToListEx.c)
- *     CmpCopyCell @ 0x1406A4750 (CmpCopyCell.c)
- *     HvFreeCell @ 0x140709534 (HvFreeCell.c)
- *     CmpUnlockTwoSecurityCaches @ 0x14076FAF8 (CmpUnlockTwoSecurityCaches.c)
- *     CmpLockTwoSecurityCachesExclusiveShared @ 0x14076FB28 (CmpLockTwoSecurityCachesExclusiveShared.c)
- *     CmpAssignSecurityDescriptor @ 0x1408716B0 (CmpAssignSecurityDescriptor.c)
- *     CmpCopyValue @ 0x140878D20 (CmpCopyValue.c)
+ *     CmpFindSecurityCellCacheIndex @ 0x1402AB7E0 (CmpFindSecurityCellCacheIndex.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     CmpCopyCell @ 0x1405E2220 (CmpCopyCell.c)
+ *     CmpAddValueToListEx @ 0x14065C284 (CmpAddValueToListEx.c)
+ *     HvFreeCell @ 0x140720914 (HvFreeCell.c)
+ *     CmpUnlockTwoSecurityCaches @ 0x14076FCB8 (CmpUnlockTwoSecurityCaches.c)
+ *     CmpLockTwoSecurityCachesExclusiveShared @ 0x14076FCE8 (CmpLockTwoSecurityCachesExclusiveShared.c)
+ *     CmpAssignSecurityDescriptor @ 0x140871810 (CmpAssignSecurityDescriptor.c)
+ *     CmpCopyValue @ 0x140878E80 (CmpCopyValue.c)
  */
 
 __int64 __fastcall CmpCopyKeyPartial(

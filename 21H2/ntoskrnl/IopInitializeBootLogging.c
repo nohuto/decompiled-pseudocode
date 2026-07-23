@@ -1,18 +1,18 @@
 /*
- * XREFs of IopInitializeBootLogging @ 0x140891718
+ * XREFs of IopInitializeBootLogging @ 0x140891878
  * Callers:
- *     Phase1InitializationDiscard @ 0x140A3B6A4 (Phase1InitializationDiscard.c)
+ *     Phase1InitializationDiscard @ 0x140A3C6A4 (Phase1InitializationDiscard.c)
  * Callees:
- *     ExInitializeResourceLite @ 0x14021CC50 (ExInitializeResourceLite.c)
- *     IopVerifierExAllocatePool @ 0x14022C9E0 (IopVerifierExAllocatePool.c)
- *     ExReleaseResourceLite @ 0x14034B3F0 (ExReleaseResourceLite.c)
- *     ExAcquireResourceExclusiveLite @ 0x14034BBA0 (ExAcquireResourceExclusiveLite.c)
- *     ExAcquireResourceSharedLite @ 0x14034BF60 (ExAcquireResourceSharedLite.c)
- *     memset @ 0x140414200 (memset.c)
- *     RtlAnsiStringToUnicodeString @ 0x14062C640 (RtlAnsiStringToUnicodeString.c)
- *     RtlFindMessage @ 0x14068D900 (RtlFindMessage.c)
- *     IopBootLog @ 0x140771A20 (IopBootLog.c)
- *     RtlCreateUnicodeStringFromAsciiz @ 0x1407A7040 (RtlCreateUnicodeStringFromAsciiz.c)
+ *     IopVerifierExAllocatePool @ 0x1402336E0 (IopVerifierExAllocatePool.c)
+ *     ExInitializeResourceLite @ 0x1402C1550 (ExInitializeResourceLite.c)
+ *     ExReleaseResourceLite @ 0x140356140 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceExclusiveLite @ 0x1403568F0 (ExAcquireResourceExclusiveLite.c)
+ *     ExAcquireResourceSharedLite @ 0x140356CB0 (ExAcquireResourceSharedLite.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     RtlFindMessage @ 0x1405ED770 (RtlFindMessage.c)
+ *     RtlAnsiStringToUnicodeString @ 0x1406637D0 (RtlAnsiStringToUnicodeString.c)
+ *     IopBootLog @ 0x140771BE0 (IopBootLog.c)
+ *     RtlCreateUnicodeStringFromAsciiz @ 0x1407A7240 (RtlCreateUnicodeStringFromAsciiz.c)
  */
 
 void __fastcall IopInitializeBootLogging(__int64 a1, __int64 a2)
@@ -28,10 +28,10 @@ void __fastcall IopInitializeBootLogging(__int64 a1, __int64 a2)
   unsigned __int16 Length; // ax
   unsigned __int16 v13; // ax
   PVOID *i; // rbx
-  STRING SourceString; // [rsp+30h] [rbp-10h] BYREF
-  unsigned __int16 *v16; // [rsp+70h] [rbp+30h] BYREF
+  ANSI_STRING SourceString; // [rsp+30h] [rbp-10h] BYREF
+  PMESSAGE_RESOURCE_ENTRY MessageEntry; // [rsp+70h] [rbp+30h] BYREF
 
-  v16 = 0LL;
+  MessageEntry = 0LL;
   *(_DWORD *)(&SourceString.MaximumLength + 1) = 0;
   if ( !qword_140D2D030 )
   {
@@ -45,13 +45,13 @@ void __fastcall IopInitializeBootLogging(__int64 a1, __int64 a2)
       ExAcquireResourceExclusiveLite((PERESOURCE)&qword_140D2D030[4], 1u);
       v6 = *(_QWORD *)(a1 + 16);
       v7 = -1LL;
-      if ( (int)RtlFindMessage(*(_QWORD *)(v6 + 48), 0xBu, 0, 0xB5u, &v16) >= 0 )
+      if ( RtlFindMessage(*(PVOID *)(v6 + 48), 0xBu, 0, 0xB5u, &MessageEntry) >= 0 )
       {
         v8 = -1LL;
-        SourceString.Buffer = (char *)(v16 + 2);
+        SourceString.Buffer = (char *)MessageEntry->Text;
         do
           ++v8;
-        while ( *((_BYTE *)v16 + v8 + 4) );
+        while ( MessageEntry->Text[v8] );
         SourceString.Length = v8;
         SourceString.MaximumLength = v8 + 1;
         RtlAnsiStringToUnicodeString(qword_140D2D030, &SourceString, 1u);
@@ -63,16 +63,16 @@ void __fastcall IopInitializeBootLogging(__int64 a1, __int64 a2)
           Buffer[v9 >> 1] = 0;
         }
       }
-      if ( (int)RtlFindMessage(*(_QWORD *)(v6 + 48), 0xBu, 0, 0xB6u, &v16) < 0 )
+      if ( RtlFindMessage(*(PVOID *)(v6 + 48), 0xBu, 0, 0xB6u, &MessageEntry) < 0 )
       {
         v11 = qword_140D2D030;
       }
       else
       {
-        SourceString.Buffer = (char *)(v16 + 2);
+        SourceString.Buffer = (char *)MessageEntry->Text;
         do
           ++v7;
-        while ( *((_BYTE *)v16 + v7 + 4) );
+        while ( MessageEntry->Text[v7] );
         SourceString.Length = v7;
         SourceString.MaximumLength = v7 + 1;
         RtlAnsiStringToUnicodeString(qword_140D2D030 + 1, &SourceString, 1u);
@@ -85,7 +85,7 @@ void __fastcall IopInitializeBootLogging(__int64 a1, __int64 a2)
           v11[1].Buffer[(unsigned __int64)v13 >> 1] = 0;
         }
       }
-      RtlCreateUnicodeStringFromAsciiz(v11 + 3, (const char *)(a2 + 1));
+      RtlCreateUnicodeStringFromAsciiz(v11 + 3, (PCSTR)(a2 + 1));
       ExAcquireResourceSharedLite(&PsLoadedModuleResource, 1u);
       for ( i = (PVOID *)PsLoadedModuleList; i != &PsLoadedModuleList; i = (PVOID *)*i )
         IopBootLog((PCUNICODE_STRING)(i + 9), 1);

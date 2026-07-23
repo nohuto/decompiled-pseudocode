@@ -1,10 +1,10 @@
 /*
- * XREFs of IvtUpdateGlobalCommand @ 0x1404E1050
+ * XREFs of IvtUpdateGlobalCommand @ 0x1404E1290
  * Callers:
- *     IvtInitializeIommu @ 0x1409A9950 (IvtInitializeIommu.c)
+ *     IvtInitializeIommu @ 0x1409AA880 (IvtInitializeIommu.c)
  * Callees:
- *     KeStallExecutionProcessor @ 0x14022A880 (KeStallExecutionProcessor.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
+ *     KeStallExecutionProcessor @ 0x1402CF130 (KeStallExecutionProcessor.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall IvtUpdateGlobalCommand(__int64 a1, unsigned int a2, char a3)

@@ -1,7 +1,7 @@
 /*
- * XREFs of SepIsAdminlessAuditModeEnabled @ 0x140596C74
+ * XREFs of SepIsAdminlessAuditModeEnabled @ 0x140596EA4
  * Callers:
- *     SeSecurityModelQueryInformation @ 0x14091CD6C (SeSecurityModelQueryInformation.c)
+ *     SeSecurityModelQueryInformation @ 0x14091CECC (SeSecurityModelQueryInformation.c)
  * Callees:
  *     <none>
  */

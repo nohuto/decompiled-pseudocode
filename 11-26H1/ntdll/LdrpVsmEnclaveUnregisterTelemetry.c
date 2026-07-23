@@ -1,27 +1,24 @@
 /*
- * XREFs of LdrpVsmEnclaveUnregisterTelemetry @ 0x180104C24
+ * XREFs of LdrpVsmEnclaveUnregisterTelemetry @ 0x180103FA4
  * Callers:
- *     LdrShutdownProcess @ 0x180087920 (LdrShutdownProcess.c)
+ *     LdrShutdownProcess @ 0x18007ECA0 (LdrShutdownProcess.c)
  * Callees:
- *     EtwNotificationUnregister @ 0x18006D0E0 (EtwNotificationUnregister.c)
+ *     EtwNotificationUnregister @ 0x18008D530 (EtwNotificationUnregister.c)
  */
 
-struct _PEB *LdrpVsmEnclaveUnregisterTelemetry()
+int LdrpVsmEnclaveUnregisterTelemetry()
 {
-  struct _PEB *result; // rax
-  __int64 v1; // rcx
+  struct _PEB *v0; // rax
+  REGHANDLE v1; // rcx
 
-  result = NtCurrentPeb();
-  if ( VSMEnclaveProvidersRegistered )
+  v0 = NtCurrentPeb();
+  if ( VSMEnclaveProvidersRegistered && v0->ProcessHeap )
   {
-    if ( result->ProcessHeap )
-    {
-      v1 = qword_1801C59E8;
-      qword_1801C59E8 = 0LL;
-      dword_1801C59C8 = 0;
-      result = (struct _PEB *)EtwNotificationUnregister(v1, 0LL);
-      VSMEnclaveProvidersRegistered = 0;
-    }
+    v1 = qword_1801C49E8;
+    qword_1801C49E8 = 0LL;
+    dword_1801C49C8 = 0;
+    LODWORD(v0) = EtwNotificationUnregister(v1, 0LL);
+    VSMEnclaveProvidersRegistered = 0;
   }
-  return result;
+  return (int)v0;
 }

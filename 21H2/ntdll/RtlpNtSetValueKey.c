@@ -1,12 +1,15 @@
 /*
- * XREFs of RtlpNtSetValueKey @ 0x180107DE0
+ * XREFs of RtlpNtSetValueKey @ 0x180107DA0
  * Callers:
  *     <none>
  * Callees:
- *     ZwSetValueKey @ 0x18009E230 (ZwSetValueKey.c)
+ *     ZwSetValueKey @ 0x18009E1F0 (ZwSetValueKey.c)
  */
 
-__int64 RtlpNtSetValueKey()
+NTSTATUS __fastcall RtlpNtSetValueKey(void *a1, ULONG a2, void *Data, ULONG DataSize)
 {
-  return ZwSetValueKey();
+  _UNICODE_STRING ValueName; // [rsp+30h] [rbp-18h] BYREF
+
+  ValueName.Length = 0;
+  return ZwSetValueKey(a1, &ValueName, 0, a2, Data, DataSize);
 }

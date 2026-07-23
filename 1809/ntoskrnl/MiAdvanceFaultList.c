@@ -8,10 +8,10 @@
  *     MiDispatchFault @ 0x140045FD0 (MiDispatchFault.c)
  *     MiResolvePrivateZeroFault @ 0x140047430 (MiResolvePrivateZeroFault.c)
  *     MiCompletePrivateZeroFault @ 0x140047940 (MiCompletePrivateZeroFault.c)
- *     MiInPagePageTable @ 0x1400987E0 (MiInPagePageTable.c)
- *     MiPrefetchVirtualMemory @ 0x1400EA140 (MiPrefetchVirtualMemory.c)
- *     MiCreateSharedZeroPages @ 0x1401091C0 (MiCreateSharedZeroPages.c)
- *     MiResolvePageFileFault @ 0x140154B44 (MiResolvePageFileFault.c)
+ *     MiInPagePageTable @ 0x140098720 (MiInPagePageTable.c)
+ *     MiPrefetchVirtualMemory @ 0x1400EA1C0 (MiPrefetchVirtualMemory.c)
+ *     MiCreateSharedZeroPages @ 0x140109240 (MiCreateSharedZeroPages.c)
+ *     MiResolvePageFileFault @ 0x140154C44 (MiResolvePageFileFault.c)
  * Callees:
  *     <none>
  */

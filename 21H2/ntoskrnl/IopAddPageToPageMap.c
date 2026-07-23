@@ -1,9 +1,9 @@
 /*
- * XREFs of IopAddPageToPageMap @ 0x140503940
+ * XREFs of IopAddPageToPageMap @ 0x1405038C0
  * Callers:
- *     IoSetDumpRange @ 0x1405029D0 (IoSetDumpRange.c)
+ *     IoSetDumpRange @ 0x140502950 (IoSetDumpRange.c)
  * Callees:
- *     IopAddPageRangeToPageMaps @ 0x14050385C (IopAddPageRangeToPageMaps.c)
+ *     IopAddPageRangeToPageMaps @ 0x1405037DC (IopAddPageRangeToPageMaps.c)
  */
 
 __int64 __fastcall IopAddPageToPageMap(
@@ -53,7 +53,7 @@ __int64 __fastcall IopAddPageToPageMap(
         return 0LL;
       v16 = (_DWORD *)v14 + ((v15 - 1) >> 5);
       v17 = (_DWORD *)v14 + (a4 >> 5);
-      if ( v17 != v16 && (*v17 | *((_DWORD *)qword_140011C70 + (a4 & 0x1F))) == -1 )
+      if ( v17 != v16 && (*v17 | *((_DWORD *)qword_140012120 + (a4 & 0x1F))) == -1 )
       {
         a4 = (a4 & 0xFFFFFFFFFFFFFFE0uLL) + 32;
         for ( ++v17; v17 < v16 && *v17 == -1; ++v17 )
@@ -65,7 +65,7 @@ __int64 __fastcall IopAddPageToPageMap(
       if ( v17 != v16 )
       {
         v19 = a4 & 0x1F;
-        if ( (~*((_DWORD *)qword_140011C70 + v19) & *v17) == 0 )
+        if ( (~*((_DWORD *)qword_140012120 + v19) & *v17) == 0 )
         {
           v18 = 32 - v19;
           if ( v19 == 33 )

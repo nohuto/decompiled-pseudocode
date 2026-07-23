@@ -1,10 +1,10 @@
 /*
- * XREFs of SepAdtInitializeCrashOnFail @ 0x140817E4C
+ * XREFs of SepAdtInitializeCrashOnFail @ 0x14081E05C
  * Callers:
- *     SepAdtRegNotificationCallback @ 0x140817FB0 (SepAdtRegNotificationCallback.c)
- *     SepAdtInitializeAuditingOptions @ 0x140CDE828 (SepAdtInitializeAuditingOptions.c)
+ *     SepAdtRegNotificationCallback @ 0x14081E1C0 (SepAdtRegNotificationCallback.c)
+ *     SepAdtInitializeAuditingOptions @ 0x140CE4BC0 (SepAdtInitializeAuditingOptions.c)
  * Callees:
- *     SepRegQueryValue @ 0x140AB2E7C (SepRegQueryValue.c)
+ *     SepRegQueryValue @ 0x140AB421C (SepRegQueryValue.c)
  */
 
 __int64 SepAdtInitializeCrashOnFail()
@@ -26,6 +26,6 @@ __int64 SepAdtInitializeCrashOnFail()
   if ( v3 != 1 )
 LABEL_4:
     v2 = 0;
-  BYTE4(RtlpBootStatHandleLock.QueuedScb) = v2;
+  *((_BYTE *)&RtlpBootStatHandleLock.ReservedPreviousReadyTimeValue + 5) = v2;
   return v0;
 }

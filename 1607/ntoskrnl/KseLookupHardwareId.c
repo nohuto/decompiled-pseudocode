@@ -1,15 +1,15 @@
 /*
- * XREFs of KseLookupHardwareId @ 0x1406539E0
+ * XREFs of KseLookupHardwareId @ 0x140653AC4
  * Callers:
- *     AhcCacheQueryHwId @ 0x1406E4C1C (AhcCacheQueryHwId.c)
+ *     AhcCacheQueryHwId @ 0x1406E4D54 (AhcCacheQueryHwId.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14002DC60 (RtlInitUnicodeString.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x140055FA0 (KiLeaveCriticalRegionUnsafe.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1400C8738 (ExfTryToWakePushLock.c)
- *     KsepCacheLookup @ 0x1404E395C (KsepCacheLookup.c)
- *     KsepCacheLock @ 0x1404E3A3C (KsepCacheLock.c)
- *     AslStringPatternMatchW @ 0x140578D34 (AslStringPatternMatchW.c)
+ *     RtlInitUnicodeString @ 0x14002D7E0 (RtlInitUnicodeString.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140055B20 (KiLeaveCriticalRegionUnsafe.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     ExfTryToWakePushLock @ 0x1400C65D8 (ExfTryToWakePushLock.c)
+ *     KsepCacheLock @ 0x14050CE94 (KsepCacheLock.c)
+ *     KsepCacheLookup @ 0x14050CEE4 (KsepCacheLookup.c)
+ *     AslStringPatternMatchW @ 0x140579274 (AslStringPatternMatchW.c)
  */
 
 __int64 __fastcall KseLookupHardwareId(WCHAR *SourceString)
@@ -28,7 +28,7 @@ __int64 __fastcall KseLookupHardwareId(WCHAR *SourceString)
   _BYTE v14[40]; // [rsp+20h] [rbp-58h] BYREF
   UNICODE_STRING DestinationString; // [rsp+48h] [rbp-30h] BYREF
 
-  v1 = (unsigned __int64 *)qword_140328F40;
+  v1 = (unsigned __int64 *)qword_140328F80;
   v3 = -1073741275;
   v4 = 0;
   v5 = SourceString;
@@ -46,7 +46,7 @@ __int64 __fastcall KseLookupHardwareId(WCHAR *SourceString)
       break;
     if ( v7 == 42 || v7 == 63 )
     {
-      KsepCacheLock((unsigned __int64 *)qword_140328F40);
+      KsepCacheLock((unsigned __int64 *)qword_140328F80);
       for ( i = (unsigned __int64 *)v1[4]; ; i = (unsigned __int64 *)*i )
       {
         if ( i == v1 + 4 )

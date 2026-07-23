@@ -1,10 +1,10 @@
 /*
- * XREFs of PopFxScheduleDeviceIdleTimer @ 0x1400C2E20
+ * XREFs of PopFxScheduleDeviceIdleTimer @ 0x1400C0CB0
  * Callers:
- *     PopFxProcessWork @ 0x1400C124C (PopFxProcessWork.c)
- *     PopFxUpdateDeviceIdleTimer @ 0x140148CC8 (PopFxUpdateDeviceIdleTimer.c)
+ *     PopFxProcessWork @ 0x1400BF0DC (PopFxProcessWork.c)
+ *     PopFxUpdateDeviceIdleTimer @ 0x140149238 (PopFxUpdateDeviceIdleTimer.c)
  * Callees:
- *     KeSetCoalescableTimer @ 0x1400EFC00 (KeSetCoalescableTimer.c)
+ *     KeSetCoalescableTimer @ 0x1400EDA80 (KeSetCoalescableTimer.c)
  */
 
 char __fastcall PopFxScheduleDeviceIdleTimer(__int64 a1)

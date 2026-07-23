@@ -1,10 +1,10 @@
 /*
- * XREFs of CmpLogFlushPhaseEnd @ 0x1408B44E4
+ * XREFs of CmpLogFlushPhaseEnd @ 0x1408BAAB8
  * Callers:
- *     CmpFlushHive @ 0x1408B321C (CmpFlushHive.c)
+ *     CmpFlushHive @ 0x1408B97F0 (CmpFlushHive.c)
  * Callees:
- *     EtwWriteTransfer @ 0x140212F30 (EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwWriteTransfer @ 0x140213010 (EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall CmpLogFlushPhaseEnd(__int64 a1, char a2, int a3)
@@ -35,7 +35,7 @@ NTSTATUS __fastcall CmpLogFlushPhaseEnd(__int64 a1, char a2, int a3)
     v14 = 4LL;
     *(_DWORD *)&EventDescriptor.Id = 184549376;
     UserData.Size = *(unsigned __int16 *)off_140E09EF0;
-    v8 = word_140055DE2;
+    v8 = word_140056E32;
     v10 = 1;
     UserData.Reserved = 2;
     v9 = 35;

@@ -1,14 +1,14 @@
 /*
- * XREFs of RtlpFcCalculateRequiredSizeForNewFeatureTable @ 0x140919D28
+ * XREFs of RtlpFcCalculateRequiredSizeForNewFeatureTable @ 0x140919E88
  * Callers:
- *     RtlpFcUpdateFeatureConfiguration @ 0x14091A4E4 (RtlpFcUpdateFeatureConfiguration.c)
+ *     RtlpFcUpdateFeatureConfiguration @ 0x14091A644 (RtlpFcUpdateFeatureConfiguration.c)
  * Callees:
- *     RtlULongLongMult @ 0x14024ED98 (RtlULongLongMult.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     RtlpFcCompareFeatureToUpdate @ 0x140919FBC (RtlpFcCompareFeatureToUpdate.c)
- *     RtlpFcDoesFeatureHaveUniqueState @ 0x14091A0C8 (RtlpFcDoesFeatureHaveUniqueState.c)
- *     RtlpFcIsUpdateModifyingOrAddingFeature @ 0x14091A120 (RtlpFcIsUpdateModifyingOrAddingFeature.c)
- *     RtlpFcUpdateFeature @ 0x14091A470 (RtlpFcUpdateFeature.c)
+ *     RtlULongLongMult @ 0x1402F35E8 (RtlULongLongMult.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     RtlpFcCompareFeatureToUpdate @ 0x14091A11C (RtlpFcCompareFeatureToUpdate.c)
+ *     RtlpFcDoesFeatureHaveUniqueState @ 0x14091A228 (RtlpFcDoesFeatureHaveUniqueState.c)
+ *     RtlpFcIsUpdateModifyingOrAddingFeature @ 0x14091A280 (RtlpFcIsUpdateModifyingOrAddingFeature.c)
+ *     RtlpFcUpdateFeature @ 0x14091A5D0 (RtlpFcUpdateFeature.c)
  */
 
 NTSTATUS __fastcall RtlpFcCalculateRequiredSizeForNewFeatureTable(

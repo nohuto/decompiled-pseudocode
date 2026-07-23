@@ -23,13 +23,7 @@
  *     AlpcpUnregisterCompletionListDatabase @ 0x1404C58A0 (AlpcpUnregisterCompletionListDatabase.c)
  */
 
-__int64 __fastcall AlpcpInitializeCompletionList(
-        __int64 a1,
-        char *a2,
-        unsigned int a3,
-        int a4,
-        unsigned int a5,
-        int a6)
+__int64 __fastcall AlpcpInitializeCompletionList(__int64 a1, char *a2, unsigned int a3, int a4, ULONG Flags, int a6)
 {
   size_t v6; // r13
   char v9; // r15
@@ -44,7 +38,7 @@ __int64 __fastcall AlpcpInitializeCompletionList(
   __int64 v18; // r9
   __int64 v19; // rax
   __int64 v20; // rax
-  int MessageAttributeSize32; // eax
+  ULONG MessageAttributeSize32; // eax
   int v22; // r9d
   unsigned int v23; // r10d
   _DWORD *v24; // rdx
@@ -67,7 +61,7 @@ __int64 __fastcall AlpcpInitializeCompletionList(
   if ( ((unsigned __int16)a2 & 0xFFF) != 0LL
     || (a3 & 0xFFF) != 0
     || a3 - 0x4000 > 0x3FFFC000
-    || (a5 & 0x57FFFFFF) != 0
+    || (Flags & 0x57FFFFFF) != 0
     || !a4 )
   {
     v32 = 0;
@@ -130,14 +124,14 @@ LABEL_36:
       *((_QWORD *)v11 + 5) = a2;
       *((_QWORD *)v11 + 6) = &a2[v6];
       *((_QWORD *)v11 + 7) = &a2[v18 + 4096 + v17];
-      *((_DWORD *)v11 + 37) = a5;
+      *((_DWORD *)v11 + 37) = Flags;
       if ( a6 )
       {
-        MessageAttributeSize32 = AlpcpGetMessageAttributeSize32(a5);
+        MessageAttributeSize32 = AlpcpGetMessageAttributeSize32(Flags);
       }
       else
       {
-        MessageAttributeSize32 = AlpcGetHeaderSize(a5);
+        MessageAttributeSize32 = AlpcGetHeaderSize(Flags);
         v22 = v36;
         v23 = v35;
       }

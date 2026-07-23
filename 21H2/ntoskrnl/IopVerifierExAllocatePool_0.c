@@ -1,13 +1,13 @@
 /*
- * XREFs of IopVerifierExAllocatePool_0 @ 0x1402B6C78
+ * XREFs of IopVerifierExAllocatePool_0 @ 0x140234E58
  * Callers:
- *     IopAllocateFileObjectExtension @ 0x14022C1D0 (IopAllocateFileObjectExtension.c)
- *     IopGetSetSpecificExtension @ 0x140356AE8 (IopGetSetSpecificExtension.c)
- *     IopSetLockOperationProcess @ 0x14035770C (IopSetLockOperationProcess.c)
- *     NtUnlockFile @ 0x14068F570 (NtUnlockFile.c)
+ *     IopAllocateFileObjectExtension @ 0x1402D0A50 (IopAllocateFileObjectExtension.c)
+ *     IopGetSetSpecificExtension @ 0x140361838 (IopGetSetSpecificExtension.c)
+ *     IopSetLockOperationProcess @ 0x14036245C (IopSetLockOperationProcess.c)
+ *     NtUnlockFile @ 0x1405EF3E0 (NtUnlockFile.c)
  * Callees:
- *     ExAllocatePoolWithTagPriority @ 0x14033C0E0 (ExAllocatePoolWithTagPriority.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     ExAllocatePoolWithTagPriority @ 0x140346E30 (ExAllocatePoolWithTagPriority.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 PVOID __fastcall IopVerifierExAllocatePool_0(__int64 a1, SIZE_T a2)

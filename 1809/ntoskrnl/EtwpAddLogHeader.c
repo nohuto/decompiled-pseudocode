@@ -1,19 +1,19 @@
 /*
- * XREFs of EtwpAddLogHeader @ 0x14069A628
+ * XREFs of EtwpAddLogHeader @ 0x14069B7E8
  * Callers:
- *     EtwpUpdateFileHeader @ 0x140699E1C (EtwpUpdateFileHeader.c)
- *     EtwpPreserveLogger @ 0x1408CA0CC (EtwpPreserveLogger.c)
+ *     EtwpUpdateFileHeader @ 0x14069AFDC (EtwpUpdateFileHeader.c)
+ *     EtwpPreserveLogger @ 0x1408CB38C (EtwpPreserveLogger.c)
  * Callees:
  *     EtwpQueryUsedProcessorCount @ 0x14001557C (EtwpQueryUsedProcessorCount.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     memmove @ 0x1401D1540 (memmove.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     EtwpPrepareHeader @ 0x1405C1DD0 (EtwpPrepareHeader.c)
- *     EtwpIsWow64Logger @ 0x14069AB50 (EtwpIsWow64Logger.c)
- *     RtlpQueryTimeZoneInformationWorker @ 0x14069AB68 (RtlpQueryTimeZoneInformationWorker.c)
- *     EtwpAddDebugInfoEvents @ 0x1406FE100 (EtwpAddDebugInfoEvents.c)
- *     EtwpAddBinaryInfoEvents @ 0x1408BDE9C (EtwpAddBinaryInfoEvents.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     EtwpPrepareHeader @ 0x1405C2DD0 (EtwpPrepareHeader.c)
+ *     EtwpIsWow64Logger @ 0x14069BD10 (EtwpIsWow64Logger.c)
+ *     RtlpQueryTimeZoneInformationWorker @ 0x14069BD28 (RtlpQueryTimeZoneInformationWorker.c)
+ *     EtwpAddDebugInfoEvents @ 0x1406FF3A0 (EtwpAddDebugInfoEvents.c)
+ *     EtwpAddBinaryInfoEvents @ 0x1408BF15C (EtwpAddBinaryInfoEvents.c)
  */
 
 unsigned __int64 __fastcall EtwpAddLogHeader(__int64 a1, unsigned int *a2)
@@ -58,7 +58,7 @@ unsigned __int64 __fastcall EtwpAddLogHeader(__int64 a1, unsigned int *a2)
   v7 = *(_WORD *)(v6 + 168) + *(_WORD *)(v6 + 152) + (v4 ? 276 : 284);
   if ( result >= (unsigned __int64)v7 + 104 )
   {
-    if ( ((int (__fastcall *)(__int64, __int64, __int64 *, int *))off_140400458[0])(25LL, 12LL, &v35, &v32) < 0 )
+    if ( ((int (__fastcall *)(__int64, __int64, __int64 *, int *))off_140401458[0])(25LL, 12LL, &v35, &v32) < 0 )
     {
       v35 = 0LL;
       v36 = 0;

@@ -1,14 +1,14 @@
 /*
- * XREFs of RtlEnumerateGenericTableAvl @ 0x1800DA340
+ * XREFs of RtlEnumerateGenericTableAvl @ 0x1800D7300
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall RtlEnumerateGenericTableAvl(__int64 a1, char a2)
+PVOID __cdecl RtlEnumerateGenericTableAvl(PRTL_AVL_TABLE Table, BOOLEAN Restart)
 {
-  if ( a2 )
-    *(_QWORD *)(a1 + 56) = 0LL;
-  return RtlEnumerateGenericTableWithoutSplayingAvl(a1, a1 + 56);
+  if ( Restart )
+    Table->RestartKey = 0LL;
+  return RtlEnumerateGenericTableWithoutSplayingAvl(Table, (PVOID *)&Table->RestartKey);
 }

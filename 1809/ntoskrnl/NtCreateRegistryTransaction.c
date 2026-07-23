@@ -1,25 +1,30 @@
 /*
- * XREFs of NtCreateRegistryTransaction @ 0x1406C7CE0
+ * XREFs of NtCreateRegistryTransaction @ 0x1406C8F80
  * Callers:
  *     <none>
  * Callees:
  *     ExReleaseRundownProtection_0 @ 0x14004D2F0 (ExReleaseRundownProtection_0.c)
  *     ExAcquireRundownProtection_0 @ 0x14004D320 (ExAcquireRundownProtection_0.c)
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
- *     CmCleanupThreadInfo @ 0x1401B2F3C (CmCleanupThreadInfo.c)
- *     CmpInitializeThreadInfo @ 0x1401B2F7C (CmpInitializeThreadInfo.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     ObCreateObjectEx @ 0x1405E05E0 (ObCreateObjectEx.c)
- *     NtClose @ 0x1405E89E0 (NtClose.c)
- *     ObInsertObjectEx @ 0x14062D080 (ObInsertObjectEx.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B78F0 (KiLeaveCriticalRegionUnsafe.c)
+ *     CmCleanupThreadInfo @ 0x1401B307C (CmCleanupThreadInfo.c)
+ *     CmpInitializeThreadInfo @ 0x1401B30BC (CmpInitializeThreadInfo.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     ObCreateObjectEx @ 0x1405E15E0 (ObCreateObjectEx.c)
+ *     NtClose @ 0x1405E99E0 (NtClose.c)
+ *     ObInsertObjectEx @ 0x14062E0A0 (ObInsertObjectEx.c)
  */
 
-__int64 __fastcall NtCreateRegistryTransaction(HANDLE *a1, unsigned int a2, int a3, int a4)
+NTSTATUS __cdecl NtCreateRegistryTransaction(
+        HANDLE *RegistryTransactionHandle,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjAttributes,
+        ULONG CreateOptions)
 {
+  int v5; // r12d
   struct _KTHREAD *CurrentThread; // r10
   BOOLEAN v9; // si
-  int inserted; // ebx
+  NTSTATUS inserted; // ebx
   char PreviousMode; // r15
   __int64 v12; // rax
   _QWORD *v13; // rbx
@@ -28,6 +33,7 @@ __int64 __fastcall NtCreateRegistryTransaction(HANDLE *a1, unsigned int a2, int 
   PVOID Object; // [rsp+60h] [rbp-38h] BYREF
   PVOID v18[3]; // [rsp+68h] [rbp-30h] BYREF
 
+  v5 = (int)ObjAttributes;
   Object = 0LL;
   Handle = 0LL;
   CmpInitializeThreadInfo(v18);
@@ -36,7 +42,7 @@ __int64 __fastcall NtCreateRegistryTransaction(HANDLE *a1, unsigned int a2, int 
   v9 = ExAcquireRundownProtection_0((PEX_RUNDOWN_REF)&CmpShutdownRundown);
   if ( v9 )
   {
-    if ( a4 )
+    if ( CreateOptions )
     {
       inserted = -1073741811;
     }
@@ -46,18 +52,18 @@ __int64 __fastcall NtCreateRegistryTransaction(HANDLE *a1, unsigned int a2, int 
       if ( PreviousMode == 1 )
       {
         v12 = 0x7FFFFFFF0000LL;
-        if ( (unsigned __int64)a1 < 0x7FFFFFFF0000LL )
-          v12 = (__int64)a1;
+        if ( (unsigned __int64)RegistryTransactionHandle < 0x7FFFFFFF0000LL )
+          v12 = (__int64)RegistryTransactionHandle;
         *(_QWORD *)v12 = 0LL;
       }
       else
       {
-        *a1 = 0LL;
+        *RegistryTransactionHandle = 0LL;
       }
       inserted = ObCreateObjectEx(
                    PreviousMode,
                    CmRegistryTransactionType,
-                   a3,
+                   v5,
                    PreviousMode,
                    v15,
                    32,
@@ -70,11 +76,11 @@ __int64 __fastcall NtCreateRegistryTransaction(HANDLE *a1, unsigned int a2, int 
         v13 = Object;
         memset(Object, 0, 0x20uLL);
         v13[1] = 0LL;
-        inserted = ObInsertObjectEx(v13, 0LL, a2, 0, 0, 0LL, (unsigned __int64 *)&Handle);
+        inserted = ObInsertObjectEx(v13, 0LL, DesiredAccess, 0, 0, 0LL, (unsigned __int64 *)&Handle);
         Object = 0LL;
         if ( inserted >= 0 )
         {
-          *a1 = Handle;
+          *RegistryTransactionHandle = Handle;
           Handle = 0LL;
           inserted = 0;
         }
@@ -96,5 +102,5 @@ __int64 __fastcall NtCreateRegistryTransaction(HANDLE *a1, unsigned int a2, int 
     KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
   }
   CmCleanupThreadInfo(v18);
-  return (unsigned int)inserted;
+  return inserted;
 }

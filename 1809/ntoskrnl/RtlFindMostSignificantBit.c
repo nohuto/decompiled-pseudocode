@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlFindMostSignificantBit @ 0x1400F2920
+ * XREFs of RtlFindMostSignificantBit @ 0x1400F29A0
  * Callers:
- *     MiValidateZeroBits @ 0x14067742C (MiValidateZeroBits.c)
+ *     MiValidateZeroBits @ 0x1406785EC (MiValidateZeroBits.c)
  * Callees:
  *     <none>
  */

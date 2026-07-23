@@ -12,38 +12,34 @@
 bool IsMachineLanguageListInMutableLocation()
 {
   bool v0; // bl
-  UNICODE_STRING DestinationString; // [rsp+30h] [rbp-9h] BYREF
-  UNICODE_STRING v3; // [rsp+40h] [rbp+7h] BYREF
-  int v4; // [rsp+50h] [rbp+17h]
-  __int64 v5; // [rsp+58h] [rbp+1Fh]
-  UNICODE_STRING *p_DestinationString; // [rsp+60h] [rbp+27h]
-  int v7; // [rsp+68h] [rbp+2Fh]
-  __int128 v8; // [rsp+70h] [rbp+37h]
-  int v9; // [rsp+A0h] [rbp+67h] BYREF
-  unsigned int v10; // [rsp+A8h] [rbp+6Fh] BYREF
-  int v11; // [rsp+B0h] [rbp+77h] BYREF
-  HANDLE Handle; // [rsp+B8h] [rbp+7Fh]
+  _UNICODE_STRING DestinationString; // [rsp+30h] [rbp-9h] BYREF
+  _UNICODE_STRING ValueName; // [rsp+40h] [rbp+7h] BYREF
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+50h] [rbp+17h] BYREF
+  int v5; // [rsp+A0h] [rbp+67h] BYREF
+  __int64 v6; // [rsp+A8h] [rbp+6Fh] BYREF
+  int v7; // [rsp+B0h] [rbp+77h] BYREF
+  HANDLE KeyHandle; // [rsp+B8h] [rbp+7Fh] BYREF
 
   v0 = 0;
   RtlInitUnicodeString(
     &DestinationString,
     L"\\Registry\\Machine\\OSDATA\\System\\CurrentControlSet\\Control\\MUI\\UILanguages");
-  Handle = 0LL;
-  v5 = 0LL;
-  p_DestinationString = &DestinationString;
-  v4 = 48;
-  v7 = 64;
-  v8 = 0LL;
-  if ( (int)NtOpenKey() >= 0 )
+  KeyHandle = 0LL;
+  ObjectAttributes.RootDirectory = 0LL;
+  ObjectAttributes.ObjectName = &DestinationString;
+  ObjectAttributes.Length = 48;
+  ObjectAttributes.Attributes = 64;
+  *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+  if ( NtOpenKey(&KeyHandle, 0x20019u, &ObjectAttributes) >= 0 )
   {
-    RtlInitUnicodeString(&v3, L"MachineLanguageListMigrationState");
-    v9 = 0;
-    v11 = 4;
-    v10 = 4;
-    if ( (int)LdrpQueryValueKey((__int64)Handle, (__int64)&v3, &v11, &v9, &v10) >= 0 )
-      v0 = v9 == 1;
+    RtlInitUnicodeString(&ValueName, L"MachineLanguageListMigrationState");
+    v5 = 0;
+    v7 = 4;
+    LODWORD(v6) = 4;
+    if ( (int)LdrpQueryValueKey(KeyHandle, &ValueName, &v7, &v5, (ULONG *)&v6) >= 0 )
+      v0 = v5 == 1;
   }
-  if ( Handle )
-    NtClose(Handle);
+  if ( KeyHandle )
+    NtClose(KeyHandle);
   return v0;
 }

@@ -1,17 +1,17 @@
 /*
- * XREFs of RtlpQueryDiskWriteConstraintPolicyByHandle @ 0x18015D4D4
+ * XREFs of RtlpQueryDiskWriteConstraintPolicyByHandle @ 0x18015B894
  * Callers:
- *     RtlpQueryDiskWriteConstraintPolicy @ 0x18015D46C (RtlpQueryDiskWriteConstraintPolicy.c)
+ *     RtlpQueryDiskWriteConstraintPolicy @ 0x18015B82C (RtlpQueryDiskWriteConstraintPolicy.c)
  * Callees:
- *     NtDeviceIoControlFile @ 0x180161D70 (NtDeviceIoControlFile.c)
- *     __security_check_cookie @ 0x1801659C0 (__security_check_cookie.c)
+ *     NtDeviceIoControlFile @ 0x180160130 (NtDeviceIoControlFile.c)
+ *     __security_check_cookie @ 0x180163D80 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall RtlpQueryDiskWriteConstraintPolicyByHandle(void *a1, int *a2)
 {
   NTSTATUS result; // eax
   int v4; // eax
-  struct _IO_STATUS_BLOCK v5; // [rsp+50h] [rbp-38h] BYREF
+  _IO_STATUS_BLOCK v5; // [rsp+50h] [rbp-38h] BYREF
   __int128 v6; // [rsp+60h] [rbp-28h] BYREF
 
   v5 = 0LL;

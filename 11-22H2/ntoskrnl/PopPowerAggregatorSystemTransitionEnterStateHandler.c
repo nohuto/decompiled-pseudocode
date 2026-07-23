@@ -25,7 +25,7 @@ __int64 __fastcall PopPowerAggregatorSystemTransitionEnterStateHandler(__int64 a
     memset(v5, 0, sizeof(v5));
     v3 = MonitorReasonFromPowerEventId & 0xFFFFFF;
     LODWORD(v5[0]) = 5;
-    PopPowerAggregatorSetCurrentState(a1, (__int64)v5);
+    PopPowerAggregatorSetCurrentState((LARGE_INTEGER *)a1, (__int64)v5);
     PopReleaseRwLock(&PopPowerAggregatorLock);
     if ( qword_140C6B030 )
       qword_140C6B030(1LL);

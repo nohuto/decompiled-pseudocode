@@ -1,14 +1,14 @@
 /*
- * XREFs of SshpCacheDatabaseCompare @ 0x140A848D0
+ * XREFs of SshpCacheDatabaseCompare @ 0x140A89C50
  * Callers:
  *     <none>
  * Callees:
- *     PsGetCurrentServerSiloGlobals @ 0x1402150C0 (PsGetCurrentServerSiloGlobals.c)
- *     RtlCompareMemory @ 0x140730D90 (RtlCompareMemory.c)
- *     memcmp @ 0x14073D750 (memcmp.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x1402153F0 (PsGetCurrentServerSiloGlobals.c)
+ *     RtlCompareMemory @ 0x140735960 (RtlCompareMemory.c)
+ *     memcmp @ 0x140742350 (memcmp.c)
  */
 
-__int64 __fastcall SshpCacheDatabaseCompare(struct _RTL_AVL_TABLE *Table, _QWORD *FirstStruct, _QWORD *SecondStruct)
+__int64 __fastcall SshpCacheDatabaseCompare(_RTL_AVL_TABLE *a1, _QWORD *a2, _QWORD *a3)
 {
   _DWORD *TableContext; // rbx
   unsigned int v4; // edi
@@ -50,9 +50,9 @@ __int64 __fastcall SshpCacheDatabaseCompare(struct _RTL_AVL_TABLE *Table, _QWORD
   __int128 v41; // [rsp+70h] [rbp+7h]
   __int128 v42; // [rsp+80h] [rbp+17h]
 
-  TableContext = Table->TableContext;
+  TableContext = a1->TableContext;
   v4 = 0;
-  v5 = *(_DWORD *)FirstStruct;
+  v5 = *(_DWORD *)a2;
   v6 = 0LL;
   v7 = 0LL;
   v37 = 0LL;
@@ -66,7 +66,7 @@ __int64 __fastcall SshpCacheDatabaseCompare(struct _RTL_AVL_TABLE *Table, _QWORD
     if ( v5 == 1 )
     {
       v6 = &v37;
-      v8 = *(_QWORD *)(FirstStruct[1] + 304LL);
+      v8 = *(_QWORD *)(a2[1] + 304LL);
       v9 = *(_OWORD *)(v8 + 64);
       v10 = *(_OWORD *)(v8 + 48);
       *(_QWORD *)&v39 = v8 + 80;
@@ -77,14 +77,14 @@ __int64 __fastcall SshpCacheDatabaseCompare(struct _RTL_AVL_TABLE *Table, _QWORD
   }
   else
   {
-    v6 = (__int128 *)FirstStruct[1];
+    v6 = (__int128 *)a2[1];
   }
-  if ( *(_DWORD *)SecondStruct )
+  if ( *(_DWORD *)a3 )
   {
-    if ( *(_DWORD *)SecondStruct == 1 )
+    if ( *(_DWORD *)a3 == 1 )
     {
       v7 = &v40;
-      v11 = *(_QWORD *)(SecondStruct[1] + 304LL);
+      v11 = *(_QWORD *)(a3[1] + 304LL);
       v12 = *(_OWORD *)(v11 + 64);
       v13 = *(_OWORD *)(v11 + 48);
       *(_QWORD *)&v42 = v11 + 80;
@@ -95,7 +95,7 @@ __int64 __fastcall SshpCacheDatabaseCompare(struct _RTL_AVL_TABLE *Table, _QWORD
   }
   else
   {
-    v7 = (__int128 *)SecondStruct[1];
+    v7 = (__int128 *)a3[1];
   }
   v14 = TableContext[11];
   v15 = 16;

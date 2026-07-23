@@ -7,7 +7,7 @@
  *     <none>
  */
 
-__int64 LdrpValidPathComponentsMask()
+__int64 __fastcall LdrpValidPathComponentsMask()
 {
   __int64 result; // rax
 

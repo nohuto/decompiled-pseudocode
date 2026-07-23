@@ -1,22 +1,22 @@
 /*
- * XREFs of PiDevCfgFreeResolveContext @ 0x140988CE4
+ * XREFs of PiDevCfgFreeResolveContext @ 0x140A43410
  * Callers:
- *     PiDevCfgVerifyDeviceAllowed @ 0x1409886D0 (PiDevCfgVerifyDeviceAllowed.c)
- *     PiDevCfgConfigureDeviceKeys @ 0x140988AF0 (PiDevCfgConfigureDeviceKeys.c)
- *     PiDevCfgInitResolveContext @ 0x140988D74 (PiDevCfgInitResolveContext.c)
+ *     PiDevCfgVerifyDeviceAllowed @ 0x140A42DFC (PiDevCfgVerifyDeviceAllowed.c)
+ *     PiDevCfgConfigureDeviceKeys @ 0x140A4321C (PiDevCfgConfigureDeviceKeys.c)
+ *     PiDevCfgInitResolveContext @ 0x140A434A0 (PiDevCfgInitResolveContext.c)
  * Callees:
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     PiDevCfgFreeVariable @ 0x140988298 (PiDevCfgFreeVariable.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     PiDevCfgFreeVariable @ 0x140A429C4 (PiDevCfgFreeVariable.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __fastcall PiDevCfgFreeResolveContext(__int64 a1)
 {
   void *v2; // rcx
   unsigned int i; // ebx
-  UNICODE_STRING **v4; // rax
-  UNICODE_STRING *v5; // rcx
-  UNICODE_STRING *v6; // rdx
+  _QWORD **v4; // rax
+  _QWORD *v5; // rcx
+  _QWORD *v6; // rdx
 
   if ( *(_QWORD *)(a1 + 24) )
   {
@@ -24,17 +24,14 @@ void __fastcall PiDevCfgFreeResolveContext(__int64 a1)
     {
       while ( 1 )
       {
-        v4 = (UNICODE_STRING **)(*(_QWORD *)(a1 + 24) + 16LL * i);
+        v4 = (_QWORD **)(*(_QWORD *)(a1 + 24) + 16LL * i);
         v5 = *v4;
-        if ( *v4 == (UNICODE_STRING *)v4 )
+        if ( *v4 == v4 )
           break;
-        if ( (UNICODE_STRING **)v5->Buffer != v4
-          || (v6 = *(UNICODE_STRING **)&v5->Length, *(UNICODE_STRING **)(*(_QWORD *)&v5->Length + 8LL) != v5) )
-        {
+        if ( (_QWORD **)v5[1] != v4 || (v6 = (_QWORD *)*v5, *(_QWORD **)(*v5 + 8LL) != v5) )
           __fastfail(3u);
-        }
         *v4 = v6;
-        v6->Buffer = (wchar_t *)v4;
+        v6[1] = v4;
         PiDevCfgFreeVariable(v5);
       }
     }

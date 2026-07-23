@@ -1,12 +1,12 @@
 /*
- * XREFs of HvlpEnableNextLogicalProcessor @ 0x1404F2E04
+ * XREFs of HvlpEnableNextLogicalProcessor @ 0x1404F2D84
  * Callers:
- *     HvlStartBootLogicalProcessors @ 0x1403B6948 (HvlStartBootLogicalProcessors.c)
+ *     HvlStartBootLogicalProcessors @ 0x1403B6AB8 (HvlStartBootLogicalProcessors.c)
  * Callees:
- *     MmMapIoSpaceEx @ 0x140294E50 (MmMapIoSpaceEx.c)
- *     HvlpGetVpIndexFromApicId @ 0x1404F300C (HvlpGetVpIndexFromApicId.c)
- *     HvlpMapStatisticsPage @ 0x1404F326C (HvlpMapStatisticsPage.c)
- *     HvlpStartLogicalProcessor @ 0x1404F416C (HvlpStartLogicalProcessor.c)
+ *     MmMapIoSpaceEx @ 0x140216B10 (MmMapIoSpaceEx.c)
+ *     HvlpGetVpIndexFromApicId @ 0x1404F2F8C (HvlpGetVpIndexFromApicId.c)
+ *     HvlpMapStatisticsPage @ 0x1404F31EC (HvlpMapStatisticsPage.c)
+ *     HvlpStartLogicalProcessor @ 0x1404F40EC (HvlpStartLogicalProcessor.c)
  */
 
 __int64 __fastcall HvlpEnableNextLogicalProcessor(__int64 a1, unsigned __int16 a2)

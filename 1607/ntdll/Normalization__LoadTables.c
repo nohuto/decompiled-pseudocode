@@ -1,9 +1,9 @@
 /*
- * XREFs of Normalization__LoadTables @ 0x180087548
+ * XREFs of Normalization__LoadTables @ 0x180087538
  * Callers:
- *     RtlpGetNormalization @ 0x180058730 (RtlpGetNormalization.c)
+ *     RtlpGetNormalization @ 0x180058720 (RtlpGetNormalization.c)
  * Callees:
- *     Normalization__LoadClassMapExceptions @ 0x1800876C8 (Normalization__LoadClassMapExceptions.c)
+ *     Normalization__LoadClassMapExceptions @ 0x1800876B8 (Normalization__LoadClassMapExceptions.c)
  *     memset @ 0x1800ACCC0 (memset.c)
  */
 

@@ -1,115 +1,115 @@
 /*
- * XREFs of PopTransitionSystemPowerStateEx @ 0x140C0B0A0
+ * XREFs of PopTransitionSystemPowerStateEx @ 0x140C112B0
  * Callers:
- *     PopTransitionSystemPowerState @ 0x140C0B030 (PopTransitionSystemPowerState.c)
+ *     PopTransitionSystemPowerState @ 0x140C11240 (PopTransitionSystemPowerState.c)
  * Callees:
- *     KeQueryPerformanceCounter @ 0x14021C3F0 (KeQueryPerformanceCounter.c)
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     KeWaitForSingleObject @ 0x140278560 (KeWaitForSingleObject.c)
- *     KeSetEvent @ 0x1402DE9C0 (KeSetEvent.c)
- *     ExQueueWorkItem @ 0x140381C70 (ExQueueWorkItem.c)
- *     PopRunMaximumIrpWorkers @ 0x1403B7600 (PopRunMaximumIrpWorkers.c)
- *     PopExecuteOnTargetProcessors @ 0x140428780 (PopExecuteOnTargetProcessors.c)
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     PopThermalSxEntry @ 0x1404351B4 (PopThermalSxEntry.c)
- *     PopFanSxExit @ 0x1404352D4 (PopFanSxExit.c)
- *     PopFanSxEntry @ 0x140435910 (PopFanSxEntry.c)
- *     PopUmpoSendFlushSleepStudyLoggerNotification @ 0x140437AA0 (PopUmpoSendFlushSleepStudyLoggerNotification.c)
- *     PoSetUserPresent @ 0x1404382E0 (PoSetUserPresent.c)
- *     PopCheckForWork @ 0x1404385D4 (PopCheckForWork.c)
- *     PopGetPolicyWorker @ 0x14043864C (PopGetPolicyWorker.c)
- *     StringCchPrintfW @ 0x1404AC750 (StringCchPrintfW.c)
- *     ExWakeTimersPause @ 0x1404B93C0 (ExWakeTimersPause.c)
- *     PpmCheckPausePpmEngineForSx @ 0x1404C7670 (PpmCheckPausePpmEngineForSx.c)
- *     PpmCheckResumePpmEngineFromSx @ 0x1404C76B4 (PpmCheckResumePpmEngineFromSx.c)
- *     IoRaiseInformationalHardError @ 0x1404DFC20 (IoRaiseInformationalHardError.c)
- *     PopActionRetrieveInitialState @ 0x1404F0404 (PopActionRetrieveInitialState.c)
- *     PopSetPowerActionState @ 0x1404F4374 (PopSetPowerActionState.c)
- *     ExWakeTimersResume @ 0x1404F5668 (ExWakeTimersResume.c)
- *     PopSetPowerActionWatchdogState @ 0x1404FE998 (PopSetPowerActionWatchdogState.c)
- *     PopCheckPowerSourceAfterRtcWakeCancel @ 0x1405079A8 (PopCheckPowerSourceAfterRtcWakeCancel.c)
- *     PopIgnoreBatteryStatusChange @ 0x140514E18 (PopIgnoreBatteryStatusChange.c)
- *     PopFxPrepareDevicesForShutdown @ 0x140522284 (PopFxPrepareDevicesForShutdown.c)
- *     PsIumResumeAfterHibernate @ 0x140527718 (PsIumResumeAfterHibernate.c)
- *     RtlBootStatusDisableFlushing @ 0x1405306D0 (RtlBootStatusDisableFlushing.c)
- *     PopReadShutdownPolicy @ 0x140600C58 (PopReadShutdownPolicy.c)
- *     PopPushPowerStateTransitionRecordWithCallback @ 0x14060769C (PopPushPowerStateTransitionRecordWithCallback.c)
- *     PopCheckPowerSourceAfterRtcWakeSet @ 0x140607E5C (PopCheckPowerSourceAfterRtcWakeSet.c)
- *     ExDeleteWakeTimerInfo @ 0x1406CEC44 (ExDeleteWakeTimerInfo.c)
- *     WheaResumedFromHibernate @ 0x1406D469C (WheaResumedFromHibernate.c)
- *     ZwUpdateWnfStateData @ 0x140727030 (ZwUpdateWnfStateData.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     PopDeferDoze @ 0x1407718E0 (PopDeferDoze.c)
- *     PopResetActionDefaults @ 0x14077C7B8 (PopResetActionDefaults.c)
- *     PopSetShutdownMarker @ 0x14077D210 (PopSetShutdownMarker.c)
- *     PpmPerfReApplyStates @ 0x1407CE2FC (PpmPerfReApplyStates.c)
- *     PopQueryMostRecentWakeSourceAttributes @ 0x1407CF840 (PopQueryMostRecentWakeSourceAttributes.c)
- *     PopBootLoaderTraceProcess @ 0x1407CFAB0 (PopBootLoaderTraceProcess.c)
- *     PopZeroHiberFile @ 0x1407D0EAC (PopZeroHiberFile.c)
- *     PopSaveLidReliabilityState @ 0x1407D15B8 (PopSaveLidReliabilityState.c)
- *     PopDiagTracePreSleepNotification @ 0x1407D4844 (PopDiagTracePreSleepNotification.c)
- *     PopDiagTraceStateTransitionFailurePoint @ 0x1407D5360 (PopDiagTraceStateTransitionFailurePoint.c)
- *     PopPowerAggregatorNotifySystemWake @ 0x1407D6DC4 (PopPowerAggregatorNotifySystemWake.c)
- *     MmZeroPageFileAtShutdown @ 0x1408648B4 (MmZeroPageFileAtShutdown.c)
- *     PsLookupProcessByProcessId @ 0x1408EF4E0 (PsLookupProcessByProcessId.c)
- *     PopFilterCapabilities @ 0x140944D5C (PopFilterCapabilities.c)
- *     PopUpdateSystemIdleContext @ 0x140945524 (PopUpdateSystemIdleContext.c)
- *     ExSwapinWorkerThreads @ 0x140956958 (ExSwapinWorkerThreads.c)
- *     PopInitSystemSleeperThread @ 0x140A03F00 (PopInitSystemSleeperThread.c)
- *     PsLookupThreadByThreadId @ 0x140A10B70 (PsLookupThreadByThreadId.c)
- *     PopCheckResiliencyScenarios @ 0x140A3D444 (PopCheckResiliencyScenarios.c)
- *     ExAcquireTimeRefreshLockExclusive @ 0x140A66A6C (ExAcquireTimeRefreshLockExclusive.c)
- *     ExReleaseTimeRefreshLockExclusive @ 0x140A66AE4 (ExReleaseTimeRefreshLockExclusive.c)
- *     MmLockPagableSectionByHandle @ 0x140A9C420 (MmLockPagableSectionByHandle.c)
- *     PopCurrentPowerStatePrecise @ 0x140AB129C (PopCurrentPowerStatePrecise.c)
- *     PopCurrentPowerState @ 0x140AB1350 (PopCurrentPowerState.c)
- *     PoInitializeBroadcast @ 0x140AC58BC (PoInitializeBroadcast.c)
- *     PnpSurpriseFailUnsafeDmaDevices @ 0x140B130B4 (PnpSurpriseFailUnsafeDmaDevices.c)
- *     PopTransitionCheckpoint @ 0x140B1B69C (PopTransitionCheckpoint.c)
- *     RtlSetSystemBootStatusEx @ 0x140B1B790 (RtlSetSystemBootStatusEx.c)
- *     PopInitializePowerPolicySimulate @ 0x140B2CC10 (PopInitializePowerPolicySimulate.c)
- *     PopIsDozeSupported @ 0x140B2E7C8 (PopIsDozeSupported.c)
- *     PopSetSleepMarker @ 0x140B2ECDC (PopSetSleepMarker.c)
- *     SshSessionManagerTracePostSleepNotification @ 0x140B2FE08 (SshSessionManagerTracePostSleepNotification.c)
- *     PoClearBroadcast @ 0x140B33768 (PoClearBroadcast.c)
- *     PopFastS4Check @ 0x140B3CBE4 (PopFastS4Check.c)
- *     PopIsDetailedSleepReliabilityDiagEnabled @ 0x140B3CD68 (PopIsDetailedSleepReliabilityDiagEnabled.c)
- *     PopDiagTraceKernelQueriesAllowed @ 0x140B41664 (PopDiagTraceKernelQueriesAllowed.c)
- *     PopQueryPowerSettingUlong @ 0x140B41710 (PopQueryPowerSettingUlong.c)
- *     PopFindNextSystemPowerState @ 0x140B449C0 (PopFindNextSystemPowerState.c)
- *     CmSetLazyFlushState @ 0x140B46A24 (CmSetLazyFlushState.c)
- *     PopEsExitSleep @ 0x140B4F60C (PopEsExitSleep.c)
- *     PopEnforceResiliencyScenarios @ 0x140B501F8 (PopEnforceResiliencyScenarios.c)
- *     PopNotifyTelemetryOsState @ 0x140B50FFC (PopNotifyTelemetryOsState.c)
- *     PopAdvanceSystemPowerState @ 0x140B55C34 (PopAdvanceSystemPowerState.c)
- *     PopNotifyCallbacksPreSleep @ 0x140B5BB0C (PopNotifyCallbacksPreSleep.c)
- *     PopEsEnterSleepShutdown @ 0x140B5CD70 (PopEsEnterSleepShutdown.c)
- *     PopCancelIgnoreBatteryStatusChange @ 0x140B607C0 (PopCancelIgnoreBatteryStatusChange.c)
- *     PopTransitionGetWakeTimerType @ 0x140B612E8 (PopTransitionGetWakeTimerType.c)
- *     PopAllocateHiberContext @ 0x140B71364 (PopAllocateHiberContext.c)
- *     PopGracefulShutdown @ 0x140BF9180 (PopGracefulShutdown.c)
- *     PopHandleWakeSources @ 0x140BF952C (PopHandleWakeSources.c)
- *     PopProcessDeviceWakeSource @ 0x140BF97FC (PopProcessDeviceWakeSource.c)
- *     PoDelistPowerStateTransitionBlocker @ 0x140BFD138 (PoDelistPowerStateTransitionBlocker.c)
- *     PopDiagTraceFirmwareS3Stats @ 0x140BFD8EC (PopDiagTraceFirmwareS3Stats.c)
- *     PopDiagTraceHibernateErrorStatus @ 0x140BFDBBC (PopDiagTraceHibernateErrorStatus.c)
- *     PopDiagTraceMtrrError @ 0x140BFDC48 (PopDiagTraceMtrrError.c)
- *     PopAcquirePolicyLock @ 0x140C04BF0 (PopAcquirePolicyLock.c)
- *     PopReleasePolicyLock @ 0x140C04C40 (PopReleasePolicyLock.c)
- *     PopSetDevicesSystemState @ 0x140C05C70 (PopSetDevicesSystemState.c)
- *     PopCheckpointSystemSleep @ 0x140C06470 (PopCheckpointSystemSleep.c)
- *     PopFlushVolumes @ 0x140C06720 (PopFlushVolumes.c)
- *     PopQpcTimeInMs @ 0x140C06CF0 (PopQpcTimeInMs.c)
- *     PfPowerActionNotify @ 0x140C071B0 (PfPowerActionNotify.c)
- *     ExUpdateSystemTimeFromCmos @ 0x140C08734 (ExUpdateSystemTimeFromCmos.c)
- *     PopNewWakeInfo @ 0x140C09008 (PopNewWakeInfo.c)
- *     PopAcquireTransitionLockAfterSleep @ 0x140C090E8 (PopAcquireTransitionLockAfterSleep.c)
- *     IoFreePoDeviceNotifyList @ 0x140C0A0AC (IoFreePoDeviceNotifyList.c)
- *     PopDiagComputeEarlyHiberStats @ 0x140C0A60C (PopDiagComputeEarlyHiberStats.c)
- *     PopIsMostRecentWakeAttended @ 0x140C0C3F8 (PopIsMostRecentWakeAttended.c)
- *     PopDiagTracePostSleepNotification @ 0x140C0C638 (PopDiagTracePostSleepNotification.c)
- *     ExGetNextWakeTime @ 0x140C0CCD0 (ExGetNextWakeTime.c)
+ *     PopExecuteOnTargetProcessors @ 0x14021AA60 (PopExecuteOnTargetProcessors.c)
+ *     KeQueryPerformanceCounter @ 0x14021DD80 (KeQueryPerformanceCounter.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     KeWaitForSingleObject @ 0x140277AD0 (KeWaitForSingleObject.c)
+ *     KeSetEvent @ 0x1402C0780 (KeSetEvent.c)
+ *     ExQueueWorkItem @ 0x140383A20 (ExQueueWorkItem.c)
+ *     PopRunMaximumIrpWorkers @ 0x1403C1500 (PopRunMaximumIrpWorkers.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     PopThermalSxEntry @ 0x14042408C (PopThermalSxEntry.c)
+ *     PopFanSxExit @ 0x14042446C (PopFanSxExit.c)
+ *     PopFanSxEntry @ 0x14042474C (PopFanSxEntry.c)
+ *     PopUmpoSendFlushSleepStudyLoggerNotification @ 0x140424B5C (PopUmpoSendFlushSleepStudyLoggerNotification.c)
+ *     PoSetUserPresent @ 0x140427200 (PoSetUserPresent.c)
+ *     PopCheckForWork @ 0x1404274F4 (PopCheckForWork.c)
+ *     PopGetPolicyWorker @ 0x14042756C (PopGetPolicyWorker.c)
+ *     StringCchPrintfW @ 0x1404A5DE0 (StringCchPrintfW.c)
+ *     ExWakeTimersPause @ 0x1404B2BF0 (ExWakeTimersPause.c)
+ *     PpmCheckPausePpmEngineForSx @ 0x1404C0F80 (PpmCheckPausePpmEngineForSx.c)
+ *     PpmCheckResumePpmEngineFromSx @ 0x1404C0FC4 (PpmCheckResumePpmEngineFromSx.c)
+ *     IoRaiseInformationalHardError @ 0x1404D9300 (IoRaiseInformationalHardError.c)
+ *     PopActionRetrieveInitialState @ 0x1404E99E4 (PopActionRetrieveInitialState.c)
+ *     PopSetPowerActionState @ 0x1404ED954 (PopSetPowerActionState.c)
+ *     ExWakeTimersResume @ 0x1404EEC28 (ExWakeTimersResume.c)
+ *     PopSetPowerActionWatchdogState @ 0x1404F7F48 (PopSetPowerActionWatchdogState.c)
+ *     PopCheckPowerSourceAfterRtcWakeCancel @ 0x140501378 (PopCheckPowerSourceAfterRtcWakeCancel.c)
+ *     PopIgnoreBatteryStatusChange @ 0x14050E888 (PopIgnoreBatteryStatusChange.c)
+ *     PopFxPrepareDevicesForShutdown @ 0x1405248F0 (PopFxPrepareDevicesForShutdown.c)
+ *     PsIumResumeAfterHibernate @ 0x140529D88 (PsIumResumeAfterHibernate.c)
+ *     RtlBootStatusDisableFlushing @ 0x140532BD0 (RtlBootStatusDisableFlushing.c)
+ *     PopReadShutdownPolicy @ 0x140603708 (PopReadShutdownPolicy.c)
+ *     PopPushPowerStateTransitionRecordWithCallback @ 0x14060A1F8 (PopPushPowerStateTransitionRecordWithCallback.c)
+ *     PopCheckPowerSourceAfterRtcWakeSet @ 0x14060AA0C (PopCheckPowerSourceAfterRtcWakeSet.c)
+ *     ExDeleteWakeTimerInfo @ 0x1406D2C74 (ExDeleteWakeTimerInfo.c)
+ *     WheaResumedFromHibernate @ 0x1406D871C (WheaResumedFromHibernate.c)
+ *     ZwUpdateWnfStateData @ 0x14072BC00 (ZwUpdateWnfStateData.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     PopDeferDoze @ 0x1407748E0 (PopDeferDoze.c)
+ *     PopResetActionDefaults @ 0x14077F2AC (PopResetActionDefaults.c)
+ *     PopSetShutdownMarker @ 0x14077FD10 (PopSetShutdownMarker.c)
+ *     PpmPerfReApplyStates @ 0x1407D139C (PpmPerfReApplyStates.c)
+ *     PopQueryMostRecentWakeSourceAttributes @ 0x1407D28E0 (PopQueryMostRecentWakeSourceAttributes.c)
+ *     PopBootLoaderTraceProcess @ 0x1407D2B50 (PopBootLoaderTraceProcess.c)
+ *     PopZeroHiberFile @ 0x1407D3F4C (PopZeroHiberFile.c)
+ *     PopSaveLidReliabilityState @ 0x1407D4658 (PopSaveLidReliabilityState.c)
+ *     PopDiagTracePreSleepNotification @ 0x1407D79C4 (PopDiagTracePreSleepNotification.c)
+ *     PopDiagTraceStateTransitionFailurePoint @ 0x1407D8518 (PopDiagTraceStateTransitionFailurePoint.c)
+ *     PopPowerAggregatorNotifySystemWake @ 0x1407D9EF4 (PopPowerAggregatorNotifySystemWake.c)
+ *     MmZeroPageFileAtShutdown @ 0x14086AC94 (MmZeroPageFileAtShutdown.c)
+ *     PsLookupProcessByProcessId @ 0x1408F5AA0 (PsLookupProcessByProcessId.c)
+ *     ExSwapinWorkerThreads @ 0x14094A380 (ExSwapinWorkerThreads.c)
+ *     PnpSurpriseFailUnsafeDmaDevices @ 0x14096EA80 (PnpSurpriseFailUnsafeDmaDevices.c)
+ *     PopFilterCapabilities @ 0x1409C06CC (PopFilterCapabilities.c)
+ *     PopUpdateSystemIdleContext @ 0x1409C0E94 (PopUpdateSystemIdleContext.c)
+ *     PopCheckResiliencyScenarios @ 0x1409F8E64 (PopCheckResiliencyScenarios.c)
+ *     PsLookupThreadByThreadId @ 0x140A0FD60 (PsLookupThreadByThreadId.c)
+ *     ExAcquireTimeRefreshLockExclusive @ 0x140A73A3C (ExAcquireTimeRefreshLockExclusive.c)
+ *     ExReleaseTimeRefreshLockExclusive @ 0x140A73AB4 (ExReleaseTimeRefreshLockExclusive.c)
+ *     PopInitSystemSleeperThread @ 0x140A77BF0 (PopInitSystemSleeperThread.c)
+ *     MmLockPagableSectionByHandle @ 0x140A9F220 (MmLockPagableSectionByHandle.c)
+ *     PopCurrentPowerStatePrecise @ 0x140AAF28C (PopCurrentPowerStatePrecise.c)
+ *     PopCurrentPowerState @ 0x140AAF340 (PopCurrentPowerState.c)
+ *     PoInitializeBroadcast @ 0x140AC752C (PoInitializeBroadcast.c)
+ *     PopTransitionCheckpoint @ 0x140B1D94C (PopTransitionCheckpoint.c)
+ *     RtlSetSystemBootStatusEx @ 0x140B1DA40 (RtlSetSystemBootStatusEx.c)
+ *     PopInitializePowerPolicySimulate @ 0x140B2EC90 (PopInitializePowerPolicySimulate.c)
+ *     PopIsDozeSupported @ 0x140B30718 (PopIsDozeSupported.c)
+ *     PopSetSleepMarker @ 0x140B30AB8 (PopSetSleepMarker.c)
+ *     SshSessionManagerTracePostSleepNotification @ 0x140B31BE8 (SshSessionManagerTracePostSleepNotification.c)
+ *     PoClearBroadcast @ 0x140B35BB8 (PoClearBroadcast.c)
+ *     PopFastS4Check @ 0x140B3EE64 (PopFastS4Check.c)
+ *     PopIsDetailedSleepReliabilityDiagEnabled @ 0x140B3EFE8 (PopIsDetailedSleepReliabilityDiagEnabled.c)
+ *     PopDiagTraceKernelQueriesAllowed @ 0x140B43674 (PopDiagTraceKernelQueriesAllowed.c)
+ *     PopQueryPowerSettingUlong @ 0x140B43720 (PopQueryPowerSettingUlong.c)
+ *     PopFindNextSystemPowerState @ 0x140B469FC (PopFindNextSystemPowerState.c)
+ *     CmSetLazyFlushState @ 0x140B48A54 (CmSetLazyFlushState.c)
+ *     PopEsExitSleep @ 0x140B51E9C (PopEsExitSleep.c)
+ *     PopEnforceResiliencyScenarios @ 0x140B52A88 (PopEnforceResiliencyScenarios.c)
+ *     PopNotifyTelemetryOsState @ 0x140B53894 (PopNotifyTelemetryOsState.c)
+ *     PopAdvanceSystemPowerState @ 0x140B584D4 (PopAdvanceSystemPowerState.c)
+ *     PopNotifyCallbacksPreSleep @ 0x140B5EE28 (PopNotifyCallbacksPreSleep.c)
+ *     PopEsEnterSleepShutdown @ 0x140B5FEF0 (PopEsEnterSleepShutdown.c)
+ *     PopCancelIgnoreBatteryStatusChange @ 0x140B63860 (PopCancelIgnoreBatteryStatusChange.c)
+ *     PopTransitionGetWakeTimerType @ 0x140B64388 (PopTransitionGetWakeTimerType.c)
+ *     PopAllocateHiberContext @ 0x140B75B48 (PopAllocateHiberContext.c)
+ *     PopGracefulShutdown @ 0x140BFF180 (PopGracefulShutdown.c)
+ *     PopHandleWakeSources @ 0x140BFF52C (PopHandleWakeSources.c)
+ *     PopProcessDeviceWakeSource @ 0x140BFF7FC (PopProcessDeviceWakeSource.c)
+ *     PoDelistPowerStateTransitionBlocker @ 0x140C03138 (PoDelistPowerStateTransitionBlocker.c)
+ *     PopDiagTraceFirmwareS3Stats @ 0x140C038EC (PopDiagTraceFirmwareS3Stats.c)
+ *     PopDiagTraceHibernateErrorStatus @ 0x140C03C08 (PopDiagTraceHibernateErrorStatus.c)
+ *     PopDiagTraceMtrrError @ 0x140C03C94 (PopDiagTraceMtrrError.c)
+ *     PopAcquirePolicyLock @ 0x140C0AE00 (PopAcquirePolicyLock.c)
+ *     PopReleasePolicyLock @ 0x140C0AE50 (PopReleasePolicyLock.c)
+ *     PopSetDevicesSystemState @ 0x140C0BE80 (PopSetDevicesSystemState.c)
+ *     PopCheckpointSystemSleep @ 0x140C0C680 (PopCheckpointSystemSleep.c)
+ *     PopFlushVolumes @ 0x140C0C930 (PopFlushVolumes.c)
+ *     PopQpcTimeInMs @ 0x140C0CF00 (PopQpcTimeInMs.c)
+ *     PfPowerActionNotify @ 0x140C0D3C0 (PfPowerActionNotify.c)
+ *     ExUpdateSystemTimeFromCmos @ 0x140C0E944 (ExUpdateSystemTimeFromCmos.c)
+ *     PopNewWakeInfo @ 0x140C0F218 (PopNewWakeInfo.c)
+ *     PopAcquireTransitionLockAfterSleep @ 0x140C0F2F8 (PopAcquireTransitionLockAfterSleep.c)
+ *     IoFreePoDeviceNotifyList @ 0x140C102BC (IoFreePoDeviceNotifyList.c)
+ *     PopDiagComputeEarlyHiberStats @ 0x140C1081C (PopDiagComputeEarlyHiberStats.c)
+ *     PopIsMostRecentWakeAttended @ 0x140C12608 (PopIsMostRecentWakeAttended.c)
+ *     PopDiagTracePostSleepNotification @ 0x140C12848 (PopDiagTracePostSleepNotification.c)
+ *     ExGetNextWakeTime @ 0x140C12EE0 (ExGetNextWakeTime.c)
  */
 
 __int64 __fastcall PopTransitionSystemPowerStateEx(int *a1)
@@ -183,12 +183,12 @@ __int64 __fastcall PopTransitionSystemPowerStateEx(int *a1)
   int inited; // eax
   unsigned __int64 v69; // r9
   __int64 v70; // rsi
-  unsigned __int8 v71; // r11
+  char v71; // r11
   __int64 v72; // r10
   __int64 v73; // rdx
   __int64 v74; // rax
-  char *v75; // rdx
-  char *v76; // rdx
+  unsigned __int64 v75; // rdx
+  unsigned __int64 v76; // rdx
   __int64 v77; // rcx
   __int64 *v78; // rbx
   int v79; // r8d
@@ -236,7 +236,7 @@ __int64 __fastcall PopTransitionSystemPowerStateEx(int *a1)
   unsigned int v121; // r8d
   void *v122; // rcx
   int v123; // edx
-  int v125; // [rsp+30h] [rbp-89h]
+  int CheckStamp; // [rsp+30h] [rbp-89h]
   HANDLE ProcessId[2]; // [rsp+58h] [rbp-61h] BYREF
   PETHREAD Thread; // [rsp+68h] [rbp-51h] BYREF
   PEPROCESS Process; // [rsp+70h] [rbp-49h] BYREF
@@ -263,7 +263,7 @@ __int64 __fastcall PopTransitionSystemPowerStateEx(int *a1)
   a1[7] = 0;
   *((_QWORD *)a1 + 8) = 0LL;
   *((_QWORD *)a1 + 5) = 0LL;
-  v132[1] = &word_140C0E0E0;
+  v132[1] = &word_140C142F0;
   a1[25] = 0;
   a1[28] = 1;
   a1[29] = 1;
@@ -287,7 +287,7 @@ __int64 __fastcall PopTransitionSystemPowerStateEx(int *a1)
   Process = 0LL;
   v142 = 0LL;
   Thread = 0LL;
-  a1[85] = (*(_DWORD *)&stru_140F10828.WaitBlockFill11[100] & 0x10000) != 0 ? 300000000 : 600000000;
+  a1[85] = (PpmIdlePolicyLock.SchedulerAssistLastYieldBoostTime & 0x10000) != 0 ? 300000000 : 600000000;
   *(_OWORD *)ProcessId = 0LL;
   v129 = 0LL;
   a1[22] = 0;
@@ -300,9 +300,9 @@ __int64 __fastcall PopTransitionSystemPowerStateEx(int *a1)
   PopAcquireTransitionLockAfterSleep(v9, v6, v7, v8);
   MmLockPagableSectionByHandle(ExPageLockHandle);
   PopRunMaximumIrpWorkers();
-  stru_140F0F620.StackBase = 0LL;
-  stru_140F0F620.StackLimit = PopUnlockAfterSleepWorker;
-  stru_140F0F620.QuantumTarget = 0LL;
+  PopUnlockAfterSleepWorkItem.Parameter = 0LL;
+  PopUnlockAfterSleepWorkItem.WorkerRoutine = (void (__fastcall *)(void *))PopUnlockAfterSleepWorker;
+  PopUnlockAfterSleepWorkItem.List.Flink = 0LL;
   CmSetLazyFlushState(0);
   PopNotifyCallbacksPreSleep();
   ExSwapinWorkerThreads(0);
@@ -310,7 +310,7 @@ __int64 __fastcall PopTransitionSystemPowerStateEx(int *a1)
   a1[22] = v10;
   if ( v10 < 0 )
   {
-    ExQueueWorkItem((PWORK_QUEUE_ITEM)&stru_140F0F620.QuantumTarget, DelayedWorkQueue);
+    ExQueueWorkItem(&PopUnlockAfterSleepWorkItem, DelayedWorkQueue);
     *v2 = 5;
     goto LABEL_230;
   }
@@ -318,14 +318,14 @@ __int64 __fastcall PopTransitionSystemPowerStateEx(int *a1)
   PopCurrentPowerStatePrecise((__int64)(a1 + 30), (__int64)&v129);
   PopAcquirePolicyLock(v12, v11, v13, v14);
   *((_BYTE *)a1 + 48) = 1;
-  PopFilterCapabilities((__int64)&stru_140F10828.WaitBlock[0].Thread, (__int64)&unk_140F0FC38);
-  if ( byte_140F0FB61 )
+  PopFilterCapabilities((__int64)&PpmIdlePolicyLock.Padding[1], (__int64)&unk_140F104F8);
+  if ( byte_140F10421 )
   {
-    if ( byte_140F0FB61 != 2 )
+    if ( byte_140F10421 != 2 )
     {
       PopReleasePolicyLock();
       PoClearBroadcast();
-      ExQueueWorkItem((PWORK_QUEUE_ITEM)&stru_140F0F620.QuantumTarget, DelayedWorkQueue);
+      ExQueueWorkItem(&PopUnlockAfterSleepWorkItem, DelayedWorkQueue);
       *v2 = 6;
       a1[22] = -1073741791;
       goto LABEL_230;
@@ -336,26 +336,26 @@ __int64 __fastcall PopTransitionSystemPowerStateEx(int *a1)
     PopResetActionDefaults();
   }
   PopSetPowerActionState(3);
-  *(_QWORD *)&qword_140F0FBA8 = qword_140F0FAF0;
+  *(_QWORD *)&qword_140F10468 = qword_140F103F0;
   PopIgnoreBatteryStatusChange();
   PopCheckResiliencyScenarios();
   PopEnforceResiliencyScenarios(a1 + 52);
   PopExecuteOnTargetProcessors(
-    (__int64)&stru_140FC01F0.WaitRegister,
+    (__int64)&stru_140FC11F0.WaitRegister,
     (__int64)PpmStopIllegalProcessorThrottleLogging,
     0LL,
     0LL);
   v18 = 6;
   if ( *a1 == 6 )
-    LODWORD(qword_140F0FB64) = 6;
+    LODWORD(qword_140F10424) = 6;
   v19 = *a1;
   if ( *a1 == 4 || (unsigned int)(v19 - 5) <= 1 )
   {
-    BYTE1(stru_140F10828.WriteOperationCount) = 1;
+    PoPowerDownActionInProgress = 1;
     if ( v19 == 5 )
-      BYTE3(stru_140F10828.WriteOperationCount) = 1;
-    if ( FileHandle && FileObject && (unsigned int)MmZeroPageFileAtShutdown() )
-      PopZeroHiberFile(FileHandle, (__int64)FileObject);
+      PoPowerResetActionInProgress = 1;
+    if ( PopHiberInfo && FileObject && (unsigned int)MmZeroPageFileAtShutdown() )
+      PopZeroHiberFile(PopHiberInfo, (__int64)FileObject);
   }
   v20 = *a1;
   v21 = (unsigned __int8 *)(a1 + 18);
@@ -363,7 +363,7 @@ __int64 __fastcall PopTransitionSystemPowerStateEx(int *a1)
   v22 = a1 + 4;
   a1[4] = 0;
   if ( v20 == 2 || v20 == 3 )
-    BYTE1(stru_140F10828.WriteOperationCount) = 1;
+    PoPowerDownActionInProgress = 1;
   a1[22] = -1073741536;
   v23 = a1 + 82;
   *((_BYTE *)a1 + 96) = 0;
@@ -378,18 +378,18 @@ __int64 __fastcall PopTransitionSystemPowerStateEx(int *a1)
           PopAcquirePolicyLock(2LL, v15, v16, v17);
           *((_BYTE *)a1 + 48) = 1;
         }
-        if ( !(_DWORD)qword_140F0FB64 )
+        if ( !(_DWORD)qword_140F10424 )
         {
           a1[27] = 6;
           a1[22] = 0;
           goto LABEL_69;
         }
-        *((_BYTE *)a1 + 104) = byte_140F0FB60;
-        LOBYTE(byte_140F0FB60) = 0;
+        *((_BYTE *)a1 + 104) = PopAction;
+        LOBYTE(PopAction) = 0;
         v24 = a1[22];
         if ( v24 == -1073741536 )
         {
-          if ( (a1[26] & 2) != 0 && dword_140F0FB6C >= 0 && (dword_140F0FB6C & 3) != 0 )
+          if ( (a1[26] & 2) != 0 && dword_140F1042C >= 0 && (dword_140F1042C & 3) != 0 )
           {
             PopGetPolicyWorker(2);
             a1[27] = 8;
@@ -398,11 +398,11 @@ LABEL_69:
             v5 = v142;
             goto LABEL_70;
           }
-          PopActionRetrieveInitialState((_DWORD *)&qword_140F0FB64 + 1, a1 + 4, &dword_140F0FB8C, (_BYTE *)a1 + 72);
-          if ( (unsigned int)(qword_140F0FB64 - 4) <= 2 )
+          PopActionRetrieveInitialState((_DWORD *)&qword_140F10424 + 1, a1 + 4, &dword_140F1044C, (_BYTE *)a1 + 72);
+          if ( (unsigned int)(qword_140F10424 - 4) <= 2 )
           {
-            byte_140F0FB62 = 1;
-            dword_140F0FB6C = a1[2];
+            byte_140F10422 = 1;
+            dword_140F1042C = a1[2];
           }
           a1[22] = 0;
         }
@@ -415,40 +415,40 @@ LABEL_69:
         *v23 = 1;
         *v3 = 0;
         PopQueryPowerSettingUlong(&GUID_ALLOW_RTC_WAKE, v23, v3);
-        if ( (dword_140F0FB6C & 0x40000000) != 0 )
+        if ( (dword_140F1042C & 0x40000000) != 0 )
         {
           *v23 = 0;
           *v3 = 0;
         }
-        if ( !byte_140F0FC56 && !byte_140F0FC44 && !byte_140F0FC4B )
+        if ( !byte_140F10516 && !byte_140F10504 && !byte_140F1050B )
           *v3 = 0;
         PopInitializePowerPolicySimulate();
-        dword_140F0FB90 = dword_140F0FB8C;
-        v25 = ((unsigned int)dword_140F0FB6C >> 27) & 2;
+        dword_140F10450 = dword_140F1044C;
+        v25 = ((unsigned int)dword_140F1042C >> 27) & 2;
         a1[23] = v25;
-        PopAdvanceSystemPowerState(&dword_140F0FB90, v25, SHIDWORD(qword_140F0FB64), *v22);
+        PopAdvanceSystemPowerState(&dword_140F10450, v25, SHIDWORD(qword_140F10424), *v22);
         if ( (a1[2] & 8) != 0 )
         {
-          byte_140F0FDA0 = 1;
+          byte_140F10920 = 1;
           *((_BYTE *)a1 + 24) = 0;
-          dword_140F0FB94 = 5;
+          dword_140F10454 = 5;
           a1[8] = 6;
-          v26 = dword_140F0FB8C;
+          v26 = dword_140F1044C;
         }
         else
         {
           if ( PopFastS4Check() )
           {
-            a1[8] = dword_140F0FB8C;
+            a1[8] = dword_140F1044C;
             v27 = 6;
-            dword_140F0FB94 = 5;
+            dword_140F10454 = 5;
             *((_BYTE *)a1 + 24) = 1;
             a1[13] = 6;
             goto LABEL_48;
           }
-          dword_140F0FB94 = dword_140F0FB8C;
-          a1[8] = dword_140F0FB8C;
-          v26 = dword_140F0FB8C;
+          dword_140F10454 = dword_140F1044C;
+          a1[8] = dword_140F1044C;
+          v26 = dword_140F1044C;
           *((_BYTE *)a1 + 24) = 0;
         }
         v27 = PopPowerStateHandlerLookup[v26];
@@ -456,7 +456,7 @@ LABEL_69:
         if ( v27 > 6 )
           goto LABEL_65;
 LABEL_48:
-        if ( !qword_140F10768[3 * (int)v27] )
+        if ( !*((_QWORD *)&PpmIdlePolicyLock.Timer.Header.WaitListHead.Flink + 3 * (int)v27) )
         {
 LABEL_65:
           NextSystemPowerState = PopFindNextSystemPowerState(*v22, *((_BYTE *)a1 + 24), (_BYTE *)a1 + 72);
@@ -472,25 +472,25 @@ LABEL_53:
           PopSetSleepMarker(v28);
           goto LABEL_55;
         }
-        if ( !byte_140F0FB62 )
+        if ( !byte_140F10422 )
         {
-          v28 = dword_140F0FB8C;
+          v28 = dword_140F1044C;
           goto LABEL_53;
         }
         PopSetShutdownMarker();
         PopSaveLidReliabilityState(v33);
 LABEL_55:
         PopAcquirePolicyLock(v30, v29, v31, v32);
-        if ( (byte_140F0FB60 & 6) == 0 )
+        if ( (PopAction & 6) == 0 )
           break;
         *((_BYTE *)a1 + 48) = 1;
         a1[22] = -1073741536;
       }
-      v34 = *((_BYTE *)stru_140F0C428.WaitBlock[2].Object + 2);
-      v35 = *((_QWORD *)stru_140F0C428.WaitBlock[2].Object + 7);
+      v34 = *(_BYTE *)(*(_QWORD *)&PopPdcDeviceListLock.Spare36 + 2LL);
+      v35 = *(_QWORD *)(*(_QWORD *)&PopPdcDeviceListLock.Spare36 + 56LL);
       PopReleasePolicyLock();
       PopCheckpointSystemSleep(10, v36, v37, v38);
-      byte_140F0FB88 = 3;
+      byte_140F10448 = 3;
       PopDiagTraceKernelQueriesAllowed(*v21);
       if ( !*v21 )
         goto LABEL_63;
@@ -528,23 +528,23 @@ LABEL_63:
   if ( HiberContext < 0 )
     goto LABEL_69;
   a1[25] = PopNotifyTelemetryOsState(
-             qword_140F0FB64,
-             dword_140F0FB8C,
-             dword_140F0FB94,
+             qword_140F10424,
+             dword_140F1044C,
+             dword_140F10454,
              (struct _KLOCK_ENTRIES *)(unsigned int)a1[2],
              1);
   PopTransitionCheckpoint(9, 0);
-  if ( !byte_140F0FB62 )
+  if ( !byte_140F10422 )
   {
     PopCurrentPowerState(a1 + 30, v55, v57, v58);
     PopDiagTracePreSleepNotification(
       (unsigned int)a1[8],
-      (unsigned int)dword_140F0FB94,
-      dword_140F0FB74,
-      dword_140F0FB78,
+      (unsigned int)dword_140F10454,
+      dword_140F10434,
+      dword_140F10438,
       a1[25],
       (__int64)(a1 + 30),
-      (__int64)qword_140F0FB80);
+      (__int64)qword_140F10440);
     PopCheckpointSystemSleep(16, v59, v60, v61);
     PopUmpoSendFlushSleepStudyLoggerNotification();
   }
@@ -553,7 +553,7 @@ LABEL_63:
   PopFanSxEntry();
   if ( !*((_BYTE *)a1 + 12) )
   {
-    if ( byte_140F0FB62 )
+    if ( byte_140F10422 )
     {
       v139 = 1;
       v133 = 5;
@@ -568,16 +568,16 @@ LABEL_63:
   }
   v62 = 5;
   if ( !*((_BYTE *)a1 + 24) )
-    v62 = dword_140F0FB8C;
+    v62 = dword_140F1044C;
   PopFlushVolumes(v62);
-  if ( dword_140F0FB94 < dword_140F0FB8C )
-    dword_140F0FB94 = dword_140F0FB8C;
-  byte_140F0FB88 = 2;
-  if ( byte_140F0FB62 )
+  if ( dword_140F10454 < dword_140F1044C )
+    dword_140F10454 = dword_140F1044C;
+  byte_140F10448 = 2;
+  if ( byte_140F10422 )
   {
     PopFxPrepareDevicesForShutdown(v64, v63, v65, v66);
-    IoFreePoDeviceNotifyList((_BYTE *)(*(_QWORD *)&qword_140F0FBA8 + 48LL));
-    if ( dword_140F0FB74 == 2 )
+    IoFreePoDeviceNotifyList((_BYTE *)(*(_QWORD *)&qword_140F10468 + 48LL));
+    if ( dword_140F10434 == 2 )
       PopCriticalShutdownInProgress = 1;
     PopTransitionCheckpoint(8, 2);
     PopGracefulShutdown();
@@ -591,27 +591,27 @@ LABEL_63:
     a1[27] = 20;
     goto LABEL_69;
   }
-  if ( !byte_140F0FC20 )
+  if ( !byte_140F104E0 )
   {
     ExWakeTimersPause();
-    byte_140F0FC20 = 1;
+    byte_140F104E0 = 1;
   }
   *((_QWORD *)a1 + 19) = MEMORY[0xFFFFF78000000008];
   v69 = MEMORY[0xFFFFF78000000014];
-  v70 = unk_140F10DE0;
+  v70 = PopWakeAlarmTimeOverrideAc;
   *((_QWORD *)a1 + 20) = MEMORY[0xFFFFF78000000014];
   *((_QWORD *)a1 + 23) = 0LL;
-  if ( v70 || unk_140F10DE8 )
+  if ( v70 || PopWakeAlarmTimeOverrideDc )
   {
     *((_QWORD *)a1 + 23) = -3LL;
   }
   else
   {
-    v71 = stru_140F10828.WaitBlockFill5[44];
-    if ( stru_140F10828.WaitBlockFill5[44]
-      && dword_140F0FB8C == 5
-      && !byte_140F0FDA0
-      && dword_140F0FB74 != 2
+    v71 = BYTE4(PpmIdlePolicyLock.Padding[3]);
+    if ( BYTE4(PpmIdlePolicyLock.Padding[3])
+      && dword_140F1044C == 5
+      && !byte_140F10920
+      && dword_140F10434 != 2
       && v34
       && v35 != -1LL
       && v35 > v69 )
@@ -620,19 +620,19 @@ LABEL_63:
       *((_QWORD *)a1 + 22) = v35 + *((_QWORD *)a1 + 19) - v69;
       goto LABEL_114;
     }
-    if ( !*((_DWORD *)qword_140F105C0 + 22)
-      || dword_140F0FB8C == 5
-      || !PopIsDozeSupported((__int64)&stru_140F10828.WaitBlock[0].Thread)
-      || (dword_140F0FB6C & 0x40000000) != 0 )
+    if ( !*(_DWORD *)(PpmIdlePolicyLock.WriteOperationCount + 88)
+      || dword_140F1044C == 5
+      || !PopIsDozeSupported((__int64)&PpmIdlePolicyLock.Padding[1])
+      || (dword_140F1042C & 0x40000000) != 0 )
     {
-      if ( v71 && dword_140F0FB8C == 5 && !byte_140F0FDA0 && stru_140F0F620.Spare32 && dword_140F0FB74 == 11 )
+      if ( v71 && dword_140F1044C == 5 && !byte_140F10920 && qword_140F10338 && dword_140F10434 == 11 )
       {
-        v75 = (char *)stru_140F0F620.Spare32 - v69;
-        *((_QWORD *)a1 + 39) = (char *)stru_140F0F620.Spare32 - v69;
-        v76 = &v75[-10000000 * PopSmartUserPresenceWakeOffset];
+        v75 = qword_140F10338 - v69;
+        *((_QWORD *)a1 + 39) = qword_140F10338 - v69;
+        v76 = v75 - 10000000LL * (unsigned int)PopSmartUserPresenceWakeOffset;
         v77 = *((_QWORD *)a1 + 19);
         *((_QWORD *)a1 + 39) = v76;
-        *((_QWORD *)a1 + 22) = &v76[v77];
+        *((_QWORD *)a1 + 22) = v76 + v77;
 LABEL_114:
         *((_QWORD *)a1 + 23) = -2LL;
       }
@@ -646,21 +646,21 @@ LABEL_114:
       *((_QWORD *)a1 + 22) = v73 + 10000000 * v74;
     }
   }
-  if ( *((_QWORD *)a1 + 23) == -1LL && !qword_140F0FC30 )
-    qword_140F0FC30 = *((_QWORD *)a1 + 19);
-  v78 = &qword_140F0FBD8;
-  memset_0(&qword_140F0FBD8, 0, 0x48uLL);
-  dword_140F0FBD0 = 3;
+  if ( *((_QWORD *)a1 + 23) == -1LL && !qword_140F104F0 )
+    qword_140F104F0 = *((_QWORD *)a1 + 19);
+  v78 = &qword_140F10498;
+  memset_0(&qword_140F10498, 0, 0x48uLL);
+  dword_140F10490 = 3;
   if ( *((_QWORD *)a1 + 23) == -3LL )
   {
-    qword_140F0FBE8[0] = -3LL;
-    qword_140F0FBD8 = v70;
-    qword_140F0FC00 = *((_QWORD *)a1 + 23);
-    qword_140F0FBF0 = unk_140F10DE8;
+    qword_140F104A8[0] = -3LL;
+    qword_140F10498 = v70;
+    qword_140F104C0 = *((_QWORD *)a1 + 23);
+    qword_140F104B0 = PopWakeAlarmTimeOverrideDc;
   }
-  else if ( !byte_140F0FDA0 && dword_140F0FB74 != 14 )
+  else if ( !byte_140F10920 && dword_140F10434 != 14 )
   {
-    if ( dword_140F0FB8C == 5 && a1[82] != 1 && a1[83] != 1 )
+    if ( dword_140F1044C == 5 && a1[82] != 1 && a1[83] != 1 )
     {
       PopQueryPowerSettingUlong(&GUID_LEGACY_RTC_MITIGATION, a1 + 48, a1 + 49);
       if ( a1[48] || a1[49] )
@@ -672,13 +672,13 @@ LABEL_114:
       {
         if ( a1[82] )
         {
-          qword_140F0FBD8 = *((_QWORD *)a1 + 22);
-          qword_140F0FBE8[0] = *((_QWORD *)a1 + 23);
+          qword_140F10498 = *((_QWORD *)a1 + 22);
+          qword_140F104A8[0] = *((_QWORD *)a1 + 23);
         }
         if ( a1[83] )
         {
-          qword_140F0FBF0 = *((_QWORD *)a1 + 22);
-          qword_140F0FC00 = *((_QWORD *)a1 + 23);
+          qword_140F104B0 = *((_QWORD *)a1 + 22);
+          qword_140F104C0 = *((_QWORD *)a1 + 23);
         }
       }
       else
@@ -688,18 +688,18 @@ LABEL_114:
           *v78 = *((_QWORD *)a1 + 22);
           v78 += 3;
         }
-        while ( (__int64)v78 < (__int64)&unk_140F0FC08 );
-        v80 = qword_140F0FBE8;
+        while ( (__int64)v78 < (__int64)&unk_140F104C8 );
+        v80 = qword_140F104A8;
         do
         {
           *v80 = *((_QWORD *)a1 + 23);
           v80 += 3;
         }
-        while ( (__int64)v80 < (__int64)&qword_140F0FC18 );
+        while ( (__int64)v80 < (__int64)&qword_140F104D8 );
       }
     }
-    v81 = qword_140F0FC28;
-    *((_QWORD *)a1 + 8) = qword_140F0FC28;
+    v81 = qword_140F104E8;
+    *((_QWORD *)a1 + 8) = qword_140F104E8;
     v82 = v81;
     if ( v81 )
     {
@@ -713,7 +713,7 @@ LABEL_114:
     v84 = a1[82];
     if ( v84 )
     {
-      if ( v84 != 2 || (LOBYTE(v79) = 1, *(int *)&stru_140F10828.WaitBlockFill11[100] < 0) )
+      if ( v84 != 2 || (LOBYTE(v79) = 1, SLODWORD(PpmIdlePolicyLock.SchedulerAssistLastYieldBoostTime) < 0) )
         LOBYTE(v79) = 0;
       *((_BYTE *)a1 + 169) = v79;
       v85 = (_DWORD)a1 + 40;
@@ -722,8 +722,8 @@ LABEL_114:
       *((_BYTE *)a1 + 336) = NextWakeTime;
       if ( NextWakeTime )
       {
-        qword_140F0FBD8 = *((_QWORD *)a1 + 5);
-        qword_140F0FBE8[0] = *((_QWORD *)a1 + 25);
+        qword_140F10498 = *((_QWORD *)a1 + 5);
+        qword_140F104A8[0] = *((_QWORD *)a1 + 25);
       }
     }
     else
@@ -734,31 +734,31 @@ LABEL_114:
     v88 = a1[83];
     if ( v88 )
     {
-      if ( v88 != 2 || (LOBYTE(v79) = 1, *(int *)&stru_140F10828.WaitBlockFill11[100] < 0) )
+      if ( v88 != 2 || (LOBYTE(v79) = 1, SLODWORD(PpmIdlePolicyLock.SchedulerAssistLastYieldBoostTime) < 0) )
         LOBYTE(v79) = 0;
       *((_BYTE *)a1 + 169) = v79;
       v89 = ExGetNextWakeTime((unsigned int)*((_QWORD *)a1 + 8) + 1, *((_QWORD *)a1 + 22), v79, v85, v86);
       *((_BYTE *)a1 + 336) = v89;
       if ( v89 )
       {
-        qword_140F0FBF0 = *((_QWORD *)a1 + 5);
-        qword_140F0FC00 = *((_QWORD *)a1 + 25);
+        qword_140F104B0 = *((_QWORD *)a1 + 5);
+        qword_140F104C0 = *((_QWORD *)a1 + 25);
       }
     }
   }
-  qword_140F0FBE0[0] = qword_140F0FBD8;
-  if ( qword_140F0FBD8 && qword_140F0FBD8 < *((_QWORD *)a1 + 19) + (unsigned __int64)(unsigned int)a1[85] )
-    qword_140F0FBE0[0] = *((_QWORD *)a1 + 19) + (unsigned int)a1[85];
-  qword_140F0FBF8 = qword_140F0FBF0;
-  if ( qword_140F0FBF0 && qword_140F0FBF0 < *((_QWORD *)a1 + 19) + (unsigned __int64)(unsigned int)a1[85] )
-    qword_140F0FBF8 = *((_QWORD *)a1 + 19) + (unsigned int)a1[85];
-  a1[80] = PopTransitionGetWakeTimerType(qword_140F0FBE8[0]);
-  a1[81] = PopTransitionGetWakeTimerType(qword_140F0FC00);
-  stru_140F10070.WaitListEntry.Blink = (struct _LIST_ENTRY *)KeQueryPerformanceCounter(0LL).QuadPart;
+  qword_140F104A0[0] = qword_140F10498;
+  if ( qword_140F10498 && qword_140F10498 < *((_QWORD *)a1 + 19) + (unsigned __int64)(unsigned int)a1[85] )
+    qword_140F104A0[0] = *((_QWORD *)a1 + 19) + (unsigned int)a1[85];
+  qword_140F104B8 = qword_140F104B0;
+  if ( qword_140F104B0 && qword_140F104B0 < *((_QWORD *)a1 + 19) + (unsigned __int64)(unsigned int)a1[85] )
+    qword_140F104B8 = *((_QWORD *)a1 + 19) + (unsigned int)a1[85];
+  a1[80] = PopTransitionGetWakeTimerType(qword_140F104A8[0]);
+  a1[81] = PopTransitionGetWakeTimerType(qword_140F104C0);
+  qword_140F109F0 = KeQueryPerformanceCounter(0LL).QuadPart;
   ExAcquireTimeRefreshLockExclusive(v91, v90, v92, v93);
   ExUpdateSystemTimeFromCmos(1, 1u);
   ExReleaseTimeRefreshLockExclusive();
-  guard_dispatch_icall_no_overrides(qword_140F0FBE0[0], qword_140F0FBF8);
+  guard_dispatch_icall_no_overrides(qword_140F104A0[0], qword_140F104B8);
   PopBootStatCheckpointAvailable = 0;
   PpmCheckPausePpmEngineForSx(v95, v94, v96);
   PsLookupProcessByProcessId(ProcessId[0], &Process);
@@ -770,20 +770,20 @@ LABEL_114:
   *((_QWORD *)a1 + 38) = MEMORY[0xFFFFF78000000008];
   v4 = Process;
   v97 = Process;
-  a1[28] = dword_140F106CC;
+  a1[28] = HIDWORD(PpmIdlePolicyLock.PropagateBoostsEntry.Next);
   v98 = PopPushPowerStateTransitionRecordWithCallback(v97, v5, 0LL, 0LL, 0LL);
   KeSetEvent((PRKEVENT)(a1 + 62), 0, 1u);
   KeWaitForSingleObject(a1 + 68, Executive, 0, 0, 0LL);
   if ( v98 >= 0 )
     PoDelistPowerStateTransitionBlocker(v100, v99, v101, v102);
-  qword_140F0FE40 = 0LL;
+  qword_140F109C0 = 0LL;
   a1[22] = a1[75];
   PopSetPowerActionWatchdogState(2);
   CurrentThread = KeGetCurrentThread();
-  v104 = dword_140F0FB8C;
-  if ( LOBYTE(stru_140F10828.OtherOperationCount) )
-    v104 = dword_140F0FB94;
-  dword_140F0FB98 = v104;
+  v104 = dword_140F1044C;
+  if ( PoResumeFromHibernate )
+    v104 = dword_140F10454;
+  dword_140F10458 = v104;
   PopTransitionCritialResumeThread = (__int64)CurrentThread;
   if ( (a1[2] & 8) != 0 )
   {
@@ -791,51 +791,49 @@ LABEL_114:
   }
   else
   {
-    a1[8] = dword_140F0FB8C;
-    v18 = dword_140F0FB8C;
+    a1[8] = dword_140F1044C;
+    v18 = dword_140F1044C;
   }
-  v105 = dword_140F0FB98;
-  v125 = a1[81];
+  v105 = dword_140F10458;
+  CheckStamp = a1[81];
   v106 = a1[80];
-  a1[7] = dword_140F0FB98;
-  PopDiagTracePostSleepNotification(v18, dword_140F0FB94, v105, qword_140F0FBE0[0], qword_140F0FBF8, v106, v125);
+  a1[7] = dword_140F10458;
+  PopDiagTracePostSleepNotification(v18, dword_140F10454, v105, qword_140F104A0[0], qword_140F104B8, v106, CheckStamp);
   if ( KeMtrrComparisonFailed )
     PopDiagTraceMtrrError();
-  if ( a1[22] < 0 && dword_140F0FB8C == 5 )
+  if ( a1[22] < 0 && dword_140F1044C == 5 )
   {
     *(_OWORD *)ProcessId = 0LL;
-    StringCchPrintfW((STRSAFE_LPWSTR)&stru_140F0F620.StateSaveArea, 0x80uLL, L"0x%x");
-    RtlInitUnicodeString((PUNICODE_STRING)ProcessId, (PCWSTR)&stru_140F0F620.StateSaveArea);
+    StringCchPrintfW(PopHibernationErrorSubstitutionString, 0x80uLL, L"0x%x");
+    RtlInitUnicodeString((PUNICODE_STRING)ProcessId, PopHibernationErrorSubstitutionString);
     IoRaiseInformationalHardError(-1073740783, (PUNICODE_STRING)ProcessId, 0LL);
     PopDiagTraceHibernateErrorStatus(a1[22]);
   }
 LABEL_70:
   if ( *((_BYTE *)a1 + 48) )
     PopReleasePolicyLock();
-  if ( byte_140F0FDA0 )
+  if ( byte_140F10920 )
   {
-    *(LARGE_INTEGER *)&stru_140F10070.SchedulerApcFill5[80] = KeQueryPerformanceCounter(0LL);
-    dword_140F0FD84 = PopQpcTimeInMs(
-                        &stru_140F10070.SchedulerApc.SystemArgument2,
-                        &stru_140F10070.SchedulerApcFill5[80]);
+    qword_140F10BE8 = KeQueryPerformanceCounter(0LL).QuadPart;
+    dword_140F10904 = PopQpcTimeInMs(&qword_140F10BE0, &qword_140F10BE8);
   }
   if ( a1[22] >= 0 )
   {
-    qword_140F0FBC0 = *((_QWORD *)a1 + 38);
+    qword_140F10480 = *((_QWORD *)a1 + 38);
     ExUpdateSystemTimeFromCmos(1, 1u);
     LOBYTE(v43) = 1;
     if ( (unsigned int)guard_dispatch_icall_no_overrides(v43, 0LL) )
       *((_BYTE *)a1 + 168) = 1;
-    stru_140F10070.RelativeTimerBias = KeQueryPerformanceCounter(0LL).QuadPart;
+    qword_140F10A08 = KeQueryPerformanceCounter(0LL).QuadPart;
     PfPowerActionNotify(2, 0, 0);
-    qword_140F0FBB8 = MEMORY[0xFFFFF78000000008];
+    qword_140F10478 = MEMORY[0xFFFFF78000000008];
     PopDiagComputeEarlyHiberStats();
     if ( a1[7] == 4 )
       PopDiagTraceFirmwareS3Stats();
   }
-  byte_140F0FB89 = 1;
-  BYTE1(stru_140F10828.WriteOperationCount) = 0;
-  BYTE3(stru_140F10828.WriteOperationCount) = 0;
+  byte_140F10449 = 1;
+  PoPowerDownActionInProgress = 0;
+  PoPowerResetActionInProgress = 0;
   PsIumResumeAfterHibernate();
   if ( *((_BYTE *)a1 + 96) )
   {
@@ -848,21 +846,21 @@ LABEL_70:
   PpmCheckResumePpmEngineFromSx(v45, v44, v46);
   PopCurrentPowerStatePrecise((__int64)(a1 + 30), (__int64)&v129);
   if ( *((_BYTE *)a1 + 168) )
-    ZwUpdateWnfStateData((__int64)&WNF_BOOT_INVALID_TIME_SOURCE, 0LL);
+    ZwUpdateWnfStateData(&WNF_BOOT_INVALID_TIME_SOURCE, 0LL, 0, 0LL, 0LL, 0, 0);
   if ( PopIsDetailedSleepReliabilityDiagEnabled(v48, v47, v49, v50) )
     PopBootStatCheckpointAvailable = 1;
   else
     RtlBootStatusDisableFlushing(1);
   PopCheckpointSystemSleep(56, v51, v52, v53);
   a1[25] = PopNotifyTelemetryOsState(
-             qword_140F0FB64,
-             dword_140F0FB8C,
-             dword_140F0FB94,
+             qword_140F10424,
+             dword_140F1044C,
+             dword_140F10454,
              (struct _KLOCK_ENTRIES *)(unsigned int)a1[2],
              0);
   PopCancelIgnoreBatteryStatusChange();
   PopExecuteOnTargetProcessors(
-    (__int64)&stru_140FC01F0.WaitRegister,
+    (__int64)&stru_140FC11F0.WaitRegister,
     (__int64)PpmStartIllegalProcessorThrottleLogging,
     0LL,
     0LL);
@@ -874,14 +872,14 @@ LABEL_70:
   if ( *((_BYTE *)a1 + 96) )
     PopProcessDeviceWakeSource();
   PoClearBroadcast();
-  *(_QWORD *)&qword_140F0FBA8 = 0LL;
+  *(_QWORD *)&qword_140F10468 = 0LL;
   PopFanSxExit();
   PopEsExitSleep(v108, v107, v109, v110);
-  a1[29] = dword_140F106CC;
-  stru_140F0F620.KernelStack = 0LL;
-  *(_QWORD *)&stru_140F0F620.CurrentRunTime = PopSpoilEstimatesOnPowerStateTransitionWorker;
-  stru_140F0F620.ThreadLock = 0LL;
-  ExQueueWorkItem((PWORK_QUEUE_ITEM)&stru_140F0F620.ThreadLock, DelayedWorkQueue);
+  a1[29] = HIDWORD(PpmIdlePolicyLock.PropagateBoostsEntry.Next);
+  PopSpoilEstimatesOnPowerStateTransitionWorkItem.Parameter = 0LL;
+  PopSpoilEstimatesOnPowerStateTransitionWorkItem.WorkerRoutine = (void (__fastcall *)(void *))PopSpoilEstimatesOnPowerStateTransitionWorker;
+  PopSpoilEstimatesOnPowerStateTransitionWorkItem.List.Flink = 0LL;
+  ExQueueWorkItem(&PopSpoilEstimatesOnPowerStateTransitionWorkItem, DelayedWorkQueue);
   if ( a1[22] >= 0 )
     PopCurrentPowerState(a1 + 30, v111, v113, v114);
   if ( *((_BYTE *)a1 + 96) )
@@ -890,8 +888,8 @@ LABEL_70:
   {
     PopQueryMostRecentWakeSourceAttributes(&v140, &v131, &v130, &v141);
     SshSessionManagerTracePostSleepNotification(
-      qword_140F0FBE0[0],
-      qword_140F0FBF8,
+      qword_140F104A0[0],
+      qword_140F104B8,
       a1[80],
       a1[81],
       a1[33],
@@ -910,51 +908,51 @@ LABEL_70:
     PopUpdateSystemIdleContext(1);
     PopPowerAggregatorNotifySystemWake(a1[7], v115, v116, v117);
     LOBYTE(v111) = 0;
-    LOBYTE(byte_140F0FB60) = 0;
-    if ( (unsigned __int64)dword_140F0FBD0 >= 3 )
+    LOBYTE(PopAction) = 0;
+    if ( (unsigned __int64)dword_140F10490 >= 3 )
     {
       if ( !(unsigned __int8)PopIsMostRecentWakeAttended() )
       {
-        dword_140F105A0[0] = 0;
-        HIDWORD(stru_140F10828.OtherOperationCount) = 0;
-        LODWORD(stru_140F10828.ReadTransferCount) = 0;
+        LODWORD(PpmIdlePolicyLock.Teb) = 0;
+        PopPendingUserPresenceDuringSystemSleep = 0;
+        PopPendingUserPresenceMonitorOnReason = 0;
       }
     }
     else
     {
-      v112 = 3LL * dword_140F0FBD0;
-      qword_140F0FC28 = qword_140F0FBE0[3 * dword_140F0FBD0];
-      v118 = qword_140F0FBE8[3 * dword_140F0FBD0];
-      dword_140F105A0[0] = 0;
-      HIDWORD(stru_140F10828.OtherOperationCount) = 0;
-      LODWORD(stru_140F10828.ReadTransferCount) = 0;
+      v112 = 3LL * dword_140F10490;
+      qword_140F104E8 = qword_140F104A0[3 * dword_140F10490];
+      v118 = qword_140F104A8[3 * dword_140F10490];
+      LODWORD(PpmIdlePolicyLock.Teb) = 0;
+      PopPendingUserPresenceDuringSystemSleep = 0;
+      PopPendingUserPresenceMonitorOnReason = 0;
       switch ( v118 )
       {
         case -1LL:
           if ( PopDeferDoze(a1[82], a1[83], (_BYTE *)a1 + 120) )
-            qword_140F0FB64 = *(_QWORD *)a1;
+            qword_140F10424 = *(_QWORD *)a1;
           else
-            qword_140F0FB64 = 0x500000002LL;
-          LOBYTE(byte_140F0FB60) = byte_140F0FB60 | 2;
+            qword_140F10424 = 0x500000002LL;
+          LOBYTE(PopAction) = PopAction | 2;
 LABEL_212:
           *((_BYTE *)a1 + 216) = 0;
           break;
         case -2LL:
-          if ( !qword_140F0FBC8 )
-            qword_140F0FBC8 = qword_140F0FBB8;
+          if ( !qword_140F10488 )
+            qword_140F10488 = qword_140F10478;
           break;
         case -3LL:
-          unk_140F10DE0 = 0LL;
-          unk_140F10DE8 = 0LL;
+          PopWakeAlarmTimeOverrideAc = 0LL;
+          PopWakeAlarmTimeOverrideDc = 0LL;
           break;
         default:
-          if ( dword_140F106CC == 1 )
+          if ( HIDWORD(PpmIdlePolicyLock.PropagateBoostsEntry.Next) == 1 )
           {
             if ( !a1[83] )
             {
               LOBYTE(v111) = 2;
-              qword_140F0FB64 = *(_QWORD *)a1;
-              LOBYTE(byte_140F0FB60) = 2;
+              qword_140F10424 = *(_QWORD *)a1;
+              LOBYTE(PopAction) = 2;
               goto LABEL_212;
             }
           }
@@ -966,27 +964,26 @@ LABEL_212:
       }
     }
   }
-  if ( byte_140F0FC20 && *((_BYTE *)a1 + 216) )
+  if ( byte_140F104E0 && *((_BYTE *)a1 + 216) )
   {
     ExWakeTimersResume(v112, v111);
-    byte_140F0FC20 = 0;
-    qword_140F0FC28 = 0LL;
+    byte_140F104E0 = 0;
+    qword_140F104E8 = 0LL;
   }
-  if ( LOBYTE(stru_140F10828.OtherOperationCount) )
+  if ( PoResumeFromHibernate )
     PopBootLoaderTraceProcess();
-  byte_140F0FDA0 = 0;
+  byte_140F10920 = 0;
   PopResetActionDefaults();
   PopSetPowerActionState(2);
   PopReleasePolicyLock();
-  if ( HIDWORD(stru_140F10828.OtherOperationCount) )
-    PoSetUserPresent(stru_140F10828.ReadTransferCount);
-  ExQueueWorkItem((PWORK_QUEUE_ITEM)&stru_140F0F620.QuantumTarget, DelayedWorkQueue);
+  if ( PopPendingUserPresenceDuringSystemSleep )
+    PoSetUserPresent(PopPendingUserPresenceMonitorOnReason);
+  ExQueueWorkItem(&PopUnlockAfterSleepWorkItem, DelayedWorkQueue);
   PopCheckForWork();
   if ( a1[22] >= 0 )
     PpmPerfReApplyStates(v120, v119, v121);
-  dword_140F0FB74 = 17;
-  stru_140F10070.SavedApcState.ApcListHead[1].Flink = (struct _LIST_ENTRY *)(*(_QWORD *)&KeQueryPerformanceCounter(0LL)
-                                                                           - qword_140F0B0D0);
+  dword_140F10434 = 17;
+  qword_140F10B78 = *(_QWORD *)&KeQueryPerformanceCounter(0LL) - PopDirectedDripsDiagLock.WriteOperationCount;
   v122 = (void *)*((_QWORD *)a1 + 25);
   if ( v122 )
   {

@@ -22,7 +22,7 @@
 
 __int64 __fastcall MmMapMdl(__int64 a1, unsigned int a2, void (__fastcall *a3)(__int64, unsigned __int64), __int64 a4)
 {
-  struct _SLIST_ENTRY *v5; // r13
+  _SLIST_ENTRY *v5; // r13
   void (__fastcall *v6)(unsigned __int64, _QWORD); // r8
   unsigned __int64 v7; // r9
   unsigned int ProtectionMask; // r14d
@@ -64,7 +64,7 @@ __int64 __fastcall MmMapMdl(__int64 a1, unsigned int a2, void (__fastcall *a3)(_
   if ( MmProtectFreedNonPagedPool == 1 )
     v11 = v10 + 1;
   if ( v11 > 0x200
-    || (UltraMdlContext = MiGetUltraMdlContext(), (v5 = (struct _SLIST_ENTRY *)UltraMdlContext) == 0LL)
+    || (UltraMdlContext = MiGetUltraMdlContext(), (v5 = (_SLIST_ENTRY *)UltraMdlContext) == 0LL)
     || (UltraMapping = MiGetUltraMapping((unsigned __int64 *)(UltraMdlContext + 8), 3u, v11, 0),
         v14 = ((UltraMapping >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL,
         ((UltraMapping >> 9) & 0x7FFFFFFFF8LL) == 0x98000000000LL) )

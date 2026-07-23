@@ -1,19 +1,19 @@
 /*
- * XREFs of ApiSetpGetExtensionNameKeyInfo @ 0x1801362F8
+ * XREFs of ApiSetpGetExtensionNameKeyInfo @ 0x180134528
  * Callers:
- *     ApiSetQuerySchemaInfo2_V7 @ 0x180135634 (ApiSetQuerySchemaInfo2_V7.c)
- *     ApiSetQuerySchemaInfo_V7 @ 0x180135950 (ApiSetQuerySchemaInfo_V7.c)
+ *     ApiSetQuerySchemaInfo2_V7 @ 0x180133864 (ApiSetQuerySchemaInfo2_V7.c)
+ *     ApiSetQuerySchemaInfo_V7 @ 0x180133B80 (ApiSetQuerySchemaInfo_V7.c)
  * Callees:
- *     RtlCompareUnicodeStrings @ 0x180072550 (RtlCompareUnicodeStrings.c)
+ *     RtlCompareUnicodeStrings @ 0x18008EE30 (RtlCompareUnicodeStrings.c)
  */
 
-char __fastcall ApiSetpGetExtensionNameKeyInfo(unsigned __int16 *a1, unsigned __int16 a2, char a3, __int64 a4)
+char __fastcall ApiSetpGetExtensionNameKeyInfo(PCWCH String1, unsigned __int16 a2, char a3, __int64 a4)
 {
   unsigned __int16 v8; // ax
   bool v9; // r8
   int v10; // r10d
-  char *v11; // r11
-  char *v12; // r9
+  signed __int64 v11; // r11
+  PCWCH v12; // r9
   char v13; // cl
   char result; // al
   __int16 v15; // di
@@ -28,22 +28,22 @@ char __fastcall ApiSetpGetExtensionNameKeyInfo(unsigned __int16 *a1, unsigned __
     v8 = 2 * a2;
     if ( (unsigned __int16)(2 * a2) >= 0x14u )
       v8 = 20;
-    v9 = (unsigned int)RtlCompareUnicodeStrings(a1, (unsigned __int64)v8 >> 1, L"schemaext-", 0xAuLL, 1) == 0;
+    v9 = RtlCompareUnicodeStrings(String1, (unsigned __int64)v8 >> 1, L"schemaext-", 0xAuLL, 1u) == 0;
   }
   else
   {
     v10 = 10;
-    v11 = (char *)("schemaext-" - (char *)a1);
+    v11 = "schemaext-" - (char *)String1;
     v9 = 1;
-    v12 = (char *)a1;
-    while ( *v12 )
+    v12 = String1;
+    while ( *(_BYTE *)v12 )
     {
-      v13 = *v12 + 32;
-      if ( (unsigned __int8)(*v12 - 65) > 0x19u )
-        v13 = *v12;
-      if ( v12[(_QWORD)v11] != v13 )
+      v13 = *(_BYTE *)v12 + 32;
+      if ( (unsigned __int8)(*(_BYTE *)v12 - 65) > 0x19u )
+        v13 = *(_BYTE *)v12;
+      if ( *((_BYTE *)v12 + v11) != v13 )
         break;
-      ++v12;
+      v12 = (PCWCH)((char *)v12 + 1);
       if ( --v10 <= 0 )
         goto LABEL_14;
     }
@@ -56,7 +56,7 @@ LABEL_14:
   *(_DWORD *)(a4 + 12) = 4;
   result = 1;
   v15 = a2 - 10;
-  *(_QWORD *)a4 = (char *)a1 + (-(__int64)(a3 != 0) & 0xA) + 10;
+  *(_QWORD *)a4 = (char *)String1 + (-(__int64)(a3 != 0) & 0xA) + 10;
   *(_WORD *)(a4 + 8) = v15;
   *(_WORD *)(a4 + 18) = v15;
   return result;

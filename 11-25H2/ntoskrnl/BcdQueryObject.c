@@ -14,37 +14,45 @@
  *     BiGetObjectIdentifier @ 0x14096BADC (BiGetObjectIdentifier.c)
  */
 
-__int64 __fastcall BcdQueryObject(__int64 a1, int a2, __int64 a3, __int64 a4)
+NTSTATUS __cdecl BcdQueryObject(
+        HANDLE BcdObjectHandle,
+        ULONG BcdVersion,
+        BCD_OBJECT_DESCRIPTION Description,
+        PGUID Identifier)
 {
   __int64 v7; // rcx
   char v8; // r14
-  __int64 result; // rax
+  NTSTATUS result; // eax
   __int64 v10; // rcx
-  int ObjectIdentifier; // ebx
+  NTSTATUS ObjectIdentifier; // ebx
 
-  if ( !a3 )
+  if ( !*(_QWORD *)&Description )
   {
-    if ( a4 )
+    if ( Identifier )
       goto LABEL_3;
-    return 3221225485LL;
+    return -1073741811;
   }
-  if ( a2 != 1 )
-    return 3221225485LL;
+  if ( BcdVersion != 1 )
+    return -1073741811;
 LABEL_3:
-  LOBYTE(v7) = BiIsOfflineHandle(a1);
+  LOBYTE(v7) = BiIsOfflineHandle((char)BcdObjectHandle);
   v8 = v7;
   result = BiAcquireBcdSyncMutant(v7);
-  if ( (int)result >= 0 )
+  if ( result >= 0 )
   {
     ObjectIdentifier = 0;
-    if ( !a3 || (ObjectIdentifier = BiGetObjectDescription(a1, a3), ObjectIdentifier >= 0) )
+    if ( !*(_QWORD *)&Description
+      || (ObjectIdentifier = ((__int64 (__fastcall *)(_QWORD, _QWORD))BiGetObjectDescription)(
+                               BcdObjectHandle,
+                               Description),
+          ObjectIdentifier >= 0) )
     {
-      if ( a4 )
-        ObjectIdentifier = BiGetObjectIdentifier(a1, a4);
+      if ( Identifier )
+        ObjectIdentifier = BiGetObjectIdentifier(BcdObjectHandle, Identifier);
     }
     LOBYTE(v10) = v8;
     BiReleaseBcdSyncMutant(v10);
-    return (unsigned int)ObjectIdentifier;
+    return ObjectIdentifier;
   }
   return result;
 }

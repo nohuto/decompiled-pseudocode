@@ -1,12 +1,12 @@
 /*
- * XREFs of PiSwDeviceCompareObjects @ 0x1404EE830
+ * XREFs of PiSwDeviceCompareObjects @ 0x1404D08F8
  * Callers:
  *     <none>
  * Callees:
- *     _wcsicmp @ 0x14014D79C (_wcsicmp.c)
+ *     _wcsicmp @ 0x14014DD0C (_wcsicmp.c)
  */
 
-__int64 __fastcall PiSwDeviceCompareObjects(struct _RTL_AVL_TABLE *Table, __int64 *FirstStruct, __int64 *SecondStruct)
+__int64 __fastcall PiSwDeviceCompareObjects(_RTL_AVL_TABLE *a1, __int64 *a2, __int64 *a3)
 {
   __int64 v3; // rdi
   __int64 v4; // rsi
@@ -14,9 +14,9 @@ __int64 __fastcall PiSwDeviceCompareObjects(struct _RTL_AVL_TABLE *Table, __int6
   int v6; // ebx
   bool v7; // sf
 
-  v3 = *FirstStruct;
-  v4 = *SecondStruct;
-  v5 = wcsicmp(*(const wchar_t **)(*FirstStruct + 16), *(const wchar_t **)(*SecondStruct + 16));
+  v3 = *a2;
+  v4 = *a3;
+  v5 = wcsicmp(*(const wchar_t **)(*a2 + 16), *(const wchar_t **)(*a3 + 16));
   v6 = 0;
   v7 = v5 < 0;
   if ( !v5 )

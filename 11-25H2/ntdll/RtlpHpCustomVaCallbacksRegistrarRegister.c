@@ -27,7 +27,7 @@ __int64 __fastcall RtlpHpCustomVaCallbacksRegistrarRegister(__int64 a1, char *a2
   int v18; // r9d
   int v19; // eax
   unsigned int v20; // esi
-  volatile signed __int64 *v21; // rcx
+  _RTL_SRWLOCK *v21; // rcx
   __int64 v23; // r10
   __int64 *v24; // rcx
   signed __int64 v25; // r14
@@ -38,7 +38,7 @@ __int64 __fastcall RtlpHpCustomVaCallbacksRegistrarRegister(__int64 a1, char *a2
   __int64 v30; // [rsp+28h] [rbp-A0h]
   __int128 v31; // [rsp+30h] [rbp-98h] BYREF
   __int64 *v32; // [rsp+40h] [rbp-88h]
-  volatile signed __int64 *v33; // [rsp+48h] [rbp-80h]
+  PRTL_SRWLOCK SRWLock; // [rsp+48h] [rbp-80h]
   __int128 v34; // [rsp+50h] [rbp-78h] BYREF
   _QWORD v35[4]; // [rsp+60h] [rbp-68h] BYREF
 
@@ -68,8 +68,8 @@ __int64 __fastcall RtlpHpCustomVaCallbacksRegistrarRegister(__int64 a1, char *a2
   while ( v11 );
   v34 = *a4;
   v13 = (_QWORD *)RtlpHpMetadataAlloc(0x38uLL, 0x38uLL, 0, &v34);
-  v33 = (volatile signed __int64 *)(a1 + 16);
-  RtlAcquireSRWLockExclusive((volatile signed __int32 *)(a1 + 16));
+  SRWLock = (PRTL_SRWLOCK)(a1 + 16);
+  RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)(a1 + 16));
   v14 = 0LL;
   v15 = -1LL << (*(_BYTE *)(a1 + 4) & 0x1F);
   v16 = 0LL;
@@ -156,7 +156,7 @@ LABEL_7:
     v20 = -1073741801;
   }
 LABEL_15:
-  v21 = v33;
+  v21 = SRWLock;
   *v32 = v14;
   RtlReleaseSRWLockExclusive(v21);
   return v20;

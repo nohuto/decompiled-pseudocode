@@ -1,32 +1,32 @@
 /*
- * XREFs of SleepstudyHelperDestroyLibrary @ 0x140767660
+ * XREFs of SleepstudyHelperDestroyLibrary @ 0x140767890
  * Callers:
- *     SleepstudyHelper_Uninitialize @ 0x140767B70 (SleepstudyHelper_Uninitialize.c)
- *     SshpUninitialize @ 0x140C342E8 (SshpUninitialize.c)
+ *     SleepstudyHelper_Uninitialize @ 0x140767D90 (SleepstudyHelper_Uninitialize.c)
+ *     SshpUninitialize @ 0x140C36428 (SshpUninitialize.c)
  * Callees:
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     CmpFreeTransientPoolWithTag @ 0x140441FC0 (CmpFreeTransientPoolWithTag.c)
- *     SSHSupportReleasePushLockExclusive @ 0x14048939C (SSHSupportReleasePushLockExclusive.c)
- *     SshpFreeDataEntry @ 0x1407667F4 (SshpFreeDataEntry.c)
- *     SshpCacheRemoveBlocker @ 0x140A415A4 (SshpCacheRemoveBlocker.c)
- *     SshpFreeBlockerEntry @ 0x140A415DC (SshpFreeBlockerEntry.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     CmpFreeTransientPoolWithTag @ 0x140438B90 (CmpFreeTransientPoolWithTag.c)
+ *     SSHSupportReleasePushLockExclusive @ 0x1404843BC (SSHSupportReleasePushLockExclusive.c)
+ *     SshpFreeDataEntry @ 0x1407661C4 (SshpFreeDataEntry.c)
+ *     SshpCacheRemoveBlocker @ 0x140A36E84 (SshpCacheRemoveBlocker.c)
+ *     SshpFreeBlockerEntry @ 0x140A36EBC (SshpFreeBlockerEntry.c)
  */
 
 __int64 __fastcall SleepstudyHelperDestroyLibrary(ULONG *a1)
 {
   unsigned int v1; // esi
-  _QWORD *v3; // rax
+  char *v3; // rax
   signed __int8 v4; // cf
-  _QWORD *v5; // rdi
+  char *v5; // rdi
   __int64 v6; // rdx
   ULONG **v7; // rax
   _QWORD *v8; // r14
   _QWORD *v9; // rdi
   __int64 v10; // rax
   unsigned __int64 *v11; // rbp
-  _QWORD *v12; // rax
-  _QWORD *v13; // r15
+  char *v12; // rax
+  char *v13; // r15
   __int64 v14; // rdx
   _QWORD *v15; // rcx
   _QWORD **i; // rdi
@@ -34,13 +34,13 @@ __int64 __fastcall SleepstudyHelperDestroyLibrary(ULONG *a1)
   v1 = 0;
   if ( a1 )
   {
-    v3 = KeAbPreAcquire((__int64)&SshpLibraryListLock, 0LL);
+    v3 = (char *)KeAbPreAcquire((__int64)&SshpLibraryListLock, 0LL);
     v4 = _interlockedbittestandset64((volatile signed __int32 *)&SshpLibraryListLock, 0LL);
     v5 = v3;
     if ( v4 )
-      ExfAcquirePushLockExclusiveEx(&SshpLibraryListLock, (__int64)v3, (__int64)&SshpLibraryListLock);
+      ExfAcquirePushLockExclusiveEx((unsigned __int64 *)&SshpLibraryListLock, v3, (__int64)&SshpLibraryListLock);
     if ( v5 )
-      *((_BYTE *)v5 + 10) = 1;
+      v5[10] = 1;
     v6 = *(_QWORD *)a1;
     if ( *(ULONG **)(*(_QWORD *)a1 + 8LL) != a1 || (v7 = (ULONG **)*((_QWORD *)a1 + 1), *v7 != a1) )
 LABEL_25:
@@ -63,12 +63,12 @@ LABEL_25:
       *(_QWORD *)(v10 + 8) = v8;
       SshpCacheRemoveBlocker(a1, v9[14]);
       v11 = &SshpBlockerCollections + 6 * *((int *)v9 + 10);
-      v12 = KeAbPreAcquire((__int64)v11, 0LL);
+      v12 = (char *)KeAbPreAcquire((__int64)v11, 0LL);
       v13 = v12;
       if ( _interlockedbittestandset64((volatile signed __int32 *)v11, 0LL) )
-        ExfAcquirePushLockExclusiveEx(v11, (__int64)v12, (__int64)v11);
+        ExfAcquirePushLockExclusiveEx(v11, v12, (__int64)v11);
       if ( v13 )
-        *((_BYTE *)v13 + 10) = 1;
+        v13[10] = 1;
       v14 = v9[2];
       if ( *(_QWORD **)(v14 + 8) != v9 + 2 )
         goto LABEL_25;

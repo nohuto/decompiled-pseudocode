@@ -15,23 +15,23 @@
  *     LdrpLogDbgPrint @ 0x1800BC478 (LdrpLogDbgPrint.c)
  */
 
-void __fastcall LdrpReportError(UNICODE_STRING *a1, const char *a2, unsigned int a3)
+void __fastcall LdrpReportError(_UNICODE_STRING *a1, const CHAR *a2, NTSTATUS a3)
 {
-  UNICODE_STRING *p_DestinationString; // rdi
+  _UNICODE_STRING *p_DestinationString; // rdi
   char v6; // si
-  unsigned int v7; // r15d
+  ULONG v7; // r15d
   int v8; // ecx
-  unsigned int v9; // r12d
+  ULONG v9; // r12d
   _DWORD *v10; // r14
   bool v11; // zf
   int v12; // ecx
   _DWORD *v13; // r13
-  UNICODE_STRING v14; // [rsp+40h] [rbp-C0h] BYREF
-  _BYTE v15[8]; // [rsp+50h] [rbp-B0h] BYREF
-  UNICODE_STRING DestinationString; // [rsp+58h] [rbp-A8h] BYREF
-  STRING SourceString; // [rsp+68h] [rbp-98h] BYREF
-  UNICODE_STRING *v18; // [rsp+78h] [rbp-88h] BYREF
-  UNICODE_STRING *v19; // [rsp+80h] [rbp-80h]
+  _UNICODE_STRING v14; // [rsp+40h] [rbp-C0h] BYREF
+  ULONG Response; // [rsp+50h] [rbp-B0h] BYREF
+  _UNICODE_STRING DestinationString; // [rsp+58h] [rbp-A8h] BYREF
+  _STRING SourceString; // [rsp+68h] [rbp-98h] BYREF
+  unsigned __int64 Parameters; // [rsp+78h] [rbp-88h] BYREF
+  _UNICODE_STRING *v19; // [rsp+80h] [rbp-80h]
   __int64 v20; // [rsp+88h] [rbp-78h]
   wchar_t pszDest[8]; // [rsp+90h] [rbp-70h] BYREF
   char v22; // [rsp+A0h] [rbp-60h] BYREF
@@ -52,7 +52,7 @@ void __fastcall LdrpReportError(UNICODE_STRING *a1, const char *a2, unsigned int
   {
     RtlInitUnicodeString(&v14, 0LL);
     v9 = 1;
-    v18 = p_DestinationString;
+    Parameters = (unsigned __int64)p_DestinationString;
     v7 = 1;
   }
   else
@@ -63,7 +63,7 @@ void __fastcall LdrpReportError(UNICODE_STRING *a1, const char *a2, unsigned int
       RtlInitUnicodeString(&v14, pszDest);
       v12 = LdrpDebugFlags;
       v20 = -1073741512LL;
-      v18 = (UNICODE_STRING *)a2;
+      Parameters = (unsigned __int64)a2;
       v9 = 2;
       v19 = p_DestinationString;
       v13 = (_DWORD *)((char *)&LdrpLogLevelStateTable + 16 * (v6 == 0));
@@ -74,7 +74,7 @@ void __fastcall LdrpReportError(UNICODE_STRING *a1, const char *a2, unsigned int
           785,
           (unsigned int)"LdrpReportError",
           v6 == 0,
-          "Locating export at ordinal %d for DLL \"%wZ\" failed with status: 0x%08lx.\n",
+          (__int64)"Locating export at ordinal %d for DLL \"%wZ\" failed with status: 0x%08lx.\n",
           (_DWORD)a2,
           p_DestinationString,
           -1073741512);
@@ -96,7 +96,7 @@ void __fastcall LdrpReportError(UNICODE_STRING *a1, const char *a2, unsigned int
       if ( RtlAnsiStringToUnicodeString(&v14, &SourceString, 0) < 0 )
         v14.Length = 0;
       v8 = LdrpDebugFlags;
-      v18 = &v14;
+      Parameters = (unsigned __int64)&v14;
       v20 = -1073741511LL;
       v19 = p_DestinationString;
       v9 = 3;
@@ -108,7 +108,7 @@ void __fastcall LdrpReportError(UNICODE_STRING *a1, const char *a2, unsigned int
           811,
           (unsigned int)"LdrpReportError",
           v6 == 0,
-          "Locating export \"%wZ\" for DLL \"%wZ\" failed with status: 0x%08lx.\n",
+          (__int64)"Locating export \"%wZ\" for DLL \"%wZ\" failed with status: 0x%08lx.\n",
           &v14,
           p_DestinationString,
           -1073741511);
@@ -122,9 +122,9 @@ void __fastcall LdrpReportError(UNICODE_STRING *a1, const char *a2, unsigned int
 LABEL_13:
   if ( v6 )
   {
-    if ( (int)NtRaiseHardError(a3, v7, v9, &v18, 1, v15) >= 0 && LdrInitState != 3 )
+    if ( NtRaiseHardError(a3, v7, v9, &Parameters, 1u, &Response) >= 0 && LdrInitState != 3 )
       ++LdrpFatalHardErrorCount;
-    if ( a3 + 1073741512 <= 1 )
+    if ( (unsigned int)(a3 + 1073741512) <= 1 )
       RtlRaiseStatus(a3);
   }
 }

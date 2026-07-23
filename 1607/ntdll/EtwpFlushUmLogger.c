@@ -1,13 +1,13 @@
 /*
  * XREFs of EtwpFlushUmLogger @ 0x1800FD8D4
  * Callers:
- *     EtwProcessPrivateLoggerRequest @ 0x180053820 (EtwProcessPrivateLoggerRequest.c)
+ *     EtwProcessPrivateLoggerRequest @ 0x180053810 (EtwProcessPrivateLoggerRequest.c)
  * Callees:
- *     RtlFreeAnsiString @ 0x1800427E0 (RtlFreeAnsiString.c)
- *     EtwpQueryUmLogger @ 0x180051CEC (EtwpQueryUmLogger.c)
- *     EtwpSynchronizeWithLogger @ 0x180051E08 (EtwpSynchronizeWithLogger.c)
- *     EtwpGetPrivateLoggerContext @ 0x180053378 (EtwpGetPrivateLoggerContext.c)
- *     EtwpAddInstanceIdToLogFileName @ 0x1800554F0 (EtwpAddInstanceIdToLogFileName.c)
+ *     RtlFreeAnsiString @ 0x1800427D0 (RtlFreeAnsiString.c)
+ *     EtwpQueryUmLogger @ 0x180051CDC (EtwpQueryUmLogger.c)
+ *     EtwpSynchronizeWithLogger @ 0x180051DF8 (EtwpSynchronizeWithLogger.c)
+ *     EtwpGetPrivateLoggerContext @ 0x180053368 (EtwpGetPrivateLoggerContext.c)
+ *     EtwpAddInstanceIdToLogFileName @ 0x1800554E0 (EtwpAddInstanceIdToLogFileName.c)
  *     EtwpBufferingModeFlush @ 0x1800FD694 (EtwpBufferingModeFlush.c)
  */
 
@@ -38,7 +38,7 @@ LABEL_11:
         _InterlockedDecrement((volatile signed __int32 *)(EtwpLoggerArray + 16LL * *(unsigned int *)(v9 + 20) + 8));
         return v10;
       }
-      v10 = EtwpAddInstanceIdToLogFileName(a4, *(_DWORD *)(a4 + 96), (UNICODE_STRING *)(v11 + 168));
+      v10 = EtwpAddInstanceIdToLogFileName(a4, *(_DWORD *)(a4 + 96), (_UNICODE_STRING *)(v11 + 168));
       if ( v10 )
         goto LABEL_11;
       v10 = EtwpBufferingModeFlush(v9);

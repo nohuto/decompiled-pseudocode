@@ -11,13 +11,11 @@
  *     ZwFlushProcessWriteBuffers @ 0x180165070 (ZwFlushProcessWriteBuffers.c)
  */
 
-void *__fastcall RtlpReleaseDescriptorPseudoGlobalLock(__int64 a1, int a2)
+void __fastcall RtlpReleaseDescriptorPseudoGlobalLock(__int64 a1, int a2)
 {
   int v3; // ecx
-  void *result; // rax
-  __int64 v6; // rax
-  volatile signed __int32 *v7; // rbx
-  __int64 v8; // rdx
+  __int64 v5; // rax
+  volatile signed __int32 *v6; // rbx
 
   v3 = *(_DWORD *)(a1 + 24);
   if ( (v3 & 2) == 0 )
@@ -25,25 +23,23 @@ void *__fastcall RtlpReleaseDescriptorPseudoGlobalLock(__int64 a1, int a2)
     if ( a2 )
     {
       *(_DWORD *)(a1 + 32) = 1;
-      result = NtCurrentTeb()->ClientId.UniqueThread;
-      *(_DWORD *)(a1 + 36) = (_DWORD)result;
+      *(_DWORD *)(a1 + 36) = NtCurrentTeb()->ClientId.UniqueThread;
       *(_QWORD *)(a1 + 40) = 1LL;
     }
     if ( (*(_DWORD *)(a1 + 32))-- == 1 )
     {
       if ( (v3 & 4) != 0 )
       {
-        v6 = *(_QWORD *)(a1 + 16);
-        *(_DWORD *)(v6 + 224) = 0;
-        v7 = (volatile signed __int32 *)(v6 + 20);
+        v5 = *(_QWORD *)(a1 + 16);
+        *(_DWORD *)(v5 + 224) = 0;
+        v6 = (volatile signed __int32 *)(v5 + 20);
         ZwFlushProcessWriteBuffers();
-        _InterlockedAnd(v7, 0xFFFFFFEF);
-        RtlWakeAddressAll((__int64)v7, v8);
+        _InterlockedAnd(v6, 0xFFFFFFEF);
+        RtlWakeAddressAll((PVOID)v6);
         *(_DWORD *)(a1 + 24) &= ~4u;
       }
       *(_DWORD *)(a1 + 36) = 0;
-      return (void *)RtlReleaseSRWLockExclusive((volatile signed __int64 *)(a1 + 40));
+      RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(a1 + 40));
     }
   }
-  return result;
 }

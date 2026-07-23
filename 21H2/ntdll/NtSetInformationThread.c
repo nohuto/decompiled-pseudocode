@@ -1,5 +1,5 @@
 /*
- * XREFs of NtSetInformationThread @ 0x18009D7E0
+ * XREFs of NtSetInformationThread @ 0x18009D7A0
  * Callers:
  *     RtlpTpRevertCapture @ 0x18000BD78 (RtlpTpRevertCapture.c)
  *     RtlpTpResumeImpersonation @ 0x18000C0E4 (RtlpTpResumeImpersonation.c)
@@ -19,21 +19,25 @@
  *     RtlpTpWaitCallback @ 0x180079620 (RtlpTpWaitCallback.c)
  *     RtlReleasePrivilege @ 0x1800814A0 (RtlReleasePrivilege.c)
  *     RtlSetThreadIsCritical @ 0x1800896D0 (RtlSetThreadIsCritical.c)
- *     RtlDisableThreadProfiling @ 0x1800CBF10 (RtlDisableThreadProfiling.c)
- *     RtlEnableThreadProfiling @ 0x1800CBF80 (RtlEnableThreadProfiling.c)
- *     RtlWow64SetThreadContext @ 0x1800DC350 (RtlWow64SetThreadContext.c)
- *     WerReportExceptionWorker @ 0x1800DD830 (WerReportExceptionWorker.c)
- *     RtlpAttachThreadToUmsCompletionList @ 0x1800F7760 (RtlpAttachThreadToUmsCompletionList.c)
- *     RtlpDetachThreadFromUmsCompletionList @ 0x1800F7828 (RtlpDetachThreadFromUmsCompletionList.c)
+ *     RtlDisableThreadProfiling @ 0x1800CBED0 (RtlDisableThreadProfiling.c)
+ *     RtlEnableThreadProfiling @ 0x1800CBF40 (RtlEnableThreadProfiling.c)
+ *     RtlWow64SetThreadContext @ 0x1800DC310 (RtlWow64SetThreadContext.c)
+ *     WerReportExceptionWorker @ 0x1800DD7F0 (WerReportExceptionWorker.c)
+ *     RtlpAttachThreadToUmsCompletionList @ 0x1800F7720 (RtlpAttachThreadToUmsCompletionList.c)
+ *     RtlpDetachThreadFromUmsCompletionList @ 0x1800F77E8 (RtlpDetachThreadFromUmsCompletionList.c)
  * Callees:
  *     <none>
  */
 
-__int64 NtSetInformationThread()
+NTSTATUS __cdecl NtSetInformationThread(
+        HANDLE ThreadHandle,
+        THREADINFOCLASS ThreadInformationClass,
+        PVOID ThreadInformation,
+        ULONG ThreadInformationLength)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 13LL;
+  result = 13;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

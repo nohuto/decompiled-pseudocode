@@ -1,12 +1,12 @@
 /*
- * XREFs of TtmiLogDeviceAssignedTerminalEvent @ 0x1407E8C20
+ * XREFs of TtmiLogDeviceAssignedTerminalEvent @ 0x1407EE780
  * Callers:
- *     TtmpPublishDeviceEvent @ 0x1407E5D30 (TtmpPublishDeviceEvent.c)
+ *     TtmpPublishDeviceEvent @ 0x1407EB890 (TtmpPublishDeviceEvent.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212E30 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgKeywordOn @ 0x14044F850 (_tlgKeywordOn.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     TtmiGetSessionId @ 0x140A3A3A8 (TtmiGetSessionId.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212F10 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x140447980 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     TtmiGetSessionId @ 0x1409F5FA8 (TtmiGetSessionId.c)
  */
 
 void __fastcall TtmiLogDeviceAssignedTerminalEvent(int a1, int a2)
@@ -25,7 +25,7 @@ void __fastcall TtmiLogDeviceAssignedTerminalEvent(int a1, int a2)
   int *v15; // [rsp+80h] [rbp+37h]
   __int64 v16; // [rsp+88h] [rbp+3Fh]
 
-  if ( (unsigned int)dword_140FD58A8 > 5 && tlgKeywordOn((__int64)&dword_140FD58A8, 1LL) )
+  if ( (unsigned int)dword_140FD68B8 > 5 && tlgKeywordOn((__int64)&dword_140FD68B8, 1LL) )
   {
     SessionId = TtmiGetSessionId(v5, v4, v6);
     v12 = 4LL;
@@ -36,6 +36,12 @@ void __fastcall TtmiLogDeviceAssignedTerminalEvent(int a1, int a2)
     v15 = &v9;
     v9 = a2;
     v16 = 4LL;
-    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140FD58A8, (unsigned __int8 *)&word_140051666, 0LL, 0LL, 5u, &v10);
+    tlgWriteTransfer_EtwWriteTransfer(
+      (__int64)&dword_140FD68B8,
+      (unsigned __int8 *)&dword_14005232C,
+      0LL,
+      0LL,
+      5u,
+      &v10);
   }
 }

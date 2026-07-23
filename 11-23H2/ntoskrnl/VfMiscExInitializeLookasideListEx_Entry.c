@@ -1,10 +1,10 @@
 /*
- * XREFs of VfMiscExInitializeLookasideListEx_Entry @ 0x140ADFB40
+ * XREFs of VfMiscExInitializeLookasideListEx_Entry @ 0x140ADFB30
  * Callers:
  *     <none>
  * Callees:
- *     VerifierBugCheckIfAppropriate @ 0x140ACD2B4 (VerifierBugCheckIfAppropriate.c)
- *     ViMiscValidateSynchronizationObject @ 0x140AE1730 (ViMiscValidateSynchronizationObject.c)
+ *     VerifierBugCheckIfAppropriate @ 0x140ACD2A4 (VerifierBugCheckIfAppropriate.c)
+ *     ViMiscValidateSynchronizationObject @ 0x140AE1720 (ViMiscValidateSynchronizationObject.c)
  */
 
 __int64 __fastcall VfMiscExInitializeLookasideListEx_Entry(__int64 a1)

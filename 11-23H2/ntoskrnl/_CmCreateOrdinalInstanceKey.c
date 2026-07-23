@@ -1,13 +1,13 @@
 /*
- * XREFs of _CmCreateOrdinalInstanceKey @ 0x14087FF70
+ * XREFs of _CmCreateOrdinalInstanceKey @ 0x1408801B0
  * Callers:
- *     _CmGetDeviceSoftwareKey @ 0x1406C9C2C (_CmGetDeviceSoftwareKey.c)
+ *     _CmGetDeviceSoftwareKey @ 0x1406C9C5C (_CmGetDeviceSoftwareKey.c)
  * Callees:
- *     wcstoul @ 0x1403DBEF0 (wcstoul.c)
- *     swprintf_s @ 0x1403DE3C0 (swprintf_s.c)
- *     _ultow_s @ 0x1403DE7F0 (_ultow_s.c)
- *     ZwClose @ 0x14041AF40 (ZwClose.c)
- *     _PnpCtxRegCreateKey @ 0x140797EC0 (_PnpCtxRegCreateKey.c)
+ *     wcstoul @ 0x1403DC0D0 (wcstoul.c)
+ *     swprintf_s @ 0x1403DE5A0 (swprintf_s.c)
+ *     _ultow_s @ 0x1403DE9D0 (_ultow_s.c)
+ *     ZwClose @ 0x14041B2D0 (ZwClose.c)
+ *     _PnpCtxRegCreateKey @ 0x1407980B0 (_PnpCtxRegCreateKey.c)
  */
 
 __int64 __fastcall CmCreateOrdinalInstanceKey(__int64 a1, __int64 a2, wchar_t *a3)

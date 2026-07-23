@@ -1,23 +1,23 @@
 /*
- * XREFs of ExfAcquireReleasePushLockExclusive @ 0x1400AA9EC
+ * XREFs of ExfAcquireReleasePushLockExclusive @ 0x1400A8F6C
  * Callers:
- *     EtwpLockUnlockBufferList @ 0x1400929C4 (EtwpLockUnlockBufferList.c)
- *     PspLockUnlockProcessExclusive @ 0x1400AA9B4 (PspLockUnlockProcessExclusive.c)
- *     PfpRpCHashDeleteEntries @ 0x1403E4C14 (PfpRpCHashDeleteEntries.c)
- *     AlpcReferenceBlobByHandle @ 0x14040BC58 (AlpcReferenceBlobByHandle.c)
- *     PsLookupProcessByProcessId @ 0x140420700 (PsLookupProcessByProcessId.c)
- *     PsLookupThreadByThreadId @ 0x1404207F0 (PsLookupThreadByThreadId.c)
- *     AlpcpCaptureSecurityAttribute @ 0x14044D650 (AlpcpCaptureSecurityAttribute.c)
- *     NtSetInformationJobObject @ 0x140464BD8 (NtSetInformationJobObject.c)
- *     PspExitThread @ 0x14051611C (PspExitThread.c)
- *     PsSynchronizeWithThreadInsertion @ 0x14067D2D0 (PsSynchronizeWithThreadInsertion.c)
- *     PsShutdownSystem @ 0x14067F844 (PsShutdownSystem.c)
- *     EtwpUpdateLoggerSecurityDescriptor @ 0x1406A814C (EtwpUpdateLoggerSecurityDescriptor.c)
+ *     EtwpLockUnlockBufferList @ 0x1400921C4 (EtwpLockUnlockBufferList.c)
+ *     PspLockUnlockProcessExclusive @ 0x1400A8F34 (PspLockUnlockProcessExclusive.c)
+ *     PfpRpCHashDeleteEntries @ 0x1403E6240 (PfpRpCHashDeleteEntries.c)
+ *     AlpcReferenceBlobByHandle @ 0x14040AB18 (AlpcReferenceBlobByHandle.c)
+ *     PsLookupProcessByProcessId @ 0x14041F5C0 (PsLookupProcessByProcessId.c)
+ *     PsLookupThreadByThreadId @ 0x14041F6B0 (PsLookupThreadByThreadId.c)
+ *     AlpcpCaptureSecurityAttribute @ 0x14044C520 (AlpcpCaptureSecurityAttribute.c)
+ *     NtSetInformationJobObject @ 0x140463AA8 (NtSetInformationJobObject.c)
+ *     PspExitThread @ 0x1404F950C (PspExitThread.c)
+ *     PsSynchronizeWithThreadInsertion @ 0x14067D3B4 (PsSynchronizeWithThreadInsertion.c)
+ *     PsShutdownSystem @ 0x14067F928 (PsShutdownSystem.c)
+ *     EtwpUpdateLoggerSecurityDescriptor @ 0x1406A8284 (EtwpUpdateLoggerSecurityDescriptor.c)
  * Callees:
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1400C8070 (ExfAcquirePushLockExclusiveEx.c)
- *     ExfReleasePushLockExclusive @ 0x1400C8700 (ExfReleasePushLockExclusive.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1400C5F10 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfReleasePushLockExclusive @ 0x1400C65A0 (ExfReleasePushLockExclusive.c)
  */
 
 unsigned __int64 __fastcall ExfAcquireReleasePushLockExclusive(ULONG_PTR BugCheckParameter2)

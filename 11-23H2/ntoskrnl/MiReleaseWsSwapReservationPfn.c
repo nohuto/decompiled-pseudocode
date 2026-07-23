@@ -4,7 +4,7 @@
  *     MiProcessWsInSwapFault @ 0x140200008 (MiProcessWsInSwapFault.c)
  *     MiInPageSingleKernelStack @ 0x14021B0F0 (MiInPageSingleKernelStack.c)
  * Callees:
- *     MiCapturePageFileInfoInline @ 0x140348CB4 (MiCapturePageFileInfoInline.c)
+ *     MiCapturePageFileInfoInline @ 0x140348F44 (MiCapturePageFileInfoInline.c)
  */
 
 __int64 __fastcall MiReleaseWsSwapReservationPfn(__int64 a1)

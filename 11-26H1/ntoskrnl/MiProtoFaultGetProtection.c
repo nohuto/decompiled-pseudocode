@@ -1,19 +1,19 @@
 /*
- * XREFs of MiProtoFaultGetProtection @ 0x1402D93F0
+ * XREFs of MiProtoFaultGetProtection @ 0x1402BB1B0
  * Callers:
- *     MiCompleteProtoPteFault @ 0x1402D8E50 (MiCompleteProtoPteFault.c)
+ *     MiCompleteProtoPteFault @ 0x1402BAC10 (MiCompleteProtoPteFault.c)
  * Callees:
- *     MiCheckAndUpdateIoAttribution @ 0x14026DF30 (MiCheckAndUpdateIoAttribution.c)
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     MiGetSubsectionFromPte @ 0x1402836C0 (MiGetSubsectionFromPte.c)
- *     MiUserPdeOrAbove @ 0x1402A1440 (MiUserPdeOrAbove.c)
- *     MiReleasePageFileInfo @ 0x1402DAD50 (MiReleasePageFileInfo.c)
- *     MiGetPagePrivilege @ 0x1402F9878 (MiGetPagePrivilege.c)
- *     MiReadPteShadow @ 0x140314FF0 (MiReadPteShadow.c)
- *     MiCanPfnOriginalPteBeLost @ 0x140408680 (MiCanPfnOriginalPteBeLost.c)
- *     MiSetSubsectionModified @ 0x14045CF48 (MiSetSubsectionModified.c)
- *     MiIsDriverPage @ 0x1404BD140 (MiIsDriverPage.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
+ *     MiCheckAndUpdateIoAttribution @ 0x14026D4A0 (MiCheckAndUpdateIoAttribution.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     MiGetSubsectionFromPte @ 0x140282C30 (MiGetSubsectionFromPte.c)
+ *     MiUserPdeOrAbove @ 0x1402A0990 (MiUserPdeOrAbove.c)
+ *     MiReleasePageFileInfo @ 0x1402BCB10 (MiReleasePageFileInfo.c)
+ *     MiGetPagePrivilege @ 0x1402DB8F8 (MiGetPagePrivilege.c)
+ *     MiReadPteShadow @ 0x140317020 (MiReadPteShadow.c)
+ *     MiCanPfnOriginalPteBeLost @ 0x140401770 (MiCanPfnOriginalPteBeLost.c)
+ *     MiSetSubsectionModified @ 0x140456AF0 (MiSetSubsectionModified.c)
+ *     MiIsDriverPage @ 0x1404B6920 (MiIsDriverPage.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
  */
 
 void __fastcall MiProtoFaultGetProtection(__int64 a1)
@@ -175,13 +175,13 @@ LABEL_5:
   if ( v18 < 0xFFFF800000000000uLL )
   {
 LABEL_23:
-    v19 = BYTE5(stru_140E2D930.Header.WaitListHead.Blink);
+    v19 = BYTE5(stru_140E2DAB0.Header.WaitListHead.Blink);
     goto LABEL_24;
   }
   if ( v18 < 0xFFFFF68000000000uLL || v18 > 0xFFFFF6FFFFFFFFFFuLL )
   {
-    if ( v18 < qword_140E2DE40 || (v19 = BYTE5(stru_140E2D930.Header.WaitListHead.Blink), v18 > qword_140E2DE50) )
-      v19 = BYTE4(stru_140E2D930.Header.WaitListHead.Blink);
+    if ( v18 < qword_140E2DFC0 || (v19 = BYTE5(stru_140E2DAB0.Header.WaitListHead.Blink), v18 > qword_140E2DFD0) )
+      v19 = BYTE4(stru_140E2DAB0.Header.WaitListHead.Blink);
 LABEL_24:
     if ( !v19 )
       goto LABEL_8;
@@ -223,7 +223,7 @@ LABEL_8:
       v30 = *(_QWORD *)&CLFS_LSN_NULL_EXT;
       v31 = (*(_QWORD *)(v4 + 40) >> 43) & 0x3FFLL;
       v38 = 0;
-      v32 = *(_QWORD *)(stru_140E2EB88.ThreadLock + 8 * v31);
+      v32 = *(_QWORD *)(stru_140E2ED08.ThreadLock + 8 * v31);
       while ( _interlockedbittestandset64((volatile signed __int32 *)(v4 + 24), 0x3FuLL) )
       {
         do

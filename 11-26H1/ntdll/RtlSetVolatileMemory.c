@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlSetVolatileMemory @ 0x1801646A0
+ * XREFs of RtlSetVolatileMemory @ 0x1801645A0
  * Callers:
- *     RtlSetBits @ 0x180092430 (RtlSetBits.c)
- *     RtlFindClearBitsAndSet @ 0x180093C70 (RtlFindClearBitsAndSet.c)
- *     RtlClearBits @ 0x1800941F0 (RtlClearBits.c)
- *     RtlClearBitsEx @ 0x180140940 (RtlClearBitsEx.c)
- *     RtlSetBitsEx @ 0x180141710 (RtlSetBitsEx.c)
+ *     RtlFindClearBitsAndSet @ 0x180072E40 (RtlFindClearBitsAndSet.c)
+ *     RtlClearBits @ 0x1800733C0 (RtlClearBits.c)
+ *     RtlSetBits @ 0x180073DE0 (RtlSetBits.c)
+ *     RtlClearBitsEx @ 0x180140840 (RtlClearBitsEx.c)
+ *     RtlSetBitsEx @ 0x180141610 (RtlSetBitsEx.c)
  * Callees:
  *     <none>
  */

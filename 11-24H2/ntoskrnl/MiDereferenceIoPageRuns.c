@@ -1,9 +1,9 @@
 /*
- * XREFs of MiDereferenceIoPageRuns @ 0x1403CE6A8
+ * XREFs of MiDereferenceIoPageRuns @ 0x14038E6E8
  * Callers:
- *     MiReplaceRotateWithDemandZeroNoCopy @ 0x1403CE11C (MiReplaceRotateWithDemandZeroNoCopy.c)
+ *     MiReplaceRotateWithDemandZeroNoCopy @ 0x14038E15C (MiReplaceRotateWithDemandZeroNoCopy.c)
  * Callees:
- *     MiDereferenceIoPages @ 0x1403CE8E0 (MiDereferenceIoPages.c)
+ *     MiDereferenceIoPages @ 0x14038E760 (MiDereferenceIoPages.c)
  */
 
 __int64 __fastcall MiDereferenceIoPageRuns(__int64 a1, __int64 a2)

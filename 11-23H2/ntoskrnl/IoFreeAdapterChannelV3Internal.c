@@ -1,11 +1,11 @@
 /*
- * XREFs of IoFreeAdapterChannelV3Internal @ 0x140510254
+ * XREFs of IoFreeAdapterChannelV3Internal @ 0x1405107A4
  * Callers:
- *     HalpContinueProcessingWaitQueue @ 0x14050FBE4 (HalpContinueProcessingWaitQueue.c)
- *     IoFreeAdapterChannelV3 @ 0x140510200 (IoFreeAdapterChannelV3.c)
+ *     HalpContinueProcessingWaitQueue @ 0x140510134 (HalpContinueProcessingWaitQueue.c)
+ *     IoFreeAdapterChannelV3 @ 0x140510750 (IoFreeAdapterChannelV3.c)
  * Callees:
- *     IoFreeMapRegistersV3 @ 0x1405102D0 (IoFreeMapRegistersV3.c)
- *     HalpFreeDmaChannels @ 0x14051725C (HalpFreeDmaChannels.c)
+ *     IoFreeMapRegistersV3 @ 0x140510820 (IoFreeMapRegistersV3.c)
+ *     HalpFreeDmaChannels @ 0x1405177AC (HalpFreeDmaChannels.c)
  */
 
 __int64 __fastcall IoFreeAdapterChannelV3Internal(__int64 a1)

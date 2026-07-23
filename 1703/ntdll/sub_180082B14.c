@@ -7,16 +7,16 @@
  *     ZwClose @ 0x1800A54E0 (ZwClose.c)
  */
 
-__int64 __fastcall sub_180082B14(_QWORD *a1)
+NTSTATUS __fastcall sub_180082B14(__int64 a1)
 {
-  __int64 v2; // rcx
-  __int64 result; // rax
+  void *v2; // rcx
+  NTSTATUS result; // eax
 
-  ZwClose(a1[4]);
-  v2 = a1[3];
-  a1[12] = 0LL;
+  ZwClose(*(HANDLE *)(a1 + 32));
+  v2 = *(void **)(a1 + 24);
+  *(_QWORD *)(a1 + 96) = 0LL;
   result = ZwClose(v2);
-  a1[4] = 0LL;
-  a1[3] = 0LL;
+  *(_QWORD *)(a1 + 32) = 0LL;
+  *(_QWORD *)(a1 + 24) = 0LL;
   return result;
 }

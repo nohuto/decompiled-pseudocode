@@ -1,12 +1,12 @@
 /*
- * XREFs of ExInitializeFastResourceAcquired2 @ 0x1404138B4
+ * XREFs of ExInitializeFastResourceAcquired2 @ 0x140413C48
  * Callers:
- *     ExInitializeFastResourceAcquired @ 0x140412710 (ExInitializeFastResourceAcquired.c)
+ *     ExInitializeFastResourceAcquired @ 0x140412A50 (ExInitializeFastResourceAcquired.c)
  * Callees:
- *     KeAbPreAcquire @ 0x140230EE0 (KeAbPreAcquire.c)
- *     ExInitializeFastResource2 @ 0x140413770 (ExInitializeFastResource2.c)
- *     ExpAddFastOwnerEntryToThreadList2 @ 0x140415270 (ExpAddFastOwnerEntryToThreadList2.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeAbPreAcquire @ 0x140230FD0 (KeAbPreAcquire.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     ExInitializeFastResource2 @ 0x140413B04 (ExInitializeFastResource2.c)
+ *     ExpAddFastOwnerEntryToThreadList2 @ 0x140415604 (ExpAddFastOwnerEntryToThreadList2.c)
  */
 
 __int16 __fastcall ExInitializeFastResourceAcquired2(
@@ -63,7 +63,7 @@ __int16 __fastcall ExInitializeFastResourceAcquired2(
       }
       while ( v14 != v8 );
       if ( (v8 & 0x200000) != 0 )
-        LOWORD(v8) = KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+        LOWORD(v8) = KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
     }
     _enable();
   }
@@ -95,7 +95,7 @@ __int16 __fastcall ExInitializeFastResourceAcquired2(
       }
       while ( v18 != v8 );
       if ( (v8 & 0x200000) != 0 )
-        LOWORD(v8) = KiRemoveSystemWorkPriorityKick(v16);
+        LOWORD(v8) = KiRemoveSystemWorkPriorityKick((__int64)v16);
     }
     _enable();
   }

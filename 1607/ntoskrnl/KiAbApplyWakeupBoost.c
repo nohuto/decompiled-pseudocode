@@ -1,13 +1,13 @@
 /*
- * XREFs of KiAbApplyWakeupBoost @ 0x14000C7E0
+ * XREFs of KiAbApplyWakeupBoost @ 0x14000C360
  * Callers:
- *     KeSetEventBoostPriorityEx @ 0x14000CAE8 (KeSetEventBoostPriorityEx.c)
- *     ExpWakePushLock @ 0x1400C8760 (ExpWakePushLock.c)
+ *     KeSetEventBoostPriorityEx @ 0x14000C668 (KeSetEventBoostPriorityEx.c)
+ *     ExpWakePushLock @ 0x1400C6600 (ExpWakePushLock.c)
  * Callees:
- *     KiSetPriorityFloor @ 0x14006C4F4 (KiSetPriorityFloor.c)
- *     KiProcessDeferredReadyList @ 0x1400D3450 (KiProcessDeferredReadyList.c)
- *     KiReadyDeferredReadyList @ 0x1400D3558 (KiReadyDeferredReadyList.c)
- *     EtwTraceAutoBoostSetFloor @ 0x14022597C (EtwTraceAutoBoostSetFloor.c)
+ *     KiSetPriorityFloor @ 0x14006C074 (KiSetPriorityFloor.c)
+ *     KiProcessDeferredReadyList @ 0x1400D12F0 (KiProcessDeferredReadyList.c)
+ *     KiReadyDeferredReadyList @ 0x1400D13F8 (KiReadyDeferredReadyList.c)
+ *     EtwTraceAutoBoostSetFloor @ 0x1402257A8 (EtwTraceAutoBoostSetFloor.c)
  */
 
 __int64 __fastcall KiAbApplyWakeupBoost(char a1, __int64 a2, __int64 a3)

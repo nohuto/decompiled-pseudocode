@@ -1,12 +1,12 @@
 /*
- * XREFs of KeRundownPriQueue @ 0x14057EA50
+ * XREFs of KeRundownPriQueue @ 0x14057EF40
  * Callers:
- *     ExpWorkQueueDestroy @ 0x140A00AC4 (ExpWorkQueueDestroy.c)
+ *     ExpWorkQueueDestroy @ 0x140A00D54 (ExpWorkQueueDestroy.c)
  * Callees:
- *     KiExitDispatcher @ 0x14023CD70 (KiExitDispatcher.c)
- *     KiAcquireKobjectLockSafe @ 0x140252030 (KiAcquireKobjectLockSafe.c)
- *     KeRundownQueueCommon @ 0x14028C934 (KeRundownQueueCommon.c)
- *     KiAcquireReleaseObjectRundownLockExclusive @ 0x14028CD8C (KiAcquireReleaseObjectRundownLockExclusive.c)
+ *     KiExitDispatcher @ 0x14023CE40 (KiExitDispatcher.c)
+ *     KiAcquireKobjectLockSafe @ 0x1402520F0 (KiAcquireKobjectLockSafe.c)
+ *     KeRundownQueueCommon @ 0x14028CBC4 (KeRundownQueueCommon.c)
+ *     KiAcquireReleaseObjectRundownLockExclusive @ 0x14028D01C (KiAcquireReleaseObjectRundownLockExclusive.c)
  */
 
 __int64 __fastcall KeRundownPriQueue(unsigned __int64 a1)
@@ -18,7 +18,7 @@ __int64 __fastcall KeRundownPriQueue(unsigned __int64 a1)
 
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     v4 = 4;
@@ -31,5 +31,5 @@ __int64 __fastcall KeRundownPriQueue(unsigned __int64 a1)
   KeRundownQueueCommon(a1, (volatile signed __int32 **)(a1 + 672), (_DWORD *)(a1 + 536), 0x20u, v6);
   _InterlockedAnd((volatile signed __int32 *)a1, 0xFFFFFF7F);
   KiAcquireReleaseObjectRundownLockExclusive(a1);
-  return KiExitDispatcher((__int64)KeGetCurrentPrcb(), 0, (struct _PROCESSOR_NUMBER)1, 0, CurrentIrql);
+  return KiExitDispatcher((__int64)KeGetCurrentPrcb(), 0, (_PROCESSOR_NUMBER)1, 0, CurrentIrql);
 }

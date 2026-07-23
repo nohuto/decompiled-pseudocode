@@ -1,13 +1,13 @@
 /*
- * XREFs of MiMakeCombineCandidateClean @ 0x140082B8C
+ * XREFs of MiMakeCombineCandidateClean @ 0x140082B7C
  * Callers:
- *     MiCrcStillIntact @ 0x140082C54 (MiCrcStillIntact.c)
- *     MiSharePages @ 0x1400846E0 (MiSharePages.c)
+ *     MiCrcStillIntact @ 0x140082C44 (MiCrcStillIntact.c)
+ *     MiSharePages @ 0x1400846D0 (MiSharePages.c)
  * Callees:
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
- *     MiLockPageAndSetDirty @ 0x140086028 (MiLockPageAndSetDirty.c)
- *     MiWriteValidPteNewProtection @ 0x140087970 (MiWriteValidPteNewProtection.c)
- *     MiCaptureWriteWatchDirtyBit @ 0x1401256DC (MiCaptureWriteWatchDirtyBit.c)
+ *     MiLockPageAndSetDirty @ 0x140086018 (MiLockPageAndSetDirty.c)
+ *     MiWriteValidPteNewProtection @ 0x140087960 (MiWriteValidPteNewProtection.c)
+ *     MiCaptureWriteWatchDirtyBit @ 0x1401257AC (MiCaptureWriteWatchDirtyBit.c)
  */
 
 char __fastcall MiMakeCombineCandidateClean(unsigned __int64 a1, __int64 a2)

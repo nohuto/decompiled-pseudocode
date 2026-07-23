@@ -1,9 +1,9 @@
 /*
- * XREFs of EtwpAddReloggedHeaderExtensionEvents @ 0x18003F0AC
+ * XREFs of EtwpAddReloggedHeaderExtensionEvents @ 0x18001F32C
  * Callers:
- *     EtwpFinalizeLogFileHeader @ 0x18003ED60 (EtwpFinalizeLogFileHeader.c)
+ *     EtwpFinalizeLogFileHeader @ 0x18001EFE0 (EtwpFinalizeLogFileHeader.c)
  * Callees:
- *     memmove @ 0x180167400 (memmove.c)
+ *     memmove @ 0x1801657C0 (memmove.c)
  */
 
 _UNKNOWN **__fastcall EtwpAddReloggedHeaderExtensionEvents(__int64 a1, __int64 a2, unsigned int a3)

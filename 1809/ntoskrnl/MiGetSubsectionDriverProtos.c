@@ -5,14 +5,14 @@
  *     MiResolveMappedFileFault @ 0x14002BE50 (MiResolveMappedFileFault.c)
  *     MiStartingOffset @ 0x140031170 (MiStartingOffset.c)
  *     MiCompleteProtoPteFault @ 0x14004A4B0 (MiCompleteProtoPteFault.c)
- *     MiEmptyPageAccessLog @ 0x140088580 (MiEmptyPageAccessLog.c)
- *     MiIdentifyPfn @ 0x1400A7EE0 (MiIdentifyPfn.c)
- *     MiImageProtoChargedCommit @ 0x14016AF30 (MiImageProtoChargedCommit.c)
- *     MiCountSystemImageCommitment @ 0x14017343C (MiCountSystemImageCommitment.c)
- *     MiAddMappedPtes @ 0x1405DF500 (MiAddMappedPtes.c)
- *     MiRevertRelocations @ 0x14065388C (MiRevertRelocations.c)
- *     MiPfAllocateMdls @ 0x1406982A0 (MiPfAllocateMdls.c)
- *     MiDeleteSessionDriverProtos @ 0x1406E1A58 (MiDeleteSessionDriverProtos.c)
+ *     MiEmptyPageAccessLog @ 0x140088570 (MiEmptyPageAccessLog.c)
+ *     MiIdentifyPfn @ 0x1400A7E20 (MiIdentifyPfn.c)
+ *     MiImageProtoChargedCommit @ 0x14016B030 (MiImageProtoChargedCommit.c)
+ *     MiCountSystemImageCommitment @ 0x14017353C (MiCountSystemImageCommitment.c)
+ *     MiAddMappedPtes @ 0x1405E0500 (MiAddMappedPtes.c)
+ *     MiRevertRelocations @ 0x140654A4C (MiRevertRelocations.c)
+ *     MiPfAllocateMdls @ 0x140699460 (MiPfAllocateMdls.c)
+ *     MiDeleteSessionDriverProtos @ 0x1406E2CF8 (MiDeleteSessionDriverProtos.c)
  * Callees:
  *     <none>
  */

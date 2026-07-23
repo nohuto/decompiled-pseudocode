@@ -9,19 +9,19 @@
 
 __int64 __fastcall MiMarkKernelCfgAddressTakenImports(__int64 a1)
 {
-  __int64 v2; // rax
+  _DWORD *v2; // rax
   unsigned int v3; // esi
   unsigned int v4; // r14d
   _DWORD *v5; // rdi
   unsigned int v6; // ebp
   __int64 result; // rax
-  __int64 v8; // [rsp+40h] [rbp+8h] BYREF
+  ULONG v8; // [rsp+40h] [rbp+8h] BYREF
 
-  v2 = RtlImageDirectoryEntryToData(*(_QWORD *)(a1 + 48), 1, 10, (int)&v8);
+  v2 = RtlImageDirectoryEntryToData(*(PVOID *)(a1 + 48), 1u, 0xAu, &v8);
   v3 = 0;
-  v4 = *(_DWORD *)(v2 + 168);
-  v5 = *(_DWORD **)(v2 + 160);
-  v6 = (*(_DWORD *)(v2 + 144) >> 28) + 4;
+  v4 = v2[42];
+  v5 = (_DWORD *)*((_QWORD *)v2 + 20);
+  v6 = (v2[36] >> 28) + 4;
   if ( v4 )
   {
     while ( *v5 <= (unsigned int)(*(_DWORD *)(a1 + 64) - 8) && (*v5 & 7) == 0 )

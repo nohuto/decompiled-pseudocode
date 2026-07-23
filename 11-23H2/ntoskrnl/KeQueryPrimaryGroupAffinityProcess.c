@@ -1,11 +1,11 @@
 /*
- * XREFs of KeQueryPrimaryGroupAffinityProcess @ 0x14032A1A8
+ * XREFs of KeQueryPrimaryGroupAffinityProcess @ 0x14032A438
  * Callers:
- *     PspGetProcessAffinityForPeb @ 0x1407A284C (PspGetProcessAffinityForPeb.c)
+ *     PspGetProcessAffinityForPeb @ 0x1407A2A3C (PspGetProcessAffinityForPeb.c)
  * Callees:
- *     ExAcquireSpinLockSharedAtDpcLevel @ 0x14025AD10 (ExAcquireSpinLockSharedAtDpcLevel.c)
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402A7C00 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExAcquireSpinLockSharedAtDpcLevel @ 0x14025AFA0 (ExAcquireSpinLockSharedAtDpcLevel.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402A7E90 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall KeQueryPrimaryGroupAffinityProcess(__int64 a1, __int64 a2)
@@ -23,7 +23,7 @@ __int64 __fastcall KeQueryPrimaryGroupAffinityProcess(__int64 a1, __int64 a2)
   *(_OWORD *)a2 = 0LL;
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     LODWORD(v7) = 4;
@@ -35,10 +35,10 @@ __int64 __fastcall KeQueryPrimaryGroupAffinityProcess(__int64 a1, __int64 a2)
   *(_WORD *)(a2 + 8) = *(_WORD *)(a1 + 1040);
   *(_QWORD *)a2 = *(_QWORD *)(a1 + 8LL * *(unsigned __int16 *)(a1 + 1040) + 88);
   ExReleaseSpinLockSharedFromDpcLevel((PEX_SPIN_LOCK)(a1 + 64));
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v8 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v8 <= 0xFu && CurrentIrql <= 0xFu && v8 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v8 <= 0xFu && CurrentIrql <= 0xFu && v8 >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       v10 = CurrentPrcb->SchedulerAssist;

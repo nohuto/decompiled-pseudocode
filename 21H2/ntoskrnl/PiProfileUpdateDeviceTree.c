@@ -1,11 +1,11 @@
 /*
- * XREFs of PiProfileUpdateDeviceTree @ 0x1408AB030
+ * XREFs of PiProfileUpdateDeviceTree @ 0x1408AB190
  * Callers:
- *     PpProfileCancelTransitioningDock @ 0x1408AB430 (PpProfileCancelTransitioningDock.c)
- *     PpProfileCommitTransitioningDock @ 0x1408AB4DC (PpProfileCommitTransitioningDock.c)
+ *     PpProfileCancelTransitioningDock @ 0x1408AB590 (PpProfileCancelTransitioningDock.c)
+ *     PpProfileCommitTransitioningDock @ 0x1408AB63C (PpProfileCommitTransitioningDock.c)
  * Callees:
- *     ExQueueWorkItem @ 0x14023E750 (ExQueueWorkItem.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     ExQueueWorkItem @ 0x1402E2FA0 (ExQueueWorkItem.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 PiProfileUpdateDeviceTree()

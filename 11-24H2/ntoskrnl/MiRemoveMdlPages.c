@@ -1,14 +1,14 @@
 /*
- * XREFs of MiRemoveMdlPages @ 0x1407EB5D8
+ * XREFs of MiRemoveMdlPages @ 0x1407EBBA8
  * Callers:
- *     MiAllocatePagesForMdl @ 0x14041225C (MiAllocatePagesForMdl.c)
+ *     MiAllocatePagesForMdl @ 0x14039469C (MiAllocatePagesForMdl.c)
  * Callees:
- *     MiFreeContiguousPages @ 0x1403A95E8 (MiFreeContiguousPages.c)
- *     MiSetPfnOwnedAndActive @ 0x14045B630 (MiSetPfnOwnedAndActive.c)
- *     MiRemovePhysicalMemoryBatchComplete @ 0x14066E884 (MiRemovePhysicalMemoryBatchComplete.c)
- *     MiSortMdlFrames @ 0x140672088 (MiSortMdlFrames.c)
- *     MiRemovePhysicalMemory @ 0x1407E9DAC (MiRemovePhysicalMemory.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     MiFreeContiguousPages @ 0x140398278 (MiFreeContiguousPages.c)
+ *     MiSetPfnOwnedAndActive @ 0x140450A30 (MiSetPfnOwnedAndActive.c)
+ *     MiRemovePhysicalMemoryBatchComplete @ 0x14066FA58 (MiRemovePhysicalMemoryBatchComplete.c)
+ *     MiSortMdlFrames @ 0x140673258 (MiSortMdlFrames.c)
+ *     MiRemovePhysicalMemory @ 0x1407EA37C (MiRemovePhysicalMemory.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 _DWORD *__fastcall MiRemoveMdlPages(char *P, __int64 a2)
@@ -75,13 +75,13 @@ _DWORD *__fastcall MiRemoveMdlPages(char *P, __int64 a2)
             do
             {
               LOWORD(v20) = 2;
-              MiSetPfnOwnedAndActive(v17, 1, -8LL, (unsigned __int8)BYTE2(*(_DWORD *)(v17 + 32)) >> 6, v20);
+              MiSetPfnOwnedAndActive(v17, 1LL, -8LL, (unsigned __int8)BYTE2(*(_DWORD *)(v17 + 32)) >> 6, v20);
               v17 += 48LL;
               --v18;
             }
             while ( v18 );
             v15 = v25;
-            MiFreeContiguousPages(v16, v11, 32);
+            MiFreeContiguousPages(v16, v11, 32LL);
             v10 = v26;
             v12 += v11;
           }

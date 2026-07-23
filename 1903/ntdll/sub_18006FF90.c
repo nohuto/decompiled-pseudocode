@@ -32,7 +32,7 @@ __int64 __fastcall sub_18006FF90(__int64 a1, unsigned int a2)
   }
   else
   {
-    RtlEnterCriticalSection(*(_QWORD *)(*(_QWORD *)(a1 + 24) + 352LL));
+    RtlEnterCriticalSection(*(PRTL_CRITICAL_SECTION *)(*(_QWORD *)(a1 + 24) + 352LL));
     if ( *(_QWORD *)(a1 + 8 * v3 + 2224) )
     {
       v7 = -1073741302;
@@ -64,7 +64,7 @@ __int64 __fastcall sub_18006FF90(__int64 a1, unsigned int a2)
         *(_QWORD *)(a1 + 8 * v3 + 2224) = v8;
       }
     }
-    RtlLeaveCriticalSection(*(_QWORD *)(*(_QWORD *)(a1 + 24) + 352LL));
+    RtlLeaveCriticalSection(*(PRTL_CRITICAL_SECTION *)(*(_QWORD *)(a1 + 24) + 352LL));
   }
   return (unsigned int)v7;
 }

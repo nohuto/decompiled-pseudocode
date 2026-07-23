@@ -1,10 +1,10 @@
 /*
- * XREFs of MiGetPfnPidSafe @ 0x1406266E4
+ * XREFs of MiGetPfnPidSafe @ 0x140626C34
  * Callers:
- *     MiIdentifyPfn @ 0x14023E4C0 (MiIdentifyPfn.c)
- *     MiLogMdlRangeEvent @ 0x1406234A0 (MiLogMdlRangeEvent.c)
+ *     MiIdentifyPfn @ 0x14023E590 (MiIdentifyPfn.c)
+ *     MiLogMdlRangeEvent @ 0x1406239F0 (MiLogMdlRangeEvent.c)
  * Callees:
- *     MiGetLeafPfnBuddy @ 0x14038BFDC (MiGetLeafPfnBuddy.c)
+ *     MiGetLeafPfnBuddy @ 0x14038C1BC (MiGetLeafPfnBuddy.c)
  */
 
 __int64 __fastcall MiGetPfnPidSafe(_QWORD *a1, char a2)

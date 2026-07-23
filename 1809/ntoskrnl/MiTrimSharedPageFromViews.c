@@ -1,7 +1,7 @@
 /*
- * XREFs of MiTrimSharedPageFromViews @ 0x1400EB40C
+ * XREFs of MiTrimSharedPageFromViews @ 0x1400EB48C
  * Callers:
- *     MiTrimSection @ 0x1400EABA4 (MiTrimSection.c)
+ *     MiTrimSection @ 0x1400EAC24 (MiTrimSection.c)
  * Callees:
  *     KeForceAttachProcess @ 0x14001674C (KeForceAttachProcess.c)
  *     MiGetAnyMultiplexedVm @ 0x140028884 (MiGetAnyMultiplexedVm.c)
@@ -15,36 +15,36 @@
  *     ExAcquirePushLockSharedEx @ 0x14004EE20 (ExAcquirePushLockSharedEx.c)
  *     KiLeaveGuardedRegionUnsafe @ 0x14004F090 (KiLeaveGuardedRegionUnsafe.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
- *     MiLockLowestValidPageTable @ 0x14006C5A0 (MiLockLowestValidPageTable.c)
- *     MiFlushTbList @ 0x1400740C0 (MiFlushTbList.c)
- *     MiLockWorkingSetShared @ 0x140076050 (MiLockWorkingSetShared.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14007DE90 (KeAcquireInStackQueuedSpinLock.c)
- *     MmGetSessionById @ 0x14007E4E0 (MmGetSessionById.c)
- *     MiGetWsleContents @ 0x140085F40 (MiGetWsleContents.c)
- *     MiLocateAddress @ 0x140087860 (MiLocateAddress.c)
- *     MiWriteValidPteNewProtection @ 0x140087970 (MiWriteValidPteNewProtection.c)
- *     MI_WSLE_LOG_ACCESS @ 0x140088044 (MI_WSLE_LOG_ACCESS.c)
- *     ExfReleasePushLockShared @ 0x1400914B0 (ExfReleasePushLockShared.c)
- *     MiGetSystemCacheReverseMap @ 0x1400ADF50 (MiGetSystemCacheReverseMap.c)
- *     MiFreeWsleList @ 0x1400B2AB0 (MiFreeWsleList.c)
- *     MiInsertTbFlushEntry @ 0x1400B3AF0 (MiInsertTbFlushEntry.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
- *     MiGetSessionVm @ 0x1400E945C (MiGetSessionVm.c)
- *     MiSynchronizeSystemVa @ 0x1400E9F68 (MiSynchronizeSystemVa.c)
- *     MiUnlockSystemVa @ 0x1400ECDC4 (MiUnlockSystemVa.c)
- *     MiTbFlushType @ 0x1400EDBA4 (MiTbFlushType.c)
- *     MiPrepareAttachThread @ 0x1400EEA3C (MiPrepareAttachThread.c)
- *     MiAttachThreadDone @ 0x1400EEA9C (MiAttachThreadDone.c)
- *     MiUnlockPageTableInternal @ 0x140104A90 (MiUnlockPageTableInternal.c)
- *     MmDetachSession @ 0x14011A5C0 (MmDetachSession.c)
- *     MmAttachSession @ 0x14011A650 (MmAttachSession.c)
- *     KeForceDetachProcess @ 0x140127F74 (KeForceDetachProcess.c)
- *     MiReplaceLockedPage @ 0x14018B034 (MiReplaceLockedPage.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     MmQuitNextSession @ 0x1406CF650 (MmQuitNextSession.c)
+ *     MiLockLowestValidPageTable @ 0x14006C590 (MiLockLowestValidPageTable.c)
+ *     MiFlushTbList @ 0x1400740B0 (MiFlushTbList.c)
+ *     MiLockWorkingSetShared @ 0x140076040 (MiLockWorkingSetShared.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14007DE80 (KeAcquireInStackQueuedSpinLock.c)
+ *     MmGetSessionById @ 0x14007E4D0 (MmGetSessionById.c)
+ *     MiGetWsleContents @ 0x140085F30 (MiGetWsleContents.c)
+ *     MiLocateAddress @ 0x140087850 (MiLocateAddress.c)
+ *     MiWriteValidPteNewProtection @ 0x140087960 (MiWriteValidPteNewProtection.c)
+ *     MI_WSLE_LOG_ACCESS @ 0x140088034 (MI_WSLE_LOG_ACCESS.c)
+ *     ExfReleasePushLockShared @ 0x1400913F0 (ExfReleasePushLockShared.c)
+ *     MiGetSystemCacheReverseMap @ 0x1400ADE90 (MiGetSystemCacheReverseMap.c)
+ *     MiFreeWsleList @ 0x1400B29F0 (MiFreeWsleList.c)
+ *     MiInsertTbFlushEntry @ 0x1400B3A30 (MiInsertTbFlushEntry.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC6A0 (KxReleaseQueuedSpinLock.c)
+ *     MiGetSessionVm @ 0x1400E94DC (MiGetSessionVm.c)
+ *     MiSynchronizeSystemVa @ 0x1400E9FE8 (MiSynchronizeSystemVa.c)
+ *     MiUnlockSystemVa @ 0x1400ECE44 (MiUnlockSystemVa.c)
+ *     MiTbFlushType @ 0x1400EDC24 (MiTbFlushType.c)
+ *     MiPrepareAttachThread @ 0x1400EEABC (MiPrepareAttachThread.c)
+ *     MiAttachThreadDone @ 0x1400EEB1C (MiAttachThreadDone.c)
+ *     MiUnlockPageTableInternal @ 0x140104B10 (MiUnlockPageTableInternal.c)
+ *     MmDetachSession @ 0x14011A630 (MmDetachSession.c)
+ *     MmAttachSession @ 0x14011A6C0 (MmAttachSession.c)
+ *     KeForceDetachProcess @ 0x140128044 (KeForceDetachProcess.c)
+ *     MiReplaceLockedPage @ 0x14018B174 (MiReplaceLockedPage.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     MmQuitNextSession @ 0x1406D08F0 (MmQuitNextSession.c)
  */
 
 __int64 __fastcall MiTrimSharedPageFromViews(void **a1, int a2, char a3, __int64 a4, _BYTE *a5)
@@ -181,7 +181,7 @@ __int64 __fastcall MiTrimSharedPageFromViews(void **a1, int a2, char a3, __int64
     v82 = 0;
     if ( v14 && v14 != KeGetCurrentThread()->ApcState.Process )
     {
-      KeAcquireInStackQueuedSpinLock(&qword_14043AE80, &LockHandle);
+      KeAcquireInStackQueuedSpinLock(&qword_14043BF40, &LockHandle);
       v83 = MiPrepareAttachThread(v14, &v14[1].IdealNode[12]);
       KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
       v18 = 0LL;
@@ -206,7 +206,7 @@ __int64 __fastcall MiTrimSharedPageFromViews(void **a1, int a2, char a3, __int64
     v52 = *((_DWORD *)v12 + 10);
     if ( v52 == -1 )
     {
-      v17 = &unk_140438F40;
+      v17 = &unk_14043A000;
       goto LABEL_103;
     }
     if ( v52 == -2 )
@@ -433,7 +433,7 @@ LABEL_15:
               v31 = i & 0xFFFFFFFFFFFFFFFEuLL;
               if ( (i & 1) == 0 )
                 v31 = *(_QWORD *)(v30 + 24);
-              if ( v9 != *(_QWORD *)(qword_14043A748 + 8LL * (*(_WORD *)(*(_QWORD *)v31 + 60LL) & 0x3FF)) + 7424LL )
+              if ( v9 != *(_QWORD *)(qword_14043B808 + 8LL * (*(_WORD *)(*(_QWORD *)v31 + 60LL) & 0x3FF)) + 7424LL )
                 goto LABEL_192;
               v32 = v29[2];
               if ( !v32 )
@@ -505,7 +505,7 @@ LABEL_28:
                       }
                       else
                       {
-                        if ( dword_14043A8E8 )
+                        if ( dword_14043B9A8 )
                           MI_WSLE_LOG_ACCESS(v9, v35);
                         if ( !HIDWORD(v103) )
                         {

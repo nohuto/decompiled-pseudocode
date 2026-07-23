@@ -11,37 +11,37 @@
 
 __int64 __fastcall ReportExceptionInternal(
         unsigned int a1,
-        __int64 a2,
+        void *a2,
         __int64 a3,
         unsigned int a4,
         unsigned int a5,
-        _QWORD *a6)
+        void **a6)
 {
   __int64 v10; // rdx
   __int64 result; // rax
-  _QWORD v12[176]; // [rsp+20h] [rbp-E0h] BYREF
-  _QWORD v13[176]; // [rsp+5A0h] [rbp+4A0h] BYREF
+  _PORT_MESSAGE ReceiveMessage[35]; // [rsp+20h] [rbp-E0h] BYREF
+  _PORT_MESSAGE SendMessageA[35]; // [rsp+5A0h] [rbp+4A0h] BYREF
 
   *a6 = 0LL;
   if ( a4 > 5 )
     return 3221226539LL;
-  memset(v13, 0, 0x578uLL);
+  memset(SendMessageA, 0, sizeof(SendMessageA));
   v10 = 0LL;
-  LODWORD(v13[0]) = 91751760;
-  LODWORD(v13[5]) = 0x20000000;
-  v13[7] = a2;
-  v13[6] = __PAIR64__(a1, a5);
+  SendMessageA[0].u1.Length = 91751760;
+  SendMessageA[1].u1.Length = 0x20000000;
+  SendMessageA[1].ClientId.UniqueThread = a2;
+  SendMessageA[1].ClientId.UniqueProcess = (void *)__PAIR64__(a1, a5);
   if ( a3 )
   {
     while ( (unsigned int)v10 < a4 && (unsigned int)v10 < 5 )
     {
-      v13[v10 + 8] = *(_QWORD *)(a3 + 8 * v10);
+      *((_QWORD *)&SendMessageA[1].MessageId + v10) = *(_QWORD *)(a3 + 8 * v10);
       v10 = (unsigned int)(v10 + 1);
     }
   }
-  memset(v12, 0, 0x578uLL);
-  LODWORD(v12[0]) = 91751760;
-  result = SendMessageToWERService(v13, v12);
+  memset(ReceiveMessage, 0, sizeof(ReceiveMessage));
+  ReceiveMessage[0].u1.Length = 91751760;
+  result = SendMessageToWERService(SendMessageA, ReceiveMessage);
   if ( (int)result >= 0 )
   {
     if ( (_DWORD)result == 258 )
@@ -50,7 +50,7 @@ __int64 __fastcall ReportExceptionInternal(
     }
     else
     {
-      *a6 = v12[6];
+      *a6 = ReceiveMessage[1].ClientId.UniqueProcess;
       return 0LL;
     }
   }

@@ -1,14 +1,14 @@
 /*
- * XREFs of WheapPfaMemoryCheck @ 0x14095E414
+ * XREFs of WheapPfaMemoryCheck @ 0x14095E5F4
  * Callers:
- *     WheapPredictiveFailureAnalysis @ 0x14095E740 (WheapPredictiveFailureAnalysis.c)
+ *     WheapPredictiveFailureAnalysis @ 0x14095E920 (WheapPredictiveFailureAnalysis.c)
  * Callees:
- *     MmGetPageBadStatus @ 0x14052F810 (MmGetPageBadStatus.c)
- *     WheaAttemptPhysicalPageOffline @ 0x14095D350 (WheaAttemptPhysicalPageOffline.c)
- *     WheapPfaLogPageMonitorRemoval @ 0x14095E37C (WheapPfaLogPageMonitorRemoval.c)
- *     WheapPfaRetireExpiredMemoryEntries @ 0x14095E690 (WheapPfaRetireExpiredMemoryEntries.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     MmGetPageBadStatus @ 0x14052FA50 (MmGetPageBadStatus.c)
+ *     WheaAttemptPhysicalPageOffline @ 0x14095D530 (WheaAttemptPhysicalPageOffline.c)
+ *     WheapPfaLogPageMonitorRemoval @ 0x14095E55C (WheapPfaLogPageMonitorRemoval.c)
+ *     WheapPfaRetireExpiredMemoryEntries @ 0x14095E870 (WheapPfaRetireExpiredMemoryEntries.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 void __fastcall WheapPfaMemoryCheck(unsigned __int64 a1, __int64 a2, __int64 a3, _DWORD *a4)
@@ -43,12 +43,12 @@ void __fastcall WheapPfaMemoryCheck(unsigned __int64 a1, __int64 a2, __int64 a3,
 LABEL_7:
         if ( v8 >= WheapPolicyMemPfaPageCount )
         {
-          PoolWithTag = (char *)qword_140CF4B80;
-          v11 = *(_QWORD *)qword_140CF4B80;
-          if ( *(_QWORD *)(*(_QWORD *)qword_140CF4B80 + 8LL) != qword_140CF4B80 )
+          PoolWithTag = (char *)qword_140CF4BD0;
+          v11 = *(_QWORD *)qword_140CF4BD0;
+          if ( *(_QWORD *)(*(_QWORD *)qword_140CF4BD0 + 8LL) != qword_140CF4BD0 )
             goto LABEL_21;
-          v12 = *(_QWORD **)(qword_140CF4B80 + 8);
-          if ( *v12 != qword_140CF4B80 )
+          v12 = *(_QWORD **)(qword_140CF4BD0 + 8);
+          if ( *v12 != qword_140CF4BD0 )
             goto LABEL_21;
           *v12 = v11;
           *(_QWORD *)(v11 + 8) = v12;

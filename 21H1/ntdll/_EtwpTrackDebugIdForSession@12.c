@@ -9,15 +9,17 @@
  *     _RtlCompareMemory@12 @ 0x4B307F30 (_RtlCompareMemory@12.c)
  */
 
-int __fastcall EtwpTrackDebugIdForSession(int a1, void *a2, SIZE_T Size)
+int __fastcall EtwpTrackDebugIdForSession(int a1, void *a2, int Size)
 {
   _DWORD *v3; // edi
   _DWORD *i; // esi
   _DWORD *Heap; // esi
   int v6; // eax
   void *v8; // [esp-8h] [ebp-20h]
-  ULONG v9; // [esp+0h] [ebp-18h]
-  ULONG *v10; // [esp+4h] [ebp-14h]
+  SIZE_T v9; // [esp-4h] [ebp-1Ch]
+  SIZE_T v10; // [esp-4h] [ebp-1Ch]
+  size_t v11; // [esp-4h] [ebp-1Ch]
+  ULONG *v12; // [esp+4h] [ebp-14h]
   ULONG ulAugend; // [esp+10h] [ebp-8h] BYREF
   void *Src; // [esp+14h] [ebp-4h]
 
@@ -27,19 +29,22 @@ int __fastcall EtwpTrackDebugIdForSession(int a1, void *a2, SIZE_T Size)
   {
     if ( i[3] == Size )
     {
-      if ( RtlCompareMemory(i + 4, a2, Size) == Size )
+      LODWORD(v9) = Size;
+      if ( (unsigned int)RtlCompareMemory(i + 4, a2, v9) == Size )
         return 183;
       a2 = Src;
     }
   }
-  if ( ULongAdd((ULONG)&ulAugend, v9, v10) < 0 )
+  if ( ULongAdd((ULONG)&ulAugend, HIDWORD(v9), v12) < 0 )
     return 534;
-  Heap = (_DWORD *)RtlAllocateHeap((int)NtCurrentPeb()->ProcessHeap, 8, ulAugend);
+  LODWORD(v10) = ulAugend;
+  Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, v10);
   if ( !Heap )
     return 14;
+  LODWORD(v11) = Size;
   v8 = Src;
   Heap[3] = Size;
-  memcpy(Heap + 4, v8, Size);
+  memcpy(Heap + 4, v8, v11);
   v6 = *v3;
   if ( *(_DWORD **)(*v3 + 4) != v3 )
     __fastfail(3u);

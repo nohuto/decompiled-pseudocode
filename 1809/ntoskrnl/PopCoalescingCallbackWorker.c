@@ -1,12 +1,12 @@
 /*
- * XREFs of PopCoalescingCallbackWorker @ 0x14086B520
+ * XREFs of PopCoalescingCallbackWorker @ 0x14086C780
  * Callers:
  *     <none>
  * Callees:
- *     PoIssueCoalescingNotification @ 0x1402DB750 (PoIssueCoalescingNotification.c)
- *     PopCoalescingSetActiveState @ 0x1402DB890 (PopCoalescingSetActiveState.c)
- *     PopReleasePolicyLock @ 0x140565370 (PopReleasePolicyLock.c)
- *     PopAcquirePolicyLock @ 0x140565690 (PopAcquirePolicyLock.c)
+ *     PoIssueCoalescingNotification @ 0x1402DB940 (PoIssueCoalescingNotification.c)
+ *     PopCoalescingSetActiveState @ 0x1402DBA80 (PopCoalescingSetActiveState.c)
+ *     PopReleasePolicyLock @ 0x140566370 (PopReleasePolicyLock.c)
+ *     PopAcquirePolicyLock @ 0x140566690 (PopAcquirePolicyLock.c)
  */
 
 __int64 PopCoalescingCallbackWorker()

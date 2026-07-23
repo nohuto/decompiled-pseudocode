@@ -17,9 +17,9 @@
 __int64 RtlpInitMuiCriticalSection()
 {
   __int64 result; // rax
-  __int64 v1; // [rsp+38h] [rbp+10h] BYREF
+  LARGE_INTEGER DelayInterval; // [rsp+38h] [rbp+10h] BYREF
 
-  v1 = -1000000LL;
+  DelayInterval.QuadPart = -1000000LL;
   do
   {
     if ( _InterlockedCompareExchange(&InitRegistryInfoCritSect, 1, 0) )
@@ -27,13 +27,13 @@ __int64 RtlpInitMuiCriticalSection()
       result = (unsigned int)InitRegistryInfoCritSect;
       if ( InitRegistryInfoCritSect == 1 )
       {
-        ZwDelayExecution(0LL, &v1);
+        ZwDelayExecution(0, &DelayInterval);
         result = (unsigned int)InitRegistryInfoCritSect;
       }
     }
     else
     {
-      RtlInitializeCriticalSectionEx(&RegistryInfoCritSect, 0LL, 0LL);
+      RtlInitializeCriticalSectionEx(&RegistryInfoCritSect, 0, 0);
       result = 2LL;
       InitRegistryInfoCritSect = 2;
     }

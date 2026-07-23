@@ -8,27 +8,27 @@
  *     HvpViewMapReleaseChargesAndUnlockViewPages @ 0x140A40714 (HvpViewMapReleaseChargesAndUnlockViewPages.c)
  */
 
-__int64 __fastcall HvpMappedViewConvertRegionFromLockedToCOWByPolicy(__int64 a1, _QWORD *a2, __int64 a3, __int64 a4)
+__int64 __fastcall HvpMappedViewConvertRegionFromLockedToCOWByPolicy(ULONG_PTR a1, _QWORD *a2, __int64 a3, __int64 a4)
 {
   __int64 v4; // rbp
-  unsigned __int64 v5; // rbx
+  ULONG_PTR v5; // rbx
   _BYTE *v6; // rbp
   __int64 v8; // rsi
-  int v11; // r14d
-  __int64 v12; // rcx
+  NTSTATUS v11; // r14d
+  ULONG_PTR v12; // rcx
   __int64 v13; // rcx
-  int v15; // [rsp+60h] [rbp+8h] BYREF
+  __int64 v15; // [rsp+60h] [rbp+8h] BYREF
 
   v4 = a2[7] - a2[3];
   v5 = a4 - a3;
-  v15 = 0;
+  LODWORD(v15) = 0;
   v6 = (_BYTE *)(a3 + v4);
   v8 = a3;
-  v11 = CmSiProtectViewOfSection(a1, *(__int64 **)(a1 + 24), (__int64)v6, a4 - a3, 8u, (__int64)&v15);
+  v11 = CmSiProtectViewOfSection(a1, *(void ***)(a1 + 24), v6, a4 - a3, 8u, (ULONG *)&v15);
   if ( v11 >= 0 )
   {
     HvpViewMapTouchPages(v6, v5, 1);
-    v11 = CmSiProtectViewOfSection(v12, *(__int64 **)(a1 + 24), (__int64)v6, v5, 2u, (__int64)&v15);
+    v11 = CmSiProtectViewOfSection(v12, *(void ***)(a1 + 24), v6, v5, 2u, (ULONG *)&v15);
     HvpViewMapReleaseChargesAndUnlockViewPages(v13, *(_QWORD *)(a1 + 24), v6, v5);
     while ( v8 < a4 )
     {

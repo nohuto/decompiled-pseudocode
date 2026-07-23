@@ -15,7 +15,7 @@ _UNKNOWN **__fastcall CarDeletePluginRuleViolations(int a1)
 {
   _UNKNOWN **result; // rax
   BOOLEAN i; // dl
-  RTL_AVL_TABLE *v4; // rbx
+  _RTL_AVL_TABLE *v4; // rbx
   _DWORD *v5; // rax
   __int128 v6; // [rsp+20h] [rbp-18h] BYREF
   _UNKNOWN *retaddr; // [rsp+38h] [rbp+0h] BYREF

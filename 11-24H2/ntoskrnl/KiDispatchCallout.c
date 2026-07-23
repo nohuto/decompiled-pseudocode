@@ -1,12 +1,12 @@
 /*
- * XREFs of KiDispatchCallout @ 0x140460100
+ * XREFs of KiDispatchCallout @ 0x140454FE0
  * Callers:
  *     <none>
  * Callees:
- *     KeExitRetpoline @ 0x14046029C (KeExitRetpoline.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
+ *     KeExitRetpoline @ 0x14045517C (KeExitRetpoline.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall KiDispatchCallout(__int64 a1, __int64 a2, __int64 a3, __int64 *a4)
@@ -63,7 +63,7 @@ __int64 __fastcall KiDispatchCallout(__int64 a1, __int64 a2, __int64 a3, __int64
   v16 = *(_QWORD *)v11 ^ 0x85131481131482ELL;
   *(_DWORD *)v11 = -1390710795;
   *(_DWORD *)v11 ^= 0xBC2A27DB;
-  guard_dispatch_icall_no_overrides(v11, v16, 0LL, 0LL);
+  guard_dispatch_icall_no_overrides(v11, v16);
   if ( KiIrqlFlags )
   {
     LOBYTE(v17) = CurrentIrql;

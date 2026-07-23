@@ -1,12 +1,12 @@
 /*
- * XREFs of TtmiTerminalMonitorControl @ 0x140677DD4
+ * XREFs of TtmiTerminalMonitorControl @ 0x140677EB8
  * Callers:
- *     TtmSessionMonitorControl @ 0x140678C58 (TtmSessionMonitorControl.c)
+ *     TtmSessionMonitorControl @ 0x140678D3C (TtmSessionMonitorControl.c)
  * Callees:
- *     TtmiLogError @ 0x140546BCC (TtmiLogError.c)
- *     TtmiSetPendingOnOffRequest @ 0x140677D18 (TtmiSetPendingOnOffRequest.c)
- *     TtmpEnterProximity @ 0x140677FC8 (TtmpEnterProximity.c)
- *     TtmpExitProximity @ 0x14067801C (TtmpExitProximity.c)
+ *     TtmiLogError @ 0x14054710C (TtmiLogError.c)
+ *     TtmiSetPendingOnOffRequest @ 0x140677DFC (TtmiSetPendingOnOffRequest.c)
+ *     TtmpEnterProximity @ 0x1406780AC (TtmpEnterProximity.c)
+ *     TtmpExitProximity @ 0x140678100 (TtmpExitProximity.c)
  */
 
 __int64 __fastcall TtmiTerminalMonitorControl(__int64 a1, unsigned int *a2, unsigned int a3, int a4)

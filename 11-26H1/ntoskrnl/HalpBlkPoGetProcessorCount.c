@@ -1,5 +1,5 @@
 /*
- * XREFs of HalpBlkPoGetProcessorCount @ 0x1405A52E0
+ * XREFs of HalpBlkPoGetProcessorCount @ 0x1405A7AF0
  * Callers:
  *     <none>
  * Callees:

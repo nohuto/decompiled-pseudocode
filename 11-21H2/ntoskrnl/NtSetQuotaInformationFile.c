@@ -3,7 +3,7 @@
  * Callers:
  *     <none>
  * Callees:
- *     IopSetEaOrQuotaInformationFile @ 0x140935320 (IopSetEaOrQuotaInformationFile.c)
+ *     sub_140935320 @ 0x140935320 (sub_140935320.c)
  */
 
 NTSTATUS __stdcall NtSetQuotaInformationFile(
@@ -14,5 +14,5 @@ NTSTATUS __stdcall NtSetQuotaInformationFile(
 {
   char v5; // [rsp+20h] [rbp-18h]
 
-  return IopSetEaOrQuotaInformationFile(FileHandle, (unsigned __int64)IoStatusBlock, (char *)Buffer, Length, v5);
+  return sub_140935320(FileHandle, (unsigned __int64)IoStatusBlock, (char *)Buffer, Length, v5);
 }

@@ -1,35 +1,35 @@
 /*
- * XREFs of PopDiagTraceCsResiliencyEnter @ 0x14051BFF8
+ * XREFs of PopDiagTraceCsResiliencyEnter @ 0x140516910
  * Callers:
- *     PopSleepstudyCaptureResiliencyStatistics @ 0x1407D6328 (PopSleepstudyCaptureResiliencyStatistics.c)
+ *     PopSleepstudyCaptureResiliencyStatistics @ 0x1407D94D8 (PopSleepstudyCaptureResiliencyStatistics.c)
  * Callees:
- *     KeReleaseSpinLock @ 0x1402BE860 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14032F300 (KeAcquireSpinLockRaiseToDpc.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     PopIsRemoteDesktopEnabled @ 0x140B4536C (PopIsRemoteDesktopEnabled.c)
+ *     KeReleaseSpinLock @ 0x140309520 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140331330 (KeAcquireSpinLockRaiseToDpc.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     PopIsRemoteDesktopEnabled @ 0x140B4706C (PopIsRemoteDesktopEnabled.c)
  */
 
-void __fastcall PopDiagTraceCsResiliencyEnter(__int64 a1, char a2, _OWORD *a3)
+void __fastcall PopDiagTraceCsResiliencyEnter(__int64 a1, char a2, __int128 *a3)
 {
   char IsRemoteDesktopEnabled; // bl
   KIRQL v7; // di
   int v8; // eax
 
   IsRemoteDesktopEnabled = PopIsRemoteDesktopEnabled();
-  v7 = KeAcquireSpinLockRaiseToDpc(&stru_140F10070.Spare35[1]);
-  memset_0(stru_140F10828.Spare35, 0, 0x150uLL);
-  BYTE1(stru_140F10828.SchedulerSharedSwappablePage) = stru_140F0C428.WaitBlockFill7[121];
-  BYTE1(stru_140F10828.Spare35[0]) = dword_140F106CC == 0;
-  LODWORD(stru_140F10828.IptSaveArea) = dword_140E677C4;
-  WORD1(stru_140F10828.Spare35[0]) = word_140F10724;
-  HIDWORD(stru_140F10828.IptSaveArea) = PopEsReason;
+  v7 = KeAcquireSpinLockRaiseToDpc(&PopCsResiliencyStatsLock);
+  memset_0(PopCsResiliencyStats, 0, 0x150uLL);
+  byte_140F100B1 = PopPdcDeviceListLock.Spare35[1];
+  byte_140F10081 = HIDWORD(PpmIdlePolicyLock.PropagateBoostsEntry.Next) == 0;
+  dword_140F100A0 = dword_140E67A2C;
+  word_140F10082 = WORD2(PpmIdlePolicyLock.ReadOperationCount);
+  dword_140F100A4 = PopEsReason;
   v8 = *(_DWORD *)(a1 + 12);
-  stru_140F10828.SchedulerSharedOffset = PopNetStandbyReason;
-  HIDWORD(stru_140F10828.Spare35[0]) = v8;
-  unk_140F10CE8 = -1LL;
-  LOBYTE(stru_140F10828.Spare35[0]) = 1;
-  LOBYTE(stru_140F10828.SchedulerSharedSwappablePage) = IsRemoteDesktopEnabled;
-  LOBYTE(stru_140F10828.Spare35[1]) = a2;
-  *(_OWORD *)&stru_140F10828.Spare36 = *a3;
-  KeReleaseSpinLock(&stru_140F10070.Spare35[1], v7);
+  dword_140F100AC = PopNetStandbyReason;
+  dword_140F10084 = v8;
+  qword_140F10108 = -1LL;
+  PopCsResiliencyStats[0] = 1;
+  byte_140F100B0 = IsRemoteDesktopEnabled;
+  byte_140F10088 = a2;
+  xmmword_140F10090 = *a3;
+  KeReleaseSpinLock(&PopCsResiliencyStatsLock, v7);
 }

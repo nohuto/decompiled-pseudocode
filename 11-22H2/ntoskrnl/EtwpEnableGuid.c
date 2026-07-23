@@ -66,7 +66,7 @@ __int64 __fastcall EtwpEnableGuid(__int64 a1, __int64 a2, char a3)
   unsigned int *v16; // rsi
   int CurrentThreadProcessId; // eax
   char v18; // di
-  __int128 *v19; // rdx
+  GUID *v19; // rdx
   unsigned int v20; // r15d
   bool v21; // zf
   __int64 v22; // rcx
@@ -262,14 +262,14 @@ LABEL_10:
   }
   CurrentThreadProcessId = PsGetCurrentThreadProcessId();
   v18 = BYTE2(v106);
-  v19 = &PrivateLoggerNotificationGuid;
+  v19 = (GUID *)&PrivateLoggerNotificationGuid;
   v20 = v86;
   v21 = BYTE2(v106) == 0;
   v22 = v92;
   v23 = v86;
   *(_DWORD *)(a2 + 36) = CurrentThreadProcessId;
   if ( v21 )
-    v19 = (__int128 *)(a2 + 40);
+    v19 = (GUID *)(a2 + 40);
   GuidEntryByGuid = EtwpFindGuidEntryByGuid(v22, v19, v23);
   if ( GuidEntryByGuid )
   {

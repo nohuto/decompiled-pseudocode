@@ -1,27 +1,27 @@
 /*
- * XREFs of PfpFlushBuffers @ 0x1403E8030
+ * XREFs of PfpFlushBuffers @ 0x1403E9660
  * Callers:
- *     PfTLoggingWorker @ 0x14055B15C (PfTLoggingWorker.c)
+ *     PfTLoggingWorker @ 0x14055B69C (PfTLoggingWorker.c)
  * Callees:
- *     MmFreeAccessPfnBuffer @ 0x140006704 (MmFreeAccessPfnBuffer.c)
- *     PfpReturnAccessBuffer @ 0x1400B0994 (PfpReturnAccessBuffer.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     RtlpInterlockedFlushSList @ 0x140166E80 (RtlpInterlockedFlushSList.c)
- *     memmove @ 0x140171280 (memmove.c)
- *     PfpFlushEventBuffers @ 0x1403E7CC0 (PfpFlushEventBuffers.c)
- *     PfpCopyEvent @ 0x1403E7DD0 (PfpCopyEvent.c)
- *     PfpLogPageAccess @ 0x1403E83D0 (PfpLogPageAccess.c)
- *     PfTAcquireLogEntry @ 0x140531A60 (PfTAcquireLogEntry.c)
+ *     MmFreeAccessPfnBuffer @ 0x140006874 (MmFreeAccessPfnBuffer.c)
+ *     PfpReturnAccessBuffer @ 0x1400AEA04 (PfpReturnAccessBuffer.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     RtlpInterlockedFlushSList @ 0x1401673F0 (RtlpInterlockedFlushSList.c)
+ *     memmove @ 0x140171780 (memmove.c)
+ *     PfpFlushEventBuffers @ 0x1403E92F0 (PfpFlushEventBuffers.c)
+ *     PfpCopyEvent @ 0x1403E9400 (PfpCopyEvent.c)
+ *     PfpLogPageAccess @ 0x1403E9A00 (PfpLogPageAccess.c)
+ *     PfTAcquireLogEntry @ 0x140531FA0 (PfTAcquireLogEntry.c)
  */
 
 char PfpFlushBuffers()
 {
-  struct _SLIST_ENTRY *v0; // rbx
+  _SLIST_ENTRY *v0; // rbx
   char *v1; // rdi
   void *v2; // r15
   int v3; // r12d
   PSLIST_ENTRY v4; // rax
-  struct _SLIST_ENTRY *v5; // rcx
+  _SLIST_ENTRY *v5; // rcx
   __int64 v6; // rsi
   unsigned __int64 v7; // rdx
   __int64 v8; // rbp
@@ -32,7 +32,7 @@ char PfpFlushBuffers()
   __int64 v14; // rax
   unsigned __int64 *v15; // rcx
   unsigned __int64 v16; // rax
-  struct _SLIST_ENTRY *v17; // rcx
+  _SLIST_ENTRY *v17; // rcx
   unsigned int v18; // [rsp+30h] [rbp-88h] BYREF
   _QWORD v19[2]; // [rsp+38h] [rbp-80h] BYREF
   __int64 Src; // [rsp+48h] [rbp-70h] BYREF
@@ -69,10 +69,10 @@ char PfpFlushBuffers()
     v21 = 0LL;
     v7 = ((MEMORY[0xFFFFF78000000004] * (unsigned __int64)(unsigned int)*(_QWORD *)(v6 + 24)) >> 24)
        + ((MEMORY[0xFFFFF78000000004] * HIDWORD(*(_QWORD *)(v6 + 24))) << 8);
-    LODWORD(v22) = dword_14032855C
+    LODWORD(v22) = dword_14032859C
                  + ((((MEMORY[0xFFFFF78000000004] * (unsigned __int64)(unsigned int)*(_QWORD *)(v6 + 16)) >> 24)
                    + ((MEMORY[0xFFFFF78000000004] * HIDWORD(*(_QWORD *)(v6 + 16))) << 8)) >> 10);
-    HIDWORD(v22) = dword_14032855C + (v7 >> 10);
+    HIDWORD(v22) = dword_14032859C + (v7 >> 10);
     LODWORD(v21) = v22;
     Src = 163851LL;
     PfpCopyEvent(&Src);
@@ -85,7 +85,7 @@ char PfpFlushBuffers()
         while ( 1 )
         {
           v13 = *v12;
-          v14 = PfTAcquireLogEntry(&unk_140328018, &v18, 1LL);
+          v14 = PfTAcquireLogEntry(&unk_140328058, &v18, 1LL);
           if ( !v14 )
             break;
           v15 = (unsigned __int64 *)(16LL * v18 + ((v14 + 31) & 0xFFFFFFFFFFFFFFF8uLL));
@@ -122,7 +122,7 @@ LABEL_13:
 LABEL_14:
     v10 = *(_QWORD *)(v6 + 24);
     v25[0] = 147463LL;
-    v25[1] = dword_14032855C
+    v25[1] = dword_14032859C
            + (unsigned int)((((MEMORY[0xFFFFF78000000004] * (unsigned __int64)(unsigned int)v10) >> 24)
                            + ((MEMORY[0xFFFFF78000000004] * HIDWORD(v10)) << 8)) >> 10);
     PfpCopyEvent(v25);

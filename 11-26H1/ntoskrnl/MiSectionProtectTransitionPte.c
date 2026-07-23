@@ -1,12 +1,12 @@
 /*
- * XREFs of MiSectionProtectTransitionPte @ 0x14033EF60
+ * XREFs of MiSectionProtectTransitionPte @ 0x140340FE0
  * Callers:
- *     MiSectionProtectAllPtes @ 0x140303F00 (MiSectionProtectAllPtes.c)
+ *     MiSectionProtectAllPtes @ 0x1402E5F80 (MiSectionProtectAllPtes.c)
  * Callees:
- *     MiSectionProtectZeroPte @ 0x1402CFA48 (MiSectionProtectZeroPte.c)
- *     MiSetProtectionOnTransitionPte @ 0x14033CED4 (MiSetProtectionOnTransitionPte.c)
- *     MiTryDeleteTransitionPte @ 0x14033E48C (MiTryDeleteTransitionPte.c)
- *     MiDecreaseUsedPtes @ 0x14033F020 (MiDecreaseUsedPtes.c)
+ *     MiSectionProtectZeroPte @ 0x1402B1808 (MiSectionProtectZeroPte.c)
+ *     MiSetProtectionOnTransitionPte @ 0x14033EF54 (MiSetProtectionOnTransitionPte.c)
+ *     MiTryDeleteTransitionPte @ 0x14034050C (MiTryDeleteTransitionPte.c)
+ *     MiDecreaseUsedPtes @ 0x1403410A0 (MiDecreaseUsedPtes.c)
  */
 
 __int64 __fastcall MiSectionProtectTransitionPte(__int64 a1, ULONG_PTR a2)
@@ -33,7 +33,7 @@ LABEL_4:
     *(_QWORD *)a2 = *(_QWORD *)&CLFS_LSN_NULL_EXT;
     MiDecreaseUsedPtes(v5, ((a2 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL, 1LL, v6);
     LOBYTE(v7) = 1;
-    MiSectionProtectZeroPte(a1, (__int64 *)a2, v7);
+    MiSectionProtectZeroPte(a1, a2, v7);
     return 0LL;
   }
   return 3221226029LL;

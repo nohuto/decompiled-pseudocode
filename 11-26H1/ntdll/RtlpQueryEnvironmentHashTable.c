@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpQueryEnvironmentHashTable @ 0x18009E110
+ * XREFs of RtlpQueryEnvironmentHashTable @ 0x18009D240
  * Callers:
- *     RtlQueryEnvironmentVariable @ 0x18009CD10 (RtlQueryEnvironmentVariable.c)
+ *     RtlQueryEnvironmentVariable @ 0x18009BE40 (RtlQueryEnvironmentVariable.c)
  * Callees:
- *     memmove @ 0x180164700 (memmove.c)
+ *     memmove @ 0x180164600 (memmove.c)
  */
 
 __int64 __fastcall RtlpQueryEnvironmentHashTable(
@@ -58,15 +58,15 @@ __int64 __fastcall RtlpQueryEnvironmentHashTable(
       LOWORD(v12) = v12 - 32;
       goto LABEL_5;
     }
-    if ( qword_1801C6038 && (unsigned __int16)v12 >= 0xC0u )
+    if ( qword_1801C5038 && (unsigned __int16)v12 >= 0xC0u )
     {
-      v13 = *(_WORD *)(qword_1801C6038
+      v13 = *(_WORD *)(qword_1801C5038
                      + 2
                      * ((v12 & 0xF)
-                      + *(unsigned __int16 *)(qword_1801C6038
+                      + *(unsigned __int16 *)(qword_1801C5038
                                             + 2LL
                                             * (((unsigned __int8)v12 >> 4)
-                                             + (unsigned int)*(unsigned __int16 *)(qword_1801C6038 + 2 * (v12 >> 8))))))
+                                             + (unsigned int)*(unsigned __int16 *)(qword_1801C5038 + 2 * (v12 >> 8))))))
           + v12;
       LOWORD(v12) = v13;
     }
@@ -129,14 +129,14 @@ LABEL_11:
         {
           if ( (unsigned int)v24 > 0x7A )
           {
-            if ( qword_1801C6038 && (unsigned __int16)v24 >= 0xC0u )
-              LOWORD(v24) = *(_WORD *)(qword_1801C6038
+            if ( qword_1801C5038 && (unsigned __int16)v24 >= 0xC0u )
+              LOWORD(v24) = *(_WORD *)(qword_1801C5038
                                      + 2
                                      * ((v24 & 0xF)
-                                      + *(unsigned __int16 *)(qword_1801C6038
+                                      + *(unsigned __int16 *)(qword_1801C5038
                                                             + 2LL
                                                             * (((unsigned __int8)v24 >> 4)
-                                                             + (unsigned int)*(unsigned __int16 *)(qword_1801C6038
+                                                             + (unsigned int)*(unsigned __int16 *)(qword_1801C5038
                                                                                                  + 2 * (v24 >> 8))))))
                           + v24;
           }
@@ -149,14 +149,14 @@ LABEL_11:
         {
           if ( (unsigned int)v25 > 0x7A )
           {
-            if ( qword_1801C6038 && (unsigned __int16)v25 >= 0xC0u )
-              LOWORD(v25) = *(_WORD *)(qword_1801C6038
+            if ( qword_1801C5038 && (unsigned __int16)v25 >= 0xC0u )
+              LOWORD(v25) = *(_WORD *)(qword_1801C5038
                                      + 2
                                      * ((v25 & 0xF)
-                                      + *(unsigned __int16 *)(qword_1801C6038
+                                      + *(unsigned __int16 *)(qword_1801C5038
                                                             + 2LL
                                                             * (((unsigned __int8)v25 >> 4)
-                                                             + (unsigned int)*(unsigned __int16 *)(qword_1801C6038
+                                                             + (unsigned int)*(unsigned __int16 *)(qword_1801C5038
                                                                                                  + 2 * (v25 >> 8))))))
                           + v25;
           }

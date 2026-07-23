@@ -11,33 +11,35 @@
  *     TppRaiseInvalidParameter @ 0x180125DC8 (TppRaiseInvalidParameter.c)
  */
 
-signed __int64 __fastcall TpStartAsyncIoOperation(_PEB_LDR_DATA *Ldr, __int64 a2, __int64 a3, __int64 a4)
+void __cdecl TpStartAsyncIoOperation(PTP_IO Io)
 {
-  _PEB_LDR_DATA *v4; // rbx
-  _LIST_ENTRY *Blink; // rdi
-  signed __int64 result; // rax
+  __int64 v1; // rdx
+  __int64 v2; // r8
+  PTP_IO v3; // rbx
+  __int64 v4; // rdi
+  int v5; // eax
 
-  v4 = Ldr;
-  if ( !Ldr )
-    return TppRaiseInvalidParameter(Ldr, a2, a3, a4);
-  if ( !(unsigned int)TppValidateCleanupGroupMember(Ldr, 0LL, a3, a4) )
-    return TppRaiseInvalidParameter(Ldr, a2, a3, a4);
-  if ( v4->SsHandle != TppIopCleanupGroupMemberVFuncs )
-    return TppRaiseInvalidParameter(Ldr, a2, a3, a4);
-  Ldr = NtCurrentPeb()->Ldr;
-  if ( Ldr->ShutdownInProgress != (_BYTE)a2 )
-    return TppRaiseInvalidParameter(Ldr, a2, a3, a4);
-  TppBarrierAdjust(&v4->InInitializationOrderModuleList.Blink, 1LL, 0LL);
-  _InterlockedIncrement((volatile signed __int32 *)&v4[3].InLoadOrderModuleList);
-  _InterlockedIncrement((volatile signed __int32 *)v4);
-  Blink = v4[1].InInitializationOrderModuleList.Blink;
-  if ( !Blink || (result = LODWORD(Blink[27].Blink), !(_DWORD)result) )
-    result = MEMORY[0x7FFE03C0];
-  if ( LODWORD(Blink[26].Blink) != (_DWORD)result )
+  v3 = Io;
+  if ( Io
+    && (unsigned int)TppValidateCleanupGroupMember(Io, 0LL)
+    && *((__int64 (__fastcall ***)(PVOID))v3 + 1) == &TppIopCleanupGroupMemberVFuncs
+    && (Io = (PTP_IO)NtCurrentPeb()->Ldr, *((_BYTE *)Io + 72) == (_BYTE)v1) )
   {
-    RtlAcquireSRWLockExclusive(&Blink[4].Blink);
-    TppAdjustRunningThreadGoalWithLock(Blink);
-    return RtlReleaseSRWLockExclusive((volatile signed __int64 *)&Blink[4].Blink);
+    TppBarrierAdjust((char *)v3 + 56, 1LL, 0LL);
+    _InterlockedIncrement((volatile signed __int32 *)v3 + 70);
+    _InterlockedIncrement((volatile signed __int32 *)v3);
+    v4 = *((_QWORD *)v3 + 18);
+    if ( !v4 || (v5 = *(_DWORD *)(v4 + 440)) == 0 )
+      v5 = MEMORY[0x7FFE03C0];
+    if ( *(_DWORD *)(v4 + 424) != v5 )
+    {
+      RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)(v4 + 72));
+      TppAdjustRunningThreadGoalWithLock(v4);
+      RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(v4 + 72));
+    }
   }
-  return result;
+  else
+  {
+    TppRaiseInvalidParameter(Io, v1, v2);
+  }
 }

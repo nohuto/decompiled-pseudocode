@@ -1,11 +1,11 @@
 /*
- * XREFs of MiGetPageFromSlabEntry @ 0x1403A33B8
+ * XREFs of MiGetPageFromSlabEntry @ 0x14021DA94
  * Callers:
- *     MiGetPageFromSlabAllocator @ 0x1403A2ED0 (MiGetPageFromSlabAllocator.c)
- *     MiGetPageFromSlabAllocatorByIdentity @ 0x1404CA864 (MiGetPageFromSlabAllocatorByIdentity.c)
- *     MiDefragmentSlabWorker @ 0x140686E60 (MiDefragmentSlabWorker.c)
+ *     MiGetPageFromSlabAllocator @ 0x14021D5AC (MiGetPageFromSlabAllocator.c)
+ *     MiGetPageFromSlabAllocatorByIdentity @ 0x1404C3D84 (MiGetPageFromSlabAllocatorByIdentity.c)
+ *     MiDefragmentSlabWorker @ 0x140687F90 (MiDefragmentSlabWorker.c)
  * Callees:
- *     RtlInterlockedSetClearRun @ 0x1403A46C0 (RtlInterlockedSetClearRun.c)
+ *     RtlInterlockedSetClearRun @ 0x14021DDF0 (RtlInterlockedSetClearRun.c)
  */
 
 __int64 __fastcall MiGetPageFromSlabEntry(__int64 a1, __int64 a2)

@@ -22,13 +22,13 @@
  *     LdrpResValidateFilePath @ 0x1800D57E8 (LdrpResValidateFilePath.c)
  */
 
-__int64 __fastcall LdrResSearchResource(
-        unsigned __int64 Handle,
+NTSTATUS __fastcall LdrResSearchResource(
+        WCHAR *DosFileName,
         void *Src,
         unsigned int a3,
         unsigned int a4,
         __int64 a5,
-        __int64 *a6,
+        SIZE_T *a6,
         void *a7,
         __int64 a8)
 {
@@ -36,42 +36,43 @@ __int64 __fastcall LdrResSearchResource(
   void *v12; // r14
   __int64 v13; // rax
   bool v14; // zf
-  unsigned int v15; // ebx
-  __int64 result; // rax
-  unsigned int v17; // eax
+  int v15; // ebx
+  NTSTATUS result; // eax
+  NTSTATUS v17; // eax
   int v18; // eax
-  HANDLE v19; // rdx
-  unsigned __int64 v20; // [rsp+50h] [rbp-E8h]
-  unsigned __int64 v21; // [rsp+58h] [rbp-E0h] BYREF
-  UNICODE_STRING DestinationString; // [rsp+60h] [rbp-D8h] BYREF
-  __int64 v23; // [rsp+70h] [rbp-C8h]
-  int v24; // [rsp+78h] [rbp-C0h] BYREF
-  __int64 v25; // [rsp+80h] [rbp-B8h]
-  int v26; // [rsp+88h] [rbp-B0h]
-  __int64 v27; // [rsp+90h] [rbp-A8h]
-  int v28; // [rsp+98h] [rbp-A0h] BYREF
-  const wchar_t *v29; // [rsp+A0h] [rbp-98h]
-  char v30[48]; // [rsp+A8h] [rbp-90h] BYREF
-  _BYTE v31[16]; // [rsp+D8h] [rbp-60h] BYREF
+  WCHAR *v19; // r9
+  WCHAR *v20; // rdx
+  PVOID Module; // [rsp+50h] [rbp-E8h] BYREF
+  SIZE_T Size; // [rsp+58h] [rbp-E0h] BYREF
+  _UNICODE_STRING DestinationString; // [rsp+60h] [rbp-D8h] BYREF
+  __int64 v24; // [rsp+70h] [rbp-C8h]
+  DWORD Lcid; // [rsp+78h] [rbp-C0h] BYREF
+  __int64 v26; // [rsp+80h] [rbp-B8h]
+  int v27; // [rsp+88h] [rbp-B0h]
+  __int64 v28; // [rsp+90h] [rbp-A8h]
+  int v29; // [rsp+98h] [rbp-A0h] BYREF
+  const wchar_t *v30; // [rsp+A0h] [rbp-98h]
+  _BYTE MemoryInformation[48]; // [rsp+A8h] [rbp-90h] BYREF
+  _BYTE v32[16]; // [rsp+D8h] [rbp-60h] BYREF
   PCWSTR SourceString; // [rsp+E8h] [rbp-50h]
 
   v9 = a3;
-  v27 = a5;
+  v28 = a5;
   v12 = a7;
-  v23 = (__int64)a7;
+  v24 = (__int64)a7;
   v13 = a8;
-  v25 = a8;
-  v20 = 0LL;
+  v26 = a8;
+  Module = 0LL;
   *(_DWORD *)&DestinationString.Length = 3538996;
   DestinationString.Buffer = L"LdrResSearchResource Enter";
-  v28 = 3407922;
-  v29 = L"LdrResSearchResource Exit";
+  v29 = 3407922;
+  v30 = L"LdrResSearchResource Exit";
   if ( (MEMORY[0x7FFE0385] & 1) != 0 )
   {
     LdrpTraceLoadMUIDll(&DestinationString, MEMORY[0x7FFE0384]);
-    v13 = v25;
+    v13 = v26;
   }
-  if ( !Handle || !Src || a7 && !v13 )
+  if ( !DosFileName || !Src || a7 && !v13 )
     goto LABEL_92;
   if ( (a4 & 0xF00) == 0 )
     a4 |= 0x100u;
@@ -87,14 +88,14 @@ __int64 __fastcall LdrResSearchResource(
   if ( (a4 & 0x41) != 0 )
   {
     if ( (_DWORD)v9 != 4 )
-      return 3221225713LL;
+      return -1073741583;
   }
   else if ( (_DWORD)v9 != 4 )
   {
     goto LABEL_16;
   }
   if ( (a4 & 0x41) == 0 )
-    return 3221225714LL;
+    return -1073741582;
 LABEL_16:
   if ( (a4 & 0x100) != 0 )
   {
@@ -116,18 +117,18 @@ LABEL_18:
 LABEL_19:
   if ( (~(_WORD)a4 & 0x810) != 0 && (a4 & 0x8000) != 0 || (a4 & 0x3000) == 0x3000 || (a4 & 0x18) == 0x18 )
     goto LABEL_21;
-  v21 = 0LL;
+  Size = 0LL;
   if ( (a4 & 0x20000) != 0 )
   {
     if ( (a4 & 0x400) == 0 || !a6 || !*a6 )
     {
       v15 = -1073741811;
-      v26 = -1073741811;
+      v27 = -1073741811;
       goto LABEL_22;
     }
-    v21 = *a6;
+    Size = *a6;
   }
-  memmove(v31, Src, 8 * v9);
+  memmove(v32, Src, 8 * v9);
   if ( (_DWORD)v9 != 3 )
   {
     if ( (unsigned int)v9 <= 3 )
@@ -144,7 +145,7 @@ LABEL_19:
       *(_QWORD *)&DestinationString.MaximumLength = 0LL;
       *(_DWORD *)((char *)&DestinationString.Buffer + 2) = 0;
       HIWORD(DestinationString.Buffer) = 0;
-      if ( (int)RtlLcidToLocaleName((unsigned int)SourceString, (__int64)&DestinationString, 2, 1) >= 0 )
+      if ( RtlLcidToLocaleName((LCID)SourceString, &DestinationString, 2u, 1u) >= 0 )
       {
         if ( DestinationString.Buffer )
           RtlFreeAnsiString(&DestinationString);
@@ -158,14 +159,14 @@ LABEL_92:
   if ( *SourceString )
   {
     RtlInitUnicodeString(&DestinationString, SourceString);
-    if ( !RtlCultureNameToLCID(&DestinationString.Length, &v24) )
-      return 3221225485LL;
+    if ( !RtlCultureNameToLCID(&DestinationString, &Lcid) )
+      return -1073741811;
   }
   else
   {
-    v24 = 0;
+    Lcid = 0;
   }
-  SourceString = (PCWSTR)(unsigned __int16)v24;
+  SourceString = (PCWSTR)(unsigned __int16)Lcid;
 LABEL_30:
   if ( (a4 & 0x300) == 0 )
   {
@@ -173,73 +174,86 @@ LABEL_30:
       goto LABEL_89;
     if ( (a4 & 0x1400) == 0x1400 )
     {
-      result = LdrpResValidateFilePath(Handle);
+      result = LdrpResValidateFilePath(DosFileName);
     }
     else
     {
       if ( (a4 & 0x1000) == 0 )
         goto LABEL_82;
-      result = LdrpResValidateFileHandle(Handle);
+      result = LdrpResValidateFileHandle(DosFileName);
     }
-    if ( (int)result < 0 )
+    if ( result < 0 )
       return result;
 LABEL_82:
-    v18 = LdrpResMapFile((wchar_t *)Handle);
+    v18 = LdrpResMapFile(DosFileName, &Module, &Size);
     v15 = v18;
     if ( v18 >= 0 )
     {
       if ( (a4 & 0x400) != 0 )
-        v19 = (HANDLE)Handle;
-      else
+      {
         v19 = 0LL;
-      result = LdrAddLoadAsDataTable(0LL, v19, 0LL);
-      if ( (int)result < 0 )
+        v20 = DosFileName;
+      }
+      else
+      {
+        v19 = DosFileName;
+        v20 = 0LL;
+      }
+      result = LdrAddLoadAsDataTable(Module, v20, Size, v19, 0LL);
+      if ( result < 0 )
         return result;
       goto LABEL_89;
     }
     if ( v18 == -1073741302 )
     {
 LABEL_89:
-      v12 = (void *)v23;
+      v12 = (void *)v24;
 LABEL_33:
       if ( (a4 & 0x8000) != 0 )
       {
-        result = LdrpResValidateFileHandle(Handle);
-        if ( (int)result < 0 )
+        result = LdrpResValidateFileHandle(DosFileName);
+        if ( result < 0 )
           return result;
-        v17 = LdrpResSearchResourceHandle((HANDLE)Handle, v27, (__int64)a6, (__int64)v12, v25);
+        v17 = LdrpResSearchResourceHandle(DosFileName, v28, (__int64)a6, (__int64)v12, v26);
       }
       else
       {
         v17 = LdrpResSearchResourceMappedFile(
-                v20,
-                v21,
+                Module,
+                Size,
                 a4,
-                (__int64)v31,
+                (__int64)v32,
                 v9,
-                (__int64 *)v27,
-                a6,
+                (__int64 *)v28,
+                (__int64 *)a6,
                 v12,
-                (unsigned int *)v25);
+                (unsigned int *)v26);
       }
       v15 = v17;
     }
 LABEL_22:
     if ( (MEMORY[0x7FFE0385] & 1) != 0 )
-      LdrpTraceLoadMUIDll(&v28, MEMORY[0x7FFE0384]);
+      LdrpTraceLoadMUIDll(&v29, MEMORY[0x7FFE0384]);
     return v15;
   }
-  v20 = Handle;
+  Module = DosFileName;
   if ( (a4 & 0x200) == 0 )
     goto LABEL_71;
-  if ( (Handle & 1) == 0 )
-    v20 = Handle | 1;
+  if ( ((unsigned __int8)DosFileName & 1) == 0 )
+    Module = (PVOID)((unsigned __int64)DosFileName | 1);
   if ( (a4 & 0x1000) == 0
-    || (result = ZwQueryVirtualMemory(-1LL, Handle & 0xFFFFFFFFFFFFFFFCuLL, 0LL, v30), (int)result >= 0) )
+    || (result = ZwQueryVirtualMemory(
+                   (HANDLE)0xFFFFFFFFFFFFFFFFLL,
+                   (PVOID)((unsigned __int64)DosFileName & 0xFFFFFFFFFFFFFFFCuLL),
+                   MemoryBasicInformation,
+                   MemoryInformation,
+                   0x30uLL,
+                   0LL),
+        result >= 0) )
   {
 LABEL_71:
-    result = LdrpResGetMappingSize(v20, &v21, a4, 0LL);
-    if ( (int)result >= 0 || (a4 & 0x1000) == 0 )
+    result = LdrpResGetMappingSize(Module, &Size, a4, 0LL);
+    if ( result >= 0 || (a4 & 0x1000) == 0 )
       goto LABEL_33;
   }
   return result;

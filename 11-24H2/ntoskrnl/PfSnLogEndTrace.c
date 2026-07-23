@@ -1,11 +1,11 @@
 /*
- * XREFs of PfSnLogEndTrace @ 0x140972020
+ * XREFs of PfSnLogEndTrace @ 0x14095A830
  * Callers:
- *     PfSnEndTrace @ 0x140971A58 (PfSnEndTrace.c)
+ *     PfSnEndTrace @ 0x14095A268 (PfSnEndTrace.c)
  * Callees:
- *     EtwEventEnabled @ 0x1402A1BD0 (EtwEventEnabled.c)
- *     EtwWrite @ 0x14041C1B0 (EtwWrite.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x1402D1300 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x14040FFB0 (EtwWrite.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 void __fastcall PfSnLogEndTrace(__int64 a1)
@@ -23,7 +23,7 @@ void __fastcall PfSnLogEndTrace(__int64 a1)
   __int64 v12; // [rsp+80h] [rbp+37h]
   __int64 v13; // [rsp+88h] [rbp+3Fh]
 
-  if ( a1 && qword_140E67108 && EtwEventEnabled(qword_140E67108, &PfSnEvt_EndTrace_Info) )
+  if ( a1 && qword_140E67258 && EtwEventEnabled(qword_140E67258, &PfSnEvt_EndTrace_Info) )
   {
     v2 = -1LL;
     do
@@ -41,6 +41,6 @@ void __fastcall PfSnLogEndTrace(__int64 a1)
     v9 = 4LL;
     v11 = 4LL;
     v13 = 4LL;
-    EtwWrite(qword_140E67108, &PfSnEvt_EndTrace_Info, 0LL, 5u, &UserData);
+    EtwWrite(qword_140E67258, &PfSnEvt_EndTrace_Info, 0LL, 5u, &UserData);
   }
 }

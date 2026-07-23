@@ -1,20 +1,20 @@
 /*
- * XREFs of RtlpHpHeapProtect @ 0x180157DB4
+ * XREFs of RtlpHpHeapProtect @ 0x180156174
  * Callers:
- *     RtlProtectHeap @ 0x18009C280 (RtlProtectHeap.c)
+ *     RtlProtectHeap @ 0x180028BA0 (RtlProtectHeap.c)
  * Callees:
- *     RtlpHpLargeAllocationProtect @ 0x180157F78 (RtlpHpLargeAllocationProtect.c)
- *     RtlpHpSegProtect @ 0x180158420 (RtlpHpSegProtect.c)
- *     ZwQueryVirtualMemory @ 0x1801620F0 (ZwQueryVirtualMemory.c)
- *     ZwProtectVirtualMemory @ 0x180162690 (ZwProtectVirtualMemory.c)
+ *     RtlpHpLargeAllocationProtect @ 0x180156338 (RtlpHpLargeAllocationProtect.c)
+ *     RtlpHpSegProtect @ 0x1801567E0 (RtlpHpSegProtect.c)
+ *     ZwQueryVirtualMemory @ 0x1801604B0 (ZwQueryVirtualMemory.c)
+ *     ZwProtectVirtualMemory @ 0x180160A50 (ZwProtectVirtualMemory.c)
  */
 
-__int64 __fastcall RtlpHpHeapProtect(__int64 a1, unsigned int a2)
+NTSTATUS __fastcall RtlpHpHeapProtect(unsigned __int64 *BaseAddress, ULONG NewProtect)
 {
   __int64 v2; // rsi
   __int16 v4; // ax
   int v5; // ebp
-  __int64 result; // rax
+  NTSTATUS result; // eax
   unsigned __int64 v7; // rbx
   unsigned __int64 v8; // rcx
   bool v9; // zf
@@ -23,53 +23,59 @@ __int64 __fastcall RtlpHpHeapProtect(__int64 a1, unsigned int a2)
   char v12; // r8
   unsigned __int64 v13; // rdx
   __int16 v14; // cx
-  __int128 v15; // [rsp+30h] [rbp-48h] BYREF
+  __int128 MemoryInformation; // [rsp+30h] [rbp-48h] BYREF
   __int128 v16; // [rsp+40h] [rbp-38h]
   __int128 v17; // [rsp+50h] [rbp-28h]
-  int v18; // [rsp+88h] [rbp+10h] BYREF
-  __int64 v19; // [rsp+90h] [rbp+18h] BYREF
-  __int64 v20; // [rsp+98h] [rbp+20h] BYREF
+  ULONG OldProtect; // [rsp+88h] [rbp+10h] BYREF
+  ULONG_PTR RegionSize; // [rsp+90h] [rbp+18h] BYREF
+  PVOID BaseAddressa; // [rsp+98h] [rbp+20h] BYREF
 
-  v18 = 0;
-  v2 = a2;
-  v15 = 0LL;
+  OldProtect = 0;
+  v2 = NewProtect;
+  MemoryInformation = 0LL;
   v16 = 0LL;
   v17 = 0LL;
-  if ( (a2 & 0x22) != 0 )
+  if ( (NewProtect & 0x22) != 0 )
   {
-    v4 = *(_WORD *)(a1 + 30);
+    v4 = *((_WORD *)BaseAddress + 15);
     v5 = 1;
     if ( (v4 & 2) == 0 )
-      *(_WORD *)(a1 + 30) = v4 | 2;
+      *((_WORD *)BaseAddress + 15) = v4 | 2;
   }
   else
   {
     v5 = 0;
   }
-  result = ZwQueryVirtualMemory(-1LL, a1, 0LL, &v15, 48LL, 0LL);
-  if ( (int)result >= 0 )
+  result = ZwQueryVirtualMemory(
+             (HANDLE)0xFFFFFFFFFFFFFFFFLL,
+             BaseAddress,
+             MemoryBasicInformation,
+             &MemoryInformation,
+             0x30uLL,
+             0LL);
+  if ( result >= 0 )
   {
-    v19 = *((_QWORD *)&v16 + 1);
-    v20 = a1;
-    result = ZwProtectVirtualMemory(-1LL, &v20, &v19, (unsigned int)v2, &v18);
-    if ( (int)result >= 0 )
+    RegionSize = *((_QWORD *)&v16 + 1);
+    BaseAddressa = BaseAddress;
+    result = ZwProtectVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &BaseAddressa, &RegionSize, v2, &OldProtect);
+    if ( result >= 0 )
     {
-      result = RtlpHpSegProtect(a1 + 320, (unsigned int)v2);
-      if ( (int)result >= 0 )
+      result = RtlpHpSegProtect(BaseAddress + 40, (unsigned int)v2);
+      if ( result >= 0 )
       {
-        result = RtlpHpSegProtect(a1 + 512, (unsigned int)v2);
-        if ( (int)result >= 0 )
+        result = RtlpHpSegProtect(BaseAddress + 64, (unsigned int)v2);
+        if ( result >= 0 )
         {
-          v7 = *(_QWORD *)(a1 + 72);
+          v7 = BaseAddress[9];
           if ( !v7 )
           {
-            result = 0LL;
+            result = 0;
 LABEL_32:
             if ( !v5 )
             {
-              v14 = *(_WORD *)(a1 + 30);
+              v14 = *((_WORD *)BaseAddress + 15);
               if ( (v14 & 2) != 0 )
-                *(_WORD *)(a1 + 30) = v14 & 0xFFFD;
+                *((_WORD *)BaseAddress + 15) = v14 & 0xFFFD;
             }
             return result;
           }
@@ -77,17 +83,17 @@ LABEL_32:
           {
 LABEL_30:
             result = RtlpHpLargeAllocationProtect(v7, v2);
-            if ( (int)result < 0 )
+            if ( result < 0 )
             {
 LABEL_31:
-              if ( (int)result < 0 )
+              if ( result < 0 )
                 return result;
               goto LABEL_32;
             }
             v8 = *(_QWORD *)v7;
             if ( !*(_QWORD *)v7 )
               break;
-            v9 = (*(_BYTE *)(a1 + 80) & 1) == 0;
+            v9 = (BaseAddress[10] & 1) == 0;
 LABEL_13:
             if ( v9 )
               v7 = v8;
@@ -95,7 +101,7 @@ LABEL_13:
               v7 ^= v8;
           }
           v8 = *(_QWORD *)(v7 + 8);
-          v10 = *(_BYTE *)(a1 + 80);
+          v10 = *((_BYTE *)BaseAddress + 80);
           if ( v8 )
           {
             v9 = (v10 & 1) == 0;

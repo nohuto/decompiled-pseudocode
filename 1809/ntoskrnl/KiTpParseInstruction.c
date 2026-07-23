@@ -1,10 +1,10 @@
 /*
- * XREFs of KiTpParseInstruction @ 0x140845CD4
+ * XREFs of KiTpParseInstruction @ 0x140846F34
  * Callers:
- *     KiTpSetupCompletion @ 0x140845D8C (KiTpSetupCompletion.c)
+ *     KiTpSetupCompletion @ 0x140846FEC (KiTpSetupCompletion.c)
  * Callees:
- *     KiTpEmulateInstruction @ 0x14029E8FC (KiTpEmulateInstruction.c)
- *     KiTpParseInstructionPrefix @ 0x14029F2AC (KiTpParseInstructionPrefix.c)
+ *     KiTpEmulateInstruction @ 0x14029EAEC (KiTpEmulateInstruction.c)
+ *     KiTpParseInstructionPrefix @ 0x14029F49C (KiTpParseInstructionPrefix.c)
  */
 
 __int64 __fastcall KiTpParseInstruction(char *a1)

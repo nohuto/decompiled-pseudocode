@@ -1,7 +1,7 @@
 /*
- * XREFs of MiMakeQuasiPte @ 0x14013BB38
+ * XREFs of MiMakeQuasiPte @ 0x14013BC38
  * Callers:
- *     MiUpdateUserMappings @ 0x14056E028 (MiUpdateUserMappings.c)
+ *     MiUpdateUserMappings @ 0x14056F028 (MiUpdateUserMappings.c)
  * Callees:
  *     <none>
  */

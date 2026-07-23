@@ -1,9 +1,9 @@
 /*
- * XREFs of KeExpandKernelStackAndCallout @ 0x1400B4CC4
+ * XREFs of KeExpandKernelStackAndCallout @ 0x1400B2AFC
  * Callers:
- *     IovpLogStackTrace @ 0x140701694 (IovpLogStackTrace.c)
+ *     IovpLogStackTrace @ 0x1407016C4 (IovpLogStackTrace.c)
  * Callees:
- *     KeExpandKernelStackAndCalloutInternal @ 0x1400F0FE0 (KeExpandKernelStackAndCalloutInternal.c)
+ *     KeExpandKernelStackAndCalloutInternal @ 0x1400EEE30 (KeExpandKernelStackAndCalloutInternal.c)
  */
 
 NTSTATUS __stdcall KeExpandKernelStackAndCallout(PEXPAND_STACK_CALLOUT Callout, PVOID Parameter, SIZE_T Size)

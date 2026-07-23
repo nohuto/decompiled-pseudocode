@@ -18,13 +18,13 @@ char __fastcall HalpTimerClockInterrupt(__int64 a1)
   __int64 InternalData; // rax
   __int64 v4; // rdx
   char *v5; // rdi
-  __int64 v6; // r8
-  __int64 v7; // r9
+  LARGE_INTEGER v6; // r8
+  LARGE_INTEGER v7; // r9
   int v8; // eax
   unsigned int v9; // eax
   __int64 CurrentPrcb; // rax
   _QWORD *v11; // rbx
-  char v13; // [rsp+30h] [rbp+8h] BYREF
+  LARGE_INTEGER PerformanceCounter; // [rsp+30h] [rbp+8h] BYREF
 
   v1 = *(_QWORD *)(a1 + 136);
   v2 = *(_BYTE *)(v1 + 41);
@@ -32,7 +32,7 @@ char __fastcall HalpTimerClockInterrupt(__int64 a1)
   (*(void (__fastcall **)(__int64))(v4 + 120))(InternalData);
   v5 = (char *)&HalpClockTickLog
      + 24 * (((unsigned __int8)_InterlockedExchangeAdd(&HalpClockTickLogIndex, 1u) + 1) & 0xF);
-  *(_QWORD *)v5 = RtlGetInterruptTimePrecise(&v13);
+  *(LARGE_INTEGER *)v5 = RtlGetInterruptTimePrecise(&PerformanceCounter);
   *((_DWORD *)v5 + 2) = KeGetPcr()->Prcb.Number;
   v5[12] = KeGetCurrentPrcb()->PendingTickFlags & 1;
   v5[13] = BYTE2(KeGetPcr()->HalReserved[5]);
@@ -45,7 +45,7 @@ char __fastcall HalpTimerClockInterrupt(__int64 a1)
   }
   else if ( (KeGetCurrentPrcb()->PendingTickFlags & 1) != 0 )
   {
-    KeClockInterruptNotify(v1, v2, v6, v7);
+    KeClockInterruptNotify(v1, v2, v6.QuadPart, v7.QuadPart);
     if ( KeGetCurrentPrcb()->ClockOwner )
     {
       if ( (unsigned int)(*(_DWORD *)(HalpClockTimer + 60) - MEMORY[0xFFFFF78000000008]) > 0x47868C00 )

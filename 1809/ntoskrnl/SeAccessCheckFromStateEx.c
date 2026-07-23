@@ -4,7 +4,7 @@
  *     SeAccessCheckFromState @ 0x1400155F0 (SeAccessCheckFromState.c)
  * Callees:
  *     SeAccessCheckWithHint @ 0x1400157C0 (SeAccessCheckWithHint.c)
- *     memset @ 0x1401D1880 (memset.c)
+ *     memset @ 0x1401D1980 (memset.c)
  */
 
 __int64 __fastcall SeAccessCheckFromStateEx(

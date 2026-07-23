@@ -13,17 +13,17 @@
  *     RtlpHpAllocVirtBlockCommitFirst @ 0x180082D7C (RtlpHpAllocVirtBlockCommitFirst.c)
  *     RtlpQueryExtendedInformationHeap @ 0x18008B1F0 (RtlpQueryExtendedInformationHeap.c)
  *     RtlpGetContainingRange @ 0x180100424 (RtlpGetContainingRange.c)
- *     RtlpLowFragHeapFlushCaches @ 0x18011A754 (RtlpLowFragHeapFlushCaches.c)
+ *     RtlpLowFragHeapFlushCaches @ 0x18011A724 (RtlpLowFragHeapFlushCaches.c)
  * Callees:
  *     RtlpHpHeapValidateProtection @ 0x1800466F8 (RtlpHpHeapValidateProtection.c)
  */
 
-__int64 __fastcall RtlpGetHeapProtection(__int64 a1, int a2)
+__int64 __fastcall RtlpGetHeapProtection(_DWORD *a1, int a2)
 {
   __int64 result; // rax
 
-  result = (*(_DWORD *)(a1 + 112) & 0x40000) != 0 ? 64 : 4;
+  result = (a1[28] & 0x40000) != 0 ? 64 : 4;
   if ( a2 )
-    return RtlpHpHeapValidateProtection(a1, (unsigned int)result, 0LL, 0LL);
+    return RtlpHpHeapValidateProtection(a1);
   return result;
 }

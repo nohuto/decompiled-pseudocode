@@ -1,14 +1,14 @@
 /*
- * XREFs of CcInitializeVolumeCacheMap @ 0x14007CB2C
+ * XREFs of CcInitializeVolumeCacheMap @ 0x14007CB1C
  * Callers:
- *     CcInitializeCacheMapEx @ 0x1400AC050 (CcInitializeCacheMapEx.c)
+ *     CcInitializeCacheMapEx @ 0x1400ABF90 (CcInitializeCacheMapEx.c)
  * Callees:
- *     KeAcquireInStackQueuedSpinLock @ 0x14007DE90 (KeAcquireInStackQueuedSpinLock.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14007DE80 (KeAcquireInStackQueuedSpinLock.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC6A0 (KxReleaseQueuedSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall CcInitializeVolumeCacheMap(__int64 a1, __int64 **a2)
@@ -83,14 +83,14 @@ __int64 __fastcall CcInitializeVolumeCacheMap(__int64 a1, __int64 **a2)
       return 0LL;
     }
   }
-  v13 = (_QWORD *)qword_1404382F8;
+  v13 = (_QWORD *)qword_1404393B8;
   v14 = v6 + 2;
-  if ( *(__int64 **)qword_1404382F8 != &CcVolumeCacheMapList )
+  if ( *(__int64 **)qword_1404393B8 != &CcVolumeCacheMapList )
     __fastfail(3u);
   *v14 = &CcVolumeCacheMapList;
   v6[3] = (__int64)v13;
   *v13 = v14;
-  qword_1404382F8 = (__int64)(v6 + 2);
+  qword_1404393B8 = (__int64)(v6 + 2);
 LABEL_7:
   KxReleaseQueuedSpinLock(&LockHandle);
   v7 = LockHandle.OldIrql;

@@ -23,7 +23,7 @@ _QWORD *__fastcall PspUnlockThreadSecurityExclusive(__int64 a1, __int64 a2)
   unsigned int v8; // r8d
   bool v9; // zf
   __int64 v10; // rcx
-  unsigned __int64 v11; // rdi
+  __int64 v11; // rdi
   int v12; // eax
   unsigned int v13; // ecx
   __int64 v14; // rdx
@@ -48,7 +48,7 @@ _QWORD *__fastcall PspUnlockThreadSecurityExclusive(__int64 a1, __int64 a2)
     v9 = !_BitScanReverse((unsigned int *)&v10, v8);
     if ( v9 )
       break;
-    v11 = (unsigned __int64)&CurrentThread->LockEntries[v10];
+    v11 = (__int64)&CurrentThread->LockEntries[v10];
     v8 &= ~(1 << v10);
     if ( (*(_BYTE *)(v11 + 26) & 1) != 0
       && (*(_DWORD *)(v11 + 32) & 1) == 0
@@ -62,14 +62,14 @@ _QWORD *__fastcall PspUnlockThreadSecurityExclusive(__int64 a1, __int64 a2)
         {
           *(_BYTE *)(v11 + 32) |= 2u;
           if ( *(__int64 *)(v11 + 32) < 0 )
-            KiAbEntryRemoveFromTree(v11);
+            KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)v11);
           v12 = *(_DWORD *)(v11 + 88) & 0x1FFFF;
           v13 = *(_DWORD *)(v11 + 88) & 0xFFFE0000;
           *(_BYTE *)(v11 + 25) &= ~1u;
           v17 = v12;
           *(_DWORD *)(v11 + 88) = v13;
           *(_QWORD *)(v11 + 32) = 0LL;
-          v14 = (__int64)(v11 - (unsigned __int64)CurrentThread->LockEntries) / 96;
+          v14 = (signed __int64)(v11 - (unsigned __int64)CurrentThread->LockEntries) / 96;
           if ( v7 == 1 )
             CurrentThread->AbEntrySummary |= 1 << v14;
           else

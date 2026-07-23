@@ -1,14 +1,20 @@
 /*
  * XREFs of ZwAlpcQueryInformation @ 0x14041C880
  * Callers:
- *     DifZwAlpcQueryInformationWrapper @ 0x14061D6E0 (DifZwAlpcQueryInformationWrapper.c)
+ *     sub_14061D6E0 @ 0x14061D6E0 (sub_14061D6E0.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwAlpcQueryInformation(__int64 a1, __int64 a2)
+// local variable allocation has failed, the output may be wrong!
+NTSTATUS __cdecl ZwAlpcQueryInformation(
+        HANDLE PortHandle,
+        ALPC_PORT_INFORMATION_CLASS PortInformationClass,
+        PVOID PortInformation,
+        ULONG Length,
+        PULONG ReturnLength)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return sub_140433F80(PortHandle, *(_QWORD *)&PortInformationClass);
 }

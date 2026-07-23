@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpUpdateUCRIndexInsert @ 0x18004D0D4
+ * XREFs of RtlpUpdateUCRIndexInsert @ 0x18004D0C4
  * Callers:
- *     RtlpInsertUCRBlock @ 0x18004D02C (RtlpInsertUCRBlock.c)
+ *     RtlpInsertUCRBlock @ 0x18004D01C (RtlpInsertUCRBlock.c)
  * Callees:
- *     RtlpHeapAddListEntry @ 0x18004C2F4 (RtlpHeapAddListEntry.c)
+ *     RtlpHeapAddListEntry @ 0x18004C2E4 (RtlpHeapAddListEntry.c)
  */
 
 void __fastcall RtlpUpdateUCRIndexInsert(__int64 a1, __int64 a2)

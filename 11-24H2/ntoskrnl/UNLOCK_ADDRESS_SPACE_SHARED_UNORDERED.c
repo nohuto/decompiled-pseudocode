@@ -1,11 +1,11 @@
 /*
- * XREFs of UNLOCK_ADDRESS_SPACE_SHARED_UNORDERED @ 0x14068EC3C
+ * XREFs of UNLOCK_ADDRESS_SPACE_SHARED_UNORDERED @ 0x14068FD18
  * Callers:
- *     MiLockVadRange @ 0x1408E8B10 (MiLockVadRange.c)
+ *     MiLockVadRange @ 0x1408D92F0 (MiLockVadRange.c)
  * Callees:
- *     ExfReleasePushLockShared @ 0x14025DE00 (ExfReleasePushLockShared.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     KiCheckForKernelApcDelivery @ 0x1402BB4D0 (KiCheckForKernelApcDelivery.c)
+ *     ExfReleasePushLockShared @ 0x14028E410 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     KiCheckForKernelApcDelivery @ 0x140362C10 (KiCheckForKernelApcDelivery.c)
  */
 
 _QWORD *__fastcall UNLOCK_ADDRESS_SPACE_SHARED_UNORDERED(__int64 a1, __int64 a2)
@@ -13,8 +13,6 @@ _QWORD *__fastcall UNLOCK_ADDRESS_SPACE_SHARED_UNORDERED(__int64 a1, __int64 a2)
   int v2; // esi
   ULONG_PTR v3; // rdi
   _QWORD *result; // rax
-  __int64 v6; // rdx
-  __int64 v7; // rcx
 
   v2 = *(_DWORD *)(a1 + 1448);
   v3 = a2 + 600;
@@ -26,7 +24,7 @@ _QWORD *__fastcall UNLOCK_ADDRESS_SPACE_SHARED_UNORDERED(__int64 a1, __int64 a2)
   {
     result = (_QWORD *)(a1 + 152);
     if ( (_QWORD *)*result != result )
-      return (_QWORD *)KiCheckForKernelApcDelivery(v7, v6);
+      return (_QWORD *)KiCheckForKernelApcDelivery();
   }
   return result;
 }

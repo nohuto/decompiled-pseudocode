@@ -9,61 +9,61 @@
  *     RtlSubtreePredecessor @ 0x1800657C0 (RtlSubtreePredecessor.c)
  */
 
-_QWORD *__fastcall RtlDelete(_QWORD *a1)
+PRTL_SPLAY_LINKS __cdecl RtlDelete(PRTL_SPLAY_LINKS Links)
 {
-  _QWORD *result; // rax
-  __int64 v3; // rax
-  _QWORD *v4; // rcx
+  PRTL_SPLAY_LINKS result; // rax
+  PRTL_SPLAY_LINKS v3; // rax
+  _RTL_SPLAY_LINKS *Parent; // rcx
   __int64 v5; // rdx
-  _QWORD *v6; // rcx
-  _QWORD *v7; // rcx
+  _RTL_SPLAY_LINKS *v6; // rcx
+  _RTL_SPLAY_LINKS *v7; // rcx
   __int64 v8; // rdx
 
-  result = (_QWORD *)a1[1];
+  result = Links->LeftChild;
   if ( result )
   {
-    if ( a1[2] )
+    if ( Links->RightChild )
     {
-      v3 = RtlSubtreePredecessor();
-      SwapSplayLinks(v3, a1);
-      result = (_QWORD *)a1[1];
+      v3 = RtlSubtreePredecessor(Links);
+      SwapSplayLinks(v3, Links);
+      result = Links->LeftChild;
     }
     if ( result )
       goto LABEL_5;
   }
-  result = (_QWORD *)a1[2];
+  result = Links->RightChild;
   if ( result )
   {
 LABEL_5:
-    v4 = (_QWORD *)*a1;
-    if ( (_QWORD *)*a1 == a1 )
+    Parent = Links->Parent;
+    if ( Links->Parent == Links )
     {
-      *result = result;
+      result->Parent = result;
     }
     else
     {
-      v5 = 1LL;
-      if ( (_QWORD *)v4[1] != a1 )
-        v5 = 2LL;
-      v4[v5] = result;
-      v6 = (_QWORD *)*a1;
-      *result = *a1;
+      v5 = 8LL;
+      if ( Parent->LeftChild != Links )
+        v5 = 16LL;
+      *(_RTL_SPLAY_LINKS **)((char *)&Parent->Parent + v5) = result;
+      v6 = Links->Parent;
+      result->Parent = Links->Parent;
       return RtlSplay(v6);
     }
   }
   else
   {
-    v7 = (_QWORD *)*a1;
-    if ( (_QWORD *)*a1 == a1 )
+    v7 = Links->Parent;
+    if ( Links->Parent == Links )
     {
       return 0LL;
     }
     else
     {
-      v8 = 1LL;
-      if ( (_QWORD *)v7[1] != a1 )
-        v8 = 2LL;
-      v7[v8] = 0LL;
+      v8 = 8LL;
+      if ( v7->LeftChild != Links )
+        v8 = 16LL;
+      *(_RTL_SPLAY_LINKS **)((char *)&v7->Parent + v8) = 0LL;
       return RtlSplay(v7);
     }
   }

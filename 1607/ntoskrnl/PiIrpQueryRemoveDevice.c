@@ -1,20 +1,20 @@
 /*
- * XREFs of PiIrpQueryRemoveDevice @ 0x14064A0C8
+ * XREFs of PiIrpQueryRemoveDevice @ 0x14064A1AC
  * Callers:
- *     PnpDisableDevice @ 0x14062D740 (PnpDisableDevice.c)
- *     PnpQueryRemoveLockedDeviceNode @ 0x14062E0BC (PnpQueryRemoveLockedDeviceNode.c)
+ *     PnpDisableDevice @ 0x14062D7F4 (PnpDisableDevice.c)
+ *     PnpQueryRemoveLockedDeviceNode @ 0x14062E170 (PnpQueryRemoveLockedDeviceNode.c)
  * Callees:
- *     KeInitializeEvent @ 0x14002DEA0 (KeInitializeEvent.c)
- *     KeWaitForSingleObject @ 0x14005C880 (KeWaitForSingleObject.c)
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
- *     PnpFindMountableDevice @ 0x14009EC90 (PnpFindMountableDevice.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     IopDecrementDeviceObjectHandleCount @ 0x1401C4A44 (IopDecrementDeviceObjectHandleCount.c)
- *     PnpLockMountableDevice @ 0x1401CDD6C (PnpLockMountableDevice.c)
- *     PnpMarkDeviceForRemove @ 0x1401CDDC0 (PnpMarkDeviceForRemove.c)
- *     PnpUnlockMountableDevice @ 0x1401CDE9C (PnpUnlockMountableDevice.c)
- *     PnpAsynchronousCall @ 0x1403F1BB0 (PnpAsynchronousCall.c)
- *     IopInvalidateVolumesForDevice @ 0x140621ABC (IopInvalidateVolumesForDevice.c)
+ *     KeInitializeEvent @ 0x14002DA20 (KeInitializeEvent.c)
+ *     KeWaitForSingleObject @ 0x14005C400 (KeWaitForSingleObject.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
+ *     PnpFindMountableDevice @ 0x140085DF0 (PnpFindMountableDevice.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     IopDecrementDeviceObjectHandleCount @ 0x1401C4928 (IopDecrementDeviceObjectHandleCount.c)
+ *     PnpLockMountableDevice @ 0x1401CDBB8 (PnpLockMountableDevice.c)
+ *     PnpMarkDeviceForRemove @ 0x1401CDC0C (PnpMarkDeviceForRemove.c)
+ *     PnpUnlockMountableDevice @ 0x1401CDCE8 (PnpUnlockMountableDevice.c)
+ *     PnpAsynchronousCall @ 0x1403F0A74 (PnpAsynchronousCall.c)
+ *     IopInvalidateVolumesForDevice @ 0x140621B70 (IopInvalidateVolumesForDevice.c)
  */
 
 __int64 __fastcall PiIrpQueryRemoveDevice(PDEVICE_OBJECT DeviceObject, _QWORD *a2)

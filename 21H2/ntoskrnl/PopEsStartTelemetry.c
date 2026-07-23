@@ -1,10 +1,10 @@
 /*
- * XREFs of PopEsStartTelemetry @ 0x14078E774
+ * XREFs of PopEsStartTelemetry @ 0x14078E934
  * Callers:
- *     PopEsExitSleep @ 0x14077A5A8 (PopEsExitSleep.c)
- *     PopEsWorker @ 0x1407811F0 (PopEsWorker.c)
+ *     PopEsExitSleep @ 0x14077A768 (PopEsExitSleep.c)
+ *     PopEsWorker @ 0x1407813B0 (PopEsWorker.c)
  * Callees:
- *     PopCurrentPowerState @ 0x140678D9C (PopCurrentPowerState.c)
+ *     PopCurrentPowerState @ 0x14066C4DC (PopCurrentPowerState.c)
  */
 
 char PopEsStartTelemetry()
@@ -22,10 +22,10 @@ char PopEsStartTelemetry()
   PopEsAcOnline = v3;
   if ( BYTE1(v3) )
     v1 = HIDWORD(v3);
-  PopEsLastBatteryThreshold = dword_140C23ED0;
-  result = byte_140C23ED5;
+  PopEsLastBatteryThreshold = dword_140C23370;
+  result = byte_140C23375;
   PopEsLastBatteryCharge = v1;
-  PopEsLastUserAwaySetting = byte_140C23ED5;
+  PopEsLastUserAwaySetting = byte_140C23375;
   PopEsLastStateChangeTimeStamp = v0;
   return result;
 }

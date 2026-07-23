@@ -75,7 +75,7 @@ NTSTATUS __stdcall NtDeleteValueKey(HANDLE KeyHandle, PUNICODE_STRING ValueName)
   memset(v40, 0, sizeof(v40));
   v33 = 0LL;
   if ( CmpTraceRoutine )
-    EtwGetKernelTraceTimestamp(v40, (char *)0x20000);
+    EtwGetKernelTraceTimestamp(v40, 0x20000u);
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;

@@ -1,21 +1,21 @@
 /*
- * XREFs of RtlpFreeHeap @ 0x1400936CC
+ * XREFs of RtlpFreeHeap @ 0x140092ECC
  * Callers:
- *     RtlpFreeHeapInternal @ 0x1400934E8 (RtlpFreeHeapInternal.c)
+ *     RtlpFreeHeapInternal @ 0x140092CE8 (RtlpFreeHeapInternal.c)
  * Callees:
- *     ExAcquireResourceExclusiveLite @ 0x140068160 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x140068940 (ExReleaseResourceLite.c)
- *     RtlpDeCommitFreeBlock @ 0x140093070 (RtlpDeCommitFreeBlock.c)
- *     RtlpInsertFreeBlock @ 0x1400930CC (RtlpInsertFreeBlock.c)
- *     RtlpCoalesceFreeBlocks @ 0x140093C54 (RtlpCoalesceFreeBlocks.c)
- *     RtlpHeapAddListEntry @ 0x140093EE8 (RtlpHeapAddListEntry.c)
- *     RtlpFindEntry @ 0x140094AD0 (RtlpFindEntry.c)
- *     RtlpLogHeapFailure @ 0x140159514 (RtlpLogHeapFailure.c)
- *     ZwFreeVirtualMemory @ 0x14015A040 (ZwFreeVirtualMemory.c)
- *     RtlpAnalyzeHeapFailure @ 0x1402185AC (RtlpAnalyzeHeapFailure.c)
- *     RtlpHeapLogRangeRelease @ 0x140218A28 (RtlpHeapLogRangeRelease.c)
- *     RtlpLogHeapContractEvent @ 0x140218F1C (RtlpLogHeapContractEvent.c)
- *     RtlpLogHeapFreeEvent @ 0x140219210 (RtlpLogHeapFreeEvent.c)
+ *     ExAcquireResourceExclusiveLite @ 0x140067CE0 (ExAcquireResourceExclusiveLite.c)
+ *     ExReleaseResourceLite @ 0x1400684C0 (ExReleaseResourceLite.c)
+ *     RtlpDeCommitFreeBlock @ 0x140092870 (RtlpDeCommitFreeBlock.c)
+ *     RtlpInsertFreeBlock @ 0x1400928CC (RtlpInsertFreeBlock.c)
+ *     RtlpCoalesceFreeBlocks @ 0x140093454 (RtlpCoalesceFreeBlocks.c)
+ *     RtlpHeapAddListEntry @ 0x1400936E8 (RtlpHeapAddListEntry.c)
+ *     RtlpFindEntry @ 0x1400942D0 (RtlpFindEntry.c)
+ *     RtlpLogHeapFailure @ 0x140159A84 (RtlpLogHeapFailure.c)
+ *     ZwFreeVirtualMemory @ 0x14015A5B0 (ZwFreeVirtualMemory.c)
+ *     RtlpAnalyzeHeapFailure @ 0x1402183D8 (RtlpAnalyzeHeapFailure.c)
+ *     RtlpHeapLogRangeRelease @ 0x140218854 (RtlpHeapLogRangeRelease.c)
+ *     RtlpLogHeapContractEvent @ 0x140218D48 (RtlpLogHeapContractEvent.c)
+ *     RtlpLogHeapFreeEvent @ 0x14021903C (RtlpLogHeapFreeEvent.c)
  */
 
 __int64 __fastcall RtlpFreeHeap(unsigned __int64 a1, int a2, __int64 a3, __int64 a4)

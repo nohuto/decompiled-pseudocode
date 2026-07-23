@@ -1,15 +1,15 @@
 /*
- * XREFs of PopPowerAggregatorNotifySystemWake @ 0x140993E10
+ * XREFs of PopPowerAggregatorNotifySystemWake @ 0x140994010
  * Callers:
- *     PopTransitionSystemPowerStateEx @ 0x140AA90F0 (PopTransitionSystemPowerStateEx.c)
+ *     PopTransitionSystemPowerStateEx @ 0x140AA8F60 (PopTransitionSystemPowerStateEx.c)
  * Callees:
- *     PopReleaseRwLock @ 0x14032C480 (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x14032C5E4 (PopAcquireRwLockExclusive.c)
+ *     PopReleaseRwLock @ 0x14032C710 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x14032C874 (PopAcquireRwLockExclusive.c)
  */
 
 void __fastcall PopPowerAggregatorNotifySystemWake(int a1)
 {
   PopAcquireRwLockExclusive((ULONG_PTR)&PopPowerAggregatorLock);
-  dword_140C3AB84 = a1;
+  dword_140C3AB64 = a1;
   PopReleaseRwLock(&PopPowerAggregatorLock);
 }

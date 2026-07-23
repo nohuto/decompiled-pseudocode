@@ -1,10 +1,10 @@
 /*
- * XREFs of CmpDecrementAppHiveUnloadCount @ 0x1404D6BAC
+ * XREFs of CmpDecrementAppHiveUnloadCount @ 0x1404D037C
  * Callers:
- *     CmpCompleteUnloadKey @ 0x1408B9ACC (CmpCompleteUnloadKey.c)
- *     CmpLateUnloadHiveWorker @ 0x140AD4630 (CmpLateUnloadHiveWorker.c)
+ *     CmpCompleteUnloadKey @ 0x1408C009C (CmpCompleteUnloadKey.c)
+ *     CmpLateUnloadHiveWorker @ 0x140AD1A90 (CmpLateUnloadHiveWorker.c)
  * Callees:
- *     ExpUnblockPushLock @ 0x1403682A0 (ExpUnblockPushLock.c)
+ *     ExpUnblockPushLock @ 0x14036A040 (ExpUnblockPushLock.c)
  */
 
 NTSTATUS CmpDecrementAppHiveUnloadCount()
@@ -12,13 +12,13 @@ NTSTATUS CmpDecrementAppHiveUnloadCount()
   NTSTATUS result; // eax
   signed __int32 v1[10]; // [rsp+0h] [rbp-28h] BYREF
 
-  result = --*(_DWORD *)&CmpKeyLockTracker.Timer.Processor;
-  if ( !*(_DWORD *)&CmpKeyLockTracker.Timer.Processor )
+  result = --LODWORD(CmpKeyLockTracker.Timer.Dpc);
+  if ( !LODWORD(CmpKeyLockTracker.Timer.Dpc) )
   {
     _InterlockedOr(v1, 0);
-    result = (NTSTATUS)CmpKeyLockTracker.WaitBlock[0].WaitListEntry.Flink;
-    if ( CmpKeyLockTracker.WaitBlock[0].WaitListEntry.Flink )
-      return ExpUnblockPushLock((volatile __int64 *)&CmpKeyLockTracker.320, 0LL, 0);
+    result = *(_DWORD *)&CmpKeyLockTracker.Timer.Processor;
+    if ( *(_QWORD *)&CmpKeyLockTracker.Timer.Processor )
+      return ExpUnblockPushLock((volatile __int64 *)&CmpKeyLockTracker.Timer.Processor, 0LL, 0);
   }
   return result;
 }

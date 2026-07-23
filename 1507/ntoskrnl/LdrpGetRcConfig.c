@@ -11,7 +11,7 @@
  *     LdrpAccessResourceDataNoMultipleLanguage @ 0x1404634F0 (LdrpAccessResourceDataNoMultipleLanguage.c)
  */
 
-__int64 __fastcall LdrpGetRcConfig(PVOID BaseAddress, __int64 a2, char a3, char a4)
+__int64 __fastcall LdrpGetRcConfig(PVOID BaseOfImage, __int64 a2, char a3, char a4)
 {
   int v4; // esi
   __int64 result; // rax
@@ -26,7 +26,7 @@ __int64 __fastcall LdrpGetRcConfig(PVOID BaseAddress, __int64 a2, char a3, char 
   v11 = 0LL;
   if ( a4 )
   {
-    result = LdrpGetFromMUIMemCache(BaseAddress, 0LL, 0LL, 8LL);
+    result = LdrpGetFromMUIMemCache(BaseOfImage);
     v11 = (_DWORD *)result;
     if ( result == -1 )
       return 0LL;
@@ -36,10 +36,10 @@ __int64 __fastcall LdrpGetRcConfig(PVOID BaseAddress, __int64 a2, char a3, char 
   v13[1] = 1LL;
   v13[2] = 0LL;
   v13[0] = L"MUI";
-  v8 = LdrpSearchResourceSection_U((_DWORD)BaseAddress, (unsigned int)v13, 3, 48, (__int64)&v12);
+  v8 = LdrpSearchResourceSection_U((_DWORD)BaseOfImage, (unsigned int)v13, 3, 48, (__int64)&v12);
   if ( v8 < 0 )
     goto LABEL_12;
-  v8 = LdrpAccessResourceDataNoMultipleLanguage(BaseAddress);
+  v8 = LdrpAccessResourceDataNoMultipleLanguage(BaseOfImage);
   if ( v8 < 0 )
     goto LABEL_12;
   v9 = v11;
@@ -53,7 +53,7 @@ LABEL_12:
   {
     if ( v9 )
       v4 = (int)v9;
-    LdrpSetAlternateResourceModuleHandle((_DWORD)BaseAddress, 0, 0, v4, v10, 0, 2, v8, 0LL);
+    LdrpSetAlternateResourceModuleHandle((_DWORD)BaseOfImage, 0, 0, v4, v10, 0, 2, v8, 0LL);
   }
   return (__int64)v9;
 }

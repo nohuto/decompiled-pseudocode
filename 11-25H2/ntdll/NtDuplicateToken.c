@@ -13,11 +13,17 @@
  *     <none>
  */
 
-__int64 NtDuplicateToken()
+NTSTATUS __cdecl NtDuplicateToken(
+        HANDLE ExistingTokenHandle,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        BOOLEAN EffectiveOnly,
+        TOKEN_TYPE Type,
+        PHANDLE NewTokenHandle)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 66LL;
+  result = 66;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

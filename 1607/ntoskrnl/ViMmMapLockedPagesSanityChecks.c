@@ -4,8 +4,8 @@
  *     VerifierMmMapLockedPages @ 0x14071BFC0 (VerifierMmMapLockedPages.c)
  *     VerifierMmMapLockedPagesSpecifyCache @ 0x14071C09C (VerifierMmMapLockedPagesSpecifyCache.c)
  * Callees:
- *     MmCheckMdlPages @ 0x140701B94 (MmCheckMdlPages.c)
- *     VerifierBugCheckIfAppropriate @ 0x14070C2E8 (VerifierBugCheckIfAppropriate.c)
+ *     MmCheckMdlPages @ 0x140701BC4 (MmCheckMdlPages.c)
+ *     VerifierBugCheckIfAppropriate @ 0x14070C318 (VerifierBugCheckIfAppropriate.c)
  */
 
 __int64 __fastcall ViMmMapLockedPagesSanityChecks(ULONG_PTR a1, char a2)

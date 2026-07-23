@@ -7,7 +7,7 @@
  *     PopBlockSessionSwitch @ 0x140779C60 (PopBlockSessionSwitch.c)
  */
 
-__int64 __fastcall PoSessionPowerControl(char a1, int a2, int a3)
+ULONG __fastcall PoSessionPowerControl(char a1, int a2, int a3)
 {
   int v6; // [rsp+20h] [rbp-30h] BYREF
   char v7; // [rsp+24h] [rbp-2Ch]
@@ -17,7 +17,7 @@ __int64 __fastcall PoSessionPowerControl(char a1, int a2, int a3)
   __int64 *v11; // [rsp+30h] [rbp-20h]
   __int64 v12; // [rsp+38h] [rbp-18h]
   __int64 v13; // [rsp+40h] [rbp-10h]
-  int v14; // [rsp+70h] [rbp+20h] BYREF
+  ULONG v14; // [rsp+70h] [rbp+20h] BYREF
   int v15; // [rsp+80h] [rbp+30h] BYREF
   __int64 v16; // [rsp+88h] [rbp+38h] BYREF
 

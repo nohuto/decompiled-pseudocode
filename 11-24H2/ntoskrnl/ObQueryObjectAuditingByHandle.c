@@ -1,13 +1,13 @@
 /*
- * XREFs of ObQueryObjectAuditingByHandle @ 0x140A16A80
+ * XREFs of ObQueryObjectAuditingByHandle @ 0x140A0FC60
  * Callers:
  *     <none>
  * Callees:
- *     ExReleaseRundownProtection_0 @ 0x140245670 (ExReleaseRundownProtection_0.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402595C0 (KiLeaveCriticalRegionUnsafe.c)
- *     ExfUnblockPushLock @ 0x1402C7820 (ExfUnblockPushLock.c)
- *     ExMapHandleToPointer @ 0x14084ACF0 (ExMapHandleToPointer.c)
- *     ObReferenceProcessHandleTable @ 0x140940570 (ObReferenceProcessHandleTable.c)
+ *     ExReleaseRundownProtection_0 @ 0x14020DE50 (ExReleaseRundownProtection_0.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140289BD0 (KiLeaveCriticalRegionUnsafe.c)
+ *     ExfUnblockPushLock @ 0x1402BC1A0 (ExfUnblockPushLock.c)
+ *     ExMapHandleToPointer @ 0x140846FB0 (ExMapHandleToPointer.c)
+ *     ObReferenceProcessHandleTable @ 0x140894BB0 (ObReferenceProcessHandleTable.c)
  */
 
 NTSTATUS __stdcall ObQueryObjectAuditingByHandle(HANDLE Handle, PBOOLEAN GenerateOnClose)
@@ -18,12 +18,9 @@ NTSTATUS __stdcall ObQueryObjectAuditingByHandle(HANDLE Handle, PBOOLEAN Generat
   struct _EX_RUNDOWN_REF *Process; // rsi
   unsigned __int64 Count; // rdi
   signed __int64 *v8; // rax
-  __int64 v9; // rdx
-  __int64 v10; // r8
-  __int64 v11; // r9
-  __int64 v12; // rbx
-  NTSTATUS v13; // ebx
-  signed __int32 v15[14]; // [rsp+0h] [rbp-38h] BYREF
+  __int64 v9; // rbx
+  NTSTATUS v10; // ebx
+  signed __int32 v12[14]; // [rsp+0h] [rbp-38h] BYREF
 
   v2 = 0;
   CurrentThread = KeGetCurrentThread();
@@ -54,20 +51,20 @@ NTSTATUS __stdcall ObQueryObjectAuditingByHandle(HANDLE Handle, PBOOLEAN Generat
   v8 = ExMapHandleToPointer(Count, v5);
   if ( v8 )
   {
-    v12 = *v8 >> 17;
+    v9 = *v8 >> 17;
     _InterlockedIncrement64(v8);
-    _InterlockedOr(v15, 0);
+    _InterlockedOr(v12, 0);
     if ( *(_QWORD *)(Count + 48) )
       ExfUnblockPushLock(Count + 48, 0LL);
-    *GenerateOnClose = (v12 & 4) != 0;
-    v13 = 0;
+    *GenerateOnClose = (v9 & 4) != 0;
+    v10 = 0;
   }
   else
   {
-    v13 = -1073741816;
+    v10 = -1073741816;
   }
-  KiLeaveCriticalRegionUnsafe((__int64)CurrentThread, v9, v10, v11);
+  KiLeaveCriticalRegionUnsafe((__int64)CurrentThread);
   if ( v2 )
     ExReleaseRundownProtection_0(Process + 61);
-  return v13;
+  return v10;
 }

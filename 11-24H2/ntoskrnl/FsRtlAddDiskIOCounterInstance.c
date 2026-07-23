@@ -1,16 +1,16 @@
 /*
- * XREFs of FsRtlAddDiskIOCounterInstance @ 0x140A4C810
+ * XREFs of FsRtlAddDiskIOCounterInstance @ 0x140A433A0
  * Callers:
- *     FsRtlDiskIOCounterSetCallback @ 0x140A4C790 (FsRtlDiskIOCounterSetCallback.c)
+ *     FsRtlDiskIOCounterSetCallback @ 0x140A43320 (FsRtlDiskIOCounterSetCallback.c)
  * Callees:
- *     KeQueryActiveProcessorCountEx @ 0x1402105E0 (KeQueryActiveProcessorCountEx.c)
- *     KeGetPrcb @ 0x140352980 (KeGetPrcb.c)
- *     ExGetExtensionTable @ 0x1403AA530 (ExGetExtensionTable.c)
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     ExReleaseExtensionTable @ 0x14044FE80 (ExReleaseExtensionTable.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     ExpPcwDisabledStatus @ 0x140A4C4F0 (ExpPcwDisabledStatus.c)
+ *     KeGetPrcb @ 0x1402B0A10 (KeGetPrcb.c)
+ *     KeQueryActiveProcessorCountEx @ 0x140339940 (KeQueryActiveProcessorCountEx.c)
+ *     ExGetExtensionTable @ 0x140398F94 (ExGetExtensionTable.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     ExReleaseExtensionTable @ 0x1404450F0 (ExReleaseExtensionTable.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     ExpPcwDisabledStatus @ 0x140A43080 (ExpPcwDisabledStatus.c)
  */
 
 __int64 __fastcall FsRtlAddDiskIOCounterInstance(__int64 a1)
@@ -41,7 +41,7 @@ __int64 __fastcall FsRtlAddDiskIOCounterInstance(__int64 a1)
   RtlInitUnicodeString(&DestinationString, L"default");
   if ( ExGetExtensionTable((struct _EX_RUNDOWN_REF *)ExpPcwExtensionHost) )
   {
-    v5 = guard_dispatch_icall_no_overrides(a1, &DestinationString, 0LL, 1LL);
+    v5 = guard_dispatch_icall_no_overrides(a1, &DestinationString);
     ExReleaseExtensionTable((struct _EX_RUNDOWN_REF *)ExpPcwExtensionHost);
   }
   else

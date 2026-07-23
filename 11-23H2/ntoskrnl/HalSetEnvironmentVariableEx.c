@@ -1,19 +1,19 @@
 /*
- * XREFs of HalSetEnvironmentVariableEx @ 0x140504A60
+ * XREFs of HalSetEnvironmentVariableEx @ 0x140504FB0
  * Callers:
- *     WheapCheckForAndReportErrorsFromPreviousSession @ 0x1403B419C (WheapCheckForAndReportErrorsFromPreviousSession.c)
- *     HaliAcpiSleep @ 0x140527F40 (HaliAcpiSleep.c)
- *     WheapPersistPageForMemoryError @ 0x140610FC8 (WheapPersistPageForMemoryError.c)
- *     IopSetEnvironmentVariableHal @ 0x140951320 (IopSetEnvironmentVariableHal.c)
- *     PopSetMemoryOverwriteRequestAction @ 0x140AA09AC (PopSetMemoryOverwriteRequestAction.c)
- *     PopCheckpointSystemSleepUnsafe @ 0x140AAA5F4 (PopCheckpointSystemSleepUnsafe.c)
+ *     WheapCheckForAndReportErrorsFromPreviousSession @ 0x1403B437C (WheapCheckForAndReportErrorsFromPreviousSession.c)
+ *     HaliAcpiSleep @ 0x140528490 (HaliAcpiSleep.c)
+ *     WheapPersistPageForMemoryError @ 0x140611518 (WheapPersistPageForMemoryError.c)
+ *     IopSetEnvironmentVariableHal @ 0x140951520 (IopSetEnvironmentVariableHal.c)
+ *     PopSetMemoryOverwriteRequestAction @ 0x140AA081C (PopSetMemoryOverwriteRequestAction.c)
+ *     PopCheckpointSystemSleepUnsafe @ 0x140AAA464 (PopCheckpointSystemSleepUnsafe.c)
  * Callees:
- *     KeRevertToUserGroupAffinityThread @ 0x140305E00 (KeRevertToUserGroupAffinityThread.c)
- *     KeSetSystemGroupAffinityThread @ 0x140306C50 (KeSetSystemGroupAffinityThread.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     wcscpy_s @ 0x1403DFD90 (wcscpy_s.c)
- *     _alloca_probe @ 0x140429B10 (_alloca_probe.c)
- *     HalEfiSetEnvironmentVariable @ 0x14050D22C (HalEfiSetEnvironmentVariable.c)
+ *     KeRevertToUserGroupAffinityThread @ 0x140306090 (KeRevertToUserGroupAffinityThread.c)
+ *     KeSetSystemGroupAffinityThread @ 0x140306EE0 (KeSetSystemGroupAffinityThread.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     wcscpy_s @ 0x1403DFF70 (wcscpy_s.c)
+ *     _alloca_probe @ 0x140429EA0 (_alloca_probe.c)
+ *     HalEfiSetEnvironmentVariable @ 0x14050D77C (HalEfiSetEnvironmentVariable.c)
  */
 
 __int64 __fastcall HalSetEnvironmentVariableEx(const wchar_t *a1, int a2, __int64 a3, int a4, int a5)
@@ -30,7 +30,7 @@ __int64 __fastcall HalSetEnvironmentVariableEx(const wchar_t *a1, int a2, __int6
   unsigned int v19; // edx
   unsigned int v20; // ebx
   wchar_t Dst[8]; // [rsp+30h] [rbp+0h] BYREF
-  struct _GROUP_AFFINITY PreviousAffinity; // [rsp+40h] [rbp+10h] BYREF
+  _GROUP_AFFINITY PreviousAffinity; // [rsp+40h] [rbp+10h] BYREF
 
   *(_OWORD *)Dst = 0LL;
   PreviousAffinity = 0LL;

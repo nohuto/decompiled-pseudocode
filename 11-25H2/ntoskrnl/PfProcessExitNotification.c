@@ -15,17 +15,17 @@
 
 void __fastcall PfProcessExitNotification(__int64 a1)
 {
-  unsigned __int64 *v2; // rax
-  unsigned __int64 *v3; // rbx
+  _RTL_BALANCED_NODE *v2; // rax
+  _RTL_BALANCED_NODE *v3; // rbx
 
   PfpLogApplicationEvent(a1);
   FsRtlAcquirePushLockExclusive(&qword_140E66E78);
-  v2 = (unsigned __int64 *)PfSnAltProfileFindByProcess(a1);
+  v2 = (_RTL_BALANCED_NODE *)PfSnAltProfileFindByProcess(a1);
   v3 = v2;
   if ( v2 )
   {
-    RtlRbRemoveNode((unsigned __int64)&qword_140E66E58, v2);
-    RtlRbRemoveNode((unsigned __int64)&xmmword_140E66E60 + 8, v3 + 3);
+    RtlRbRemoveNode(&Parent, v2);
+    RtlRbRemoveNode(&Tree, v3 + 1);
   }
   VmpReleasePushLockExclusive((volatile signed __int64 *)&qword_140E66E78);
   if ( v3 )

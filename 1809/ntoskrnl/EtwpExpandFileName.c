@@ -1,15 +1,15 @@
 /*
- * XREFs of EtwpExpandFileName @ 0x14069AF68
+ * XREFs of EtwpExpandFileName @ 0x14069C128
  * Callers:
- *     EtwpRealtimeCreateLogfile @ 0x1405C0F90 (EtwpRealtimeCreateLogfile.c)
- *     EtwpCreateLogFile @ 0x140699AFC (EtwpCreateLogFile.c)
+ *     EtwpRealtimeCreateLogfile @ 0x1405C1F90 (EtwpRealtimeCreateLogfile.c)
+ *     EtwpCreateLogFile @ 0x14069ACBC (EtwpCreateLogFile.c)
  * Callees:
  *     RtlStringCbPrintfW @ 0x1400161B0 (RtlStringCbPrintfW.c)
- *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
- *     PsGetCurrentServerSiloGlobals @ 0x140109D40 (PsGetCurrentServerSiloGlobals.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     RtlFreeAnsiString @ 0x140623790 (RtlFreeAnsiString.c)
- *     RtlCompareUnicodeStrings @ 0x14069B150 (RtlCompareUnicodeStrings.c)
+ *     RtlInitUnicodeString @ 0x1400B99D0 (RtlInitUnicodeString.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x140109DC0 (PsGetCurrentServerSiloGlobals.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     RtlFreeAnsiString @ 0x140624790 (RtlFreeAnsiString.c)
+ *     RtlCompareUnicodeStrings @ 0x14069C310 (RtlCompareUnicodeStrings.c)
  */
 
 __int64 __fastcall EtwpExpandFileName(char a1, UNICODE_STRING *a2, unsigned int a3, unsigned __int16 *a4)
@@ -91,7 +91,7 @@ __int64 __fastcall EtwpExpandFileName(char a1, UNICODE_STRING *a2, unsigned int 
         if ( v6 )
           v28 = (const WCHAR *)*((_QWORD *)a4 + 1);
         else
-          v28 = &word_140766550;
+          v28 = &word_140767740;
         v22 = RtlStringCbPrintfW(PoolWithTag, v17, L"%ws%ws", a2->Buffer, v28);
       }
       else
@@ -116,7 +116,7 @@ __int64 __fastcall EtwpExpandFileName(char a1, UNICODE_STRING *a2, unsigned int 
       if ( v6 )
         v20 = (const WCHAR *)*((_QWORD *)a4 + 1);
       else
-        v20 = &word_140766550;
+        v20 = &word_140767740;
       v21 = PsGetCurrentServerSiloGlobals();
       v22 = RtlStringCbPrintfW(v19, v17, L"%ws%ws%ws", v21[134], &a2->Buffer[v30], v20);
     }

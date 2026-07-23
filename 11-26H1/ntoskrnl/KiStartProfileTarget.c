@@ -1,15 +1,15 @@
 /*
- * XREFs of KiStartProfileTarget @ 0x1404CEFB0
+ * XREFs of KiStartProfileTarget @ 0x1404C89E0
  * Callers:
- *     KeStartProfile @ 0x1405F32A8 (KeStartProfile.c)
+ *     KeStartProfile @ 0x1405F5C68 (KeStartProfile.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     RtlSubtractAffinityEx @ 0x14025B408 (RtlSubtractAffinityEx.c)
- *     KeInterlockedSetProcessorAffinityEx @ 0x14042C030 (KeInterlockedSetProcessorAffinityEx.c)
- *     KeCheckProcessorAffinityEx @ 0x14042D260 (KeCheckProcessorAffinityEx.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     RtlSubtractAffinityEx @ 0x14025CBE8 (RtlSubtractAffinityEx.c)
+ *     KeInterlockedSetProcessorAffinityEx @ 0x140420700 (KeInterlockedSetProcessorAffinityEx.c)
+ *     KeCheckProcessorAffinityEx @ 0x140421930 (KeCheckProcessorAffinityEx.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 ULONG_PTR __fastcall KiStartProfileTarget(_QWORD *Argument)
@@ -20,12 +20,12 @@ ULONG_PTR __fastcall KiStartProfileTarget(_QWORD *Argument)
   unsigned __int8 CurrentIrql; // bp
   ULONG_PTR result; // rax
   __int64 v6; // rcx
-  _KPROCESS ***v7; // rax
-  _KPROCESS ****v8; // rdx
+  _QWORD *v7; // rax
+  _QWORD *v8; // rdx
   __int64 v9; // rcx
-  _KAFFINITY_EX *UserAffinity; // rcx
-  struct _LIST_ENTRY *i; // rsi
-  struct _LIST_ENTRY *Blink; // rax
+  _QWORD *v10; // rcx
+  __int64 i; // rsi
+  __int64 v12; // rax
   struct _KPRCB *CurrentPrcb; // r13
   __int64 v14; // r14
   int v15; // esi
@@ -57,52 +57,50 @@ ULONG_PTR __fastcall KiStartProfileTarget(_QWORD *Argument)
     goto LABEL_6;
   }
   v6 = *(_QWORD *)(v1 + 24);
-  v7 = (_KPROCESS ***)(v1 + 8);
+  v7 = (_QWORD *)(v1 + 8);
   *(_BYTE *)(v1 + 610) = 1;
   if ( v6 )
   {
-    v8 = *(_KPROCESS *****)(v6 + 32);
+    v8 = *(_QWORD **)(v6 + 32);
     v9 = v6 + 24;
-    if ( *v8 != (_KPROCESS ***)v9 )
+    if ( *v8 != v9 )
       goto LABEL_27;
-    *v7 = (_KPROCESS **)v9;
+    *v7 = v9;
     *(_QWORD *)(v1 + 16) = v8;
     *v8 = v7;
     *(_QWORD *)(v9 + 8) = v7;
   }
   else
   {
-    UserAffinity = KiSupervisorXStateFeaturesLock.UserAffinity;
-    if ( *(struct _KTHREAD **)KiSupervisorXStateFeaturesLock.UserAffinity != (struct _KTHREAD *)&KiSupervisorXStateFeaturesLock.Process )
+    v10 = (_QWORD *)qword_140F26BC8;
+    if ( *(__int64 **)qword_140F26BC8 != &qword_140F26BC0 )
       goto LABEL_27;
-    *v7 = &KiSupervisorXStateFeaturesLock.Process;
-    *(_QWORD *)(v1 + 16) = UserAffinity;
-    *(_QWORD *)&UserAffinity->Count = v7;
-    KiSupervisorXStateFeaturesLock.UserAffinity = (_KAFFINITY_EX *)(v1 + 8);
+    *v7 = &qword_140F26BC0;
+    *(_QWORD *)(v1 + 16) = v10;
+    *v10 = v7;
+    qword_140F26BC8 = v1 + 8;
   }
-  for ( i = KiSupervisorXStateFeaturesLock.QueueListEntry.Blink;
-        i != (struct _LIST_ENTRY *)&KiSupervisorXStateFeaturesLock.QueueListEntry.Blink;
-        i = i->Flink )
+  for ( i = qword_140F26B80; (__int64 *)i != &qword_140F26B80; i = *(_QWORD *)i )
   {
-    if ( LODWORD(i[1].Flink) == *(__int16 *)(v1 + 608) )
+    if ( *(_DWORD *)(i + 16) == *(__int16 *)(v1 + 608) )
       goto LABEL_26;
   }
-  i = (struct _LIST_ENTRY *)v3[36];
+  i = v3[36];
   v3[36] = 0LL;
-  LODWORD(i[1].Flink) = *(__int16 *)(v1 + 608);
-  i[1].Blink = (struct _LIST_ENTRY *)2097184;
-  memset_0(&i[2], 0, 0x100uLL);
-  Blink = KiSupervisorXStateFeaturesLock.QueueListEntry.Blink;
-  if ( (struct _LIST_ENTRY **)KiSupervisorXStateFeaturesLock.QueueListEntry.Blink->Blink != &KiSupervisorXStateFeaturesLock.QueueListEntry.Blink )
+  *(_DWORD *)(i + 16) = *(__int16 *)(v1 + 608);
+  *(_QWORD *)(i + 24) = 2097184LL;
+  memset_0((void *)(i + 32), 0, 0x100uLL);
+  v12 = qword_140F26B80;
+  if ( *(__int64 **)(qword_140F26B80 + 8) != &qword_140F26B80 )
 LABEL_27:
     __fastfail(3u);
-  i->Flink = KiSupervisorXStateFeaturesLock.QueueListEntry.Blink;
-  i->Blink = (struct _LIST_ENTRY *)&KiSupervisorXStateFeaturesLock.QueueListEntry.Blink;
-  Blink->Blink = i;
-  KiSupervisorXStateFeaturesLock.QueueListEntry.Blink = i;
+  *(_QWORD *)i = qword_140F26B80;
+  *(_QWORD *)(i + 8) = &qword_140F26B80;
+  *(_QWORD *)(v12 + 8) = i;
+  qword_140F26B80 = i;
 LABEL_26:
   v3[37] = i;
-  RtlSubtractAffinityEx((struct _KAFFINITY_EX *)(v1 + 72), (struct _KAFFINITY_EX *)&i[1].Blink, (__int64)(v3 + 3));
+  RtlSubtractAffinityEx((struct _KAFFINITY_EX *)(v1 + 72), (struct _KAFFINITY_EX *)(i + 24), (__int64)(v3 + 3));
   _InterlockedOr(v18, 0);
   *(_QWORD *)(v1 + 336) = 2097184LL;
   memset_0((void *)(v1 + 344), 0, 0x100uLL);

@@ -1,20 +1,20 @@
 /*
- * XREFs of DbgkLkmdUnregisterCallback @ 0x14061B1F0
+ * XREFs of DbgkLkmdUnregisterCallback @ 0x14061B2A4
  * Callers:
  *     <none>
  * Callees:
- *     ExDereferenceCallBackBlock @ 0x140013F40 (ExDereferenceCallBackBlock.c)
- *     ExReferenceCallBackBlock @ 0x140013F80 (ExReferenceCallBackBlock.c)
- *     ExGetCallBackBlockRoutine @ 0x140014034 (ExGetCallBackBlockRoutine.c)
- *     ExWaitForRundownProtectionRelease @ 0x140074D34 (ExWaitForRundownProtectionRelease.c)
- *     ExCompareExchangeCallBack @ 0x140136688 (ExCompareExchangeCallBack.c)
+ *     ExDereferenceCallBackBlock @ 0x140013AC0 (ExDereferenceCallBackBlock.c)
+ *     ExReferenceCallBackBlock @ 0x140013B00 (ExReferenceCallBackBlock.c)
+ *     ExGetCallBackBlockRoutine @ 0x140013BB4 (ExGetCallBackBlockRoutine.c)
+ *     ExWaitForRundownProtectionRelease @ 0x140074DB4 (ExWaitForRundownProtectionRelease.c)
+ *     ExCompareExchangeCallBack @ 0x140136BF8 (ExCompareExchangeCallBack.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall DbgkLkmdUnregisterCallback(__int64 a1)
 {
   unsigned int v2; // ebx
-  union _RTL_RUN_ONCE *v3; // rsi
+  _RTL_RUN_ONCE *v3; // rsi
   struct _EX_RUNDOWN_REF *v4; // rax
   struct _EX_RUNDOWN_REF *v5; // rdi
 

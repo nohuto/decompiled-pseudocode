@@ -1,9 +1,9 @@
 /*
- * XREFs of CmpValueEnumStackEntryInitialize @ 0x1401716D8
+ * XREFs of CmpValueEnumStackEntryInitialize @ 0x140171BD8
  * Callers:
- *     CmpValueEnumStackInitialize @ 0x14060B60C (CmpValueEnumStackInitialize.c)
+ *     CmpValueEnumStackInitialize @ 0x14060B6C0 (CmpValueEnumStackInitialize.c)
  * Callees:
- *     memset @ 0x1401715C0 (memset.c)
+ *     memset @ 0x140171AC0 (memset.c)
  */
 
 __int64 __fastcall CmpValueEnumStackEntryInitialize(__int64 a1)

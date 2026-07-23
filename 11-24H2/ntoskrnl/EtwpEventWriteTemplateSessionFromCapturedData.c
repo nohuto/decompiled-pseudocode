@@ -1,10 +1,10 @@
 /*
- * XREFs of EtwpEventWriteTemplateSessionFromCapturedData @ 0x1407A7A18
+ * XREFs of EtwpEventWriteTemplateSessionFromCapturedData @ 0x1407A7B58
  * Callers:
- *     EtwpStartLogger @ 0x140831694 (EtwpStartLogger.c)
+ *     EtwpStartLogger @ 0x1409D017C (EtwpStartLogger.c)
  * Callees:
- *     EtwWrite @ 0x14041C1B0 (EtwWrite.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     EtwWrite @ 0x14040FFB0 (EtwWrite.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall EtwpEventWriteTemplateSessionFromCapturedData(
@@ -21,12 +21,12 @@ NTSTATUS __fastcall EtwpEventWriteTemplateSessionFromCapturedData(
   __int64 v10; // [rsp+50h] [rbp-9h]
   int v11; // [rsp+58h] [rbp-1h]
   int v12; // [rsp+5Ch] [rbp+3h]
-  __int64 *v13; // [rsp+60h] [rbp+7h]
+  int *v13; // [rsp+60h] [rbp+7h]
   __int64 v14; // [rsp+68h] [rbp+Fh]
   __int64 v15; // [rsp+70h] [rbp+17h]
   int v16; // [rsp+78h] [rbp+1Fh]
   int v17; // [rsp+7Ch] [rbp+23h]
-  __int64 *v18; // [rsp+80h] [rbp+27h]
+  int *v18; // [rsp+80h] [rbp+27h]
   __int64 v19; // [rsp+88h] [rbp+2Fh]
   int v20; // [rsp+C8h] [rbp+6Fh] BYREF
 

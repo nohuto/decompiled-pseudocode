@@ -1,9 +1,9 @@
 /*
- * XREFs of ExSetPoolFlags @ 0x14031A95C
+ * XREFs of ExSetPoolFlags @ 0x14031AB4C
  * Callers:
- *     VfInitSystemNoRebootNeeded @ 0x1409265A0 (VfInitSystemNoRebootNeeded.c)
- *     VfInitVerifierComponents @ 0x1409266D0 (VfInitVerifierComponents.c)
- *     VfSettingsApplyMiscellaneousChecks @ 0x14093DEAC (VfSettingsApplyMiscellaneousChecks.c)
+ *     VfInitSystemNoRebootNeeded @ 0x1409275A0 (VfInitSystemNoRebootNeeded.c)
+ *     VfInitVerifierComponents @ 0x1409276D0 (VfInitVerifierComponents.c)
+ *     VfSettingsApplyMiscellaneousChecks @ 0x14093EEAC (VfSettingsApplyMiscellaneousChecks.c)
  * Callees:
  *     <none>
  */

@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpIumGetVariable @ 0x1404A0EF0
+ * XREFs of HalpIumGetVariable @ 0x14049B570
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 unsigned __int64 __fastcall HalpIumGetVariable(_WORD *Src, __int128 *a2, _DWORD *a3, size_t *a4, void *a5)
@@ -15,7 +15,7 @@ unsigned __int64 __fastcall HalpIumGetVariable(_WORD *Src, __int128 *a2, _DWORD 
   size_t v10; // rbx
   unsigned __int64 v11; // rdx
   unsigned __int64 v13; // rcx
-  unsigned __int64 v14; // rsi
+  ULONG_PTR v14; // rsi
   __int64 *Pool2; // rax
   __int64 *v16; // rdi
   __int64 v17; // rcx
@@ -24,7 +24,7 @@ unsigned __int64 __fastcall HalpIumGetVariable(_WORD *Src, __int128 *a2, _DWORD 
   unsigned __int64 v20; // rbx
   size_t v21; // r8
 
-  if ( !qword_140FC0F90 )
+  if ( !qword_140FC11F0 )
     return 0x8000000000000003uLL;
   v9 = -1LL;
   do
@@ -39,7 +39,7 @@ unsigned __int64 __fastcall HalpIumGetVariable(_WORD *Src, __int128 *a2, _DWORD 
     v13 = 2072576 - v11;
   *a4 = v13;
   v14 = (v11 + v13 + 4095) & 0xFFFFFFFFFFFFF000uLL;
-  Pool2 = (__int64 *)ExAllocatePool2(0x40uLL);
+  Pool2 = (__int64 *)ExAllocatePool2(0x40uLL, v14, 0x77466B53u);
   v16 = Pool2;
   if ( !Pool2 )
     return 0x8000000000000009uLL;
@@ -51,7 +51,7 @@ unsigned __int64 __fastcall HalpIumGetVariable(_WORD *Src, __int128 *a2, _DWORD 
   v16[6] = v10 + v17;
   *((_OWORD *)v16 + 1) = v18;
   v16[5] = *a4;
-  v19 = guard_dispatch_icall_no_overrides(3LL, v16, v14, 0LL);
+  v19 = guard_dispatch_icall_no_overrides(3LL, v16);
   v20 = v19;
   if ( a3 )
     *a3 = *((_DWORD *)v16 + 8);

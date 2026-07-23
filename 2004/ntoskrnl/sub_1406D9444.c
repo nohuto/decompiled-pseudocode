@@ -38,7 +38,7 @@ __int64 __fastcall sub_1406D9444(PVOID BaseAddress, unsigned int a2, int a3)
   v6 = ZwQueryVirtualMemory(
          (HANDLE)0xFFFFFFFFFFFFFFFFLL,
          BaseAddress,
-         (MEMORY_INFORMATION_CLASS)6,
+         MemoryImageInformation,
          &MemoryInformation,
          0x18uLL,
          &ReturnLength);

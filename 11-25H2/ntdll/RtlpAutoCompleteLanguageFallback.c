@@ -9,7 +9,7 @@
  *     __security_check_cookie @ 0x180166F50 (__security_check_cookie.c)
  */
 
-__int64 __fastcall RtlpAutoCompleteLanguageFallback(__int64 a1, const wchar_t *a2)
+__int64 __fastcall RtlpAutoCompleteLanguageFallback(__int64 a1, wchar_t *a2)
 {
   __int64 result; // rax
   __int64 v5; // rcx

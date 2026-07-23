@@ -1,15 +1,20 @@
 /*
- * XREFs of ZwQueryInformationJobObject @ 0x1406A8ED0
+ * XREFs of ZwQueryInformationJobObject @ 0x1406A9E70
  * Callers:
- *     DifZwQueryInformationJobObjectWrapper @ 0x140645180 (DifZwQueryInformationJobObjectWrapper.c)
- *     NtQueryInformationProcess @ 0x1409AB830 (NtQueryInformationProcess.c)
+ *     DifZwQueryInformationJobObjectWrapper @ 0x140643740 (DifZwQueryInformationJobObjectWrapper.c)
+ *     NtQueryInformationProcess @ 0x140995530 (NtQueryInformationProcess.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwQueryInformationJobObject(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwQueryInformationJobObject(
+        HANDLE JobHandle,
+        JOBOBJECTINFOCLASS JobObjectInformationClass,
+        PVOID JobObjectInformation,
+        ULONG JobObjectInformationLength,
+        PULONG ReturnLength)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(JobHandle);
 }

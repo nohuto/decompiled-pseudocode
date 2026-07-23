@@ -130,10 +130,13 @@ __int64 __fastcall MiDeleteCachedSubsection(__int64 a1)
   if ( i == v5 )
   {
     ExReleaseSpinLockExclusiveFromDpcLevel(v1);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v6 <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+        && CurrentIrql <= 0xFu
+        && (unsigned __int8)v6 <= 0xFu
+        && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -165,10 +168,10 @@ LABEL_25:
   if ( (v17 & 1) != 0 )
   {
     ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(v3 + 72));
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v18 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v18 <= 0xFu && (unsigned __int8)v6 <= 0xFu && v18 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v18 <= 0xFu && (unsigned __int8)v6 <= 0xFu && v18 >= 2u )
       {
         v19 = KeGetCurrentPrcb();
         v20 = v19->SchedulerAssist;
@@ -188,10 +191,10 @@ LABEL_25:
     {
       inserted = MiInsertUnusedSubsection(v4);
       ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(v3 + 72));
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v23 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v23 <= 0xFu && (unsigned __int8)v6 <= 0xFu && v23 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v23 <= 0xFu && (unsigned __int8)v6 <= 0xFu && v23 >= 2u )
         {
           v24 = KeGetCurrentPrcb();
           v25 = v24->SchedulerAssist;
@@ -224,10 +227,10 @@ LABEL_25:
   {
     ++*(_DWORD *)(v3 + 76);
     ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(v3 + 72));
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v28 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v28 <= 0xFu && (unsigned __int8)v6 <= 0xFu && v28 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v28 <= 0xFu && (unsigned __int8)v6 <= 0xFu && v28 >= 2u )
       {
         v29 = KeGetCurrentPrcb();
         v30 = v29->SchedulerAssist;
@@ -248,10 +251,10 @@ LABEL_25:
         *(_DWORD *)(v4 + 52) |= 0x80000000;
         v35 = v34;
         ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(v3 + 72));
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
           v36 = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && v36 <= 0xFu && (unsigned __int8)v35 <= 0xFu && v36 >= 2u )
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v36 <= 0xFu && (unsigned __int8)v35 <= 0xFu && v36 >= 2u )
           {
             v37 = KeGetCurrentPrcb();
             v38 = v37->SchedulerAssist;
@@ -275,10 +278,10 @@ LABEL_25:
   {
     Object = (struct _FILE_OBJECT *)MiPreventControlAreaDelete(v3);
     ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(v3 + 72));
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v40 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v40 <= 0xFu && (unsigned __int8)v6 <= 0xFu && v40 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v40 <= 0xFu && (unsigned __int8)v6 <= 0xFu && v40 >= 2u )
       {
         v41 = KeGetCurrentPrcb();
         v42 = v41->SchedulerAssist;
@@ -301,10 +304,10 @@ LABEL_25:
       if ( v45 )
         ++*(_DWORD *)(v3 + 76);
       ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(v3 + 72));
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v51 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v51 <= 0xFu && (unsigned __int8)v44 <= 0xFu && v51 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v51 <= 0xFu && (unsigned __int8)v44 <= 0xFu && v51 >= 2u )
         {
           v52 = KeGetCurrentPrcb();
           v53 = v52->SchedulerAssist;
@@ -333,10 +336,10 @@ LABEL_25:
     {
       ++*(_DWORD *)(v3 + 76);
       ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(v3 + 72));
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v46 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v46 <= 0xFu && (unsigned __int8)v44 <= 0xFu && v46 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v46 <= 0xFu && (unsigned __int8)v44 <= 0xFu && v46 >= 2u )
         {
           v47 = KeGetCurrentPrcb();
           v48 = v47->SchedulerAssist;
@@ -373,10 +376,10 @@ LABEL_108:
     goto LABEL_109;
   }
   ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(v3 + 72));
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v57 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v57 <= 0xFu && (unsigned __int8)v55 <= 0xFu && v57 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v57 <= 0xFu && (unsigned __int8)v55 <= 0xFu && v57 >= 2u )
     {
       v58 = KeGetCurrentPrcb();
       v59 = v58->SchedulerAssist;
@@ -415,10 +418,10 @@ LABEL_109:
     if ( *(_QWORD *)(v3 + 24) | *(_QWORD *)(v3 + 40) )
     {
       ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(v3 + 72));
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v72 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v72 <= 0xFu && (unsigned __int8)v55 <= 0xFu )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v72 <= 0xFu && (unsigned __int8)v55 <= 0xFu )
         {
           v73 = v72 < 2u;
 LABEL_140:
@@ -445,10 +448,10 @@ LABEL_140:
       }
       v69 += MiInsertUnusedSegment(v3);
       ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(v3 + 72));
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v74 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v74 <= 0xFu && (unsigned __int8)v55 <= 0xFu )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v74 <= 0xFu && (unsigned __int8)v55 <= 0xFu )
         {
           v73 = v74 < 2u;
           goto LABEL_140;
@@ -469,10 +472,10 @@ LABEL_110:
   MiDecrementSubsectionViewCount((__int64 *)v4, 0);
   v64 = MiDecrementModifiedWriteCount(v3, 1);
   ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(v3 + 72));
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v65 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v65 <= 0xFu && (unsigned __int8)v55 <= 0xFu && v65 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v65 <= 0xFu && (unsigned __int8)v55 <= 0xFu && v65 >= 2u )
     {
       v66 = KeGetCurrentPrcb();
       v67 = v66->SchedulerAssist;

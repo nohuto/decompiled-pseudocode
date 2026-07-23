@@ -1,18 +1,18 @@
 /*
- * XREFs of MiReleaseSystemCacheView @ 0x1402A71F0
+ * XREFs of MiReleaseSystemCacheView @ 0x1402A6600
  * Callers:
- *     MiPartitionPeriodicTick @ 0x1402A703C (MiPartitionPeriodicTick.c)
- *     MiObtainSystemCacheView @ 0x1402E4B60 (MiObtainSystemCacheView.c)
- *     MmUnmapViewInSystemCache @ 0x14031E380 (MmUnmapViewInSystemCache.c)
- *     MmFreeSystemCacheReserveView @ 0x14086AA70 (MmFreeSystemCacheReserveView.c)
+ *     MiPartitionPeriodicTick @ 0x1402A6458 (MiPartitionPeriodicTick.c)
+ *     MiObtainSystemCacheView @ 0x1402C6BA0 (MiObtainSystemCacheView.c)
+ *     MmUnmapViewInSystemCache @ 0x1403203B0 (MmUnmapViewInSystemCache.c)
+ *     MmFreeSystemCacheReserveView @ 0x140870E50 (MmFreeSystemCacheReserveView.c)
  * Callees:
- *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x14021AAD4 (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     ExAcquireSpinLockExclusive @ 0x140249CD0 (ExAcquireSpinLockExclusive.c)
- *     MiInsertReadiedSystemCacheViews @ 0x1402A3354 (MiInsertReadiedSystemCacheViews.c)
- *     MiReturnSystemCacheRegionsToKva @ 0x1402A38D8 (MiReturnSystemCacheRegionsToKva.c)
- *     MiGetSystemCacheReverseMap @ 0x1402E46F0 (MiGetSystemCacheReverseMap.c)
- *     MiGetSystemCacheRegionsToFree @ 0x14048AE64 (MiGetSystemCacheRegionsToFree.c)
+ *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x14021C464 (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024B630 (ExAcquireSpinLockExclusive.c)
+ *     MiInsertReadiedSystemCacheViews @ 0x1402A28A4 (MiInsertReadiedSystemCacheViews.c)
+ *     MiReturnSystemCacheRegionsToKva @ 0x1402A2E28 (MiReturnSystemCacheRegionsToKva.c)
+ *     MiGetSystemCacheReverseMap @ 0x1402C6730 (MiGetSystemCacheReverseMap.c)
+ *     MiGetSystemCacheRegionsToFree @ 0x1404849A4 (MiGetSystemCacheRegionsToFree.c)
  */
 
 void __fastcall MiReleaseSystemCacheView(__int64 a1, __int64 a2)
@@ -35,7 +35,7 @@ void __fastcall MiReleaseSystemCacheView(__int64 a1, __int64 a2)
   if ( a2 )
   {
     SystemCacheReverseMap = (__int64 *)MiGetSystemCacheReverseMap(a2);
-    v2 = *(_QWORD *)(stru_140E2EB88.ThreadLock + 8 * (((unsigned __int64)SystemCacheReverseMap[4] >> 6) & 0x3FF));
+    v2 = *(_QWORD *)(stru_140E2ED08.ThreadLock + 8 * (((unsigned __int64)SystemCacheReverseMap[4] >> 6) & 0x3FF));
   }
   else
   {
@@ -93,14 +93,14 @@ void __fastcall MiReleaseSystemCacheView(__int64 a1, __int64 a2)
   }
   if ( (_BYTE)v4 == 17 )
   {
-    if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+    if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || PopHibernateInProgress )
       *(_DWORD *)(v2 + 2752) = 0;
     else
       ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented((_DWORD *)(v2 + 2752), retaddr);
   }
   else
   {
-    if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+    if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || PopHibernateInProgress )
       *(_DWORD *)(v2 + 2752) = 0;
     else
       ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented((_DWORD *)(v2 + 2752), retaddr);

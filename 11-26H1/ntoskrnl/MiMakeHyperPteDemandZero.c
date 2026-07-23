@@ -1,10 +1,10 @@
 /*
- * XREFs of MiMakeHyperPteDemandZero @ 0x1403157BC
+ * XREFs of MiMakeHyperPteDemandZero @ 0x1403177EC
  * Callers:
- *     MiFillHyperPtes @ 0x140315640 (MiFillHyperPtes.c)
+ *     MiFillHyperPtes @ 0x140317670 (MiFillHyperPtes.c)
  * Callees:
- *     MiMakeDemandZeroPte @ 0x14028B2D0 (MiMakeDemandZeroPte.c)
- *     MiIncreaseUsedPtes @ 0x140365F20 (MiIncreaseUsedPtes.c)
+ *     MiMakeDemandZeroPte @ 0x14028A830 (MiMakeDemandZeroPte.c)
+ *     MiIncreaseUsedPtes @ 0x140367CC0 (MiIncreaseUsedPtes.c)
  */
 
 void __fastcall MiMakeHyperPteDemandZero(unsigned __int64 *a1, __int64 a2, __int64 a3, __int64 a4)

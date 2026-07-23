@@ -1,17 +1,17 @@
 /*
- * XREFs of PpmCheckComputeEnergy @ 0x1402560D0
+ * XREFs of PpmCheckComputeEnergy @ 0x140257A60
  * Callers:
  *     <none>
  * Callees:
- *     PpmEventComputeEnergy @ 0x1402562DC (PpmEventComputeEnergy.c)
- *     KeGetPrcb @ 0x1402916D0 (KeGetPrcb.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     PpmEventComputeEnergy @ 0x140257C6C (PpmEventComputeEnergy.c)
+ *     KeGetPrcb @ 0x140290C30 (KeGetPrcb.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 void PpmCheckComputeEnergy()
 {
   unsigned int v0; // ebx
-  unsigned int *SystemArgument1; // rdx
+  unsigned int *IptSaveArea; // rdx
   unsigned int v2; // r8d
   __int64 v3; // rax
   __int64 v4; // rcx
@@ -31,33 +31,32 @@ void PpmCheckComputeEnergy()
   __int64 Prcb; // rax
 
   v0 = 0;
-  if ( stru_140F12D20.SchedulerApc.Reserved[2] )
+  if ( stru_140F12EA0.SchedulerSharedSwappablePage )
   {
-    SystemArgument1 = (unsigned int *)stru_140F12D20.SchedulerApc.SystemArgument1;
-    if ( stru_140F12D20.SchedulerApc.SystemArgument1 )
+    IptSaveArea = (unsigned int *)stru_140F12EA0.IptSaveArea;
+    if ( stru_140F12EA0.IptSaveArea )
     {
       v2 = 0;
-      if ( *(_DWORD *)stru_140F12D20.SchedulerApc.SystemArgument1 )
+      if ( *(_DWORD *)stru_140F12EA0.IptSaveArea )
       {
         do
         {
           v3 = v2++;
           v4 = 14 * v3;
-          SystemArgument1[v4 + 3] = 64;
-          *(_QWORD *)&SystemArgument1[v4 + 4] = 0LL;
-          *(_QWORD *)&SystemArgument1[v4 + 6] = 0LL;
+          IptSaveArea[v4 + 3] = 64;
+          *(_QWORD *)&IptSaveArea[v4 + 4] = 0LL;
+          *(_QWORD *)&IptSaveArea[v4 + 6] = 0LL;
         }
-        while ( v2 < *SystemArgument1 );
+        while ( v2 < *IptSaveArea );
       }
-      v5 = *(unsigned __int64 *)((char *)&stru_140FC01F0.116 + 4);
-      for ( i = 0; ; v5 = *(unsigned __int64 *)((char *)&stru_140FC01F0.116 + 8 * i + 4) )
+      v5 = *(unsigned __int64 *)((char *)&stru_140FC11F0.116 + 4);
+      for ( i = 0; ; v5 = *(unsigned __int64 *)((char *)&stru_140FC11F0.116 + 8 * i + 4) )
       {
         while ( v5 )
         {
           _BitScanForward64(&v7, v5);
           v5 &= ~(1LL << v7);
-          v8 = *((unsigned int *)&KiSupervisorXStateFeaturesLock.WaitBlock[2].Thread->Header.Lock
-               + 64 * i
+          v8 = *((unsigned int *)&KiSupervisorXStateFeaturesLock.SchedulerApc.ApcListEntry.Flink[16 * i].Flink
                + (unsigned __int8)v7);
           if ( (unsigned int)v8 >= (unsigned int)KeNumberProcessors_0 )
           {
@@ -68,14 +67,14 @@ void PpmCheckComputeEnergy()
             _mm_lfence();
             v9 = KiProcessorBlock[v8];
           }
-          v10 = (char *)stru_140F12D20.SchedulerApc.SystemArgument1;
-          v11 = *(_DWORD *)stru_140F12D20.SchedulerApc.SystemArgument1 - 1;
-          if ( (unsigned int)*(unsigned __int8 *)(v9 + 35352) < *(_DWORD *)stru_140F12D20.SchedulerApc.SystemArgument1 )
+          v10 = (char *)stru_140F12EA0.IptSaveArea;
+          v11 = *(_DWORD *)stru_140F12EA0.IptSaveArea - 1;
+          if ( (unsigned int)*(unsigned __int8 *)(v9 + 35352) < *(_DWORD *)stru_140F12EA0.IptSaveArea )
             v11 = *(unsigned __int8 *)(v9 + 35352);
-          if ( v11 < *(_DWORD *)stru_140F12D20.SchedulerApc.SystemArgument1 )
+          if ( v11 < *(_DWORD *)stru_140F12EA0.IptSaveArea )
           {
             v12 = 56LL * v11;
-            *(_DWORD *)((char *)stru_140F12D20.SchedulerApc.SystemArgument1 + v12 + 12) = v8;
+            *(_DWORD *)((char *)stru_140F12EA0.IptSaveArea + v12 + 12) = v8;
             *(_QWORD *)&v10[v12 + 16] += *(_QWORD *)(v9 + 35368);
             *(_QWORD *)&v10[v12 + 24] += *(_QWORD *)(v9 + 35376);
             v13 = *(_QWORD *)(v9 + 35264);
@@ -101,11 +100,11 @@ void PpmCheckComputeEnergy()
           *(_QWORD *)(v9 + 35368) = 0LL;
           *(_QWORD *)(v9 + 35376) = 0LL;
         }
-        if ( ++i >= (unsigned int)*(unsigned __int16 *)&stru_140FC01F0.WaitRegister.Flags )
+        if ( ++i >= (unsigned int)*(unsigned __int16 *)&stru_140FC11F0.WaitRegister.Flags )
           break;
       }
-      v16 = (char *)stru_140F12D20.SchedulerApc.SystemArgument1;
-      if ( *(_DWORD *)stru_140F12D20.SchedulerApc.SystemArgument1 )
+      v16 = (char *)stru_140F12EA0.IptSaveArea;
+      if ( *(_DWORD *)stru_140F12EA0.IptSaveArea )
       {
         do
         {
@@ -117,10 +116,10 @@ void PpmCheckComputeEnergy()
             Prcb = KeGetPrcb(*(unsigned int *)&v16[v17 + 12]);
             *(_QWORD *)(Prcb + 35360) = *(_QWORD *)(Prcb + 35360);
           }
-          v16 = (char *)stru_140F12D20.SchedulerApc.SystemArgument1;
+          v16 = (char *)stru_140F12EA0.IptSaveArea;
           ++v0;
         }
-        while ( v0 < *(_DWORD *)stru_140F12D20.SchedulerApc.SystemArgument1 );
+        while ( v0 < *(_DWORD *)stru_140F12EA0.IptSaveArea );
       }
     }
   }

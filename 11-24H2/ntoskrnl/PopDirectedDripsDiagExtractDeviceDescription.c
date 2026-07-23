@@ -1,7 +1,7 @@
 /*
- * XREFs of PopDirectedDripsDiagExtractDeviceDescription @ 0x140764358
+ * XREFs of PopDirectedDripsDiagExtractDeviceDescription @ 0x140763D28
  * Callers:
- *     PopDirectedDripsDiagRundownDevices @ 0x140A699B8 (PopDirectedDripsDiagRundownDevices.c)
+ *     PopDirectedDripsDiagRundownDevices @ 0x140A62D68 (PopDirectedDripsDiagRundownDevices.c)
  * Callees:
  *     <none>
  */

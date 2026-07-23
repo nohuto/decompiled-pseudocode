@@ -1,51 +1,59 @@
 /*
- * XREFs of ExpWorkerFactoryCreateThread @ 0x1400F93E4
+ * XREFs of ExpWorkerFactoryCreateThread @ 0x1400F7224
  * Callers:
- *     NtSetInformationWorkerFactory @ 0x1400F7C10 (NtSetInformationWorkerFactory.c)
- *     ExpWorkerFactoryCheckCreate @ 0x1400F8F30 (ExpWorkerFactoryCheckCreate.c)
+ *     NtSetInformationWorkerFactory @ 0x1400F5A50 (NtSetInformationWorkerFactory.c)
+ *     ExpWorkerFactoryCheckCreate @ 0x1400F6D70 (ExpWorkerFactoryCheckCreate.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLock @ 0x140012750 (KeReleaseInStackQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14001BD40 (KeAcquireInStackQueuedSpinLock.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x140055FA0 (KiLeaveCriticalRegionUnsafe.c)
- *     ExAcquireRundownProtection @ 0x1400D3ED0 (ExAcquireRundownProtection.c)
- *     ExReleaseRundownProtection @ 0x1400D3F00 (ExReleaseRundownProtection.c)
- *     ZwSetInformationThread @ 0x140159E20 (ZwSetInformationThread.c)
- *     ObCloseHandle @ 0x14050C73C (ObCloseHandle.c)
- *     RtlpCreateUserThreadEx @ 0x14051BB24 (RtlpCreateUserThreadEx.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x1400122D0 (KeReleaseInStackQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14001B8C0 (KeAcquireInStackQueuedSpinLock.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140055B20 (KiLeaveCriticalRegionUnsafe.c)
+ *     ExAcquireRundownProtection @ 0x1400D1D70 (ExAcquireRundownProtection.c)
+ *     ExReleaseRundownProtection @ 0x1400D1DA0 (ExReleaseRundownProtection.c)
+ *     ZwSetInformationThread @ 0x14015A390 (ZwSetInformationThread.c)
+ *     ObCloseHandle @ 0x1404EF6CC (ObCloseHandle.c)
+ *     RtlpCreateUserThreadEx @ 0x1404FEF14 (RtlpCreateUserThreadEx.c)
  */
 
 __int64 __fastcall ExpWorkerFactoryCreateThread(__int64 a1)
 {
   struct _KTHREAD *CurrentThread; // rax
-  int v3; // edi
-  __int64 v4; // rdx
-  __int64 v5; // r8
-  __int64 v6; // r9
+  __int64 v3; // rdx
+  __int64 v4; // r8
+  __int64 v5; // r9
   int UserThread; // eax
-  unsigned int v8; // edi
+  unsigned int v7; // edi
+  int v9; // [rsp+30h] [rbp-68h]
+  __int64 v10; // [rsp+60h] [rbp-38h] BYREF
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+70h] [rbp-28h] BYREF
-  HANDLE Handle; // [rsp+A0h] [rbp+8h]
+  HANDLE Handle; // [rsp+A0h] [rbp+8h] BYREF
 
   CurrentThread = KeGetCurrentThread();
-  v3 = (*(_DWORD *)(a1 + 152) >> 7) & 0x10;
   --CurrentThread->KernelApcDisable;
   if ( !ExAcquireRundownProtection((PEX_RUNDOWN_REF)(a1 + 104)) )
   {
-    v8 = 128;
+    v7 = 128;
     goto LABEL_8;
   }
   KeAcquireInStackQueuedSpinLock(*(PKSPIN_LOCK *)(a1 + 16), &LockHandle);
   if ( *(_BYTE *)(*(_QWORD *)(a1 + 16) + 33LL) )
   {
-    v8 = 128;
+    v7 = 128;
   }
   else
   {
     ++*(_DWORD *)(a1 + 136);
     KeReleaseInStackQueuedSpinLock(&LockHandle);
-    UserThread = RtlpCreateUserThreadEx(*(_QWORD *)(a1 + 40), 0, v3, 0, *(_QWORD *)(a1 + 56), *(_QWORD *)(a1 + 64));
+    UserThread = RtlpCreateUserThreadEx(
+                   *(HANDLE *)(a1 + 40),
+                   *(_QWORD *)(a1 + 56),
+                   *(_QWORD *)(a1 + 64),
+                   v9,
+                   *(PUSER_THREAD_START_ROUTINE *)(a1 + 24),
+                   *(PVOID *)(a1 + 32),
+                   (__int64)&Handle,
+                   (__int64)&v10);
     *(_DWORD *)(a1 + 160) = UserThread;
-    v8 = UserThread;
+    v7 = UserThread;
     if ( UserThread >= 0 )
     {
       if ( *(_DWORD *)(a1 + 156) )
@@ -60,6 +68,6 @@ __int64 __fastcall ExpWorkerFactoryCreateThread(__int64 a1)
 LABEL_7:
   ExReleaseRundownProtection((PEX_RUNDOWN_REF)(a1 + 104));
 LABEL_8:
-  KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread(), v4, v5, v6);
-  return v8;
+  KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread(), v3, v4, v5);
+  return v7;
 }

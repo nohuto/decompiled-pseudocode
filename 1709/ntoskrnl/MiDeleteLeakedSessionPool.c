@@ -15,39 +15,38 @@ unsigned __int64 MiDeleteLeakedSessionPool()
 {
   unsigned __int64 v0; // rdi
   __int64 v1; // rbp
-  unsigned __int64 v2; // rsi
-  unsigned __int64 SetBits; // rax
-  unsigned __int64 v4; // rbx
+  ULONG64 v2; // rsi
+  ULONG64 SetBits; // rax
+  ULONG64 v4; // rbx
   unsigned __int64 NextForwardRunClear; // rax
-  unsigned __int64 v6; // rdx
+  unsigned __int64 SizeOfBitMap; // rdx
   unsigned __int64 v7; // rdx
   __int64 v8; // rbx
   unsigned __int64 result; // rax
-  unsigned __int64 v10[2]; // [rsp+20h] [rbp-38h] BYREF
+  _RTL_BITMAP_EX BitMapHeader; // [rsp+20h] [rbp-38h] BYREF
   _QWORD v11[5]; // [rsp+30h] [rbp-28h] BYREF
   unsigned __int64 v12; // [rsp+60h] [rbp+8h] BYREF
 
   memset(v11, 0, 0x20uLL);
   v0 = KeGetCurrentThread()->ApcState.Process[1].ActiveProcessors.Bitmap[2];
   v1 = MiPartitionIdToPointer(*(_WORD *)(v0 + 3180));
-  v10[1] = *(_QWORD *)(v0 + 7904);
+  BitMapHeader = *(_RTL_BITMAP_EX *)(v0 + 7896);
   v2 = 0LL;
-  v10[0] = *(_QWORD *)(v0 + 7896);
   do
   {
-    SetBits = RtlFindSetBitsEx(v10, 1uLL, v2);
+    SetBits = RtlFindSetBitsEx(&BitMapHeader, 1uLL, v2);
     v4 = SetBits;
     if ( SetBits < v2 || SetBits == -1LL )
       break;
-    NextForwardRunClear = RtlFindNextForwardRunClearEx((__int64)v10, SetBits, &v12);
-    v6 = v12;
+    NextForwardRunClear = RtlFindNextForwardRunClearEx((__int64)&BitMapHeader, SetBits, &v12);
+    SizeOfBitMap = v12;
     if ( !NextForwardRunClear )
-      v6 = v10[0];
-    v7 = v6 - v4;
+      SizeOfBitMap = BitMapHeader.SizeOfBitMap;
+    v7 = SizeOfBitMap - v4;
     v2 += v7;
     MiDeleteSessionPoolRange(qword_140388478 + (v4 << 21), v7 << 21, v11);
   }
-  while ( v2 < v10[0] );
+  while ( v2 < BitMapHeader.SizeOfBitMap );
   v8 = v11[3];
   result = MiReturnCommit(v1, v11[3] - v11[1]);
   *(_QWORD *)(v0 + 208) -= v8;

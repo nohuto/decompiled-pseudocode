@@ -13,7 +13,7 @@ unsigned __int64 __fastcall MmDiscardDriverSection(unsigned __int64 a1)
 {
   unsigned __int64 *v2; // rbx
   unsigned __int64 result; // rax
-  __int64 v4; // r11
+  PVOID v4; // r11
   ULONG_PTR v5; // [rsp+48h] [rbp+10h] BYREF
   __int64 v6; // [rsp+50h] [rbp+18h] BYREF
 

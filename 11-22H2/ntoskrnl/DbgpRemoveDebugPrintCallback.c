@@ -35,7 +35,7 @@ __int64 __fastcall DbgpRemoveDebugPrintCallback(void *a1)
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(0xCuLL);
   v3 = 0;
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     if ( CurrentIrql == 12 )
@@ -50,10 +50,10 @@ __int64 __fastcall DbgpRemoveDebugPrintCallback(void *a1)
     if ( i == (void **)&RtlpDebugPrintCallbackList )
     {
       ExReleaseSpinLockSharedFromDpcLevel(&RtlpDebugPrintCallbackLock);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v8 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v8 <= 0xFu && CurrentIrql <= 0xFu && v8 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v8 <= 0xFu && CurrentIrql <= 0xFu && v8 >= 2u )
         {
           CurrentPrcb = KeGetCurrentPrcb();
           v10 = CurrentPrcb->SchedulerAssist;
@@ -87,10 +87,10 @@ __int64 __fastcall DbgpRemoveDebugPrintCallback(void *a1)
   if ( v15 == v14 )
     RtlpDebugPrintCallbacksActive = 0;
   ExReleaseSpinLockExclusiveFromDpcLevel(&RtlpDebugPrintCallbackLock);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v16 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v16 <= 0xFu && CurrentIrql <= 0xFu && v16 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v16 <= 0xFu && CurrentIrql <= 0xFu && v16 >= 2u )
     {
       v17 = KeGetCurrentPrcb();
       v18 = v17->SchedulerAssist;

@@ -1,11 +1,11 @@
 /*
- * XREFs of PspApplyIFEOPerfOptions @ 0x140778D9C
+ * XREFs of PspApplyIFEOPerfOptions @ 0x14077BC3C
  * Callers:
- *     PspAllocateProcess @ 0x140964C24 (PspAllocateProcess.c)
+ *     PspAllocateProcess @ 0x140B7E8A8 (PspAllocateProcess.c)
  * Callees:
- *     MmGetDefaultPagePriority @ 0x1404B6960 (MmGetDefaultPagePriority.c)
- *     SeSinglePrivilegeCheck @ 0x140932280 (SeSinglePrivilegeCheck.c)
- *     PspSetProcessPriorityClass @ 0x140B10240 (PspSetProcessPriorityClass.c)
+ *     MmGetDefaultPagePriority @ 0x1404AFDB0 (MmGetDefaultPagePriority.c)
+ *     SeSinglePrivilegeCheck @ 0x14090DE50 (SeSinglePrivilegeCheck.c)
+ *     PspSetProcessPriorityClass @ 0x140B11C80 (PspSetProcessPriorityClass.c)
  */
 
 __int64 __fastcall PspApplyIFEOPerfOptions(__int64 a1, unsigned int *a2, KPROCESSOR_MODE a3, __int64 a4)

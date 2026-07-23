@@ -1,14 +1,14 @@
 /*
- * XREFs of ZwPlugPlayControl @ 0x14015C0E0
+ * XREFs of ZwPlugPlayControl @ 0x14015C650
  * Callers:
- *     PlugPlayGetDeviceProperty @ 0x1404CF7C8 (PlugPlayGetDeviceProperty.c)
- *     PlugPlayGetRelatedDevice @ 0x1404CFD20 (PlugPlayGetRelatedDevice.c)
- *     ExpHwidGetDeviceProperties @ 0x1404F63A4 (ExpHwidGetDeviceProperties.c)
- *     PlugPlayGetDeviceStatus @ 0x1404F88F8 (PlugPlayGetDeviceStatus.c)
- *     PiPnpRtlGetDeviceInterfaceEnabled @ 0x1404FB0A8 (PiPnpRtlGetDeviceInterfaceEnabled.c)
- *     PiCMDeleteDevice @ 0x140646B3C (PiCMDeleteDevice.c)
- *     PiCMSetProblem @ 0x14064879C (PiCMSetProblem.c)
- *     PlugPlayGetDeviceRelations @ 0x1406E090C (PlugPlayGetDeviceRelations.c)
+ *     ExpHwidGetDeviceProperties @ 0x1404D9330 (ExpHwidGetDeviceProperties.c)
+ *     PlugPlayGetDeviceStatus @ 0x1404DB884 (PlugPlayGetDeviceStatus.c)
+ *     PiPnpRtlGetDeviceInterfaceEnabled @ 0x1404DE034 (PiPnpRtlGetDeviceInterfaceEnabled.c)
+ *     PlugPlayGetDeviceProperty @ 0x14050C894 (PlugPlayGetDeviceProperty.c)
+ *     PlugPlayGetRelatedDevice @ 0x14050CDEC (PlugPlayGetRelatedDevice.c)
+ *     PiCMDeleteDevice @ 0x140646C20 (PiCMDeleteDevice.c)
+ *     PiCMSetProblem @ 0x140648880 (PiCMSetProblem.c)
+ *     PlugPlayGetDeviceRelations @ 0x1406E0A44 (PlugPlayGetDeviceRelations.c)
  * Callees:
  *     <none>
  */
@@ -18,5 +18,5 @@ NTSTATUS __stdcall ZwPlugPlayControl(PLUGPLAY_CONTROL_CLASS PlugPlayControlClass
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(*(_QWORD *)&PlugPlayControlClass, Buffer, *(_QWORD *)&BufferSize);
+  return KiServiceInternal(*(_QWORD *)&PlugPlayControlClass);
 }

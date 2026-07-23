@@ -55,7 +55,7 @@ __int64 __fastcall RtlpHpLfhSubsegmentReformatCheck(__int64 a1, __int64 a2, _DWO
     LODWORD(v16) = 0;
     v17 = (__int16 *)(a2 + 8LL * *(unsigned __int8 *)(a2 + 24));
     v18 = &v17[*(unsigned __int8 *)(a2 + 39)];
-    RtlAcquireSRWLockShared(a2 + 56);
+    RtlAcquireSRWLockShared((PRTL_SRWLOCK)(a2 + 56));
     if ( v17 < v18 )
     {
       v19 = v23;
@@ -80,7 +80,7 @@ __int64 __fastcall RtlpHpLfhSubsegmentReformatCheck(__int64 a1, __int64 a2, _DWO
       }
       while ( v17 < v18 );
     }
-    RtlReleaseSRWLockShared(a2 + 56);
+    RtlReleaseSRWLockShared((PRTL_SRWLOCK)(a2 + 56));
     if ( v17 < v18 )
     {
       return 0LL;

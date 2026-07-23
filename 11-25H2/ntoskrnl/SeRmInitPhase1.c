@@ -17,23 +17,18 @@ char SeRmInitPhase1()
 {
   __int64 v0; // rdx
   __int64 v1; // rcx
-  _QWORD v3[3]; // [rsp+40h] [rbp-39h] BYREF
-  int v4; // [rsp+58h] [rbp-21h]
-  int v5; // [rsp+5Ch] [rbp-1Dh]
-  __int128 v6; // [rsp+60h] [rbp-19h]
-  int v7[4]; // [rsp+70h] [rbp-9h] BYREF
-  __int64 v8; // [rsp+80h] [rbp+7h]
+  OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+40h] [rbp-39h] BYREF
+  _ALPC_PORT_ATTRIBUTES PortAttributes; // [rsp+70h] [rbp-9h] BYREF
 
-  v5 = 0;
-  v3[1] = 0LL;
-  v3[0] = 48LL;
-  v4 = 512;
-  v3[2] = L" \"";
-  v6 = 0LL;
-  memset_0(v7, 0, 0x48uLL);
-  v7[0] = 1179648;
-  v8 = 512LL;
-  if ( (int)ZwAlpcCreatePort((__int64)&Handle, (__int64)v3) < 0 )
+  memset(&ObjectAttributes.Attributes + 1, 0, 20);
+  ObjectAttributes.RootDirectory = 0LL;
+  *(_QWORD *)&ObjectAttributes.Length = 48LL;
+  ObjectAttributes.Attributes = 512;
+  ObjectAttributes.ObjectName = (PUNICODE_STRING)L" \"";
+  memset_0(&PortAttributes, 0, sizeof(PortAttributes));
+  PortAttributes.Flags = 1179648;
+  PortAttributes.MaxMessageLength = 512LL;
+  if ( ZwAlpcCreatePort(&Handle, &ObjectAttributes, &PortAttributes) < 0 )
     return 0;
   SepAdtInitializeAuditingOptions();
   if ( PsCreateSystemThread(&ThreadHandle, 0x38u, 0LL, 0LL, 0LL, (PKSTART_ROUTINE)SepRmCommandServerThread, 0LL) < 0 )

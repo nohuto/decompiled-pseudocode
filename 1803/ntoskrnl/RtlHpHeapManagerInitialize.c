@@ -8,11 +8,11 @@
  *     RtlRunOnceInitialize @ 0x1406216C0 (RtlRunOnceInitialize.c)
  */
 
-void __fastcall RtlHpHeapManagerInitialize(union _RTL_RUN_ONCE *a1, _OWORD *a2)
+void __fastcall RtlHpHeapManagerInitialize(_RTL_RUN_ONCE *a1, _OWORD *a2)
 {
   __int64 v4; // rbx
-  union _RTL_RUN_ONCE *v5; // rdi
-  union _RTL_RUN_ONCE *v6; // rbx
+  _RTL_RUN_ONCE *v5; // rdi
+  _RTL_RUN_ONCE *v6; // rbx
   __int64 v7; // rdi
 
   memset(a1, 0, 0x30D0uLL);

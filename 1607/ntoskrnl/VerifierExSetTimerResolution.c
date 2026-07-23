@@ -1,5 +1,5 @@
 /*
- * XREFs of VerifierExSetTimerResolution @ 0x14070C498
+ * XREFs of VerifierExSetTimerResolution @ 0x14070C4C8
  * Callers:
  *     <none>
  * Callees:

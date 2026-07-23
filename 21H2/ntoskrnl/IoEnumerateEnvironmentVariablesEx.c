@@ -1,16 +1,16 @@
 /*
- * XREFs of IoEnumerateEnvironmentVariablesEx @ 0x1408998EC
+ * XREFs of IoEnumerateEnvironmentVariablesEx @ 0x140899A4C
  * Callers:
- *     NtEnumerateBootEntries @ 0x140953310 (NtEnumerateBootEntries.c)
- *     NtEnumerateDriverEntries @ 0x140953960 (NtEnumerateDriverEntries.c)
- *     NtEnumerateSystemEnvironmentValuesEx @ 0x140953E20 (NtEnumerateSystemEnvironmentValuesEx.c)
+ *     NtEnumerateBootEntries @ 0x1409534E0 (NtEnumerateBootEntries.c)
+ *     NtEnumerateDriverEntries @ 0x140953B30 (NtEnumerateDriverEntries.c)
+ *     NtEnumerateSystemEnvironmentValuesEx @ 0x140953FF0 (NtEnumerateSystemEnvironmentValuesEx.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14025FAE0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgKeywordOn @ 0x1402605BC (_tlgKeywordOn.c)
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     IopOpenSystemVariableDevice @ 0x14089AA6C (IopOpenSystemVariableDevice.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14027E1A4 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x1402864F4 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     IopOpenSystemVariableDevice @ 0x14089ABCC (IopOpenSystemVariableDevice.c)
  */
 
 __int64 __fastcall IoEnumerateEnvironmentVariablesEx(unsigned int a1, __int64 a2, __int64 a3, _DWORD *a4)
@@ -72,7 +72,7 @@ __int64 __fastcall IoEnumerateEnvironmentVariablesEx(unsigned int a1, __int64 a2
     LODWORD(DmaAdapter) = a1;
     LODWORD(v15) = v8;
     v27 = 1;
-    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140C04510, (unsigned __int8 *)byte_140024EAD, 0LL, 0LL, 6u, &v16);
+    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140C04510, (unsigned __int8 *)byte_140024FF0, 0LL, 0LL, 6u, &v16);
   }
   return (unsigned int)v8;
 }

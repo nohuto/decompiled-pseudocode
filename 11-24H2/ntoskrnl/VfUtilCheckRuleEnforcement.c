@@ -1,10 +1,10 @@
 /*
- * XREFs of VfUtilCheckRuleEnforcement @ 0x140B831F0
+ * XREFs of VfUtilCheckRuleEnforcement @ 0x140B851F0
  * Callers:
- *     VfMiscMmBuildMdlForNonPagedPool_Exit @ 0x140B9E160 (VfMiscMmBuildMdlForNonPagedPool_Exit.c)
- *     VfMiscMmUnmapLockedPages_Entry @ 0x140B9E1E0 (VfMiscMmUnmapLockedPages_Entry.c)
+ *     VfMiscMmBuildMdlForNonPagedPool_Exit @ 0x140BA0160 (VfMiscMmBuildMdlForNonPagedPool_Exit.c)
+ *     VfMiscMmUnmapLockedPages_Entry @ 0x140BA01E0 (VfMiscMmUnmapLockedPages_Entry.c)
  * Callees:
- *     VfTargetDriversGetVerifierData @ 0x140BA7E7C (VfTargetDriversGetVerifierData.c)
+ *     VfTargetDriversGetVerifierData @ 0x140BA9E7C (VfTargetDriversGetVerifierData.c)
  */
 
 _BOOL8 __fastcall VfUtilCheckRuleEnforcement(__int64 a1)

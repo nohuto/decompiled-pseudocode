@@ -9,23 +9,28 @@
  *     memmove @ 0x180168980 (memmove.c)
  */
 
-__int64 __fastcall QueryRegistryValue(__int64 a1, __int64 a2, _DWORD *a3, void *a4, unsigned int *a5)
+__int64 __fastcall QueryRegistryValue(
+        HANDLE KeyHandle,
+        PUNICODE_STRING ValueName,
+        _DWORD *a3,
+        void *a4,
+        unsigned int *a5)
 {
-  unsigned int v9; // ebx
+  ULONG Length; // ebx
   _DWORD *Heap; // rdi
-  int ValueKey; // eax
+  NTSTATUS ValueKey; // eax
   unsigned int v12; // ebx
   unsigned int v13; // eax
-  _DWORD v15[10]; // [rsp+30h] [rbp-28h] BYREF
+  ULONG ResultLength[10]; // [rsp+30h] [rbp-28h] BYREF
 
-  v15[0] = 0;
+  ResultLength[0] = 0;
   if ( !a5 )
     return 3221225485LL;
-  v9 = *a5 + 12;
-  Heap = (_DWORD *)RtlAllocateHeap((char *)NtCurrentPeb()->ProcessHeap, 8u, v9);
+  Length = *a5 + 12;
+  Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, Length);
   if ( Heap )
   {
-    ValueKey = NtQueryValueKey(a1, a2, 2LL, Heap, v9, v15);
+    ValueKey = NtQueryValueKey(KeyHandle, ValueName, KeyValuePartialInformation, Heap, Length, ResultLength);
     v12 = ValueKey;
     if ( ValueKey < 0 )
     {
@@ -39,7 +44,7 @@ __int64 __fastcall QueryRegistryValue(__int64 a1, __int64 a2, _DWORD *a3, void *
       {
         v12 = -1073741811;
 LABEL_12:
-        RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0LL, Heap);
+        RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, Heap);
         return v12;
       }
       if ( v13 <= *a5 )

@@ -1,17 +1,17 @@
 /*
- * XREFs of NtCallbackReturn @ 0x1404237E0
+ * XREFs of NtCallbackReturn @ 0x140423B70
  * Callers:
  *     <none>
  * Callees:
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
  */
 
-__int64 __fastcall NtCallbackReturn(__int64 a1, int a2, unsigned int a3)
+NTSTATUS __cdecl NtCallbackReturn(PVOID OutputBuffer, ULONG OutputLength, NTSTATUS Status)
 {
   struct _KTHREAD *CurrentThread; // r11
   _QWORD *InitialStack; // r10
   __int64 v5; // r9
-  __int64 result; // rax
+  NTSTATUS result; // eax
   __int64 v7; // r8
   _KTRAP_FRAME *TrapFrame; // rbx
   bool v9; // zf
@@ -30,13 +30,13 @@ __int64 __fastcall NtCallbackReturn(__int64 a1, int a2, unsigned int a3)
   {
     if ( v5 > 0 )
       KeBugCheckEx(0x1CDu, (ULONG_PTR)CurrentThread, InitialStack[4], 0LL, 0LL);
-    return 3221226072LL;
+    return -1073741224;
   }
   else
   {
-    result = a3;
-    **(_QWORD **)(v5 + 216) = a1;
-    **(_DWORD **)(v5 + 224) = a2;
+    result = Status;
+    **(_QWORD **)(v5 + 216) = OutputBuffer;
+    **(_DWORD **)(v5 + 224) = OutputLength;
     _disable();
     v7 = *(_QWORD *)(v5 + 208);
     TrapFrame = CurrentThread->TrapFrame;

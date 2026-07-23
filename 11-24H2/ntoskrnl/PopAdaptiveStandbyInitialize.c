@@ -1,23 +1,23 @@
 /*
- * XREFs of PopAdaptiveStandbyInitialize @ 0x1407617F8
+ * XREFs of PopAdaptiveStandbyInitialize @ 0x140760B64
  * Callers:
- *     PopInitPlatformSettings @ 0x140C67E1C (PopInitPlatformSettings.c)
+ *     PopInitPlatformSettings @ 0x140C69F98 (PopInitPlatformSettings.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140330CB0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     PopReleaseRwLock @ 0x1403B5EC8 (PopReleaseRwLock.c)
- *     EtwActivityIdControl @ 0x14041E010 (EtwActivityIdControl.c)
- *     PopAcquireRwLockExclusive @ 0x1404283D4 (PopAcquireRwLockExclusive.c)
- *     IoSetActivityIdThread @ 0x14045C3B0 (IoSetActivityIdThread.c)
- *     IoClearActivityIdThread @ 0x140463690 (IoClearActivityIdThread.c)
- *     SSHSupportIsPlatformAoAc @ 0x140490DC8 (SSHSupportIsPlatformAoAc.c)
- *     PopInitializeIRTimer @ 0x1405CCE3C (PopInitializeIRTimer.c)
- *     Feature_AdaptiveHibernateEnhancements__private_IsEnabledDeviceUsageNoInline @ 0x1405D787C (Feature_AdaptiveHibernateEnhancements__private_IsEnabledDeviceUsageNoInline.c)
- *     Feature_AdaptiveHibernateEnhancements__private_GetVariant @ 0x1405DB0A0 (Feature_AdaptiveHibernateEnhancements__private_GetVariant.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     RtlIsMultiSessionSku @ 0x1409113D0 (RtlIsMultiSessionSku.c)
- *     ExSubscribeWnfStateChange @ 0x140A19320 (ExSubscribeWnfStateChange.c)
- *     TraceLoggingRegisterEx_EtwRegister_EtwSetInformation @ 0x140A57414 (TraceLoggingRegisterEx_EtwRegister_EtwSetInformation.c)
- *     PoRegisterPowerSettingCallback @ 0x140A6B150 (PoRegisterPowerSettingCallback.c)
+ *     PopReleaseRwLock @ 0x1402AE8FC (PopReleaseRwLock.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402B92F0 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     EtwActivityIdControl @ 0x1404123E0 (EtwActivityIdControl.c)
+ *     PopAcquireRwLockExclusive @ 0x14041C564 (PopAcquireRwLockExclusive.c)
+ *     IoSetActivityIdThread @ 0x140451750 (IoSetActivityIdThread.c)
+ *     IoClearActivityIdThread @ 0x140459F90 (IoClearActivityIdThread.c)
+ *     SSHSupportIsPlatformAoAc @ 0x14048B408 (SSHSupportIsPlatformAoAc.c)
+ *     PopInitializeIRTimer @ 0x1405CA5AC (PopInitializeIRTimer.c)
+ *     Feature_AdaptiveHibernateEnhancements__private_GetVariant @ 0x1405D4DBC (Feature_AdaptiveHibernateEnhancements__private_GetVariant.c)
+ *     Feature_AdaptiveHibernateEnhancements__private_IsEnabledDeviceUsageNoInline @ 0x1405D4DFC (Feature_AdaptiveHibernateEnhancements__private_IsEnabledDeviceUsageNoInline.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     RtlIsMultiSessionSku @ 0x1408E8B20 (RtlIsMultiSessionSku.c)
+ *     TraceLoggingRegisterEx_EtwRegister_EtwSetInformation @ 0x1409EA0B8 (TraceLoggingRegisterEx_EtwRegister_EtwSetInformation.c)
+ *     ExSubscribeWnfStateChange @ 0x140A12490 (ExSubscribeWnfStateChange.c)
+ *     PoRegisterPowerSettingCallback @ 0x140A646B0 (PoRegisterPowerSettingCallback.c)
  */
 
 struct _KTHREAD *PopAdaptiveStandbyInitialize()
@@ -29,160 +29,149 @@ struct _KTHREAD *PopAdaptiveStandbyInitialize()
   NTSTATUS v4; // edi
   unsigned int v5; // esi
   _QWORD *v6; // r14
-  __int64 v7; // rcx
+  int v7; // eax
   int v8; // eax
   int v9; // eax
   int v10; // eax
-  int v11; // eax
-  __int128 v12; // xmm0
-  int v13; // eax
+  __int128 v11; // xmm1
+  __int64 v12; // xmm0_8
   int Handle; // [rsp+28h] [rbp-39h]
-  NTSTATUS v16; // [rsp+48h] [rbp-19h] BYREF
+  NTSTATUS v15; // [rsp+48h] [rbp-19h] BYREF
   GUID ActivityId; // [rsp+50h] [rbp-11h] BYREF
-  GUID *v18; // [rsp+60h] [rbp-1h]
-  _QWORD v19[3]; // [rsp+68h] [rbp+7h] BYREF
-  struct _EVENT_DATA_DESCRIPTOR v20[2]; // [rsp+80h] [rbp+1Fh] BYREF
-  NTSTATUS *v21; // [rsp+A0h] [rbp+3Fh]
-  int v22; // [rsp+A8h] [rbp+47h]
-  int v23; // [rsp+ACh] [rbp+4Bh]
+  GUID *v17; // [rsp+60h] [rbp-1h]
+  _QWORD v18[3]; // [rsp+68h] [rbp+7h] BYREF
+  struct _EVENT_DATA_DESCRIPTOR v19[2]; // [rsp+80h] [rbp+1Fh] BYREF
+  NTSTATUS *v20; // [rsp+A0h] [rbp+3Fh]
+  int v21; // [rsp+A8h] [rbp+47h]
+  int v22; // [rsp+ACh] [rbp+4Bh]
 
-  v18 = 0LL;
-  v19[0] = &WNF_PO_COMPOSITE_BATTERY;
-  v19[1] = &WNF_SEB_AUDIO_ACTIVITY;
-  v19[2] = &WNF_PO_SLEEPSTUDY_SESSION_CHANGE;
+  v17 = 0LL;
+  v18[0] = &WNF_PO_COMPOSITE_BATTERY;
+  v18[1] = &WNF_SEB_AUDIO_ACTIVITY;
+  v18[2] = &WNF_PO_SLEEPSTUDY_SESSION_CHANGE;
   ActivityId = 0LL;
-  TraceLoggingRegisterEx_EtwRegister_EtwSetInformation(&dword_140E08258, 0LL, 0LL);
+  TraceLoggingRegisterEx_EtwRegister_EtwSetInformation(&dword_140E08218, 0LL, 0LL);
   EtwActivityIdControl(3u, &ActivityId);
   v0 = IoSetActivityIdThread((struct _LIST_ENTRY *)&ActivityId);
-  v18 = (GUID *)v0;
-  if ( (unsigned int)dword_140E08258 > 5 )
+  v17 = (GUID *)v0;
+  if ( (unsigned int)dword_140E08218 > 5 )
     tlgWriteTransfer_EtwWriteTransfer(
-      (__int64)&dword_140E08258,
-      (unsigned __int8 *)byte_14004E29D,
+      (__int64)&dword_140E08218,
+      (unsigned __int8 *)byte_14004F090,
       &ActivityId,
       (const GUID *)v0,
       2u,
-      v20);
-  qword_140F06E28 = 0LL;
+      v19);
+  qword_140F07378 = 0LL;
   PopAdaptiveStandbyLock = 0LL;
-  PopAcquireRwLockExclusive(&PopAdaptiveStandbyLock);
-  if ( !SSHSupportIsPlatformAoAc() || !(unsigned __int8)RtlIsMultiSessionSku() )
+  PopAcquireRwLockExclusive((unsigned __int64 *)&PopAdaptiveStandbyLock);
+  if ( SSHSupportIsPlatformAoAc() && RtlIsMultiSessionSku() )
   {
-    v4 = -1073741637;
-    goto LABEL_31;
-  }
-  if ( (unsigned int)Feature_AdaptiveHibernateEnhancements__private_IsEnabledDeviceUsageNoInline() )
-  {
-    DWORD1(xmmword_140F06E88) = 1;
-    *((_QWORD *)&xmmword_140F06E88 + 1) = 0xFFFFFFFF00000001uLL;
-    dword_140F06E98 = 10800;
-  }
-  else
-  {
-    dword_140F06E7C = 1;
-    dword_140F06E84 = -1;
-    dword_140F06E80 = 1;
-    LODWORD(xmmword_140F06E88) = 10800;
-  }
-  LODWORD(xmmword_140F06EC8) = xmmword_140F06EC8 | 1;
-  qword_140F07048 = 0LL;
-  qword_140F07030 = 0LL;
-  *((_QWORD *)&xmmword_140F06EC8 + 1) = -1LL;
-  qword_140F07040 = (__int64)PopAdaptiveStandbyActionWorker;
-  dword_140F06ED8 = 100;
-  if ( (unsigned int)Feature_AdaptiveHibernateEnhancements__private_IsEnabledDeviceUsageNoInline() )
-    PopInitializeIRTimer(
-      (unsigned __int64)&unk_140F06F80,
-      (__int64)PopAdaptiveStandbyPolicyTimerCallback,
-      v1,
-      (__int64)PopAdaptiveStandbyPolicyTimerWorker,
-      Handle,
-      6,
-      34);
-  if ( (unsigned int)Feature_AdaptiveHibernateEnhancements__private_IsEnabledDeviceUsageNoInline() )
-  {
-LABEL_14:
-    v5 = 0;
-    v6 = v19;
+    if ( (unsigned int)Feature_AdaptiveHibernateEnhancements__private_IsEnabledDeviceUsageNoInline() )
+    {
+      DWORD1(xmmword_140F07188) = 1;
+      *((_QWORD *)&xmmword_140F07188 + 1) = 0xFFFFFFFF00000001uLL;
+      dword_140F07198 = 10800;
+    }
+    else
+    {
+      dword_140F0717C = 1;
+      dword_140F07184 = -1;
+      dword_140F07180 = 1;
+      LODWORD(xmmword_140F07188) = 10800;
+    }
+    LODWORD(xmmword_140F071C8) = xmmword_140F071C8 | 1;
+    qword_140F07358 = 0LL;
+    qword_140F07340 = 0LL;
+    *((_QWORD *)&xmmword_140F071C8 + 1) = -1LL;
+    qword_140F07350 = (__int64)PopAdaptiveStandbyActionWorker;
+    dword_140F071D8 = 100;
+    if ( (unsigned int)Feature_AdaptiveHibernateEnhancements__private_IsEnabledDeviceUsageNoInline() )
+      PopInitializeIRTimer(
+        (unsigned __int64)&unk_140F07290,
+        (__int64)PopAdaptiveStandbyPolicyTimerCallback,
+        v1,
+        (__int64)PopAdaptiveStandbyPolicyTimerWorker,
+        Handle,
+        6,
+        34);
+    v2 = 0;
+    v3 = &PopAdaptiveStandbyPowerSettings;
     do
     {
-      v4 = ExSubscribeWnfStateChange((unsigned int)&v16, *v6, 1, 0, (__int64)PopAdaptiveStandbyWnfCallback, 0LL);
+      v4 = PoRegisterPowerSettingCallback(0LL, *v3, PopAdaptiveStandbyPowerSettingCallback, v3, (PVOID *)v3 + 2);
       if ( v4 < 0 )
-        goto LABEL_31;
+        goto LABEL_27;
+      ++v2;
+      v3 += 3;
+    }
+    while ( v2 < 7 );
+    v5 = 0;
+    v6 = v18;
+    do
+    {
+      v4 = ExSubscribeWnfStateChange((unsigned int)&v15, *v6, 1, 0, (__int64)PopAdaptiveStandbyWnfCallback, 0LL);
+      if ( v4 < 0 )
+        goto LABEL_27;
       ++v5;
       ++v6;
     }
     while ( v5 < 3 );
     if ( (unsigned int)Feature_AdaptiveHibernateEnhancements__private_IsEnabledDeviceUsageNoInline() )
     {
-      v8 = Feature_AdaptiveHibernateEnhancements__private_GetVariant(v7) - 1;
-      if ( !v8 )
+      v7 = Feature_AdaptiveHibernateEnhancements__private_GetVariant() - 6;
+      if ( !v7 )
       {
-        v12 = Control;
-        v13 = dword_140E0C3B8;
-        goto LABEL_28;
+        v10 = dword_140E0C4B8;
+        v11 = xmmword_140E0C490;
+        PopAdaptiveStandbyRegions = PopAdaptiveStandbyRegionsOEM;
+        xmmword_140E0C460 = xmmword_140E0C4A0;
+        v12 = qword_140E0C4B0;
+        goto LABEL_24;
       }
-      v9 = v8 - 1;
-      if ( !v9 )
+      v8 = v7 - 1;
+      if ( !v8 || (v9 = v8 - 1) == 0 )
       {
-        v12 = HighTreatment1;
-        v13 = dword_140E0C370;
-        goto LABEL_28;
+        v10 = dword_140E0C3F8;
+        v11 = xmmword_140E0C3D0;
+        PopAdaptiveStandbyRegions = PopAdaptiveStandbyRegionsT3;
+        xmmword_140E0C460 = xmmword_140E0C3E0;
+        v12 = qword_140E0C3F0;
+        goto LABEL_24;
       }
-      v10 = v9 - 1;
-      if ( !v10 )
+      if ( (unsigned int)(v9 - 1) <= 1 )
       {
-        v12 = HighTreatment2;
-        v13 = dword_140E0C358;
-        goto LABEL_28;
-      }
-      v11 = v10 - 1;
-      if ( !v11 )
-      {
-        v12 = HighTreatment3;
-        v13 = dword_140E0C3A0;
-        goto LABEL_28;
-      }
-      if ( v11 == 1 )
-      {
-        v12 = HighTreatment4;
-        v13 = dword_140E0C388;
-LABEL_28:
-        PopAdaptiveStandbyRegions = v12;
-        dword_140E0C3D0 = v13;
+        v10 = dword_140E0C438;
+        v11 = xmmword_140E0C410;
+        PopAdaptiveStandbyRegions = PopAdaptiveStandbyRegionsT35;
+        xmmword_140E0C460 = xmmword_140E0C420;
+        v12 = qword_140E0C430;
+LABEL_24:
+        xmmword_140E0C450 = v11;
+        dword_140E0C478 = v10;
+        qword_140E0C470 = v12;
       }
     }
     PopAdaptiveStandbyContext = 1;
     v4 = 0;
-    goto LABEL_31;
+    goto LABEL_27;
   }
-  v2 = 0;
-  v3 = &PopAdaptiveStandbyPowerSettings;
-  while ( 1 )
+  v4 = -1073741637;
+LABEL_27:
+  PopReleaseRwLock(&PopAdaptiveStandbyLock);
+  if ( (unsigned int)dword_140E08218 > 5 )
   {
-    v4 = PoRegisterPowerSettingCallback(0LL, *v3, PopAdaptiveStandbyPowerSettingCallback, v3, (PVOID *)v3 + 2);
-    if ( v4 < 0 )
-      break;
-    ++v2;
-    v3 += 3;
-    if ( v2 >= 7 )
-      goto LABEL_14;
-  }
-LABEL_31:
-  PopReleaseRwLock((signed __int64 *)&PopAdaptiveStandbyLock);
-  if ( (unsigned int)dword_140E08258 > 5 )
-  {
-    v23 = 0;
-    v21 = &v16;
-    v16 = v4;
-    v22 = 4;
+    v22 = 0;
+    v20 = &v15;
+    v15 = v4;
+    v21 = 4;
     tlgWriteTransfer_EtwWriteTransfer(
-      (__int64)&dword_140E08258,
-      (unsigned __int8 *)&word_14004E1C6,
+      (__int64)&dword_140E08218,
+      (unsigned __int8 *)word_14004EFC2,
       &ActivityId,
-      v18,
+      v17,
       3u,
-      v20);
+      v19);
   }
-  return IoClearActivityIdThread((struct _LIST_ENTRY *)v18);
+  return IoClearActivityIdThread((struct _LIST_ENTRY *)v17);
 }

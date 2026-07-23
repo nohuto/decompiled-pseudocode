@@ -1,18 +1,18 @@
 /*
- * XREFs of PspGetNextJobProcess @ 0x1406ABE00
+ * XREFs of PspGetNextJobProcess @ 0x14060A4F0
  * Callers:
- *     PspExecuteJobFreezeThawCallback @ 0x1402C1930 (PspExecuteJobFreezeThawCallback.c)
- *     PspSetCpuRateControlJobPostCallback @ 0x1406ABC10 (PspSetCpuRateControlJobPostCallback.c)
- *     PspBoostJobIoPriorityCallback @ 0x1406ABCA0 (PspBoostJobIoPriorityCallback.c)
- *     PspTerminateProcessesJobCallback @ 0x1406ABD40 (PspTerminateProcessesJobCallback.c)
- *     PspAssignProcessToJob @ 0x14071F430 (PspAssignProcessToJob.c)
- *     PspTerminateSiloSubsystemProcesses @ 0x140906DE4 (PspTerminateSiloSubsystemProcesses.c)
- *     PspWaitOnAllProcessesJobCallback @ 0x140909D10 (PspWaitOnAllProcessesJobCallback.c)
+ *     PspExecuteJobFreezeThawCallback @ 0x14023FDD0 (PspExecuteJobFreezeThawCallback.c)
+ *     PspSetCpuRateControlJobPostCallback @ 0x14060A300 (PspSetCpuRateControlJobPostCallback.c)
+ *     PspBoostJobIoPriorityCallback @ 0x14060A390 (PspBoostJobIoPriorityCallback.c)
+ *     PspTerminateProcessesJobCallback @ 0x14060A430 (PspTerminateProcessesJobCallback.c)
+ *     PspAssignProcessToJob @ 0x1406F5FF0 (PspAssignProcessToJob.c)
+ *     PspTerminateSiloSubsystemProcesses @ 0x140906F44 (PspTerminateSiloSubsystemProcesses.c)
+ *     PspWaitOnAllProcessesJobCallback @ 0x140909E70 (PspWaitOnAllProcessesJobCallback.c)
  * Callees:
- *     ObReferenceObjectSafeWithTag @ 0x140348AA0 (ObReferenceObjectSafeWithTag.c)
- *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
- *     PspUnlockJob @ 0x140618730 (PspUnlockJob.c)
- *     PspLockJobExclusive @ 0x140618774 (PspLockJobExclusive.c)
+ *     ObReferenceObjectSafeWithTag @ 0x1403537F0 (ObReferenceObjectSafeWithTag.c)
+ *     ObfDereferenceObjectWithTag @ 0x140355E90 (ObfDereferenceObjectWithTag.c)
+ *     PspUnlockJob @ 0x140682390 (PspUnlockJob.c)
+ *     PspLockJobExclusive @ 0x1406823D4 (PspLockJobExclusive.c)
  */
 
 _QWORD *__fastcall PspGetNextJobProcess(__int64 a1, __int64 a2, _QWORD *a3, void *a4)
@@ -39,7 +39,7 @@ _QWORD *__fastcall PspGetNextJobProcess(__int64 a1, __int64 a2, _QWORD *a3, void
       a3[2] = a1 + 40;
       goto LABEL_4;
     }
-    goto FatalListEntryError_79;
+    goto FatalListEntryError_66;
   }
   v10 = (_QWORD *)a3[2];
 LABEL_4:
@@ -54,7 +54,7 @@ LABEL_4:
   }
   v11 = *a3;
   if ( *(_QWORD **)(*a3 + 8LL) != a3 || (v12 = (_QWORD *)a3[1], (_QWORD *)*v12 != a3) )
-FatalListEntryError_79:
+FatalListEntryError_66:
     __fastfail(3u);
   *v12 = v11;
   v13 = 0LL;

@@ -1,11 +1,11 @@
 /*
  * XREFs of RtlAddAccessAllowedAceEx @ 0x140811740
  * Callers:
- *     PiAuCreateLocalSystemSecurityObject @ 0x140B22228 (PiAuCreateLocalSystemSecurityObject.c)
- *     PiAuCreateStandardSecurityObject @ 0x140B225D8 (PiAuCreateStandardSecurityObject.c)
- *     PiAuGetDriverDataDirectorySecurityObject @ 0x140B2888C (PiAuGetDriverDataDirectorySecurityObject.c)
+ *     sub_140B22228 @ 0x140B22228 (sub_140B22228.c)
+ *     sub_140B225D8 @ 0x140B225D8 (sub_140B225D8.c)
+ *     sub_140B2888C @ 0x140B2888C (sub_140B2888C.c)
  * Callees:
- *     RtlpAddKnownAce @ 0x1407B4900 (RtlpAddKnownAce.c)
+ *     sub_1407B4900 @ 0x1407B4900 (sub_1407B4900.c)
  */
 
 NTSTATUS __stdcall RtlAddAccessAllowedAceEx(
@@ -15,5 +15,5 @@ NTSTATUS __stdcall RtlAddAccessAllowedAceEx(
         ACCESS_MASK AccessMask,
         PSID Sid)
 {
-  return RtlpAddKnownAce((__int64)Acl, AceRevision, AceFlags, AccessMask, (unsigned __int8 *)Sid, 0);
+  return sub_1407B4900(Acl, AceRevision, AceFlags, AccessMask, (unsigned __int8 *)Sid, 0);
 }

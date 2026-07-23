@@ -1,15 +1,12 @@
 /*
- * XREFs of PopPowerRequestStatsDatabaseCompare @ 0x1407E6800
+ * XREFs of PopPowerRequestStatsDatabaseCompare @ 0x1407E6AD0
  * Callers:
  *     <none>
  * Callees:
- *     RtlCompareUnicodeString @ 0x1406DA140 (RtlCompareUnicodeString.c)
+ *     RtlCompareUnicodeString @ 0x1406DA170 (RtlCompareUnicodeString.c)
  */
 
-__int64 __fastcall PopPowerRequestStatsDatabaseCompare(
-        struct _RTL_AVL_TABLE *Table,
-        _QWORD *FirstStruct,
-        _QWORD *SecondStruct)
+__int64 __fastcall PopPowerRequestStatsDatabaseCompare(_RTL_AVL_TABLE *a1, _QWORD *a2, _QWORD *a3)
 {
   __int64 v3; // rdi
   unsigned int v4; // ebx
@@ -19,9 +16,9 @@ __int64 __fastcall PopPowerRequestStatsDatabaseCompare(
   LONG v8; // ecx
   unsigned int v10; // esi
 
-  v3 = FirstStruct[1];
+  v3 = a2[1];
   v4 = 0;
-  v5 = SecondStruct[1];
+  v5 = a3[1];
   v6 = *(_BYTE *)v3 & 1;
   v7 = *(_BYTE *)v5 & 1;
   if ( v6 != v7 )

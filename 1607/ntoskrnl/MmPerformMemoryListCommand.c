@@ -3,13 +3,13 @@
  * Callers:
  *     PfPowerActionNotify @ 0x1403CFF90 (PfPowerActionNotify.c)
  *     PfpPowerActionStartScenarioTracing @ 0x1403D049C (PfpPowerActionStartScenarioTracing.c)
- *     PfpLogScenarioEvent @ 0x14052FC18 (PfpLogScenarioEvent.c)
- *     MmIssueMemoryListCommand @ 0x1405467E8 (MmIssueMemoryListCommand.c)
+ *     PfpLogScenarioEvent @ 0x140530158 (PfpLogScenarioEvent.c)
+ *     MmIssueMemoryListCommand @ 0x140546D28 (MmIssueMemoryListCommand.c)
  * Callees:
- *     MmFlushAllPages @ 0x140113180 (MmFlushAllPages.c)
- *     MiCaptureAllWorkingSetAccessBits @ 0x14013133C (MiCaptureAllWorkingSetAccessBits.c)
- *     MmEmptyAllWorkingSets @ 0x1401EA3D8 (MmEmptyAllWorkingSets.c)
- *     MiPurgeTransitionList @ 0x1401F3960 (MiPurgeTransitionList.c)
+ *     MmFlushAllPages @ 0x1401136F0 (MmFlushAllPages.c)
+ *     MiCaptureAllWorkingSetAccessBits @ 0x1401318AC (MiCaptureAllWorkingSetAccessBits.c)
+ *     MmEmptyAllWorkingSets @ 0x1401EA204 (MmEmptyAllWorkingSets.c)
+ *     MiPurgeTransitionList @ 0x1401F378C (MiPurgeTransitionList.c)
  */
 
 __int64 __fastcall MmPerformMemoryListCommand(__int64 a1)

@@ -1,11 +1,11 @@
 /*
- * XREFs of ObReferenceObjectByName @ 0x1405C8DA0
+ * XREFs of ObReferenceObjectByName @ 0x1405C9DA0
  * Callers:
- *     IopGetDriverPathInformation @ 0x14027EEF8 (IopGetDriverPathInformation.c)
- *     CmLoadDifferencingKey @ 0x1405B4DBC (CmLoadDifferencingKey.c)
- *     IopGetLegacyVetoListDrivers @ 0x1405C8B80 (IopGetLegacyVetoListDrivers.c)
- *     AlpcpCreateClientPort @ 0x14061506C (AlpcpCreateClientPort.c)
- *     ObShutdownSystem @ 0x140860D0C (ObShutdownSystem.c)
+ *     IopGetDriverPathInformation @ 0x14027F0E8 (IopGetDriverPathInformation.c)
+ *     CmLoadDifferencingKey @ 0x1405B5DBC (CmLoadDifferencingKey.c)
+ *     IopGetLegacyVetoListDrivers @ 0x1405C9B80 (IopGetLegacyVetoListDrivers.c)
+ *     AlpcpCreateClientPort @ 0x14061606C (AlpcpCreateClientPort.c)
+ *     ObShutdownSystem @ 0x140861F6C (ObShutdownSystem.c)
  * Callees:
  *     ObpReleaseLookupContext @ 0x140016078 (ObpReleaseLookupContext.c)
  *     PsGetCurrentSilo @ 0x14004D350 (PsGetCurrentSilo.c)
@@ -13,14 +13,14 @@
  *     SepDeleteAccessState @ 0x14004D950 (SepDeleteAccessState.c)
  *     SeSetLearningModeObjectInformation @ 0x14004E020 (SeSetLearningModeObjectInformation.c)
  *     SeClearLearningModeObjectInformation @ 0x14004E050 (SeClearLearningModeObjectInformation.c)
- *     PsDereferenceSiloContext @ 0x14012C0A0 (PsDereferenceSiloContext.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     ObpFreeObjectNameBuffer @ 0x1405C8FE4 (ObpFreeObjectNameBuffer.c)
- *     ObpCheckObjectReference @ 0x1405C9050 (ObpCheckObjectReference.c)
- *     SeCaptureSubjectContextEx @ 0x1405E07F0 (SeCaptureSubjectContextEx.c)
- *     SeReleaseSubjectContext @ 0x1405E1240 (SeReleaseSubjectContext.c)
- *     ObpCaptureObjectName @ 0x1405E2BF0 (ObpCaptureObjectName.c)
- *     ObpLookupObjectName @ 0x1405E3BE0 (ObpLookupObjectName.c)
+ *     PsDereferenceSiloContext @ 0x14012C170 (PsDereferenceSiloContext.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     ObpFreeObjectNameBuffer @ 0x1405C9FE4 (ObpFreeObjectNameBuffer.c)
+ *     ObpCheckObjectReference @ 0x1405CA050 (ObpCheckObjectReference.c)
+ *     SeCaptureSubjectContextEx @ 0x1405E17F0 (SeCaptureSubjectContextEx.c)
+ *     SeReleaseSubjectContext @ 0x1405E2240 (SeReleaseSubjectContext.c)
+ *     ObpCaptureObjectName @ 0x1405E3BF0 (ObpCaptureObjectName.c)
+ *     ObpLookupObjectName @ 0x1405E4BE0 (ObpLookupObjectName.c)
  */
 
 __int64 __fastcall ObReferenceObjectByName(

@@ -42,7 +42,7 @@ __int64 __fastcall ExpWnfCreateProcessContext(__int64 a1, _QWORD *a2)
     *(_QWORD *)(v7 + 8) = a1;
     *(_QWORD *)(v7 + 120) = v7 + 112;
     *(_QWORD *)(v7 + 112) = v7 + 112;
-    v8 = KeAbPreAcquire((ULONG_PTR)&ExpWnfProcessesListLock, 0LL, 0LL);
+    v8 = KeAbPreAcquire((ULONG_PTR)&ExpWnfProcessesListLock, 0LL, 0);
     v9 = _interlockedbittestandset64((volatile signed __int32 *)&ExpWnfProcessesListLock, 0LL);
     v10 = v8;
     if ( v9 )

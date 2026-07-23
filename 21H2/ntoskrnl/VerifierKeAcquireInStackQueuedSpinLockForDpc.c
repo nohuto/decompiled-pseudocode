@@ -1,10 +1,10 @@
 /*
- * XREFs of VerifierKeAcquireInStackQueuedSpinLockForDpc @ 0x1409DA720
+ * XREFs of VerifierKeAcquireInStackQueuedSpinLockForDpc @ 0x1409DB720
  * Callers:
  *     <none>
  * Callees:
- *     VerifierKeAcquireInStackQueuedSpinLockForDpcCommon @ 0x1409DA768 (VerifierKeAcquireInStackQueuedSpinLockForDpcCommon.c)
- *     VfDeadlockAcquireResource @ 0x1409DD5C8 (VfDeadlockAcquireResource.c)
+ *     VerifierKeAcquireInStackQueuedSpinLockForDpcCommon @ 0x1409DB768 (VerifierKeAcquireInStackQueuedSpinLockForDpcCommon.c)
+ *     VfDeadlockAcquireResource @ 0x1409DE5C8 (VfDeadlockAcquireResource.c)
  */
 
 __int64 __fastcall VerifierKeAcquireInStackQueuedSpinLockForDpc(__int64 a1, __int64 a2)

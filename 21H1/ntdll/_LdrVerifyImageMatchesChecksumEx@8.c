@@ -19,106 +19,132 @@
  *     _LdrVerifyMappedImageMatchesChecksum@12 @ 0x4B35A6EF (_LdrVerifyMappedImageMatchesChecksum@12.c)
  */
 
-int __stdcall LdrVerifyImageMatchesChecksumEx(int a1, int a2)
+NTSTATUS __cdecl LdrVerifyImageMatchesChecksumEx(HANDLE ImageFileHandle, PLDR_VERIFY_IMAGE_INFO VerifyInfo)
 {
-  int v2; // esi
-  int result; // eax
-  int InformationFile; // edi
-  void *v5; // ecx
-  _DWORD *v6; // eax
-  int v7; // ecx
-  int v8; // eax
-  int v9; // eax
-  int v10; // [esp+10h] [ebp-68h]
-  int v11; // [esp+14h] [ebp-64h] BYREF
-  int v12; // [esp+18h] [ebp-60h]
-  _DWORD *v13; // [esp+1Ch] [ebp-5Ch]
-  _BYTE v14[4]; // [esp+20h] [ebp-58h] BYREF
-  int v15; // [esp+24h] [ebp-54h] BYREF
-  int v16; // [esp+28h] [ebp-50h] BYREF
-  unsigned int v17; // [esp+2Ch] [ebp-4Ch] BYREF
-  HANDLE Handle; // [esp+30h] [ebp-48h] BYREF
-  int *v19; // [esp+34h] [ebp-44h]
-  unsigned int v20; // [esp+38h] [ebp-40h] BYREF
-  int v21; // [esp+3Ch] [ebp-3Ch]
-  _BYTE v22[8]; // [esp+40h] [ebp-38h] BYREF
-  int v23; // [esp+48h] [ebp-30h]
+  PLDR_VERIFY_IMAGE_INFO v2; // esi
+  NTSTATUS result; // eax
+  int v4; // edi
+  _DWORD *v5; // eax
+  ULONG v6; // ecx
+  char *v7; // eax
+  POBJECT_ATTRIBUTES ObjA; // eax
+  SIZE_T v9; // [esp-14h] [ebp-8Ch]
+  ULONG v10; // [esp+0h] [ebp-78h]
+  SIZE_T v11; // [esp+0h] [ebp-78h]
+  ULONG v12; // [esp+4h] [ebp-74h]
+  ULONG v13; // [esp+8h] [ebp-70h]
+  int v14; // [esp+10h] [ebp-68h]
+  HANDLE FileHandle; // [esp+14h] [ebp-64h] BYREF
+  PLDR_VERIFY_IMAGE_INFO v16; // [esp+18h] [ebp-60h]
+  _DWORD *v17; // [esp+1Ch] [ebp-5Ch]
+  _IO_STATUS_BLOCK IoStatusBlock; // [esp+20h] [ebp-58h] BYREF
+  BOOLEAN MappedAsImage[4]; // [esp+28h] [ebp-50h] BYREF
+  unsigned int Size; // [esp+2Ch] [ebp-4Ch] BYREF
+  HANDLE Size_4; // [esp+30h] [ebp-48h] BYREF
+  LDR_SECTION_INFO *p_SectionInfo; // [esp+34h] [ebp-44h]
+  PVOID BaseAddress; // [esp+38h] [ebp-40h] BYREF
+  NTSTATUS v24; // [esp+3Ch] [ebp-3Ch]
+  _BYTE FileInformation[8]; // [esp+40h] [ebp-38h] BYREF
+  PVOID v26; // [esp+48h] [ebp-30h]
   CPPEH_RECORD ms_exc; // [esp+60h] [ebp-18h]
 
-  v11 = a1;
-  v2 = a2;
-  v12 = a2;
-  if ( *(_DWORD *)a2 != 40 || (*(_DWORD *)(a2 + 4) & 0xFFFFFFF8) != 0 )
+  FileHandle = ImageFileHandle;
+  v2 = VerifyInfo;
+  v16 = VerifyInfo;
+  if ( VerifyInfo->Size != 40 || (VerifyInfo->Flags & 0xFFFFFFF8) != 0 )
     return -1073741584;
-  if ( (*(_BYTE *)(a2 + 4) & 2) != 0 )
-    v19 = (int *)(a2 + 16);
+  if ( (VerifyInfo->Flags & 2) != 0 )
+    p_SectionInfo = &VerifyInfo->SectionInfo;
   else
-    v19 = &dword_4B2917E4;
-  v10 = v19[4] & 0x1000000;
-  LOBYTE(v16) = v10 != 0;
-  v15 = a1 & 1;
-  result = NtCreateSection((int)&Handle, v19[1], v19[2], 0, v19[3], v19[4], a1);
-  v21 = result;
+    p_SectionInfo = (LDR_SECTION_INFO *)&dword_4B2917E4;
+  v14 = p_SectionInfo->AllocationAttributes & 0x1000000;
+  MappedAsImage[0] = v14 != 0;
+  IoStatusBlock.Information = (unsigned __int8)ImageFileHandle & 1;
+  result = NtCreateSection(
+             &Size_4,
+             p_SectionInfo->DesiredAccess,
+             p_SectionInfo->ObjA,
+             0,
+             p_SectionInfo->SectionPageProtection,
+             p_SectionInfo->AllocationAttributes,
+             ImageFileHandle);
+  v24 = result;
   if ( result >= 0 )
   {
-    v20 = 0;
-    v17 = 0;
+    BaseAddress = 0;
+    Size = 0;
     ms_exc.registration.TryLevel = 0;
-    InformationFile = ZwMapViewOfSection((int)Handle, -1, (int)&v20, 0, 0, 0, (int)&v17, 1, 0, 16);
-    v21 = InformationFile;
-    if ( InformationFile >= 0 )
+    HIDWORD(v9) = &Size;
+    LODWORD(v9) = 0;
+    v4 = ZwMapViewOfSection(
+           Size_4,
+           (HANDLE)0xFFFFFFFF,
+           &BaseAddress,
+           0LL,
+           v9,
+           (PLARGE_INTEGER)1,
+           0,
+           (SECTION_INHERIT)16,
+           v10,
+           v12);
+    v24 = v4;
+    if ( v4 >= 0 )
     {
       ms_exc.registration.TryLevel = 1;
-      if ( (_BYTE)v15 )
+      if ( LOBYTE(IoStatusBlock.Information) )
         goto LABEL_13;
-      InformationFile = ZwQueryInformationFile(v11, (int)v14, (int)v22, 24, 5);
-      v21 = InformationFile;
-      if ( InformationFile >= 0 )
+      v4 = ZwQueryInformationFile(FileHandle, &IoStatusBlock, FileInformation, 0x18u, FileStandardInformation);
+      v24 = v4;
+      if ( v4 >= 0 )
       {
         ms_exc.registration.TryLevel = 2;
-        if ( !(unsigned __int8)LdrVerifyMappedImageMatchesChecksum(v23) )
+        if ( !LdrVerifyMappedImageMatchesChecksum(v26, v11, v13) )
         {
-          InformationFile = -1073741279;
-          v21 = -1073741279;
+          v4 = -1073741279;
+          v24 = -1073741279;
         }
         ms_exc.registration.TryLevel = 1;
-        if ( InformationFile >= 0 )
+        if ( v4 >= 0 )
         {
 LABEL_13:
-          if ( (*(_BYTE *)(a2 + 4) & 5) != 0 )
+          if ( (VerifyInfo->Flags & 5) != 0 )
           {
             ms_exc.registration.TryLevel = 3;
-            InformationFile = RtlImageNtHeaderEx(0, v20, v17, 0, &v15);
-            v21 = InformationFile;
-            if ( InformationFile >= 0 )
+            v4 = RtlImageNtHeaderEx(0, BaseAddress, Size, (PIMAGE_NT_HEADERS *)&IoStatusBlock.Information);
+            v24 = v4;
+            if ( v4 >= 0 )
             {
-              if ( (*(_BYTE *)(a2 + 4) & 4) != 0 )
-                *(_WORD *)(a2 + 36) = *(_WORD *)(v15 + 22);
-              if ( (*(_BYTE *)(a2 + 4) & 1) != 0 )
+              if ( (VerifyInfo->Flags & 4) != 0 )
+                VerifyInfo->ImageCharacteristics = *(_WORD *)(IoStatusBlock.Information + 22);
+              if ( (VerifyInfo->Flags & 1) != 0 )
               {
-                if ( *(_DWORD *)(a2 + 8) )
+                if ( VerifyInfo->CallbackInfo.ImportCallbackRoutine )
                 {
-                  v6 = RtlImageDirectoryEntryToData(v5, v20, v16, 1, (int)&v11);
-                  v13 = v6;
-                  if ( v6 )
+                  v5 = RtlImageDirectoryEntryToData(BaseAddress, MappedAsImage[0], 1u, (PULONG)&FileHandle);
+                  v17 = v5;
+                  if ( v5 )
                   {
-                    v16 = 0;
+                    *(_DWORD *)MappedAsImage = 0;
                     while ( 1 )
                     {
-                      v7 = v6[3];
-                      if ( !v7 )
+                      v6 = v5[3];
+                      if ( !v6 )
                         break;
-                      if ( v10 )
-                        v8 = v7 + v20;
+                      if ( v14 )
+                        v7 = (char *)BaseAddress + v6;
                       else
-                        v8 = RtlImageRvaToVa(v15, v20, v7, &v16);
-                      (*(void (__thiscall **)(_DWORD, _DWORD, int))(v2 + 8))(
-                        *(_DWORD *)(v2 + 8),
-                        *(_DWORD *)(v2 + 12),
-                        v8);
-                      v6 = v13 + 5;
-                      v13 += 5;
-                      v2 = v12;
+                        v7 = (char *)RtlImageRvaToVa(
+                                       (PIMAGE_NT_HEADERS)IoStatusBlock.Information,
+                                       BaseAddress,
+                                       v6,
+                                       (PIMAGE_SECTION_HEADER *)MappedAsImage);
+                      ((void (__thiscall *)(PLDR_IMPORT_MODULE_CALLBACK, PVOID, char *))v2->CallbackInfo.ImportCallbackRoutine)(
+                        v2->CallbackInfo.ImportCallbackRoutine,
+                        v2->CallbackInfo.ImportCallbackParameter,
+                        v7);
+                      v5 = v17 + 5;
+                      v17 += 5;
+                      v2 = v16;
                     }
                   }
                 }
@@ -129,21 +155,21 @@ LABEL_13:
         }
       }
       ms_exc.registration.TryLevel = 0;
-      NtUnmapViewOfSection(-1, v20);
+      NtUnmapViewOfSection((HANDLE)0xFFFFFFFF, BaseAddress);
     }
     ms_exc.registration.TryLevel = -2;
-    if ( InformationFile < 0 || v19 == &dword_4B2917E4 )
+    if ( v4 < 0 || p_SectionInfo == (LDR_SECTION_INFO *)&dword_4B2917E4 )
     {
-      v9 = v19[2];
-      if ( v9 && (*(_BYTE *)(v9 + 12) & 0x10) != 0 )
-        NtMakeTemporaryObject((int)Handle);
-      NtClose(Handle);
+      ObjA = p_SectionInfo->ObjA;
+      if ( ObjA && (ObjA->Attributes & 0x10) != 0 )
+        NtMakeTemporaryObject(Size_4);
+      NtClose(Size_4);
     }
     else
     {
-      *v19 = (int)Handle;
+      p_SectionInfo->SectionHandle = Size_4;
     }
-    return InformationFile;
+    return v4;
   }
   return result;
 }

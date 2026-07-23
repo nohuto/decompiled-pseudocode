@@ -1,26 +1,26 @@
 /*
- * XREFs of EtwQueryProcessTelemetryInfo @ 0x140754850
+ * XREFs of EtwQueryProcessTelemetryInfo @ 0x140754A40
  * Callers:
- *     NtQueryInformationProcess @ 0x1406FCA90 (NtQueryInformationProcess.c)
- *     PfSnLogScenarioDecision @ 0x1407529F4 (PfSnLogScenarioDecision.c)
+ *     NtQueryInformationProcess @ 0x1406FCCA0 (NtQueryInformationProcess.c)
+ *     PfSnLogScenarioDecision @ 0x140752BE4 (PfSnLogScenarioDecision.c)
  * Callees:
- *     KiStackAttachProcess @ 0x14022D600 (KiStackAttachProcess.c)
- *     KiUnstackDetachProcess @ 0x14022D9C0 (KiUnstackDetachProcess.c)
- *     PsReferencePrimaryTokenWithTag @ 0x1402329C0 (PsReferencePrimaryTokenWithTag.c)
- *     ExReleaseRundownProtection_0 @ 0x14028B390 (ExReleaseRundownProtection_0.c)
- *     PsGetProcessSessionId @ 0x140297620 (PsGetProcessSessionId.c)
- *     ObFastDereferenceObject @ 0x140297C80 (ObFastDereferenceObject.c)
- *     PsGetProcessStartKey @ 0x1402F6CA0 (PsGetProcessStartKey.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memmove @ 0x140435700 (memmove.c)
- *     memset @ 0x140435A00 (memset.c)
- *     SeQueryUserSidToken @ 0x140714E00 (SeQueryUserSidToken.c)
- *     ProbeForWrite @ 0x140729380 (ProbeForWrite.c)
- *     PsAcquireProcessExitSynchronization @ 0x140754BC0 (PsAcquireProcessExitSynchronization.c)
- *     EtwpQueryProcessCommandLine @ 0x140754BE8 (EtwpQueryProcessCommandLine.c)
- *     EtwpQueryProcessOtherInfo @ 0x140754DC4 (EtwpQueryProcessOtherInfo.c)
- *     EtwpQueryTokenPackageInfo @ 0x140754E04 (EtwpQueryTokenPackageInfo.c)
- *     MmGetSessionCreateTime @ 0x140754ED0 (MmGetSessionCreateTime.c)
+ *     KiStackAttachProcess @ 0x14022D710 (KiStackAttachProcess.c)
+ *     KiUnstackDetachProcess @ 0x14022DAD0 (KiUnstackDetachProcess.c)
+ *     PsReferencePrimaryTokenWithTag @ 0x140232A90 (PsReferencePrimaryTokenWithTag.c)
+ *     ExReleaseRundownProtection_0 @ 0x14028B620 (ExReleaseRundownProtection_0.c)
+ *     PsGetProcessSessionId @ 0x1402978B0 (PsGetProcessSessionId.c)
+ *     ObFastDereferenceObject @ 0x140297F10 (ObFastDereferenceObject.c)
+ *     PsGetProcessStartKey @ 0x1402F6F30 (PsGetProcessStartKey.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     SeQueryUserSidToken @ 0x140715010 (SeQueryUserSidToken.c)
+ *     ProbeForWrite @ 0x140729580 (ProbeForWrite.c)
+ *     PsAcquireProcessExitSynchronization @ 0x140754DB0 (PsAcquireProcessExitSynchronization.c)
+ *     EtwpQueryProcessCommandLine @ 0x140754DD8 (EtwpQueryProcessCommandLine.c)
+ *     EtwpQueryProcessOtherInfo @ 0x140754FB4 (EtwpQueryProcessOtherInfo.c)
+ *     EtwpQueryTokenPackageInfo @ 0x140754FF4 (EtwpQueryTokenPackageInfo.c)
+ *     MmGetSessionCreateTime @ 0x1407550C0 (MmGetSessionCreateTime.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 
@@ -34,7 +34,7 @@ __int64 __fastcall EtwQueryProcessTelemetryInfo(
   SIZE_T v5; // r15
   int v8; // ebx
   __int64 *v9; // rcx
-  ULONG_PTR v10; // r12
+  void *v10; // r12
   int v11; // edi
   ULONG v12; // edi
   size_t v13; // r8
@@ -47,20 +47,20 @@ __int64 __fastcall EtwQueryProcessTelemetryInfo(
   char *v20; // rbx
   ULONG Size; // [rsp+24h] [rbp-2A4h] BYREF
   int Size_4; // [rsp+28h] [rbp-2A0h]
-  int v25; // [rsp+2Ch] [rbp-29Ch] BYREF
+  int v25; // [rsp+2Ch] [rbp-29Ch]
   __int64 v26; // [rsp+30h] [rbp-298h] BYREF
   const void **v27; // [rsp+38h] [rbp-290h]
   PVOID P[2]; // [rsp+40h] [rbp-288h] BYREF
-  ULONG_PTR v29; // [rsp+50h] [rbp-278h]
+  void *v29; // [rsp+50h] [rbp-278h]
   __int64 v30; // [rsp+58h] [rbp-270h]
-  size_t v31[52]; // [rsp+60h] [rbp-268h] BYREF
+  size_t PackageSize[52]; // [rsp+60h] [rbp-268h] BYREF
   $115DCDF994C6370D29323EAB0E0C9502 v32; // [rsp+200h] [rbp-C8h] BYREF
   _BYTE Src[80]; // [rsp+230h] [rbp-98h] BYREF
 
   v5 = (unsigned int)Length;
   v30 = BugCheckParameter1;
   memset(&v32, 0, sizeof(v32));
-  memset(v31, 0, 0x198uLL);
+  memset(PackageSize, 0, 0x198uLL);
   memset(Src, 0, 0x44uLL);
   Size = 0;
   *(_OWORD *)P = 0LL;
@@ -70,11 +70,11 @@ __int64 __fastcall EtwQueryProcessTelemetryInfo(
   if ( *(_QWORD *)(BugCheckParameter1 + 1472) )
     v9 = *(__int64 **)(BugCheckParameter1 + 1472);
   v27 = (const void **)v9;
-  v10 = PsReferencePrimaryTokenWithTag(BugCheckParameter1, 0x746C6644u);
+  v10 = (void *)PsReferencePrimaryTokenWithTag(BugCheckParameter1, 0x746C6644u);
   v29 = v10;
   v25 = 0;
-  EtwpQueryTokenPackageInfo(v10, v31, &v25);
-  v11 = SeQueryUserSidToken(v10, Src, 0x44u, &Size);
+  EtwpQueryTokenPackageInfo(v10, PackageSize);
+  v11 = SeQueryUserSidToken((__int64)v10, Src, 0x44u, &Size);
   if ( v11 >= 0 )
   {
     if ( (int)PsAcquireProcessExitSynchronization(BugCheckParameter1) >= 0 )
@@ -86,7 +86,7 @@ __int64 __fastcall EtwQueryProcessTelemetryInfo(
       ExReleaseRundownProtection_0((PEX_RUNDOWN_REF)(BugCheckParameter1 + 1112));
       v8 = v26;
     }
-    v12 = Size + 100 + LODWORD(v31[0]) + LODWORD(v31[1]) + *(unsigned __int16 *)v27 + LOWORD(P[0]);
+    v12 = Size + 100 + LODWORD(PackageSize[0]) + LODWORD(PackageSize[1]) + *(unsigned __int16 *)v27 + LOWORD(P[0]);
     if ( a5 )
       *a5 = v12;
     if ( a4 )
@@ -125,11 +125,11 @@ __int64 __fastcall EtwQueryProcessTelemetryInfo(
         memmove(v16, v27[1], *(unsigned __int16 *)v27);
         v18 = &v16[*v17 + 2];
         *((_DWORD *)Address + 20) = (_DWORD)v18 - (_DWORD)Address;
-        memmove(v18, &v31[2], v31[0]);
-        v19 = &v18[v31[0]];
+        memmove(v18, &PackageSize[2], PackageSize[0]);
+        v19 = &v18[PackageSize[0]];
         *((_DWORD *)Address + 21) = (_DWORD)v19 - (_DWORD)Address;
-        memmove(v19, &v31[34], v31[1]);
-        v20 = &v19[v31[1]];
+        memmove(v19, &PackageSize[34], PackageSize[1]);
+        v20 = &v19[PackageSize[1]];
         *((_DWORD *)Address + 22) = (_DWORD)v20 - (_DWORD)Address;
         memmove(v20, P[1], LOWORD(P[0]));
         v11 = 0;
@@ -144,6 +144,6 @@ __int64 __fastcall EtwQueryProcessTelemetryInfo(
   if ( P[1] )
     ExFreePoolWithTag(P[1], 0);
   if ( v10 )
-    ObFastDereferenceObject((signed __int64 *)(BugCheckParameter1 + 1208), v10, 0x746C6644u);
+    ObFastDereferenceObject((signed __int64 *)(BugCheckParameter1 + 1208), (unsigned __int64)v10, 0x746C6644u);
   return (unsigned int)v11;
 }

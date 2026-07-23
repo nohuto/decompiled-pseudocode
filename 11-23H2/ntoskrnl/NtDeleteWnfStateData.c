@@ -1,12 +1,12 @@
 /*
- * XREFs of NtDeleteWnfStateData @ 0x14085BE50
+ * XREFs of NtDeleteWnfStateData @ 0x14085C090
  * Callers:
  *     <none>
  * Callees:
- *     ExpNtDeleteWnfStateData @ 0x14085BE6C (ExpNtDeleteWnfStateData.c)
+ *     ExpNtDeleteWnfStateData @ 0x14085C0AC (ExpNtDeleteWnfStateData.c)
  */
 
-__int64 __fastcall NtDeleteWnfStateData(__int64 a1, __int64 a2)
+NTSTATUS __cdecl NtDeleteWnfStateData(PCWNF_STATE_NAME StateName, const void *ExplicitScope)
 {
-  return ExpNtDeleteWnfStateData(a1, a2, 1LL);
+  return ExpNtDeleteWnfStateData(StateName, ExplicitScope, 1LL);
 }

@@ -1,31 +1,31 @@
 /*
- * XREFs of LdrpReleaseDllPath @ 0x18000ABC0
+ * XREFs of LdrpReleaseDllPath @ 0x1800375C0
  * Callers:
- *     LdrpHandleProtectedDelayload @ 0x1800096B0 (LdrpHandleProtectedDelayload.c)
- *     LdrpGetDelayloadExportDll @ 0x180009D20 (LdrpGetDelayloadExportDll.c)
- *     LdrGetDllHandle @ 0x18000A780 (LdrGetDllHandle.c)
- *     LdrGetDllHandleEx @ 0x18000A960 (LdrGetDllHandleEx.c)
- *     LdrpGetProcApphelpCheckModule @ 0x18000AC90 (LdrpGetProcApphelpCheckModule.c)
- *     LdrLoadDll @ 0x180059200 (LdrLoadDll.c)
- *     LdrpCorInitialize @ 0x180065128 (LdrpCorInitialize.c)
- *     LdrpLoadWow64 @ 0x18006531C (LdrpLoadWow64.c)
- *     LdrpInitShimEngine @ 0x1800654D8 (LdrpInitShimEngine.c)
- *     LdrpLoadShimEngine @ 0x180065AE0 (LdrpLoadShimEngine.c)
- *     LdrpInitializeProcess @ 0x180066D74 (LdrpInitializeProcess.c)
- *     LdrpMapDllSearchPath @ 0x180074F30 (LdrpMapDllSearchPath.c)
- *     LdrLoadEnclaveModule @ 0x1800D87F0 (LdrLoadEnclaveModule.c)
- *     LdrpInitializeImportRedirection @ 0x1800FA988 (LdrpInitializeImportRedirection.c)
- *     LdrpLoadPatchImage @ 0x18015EBFC (LdrpLoadPatchImage.c)
+ *     LdrpHandleProtectedDelayload @ 0x1800360B0 (LdrpHandleProtectedDelayload.c)
+ *     LdrpGetDelayloadExportDll @ 0x180036720 (LdrpGetDelayloadExportDll.c)
+ *     LdrGetDllHandle @ 0x180037180 (LdrGetDllHandle.c)
+ *     LdrGetDllHandleEx @ 0x180037360 (LdrGetDllHandleEx.c)
+ *     LdrpGetProcApphelpCheckModule @ 0x180037690 (LdrpGetProcApphelpCheckModule.c)
+ *     LdrLoadDll @ 0x18006EDE0 (LdrLoadDll.c)
+ *     LdrpMapDllSearchPath @ 0x180091810 (LdrpMapDllSearchPath.c)
+ *     LdrpCorInitialize @ 0x1800ACFF8 (LdrpCorInitialize.c)
+ *     LdrpLoadWow64 @ 0x1800AD1EC (LdrpLoadWow64.c)
+ *     LdrpInitShimEngine @ 0x1800AD3A8 (LdrpInitShimEngine.c)
+ *     LdrpLoadShimEngine @ 0x1800AD9B0 (LdrpLoadShimEngine.c)
+ *     LdrpInitializeProcess @ 0x1800AEF54 (LdrpInitializeProcess.c)
+ *     LdrLoadEnclaveModule @ 0x1800D3B60 (LdrLoadEnclaveModule.c)
+ *     LdrpInitializeImportRedirection @ 0x1800F56E8 (LdrpInitializeImportRedirection.c)
+ *     LdrpLoadPatchImage @ 0x18015CFBC (LdrpLoadPatchImage.c)
  * Callees:
- *     RtlpAcquireSRWLockExclusiveContended @ 0x18004A470 (RtlpAcquireSRWLockExclusiveContended.c)
- *     RtlReleaseSRWLockExclusive @ 0x1800567B0 (RtlReleaseSRWLockExclusive.c)
+ *     RtlpAcquireSRWLockExclusiveContended @ 0x180060050 (RtlpAcquireSRWLockExclusiveContended.c)
+ *     RtlReleaseSRWLockExclusive @ 0x18006C390 (RtlReleaseSRWLockExclusive.c)
  */
 
 void __fastcall LdrpReleaseDllPath(__int64 *a1)
 {
   char *SchedulerSharedDataSlot; // r8
   __int64 v2; // rdi
-  __int64 v3; // rbx
+  void *v3; // rbx
   unsigned int i; // edx
   char *v5; // rcx
 
@@ -33,7 +33,7 @@ void __fastcall LdrpReleaseDllPath(__int64 *a1)
   {
     SchedulerSharedDataSlot = (char *)NtCurrentTeb()->SchedulerSharedDataSlot;
     v2 = *a1;
-    v3 = *a1 - 128;
+    v3 = (void *)(*a1 - 128);
     if ( SchedulerSharedDataSlot )
     {
       for ( i = 0; i < 8; ++i )
@@ -53,6 +53,6 @@ void __fastcall LdrpReleaseDllPath(__int64 *a1)
       v3 = 0LL;
     RtlReleaseSRWLockExclusive(&RtlpCachedPathLock);
     if ( v3 )
-      RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0LL, v3);
+      RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v3);
   }
 }

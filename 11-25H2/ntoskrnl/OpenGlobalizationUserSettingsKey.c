@@ -10,7 +10,7 @@
  *     RtlOpenCurrentUser @ 0x140772E10 (RtlOpenCurrentUser.c)
  */
 
-__int64 __fastcall OpenGlobalizationUserSettingsKey(int a1, __int64 a2, HANDLE *a3)
+NTSTATUS __fastcall OpenGlobalizationUserSettingsKey(int a1, __int64 a2, HANDLE *a3)
 {
   int GlobalizationUserModelType; // eax
   __int64 v6; // rdx
@@ -19,7 +19,7 @@ __int64 __fastcall OpenGlobalizationUserSettingsKey(int a1, __int64 a2, HANDLE *
 
   v8 = a1;
   if ( !a3 )
-    return 3221225485LL;
+    return -1073741811;
   GlobalizationUserModelType = GetGlobalizationUserModelType();
   if ( GlobalizationUserModelType == 1 )
     return RtlOpenCurrentUser(8u, a3);
@@ -27,7 +27,7 @@ __int64 __fastcall OpenGlobalizationUserSettingsKey(int a1, __int64 a2, HANDLE *
   if ( GlobalizationUserModelType == 2 )
     return OpenGlobalizationUserSettingsKey_ForSingleUserModel(v7, a3);
   if ( GlobalizationUserModelType != 3 )
-    return 3221225701LL;
+    return -1073741595;
   v8 = 0;
   return OpenGlobalizationUserSettingsKey_ForMua(v7, v6, a3, &v8);
 }

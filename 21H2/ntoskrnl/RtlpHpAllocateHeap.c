@@ -1,14 +1,14 @@
 /*
- * XREFs of RtlpHpAllocateHeap @ 0x1402A5E94
+ * XREFs of RtlpHpAllocateHeap @ 0x1402232D4
  * Callers:
- *     RtlpHpMetadataAlloc @ 0x1402A5D18 (RtlpHpMetadataAlloc.c)
- *     ExAllocateHeapPages @ 0x1403756C8 (ExAllocateHeapPages.c)
+ *     RtlpHpMetadataAlloc @ 0x140223158 (RtlpHpMetadataAlloc.c)
+ *     ExAllocateHeapPages @ 0x140375218 (ExAllocateHeapPages.c)
  * Callees:
- *     RtlpHpAllocateHeapInternal @ 0x1402A5FA0 (RtlpHpAllocateHeapInternal.c)
- *     RtlpHpCheckAllocationSizeLimit @ 0x1402A6048 (RtlpHpCheckAllocationSizeLimit.c)
- *     RtlpHpFreeHeap @ 0x140342100 (RtlpHpFreeHeap.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     RtlpHpExtrasAppend @ 0x1405948B8 (RtlpHpExtrasAppend.c)
+ *     RtlpHpAllocateHeapInternal @ 0x1402233E0 (RtlpHpAllocateHeapInternal.c)
+ *     RtlpHpCheckAllocationSizeLimit @ 0x140223488 (RtlpHpCheckAllocationSizeLimit.c)
+ *     RtlpHpFreeHeap @ 0x14034CE50 (RtlpHpFreeHeap.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     RtlpHpExtrasAppend @ 0x140594AE8 (RtlpHpExtrasAppend.c)
  */
 
 __int64 __fastcall RtlpHpAllocateHeap(__int64 a1, unsigned __int64 a2, int a3, __int16 a4)

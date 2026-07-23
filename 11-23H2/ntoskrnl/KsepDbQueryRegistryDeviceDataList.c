@@ -1,17 +1,17 @@
 /*
- * XREFs of KsepDbQueryRegistryDeviceDataList @ 0x140976D48
+ * XREFs of KsepDbQueryRegistryDeviceDataList @ 0x140976F48
  * Callers:
- *     KseQueryDeviceDataList @ 0x140976900 (KseQueryDeviceDataList.c)
+ *     KseQueryDeviceDataList @ 0x140976B00 (KseQueryDeviceDataList.c)
  * Callees:
  *     KsepPoolFreePaged @ 0x140209E80 (KsepPoolFreePaged.c)
  *     KsepPoolAllocatePaged @ 0x140209EA8 (KsepPoolAllocatePaged.c)
- *     ZwClose @ 0x14041AF40 (ZwClose.c)
- *     memmove @ 0x140435700 (memmove.c)
+ *     ZwClose @ 0x14041B2D0 (ZwClose.c)
+ *     memmove @ 0x140435B00 (memmove.c)
  *     KsepRegistryOpenKey @ 0x1406944C4 (KsepRegistryOpenKey.c)
  *     KsepStringFree @ 0x1406948CC (KsepStringFree.c)
- *     KsepStringTransform @ 0x140808228 (KsepStringTransform.c)
- *     KsepRegistryEnumValue @ 0x140977A2C (KsepRegistryEnumValue.c)
- *     KsepRegistryQueryKeyInformation @ 0x140977B28 (KsepRegistryQueryKeyInformation.c)
+ *     KsepStringTransform @ 0x1408084F8 (KsepStringTransform.c)
+ *     KsepRegistryEnumValue @ 0x140977C2C (KsepRegistryEnumValue.c)
+ *     KsepRegistryQueryKeyInformation @ 0x140977D28 (KsepRegistryQueryKeyInformation.c)
  */
 
 __int64 __fastcall KsepDbQueryRegistryDeviceDataList(_WORD *a1, char *a2, unsigned int a3, _DWORD *a4)
@@ -103,7 +103,7 @@ LABEL_17:
     if ( Handle )
     {
       ZwClose(Handle);
-      _InterlockedIncrement(dword_140C4075C);
+      _InterlockedIncrement(dword_140C4071C);
     }
   }
   KsepStringFree((__int64)&v17);

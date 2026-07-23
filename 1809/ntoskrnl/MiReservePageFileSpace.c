@@ -1,18 +1,18 @@
 /*
- * XREFs of MiReservePageFileSpace @ 0x140081320
+ * XREFs of MiReservePageFileSpace @ 0x140081310
  * Callers:
- *     MiWsleFlush @ 0x1400B3310 (MiWsleFlush.c)
- *     MiFillNoReservationCluster @ 0x140150D48 (MiFillNoReservationCluster.c)
+ *     MiWsleFlush @ 0x1400B3250 (MiWsleFlush.c)
+ *     MiFillNoReservationCluster @ 0x140150E48 (MiFillNoReservationCluster.c)
  * Callees:
  *     MiReleasePageFileInfo @ 0x14002A628 (MiReleasePageFileInfo.c)
  *     MiUpdatePageFileHighInPte @ 0x14003D770 (MiUpdatePageFileHighInPte.c)
  *     MiSwizzleInvalidPte @ 0x14003D7C0 (MiSwizzleInvalidPte.c)
- *     MiReservePageFileSpaceForPage @ 0x140081800 (MiReservePageFileSpaceForPage.c)
- *     MiLocateAddress @ 0x140087860 (MiLocateAddress.c)
- *     MI_IS_PTE_IN_WS_SWAP_SET @ 0x14011B9B4 (MI_IS_PTE_IN_WS_SWAP_SET.c)
- *     MiFindFreePageFileSpace @ 0x14012413C (MiFindFreePageFileSpace.c)
- *     MiGetPageFileSectionForReservation @ 0x1401576DC (MiGetPageFileSectionForReservation.c)
- *     MiReleasePageFileSectionInfo @ 0x140157C9C (MiReleasePageFileSectionInfo.c)
+ *     MiReservePageFileSpaceForPage @ 0x1400817F0 (MiReservePageFileSpaceForPage.c)
+ *     MiLocateAddress @ 0x140087850 (MiLocateAddress.c)
+ *     MI_IS_PTE_IN_WS_SWAP_SET @ 0x14011BA24 (MI_IS_PTE_IN_WS_SWAP_SET.c)
+ *     MiFindFreePageFileSpace @ 0x14012420C (MiFindFreePageFileSpace.c)
+ *     MiGetPageFileSectionForReservation @ 0x1401577DC (MiGetPageFileSectionForReservation.c)
+ *     MiReleasePageFileSectionInfo @ 0x140157D9C (MiReleasePageFileSectionInfo.c)
  */
 
 __int64 __fastcall MiReservePageFileSpace(__int64 a1, __int64 a2, __int64 a3)
@@ -183,16 +183,16 @@ LABEL_28:
           if ( !v31 )
             MiReleasePageFileInfo((struct _KEVENT *)a1, v48, v47 != 0);
           v33 = v32;
-          if ( qword_14043A0C0 && (v32 & 0x10) == 0 )
-            v33 = v32 & ~qword_14043A0C0;
+          if ( qword_14043B180 && (v32 & 0x10) == 0 )
+            v33 = v32 & ~qword_14043B180;
           if ( v32 )
           {
-            if ( qword_14043A0C0 )
+            if ( qword_14043B180 )
             {
               if ( (v32 & 0x10) != 0 )
                 LODWORD(v32) = v32 & 0xFFFFFFEF;
               else
-                LODWORD(v32) = v32 & ~(_DWORD)qword_14043A0C0;
+                LODWORD(v32) = v32 & ~(_DWORD)qword_14043B180;
             }
           }
           else

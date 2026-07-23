@@ -1,19 +1,19 @@
 /*
- * XREFs of MiIncrementSubsectionViewCount @ 0x14030BE90
+ * XREFs of MiIncrementSubsectionViewCount @ 0x1402EDF10
  * Callers:
- *     MmPurgeSection @ 0x14039CC74 (MmPurgeSection.c)
- *     MiSetSubsectionBase @ 0x140458C48 (MiSetSubsectionBase.c)
- *     MiPrepareSegmentForDeletion @ 0x1404874E0 (MiPrepareSegmentForDeletion.c)
- *     MiCreatePrototypePtes @ 0x14049406C (MiCreatePrototypePtes.c)
- *     MiFlushSection @ 0x1404ADA20 (MiFlushSection.c)
- *     MiPrepareDataFileSubsectionForDeletion @ 0x1404B5148 (MiPrepareDataFileSubsectionForDeletion.c)
- *     MiRetainSubsection @ 0x1406FF8C8 (MiRetainSubsection.c)
- *     MiChargeSubsectionProtos @ 0x14086AE9C (MiChargeSubsectionProtos.c)
+ *     MmPurgeSection @ 0x14039E9D4 (MmPurgeSection.c)
+ *     MiSetSubsectionBase @ 0x1404504B8 (MiSetSubsectionBase.c)
+ *     MiPrepareSegmentForDeletion @ 0x140480F20 (MiPrepareSegmentForDeletion.c)
+ *     MiCreatePrototypePtes @ 0x14048DBBC (MiCreatePrototypePtes.c)
+ *     MiFlushSection @ 0x1404A70A8 (MiFlushSection.c)
+ *     MiPrepareDataFileSubsectionForDeletion @ 0x1404AE598 (MiPrepareDataFileSubsectionForDeletion.c)
+ *     MiRetainSubsection @ 0x140704598 (MiRetainSubsection.c)
+ *     MiChargeSubsectionProtos @ 0x14087127C (MiChargeSubsectionProtos.c)
  * Callees:
- *     MiRemoveUnusedSubsection @ 0x14030C19C (MiRemoveUnusedSubsection.c)
- *     MiGetSubsectionHoldingCrossPartitionReferences @ 0x140499D04 (MiGetSubsectionHoldingCrossPartitionReferences.c)
- *     MiUpdateSubsectionCrossPartitionRefs @ 0x140512248 (MiUpdateSubsectionCrossPartitionRefs.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
+ *     MiRemoveUnusedSubsection @ 0x1402EE21C (MiRemoveUnusedSubsection.c)
+ *     MiGetSubsectionHoldingCrossPartitionReferences @ 0x140493854 (MiGetSubsectionHoldingCrossPartitionReferences.c)
+ *     MiUpdateSubsectionCrossPartitionRefs @ 0x14050BCB8 (MiUpdateSubsectionCrossPartitionRefs.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall MiIncrementSubsectionViewCount(__int64 *BugCheckParameter2, char a2)
@@ -41,13 +41,13 @@ __int64 __fastcall MiIncrementSubsectionViewCount(__int64 *BugCheckParameter2, c
     else
       v5 = (a2 & 8) != 0
          ? 0LL
-         : *(ULONG **)(stru_140E2EB88.ThreadLock
+         : *(ULONG **)(stru_140E2ED08.ThreadLock
                      + 8LL * HIWORD(KeGetCurrentThread()->ApcState.Process[2].ProcessListEntry.Blink));
-    if ( v5 != *(ULONG **)(stru_140E2EB88.ThreadLock + 8LL * (*(_DWORD *)(v2 + 60) & 0x3FF)) )
+    if ( v5 != *(ULONG **)(stru_140E2ED08.ThreadLock + 8LL * (*(_DWORD *)(v2 + 60) & 0x3FF)) )
     {
       if ( (*(_DWORD *)(v2 + 56) & 0x100) != 0 && a2 >= 0 )
       {
-        ++LODWORD(stru_140E2EB88.CycleTime);
+        ++LODWORD(stru_140E2ED08.CycleTime);
         return 0LL;
       }
       SubsectionHoldingCrossPartitionReferences = MiGetSubsectionHoldingCrossPartitionReferences(BugCheckParameter2);

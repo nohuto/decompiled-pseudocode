@@ -1,23 +1,23 @@
 /*
- * XREFs of CcNotifyWriteBehindInternal @ 0x1402CF16C
+ * XREFs of CcNotifyWriteBehindInternal @ 0x1402638AC
  * Callers:
- *     CcNotifyWriteBehindEx @ 0x1402CF21C (CcNotifyWriteBehindEx.c)
- *     CcCoalescingCallBackHelper @ 0x14043C800 (CcCoalescingCallBackHelper.c)
- *     CcScheduleLazyWriteScan @ 0x14043C9B0 (CcScheduleLazyWriteScan.c)
- *     CcChargeDirtyPagesInternal @ 0x14044B950 (CcChargeDirtyPagesInternal.c)
- *     CcUninitializeCacheMap @ 0x1404DA4B0 (CcUninitializeCacheMap.c)
- *     CcNotifyWriteBehindHelper @ 0x14057A470 (CcNotifyWriteBehindHelper.c)
- *     CcExitPartition @ 0x14057CB90 (CcExitPartition.c)
+ *     CcNotifyWriteBehindEx @ 0x140262B14 (CcNotifyWriteBehindEx.c)
+ *     CcCoalescingCallBackHelper @ 0x140264D90 (CcCoalescingCallBackHelper.c)
+ *     CcScheduleLazyWriteScan @ 0x140264F40 (CcScheduleLazyWriteScan.c)
+ *     CcChargeDirtyPagesInternal @ 0x140442A90 (CcChargeDirtyPagesInternal.c)
+ *     CcUninitializeCacheMap @ 0x1404D3ED0 (CcUninitializeCacheMap.c)
+ *     CcNotifyWriteBehindHelper @ 0x140577900 (CcNotifyWriteBehindHelper.c)
+ *     CcExitPartition @ 0x14057A020 (CcExitPartition.c)
  * Callees:
- *     KeSetEvent @ 0x1402725A0 (KeSetEvent.c)
- *     CcForEachPrivateVolumeCacheMap @ 0x1402CE9E0 (CcForEachPrivateVolumeCacheMap.c)
- *     KiSetTimerEx @ 0x1403347A0 (KiSetTimerEx.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
+ *     KeSetEvent @ 0x140227B30 (KeSetEvent.c)
+ *     CcForEachPrivateVolumeCacheMap @ 0x140263914 (CcForEachPrivateVolumeCacheMap.c)
+ *     KiSetTimerEx @ 0x140316810 (KiSetTimerEx.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
  */
 
-char __fastcall CcNotifyWriteBehindInternal(__int64 a1, int a2)
+LONG __fastcall CcNotifyWriteBehindInternal(__int64 a1, int a2)
 {
-  char result; // al
+  LONG result; // eax
   int v4; // [rsp+48h] [rbp+10h] BYREF
 
   v4 = a2;
@@ -25,7 +25,7 @@ char __fastcall CcNotifyWriteBehindInternal(__int64 a1, int a2)
   {
     if ( CcEnablePerVolumeLazyWriter )
     {
-      return CcForEachPrivateVolumeCacheMap(a1, (__int64)CcNotifyWriteBehindAllVolumesHelper, (__int64)&v4);
+      return CcForEachPrivateVolumeCacheMap(a1, CcNotifyWriteBehindAllVolumesHelper, &v4);
     }
     else
     {

@@ -1,11 +1,11 @@
 /*
- * XREFs of ExCreatePoolTagTable @ 0x1407B7CFC
+ * XREFs of ExCreatePoolTagTable @ 0x1407B814C
  * Callers:
- *     KiStartDynamicProcessor @ 0x14073B478 (KiStartDynamicProcessor.c)
- *     KeStartAllProcessors @ 0x140C26D58 (KeStartAllProcessors.c)
+ *     KiStartDynamicProcessor @ 0x1407393A8 (KiStartDynamicProcessor.c)
+ *     KeStartAllProcessors @ 0x140C28DA8 (KeStartAllProcessors.c)
  * Callees:
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     MmAllocateIndependentPagesEx @ 0x140A88F6C (MmAllocateIndependentPagesEx.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     MmAllocateIndependentPagesEx @ 0x140A8536C (MmAllocateIndependentPagesEx.c)
  */
 
 void *__fastcall ExCreatePoolTagTable(unsigned int a1, unsigned __int16 a2)

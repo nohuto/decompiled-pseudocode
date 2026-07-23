@@ -1,9 +1,9 @@
 /*
- * XREFs of PopPowerAggregatorHandleSystemTransitionIntent @ 0x140884A20
+ * XREFs of PopPowerAggregatorHandleSystemTransitionIntent @ 0x140884C60
  * Callers:
- *     PopPowerAggregatorHandleIntentUnsafe @ 0x1407A93D4 (PopPowerAggregatorHandleIntentUnsafe.c)
+ *     PopPowerAggregatorHandleIntentUnsafe @ 0x1407A95C4 (PopPowerAggregatorHandleIntentUnsafe.c)
  * Callees:
- *     PopPowerAggregatorDetermineTargetSystemPowerState @ 0x140884A90 (PopPowerAggregatorDetermineTargetSystemPowerState.c)
+ *     PopPowerAggregatorDetermineTargetSystemPowerState @ 0x140884CD0 (PopPowerAggregatorDetermineTargetSystemPowerState.c)
  */
 
 __int64 __fastcall PopPowerAggregatorHandleSystemTransitionIntent(__int64 a1, __int64 a2, int a3, unsigned int *a4)

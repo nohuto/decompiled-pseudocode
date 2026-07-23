@@ -1,14 +1,14 @@
 /*
- * XREFs of RtlpHpSegMgrUnlock @ 0x1402C0D40
+ * XREFs of RtlpHpSegMgrUnlock @ 0x14035CE38
  * Callers:
- *     RtlpHpSegMgrVaCtxFree @ 0x1402C0D68 (RtlpHpSegMgrVaCtxFree.c)
- *     RtlpHpSegMgrVaCtxAlloc @ 0x1402C1364 (RtlpHpSegMgrVaCtxAlloc.c)
- *     RtlpHpSegMgrVaCtxInsert @ 0x1402C2AA8 (RtlpHpSegMgrVaCtxInsert.c)
+ *     RtlpHpSegMgrVaCtxFree @ 0x14035CE60 (RtlpHpSegMgrVaCtxFree.c)
+ *     RtlpHpSegMgrVaCtxInsert @ 0x14035D4AC (RtlpHpSegMgrVaCtxInsert.c)
+ *     RtlpHpSegMgrVaCtxAlloc @ 0x14035D7A8 (RtlpHpSegMgrVaCtxAlloc.c)
  * Callees:
- *     RtlpHpReleaseLockExclusive @ 0x1402B9650 (RtlpHpReleaseLockExclusive.c)
+ *     RtlpHpReleaseLockExclusive @ 0x140360D90 (RtlpHpReleaseLockExclusive.c)
  */
 
-void __fastcall RtlpHpSegMgrUnlock(__int64 a1, unsigned __int8 a2)
+__int64 __fastcall RtlpHpSegMgrUnlock(__int64 a1)
 {
-  RtlpHpReleaseLockExclusive(a1 + 112, *(_DWORD *)(a1 + 40) & 1, a2);
+  return RtlpHpReleaseLockExclusive(a1 + 112);
 }

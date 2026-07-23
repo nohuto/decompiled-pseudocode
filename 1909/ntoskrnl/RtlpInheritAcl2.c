@@ -224,22 +224,7 @@ LABEL_27:
     v45 = v38;
     v36 = v38;
   }
-  result = RtlpGenerateInheritAcl(
-             (__int64)a1,
-             v50,
-             v28,
-             a7,
-             a8,
-             a9,
-             a10,
-             a11,
-             a13,
-             a14,
-             a12,
-             v49,
-             v46,
-             (__int64)v19,
-             &a5);
+  result = RtlpGenerateInheritAcl((__int64)a1, v50, v28, a7, a8, a9, a10, a11, a13, a14, a12, v49, v46, v19, &a5);
   if ( (_DWORD)result == -1073741789 )
   {
     v39 = 1;

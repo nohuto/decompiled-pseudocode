@@ -1,23 +1,23 @@
 /*
- * XREFs of ExProtectPoolEx @ 0x140388828
+ * XREFs of ExProtectPoolEx @ 0x140382168
  * Callers:
- *     SmHpChunkHeapProtect @ 0x14037FBD8 (SmHpChunkHeapProtect.c)
- *     ?StCompactRegions@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEADK1KK@Z @ 0x1403811B0 (-StCompactRegions@-$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEADK1KK@Z.c)
- *     ?StDmPageRemove@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAU_ST_WORK_ITEM@1@@Z @ 0x140385D30 (-StDmPageRemove@-$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAU_ST_WORK_ITEM@1@@Z.c)
- *     SmHpChunkFree @ 0x140387610 (SmHpChunkFree.c)
- *     ?StDmPageRecordUnprotect@?$ST_STORE@USM_TRAITS@@@@SAXPEAU_ST_DATA_MGR@1@PEAU_ST_PAGE_RECORD@1@@Z @ 0x140387840 (-StDmPageRecordUnprotect@-$ST_STORE@USM_TRAITS@@@@SAXPEAU_ST_DATA_MGR@1@PEAU_ST_PAGE_RECORD@1@@Z.c)
- *     SmHpBufferUpdateFullness @ 0x140388300 (SmHpBufferUpdateFullness.c)
- *     SmHpUnprotectListNeighbors @ 0x1403884F4 (SmHpUnprotectListNeighbors.c)
- *     SmHpBufferProtectEx @ 0x140388710 (SmHpBufferProtectEx.c)
- *     SmHpChunkAlloc @ 0x1403893F0 (SmHpChunkAlloc.c)
- *     SmHpChunkUnprotect @ 0x140389640 (SmHpChunkUnprotect.c)
- *     CmpProtectPool @ 0x14047E198 (CmpProtectPool.c)
- *     CmpProtectPoolEx @ 0x14048B094 (CmpProtectPoolEx.c)
+ *     SmHpChunkHeapProtect @ 0x140379518 (SmHpChunkHeapProtect.c)
+ *     ?StCompactRegions@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEADK1KK@Z @ 0x14037AAF0 (-StCompactRegions@-$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEADK1KK@Z.c)
+ *     ?StDmPageRemove@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAU_ST_WORK_ITEM@1@@Z @ 0x14037F670 (-StDmPageRemove@-$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAU_ST_WORK_ITEM@1@@Z.c)
+ *     SmHpChunkFree @ 0x140380F50 (SmHpChunkFree.c)
+ *     ?StDmPageRecordUnprotect@?$ST_STORE@USM_TRAITS@@@@SAXPEAU_ST_DATA_MGR@1@PEAU_ST_PAGE_RECORD@1@@Z @ 0x140381180 (-StDmPageRecordUnprotect@-$ST_STORE@USM_TRAITS@@@@SAXPEAU_ST_DATA_MGR@1@PEAU_ST_PAGE_RECORD@1@@Z.c)
+ *     SmHpBufferUpdateFullness @ 0x140381C40 (SmHpBufferUpdateFullness.c)
+ *     SmHpUnprotectListNeighbors @ 0x140381E34 (SmHpUnprotectListNeighbors.c)
+ *     SmHpBufferProtectEx @ 0x140382050 (SmHpBufferProtectEx.c)
+ *     SmHpChunkAlloc @ 0x140382D30 (SmHpChunkAlloc.c)
+ *     SmHpChunkUnprotect @ 0x140382F80 (SmHpChunkUnprotect.c)
+ *     CmpProtectPool @ 0x140479388 (CmpProtectPool.c)
+ *     CmpProtectPoolEx @ 0x140485EC4 (CmpProtectPoolEx.c)
  * Callees:
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x140210C80 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     ExAcquireSpinLockShared @ 0x14031A1A0 (ExAcquireSpinLockShared.c)
- *     MmProtectPool @ 0x1403889FC (MmProtectPool.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
+ *     ExAcquireSpinLockShared @ 0x1402C2D30 (ExAcquireSpinLockShared.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x140339FE0 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     MmProtectPool @ 0x14038233C (MmProtectPool.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
  */
 
 __int64 __fastcall ExProtectPoolEx(unsigned __int64 a1, unsigned __int64 a2, __int64 a3, unsigned int a4)

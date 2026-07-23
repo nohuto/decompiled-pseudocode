@@ -1,22 +1,22 @@
 /*
- * XREFs of MiMakeTransitionHeatBatch @ 0x140402D04
+ * XREFs of MiMakeTransitionHeatBatch @ 0x1403FD304
  * Callers:
- *     MiHandleTransitionFault @ 0x14021B1A0 (MiHandleTransitionFault.c)
- *     MmCheckCachedPageStates @ 0x140280E90 (MmCheckCachedPageStates.c)
- *     MmCopyToCachedPage @ 0x1402EDA94 (MmCopyToCachedPage.c)
+ *     MmCheckCachedPageStates @ 0x140236420 (MmCheckCachedPageStates.c)
+ *     MiHandleTransitionFault @ 0x140247EF0 (MiHandleTransitionFault.c)
+ *     MmCopyToCachedPage @ 0x14034F0D4 (MmCopyToCachedPage.c)
  * Callees:
- *     MI_READ_PTE_LOCK_FREE @ 0x14021A250 (MI_READ_PTE_LOCK_FREE.c)
- *     MiGetSystemRegionType @ 0x14022AD20 (MiGetSystemRegionType.c)
- *     MiTryLockLeafPage @ 0x14030245C (MiTryLockLeafPage.c)
- *     MiLockTransitionLeafPageEx @ 0x14036A520 (MiLockTransitionLeafPageEx.c)
- *     MiSetActivePfnHeat @ 0x140403070 (MiSetActivePfnHeat.c)
- *     MiInitializePageHeatList @ 0x14043F8A0 (MiInitializePageHeatList.c)
- *     MiAddPageToHeatRanges @ 0x14043F904 (MiAddPageToHeatRanges.c)
- *     MiGetTransitionPageHeatList @ 0x140685724 (MiGetTransitionPageHeatList.c)
- *     MiGetPrototypePteBoundaries @ 0x140692DA8 (MiGetPrototypePteBoundaries.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140246FA0 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiLockTransitionLeafPageEx @ 0x1402EC2C0 (MiLockTransitionLeafPageEx.c)
+ *     MiGetSystemRegionType @ 0x1402FDF90 (MiGetSystemRegionType.c)
+ *     MiTryLockLeafPage @ 0x1403460BC (MiTryLockLeafPage.c)
+ *     MiSetActivePfnHeat @ 0x1403FD670 (MiSetActivePfnHeat.c)
+ *     MiInitializePageHeatList @ 0x140435B60 (MiInitializePageHeatList.c)
+ *     MiAddPageToHeatRanges @ 0x140435BC4 (MiAddPageToHeatRanges.c)
+ *     MiGetTransitionPageHeatList @ 0x140686854 (MiGetTransitionPageHeatList.c)
+ *     MiGetPrototypePteBoundaries @ 0x140693E78 (MiGetPrototypePteBoundaries.c)
  */
 
-_DWORD *__fastcall MiMakeTransitionHeatBatch(ULONG_PTR a1, __int64 a2, unsigned __int64 a3)
+_DWORD *__fastcall MiMakeTransitionHeatBatch(__int64 a1, __int64 a2, unsigned __int64 a3)
 {
   unsigned __int64 v6; // rbp
   _DWORD *v7; // r14
@@ -42,9 +42,9 @@ _DWORD *__fastcall MiMakeTransitionHeatBatch(ULONG_PTR a1, __int64 a2, unsigned 
   unsigned __int64 *v27; // rbx
   __int64 v28; // rdi
   __int64 v29; // rcx
-  ULONG_PTR v30; // rdx
+  __int64 v30; // rdx
   __int64 v32[7]; // [rsp+20h] [rbp-38h] BYREF
-  ULONG_PTR v33; // [rsp+78h] [rbp+20h] BYREF
+  __int64 v33; // [rsp+78h] [rbp+20h] BYREF
 
   v32[0] = 0LL;
   v33 = 0LL;
@@ -146,7 +146,7 @@ LABEL_19:
                 }
                 if ( (unsigned int)MiAddPageToHeatRanges(
                                      v7,
-                                     0xAAAAAAAAAAAAAAABuLL * ((__int64)(v30 + 0x220000000000LL) >> 4),
+                                     0xAAAAAAAAAAAAAAABuLL * ((v30 + 0x220000000000LL) >> 4),
                                      3LL) )
                   return v7;
               }

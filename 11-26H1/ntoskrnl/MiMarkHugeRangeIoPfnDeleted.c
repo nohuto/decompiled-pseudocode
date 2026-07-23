@@ -1,15 +1,15 @@
 /*
- * XREFs of MiMarkHugeRangeIoPfnDeleted @ 0x1406F4C48
+ * XREFs of MiMarkHugeRangeIoPfnDeleted @ 0x1406F98B8
  * Callers:
- *     MiHotRemoveHugeRange @ 0x1406EBF04 (MiHotRemoveHugeRange.c)
+ *     MiHotRemoveHugeRange @ 0x1406F0BA4 (MiHotRemoveHugeRange.c)
  * Callees:
- *     KeShouldYieldProcessor @ 0x1402D49D0 (KeShouldYieldProcessor.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402DED10 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     MiIoPfnTreeLockContended @ 0x1404D30C4 (MiIoPfnTreeLockContended.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     MiLockIoPfnTree @ 0x1406F4668 (MiLockIoPfnTree.c)
- *     MiUnlockIoPfnTree @ 0x1406F4E8C (MiUnlockIoPfnTree.c)
+ *     KeShouldYieldProcessor @ 0x1402B6790 (KeShouldYieldProcessor.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402C0B20 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     MiIoPfnTreeLockContended @ 0x1404CC934 (MiIoPfnTreeLockContended.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     MiLockIoPfnTree @ 0x1406F92D4 (MiLockIoPfnTree.c)
+ *     MiUnlockIoPfnTree @ 0x1406F9AFC (MiUnlockIoPfnTree.c)
  */
 
 __int64 __fastcall MiMarkHugeRangeIoPfnDeleted(ULONG_PTR BugCheckParameter2, __int64 a2)
@@ -28,9 +28,9 @@ __int64 __fastcall MiMarkHugeRangeIoPfnDeleted(ULONG_PTR BugCheckParameter2, __i
   ULONG_PTR v15; // rax
 
   v4 = MiLockIoPfnTree(1);
-  i = (_QWORD *)qword_140E35E80;
+  i = (_QWORD *)qword_140E36000;
   v8 = v4;
-  if ( qword_140E35E80 )
+  if ( qword_140E36000 )
   {
     v9 = BugCheckParameter2 + a2;
     BugCheckParameter4 = 0LL;
@@ -84,7 +84,7 @@ LABEL_9:
         LOBYTE(v13) = v8;
         MiUnlockIoPfnTree(v13, 1LL, v5, v6);
         MiLockIoPfnTree(1);
-        i = (_QWORD *)qword_140E35E80;
+        i = (_QWORD *)qword_140E36000;
         BugCheckParameter4 = 0LL;
         while ( 1 )
         {

@@ -3,9 +3,9 @@
  * Callers:
  *     RtlUnicodeStringCat @ 0x140208C9C (RtlUnicodeStringCat.c)
  *     RtlUnicodeStringCatString @ 0x140209B44 (RtlUnicodeStringCatString.c)
- *     PopPowerRequestStatsIdConcat @ 0x1407A8AD0 (PopPowerRequestStatsIdConcat.c)
- *     CmpLogTransactionAbortedWithChildName @ 0x1407E9CF8 (CmpLogTransactionAbortedWithChildName.c)
- *     PopIdleWakeGenerateInterruptDescriptionString @ 0x14099A5B8 (PopIdleWakeGenerateInterruptDescriptionString.c)
+ *     PopPowerRequestStatsIdConcat @ 0x1407A8CC0 (PopPowerRequestStatsIdConcat.c)
+ *     CmpLogTransactionAbortedWithChildName @ 0x1407E9FC8 (CmpLogTransactionAbortedWithChildName.c)
+ *     PopIdleWakeGenerateInterruptDescriptionString @ 0x14099A7B8 (PopIdleWakeGenerateInterruptDescriptionString.c)
  * Callees:
  *     RtlUnicodeStringValidateWorker @ 0x140208E20 (RtlUnicodeStringValidateWorker.c)
  */

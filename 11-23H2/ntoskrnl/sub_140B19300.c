@@ -3,8 +3,8 @@
  * Callers:
  *     <none>
  * Callees:
- *     KeSignalGate @ 0x14035D33C (KeSignalGate.c)
- *     sub_1403F1BE8 @ 0x1403F1BE8 (sub_1403F1BE8.c)
+ *     KeSignalGate @ 0x14035D4DC (KeSignalGate.c)
+ *     sub_1403F1DC8 @ 0x1403F1DC8 (sub_1403F1DC8.c)
  *     ExFreePool @ 0x140AAECC0 (ExFreePool.c)
  */
 
@@ -149,7 +149,7 @@ void __fastcall sub_140B19300(_QWORD **a1)
         }
         while ( v10 < (unsigned int)v9 );
         v7 = (char **)v56;
-        sub_1403F1BE8(v3, v56, v9);
+        sub_1403F1DC8(v3, v56, v9);
         v26 = v57;
         v27 = (unsigned int)v9;
         v28 = v61 + 2;

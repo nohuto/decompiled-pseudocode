@@ -111,7 +111,7 @@ LABEL_7:
       v12 = v8 + 48 * v11;
       CurrentIrql = KeGetCurrentIrql();
       __writecr8(v7);
-      if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+      if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
       {
         SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
         if ( CurrentIrql == 2 )
@@ -139,10 +139,10 @@ LABEL_7:
       if ( v14 != v9 )
       {
         _InterlockedAnd64((volatile signed __int64 *)(v12 + 24), v5);
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
           v28 = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && v28 <= 0xFu && CurrentIrql <= 0xFu && v28 >= 2u )
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v28 <= 0xFu && CurrentIrql <= 0xFu && v28 >= 2u )
           {
             CurrentPrcb = KeGetCurrentPrcb();
             a2 = -1LL << (CurrentIrql + 1);
@@ -168,10 +168,10 @@ LABEL_7:
       if ( (*(_BYTE *)(v12 + 34) & 7u) >= 6 )
       {
         _InterlockedAnd64((volatile signed __int64 *)(v12 + 24), v5);
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
           v33 = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && v33 <= 0xFu && CurrentIrql <= 0xFu && v33 >= 2u )
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v33 <= 0xFu && CurrentIrql <= 0xFu && v33 >= 2u )
           {
             v34 = KeGetCurrentPrcb();
             v35 = v34->SchedulerAssist;
@@ -188,10 +188,10 @@ LABEL_7:
       }
 LABEL_44:
       _InterlockedAnd64((volatile signed __int64 *)(v12 + 24), v5);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v41 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v41 <= 0xFu && CurrentIrql <= 0xFu && v41 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v41 <= 0xFu && CurrentIrql <= 0xFu && v41 >= 2u )
         {
           v42 = KeGetCurrentPrcb();
           v43 = v42->SchedulerAssist;
@@ -261,10 +261,10 @@ LABEL_23:
     _InterlockedAnd64((volatile signed __int64 *)(v12 + 24), 0x7FFFFFFFFFFFFFFFuLL);
     if ( (_BYTE)v22 != 17 )
     {
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v37 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v37 <= 0xFu && (unsigned __int8)v22 <= 0xFu && v37 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v37 <= 0xFu && (unsigned __int8)v22 <= 0xFu && v37 >= 2u )
         {
           v38 = KeGetCurrentPrcb();
           v39 = v38->SchedulerAssist;

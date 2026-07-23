@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpRemoveArchDisallowedXStateFeatures @ 0x140464F6C
+ * XREFs of RtlpRemoveArchDisallowedXStateFeatures @ 0x14045B69C
  * Callers:
- *     RtlGetEnabledExtendedFeatures @ 0x1404EEFB0 (RtlGetEnabledExtendedFeatures.c)
- *     RtlWow64GetCpuAreaInfo @ 0x1409E6180 (RtlWow64GetCpuAreaInfo.c)
- *     RtlWow64GetCpuAreaEnabledFeatures @ 0x1409E6328 (RtlWow64GetCpuAreaEnabledFeatures.c)
+ *     RtlGetEnabledExtendedFeatures @ 0x1404E71D0 (RtlGetEnabledExtendedFeatures.c)
+ *     RtlWow64GetCpuAreaInfo @ 0x1409E0A10 (RtlWow64GetCpuAreaInfo.c)
+ *     RtlWow64GetCpuAreaEnabledFeatures @ 0x1409E0BB8 (RtlWow64GetCpuAreaEnabledFeatures.c)
  * Callees:
  *     <none>
  */

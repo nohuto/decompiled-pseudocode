@@ -1,12 +1,12 @@
 /*
- * XREFs of PopDiagTraceFxComponentResidency @ 0x1402E0764
+ * XREFs of PopDiagTraceFxComponentResidency @ 0x1402E0954
  * Callers:
- *     PoFxSetComponentResidency @ 0x1402D7340 (PoFxSetComponentResidency.c)
+ *     PoFxSetComponentResidency @ 0x1402D7530 (PoFxSetComponentResidency.c)
  * Callees:
  *     EtwEventEnabled @ 0x14005B2D0 (EtwEventEnabled.c)
- *     EtwWriteEx @ 0x1400CAD60 (EtwWriteEx.c)
- *     PopFxAddLogEntry @ 0x1400FE804 (PopFxAddLogEntry.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     EtwWriteEx @ 0x1400CAE40 (EtwWriteEx.c)
+ *     PopFxAddLogEntry @ 0x1400FE884 (PopFxAddLogEntry.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
  */
 
 void __fastcall PopDiagTraceFxComponentResidency(__int64 a1, int a2, __int64 a3)

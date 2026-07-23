@@ -1,5 +1,5 @@
 /*
- * XREFs of KeGetClockTimerResolution @ 0x1401D2474
+ * XREFs of KeGetClockTimerResolution @ 0x1401D22A0
  * Callers:
  *     <none>
  * Callees:

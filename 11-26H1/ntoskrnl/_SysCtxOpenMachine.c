@@ -1,17 +1,17 @@
 /*
- * XREFs of _SysCtxOpenMachine @ 0x14089CC70
+ * XREFs of _SysCtxOpenMachine @ 0x1408A3070
  * Callers:
- *     _PnpCtxCreateNode @ 0x140AE7B14 (_PnpCtxCreateNode.c)
+ *     _PnpCtxCreateNode @ 0x140AE59C4 (_PnpCtxCreateNode.c)
  * Callees:
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     ZwDuplicateObject @ 0x140723B70 (ZwDuplicateObject.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     _SysCtxOpenControlSet @ 0x14089CA30 (_SysCtxOpenControlSet.c)
- *     _RegRtlOpenKeyTransacted @ 0x140997950 (_RegRtlOpenKeyTransacted.c)
- *     RtlGetVersion @ 0x140A92BE0 (RtlGetVersion.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     ZwDuplicateObject @ 0x140728740 (ZwDuplicateObject.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     _SysCtxOpenControlSet @ 0x1408A2E30 (_SysCtxOpenControlSet.c)
+ *     _RegRtlOpenKeyTransacted @ 0x1409583B0 (_RegRtlOpenKeyTransacted.c)
+ *     RtlGetVersion @ 0x140A97730 (RtlGetVersion.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall SysCtxOpenMachine(
@@ -35,7 +35,7 @@ __int64 __fastcall SysCtxOpenMachine(
   HANDLE v19; // [rsp+48h] [rbp-B8h] BYREF
   HANDLE v20; // [rsp+50h] [rbp-B0h] BYREF
   HANDLE v21; // [rsp+58h] [rbp-A8h] BYREF
-  struct _OSVERSIONINFOW VersionInformation; // [rsp+60h] [rbp-A0h] BYREF
+  _OSVERSIONINFOW VersionInformation; // [rsp+60h] [rbp-A0h] BYREF
   unsigned __int8 v23; // [rsp+174h] [rbp+74h]
   unsigned __int8 v24; // [rsp+176h] [rbp+76h]
 

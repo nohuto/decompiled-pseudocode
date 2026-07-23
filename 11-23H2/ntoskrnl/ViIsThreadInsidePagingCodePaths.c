@@ -1,14 +1,14 @@
 /*
- * XREFs of ViIsThreadInsidePagingCodePaths @ 0x140AD9FD0
+ * XREFs of ViIsThreadInsidePagingCodePaths @ 0x140AD9FC0
  * Callers:
- *     VfDeadlockAcquireResource @ 0x140AD6DDC (VfDeadlockAcquireResource.c)
- *     VfDeadlockReleaseResource @ 0x140AD7EFC (VfDeadlockReleaseResource.c)
+ *     VfDeadlockAcquireResource @ 0x140AD6DCC (VfDeadlockAcquireResource.c)
+ *     VfDeadlockReleaseResource @ 0x140AD7EEC (VfDeadlockReleaseResource.c)
  * Callees:
- *     ViLowerIrql @ 0x1405D1AB8 (ViLowerIrql.c)
- *     ViRaiseIrqlToDpcLevel @ 0x1405D1B30 (ViRaiseIrqlToDpcLevel.c)
- *     ViDeadlockDetectionLock @ 0x140AD8E08 (ViDeadlockDetectionLock.c)
- *     ViDeadlockDetectionUnlock @ 0x140AD8E40 (ViDeadlockDetectionUnlock.c)
- *     ViDeadlockSearchThread @ 0x140AD9E58 (ViDeadlockSearchThread.c)
+ *     ViLowerIrql @ 0x1405D2028 (ViLowerIrql.c)
+ *     ViRaiseIrqlToDpcLevel @ 0x1405D20A0 (ViRaiseIrqlToDpcLevel.c)
+ *     ViDeadlockDetectionLock @ 0x140AD8DF8 (ViDeadlockDetectionLock.c)
+ *     ViDeadlockDetectionUnlock @ 0x140AD8E30 (ViDeadlockDetectionUnlock.c)
+ *     ViDeadlockSearchThread @ 0x140AD9E48 (ViDeadlockSearchThread.c)
  */
 
 _BOOL8 ViIsThreadInsidePagingCodePaths()

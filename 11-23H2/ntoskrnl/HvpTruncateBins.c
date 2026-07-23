@@ -1,12 +1,12 @@
 /*
- * XREFs of HvpTruncateBins @ 0x14070733C
+ * XREFs of HvpTruncateBins @ 0x14070754C
  * Callers:
- *     HvStoreModifiedData @ 0x140707534 (HvStoreModifiedData.c)
+ *     HvStoreModifiedData @ 0x140707744 (HvStoreModifiedData.c)
  * Callees:
- *     ExIsResourceAcquiredExclusiveLite @ 0x1403286E0 (ExIsResourceAcquiredExclusiveLite.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     HvFreeHivePartial @ 0x1407071A8 (HvFreeHivePartial.c)
- *     HvpMapEntryGetFreeBin @ 0x14070A930 (HvpMapEntryGetFreeBin.c)
+ *     ExIsResourceAcquiredExclusiveLite @ 0x140328970 (ExIsResourceAcquiredExclusiveLite.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
+ *     HvFreeHivePartial @ 0x1407073B8 (HvFreeHivePartial.c)
+ *     HvpMapEntryGetFreeBin @ 0x14070AB40 (HvpMapEntryGetFreeBin.c)
  *     HvpGetCellMap @ 0x140AF5280 (HvpGetCellMap.c)
  */
 

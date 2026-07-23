@@ -1,7 +1,7 @@
 /*
- * XREFs of IopProcessIrpStackProfiler @ 0x1400AA074
+ * XREFs of IopProcessIrpStackProfiler @ 0x1400A85F4
  * Callers:
- *     IopIrpStackProfilerDpcRoutine @ 0x1400A9E54 (IopIrpStackProfilerDpcRoutine.c)
+ *     IopIrpStackProfilerDpcRoutine @ 0x1400A83D4 (IopIrpStackProfilerDpcRoutine.c)
  * Callees:
  *     <none>
  */

@@ -1,11 +1,11 @@
 /*
- * XREFs of PnpOrphanNotification @ 0x1407363EC
+ * XREFs of PnpOrphanNotification @ 0x1407365AC
  * Callers:
- *     PpDevNodeRemoveFromTree @ 0x14036D8B4 (PpDevNodeRemoveFromTree.c)
+ *     PpDevNodeRemoveFromTree @ 0x14036DA64 (PpDevNodeRemoveFromTree.c)
  * Callees:
- *     KeReleaseGuardedMutex @ 0x140265CD0 (KeReleaseGuardedMutex.c)
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     ExAcquireFastMutex @ 0x14034A080 (ExAcquireFastMutex.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     KeReleaseGuardedMutex @ 0x140253C70 (KeReleaseGuardedMutex.c)
+ *     ExAcquireFastMutex @ 0x140354DD0 (ExAcquireFastMutex.c)
  */
 
 void __fastcall PnpOrphanNotification(__int64 a1)

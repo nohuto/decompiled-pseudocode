@@ -1,15 +1,15 @@
 /*
- * XREFs of MmFreeAccessPfnBuffer @ 0x140006704
+ * XREFs of MmFreeAccessPfnBuffer @ 0x140006874
  * Callers:
- *     MiEmptyPageAccessLog @ 0x140027640 (MiEmptyPageAccessLog.c)
- *     MiQueuePageAccessLog @ 0x140086FA4 (MiQueuePageAccessLog.c)
- *     PfpReturnAccessBuffer @ 0x1400B0994 (PfpReturnAccessBuffer.c)
- *     MiReturnCcAccessLog @ 0x1400CE7C4 (MiReturnCcAccessLog.c)
+ *     MiEmptyPageAccessLog @ 0x1400271C0 (MiEmptyPageAccessLog.c)
+ *     MiQueuePageAccessLog @ 0x140088894 (MiQueuePageAccessLog.c)
+ *     PfpReturnAccessBuffer @ 0x1400AEA04 (PfpReturnAccessBuffer.c)
+ *     MiReturnCcAccessLog @ 0x1400CC664 (MiReturnCcAccessLog.c)
  *     PfTAccessTracingCleanup @ 0x1403C82C0 (PfTAccessTracingCleanup.c)
- *     PfpFlushBuffers @ 0x1403E8030 (PfpFlushBuffers.c)
+ *     PfpFlushBuffers @ 0x1403E9660 (PfpFlushBuffers.c)
  * Callees:
- *     ObDereferenceObjectDeferDelete @ 0x14005DB70 (ObDereferenceObjectDeferDelete.c)
- *     ObfDereferenceObjectWithTag @ 0x14006ACD0 (ObfDereferenceObjectWithTag.c)
+ *     ObDereferenceObjectDeferDelete @ 0x14005D6F0 (ObDereferenceObjectDeferDelete.c)
+ *     ObfDereferenceObjectWithTag @ 0x14006A850 (ObfDereferenceObjectWithTag.c)
  */
 
 void __fastcall MmFreeAccessPfnBuffer(__int64 a1, char a2)

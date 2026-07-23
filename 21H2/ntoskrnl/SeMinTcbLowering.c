@@ -1,7 +1,7 @@
 /*
- * XREFs of SeMinTcbLowering @ 0x140A740BC
+ * XREFs of SeMinTcbLowering @ 0x140A750BC
  * Callers:
- *     sub_140A1CEE4 @ 0x140A1CEE4 (sub_140A1CEE4.c)
+ *     sub_140A1DEE4 @ 0x140A1DEE4 (sub_140A1DEE4.c)
  * Callees:
  *     <none>
  */

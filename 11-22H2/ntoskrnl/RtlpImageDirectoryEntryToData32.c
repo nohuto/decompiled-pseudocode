@@ -7,37 +7,40 @@
  */
 
 __int64 __fastcall RtlpImageDirectoryEntryToData32(
-        unsigned __int64 a1,
+        char *BaseOfImage,
         char a2,
         unsigned __int16 a3,
         _DWORD *a4,
-        __int64 a5,
-        __int64 *a6)
+        PIMAGE_NT_HEADERS NtHeaders,
+        char **a6)
 {
   __int64 v7; // r10
   __int64 v8; // r8
-  __int64 v9; // r9
-  __int64 v10; // rax
+  char *v9; // r9
+  char *v10; // rax
 
-  if ( (unsigned int)a3 >= *(_DWORD *)(a5 + 116) )
+  if ( (unsigned int)a3 >= HIDWORD(NtHeaders->OptionalHeader.SizeOfHeapReserve) )
     return 3221225485LL;
   v7 = a3;
-  v8 = *(unsigned int *)(a5 + 8LL * a3 + 120);
+  v8 = *((unsigned int *)&NtHeaders->OptionalHeader.SizeOfHeapCommit + 2 * a3);
   if ( !(_DWORD)v8 )
     return 3221225474LL;
-  v9 = v8 + a1;
-  if ( a1 <= 0x7FFFFFFEFFFFLL && (v9 - 1 < a1 || (unsigned __int64)(v9 - 1) > 0x7FFFFFFEFFFFLL) )
+  v9 = &BaseOfImage[v8];
+  if ( (unsigned __int64)BaseOfImage <= 0x7FFFFFFEFFFFLL
+    && (v9 - 1 < BaseOfImage || (unsigned __int64)(v9 - 1) > 0x7FFFFFFEFFFFLL) )
+  {
     return 3221225485LL;
-  *a4 = *(_DWORD *)(a5 + 8 * v7 + 124);
-  if ( a2 || (unsigned int)v8 < *(_DWORD *)(a5 + 84) )
+  }
+  *a4 = *((_DWORD *)&NtHeaders->OptionalHeader.SizeOfHeapCommit + 2 * v7 + 1);
+  if ( a2 || (unsigned int)v8 < NtHeaders->OptionalHeader.SizeOfHeaders )
   {
     *a6 = v9;
     return 0LL;
   }
   else
   {
-    v10 = RtlAddressInSectionTable(a5, a1, v8, v9);
+    v10 = (char *)RtlAddressInSectionTable(NtHeaders, BaseOfImage, v8);
     *a6 = v10;
-    return v10 == 0 ? 0xC000000D : 0;
+    return v10 == 0LL ? 0xC000000D : 0;
   }
 }

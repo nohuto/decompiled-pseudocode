@@ -1,14 +1,16 @@
 /*
  * XREFs of ZwModifyDriverEntry @ 0x14041DB00
  * Callers:
- *     DifZwModifyDriverEntryWrapper @ 0x1406213B0 (DifZwModifyDriverEntryWrapper.c)
+ *     sub_1406213B0 @ 0x1406213B0 (sub_1406213B0.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwModifyDriverEntry(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwModifyDriverEntry(PEFI_DRIVER_ENTRY DriverEntry)
 {
+  __int64 v1; // rdx
+
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return sub_140433F80(DriverEntry, v1);
 }

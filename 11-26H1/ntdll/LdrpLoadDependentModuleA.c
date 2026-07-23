@@ -1,40 +1,40 @@
 /*
- * XREFs of LdrpLoadDependentModuleA @ 0x18003ACC0
+ * XREFs of LdrpLoadDependentModuleA @ 0x180025230
  * Callers:
- *     LdrpMapAndSnapDependency @ 0x18011A660 (LdrpMapAndSnapDependency.c)
+ *     LdrpMapAndSnapDependency @ 0x18011A410 (LdrpMapAndSnapDependency.c)
  * Callees:
- *     RtlpAllocateAtom @ 0x180037BF0 (RtlpAllocateAtom.c)
- *     RtlpSysVolFree @ 0x180038000 (RtlpSysVolFree.c)
- *     LdrpLoadDependentModuleInternal @ 0x18003AF90 (LdrpLoadDependentModuleInternal.c)
- *     RtlAnsiStringToUnicodeString @ 0x18003B7A0 (RtlAnsiStringToUnicodeString.c)
- *     RtlUTF8ToUnicodeN @ 0x18003BC80 (RtlUTF8ToUnicodeN.c)
- *     NtdllpReallocateStringRoutine @ 0x1801214BC (NtdllpReallocateStringRoutine.c)
- *     __security_check_cookie @ 0x180162C90 (__security_check_cookie.c)
- *     memmove @ 0x180164700 (memmove.c)
- *     memset$thunk$772440563353939046 @ 0x180170030 (memset$thunk$772440563353939046.c)
+ *     RtlpAllocateAtom @ 0x1800018C0 (RtlpAllocateAtom.c)
+ *     RtlpSysVolFree @ 0x180001CD0 (RtlpSysVolFree.c)
+ *     LdrpLoadDependentModuleInternal @ 0x180025500 (LdrpLoadDependentModuleInternal.c)
+ *     RtlAnsiStringToUnicodeString @ 0x180025D10 (RtlAnsiStringToUnicodeString.c)
+ *     RtlUTF8ToUnicodeN @ 0x1800261F0 (RtlUTF8ToUnicodeN.c)
+ *     NtdllpReallocateStringRoutine @ 0x180121258 (NtdllpReallocateStringRoutine.c)
+ *     __security_check_cookie @ 0x180162B90 (__security_check_cookie.c)
+ *     memmove @ 0x180164600 (memmove.c)
+ *     memset$thunk$772440563353939046 @ 0x18016F030 (memset$thunk$772440563353939046.c)
  */
 
 __int64 __fastcall LdrpLoadDependentModuleA(
         PCANSI_STRING SourceString,
         __int64 a2,
-        int a3,
-        int a4,
+        __int64 a3,
+        unsigned int a4,
         _QWORD *a5,
         __int64 a6)
 {
-  int Length; // eax
+  ULONG UTF8StringByteCount; // eax
   char *Buffer; // r9
   int v12; // edx
   unsigned __int16 v13; // cx
   unsigned int v14; // ebx
-  __int64 v15; // r8
+  unsigned int v15; // r8d
   char *v16; // rdi
-  int DependentModuleInternal; // ebx
+  int v17; // ebx
   __int64 v20; // rcx
   char *Atom; // rax
   signed __int32 v22[6]; // [rsp+8h] [rbp-100h] BYREF
   int DestinationString; // [rsp+38h] [rbp-D0h] BYREF
-  UNICODE_STRING DestinationString_8; // [rsp+40h] [rbp-C8h] BYREF
+  _UNICODE_STRING DestinationString_8; // [rsp+40h] [rbp-C8h] BYREF
   __int64 v25; // [rsp+50h] [rbp-B8h]
   __int64 v26; // [rsp+58h] [rbp-B0h] BYREF
   void *Src; // [rsp+60h] [rbp-A8h]
@@ -45,42 +45,42 @@ __int64 __fastcall LdrpLoadDependentModuleA(
   memset_thunk_772440563353939046(v29, 0, 0xFEuLL);
   v26 = 0x1000000LL;
   Src = &v28;
-  Length = SourceString->Length;
+  UTF8StringByteCount = SourceString->Length;
   v28 = 0;
   DestinationString_8 = 0LL;
-  if ( !(_WORD)Length )
+  if ( !(_WORD)UTF8StringByteCount )
   {
 LABEL_9:
-    DependentModuleInternal = LdrpLoadDependentModuleInternal((unsigned int)&v26, a2, a3, a4, (__int64)a5, v25);
-    if ( DependentModuleInternal >= 0 )
+    v17 = LdrpLoadDependentModuleInternal(&v26, a2, a3, a4, a5, v25);
+    if ( v17 >= 0 )
       goto LABEL_10;
     goto LABEL_25;
   }
   Buffer = SourceString->Buffer;
   DestinationString = 0;
   _InterlockedOr(v22, 0);
-  if ( word_1801C5FD0 == -535 || GlobalRtlNlsState == -535 )
+  if ( CodePageTable.CodePage == 0xFDE9 || GlobalRtlNlsState.CodePage == 0xFDE9 )
   {
-    RtlUTF8ToUnicodeN(0, 0, (unsigned int)&DestinationString, (_DWORD)Buffer, Length);
+    RtlUTF8ToUnicodeN(0LL, 0, (PULONG)&DestinationString, Buffer, UTF8StringByteCount);
     v12 = DestinationString;
   }
   else
   {
     _InterlockedOr(v22, 0);
     v12 = 0;
-    if ( word_1801C5F9C )
+    if ( GlobalRtlNlsState.DBCSCodePage )
     {
-      while ( Length-- )
+      while ( UTF8StringByteCount-- )
       {
         v20 = (unsigned __int8)*Buffer++;
-        if ( *(_WORD *)(qword_1801C6020 + 2 * v20) )
+        if ( *(_WORD *)(qword_1801C5020 + 2 * v20) )
         {
-          if ( !Length )
+          if ( !UTF8StringByteCount )
           {
             v12 += 2;
             break;
           }
-          --Length;
+          --UTF8StringByteCount;
           ++Buffer;
         }
         v12 += 2;
@@ -88,13 +88,13 @@ LABEL_9:
     }
     else
     {
-      v12 = 2 * Length;
+      v12 = 2 * UTF8StringByteCount;
     }
   }
   v13 = v26;
   LOWORD(v14) = WORD1(v26);
-  v15 = v12 + (unsigned int)(unsigned __int16)v26 + 2;
-  if ( (unsigned int)v15 <= WORD1(v26) )
+  v15 = v12 + (unsigned __int16)v26 + 2;
+  if ( v15 <= WORD1(v26) )
   {
     v16 = (char *)Src;
 LABEL_8:
@@ -105,7 +105,7 @@ LABEL_8:
     LOWORD(v26) = DestinationString_8.Length + v26;
     goto LABEL_9;
   }
-  if ( (unsigned int)v15 <= 0xFFFE )
+  if ( v15 <= 0xFFFE )
   {
     v14 = (v15 + 63) & 0xFFFFFFC0;
     if ( v14 > 0xFFFE )
@@ -128,14 +128,14 @@ LABEL_30:
     }
     else
     {
-      v16 = (char *)NtdllpReallocateStringRoutine(v14, Src, v15, Buffer);
+      v16 = (char *)NtdllpReallocateStringRoutine(v14, Src);
       if ( !v16 )
       {
 LABEL_24:
-        DependentModuleInternal = -1073741801;
+        v17 = -1073741801;
 LABEL_25:
         *a5 = 0LL;
-        **(_DWORD **)(a2 + 40) = DependentModuleInternal;
+        **(_DWORD **)(a2 + 40) = v17;
         goto LABEL_10;
       }
     }
@@ -143,10 +143,10 @@ LABEL_25:
     goto LABEL_30;
   }
   *a5 = 0LL;
-  DependentModuleInternal = -1073741562;
+  v17 = -1073741562;
   **(_DWORD **)(a2 + 40) = -1073741562;
 LABEL_10:
   if ( &v28 != Src )
-    RtlpSysVolFree((__int64)Src);
-  return (unsigned int)DependentModuleInternal;
+    RtlpSysVolFree(Src);
+  return (unsigned int)v17;
 }

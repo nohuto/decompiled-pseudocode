@@ -1,14 +1,14 @@
 /*
- * XREFs of KiAssignProcessorNumberToPrcb @ 0x1405EF448
+ * XREFs of KiAssignProcessorNumberToPrcb @ 0x1405F1DB8
  * Callers:
- *     KiConfigureInitialNodes @ 0x1405EF678 (KiConfigureInitialNodes.c)
- *     KiInitializeProcessorState @ 0x1407BB330 (KiInitializeProcessorState.c)
+ *     KiConfigureInitialNodes @ 0x1405F1FE8 (KiConfigureInitialNodes.c)
+ *     KiInitializeProcessorState @ 0x1407BE390 (KiInitializeProcessorState.c)
  * Callees:
- *     KeQueryActiveProcessorCountEx @ 0x140211EA0 (KeQueryActiveProcessorCountEx.c)
- *     KiFindSubNodeForProcessorNumber @ 0x1405EF964 (KiFindSubNodeForProcessorNumber.c)
+ *     KeQueryActiveProcessorCountEx @ 0x140211F80 (KeQueryActiveProcessorCountEx.c)
+ *     KiFindSubNodeForProcessorNumber @ 0x1405F22D4 (KiFindSubNodeForProcessorNumber.c)
  */
 
-struct _KTHREAD *__fastcall KiAssignProcessorNumberToPrcb(__int64 a1, char *a2, int a3)
+struct _LIST_ENTRY *__fastcall KiAssignProcessorNumberToPrcb(__int64 a1, char *a2, int a3)
 {
   __int64 v6; // rbp
   char v7; // dl
@@ -16,7 +16,7 @@ struct _KTHREAD *__fastcall KiAssignProcessorNumberToPrcb(__int64 a1, char *a2, 
   bool v9; // cc
   __int64 v10; // r8
   __int64 v11; // rdx
-  struct _KTHREAD *result; // rax
+  struct _LIST_ENTRY *result; // rax
   int v13; // r8d
   unsigned int v14; // edi
   int i; // edx
@@ -49,9 +49,9 @@ struct _KTHREAD *__fastcall KiAssignProcessorNumberToPrcb(__int64 a1, char *a2, 
   }
   v10 = *(unsigned int *)(a1 + 36);
   v11 = *(unsigned __int8 *)(a1 + 209) + (*(unsigned __int8 *)(a1 + 208) << 6);
-  *(_DWORD *)(*(_QWORD *)&KiSupervisorXStateFeaturesLock.WaitBlockFill11[112] + 4 * v10) = v11;
-  result = KiSupervisorXStateFeaturesLock.WaitBlock[2].Thread;
-  *(&KiSupervisorXStateFeaturesLock.WaitBlock[2].Thread->Header.LockNV + v11) = v10;
+  *(&KiSupervisorXStateFeaturesLock.SchedulerApc.Thread->Header.LockNV + v10) = v11;
+  result = KiSupervisorXStateFeaturesLock.SchedulerApc.ApcListEntry.Flink;
+  *((_DWORD *)&KiSupervisorXStateFeaturesLock.SchedulerApc.ApcListEntry.Flink->Flink + v11) = v10;
   v13 = 0;
   v14 = *(unsigned __int8 *)(v6 + 185);
   do
@@ -61,7 +61,7 @@ struct _KTHREAD *__fastcall KiAssignProcessorNumberToPrcb(__int64 a1, char *a2, 
       for ( j = 0; j < v14; ++j )
       {
         v17 = *(_QWORD *)(v6 + 192);
-        result = (struct _KTHREAD *)(j + (i + 2 * v13) * *(unsigned __int8 *)(v6 + 185));
+        result = (struct _LIST_ENTRY *)(j + (i + 2 * v13) * *(unsigned __int8 *)(v6 + 185));
         *(_QWORD *)(v17 + 24LL * (_QWORD)result + 16) |= *(_QWORD *)(a1 + 200);
         if ( !a3 )
         {

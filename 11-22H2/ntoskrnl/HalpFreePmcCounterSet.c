@@ -27,8 +27,8 @@ void *__fastcall HalpFreePmcCounterSet(_QWORD *a1)
   int v13; // eax
   bool v14; // zf
   __int64 v15; // rcx
-  struct _GROUP_AFFINITY v16; // [rsp+20h] [rbp-48h] BYREF
-  struct _GROUP_AFFINITY PreviousAffinity; // [rsp+30h] [rbp-38h] BYREF
+  _GROUP_AFFINITY v16; // [rsp+20h] [rbp-48h] BYREF
+  _GROUP_AFFINITY PreviousAffinity; // [rsp+30h] [rbp-38h] BYREF
 
   result = &HalpSampleProfilingCounters;
   v16 = 0LL;
@@ -44,7 +44,7 @@ void *__fastcall HalpFreePmcCounterSet(_QWORD *a1)
     KeSetSystemGroupAffinityThread(&v16, &PreviousAffinity);
     CurrentIrql = KeGetCurrentIrql();
     __writecr8(0xFuLL);
-    if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+    if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
     {
       SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
       if ( CurrentIrql == 15 )
@@ -61,10 +61,10 @@ void *__fastcall HalpFreePmcCounterSet(_QWORD *a1)
     v9 = 0LL;
     for ( v7[1] = v8; (unsigned int)v9 < *((_DWORD *)a1 + 5); v9 = (unsigned int)(v9 + 1) )
       ((void (__fastcall *)(_QWORD, _QWORD *))HalpProfileInterface[2])(LODWORD(a1[5 * v9 + 5]), &a1[5 * v9 + 6]);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v10 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v10 <= 0xFu && CurrentIrql <= 0xFu && v10 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v10 <= 0xFu && CurrentIrql <= 0xFu && v10 >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         v12 = CurrentPrcb->SchedulerAssist;

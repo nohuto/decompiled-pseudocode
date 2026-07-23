@@ -1,9 +1,9 @@
 /*
- * XREFs of KiInitDynamicTraceSupport @ 0x140A4D370
+ * XREFs of KiInitDynamicTraceSupport @ 0x140A4E370
  * Callers:
- *     KeInitSystem @ 0x140A4C33C (KeInitSystem.c)
+ *     KeInitSystem @ 0x140A4D33C (KeInitSystem.c)
  * Callees:
- *     RtlLookupFunctionEntry @ 0x140276100 (RtlLookupFunctionEntry.c)
+ *     RtlLookupFunctionEntry @ 0x1402640A0 (RtlLookupFunctionEntry.c)
  */
 
 __int64 KiInitDynamicTraceSupport()
@@ -11,29 +11,28 @@ __int64 KiInitDynamicTraceSupport()
   int v0; // ebx
   int v1; // ebx
   __int64 result; // rax
-  __int64 v3; // r9
-  unsigned int *v4; // rax
-  __int64 v5; // [rsp+30h] [rbp+8h] BYREF
-  _QWORD *v6; // [rsp+38h] [rbp+10h] BYREF
+  PRUNTIME_FUNCTION v3; // rax
+  unsigned __int64 ImageBase; // [rsp+30h] [rbp+8h] BYREF
+  _QWORD *v5; // [rsp+38h] [rbp+10h] BYREF
 
-  v6 = 0LL;
   v5 = 0LL;
+  ImageBase = 0LL;
   v0 = 1;
   KiDynamicTraceCallouts[0] = 9LL;
   if ( !(_BYTE)KdDebuggerNotPresent )
     v0 = 5;
   v1 = v0 | 2;
-  result = TraceInitSystem(&v6, KiDynamicTraceCallouts, &qword_140CFCBD8);
+  result = TraceInitSystem(&v5, KiDynamicTraceCallouts, &ControlPc);
   if ( (int)result >= 0 )
   {
-    v4 = RtlLookupFunctionEntry(qword_140CFCBD8, &v5, 0LL, v3);
-    if ( v4 )
+    v3 = RtlLookupFunctionEntry(ControlPc, &ImageBase, 0LL);
+    if ( v3 )
     {
-      qword_140CFCBD8 = v5 + *v4;
-      qword_140CFCBE0 = v5 + v4[1];
+      ControlPc = ImageBase + v3->BeginAddress;
+      qword_140CFCBE0 = ImageBase + v3->EndAddress;
     }
-    result = (__int64)v6;
-    *v6 = KiDynamicTraceContext;
+    result = (__int64)v5;
+    *v5 = KiDynamicTraceContext;
     KiDynamicTraceEnabled = v1;
   }
   return result;

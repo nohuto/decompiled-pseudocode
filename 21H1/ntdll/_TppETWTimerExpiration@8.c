@@ -8,11 +8,11 @@
  *     @__security_check_cookie@4 @ 0x4B2F4B20 (@__security_check_cookie@4.c)
  */
 
-int __fastcall TppETWTimerExpiration(int a1, _DWORD *a2)
+NTSTATUS __fastcall TppETWTimerExpiration(int a1, _DWORD *a2)
 {
   int v2; // eax
   int v3; // eax
-  _BYTE v5[6]; // [esp+4h] [ebp-3Ch] BYREF
+  _BYTE Fields[6]; // [esp+4h] [ebp-3Ch] BYREF
   __int16 v6; // [esp+Ah] [ebp-36h]
   int v7; // [esp+24h] [ebp-1Ch]
   int v8; // [esp+28h] [ebp-18h]
@@ -33,5 +33,5 @@ int __fastcall TppETWTimerExpiration(int a1, _DWORD *a2)
     v3 = (int)NtCurrentPeb()->SharedData + 556;
   else
     v3 = 2147353478;
-  return NtTraceEvent(*(unsigned __int8 *)v3, 1026, 24, (int)v5);
+  return NtTraceEvent((HANDLE)*(unsigned __int8 *)v3, 0x402u, 0x18u, Fields);
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of KeEnumerateQueueApc @ 0x1401D66EC
+ * XREFs of KeEnumerateQueueApc @ 0x1401D6518
  * Callers:
- *     DbgkpLkmdSnapThread @ 0x1401B7968 (DbgkpLkmdSnapThread.c)
+ *     DbgkpLkmdSnapThread @ 0x1401B784C (DbgkpLkmdSnapThread.c)
  * Callees:
- *     KiAcquireThreadLockRaiseToDpc @ 0x1400CEDEC (KiAcquireThreadLockRaiseToDpc.c)
+ *     KiAcquireThreadLockRaiseToDpc @ 0x1400CCC8C (KiAcquireThreadLockRaiseToDpc.c)
  */
 
 __int64 __fastcall KeEnumerateQueueApc(

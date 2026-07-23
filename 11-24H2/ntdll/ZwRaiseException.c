@@ -1,21 +1,21 @@
 /*
- * XREFs of ZwRaiseException @ 0x180164B00
+ * XREFs of ZwRaiseException @ 0x180162EC0
  * Callers:
- *     WerpBreakIntoDebuggerIfPresent @ 0x180001534 (WerpBreakIntoDebuggerIfPresent.c)
- *     RtlUnwindEx @ 0x180015480 (RtlUnwindEx.c)
- *     RtlRaiseException @ 0x180070510 (RtlRaiseException.c)
- *     RtlRaiseNoncontinuableException @ 0x1801213D0 (RtlRaiseNoncontinuableException.c)
- *     LdrpLogFatalUserCallbackException @ 0x1801602F0 (LdrpLogFatalUserCallbackException.c)
- *     KiUserExceptionDispatcher @ 0x180165CF0 (KiUserExceptionDispatcher.c)
+ *     RtlUnwindEx @ 0x180041E80 (RtlUnwindEx.c)
+ *     RtlRaiseException @ 0x18008CDF0 (RtlRaiseException.c)
+ *     WerpBreakIntoDebuggerIfPresent @ 0x18010B594 (WerpBreakIntoDebuggerIfPresent.c)
+ *     RtlRaiseNoncontinuableException @ 0x18011F600 (RtlRaiseNoncontinuableException.c)
+ *     LdrpLogFatalUserCallbackException @ 0x18015E6B0 (LdrpLogFatalUserCallbackException.c)
+ *     KiUserExceptionDispatcher @ 0x1801640B0 (KiUserExceptionDispatcher.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwRaiseException()
+NTSTATUS __cdecl ZwRaiseException(PEXCEPTION_RECORD ExceptionRecord, PCONTEXT ContextRecord, BOOLEAN FirstChance)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 372LL;
+  result = 372;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

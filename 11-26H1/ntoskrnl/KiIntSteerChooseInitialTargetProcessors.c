@@ -1,11 +1,11 @@
 /*
- * XREFs of KiIntSteerChooseInitialTargetProcessors @ 0x14042508C
+ * XREFs of KiIntSteerChooseInitialTargetProcessors @ 0x14043217C
  * Callers:
- *     KiIntSteerConnect @ 0x140424BD8 (KiIntSteerConnect.c)
+ *     KiIntSteerConnect @ 0x140431CC8 (KiIntSteerConnect.c)
  * Callees:
- *     KiIntPartGetLowestClassProcessorInMask @ 0x140255408 (KiIntPartGetLowestClassProcessorInMask.c)
- *     KeIntSteerGetSteeringMode @ 0x1404251C0 (KeIntSteerGetSteeringMode.c)
- *     KiIntRedirectConnnect @ 0x140425244 (KiIntRedirectConnnect.c)
+ *     KiIntPartGetLowestClassProcessorInMask @ 0x140256D68 (KiIntPartGetLowestClassProcessorInMask.c)
+ *     KeIntSteerGetSteeringMode @ 0x1404322B0 (KeIntSteerGetSteeringMode.c)
+ *     KiIntRedirectConnnect @ 0x140432334 (KiIntRedirectConnnect.c)
  */
 
 __int64 __fastcall KiIntSteerChooseInitialTargetProcessors(
@@ -42,12 +42,12 @@ __int64 __fastcall KiIntSteerChooseInitialTargetProcessors(
     *(_WORD *)(a6 + 8) = v14;
     if ( SteeringMode )
     {
-      v15 = *(_QWORD *)v7 & *((_QWORD *)&KsepShimDbLock.ResourceIndex + v14);
+      v15 = *(_QWORD *)v7 & (__int64)*(&KsepShimDbLock.KernelShadowStackInitial + v14);
       *(_QWORD *)a6 = v15;
       if ( v15 )
         v7 = a6;
-      v16 = *(_DWORD *)(*(_QWORD *)&KiSupervisorXStateFeaturesLock.WaitBlockFill11[112]
-                      + 4LL * (unsigned int)KiIntPartGetLowestClassProcessorInMask(v7));
+      v16 = *((_DWORD *)&KiSupervisorXStateFeaturesLock.SchedulerApc.Thread->Header.Lock
+            + (unsigned int)KiIntPartGetLowestClassProcessorInMask(v7));
       *(_DWORD *)(a6 + 10) = 0;
       *(_WORD *)(a6 + 14) = 0;
       *(_QWORD *)a6 = 1LL << v16;

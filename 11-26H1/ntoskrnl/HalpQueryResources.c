@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpQueryResources @ 0x140782258
+ * XREFs of HalpQueryResources @ 0x140784D58
  * Callers:
- *     HalpDispatchPnp @ 0x140B1A790 (HalpDispatchPnp.c)
+ *     HalpDispatchPnp @ 0x140B1CA40 (HalpDispatchPnp.c)
  * Callees:
- *     HalConvertDeviceIdtToIrql @ 0x1407810D0 (HalConvertDeviceIdtToIrql.c)
- *     HalpQueryAcpiResourceRequirements @ 0x140785BB4 (HalpQueryAcpiResourceRequirements.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     HalConvertDeviceIdtToIrql @ 0x140783BD0 (HalConvertDeviceIdtToIrql.c)
+ *     HalpQueryAcpiResourceRequirements @ 0x1407886E4 (HalpQueryAcpiResourceRequirements.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall HalpQueryResources(__int64 a1, _QWORD *a2)

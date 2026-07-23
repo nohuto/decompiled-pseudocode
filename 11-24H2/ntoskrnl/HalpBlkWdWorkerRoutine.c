@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpBlkWdWorkerRoutine @ 0x14056D490
+ * XREFs of HalpBlkWdWorkerRoutine @ 0x14056A920
  * Callers:
  *     <none>
  * Callees:
- *     HalpBlkWdFatalExceptionCheck @ 0x14056D404 (HalpBlkWdFatalExceptionCheck.c)
+ *     HalpBlkWdFatalExceptionCheck @ 0x14056A894 (HalpBlkWdFatalExceptionCheck.c)
  */
 
 ULONG_PTR HalpBlkWdWorkerRoutine()

@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpBlkReservedVector23 @ 0x140C7D400
+ * XREFs of HalpBlkReservedVector23 @ 0x140C83400
  * Callers:
  *     <none>
  * Callees:
- *     HalpBlkFatalErrorHalt @ 0x140C7C910 (HalpBlkFatalErrorHalt.c)
+ *     HalpBlkFatalErrorHalt @ 0x140C82910 (HalpBlkFatalErrorHalt.c)
  */
 
 void __fastcall __noreturn HalpBlkReservedVector23(__int64 a1, __int64 a2, __int64 a3, __int64 a4)

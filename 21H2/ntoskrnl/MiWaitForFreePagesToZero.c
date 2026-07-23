@@ -1,15 +1,15 @@
 /*
- * XREFs of MiWaitForFreePagesToZero @ 0x14054FF8C
+ * XREFs of MiWaitForFreePagesToZero @ 0x1405501CC
  * Callers:
- *     MiZeroPageThread @ 0x1403CABA0 (MiZeroPageThread.c)
+ *     MiZeroPageThread @ 0x1403CAD40 (MiZeroPageThread.c)
  * Callees:
- *     KeAcquireInStackQueuedSpinLock @ 0x14022EE10 (KeAcquireInStackQueuedSpinLock.c)
- *     MiReferencePageRuns @ 0x14022FB90 (MiReferencePageRuns.c)
- *     KeWaitForMultipleObjects @ 0x14024BB90 (KeWaitForMultipleObjects.c)
- *     KeResetEvent @ 0x14027BC40 (KeResetEvent.c)
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     MiDereferencePageRunsEx @ 0x1402C34F8 (MiDereferencePageRunsEx.c)
- *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402042B0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     MiDereferencePageRunsEx @ 0x140241A18 (MiDereferencePageRunsEx.c)
+ *     KeResetEvent @ 0x140269BE0 (KeResetEvent.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402D3660 (KeAcquireInStackQueuedSpinLock.c)
+ *     MiReferencePageRuns @ 0x1402D43E0 (MiReferencePageRuns.c)
+ *     KeWaitForMultipleObjects @ 0x1402F03E0 (KeWaitForMultipleObjects.c)
+ *     KeWaitForSingleObject @ 0x1403504C0 (KeWaitForSingleObject.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
@@ -95,7 +95,7 @@ LABEL_16:
       }
       __writecr8(OldIrql);
     }
-    if ( !*(_DWORD *)(a1 + 6340) && !dword_140C4EED8 )
+    if ( !*(_DWORD *)(a1 + 6340) && !dword_140C4EF18 )
       break;
     KeWaitForSingleObject(v4, WrFreePage, 0, 0, (PLARGE_INTEGER)&MiFiveSeconds);
   }

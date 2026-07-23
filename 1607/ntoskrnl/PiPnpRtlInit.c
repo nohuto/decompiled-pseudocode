@@ -1,12 +1,12 @@
 /*
- * XREFs of PiPnpRtlInit @ 0x1405518D0
+ * XREFs of PiPnpRtlInit @ 0x140551E10
  * Callers:
  *     IopInitializePlugPlayServices @ 0x14079CCD4 (IopInitializePlugPlayServices.c)
  * Callees:
- *     ExInitializeResourceLite @ 0x14000ECC0 (ExInitializeResourceLite.c)
- *     _PnpCtxSetNtPlugPlayRoutine @ 0x1405519E8 (_PnpCtxSetNtPlugPlayRoutine.c)
- *     PiDrvDbInit @ 0x140551A0C (PiDrvDbInit.c)
- *     _PnpCtxOpenMachine @ 0x140579548 (_PnpCtxOpenMachine.c)
+ *     ExInitializeResourceLite @ 0x14000E840 (ExInitializeResourceLite.c)
+ *     _PnpCtxSetNtPlugPlayRoutine @ 0x140551F28 (_PnpCtxSetNtPlugPlayRoutine.c)
+ *     PiDrvDbInit @ 0x140551F4C (PiDrvDbInit.c)
+ *     _PnpCtxOpenMachine @ 0x140579A88 (_PnpCtxOpenMachine.c)
  */
 
 int __fastcall PiPnpRtlInit(unsigned int a1)
@@ -23,7 +23,7 @@ int __fastcall PiPnpRtlInit(unsigned int a1)
 
   if ( a1 )
     return PiDrvDbInit(a1);
-  qword_14031F018 = (__int64)&PiPnpRtlActiveOperations;
+  qword_14031EFB8 = (__int64)&PiPnpRtlActiveOperations;
   PiPnpRtlActiveOperations = (__int64)&PiPnpRtlActiveOperations;
   result = ExInitializeResourceLite(&PiPnpRtlRemoveOperationDispatchLock);
   if ( result >= 0 )

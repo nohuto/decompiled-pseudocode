@@ -10,39 +10,51 @@
  *     _EtwpReceiveReplyDataBlock@36 @ 0x4B382527 (_EtwpReceiveReplyDataBlock@36.c)
  */
 
-ULONG __stdcall EtwSendNotification(_DWORD *a1, int a2, int a3, int a4, int a5)
+ULONG __cdecl EtwSendNotification(
+        PETW_NOTIFICATION_HEADER DataBlock,
+        ULONG ReceiveDataBlockSize,
+        PVOID ReceiveDataBlock,
+        PULONG ReplyReceived,
+        PULONG ReplySizeNeeded)
 {
-  char v5; // bl
-  ULONG v6; // edi
+  BOOLEAN ReplyRequested; // bl
+  int v6; // edi
   NTSTATUS v7; // eax
-  void *v8; // ebx
-  ULONG v9; // eax
-  _BYTE v11[4]; // [esp+1Ch] [ebp-84h] BYREF
-  _BYTE v12[124]; // [esp+20h] [ebp-80h] BYREF
+  void *Reserved2; // ebx
+  ULONG ReturnLength; // [esp+1Ch] [ebp-84h] BYREF
+  _BYTE v11[124]; // [esp+20h] [ebp-80h] BYREF
 
-  v5 = *((_BYTE *)a1 + 12);
+  ReplyRequested = DataBlock->ReplyRequested;
   v6 = 0;
-  if ( v5 == 1 )
-  {
-    a1[6] = 0;
-    a1[7] = 0;
-  }
-  v7 = ZwTraceControl(17, (int)a1, a1[1], (int)a1, 72, (int)v11);
+  if ( ReplyRequested == 1 )
+    DataBlock->Reserved2 = 0LL;
+  v7 = ZwTraceControl(EtwSendDataBlock, DataBlock, DataBlock->NotificationSize, DataBlock, 0x48u, &ReturnLength);
   if ( v7 )
     v6 = RtlNtStatusToDosError(v7);
-  if ( v5 && !v6 )
+  if ( ReplyRequested && !v6 )
   {
-    v8 = (void *)a1[6];
-    if ( a1[5] )
+    Reserved2 = (void *)DataBlock->Reserved2;
+    if ( DataBlock->ReplyCount )
     {
-      if ( *a1 == 3 )
-        v9 = EtwpReceiveReplyDataBlock(*a1 == 3, a1[5], v12, 120, a4, a5, *a1);
+      if ( DataBlock->NotificationType == EtwNotificationTypeEnable )
+        v6 = EtwpReceiveReplyDataBlock(
+               DataBlock->NotificationType == EtwNotificationTypeEnable,
+               DataBlock->ReplyCount,
+               v11,
+               __PAIR64__((unsigned int)ReplyReceived, 120),
+               (int)ReplySizeNeeded,
+               DataBlock->NotificationType);
       else
-        v9 = EtwpReceiveReplyDataBlock(*a1 == 3, a1[5], a3, a2, a4, a5, *a1);
-      v6 = v9;
+        v6 = EtwpReceiveReplyDataBlock(
+               DataBlock->NotificationType == EtwNotificationTypeEnable,
+               DataBlock->ReplyCount,
+               ReceiveDataBlock,
+               __PAIR64__((unsigned int)ReplyReceived, ReceiveDataBlockSize),
+               (int)ReplySizeNeeded,
+               DataBlock->NotificationType);
     }
-    if ( v8 )
-      NtClose(v8);
+    if ( Reserved2 )
+      NtClose(Reserved2);
   }
   return v6;
 }

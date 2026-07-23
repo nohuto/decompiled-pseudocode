@@ -1,14 +1,14 @@
 /*
- * XREFs of HvlpGetPageListIterator @ 0x1401C1F80
+ * XREFs of HvlpGetPageListIterator @ 0x1401C1E64
  * Callers:
- *     HvlpMarkHypervisorPagesForHibernation @ 0x1401BF740 (HvlpMarkHypervisorPagesForHibernation.c)
- *     HvlAddPagesCallbackRoutine @ 0x1401C0018 (HvlAddPagesCallbackRoutine.c)
- *     HvlpGetEncryptedDataFromHypervisor @ 0x1401C0618 (HvlpGetEncryptedDataFromHypervisor.c)
- *     HvlpEndSecurePageListIteration @ 0x1401C1E4C (HvlpEndSecurePageListIteration.c)
- *     HvlpGetPageList @ 0x1401C1EC4 (HvlpGetPageList.c)
- *     HvlpGetSecurePageList @ 0x1401C1F94 (HvlpGetSecurePageList.c)
- *     HvlpSetupPageListIteration @ 0x1401C2120 (HvlpSetupPageListIteration.c)
- *     HvlpStartSecurePageListIteration @ 0x1401C21B4 (HvlpStartSecurePageListIteration.c)
+ *     HvlpMarkHypervisorPagesForHibernation @ 0x1401BF624 (HvlpMarkHypervisorPagesForHibernation.c)
+ *     HvlAddPagesCallbackRoutine @ 0x1401BFEFC (HvlAddPagesCallbackRoutine.c)
+ *     HvlpGetEncryptedDataFromHypervisor @ 0x1401C04FC (HvlpGetEncryptedDataFromHypervisor.c)
+ *     HvlpEndSecurePageListIteration @ 0x1401C1D30 (HvlpEndSecurePageListIteration.c)
+ *     HvlpGetPageList @ 0x1401C1DA8 (HvlpGetPageList.c)
+ *     HvlpGetSecurePageList @ 0x1401C1E78 (HvlpGetSecurePageList.c)
+ *     HvlpSetupPageListIteration @ 0x1401C2004 (HvlpSetupPageListIteration.c)
+ *     HvlpStartSecurePageListIteration @ 0x1401C2098 (HvlpStartSecurePageListIteration.c)
  * Callees:
  *     <none>
  */

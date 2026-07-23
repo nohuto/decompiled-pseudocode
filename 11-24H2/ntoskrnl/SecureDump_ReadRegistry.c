@@ -1,14 +1,14 @@
 /*
- * XREFs of SecureDump_ReadRegistry @ 0x1405A2668
+ * XREFs of SecureDump_ReadRegistry @ 0x14059F5A8
  * Callers:
- *     SecureDump_PrepareForInit @ 0x1405A217C (SecureDump_PrepareForInit.c)
+ *     SecureDump_PrepareForInit @ 0x14059F0BC (SecureDump_PrepareForInit.c)
  * Callees:
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     ObCloseHandle @ 0x1408A2B10 (ObCloseHandle.c)
- *     IopGetRegistryValue @ 0x1409CAD5C (IopGetRegistryValue.c)
- *     IopOpenRegistryKey @ 0x140A77340 (IopOpenRegistryKey.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     ObCloseHandle @ 0x1408AB1B0 (ObCloseHandle.c)
+ *     IopGetRegistryValue @ 0x1409B5F9C (IopGetRegistryValue.c)
+ *     IopOpenRegistryKey @ 0x140A71460 (IopOpenRegistryKey.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall SecureDump_ReadRegistry(__int64 a1, __int64 a2, int a3, void **a4, _DWORD *a5)
@@ -35,7 +35,7 @@ __int64 __fastcall SecureDump_ReadRegistry(__int64 a1, __int64 a2, int a3, void 
       {
         if ( a3 == MEMORY[4] )
         {
-          Pool2 = ExAllocatePool2(0x40uLL);
+          Pool2 = ExAllocatePool2(0x40uLL, MEMORY[0xC], 0x706D6453u);
           *a4 = (void *)Pool2;
           if ( Pool2 )
           {

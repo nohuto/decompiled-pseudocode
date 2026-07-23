@@ -2,17 +2,17 @@
  * XREFs of IovpSessionDataDereference @ 0x140717948
  * Callers:
  *     IovpLocalCompletionRoutine @ 0x140701424 (IovpLocalCompletionRoutine.c)
- *     IovpCallDriver2 @ 0x14070ADA0 (IovpCallDriver2.c)
- *     IovpCompleteRequest2 @ 0x14070B1D8 (IovpCompleteRequest2.c)
+ *     IovpCallDriver2 @ 0x14070ADD0 (IovpCallDriver2.c)
+ *     IovpCompleteRequest2 @ 0x14070B208 (IovpCompleteRequest2.c)
  * Callees:
- *     ExFreeToNPagedLookasideList @ 0x14000F4A4 (ExFreeToNPagedLookasideList.c)
+ *     ExFreeToNPagedLookasideList @ 0x14000F024 (ExFreeToNPagedLookasideList.c)
  */
 
-void __fastcall IovpSessionDataDereference(struct _SLIST_ENTRY *Entry)
+void __fastcall IovpSessionDataDereference(_SLIST_ENTRY *Entry)
 {
   bool v1; // zf
   _SLIST_ENTRY *Next; // r9
-  struct _SLIST_ENTRY *v3; // rax
+  _SLIST_ENTRY *v3; // rax
   _SLIST_ENTRY *v4; // r8
   _SLIST_ENTRY **v5; // rdx
 

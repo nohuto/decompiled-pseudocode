@@ -1,7 +1,7 @@
 /*
- * XREFs of CmpRemoveFromDelayedDeref @ 0x140692AA0
+ * XREFs of CmpRemoveFromDelayedDeref @ 0x140693C60
  * Callers:
- *     CmpReferenceKeyControlBlock @ 0x140692A3C (CmpReferenceKeyControlBlock.c)
+ *     CmpReferenceKeyControlBlock @ 0x140693BFC (CmpReferenceKeyControlBlock.c)
  * Callees:
  *     KeReleaseGuardedMutex @ 0x140014E30 (KeReleaseGuardedMutex.c)
  *     ExAcquireFastMutex @ 0x14004E530 (ExAcquireFastMutex.c)

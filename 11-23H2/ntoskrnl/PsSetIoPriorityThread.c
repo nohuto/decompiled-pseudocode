@@ -3,12 +3,12 @@
  * Callers:
  *     IoSetIoPriorityHintIntoThread @ 0x140207800 (IoSetIoPriorityHintIntoThread.c)
  *     CmpSetIoPriorityThread @ 0x1402079F4 (CmpSetIoPriorityThread.c)
- *     CcApplyLowIoPriorityToThread @ 0x14029BBA8 (CcApplyLowIoPriorityToThread.c)
- *     NtSetInformationThread @ 0x1407335B0 (NtSetInformationThread.c)
- *     NtSetInformationProcess @ 0x140774540 (NtSetInformationProcess.c)
+ *     CcApplyLowIoPriorityToThread @ 0x14029BE38 (CcApplyLowIoPriorityToThread.c)
+ *     NtSetInformationThread @ 0x1407337A0 (NtSetInformationThread.c)
+ *     NtSetInformationProcess @ 0x140774730 (NtSetInformationProcess.c)
  * Callees:
  *     KeAbProcessBaseIoPriorityChange @ 0x1402078A4 (KeAbProcessBaseIoPriorityChange.c)
- *     EtwTracePriority @ 0x14046738E (EtwTracePriority.c)
+ *     EtwTracePriority @ 0x14046778E (EtwTracePriority.c)
  */
 
 __int64 __fastcall PsSetIoPriorityThread(__int64 a1, unsigned int a2)

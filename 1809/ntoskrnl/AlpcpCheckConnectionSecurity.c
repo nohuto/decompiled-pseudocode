@@ -1,18 +1,18 @@
 /*
- * XREFs of AlpcpCheckConnectionSecurity @ 0x140613280
+ * XREFs of AlpcpCheckConnectionSecurity @ 0x140614280
  * Callers:
- *     AlpcpCreateClientPort @ 0x14061506C (AlpcpCreateClientPort.c)
+ *     AlpcpCreateClientPort @ 0x14061606C (AlpcpCreateClientPort.c)
  * Callees:
  *     ObFastDereferenceObject @ 0x14004D9D0 (ObFastDereferenceObject.c)
  *     SeAccessCheck @ 0x140051640 (SeAccessCheck.c)
- *     RtlEqualSid @ 0x1400A7DF0 (RtlEqualSid.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     PsReferencePrimaryToken @ 0x1405DD640 (PsReferencePrimaryToken.c)
- *     SeCaptureSubjectContextEx @ 0x1405E07F0 (SeCaptureSubjectContextEx.c)
- *     SeReleaseSubjectContext @ 0x1405E1240 (SeReleaseSubjectContext.c)
- *     SeQueryUserSidToken @ 0x1406102AC (SeQueryUserSidToken.c)
- *     SeQueryInformationToken @ 0x14063C350 (SeQueryInformationToken.c)
- *     RtlMapGenericMask @ 0x14063ED30 (RtlMapGenericMask.c)
+ *     RtlEqualSid @ 0x1400A7D30 (RtlEqualSid.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     PsReferencePrimaryToken @ 0x1405DE640 (PsReferencePrimaryToken.c)
+ *     SeCaptureSubjectContextEx @ 0x1405E17F0 (SeCaptureSubjectContextEx.c)
+ *     SeReleaseSubjectContext @ 0x1405E2240 (SeReleaseSubjectContext.c)
+ *     SeQueryUserSidToken @ 0x1406112AC (SeQueryUserSidToken.c)
+ *     SeQueryInformationToken @ 0x14063D370 (SeQueryInformationToken.c)
+ *     RtlMapGenericMask @ 0x14063FD50 (RtlMapGenericMask.c)
  */
 
 __int64 __fastcall AlpcpCheckConnectionSecurity(PEPROCESS Process, KPROCESSOR_MODE a2, void *a3, void *a4)

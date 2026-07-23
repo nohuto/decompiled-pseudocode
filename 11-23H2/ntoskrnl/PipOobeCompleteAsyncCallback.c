@@ -3,7 +3,7 @@
  * Callers:
  *     <none>
  * Callees:
- *     VhdDeferredAutoAttachVirtualDisks @ 0x14041A3F4 (VhdDeferredAutoAttachVirtualDisks.c)
+ *     VhdDeferredAutoAttachVirtualDisks @ 0x14041A784 (VhdDeferredAutoAttachVirtualDisks.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

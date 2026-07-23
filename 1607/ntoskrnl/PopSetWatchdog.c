@@ -1,15 +1,15 @@
 /*
- * XREFs of PopSetWatchdog @ 0x14020B4CC
+ * XREFs of PopSetWatchdog @ 0x14020B2F8
  * Callers:
- *     PopPowerInformationInternal @ 0x14051D314 (PopPowerInformationInternal.c)
+ *     PopPowerInformationInternal @ 0x140500704 (PopPowerInformationInternal.c)
  * Callees:
- *     KiSetTimerEx @ 0x140006E00 (KiSetTimerEx.c)
- *     KeWaitForSingleObject @ 0x14005C880 (KeWaitForSingleObject.c)
- *     KeCancelTimer @ 0x1400C3480 (KeCancelTimer.c)
- *     KeReleaseSpinLock @ 0x1400E9A70 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x1400EFE30 (KeAcquireSpinLockRaiseToDpc.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     PopUpdateWatchdogNoWorkersEvent @ 0x14020B780 (PopUpdateWatchdogNoWorkersEvent.c)
+ *     KiSetTimerEx @ 0x140006F70 (KiSetTimerEx.c)
+ *     KeWaitForSingleObject @ 0x14005C400 (KeWaitForSingleObject.c)
+ *     KeCancelTimer @ 0x1400C1310 (KeCancelTimer.c)
+ *     KeReleaseSpinLock @ 0x1400EB600 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1400EDCB0 (KeAcquireSpinLockRaiseToDpc.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     PopUpdateWatchdogNoWorkersEvent @ 0x14020B5AC (PopUpdateWatchdogNoWorkersEvent.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
  */

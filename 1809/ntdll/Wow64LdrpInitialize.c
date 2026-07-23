@@ -1,5 +1,5 @@
 /*
- * XREFs of Wow64LdrpInitialize @ 0x1800890EC
+ * XREFs of Wow64LdrpInitialize @ 0x1800890FC
  * Callers:
  *     LdrpInitializeProcess @ 0x1800D3FB4 (LdrpInitializeProcess.c)
  * Callees:

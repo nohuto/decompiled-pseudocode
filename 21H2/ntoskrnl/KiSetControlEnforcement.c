@@ -1,9 +1,9 @@
 /*
- * XREFs of KiSetControlEnforcement @ 0x14099E5D0
+ * XREFs of KiSetControlEnforcement @ 0x14099F500
  * Callers:
- *     KiInitializeKernel @ 0x14099D7C0 (KiInitializeKernel.c)
+ *     KiInitializeKernel @ 0x14099E6F0 (KiInitializeKernel.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  */
 
 unsigned __int64 __fastcall KiSetControlEnforcement(__int64 a1, _QWORD *a2)

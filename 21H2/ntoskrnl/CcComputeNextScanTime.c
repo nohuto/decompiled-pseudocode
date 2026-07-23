@@ -1,7 +1,7 @@
 /*
- * XREFs of CcComputeNextScanTime @ 0x1402CEE98
+ * XREFs of CcComputeNextScanTime @ 0x14024D398
  * Callers:
- *     CcLazyWriteScan @ 0x1402F5894 (CcLazyWriteScan.c)
+ *     CcLazyWriteScan @ 0x1403005E4 (CcLazyWriteScan.c)
  * Callees:
  *     <none>
  */
@@ -18,7 +18,7 @@ unsigned __int64 __fastcall CcComputeNextScanTime(_DWORD *a1, __int64 *a2, _QWOR
   if ( a1[240] < (unsigned int)result )
   {
     v5 = MEMORY[0xFFFFF78000000320];
-    result = 0x9896800uLL / (unsigned int)KeMaximumIncrement;
+    result = 0x9896800uLL / KeMaximumIncrement;
     v6 = *a2;
     v7 = a1[34] + 1;
     a1[34] = v7;

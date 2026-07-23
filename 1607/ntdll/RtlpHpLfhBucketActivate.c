@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlpHpLfhBucketActivate @ 0x180077310
+ * XREFs of RtlpHpLfhBucketActivate @ 0x180077300
  * Callers:
- *     RtlpAllocateHeapInternal @ 0x180022DF0 (RtlpAllocateHeapInternal.c)
- *     RtlpHpLfhBucketUpdateStats @ 0x18007727C (RtlpHpLfhBucketUpdateStats.c)
+ *     RtlpAllocateHeapInternal @ 0x180022DE0 (RtlpAllocateHeapInternal.c)
+ *     RtlpHpLfhBucketUpdateStats @ 0x18007726C (RtlpHpLfhBucketUpdateStats.c)
  * Callees:
- *     RtlpHpLfhBucketInitialize @ 0x180077538 (RtlpHpLfhBucketInitialize.c)
- *     RtlpHpLfhOwnerInitialize @ 0x1800775A0 (RtlpHpLfhOwnerInitialize.c)
+ *     RtlpHpLfhBucketInitialize @ 0x180077528 (RtlpHpLfhBucketInitialize.c)
+ *     RtlpHpLfhOwnerInitialize @ 0x180077590 (RtlpHpLfhOwnerInitialize.c)
  *     _guard_dispatch_icall_nop @ 0x1800A9C80 (_guard_dispatch_icall_nop.c)
  *     memset @ 0x1800ACCC0 (memset.c)
  */

@@ -1,11 +1,11 @@
 /*
- * XREFs of EtwTraceTimeZoneInformationRefresh @ 0x1407A9E44
+ * XREFs of EtwTraceTimeZoneInformationRefresh @ 0x1407AA044
  * Callers:
- *     ExpRefreshTimeZoneInformation @ 0x1407A9554 (ExpRefreshTimeZoneInformation.c)
+ *     ExpRefreshTimeZoneInformation @ 0x1407A9754 (ExpRefreshTimeZoneInformation.c)
  * Callees:
- *     EtwWrite @ 0x14025DC90 (EtwWrite.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14025FAE0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14027E1A4 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     EtwWrite @ 0x14027F7C0 (EtwWrite.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  */
 
 char __fastcall EtwTraceTimeZoneInformationRefresh(int a1, int a2, int a3, char a4, char a5)
@@ -89,7 +89,7 @@ char __fastcall EtwTraceTimeZoneInformationRefresh(int a1, int a2, int a3, char 
     v37 = 1;
     result = tlgWriteTransfer_EtwWriteTransfer(
                (__int64)&dword_140C02BF0,
-               (unsigned __int8 *)byte_14002C920,
+               (unsigned __int8 *)word_14002D30A,
                0LL,
                0LL,
                7u,

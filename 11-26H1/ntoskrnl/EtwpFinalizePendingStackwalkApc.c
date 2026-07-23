@@ -1,7 +1,7 @@
 /*
- * XREFs of EtwpFinalizePendingStackwalkApc @ 0x14048735C
+ * XREFs of EtwpFinalizePendingStackwalkApc @ 0x140480D9C
  * Callers:
- *     EtwpCancelStackWalkApc @ 0x140487340 (EtwpCancelStackWalkApc.c)
+ *     EtwpCancelStackWalkApc @ 0x140480D80 (EtwpCancelStackWalkApc.c)
  * Callees:
  *     <none>
  */

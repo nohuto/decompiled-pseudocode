@@ -1,7 +1,7 @@
 /*
- * XREFs of CcUpdateTimeOnLogHandles @ 0x14006D9B0
+ * XREFs of CcUpdateTimeOnLogHandles @ 0x14006D530
  * Callers:
- *     CcLazyWriteScan @ 0x140070CA0 (CcLazyWriteScan.c)
+ *     CcLazyWriteScan @ 0x140070820 (CcLazyWriteScan.c)
  * Callees:
  *     <none>
  */

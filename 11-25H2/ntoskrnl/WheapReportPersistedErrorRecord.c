@@ -12,14 +12,14 @@ char __fastcall WheapReportPersistedErrorRecord(_DWORD *Src)
 {
   _QWORD *WheaInfo; // rsi
   int v3; // ebp
-  struct _LIST_ENTRY *Pool2; // rax
-  struct _LIST_ENTRY *v5; // rbx
+  _LIST_ENTRY *Pool2; // rax
+  _LIST_ENTRY *v5; // rbx
 
   WheaInfo = KeGetPcr()->Prcb.WheaInfo;
   if ( !WheaInfo )
     return 0;
   v3 = Src[5] + 40;
-  Pool2 = (struct _LIST_ENTRY *)ExAllocatePool2(0x40uLL);
+  Pool2 = (_LIST_ENTRY *)ExAllocatePool2(0x40uLL);
   v5 = Pool2;
   if ( !Pool2 )
     return 0;

@@ -1,15 +1,15 @@
 /*
- * XREFs of PiGetDriverMutableStateDirectory @ 0x140956044
+ * XREFs of PiGetDriverMutableStateDirectory @ 0x140956244
  * Callers:
- *     IoGetDriverDirectory @ 0x140955400 (IoGetDriverDirectory.c)
+ *     IoGetDriverDirectory @ 0x140955600 (IoGetDriverDirectory.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1B0 (RtlInitUnicodeString.c)
- *     RtlUnicodeStringPrintfEx @ 0x1403CE0C8 (RtlUnicodeStringPrintfEx.c)
- *     ZwClose @ 0x14041AF40 (ZwClose.c)
- *     RtlFreeUnicodeString @ 0x14076F3D0 (RtlFreeUnicodeString.c)
- *     IopAllocateUnicodeString @ 0x140793CD8 (IopAllocateUnicodeString.c)
- *     PiGetStateRootPath @ 0x140871470 (PiGetStateRootPath.c)
- *     PiOpenDirectoryWithRoot @ 0x1409561A4 (PiOpenDirectoryWithRoot.c)
+ *     RtlInitUnicodeString @ 0x14022E2C0 (RtlInitUnicodeString.c)
+ *     RtlUnicodeStringPrintfEx @ 0x1403CE2A8 (RtlUnicodeStringPrintfEx.c)
+ *     ZwClose @ 0x14041B2D0 (ZwClose.c)
+ *     RtlFreeUnicodeString @ 0x14076F5C0 (RtlFreeUnicodeString.c)
+ *     IopAllocateUnicodeString @ 0x140793EC8 (IopAllocateUnicodeString.c)
+ *     PiGetStateRootPath @ 0x1408716B0 (PiGetStateRootPath.c)
+ *     PiOpenDirectoryWithRoot @ 0x1409563A4 (PiOpenDirectoryWithRoot.c)
  */
 
 __int64 __fastcall PiGetDriverMutableStateDirectory(unsigned __int16 *a1, __int64 a2, __int64 a3, __int64 *a4)
@@ -28,7 +28,11 @@ __int64 __fastcall PiGetDriverMutableStateDirectory(unsigned __int16 *a1, __int6
   UnicodeString = 0LL;
   RtlInitUnicodeString(&DestinationString, 0LL);
   RtlInitUnicodeString(&UnicodeString, 0LL);
-  StateRootPath = PiGetStateRootPath(L"Win32ServiceStateRoot", L"\\SystemRoot\\ServiceState", 1u, &DestinationString);
+  StateRootPath = PiGetStateRootPath(
+                    L"Win32ServiceStateRoot",
+                    L"\\SystemRoot\\ServiceState",
+                    LocationTypeFileSystem,
+                    &DestinationString);
   if ( StateRootPath >= 0 )
   {
     v9 = -1LL;

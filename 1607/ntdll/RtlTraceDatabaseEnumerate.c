@@ -3,8 +3,8 @@
  * Callers:
  *     <none>
  * Callees:
- *     RtlEnterCriticalSection @ 0x180019B50 (RtlEnterCriticalSection.c)
- *     RtlLeaveCriticalSection @ 0x180019DC0 (RtlLeaveCriticalSection.c)
+ *     RtlEnterCriticalSection @ 0x180019B40 (RtlEnterCriticalSection.c)
+ *     RtlLeaveCriticalSection @ 0x180019DB0 (RtlLeaveCriticalSection.c)
  */
 
 char __fastcall RtlTraceDatabaseEnumerate(__int64 a1, __int64 a2, _QWORD *a3)
@@ -13,7 +13,7 @@ char __fastcall RtlTraceDatabaseEnumerate(__int64 a1, __int64 a2, _QWORD *a3)
   unsigned int v7; // eax
   __int64 v8; // rdx
 
-  RtlEnterCriticalSection(a1 + 48);
+  RtlEnterCriticalSection((PRTL_CRITICAL_SECTION)(a1 + 48));
   *(_QWORD *)(a1 + 40) = 0LL;
   if ( *(_QWORD *)a2 )
   {
@@ -50,6 +50,6 @@ LABEL_4:
   v6 = 0;
 LABEL_13:
   *(_QWORD *)(a1 + 40) = 0LL;
-  RtlLeaveCriticalSection(a1 + 48);
+  RtlLeaveCriticalSection((PRTL_CRITICAL_SECTION)(a1 + 48));
   return v6;
 }

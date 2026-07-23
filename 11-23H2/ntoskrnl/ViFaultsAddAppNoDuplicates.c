@@ -1,17 +1,17 @@
 /*
- * XREFs of ViFaultsAddAppNoDuplicates @ 0x140AD64DC
+ * XREFs of ViFaultsAddAppNoDuplicates @ 0x140AD64CC
  * Callers:
- *     ViFaultsAddAllApps @ 0x140AD6384 (ViFaultsAddAllApps.c)
+ *     ViFaultsAddAllApps @ 0x140AD6374 (ViFaultsAddAllApps.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1B0 (RtlInitUnicodeString.c)
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250E80 (KeAcquireSpinLockRaiseToDpc.c)
- *     memmove @ 0x140435700 (memmove.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     RtlUpcaseUnicodeString @ 0x140773AF0 (RtlUpcaseUnicodeString.c)
+ *     RtlInitUnicodeString @ 0x14022E2C0 (RtlInitUnicodeString.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140250F40 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     RtlUpcaseUnicodeString @ 0x140773CE0 (RtlUpcaseUnicodeString.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
- *     ViFaultsIsAppTarget @ 0x140AD6A30 (ViFaultsIsAppTarget.c)
+ *     ViFaultsIsAppTarget @ 0x140AD6A20 (ViFaultsIsAppTarget.c)
  */
 
 __int64 __fastcall ViFaultsAddAppNoDuplicates(void *Src, __int64 a2)
@@ -45,19 +45,22 @@ __int64 __fastcall ViFaultsAddAppNoDuplicates(void *Src, __int64 a2)
     }
     else
     {
-      v8 = (UNICODE_STRING **)qword_140C36CA8;
-      if ( *(PVOID **)qword_140C36CA8 != &ViFaultApplicationsList )
+      v8 = (UNICODE_STRING **)qword_140C36D88;
+      if ( *(PVOID **)qword_140C36D88 != &ViFaultApplicationsList )
         __fastfail(3u);
       *(_QWORD *)&v6->Length = &ViFaultApplicationsList;
       v6->Buffer = (wchar_t *)v8;
       *v8 = v6;
-      qword_140C36CA8 = (__int64)v6;
+      qword_140C36D88 = (__int64)v6;
     }
     KxReleaseSpinLock((volatile signed __int64 *)&ViFaultInjectionLock);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v7 <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+        && CurrentIrql <= 0xFu
+        && (unsigned __int8)v7 <= 0xFu
+        && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;

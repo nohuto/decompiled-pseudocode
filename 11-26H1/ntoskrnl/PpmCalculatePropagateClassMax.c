@@ -1,7 +1,7 @@
 /*
- * XREFs of PpmCalculatePropagateClassMax @ 0x140B0A4EC
+ * XREFs of PpmCalculatePropagateClassMax @ 0x140B0C2AC
  * Callers:
- *     PpmSetProfilePolicySetting @ 0x140A3FC14 (PpmSetProfilePolicySetting.c)
+ *     PpmSetProfilePolicySetting @ 0x1409FB634 (PpmSetProfilePolicySetting.c)
  * Callees:
  *     <none>
  */

@@ -1,27 +1,27 @@
 /*
- * XREFs of MiGetPageProtection @ 0x1400BD710
+ * XREFs of MiGetPageProtection @ 0x1400BB5A0
  * Callers:
- *     MiCommitExistingVad @ 0x14002AC20 (MiCommitExistingVad.c)
- *     MiQueryAddressState @ 0x140043000 (MiQueryAddressState.c)
- *     MiProtectPrivateMemory @ 0x1400E1040 (MiProtectPrivateMemory.c)
+ *     MiCommitExistingVad @ 0x14002A7A0 (MiCommitExistingVad.c)
+ *     MiQueryAddressState @ 0x140042B80 (MiQueryAddressState.c)
+ *     MiProtectPrivateMemory @ 0x1400DEEE0 (MiProtectPrivateMemory.c)
  * Callees:
- *     MiUnlockWorkingSetExclusive @ 0x14002E930 (MiUnlockWorkingSetExclusive.c)
- *     MiGetSharedVm @ 0x14002EA30 (MiGetSharedVm.c)
- *     ExAcquireSpinLockExclusive @ 0x14002EB90 (ExAcquireSpinLockExclusive.c)
- *     MiLocateWsle @ 0x140046B50 (MiLocateWsle.c)
- *     MiLocateCloneAddress @ 0x1400BDB00 (MiLocateCloneAddress.c)
- *     MI_PROTO_FORMAT_COMBINED @ 0x1400BDB30 (MI_PROTO_FORMAT_COMBINED.c)
- *     MiCaptureProtectionFromLockedProto @ 0x1400BDBD8 (MiCaptureProtectionFromLockedProto.c)
- *     MiRotatedToFrameBuffer @ 0x1400BDE00 (MiRotatedToFrameBuffer.c)
- *     ExReleaseSpinLockShared @ 0x1400EA240 (ExReleaseSpinLockShared.c)
- *     ExAcquireSpinLockShared @ 0x1400EB1D0 (ExAcquireSpinLockShared.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
- *     MiCaptureProtectionFromProto @ 0x1401F01E0 (MiCaptureProtectionFromProto.c)
- *     MI_GET_PAGE_FRAME_FROM_PTE @ 0x1401F2550 (MI_GET_PAGE_FRAME_FROM_PTE.c)
- *     MI_GET_PROTECTION_FROM_SOFT_PROTOTYPE_PTE @ 0x1401F25B8 (MI_GET_PROTECTION_FROM_SOFT_PROTOTYPE_PTE.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1401F25D0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiGetPrototypePteDirect @ 0x1401F26B0 (MiGetPrototypePteDirect.c)
- *     MiIsPrototypePteVadLookup @ 0x1401F2708 (MiIsPrototypePteVadLookup.c)
+ *     MiUnlockWorkingSetExclusive @ 0x14002E4B0 (MiUnlockWorkingSetExclusive.c)
+ *     MiGetSharedVm @ 0x14002E5B0 (MiGetSharedVm.c)
+ *     ExAcquireSpinLockExclusive @ 0x14002E710 (ExAcquireSpinLockExclusive.c)
+ *     MiLocateWsle @ 0x1400466D0 (MiLocateWsle.c)
+ *     MiLocateCloneAddress @ 0x1400BB990 (MiLocateCloneAddress.c)
+ *     MI_PROTO_FORMAT_COMBINED @ 0x1400BB9C0 (MI_PROTO_FORMAT_COMBINED.c)
+ *     MiCaptureProtectionFromLockedProto @ 0x1400BBA68 (MiCaptureProtectionFromLockedProto.c)
+ *     MiRotatedToFrameBuffer @ 0x1400BBC90 (MiRotatedToFrameBuffer.c)
+ *     ExReleaseSpinLockShared @ 0x1400E80B0 (ExReleaseSpinLockShared.c)
+ *     ExAcquireSpinLockShared @ 0x1400E9040 (ExAcquireSpinLockShared.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
+ *     MiCaptureProtectionFromProto @ 0x1401F000C (MiCaptureProtectionFromProto.c)
+ *     MI_GET_PAGE_FRAME_FROM_PTE @ 0x1401F237C (MI_GET_PAGE_FRAME_FROM_PTE.c)
+ *     MI_GET_PROTECTION_FROM_SOFT_PROTOTYPE_PTE @ 0x1401F23E4 (MI_GET_PROTECTION_FROM_SOFT_PROTOTYPE_PTE.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1401F23FC (MI_READ_PTE_LOCK_FREE.c)
+ *     MiGetPrototypePteDirect @ 0x1401F24DC (MiGetPrototypePteDirect.c)
+ *     MiIsPrototypePteVadLookup @ 0x1401F2534 (MiIsPrototypePteVadLookup.c)
  */
 
 ULONG_PTR __fastcall MiGetPageProtection(
@@ -76,7 +76,7 @@ ULONG_PTR __fastcall MiGetPageProtection(
         return (unsigned int)result | 8;
       return result;
     }
-    if ( v9 > qword_140326A90
+    if ( v9 > qword_140326AD0
       || MmPhysicalMemoryBlock && (*(_QWORD *)(48 * v9 - 0x57FFFFFFFD8LL) & 0x20000000000000LL) == 0
       || (*(_QWORD *)(v11 + 40) & 0x200000000000000LL) == 0
       && (*(_QWORD *)(v11 + 8) | 0x8000000000000000uLL) != BugCheckParameter2 )
@@ -85,12 +85,12 @@ ULONG_PTR __fastcall MiGetPageProtection(
     }
     if ( ((*(_QWORD *)(v11 + 40) >> 57) & 1LL) != 0 )
     {
-      v17 = *(_QWORD *)(*(_QWORD *)(qword_140327F90 + 276841312)
+      v17 = *(_QWORD *)(*(_QWORD *)(qword_140327FD0 + 276841312)
                       + MiLocateWsle(
                           (__int64)(BugCheckParameter2 << 25) >> 16,
                           (__int64)&KeGetCurrentThread()->ApcState.Process[1].IdealNode[12],
                           *(_QWORD *)v11)
-                      * *(unsigned int *)(qword_140327F90 + 276841264)) >> 4;
+                      * *(unsigned int *)(qword_140327FD0 + 276841264)) >> 4;
       if ( (v17 & 0x1F) == 0 )
       {
         v18 = MI_GET_PROTECTION_FROM_SOFT_PROTOTYPE_PTE(v11 + 16);
@@ -108,8 +108,8 @@ ULONG_PTR __fastcall MiGetPageProtection(
     {
       if ( ((*(_QWORD *)(v11 + 40) >> 54) & 7) == 1 )
       {
-        v14 = (_QWORD *)qword_140326A98;
-        if ( qword_140326A98 )
+        v14 = (_QWORD *)qword_140326AD8;
+        if ( qword_140326AD8 )
         {
           v15 = (__int64)(48 * v9) / 48;
           do

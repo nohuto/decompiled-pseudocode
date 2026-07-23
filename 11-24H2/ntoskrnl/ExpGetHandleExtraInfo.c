@@ -1,15 +1,15 @@
 /*
- * XREFs of ExpGetHandleExtraInfo @ 0x14084D528
+ * XREFs of ExpGetHandleExtraInfo @ 0x1408497E8
  * Callers:
- *     ObDuplicateObject @ 0x14083FFB0 (ObDuplicateObject.c)
- *     ObpReferenceObjectByHandleWithTag @ 0x14084B7E0 (ObpReferenceObjectByHandleWithTag.c)
- *     ObCloseHandleTableEntry @ 0x14084BFA0 (ObCloseHandleTableEntry.c)
- *     ExCreateHandleEx @ 0x14084CE30 (ExCreateHandleEx.c)
- *     ObpCreateHandle @ 0x14084DAA0 (ObpCreateHandle.c)
- *     ExpDuplicateSingleHandle @ 0x14093D6A4 (ExpDuplicateSingleHandle.c)
- *     ObpReferenceProcessObjectByHandle @ 0x1409405E0 (ObpReferenceProcessObjectByHandle.c)
- *     ObpAuditObjectAccess @ 0x140989024 (ObpAuditObjectAccess.c)
- *     ExDestroyHandle @ 0x14098A050 (ExDestroyHandle.c)
+ *     ObDuplicateObject @ 0x14083C270 (ObDuplicateObject.c)
+ *     ObpReferenceObjectByHandleWithTag @ 0x140847AA0 (ObpReferenceObjectByHandleWithTag.c)
+ *     ObCloseHandleTableEntry @ 0x140848260 (ObCloseHandleTableEntry.c)
+ *     ExCreateHandleEx @ 0x1408490F0 (ExCreateHandleEx.c)
+ *     ObpCreateHandle @ 0x140849D60 (ObpCreateHandle.c)
+ *     ObpAuditObjectAccess @ 0x140863834 (ObpAuditObjectAccess.c)
+ *     ExpDuplicateSingleHandle @ 0x140891D94 (ExpDuplicateSingleHandle.c)
+ *     ObpReferenceProcessObjectByHandle @ 0x140894C20 (ObpReferenceProcessObjectByHandle.c)
+ *     ExDestroyHandle @ 0x1408961C0 (ExDestroyHandle.c)
  * Callees:
  *     <none>
  */

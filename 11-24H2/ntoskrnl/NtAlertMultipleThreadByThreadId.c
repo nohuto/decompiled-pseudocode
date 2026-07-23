@@ -1,18 +1,18 @@
 /*
- * XREFs of NtAlertMultipleThreadByThreadId @ 0x14077C170
+ * XREFs of NtAlertMultipleThreadByThreadId @ 0x14077C020
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObject @ 0x140325680 (ObfDereferenceObject.c)
- *     RtlULongLongMult @ 0x140437830 (RtlULongLongMult.c)
- *     PsGetCurrentThreadProcess @ 0x1404709D0 (PsGetCurrentThreadProcess.c)
- *     KeAlertMultipleThreadByThreadId @ 0x1405B7AE8 (KeAlertMultipleThreadByThreadId.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     PsLookupThreadByThreadId @ 0x14084A4B0 (PsLookupThreadByThreadId.c)
- *     ExRaiseDatatypeMisalignment @ 0x14089B1F0 (ExRaiseDatatypeMisalignment.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ObfDereferenceObject @ 0x1402CE210 (ObfDereferenceObject.c)
+ *     RtlULongLongMult @ 0x14042A2B0 (RtlULongLongMult.c)
+ *     PsGetCurrentThreadProcess @ 0x14046B080 (PsGetCurrentThreadProcess.c)
+ *     KeAlertMultipleThreadByThreadId @ 0x1405B50C0 (KeAlertMultipleThreadByThreadId.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     PsLookupThreadByThreadId @ 0x140846770 (PsLookupThreadByThreadId.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408A3890 (ExRaiseDatatypeMisalignment.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall NtAlertMultipleThreadByThreadId(__int64 a1, unsigned int a2, __int128 *a3, int a4)
@@ -76,7 +76,7 @@ __int64 __fastcall NtAlertMultipleThreadByThreadId(__int64 a1, unsigned int a2, 
     }
     else
     {
-      Pool2 = (_BYTE *)ExAllocatePool2(0x43uLL);
+      Pool2 = (_BYTE *)ExAllocatePool2(0x43uLL, pullResult, 0x6D41654Bu);
       v18 = Pool2;
       if ( !Pool2 )
       {

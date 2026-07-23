@@ -1,10 +1,10 @@
 /*
- * XREFs of PipSortDeviceObjectList @ 0x140737320
+ * XREFs of PipSortDeviceObjectList @ 0x1407374E0
  * Callers:
- *     IopSortRelationListForRemove @ 0x14073720C (IopSortRelationListForRemove.c)
+ *     IopSortRelationListForRemove @ 0x1407373CC (IopSortRelationListForRemove.c)
  * Callees:
- *     qsort @ 0x1403D2AC0 (qsort.c)
- *     PipVisitDeviceObjectListEntry @ 0x1407373CC (PipVisitDeviceObjectListEntry.c)
+ *     qsort @ 0x1403D2C30 (qsort.c)
+ *     PipVisitDeviceObjectListEntry @ 0x14073758C (PipVisitDeviceObjectListEntry.c)
  */
 
 __int64 __fastcall PipSortDeviceObjectList(unsigned int **a1)

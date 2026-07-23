@@ -1456,11 +1456,7 @@ LABEL_142:
                       ReturnLength = 0;
                       SystemInformation = 8LL;
                       Acl = 0;
-                      ZwQuerySystemInformation(
-                        MaxSystemInfoClass|SystemProcessInformation,
-                        &SystemInformation,
-                        8u,
-                        &ReturnLength);
+                      ZwQuerySystemInformation(SystemCodeIntegrityInformation, &SystemInformation, 8u, &ReturnLength);
                       v7 = (unsigned int *)v317;
                       v190 = *((_DWORD *)v317 + 4);
                       if ( v190 == 160 )
@@ -1616,7 +1612,7 @@ LABEL_261:
                   v395 = 0;
                   v405 = 8LL;
                   v228 = 0;
-                  ZwQuerySystemInformation(MaxSystemInfoClass|SystemProcessInformation, &v405, 8u, &v395);
+                  ZwQuerySystemInformation(SystemCodeIntegrityInformation, &v405, 8u, &v395);
                   v7 = (unsigned int *)v317;
                   v229 = *((_DWORD *)v317 + 4);
                   if ( v229 == 160 )
@@ -2760,7 +2756,7 @@ LABEL_531:
                   v385 = 0;
                   v401 = 8LL;
                   v287 = 0;
-                  ZwQuerySystemInformation(MaxSystemInfoClass|SystemProcessInformation, &v401, 8u, &v385);
+                  ZwQuerySystemInformation(SystemCodeIntegrityInformation, &v401, 8u, &v385);
                   v7 = (unsigned int *)v317;
                   if ( *((_DWORD *)v317 + 4) == 160 )
                   {

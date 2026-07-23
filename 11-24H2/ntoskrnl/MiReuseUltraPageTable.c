@@ -1,10 +1,10 @@
 /*
- * XREFs of MiReuseUltraPageTable @ 0x140469758
+ * XREFs of MiReuseUltraPageTable @ 0x1404622AC
  * Callers:
- *     MiGetUltraMapping @ 0x14020CE50 (MiGetUltraMapping.c)
+ *     MiGetUltraMapping @ 0x1403361B0 (MiGetUltraMapping.c)
  * Callees:
- *     MI_PAGE_TO_FULL_COLOR @ 0x1402236D0 (MI_PAGE_TO_FULL_COLOR.c)
- *     MiManageUltraSpacePageTable @ 0x1402D1CC4 (MiManageUltraSpacePageTable.c)
+ *     MI_PAGE_TO_FULL_COLOR @ 0x140250420 (MI_PAGE_TO_FULL_COLOR.c)
+ *     MiManageUltraSpacePageTable @ 0x140352F3C (MiManageUltraSpacePageTable.c)
  */
 
 unsigned __int64 __fastcall MiReuseUltraPageTable(__int64 a1, unsigned int a2)

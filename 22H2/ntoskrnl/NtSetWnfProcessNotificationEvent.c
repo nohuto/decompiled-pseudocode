@@ -9,12 +9,12 @@
  *     ExpWnfCreateProcessContext @ 0x14068AD34 (ExpWnfCreateProcessContext.c)
  */
 
-__int64 __fastcall NtSetWnfProcessNotificationEvent(HANDLE Handle)
+NTSTATUS __cdecl NtSetWnfProcessNotificationEvent(HANDLE NotificationEvent)
 {
   struct _KTHREAD *CurrentThread; // rax
   _KPROCESS *Process; // rcx
   unsigned __int64 v4; // rdi
-  NTSTATUS v5; // ebx
+  int v5; // ebx
   unsigned __int64 v7; // [rsp+48h] [rbp+10h] BYREF
   PVOID Object; // [rsp+50h] [rbp+18h] BYREF
 
@@ -31,7 +31,7 @@ __int64 __fastcall NtSetWnfProcessNotificationEvent(HANDLE Handle)
     v4 = v7;
   }
   Object = 0LL;
-  v5 = ObReferenceObjectByHandle(Handle, 2u, (POBJECT_TYPE)ExEventObjectType, 1, &Object, 0LL);
+  v5 = ObReferenceObjectByHandle(NotificationEvent, 2u, (POBJECT_TYPE)ExEventObjectType, 1, &Object, 0LL);
   if ( v5 >= 0 )
   {
     if ( _InterlockedCompareExchange64((volatile signed __int64 *)(v4 + 128), (signed __int64)Object, 0LL) )
@@ -46,5 +46,5 @@ __int64 __fastcall NtSetWnfProcessNotificationEvent(HANDLE Handle)
   }
 LABEL_5:
   KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
-  return (unsigned int)v5;
+  return v5;
 }

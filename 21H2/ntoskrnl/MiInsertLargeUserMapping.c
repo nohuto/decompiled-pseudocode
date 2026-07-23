@@ -1,16 +1,16 @@
 /*
- * XREFs of MiInsertLargeUserMapping @ 0x14055E578
+ * XREFs of MiInsertLargeUserMapping @ 0x14055E7B8
  * Callers:
- *     MiCommitExistingVad @ 0x140218D90 (MiCommitExistingVad.c)
- *     MiMapUserLargePages @ 0x14055E730 (MiMapUserLargePages.c)
+ *     MiCommitExistingVad @ 0x1402BD690 (MiCommitExistingVad.c)
+ *     MiMapUserLargePages @ 0x14055E970 (MiMapUserLargePages.c)
  * Callees:
- *     MiWritePteShadow @ 0x1402B69BC (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x1402B6A1C (MiPteHasShadow.c)
- *     MiIncreaseUsedPtesCount @ 0x1403097D4 (MiIncreaseUsedPtesCount.c)
- *     MiGetUsedPtesHandle @ 0x14030CA60 (MiGetUsedPtesHandle.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x14032DEC0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiMakeValidPte @ 0x14032E730 (MiMakeValidPte.c)
- *     MiPteInShadowRange @ 0x140348AF0 (MiPteInShadowRange.c)
+ *     MiWritePteShadow @ 0x140234B9C (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140234BFC (MiPteHasShadow.c)
+ *     MiIncreaseUsedPtesCount @ 0x140314524 (MiIncreaseUsedPtesCount.c)
+ *     MiGetUsedPtesHandle @ 0x1403177B0 (MiGetUsedPtesHandle.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140338C10 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiMakeValidPte @ 0x140339480 (MiMakeValidPte.c)
+ *     MiPteInShadowRange @ 0x140353840 (MiPteInShadowRange.c)
  */
 
 char __fastcall MiInsertLargeUserMapping(__int64 a1, unsigned __int64 a2, __int64 a3, int a4, unsigned int a5)
@@ -21,13 +21,11 @@ char __fastcall MiInsertLargeUserMapping(__int64 a1, unsigned __int64 a2, __int6
   unsigned int v10; // r8d
   unsigned __int64 ValidPte; // rbx
   unsigned int v12; // esi
-  __int64 v13; // rdx
   __int64 UsedPtesHandle; // rax
-  __int64 v15; // r8
-  __int64 v16; // r9
+  __int64 v14; // r8
+  __int64 v15; // r9
   struct _KTHREAD *CurrentThread; // rax
-  int v18; // ebp
-  __int64 v19; // r8
+  int v17; // ebp
 
   v7 = a2;
   if ( a4 != 2 )
@@ -53,8 +51,8 @@ char __fastcall MiInsertLargeUserMapping(__int64 a1, unsigned __int64 a2, __int6
   v12 = 0;
   if ( (v7 < 0xFFFFF6FB7DBED000uLL || v7 > 0xFFFFF6FB7DBEDFFFuLL) && !MI_READ_PTE_LOCK_FREE(v7) )
   {
-    UsedPtesHandle = MiGetUsedPtesHandle((__int64)(v7 << 25) >> 16, v13);
-    MiIncreaseUsedPtesCount(UsedPtesHandle, (unsigned int)v9, v15, v16);
+    UsedPtesHandle = MiGetUsedPtesHandle((__int64)(v7 << 25) >> 16);
+    MiIncreaseUsedPtesCount(UsedPtesHandle, (unsigned int)v9, v14, v15);
   }
   if ( a4 == 2 )
   {
@@ -69,15 +67,15 @@ char __fastcall MiInsertLargeUserMapping(__int64 a1, unsigned __int64 a2, __int6
     while ( v12 < v9 );
     return (char)CurrentThread;
   }
-  v18 = 0;
+  v17 = 0;
   LODWORD(CurrentThread) = MiPteInShadowRange(v7);
   if ( (_DWORD)CurrentThread )
   {
     LODWORD(CurrentThread) = MiPteHasShadow();
     if ( (_DWORD)CurrentThread )
     {
-      v18 = 1;
-      if ( !HIBYTE(word_140C4E008) )
+      v17 = 1;
+      if ( !HIBYTE(word_140C4E048) )
       {
 LABEL_20:
         if ( (ValidPte & 1) != 0 )
@@ -95,7 +93,7 @@ LABEL_20:
     }
   }
   *(_QWORD *)v7 = ValidPte;
-  if ( v18 )
-    LOBYTE(CurrentThread) = MiWritePteShadow(v7, ValidPte, v19);
+  if ( v17 )
+    LOBYTE(CurrentThread) = MiWritePteShadow(v7, ValidPte);
   return (char)CurrentThread;
 }

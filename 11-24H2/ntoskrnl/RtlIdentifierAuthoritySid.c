@@ -1,8 +1,8 @@
 /*
- * XREFs of RtlIdentifierAuthoritySid @ 0x140A5E8A8
+ * XREFs of RtlIdentifierAuthoritySid @ 0x140A56B18
  * Callers:
- *     SepCreateTokenEx @ 0x1403645F4 (SepCreateTokenEx.c)
- *     SepIsAppSiloCapability @ 0x1404833CC (SepIsAppSiloCapability.c)
+ *     SepCreateTokenEx @ 0x1403E9CAC (SepCreateTokenEx.c)
+ *     SepIsAppSiloCapability @ 0x14047E93C (SepIsAppSiloCapability.c)
  * Callees:
  *     <none>
  */

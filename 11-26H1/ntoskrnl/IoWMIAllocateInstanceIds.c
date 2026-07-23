@@ -1,12 +1,12 @@
 /*
- * XREFs of IoWMIAllocateInstanceIds @ 0x140821DC0
+ * XREFs of IoWMIAllocateInstanceIds @ 0x140827FD0
  * Callers:
- *     DifIoWMIAllocateInstanceIdsWrapper @ 0x14065F100 (DifIoWMIAllocateInstanceIdsWrapper.c)
+ *     DifIoWMIAllocateInstanceIdsWrapper @ 0x140662CE0 (DifIoWMIAllocateInstanceIdsWrapper.c)
  * Callees:
- *     KeWaitForSingleObject @ 0x140278560 (KeWaitForSingleObject.c)
- *     KeReleaseMutex @ 0x1403DD0F0 (KeReleaseMutex.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
+ *     KeWaitForSingleObject @ 0x140277AD0 (KeWaitForSingleObject.c)
+ *     KeReleaseMutex @ 0x1403E02E0 (KeReleaseMutex.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
  */
 
 NTSTATUS __stdcall IoWMIAllocateInstanceIds(LPCGUID Guid, ULONG InstanceCount, ULONG *FirstInstanceId)
@@ -22,9 +22,9 @@ NTSTATUS __stdcall IoWMIAllocateInstanceIds(LPCGUID Guid, ULONG InstanceCount, U
   GUID v15; // xmm0
 
   v3 = 0LL;
-  if ( !*(_QWORD *)&EtwpSecurityLock.ForegroundLossTime )
+  if ( !WmipServiceDeviceObject )
     return -1073741823;
-  KeWaitForSingleObject(&EtwpSecurityLock.IoSelfBoostsEntry, Executive, 0, 0, 0LL);
+  KeWaitForSingleObject(&WmipSMMutex, Executive, 0, 0, 0LL);
   v8 = (_QWORD *)WmipInstIdChunkHead;
 LABEL_4:
   if ( v8 )
@@ -49,7 +49,7 @@ LABEL_4:
     }
     *FirstInstanceId = v11;
     *((_DWORD *)v10 + 4) += InstanceCount;
-    KeReleaseMutex((PRKMUTEX)&EtwpSecurityLock.IoSelfBoostsEntry, 0);
+    KeReleaseMutex(&WmipSMMutex, 0);
     return 0;
   }
   Pool2 = ExAllocatePool2(0x100uLL);
@@ -67,10 +67,10 @@ LABEL_20:
     v15 = *Guid;
     *((_DWORD *)v10 + 4) = InstanceCount;
     *(GUID *)v10 = v15;
-    KeReleaseMutex((PRKMUTEX)&EtwpSecurityLock.IoSelfBoostsEntry, 0);
+    KeReleaseMutex(&WmipSMMutex, 0);
     *FirstInstanceId = 0;
     return 0;
   }
-  KeReleaseMutex((PRKMUTEX)&EtwpSecurityLock.IoSelfBoostsEntry, 0);
+  KeReleaseMutex(&WmipSMMutex, 0);
   return -1073741670;
 }

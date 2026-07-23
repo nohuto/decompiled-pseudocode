@@ -1,12 +1,12 @@
 /*
- * XREFs of MiContractPagingFiles @ 0x1403F94EC
+ * XREFs of MiContractPagingFiles @ 0x1403EF5FC
  * Callers:
- *     MmDeleteProcessAddressSpace @ 0x140AE6484 (MmDeleteProcessAddressSpace.c)
+ *     MmDeleteProcessAddressSpace @ 0x140AE7D64 (MmDeleteProcessAddressSpace.c)
  * Callees:
- *     MiReleaseSpinLockExclusive @ 0x14028EE30 (MiReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x14028F370 (ExAcquireSpinLockExclusive.c)
- *     MiOkToShrinkPageFiles @ 0x1403F95BC (MiOkToShrinkPageFiles.c)
- *     MiQueuePageFileExtension @ 0x1403F95EC (MiQueuePageFileExtension.c)
+ *     MiReleaseSpinLockExclusive @ 0x14029EA30 (MiReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14029EF70 (ExAcquireSpinLockExclusive.c)
+ *     MiOkToShrinkPageFiles @ 0x1403EF6CC (MiOkToShrinkPageFiles.c)
+ *     MiQueuePageFileExtension @ 0x1403EF6FC (MiQueuePageFileExtension.c)
  */
 
 __int64 __fastcall MiContractPagingFiles(__int64 a1)

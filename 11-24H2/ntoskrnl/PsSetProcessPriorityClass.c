@@ -1,5 +1,5 @@
 /*
- * XREFs of PsSetProcessPriorityClass @ 0x1405E54D0
+ * XREFs of PsSetProcessPriorityClass @ 0x1405E2A10
  * Callers:
  *     <none>
  * Callees:

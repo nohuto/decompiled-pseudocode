@@ -237,8 +237,8 @@
  *     RtlInitializeRXact @ 0x18008E0C0 (RtlInitializeRXact.c)
  *     RtlpLoadInstallLanguageFallback @ 0x18008E5F8 (RtlpLoadInstallLanguageFallback.c)
  *     RtlSetCurrentEnvironment @ 0x18008E750 (RtlSetCurrentEnvironment.c)
- *     __ft_array_insert @ 0x18009FADC (__ft_array_insert.c)
- *     TppQueryMaximumGroupCount @ 0x1800A07E8 (TppQueryMaximumGroupCount.c)
+ *     __ft_array_insert @ 0x18009FA9C (__ft_array_insert.c)
+ *     TppQueryMaximumGroupCount @ 0x1800A07A8 (TppQueryMaximumGroupCount.c)
  *     LdrpLogNewDllLoadInternal @ 0x1800AF46E (LdrpLogNewDllLoadInternal.c)
  *     LdrpMergeParentBaseLanguagesToList @ 0x1800B035C (LdrpMergeParentBaseLanguagesToList.c)
  *     RtlpHeapTrkDereferenceStack @ 0x1800B0B44 (RtlpHeapTrkDereferenceStack.c)
@@ -299,69 +299,64 @@
  *     RtlpCallSecureMemoryCallbacks @ 0x180104634 (RtlpCallSecureMemoryCallbacks.c)
  *     RtlDebugFreeHeap @ 0x1801060A0 (RtlDebugFreeHeap.c)
  *     RtlpIsNameInExpressionPrivate @ 0x180108F4C (RtlpIsNameInExpressionPrivate.c)
- *     RtlpUpcaseUnicodeStringPrivate @ 0x18010952C (RtlpUpcaseUnicodeStringPrivate.c)
- *     RtlpHeapTrkAllocCacheAligned @ 0x18010C1B4 (RtlpHeapTrkAllocCacheAligned.c)
- *     RtlpHeapTrkTrackAdd @ 0x18010CBD8 (RtlpHeapTrkTrackAdd.c)
- *     RtlpHeapTrkTrackRemove @ 0x18010CCB4 (RtlpHeapTrkTrackRemove.c)
- *     RtlpHeapTrkTrackRemoveHeap @ 0x18010CD9C (RtlpHeapTrkTrackRemoveHeap.c)
- *     RtlpHeapTrkTrackStack @ 0x18010CEDC (RtlpHeapTrkTrackStack.c)
- *     RtlSetFeatureConfigurations @ 0x18010FDD0 (RtlSetFeatureConfigurations.c)
- *     RtlpFcUpdateUsageSubscriptions @ 0x18010FFA0 (RtlpFcUpdateUsageSubscriptions.c)
- *     RtlRaiseCustomSystemEventTrigger @ 0x1801102C0 (RtlRaiseCustomSystemEventTrigger.c)
- *     RtlpCtContextFree @ 0x180110518 (RtlpCtContextFree.c)
- *     RtlpLoadPolicyLanguageSpec @ 0x1801120FC (RtlpLoadPolicyLanguageSpec.c)
- *     RtlpMuiRegAddAlternateCodePage @ 0x1801122BC (RtlpMuiRegAddAlternateCodePage.c)
- *     RtlpMuiRegConfigMatchesInstalled @ 0x180112698 (RtlpMuiRegConfigMatchesInstalled.c)
- *     RtlpMuiRegFreeStringPool @ 0x180112B1C (RtlpMuiRegFreeStringPool.c)
- *     RtlpMuiRegGetFallbackLanguageInfoByLangId @ 0x180112DCC (RtlpMuiRegGetFallbackLanguageInfoByLangId.c)
- *     RtlpMuiRegLangInfoMatchesSpec @ 0x180113674 (RtlpMuiRegLangInfoMatchesSpec.c)
- *     RtlpMuiRegLoadLicInformation @ 0x18011388C (RtlpMuiRegLoadLicInformation.c)
- *     _RtlpMuiRegValidateInstalled @ 0x180115980 (_RtlpMuiRegValidateInstalled.c)
- *     RtlpFcNotifyFeatureUsageTarget @ 0x180122704 (RtlpFcNotifyFeatureUsageTarget.c)
- *     EtwpShutdownCompression @ 0x18012669C (EtwpShutdownCompression.c)
- *     TppDirectUnposted @ 0x180126E20 (TppDirectUnposted.c)
- *     RtlpTpIoAlloc @ 0x180127F5C (RtlpTpIoAlloc.c)
- *     PssNtFreeSnapshot @ 0x180128F80 (PssNtFreeSnapshot.c)
- *     PsspCaptureAuxiliaryPages @ 0x180129BC8 (PsspCaptureAuxiliaryPages.c)
- *     PsspCaptureHandleInformation @ 0x18012A744 (PsspCaptureHandleInformation.c)
- *     OpenGlobalizationUserSettingsKey_ForMua @ 0x18012E928 (OpenGlobalizationUserSettingsKey_ForMua.c)
- *     OpenGlobalizationUserSettingsKey_ForSingleUserModel @ 0x18012EBC4 (OpenGlobalizationUserSettingsKey_ForSingleUserModel.c)
+ *     RtlpUpcaseUnicodeStringPrivate @ 0x180109500 (RtlpUpcaseUnicodeStringPrivate.c)
+ *     RtlpHeapTrkAllocCacheAligned @ 0x18010C184 (RtlpHeapTrkAllocCacheAligned.c)
+ *     RtlpHeapTrkTrackAdd @ 0x18010CBA8 (RtlpHeapTrkTrackAdd.c)
+ *     RtlpHeapTrkTrackRemove @ 0x18010CC84 (RtlpHeapTrkTrackRemove.c)
+ *     RtlpHeapTrkTrackRemoveHeap @ 0x18010CD6C (RtlpHeapTrkTrackRemoveHeap.c)
+ *     RtlpHeapTrkTrackStack @ 0x18010CEAC (RtlpHeapTrkTrackStack.c)
+ *     RtlSetFeatureConfigurations @ 0x18010FDA0 (RtlSetFeatureConfigurations.c)
+ *     RtlpFcUpdateUsageSubscriptions @ 0x18010FF70 (RtlpFcUpdateUsageSubscriptions.c)
+ *     RtlRaiseCustomSystemEventTrigger @ 0x180110290 (RtlRaiseCustomSystemEventTrigger.c)
+ *     RtlpCtContextFree @ 0x1801104E8 (RtlpCtContextFree.c)
+ *     RtlpLoadPolicyLanguageSpec @ 0x1801120CC (RtlpLoadPolicyLanguageSpec.c)
+ *     RtlpMuiRegAddAlternateCodePage @ 0x18011228C (RtlpMuiRegAddAlternateCodePage.c)
+ *     RtlpMuiRegConfigMatchesInstalled @ 0x180112668 (RtlpMuiRegConfigMatchesInstalled.c)
+ *     RtlpMuiRegFreeStringPool @ 0x180112AEC (RtlpMuiRegFreeStringPool.c)
+ *     RtlpMuiRegGetFallbackLanguageInfoByLangId @ 0x180112D9C (RtlpMuiRegGetFallbackLanguageInfoByLangId.c)
+ *     RtlpMuiRegLangInfoMatchesSpec @ 0x180113644 (RtlpMuiRegLangInfoMatchesSpec.c)
+ *     RtlpMuiRegLoadLicInformation @ 0x18011385C (RtlpMuiRegLoadLicInformation.c)
+ *     _RtlpMuiRegValidateInstalled @ 0x180115950 (_RtlpMuiRegValidateInstalled.c)
+ *     RtlpFcNotifyFeatureUsageTarget @ 0x1801226D4 (RtlpFcNotifyFeatureUsageTarget.c)
+ *     EtwpShutdownCompression @ 0x18012666C (EtwpShutdownCompression.c)
+ *     TppDirectUnposted @ 0x180126DF0 (TppDirectUnposted.c)
+ *     RtlpTpIoAlloc @ 0x180127F2C (RtlpTpIoAlloc.c)
+ *     PssNtFreeSnapshot @ 0x180128F50 (PssNtFreeSnapshot.c)
+ *     PsspCaptureAuxiliaryPages @ 0x180129B98 (PsspCaptureAuxiliaryPages.c)
+ *     PsspCaptureHandleInformation @ 0x18012A714 (PsspCaptureHandleInformation.c)
+ *     OpenGlobalizationUserSettingsKey_ForMua @ 0x18012E954 (OpenGlobalizationUserSettingsKey_ForMua.c)
+ *     OpenGlobalizationUserSettingsKey_ForSingleUserModel @ 0x18012EBF0 (OpenGlobalizationUserSettingsKey_ForSingleUserModel.c)
  * Callees:
  *     RtlpHpFreeWithExceptionProtection @ 0x18003B150 (RtlpHpFreeWithExceptionProtection.c)
  *     RtlpFreeHeapInternal @ 0x18003BBF0 (RtlpFreeHeapInternal.c)
- *     RtlpLogHeapFailure @ 0x1801229F0 (RtlpLogHeapFailure.c)
+ *     RtlpLogHeapFailure @ 0x1801229C0 (RtlpLogHeapFailure.c)
  */
 
-__int64 __fastcall RtlFreeHeap(__int64 a1, unsigned int a2, __int64 a3)
+LOGICAL __cdecl RtlFreeHeap(PVOID HeapHandle, ULONG Flags, PVOID BaseAddress)
 {
-  unsigned int v7; // r9d
-  unsigned __int16 v9; // [rsp+50h] [rbp+18h] BYREF
-  __int64 v10; // [rsp+58h] [rbp+20h] BYREF
+  LOGICAL v7; // r9d
+  __int64 v9; // [rsp+50h] [rbp+18h] BYREF
+  __int64 v10; // [rsp+58h] [rbp+20h]
 
-  if ( a3 )
+  if ( BaseAddress )
   {
-    if ( !a1 )
-      RtlpLogHeapFailure(19, 0, a3, 0, 0LL, 0LL);
-    if ( *(_DWORD *)(a1 + 16) == -571548178 )
+    if ( !HeapHandle )
+      RtlpLogHeapFailure(19, 0, (_DWORD)BaseAddress, 0, 0LL, 0LL);
+    if ( *((_DWORD *)HeapHandle + 4) == -571548178 )
+      return RtlpHpFreeWithExceptionProtection(HeapHandle, BaseAddress, Flags);
+    if ( (RtlpHpHeapFeatures & 2) != 0 )
     {
-      return (unsigned int)RtlpHpFreeWithExceptionProtection(a1, a3, a2);
-    }
-    else
-    {
-      if ( (RtlpHpHeapFeatures & 2) != 0 )
+      v7 = RtlpFreeHeapInternal((int)HeapHandle, (__int64)&v9);
+      if ( v7 )
       {
-        v7 = RtlpFreeHeapInternal(a1, a3, a2, (unsigned int)&v10, (__int64)&v9);
-        if ( v7 )
-        {
-          if ( v9 )
-            _InterlockedExchangeAdd64(
-              (volatile signed __int64 *)(*(_QWORD *)(qword_180185DF8 + 8LL * v9 - 8) + 32LL),
-              -v10);
-        }
-        return v7;
+        if ( (_WORD)v9 )
+          _InterlockedExchangeAdd64(
+            (volatile signed __int64 *)(*(_QWORD *)(qword_180185DF8 + 8LL * (unsigned __int16)v9 - 8) + 32LL),
+            -v10);
       }
-      return (unsigned int)RtlpFreeHeapInternal(a1, a3, a2, 0, 0LL);
+      return v7;
     }
+    return RtlpFreeHeapInternal((int)HeapHandle, 0LL);
   }
-  return 1LL;
+  return 1;
 }

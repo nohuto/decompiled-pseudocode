@@ -1,136 +1,123 @@
 /*
- * XREFs of RtlpMuiRegGetOrAddString @ 0x1800D2A40
+ * XREFs of RtlpMuiRegGetOrAddString @ 0x1800993D0
  * Callers:
- *     RtlpMuiRegAddMultiSzToLangFallbackList @ 0x1800322A0 (RtlpMuiRegAddMultiSzToLangFallbackList.c)
- *     RtlpPopulateLanguageConfigList @ 0x180034DF0 (RtlpPopulateLanguageConfigList.c)
- *     RtlpLoadPolicyLanguageSpec @ 0x180035280 (RtlpLoadPolicyLanguageSpec.c)
- *     _RtlpMuiRegAddNeutralLanguage @ 0x1800D24B4 (_RtlpMuiRegAddNeutralLanguage.c)
- *     RtlpMuiRegGetLanguageSpec @ 0x1800D294C (RtlpMuiRegGetLanguageSpec.c)
- *     RtlpMuiRegGetFallbackLanguageInfoByName @ 0x1801124E0 (RtlpMuiRegGetFallbackLanguageInfoByName.c)
- *     _RtlMuiRegAddLIPParent @ 0x180149CC0 (_RtlMuiRegAddLIPParent.c)
- *     _RtlpMuiRegInitAnyLanguage @ 0x18014A1D8 (_RtlpMuiRegInitAnyLanguage.c)
- *     _RtlpMuiRegValidateInstalled @ 0x18014AC60 (_RtlpMuiRegValidateInstalled.c)
+ *     RtlpMuiRegAddMultiSzToLangFallbackList @ 0x180013360 (RtlpMuiRegAddMultiSzToLangFallbackList.c)
+ *     RtlpPopulateLanguageConfigList @ 0x180015070 (RtlpPopulateLanguageConfigList.c)
+ *     RtlpLoadPolicyLanguageSpec @ 0x180015500 (RtlpLoadPolicyLanguageSpec.c)
+ *     _RtlpMuiRegAddNeutralLanguage @ 0x180098E48 (_RtlpMuiRegAddNeutralLanguage.c)
+ *     RtlpMuiRegGetLanguageSpec @ 0x1800992DC (RtlpMuiRegGetLanguageSpec.c)
+ *     RtlpMuiRegGetFallbackLanguageInfoByName @ 0x1800CB340 (RtlpMuiRegGetFallbackLanguageInfoByName.c)
+ *     _RtlMuiRegAddLIPParent @ 0x180148070 (_RtlMuiRegAddLIPParent.c)
+ *     _RtlpMuiRegInitAnyLanguage @ 0x180148588 (_RtlpMuiRegInitAnyLanguage.c)
+ *     _RtlpMuiRegValidateInstalled @ 0x180149010 (_RtlpMuiRegValidateInstalled.c)
  * Callees:
- *     RtlpMuiRegGetOrAddStringToPool @ 0x1800D2C90 (RtlpMuiRegGetOrAddStringToPool.c)
- *     RtlpMuiRegGrowStringPool @ 0x18011F048 (RtlpMuiRegGrowStringPool.c)
- *     _wcsicmp @ 0x180122C70 (_wcsicmp.c)
- *     memmove @ 0x180167400 (memmove.c)
+ *     RtlpMuiRegGetOrAddStringToPool @ 0x180099620 (RtlpMuiRegGetOrAddStringToPool.c)
+ *     RtlpMuiRegGrowStringPool @ 0x18011D278 (RtlpMuiRegGrowStringPool.c)
+ *     _wcsicmp @ 0x180120EA0 (_wcsicmp.c)
+ *     memmove @ 0x1801657C0 (memmove.c)
  */
 
-__int64 __fastcall RtlpMuiRegGetOrAddString(__int64 a1, __int64 a2, char a3, __int16 *a4)
+__int64 __fastcall RtlpMuiRegGetOrAddString(__int64 a1, const wchar_t *a2, char a3, __int16 *a4)
 {
-  unsigned __int128 v4; // rax
-  const wchar_t *v5; // rsi
-  __int16 v7; // r15
-  __int64 v8; // rbx
-  unsigned int v9; // r14d
-  __int64 v10; // rdi
-  _WORD *v11; // r12
-  __int64 v12; // rbp
-  const wchar_t *v13; // rcx
-  __int64 v14; // r8
+  __int16 v6; // r15
+  __int64 v7; // rbx
+  unsigned int v8; // r14d
+  __int64 v9; // rdi
+  _WORD *v10; // r12
+  __int64 v11; // rbp
+  const wchar_t *v12; // rcx
   __int64 result; // rax
-  __int64 v16; // rbp
-  unsigned __int64 v17; // rbp
+  __int64 v14; // rbp
+  __int64 v15; // r9
+  unsigned __int64 v16; // rbp
+  __int64 v17; // rax
   __int64 v18; // rax
   __int64 v19; // r8
-  int v20; // [rsp+24h] [rbp-44h]
-  __int16 *v21; // [rsp+28h] [rbp-40h]
-  bool v22; // [rsp+70h] [rbp+8h]
-  __int16 *v24; // [rsp+88h] [rbp+20h]
+  __int16 v20; // [rsp+28h] [rbp-40h]
+  bool v21; // [rsp+70h] [rbp+8h]
 
-  *((_QWORD *)&v4 + 1) = a2;
-  v24 = a4;
-  v5 = (const wchar_t *)*((_QWORD *)&v4 + 1);
-  v7 = -1;
-  if ( !a1 || !*((_QWORD *)&v4 + 1) || !**((_WORD **)&v4 + 1) )
+  v6 = -1;
+  if ( !a1 || !a2 || !*a2 )
   {
 LABEL_28:
-    v9 = -1073741811;
+    v8 = -1073741811;
     goto LABEL_14;
   }
-  v20 = *(_DWORD *)a1 & 2;
-  v22 = a3 && (*(_DWORD *)a1 & 2) != 0;
-  v8 = *(_QWORD *)(a1 + 32);
-  v9 = 0;
-  if ( v8 )
+  v21 = a3 && (*(_DWORD *)a1 & 2) != 0;
+  v7 = *(_QWORD *)(a1 + 32);
+  v8 = 0;
+  if ( v7 )
   {
-    LODWORD(v10) = 0;
-    v11 = (_WORD *)(v8 + 6);
-    v12 = 0LL;
-    while ( (int)v10 < (unsigned __int16)*v11 )
+    LODWORD(v9) = 0;
+    v10 = (_WORD *)(v7 + 6);
+    v11 = 0LL;
+    while ( (int)v9 < (unsigned __int16)*v10 )
     {
-      v13 = (const wchar_t *)(*(_QWORD *)(v8 + 24) + 2LL * *(__int16 *)(*(_QWORD *)(v8 + 16) + v12));
-      if ( v13 == v5 || !wcsicmp(v13, v5) )
+      v12 = (const wchar_t *)(*(_QWORD *)(v7 + 24) + 2LL * *(__int16 *)(*(_QWORD *)(v7 + 16) + v11));
+      if ( v12 == a2 || !wcsicmp(v12, a2) )
       {
-        v14 = 0LL;
-        if ( (int)v10 < 0 )
+        if ( (int)v9 < 0 )
           goto LABEL_18;
         goto LABEL_13;
       }
-      LODWORD(v10) = v10 + 1;
-      v12 += 2LL;
+      LODWORD(v9) = v9 + 1;
+      v11 += 2LL;
     }
   }
-  v11 = (_WORD *)(v8 + 6);
-  v14 = 0LL;
+  v10 = (_WORD *)(v7 + 6);
 LABEL_18:
-  if ( !v8 )
+  if ( !v7 )
     goto LABEL_19;
-  v16 = -1LL;
+  v14 = -1LL;
   do
-    ++v16;
-  while ( v5[v16] );
-  a4 = (__int16 *)*(unsigned __int16 *)(v8 + 10);
-  v17 = v16 + 1;
-  v21 = a4;
-  if ( (unsigned __int64)a4 + v17 > *(unsigned __int16 *)(v8 + 8) )
+    ++v14;
+  while ( a2[v14] );
+  v15 = *(unsigned __int16 *)(v7 + 10);
+  v16 = v14 + 1;
+  v20 = *(_WORD *)(v7 + 10);
+  if ( v15 + v16 > *(unsigned __int16 *)(v7 + 8) )
   {
-    v14 = (unsigned int)v17;
-    LOWORD(v10) = -1;
+    LOWORD(v9) = -1;
   }
   else
   {
-    if ( !v22 || *v11 >= *(_WORD *)(v8 + 4) || (v4 = v17 * (unsigned __int128)2uLL, !is_mul_ok(v17, 2uLL)) )
+    if ( !v21 || *v10 >= *(_WORD *)(v7 + 4) || !is_mul_ok(v16, 2uLL) )
     {
 LABEL_19:
-      LOWORD(v10) = -1;
+      LOWORD(v9) = -1;
       goto LABEL_13;
     }
-    v10 = (unsigned __int16)*v11;
-    *(_WORD *)(v8 + 6) = *v11 + 1;
-    *(_WORD *)(v8 + 10) = (_WORD)a4 + 1;
-    memmove((void *)(*(_QWORD *)(v8 + 24) + 2LL * (__int16)a4), v5, 2 * v17);
-    *(_QWORD *)&v4 = *(_QWORD *)(v8 + 16);
-    *((_QWORD *)&v4 + 1) = v21;
-    *(_WORD *)(v8 + 10) += v17;
-    v14 = 0LL;
-    *(_WORD *)(v4 + 2 * v10) = (_WORD)v21;
+    v9 = (unsigned __int16)*v10;
+    *(_WORD *)(v7 + 6) = *v10 + 1;
+    *(_WORD *)(v7 + 10) = v15 + 1;
+    memmove((void *)(*(_QWORD *)(v7 + 24) + 2LL * (__int16)v15), a2, 2 * v16);
+    v17 = *(_QWORD *)(v7 + 16);
+    *(_WORD *)(v7 + 10) += v16;
+    *(_WORD *)(v17 + 2 * v9) = v20;
   }
 LABEL_13:
-  v7 = v10;
-  if ( (v10 & 0x8000u) == 0LL )
+  v6 = v9;
+  if ( (v9 & 0x8000u) == 0LL )
     goto LABEL_14;
   if ( !a3 )
     goto LABEL_28;
-  LOBYTE(a4) = v20 == 0;
-  v18 = RtlpMuiRegGrowStringPool(*(_QWORD *)(a1 + 32), *((_QWORD *)&v4 + 1), v14, a4);
+  v18 = RtlpMuiRegGrowStringPool(*(PVOID *)(a1 + 32));
   if ( v18 )
   {
     *(_DWORD *)a1 |= 2u;
     LOBYTE(v19) = 1;
     *(_QWORD *)(a1 + 32) = v18;
-    v7 = RtlpMuiRegGetOrAddStringToPool(v18, v5, v19, 0LL);
-    if ( v7 < 0 )
-      v9 = -1073741801;
+    v6 = RtlpMuiRegGetOrAddStringToPool(v18, a2, v19, 0LL, 0LL);
+    if ( v6 < 0 )
+      v8 = -1073741801;
   }
   else
   {
-    v9 = -1073741801;
+    v8 = -1073741801;
   }
 LABEL_14:
-  result = v9;
-  if ( v24 )
-    *v24 = v7;
+  result = v8;
+  if ( a4 )
+    *a4 = v6;
   return result;
 }

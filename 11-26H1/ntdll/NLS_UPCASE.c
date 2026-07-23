@@ -1,16 +1,16 @@
 /*
- * XREFs of NLS_UPCASE @ 0x180036DE0
+ * XREFs of NLS_UPCASE @ 0x180021F40
  * Callers:
- *     RtlLookupAtomInAtomTable @ 0x180006500 (RtlLookupAtomInAtomTable.c)
- *     RtlFindUnicodeSubstring @ 0x180036C40 (RtlFindUnicodeSubstring.c)
- *     RtlpUpcaseUnicodeStringPrivate @ 0x180036D30 (RtlpUpcaseUnicodeStringPrivate.c)
- *     RtlAddAtomToAtomTableEx @ 0x1800375D0 (RtlAddAtomToAtomTableEx.c)
- *     RtlpFreeAllAtom @ 0x180037E24 (RtlpFreeAllAtom.c)
- *     RtlGetFullPathName_Ustr @ 0x180047AE0 (RtlGetFullPathName_Ustr.c)
- *     RtlDnsHostNameToComputerName @ 0x18009FD10 (RtlDnsHostNameToComputerName.c)
- *     HashStringToDwordCaseInsensitiveLen @ 0x180120A94 (HashStringToDwordCaseInsensitiveLen.c)
- *     RtlUpcaseUnicodeToCustomCPN @ 0x18013C500 (RtlUpcaseUnicodeToCustomCPN.c)
- *     RtlIsValidOemCharacter @ 0x180147768 (RtlIsValidOemCharacter.c)
+ *     RtlAddAtomToAtomTableEx @ 0x1800012A0 (RtlAddAtomToAtomTableEx.c)
+ *     RtlpFreeAllAtom @ 0x180001AF4 (RtlpFreeAllAtom.c)
+ *     RtlFindUnicodeSubstring @ 0x180021DA0 (RtlFindUnicodeSubstring.c)
+ *     RtlpUpcaseUnicodeStringPrivate @ 0x180021E90 (RtlpUpcaseUnicodeStringPrivate.c)
+ *     RtlGetFullPathName_Ustr @ 0x180032060 (RtlGetFullPathName_Ustr.c)
+ *     RtlLookupAtomInAtomTable @ 0x180051C30 (RtlLookupAtomInAtomTable.c)
+ *     RtlDnsHostNameToComputerName @ 0x18009EE40 (RtlDnsHostNameToComputerName.c)
+ *     HashStringToDwordCaseInsensitiveLen @ 0x180120844 (HashStringToDwordCaseInsensitiveLen.c)
+ *     RtlUpcaseUnicodeToCustomCPN @ 0x18013C3C0 (RtlUpcaseUnicodeToCustomCPN.c)
+ *     RtlIsValidOemCharacter @ 0x180147618 (RtlIsValidOemCharacter.c)
  * Callees:
  *     <none>
  */

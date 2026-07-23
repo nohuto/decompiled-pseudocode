@@ -60,14 +60,14 @@ __int64 __fastcall ExpWnfDeliverThreadNotifications(__int64 a1, __int64 a2, int 
 LABEL_2:
   v5 = (signed __int64 *)(v3 + 10);
   v32 = (ULONG_PTR)(v3 + 10);
-  v6 = KeAbPreAcquire((ULONG_PTR)(v3 + 10), 0LL, 0LL);
+  v6 = KeAbPreAcquire((ULONG_PTR)(v3 + 10), 0LL, 0);
   if ( _InterlockedCompareExchange64((volatile signed __int64 *)v3 + 10, 17LL, 0LL) )
     ExfAcquirePushLockSharedEx(v3 + 10, v6, (ULONG_PTR)(v3 + 10));
   if ( v6 )
     *(_BYTE *)(v6 + 26) |= 1u;
   v7 = (volatile signed __int64 *)(v3 + 13);
   BugCheckParameter2 = (ULONG_PTR)(v3 + 13);
-  v8 = KeAbPreAcquire((ULONG_PTR)(v3 + 13), 0LL, 0LL);
+  v8 = KeAbPreAcquire((ULONG_PTR)(v3 + 13), 0LL, 0);
   v9 = v8;
   if ( _interlockedbittestandset64((volatile signed __int32 *)v3 + 26, 0LL) )
     ExfAcquirePushLockExclusiveEx(v3 + 13, v8, (ULONG_PTR)(v3 + 13));

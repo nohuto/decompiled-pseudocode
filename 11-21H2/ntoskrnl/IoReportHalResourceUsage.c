@@ -1,14 +1,14 @@
 /*
  * XREFs of IoReportHalResourceUsage @ 0x140AF7620
  * Callers:
- *     HalpReportResourceUsage @ 0x140AF77F8 (HalpReportResourceUsage.c)
+ *     sub_140AF77F8 @ 0x140AF77F8 (sub_140AF77F8.c)
  * Callees:
  *     RtlInitUnicodeString @ 0x140347630 (RtlInitUnicodeString.c)
  *     ZwClose @ 0x14041B940 (ZwClose.c)
  *     memmove @ 0x140435B40 (memmove.c)
- *     IopCreateRegistryKeyEx @ 0x14067A8B0 (IopCreateRegistryKeyEx.c)
- *     HeadlessTerminalAddResources @ 0x14081F804 (HeadlessTerminalAddResources.c)
- *     IopWriteResourceList @ 0x140821F5C (IopWriteResourceList.c)
+ *     sub_14067A8B0 @ 0x14067A8B0 (sub_14067A8B0.c)
+ *     sub_14081F804 @ 0x14081F804 (sub_14081F804.c)
+ *     sub_140821F5C @ 0x140821F5C (sub_140821F5C.c)
  *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
  */
@@ -39,11 +39,11 @@ __int64 __fastcall IoReportHalResourceUsage(UNICODE_STRING *a1, void *a2, _DWORD
   DestinationString = 0LL;
   v21 = 0LL;
   RtlInitUnicodeString(&DestinationString, L"Hardware Abstraction Layer");
-  v8 = IopCreateRegistryKeyEx(&Handle, 0LL, &CmRegistryMachineHardwareResourceMapName, 0x2001Fu, 1u, 0LL);
+  v8 = sub_14067A8B0(&Handle, 0LL, &stru_140D3CF68, 0x2001Fu, 1u, 0LL);
   if ( v8 >= 0 )
   {
     RtlInitUnicodeString(&v21, L".Raw");
-    v9 = HeadlessTerminalAddResources(a2, (unsigned int)v4, 0, &v19, &v17);
+    v9 = sub_14081F804(a2, (unsigned int)v4, 0, &v19, &v17);
     v10 = v19;
     v8 = v9;
     if ( v9 >= 0 )
@@ -54,11 +54,11 @@ __int64 __fastcall IoReportHalResourceUsage(UNICODE_STRING *a1, void *a2, _DWORD
       v12 = a2;
       if ( v19 )
         v12 = v19;
-      v8 = IopWriteResourceList(Handle, &DestinationString, a1, &v21, v12, v11);
+      v8 = sub_140821F5C(Handle, &DestinationString, a1, &v21, v12, v11);
       if ( v8 >= 0 )
       {
         RtlInitUnicodeString(&v21, L".Translated");
-        v8 = HeadlessTerminalAddResources(a3, (unsigned int)v4, 1, &P, (_DWORD *)&v17 + 1);
+        v8 = sub_14081F804(a3, (unsigned int)v4, 1, &P, (_DWORD *)&v17 + 1);
         if ( v8 >= 0 )
         {
           v13 = P;
@@ -68,7 +68,7 @@ __int64 __fastcall IoReportHalResourceUsage(UNICODE_STRING *a1, void *a2, _DWORD
             v14 = HIDWORD(v17);
             a3 = P;
           }
-          v8 = IopWriteResourceList(Handle, &DestinationString, a1, &v21, a3, v14);
+          v8 = sub_140821F5C(Handle, &DestinationString, a1, &v21, a3, v14);
           if ( v13 )
             ExFreePoolWithTag(v13, 0);
         }
@@ -82,12 +82,12 @@ __int64 __fastcall IoReportHalResourceUsage(UNICODE_STRING *a1, void *a2, _DWORD
     }
     else if ( v10 )
     {
-      IopInitHalResources = v10;
+      qword_140D68680 = v10;
     }
     else
     {
       Pool2 = (void *)ExAllocatePool2(256LL, v4, 0x20207050u);
-      IopInitHalResources = Pool2;
+      qword_140D68680 = Pool2;
       if ( Pool2 )
         memmove(Pool2, a2, v4);
       else

@@ -1,10 +1,10 @@
 /*
- * XREFs of WbValidateEncryptionSegmentArguments @ 0x1409E0158
+ * XREFs of WbValidateEncryptionSegmentArguments @ 0x1409D9F08
  * Callers:
- *     sub_1409DFFA8 @ 0x1409DFFA8 (sub_1409DFFA8.c)
+ *     sub_1409D9D58 @ 0x1409D9D58 (sub_1409D9D58.c)
  * Callees:
- *     SddlpFree @ 0x140863910 (SddlpFree.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     SddlpFree @ 0x140867F20 (SddlpFree.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall WbValidateEncryptionSegmentArguments(__int64 a1, unsigned int a2, _OWORD *a3, __int64 a4)
@@ -26,7 +26,7 @@ __int64 __fastcall WbValidateEncryptionSegmentArguments(__int64 a1, unsigned int
     v9 = 0LL;
     goto LABEL_9;
   }
-  Pool2 = ExAllocatePool2(0x100uLL);
+  Pool2 = ExAllocatePool2(0x100uLL, 0xF4uLL, 0x42524157u);
   v8 = Pool2;
   v9 = 0LL;
   if ( Pool2 )
@@ -68,7 +68,7 @@ __int64 __fastcall WbValidateEncryptionSegmentArguments(__int64 a1, unsigned int
     }
     SddlpFree((void *)v9);
     v9 = 0LL;
-    v14 = ExAllocatePool2(0x100uLL);
+    v14 = ExAllocatePool2(0x100uLL, 0xF8uLL, 0x42524157u);
     v15 = v14;
     if ( v14 )
       v9 = v14;

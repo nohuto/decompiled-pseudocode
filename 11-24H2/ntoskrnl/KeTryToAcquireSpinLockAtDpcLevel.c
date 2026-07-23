@@ -1,9 +1,9 @@
 /*
- * XREFs of KeTryToAcquireSpinLockAtDpcLevel @ 0x1404633B0
+ * XREFs of KeTryToAcquireSpinLockAtDpcLevel @ 0x140459EA0
  * Callers:
  *     <none>
  * Callees:
- *     KxTryToAcquireSpinLock @ 0x1404633C8 (KxTryToAcquireSpinLock.c)
+ *     KxTryToAcquireSpinLock @ 0x140459EB8 (KxTryToAcquireSpinLock.c)
  */
 
 BOOLEAN __stdcall KeTryToAcquireSpinLockAtDpcLevel(PKSPIN_LOCK SpinLock)

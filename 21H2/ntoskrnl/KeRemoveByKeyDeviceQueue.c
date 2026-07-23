@@ -1,10 +1,10 @@
 /*
- * XREFs of KeRemoveByKeyDeviceQueue @ 0x14051AA10
+ * XREFs of KeRemoveByKeyDeviceQueue @ 0x14051AC50
  * Callers:
- *     IopStartNextPacketByKey @ 0x140506C44 (IopStartNextPacketByKey.c)
+ *     IopStartNextPacketByKey @ 0x140506BC4 (IopStartNextPacketByKey.c)
  * Callees:
- *     KeAcquireInStackQueuedSpinLockForDpc @ 0x140516650 (KeAcquireInStackQueuedSpinLockForDpc.c)
- *     KeReleaseInStackQueuedSpinLockForDpc @ 0x1405166E0 (KeReleaseInStackQueuedSpinLockForDpc.c)
+ *     KeAcquireInStackQueuedSpinLockForDpc @ 0x140516890 (KeAcquireInStackQueuedSpinLockForDpc.c)
+ *     KeReleaseInStackQueuedSpinLockForDpc @ 0x140516920 (KeReleaseInStackQueuedSpinLockForDpc.c)
  */
 
 PKDEVICE_QUEUE_ENTRY __stdcall KeRemoveByKeyDeviceQueue(PKDEVICE_QUEUE DeviceQueue, ULONG SortKey)

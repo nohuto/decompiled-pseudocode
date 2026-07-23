@@ -80,7 +80,7 @@ __int64 __fastcall ExpQueueWorkItem(__int64 a1, _QWORD *a2, int a3, unsigned int
   v51 = CurrentIrql;
   __writecr8(2uLL);
   LODWORD(v10) = 4;
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && (unsigned __int8)CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && (unsigned __int8)CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     if ( (_BYTE)CurrentIrql == 2 )
@@ -115,7 +115,7 @@ __int64 __fastcall ExpQueueWorkItem(__int64 a1, _QWORD *a2, int a3, unsigned int
     v17 = KeGetCurrentIrql();
     v52 = v17;
     __writecr8(2uLL);
-    if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && (unsigned __int8)v17 <= 0xFu )
+    if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && (unsigned __int8)v17 <= 0xFu )
     {
       v37 = KeGetCurrentPrcb()->SchedulerAssist;
       if ( (_BYTE)v17 != 2 )
@@ -247,17 +247,17 @@ LABEL_71:
     *(_QWORD *)(v40 + 8) = v7;
 LABEL_29:
     _InterlockedAnd((volatile signed __int32 *)v15, 0xFFFFFF7F);
-    KiExitDispatcher((__int64)CurrentPrcb, 0, (struct _PROCESSOR_NUMBER)1, 0, v52);
+    KiExitDispatcher((__int64)CurrentPrcb, 0, (_PROCESSOR_NUMBER)1, 0, v52);
     if ( (unsigned __int8)ExpNewThreadNecessary(v15, *(unsigned int *)(v15 + 720)) )
       KeSetEvent((PRKEVENT)(*(_QWORD *)(*(_QWORD *)(a1 + 16) + 8LL * *v13) + 16LL), 0, 0);
     v5 = 1;
 LABEL_32:
     LOBYTE(CurrentIrql) = v51;
   }
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v44 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v44 <= 0xFu && (unsigned __int8)CurrentIrql <= 0xFu && v44 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v44 <= 0xFu && (unsigned __int8)CurrentIrql <= 0xFu && v44 >= 2u )
     {
       v45 = KeGetCurrentPrcb();
       v46 = v45->SchedulerAssist;

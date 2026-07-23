@@ -1,11 +1,11 @@
 /*
- * XREFs of PopDiagTraceKernelQueriesAllowed @ 0x140B41664
+ * XREFs of PopDiagTraceKernelQueriesAllowed @ 0x140B43674
  * Callers:
- *     PopTransitionSystemPowerStateEx @ 0x140C0B0A0 (PopTransitionSystemPowerStateEx.c)
+ *     PopTransitionSystemPowerStateEx @ 0x140C112B0 (PopTransitionSystemPowerStateEx.c)
  * Callees:
- *     EtwEventEnabled @ 0x140212D90 (EtwEventEnabled.c)
- *     EtwWrite @ 0x140212EF0 (EtwWrite.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x140212E70 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x140212FD0 (EtwWrite.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 void __fastcall PopDiagTraceKernelQueriesAllowed(unsigned __int8 a1)
@@ -15,21 +15,14 @@ void __fastcall PopDiagTraceKernelQueriesAllowed(unsigned __int8 a1)
   struct _EVENT_DATA_DESCRIPTOR UserData; // [rsp+38h] [rbp-20h] BYREF
 
   v1 = a1;
-  if ( byte_140E67628 )
+  if ( PopDiagHandleRegistered )
   {
-    if ( EtwEventEnabled(
-           *(REGHANDLE *)&PopSleepstudySessionLock.PriorityFloorCounts[16],
-           &POP_ETW_EVENT_KERNEL_QUERY_ALLOWED) )
+    if ( EtwEventEnabled(PopDiagHandle, &POP_ETW_EVENT_KERNEL_QUERY_ALLOWED) )
     {
       UserData.Ptr = (ULONGLONG)&v2;
       v2 = v1;
       *(_QWORD *)&UserData.Size = 4LL;
-      EtwWrite(
-        *(REGHANDLE *)&PopSleepstudySessionLock.PriorityFloorCounts[16],
-        &POP_ETW_EVENT_KERNEL_QUERY_ALLOWED,
-        0LL,
-        1u,
-        &UserData);
+      EtwWrite(PopDiagHandle, &POP_ETW_EVENT_KERNEL_QUERY_ALLOWED, 0LL, 1u, &UserData);
     }
   }
 }

@@ -1,7 +1,7 @@
 /*
- * XREFs of RaspScaleCoordinates @ 0x1403B3C34
+ * XREFs of RaspScaleCoordinates @ 0x1403B3DA4
  * Callers:
- *     RaspRasterize @ 0x1403B233C (RaspRasterize.c)
+ *     RaspRasterize @ 0x1403B24AC (RaspRasterize.c)
  * Callees:
  *     <none>
  */

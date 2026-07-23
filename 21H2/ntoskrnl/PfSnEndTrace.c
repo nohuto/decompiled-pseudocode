@@ -1,19 +1,19 @@
 /*
- * XREFs of PfSnEndTrace @ 0x1406CF788
+ * XREFs of PfSnEndTrace @ 0x1406A6A68
  * Callers:
- *     PfSnEndTraceWorkerThreadRoutine @ 0x1406CF770 (PfSnEndTraceWorkerThreadRoutine.c)
+ *     PfSnEndTraceWorkerThreadRoutine @ 0x1406A6A50 (PfSnEndTraceWorkerThreadRoutine.c)
  * Callees:
- *     EtwEventEnabled @ 0x14021BF30 (EtwEventEnabled.c)
- *     EtwWrite @ 0x14025DC90 (EtwWrite.c)
- *     KeReleaseGuardedMutex @ 0x140265CD0 (KeReleaseGuardedMutex.c)
- *     PfFbBufferListFlushStandby @ 0x1402D4738 (PfFbBufferListFlushStandby.c)
- *     PfSnDeactivateTrace @ 0x1402DF7CC (PfSnDeactivateTrace.c)
- *     KeSetEvent @ 0x1403435A0 (KeSetEvent.c)
- *     ExAcquireFastMutex @ 0x14034A080 (ExAcquireFastMutex.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     PfSnCleanupTrace @ 0x1406CF9CC (PfSnCleanupTrace.c)
- *     PfSnBuildDumpFromTrace @ 0x1406CFB44 (PfSnBuildDumpFromTrace.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     KeReleaseGuardedMutex @ 0x140253C70 (KeReleaseGuardedMutex.c)
+ *     PfFbBufferListFlushStandby @ 0x140273418 (PfFbBufferListFlushStandby.c)
+ *     EtwWrite @ 0x14027F7C0 (EtwWrite.c)
+ *     PfSnDeactivateTrace @ 0x140290B1C (PfSnDeactivateTrace.c)
+ *     EtwEventEnabled @ 0x1402C0830 (EtwEventEnabled.c)
+ *     KeSetEvent @ 0x14034E2F0 (KeSetEvent.c)
+ *     ExAcquireFastMutex @ 0x140354DD0 (ExAcquireFastMutex.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     PfSnCleanupTrace @ 0x1406A6CAC (PfSnCleanupTrace.c)
+ *     PfSnBuildDumpFromTrace @ 0x1406A6E24 (PfSnBuildDumpFromTrace.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PfSnEndTrace(struct _EX_RUNDOWN_REF *P)
@@ -75,7 +75,7 @@ __int64 __fastcall PfSnEndTrace(struct _EX_RUNDOWN_REF *P)
     Ptr_high = v4;
   }
   Count_low = SLODWORD(P[41].Count);
-  if ( (int)Count_low >= dword_140C502B4 )
+  if ( (int)Count_low >= dword_140C502F4 )
   {
     if ( (int)Count_low > 10 )
     {
@@ -103,45 +103,45 @@ __int64 __fastcall PfSnEndTrace(struct _EX_RUNDOWN_REF *P)
   ExFreePoolWithTag(P, 0);
   if ( v7 >= 0 )
   {
-    PfFbBufferListFlushStandby((_SLIST_ENTRY *)&stru_140C4FCA0);
-    ExAcquireFastMutex(&FastMutex);
-    if ( dword_140C504A4 == 1 )
+    PfFbBufferListFlushStandby((_SLIST_ENTRY *)&stru_140C4FCE0);
+    ExAcquireFastMutex(&Mutex);
+    if ( dword_140C504E4 == 1 )
     {
-      KeReleaseGuardedMutex(&FastMutex);
+      KeReleaseGuardedMutex(&Mutex);
       ExFreePoolWithTag(v8, 0);
     }
     else
     {
-      v9 = qword_140C50460;
-      if ( *(PVOID **)qword_140C50460 != &qword_140C50458 )
+      v9 = qword_140C504A0;
+      if ( *(PVOID **)qword_140C504A0 != &qword_140C50498 )
 LABEL_29:
         __fastfail(3u);
-      v8[1] = qword_140C50460;
-      *v8 = &qword_140C50458;
+      v8[1] = qword_140C504A0;
+      *v8 = &qword_140C50498;
       *v9 = v8;
-      v10 = dword_140C504A0 + 1;
-      qword_140C50460 = v8;
+      v10 = dword_140C504E0 + 1;
+      qword_140C504A0 = v8;
       while ( 1 )
       {
-        dword_140C504A0 = v10;
-        if ( v10 <= dword_140C5014C )
+        dword_140C504E0 = v10;
+        if ( v10 <= dword_140C5018C )
           break;
-        v12 = qword_140C50458;
-        if ( qword_140C50458 == &qword_140C50458 )
+        v12 = qword_140C50498;
+        if ( qword_140C50498 == &qword_140C50498 )
           break;
-        if ( *((PVOID **)qword_140C50458 + 1) != &qword_140C50458 )
+        if ( *((PVOID **)qword_140C50498 + 1) != &qword_140C50498 )
           goto LABEL_29;
-        v13 = *(_QWORD *)qword_140C50458;
-        if ( *(PVOID *)(*(_QWORD *)qword_140C50458 + 8LL) != qword_140C50458 )
+        v13 = *(_QWORD *)qword_140C50498;
+        if ( *(PVOID *)(*(_QWORD *)qword_140C50498 + 8LL) != qword_140C50498 )
           goto LABEL_29;
-        qword_140C50458 = *(PVOID *)qword_140C50458;
-        *(_QWORD *)(v13 + 8) = &qword_140C50458;
+        qword_140C50498 = *(PVOID *)qword_140C50498;
+        *(_QWORD *)(v13 + 8) = &qword_140C50498;
         ExFreePoolWithTag(v12, 0);
-        v10 = dword_140C504A0 - 1;
+        v10 = dword_140C504E0 - 1;
       }
-      KeReleaseGuardedMutex(&FastMutex);
-      if ( qword_140C504A8 )
-        KeSetEvent(qword_140C504A8, 0, 0);
+      KeReleaseGuardedMutex(&Mutex);
+      if ( qword_140C504E8 )
+        KeSetEvent(qword_140C504E8, 0, 0);
       v7 = 0;
     }
   }

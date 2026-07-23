@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlTraceDatabaseCreate @ 0x14061FA80
+ * XREFs of RtlTraceDatabaseCreate @ 0x140622AD0
  * Callers:
  *     <none>
  * Callees:
- *     RtlpTraceDatabaseAllocate @ 0x14061FE48 (RtlpTraceDatabaseAllocate.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     RtlpTraceDatabaseAllocate @ 0x140622E98 (RtlpTraceDatabaseAllocate.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall RtlTraceDatabaseCreate(

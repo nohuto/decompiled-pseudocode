@@ -1,5 +1,5 @@
 /*
- * XREFs of PopIsDirectedDripsEnabled @ 0x140869CA4
+ * XREFs of PopIsDirectedDripsEnabled @ 0x140869EE4
  * Callers:
  *     PopDripsWatchdogInitializeActions @ 0x140B968BC (PopDripsWatchdogInitializeActions.c)
  * Callees:

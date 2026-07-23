@@ -1,29 +1,29 @@
 /*
- * XREFs of HvlPhase2Initialize @ 0x140582B80
+ * XREFs of HvlPhase2Initialize @ 0x14057FF00
  * Callers:
- *     IoInitSystemPreDrivers @ 0x140C1AA0C (IoInitSystemPreDrivers.c)
+ *     IoInitSystemPreDrivers @ 0x140C1CA4C (IoInitSystemPreDrivers.c)
  * Callees:
- *     KeResetEvent @ 0x14028EEC0 (KeResetEvent.c)
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     ExNotifyWithProcessing @ 0x14044B6C4 (ExNotifyWithProcessing.c)
- *     ExRegisterCallback @ 0x1404B3D50 (ExRegisterCallback.c)
- *     HvlpQueryHypervisorSchedulerType @ 0x140585C74 (HvlpQueryHypervisorSchedulerType.c)
- *     HvlpInitializeHvCrashdumpPhase2 @ 0x14058AD7C (HvlpInitializeHvCrashdumpPhase2.c)
- *     HvlpInitializeSvmIommuSupport @ 0x14058AEE8 (HvlpInitializeSvmIommuSupport.c)
- *     HvlpCheckTscSync @ 0x14058B060 (HvlpCheckTscSync.c)
- *     HvlpEtwRegister @ 0x14058B1A4 (HvlpEtwRegister.c)
- *     HvlpLogGuestStateScrubbingStatus @ 0x14058B1EC (HvlpLogGuestStateScrubbingStatus.c)
- *     HvlpLogIommuInitStatus @ 0x14058B484 (HvlpLogIommuInitStatus.c)
- *     HvlpLogProcessorStartupFailure @ 0x14058B67C (HvlpLogProcessorStartupFailure.c)
- *     HvlpWriteEventLog @ 0x14058B744 (HvlpWriteEventLog.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     EtwUnregister @ 0x140A00060 (EtwUnregister.c)
- *     ExCreateCallback @ 0x140A64310 (ExCreateCallback.c)
- *     IoCreateNotificationEvent @ 0x140A69020 (IoCreateNotificationEvent.c)
- *     PoRegisterPowerSettingCallback @ 0x140A6B150 (PoRegisterPowerSettingCallback.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     HvlpDiscoverTopologyComplete @ 0x140C196CC (HvlpDiscoverTopologyComplete.c)
+ *     KeResetEvent @ 0x14029EAC0 (KeResetEvent.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     ExNotifyWithProcessing @ 0x140442804 (ExNotifyWithProcessing.c)
+ *     ExRegisterCallback @ 0x1404AE560 (ExRegisterCallback.c)
+ *     HvlpQueryHypervisorSchedulerType @ 0x140582FF4 (HvlpQueryHypervisorSchedulerType.c)
+ *     HvlpInitializeHvCrashdumpPhase2 @ 0x14058806C (HvlpInitializeHvCrashdumpPhase2.c)
+ *     HvlpInitializeSvmIommuSupport @ 0x1405881D8 (HvlpInitializeSvmIommuSupport.c)
+ *     HvlpCheckTscSync @ 0x140588350 (HvlpCheckTscSync.c)
+ *     HvlpEtwRegister @ 0x140588494 (HvlpEtwRegister.c)
+ *     HvlpLogGuestStateScrubbingStatus @ 0x1405884DC (HvlpLogGuestStateScrubbingStatus.c)
+ *     HvlpLogIommuInitStatus @ 0x140588774 (HvlpLogIommuInitStatus.c)
+ *     HvlpLogProcessorStartupFailure @ 0x14058896C (HvlpLogProcessorStartupFailure.c)
+ *     HvlpWriteEventLog @ 0x140588A34 (HvlpWriteEventLog.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     EtwUnregister @ 0x140A52EC0 (EtwUnregister.c)
+ *     ExCreateCallback @ 0x140A5CC10 (ExCreateCallback.c)
+ *     IoCreateNotificationEvent @ 0x140A623D0 (IoCreateNotificationEvent.c)
+ *     PoRegisterPowerSettingCallback @ 0x140A646B0 (PoRegisterPowerSettingCallback.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     HvlpDiscoverTopologyComplete @ 0x140C1B6CC (HvlpDiscoverTopologyComplete.c)
  */
 
 NTSTATUS __fastcall HvlPhase2Initialize(__int64 a1)
@@ -157,17 +157,20 @@ LABEL_24:
         while ( v15 );
       }
       HvlpBootPagesInfo = 0LL;
-      qword_140F8E070 = IoCreateNotificationEvent(&EventName, &EventHandle);
+      qword_140F8E250 = IoCreateNotificationEvent(&EventName, &EventHandle);
       if ( *(_DWORD *)(*(_QWORD *)(a1 + 240) + 2552LL) )
       {
-        byte_140F8E068 = 1;
-        qword_140F8E080 = (PVOID)ExAllocatePool2(0x100uLL);
-        if ( !qword_140F8E080 )
+        byte_140F8E248 = 1;
+        qword_140F8E260 = (PVOID)ExAllocatePool2(
+                                   0x100uLL,
+                                   (unsigned int)(8 * *(_DWORD *)(*(_QWORD *)(a1 + 240) + 2552LL) + 8),
+                                   0x204C5648u);
+        if ( !qword_140F8E260 )
           return -1073741670;
         v16 = *(_DWORD *)(*(_QWORD *)(a1 + 240) + 2552LL);
-        *(_DWORD *)qword_140F8E080 = v16;
-        memmove((char *)qword_140F8E080 + 8, *(const void **)(*(_QWORD *)(a1 + 240) + 2544LL), 8LL * v16);
-        KeResetEvent(qword_140F8E070);
+        *(_DWORD *)qword_140F8E260 = v16;
+        memmove((char *)qword_140F8E260 + 8, *(const void **)(*(_QWORD *)(a1 + 240) + 2544LL), 8LL * v16);
+        KeResetEvent(qword_140F8E250);
       }
       return 0;
     }

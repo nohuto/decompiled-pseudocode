@@ -1,9 +1,9 @@
 /*
- * XREFs of _mbstrlen @ 0x14019980C
+ * XREFs of _mbstrlen @ 0x14019994C
  * Callers:
- *     mbstowcs @ 0x140196090 (mbstowcs.c)
+ *     mbstowcs @ 0x1401961D0 (mbstowcs.c)
  * Callees:
- *     RtlAnsiCharToUnicodeChar @ 0x14068D5F0 (RtlAnsiCharToUnicodeChar.c)
+ *     RtlAnsiCharToUnicodeChar @ 0x14068E7B0 (RtlAnsiCharToUnicodeChar.c)
  */
 
 size_t __cdecl mbstrlen(const char *Str)

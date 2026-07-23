@@ -1,23 +1,23 @@
 /*
- * XREFs of HalpAllocateCommonBufferDmaThin @ 0x140348C34
+ * XREFs of HalpAllocateCommonBufferDmaThin @ 0x14034ACB4
  * Callers:
- *     HalAllocateCommonBufferDmaThinEx @ 0x140348120 (HalAllocateCommonBufferDmaThinEx.c)
- *     HalAllocateCommonBufferWithBoundsDmaThin @ 0x1404FAF60 (HalAllocateCommonBufferWithBoundsDmaThin.c)
- *     HalAllocateDomainCommonBufferDmaThin @ 0x14058AF60 (HalAllocateDomainCommonBufferDmaThin.c)
+ *     HalAllocateCommonBufferDmaThinEx @ 0x14034A1A0 (HalAllocateCommonBufferDmaThinEx.c)
+ *     HalAllocateCommonBufferWithBoundsDmaThin @ 0x1404F4570 (HalAllocateCommonBufferWithBoundsDmaThin.c)
+ *     HalAllocateDomainCommonBufferDmaThin @ 0x14058D6E0 (HalAllocateDomainCommonBufferDmaThin.c)
  * Callees:
- *     MmGetPhysicalAddress @ 0x14024D8F0 (MmGetPhysicalAddress.c)
- *     MmUnmapLockedPages @ 0x140281690 (MmUnmapLockedPages.c)
- *     HalpDmaDereferenceDomainObject @ 0x1403444A8 (HalpDmaDereferenceDomainObject.c)
- *     MmFreeContiguousMemory @ 0x140344580 (MmFreeContiguousMemory.c)
- *     MiFreePagesFromMdl @ 0x1403454C0 (MiFreePagesFromMdl.c)
- *     MmAllocatePagesForMdlEx @ 0x140348200 (MmAllocatePagesForMdlEx.c)
- *     MmAllocatePartitionNodePagesForMdlEx @ 0x140348260 (MmAllocatePartitionNodePagesForMdlEx.c)
- *     HalpAllocateCommonBufferEntry @ 0x140348EB0 (HalpAllocateCommonBufferEntry.c)
- *     MmAllocateContiguousMemoryEx @ 0x140348FD0 (MmAllocateContiguousMemoryEx.c)
- *     HalpDmaReferenceDomainObject @ 0x14034914C (HalpDmaReferenceDomainObject.c)
- *     MmMapLockedPagesSpecifyCache @ 0x14035D330 (MmMapLockedPagesSpecifyCache.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     MmGetPhysicalAddress @ 0x14024F250 (MmGetPhysicalAddress.c)
+ *     MmUnmapLockedPages @ 0x140280C00 (MmUnmapLockedPages.c)
+ *     HalpDmaDereferenceDomainObject @ 0x140346528 (HalpDmaDereferenceDomainObject.c)
+ *     MmFreeContiguousMemory @ 0x140346600 (MmFreeContiguousMemory.c)
+ *     MiFreePagesFromMdl @ 0x140347540 (MiFreePagesFromMdl.c)
+ *     MmAllocatePagesForMdlEx @ 0x14034A280 (MmAllocatePagesForMdlEx.c)
+ *     MmAllocatePartitionNodePagesForMdlEx @ 0x14034A2E0 (MmAllocatePartitionNodePagesForMdlEx.c)
+ *     HalpAllocateCommonBufferEntry @ 0x14034AF30 (HalpAllocateCommonBufferEntry.c)
+ *     MmAllocateContiguousMemoryEx @ 0x14034B050 (MmAllocateContiguousMemoryEx.c)
+ *     HalpDmaReferenceDomainObject @ 0x14034B1CC (HalpDmaReferenceDomainObject.c)
+ *     MmMapLockedPagesSpecifyCache @ 0x14035F0D0 (MmMapLockedPagesSpecifyCache.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall HalpAllocateCommonBufferDmaThin(

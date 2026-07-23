@@ -1,28 +1,38 @@
 /*
- * XREFs of vDbgPrintExWithPrefixInternal @ 0x1800DE698
+ * XREFs of vDbgPrintExWithPrefixInternal @ 0x1800DB608
  * Callers:
- *     DbgPrintEx @ 0x1800413D0 (DbgPrintEx.c)
- *     LdrpLogDbgPrint @ 0x18011F07C (LdrpLogDbgPrint.c)
- *     DbgPrintReturnControlC @ 0x18013B990 (DbgPrintReturnControlC.c)
- *     vDbgPrintEx @ 0x18013BA50 (vDbgPrintEx.c)
- *     vDbgPrintExWithPrefix @ 0x18013BA80 (vDbgPrintExWithPrefix.c)
+ *     DbgPrintEx @ 0x18002B940 (DbgPrintEx.c)
+ *     LdrpLogDbgPrint @ 0x18011EE2C (LdrpLogDbgPrint.c)
+ *     DbgPrintReturnControlC @ 0x18013B850 (DbgPrintReturnControlC.c)
+ *     vDbgPrintEx @ 0x18013B910 (vDbgPrintEx.c)
+ *     vDbgPrintExWithPrefix @ 0x18013B940 (vDbgPrintExWithPrefix.c)
  * Callees:
- *     vDbgPrintExWithPrefixInternalHelper @ 0x1800DE744 (vDbgPrintExWithPrefixInternalHelper.c)
+ *     vDbgPrintExWithPrefixInternalHelper @ 0x1800DB6B4 (vDbgPrintExWithPrefixInternalHelper.c)
  */
 
-__int64 vDbgPrintExWithPrefixInternal(int a1, int a2, int a3, int a4, __int64 a5, char a6, ...)
+__int64 vDbgPrintExWithPrefixInternal(
+        __int64 a1,
+        unsigned int a2,
+        unsigned int a3,
+        __int64 a4,
+        __int64 a5,
+        char a6,
+        ...)
 {
   unsigned int v6; // ebx
   bool v7; // cf
   __int64 result; // rax
-  __int64 v13; // [rsp+38h] [rbp-20h]
+  int v13; // [rsp+28h] [rbp-30h]
+  int v14; // [rsp+38h] [rbp-20h]
+  __int64 v15; // [rsp+40h] [rbp-18h]
 
   v6 = 128;
   v7 = 1;
   do
   {
-    LOBYTE(v13) = v7;
-    result = vDbgPrintExWithPrefixInternalHelper(a1, a2, a3, a4, a5, a6, v6, v13);
+    LOBYTE(v14) = v7;
+    LOBYTE(v13) = a6;
+    result = vDbgPrintExWithPrefixInternalHelper(a1, a2, a3, a4, a5, v13, v6, v14, v15);
     if ( (_DWORD)result != -2147483643 )
       break;
     if ( v6 >= 0x200 )

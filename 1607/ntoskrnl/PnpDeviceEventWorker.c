@@ -1,24 +1,24 @@
 /*
- * XREFs of PnpDeviceEventWorker @ 0x1403EF9F0
+ * XREFs of PnpDeviceEventWorker @ 0x14048B32C
  * Callers:
  *     <none>
  * Callees:
- *     EtwActivityIdControlKernel @ 0x140007EA8 (EtwActivityIdControlKernel.c)
- *     KeReleaseGuardedMutex @ 0x14000CA40 (KeReleaseGuardedMutex.c)
- *     ExAcquireFastMutex @ 0x14002D0A0 (ExAcquireFastMutex.c)
- *     RtlInitUnicodeString @ 0x14002DC60 (RtlInitUnicodeString.c)
- *     KeReleaseMutex @ 0x140055FE0 (KeReleaseMutex.c)
- *     KeSetEvent @ 0x1400562D0 (KeSetEvent.c)
- *     KeWaitForSingleObject @ 0x14005C880 (KeWaitForSingleObject.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
+ *     KeReleaseGuardedMutex @ 0x14000C5C0 (KeReleaseGuardedMutex.c)
+ *     ExAcquireFastMutex @ 0x14002CC20 (ExAcquireFastMutex.c)
+ *     RtlInitUnicodeString @ 0x14002D7E0 (RtlInitUnicodeString.c)
+ *     KeReleaseMutex @ 0x140055B60 (KeReleaseMutex.c)
+ *     KeSetEvent @ 0x140055E50 (KeSetEvent.c)
+ *     KeWaitForSingleObject @ 0x14005C400 (KeWaitForSingleObject.c)
+ *     EtwActivityIdControlKernel @ 0x140086AF0 (EtwActivityIdControlKernel.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
- *     PnpProcessCustomDeviceEvent @ 0x1403EF2C8 (PnpProcessCustomDeviceEvent.c)
- *     PnpProcessTargetDeviceEvent @ 0x1403EF8F0 (PnpProcessTargetDeviceEvent.c)
- *     PnpProcessDeferredRegistrations @ 0x1403EFCC0 (PnpProcessDeferredRegistrations.c)
- *     PnpCompleteDeviceEvent @ 0x1403EFD70 (PnpCompleteDeviceEvent.c)
- *     PiUEventNotifyUserMode @ 0x1403EFE78 (PiUEventNotifyUserMode.c)
- *     PnpNotifyDeviceClassChange @ 0x1403F0E40 (PnpNotifyDeviceClassChange.c)
- *     PnpNotifyHwProfileChange @ 0x14062BB04 (PnpNotifyHwProfileChange.c)
+ *     PnpNotifyDeviceClassChange @ 0x1404891B8 (PnpNotifyDeviceClassChange.c)
+ *     PnpProcessCustomDeviceEvent @ 0x1404895A4 (PnpProcessCustomDeviceEvent.c)
+ *     PnpProcessTargetDeviceEvent @ 0x14048A17C (PnpProcessTargetDeviceEvent.c)
+ *     PnpProcessDeferredRegistrations @ 0x14048CB60 (PnpProcessDeferredRegistrations.c)
+ *     PnpCompleteDeviceEvent @ 0x14048D49C (PnpCompleteDeviceEvent.c)
+ *     PiUEventNotifyUserMode @ 0x14048D5A4 (PiUEventNotifyUserMode.c)
+ *     PnpNotifyHwProfileChange @ 0x14062BBB8 (PnpNotifyHwProfileChange.c)
  */
 
 void __fastcall PnpDeviceEventWorker(PVOID P)
@@ -120,7 +120,7 @@ void __fastcall PnpDeviceEventWorker(PVOID P)
         if ( !v12 )
         {
           RtlInitUnicodeString(&DestinationString, (PCWSTR)v5 + 84);
-          PnpNotifyDeviceClassChange(v5 + 13, v5 + 19, &DestinationString);
+          PnpNotifyDeviceClassChange((__int128 *)(v5 + 13), v5 + 19, (__int64)&DestinationString);
 LABEL_33:
           PiUEventNotifyUserMode(v5);
 LABEL_29:
@@ -129,7 +129,7 @@ LABEL_29:
         }
         if ( v12 == 1 )
         {
-          v13 = PnpProcessCustomDeviceEvent(&Pa);
+          v13 = PnpProcessCustomDeviceEvent((__int64 *)&Pa);
 LABEL_27:
           v9 = v13;
           goto LABEL_28;

@@ -1,13 +1,13 @@
 /*
- * XREFs of VfSetVerifierInformation @ 0x140B9C4FC
+ * XREFs of VfSetVerifierInformation @ 0x140B9E4FC
  * Callers:
- *     NtSetSystemInformation @ 0x140AE1300 (NtSetSystemInformation.c)
- *     VfFaultsSetParameters @ 0x140B967F4 (VfFaultsSetParameters.c)
+ *     NtSetSystemInformation @ 0x140AE2BE0 (NtSetSystemInformation.c)
+ *     VfFaultsSetParameters @ 0x140B987F4 (VfFaultsSetParameters.c)
  * Callees:
- *     KeReleaseMutex @ 0x1403379B0 (KeReleaseMutex.c)
- *     VfInitSystemNoRebootNeeded @ 0x140B83980 (VfInitSystemNoRebootNeeded.c)
- *     VfDriverLock @ 0x140B8A4B4 (VfDriverLock.c)
- *     VfSettingsCheckForChanges @ 0x140B9B260 (VfSettingsCheckForChanges.c)
+ *     KeReleaseMutex @ 0x1402DEA60 (KeReleaseMutex.c)
+ *     VfInitSystemNoRebootNeeded @ 0x140B85980 (VfInitSystemNoRebootNeeded.c)
+ *     VfDriverLock @ 0x140B8C4B4 (VfDriverLock.c)
+ *     VfSettingsCheckForChanges @ 0x140B9D260 (VfSettingsCheckForChanges.c)
  */
 
 __int64 __fastcall VfSetVerifierInformation(unsigned int *a1, unsigned int a2)
@@ -23,7 +23,7 @@ __int64 __fastcall VfSetVerifierInformation(unsigned int *a1, unsigned int a2)
 
   if ( a2 < 4 )
     return 3221225476LL;
-  if ( (_DWORD)InitSafeBootMode )
+  if ( InitSafeBootMode )
     return 3221226335LL;
   for ( i = 0LL; (unsigned int)i < 2; i = (unsigned int)(i + 1) )
   {
@@ -41,7 +41,7 @@ __int64 __fastcall VfSetVerifierInformation(unsigned int *a1, unsigned int a2)
   if ( v11 != MmVerifierData )
   {
     VfSettingsCheckForChanges(MmVerifierData, v9, v10, v11);
-    ++dword_140F03F00;
+    ++dword_140F04860;
     MmVerifierData = v11;
     *a1 = v11;
   }

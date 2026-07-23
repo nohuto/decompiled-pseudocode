@@ -1,14 +1,14 @@
 /*
- * XREFs of ExpGetExtensionHostForCrossVmObject @ 0x140B6A608
+ * XREFs of ExpGetExtensionHostForCrossVmObject @ 0x140B6D818
  * Callers:
- *     NtAcquireCrossVmMutant @ 0x140841E80 (NtAcquireCrossVmMutant.c)
- *     ExpObCloseCrossVmEvent @ 0x140846380 (ExpObCloseCrossVmEvent.c)
- *     ExpObCloseCrossVmMutant @ 0x140846400 (ExpObCloseCrossVmMutant.c)
- *     ExpObDeleteCrossVmEvent @ 0x140846480 (ExpObDeleteCrossVmEvent.c)
- *     ExpObDeleteCrossVmMutant @ 0x1408464D0 (ExpObDeleteCrossVmMutant.c)
- *     ExpPulseCrossVmEvent @ 0x140846514 (ExpPulseCrossVmEvent.c)
+ *     NtAcquireCrossVmMutant @ 0x140847EB0 (NtAcquireCrossVmMutant.c)
+ *     ExpObCloseCrossVmEvent @ 0x14084C5E0 (ExpObCloseCrossVmEvent.c)
+ *     ExpObCloseCrossVmMutant @ 0x14084C660 (ExpObCloseCrossVmMutant.c)
+ *     ExpObDeleteCrossVmEvent @ 0x14084C6E0 (ExpObDeleteCrossVmEvent.c)
+ *     ExpObDeleteCrossVmMutant @ 0x14084C730 (ExpObDeleteCrossVmMutant.c)
+ *     ExpPulseCrossVmEvent @ 0x14084C774 (ExpPulseCrossVmEvent.c)
  * Callees:
- *     ExGetExtensionTable @ 0x14049B7B0 (ExGetExtensionTable.c)
+ *     ExGetExtensionTable @ 0x140495300 (ExGetExtensionTable.c)
  */
 
 unsigned __int64 __fastcall ExpGetExtensionHostForCrossVmObject(__int64 a1, _QWORD *a2)

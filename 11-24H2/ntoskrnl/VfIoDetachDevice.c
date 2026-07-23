@@ -1,14 +1,14 @@
 /*
- * XREFs of VfIoDetachDevice @ 0x140B9235C
+ * XREFs of VfIoDetachDevice @ 0x140B9435C
  * Callers:
- *     IovDetachDevice @ 0x140B8274C (IovDetachDevice.c)
+ *     IovDetachDevice @ 0x140B8474C (IovDetachDevice.c)
  * Callees:
- *     RtlStringCbPrintfA @ 0x14053A038 (RtlStringCbPrintfA.c)
- *     VfUtilDbgPrint @ 0x14061029C (VfUtilDbgPrint.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     IovUtilFlushStackCache @ 0x140B929FC (IovUtilFlushStackCache.c)
- *     ViErrorDisplayDescription @ 0x140B9362C (ViErrorDisplayDescription.c)
- *     ViErrorFinishReport @ 0x140B9367C (ViErrorFinishReport.c)
+ *     RtlStringCbPrintfA @ 0x140537878 (RtlStringCbPrintfA.c)
+ *     VfUtilDbgPrint @ 0x14060E85C (VfUtilDbgPrint.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     IovUtilFlushStackCache @ 0x140B949FC (IovUtilFlushStackCache.c)
+ *     ViErrorDisplayDescription @ 0x140B9562C (ViErrorDisplayDescription.c)
+ *     ViErrorFinishReport @ 0x140B9567C (ViErrorFinishReport.c)
  */
 
 __int64 __fastcall VfIoDetachDevice(_QWORD *a1, const void *a2)

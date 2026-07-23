@@ -3,9 +3,9 @@
  * Callers:
  *     CmInitSystem1 @ 0x1407ADA6C (CmInitSystem1.c)
  * Callees:
- *     NtSetValueKey @ 0x140403098 (NtSetValueKey.c)
- *     NtCreateKey @ 0x1404640C8 (NtCreateKey.c)
- *     NtClose @ 0x14050B0E0 (NtClose.c)
+ *     NtSetValueKey @ 0x140401F58 (NtSetValueKey.c)
+ *     NtCreateKey @ 0x140462F98 (NtCreateKey.c)
+ *     NtClose @ 0x1404EE070 (NtClose.c)
  */
 
 __int64 __fastcall CmpSetNetworkValue(__int64 a1)

@@ -1,18 +1,18 @@
 /*
- * XREFs of KiTpEmulateGroup0Instruction @ 0x140A123B4
+ * XREFs of KiTpEmulateGroup0Instruction @ 0x140A133B4
  * Callers:
- *     KiTpEmulateInstruction @ 0x140A128C0 (KiTpEmulateInstruction.c)
+ *     KiTpEmulateInstruction @ 0x140A138C0 (KiTpEmulateInstruction.c)
  * Callees:
- *     KiTpAccessMemory @ 0x140A12008 (KiTpAccessMemory.c)
- *     KiTpDecodeModRm @ 0x140A12168 (KiTpDecodeModRm.c)
- *     KiTpDecodeModRmOperand @ 0x140A12254 (KiTpDecodeModRmOperand.c)
- *     KiTpGetRegisterAddressByIndex @ 0x140A13254 (KiTpGetRegisterAddressByIndex.c)
- *     KiTpReadOperandValue @ 0x140A133EC (KiTpReadOperandValue.c)
- *     KiTpSetFlagsAdd @ 0x140A13450 (KiTpSetFlagsAdd.c)
- *     KiTpSetFlagsSub @ 0x140A1353C (KiTpSetFlagsSub.c)
- *     KiTpSetFlagsZeroSignParity @ 0x140A13640 (KiTpSetFlagsZeroSignParity.c)
- *     KiTpSignExtendOperandValue @ 0x140A136E0 (KiTpSignExtendOperandValue.c)
- *     KiTpWriteRegisterValue @ 0x140A1370C (KiTpWriteRegisterValue.c)
+ *     KiTpAccessMemory @ 0x140A13008 (KiTpAccessMemory.c)
+ *     KiTpDecodeModRm @ 0x140A13168 (KiTpDecodeModRm.c)
+ *     KiTpDecodeModRmOperand @ 0x140A13254 (KiTpDecodeModRmOperand.c)
+ *     KiTpGetRegisterAddressByIndex @ 0x140A14254 (KiTpGetRegisterAddressByIndex.c)
+ *     KiTpReadOperandValue @ 0x140A143EC (KiTpReadOperandValue.c)
+ *     KiTpSetFlagsAdd @ 0x140A14450 (KiTpSetFlagsAdd.c)
+ *     KiTpSetFlagsSub @ 0x140A1453C (KiTpSetFlagsSub.c)
+ *     KiTpSetFlagsZeroSignParity @ 0x140A14640 (KiTpSetFlagsZeroSignParity.c)
+ *     KiTpSignExtendOperandValue @ 0x140A146E0 (KiTpSignExtendOperandValue.c)
+ *     KiTpWriteRegisterValue @ 0x140A1470C (KiTpWriteRegisterValue.c)
  */
 
 __int64 __fastcall KiTpEmulateGroup0Instruction(_BYTE *a1, __int64 a2, char a3, int *a4)

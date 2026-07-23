@@ -1,13 +1,13 @@
 /*
- * XREFs of LdrpFusionManifestCodePages @ 0x1800AC848
+ * XREFs of LdrpFusionManifestCodePages @ 0x180009898
  * Callers:
- *     LdrpInitializeNlsInfo @ 0x1800AC560 (LdrpInitializeNlsInfo.c)
+ *     LdrpInitializeNlsInfo @ 0x1800095A8 (LdrpInitializeNlsInfo.c)
  * Callees:
- *     RtlQueryActivationContextApplicationSettings @ 0x1800AC950 (RtlQueryActivationContextApplicationSettings.c)
- *     RtlpGetProcessCodepagesForLocale @ 0x18011ED5C (RtlpGetProcessCodepagesForLocale.c)
- *     MayBeLocaleName @ 0x18011FCAC (MayBeLocaleName.c)
- *     wcscmp @ 0x180127720 (wcscmp.c)
- *     __security_check_cookie @ 0x1801659C0 (__security_check_cookie.c)
+ *     RtlQueryActivationContextApplicationSettings @ 0x1800099A0 (RtlQueryActivationContextApplicationSettings.c)
+ *     RtlpGetProcessCodepagesForLocale @ 0x18011CF8C (RtlpGetProcessCodepagesForLocale.c)
+ *     MayBeLocaleName @ 0x18011DEDC (MayBeLocaleName.c)
+ *     wcscmp @ 0x180125950 (wcscmp.c)
+ *     __security_check_cookie @ 0x180163D80 (__security_check_cookie.c)
  */
 
 bool __fastcall LdrpFusionManifestCodePages(_DWORD *a1, _DWORD *a2)
@@ -17,14 +17,14 @@ bool __fastcall LdrpFusionManifestCodePages(_DWORD *a1, _DWORD *a2)
 
   *a1 = 0;
   *a2 = 0;
-  if ( (int)RtlQueryActivationContextApplicationSettings(
-              0LL,
-              0LL,
-              L"http://schemas.microsoft.com/SMI/2019/WindowsSettings",
-              L"activeCodePage",
-              String1,
-              15LL,
-              0LL) < 0 )
+  if ( RtlQueryActivationContextApplicationSettings(
+         0,
+         0LL,
+         (PWSTR)L"http://schemas.microsoft.com/SMI/2019/WindowsSettings",
+         (PWSTR)L"activeCodePage",
+         String1,
+         0xFuLL,
+         0LL) < 0 )
     goto LABEL_2;
   if ( !wcscmp(String1, L"UTF-8") )
   {

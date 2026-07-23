@@ -16,7 +16,7 @@
  */
 
 __int64 __fastcall IoFillDumpHeader(
-        _DWORD *a1,
+        _NT_PRODUCT_TYPE *a1,
         int a2,
         int a3,
         __int64 a4,
@@ -25,7 +25,7 @@ __int64 __fastcall IoFillDumpHeader(
         __int64 a7,
         __int64 a8)
 {
-  void *v10; // r11
+  _NT_PRODUCT_TYPE *v10; // r11
   unsigned __int64 v11; // r10
   unsigned __int64 v12; // rcx
   size_t v13; // r8
@@ -37,7 +37,6 @@ __int64 __fastcall IoFillDumpHeader(
   __int64 v19; // r9
   signed __int64 v20; // rcx
   unsigned __int64 QuadPart; // rax
-  __int64 v22; // rdx
   __int64 result; // rax
 
   v10 = a1;
@@ -50,27 +49,27 @@ __int64 __fastcall IoFillDumpHeader(
   }
   memset64(v10, 0x4547415045474150uLL, v11 >> 1);
   if ( (v11 & 1) != 0 )
-    *((_DWORD *)v10 + v11 - 1) = 1162297680;
+    v10[v11 - 1] = 1162297680;
   *((_QWORD *)a1 + 9) = a5;
   *((_QWORD *)a1 + 10) = a6;
   *((_QWORD *)a1 + 11) = a7;
-  a1[1] = 875976004;
-  a1[14] = a3;
+  *((_DWORD *)a1 + 1) = 875976004;
+  *((_DWORD *)a1 + 14) = a3;
   *((_QWORD *)a1 + 8) = a4;
   if ( a8 )
     v12 = *(_QWORD *)(*(_QWORD *)(a8 + 184) + 40LL);
   else
     v12 = __readcr3();
   *((_QWORD *)a1 + 2) = v12 & 0xFFFFFFFFFFFFF000uLL;
-  a1[12] = 34404;
-  a1[998] = a2;
+  *((_DWORD *)a1 + 12) = 34404;
+  *((_DWORD *)a1 + 998) = a2;
   *((_QWORD *)a1 + 3) = MmPfnDatabase;
   *((_QWORD *)a1 + 4) = &PsLoadedModuleList;
   *((_QWORD *)a1 + 5) = &PsActiveProcessHead;
   *((_QWORD *)a1 + 16) = &KdDebuggerDataBlock;
-  a1[13] = KeQueryActiveProcessorCountEx(0xFFFFu);
-  a1[2] = (unsigned int)NtBuildNumber >> 28;
-  a1[3] = (unsigned __int16)NtBuildNumber;
+  *((_DWORD *)a1 + 13) = KeQueryActiveProcessorCountEx(0xFFFFu);
+  *((_DWORD *)a1 + 2) = (unsigned int)NtBuildNumber >> 28;
+  *((_DWORD *)a1 + 3) = (unsigned __int16)NtBuildNumber;
   if ( (unsigned int)(a2 - 5) <= 1 || !MmPhysicalMemoryBlock )
     goto LABEL_24;
   if ( KeGetCurrentIrql() > 1u )
@@ -102,7 +101,7 @@ LABEL_24:
   *((_QWORD *)a1 + 18) = v19;
   if ( 16 * ((unsigned __int64)(unsigned int)(v16 - 1) + 2) > 0x2BC )
     v16 = 42LL;
-  a1[34] = v16;
+  *((_DWORD *)a1 + 34) = v16;
   if ( (_DWORD)v16 )
   {
     v20 = (char *)a1 - (char *)PhysicalMemoryRanges;
@@ -120,18 +119,18 @@ LABEL_24:
 LABEL_25:
   memset(a1 + 210, 0, 0xBB8uLL);
   *((_QWORD *)a1 + 481) = 0LL;
-  a1[966] = 0;
+  *((_DWORD *)a1 + 966) = 0;
   *((_QWORD *)a1 + 482) = 0LL;
-  a1[960] = -2147483645;
-  a1[961] = 1;
-  a1[1002] = MEMORY[0xFFFFF78000000014];
-  a1[1003] = MEMORY[0xFFFFF78000000018];
-  a1[1036] = MEMORY[0xFFFFF78000000008];
-  a1[1037] = MEMORY[0xFFFFF7800000000C];
-  RtlGetNtProductType(a1 + 1040, v22);
-  a1[1041] = MEMORY[0xFFFFF780000002D0];
+  *((_DWORD *)a1 + 960) = -2147483645;
+  *((_DWORD *)a1 + 961) = 1;
+  *((_DWORD *)a1 + 1002) = MEMORY[0xFFFFF78000000014];
+  *((_DWORD *)a1 + 1003) = MEMORY[0xFFFFF78000000018];
+  *((_DWORD *)a1 + 1036) = MEMORY[0xFFFFF78000000008];
+  *((_DWORD *)a1 + 1037) = MEMORY[0xFFFFF7800000000C];
+  RtlGetNtProductType(a1 + 1040);
+  *((_DWORD *)a1 + 1041) = MEMORY[0xFFFFF780000002D0];
   result = MEMORY[0xFFFFF780000002C4];
-  a1[1044] = 0;
-  a1[1045] = result;
+  *((_DWORD *)a1 + 1044) = 0;
+  *((_DWORD *)a1 + 1045) = result;
   return result;
 }

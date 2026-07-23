@@ -1,12 +1,12 @@
 /*
- * XREFs of PspApplyTimerDelayProcess @ 0x140616E50
+ * XREFs of PspApplyTimerDelayProcess @ 0x140619E40
  * Callers:
- *     PspTimerDelayProcess @ 0x140617460 (PspTimerDelayProcess.c)
- *     PspTimerDelayWorkerRoutine @ 0x1406174D0 (PspTimerDelayWorkerRoutine.c)
+ *     PspTimerDelayProcess @ 0x14061A450 (PspTimerDelayProcess.c)
+ *     PspTimerDelayWorkerRoutine @ 0x14061A4C0 (PspTimerDelayWorkerRoutine.c)
  * Callees:
- *     KiCheckForKernelApcDelivery @ 0x14027DB80 (KiCheckForKernelApcDelivery.c)
- *     PspSetProcessTimerDelayForKTimers @ 0x1406171C0 (PspSetProcessTimerDelayForKTimers.c)
- *     PspSetProcessTimerDelayForWin32 @ 0x140617338 (PspSetProcessTimerDelayForWin32.c)
+ *     KiCheckForKernelApcDelivery @ 0x14027D0F0 (KiCheckForKernelApcDelivery.c)
+ *     PspSetProcessTimerDelayForKTimers @ 0x14061A1B0 (PspSetProcessTimerDelayForKTimers.c)
+ *     PspSetProcessTimerDelayForWin32 @ 0x14061A328 (PspSetProcessTimerDelayForWin32.c)
  */
 
 __int64 __fastcall PspApplyTimerDelayProcess(signed __int64 a1, _DWORD *a2)
@@ -109,7 +109,7 @@ __int64 __fastcall PspApplyTimerDelayProcess(signed __int64 a1, _DWORD *a2)
   }
 LABEL_25:
   v17 = CurrentThread->SpecialApcDisable++ == -1;
-  if ( v17 && ($7A85BAF4F1FA08634C1C4A3E45B775B3 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
+  if ( v17 && ($241382875694CED3D471BC5892DE3337 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
     KiCheckForKernelApcDelivery(a1, v8);
   return v3;
 }

@@ -1,22 +1,22 @@
 /*
- * XREFs of EtwpRemoveGuidEntryFromTable @ 0x18010D7A0
+ * XREFs of EtwpRemoveGuidEntryFromTable @ 0x18010D2F0
  * Callers:
- *     EtwpDereferenceUmGuidEntry @ 0x18006D3C8 (EtwpDereferenceUmGuidEntry.c)
+ *     EtwpDereferenceUmGuidEntry @ 0x18008D818 (EtwpDereferenceUmGuidEntry.c)
  * Callees:
- *     RtlAcquireSRWLockExclusive @ 0x18003F4D0 (RtlAcquireSRWLockExclusive.c)
- *     RtlRbRemoveNode @ 0x18006B8B0 (RtlRbRemoveNode.c)
+ *     RtlAcquireSRWLockExclusive @ 0x180029A40 (RtlAcquireSRWLockExclusive.c)
+ *     RtlRbRemoveNode @ 0x18008BD00 (RtlRbRemoveNode.c)
  */
 
-struct _TEB *__fastcall EtwpRemoveGuidEntryFromTable(__int64 a1, __int64 a2)
+void __fastcall EtwpRemoveGuidEntryFromTable(PRTL_BALANCED_NODE Node)
 {
   void *UniqueThread; // rbx
 
   UniqueThread = NtCurrentTeb()->ClientId.UniqueThread;
   if ( EtwpProvLockOwner == (_DWORD)UniqueThread )
     __fastfail(0x24u);
-  RtlAcquireSRWLockExclusive(&EtwpProvLock, a2);
+  RtlAcquireSRWLockExclusive(&EtwpProvLock);
   EtwpProvLockOwner = (int)UniqueThread;
-  RtlRbRemoveNode((__int64)&EtwpGuidEntryTable, a1);
+  RtlRbRemoveNode(&EtwpGuidEntryTable, Node);
   EtwpProvLockOwner = 0;
-  return RtlReleaseSRWLockExclusive(&EtwpProvLock);
+  RtlReleaseSRWLockExclusive(&EtwpProvLock);
 }

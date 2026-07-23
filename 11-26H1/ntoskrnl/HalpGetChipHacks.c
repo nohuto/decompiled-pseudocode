@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpGetChipHacks @ 0x140CB3B5C
+ * XREFs of HalpGetChipHacks @ 0x140CB9B9C
  * Callers:
- *     HalpPiix4Detect @ 0x140C0A8DC (HalpPiix4Detect.c)
+ *     HalpPiix4Detect @ 0x140C10AEC (HalpPiix4Detect.c)
  * Callees:
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall HalpGetChipHacks(__int16 a1, __int16 a2, unsigned __int8 a3, int *a4)
@@ -29,7 +29,7 @@ __int64 __fastcall HalpGetChipHacks(__int16 a1, __int16 a2, unsigned __int8 a3, 
   if ( a3 && HIBYTE(v5) && a3 >= HIBYTE(v5) )
     v5 >>= 12;
   *a4 = v5 & 0xFFF;
-  if ( ((__int64)HalpDeviceBlockUnblockPushLock.SchedulerAssist & 2) != 0 )
+  if ( (HalpDeviceBlockUnblockPushLock.WriteTransferCount & 0x200000000LL) != 0 )
     *a4 = v5 & 0xFFE;
   return 0LL;
 }

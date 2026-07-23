@@ -1,7 +1,7 @@
 /*
- * XREFs of KiTryAcquirePrcbLocksForIsolationUnit @ 0x140459158
+ * XREFs of KiTryAcquirePrcbLocksForIsolationUnit @ 0x14044E208
  * Callers:
- *     KiSearchForNewThreadsOnTarget @ 0x1403DD970 (KiSearchForNewThreadsOnTarget.c)
+ *     KiSearchForNewThreadsOnTarget @ 0x1403BD660 (KiSearchForNewThreadsOnTarget.c)
  * Callees:
  *     <none>
  */

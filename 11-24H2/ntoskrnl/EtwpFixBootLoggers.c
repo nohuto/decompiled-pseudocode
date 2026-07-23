@@ -1,19 +1,19 @@
 /*
- * XREFs of EtwpFixBootLoggers @ 0x140C3E598
+ * XREFs of EtwpFixBootLoggers @ 0x140C406E8
  * Callers:
- *     EtwpInitialize @ 0x140C3D0FC (EtwpInitialize.c)
+ *     EtwpInitialize @ 0x140C3F24C (EtwpInitialize.c)
  * Callees:
- *     KeReleaseMutant @ 0x140337970 (KeReleaseMutant.c)
- *     KeWaitForSingleObject @ 0x14033E960 (KeWaitForSingleObject.c)
- *     EtwpStartLoggerThread @ 0x1404A8A40 (EtwpStartLoggerThread.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     EtwpInitializeLoggerSecurityDescriptor @ 0x14083042C (EtwpInitializeLoggerSecurityDescriptor.c)
- *     EtwpGetSecurityDescriptorByGuid @ 0x140839D68 (EtwpGetSecurityDescriptorByGuid.c)
- *     SeCreateClientSecurity @ 0x140896720 (SeCreateClientSecurity.c)
- *     EtwpEnableKernelTrace @ 0x1408E95BC (EtwpEnableKernelTrace.c)
- *     EtwpAcquireLoggerContextByLoggerId @ 0x140926F50 (EtwpAcquireLoggerContextByLoggerId.c)
- *     EtwpReleaseLoggerContext @ 0x14095D644 (EtwpReleaseLoggerContext.c)
- *     EtwpFreeSecurityDescriptor @ 0x140A12F00 (EtwpFreeSecurityDescriptor.c)
+ *     KeReleaseMutant @ 0x1402DEA20 (KeReleaseMutant.c)
+ *     KeWaitForSingleObject @ 0x14031DE40 (KeWaitForSingleObject.c)
+ *     EtwpStartLoggerThread @ 0x1404A2E5C (EtwpStartLoggerThread.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     EtwpGetSecurityDescriptorByGuid @ 0x140836FE0 (EtwpGetSecurityDescriptorByGuid.c)
+ *     EtwpEnableKernelTrace @ 0x14085ADEC (EtwpEnableKernelTrace.c)
+ *     SeCreateClientSecurity @ 0x14089EDC0 (SeCreateClientSecurity.c)
+ *     EtwpAcquireLoggerContextByLoggerId @ 0x140929090 (EtwpAcquireLoggerContextByLoggerId.c)
+ *     EtwpReleaseLoggerContext @ 0x140945104 (EtwpReleaseLoggerContext.c)
+ *     EtwpInitializeLoggerSecurityDescriptor @ 0x1409CF810 (EtwpInitializeLoggerSecurityDescriptor.c)
+ *     EtwpFreeSecurityDescriptor @ 0x140A0B660 (EtwpFreeSecurityDescriptor.c)
  */
 
 __int64 EtwpFixBootLoggers()
@@ -30,7 +30,7 @@ __int64 EtwpFixBootLoggers()
   __m128 v9; // xmm1
   __m128 v10; // xmm0
   struct _SECURITY_QUALITY_OF_SERVICE ClientSecurityQos; // [rsp+30h] [rbp-40h] BYREF
-  void *v13; // [rsp+40h] [rbp-30h] BYREF
+  __int16 *v13; // [rsp+40h] [rbp-30h] BYREF
   _OWORD v14[2]; // [rsp+48h] [rbp-28h] BYREF
 
   v0 = 0LL;
@@ -53,7 +53,7 @@ __int64 EtwpFixBootLoggers()
         {
           EtwpGetSecurityDescriptorByGuid((unsigned int *)(v4 + 276), &v13);
           EtwpInitializeLoggerSecurityDescriptor(v5, v13);
-          EtwpFreeSecurityDescriptor(&v13);
+          EtwpFreeSecurityDescriptor((void **)&v13);
           ClientSecurityQos.Length = 12;
           ClientSecurityQos.ImpersonationLevel = SecurityImpersonation;
           *(_WORD *)&ClientSecurityQos.ContextTrackingMode = 257;

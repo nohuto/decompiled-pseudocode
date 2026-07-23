@@ -1,9 +1,9 @@
 /*
- * XREFs of EmonSaveProfilingContextInternalEnhanced @ 0x14055E5AC
+ * XREFs of EmonSaveProfilingContextInternalEnhanced @ 0x14055C1DC
  * Callers:
- *     EmonSaveProfilingContextEnhanced @ 0x140B4F6C0 (EmonSaveProfilingContextEnhanced.c)
+ *     EmonSaveProfilingContextEnhanced @ 0x140B51710 (EmonSaveProfilingContextEnhanced.c)
  * Callees:
- *     EmonReadCounter @ 0x14055D7C4 (EmonReadCounter.c)
+ *     EmonReadCounter @ 0x14055B3F4 (EmonReadCounter.c)
  */
 
 __int64 __fastcall EmonSaveProfilingContextInternalEnhanced(int a1, int a2)

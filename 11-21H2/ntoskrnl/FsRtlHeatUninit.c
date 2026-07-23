@@ -3,10 +3,10 @@
  * Callers:
  *     <none>
  * Callees:
- *     FsRtlpHeatUnregisterVolume @ 0x14092FCDC (FsRtlpHeatUnregisterVolume.c)
+ *     sub_14092FCDC @ 0x14092FCDC (sub_14092FCDC.c)
  */
 
 __int64 __fastcall FsRtlHeatUninit(__int64 a1, __int64 a2)
 {
-  return FsRtlpHeatUnregisterVolume(a2);
+  return sub_14092FCDC(a2);
 }

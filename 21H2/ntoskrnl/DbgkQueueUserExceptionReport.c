@@ -1,22 +1,22 @@
 /*
- * XREFs of DbgkQueueUserExceptionReport @ 0x140886810
+ * XREFs of DbgkQueueUserExceptionReport @ 0x140886970
  * Callers:
- *     SepLogLpacAccessFailure @ 0x140596228 (SepLogLpacAccessFailure.c)
- *     MiForceCrashForInvalidAccess @ 0x1408C42A4 (MiForceCrashForInvalidAccess.c)
+ *     SepLogLpacAccessFailure @ 0x140596458 (SepLogLpacAccessFailure.c)
+ *     MiForceCrashForInvalidAccess @ 0x1408C4404 (MiForceCrashForInvalidAccess.c)
  * Callees:
- *     IoThreadToProcess @ 0x140205700 (IoThreadToProcess.c)
- *     KiUnstackDetachProcess @ 0x140207000 (KiUnstackDetachProcess.c)
- *     ExQueueWorkItem @ 0x14023E750 (ExQueueWorkItem.c)
- *     KiStackAttachProcess @ 0x14025C2E0 (KiStackAttachProcess.c)
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     ObfReferenceObject @ 0x14034B230 (ObfReferenceObject.c)
- *     KeLeaveCriticalRegion @ 0x14034B3B0 (KeLeaveCriticalRegion.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     memset @ 0x140414200 (memset.c)
- *     PsResumeThread @ 0x14064CCE0 (PsResumeThread.c)
- *     PsSuspendThread @ 0x1406BBD90 (PsSuspendThread.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     IoThreadToProcess @ 0x140224230 (IoThreadToProcess.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     KiStackAttachProcess @ 0x14027D850 (KiStackAttachProcess.c)
+ *     KiUnstackDetachProcess @ 0x1402AB900 (KiUnstackDetachProcess.c)
+ *     ExQueueWorkItem @ 0x1402E2FA0 (ExQueueWorkItem.c)
+ *     ObfReferenceObject @ 0x140355F80 (ObfReferenceObject.c)
+ *     KeLeaveCriticalRegion @ 0x140356100 (KeLeaveCriticalRegion.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     PsSuspendThread @ 0x14061AE10 (PsSuspendThread.c)
+ *     PsResumeThread @ 0x140641B00 (PsResumeThread.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall DbgkQueueUserExceptionReport(struct _KTHREAD *DmaAdapter, unsigned int a2, __int64 a3)
@@ -28,17 +28,14 @@ __int64 __fastcall DbgkQueueUserExceptionReport(struct _KTHREAD *DmaAdapter, uns
   _OWORD *v10; // rcx
   char v11; // al
   _KPROCESS *v12; // rax
-  _DWORD *v13; // r9
   struct _KTHREAD *CurrentThread; // rax
-  int v15; // esi
-  __int64 v16; // r8
-  _DWORD *v17; // r9
-  _OWORD v18[3]; // [rsp+20h] [rbp-58h] BYREF
+  int v14; // esi
+  _OWORD v15[3]; // [rsp+20h] [rbp-58h] BYREF
 
   v3 = a2;
   v4 = 0;
   v5 = 0;
-  memset(v18, 0, sizeof(v18));
+  memset(v15, 0, sizeof(v15));
   if ( !DbgkEnableWerUserReporting )
     return 3221226326LL;
   if ( (DmaAdapter->MiscFlags & 0x400) != 0
@@ -81,27 +78,27 @@ __int64 __fastcall DbgkQueueUserExceptionReport(struct _KTHREAD *DmaAdapter, uns
   v12 = IoThreadToProcess(DmaAdapter);
   if ( v12 != KeGetCurrentThread()->ApcState.Process )
   {
-    KiStackAttachProcess(v12, 0LL, (__int64)v18, v13);
+    KiStackAttachProcess(v12, 0, (__int64)v15);
     v5 = 1;
   }
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
-  v15 = PsSuspendThread((__int64)DmaAdapter, 0LL);
-  if ( v15 >= 0 )
+  v14 = PsSuspendThread((__int64)DmaAdapter, 0LL);
+  if ( v14 >= 0 )
   {
     v4 = 1;
     ExQueueWorkItem((PWORK_QUEUE_ITEM)(PoolWithTag + 176), DelayedWorkQueue);
   }
   KeLeaveCriticalRegion();
-  if ( v15 < 0 )
+  if ( v14 < 0 )
   {
     ExFreePoolWithTag(PoolWithTag, 0x4B474244u);
     _InterlockedAnd((volatile signed __int32 *)&DmaAdapter[1].SwapListEntry + 2, 0xFFDFFFFF);
     if ( v4 )
-      PsResumeThread((__int64)DmaAdapter, 0LL, v16, v17);
+      PsResumeThread((__int64)DmaAdapter, 0LL);
     HalPutDmaAdapter((PADAPTER_OBJECT)DmaAdapter);
   }
   if ( v5 )
-    KiUnstackDetachProcess((__int64)v18, 0);
-  return (unsigned int)v15;
+    KiUnstackDetachProcess((__int64)v15, 0LL);
+  return (unsigned int)v14;
 }

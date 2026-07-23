@@ -3,7 +3,7 @@
  * Callers:
  *     <none>
  * Callees:
- *     CcForEachPartition @ 0x140363C8C (CcForEachPartition.c)
+ *     sub_140363C8C @ 0x140363C8C (sub_140363C8C.c)
  */
 
 LARGE_INTEGER __stdcall CcGetDirtyPages(
@@ -21,6 +21,6 @@ LARGE_INTEGER __stdcall CcGetDirtyPages(
   LOBYTE(Context1) = 1;
   v5[0] = LogHandle;
   v5[1] = DirtyPageRoutine;
-  CcForEachPartition(CcGetDirtyPagesHelper, v5, Context1);
+  sub_140363C8C(sub_140289D20, v5, Context1);
   return v6;
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of TpCallbackDetectedUnrecoverableError @ 0x18015C610
+ * XREFs of TpCallbackDetectedUnrecoverableError @ 0x18015A9D0
  * Callers:
  *     <none>
  * Callees:
- *     TppRaiseInvalidParameter @ 0x18006B7F4 (TppRaiseInvalidParameter.c)
+ *     TppRaiseInvalidParameter @ 0x1800880D4 (TppRaiseInvalidParameter.c)
  */
 
 __int64 __fastcall TpCallbackDetectedUnrecoverableError(__int64 a1)

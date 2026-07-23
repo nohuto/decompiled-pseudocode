@@ -51,7 +51,7 @@
  *     sub_18004E9D0 @ 0x18004E9D0 (sub_18004E9D0.c)
  *     sub_18004EC98 @ 0x18004EC98 (sub_18004EC98.c)
  *     sub_180056AC0 @ 0x180056AC0 (sub_180056AC0.c)
- *     sub_1800571C0 @ 0x1800571C0 (sub_1800571C0.c)
+ *     InitFn @ 0x1800571C0 (InitFn.c)
  *     sub_180057618 @ 0x180057618 (sub_180057618.c)
  *     RtlQueueWorkItem @ 0x180057A90 (RtlQueueWorkItem.c)
  *     RtlCreateTimer @ 0x180057FF0 (RtlCreateTimer.c)
@@ -198,11 +198,11 @@
  *     <none>
  */
 
-__int64 ZwClose()
+NTSTATUS __cdecl ZwClose(HANDLE Handle)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 15LL;
+  result = 15;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

@@ -1,9 +1,9 @@
 /*
- * XREFs of LdrpReadMemory @ 0x1800CBA90
+ * XREFs of LdrpReadMemory @ 0x1800C9200
  * Callers:
- *     LdrQueryModuleInfoFromLdrEntry32 @ 0x1800F8E40 (LdrQueryModuleInfoFromLdrEntry32.c)
+ *     LdrQueryModuleInfoFromLdrEntry32 @ 0x1800F8610 (LdrQueryModuleInfoFromLdrEntry32.c)
  * Callees:
- *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x180170020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
+ *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x18016F020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
  */
 
 __int64 __fastcall LdrpReadMemory(__int64 a1, __int64 a2, __int64 a3, __int64 a4)

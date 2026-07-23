@@ -1,13 +1,13 @@
 /*
- * XREFs of BiVerifyBootPartition @ 0x1408144D0
+ * XREFs of BiVerifyBootPartition @ 0x140814C10
  * Callers:
- *     BiConvertBootEnvironmentDeviceToNt @ 0x1408127CC (BiConvertBootEnvironmentDeviceToNt.c)
- *     BiGetNtPartitionPath @ 0x140813BA8 (BiGetNtPartitionPath.c)
+ *     BiConvertBootEnvironmentDeviceToNt @ 0x140812F0C (BiConvertBootEnvironmentDeviceToNt.c)
+ *     BiGetNtPartitionPath @ 0x1408142E8 (BiGetNtPartitionPath.c)
  * Callees:
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     BiConvertBootEnvironmentDeviceToNt @ 0x1408127CC (BiConvertBootEnvironmentDeviceToNt.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     BiConvertBootEnvironmentDeviceToNt @ 0x140812F0C (BiConvertBootEnvironmentDeviceToNt.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall BiVerifyBootPartition(int *a1, _QWORD *a2, _QWORD *a3, int **a4, _QWORD *a5, unsigned int *a6)
@@ -119,7 +119,7 @@ LABEL_13:
       ++v26;
     while ( *((_WORD *)P + v26 + 12) );
     v29 = 2 * v26 + 2;
-    Pool2 = (char *)ExAllocatePool2(0x102uLL);
+    Pool2 = (char *)ExAllocatePool2(0x102uLL, v29 + (unsigned int)v28, 0x4B444342u);
     v13 = Pool2;
     if ( !Pool2 )
     {

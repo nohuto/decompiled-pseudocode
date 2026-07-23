@@ -6,7 +6,7 @@
  *     _Wow64SystemServiceCall@0 @ 0x4B308730 (_Wow64SystemServiceCall@0.c)
  */
 
-int __stdcall NtFreezeRegistry(int a1)
+NTSTATUS __cdecl NtFreezeRegistry(ULONG TimeOutInSeconds)
 {
   return Wow64SystemServiceCall();
 }

@@ -38,7 +38,7 @@ __int64 __fastcall CmpAddRemoveContainerToCLFSLog(
   NTSTATUS v17; // [rsp+48h] [rbp-B8h] BYREF
   UNICODE_STRING DestinationString; // [rsp+50h] [rbp-B0h] BYREF
   STRING SourceString; // [rsp+60h] [rbp-A0h] BYREF
-  struct _SE_IMPERSONATION_STATE ImpersonationState; // [rsp+70h] [rbp-90h] BYREF
+  _SE_IMPERSONATION_STATE ImpersonationState; // [rsp+70h] [rbp-90h] BYREF
   _OWORD v21[3]; // [rsp+80h] [rbp-80h] BYREF
   struct _EVENT_DATA_DESCRIPTOR v22; // [rsp+B0h] [rbp-50h] BYREF
   char *v23; // [rsp+D0h] [rbp-30h]

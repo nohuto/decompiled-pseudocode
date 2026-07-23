@@ -1,13 +1,13 @@
 /*
- * XREFs of EtwpGetSoftRestartInformation @ 0x140948574
+ * XREFs of EtwpGetSoftRestartInformation @ 0x140948744
  * Callers:
- *     EtwQueryPerformanceTraceInformation @ 0x140937E6C (EtwQueryPerformanceTraceInformation.c)
+ *     EtwQueryPerformanceTraceInformation @ 0x14093803C (EtwQueryPerformanceTraceInformation.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
- *     PsIsCurrentThreadInServerSilo @ 0x140351230 (PsIsCurrentThreadInServerSilo.c)
- *     EtwpCheckLoggerControlAccess @ 0x140642DDC (EtwpCheckLoggerControlAccess.c)
- *     EtwpReleaseLoggerContext @ 0x140643A38 (EtwpReleaseLoggerContext.c)
- *     EtwpAcquireLoggerContextByLoggerId @ 0x140643A84 (EtwpAcquireLoggerContextByLoggerId.c)
+ *     KeLeaveCriticalRegionThread @ 0x1402AB8C0 (KeLeaveCriticalRegionThread.c)
+ *     PsIsCurrentThreadInServerSilo @ 0x14035BF80 (PsIsCurrentThreadInServerSilo.c)
+ *     EtwpCheckLoggerControlAccess @ 0x140637BEC (EtwpCheckLoggerControlAccess.c)
+ *     EtwpReleaseLoggerContext @ 0x140638848 (EtwpReleaseLoggerContext.c)
+ *     EtwpAcquireLoggerContextByLoggerId @ 0x140638894 (EtwpAcquireLoggerContextByLoggerId.c)
  */
 
 __int64 __fastcall EtwpGetSoftRestartInformation(__int64 a1, __int64 a2, _DWORD *a3)
@@ -17,9 +17,12 @@ __int64 __fastcall EtwpGetSoftRestartInformation(__int64 a1, __int64 a2, _DWORD 
   unsigned int v8; // edx
   struct _KTHREAD *CurrentThread; // rax
   unsigned int *v10; // rax
-  unsigned int *v11; // rdi
-  int v12; // ebx
-  __int64 v13; // rax
+  __int64 v11; // rdx
+  __int64 v12; // r8
+  __int64 v13; // r9
+  unsigned int *v14; // rdi
+  int v15; // ebx
+  __int64 v16; // rax
 
   v4 = a2;
   v6 = 0;
@@ -34,24 +37,24 @@ __int64 __fastcall EtwpGetSoftRestartInformation(__int64 a1, __int64 a2, _DWORD 
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
   v10 = EtwpAcquireLoggerContextByLoggerId(EtwpHostSiloState, v8, 1);
-  v11 = v10;
+  v14 = v10;
   if ( v10 )
   {
-    v12 = EtwpCheckLoggerControlAccess(1u, (__int64)v10);
-    if ( v12 >= 0 )
+    v15 = EtwpCheckLoggerControlAccess(1u, (__int64)v10);
+    if ( v15 >= 0 )
     {
-      v13 = *((_QWORD *)v11 + 134);
-      if ( v13 )
-        v6 = *(_BYTE *)(v13 + 32);
+      v16 = *((_QWORD *)v14 + 134);
+      if ( v16 )
+        v6 = *(_BYTE *)(v16 + 32);
     }
-    EtwpReleaseLoggerContext(v11, 1);
+    EtwpReleaseLoggerContext(v14, 1);
   }
   else
   {
-    v12 = -1073741162;
+    v15 = -1073741162;
   }
-  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
-  if ( v12 >= 0 )
+  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v11, v12, v13);
+  if ( v15 >= 0 )
     *(_BYTE *)(a1 + 16) = v6;
-  return (unsigned int)v12;
+  return (unsigned int)v15;
 }

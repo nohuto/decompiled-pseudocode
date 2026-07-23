@@ -37,7 +37,7 @@ __int64 __fastcall InsertEventEntryInLookUpTable(
   unsigned int v14; // ecx
   int v15; // r13d
   __int64 v16; // r14
-  unsigned __int64 v17; // rdi
+  __int64 v17; // rdi
   int v18; // ecx
   int v19; // r8d
   int v20; // edi
@@ -103,7 +103,7 @@ __int64 __fastcall InsertEventEntryInLookUpTable(
   {
     if ( (KeGetPcr()->Prcb.DpcRequestSummary & 0x10001) == 0 )
     {
-      v17 = KeAbPreAcquire(v5 + 272);
+      v17 = KeAbPreAcquire(v5 + 272, 0LL);
       v18 = 17;
       if ( _InterlockedCompareExchange64((volatile signed __int64 *)(v5 + 272), 17LL, 0LL) )
         ExfAcquirePushLockSharedEx((signed __int64 *)(v5 + 272), v17, v5 + 272);

@@ -1,16 +1,16 @@
 /*
- * XREFs of KeThawExecution @ 0x140502280
+ * XREFs of KeThawExecution @ 0x1404FBB50
  * Callers:
- *     ExpWaitForBootDevices @ 0x1406CD7C0 (ExpWaitForBootDevices.c)
- *     KdExitDebugger @ 0x140C12008 (KdExitDebugger.c)
+ *     ExpWaitForBootDevices @ 0x1406D17F0 (ExpWaitForBootDevices.c)
+ *     KdExitDebugger @ 0x140C18008 (KdExitDebugger.c)
  * Callees:
- *     KeQueryPerformanceCounter @ 0x14021C3F0 (KeQueryPerformanceCounter.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     KxReleaseSpinLock @ 0x1402BDEF0 (KxReleaseSpinLock.c)
- *     KiSendThawExecution @ 0x1405023B0 (KiSendThawExecution.c)
- *     KiEndDebugAccumulation @ 0x1405025A0 (KiEndDebugAccumulation.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14052FA20 (KiRemoveSystemWorkPriorityKick.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     KeQueryPerformanceCounter @ 0x14021DD80 (KeQueryPerformanceCounter.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KxReleaseSpinLock @ 0x140308BB0 (KxReleaseSpinLock.c)
+ *     KiSendThawExecution @ 0x1404FBC80 (KiSendThawExecution.c)
+ *     KiEndDebugAccumulation @ 0x1404FBE70 (KiEndDebugAccumulation.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x140531F20 (KiRemoveSystemWorkPriorityKick.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall KeThawExecution(char a1)
@@ -32,7 +32,7 @@ __int64 __fastcall KeThawExecution(char a1)
   if ( (KiFreezeFlag & 8) == 0 )
     v2 = KdPortLocked;
   guard_dispatch_icall_no_overrides(0LL, 0LL);
-  if ( !LOBYTE(stru_140F10828.WriteOperationCount) )
+  if ( !PoAllProcIntrDisabled )
   {
     PerformanceCounter = KeQueryPerformanceCounter(0LL);
     v3 = MmWriteableSharedUserData;

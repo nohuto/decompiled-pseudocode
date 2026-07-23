@@ -1,29 +1,33 @@
 /*
- * XREFs of RtlRcuReadUnlock @ 0x1801499E0
+ * XREFs of RtlRcuReadUnlock @ 0x180149890
  * Callers:
  *     <none>
  * Callees:
- *     RtlWakeAddressAll @ 0x18004D5B0 (RtlWakeAddressAll.c)
+ *     RtlWakeAddressAll @ 0x180037B30 (RtlWakeAddressAll.c)
  */
 
-struct _TEB *__fastcall RtlRcuReadUnlock(__int64 a1, struct _TEB ***a2)
+void __fastcall RtlRcuReadUnlock(_RTL_SRWLOCK *a1, __int64 **a2)
 {
-  struct _TEB **v3; // rcx
-  struct _TEB *result; // rax
-  __int64 *v5; // rcx
+  __int64 *v3; // rcx
+  __int64 v4; // rax
+  unsigned __int64 *v5; // rcx
 
   v3 = *a2;
-  if ( !*a2 )
-    return RtlReleaseSRWLockShared((volatile signed __int64 *)(a1 + 120));
-  if ( !*v3 )
-    __fastfail(0xEu);
-  result = (struct _TEB *)((char *)*v3 - 1);
-  *v3 = result;
-  if ( !result )
+  if ( *a2 )
   {
-    v5 = (__int64 *)(v3 + 2);
-    *v5 = *(_QWORD *)(a1 + 16) | 1LL;
-    return (struct _TEB *)RtlWakeAddressAll((unsigned __int64)v5);
+    if ( !*v3 )
+      __fastfail(0xEu);
+    v4 = *v3 - 1;
+    *v3 = v4;
+    if ( !v4 )
+    {
+      v5 = (unsigned __int64 *)(v3 + 2);
+      *v5 = a1[2].Value | 1;
+      RtlWakeAddressAll(v5);
+    }
   }
-  return result;
+  else
+  {
+    RtlReleaseSRWLockShared(a1 + 15);
+  }
 }

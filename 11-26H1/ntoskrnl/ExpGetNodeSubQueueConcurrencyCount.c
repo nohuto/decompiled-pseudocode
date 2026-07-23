@@ -1,10 +1,10 @@
 /*
- * XREFs of ExpGetNodeSubQueueConcurrencyCount @ 0x1404DFF18
+ * XREFs of ExpGetNodeSubQueueConcurrencyCount @ 0x1404D95F8
  * Callers:
- *     ExpWorkQueueInitialize @ 0x1408400A8 (ExpWorkQueueInitialize.c)
- *     ExpWorkQueueManagerThread @ 0x140A039A0 (ExpWorkQueueManagerThread.c)
+ *     ExpWorkQueueInitialize @ 0x1408462E8 (ExpWorkQueueInitialize.c)
+ *     ExpWorkQueueManagerThread @ 0x140A77D60 (ExpWorkQueueManagerThread.c)
  * Callees:
- *     KeQueryNodeActiveProcessorCount @ 0x1404DFF50 (KeQueryNodeActiveProcessorCount.c)
+ *     KeQueryNodeActiveProcessorCount @ 0x1404D9630 (KeQueryNodeActiveProcessorCount.c)
  */
 
 __int64 __fastcall ExpGetNodeSubQueueConcurrencyCount(unsigned __int16 *a1, unsigned int a2)

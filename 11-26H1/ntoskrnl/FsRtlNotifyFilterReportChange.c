@@ -1,23 +1,23 @@
 /*
- * XREFs of FsRtlNotifyFilterReportChange @ 0x140AF6420
+ * XREFs of FsRtlNotifyFilterReportChange @ 0x140AF8AC0
  * Callers:
- *     FsRtlNotifyReportChange @ 0x140790A20 (FsRtlNotifyReportChange.c)
- *     FsRtlNotifyFullReportChange @ 0x140AF63C0 (FsRtlNotifyFullReportChange.c)
+ *     FsRtlNotifyReportChange @ 0x140793550 (FsRtlNotifyReportChange.c)
+ *     FsRtlNotifyFullReportChange @ 0x140AF8A60 (FsRtlNotifyFullReportChange.c)
  * Callees:
- *     ExReleaseFastMutexUnsafe @ 0x140276140 (ExReleaseFastMutexUnsafe.c)
- *     FsRtlIsNtstatusExpected @ 0x1402E2870 (FsRtlIsNtstatusExpected.c)
- *     MmMapLockedPagesSpecifyCache @ 0x14035D330 (MmMapLockedPagesSpecifyCache.c)
- *     PsReturnProcessPagedPoolQuota @ 0x1403BCF90 (PsReturnProcessPagedPoolQuota.c)
- *     PsChargePoolQuota @ 0x1403BD330 (PsChargePoolQuota.c)
- *     ExAcquireFastMutexUnsafe @ 0x1403FC2F0 (ExAcquireFastMutexUnsafe.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     memcmp @ 0x14073D750 (memcmp.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     RtlMultiByteToUnicodeSize @ 0x14096B6A0 (RtlMultiByteToUnicodeSize.c)
- *     FsRtlNotifyCompleteIrpList @ 0x140A85EB8 (FsRtlNotifyCompleteIrpList.c)
- *     FsRtlNotifyUpdateBuffer @ 0x140B0EDBC (FsRtlNotifyUpdateBuffer.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ExReleaseFastMutexUnsafe @ 0x1402756B0 (ExReleaseFastMutexUnsafe.c)
+ *     FsRtlIsNtstatusExpected @ 0x1402C4930 (FsRtlIsNtstatusExpected.c)
+ *     MmMapLockedPagesSpecifyCache @ 0x14035F0D0 (MmMapLockedPagesSpecifyCache.c)
+ *     PsReturnProcessPagedPoolQuota @ 0x1403C6E00 (PsReturnProcessPagedPoolQuota.c)
+ *     PsChargePoolQuota @ 0x1403C71A0 (PsChargePoolQuota.c)
+ *     ExAcquireFastMutexUnsafe @ 0x1403F8AE0 (ExAcquireFastMutexUnsafe.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     memcmp @ 0x140742350 (memcmp.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     RtlMultiByteToUnicodeSize @ 0x14097BFE0 (RtlMultiByteToUnicodeSize.c)
+ *     FsRtlNotifyCompleteIrpList @ 0x140A8AAB8 (FsRtlNotifyCompleteIrpList.c)
+ *     FsRtlNotifyUpdateBuffer @ 0x140B105EC (FsRtlNotifyUpdateBuffer.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __stdcall FsRtlNotifyFilterReportChange(

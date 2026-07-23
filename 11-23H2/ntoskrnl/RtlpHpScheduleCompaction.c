@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlpHpScheduleCompaction @ 0x140316904
+ * XREFs of RtlpHpScheduleCompaction @ 0x140316B94
  * Callers:
- *     RtlpHpSegPageRangeCoalesce @ 0x14024EAD0 (RtlpHpSegPageRangeCoalesce.c)
- *     RtlpHpLfhSubsegmentDecommitPages @ 0x140316330 (RtlpHpLfhSubsegmentDecommitPages.c)
- *     RtlpHpSegLfhVsDecommit @ 0x140316770 (RtlpHpSegLfhVsDecommit.c)
+ *     RtlpHpSegPageRangeCoalesce @ 0x14024EBA0 (RtlpHpSegPageRangeCoalesce.c)
+ *     RtlpHpLfhSubsegmentDecommitPages @ 0x1403165C0 (RtlpHpLfhSubsegmentDecommitPages.c)
+ *     RtlpHpSegLfhVsDecommit @ 0x140316A00 (RtlpHpSegLfhVsDecommit.c)
  * Callees:
- *     ExSetTimer @ 0x14031DDF0 (ExSetTimer.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     ExSetTimer @ 0x14031E080 (ExSetTimer.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall RtlpHpScheduleCompaction(_QWORD *a1)

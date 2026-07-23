@@ -1,10 +1,10 @@
 /*
- * XREFs of MiStoreSetEvictPageFile @ 0x14065C960
+ * XREFs of MiStoreSetEvictPageFile @ 0x14065CEB0
  * Callers:
- *     MiReleasePageFileInfo @ 0x1402952DC (MiReleasePageFileInfo.c)
+ *     MiReleasePageFileInfo @ 0x14029556C (MiReleasePageFileInfo.c)
  * Callees:
- *     KeSetEvent @ 0x14023C5E0 (KeSetEvent.c)
- *     MiSufficientAvailablePages @ 0x1402E35AC (MiSufficientAvailablePages.c)
+ *     KeSetEvent @ 0x14023C6B0 (KeSetEvent.c)
+ *     MiSufficientAvailablePages @ 0x1402E383C (MiSufficientAvailablePages.c)
  */
 
 LONG __fastcall MiStoreSetEvictPageFile(__int64 a1, unsigned int a2)

@@ -1,22 +1,22 @@
 /*
- * XREFs of MiProtectSharedUserPage @ 0x140CF3E10
+ * XREFs of MiProtectSharedUserPage @ 0x140CFA190
  * Callers:
- *     MiInitNucleus @ 0x140CF2CBC (MiInitNucleus.c)
+ *     MiInitNucleus @ 0x140CF903C (MiInitNucleus.c)
  * Callees:
- *     MiFlushSingleTbEntry @ 0x140285050 (MiFlushSingleTbEntry.c)
- *     MiLockPageTableInternal @ 0x1402B34E0 (MiLockPageTableInternal.c)
- *     MiUnlockPageTableInternal @ 0x1402D13E0 (MiUnlockPageTableInternal.c)
- *     MiMakeValidPte @ 0x1402DA020 (MiMakeValidPte.c)
- *     MiUnlockWorkingSetShared @ 0x1402EB6C0 (MiUnlockWorkingSetShared.c)
- *     MiLockWorkingSetShared @ 0x1402EDD60 (MiLockWorkingSetShared.c)
- *     MiWriteValidPteNewProtection @ 0x140300450 (MiWriteValidPteNewProtection.c)
- *     MiMakeProtectionPfnCompatible @ 0x14033C7D0 (MiMakeProtectionPfnCompatible.c)
- *     MiReservePtes @ 0x14035DE50 (MiReservePtes.c)
- *     MiIncreaseUsedPtes @ 0x140365F20 (MiIncreaseUsedPtes.c)
- *     MiGetAnyMultiplexedVm @ 0x140457870 (MiGetAnyMultiplexedVm.c)
- *     wil_details_FeatureReporting_ReportUsageToService @ 0x14052D25C (wil_details_FeatureReporting_ReportUsageToService.c)
- *     wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath @ 0x140532A10 (wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath.c)
- *     MxInstallMoreMemory @ 0x1406E73E8 (MxInstallMoreMemory.c)
+ *     MiFlushSingleTbEntry @ 0x1402845B0 (MiFlushSingleTbEntry.c)
+ *     MiUnlockPageTableInternal @ 0x1402B31A0 (MiUnlockPageTableInternal.c)
+ *     MiMakeValidPte @ 0x1402BBDE0 (MiMakeValidPte.c)
+ *     MiUnlockWorkingSetShared @ 0x1402CD700 (MiUnlockWorkingSetShared.c)
+ *     MiLockWorkingSetShared @ 0x1402CFDE0 (MiLockWorkingSetShared.c)
+ *     MiWriteValidPteNewProtection @ 0x1402E24D0 (MiWriteValidPteNewProtection.c)
+ *     MiLockPageTableInternal @ 0x1402FE1B0 (MiLockPageTableInternal.c)
+ *     MiMakeProtectionPfnCompatible @ 0x14033E850 (MiMakeProtectionPfnCompatible.c)
+ *     MiReservePtes @ 0x14035FBF0 (MiReservePtes.c)
+ *     MiIncreaseUsedPtes @ 0x140367CC0 (MiIncreaseUsedPtes.c)
+ *     MiGetAnyMultiplexedVm @ 0x14044F0E0 (MiGetAnyMultiplexedVm.c)
+ *     wil_details_FeatureReporting_ReportUsageToService @ 0x14052F77C (wil_details_FeatureReporting_ReportUsageToService.c)
+ *     wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath @ 0x140534EB0 (wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath.c)
+ *     MxInstallMoreMemory @ 0x1406EC098 (MxInstallMoreMemory.c)
  */
 
 __int64 __fastcall MiProtectSharedUserPage(__int64 a1, __int64 a2, __int64 a3, unsigned __int64 a4)
@@ -51,7 +51,7 @@ __int64 __fastcall MiProtectSharedUserPage(__int64 a1, __int64 a2, __int64 a3, u
       (__int64)&Feature_KernelSharedUserDataAslr__private_descriptor);
   }
   v5 = (v4 >> 12) & 0xFFFFFFFFFFLL;
-  v6 = MiReservePtes((__int64)&stru_140E36558.WaitBlockList, 1u, a3, a4);
+  v6 = MiReservePtes((__int64)&stru_140E366D8.WaitBlockList, 1u, a3, a4);
   if ( !v6 )
     MxInstallMoreMemory(4);
   ProtectionPfnCompatible = MiMakeProtectionPfnCompatible(4, 48 * v5 - 0x220000000000LL);
@@ -69,9 +69,9 @@ __int64 __fastcall MiProtectSharedUserPage(__int64 a1, __int64 a2, __int64 a3, u
   v16 = MiMakeProtectionPfnCompatible(1, 48 * v5 - 0x220000000000LL);
   v17 = MiMakeValidPte(0xFFFFF6FBC0000000uLL, v5, v16 | 0x20000000u);
   MEMORY[0xFFFFF6FBC0000000] = v17;
-  if ( v17 >= 0 || (BYTE1(v17) & 1) != BYTE4(stru_140E2D930.Header.WaitListHead.Blink) )
+  if ( v17 >= 0 || (BYTE1(v17) & 1) != BYTE4(stru_140E2DAB0.Header.WaitListHead.Blink) )
     MiWriteValidPteNewProtection(
       (__int64 *)0xFFFFF6FBC0000000LL,
-      v17 & 0xFFFFFFFFFFFFFEFFuLL | ((BYTE4(stru_140E2D930.Header.WaitListHead.Blink) & 1 | 0xFF80000000000000uLL) << 8));
+      v17 & 0xFFFFFFFFFFFFFEFFuLL | ((BYTE4(stru_140E2DAB0.Header.WaitListHead.Blink) & 1 | 0xFF80000000000000uLL) << 8));
   return MiFlushSingleTbEntry(0xFFFFF78000000000uLL, 0LL);
 }

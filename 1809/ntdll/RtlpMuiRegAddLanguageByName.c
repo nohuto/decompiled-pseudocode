@@ -5,7 +5,7 @@
  * Callees:
  *     RtlpIsALicensedLIPLanguage @ 0x18003B0DC (RtlpIsALicensedLIPLanguage.c)
  *     RtlpIsALicensedRegularLanguage @ 0x18003B29C (RtlpIsALicensedRegularLanguage.c)
- *     __security_check_cookie @ 0x18008FEC0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x18008FED0 (__security_check_cookie.c)
  *     RtlpMuiRegAddAlternateCodePage @ 0x1800FFB2C (RtlpMuiRegAddAlternateCodePage.c)
  *     RtlpMuiRegGetOrAddLangInfo @ 0x180100C84 (RtlpMuiRegGetOrAddLangInfo.c)
  *     _RtlpMuiRegInitAnyLanguage @ 0x180102378 (_RtlpMuiRegInitAnyLanguage.c)
@@ -13,7 +13,7 @@
  *     _RtlpMuiRegInitPartialLanguage @ 0x180102690 (_RtlpMuiRegInitPartialLanguage.c)
  */
 
-__int64 __fastcall RtlpMuiRegAddLanguageByName(_QWORD *a1, __int64 a2, wchar_t *a3, __int64 a4, int a5, __int64 a6)
+__int64 __fastcall RtlpMuiRegAddLanguageByName(_QWORD *a1, void *a2, wchar_t *a3, __int64 a4, int a5, __int64 a6)
 {
   __int64 result; // rax
   char v10; // cl

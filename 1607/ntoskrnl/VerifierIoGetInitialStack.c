@@ -1,5 +1,5 @@
 /*
- * XREFs of VerifierIoGetInitialStack @ 0x14070C7FC
+ * XREFs of VerifierIoGetInitialStack @ 0x14070C82C
  * Callers:
  *     <none>
  * Callees:

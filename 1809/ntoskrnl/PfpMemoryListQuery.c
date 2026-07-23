@@ -1,10 +1,10 @@
 /*
- * XREFs of PfpMemoryListQuery @ 0x140160AE0
+ * XREFs of PfpMemoryListQuery @ 0x140160BE0
  * Callers:
- *     PfQuerySuperfetchInformation @ 0x140629AD0 (PfQuerySuperfetchInformation.c)
+ *     PfQuerySuperfetchInformation @ 0x14062AAF0 (PfQuerySuperfetchInformation.c)
  * Callees:
- *     MmQueryMemoryListInformation @ 0x1400A89D0 (MmQueryMemoryListInformation.c)
- *     ProbeForWrite @ 0x140629A60 (ProbeForWrite.c)
+ *     MmQueryMemoryListInformation @ 0x1400A8910 (MmQueryMemoryListInformation.c)
+ *     ProbeForWrite @ 0x14062AA80 (ProbeForWrite.c)
  */
 
 __int64 __fastcall PfpMemoryListQuery(__int64 a1, char a2, _DWORD *a3, __int64 a4)

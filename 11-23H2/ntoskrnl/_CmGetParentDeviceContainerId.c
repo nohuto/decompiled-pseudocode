@@ -1,11 +1,11 @@
 /*
- * XREFs of _CmGetParentDeviceContainerId @ 0x1408607B4
+ * XREFs of _CmGetParentDeviceContainerId @ 0x1408609F4
  * Callers:
- *     _CmUpdateDevicePanel @ 0x140798CFC (_CmUpdateDevicePanel.c)
- *     _CmUpdateDevicePanelInterface @ 0x140885CB0 (_CmUpdateDevicePanelInterface.c)
+ *     _CmUpdateDevicePanel @ 0x140798EEC (_CmUpdateDevicePanel.c)
+ *     _CmUpdateDevicePanelInterface @ 0x140885EF0 (_CmUpdateDevicePanelInterface.c)
  * Callees:
- *     _PnpGetObjectProperty @ 0x1406D01F0 (_PnpGetObjectProperty.c)
- *     _CmGetDeviceParent @ 0x14079A334 (_CmGetDeviceParent.c)
+ *     _PnpGetObjectProperty @ 0x1406D0220 (_PnpGetObjectProperty.c)
+ *     _CmGetDeviceParent @ 0x14079A524 (_CmGetDeviceParent.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

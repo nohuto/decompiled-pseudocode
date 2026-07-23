@@ -1,39 +1,39 @@
 /*
- * XREFs of PsInvokeWin32Callout @ 0x1405F4E90
+ * XREFs of PsInvokeWin32Callout @ 0x1405F5E90
  * Callers:
- *     PspJobDelete @ 0x14008FE10 (PspJobDelete.c)
- *     SeCaptureAtomTableCallout @ 0x140125578 (SeCaptureAtomTableCallout.c)
- *     KiSystemCall64 @ 0x1401CF100 (KiSystemCall64.c)
- *     PspSetProcessTimerDelayForWin32 @ 0x1402EA864 (PspSetProcessTimerDelayForWin32.c)
- *     PsFreezeProcess @ 0x140588E24 (PsFreezeProcess.c)
- *     PopInvokeWin32Callout @ 0x1405B0C84 (PopInvokeWin32Callout.c)
- *     NtSetInformationJobObject @ 0x140600B10 (NtSetInformationJobObject.c)
- *     PspAssignProcessToJob @ 0x140605664 (PspAssignProcessToJob.c)
- *     NtSetSystemInformation @ 0x140663DF0 (NtSetSystemInformation.c)
- *     PsThawProcess @ 0x14067E304 (PsThawProcess.c)
- *     ExpWin32OpenProcedure @ 0x1406AF3E0 (ExpWin32OpenProcedure.c)
- *     ExpWin32OkayToCloseProcedure @ 0x1406B0EC0 (ExpWin32OkayToCloseProcedure.c)
- *     ExpWin32CloseProcedure @ 0x1406B2210 (ExpWin32CloseProcedure.c)
- *     ExpWin32ParseProcedure @ 0x1406B9540 (ExpWin32ParseProcedure.c)
- *     ExpWin32DeleteProcedure @ 0x1406C1D30 (ExpWin32DeleteProcedure.c)
- *     PfpQueryGpuUtilization @ 0x1406C4324 (PfpQueryGpuUtilization.c)
- *     PspShutdownCsrProcess @ 0x1408875F4 (PspShutdownCsrProcess.c)
- *     PspQueryProcessInterferenceCountCallback @ 0x140889F40 (PspQueryProcessInterferenceCountCallback.c)
+ *     PspJobDelete @ 0x14008FD50 (PspJobDelete.c)
+ *     SeCaptureAtomTableCallout @ 0x140125648 (SeCaptureAtomTableCallout.c)
+ *     KiSystemCall64 @ 0x1401CF200 (KiSystemCall64.c)
+ *     PspSetProcessTimerDelayForWin32 @ 0x1402EAA54 (PspSetProcessTimerDelayForWin32.c)
+ *     PsFreezeProcess @ 0x140589E24 (PsFreezeProcess.c)
+ *     PopInvokeWin32Callout @ 0x1405B1C84 (PopInvokeWin32Callout.c)
+ *     NtSetInformationJobObject @ 0x140601B10 (NtSetInformationJobObject.c)
+ *     PspAssignProcessToJob @ 0x140606664 (PspAssignProcessToJob.c)
+ *     NtSetSystemInformation @ 0x140664FB0 (NtSetSystemInformation.c)
+ *     PsThawProcess @ 0x14067F4C4 (PsThawProcess.c)
+ *     ExpWin32OpenProcedure @ 0x1406B0680 (ExpWin32OpenProcedure.c)
+ *     ExpWin32OkayToCloseProcedure @ 0x1406B2160 (ExpWin32OkayToCloseProcedure.c)
+ *     ExpWin32CloseProcedure @ 0x1406B34B0 (ExpWin32CloseProcedure.c)
+ *     ExpWin32ParseProcedure @ 0x1406BA7E0 (ExpWin32ParseProcedure.c)
+ *     ExpWin32DeleteProcedure @ 0x1406C2FD0 (ExpWin32DeleteProcedure.c)
+ *     PfpQueryGpuUtilization @ 0x1406C55C4 (PfpQueryGpuUtilization.c)
+ *     PspShutdownCsrProcess @ 0x140888854 (PspShutdownCsrProcess.c)
+ *     PspQueryProcessInterferenceCountCallback @ 0x14088B1A0 (PspQueryProcessInterferenceCountCallback.c)
  * Callees:
- *     MmSessionGetWin32Callouts @ 0x140088A60 (MmSessionGetWin32Callouts.c)
- *     ExDereferenceCallBackBlock @ 0x140088AA0 (ExDereferenceCallBackBlock.c)
- *     ExReferenceCallBackBlock @ 0x140088AF0 (ExReferenceCallBackBlock.c)
- *     MmGetSessionId @ 0x1400897B0 (MmGetSessionId.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     ExCallCallBack @ 0x1405F4BA4 (ExCallCallBack.c)
- *     ExCallSessionCallBack @ 0x14069E824 (ExCallSessionCallBack.c)
+ *     MmSessionGetWin32Callouts @ 0x140088A50 (MmSessionGetWin32Callouts.c)
+ *     ExDereferenceCallBackBlock @ 0x140088A90 (ExDereferenceCallBackBlock.c)
+ *     ExReferenceCallBackBlock @ 0x140088AE0 (ExReferenceCallBackBlock.c)
+ *     MmGetSessionId @ 0x1400897A0 (MmGetSessionId.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     ExCallCallBack @ 0x1405F5BA4 (ExCallCallBack.c)
+ *     ExCallSessionCallBack @ 0x14069FAE4 (ExCallSessionCallBack.c)
  */
 
 __int64 __fastcall PsInvokeWin32Callout(int a1, __int64 a2, int a3, __int64 a4)
 {
   __int64 v4; // rbp
   __int64 v5; // r10
-  union _RTL_RUN_ONCE *v7; // rdi
+  _RTL_RUN_ONCE *v7; // rdi
   struct _EX_RUNDOWN_REF *v8; // rax
   struct _EX_RUNDOWN_REF *v9; // rbx
   unsigned int v10; // esi
@@ -42,7 +42,7 @@ __int64 __fastcall PsInvokeWin32Callout(int a1, __int64 a2, int a3, __int64 a4)
   _KPROCESS *Process; // rcx
   int SessionId; // eax
   _DWORD *v15; // r9
-  union _RTL_RUN_ONCE *Win32Callouts; // rax
+  _RTL_RUN_ONCE *Win32Callouts; // rax
   __int64 v17; // rcx
   unsigned int v18; // [rsp+40h] [rbp+18h] BYREF
 

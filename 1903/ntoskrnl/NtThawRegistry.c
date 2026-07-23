@@ -11,21 +11,16 @@
  *     CmThawRegistry @ 0x14082E868 (CmThawRegistry.c)
  */
 
-__int64 NtThawRegistry()
+NTSTATUS NtThawRegistry(void)
 {
-  unsigned int v0; // ebx
+  NTSTATUS v0; // ebx
   _BYTE v2[48]; // [rsp+20h] [rbp-48h] BYREF
 
   memset(v2, 0, sizeof(v2));
-  if ( SeSinglePrivilegeCheck(SeBackupPrivilege, KeGetCurrentThread()->PreviousMode) )
-  {
-    CmpAttachToRegistryProcess((__int64)v2);
-    v0 = CmThawRegistry();
-    KiUnstackDetachProcess((struct _KTHREAD *)v2, 0);
-  }
-  else
-  {
-    return (unsigned int)-1073741727;
-  }
+  if ( !SeSinglePrivilegeCheck(SeBackupPrivilege, KeGetCurrentThread()->PreviousMode) )
+    return -1073741727;
+  CmpAttachToRegistryProcess((__int64)v2);
+  v0 = CmThawRegistry();
+  KiUnstackDetachProcess((struct _KTHREAD *)v2, 0);
   return v0;
 }

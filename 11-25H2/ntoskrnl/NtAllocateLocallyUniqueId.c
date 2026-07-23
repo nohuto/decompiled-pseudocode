@@ -6,20 +6,20 @@
  *     ExRaiseDatatypeMisalignment @ 0x14085AF60 (ExRaiseDatatypeMisalignment.c)
  */
 
-__int64 __fastcall NtAllocateLocallyUniqueId(unsigned __int64 a1)
+NTSTATUS __cdecl NtAllocateLocallyUniqueId(PLUID Luid)
 {
   __int64 v2; // rcx
 
   if ( KeGetCurrentThread()->PreviousMode )
   {
-    if ( (a1 & 3) != 0 )
+    if ( ((unsigned __int8)Luid & 3) != 0 )
       ExRaiseDatatypeMisalignment();
     v2 = 0x7FFFFFFF0000LL;
-    if ( a1 < 0x7FFFFFFF0000LL )
-      v2 = a1;
+    if ( (unsigned __int64)Luid < 0x7FFFFFFF0000LL )
+      v2 = (__int64)Luid;
     *(_BYTE *)v2 = *(_BYTE *)v2;
     *(_BYTE *)(v2 + 7) = *(_BYTE *)(v2 + 7);
   }
-  *(_QWORD *)a1 = ExpLuidIncrement + _InterlockedExchangeAdd64(&ExpLuid, ExpLuidIncrement);
-  return 0LL;
+  *Luid = (struct _LUID)(ExpLuidIncrement + _InterlockedExchangeAdd64(&ExpLuid, ExpLuidIncrement));
+  return 0;
 }

@@ -20,11 +20,11 @@
  *     _RtlImageNtHeaderEx@20 @ 0x4B2BE540 (_RtlImageNtHeaderEx@20.c)
  */
 
-int __stdcall RtlImageNtHeader(int a1)
+PIMAGE_NT_HEADERS __cdecl RtlImageNtHeader(PVOID BaseOfImage)
 {
-  int v2; // [esp+0h] [ebp-4h] BYREF
+  PIMAGE_NT_HEADERS OutHeaders; // [esp+0h] [ebp-4h] BYREF
 
-  v2 = 0;
-  RtlImageNtHeaderEx(1, a1, 0, 0, &v2);
-  return v2;
+  OutHeaders = 0;
+  RtlImageNtHeaderEx(1u, BaseOfImage, 0LL, &OutHeaders);
+  return OutHeaders;
 }

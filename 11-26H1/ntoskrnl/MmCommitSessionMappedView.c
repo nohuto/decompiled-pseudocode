@@ -1,18 +1,18 @@
 /*
- * XREFs of MmCommitSessionMappedView @ 0x140AD5170
+ * XREFs of MmCommitSessionMappedView @ 0x140AD1F80
  * Callers:
  *     <none>
  * Callees:
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     KiCheckForKernelApcDelivery @ 0x14027DB80 (KiCheckForKernelApcDelivery.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     ExfTryToWakePushLock @ 0x1403170A0 (ExfTryToWakePushLock.c)
- *     MiLocatePagefileSubsection @ 0x140340310 (MiLocatePagefileSubsection.c)
- *     MiGetPteAddress @ 0x1404468C0 (MiGetPteAddress.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     MiChargeSegmentCommit @ 0x1409C9BB0 (MiChargeSegmentCommit.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     KiCheckForKernelApcDelivery @ 0x14027D0F0 (KiCheckForKernelApcDelivery.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     ExfTryToWakePushLock @ 0x1403190D0 (ExfTryToWakePushLock.c)
+ *     MiLocatePagefileSubsection @ 0x140342390 (MiLocatePagefileSubsection.c)
+ *     MiGetPteAddress @ 0x14043F3C0 (MiGetPteAddress.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     MiChargeSegmentCommit @ 0x14099AB90 (MiChargeSegmentCommit.c)
  */
 
 __int64 __fastcall MmCommitSessionMappedView(unsigned __int64 a1, __int64 a2)
@@ -57,11 +57,11 @@ __int64 __fastcall MmCommitSessionMappedView(unsigned __int64 a1, __int64 a2)
   v7 = MiGetPteAddress(v5);
   --CurrentThread->SpecialApcDisable;
   v8 = ((PteAddress - v7) >> 3) + 1;
-  v10 = (AutoBoost *)KeAbPreAcquire((__int64)&stru_140E34C08, 0LL, 0LL, v9);
-  v12 = _interlockedbittestandset64(&stru_140E34C08.Header.Lock, 0LL);
+  v10 = (AutoBoost *)KeAbPreAcquire((__int64)&stru_140E34D88, 0LL, 0LL, v9);
+  v12 = _interlockedbittestandset64(&stru_140E34D88.Header.Lock, 0LL);
   v13 = v10;
   if ( v12 )
-    ExfAcquirePushLockExclusiveEx((unsigned __int64 *)&stru_140E34C08, v10, (__int64)&stru_140E34C08);
+    ExfAcquirePushLockExclusiveEx((unsigned __int64 *)&stru_140E34D88, v10, (__int64)&stru_140E34D88);
   if ( v13 )
   {
     if ( (KiAbpGlobalState & 1) != 0 )
@@ -69,7 +69,7 @@ __int64 __fastcall MmCommitSessionMappedView(unsigned __int64 a1, __int64 a2)
     else
       *((_BYTE *)v13 + 10) = 1;
   }
-  Flink = stru_140E34C08.Header.WaitListHead.Flink;
+  Flink = stru_140E34D88.Header.WaitListHead.Flink;
   while ( Flink )
   {
     v22 = (unsigned __int64)Flink[5].Blink & 0xFFFFFFFFFFFFF000uLL;
@@ -89,11 +89,11 @@ __int64 __fastcall MmCommitSessionMappedView(unsigned __int64 a1, __int64 a2)
   v15 = Flink[3].Flink->Flink;
   if ( v15[4].Flink )
   {
-    if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&stru_140E34C08, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-      ExfTryToWakePushLock((volatile signed __int64 *)&stru_140E34C08.Header.Lock);
-    KeAbPostRelease((unsigned __int64)&stru_140E34C08);
+    if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&stru_140E34D88, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+      ExfTryToWakePushLock((volatile signed __int64 *)&stru_140E34D88.Header.Lock);
+    KeAbPostRelease((unsigned __int64)&stru_140E34D88);
     v20 = CurrentThread->SpecialApcDisable++ == -1;
-    if ( v20 && ($7A85BAF4F1FA08634C1C4A3E45B775B3 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
+    if ( v20 && ($241382875694CED3D471BC5892DE3337 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
       KiCheckForKernelApcDelivery(v32, v31);
     return 3221225505LL;
   }
@@ -105,12 +105,12 @@ __int64 __fastcall MmCommitSessionMappedView(unsigned __int64 a1, __int64 a2)
     if ( !v16 )
     {
 LABEL_12:
-      if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&stru_140E34C08, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-        ExfTryToWakePushLock((volatile signed __int64 *)&stru_140E34C08.Header.Lock);
-      KeAbPostRelease((unsigned __int64)&stru_140E34C08);
+      if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&stru_140E34D88, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+        ExfTryToWakePushLock((volatile signed __int64 *)&stru_140E34D88.Header.Lock);
+      KeAbPostRelease((unsigned __int64)&stru_140E34D88);
       v20 = CurrentThread->SpecialApcDisable++ == -1;
       if ( v20
-        && ($7A85BAF4F1FA08634C1C4A3E45B775B3 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
+        && ($241382875694CED3D471BC5892DE3337 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
       {
         KiCheckForKernelApcDelivery(v19, v18);
       }
@@ -132,11 +132,11 @@ LABEL_12:
         goto LABEL_12;
     }
     v28 = MiChargeSegmentCommit(v17, v23, v8);
-    if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&stru_140E34C08, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-      ExfTryToWakePushLock((volatile signed __int64 *)&stru_140E34C08.Header.Lock);
-    KeAbPostRelease((unsigned __int64)&stru_140E34C08);
+    if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&stru_140E34D88, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+      ExfTryToWakePushLock((volatile signed __int64 *)&stru_140E34D88.Header.Lock);
+    KeAbPostRelease((unsigned __int64)&stru_140E34D88);
     v20 = CurrentThread->SpecialApcDisable++ == -1;
-    if ( v20 && ($7A85BAF4F1FA08634C1C4A3E45B775B3 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
+    if ( v20 && ($241382875694CED3D471BC5892DE3337 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
       KiCheckForKernelApcDelivery(v30, v29);
     return v28 == 0 ? 0xC000012D : 0;
   }

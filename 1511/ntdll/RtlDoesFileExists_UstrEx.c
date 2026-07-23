@@ -12,49 +12,45 @@
  *     ZwQueryAttributesFile @ 0x1800A5860 (ZwQueryAttributesFile.c)
  */
 
-bool __fastcall RtlDoesFileExists_UstrEx(__m128i *a1, char a2)
+bool __fastcall RtlDoesFileExists_UstrEx(_UNICODE_STRING *a1, char a2)
 {
   char v2; // bl
-  __int64 v5; // rsi
-  __int64 v6; // rax
-  int v7; // edi
+  PVOID v5; // rsi
+  void *v6; // rax
+  NTSTATUS v7; // edi
   __int128 v8; // [rsp+40h] [rbp-49h] BYREF
-  __int64 v9; // [rsp+50h] [rbp-39h]
-  HANDLE *v10; // [rsp+58h] [rbp-31h]
-  __int128 v11; // [rsp+60h] [rbp-29h] BYREF
-  int v12; // [rsp+70h] [rbp-19h] BYREF
-  __int64 v13; // [rsp+78h] [rbp-11h]
-  __int128 *v14; // [rsp+80h] [rbp-9h]
-  int v15; // [rsp+88h] [rbp-1h]
-  __int128 v16; // [rsp+90h] [rbp+7h]
-  _BYTE v17[40]; // [rsp+A0h] [rbp+17h] BYREF
+  void *v9; // [rsp+50h] [rbp-39h]
+  PVOID BaseAddress; // [rsp+58h] [rbp-31h]
+  PVOID v11[2]; // [rsp+60h] [rbp-29h] BYREF
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+70h] [rbp-19h] BYREF
+  _FILE_BASIC_INFORMATION FileInformation; // [rsp+A0h] [rbp+17h] BYREF
 
   v2 = 0;
-  if ( (int)RtlDosPathNameToRelativeNtPathName(0, 1, a1, 0LL, (unsigned __int16 *)&v11, 0LL, 0LL, (__int64)&v8) < 0 )
+  if ( (int)RtlDosPathNameToRelativeNtPathName(0, 1, a1, 0LL, (_UNICODE_STRING *)v11, 0LL, 0LL, (__int64)&v8) < 0 )
     return 0;
-  v5 = *((_QWORD *)&v11 + 1);
+  v5 = v11[1];
   if ( (_WORD)v8 )
   {
     v6 = v9;
-    v11 = v8;
+    *(_OWORD *)v11 = v8;
   }
   else
   {
     v6 = 0LL;
     v9 = 0LL;
   }
-  v13 = v6;
-  v12 = 48;
-  v14 = &v11;
-  v15 = 64;
-  v16 = 0LL;
-  v7 = ZwQueryAttributesFile(&v12, v17);
-  if ( v10 && _InterlockedExchangeAdd((volatile signed __int32 *)v10, 0xFFFFFFFF) == 1 )
+  ObjectAttributes.RootDirectory = v6;
+  ObjectAttributes.Length = 48;
+  ObjectAttributes.ObjectName = (PUNICODE_STRING)v11;
+  ObjectAttributes.Attributes = 64;
+  *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+  v7 = ZwQueryAttributesFile(&ObjectAttributes, &FileInformation);
+  if ( BaseAddress && _InterlockedExchangeAdd((volatile signed __int32 *)BaseAddress, 0xFFFFFFFF) == 1 )
   {
-    NtClose(v10[1]);
-    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0LL, v10);
+    NtClose(*((HANDLE *)BaseAddress + 1));
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, BaseAddress);
   }
-  RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0LL, v5);
+  RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v5);
   if ( v7 >= 0 )
     return 1;
   if ( v7 == -1073741757 || v7 == -1073741790 )

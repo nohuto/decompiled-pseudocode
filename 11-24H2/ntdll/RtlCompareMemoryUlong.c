@@ -1,25 +1,23 @@
 /*
- * XREFs of RtlCompareMemoryUlong @ 0x180165F90
+ * XREFs of RtlCompareMemoryUlong @ 0x180164350
  * Callers:
- *     RtlpFreeHeap @ 0x18002D620 (RtlpFreeHeap.c)
- *     RtlpCoalesceFreeBlocks @ 0x18002EF80 (RtlpCoalesceFreeBlocks.c)
- *     RtlpCreateSplitBlock @ 0x18002FC50 (RtlpCreateSplitBlock.c)
- *     RtlpGrowBlockInPlace @ 0x180030A60 (RtlpGrowBlockInPlace.c)
- *     RtlpValidateHeapSegment @ 0x180041A64 (RtlpValidateHeapSegment.c)
- *     RtlpDeCommitFreeBlock @ 0x180042E70 (RtlpDeCommitFreeBlock.c)
- *     RtlpAllocateHeap @ 0x18009D360 (RtlpAllocateHeap.c)
- *     RtlpHpParametersVerify @ 0x18010A8FC (RtlpHpParametersVerify.c)
+ *     RtlpGrowBlockInPlace @ 0x18000D610 (RtlpGrowBlockInPlace.c)
+ *     RtlpCreateSplitBlock @ 0x18000DD00 (RtlpCreateSplitBlock.c)
+ *     RtlpCoalesceFreeBlocks @ 0x18000EB10 (RtlpCoalesceFreeBlocks.c)
+ *     RtlpValidateHeapSegment @ 0x1800222F8 (RtlpValidateHeapSegment.c)
+ *     RtlpHpParametersVerify @ 0x18002366C (RtlpHpParametersVerify.c)
+ *     RtlpAllocateHeap @ 0x1801159A0 (RtlpAllocateHeap.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall RtlCompareMemoryUlong(_DWORD *a1, unsigned __int64 a2, int a3)
+SIZE_T __cdecl RtlCompareMemoryUlong(PVOID Source, SIZE_T Length, ULONG Pattern)
 {
   bool v4; // zf
-  unsigned __int64 v5; // rdx
-  unsigned __int64 v6; // rcx
+  SIZE_T v5; // rdx
+  SIZE_T v6; // rcx
 
-  v5 = a2 >> 2;
+  v5 = Length >> 2;
   v4 = v5 == 0;
   if ( v5 )
   {
@@ -28,7 +26,8 @@ __int64 __fastcall RtlCompareMemoryUlong(_DWORD *a1, unsigned __int64 a2, int a3
     {
       if ( !v6 )
         break;
-      v4 = *a1++ == a3;
+      v4 = *(_DWORD *)Source == Pattern;
+      Source = (char *)Source + 4;
       --v6;
     }
     while ( v4 );

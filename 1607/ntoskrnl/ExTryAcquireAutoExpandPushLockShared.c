@@ -1,13 +1,13 @@
 /*
- * XREFs of ExTryAcquireAutoExpandPushLockShared @ 0x140133D1C
+ * XREFs of ExTryAcquireAutoExpandPushLockShared @ 0x14013428C
  * Callers:
  *     <none>
  * Callees:
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     KeAbPostReleaseEx @ 0x1400C66BC (KeAbPostReleaseEx.c)
- *     ExfTryAcquirePushLockShared @ 0x1400C7C18 (ExfTryAcquirePushLockShared.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
- *     ExpTryAcquireFannedOutPushLockShared @ 0x14022D578 (ExpTryAcquireFannedOutPushLockShared.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     KeAbPostReleaseEx @ 0x1400C455C (KeAbPostReleaseEx.c)
+ *     ExfTryAcquirePushLockShared @ 0x1400C5AB8 (ExfTryAcquirePushLockShared.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
+ *     ExpTryAcquireFannedOutPushLockShared @ 0x14022D3A4 (ExpTryAcquireFannedOutPushLockShared.c)
  */
 
 ULONG_PTR __fastcall ExTryAcquireAutoExpandPushLockShared(ULONG_PTR BugCheckParameter2, ULONG_PTR BugCheckParameter1)

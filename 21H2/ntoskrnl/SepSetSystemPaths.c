@@ -1,14 +1,14 @@
 /*
- * XREFs of SepSetSystemPaths @ 0x1407C9238
+ * XREFs of SepSetSystemPaths @ 0x1407C9558
  * Callers:
- *     SepIsMinTCB @ 0x14060D124 (SepIsMinTCB.c)
+ *     SepIsMinTCB @ 0x14069CBD4 (SepIsMinTCB.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
- *     RtlStringCbPrintfW @ 0x14027EB50 (RtlStringCbPrintfW.c)
- *     PsGetCurrentServerSiloGlobals @ 0x140362150 (PsGetCurrentServerSiloGlobals.c)
- *     SepLoadNgenLocations @ 0x1407C9334 (SepLoadNgenLocations.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     RtlInitUnicodeString @ 0x14026A4C0 (RtlInitUnicodeString.c)
+ *     RtlStringCbPrintfW @ 0x14026CAF0 (RtlStringCbPrintfW.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x1402F6FB0 (PsGetCurrentServerSiloGlobals.c)
+ *     SepLoadNgenLocations @ 0x1407C9654 (SepLoadNgenLocations.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall SepSetSystemPaths(__int64 a1)

@@ -1,16 +1,16 @@
 /*
- * XREFs of PspSchedulerSharedDataRegionSlotFree @ 0x1408A7904
+ * XREFs of PspSchedulerSharedDataRegionSlotFree @ 0x1408FDB5C
  * Callers:
- *     PspExitThread @ 0x1408A7D90 (PspExitThread.c)
- *     NtSetInformationThread @ 0x140911410 (NtSetInformationThread.c)
+ *     NtSetInformationThread @ 0x1408E8B60 (NtSetInformationThread.c)
+ *     PspExitThread @ 0x1408FDFF0 (PspExitThread.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     ExfTryToWakePushLock @ 0x14025F9A0 (ExfTryToWakePushLock.c)
- *     KeSwappablePageDereference @ 0x140268ED0 (KeSwappablePageDereference.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     ObfDereferenceObjectWithTag @ 0x1403254A0 (ObfDereferenceObjectWithTag.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
+ *     KeSwappablePageDereference @ 0x140260340 (KeSwappablePageDereference.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     ExfTryToWakePushLock @ 0x14028FFB0 (ExfTryToWakePushLock.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CE030 (ObfDereferenceObjectWithTag.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
  */
 
 __int64 __fastcall PspSchedulerSharedDataRegionSlotFree(__int64 a1)
@@ -21,8 +21,8 @@ __int64 __fastcall PspSchedulerSharedDataRegionSlotFree(__int64 a1)
   __int64 v6; // rcx
   struct _KTHREAD *CurrentThread; // rax
   unsigned int v8; // r14d
-  _QWORD *v9; // rax
-  _QWORD *v10; // r15
+  char *v9; // rax
+  char *v10; // r15
   _BYTE *v11; // rdx
 
   if ( (struct _KTHREAD *)a1 == KeGetCurrentThread() )
@@ -41,12 +41,12 @@ __int64 __fastcall PspSchedulerSharedDataRegionSlotFree(__int64 a1)
       CurrentThread = KeGetCurrentThread();
       v8 = (v5 >> 6) + (((int)v6 / 80) << 6);
       --CurrentThread->KernelApcDisable;
-      v9 = KeAbPreAcquire(v2 + 200, 0LL);
+      v9 = (char *)KeAbPreAcquire(v2 + 200, 0LL);
       v10 = v9;
       if ( _interlockedbittestandset64((volatile signed __int32 *)(v2 + 200), 0LL) )
-        ExfAcquirePushLockExclusiveEx((unsigned __int64 *)(v2 + 200), (__int64)v9, v2 + 200);
+        ExfAcquirePushLockExclusiveEx((unsigned __int64 *)(v2 + 200), v9, v2 + 200);
       if ( v10 )
-        *((_BYTE *)v10 + 10) = 1;
+        v10[10] = 1;
       v11 = (_BYTE *)(*(_QWORD *)(v2 + 216) + ((unsigned __int64)v8 >> 3));
       *v11 &= ~(1 << (v8 & 7));
       if ( *(_DWORD *)(v2 + 224) > v8 )

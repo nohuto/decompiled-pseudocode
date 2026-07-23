@@ -1,17 +1,17 @@
 /*
- * XREFs of PopPepReleaseActivityLink @ 0x140319150
+ * XREFs of PopPepReleaseActivityLink @ 0x1402C1CE0
  * Callers:
- *     PopPepCompleteComponentIdleState @ 0x1403110AC (PopPepCompleteComponentIdleState.c)
- *     PopPepSurprisePowerOn @ 0x1403112AC (PopPepSurprisePowerOn.c)
- *     PopPepUpdateConstraints @ 0x1403128A0 (PopPepUpdateConstraints.c)
- *     PopPepProcessEvent @ 0x140317DF0 (PopPepProcessEvent.c)
- *     PopPepComponentSetResidency @ 0x1405DB904 (PopPepComponentSetResidency.c)
- *     PopPepComponentSetWakeHint @ 0x1405DBA00 (PopPepComponentSetWakeHint.c)
+ *     PopPepProcessEvent @ 0x1402C0980 (PopPepProcessEvent.c)
+ *     PopPepSurprisePowerOn @ 0x1403A60EC (PopPepSurprisePowerOn.c)
+ *     PopPepUpdateConstraints @ 0x1403A750C (PopPepUpdateConstraints.c)
+ *     PopPepCompleteComponentIdleState @ 0x1404C8510 (PopPepCompleteComponentIdleState.c)
+ *     PopPepComponentSetResidency @ 0x1405D87D4 (PopPepComponentSetResidency.c)
+ *     PopPepComponentSetWakeHint @ 0x1405D88D0 (PopPepComponentSetWakeHint.c)
  * Callees:
- *     ExpReleaseSpinLockSharedFromDpcLevelInstrumented @ 0x1402465FC (ExpReleaseSpinLockSharedFromDpcLevelInstrumented.c)
- *     ExReleaseSpinLockExclusive @ 0x140379ED0 (ExReleaseSpinLockExclusive.c)
- *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x140379F24 (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
+ *     ExpReleaseSpinLockSharedFromDpcLevelInstrumented @ 0x140219638 (ExpReleaseSpinLockSharedFromDpcLevelInstrumented.c)
+ *     ExReleaseSpinLockExclusive @ 0x1402E6E40 (ExReleaseSpinLockExclusive.c)
+ *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x1402E6E94 (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
  */
 
 void __fastcall PopPepReleaseActivityLink(__int64 a1, _DWORD *a2, char a3, KIRQL a4)

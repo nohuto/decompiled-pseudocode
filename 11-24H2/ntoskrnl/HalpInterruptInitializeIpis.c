@@ -1,13 +1,13 @@
 /*
- * XREFs of HalpInterruptInitializeIpis @ 0x1405445EC
+ * XREFs of HalpInterruptInitializeIpis @ 0x140541F3C
  * Callers:
- *     HalpInitializeInterruptsPn @ 0x140542178 (HalpInitializeInterruptsPn.c)
- *     HalpInitializeInterrupts @ 0x140C0DE18 (HalpInitializeInterrupts.c)
+ *     HalpInitializeInterruptsPn @ 0x14053FAC8 (HalpInitializeInterruptsPn.c)
+ *     HalpInitializeInterrupts @ 0x140C0FE18 (HalpInitializeInterrupts.c)
  * Callees:
- *     KeGetProcessorNumberFromIndex @ 0x1403B41E0 (KeGetProcessorNumberFromIndex.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     HalpMmAllocateMemoryInternal @ 0x140542CD0 (HalpMmAllocateMemoryInternal.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     KeGetProcessorNumberFromIndex @ 0x140370900 (KeGetProcessorNumberFromIndex.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     HalpMmAllocateMemoryInternal @ 0x140540620 (HalpMmAllocateMemoryInternal.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 NTSTATUS HalpInterruptInitializeIpis()
@@ -29,7 +29,7 @@ NTSTATUS HalpInterruptInitializeIpis()
   unsigned __int16 Group; // ax
   __int64 v15; // rcx
   __int64 v16; // rax
-  struct _PROCESSOR_NUMBER ProcNumber; // [rsp+40h] [rbp+8h] BYREF
+  _PROCESSOR_NUMBER ProcNumber; // [rsp+40h] [rbp+8h] BYREF
 
   ProcNumber = 0;
   if ( HalpInterruptIpiLines )

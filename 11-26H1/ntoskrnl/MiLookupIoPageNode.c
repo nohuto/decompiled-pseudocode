@@ -1,18 +1,18 @@
 /*
- * XREFs of MiLookupIoPageNode @ 0x140367E4C
+ * XREFs of MiLookupIoPageNode @ 0x140369BEC
  * Callers:
- *     MmProtectMdlSystemAddress @ 0x14030FA10 (MmProtectMdlSystemAddress.c)
- *     MiMapMdlCommon @ 0x140312C2C (MiMapMdlCommon.c)
- *     MiInsertPhysicalPteMapping @ 0x140366150 (MiInsertPhysicalPteMapping.c)
- *     MiMapMdlWithLargePages @ 0x140502900 (MiMapMdlWithLargePages.c)
- *     MmGetCacheAttributeEx @ 0x1406EAF30 (MmGetCacheAttributeEx.c)
+ *     MmProtectMdlSystemAddress @ 0x1402F1A90 (MmProtectMdlSystemAddress.c)
+ *     MiMapMdlCommon @ 0x140314C5C (MiMapMdlCommon.c)
+ *     MiInsertPhysicalPteMapping @ 0x140367EF0 (MiInsertPhysicalPteMapping.c)
+ *     MiMapMdlWithLargePages @ 0x1404FC1D0 (MiMapMdlWithLargePages.c)
+ *     MmGetCacheAttributeEx @ 0x1406EFBD0 (MmGetCacheAttributeEx.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     MiIoSpaceGetBounds @ 0x140313748 (MiIoSpaceGetBounds.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     MiLockIoPfnTree @ 0x1406F4668 (MiLockIoPfnTree.c)
- *     MiUnlockIoPfnTree @ 0x1406F4E8C (MiUnlockIoPfnTree.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     MiIoSpaceGetBounds @ 0x140315778 (MiIoSpaceGetBounds.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     MiLockIoPfnTree @ 0x1406F92D4 (MiLockIoPfnTree.c)
+ *     MiUnlockIoPfnTree @ 0x1406F9AFC (MiUnlockIoPfnTree.c)
  */
 
 __int64 __fastcall MiLookupIoPageNode(ULONG_PTR BugCheckParameter2, __int64 a2)
@@ -56,7 +56,7 @@ __int64 __fastcall MiLookupIoPageNode(ULONG_PTR BugCheckParameter2, __int64 a2)
   if ( HIDWORD(v18) == 3 )
   {
     MiLockIoPfnTree(v8);
-    v12 = (_QWORD *)qword_140E35E80;
+    v12 = (_QWORD *)qword_140E36000;
     while ( v12 )
     {
       v13 = v12[3];
@@ -74,15 +74,15 @@ __int64 __fastcall MiLookupIoPageNode(ULONG_PTR BugCheckParameter2, __int64 a2)
     if ( v12 )
     {
       v14 = 2
-          * (((unsigned int)v3 & ((unsigned int)(1LL << ((unsigned __int8)dword_140E2D6F8 - 12)) - 1))
+          * (((unsigned int)v3 & ((unsigned int)(1LL << ((unsigned __int8)dword_140E2D878 - 12)) - 1))
            - *((_DWORD *)v12 + 6));
       LOBYTE(v14) = v5;
       v15 = (*((_DWORD *)v12
              + ((unsigned __int64)(2
-                                 * (((unsigned int)v3 & ((unsigned int)(1LL << ((unsigned __int8)dword_140E2D6F8 - 12))
+                                 * (((unsigned int)v3 & ((unsigned int)(1LL << ((unsigned __int8)dword_140E2D878 - 12))
                                                        - 1))
                                   - *((_DWORD *)v12 + 6))) >> 5)
-             + 11) >> (2 * ((v3 & ((1LL << ((unsigned __int8)dword_140E2D6F8 - 12)) - 1)) - *((_BYTE *)v12 + 24)))) & 3;
+             + 11) >> (2 * ((v3 & ((1LL << ((unsigned __int8)dword_140E2D878 - 12)) - 1)) - *((_BYTE *)v12 + 24)))) & 3;
       MiUnlockIoPfnTree(v14, v6, v10, v11);
       return v15;
     }

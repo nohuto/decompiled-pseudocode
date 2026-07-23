@@ -1,12 +1,12 @@
 /*
- * XREFs of NtCancelTimer2 @ 0x1403A9800
+ * XREFs of NtCancelTimer2 @ 0x1403B3410
  * Callers:
  *     <none>
  * Callees:
- *     ExpSetTimer2 @ 0x1403A9844 (ExpSetTimer2.c)
+ *     ExpSetTimer2 @ 0x1403B3454 (ExpSetTimer2.c)
  */
 
-__int64 __fastcall NtCancelTimer2(void *a1)
+NTSTATUS __cdecl NtCancelTimer2(HANDLE TimerHandle, PT2_CANCEL_PARAMETERS Parameters)
 {
-  return ExpSetTimer2(a1);
+  return ExpSetTimer2(TimerHandle);
 }

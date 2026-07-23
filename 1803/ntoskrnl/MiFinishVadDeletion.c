@@ -68,7 +68,7 @@ int __fastcall MiFinishVadDeletion(unsigned int *P, __int64 a2, unsigned __int64
   _DWORD *SchedulerAssist; // rcx
   signed __int32 v39; // eax
   __int64 *v40; // rcx
-  struct _SLIST_ENTRY *v41; // rdi
+  _SLIST_ENTRY *v41; // rdi
   int v42; // esi
   _KPROCESS *v43; // rcx
   struct _KPRCB *v44; // rcx
@@ -90,7 +90,7 @@ int __fastcall MiFinishVadDeletion(unsigned int *P, __int64 a2, unsigned __int64
   _QWORD *v60; // r14
   __int64 *v61; // rdx
   int v62; // eax
-  struct _SLIST_ENTRY *Next; // rbx
+  _SLIST_ENTRY *Next; // rbx
   __int64 v64; // r8
   _QWORD *v65; // rbx
   _QWORD *v67; // [rsp+30h] [rbp-98h]
@@ -205,7 +205,7 @@ LABEL_13:
         {
           v24->CrossThreadReleasableAndBusyByte |= 2u;
           if ( (__int64)v24->LockState.LockState < 0 )
-            KiAbEntryRemoveFromTree((__int64)&v16->LockEntries[v23], SessionId);
+            KiAbEntryRemoveFromTree(&v16->LockEntries[v23].TreeNode, SessionId);
           v76 = 0;
           v76 = v24->BoostBitmap.AllFields & 0x1FFFF;
           v24->BoostBitmap.AllFields &= 0xFFFE0000;
@@ -427,7 +427,7 @@ LABEL_121:
     {
       v54->CrossThreadReleasableAndBusyByte |= 2u;
       if ( (__int64)v54->LockState.LockState < 0 )
-        KiAbEntryRemoveFromTree((__int64)&v48->LockEntries[v53], v50);
+        KiAbEntryRemoveFromTree(&v48->LockEntries[v53].TreeNode, v50);
       v77 = 0;
       v77 = v54->BoostBitmap.AllFields & 0x1FFFF;
       v54->BoostBitmap.AllFields &= 0xFFFE0000;

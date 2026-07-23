@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlpGetInstalledLanguageType @ 0x1800F0950
+ * XREFs of RtlpGetInstalledLanguageType @ 0x1800F0910
  * Callers:
- *     RtlpSetInstallLanguage @ 0x1800F0BC0 (RtlpSetInstallLanguage.c)
+ *     RtlpSetInstallLanguage @ 0x1800F0B80 (RtlpSetInstallLanguage.c)
  * Callees:
  *     RtlpMuiRegGetInstalledLanguageIndexByName @ 0x18003AA98 (RtlpMuiRegGetInstalledLanguageIndexByName.c)
  */

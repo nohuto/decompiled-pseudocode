@@ -1,14 +1,14 @@
 /*
- * XREFs of KiTraceCpuPartitionRundown @ 0x1407BB200
+ * XREFs of KiTraceCpuPartitionRundown @ 0x1407BE260
  * Callers:
- *     KeEtwRundown @ 0x1405E48E8 (KeEtwRundown.c)
+ *     KeEtwRundown @ 0x1405E7258 (KeEtwRundown.c)
  * Callees:
- *     ExSaFree @ 0x1404638EC (ExSaFree.c)
- *     ExWaitForRundownProtectionRelease @ 0x140463DA0 (ExWaitForRundownProtectionRelease.c)
- *     ExSaAllocate @ 0x1404993B0 (ExSaAllocate.c)
- *     KeQueryMaximumGroupCount @ 0x1404BB300 (KeQueryMaximumGroupCount.c)
- *     KiInitializeCpuPartitionLogPerProcessorBuffer @ 0x1405F4448 (KiInitializeCpuPartitionLogPerProcessorBuffer.c)
- *     KiSizeOfCpuPartitionLogPerProcessorBuffer @ 0x1405F47F8 (KiSizeOfCpuPartitionLogPerProcessorBuffer.c)
+ *     ExSaFree @ 0x14045C8AC (ExSaFree.c)
+ *     ExWaitForRundownProtectionRelease @ 0x14045CD60 (ExWaitForRundownProtectionRelease.c)
+ *     ExSaAllocate @ 0x140492F00 (ExSaAllocate.c)
+ *     KeQueryMaximumGroupCount @ 0x1404B4AE0 (KeQueryMaximumGroupCount.c)
+ *     KiInitializeCpuPartitionLogPerProcessorBuffer @ 0x1405F6E08 (KiInitializeCpuPartitionLogPerProcessorBuffer.c)
+ *     KiSizeOfCpuPartitionLogPerProcessorBuffer @ 0x1405F71B8 (KiSizeOfCpuPartitionLogPerProcessorBuffer.c)
  */
 
 int __fastcall KiTraceCpuPartitionRundown(char a1)

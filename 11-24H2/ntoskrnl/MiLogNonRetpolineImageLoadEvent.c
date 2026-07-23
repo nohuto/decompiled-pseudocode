@@ -1,11 +1,11 @@
 /*
- * XREFs of MiLogNonRetpolineImageLoadEvent @ 0x140A82C88
+ * XREFs of MiLogNonRetpolineImageLoadEvent @ 0x140A7D7A8
  * Callers:
- *     MiFlushDeferredRetpolineImageLoadEvents @ 0x1407F08B0 (MiFlushDeferredRetpolineImageLoadEvents.c)
- *     MiLogRetpolineImageLoadEvents @ 0x140A82C1C (MiLogRetpolineImageLoadEvents.c)
+ *     MiFlushDeferredRetpolineImageLoadEvents @ 0x1407F0E80 (MiFlushDeferredRetpolineImageLoadEvents.c)
+ *     MiLogRetpolineImageLoadEvents @ 0x140A7D73C (MiLogRetpolineImageLoadEvents.c)
  * Callees:
- *     _tlgWriteAgg @ 0x1403D06F8 (_tlgWriteAgg.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     _tlgWriteAgg @ 0x140273698 (_tlgWriteAgg.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 void __fastcall MiLogNonRetpolineImageLoadEvent(unsigned __int16 *a1, int a2, __int64 a3)
@@ -33,9 +33,9 @@ void __fastcall MiLogNonRetpolineImageLoadEvent(unsigned __int16 *a1, int a2, __
   int v24; // [rsp+C8h] [rbp+3Fh]
   int v25; // [rsp+CCh] [rbp+43h]
 
-  if ( **(_DWORD **)&qword_140E37518 > 5u
-    && (*(_QWORD *)(*(_QWORD *)&qword_140E37518 + 16LL) & 0x400000000000LL) != 0
-    && (*(_QWORD *)(*(_QWORD *)&qword_140E37518 + 24LL) & 0x400000000000LL) == *(_QWORD *)(*(_QWORD *)&qword_140E37518
+  if ( **(_DWORD **)&qword_140E37658 > 5u
+    && (*(_QWORD *)(*(_QWORD *)&qword_140E37658 + 16LL) & 0x400000000000LL) != 0
+    && (*(_QWORD *)(*(_QWORD *)&qword_140E37658 + 24LL) & 0x400000000000LL) == *(_QWORD *)(*(_QWORD *)&qword_140E37658
                                                                                          + 24LL) )
   {
     v11 = 0;
@@ -60,6 +60,6 @@ void __fastcall MiLogNonRetpolineImageLoadEvent(unsigned __int16 *a1, int a2, __
     v13 = 2;
     v5 = a3;
     v24 = 8;
-    tlgWriteAgg(*(__int64 *)&qword_140E37518, (unsigned __int8 *)word_140056A22, a3, 8u, (__int64)v8);
+    tlgWriteAgg(*(__int64 *)&qword_140E37658, (unsigned __int8 *)&dword_14005751C, a3, 8u, (__int64)v8);
   }
 }

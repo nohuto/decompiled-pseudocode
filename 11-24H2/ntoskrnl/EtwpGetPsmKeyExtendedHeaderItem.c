@@ -1,13 +1,13 @@
 /*
- * XREFs of EtwpGetPsmKeyExtendedHeaderItem @ 0x140922ACC
+ * XREFs of EtwpGetPsmKeyExtendedHeaderItem @ 0x140AA71D0
  * Callers:
- *     EtwpWriteUserEvent @ 0x140920F90 (EtwpWriteUserEvent.c)
+ *     EtwpWriteUserEvent @ 0x140AD78A0 (EtwpWriteUserEvent.c)
  * Callees:
- *     PsReferencePrimaryTokenWithTag @ 0x14033FFF0 (PsReferencePrimaryTokenWithTag.c)
- *     SeSecurityAttributePresent @ 0x1403438C0 (SeSecurityAttributePresent.c)
- *     ObFastDereferenceObject @ 0x140356880 (ObFastDereferenceObject.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     EtwpQueryPsmKey @ 0x1407AA428 (EtwpQueryPsmKey.c)
+ *     PsReferencePrimaryTokenWithTag @ 0x14031F4D0 (PsReferencePrimaryTokenWithTag.c)
+ *     SeSecurityAttributePresent @ 0x140322DA0 (SeSecurityAttributePresent.c)
+ *     ObFastDereferenceObject @ 0x140324D60 (ObFastDereferenceObject.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     EtwpQueryPsmKey @ 0x1407AA568 (EtwpQueryPsmKey.c)
  */
 
 void *__fastcall EtwpGetPsmKeyExtendedHeaderItem(__int64 a1)

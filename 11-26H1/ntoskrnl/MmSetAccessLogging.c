@@ -1,15 +1,15 @@
 /*
- * XREFs of MmSetAccessLogging @ 0x140703220
+ * XREFs of MmSetAccessLogging @ 0x140707EF0
  * Callers:
- *     PfTAccessTracingCleanup @ 0x140BF8DFC (PfTAccessTracingCleanup.c)
- *     PfTAccessTracingStart @ 0x140BF8EDC (PfTAccessTracingStart.c)
- *     PfTSetTracingPriority @ 0x140BF8F54 (PfTSetTracingPriority.c)
+ *     PfTAccessTracingCleanup @ 0x140BFEDFC (PfTAccessTracingCleanup.c)
+ *     PfTAccessTracingStart @ 0x140BFEEDC (PfTAccessTracingStart.c)
+ *     PfTSetTracingPriority @ 0x140BFEF54 (PfTSetTracingPriority.c)
  * Callees:
- *     ExReleaseSpinLockExclusive @ 0x14021AA80 (ExReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x140249CD0 (ExAcquireSpinLockExclusive.c)
- *     KiInsertQueueDpc @ 0x1402BD330 (KiInsertQueueDpc.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExQueueWorkItemToPartition @ 0x1403830D0 (ExQueueWorkItemToPartition.c)
+ *     ExReleaseSpinLockExclusive @ 0x14021C410 (ExReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024B630 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiInsertQueueDpc @ 0x140307FF0 (KiInsertQueueDpc.c)
+ *     ExQueueWorkItemToPartition @ 0x140384E80 (ExQueueWorkItemToPartition.c)
  */
 
 void __fastcall MmSetAccessLogging(_QWORD *a1, int a2, int a3)

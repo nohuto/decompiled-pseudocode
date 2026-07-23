@@ -1,26 +1,26 @@
 /*
- * XREFs of PspAssignPrimaryToken @ 0x1407BBA40
+ * XREFs of PspAssignPrimaryToken @ 0x1407BC1D0
  * Callers:
- *     NtSetInformationProcess @ 0x14070A4B0 (NtSetInformationProcess.c)
+ *     NtSetInformationProcess @ 0x140721890 (NtSetInformationProcess.c)
  * Callees:
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     PspLockUnlockProcessExclusive @ 0x1402C3004 (PspLockUnlockProcessExclusive.c)
- *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
- *     PspLockProcessSecurityShared @ 0x140399E50 (PspLockProcessSecurityShared.c)
- *     PspUnlockProcessSecurityShared @ 0x140581DC8 (PspUnlockProcessSecurityShared.c)
- *     ObDereferenceDeviceMap @ 0x1406B0914 (ObDereferenceDeviceMap.c)
- *     ObReferenceObjectByHandleWithTag @ 0x1406F0B80 (ObReferenceObjectByHandleWithTag.c)
- *     ObReferenceObjectByHandle @ 0x1406F0BC0 (ObReferenceObjectByHandle.c)
- *     SeIsTokenAssignableToProcess @ 0x14071694C (SeIsTokenAssignableToProcess.c)
- *     SeCheckPrivilegedObject @ 0x14078DE60 (SeCheckPrivilegedObject.c)
- *     SeExchangePrimaryToken @ 0x1407BBC44 (SeExchangePrimaryToken.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     PspLockUnlockProcessExclusive @ 0x140241524 (PspLockUnlockProcessExclusive.c)
+ *     ObfDereferenceObjectWithTag @ 0x140355E90 (ObfDereferenceObjectWithTag.c)
+ *     PspLockProcessSecurityShared @ 0x140399FA0 (PspLockProcessSecurityShared.c)
+ *     PspUnlockProcessSecurityShared @ 0x140582004 (PspUnlockProcessSecurityShared.c)
+ *     ObDereferenceDeviceMap @ 0x14067BE28 (ObDereferenceDeviceMap.c)
+ *     SeIsTokenAssignableToProcess @ 0x1406C4F9C (SeIsTokenAssignableToProcess.c)
+ *     ObReferenceObjectByHandleWithTag @ 0x140707F60 (ObReferenceObjectByHandleWithTag.c)
+ *     ObReferenceObjectByHandle @ 0x140707FA0 (ObReferenceObjectByHandle.c)
+ *     SeCheckPrivilegedObject @ 0x14078E020 (SeCheckPrivilegedObject.c)
+ *     SeExchangePrimaryToken @ 0x1407BC3D4 (SeExchangePrimaryToken.c)
  */
 
 NTSTATUS __fastcall PspAssignPrimaryToken(__int64 a1, KPROCESSOR_MODE a2, void *a3, void *a4)
 {
   NTSTATUS result; // eax
   struct _DMA_ADAPTER *v8; // rsi
-  int IsTokenAssignableToProcess; // ebx
+  NTSTATUS IsTokenAssignableToProcess; // ebx
   _QWORD *v10; // rdi
   signed __int64 v11; // rax
   char v12[8]; // [rsp+40h] [rbp-20h] BYREF

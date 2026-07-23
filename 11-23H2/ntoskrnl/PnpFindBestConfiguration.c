@@ -1,12 +1,12 @@
 /*
- * XREFs of PnpFindBestConfiguration @ 0x140815D20
+ * XREFs of PnpFindBestConfiguration @ 0x140815FF0
  * Callers:
- *     PnpAllocateResources @ 0x14078F4C4 (PnpAllocateResources.c)
- *     PnpReallocateResources @ 0x14096D548 (PnpReallocateResources.c)
- *     PnpRestoreResourcesInternal @ 0x14096D734 (PnpRestoreResourcesInternal.c)
- *     PnpRebalance @ 0x14096E8B8 (PnpRebalance.c)
+ *     PnpAllocateResources @ 0x14078F6B4 (PnpAllocateResources.c)
+ *     PnpReallocateResources @ 0x14096D748 (PnpReallocateResources.c)
+ *     PnpRestoreResourcesInternal @ 0x14096D934 (PnpRestoreResourcesInternal.c)
+ *     PnpRebalance @ 0x14096EAB8 (PnpRebalance.c)
  * Callees:
- *     PnpFindBestConfigurationWorker @ 0x140815D78 (PnpFindBestConfigurationWorker.c)
+ *     PnpFindBestConfigurationWorker @ 0x140816048 (PnpFindBestConfigurationWorker.c)
  */
 
 __int64 __fastcall PnpFindBestConfiguration(__int64 a1, unsigned int a2, __int64 a3)

@@ -1,19 +1,19 @@
 /*
- * XREFs of PnpRequestDeviceRemoval @ 0x1404C3E90
+ * XREFs of PnpRequestDeviceRemoval @ 0x140484BC8
  * Callers:
- *     PiProcessQueryDeviceState @ 0x1403F13A8 (PiProcessQueryDeviceState.c)
- *     PipEnumerateCompleted @ 0x1403F30EC (PipEnumerateCompleted.c)
- *     PipCallDriverAddDevice @ 0x1403F4CEC (PipCallDriverAddDevice.c)
- *     PipProcessStartPhase2 @ 0x1404E7068 (PipProcessStartPhase2.c)
- *     PiProfileUpdateDeviceTreeCallback @ 0x140641FDC (PiProfileUpdateDeviceTreeCallback.c)
- *     PiProcessHaltDevice @ 0x140649834 (PiProcessHaltDevice.c)
- *     PnpReallocateResources @ 0x14064BC7C (PnpReallocateResources.c)
- *     PipProcessRestartPhase2 @ 0x14064DF9C (PipProcessRestartPhase2.c)
+ *     PiProcessQueryDeviceState @ 0x1403F026C (PiProcessQueryDeviceState.c)
+ *     PipEnumerateCompleted @ 0x1403F1FB0 (PipEnumerateCompleted.c)
+ *     PipCallDriverAddDevice @ 0x1403F3BB0 (PipCallDriverAddDevice.c)
+ *     PipProcessStartPhase2 @ 0x14050CFC4 (PipProcessStartPhase2.c)
+ *     PiProfileUpdateDeviceTreeCallback @ 0x1406420C0 (PiProfileUpdateDeviceTreeCallback.c)
+ *     PiProcessHaltDevice @ 0x140649918 (PiProcessHaltDevice.c)
+ *     PnpReallocateResources @ 0x14064BD60 (PnpReallocateResources.c)
+ *     PipProcessRestartPhase2 @ 0x14064E080 (PipProcessRestartPhase2.c)
  * Callees:
- *     PnpAcquireDependencyRelationsLock @ 0x1403F4194 (PnpAcquireDependencyRelationsLock.c)
- *     PnpReleaseDependencyRelationsLock @ 0x1403F41C4 (PnpReleaseDependencyRelationsLock.c)
- *     PnpSetTargetDeviceRemove @ 0x1404C3F44 (PnpSetTargetDeviceRemove.c)
- *     PnpRequestDeviceRemovalWorker @ 0x1404C4ACC (PnpRequestDeviceRemovalWorker.c)
+ *     PnpAcquireDependencyRelationsLock @ 0x1403F3058 (PnpAcquireDependencyRelationsLock.c)
+ *     PnpReleaseDependencyRelationsLock @ 0x1403F3088 (PnpReleaseDependencyRelationsLock.c)
+ *     PnpSetTargetDeviceRemove @ 0x140484C7C (PnpSetTargetDeviceRemove.c)
+ *     PnpRequestDeviceRemovalWorker @ 0x1404864A4 (PnpRequestDeviceRemovalWorker.c)
  */
 
 __int64 __fastcall PnpRequestDeviceRemoval(__int64 a1, char a2, int a3, int a4)

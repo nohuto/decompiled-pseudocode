@@ -72,7 +72,7 @@ __int64 __fastcall IopConnectInterrupt(
   __int64 v42; // rax
   __int64 v43; // rcx
   int v44; // [rsp+70h] [rbp-98h]
-  struct _PROCESSOR_NUMBER ProcNumber; // [rsp+88h] [rbp-80h] BYREF
+  _PROCESSOR_NUMBER ProcNumber; // [rsp+88h] [rbp-80h] BYREF
   int v46; // [rsp+8Ch] [rbp-7Ch]
   unsigned int v47; // [rsp+90h] [rbp-78h]
   __m128i v48; // [rsp+98h] [rbp-70h] BYREF

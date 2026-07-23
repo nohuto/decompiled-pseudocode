@@ -1,19 +1,19 @@
 /*
- * XREFs of NtMapViewOfSection @ 0x140436740
+ * XREFs of NtMapViewOfSection @ 0x140435610
  * Callers:
  *     <none>
  * Callees:
- *     MiMakeProtectionMask @ 0x14002BD00 (MiMakeProtectionMask.c)
- *     MiSectionControlArea @ 0x14002C4D0 (MiSectionControlArea.c)
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
- *     ObfDereferenceObjectWithTag @ 0x14006ACD0 (ObfDereferenceObjectWithTag.c)
- *     RtlFindMostSignificantBit @ 0x14009E154 (RtlFindMostSignificantBit.c)
- *     MiMapViewOfSection @ 0x140433010 (MiMapViewOfSection.c)
- *     ObReferenceObjectByHandle @ 0x140450D40 (ObReferenceObjectByHandle.c)
- *     ObpReferenceObjectByHandleWithTag @ 0x140450D80 (ObpReferenceObjectByHandleWithTag.c)
- *     DbgkMapViewOfSection @ 0x1404CAD90 (DbgkMapViewOfSection.c)
- *     EtwTiLogMapExecView @ 0x1406A5808 (EtwTiLogMapExecView.c)
- *     ExRaiseDatatypeMisalignment @ 0x1406B6058 (ExRaiseDatatypeMisalignment.c)
+ *     MiMakeProtectionMask @ 0x14002B880 (MiMakeProtectionMask.c)
+ *     MiSectionControlArea @ 0x14002C050 (MiSectionControlArea.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
+ *     ObfDereferenceObjectWithTag @ 0x14006A850 (ObfDereferenceObjectWithTag.c)
+ *     RtlFindMostSignificantBit @ 0x14009D954 (RtlFindMostSignificantBit.c)
+ *     MiMapViewOfSection @ 0x140431EE0 (MiMapViewOfSection.c)
+ *     ObReferenceObjectByHandle @ 0x14044FC10 (ObReferenceObjectByHandle.c)
+ *     ObpReferenceObjectByHandleWithTag @ 0x14044FC50 (ObpReferenceObjectByHandleWithTag.c)
+ *     DbgkMapViewOfSection @ 0x1404B07BC (DbgkMapViewOfSection.c)
+ *     EtwTiLogMapExecView @ 0x1406A5940 (EtwTiLogMapExecView.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1406B6190 (ExRaiseDatatypeMisalignment.c)
  */
 
 NTSTATUS __stdcall NtMapViewOfSection(
@@ -179,15 +179,15 @@ LABEL_61:
     if ( v25 < 0 )
     {
       if ( v32 )
-        ++dword_140327138;
+        ++dword_140327178;
       else
-        ++dword_140327134;
+        ++dword_140327174;
     }
     if ( v25 >= 0 )
     {
       v27 = v37;
       if ( (*(_DWORD *)(v37 + 56) & 0x20) != 0 )
-        DbgkMapViewOfSection((ULONG_PTR)v20);
+        DbgkMapViewOfSection(v20);
       if ( (v31 & 2) != 0 && (*(_DWORD *)(v27 + 56) & 0x20) == 0 )
         EtwTiLogMapExecView((_DWORD)v20, v39, v26, v24, AllocationType, AccessProtection);
       *ViewSize = v34;

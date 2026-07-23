@@ -3,7 +3,7 @@
  * Callers:
  *     <none>
  * Callees:
- *     swprintf_s @ 0x18009B740 (swprintf_s.c)
+ *     swprintf_s @ 0x18009B750 (swprintf_s.c)
  */
 
 PWSTR __stdcall RtlEthernetAddressToStringW(const DL_EUI48 *Addr, PWSTR S)

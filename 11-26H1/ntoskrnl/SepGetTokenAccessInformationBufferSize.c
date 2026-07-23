@@ -1,11 +1,12 @@
 /*
- * XREFs of SepGetTokenAccessInformationBufferSize @ 0x140A34000
+ * XREFs of SepGetTokenAccessInformationBufferSize @ 0x140A4EF60
  * Callers:
- *     NtQueryInformationToken @ 0x140B79CE0 (NtQueryInformationToken.c)
+ *     SeQueryInformationToken @ 0x1408FA8C0 (SeQueryInformationToken.c)
+ *     NtQueryInformationToken @ 0x140B81F50 (NtQueryInformationToken.c)
  * Callees:
- *     SepTokenPrivilegeCount @ 0x14047DD34 (SepTokenPrivilegeCount.c)
- *     AuthzBasepGetInternalSecurityAttributeValueCopyoutBufferSize @ 0x140491B3C (AuthzBasepGetInternalSecurityAttributeValueCopyoutBufferSize.c)
- *     AuthzBasepCopyoutInternalSecurityAttributes @ 0x140A343AC (AuthzBasepCopyoutInternalSecurityAttributes.c)
+ *     SepTokenPrivilegeCount @ 0x1404776A4 (SepTokenPrivilegeCount.c)
+ *     AuthzBasepGetInternalSecurityAttributeValueCopyoutBufferSize @ 0x14048B68C (AuthzBasepGetInternalSecurityAttributeValueCopyoutBufferSize.c)
+ *     AuthzBasepCopyoutInternalSecurityAttributes @ 0x140A4F30C (AuthzBasepCopyoutInternalSecurityAttributes.c)
  */
 
 __int64 __fastcall SepGetTokenAccessInformationBufferSize(

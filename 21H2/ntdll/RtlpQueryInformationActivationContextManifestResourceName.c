@@ -1,5 +1,5 @@
 /*
- * XREFs of RtlpQueryInformationActivationContextManifestResourceName @ 0x1800E0100
+ * XREFs of RtlpQueryInformationActivationContextManifestResourceName @ 0x1800E00C0
  * Callers:
  *     RtlQueryInformationActivationContext @ 0x180012DE0 (RtlQueryInformationActivationContext.c)
  * Callees:

@@ -12,13 +12,13 @@
  *     BiTranslateFilePath @ 0x14077CCC8 (BiTranslateFilePath.c)
  */
 
-__int64 __fastcall BiCreateBootEntry(void *a1, _QWORD *a2)
+__int64 __fastcall BiCreateBootEntry(HANDLE BcdObjectHandle, _QWORD *a2)
 {
   _DWORD *v2; // rdi
   void *v3; // rsi
   unsigned int *v4; // r14
   void *v5; // r12
-  struct _FILE_PATH *PoolWithTag; // r15
+  _FILE_PATH *PoolWithTag; // r15
   signed int Element; // ebx
   int v9; // eax
   __int64 v10; // r13
@@ -62,17 +62,17 @@ __int64 __fastcall BiCreateBootEntry(void *a1, _QWORD *a2)
   v36 = 0LL;
   v5 = 0LL;
   PoolWithTag = 0LL;
-  Element = BiGetElement((__int64)a1, 0x12000004u, P, &v41);
+  Element = BiGetElement(BcdObjectHandle, 0x12000004u, P, &v41);
   if ( Element >= 0 )
   {
-    Element = BiGetElement((__int64)a1, 0x11000001u, &v34, &v42);
+    Element = BiGetElement(BcdObjectHandle, 0x11000001u, &v34, &v42);
     if ( Element < 0 )
     {
       v2 = v34;
     }
     else
     {
-      v9 = BiGetElement((__int64)a1, 0x12000002u, &Src, &v42);
+      v9 = BiGetElement(BcdObjectHandle, 0x12000002u, &Src, &v42);
       v2 = v34;
       Element = v9;
       v3 = Src;
@@ -111,7 +111,7 @@ __int64 __fastcall BiCreateBootEntry(void *a1, _QWORD *a2)
         v42 = v18;
         if ( v17 >= v16 )
         {
-          PoolWithTag = (struct _FILE_PATH *)ExAllocatePoolWithTag(PagedPool, v18, 0x4B444342u);
+          PoolWithTag = (_FILE_PATH *)ExAllocatePoolWithTag(PagedPool, v18, 0x4B444342u);
           if ( !PoolWithTag )
           {
 LABEL_17:
@@ -125,7 +125,7 @@ LABEL_17:
           memmove(PoolWithTag->FilePath, v2 + 5, Size);
           memmove(&PoolWithTag->FilePath[Size], v3, Size_4);
           Element = BiTranslateFilePath(PoolWithTag, 4u);
-          if ( Element < 0 || (KeyName = BiGetKeyName(a1, &v36), v5 = v36, Element = KeyName, KeyName < 0) )
+          if ( Element < 0 || (KeyName = BiGetKeyName(BcdObjectHandle, &v36), v5 = v36, Element = KeyName, KeyName < 0) )
           {
             v4 = (unsigned int *)v37;
           }

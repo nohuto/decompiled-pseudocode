@@ -1,9 +1,9 @@
 /*
- * XREFs of NtAccessCheckByTypeAndAuditAlarm @ 0x1409F5490
+ * XREFs of NtAccessCheckByTypeAndAuditAlarm @ 0x140A5DFE0
  * Callers:
- *     DifNtAccessCheckByTypeAndAuditAlarmWrapper @ 0x140668FE0 (DifNtAccessCheckByTypeAndAuditAlarmWrapper.c)
+ *     DifNtAccessCheckByTypeAndAuditAlarmWrapper @ 0x14066CBC0 (DifNtAccessCheckByTypeAndAuditAlarmWrapper.c)
  * Callees:
- *     SepAccessCheckAndAuditAlarm @ 0x1409F55D0 (SepAccessCheckAndAuditAlarm.c)
+ *     SepAccessCheckAndAuditAlarm @ 0x140A5E120 (SepAccessCheckAndAuditAlarm.c)
  */
 
 NTSTATUS __stdcall NtAccessCheckByTypeAndAuditAlarm(

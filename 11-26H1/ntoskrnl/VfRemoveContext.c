@@ -1,14 +1,14 @@
 /*
- * XREFs of VfRemoveContext @ 0x140640D60
+ * XREFs of VfRemoveContext @ 0x140644940
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     ViFreeContextTable @ 0x140C227FC (ViFreeContextTable.c)
- *     ViGetContextPointer @ 0x140C2281C (ViGetContextPointer.c)
- *     ViIsContextIdValid @ 0x140C22868 (ViIsContextIdValid.c)
- *     ViLockContextPointer @ 0x140C22888 (ViLockContextPointer.c)
- *     ViUnlockContextPointer @ 0x140C22930 (ViUnlockContextPointer.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     ViFreeContextTable @ 0x140C2880C (ViFreeContextTable.c)
+ *     ViGetContextPointer @ 0x140C2882C (ViGetContextPointer.c)
+ *     ViIsContextIdValid @ 0x140C28878 (ViIsContextIdValid.c)
+ *     ViLockContextPointer @ 0x140C28898 (ViLockContextPointer.c)
+ *     ViUnlockContextPointer @ 0x140C28940 (ViUnlockContextPointer.c)
  */
 
 __int64 __fastcall VfRemoveContext(unsigned __int16 *a1)

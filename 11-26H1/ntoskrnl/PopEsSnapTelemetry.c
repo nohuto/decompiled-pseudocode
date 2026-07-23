@@ -1,11 +1,11 @@
 /*
- * XREFs of PopEsSnapTelemetry @ 0x140B5CDE0
+ * XREFs of PopEsSnapTelemetry @ 0x140B5FF60
  * Callers:
- *     PopEsUpdateState @ 0x14051C1C0 (PopEsUpdateState.c)
- *     PopEsEnterSleepShutdown @ 0x140B5CD70 (PopEsEnterSleepShutdown.c)
+ *     PopEsUpdateState @ 0x140517FA0 (PopEsUpdateState.c)
+ *     PopEsEnterSleepShutdown @ 0x140B5FEF0 (PopEsEnterSleepShutdown.c)
  * Callees:
- *     PopTraceEsState @ 0x1404F21DC (PopTraceEsState.c)
- *     Feature_SustainabilityFixes_FY26Q2__private_IsEnabledDeviceUsageNoInline @ 0x14060D680 (Feature_SustainabilityFixes_FY26Q2__private_IsEnabledDeviceUsageNoInline.c)
+ *     PopTraceEsState @ 0x1404EB7BC (PopTraceEsState.c)
+ *     Feature_SustainabilityFixes_FY26Q2__private_IsEnabledDeviceUsageNoInline @ 0x140610788 (Feature_SustainabilityFixes_FY26Q2__private_IsEnabledDeviceUsageNoInline.c)
  */
 
 char __fastcall PopEsSnapTelemetry(__int64 a1)
@@ -28,21 +28,24 @@ char __fastcall PopEsSnapTelemetry(__int64 a1)
     v1 = *(_DWORD *)(a1 + 12);
   if ( PopEsLastStateChangeTimeStamp )
   {
-    v4 = dword_140E677C4;
+    v4 = dword_140E67A2C;
     v5 = v3 - PopEsLastStateChangeTimeStamp;
     v6 = v1 - PopEsLastBatteryCharge;
-    if ( (unsigned int)Feature_SustainabilityFixes_FY26Q2__private_IsEnabledDeviceUsageNoInline() && !dword_140F106CC )
-      PopEsLastBatteryThreshold = dword_140F10710;
+    if ( (unsigned int)Feature_SustainabilityFixes_FY26Q2__private_IsEnabledDeviceUsageNoInline()
+      && !HIDWORD(PpmIdlePolicyLock.PropagateBoostsEntry.Next) )
+    {
+      PopEsLastBatteryThreshold = (int)PpmIdlePolicyLock.GlobalForegroundListEntry.Flink;
+    }
     v8 = (unsigned int)PopEsModeGp;
     if ( PopEsReason != 32 )
       v8 = (unsigned int)PopEsMode;
     PopTraceEsState(v8, v5, v6, v7, v8, v10, v11, v4);
   }
   PopEsAcOnline = *(_BYTE *)a1;
-  PopEsLastBatteryThreshold = dword_140F10710;
-  result = byte_140F10715;
+  PopEsLastBatteryThreshold = (int)PpmIdlePolicyLock.GlobalForegroundListEntry.Flink;
+  result = BYTE5(PpmIdlePolicyLock.ForegroundDpcStackListEntry.Next);
   PopEsLastBatteryCharge = v1;
-  PopEsLastUserAwaySetting = byte_140F10715;
+  PopEsLastUserAwaySetting = BYTE5(PpmIdlePolicyLock.ForegroundDpcStackListEntry.Next);
   PopEsLastStateChangeTimeStamp = v3;
   return result;
 }

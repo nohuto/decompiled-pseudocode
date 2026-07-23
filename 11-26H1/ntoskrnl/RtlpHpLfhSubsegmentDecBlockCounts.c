@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlpHpLfhSubsegmentDecBlockCounts @ 0x14034D710
+ * XREFs of RtlpHpLfhSubsegmentDecBlockCounts @ 0x14034F790
  * Callers:
- *     RtlpHpLfhSubsegmentDelayFreeListProcess @ 0x14034BF30 (RtlpHpLfhSubsegmentDelayFreeListProcess.c)
- *     RtlpHpLfhOwnerListCompact @ 0x14034D3B0 (RtlpHpLfhOwnerListCompact.c)
+ *     RtlpHpLfhSubsegmentDelayFreeListProcess @ 0x14034DFB0 (RtlpHpLfhSubsegmentDelayFreeListProcess.c)
+ *     RtlpHpLfhOwnerListCompact @ 0x14034F430 (RtlpHpLfhOwnerListCompact.c)
  * Callees:
- *     RtlpHpEnvCompactionSchedule @ 0x14034D650 (RtlpHpEnvCompactionSchedule.c)
+ *     RtlpHpEnvCompactionSchedule @ 0x14034F6D0 (RtlpHpEnvCompactionSchedule.c)
  */
 
 __int64 __fastcall RtlpHpLfhSubsegmentDecBlockCounts(__int16 *a1, __int64 a2, unsigned int a3, int a4)
@@ -19,7 +19,7 @@ __int64 __fastcall RtlpHpLfhSubsegmentDecBlockCounts(__int16 *a1, __int64 a2, un
   __int64 v14; // kr00_8
   signed __int64 v15; // rcx
   unsigned __int64 v16; // rcx
-  unsigned int SystemCallNumber; // eax
+  int StackBase_high; // eax
 
   v5 = *(_BYTE *)(a2 + 38);
   v7 = 2LL * (a3 >> 12 >> v5);
@@ -60,10 +60,10 @@ __int64 __fastcall RtlpHpLfhSubsegmentDecBlockCounts(__int16 *a1, __int64 a2, un
         {
           *((_BYTE *)a1 + v16 + 92) = 1;
           if ( BYTE1(**(_QWORD **)(*(_QWORD *)a1 + 56LL)) == 1 )
-            SystemCallNumber = *(_DWORD *)&ExSaPageGroupDescriptorArrayLock.Tag;
+            StackBase_high = HIDWORD(ExSaPageGroupDescriptorArrayLock.StackBase);
           else
-            SystemCallNumber = ExSaPageGroupDescriptorArrayLock.SystemCallNumber;
-          if ( !SystemCallNumber )
+            StackBase_high = ExSaPageGroupDescriptorArrayLock.ThreadLock;
+          if ( !StackBase_high )
             RtlpHpEnvCompactionSchedule(*(_QWORD **)(*(_QWORD *)a1 + 56LL));
         }
       }

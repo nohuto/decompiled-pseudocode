@@ -1,9 +1,9 @@
 /*
- * XREFs of MiRemoveConductorListZeroThread @ 0x1407FF960
+ * XREFs of MiRemoveConductorListZeroThread @ 0x1408000A0
  * Callers:
- *     MiDeleteThreadContext @ 0x14068F644 (MiDeleteThreadContext.c)
+ *     MiDeleteThreadContext @ 0x140690714 (MiDeleteThreadContext.c)
  * Callees:
- *     memmove @ 0x1406BFC40 (memmove.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
  */
 
 unsigned __int64 __fastcall MiRemoveConductorListZeroThread(__int64 a1, __int64 a2)

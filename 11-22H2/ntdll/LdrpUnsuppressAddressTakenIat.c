@@ -14,9 +14,9 @@
  *     RtlValidateUserCallTarget @ 0x18010A424 (RtlValidateUserCallTarget.c)
  */
 
-__int64 __fastcall LdrpUnsuppressAddressTakenIat(unsigned __int64 a1, unsigned int a2, unsigned int a3)
+__int64 __fastcall LdrpUnsuppressAddressTakenIat(char *BaseOfImage, unsigned int a2, unsigned int a3)
 {
-  unsigned __int64 v5; // r12
+  char *v5; // r12
   unsigned int v6; // esi
   _DWORD *Config; // rax
   unsigned int v8; // r14d
@@ -29,16 +29,16 @@ __int64 __fastcall LdrpUnsuppressAddressTakenIat(unsigned __int64 a1, unsigned i
   __int64 v15; // r12
   char v17[8]; // [rsp+30h] [rbp-40h] BYREF
   unsigned int *Context; // [rsp+38h] [rbp-38h] BYREF
-  __int64 v19; // [rsp+40h] [rbp-30h] BYREF
-  unsigned __int64 v20; // [rsp+48h] [rbp-28h]
+  PIMAGE_NT_HEADERS OutHeaders; // [rsp+40h] [rbp-30h] BYREF
+  char *v20; // [rsp+48h] [rbp-28h]
   __int128 Key; // [rsp+50h] [rbp-20h] BYREF
 
   Context = 0LL;
-  v20 = a1;
-  v5 = a1;
+  v20 = BaseOfImage;
+  v5 = BaseOfImage;
   v6 = 0;
   Key = 0LL;
-  RtlImageNtHeaderEx(3, a1, 0LL, &v19);
+  RtlImageNtHeaderEx(3u, BaseOfImage, 0LL, &OutHeaders);
   Config = LdrImageDirectoryEntryToLoadConfig(v5);
   if ( !Config )
     return v6;
@@ -46,7 +46,7 @@ __int64 __fastcall LdrpUnsuppressAddressTakenIat(unsigned __int64 a1, unsigned i
     return v6;
   if ( !*((_QWORD *)Config + 21) )
     return v6;
-  if ( (*(_WORD *)(v19 + 94) & 0x4000) == 0 )
+  if ( (OutHeaders->OptionalHeader.DllCharacteristics & 0x4000) == 0 )
     return v6;
   v8 = Config[36];
   if ( (v8 & 0x4000) == 0 )
@@ -76,10 +76,10 @@ LABEL_17:
         v13 = *v9;
         if ( v14 >= (unsigned int)v13 )
           return (unsigned int)-1073741701;
-        v15 = *(_QWORD *)(v13 + v5);
+        v15 = *(_QWORD *)&v5[v13];
         if ( (unsigned int)RtlValidateUserCallTarget(v15, v17) != 1 && (v17[0] & 0x10) != 0 )
         {
-          v6 = RtlGuardGrantSuppressedCallAccess(v15, 4LL, &v19);
+          v6 = RtlGuardGrantSuppressedCallAccess(v15, 4LL, &OutHeaders);
           if ( (v6 & 0x80000000) != 0 )
             return v6;
         }

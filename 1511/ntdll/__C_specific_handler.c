@@ -31,7 +31,9 @@ EXCEPTION_DISPOSITION __cdecl _C_specific_handler(
   ImageBase = DispatcherContext->ImageBase;
   HandlerData = (DWORD *)DispatcherContext->HandlerData;
   v7 = DispatcherContext->ControlPc - ImageBase;
-  RtlEndStrongEnumerationHashTable();
+  RtlEndStrongEnumerationHashTable(
+    (PRTL_DYNAMIC_HASH_TABLE)ContextRecord,
+    (PRTL_DYNAMIC_HASH_TABLE_ENUMERATOR)EstablisherFrame);
   if ( (ExceptionRecord->ExceptionFlags & 0x66) != 0 )
   {
     ScopeIndex = DispatcherContext->ScopeIndex;

@@ -1,10 +1,10 @@
 /*
- * XREFs of PfpPartitionRundownProtectionRelease @ 0x14044F9A8
+ * XREFs of PfpPartitionRundownProtectionRelease @ 0x140447AD8
  * Callers:
- *     PfGetCompletedTrace @ 0x140A538E4 (PfGetCompletedTrace.c)
- *     PfSetSuperfetchInformation @ 0x140B5DB14 (PfSetSuperfetchInformation.c)
+ *     PfGetCompletedTrace @ 0x140A5CBD4 (PfGetCompletedTrace.c)
+ *     PfSetSuperfetchInformation @ 0x140B60C94 (PfSetSuperfetchInformation.c)
  * Callees:
- *     ExReleaseRundownProtectionCacheAware @ 0x14044F9D0 (ExReleaseRundownProtectionCacheAware.c)
+ *     ExReleaseRundownProtectionCacheAware @ 0x140447B00 (ExReleaseRundownProtectionCacheAware.c)
  */
 
 void __fastcall PfpPartitionRundownProtectionRelease(__int64 a1)

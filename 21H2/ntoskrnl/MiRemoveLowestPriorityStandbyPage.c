@@ -1,32 +1,32 @@
 /*
- * XREFs of MiRemoveLowestPriorityStandbyPage @ 0x140385120
+ * XREFs of MiRemoveLowestPriorityStandbyPage @ 0x140385270
  * Callers:
- *     MiGetPage @ 0x140213610 (MiGetPage.c)
- *     MiPurgePartitionStandby @ 0x140385004 (MiPurgePartitionStandby.c)
- *     MiPruneStandbyPages @ 0x140550DD4 (MiPruneStandbyPages.c)
+ *     MiGetPage @ 0x1402B7F10 (MiGetPage.c)
+ *     MiPurgePartitionStandby @ 0x140385154 (MiPurgePartitionStandby.c)
+ *     MiPruneStandbyPages @ 0x140551014 (MiPruneStandbyPages.c)
  * Callees:
- *     MiUnlinkPageFromList @ 0x1402178B0 (MiUnlinkPageFromList.c)
- *     MiUpdatePageFileHighInPte @ 0x14023DD80 (MiUpdatePageFileHighInPte.c)
- *     KeYieldProcessorEx @ 0x14024B280 (KeYieldProcessorEx.c)
- *     MiUpdateTransitionPteFrame @ 0x14026D9E0 (MiUpdateTransitionPteFrame.c)
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     MiRestoreTransitionPte @ 0x1402A2DD0 (MiRestoreTransitionPte.c)
- *     MiDeleteParentDecayNode @ 0x1402AB77C (MiDeleteParentDecayNode.c)
- *     MiRemoveDecayClusterTimer @ 0x1402AB810 (MiRemoveDecayClusterTimer.c)
- *     MiIsDecayPfn @ 0x1402B8C2C (MiIsDecayPfn.c)
- *     MiGetAvailablePagesExcludeSlists @ 0x1402C7B9C (MiGetAvailablePagesExcludeSlists.c)
- *     MiIsPfnFromSlabAllocation @ 0x140302EF0 (MiIsPfnFromSlabAllocation.c)
- *     MiReturnFreeZeroPage @ 0x140303050 (MiReturnFreeZeroPage.c)
- *     MiSetPfnBlink @ 0x140318130 (MiSetPfnBlink.c)
- *     MiDecreaseAvailablePages @ 0x140319380 (MiDecreaseAvailablePages.c)
- *     MiInsertPageInList @ 0x140326800 (MiInsertPageInList.c)
- *     MiSetOriginalPtePfnFromFreeList @ 0x140329F30 (MiSetOriginalPtePfnFromFreeList.c)
- *     KxAcquireQueuedSpinLock @ 0x140350970 (KxAcquireQueuedSpinLock.c)
- *     MiDiscardTransitionPteEx @ 0x140388E94 (MiDiscardTransitionPteEx.c)
- *     MiUnlinkNumaStandbyPage @ 0x14039CA44 (MiUnlinkNumaStandbyPage.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402042B0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     MiRestoreTransitionPte @ 0x140220210 (MiRestoreTransitionPte.c)
+ *     MiDeleteParentDecayNode @ 0x1402298BC (MiDeleteParentDecayNode.c)
+ *     MiRemoveDecayClusterTimer @ 0x140229950 (MiRemoveDecayClusterTimer.c)
+ *     MiIsDecayPfn @ 0x140236E3C (MiIsDecayPfn.c)
+ *     MiGetAvailablePagesExcludeSlists @ 0x1402463F0 (MiGetAvailablePagesExcludeSlists.c)
+ *     MiUpdateTransitionPteFrame @ 0x14025B980 (MiUpdateTransitionPteFrame.c)
+ *     MiUnlinkPageFromList @ 0x1402BC1B0 (MiUnlinkPageFromList.c)
+ *     MiUpdatePageFileHighInPte @ 0x1402E25D0 (MiUpdatePageFileHighInPte.c)
+ *     KeYieldProcessorEx @ 0x1402EFAD0 (KeYieldProcessorEx.c)
+ *     MiIsPfnFromSlabAllocation @ 0x14030DC40 (MiIsPfnFromSlabAllocation.c)
+ *     MiReturnFreeZeroPage @ 0x14030DDA0 (MiReturnFreeZeroPage.c)
+ *     MiSetPfnBlink @ 0x140322E80 (MiSetPfnBlink.c)
+ *     MiDecreaseAvailablePages @ 0x1403240D0 (MiDecreaseAvailablePages.c)
+ *     MiInsertPageInList @ 0x140331550 (MiInsertPageInList.c)
+ *     MiSetOriginalPtePfnFromFreeList @ 0x140334C80 (MiSetOriginalPtePfnFromFreeList.c)
+ *     KxAcquireQueuedSpinLock @ 0x14035B6C0 (KxAcquireQueuedSpinLock.c)
+ *     MiDiscardTransitionPteEx @ 0x140388FE4 (MiDiscardTransitionPteEx.c)
+ *     MiUnlinkNumaStandbyPage @ 0x14039CB94 (MiUnlinkNumaStandbyPage.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  *     MI_PFN_IS_PROTO @ 0x1403F48C8 (MI_PFN_IS_PROTO.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall MiRemoveLowestPriorityStandbyPage(__int64 a1, unsigned int a2, unsigned int a3)
@@ -78,32 +78,33 @@ __int64 __fastcall MiRemoveLowestPriorityStandbyPage(__int64 a1, unsigned int a2
   __int64 v48; // r11
   __int64 v49; // r10
   int v50; // ebp
-  int v51; // eax
-  __int64 v52; // rcx
-  char v53; // al
+  __int64 v51; // r8
+  int v52; // eax
+  __int64 v53; // rcx
   char v54; // al
-  char v55; // r8
-  unsigned __int8 v56; // al
-  struct _KPRCB *v57; // rax
-  _DWORD *v58; // r9
-  int v59; // edx
-  unsigned __int8 v60; // al
-  struct _KPRCB *v61; // rax
-  _DWORD *v62; // r9
-  int v63; // edx
+  char v55; // al
+  char v56; // r8
+  unsigned __int8 v57; // al
+  struct _KPRCB *v58; // rax
+  _DWORD *v59; // r9
+  int v60; // edx
+  unsigned __int8 v61; // al
+  struct _KPRCB *v62; // rax
+  _DWORD *v63; // r9
+  int v64; // edx
   ULONG_PTR AvailablePagesExcludeSlists; // rax
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+30h] [rbp-68h] BYREF
-  int v67; // [rsp+A8h] [rbp+10h] BYREF
-  unsigned int v68; // [rsp+B0h] [rbp+18h]
-  unsigned __int64 v69; // [rsp+B8h] [rbp+20h]
+  int v68; // [rsp+A8h] [rbp+10h] BYREF
+  unsigned int v69; // [rsp+B0h] [rbp+18h]
+  unsigned __int64 v70; // [rsp+B8h] [rbp+20h]
 
-  v68 = a3;
+  v69 = a3;
   v3 = (_QWORD *)(a1 + 2432);
   memset(&LockHandle, 0, sizeof(LockHandle));
-  v69 = a1 + 8 * (a2 + 4 * (a2 + 76LL));
-  if ( a1 + 2432 >= v69 )
+  v70 = a1 + 8 * (a2 + 4 * (a2 + 76LL));
+  if ( a1 + 2432 >= v70 )
     return -1LL;
-  v4 = v69;
+  v4 = v70;
   v5 = (unsigned __int64 *)(a1 + 2464);
   v6 = 0xFFFFFFFFFLL;
   while ( v3[2] == 0xFFFFFFFFFLL )
@@ -153,8 +154,8 @@ LABEL_63:
     v6 = v9;
     v17 = *(_QWORD *)(v15 + 16);
     v18 = v15;
-    if ( qword_140C4DF40 && (v17 & 0x10) == 0 )
-      v17 &= ~qword_140C4DF40;
+    if ( qword_140C4DF80 && (v17 & 0x10) == 0 )
+      v17 &= ~qword_140C4DF80;
     v9 = (v17 >> 12) & 0xFFFFFFFFFLL;
     v15 = v16 + 48 * v9;
     if ( v9 == v6 )
@@ -176,15 +177,15 @@ LABEL_63:
     goto LABEL_50;
   }
   KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
-  v67 = 0;
+  v68 = 0;
   while ( _interlockedbittestandset64((volatile signed __int32 *)(v15 + 24), 0x3FuLL) )
   {
     do
-      KeYieldProcessorEx(&v67, v23, v24, v25);
+      KeYieldProcessorEx(&v68, v23, v24, v25);
     while ( *(__int64 *)(v15 + 24) < 0 );
   }
   if ( (*(_BYTE *)(v15 + 34) & 7) != 2
-    || *(_QWORD *)(qword_140C4E648 + 8 * ((*(_QWORD *)(v15 + 40) >> 39) & 0x3FFLL)) != a1 )
+    || *(_QWORD *)(qword_140C4E688 + 8 * ((*(_QWORD *)(v15 + 40) >> 39) & 0x3FFLL)) != a1 )
   {
     goto LABEL_47;
   }
@@ -226,7 +227,7 @@ LABEL_61:
     v5 -= 5;
 LABEL_62:
     __writecr8(CurrentIrql);
-    v4 = v69;
+    v4 = v70;
     goto LABEL_63;
   }
   if ( v6 != v26 )
@@ -236,8 +237,8 @@ LABEL_62:
     goto LABEL_54;
   }
   v27 = *(_QWORD *)(v18 + 16);
-  if ( qword_140C4DF40 && (v27 & 0x10) == 0 )
-    v27 &= ~qword_140C4DF40;
+  if ( qword_140C4DF80 && (v27 & 0x10) == 0 )
+    v27 &= ~qword_140C4DF80;
   v6 = 0xFFFFFFFFFLL;
   if ( v9 != ((v27 >> 12) & 0xFFFFFFFFFLL) )
   {
@@ -285,11 +286,11 @@ LABEL_54:
     KeBugCheckEx(0x4Eu, 1uLL, (ULONG_PTR)v3, AvailablePagesExcludeSlists, 0LL);
   }
   --*v3;
-  if ( dword_140C4E6CC == 1 )
+  if ( dword_140C4E70C == 1 )
   {
     v35 = v9 & 0x1F;
     LOBYTE(v36) = 1;
-    v37 = (volatile signed __int32 *)(qword_140C4E728 + 4 * (v9 >> 5));
+    v37 = (volatile signed __int32 *)(qword_140C4E768 + 4 * (v9 >> 5));
     if ( v35 + 1 <= 0x20 )
     {
       v38 = 1 << v35;
@@ -347,24 +348,24 @@ LABEL_75:
   if ( v40 == 1 )
     *(_BYTE *)(v15 + 35) &= ~8u;
   KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
-  v50 = MiDecreaseAvailablePages(a1, 1LL, 0xFFFFFFFFFFFFFFFFuLL, v68);
+  v50 = MiDecreaseAvailablePages(a1, 1LL, 0xFFFFFFFFFFFFFFFFuLL, v69);
   *(_QWORD *)(v15 + 24) &= 0xFFFFFFF000000000uLL;
-  MiRestoreTransitionPte(v15, 0);
-  v51 = MI_PFN_IS_PROTO(v15);
-  v52 = 4352LL;
-  if ( !v51 )
-    v52 = 5056LL;
-  _InterlockedDecrement64((volatile signed __int64 *)(v52 + a1));
-  v53 = *(_BYTE *)(v15 + 34);
+  MiRestoreTransitionPte(v15, 0LL, v51);
+  v52 = MI_PFN_IS_PROTO(v15);
+  v53 = 4352LL;
+  if ( !v52 )
+    v53 = 5056LL;
+  _InterlockedDecrement64((volatile signed __int64 *)(v53 + a1));
+  v54 = *(_BYTE *)(v15 + 34);
   *(_QWORD *)(v15 + 40) &= ~0x8000000000000000uLL;
-  *(_BYTE *)(v15 + 34) = v53 & 0xC7;
-  v54 = *(_BYTE *)(v15 + 35) & 0xDF;
+  *(_BYTE *)(v15 + 34) = v54 & 0xC7;
+  v55 = *(_BYTE *)(v15 + 35) & 0xDF;
   *(_QWORD *)v15 = 0LL;
-  *(_BYTE *)(v15 + 35) = v54;
+  *(_BYTE *)(v15 + 35) = v55;
   *(_BYTE *)(v15 + 34) = *(_BYTE *)(v15 + 34) & 0xF8 | 5;
   *(_QWORD *)(v15 + 16) = ZeroPte;
   MiSetOriginalPtePfnFromFreeList((unsigned __int64 *)(v15 + 16));
-  if ( (v55 & 1) != 0 )
+  if ( (v56 & 1) != 0 )
     *(_QWORD *)(v15 + 16) = MiUpdatePageFileHighInPte(*(_QWORD *)(v15 + 16), 4294967293LL);
   if ( v50 )
   {
@@ -373,16 +374,16 @@ LABEL_75:
     {
       if ( (KiIrqlFlags & 1) != 0 )
       {
-        v60 = KeGetCurrentIrql();
-        if ( v60 <= 0xFu && CurrentIrql <= 0xFu && v60 >= 2u )
+        v61 = KeGetCurrentIrql();
+        if ( v61 <= 0xFu && CurrentIrql <= 0xFu && v61 >= 2u )
         {
-          v61 = KeGetCurrentPrcb();
-          v62 = v61->SchedulerAssist;
-          v63 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
-          v14 = (v63 & v62[5]) == 0;
-          v62[5] &= v63;
+          v62 = KeGetCurrentPrcb();
+          v63 = v62->SchedulerAssist;
+          v64 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
+          v14 = (v64 & v63[5]) == 0;
+          v63[5] &= v64;
           if ( v14 )
-            KiRemoveSystemWorkPriorityKick(v61);
+            KiRemoveSystemWorkPriorityKick(v62);
         }
       }
     }
@@ -397,16 +398,16 @@ LABEL_75:
     {
       if ( (KiIrqlFlags & 1) != 0 )
       {
-        v56 = KeGetCurrentIrql();
-        if ( v56 <= 0xFu && CurrentIrql <= 0xFu && v56 >= 2u )
+        v57 = KeGetCurrentIrql();
+        if ( v57 <= 0xFu && CurrentIrql <= 0xFu && v57 >= 2u )
         {
-          v57 = KeGetCurrentPrcb();
-          v58 = v57->SchedulerAssist;
-          v59 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
-          v14 = (v59 & v58[5]) == 0;
-          v58[5] &= v59;
+          v58 = KeGetCurrentPrcb();
+          v59 = v58->SchedulerAssist;
+          v60 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
+          v14 = (v60 & v59[5]) == 0;
+          v59[5] &= v60;
           if ( v14 )
-            KiRemoveSystemWorkPriorityKick(v57);
+            KiRemoveSystemWorkPriorityKick(v58);
         }
       }
     }

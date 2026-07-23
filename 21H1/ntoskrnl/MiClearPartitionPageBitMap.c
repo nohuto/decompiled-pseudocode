@@ -39,7 +39,7 @@ __int64 __fastcall MiClearPartitionPageBitMap(unsigned __int64 a1, _QWORD **a2)
   unsigned int SessionId; // edx
   unsigned __int8 v20; // r14
   unsigned int v21; // r8d
-  unsigned __int64 v22; // rdi
+  __int64 v22; // rdi
   __int64 v23; // rcx
   __int64 v24; // rdx
   __int64 v25; // rdx
@@ -133,7 +133,7 @@ __int64 __fastcall MiClearPartitionPageBitMap(unsigned __int64 a1, _QWORD **a2)
     v17 = !_BitScanReverse((unsigned int *)&v23, v21);
     if ( v17 )
       goto LABEL_32;
-    v22 = (unsigned __int64)&v18->LockEntries[v23];
+    v22 = (__int64)&v18->LockEntries[v23];
     v21 &= ~(1 << v23);
     if ( (*(_BYTE *)(v22 + 26) & 1) != 0
       && (*(_DWORD *)(v22 + 32) & 1) == 0
@@ -154,12 +154,12 @@ LABEL_32:
   }
   *(_BYTE *)(v22 + 32) |= 2u;
   if ( *(__int64 *)(v22 + 32) < 0 )
-    KiAbEntryRemoveFromTree(v22);
+    KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)v22);
   v35 = *(_DWORD *)(v22 + 88) & 0x1FFFF;
   *(_DWORD *)(v22 + 88) &= 0xFFFE0000;
   *(_BYTE *)(v22 + 25) &= ~1u;
   *(_QWORD *)(v22 + 32) = 0LL;
-  v24 = (__int64)(v22 - (unsigned __int64)v18->LockEntries) / 96;
+  v24 = (signed __int64)(v22 - (unsigned __int64)v18->LockEntries) / 96;
   if ( v20 == 1 )
     v18->AbEntrySummary |= 1 << v24;
   else

@@ -1,9 +1,9 @@
 /*
- * XREFs of KiEndPartialDpcProcessing @ 0x140335E84
+ * XREFs of KiEndPartialDpcProcessing @ 0x140337EB4
  * Callers:
- *     KiRetireDpcList @ 0x140335700 (KiRetireDpcList.c)
+ *     KiRetireDpcList @ 0x140337730 (KiRetireDpcList.c)
  * Callees:
- *     RtlBackoff @ 0x140335EF0 (RtlBackoff.c)
+ *     RtlBackoff @ 0x140337F20 (RtlBackoff.c)
  */
 
 signed __int16 __fastcall KiEndPartialDpcProcessing(__int16 *a1, __int64 a2, __int64 a3)

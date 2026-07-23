@@ -1,26 +1,26 @@
 /*
- * XREFs of MiAddPartitionHugeRange @ 0x14061F204
+ * XREFs of MiAddPartitionHugeRange @ 0x14061F754
  * Callers:
- *     MiHotAddHugeRange @ 0x140A2DE48 (MiHotAddHugeRange.c)
+ *     MiHotAddHugeRange @ 0x140A2E0F8 (MiHotAddHugeRange.c)
  *     MiCreateHugeIoRanges @ 0x140B6173C (MiCreateHugeIoRanges.c)
  * Callees:
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     KxReleaseQueuedSpinLock @ 0x140260360 (KxReleaseQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140260E60 (KeAcquireInStackQueuedSpinLock.c)
- *     MiSearchNumaNodeTable @ 0x14026EAD0 (MiSearchNumaNodeTable.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402894C0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x14028A930 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     RtlSetBitsEx @ 0x14028B3C0 (RtlSetBitsEx.c)
- *     MmGetSessionIdEx @ 0x1402A1720 (MmGetSessionIdEx.c)
- *     ExfReleasePushLockShared @ 0x1402BD860 (ExfReleasePushLockShared.c)
- *     ExfAcquirePushLockSharedEx @ 0x1402FD040 (ExfAcquirePushLockSharedEx.c)
- *     KiCheckForKernelApcDelivery @ 0x14030F820 (KiCheckForKernelApcDelivery.c)
- *     KiAbTryReclaimOrphanedEntries @ 0x14032FA68 (KiAbTryReclaimOrphanedEntries.c)
- *     MiRestrictRangeToNode @ 0x140375714 (MiRestrictRangeToNode.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     MiInsertHugeRangeInList @ 0x140620FCC (MiInsertHugeRangeInList.c)
- *     MiLockHugePfn @ 0x1406213F4 (MiLockHugePfn.c)
- *     MiUpdateHugePageCounts @ 0x140622D48 (MiUpdateHugePageCounts.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     KxReleaseQueuedSpinLock @ 0x1402605F0 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402610F0 (KeAcquireInStackQueuedSpinLock.c)
+ *     MiSearchNumaNodeTable @ 0x14026ED60 (MiSearchNumaNodeTable.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140289750 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x14028ABC0 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     RtlSetBitsEx @ 0x14028B650 (RtlSetBitsEx.c)
+ *     MmGetSessionIdEx @ 0x1402A19B0 (MmGetSessionIdEx.c)
+ *     ExfReleasePushLockShared @ 0x1402BDAF0 (ExfReleasePushLockShared.c)
+ *     ExfAcquirePushLockSharedEx @ 0x1402FD2D0 (ExfAcquirePushLockSharedEx.c)
+ *     KiCheckForKernelApcDelivery @ 0x14030FAB0 (KiCheckForKernelApcDelivery.c)
+ *     KiAbTryReclaimOrphanedEntries @ 0x14032FCF8 (KiAbTryReclaimOrphanedEntries.c)
+ *     MiRestrictRangeToNode @ 0x1403758B4 (MiRestrictRangeToNode.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     MiInsertHugeRangeInList @ 0x14062151C (MiInsertHugeRangeInList.c)
+ *     MiLockHugePfn @ 0x140621944 (MiLockHugePfn.c)
+ *     MiUpdateHugePageCounts @ 0x140623298 (MiUpdateHugePageCounts.c)
  */
 
 __int64 __fastcall MiAddPartitionHugeRange(__int64 a1, __int64 a2, int a3, int a4)
@@ -43,9 +43,9 @@ __int64 __fastcall MiAddPartitionHugeRange(__int64 a1, __int64 a2, int a3, int a
   ULONG_PTR v20; // rax
   unsigned __int64 v21; // r14
   unsigned __int64 v22; // rbx
-  __int64 *v23; // rdi
-  __int64 v24; // r8
-  unsigned __int64 v25; // rdx
+  unsigned __int64 *v23; // rdi
+  unsigned __int64 v24; // r8
+  unsigned __int64 *v25; // rdx
   bool v26; // zf
   bool i; // zf
   __int64 j; // rbx
@@ -168,16 +168,16 @@ LABEL_22:
   v21 = (v17 >> 18) & 0x3FFFFF;
   KeAcquireInStackQueuedSpinLock(&qword_140C67E00, &LockHandle);
   v22 = (v18 >> 18) & 0x3FFFFF;
-  if ( v21 < qword_140C67DE0 )
+  if ( v21 < stru_140C67DE0.SizeOfBitMap )
   {
     if ( v22 > 1 )
     {
-      if ( qword_140C67DE0 - v21 >= v22 )
+      if ( stru_140C67DE0.SizeOfBitMap - v21 >= v22 )
       {
-        v23 = (__int64 *)(qword_140C67DE8 + 8 * (v21 >> 6));
+        v23 = &stru_140C67DE0.Buffer[v21 >> 6];
         v24 = *v23;
-        v25 = qword_140C67DE8 + 8 * ((v21 + v22 - 1) >> 6);
-        if ( v23 == (__int64 *)v25 )
+        v25 = &stru_140C67DE0.Buffer[(v21 + v22 - 1) >> 6];
+        if ( v23 == v25 )
         {
           v26 = ((0xFFFFFFFFFFFFFFFFuLL >> (64 - (unsigned __int8)(v18 >> 18)) << (v17 >> 18)) & v24) == 0;
 LABEL_41:
@@ -188,7 +188,7 @@ LABEL_41:
         {
           for ( i = ((-1LL << (v17 >> 18)) & v24) == 0; i; i = *v23 == 0 )
           {
-            if ( ++v23 == (__int64 *)v25 )
+            if ( ++v23 == v25 )
             {
               v26 = ((0xFFFFFFFFFFFFFFFFuLL >> ~((unsigned __int8)(v17 >> 18) + (unsigned __int8)(v18 >> 18) - 1)) & *v23) == 0;
               goto LABEL_41;
@@ -199,7 +199,7 @@ LABEL_41:
     }
     else if ( v22 == 1
            && !_bittest64(
-                 (const signed __int64 *)(qword_140C67DE8 + 8 * (((v17 >> 18) & 0x3FFFFF) >> 6)),
+                 (const signed __int64 *)&stru_140C67DE0.Buffer[((v17 >> 18) & 0x3FFFFF) >> 6],
                  (v17 >> 18) & 0x3F) )
     {
 LABEL_42:
@@ -211,7 +211,7 @@ LABEL_42:
                                    + 25408LL * *((unsigned int *)MiSearchNumaNodeTable(v17) + 2)
                                    + 23104);
         ExAcquireSpinLockExclusiveAtDpcLevel(SpinLock);
-        RtlSetBitsEx((__int64)&qword_140C67DE0, v21 & 0x3FFFFF, v55 >> 18);
+        RtlSetBitsEx((__int64)&stru_140C67DE0, v21 & 0x3FFFFF, v55 >> 18);
         if ( v55 >> 18 )
           memset64((void *)(qword_140C67DF0 + 8 * (v21 & 0x3FFFFF)), 0x4013uLL, v29);
         ExReleaseSpinLockExclusiveFromDpcLevel(SpinLock);
@@ -220,10 +220,13 @@ LABEL_42:
       }
       KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
       OldIrql = LockHandle.OldIrql;
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         CurrentIrql = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && LockHandle.OldIrql <= 0xFu && CurrentIrql >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+          && CurrentIrql <= 0xFu
+          && LockHandle.OldIrql <= 0xFu
+          && CurrentIrql >= 2u )
         {
           v32 = KeGetCurrentPrcb();
           v33 = v32->SchedulerAssist;
@@ -279,10 +282,10 @@ LABEL_42:
               _InterlockedAnd(
                 (volatile signed __int32 *)(qword_140C67DF8 + 4 * ((((v39 - qword_140C67DF0) >> 3) & 0x3FFFFFuLL) >> 5)),
                 ~(1 << (((v39 - qword_140C67DF0) >> 3) & 0x1F)));
-              if ( KiIrqlFlags )
+              if ( (_DWORD)KiIrqlFlags )
               {
                 v43 = KeGetCurrentIrql();
-                if ( (KiIrqlFlags & 1) != 0 && v43 <= 0xFu && (unsigned __int8)v41 <= 0xFu && v43 >= 2u )
+                if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v43 <= 0xFu && (unsigned __int8)v41 <= 0xFu && v43 >= 2u )
                 {
                   v44 = KeGetCurrentPrcb();
                   v45 = v44->SchedulerAssist;
@@ -328,10 +331,10 @@ LABEL_42:
   }
   KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
   v48 = LockHandle.OldIrql;
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v49 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v49 <= 0xFu && LockHandle.OldIrql <= 0xFu && v49 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v49 <= 0xFu && LockHandle.OldIrql <= 0xFu && v49 >= 2u )
     {
       v50 = KeGetCurrentPrcb();
       v51 = v50->SchedulerAssist;

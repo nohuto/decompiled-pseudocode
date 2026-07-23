@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpRegisterUsbController @ 0x140520F88
+ * XREFs of HalpRegisterUsbController @ 0x1405214D8
  * Callers:
- *     HalpUsbLegacyDeviceHandoff @ 0x1403AD1B4 (HalpUsbLegacyDeviceHandoff.c)
+ *     HalpUsbLegacyDeviceHandoff @ 0x1403AD394 (HalpUsbLegacyDeviceHandoff.c)
  * Callees:
- *     HalpMmAllocCtxAlloc @ 0x14039AE20 (HalpMmAllocCtxAlloc.c)
+ *     HalpMmAllocCtxAlloc @ 0x14039B000 (HalpMmAllocCtxAlloc.c)
  */
 
 __int64 __fastcall HalpRegisterUsbController(__int64 a1, int a2, char a3, char a4)

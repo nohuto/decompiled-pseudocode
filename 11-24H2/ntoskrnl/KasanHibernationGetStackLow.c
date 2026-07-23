@@ -1,13 +1,13 @@
 /*
- * XREFs of KasanHibernationGetStackLow @ 0x1405A9C30
+ * XREFs of KasanHibernationGetStackLow @ 0x1405A6BA0
  * Callers:
- *     HalpSaveProcessorState @ 0x1406A5E90 (HalpSaveProcessorState.c)
- *     HalpSetupRealModeResume @ 0x1406A5F20 (HalpSetupRealModeResume.c)
- *     PopSaveHiberContextWrapper @ 0x1406B3680 (PopSaveHiberContextWrapper.c)
+ *     HalpSaveProcessorState @ 0x1406A6EB0 (HalpSaveProcessorState.c)
+ *     HalpSetupRealModeResume @ 0x1406A6F40 (HalpSetupRealModeResume.c)
+ *     PopSaveHiberContextWrapper @ 0x1406B4620 (PopSaveHiberContextWrapper.c)
  * Callees:
- *     KeQueryCurrentStackInformationEx @ 0x140259BD0 (KeQueryCurrentStackInformationEx.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     KeGetCurrentStackPointer @ 0x1406AA390 (KeGetCurrentStackPointer.c)
+ *     KeQueryCurrentStackInformationEx @ 0x14028A1E0 (KeQueryCurrentStackInformationEx.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     KeGetCurrentStackPointer @ 0x1406AB330 (KeGetCurrentStackPointer.c)
  */
 
 char *__fastcall KasanHibernationGetStackLow(__int64 a1, __int64 a2)
@@ -21,7 +21,7 @@ char *__fastcall KasanHibernationGetStackLow(__int64 a1, __int64 a2)
   v5 = 0;
   v6 = 0LL;
   v7 = 0LL;
-  if ( !byte_140FCDC28 )
+  if ( !byte_140FCECA8 )
     return 0LL;
   CurrentStackPointer = KeGetCurrentStackPointer(a1, a2);
   v4 = KeQueryCurrentStackInformationEx(CurrentStackPointer, &v5, &v6, &v7);

@@ -1,9 +1,9 @@
 /*
- * XREFs of IpmiLibRequestReceive @ 0x14071D83C
+ * XREFs of IpmiLibRequestReceive @ 0x1407224CC
  * Callers:
- *     IpmiLibAddSelRecord @ 0x14071D6D8 (IpmiLibAddSelRecord.c)
+ *     IpmiLibAddSelRecord @ 0x140722368 (IpmiLibAddSelRecord.c)
  * Callees:
- *     IpmiLibpKcsRequestAndReceive @ 0x14071DC74 (IpmiLibpKcsRequestAndReceive.c)
+ *     IpmiLibpKcsRequestAndReceive @ 0x140722904 (IpmiLibpKcsRequestAndReceive.c)
  */
 
 __int64 IpmiLibRequestReceive()

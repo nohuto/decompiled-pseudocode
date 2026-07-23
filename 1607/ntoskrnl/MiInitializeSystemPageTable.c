@@ -1,23 +1,23 @@
 /*
- * XREFs of MiInitializeSystemPageTable @ 0x140020FBC
+ * XREFs of MiInitializeSystemPageTable @ 0x140020B3C
  * Callers:
- *     MiMakeZeroedPageTableRange @ 0x140020CC8 (MiMakeZeroedPageTableRange.c)
+ *     MiMakeZeroedPageTableRange @ 0x140020848 (MiMakeZeroedPageTableRange.c)
  * Callees:
- *     MiUnmapPageInHyperSpaceWorker @ 0x14001DBA0 (MiUnmapPageInHyperSpaceWorker.c)
- *     MiMarkPageActive @ 0x1400214D4 (MiMarkPageActive.c)
- *     MiInitializePfnForOtherProcess @ 0x140021708 (MiInitializePfnForOtherProcess.c)
- *     MiMapPageInHyperSpaceWorker @ 0x140034990 (MiMapPageInHyperSpaceWorker.c)
- *     MiMakeValidKernelPte @ 0x140034D10 (MiMakeValidKernelPte.c)
- *     MI_SHOULD_PTE_BE_GLOBAL @ 0x140036D30 (MI_SHOULD_PTE_BE_GLOBAL.c)
- *     MiInsertTbFlushEntry @ 0x1400E0240 (MiInsertTbFlushEntry.c)
- *     MiFlushTbList @ 0x1400E0490 (MiFlushTbList.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     MI_INTERLOCKED_EXCHANGE_PTE @ 0x1401E1AF8 (MI_INTERLOCKED_EXCHANGE_PTE.c)
- *     MiPteInShadowRange @ 0x1401EF3B8 (MiPteInShadowRange.c)
- *     MiWritePteShadow @ 0x1401EF658 (MiWritePteShadow.c)
- *     MI_GET_PAGE_FRAME_FROM_PTE @ 0x1401F2550 (MI_GET_PAGE_FRAME_FROM_PTE.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1401F25D0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiGetLeafVa @ 0x1401F263C (MiGetLeafVa.c)
+ *     MiUnmapPageInHyperSpaceWorker @ 0x14001D720 (MiUnmapPageInHyperSpaceWorker.c)
+ *     MiMarkPageActive @ 0x140021054 (MiMarkPageActive.c)
+ *     MiInitializePfnForOtherProcess @ 0x140021288 (MiInitializePfnForOtherProcess.c)
+ *     MiMapPageInHyperSpaceWorker @ 0x140034510 (MiMapPageInHyperSpaceWorker.c)
+ *     MiMakeValidKernelPte @ 0x140034890 (MiMakeValidKernelPte.c)
+ *     MI_SHOULD_PTE_BE_GLOBAL @ 0x1400368B0 (MI_SHOULD_PTE_BE_GLOBAL.c)
+ *     MiInsertTbFlushEntry @ 0x1400DE0E0 (MiInsertTbFlushEntry.c)
+ *     MiFlushTbList @ 0x1400DE330 (MiFlushTbList.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     MI_INTERLOCKED_EXCHANGE_PTE @ 0x1401E1924 (MI_INTERLOCKED_EXCHANGE_PTE.c)
+ *     MiPteInShadowRange @ 0x1401EF1E4 (MiPteInShadowRange.c)
+ *     MiWritePteShadow @ 0x1401EF484 (MiWritePteShadow.c)
+ *     MI_GET_PAGE_FRAME_FROM_PTE @ 0x1401F237C (MI_GET_PAGE_FRAME_FROM_PTE.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1401F23FC (MI_READ_PTE_LOCK_FREE.c)
+ *     MiGetLeafVa @ 0x1401F2468 (MiGetLeafVa.c)
  *     MxFillPhysicalPage @ 0x140798170 (MxFillPhysicalPage.c)
  */
 
@@ -72,7 +72,7 @@ __int64 __fastcall MiInitializeSystemPageTable(unsigned __int64 a1, _QWORD *a2)
     {
       v8 = *(_QWORD *)v6;
     }
-    else if ( v6 < (MmPfnDatabase & 0xFFFFFFFFFFFFF000uLL) || v6 >= 48 * qword_140326A90 - 0x57FFFFFFFD0LL )
+    else if ( v6 < (MmPfnDatabase & 0xFFFFFFFFFFFFF000uLL) || v6 >= 48 * qword_140326AD0 - 0x57FFFFFFFD0LL )
     {
       v8 = -1LL;
     }
@@ -100,10 +100,10 @@ __int64 __fastcall MiInitializeSystemPageTable(unsigned __int64 a1, _QWORD *a2)
     v7 = 6;
   }
   LeafVa = MiGetLeafVa(a1);
-  if ( LeafVa < qword_140326910 || LeafVa >= qword_140326910 + 0x8000000000LL )
+  if ( LeafVa < qword_140326950 || LeafVa >= qword_140326950 + 0x8000000000LL )
   {
     if ( LeafVa <= 0x7FFFFFFEFFFFLL
-      || LeafVa >= qword_140327F90 && LeafVa <= qword_140326CF8
+      || LeafVa >= qword_140327FD0 && LeafVa <= qword_140326D38
       || LeafVa >= 0xFFFFF68000000000uLL && LeafVa <= v14 )
     {
       v4 = 4;
@@ -133,7 +133,7 @@ LABEL_47:
         v20 = v29;
         goto LABEL_48;
       }
-      v22 ^= ((unsigned __int16)v22 ^ (unsigned __int16)(HIBYTE(word_140326AA8) << 8)) & 0x100;
+      v22 ^= ((unsigned __int16)v22 ^ (unsigned __int16)(HIBYTE(word_140326AE8) << 8)) & 0x100;
     }
     else
     {

@@ -1,30 +1,30 @@
 /*
- * XREFs of VfDeadlockReleaseResource @ 0x140AD7EFC
+ * XREFs of VfDeadlockReleaseResource @ 0x140AD7EEC
  * Callers:
- *     ViDeadlockExReleaseFastMutexUnsafe_Entry @ 0x140AD9100 (ViDeadlockExReleaseFastMutexUnsafe_Entry.c)
- *     ViDeadlockExReleaseFastMutex_Entry @ 0x140AD9130 (ViDeadlockExReleaseFastMutex_Entry.c)
- *     ViDeadlockKeReleaseInStackQueuedSpinLockForDpc_Entry @ 0x140AD93F0 (ViDeadlockKeReleaseInStackQueuedSpinLockForDpc_Entry.c)
- *     ViDeadlockKeReleaseMutant_Entry @ 0x140AD9430 (ViDeadlockKeReleaseMutant_Entry.c)
- *     ViDeadlockKeReleaseMutex_Entry @ 0x140AD9460 (ViDeadlockKeReleaseMutex_Entry.c)
- *     ViDeadlockKeReleaseSpinLockFromDpcLevel_Entry @ 0x140AD9490 (ViDeadlockKeReleaseSpinLockFromDpcLevel_Entry.c)
- *     ViDeadlockKeReleaseSpinLock_Entry @ 0x140AD94C0 (ViDeadlockKeReleaseSpinLock_Entry.c)
+ *     ViDeadlockExReleaseFastMutexUnsafe_Entry @ 0x140AD90F0 (ViDeadlockExReleaseFastMutexUnsafe_Entry.c)
+ *     ViDeadlockExReleaseFastMutex_Entry @ 0x140AD9120 (ViDeadlockExReleaseFastMutex_Entry.c)
+ *     ViDeadlockKeReleaseInStackQueuedSpinLockForDpc_Entry @ 0x140AD93E0 (ViDeadlockKeReleaseInStackQueuedSpinLockForDpc_Entry.c)
+ *     ViDeadlockKeReleaseMutant_Entry @ 0x140AD9420 (ViDeadlockKeReleaseMutant_Entry.c)
+ *     ViDeadlockKeReleaseMutex_Entry @ 0x140AD9450 (ViDeadlockKeReleaseMutex_Entry.c)
+ *     ViDeadlockKeReleaseSpinLockFromDpcLevel_Entry @ 0x140AD9480 (ViDeadlockKeReleaseSpinLockFromDpcLevel_Entry.c)
+ *     ViDeadlockKeReleaseSpinLock_Entry @ 0x140AD94B0 (ViDeadlockKeReleaseSpinLock_Entry.c)
  * Callees:
- *     RtlCaptureStackBackTrace @ 0x1402276E0 (RtlCaptureStackBackTrace.c)
- *     DbgPrintEx @ 0x14032A740 (DbgPrintEx.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memset @ 0x140435A00 (memset.c)
- *     VfReportIssueWithOptions @ 0x1405CFD00 (VfReportIssueWithOptions.c)
- *     ViLowerIrql @ 0x1405D1AB8 (ViLowerIrql.c)
- *     ViRaiseIrqlToDpcLevel @ 0x1405D1B30 (ViRaiseIrqlToDpcLevel.c)
- *     ViDeadlockCanProceed @ 0x140AC079A (ViDeadlockCanProceed.c)
- *     ViDeadlockDetectionLock @ 0x140AD8E08 (ViDeadlockDetectionLock.c)
- *     ViDeadlockDetectionUnlock @ 0x140AD8E40 (ViDeadlockDetectionUnlock.c)
- *     ViDeadlockFree @ 0x140AD92B0 (ViDeadlockFree.c)
- *     ViDeadlockPreprocessOptions @ 0x140AD9860 (ViDeadlockPreprocessOptions.c)
- *     ViDeadlockRemoveThread @ 0x140AD9C50 (ViDeadlockRemoveThread.c)
- *     ViDeadlockSearchResource @ 0x140AD9DB0 (ViDeadlockSearchResource.c)
- *     ViDeadlockSearchThread @ 0x140AD9E58 (ViDeadlockSearchThread.c)
- *     ViIsThreadInsidePagingCodePaths @ 0x140AD9FD0 (ViIsThreadInsidePagingCodePaths.c)
+ *     RtlCaptureStackBackTrace @ 0x1402277F0 (RtlCaptureStackBackTrace.c)
+ *     DbgPrintEx @ 0x14032A9D0 (DbgPrintEx.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     VfReportIssueWithOptions @ 0x1405D0270 (VfReportIssueWithOptions.c)
+ *     ViLowerIrql @ 0x1405D2028 (ViLowerIrql.c)
+ *     ViRaiseIrqlToDpcLevel @ 0x1405D20A0 (ViRaiseIrqlToDpcLevel.c)
+ *     ViDeadlockCanProceed @ 0x140AC078A (ViDeadlockCanProceed.c)
+ *     ViDeadlockDetectionLock @ 0x140AD8DF8 (ViDeadlockDetectionLock.c)
+ *     ViDeadlockDetectionUnlock @ 0x140AD8E30 (ViDeadlockDetectionUnlock.c)
+ *     ViDeadlockFree @ 0x140AD92A0 (ViDeadlockFree.c)
+ *     ViDeadlockPreprocessOptions @ 0x140AD9850 (ViDeadlockPreprocessOptions.c)
+ *     ViDeadlockRemoveThread @ 0x140AD9C40 (ViDeadlockRemoveThread.c)
+ *     ViDeadlockSearchResource @ 0x140AD9DA0 (ViDeadlockSearchResource.c)
+ *     ViDeadlockSearchThread @ 0x140AD9E48 (ViDeadlockSearchThread.c)
+ *     ViIsThreadInsidePagingCodePaths @ 0x140AD9FC0 (ViIsThreadInsidePagingCodePaths.c)
  */
 
 PVOID __fastcall VfDeadlockReleaseResource(LONG *a1, int a2, __int64 a3, void *a4)
@@ -242,19 +242,19 @@ LABEL_55:
       {
         ViDeadlockSearchThread(a3);
         ViDeadlockPreprocessOptions(
-          &dword_140C0DE58,
+          &dword_140C0DE68,
           "Releasing lock 0x%p that is not owned by the current thread.",
           (const void *)0x1007);
         v20 = ViDeadlockSearchThread(a3);
-        VfReportIssueWithOptions(0xC4u, 0x1007uLL, (ULONG_PTR)a1, (ULONG_PTR)v17, v20, &dword_140C0DE58);
+        VfReportIssueWithOptions(0xC4u, 0x1007uLL, (ULONG_PTR)a1, (ULONG_PTR)v17, v20, &dword_140C0DE68);
       }
       goto LABEL_56;
     }
     ViDeadlockPreprocessOptions(
-      byte_140C0DE68,
+      byte_140C0DE64,
       "Releasing lock 0x%p using mismatched API for this lock type.",
       (const void *)0x1009);
-    VfReportIssueWithOptions(0xC4u, 0x1009uLL, (ULONG_PTR)a1, *v17, v4, byte_140C0DE68);
+    VfReportIssueWithOptions(0xC4u, 0x1009uLL, (ULONG_PTR)a1, *v17, v4, byte_140C0DE64);
 LABEL_56:
     *(_OWORD *)(v17 + 46) = *(_OWORD *)BackTrace;
     *(_OWORD *)(v17 + 50) = *(_OWORD *)&BackTrace[2];

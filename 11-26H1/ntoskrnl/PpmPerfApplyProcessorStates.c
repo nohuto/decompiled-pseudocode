@@ -1,15 +1,15 @@
 /*
- * XREFs of PpmPerfApplyProcessorStates @ 0x140259FC0
+ * XREFs of PpmPerfApplyProcessorStates @ 0x14025B7A0
  * Callers:
  *     <none>
  * Callees:
- *     PpmCheckQueuePhaseActions @ 0x140252698 (PpmCheckQueuePhaseActions.c)
- *     PpmPerfApplyProcessorState @ 0x140252C88 (PpmPerfApplyProcessorState.c)
- *     RtlOrAffinityEx @ 0x14025A978 (RtlOrAffinityEx.c)
- *     KeGetPrcb @ 0x1402916D0 (KeGetPrcb.c)
- *     PpmPerfApplyHiddenProcessorState @ 0x1406063C8 (PpmPerfApplyHiddenProcessorState.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     PpmCheckQueuePhaseActions @ 0x140253FF8 (PpmCheckQueuePhaseActions.c)
+ *     PpmPerfApplyProcessorState @ 0x1402545E8 (PpmPerfApplyProcessorState.c)
+ *     RtlOrAffinityEx @ 0x14025C158 (RtlOrAffinityEx.c)
+ *     KeGetPrcb @ 0x140290C30 (KeGetPrcb.c)
+ *     PpmPerfApplyHiddenProcessorState @ 0x140608EC8 (PpmPerfApplyHiddenProcessorState.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 PpmPerfApplyProcessorStates()
@@ -65,8 +65,7 @@ __int64 PpmPerfApplyProcessorStates()
     {
       _BitScanForward64(&v6, v4);
       v4 &= ~(1LL << v6);
-      v7 = *((unsigned int *)&KiSupervisorXStateFeaturesLock.WaitBlock[2].Thread->Header.Lock
-           + 64 * (unsigned __int16)v5
+      v7 = *((unsigned int *)&KiSupervisorXStateFeaturesLock.SchedulerApc.ApcListEntry.Flink[16 * (unsigned __int16)v5].Flink
            + (unsigned __int8)v6);
       Prcb = (struct _KPRCB *)KeGetPrcb(v7);
       v9 = Prcb;
@@ -79,7 +78,7 @@ __int64 PpmPerfApplyProcessorStates()
 LABEL_13:
         if ( PpmPerfApplyProcessorState(v9, 0) )
         {
-          v11 = *(_DWORD *)(*(_QWORD *)&KiSupervisorXStateFeaturesLock.WaitBlockFill11[112] + 4 * v7);
+          v11 = *((_DWORD *)&KiSupervisorXStateFeaturesLock.SchedulerApc.Thread->Header.Lock + v7);
           if ( (unsigned __int16)v13 > v11 >> 6 )
             *(_QWORD *)&v15[8 * (v11 >> 6) - 8] &= ~(1LL << (v11 & 0x3F));
         }

@@ -1,28 +1,28 @@
 /*
- * XREFs of CmLoadKey @ 0x14092B788
+ * XREFs of CmLoadKey @ 0x14092D8C8
  * Callers:
- *     CmLoadDifferencingKey @ 0x14092C750 (CmLoadDifferencingKey.c)
+ *     CmLoadDifferencingKey @ 0x14092E890 (CmLoadDifferencingKey.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140325680 (ObfDereferenceObject.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140330CB0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgWriteAgg @ 0x1403D06F8 (_tlgWriteAgg.c)
- *     CmpAllocatePool @ 0x1403E1834 (CmpAllocatePool.c)
- *     _tlgKeywordOn @ 0x140426AF0 (_tlgKeywordOn.c)
- *     CmpLoadKeyCommon @ 0x140464478 (CmpLoadKeyCommon.c)
- *     SetFailureLocation @ 0x1404649E0 (SetFailureLocation.c)
- *     CmSiFreeMemory @ 0x14046B8D0 (CmSiFreeMemory.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     ObReferenceObjectByHandle @ 0x14084AF40 (ObReferenceObjectByHandle.c)
- *     CmpQueryHiveRedirectionFileList @ 0x14092B6FC (CmpQueryHiveRedirectionFileList.c)
- *     CmpCmdHiveOpen @ 0x14092E91C (CmpCmdHiveOpen.c)
- *     CmpOpenHiveFile @ 0x14092FE64 (CmpOpenHiveFile.c)
- *     CmpDestroyHive @ 0x14097C14C (CmpDestroyHive.c)
- *     CmpResolveHiveLoadConflict @ 0x140A86DC4 (CmpResolveHiveLoadConflict.c)
- *     CmpAttachToRegistryProcess @ 0x140BB98E0 (CmpAttachToRegistryProcess.c)
- *     CmpDetachFromRegistryProcess @ 0x140BB9920 (CmpDetachFromRegistryProcess.c)
- *     CmpAcquireHiveLoadUnloadRundown @ 0x140BB9AD0 (CmpAcquireHiveLoadUnloadRundown.c)
- *     CmpReleaseHiveLoadUnloadRundown @ 0x140BB9B10 (CmpReleaseHiveLoadUnloadRundown.c)
+ *     _tlgWriteAgg @ 0x140273698 (_tlgWriteAgg.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402B92F0 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     ObfDereferenceObject @ 0x1402CE210 (ObfDereferenceObject.c)
+ *     CmpAllocatePool @ 0x1403C9EA4 (CmpAllocatePool.c)
+ *     _tlgKeywordOn @ 0x14041A970 (_tlgKeywordOn.c)
+ *     CmpLoadKeyCommon @ 0x14045ABA8 (CmpLoadKeyCommon.c)
+ *     SetFailureLocation @ 0x14045B110 (SetFailureLocation.c)
+ *     CmSiFreeMemory @ 0x140464550 (CmSiFreeMemory.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     ObReferenceObjectByHandle @ 0x140847200 (ObReferenceObjectByHandle.c)
+ *     CmpQueryHiveRedirectionFileList @ 0x14092D83C (CmpQueryHiveRedirectionFileList.c)
+ *     CmpCmdHiveOpen @ 0x140930A5C (CmpCmdHiveOpen.c)
+ *     CmpOpenHiveFile @ 0x140931FA4 (CmpOpenHiveFile.c)
+ *     CmpDestroyHive @ 0x14096495C (CmpDestroyHive.c)
+ *     CmpResolveHiveLoadConflict @ 0x140A8189C (CmpResolveHiveLoadConflict.c)
+ *     CmpAttachToRegistryProcess @ 0x140BBB8E0 (CmpAttachToRegistryProcess.c)
+ *     CmpDetachFromRegistryProcess @ 0x140BBB920 (CmpDetachFromRegistryProcess.c)
+ *     CmpAcquireHiveLoadUnloadRundown @ 0x140BBBAD0 (CmpAcquireHiveLoadUnloadRundown.c)
+ *     CmpReleaseHiveLoadUnloadRundown @ 0x140BBBB10 (CmpReleaseHiveLoadUnloadRundown.c)
  */
 
 __int64 __fastcall CmLoadKey(
@@ -152,7 +152,7 @@ __int64 __fastcall CmLoadKey(
     v24 = -1073741811;
     goto LABEL_78;
   }
-  Pool = (struct _PRIVILEGE_SET *)CmpAllocatePool(0x100uLL);
+  Pool = (struct _PRIVILEGE_SET *)CmpAllocatePool(0x100uLL, 0x104uLL, 0x62534D43u);
   Privileges = Pool;
   if ( !Pool )
   {
@@ -176,7 +176,7 @@ __int64 __fastcall CmLoadKey(
   v20 = ((a3 & 0x2000) != 0 ? 3 : 0) | 8;
   if ( (a3 & 0x4000) == 0 )
     v20 = (a3 & 0x2000) != 0 ? 3 : 0;
-  v21 = CmpAllocatePool(0x100uLL);
+  v21 = CmpAllocatePool(0x100uLL, 0x1B0uLL, 0x33394D43u);
   v15 = v21;
   if ( !v21 )
   {
@@ -282,10 +282,10 @@ LABEL_21:
   CmSiFreeMemory(Privileges);
   if ( v24 >= 0 )
   {
-    if ( (unsigned int)dword_140E09EE8 > 5 )
+    if ( (unsigned int)dword_140E09F58 > 5 )
     {
-      if ( (qword_140E09EF8 & 0x400000000008LL) == 0
-        || (v41 = 1, (qword_140E09F00 & 0x400000000008LL) != qword_140E09F00) )
+      if ( (qword_140E09F68 & 0x400000000008LL) == 0
+        || (v41 = 1, (qword_140E09F70 & 0x400000000008LL) != qword_140E09F70) )
       {
         v41 = 0;
       }
@@ -293,7 +293,7 @@ LABEL_21:
       {
         v57 = 0x1000000LL;
         p_Privileges = &Privileges;
-        v42 = (unsigned __int8 *)&word_140054DC6;
+        v42 = (unsigned __int8 *)byte_140055409;
         v97 = 8LL;
         v94 = &v53;
         v43 = 5;
@@ -303,7 +303,7 @@ LABEL_47:
         v93 = 8LL;
         LODWORD(v53) = v24;
         v95 = 4LL;
-        tlgWriteAgg((__int64)&dword_140E09EE8, v42, v28, v43, (__int64)v91);
+        tlgWriteAgg((__int64)&dword_140E09F58, v42, v28, v43, (__int64)v91);
         goto LABEL_23;
       }
     }
@@ -314,12 +314,12 @@ LABEL_47:
     v32 = *(unsigned __int16 *)(v15 + 8);
     if ( *(_DWORD *)(v15 + 8) || *(_BYTE *)(v15 + 394) )
     {
-      v33 = dword_140E09EE8;
-      v34 = qword_140E09F00;
-      if ( (unsigned int)dword_140E09EE8 > 5 )
+      v33 = dword_140E09F58;
+      v34 = qword_140E09F70;
+      if ( (unsigned int)dword_140E09F58 > 5 )
       {
-        if ( (qword_140E09EF8 & 0x400000000008LL) == 0
-          || (v35 = 1, (qword_140E09F00 & 0x400000000008LL) != qword_140E09F00) )
+        if ( (qword_140E09F68 & 0x400000000008LL) == 0
+          || (v35 = 1, (qword_140E09F70 & 0x400000000008LL) != qword_140E09F70) )
         {
           v35 = 0;
         }
@@ -358,13 +358,13 @@ LABEL_47:
           v88 = 0;
           v57 = 0x1000000LL;
           v90 = 8LL;
-          tlgWriteAgg((__int64)&dword_140E09EE8, (unsigned __int8 *)&word_140054C66, v15 + 394, 0xEu, (__int64)v65);
-          v34 = qword_140E09F00;
-          v33 = dword_140E09EE8;
+          tlgWriteAgg((__int64)&dword_140E09F58, (unsigned __int8 *)word_1400554A2, v15 + 394, 0xEu, (__int64)v65);
+          v34 = qword_140E09F70;
+          v33 = dword_140E09F58;
         }
         if ( v33 > 5 )
         {
-          if ( (qword_140E09EF8 & 8) == 0 || (v34 & 8) != v34 )
+          if ( (qword_140E09F68 & 8) == 0 || (v34 & 8) != v34 )
             v18 = 0;
           if ( v18 )
           {
@@ -396,8 +396,8 @@ LABEL_47:
             v83 = 2LL;
             v85 = (unsigned int)(8 * v40);
             tlgWriteTransfer_EtwWriteTransfer(
-              (__int64)&dword_140E09EE8,
-              (unsigned __int8 *)byte_140054B2D,
+              (__int64)&dword_140E09F58,
+              (unsigned __int8 *)word_140055602,
               0LL,
               0LL,
               0xCu,
@@ -409,11 +409,11 @@ LABEL_47:
     }
   }
 LABEL_78:
-  if ( (unsigned int)dword_140E09EE8 > 5 && tlgKeywordOn((__int64)&dword_140E09EE8, 0x400000000000LL) )
+  if ( (unsigned int)dword_140E09F58 > 5 && tlgKeywordOn((__int64)&dword_140E09F58, 0x400000000000LL) )
   {
     v43 = 4;
     p_Privileges = &Privileges;
-    v42 = (unsigned __int8 *)&byte_140054FBF;
+    v42 = (unsigned __int8 *)&dword_14005545C;
     v94 = &v53;
     goto LABEL_47;
   }

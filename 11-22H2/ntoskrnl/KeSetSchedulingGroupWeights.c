@@ -58,10 +58,10 @@ __int64 __fastcall KeSetSchedulingGroupWeights(unsigned int a1, __int64 a2, __in
   KiAssignSchedulingGroupWeights(0LL, v12, *(_QWORD *)(*(_QWORD *)a2 + 96LL));
   result = KxReleaseQueuedSpinLock(&v18);
   OldIrql = v18.OldIrql;
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     result = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
       && (unsigned __int8)result <= 0xFu
       && v18.OldIrql <= 0xFu
       && (unsigned __int8)result >= 2u )

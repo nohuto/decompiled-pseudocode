@@ -26,7 +26,11 @@
  *     CmpReleaseShutdownRundown @ 0x140BA9970 (CmpReleaseShutdownRundown.c)
  */
 
-__int64 __fastcall NtSetInformationKey(void *a1, unsigned int a2, const void *a3, int a4)
+NTSTATUS __cdecl NtSetInformationKey(
+        HANDLE KeyHandle,
+        KEY_SET_INFORMATION_CLASS KeySetInformationClass,
+        PVOID KeySetInformation,
+        ULONG KeySetInformationLength)
 {
   char v6; // r13
   __int64 *v7; // rdi
@@ -39,12 +43,12 @@ __int64 __fastcall NtSetInformationKey(void *a1, unsigned int a2, const void *a3
   char v14; // r15
   KPROCESSOR_MODE PreviousMode; // di
   ACCESS_MASK v16; // edx
-  int v17; // ebx
+  NTSTATUS v17; // ebx
   PVOID v18; // rax
   char v19; // dl
   struct _KTHREAD *CurrentThread; // rax
   char v21; // r12
-  int v23; // eax
+  NTSTATUS v23; // eax
   __int64 v24; // rcx
   KPROCESSOR_MODE v25; // r9
   KPROCESSOR_MODE v26; // r9
@@ -56,13 +60,13 @@ __int64 __fastcall NtSetInformationKey(void *a1, unsigned int a2, const void *a3
   HANDLE Handle; // [rsp+58h] [rbp-140h] BYREF
   __int64 v33; // [rsp+60h] [rbp-138h] BYREF
   __int64 v34; // [rsp+68h] [rbp-130h]
-  int v35; // [rsp+70h] [rbp-128h]
+  ULONG v35; // [rsp+70h] [rbp-128h]
   int v36; // [rsp+74h] [rbp-124h] BYREF
   _QWORD v37[3]; // [rsp+78h] [rbp-120h] BYREF
   _KAFFINITY_EX v38; // [rsp+90h] [rbp-108h] BYREF
 
-  v35 = a4;
-  Handle = a1;
+  v35 = KeySetInformationLength;
+  Handle = KeyHandle;
   *(_OWORD *)&v38.Count = 0LL;
   v33 = 0LL;
   memset(&v38.StaticBitmap[19], 0, 32);
@@ -89,14 +93,15 @@ __int64 __fastcall NtSetInformationKey(void *a1, unsigned int a2, const void *a3
   }
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   v29 = PreviousMode;
-  if ( a2 == 1 )
+  if ( KeySetInformationClass == KeyWow64FlagsInformation )
     goto LABEL_5;
-  if ( a2 )
+  if ( KeySetInformationClass )
   {
-    if ( a2 != 2 && a2 != 3 )
+    if ( KeySetInformationClass != KeyControlFlagsInformation
+      && KeySetInformationClass != KeySetVirtualizationInformation )
     {
-      v13 = a2 - 4;
-      if ( a2 == 4 )
+      v13 = (unsigned int)(KeySetInformationClass - 4);
+      if ( KeySetInformationClass == KeySetDebugInformation )
       {
 LABEL_5:
         v27 = 1;
@@ -104,7 +109,7 @@ LABEL_6:
         v13 = 4LL;
         goto LABEL_7;
       }
-      if ( a2 != 5 )
+      if ( KeySetInformationClass != KeySetHandleTagsInformation )
       {
         if ( CmpTraceRoutine )
         {
@@ -153,10 +158,10 @@ LABEL_7:
     v21 = 0;
     goto LABEL_23;
   }
-  memmove(&v33, a3, (unsigned int)v13);
+  memmove(&v33, KeySetInformation, (unsigned int)v13);
   Object = 0LL;
   v16 = 0;
-  if ( a2 != 5 )
+  if ( KeySetInformationClass != KeySetHandleTagsInformation )
     v16 = 2;
   v17 = ObReferenceObjectByHandle(Handle, v16, (POBJECT_TYPE)CmKeyObjectType, PreviousMode, &Object, 0LL);
   v7 = (__int64 *)Object;
@@ -214,7 +219,7 @@ LABEL_39:
   }
   if ( CmpTraceRoutine && v18 )
     v34 = v7[1];
-  if ( a2 == 5 )
+  if ( KeySetInformationClass == KeySetHandleTagsInformation )
   {
 LABEL_15:
     CurrentThread = KeGetCurrentThread();
@@ -227,7 +232,7 @@ LABEL_15:
     {
       v7 = (__int64 *)Object;
       v38.StaticBitmap[5] = (unsigned __int64)Object;
-      LODWORD(v38.StaticBitmap[6]) = a2;
+      LODWORD(v38.StaticBitmap[6]) = KeySetInformationClass;
       v38.StaticBitmap[7] = (unsigned __int64)&v33;
       LODWORD(v38.StaticBitmap[8]) = v35;
       v17 = CmpCallCallBacksEx(3u, (__int64)&v38.StaticBitmap[5], 0LL, 1, 0x12u, (__int64)Object, (__int64)v37);
@@ -248,7 +253,7 @@ LABEL_15:
       if ( v17 < 0 )
         goto LABEL_22;
     }
-    if ( a2 == 5 )
+    if ( KeySetInformationClass == KeySetHandleTagsInformation )
     {
       *((_WORD *)v7 + 25) = v33;
       v17 = 0;
@@ -256,19 +261,19 @@ LABEL_22:
       v21 = 1;
       goto LABEL_23;
     }
-    if ( !a2 )
+    if ( KeySetInformationClass == KeyWriteTimeInformation )
     {
       v8 = v28;
       v17 = CmSetLastWriteTimeKey(v7, &v33);
       goto LABEL_22;
     }
-    if ( a2 != 1 && a2 != 2 )
+    if ( KeySetInformationClass != KeyWow64FlagsInformation && KeySetInformationClass != KeyControlFlagsInformation )
     {
-      v13 = a2 - 3;
+      v13 = (unsigned int)(KeySetInformationClass - 3);
       if ( (unsigned int)v13 > 1 )
         goto LABEL_22;
     }
-    v23 = CmSetKeyFlags(v7, a2, (unsigned int)v33);
+    v23 = CmSetKeyFlags(v7, (unsigned int)KeySetInformationClass, (unsigned int)v33);
 LABEL_42:
     v8 = v28;
     v17 = v23;
@@ -319,5 +324,5 @@ LABEL_23:
   if ( v14 )
     CmpReleaseShutdownRundown(v13);
   CmCleanupThreadInfo((_KAFFINITY_EX **)&v38);
-  return (unsigned int)v17;
+  return v17;
 }

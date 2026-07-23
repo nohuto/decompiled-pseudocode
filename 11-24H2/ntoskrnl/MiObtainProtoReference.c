@@ -1,22 +1,22 @@
 /*
- * XREFs of MiObtainProtoReference @ 0x14023BBE8
+ * XREFs of MiObtainProtoReference @ 0x14034594C
  * Callers:
- *     MiFinishMdlForMappedFileFault @ 0x14023A108 (MiFinishMdlForMappedFileFault.c)
- *     MiHandleCollidedFault @ 0x14023B504 (MiHandleCollidedFault.c)
- *     MiPfPutPagesInTransition @ 0x1402E692C (MiPfPutPagesInTransition.c)
- *     MiWalkEntireImage @ 0x1402E85C0 (MiWalkEntireImage.c)
- *     MiResolvePageFileFault @ 0x1402F783C (MiResolvePageFileFault.c)
- *     MiResolveDemandZeroFault @ 0x1402FC600 (MiResolveDemandZeroFault.c)
- *     MiCopyDataPageToImagePage @ 0x1403142D8 (MiCopyDataPageToImagePage.c)
- *     MiTranslatePageForCopy @ 0x1403961F0 (MiTranslatePageForCopy.c)
- *     MiCopyFileOnlyGlobalSubsectionPage @ 0x14047FE9C (MiCopyFileOnlyGlobalSubsectionPage.c)
- *     MiFlushWaitForReadInProgress @ 0x1404C9D74 (MiFlushWaitForReadInProgress.c)
- *     MiIdealClusterPage @ 0x1404D205C (MiIdealClusterPage.c)
+ *     MiFlushWaitForReadInProgress @ 0x140272338 (MiFlushWaitForReadInProgress.c)
+ *     MiResolvePageFileFault @ 0x14033FD3C (MiResolvePageFileFault.c)
+ *     MiResolveDemandZeroFault @ 0x140342E30 (MiResolveDemandZeroFault.c)
+ *     MiPfPutPagesInTransition @ 0x140347F6C (MiPfPutPagesInTransition.c)
+ *     MiWalkEntireImage @ 0x140349C00 (MiWalkEntireImage.c)
+ *     MiCopyDataPageToImagePage @ 0x1403F1624 (MiCopyDataPageToImagePage.c)
+ *     MiFinishMdlForMappedFileFault @ 0x1403F1ED8 (MiFinishMdlForMappedFileFault.c)
+ *     MiTranslatePageForCopy @ 0x1403F3CE0 (MiTranslatePageForCopy.c)
+ *     MiHandleCollidedFault @ 0x140426D4C (MiHandleCollidedFault.c)
+ *     MiCopyFileOnlyGlobalSubsectionPage @ 0x14047AADC (MiCopyFileOnlyGlobalSubsectionPage.c)
+ *     MiIdealClusterPage @ 0x1404CB218 (MiIdealClusterPage.c)
  * Callees:
- *     MiChargeForLockedPage @ 0x140211B30 (MiChargeForLockedPage.c)
- *     MiAreChargesNeededToLockPage @ 0x14023C190 (MiAreChargesNeededToLockPage.c)
- *     HvlNotifyLongSpinWait @ 0x140293260 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140293290 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     HvlNotifyLongSpinWait @ 0x1402A2E60 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1402A2E90 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     MiChargeForLockedPage @ 0x14033AE90 (MiChargeForLockedPage.c)
+ *     MiAreChargesNeededToLockPage @ 0x140345EF0 (MiAreChargesNeededToLockPage.c)
  */
 
 __int64 __fastcall MiObtainProtoReference(__int64 a1, char a2)
@@ -36,7 +36,7 @@ __int64 __fastcall MiObtainProtoReference(__int64 a1, char a2)
       {
         if ( (++v3 & HvlLongSpinCountMask) == 0
           && (HvlEnlightenments & 0x40) != 0
-          && (unsigned __int8)KiCheckVpBackingLongSpinWaitHypercall(a1) )
+          && KiCheckVpBackingLongSpinWaitHypercall() )
         {
           HvlNotifyLongSpinWait(v3);
         }
@@ -56,7 +56,7 @@ __int64 __fastcall MiObtainProtoReference(__int64 a1, char a2)
       {
         if ( (++v3 & HvlLongSpinCountMask) == 0
           && (HvlEnlightenments & 0x40) != 0
-          && (unsigned __int8)KiCheckVpBackingLongSpinWaitHypercall(a1) )
+          && KiCheckVpBackingLongSpinWaitHypercall() )
         {
           HvlNotifyLongSpinWait(v3);
         }

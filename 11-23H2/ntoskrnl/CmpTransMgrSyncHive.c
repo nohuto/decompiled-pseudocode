@@ -1,14 +1,14 @@
 /*
- * XREFs of CmpTransMgrSyncHive @ 0x1407E79B0
+ * XREFs of CmpTransMgrSyncHive @ 0x1407E7C80
  * Callers:
- *     CmpTransMgrPrepare @ 0x140768A9C (CmpTransMgrPrepare.c)
+ *     CmpTransMgrPrepare @ 0x140768C8C (CmpTransMgrPrepare.c)
  * Callees:
- *     KeAbPreAcquire @ 0x140230EE0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1402BD960 (ExfTryToWakePushLock.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1402FCE10 (ExfAcquirePushLockExclusiveEx.c)
- *     HvpMarkDirty @ 0x140747110 (HvpMarkDirty.c)
- *     CmpFlushHive @ 0x140752E88 (CmpFlushHive.c)
+ *     KeAbPreAcquire @ 0x140230FD0 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     ExfTryToWakePushLock @ 0x1402BDBF0 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402FD0A0 (ExfAcquirePushLockExclusiveEx.c)
+ *     HvpMarkDirty @ 0x140747300 (HvpMarkDirty.c)
+ *     CmpFlushHive @ 0x140753078 (CmpFlushHive.c)
  *     CmpLockRegistry @ 0x140AF54A0 (CmpLockRegistry.c)
  *     CmpUnlockRegistry @ 0x140AF54F0 (CmpUnlockRegistry.c)
  *     HvLockHiveFlusherExclusive @ 0x140AF5670 (HvLockHiveFlusherExclusive.c)

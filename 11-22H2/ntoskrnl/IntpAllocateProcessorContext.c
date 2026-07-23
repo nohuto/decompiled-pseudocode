@@ -18,7 +18,7 @@ void *__fastcall IntpAllocateProcessorContext(unsigned __int16 a1, _BYTE *a2)
   size_t v6; // rbp
   unsigned __int8 v7; // di
   _BYTE *v8; // rsi
-  struct _PROCESSOR_NUMBER v10; // [rsp+30h] [rbp+8h] BYREF
+  _PROCESSOR_NUMBER v10; // [rsp+30h] [rbp+8h] BYREF
 
   v10.Group = a1;
   ActiveProcessorCount = KeQueryActiveProcessorCountEx(0);

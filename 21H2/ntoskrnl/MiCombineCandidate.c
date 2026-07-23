@@ -1,19 +1,19 @@
 /*
- * XREFs of MiCombineCandidate @ 0x1403697A0
+ * XREFs of MiCombineCandidate @ 0x140369950
  * Callers:
- *     MiRecheckCombineVm @ 0x140367AD0 (MiRecheckCombineVm.c)
- *     MiCrcStillIntact @ 0x140367B74 (MiCrcStillIntact.c)
- *     MiCapturePfnVm @ 0x140368100 (MiCapturePfnVm.c)
- *     MiSharePages @ 0x140368360 (MiSharePages.c)
- *     MiMapArbitraryPage @ 0x140369610 (MiMapArbitraryPage.c)
- *     MiCombinePte @ 0x14055C900 (MiCombinePte.c)
- *     MiCombineAllPhysicalMemory @ 0x1407272B0 (MiCombineAllPhysicalMemory.c)
+ *     MiRecheckCombineVm @ 0x140367C80 (MiRecheckCombineVm.c)
+ *     MiCrcStillIntact @ 0x140367D24 (MiCrcStillIntact.c)
+ *     MiCapturePfnVm @ 0x1403682B0 (MiCapturePfnVm.c)
+ *     MiSharePages @ 0x140368510 (MiSharePages.c)
+ *     MiMapArbitraryPage @ 0x1403697C0 (MiMapArbitraryPage.c)
+ *     MiCombinePte @ 0x14055CB40 (MiCombinePte.c)
+ *     MiCombineAllPhysicalMemory @ 0x140727760 (MiCombineAllPhysicalMemory.c)
  * Callees:
- *     MI_IS_RESET_PTE @ 0x14023DD20 (MI_IS_RESET_PTE.c)
- *     MiPteHasShadow @ 0x1402B6A1C (MiPteHasShadow.c)
- *     MI_IS_SOFTWARE_PTE_SHADOW_STACK @ 0x1402BA73C (MI_IS_SOFTWARE_PTE_SHADOW_STACK.c)
- *     MiGetPagePrivilege @ 0x1403286F0 (MiGetPagePrivilege.c)
- *     MiIsSessionMetadata @ 0x14036AE10 (MiIsSessionMetadata.c)
+ *     MiPteHasShadow @ 0x140234BFC (MiPteHasShadow.c)
+ *     MI_IS_SOFTWARE_PTE_SHADOW_STACK @ 0x14023894C (MI_IS_SOFTWARE_PTE_SHADOW_STACK.c)
+ *     MI_IS_RESET_PTE @ 0x1402E2570 (MI_IS_RESET_PTE.c)
+ *     MiGetPagePrivilege @ 0x140333440 (MiGetPagePrivilege.c)
+ *     MiIsSessionMetadata @ 0x14036AFC0 (MiIsSessionMetadata.c)
  *     MI_PFN_IS_PROTO @ 0x1403F48C8 (MI_PFN_IS_PROTO.c)
  */
 
@@ -47,7 +47,7 @@ __int64 __fastcall MiCombineCandidate(_QWORD *a1, char a2, __int128 *a3)
   if ( (BYTE2(v4) & 7u) <= 1 )
     return 0LL;
   v5 = *((_QWORD *)&BugCheckParameter2 + 1);
-  if ( *(_QWORD *)(qword_140C4E648 + 8 * ((*((_QWORD *)&v21 + 1) >> 39) & 0x3FFLL)) != *a1 && (a2 & 1) == 0 )
+  if ( *(_QWORD *)(qword_140C4E688 + 8 * ((*((_QWORD *)&v21 + 1) >> 39) & 0x3FFLL)) != *a1 && (a2 & 1) == 0 )
     return 0LL;
   if ( (unsigned int)MI_PFN_IS_PROTO(&BugCheckParameter2)
     || (v6 & 0x1000000000LL) != 0
@@ -59,8 +59,8 @@ __int64 __fastcall MiCombineCandidate(_QWORD *a1, char a2, __int128 *a3)
     || (v5 | 0x8000000000000000uLL) <= 0xFFFFF6BFFFFFFF78uLL
     && (v5 | 0x8000000000000000uLL) >= 0xFFFFF68000000000uLL
     && (BYTE3(v21) & 0x20) != 0
-    || byte_140C5205E
-    && _bittest64((const signed __int64 *)qword_140C52588, (unsigned __int64)((v7 + 0x58000000000LL) / 48) >> 9) )
+    || byte_140C5209E
+    && _bittest64((const signed __int64 *)qword_140C525C8, (unsigned __int64)((v7 + 0x58000000000LL) / 48) >> 9) )
   {
     return 0LL;
   }
@@ -84,7 +84,7 @@ __int64 __fastcall MiCombineCandidate(_QWORD *a1, char a2, __int128 *a3)
     }
   }
   v22 = v8;
-  if ( (v8 & 1) != 0 || v8 && qword_140C4DF40 && (qword_140C4DF40 & v8) == 0 )
+  if ( (v8 & 1) != 0 || v8 && qword_140C4DF80 && (qword_140C4DF80 & v8) == 0 )
     return 0LL;
   v13 = (v8 >> 5) & 0x1F;
   if ( (_DWORD)v13 == 24
@@ -97,7 +97,7 @@ __int64 __fastcall MiCombineCandidate(_QWORD *a1, char a2, __int128 *a3)
   }
   v14 = (__int64)(v5 << 25) >> 16;
   if ( v14 >= 0xFFFF800000000000uLL )
-    v15 = (unsigned __int8)byte_140C4F9C8[((v14 >> 39) & 0x1FF) - 256];
+    v15 = (unsigned __int8)byte_140C4FA08[((v14 >> 39) & 0x1FF) - 256];
   else
     v15 = 0;
   if ( v5 > 0xFFFFF6BFFFFFFF78uLL )
@@ -134,8 +134,8 @@ __int64 __fastcall MiCombineCandidate(_QWORD *a1, char a2, __int128 *a3)
         && (((unsigned __int8)v8 >> 1) & (unsigned __int8)v21) == 0 )
       {
         v18 = v8;
-        if ( qword_140C4DF40 && (v8 & 0x10) == 0 )
-          v18 = v8 & ~qword_140C4DF40;
+        if ( qword_140C4DF80 && (v8 & 0x10) == 0 )
+          v18 = v8 & ~qword_140C4DF80;
         if ( HIDWORD(v18) == 1 )
           return 0LL;
       }

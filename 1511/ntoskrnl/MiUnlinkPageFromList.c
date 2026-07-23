@@ -540,7 +540,7 @@ LABEL_38:
       LOBYTE(v56) = 1;
       v19 = (__int64)(v3 + 0x58000000000LL) / 48;
       v57 = v19 & 0x1F;
-      v58 = (volatile signed __int32 *)(qword_1402FECB0 + 4 * (v19 >> 5));
+      v58 = (volatile signed __int32 *)stru_1402FECA8.Buffer + (v19 >> 5);
       if ( (v19 & 0x1F) + 1 > 0x20 )
       {
         if ( (v19 & 0x1F) == 0 )

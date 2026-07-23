@@ -1,18 +1,18 @@
 /*
- * XREFs of IopLiveDumpWriteDumpFile @ 0x140627610
+ * XREFs of IopLiveDumpWriteDumpFile @ 0x1406276C4
  * Callers:
- *     IoCaptureLiveDump @ 0x140625F30 (IoCaptureLiveDump.c)
- *     IoWriteDeferredLiveDumpData @ 0x14062651C (IoWriteDeferredLiveDumpData.c)
+ *     IoCaptureLiveDump @ 0x140625FE4 (IoCaptureLiveDump.c)
+ *     IoWriteDeferredLiveDumpData @ 0x1406265D0 (IoWriteDeferredLiveDumpData.c)
  * Callees:
- *     RtlNumberOfSetBitsEx @ 0x14013ACD8 (RtlNumberOfSetBitsEx.c)
- *     IopLiveDumpAllocNonPagedPool @ 0x1401CAEA8 (IopLiveDumpAllocNonPagedPool.c)
- *     SecureDump_Get_SecureDumpHeader @ 0x1401CB960 (SecureDump_Get_SecureDumpHeader.c)
+ *     RtlNumberOfSetBitsEx @ 0x14013B248 (RtlNumberOfSetBitsEx.c)
+ *     IopLiveDumpAllocNonPagedPool @ 0x1401CAD8C (IopLiveDumpAllocNonPagedPool.c)
+ *     SecureDump_Get_SecureDumpHeader @ 0x1401CB844 (SecureDump_Get_SecureDumpHeader.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     MmFreeIndependentPages @ 0x1403E1F14 (MmFreeIndependentPages.c)
- *     IopLiveDumpCheckTermination @ 0x140626F20 (IopLiveDumpCheckTermination.c)
- *     IopLiveDumpFreeDumpBuffers @ 0x140626FD8 (IopLiveDumpFreeDumpBuffers.c)
- *     IopLiveDumpWriteBuffer @ 0x140627560 (IopLiveDumpWriteBuffer.c)
- *     IopLiveDumpWriteSecondaryData @ 0x140627F2C (IopLiveDumpWriteSecondaryData.c)
+ *     IopLiveDumpCheckTermination @ 0x140626FD4 (IopLiveDumpCheckTermination.c)
+ *     IopLiveDumpFreeDumpBuffers @ 0x14062708C (IopLiveDumpFreeDumpBuffers.c)
+ *     IopLiveDumpWriteBuffer @ 0x140627614 (IopLiveDumpWriteBuffer.c)
+ *     IopLiveDumpWriteSecondaryData @ 0x140627FE0 (IopLiveDumpWriteSecondaryData.c)
  */
 
 __int64 __fastcall IopLiveDumpWriteDumpFile(__int64 a1)

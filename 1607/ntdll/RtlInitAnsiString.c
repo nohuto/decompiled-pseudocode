@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlInitAnsiString @ 0x180011330
+ * XREFs of RtlInitAnsiString @ 0x180011320
  * Callers:
- *     LdrpLogDelayLoadTrigger @ 0x1800112C0 (LdrpLogDelayLoadTrigger.c)
- *     LdrpGetDelayloadExportDll @ 0x18001136C (LdrpGetDelayloadExportDll.c)
- *     LdrpSnapKernelBaseExtensions @ 0x1800155AC (LdrpSnapKernelBaseExtensions.c)
- *     LdrpReportError @ 0x18007AF88 (LdrpReportError.c)
- *     LdrpGetShimEngineInterface @ 0x18007E068 (LdrpGetShimEngineInterface.c)
- *     AVrfpDetectVerifiedExports @ 0x1800D66E4 (AVrfpDetectVerifiedExports.c)
- *     AVrfpVerifierStopInitialize @ 0x1800D7560 (AVrfpVerifierStopInitialize.c)
+ *     LdrpLogDelayLoadTrigger @ 0x1800112B0 (LdrpLogDelayLoadTrigger.c)
+ *     LdrpGetDelayloadExportDll @ 0x18001135C (LdrpGetDelayloadExportDll.c)
+ *     LdrpSnapKernelBaseExtensions @ 0x18001559C (LdrpSnapKernelBaseExtensions.c)
+ *     LdrpReportError @ 0x18007AF78 (LdrpReportError.c)
+ *     LdrpGetShimEngineInterface @ 0x18007E058 (LdrpGetShimEngineInterface.c)
+ *     AVrfpDetectVerifiedExports @ 0x1800D67A4 (AVrfpDetectVerifiedExports.c)
+ *     AVrfpVerifierStopInitialize @ 0x1800D7620 (AVrfpVerifierStopInitialize.c)
  * Callees:
  *     <none>
  */

@@ -1,11 +1,11 @@
 /*
- * XREFs of ResCGetCultureID @ 0x1801059C4
+ * XREFs of ResCGetCultureID @ 0x180105904
  * Callers:
  *     ResCRuntimeGetCultureID @ 0x1800FF388 (ResCRuntimeGetCultureID.c)
  * Callees:
- *     RtlSetLastWin32Error @ 0x18005A470 (RtlSetLastWin32Error.c)
- *     ResCultureNameToLCID @ 0x180103420 (ResCultureNameToLCID.c)
- *     _ResCompareString @ 0x180103B2C (_ResCompareString.c)
+ *     RtlSetLastWin32Error @ 0x18005A460 (RtlSetLastWin32Error.c)
+ *     ResCultureNameToLCID @ 0x180103360 (ResCultureNameToLCID.c)
+ *     _ResCompareString @ 0x180103A6C (_ResCompareString.c)
  */
 
 __int64 __fastcall ResCGetCultureID(_QWORD *a1, const WCHAR *a2)
@@ -14,11 +14,11 @@ __int64 __fastcall ResCGetCultureID(_QWORD *a1, const WCHAR *a2)
   __int64 v5; // rsi
   unsigned int v6; // eax
   __int64 v7; // rdi
-  unsigned int v8; // ecx
+  LONG v8; // ecx
 
   if ( !a2 )
     goto LABEL_15;
-  result = ResCultureNameToLCID((__int64)a2);
+  result = ResCultureNameToLCID(a2);
   if ( (_DWORD)result )
     return result;
   if ( !a1 || (v5 = a1[1]) == 0 || !a1[2] || !a1[3] )
@@ -37,7 +37,7 @@ LABEL_16:
   v7 = 0LL;
   if ( !v6 )
     return 0LL;
-  while ( (unsigned int)ResCompareString((PCWSTR)(a1[3] + 2LL * *(unsigned int *)(a1[2] + 8 * v7)), a2) )
+  while ( ResCompareString((PCWSTR)(a1[3] + 2LL * *(unsigned int *)(a1[2] + 8 * v7)), a2) )
   {
     v7 = (unsigned int)(v7 + 1);
     if ( (unsigned int)v7 >= *(_DWORD *)(v5 + 20) )

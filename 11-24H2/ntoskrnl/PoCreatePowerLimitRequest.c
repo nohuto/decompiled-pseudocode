@@ -1,13 +1,13 @@
 /*
- * XREFs of PoCreatePowerLimitRequest @ 0x14074AB10
+ * XREFs of PoCreatePowerLimitRequest @ 0x140748E40
  * Callers:
  *     <none>
  * Callees:
- *     PoDestroyReasonContext @ 0x140331BA4 (PoDestroyReasonContext.c)
- *     PoCaptureReasonContext @ 0x140331D38 (PoCaptureReasonContext.c)
- *     PopAssociatePowerLimitRequest @ 0x14074B078 (PopAssociatePowerLimitRequest.c)
- *     PopFreePowerLimitRequest @ 0x14074B644 (PopFreePowerLimitRequest.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     PoDestroyReasonContext @ 0x1402BC528 (PoDestroyReasonContext.c)
+ *     PoCaptureReasonContext @ 0x1402BC6B8 (PoCaptureReasonContext.c)
+ *     PopAssociatePowerLimitRequest @ 0x1407493A8 (PopAssociatePowerLimitRequest.c)
+ *     PopFreePowerLimitRequest @ 0x140749974 (PopFreePowerLimitRequest.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall PoCreatePowerLimitRequest(_QWORD *a1, __int64 a2, __int64 a3, __int128 *a4)
@@ -24,7 +24,7 @@ __int64 __fastcall PoCreatePowerLimitRequest(_QWORD *a1, __int64 a2, __int64 a3,
     v7 = PoCaptureReasonContext(a4, 0LL, a3, 1, 0LL, (PVOID *)&v10);
     if ( v7 >= 0 )
     {
-      Pool2 = (_QWORD *)ExAllocatePool2(0x100uLL);
+      Pool2 = (_QWORD *)ExAllocatePool2(0x100uLL, 0x48uLL, 0x6D6C5050u);
       if ( Pool2 )
       {
         Pool2[3] = v10;

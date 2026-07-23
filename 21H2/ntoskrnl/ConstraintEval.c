@@ -1,16 +1,16 @@
 /*
- * XREFs of ConstraintEval @ 0x14062E324
+ * XREFs of ConstraintEval @ 0x1406233AC
  * Callers:
- *     PiDqObjectManagerEnumerateAndRegisterQuery @ 0x14062E878 (PiDqObjectManagerEnumerateAndRegisterQuery.c)
+ *     PiDqObjectManagerEnumerateAndRegisterQuery @ 0x140623900 (PiDqObjectManagerEnumerateAndRegisterQuery.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     _wcsicmp @ 0x1403D20D0 (_wcsicmp.c)
- *     memcmp @ 0x1403D29E0 (memcmp.c)
- *     memmove @ 0x140413F40 (memmove.c)
- *     SimplifyFilter @ 0x14062DF1C (SimplifyFilter.c)
- *     FilterEval @ 0x140633644 (FilterEval.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     _wcsicmp @ 0x1403D2240 (_wcsicmp.c)
+ *     memcmp @ 0x1403D2B50 (memcmp.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     SimplifyFilter @ 0x140622FA4 (SimplifyFilter.c)
+ *     FilterEval @ 0x14062880C (FilterEval.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall ConstraintEval(unsigned int a1, _DWORD *a2, __int64 a3, int a4, __int64 a5)
@@ -115,9 +115,9 @@ __int64 __fastcall ConstraintEval(unsigned int a1, _DWORD *a2, __int64 a3, int a
       {
         if ( (_DWORD)v36 != 17 )
           goto LABEL_9;
-        v30 = &unk_140CFA4D1;
+        v30 = &unk_140CFA51C;
         if ( **((_BYTE **)&v36 + 1) != 0xFF )
-          v30 = &unk_140C12FF8;
+          v30 = &unk_140C12FD8;
         *((_QWORD *)&v36 + 1) = v30;
       }
     }
@@ -125,7 +125,7 @@ __int64 __fastcall ConstraintEval(unsigned int a1, _DWORD *a2, __int64 a3, int a
   else
   {
     *(_QWORD *)&v36 = 0x400000007LL;
-    *((_QWORD *)&v36 + 1) = &unk_140CFA4D4;
+    *((_QWORD *)&v36 + 1) = &unk_140CFA518;
   }
   for ( i = 0; i < v7; ++i )
   {

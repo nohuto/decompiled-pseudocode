@@ -1,16 +1,16 @@
 /*
- * XREFs of ZwDeleteDriverEntry @ 0x1801637C0
+ * XREFs of ZwDeleteDriverEntry @ 0x180161B80
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 ZwDeleteDriverEntry()
+NTSTATUS __cdecl ZwDeleteDriverEntry(ULONG Id)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 218LL;
+  result = 218;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

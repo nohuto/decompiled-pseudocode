@@ -12,35 +12,35 @@
  *     ZwTraceEvent @ 0x1800A5EB0 (ZwTraceEvent.c)
  */
 
-void *__fastcall RtlSetThreadSubProcessTag(void *a1, __int64 a2, __int64 a3, __int64 a4)
+PVOID __cdecl RtlSetThreadSubProcessTag(PVOID SubProcessTag)
 {
-  struct _TEB *v4; // rax
-  __int64 v6; // rbx
-  void *SubProcessTag; // rdi
-  _DWORD *HotpatchInformation; // rcx
-  __int64 v9; // rcx
-  char v11[6]; // [rsp+20h] [rbp-38h] BYREF
-  __int16 v12; // [rsp+26h] [rbp-32h]
-  int v13; // [rsp+40h] [rbp-18h]
-  int v14; // [rsp+44h] [rbp-14h]
+  struct _TEB *v1; // rax
+  __int64 v3; // rbx
+  PVOID v4; // rdi
+  PSILO_USER_SHARED_DATA SharedData; // rcx
+  __int64 v6; // rcx
+  _BYTE Fields[6]; // [rsp+20h] [rbp-38h] BYREF
+  __int16 v9; // [rsp+26h] [rbp-32h]
+  int v10; // [rsp+40h] [rbp-18h]
+  int v11; // [rsp+44h] [rbp-14h]
 
-  v4 = NtCurrentTeb();
-  v6 = 2147353488LL;
-  SubProcessTag = v4->SubProcessTag;
-  v4->SubProcessTag = a1;
-  HotpatchInformation = NtCurrentPeb()->HotpatchInformation;
-  if ( HotpatchInformation && *HotpatchInformation )
-    v9 = (__int64)NtCurrentPeb()->HotpatchInformation + 566;
+  v1 = NtCurrentTeb();
+  v3 = 2147353488LL;
+  v4 = v1->SubProcessTag;
+  v1->SubProcessTag = SubProcessTag;
+  SharedData = NtCurrentPeb()->SharedData;
+  if ( SharedData && SharedData->ServiceSessionId )
+    v6 = (__int64)&NtCurrentPeb()->SharedData->UserModeGlobalLogger[8];
   else
-    v9 = 2147353488LL;
-  if ( *(_BYTE *)v9 && a1 != SubProcessTag )
+    v6 = 2147353488LL;
+  if ( *(_BYTE *)v6 && SubProcessTag != v4 )
   {
-    v13 = (int)SubProcessTag;
-    v12 = 1349;
-    v14 = (int)a1;
-    if ( (unsigned int)RtlGetCurrentServiceSessionId(v9, a1, a3, a4) )
-      v6 = (__int64)NtCurrentPeb()->HotpatchInformation + 566;
-    ZwTraceEvent(*(unsigned __int8 *)v6, 1026LL, 8LL, v11);
+    v10 = (int)v4;
+    v9 = 1349;
+    v11 = (int)SubProcessTag;
+    if ( RtlGetCurrentServiceSessionId() )
+      v3 = (__int64)&NtCurrentPeb()->SharedData->UserModeGlobalLogger[8];
+    ZwTraceEvent((HANDLE)*(unsigned __int8 *)v3, 0x402u, 8u, Fields);
   }
-  return SubProcessTag;
+  return v4;
 }

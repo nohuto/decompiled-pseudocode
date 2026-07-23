@@ -1,9 +1,9 @@
 /*
- * XREFs of CcDetermineReadPattern @ 0x14032959C
+ * XREFs of CcDetermineReadPattern @ 0x14032982C
  * Callers:
- *     CcScheduleReadAheadNuma @ 0x140328FBC (CcScheduleReadAheadNuma.c)
+ *     CcScheduleReadAheadNuma @ 0x14032924C (CcScheduleReadAheadNuma.c)
  * Callees:
- *     CcAreOffsetsRoughlyEqual @ 0x140329620 (CcAreOffsetsRoughlyEqual.c)
+ *     CcAreOffsetsRoughlyEqual @ 0x1403298B0 (CcAreOffsetsRoughlyEqual.c)
  */
 
 __int64 __fastcall CcDetermineReadPattern(__int64 a1, _QWORD *a2)

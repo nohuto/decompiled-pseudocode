@@ -1,12 +1,12 @@
 /*
- * XREFs of PopOpenHiberPersistedKey @ 0x1408225E0
+ * XREFs of PopOpenHiberPersistedKey @ 0x1408228E0
  * Callers:
- *     PopQueryHiberPersistedRegValue @ 0x140822480 (PopQueryHiberPersistedRegValue.c)
- *     PopSetHiberPersistedRegValue @ 0x1409891D8 (PopSetHiberPersistedRegValue.c)
+ *     PopQueryHiberPersistedRegValue @ 0x140822780 (PopQueryHiberPersistedRegValue.c)
+ *     PopSetHiberPersistedRegValue @ 0x1409893D8 (PopSetHiberPersistedRegValue.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1B0 (RtlInitUnicodeString.c)
- *     ZwOpenKey @ 0x14041AFA0 (ZwOpenKey.c)
- *     ZwCreateKey @ 0x14041B100 (ZwCreateKey.c)
+ *     RtlInitUnicodeString @ 0x14022E2C0 (RtlInitUnicodeString.c)
+ *     ZwOpenKey @ 0x14041B330 (ZwOpenKey.c)
+ *     ZwCreateKey @ 0x14041B490 (ZwCreateKey.c)
  */
 
 NTSTATUS __fastcall PopOpenHiberPersistedKey(PHANDLE KeyHandle, ACCESS_MASK DesiredAccess)

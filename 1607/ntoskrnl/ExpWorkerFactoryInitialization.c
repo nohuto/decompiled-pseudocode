@@ -3,13 +3,13 @@
  * Callers:
  *     ExpInitSystemPhase1 @ 0x14079EB74 (ExpInitSystemPhase1.c)
  * Callees:
- *     InitializeSListHead @ 0x140002B3C (InitializeSListHead.c)
- *     KeInitializeQueue @ 0x14007DE44 (KeInitializeQueue.c)
- *     KeRegisterObjectNotification @ 0x1400EDDA0 (KeRegisterObjectNotification.c)
- *     ZwClose @ 0x140159E60 (ZwClose.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     PsCreateSystemThread @ 0x1403E4710 (PsCreateSystemThread.c)
- *     ObCreateObjectType @ 0x14055203C (ObCreateObjectType.c)
+ *     InitializeSListHead @ 0x140002CB0 (InitializeSListHead.c)
+ *     KeInitializeQueue @ 0x14007DEC4 (KeInitializeQueue.c)
+ *     KeRegisterObjectNotification @ 0x1400EBC20 (KeRegisterObjectNotification.c)
+ *     ZwClose @ 0x14015A3D0 (ZwClose.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     PsCreateSystemThread @ 0x1403E5D3C (PsCreateSystemThread.c)
+ *     ObCreateObjectType @ 0x14055257C (ObCreateObjectType.c)
  */
 
 __int64 ExpWorkerFactoryInitialization()

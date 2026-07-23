@@ -1,18 +1,18 @@
 /*
- * XREFs of MiDeleteEmptySubsections @ 0x1403F7FC0
+ * XREFs of MiDeleteEmptySubsections @ 0x140292788
  * Callers:
- *     MiRemoveUnusedSegments @ 0x1403F734C (MiRemoveUnusedSegments.c)
- *     MiSegmentDereferenceWorker @ 0x1403F7BB0 (MiSegmentDereferenceWorker.c)
+ *     MiSegmentDereferenceWorker @ 0x1403EDB20 (MiSegmentDereferenceWorker.c)
+ *     MiRemoveUnusedSegments @ 0x1403EDF30 (MiRemoveUnusedSegments.c)
  * Callees:
- *     MiUnlinkUnusedSubsection @ 0x14020F984 (MiUnlinkUnusedSubsection.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14020FA40 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExTryAcquireSpinLockExclusiveAtDpcLevel @ 0x14022E850 (ExTryAcquireSpinLockExclusiveAtDpcLevel.c)
- *     MiUpdateSystemProtoPtesTree @ 0x14026047C (MiUpdateSystemProtoPtesTree.c)
- *     MiReleaseSpinLockExclusive @ 0x14028EE30 (MiReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x14028F370 (ExAcquireSpinLockExclusive.c)
- *     KeShouldYieldProcessor @ 0x1402DA180 (KeShouldYieldProcessor.c)
- *     MiDeleteEmptySubsectionProtoPool @ 0x1403F8174 (MiDeleteEmptySubsectionProtoPool.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     KeShouldYieldProcessor @ 0x14023BA60 (KeShouldYieldProcessor.c)
+ *     MiUpdateSystemProtoPtesTree @ 0x140290A8C (MiUpdateSystemProtoPtesTree.c)
+ *     MiReleaseSpinLockExclusive @ 0x14029EA30 (MiReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14029EF70 (ExAcquireSpinLockExclusive.c)
+ *     ExTryAcquireSpinLockExclusiveAtDpcLevel @ 0x140302160 (ExTryAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     MiUnlinkUnusedSubsection @ 0x140338CE4 (MiUnlinkUnusedSubsection.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140338DA0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiDeleteEmptySubsectionProtoPool @ 0x140473E98 (MiDeleteEmptySubsectionProtoPool.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 __int64 __fastcall MiDeleteEmptySubsections(__int64 a1)
@@ -20,77 +20,82 @@ __int64 __fastcall MiDeleteEmptySubsections(__int64 a1)
   _QWORD **v2; // rdi
   volatile LONG *v3; // rbx
   char v4; // r14
-  KIRQL v5; // r12
-  _QWORD *v6; // rsi
-  __int64 v7; // r15
-  __int64 v8; // r13
-  volatile LONG *v9; // r13
+  __int64 v5; // rdx
+  __int64 v6; // r8
+  __int64 v7; // r9
+  KIRQL v8; // r12
+  _QWORD *v9; // rsi
+  _QWORD *v10; // r15
+  __int64 v11; // r13
+  volatile LONG *v12; // r13
   __int64 result; // rax
-  volatile LONG *v11; // rcx
-  int v12; // [rsp+28h] [rbp-59h] BYREF
-  int v13; // [rsp+2Ch] [rbp-55h]
-  _QWORD v14[17]; // [rsp+30h] [rbp-51h] BYREF
+  volatile LONG *v14; // rcx
+  int v15; // [rsp+28h] [rbp-59h] BYREF
+  int v16; // [rsp+2Ch] [rbp-55h]
+  _QWORD v17[17]; // [rsp+30h] [rbp-51h] BYREF
 
-  memset_0(v14, 0, 0x80uLL);
-  v13 = 0;
+  memset_0(v17, 0, 0x80uLL);
+  v16 = 0;
   v2 = (_QWORD **)(a1 + 2112);
-  v12 = 0;
+  v15 = 0;
   v3 = (volatile LONG *)(a1 + 1728);
   while ( 2 )
   {
     v4 = 0;
-    v5 = ExAcquireSpinLockExclusive(v3);
+    v8 = ExAcquireSpinLockExclusive(v3);
 LABEL_3:
-    v6 = *v2;
-    while ( v6 != v2 )
+    v9 = *v2;
+    while ( v9 != v2 )
     {
-      v7 = (__int64)(v6 - 11);
+      v10 = v9 - 11;
       ++v4;
-      v8 = *(v6 - 11);
-      v6 = (_QWORD *)*v6;
-      v9 = (volatile LONG *)(v8 + 72);
-      if ( (unsigned int)ExTryAcquireSpinLockExclusiveAtDpcLevel() )
+      v11 = *(v9 - 11);
+      v9 = (_QWORD *)*v9;
+      v12 = (volatile LONG *)(v11 + 72);
+      if ( (unsigned int)ExTryAcquireSpinLockExclusiveAtDpcLevel(v12, v5, v6, v7) )
       {
-        if ( (*(_DWORD *)(v7 + 32) & 0x80000) != 0 )
+        if ( (v10[4] & 0x80000) != 0 )
         {
-          v14[v12++] = *(_QWORD *)(v7 + 8);
-          MiUpdateSystemProtoPtesTree(v7 + 120, 2);
-          *(_QWORD *)(v7 + 8) = 0LL;
-          MiUnlinkUnusedSubsection(v7);
+          v17[v15++] = v10[1];
+          MiUpdateSystemProtoPtesTree((__int64)(v10 + 15), 2);
+          v10[1] = 0LL;
+          MiUnlinkUnusedSubsection(v10);
         }
-        if ( v12 == 16 || (v4 & 0xF) == 0 && ((*v3 & 0x40000000) != 0 || KeShouldYieldProcessor()) )
+        if ( v15 == 16 || (v4 & 0xF) == 0 && ((*v3 & 0x40000000) != 0 || KeShouldYieldProcessor()) )
         {
           ExReleaseSpinLockExclusiveFromDpcLevel(v3);
-          v11 = v9;
+          v14 = v12;
 LABEL_17:
-          MiReleaseSpinLockExclusive(v11, v5);
-          MiDeleteEmptySubsectionProtoPool(&v12);
+          LOBYTE(v5) = v8;
+          MiReleaseSpinLockExclusive(v14, v5);
+          MiDeleteEmptySubsectionProtoPool(&v15);
           v4 = 0;
           ExAcquireSpinLockExclusive(v3);
           goto LABEL_3;
         }
-        ExReleaseSpinLockExclusiveFromDpcLevel(v9);
+        ExReleaseSpinLockExclusiveFromDpcLevel(v12);
       }
-      else if ( v12 || (v4 & 0xF) == 0 && ((*v3 & 0x40000000) != 0 || KeShouldYieldProcessor()) )
+      else if ( v15 || (v4 & 0xF) == 0 && ((*v3 & 0x40000000) != 0 || KeShouldYieldProcessor()) )
       {
-        v11 = v3;
+        v14 = v3;
         goto LABEL_17;
       }
     }
+    LOBYTE(v5) = v8;
     if ( *v2 != v2 )
     {
       MiReleaseSpinLockExclusive(v3, v5);
-      MiDeleteEmptySubsectionProtoPool(&v12);
+      MiDeleteEmptySubsectionProtoPool(&v15);
       continue;
     }
     break;
   }
   *(_QWORD *)(a1 + 1808) = 0LL;
   result = MiReleaseSpinLockExclusive(v3, v5);
-  if ( v12 )
+  if ( v15 )
   {
-    v13 = 1;
-    return MiDeleteEmptySubsectionProtoPool(&v12);
+    v16 = 1;
+    return MiDeleteEmptySubsectionProtoPool(&v15);
   }
   return result;
 }

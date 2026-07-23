@@ -1,24 +1,24 @@
 /*
- * XREFs of PiAuCreateStandardSecurityObject @ 0x140CC5994
+ * XREFs of PiAuCreateStandardSecurityObject @ 0x140CCBA74
  * Callers:
- *     IopInitializePlugPlayServices @ 0x140CBFDA0 (IopInitializePlugPlayServices.c)
+ *     IopInitializePlugPlayServices @ 0x140CC5E70 (IopInitializePlugPlayServices.c)
  * Callees:
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     PiAuAllocateAndInitializeSid @ 0x1407A81C4 (PiAuAllocateAndInitializeSid.c)
- *     RtlAddAccessDeniedAceEx @ 0x1408030A0 (RtlAddAccessDeniedAceEx.c)
- *     RtlLengthSecurityDescriptor @ 0x1409228D0 (RtlLengthSecurityDescriptor.c)
- *     RtlValidSid @ 0x140924370 (RtlValidSid.c)
- *     RtlAddAccessAllowedAceEx @ 0x140925D80 (RtlAddAccessAllowedAceEx.c)
- *     RtlValidSecurityDescriptor @ 0x140926EB0 (RtlValidSecurityDescriptor.c)
- *     RtlCreateAcl @ 0x1409D8030 (RtlCreateAcl.c)
- *     RtlSetOwnerSecurityDescriptor @ 0x1409D8260 (RtlSetOwnerSecurityDescriptor.c)
- *     RtlAbsoluteToSelfRelativeSD @ 0x140A61650 (RtlAbsoluteToSelfRelativeSD.c)
- *     RtlSetDaclSecurityDescriptor @ 0x140A6B0F0 (RtlSetDaclSecurityDescriptor.c)
- *     RtlCreateSecurityDescriptor @ 0x140A6C2F0 (RtlCreateSecurityDescriptor.c)
- *     RtlSetGroupSecurityDescriptor @ 0x140AABBB0 (RtlSetGroupSecurityDescriptor.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     PiAuAllocateAndInitializeSid @ 0x1407AAD74 (PiAuAllocateAndInitializeSid.c)
+ *     RtlAddAccessDeniedAceEx @ 0x140808B40 (RtlAddAccessDeniedAceEx.c)
+ *     RtlLengthSecurityDescriptor @ 0x1408FE3E0 (RtlLengthSecurityDescriptor.c)
+ *     RtlValidSid @ 0x1408FFE80 (RtlValidSid.c)
+ *     RtlAddAccessAllowedAceEx @ 0x140901890 (RtlAddAccessAllowedAceEx.c)
+ *     RtlValidSecurityDescriptor @ 0x1409029C0 (RtlValidSecurityDescriptor.c)
+ *     RtlCreateAcl @ 0x1409A8F20 (RtlCreateAcl.c)
+ *     RtlSetOwnerSecurityDescriptor @ 0x1409A9150 (RtlSetOwnerSecurityDescriptor.c)
+ *     RtlAbsoluteToSelfRelativeSD @ 0x140A6E620 (RtlAbsoluteToSelfRelativeSD.c)
+ *     RtlSetDaclSecurityDescriptor @ 0x140A7C820 (RtlSetDaclSecurityDescriptor.c)
+ *     RtlCreateSecurityDescriptor @ 0x140A7D920 (RtlCreateSecurityDescriptor.c)
+ *     RtlSetGroupSecurityDescriptor @ 0x140AA9160 (RtlSetGroupSecurityDescriptor.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PiAuCreateStandardSecurityObject(PSID *a1)
@@ -71,7 +71,7 @@ __int64 __fastcall PiAuCreateStandardSecurityObject(PSID *a1)
     *(_QWORD *)SecurityDescriptor = 28LL * i;
     Acl = PiAuAllocateAndInitializeSid(
             v7,
-            (struct _SID_IDENTIFIER_AUTHORITY *)BufferLength,
+            (_SID_IDENTIFIER_AUTHORITY *)BufferLength,
             *(_DWORD *)&PiAuSwDeviceCreateSidSubAuthorities[*(_QWORD *)SecurityDescriptor]);
     if ( Acl < 0 )
     {
@@ -87,7 +87,7 @@ LABEL_19:
       do
       {
         v12 = v10++;
-        v11[v12 + 2] = dword_14002E7B4[7 * i + v12];
+        v11[v12 + 2] = dword_14002E274[7 * i + v12];
       }
       while ( v10 < *(_DWORD *)&PiAuSwDeviceCreateSidSubAuthorities[v9] );
     }
@@ -101,7 +101,7 @@ LABEL_19:
     v14 = (PVOID *)&SecurityDescriptor[8 * v4 - 8];
     Acl = PiAuAllocateAndInitializeSid(
             v14,
-            (struct _SID_IDENTIFIER_AUTHORITY *)BufferLength,
+            (_SID_IDENTIFIER_AUTHORITY *)BufferLength,
             PiAuLimitedWriteSidSubAuthorities);
     if ( Acl < 0 )
       goto LABEL_18;
@@ -111,7 +111,7 @@ LABEL_19:
       v16 = *v14;
       do
       {
-        v16[v15 + 2] = dword_14002EA74[v15];
+        v16[v15 + 2] = dword_14002E534[v15];
         v15 = (unsigned int)(v15 + 1);
       }
       while ( (unsigned int)v15 < PiAuLimitedWriteSidSubAuthorities );
@@ -155,7 +155,7 @@ LABEL_18:
     Acl = RtlAddAccessAllowedAceEx(v2, 2u, 0, 0x201E7u, a1[2]);
     if ( Acl >= 0 )
     {
-      Acl = RtlAddAccessDeniedAceEx((int)v2, 2, 0, 983551, a1[3]);
+      Acl = RtlAddAccessDeniedAceEx(v2, 2u, 0, 0xF01FFu, a1[3]);
       if ( Acl >= 0 )
       {
         Acl = RtlAddAccessAllowedAceEx(v2, 2u, 0, 0xF01FFu, *a1);

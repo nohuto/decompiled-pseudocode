@@ -5,7 +5,7 @@
  * Callees:
  *     ExReleaseFastMutexUnsafe @ 0x1402A3D80 (ExReleaseFastMutexUnsafe.c)
  *     ExAcquireFastMutexUnsafe @ 0x1402A3DC0 (ExAcquireFastMutexUnsafe.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402F9540 (KiLeaveCriticalRegionUnsafe.c)
+ *     sub_1402F9540 @ 0x1402F9540 (sub_1402F9540.c)
  *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
  */
 
@@ -20,16 +20,16 @@ NTSTATUS __stdcall SeUnregisterLogonSessionTerminatedRoutine(PSE_LOGON_SESSION_T
   if ( !CallbackRoutine )
     return -1073741811;
   CurrentThread = KeGetCurrentThread();
-  --CurrentThread->KernelApcDisable;
-  ExAcquireFastMutexUnsafe(&SepRmNotifyMutex);
-  v5 = (PSE_LOGON_SESSION_TERMINATED_ROUTINE)SeFileSystemNotifyRoutinesHead;
-  v6 = &SeFileSystemNotifyRoutinesHead;
+  --*((_WORD *)CurrentThread + 242);
+  ExAcquireFastMutexUnsafe(&stru_140CF6860);
+  v5 = (PSE_LOGON_SESSION_TERMINATED_ROUTINE)qword_140D3B278;
+  v6 = &qword_140D3B278;
   while ( 1 )
   {
     if ( !v5 )
     {
-      ExReleaseFastMutexUnsafe(&SepRmNotifyMutex);
-      KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
+      ExReleaseFastMutexUnsafe(&stru_140CF6860);
+      sub_1402F9540((__int64)KeGetCurrentThread());
       return -1073741275;
     }
     if ( *((PSE_LOGON_SESSION_TERMINATED_ROUTINE *)v5 + 1) == CallbackRoutine )
@@ -38,8 +38,8 @@ NTSTATUS __stdcall SeUnregisterLogonSessionTerminatedRoutine(PSE_LOGON_SESSION_T
     v5 = *(PSE_LOGON_SESSION_TERMINATED_ROUTINE *)v5;
   }
   *v6 = *(PVOID *)v5;
-  ExReleaseFastMutexUnsafe(&SepRmNotifyMutex);
-  KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
+  ExReleaseFastMutexUnsafe(&stru_140CF6860);
+  sub_1402F9540((__int64)KeGetCurrentThread());
   ExFreePoolWithTag(v5, 0);
   return v1;
 }

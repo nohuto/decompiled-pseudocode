@@ -1,41 +1,41 @@
 /*
- * XREFs of EtwGetKernelTraceTimestamp @ 0x14010E920
+ * XREFs of EtwGetKernelTraceTimestamp @ 0x14010E9A0
  * Callers:
  *     IopTimerDispatch @ 0x1400018F0 (IopTimerDispatch.c)
- *     KiProcessExpiredTimerList @ 0x1400C7820 (KiProcessExpiredTimerList.c)
- *     KiFinalizeTimer2Disablement @ 0x1400FB05C (KiFinalizeTimer2Disablement.c)
- *     KeDisableTimer2 @ 0x1400FB154 (KeDisableTimer2.c)
- *     KiExpireTimer2 @ 0x1400FB900 (KiExpireTimer2.c)
- *     KiIpiProcessRequests @ 0x140103EF0 (KiIpiProcessRequests.c)
- *     KeFlushIoBuffers @ 0x14011CB40 (KeFlushIoBuffers.c)
- *     KiScanInterruptObjectList @ 0x1401BD5E0 (KiScanInterruptObjectList.c)
- *     KiInterruptSubDispatch @ 0x1401BD7C0 (KiInterruptSubDispatch.c)
- *     KiInterruptSubDispatchNoLock @ 0x1401BD910 (KiInterruptSubDispatchNoLock.c)
- *     KiHvInterruptSubDispatch @ 0x1401C27E0 (KiHvInterruptSubDispatch.c)
- *     KiVmbusInterruptSubDispatch @ 0x1401C2940 (KiVmbusInterruptSubDispatch.c)
- *     KiInvokeInterruptServiceRoutine @ 0x140299D04 (KiInvokeInterruptServiceRoutine.c)
- *     NtDeleteKey @ 0x1405A9940 (NtDeleteKey.c)
- *     CmCreateKey @ 0x1405B5A60 (CmCreateKey.c)
- *     NtDeleteValueKey @ 0x1405B6030 (NtDeleteValueKey.c)
- *     NtQueryMultipleValueKey @ 0x1405B7130 (NtQueryMultipleValueKey.c)
- *     CmpSecurityMethod @ 0x1405CB2E0 (CmpSecurityMethod.c)
- *     NtSetValueKey @ 0x1405CC8E0 (NtSetValueKey.c)
- *     NtEnumerateKey @ 0x1405D22F0 (NtEnumerateKey.c)
- *     NtEnumerateValueKey @ 0x1405D3890 (NtEnumerateValueKey.c)
- *     CmOpenKey @ 0x1405E0EA0 (CmOpenKey.c)
- *     NtQueryKey @ 0x14063FB90 (NtQueryKey.c)
- *     NtQueryValueKey @ 0x140640340 (NtQueryValueKey.c)
- *     CmKtmNotification @ 0x1406942B0 (CmKtmNotification.c)
- *     CmpCloseKeyObject @ 0x140694D80 (CmpCloseKeyObject.c)
- *     NtSetInformationKey @ 0x140696FE0 (NtSetInformationKey.c)
- *     NtFlushKey @ 0x1406BFF70 (NtFlushKey.c)
- *     CmpReplicateKeyToVirtual @ 0x1407F3798 (CmpReplicateKeyToVirtual.c)
+ *     KiProcessExpiredTimerList @ 0x1400C7760 (KiProcessExpiredTimerList.c)
+ *     KiFinalizeTimer2Disablement @ 0x1400FB0DC (KiFinalizeTimer2Disablement.c)
+ *     KeDisableTimer2 @ 0x1400FB1D4 (KeDisableTimer2.c)
+ *     KiExpireTimer2 @ 0x1400FB980 (KiExpireTimer2.c)
+ *     KiIpiProcessRequests @ 0x140103F70 (KiIpiProcessRequests.c)
+ *     KeFlushIoBuffers @ 0x14011CBB0 (KeFlushIoBuffers.c)
+ *     KiScanInterruptObjectList @ 0x1401BD740 (KiScanInterruptObjectList.c)
+ *     KiInterruptSubDispatch @ 0x1401BD920 (KiInterruptSubDispatch.c)
+ *     KiInterruptSubDispatchNoLock @ 0x1401BDA70 (KiInterruptSubDispatchNoLock.c)
+ *     KiHvInterruptSubDispatch @ 0x1401C2940 (KiHvInterruptSubDispatch.c)
+ *     KiVmbusInterruptSubDispatch @ 0x1401C2AA0 (KiVmbusInterruptSubDispatch.c)
+ *     KiInvokeInterruptServiceRoutine @ 0x140299EF4 (KiInvokeInterruptServiceRoutine.c)
+ *     NtDeleteKey @ 0x1405AA940 (NtDeleteKey.c)
+ *     CmCreateKey @ 0x1405B6A60 (CmCreateKey.c)
+ *     NtDeleteValueKey @ 0x1405B7030 (NtDeleteValueKey.c)
+ *     NtQueryMultipleValueKey @ 0x1405B8130 (NtQueryMultipleValueKey.c)
+ *     CmpSecurityMethod @ 0x1405CC2E0 (CmpSecurityMethod.c)
+ *     NtSetValueKey @ 0x1405CD8E0 (NtSetValueKey.c)
+ *     NtEnumerateKey @ 0x1405D32F0 (NtEnumerateKey.c)
+ *     NtEnumerateValueKey @ 0x1405D4890 (NtEnumerateValueKey.c)
+ *     CmOpenKey @ 0x1405E1EA0 (CmOpenKey.c)
+ *     NtQueryKey @ 0x140640BB0 (NtQueryKey.c)
+ *     NtQueryValueKey @ 0x140641360 (NtQueryValueKey.c)
+ *     CmKtmNotification @ 0x140695470 (CmKtmNotification.c)
+ *     CmpCloseKeyObject @ 0x140695F40 (CmpCloseKeyObject.c)
+ *     NtSetInformationKey @ 0x1406981A0 (NtSetInformationKey.c)
+ *     NtFlushKey @ 0x1406C1210 (NtFlushKey.c)
+ *     CmpReplicateKeyToVirtual @ 0x1407F4998 (CmpReplicateKeyToVirtual.c)
  * Callees:
- *     RtlGetSystemTimePrecise @ 0x14008A510 (RtlGetSystemTimePrecise.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     RtlGetSystemTimePrecise @ 0x14008A500 (RtlGetSystemTimePrecise.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
  */
 
-__int64 __fastcall EtwGetKernelTraceTimestamp(LARGE_INTEGER *a1, unsigned int a2)
+LARGE_INTEGER __fastcall EtwGetKernelTraceTimestamp(LARGE_INTEGER *a1, unsigned int a2)
 {
   int v2; // ebx
   unsigned int v4; // r9d
@@ -44,20 +44,20 @@ __int64 __fastcall EtwGetKernelTraceTimestamp(LARGE_INTEGER *a1, unsigned int a2
   __int64 v7; // r10
   __int64 v8; // rcx
   LARGE_INTEGER PerformanceCounter; // rax
-  __int64 result; // rax
-  __int64 v11; // [rsp+40h] [rbp+18h] BYREF
+  LARGE_INTEGER result; // rax
+  LARGE_INTEGER v11; // [rsp+40h] [rbp+18h] BYREF
 
   v2 = 0;
-  if ( qword_14055B8A0 )
+  if ( qword_14055C8A0 )
   {
-    v4 = *(_DWORD *)(qword_14055B8A0 + 4224);
+    v4 = *(_DWORD *)(qword_14055C8A0 + 4224);
     for ( i = !_BitScanForward(&v6, v4); !i; i = !_BitScanForward(&v6, v4) )
     {
       v7 = v6;
       v4 &= v4 - 1;
-      v8 = 32LL * v6 + qword_14055B8A0 + 4260;
+      v8 = 32LL * v6 + qword_14055C8A0 + 4260;
       if ( v8 && (a2 & *(_DWORD *)(v8 + 4 * ((unsigned __int64)a2 >> 29)) & 0x1FFFFFFF) != 0 )
-        v2 |= 1 << *(_BYTE *)(qword_14055B8A0 + 2 * v7 + 4209);
+        v2 |= 1 << *(_BYTE *)(qword_14055C8A0 + 2 * v7 + 4209);
     }
   }
   else
@@ -72,12 +72,12 @@ __int64 __fastcall EtwGetKernelTraceTimestamp(LARGE_INTEGER *a1, unsigned int a2
   if ( (v2 & 4) != 0 )
     result = RtlGetSystemTimePrecise();
   else
-    result = 0LL;
-  a1[1].QuadPart = result;
+    result.QuadPart = 0LL;
+  a1[1] = result;
   if ( (v2 & 8) != 0 )
   {
-    result = __rdtsc();
-    a1[2].QuadPart = result;
+    result.QuadPart = __rdtsc();
+    a1[2] = result;
   }
   else
   {
@@ -85,10 +85,10 @@ __int64 __fastcall EtwGetKernelTraceTimestamp(LARGE_INTEGER *a1, unsigned int a2
   }
   if ( (v2 & 0x10) != 0 )
   {
-    v11 = 0LL;
-    ((void (__fastcall *)(__int64 *))off_1403FE720[0])(&v11);
+    v11.QuadPart = 0LL;
+    ((void (__fastcall *)(LARGE_INTEGER *))off_1403FF720[0])(&v11);
     result = v11;
-    a1[3].QuadPart = v11;
+    a1[3] = v11;
   }
   else
   {

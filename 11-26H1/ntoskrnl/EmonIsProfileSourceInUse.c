@@ -1,7 +1,7 @@
 /*
- * XREFs of EmonIsProfileSourceInUse @ 0x1405959B8
+ * XREFs of EmonIsProfileSourceInUse @ 0x140598138
  * Callers:
- *     EmonRemoveProfileSource @ 0x140596260 (EmonRemoveProfileSource.c)
+ *     EmonRemoveProfileSource @ 0x1405989E0 (EmonRemoveProfileSource.c)
  * Callees:
  *     <none>
  */

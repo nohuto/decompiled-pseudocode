@@ -1,20 +1,20 @@
 /*
- * XREFs of MiReplacePageTablePage @ 0x14033C35C
+ * XREFs of MiReplacePageTablePage @ 0x14033E3DC
  * Callers:
- *     MiTradeForPageTablePage @ 0x14033B46C (MiTradeForPageTablePage.c)
- *     MmStealTopLevelPage @ 0x1404C2F84 (MmStealTopLevelPage.c)
+ *     MiTradeForPageTablePage @ 0x14033D4EC (MiTradeForPageTablePage.c)
+ *     MmStealTopLevelPage @ 0x1404BC7D4 (MmStealTopLevelPage.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     MiGetUltraMapping @ 0x1402881D0 (MiGetUltraMapping.c)
- *     MiCopyPfnEntryEx @ 0x140294570 (MiCopyPfnEntryEx.c)
- *     MiMakeValidPte @ 0x1402DA020 (MiMakeValidPte.c)
- *     MiReadPteShadow @ 0x140314FF0 (MiReadPteShadow.c)
- *     MiCopyPageTablePageTransitionPtes @ 0x14033B670 (MiCopyPageTablePageTransitionPtes.c)
- *     MiSetPfnContainingFrame @ 0x14033BC10 (MiSetPfnContainingFrame.c)
- *     MiCopyPageTablePageValidPtes @ 0x14033BDE0 (MiCopyPageTablePageValidPtes.c)
- *     MiReplaceActivePageTableLinks @ 0x14033C1E0 (MiReplaceActivePageTableLinks.c)
- *     MiMakeProtectionPfnCompatible @ 0x14033C7D0 (MiMakeProtectionPfnCompatible.c)
- *     MiCopyPageTablePageContents @ 0x14033CFD0 (MiCopyPageTablePageContents.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     MiGetUltraMapping @ 0x140287730 (MiGetUltraMapping.c)
+ *     MiCopyPfnEntryEx @ 0x140293AD0 (MiCopyPfnEntryEx.c)
+ *     MiMakeValidPte @ 0x1402BBDE0 (MiMakeValidPte.c)
+ *     MiReadPteShadow @ 0x140317020 (MiReadPteShadow.c)
+ *     MiCopyPageTablePageTransitionPtes @ 0x14033D6F0 (MiCopyPageTablePageTransitionPtes.c)
+ *     MiSetPfnContainingFrame @ 0x14033DC90 (MiSetPfnContainingFrame.c)
+ *     MiCopyPageTablePageValidPtes @ 0x14033DE60 (MiCopyPageTablePageValidPtes.c)
+ *     MiReplaceActivePageTableLinks @ 0x14033E260 (MiReplaceActivePageTableLinks.c)
+ *     MiMakeProtectionPfnCompatible @ 0x14033E850 (MiMakeProtectionPfnCompatible.c)
+ *     MiCopyPageTablePageContents @ 0x14033F050 (MiCopyPageTablePageContents.c)
  */
 
 void __fastcall MiReplacePageTablePage(__int64 a1)
@@ -117,7 +117,7 @@ void __fastcall MiReplacePageTablePage(__int64 a1)
   {
     v7 = 1;
 LABEL_45:
-    _InterlockedAdd(&dword_140EF8D28, 1u);
+    _InterlockedAdd(&dword_140EF9088, 1u);
     _InterlockedAnd64(&v5[1].m128i_i64[1], 0x7FFFFFFFFFFFFFFFuLL);
 LABEL_46:
     v8 = 0xFFFFFFFFFFLL;
@@ -130,8 +130,8 @@ LABEL_27:
         PteShadow = MiReadPteShadow((unsigned __int64)v2, *v2);
       if ( ((unsigned __int8)PteShadow & (unsigned __int8)v7) == 0 && (PteShadow & 0xC00) == 0x800 )
       {
-        if ( qword_140E2D740 && (PteShadow & 0x10) == 0 )
-          PteShadow &= qword_140E2D748;
+        if ( qword_140E2D8C0 && (PteShadow & 0x10) == 0 )
+          PteShadow &= qword_140E2D8C8;
         --v14;
         _InterlockedAnd64(
           (volatile signed __int64 *)(48 * (v8 & (PteShadow >> 12)) - 0x21FFFFFFFFE8LL),

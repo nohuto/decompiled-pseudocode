@@ -1,10 +1,10 @@
 /*
- * XREFs of CmpDoesBufferRequireCapturing @ 0x14097A110
+ * XREFs of CmpDoesBufferRequireCapturing @ 0x140962920
  * Callers:
- *     NtRenameKey @ 0x1407D04D0 (NtRenameKey.c)
- *     CmpCaptureKeyValueArray @ 0x140979750 (CmpCaptureKeyValueArray.c)
- *     NtDeleteValueKey @ 0x140979A90 (NtDeleteValueKey.c)
- *     NtQueryValueKey @ 0x140AE41C0 (NtQueryValueKey.c)
+ *     NtRenameKey @ 0x1407D09C0 (NtRenameKey.c)
+ *     CmpCaptureKeyValueArray @ 0x140961F60 (CmpCaptureKeyValueArray.c)
+ *     NtDeleteValueKey @ 0x1409622A0 (NtDeleteValueKey.c)
+ *     NtQueryValueKey @ 0x140AE5AA0 (NtQueryValueKey.c)
  * Callees:
  *     <none>
  */

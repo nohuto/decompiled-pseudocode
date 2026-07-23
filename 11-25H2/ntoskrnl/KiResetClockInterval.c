@@ -11,26 +11,26 @@
  *     RtlRbRemoveNode @ 0x1402E2A20 (RtlRbRemoveNode.c)
  */
 
-__int64 __fastcall KiResetClockInterval(__int64 a1)
+__int64 __fastcall KiResetClockInterval(PRTL_BALANCED_NODE Node)
 {
   __int64 v2; // rcx
   __int64 v3; // r8
-  __int64 v4; // rdx
-  __int64 InterruptTimePrecise; // rdi
+  __int64 Right_low; // rdx
+  LARGE_INTEGER InterruptTimePrecise; // rdi
   __int64 v6; // rdx
   __int64 v7; // r8
-  unsigned __int64 v9; // [rsp+30h] [rbp+8h] BYREF
+  LARGE_INTEGER PerformanceCounter; // [rsp+30h] [rbp+8h] BYREF
 
-  RtlRbRemoveNode((unsigned __int64)&KiClockIntervalRequests, (unsigned __int64 *)a1);
-  v4 = *(unsigned int *)(a1 + 32);
-  InterruptTimePrecise = 0LL;
-  *(_BYTE *)(a1 + 24) = 0;
-  if ( (_DWORD)v4 )
-    PoTraceSystemTimerResolutionKernel(0, v4, 1);
+  RtlRbRemoveNode(&KiClockIntervalRequests, Node);
+  Right_low = LODWORD(Node[1].Right);
+  InterruptTimePrecise.QuadPart = 0LL;
+  LOBYTE(Node[1].Children[0]) = 0;
+  if ( (_DWORD)Right_low )
+    PoTraceSystemTimerResolutionKernel(0, Right_low, 1);
   if ( !KiClockTimerPerCpuTickScheduling )
-    return KiSetClockIntervalToMinimumRequested(v2, v4, v3);
+    return KiSetClockIntervalToMinimumRequested(v2, Right_low, v3);
   if ( KiClockTimerReducePreciseTimeQueries )
-    InterruptTimePrecise = RtlGetInterruptTimePrecise(&v9);
+    InterruptTimePrecise = RtlGetInterruptTimePrecise(&PerformanceCounter);
   KiSetClockTimerKTimerDeadlines((__int64)KeGetCurrentPrcb(), InterruptTimePrecise, 0);
   LOBYTE(v6) = 1;
   return KiSetNextClockTickDueTime(InterruptTimePrecise, v6, v7);

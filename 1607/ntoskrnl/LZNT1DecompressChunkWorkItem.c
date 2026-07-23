@@ -1,10 +1,10 @@
 /*
- * XREFs of LZNT1DecompressChunkWorkItem @ 0x1400AF318
+ * XREFs of LZNT1DecompressChunkWorkItem @ 0x1400AD880
  * Callers:
  *     <none>
  * Callees:
- *     KeSetEvent @ 0x1400562D0 (KeSetEvent.c)
- *     LZNT1DecompressChunk @ 0x1401677B0 (LZNT1DecompressChunk.c)
+ *     KeSetEvent @ 0x140055E50 (KeSetEvent.c)
+ *     LZNT1DecompressChunk @ 0x140167D20 (LZNT1DecompressChunk.c)
  */
 
 void __fastcall LZNT1DecompressChunkWorkItem(PVOID Entry)

@@ -1,29 +1,29 @@
 /*
- * XREFs of ExRegisterCallback @ 0x1404B3D50
+ * XREFs of ExRegisterCallback @ 0x1404AE560
  * Callers:
- *     HvlPhase2Initialize @ 0x140582B80 (HvlPhase2Initialize.c)
- *     DifExRegisterCallbackWrapper @ 0x14061FD00 (DifExRegisterCallbackWrapper.c)
- *     HaliInitPowerManagement @ 0x140702360 (HaliInitPowerManagement.c)
- *     HalpMiscInitializeKsr @ 0x140702E94 (HalpMiscInitializeKsr.c)
- *     IoRegisterContainerNotification @ 0x140715330 (IoRegisterContainerNotification.c)
- *     IoRegisterBootDriverCallback @ 0x140720500 (IoRegisterBootDriverCallback.c)
- *     KeRegisterProcessorChangeCallback @ 0x14073C2D0 (KeRegisterProcessorChangeCallback.c)
- *     SeRegisterImageVerificationCallback @ 0x14078E360 (SeRegisterImageVerificationCallback.c)
- *     PiCslInitialize @ 0x140C26098 (PiCslInitialize.c)
- *     PiKsrNotifyInitialize @ 0x140C26320 (PiKsrNotifyInitialize.c)
- *     PopSetupKsrCallbacks @ 0x140C2EDFC (PopSetupKsrCallbacks.c)
- *     PopUmpoInitializeChannel @ 0x140C32438 (PopUmpoInitializeChannel.c)
- *     PopUmpoInitializeMonitorChannel @ 0x140C326B4 (PopUmpoInitializeMonitorChannel.c)
- *     SshpAlpcInitialize @ 0x140C34404 (SshpAlpcInitialize.c)
- *     EtwpInitialize @ 0x140C3D0FC (EtwpInitialize.c)
- *     EtwpInitializeKsrSupport @ 0x140C3E954 (EtwpInitializeKsrSupport.c)
+ *     HvlPhase2Initialize @ 0x14057FF00 (HvlPhase2Initialize.c)
+ *     DifExRegisterCallbackWrapper @ 0x14061E2C0 (DifExRegisterCallbackWrapper.c)
+ *     HaliInitPowerManagement @ 0x1406FFFA0 (HaliInitPowerManagement.c)
+ *     HalpMiscInitializeKsr @ 0x140700AD4 (HalpMiscInitializeKsr.c)
+ *     IoRegisterContainerNotification @ 0x140712EC0 (IoRegisterContainerNotification.c)
+ *     IoRegisterBootDriverCallback @ 0x14071E090 (IoRegisterBootDriverCallback.c)
+ *     KeRegisterProcessorChangeCallback @ 0x14073A200 (KeRegisterProcessorChangeCallback.c)
+ *     SeRegisterImageVerificationCallback @ 0x14078E290 (SeRegisterImageVerificationCallback.c)
+ *     PiCslInitialize @ 0x140C280E8 (PiCslInitialize.c)
+ *     PiKsrNotifyInitialize @ 0x140C28370 (PiKsrNotifyInitialize.c)
+ *     PopSetupKsrCallbacks @ 0x140C30F1C (PopSetupKsrCallbacks.c)
+ *     PopUmpoInitializeChannel @ 0x140C34578 (PopUmpoInitializeChannel.c)
+ *     PopUmpoInitializeMonitorChannel @ 0x140C347F4 (PopUmpoInitializeMonitorChannel.c)
+ *     SshpAlpcInitialize @ 0x140C36544 (SshpAlpcInitialize.c)
+ *     EtwpInitialize @ 0x140C3F24C (EtwpInitialize.c)
+ *     EtwpInitializeKsrSupport @ 0x140C40AA4 (EtwpInitializeKsrSupport.c)
  * Callees:
- *     KeReleaseSpinLock @ 0x14024DD30 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140254B20 (KeAcquireSpinLockRaiseToDpc.c)
- *     ObfDereferenceObjectWithTag @ 0x1403254A0 (ObfDereferenceObjectWithTag.c)
- *     ObfReferenceObjectWithTag @ 0x1403403E0 (ObfReferenceObjectWithTag.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     KeReleaseSpinLock @ 0x14027E340 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140285130 (KeAcquireSpinLockRaiseToDpc.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CE030 (ObfDereferenceObjectWithTag.c)
+ *     ObfReferenceObjectWithTag @ 0x14031F8C0 (ObfReferenceObjectWithTag.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 PVOID __stdcall ExRegisterCallback(
@@ -40,7 +40,7 @@ PVOID __stdcall ExRegisterCallback(
   _QWORD *v12; // rax
 
   ObfReferenceObjectWithTag(CallbackObject, 0x746C6644u);
-  Pool2 = ExAllocatePool2(0x40uLL);
+  Pool2 = ExAllocatePool2(0x40uLL, 0x30uLL, 0x65524243u);
   v7 = (_QWORD *)Pool2;
   if ( Pool2 )
   {

@@ -1,13 +1,13 @@
 /*
- * XREFs of KiInitializeDpcRuntimeHistoryHashTables @ 0x140C2A1E8
+ * XREFs of KiInitializeDpcRuntimeHistoryHashTables @ 0x140C2C308
  * Callers:
- *     KeInitSystem @ 0x140C60CE0 (KeInitSystem.c)
+ *     KeInitSystem @ 0x140C62E30 (KeInitSystem.c)
  * Callees:
- *     KeGetPrcb @ 0x140352980 (KeGetPrcb.c)
- *     KiInitializeTimer2 @ 0x1403BF498 (KiInitializeTimer2.c)
- *     KeSetTimer2 @ 0x1403C20A0 (KeSetTimer2.c)
- *     KeEnumerateNextProcessor @ 0x14040D4F0 (KeEnumerateNextProcessor.c)
- *     KiInitializeSingleDpcRuntimeHistoryHashTable @ 0x14073CF28 (KiInitializeSingleDpcRuntimeHistoryHashTable.c)
+ *     KeGetPrcb @ 0x1402B0A10 (KeGetPrcb.c)
+ *     KiInitializeTimer2 @ 0x1403AE058 (KiInitializeTimer2.c)
+ *     KeSetTimer2 @ 0x1403B0C60 (KeSetTimer2.c)
+ *     KeEnumerateNextProcessor @ 0x140405740 (KeEnumerateNextProcessor.c)
+ *     KiInitializeSingleDpcRuntimeHistoryHashTable @ 0x14073AE58 (KiInitializeSingleDpcRuntimeHistoryHashTable.c)
  */
 
 __int64 KiInitializeDpcRuntimeHistoryHashTables()
@@ -34,7 +34,7 @@ __int64 KiInitializeDpcRuntimeHistoryHashTables()
     if ( (int)result < 0 )
       return result;
   }
-  word_140F0F9A2 = 0;
+  word_140F0FC62 = 0;
   KiInitializeTimer2(
     (unsigned __int64)&KiDpcRuntimeHistoryHashTableCleanupTimer,
     (__int64)KiDpcRuntimeHistoryHashTableCleanupTimerCallback,
@@ -42,6 +42,6 @@ __int64 KiInitializeDpcRuntimeHistoryHashTables()
     8);
   v2[1] = -1LL;
   v2[0] = 0LL;
-  KeSetTimer2((__int64)&KiDpcRuntimeHistoryHashTableCleanupTimer, -900000000LL, 900000000LL, (__int64)v2);
+  KeSetTimer2((__int64)&KiDpcRuntimeHistoryHashTableCleanupTimer, (LARGE_INTEGER)-900000000LL, 900000000LL, (__int64)v2);
   return 0LL;
 }

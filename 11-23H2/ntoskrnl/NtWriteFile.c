@@ -1,25 +1,25 @@
 /*
- * XREFs of NtWriteFile @ 0x1406B6A20
+ * XREFs of NtWriteFile @ 0x1406B6BD0
  * Callers:
- *     ?SmKmIssueFileIo@@YAJPEAU_SMKM_FILE_INFO@@PEAU_SMKM_ISSUE_IO_PARAMS@@PEAT_LARGE_INTEGER@@P6AXPEAXPEAU_IO_STATUS_BLOCK@@K@Z3@Z @ 0x1405CADA4 (-SmKmIssueFileIo@@YAJPEAU_SMKM_FILE_INFO@@PEAU_SMKM_ISSUE_IO_PARAMS@@PEAT_LARGE_INTEGER@@P6AXPEA.c)
- *     DifNtWriteFileWrapper @ 0x1405E8370 (DifNtWriteFileWrapper.c)
+ *     ?SmKmIssueFileIo@@YAJPEAU_SMKM_FILE_INFO@@PEAU_SMKM_ISSUE_IO_PARAMS@@PEAT_LARGE_INTEGER@@P6AXPEAXPEAU_IO_STATUS_BLOCK@@K@Z3@Z @ 0x1405CB314 (-SmKmIssueFileIo@@YAJPEAU_SMKM_FILE_INFO@@PEAU_SMKM_ISSUE_IO_PARAMS@@PEAT_LARGE_INTEGER@@P6AXPEA.c)
+ *     DifNtWriteFileWrapper @ 0x1405E88E0 (DifNtWriteFileWrapper.c)
  * Callees:
- *     ObpIncrPointerCountEx @ 0x140224660 (ObpIncrPointerCountEx.c)
- *     ExSlowReplenishHandleTableEntry @ 0x14022EE90 (ExSlowReplenishHandleTableEntry.c)
- *     ExGetHandlePointer @ 0x14022F740 (ExGetHandlePointer.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     ExLockHandleTableEntry @ 0x1402BEAD4 (ExLockHandleTableEntry.c)
- *     KiCheckForKernelApcDelivery @ 0x14030F820 (KiCheckForKernelApcDelivery.c)
- *     ExFastReplenishHandleTableEntry @ 0x140363BC8 (ExFastReplenishHandleTableEntry.c)
- *     PsDereferenceSiloContext @ 0x14036A270 (PsDereferenceSiloContext.c)
- *     ExfUnblockPushLock @ 0x140412160 (ExfUnblockPushLock.c)
- *     ObpPushStackInfo @ 0x140582BD8 (ObpPushStackInfo.c)
- *     ExHandleLogBadReference @ 0x140606A28 (ExHandleLogBadReference.c)
- *     IopWriteFile @ 0x1406B6DD0 (IopWriteFile.c)
- *     ExpLookupHandleTableEntry @ 0x1406E6930 (ExpLookupHandleTableEntry.c)
- *     PsIsProcessAppContainer @ 0x14077F08C (PsIsProcessAppContainer.c)
- *     ExpBlockOnLockedHandleEntry @ 0x1407BA690 (ExpBlockOnLockedHandleEntry.c)
- *     ObpAuditObjectAccess @ 0x14097C114 (ObpAuditObjectAccess.c)
+ *     ObpIncrPointerCountEx @ 0x140224768 (ObpIncrPointerCountEx.c)
+ *     ExSlowReplenishHandleTableEntry @ 0x14022EFA0 (ExSlowReplenishHandleTableEntry.c)
+ *     ExGetHandlePointer @ 0x14022F830 (ExGetHandlePointer.c)
+ *     ObfDereferenceObject @ 0x140231660 (ObfDereferenceObject.c)
+ *     ExLockHandleTableEntry @ 0x1402BED64 (ExLockHandleTableEntry.c)
+ *     KiCheckForKernelApcDelivery @ 0x14030FAB0 (KiCheckForKernelApcDelivery.c)
+ *     ExFastReplenishHandleTableEntry @ 0x140363D68 (ExFastReplenishHandleTableEntry.c)
+ *     PsDereferenceSiloContext @ 0x14036A410 (PsDereferenceSiloContext.c)
+ *     ExfUnblockPushLock @ 0x1404124A0 (ExfUnblockPushLock.c)
+ *     ObpPushStackInfo @ 0x1405830C8 (ObpPushStackInfo.c)
+ *     ExHandleLogBadReference @ 0x140606F78 (ExHandleLogBadReference.c)
+ *     IopWriteFile @ 0x1406B6F80 (IopWriteFile.c)
+ *     ExpLookupHandleTableEntry @ 0x1406E6960 (ExpLookupHandleTableEntry.c)
+ *     PsIsProcessAppContainer @ 0x14077F27C (PsIsProcessAppContainer.c)
+ *     ExpBlockOnLockedHandleEntry @ 0x1407BA970 (ExpBlockOnLockedHandleEntry.c)
+ *     ObpAuditObjectAccess @ 0x14097C314 (ObpAuditObjectAccess.c)
  */
 
 NTSTATUS __stdcall NtWriteFile(

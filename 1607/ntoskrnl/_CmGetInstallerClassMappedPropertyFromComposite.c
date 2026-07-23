@@ -1,10 +1,10 @@
 /*
- * XREFs of _CmGetInstallerClassMappedPropertyFromComposite @ 0x1406DD98C
+ * XREFs of _CmGetInstallerClassMappedPropertyFromComposite @ 0x1406DDAC4
  * Callers:
- *     _CmGetInstallerClassMappedProperty @ 0x1404D82B4 (_CmGetInstallerClassMappedProperty.c)
- *     _CmGetInstallerClassMappedPropertyKeys @ 0x1406DDEB8 (_CmGetInstallerClassMappedPropertyKeys.c)
+ *     _CmGetInstallerClassMappedProperty @ 0x1404BB8B8 (_CmGetInstallerClassMappedProperty.c)
+ *     _CmGetInstallerClassMappedPropertyKeys @ 0x1406DDFF0 (_CmGetInstallerClassMappedPropertyKeys.c)
  * Callees:
- *     _PnpGetObjectProperty @ 0x1404FE7B0 (_PnpGetObjectProperty.c)
+ *     _PnpGetObjectProperty @ 0x1404E1740 (_PnpGetObjectProperty.c)
  */
 
 __int64 __fastcall CmGetInstallerClassMappedPropertyFromComposite(

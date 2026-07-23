@@ -8,10 +8,7 @@
 
 NTSTATUS __stdcall ZwModifyBootEntry(PBOOT_ENTRY BootEntry)
 {
-  __int64 v1; // rdx
-  __int64 v2; // r8
-
   _disable();
   __readeflags();
-  return KiServiceInternal(BootEntry, v1, v2);
+  return KiServiceInternal(BootEntry);
 }

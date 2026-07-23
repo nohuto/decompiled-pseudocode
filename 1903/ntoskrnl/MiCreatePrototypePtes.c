@@ -233,7 +233,7 @@ LABEL_95:
         }
         *(_BYTE *)(v49 + 32) |= 2u;
         if ( *(__int64 *)(v49 + 32) < 0 )
-          KiAbEntryRemoveFromTree(v49);
+          KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)v49);
         v56 = 0;
         v56 = *(_DWORD *)(v49 + 88) & 0x1FFFF;
         *(_DWORD *)(v49 + 88) &= 0xFFFE0000;
@@ -362,7 +362,7 @@ LABEL_24:
           {
             *(_BYTE *)(v32 + 32) |= 2u;
             if ( *(__int64 *)(v32 + 32) < 0 )
-              KiAbEntryRemoveFromTree(v32);
+              KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)v32);
             v57[0] = *(_DWORD *)(v32 + 88) & 0x1FFFF;
             *(_DWORD *)(v32 + 88) &= 0xFFFE0000;
             *(_BYTE *)(v32 + 25) &= ~1u;

@@ -1,8 +1,8 @@
 /*
- * XREFs of CmCloseRmHandle @ 0x1406F973C
+ * XREFs of CmCloseRmHandle @ 0x1406F737C
  * Callers:
- *     CmpTryToRundownHive @ 0x1402C6840 (CmpTryToRundownHive.c)
- *     CmShutdownSystem1 @ 0x1406679A8 (CmShutdownSystem1.c)
+ *     CmpTryToRundownHive @ 0x1402BB3C0 (CmpTryToRundownHive.c)
+ *     CmShutdownSystem1 @ 0x140666298 (CmShutdownSystem1.c)
  * Callees:
  *     <none>
  */

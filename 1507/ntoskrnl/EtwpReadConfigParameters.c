@@ -26,7 +26,7 @@ void EtwpReadConfigParameters()
   HANDLE KeyHandle; // [rsp+50h] [rbp-B8h] BYREF
   UNICODE_STRING DestinationString; // [rsp+58h] [rbp-B0h] BYREF
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+68h] [rbp-A0h] BYREF
-  _QWORD v10[22]; // [rsp+98h] [rbp-70h] BYREF
+  _RTL_QUERY_REGISTRY_TABLE QueryTable[3]; // [rsp+98h] [rbp-70h] BYREF
 
   v5 = 0;
   *(_QWORD *)&UnicodeString.Length = 0LL;
@@ -41,17 +41,17 @@ void EtwpReadConfigParameters()
   *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
   if ( ZwOpenKey(&KeyHandle, 0x20019u, &ObjectAttributes) < 0 )
     goto LABEL_13;
-  memset(v10, 0, 0xA8uLL);
-  v10[0] = EtwpQueryRegistryCallback;
-  v10[3] = &UnicodeString;
-  v10[7] = EtwpQueryRegistryCallback;
-  v10[2] = L"RTBacklogRoot";
-  LODWORD(v10[4]) = 1;
-  v10[5] = &v5;
-  LODWORD(v10[11]) = 4;
-  v10[10] = &v4;
-  v10[9] = L"MaxNonPagedPoolUsage";
-  if ( (int)RtlQueryRegistryValuesEx(0x40000000LL, (__int64)KeyHandle, (__int64)v10, 0LL) < 0 )
+  memset(QueryTable, 0, sizeof(QueryTable));
+  QueryTable[0].QueryRoutine = (PRTL_QUERY_REGISTRY_ROUTINE)EtwpQueryRegistryCallback;
+  QueryTable[0].EntryContext = &UnicodeString;
+  QueryTable[1].QueryRoutine = (PRTL_QUERY_REGISTRY_ROUTINE)EtwpQueryRegistryCallback;
+  QueryTable[0].Name = L"RTBacklogRoot";
+  QueryTable[0].DefaultType = 1;
+  QueryTable[0].DefaultData = &v5;
+  QueryTable[1].DefaultType = 4;
+  QueryTable[1].EntryContext = &v4;
+  QueryTable[1].Name = L"MaxNonPagedPoolUsage";
+  if ( RtlQueryRegistryValuesEx(0x40000000u, (PCWSTR)KeyHandle, QueryTable, 0LL, 0LL) < 0 )
   {
 LABEL_13:
     v1 = v4;

@@ -1,17 +1,17 @@
 /*
- * XREFs of PiPnpRtlInit @ 0x140726C44
+ * XREFs of PiPnpRtlInit @ 0x1407247D4
  * Callers:
- *     PnpBootPhaseComplete @ 0x14071A5C4 (PnpBootPhaseComplete.c)
- *     IopInitializePlugPlayServices @ 0x140C1F07C (IopInitializePlugPlayServices.c)
+ *     PnpBootPhaseComplete @ 0x140718154 (PnpBootPhaseComplete.c)
+ *     IopInitializePlugPlayServices @ 0x140C210BC (IopInitializePlugPlayServices.c)
  * Callees:
- *     ExInitializeResourceLite @ 0x1403655E0 (ExInitializeResourceLite.c)
- *     CmIsStateSeparationEnabled @ 0x14049985C (CmIsStateSeparationEnabled.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     PiDrvDbInit @ 0x1407370BC (PiDrvDbInit.c)
- *     _PnpCtxOpenMachine @ 0x140817690 (_PnpCtxOpenMachine.c)
- *     _PnpCtxRegisterMachineNode @ 0x14081799C (_PnpCtxRegisterMachineNode.c)
- *     _PnpCtxSetNtPlugPlayRoutine @ 0x140817B34 (_PnpCtxSetNtPlugPlayRoutine.c)
- *     _PnpCtxRegOpenKey @ 0x1408C7AFC (_PnpCtxRegOpenKey.c)
+ *     ExInitializeResourceLite @ 0x1403EAC90 (ExInitializeResourceLite.c)
+ *     CmIsStateSeparationEnabled @ 0x1404941EC (CmIsStateSeparationEnabled.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     PiDrvDbInit @ 0x140734FEC (PiDrvDbInit.c)
+ *     _PnpCtxOpenMachine @ 0x140817DD0 (_PnpCtxOpenMachine.c)
+ *     _PnpCtxRegisterMachineNode @ 0x1408180DC (_PnpCtxRegisterMachineNode.c)
+ *     _PnpCtxSetNtPlugPlayRoutine @ 0x140818274 (_PnpCtxSetNtPlugPlayRoutine.c)
+ *     _PnpCtxRegOpenKey @ 0x1408C552C (_PnpCtxRegOpenKey.c)
  */
 
 __int64 __fastcall PiPnpRtlInit(unsigned int a1)
@@ -31,7 +31,7 @@ __int64 __fastcall PiPnpRtlInit(unsigned int a1)
   Handle = 0LL;
   if ( a1 )
     return (unsigned int)PiDrvDbInit(a1);
-  qword_140F8ACB8 = (__int64)&PiPnpRtlActiveOperations;
+  qword_140F8AE08 = (__int64)&PiPnpRtlActiveOperations;
   PiPnpRtlActiveOperations = (__int64)&PiPnpRtlActiveOperations;
   v2 = ExInitializeResourceLite(&PiPnpRtlRemoveOperationDispatchLock);
   if ( v2 >= 0 )

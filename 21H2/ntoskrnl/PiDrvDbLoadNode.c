@@ -1,19 +1,19 @@
 /*
- * XREFs of PiDrvDbLoadNode @ 0x140629F74
+ * XREFs of PiDrvDbLoadNode @ 0x140694044
  * Callers:
- *     PiDrvDbNodeActionCallback @ 0x140629F10 (PiDrvDbNodeActionCallback.c)
+ *     PiDrvDbNodeActionCallback @ 0x140693FE0 (PiDrvDbNodeActionCallback.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
- *     ExQueueWorkItem @ 0x14023E750 (ExQueueWorkItem.c)
- *     KeCancelTimer @ 0x140260240 (KeCancelTimer.c)
- *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
- *     ExReleaseResourceLite @ 0x14034B3F0 (ExReleaseResourceLite.c)
- *     ExAcquireResourceExclusiveLite @ 0x14034BBA0 (ExAcquireResourceExclusiveLite.c)
- *     KeInitializeEvent @ 0x1403538F0 (KeInitializeEvent.c)
- *     PnpDiagnosticTraceObjectWithStatus @ 0x140364DE4 (PnpDiagnosticTraceObjectWithStatus.c)
- *     ZwWaitForSingleObject @ 0x1403FA420 (ZwWaitForSingleObject.c)
- *     ZwClose @ 0x1403FA580 (ZwClose.c)
- *     _SysCtxRegOpenKey @ 0x1406426AC (_SysCtxRegOpenKey.c)
+ *     KeCancelTimer @ 0x1402819B0 (KeCancelTimer.c)
+ *     KeLeaveCriticalRegionThread @ 0x1402AB8C0 (KeLeaveCriticalRegionThread.c)
+ *     ExQueueWorkItem @ 0x1402E2FA0 (ExQueueWorkItem.c)
+ *     KeWaitForSingleObject @ 0x1403504C0 (KeWaitForSingleObject.c)
+ *     ExReleaseResourceLite @ 0x140356140 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceExclusiveLite @ 0x1403568F0 (ExAcquireResourceExclusiveLite.c)
+ *     KeInitializeEvent @ 0x14035E640 (KeInitializeEvent.c)
+ *     PnpDiagnosticTraceObjectWithStatus @ 0x140364F94 (PnpDiagnosticTraceObjectWithStatus.c)
+ *     ZwWaitForSingleObject @ 0x1403FA600 (ZwWaitForSingleObject.c)
+ *     ZwClose @ 0x1403FA760 (ZwClose.c)
+ *     _SysCtxRegOpenKey @ 0x1406374BC (_SysCtxRegOpenKey.c)
  */
 
 __int64 __fastcall PiDrvDbLoadNode(__int64 a1, _QWORD *a2)
@@ -21,8 +21,11 @@ __int64 __fastcall PiDrvDbLoadNode(__int64 a1, _QWORD *a2)
   int v2; // ebx
   struct _KTHREAD *CurrentThread; // rax
   _QWORD *v6; // r14
-  NTSTATUS v8; // eax
-  int v9; // edi
+  __int64 v7; // rdx
+  __int64 v8; // r8
+  __int64 v9; // r9
+  NTSTATUS v11; // eax
+  int v12; // edi
   HANDLE Handle; // [rsp+50h] [rbp+8h] BYREF
 
   v2 = 0;
@@ -44,8 +47,8 @@ __int64 __fastcall PiDrvDbLoadNode(__int64 a1, _QWORD *a2)
     v6 = (_QWORD *)(a1 + 72);
     if ( !*(_QWORD *)(a1 + 72) )
     {
-      if ( (int)SysCtxRegOpenKey(0, 0, *(_QWORD *)(a1 + 40), 0, 0x2000000, (__int64)&Handle) < 0
-        || (v2 = SysCtxRegOpenKey(0, (_DWORD)Handle, (unsigned int)L"DriverDatabase", 0, 0x2000000, a1 + 72),
+      if ( (int)SysCtxRegOpenKey(0LL, 0LL, *(_QWORD *)(a1 + 40), 0, 0x2000000u, (__int64)&Handle) < 0
+        || (v2 = SysCtxRegOpenKey(0LL, (__int64)Handle, (__int64)L"DriverDatabase", 0, 0x2000000u, a1 + 72),
             ZwClose(Handle),
             v2 < 0) )
       {
@@ -54,13 +57,13 @@ __int64 __fastcall PiDrvDbLoadNode(__int64 a1, _QWORD *a2)
           v2 = -1073741077;
           goto LABEL_6;
         }
-        v8 = ZwWaitForSingleObject(*(HANDLE *)(a1 + 472), 0, 0LL);
-        v9 = v8;
+        v11 = ZwWaitForSingleObject(*(HANDLE *)(a1 + 472), 0, 0LL);
+        v12 = v11;
         if ( !*(_BYTE *)(a1 + 489) )
         {
           *(_BYTE *)(a1 + 489) = 1;
-          PnpDiagnosticTraceObjectWithStatus(&KMPnPEvt_DriverDatabaseUnload_Stop, (unsigned __int16 *)(a1 + 16), v8);
-          PnpDiagnosticTraceObjectWithStatus(&KMPnPEvt_DriverDatabaseLoaded_Stop, (unsigned __int16 *)(a1 + 16), v9);
+          PnpDiagnosticTraceObjectWithStatus(&KMPnPEvt_DriverDatabaseUnload_Stop, (unsigned __int16 *)(a1 + 16), v11);
+          PnpDiagnosticTraceObjectWithStatus(&KMPnPEvt_DriverDatabaseLoaded_Stop, (unsigned __int16 *)(a1 + 16), v12);
         }
         *(_QWORD *)(a1 + 224) = 0LL;
         *(_QWORD *)(a1 + 240) = PiDrvDbLoadNodeWorkerCallback;
@@ -88,6 +91,6 @@ __int64 __fastcall PiDrvDbLoadNode(__int64 a1, _QWORD *a2)
   }
 LABEL_6:
   ExReleaseResourceLite((PERESOURCE)(a1 + 88));
-  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v7, v8, v9);
   return (unsigned int)v2;
 }

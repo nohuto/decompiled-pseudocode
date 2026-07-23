@@ -7,8 +7,8 @@
  *     TppCleanupGroupMemberDestroy @ 0x18002D600 (TppCleanupGroupMemberDestroy.c)
  */
 
-__int64 __fastcall TppWorkpFree(unsigned __int64 a1)
+LOGICAL __fastcall TppWorkpFree(PVOID BaseAddress)
 {
   TppCleanupGroupMemberDestroy();
-  return RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, TppHeapTag + 0x200000, a1);
+  return RtlFreeHeap(NtCurrentPeb()->ProcessHeap, TppHeapTag + 0x200000, BaseAddress);
 }

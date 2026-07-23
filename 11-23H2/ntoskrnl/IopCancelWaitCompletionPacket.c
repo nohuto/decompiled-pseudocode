@@ -1,15 +1,15 @@
 /*
- * XREFs of IopCancelWaitCompletionPacket @ 0x140349BFC
+ * XREFs of IopCancelWaitCompletionPacket @ 0x140349B40
  * Callers:
- *     IopCloseWaitCompletionPacket @ 0x140349830 (IopCloseWaitCompletionPacket.c)
- *     NtCancelWaitCompletionPacket @ 0x140349A30 (NtCancelWaitCompletionPacket.c)
+ *     IopCloseWaitCompletionPacket @ 0x140349870 (IopCloseWaitCompletionPacket.c)
+ *     NtCancelWaitCompletionPacket @ 0x140349980 (NtCancelWaitCompletionPacket.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14022F5B0 (ObfDereferenceObjectWithTag.c)
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     ObGetAssociatedWaitObject @ 0x14025091C (ObGetAssociatedWaitObject.c)
- *     KiDeregisterObjectWaitBlock @ 0x14033C520 (KiDeregisterObjectWaitBlock.c)
- *     KeRemoveQueueEntry @ 0x140349CC4 (KeRemoveQueueEntry.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     ObfDereferenceObjectWithTag @ 0x14022F6C0 (ObfDereferenceObjectWithTag.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     ObGetAssociatedWaitObject @ 0x1402509DC (ObGetAssociatedWaitObject.c)
+ *     KiDeregisterObjectWaitBlock @ 0x14033C6C0 (KiDeregisterObjectWaitBlock.c)
+ *     KeRemoveQueueEntry @ 0x140349C08 (KeRemoveQueueEntry.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 char __fastcall IopCancelWaitCompletionPacket(PVOID Object, char a2, unsigned __int8 a3)
@@ -35,10 +35,13 @@ char __fastcall IopCancelWaitCompletionPacket(PVOID Object, char a2, unsigned __
   *((_QWORD *)Object + 11) = 0LL;
   *((_BYTE *)Object + 104) = 0;
   KxReleaseSpinLock((volatile signed __int64 *)Object + 12);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v5 <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
+      && (unsigned __int8)v5 <= 0xFu
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;

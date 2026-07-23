@@ -1,33 +1,33 @@
 /*
- * XREFs of MiInsertViewOfPhysicalSection @ 0x140146848
+ * XREFs of MiInsertViewOfPhysicalSection @ 0x140146DB8
  * Callers:
- *     MiMapViewOfPhysicalSection @ 0x140572C40 (MiMapViewOfPhysicalSection.c)
+ *     MiMapViewOfPhysicalSection @ 0x140573180 (MiMapViewOfPhysicalSection.c)
  * Callees:
- *     MiMakeSystemAddressValid @ 0x140015DAC (MiMakeSystemAddressValid.c)
- *     MiLockVad @ 0x14002BFB0 (MiLockVad.c)
- *     MiUnlockWorkingSetExclusive @ 0x14002E930 (MiUnlockWorkingSetExclusive.c)
- *     ExReleaseSpinLockExclusive @ 0x14002E9A0 (ExReleaseSpinLockExclusive.c)
- *     MiLockWorkingSetExclusive @ 0x14002EA00 (MiLockWorkingSetExclusive.c)
- *     MiGetSharedVm @ 0x14002EA30 (MiGetSharedVm.c)
- *     MiLockPageAtDpcInline @ 0x14002EB30 (MiLockPageAtDpcInline.c)
- *     ExAcquireSpinLockExclusive @ 0x14002EB90 (ExAcquireSpinLockExclusive.c)
- *     MiIsPfnInline @ 0x140030920 (MiIsPfnInline.c)
- *     MiIncreaseUsedPtesCount @ 0x1400374B0 (MiIncreaseUsedPtesCount.c)
- *     MiIsAddressValid @ 0x140037540 (MiIsAddressValid.c)
- *     MmAccessFault @ 0x14003E7A0 (MmAccessFault.c)
- *     MiInsertVad @ 0x140042950 (MiInsertVad.c)
- *     MiProtectionToCacheAttribute @ 0x1400E74EC (MiProtectionToCacheAttribute.c)
- *     MiMakeProtectionPfnCompatible @ 0x14010A608 (MiMakeProtectionPfnCompatible.c)
- *     MiLookupIoPageNode @ 0x1401105C0 (MiLookupIoPageNode.c)
- *     MiAssignInitialPageAttribute @ 0x140146D38 (MiAssignInitialPageAttribute.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
- *     MiShowBadMapper @ 0x1401E14D4 (MiShowBadMapper.c)
- *     MmFlushAllFilesystemPages @ 0x1401E5DD4 (MmFlushAllFilesystemPages.c)
- *     MiPteInShadowRange @ 0x1401EF3B8 (MiPteInShadowRange.c)
- *     MiWritePteShadow @ 0x1401EF658 (MiWritePteShadow.c)
- *     MiGetUsedPtesHandle @ 0x1401EF7E0 (MiGetUsedPtesHandle.c)
- *     MI_GET_PAGE_FRAME_FROM_PTE @ 0x1401F2550 (MI_GET_PAGE_FRAME_FROM_PTE.c)
- *     MI_GET_PFN_FROM_PTE @ 0x1401F2594 (MI_GET_PFN_FROM_PTE.c)
+ *     MiMakeSystemAddressValid @ 0x14001592C (MiMakeSystemAddressValid.c)
+ *     MiLockVad @ 0x14002BB30 (MiLockVad.c)
+ *     MiUnlockWorkingSetExclusive @ 0x14002E4B0 (MiUnlockWorkingSetExclusive.c)
+ *     ExReleaseSpinLockExclusive @ 0x14002E520 (ExReleaseSpinLockExclusive.c)
+ *     MiLockWorkingSetExclusive @ 0x14002E580 (MiLockWorkingSetExclusive.c)
+ *     MiGetSharedVm @ 0x14002E5B0 (MiGetSharedVm.c)
+ *     MiLockPageAtDpcInline @ 0x14002E6B0 (MiLockPageAtDpcInline.c)
+ *     ExAcquireSpinLockExclusive @ 0x14002E710 (ExAcquireSpinLockExclusive.c)
+ *     MiIsPfnInline @ 0x1400304A0 (MiIsPfnInline.c)
+ *     MiIncreaseUsedPtesCount @ 0x140037030 (MiIncreaseUsedPtesCount.c)
+ *     MiIsAddressValid @ 0x1400370C0 (MiIsAddressValid.c)
+ *     MmAccessFault @ 0x14003E320 (MmAccessFault.c)
+ *     MiInsertVad @ 0x1400424D0 (MiInsertVad.c)
+ *     MiProtectionToCacheAttribute @ 0x1400E538C (MiProtectionToCacheAttribute.c)
+ *     MiMakeProtectionPfnCompatible @ 0x140108388 (MiMakeProtectionPfnCompatible.c)
+ *     MiLookupIoPageNode @ 0x140110B24 (MiLookupIoPageNode.c)
+ *     MiAssignInitialPageAttribute @ 0x1401472A8 (MiAssignInitialPageAttribute.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
+ *     MiShowBadMapper @ 0x1401E1300 (MiShowBadMapper.c)
+ *     MmFlushAllFilesystemPages @ 0x1401E5C00 (MmFlushAllFilesystemPages.c)
+ *     MiPteInShadowRange @ 0x1401EF1E4 (MiPteInShadowRange.c)
+ *     MiWritePteShadow @ 0x1401EF484 (MiWritePteShadow.c)
+ *     MiGetUsedPtesHandle @ 0x1401EF60C (MiGetUsedPtesHandle.c)
+ *     MI_GET_PAGE_FRAME_FROM_PTE @ 0x1401F237C (MI_GET_PAGE_FRAME_FROM_PTE.c)
+ *     MI_GET_PFN_FROM_PTE @ 0x1401F23C0 (MI_GET_PFN_FROM_PTE.c)
  */
 
 __int64 __fastcall MiInsertViewOfPhysicalSection(__int64 a1, unsigned __int64 a2)
@@ -82,9 +82,9 @@ __int64 __fastcall MiInsertViewOfPhysicalSection(__int64 a1, unsigned __int64 a2
       - 0x98000000000LL;
   v7 = MmProtectToPteMask[v4] & 0xFFFFFFFFFFFFFF7FuLL;
   v8 = 16 * (v6 & 0xFFFFFFFFFLL);
-  v9 = v7 | ((v8 | HIBYTE(word_140326AA8) & 1) << 8) | 0x25;
-  if ( MmProtectToPteMask[v4] & 0x800 | ((v8 | HIBYTE(word_140326AA8) & 1) << 8) & 0x800 )
-    v9 = v7 | ((v8 | HIBYTE(word_140326AA8) & 1) << 8) | 0x67;
+  v9 = v7 | ((v8 | HIBYTE(word_140326AE8) & 1) << 8) | 0x25;
+  if ( MmProtectToPteMask[v4] & 0x800 | ((v8 | HIBYTE(word_140326AE8) & 1) << 8) & 0x800 )
+    v9 = v7 | ((v8 | HIBYTE(word_140326AE8) & 1) << 8) | 0x67;
   v10 = MiProtectionToCacheAttribute(v4);
   v12 = v11 + 1280;
   v43 = v10;
@@ -144,7 +144,7 @@ __int64 __fastcall MiInsertViewOfPhysicalSection(__int64 a1, unsigned __int64 a2
       if ( (unsigned __int8)*v16 >> 6 != v43 )
       {
         ProtectionPfnCompatible = MiMakeProtectionPfnCompatible(v4, (__int64)(v16 - 34));
-        v27 = (16 * (v6 & 0xFFFFFFFFFLL)) | HIBYTE(word_140326AA8) & 1;
+        v27 = (16 * (v6 & 0xFFFFFFFFFLL)) | HIBYTE(word_140326AE8) & 1;
         v4 = ProtectionPfnCompatible;
 LABEL_24:
         v25 = MmProtectToPteMask[v4] & 0xFFFFFFFFFFFFFF7FuLL | (v27 << 8) | 0x25;
@@ -180,7 +180,7 @@ LABEL_24:
       v4 = (unsigned int)v4 | 0x28;
     }
     v24 = 16 * (v6 & 0xFFFFFFFFFLL);
-    v27 = v24 | HIBYTE(word_140326AA8) & 1;
+    v27 = v24 | HIBYTE(word_140326AE8) & 1;
     goto LABEL_24;
   }
 LABEL_30:
@@ -189,7 +189,7 @@ LABEL_30:
   ++*(_QWORD *)(v13 + 48);
   ExReleaseSpinLockExclusive((PEX_SPIN_LOCK)(v13 + 72), v31);
   LOBYTE(v32) = v42;
-  ++*(_QWORD *)(qword_140327F90 + 276840560);
+  ++*(_QWORD *)(qword_140327FD0 + 276840560);
   MiUnlockWorkingSetExclusive(v38, v32);
   return MiUnlockVad((__int64)CurrentThread, v2);
 }

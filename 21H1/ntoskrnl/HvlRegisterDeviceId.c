@@ -19,20 +19,17 @@ __int64 __fastcall HvlRegisterDeviceId(__int64 a1, unsigned __int64 a2)
   unsigned int v5; // ebx
   __int64 v6; // rbx
   _QWORD *v7; // rsi
-  __int64 v8; // r9
-  __int64 v9; // rax
-  _BYTE *v10; // rdx
-  __int64 v11; // rax
-  __int64 v12; // rdx
-  __int64 v13; // rcx
-  __int64 v14; // r8
-  unsigned int v15; // ebx
-  __int128 v17; // [rsp+20h] [rbp-48h] BYREF
-  __int128 v18; // [rsp+30h] [rbp-38h]
+  __int64 v8; // rax
+  _BYTE *v9; // rdx
+  __int64 v10; // rax
+  __int64 v11; // rdx
+  __int64 v12; // rcx
+  __int64 v13; // r8
+  unsigned int v14; // ebx
+  PHYSICAL_ADDRESS v16[4]; // [rsp+20h] [rbp-48h] BYREF
 
   v2 = -1LL;
-  v17 = 0LL;
-  v18 = 0LL;
+  memset(v16, 0, sizeof(v16));
   if ( *(_DWORD *)a1 == 1 )
   {
     v5 = 0;
@@ -49,40 +46,40 @@ __int64 __fastcall HvlRegisterDeviceId(__int64 a1, unsigned __int64 a2)
   }
   if ( a2 > 0x3FFFFFFFFFFFFFFFLL || (unsigned __int64)v5 + 40 > 0x1000 )
     return 3221225485LL;
-  v7 = HvlpAcquireHypercallPage((PHYSICAL_ADDRESS *)&v17, 1, 0LL, 0LL);
+  v7 = HvlpAcquireHypercallPage(v16, 1, 0LL, 0LL);
   memset(v7, 0, v5 + 40LL);
-  v9 = v7[1];
+  v8 = v7[1];
   *v7 = -1LL;
   if ( *(_DWORD *)a1 == 1 )
   {
-    v7[1] = v9 & 0x3FFFFFFFFFFFFFFFLL | 0x4000000000000000LL;
+    v7[1] = v8 & 0x3FFFFFFFFFFFFFFFLL | 0x4000000000000000LL;
     *((_WORD *)v7 + 4) = *(_WORD *)(a1 + 12);
     *((_WORD *)v7 + 5) = *(_WORD *)(a1 + 8);
   }
   else
   {
-    v7[1] = v9 | 0xC000000000000000uLL;
-    v10 = *(_BYTE **)(a1 + 8);
+    v7[1] = v8 | 0xC000000000000000uLL;
+    v9 = *(_BYTE **)(a1 + 8);
     do
       ++v2;
-    while ( v10[v2] );
-    memmove(v7 + 5, v10, v2 + 1);
+    while ( v9[v2] );
+    memmove(v7 + 5, v9, v2 + 1);
   }
   *((_DWORD *)v7 + 4) |= 1u;
   v7[3] = a2;
   while ( 1 )
   {
-    v11 = HvcallInitiateHypercall((v5 << 14) & 0x3FE0000 | 0x82, *((__int64 *)&v18 + 1), 0LL, v8);
-    if ( !(unsigned __int8)HvlpHvStatusIsInsufficientMemory((unsigned __int16)v11, v11) )
+    v10 = HvcallInitiateHypercall((v5 << 14) & 0x3FE0000 | 0x82);
+    if ( !(unsigned __int8)HvlpHvStatusIsInsufficientMemory((unsigned __int16)v10, v10) )
       break;
-    if ( (int)HvlpHandleInsufficientMemory(v13, v12, v14) < 0 )
+    if ( (int)HvlpHandleInsufficientMemory(v12, v11, v13) < 0 )
     {
-      v15 = -1073741670;
+      v14 = -1073741670;
       goto LABEL_19;
     }
   }
-  v15 = HvlpHvToNtStatus(v13);
+  v14 = HvlpHvToNtStatus(v12);
 LABEL_19:
-  HvlpReleaseHypercallPage((__int64)&v17);
-  return v15;
+  HvlpReleaseHypercallPage((__int64)v16);
+  return v14;
 }

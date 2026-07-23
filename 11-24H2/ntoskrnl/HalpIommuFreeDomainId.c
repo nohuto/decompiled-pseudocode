@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpIommuFreeDomainId @ 0x140552218
+ * XREFs of HalpIommuFreeDomainId @ 0x14054FB58
  * Callers:
- *     HalpIommuDereferenceHardwareDomain @ 0x140553A18 (HalpIommuDereferenceHardwareDomain.c)
- *     IommupDeviceDisableSvm @ 0x1406FF2A8 (IommupDeviceDisableSvm.c)
- *     IommupDeviceEnableSvm @ 0x1406FF544 (IommupDeviceEnableSvm.c)
+ *     HalpIommuDereferenceHardwareDomain @ 0x140551358 (HalpIommuDereferenceHardwareDomain.c)
+ *     IommupDeviceDisableSvm @ 0x1406FCEE8 (IommupDeviceDisableSvm.c)
+ *     IommupDeviceEnableSvm @ 0x1406FD184 (IommupDeviceEnableSvm.c)
  * Callees:
- *     KeReleaseSpinLock @ 0x14024DD30 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140254B20 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KeReleaseSpinLock @ 0x14027E340 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140285130 (KeAcquireSpinLockRaiseToDpc.c)
  */
 
 void __fastcall HalpIommuFreeDomainId(__int64 a1, unsigned int a2)

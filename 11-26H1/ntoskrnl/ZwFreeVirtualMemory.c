@@ -1,26 +1,26 @@
 /*
- * XREFs of ZwFreeVirtualMemory @ 0x1407237B0
+ * XREFs of ZwFreeVirtualMemory @ 0x140728380
  * Callers:
- *     SepRmDispatchDataToLsa @ 0x1404DDA94 (SepRmDispatchDataToLsa.c)
- *     RtlpCreateHeap @ 0x1404E3978 (RtlpCreateHeap.c)
- *     RtlpDeCommitFreeBlock @ 0x14061BC88 (RtlpDeCommitFreeBlock.c)
- *     RtlpExtendHeap @ 0x14061C228 (RtlpExtendHeap.c)
- *     RtlpFreeHeap @ 0x14061C6E0 (RtlpFreeHeap.c)
- *     RtlpHpAllocVirtBlockCommitFirst @ 0x14061CBCC (RtlpHpAllocVirtBlockCommitFirst.c)
- *     DifZwFreeVirtualMemoryWrapper @ 0x1406A6CB0 (DifZwFreeVirtualMemoryWrapper.c)
- *     VmpUpdateCommitStateMemoryRange @ 0x1406C1C10 (VmpUpdateCommitStateMemoryRange.c)
- *     RtlpDestroyHeapSegment @ 0x14077C458 (RtlpDestroyHeapSegment.c)
- *     DbgkUserReportWorkRoutine @ 0x14078AC30 (DbgkUserReportWorkRoutine.c)
- *     EtwpFreeUserBufferSpace @ 0x14082FF88 (EtwpFreeUserBufferSpace.c)
- *     PspExitThread @ 0x14095771C (PspExitThread.c)
- *     PspDeleteUserStack @ 0x14095EE54 (PspDeleteUserStack.c)
- *     PspSetupUserStack @ 0x1409EA234 (PspSetupUserStack.c)
- *     RtlCreateUserStack @ 0x1409EA3A8 (RtlCreateUserStack.c)
- *     sub_1409F0198 @ 0x1409F0198 (sub_1409F0198.c)
- *     RtlpWow64CreateUserStack @ 0x140AB853C (RtlpWow64CreateUserStack.c)
- *     ExRaiseHardError @ 0x140B06D30 (ExRaiseHardError.c)
- *     RtlDestroyHeap @ 0x140B3BB10 (RtlDestroyHeap.c)
- *     SepAdtCopyToLsaSharedMemory @ 0x140B6DC5C (SepAdtCopyToLsaSharedMemory.c)
+ *     SepRmDispatchDataToLsa @ 0x1404D7174 (SepRmDispatchDataToLsa.c)
+ *     RtlpCreateHeap @ 0x1404DCF18 (RtlpCreateHeap.c)
+ *     RtlpDeCommitFreeBlock @ 0x14061ECD8 (RtlpDeCommitFreeBlock.c)
+ *     RtlpExtendHeap @ 0x14061F278 (RtlpExtendHeap.c)
+ *     RtlpFreeHeap @ 0x14061F730 (RtlpFreeHeap.c)
+ *     RtlpHpAllocVirtBlockCommitFirst @ 0x14061FC1C (RtlpHpAllocVirtBlockCommitFirst.c)
+ *     DifZwFreeVirtualMemoryWrapper @ 0x1406AA890 (DifZwFreeVirtualMemoryWrapper.c)
+ *     VmpUpdateCommitStateMemoryRange @ 0x1406C57F0 (VmpUpdateCommitStateMemoryRange.c)
+ *     RtlpDestroyHeapSegment @ 0x14077EF4C (RtlpDestroyHeapSegment.c)
+ *     DbgkUserReportWorkRoutine @ 0x14078D760 (DbgkUserReportWorkRoutine.c)
+ *     EtwpFreeUserBufferSpace @ 0x1408361C8 (EtwpFreeUserBufferSpace.c)
+ *     PspExitThread @ 0x14094B14C (PspExitThread.c)
+ *     PspSetupUserStack @ 0x1409E6A04 (PspSetupUserStack.c)
+ *     RtlCreateUserStack @ 0x1409E6B78 (RtlCreateUserStack.c)
+ *     sub_1409EC968 @ 0x1409EC968 (sub_1409EC968.c)
+ *     PspDeleteUserStack @ 0x140A04714 (PspDeleteUserStack.c)
+ *     RtlpWow64CreateUserStack @ 0x140AB9B7C (RtlpWow64CreateUserStack.c)
+ *     ExRaiseHardError @ 0x140B08E60 (ExRaiseHardError.c)
+ *     RtlDestroyHeap @ 0x140B3DD90 (RtlDestroyHeap.c)
+ *     SepAdtCopyToLsaSharedMemory @ 0x140B7102C (SepAdtCopyToLsaSharedMemory.c)
  * Callees:
  *     <none>
  */
@@ -29,5 +29,5 @@ NTSTATUS __stdcall ZwFreeVirtualMemory(HANDLE ProcessHandle, PVOID *BaseAddress,
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(ProcessHandle, BaseAddress);
+  return KiServiceInternal(ProcessHandle);
 }

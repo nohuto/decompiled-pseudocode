@@ -1,10 +1,10 @@
 /*
- * XREFs of PopDripsWatchdogInitializeActions @ 0x1409F7E18
+ * XREFs of PopDripsWatchdogInitializeActions @ 0x1409F8E18
  * Callers:
- *     PopInitializeDripsWatchdog @ 0x1409DEB00 (PopInitializeDripsWatchdog.c)
+ *     PopInitializeDripsWatchdog @ 0x1409DFB00 (PopInitializeDripsWatchdog.c)
  * Callees:
- *     PopCapturePlatformRole @ 0x1406CBB34 (PopCapturePlatformRole.c)
- *     PopIsDirectedDripsEnabled @ 0x1406ED174 (PopIsDirectedDripsEnabled.c)
+ *     PopCapturePlatformRole @ 0x1406CCDD4 (PopCapturePlatformRole.c)
+ *     PopIsDirectedDripsEnabled @ 0x1406EE414 (PopIsDirectedDripsEnabled.c)
  */
 
 __int64 PopDripsWatchdogInitializeActions()
@@ -18,6 +18,6 @@ __int64 PopDripsWatchdogInitializeActions()
     if ( v1 != 2 && v1 != 8 )
       v0 |= 1u;
   }
-  dword_140416CAC = v0;
+  dword_140417D2C = v0;
   return 0LL;
 }

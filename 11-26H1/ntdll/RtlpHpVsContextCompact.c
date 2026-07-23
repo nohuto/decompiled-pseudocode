@@ -1,50 +1,53 @@
 /*
- * XREFs of RtlpHpVsContextCompact @ 0x180016560
+ * XREFs of RtlpHpVsContextCompact @ 0x180061C90
  * Callers:
- *     RtlpHpHeapCompact @ 0x180016180 (RtlpHpHeapCompact.c)
+ *     RtlpHpHeapCompact @ 0x1800618B0 (RtlpHpHeapCompact.c)
  * Callees:
- *     RtlpHpVsSlotFreeList @ 0x18008E93C (RtlpHpVsSlotFreeList.c)
- *     RtlpHpVsContextGetSlotInfo @ 0x180097620 (RtlpHpVsContextGetSlotInfo.c)
- *     RtlpHpVsSlotCompactChunks @ 0x1800F8860 (RtlpHpVsSlotCompactChunks.c)
- *     __security_check_cookie @ 0x180162C90 (__security_check_cookie.c)
- *     RtlpInterlockedFlushSList @ 0x180162D50 (RtlpInterlockedFlushSList.c)
+ *     RtlpHpVsSlotFreeList @ 0x1800E0364 (RtlpHpVsSlotFreeList.c)
+ *     RtlpHpVsContextGetSlotInfo @ 0x1800E09A0 (RtlpHpVsContextGetSlotInfo.c)
+ *     RtlpHpVsSlotCompactChunks @ 0x1800F8030 (RtlpHpVsSlotCompactChunks.c)
+ *     __security_check_cookie @ 0x180162B90 (__security_check_cookie.c)
+ *     RtlpInterlockedFlushSList @ 0x180162C50 (RtlpInterlockedFlushSList.c)
  */
 
 __int64 __fastcall RtlpHpVsContextCompact(__int64 a1)
 {
   __int64 result; // rax
-  unsigned __int16 *v3; // rdi
-  __int64 v4; // rsi
-  __int64 v5; // rbp
-  __int64 v6; // rcx
-  _BYTE v7[256]; // [rsp+20h] [rbp-128h] BYREF
+  __int64 v3; // rdx
+  __int64 v4; // r8
+  __int64 v5; // r9
+  unsigned __int16 *v6; // rdi
+  __int64 v7; // rsi
+  __int64 v8; // rbp
+  __int64 v9; // rcx
+  _BYTE v10[256]; // [rsp+20h] [rbp-128h] BYREF
 
-  result = RtlpHpVsContextGetSlotInfo(a1, v7);
+  result = RtlpHpVsContextGetSlotInfo(a1, v10);
   if ( (_DWORD)result )
   {
-    v3 = (unsigned __int16 *)v7;
-    v4 = (unsigned int)result;
+    v6 = (unsigned __int16 *)v10;
+    v7 = (unsigned int)result;
     do
     {
-      v5 = a1 + ((unsigned __int64)*v3 << 6);
-      result = RtlpInterlockedFlushSList(v5 + 64);
+      v8 = a1 + ((unsigned __int64)*v6 << 6);
+      result = RtlpInterlockedFlushSList(v8 + 64, v3, v4, v5);
       if ( result )
-        result = RtlpHpVsSlotFreeList(a1, v5, result);
+        result = RtlpHpVsSlotFreeList(a1, v8, result);
       if ( *(_WORD *)(a1 + 6) )
       {
         result = *(__int16 *)(a1 + 6);
-        v6 = *(_QWORD *)(result + a1 + 32);
+        v9 = *(_QWORD *)(result + a1 + 32);
       }
       else
       {
-        v6 = *(_QWORD *)(a1 + 96);
+        v9 = *(_QWORD *)(a1 + 96);
       }
-      if ( v6 )
-        result = RtlpHpVsSlotCompactChunks(a1, v5);
-      v3 += 2;
-      --v4;
+      if ( v9 )
+        result = RtlpHpVsSlotCompactChunks(a1, v8);
+      v6 += 2;
+      --v7;
     }
-    while ( v4 );
+    while ( v7 );
   }
   return result;
 }

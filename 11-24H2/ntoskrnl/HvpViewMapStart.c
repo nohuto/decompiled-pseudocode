@@ -1,12 +1,12 @@
 /*
- * XREFs of HvpViewMapStart @ 0x140982AE8
+ * XREFs of HvpViewMapStart @ 0x14096B2F8
  * Callers:
- *     HvHiveStartEmptyClone @ 0x1407DF280 (HvHiveStartEmptyClone.c)
- *     HvLoadHive @ 0x14098133C (HvLoadHive.c)
+ *     HvHiveStartEmptyClone @ 0x1407DF7D0 (HvHiveStartEmptyClone.c)
+ *     HvLoadHive @ 0x140969B4C (HvLoadHive.c)
  * Callees:
- *     CmSiGetSectionLength @ 0x140491C80 (CmSiGetSectionLength.c)
- *     CmSiCreateSectionForFile @ 0x140493DA4 (CmSiCreateSectionForFile.c)
- *     HvpViewMapCreateViewsForRegion @ 0x14097F77C (HvpViewMapCreateViewsForRegion.c)
+ *     CmSiGetSectionLength @ 0x14048CB20 (CmSiGetSectionLength.c)
+ *     CmSiCreateSectionForFile @ 0x14048E830 (CmSiCreateSectionForFile.c)
+ *     HvpViewMapCreateViewsForRegion @ 0x140967F8C (HvpViewMapCreateViewsForRegion.c)
  */
 
 int __fastcall HvpViewMapStart(__int64 a1, void *a2, int a3, __int64 a4, int a5)
@@ -24,7 +24,7 @@ int __fastcall HvpViewMapStart(__int64 a1, void *a2, int a3, __int64 a4, int a5)
   result = CmSiCreateSectionForFile((HANDLE *)a1, (v5 & 1) != 0 ? 5 : 23, 2 * !(v5 & 1) + 2, a4, a2);
   if ( result >= 0 )
   {
-    result = CmSiGetSectionLength(*(_QWORD *)a1, &v11);
+    result = CmSiGetSectionLength(*(void **)a1, &v11);
     if ( result >= 0 )
     {
       v9 = v11;

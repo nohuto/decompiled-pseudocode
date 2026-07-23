@@ -1,16 +1,16 @@
 /*
- * XREFs of MmAllocateIndependentPages @ 0x140108FA0
+ * XREFs of MmAllocateIndependentPages @ 0x140109020
  * Callers:
- *     KiInitializePrcbContext @ 0x1405727D8 (KiInitializePrcbContext.c)
- *     MmAllocateIsrStack @ 0x1407299EC (MmAllocateIsrStack.c)
- *     HvlInitializeProcessor @ 0x140729DB8 (HvlInitializeProcessor.c)
- *     ExCreatePoolTagTable @ 0x14072A62C (ExCreatePoolTagTable.c)
- *     HvlpPreallocatePageListResources @ 0x140817C28 (HvlpPreallocatePageListResources.c)
- *     IopLiveDumpAllocAndInitResources @ 0x14081F700 (IopLiveDumpAllocAndInitResources.c)
- *     IopLiveDumpAllocateDumpBuffers @ 0x14081FCA8 (IopLiveDumpAllocateDumpBuffers.c)
- *     KiStartDynamicProcessor @ 0x140842DC8 (KiStartDynamicProcessor.c)
+ *     KiInitializePrcbContext @ 0x1405737D8 (KiInitializePrcbContext.c)
+ *     MmAllocateIsrStack @ 0x14072ABDC (MmAllocateIsrStack.c)
+ *     HvlInitializeProcessor @ 0x14072AFA8 (HvlInitializeProcessor.c)
+ *     ExCreatePoolTagTable @ 0x14072B81C (ExCreatePoolTagTable.c)
+ *     HvlpPreallocatePageListResources @ 0x140818E28 (HvlpPreallocatePageListResources.c)
+ *     IopLiveDumpAllocAndInitResources @ 0x140820900 (IopLiveDumpAllocAndInitResources.c)
+ *     IopLiveDumpAllocateDumpBuffers @ 0x140820EA8 (IopLiveDumpAllocateDumpBuffers.c)
+ *     KiStartDynamicProcessor @ 0x140844028 (KiStartDynamicProcessor.c)
  * Callees:
- *     MmAllocateIndependentPagesEx @ 0x140108FBC (MmAllocateIndependentPagesEx.c)
+ *     MmAllocateIndependentPagesEx @ 0x14010903C (MmAllocateIndependentPagesEx.c)
  */
 
 __int64 __fastcall MmAllocateIndependentPages(__int64 a1, __int64 a2)

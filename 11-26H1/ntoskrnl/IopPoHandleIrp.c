@@ -1,10 +1,10 @@
 /*
- * XREFs of IopPoHandleIrp @ 0x140486AA8
+ * XREFs of IopPoHandleIrp @ 0x140480478
  * Callers:
- *     IopfCallDriver @ 0x1402655E0 (IopfCallDriver.c)
+ *     IopfCallDriver @ 0x140264B50 (IopfCallDriver.c)
  * Callees:
- *     PoHandleIrp @ 0x140486AFC (PoHandleIrp.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     PoHandleIrp @ 0x1404804CC (PoHandleIrp.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall IopPoHandleIrp(IRP *a1)

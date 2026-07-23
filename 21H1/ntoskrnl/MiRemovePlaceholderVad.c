@@ -31,7 +31,7 @@ __int64 __fastcall MiRemovePlaceholderVad(__int64 a1)
   unsigned int SessionId; // edx
   unsigned __int8 v10; // si
   unsigned int v11; // r8d
-  unsigned __int64 v12; // rdi
+  __int64 v12; // rdi
   bool v13; // zf
   __int64 v14; // rcx
   __int64 v15; // rdx
@@ -68,7 +68,7 @@ __int64 __fastcall MiRemovePlaceholderVad(__int64 a1)
     v13 = !_BitScanReverse((unsigned int *)&v14, v11);
     if ( v13 )
       goto LABEL_13;
-    v12 = (unsigned __int64)&v8->LockEntries[v14];
+    v12 = (__int64)&v8->LockEntries[v14];
     v11 &= ~(1 << v14);
     if ( (*(_BYTE *)(v12 + 26) & 1) != 0
       && (*(_DWORD *)(v12 + 32) & 1) == 0
@@ -89,12 +89,12 @@ LABEL_13:
   }
   *(_BYTE *)(v12 + 32) |= 2u;
   if ( *(__int64 *)(v12 + 32) < 0 )
-    KiAbEntryRemoveFromTree(v12);
+    KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)v12);
   v21 = *(_DWORD *)(v12 + 88) & 0x1FFFF;
   *(_DWORD *)(v12 + 88) &= 0xFFFE0000;
   *(_BYTE *)(v12 + 25) &= ~1u;
   *(_QWORD *)(v12 + 32) = 0LL;
-  v15 = (__int64)(v12 - (unsigned __int64)v8->LockEntries) / 96;
+  v15 = (signed __int64)(v12 - (unsigned __int64)v8->LockEntries) / 96;
   if ( v10 == 1 )
     v8->AbEntrySummary |= 1 << v15;
   else

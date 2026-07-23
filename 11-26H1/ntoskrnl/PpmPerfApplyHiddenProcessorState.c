@@ -1,10 +1,10 @@
 /*
- * XREFs of PpmPerfApplyHiddenProcessorState @ 0x1406063C8
+ * XREFs of PpmPerfApplyHiddenProcessorState @ 0x140608EC8
  * Callers:
- *     PpmPerfApplyProcessorStates @ 0x140259FC0 (PpmPerfApplyProcessorStates.c)
+ *     PpmPerfApplyProcessorStates @ 0x14025B7A0 (PpmPerfApplyProcessorStates.c)
  * Callees:
- *     PpmEventProcessorPerfStateChange @ 0x140255C1C (PpmEventProcessorPerfStateChange.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     PpmEventProcessorPerfStateChange @ 0x1402575A0 (PpmEventProcessorPerfStateChange.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 char __fastcall PpmPerfApplyHiddenProcessorState(__int64 a1, __int64 a2, char a3)

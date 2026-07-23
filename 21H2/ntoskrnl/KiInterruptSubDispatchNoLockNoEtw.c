@@ -1,12 +1,12 @@
 /*
- * XREFs of KiInterruptSubDispatchNoLockNoEtw @ 0x1403FFE30
+ * XREFs of KiInterruptSubDispatchNoLockNoEtw @ 0x140400010
  * Callers:
- *     KiInterruptDispatchNoLockNoEtw @ 0x140400720 (KiInterruptDispatchNoLockNoEtw.c)
+ *     KiInterruptDispatchNoLockNoEtw @ 0x140400900 (KiInterruptDispatchNoLockNoEtw.c)
  * Callees:
- *     KiEndThreadAccountingPeriod @ 0x140231380 (KiEndThreadAccountingPeriod.c)
- *     KiCallInterruptServiceRoutine @ 0x14027A9B0 (KiCallInterruptServiceRoutine.c)
- *     KiEntropyQueueDpc @ 0x1402C4130 (KiEntropyQueueDpc.c)
- *     KzSetIrqlUnsafe @ 0x140512C40 (KzSetIrqlUnsafe.c)
+ *     KiEntropyQueueDpc @ 0x1402426B0 (KiEntropyQueueDpc.c)
+ *     KiCallInterruptServiceRoutine @ 0x140268950 (KiCallInterruptServiceRoutine.c)
+ *     KiEndThreadAccountingPeriod @ 0x1402D5BD0 (KiEndThreadAccountingPeriod.c)
+ *     KzSetIrqlUnsafe @ 0x140512E80 (KzSetIrqlUnsafe.c)
  */
 
 char __fastcall KiInterruptSubDispatchNoLockNoEtw()

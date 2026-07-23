@@ -1,8 +1,8 @@
 /*
- * XREFs of LdrpRemoveDataTableEntry @ 0x18000DC88
+ * XREFs of LdrpRemoveDataTableEntry @ 0x18000DC78
  * Callers:
- *     LdrpUnloadNode @ 0x18000D730 (LdrpUnloadNode.c)
- *     LdrpMapDllSearchPath @ 0x18000E5C8 (LdrpMapDllSearchPath.c)
+ *     LdrpUnloadNode @ 0x18000D720 (LdrpUnloadNode.c)
+ *     LdrpMapDllSearchPath @ 0x18000E5B8 (LdrpMapDllSearchPath.c)
  * Callees:
  *     <none>
  */

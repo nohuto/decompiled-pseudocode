@@ -1,11 +1,11 @@
 /*
- * XREFs of SepCreateSidValuesBlock @ 0x140792F9C
+ * XREFs of SepCreateSidValuesBlock @ 0x14079303C
  * Callers:
- *     SepSetTokenUserAndGroups @ 0x1409F49B0 (SepSetTokenUserAndGroups.c)
+ *     SepSetTokenUserAndGroups @ 0x1409E8D10 (SepSetTokenUserAndGroups.c)
  * Callees:
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     RtlCopySid @ 0x140910120 (RtlCopySid.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     RtlCopySid @ 0x1408E7870 (RtlCopySid.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall SepCreateSidValuesBlock(
@@ -42,7 +42,7 @@ __int64 __fastcall SepCreateSidValuesBlock(
     v12 = a5 - 4 * *(unsigned __int8 *)(*(_QWORD *)(a4 + 16LL * a6) + 1LL) - 8;
   }
   v13 = (((4 * (*a2)[1] + 11) & 0xFFFFFFFC) + 27 + ((v12 + 7) & 0xFFFFFFF8)) & 0xFFFFFFFC;
-  Pool2 = (char *)ExAllocatePool2(0x100uLL);
+  Pool2 = (char *)ExAllocatePool2(0x100uLL, v13, 0x76536553u);
   v15 = Pool2;
   if ( !Pool2 )
     return 3221225626LL;

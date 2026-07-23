@@ -1,16 +1,16 @@
 /*
- * XREFs of MiDecrementHugeContext @ 0x1403D6658
+ * XREFs of MiDecrementHugeContext @ 0x1403D6838
  * Callers:
- *     MiGetHugePageToZero @ 0x140351160 (MiGetHugePageToZero.c)
- *     MiDereferenceAnyActiveHugeContext @ 0x14035E6EC (MiDereferenceAnyActiveHugeContext.c)
- *     MiGetUltraHugeAlreadyActive @ 0x1403C0884 (MiGetUltraHugeAlreadyActive.c)
+ *     MiGetHugePageToZero @ 0x140351300 (MiGetHugePageToZero.c)
+ *     MiDereferenceAnyActiveHugeContext @ 0x14035E88C (MiDereferenceAnyActiveHugeContext.c)
+ *     MiGetUltraHugeAlreadyActive @ 0x1403C0A64 (MiGetUltraHugeAlreadyActive.c)
  * Callees:
- *     MiLockPageInline @ 0x1402EF680 (MiLockPageInline.c)
- *     MiStopPageAccessor @ 0x1403688EC (MiStopPageAccessor.c)
- *     MiRemoveFaultNode @ 0x1403D6AC8 (MiRemoveFaultNode.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     MiLockHugePfn @ 0x1406213F4 (MiLockHugePfn.c)
- *     MiReleaseLargeZeroingVa @ 0x1406552B8 (MiReleaseLargeZeroingVa.c)
+ *     MiLockPageInline @ 0x1402EF910 (MiLockPageInline.c)
+ *     MiStopPageAccessor @ 0x140368A8C (MiStopPageAccessor.c)
+ *     MiRemoveFaultNode @ 0x1403D6CA8 (MiRemoveFaultNode.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     MiLockHugePfn @ 0x140621944 (MiLockHugePfn.c)
+ *     MiReleaseLargeZeroingVa @ 0x140655808 (MiReleaseLargeZeroingVa.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 
@@ -59,10 +59,10 @@ void __fastcall MiDecrementHugeContext(char *P, __int64 a2)
           (volatile signed __int32 *)(qword_140C67DF8 + 4
                                                       * ((((__int64)(v8 - qword_140C67DF0) >> 3) & 0x3FFFFFuLL) >> 5)),
           ~(1 << (((__int64)(v8 - qword_140C67DF0) >> 3) & 0x1F)));
-        if ( !KiIrqlFlags )
+        if ( !(_DWORD)KiIrqlFlags )
           goto LABEL_30;
         CurrentIrql = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) == 0 )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) == 0 )
           goto LABEL_30;
         if ( CurrentIrql > 0xFu )
           goto LABEL_30;
@@ -86,8 +86,8 @@ void __fastcall MiDecrementHugeContext(char *P, __int64 a2)
         v9 = (unsigned __int8)MiLockPageInline(*((_QWORD *)P + 3));
         MiStopPageAccessor(v8, 0);
         _InterlockedAnd64((volatile signed __int64 *)(v8 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-        if ( !KiIrqlFlags
-          || (v15 = KeGetCurrentIrql(), (KiIrqlFlags & 1) == 0)
+        if ( !(_DWORD)KiIrqlFlags
+          || (v15 = KeGetCurrentIrql(), ((unsigned __int8)KiIrqlFlags & 1) == 0)
           || v15 > 0xFu
           || (unsigned __int8)v9 > 0xFu
           || v15 < 2u

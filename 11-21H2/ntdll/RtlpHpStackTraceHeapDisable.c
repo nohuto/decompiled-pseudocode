@@ -17,6 +17,6 @@ __int64 __fastcall RtlpHpStackTraceHeapDisable(__int64 a1)
   v3 = 112LL;
   if ( *(_DWORD *)(a1 + 16) != -571548178 )
     v3 = 368LL;
-  RtlpHpPerHeapStackTraceCleanup((volatile signed __int64 *)(a1 + v3), *(_WORD *)(v2 + a1) == 0xFFFF, 1);
+  RtlpHpPerHeapStackTraceCleanup((_RTL_RUN_ONCE *)(a1 + v3), *(_WORD *)(v2 + a1) == 0xFFFF, 1);
   return 0LL;
 }

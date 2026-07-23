@@ -1,20 +1,20 @@
 /*
- * XREFs of PopFilterCapabilities @ 0x1403F3CF4
+ * XREFs of PopFilterCapabilities @ 0x1403F2BB8
  * Callers:
- *     PopIdleArmAoAcDozeS4Timer @ 0x14020D4E4 (PopIdleArmAoAcDozeS4Timer.c)
+ *     PopIdleArmAoAcDozeS4Timer @ 0x14020D310 (PopIdleArmAoAcDozeS4Timer.c)
  *     NtSetSystemPowerState @ 0x1403CF658 (NtSetSystemPowerState.c)
- *     PopPolicySystemIdle @ 0x1403F5874 (PopPolicySystemIdle.c)
- *     NtPowerInformation @ 0x14051E834 (NtPowerInformation.c)
- *     PopVerifyPowerActionPolicy @ 0x1405409B4 (PopVerifyPowerActionPolicy.c)
- *     PopInitSIdle @ 0x140544AF4 (PopInitSIdle.c)
+ *     PopPolicySystemIdle @ 0x1403F4738 (PopPolicySystemIdle.c)
+ *     NtPowerInformation @ 0x14050189C (NtPowerInformation.c)
+ *     PopVerifyPowerActionPolicy @ 0x140540EF4 (PopVerifyPowerActionPolicy.c)
+ *     PopInitSIdle @ 0x140545034 (PopInitSIdle.c)
  * Callees:
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     EmClientQueryRuleState @ 0x1403C84A8 (EmClientQueryRuleState.c)
- *     PopLogDisabledSleepReason @ 0x1403F3C04 (PopLogDisabledSleepReason.c)
- *     PopCheckDisabledState @ 0x1403F3E40 (PopCheckDisabledState.c)
- *     PopRemoveReasonRecordByReasonCode @ 0x1403F3E6C (PopRemoveReasonRecordByReasonCode.c)
- *     IoGetLegacyVetoList @ 0x1403F3ED0 (IoGetLegacyVetoList.c)
- *     PopLogSleepDisabled @ 0x14054CA58 (PopLogSleepDisabled.c)
+ *     PopLogDisabledSleepReason @ 0x1403F2AC8 (PopLogDisabledSleepReason.c)
+ *     PopCheckDisabledState @ 0x1403F2D04 (PopCheckDisabledState.c)
+ *     PopRemoveReasonRecordByReasonCode @ 0x1403F2D30 (PopRemoveReasonRecordByReasonCode.c)
+ *     IoGetLegacyVetoList @ 0x1403F2D94 (IoGetLegacyVetoList.c)
+ *     PopLogSleepDisabled @ 0x14054CF98 (PopLogSleepDisabled.c)
  */
 
 __int64 __fastcall PopFilterCapabilities(__int64 a1, __int64 a2)
@@ -83,7 +83,7 @@ LABEL_6:
     PopLogSleepDisabled(7LL, 16LL, 0LL, 0LL);
   else
     PopRemoveReasonRecordByReasonCode(7LL);
-  if ( byte_140303E1D )
+  if ( byte_140303D5D )
     PopLogSleepDisabled(14LL, 7LL, 0LL, 0LL);
   else
     PopRemoveReasonRecordByReasonCode(14LL);

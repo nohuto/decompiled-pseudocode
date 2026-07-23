@@ -1,18 +1,18 @@
 /*
- * XREFs of RtlpLoadUserUIByPolicy @ 0x18007FDF0
+ * XREFs of RtlpLoadUserUIByPolicy @ 0x1800C9BA0
  * Callers:
  *     <none>
  * Callees:
- *     GetGlobalizationUserModelType @ 0x180034D28 (GetGlobalizationUserModelType.c)
- *     RtlpLoadPolicyLanguageSpec @ 0x180035280 (RtlpLoadPolicyLanguageSpec.c)
- *     RtlOpenCurrentUser @ 0x180036FF0 (RtlOpenCurrentUser.c)
- *     RtlpMuiRegCreateLanguageList @ 0x18007E2D0 (RtlpMuiRegCreateLanguageList.c)
- *     RtlpMuiRegGrowLanguageList @ 0x18008001C (RtlpMuiRegGrowLanguageList.c)
- *     OpenGlobalizationUserSettingsKey_ForSingleUserModel @ 0x180080044 (OpenGlobalizationUserSettingsKey_ForSingleUserModel.c)
- *     OpenGlobalizationUserSettingsKey_ForMua @ 0x180080384 (OpenGlobalizationUserSettingsKey_ForMua.c)
- *     wcslen @ 0x1801277D0 (wcslen.c)
- *     NtClose @ 0x180161E70 (NtClose.c)
- *     NtOpenKey @ 0x180161ED0 (NtOpenKey.c)
+ *     GetGlobalizationUserModelType @ 0x180014FA8 (GetGlobalizationUserModelType.c)
+ *     RtlpLoadPolicyLanguageSpec @ 0x180015500 (RtlpLoadPolicyLanguageSpec.c)
+ *     RtlOpenCurrentUser @ 0x180017270 (RtlOpenCurrentUser.c)
+ *     RtlpMuiRegCreateLanguageList @ 0x1800CA3B0 (RtlpMuiRegCreateLanguageList.c)
+ *     RtlpMuiRegGrowLanguageList @ 0x1800CA450 (RtlpMuiRegGrowLanguageList.c)
+ *     OpenGlobalizationUserSettingsKey_ForSingleUserModel @ 0x1800CB894 (OpenGlobalizationUserSettingsKey_ForSingleUserModel.c)
+ *     OpenGlobalizationUserSettingsKey_ForMua @ 0x1800CBBD4 (OpenGlobalizationUserSettingsKey_ForMua.c)
+ *     wcslen @ 0x180125A00 (wcslen.c)
+ *     NtClose @ 0x180160230 (NtClose.c)
+ *     NtOpenKey @ 0x180160290 (NtOpenKey.c)
  */
 
 __int64 __fastcall RtlpLoadUserUIByPolicy(void *a1, __int64 a2, __int64 *a3)
@@ -24,26 +24,22 @@ __int64 __fastcall RtlpLoadUserUIByPolicy(void *a1, __int64 a2, __int64 *a3)
   int v11; // eax
   __int64 v12; // rdx
   int v13; // eax
-  int v14; // eax
+  NTSTATUS v14; // eax
   __int64 v15; // rax
   int v16; // [rsp+20h] [rbp-60h] BYREF
-  HANDLE Handle; // [rsp+28h] [rbp-58h] BYREF
-  HANDLE v18; // [rsp+30h] [rbp-50h] BYREF
+  HANDLE KeyHandle; // [rsp+28h] [rbp-58h] BYREF
+  HANDLE Handle; // [rsp+30h] [rbp-50h] BYREF
   _WORD v19[2]; // [rsp+38h] [rbp-48h] BYREF
   int v20; // [rsp+3Ch] [rbp-44h]
   const wchar_t *v21; // [rsp+40h] [rbp-40h]
-  __int64 v22; // [rsp+48h] [rbp-38h] BYREF
-  HANDLE v23; // [rsp+50h] [rbp-30h]
-  _WORD *v24; // [rsp+58h] [rbp-28h]
-  __int64 v25; // [rsp+60h] [rbp-20h]
-  __int128 v26; // [rsp+68h] [rbp-18h]
-  unsigned __int8 v27; // [rsp+A8h] [rbp+28h] BYREF
-  __int16 v28; // [rsp+B8h] [rbp+38h] BYREF
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+48h] [rbp-38h] BYREF
+  unsigned __int8 v23; // [rsp+A8h] [rbp+28h] BYREF
+  __int16 v24; // [rsp+B8h] [rbp+38h] BYREF
 
-  v18 = 0LL;
   Handle = 0LL;
-  v27 = 0;
-  v28 = 0;
+  KeyHandle = 0LL;
+  v23 = 0;
+  v24 = 0;
   if ( !a2 || !a3 )
     return 3221225485LL;
   v20 = 0;
@@ -55,7 +51,7 @@ __int64 __fastcall RtlpLoadUserUIByPolicy(void *a1, __int64 a2, __int64 *a3)
   v19[1] = v6 + 2;
   if ( a1 )
   {
-    v23 = a1;
+    ObjectAttributes.RootDirectory = a1;
   }
   else
   {
@@ -71,30 +67,30 @@ __int64 __fastcall RtlpLoadUserUIByPolicy(void *a1, __int64 a2, __int64 *a3)
           goto LABEL_8;
         }
         v16 = 0;
-        v14 = OpenGlobalizationUserSettingsKey_ForMua(0x2000000LL, v12, &v18, &v16);
+        v14 = OpenGlobalizationUserSettingsKey_ForMua(0x2000000LL, v12, &Handle, &v16);
       }
       else
       {
-        v14 = OpenGlobalizationUserSettingsKey_ForSingleUserModel(0x2000000LL, &v18);
+        v14 = OpenGlobalizationUserSettingsKey_ForSingleUserModel(0x2000000u, &Handle);
       }
     }
     else
     {
-      v14 = RtlOpenCurrentUser(0x2000000u, (__int64)&v18);
+      v14 = RtlOpenCurrentUser(0x2000000u, &Handle);
     }
     v7 = v14;
     if ( v14 < 0 )
       goto LABEL_8;
-    v23 = v18;
+    ObjectAttributes.RootDirectory = Handle;
   }
-  v22 = 48LL;
-  v24 = v19;
-  v25 = 64LL;
-  v26 = 0LL;
-  v7 = NtOpenKey(&Handle, 131097LL, &v22);
+  *(_QWORD *)&ObjectAttributes.Length = 48LL;
+  ObjectAttributes.ObjectName = (PUNICODE_STRING)v19;
+  *(_QWORD *)&ObjectAttributes.Attributes = 64LL;
+  *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+  v7 = NtOpenKey(&KeyHandle, 0x20019u, &ObjectAttributes);
   if ( v7 < 0 )
     goto LABEL_8;
-  v7 = RtlpLoadPolicyLanguageSpec((__int64)Handle, a2, &v27, &v28);
+  v7 = RtlpLoadPolicyLanguageSpec(KeyHandle, a2, &v23, &v24);
   if ( v7 )
     goto LABEL_8;
   v9 = *a3;
@@ -114,7 +110,7 @@ __int64 __fastcall RtlpLoadUserUIByPolicy(void *a1, __int64 a2, __int64 *a3)
   }
   else
   {
-    LanguageList = RtlpMuiRegCreateLanguageList(1, 0, a2);
+    LanguageList = RtlpMuiRegCreateLanguageList(1LL, 0LL, a2);
     *a3 = LanguageList;
     v9 = LanguageList;
     if ( !LanguageList )
@@ -123,15 +119,15 @@ __int64 __fastcall RtlpLoadUserUIByPolicy(void *a1, __int64 a2, __int64 *a3)
       goto LABEL_8;
     }
   }
-  *(_WORD *)(*(_QWORD *)(v9 + 24) + 6LL * *(unsigned __int16 *)(v9 + 4)) = v27;
-  *(_WORD *)(*(_QWORD *)(*a3 + 24) + 6LL * (unsigned __int16)(*(_WORD *)(*a3 + 4))++ + 4) = v28;
+  *(_WORD *)(*(_QWORD *)(v9 + 24) + 6LL * *(unsigned __int16 *)(v9 + 4)) = v23;
+  *(_WORD *)(*(_QWORD *)(*a3 + 24) + 6LL * (unsigned __int16)(*(_WORD *)(*a3 + 4))++ + 4) = v24;
 LABEL_8:
-  if ( Handle )
+  if ( KeyHandle )
   {
-    NtClose(Handle);
-    Handle = 0LL;
+    NtClose(KeyHandle);
+    KeyHandle = 0LL;
   }
-  if ( v18 )
-    NtClose(v18);
+  if ( Handle )
+    NtClose(Handle);
   return (unsigned int)v7;
 }

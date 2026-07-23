@@ -1,12 +1,12 @@
 /*
- * XREFs of NtGetDevicePowerState @ 0x14086F640
+ * XREFs of NtGetDevicePowerState @ 0x1408708A0
  * Callers:
- *     PfpVolumeOpenAndVerify @ 0x14065C414 (PfpVolumeOpenAndVerify.c)
+ *     PfpVolumeOpenAndVerify @ 0x14065D5D4 (PfpVolumeOpenAndVerify.c)
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
- *     PopLockGetDoDevicePowerState @ 0x1402DC1B4 (PopLockGetDoDevicePowerState.c)
- *     IoGetRelatedTargetDevice @ 0x1405A2CA4 (IoGetRelatedTargetDevice.c)
- *     ObReferenceObjectByHandle @ 0x1405E8350 (ObReferenceObjectByHandle.c)
+ *     PopLockGetDoDevicePowerState @ 0x1402DC3A4 (PopLockGetDoDevicePowerState.c)
+ *     IoGetRelatedTargetDevice @ 0x1405A3CA4 (IoGetRelatedTargetDevice.c)
+ *     ObReferenceObjectByHandle @ 0x1405E9350 (ObReferenceObjectByHandle.c)
  */
 
 NTSTATUS __stdcall NtGetDevicePowerState(HANDLE Device, PDEVICE_POWER_STATE PowerState)

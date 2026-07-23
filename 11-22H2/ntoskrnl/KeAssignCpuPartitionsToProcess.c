@@ -179,7 +179,9 @@ LABEL_26:
   }
   v37 = KeSetCpuSetsProcess(a3, (unsigned __int16)v53, (__int64)P);
   KxReleaseSpinLock((volatile signed __int64 *)&KiCpuPartitionAssignmentLock);
-  if ( KiIrqlFlags && (CurrentIrql = KeGetCurrentIrql(), (KiIrqlFlags & 1) != 0) && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags
+    && (CurrentIrql = KeGetCurrentIrql(), ((unsigned __int8)KiIrqlFlags & 1) != 0)
+    && CurrentIrql <= 0xFu )
   {
     v39 = v58;
     if ( v58 <= 0xFu && CurrentIrql >= 2u )

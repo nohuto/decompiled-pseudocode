@@ -1,10 +1,10 @@
 /*
- * XREFs of IoDisconnectInterruptEx @ 0x14078DC50
+ * XREFs of IoDisconnectInterruptEx @ 0x14078DE40
  * Callers:
- *     DifIoDisconnectInterruptExWrapper @ 0x1405DEFF0 (DifIoDisconnectInterruptExWrapper.c)
+ *     DifIoDisconnectInterruptExWrapper @ 0x1405DF560 (DifIoDisconnectInterruptExWrapper.c)
  * Callees:
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     IoDisconnectInterrupt @ 0x14078E1D0 (IoDisconnectInterrupt.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
+ *     IoDisconnectInterrupt @ 0x14078E3C0 (IoDisconnectInterrupt.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

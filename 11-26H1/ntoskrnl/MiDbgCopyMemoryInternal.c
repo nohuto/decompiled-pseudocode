@@ -1,19 +1,19 @@
 /*
- * XREFs of MiDbgCopyMemoryInternal @ 0x1406FD8F0
+ * XREFs of MiDbgCopyMemoryInternal @ 0x1407025C0
  * Callers:
- *     MiDbgCopyMemory @ 0x1406FD730 (MiDbgCopyMemory.c)
- *     MiDbgCopyMemoryTarget @ 0x1406FDA80 (MiDbgCopyMemoryTarget.c)
+ *     MiDbgCopyMemory @ 0x140702400 (MiDbgCopyMemory.c)
+ *     MiDbgCopyMemoryTarget @ 0x140702750 (MiDbgCopyMemoryTarget.c)
  * Callees:
- *     MiGetVirtualAddressState @ 0x14024D274 (MiGetVirtualAddressState.c)
- *     MmIsAddressValidEx @ 0x14034DFD0 (MmIsAddressValidEx.c)
- *     MiDbgAllocatePatches @ 0x1406FD1E8 (MiDbgAllocatePatches.c)
- *     MiDbgCopyFromMemory @ 0x1406FD608 (MiDbgCopyFromMemory.c)
- *     MiDbgCopyToMemory @ 0x1406FDD64 (MiDbgCopyToMemory.c)
- *     MiDbgFillPatches @ 0x1406FDEF0 (MiDbgFillPatches.c)
- *     MiDbgMapPhysicalAddress @ 0x1406FE368 (MiDbgMapPhysicalAddress.c)
- *     MiDbgPteWriteInProgress @ 0x1406FEB70 (MiDbgPteWriteInProgress.c)
- *     MiDbgUnmapPhysicalAddress @ 0x1406FEC6C (MiDbgUnmapPhysicalAddress.c)
- *     MiDbgWriteCheck @ 0x1406FED48 (MiDbgWriteCheck.c)
+ *     MiGetVirtualAddressState @ 0x14024EBD4 (MiGetVirtualAddressState.c)
+ *     MmIsAddressValidEx @ 0x140350050 (MmIsAddressValidEx.c)
+ *     MiDbgAllocatePatches @ 0x140701EB8 (MiDbgAllocatePatches.c)
+ *     MiDbgCopyFromMemory @ 0x1407022D8 (MiDbgCopyFromMemory.c)
+ *     MiDbgCopyToMemory @ 0x140702A34 (MiDbgCopyToMemory.c)
+ *     MiDbgFillPatches @ 0x140702BC0 (MiDbgFillPatches.c)
+ *     MiDbgMapPhysicalAddress @ 0x140703038 (MiDbgMapPhysicalAddress.c)
+ *     MiDbgPteWriteInProgress @ 0x140703840 (MiDbgPteWriteInProgress.c)
+ *     MiDbgUnmapPhysicalAddress @ 0x14070393C (MiDbgUnmapPhysicalAddress.c)
+ *     MiDbgWriteCheck @ 0x140703A18 (MiDbgWriteCheck.c)
  */
 
 __int64 __fastcall MiDbgCopyMemoryInternal(__int64 a1)
@@ -52,7 +52,7 @@ LABEL_4:
     Patches = VirtualAddressState;
     if ( VirtualAddressState < 0 )
     {
-      stru_140E2EB88.SuspendEvent.Header.SignalState |= 1u;
+      stru_140E2ED08.SuspendEvent.Header.SignalState |= 1u;
       goto LABEL_23;
     }
   }
@@ -63,7 +63,7 @@ LABEL_4:
   {
     if ( (*(_DWORD *)a1 & 4) == 0 && *(_QWORD *)(a1 + 136) )
     {
-      stru_140E2EB88.SuspendEvent.Header.SignalState |= 0x80u;
+      stru_140E2ED08.SuspendEvent.Header.SignalState |= 0x80u;
       goto LABEL_4;
     }
     v8 = MiDbgWriteCheck(a1);
@@ -77,7 +77,7 @@ LABEL_4:
       Patches = MiDbgAllocatePatches((__int16)v7, v2, a1, (__int64)&v10);
       if ( Patches < 0 )
       {
-        stru_140E2EB88.SuspendEvent.Header.SignalState |= 0x8000u;
+        stru_140E2ED08.SuspendEvent.Header.SignalState |= 0x8000u;
         goto LABEL_23;
       }
       ((void (__fastcall *)(_BYTE *, _QWORD, __int128 *, __int64))MiDbgFillPatches)(v7, v2, &v10, 1LL);

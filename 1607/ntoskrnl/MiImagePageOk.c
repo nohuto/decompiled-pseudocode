@@ -1,11 +1,11 @@
 /*
- * XREFs of MiImagePageOk @ 0x14009D4E8
+ * XREFs of MiImagePageOk @ 0x14009CCE8
  * Callers:
- *     MiFinishHardFault @ 0x14004D6A0 (MiFinishHardFault.c)
- *     MiWaitForCollidedFaultComplete @ 0x1400C61A4 (MiWaitForCollidedFaultComplete.c)
+ *     MiFinishHardFault @ 0x14004D220 (MiFinishHardFault.c)
+ *     MiWaitForCollidedFaultComplete @ 0x1400C4044 (MiWaitForCollidedFaultComplete.c)
  * Callees:
- *     MiLocateAddress @ 0x14001F090 (MiLocateAddress.c)
- *     MiGetPrototypePteDirect @ 0x1401F26B0 (MiGetPrototypePteDirect.c)
+ *     MiLocateAddress @ 0x14001EC10 (MiLocateAddress.c)
+ *     MiGetPrototypePteDirect @ 0x1401F24DC (MiGetPrototypePteDirect.c)
  */
 
 _BOOL8 __fastcall MiImagePageOk(unsigned __int64 a1, __int64 a2)

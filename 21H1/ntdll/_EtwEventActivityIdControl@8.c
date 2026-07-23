@@ -8,65 +8,65 @@
  *     _ZwTraceControl@24 @ 0x4B2F45B0 (_ZwTraceControl@24.c)
  */
 
-int __stdcall EtwEventActivityIdControl(int a1, int a2)
+ULONG __cdecl EtwEventActivityIdControl(ULONG ControlCode, LPGUID ActivityId)
 {
-  _GUID *p_ActivityId; // eax
-  struct _TEB *v3; // esi
+  LPGUID p_ActivityId; // eax
+  ULONG v3; // esi
   struct _TEB *v5; // ecx
   unsigned int Data1; // esi
   int v7; // edi
   int v8; // ebx
   NTSTATUS v9; // eax
-  struct _TEB *v10; // eax
+  LONG v10; // eax
   int v11; // [esp+10h] [ebp-8h]
-  _BYTE v12[4]; // [esp+14h] [ebp-4h] BYREF
+  ULONG ReturnLength; // [esp+14h] [ebp-4h] BYREF
 
-  p_ActivityId = (_GUID *)a2;
-  if ( !a2 )
+  p_ActivityId = ActivityId;
+  if ( !ActivityId )
     return 87;
-  if ( a1 == 2 )
+  if ( ControlCode == 2 )
   {
-    NtCurrentTeb()->ActivityId = *(_GUID *)a2;
+    NtCurrentTeb()->ActivityId = *ActivityId;
     return 0;
   }
   else
   {
-    switch ( a1 )
+    switch ( ControlCode )
     {
-      case 1:
-        *(_GUID *)a2 = NtCurrentTeb()->ActivityId;
+      case 1u:
+        *ActivityId = NtCurrentTeb()->ActivityId;
         return 0;
-      case 3:
+      case 3u:
         goto LABEL_10;
-      case 4:
+      case 4u:
         v5 = NtCurrentTeb();
         Data1 = v5->ActivityId.Data1;
         v7 = *(_DWORD *)&v5->ActivityId.Data2;
         v8 = *(_DWORD *)v5->ActivityId.Data4;
         v11 = *(_DWORD *)&v5->ActivityId.Data4[4];
-        v5->ActivityId = *(_GUID *)a2;
-        *(_DWORD *)a2 = Data1;
-        *(_DWORD *)(a2 + 4) = v7;
-        *(_DWORD *)(a2 + 8) = v8;
-        *(_DWORD *)(a2 + 12) = v11;
+        v5->ActivityId = *ActivityId;
+        ActivityId->Data1 = Data1;
+        *(_DWORD *)&ActivityId->Data2 = v7;
+        *(_DWORD *)ActivityId->Data4 = v8;
+        *(_DWORD *)&ActivityId->Data4[4] = v11;
         return 0;
-      case 5:
-        *(_GUID *)a2 = NtCurrentTeb()->ActivityId;
+      case 5u:
+        *ActivityId = NtCurrentTeb()->ActivityId;
         p_ActivityId = &NtCurrentTeb()->ActivityId;
 LABEL_10:
-        v9 = ZwTraceControl(12, 0, 0, p_ActivityId, 16, v12);
+        v9 = ZwTraceControl(EtwActivityIdCreate, 0, 0, p_ActivityId, 0x10u, &ReturnLength);
         if ( v9 )
           goto LABEL_14;
         return 0;
       default:
         v9 = -1073741811;
 LABEL_14:
-        v10 = (struct _TEB *)RtlNtStatusToDosError(v9);
+        v10 = RtlNtStatusToDosError(v9);
         v3 = v10;
         if ( v10 )
           RtlSetLastWin32Error(v10);
         break;
     }
   }
-  return (int)v3;
+  return v3;
 }

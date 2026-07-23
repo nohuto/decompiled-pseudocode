@@ -1,22 +1,22 @@
 /*
- * XREFs of CmpVolumeManagerGetContextForFile @ 0x140966DB8
+ * XREFs of CmpVolumeManagerGetContextForFile @ 0x14094F848
  * Callers:
- *     CmpVolumeManagerGetContextForFilePath @ 0x1407D8B88 (CmpVolumeManagerGetContextForFilePath.c)
- *     CmpCreateHive @ 0x14092F538 (CmpCreateHive.c)
+ *     CmpVolumeManagerGetContextForFilePath @ 0x1407D90D8 (CmpVolumeManagerGetContextForFilePath.c)
+ *     CmpCreateHive @ 0x140931678 (CmpCreateHive.c)
  * Callees:
- *     ExfReleasePushLockShared @ 0x14025DE00 (ExfReleasePushLockShared.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     ObfDereferenceObject @ 0x140325680 (ObfDereferenceObject.c)
- *     IoGetAttachedDeviceReference @ 0x14041D070 (IoGetAttachedDeviceReference.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     CmpVolumeContextCreate @ 0x1407D8810 (CmpVolumeContextCreate.c)
- *     ObReferenceObjectByHandle @ 0x14084AF40 (ObReferenceObjectByHandle.c)
- *     IoVolumeDeviceToGuid @ 0x1409672A0 (IoVolumeDeviceToGuid.c)
- *     CmSiRWLockReleaseExclusive @ 0x1409FD900 (CmSiRWLockReleaseExclusive.c)
- *     CmpVolumeManagerLockContextListExclusive @ 0x140A02430 (CmpVolumeManagerLockContextListExclusive.c)
- *     CmpVolumeManagerGetContextForGuidUnsafe @ 0x140A50574 (CmpVolumeManagerGetContextForGuidUnsafe.c)
- *     CmpVolumeManagerLockContextListShared @ 0x140A5B3CC (CmpVolumeManagerLockContextListShared.c)
- *     CmpVolumeContextFree @ 0x140A9BCC0 (CmpVolumeContextFree.c)
+ *     ExfReleasePushLockShared @ 0x14028E410 (ExfReleasePushLockShared.c)
+ *     ObfDereferenceObject @ 0x1402CE210 (ObfDereferenceObject.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     IoGetAttachedDeviceReference @ 0x140411960 (IoGetAttachedDeviceReference.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     CmpVolumeContextCreate @ 0x1407D8D60 (CmpVolumeContextCreate.c)
+ *     ObReferenceObjectByHandle @ 0x140847200 (ObReferenceObjectByHandle.c)
+ *     IoVolumeDeviceToGuid @ 0x14094FD30 (IoVolumeDeviceToGuid.c)
+ *     CmSiRWLockReleaseExclusive @ 0x1409F6640 (CmSiRWLockReleaseExclusive.c)
+ *     CmpVolumeManagerLockContextListExclusive @ 0x1409FF8F8 (CmpVolumeManagerLockContextListExclusive.c)
+ *     CmpVolumeManagerGetContextForGuidUnsafe @ 0x140A47324 (CmpVolumeManagerGetContextForGuidUnsafe.c)
+ *     CmpVolumeManagerLockContextListShared @ 0x140A52CDC (CmpVolumeManagerLockContextListShared.c)
+ *     CmpVolumeContextFree @ 0x140A97230 (CmpVolumeContextFree.c)
  */
 
 __int64 __fastcall CmpVolumeManagerGetContextForFile(__int64 a1, void *a2, __int64 a3, PPRIVILEGE_SET *a4)
@@ -89,15 +89,15 @@ LABEL_10:
         goto LABEL_11;
       }
 LABEL_24:
-      v16 = (PPRIVILEGE_SET *)qword_140FD9400;
-      if ( *(__int64 **)qword_140FD9400 != &qword_140FD93F8 )
+      v16 = (PPRIVILEGE_SET *)qword_140FDA418;
+      if ( *(__int64 **)qword_140FDA418 != &qword_140FDA410 )
         __fastfail(3u);
       ContextForGuidUnsafe = Privileges;
       v13 = 0LL;
-      *(_QWORD *)&Privileges->PrivilegeCount = &qword_140FD93F8;
+      *(_QWORD *)&Privileges->PrivilegeCount = &qword_140FDA410;
       ContextForGuidUnsafe->Privilege[0].Luid = (LUID)v16;
       *v16 = ContextForGuidUnsafe;
-      qword_140FD9400 = (__int64)ContextForGuidUnsafe;
+      qword_140FDA418 = (__int64)ContextForGuidUnsafe;
       goto LABEL_10;
     }
     goto LABEL_27;

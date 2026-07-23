@@ -95,7 +95,7 @@ __int64 __fastcall CmCreateKey(
   memset(v53, 0, sizeof(v53));
   v42 = 0LL;
   if ( CmpTraceRoutine )
-    EtwGetKernelTraceTimestamp(v53, (char *)0x20000);
+    EtwGetKernelTraceTimestamp(v53, 0x20000u);
   memset(v52, 0, sizeof(v52));
   HIDWORD(v52[3]) = a2 & 0x300;
   v11 = a2 & 0xFFFFFCFF;

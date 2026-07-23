@@ -1,9 +1,9 @@
 /*
- * XREFs of MiGatherHiberRange @ 0x1409B0220
+ * XREFs of MiGatherHiberRange @ 0x1409B1150
  * Callers:
- *     MmMarkHiberPhase @ 0x1409B061C (MmMarkHiberPhase.c)
+ *     MmMarkHiberPhase @ 0x1409B154C (MmMarkHiberPhase.c)
  * Callees:
- *     PoSetHiberRange @ 0x140388060 (PoSetHiberRange.c)
+ *     PoSetHiberRange @ 0x1403881B0 (PoSetHiberRange.c)
  */
 
 __int64 __fastcall MiGatherHiberRange(__int64 a1, void *a2, __int64 a3, int a4)

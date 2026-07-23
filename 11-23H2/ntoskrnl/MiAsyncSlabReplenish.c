@@ -1,18 +1,18 @@
 /*
- * XREFs of MiAsyncSlabReplenish @ 0x1402B9C84
+ * XREFs of MiAsyncSlabReplenish @ 0x1402B9F14
  * Callers:
  *     MiMakeZeroedPageTablesEx @ 0x140214310 (MiMakeZeroedPageTablesEx.c)
- *     MiAllocateMdlPagesByLists @ 0x14023B910 (MiAllocateMdlPagesByLists.c)
- *     MiGetSlabPage @ 0x14023BD70 (MiGetSlabPage.c)
- *     MiAllocateSlabPageForMdl @ 0x14062315C (MiAllocateSlabPageForMdl.c)
- *     MiDeleteSlabAllocator @ 0x140656770 (MiDeleteSlabAllocator.c)
- *     MiFastReplenishWithAsync @ 0x1406568A8 (MiFastReplenishWithAsync.c)
+ *     MiAllocateMdlPagesByLists @ 0x14023B9E0 (MiAllocateMdlPagesByLists.c)
+ *     MiGetSlabPage @ 0x14023BE40 (MiGetSlabPage.c)
+ *     MiAllocateSlabPageForMdl @ 0x1406236AC (MiAllocateSlabPageForMdl.c)
+ *     MiDeleteSlabAllocator @ 0x140656CC0 (MiDeleteSlabAllocator.c)
+ *     MiFastReplenishWithAsync @ 0x140656DF8 (MiFastReplenishWithAsync.c)
  * Callees:
- *     KeWaitForSingleObject @ 0x140243CE0 (KeWaitForSingleObject.c)
- *     ExAcquireSpinLockExclusive @ 0x14024D360 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402894C0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExQueueWorkItemToPartition @ 0x1402B959C (ExQueueWorkItemToPartition.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeWaitForSingleObject @ 0x140243DB0 (KeWaitForSingleObject.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024D430 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140289750 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExQueueWorkItemToPartition @ 0x1402B982C (ExQueueWorkItemToPartition.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiAsyncSlabReplenish(__int64 a1, LARGE_INTEGER *a2, char a3)
@@ -85,10 +85,13 @@ __int64 __fastcall MiAsyncSlabReplenish(__int64 a1, LARGE_INTEGER *a2, char a3)
     }
 LABEL_6:
     ExReleaseSpinLockExclusiveFromDpcLevel(v5);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v8 <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+        && CurrentIrql <= 0xFu
+        && (unsigned __int8)v8 <= 0xFu
+        && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -113,10 +116,10 @@ LABEL_6:
       *v28 = v27;
       *(_QWORD *)(v20 + 8) = v22;
       ExReleaseSpinLockExclusiveFromDpcLevel(v5);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v23 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v23 <= 0xFu && (unsigned __int8)v21 <= 0xFu && v23 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v23 <= 0xFu && (unsigned __int8)v21 <= 0xFu && v23 >= 2u )
         {
           v24 = KeGetCurrentPrcb();
           v25 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v21 + 1));

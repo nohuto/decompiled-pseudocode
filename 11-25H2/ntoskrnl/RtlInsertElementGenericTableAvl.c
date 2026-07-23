@@ -42,14 +42,14 @@ PVOID __stdcall RtlInsertElementGenericTableAvl(
   void *v4; // rdi
   size_t v5; // r13
   _RTL_BALANCED_LINKS *i; // r14
-  _RTL_GENERIC_COMPARE_RESULTS (__fastcall *CompareRoutine)(_RTL_AVL_TABLE *, void *, void *); // rax
+  RTL_GENERIC_COMPARE_RESULTS (__cdecl *CompareRoutine)(_RTL_AVL_TABLE *, PVOID, PVOID); // rax
   _RTL_BALANCED_LINKS *v11; // r8
   RTL_GENERIC_COMPARE_RESULTS v12; // eax
   _RTL_BALANCED_LINKS *RightChild; // rax
   int v14; // ebp
   _RTL_BALANCED_LINKS *v15; // rsi
   SIZE_T v17; // rdx
-  void *(__fastcall *AllocateRoutine)(_RTL_AVL_TABLE *, unsigned int); // rax
+  PVOID (__cdecl *AllocateRoutine)(_RTL_AVL_TABLE *, CLONG); // rax
   _RTL_BALANCED_LINKS *PoolWithTag; // rax
   _RTL_BALANCED_LINKS *v20; // rdx
   _RTL_BALANCED_LINKS *j; // rcx
@@ -64,9 +64,9 @@ PVOID __stdcall RtlInsertElementGenericTableAvl(
   {
     for ( i = Table->BalancedRoot.RightChild; ; i = RightChild )
     {
-      CompareRoutine = Table->CompareRoutine;
+      CompareRoutine = (RTL_GENERIC_COMPARE_RESULTS (__cdecl *)(_RTL_AVL_TABLE *, PVOID, PVOID))Table->CompareRoutine;
       v11 = i + 1;
-      if ( (char *)CompareRoutine == (char *)PiDmCompareObjects )
+      if ( CompareRoutine == PiDmCompareObjects )
       {
         v12 = PiDmCompareObjects(Table, Buffer, v11);
       }
@@ -74,7 +74,7 @@ PVOID __stdcall RtlInsertElementGenericTableAvl(
       {
         v12 = (unsigned int)PnpCompareInstancePath(Table, Buffer, v11);
       }
-      else if ( (char *)CompareRoutine == (char *)PiPnpRtlObjectEventCompareObjects )
+      else if ( CompareRoutine == PiPnpRtlObjectEventCompareObjects )
       {
         v12 = PiPnpRtlObjectEventCompareObjects(Table, Buffer, v11);
       }
@@ -112,9 +112,9 @@ PVOID __stdcall RtlInsertElementGenericTableAvl(
 LABEL_23:
   v17 = (unsigned int)(v5 + 32);
   if ( (unsigned int)v17 >= (unsigned int)v5
-    && ((AllocateRoutine = Table->AllocateRoutine,
-         (char *)AllocateRoutine != (char *)PiPnpRtlOperationAllocateGenericTableEntry)
-      ? ((char *)AllocateRoutine != (char *)SshpCacheDatabaseAllocate
+    && ((AllocateRoutine = (PVOID (__cdecl *)(_RTL_AVL_TABLE *, CLONG))Table->AllocateRoutine,
+         AllocateRoutine != PiPnpRtlOperationAllocateGenericTableEntry)
+      ? (AllocateRoutine != SshpCacheDatabaseAllocate
        ? ((char *)AllocateRoutine != (char *)ExAllocatePoolWithTag
         ? (PoolWithTag = (_RTL_BALANCED_LINKS *)guard_dispatch_icall_no_overrides(Table, v17))
         : (PoolWithTag = (_RTL_BALANCED_LINKS *)ExAllocatePoolWithTag((POOL_TYPE)Table, v17, BufferSize)))

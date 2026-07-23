@@ -2,12 +2,12 @@
  * XREFs of RtlStringCbCatW @ 0x140007428
  * Callers:
  *     SeSetLearningModeObjectInformation @ 0x14004E020 (SeSetLearningModeObjectInformation.c)
- *     WmipInsertStaticNames @ 0x14059D964 (WmipInsertStaticNames.c)
- *     PnpConcatPWSTR @ 0x1406FCA88 (PnpConcatPWSTR.c)
- *     RtlpGetDynamicTimeZoneInfoHandle @ 0x1407351D0 (RtlpGetDynamicTimeZoneInfoHandle.c)
- *     PerfDiagpRestartCKCL @ 0x140741AB0 (PerfDiagpRestartCKCL.c)
- *     WmipIncludeStaticNames @ 0x1408B3738 (WmipIncludeStaticNames.c)
- *     IopInitializeBootDrivers @ 0x1409CB0BC (IopInitializeBootDrivers.c)
+ *     WmipInsertStaticNames @ 0x14059E964 (WmipInsertStaticNames.c)
+ *     PnpConcatPWSTR @ 0x1406FDD28 (PnpConcatPWSTR.c)
+ *     RtlpGetDynamicTimeZoneInfoHandle @ 0x1407363C0 (RtlpGetDynamicTimeZoneInfoHandle.c)
+ *     PerfDiagpRestartCKCL @ 0x140742CA0 (PerfDiagpRestartCKCL.c)
+ *     WmipIncludeStaticNames @ 0x1408B4998 (WmipIncludeStaticNames.c)
+ *     IopInitializeBootDrivers @ 0x1409CC0BC (IopInitializeBootDrivers.c)
  * Callees:
  *     <none>
  */

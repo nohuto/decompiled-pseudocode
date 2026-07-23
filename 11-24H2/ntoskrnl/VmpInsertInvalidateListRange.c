@@ -1,12 +1,12 @@
 /*
- * XREFs of VmpInsertInvalidateListRange @ 0x1403B12F8
+ * XREFs of VmpInsertInvalidateListRange @ 0x14039FB08
  * Callers:
- *     VmpFlushTb @ 0x140292380 (VmpFlushTb.c)
- *     KeFlushTb @ 0x1403AFDF0 (KeFlushTb.c)
- *     VmpInvalidateSlatBatched @ 0x14047F01C (VmpInvalidateSlatBatched.c)
+ *     VmpFlushTb @ 0x1402A1F80 (VmpFlushTb.c)
+ *     KeFlushTb @ 0x14039E600 (KeFlushTb.c)
+ *     VmpInvalidateSlatBatched @ 0x140479E38 (VmpInvalidateSlatBatched.c)
  * Callees:
- *     VmpProcessInvalidateList @ 0x1404A9F18 (VmpProcessInvalidateList.c)
- *     VmpLogTbFlushSlatInvalidateInsert @ 0x14064BF40 (VmpLogTbFlushSlatInvalidateInsert.c)
+ *     VmpProcessInvalidateList @ 0x1404A41E8 (VmpProcessInvalidateList.c)
+ *     VmpLogTbFlushSlatInvalidateInsert @ 0x14064A500 (VmpLogTbFlushSlatInvalidateInsert.c)
  */
 
 unsigned __int64 __fastcall VmpInsertInvalidateListRange(

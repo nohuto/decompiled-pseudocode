@@ -1,7 +1,7 @@
 /*
- * XREFs of ObpDestroyStackAndObjectTables @ 0x1406678C8
+ * XREFs of ObpDestroyStackAndObjectTables @ 0x1406679AC
  * Callers:
- *     ObpStopRuntimeStackTrace @ 0x140668864 (ObpStopRuntimeStackTrace.c)
+ *     ObpStopRuntimeStackTrace @ 0x140668948 (ObpStopRuntimeStackTrace.c)
  * Callees:
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  */

@@ -17,15 +17,15 @@
  *     RtlAssert @ 0x1800EAE80 (RtlAssert.c)
  */
 
-__int64 __fastcall sub_18003F37C(__int128 *a1, char a2, _QWORD *a3, __int64 a4, unsigned __int16 *a5)
+__int64 __fastcall sub_18003F37C(_UNICODE_STRING *a1, char a2, _QWORD *a3, __int64 a4, unsigned __int16 *a5)
 {
-  __int128 v8; // xmm0
-  volatile signed __int32 *v9; // r12
-  int ActivationContextSectionString; // eax
+  _UNICODE_STRING v8; // xmm0
+  _ACTIVATION_CONTEXT *hActCtx; // r12
+  NTSTATUS ActivationContextSectionString; // eax
   int v11; // ebx
-  wchar_t *v12; // rcx
-  __int64 v14; // r15
-  unsigned int v15; // esi
+  WCHAR *v12; // rcx
+  _BYTE *lpData; // r15
+  ULONG ulSectionTotalLength; // esi
   unsigned __int64 v16; // rdx
   unsigned int v17; // r8d
   unsigned __int64 v18; // rcx
@@ -34,7 +34,7 @@ __int64 __fastcall sub_18003F37C(__int128 *a1, char a2, _QWORD *a3, __int64 a4, 
   int v21; // ecx
   int v22; // eax
   unsigned int v23; // r8d
-  __int64 v24; // rbx
+  char *v24; // rbx
   __int64 v25; // r12
   const void **v26; // rdx
   unsigned __int64 v27; // r8
@@ -45,8 +45,8 @@ __int64 __fastcall sub_18003F37C(__int128 *a1, char a2, _QWORD *a3, __int64 a4, 
   _WORD *v32; // rcx
   unsigned __int64 v33; // rcx
   __int64 v34; // rax
-  char *v35; // r13
-  unsigned __int16 v36; // bx
+  PWCH Buffer; // r13
+  USHORT Length; // bx
   unsigned __int64 v37; // r8
   __int64 v38; // rcx
   unsigned __int64 v39; // rax
@@ -56,50 +56,50 @@ __int64 __fastcall sub_18003F37C(__int128 *a1, char a2, _QWORD *a3, __int64 a4, 
   __int64 v43; // rax
   __int64 v44; // r13
   unsigned __int64 v45; // r8
-  const void *v46; // r12
+  char *v46; // r12
   __int64 v47; // rcx
   unsigned __int64 v48; // rax
   unsigned __int16 v49; // ax
   unsigned int v50; // edx
   unsigned __int64 v51; // rcx
   __int64 v52; // rax
-  int CharInUnicodeString; // eax
+  NTSTATUS CharInUnicodeString; // eax
   __int64 v54; // rdx
   __int64 v55; // rcx
   unsigned __int64 v56; // rax
   unsigned __int64 v57; // rcx
-  __int64 v58; // [rsp+20h] [rbp-E0h]
-  volatile signed __int32 *v59; // [rsp+30h] [rbp-D0h]
-  unsigned __int16 v60[2]; // [rsp+38h] [rbp-C8h] BYREF
+  PACTCTX_SECTION_KEYED_DATA ReturnedData; // [rsp+20h] [rbp-E0h]
+  _ACTIVATION_CONTEXT *v59; // [rsp+30h] [rbp-D0h]
+  USHORT NonInclusivePrefixLength[2]; // [rsp+38h] [rbp-C8h] BYREF
   int v61; // [rsp+3Ch] [rbp-C4h] BYREF
   _WORD *v62; // [rsp+40h] [rbp-C0h] BYREF
-  void *Src[2]; // [rsp+48h] [rbp-B8h] BYREF
+  _UNICODE_STRING StringToFind; // [rsp+48h] [rbp-B8h] BYREF
   __int64 v64; // [rsp+58h] [rbp-A8h]
-  UNICODE_STRING UnicodeString; // [rsp+60h] [rbp-A0h] BYREF
-  _QWORD v66[14]; // [rsp+70h] [rbp-90h] BYREF
+  _UNICODE_STRING UnicodeString; // [rsp+60h] [rbp-A0h] BYREF
+  tagACTCTX_SECTION_KEYED_DATA v66; // [rsp+70h] [rbp-90h] BYREF
   int v67; // [rsp+E0h] [rbp-20h] BYREF
-  void *v68; // [rsp+E8h] [rbp-18h]
-  wchar_t *v69; // [rsp+F0h] [rbp-10h]
-  wchar_t *v70; // [rsp+F8h] [rbp-8h]
+  void *Src; // [rsp+E8h] [rbp-18h]
+  WCHAR *v69; // [rsp+F0h] [rbp-10h]
+  WCHAR *v70; // [rsp+F8h] [rbp-8h]
   __int64 v71; // [rsp+100h] [rbp+0h]
   __int64 v72; // [rsp+108h] [rbp+8h]
   __int16 v73; // [rsp+110h] [rbp+10h] BYREF
 
   *(_QWORD *)&UnicodeString.Length = a4;
-  LODWORD(v66[0]) = 112;
-  memset((char *)v66 + 4, 0, 0x6CuLL);
+  v66.cbSize = 112;
+  memset(&v66.ulDataFormatVersion, 0, 0x6CuLL);
   v8 = *a1;
   v67 = 0x20000;
   v62 = 0LL;
-  v69 = (wchar_t *)&v73;
+  v69 = (WCHAR *)&v73;
   v73 = 0;
-  v70 = (wchar_t *)&v73;
+  v70 = (WCHAR *)&v73;
   v71 = 2LL;
   v72 = 2LL;
-  v68 = &v73;
-  v9 = 0LL;
-  *(_OWORD *)Src = v8;
-  ActivationContextSectionString = RtlFindActivationContextSectionString(3, 0, 2, (unsigned int)Src, (__int64)v66);
+  Src = &v73;
+  hActCtx = 0LL;
+  StringToFind = v8;
+  ActivationContextSectionString = RtlFindActivationContextSectionString(3u, 0LL, 2u, &StringToFind, &v66);
   v11 = ActivationContextSectionString;
   if ( ActivationContextSectionString < 0 )
   {
@@ -112,72 +112,77 @@ __int64 __fastcall sub_18003F37C(__int128 *a1, char a2, _QWORD *a3, __int64 a4, 
     v11 = 0;
     goto LABEL_4;
   }
-  v9 = (volatile signed __int32 *)v66[7];
-  v59 = (volatile signed __int32 *)v66[7];
-  if ( LODWORD(v66[2]) < 0x14
-    || HIDWORD(v66[0]) != 1
-    || (v14 = v66[1], v15 = v66[6], v16 = *(unsigned int *)(v66[1] + 16LL), (unsigned int)v16 > LODWORD(v66[6]))
-    || (v17 = *(_DWORD *)(v66[1] + 12LL), v17 > 0x1FFFFFFF)
+  hActCtx = (_ACTIVATION_CONTEXT *)v66.hActCtx;
+  v59 = (_ACTIVATION_CONTEXT *)v66.hActCtx;
+  if ( v66.ulLength < 0x14
+    || v66.ulDataFormatVersion != 1
+    || (lpData = v66.lpData,
+        ulSectionTotalLength = v66.ulSectionTotalLength,
+        v16 = *((unsigned int *)v66.lpData + 4),
+        (unsigned int)v16 > v66.ulSectionTotalLength)
+    || (v17 = *((_DWORD *)v66.lpData + 3), v17 > 0x1FFFFFFF)
     || (v18 = 0xFFFFFFFF - 8LL * v17, v16 > v18)
-    || (unsigned int)v16 + 8 * v17 > LODWORD(v66[6]) )
+    || (unsigned int)v16 + 8 * v17 > v66.ulSectionTotalLength )
   {
 LABEL_58:
     v11 = -1072365565;
     goto LABEL_4;
   }
-  if ( (*(_BYTE *)(v66[1] + 4LL) & 2) == 0 )
+  if ( (*((_BYTE *)v66.lpData + 4) & 2) == 0 )
     goto LABEL_28;
-  v19 = (*(_BYTE *)(v66[1] + 4LL) & 4) == 0;
+  v19 = (*((_BYTE *)v66.lpData + 4) & 4) == 0;
   v20 = 0;
   v61 = 0;
   if ( !v19 )
   {
     DbgPrintEx(
-      51LL,
-      0LL,
+      0x33u,
+      0,
       "[%x.%x] SXS: %s - Relative redirection plus env var expansion.\n",
       LODWORD(NtCurrentTeb()->ClientId.UniqueProcess),
       LODWORD(NtCurrentTeb()->ClientId.UniqueThread),
       "sxsisol_SearchActCtxForDllName");
     goto LABEL_58;
   }
-  if ( (v66[8] & 0x100000000LL) != 0 )
+  if ( (v66.ulFlags & 1) != 0 )
   {
-    if ( (v66[8] & 0x200000000LL) != 0 )
-    {
+    if ( (v66.ulFlags & 2) != 0 )
       RtlAssert(
         "Internal error check failed",
         "minkernel\\ntdll\\sxsisol.cpp",
-        1051LL,
-        "!(askd.Flags & ACTIVATION_CONTEXT_SECTION_KEYED_DATA_FLAG_FOUND_IN_SYSTEM_DEFAULT)");
-      v11 = -1073741595;
-      goto LABEL_4;
-    }
+        0x41Bu,
+        (PSTR)"!(askd.Flags & ACTIVATION_CONTEXT_SECTION_KEYED_DATA_FLAG_FOUND_IN_SYSTEM_DEFAULT)");
     v20 = 1;
   }
   v21 = v20 | 2;
-  if ( (v66[8] & 0x200000000LL) == 0 )
+  if ( (v66.ulFlags & 2) == 0 )
     v21 = v20;
-  v22 = sub_180055158(v21, v66[7], v66[8], (unsigned int)&v62, v58, (__int64)&v61);
+  v22 = sub_180055158(
+          v21,
+          v66.hActCtx,
+          v66.ulAssemblyRosterIndex,
+          (unsigned int)&v62,
+          (__int64)ReturnedData,
+          (__int64)&v61);
   v11 = v22;
   if ( v22 >= 0 )
   {
 LABEL_28:
     v23 = 0;
-    v24 = v66[5] + *(unsigned int *)(v14 + 16);
+    v24 = (char *)v66.lpSectionBase + *((unsigned int *)lpData + 4);
     *a3 = 0LL;
-    v25 = *(unsigned int *)(v14 + 12);
+    v25 = *((unsigned int *)lpData + 3);
     v64 = v25;
     if ( v25 )
     {
       v18 = 0LL;
       while ( 1 )
       {
-        v41 = *(_DWORD *)(v24 + 8 * v18 + 4);
-        if ( v41 > v15 )
+        v41 = *(_DWORD *)&v24[8 * v18 + 4];
+        if ( v41 > ulSectionTotalLength )
           break;
-        v42 = *(_DWORD *)(v24 + 8 * v18);
-        if ( v41 > ~v42 || v42 + v41 > v15 )
+        v42 = *(_DWORD *)&v24[8 * v18];
+        if ( v41 > ~v42 || v42 + v41 > ulSectionTotalLength )
           break;
         ++v23;
         *a3 += (unsigned __int16)v42;
@@ -231,9 +236,9 @@ LABEL_41:
         v43 = 0LL;
         while ( 1 )
         {
-          v44 = *(unsigned __int16 *)(v24 + 8 * v43);
+          v44 = *(unsigned __int16 *)&v24[8 * v43];
           v45 = v44 + *a5 + 2LL;
-          v46 = (const void *)(v66[5] + *(unsigned int *)(v24 + 8 * v43 + 4));
+          v46 = (char *)v66.lpSectionBase + *(unsigned int *)&v24[8 * v43 + 4];
           if ( v45 > 0xFFFE )
             break;
           if ( (a5 == (unsigned __int16 *)-16LL || v45 > *((_QWORD *)a5 + 4))
@@ -262,10 +267,10 @@ LABEL_41:
       else
       {
 LABEL_42:
-        if ( (*(_BYTE *)(v14 + 4) & 1) != 0 )
+        if ( (lpData[4] & 1) != 0 )
         {
 LABEL_51:
-          if ( (*(_BYTE *)(v14 + 4) & 4) == 0 )
+          if ( (lpData[4] & 4) == 0 )
           {
 LABEL_52:
             if ( *(_QWORD *)&UnicodeString.Length )
@@ -277,7 +282,7 @@ LABEL_52:
           if ( v11 < 0 )
           {
 LABEL_55:
-            v9 = v59;
+            hActCtx = v59;
             goto LABEL_4;
           }
           v54 = (unsigned __int16)v67;
@@ -293,7 +298,7 @@ LABEL_94:
               v55 = *v28;
               v56 = (unsigned __int64)*a5 >> 1;
               *((_QWORD *)a5 + 1) = *v28;
-              memmove((void *)(v55 + 2 * v56), v68, (unsigned __int16)v54);
+              memmove((void *)(v55 + 2 * v56), Src, (unsigned __int16)v54);
               v57 = (unsigned __int16)(*a5 + v67);
               *a5 = v57;
               a5[1] = v57 + 2;
@@ -306,35 +311,36 @@ LABEL_70:
           v11 = -1073741562;
           goto LABEL_55;
         }
-        if ( (*(_BYTE *)(v14 + 4) & 8) != 0 )
+        if ( (lpData[4] & 8) != 0 )
         {
-          CharInUnicodeString = RtlFindCharInUnicodeString(1LL, Src, &unk_180110160, v60);
+          CharInUnicodeString = RtlFindCharInUnicodeString(
+                                  1u,
+                                  &StringToFind,
+                                  (PUNICODE_STRING)&stru_180110160,
+                                  NonInclusivePrefixLength);
           v11 = CharInUnicodeString;
           if ( CharInUnicodeString < 0 )
           {
             if ( CharInUnicodeString == -1073741275 )
-            {
               RtlAssert(
                 "Internal error check failed",
                 "minkernel\\ntdll\\sxsisol.cpp",
-                1143LL,
-                "Status != STATUS_NOT_FOUND");
-              v11 = -1073741595;
-            }
+                0x477u,
+                (PSTR)"Status != STATUS_NOT_FOUND");
             goto LABEL_55;
           }
-          v36 = -2 - v60[0] + LOWORD(Src[0]);
-          v35 = (char *)Src[1] + 2 * ((unsigned __int64)v60[0] >> 1) + 2;
+          Length = -2 - NonInclusivePrefixLength[0] + StringToFind.Length;
+          Buffer = &StringToFind.Buffer[((unsigned __int64)NonInclusivePrefixLength[0] >> 1) + 1];
         }
         else
         {
-          v35 = (char *)Src[1];
-          v36 = (unsigned __int16)Src[0];
+          Buffer = StringToFind.Buffer;
+          Length = StringToFind.Length;
         }
-        *a3 += v36;
+        *a3 += Length;
         if ( *a3 < 0xFFFFuLL )
         {
-          v37 = v36 + *a5 + 2LL;
+          v37 = Length + *a5 + 2LL;
           if ( v37 <= 0xFFFE )
           {
             if ( (a5 == (unsigned __int16 *)-16LL || v37 > *((_QWORD *)a5 + 4))
@@ -347,8 +353,8 @@ LABEL_81:
             v38 = *v28;
             v39 = (unsigned __int64)*a5 >> 1;
             *((_QWORD *)a5 + 1) = *v28;
-            memmove((void *)(v38 + 2 * v39), v35, v36);
-            v40 = *a5 + v36;
+            memmove((void *)(v38 + 2 * v39), Buffer, Length);
+            v40 = *a5 + Length;
             *a5 = v40;
             v18 = (unsigned __int64)v40 >> 1;
             a5[1] = v40 + 2;
@@ -384,12 +390,12 @@ LABEL_4:
     v71 = v72;
     v69 = v12;
   }
-  v68 = v12;
+  Src = v12;
   if ( v12 )
     *v12 = 0;
   HIWORD(v67) = v72;
   LOWORD(v67) = 0;
-  if ( v9 )
-    RtlReleaseActivationContext(v9);
+  if ( hActCtx )
+    RtlReleaseActivationContext(hActCtx);
   return (unsigned int)v11;
 }

@@ -6,16 +6,20 @@
  *     <none>
  */
 
-__int64 __fastcall RtlSetInformationAcl(_BYTE *a1, _DWORD *a2, unsigned int a3, int a4)
+NTSTATUS __cdecl RtlSetInformationAcl(
+        PACL Acl,
+        PVOID AclInformation,
+        ULONG AclInformationLength,
+        ACL_INFORMATION_CLASS AclInformationClass)
 {
-  if ( (unsigned __int8)(*a1 - 2) > 2u )
-    return 3221225485LL;
-  if ( a4 != 1 )
-    return 3221225475LL;
-  if ( a3 < 4 )
-    return 3221225507LL;
-  if ( *a2 < (unsigned int)(unsigned __int8)*a1 )
-    return 3221225485LL;
-  *a1 = *a2;
-  return 0LL;
+  if ( (unsigned __int8)(Acl->AclRevision - 2) > 2u )
+    return -1073741811;
+  if ( AclInformationClass != AclRevisionInformation )
+    return -1073741821;
+  if ( AclInformationLength < 4 )
+    return -1073741789;
+  if ( *(_DWORD *)AclInformation < (unsigned int)Acl->AclRevision )
+    return -1073741811;
+  Acl->AclRevision = *(_DWORD *)AclInformation;
+  return 0;
 }

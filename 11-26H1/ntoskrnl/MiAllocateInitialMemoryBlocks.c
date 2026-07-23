@@ -1,12 +1,12 @@
 /*
- * XREFs of MiAllocateInitialMemoryBlocks @ 0x1408659F8
+ * XREFs of MiAllocateInitialMemoryBlocks @ 0x14086BDD8
  * Callers:
- *     MiAcquireRemoveMemoryResources @ 0x1406E7AD0 (MiAcquireRemoveMemoryResources.c)
- *     MiAcquireAddMemoryResources @ 0x140864F54 (MiAcquireAddMemoryResources.c)
+ *     MiAcquireRemoveMemoryResources @ 0x1406EC780 (MiAcquireRemoveMemoryResources.c)
+ *     MiAcquireAddMemoryResources @ 0x14086B334 (MiAcquireAddMemoryResources.c)
  * Callees:
- *     MiAllocateMemoryBlock @ 0x140865AE4 (MiAllocateMemoryBlock.c)
- *     MiDescribePageRun @ 0x140866208 (MiDescribePageRun.c)
- *     MiHonorExistingHotMemoryFlights @ 0x14086654C (MiHonorExistingHotMemoryFlights.c)
+ *     MiAllocateMemoryBlock @ 0x14086BEC4 (MiAllocateMemoryBlock.c)
+ *     MiDescribePageRun @ 0x14086C5E8 (MiDescribePageRun.c)
+ *     MiHonorExistingHotMemoryFlights @ 0x14086C92C (MiHonorExistingHotMemoryFlights.c)
  */
 
 __int64 __fastcall MiAllocateInitialMemoryBlocks(__int64 a1)
@@ -45,10 +45,10 @@ __int64 __fastcall MiAllocateInitialMemoryBlocks(__int64 a1)
   if ( (int)result < 0 )
     return result;
   v8 = *(_DWORD *)(a1 + 152);
-  v9 = v8 + *(_DWORD *)qword_140E37CE0;
+  v9 = v8 + *(_DWORD *)qword_140E37E60;
   if ( (unsigned int)v9 <= v8 )
     return 3221225626LL;
-  v10 = MiAllocateMemoryBlock(qword_140E37CE0, v9, 1LL);
+  v10 = MiAllocateMemoryBlock(qword_140E37E60, v9, 1LL);
   *(_QWORD *)(a1 + 168) = v10;
   if ( !v10 )
     return 3221225626LL;

@@ -1,14 +1,14 @@
 /*
- * XREFs of MiGetNewAddressForBootImage @ 0x1409B85F4
+ * XREFs of MiGetNewAddressForBootImage @ 0x1409B95F4
  * Callers:
- *     MiReloadBootLoadedDrivers @ 0x1409B7C6C (MiReloadBootLoadedDrivers.c)
+ *     MiReloadBootLoadedDrivers @ 0x1409B8C6C (MiReloadBootLoadedDrivers.c)
  * Callees:
- *     VslpEnterIumSecureMode @ 0x140129CB0 (VslpEnterIumSecureMode.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     MiReservePrivilegedPtes @ 0x140683134 (MiReservePrivilegedPtes.c)
- *     MiReserveDriverPtes @ 0x1406838AC (MiReserveDriverPtes.c)
- *     MiReleaseDriverPtes @ 0x14070E03C (MiReleaseDriverPtes.c)
- *     MiReleaseNewAddressForBootImage @ 0x1409F774C (MiReleaseNewAddressForBootImage.c)
+ *     VslpEnterIumSecureMode @ 0x140129D80 (VslpEnterIumSecureMode.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     MiReservePrivilegedPtes @ 0x1406842F4 (MiReservePrivilegedPtes.c)
+ *     MiReserveDriverPtes @ 0x140684A6C (MiReserveDriverPtes.c)
+ *     MiReleaseDriverPtes @ 0x14070F2DC (MiReleaseDriverPtes.c)
+ *     MiReleaseNewAddressForBootImage @ 0x1409F874C (MiReleaseNewAddressForBootImage.c)
  */
 
 __int64 __fastcall MiGetNewAddressForBootImage(__int64 a1, unsigned int a2)

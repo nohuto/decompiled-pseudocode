@@ -129,21 +129,7 @@ __int64 __fastcall RtlpInheritAcl2(
       v35 = 0;
     }
     LOBYTE(v41) = 0;
-    result = RtlpCopyAces(
-               (__int64)a2,
-               a11,
-               v22,
-               v34,
-               v35,
-               a7,
-               a8,
-               a9,
-               a10,
-               a4,
-               v41,
-               a12,
-               (unsigned int *)&v46 + 1,
-               (__int64)v19);
+    result = RtlpCopyAces((__int64)a2, a11, v22, v34, v35, a7, a8, a9, a10, a4, v41, a12, (unsigned int *)&v46 + 1, v19);
     v26 = HIDWORD(v46);
     v25 = HIDWORD(v46);
     if ( (_DWORD)result == -1073741789 )
@@ -213,7 +199,7 @@ LABEL_32:
                a12,
                v24,
                &v46,
-               (__int64)v19,
+               v19,
                &a5);
     if ( (_DWORD)result == -1073741789 )
     {

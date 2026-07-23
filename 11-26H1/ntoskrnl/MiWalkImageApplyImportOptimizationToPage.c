@@ -1,11 +1,11 @@
 /*
- * XREFs of MiWalkImageApplyImportOptimizationToPage @ 0x140B19190
+ * XREFs of MiWalkImageApplyImportOptimizationToPage @ 0x140B1B5E0
  * Callers:
  *     <none>
  * Callees:
- *     MiUpdateImagePfnImportRelocations @ 0x140480C40 (MiUpdateImagePfnImportRelocations.c)
- *     VslApplySecureImageFixups @ 0x1404B8C00 (VslApplySecureImageFixups.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
+ *     MiUpdateImagePfnImportRelocations @ 0x14047A5B0 (MiUpdateImagePfnImportRelocations.c)
+ *     VslApplySecureImageFixups @ 0x1404B2430 (VslApplySecureImageFixups.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall MiWalkImageApplyImportOptimizationToPage(__int64 a1)

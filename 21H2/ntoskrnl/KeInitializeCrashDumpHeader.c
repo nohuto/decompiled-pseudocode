@@ -1,9 +1,9 @@
 /*
- * XREFs of KeInitializeCrashDumpHeader @ 0x140505690
+ * XREFs of KeInitializeCrashDumpHeader @ 0x140505610
  * Callers:
  *     <none>
  * Callees:
- *     IoFillDumpHeader @ 0x140501AF8 (IoFillDumpHeader.c)
+ *     IoFillDumpHeader @ 0x140501A78 (IoFillDumpHeader.c)
  */
 
 NTSTATUS __stdcall KeInitializeCrashDumpHeader(
@@ -21,6 +21,6 @@ NTSTATUS __stdcall KeInitializeCrashDumpHeader(
     return -1073741584;
   if ( BufferSize < 0x2000 )
     return -1073741582;
-  IoFillDumpHeader(Buffer, 1, 0, 0LL, 0LL, 0LL, 0LL, (__int64)KeGetCurrentThread());
+  IoFillDumpHeader((_NT_PRODUCT_TYPE *)Buffer, 1, 0, 0LL, 0LL, 0LL, 0LL, (__int64)KeGetCurrentThread());
   return 0;
 }

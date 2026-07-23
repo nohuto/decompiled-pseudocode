@@ -28,7 +28,7 @@ __int64 __fastcall ExpSetBootEntry(int a1, unsigned int *a2, unsigned int *a3)
 {
   unsigned int *v3; // r12
   unsigned int i; // r14d
-  struct _FILE_PATH *v6; // r13
+  _FILE_PATH *v6; // r13
   KPROCESSOR_MODE PreviousMode; // dl
   unsigned int *v8; // rcx
   unsigned int v9; // ebx
@@ -38,14 +38,14 @@ __int64 __fastcall ExpSetBootEntry(int a1, unsigned int *a2, unsigned int *a3)
   unsigned int *PoolWithTag; // rax
   unsigned int *v15; // rdi
   int EnvironmentVariable; // ebx
-  struct _FILE_PATH *v17; // rsi
+  _FILE_PATH *v17; // rsi
   __int64 v18; // r13
   __int64 v19; // rsi
-  struct _FILE_PATH *v20; // r15
+  _FILE_PATH *v20; // r15
   char *v21; // r13
   int v22; // eax
-  struct _FILE_PATH *v23; // rax
-  struct _FILE_PATH *v24; // rbx
+  _FILE_PATH *v23; // rax
+  _FILE_PATH *v24; // rbx
   ULONG Length; // eax
   ULONG v26; // eax
   ULONG v27; // esi
@@ -58,14 +58,14 @@ __int64 __fastcall ExpSetBootEntry(int a1, unsigned int *a2, unsigned int *a3)
   __int64 v34; // rbx
   char *v35; // rbx
   char *v36; // r13
-  struct _FILE_PATH *v37; // r8
+  _FILE_PATH *v37; // r8
   struct _KTHREAD *CurrentThread; // rax
   _DWORD *v39; // r13
   ULONG OutputFilePathLength; // [rsp+34h] [rbp-C4h] BYREF
   ULONG v41; // [rsp+38h] [rbp-C0h] BYREF
-  struct _FILE_PATH *v42; // [rsp+40h] [rbp-B8h]
+  _FILE_PATH *v42; // [rsp+40h] [rbp-B8h]
   unsigned int *v43; // [rsp+50h] [rbp-A8h]
-  struct _FILE_PATH *v44; // [rsp+58h] [rbp-A0h]
+  _FILE_PATH *v44; // [rsp+58h] [rbp-A0h]
   ULONG v45; // [rsp+60h] [rbp-98h] BYREF
   unsigned int v46; // [rsp+64h] [rbp-94h]
   int v47; // [rsp+68h] [rbp-90h]
@@ -162,7 +162,7 @@ LABEL_85:
       if ( EnvironmentVariable < 0 )
         goto LABEL_34;
       v47 = 1;
-      v20 = (struct _FILE_PATH *)((char *)v15 + v15[11] + 28);
+      v20 = (_FILE_PATH *)((char *)v15 + v15[11] + 28);
     }
     else
     {
@@ -174,7 +174,7 @@ LABEL_85:
     if ( v22 == -1 )
       goto LABEL_33;
     LODWORD(Size) = 2 * v22 + 2;
-    v17 = (struct _FILE_PATH *)((char *)v15 + v46);
+    v17 = (_FILE_PATH *)((char *)v15 + v46);
     v44 = v17;
     EnvironmentVariable = ExpVerifyFilePath(v17);
     if ( EnvironmentVariable >= 0 )
@@ -187,7 +187,7 @@ LABEL_85:
       if ( v17->Type == 4 )
       {
         Length = v17->Length;
-        v42 = (struct _FILE_PATH *)((char *)v15 + v46);
+        v42 = (_FILE_PATH *)((char *)v15 + v46);
       }
       else
       {
@@ -195,7 +195,7 @@ LABEL_85:
         EnvironmentVariable = ZwTranslateFilePath(v17, 4u, 0LL, (ULONG)&OutputFilePathLength);
         if ( EnvironmentVariable != -1073741789 )
           goto LABEL_84;
-        v23 = (struct _FILE_PATH *)ExAllocatePoolWithTag(NonPagedPoolNx, OutputFilePathLength, 0x72766E45u);
+        v23 = (_FILE_PATH *)ExAllocatePoolWithTag(NonPagedPoolNx, OutputFilePathLength, 0x72766E45u);
         v24 = v23;
         v42 = v23;
         if ( !v23 )
@@ -252,7 +252,7 @@ LABEL_56:
         {
           memmove(&v35[OutputFilePathLength], v15 + 7, v15[11]);
           *((_DWORD *)v36 + 3) = v27;
-          v37 = (struct _FILE_PATH *)&v36[v15[11]];
+          v37 = (_FILE_PATH *)&v36[v15[11]];
           v41 = v45;
           EnvironmentVariable = ZwTranslateFilePath(v20, 4u, v37, (ULONG)&v45);
           if ( EnvironmentVariable )

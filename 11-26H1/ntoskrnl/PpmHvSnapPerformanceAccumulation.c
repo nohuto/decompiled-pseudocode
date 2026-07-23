@@ -1,15 +1,15 @@
 /*
- * XREFs of PpmHvSnapPerformanceAccumulation @ 0x140252790
+ * XREFs of PpmHvSnapPerformanceAccumulation @ 0x1402540F0
  * Callers:
- *     PpmPerfSnapDeliveredPerformance @ 0x140253660 (PpmPerfSnapDeliveredPerformance.c)
- *     PpmResetPerfTimes @ 0x1404D1C90 (PpmResetPerfTimes.c)
+ *     PpmPerfSnapDeliveredPerformance @ 0x140254FC0 (PpmPerfSnapDeliveredPerformance.c)
+ *     PpmResetPerfTimes @ 0x1404CB840 (PpmResetPerfTimes.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212E30 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     HvlpGetLpcbByLpIndex @ 0x1403E6258 (HvlpGetLpcbByLpIndex.c)
- *     PpmConvertTime @ 0x1403E63D0 (PpmConvertTime.c)
- *     HvlGetReferenceTime @ 0x140419B10 (HvlGetReferenceTime.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212F10 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     HvlpGetLpcbByLpIndex @ 0x1402F3138 (HvlpGetLpcbByLpIndex.c)
+ *     PpmConvertTime @ 0x1402F32B0 (PpmConvertTime.c)
+ *     HvlGetReferenceTime @ 0x140411360 (HvlGetReferenceTime.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 char __fastcall PpmHvSnapPerformanceAccumulation(__int64 a1, char a2, unsigned __int64 a3, unsigned __int64 *a4)
@@ -124,14 +124,14 @@ char __fastcall PpmHvSnapPerformanceAccumulation(__int64 a1, char a2, unsigned _
         if ( !LpcbByLpIndex )
           break;
         v12 = *(_QWORD *)(LpcbByLpIndex + 24);
-        v13 = *(_QWORD *)(v12 + 8LL * LODWORD(stru_140E3E928.WriteOperationCount));
-        v8 = *(_QWORD *)(v12 + 8LL * stru_140E3E928.ForegroundLossTime) & 1;
-        v55 = *(_QWORD *)(v12 + 8LL * HIDWORD(stru_140E3E928.WriteOperationCount));
+        v13 = *(_QWORD *)(v12 + 8LL * LODWORD(stru_140E3EAA8.WriteOperationCount));
+        v8 = *(_QWORD *)(v12 + 8LL * stru_140E3EAA8.ForegroundLossTime) & 1;
+        v55 = *(_QWORD *)(v12 + 8LL * HIDWORD(stru_140E3EAA8.WriteOperationCount));
       }
       while ( (v13 & 1) != 0 );
       ReferenceTime = HvlGetReferenceTime();
       v14 = HvlpGetLpcbByLpIndex(v9);
-      v57 = v14 ? *(_QWORD *)(*(_QWORD *)(v14 + 24) + 8LL * LODWORD(stru_140E3E928.OtherOperationCount)) : 0LL;
+      v57 = v14 ? *(_QWORD *)(*(_QWORD *)(v14 + 24) + 8LL * LODWORD(stru_140E3EAA8.OtherOperationCount)) : 0LL;
       v16 = v51;
       v17 = &v90;
       do
@@ -170,9 +170,9 @@ char __fastcall PpmHvSnapPerformanceAccumulation(__int64 a1, char a2, unsigned _
       if ( !v20 )
         break;
       v23 = *(_QWORD *)(v20 + 24);
-      v24 = *(_QWORD *)(v23 + 8LL * LODWORD(stru_140E3E928.WriteOperationCount));
-      v8 = *(_QWORD *)(v23 + 8LL * stru_140E3E928.ForegroundLossTime) & 1;
-      v22 = *(_QWORD *)(v23 + 8LL * HIDWORD(stru_140E3E928.WriteOperationCount));
+      v24 = *(_QWORD *)(v23 + 8LL * LODWORD(stru_140E3EAA8.WriteOperationCount));
+      v8 = *(_QWORD *)(v23 + 8LL * stru_140E3EAA8.ForegroundLossTime) & 1;
+      v22 = *(_QWORD *)(v23 + 8LL * HIDWORD(stru_140E3EAA8.WriteOperationCount));
       v56 = v22;
       if ( (v24 & 1) == 0 )
         break;
@@ -224,7 +224,7 @@ char __fastcall PpmHvSnapPerformanceAccumulation(__int64 a1, char a2, unsigned _
     --v26;
   }
   while ( v26 );
-  if ( (unsigned int)dword_140E075D0 > 5 )
+  if ( (unsigned int)dword_140E07608 > 5 )
   {
     v54 = *(_DWORD *)(a1 + 136);
     v67 = 4LL;
@@ -260,8 +260,8 @@ char __fastcall PpmHvSnapPerformanceAccumulation(__int64 a1, char a2, unsigned _
     v87 = 16LL;
     v89 = 16LL;
     tlgWriteTransfer_EtwWriteTransfer(
-      (__int64)&dword_140E075D0,
-      (unsigned __int8 *)byte_14004FB3D,
+      (__int64)&dword_140E07608,
+      (unsigned __int8 *)byte_140050B30,
       0LL,
       0LL,
       0xEu,

@@ -1,12 +1,12 @@
 /*
- * XREFs of EtwpConstructIptData @ 0x1407B1B38
+ * XREFs of EtwpConstructIptData @ 0x1407B1F88
  * Callers:
- *     EtwpUpdateProcessorTraceConfiguration @ 0x1407B1CAC (EtwpUpdateProcessorTraceConfiguration.c)
+ *     EtwpUpdateProcessorTraceConfiguration @ 0x1407B20FC (EtwpUpdateProcessorTraceConfiguration.c)
  * Callees:
- *     ExGetExtensionTable @ 0x1403AA530 (ExGetExtensionTable.c)
- *     ZwLoadDriver @ 0x1406A85D0 (ZwLoadDriver.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ExGetExtensionTable @ 0x140398F94 (ExGetExtensionTable.c)
+ *     ZwLoadDriver @ 0x1406A9570 (ZwLoadDriver.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall EtwpConstructIptData(__int64 a1)
@@ -18,7 +18,7 @@ __int64 __fastcall EtwpConstructIptData(__int64 a1)
   Driver = ZwLoadDriver(&DriverServiceName);
   if ( (int)(Driver + 0x80000000) >= 0 && Driver != -1073741554 )
     return 3221226092LL;
-  Pool2 = (_QWORD *)ExAllocatePool2(0x40uLL);
+  Pool2 = (_QWORD *)ExAllocatePool2(0x40uLL, 0x28uLL, 0x69777445u);
   if ( !Pool2 )
     return 3221225495LL;
   ExtensionTable = ExGetExtensionTable((struct _EX_RUNDOWN_REF *)EtwpHwTraceExtensionHost);

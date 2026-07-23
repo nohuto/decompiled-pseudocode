@@ -14,50 +14,50 @@
  *     ZwQueryInformationToken @ 0x18009AEE0 (ZwQueryInformationToken.c)
  */
 
-__int64 __fastcall RtlFormatCurrentUserKeyPath(PUNICODE_STRING UnicodeString)
+NTSTATUS __cdecl RtlFormatCurrentUserKeyPath(PUNICODE_STRING CurrentUserKeyPath)
 {
-  __int64 result; // rax
-  unsigned __int16 v3; // di
+  NTSTATUS result; // eax
+  USHORT v3; // di
   __int64 v4; // rcx
-  wchar_t *v5; // rax
-  wchar_t *Buffer; // rax
+  WCHAR *v5; // rax
+  PWCH Buffer; // rax
   unsigned __int64 v7; // rdx
-  NTSTATUS v8; // edi
-  int v9; // [rsp+30h] [rbp-98h] BYREF
-  UNICODE_STRING UnicodeStringa; // [rsp+38h] [rbp-90h] BYREF
-  __int64 v11; // [rsp+48h] [rbp-80h] BYREF
+  int v8; // edi
+  ULONG StringLength; // [rsp+30h] [rbp-98h] BYREF
+  _UNICODE_STRING UnicodeString; // [rsp+38h] [rbp-90h] BYREF
+  ULONG ReturnLength; // [rsp+48h] [rbp-80h] BYREF
   PSID Sid[12]; // [rsp+50h] [rbp-78h] BYREF
 
-  result = ZwQueryInformationToken(-6LL, 1LL, Sid, 88LL, &v11);
-  if ( (int)result >= 0 )
+  result = ZwQueryInformationToken((HANDLE)0xFFFFFFFFFFFFFFFALL, 1u, Sid, 0x58u, &ReturnLength);
+  if ( result >= 0 )
   {
-    result = RtlLengthSidAsUnicodeString((unsigned __int8 *)Sid[0], &v9);
-    if ( (int)result >= 0 )
+    result = RtlLengthSidAsUnicodeString(Sid[0], &StringLength);
+    if ( result >= 0 )
     {
-      v3 = v9;
-      UnicodeString->Length = 0;
+      v3 = StringLength;
+      CurrentUserKeyPath->Length = 0;
       v4 = (unsigned __int16)(v3 + 34);
-      UnicodeString->MaximumLength = v4;
-      v5 = (wchar_t *)sub_18003B5E0(v4);
-      UnicodeString->Buffer = v5;
+      CurrentUserKeyPath->MaximumLength = v4;
+      v5 = (WCHAR *)sub_18003B5E0(v4);
+      CurrentUserKeyPath->Buffer = v5;
       if ( v5 )
       {
-        RtlAppendUnicodeToString(&UnicodeString->Length, L"\\REGISTRY\\USER\\");
-        Buffer = UnicodeString->Buffer;
-        v7 = (unsigned __int64)UnicodeString->Length >> 1;
-        UnicodeStringa.MaximumLength = v3;
-        UnicodeStringa.Length = 0;
-        UnicodeStringa.Buffer = &Buffer[v7];
-        v8 = RtlConvertSidToUnicodeString(&UnicodeStringa, Sid[0], 0);
+        RtlAppendUnicodeToString(CurrentUserKeyPath, L"\\REGISTRY\\USER\\");
+        Buffer = CurrentUserKeyPath->Buffer;
+        v7 = (unsigned __int64)CurrentUserKeyPath->Length >> 1;
+        UnicodeString.MaximumLength = v3;
+        UnicodeString.Length = 0;
+        UnicodeString.Buffer = &Buffer[v7];
+        v8 = RtlConvertSidToUnicodeString(&UnicodeString, Sid[0], 0);
         if ( v8 < 0 )
-          RtlFreeUnicodeString(UnicodeString);
+          RtlFreeUnicodeString(CurrentUserKeyPath);
         else
-          UnicodeString->Length += UnicodeStringa.Length;
-        return (unsigned int)v8;
+          CurrentUserKeyPath->Length += UnicodeString.Length;
+        return v8;
       }
       else
       {
-        return 3221225495LL;
+        return -1073741801;
       }
     }
   }

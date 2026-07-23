@@ -1,15 +1,15 @@
 /*
- * XREFs of KiRescheduleThreadAfterAffinityChange @ 0x1402EC610
+ * XREFs of KiRescheduleThreadAfterAffinityChange @ 0x14029D960
  * Callers:
- *     KiUpdateGlobalCpuSetConfiguration @ 0x1402AAFD4 (KiUpdateGlobalCpuSetConfiguration.c)
- *     KiSetAffinityThread @ 0x1402EC3D4 (KiSetAffinityThread.c)
- *     KiUpdateThreadCpuSets @ 0x1403C628C (KiUpdateThreadCpuSets.c)
+ *     KiUpdateGlobalCpuSetConfiguration @ 0x140229114 (KiUpdateGlobalCpuSetConfiguration.c)
+ *     KiSetAffinityThread @ 0x14029D724 (KiSetAffinityThread.c)
+ *     KiUpdateThreadCpuSets @ 0x1403C642C (KiUpdateThreadCpuSets.c)
  * Callees:
- *     KiSelectNextThread @ 0x14025708C (KiSelectNextThread.c)
- *     KiPrepareReadyThreadForRescheduling @ 0x1402EA4E0 (KiPrepareReadyThreadForRescheduling.c)
- *     KiInsertDeferredReadyList @ 0x1402EA540 (KiInsertDeferredReadyList.c)
- *     KiRemoveThreadFromAnyReadyQueue @ 0x1402EA570 (KiRemoveThreadFromAnyReadyQueue.c)
- *     KiPrcbInGroupAffinity @ 0x1402EBA74 (KiPrcbInGroupAffinity.c)
+ *     KiSelectNextThread @ 0x1402785FC (KiSelectNextThread.c)
+ *     KiPrepareReadyThreadForRescheduling @ 0x14029B830 (KiPrepareReadyThreadForRescheduling.c)
+ *     KiInsertDeferredReadyList @ 0x14029B890 (KiInsertDeferredReadyList.c)
+ *     KiRemoveThreadFromAnyReadyQueue @ 0x14029B8C0 (KiRemoveThreadFromAnyReadyQueue.c)
+ *     KiPrcbInGroupAffinity @ 0x14029CDC4 (KiPrcbInGroupAffinity.c)
  */
 
 __int64 __fastcall KiRescheduleThreadAfterAffinityChange(
@@ -20,16 +20,16 @@ __int64 __fastcall KiRescheduleThreadAfterAffinityChange(
         __int64 a5,
         __int64 a6)
 {
-  struct _KPRCB *v7; // rcx
+  __int64 v7; // rcx
   __int64 v8; // r9
-  struct _KPRCB *v10; // rcx
+  __int64 v10; // rcx
   unsigned int v11; // ebx
 
   if ( a3 == 1 )
   {
     v11 = *(char *)(a1 + 195);
     KiRemoveThreadFromAnyReadyQueue(a4, a5, a1, v11);
-    KiPrepareReadyThreadForRescheduling((_KTHREAD *)a1, v11, a6);
+    KiPrepareReadyThreadForRescheduling(a1, v11, a6);
     return 0LL;
   }
   if ( a3 != 2 )

@@ -47,9 +47,9 @@ __int64 __fastcall MmIsSessionExecutionValid(__int64 a1, __int64 a2, unsigned __
     {
       v9 = KeGetCurrentIrql();
       __writecr8(0xFuLL);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
-        if ( (KiIrqlFlags & 1) != 0 && v9 <= 0xFu )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v9 <= 0xFu )
         {
           SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
           if ( v9 == 15 )
@@ -84,10 +84,10 @@ LABEL_22:
     ExReleaseSpinLockSharedFromDpcLevel(&PsLoadedModuleSpinLock);
     if ( CurrentIrql < 0xFu )
     {
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v14 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && (unsigned __int8)(v14 - 2) <= 0xDu )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && (unsigned __int8)(v14 - 2) <= 0xDu )
         {
           CurrentPrcb = KeGetCurrentPrcb();
           v16 = CurrentPrcb->SchedulerAssist;

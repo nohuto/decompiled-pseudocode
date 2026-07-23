@@ -3,7 +3,7 @@
  * Callers:
  *     MmInitSystem @ 0x140B443B4 (MmInitSystem.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  */
 
 char KeSupportedPhysicalAddressBits()

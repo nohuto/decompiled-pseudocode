@@ -1,11 +1,11 @@
 /*
- * XREFs of KeQuerySystemAllowedCpuSetAffinity @ 0x140254100
+ * XREFs of KeQuerySystemAllowedCpuSetAffinity @ 0x140255A60
  * Callers:
- *     PpmCheckContinueExecution @ 0x1402533F8 (PpmCheckContinueExecution.c)
- *     PpmParkSteerInterrupts @ 0x1402541D0 (PpmParkSteerInterrupts.c)
+ *     PpmCheckContinueExecution @ 0x140254D58 (PpmCheckContinueExecution.c)
+ *     PpmParkSteerInterrupts @ 0x140255B30 (PpmParkSteerInterrupts.c)
  * Callees:
- *     ?RtlpCopyAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z @ 0x1402518B0 (-RtlpCopyAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     ?RtlpCopyAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z @ 0x140253210 (-RtlpCopyAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 KeQuerySystemAllowedCpuSetAffinity()
@@ -37,7 +37,7 @@ __int64 KeQuerySystemAllowedCpuSetAffinity()
       RtlpCopyAffinityEx(
         &PpmCachedSystemAllowedCpuSet,
         PpmCachedSystemAllowedCpuSet.Size,
-        (struct _KAFFINITY_EX *)&stru_140FC01F0.WaitRegister);
+        (struct _KAFFINITY_EX *)&stru_140FC11F0.WaitRegister);
       goto LABEL_7;
     }
     v2 = (unsigned __int16)KiActiveGroups;

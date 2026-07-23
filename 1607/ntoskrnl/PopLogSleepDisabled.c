@@ -1,18 +1,18 @@
 /*
- * XREFs of PopLogSleepDisabled @ 0x14054CA58
+ * XREFs of PopLogSleepDisabled @ 0x14054CF98
  * Callers:
- *     PopLogDisabledSleepReason @ 0x1403F3C04 (PopLogDisabledSleepReason.c)
- *     PopFilterCapabilities @ 0x1403F3CF4 (PopFilterCapabilities.c)
- *     NtPowerInformation @ 0x14051E834 (NtPowerInformation.c)
- *     PopEnableHiberFile @ 0x14056C7F8 (PopEnableHiberFile.c)
+ *     PopLogDisabledSleepReason @ 0x1403F2AC8 (PopLogDisabledSleepReason.c)
+ *     PopFilterCapabilities @ 0x1403F2BB8 (PopFilterCapabilities.c)
+ *     NtPowerInformation @ 0x14050189C (NtPowerInformation.c)
+ *     PopEnableHiberFile @ 0x14056CD38 (PopEnableHiberFile.c)
  *     PoInitSystem @ 0x140795530 (PoInitSystem.c)
  *     PopInitPlatformSettings @ 0x1407BAB80 (PopInitPlatformSettings.c)
  *     PopCheckForUpgradeInProgress @ 0x1407BC308 (PopCheckForUpgradeInProgress.c)
  * Callees:
- *     memmove @ 0x140171280 (memmove.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     memmove @ 0x140171780 (memmove.c)
+ *     memset @ 0x140171AC0 (memset.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     PopGetReasonListByReasonCode @ 0x1403F3EB0 (PopGetReasonListByReasonCode.c)
+ *     PopGetReasonListByReasonCode @ 0x1403F2D74 (PopGetReasonListByReasonCode.c)
  */
 
 __int64 __fastcall PopLogSleepDisabled(int a1, char a2, const void *a3, size_t a4)
@@ -53,13 +53,13 @@ __int64 __fastcall PopLogSleepDisabled(int a1, char a2, const void *a3, size_t a
         *(_DWORD *)(v11 + 28) = a4;
         memmove((void *)(v11 + 32), a3, a4);
       }
-      v12 = (__int64 *)qword_140303B78;
-      if ( *(__int64 **)qword_140303B78 != &PowerStateDisableReasonListHead )
+      v12 = (__int64 *)qword_140303AB8;
+      if ( *(__int64 **)qword_140303AB8 != &PowerStateDisableReasonListHead )
         __fastfail(3u);
       *(_QWORD *)v11 = &PowerStateDisableReasonListHead;
       *(_QWORD *)(v11 + 8) = v12;
       *v12 = v11;
-      qword_140303B78 = v11;
+      qword_140303AB8 = v11;
     }
     else
     {

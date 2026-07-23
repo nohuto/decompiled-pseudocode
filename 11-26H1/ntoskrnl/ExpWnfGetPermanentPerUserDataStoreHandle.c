@@ -1,20 +1,20 @@
 /*
- * XREFs of ExpWnfGetPermanentPerUserDataStoreHandle @ 0x140AFA6BC
+ * XREFs of ExpWnfGetPermanentPerUserDataStoreHandle @ 0x140AFC924
  * Callers:
- *     ExpWnfAcquirePermanentDataStoreHandle @ 0x140AFA544 (ExpWnfAcquirePermanentDataStoreHandle.c)
- *     ExpWnfGetPermanentDataStoreHandleByScopeId @ 0x140B66BE8 (ExpWnfGetPermanentDataStoreHandleByScopeId.c)
+ *     ExpWnfAcquirePermanentDataStoreHandle @ 0x140AFC7AC (ExpWnfAcquirePermanentDataStoreHandle.c)
+ *     ExpWnfGetPermanentDataStoreHandleByScopeId @ 0x140B69B74 (ExpWnfGetPermanentDataStoreHandleByScopeId.c)
  * Callees:
- *     RtlAppendUnicodeToString @ 0x140432EB0 (RtlAppendUnicodeToString.c)
- *     ZwCreateKey @ 0x140723790 (ZwCreateKey.c)
- *     RtlConvertSidToUnicodeString @ 0x140925970 (RtlConvertSidToUnicodeString.c)
- *     RtlLengthSidAsUnicodeString @ 0x140925EDC (RtlLengthSidAsUnicodeString.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     RtlAppendUnicodeToString @ 0x14041FEE0 (RtlAppendUnicodeToString.c)
+ *     ZwCreateKey @ 0x140728360 (ZwCreateKey.c)
+ *     RtlConvertSidToUnicodeString @ 0x140901480 (RtlConvertSidToUnicodeString.c)
+ *     RtlLengthSidAsUnicodeString @ 0x1409019EC (RtlLengthSidAsUnicodeString.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall ExpWnfGetPermanentPerUserDataStoreHandle(unsigned __int8 *Sid, PHANDLE KeyHandle)
+NTSTATUS __fastcall ExpWnfGetPermanentPerUserDataStoreHandle(PSID Sid, PHANDLE KeyHandle)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
   unsigned __int16 v5; // di
   unsigned __int16 v6; // si
   wchar_t *Pool2; // rax
@@ -23,16 +23,16 @@ __int64 __fastcall ExpWnfGetPermanentPerUserDataStoreHandle(unsigned __int8 *Sid
   UNICODE_STRING Destination; // [rsp+40h] [rbp-19h] BYREF
   UNICODE_STRING UnicodeString; // [rsp+50h] [rbp-9h] BYREF
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+60h] [rbp+7h] BYREF
-  int v13; // [rsp+D0h] [rbp+77h] BYREF
+  ULONG StringLength; // [rsp+D0h] [rbp+77h] BYREF
 
   *(_DWORD *)(&UnicodeString.MaximumLength + 1) = 0;
   memset(&ObjectAttributes, 0, 44);
-  v13 = 0;
-  result = RtlLengthSidAsUnicodeString(Sid, &v13);
-  if ( (int)result >= 0 )
+  StringLength = 0;
+  result = RtlLengthSidAsUnicodeString(Sid, &StringLength);
+  if ( result >= 0 )
   {
-    v5 = v13;
-    v6 = v13 + 100;
+    v5 = StringLength;
+    v6 = StringLength + 100;
     Pool2 = (wchar_t *)ExAllocatePool2(0x100uLL);
     v8 = Pool2;
     if ( Pool2 )
@@ -57,11 +57,11 @@ __int64 __fastcall ExpWnfGetPermanentPerUserDataStoreHandle(unsigned __int8 *Sid
         v9 = ZwCreateKey(KeyHandle, 0xF003Fu, &ObjectAttributes, 0, 0LL, 0, 0LL);
       }
       ExFreePoolWithTag(v8, 0x20666E57u);
-      return (unsigned int)v9;
+      return v9;
     }
     else
     {
-      return 3221225626LL;
+      return -1073741670;
     }
   }
   return result;

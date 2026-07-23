@@ -1,8 +1,8 @@
 /*
- * XREFs of KeExpandKernelStackAndCalloutEx @ 0x1400F0FC0
+ * XREFs of KeExpandKernelStackAndCalloutEx @ 0x1400EEE10
  * Callers:
- *     sub_1404CE5A0 @ 0x1404CE5A0 (sub_1404CE5A0.c)
- *     IopIssueSystemEnvironmentRequest @ 0x140628C80 (IopIssueSystemEnvironmentRequest.c)
+ *     sub_1404B3800 @ 0x1404B3800 (sub_1404B3800.c)
+ *     IopIssueSystemEnvironmentRequest @ 0x140628D34 (IopIssueSystemEnvironmentRequest.c)
  *     ViPoolLogStackTrace @ 0x140710BB0 (ViPoolLogStackTrace.c)
  * Callees:
  *     <none>

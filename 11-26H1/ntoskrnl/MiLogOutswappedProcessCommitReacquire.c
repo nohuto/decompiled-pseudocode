@@ -1,12 +1,12 @@
 /*
- * XREFs of MiLogOutswappedProcessCommitReacquire @ 0x1406E4514
+ * XREFs of MiLogOutswappedProcessCommitReacquire @ 0x1406E91C4
  * Callers:
- *     MiReAcquireOutSwappedProcessCommit @ 0x1406E4858 (MiReAcquireOutSwappedProcessCommit.c)
+ *     MiReAcquireOutSwappedProcessCommit @ 0x1406E9508 (MiReAcquireOutSwappedProcessCommit.c)
  * Callees:
- *     _tlgCreate1Sz_char @ 0x1403EEB48 (_tlgCreate1Sz_char.c)
- *     _tlgKeywordOn @ 0x14044F850 (_tlgKeywordOn.c)
- *     _tlgWriteEx_EtwWriteEx @ 0x1404E33C4 (_tlgWriteEx_EtwWriteEx.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     _tlgKeywordOn @ 0x140447980 (_tlgKeywordOn.c)
+ *     _tlgCreate1Sz_char @ 0x140453678 (_tlgCreate1Sz_char.c)
+ *     _tlgWriteEx_EtwWriteEx @ 0x1404DC958 (_tlgWriteEx_EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 void __fastcall MiLogOutswappedProcessCommitReacquire(__int64 a1, __int64 a2, __int64 a3, int a4, int a5)
@@ -15,7 +15,7 @@ void __fastcall MiLogOutswappedProcessCommitReacquire(__int64 a1, __int64 a2, __
   __int64 v7; // r8
   __int64 v8; // r10
   __int64 v9; // r11
-  char *v10; // rdx
+  int *v10; // rdx
   __int64 v11; // r11
   __int64 v12; // r11
   int v13; // ecx
@@ -34,24 +34,24 @@ void __fastcall MiLogOutswappedProcessCommitReacquire(__int64 a1, __int64 a2, __
   {
     if ( a5 )
     {
-      if ( *(_DWORD *)stru_140E36558.FirstArgument > 5u && tlgKeywordOn((__int64)stru_140E36558.FirstArgument, 4LL) )
+      if ( *(_DWORD *)stru_140E366D8.FirstArgument > 5u && tlgKeywordOn((__int64)stru_140E366D8.FirstArgument, 4LL) )
       {
         tlgCreate1Sz_char((__int64)v19, (const CHAR *)(v11 + 824));
-        v10 = byte_140057705;
+        v10 = &dword_1400586F4;
         goto LABEL_12;
       }
     }
-    else if ( *(_DWORD *)stru_140E36558.FirstArgument > 5u && tlgKeywordOn((__int64)stru_140E36558.FirstArgument, 4LL) )
+    else if ( *(_DWORD *)stru_140E366D8.FirstArgument > 5u && tlgKeywordOn((__int64)stru_140E366D8.FirstArgument, 4LL) )
     {
       tlgCreate1Sz_char((__int64)v19, (const CHAR *)(v12 + 824));
-      v10 = (char *)&byte_1400576B1;
+      v10 = (int *)&unk_140058748;
       goto LABEL_12;
     }
   }
-  else if ( *(_DWORD *)stru_140E36558.FirstArgument > 5u && tlgKeywordOn((__int64)stru_140E36558.FirstArgument, 4LL) )
+  else if ( *(_DWORD *)stru_140E366D8.FirstArgument > 5u && tlgKeywordOn((__int64)stru_140E366D8.FirstArgument, 4LL) )
   {
     tlgCreate1Sz_char((__int64)v19, (const CHAR *)(v6 + 824));
-    v10 = byte_140057759;
+    v10 = &dword_1400586A4;
 LABEL_12:
     v13 = *(_DWORD *)(v9 + 464);
     v20 = &v16;

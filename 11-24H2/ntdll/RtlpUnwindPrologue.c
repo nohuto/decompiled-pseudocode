@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlpUnwindPrologue @ 0x180017640
+ * XREFs of RtlpUnwindPrologue @ 0x180044040
  * Callers:
- *     RtlpxVirtualUnwind @ 0x180016C30 (RtlpxVirtualUnwind.c)
+ *     RtlpxVirtualUnwind @ 0x180043630 (RtlpxVirtualUnwind.c)
  * Callees:
- *     RtlRaiseStatus @ 0x180014DE0 (RtlRaiseStatus.c)
- *     RtlLocateExtendedFeature @ 0x180018F00 (RtlLocateExtendedFeature.c)
- *     RtlpIsContinuationContextMachineFrameEntry @ 0x1800EED40 (RtlpIsContinuationContextMachineFrameEntry.c)
- *     RtlpUnwindOpSlots @ 0x1800F1664 (RtlpUnwindOpSlots.c)
+ *     RtlRaiseStatus @ 0x1800417E0 (RtlRaiseStatus.c)
+ *     RtlLocateExtendedFeature @ 0x180045900 (RtlLocateExtendedFeature.c)
+ *     RtlpIsContinuationContextMachineFrameEntry @ 0x1800E9F20 (RtlpIsContinuationContextMachineFrameEntry.c)
+ *     RtlpUnwindOpSlots @ 0x1800EC2E4 (RtlpUnwindOpSlots.c)
  */
 
 __int64 __fastcall RtlpUnwindPrologue(
@@ -40,12 +40,12 @@ __int64 __fastcall RtlpUnwindPrologue(
   __int64 v27; // r8
   _QWORD *v28; // rdx
   __int64 v29; // rax
-  __int64 v30; // rax
+  _QWORD *v30; // rax
   __int64 v31; // rcx
   _QWORD *v32; // r8
   __int64 v33; // rdx
   _QWORD *v34; // rdx
-  __int64 ExtendedFeature; // rax
+  _QWORD *ExtendedFeature; // rax
   __int64 v36; // rbx
   _QWORD *v37; // r8
   char v38; // [rsp+20h] [rbp-88h]
@@ -222,10 +222,10 @@ LABEL_55:
                 goto LABEL_13;
               if ( (*(_DWORD *)(a5 + 48) & 0x100040) != 0x100040 )
                 goto LABEL_13;
-              ExtendedFeature = RtlLocateExtendedFeature(a5 + 1232, 11LL);
+              ExtendedFeature = RtlLocateExtendedFeature((PCONTEXT_EX)(a5 + 1232), 0xBu, 0LL);
               if ( !ExtendedFeature || (*(_BYTE *)ExtendedFeature & 1) == 0 )
                 goto LABEL_13;
-              *(_QWORD *)(ExtendedFeature + 8) += 8LL;
+              ExtendedFeature[1] += 8LL;
               v8 = (unsigned int)(v8 + 1);
               continue;
             default:
@@ -266,11 +266,11 @@ LABEL_40:
     *v16 = v18 + 1;
     if ( (*(_DWORD *)(a5 + 48) & 0x100040) == 0x100040 )
     {
-      v30 = RtlLocateExtendedFeature(a5 + 1232, 11LL);
+      v30 = RtlLocateExtendedFeature((PCONTEXT_EX)(a5 + 1232), 0xBu, 0LL);
       if ( v30 )
       {
         if ( (*(_BYTE *)v30 & 1) != 0 )
-          *(_QWORD *)(v30 + 8) += 8LL;
+          v30[1] += 8LL;
       }
     }
   }
